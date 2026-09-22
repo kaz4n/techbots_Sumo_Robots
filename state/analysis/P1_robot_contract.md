@@ -96,6 +96,9 @@ actual raw inward yaw/time only with healthy exit evidence, then project via D-0
 
 QTR warnings require a confirmed white bit AND previous actual enabled duties of
 strictly opposite nonzero signs continuously for strictly more than QTR_STUCK_MS.
+Start that interval at the first admitted fresh observation satisfying both
+predicates, not the earlier applied_us: the receipt alone does not establish
+continuous white at the earlier application time. Exact threshold does not warn.
 Any break clears/rearms that bit. This is evidence of commanded pivot, not measured
 body rotation; it never suppresses edge logic. IMU-availability warning starts with
 the first initialized availability report, then on recovery/loss episodes. Low

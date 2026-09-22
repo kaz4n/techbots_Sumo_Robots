@@ -1,0 +1,39 @@
+Command: wsl -d Ubuntu -- cmake --build build/host-sanitize --parallel 2
+Cached flags: -fsanitize=address,undefined -fno-omit-frame-pointer; linker -fsanitize=address,undefined
+2026-09-23T01:24:59.9609730+04:00
+-- GLOB mismatch!
+-- GLOB mismatch!
+-- Configuring done (0.3s)
+-- Generating done (0.5s)
+-- Build files have been written to: /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/build/host-sanitize
+[  1%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/core/fsm.cpp.o
+[  3%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/core/fsm_robot.cpp.o
+[  5%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/core/logframe.cpp.o
+[  7%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/test_robot_safety.cpp.o
+[  8%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_defend_turn.cpp.o
+[ 10%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_event_buffer.cpp.o
+[ 12%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_front_qualification.cpp.o
+[ 14%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_front_steering.cpp.o
+[ 15%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_heading_reference.cpp.o
+[ 17%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_logframe.cpp.o
+[ 19%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_normal_perception.cpp.o
+[ 21%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_reflank.cpp.o
+[ 22%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_robot.cpp.o
+[ 24%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_robot_ambiguous_defend.cpp.o
+[ 26%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_robot_event_semantics.cpp.o
+[ 28%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_robot_events.cpp.o
+[ 29%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_robot_qtr_warning.cpp.o
+[ 31%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_search.cpp.o
+[ 33%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_tick_statistics.cpp.o
+[ 35%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_wait.cpp.o
+[ 36%] Linking CXX executable sumox26_tests
+[100%] Built target sumox26_tests
+EXIT_STATUS=0
+Command: wsl -d Ubuntu -- build/host-sanitize/sumox26_tests
+[doctest] doctest version is "2.4.12"
+[doctest] run with "--help" for options
+===============================================================================
+[doctest] test cases:      895 |      895 passed | 0 failed | 0 skipped
+[doctest] assertions: 13765968 | 13765968 passed | 0 failed |
+[doctest] Status: SUCCESS!
+EXIT_STATUS=0

@@ -1,0 +1,55 @@
+Command: wsl -d Ubuntu -- bash tools/test_host.sh
+2026-09-23T01:14:31.3967538+04:00
+-- Configuring done (0.2s)
+-- Generating done (0.4s)
+-- Build files have been written to: /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/build/host
+[  1%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_robot_qtr_warning.cpp.o
+[  3%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_tick_statistics.cpp.o
+[  5%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_wait.cpp.o
+[  7%] Linking CXX executable sumox26_tests
+[100%] Built target sumox26_tests
+Internal ctest changing into directory: /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/build/host
+Test project /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/build/host
+    Start 1: sumox26_host
+1/1 Test #1: sumox26_host .....................***Failed    2.53 sec
+[doctest] doctest version is "2.4.12"
+[doctest] run with "--help" for options
+===============================================================================
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/test_robot_safety.cpp:228:
+TEST CASE:  R1 R5 10000 fixed-seed actual Robot streams remain inhibited or bounded
+
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/test_robot_safety.cpp:256: ERROR: CHECK( result.contract_faults == 0U ) is NOT correct!
+  values: CHECK( 2 == 0 )
+
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/test_robot_safety.cpp:256: ERROR: CHECK( result.contract_faults == 0U ) is NOT correct!
+  values: CHECK( 2 == 0 )
+
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/test_robot_safety.cpp:256: ERROR: CHECK( result.contract_faults == 0U ) is NOT correct!
+  values: CHECK( 2 == 0 )
+
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/test_robot_safety.cpp:256: ERROR: CHECK( result.contract_faults == 0U ) is NOT correct!
+  values: CHECK( 2 == 0 )
+
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/test_robot_safety.cpp:256: ERROR: CHECK( result.contract_faults == 0U ) is NOT correct!
+  values: CHECK( 2 == 0 )
+
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/test_robot_safety.cpp:256: ERROR: CHECK( result.contract_faults == 0U ) is NOT correct!
+  values: CHECK( 2 == 0 )
+
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/test_robot_safety.cpp:256: ERROR: CHECK( result.contract_faults == 0U ) is NOT correct!
+  values: CHECK( 2 == 0 )
+
+===============================================================================
+[doctest] test cases:      876 |      875 passed | 1 failed | 0 skipped
+[doctest] assertions: 13762698 | 13762691 passed | 7 failed |
+[doctest] Status: FAILURE!
+
+
+0% tests passed, 1 tests failed out of 1
+
+Total Test time (real) =   2.55 sec
+
+The following tests FAILED:
+	  1 - sumox26_host (Failed)
+Errors while running CTest
+EXIT_STATUS=8

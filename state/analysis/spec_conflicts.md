@@ -352,3 +352,15 @@ does not authorize provider resets, erase sticky history or prove hardware yaw.
 Contract/source review and numerical boundary finding: P1_heading_validation.md;
 full production Robot integration remains unfinished. P1_robot_api_proposal.md
 is still an unadopted recommendation, not an implicit further decision.
+
+2026-09-23 production resolution: D-060 adopted the Robot transaction and event
+contract before implementation. D-061 then explicitly resolved legitimate
+unknown-bearing DEFEND entry as an800ms bounded zero-demand wait, with retained
+deadline after real capture and unchanged edge/STOP priority. Initial safe-inhibit
+failure, exact review correction and independent regressions are preserved in
+P1_robot_failure_analysis.md. The complete P1 default core now passes895 cases,
+normal+sanitizers, fresh full-core review and actual inert app target compilation.
+See P1_robot_validation.md. Older "Robot unfinished/unadopted" descriptions above
+are historical, not current blockers. No established locked test was weakened.
+SC-A physical button decoding, SC-B physical QTR freshness/timing and SC-I bounded
+Bridge transport remain unresolved dependencies; no human phase gate passed.

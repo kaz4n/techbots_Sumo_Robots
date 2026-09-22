@@ -325,3 +325,22 @@ and source worker are active with separate ownership; coordinator implements
 metadata validation and inert app entry.807-case results remain the prior baseline.
 Next freeze source/tests, review, run host+sanitizer/tooling validation, then actual
 app compile-only. No upload/run, physical acceptance or human gate in this batch.
+
+| 2026-09-23 | P1 production Robot | D-060/D-061 composition with one final contact commit/Governor, actual-duty receipts, full default scripts/history and bounded evidence | IMPLEMENTED / HOST-TESTED895 cases/13765968 assertions normal+ASan/UBSan;88 new independent cases including10000 real Robot streams |8692734 |
+| 2026-09-23 | P1 event metadata | Explicit metadata validation and21-entry batch; independent centered/close CONTACT semantics tests | HOST-TESTED in895-case suite; original codec/statistics/EventBuffer behavior preserved |59376fe |
+| 2026-09-23 | P1 architecture/app target entry | Complete reviewed module/dataflow/FSM explanation; inert BOOT-only app entry with compile-time motor veto | IMPLEMENTED / REVIEWED; full HAL/scheduler remains a later phase |3e46ea4 |
+| 2026-09-23 | P1 target compile | Actual bare UNO Q app compile-only, sourcece90f09d, MATCH0/MOTORS_ALLOWED0/default | TARGET-COMPILED exit0;125508B program/61004B globals/201140B remaining; no upload/reset/start |3e46ea4 |
+| 2026-09-23 | P1 final review/tooling | Fresh full-core PASS and separate reused scoped PASS; both independently reproduced895/13765968; exact24-file maps approved |116 tooling checks PASS39.167s; no open BLOCKER/MAJOR/MINOR; no human gate implied | checkpoint commit containing this row |
+
+01:31 Dubai checkpoint: P1 software tasks are verified; human EXPLAINED OK and
+GATE P1 PASS remain absent, and P0 acceptance is still pending. No P2 scheduling
+authority or motor-run permission is inferred. Actual app/HAL, physical MotorGate,
+acquisition/WCET, bench/ring validation and later original phases remain unfinished.
+No additional hardware connection requested. Current gate packets, handoff,
+execution checklist and resume prompt are updated. Exact evidence/failures:
+analysis/P1_robot_validation.md and P1_robot_failure_analysis.md. Last uploaded
+image remains September22 inert matrix. All commits local; no push or tag.
+
+History correction: the earlier in-progress paragraph labeled01:09 was written
+at approximately01:07 per its actual command receipt; it was a timestamp
+transcription error. The paragraph is retained and superseded by this checkpoint.

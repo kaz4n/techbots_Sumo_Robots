@@ -2,49 +2,48 @@
 
 ## Current resume point — 2026-09-23 Asia/Dubai
 
-IN PROGRESS after the validated807-case baseline below: D-060 public Robot and
-event interfaces were committed as ea4618c/4ae6d45. Read
-analysis/P1_robot_contract.md as the adopted integration contract. Source worker
-owns fsm_robot.cpp and Robot's private header members; independent test author
-owns new actual-Robot scenarios, events and locked tests. Coordinator owns
-logframe metadata implementation, inert app compile entry and shared ledgers.
-No full Robot build has run yet. Complete source/test freeze, separate review,
-normal/sanitized host validation, reviewed inert snapshots/tooling, then prescribed
-app compile-only on the bare UNO Q. Do not treat baseline results as proof of these
-new working changes. Historical next-task paragraphs below are superseded here.
+Production P1 core is implemented and verified at the software level. D-060/D-061
+contracts preceded source and independent tests;59376fe implements event metadata,
+8692734 implements actual Robot and scenarios,3e46ea4 adds the inert app target
+entry and complete architecture. P0 acceptance and all human gates remain pending.
 
-Latest completed components: D-058 Menu9d9b858 (contract3563a8f) and D-059
-HeadingReference4671c8b (contractsfd40a5b/0a63190/6e57949/ca82293 first).
-807 cases/12,233,461 assertions pass normal+ASan/UBSan and separate reviewer
-reproduction.116 tooling checks pass40.767s with exact reviewed23-file snapshots:
-matrix04441e9f/timingbbf6c22. Original76 B16 defaults and established locked tests
-remain unchanged; MODE_SHORT_MS copies B13 text. New67 cases across both batches.
+Final validation:895 cases /13,765,968 assertions pass normal and ASan/UBSan,
+with no failure/skip. Both separate reviewers independently reproduced the result.
+Final116 tooling checks pass in39.167s. Fresh full-core review PASS/no open finding:
+reviews/P1_fresh_gate_codex.md; reused scoped review PASS: reviews/P1_robot_codex.md.
+Fresh means a separate Codex context, not cross-model.88 new independent cases
+include10000 actual Robot streams, all16 line masks, all6 modes, contact/stall,
+matched actual-duty/timing receipts, events/frames, QTR warnings and bounded
+ambiguous DEFEND. Established locked tests and original76 B16 values are unchanged.
 
-Evidence: analysis/P1_menu_validation.md and P1_heading_validation.md; their
-scoped separate reused read-only reviews are in state/reviews. Menu's initial
-config inventory mismatch and narrow expectation amendment remain recorded.
-Heading's pre-build near-antipode MAJOR was fixed and covered by independent
-boundary tests. These are scoped Codex reviews, not fresh full phase gate reviews.
+Actual bare UNO Q app compile-only PASS, sourcece90f09d, MATCH0/MOTORS_ALLOWED0,
+default startup:125508B program,61004B globals,201140B remaining per compiler.
+No upload/reset/start; the last uploaded image remains September22 inert matrix.
+The app is an inert BOOT link check, not the P2 scheduler/HAL. Exact24-file maps
+and bench manifest8107ec2d/333fe736 were independently approved before refresh.
+Evidence and preserved failures: analysis/P1_robot_validation.md,
+P1_robot_failure_analysis.md and linked raw receipts. Do not reuse earlier maps.
 
-Current source TARGET-COMPILED on the actual bare UNO Q inside inert timing/default:
-sourcebbf6c22,exit0,MATCH0/MOTORS_ALLOWED0,74008Bprogram/33964Bglobals. No
-upload/reset/start; prior uploaded matrix remains in place. This does not prove
-complete app compilation, physical yaw, actual MotorGate or full-control WCET.
+D-061 explicitly replaced safe SCRIPT_START inhibition for legitimate ambiguous
+side/rear bearing with governed-zero waiting, bounded by the existing800ms limit.
+A later valid capture cannot extend it; the first selected ambiguity tick anchors
+it even on a deferred escape-exit brake. Original locked assertions stayed intact.
+CONTACT metadata now enforces existing centered/close relationships. No physical
+fact, wiring change or motor authorization follows from these choices.
 
-Exact next task: adopt/revise analysis/P1_robot_api_proposal.md under D-051 as
-D-060, commit production Robot interfaces, then independent real Robot scenarios
-and implementation. The saved interface/event audits support that concrete API;
-no further audit-only prerequisite is needed. Keep one fresh raw sensor observation,
-truthful matched previous actual-duty/duration receipts, final contact commit and
-one Governor pass. HeadingReference is now implemented; keep Fusion raw and motion
-match-relative, including missing-at-boot timed fallback. Event capacity21 remains
-conditional until implemented/proved. Real service consumers remain outstanding.
+Next: close remaining P0 acceptance and P1 human EXPLAINED OK/GATE dependencies
+using the current gate packets. Read CODEX_EXECUTION.md and PROGRESS.md before
+selecting further work. Any eligible bare-board-only P0 investigation must resolve
+SC-I's bounded transport contract first; do not repeat completed source audits or
+claim Monitor/cold-start/optical results from the RAM counter. No P2 HAL work is
+authorized by D-016; start it only after actual gates or specific scheduling authority.
+No additional hardware connection request now. MPU6050 remains user-reported only.
 
-PROGRESS.md is authoritative; D-016 permits P1 while P0 acceptance remains pending.
-No human phase gate has passed. D-052 permits bare-board diagnostics only; no motor
-run authorization. No additional hardware request. The date is23September Dubai;
-no deadline cut applies yet. C: remains low(~290MB), avoid unnecessary downloads.
-Older sections below are historical; this is the current resume point.
+D-051 delegates engineering choices, not fabricated measurements or human gates.
+The date is23September; no schedule cut is due. Preserve Sep28/Sep30/Oct1 deadlines.
+The goal remains incomplete: whole app/HAL, physical MotorGate, acquisition/WCET,
+bench/ring validation and P2–P7 still require real work and their original gates.
+Older handoff sections below are historical and superseded by this resume point.
 
 ## Prior bare-board checkpoint — 2026-09-22 Asia/Dubai
 

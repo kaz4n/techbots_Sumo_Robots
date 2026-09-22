@@ -17,19 +17,23 @@
    boundary record files/commits, commands/statuses, limitations, human requests,
    review findings and exact next task. Use existing HUMAN ACTION/CONFUSION formats.
 
-Current checkpoint: Menu9d9b858 and HeadingReference4671c8b are HOST-TESTED:
-807 cases/12,233,461 assertions normal+ASan/UBSan;116 script checks pass; separate
-scoped read-only reviewer reproduced the host result. Current core also TARGET-
-COMPILED inside inert p0_timing/default sourcebbf6c22, MATCH0/MOTORS_ALLOWED0,
-exit0. No new upload/reset/start; prior inert p0_matrix remains the last firmware.
-Read P1_menu_validation.md, P1_heading_validation.md and their scoped reviews.
+Current checkpoint: production P1 core is implemented and software-verified.
+Metadata59376fe, Robot/scenarios8692734, inert app/architecture3e46ea4.895 cases /
+13,765,968 assertions pass normal and ASan/UBSan;116 tooling checks pass. Fresh
+full-core and reused scoped reviews PASS, with independent runtime reproduction.
+Actual bare UNO Q app compile-only sourcece90f09d passed, MATCH0/MOTORS_ALLOWED0,
+125508B program/61004B globals. No upload/reset/start or new motor permission.
+Read analysis/P1_robot_validation.md, preserved P1_robot_failure_analysis.md,
+reviews/P1_fresh_gate_codex.md and reviews/P1_robot_codex.md.
 
-Current work: D-060 public Robot interfaces ea4618c/4ae6d45 are committed. Complete
-fsm_robot.cpp and independent actual-Robot/locked/event tests against the adopted
-analysis/P1_robot_contract.md, then freeze/review/build. Metadata implementation
-and inert app compile entry are also in progress, not yet whole-suite validated.
-D-059 heading ownership and D-057/D-058 logical menu/routing are completed components;
-service consumers, full Robot/app/HAL and all human phase gates remain pending.
-The adopted contract and actual headers supersede proposal declaration sketches.
-Do not request extra hardware now or treat historical USB evidence as live access.
-Bare-board evidence is P0_bare_board_results_20260922.md; no motor permission exists.
+No human phase gate has passed. P1 needs EXPLAINED OK and GATE P1 PASS; P0 still
+needs optical/Monitor/cold-start and electrical/pin-map evidence. Current packets
+are reviews/P1_gate_request.md and reviews/P0_gate_request.md. Do not redo solved
+Robot contracts/tests or start P2 HAL solely because P1 software checks pass.
+
+Next eligible work must respect those gates: review remaining P0 bare-board-only
+transport/startup dependencies from existing G3/G4/Facts before any new bounded
+inert test; otherwise retain the checkpoint pending the original human evidence.
+SC-A/B/I remain hardware/API dependencies, not assumed successes. No additional
+hardware request now. Do not manufacture a gate, measurement or uninterrupted
+background run; the complete app/HAL and original P2–P7 remain unfinished.

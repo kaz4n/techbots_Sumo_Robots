@@ -1,43 +1,53 @@
-# Prepared P1 gate-review request — NOT READY / GATE-PENDING
+# P1 gate-review packet — software checks passed / human gate pending
 
-Independent review of SumoX-26. Reviewer reads AGENTS.md first and edits no file.
-This is a filled continuation request, not reviewer output or human approval.
+This is the coordinator's current evidence request, not reviewer output or human
+approval. It supersedes the historical313-case partial packet. P1 host work is
+permitted by D-016 while P0 acceptance remains pending.
 
-Phase under review: **P1**, developed offline under D-016 while P0 acceptance is
-still pending. Software range: **2c6e95d..36767f7**; include the subsequent checkpoint
-documentation commit when reviewing the full submission. Recalculate the range
-after additional implementation; do not use this partial snapshot as a complete gate.
+Phase: P1. Reviewed software range:2c6e95d..3e46ea4, with subsequent evidence
+checkpoint documentation included separately. D-060 interface commits ea4618c/4ae6d45
+and clarifications da84b06/99bd3c8 preceded source/test freeze.
 
-Spec sections: BEHAVIOR B0–B16 with D-017 through D-032 amendments;
-HARDWARE section 8; AGENTS R1–R11; P1_core_logic tasks/exit criteria.
+Specification: AGENTS R1–R11, P1_core_logic tasks1.1–1.6, BEHAVIOR B0–B16 as
+explicitly amended by DECISIONS D-017 through D-061, HARDWARE section8,
+P1_robot_contract.md and P1_ambiguous_defend_contract.md. No pin/wiring or physical fact is inferred.
 
-Currently evidenced: B0 types, B3 hold/button qualifier and Controller, B4 classifier,
-Guard and forward demands, B5 debounce/bearing memory/contact/phantom/stuck,
-B6 governor, B7 motion, B11 detector/rolling limiter, DIRECT and B15 encoding/
-event retention, plus B3 Services. **313 host cases pass**, with8,149,851 assertions
-and separate ASan/UBSan success. Spec-only authors and fresh scoped separate
-review are documented; complete fusion/FSM, other scripts and frame recording/
-dump remain absent. See analysis/P1_filters_events_validation.md and its scoped
-review; it records the current source-manifest/tooling result separately.
+## Claimed software scope
 
-Exit criteria:
-- [ ] 60+ tests **and every specified table row/locked invariant covered**: count
-  threshold met, complete coverage and integrated R1/R5 still incomplete.
-- [ ] Core compiled for the actual UNO Q toolchain: no target available.
-- [ ] Full safety audit and genuinely fresh review with no open BLOCKER: pending;
-  scoped component/integration review is not this gate.
-- [ ] Team member explains complete state diagram; EXPLAINED OK: not supplied.
-- [ ] Human GATE P1 PASS: not supplied; agent must not author it.
+Complete production Robot composition now exists alongside all default P1 core
+components, bounded metadata/frame scheduling and actual-duty feedback validation.
+Independent new scenarios call the real Robot, including10000 fixed-seed streams,
+R1/R5, all16 line masks, six modes, contact/stall/openers and QTR warning episodes.
+The app entry is inert and exists only to compile/link P1 core on the target; it
+is not a HAL/scheduler implementation. Existing locked tests are unchanged in
+this batch; the sole historical amendment is the expressly approved D-039 case.
 
-Before review can pass: complete remaining module contracts/implementations and
-table coverage after specific protected decisions, full FSM/core-output R1/R5
-proofs, target compile, and required human evidence. Actual MotorGate write-boundary
-testing is required when HAL is implemented in the later phase; it does not
-replace these P1 core-output proofs.
-No P0 gate may be inferred from D-016 or these host results.
+## Acceptance checklist
 
-Review in the order prescribed by REVIEW_GATE.md: trace R1–R6 safety paths and
-motor writes; check spec conformance; independent tests and locked-file history;
-bounded tick work/wrap/finite duties; explainability; real measurement provenance.
-Report BLOCKER/MAJOR/MINOR with file:line and suggested fixes, then PASS or FAIL.
-Until that real review exists, its verdict remains **PENDING**, not simulated.
+- [x] Current normal and ASan/UBSan suites pass:895 cases/13,765,968 assertions,
+  no fail/skip; raw receipts indexed in analysis/P1_robot_validation.md.
+- [x] Specified P1 table/default behavior and locked invariants have coverage;
+  fresh review and runtime close QTR/ambiguity gaps. Optional disabled physical
+  features are not claimed implemented; complete hardware validation is later.
+- [x] Actual UNO Q app compile-only passes: sourcece90f09d, exit0,
+  MATCH0/MOTORS_ALLOWED0,125508B program/61004B globals; no upload/reset/start.
+- [x] Fresh full-core safety review PASS with no open BLOCKER/MAJOR/MINOR:
+  state/reviews/P1_fresh_gate_codex.md includes actual runtime/target evidence.
+  Scoped additional review is P1_robot_codex.md; do not confuse the two contexts.
+- [ ] Team member explains complete state diagram; EXPLAINED OK is absent.
+- [ ] Human writes GATE P1 PASS; absent and never authored by an agent.
+
+Current source, evidence and remaining checks:
+state/analysis/P1_robot_validation.md. Fresh review is same-model Codex, not
+cross-model. Test authors derived expectations from public contracts, without
+implementation reads. Synthetic application/timing inputs prove host logic only.
+
+Review in REVIEW_GATE.md order: R1–R6 paths, specification and locked history,
+bounded work/wrap/finite duties, explainability and evidence provenance. Trace
+future actuator responsibility to MotorGate: there is no implemented motor-write
+boundary or motor-capable app here. Later HAL tests and complete measured target
+WCET remain mandatory and cannot be replaced by this P1 review.
+
+No P0 gate follows from D-016. No P2 HAL work, motor upload/run, release tag or
+physical acceptance is authorized by this packet. Human gates remain pending;
+no additional hardware connection is requested now.

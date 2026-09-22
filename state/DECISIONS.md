@@ -682,3 +682,16 @@ measurement, with a fresh source/binary review and default-only upload allowlist
 Consequence: startup can hang; incomplete records and negative setup/read errors
 fail explicitly. Zero is valid raw data. No timeout wrapper, production ADC solution,
 accuracy, robot pin-map, phase gate or physical WCET acceptance is inferred.
+
+## D-064 (2026-09-23, selected under D-051) P0 internal LED GPIO timing
+Context: P0 0.4 requests GPIO API timing. Installed F-080 maps the builtin LED
+to PH10/index50, with finite native GPIO paths and no active competing loader
+owner after setup. Arduino wrappers mask errors; initial LED level is unknown.
+Decision: adopt P0_gpio_contract.md before implementation/tests. Check GPIOH
+readiness, then400 setup-only timing samples for pinMode, digitalWrite, reads
+and the contiguous configure/write pair, keeping signed readbacks and clock
+overhead. Stop on mismatch, finish HIGH/off, freeze results and use reviewed
+passive capture. Default-only, MOTORS_ALLOWED0; no header or motor pins.
+Consequence: readbacks cannot recover discarded native errors or prove optical
+behavior. Finite instruction paths and measured maxima do not prove robot WCET.
+No wiring assumption change, B16 tuning, PINMAP approval or phase gate follows.

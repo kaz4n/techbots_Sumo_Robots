@@ -117,4 +117,6 @@ inline constexpr std::uint32_t P0_JITTER_SAMPLES = 60000U;
 inline constexpr std::uint32_t P0_JITTER_HISTOGRAM_US = 1000U;
 inline constexpr std::uint32_t P0_ADC_SAMPLES = 1000U; // D-063 startup-only calls
 inline constexpr std::uint32_t P0_ADC_PIN = 14U; // installed A0; diagnostic only, not PINMAP OK
+inline constexpr std::uint32_t P0_GPIO_SAMPLES = 400U; // D-064 fixed RAM diagnostic
+inline constexpr std::uint32_t P0_GPIO_PIN = 50U; // installed LED_BUILTIN/LED3_R, not D13
 } // namespace config

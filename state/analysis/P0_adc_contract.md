@@ -47,15 +47,16 @@ nonzero_results, value_min, value_max. Nearest-rank p99, no overhead subtraction
 Require exact12020 bytes, complete1/completed1000/version1, all values0..1023,
 all measured intervals and total <2^31; total must cover the sum of elapsed and
 overhead intervals. Uint32 timestamp wrap is accepted. Invalid input raises
-ValueError. A zero result is indistinguishable from the wrapper's error return;
-report zero_results as ambiguous, never as calibrated zero volts. Nonzero results
-establish successful wrapper conversion paths only under the audited source.
+ValueError. The installed wrapper returns negative setup/read errors; preserve those signed
+returns in raw RAM and reject them as a successful timing run. Zero is a valid
+ADC code; zero_results/nonzero_results merely count returned codes. Nonnegative
+codes establish successful wrapper return paths only under the audited source.
 Floating A0 values have no voltage accuracy, battery or electrical acceptance.
 
 Test independently from this contract/header: first-use versus warm separation,
 exact count/order, changing signed values, timestamp wrap, frozen empty loop,
 motor compile rejection, corrupt/incomplete records, nearest-rank statistics,
-zero ambiguity, compile-only/failed-build/source-identity upload safeguards.
+zero versus negative errors, compile-only/failed-build/source-identity upload safeguards.
 Extend upload allowlist only for exact reviewed p0_adc/default. Immediate p0_adc
 upload remains disallowed; compile-only remains allowed and cannot upload.
 No B16 changes, HAL implementation, phase gate or full-loop WCET claim.

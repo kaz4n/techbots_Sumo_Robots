@@ -679,6 +679,6 @@ only in setup of a new inert diagnostic, preserve first-use/subsequent costs,
 paired micros overhead and raw returns in frozen RAM. Empty loop; no Bridge,
 matrix, GPIO output or motor writes. Passive hash-pinned readout only after the
 measurement, with a fresh source/binary review and default-only upload allowlist.
-Consequence: startup can hang; incomplete records fail explicitly. Zero returns
-remain conversion/error ambiguous. No timeout wrapper, production ADC solution,
+Consequence: startup can hang; incomplete records and negative setup/read errors
+fail explicitly. Zero is valid raw data. No timeout wrapper, production ADC solution,
 accuracy, robot pin-map, phase gate or physical WCET acceptance is inferred.

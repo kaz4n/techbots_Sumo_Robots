@@ -177,3 +177,11 @@ Never invent requirements, pins, or API behavior.
 - Weaken or delete a test to make a build pass.
 - Enable Wi-Fi-dependent behavior in match firmware.
 - Run motors without `STAND OK` or `RING OK` for that run.
+
+## Codex handoff (user-authorized 2026-09-22)
+
+Codex implements and orchestrates; a separate fresh-context reviewer reviews only.
+D-015 supersedes only the agent-role assignment in D-009 and legacy Claude prompts.
+All safety rules, phase gates, human decision rights, and the board-side SSH build
+path remain in force. Resume through `state/CODEX_HANDOFF.md` and
+`docs/prompts/CODEX_RESUME.md`; `state/PROGRESS.md` remains authoritative.

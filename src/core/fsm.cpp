@@ -1,4 +1,4 @@
-// Implements B9 front steering and bounded B10 defensive-turn requests.
+// Implements B9 front qualification/steering and bounded B10 defensive turns.
 // Keeps request math and captured commands separate from motor authorization.
 // Independent host tests cover table rows, capture, caps, deadlines and wrap.
 #include "core/fsm.h"
@@ -25,6 +25,19 @@ float normalizedHeading(float heading_deg) {
     return result <= -180.0F ? 180.0F : result;
 }
 } // namespace
+
+FrontQualificationResult FrontQualification::observe(std::uint8_t effective_mask) {
+    const auto view = opp_fusion::frontView(effective_mask);
+    if (!view.centered) {
+        centered_ticks_ = 0U;
+    } else if (centered_ticks_ < config::ATTACK_ENTER_TICKS) {
+        ++centered_ticks_;
+    }
+    return {view.detected, view.centered,
+            view.centered && centered_ticks_ >= config::ATTACK_ENTER_TICKS};
+}
+
+void FrontQualification::reset() { centered_ticks_ = 0U; }
 
 FrontDemand frontDemand(core::State state, std::uint8_t effective_mask, bool contact) {
     FrontDemand result;

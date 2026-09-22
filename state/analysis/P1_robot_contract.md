@@ -78,6 +78,8 @@ start of the measured whole tick, including acquisition/decision/application/
 recorder/scheduler work. This consistency check is not proof of physical timing.
 Malformed claimed duration marks timing evidence incomplete and is not counted;
 it alone does not change motion. Missing duration similarly does not inhibit.
+Duration counting/incomplete/category9 reporting apply only to the explicitly
+included GO-through-final-stop receipts, not BOOT/COUNTDOWN/nonmember receipts.
 One category9 event aggregates any prior report's rate/saturation/incomplete rise;
 valid duration uses completion time, missing/invalid duration uses current detection
 time (never a fabricated completed_us). FIRST_NONZERO uses actual application time.
@@ -115,6 +117,10 @@ immediate candidate t_ms0; LOG_HZ cadence is phase-anchored with at most one cur
 candidate per tick and explicit skipped slots. Finish only from the next matching
 actual application receipt; unreported final frames remain incomplete. Retain
 packFrame status, never synthesize valid zeros for unknown application/voltage.
+With valid matched application, emit frame_ready even for CLAMPED/INVALID, retain
+that status (INVALID has codec-zero bytes), and mark recording_incomplete. Such
+an emitted frame does not increment skipped_frames. Missing/invalid application
+emits no frame, increments skipped_frames for its candidate and marks incomplete.
 Before GO frame yaw is the actual raw continuous input; after GO it is match yaw.
 IMU_OK describes current actual availability with valid coordinate; nominal/retained
 fallback yaw is never marked healthy. Nonfinite fields retain codec INVALID status.

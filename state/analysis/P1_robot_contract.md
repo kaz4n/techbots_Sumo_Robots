@@ -114,6 +114,10 @@ angle or a motion change. Fault masks aggregate; code7 reports newly latched rea
 bits. No per-sensor/per-tick repeated fault flood.21-entry bound is2 prior receipt
 extensions plus19 current decision events. Invalid metadata and capacity rejection
 are separately saturating; logging loss cannot affect motion or recurse.
+CONTACT metadata enforces the existing B5/D-027 relationships: an effective
+centered front row (FC present or both front flanks) and, if the close-cue bit is
+set, front mask5 or7. Reject impossible payloads rather than accepting only their
+field widths. This is encoding validation, not a new contact or motion rule.
 
 Snapshot running mode only on accepted START. Start frame epoch/counters then,
 immediate candidate t_ms0; LOG_HZ cadence is phase-anchored with at most one current

@@ -163,4 +163,95 @@ void EventBuffer::reset() {
     rejected_ = 0U;
     overflowed_ = false;
 }
+
+namespace {
+bool validFaultMetadata(std::uint8_t code, std::uint16_t value) {
+    switch (static_cast<FaultCode>(code)) {
+    case FaultCode::IMU_UNAVAILABLE: case FaultCode::LOW_BATTERY: return value == 0U;
+    case FaultCode::OPPONENT_STUCK: return value > 0U && value <= 0x7FU;
+    case FaultCode::QTR_STUCK_WARNING: return value > 0U && value <= 0x0FU;
+    case FaultCode::CALIBRATION: return value > 0U && value <= 3U;
+    case FaultCode::ESCAPE_FAULT: return value >= 1U && value <= 4U;
+    case FaultCode::CORE_CONTRACT_FAULT: return value > 0U && value <= 0xFFU;
+    case FaultCode::TURN_TIMEOUT: return value > 0U && value <= 0x1FU;
+    case FaultCode::TICK_STATISTICS: return value > 0U && value <= 7U;
+    case FaultCode::RESET_CAUSE: return value == 1U;
+    default: return false;
+    }
+}
+
+bool validFirstDuty(const EventInput& input) {
+    const auto left = input.value & 0xFFU;
+    const auto right = input.value >> 8U;
+    if (input.detail == 0U || input.detail > 3U || left == 0x80U || right == 0x80U)
+        return false;
+    // Sub-LSB nonzero duty may encode zero; the detail bit preserves that evidence.
+    return ((input.detail & 1U) != 0U || left == 0U) &&
+           ((input.detail & 2U) != 0U || right == 0U);
+}
+
+bool validEdgeMetadata(const EventInput& input) {
+    if (input.detail == 0U || input.detail > 0x1FU) return false;
+    const unsigned mask = input.value & 0x0FU;
+    const unsigned added = (input.value >> 4U) & 0x0FU;
+    const unsigned replans = input.value >> 8U;
+    const bool entered = (input.detail & ENTERED) != 0U;
+    const bool replanned = (input.detail & REPLANNED) != 0U;
+    const bool exited = (input.detail & EXITED) != 0U;
+    if (((input.detail & NEW_WHITE) != 0U) != (added != 0U) || (added & ~mask) != 0U)
+        return false;
+    if (exited) return input.detail == EXITED && input.value == 0U;
+    if (entered && (replanned || replans != 0U)) return false;
+    if (replanned && replans == 0U) return false;
+    if ((entered || replanned) && mask == 0U) return false;
+    return (input.detail & PUSHED_OUT) == 0U || entered || replanned;
+}
+} // namespace
+
+bool validEventMetadata(const EventInput& input) {
+    switch (input.type) {
+    case core::Event::START_RELEASE: case core::Event::GO:
+        return input.detail >= 1U && input.detail <= 6U && input.value == 0U;
+    case core::Event::FIRST_NONZERO_DUTY: return validFirstDuty(input);
+    case core::Event::STATE_CHANGE:
+        return input.detail <= static_cast<std::uint8_t>(core::State::DRIVE_TEST) &&
+               input.value <= static_cast<std::uint8_t>(core::State::DRIVE_TEST) &&
+               input.detail != input.value;
+    case core::Event::EDGE: return validEdgeMetadata(input);
+    case core::Event::CONTACT: {
+        const unsigned front = input.value & 0x07U;
+        const bool close = front == 5U || front == 7U;
+        return input.detail > 0U && input.detail <= 3U &&
+               input.value <= 0x7FU && ((front & 2U) != 0U || close) &&
+               ((input.detail & 1U) == 0U || close);
+    }
+    case core::Event::STALL:
+        return input.detail <= 0x0FU && (input.detail & 3U) != 0U &&
+               ((input.detail & 0x0CU) == 4U || (input.detail & 0x0CU) == 8U);
+    case core::Event::REFLANK_PHASE:
+        return input.detail >= 1U && input.detail <= 3U &&
+               (input.value == 1U || input.value == 2U);
+    case core::Event::PHANTOM_SET: {
+        const std::int32_t angle = input.value <= 32767U ? input.value :
+                                  static_cast<std::int32_t>(input.value) - 65536;
+        return input.detail == 0U && angle > -18000 && angle <= 18000;
+    }
+    case core::Event::FAULT: return validFaultMetadata(input.detail, input.value);
+    default: return false;
+    }
+}
+
+bool appendEvent(EventBatch& batch, const EventInput& input) {
+    if (!validEventMetadata(input)) {
+        batch.invalid_metadata = saturatingIncrement(batch.invalid_metadata);
+        return false;
+    }
+    if (batch.count >= ROBOT_EVENT_CAPACITY) {
+        batch.overflowed = true;
+        batch.rejected = saturatingIncrement(batch.rejected);
+        return false;
+    }
+    batch.entries[batch.count++] = input;
+    return true;
+}
 } // namespace logframe

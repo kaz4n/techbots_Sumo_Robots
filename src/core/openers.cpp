@@ -1,4 +1,4 @@
-// Implements B12 DIRECT and mirrored SIDESTEP/ARC scripts with B7 primitives.
+// Implements B12 DIRECT, SIDESTEP/ARC and ordered WAIT scripts with B7 primitives.
 // Reports transition intents so global arbitration retains all safety authority.
 // Independent host tests check phases, priorities, timing, snapshots and mirrors.
 #include "openers.h"
@@ -13,15 +13,6 @@ Result terminal(Exit exit) {
     result.motion.status = exit == Exit::INVALID ? motion::Status::INVALID :
                            exit == Exit::NONE ? motion::Status::IDLE : motion::Status::DONE;
     return result;
-}
-
-float normalizedHeading(float heading_deg) {
-    if (!std::isfinite(heading_deg)) return heading_deg;
-    double angle = std::fmod(static_cast<double>(heading_deg), 360.0);
-    if (angle <= -180.0) angle += 360.0;
-    if (angle > 180.0) angle -= 360.0;
-    const float result = static_cast<float>(angle);
-    return result <= -180.0F ? 180.0F : result;
 }
 
 std::uint8_t innerMask(float mirror) {
@@ -92,10 +83,8 @@ bool Flank::start(std::uint32_t t_us, float heading_deg, bool imu_ok,
 }
 
 bool Flank::beginTurn(std::uint32_t t_us, float relative_deg, bool imu_ok) {
-    // Normalize first: adding a small offset to a huge finite yaw loses it.
-    const float heading = normalizedHeading(last_heading_deg_);
-    const float target = normalizedHeading(heading + relative_deg);
-    return turn_.start(t_us, heading, target, config::TURN_DUTY, imu_ok);
+    return turn_.startRelative(t_us, last_heading_deg_, relative_deg,
+                               config::TURN_DUTY, imu_ok);
 }
 
 bool Flank::beginTraverse(std::uint32_t t_us) {
@@ -148,7 +137,7 @@ void Flank::finish(Exit exit) {
 
 motion::Result Flank::runMotion(const Sample& sample) {
     if (phase_ == Phase::PIVOT || phase_ == Phase::TURN_IN) {
-        return turn_.step(sample.t_us, normalizedHeading(sample.heading_deg), sample.imu_ok);
+        return turn_.step(sample.t_us, sample.heading_deg, sample.imu_ok);
     }
     if (arc_mode_) {
         return arc_.step(sample.t_us, sample.heading_deg, sample.imu_ok);
@@ -226,4 +215,98 @@ FlankResult Flank::step(const Sample& sample) {
 }
 
 void Flank::reset() { *this = Flank{}; }
+
+bool Wait::start(std::uint32_t t_us, float heading_deg) {
+    reset();
+    if (!std::isfinite(heading_deg)) {
+        finish(Exit::INVALID);
+        return false;
+    }
+    last_heading_deg_ = heading_deg;
+    hold_interval_.begin(t_us);
+    phase_ = WaitPhase::HOLD;
+    current_.motion.status = motion::Status::ACTIVE;
+    return true;
+}
+
+bool Wait::observeApproach(std::uint32_t t_us, std::uint8_t mask) {
+    const bool fc = (mask & 0x02U) != 0U;
+    const auto new_flank = static_cast<std::uint8_t>(mask & ~previous_mask_ & 0x05U);
+    bool cue = false;
+    if (!fc) {
+        fc_episode_ = false;
+    } else if (!fc_episode_) {
+        fc_episode_ = true;
+        approach_interval_.begin(t_us);
+    } else {
+        approach_interval_.advance(t_us);
+        cue = new_flank != 0U && approach_interval_.elapsed_us <=
+            static_cast<std::uint64_t>(config::APPROACH_WINDOW_MS) * 1000U;
+    }
+    previous_mask_ = mask;
+    return cue;
+}
+
+void Wait::finish(Exit exit) {
+    current_ = {};
+    current_.exit = exit;
+    const bool invalid = exit == Exit::INVALID;
+    current_.phase = invalid ? Phase::INVALID : Phase::FINISHED;
+    current_.motion.status = invalid ? motion::Status::INVALID : motion::Status::DONE;
+    phase_ = invalid ? WaitPhase::INVALID : WaitPhase::FINISHED;
+}
+
+void Wait::runFlank(const Sample& sample) {
+    current_ = flank_.step(sample);
+    if (current_.exit != Exit::NONE) {
+        phase_ = current_.exit == Exit::INVALID ? WaitPhase::INVALID : WaitPhase::FINISHED;
+    }
+}
+
+WaitResult Wait::result() const {
+    WaitResult output;
+    output.flank = current_;
+    output.phase = phase_;
+    output.brake = phase_ != WaitPhase::FLANK || current_.motion.status != motion::Status::ACTIVE;
+    return output;
+}
+
+WaitResult Wait::step(const Sample& sample) {
+    const WaitPhase previous = phase_;
+    bool cue = false;
+    current_.phase_changed = false;
+    current_.motion_timed_out = false;
+    if (phase_ == WaitPhase::FLANK) {
+        runFlank(sample);
+    } else if (phase_ == WaitPhase::HOLD) {
+        hold_interval_.advance(sample.t_us);
+        const auto mask = static_cast<std::uint8_t>(sample.confirmed_mask & 0x7FU);
+        if ((mask & 0x78U) != 0U) {
+            finish(Exit::SIDE_OR_REAR_TARGET);
+        } else if (sample.imu_ok && !std::isfinite(sample.heading_deg)) {
+            finish(Exit::INVALID);
+        } else {
+            if (sample.imu_ok) last_heading_deg_ = sample.heading_deg;
+            if (observeApproach(sample.t_us, mask)) {
+                if (flank_.start(sample.t_us, last_heading_deg_, sample.imu_ok,
+                                 core::Mode::SIDESTEP_R)) {
+                    cue = true;
+                    phase_ = WaitPhase::FLANK;
+                    runFlank(sample);
+                } else {
+                    finish(Exit::INVALID);
+                }
+            } else if (hold_interval_.elapsed_us >=
+                       static_cast<std::uint64_t>(config::WAIT_MAX_MS) * 1000U) {
+                finish(Exit::SEARCH);
+            }
+        }
+    }
+    WaitResult output = result();
+    output.phase_changed = previous != phase_;
+    output.approach_cue = cue;
+    return output;
+}
+
+void Wait::reset() { *this = Wait{}; }
 } // namespace openers

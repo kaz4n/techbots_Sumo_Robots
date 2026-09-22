@@ -280,3 +280,5 @@ contract/tests/implementation under D-047..D-051, followed by WAIT/Robot; P0
 physical acceptance and complete fresh gate reviews remain pending.
 
 | 2026-09-23 | P1 B4 full Escape | D-047..D-050/D-054 selection, pushed-out, bounded replanning, reset-only faults and fresh exit evidence;42 new locked cases | HOST-TESTED in716-case normal+sanitizer suite; static scoped review clear; target compile pending | commit containing this row |
+
+| 2026-09-23 | P1 B12 WAIT | D-055 ordered approach cue and full SIDESTEP_R; relative-turn precision repair;33 new independent cases | HOST-TESTED in716-case normal+sanitizer suite; static scoped review clear; physical evasion pending | commit containing this row |

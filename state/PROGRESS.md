@@ -304,3 +304,16 @@ P1_robot_heading_contract_audit.md, then production Robot contracts/integration.
 Menu service requests are intent only, not physical execution. All phase gates
 remain pending; no additional hardware connection is requested. Evidence and
 limitations: P1_menu_validation.md; reviews/P1_menu_codex.md. Local commits only.
+
+| 2026-09-23 | P1 GO heading ownership | D-059 contractsfd40a5b/0a63190/6e57949/ca82293 then4671c8b;31 independent cases | HOST-TESTED807 cases/12233461 assertions normal+ASan/UBSan; near-antipode review finding fixed/tested; no established locked edits |4671c8b |
+| 2026-09-23 | P1 heading validation | Separate reviewer reproduction807/12233461; final116 scripts PASS40.767s; exact23-file snapshots approved | HOST-TESTED / SCRIPT-TESTED; actual command receipts and original finding retained | checkpoint commit containing this row |
+| 2026-09-23 | P1 current target compile | Actual bare-UNO-Q board-side timing/default compile-only, sourcebbf6c22 MATCH0/MOTORS_ALLOWED0 | TARGET-COMPILED exit0;74008B program/33964B globals for inert sketch; no upload/reset/start | checkpoint commit containing this row |
+
+Latest resume: implement production Robot next. P1_robot_api_proposal.md supplies
+a concrete unadopted API/order/receipt/event proposal for one D-060 decision under
+D-051; no more audit-only prerequisite is needed. Publish the actual Robot header
+before independent scenario tests/source. Menu9d9b858 and heading4671c8b are done
+as components. Full app/HAL, physical measurements, P1 full fresh gate review and
+all human phase gates remain outstanding. Last uploaded image is still September22
+inert matrix; no new motor authorization. Evidence: P1_heading_validation.md and
+reviews/P1_heading_codex.md. Date23September Dubai; no schedule cut applies yet.

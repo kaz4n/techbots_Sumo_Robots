@@ -2,57 +2,38 @@
 
 ## Current resume point — 2026-09-23 Asia/Dubai
 
-Latest: logical Menu9d9b858, contract3563a8f/D-058.776 cases/12,231,614 assertions
-pass normal+ASan/UBSan and separate reviewer reproduction;116 tooling checks
-pass39.634s. Preserved initial config-inventory failure and narrow one-line
-expectation addition: analysis/P1_menu_validation.md. Review scoped PASS/no open
-finding: reviews/P1_menu_codex.md. New25 component/11 locked composition cases;
-existing locked tests unchanged. Service execution/full Robot remain unfinished.
-Current inert-source maps: matrixe40b170f/timinge873b5d5, reviewed byte-for-byte;
-no hardware action or new target compile occurred in this batch.
+Latest completed components: D-058 Menu9d9b858 (contract3563a8f) and D-059
+HeadingReference4671c8b (contractsfd40a5b/0a63190/6e57949/ca82293 first).
+807 cases/12,233,461 assertions pass normal+ASan/UBSan and separate reviewer
+reproduction.116 tooling checks pass40.767s with exact reviewed23-file snapshots:
+matrix04441e9f/timingbbf6c22. Original76 B16 defaults and established locked tests
+remain unchanged; MODE_SHORT_MS copies B13 text. New67 cases across both batches.
 
-Next: select GO coordinate contract from P1_robot_heading_contract_audit.md under
-D-051, keeping raw continuous yaw for Fusion and match yaw for motion; preserve
-missing-at-boot timed fallback. Then implement production Robot from the saved
-interface/event audits. The audit is a recommendation, not adopted behavior.
-Older resume paragraphs below are historical; use this latest checkpoint.
+Evidence: analysis/P1_menu_validation.md and P1_heading_validation.md; their
+scoped separate reused read-only reviews are in state/reviews. Menu's initial
+config inventory mismatch and narrow expectation amendment remain recorded.
+Heading's pre-build near-antipode MAJOR was fixed and covered by independent
+boundary tests. These are scoped Codex reviews, not fresh full phase gate reviews.
 
-Latest additional delivery: D-057 contract322ecce, implementation4d323bc adds
-START-only routing and read-only qualified button snapshots.24 new locked tests
-join the previous716:740 cases/12,122,401 assertions pass normal+ASan/UBSan;
-116 tooling checks pass38.984s. See analysis/P1_start_routing_validation.md and
-reviews/P1_start_routing_codex.md. No established locked test/config changed.
-The latest reviewed inert-source maps are matrix5fd4173b/timing54b851d3; source
-review is not target execution. No new hardware command occurred in this batch.
-The target build described below covers the earlier716-case source only.
+Current source TARGET-COMPILED on the actual bare UNO Q inside inert timing/default:
+sourcebbf6c22,exit0,MATCH0/MOTORS_ALLOWED0,74008Bprogram/33964Bglobals. No
+upload/reset/start; prior uploaded matrix remains in place. This does not prove
+complete app compilation, physical yaw, actual MotorGate or full-control WCET.
 
-Full Escape66f76e4, WAIT6938c63 and contact preview990f287 are implemented and
-HOST-TESTED:716 cases/12,121,189 assertions pass normal+ASan/UBSan;116 tooling
-checks pass. New91 independent cases include42 new locked Escape tests; no
-established locked test/config changed. D-054/D-055/D-056 contracts were committed
-first. Reused separate read-only scoped review and its independent host rerun:
-reviews/P1_escape_wait_codex.md. Exact commands/limits/findings:
-analysis/P1_escape_wait_validation.md. The pre-build unsupported REQUIRE finding
-was corrected in the new test file without changing any predicate/build policy.
+Exact next task: adopt/revise analysis/P1_robot_api_proposal.md under D-051 as
+D-060, commit production Robot interfaces, then independent real Robot scenarios
+and implementation. The saved interface/event audits support that concrete API;
+no further audit-only prerequisite is needed. Keep one fresh raw sensor observation,
+truthful matched previous actual-duty/duration receipts, final contact commit and
+one Governor pass. HeadingReference is now implemented; keep Fusion raw and motion
+match-relative, including missing-at-boot timed fallback. Event capacity21 remains
+conditional until implemented/proved. Real service consumers remain outstanding.
 
-The Escape/WAIT/preview revision also TARGET-COMPILED inside inert p0_timing/default through actual
-board CLI/core, source98c436a4, exit0,MATCH0/MOTORS_ALLOWED0. No upload/reset/start;
-the prior matrix image below remains the last uploaded firmware. This is not the
-complete app build or runtime proof. The exact23-file inert snapshots were
-reviewed before allowlist refresh; physical QTR/button/evasion/WCET remain open.
-
-Next eligible task: select/record the logical B13 menu
-contract from analysis/P1_mode_menu_contract_audit.md, publish headers, then
-independent tests and implementation. Preserve existing Controller defaults and
-locked tests. Service START-routing is already implemented under D-057; do not
-redo it or reset Controller to enter services. Then complete Robot integration using P1_robot_interface_audit.md
-and D-056: one fresh observation, truthful history, atomic GO coordinates, prior
-applied-duty feedback, one final contact commitment and one Governor call.
-P1_robot_event_contract_audit.md provides unadopted metadata/order/overflow and
-actual-applied-duty recommendations; its capacity proof is conditional on future
-Robot rules. Select/record that contract before tests/source, not by implication.
-Read compact CODEX_EXECUTION.md. No human gate has passed; D-016 permits P1 only.
-Date is23September; no deadline-based scope cut applies yet. C: is low(~290MB).
+PROGRESS.md is authoritative; D-016 permits P1 while P0 acceptance remains pending.
+No human phase gate has passed. D-052 permits bare-board diagnostics only; no motor
+run authorization. No additional hardware request. The date is23September Dubai;
+no deadline cut applies yet. C: remains low(~290MB), avoid unnecessary downloads.
+Older sections below are historical; this is the current resume point.
 
 ## Prior bare-board checkpoint — 2026-09-22 Asia/Dubai
 

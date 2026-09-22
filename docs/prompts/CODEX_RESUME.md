@@ -17,18 +17,17 @@
    boundary record files/commits, commands/statuses, limitations, human requests,
    review findings and exact next task. Use existing HUMAN ACTION/CONFUSION formats.
 
-Current bare-board checkpoint: read state/analysis/P0_bare_board_results_20260922.md.
-The last image is inert p0_matrix/default, not robot firmware. D-051 delegates
-engineering choices without questions; D-052 permits bare-board diagnostics only.
-Do not request additional hardware for the next P1 host task or reuse a recorded
-USB connection as proof that the device is still attached. Full Escape/WAIT/
-contact preview are now HOST-TESTED716cases and TARGET-COMPILED inside inert
-timing only; see P1_escape_wait_validation.md. D-057 START routing subsequently
-passed740host cases and sanitizers (P1_start_routing_validation.md); that later
-source has no new target build. Logical Menu9d9b858 is now HOST-TESTED776 cases/
-12,231,614 assertions normal+sanitizers with separate scoped review;116 scripts
-pass. Read P1_menu_validation.md. Resume GO heading ownership from the unadopted
-P1_robot_heading_contract_audit.md, then production Robot integration. Menu and
-START routing are complete as components; service execution remains pending.
-Use the event audit as unadopted recommendations. Keep phase gates and the real
-app/HAL gaps explicit.
+Current checkpoint: Menu9d9b858 and HeadingReference4671c8b are HOST-TESTED:
+807 cases/12,233,461 assertions normal+ASan/UBSan;116 script checks pass; separate
+scoped read-only reviewer reproduced the host result. Current core also TARGET-
+COMPILED inside inert p0_timing/default sourcebbf6c22, MATCH0/MOTORS_ALLOWED0,
+exit0. No new upload/reset/start; prior inert p0_matrix remains the last firmware.
+Read P1_menu_validation.md, P1_heading_validation.md and their scoped reviews.
+
+Next: adopt/revise P1_robot_api_proposal.md under D-051 as D-060, publish production
+Robot interfaces, then independent actual Robot scenario tests and implementation.
+D-059 heading ownership and D-057/D-058 logical menu/routing are completed components;
+service consumers, full Robot/app/HAL and all human phase gates remain pending.
+The API/event proposals remain unadopted until the coordinator records the decision.
+Do not request extra hardware now or treat historical USB evidence as live access.
+Bare-board evidence is P0_bare_board_results_20260922.md; no motor permission exists.

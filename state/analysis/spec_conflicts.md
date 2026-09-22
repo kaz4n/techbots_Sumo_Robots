@@ -337,3 +337,18 @@ D-056 defines pure contact preview before one final commitment so a stall-induce
 state change never requires duplicate contact or governor advancement. These
 interfaces preceded their independent tests. Full Robot ordering, physical A1
 decoding, QTR acquisition/freshness and bounded Bridge transport remain unfinished.
+
+2026-09-23 D-057/D-058 resolve logical service START routing and MODE gesture
+semantics; their independent host tests and scoped reviews are recorded in
+P1_start_routing_validation.md and P1_menu_validation.md. Physical A1 decoding
+and actual service consumers are still separate dependencies.
+
+D-059 resolves Robot GO coordinate ownership: unreset continuous yaw stays with
+Fusion; match motion uses a logical origin established before same-tick entry.
+Ordinary IMU absence preserves timed fallback, including a nominal initial
+coordinate and one first-recovery anchor when no measured history exists.
+Malformed healthy coordinates instead latch an explicit inhibited fault. This
+does not authorize provider resets, erase sticky history or prove hardware yaw.
+Contract/source review and numerical boundary finding: P1_heading_validation.md;
+full production Robot integration remains unfinished. P1_robot_api_proposal.md
+is still an unadopted recommendation, not an implicit further decision.

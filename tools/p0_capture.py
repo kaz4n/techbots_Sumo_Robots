@@ -72,6 +72,36 @@ def analyze_histogram(samples, maximum, over_period, histogram):
                 p99_us=p99, p99_censored=p99 == 1000)
 
 
+def loader_image(elfbytes):
+    require(isinstance(elfbytes, (bytes, bytearray)) and len(elfbytes) >= 52,
+            'loader ELF header is incomplete')
+    require(elfbytes[:7] == b'\x7fELF\x01\x01\x01', 'loader must be ELF32 little-endian')
+    header = struct.unpack_from('<HHIIIIIHHHHHH', elfbytes, 16)
+    kind, machine, version, _, phoff, _, _, ehsize, phsize, phcount, _, _, _ = header
+    require(kind == 2 and machine == 40 and version == 1 and ehsize == 52,
+            'loader must be an ARM executable ELF')
+    require(phsize == 32 and 1 <= phcount <= 32 and phoff >= 52 and
+            phoff + phcount * phsize <= len(elfbytes), 'invalid program-header table')
+    segments = []
+    span = (0x08000000, 0x08000000 + LOADER_SIZE)
+    for index in range(phcount):
+        fields = struct.unpack_from('<IIIIIIII', elfbytes, phoff + index * phsize)
+        kind, offset, _, physical, filesz, memsz, _, _ = fields
+        if kind != 1 or filesz == 0:
+            continue
+        require(filesz <= memsz and offset <= len(elfbytes) and
+                filesz <= len(elfbytes) - offset, 'invalid file-backed load extent')
+        require(in_range(physical, filesz, span), 'load extent outside expected flash')
+        segments.append((physical, bytes(elfbytes[offset:offset + filesz])))
+    cursor, parts = span[0], []
+    for physical, data in sorted(segments, key=lambda item: item[0]):
+        require(physical == cursor, 'loader load segments have a gap or overlap')
+        parts.append(data)
+        cursor += len(data)
+    require(cursor == span[1], 'loader image does not cover the complete flash span')
+    return b''.join(parts)
+
+
 def utc_now():
     return datetime.now(timezone.utc).isoformat()
 
@@ -246,8 +276,20 @@ def read_layout(capture, elf):
 
 
 def verify_flash(capture, binary):
+    expected = loader_image(LOADER_ELF.read_bytes())
+    packaged = LOADER.read_bytes()
+    differences = [i for i, pair in enumerate(zip(expected, packaged))
+                   if pair[0] != pair[1]]
+    capture.report['loader_identity'] = dict(
+        reference='pinned ELF nonempty PT_LOAD physical bytes', size=len(expected),
+        expected_sha256=hashlib.sha256(expected).hexdigest(),
+        package_binary_sha256=hashlib.sha256(packaged).hexdigest(),
+        package_binary_matches=packaged == expected,
+        package_binary_different_bytes=len(differences),
+        package_binary_first_differences=[dict(offset=i, elf=expected[i], binary=packaged[i])
+                                          for i in differences[:16]])
     loader_bytes = capture.read('loader', 0x08000000, LOADER_SIZE, 'loader')
-    require(loader_bytes == LOADER.read_bytes(), 'deployed loader differs from pinned file')
+    require(loader_bytes == expected, 'deployed loader differs from pinned ELF load image')
     sketch_bytes = capture.read('sketch', 0x08100000, capture.binary_size, 'sketch')
     require(sketch_bytes == binary.read_bytes(), 'deployed sketch differs from pinned artifact')
     capture.report['flash_identity_verified'] = True

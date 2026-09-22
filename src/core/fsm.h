@@ -31,6 +31,38 @@ private:
     std::uint32_t centered_ticks_ = 0;
 };
 
+struct NormalResult {
+    core::State state = core::State::SEARCH;
+    bool brake = false; // D-046: overrides all new-state motion on this tick.
+    bool front_detected = false;
+    bool centered = false;
+};
+class NormalPerception {
+public:
+    // B2/B9/D-034/D-038/D-045/D-046 normal routing only. Each call consumes
+    // exactly one NEW effective confirmed mask from Fusion; high bit ignored.
+    // Front priority: TRACK until ATTACK_ENTER_TICKS consecutive centered
+    // observations, then ATTACK. Off-center front selects TRACK and resets the
+    // count. No front: DEFEND_TURN if current side/rear exists, otherwise SEARCH.
+    // On entry from a script/preemption, reset BEFORE calling step once with
+    // this tick's observation; it counts as the first eligible sample (D-045).
+    // Any front loss after this helper selected TRACK/ATTACK sets brake=true
+    // for that one observation and resets qualification. Caller must apply it
+    // immediately through Governor; new-state motion begins no earlier than
+    // the next tick. Side/rear disappearance alone is not a front-loss brake.
+    // Caller handles gate/edge/script arbitration first, resets on preemption,
+    // commits Fusion contact once against the returned state, then obtains
+    // frontDemand or the selected script's demand. TRACK uses SEARCH_FORWARD,
+    // ATTACK uses its current contact/centering cap; no stale ATTACK latch.
+    // No state persistence outside normal routing, duties, clock, allocation,
+    // permission or I/O. Do not count repeated/stale observations as fresh.
+    NormalResult step(std::uint8_t effective_mask);
+    void reset();
+private:
+    FrontQualification qualification_;
+    bool front_active_ = false;
+};
+
 struct FrontDemand {
     float duty_l = 0.0F;
     float duty_r = 0.0F;

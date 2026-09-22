@@ -12,7 +12,7 @@ CODEX_KICKOFF tooling safety requirements and D-015 role migration.
 |---|---|
 | G1-G6 answered or flagged with bench checks | SOURCE-REVIEWED, FACTS F-019 onward and analysis/P0_G1..G6.md; MPU6050 now user-reported |
 | Host scaffold | HOST-TESTED; current895-case suite, P1_robot_validation.md |
-| Board scripts | SCRIPT-TESTED306 full checks plus3 focused IMU checks and actual board-side ADB compile/upload/logger receipts; P0_qtr_validation.md/P0_gpio_validation.md/P0_adc_validation.md/P0_counter_validation.md |
+| Board scripts | SCRIPT-TESTED306 full checks plus3 focused IMU and8 PWM/IRQ checks and actual board-side ADB compile/upload/logger receipts; P0_qtr_validation.md/P0_gpio_validation.md/P0_adc_validation.md/P0_counter_validation.md |
 | Actual matrix/counter log round trip | COUNTER OBSERVED: D-062 inert adapter delivered4..11 and56..63; optical matrix appearance remains absent; stock Bridge is not the adapter |
 | Both startup modes measured | NOT MET: default/Immediate timing compiled, default60000-sample scheduler measurement; no true cold-start/Immediate runtime measurement |
 | Physical P0 micro-benchmarks | PARTIAL: bare scheduler60000samples and startup ADC1000calls,GPIO400cycles,QTR-style200acquisitions measured; actual sensors still separate |
@@ -41,3 +41,13 @@ evidence. Include the real target/tool inventory, command logs, observed display
 and counter, raw startup/timing data, approved pin map, and all resolved findings
 in the eventual review. Return findings with file:line and BLOCKER/MAJOR/MINOR,
 then PASS or FAIL under the original REVIEW_GATE rules.
+
+
+2026-09-23 D-067 update: implementation660eb08/source6578e07a is
+TARGET-COMPILED/HOST-TESTED/REVIEWED,80248B/34048B globals;8 independent focused
+checks pass and fresh same-model source/binary review PASS. Exact26 source files,
+ELFs, retained API dispatch and startup anchors verified. No upload/PWM/IRQ use.
+F-086..088 and P0_pwm_irq_compile_validation.md retain installed runtime hazards;
+none changes missing physical acceptance or human gate status. No further required
+autonomous P0 task remains eligible within the current bare-board scope. Preserve
+completed diagnostics and continue with genuine physical acceptance when available.

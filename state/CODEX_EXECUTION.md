@@ -7,6 +7,11 @@ UNO Q diagnostics. No additional hardware connection is requested.
 
 ## Completed software checkpoint
 
+- P0 G2 D-067660eb08/source6578e07a: actual compile-only PASS80248B/34048B
+  globals;8 new independent host checks and fresh source/binary review PASS.
+  Installed audits5ad262d, raw-byte repair54dd976. No upload/PWM/IRQ action.
+  P0_pwm_irq_compile_validation.md records exact26-file/ELF/API evidence and limits.
+
 - P0 G6 D-066 b7bd0df: API probe e0ee0fcc target-compiles,96236B/39356B globals.
   Exact3 Adafruit pins/provenance and retained APIs/Wire1 independently reviewed.
   No upload/I2C;3 new scoped host checks PASS. Full306 checkpoint remains separate.
@@ -70,6 +75,7 @@ UNO Q diagnostics. No additional hardware connection is requested.
 | P0 0.4 ADC | MEASURED / RUNTIME-API-BLOCKED |D-063/F-079; startup-only calls measured, stock runtime wait remains unbounded |
 | P0 0.4 GPIO | MEASURED / REVIEWED |D-064/F-081;400 correct internal LED cycles, empirical timings |
 | P0 0.4 QTR-style | MEASURED / REVIEWED |D-065/F-083; two100-sample timeout datasets, actual1.53ms path; SC-B still open |
+| P0 G2 PWM/IRQ compatibility | TARGET-COMPILED / REVIEWED |D-067660eb08/F-086..088;8 focused checks PASS; installed runtime limits remain |
 | P0 G6 API compatibility | TARGET-COMPILED / REVIEWED |D-066 b7bd0df/F-085;3 scoped host checks PASS; no upload/I2C, SC-AG runtime limits remain |
 | P0 gate | GATE-PENDING |Fixed Monitor counter and ADC observed; optical/cold-start and physical electrical acceptance unfinished |
 | P1 1.1 interfaces | IMPLEMENTED |Public contracts committed before independent tests/source |
@@ -87,9 +93,11 @@ UNO Q diagnostics. No additional hardware connection is requested.
 
 ## Next actions and boundaries
 
-1. Next: P0 G2 installed PWM/attachInterrupt source/export audit and, if missing,
-   a bounded compile-only API probe. Read P0_G2.md/FACTS first; no PWM or motor-pin
-   writes, live interrupt registration, P2 HAL or repeated completed diagnostic.
+1. No further required autonomous P0 work is eligible in the current bare-board
+   scope; D-067 is now complete/reviewed. Next acceptance work when physical checks
+   resume: optical matrix observation and genuine default/Immediate cold-start
+   protocol in P0_MEASUREMENTS_TEMPLATE.md, retaining Immediate-matrix restriction;
+   then electrical/PINMAP and original review/human gates. No repeat diagnostics.
 2. Preserve the completed P1 software evidence and current P1 gate packet. Do not
    restart completed modules or reinterpret a passing review as a human gate.
 3. P0 fixed Monitor counter is now observed through D-062's adapter. Preserve its

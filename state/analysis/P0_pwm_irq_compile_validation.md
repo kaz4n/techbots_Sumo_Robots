@@ -115,3 +115,11 @@ physical waveform/fault behavior; real QTR freshness; and full robot WCET remain
 unqualified. F-086/F-087 and spec_conflicts.md retain later regression needs.
 No asynchronous QTR semantics, pin change, frequency, runtime waiver, P2 HAL,
 PINMAP OK, STAND/RING permission or human phase gate follows.
+
+
+Checkpoint note: the first handoff update stopped with UnicodeDecodeError on an
+existing byte0x97 in CODEX_HANDOFF.md; FACTS/PROGRESS appends already succeeded
+and were committed85d54a8. The continuation used exact ASCII byte replacements,
+preserving the legacy history encoding. No source/test/build failure or evidence
+loss occurred, and no history was rewritten. Resume/checklist/gate packet now
+record completed D-067 and the remaining physical/human acceptance boundary.

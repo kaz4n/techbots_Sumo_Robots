@@ -1,6 +1,36 @@
 # Codex handoff
 
-## Current resume point — 2026-09-23 Asia/Dubai
+## Current resume point - 2026-09-23 Asia/Dubai
+
+P0 G2 compile-only work is complete: D-067 contractc8e8f55, installed PWM/IRQ
+audits5ad262d, raw-byte preservation54dd976, implementation660eb08. Source
+6578e07a first target compile exit0 at03:22:01+04,80248B/34048B globals. Eight
+independent scoped host tests pass0.573s; fresh separate same-model reviewer
+reproduced8/8 in0.601s and verified all26 source files, retained API bodies,
+ELFs/imports and five init-array entries. PASS/no findings. Read
+analysis/P0_pwm_irq_compile_validation.md and reviews/P0_pwm_irq_compile_codex.md.
+No upload/reset/PWM/IRQ execution or physical claim; current MCU remains inert
+QTR61d7a2d0/default from03:00:13.327+04. No config/locked/board-tool/allowlist change.
+Facts F-086/F-087/F-088 preserve wrapper fallback, timer routing/sharing, hidden
+IRQ errors/detach lifecycle and compile-only limits. Inherited Bridge hook has
+K_FOREVER; this new image is not approved for runtime or upload.
+
+No further required autonomous P0 task was found within the current bare-board
+scope after review. Do not repeat completed source audits, compile probes or
+microbenchmarks to fill time. Exact next acceptance work, when physical checks
+resume, is optical matrix observation and actual cold-start measurement protocol
+in analysis/P0_MEASUREMENTS_TEMPLATE.md: default and Immediate must be genuinely
+cold and identified; preserve the Immediate-matrix restriction. Electrical/pin-map
+verification/PINMAP OK and original fresh gate review/human GATE P0 PASS remain.
+P1 software895 checkpoint is unchanged; EXPLAINED OK/GATE P1 PASS remain human.
+D-016 supplies no P2 HAL authority. No new hardware request, invented measurement,
+phase-gate pass, motor permission or background work. Original P7 is unfinished.
+
+Full306 tool checks plus prior3 IMU and new8 focused checks are separate runs,
+not a new combined317 suite. Date23September: no schedule cut yet; preserve
+Sep28 scope cut, Sep30 P6 eligibility and Oct1 21:00Dubai freeze.
+
+## Prior QTR/G6 resume point — 2026-09-23 Asia/Dubai
 
 P0 0.4 QTR-style diagnostic is measured and independently receipt-reviewed PASS.
 D-065 contractsaf4cc67/db8728b precede implementationdcca300. Current MCU:

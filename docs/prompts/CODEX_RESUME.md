@@ -31,8 +31,16 @@ No API invocation/upload; setup only anchors addresses.3 scoped host tests and
 fresh review PASS. Read P0_imu_compile_validation.md/P0_imu_compile_codex.md;
 F-084/SC-AG runtime wait/error limits remain. Full306-tool checkpoint plus3 new
 scoped checks, not a combined309 or repeated895-core run. MCU remains QTR61d7.
-Next eligible task: P0 G2 installed PWM and attachInterrupt API/export audit, then a scoped compile-only probe if still missing. Do not execute PWM, touch motor pins, register live IRQs or begin P2 HAL.
-Read P0_G2.md/FACTS first; no extra hardware request, fake gate or repeated work.
+P0 G2 D-067660eb08/source6578e07a is now TARGET-COMPILED/REVIEWED:80248B
+program/34048B globals,8 independent host checks, fresh same-model binary review
+PASS. Contractsc8e8f55; installed audits5ad262d; exact raw-byte preservation54dd976.
+Read P0_pwm_irq_compile_validation.md/P0_pwm_irq_compile_codex.md/F-086..088.
+No upload/PWM/IRQ execution; inherited hook/runtime and wrapper limitations remain.
+No further required autonomous P0 task is eligible in current bare-board scope.
+Next when physical acceptance resumes: optical matrix and true default/Immediate
+cold-start checks via P0_MEASUREMENTS_TEMPLATE.md, preserving Immediate-matrix
+restriction, then electrical/PINMAP and original review/human gates. Do not redo
+completed diagnostics or start P2. No additional hardware request now.
 
 Prior checkpoint: P0 fixed counter source75ab5a22/default/MOTORS_ALLOWED0 was
 uploaded01:55:51+04 on23September. Its real logger received4..11 then56..63. Read

@@ -100,7 +100,7 @@ class P0ConfigTests(unittest.TestCase):
             with self.subTest(diagnostic=name):
                 self.assertEqual(expected, number(declarations[name][1]))
 
-    def test_b6_filter_default_matches_one_second_spec(self):
+    def test_explicit_behavior_text_defaults_match_spec(self):
         declarations = config_declarations()
         for name, expected in BEHAVIOR_EXTRA_DEFAULTS.items():
             self.assertEqual('std::uint32_t', declarations[name][0])

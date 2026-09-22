@@ -59,11 +59,14 @@ enum class ScriptPhase : std::uint8_t {
     IDLE, BRAKE, BACK, PIVOT, FORWARD, DONE, UNSUPPORTED, INVALID
 };
 struct RowResult {
+    // Current primitive status while moving; DONE for completed row, INVALID
+    // for invalid/unsupported row, IDLE before start. Terminal fallback is false.
     motion::Result motion;
+    // Profile is meaningful in moving phases; brake overrides it elsewhere.
     governor::Profile profile = governor::Profile::EDGE_REVERSE;
     ScriptPhase phase = ScriptPhase::IDLE;
     bool brake = true; // Immediate governor braking in BRAKE and terminal phases.
-    bool phase_changed = false;
+    bool phase_changed = false; // Changes made by step only; start establishes initial phase.
     bool turn_timed_out = false; // One-call B7 timeout pulse, not replayed.
 };
 class RowExecutor {

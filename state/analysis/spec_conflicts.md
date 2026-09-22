@@ -272,3 +272,9 @@ Front-arbitration audit (not approved; see P1_front_arbitration_contract_audit.m
   Recommend A; human decision needed. Test all residual masks, TRACK/ATTACK
   loss, prior full duty, next tick, fresh contact and edge/STOP precedence.
 Standalone FrontQualification does not select either policy.
+
+2026-09-22 human resolution before requested pause: SC-Y/Z/AA/AB/AC/AD/AE are
+RESOLVED by D-040/D-041/D-042/D-043/D-044/D-045/D-046 respectively. Exact user
+approvals are recorded in DECISIONS.md. Their earlier pending descriptions are
+historical. Dependent implementation/tests remain pending; other protected
+physical/escape/WAIT issues are unchanged. Do not request these approvals again.

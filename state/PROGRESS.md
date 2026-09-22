@@ -188,3 +188,20 @@ Unanswered SC-Y/Z/AA/AB/AC/AD/AE and older protected choices remain pending.
 Full P0-P7 objective is unfinished. Current goal turn made substantial meaningful
 progress; no blocked threshold applies. No board action/target build/measurement,
 PINMAP OK, EXPLAINED OK, human GATE, publication or release tag was fabricated.
+
+| 2026-09-22 | Human decisions | Seven explicit approvals accepted as D-040 through D-046 | APPROVED policies; dependent code/tests not yet started | commit containing this row |
+| 2026-09-22 | Session pause | Human explicitly requested stop for network/hardware disconnection | PAUSED by human; precise resume checkpoint saved | commit containing this row |
+
+Last verified software checkpoint31ee5f7:509 host cases/11920737 assertions
+normal+ASan/UBSan,48/48 controlled scripts; scoped reused separate reviewer PASS.
+All subagents are completed and all invoked build/test sessions have finished.
+No board operation was initiated. Only the seven approvals and pause/resume state
+were saved after the stop request; no new implementation began.
+
+On human resume, reload CODEX_RESUME and state. Active phase remains P1 host under
+D-016 with P0 hardware acceptance and every human gate pending. First task now:
+B8 SEARCH public contract/tests/implementation using D-041/D-042 and the saved
+search/re-flank audit; then B11 re-flank using D-040/D-043. Integrate D-045/D-046
+in normal arbitration and D-044 in head-on escape without changing established
+locked tests. Countdown lifecycle remains a subsequent eligible task. Full P0-P7
+objective is unfinished; this is an explicit human pause, not a completion.

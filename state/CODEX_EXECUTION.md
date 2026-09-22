@@ -1,5 +1,11 @@
 # Execution checklist: P1 host development; hardware acceptance pending
 
+**PAUSED by explicit human request, 2026-09-22.** No work continues in the background.
+On resume: implement B8 SEARCH under newly accepted D-041/D-042, then re-flank
+under D-040/D-043. D-044/45/46 approve head-on values and normal-arbitration details.
+The prior next-task and pending-choice paragraphs below are superseded by this
+checkpoint and the final resolution entry in analysis/spec_conflicts.md.
+
 PROGRESS.md is the phase/gate authority. D-016 permits offline P1 development.
 No human gate has passed. No board contact, target compile, upload/reset or motor
 run has occurred. The active user goal defers hardware testing to the end; its

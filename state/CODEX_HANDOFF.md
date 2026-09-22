@@ -2,6 +2,13 @@
 
 ## Current resume point — 2026-09-22 Asia/Dubai
 
+**PAUSED at the human's explicit request for network/hardware disconnection.**
+All agent/build/test work is stopped. Resume only after the human resumes.
+Latest seven approvals are persisted as D-040 through D-046; no dependent code
+was started before pause. First resumed task is now B8 SEARCH contracts/tests/
+implementation under D-041/D-042, then re-flank under D-040/D-043; integrate
+D-045/D-046 arbitration and D-044 head-on values. Read the saved contract audits.
+
 Active implementation is **P1 host development under D-016**; P0 hardware
 acceptance and every human phase gate remain pending. The dated sections below
 are preserved history, not current phase instructions. No target compilation,
@@ -12,17 +19,17 @@ unverified. Hardware work is deferred until connection details/setup are availab
 Latest verified source dc9daa4:509 cases/11,920,737 assertions normal+ASan/UBSan,
 48/48 controlled scripts, reused separate read-only scoped review PASS. Exact
 evidence: analysis/P1_tick_statistics_validation.md and its linked review.
-B14 tick statistics are complete at component scope (contract118f9cc). Next:
-finalize the production countdown lifecycle contract using Controller/Services,
-then independent tests/implementation; read analysis/P1_countdown_lifecycle_audit.md.
+B14 tick statistics are complete at component scope (contract118f9cc). Countdown
+lifecycle remains eligible after the newly unblocked SEARCH/re-flank work;
+read analysis/P1_countdown_lifecycle_audit.md before its eventual contract.
 Full Robot/scripts, other B14 integration and all later phases remain unfinished.
 This continuation made actual software progress, not an impasse or goal completion.
 
 D-039 already records/applies the user's one-case locked STOP amendment. All
 other established locked tests remain protected. No human gates are simulated.
-Pending SC-Y/Z/AA/AB/AC/AD/AE and older physical/escape/WAIT choices are listed in
-analysis/spec_conflicts.md; questions already presented must not be reasked or
-treated as approved through silence. New reviewer creation hit the tool thread
+SC-Y/Z/AA/AB/AC/AD/AE are now resolved by D-040 through D-046. Older physical/
+escape/WAIT choices remain in analysis/spec_conflicts.md. Do not reask approved
+questions or infer approval of other choices. New reviewer creation hit the tool thread
 limit; scoped reviews use an existing separate read-only context and are not a
 fresh complete phase gate. Resume through docs/prompts/CODEX_RESUME.md.
 

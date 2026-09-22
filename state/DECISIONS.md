@@ -328,3 +328,70 @@ reset before the existing fresh full-hold checks.
 Consequence: no other established locked test is authorized to change. Preserve
 the initial failing receipt; rerun full host/sanitizer suites and separate review.
 This approval synchronizes an old expectation with D-035, not weaker protection.
+
+## D-040 (2026-09-22, accepted) Bounded re-flank completion
+Context: SC-Y left natural arc expiry and TURN_IN continuation undefined.
+User replied "Approve A: bounded re-flank completion".
+Decision: arc completion without an inner-sensor trigger exits through D-038
+current perception. TURN_IN retains its captured turn until front detection,
+completion or timeout, then uses D-038. Edge and STOP preempt every phase.
+Consequence: test natural/triggered exits, captured target, exact timing, timeout
+and safety priority. Approval is recorded; implementation remains pending.
+
+## D-041 (2026-09-22, accepted) Latest selected bearing side for SEARCH
+Context: SC-Z left last-seen side ambiguous. User replied "Approve A: latest
+bearing side for search".
+Decision: use the sign of the latest valid nonzero selected relative bearing;
+zero retains the previous side; no known side defaults right. The explicit
+SIDESTEP scan hint still controls its first scan.
+Consequence: test front/side/rear priority, zero/invalid bearings, initial default,
+hint precedence and mirrors. This decision governs SEARCH side selection.
+
+## D-042 (2026-09-22, accepted) Bounded full-scan fallback
+Context: SC-AA left B8's full360-degree scan fallback unspecified.
+User replied "Approve A: bounded scan fallback".
+Decision: use directed yaw progress while IMU-valid. On loss, latch one timed
+fallback for the last known remaining sweep clamped to0..360 degrees at
+TURN_MS_PER_DEG, beginning at that loss observation. Recovery never restarts it.
+Without IMU at scan entry, time the whole360 degrees. Do not inherit the short
+turn's700ms cutoff or manufacture fresh heading observations.
+Consequence: test initial/mid-scan loss, remaining/opposite progress, recovery,
+exact fallback deadlines and wrap. Physical scan behavior remains unvalidated.
+
+## D-043 (2026-09-22, accepted) Unseen front side is least recent
+Context: SC-AB left unseen-versus-seen front recency unordered.
+User replied "Approve A: unseen side is least recent".
+Decision: one unseen side is less recent than a seen side. Both unseen or equal
+recency fall through to the approved right-first alternation. Existing higher
+priority recent-edge side selection remains in force.
+Consequence: test both asymmetric histories, both unseen, equal/older histories,
+alternation and recent-edge precedence; no new edge-direction mapping is implied.
+
+## D-044 (2026-09-22, accepted) Head-on brake interval and reverse request
+Context: SC-AC left B4.2 head-on brake duration/reverse duty undefined.
+User replied "Approve A: one-tick head-on brake and existing reverse duty".
+Decision: brake for one complete TICK_US, reverse EDGE_BACK_LONG_MS at
+EDGE_BACK_DUTY, preserve the specified160-degree pivot and governor rules.
+Consequence: test exact/adjacent times, delayed transitions, mirrors and low
+voltage. Last-opponent-side selection and other escape ambiguities stay separate;
+no established locked-test amendment is authorized by this decision.
+
+## D-045 (2026-09-22, accepted) Count the current entry observation
+Context: SC-AD left the normal TRACK-entry qualification anchor unstated.
+User replied "Approve A: count the current entry observation".
+Decision: count the current centered observation entering TRACK from a script as
+the first required observation; discard qualification from before exit/preemption.
+ATTACK still requires three actual consecutive centered observations by default.
+Consequence: test entry/second/third samples, interruptions and opener/re-flank
+reacquisition. Standalone FrontQualification already supplies the counter; actual
+state-entry/reset integration remains to implement.
+
+## D-046 (2026-09-22, accepted) Brake then route by current perception
+Context: SC-AE conflicted front-loss SEARCH with current side/rear DEFEND_TURN.
+User replied "Approve A: brake then route by current perception".
+Decision: brake to zero immediately on front-target loss; select DEFEND_TURN for
+a current side/rear target, SEARCH for none. The new state's motion begins no
+earlier than the next tick. Edge/STOP and contact requirements remain intact.
+Consequence: test residual masks, TRACK/ATTACK loss from existing duty, loss-tick
+zero and next-tick demand, fresh contact and safety preemption. No motor run or
+phase gate is authorized.

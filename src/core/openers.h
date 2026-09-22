@@ -8,6 +8,9 @@
 #include <cstdint>
 
 namespace openers {
+// D-059 permits a nominal finite initial coordinate when IMU has never been
+// available. Keep imu_ok=false; recovery changes neither references nor deadlines.
+// This applies to each start/sample contract below, never to measured evidence.
 // These are requests to the future FSM, not assignments of Robot state. The FSM
 // must still enforce edge priority, centering/contact rules and motor permission.
 enum class Exit : std::uint8_t { NONE, FRONT_TARGET, SIDE_OR_REAR_TARGET, SEARCH, INVALID };

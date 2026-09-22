@@ -195,11 +195,12 @@ public:
     // reset it/budget merely on replacement. New rows/phases start at observed time.
     //
     // Exit only all-black AND row DONE; emit exited once, zero row, reset budget.
-    // Emit inward_valid/current raw yaw only if that exit has healthy finite IMU;
+    // Emit inward_valid/current supplied yaw only if that exit has healthy finite IMU;
     // otherwise false/zero. Caller owns retained history and its actual timestamp.
     // At initial row start heading must be finite even without IMU (last-known
-    // coordinate). In active rows healthy nonfinite yaw faults; unavailable yaw
-    // is ignored and replans use retained last valid heading. No synthetic yaw.
+    // coordinate, or D-059 nominal initial0 with unavailable IMU). In active rows
+    // healthy nonfinite yaw faults; unavailable yaw is ignored and replans use
+    // retained coordinates. Nominal coordinates never become measured evidence.
     // Validate BOTH duties as finite [-1,1] only at selection when rear+centered
     // consumes that predicate; validate opponent_side only for head-on or selected
     // both-rear pushed-out. Unused contexts ignored; fault masks/permission win.

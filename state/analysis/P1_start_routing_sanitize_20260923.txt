@@ -1,0 +1,25 @@
+Command: wsl -d Ubuntu -- cmake --build build/host-sanitize --parallel 2
+2026-09-23T00:18:30.8704917+04:00
+-- GLOB mismatch!
+-- Configuring done (0.1s)
+-- Generating done (0.3s)
+-- Build files have been written to: /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/build/host-sanitize
+[  2%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/core/countdown.cpp.o
+[  4%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/test_countdown.cpp.o
+[  6%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/test_countdown_integration.cpp.o
+[  8%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/test_countdown_lifecycle.cpp.o
+[ 10%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/test_countdown_services.cpp.o
+[ 12%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/test_edge_guard.cpp.o
+[ 14%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/test_start_routing.cpp.o
+[ 17%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/test_stop_hold.cpp.o
+[ 19%] Linking CXX executable sumox26_tests
+[100%] Built target sumox26_tests
+EXIT_STATUS=0
+Command: wsl -d Ubuntu -- build/host-sanitize/sumox26_tests
+[doctest] doctest version is "2.4.12"
+[doctest] run with "--help" for options
+===============================================================================
+[doctest] test cases:      740 |      740 passed | 0 failed | 0 skipped
+[doctest] assertions: 12122401 | 12122401 passed | 0 failed |
+[doctest] Status: SUCCESS!
+EXIT_STATUS=0

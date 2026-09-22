@@ -9,15 +9,21 @@ D-052 authorizes bare UNO Q diagnostics. No additional hardware is requested.
 
 - Full Escape:66f76e4; WAIT:6938c63; contact preview:990f287. Interfaces preceded
   implementation; decisions D-054/D-055/D-056 record the exact added contracts.
-- HOST-TESTED:716 cases /12,121,189 assertions, normal and ASan/UBSan, no failures
-  or skips.91 new independent cases; established locked tests/config unchanged.
-- SCRIPT-TESTED:116 checks,39.233s. Separate reviewer approved both exact23-file
+- D-057 START-only routing:4d323bc, contract322ecce. Suppression cannot replay a
+  release, restart calibration, cancel an existing hold or bypass STOP/MODE.
+- HOST-TESTED:740 cases /12,122,401 assertions, normal and ASan/UBSan, no failures
+  or skips.115 new independent cases across both batches; established locked
+  tests/config unchanged. Logical menu execution remains unfinished.
+- SCRIPT-TESTED:116 checks,38.984s latest. Separate reviewer approved exact23-file
   inert snapshots before manifest refresh. New sources require their own target
   evidence; historical uploaded image and measurements remain separate.
-- TARGET-COMPILED: current core inside inert timing/default, source98c436a4,
-  exit0,MATCH0/MOTORS_ALLOWED0;74,008B program/33,964B globals. No upload.
+- TARGET-COMPILED:716-case revision a94cc4d inside inert timing/default,
+  source98c436a4,exit0,MATCH0/MOTORS_ALLOWED0;74,008B program/33,964B globals.
+  No upload. Later D-057 sources are host-tested only and need their own target build.
 - Evidence: analysis/P1_escape_wait_validation.md and linked raw receipts;
   reviews/P1_escape_wait_codex.md. Read its final scoped verdict before reuse.
+- Latest routing evidence: analysis/P1_start_routing_validation.md and
+  reviews/P1_start_routing_codex.md, including independent runtime reproduction.
 - Physical evasion, sampling, real MotorGate and timing acceptance remain open.
 
 ## Existing phase tasks
@@ -31,7 +37,7 @@ D-052 authorizes bare UNO Q diagnostics. No additional hardware is requested.
 | P0 0.5 pin map | HARDWARE-PENDING | Electrical measurements and human PINMAP OK absent; config has no proposed pin assignments |
 | P0 gate | GATE-PENDING | Optical/Monitor/cold-start and hardware microbenchmarks unfinished; P0_gate_request.md |
 | P1 1.1 interfaces | PARTIAL | Component headers committed first; remaining B13/Robot integration contract pending |
-| P1 1.2 B3/B13 | HOST-TESTED lifecycle / UI INCOMPLETE | Buttons/StopHold/Gate/Controller/Services/Lifecycle; logical menu and service START routing next |
+| P1 1.2 B3/B13 | HOST-TESTED lifecycle/routing / UI INCOMPLETE | Buttons/StopHold/Gate/Controller/Services/Lifecycle and START-only selector; logical menu next |
 | P1 1.2 B4 | HOST-TESTED Escape | Full policy/rows/replans/faults; fresh physical QTR and global Robot/MotorGate integration pending |
 | P1 1.2 B5 | HOST-TESTED fusion/preview | Ordered filters/cues/memory; pure preview and one final commit; Robot wiring pending |
 | P1 1.2 B6/B7 | HOST-TESTED | Electrical cap/slew/compensation and bounded primitives; one Governor invocation in future Robot |
@@ -47,13 +53,16 @@ D-052 authorizes bare UNO Q diagnostics. No additional hardware is requested.
 
 ## Next eligible work
 
-1. Select B13 logical menu/START-routing contract under D-051 from
+1. Select B13 logical menu contract under D-051 from
    analysis/P1_mode_menu_contract_audit.md; commit interfaces before independent
-   tests/implementation. Keep Controller's default behavior and locked tests.
+   tests/implementation. Its START-routing prerequisite is completed D-057;
+   keep Controller's default behavior and locked tests.
 2. Complete Robot contracts/implementation from analysis/P1_robot_interface_audit.md:
    fresh input ownership, same-tick GO coordinate rebase, truthful histories,
    previous applied duties, one contact commit/Governor call, bounded events,
    STOP/edge priority and inhibited faults. Add real production scenario tests.
+   The new P1_robot_event_contract_audit.md supplies unadopted metadata/batch
+   recommendations; its21-event bound is conditional, not proved Robot behavior.
 3. Complete P1 source/table/property coverage and architecture, target compile,
    then prepare fresh phase review. No P2 HAL implementation without gate/specific
    scheduling authorization; D-016 authorizes P1 only.

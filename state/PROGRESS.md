@@ -291,3 +291,7 @@ physical acceptance and complete fresh gate reviews remain pending.
 Session checkpoint: state/analysis/P1_escape_wait_validation.md contains commands, receipts, review and limits. No human gate or physical acceptance inferred. Last uploaded board image remains the September22 inert matrix. Next eligible task is B13 logical menu/START routing from P1_mode_menu_contract_audit.md, then complete Robot integration; no further hardware connection requested.
 
 | 2026-09-23 | P1 B3/B13 START routing | D-057 START-only eligibility and qualified-event snapshot;24 new locked cases; original defaults intact | HOST-TESTED740 cases/12122401 assertions normal+ASan/UBSan;116 tooling checks; no hardware command in this batch | implementation commit containing this row |
+
+| 2026-09-23 | P1 START-routing checkpoint | D-0574d323bc; separate reused read-only review and independent binary reproduction PASS |740/12122401 normal+ASan/UBSan;116 scripts; exact23-file inert manifests approved; no new target/hardware claim | checkpoint commit containing this row |
+
+Latest resume: logical B13 menu is the next eligible unfinished task from P1_mode_menu_contract_audit.md; START routing is completed. P1_robot_event_contract_audit.md recommendations are saved but unadopted. Full Robot/app/HAL, physical validation and every human gate remain incomplete. Current date23September Dubai; no deadline cut applies yet. All changes local; no push/tag or new motor/run authorization.

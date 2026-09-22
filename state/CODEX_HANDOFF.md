@@ -2,6 +2,15 @@
 
 ## Current resume point — 2026-09-23 Asia/Dubai
 
+Latest additional delivery: D-057 contract322ecce, implementation4d323bc adds
+START-only routing and read-only qualified button snapshots.24 new locked tests
+join the previous716:740 cases/12,122,401 assertions pass normal+ASan/UBSan;
+116 tooling checks pass38.984s. See analysis/P1_start_routing_validation.md and
+reviews/P1_start_routing_codex.md. No established locked test/config changed.
+The latest reviewed inert-source maps are matrix5fd4173b/timing54b851d3; source
+review is not target execution. No new hardware command occurred in this batch.
+The target build described below covers the earlier716-case source only.
+
 Full Escape66f76e4, WAIT6938c63 and contact preview990f287 are implemented and
 HOST-TESTED:716 cases/12,121,189 assertions pass normal+ASan/UBSan;116 tooling
 checks pass. New91 independent cases include42 new locked Escape tests; no
@@ -11,18 +20,22 @@ reviews/P1_escape_wait_codex.md. Exact commands/limits/findings:
 analysis/P1_escape_wait_validation.md. The pre-build unsupported REQUIRE finding
 was corrected in the new test file without changing any predicate/build policy.
 
-Current core also TARGET-COMPILED inside inert p0_timing/default through actual
+The Escape/WAIT/preview revision also TARGET-COMPILED inside inert p0_timing/default through actual
 board CLI/core, source98c436a4, exit0,MATCH0/MOTORS_ALLOWED0. No upload/reset/start;
 the prior matrix image below remains the last uploaded firmware. This is not the
 complete app build or runtime proof. The exact23-file inert snapshots were
 reviewed before allowlist refresh; physical QTR/button/evasion/WCET remain open.
 
-Next eligible task: select/record the logical B13 menu and service START-routing
+Next eligible task: select/record the logical B13 menu
 contract from analysis/P1_mode_menu_contract_audit.md, publish headers, then
 independent tests and implementation. Preserve existing Controller defaults and
-locked tests. Then complete Robot integration using P1_robot_interface_audit.md
+locked tests. Service START-routing is already implemented under D-057; do not
+redo it or reset Controller to enter services. Then complete Robot integration using P1_robot_interface_audit.md
 and D-056: one fresh observation, truthful history, atomic GO coordinates, prior
 applied-duty feedback, one final contact commitment and one Governor call.
+P1_robot_event_contract_audit.md provides unadopted metadata/order/overflow and
+actual-applied-duty recommendations; its capacity proof is conditional on future
+Robot rules. Select/record that contract before tests/source, not by implication.
 Read compact CODEX_EXECUTION.md. No human gate has passed; D-016 permits P1 only.
 Date is23September; no deadline-based scope cut applies yet. C: is low(~290MB).
 

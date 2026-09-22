@@ -23,6 +23,9 @@ engineering choices without questions; D-052 permits bare-board diagnostics only
 Do not request additional hardware for the next P1 host task or reuse a recorded
 USB connection as proof that the device is still attached. Full Escape/WAIT/
 contact preview are now HOST-TESTED716cases and TARGET-COMPILED inside inert
-timing only; see P1_escape_wait_validation.md. Resume the B13 logical menu and
-service START-routing contract from P1_mode_menu_contract_audit.md, then Robot
-integration. Keep existing phase gates and the real app/HAL gaps explicit.
+timing only; see P1_escape_wait_validation.md. D-057 START routing subsequently
+passed740host cases and sanitizers (P1_start_routing_validation.md); that later
+source has no new target build. Resume the B13 logical menu contract from
+P1_mode_menu_contract_audit.md, then Robot integration. START routing is complete.
+Use the event audit as unadopted recommendations. Keep phase gates and the real
+app/HAL gaps explicit.

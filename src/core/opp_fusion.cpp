@@ -1,6 +1,6 @@
-// Applies B5 debounce, bearing selection and memory, and contact qualification.
-// Preserves observed target history while limiting contact to centered ATTACK.
-// Independent host tests cover masks, recency, finite inputs and latch boundaries.
+// Applies B5 debounce, bearing memory, contact, phantom and stuck qualification.
+// Preserves target history while rejecting bounded phantom and stuck detections.
+// Independent host tests cover masks, history, finite inputs and exact boundaries.
 #include "opp_fusion.h"
 #include "../config.h"
 #include <cmath>
@@ -197,5 +197,134 @@ void Contact::reset() {
     all_front_ticks_ = 0U;
     straddle_ticks_ = 0U;
     contact_ = false;
+}
+
+void PhantomFilter::advance(std::uint32_t t_us) {
+    const std::uint32_t elapsed_us = clock_started_ ? t_us - last_us_ : 0U;
+    last_us_ = t_us;
+    clock_started_ = true;
+    const std::uint64_t window_us =
+        static_cast<std::uint64_t>(config::PHANTOM_WINDOW_MS) * 1000U;
+    // The window is inclusive: one past its end preserves permanent expiry.
+    if (episode_ && episode_age_us_ <= window_us) {
+        episode_age_us_ += elapsed_us;
+        if (episode_age_us_ > window_us) {
+            episode_age_us_ = window_us + 1U;
+        }
+    }
+    if (active_) {
+        const std::uint64_t lifetime_us =
+            static_cast<std::uint64_t>(config::PHANTOM_MS) * 1000U;
+        marker_age_us_ += elapsed_us;
+        if (marker_age_us_ >= lifetime_us) {
+            marker_age_us_ = lifetime_us;
+            active_ = false;
+        }
+    }
+}
+
+PhantomResult PhantomFilter::step(const PhantomSample& sample) {
+    advance(sample.t_us);
+    const auto mask = static_cast<std::uint8_t>(sample.confirmed_mask & 0x7FU);
+    const FrontView front = frontView(mask);
+    const bool front_only = front.detected && (mask & 0x78U) == 0U;
+    const bool chasing = front_only && (sample.state == core::State::TRACK ||
+                                        sample.state == core::State::ATTACK);
+    if (!chasing) {
+        episode_ = contacted_ = consumed_ = false;
+        episode_age_us_ = 0U;
+    } else if (!episode_) {
+        episode_ = true;
+        episode_age_us_ = 0U;
+    }
+    const bool heading_valid = sample.imu_ok && std::isfinite(sample.heading_deg);
+    const float world_deg = heading_valid && front_only ?
+        worldBearing(sample.heading_deg, front.bearing_deg) : 0.0F;
+    PhantomResult result;
+    if (chasing) {
+        contacted_ = contacted_ || sample.contact_cue;
+        if (sample.edge_event && !consumed_) {
+            // Even an ineligible edge cannot be replayed later in this chase.
+            consumed_ = true;
+            const std::uint64_t window_us =
+                static_cast<std::uint64_t>(config::PHANTOM_WINDOW_MS) * 1000U;
+            if (!contacted_ && heading_valid && episode_age_us_ <= window_us) {
+                marker_deg_ = world_deg;
+                marker_age_us_ = 0U;
+                active_ = true;
+                result.phantom_set = true;
+            }
+        }
+    }
+    result.filtered_mask = mask;
+    if (active_ && front_only && !front.close && heading_valid) {
+        const float separation_deg = std::fabs(worldBearing(world_deg, -marker_deg_));
+        if (separation_deg <= static_cast<float>(config::PHANTOM_MASK_DEG)) {
+            result.filtered_mask = 0U;
+        }
+    }
+    result.active = active_;
+    result.world_deg = active_ ? marker_deg_ : 0.0F;
+    return result;
+}
+
+void PhantomFilter::reset() {
+    last_us_ = 0U;
+    episode_age_us_ = marker_age_us_ = 0U;
+    marker_deg_ = 0.0F;
+    clock_started_ = episode_ = contacted_ = consumed_ = active_ = false;
+}
+
+StuckResult StuckFilter::step(std::uint32_t t_us, std::uint8_t confirmed_mask,
+                             float heading_deg, bool imu_ok) {
+    const auto mask = static_cast<std::uint8_t>(confirmed_mask & 0x7FU);
+    const std::uint32_t elapsed_us = clock_started_ ? t_us - last_us_ : 0U;
+    last_us_ = t_us;
+    clock_started_ = true;
+    const std::uint32_t required_us = config::OPP_STUCK_MS * 1000U;
+    const bool heading_valid = imu_ok && std::isfinite(heading_deg);
+    StuckResult result;
+    for (std::uint32_t i = 0U; i < 7U; ++i) {
+        const auto bit = static_cast<std::uint8_t>(1U << i);
+        if ((faults_ & bit) != 0U) {
+            continue;
+        }
+        Candidate& candidate = candidates_[i];
+        if ((mask & bit) == 0U || !heading_valid) {
+            candidate = {};
+            continue;
+        }
+        if (!candidate.active) {
+            candidate = {0U, heading_deg, heading_deg, true};
+        } else {
+            // Saturate time so a late sweep still qualifies after many wraps.
+            candidate.age_us = elapsed_us >= required_us - candidate.age_us ?
+                required_us : candidate.age_us + elapsed_us;
+            if (heading_deg < candidate.min_deg) {
+                candidate.min_deg = heading_deg;
+            }
+            if (heading_deg > candidate.max_deg) {
+                candidate.max_deg = heading_deg;
+            }
+        }
+        const double span_deg = static_cast<double>(candidate.max_deg) -
+                                static_cast<double>(candidate.min_deg);
+        if (candidate.age_us >= required_us && span_deg > 360.0) {
+            faults_ |= bit;
+            result.new_fault_mask |= bit;
+        }
+    }
+    result.filtered_mask = static_cast<std::uint8_t>(mask & ~faults_);
+    result.fault_mask = faults_;
+    return result;
+}
+
+void StuckFilter::reset() {
+    for (auto& candidate : candidates_) {
+        candidate = {};
+    }
+    last_us_ = 0U;
+    faults_ = 0U;
+    clock_started_ = false;
 }
 } // namespace opp_fusion

@@ -4,6 +4,7 @@
 #include "opp_fusion.h"
 #include "../config.h"
 #include <cmath>
+#include <limits>
 
 namespace opp_fusion {
 FrontView frontView(std::uint8_t confirmed_mask) {
@@ -173,24 +174,36 @@ void BearingMemory::reset() {
     previous_mask_ = 0U;
 }
 
-ContactResult Contact::step(core::State state, std::uint8_t confirmed_mask,
-                            float ax_g, float ay_g, bool imu_ok) {
+ContactCue Contact::observeCue(std::uint8_t confirmed_mask, float ax_g,
+                               float ay_g, bool imu_ok) {
     const auto front_mask = static_cast<std::uint8_t>(confirmed_mask & 0x07U);
     all_front_ticks_ = consecutiveContact(all_front_ticks_, front_mask == 0x07U);
     straddle_ticks_ = consecutiveContact(straddle_ticks_, front_mask == 0x05U);
-    ContactResult result;
+    ContactCue result;
     result.close_cue =
         (front_mask == 0x07U && all_front_ticks_ >= config::CONTACT_TICKS) ||
         (front_mask == 0x05U && straddle_ticks_ >= config::CONTACT_TICKS);
     result.impact_cue = impactCue(ax_g, ay_g, imu_ok);
     result.cue = result.close_cue || result.impact_cue;
+    return result;
+}
+
+ContactResult Contact::commitLatch(core::State state, std::uint8_t effective_mask,
+                                   const ContactCue& cue) {
+    ContactResult result{cue.close_cue, cue.impact_cue, cue.cue, false, false};
     const bool eligible = state == core::State::ATTACK &&
-                          frontView(confirmed_mask).centered;
+                          frontView(effective_mask).centered;
     const bool previous_contact = contact_;
     contact_ = eligible && (contact_ || result.cue);
     result.contact = contact_;
     result.contact_started = contact_ && !previous_contact;
     return result;
+}
+
+ContactResult Contact::step(core::State state, std::uint8_t confirmed_mask,
+                            float ax_g, float ay_g, bool imu_ok) {
+    const ContactCue cue = observeCue(confirmed_mask, ax_g, ay_g, imu_ok);
+    return commitLatch(state, confirmed_mask, cue);
 }
 
 void Contact::reset() {
@@ -326,5 +339,61 @@ void StuckFilter::reset() {
     last_us_ = 0U;
     faults_ = 0U;
     clock_started_ = false;
+}
+
+FusionObservation Fusion::observe(const FusionSample& sample) {
+    if (observed_ && sample.t_us == observed_us_) {
+        FusionObservation cached = observation_;
+        cached.fresh = false;
+        cached.stuck.new_fault_mask = 0U;
+        cached.phantom.phantom_set = false;
+        return cached;
+    }
+    if (pending_) {
+        // A skipped commitment cannot carry an older contact into a new tick.
+        contact_.commitLatch(core::State::IDLE, 0U, {});
+    }
+    observed_us_ = sample.t_us;
+    observed_ = pending_ = true;
+    observation_.confirmed_mask = debounce_.step(sample.t_us, sample.raw_mask);
+    observation_.stuck = stuck_.step(sample.t_us, observation_.confirmed_mask,
+                                     sample.heading_deg, sample.imu_ok);
+    observation_.cue = contact_.observeCue(observation_.stuck.filtered_mask,
+                                           sample.ax_g, sample.ay_g, sample.imu_ok);
+    observation_.phantom = phantom_.step({sample.t_us, sample.prior_state,
+        observation_.stuck.filtered_mask, sample.heading_deg, sample.imu_ok,
+        sample.edge_event, observation_.cue.cue});
+    // BearingMemory accepts a finite yaw as evidence; reject stale unavailable yaw.
+    const float heading_deg = sample.imu_ok ? sample.heading_deg :
+        std::numeric_limits<float>::quiet_NaN();
+    observation_.bearing = bearing_.step(sample.t_us,
+        observation_.phantom.filtered_mask, heading_deg);
+    observation_.fresh = true;
+    return observation_;
+}
+
+ContactCommit Fusion::commit(core::State selected_state) {
+    if (!pending_) {
+        contact_.commitLatch(core::State::IDLE, 0U, {});
+        return {};
+    }
+    pending_ = false;
+    return {contact_.commitLatch(selected_state, observation_.phantom.filtered_mask,
+                                 observation_.cue), true};
+}
+
+const Memory& Fusion::memory() const {
+    return bearing_.memory();
+}
+
+void Fusion::reset() {
+    debounce_.reset();
+    stuck_.reset();
+    contact_.reset();
+    phantom_.reset();
+    bearing_.reset();
+    observation_ = {};
+    observed_us_ = 0U;
+    observed_ = pending_ = false;
 }
 } // namespace opp_fusion

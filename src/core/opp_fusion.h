@@ -1,6 +1,6 @@
-// Defines the B5.1 polarity correction and hysteresis stage.
-// Makes raw digital input filtering testable before higher fusion policies exist.
-// Host tests cover each bit, consecutive samples, clear intervals and wraparound.
+// Defines B5 filters, bearing memory, contact cues and their ordered fusion path.
+// Separates fresh sensor observations from post-arbitration contact permission.
+// Independent host tests cover tables, histories, composition, faults and wrap.
 #pragma once
 #include <cstdint>
 #include "types.h"

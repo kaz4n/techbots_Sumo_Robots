@@ -250,3 +250,12 @@ Further bounded integration audit (questions pending; no approval inferred):
   A: unseen is least recent; both unseen/equal recency fall through to approved
   alternation. B: any unseen falls through. Recommend A. Test both one-unseen
   orientations, both unseen, ties, known older side and higher-priority edge side.
+
+- SC-AC, B4.2 head-on row: bare "Brake" and omitted reverse duty lack explicit
+  values. A: one full TICK_US brake, then EDGE_BACK_LONG_MS at EDGE_BACK_DUTY;
+  retain the specified EDGE_TURN_FULL_DEG turn and governor. B: defer row.
+  Recommend A; question presented, approval pending. Test exact/adjacent brake
+  and reverse endpoints, delayed calls, mirrors, low voltage and immediate brake.
+  Last-opponent-side mapping remains an integration choice, not decided here.
+Additional B4.4 completion/replan gaps are documented in
+P1_escape_row_contract_audit.md; no new movement policy is silently implemented.

@@ -90,3 +90,9 @@ Every bench or ring measurement and every config.h change goes here with its evi
   R9; it does not alter frame frequency or claim target RAM/latency validation.
 - Evidence: D-028, exact config source check and independent first-event retention
   tests to follow. HAL recorder ownership, frames and idle dump remain later work.
+
+### 2026-09-22 | P1 B4.2 side-row angle | no physical tuning
+- Add EDGE_SIDE_TURN_DEG=45 from the existing B4.2 side-row/B4.3 text, centralized
+  under R9. No B16 value, pin, voltage, acquisition or wiring assumption changes.
+- Evidence: BEHAVIOR B4.2/B4.3, exact config-source check and independent row
+  executor tests to follow. This is not a measured or tuned escape angle.

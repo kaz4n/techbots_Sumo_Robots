@@ -97,6 +97,7 @@ inline constexpr std::uint32_t VBAT_FILTER_MS = 1000U; // ms, B6
 inline constexpr std::uint32_t REFLANK_WINDOW_MS = 10000U; // ms, B11.3 rolling window
 inline constexpr std::uint32_t LOG_EVENT_CAPACITY = 4096U; // events, B15/D-028
 inline constexpr float EDGE_FWD_INNER_RATIO = 0.70F; // ratio, B4.2/D-021
+inline constexpr std::uint32_t EDGE_SIDE_TURN_DEG = 45U; // deg, B4.2 side row/B4.3
 // B3 service boundaries and the human-approved D-024 minimum sample count.
 inline constexpr std::uint32_t CAL_START_MS = 1500U; // ms after qualified release
 inline constexpr std::uint32_t CAL_END_MS = 4500U; // ms, exclusive sample endpoint

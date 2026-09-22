@@ -531,3 +531,21 @@ speculative command; app/MotorGate feedback ownership must be explicit in Robot'
 future interface. Test preview purity/alternative states, invalid pending state,
 cue counters, skipped commit, final re-flank clear and retained real contact.
 No existing commit semantics, locked tests, tuning values or physical claims change.
+
+## D-057 (2026-09-23, selected under D-051) Route service START without match start
+Context: B13 service START must not start the match countdown. Existing Controller/
+Lifecycle privately sample Buttons and expose only Gate's accepted release, so a
+menu cannot safely suppress a match start or reuse its qualified event afterward.
+Spec/header-only audit: analysis/P1_mode_menu_contract_audit.md, section3.
+Decision: add an allow_match_start argument, default true, filtering only the
+qualified release command passed to Gate. Continue all debounce, STOP, MODE and
+timer processing. Expose the latest qualified ButtonEvents as a read-only snapshot
+on Controller/Lifecycle; preserve Result.start_release as accepted match start.
+A suppressed release is consumed with no deferred replay. The selector is not
+an inhibit and cannot revoke an already-started countdown/READY. Service requests
+must separately obey final IDLE/fault/STOP policy and never grant motor permission.
+Consequence: default behavior and established locked tests stay unchanged.
+Test suppressed release/re-enable/fresh press, exact hold, cancel/STOP priority,
+snapshot purity/reset, service non-start with invalid previous bias, active service
+continuation, wrapped/delayed observations and default-argument equivalence.
+No menu policy, hardware decoding, config value, phase gate or motor-run change.

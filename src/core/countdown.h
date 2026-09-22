@@ -81,12 +81,27 @@ public:
     // immediate STOP before Gate. STOP remains latched until reset; physical ADC
     // decoding is separate. This never writes motors/duty. Reset clears all three
     // components; START held at reset is still ignored until a new press/release.
-    Result step(const core::Inputs& inputs, bool stop_requested = false);
+    // D-057: allow_match_start filters ONLY the qualified START release supplied
+    // to Gate. Default true preserves existing behavior. False still advances
+    // Buttons, StopHold, MODE cancellation and Gate time; it neither cancels an
+    // existing countdown nor revokes READY permission. It is routing, not an
+    // emergency inhibit. A suppressed release is consumed, never queued/replayed
+    // when true returns. To start later requires a new qualified press/release.
+    Result step(const core::Inputs& inputs, bool stop_requested = false,
+                bool allow_match_start = true);
+    // Snapshot from the most recent step, including a suppressed qualified START
+    // release. Read-only/repeated reads do not advance input or grant permission.
+    // Result.start_release remains the Gate's ACCEPTED match-release pulse.
+    // Before first step/after reset this snapshot is empty. Caller publishes a
+    // service action at most once and only if final IDLE/fault/STOP policy allows;
+    // the raw snapshot may still contain a pulse on a STOP-priority observation.
+    ButtonEvents buttonEvents() const;
     void reset();
 private:
     StopHold stop_;
     Buttons buttons_;
     Gate gate_;
+    ButtonEvents events_;
 };
 
 struct ServiceSample {
@@ -163,8 +178,15 @@ public:
     // not a board reset. Caller applies bias/heading change through HAL/app.
     // Existing Gate timing is authoritative even for sparse wrapped call streams;
     // finished services alone cannot authorize motion. No clock, I/O or allocation.
+    // D-057 forwards the same START-only routing selector to Controller. A
+    // suppressed release cannot start Services, consume previous_bias_dps or
+    // request heading reset. Existing attempts still progress/cancel normally.
+    // This additive argument defaults true; it does not implement the menu.
     LifecycleResult step(const ServiceSample& sample, core::ButtonLevel button,
-                         float previous_bias_dps, bool stop_requested = false);
+                         float previous_bias_dps, bool stop_requested = false,
+                         bool allow_match_start = true);
+    // Same last-step snapshot as Controller, without sampling Buttons again.
+    ButtonEvents buttonEvents() const;
     void reset();
 private:
     Controller controller_;

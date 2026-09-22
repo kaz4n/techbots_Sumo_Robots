@@ -229,3 +229,19 @@ independent tests and implementation using D-037/038/040/043 and prepared contra
 | 2026-09-22 | P1 B3 lifecycle | Production Controller/Services composition contract committed; worker and independent NEW locked tests assigned | IMPLEMENTING; Controller remains sole GO authority | 2e629c1 |
 
 | 2026-09-22 22:39 +04 | Human decisions | Shared head-on opponent history and inhibited three-white/exhausted-replan recovery explicitly approved | APPROVED D-047/D-048; dependent integration/tests pending | commit containing this row |
+
+| 2026-09-22 | P1 B7 | Relative-turn precision and healthy invalid recovery fix; new independent regressions | HOST-TESTED; scoped review PASS | 47ac972 |
+| 2026-09-22 | P1 B11 | Approved side selection and BACK/SWING/TURN_IN script | HOST-TESTED; scoped review PASS | d78e95d |
+| 2026-09-22 | P1 B4.2 | Explicit-side D-044 head-on entry;14 new locked cases | HOST-TESTED; scoped review PASS | 0171741 |
+| 2026-09-22 | P1 B3 | Production Controller/Services lifecycle;17 new locked cases | HOST-TESTED; scoped review PASS | 144e897 |
+
+Completed batch totals:609 cases/11983801 assertions normal+ASan/UBSan;48/48
+controlled script checks. Reused separate read-only reviewer independently
+reproduced totals and closed all findings; exact23-file inert snapshots approved.
+No existing locked tests/config/HAL changed. Raw commands/statuses and disk-space
+incident/recovery are recorded in analysis/P1_reflank_headon_validation.md; no
+failed runtime repair. C: reached0 while saving an untracked summary; removed
+one verified generated object (source/test/binary retained), restored the summary,
+then scripts passed. No board action, physical evidence, publication or gate.
+Next: D-045/D-046 normal arbitration. D-047/D-048 full Escape integration follows
+specific SC-S/replan lifecycle decisions presented separately; not inferred.

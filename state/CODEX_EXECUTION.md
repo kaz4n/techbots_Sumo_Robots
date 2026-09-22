@@ -2,9 +2,9 @@
 
 **RESUMED by explicit human request, 2026-09-22 at22:07 Asia/Dubai.**
 B8 SEARCH is HOST-TESTED/reviewed (540 cases / 11,937,972 assertions). Next:
-B11 re-flank under D-040/D-043, explicit-side D-044 head-on entry and approved
-countdown lifecycle are implementing with independent new tests; contracts
-a37c9c8/8a6cc48/2e629c1. D-045/46 normal arbitration remains subsequent.
+B11 re-flank, explicit-side D-044 head-on entry and countdown lifecycle are
+HOST-TESTED/reviewed:609 cases/11,983,801 assertions normal+ASan/UBSan;48 scripts.
+Source47ac972/d78e95d/0171741/144e897. Next: D-045/46 normal arbitration.
 Evidence: analysis/P1_search_validation.md and P1_reflank_headon_validation.md.
 D-047/D-048 now approve shared head-on side history and inhibited three-white/
 exhausted-replan recovery. Full Escape integration must still resolve SC-S and
@@ -27,15 +27,15 @@ results remain pending, not assumed successful. Date:2026-09-22, Asia/Dubai.
 | P0 0.5 pin map | BLOCKED | Physical electrical checks and PINMAP OK; no pins assigned in config |
 | P0 gate | GATE-PENDING | P0_gate_request.md prepared; physical evidence and human gate absent |
 | P1 1.1 interfaces | PARTIAL | Existing core modules plus Flank/DefendTurn; remaining scripts/Robot contract pending |
-| P1 1.2 B3/B13 | HOST-TESTED components | Gate/Buttons/StopHold/Controller +Services; production service/bias/heading-reset/menu wiring pending |
-| P1 1.2 B4 | HOST-TESTED components | Classifier/Guard/forward demands plus nine selected RowExecutor rows; full selection/replanning/acquisition pending |
+| P1 1.2 B3/B13 | HOST-TESTED lifecycle | Gate/Buttons/StopHold/Controller/Services + production Lifecycle; HAL bias/heading-reset/menu/Robot wiring pending |
+| P1 1.2 B4 | HOST-TESTED components | Classifier/Guard/forward demands plus nine rows and explicit head-on; D-047/D-048 full selection/replanning/acquisition pending |
 | P1 1.2 B5 | HOST-TESTED pipeline | Fusion orders filters/cues/memory and commits current-state contact once; Robot/physical sampling remain |
 | P1 1.2 B6 | HOST-TESTED | Governor final cap/slew/compensation; FSM target-loss brake/profile selection pending |
 | P1 1.2 B7 | HOST-TESTED | Turn/Straight/Arc/Brake/TimedArc; bounded fallback and cumulative deadlines; scripts/FSM integration pending |
 | P1 1.2 B8 | HOST-TESTED executor | SearchSide/Search, D-041/D-042; truthful histories and global Robot arbitration pending |
 | P1 1.2 B9 | HOST-TESTED request math/qualification | D-036 frontDemand and three-observation FrontQualification; actual state-entry/reset/loss routing still pending |
 | P1 1.2 B10 | HOST-TESTED | DefendTurn captures one target and preserves700/800ms deadlines; Robot arbitration pending |
-| P1 1.2 B11 | HOST-TESTED components | Qualified timer/deflection Detector and rolling limiter/ALL_IN; real re-flank script/FSM arbitration pending |
+| P1 1.2 B11 | HOST-TESTED script/components | Detector/limiter/ALL_IN plus chooseSwing and Reflank script; actual history/limiter admission/FSM arbitration pending |
 | P1 1.2 B12 | HOST-TESTED DIRECT/SIDESTEP/ARC | Shared mirrors and current-perception exit intents; WAIT/global arbitration pending |
 | P1 1.2 B14 | HOST-TESTED tick statistics | Exact supplied-duration/rate/max/saturation arithmetic; actual measurements, IMU/QTR/warnings/fault dispatch pending |
 | P1 1.2 B15 | HOST-TESTED encoding/event buffer |25-byte frames/8-byte events; first4096 retained with overflow/count; frame storage/cadence/dump not implemented |

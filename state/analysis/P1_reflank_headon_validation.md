@@ -1,7 +1,7 @@
 # Re-flank, head-on and countdown lifecycle — 2026-09-22 Asia/Dubai
 
-Status: HOST-TESTED with scoped separate review PASS; controlled script checks
-pending after the approved manifest refresh. Baseline fc5a9f5 SEARCH passed540
+Status: HOST-TESTED with scoped separate review PASS and48/48 controlled script
+checks PASS after the approved manifest refresh. Baseline fc5a9f5 SEARCH passed540
 cases/11,937,972 assertions and48 controlled scripts.
 
 Public contracts precede source/tests: re-flank a37c9c8, additive explicit-side
@@ -57,3 +57,8 @@ this batch. No board contact, target build, upload/reset, motor run, physical
 measurement, publication or human gate. Full Robot, physical freshness, real
 MotorGate writes and measured WCET remain pending. New31 locked cases become
 established with this validated batch; no prior locked case changed.
+
+Post-refresh command `wsl -d Ubuntu -- python3 -m unittest discover -s tests/tooling -v`
+passed48/48, exit0; P1_reflank_headon_tools.txt. Controlled substitutes are script
+evidence, not a target build. Local source commits:47ac972 motion precision/fault
+handling, d78e95d re-flank,0171741 head-on,144e897 lifecycle. No publication.

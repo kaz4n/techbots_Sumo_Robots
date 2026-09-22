@@ -9,13 +9,21 @@ under D-041/D-042 is now HOST-TESTED with scoped separate review PASS. Next:
 B11 re-flank under D-040/D-043, then D-045/D-046 arbitration and D-044 head-on.
 Read analysis/P1_reflank_contract.md and the saved contract audits.
 
-Current in-progress batch: re-flank contract a37c9c8 (private helper4a39b2d),
-head-on8a6cc48 and countdown lifecycle2e629c1. Worker owns fsm.cpp/countdown.cpp;
-root edge.cpp; independent author new re-flank/head-on/lifecycle tests. Review and
-full batch runtime validation remain pending. See P1_reflank_headon_validation.md.
+Latest completed batch: re-flank d78e95d, head-on0171741, lifecycle144e897 and
+relative-turn precision/fault fix47ac972. Contracts were committed first.
+609 cases/11,983,801 assertions pass normal+ASan/UBSan;48/48 scripts pass.
+Reused separate scoped review PASS, exact23-file manifests refreshed. See
+analysis/P1_reflank_headon_validation.md and reviews/P1_reflank_headon_codex.md.
+31 NEW locked cases are now established; prior locked files unchanged.
 SC-AF shared side history and SC-R inhibited recovery were explicitly approved
 as D-047/D-048 in1dfaa7d; integration remains pending. Established locked tests
 stay unchanged; inspect their component scopes before implementing the new policy.
+Next eligible task: D-045/D-046 normal-perception production routing/qualification,
+per analysis/P1_normal_perception_contract.md. Full Escape needs the two specific
+pushed-out/replanning decisions now presented in P1_escape_remaining_contract.md.
+No answers inferred. Check disk space before more builds: C: briefly reached0;
+one verified untracked sanitizer object was removed, all evidence restored, and
+about594MB was subsequently available. Raw results/source/tests remained intact.
 
 Active implementation is **P1 host development under D-016**; P0 hardware
 acceptance and every human phase gate remain pending. The dated sections below
@@ -24,7 +32,7 @@ upload/reset, motor run or physical measurement has occurred. Origin is configur
 and retained; no publication. User reports MPU6050; exact breakout/interface is
 unverified. Hardware work is deferred until connection details/setup are available.
 
-Latest SEARCH snapshot:540 cases/11,937,972 assertions normal+ASan/UBSan,
+Earlier SEARCH snapshot fc5a9f5:540 cases/11,937,972 assertions normal+ASan/UBSan,
 reused separate read-only scoped review PASS. Exact evidence:
 analysis/P1_search_validation.md and its linked review. B14 tick statistics
 remain complete at component scope (contract118f9cc). Countdown

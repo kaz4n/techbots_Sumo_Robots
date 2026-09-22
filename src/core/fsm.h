@@ -45,7 +45,9 @@ public:
     // the provider yaw, or use this helper as motor permission or physical proof.
     HeadingResult step(std::uint32_t t_us, float raw_heading_deg, bool imu_ok,
                        bool go = false);
-    // Read-only directional views in (-180,180], exact +/-180 -> +180. Invalid
+    // Read-only directional views in (-180,180], exact +/-180 -> +180. A negative
+    // non-tie that narrows to excluded -180 uses the nearest interior negative
+    // float, preserving LEFT rather than becoming the exact RIGHT tie. Invalid
     // projections are finite0/valid=false, do not mutate/latch faults or freshness.
     // worldBearing requires this tick's healthy match yaw and relative bearing
     // in (-180,180]; reduce checked double(raw-origin) BEFORE adding the small

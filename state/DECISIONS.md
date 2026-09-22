@@ -595,6 +595,8 @@ evidence and actual timestamps; project views without resampling or refreshing a
 Use double subtraction, check float representability, reduce directional angles
 before adding small bearings or narrowing; current world views retain the checked
 double difference even when the published float match heading rounds it.
+Exact directional antipode ties select+180; a negative non-tie rounding to-180
+uses the nearest interior negative float so rounding cannot reverse its side.
 Continuous headings stay unwrapped. Expose origin
 source/time; pending source time is GO, not a claimed measurement.
 Healthy nonfinite yaw (even pre-GO), nonrepresentable match difference or repeated

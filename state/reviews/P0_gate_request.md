@@ -12,7 +12,7 @@ CODEX_KICKOFF tooling safety requirements and D-015 role migration.
 |---|---|
 | G1-G6 answered or flagged with bench checks | SOURCE-REVIEWED, FACTS F-019 onward and analysis/P0_G1..G6.md; MPU6050 now user-reported |
 | Host scaffold | HOST-TESTED; current895-case suite, P1_robot_validation.md |
-| Board scripts | SCRIPT-TESTED306 checks and actual board-side ADB compile/upload/logger receipts; P0_qtr_validation.md/P0_gpio_validation.md/P0_adc_validation.md/P0_counter_validation.md |
+| Board scripts | SCRIPT-TESTED306 full checks plus3 focused IMU checks and actual board-side ADB compile/upload/logger receipts; P0_qtr_validation.md/P0_gpio_validation.md/P0_adc_validation.md/P0_counter_validation.md |
 | Actual matrix/counter log round trip | COUNTER OBSERVED: D-062 inert adapter delivered4..11 and56..63; optical matrix appearance remains absent; stock Bridge is not the adapter |
 | Both startup modes measured | NOT MET: default/Immediate timing compiled, default60000-sample scheduler measurement; no true cold-start/Immediate runtime measurement |
 | Physical P0 micro-benchmarks | PARTIAL: bare scheduler60000samples and startup ADC1000calls,GPIO400cycles,QTR-style200acquisitions measured; actual sensors still separate |
@@ -30,8 +30,8 @@ on23September. Both100-sample neutral/pull-up datasets completed DEADLINE/mask15
 actual synchronous totals about1.53ms exceed the tick budget. Full image/frozen
 records and post-run review PASS; P0_qtr_validation.md/P0_qtr_codex.md retain limits.
 Prior GPIO/ADC measurements remain tied to their old images. D-066 MPU6050 API
-compile probe is underway, with no upload or I2C execution; runtime usability is
-unproved. No source/diagnostic result supplies physical sensor or human acceptance.
+probe b7bd0df is TARGET-COMPILED/REVIEWED, with no upload or I2C execution; runtime
+usability remains unproved under F-084/SC-AG. No source/diagnostic result supplies physical sensor or human acceptance.
 Fixed-counter
 source/binary reviews and raw logger receipts remain preserved. No request to
 connect additional hardware is needed while the user defers those measurements.

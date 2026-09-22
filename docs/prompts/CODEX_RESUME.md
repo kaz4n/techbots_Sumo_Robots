@@ -25,12 +25,14 @@ analysis/P0_qtr_validation.md and reviews/P0_qtr_codex.md. This setup-only resul
 is not real sensor/freshness/physical-cleanup/WCET evidence; SC-B stays open.
 Current source maps61d7a2d0/afa72adb/65d7e5a3/e30b5443/9ea79c80. No repeat upload.
 
-Next active P0 task: D-066 MPU6050 compile-only compatibility probe,452502d.
-Read P0_imu_compile_contract.md and P0_imu_installed_contract_20260923.md.
-Three scoped host tests pass; dependency/target build review underway. Probe
-stays outside upload allowlist and setup only anchors addresses, no I2C calls.
-No runtime usability inferred from compilation. Preserve initial fixture receipt.
-No additional hardware request or later phase bypass; human gates remain pending.
+P0 G6 D-066 probe b7bd0df/sourcee0ee0fcc is now TARGET-COMPILED/REVIEWED.
+Pinned three libraries installed with full provenance, prior packages unchanged.
+No API invocation/upload; setup only anchors addresses.3 scoped host tests and
+fresh review PASS. Read P0_imu_compile_validation.md/P0_imu_compile_codex.md;
+F-084/SC-AG runtime wait/error limits remain. Full306-tool checkpoint plus3 new
+scoped checks, not a combined309 or repeated895-core run. MCU remains QTR61d7.
+Next eligible task: P0 G2 installed PWM and attachInterrupt API/export audit, then a scoped compile-only probe if still missing. Do not execute PWM, touch motor pins, register live IRQs or begin P2 HAL.
+Read P0_G2.md/FACTS first; no extra hardware request, fake gate or repeated work.
 
 Prior checkpoint: P0 fixed counter source75ab5a22/default/MOTORS_ALLOWED0 was
 uploaded01:55:51+04 on23September. Its real logger received4..11 then56..63. Read

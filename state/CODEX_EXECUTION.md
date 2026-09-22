@@ -7,6 +7,11 @@ UNO Q diagnostics. No additional hardware connection is requested.
 
 ## Completed software checkpoint
 
+- P0 G6 D-066 b7bd0df: API probe e0ee0fcc target-compiles,96236B/39356B globals.
+  Exact3 Adafruit pins/provenance and retained APIs/Wire1 independently reviewed.
+  No upload/I2C;3 new scoped host checks PASS. Full306 checkpoint remains separate.
+  P0_imu_compile_validation.md and fresh review retain source/runtime limitations.
+
 - P0 0.4 QTR dcca300: current61d7a2d0/default inert upload03:00:13.327+04.
  100neutral+100pull-up acquisitions reached deadline/mask15. Total1530..1536us,
   charge11..12us, cleanup4 attempts. Actual full-image/frozen-RAM review PASS;
@@ -65,7 +70,7 @@ UNO Q diagnostics. No additional hardware connection is requested.
 | P0 0.4 ADC | MEASURED / RUNTIME-API-BLOCKED |D-063/F-079; startup-only calls measured, stock runtime wait remains unbounded |
 | P0 0.4 GPIO | MEASURED / REVIEWED |D-064/F-081;400 correct internal LED cycles, empirical timings |
 | P0 0.4 QTR-style | MEASURED / REVIEWED |D-065/F-083; two100-sample timeout datasets, actual1.53ms path; SC-B still open |
-| P0 G6 API compatibility | IN PROGRESS / COMPILE-ONLY |D-066 contract452502d;3 scoped host tests pass; installed Wire audit/source limits retained |
+| P0 G6 API compatibility | TARGET-COMPILED / REVIEWED |D-066 b7bd0df/F-085;3 scoped host checks PASS; no upload/I2C, SC-AG runtime limits remain |
 | P0 gate | GATE-PENDING |Fixed Monitor counter and ADC observed; optical/cold-start and physical electrical acceptance unfinished |
 | P1 1.1 interfaces | IMPLEMENTED |Public contracts committed before independent tests/source |
 | P1 1.2 B3/B13 | HOST-TESTED / TARGET-COMPILED |Production menu, mode capture, full hold, services and STOP; physical A1/consumers later |
@@ -82,10 +87,9 @@ UNO Q diagnostics. No additional hardware connection is requested.
 
 ## Next actions and boundaries
 
-1. Complete D-066 MPU6050 compile-only API/link probe with exact pinned dependency
-   provenance, installed exports and separate review. No I2C execution/upload.
-   P0_imu_compile_contract.md and installed-contract audit define this scope.
-   Keep all completed bare-board diagnostic evidence; no additional hardware request.
+1. Next: P0 G2 installed PWM/attachInterrupt source/export audit and, if missing,
+   a bounded compile-only API probe. Read P0_G2.md/FACTS first; no PWM or motor-pin
+   writes, live interrupt registration, P2 HAL or repeated completed diagnostic.
 2. Preserve the completed P1 software evidence and current P1 gate packet. Do not
    restart completed modules or reinterpret a passing review as a human gate.
 3. P0 fixed Monitor counter is now observed through D-062's adapter. Preserve its

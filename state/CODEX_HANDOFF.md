@@ -20,14 +20,23 @@ first276us/subsequent139..140us remain evidence for their own earlier images.
 Do not repeat completed microbenchmarks. Current reviewed manifests: QTR61d7a2d0,
 GPIOafa72adb,ADC65d7e5a3,matrixe30b5443,timing9ea79c80. Prior maps are historical.
 
-Next active P0 task is D-066 MPU6050 compile-only API compatibility, contract452502d
-and analysis/P0_imu_compile_contract.md. Installed Wire/I2C source audit is in
-P0_imu_installed_contract_20260923.md. Probe setup stores addresses only, never
-calls I2C or uploads; no runtime adoption. Three new scoped host tests pass after
-correcting the direct-call exception type in a new fixture, preserving both
-receipts. Dependency installation/actual target compile and review are underway.
-No extra hardware request. P0 optical/cold-start/electrical/PINMAP/human acceptance
-and P1 EXPLAINED OK/GATE remain pending; no P2 authority or motor authorization.
+P0 G6 is now TARGET-COMPILED/REVIEWED: D-066 contract452502d, implementation
+b7bd0df/sourcee0ee0fcc. Exact MPU6050 2.2.9,BusIO1.17.4,Unified Sensor1.1.15
+installed with provenance; prior libraries unchanged. First target build passes,
+96236B program/39356B globals. Retained never-called APIs/Wire1 binding confirmed;
+no upload/I2C operation. Three scoped host checks and fresh same-model review PASS.
+Initial fixture-only exception mismatch and reviewer Windows compiler absence are
+retained; no source repair or locked amendment. Read P0_imu_compile_validation.md
+and P0_imu_compile_codex.md. F-084/SC-AG retain installed waits/error risks; runtime
+adoption unproved. Full306 tooling checkpoint plus these3 scoped checks, not a
+new combined309 run or repeated full-core suite. Current MCU still QTR61d7a2d0.
+
+Next eligible task: P0 G2 installed PWM and attachInterrupt API/export audit, then a scoped compile-only probe if still missing. Do not execute PWM, touch motor pins, register live IRQs or begin P2 HAL.
+Read P0_G2.md and FACTS before acting; do not repeat completed diagnostics or IMU
+compatibility. No additional hardware request. P0 optical/true-cold-start/
+electrical/PINMAP and human gate remain pending; P1 still needs EXPLAINED OK and
+human GATE P1 PASS. No P2 or motor authority follows. Date23September: no scope
+cut is due; keep original Sep28/Sep30/Oct1 deadlines. Complete P7 remains open.
 
 ## Prior fixed-counter checkpoint — 2026-09-23
 

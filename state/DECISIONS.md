@@ -710,3 +710,16 @@ Consequence: stimulated success proves sampled bare-pad timeout-path timing only
 No sensor discharge/freshness, physical cleanup, PINMAP, wiring/B16 change or R4
 acceptance follows. SC-B and all human gates remain open. Independent tests,
 source/binary review and exact inert manifests are required before any upload.
+
+## D-066 (2026-09-23, selected under D-051) P0 MPU6050 compile-only compatibility
+Context: G6 source candidates are pinned, but installed UNO Q compilation and
+Wire1/link compatibility remain unverified. Missing sensor prevents measurements,
+not compilation. Installed Wire/native waits and library fault handling preclude
+assuming these dependencies are suitable for the production1kHz control loop.
+Decision: adopt P0_imu_compile_contract.md. Install only absent exact pinned
+MPU6050/BusIO/Unified Sensor dependencies with provenance and --no-deps; preserve
+existing versions. Compile a retained never-called API probe whose setup only
+stores its function and Wire1 addresses. Explicitly omit unused display libraries.
+Consequence: this records compatibility only, not runtime validity. No upload
+allowlist entry, I2C execution, wiring/config value, upstream patch, P2 HAL, sensor
+claim or human gate. Preserve source/ELF/review/test evidence and every failure.

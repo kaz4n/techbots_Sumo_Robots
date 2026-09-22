@@ -56,6 +56,26 @@ FrontQualificationResult FrontQualification::observe(std::uint8_t effective_mask
 
 void FrontQualification::reset() { centered_ticks_ = 0U; }
 
+NormalResult NormalPerception::step(std::uint8_t effective_mask) {
+    const auto front = qualification_.observe(effective_mask);
+    NormalResult result;
+    result.front_detected = front.front_detected;
+    result.centered = front.centered;
+    result.brake = front_active_ && !front.front_detected;
+    if (front.front_detected) {
+        result.state = front.attack_eligible ? core::State::ATTACK : core::State::TRACK;
+    } else if ((effective_mask & 0x78U) != 0U) {
+        result.state = core::State::DEFEND_TURN;
+    }
+    front_active_ = front.front_detected;
+    return result;
+}
+
+void NormalPerception::reset() {
+    qualification_.reset();
+    front_active_ = false;
+}
+
 FrontDemand frontDemand(core::State state, std::uint8_t effective_mask, bool contact) {
     FrontDemand result;
     const auto view = opp_fusion::frontView(effective_mask);

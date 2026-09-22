@@ -86,14 +86,16 @@ struct SearchResult {
 };
 class Search {
 public:
-    // B8: finite initial/last-known heading and valid direction enums required.
+    // B8: finite initial/last-known heading; validate last_side always and the
+    // scan_hint enum only when scan_hint_valid. Ignore an unused hint enum.
     // Recent valid world memory (age<SEARCH_MEMORY_MS) captures one B7 turn at
     // TURN_DUTY. Otherwise start SCAN. Memory age is tested only at entry; never
     // retarget/restart that turn if its memory expires during the command.
     // First-scan direction: explicit hint, else nonzero captured shortest memory
     // turn sign, else last_side. Existing B7 +180 tie is RIGHT; zero uses last_side.
     // Only recent valid headings are consumed/validated; unused expired/invalid
-    // context values are ignored. A consumed nonfinite heading is INVALID/zero.
+    // context values are ignored. A consumed nonfinite heading or world bearing
+    // outside (-180,180] is INVALID/zero; never turn toward an invalid target.
     bool start(std::uint32_t t_us, float heading_deg, bool imu_ok,
                const SearchContext& context);
     // Any low-seven-bit current effective target exits PERCEPTION/zero before

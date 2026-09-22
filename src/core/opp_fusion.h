@@ -102,4 +102,75 @@ private:
     std::uint32_t straddle_ticks_ = 0;
     bool contact_ = false;
 };
+
+struct PhantomSample {
+    std::uint32_t t_us = 0;
+    core::State state = core::State::IDLE; // State before this tick's edge arbitration.
+    std::uint8_t confirmed_mask = 0; // Before phantom suppression, after stuck removal.
+    float heading_deg = 0.0F;
+    bool imu_ok = false;
+    bool edge_event = false;
+    bool contact_cue = false; // Current B5.4 cue, not only its ATTACK latch.
+};
+struct PhantomResult {
+    std::uint8_t filtered_mask = 0;
+    bool active = false;
+    bool phantom_set = false; // One call per qualified edge/episode.
+    float world_deg = 0.0F; // Valid only while active; normalized (-180,180].
+};
+class PhantomFilter {
+public:
+    // D-029: front-only means some low three bits and no side/rear bits. Start
+    // an episode only in TRACK/ATTACK; maintain across those two states, clear
+    // it on any non-chase observation. Remember any contact cue. An edge at
+    // age <= PHANTOM_WINDOW_MS marks current heading+front bearing if IMU-valid
+    // and finite with no contact; that edge consumes the episode until it ends.
+    // D-030: one marker, replaced on a new mark, expires at age >= PHANTOM_MS.
+    // Mask only front-only observations within inclusive PHANTOM_MASK_DEG;
+    // B5.2 close patterns101/111 and any side/rear observation override masking.
+    // Invalid heading never marks/masks; expiry still advances. High bit ignored.
+    // Successive call gaps must be less than one uint32 micros wrap.
+    PhantomResult step(const PhantomSample& sample);
+    void reset();
+private:
+    void advance(std::uint32_t t_us);
+    std::uint32_t last_us_ = 0;
+    std::uint64_t episode_age_us_ = 0;
+    std::uint64_t marker_age_us_ = 0;
+    float marker_deg_ = 0.0F;
+    bool clock_started_ = false;
+    bool episode_ = false;
+    bool contacted_ = false;
+    bool consumed_ = false;
+    bool active_ = false;
+};
+
+struct StuckResult {
+    std::uint8_t filtered_mask = 0;
+    std::uint8_t fault_mask = 0; // Latched until reset even if current input clears.
+    std::uint8_t new_fault_mask = 0; // Newly declared bits on this call only.
+};
+class StuckFilter {
+public:
+    // Inspect unsuppressed confirmed bits (before phantom masking). Each bit
+    // independently requires continuous detection >= OPP_STUCK_MS and observed
+    // continuous-heading span strictly >360 degrees. No modulo/cumulative travel.
+    // Clear or unavailable/nonfinite IMU resets an undeclared candidate. D-031
+    // declared faults persist until reset. High bit ignored; bounded seven-bit
+    // work. Successive call gaps must be less than one uint32 micros wrap.
+    StuckResult step(std::uint32_t t_us, std::uint8_t confirmed_mask,
+                     float heading_deg, bool imu_ok);
+    void reset();
+private:
+    struct Candidate {
+        std::uint32_t age_us = 0;
+        float min_deg = 0.0F;
+        float max_deg = 0.0F;
+        bool active = false;
+    };
+    Candidate candidates_[7];
+    std::uint32_t last_us_ = 0;
+    std::uint8_t faults_ = 0;
+    bool clock_started_ = false;
+};
 } // namespace opp_fusion

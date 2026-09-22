@@ -184,8 +184,20 @@ fresh latch; an old contact cannot authorize a later target.
 - For PHANTOM_MS, front-only detections within PHANTOM_MASK_DEG of a phantom are ignored unless a side sensor or the close cue confirms them.
 - Log PHANTOM_SET.
 
+D-029/D-030 (human-approved 2026-09-22): begin the chase window at the first
+front-only TRACK/ATTACK observation, retain it across TRACK/ATTACK, end it when
+the chase ends and remember any contact cue. An edge within PHANTOM_WINDOW_MS
+can mark the current world bearing only with no prior/current contact and valid
+heading. Keep one marker: each newly qualified PHANTOM_SET replaces the previous
+marker and restarts PHANTOM_MS.
+
 ### B5.6 Stuck sensor
 A bit that stays on for OPP_STUCK_MS while the heading changes by more than 360 degrees is stuck: ignore it, show the fault icon, log it.
+
+D-031 (human-approved 2026-09-22): use observed accumulated-heading span (maximum
+minus minimum), strictly greater than 360 degrees, during continuous detection.
+Invalid/unavailable IMU restarts qualification. Declared stuck bits remain ignored
+until reset even if their input later clears.
 
 ---
 
@@ -275,6 +287,12 @@ If only front QTR bits are white, the opponent is centered, and FC is on, stay i
 Extra triggers:
 - **Deflection:** heading changed more than STALL_DEFLECT_DEG since contact (the opponent's wedge is turning us).
 - **IMU refinement (flag STALL_USE_IMU, default 0):** forward acceleration integrated from contact (assuming near-zero speed right after impact) shows less than STALL_MIN_DISP_M of travel. Enable only if P4 logs support it.
+
+D-032 (human-approved 2026-09-22): STALL_MS continuous qualification OR earlier
+deflection strictly above STALL_DEFLECT_DEG triggers stall. Both routes require
+centered ATTACK contact, both forward final electrical duties at least
+STALL_MIN_DUTY and no edge event since contact. Displacement refinement stays
+disabled; D-025 ALL_IN suppresses the stall result without bypassing safety rules.
 
 ### B11.2 Re-flank script (right swing shown; left mirrors)
 Side choice, first rule that applies:

@@ -212,3 +212,41 @@ dump as incomplete evidence. Overflow does not change motion.
 Consequence: visibly amend B15. Later recorder-buffer tests must cover4095/4096/
 4097, earliest-event preservation, counter saturation, continued frames and dump
 status. The current pure codec is not an implemented recorder ring or transport.
+
+## D-029 (2026-09-22, accepted) Bounded phantom chase episode
+Context: SC-O1 left the B5.5 time anchor and earlier contact history undefined.
+User replied "Approve A: bounded phantom chase episode".
+Decision: start at the first front-only TRACK/ATTACK observation, preserve the
+episode across TRACK/ATTACK, end it when that chase ends and remember every
+contact cue during it. An edge within PHANTOM_WINDOW_MS may mark the current
+world bearing only if no contact occurred and heading is valid.
+Consequence: implement explicit episode history, finite heading checks and exact
+window/transition/contact regressions; no hardware fact or gate is inferred.
+
+## D-030 (2026-09-22, accepted) One replaceable phantom marker
+Context: SC-O2 left B5.5 marker storage and replacement unspecified.
+User replied "Approve A: latest phantom replaces previous".
+Decision: keep one active phantom bearing. A newly qualified PHANTOM_SET replaces
+it and starts a fresh PHANTOM_MS interval.
+Consequence: bounded storage, replacement/expiry/circular-distance tests; no
+multiple-marker retention strategy is introduced.
+
+## D-031 (2026-09-22, accepted) Observed heading span and latched stuck faults
+Context: SC-P left B5.6 rotation evidence, IMU gaps and recovery undefined.
+User replied "Approve A: observed sweep and reset-only recovery".
+Decision: require continuous detection for OPP_STUCK_MS and an accumulated-heading
+span (maximum minus minimum) strictly greater than 360 degrees. Invalid/unavailable
+IMU restarts qualification. Once declared, a stuck bit remains ignored until reset,
+even if it subsequently clears.
+Consequence: test exact time/angle limits, clear/reassert, IMU gaps, observed span,
+one-shot faults and reset; a host heading sequence is not a physical sweep test.
+
+## D-032 (2026-09-22, accepted) Qualified timer or deflection stall trigger
+Context: SC-Q left B11.1 early deflection and two-wheel duty qualification unclear.
+User replied "Approve A: qualified timer or deflection".
+Decision: trigger after STALL_MS continuous qualification OR earlier deflection
+since contact strictly above STALL_DEFLECT_DEG. Both routes require centered
+ATTACK contact, both forward final electrical duties at least STALL_MIN_DUTY,
+and no edge event since contact. Keep IMU displacement refinement disabled.
+Consequence: test exact thresholds/signs, contact/edge histories, invalid IMU and
+D-025 suppression. This inference still needs P4 logs; no measured stall is claimed.

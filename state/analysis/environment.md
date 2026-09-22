@@ -28,3 +28,15 @@ from PowerShell: `wsl -d Ubuntu -- bash tools/test_host.sh` (cwd is translated).
 
 User subsequently asked to continue software assuming hardware works and defer
 checks; record assumptions as unverified and keep working on eligible P0 tasks.
+
+## Disconnection recovery, 2026-09-22 17:19–17:28 +04:00
+
+Existing repository recovered at b6b6680, with uncommitted P0 tools, bench sketches
+and G1-G6 reports preserved and completed. No duplicate repository or role ADR
+was created. Current `Get-Date` and WSL `date -Iseconds` agree on Asia/Dubai.
+Fresh WSL checks confirmed g++13.3.0, CMake3.28.3, Python3.12.3, Git2.43.0,
+OpenSSH9.6p1 and rsync3.2.7; adb/arduino-cli remain absent from the checked PATH.
+No installations or board/USB access were attempted. Native delegation was
+actually used for source review, independent scaffold checks and read-only
+tooling review. The user reports MPU6050; source details are in P0_G6.md.
+SSH/setup details remain unavailable; intended setup is only an assumption.

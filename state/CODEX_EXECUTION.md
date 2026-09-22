@@ -5,14 +5,33 @@ PROGRESS.md is the phase/gate authority. No gates passed; no motor-run authoriza
 | Existing task | Status / dependency | Acceptance / evidence / next action |
 |---|---|---|
 | Kickoff migration | IMPLEMENTED | D-015, AGENTS addition, CODEX_HANDOFF, baseline 52b935e |
-| P0 0.1 G1-G6 | IN PROGRESS | Primary sources in analysis/P0_G*.md; coordinator merges FACTS |
-| P0 0.2 scripts | IN PROGRESS | Staged sketch, controlled substitute tests; board result separate |
+| P0 0.1 G1-G6 | SOURCE-REVIEWED | analysis/P0_G*.md; merged FACTS F-019–F-060; MPU6050 user-reported, installed/electrical acceptance pending |
+| P0 0.2 scripts | IMPLEMENTED / SCRIPT-TESTED | 720791d; 32/32 combined checks, P0_tool_tests_recovery.txt; separate-context review PASS; real board result separate |
 | P0 0.2 round trip/startup | HARDWARE-PENDING | SSH target, safe bare board, installed versions, matrix + counter, both startup times |
-| P0 0.3 scaffold | IN PROGRESS | CMake/doctest/config defaults; tools/test_host.sh must pass |
-| P0 0.4 micro-benchmarks | HARDWARE-PENDING | 60 s jitter/max/p99; GPIO/QTR timeout/ADC; model-dependent I2C |
+| P0 0.3 scaffold | HOST-TESTED | 7968434; exact 76 B16 defaults (corrected earlier 77 claim); CTest1/1; P0_host_tests_recovery.txt |
+| P0 0.4 micro-benchmarks | PARTIAL / HARDWARE-PENDING | Inert RAM lateness capture and matrix sketch host-tested; real 60 s jitter/max/p99, GPIO/QTR/ADC and MPU6050 I2C still unmeasured |
 | P0 0.5 pin map | BLOCKED | source inventory, physical checks, approved changes, PINMAP OK |
-| P0 review/gate | GATE-PENDING | fresh-context reviewer, real exit evidence, human GATE P0 PASS |
+| P0 review/gate | GATE-PENDING | Scoped software review PASS (reviews/P0_recovery_codex.md); prepared P0_gate_request.md; physical evidence and human gate absent |
 
 Protected conflicts: analysis/spec_conflicts.md. No recommendation is approved.
-Next: finish safe P0 implementation, validate host and scripts, review diffs; await
-requested connection/setup/model/rulebook/layout facts for hardware work.
+## Exact next task / dependencies
+
+All currently executable P0 host recovery tasks are checked and saved. The user
+cannot currently supply connection/setup details and identifies the IMU as
+MPU6050. Keep intended connectivity as an assumption, not verified evidence.
+
+1. When an SSH alias/user is supplied, run the read-only installed-board preflight
+   in P0_G4: CLI/core/board details/libraries/loader configuration/router service.
+   Record outputs; no upload or reset is part of this inventory.
+2. Before inert board upload, confirm physical isolation and exact source snapshot.
+   Resolve SC-I explicitly before implementing the printed Monitor counter; the
+   RAM counter does not satisfy the round-trip requirement. Measure startup modes
+   and 0.4 timings using verified setup and record actual values.
+3. Identify the MPU6050 breakout/interface and address; use the specific tests in
+   P0_G6. Do not adopt the inspected Adafruit read path or synchronous I2C fault
+   path unchanged. No new driver, ODR, filter, wiring or INT pin is approved.
+4. Finish 0.5 electrical/pin checks, obtain PINMAP OK, complete the full fresh gate
+   review and wait for the human's GATE P0 PASS. P1 is still ineligible.
+
+No circuit/timing/governor/arbitration/overflow recommendation in the conflict
+register is approved. Obtain each protected decision before dependent work.

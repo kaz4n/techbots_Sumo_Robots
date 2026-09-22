@@ -20,3 +20,13 @@ no STAND OK, RING OK, PINMAP OK, or human gate was provided.
 | 2026-09-22 | P0 recovery 0.3/0.4 | Correct B16 extraction (76 defaults; remove unrelated FC), recover inert matrix/timing sketches, fix elapsed counter and add independent checks | HOST-TESTED: 11 focused checks plus host CTest 1/1; analysis/P0_scaffold_audit.md and P0_host_tests_recovery.txt; no target measurements | commit containing this row |
 
 | 2026-09-22 | P0 recovery 0.2 | Recover SSH staging/compile/upload and receive-only log scripts; fix prerequisite/staging/symlink failures; bind inert upload to reviewed source | SCRIPT-TESTED: full suite 32/32, exit 0; analysis/P0_tool_tests_recovery.txt; separate-context software review PASS in reviews/P0_recovery_codex.md; no board contacted | commit containing this row |
+
+| 2026-09-22 | P0 recovery 0.1 | Preserve/merge G1-G6 primary research; refresh tooling facts and add user-reported MPU6050 range/rate/library/timing analysis | SOURCE-REVIEWED; FACTS F-019–F-060; hardware/target pending; no candidate library adopted | commit containing this row |
+| 2026-09-22 | P0 recovery checkpoint | Save independent review, exact resume dependencies and prepared gate request | Scaffold/diagnostics 7968434; tooling 720791d; host1/1 and combined32/32 pass; P0 stays HARDWARE-PENDING / GATE-PENDING | commit containing this row |
+
+2026-09-22 recovery boundary: user reports MPU6050 and asks to assume the intended
+setup because connection/setup details are unavailable. This is recorded as an
+assumption, not hardware verification. No board operation, motor authorization,
+PINMAP OK or human phase gate was provided. Next eligible task: read-only board
+inventory when SSH details become available; resolve SC-I before Monitor demo.
+No P1 strategy or P2 HAL work started. No remote publication occurred.

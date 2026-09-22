@@ -41,3 +41,39 @@ and the human gate. Do not implement P1 strategy while P0 is pending.
 All deadlines use Asia/Dubai: P3 scope cut after 28 September; P6 requires P4 by
 30 September; freeze 1 October at 21:00; rehearsal 2 October; competition 3 October.
 Current date is the plan's P0 day; no scope cut or freeze applies yet.
+
+## Recovered disconnected session — 2026-09-22
+
+P0 remains active, no gates passed. D-015 already recorded the requested role
+migration; it was retained without creating a duplicate ADR. Recovered edits
+were reviewed and completed in local commits:
+- `7968434`: scaffold correction and inert diagnostics. B16 has 76 defaults,
+  not the previously claimed 77; the extra FC bearing-table row was removed.
+  Delayed-call seconds accounting repaired; independent synthetic tests added.
+- `720791d`: staging/build/receive-only log tools and regression evidence.
+  Compile-only never issues upload/reset/start; P0 upload eligibility binds the
+  complete staged source to independently reviewed inert SHA-256 snapshots.
+  Changed sources fail closed. No motor-upload authorization mechanism is enabled.
+
+Validation: WSL g++/CMake CTest **1/1**, full Python tooling/config/real-sketch
+synthetic suite **32/32**, both exit 0. Raw results are in
+analysis/P0_{host,tool}_tests_recovery.txt. Review details and initial failures
+are preserved in reviews/P0_recovery_codex.md and analysis/P0_scaffold_audit.md.
+No locked tests were changed, behavior implemented, or core defaults tuned.
+
+The user now identifies the IMU as **MPU6050**, and says connection/setup details
+are not currently available. Research is updated in P0_G6 and FACTS F-056–F-060.
+The model is human-reported; the breakout/electrical interface is still unknown.
+Candidate library read-error handling and I2C timeout paths need resolution
+before a safe driver can be adopted. No board packages were installed.
+
+No SSH/USB board contact, target compile, upload, reset, motor run, physical
+timing, or ring test occurred. Matrix scrolling/RAM counters are partial P0
+artifacts; the printed-counter round trip is blocked by SC-I (Monitor vs R3/R4).
+Hardware assumptions do not supply PINMAP OK, STAND OK, RING OK or GATE P0 PASS.
+
+Next action is the read-only board inventory once an SSH target becomes available;
+see CODEX_EXECUTION for the remaining dependencies and P0_gate_request for unmet
+exit criteria. No further phase is eligible without the actual P0 gate. Resume
+from this checkpoint, not the earlier IN PROGRESS scaffold notes. Work is stopped
+at the saved hardware/decision boundary, not running in the background.

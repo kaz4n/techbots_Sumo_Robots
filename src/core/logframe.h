@@ -1,10 +1,12 @@
 // Defines fixed B15 frame and exact-tick event encodings.
-// Keeps recorder representation independent of unresolved buffer overflow policy.
+// Keeps encoding and D-028 bounded event retention independent of HAL transport.
 // Independent host tests use literal byte fixtures, boundaries and invalid inputs.
 #pragma once
 #include "types.h"
+#include "config.h"
 #include <cstddef>
 #include <cstdint>
+#include <limits>
 
 namespace logframe {
 // Representation constants, not behavior tunables. Explicit byte encoding has
@@ -52,4 +54,32 @@ PackStatus packFrame(const FrameInput& input, FrameBytes& destination);
 // t_us u32 @0; event u8 @4; detail u8 @5; value u16 @6. Invalid event enum
 // returns INVALID and zeros destination. There is no ring, dropping or I/O here.
 PackStatus packEvent(const EventInput& input, EventBytes& destination);
+
+// Production overflow-counter operation, exposed as pure arithmetic so its
+// saturation boundary is directly testable without billions of rejected events.
+constexpr std::uint32_t saturatingIncrement(std::uint32_t value) {
+    return value == std::numeric_limits<std::uint32_t>::max() ? value : value + 1U;
+}
+class EventBuffer {
+public:
+    // D-028: retain the first LOG_EVENT_CAPACITY successfully encoded events in
+    // insertion order. On full, reject, latch overflow and increment a saturating
+    // rejected count. Never overwrite retained bytes or reorder equal/wrap ticks.
+    // Caller must check packEvent status before append; this stores bytes only.
+    bool append(const EventBytes& event);
+    std::size_t size() const;
+    // Null outside retained entries. Returned pointers are valid only until reset
+    // or buffer destruction; ownership is with the future HAL recorder instance.
+    const EventBytes* at(std::size_t index) const;
+    bool overflowed() const;
+    std::uint32_t rejectedCount() const;
+    // Clear logical contents/status in constant work; old entries become unreadable
+    // through at(). Lifecycle decisions are the recorder's responsibility.
+    void reset();
+private:
+    EventBytes events_[config::LOG_EVENT_CAPACITY];
+    std::size_t size_ = 0;
+    std::uint32_t rejected_ = 0;
+    bool overflowed_ = false;
+};
 } // namespace logframe

@@ -83,3 +83,10 @@ Every bench or ring measurement and every config.h change goes here with its evi
   ALL_IN_MS=1500. No pin, wiring, duty limit or motion authorization changes.
 - Evidence: B11.3/D-025, explicit exact-value config check and independent limiter
   tests to follow. Host time arithmetic only; M1-M13 remain unmeasured.
+
+### 2026-09-22 | P1 B15/D-028 event capacity | no physical tuning
+- Add LOG_EVENT_CAPACITY=4096 from the existing B15 capacity and accepted D-028.
+  Keep all 76 B16 defaults unchanged. This centralizes fixed event storage under
+  R9; it does not alter frame frequency or claim target RAM/latency validation.
+- Evidence: D-028, exact config source check and independent first-event retention
+  tests to follow. HAL recorder ownership, frames and idle dump remain later work.

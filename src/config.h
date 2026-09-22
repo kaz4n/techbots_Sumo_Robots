@@ -95,6 +95,7 @@ inline constexpr std::uint32_t MODE_DEFAULT = 1U; // mode
 // B6 specifies a 1 s battery filter outside its B16 table; unchanged spec value.
 inline constexpr std::uint32_t VBAT_FILTER_MS = 1000U; // ms, B6
 inline constexpr std::uint32_t REFLANK_WINDOW_MS = 10000U; // ms, B11.3 rolling window
+inline constexpr std::uint32_t LOG_EVENT_CAPACITY = 4096U; // events, B15/D-028
 inline constexpr float EDGE_FWD_INNER_RATIO = 0.70F; // ratio, B4.2/D-021
 // B3 service boundaries and the human-approved D-024 minimum sample count.
 inline constexpr std::uint32_t CAL_START_MS = 1500U; // ms after qualified release

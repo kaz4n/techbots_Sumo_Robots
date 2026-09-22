@@ -501,4 +501,99 @@ DefendResult DefendTurn::step(std::uint32_t t_us, float heading_deg, bool imu_ok
 }
 
 void DefendTurn::reset() { *this = DefendTurn{}; }
+
+namespace {
+double wrapHeadingView(double angle) {
+    angle = std::fmod(angle, 360.0);
+    if (angle <= -180.0) angle += 360.0;
+    if (angle > 180.0) angle -= 360.0;
+    return angle;
+}
+
+HeadingProjection directionalProjection(double angle) {
+    const float wrapped = static_cast<float>(wrapHeadingView(angle));
+    // Exact ties were normalized in double; preserve LEFT after narrowing a non-tie.
+    return {wrapped <= -180.0F ? std::nextafter(-180.0F, 0.0F) : wrapped, true};
+}
+
+bool validBearing(float angle) {
+    return std::isfinite(angle) && angle > -180.0F && angle <= 180.0F;
+}
+} // namespace
+
+bool HeadingReference::resolved() const {
+    return !result_.fault && result_.match_started &&
+           result_.origin != HeadingOrigin::NOMINAL_PENDING;
+}
+
+void HeadingReference::captureOrigin(std::uint32_t t_us, float raw_heading_deg,
+                                     bool imu_ok) {
+    result_.match_started = true;
+    result_.origin_changed = true;
+    result_.heading_deg = 0.0F;
+    result_.origin_t_us = imu_ok || !has_raw_ ? t_us : last_raw_us_;
+    result_.origin = imu_ok ? HeadingOrigin::CURRENT_GO :
+        (has_raw_ ? HeadingOrigin::LAST_KNOWN : HeadingOrigin::NOMINAL_PENDING);
+    origin_deg_ = imu_ok ? static_cast<double>(raw_heading_deg) :
+                          static_cast<double>(last_raw_deg_);
+}
+
+HeadingResult HeadingReference::step(std::uint32_t t_us, float raw_heading_deg,
+                                     bool imu_ok, bool go) {
+    result_.origin_changed = false;
+    if (sampled_ && t_us == last_us_) return result_;
+    sampled_ = true;
+    last_us_ = t_us;
+    result_.imu_ok = false;
+    if (result_.fault) return result_;
+    if ((imu_ok && !std::isfinite(raw_heading_deg)) || (go && result_.match_started)) {
+        result_.fault = true;
+        return result_;
+    }
+    if (go) captureOrigin(t_us, raw_heading_deg, imu_ok);
+    if (!imu_ok) return result_;
+    if (result_.origin == HeadingOrigin::NOMINAL_PENDING) {
+        // The nominal coordinate stayed zero; anchor once without moving a target.
+        origin_deg_ = static_cast<double>(raw_heading_deg);
+        result_.origin = HeadingOrigin::FIRST_RECOVERY;
+        result_.origin_t_us = t_us;
+        result_.origin_changed = true;
+    }
+    if (result_.match_started) {
+        const auto local = projectHeading(raw_heading_deg);
+        if (!local.valid) {
+            result_.fault = true;
+            return result_;
+        }
+        result_.heading_deg = local.heading_deg;
+        result_.imu_ok = true;
+    }
+    last_raw_deg_ = raw_heading_deg;
+    last_raw_us_ = t_us;
+    has_raw_ = true;
+    return result_;
+}
+
+HeadingProjection HeadingReference::worldBearing(float relative_deg) const {
+    if (!resolved() || !result_.imu_ok || !validBearing(relative_deg)) return {};
+    const double local = static_cast<double>(last_raw_deg_) - origin_deg_;
+    return directionalProjection(wrapHeadingView(local) +
+                                 static_cast<double>(relative_deg));
+}
+
+HeadingProjection HeadingReference::projectWorld(float raw_world_deg) const {
+    if (!resolved() || !validBearing(raw_world_deg)) return {};
+    return directionalProjection(static_cast<double>(raw_world_deg) -
+                                 wrapHeadingView(origin_deg_));
+}
+
+HeadingProjection HeadingReference::projectHeading(float raw_heading_deg) const {
+    if (!resolved() || !std::isfinite(raw_heading_deg)) return {};
+    const double local = static_cast<double>(raw_heading_deg) - origin_deg_;
+    const double limit = static_cast<double>(std::numeric_limits<float>::max());
+    if (!std::isfinite(local) || local < -limit || local > limit) return {};
+    return {static_cast<float>(local), true};
+}
+
+void HeadingReference::reset() { *this = HeadingReference{}; }
 } // namespace fsm

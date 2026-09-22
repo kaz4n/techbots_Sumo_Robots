@@ -184,11 +184,14 @@ def flash(args):
     if not args.compile_only and args.sketch == 'bench/p0_matrix' and startup == 'immediate':
         fail('Immediate matrix uploads pending verified loader/matrix ownership; '
              'use --compile-only; see FACTS F-061')
+    if not args.compile_only and args.sketch == 'bench/p0_adc' and startup == 'immediate':
+        fail('P0 ADC upload is reviewed for default startup only; use --compile-only')
     # P0 has no motor-run receipt workflow; reject motor uploads before any I/O.
     if args.match and not args.compile_only:
         fail('motor-capable uploads disabled in P0; --match is not STAND OK/RING OK')
-    if not args.compile_only and args.sketch not in ['bench/p0_matrix', 'bench/p0_timing']:
-        fail('P0 uploads allow only the reviewed inert p0_matrix and p0_timing sketches')
+    if not args.compile_only and args.sketch not in ['bench/p0_matrix', 'bench/p0_timing',
+                                                   'bench/p0_adc']:
+        fail('P0 uploads allow only reviewed inert p0_matrix, p0_timing and p0_adc sketches')
     board = target()
     remote_root = setting('SUMO_REMOTE_ROOT', r'/[A-Za-z0-9_/-]+')
     if '..' in remote_root.split('/') or not remote_root.strip('/'):

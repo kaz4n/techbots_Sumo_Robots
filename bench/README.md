@@ -17,8 +17,17 @@ approved bounded transport is needed. With missed periods, acquisition takes
 longer than 60 seconds. This measures bare-loop scheduling only, not complete
 robot tick WCET or the 5-minute M10 requirement.
 
-No GPIO/QTR/ADC/I2C micro-benchmark writes are implemented before pin/setup/model
-verification. P0_G1/G2/G5/G6 specify their measurement plans. Motors/drivers must
+`p0_adc`: D-063 startup-only timing of1000 calls to the installed A0 ADC input.
+Fixed RAM retains each raw signed return and elapsed time plus paired micros
+overhead. Sample0 includes deferred initialization; the other999 are subsequent
+calls. All ADC work is in setup; loop is empty. Stock analogRead can wait forever,
+so this characterizes completed calls only and is not a production ADC HAL or a
+worst-case bound. Floating codes do not measure battery voltage or accuracy.
+Default-only upload requires its exact reviewed inert source manifest; passive
+readout uses `tools/p0_adc_capture.py`. See `state/analysis/P0_adc_contract.md`.
+
+GPIO/QTR/I2C micro-benchmarks still require their pin/setup/API verification.
+P0_G1/G2/G5/G6 specify their measurement plans. Motors/drivers must
 remain disconnected for the bare-board P0 procedure. The old bare timing image
 was measured separately; its max3us lateness is not timing evidence for the new
 matrix/UART workload. No pin approval or phase gate follows from either run.

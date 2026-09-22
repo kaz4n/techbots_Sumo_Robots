@@ -184,3 +184,7 @@ substitute results remain separate from actual delivery and timing measurements.
 F-077 closes the fixed P0 counter round-trip gap for D-062's explicit adapter,
 not the stock Bridge API or production recorder. Current image is the inert
 default matrix/counter fromF-076. Prior timing measurements use a different image.
+
+| ID | Question | Observed answer | Source | Confidence | Hardware-checked |
+|---|---|---|---|---|---|
+| F-078 | Installed A0 ADC mapping and liveness | Core1.0.0 maps A0/index14 to PA4/ADC1 channel9; DT14-bit conversion maps to default10-bit return. Negative setup/read errors are preserved; zero is valid. Packaged driver waits K_FOREVER for lock and completion even after warmup; async/stream/DMA disabled. First initialization has additional hardware polling with no total deadline. | analysis/P0_adc_installed_contract_20260923.md, versioned official sources and exact loader addresses/hashes | INSTALLED SOURCE/BINARY VERIFIED | No ADC execution/accuracy/WCET evidence from this audit; D-063 permits setup-only diagnostic, not production HAL |

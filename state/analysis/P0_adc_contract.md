@@ -37,8 +37,10 @@ reviewed before upload/capture. Verify deployed loader and complete sketch bytes
 LLEXT/BSS identity and two identical frozen records; reject incomplete/version/
 count/layout changes. Preserve raw dumps and command receipts. No halt/reset or
 MCU data/register write is permitted during capture. The existing120s capture,
-16-read and16384B per-RAM-read limits remain unchanged. Capture after setup has
-finished; do not include debug activity in the sampled interval.
+16-read and16384B per-RAM-read limits remain unchanged. Allow a recorded quiet
+interval after upload before attaching; aim to capture after setup. Completion
+is only checked after attachment, so absent independent pre-attach evidence,
+explicitly retain possible debug overlap and never claim unperturbed timing.
 
 Public pure decoder: analyze_record(data: bytes) returns version, samples,
 total_elapsed_us, first_call {elapsed_us, overhead_us, value}, subsequent_calls

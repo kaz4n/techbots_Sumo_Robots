@@ -158,3 +158,15 @@ blind hash replacement. Current receipts live in `state/analysis/P0_*20260922*`
 and the corresponding `state/reviews/` reports. The README's older installed/
 compile-pending statements are superseded by FACTS F-062 onward; outstanding
 physical/API restrictions remain.
+
+`p0_adc_capture.py` adds a separately pinned observer for D-063's default-startup
+ADC diagnostic. It uses the same unchanged passive helper/config, verifies full
+loader/sketch identity, and requires two identical completed1000-call RAM records
+with unchanged extension metadata. Negative API results fail acceptance; zero is
+valid raw data. Report first-call and999 subsequent-call statistics separately,
+without subtracting the measured micros overhead. Setup can hang: the Linux
+observer's deadline does not cancel a blocking MCU ADC call. This is empirical
+bare-board API timing, not voltage calibration, runtime boundedness or a gate.
+`python tools/board_tool.py flash bench/p0_adc --compile-only` only builds;
+omitting compile-only is eligible solely for the reviewed inert default snapshot.
+Immediate ADC uploads remain rejected. See the ADC contract, review and receipts.

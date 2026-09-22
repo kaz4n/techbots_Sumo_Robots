@@ -58,3 +58,37 @@ robot WCET. Keep a same-host quiet interval before passive readout; completion
 before attachment remains independently unproved. P0/QTR/cold-power/optical/
 electrical checks and P0/P1 human gates remain pending. No additional hardware,
 pin-map approval, B16 tuning, motor action or P2 implementation is inferred.
+
+## Actual deployment and GPIO results
+
+Revisiona98bcf6/source1dfbd571 was rebuilt and uploaded to USB2629958581 at
+2026-09-23 02:36:15.644+04, default/MATCH0/MOTORS_ALLOWED0, exit0. This replaces
+ADCf5f637b2 as the running MCU image. Receipt: P0_gpio_upload_20260923.txt.
+Capture invoked after71.021963s on the same host clock. Board/host wall clocks
+are separate; do not subtract them for a precise quiet interval.
+
+GPIO-CAPTURED, capture exit0/raw transfer0.10 reads/14 commands, all exit0,
+111.053098s total, within unchanged120s attachment limit. Deployed loader and
+all76148 wrapped-sketch bytes matched pinned identities; two14428B records were
+identical and same LLEXT/BSS mapping was reconfirmed. Record SHA-256
+bb17741563dfd7ed4140ee95c83900a8ff4f10a59c5ce8a8e24e159167ab4021.
+Header: version1/ready1/complete1/completed400/start421313/end429660/final_level1.
+
+| Raw interval | First sample (us) | Subsequent399 min/max/p99 (us) |
+|---|---:|---|
+| Paired micros overhead |1|1 /2 /2 |
+| pinMode(OUTPUT) |4|2 /11 /3 |
+| digitalWrite(HIGH) |2|1 /2 /2 |
+| digitalRead after LOW |2|1 /2 /2 |
+| digitalRead after HIGH |2|1 /2 /2 |
+| Contiguous pinMode + digitalWrite pair |3|2 /3 /3 |
+
+All400 LOW/HIGH/pair-HIGH readbacks matched; final HIGH observed. Complete
+acquisition interval8347us. No overhead subtraction or explanation of the11us
+outlier is inferred. Wrapper-masked native errors and optical/electrical behavior
+remain limits; this exercises the builtin LED, not external-header GPIO timing.
+The quiet interval/frozen record does not independently prove pre-attach
+completion; possible debug overlap and lack of full-robot WCET remain explicit.
+Raw evidence: P0_gpio_capture_20260923.json, P0_gpio_capture_invocation_20260923.json,
+and39 files in P0_gpio_run1_raw/. Coordinator verified each raw length/hash and
+decoded the header; fresh reviewer independently checks metrics and receipts.

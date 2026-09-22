@@ -1,29 +1,32 @@
 # Codex handoff
 
-## Current resume point — 2026-09-23 Asia/Dubai
+## Current resume point � 2026-09-23 Asia/Dubai
 
-P0 0.4 A0 timing is now measured on the actual bare UNO Q. D-063 contracts
-7a88867/14f52d0 precede9de8cd1 implementation.197 tooling checks pass; separate
-source/binary and post-run raw-receipt reviews PASS. Read analysis/P0_adc_validation.md
-and reviews/P0_adc_codex.md. Actual default inert ADC upload at02:16:28+04 replaced
-the matrix image below; this is the current MCU image, sourcef5f637b2. All1000
-calls completed: first276us;999 subsequent139..140us/p99140us; paired clock
-overhead1..2us/p992us, unsubtracted. Total144116us; floating codes124..306.
-Full loader/sketch bytes and identical frozen RAM verified. Same-host quiet wait
-70.995s; completion before debug attachment is not independently established.
-Installed ADC waits remain unbounded, so the diagnostic calls ADC only in setup;
-it proves no production deadline, voltage accuracy, pin approval or robot WCET.
-Reviewed manifests: ADCf5f637b2, matrixaabfdebb, timing3ff0baba (latter two changed
-only by unused diagnostic constants). Exact maps and raw receipts are in analysis/.
+P0 0.4 GPIO is measured on the bare UNO Q. D-064 contract d01e0f6 precedes
+implementation a98bcf6. Independent diagnostic tests and full243 tooling checks
+pass; fresh source, exact binary and post-run receipt reviews PASS. Read
+analysis/P0_gpio_validation.md and reviews/P0_gpio_codex.md. Current MCU image:
+GPIO source1dfbd571/default/MATCH0/MOTORS_ALLOWED0, uploaded02:36:15.644+04.
+All400 LOW/HIGH/HIGH cycles matched and final HIGH/off readback succeeded.
+Configure/write pair: first3us, subsequent2..3us/p993us. pinMode: first4us,
+subsequent2..11us/p993us. Total8347us; raw overhead retained, not subtracted.
+Full deployed images and two identical frozen records verified. Quiet interval
+71.022s before capture command; independent completion before debug attachment
+is unproved. No optical output, native-error recovery or whole-robot WCET claim.
 
-Next eligible task is P0 0.4 built-in LED GPIO API timing after installed-source
-ownership review, now recorded in analysis/P0_gpio_installed_contract_20260923.md
-and F-080. Exact candidate code/binary and measurement contract remain next.
-This task precedes P0.5 PINMAP acceptance; do not repeat the solved ADC/counter or
-treat all bare-board microbenchmarks as blocked by PINMAP. QTR timeout-path work
-requires its own exact pin/acquisition contract; cold-power/optical/electrical
-acceptance and all human phase gates remain pending. No extra hardware request.
-P1 is software-verified below, but P2 is not eligible solely from that result.
+Current reviewed source maps: GPIO1dfbd571, ADC18c4dfa8, matrix5c5a72ac,
+timing0d5baec0. Older physical results retain their original image identities.
+Prior ADCf5f637b2 first276us/subsequent139..140us measurement remains valid for
+that prior setup-only image; stock runtime ADC waits remain unbounded.
+
+Next eligible P0 0.4 task: freeze the QTR-style bare-board diagnostic contract
+using analysis/P0_qtr_bare_contract_audit_20260923.md. Neutral inputs cannot
+promise a timeout. A separately labeled internal-pull-up stimulus can exercise
+actual GPIO polling through1500us; charge timing and INPUT/no-pull cleanup need
+explicit tests and exact binary review. No sensor or production freshness claim.
+This precedes P0.5 acceptance; do not repeat completed GPIO/ADC/counter work or
+request extra hardware. Physical electrical/cold-start/optical acceptance and all
+human gates remain pending. P1 software remains verified below; P2 is ineligible.
 
 ## Prior fixed-counter checkpoint — 2026-09-23
 

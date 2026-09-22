@@ -12,10 +12,10 @@ CODEX_KICKOFF tooling safety requirements and D-015 role migration.
 |---|---|
 | G1-G6 answered or flagged with bench checks | SOURCE-REVIEWED, FACTS F-019 onward and analysis/P0_G1..G6.md; MPU6050 now user-reported |
 | Host scaffold | HOST-TESTED; current895-case suite, P1_robot_validation.md |
-| Board scripts | SCRIPT-TESTED197 checks and actual board-side ADB compile/upload/logger receipts; P0_adc_validation.md/P0_counter_validation.md |
+| Board scripts | SCRIPT-TESTED243 checks and actual board-side ADB compile/upload/logger receipts; P0_gpio_validation.md/P0_adc_validation.md/P0_counter_validation.md |
 | Actual matrix/counter log round trip | COUNTER OBSERVED: D-062 inert adapter delivered4..11 and56..63; optical matrix appearance remains absent; stock Bridge is not the adapter |
 | Both startup modes measured | NOT MET: default/Immediate timing compiled, default60000-sample scheduler measurement; no true cold-start/Immediate runtime measurement |
-| Physical P0 micro-benchmarks | PARTIAL: bare scheduler60000samples and startup ADC1000calls measured; GPIO/QTR and available external-device checks still separate |
+| Physical P0 micro-benchmarks | PARTIAL: bare scheduler60000samples and startup ADC1000calls and GPIO400cycles measured; QTR and available external-device checks still separate |
 | Pin map verification and PINMAP OK | NOT MET |
 | Fresh independent gate review | PENDING after physical evidence; scoped software review in P0_recovery_codex.md |
 | Human GATE P0 PASS | NOT PROVIDED; never author this on the human's behalf |
@@ -25,10 +25,13 @@ verified in FACTS F-062 onward and P0_bare_board_results_20260922.md. No SSH
 configuration change was required; explicit ADB fallback builds on board Linux.
 Latest inert P1 app compile-only also passed, sourcece90f09d, without upload.
 Its successful target compilation does not close any missing P0 physical check.
-The D-063 ADCf5f637b2/default image is the latest upload at02:16:28+04
-on23September. Full deployed-image/frozen-RAM readout measured first276us,
-subsequent999 calls139..140us/p99140us; setup-only, not a bounded runtime ADC.
-Fresh source/binary/receipt reviews PASS in P0_adc_codex.md. Fixed-counter
+The D-064 GPIO1dfbd571/default image is the latest upload at02:36:15.644+04
+on23September. All400 readback cycles and final HIGH/off succeeded; pair2..3us,
+pinMode2..11us after the first call. Full deployed image/frozen RAM verified.
+Fresh source/binary/receipt reviews PASS in P0_gpio_codex.md. This is empirical
+setup-only timing, not optical verification, native error recovery or robot WCET.
+Prior ADC first276us/subsequent139..140us is retained for its earlier image.
+Fixed-counter
 source/binary reviews and raw logger receipts remain preserved. No request to
 connect additional hardware is needed while the user defers those measurements.
 

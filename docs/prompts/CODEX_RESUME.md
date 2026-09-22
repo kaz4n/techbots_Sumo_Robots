@@ -17,17 +17,18 @@
    boundary record files/commits, commands/statuses, limitations, human requests,
    review findings and exact next task. Use existing HUMAN ACTION/CONFUSION formats.
 
-Current checkpoint: P0 0.4 ADC sourcef5f637b2/default/MOTORS_ALLOWED0 uploaded
-02:16:28+04 on23September (revision9de8cd1);1000 raw startup calls measured:
-first276us,999 subsequent139..140us/p99140us.197 tooling checks and fresh source,
-binary and post-run receipt reviews PASS. Full deployed image/frozen RAM verified.
-Read analysis/P0_adc_validation.md and reviews/P0_adc_codex.md. Stock ADC still
-waits indefinitely; setup-only timing is no production deadline or voltage proof.
-Same-host quiet wait70.995s; unperturbed timing independently unproved. Current
-manifests ADCf5f637b2/matrixaabfdebb/timing3ff0baba. This ADC image replaces the
-matrix counter below. Next task: P0 0.4 internal LED GPIO API timing after reading
-P0_gpio_installed_contract_20260923.md and freezing a reviewed scoped contract.
-Pending PINMAP alone does not block bare-board P0.4; do not request extra hardware.
+Current checkpoint: P0 0.4 GPIO source1dfbd571/default/MOTORS_ALLOWED0 uploaded
+02:36:15.644+04 on23September, revisiona98bcf6.400 readback cycles and final HIGH
+off succeeded. Pair first3us/subsequent2..3us/p993us; pinMode first4us/subsequent
+2..11us/p993us.243 tooling checks and fresh source/binary/post-run reviews PASS.
+Full deployed identity/two frozen records verified; debug overlap unexcluded.
+Read analysis/P0_gpio_validation.md and reviews/P0_gpio_codex.md. This replaces
+ADCf5f637b2 physically; its prior measurement is preserved. Current source maps:
+GPIO1dfbd571/ADC18c4dfa8/matrix5c5a72ac/timing0d5baec0.
+Next: P0 0.4 QTR-style contract from P0_qtr_bare_contract_audit_20260923.md.
+Neutral inputs need separate reporting from diagnostic-only pull-up stimulation.
+Neither proves real sensor timing or resolves SC-B. Pending PINMAP alone does not
+block bare-board P0.4; no additional hardware request or later phase bypass.
 
 Prior checkpoint: P0 fixed counter source75ab5a22/default/MOTORS_ALLOWED0 was
 uploaded01:55:51+04 on23September. Its real logger received4..11 then56..63. Read

@@ -164,3 +164,16 @@ Every bench or ring measurement and every config.h change goes here with its evi
   These are empirical setup costs, not an ADC deadline or voltage calibration.
   Source proves indefinite waits; debug overlap is not independently excluded.
   No motor, new external component, electrical approval or phase gate follows.
+
+### 2026-09-23 | P0 builtin LED GPIO timing | diagnostic only
+- D-064 adds P0_GPIO_SAMPLES=400 and P0_GPIO_PIN=50, compile-checked against
+  installed LED_BUILTIN/LED3_R. No robot pin-map or76 B16 default change.
+- Actual revisiona98bcf6/source1dfbd571/default/MOTORS_ALLOWED0 uploaded02:36:15+04.
+ 400 cycles matched LOW/HIGH/HIGH and final HIGH. First mode/write/read-low/
+ read-high/pair4/2/2/2/3us; subsequent399 mode2..11/p993us, write/reads1..2/p992us,
+ pair2..3/p993us. Clock overhead1..2/p992us unsubtracted; full interval8347us.
+- Exact image and frozen RAM verified;111.053s passive readout, source/binary/
+  receipt review and raw evidence in analysis/P0_gpio_validation.md.71.022s
+  same-host quiet interval; possible debug overlap remains. No optical proof,
+  recovered native error codes, header-pin timing or full-robot WCET claim.
+  No additional external hardware, motor operation or human gate.

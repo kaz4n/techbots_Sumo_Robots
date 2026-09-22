@@ -2,8 +2,8 @@
 
 ## Current resume point — 2026-09-22 Asia/Dubai
 
-**PAUSED at the human's explicit request for network/hardware disconnection.**
-All agent/build/test work is stopped. Resume only after the human resumes.
+**RESUMED by the human on 2026-09-22 at22:07 Asia/Dubai.**
+Host implementation resumes; no hardware connection is assumed from this request.
 Latest seven approvals are persisted as D-040 through D-046; no dependent code
 was started before pause. First resumed task is now B8 SEARCH contracts/tests/
 implementation under D-041/D-042, then re-flank under D-040/D-043; integrate

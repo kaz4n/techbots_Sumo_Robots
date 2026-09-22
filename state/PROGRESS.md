@@ -205,3 +205,10 @@ search/re-flank audit; then B11 re-flank using D-040/D-043. Integrate D-045/D-04
 in normal arbitration and D-044 in head-on escape without changing established
 locked tests. Countdown lifecycle remains a subsequent eligible task. Full P0-P7
 objective is unfinished; this is an explicit human pause, not a completion.
+
+| 2026-09-22 22:07 +04 | Human resume | User requested continuation; recovered clean ddb32fd checkpoint and D-040..046 | P1 host development RESUMED; hardware/gates remain pending | commit containing this row |
+
+Loaded AGENTS, CODEX_RESUME/handoff/execution, recent PROGRESS/DECISIONS, relevant
+FACTS/TUNING/reviews and P1/B8/B11 sources. Date remains22September, before scope
+cut/freeze. First resumed task is SEARCH contracts and independent tests/code.
+No hardware connection or prior run authorization is inferred from resume.

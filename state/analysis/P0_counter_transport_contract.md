@@ -47,6 +47,20 @@ forbidden. Never start Bridge/Monitor/Serial2, install an inbound callback, or
 send a request expecting a response. The required RouterBridge global stays
 unstarted; verify the exact linked constructors and loop hook before upload.
 
+Installed audit found this UART is deferred-initialized. Call the existing core
+`zephyr::arduino::init_dev_apply_pinctrl` once in setup, check its result and device
+readiness, then validate the installed configuration. This initializes only the
+existing devicetree internal UART route. Its driver has TEACK/REACK waits, so it
+is forbidden after setup; it is not a bounded runtime send API.
+
+The adapter public header exposes setup, counter submission, deadline service
+and a copied diagnostic snapshot. Initialize once only; failed setup or transmit
+is terminal for the sketch lifetime. Saturating submitted/completed/refused
+counters distinguish software admission, physical TC observation and refusal.
+The final accepted byte receives one subsequent TC interrupt before completion;
+there are at most37 callbacks per successful36-byte packet. Disable on unexpected
+readiness/completion/zero progress. No receive callback or retry is installed.
+
 One callback handles at most one FIFO byte per invocation. Submit/ISR/service
 share state under a bounded interrupt critical section. Disable TX IRQ at idle,
 error or timeout; disable RX/error IRQs at initialization. Do not busy-wait for

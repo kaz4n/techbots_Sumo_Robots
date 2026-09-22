@@ -2,7 +2,8 @@
 
 Verified against the supplied files, not hardware. Recommendations are UNAPPROVED
 except SC-C (D-017), SC-D1 (D-018), SC-J's START anchor (D-019) and SC-D2's
-persistent/all-white policy (D-020), and SC-M (D-021), explicitly approved below. User's later
+persistent/all-white policy (D-020), SC-M (D-021), SC-N (D-022/D-023), SC-K
+(D-024), SC-E1 (D-025), SC-L (D-026/D-027) and SC-E2 (D-028), explicitly approved below. User's later
 instruction to proceed assuming hardware works permits
 continued eligible software work; it supplies no circuit choice, measurement,
 pin approval, motor authorization, or phase gate.
@@ -117,3 +118,11 @@ confirmed mask. Hardware sample freshness and actual calibration remain pending.
 SC-E1 RESOLVED by D-025: ALL_IN suppresses stall checks only for ALL_IN_MS;
 centered contact still gates full duty, target loss brakes, edge priority remains.
 Re-flank/FSM implementation and its required safety regressions are still pending.
+
+SC-L RESOLVED by D-026/D-027: deterministic rear/side conflicts and no-history
+bearing validity, front-side recency ties, IMU-valid horizontal impact norm, and
+contact latch restricted to centered ATTACK with explicit clearing/re-entry.
+
+SC-E2 RESOLVED by D-028: preserve earliest4096 events; explicit overflow latch,
+saturating rejected count, continued frames and incomplete-evidence dump marking;
+no motion effect. Recorder buffering/transport implementation remains pending.

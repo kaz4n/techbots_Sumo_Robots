@@ -161,11 +161,23 @@ Rear bit white while the opponent is centered in front and our duty is forward: 
 
 Priority when several groups are active: front, then side, then rear. SL and SR both active: keep the previous bearing and flag a conflict.
 
+D-026 (human-approved 2026-09-22): both rear sensors use the same keep-previous/
+conflict policy. With no previous detection there is no valid bearing to reuse.
+
 ### B5.3 Memory
 Keep last_rel_bearing, last_world_bearing (heading + relative), last_seen_t, and last_front_side (which of FL15/FR15 lit most recently).
 
+D-026: simultaneous first appearance of FL15 and FR15 retains the previous
+last_front_side value, unknown if none exists. Do not invent a target/side at boot.
+
 ### B5.4 Contact cue
 Contact if any of: FL15 + FC + FR15 all on for CONTACT_TICKS; IMU horizontal acceleration above IMPACT_G; FL15 + FR15 without FC for CONTACT_TICKS.
+
+D-027 (human-approved 2026-09-22): horizontal impact magnitude is
+sqrt(ax*ax + ay*ay), with IMU-valid data, strictly above IMPACT_G. Retain the
+specified close-sensor timing. Contact latches only during centered ATTACK;
+clear it on target loss, loss of centering or leaving ATTACK. Re-flank starts a
+fresh latch; an old contact cannot authorize a later target.
 
 ### B5.5 Phantom mask (spectators outside the ring)
 - If we TRACK or ATTACK a front-only target and an edge event happens within PHANTOM_WINDOW_MS with no contact cue, store that world bearing as a phantom.
@@ -345,7 +357,7 @@ Matrix bottom row: battery bar. Fault icons: IMU, stuck sensor, low battery, gyr
 
 - **Frames** at LOG_HZ (50): t_ms, state, mode, line_mask, opp_mask, heading (0.01 degree), gyro_z (0.1 dps), ax and ay (mg), duty_l and duty_r (int8, scale 127), vbat (0.01 V), flags (imu_ok, phantom active, stuck, calibration rejected), tick_max_us. About 24 bytes per frame.
 - **Events** at their exact tick: START_RELEASE, GO, FIRST_NONZERO_DUTY, every state change, EDGE (with mask), CONTACT, STALL, REFLANK phase changes, PHANTOM_SET, faults. 8 bytes each, ring of 4096.
-- **Capacity:** at least 200 s of frames. If RAM is short, drop to 25 Hz. Never drop events.
+- **Capacity:** at least 200 s of frames. If RAM is short, drop to 25 Hz. D-028 (human-approved 2026-09-22) supersedes the impossible unlimited "Never drop events" requirement: retain the first4096 events. On further events latch overflow, increment a saturating rejected-event counter, continue frame recording and clearly mark the dump as incomplete evidence. Overflow does not change motion; never silently overwrite retained events.
 - **Dump:** only in IDLE (service mode LOG_DUMP or a request from Linux). CSV lines go over Bridge/Monitor to Linux; tools/dump_match.sh stores `logs/<date>_<time>_<mode>_frames.csv` and `_events.csv`. Never during a match (rule R2).
 
 ---

@@ -179,3 +179,36 @@ priority under the existing default-disabled bounded push-through rule.
 Consequence: amend B11.3 visibly; future re-flank/FSM tests must cover centering/
 contact loss, target loss, every edge mask, expiry and wrap. This approval does
 not itself implement ALL_IN, change any cap or enable push-through.
+
+## D-026 (2026-09-22, accepted) Deterministic bearing conflicts and memory
+Context: SC-L lacked simultaneous rear-sensor and initial memory semantics.
+User replied "Approve A: deterministic bearing memory".
+Decision: both rear sensors keep the previous bearing and flag a conflict, as
+specified for both side sensors. With no prior detection, expose no valid
+bearing. Simultaneous first appearance of both front side sensors retains the
+previous last-front-side value, unknown when no previous side exists.
+Consequence: test all sensor masks/group priorities, conflict/no-history cases,
+front recency ties, finite world angles and wrap-safe timestamps. No unsupported
+target or side is invented. Other B5 stages remain separate.
+
+## D-027 (2026-09-22, accepted) Horizontal impact and bounded contact latch
+Context: SC-L left impact magnitude and contact-latch lifetime undefined.
+User replied "Approve A: bounded contact lifetime".
+Decision: IMU-valid horizontal sqrt(ax*ax + ay*ay) strictly above IMPACT_G is
+an impact cue. Retain CONTACT_TICKS close-sensor cues. Latch contact only during
+centered ATTACK; clear on target loss, loss of centering or leaving ATTACK, with
+a fresh latch after re-flank.
+Consequence: test exact impact/sample thresholds, invalid IMU values, all state
+exits/re-entry and governor full-duty eligibility. Current cues may establish a
+new latch; an old latch alone cannot authorize a later target. No physical impact
+or IMU sampling measurement is supplied by this software decision.
+
+## D-028 (2026-09-22, accepted) Retain first events and expose overflow
+Context: SC-E2 identified finite4096 capacity versus unlimited no-drop wording.
+User replied "Approve A: retain first events and report overflow".
+Decision: retain the first4096 events; further events latch overflow and increment
+a saturating rejected-event counter. Continue frame recording; clearly mark the
+dump as incomplete evidence. Overflow does not change motion.
+Consequence: visibly amend B15. Later recorder-buffer tests must cover4095/4096/
+4097, earliest-event preservation, counter saturation, continued frames and dump
+status. The current pure codec is not an implemented recorder ring or transport.

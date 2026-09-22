@@ -76,6 +76,11 @@ private:
     std::uint8_t previous_mask_ = 0;
 };
 
+struct ContactCue {
+    bool close_cue = false;
+    bool impact_cue = false;
+    bool cue = false;
+};
 struct ContactResult {
     bool close_cue = false;
     bool impact_cue = false;
@@ -85,6 +90,14 @@ struct ContactResult {
 };
 class Contact {
 public:
+    // Split composition API: advance cue counters exactly once per fresh sample,
+    // then apply the final arbitrated state without taking another observation.
+    // commitLatch consumes the supplied current cue, updates only the latch and
+    // emits its rising flag. Repeating commitment never advances cue counters.
+    ContactCue observeCue(std::uint8_t confirmed_mask, float ax_g, float ay_g,
+                          bool imu_ok);
+    ContactResult commitLatch(core::State state, std::uint8_t effective_mask,
+                              const ContactCue& cue);
     // One new confirmed logical observation/tick. Independent consecutive
     // counters for front mask111 and101; changing patterns resets the previous
     // pattern's count. Counters saturate at CONTACT_TICKS; cues are current levels.
@@ -172,5 +185,59 @@ private:
     std::uint32_t last_us_ = 0;
     std::uint8_t faults_ = 0;
     bool clock_started_ = false;
+};
+
+struct FusionSample {
+    std::uint32_t t_us = 0;
+    std::uint8_t raw_mask = 0; // Electrical polarity, not confirmed logical bits.
+    core::State prior_state = core::State::IDLE; // Before this tick's arbitration.
+    float heading_deg = 0.0F; // Continuous yaw for stuck-span evidence.
+    float ax_g = 0.0F;
+    float ay_g = 0.0F;
+    bool imu_ok = false;
+    bool edge_event = false;
+};
+struct FusionObservation {
+    std::uint8_t confirmed_mask = 0;
+    StuckResult stuck;
+    ContactCue cue;
+    PhantomResult phantom; // filtered_mask is the final effective opponent mask.
+    BearingView bearing;
+    bool fresh = false;
+};
+struct ContactCommit {
+    ContactResult result;
+    bool valid = false; // Caller must not use an invalid result as permission.
+};
+class Fusion {
+public:
+    // One fresh electrical observation per tick: debounce -> stuck removal ->
+    // contact cue -> phantom filtering with prior_state -> effective bearing.
+    // Valid finite IMU yaw alone supplies world-bearing evidence; without it
+    // relative bearing remains usable, but world_valid is false.
+    // An immediate repeat timestamp returns the cached observation with fresh
+    // false and event pulses cleared; it cannot resample or reopen commitment.
+    // Changed data at the same timestamp is ignored. Gaps must be <one micros
+    // wrap. A new observation replaces an uncommitted one and clears its latch,
+    // so violating the once-observe/once-commit protocol cannot reuse contact.
+    FusionObservation observe(const FusionSample& sample);
+    // Call once after selecting the final current state. Uses this observation's
+    // cue and effective mask; no debounce/contact counter is sampled twice.
+    // A missing/already-consumed observation yields invalid zero and clears the
+    // latch. Same-tick centered ATTACK entry can latch; every ineligible exit
+    // clears immediately. This still does not select state or authorize motors.
+    ContactCommit commit(core::State selected_state);
+    const Memory& memory() const;
+    void reset();
+private:
+    Debouncer debounce_;
+    StuckFilter stuck_;
+    Contact contact_;
+    PhantomFilter phantom_;
+    BearingMemory bearing_;
+    FusionObservation observation_;
+    std::uint32_t observed_us_ = 0;
+    bool observed_ = false;
+    bool pending_ = false;
 };
 } // namespace opp_fusion

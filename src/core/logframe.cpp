@@ -1,11 +1,13 @@
-// Encodes B15 frames and exact-tick events into fixed little-endian bytes.
-// Preserves portable log data while rejecting invalid inputs before conversion.
-// Tested by independent host byte fixtures, rounding boundaries and invalid cases.
+// Encodes B15 frames/events and retains a bounded sequence of encoded events.
+// Preserves portable evidence and exposes D-028 overflow without overwriting it.
+// Independent host tests cover encoding, capacity boundaries and reset behavior.
 #include "logframe.h"
 #include <cmath>
 #include <limits>
 
 namespace logframe {
+static_assert(config::LOG_EVENT_CAPACITY > 0U, "Event capacity must be positive");
+
 namespace {
 void writeU16(std::uint8_t* destination, std::uint16_t value) {
     destination[0] = static_cast<std::uint8_t>(value & 0xFFU);
@@ -103,5 +105,39 @@ PackStatus packEvent(const EventInput& input, EventBytes& destination) {
     destination.data[5] = input.detail;
     writeU16(destination.data + 6, input.value);
     return PackStatus::OK;
+}
+
+bool EventBuffer::append(const EventBytes& event) {
+    if (size_ >= config::LOG_EVENT_CAPACITY) {
+        overflowed_ = true;
+        rejected_ = saturatingIncrement(rejected_);
+        return false;
+    }
+    events_[size_] = event;
+    ++size_;
+    return true;
+}
+
+std::size_t EventBuffer::size() const {
+    return size_;
+}
+
+const EventBytes* EventBuffer::at(std::size_t index) const {
+    return index < size_ ? &events_[index] : nullptr;
+}
+
+bool EventBuffer::overflowed() const {
+    return overflowed_;
+}
+
+std::uint32_t EventBuffer::rejectedCount() const {
+    return rejected_;
+}
+
+void EventBuffer::reset() {
+    // Retained storage need not be zeroed: at() hides every previous entry.
+    size_ = 0U;
+    rejected_ = 0U;
+    overflowed_ = false;
 }
 } // namespace logframe

@@ -115,4 +115,6 @@ inline constexpr std::uint32_t P0_MONITOR_TIMEOUT_US = 100000U; // D-062 diagnos
 inline constexpr std::uint32_t P0_MONITOR_BAUD_BPS = 115200U; // validate installed link, never reconfigure
 inline constexpr std::uint32_t P0_JITTER_SAMPLES = 60000U;
 inline constexpr std::uint32_t P0_JITTER_HISTOGRAM_US = 1000U;
+inline constexpr std::uint32_t P0_ADC_SAMPLES = 1000U; // D-063 startup-only calls
+inline constexpr std::uint32_t P0_ADC_PIN = 14U; // installed A0; diagnostic only, not PINMAP OK
 } // namespace config

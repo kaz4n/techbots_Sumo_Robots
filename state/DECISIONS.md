@@ -669,3 +669,16 @@ Consequence: notifications may be lost without acknowledgment; diagnostics repor
 that limitation rather than treating transmission as delivered evidence. If driver
 bounds cannot be justified, retain the tested packet primitive and explicit blocker.
 No P2 implementation, human gate, wiring, B16 tuning or motor authority is granted.
+
+## D-063 (2026-09-23, selected under D-051) P0 startup-only ADC timing
+Context: P0 0.4 requests bare-board analogRead timing before pin-map acceptance.
+Installed ADC1/A0 is PA4/channel9/index14, but stock analogRead waits indefinitely
+for ownership/completion even after warmup; ADC async/stream/DMA are disabled.
+Decision: adopt P0_adc_contract.md before implementation/tests. Run1000 A0 calls
+only in setup of a new inert diagnostic, preserve first-use/subsequent costs,
+paired micros overhead and raw returns in frozen RAM. Empty loop; no Bridge,
+matrix, GPIO output or motor writes. Passive hash-pinned readout only after the
+measurement, with a fresh source/binary review and default-only upload allowlist.
+Consequence: startup can hang; incomplete records fail explicitly. Zero returns
+remain conversion/error ambiguous. No timeout wrapper, production ADC solution,
+accuracy, robot pin-map, phase gate or physical WCET acceptance is inferred.

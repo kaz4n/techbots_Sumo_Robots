@@ -314,3 +314,10 @@ three-white/exhausted-replan movement policy is RESOLVED by D-048. The exact
 proposals were explicitly approved. Selection/inhibited recovery tests and
 implementation remain pending; replan trigger/lifecycle and SC-S pushed-out
 ambiguities are separate. Do not re-ask these approved policy questions.
+
+2026-09-22 further resolutions: D-049 approves SC-S's exact proposed pushed-out
+priority, direction and final-duty predicate. D-050 approves the exact bounded
+replanning lifecycle in P1_escape_remaining_contract.md. D-051 delegates remaining
+engineering decisions to Codex without further questions. Record future choices
+and regression requirements explicitly; unknown facts or absent evidence do not
+become verified through this delegation. No additional decision requests pending.

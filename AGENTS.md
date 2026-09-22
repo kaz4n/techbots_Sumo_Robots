@@ -201,3 +201,6 @@ D-033 defines SIDESTEP phase-specific front priority; D-034 routes opener exits
 through current perception and the existing centered-target qualification.
 D-035 defines logical BOTH debounce/STOP timing and reset-only recovery; physical
 A1 decoding remains separately unresolved and is not proved by logical tests.
+D-051 delegates remaining engineering choices to Codex without further questions;
+record material choices and tests in DECISIONS.md. This does not manufacture
+physical evidence, human phase gates or specific motor-run authorization.

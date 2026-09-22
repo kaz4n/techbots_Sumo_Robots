@@ -141,11 +141,25 @@ reset. The same inhibited recovery replaces movement after exhausted replans.
 ### B4.3 Being pushed out (edge defense)
 Rear bit white while the opponent is centered in front and our duty is forward: we are losing a push. Do not keep pushing straight. Pivot 45 degrees away from the white side at TURN_DUTY, then forward EDGE_FWD_MS. This slides us out of the opponent's line.
 
+D-049 (human-approved 2026-09-22): all-white/three-white faults come first.
+Pushed-out qualification requires a current centered front and both previously
+applied final wheel duties strictly positive. A single rear white side pivots
+away; both rear sides pivot opposite D-047's shared opponent-side history,
+default left. This maneuver precedes ordinary B4.2 row selection.
+
 ### B4.4 Rules
 - Turns use IMU heading (B7). D-023 (human-approved 2026-09-22): configured durations remain unchanged across voltages; voltage compensation applies once to duty through B6.
 - A new white bit on the side we are turning toward: re-plan. After EDGE_MAX_REPLANS re-plans, drive toward the black side as in the 3-bit row.
 - Leaving EDGE_ESCAPE requires all 4 bits black and the script finished.
 - After an escape, the final heading points inward. Store it as `inward_heading` for SEARCH (B8).
+
+D-050 (human-approved 2026-09-22): during a pivot, a newly white bit on its
+turning side requests replacement. During other active phases, any newly white
+bit requests replacement; finished-but-white also requests replacement. Count
+at most one replacement per fresh observation. Initial entry costs zero; allow
+three replacement starts, then latch D-048's inhibited fault on the fourth
+request. Preserve the budget until actual escape exit/reset. Fault masks take
+priority over all row motion and replanning.
 
 ---
 

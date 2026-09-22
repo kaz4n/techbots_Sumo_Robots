@@ -415,3 +415,39 @@ Consequence: test all four three-white masks, the exact replan-limit boundary,
 all-white priority, persistence after black, reset and zero final duties. A stopped
 robot can sacrifice a match; physical validation is still pending. Existing locked
 tests may not be amended without a separately explicit approved amendment.
+
+## D-049 (2026-09-22, accepted) Pushed-out priority and direction
+Context: SC-S lacked a both-rear direction and a precise forward-duty predicate.
+User replied "Approve A: pushed-out priority and direction".
+Decision: all-white/three-white faults take priority. Otherwise current centered
+front plus both previously applied final wheel duties strictly above zero
+qualifies. One white rear side pivots45 degrees away; both rear sides pivot
+opposite the shared opponent-side history (default LEFT), then use the specified
+forward segment. Ordinary B4.2 rows follow this higher-priority pushed-out check.
+Consequence: cover all16 masks, centering, duty-sign/zero boundaries, mirrors,
+fault priority and governed phase limits. Physical validation remains pending.
+
+## D-050 (2026-09-22, accepted) Bounded replanning lifecycle
+Context: B4.4 left non-pivot triggers, completed-but-white and exhaustion unclear.
+User replied "Approve A: bounded replanning lifecycle".
+Decision: during PIVOT, replan for newly white bits on its turning side. During
+other active phases, any newly white bit requests replacement. Finished script
+with persistent white also requests replacement. At most one replacement per
+fresh observation. Initial entry uses zero budget; allow three replacement
+starts, then latch the D-048 inhibited fault on the fourth request. Reset budget
+only after actual escape exit or reset. Fault masks always take priority.
+Consequence: exact third/fourth boundaries, simultaneous bits, phase-deadline
+ties, persistent white, black-before-completion and reset tests are required.
+
+## D-051 (2026-09-22, accepted) Delegated engineering choices without more questions
+Context: user instructed "for any questions do not go back to me, you choose
+the best course and recommedned choices" while P1 host work was continuing.
+Decision: Codex selects the recommended engineering course for remaining design
+questions and records each material choice, reasoning, limits and regression
+requirements without requesting another decision. This supersedes mandatory
+return-to-human questioning for those delegated choices in the project workflow.
+Consequence: keep decisions explicit and specifications visibly amended. This
+instruction is not evidence of physical testing, a written phase-gate pass, or a
+specific identified motor run. Preserve established locked tests where possible;
+do not fabricate human measurements, approvals or reviewer output. Unknown
+hardware/API facts remain unknown until verified; continue feasible host work.

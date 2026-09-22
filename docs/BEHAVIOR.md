@@ -126,6 +126,12 @@ cap. Where the table calls for a bias, request 70% of base on the inner wheel.
 All requests still pass through B6's compensation, per-side caps and slew; no
 physical speed or final curvature is implied by the requested ratio.
 
+D-044 (human-approved 2026-09-22): the head-on row brakes for one complete
+TICK_US, then reverses for EDGE_BACK_LONG_MS at EDGE_BACK_DUTY before the
+specified EDGE_TURN_FULL_DEG pivot. The interpretation of last-opponent-side
+history remains a separate integration decision; this does not approve changing
+an established locked test.
+
 ### B4.3 Being pushed out (edge defense)
 Rear bit white while the opponent is centered in front and our duty is forward: we are losing a push. Do not keep pushing straight. Pivot 45 degrees away from the white side at TURN_DUTY, then forward EDGE_FWD_MS. This slides us out of the opponent's line.
 

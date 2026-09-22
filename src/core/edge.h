@@ -83,6 +83,15 @@ public:
     // forward. Every forward base is EDGE_BACK_DUTY (D-021).
     bool start(std::uint32_t t_us, std::uint8_t selected_mask,
                float heading_deg, bool imu_ok);
+    // B4.2/D-044 explicit head-on entry: brake one complete TICK_US, then
+    // heading-held reverse EDGE_BACK_LONG_MS at -EDGE_BACK_DUTY, then pivot
+    // EDGE_TURN_FULL_DEG toward the caller-selected last-opponent side.
+    // A valid direction and finite initial/last-known heading are required;
+    // otherwise latch INVALID/zero. This overload neither selects a side from
+    // sensor history nor changes start(mask)'s established supported-mask set.
+    // All existing step timing, profiles, fallback and guard obligations apply.
+    bool startHeadOn(std::uint32_t t_us, float heading_deg, bool imu_ok,
+                     motion::Direction opponent_side);
     // Capture heading at each primitive entry, with B7 Straight correction and
     // Turn's existing tolerance/fallback/timeout; fixed bias uses TimedArc.
     // Pivots request TURN_DUTY/profile PIVOT; reverse EDGE_REVERSE; all forward
@@ -114,5 +123,6 @@ private:
     motion::Direction bias_direction_ = motion::Direction::LEFT;
     bool front_row_ = false;
     bool biased_forward_ = false;
+    bool head_on_ = false;
 };
 } // namespace edge

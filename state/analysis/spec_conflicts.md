@@ -126,3 +126,33 @@ contact latch restricted to centered ATTACK with explicit clearing/re-entry.
 SC-E2 RESOLVED by D-028: preserve earliest4096 events; explicit overflow latch,
 saturating rejected count, continued frames and incomplete-evidence dump marking;
 no motion effect. Recorder buffering/transport implementation remains pending.
+
+## Pending P1 filter/detector decisions — 2026-09-22
+
+These options were presented separately to the human; no approval is recorded.
+They do not block the existing B11.3 rolling limiter and D-025 suppression timer.
+
+- SC-O1, B5.5: chase-window anchor and contact history are undefined. A: begin on
+  the first front-only TRACK/ATTACK observation, retain across TRACK/ATTACK,
+  end when pursuit ends and remember any contact cue; a qualifying edge can
+  mark the current valid world bearing within PHANTOM_WINDOW_MS. B: defer.
+  Recommend A; human choice required. Test state transitions, contact then lost
+  cue, exact window endpoints, absent/invalid headings and edge-tick ordering.
+- SC-O2, B5.5: retained phantom count/replacement is unspecified. A: one marker,
+  a new qualified event replaces it and restarts PHANTOM_MS. B: specify another
+  bounded retention policy. Recommend A; human choice required. Test replacement,
+  expiry, circular angular boundaries, close/side overrides and timestamp wrap.
+- SC-P, B5.6/B14: heading change and recovery from a stuck declaration are
+  undefined. A: continuous detection for OPP_STUCK_MS with accumulated heading
+  span (max minus min) strictly above 360 degrees; unavailable/invalid IMU restarts
+  qualification; a declared fault remains ignored until reset. B: defer.
+  Recommend A; human choice required. Test exact time/angle limits, oscillation,
+  return to the original heading, missing IMU, clear/reassert, fault pulses/reset.
+- SC-Q, B11.1: "extra triggers" does not define whether deflection bypasses the
+  timer, or which wheel/governor stage supplies "commanded duty". A: STALL_MS of
+  continuous qualification OR earlier deflection strictly above STALL_DEFLECT_DEG;
+  both require centered ATTACK contact, both forward final electrical duties at
+  least STALL_MIN_DUTY, and no edge since contact. Keep displacement disabled.
+  B: defer. Recommend A; human choice required. Test exact/adjacent deadlines,
+  both wheel thresholds/signs, deflection signs, invalid headings, edge/contact
+  histories and D-025 suppression without a hidden additional cooldown.

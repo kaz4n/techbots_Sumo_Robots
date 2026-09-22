@@ -76,3 +76,10 @@ Every bench or ring measurement and every config.h change goes here with its evi
   second compensation without changing a config value. No measurement inferred.
 - Evidence: user decisions D-022 through D-024, new exact config source checks,
   independent locked service tests to follow. M1-M13 remain unmeasured.
+
+### 2026-09-22 | P1 B11.3 rolling window | no physical tuning
+- Add REFLANK_WINDOW_MS=10000 from B11.3's existing ten-second limit, centralized
+  under R9. Preserve all 76 B16 defaults and existing REFLANK_MAX_PER_10S=2,
+  ALL_IN_MS=1500. No pin, wiring, duty limit or motion authorization changes.
+- Evidence: B11.3/D-025, explicit exact-value config check and independent limiter
+  tests to follow. Host time arithmetic only; M1-M13 remain unmeasured.

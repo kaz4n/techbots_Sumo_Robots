@@ -18,9 +18,9 @@ bool validDuration(std::uint32_t duration_ms) {
     return duration_ms <= std::numeric_limits<std::uint32_t>::max() / 1000U;
 }
 
-double headingError(float target_deg, float current_deg) {
-    // Widen before subtraction: two finite floats can overflow a float delta.
-    double error = std::fmod(static_cast<double>(target_deg) - current_deg, 360.0);
+double headingError(double target_deg, double current_deg) {
+    // Keep relative coordinates and finite float inputs widened through the error.
+    double error = std::fmod(target_deg - current_deg, 360.0);
     if (error <= -180.0) error += 360.0;
     if (error > 180.0) error -= 360.0;
     return error;
@@ -58,6 +58,20 @@ bool Turn::start(std::uint32_t t_us, float heading_deg, float target_heading_deg
     return true;
 }
 
+bool Turn::startRelative(std::uint32_t t_us, float heading_deg, float relative_deg,
+                         float max_duty, bool imu_ok) {
+    reset();
+    if (!std::isfinite(heading_deg) || !std::isfinite(relative_deg) ||
+        relative_deg <= -180.0F || relative_deg > 180.0F) {
+        status_ = Status::INVALID;
+        return false;
+    }
+    if (!start(t_us, 0.0F, relative_deg, max_duty, imu_ok)) return false;
+    origin_heading_deg_ = heading_deg;
+    relative_ = true;
+    return true;
+}
+
 void Turn::beginFallback() {
     fallback_ = true;
     fallback_elapsed_us_ = interval_.elapsed_us;
@@ -69,13 +83,17 @@ Result Turn::step(std::uint32_t t_us, float heading_deg, bool imu_ok) {
     interval_.advance(t_us);
     if (interval_.elapsed_us >= config::TURN_TIMEOUT_MS * 1000U) {
         status_ = Status::TIMED_OUT;
+    } else if (imu_ok && !std::isfinite(heading_deg)) {
+        status_ = Status::INVALID;
     } else if (!fallback_ && imu_ok) {
-        if (!std::isfinite(heading_deg)) {
-            status_ = Status::INVALID;
-        } else {
-            error_deg_ = headingError(target_heading_deg_, heading_deg);
-            if (std::abs(error_deg_) < config::HEADING_TOL_DEG) status_ = Status::DONE;
+        double observed_heading = heading_deg;
+        if (relative_) {
+            // Reduce each yaw first so huge finite observations retain their offsets.
+            observed_heading = std::fmod(static_cast<double>(heading_deg), 360.0) -
+                std::fmod(static_cast<double>(origin_heading_deg_), 360.0);
         }
+        error_deg_ = headingError(target_heading_deg_, observed_heading);
+        if (std::abs(error_deg_) < config::HEADING_TOL_DEG) status_ = Status::DONE;
     } else if (!fallback_) {
         beginFallback();
     }

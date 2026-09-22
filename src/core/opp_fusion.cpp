@@ -188,15 +188,20 @@ ContactCue Contact::observeCue(std::uint8_t confirmed_mask, float ax_g,
     return result;
 }
 
-ContactResult Contact::commitLatch(core::State state, std::uint8_t effective_mask,
-                                   const ContactCue& cue) {
+ContactResult Contact::previewLatch(core::State state, std::uint8_t effective_mask,
+                                    const ContactCue& cue) const {
     ContactResult result{cue.close_cue, cue.impact_cue, cue.cue, false, false};
     const bool eligible = state == core::State::ATTACK &&
                           frontView(effective_mask).centered;
-    const bool previous_contact = contact_;
-    contact_ = eligible && (contact_ || result.cue);
-    result.contact = contact_;
-    result.contact_started = contact_ && !previous_contact;
+    result.contact = eligible && (contact_ || result.cue);
+    result.contact_started = result.contact && !contact_;
+    return result;
+}
+
+ContactResult Contact::commitLatch(core::State state, std::uint8_t effective_mask,
+                                   const ContactCue& cue) {
+    const ContactResult result = previewLatch(state, effective_mask, cue);
+    contact_ = result.contact;
     return result;
 }
 
@@ -370,6 +375,12 @@ FusionObservation Fusion::observe(const FusionSample& sample) {
         observation_.phantom.filtered_mask, heading_deg);
     observation_.fresh = true;
     return observation_;
+}
+
+ContactCommit Fusion::preview(core::State candidate_state) const {
+    if (!pending_) return {};
+    return {contact_.previewLatch(candidate_state, observation_.phantom.filtered_mask,
+                                  observation_.cue), true};
 }
 
 ContactCommit Fusion::commit(core::State selected_state) {

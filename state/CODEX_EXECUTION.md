@@ -20,7 +20,7 @@ results remain pending, not assumed successful. Date:2026-09-22, Asia/Dubai.
 | P1 1.2 B5 | HOST-TESTED pipeline | Fusion orders filters/cues/memory and commits current-state contact once; Robot/physical sampling remain |
 | P1 1.2 B6 | HOST-TESTED | Governor final cap/slew/compensation; FSM target-loss brake/profile selection pending |
 | P1 1.2 B7 | HOST-TESTED | Turn/Straight/Arc/Brake/TimedArc; bounded fallback and cumulative deadlines; scripts/FSM integration pending |
-| P1 1.2 B9 | HOST-TESTED request math | D-036 frontDemand; state selection/centered count/target-loss integration still pending |
+| P1 1.2 B9 | HOST-TESTED request math/qualification | D-036 frontDemand and three-observation FrontQualification; actual state-entry/reset/loss routing still pending |
 | P1 1.2 B10 | HOST-TESTED | DefendTurn captures one target and preserves700/800ms deadlines; Robot arbitration pending |
 | P1 1.2 B11 | HOST-TESTED components | Qualified timer/deflection Detector and rolling limiter/ALL_IN; real re-flank script/FSM arbitration pending |
 | P1 1.2 B12 | HOST-TESTED DIRECT/SIDESTEP/ARC | Shared mirrors and current-perception exit intents; WAIT/global arbitration pending |
@@ -31,10 +31,10 @@ results remain pending, not assumed successful. Date:2026-09-22, Asia/Dubai.
 | P1 1.5 target compile | HARDWARE-PENDING | No connected/verified UNO Q toolchain |
 | P1 1.6 review/gate | SCOPED PASS / GATE-PENDING | Separate read-only component reviews; full fresh gate review, EXPLAINED OK and human GATE P1 PASS absent |
 
-Latest completed validation:478 cases/11,897,401 assertions pass normal and
-ASan/UBSan;48/48 controlled tooling checks. RowExecutor adds34 new locked cases to
-cb0d902. Reused separate read-only scoped review PASS/no open finding; exact23-file
-inert manifests reviewed. See P1_edge_rows_validation.md/review. Newly fresh
+Latest completed validation:497 cases/11,920,333 assertions pass normal and
+ASan/UBSan. FrontQualification adds19 new unlocked cases to b073a48. Reused
+separate read-only scoped review PASS/no open finding; exact23-file inert
+manifests reviewed. See P1_front_qualification_validation.md/review. Newly fresh
 reviewer creation hit the tool's thread limit; no full phase-gate review claimed.
 D-039's previous one-case locked amendment remains the sole authorized established
 locked edit; no established locked test or B16 value changed in this latest batch.
@@ -51,14 +51,17 @@ Components implement these policies; complete scheduler/recorder integration rem
 
 RowExecutor complete at component scope (contract76e0360/c5e80b8, implementation
 970e083). Existing45-degree side angle centralized without changing B16.
-Next: unblocked front-centered qualification and target-loss brake composition;
-full loss routing and Robot remain subject to specification reconciliation.
+Front-centered qualification contract c0b3ad6 and implementation1950635 are
+HOST-TESTED/reviewed. Full loss routing and Robot remain subject to specification
+reconciliation. Next unblocked host task: B14 tick statistics per
+analysis/P1_fault_contract_audit.md; do not claim target timing from supplied data.
 Leave unresolved row selection/replanning/head-on cases explicit. Then B8 SEARCH
 and remaining Robot/escape/re-flank/WAIT after required specific decisions. Read
 analysis/P1_search_reflank_contract_audit.md.
 Pending protected choices: SC-Y re-flank completion, SC-Z SEARCH side mapping,
 SC-AA scan fallback, SC-AB unseen-side recency; SC-R/S escape direction/priority,
-SC-AC head-on brake/reverse values; SC-G WAIT geometry; SC-A physical button decoding, SC-B QTR freshness/timing,
+SC-AC head-on brake/reverse values; SC-AD entry count and SC-AE loss routing;
+SC-G WAIT geometry; SC-A physical button decoding, SC-B QTR freshness/timing,
 SC-I bounded log demo. Preserve established locked tests. D-016 alone does not
 authorize P2 HAL work. All original gates remain required.
 

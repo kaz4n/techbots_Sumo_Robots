@@ -155,3 +155,16 @@ D-039 single-case locked amendment was rechecked as already recorded/applied;
 this batch changes no established locked test. B16 values unchanged. Full Escape
 and Robot remain incomplete. Next unblocked task is B9 centered qualification
 and immediate target-loss brake composition, leaving disputed loss routing open.
+
+| 2026-09-22 | P1 B9 centered qualification | Public new-observation counter contract and bounded implementation | IMPLEMENTING; independent tests pending, no state-entry/loss-route policy selected | c0b3ad6 |
+
+SC-AD entry-count anchor and SC-AE loss-with-side/rear routing are now presented
+as distinct protected choices; no answer inferred. Full contract audit is saved
+in analysis/P1_front_arbitration_contract_audit.md. Existing pending choices remain.
+
+| 2026-09-22 | P1 B9 qualification |19 independent cases; literal masks/triples and real Fusion/contact/governor composition | HOST-TESTED;497cases/11920333assertions normal+ASan/UBSan | 1950635 |
+| 2026-09-22 | P1 checkpoint |48/48 controlled scripts; reused separate review PASS; inert snapshots refreshed after exact review | analysis/P1_front_qualification_validation.md; no hardware/gate claim | commit containing this row |
+
+SC-AD/AE decisions await replies; the counter deliberately does not select them.
+Next unblocked host task: B14 tick-overrun statistics (analysis/P1_fault_contract_audit.md).
+Current goal turn made concrete implemented/tested progress; this is not an impasse.

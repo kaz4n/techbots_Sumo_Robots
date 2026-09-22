@@ -377,3 +377,15 @@ No board action, measurement, target compile or human gate. Full P0-P7 stays ope
 Next unblocked task: B9 centered qualification and immediate target-loss brake
 composition; audit actual loss destination before full Robot integration. Pending
 SC-Y/Z/AA/AB/AC and older protected choices remain unanswered, not approved.
+
+## Qualification checkpoint — 2026-09-22 Asia/Dubai
+
+Contractc0b3ad6 and implementation1950635 add the B9 centered-observation counter.
+497cases/11,920,333assertions pass normal+ASan/UBSan,48/48 controlled scripts pass.
+Reused separate read-only review PASS/no findings and exact23-file manifest review.
+See analysis/P1_front_qualification_validation.md and its linked review. Established
+locked tests/config unchanged. No hardware action, physical evidence or human gate.
+SC-AD entry-count anchor and SC-AE loss-with-residual-target routing were asked
+separately; no answer inferred. The counter selects neither behavior. Older
+SC-Y/Z/AA/AB/AC and other listed choices remain pending. Next eligible task is
+B14 tick statistics from supplied durations, per analysis/P1_fault_contract_audit.md.

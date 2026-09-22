@@ -259,3 +259,16 @@ Further bounded integration audit (questions pending; no approval inferred):
   Last-opponent-side mapping remains an integration choice, not decided here.
 Additional B4.4 completion/replan gaps are documented in
 P1_escape_row_contract_audit.md; no new movement policy is silently implemented.
+
+Front-arbitration audit (not approved; see P1_front_arbitration_contract_audit.md):
+- SC-AD, B9.1/D-034/D-038: entry observation's count anchor is unstated. A: current
+  eligible centered observation at normal TRACK entry is first of three, with no
+  script/preempted count carried over. B: begin next tick. Recommend A; requires
+  human decision before full FSM, with exact-entry/threshold/reacquisition tests.
+- SC-AE, B9.3/B1 versus B2 item8/B10: front loss says SEARCH but a remaining
+  side/rear target says DEFEND_TURN. A: immediate zero-duty brake on the loss
+  tick; current side/rear routes DEFEND_TURN, none SEARCH; brake overrides that
+  tick's new state request. B: SEARCH for loss tick, next tick re-arbitrate.
+  Recommend A; human decision needed. Test all residual masks, TRACK/ATTACK
+  loss, prior full duty, next tick, fresh contact and edge/STOP precedence.
+Standalone FrontQualification does not select either policy.

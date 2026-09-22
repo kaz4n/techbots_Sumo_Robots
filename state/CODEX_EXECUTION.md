@@ -1,8 +1,9 @@
 # Execution checklist: P1 host development; hardware acceptance pending
 
 **RESUMED by explicit human request, 2026-09-22 at22:07 Asia/Dubai.**
-Implement B8 SEARCH under accepted D-041/D-042, then re-flank
-under D-040/D-043. D-044/45/46 approve head-on values and normal-arbitration details.
+B8 SEARCH is HOST-TESTED/reviewed (540 cases / 11,937,972 assertions). Next:
+B11 re-flank under D-040/D-043. D-044/45/46 approve head-on values and
+normal-arbitration details. Evidence: analysis/P1_search_validation.md.
 The prior next-task and pending-choice paragraphs below are superseded by this
 checkpoint and the final resolution entry in analysis/spec_conflicts.md.
 
@@ -26,6 +27,7 @@ results remain pending, not assumed successful. Date:2026-09-22, Asia/Dubai.
 | P1 1.2 B5 | HOST-TESTED pipeline | Fusion orders filters/cues/memory and commits current-state contact once; Robot/physical sampling remain |
 | P1 1.2 B6 | HOST-TESTED | Governor final cap/slew/compensation; FSM target-loss brake/profile selection pending |
 | P1 1.2 B7 | HOST-TESTED | Turn/Straight/Arc/Brake/TimedArc; bounded fallback and cumulative deadlines; scripts/FSM integration pending |
+| P1 1.2 B8 | HOST-TESTED executor | SearchSide/Search, D-041/D-042; truthful histories and global Robot arbitration pending |
 | P1 1.2 B9 | HOST-TESTED request math/qualification | D-036 frontDemand and three-observation FrontQualification; actual state-entry/reset/loss routing still pending |
 | P1 1.2 B10 | HOST-TESTED | DefendTurn captures one target and preserves700/800ms deadlines; Robot arbitration pending |
 | P1 1.2 B11 | HOST-TESTED components | Qualified timer/deflection Detector and rolling limiter/ALL_IN; real re-flank script/FSM arbitration pending |

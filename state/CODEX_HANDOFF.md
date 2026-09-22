@@ -4,10 +4,10 @@
 
 **RESUMED by the human on 2026-09-22 at22:07 Asia/Dubai.**
 Host implementation resumes; no hardware connection is assumed from this request.
-Latest seven approvals are persisted as D-040 through D-046; no dependent code
-was started before pause. First resumed task is now B8 SEARCH contracts/tests/
-implementation under D-041/D-042, then re-flank under D-040/D-043; integrate
-D-045/D-046 arbitration and D-044 head-on values. Read the saved contract audits.
+Latest seven approvals are persisted as D-040 through D-046. Resumed B8 SEARCH
+under D-041/D-042 is now HOST-TESTED with scoped separate review PASS. Next:
+B11 re-flank under D-040/D-043, then D-045/D-046 arbitration and D-044 head-on.
+Read analysis/P1_reflank_contract.md and the saved contract audits.
 
 Active implementation is **P1 host development under D-016**; P0 hardware
 acceptance and every human phase gate remain pending. The dated sections below
@@ -16,10 +16,10 @@ upload/reset, motor run or physical measurement has occurred. Origin is configur
 and retained; no publication. User reports MPU6050; exact breakout/interface is
 unverified. Hardware work is deferred until connection details/setup are available.
 
-Latest verified source dc9daa4:509 cases/11,920,737 assertions normal+ASan/UBSan,
-48/48 controlled scripts, reused separate read-only scoped review PASS. Exact
-evidence: analysis/P1_tick_statistics_validation.md and its linked review.
-B14 tick statistics are complete at component scope (contract118f9cc). Countdown
+Latest SEARCH snapshot:540 cases/11,937,972 assertions normal+ASan/UBSan,
+reused separate read-only scoped review PASS. Exact evidence:
+analysis/P1_search_validation.md and its linked review. B14 tick statistics
+remain complete at component scope (contract118f9cc). Countdown
 lifecycle remains eligible after the newly unblocked SEARCH/re-flank work;
 read analysis/P1_countdown_lifecycle_audit.md before its eventual contract.
 Full Robot/scripts, other B14 integration and all later phases remain unfinished.

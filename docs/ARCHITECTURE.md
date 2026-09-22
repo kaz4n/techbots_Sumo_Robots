@@ -31,6 +31,7 @@ the complete robot scheduler, FSM and actuator path do not yet exist.
 | `fsm::DefendTurn` | B10 captured target, front/clear exits and separate B7 700ms/B10 800ms deadlines | Global arbitration, PIVOT governor and MotorGate |
 | `fsm::frontDemand` | D-036 TRACK/ATTACK front-row requests, explicit profiles and invalid zero results | Centered qualification/state selection, current D-027 contact, immediate target-loss brake dispatch |
 | `fsm::FrontQualification` | B9 count of consecutive new centered observations, saturating eligibility and explicit reset | Normal-entry observation selection, preemption/reset wiring and complete state/contact/governor arbitration |
+| `fsm::SearchSide/Search` | D-041 selected-bearing side retention; B8 memory turn, directed full scan, advance and alternating scans with D-042 latched fallback | Truthful history ages, actual escape/hint sources, current perception, global edge/STOP arbitration and governor/MotorGate |
 | `motion::TimedArc` | D-037 mirrored duration-only forward arc, no invented heading cutoff | Re-flank sequencing, REFLANK_TURN governor and global safety arbitration |
 | `logframe` | B15 portable 25-byte frames and 8-byte exact-tick events, explicit invalid/clipped status; D-028 first4096 EventBuffer | HAL-owned buffer instance, frame cadence/storage, event collection, incomplete-evidence marking and idle-only dump |
 | `logframe::TickStatistics` | B14 counts of supplied durations, strict overrun/rate thresholds, full maximum and explicit saturation | Actual scheduler measurements, match membership, event/recorder dispatch and target WCET evidence |
@@ -200,6 +201,13 @@ compared exactly against B14's1%. Counts stop at uint64 capacity and mark the
 statistics incomplete; the full uint32 maximum continues updating. Frame packing
 reports its own narrower-field clamping. Neither a zero overrun count nor a
 passing arithmetic test proves that the robot meets R4's under800us requirement.
+
+SEARCH captures its initial memory turn and first scan direction, then alternates
+full scans with short heading-held advances. Its full sweep uses continuous yaw,
+not a shortest-angle turn or the short-turn timeout. First IMU loss latches the
+remaining timed sweep once; recovery does not restart it. Inward history ages to
+zero without revival after timestamp wrap. Current targets return zero demand
+and a perception intent; the eventual Robot owns the state change and permission.
 
 Student explanation of what exists today: "We pass timestamped values into small
 C++ functions, so the laptop tests the same decisions without a robot. The start

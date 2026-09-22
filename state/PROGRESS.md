@@ -212,3 +212,14 @@ Loaded AGENTS, CODEX_RESUME/handoff/execution, recent PROGRESS/DECISIONS, releva
 FACTS/TUNING/reviews and P1/B8/B11 sources. Date remains22September, before scope
 cut/freeze. First resumed task is SEARCH contracts and independent tests/code.
 No hardware connection or prior run authorization is inferred from resume.
+
+| 2026-09-22 | P1 B8 SEARCH | Approved full-sweep contract, explicit context validation and bounded implementation | IMPLEMENTING; independent tests/review, one pre-build precision finding being fixed | daddb87,421a766 |
+
+| 2026-09-22 | P1 B8 SEARCH | Memory turn/full scan/advance/alternation and D-041/D-042 retained side/fallback | HOST-TESTED 540 cases/11937972 assertions normal+ASan/UBSan;48/48 scripts; scoped separate review PASS | commit containing this row |
+
+SEARCH contracts daddb87/421a766 preceded source/tests. Pre-build precision
+finding corrected and independently regression-tested, no failed-test repair
+cycle or existing locked-test change. Evidence: analysis/P1_search_validation.md,
+author report and reviews/P1_search_codex.md. Source remains host-only; no target
+build, board contact, physical measurement or gate. Next: B11 re-flank interfaces,
+independent tests and implementation using D-037/038/040/043 and prepared contract.

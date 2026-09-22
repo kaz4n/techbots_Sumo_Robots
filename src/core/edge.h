@@ -205,14 +205,17 @@ public:
     // both-rear pushed-out. Unused contexts ignored; fault masks/permission win.
     // Invalid consumed context/row latches INVALID_CONTEXT; no budget increment
     // for a failed replacement start. Fault/closed/idle/exit requests are zero,
-    // brake=true; fault row status INVALID, closed/idle IDLE, exit DONE.
-    // entered includes first line-fault entry; replanned means successful start.
+    // brake=true; any fault row is INVALID even with permission closed. Otherwise
+    // closed/idle is IDLE and actual exit is DONE. entered is the first permitted
+    // nonzero-mask entry, including an immediate pattern/context/start fault;
+    // replanned means a successful replacement start, not an attempted one.
     // Timeout pulse is retained when an old row finishes and is replaced/exited.
     // All motion requests still require governor + MotorGate; no I/O or allocation.
     EscapeResult step(const EscapeSample& sample);
     void reset();
 private:
     bool startRow(const EscapeSample& sample, bool replacement);
+    bool advanceRow(const EscapeSample& sample, std::uint8_t new_bits);
     bool needsReplan(std::uint8_t new_bits) const;
     void latchFault(EscapeFault fault);
     EscapeResult result(bool permitted) const;

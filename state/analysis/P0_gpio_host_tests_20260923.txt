@@ -1,0 +1,87 @@
+test_d064_all_signed_readbacks_require_exact_0_1_1_at_any_position (test_p0_gpio.P0GpioAnalysisTests.test_d064_all_signed_readbacks_require_exact_0_1_1_at_any_position) ... ok
+test_d064_decode_is_repeatable_and_does_not_mutate_bytes (test_p0_gpio.P0GpioAnalysisTests.test_d064_decode_is_repeatable_and_does_not_mutate_bytes) ... ok
+test_d064_each_of_six_intervals_must_be_below_unsigned_half_range (test_p0_gpio.P0GpioAnalysisTests.test_d064_each_of_six_intervals_must_be_below_unsigned_half_range) ... ok
+test_d064_every_header_acceptance_field_is_exact (test_p0_gpio.P0GpioAnalysisTests.test_d064_every_header_acceptance_field_is_exact) ... ok
+test_d064_first_call_is_separate_and_no_interval_subtracts_overhead (test_p0_gpio.P0GpioAnalysisTests.test_d064_first_call_is_separate_and_no_interval_subtracts_overhead) ... ok
+test_d064_import_is_quiet_and_runs_no_transport (test_p0_gpio.P0GpioAnalysisTests.test_d064_import_is_quiet_and_runs_no_transport) ... ok
+test_d064_interval_sum_must_not_overflow_uint32 (test_p0_gpio.P0GpioAnalysisTests.test_d064_interval_sum_must_not_overflow_uint32) ... ok
+test_d064_largest_valid_interval_and_total_are_accepted_without_signed_wrap (test_p0_gpio.P0GpioAnalysisTests.test_d064_largest_valid_interval_and_total_are_accepted_without_signed_wrap) ... ok
+test_d064_nearest_rank_p99_for_399_warm_and_all_400_overhead_values (test_p0_gpio.P0GpioAnalysisTests.test_d064_nearest_rank_p99_for_399_warm_and_all_400_overhead_values) ... ok
+test_d064_record_length_must_be_exactly_14428_bytes (test_p0_gpio.P0GpioAnalysisTests.test_d064_record_length_must_be_exactly_14428_bytes) ... ok
+test_d064_total_covers_all_six_interval_sums_and_allows_unmeasured_gaps (test_p0_gpio.P0GpioAnalysisTests.test_d064_total_covers_all_six_interval_sums_and_allows_unmeasured_gaps) ... ok
+test_d064_total_half_range_and_larger_are_rejected (test_p0_gpio.P0GpioAnalysisTests.test_d064_total_half_range_and_larger_are_rejected) ... ok
+test_d064_uint32_start_end_wrap_preserves_total (test_p0_gpio.P0GpioAnalysisTests.test_d064_uint32_start_end_wrap_preserves_total) ... ok
+test_d064_valid_fixed_record_reports_every_first_field_warm_metric_and_readback (test_p0_gpio.P0GpioAnalysisTests.test_d064_valid_fixed_record_reports_every_first_field_warm_metric_and_readback) ... ok
+test_d064_zero_intervals_are_valid_microsecond_quantization (test_p0_gpio.P0GpioAnalysisTests.test_d064_zero_intervals_are_valid_microsecond_quantization) ... ok
+test_d064_all_unsigned_intervals_survive_micros_wrap (test_p0_gpio.P0GpioSketchTests.test_d064_all_unsigned_intervals_survive_micros_wrap) ... ok
+test_d064_bss_layout_exact_400_order_pin_first_and_warm_intervals (test_p0_gpio.P0GpioSketchTests.test_d064_bss_layout_exact_400_order_pin_first_and_warm_intervals) ... ok
+test_d064_failed_final_high_observation_retains_raw_value_and_incomplete (test_p0_gpio.P0GpioSketchTests.test_d064_failed_final_high_observation_retains_raw_value_and_incomplete) ... ok
+test_d064_high_mismatch_is_signed_stops_after_bad_sample_and_attempts_high (test_p0_gpio.P0GpioSketchTests.test_d064_high_mismatch_is_signed_stops_after_bad_sample_and_attempts_high) ... ok
+test_d064_low_mismatch_is_signed_stops_after_bad_sample_and_attempts_high (test_p0_gpio.P0GpioSketchTests.test_d064_low_mismatch_is_signed_stops_after_bad_sample_and_attempts_high) ... ok
+test_d064_mismatched_led3_r_mapping_is_rejected_at_compile_time (test_p0_gpio.P0GpioSketchTests.test_d064_mismatched_led3_r_mapping_is_rejected_at_compile_time) ... ok
+test_d064_mismatched_led_builtin_mapping_is_rejected_at_compile_time (test_p0_gpio.P0GpioSketchTests.test_d064_mismatched_led_builtin_mapping_is_rejected_at_compile_time) ... ok
+test_d064_motor_enabled_compilation_is_rejected (test_p0_gpio.P0GpioSketchTests.test_d064_motor_enabled_compilation_is_rejected) ... ok
+test_d064_nonreturning_api_at_each_first_and_last_sample_step_stays_incomplete (test_p0_gpio.P0GpioSketchTests.test_d064_nonreturning_api_at_each_first_and_last_sample_step_stays_incomplete) ... ok
+test_d064_nonreturning_final_high_or_final_read_never_publishes_complete (test_p0_gpio.P0GpioSketchTests.test_d064_nonreturning_final_high_or_final_read_never_publishes_complete) ... ok
+test_d064_pair_mismatch_is_signed_stops_after_bad_sample_and_attempts_high (test_p0_gpio.P0GpioSketchTests.test_d064_pair_mismatch_is_signed_stops_after_bad_sample_and_attempts_high) ... ok
+test_d064_readiness_failure_never_touches_gpio_or_completes (test_p0_gpio.P0GpioSketchTests.test_d064_readiness_failure_never_touches_gpio_or_completes) ... ok
+
+----------------------------------------------------------------------
+Ran 27 tests in 3.425s
+
+OK
+
+Boundary suite first execution (WSL Python3; reviewed record offset4/BSS21980):
+test_d064_changed_bss_base_after_identical_records_is_rejected (test_p0_gpio_capture_boundary.P0GpioCaptureBoundaryTests.test_d064_changed_bss_base_after_identical_records_is_rejected) ... ok
+test_d064_changed_extension_bss_address_after_identical_records_is_rejected (test_p0_gpio_capture_boundary.P0GpioCaptureBoundaryTests.test_d064_changed_extension_bss_address_after_identical_records_is_rejected) ... ok
+test_d064_changed_extension_bss_size_after_identical_records_is_rejected (test_p0_gpio_capture_boundary.P0GpioCaptureBoundaryTests.test_d064_changed_extension_bss_size_after_identical_records_is_rejected) ... ok
+test_d064_changed_extension_node_after_identical_records_is_rejected (test_p0_gpio_capture_boundary.P0GpioCaptureBoundaryTests.test_d064_changed_extension_node_after_identical_records_is_rejected) ... ok
+test_d064_changed_raw_records_fail_even_with_identical_aggregate_metrics (test_p0_gpio_capture_boundary.P0GpioCaptureBoundaryTests.test_d064_changed_raw_records_fail_even_with_identical_aggregate_metrics) ... ok
+test_d064_changed_visited_nodes_after_identical_records_is_rejected (test_p0_gpio_capture_boundary.P0GpioCaptureBoundaryTests.test_d064_changed_visited_nodes_after_identical_records_is_rejected) ... ok
+test_d064_identical_incomplete_bad_version_count_ready_final_records_rejected (test_p0_gpio_capture_boundary.P0GpioCaptureBoundaryTests.test_d064_identical_incomplete_bad_version_count_ready_final_records_rejected) ... ok
+test_d064_identical_short_or_overlong_reads_are_rejected (test_p0_gpio_capture_boundary.P0GpioCaptureBoundaryTests.test_d064_identical_short_or_overlong_reads_are_rejected) ... ok
+test_d064_identical_wrong_signed_readbacks_rejected_in_each_level_field (test_p0_gpio_capture_boundary.P0GpioCaptureBoundaryTests.test_d064_identical_wrong_signed_readbacks_rejected_in_each_level_field) ... ok
+test_d064_import_is_quiet_and_runs_no_transport (test_p0_gpio_capture_boundary.P0GpioCaptureBoundaryTests.test_d064_import_is_quiet_and_runs_no_transport) ... ok
+test_d064_short_second_snapshot_is_rejected (test_p0_gpio_capture_boundary.P0GpioCaptureBoundaryTests.test_d064_short_second_snapshot_is_rejected) ... ok
+test_d064_transport_exception_during_extension_revalidation_propagates (test_p0_gpio_capture_boundary.P0GpioCaptureBoundaryTests.test_d064_transport_exception_during_extension_revalidation_propagates) ... ok
+test_d064_transport_exception_from_either_snapshot_propagates (test_p0_gpio_capture_boundary.P0GpioCaptureBoundaryTests.test_d064_transport_exception_from_either_snapshot_propagates) ... ok
+test_d064_unchanged_full_records_report_metrics_and_revalidate_identity (test_p0_gpio_capture_boundary.P0GpioCaptureBoundaryTests.test_d064_unchanged_full_records_report_metrics_and_revalidate_identity) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.075s
+
+OK
+
+Config whitelist verification:
+test_b16_literal_categories_and_array_extent_are_preserved (test_p0_config.P0ConfigTests.test_b16_literal_categories_and_array_extent_are_preserved) ... ok
+test_b16_scope_has_76_defaults_and_excludes_b5_bearing_rows (test_p0_config.P0ConfigTests.test_b16_scope_has_76_defaults_and_excludes_b5_bearing_rows) ... ok
+test_b3_service_defaults_match_d024 (test_p0_config.P0ConfigTests.test_b3_service_defaults_match_d024) ... ok
+test_b4_forward_inner_ratio_matches_seventy_percent (test_p0_config.P0ConfigTests.test_b4_forward_inner_ratio_matches_seventy_percent) ... ok
+test_each_b16_default_matches_its_documented_value (test_p0_config.P0ConfigTests.test_each_b16_default_matches_its_documented_value) ... ok
+test_explicit_behavior_text_defaults_match_spec (test_p0_config.P0ConfigTests.test_explicit_behavior_text_defaults_match_spec) ... ok
+test_only_b16_and_explicit_spec_diagnostic_defaults_are_declared (test_p0_config.P0ConfigTests.test_only_b16_and_explicit_spec_diagnostic_defaults_are_declared) ... ok
+test_p0_diagnostic_defaults_are_explicit_and_unchanged (test_p0_config.P0ConfigTests.test_p0_diagnostic_defaults_are_explicit_and_unchanged) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.018s
+
+OK
+
+Receipt provenance (2026-09-23 02:31:37 +04:00)
+Objective: independent D-064 GPIO host acquisition/decoder/passive-boundary acceptance.
+Contract: state/analysis/P0_gpio_contract.md committed d01e0f6; public gpio_capture.h.
+Tools: WSL Ubuntu g++ 13.3.0; Python3 unittest.
+Opaque sketch compilation: -std=c++17 -Wall -Wextra -Werror -fno-exceptions -fno-rtti -fsanitize=undefined -fno-sanitize-recover=all.
+Commands (each exit0, first execution):
+  wsl.exe --cd /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots --exec python3 -m unittest discover -s tests/tooling -p test_p0_gpio.py -v
+  wsl.exe --cd /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots --exec python3 -m unittest discover -s tests/tooling -p test_p0_gpio_capture_boundary.py -v
+  wsl.exe --cd /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots --exec python3 -m unittest discover -s tests/tooling -p test_p0_config.py -v
+Results: 27 GPIO cases (12 sketch +15 decoder), 14 passive-boundary cases, 8 config cases =49 cases PASS; no failures or expectation repairs.
+Public boundary pins supplied by root after independent target audit: RECORD_OFFSET4, RECORD_SIZE14428, BSS_SIZE21980.
+Coverage: zero-initialized record/layout; single readiness probe/no failed-ready GPIO; all400 samples exact pin/order; every raw duration/first-vs-warm; unsigned wrap; all signed low/high/pair mismatch classes with early stop and final HIGH attempt; final read failure;16 incomplete API boundaries;10000 frozen loop calls on every returned scenario; motor-enabled/mapping compile rejection.
+Decoder coverage: exact length/header/readbacks, all6 half-range interval guards, overflow-safe total/sum, zero quantization, nearest-rank p99, first-call separation, no overhead subtraction, non-mutating repeatability.
+Passive boundary: exactly2 complete matching records plus unchanged post-read extension/base; changed raw bytes even with equal aggregate metrics; changed node/address/size/visited chain; truncated/invalid bytes; transport exceptions propagated without acceptance.
+Independence: agent never opened/read bench/p0_gpio .ino/.cpp or tools/p0_gpio_capture.py source. The sketch is compiled as an opaque include; decoder module is imported with subprocess/network/input actions prohibited. Expectations derive from committed contract and public header, with existing ADC tests used only for fixture conventions.
+Owned changes: tests/tooling/test_p0_gpio.py; tests/tooling/test_p0_gpio_capture_boundary.py; exact P0_GPIO_SAMPLES400/P0_GPIO_PIN50 whitelist entries in tests/tooling/test_p0_config.py; this receipt.
+Limitations: host tests prove fixture-observable contract behavior only; no native Zephyr readiness implementation execution, hardware GPIO timing, electrical/optical result, real passive capture, target binary ownership, full robot WCET or human phase gate is established. No locked tests, implementation, board operation, network action or Git commit by this test author.
+Next action: root/fresh reviewer integrates the independent packet with source/binary/upload-tool review and physical measurement evidence.

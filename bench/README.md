@@ -26,7 +26,15 @@ worst-case bound. Floating codes do not measure battery voltage or accuracy.
 Default-only upload requires its exact reviewed inert source manifest; passive
 readout uses `tools/p0_adc_capture.py`. See `state/analysis/P0_adc_contract.md`.
 
-GPIO/QTR/I2C micro-benchmarks still require their pin/setup/API verification.
+`p0_gpio`: D-064 setup-only timing on internal LED_BUILTIN/LED3_R (PH10/index50).
+Checks GPIOH readiness, then400 samples of individual configure/write/read calls
+and a contiguous pinMode(OUTPUT)+digitalWrite(HIGH) pair. Preserves signed
+readbacks, stops on mismatch and makes a final HIGH/off attempt before freezing
+RAM. Empty loop, no external headers or motor pins. Arduino wrappers mask native
+errors, so readback success is not recovery of those error codes or optical proof.
+Default-only reviewed snapshot; passive readout is `tools/p0_gpio_capture.py`.
+
+QTR/I2C micro-benchmarks still require their pin/setup/API verification.
 P0_G1/G2/G5/G6 specify their measurement plans. Motors/drivers must
 remain disconnected for the bare-board P0 procedure. The old bare timing image
 was measured separately; its max3us lateness is not timing evidence for the new

@@ -227,3 +227,50 @@ fixups.c `45c3152b26fe6385ddc5eee606ff1307999bc743ab22f9ed521f4ae59499d0a4`;
 matrix.inc `1ab79675a96c4f98fbfb4019253a1f0ee899bf0ba6a8f988aa59a269f47d8936`.
 Pinned gpio_stm32.c hash:
 `9eca88d50330f348995067c75423b17a1d23e4d2b76cf5f268f30c46048ce002`.
+
+## Addendum: supported read-only GPIOH readiness query
+
+The proposed public adapter is supported by the installed named DT node,
+header wrapper, and nonzero native export:
+
+```cpp
+#include <zephyr/device.h>
+#include <zephyr/devicetree.h>
+
+bool gpioReady() {
+    return device_is_ready(DEVICE_DT_GET(DT_NODELABEL(gpioh)));
+}
+```
+
+`device.h:12` already includes devicetree.h; the second include is explicit but
+optional. `devicetree.h:197` defines DT_NODELABEL; DT:14488 maps `gpioh` to
+the previously verified GPIOH ordinal95. `device.h:317` defines DEVICE_DT_GET
+as the named device object's address, and :869 declares the public query.
+
+The implementation is **not an exported function named device_is_ready**.
+`Z/generated/zephyr/syscalls/device.h:46–59` supplies an inline wrapper calling
+`z_impl_device_is_ready`, after a compiler barrier. Userspace/syscall tracing
+are inactive in this installed configuration. E contains
+`__llext_sym_z_impl_device_is_ready` at0x0801d340 with nonzero callable Thumb
+address **0x08019e6f**. The named device export remains **0x0801bf68**.
+
+Offline disassembly at **0x08019e6e–0x08019e82** checks null, then reads
+`dev->state` (device+12), the initialized bit (state+1), and init-result byte
+(state+0). It returns true only for initialized/successful state. There are
+no stores, function calls, loops, waits, initialization, or peripheral-register
+accesses in this body. It checks existing device initialization, not PH10's
+mode, output level, optical LED state, or future hardware health.
+[Pinned implementation, kernel/device.c:190–197](https://github.com/arduino/zephyr/blob/1743741760ee5d2d58da50d504855d43f9f8e826/kernel/device.c#L190)
+
+Additional installed hashes: device.h
+`300420020155fc22a7e4e3a867f26fe30c6a79b9be3474caf990bacfecbd2d19`;
+devicetree.h `7c202557ce2a12afb0016aa2471088bc61b7ad23d249bfbc8c1e67902e16833b`;
+generated syscalls/device.h
+`3d4e26c69424baf08feeb4b61edd366e2c07d40077e798afd285bd5bb2eaa3b3`.
+Same read-only transport: numbered header reads, `Tnm -n E`, offline
+`Tgdb ... -ex 'p __llext_sym_z_impl_device_is_ready'`, and
+`Tobjdump -d -l --disassemble=z_impl_device_is_ready E` all completed exit0.
+Initial exact-name inspection found no device_is_ready symbol, as expected
+for this inline public wrapper. No query was executed on the MCU. The parent
+candidate's actual compile and relocation inspection remain outstanding;
+this addendum establishes source/API/export support, not a completed build.

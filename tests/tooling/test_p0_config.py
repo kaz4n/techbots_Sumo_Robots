@@ -17,6 +17,8 @@ DIAGNOSTIC_DEFAULTS = {
     'P0_MONITOR_BAUD_BPS': 115200,  # D-062 existing internal UART configuration.
     'P0_ADC_SAMPLES': 1000,  # D-063 exact startup-only A0 call count.
     'P0_ADC_PIN': 14,  # D-063 installed A0 diagnostic index; not PINMAP acceptance.
+    'P0_GPIO_SAMPLES': 400,  # D-064 exact startup-only GPIO sample count.
+    'P0_GPIO_PIN': 50,  # D-064 installed internal LED index; not PINMAP acceptance.
 }
 BEHAVIOR_EXTRA_DEFAULTS = {
     'VBAT_FILTER_MS': 1000,  # B6 one-second time constant.

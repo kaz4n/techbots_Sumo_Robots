@@ -170,3 +170,12 @@ bare-board API timing, not voltage calibration, runtime boundedness or a gate.
 `python tools/board_tool.py flash bench/p0_adc --compile-only` only builds;
 omitting compile-only is eligible solely for the reviewed inert default snapshot.
 Immediate ADC uploads remain rejected. See the ADC contract, review and receipts.
+
+`p0_gpio_capture.py` observes the separately pinned D-064 builtin-LED GPIO image.
+The source readiness check and400 finite setup samples record configure/write/
+read/pair timings and exact LOW/HIGH/HIGH readbacks. Capture requires final HIGH,
+all records complete, full image identity and stable BSS/records; microsecond
+quantization and possible debug overlap remain explicit. The named red LED is
+PH10/index50, not D13; no external header pin is exercised. Default-only reviewed
+upload, no motor authority. Build-only: `python tools/board_tool.py flash
+bench/p0_gpio --compile-only`. See `state/analysis/P0_gpio_contract.md`.

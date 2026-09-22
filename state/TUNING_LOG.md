@@ -48,3 +48,13 @@ Every bench or ring measurement and every config.h change goes here with its evi
 - Corrected the matrix RAM seconds accumulator to preserve elapsed whole seconds
   after delayed calls; no duty, timing threshold, pin, or wiring value changed.
 - Metric status: M1-M13 remain unmeasured; source/host checks do not satisfy them.
+
+### 2026-09-22 | P1 B6 implementation | no physical tuning
+- Setup: host only, board disconnected; no measured battery value.
+- Change: add VBAT_FILTER_MS=1000 from B6's existing "1 s time constant" rule
+  (not listed in B16). All 76 B16 defaults remain unchanged. No pin assignment.
+- Reason: centralize this specified filter constant under R9 while implementing
+  the explicitly approved D-017 governor ordering. The config contract test adds
+  a named exact-value check rather than allowing arbitrary additional tunables.
+- Evidence: docs/BEHAVIOR.md B6; independent governor tests and host results to be
+  recorded in P1_core_tests evidence. M1-M13 remain unmeasured.

@@ -14,6 +14,7 @@ DIAGNOSTIC_DEFAULTS = {
     'P0_JITTER_SAMPLES': 60000,
     'P0_JITTER_HISTOGRAM_US': 1000,
 }
+BEHAVIOR_EXTRA_DEFAULTS = {'VBAT_FILTER_MS': 1000}  # B6 one-second time constant.
 
 
 def b16_defaults():
@@ -61,8 +62,9 @@ class P0ConfigTests(unittest.TestCase):
         self.assertEqual('5000', defaults['COUNTDOWN_MS'])
         self.assertEqual('1', defaults['MODE_DEFAULT'])
 
-    def test_only_b16_defaults_and_explicit_p0_diagnostics_are_declared(self):
-        expected = set(b16_defaults()) | set(DIAGNOSTIC_DEFAULTS)
+    def test_only_b16_and_explicit_spec_diagnostic_defaults_are_declared(self):
+        expected = (set(b16_defaults()) | set(DIAGNOSTIC_DEFAULTS) |
+                    set(BEHAVIOR_EXTRA_DEFAULTS))
         self.assertEqual(expected, set(config_declarations()))
 
     def test_b16_literal_categories_and_array_extent_are_preserved(self):
@@ -83,6 +85,12 @@ class P0ConfigTests(unittest.TestCase):
         for name, expected in DIAGNOSTIC_DEFAULTS.items():
             with self.subTest(diagnostic=name):
                 self.assertEqual(expected, number(declarations[name][1]))
+
+    def test_b6_filter_default_matches_one_second_spec(self):
+        declarations = config_declarations()
+        for name, expected in BEHAVIOR_EXTRA_DEFAULTS.items():
+            self.assertEqual('std::uint32_t', declarations[name][0])
+            self.assertEqual(expected, number(declarations[name][1]))
 
     def test_each_b16_default_matches_its_documented_value(self):
         declarations = config_declarations()

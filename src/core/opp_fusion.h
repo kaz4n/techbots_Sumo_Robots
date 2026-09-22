@@ -96,6 +96,11 @@ public:
     // emits its rising flag. Repeating commitment never advances cue counters.
     ContactCue observeCue(std::uint8_t confirmed_mask, float ax_g, float ay_g,
                           bool imu_ok);
+    // Read-only D-056 candidate: identical result to the next commitLatch with
+    // these arguments, but changes neither latch nor cue counters. Repeated or
+    // alternative-state previews must not create/clear contact or emit an event.
+    ContactResult previewLatch(core::State state, std::uint8_t effective_mask,
+                               const ContactCue& cue) const;
     ContactResult commitLatch(core::State state, std::uint8_t effective_mask,
                               const ContactCue& cue);
     // One new confirmed logical observation/tick. Independent consecutive
@@ -221,6 +226,14 @@ public:
     // wrap. A new observation replaces an uncommitted one and clears its latch,
     // so violating the once-observe/once-commit protocol cannot reuse contact.
     FusionObservation observe(const FusionSample& sample);
+    // D-056: inspect this pending observation's candidate contact without
+    // consuming it. Missing/already-consumed observation returns invalid zero
+    // and does NOT mutate the latch. Repeated previews/alternative states are
+    // allowed; they never resample or authorize motion/events. Robot may use an
+    // ATTACK candidate for stall routing, then commit exactly once to the final
+    // state (REFLANK clears contact). A new observe retains its existing skipped-
+    // commit protection. An immediate cached observe does not consume pending.
+    ContactCommit preview(core::State candidate_state) const;
     // Call once after selecting the final current state. Uses this observation's
     // cue and effective mask; no debounce/contact counter is sampled twice.
     // A missing/already-consumed observation yields invalid zero and clears the

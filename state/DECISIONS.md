@@ -514,3 +514,20 @@ validation. Do not suppress the existing front exit when the pivot finishes.
 Test cue ordering/interruption, exact window/deadline ties, persistent FC, wrap,
 flank delegation, stationary braking and normal qualified reacquisition. No B16
 value, pin, established locked test, motor permission or phase gate changes.
+
+## D-056 (2026-09-23, selected under D-051) Single contact commit and governor pass
+Context: the full Robot needs current ATTACK contact to decide stall/re-flank,
+but Fusion must commit exactly once to the final selected state; running the
+governor speculatively would advance filtering/slew twice. Public-header audit:
+analysis/P1_robot_interface_audit.md, item1/2.
+Decision: add a read-only Contact/Fusion candidate preview. Robot previews current
+candidate ATTACK contact for stall arbitration, then commits once to final state;
+only the final commit may supply contact permission/events. Stall and pushed-out
+selection use explicitly identified preceding applied final electrical duties,
+with zero feedback for hardware inhibition. Run Governor once after arbitration.
+Consequence: no provisional contact can survive a re-flank/edge exit or authorize
+full duty. Qualification starts from actual reported applied-duty evidence, not a
+speculative command; app/MotorGate feedback ownership must be explicit in Robot's
+future interface. Test preview purity/alternative states, invalid pending state,
+cue counters, skipped commit, final re-flank clear and retained real contact.
+No existing commit semantics, locked tests, tuning values or physical claims change.

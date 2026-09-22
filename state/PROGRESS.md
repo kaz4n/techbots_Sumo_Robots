@@ -30,3 +30,5 @@ assumption, not hardware verification. No board operation, motor authorization,
 PINMAP OK or human phase gate was provided. Next eligible task: read-only board
 inventory when SSH details become available; resolve SC-I before Monitor demo.
 No P1 strategy or P2 HAL work started. No remote publication occurred.
+
+| 2026-09-22 | P0 0.2 manual-check preparation | Add read-only board inventory and independent default/Immediate bench startup selection; block Immediate matrix upload pending F-061 | SCRIPT-TESTED: 45/45 exit0; analysis/P0_preflight_tests.txt; separate-context review PASS in reviews/P0_preflight_codex.md; no board operation | commit containing this row |

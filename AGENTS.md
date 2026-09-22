@@ -116,6 +116,7 @@ The agent creates these scripts in P0 and updates this table once they work.
 | Task | Command |
 |---|---|
 | Host tests | `tools/test_host.sh` |
+| Read-only board inventory (script-tested; board pending) | `tools/preflight.sh` |
 | Build + flash a bench sketch | `tools/flash.sh bench/<name>` |
 | Build + flash match firmware | `tools/flash.sh app --match` |
 | Compile only (no upload) | `tools/flash.sh app --compile-only` |

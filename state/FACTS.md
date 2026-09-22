@@ -100,3 +100,15 @@ G4 tool list incomplete; it now records all 13 package-index dependencies,
 including gen-rodata-ld. F-040 still does not represent an installed inventory.
 Validation plans cover configuration readback, unique sample generation, bus
 waveform, successful and fault timings, axes/units, and safe interface inspection.
+
+## P0 manual-check review, 2026-09-22
+
+| ID | Question | Answer / dependency | Source URL | Confidence | Hardware-checked |
+|---|---|---|---|---|---|
+| F-061 | Immediate matrix startup indicator | Official manual section5 (printed p15) warns that matrix access before Linux startup completes may interfere with MCU operation. Installed loader/matrix ownership unknown; Immediate matrix upload blocked pending verification. Boot logo is not sketch start; current sketch initially draws blank then scrolls. Define an identifiable sketch marker and its delay before timing. | https://docs.arduino.cc/resources/datasheets/ABX00162-ABX00173-datasheet.pdf ; bench/p0_matrix/p0_matrix.ino | verified manual warning and project source; installed interaction unknown | pending |
+
+F-061 qualifies F-025/F-037 and G3's earlier first-visible-frame proposal. No
+physical failure has been observed. Required follow-up: inspect the actual loader
+revision and matrix initialization/ownership under each startup option, select
+and review a non-conflicting observable sketch-start marker, then collect raw
+cold-boot timings. No pin or behavior change is authorized by this finding.

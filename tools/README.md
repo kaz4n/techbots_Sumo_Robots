@@ -4,6 +4,26 @@ Use WSL Ubuntu (available on this machine), Bash, Python 3, CMake, g++, ssh and
 rsync. `wsl -d Ubuntu -- bash tools/test_host.sh` runs host checks from PowerShell.
 No board packages are installed by these scripts. doctest is vendored/pinned.
 
+## Read-only inventory
+
+After verifying the SSH target and its host key, run `bash tools/preflight.sh`.
+Only `SUMO_SSH_TARGET` is required; `SUMO_REMOTE_ROOT` is not used. JSON stdout
+records the time, target, commands, exit statuses and their output. Save each run
+to a new evidence file, for example `state/analysis/P0_board_inventory_<run>.json`.
+Exit 0 / `INVENTORY-COLLECTED` means all requested commands returned successfully,
+not that their versions, wiring, or the P0 gate passed. Inspect the output.
+`INCOMPLETE` and a nonzero exit preserve failed-command evidence; missing local
+configuration/tool or invalid arguments produce a nonzero diagnostic.
+
+Commands read kernel identity, CLI version, core list, UNO Q board options,
+library list, rsync/Python versions, and TCP listener addresses. Each command has
+a 30-second deadline; a transport failure/timeout stops remaining queries.
+The command never compiles, uploads, resets, installs, syncs sources, connects a
+Monitor socket, probes sensors, or dumps environment/credentials. Loader build
+configuration, exact library sources and router identity still require separate
+read-only inspection. Hardware observations are listed in
+`docs/P0_MANUAL_CHECKLIST.md`.
+
 ## Build and connection
 
 Set `SUMO_SSH_TARGET` to the verified SSH alias or user@host, and
@@ -28,6 +48,27 @@ compilation. This pin is source-verified, not installed/hardware-verified.
 Both flag orders are valid. `--compile-only` invokes only inventory, mkdir,
 rsync, compile; never upload, reset, start, or monitor. Missing target/config,
 missing source/tool/core, invalid arguments, SSH/sync/build failure are errors.
+
+For P0 startup comparisons, `--startup default` (wait for Linux) or
+`--startup immediate` selects the startup option independently of motor macros.
+Example build-only: `bash tools/flash.sh bench/p0_matrix --compile-only --startup immediate`.
+An inert Immediate build remains MATCH=0 and MOTORS_ALLOWED=0. The default is
+unchanged when this flag is omitted; MATCH still selects Immediate and explicitly
+combining MATCH with default startup is rejected. Artifacts for each build/startup
+combination use separate directories, and upload uses the same FQBN/artifacts as
+its successful compile. A startup selection grants no new run permission.
+
+Immediate `p0_matrix` **uploads are blocked** until the installed loader's matrix
+ownership is verified: the official UNO Q manual warns against matrix access
+before startup completes (FACTS F-061). Its compile-only route remains available;
+the RAM-only timing sketch makes no matrix calls. A boot logo is not a sketch
+start measurement. Neither startup option nor source hashing resolves this
+hardware/API dependency.
+
+Primary references: [CLI board details](https://docs.arduino.cc/arduino-cli/commands-reference/arduino-cli_board_details/),
+[CLI core list](https://docs.arduino.cc/arduino-cli/commands-reference/arduino-cli_core_list/),
+[core 1.0.0 startup definitions](https://github.com/arduino/ArduinoCore-zephyr/blob/1.0.0/boards.txt).
+These verify command/option syntax; installed-board operation remains pending.
 
 P0 default uploads are allowlisted ONLY for the inert `bench/p0_matrix` and
 `bench/p0_timing` sketches, after successful compilation. Their entire staged

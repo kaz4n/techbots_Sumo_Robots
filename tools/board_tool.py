@@ -2,6 +2,7 @@
 # Fails closed on missing configuration and separates builds from execution.
 # Verified by controlled transport tests, not a claim of target compilation.
 import argparse
+from datetime import datetime, timezone
 import hashlib
 import json
 import os
@@ -52,9 +53,10 @@ def check_source(folder):
         fail('symlinks are not permitted in staged source')
 
 
-def remote(board, args, capture=False):
+def remote(board, args, capture=False, timeout=None):
     return subprocess.run(['ssh', *SSH_OPTIONS, board, shlex.join(args)],
-                          check=True, text=True, capture_output=capture)
+                          check=True, text=True, capture_output=capture,
+                          timeout=timeout, stdin=subprocess.DEVNULL)
 
 
 def stage(sketch):
@@ -129,7 +131,17 @@ def verify_inert_source(sketch, checksum):
              'use --compile-only and obtain a new source review')
 
 
+def build_startup(args):
+    if args.match and args.startup == 'default':
+        fail('--match requires Immediate startup; omit --startup or use immediate')
+    return args.startup or ('immediate' if args.match else 'default')
+
+
 def flash(args):
+    startup = build_startup(args)
+    if not args.compile_only and args.sketch == 'bench/p0_matrix' and startup == 'immediate':
+        fail('Immediate matrix uploads pending verified loader/matrix ownership; '
+             'use --compile-only; see FACTS F-061')
     # P0 has no motor-run receipt workflow; reject motor uploads before any I/O.
     if args.match and not args.compile_only:
         fail('motor-capable uploads disabled in P0; --match is not STAND OK/RING OK')
@@ -144,7 +156,7 @@ def flash(args):
     checksum = source_hash(folder)
     if not args.compile_only:
         verify_inert_source(args.sketch, checksum)
-    fqbn = BASE_FQBN + (':wait_linux_boot=no' if args.match else '')
+    fqbn = BASE_FQBN + (':wait_linux_boot=no' if startup == 'immediate' else '')
     # A content-addressed remote path avoids stale files without remote deletion.
     board_folder = f'{remote_root.rstrip("/")}/{checksum}/{folder.name}'
     verify_core(board)
@@ -153,13 +165,13 @@ def flash(args):
                     shlex.join(['ssh', *SSH_OPTIONS]), str(folder) + '/',
                     f'{board}:{board_folder}/'], check=True)
     flags = f'-DMATCH={int(args.match)} -DMOTORS_ALLOWED={int(args.match)}'
-    artifact_folder = f'{board_folder}/artifacts/{"match" if args.match else "bench"}'
+    artifact_folder = f'{board_folder}/artifacts/{"match" if args.match else "bench"}-{startup}'
     remote(board, ['arduino-cli', 'compile', '--fqbn', fqbn,
                    '--output-dir', artifact_folder,
                    '--build-property', f'compiler.cpp.extra_flags={flags}',
                    '--build-property', f'compiler.c.extra_flags={flags}', board_folder])
     print(f'COMPILE command completed: {args.sketch}; source SHA256={checksum}; '
-          f'MATCH={int(args.match)} MOTORS_ALLOWED={int(args.match)}')
+          f'MATCH={int(args.match)} MOTORS_ALLOWED={int(args.match)} STARTUP={startup}')
     if not args.compile_only:
         remote(board, ['arduino-cli', 'upload', '--fqbn', fqbn,
                        '--input-dir', artifact_folder, board_folder])
@@ -183,6 +195,52 @@ def logs():
     remote(board, ['python3', '-u', '-c', program])
 
 
+def inventory_check(board, name, command):
+    try:
+        result = remote(board, command, capture=True, timeout=30)
+        code, out, err = result.returncode, result.stdout, result.stderr
+    except subprocess.CalledProcessError as error:
+        code, out, err = error.returncode, error.stdout, error.stderr
+    except subprocess.TimeoutExpired:
+        code, out, err = 124, '', 'Inventory command exceeded its 30-second deadline'
+    except OSError as error:
+        code, out, err = 127, '', str(error)
+    return dict(name=name, command=command, status='OK' if code == 0 else 'FAILED',
+                returncode=code, stdout=out or '', stderr=err or '')
+
+
+def preflight():
+    board = target()
+    require_tools('ssh')
+    commands = [
+        ('kernel', ['uname', '-srmo']),
+        ('cli', ['arduino-cli', 'version']),
+        ('cores', ['arduino-cli', 'core', 'list']),
+        ('board_options', ['arduino-cli', 'board', 'details', '--fqbn', BASE_FQBN]),
+        ('libraries', ['arduino-cli', 'lib', 'list']),
+        ('rsync', ['rsync', '--version']),
+        ('python', ['python3', '--version']),
+        ('listeners', ['ss', '-ltn']),
+    ]
+    checks = []
+    for name, command in commands:
+        checks.append(inventory_check(board, name, command))
+        if checks[-1]['returncode'] in (124, 255):
+            break  # Avoid repeating a failed or unresponsive connection.
+    complete = len(checks) == len(commands) and all(c['status'] == 'OK' for c in checks)
+    report = dict(status='INVENTORY-COLLECTED' if complete else 'INCOMPLETE',
+                  target=board, captured_at_utc=datetime.now(timezone.utc).isoformat(),
+                  checks=checks, limitations=[
+                      'Inventory only; outputs still require version and option review.',
+                      'No compile, upload, reset, monitor connection or sensor operation.',
+                      'Does not verify wiring, pin safety, MCU behavior, timing or a phase gate.',
+                      'Loader config, library source and router identity still need inspection.',
+                      'Transport failure or timeout stops remaining checks.',
+                  ])
+    print(json.dumps(report, indent=2))
+    return 0 if complete else 1
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     commands = parser.add_subparsers(dest='command', required=True)
@@ -190,13 +248,17 @@ def main():
     build.add_argument('sketch')
     build.add_argument('--match', action='store_true')
     build.add_argument('--compile-only', action='store_true')
+    build.add_argument('--startup', choices=('default', 'immediate'))
     commands.add_parser('logs')
+    commands.add_parser('preflight', description='Read-only installed-board inventory')
     args = parser.parse_args()
     try:
         if args.command == 'flash':
             flash(args)
-        else:
+        elif args.command == 'logs':
             logs()
+        else:
+            return preflight()
     except (ValueError, OSError, subprocess.CalledProcessError) as error:
         print(f'ERROR: {error}', file=sys.stderr)
         return error.returncode if isinstance(error, subprocess.CalledProcessError) else 2

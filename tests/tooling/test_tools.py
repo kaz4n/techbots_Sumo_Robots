@@ -147,6 +147,59 @@ class ToolContractTests(unittest.TestCase):
                                 text=True, capture_output=True, check=False)
         self.assertEqual(0, result.returncode, result.stderr)
 
+    def test_bench_startup_modes_keep_motors_disabled_and_artifacts_separate(self):
+        destinations = []
+        for startup in ('default', 'immediate'):
+            for args in (('bench/p0_matrix', '--compile-only', '--startup', startup),
+                         ('--startup', startup, '--compile-only', 'bench/p0_matrix')):
+                with self.subTest(args=args):
+                    result = self.run_tool(*args)
+                    self.assertEqual(0, result.returncode, result.stderr)
+                    self.assert_no_motion_command()
+                    command, = self.commands('compile')
+                    fqbn = command[command.index('--fqbn') + 1]
+                    suffix = ':wait_linux_boot=no' if startup == 'immediate' else ''
+                    self.assertEqual('arduino:zephyr:unoq' + suffix, fqbn)
+                    self.assertIn('-DMATCH=0 -DMOTORS_ALLOWED=0', ' '.join(command))
+                    destinations.append(command[command.index('--output-dir') + 1])
+        self.assertEqual(destinations[0], destinations[1])
+        self.assertEqual(destinations[2], destinations[3])
+        self.assertNotEqual(destinations[0], destinations[2])
+
+    def test_reviewed_inert_immediate_upload_uses_same_artifact_and_zero_motor_macro(self):
+        self.use_reviewed_sources()
+        for sketch in ('bench/p0_timing',):
+            result = self.run_tool(sketch, '--startup', 'immediate')
+            self.assertEqual(0, result.returncode, result.stderr)
+            compile_args, = self.commands('compile')
+            upload_args, = self.commands('upload')
+            self.assertIn('-DMATCH=0 -DMOTORS_ALLOWED=0', ' '.join(compile_args))
+            for args in (compile_args, upload_args):
+                self.assertEqual('arduino:zephyr:unoq:wait_linux_boot=no',
+                                 args[args.index('--fqbn') + 1])
+            self.assertEqual(compile_args[compile_args.index('--output-dir') + 1],
+                             upload_args[upload_args.index('--input-dir') + 1])
+
+    def test_immediate_matrix_upload_waits_for_loader_ownership_verification(self):
+        self.use_reviewed_sources()
+        result = self.run_tool('bench/p0_matrix', '--startup', 'immediate')
+        self.assert_failed(result)
+        self.assertIn('matrix', result.stderr)
+        self.assertEqual([], self.events)
+        result = self.run_tool('bench/p0_matrix', '--startup', 'immediate', '--compile-only')
+        self.assertEqual(0, result.returncode, result.stderr)
+        self.assert_no_motion_command()
+
+    def test_startup_selection_cannot_bypass_upload_or_configuration_guards(self):
+        for args in (('app', '--match', '--startup', 'immediate'),
+                     ('app', '--match', '--compile-only', '--startup', 'default'),
+                     ('bench/p0_matrix', '--compile-only', '--startup', 'unknown'),
+                     ('bench/p0_matrix', '--startup', 'immediate')):
+            with self.subTest(args=args):
+                # The final case still contains the unreviewed synthetic sketch.
+                self.assert_failed(self.run_tool(*args))
+                self.assertEqual([], self.events)
+
     def test_transport_is_strict_and_content_addressed_without_deletion(self):
         result = self.run_tool('bench/p0_matrix', '--compile-only')
         self.assertEqual(0, result.returncode, result.stderr)

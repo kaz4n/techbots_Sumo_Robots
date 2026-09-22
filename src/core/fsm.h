@@ -48,9 +48,11 @@ public:
     // Read-only directional views in (-180,180], exact +/-180 -> +180. Invalid
     // projections are finite0/valid=false, do not mutate/latch faults or freshness.
     // worldBearing requires this tick's healthy match yaw and relative bearing
-    // in (-180,180]; reduce heading BEFORE adding the small relative bearing.
+    // in (-180,180]; reduce checked double(raw-origin) BEFORE adding the small
+    // relative bearing or narrowing. Published float yaw may already be rounded.
     HeadingProjection worldBearing(float relative_deg) const;
-    // Retained raw world evidence has the same directional range; caller retains
+    // Retained raw world input must be in (-180,180], rejecting -180/nonfinite/
+    // out-of-range values. Computed +/-180 ties become +180. Caller retains
     // its original validity/time/age. Requires a resolved origin, not current IMU.
     HeadingProjection projectWorld(float raw_world_deg) const;
     // Retained actual raw continuous evidence (e.g. inward exit), without wrapping.

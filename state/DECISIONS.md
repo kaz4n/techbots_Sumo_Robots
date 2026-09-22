@@ -593,7 +593,9 @@ heading_reset_requested means this logical operation, never a HAL integrator res
 Calibration affects later integration increments only. Retain raw world/inward
 evidence and actual timestamps; project views without resampling or refreshing age.
 Use double subtraction, check float representability, reduce directional angles
-before adding small bearings. Continuous headings stay unwrapped. Expose origin
+before adding small bearings or narrowing; current world views retain the checked
+double difference even when the published float match heading rounds it.
+Continuous headings stay unwrapped. Expose origin
 source/time; pending source time is GO, not a claimed measurement.
 Healthy nonfinite yaw (even pre-GO), nonrepresentable match difference or repeated
 GO without reset latches an inhibited coordinate fault until reset. Ordinary IMU

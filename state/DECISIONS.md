@@ -723,3 +723,15 @@ stores its function and Wire1 addresses. Explicitly omit unused display librarie
 Consequence: this records compatibility only, not runtime validity. No upload
 allowlist entry, I2C execution, wiring/config value, upstream patch, P2 HAL, sensor
 claim or human gate. Preserve source/ELF/review/test evidence and every failure.
+
+## D-067 (2026-09-23, selected under D-051) P0 PWM/interrupt compile-only probes
+Context: G2 source candidates still need installed header/link verification.
+Native PWM device dispatch and Arduino interrupt wrappers have distinct error,
+ownership and export limitations; successful compilation alone cannot clear them.
+Decision: adopt P0_pwm_irq_compile_contract.md and its public api_probe.h before
+implementation and independent tests. Retain never-called native PWM, Arduino
+analogWrite and attach/detach API probes; setup stores only function addresses.
+Consequence: no probe execution, upload allowlist entry, pin selection, frequency
+adoption, asynchronous QTR semantics, upstream change, P2 HAL or motor authority.
+Preserve actual installed source, compile, ELF, test and fresh review evidence;
+unmeasured electrical/timing behavior and genuine phase/human gates remain open.

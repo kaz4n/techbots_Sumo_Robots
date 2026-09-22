@@ -161,6 +161,15 @@ three replacement starts, then latch D-048's inhibited fault on the fourth
 request. Preserve the budget until actual escape exit/reset. Fault masks take
 priority over all row motion and replanning.
 
+D-054 (selected under delegated D-051,2026-09-22): evaluate newly-white triggers
+using the phase and captured intended pivot side at observation entry, even if
+heading overshoot reverses the corrective duty. Then check DONE+white after
+advancement; allow at most one replacement on that observation. Refresh the mask
+baseline on clears and preserve it across replacements. Permission loss during
+an active escape or invalid consumed motion context latches a reset-only inhibited
+fault. Record a new inward heading only at actual all-black+DONE exit with current
+healthy finite IMU yaw; unavailable/cached heading is not fresh inward evidence.
+
 ---
 
 ## B5. Opponent fusion

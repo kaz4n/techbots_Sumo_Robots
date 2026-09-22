@@ -478,3 +478,22 @@ Consequence: no R3/R4 exception or invented log round trip. P0's Monitor counter
 and physical cold-boot/display checks remain distinct pending evidence. No GPIO,
 voltage, wiring, core behavior or config default changes. Incomplete/inconsistent
 reads fail, and an attachment during capture invalidates the unperturbed result.
+
+## D-054 (2026-09-22, selected under D-051) Full Escape observation lifecycle
+Context: D-047..D-050 settle selection/replan policy; the wrapper still needs
+precise boundary, cancellation and inward-evidence semantics. Separate spec/header
+audits agree on the following recommendations, recorded without another question.
+Decision: newly-white replanning uses the phase and intended pivot side present
+at call entry, independent of overshoot correction sign. Then independently
+check completed-but-white after row advancement; at most one replacement per
+fresh observation. Keep the prior mask across replacements and update on clears.
+Losing motion permission during an active episode latches an inhibited reset-only
+fault; never count disabled time as completed physical escape or clear its budget.
+Publish inward heading only on actual all-black+DONE exit with current healthy
+finite yaw. Unavailable yaw produces no new inward evidence; cached heading is
+only a motion coordinate. Validate numeric/enum context only when consumed, after
+gate/fault-pattern priority. Invalid consumed context latches an inhibited fault.
+Consequence: this can stop a match on invalid data/permission loss. Test phase
+deadline ties, overshoot, clear/reassertion, all16 masks, exact replan limit,
+permission recovery/reset, context selection, unavailable yaw and inward pulses.
+No sensor timing, pin, B16 value, established locked test or phase gate changes.

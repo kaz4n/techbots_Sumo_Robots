@@ -1,6 +1,6 @@
-// Defines B4 classification, persistent-edge guarding and specified row scripts.
-// Separates bounded motion requests from unresolved selection and hardware writes.
-// Locked host tests cover thresholds, rows, mirrors, timing and guard composition.
+// Defines B4 classification, persistent-edge guarding, rows and escape composition.
+// Separates bounded motion requests and approved recovery faults from hardware writes.
+// Locked host tests cover thresholds, rows, selection, replanning and inhibition.
 #pragma once
 #include "motion.h"
 #include "governor.h"
@@ -92,6 +92,13 @@ public:
     // All existing step timing, profiles, fallback and guard obligations apply.
     bool startHeadOn(std::uint32_t t_us, float heading_deg, bool imu_ok,
                      motion::Direction opponent_side);
+    // B4.3/D-049 already-selected pushed-out maneuver: pivot in the explicit
+    // direction by EDGE_SIDE_TURN_DEG at TURN_DUTY, then straight forward for
+    // EDGE_FWD_MS at EDGE_BACK_DUTY. No initial brake/reverse. Finite initial
+    // heading and a valid direction required; invalid entry latches INVALID.
+    // Does not change start(mask)'s established supported set or select priority.
+    bool startPushedOut(std::uint32_t t_us, float heading_deg, bool imu_ok,
+                        motion::Direction direction);
     // Capture heading at each primitive entry, with B7 Straight correction and
     // Turn's existing tolerance/fallback/timeout; fixed bias uses TimedArc.
     // Pivots request TURN_DUTY/profile PIVOT; reverse EDGE_REVERSE; all forward
@@ -99,6 +106,8 @@ public:
     // Done/timed-out primitives advance at this observation's time; never backdate
     // a new segment. Advance at most three phases/call. Capture one turn target,
     // never retarget; preserve any timeout pulse while entering the next phase.
+    // Pivots use Turn::startRelative with the captured raw heading, preserving
+    // B7's strict tolerance without rounding heading+angle through float first.
     // Healthy nonfinite current yaw latches INVALID/zero; unavailable current yaw
     // is ignored, retaining the last finite healthy heading for later phase entry.
     // Terminal results remain zero until start/reset. DONE only means this row
@@ -124,5 +133,99 @@ private:
     bool front_row_ = false;
     bool biased_forward_ = false;
     bool head_on_ = false;
+};
+
+enum class EscapeFault : std::uint8_t {
+    NONE, WHITE_PATTERN, REPLAN_LIMIT, PERMISSION_LOST, INVALID_CONTEXT
+};
+struct EscapeSample {
+    std::uint32_t t_us = 0U;
+    std::uint8_t line_mask = 0U;
+    float heading_deg = 0.0F;
+    bool imu_ok = false;
+    bool motion_permitted = false;
+    bool centered_front = false;
+    float applied_duty_l = 0.0F;
+    float applied_duty_r = 0.0F;
+    motion::Direction opponent_side = motion::Direction::RIGHT;
+};
+struct EscapeResult {
+    RowResult row;
+    EscapeFault fault = EscapeFault::NONE;
+    bool escape_required = false;
+    bool inhibit_motion = true; // Veto only; false never grants motor permission.
+    bool entered = false;
+    bool exited = false;
+    bool replanned = false;
+    std::uint32_t replans = 0U;
+    std::uint8_t selected_mask = 0U;
+    bool pushed_out = false;
+    motion::Direction pivot_direction = motion::Direction::RIGHT; // Meaningful in PIVOT.
+    bool inward_valid = false; // Exit pulse only; no stale heading/timestamp refresh.
+    float inward_heading_deg = 0.0F;
+};
+class Escape {
+public:
+    // B4/D-020/D-047..D-050/D-054 composition. Each call consumes ONE NEW,
+    // confirmed line observation (low four bits); caller must not repeat stale
+    // QTR data. This does not resolve physical acquisition timing/freshness.
+    // Closed permission while inactive: zero/inhibited, no new line/context
+    // fault. Revoking permission during an active episode latches PERMISSION_LOST;
+    // neither repermission nor black clears it or resets its replan budget.
+    // Any fault persists until reset. escape_required is false while permission
+    // is closed, otherwise true while active/faulted. Reset must track Robot reset.
+    //
+    // With permission: 3/4 white bits first latch WHITE_PATTERN/zero/inhibited.
+    // Initial persistent white enters immediately with zero replacements used.
+    // Row selection: rear bit + current centered_front + BOTH previously applied
+    // FINAL electrical duties >0 selects pushed-out. Single rear pivots away;
+    // both rear pivots opposite opponent_side. Otherwise mask3 selects head-on
+    // toward opponent_side; other nonzero supported masks use the B4.2 rows.
+    // Caller supplies D-047/D-041 shared side memory, default RIGHT; selection
+    // captures it. Do not retarget a row when later opponent context changes.
+    //
+    // On each active observation, compare new bits with the previous admitted
+    // mask. During the phase present at CALL ENTRY, PIVOT replans only for bits
+    // on its captured intended turning side (LEFT=FL/RL, RIGHT=FR/RR), regardless
+    // of overshoot correction sign. Other active phases replan for any new bit.
+    // Otherwise advance the row; DONE with persistent white also replans on this
+    // observation. At most ONE replacement start/call. Allow EDGE_MAX_REPLANS
+    // replacements; the next request latches REPLAN_LIMIT without starting motion.
+    // Update the mask baseline on every admitted sample, including clears; never
+    // reset it/budget merely on replacement. New rows/phases start at observed time.
+    //
+    // Exit only all-black AND row DONE; emit exited once, zero row, reset budget.
+    // Emit inward_valid/current raw yaw only if that exit has healthy finite IMU;
+    // otherwise false/zero. Caller owns retained history and its actual timestamp.
+    // At initial row start heading must be finite even without IMU (last-known
+    // coordinate). In active rows healthy nonfinite yaw faults; unavailable yaw
+    // is ignored and replans use retained last valid heading. No synthetic yaw.
+    // Validate BOTH duties as finite [-1,1] only at selection when rear+centered
+    // consumes that predicate; validate opponent_side only for head-on or selected
+    // both-rear pushed-out. Unused contexts ignored; fault masks/permission win.
+    // Invalid consumed context/row latches INVALID_CONTEXT; no budget increment
+    // for a failed replacement start. Fault/closed/idle/exit requests are zero,
+    // brake=true; fault row status INVALID, closed/idle IDLE, exit DONE.
+    // entered includes first line-fault entry; replanned means successful start.
+    // Timeout pulse is retained when an old row finishes and is replaced/exited.
+    // All motion requests still require governor + MotorGate; no I/O or allocation.
+    EscapeResult step(const EscapeSample& sample);
+    void reset();
+private:
+    bool startRow(const EscapeSample& sample, bool replacement);
+    bool needsReplan(std::uint8_t new_bits) const;
+    void latchFault(EscapeFault fault);
+    EscapeResult result(bool permitted) const;
+    Guard guard_;
+    RowExecutor row_;
+    RowResult current_;
+    EscapeFault fault_ = EscapeFault::NONE;
+    float last_heading_deg_ = 0.0F;
+    std::uint32_t replans_ = 0U;
+    std::uint8_t previous_mask_ = 0U;
+    std::uint8_t selected_mask_ = 0U;
+    motion::Direction pivot_direction_ = motion::Direction::RIGHT;
+    bool active_ = false;
+    bool pushed_out_ = false;
 };
 } // namespace edge

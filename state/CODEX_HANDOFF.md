@@ -306,3 +306,19 @@ No board connected/contacted, target compile, upload/reset, motor run, physical
 measurement, PINMAP OK, EXPLAINED OK, human gate, remote push or release tag.
 Human hardware testing remains deferred to project end under the active goal;
 its absence is never a pass. Full P7 completion is still outstanding.
+
+## Continuation checkpoint — 2026-09-22 20:15 Asia/Dubai
+
+Supersedes the previous next-task/count statements. Implemented mirrored
+SIDESTEP/ARC2071d4f, logical STOP6a3dc29, defensive turn4768eb5. Interfaces were
+committed first. New70 independent cases; complete383 cases/9,121,864 assertions
+pass normal and ASan/UBSan,48 script checks pass. Fresh separate scoped reviewer
+PASS/no open finding; approved23-file inert snapshot refresh. Exact commands,
+initial failure and review scope: analysis/P1_flank_stop_validation.md.
+
+Human approvals through D-039 recorded. Only D-039's named established locked
+case changed, exactly as proposed; new logical STOP cases now established too.
+SC-J/T/U/V/W/X resolved. SC-Y re-flank completion and SC-Z SEARCH side mapping
+pending. Next implement B9 steering/D-037 time-only arc, then B8 SEARCH and the
+remaining escape/WAIT/re-flank/Robot. Preserve original phase/gate dependencies.
+No board action or claimed physical result; P1 host development remains active.

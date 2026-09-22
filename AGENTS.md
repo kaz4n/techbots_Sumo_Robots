@@ -197,3 +197,7 @@ D-026/D-027 define bearing conflicts and contact lifetime; D-028 defines explici
 event overflow handling. Approval of a policy is not evidence of its implementation.
 D-029/D-030 define phantom episodes/replacement; D-031 defines stuck qualification
 and reset-only recovery; D-032 defines qualified timer/deflection stall triggering.
+D-033 defines SIDESTEP phase-specific front priority; D-034 routes opener exits
+through current perception and the existing centered-target qualification.
+D-035 defines logical BOTH debounce/STOP timing and reset-only recovery; physical
+A1 decoding remains separately unresolved and is not proved by logical tests.

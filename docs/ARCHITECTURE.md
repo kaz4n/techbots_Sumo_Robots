@@ -7,9 +7,9 @@ the complete robot scheduler, FSM and actuator path do not yet exist.
 | Module | Implemented responsibility | Integration still needed |
 |---|---|---|
 | `core/types.h` | B0 logical input fields, state/mode/event names, inert output defaults | Recorder outputs, validated HAL input mapping |
-| `countdown::Buttons` | Stable logical level qualification; rejects boot-held START; reports release edge and qualification timestamps | A1 decoding and both-held STOP |
+| `countdown::Buttons/StopHold` | Logical qualification; rejects boot-held START; D-035 qualified BOTH long hold and reset-only STOP latch | Physical A1 decoding |
 | `countdown::Gate` | Full 5.1 s inhibit after a supplied qualified release event, cancel, latched STOP, one GO pulse | Heading reset/calibration/warning/snapshot services, FSM, real MotorGate |
-| `countdown::Controller` | D-019 composition: qualify buttons first, then start the entire hold at the qualification tick | Services composition and complete Robot FSM |
+| `countdown::Controller` | D-019 full hold after qualification; D-035 StopHold/external STOP before Gate | Services composition and complete Robot FSM |
 | `countdown::Services` | D-024 bounded bias accumulation, rejection/previous-bias retention, latched line warning and latest opponent snapshot | Feed raw gyro/new observations, start/cancel from Controller, apply bias in HAL, complete FSM |
 | `edge::Classifier` | Per-corner threshold and consecutive-white confirmation, persistent white mask | Validated fresh QTR acquisition, escape policy, R5 arbitration |
 | `edge::Guard` | D-020 persistent escape request, black-plus-finished exit, latched all-white motion veto until reset | Escape directions/scripts/replanning and application of veto at MotorGate |
@@ -25,6 +25,8 @@ the complete robot scheduler, FSM and actuator path do not yet exist.
 | `stall::Detector` | D-032 final-duty qualification, timer/deflection routes and persistent per-contact edge history | Governed-duty/contact wiring, event deduplication, physical P4 stall evidence |
 | `stall::ReflankLimiter` | B11.3 rolling two-start limit and D-025 bounded suppression timer | Actual re-flank starts and stall-result suppression in Robot, all safety arbitration |
 | `openers::Direct` | B12 O2 heading-held 400ms request, snapshot/current target exits and latched zero completion | Global target/edge arbitration and OPENER governor, other openers |
+| `openers::Flank` | Shared mirrored SIDESTEP/ARC scripts, D-033 phase-specific aborts, explicit governor profiles and D-034 exit intents | Complete Robot arbitration and WAIT |
+| `fsm::DefendTurn` | B10 captured target, front/clear exits and separate B7 700ms/B10 800ms deadlines | Global arbitration, PIVOT governor and MotorGate |
 | `logframe` | B15 portable 25-byte frames and 8-byte exact-tick events, explicit invalid/clipped status; D-028 first4096 EventBuffer | HAL-owned buffer instance, frame cadence/storage, event collection, incomplete-evidence marking and idle-only dump |
 
 All inputs are ordinary C++ values. Time arrives from callers as `uint32_t`
@@ -85,8 +87,9 @@ stateDiagram-v2
     READY --> IDLE: reset object
 ```
 
-Reset is a software lifecycle operation, not a new physical STOP-recovery
-interaction. GO is emitted once on entry to READY; permission stays latched until
+Reset is a software lifecycle operation. D-035 approves reset-only logical STOP
+recovery; this does not grant permission to reset hardware. GO is emitted once
+on entry to READY; permission stays latched until
 STOP or reset. No commanded motor duties are produced by these services.
 
 The intended complete path remains the original architecture: MCU scheduler reads
@@ -133,7 +136,7 @@ are never manufactured; any invalid in-window observation rejects calibration,
 and duplicate timestamps add no observation. The application must start this
 object on the qualified release and cancel it on IDLE/STOPPED transitions. The
 independent host harness checks that composition; Controller alone still only
-owns Buttons and Gate. Line warning does not block GO. Physical sample freshness,
+owns Buttons, StopHold and Gate. Line warning does not block GO. Physical sample freshness,
 HAL bias application and the heading reset at GO still need integration.
 
 Recorder encoding retains multi-revolution heading in signed 32-bit centidegrees

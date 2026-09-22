@@ -111,3 +111,12 @@ Next eligible task: B12 ARC_R/L script contracts/tests and implementation. Prese
 the approved decisions through D-032 and obtain distinct protected decisions for
 remaining escape/SIDESTEP/FSM ambiguities before their dependent implementation.
 All original P1-P7 exit conditions remain required; no project-complete claim.
+
+| 2026-09-22 | P1 B12 mirrored scripts | SIDESTEP/ARC shared engine;35 independent tests | HOST-TESTED | 2071d4f |
+| 2026-09-22 | P1 B13 logical STOP | D-035 StopHold/Controller;12 new locked cases; exact D-039 amendment | HOST-TESTED; initial contradictory expectation retained as evidence | 6a3dc29 |
+| 2026-09-22 | P1 B10 defend | Captured target and distinct700/800ms deadlines;23 independent cases | HOST-TESTED | 4768eb5 |
+| 2026-09-22 | P1 scoped checkpoint |383cases/9121864assertions normal+ASan/UBSan;48/48 script checks; independent scoped PASS | analysis/P1_flank_stop_validation.md; no hardware/gate claimed | commit containing this row |
+
+Current next work: approved B9 steering and B11 time-only arc, then SEARCH and
+remaining scripts/Robot. D-036–D-038 approvals recorded3b10613; SC-Y/Z specific
+integration choices pending. No established locked edit beyond D-039 is approved.

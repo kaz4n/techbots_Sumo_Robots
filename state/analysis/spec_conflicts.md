@@ -183,3 +183,60 @@ Further script audit (no decision inferred):
   ATTACK or explicit opener-specific transition policy. Recommend current
   perception with all safety gates; obtain the protected decision before actual
   state integration. Test stale snapshot, off-center front, lost target and edge.
+
+SC-T/SC-U RESOLVED by D-033/D-034 (2026-09-22): user explicitly approves
+phase-specific SIDESTEP front priority and current-perception opener exits.
+PIVOT still ignores front; later front outranks outer-side/rear in SIDESTEP.
+Actual opener exits select normal TRACK/centered-qualified ATTACK, DEFEND_TURN
+or SEARCH from the current target. Snapshot alone cannot authorize ATTACK.
+Their dependent script contracts are committed d8f2327/ad0efb0; full Robot
+state integration still requires implementation and tests, not another approval.
+
+SC-J remaining logical STOP proposal presented separately: after BOTH qualifies
+for BTN_DEBOUNCE_MS, start the entire BTN_LONG_MS; any observed release cancels
+an unfinished hold; STOPPED stays latched until reset into normal boot/start.
+No approval recorded yet for this proposal. Tests must cover boot-held BOTH,
+bounce, qualification/long-hold exact and adjacent ticks, release at the endpoint,
+delayed observations, cancellation, wrap and reset without motion permission.
+SC-A electrical ability to distinguish BOTH remains a separate human circuit gate.
+
+SC-J logical STOP RESOLVED by accepted D-035: the exact proposal above is now
+approved. StopHold/Controller contracts are committed6a15674; implementation and
+new locked tests follow. SC-A physical decoding remains unapproved/unverified.
+
+Next integration choices presented (not yet approved):
+- SC-V, B9.1/B9.2: wheel mixing, the extra15-degree pivot and small ATTACK
+  corrections lack numbers. A: left/right=base+/-correction bounded[-1,1];
+  TRACK correction=K_TRACK_PER_DEG*bearing plus signed TURN_MIN_DUTY on the
+  +/-15 front-only rows, using SEARCH_FORWARD governor. ATTACK correction uses
+  that gain limited to min(TURN_MIN_DUTY,base), with the ATTACK governor.
+  B: defer to measured gains. Recommend A. Test seven front rows, mirrors,
+  centering counts, loss/braking, approach/contact, finite limits and low voltage.
+- SC-W, B11.2: SWING arc duty and first alternation direction are absent.
+  A: outer request TURN_DUTY, ratio REFLANK_ARC_RATIO and duration-only
+  REFLANK_ARC_MS; choose right first when earlier side rules cannot choose,
+  then alternate. B: defer. Recommend A. No invented sweep cutoff. Test exact
+  BACK/arc times, pivot, charger skip, side-history/edge metadata ties and mirrors.
+- SC-X, B11 versus B9: D-034 covers opener exits only; re-flank's literal
+  direct ATTACK reacquisition still bypasses centered qualification. A: normal
+  current-perception TRACK/qualified ATTACK, DEFEND_TURN or SEARCH, preserving
+  D-027 fresh contact. B: defer. Recommend A. Test centered streaks/interruption,
+  all current target groups/loss, stale contact and all-edge priority.
+
+SC-V/SC-W/SC-X RESOLVED by accepted D-036/D-037/D-038 on 2026-09-22. The
+human explicitly approved all three exact proposals above. Implement and test
+their policies; approvals do not constitute test or hardware evidence.
+The distinct established locked-test conflict with D-035 is approved for exactly
+one documented case by D-039; see P1_stop_locked_conflict.md for the full edit.
+
+Further bounded integration audit (questions pending; no approval inferred):
+- SC-Y, B11.2/B2: natural SWING arc completion and TURN_IN continuation are not
+  specified. A: arc expiry without inner trigger exits via D-038; TURN_IN retains
+  its captured command until front detection/completion/timeout, then D-038.
+  Edge/STOP always preempt. B: defer. Recommend A. Test all masks during phases,
+  natural/triggered transitions, no retarget, exact expiry, timeout and edge/STOP.
+- SC-Z, B8/B5: "last seen side" could be front-sensor history or latest selected
+  bearing. A: sign of latest valid nonzero relative bearing, retaining side for
+  zero and default right when unknown; existing SIDESTEP hint controls first scan.
+  B: last front side only. Recommend A. Test side/rear after opposite front,
+  zero/conflicted/invalid bearing, no history, hint precedence and mirrors.

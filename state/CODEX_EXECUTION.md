@@ -34,6 +34,14 @@ No failures/skips. Fresh separate scoped review PASS/no open findings. Final
 current-source tooling48/48 after exact21-file snapshot review/manifest refresh:
 P1_filters_events_tools.txt. See P1_filters_events_validation.md and raw receipts.
 
+Superseding checkpoint 2026-09-22:383 cases/9,121,864 assertions pass normal and
+ASan/UBSan;48/48 controlled tooling checks. New70 cases cover mirrored SIDESTEP/
+ARC, logical STOP and defensive turn. Separate scoped review PASS/no open finding;
+23-file inert manifests reviewed. See P1_flank_stop_validation.md/review. D-039
+approved exactly one established locked-case amendment; initial failure retained.
+D-033–D-038 are accepted; steering/re-flank implementation is next. SC-Y/Z are
+pending specific completion/search-side decisions, not reasons to stop other work.
+
 Approvals: D-017 governor; D-018 ordering; D-019 release anchor; D-020 persistent/
 all-white guard; D-021 forward0.80; D-022 heading correction; D-023 duty-only
 compensation; D-024 services; D-025 ALL_IN safety; D-026 bearing memory; D-027
@@ -48,6 +56,11 @@ SC-A physical button decoding, SC-B QTR cadence/freshness, SC-I bounded log demo
 SC-J both-held STOP/recovery, SC-R/S escape directions/priority, SC-T simultaneous
 SIDESTEP exits, SC-U actual opener/FSM transitions and WAIT geometry remain
 explicitly open. D-016 alone does not authorize P2 HAL work.
+
+The preceding next-task text is superseded: SIDESTEP/ARC and logical STOP now
+HOST-TESTED (2071d4f/6a3dc29), as is DefendTurn (4768eb5). Continue B9 steering,
+B11 time-only arc, B8 SEARCH and remaining Robot/escape/re-flank/WAIT. SC-J/T/U
+are resolved by D-035/D-033/D-034. Full integration and all original gates remain.
 
 Hardware resumes through docs/P0_MANUAL_CHECKLIST.md when connected: obtain SSH
 alias/user and isolation/part/instrument details, run read-only preflight, inspect

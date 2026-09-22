@@ -10,3 +10,9 @@ host/third_party/doctest.h -text
 host/third_party/doctest-LICENSE.txt -text
 # Raw instrument/ELF dumps must retain exact bytes, including output whitespace.
 state/analysis/P0_*_raw/** binary
+# Dated G2 receipts also preserve their captured bytes and recorded hashes.
+state/analysis/P0_irq_installed_raw_20260923/** binary
+state/analysis/P0_pwm_installed_raw_20260923.txt binary
+state/analysis/P0_pwm_irq_compile_provenance_20260923.json -text
+state/analysis/P0_pwm_irq_compile_target_20260923.txt -text
+state/analysis/P0_pwm_irq_probe_host_tests_20260923.txt -text

@@ -1,0 +1,20 @@
+test_d066_motor_capable_probe_build_is_rejected (test_p0_imu_compile.ImuCompileProbeTests.test_d066_motor_capable_probe_build_is_rejected) ... ok
+test_d066_probe_upload_rejected_before_any_board_lookup (test_p0_imu_compile.ImuCompileProbeTests.test_d066_probe_upload_rejected_before_any_board_lookup) ... ERROR
+test_d066_setup_and_loop_retain_addresses_without_api_or_allocation (test_p0_imu_compile.ImuCompileProbeTests.test_d066_setup_and_loop_retain_addresses_without_api_or_allocation) ... ok
+
+======================================================================
+ERROR: test_d066_probe_upload_rejected_before_any_board_lookup (test_p0_imu_compile.ImuCompileProbeTests.test_d066_probe_upload_rejected_before_any_board_lookup)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_imu_compile.py", line 109, in test_d066_probe_upload_rejected_before_any_board_lookup
+    module.flash(args)
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tools/board_tool.py", line 194, in flash
+    fail('P0 uploads allow only reviewed inert p0_matrix, p0_timing, p0_adc, p0_gpio and p0_qtr sketches')
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tools/board_tool.py", line 24, in fail
+    raise ValueError(message)
+ValueError: P0 uploads allow only reviewed inert p0_matrix, p0_timing, p0_adc, p0_gpio and p0_qtr sketches
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.510s
+
+FAILED (errors=1)

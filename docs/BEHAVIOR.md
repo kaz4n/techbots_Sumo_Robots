@@ -322,6 +322,10 @@ Placement assumption: behind our start line, facing the ring center (the opponen
 3. **TURN_IN:** turnTo(heading - SS_TURNIN_DEG), turning left. A front detection enters ATTACK. Finished with no detection: SEARCH, scanning left first.
 Side or rear detection on the outer side at any phase: DEFEND_TURN.
 
+D-033 (human-approved 2026-09-22): in DRIVE/TURN_IN a current front target takes
+priority over the outer-side/rear abort; otherwise that outer abort remains.
+PIVOT still ignores front, so outer-side/rear detection there requests DEFEND_TURN.
+
 ### O2. DIRECT (mode 3)
 - If the countdown snapshot or the current reading shows a front detection: enter ATTACK at once (approach, then contact).
 - Else drive straight for DIRECT_MS at OPENER_DUTY_MAX. Front detection: ATTACK. Side or rear: DEFEND_TURN. Done: SEARCH.
@@ -336,6 +340,13 @@ Side or rear detection on the outer side at any phase: DEFEND_TURN.
 - **Approach cue:** FC on, then FL15 or FR15 also turns on within APPROACH_WINDOW_MS (the target is widening, so it is closing in). On the cue: run SIDESTEP_R phases 2 and 3 with no pivot, then ATTACK.
 - Side or rear detection: DEFEND_TURN.
 - WAIT_MAX_MS elapsed: SEARCH.
+
+D-034 (human-approved 2026-09-22), all opener exits: the ATTACK/target wording
+above denotes a request for normal current-perception arbitration. Current front
+selects TRACK, with ATTACK requiring ATTACK_ENTER_TICKS consecutive centered
+observations; current side/rear selects DEFEND_TURN; no current target selects
+SEARCH. A countdown snapshot alone cannot authorize ATTACK. Immediate target-loss
+braking, contact lifetime and edge priority remain in force.
 
 ---
 

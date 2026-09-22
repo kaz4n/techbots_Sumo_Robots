@@ -250,3 +250,23 @@ ATTACK contact, both forward final electrical duties at least STALL_MIN_DUTY,
 and no edge event since contact. Keep IMU displacement refinement disabled.
 Consequence: test exact thresholds/signs, contact/edge histories, invalid IMU and
 D-025 suppression. This inference still needs P4 logs; no measured stall is claimed.
+
+## D-033 (2026-09-22, accepted) SIDESTEP phase-specific detection priority
+Context: SC-T identified competing front/outer-side aborts in B12 O1.
+User replied "Approve A: phase-specific front priority".
+Decision: during DRIVE/TURN_IN, current front has priority; otherwise outer-side
+or outer-rear detection requests DEFEND_TURN. During PIVOT ignore front, but
+outer-side/rear detection still requests DEFEND_TURN.
+Consequence: implement both mirrors and simultaneous-mask tests in every phase.
+This does not add the SIDESTEP outer-side exception to ARC or override edge priority.
+
+## D-034 (2026-09-22, accepted) Current perception governs opener exits
+Context: SC-U identified literal opener ATTACK exits versus B9 current-target rules.
+User replied "Approve A: current perception governs opener exits".
+Decision: opener exits request normal perception arbitration. Current front selects
+TRACK; ATTACK requires ATTACK_ENTER_TICKS consecutive centered observations. Current
+side/rear selects DEFEND_TURN; no current target selects SEARCH. A saved countdown
+snapshot alone cannot authorize ATTACK. Preserve immediate target-loss braking,
+contact rules and edge priority.
+Consequence: executor outputs remain transition intents. Implement and test the
+actual transitions in Robot integration; no snapshot or script grants motor permission.

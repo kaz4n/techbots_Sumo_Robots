@@ -130,3 +130,27 @@ input. Set connection variables in the invoking shell, never tracked credentials
 Research/provenance: state/analysis/P0_G3.md and P0_G4.md. USB discovery is now
 observed; compile/upload evidence is recorded separately. `dump_match.sh` belongs to P2 and
 `plot_match.py` to eligible P6; neither is falsely implemented as a successful stub.
+
+## Reviewed P0 RAM observations
+
+`p0_capture.py` runs with Python on the board and accepts only the exact reviewed
+default timing artifact. `p0_matrix_capture.py` is a separate observer for the exact
+default matrix artifact. Neither is a general debugger or firmware uploader.
+Copy the reviewed script(s) and `p0_mem_read.cfg` together to a fresh board tools
+directory, verify their recorded hashes, and supply the pinned `--artifact-dir`
+and a fresh `--output` child under `/home/arduino/sumox26-capture/`.
+
+The tools verify installed files, compare every loader/sketch flash byte, resolve
+bounded runtime symbols, and retain raw results with explicit failures. The timing
+tool requires60000 completed samples and identical snapshots. The matrix observer
+only establishes counter advancement; it cannot verify optical appearance or clock
+accuracy. MEM-AP readout uses the internal debug connection without reset/halt or
+MCU memory writes; it still perturbs the bus and must not overlap a timing workload.
+No Bridge/Monitor round trip, complete control-loop WCET or phase gate follows.
+
+These helpers are deliberately tied to core1.0.0 and their specific artifact
+hashes. A changed build requires a new inspected/reviewed identity record, not
+blind hash replacement. Current receipts live in `state/analysis/P0_*20260922*`
+and the corresponding `state/reviews/` reports. The README's older installed/
+compile-pending statements are superseded by FACTS F-062 onward; outstanding
+physical/API restrictions remain.

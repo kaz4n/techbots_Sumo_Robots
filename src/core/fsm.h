@@ -1,4 +1,4 @@
-// Defines B8 search, B9 front requests and B10 turns for the future Robot arbiter.
+// Defines B8 search, B9 front requests and B10/B11 scripts for the future Robot.
 // Keeps state deadlines and target exits separate from motor permission and I/O.
 // Independent host tests cover capture, target priority, both deadlines and wrap.
 #pragma once
@@ -142,6 +142,88 @@ private:
     double remaining_deg_ = 0.0;
     double fallback_us_ = 0.0;
     bool scan_fallback_ = false;
+};
+
+struct SwingContext {
+    bool edge_side_valid = false; // Genuine known side of a completed escape.
+    motion::Direction edge_side = motion::Direction::RIGHT;
+    std::uint64_t edge_age_us = 0; // Truthful ages, never raw wrapped timestamps.
+    bool front_left_seen = false;
+    bool front_right_seen = false;
+    std::uint64_t front_left_age_us = 0;
+    std::uint64_t front_right_age_us = 0;
+    bool previous_swing_valid = false;
+    motion::Direction previous_swing = motion::Direction::RIGHT;
+};
+struct SwingChoice {
+    motion::Direction direction = motion::Direction::RIGHT;
+    bool valid = false;
+};
+// B11/D-037/D-043: known edge age<RECENT_EDGE_MS -> away from that side;
+// otherwise unseen front is older than seen, or larger age wins among two seen.
+// Both unseen/equal age -> opposite previous actual swing, or RIGHT initially.
+// Validate direction enums only if consumed; invalid consumed enum -> !valid.
+// Caller preserves actual swing history across executor reset/start. Unknown or
+// bilateral edge metadata must not invent a side; set edge_side_valid=false.
+SwingChoice chooseSwing(const SwingContext& context);
+
+enum class ReflankPhase : std::uint8_t { IDLE, BACK, SWING, TURN_IN, FINISHED, INVALID };
+struct ReflankResult {
+    motion::Result motion;
+    governor::Profile profile = governor::Profile::REFLANK_TURN;
+    Intent intent = Intent::NONE;
+    ReflankPhase phase = ReflankPhase::IDLE;
+    motion::Direction direction = motion::Direction::RIGHT;
+    // One-call B15 entry notifications, decoded SWING then TURN_IN if both true.
+    // BACK is recorded by the caller immediately on successful start, not later.
+    bool entered_swing = false;
+    bool entered_turn_in = false;
+    bool turn_timed_out = false; // B7 timeout pulse, retained across transitions.
+};
+class Reflank {
+public:
+    // B11: finite initial/last-known heading, valid selected swing direction.
+    // Enter BACK at this exact tick; caller records BACK and limiter admission.
+    // Capture heading-held reverse at -REFLANK_BACK_DUTY for REFLANK_BACK_MS.
+    // Failed start latches INVALID/zero. No motor permission is granted.
+    bool start(std::uint32_t t_us, float heading_deg, bool imu_ok,
+               motion::Direction direction);
+    // Low seven effective bits only. BACK front + current contact cue skips
+    // to SWING immediately; front alone is ignored in BACK/SWING. SWING pivots
+    // REFLANK_PIVOT_DEG toward direction at TURN_DUTY, then arcs oppositely at
+    // TURN_DUTY/REFLANK_ARC_RATIO for REFLANK_ARC_MS (time only, D-037).
+    // Inner SL/RL for RIGHT, SR/RR for LEFT wins either SWING segment, including
+    // its completion/timeout tick. Capture current valid finite relative bearing
+    // in (-180,180] as one B7 TURN_IN target. Ignore unconsumed bearing payload;
+    // invalid required bearing latches INVALID/zero (API defense, not fault policy).
+    // D-040: TURN_IN retains captured turn despite lost/changed side readings;
+    // current front or turn completion/timeout exits zero/PERCEPTION. Natural
+    // arc completion also exits PERCEPTION. Caller applies D-038/D-045 centering.
+    // TURN_IN front exits before checking yaw/deadlines. Otherwise healthy
+    // nonfinite yaw invalidates active motion; unavailable yaw is ignored, with
+    // last finite healthy yaw used for later entries and B7 fallback retained.
+    // BACK profile REFLANK_BACK; all other phases REFLANK_TURN. Terminals are
+    // zero/DONE, INVALID or IDLE and fallback=false, latched until start/reset.
+    // At most four private-stage visits per call; new segments start at the
+    // observed transition tick, never backdated. Entry/timeout flags never replay.
+    // Caller owns edge/STOP preemption, limiter, events, governor and MotorGate.
+    // No state assignment, clock, I/O or allocation; call gaps <one uint32 wrap.
+    ReflankResult step(std::uint32_t t_us, float heading_deg, bool imu_ok,
+                       std::uint8_t effective_mask, bool contact_cue,
+                       float bearing_deg, bool bearing_valid);
+    void reset();
+private:
+    enum class Stage : std::uint8_t { IDLE, BACK, PIVOT, ARC, TURN_IN, FINISHED, INVALID };
+    bool beginSwing(std::uint32_t t_us, bool imu_ok);
+    bool beginTurnIn(std::uint32_t t_us, bool imu_ok, float bearing_deg, bool valid);
+    motion::Result runMotion(std::uint32_t t_us, float heading_deg, bool imu_ok);
+    ReflankResult result(const motion::Result& motion) const;
+    motion::Straight back_;
+    motion::Turn turn_;
+    motion::TimedArc arc_;
+    Stage stage_ = Stage::IDLE;
+    motion::Direction direction_ = motion::Direction::RIGHT;
+    float last_heading_deg_ = 0.0F;
 };
 
 struct DefendResult {

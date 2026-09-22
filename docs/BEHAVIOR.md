@@ -329,6 +329,13 @@ arbitration. Current front selects TRACK and must satisfy ATTACK_ENTER_TICKS
 centering before ATTACK; side/rear selects DEFEND_TURN; none selects SEARCH.
 D-027's fresh contact requirement remains in force.
 
+D-040 (human-approved 2026-09-22): natural arc completion without an inner
+trigger exits through D-038. TURN_IN retains its captured turn until current
+front detection, completion or timeout, then uses D-038. Edge and STOP preempt
+every phase. D-043 (human-approved 2026-09-22): an unseen front side is less
+recent than a seen side; both unseen/equal recency use the approved right-first
+alternation. The higher-priority recent-edge side rule is unchanged.
+
 ### B11.3 Limits
 - At most REFLANK_MAX_PER_10S re-flanks in any 10 s window. Beyond that: ALL_IN. D-025 (human-approved 2026-09-22) supersedes unconditional full duty: suppress stall checks for ALL_IN_MS only. Full duty still requires centered contact; target loss still brakes and edge handling retains priority. All B6 caps and the existing default-disabled push-through rule remain in force.
 - If the opponent follows us during BACK (front detection plus contact cue), it is a charger: skip to SWING immediately.

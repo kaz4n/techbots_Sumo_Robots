@@ -13,8 +13,9 @@ PROGRESS.md is the phase/gate authority. No gates passed; no motor-run authoriza
 | P0 0.5 pin map | BLOCKED | source inventory, physical checks, approved changes, PINMAP OK |
 | P0 review/gate | GATE-PENDING | Scoped software review PASS (reviews/P0_recovery_codex.md); prepared P0_gate_request.md; physical evidence and human gate absent |
 
-Protected conflicts: analysis/spec_conflicts.md. SC-C and SC-D1 are approved by
-D-017/D-018; the other recommendations remain unapproved.
+Protected conflicts: analysis/spec_conflicts.md. D-017 through D-021 approve
+SC-C, SC-D1, the START-anchor part of SC-J, persistent/all-white SC-D2, and SC-M.
+Remaining recommendations are not approvals.
 ## Exact next task / dependencies
 
 All currently executable P0 host recovery tasks are checked and saved. The user
@@ -40,37 +41,39 @@ MPU6050. Keep intended connectivity as an assumption, not verified evidence.
    review and wait for the human's GATE P0 PASS. P1 host development is now
    separately permitted by D-016; this does not satisfy P0 acceptance.
 
-No circuit/acquisition/escape/ALL_IN/overflow recommendation is approved. D-017
-resolves final governor caps and D-018 resolves services-before-gate ordering.
-Obtain each remaining protected decision before dependent work.
+Circuit/acquisition/ALL_IN/overflow choices remain pending. D-019/D-020/D-021
+add the approved release anchor, persistent/all-white guard and forward duty/cap.
+Obtain remaining protected decisions before their dependent work.
 
 Manual work is ordered in docs/P0_MANUAL_CHECKLIST.md. The first reply only needs
 isolation/connections, SSH setup, exact breakout/part identities and available
 instruments. The blank P0_MEASUREMENTS_TEMPLATE.md is not measurement evidence.
 
-## Current development track (D-016) — 2026-09-22 18:10 Asia/Dubai
+## Current development track (D-016) — 2026-09-22 approved continuation
 
 | Existing P1 task | Status | Evidence / dependency |
 |---|---|---|
 | 1.1 interfaces | PARTIAL | types/countdown/edge/opp_fusion/governor committed before implementation/tests; other interfaces await relevant contracts |
-| 1.2 B3 Gate and logical Buttons | IMPLEMENTED / HOST-TESTED | a37b1c5; 19 locked cases; raw/qualified timestamp wiring and other B3 services pending SC-J/K |
-| 1.2 B4.1 classifier | IMPLEMENTED / HOST-TESTED | e30d4c2; 6 locked cases/all16masks; fresh-observation API only, acquisition/escape pending |
+| 1.2 B3 Gate/Buttons/Controller | IMPLEMENTED / HOST-TESTED | a37b1c5 +e08b9a0; 29 locked cases; D-019 after-debounce composition; other B3 services pending SC-K |
+| 1.2 B4 classifier/Guard | IMPLEMENTED / HOST-TESTED | e30d4c2 +6ab4d2c; 16 locked cases; D-020 persistent/all-white policy; acquisition/scripts pending |
+| 1.2 B4 forward requests | IMPLEMENTED / HOST-TESTED | 5595b57; D-021 0.80/0.56 straight/biased demand and EDGE_FORWARD cap; 9 cases; no timed/heading-held script yet |
 | 1.2 B5.1 and B5.2 front rows | IMPLEMENTED / HOST-TESTED | 2c2f55e; 12 debounce +10 front table cases; full fusion pending |
 | 1.2 B6 governor | IMPLEMENTED / HOST-TESTED | 0742bd9; 29 cases; D-017 final caps/slew; target-loss FSM brake/profile integration pending |
-| 1.3 properties | PARTIAL | 10,000 Gate streams +10,000 separate Buttons streams; front-table symmetry; full R1 output/MotorGate and R5/openers/escape properties remain pending |
+| 1.3 properties | PARTIAL | Three 10,000-stream sets (Gate, Buttons, composed Controller); front/forward symmetry; complete Robot R1/R5/openers/escape properties remain pending; actual MotorGate-boundary tests belong to later HAL work |
 | 1.4 architecture | PARTIAL | docs/ARCHITECTURE.md describes actual standalone components and Gate; complete Robot FSM still absent |
 | 1.5 target compile | HARDWARE-PENDING | No connected board/SSH target; never reported compiled |
-| 1.6 safety review | SCOPED PEER PASS / GATE-PENDING | reviews/P1_components_codex.md; reused separate context after thread limit, not fresh full gate review |
+| 1.6 safety review | SCOPED PASS / GATE-PENDING | Initial reused-context review plus fresh context P1_integration_codex and its P1_forward_codex follow-up; no full phase gate review |
 
-Aggregate: 77 host cases, 3,457,564 assertions pass; ASan/UBSan pass; 46 tooling
-checks pass. Evidence committed in 7cddb1a and summarized in P1_validation.md.
+Latest aggregate: 106 host cases, 5,220,784 assertions pass; ASan/UBSan pass;
+47 tooling checks pass. Evidence: P1_forward_validation.md and P1_forward_*_tests.txt.
 Numeric case count does not complete P1's all-table coverage or physical/gate criteria.
 
-Exact next task: collect the pending SC-J release-anchor and SC-D2 persistent/
-all-white decisions, record each approved choice, then define the smallest affected
-integration/escape contract and new independent tests. Resolve SC-K before full
-countdown services, SC-M before forward escape duty, and SC-L before the affected
-fusion stages. D-018's ordering is approved but the full FSM is not implemented.
+Exact next integration task: define the remaining motion contracts (SC-N: heading
+correction and timed voltage compensation) before timed/heading-held escape
+segments, and SC-K before full countdown services. Do not ask again for the
+already approved START anchor, persistent/all-white guard or forward duty. SC-L
+still gates the affected fusion stages; ALL_IN/recorder policies remain separate.
+D-018 service order is used inside Controller, but the full Robot FSM is absent.
 Do not edit the now-established locked files without human-approved ADR; add new
 tests when extending coverage. No P2 HAL work is authorized by D-016.
 

@@ -7,9 +7,12 @@ the complete robot scheduler, FSM and actuator path do not yet exist.
 | Module | Implemented responsibility | Integration still needed |
 |---|---|---|
 | `core/types.h` | B0 logical input fields, state/mode/event names, inert output defaults | Recorder outputs, validated HAL input mapping |
-| `countdown::Buttons` | Stable logical level qualification; rejects boot-held START; reports release edge and qualification timestamps | A1 decoding, both-held STOP, approved countdown timestamp anchor |
+| `countdown::Buttons` | Stable logical level qualification; rejects boot-held START; reports release edge and qualification timestamps | A1 decoding and both-held STOP |
 | `countdown::Gate` | Full 5.1 s inhibit after a supplied qualified release event, cancel, latched STOP, one GO pulse | Heading reset/calibration/warning/snapshot services, FSM, real MotorGate |
+| `countdown::Controller` | D-019 composition: qualify buttons first, then start the entire hold at the qualification tick | Other B3 services and complete Robot FSM |
 | `edge::Classifier` | Per-corner threshold and consecutive-white confirmation, persistent white mask | Validated fresh QTR acquisition, escape policy, R5 arbitration |
+| `edge::Guard` | D-020 persistent escape request, black-plus-finished exit, latched all-white motion veto until reset | Escape directions/scripts/replanning and application of veto at MotorGate |
+| `edge::forwardDemand` | D-021 straight/left/right-biased forward requests using 0.80 base and 70% inner-side request | Timed/heading-held segments and selection by the escape planner |
 | `opp_fusion::Debouncer` | Per-bit polarity, two-sample assertion, continuous-clear hysteresis | Bearing memory, side/rear conflict policy, contact, phantom/stuck logic |
 | `opp_fusion::frontView` | Seven front bearing/centering/close rows from B5.2 | Overall target selection and downstream motion policy |
 | `governor::Governor` | D-017 electrical caps after compensation, slew, immediate braking/reversal/cap reductions, one-second battery lag | FSM profile selection and target-loss brake trigger; real MotorGate |
@@ -25,10 +28,13 @@ The current isolated data paths are:
 flowchart LR
     L[Logical button samples] --> B[Buttons]
     B --> E[Qualified events and both timestamps]
-    C[Explicit qualified command timeline] --> G[Gate]
+    E -->|D-019 qualification tick| G[Gate]
     G --> P[Logical motion permission and event pulses]
     Q[New completed RC observation] --> W[Edge classifier]
     W --> M[Persistent white mask]
+    M --> EG[Edge guard]
+    P --> EG
+    EG --> EV[Escape request or latched motion veto]
     R[Raw electrical opponent mask] --> D[Debouncer]
     D --> F[Front table]
     F --> V[Front bearing, centered and close cues]
@@ -36,10 +42,20 @@ flowchart LR
     S --> O[Bounded electrical duty requests]
 ```
 
-There is deliberately no connection from button timestamps to Gate until SC-J is
-decided, or from Gate permission to motors. `motion_permitted` is a core result;
-only the future HAL MotorGate may write EN/PWM. The real controller must still
-inhibit motion in BOOT, IDLE, COUNTDOWN and STOPPED.
+`countdown::Controller` now connects qualification to Gate under D-019. It never
+backdates a late qualifying call to the raw release edge. `motion_permitted` is a
+logical result, not a hardware write. The application must apply the edge guard's
+motion veto to governed outputs and MotorGate: logical permission alone must not
+bypass all-white inhibition. Composed host tests check this path without claiming
+that the full app or real MotorGate exists. Only the future HAL MotorGate may
+write EN/PWM; BOOT, IDLE, COUNTDOWN and STOPPED must inhibit motion.
+
+The edge guard handles the default zero push-through window. A positive configured
+window fails compilation until its bounded exception is implemented and tested.
+An all-white fault persists across black readings, script completion and revoked
+permission; only explicit guard reset clears it. Before GO, line readings do not
+start escape or latch a new fault. Normal escape requires both all-black readings
+and a finished script to clear. Scripts/replanning and freshness remain separate.
 
 This diagram is the implemented standalone Gate, **not the unfinished Robot FSM**:
 
@@ -67,8 +83,9 @@ on the MCU so Linux boot and scheduling cannot delay edge response; target timin
 boot behavior and log independence still need their own evidence. D-018 approves
 gated-state services before motor inhibition; the complete scheduler/FSM is still
 pending. D-017 approves final electrical caps; the governor implements those for
-the specified profiles. QTR acquisition, edge escape including its forward cap,
-ALL_IN arbitration and recorder policy remain in `state/analysis/spec_conflicts.md`.
+the specified profiles. D-020 resolves persistent/all-white inhibition. QTR
+acquisition, timed escape motion/replanning, ALL_IN arbitration
+and recorder policy remain in `state/analysis/spec_conflicts.md`.
 
 The governor's battery filter is a first-order lag with the existing B6 one-second
 time constant, using backward Euler: `alpha = dt / (tau + dt)`. Its first sample
@@ -78,6 +95,15 @@ Nonfinite inputs yield a zero result with `valid=false`, leaving the application
 fault decision to its future controller. Target-loss braking still requires the
 FSM to assert `brake`; dropping centered/contact flags alone selects the approach
 cap and is not an implementation of the separate B6 target-loss transition.
+
+D-021 now supplies the forward escape base and cap: EDGE_BACK_DUTY (0.80 default).
+The pure demand builder produces `(0.80, 0.80)`, `(0.56, 0.80)` for left bias,
+or its right mirror. The caller must pass these through the EDGE_FORWARD governor
+profile and obey the edge guard's veto. The 70% value specifies requested duties;
+compensation, individual caps and acceleration slew can alter the final ratio.
+For example, at 9 V after settling, a left-biased request becomes approximately
+`(0.69067, 0.80)`. This is arithmetic, not a measured turn trajectory. No timed
+segment, heading-hold controller or hardware path is supplied by this helper.
 
 Student explanation of what exists today: "We pass timestamped values into small
 C++ functions, so the laptop can test the same decisions without a robot. The

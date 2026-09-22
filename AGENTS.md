@@ -189,3 +189,5 @@ path remain in force. Resume through `state/CODEX_HANDOFF.md` and
 D-016 permits P1 host development while P0 hardware acceptance remains pending;
 it is not a passed gate. D-017/D-018 record the human-approved governor and
 gated-service ordering changes; other protected decisions remain separate.
+D-019/D-020/D-021 approve the release-debounce anchor, persistent/all-white edge
+guard and forward escape base/cap. Read their precise scopes before integration.

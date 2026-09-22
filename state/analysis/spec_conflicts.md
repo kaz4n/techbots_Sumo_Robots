@@ -2,7 +2,7 @@
 
 Verified against the supplied files, not hardware. Recommendations are UNAPPROVED
 except SC-C (D-017), SC-D1 (D-018), SC-J's START anchor (D-019) and SC-D2's
-persistent/all-white policy (D-020), explicitly approved below. User's later
+persistent/all-white policy (D-020), and SC-M (D-021), explicitly approved below. User's later
 instruction to proceed assuming hardware works permits
 continued eligible software work; it supplies no circuit choice, measurement,
 pin approval, motor authorization, or phase gate.
@@ -89,3 +89,17 @@ does not by itself choose this missing cap.
   require all black plus script completion. Acquisition, actual scripts, SC-M
   forward duty and direction after exhausting replans remain pending. Default
   push-through stays disabled; this approval does not enable a positive window.
+- SC-M RESOLVED by D-021, user "Approve A: reuse 0.80": forward segments request
+  EDGE_BACK_DUTY as base and use it as final cap; biased segments request 70% on
+  the inner side. The approved governor still compensates/caps/slews each side,
+  so final ratio may differ. Pure forward demands and governor profile are
+  implemented; timed/heading-held scripts and physical behavior remain pending.
+
+Next relevant motion contract (SC-N, B4.4/B6/B7): `straight` calls for a small P
+heading correction without specifying its gain/limit, while timed fallback turns
+and escape durations are described as voltage compensated without a duration
+formula separate from B6 duty compensation. Options: define the gain/limit and
+whether/how duration compensation combines with duty compensation, or defer the
+affected timed primitives. Recommend explicit definitions before implementation;
+do not invent an additional compensation factor. Needed tests: nominal/low/high
+voltage, exact timeouts, wrap, heading signs, saturation and IMU fault transitions.

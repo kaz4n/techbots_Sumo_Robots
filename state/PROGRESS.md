@@ -58,3 +58,17 @@ Full FSM, remaining core modules, HAL/MotorGate and app are not implemented.
 No target compile, board contact, upload/reset, motor run or physical measurement
 occurred. The 77 tests do not prove complete P1/R1/R5 or the 800 us robot budget.
 All commits are local. Resume through CODEX_EXECUTION; no background work promised.
+
+| 2026-09-22 | P1 approved continuation | Record D-019 after-debounce full hold and D-020 persistent/all-white edge policy; commit interfaces first | APPROVED specific scopes; B2/B3/B4 visibly amended | fb82971 |
+| 2026-09-22 | P1 1.2/1.3 countdown integration | Connect Buttons before Gate with full hold from qualification tick | HOST-TESTED; 10 new locked cases and 10,000 new seeded streams; delayed calls/bounce/boot-held/wrap/cancel/STOP | e08b9a0 |
+| 2026-09-22 | P1 1.2/1.3 edge guard | Persistent escape requirement; all-white inhibits until reset; black plus script completion for ordinary exit | HOST-TESTED; 10 new locked cases/all masks at GO/logical governor inhibition; full scripts and HAL still absent | 6ab4d2c |
+| 2026-09-22 | P1 D-021 contract | User approves forward escape 0.80 base/final cap; centralize existing 0.70 requested inner ratio | APPROVED; 76 B16 defaults unchanged; config change recorded in TUNING_LOG | 79d2f6f |
+| 2026-09-22 | P1 1.2 forward demands | Add straight/biased forward demands and EDGE_FORWARD governor profile | HOST-TESTED; 9 cases including voltage, symmetry, slew/brake/reversal/guard; not a timed motion script | 5595b57 |
+| 2026-09-22 | P1 continuation validation/checkpoint | Save independent author/reviewer reports, exact inert hashes, normal/sanitizer/tool evidence and resume dependencies | PASS: 106 cases/5,220,784 assertions, ASan/UBSan clean, 47 tool checks; no full P1 gate; analysis/P1_forward_validation.md | commit containing this row |
+
+2026-09-22 continuation boundary: P1 host-only remains active under D-016; gates
+passed: none. SC-C, SC-D1, START anchoring, persistent/all-white policy and forward
+base/cap are approved and implemented within the documented component scope.
+Next integration dependencies are SC-N timed/heading-held motion and SC-K other
+countdown services; remaining fusion/ALL_IN/recorder decisions stay separate.
+No target compile, board contact, upload/reset, motor run or physical measurement.

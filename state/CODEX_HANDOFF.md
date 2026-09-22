@@ -158,3 +158,45 @@ SC-K gates full B3 services; SC-M gates forward escape duty; other fusion,
 acquisition, ALL_IN and recorder conflicts remain separate. Keep P0 manual work
 pending until the board is available. Active work remains P1 host-only under D-016;
 no phase has passed, no motor receipt exists, and nothing is published remotely.
+
+## D-019/D-020/D-021 continuation — 2026-09-22
+
+The user approved after-debounce anchoring, persistent/all-white inhibition, and
+reuse of 0.80 for forward escape. These are accepted in D-019/20/21 and visibly
+amend B2/B3/B4/B6. Do not re-request these decisions or treat earlier pending
+entries as current. Both-held STOP/ADC, other B3 services and unrelated conflicts
+remain pending.
+
+- `fb82971`: D-019/D-020 specifications and interfaces before implementation.
+- `e08b9a0`: Controller composes Buttons then Gate at qualification time; delayed
+  qualification never backdates the complete 5.1-second hold. Ten new locked cases.
+- `6ab4d2c`: Guard handles persistent white and all-white inhibition until reset.
+  Ten new locked cases include a logical Controller -> Guard -> Governor harness.
+- `79d2f6f`: D-021 forward contracts and existing 70% ratio centralized in config.
+- `5595b57`: forward demand builder and EDGE_FORWARD governor cap; nine new tests.
+
+Final host and ASan/UBSan: **106/106 cases, 5,220,784 assertions**, no failures or
+skips. Full tooling suite **47/47**, exit 0. See P1_forward_validation.md and raw
+P1_forward_*_tests.txt; the intermediate 97-case evidence is preserved separately.
+An 8.6 ms Windows/WSL build timestamp warning was recorded; all modified source
+files compiled/linked and final host/sanitizer execution passed. No WCET inference.
+
+Independent test author again read specs/public headers only. Existing locked
+files were preserved; newly committed integration/guard tests are now locked too.
+A genuinely fresh separate reviewer checked the integration, then reviewed D-021
+in the same read-only context; both scoped reports PASS, no findings. Neither is
+a full phase gate or cross-model review. Exact inert source manifests were updated
+only after independent source/hash review; all flash guards remain unchanged.
+
+Forward bias means requested `(0.56, 0.80)` or its mirror, with 0.80 final cap.
+Compensation, per-side caps and slew may alter the output ratio; the tests/docs
+state this explicitly. Timed segments, heading hold and physical trajectory are
+not implemented or measured by this helper. Guard inhibition is a logical veto;
+actual app/MotorGate wiring remains absent.
+
+Next: resolve SC-N motion semantics before timed/heading-held segments and SC-K
+before full countdown services, then add interfaces and independent tests. Full
+P1 core/Robot table coverage, target compile, fresh full gate review, EXPLAINED OK
+and human gate are still missing. Real MotorGate write-boundary checks belong to
+later HAL work and cannot replace P1 core-output proofs. P0 acceptance remains
+hardware-pending; no board operation, tuning run, motor authorization or gate pass.

@@ -1,5 +1,5 @@
-// Implements B3 logical button qualification and the separate release hold timer.
-// Keeps raw-release anchoring, integrated arbitration and all hardware writes out.
+// Implements B3 qualification, hold and their D-019 timestamp-safe composition.
+// Keeps the full hold after release debounce without clocks or hardware writes.
 // Verified by independent locked host boundary, wraparound and seeded stream tests.
 #include "countdown.h"
 #include "../config.h"
@@ -72,5 +72,18 @@ ButtonEvents Buttons::step(std::uint32_t t_us, core::ButtonLevel level) {
 
 void Buttons::reset() {
     *this = Buttons{};
+}
+
+Result Controller::step(const core::Inputs& inputs, bool stop_requested) {
+    const ButtonEvents events = buttons_.step(inputs.t_us, inputs.button_level);
+    // A release pulse is generated at this qualifying tick. Using the same tick
+    // for Gate prevents raw-edge backdating, including after delayed calls.
+    return gate_.step(inputs.t_us,
+                      {events.start_release, events.mode_press, stop_requested});
+}
+
+void Controller::reset() {
+    buttons_.reset();
+    gate_.reset();
 }
 } // namespace countdown

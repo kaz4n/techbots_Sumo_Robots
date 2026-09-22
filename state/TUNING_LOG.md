@@ -67,3 +67,12 @@ Every bench or ring measurement and every config.h change goes here with its evi
 - Evidence: human D-021; exact-value config test and independent forward-demand
   governor tests. Actual trajectory/ratio after compensation and cap saturation
   is not a physical measurement. M1-M13 remain unmeasured.
+
+### 2026-09-22 | P1 B3/D-024 service constants | no physical tuning
+- Add CAL_START_MS=1500, CAL_END_MS=4500, COUNTDOWN_LINE_WARN_MS=1000,
+  COUNTDOWN_SNAPSHOT_MS=300 from B3 text; CAL_MIN_SAMPLES=2 is explicitly
+  approved in D-024. Preserve all 76 B16 values and all pins (still unassigned).
+- D-022 reuses the existing gain/correction cap and D-023 removes undefined
+  second compensation without changing a config value. No measurement inferred.
+- Evidence: user decisions D-022 through D-024, new exact config source checks,
+  independent locked service tests to follow. M1-M13 remain unmeasured.

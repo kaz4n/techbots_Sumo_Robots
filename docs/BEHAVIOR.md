@@ -91,9 +91,9 @@ Invariant (locked test): after GO, a white reading on any QTR puts the robot in 
 - **IDLE:** a short MODE press cycles the mode (B13). A START press followed by release (debounced BTN_DEBOUNCE_MS) enters COUNTDOWN. Under D-019 (human-approved 2026-09-22), the complete countdown starts on the tick when release debounce completes, not at the earlier raw release sample.
 - **START held at boot:** ignored until released and pressed again.
 - **COUNTDOWN duration:** COUNTDOWN_MS + COUNTDOWN_MARGIN_MS (5000 + 100). MOTOR_EN stays LOW. The LED matrix shows 5, 4, 3, 2, 1.
-- **Gyro bias calibration:** average gyro_z from 1.5 s to 4.5 s into the hold (the operator's hand is gone, the robot is still). If the gyro spread exceeds CAL_MAX_SPREAD_DPS, keep the previous bias and set a flag.
-- **Line check:** if any QTR reads white during the last 1 s, flash a warning (robot placed on a line). Do not block the start.
-- **Opponent snapshot:** store opp_mask during the last 300 ms. Openers use it (B12).
+- **Gyro bias calibration (D-024, human-approved 2026-09-22):** average finite IMU-valid gyro_z readings in [1.5 s, 4.5 s) into the hold. Spread is maximum minus minimum. Require at least two valid readings; any invalid reading in the window, too few readings, or spread above CAL_MAX_SPREAD_DPS rejects calibration, keeps the previous bias and sets a flag.
+- **Line check (D-024):** latch a warning if any QTR reads white during the last 1 s (robot placed on a line). Do not block the start.
+- **Opponent snapshot (D-024):** retain the latest confirmed opp_mask from the last 300 ms. Openers use it (B12).
 - **GO:** at t_release + hold, where t_release is the completed-release-debounce timestamp under D-019. Heading resets to 0. MotorGate enables subject to higher safety inhibits, including D-020's all-white fault. The recorder logs START release, GO, and the first nonzero duty time (metric M1).
 - **MODE press during COUNTDOWN:** cancel to IDLE (bench and practice use).
 
@@ -277,7 +277,7 @@ Phases:
 - Edge events preempt every phase.
 
 ### B11.3 Limits
-- At most REFLANK_MAX_PER_10S re-flanks in any 10 s window. Beyond that: ALL_IN (ATTACK at full duty for ALL_IN_MS with no stall check).
+- At most REFLANK_MAX_PER_10S re-flanks in any 10 s window. Beyond that: ALL_IN. D-025 (human-approved 2026-09-22) supersedes unconditional full duty: suppress stall checks for ALL_IN_MS only. Full duty still requires centered contact; target loss still brakes and edge handling retains priority. All B6 caps and the existing default-disabled push-through rule remain in force.
 - If the opponent follows us during BACK (front detection plus contact cue), it is a charger: skip to SWING immediately.
 
 ---

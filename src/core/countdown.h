@@ -67,4 +67,54 @@ private:
     Buttons buttons_;
     Gate gate_;
 };
+
+struct ServiceSample {
+    std::uint32_t t_us = 0;
+    float raw_gyro_z_dps = 0.0F; // Before bias subtraction; one new logical reading/tick.
+    bool imu_ok = false;
+    std::uint8_t line_mask = 0;
+    std::uint8_t confirmed_opp_mask = 0;
+};
+struct ServiceResult {
+    float bias_dps = 0.0F;
+    std::uint32_t calibration_samples = 0;
+    bool calibration_finished = false;
+    bool calibration_rejected = false;
+    bool line_warning = false;
+    std::uint8_t opponent_snapshot = 0;
+    bool active = false;
+    bool finished = false;
+};
+
+class Services {
+public:
+    // Caller starts at Controller's qualified release tick (D-019); previous
+    // bias must be finite. Invalid start returns false, idle with rejection flag.
+    // A successful start clears the prior attempt's flags/snapshot/sample state.
+    bool start(std::uint32_t release_us, float previous_bias_dps);
+    // D-024: samples in [CAL_START_MS,CAL_END_MS), raw finite gyro with imu_ok;
+    // any invalid window sample rejects. At CAL_END_MS or the next call, finish
+    // once: accept mean iff sample count>=CAL_MIN_SAMPLES and max-min<=spread.
+    // Invalid/too-few/high-spread keeps prior bias. A duplicate timestamp adds
+    // no observation. Caller must supply new samples; this does not prove HAL
+    // freshness. Gaps do not fabricate readings; consecutive calls <uint32 wrap.
+    // Final warning/snapshot windows are [hold-window,hold), excluding GO.
+    // Warning latches; snapshot takes latest low seven bits (including zero).
+    // At/after hold, freeze results, active=false/finished=true. No motor gate.
+    ServiceResult step(const ServiceSample& sample);
+    // Cancel clears attempt state but preserves its current bias; reset clears
+    // all state to defaults. Neither enables motors or changes Controller.
+    void cancel();
+    void reset();
+private:
+    void finishCalibration();
+    void observeCalibration(const ServiceSample& sample);
+    ServiceResult result_;
+    std::uint32_t last_us_ = 0;
+    std::uint64_t elapsed_us_ = 0;
+    double sum_dps_ = 0.0;
+    double minimum_dps_ = 0.0;
+    double maximum_dps_ = 0.0;
+    bool invalid_sample_ = false;
+};
 } // namespace countdown

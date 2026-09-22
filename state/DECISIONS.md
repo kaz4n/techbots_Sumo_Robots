@@ -156,3 +156,26 @@ approved B6 governor, with its final caps and slew.
 Consequence: visibly amend B4/B7; implement exact duration/timeout boundaries,
 wraparound and voltage-independent timing tests. Caps and slew can still alter
 physical travel, so no measured equivalence is claimed. Preserve all B16 defaults.
+
+## D-024 (2026-09-22, accepted) Countdown service sampling and retention
+Context: SC-K left B3 calibration eligibility/aggregation, warning persistence and
+snapshot aggregation undefined. User replied "Approve A: countdown service contract".
+Decision: calibrate over [1.5 s, 4.5 s), averaging finite readings marked IMU-valid;
+spread is maximum minus minimum. Require at least two valid readings and reject
+the calibration if any reading in the window is invalid. Keep previous bias on
+rejection. Latch a white-line warning during the final second and retain the
+latest confirmed opponent mask from the final 300 ms.
+Consequence: add explicit configuration constants for these specified boundaries
+and the approved minimum count. Test exact endpoints, spread equality, invalid/
+missing data, cancellation, delayed calls and wrap. Logical input freshness is a
+caller contract; no real calibration or physical IMU acquisition is proved.
+
+## D-025 (2026-09-22, accepted) ALL_IN preserves the safety envelope
+Context: SC-E1 identified unconditional full duty in B11.3 conflicting with R5/R6.
+User replied "Approve A: ALL_IN retains safety rules".
+Decision: ALL_IN suppresses stall checks for ALL_IN_MS only. Full duty still
+requires centered contact; target loss still brakes and edge handling retains
+priority under the existing default-disabled bounded push-through rule.
+Consequence: amend B11.3 visibly; future re-flank/FSM tests must cover centering/
+contact loss, target loss, every edge mask, expiry and wrap. This approval does
+not itself implement ALL_IN, change any cap or enable push-through.

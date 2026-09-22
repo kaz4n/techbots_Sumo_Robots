@@ -108,3 +108,12 @@ SC-N RESOLVED by D-022/D-023 (2026-09-22): user approved bounded heading
 correction using K_TURN_PER_DEG with min(TURN_MIN_DUTY, abs(base)) limit, and
 voltage compensation once through duty with unchanged configured/fallback timing.
 These decisions do not establish physical trajectory or measured timing.
+
+SC-K RESOLVED by D-024: [1.5,4.5) s finite IMU-valid samples, max-minus-min
+spread, minimum two valid readings, any invalid sample rejects, preserve bias on
+rejection; final-second warning latches and final-300ms snapshot retains latest
+confirmed mask. Hardware sample freshness and actual calibration remain pending.
+
+SC-E1 RESOLVED by D-025: ALL_IN suppresses stall checks only for ALL_IN_MS;
+centered contact still gates full duty, target loss brakes, edge priority remains.
+Re-flank/FSM implementation and its required safety regressions are still pending.

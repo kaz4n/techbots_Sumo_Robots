@@ -16,6 +16,13 @@ DIAGNOSTIC_DEFAULTS = {
 }
 BEHAVIOR_EXTRA_DEFAULTS = {'VBAT_FILTER_MS': 1000}  # B6 one-second time constant.
 BEHAVIOR_EXTRA_FLOAT_DEFAULTS = {'EDGE_FWD_INNER_RATIO': Decimal('0.70')}  # B4.2/D-021.
+COUNTDOWN_SERVICE_DEFAULTS = {  # B3 and human-approved D-024; not physical tuning.
+    'CAL_START_MS': 1500,
+    'CAL_END_MS': 4500,
+    'CAL_MIN_SAMPLES': 2,
+    'COUNTDOWN_LINE_WARN_MS': 1000,
+    'COUNTDOWN_SNAPSHOT_MS': 300,
+}
 
 
 def b16_defaults():
@@ -65,7 +72,8 @@ class P0ConfigTests(unittest.TestCase):
 
     def test_only_b16_and_explicit_spec_diagnostic_defaults_are_declared(self):
         expected = (set(b16_defaults()) | set(DIAGNOSTIC_DEFAULTS) |
-                    set(BEHAVIOR_EXTRA_DEFAULTS) | set(BEHAVIOR_EXTRA_FLOAT_DEFAULTS))
+                    set(BEHAVIOR_EXTRA_DEFAULTS) | set(BEHAVIOR_EXTRA_FLOAT_DEFAULTS) |
+                    set(COUNTDOWN_SERVICE_DEFAULTS))
         self.assertEqual(expected, set(config_declarations()))
 
     def test_b16_literal_categories_and_array_extent_are_preserved(self):
@@ -98,6 +106,13 @@ class P0ConfigTests(unittest.TestCase):
         for name, expected in BEHAVIOR_EXTRA_FLOAT_DEFAULTS.items():
             self.assertEqual('float', declarations[name][0])
             self.assertEqual(expected, number(declarations[name][1]))
+
+    def test_b3_service_defaults_match_d024(self):
+        declarations = config_declarations()
+        for name, expected in COUNTDOWN_SERVICE_DEFAULTS.items():
+            with self.subTest(constant=name):
+                self.assertEqual('std::uint32_t', declarations[name][0])
+                self.assertEqual(expected, number(declarations[name][1]))
 
     def test_each_b16_default_matches_its_documented_value(self):
         declarations = config_declarations()

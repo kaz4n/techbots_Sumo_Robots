@@ -95,6 +95,12 @@ inline constexpr std::uint32_t MODE_DEFAULT = 1U; // mode
 // B6 specifies a 1 s battery filter outside its B16 table; unchanged spec value.
 inline constexpr std::uint32_t VBAT_FILTER_MS = 1000U; // ms, B6
 inline constexpr float EDGE_FWD_INNER_RATIO = 0.70F; // ratio, B4.2/D-021
+// B3 service boundaries and the human-approved D-024 minimum sample count.
+inline constexpr std::uint32_t CAL_START_MS = 1500U; // ms after qualified release
+inline constexpr std::uint32_t CAL_END_MS = 4500U; // ms, exclusive sample endpoint
+inline constexpr std::uint32_t CAL_MIN_SAMPLES = 2U; // samples, D-024
+inline constexpr std::uint32_t COUNTDOWN_LINE_WARN_MS = 1000U; // ms before GO
+inline constexpr std::uint32_t COUNTDOWN_SNAPSHOT_MS = 300U; // ms before GO
 // P0 diagnostic-only defaults; no behavior tuning or proposed pin assignments.
 inline constexpr std::uint32_t P0_SCROLL_MS = 100U;
 inline constexpr std::uint32_t P0_COUNTER_MS = 1000U;

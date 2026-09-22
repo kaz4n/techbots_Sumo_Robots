@@ -127,7 +127,7 @@ bool RowExecutor::beginPhase(std::uint32_t t_us, ScriptPhase phase, bool imu_ok)
         break;
     case ScriptPhase::BACK:
         started = straight_.start(t_us, last_heading_deg_, -config::EDGE_BACK_DUTY,
-                                  config::EDGE_BACK_MS);
+                                  head_on_ ? config::EDGE_BACK_LONG_MS : config::EDGE_BACK_MS);
         break;
     case ScriptPhase::PIVOT: {
         const float heading = turnHeading(last_heading_deg_);
@@ -149,6 +149,21 @@ bool RowExecutor::beginPhase(std::uint32_t t_us, ScriptPhase phase, bool imu_ok)
     }
     if (!started) phase_ = ScriptPhase::INVALID;
     return started;
+}
+
+bool RowExecutor::startHeadOn(std::uint32_t t_us, float heading_deg, bool imu_ok,
+                             motion::Direction opponent_side) {
+    reset();
+    phase_ = ScriptPhase::INVALID;
+    if (!std::isfinite(heading_deg) ||
+        (opponent_side != motion::Direction::LEFT &&
+         opponent_side != motion::Direction::RIGHT)) return false;
+    head_on_ = true;
+    front_row_ = true;
+    last_heading_deg_ = heading_deg;
+    pivot_deg_ = static_cast<float>(config::EDGE_TURN_FULL_DEG) *
+        (opponent_side == motion::Direction::RIGHT ? 1.0F : -1.0F);
+    return beginPhase(t_us, ScriptPhase::BRAKE, imu_ok);
 }
 
 bool RowExecutor::advancePhase(std::uint32_t t_us, bool imu_ok) {

@@ -17,11 +17,23 @@
    boundary record files/commits, commands/statuses, limitations, human requests,
    review findings and exact next task. Use existing HUMAN ACTION/CONFUSION formats.
 
-Current checkpoint: P0 fixed counter source75ab5a22/default/MOTORS_ALLOWED0 was
+Current checkpoint: P0 0.4 ADC sourcef5f637b2/default/MOTORS_ALLOWED0 uploaded
+02:16:28+04 on23September (revision9de8cd1);1000 raw startup calls measured:
+first276us,999 subsequent139..140us/p99140us.197 tooling checks and fresh source,
+binary and post-run receipt reviews PASS. Full deployed image/frozen RAM verified.
+Read analysis/P0_adc_validation.md and reviews/P0_adc_codex.md. Stock ADC still
+waits indefinitely; setup-only timing is no production deadline or voltage proof.
+Same-host quiet wait70.995s; unperturbed timing independently unproved. Current
+manifests ADCf5f637b2/matrixaabfdebb/timing3ff0baba. This ADC image replaces the
+matrix counter below. Next task: P0 0.4 internal LED GPIO API timing after reading
+P0_gpio_installed_contract_20260923.md and freezing a reviewed scoped contract.
+Pending PINMAP alone does not block bare-board P0.4; do not request extra hardware.
+
+Prior checkpoint: P0 fixed counter source75ab5a22/default/MOTORS_ALLOWED0 was
 uploaded01:55:51+04 on23September. Its real logger received4..11 then56..63. Read
 analysis/P0_counter_validation.md and reviews/P0_counter_codex.md first:156 tool
 checks and40 sanitizer checks pass; fresh source/separate binary audits PASS.
-Current reviewed manifests75ab5a22/b4c61daf replace the old snapshots. The8-second
+Those prior manifests75ab5a22/b4c61daf have now been superseded. The8-second
 logger deadline is explicit (remote142, local validation0). Another Monitor client
 existed; do not claim Linux-down/no-subscriber, optical, cold-boot or WCET proof.
 
@@ -41,7 +53,7 @@ delivery is now observed; stock Bridge/production transport remain separate. Cur
 are reviews/P1_gate_request.md and reviews/P0_gate_request.md. Do not redo solved
 Robot contracts/tests or start P2 HAL solely because P1 software checks pass.
 
-Next action must respect those gates: retain the checkpoint pending remaining
+Later actions must respect those gates: retain the checkpoint pending remaining
 original physical/optical/cold-start and human acceptance when no eligible work
 exists. Do not redo the completed D-062 counter to fill time. SC-A/B and production
 SC-I remain hardware/API dependencies, not assumed successes. No additional

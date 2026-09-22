@@ -1,4 +1,4 @@
-# Execution checklist: observed P0 counter, verified P1 core, pending gates
+# Execution checklist: measured P0 ADC, verified P1 core, pending gates
 
 Checkpoint:2026-09-23 Asia/Dubai. PROGRESS.md is authoritative. D-016 permits P1
 host work while P0 acceptance is pending; it authorizes no P2 HAL work. No human
@@ -7,6 +7,12 @@ UNO Q diagnostics. No additional hardware connection is requested.
 
 ## Completed software checkpoint
 
+- P0 0.4 ADC9de8cd1:197 tooling checks and fresh source/binary/receipt reviews PASS.
+  Actual sourcef5f637b2/default inert upload02:16:28+04;1000 complete calls,
+  first276us,999 subsequent139..140us/p99140us. Full flash identity/frozen RAM
+  verified. Setup-only; indefinite driver waits, floating input and possible debug
+  overlap remain limits. analysis/P0_adc_validation.md and raw receipt directory.
+  Current manifestsf5f637b2/aabfdebb/3ff0baba; prior maps below are historical.
 - P0 D-062 fixed counter: packetdd4ed33 and adapter6b99a60;25 packet cases/
   156553assertions and39 actual-adapter substitute cases pass;40 sanitizer checks
   and156 full tooling checks pass. Fresh source/separate binary reviews PASS.
@@ -38,11 +44,13 @@ UNO Q diagnostics. No additional hardware connection is requested.
 | Task | Status | Evidence / remaining acceptance |
 |---|---|---|
 | P0 0.1 G1–G6 | SOURCE-REVIEWED / INSTALLED-INVENTORY | FACTS and P0_G*.md; physical electrical checks pending |
-| P0 0.2 scripts | SCRIPT-TESTED / TARGET-USED |156 current checks; actual ADB board builds/logger; SSH default retained |
+| P0 0.2 scripts | SCRIPT-TESTED / TARGET-USED |197 current checks; actual ADB board builds/logger; SSH default retained |
 | P0 0.2/0.4 inert demos | COUNTER-DELIVERY-OBSERVED / prior BARE-SCHEDULER-MEASURED |P0_counter_validation.md: actual4..11 and56..63; old timing image60000samples/max3us remains a separate workload |
 | P0 0.3 host scaffold | HOST-TESTED |C++17/CMake/doctest2.4.12, now full895-case suite |
 | P0 0.5 pin map | HARDWARE-PENDING |Electrical measurements and human PINMAP OK absent |
-| P0 gate | GATE-PENDING |Fixed Monitor counter observed; optical/cold-start and external microbenchmarks unfinished |
+| P0 0.4 ADC | MEASURED / RUNTIME-API-BLOCKED |D-063/F-079; startup-only calls measured, stock runtime wait remains unbounded |
+| P0 0.4 GPIO/QTR | NEXT / CONTRACT-PENDING |Bare-board eligible before PINMAP; verify installed mapping/ownership and raw-timeout semantics |
+| P0 gate | GATE-PENDING |Fixed Monitor counter and ADC observed; optical/cold-start/GPIO/QTR and physical electrical acceptance unfinished |
 | P1 1.1 interfaces | IMPLEMENTED |Public contracts committed before independent tests/source |
 | P1 1.2 B3/B13 | HOST-TESTED / TARGET-COMPILED |Production menu, mode capture, full hold, services and STOP; physical A1/consumers later |
 | P1 1.2 B4 | HOST-TESTED / TARGET-COMPILED |Full Escape/global Robot priority and actual-duty input; physical fresh QTR and MotorGate later |
@@ -58,20 +66,24 @@ UNO Q diagnostics. No additional hardware connection is requested.
 
 ## Next actions and boundaries
 
-1. Preserve the completed P1 software evidence and current P1 gate packet. Do not
+1. Next eligible work: P0 0.4 built-in LED GPIO API timing, after the installed
+   GPIO audit and its scoped measurement contract. No additional hardware request.
+   Bare P0 microbenchmarks precede P0.5; pending PINMAP alone does not block them.
+   Preserve ADC/counter evidence and do not repeat completed tasks merely to wait.
+2. Preserve the completed P1 software evidence and current P1 gate packet. Do not
    restart completed modules or reinterpret a passing review as a human gate.
-2. P0 fixed Monitor counter is now observed through D-062's adapter. Preserve its
+3. P0 fixed Monitor counter is now observed through D-062's adapter. Preserve its
    source/binary/host/physical distinctions; do not redo it or claim stock Bridge
    and production recorder semantics are resolved. Optical observation and true
    cold-start measurements remain absent; warm reset cannot replace cold power.
-3. Electrical/pin-map and external sensor/driver/IMU measurements remain deferred
+4. Electrical/pin-map and external sensor/driver/IMU measurements remain deferred
    while only UNO Q is connected. SC-A button decoding and SC-B QTR freshness/
    tick budget must be resolved with real hardware evidence before dependent HAL.
-4. P2 and later implementation wait for genuine original gates or specific
+5. P2 and later implementation wait for genuine original gates or specific
    scheduling authorization. No STAND OK/RING OK exists. Full project/P7 is not done.
 
-Last uploaded firmware is the inert matrix/counter75ab5a22/default image from
-2026-09-23 01:55:51+04 under D-052. Compile-only never replaces it. Keep credentials outside
+Last uploaded firmware is the inert ADCf5f637b2/default image from
+2026-09-23 02:16:28+04 under D-052. Compile-only never replaces it. Keep credentials outside
 tracked files. No push/tag/release occurred.
 
 Schedule: no cut is due on23September. Apply the Sep28 reactive-core scope cut,

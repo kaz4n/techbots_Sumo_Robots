@@ -55,3 +55,43 @@ pre-attach completion evidence, possible debug overlap remains explicitly open.
 No empirical maximum can override the proven unbounded driver or satisfy full
 control-loop R4. GPIO/QTR, cold-start, optical, external hardware and human gates
 remain separate. No B16 tuning, locked-test modification, motor action or P2 work.
+
+## Actual upload
+
+Revision9de8cd1/sourcef5f637b2 was rebuilt and uploaded to USB2629958581 at
+2026-09-23 02:16:28.363+04, exit0; default/MATCH0/MOTORS_ALLOWED0. This replaced
+the matrix/counter image. Receipt: P0_adc_upload_20260923.txt. A quiet interval
+of at least60s is planned before passive attachment; its actual timestamps will
+be retained. This paragraph supersedes pre-upload status above, not the remaining
+measurement limits. Upload success alone does not establish completed ADC calls.
+
+The9de8cd1 staged whitespace check flagged one trailing space in the preserved
+initial failed unittest transcript. That raw evidence was retained verbatim;
+there is no claim that the complete staged raw-receipt whitespace check passed.
+
+## Actual MCU measurement
+
+CAPTURED, remote/local exit0; raw transfer exit0. Same-host upload-end to capture
+invocation wait was70.994558s. Board first passive read requested at02:17:40.437+04;
+board and host clocks differ, so do not subtract them for a precise quiet interval.
+Readout took109.156586s,
+inside the unchanged120s attachment deadline, with10 reads/14 commands, all exit0.
+Every deployed loader/sketch byte matched the pinned images. Two12020B frozen
+records were identical; same extension/BSS mapping was confirmed afterward.
+RAM header: version1, complete1, completed1000, start419450us/end563566us.
+
+| Actual statistic | Result |
+|---|---|
+| First raw analogRead call (including any first-use initialization) |276us |
+| Subsequent999 calls |minimum139us, maximum140us, nearest-rank p99140us |
+| Paired micros overhead,1000 samples |minimum1us, maximum2us, p992us |
+| Complete setup acquisition interval |144116us |
+| Raw returned codes |124..306;1000 nonnegative/nonzero, no API-reported error |
+
+No overhead was subtracted. The finite observed maximum is not a whole-call
+deadline. Floating codes are not volts. The70.995s same-host quiet interval and frozen records
+do not independently prove completion before first debug attachment; possible
+overlap remains a stated limitation. No timing claim transfers to a full robot.
+Evidence: P0_adc_capture_20260923.json, P0_adc_capture_invocation_20260923.json,
+and39 files in P0_adc_run1_raw/ (10 binary reads,28 command streams, capture.json).
+Coordinator independently checked all10 dumped lengths/hashes and the raw header.

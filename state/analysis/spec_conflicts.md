@@ -372,3 +372,17 @@ Actual inert upload and counters4..11/56..63 observed: P0_counter_validation.md.
 This closes the fixed P0 counter round-trip dependency. Production recorder/
 Immediate-mode transport, complete-loop timing, Linux-down/fault behavior and
 original physical/human gates remain separate; no R3/R4 exception was taken.
+
+2026-09-23 ADC API dependency — AGENTS R4, P0 0.4, HARDWARE A0/A1 and future
+power/UI HAL: installed stock analogRead uses indefinite ownership/completion
+waits, including warm calls. Source/binary proof: F-078 and
+P0_adc_installed_contract_20260923.md. Consequence: using it directly in the
+runtime tick cannot satisfy bounded fault paths. Options: A investigate an
+installed-supported bounded acquisition/driver contract with explicit freshness,
+ownership and fault behavior when HAL work is eligible; B use stock synchronous
+reads and relax R4. Recommend A; B is not authorized. D-063 permits only setup
+microbenchmarking, not a runtime solution. F-079's139..140us observed warm costs
+do not remove the indefinite-wait proof. A future delegated design decision must
+precede dependent HAL. Required regressions include missing conversion interrupt,
+contention, invalid/error result, stale sample, wrap, cancellation/recovery and
+complete on-target tick WCET. No driver/API behavior or deadline is invented here.

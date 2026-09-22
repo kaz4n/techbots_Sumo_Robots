@@ -2,6 +2,30 @@
 
 ## Current resume point — 2026-09-23 Asia/Dubai
 
+P0 0.4 A0 timing is now measured on the actual bare UNO Q. D-063 contracts
+7a88867/14f52d0 precede9de8cd1 implementation.197 tooling checks pass; separate
+source/binary and post-run raw-receipt reviews PASS. Read analysis/P0_adc_validation.md
+and reviews/P0_adc_codex.md. Actual default inert ADC upload at02:16:28+04 replaced
+the matrix image below; this is the current MCU image, sourcef5f637b2. All1000
+calls completed: first276us;999 subsequent139..140us/p99140us; paired clock
+overhead1..2us/p992us, unsubtracted. Total144116us; floating codes124..306.
+Full loader/sketch bytes and identical frozen RAM verified. Same-host quiet wait
+70.995s; completion before debug attachment is not independently established.
+Installed ADC waits remain unbounded, so the diagnostic calls ADC only in setup;
+it proves no production deadline, voltage accuracy, pin approval or robot WCET.
+Reviewed manifests: ADCf5f637b2, matrixaabfdebb, timing3ff0baba (latter two changed
+only by unused diagnostic constants). Exact maps and raw receipts are in analysis/.
+
+Next eligible task is P0 0.4 built-in LED GPIO API timing after installed-source
+ownership review, using analysis/P0_gpio_installed_contract_20260923.md when ready.
+This task precedes P0.5 PINMAP acceptance; do not repeat the solved ADC/counter or
+treat all bare-board microbenchmarks as blocked by PINMAP. QTR timeout-path work
+requires its own exact pin/acquisition contract; cold-power/optical/electrical
+acceptance and all human phase gates remain pending. No extra hardware request.
+P1 is software-verified below, but P2 is not eligible solely from that result.
+
+## Prior fixed-counter checkpoint — 2026-09-23
+
 P0 fixed counter transport is implemented, reviewed and observed on the bare
 UNO Q. Source/contract commits8f94452,cab665c,3f9ea7f and clarification2f7e1b4
 precede packetdd4ed33 and adapter6b99a60. D-062 selects one fixed, transmit-only
@@ -14,8 +38,8 @@ Actual matrix source75ab5a22 compiled and uploaded01:55:51+04, default startup,
 MATCH0/MOTORS_ALLOWED0. Real project receive-only logger captured4..11 and56..63
 in two8-second windows. Linux artifact hashes match pre-upload review. Evidence:
 analysis/P0_counter_validation.md and reviews/P0_counter_codex.md. Current28/24-file
-inert manifests75ab5a22/b4c61daf replace older snapshots. This is the current running
-image; the older matrix upload and timing observations below are historical.
+inert manifests75ab5a22/b4c61daf replaced older snapshots at that checkpoint.
+The ADC checkpoint above supersedes this former current image and source map.
 
 The local logger deliberately used an8-second Linux SIGALRM deadline (remote142,
 separately validated local0). Another Monitor client existed, so this demonstrates

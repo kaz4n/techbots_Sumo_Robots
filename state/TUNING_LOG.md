@@ -151,3 +151,16 @@ Every bench or ring measurement and every config.h change goes here with its evi
 - Exact receipts and limitations: analysis/P0_counter_validation.md. Linux stayed
   running; another Monitor client existed. No physical fault injection or motor
   operation, no additional hardware request, and no human phase gate.
+
+### 2026-09-23 | P0 A0 startup timing | diagnostic only, no strategy tuning
+- D-063 config adds P0_ADC_SAMPLES=1000 and P0_ADC_PIN=14, checked against the
+  installed named A0. This selects the existing ADC-only input for a bare-board
+  diagnostic, not a robot pin-map approval; all76 B16 defaults remain unchanged.
+- Actual sourcef5f637b2/revision9de8cd1/default/MOTORS_ALLOWED0 uploaded02:16:28+04.
+ 1000 complete raw API calls: first276us;999 subsequent calls139..140us/p99140us;
+ paired micros overhead1..2us/p992us, unsubtracted; total144116us. Raw codes124..306.
+- Full deployed-image identity and two frozen RAM records verified. Evidence:
+  analysis/P0_adc_validation.md and linked raw receipts, reviewP0_adc_codex.md.
+  These are empirical setup costs, not an ADC deadline or voltage calibration.
+  Source proves indefinite waits; debug overlap is not independently excluded.
+  No motor, new external component, electrical approval or phase gate follows.

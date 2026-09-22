@@ -654,3 +654,18 @@ permanently fault merely from valid unknown information. Preserve the original
 failure/trace and unchanged locked property; add independent exact/wrap/preemption
 regressions. No B16 values, wiring, physical acceptance, gate or motor authority
 changes. This is an explicit delegated behavior choice, not a hidden test repair.
+
+## D-062 (2026-09-23, selected under D-051) P0 bounded counter transport
+Context: installed Monitor/Bridge/RPClite/ZephyrSerial can allocate or wait without
+a total deadline. The installed loader disables asynchronous UART. Source proves
+the existing router accepts a fixed mon/write notification without a reset RPC.
+Decision: adopt P0_counter_transport_contract.md before code/tests. Implement one
+fixed notification slot, explicit busy refusal and terminal partial-send fault.
+Investigate a sole-owned transmit-only IRQ adapter for the existing internal UART,
+without starting Bridge/Serial2 or changing pins, loader, dependencies or R3/R4.
+Require installed-driver/ownership proof, independent review and exact inert
+source manifest before any D-052 upload. Preserve the Immediate matrix prohibition.
+Consequence: notifications may be lost without acknowledgment; diagnostics report
+that limitation rather than treating transmission as delivered evidence. If driver
+bounds cannot be justified, retain the tested packet primitive and explicit blocker.
+No P2 implementation, human gate, wiring, B16 tuning or motor authority is granted.

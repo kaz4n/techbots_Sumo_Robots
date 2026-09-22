@@ -1,0 +1,23 @@
+{
+  "timestamp_utc": "2026-09-22T21:37:16.200715+00:00",
+  "target": "2629958581",
+  "command": [
+    "python3",
+    "-c",
+    "import socket,time,json\nresult={'endpoint':'127.0.0.1:7500','operation':'receive_only','sent_bytes':0,'limit_seconds':3,'byte_limit':4096}\nstart=time.monotonic()\ntry:\n with socket.create_connection(('127.0.0.1',7500),3) as s:\n  result['connected']=True\n  s.settimeout(max(0.001,3-(time.monotonic()-start)))\n  try:\n   data=s.recv(4096)\n   result.update(received_bytes=len(data),payload_hex=data.hex(),termination='eof' if not data else 'one_receive')\n  except TimeoutError:\n   result.update(received_bytes=0,termination='receive_deadline')\nexcept OSError as error:\n result.update(connected=False,error_type=type(error).__name__,error=str(error))\nresult['elapsed_seconds']=time.monotonic()-start\nprint(json.dumps(result,indent=2))\nraise SystemExit(0 if result.get('connected') else 1)\n"
+  ],
+  "returncode": 0,
+  "stderr": "",
+  "result": {
+    "endpoint": "127.0.0.1:7500",
+    "operation": "receive_only",
+    "sent_bytes": 0,
+    "limit_seconds": 3,
+    "byte_limit": 4096,
+    "connected": true,
+    "received_bytes": 0,
+    "termination": "receive_deadline",
+    "elapsed_seconds": 3.0045186939987616
+  },
+  "scope": "Listener acceptance only; no MCU counter round trip, no upload, reset or motor action."
+}

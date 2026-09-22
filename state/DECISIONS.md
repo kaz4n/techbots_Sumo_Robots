@@ -577,3 +577,32 @@ Record exact boundaries, cancellation/STOP/state transitions, reset/boot mixture
 all selections, service routing/no countdown, duplicate/wrapped/delayed streams
 and finite bounded outputs in independent tests. No ADC/pins/B16 value/motor-run
 or phase-gate change; physical service execution and complete Robot remain open.
+
+## D-059 (2026-09-23, selected under D-051) Logical match origin and continuous yaw
+Context: B3 GO zeroing can fabricate a >360-degree StuckFilter span or invalidate
+same-tick captured references if applied to Fusion/HAL. Resetting Fusion would
+clear reset-only safety state. Audit: P1_robot_heading_contract_audit.md.
+Decision: preserve continuous raw integrated yaw for Fusion for the Robot lifetime.
+Establish a separate match origin atomically at actual GO, after cancellation/STOP
+arbitration and before moving entry. Capture current healthy finite yaw, else the
+last genuine healthy sample, else nominal local0 with pending origin/imu=false.
+The latter preserves missing-at-boot B14 fallback. First healthy recovery anchors
+that pending origin at the nominal coordinate, without replacing script references,
+replaying GO or extending deadlines. Later losses retain the fixed origin/local yaw.
+heading_reset_requested means this logical operation, never a HAL integrator reset.
+Calibration affects later integration increments only. Retain raw world/inward
+evidence and actual timestamps; project views without resampling or refreshing age.
+Use double subtraction, check float representability, reduce directional angles
+before adding small bearings. Continuous headings stay unwrapped. Expose origin
+source/time; pending source time is GO, not a claimed measurement.
+Healthy nonfinite yaw (even pre-GO), nonrepresentable match difference or repeated
+GO without reset latches an inhibited coordinate fault until reset. Ordinary IMU
+absence is not a fault. Immediate duplicate time ignores changed input and clears
+pulses. Invalid read-only projections return invalid/finite0 without mutation;
+future Robot must honor both source validity and projection validity.
+Consequence: malformed healthy data can stop a match; missing data still uses
+the specified bounded fallback. Test raw-Fusion continuity across GO, missing
+history/last-known recovery, unchanged motion deadlines/references, sticky faults,
+extreme finite coordinates, angle ties, duplicates/wrap and truthful provenance.
+This contract does not prove provider continuity, physical yaw, full Robot wiring
+or complete-loop WCET. No pins/config/locked tests/phase or motor authority change.

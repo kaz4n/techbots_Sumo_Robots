@@ -176,7 +176,9 @@ public:
     // later STOP. This diagnostic lifetime never overrides latched STOP inhibition.
     // New accepted release replaces prior service evidence. Previous bias values
     // on all other ticks are ignored. heading_reset_requested is one GO pulse,
-    // not a board reset. Caller applies bias/heading change through HAL/app.
+    // not a board reset. D-059: caller establishes its logical match-yaw origin
+    // before same-tick motion; never reset the continuous HAL yaw/Fusion history.
+    // Accepted gyro bias affects subsequent integration increments only.
     // Existing Gate timing is authoritative even for sparse wrapped call streams;
     // finished services alone cannot authorize motion. No clock, I/O or allocation.
     // D-057 forwards the same START-only routing selector to Controller. A

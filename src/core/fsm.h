@@ -8,6 +8,68 @@
 #include <cstdint>
 
 namespace fsm {
+enum class HeadingOrigin : std::uint8_t {
+    NONE, CURRENT_GO, LAST_KNOWN, NOMINAL_PENDING, FIRST_RECOVERY
+};
+struct HeadingResult {
+    float heading_deg = 0.0F; // Finite match coordinate, never a synthetic measurement.
+    bool imu_ok = false; // Current healthy measured MATCH coordinate only.
+    bool match_started = false;
+    bool origin_changed = false; // One-call pulse, including nominal GO establishment.
+    bool fault = false; // Reset-only invalid coordinate or repeated GO.
+    HeadingOrigin origin = HeadingOrigin::NONE;
+    std::uint32_t origin_t_us = 0; // Actual source sample; nominal pending uses GO time.
+};
+struct HeadingProjection {
+    float heading_deg = 0.0F;
+    bool valid = false;
+};
+class HeadingReference {
+public:
+    // B0/B3/B14/D-059. Caller supplies continuous unreset raw integrated yaw
+    // for the entire Robot lifetime; Fusion always keeps that raw domain.
+    // Before GO, retain healthy finite history but expose match heading0/imu=false.
+    // Actual GO (after cancel/STOP arbitration) captures current healthy yaw,
+    // else last healthy yaw, else nominal0 with pending origin. In all cases
+    // local heading0; absence preserves B14 timed fallback, never healthy evidence.
+    // First healthy recovery resolves only a pending origin to current raw yaw;
+    // local0 and existing references/deadlines remain unchanged. Later healthy
+    // coordinates are double(raw)-origin, checked before narrowing to float.
+    // Unavailable payload is ignored; retain last local coordinate/imu=false.
+    // Healthy nonfinite yaw (even pre-GO), unrepresentable match difference or
+    // a second GO latches fault until reset. Preserve finite last coordinate,
+    // publish imu=false, inhibit projections; future Robot must inhibit motors.
+    // Immediate duplicate time ignores changed input/GO and clears only pulses;
+    // successive distinct calls must be less than one uint32 time wrap apart.
+    // A real reset clears history/origin/fault. Never reset Fusion on GO, reset
+    // the provider yaw, or use this helper as motor permission or physical proof.
+    HeadingResult step(std::uint32_t t_us, float raw_heading_deg, bool imu_ok,
+                       bool go = false);
+    // Read-only directional views in (-180,180], exact +/-180 -> +180. Invalid
+    // projections are finite0/valid=false, do not mutate/latch faults or freshness.
+    // worldBearing requires this tick's healthy match yaw and relative bearing
+    // in (-180,180]; reduce heading BEFORE adding the small relative bearing.
+    HeadingProjection worldBearing(float relative_deg) const;
+    // Retained raw world evidence has the same directional range; caller retains
+    // its original validity/time/age. Requires a resolved origin, not current IMU.
+    HeadingProjection projectWorld(float raw_world_deg) const;
+    // Retained actual raw continuous evidence (e.g. inward exit), without wrapping.
+    // Requires a resolved origin and a finite, float-representable difference.
+    // Never promote cached/nominal fallback yaw to a new inward measurement.
+    HeadingProjection projectHeading(float raw_heading_deg) const;
+    void reset();
+private:
+    void captureOrigin(std::uint32_t t_us, float raw_heading_deg, bool imu_ok);
+    bool resolved() const;
+    HeadingResult result_;
+    double origin_deg_ = 0.0;
+    float last_raw_deg_ = 0.0F;
+    std::uint32_t last_raw_us_ = 0;
+    std::uint32_t last_us_ = 0;
+    bool has_raw_ = false;
+    bool sampled_ = false;
+};
+
 struct FrontQualificationResult {
     bool front_detected = false;
     bool centered = false;

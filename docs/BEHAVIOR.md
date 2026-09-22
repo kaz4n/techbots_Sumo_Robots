@@ -21,6 +21,19 @@ Change control: behavior changes need a DECISIONS.md entry and a human "yes". Nu
 Inputs (per tick): t_us, line_mask, line_raw_us[4], opp_raw_mask, heading_deg, gyro_z_dps, ax_g, ay_g, imu_ok, vbat_v, button_level (from A1).
 Outputs (per tick): duty_l, duty_r, motors_enabled, ui_state, recorder frame and events.
 
+D-059 (selected under D-051,2026-09-23) clarifies heading reset as a **logical
+match origin** established before same-tick GO motion. The caller's continuous
+yaw is never reset at GO; Fusion/stuck/phantom histories stay in that raw domain.
+Motion and match telemetry use raw yaw minus the captured origin. GO uses the
+current healthy yaw, else the last actual healthy yaw, else nominal local0 with
+a pending origin and imu_ok=false. With no history, the first healthy recovery
+anchors that origin without moving captured references or extending deadlines.
+Nominal/retained fallback coordinates never become measured world/inward evidence.
+Healthy nonfinite yaw, an unrepresentable match difference or repeated GO without
+reset latches an inhibited coordinate fault until reset; ordinary missing IMU
+continues B14 fallback. Retained directional evidence is projected without age
+refresh; continuous yaw is not wrapped. All measured evidence keeps its provenance.
+
 ---
 
 ## B1. States

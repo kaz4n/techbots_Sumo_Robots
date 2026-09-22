@@ -5,6 +5,10 @@
 #include <cstdint>
 
 namespace motion {
+// D-059: when IMU has never been available, a finite nominal initial coordinate
+// is allowed for timed fallback. It is NOT a measured yaw: imu_ok stays false.
+// First recovery anchors the provider-to-match origin without changing captured
+// references or deadlines. Healthy observations always remain actual coordinates.
 enum class Status : std::uint8_t { IDLE, ACTIVE, DONE, TIMED_OUT, INVALID };
 enum class Direction : std::uint8_t { LEFT, RIGHT };
 struct Result {

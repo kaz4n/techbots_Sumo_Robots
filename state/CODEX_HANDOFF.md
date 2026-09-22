@@ -77,3 +77,28 @@ see CODEX_EXECUTION for the remaining dependencies and P0_gate_request for unmet
 exit criteria. No further phase is eligible without the actual P0 gate. Resume
 from this checkpoint, not the earlier IN PROGRESS scaffold notes. Work is stopped
 at the saved hardware/decision boundary, not running in the background.
+
+## Manual-check preparation follow-up — 2026-09-22
+
+User asked what must be checked manually and requested continued work. Commit
+`98d4524` adds `tools/preflight.sh`, which reads a fixed software inventory over
+strict SSH and emits JSON with real command statuses. It neither configures nor
+probes firmware/sensors. The new `--startup default|immediate` permits inert
+bench builds independent of MATCH; motor guards/source hashes remain enforced.
+
+Full tooling suite now **45/45 passed, exit 0**, with a separate fresh-context
+read-only review PASS in reviews/P0_preflight_codex.md. No firmware/config/locked
+tests changed, so the previously verified host scaffold is not a newly measured
+board result. No board connection, target build/upload or physical test occurred.
+
+New fact F-061: official manual warns about accessing the matrix before Linux
+startup completes. Immediate matrix uploads are blocked until the installed
+loader's ownership behavior is verified; compile-only is allowed. The boot logo
+is not sketch entry, and even a SUMO marker has display delay. This remains an
+open hardware/API dependency in addition to SC-I's printed-counter conflict.
+
+The human-facing sequence is docs/P0_MANUAL_CHECKLIST.md; the blank worksheet is
+state/analysis/P0_MEASUREMENTS_TEMPLATE.md, explicitly not evidence. Next: obtain
+the first inventory/isolation/SSH/breakout reply, run read-only preflight when
+possible, then guide the specific approved physical measurements. P0 remains
+active and no gates or motor permissions have been supplied.

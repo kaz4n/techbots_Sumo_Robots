@@ -32,3 +32,5 @@ inventory when SSH details become available; resolve SC-I before Monitor demo.
 No P1 strategy or P2 HAL work started. No remote publication occurred.
 
 | 2026-09-22 | P0 0.2 manual-check preparation | Add read-only board inventory and independent default/Immediate bench startup selection; block Immediate matrix upload pending F-061 | SCRIPT-TESTED: 45/45 exit0; analysis/P0_preflight_tests.txt; separate-context review PASS in reviews/P0_preflight_codex.md; no board operation | commit containing this row |
+
+| 2026-09-22 | P0 manual handoff | Publish ordered human checks and blank measurement worksheet; update resume for read-only preflight and F-061 | DOCUMENTED / REVIEWED; docs/P0_MANUAL_CHECKLIST.md; analysis/P0_MEASUREMENTS_TEMPLATE.md is not evidence; tooling98d4524 | commit containing this row |

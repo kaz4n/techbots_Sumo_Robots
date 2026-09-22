@@ -29,6 +29,14 @@ public:
     // starts here. Initial error is the shortest angle in (-180,180].
     bool start(std::uint32_t t_us, float heading_deg, float target_heading_deg,
                float max_duty, bool imu_ok);
+    // Same B7 command, captured relative target in (-180,180]. Keep measured
+    // yaw-origin subtraction and the error in double internally so converting
+    // coordinates cannot round an adjacent strict-tolerance sample or flip the
+    // exact+180 RIGHT tie. Initial/step yaw remains the caller's actual float
+    // observation; no synthetic measurement. All existing timeout/fallback,
+    // finite-value, duty and reset contracts apply; ordinary start is unchanged.
+    bool startRelative(std::uint32_t t_us, float heading_deg, float relative_deg,
+                       float max_duty, bool imu_ok);
     // IMU: clamp(K_TURN_PER_DEG*abs(error), TURN_MIN_DUTY, max_duty), (+,-)
     // for clockwise. Strict abs(error)<HEADING_TOL_DEG completes. After loss,
     // latch fallback for this command: last valid remaining angle times
@@ -49,6 +57,8 @@ private:
     float max_duty_ = 0.0F;
     Status status_ = Status::IDLE;
     bool fallback_ = false;
+    float origin_heading_deg_ = 0.0F;
+    bool relative_ = false;
 };
 
 class Straight {

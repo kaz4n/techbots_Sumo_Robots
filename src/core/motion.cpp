@@ -191,4 +191,37 @@ Result Brake::step(std::uint32_t t_us) {
 }
 
 void Brake::reset() { *this = Brake{}; }
+
+bool TimedArc::start(std::uint32_t t_us, Direction direction, float inner_ratio,
+                     float duty, std::uint32_t duration_ms) {
+    reset();
+    if (!std::isfinite(inner_ratio) || !std::isfinite(duty) ||
+        inner_ratio < 0.0F || inner_ratio > 1.0F || duty < 0.0F || duty > 1.0F ||
+        (direction != Direction::LEFT && direction != Direction::RIGHT) ||
+        !validDuration(duration_ms)) {
+        status_ = Status::INVALID;
+        return false;
+    }
+    interval_.begin(t_us);
+    duration_us_ = duration_ms * 1000U;
+    duty_ = duty;
+    inner_ratio_ = inner_ratio;
+    direction_ = direction;
+    status_ = duration_us_ == 0U ? Status::DONE : Status::ACTIVE;
+    return true;
+}
+
+Result TimedArc::step(std::uint32_t t_us) {
+    if (status_ != Status::ACTIVE) return {0.0F, 0.0F, status_, false};
+    interval_.advance(t_us);
+    if (interval_.elapsed_us >= duration_us_) {
+        status_ = Status::DONE;
+        return {0.0F, 0.0F, status_, false};
+    }
+    const float inner = duty_ * inner_ratio_;
+    if (direction_ == Direction::LEFT) return {inner, duty_, status_, false};
+    return {duty_, inner, status_, false};
+}
+
+void TimedArc::reset() { *this = TimedArc{}; }
 } // namespace motion

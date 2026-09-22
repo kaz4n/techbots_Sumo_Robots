@@ -240,3 +240,13 @@ Further bounded integration audit (questions pending; no approval inferred):
   zero and default right when unknown; existing SIDESTEP hint controls first scan.
   B: last front side only. Recommend A. Test side/rear after opposite front,
   zero/conflicted/invalid bearing, no history, hint precedence and mirrors.
+- SC-AA, B8/B7: full-sweep SEARCH fallback on mid-scan IMU loss is unspecified.
+  A: directed yaw while valid; on loss latch timed remaining sweep clamped0..360
+  at TURN_MS_PER_DEG, starting at that observation; recovery cannot restart it.
+  No IMU at entry uses full360 timing; do not inherit the700ms short-turn cutoff.
+  B: defer. Recommend A. Test no IMU, partial/opposite progress, recovery, exact
+ 720ms/remaining-time endpoints, wrap and absence of fabricated heading samples.
+- SC-AB, B11 side recency: an unseen front sensor is not ranked against seen.
+  A: unseen is least recent; both unseen/equal recency fall through to approved
+  alternation. B: any unseen falls through. Recommend A. Test both one-unseen
+  orientations, both unseen, ties, known older side and higher-priority edge side.

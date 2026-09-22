@@ -307,7 +307,7 @@ measurement, PINMAP OK, EXPLAINED OK, human gate, remote push or release tag.
 Human hardware testing remains deferred to project end under the active goal;
 its absence is never a pass. Full P7 completion is still outstanding.
 
-## Continuation checkpoint — 2026-09-22 20:15 Asia/Dubai
+## Continuation checkpoint — 2026-09-22 Asia/Dubai
 
 Supersedes the previous next-task/count statements. Implemented mirrored
 SIDESTEP/ARC2071d4f, logical STOP6a3dc29, defensive turn4768eb5. Interfaces were
@@ -322,3 +322,20 @@ SC-J/T/U/V/W/X resolved. SC-Y re-flank completion and SC-Z SEARCH side mapping
 pending. Next implement B9 steering/D-037 time-only arc, then B8 SEARCH and the
 remaining escape/WAIT/re-flank/Robot. Preserve original phase/gate dependencies.
 No board action or claimed physical result; P1 host development remains active.
+
+## Latest software checkpoint — 2026-09-22 Asia/Dubai
+
+Added D-036 front steering3f29fae and D-037 duration-only arc6e91778, contracts
+d6bdff3 first. Normal+ASan/UBSan419 cases/10,226,416 assertions pass with no
+fail/skip;48/48 scripts pass after reviewed23-file manifest refresh. Separate
+read-only scoped review PASS/no open finding. Four unsupported REQUIRE macros
+in a new unlocked test were caught before build and changed to CHECK with all
+predicates preserved. Exact receipts/report: analysis/P1_steering_arc_validation.md.
+No existing locked/config changes in this second batch, no hardware actions.
+
+SC-Y re-flank completion/TURN_IN retention, SC-Z SEARCH side mapping, SC-AA
+scan IMU-loss fallback and SC-AB unseen-side recency are pending distinct human
+questions. Do not infer approval from elapsed time. Read the concrete public
+contract recommendations in analysis/P1_search_reflank_contract_audit.md before
+their dependent implementations. Continue eligible P1 composition/integration;
+P0 hardware acceptance, every human gate and full P7 completion remain outstanding.

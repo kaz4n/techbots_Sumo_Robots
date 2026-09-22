@@ -120,3 +120,12 @@ All original P1-P7 exit conditions remain required; no project-complete claim.
 Current next work: approved B9 steering and B11 time-only arc, then SEARCH and
 remaining scripts/Robot. D-036–D-038 approvals recorded3b10613; SC-Y/Z specific
 integration choices pending. No established locked edit beyond D-039 is approved.
+
+| 2026-09-22 | P1 B9 D-036 | Bounded front steering requests;17 independent table/mask/governor cases | HOST-TESTED; actual state arbitration/qualification still pending | 3f29fae |
+| 2026-09-22 | P1 B7/B11 D-037 | True time-only arc;19 independent timing/finite/mirror cases | HOST-TESTED; re-flank sequencing still pending | 6e91778 |
+| 2026-09-22 | P1 scoped checkpoint |419cases/10226416assertions normal+ASan/UBSan;48/48 scripts; separate review PASS | analysis/P1_steering_arc_validation.md; no physical/gate evidence claimed | commit containing this row |
+
+Existing locked tests and config unchanged since dc42029. One pre-build review
+finding in a new unlocked test macro corrected without altering predicates or
+compiler flags. All tests pass, no open review finding. SC-Y/Z/AA/AB human choices
+remain pending; exact questions and next contract audit saved in analysis/.

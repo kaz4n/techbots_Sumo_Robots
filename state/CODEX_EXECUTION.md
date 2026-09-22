@@ -14,14 +14,16 @@ results remain pending, not assumed successful. Date:2026-09-22, Asia/Dubai.
 | P0 0.3 host scaffold | HOST-TESTED | CMake/doctest2.4.12, all76 B16 defaults preserved |
 | P0 0.5 pin map | BLOCKED | Physical electrical checks and PINMAP OK; no pins assigned in config |
 | P0 gate | GATE-PENDING | P0_gate_request.md prepared; physical evidence and human gate absent |
-| P1 1.1 interfaces | PARTIAL | types/countdown/edge/opp_fusion/governor/motion/logframe/stall/Direct; remaining opener scripts and fsm remain |
-| P1 1.2 B3 | HOST-TESTED components | Gate/Buttons/Controller +Services;56 locked countdown cases; production service/bias/heading-reset wiring pending |
+| P1 1.1 interfaces | PARTIAL | Existing core modules plus Flank/DefendTurn; remaining scripts/Robot contract pending |
+| P1 1.2 B3/B13 | HOST-TESTED components | Gate/Buttons/StopHold/Controller +Services; production service/bias/heading-reset/menu wiring pending |
 | P1 1.2 B4 | HOST-TESTED components | Classifier/Guard/forward demands;16 locked edge cases; scripts/replanning/acquisition pending |
 | P1 1.2 B5 | HOST-TESTED components | Debouncer/front table/BearingMemory/Contact/PhantomFilter/StuckFilter; full fusion composition pending |
 | P1 1.2 B6 | HOST-TESTED | Governor final cap/slew/compensation; FSM target-loss brake/profile selection pending |
-| P1 1.2 B7 | HOST-TESTED | Turn/Straight/Arc/Brake; bounded fallback and cumulative deadlines; scripts/FSM integration pending |
+| P1 1.2 B7 | HOST-TESTED | Turn/Straight/Arc/Brake/TimedArc; bounded fallback and cumulative deadlines; scripts/FSM integration pending |
+| P1 1.2 B9 | HOST-TESTED request math | D-036 frontDemand; state selection/centered count/target-loss integration still pending |
+| P1 1.2 B10 | HOST-TESTED | DefendTurn captures one target and preserves700/800ms deadlines; Robot arbitration pending |
 | P1 1.2 B11 | HOST-TESTED components | Qualified timer/deflection Detector and rolling limiter/ALL_IN; real re-flank script/FSM arbitration pending |
-| P1 1.2 B12 | HOST-TESTED DIRECT | Pure400ms heading-held script and exit intents; other openers/global arbitration pending |
+| P1 1.2 B12 | HOST-TESTED DIRECT/SIDESTEP/ARC | Shared mirrors and current-perception exit intents; WAIT/global arbitration pending |
 | P1 1.2 B15 | HOST-TESTED encoding/event buffer |25-byte frames/8-byte events; first4096 retained with overflow/count; frame storage/cadence/dump not implemented |
 | P1 1.2 remainder | UNFINISHED | Re-flank/escape/other openers, Robot FSM and B14 integration |
 | P1 1.3 properties | PARTIAL | Countdown/motion/fusion/DIRECT/filter fixed-seed10000 sets; limiter/detector independent references; full Robot R1/R5 and all-script symmetry pending |
@@ -29,38 +31,30 @@ results remain pending, not assumed successful. Date:2026-09-22, Asia/Dubai.
 | P1 1.5 target compile | HARDWARE-PENDING | No connected/verified UNO Q toolchain |
 | P1 1.6 review/gate | SCOPED PASS / GATE-PENDING | Separate read-only component reviews; full fresh gate review, EXPLAINED OK and human GATE P1 PASS absent |
 
-Latest host result:313 cases/8,149,851 assertions, normal and ASan/UBSan pass.
-No failures/skips. Fresh separate scoped review PASS/no open findings. Final
-current-source tooling48/48 after exact21-file snapshot review/manifest refresh:
-P1_filters_events_tools.txt. See P1_filters_events_validation.md and raw receipts.
-
-Superseding checkpoint 2026-09-22:383 cases/9,121,864 assertions pass normal and
-ASan/UBSan;48/48 controlled tooling checks. New70 cases cover mirrored SIDESTEP/
-ARC, logical STOP and defensive turn. Separate scoped review PASS/no open finding;
-23-file inert manifests reviewed. See P1_flank_stop_validation.md/review. D-039
-approved exactly one established locked-case amendment; initial failure retained.
-D-033–D-038 are accepted; steering/re-flank implementation is next. SC-Y/Z are
-pending specific completion/search-side decisions, not reasons to stop other work.
+Latest completed validation:419 cases/10,226,416 assertions pass normal and
+ASan/UBSan;48/48 controlled tooling checks. D-036 frontDemand and D-037 TimedArc
+add36 independent cases to dc42029. Separate scoped review PASS/no open finding;
+exact23-file inert manifests reviewed. See P1_steering_arc_validation.md/review.
+D-039's previous one-case locked amendment remains the sole authorized established
+locked edit; no existing locked/config changes in this latest implementation.
 
 Approvals: D-017 governor; D-018 ordering; D-019 release anchor; D-020 persistent/
 all-white guard; D-021 forward0.80; D-022 heading correction; D-023 duty-only
 compensation; D-024 services; D-025 ALL_IN safety; D-026 bearing memory; D-027
 contact lifetime; D-028 explicit overflow; D-029/30 phantom episode/replacement;
-D-031 stuck faults; D-032 qualified timer/deflection. Do not re-request them.
+D-031 stuck faults; D-032 qualified timer/deflection; D-033 SIDESTEP priority;
+D-034 current-perception exits; D-035 qualified/reset-only STOP; D-036 steering;
+D-037 timed re-flank arc/right-first tie; D-038 qualified re-flank reacquisition;
+D-039 exactly one documented locked amendment. Do not re-request them.
 Components implement these policies; complete scheduler/recorder integration remains.
 
-Next eligible task: P1 B12 ARC_R/L script contracts/tests, then remaining
-escape/openers/re-flank/FSM work. Resolve genuinely missing behavior via
-spec_conflicts before dependent changes. Preserve all established locked tests.
-SC-A physical button decoding, SC-B QTR cadence/freshness, SC-I bounded log demo,
-SC-J both-held STOP/recovery, SC-R/S escape directions/priority, SC-T simultaneous
-SIDESTEP exits, SC-U actual opener/FSM transitions and WAIT geometry remain
-explicitly open. D-016 alone does not authorize P2 HAL work.
-
-The preceding next-task text is superseded: SIDESTEP/ARC and logical STOP now
-HOST-TESTED (2071d4f/6a3dc29), as is DefendTurn (4768eb5). Continue B9 steering,
-B11 time-only arc, B8 SEARCH and remaining Robot/escape/re-flank/WAIT. SC-J/T/U
-are resolved by D-035/D-033/D-034. Full integration and all original gates remain.
+Next: B8 SEARCH and remaining
+Robot/escape/re-flank/WAIT. Read analysis/P1_search_reflank_contract_audit.md.
+Pending protected choices: SC-Y re-flank completion, SC-Z SEARCH side mapping,
+SC-AA scan fallback, SC-AB unseen-side recency; SC-R/S escape direction/priority,
+SC-G WAIT geometry; SC-A physical button decoding, SC-B QTR freshness/timing,
+SC-I bounded log demo. Preserve established locked tests. D-016 alone does not
+authorize P2 HAL work. All original gates remain required.
 
 Hardware resumes through docs/P0_MANUAL_CHECKLIST.md when connected: obtain SSH
 alias/user and isolation/part/instrument details, run read-only preflight, inspect

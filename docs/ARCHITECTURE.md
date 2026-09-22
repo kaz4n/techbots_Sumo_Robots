@@ -27,6 +27,8 @@ the complete robot scheduler, FSM and actuator path do not yet exist.
 | `openers::Direct` | B12 O2 heading-held 400ms request, snapshot/current target exits and latched zero completion | Global target/edge arbitration and OPENER governor, other openers |
 | `openers::Flank` | Shared mirrored SIDESTEP/ARC scripts, D-033 phase-specific aborts, explicit governor profiles and D-034 exit intents | Complete Robot arbitration and WAIT |
 | `fsm::DefendTurn` | B10 captured target, front/clear exits and separate B7 700ms/B10 800ms deadlines | Global arbitration, PIVOT governor and MotorGate |
+| `fsm::frontDemand` | D-036 TRACK/ATTACK front-row requests, explicit profiles and invalid zero results | Centered qualification/state selection, current D-027 contact, immediate target-loss brake dispatch |
+| `motion::TimedArc` | D-037 mirrored duration-only forward arc, no invented heading cutoff | Re-flank sequencing, REFLANK_TURN governor and global safety arbitration |
 | `logframe` | B15 portable 25-byte frames and 8-byte exact-tick events, explicit invalid/clipped status; D-028 first4096 EventBuffer | HAL-owned buffer instance, frame cadence/storage, event collection, incomplete-evidence marking and idle-only dump |
 
 All inputs are ordinary C++ values. Time arrives from callers as `uint32_t`

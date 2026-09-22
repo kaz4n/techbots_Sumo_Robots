@@ -13,19 +13,29 @@ reused read-only scoped review PASS and23-file inert snapshots refreshed. See
 analysis/P1_normal_perception_validation.md and reviews/P1_normal_perception_codex.md.
 Established locked tests/config unchanged; full Robot and full Escape remain pending.
 
-USB ADB device2629958581 is observed, matching Windows USB/mDNS identity. Native
+USB ADB device2629958581 is verified, matching Windows USB/mDNS identity. Native
 Windows CLI1.5.2-rc.1 is user supplied and ignored by Git. Existing bundled ADB32.0.0
-works without installing tools or using a password. Board inventory is underway;
-initial results show arduino user, CLI1.5.1/core1.0.0,2.8GiB free, no rsync.
-Exact evidence: analysis/P0_connected_inventory_20260922.md and target inventory.
-Root is adding tested explicit ADB transport to the existing board-side workflow.
-No compile/upload/reset has occurred at this checkpoint. Source/hash guards remain.
+works without a password. Board CLI1.5.1/core1.0.0/Python3.13.5 and six exact pinned
+Bridge dependencies are installed/observed. No rsync; explicit tested ADB fallback
+builds on the board with native Windows Python. F-062 throughF-071 hold evidence.
 
-Next: finish separate script review, run real ADB preflight, compile inert timing
-and default-startup matrix, then verified inert upload/observations. Inspect loader
-and debug readout before claiming timing; Immediate matrix remains blocked F-061.
-C: is low (about300MB); avoid local tool downloads. No motor-capable firmware/run.
-After bare-board tasks, continue the saved Full Escape/WAIT contract work and P1.
+Commits93e3e41/f6065b4 repaired Arduino staging includes and added ADB transport;
+af02658 records real target builds and timing upload. Timing default and Immediate
+compile-only, plus matrix default, succeeded. Timing default was uploaded at23:19
+under D-052, then measured through reviewed MEM-AP reads under D-053. Run1's one-byte
+packaged-BIN/reference mismatch failed safely;32f0403 verifies exact ELF PT_LOAD
+bytes. Run2 captured60000 samples: max3us/p99=3us/zero >=1ms-late observations.
+All107 tooling tests pass under WSL; separate raw-data review reproduces metrics.
+This is bare-scheduler lateness, not complete control WCET or a phase pass.
+
+Current MCU image: inert p0_matrix/default/MOTORS_ALLOWED0, source72214f8a, uploaded
+23:34:33+04. Exact full hash/artifacts are in analysis/P0_matrix_readout_plan.md.
+Current next task: finish/review the separate bounded matrix RAM-counter observer,
+capture actual advancement, then save the bare-board checkpoint. Optical display,
+Monitor round trip and power-on startup timing remain distinct pending evidence.
+Immediate matrix remains blocked F-061. Do not request additional hardware now.
+C: remains low (~350MB); avoid local tool downloads. No motor-capable firmware/run.
+After bare-board tasks, resume saved Full Escape/WAIT contract work and P1.
 
 ## Prior 22:07 resume checkpoint — superseded above
 

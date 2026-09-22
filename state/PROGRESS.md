@@ -261,3 +261,8 @@ original row as history; use raw command timestamps for evidence.
 | 2026-09-22 | P0/P1 target layout | Actual compile exposed host-only includes; unchanged red/green staging tests prove repair | HOST-TESTED; eight include-only source fixes | 93e3e41 |
 | 2026-09-22 | P0 target build | Required six pinned Bridge dependencies installed; timing and default matrix compile on actual UNO Q | TARGET-COMPILED both, exit0; raw P0_*target_compile* receipts | commit containing this row |
 | 2026-09-22 23:19:29 +04 | P0 timing run | Reviewed inert timing source3de6da69 uploaded to bare USB2629958581; default/dynamic/MOTORS_ALLOWED0 | UPLOADED exit0; one-minute RAM capture/readout pending; no motor run | f6065b4 |
+
+| 2026-09-22 | P0 capture tooling | Full ELF-based loader identity repair after one-byte packaged-BIN mismatch; retained failed run1 | SCRIPT-TESTED107/107 under WSL; separate scoped review PASS | 32f0403 |
+| 2026-09-22 23:33:36 +04 | P0 0.4 scheduler | Actual frozen60000-sample readout, full loader/sketch identity and two matching RAM snapshots | MEASURED max3us/p99=3us, zero >=1ms-late observations; bare scheduler only | commit containing this row |
+| 2026-09-22 | P0 startup build | Inert timing Immediate compile-only | TARGET-COMPILED exit0; no upload/startup measurement | 32f0403 |
+| 2026-09-22 23:34:33 +04 | P0 matrix demo | Default inert72214f8a image compiled/uploaded to USB2629958581 | UPLOADED exit0; optical/counter observation separate; no motor run | commit containing this row |

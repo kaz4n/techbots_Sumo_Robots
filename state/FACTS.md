@@ -142,3 +142,18 @@ but does not call begin/start UART/create RPC threads. Exact constructor and
 packaged-loader mutex branches were inspected before upload; this is specific
 to these binary versions, not a portable guarantee. The uninitialized-mutex API
 pattern is not endorsed for new code. See P0_installed_debug_contract.md.
+
+| ID | Question | Observed answer | Source | Confidence | Hardware-checked |
+|---|---|---|---|---|---|
+| F-069 | Bare scheduler lateness | Default timing image completed60000 samples: max3us, nearest-rank p99=3us, zero observations >=1000us late. Histogram bins0/1/2/3 contain16561/16683/16603/10153. Loader+sketch flash identity verified; two4016-byte snapshots identical. Includes installed loop-hook overhead. | analysis/P0_timing_capture_run2_20260922.json and P0_timing_run2_raw/; D-053 | MEASURED on actual MCU; not full-loop WCET | USB2629958581, bare setup human-reported; no motors/sensors |
+| F-070 | Immediate target compilation | Exact same inert timing source compiles with wait_linux_boot=no/MOTORS_ALLOWED0, exit0; compile-only did not upload/reset/start. | analysis/P0_timing_immediate_compile_20260922.txt | TARGET-COMPILED | startup runtime and cold-boot duration unmeasured |
+| F-071 | Default matrix upload | Reviewed72214f8a source rebuilt and uploaded with MOTORS_ALLOWED0/default startup, exit0 at23:34:33+04. | analysis/P0_matrix_upload_20260922.txt | UPLOADED | counter observation and optical display check remain separate |
+
+F-069 supersedes timing-readout-pending in F-068. Run1 failed before RAM because
+the packaged BIN differed from the actually uploaded ELF by one alignment byte;
+the corrected verifier compares every ELF PT_LOAD byte, without exceptions.
+See analysis/P0_loader_identity_analysis.md and P0_capture_validation_20260922.md.
+The first debug attachment began over248s after timing upload completed. Run2
+captured the frozen histogram in104.316s; debug reads are not part of the sampled
+one-minute scheduler workload. No power-on timestamp, loaded-tick WCET, matrix
+optical confirmation, external-pin measurement or phase gate is inferred.

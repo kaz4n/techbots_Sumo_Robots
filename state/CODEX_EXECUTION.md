@@ -2,9 +2,12 @@
 
 Current checkpoint2026-09-22 Asia/Dubai: NormalPerception aae9b36 is HOST-TESTED and
 reviewed:625 cases/11,994,540 assertions normal+ASan/UBSan;48 scripts passed.
-User now authorizes testing bare UNO Q only (D-052). USB ADB is connected;
-finish explicit ADB script tests/review, real preflight and inert target builds,
-then safe P0 measurements possible without attached hardware. No gate passed.
+User authorizes testing bare UNO Q only (D-052). USB ADB fallback now works with
+actual board-side compile/upload. Inert timing default/Immediate compile-only and
+matrix default builds pass; current MCU runs inert matrix/default. Timing default
+60000-sample capture gives max/p99=3us, zero >=1ms-late observations; separate
+raw-data review confirms this limited measurement.107 tooling tests pass in WSL.
+Next: separately reviewed matrix RAM-counter observation and checkpoint. No gate passed.
 Full Escape/WAIT/Robot remain unfinished; D-051 permits documented decisions
 without more questions. Earlier hardware-deferral/next-task statements below
 are historical and superseded by this checkpoint.
@@ -30,9 +33,9 @@ results remain pending, not assumed successful. Date:2026-09-22, Asia/Dubai.
 | Existing task | Status | Evidence and remaining dependency |
 |---|---|---|
 | Kickoff role migration | IMPLEMENTED | D-015, AGENTS, CODEX_HANDOFF; baseline52b935e preserved |
-| P0 0.1 G1-G6 | SOURCE-REVIEWED | P0_G*.md; FACTS throughF-061; installed/electrical checks pending |
-| P0 0.2 scripts | SCRIPT-TESTED |48 controlled checks in latest *_tools.txt; no successful board build claimed |
-| P0 0.2/0.4 inert demos/timing | PARTIAL / HARDWARE-PENDING | RAM timing/matrix host checks; round trip/startup/WCET/GPIO/QTR/ADC/I2C measurements absent |
+| P0 0.1 G1-G6 | SOURCE-REVIEWED / INSTALLED-INVENTORY | P0_G*.md; FACTS throughF-071; physical electrical checks pending |
+| P0 0.2 scripts | SCRIPT-TESTED / TARGET-USED |107 tooling cases; actual ADB build/upload receipts, missing rsync explicit; Monitor round trip pending |
+| P0 0.2/0.4 inert demos/timing | BARE-SCHEDULER-MEASURED / MATRIX-UPLOADED |60000 samples max/p99=3us; matrix counter next; optical/startup/WCET/GPIO/QTR/ADC/I2C pending |
 | P0 0.3 host scaffold | HOST-TESTED | CMake/doctest2.4.12, all76 B16 defaults preserved |
 | P0 0.5 pin map | BLOCKED | Physical electrical checks and PINMAP OK; no pins assigned in config |
 | P0 gate | GATE-PENDING | P0_gate_request.md prepared; physical evidence and human gate absent |
@@ -52,7 +55,7 @@ results remain pending, not assumed successful. Date:2026-09-22, Asia/Dubai.
 | P1 1.2 remainder | UNFINISHED | Re-flank/escape/other openers, Robot FSM and B14 integration |
 | P1 1.3 properties | PARTIAL | Countdown/motion/fusion/DIRECT/filter fixed-seed10000 sets; limiter/detector independent references; full Robot R1/R5 and all-script symmetry pending |
 | P1 1.4 architecture | PARTIAL | ARCHITECTURE describes actual components; full FSM diagram/explanation still pending |
-| P1 1.5 target compile | HARDWARE-PENDING | No connected/verified UNO Q toolchain |
+| P1 1.5 target compile | PARTIAL TARGET-COMPILED | Existing core sources compile inside actual inert sketches; complete Robot/app and P1 exit criteria unfinished |
 | P1 1.6 review/gate | SCOPED PASS / GATE-PENDING | Separate read-only component reviews; full fresh gate review, EXPLAINED OK and human GATE P1 PASS absent |
 
 Latest completed validation:509 cases/11,920,737 assertions pass normal and

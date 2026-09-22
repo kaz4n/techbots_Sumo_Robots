@@ -1,5 +1,13 @@
 # P0: what the team needs to check manually
 
+**Current update,2026-09-22:** the human has connected the bare UNO Q and asks for
+no additional hardware now. USB ADB inventory, actual board-side builds and inert
+uploads work. The frozen60000-sample timing diagnostic measured max/p99 lateness3us;
+the default matrix demo is uploaded. See state/FACTS.md F-062 onward and the current
+handoff for precise evidence/limits. The checklist below is retained for later
+physical acceptance; its old pending connection statements are superseded by these
+receipts. No new connection or measurement is requested from the human this session.
+
 Prepared 2026-09-22, Asia/Dubai. **Checklist only: no hardware result or approval.**
 P0 is active; no phase gates have passed. Today is the planned board/SSH setup
 day; PLAN section 3 targets P0 completion on 23 September. Complete the checks

@@ -109,3 +109,18 @@ Every bench or ring measurement and every config.h change goes here with its evi
   text. D-041/D-042 define side memory and loss fallback; no B16 value/pin changes.
 - Evidence: B8/B11, accepted decisions, exact config-source checks; independent
   SEARCH boundary tests follow. Neither angle nor duration has physical evidence.
+
+### 2026-09-22 | P0 bare UNO Q scheduler measurement | no tuning change
+- Actual target: USB2629958581, user-reported bare board, CLI1.5.1/core1.0.0;
+  source3de6da69, default/dynamic, MATCH0/MOTORS_ALLOWED0. No sensor or motor.
+- Result:60000 completed samples; maximum and nearest-rank p99 lateness3us;
+  zero observations at least1000us late. Bins0/1/2/3us:16561/16683/16603/10153.
+- Exact loader and sketch flash verified, final-ELF/runtime BSS checked, two
+  identical4016-byte snapshots plus before/after60000 sample counters. First
+  debug attachment was over248s after upload; frozen run2 readout exit0.
+- Evidence: analysis/P0_timing_capture_run2_20260922.json, P0_timing_run2_raw/,
+  P0_capture_run2_invocation_20260922.txt and P0_capture_validation_20260922.md.
+  Run1 reference-format failure is retained separately, not counted as a pass.
+- Scope: bare scheduler lateness including installed yield/mutex loop hook;
+  not complete control-tick WCET, pin/API timings, startup or ring evidence.
+  No config value or pin changed; M1-M13 remain unmeasured.

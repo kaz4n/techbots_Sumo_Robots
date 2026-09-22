@@ -1,4 +1,4 @@
-// Encodes B15 frames/events and retains a bounded sequence of encoded events.
+// Counts B14 supplied ticks, encodes B15 frames/events and retains bounded events.
 // Preserves portable evidence and exposes D-028 overflow without overwriting it.
 // Independent host tests cover encoding, capacity boundaries and reset behavior.
 #include "logframe.h"
@@ -7,6 +7,29 @@
 
 namespace logframe {
 static_assert(config::LOG_EVENT_CAPACITY > 0U, "Event capacity must be positive");
+static_assert(config::TICK_OVERRUN_PERCENT <= 100U, "Percentage cannot exceed 100");
+
+void observeTick(TickStatistics& statistics, std::uint32_t measured_execution_us) {
+    if (measured_execution_us > statistics.max_us) {
+        statistics.max_us = measured_execution_us;
+    }
+    if (statistics.ticks == std::numeric_limits<std::uint64_t>::max()) {
+        statistics.saturated = true;
+        return;
+    }
+    ++statistics.ticks;
+    if (measured_execution_us > config::TICK_US) {
+        ++statistics.overruns;
+    }
+}
+
+bool overrunRateExceeded(const TickStatistics& statistics) {
+    if (statistics.ticks == 0U) return false;
+    // Split the percentage product so even UINT64_MAX ticks cannot overflow.
+    const std::uint64_t allowed = (statistics.ticks / 100U) * config::TICK_OVERRUN_PERCENT +
+        ((statistics.ticks % 100U) * config::TICK_OVERRUN_PERCENT) / 100U;
+    return statistics.overruns > allowed;
+}
 
 namespace {
 void writeU16(std::uint8_t* destination, std::uint16_t value) {

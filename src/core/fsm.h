@@ -216,6 +216,7 @@ private:
     enum class Stage : std::uint8_t { IDLE, BACK, PIVOT, ARC, TURN_IN, FINISHED, INVALID };
     bool beginSwing(std::uint32_t t_us, bool imu_ok);
     bool beginTurnIn(std::uint32_t t_us, bool imu_ok, float bearing_deg, bool valid);
+    bool advanceStage(std::uint32_t t_us, bool imu_ok);
     motion::Result runMotion(std::uint32_t t_us, float heading_deg, bool imu_ok);
     ReflankResult result(const motion::Result& motion) const;
     motion::Straight back_;

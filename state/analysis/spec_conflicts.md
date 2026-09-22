@@ -2,10 +2,9 @@
 
 Current resolution index: accepted decisions D-017 through D-046 resolve the
 specific conflicts identified in their dated entries below. Earlier "pending"
-paragraphs are historical where a later resolution applies. Current questions
-SC-AF and the explicit SC-R inhibited-recovery option were presented on resume;
-no approval is inferred while answers are pending. Other physical/escape/WAIT
-dependencies remain separately open.
+paragraphs are historical where a later resolution applies. SC-AF and the explicit
+SC-R inhibited-recovery option are now approved as D-047/D-048. Their dependent
+integration is pending. Other physical/escape/WAIT dependencies remain separately open.
 
 Verified against the supplied files, not hardware. Recommendations are UNAPPROVED
 except SC-C (D-017), SC-D1 (D-018), SC-J's START anchor (D-019) and SC-D2's

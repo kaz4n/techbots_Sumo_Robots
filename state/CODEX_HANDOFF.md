@@ -9,6 +9,14 @@ under D-041/D-042 is now HOST-TESTED with scoped separate review PASS. Next:
 B11 re-flank under D-040/D-043, then D-045/D-046 arbitration and D-044 head-on.
 Read analysis/P1_reflank_contract.md and the saved contract audits.
 
+Current in-progress batch: re-flank contract a37c9c8 (private helper4a39b2d),
+head-on8a6cc48 and countdown lifecycle2e629c1. Worker owns fsm.cpp/countdown.cpp;
+root edge.cpp; independent author new re-flank/head-on/lifecycle tests. Review and
+full batch runtime validation remain pending. See P1_reflank_headon_validation.md.
+SC-AF shared side history and SC-R inhibited recovery were explicitly approved
+as D-047/D-048 in1dfaa7d; integration remains pending. Established locked tests
+stay unchanged; inspect their component scopes before implementing the new policy.
+
 Active implementation is **P1 host development under D-016**; P0 hardware
 acceptance and every human phase gate remain pending. The dated sections below
 are preserved history, not current phase instructions. No target compilation,

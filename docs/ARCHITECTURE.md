@@ -11,10 +11,11 @@ the complete robot scheduler, FSM and actuator path do not yet exist.
 | `countdown::Gate` | Full 5.1 s inhibit after a supplied qualified release event, cancel, latched STOP, one GO pulse | Heading reset/calibration/warning/snapshot services, FSM, real MotorGate |
 | `countdown::Controller` | D-019 full hold after qualification; D-035 StopHold/external STOP before Gate | Services composition and complete Robot FSM |
 | `countdown::Services` | D-024 bounded bias accumulation, rejection/previous-bias retention, latched line warning and latest opponent snapshot | Feed raw gyro/new observations, start/cancel from Controller, apply bias in HAL, complete FSM |
+| `countdown::Lifecycle` | Production Controller-first Services start/cancel/GO composition, explicit failed-start diagnostics and completed evidence retention | HAL bias/heading application, menu/Robot wiring and real MotorGate |
 | `edge::Classifier` | Per-corner threshold and consecutive-white confirmation, persistent white mask | Validated fresh QTR acquisition, escape policy, R5 arbitration |
 | `edge::Guard` | D-020 persistent escape request, black-plus-finished exit, latched all-white motion veto until reset | Escape directions/scripts/replanning and application of veto at MotorGate |
 | `edge::forwardDemand` | D-021 straight/left/right-biased forward requests using 0.80 base and 70% inner-side request | Timed/heading-held segments and selection by the escape planner |
-| `edge::RowExecutor` | B4.2 single-front/diagonal/rear/side scripts, bounded transitions, B7 heading capture/fallback and governor profiles | Row selection, head-on/three-white/pushed-out policies, replanning and full Robot arbitration |
+| `edge::RowExecutor` | B4.2 single-front/diagonal/rear/side scripts plus D-044 explicit-side head-on entry, bounded transitions, heading capture/fallback and governor profiles | Full row selection, D-047/D-048 policy composition, pushed-out/replanning and Robot arbitration |
 | `opp_fusion::Debouncer` | Per-bit polarity, two-sample assertion, continuous-clear hysteresis | Validated sensor acquisition |
 | `opp_fusion::frontView` | Seven front bearing/centering/close rows from B5.2 | Downstream motion/FSM policy |
 | `opp_fusion::BearingMemory` | Front/side/rear priority, approved bilateral conflicts, world angle and rising-front recency | Search/re-flank use and memory-age ownership |
@@ -32,6 +33,7 @@ the complete robot scheduler, FSM and actuator path do not yet exist.
 | `fsm::frontDemand` | D-036 TRACK/ATTACK front-row requests, explicit profiles and invalid zero results | Centered qualification/state selection, current D-027 contact, immediate target-loss brake dispatch |
 | `fsm::FrontQualification` | B9 count of consecutive new centered observations, saturating eligibility and explicit reset | Normal-entry observation selection, preemption/reset wiring and complete state/contact/governor arbitration |
 | `fsm::SearchSide/Search` | D-041 selected-bearing side retention; B8 memory turn, directed full scan, advance and alternating scans with D-042 latched fallback | Truthful history ages, actual escape/hint sources, current perception, global edge/STOP arbitration and governor/MotorGate |
+| `fsm::chooseSwing/Reflank` | D-037/D-043 side priority and B11 BACK/SWING/TURN_IN executor with captured turns, D-040 exits and exact entry notifications | Actual history/limiter admission, D-038/D-045 reacquisition, D-027 contact and global safety arbitration |
 | `motion::TimedArc` | D-037 mirrored duration-only forward arc, no invented heading cutoff | Re-flank sequencing, REFLANK_TURN governor and global safety arbitration |
 | `logframe` | B15 portable 25-byte frames and 8-byte exact-tick events, explicit invalid/clipped status; D-028 first4096 EventBuffer | HAL-owned buffer instance, frame cadence/storage, event collection, incomplete-evidence marking and idle-only dump |
 | `logframe::TickStatistics` | B14 counts of supplied durations, strict overrun/rate thresholds, full maximum and explicit saturation | Actual scheduler measurements, match membership, event/recorder dispatch and target WCET evidence |
@@ -151,6 +153,10 @@ On IMU loss it times the last known remaining angle once, without extending that
 deadline on recovery. Straight correction preserves wheel direction, including
 reverse, and arcs use accumulated yaw. Every terminal command requests zero;
 only the eventual caller/governor/MotorGate path can grant and apply motion.
+Relative turns keep captured origin and measured-yaw math in double internally,
+preserving strict tolerance and exact antipodal direction without inventing
+observations. A healthy nonfinite yaw invalidates even latched fallback; the
+original turn deadline still wins at its exact tick.
 
 Countdown Services uses the D-024 half-open [1500,4500)ms window and reports its
 result once. It accepts raw gyro values before bias subtraction. Missing samples
@@ -160,6 +166,10 @@ object on the qualified release and cancel it on IDLE/STOPPED transitions. The
 independent host harness checks that composition; Controller alone still only
 owns Buttons, StopHold and Gate. Line warning does not block GO. Physical sample freshness,
 HAL bias application and the heading reset at GO still need integration.
+Lifecycle now owns that service start/cancel ordering in production code while
+Controller remains the only GO authority. It retains completed service evidence
+on a later STOP and reports failed starts explicitly. Services finishing alone
+never grants permission, including on sparse wrapped input streams.
 
 Recorder encoding retains multi-revolution heading in signed 32-bit centidegrees
 and event time in uint32 microseconds. Encoding is separate from collection.
@@ -194,6 +204,11 @@ counts starts even if an escape later interrupts them; denied requests never
 extend an active ALL_IN period. Neither component writes duties or changes Robot
 state. DIRECT returns target/SEARCH exit intents with zero terminal demand; the
 future FSM owns actual transitions, immediate target-loss braking and edge priority.
+Reflank captures BACK, its swing pivot, the opposite-direction timed arc and
+TURN_IN independently. Inner-side triggers preempt either swing segment. Both
+same-tick public phase entries remain visible for exact event recording. The
+caller must record actual swing history, admit starts through the limiter and
+reset qualification/contact before current-perception reacquisition.
 
 Tick statistics consume durations supplied by the caller; they read no clock.
 Overruns are strictly above TICK_US, and the current retained-count ratio is

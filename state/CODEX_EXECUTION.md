@@ -2,8 +2,13 @@
 
 **RESUMED by explicit human request, 2026-09-22 at22:07 Asia/Dubai.**
 B8 SEARCH is HOST-TESTED/reviewed (540 cases / 11,937,972 assertions). Next:
-B11 re-flank under D-040/D-043. D-044/45/46 approve head-on values and
-normal-arbitration details. Evidence: analysis/P1_search_validation.md.
+B11 re-flank under D-040/D-043, explicit-side D-044 head-on entry and approved
+countdown lifecycle are implementing with independent new tests; contracts
+a37c9c8/8a6cc48/2e629c1. D-045/46 normal arbitration remains subsequent.
+Evidence: analysis/P1_search_validation.md and P1_reflank_headon_validation.md.
+D-047/D-048 now approve shared head-on side history and inhibited three-white/
+exhausted-replan recovery. Full Escape integration must still resolve SC-S and
+replan lifecycle details; no existing locked amendment was authorized.
 The prior next-task and pending-choice paragraphs below are superseded by this
 checkpoint and the final resolution entry in analysis/spec_conflicts.md.
 

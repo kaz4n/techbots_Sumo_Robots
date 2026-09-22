@@ -13,7 +13,8 @@ PROGRESS.md is the phase/gate authority. No gates passed; no motor-run authoriza
 | P0 0.5 pin map | BLOCKED | source inventory, physical checks, approved changes, PINMAP OK |
 | P0 review/gate | GATE-PENDING | Scoped software review PASS (reviews/P0_recovery_codex.md); prepared P0_gate_request.md; physical evidence and human gate absent |
 
-Protected conflicts: analysis/spec_conflicts.md. No recommendation is approved.
+Protected conflicts: analysis/spec_conflicts.md. SC-C and SC-D1 are approved by
+D-017/D-018; the other recommendations remain unapproved.
 ## Exact next task / dependencies
 
 All currently executable P0 host recovery tasks are checked and saved. The user
@@ -39,21 +40,40 @@ MPU6050. Keep intended connectivity as an assumption, not verified evidence.
    review and wait for the human's GATE P0 PASS. P1 host development is now
    separately permitted by D-016; this does not satisfy P0 acceptance.
 
-No circuit/timing/governor/arbitration/overflow recommendation in the conflict
-register is approved. Obtain each protected decision before dependent work.
+No circuit/acquisition/escape/ALL_IN/overflow recommendation is approved. D-017
+resolves final governor caps and D-018 resolves services-before-gate ordering.
+Obtain each remaining protected decision before dependent work.
 
 Manual work is ordered in docs/P0_MANUAL_CHECKLIST.md. The first reply only needs
 isolation/connections, SSH setup, exact breakout/part identities and available
 instruments. The blank P0_MEASUREMENTS_TEMPLATE.md is not measurement evidence.
 
-## Current development track (D-016)
+## Current development track (D-016) — 2026-09-22 18:10 Asia/Dubai
 
-- P1 1.1: partial contracts for types/countdown/edge classifier/opponent debounce;
-  commit these before separate spec-derived tests and implementation.
-- P1 1.2/1.3: implement and independently test those unambiguous standalone
-  components, including countdown boundaries, wraparound and 10,000 seeded input
-  streams. Do not claim the complete R1 hardware or R5 arbitration proof.
-- P1 remaining interfaces/behaviors: blocked where listed in spec_conflicts.md;
-  governor and full FSM ordering questions are pending explicit human replies.
-- P1 target compile, full test/table coverage, safety gate review, EXPLAINED OK and
-  GATE P1 PASS remain pending. No P2 HAL work is authorized by D-016.
+| Existing P1 task | Status | Evidence / dependency |
+|---|---|---|
+| 1.1 interfaces | PARTIAL | types/countdown/edge/opp_fusion/governor committed before implementation/tests; other interfaces await relevant contracts |
+| 1.2 B3 Gate and logical Buttons | IMPLEMENTED / HOST-TESTED | a37b1c5; 19 locked cases; raw/qualified timestamp wiring and other B3 services pending SC-J/K |
+| 1.2 B4.1 classifier | IMPLEMENTED / HOST-TESTED | e30d4c2; 6 locked cases/all16masks; fresh-observation API only, acquisition/escape pending |
+| 1.2 B5.1 and B5.2 front rows | IMPLEMENTED / HOST-TESTED | 2c2f55e; 12 debounce +10 front table cases; full fusion pending |
+| 1.2 B6 governor | IMPLEMENTED / HOST-TESTED | 0742bd9; 29 cases; D-017 final caps/slew; target-loss FSM brake/profile integration pending |
+| 1.3 properties | PARTIAL | 10,000 Gate streams +10,000 separate Buttons streams; front-table symmetry; full R1 output/MotorGate and R5/openers/escape properties remain pending |
+| 1.4 architecture | PARTIAL | docs/ARCHITECTURE.md describes actual standalone components and Gate; complete Robot FSM still absent |
+| 1.5 target compile | HARDWARE-PENDING | No connected board/SSH target; never reported compiled |
+| 1.6 safety review | SCOPED PEER PASS / GATE-PENDING | reviews/P1_components_codex.md; reused separate context after thread limit, not fresh full gate review |
+
+Aggregate: 77 host cases, 3,457,564 assertions pass; ASan/UBSan pass; 46 tooling
+checks pass. Evidence committed in 7cddb1a and summarized in P1_validation.md.
+Numeric case count does not complete P1's all-table coverage or physical/gate criteria.
+
+Exact next task: collect the pending SC-J release-anchor and SC-D2 persistent/
+all-white decisions, record each approved choice, then define the smallest affected
+integration/escape contract and new independent tests. Resolve SC-K before full
+countdown services, SC-M before forward escape duty, and SC-L before the affected
+fusion stages. D-018's ordering is approved but the full FSM is not implemented.
+Do not edit the now-established locked files without human-approved ADR; add new
+tests when extending coverage. No P2 HAL work is authorized by D-016.
+
+P0 hardware work resumes separately when available through the checklist above.
+P1 still needs full core/table coverage, target compile, genuinely fresh gate
+review, EXPLAINED OK and the human GATE P1 PASS. No phase gate has passed.

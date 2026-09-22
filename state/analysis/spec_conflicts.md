@@ -66,3 +66,13 @@ opposite-side/rear conflicts, finite angles and contact reset/lifetime.
 - SC-D1 RESOLVED by D-018: user "Approve A for tick ordering". Gated-state
   services precede output inhibition. B2 updated; this does not resolve SC-J/K
   service semantics or SC-D2/SC-E arbitration/edge/ALL_IN conflicts.
+
+SC-M (B4.2/B6, relevant during governor implementation): B6 specifies an
+EDGE_ESCAPE reverse cap, but B4's forward escape rows do not state their base
+duty/cap. Options: A explicitly reuse EDGE_BACK_DUTY for the forward segments;
+B specify a separate measured/configured forward cap. Recommend decide with the
+escape policy before implementing those segments; no value selected. The
+governor implements only named, already specified B6 profiles and leaves profile
+selection to the future FSM. Regression: forward escape rows at low voltage,
+left/right bias, cap/slew limits and all-white behavior. D-017's pipeline approval
+does not by itself choose this missing cap.

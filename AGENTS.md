@@ -186,3 +186,6 @@ D-015 supersedes only the agent-role assignment in D-009 and legacy Claude promp
 All safety rules, phase gates, human decision rights, and the board-side SSH build
 path remain in force. Resume through `state/CODEX_HANDOFF.md` and
 `docs/prompts/CODEX_RESUME.md`; `state/PROGRESS.md` remains authoritative.
+D-016 permits P1 host development while P0 hardware acceptance remains pending;
+it is not a passed gate. D-017/D-018 record the human-approved governor and
+gated-service ordering changes; other protected decisions remain separate.

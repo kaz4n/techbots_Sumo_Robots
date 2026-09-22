@@ -115,3 +115,46 @@ hardware acceptance still pending. Initial contracts cover B0 logical values,
 B3 countdown permission, B4.1 classification and B5.1 debounce; they do not
 implement ADC decoding, MotorGate, full B3 services, escape or the complete FSM.
 Remaining interfaces will be added with resolved semantics, not stubbed as working.
+
+## Reviewed P1 component checkpoint — 2026-09-22 18:10 Asia/Dubai
+
+User explicitly approved governor option A and tick-order option A. D-017/D-018
+and the visible B6/B2 amendments are in `01a61e6`; these decisions supersede the
+earlier statements that those two questions are pending, and approve nothing else.
+
+Completed local implementation commits:
+- `c61a5e2`, `72f7eb6`, `cad7096`: standalone interfaces first, including separation
+  of button qualification from the undecided countdown timestamp anchor.
+- `f2b2279`: governor interface and VBAT_FILTER_MS=1000 from the existing B6
+  one-second filter rule; all 76 B16 defaults unchanged.
+- `a37b1c5`: countdown Gate and logical Buttons plus initial locked tests/helper.
+- `e30d4c2`: B4.1 classifier plus initial locked tests.
+- `2c2f55e`: B5.1 debounce and seven B5.2 front-table rows with independent tests.
+- `0742bd9`: approved B6 electrical governor and 29 regression cases.
+- `7cddb1a`: aggregate evidence, scoped review and updated inert-source hashes.
+
+Independent test author read specifications and public headers, no implementation
+`.cpp`. Final host: **77 cases, 3,457,564 assertions, all pass, no skips**; separate
+ASan/UBSan build passed the same suite. Full tooling suite: **46/46**, exit 0.
+See `analysis/P1_validation.md`, raw P1_*_tests.txt, and P1_test_author.md.
+New locked files were established in the above commits; do not edit them without
+a human-approved ADR. No established locked predicate was weakened.
+
+Separate peer reviewer found no BLOCKER/MAJOR/MINOR in this scope. The tool refused
+a new reviewer thread, so the prior P0 reviewer context was reused read-only:
+**not a fresh P1 gate review and not cross-model review**. Exact complete staged
+inert-source hashes were independently reviewed before refresh; compile-only and
+motor-upload guards remain intact. F-061 still blocks Immediate matrix uploads.
+
+Full P1 is unfinished despite exceeding 60 cases: other module interfaces,
+complete FSM/table coverage, true R1 motor-write tests, R5/openers/escape properties,
+target compilation, fresh full gate review, EXPLAINED OK and human gates remain.
+No hardware operation or performance measurement occurred; no target compile
+is claimed. `docs/ARCHITECTURE.md` describes actual standalone components only.
+
+Next: receive the pending SC-J release-anchor and SC-D2 edge-policy decisions,
+record each explicitly, then define/test the affected integration contract.
+SC-K gates full B3 services; SC-M gates forward escape duty; other fusion,
+acquisition, ALL_IN and recorder conflicts remain separate. Keep P0 manual work
+pending until the board is available. Active work remains P1 host-only under D-016;
+no phase has passed, no motor receipt exists, and nothing is published remotely.

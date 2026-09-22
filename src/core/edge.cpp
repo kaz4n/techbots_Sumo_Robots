@@ -1,6 +1,6 @@
-// Classifies completed RC observations into B4.1 confirmed white levels.
-// Keeps each corner independent and preserves white until a black observation.
-// Locked host tests cover thresholds, confirmation, channel order and reset.
+// Classifies B4.1 white levels and applies the D-020 persistent edge guard.
+// Prevents all-white motion guesses while preserving the countdown's precedence.
+// Locked host tests cover masks, confirmation, fault latching and reset.
 #include "edge.h"
 #include "../config.h"
 
@@ -27,5 +27,32 @@ void Classifier::reset() {
     for (auto& count : consecutive_) {
         count = 0U;
     }
+}
+
+GuardResult Guard::step(std::uint8_t line_mask, bool motion_permitted,
+                        bool script_finished) {
+    static_assert(config::EDGE_PUSH_THROUGH_MS == 0U,
+                  "Implement and test bounded push-through before enabling it");
+    if (!motion_permitted) {
+        return {false, fault_latched_, true};
+    }
+    const std::uint8_t white = line_mask & 0x0FU;
+    if (white == 0x0FU) {
+        fault_latched_ = true;
+    }
+    if (fault_latched_) {
+        escaping_ = true;
+        return {true, true, true};
+    }
+    if (white != 0U) {
+        escaping_ = true;
+    } else if (script_finished) {
+        escaping_ = false;
+    }
+    return {escaping_, false, false};
+}
+
+void Guard::reset() {
+    *this = Guard{};
 }
 } // namespace edge

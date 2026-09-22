@@ -67,6 +67,15 @@ The final accepted byte receives one subsequent TC interrupt before completion;
 there are at most37 callbacks per successful36-byte packet. Disable on unexpected
 readiness/completion/zero progress. No receive callback or retry is installed.
 
+Review clarification before adapter-test amendments: the pinned driver returns
+exactly1 for update/ready/complete success; zero, negative or greater-than-one
+status is rejected during an active packet. Positive values are not arbitrary
+counts at these three boundaries. A stale callback with no active packet only
+disables TX; it performs no FIFO work, changes no counters and does not fault.
+This preserves the existing public idle-disable rule. Initial independent tests
+followed broader wording in the feasibility audit; retain their31/34 failure
+record and amend only those three new, unlocked cases against this exact contract.
+
 One callback handles at most one FIFO byte per invocation. Submit/ISR/service
 share state under a bounded interrupt critical section. Disable TX IRQ at idle,
 error or timeout; disable RX/error IRQs at initialization. Do not busy-wait for

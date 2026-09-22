@@ -417,3 +417,32 @@ NACK, BERR, arbitration loss, absent/stuck bus, lost completion, contention,
 partial reads, reset failure, duplicate/stale samples, wrap and cancellation;
 measure complete worst-case tick and actual waveform/config/sample generation.
 These future tests cannot be replaced by this compile-only probe.
+
+
+## G2 runtime dependencies and SC-B follow-up (2026-09-23)
+
+Installed PWM/IRQ audits F-086/F-087 and D-067 compile-only compatibility do not
+resolve SC-B. Arduino interrupt edge notifications have no hardware timestamp
+FIFO; pending events can coalesce. attachInterrupt hides native errors, and
+detachInterrupt leaves the line configured/owned with a source-level handler
+race risk. Low/high level modes fail. Native disable, callback removal, pending
+state, ISR/main identity and charge/rearm ordering each require explicit handling.
+Source: P0_irq_installed_contract_20260923.md, HARDWARE3, B4.1/B16 and R4/R5.
+Options remain measured bounded asynchronous acquisition with explicit age and
+cadence versus a separately justified timing change. Recommendation remains to
+investigate asynchronous acquisition before selecting semantics; no shortened
+timeout/slower tick/stale-as-fresh workaround is adopted. Regressions must cover
+already-LOW release, pending/stale/late/simultaneous/coalesced edges, timeout,
+configuration errors, ownership, cleanup/rearm, wrap and ISR/main races, followed
+by real sensor and full-tick measurements. D-051 delegates engineering choice;
+physical proof and original phase eligibility still precede dependent HAL.
+
+Separate later MotorGate dependency: analogWrite's digital fallback and ignored
+errors cannot supply a fail-closed write boundary. Native explicit-period PWM
+returns status, but exact channel routing, initialized clock/rate, shared periods,
+zero/full duty and update/reversal behavior need validation. Whole pinctrl groups
+can claim proposed QTR/EN pads. P0_pwm_installed_contract_20260923.md records this
+without changing any pin, period or output policy. Recommend a checked native
+path only within later eligible MotorGate work, with error-injection tests at
+actual write boundary and separately authorized physical waveform/run evidence.
+D-067 compiles APIs but selects no production driver or runtime workaround.

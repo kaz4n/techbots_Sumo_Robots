@@ -1,0 +1,894 @@
+test_d065_all_header_acceptance_fields_exact (test_p0_qtr.P0QtrDecoderTests.test_d065_all_header_acceptance_fields_exact) ... ok
+test_d065_all_low_requires_all_bits_and_strictly_before_deadline (test_p0_qtr.P0QtrDecoderTests.test_d065_all_low_requires_all_bits_and_strictly_before_deadline) ... ok
+test_d065_charge_at_least_11_and_polls_both_within_guard (test_p0_qtr.P0QtrDecoderTests.test_d065_charge_at_least_11_and_polls_both_within_guard) ... ok
+test_d065_cleanup_attempt_count_is_exactly_four (test_p0_qtr.P0QtrDecoderTests.test_d065_cleanup_attempt_count_is_exactly_four) ... ok
+test_d065_deadline_requires_real_elapsed_at_least_1500 (test_p0_qtr.P0QtrDecoderTests.test_d065_deadline_requires_real_elapsed_at_least_1500) ... ok
+test_d065_each_interval_excludes_half_range_even_with_wrapping_total (test_p0_qtr.P0QtrDecoderTests.test_d065_each_interval_excludes_half_range_even_with_wrapping_total) ... ok
+test_d065_exact_record_length_required (test_p0_qtr.P0QtrDecoderTests.test_d065_exact_record_length_required) ... ok
+test_d065_fault_and_unknown_outcomes_never_accepted (test_p0_qtr.P0QtrDecoderTests.test_d065_fault_and_unknown_outcomes_never_accepted) ... ok
+test_d065_first_low_sentinel_and_mask_must_agree_per_pin (test_p0_qtr.P0QtrDecoderTests.test_d065_first_low_sentinel_and_mask_must_agree_per_pin) ... ok
+test_d065_import_is_quiet_pure_and_has_public_decoder (test_p0_qtr.P0QtrDecoderTests.test_d065_import_is_quiet_pure_and_has_public_decoder) ... ok
+test_d065_low_timestamp_must_not_exceed_observation_timestamp (test_p0_qtr.P0QtrDecoderTests.test_d065_low_timestamp_must_not_exceed_observation_timestamp) ... ok
+test_d065_masks_must_be_four_bit_disjoint_complementary (test_p0_qtr.P0QtrDecoderTests.test_d065_masks_must_be_four_bit_disjoint_complementary) ... ok
+test_d065_modes_must_follow_exact_100_then_100_labels (test_p0_qtr.P0QtrDecoderTests.test_d065_modes_must_follow_exact_100_then_100_labels) ... ok
+test_d065_neutral_all_high_deadlines_are_valid_observations (test_p0_qtr.P0QtrDecoderTests.test_d065_neutral_all_high_deadlines_are_valid_observations) ... ok
+test_d065_neutral_every_mask_and_late_low_retained_in_valid_record (test_p0_qtr.P0QtrDecoderTests.test_d065_neutral_every_mask_and_late_low_retained_in_valid_record) ... ok
+test_d065_pullup_any_early_or_late_low_is_explicit_stimulus_failure (test_p0_qtr.P0QtrDecoderTests.test_d065_pullup_any_early_or_late_low_is_explicit_stimulus_failure) ... ok
+test_d065_python_sum_cannot_silently_wrap_uint32 (test_p0_qtr.P0QtrDecoderTests.test_d065_python_sum_cannot_silently_wrap_uint32) ... ok
+test_d065_record_total_covers_sample_totals_plus_overheads_without_subtraction (test_p0_qtr.P0QtrDecoderTests.test_d065_record_total_covers_sample_totals_plus_overheads_without_subtraction) ... ok
+test_d065_record_total_half_range_and_larger_rejected (test_p0_qtr.P0QtrDecoderTests.test_d065_record_total_half_range_and_larger_rejected) ... ok
+test_d065_sample_total_equals_all_five_acquisition_intervals (test_p0_qtr.P0QtrDecoderTests.test_d065_sample_total_equals_all_five_acquisition_intervals) ... ok
+test_d065_separate_datasets_count_first_sample_and_unsubtracted_intervals (test_p0_qtr.P0QtrDecoderTests.test_d065_separate_datasets_count_first_sample_and_unsubtracted_intervals) ... ok
+test_d065_valid_uint32_record_wrap_does_not_mutate_and_is_repeatable (test_p0_qtr.P0QtrDecoderTests.test_d065_valid_uint32_record_wrap_does_not_mutate_and_is_repeatable) ... ok
+test_d065_zero_and_equal_observation_first_low_timestamps_are_valid (test_p0_qtr.P0QtrDecoderTests.test_d065_zero_and_equal_observation_first_low_timestamps_are_valid) ... ok
+test_d065_all_intervals_and_record_survive_uint32_wrap (test_p0_qtr.P0QtrSketchTests.test_d065_all_intervals_and_record_survive_uint32_wrap) ... ok
+test_d065_all_low_before_deadline_and_deadline_wins_exact_tie_overshoot (test_p0_qtr.P0QtrSketchTests.test_d065_all_low_before_deadline_and_deadline_wins_exact_tie_overshoot) ... ok
+test_d065_bad_level_has_priority_over_deadline (test_p0_qtr.P0QtrSketchTests.test_d065_bad_level_has_priority_over_deadline) ... FAIL
+test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail (test_p0_qtr.P0QtrSketchTests.test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail) ... 
+  test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail (test_p0_qtr.P0QtrSketchTests.test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail) (bit=0, invalid=-2147483648) ... FAIL
+  test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail (test_p0_qtr.P0QtrSketchTests.test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail) (bit=0, invalid=-19) ... FAIL
+  test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail (test_p0_qtr.P0QtrSketchTests.test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail) (bit=0, invalid=-1) ... FAIL
+  test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail (test_p0_qtr.P0QtrSketchTests.test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail) (bit=0, invalid=2) ... FAIL
+  test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail (test_p0_qtr.P0QtrSketchTests.test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail) (bit=0, invalid=2147483647) ... FAIL
+  test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail (test_p0_qtr.P0QtrSketchTests.test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail) (bit=1, invalid=-2147483648) ... FAIL
+  test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail (test_p0_qtr.P0QtrSketchTests.test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail) (bit=1, invalid=-19) ... FAIL
+  test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail (test_p0_qtr.P0QtrSketchTests.test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail) (bit=1, invalid=-1) ... FAIL
+  test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail (test_p0_qtr.P0QtrSketchTests.test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail) (bit=1, invalid=2) ... FAIL
+  test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail (test_p0_qtr.P0QtrSketchTests.test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail) (bit=1, invalid=2147483647) ... FAIL
+  test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail (test_p0_qtr.P0QtrSketchTests.test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail) (bit=2, invalid=-2147483648) ... FAIL
+  test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail (test_p0_qtr.P0QtrSketchTests.test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail) (bit=2, invalid=-19) ... FAIL
+  test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail (test_p0_qtr.P0QtrSketchTests.test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail) (bit=2, invalid=-1) ... FAIL
+  test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail (test_p0_qtr.P0QtrSketchTests.test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail) (bit=2, invalid=2) ... FAIL
+  test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail (test_p0_qtr.P0QtrSketchTests.test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail) (bit=2, invalid=2147483647) ... FAIL
+  test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail (test_p0_qtr.P0QtrSketchTests.test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail) (bit=3, invalid=-2147483648) ... FAIL
+  test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail (test_p0_qtr.P0QtrSketchTests.test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail) (bit=3, invalid=-19) ... FAIL
+  test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail (test_p0_qtr.P0QtrSketchTests.test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail) (bit=3, invalid=-1) ... FAIL
+  test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail (test_p0_qtr.P0QtrSketchTests.test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail) (bit=3, invalid=2) ... FAIL
+  test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail (test_p0_qtr.P0QtrSketchTests.test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail) (bit=3, invalid=2147483647) ... FAIL
+test_d065_charge_10_is_insufficient_11_is_exact (test_p0_qtr.P0QtrSketchTests.test_d065_charge_10_is_insufficient_11_is_exact) ... ok
+test_d065_charge_last_guard_call_qualifies_before_exhaustion (test_p0_qtr.P0QtrSketchTests.test_d065_charge_last_guard_call_qualifies_before_exhaustion) ... ok
+test_d065_clock_fault_has_priority_over_bad_level (test_p0_qtr.P0QtrSketchTests.test_d065_clock_fault_has_priority_over_bad_level) ... FAIL
+test_d065_each_low_mask_retained_on_deadline_with_actual_late_times (test_p0_qtr.P0QtrSketchTests.test_d065_each_low_mask_retained_on_deadline_with_actual_late_times) ... ok
+test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans (test_p0_qtr.P0QtrSketchTests.test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans) ... 
+  test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans (test_p0_qtr.P0QtrSketchTests.test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans) (change={'overhead': 2147483648}) ... FAIL
+  test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans (test_p0_qtr.P0QtrSketchTests.test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans) (change={'drive': 2147483648}) ... FAIL
+  test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans (test_p0_qtr.P0QtrSketchTests.test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans) (change={'charge_steps': (2147483648,)}) ... FAIL
+  test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans (test_p0_qtr.P0QtrSketchTests.test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans) (change={'release': 2147483648}) ... FAIL
+  test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans (test_p0_qtr.P0QtrSketchTests.test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans) (change={'passes': [(2147483648, (1, 1, 1, 1))]}) ... FAIL
+  test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans (test_p0_qtr.P0QtrSketchTests.test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans) (change={'cleanup': 2147483648}) ... FAIL
+  test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans (test_p0_qtr.P0QtrSketchTests.test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans) (change={'overhead': 2147483649}) ... FAIL
+  test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans (test_p0_qtr.P0QtrSketchTests.test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans) (change={'drive': 2147483649}) ... FAIL
+  test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans (test_p0_qtr.P0QtrSketchTests.test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans) (change={'charge_steps': (2147483649,)}) ... FAIL
+  test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans (test_p0_qtr.P0QtrSketchTests.test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans) (change={'release': 2147483649}) ... FAIL
+  test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans (test_p0_qtr.P0QtrSketchTests.test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans) (change={'passes': [(2147483649, (1, 1, 1, 1))]}) ... FAIL
+  test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans (test_p0_qtr.P0QtrSketchTests.test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans) (change={'cleanup': 2147483649}) ... FAIL
+  test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans (test_p0_qtr.P0QtrSketchTests.test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans) (change={'overhead': 4294967295}) ... FAIL
+  test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans (test_p0_qtr.P0QtrSketchTests.test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans) (change={'drive': 4294967295}) ... FAIL
+  test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans (test_p0_qtr.P0QtrSketchTests.test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans) (change={'charge_steps': (4294967295,)}) ... FAIL
+  test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans (test_p0_qtr.P0QtrSketchTests.test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans) (change={'release': 4294967295}) ... FAIL
+  test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans (test_p0_qtr.P0QtrSketchTests.test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans) (change={'passes': [(4294967295, (1, 1, 1, 1))]}) ... FAIL
+  test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans (test_p0_qtr.P0QtrSketchTests.test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans) (change={'cleanup': 4294967295}) ... FAIL
+test_d065_each_wrong_installed_pin_mapping_rejected (test_p0_qtr.P0QtrSketchTests.test_d065_each_wrong_installed_pin_mapping_rejected) ... ok
+test_d065_exact_order_both_modes_200_complete_samples_and_empty_loop (test_p0_qtr.P0QtrSketchTests.test_d065_exact_order_both_modes_200_complete_samples_and_empty_loop) ... ok
+test_d065_four_real_reads_include_previously_low_pins_and_sticky_mask (test_p0_qtr.P0QtrSketchTests.test_d065_four_real_reads_include_previously_low_pins_and_sticky_mask) ... ok
+test_d065_last_observation_pass_deadline_or_all_low_wins_guard (test_p0_qtr.P0QtrSketchTests.test_d065_last_observation_pass_deadline_or_all_low_wins_guard) ... ok
+test_d065_motor_enabled_compilation_rejected (test_p0_qtr.P0QtrSketchTests.test_d065_motor_enabled_compilation_rejected) ... ok
+test_d065_nonreturning_first_and_last_sample_calls_never_publish_complete (test_p0_qtr.P0QtrSketchTests.test_d065_nonreturning_first_and_last_sample_calls_never_publish_complete) ... ok
+test_d065_pullup_all_low_is_retained_and_all_200_still_complete (test_p0_qtr.P0QtrSketchTests.test_d065_pullup_all_low_is_retained_and_all_200_still_complete) ... ok
+test_d065_pullup_early_low_does_not_abort_remaining_samples (test_p0_qtr.P0QtrSketchTests.test_d065_pullup_early_low_does_not_abort_remaining_samples) ... ok
+test_d065_readiness_zero_or_either_missing_port_never_touches_pins (test_p0_qtr.P0QtrSketchTests.test_d065_readiness_zero_or_either_missing_port_never_touches_pins) ... ok
+test_d065_record_total_fault_keeps_200_samples_but_never_complete (test_p0_qtr.P0QtrSketchTests.test_d065_record_total_fault_keeps_200_samples_but_never_complete) ... ok
+test_d065_sample_total_fault_even_when_component_intervals_valid (test_p0_qtr.P0QtrSketchTests.test_d065_sample_total_fault_even_when_component_intervals_valid) ... FAIL
+test_d065_stopped_charge_clock_exhausts_exactly_4096_and_cleans (test_p0_qtr.P0QtrSketchTests.test_d065_stopped_charge_clock_exhausts_exactly_4096_and_cleans) ... 
+  test_d065_stopped_charge_clock_exhausts_exactly_4096_and_cleans (test_p0_qtr.P0QtrSketchTests.test_d065_stopped_charge_clock_exhausts_exactly_4096_and_cleans) (index=0) ... FAIL
+  test_d065_stopped_charge_clock_exhausts_exactly_4096_and_cleans (test_p0_qtr.P0QtrSketchTests.test_d065_stopped_charge_clock_exhausts_exactly_4096_and_cleans) (index=100) ... FAIL
+  test_d065_stopped_charge_clock_exhausts_exactly_4096_and_cleans (test_p0_qtr.P0QtrSketchTests.test_d065_stopped_charge_clock_exhausts_exactly_4096_and_cleans) (index=199) ... FAIL
+test_d065_stopped_observation_clock_exhausts_exactly_4096_and_cleans (test_p0_qtr.P0QtrSketchTests.test_d065_stopped_observation_clock_exhausts_exactly_4096_and_cleans) ... FAIL
+test_d065_zero_overhead_and_zero_observe_are_valid_quantization (test_p0_qtr.P0QtrSketchTests.test_d065_zero_overhead_and_zero_observe_are_valid_quantization) ... ok
+
+======================================================================
+FAIL: test_d065_bad_level_has_priority_over_deadline (test_p0_qtr.P0QtrSketchTests.test_d065_bad_level_has_priority_over_deadline)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 407, in test_d065_bad_level_has_priority_over_deadline
+    self.run_script(Script(overrides={0: {'passes': [(1500, (-1, 1, 1, 1))]}}))
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 317, in run_script
+    self.assertEqual(0, result.returncode, result.stderr.decode(errors='replace'))
+AssertionError: 0 != -6 : extra call op=0 a=0 b=0 index=30
+
+
+======================================================================
+FAIL: test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail (test_p0_qtr.P0QtrSketchTests.test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail) (bit=0, invalid=-2147483648)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 404, in test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail
+    self.run_script(Script(overrides={0: {'passes': [(4, levels)]}}))
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 317, in run_script
+    self.assertEqual(0, result.returncode, result.stderr.decode(errors='replace'))
+AssertionError: 0 != -6 : extra call op=0 a=0 b=0 index=30
+
+
+======================================================================
+FAIL: test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail (test_p0_qtr.P0QtrSketchTests.test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail) (bit=0, invalid=-19)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 404, in test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail
+    self.run_script(Script(overrides={0: {'passes': [(4, levels)]}}))
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 317, in run_script
+    self.assertEqual(0, result.returncode, result.stderr.decode(errors='replace'))
+AssertionError: 0 != -6 : extra call op=0 a=0 b=0 index=30
+
+
+======================================================================
+FAIL: test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail (test_p0_qtr.P0QtrSketchTests.test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail) (bit=0, invalid=-1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 404, in test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail
+    self.run_script(Script(overrides={0: {'passes': [(4, levels)]}}))
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 317, in run_script
+    self.assertEqual(0, result.returncode, result.stderr.decode(errors='replace'))
+AssertionError: 0 != -6 : extra call op=0 a=0 b=0 index=30
+
+
+======================================================================
+FAIL: test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail (test_p0_qtr.P0QtrSketchTests.test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail) (bit=0, invalid=2)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 404, in test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail
+    self.run_script(Script(overrides={0: {'passes': [(4, levels)]}}))
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 317, in run_script
+    self.assertEqual(0, result.returncode, result.stderr.decode(errors='replace'))
+AssertionError: 0 != -6 : extra call op=0 a=0 b=0 index=30
+
+
+======================================================================
+FAIL: test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail (test_p0_qtr.P0QtrSketchTests.test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail) (bit=0, invalid=2147483647)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 404, in test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail
+    self.run_script(Script(overrides={0: {'passes': [(4, levels)]}}))
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 317, in run_script
+    self.assertEqual(0, result.returncode, result.stderr.decode(errors='replace'))
+AssertionError: 0 != -6 : extra call op=0 a=0 b=0 index=30
+
+
+======================================================================
+FAIL: test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail (test_p0_qtr.P0QtrSketchTests.test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail) (bit=1, invalid=-2147483648)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 404, in test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail
+    self.run_script(Script(overrides={0: {'passes': [(4, levels)]}}))
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 317, in run_script
+    self.assertEqual(0, result.returncode, result.stderr.decode(errors='replace'))
+AssertionError: 0 != -6 : extra call op=0 a=0 b=0 index=30
+
+
+======================================================================
+FAIL: test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail (test_p0_qtr.P0QtrSketchTests.test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail) (bit=1, invalid=-19)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 404, in test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail
+    self.run_script(Script(overrides={0: {'passes': [(4, levels)]}}))
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 317, in run_script
+    self.assertEqual(0, result.returncode, result.stderr.decode(errors='replace'))
+AssertionError: 0 != -6 : extra call op=0 a=0 b=0 index=30
+
+
+======================================================================
+FAIL: test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail (test_p0_qtr.P0QtrSketchTests.test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail) (bit=1, invalid=-1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 404, in test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail
+    self.run_script(Script(overrides={0: {'passes': [(4, levels)]}}))
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 317, in run_script
+    self.assertEqual(0, result.returncode, result.stderr.decode(errors='replace'))
+AssertionError: 0 != -6 : extra call op=0 a=0 b=0 index=30
+
+
+======================================================================
+FAIL: test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail (test_p0_qtr.P0QtrSketchTests.test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail) (bit=1, invalid=2)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 404, in test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail
+    self.run_script(Script(overrides={0: {'passes': [(4, levels)]}}))
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 317, in run_script
+    self.assertEqual(0, result.returncode, result.stderr.decode(errors='replace'))
+AssertionError: 0 != -6 : extra call op=0 a=0 b=0 index=30
+
+
+======================================================================
+FAIL: test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail (test_p0_qtr.P0QtrSketchTests.test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail) (bit=1, invalid=2147483647)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 404, in test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail
+    self.run_script(Script(overrides={0: {'passes': [(4, levels)]}}))
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 317, in run_script
+    self.assertEqual(0, result.returncode, result.stderr.decode(errors='replace'))
+AssertionError: 0 != -6 : extra call op=0 a=0 b=0 index=30
+
+
+======================================================================
+FAIL: test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail (test_p0_qtr.P0QtrSketchTests.test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail) (bit=2, invalid=-2147483648)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 404, in test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail
+    self.run_script(Script(overrides={0: {'passes': [(4, levels)]}}))
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 317, in run_script
+    self.assertEqual(0, result.returncode, result.stderr.decode(errors='replace'))
+AssertionError: 0 != -6 : extra call op=0 a=0 b=0 index=30
+
+
+======================================================================
+FAIL: test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail (test_p0_qtr.P0QtrSketchTests.test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail) (bit=2, invalid=-19)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 404, in test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail
+    self.run_script(Script(overrides={0: {'passes': [(4, levels)]}}))
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 317, in run_script
+    self.assertEqual(0, result.returncode, result.stderr.decode(errors='replace'))
+AssertionError: 0 != -6 : extra call op=0 a=0 b=0 index=30
+
+
+======================================================================
+FAIL: test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail (test_p0_qtr.P0QtrSketchTests.test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail) (bit=2, invalid=-1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 404, in test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail
+    self.run_script(Script(overrides={0: {'passes': [(4, levels)]}}))
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 317, in run_script
+    self.assertEqual(0, result.returncode, result.stderr.decode(errors='replace'))
+AssertionError: 0 != -6 : extra call op=0 a=0 b=0 index=30
+
+
+======================================================================
+FAIL: test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail (test_p0_qtr.P0QtrSketchTests.test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail) (bit=2, invalid=2)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 404, in test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail
+    self.run_script(Script(overrides={0: {'passes': [(4, levels)]}}))
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 317, in run_script
+    self.assertEqual(0, result.returncode, result.stderr.decode(errors='replace'))
+AssertionError: 0 != -6 : extra call op=0 a=0 b=0 index=30
+
+
+======================================================================
+FAIL: test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail (test_p0_qtr.P0QtrSketchTests.test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail) (bit=2, invalid=2147483647)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 404, in test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail
+    self.run_script(Script(overrides={0: {'passes': [(4, levels)]}}))
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 317, in run_script
+    self.assertEqual(0, result.returncode, result.stderr.decode(errors='replace'))
+AssertionError: 0 != -6 : extra call op=0 a=0 b=0 index=30
+
+
+======================================================================
+FAIL: test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail (test_p0_qtr.P0QtrSketchTests.test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail) (bit=3, invalid=-2147483648)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 404, in test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail
+    self.run_script(Script(overrides={0: {'passes': [(4, levels)]}}))
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 317, in run_script
+    self.assertEqual(0, result.returncode, result.stderr.decode(errors='replace'))
+AssertionError: 0 != -6 : extra call op=0 a=0 b=0 index=30
+
+
+======================================================================
+FAIL: test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail (test_p0_qtr.P0QtrSketchTests.test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail) (bit=3, invalid=-19)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 404, in test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail
+    self.run_script(Script(overrides={0: {'passes': [(4, levels)]}}))
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 317, in run_script
+    self.assertEqual(0, result.returncode, result.stderr.decode(errors='replace'))
+AssertionError: 0 != -6 : extra call op=0 a=0 b=0 index=30
+
+
+======================================================================
+FAIL: test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail (test_p0_qtr.P0QtrSketchTests.test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail) (bit=3, invalid=-1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 404, in test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail
+    self.run_script(Script(overrides={0: {'passes': [(4, levels)]}}))
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 317, in run_script
+    self.assertEqual(0, result.returncode, result.stderr.decode(errors='replace'))
+AssertionError: 0 != -6 : extra call op=0 a=0 b=0 index=30
+
+
+======================================================================
+FAIL: test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail (test_p0_qtr.P0QtrSketchTests.test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail) (bit=3, invalid=2)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 404, in test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail
+    self.run_script(Script(overrides={0: {'passes': [(4, levels)]}}))
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 317, in run_script
+    self.assertEqual(0, result.returncode, result.stderr.decode(errors='replace'))
+AssertionError: 0 != -6 : extra call op=0 a=0 b=0 index=30
+
+
+======================================================================
+FAIL: test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail (test_p0_qtr.P0QtrSketchTests.test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail) (bit=3, invalid=2147483647)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 404, in test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail
+    self.run_script(Script(overrides={0: {'passes': [(4, levels)]}}))
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 317, in run_script
+    self.assertEqual(0, result.returncode, result.stderr.decode(errors='replace'))
+AssertionError: 0 != -6 : extra call op=0 a=0 b=0 index=30
+
+
+======================================================================
+FAIL: test_d065_clock_fault_has_priority_over_bad_level (test_p0_qtr.P0QtrSketchTests.test_d065_clock_fault_has_priority_over_bad_level)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 410, in test_d065_clock_fault_has_priority_over_bad_level
+    self.run_script(Script(overrides={0: {'passes': [(HALF, (-1, 1, 1, 1))]}}))
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 317, in run_script
+    self.assertEqual(0, result.returncode, result.stderr.decode(errors='replace'))
+AssertionError: 0 != -6 : extra call op=0 a=0 b=0 index=30
+
+
+======================================================================
+FAIL: test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans (test_p0_qtr.P0QtrSketchTests.test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans) (change={'overhead': 2147483648})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 419, in test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans
+    self.run_script(Script(overrides={0: change}))
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 317, in run_script
+    self.assertEqual(0, result.returncode, result.stderr.decode(errors='replace'))
+AssertionError: 0 != -6 : extra call op=0 a=0 b=0 index=10
+
+
+======================================================================
+FAIL: test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans (test_p0_qtr.P0QtrSketchTests.test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans) (change={'drive': 2147483648})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 419, in test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans
+    self.run_script(Script(overrides={0: change}))
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 317, in run_script
+    self.assertEqual(0, result.returncode, result.stderr.decode(errors='replace'))
+AssertionError: 0 != -6 : extra call op=0 a=0 b=0 index=19
+
+
+======================================================================
+FAIL: test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans (test_p0_qtr.P0QtrSketchTests.test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans) (change={'charge_steps': (2147483648,)})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 419, in test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans
+    self.run_script(Script(overrides={0: change}))
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 317, in run_script
+    self.assertEqual(0, result.returncode, result.stderr.decode(errors='replace'))
+AssertionError: 0 != -6 : extra call op=0 a=0 b=0 index=20
+
+
+======================================================================
+FAIL: test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans (test_p0_qtr.P0QtrSketchTests.test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans) (change={'release': 2147483648})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 419, in test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans
+    self.run_script(Script(overrides={0: change}))
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 317, in run_script
+    self.assertEqual(0, result.returncode, result.stderr.decode(errors='replace'))
+AssertionError: 0 != -6 : extra call op=0 a=0 b=0 index=25
+
+
+======================================================================
+FAIL: test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans (test_p0_qtr.P0QtrSketchTests.test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans) (change={'passes': [(2147483648, (1, 1, 1, 1))]})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 419, in test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans
+    self.run_script(Script(overrides={0: change}))
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 317, in run_script
+    self.assertEqual(0, result.returncode, result.stderr.decode(errors='replace'))
+AssertionError: 0 != -6 : extra call op=0 a=0 b=0 index=30
+
+
+======================================================================
+FAIL: test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans (test_p0_qtr.P0QtrSketchTests.test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans) (change={'cleanup': 2147483648})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 419, in test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans
+    self.run_script(Script(overrides={0: change}))
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 317, in run_script
+    self.assertEqual(0, result.returncode, result.stderr.decode(errors='replace'))
+AssertionError: 0 != -6 : extra call op=0 a=0 b=0 index=30
+
+
+======================================================================
+FAIL: test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans (test_p0_qtr.P0QtrSketchTests.test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans) (change={'overhead': 2147483649})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 419, in test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans
+    self.run_script(Script(overrides={0: change}))
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 317, in run_script
+    self.assertEqual(0, result.returncode, result.stderr.decode(errors='replace'))
+AssertionError: 0 != -6 : extra call op=0 a=0 b=0 index=10
+
+
+======================================================================
+FAIL: test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans (test_p0_qtr.P0QtrSketchTests.test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans) (change={'drive': 2147483649})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 419, in test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans
+    self.run_script(Script(overrides={0: change}))
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 317, in run_script
+    self.assertEqual(0, result.returncode, result.stderr.decode(errors='replace'))
+AssertionError: 0 != -6 : extra call op=0 a=0 b=0 index=19
+
+
+======================================================================
+FAIL: test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans (test_p0_qtr.P0QtrSketchTests.test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans) (change={'charge_steps': (2147483649,)})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 419, in test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans
+    self.run_script(Script(overrides={0: change}))
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 317, in run_script
+    self.assertEqual(0, result.returncode, result.stderr.decode(errors='replace'))
+AssertionError: 0 != -6 : extra call op=0 a=0 b=0 index=20
+
+
+======================================================================
+FAIL: test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans (test_p0_qtr.P0QtrSketchTests.test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans) (change={'release': 2147483649})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 419, in test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans
+    self.run_script(Script(overrides={0: change}))
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 317, in run_script
+    self.assertEqual(0, result.returncode, result.stderr.decode(errors='replace'))
+AssertionError: 0 != -6 : extra call op=0 a=0 b=0 index=25
+
+
+======================================================================
+FAIL: test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans (test_p0_qtr.P0QtrSketchTests.test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans) (change={'passes': [(2147483649, (1, 1, 1, 1))]})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 419, in test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans
+    self.run_script(Script(overrides={0: change}))
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 317, in run_script
+    self.assertEqual(0, result.returncode, result.stderr.decode(errors='replace'))
+AssertionError: 0 != -6 : extra call op=0 a=0 b=0 index=30
+
+
+======================================================================
+FAIL: test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans (test_p0_qtr.P0QtrSketchTests.test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans) (change={'cleanup': 2147483649})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 419, in test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans
+    self.run_script(Script(overrides={0: change}))
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 317, in run_script
+    self.assertEqual(0, result.returncode, result.stderr.decode(errors='replace'))
+AssertionError: 0 != -6 : extra call op=0 a=0 b=0 index=30
+
+
+======================================================================
+FAIL: test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans (test_p0_qtr.P0QtrSketchTests.test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans) (change={'overhead': 4294967295})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 419, in test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans
+    self.run_script(Script(overrides={0: change}))
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 317, in run_script
+    self.assertEqual(0, result.returncode, result.stderr.decode(errors='replace'))
+AssertionError: 0 != -6 : extra call op=0 a=0 b=0 index=10
+
+
+======================================================================
+FAIL: test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans (test_p0_qtr.P0QtrSketchTests.test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans) (change={'drive': 4294967295})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 419, in test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans
+    self.run_script(Script(overrides={0: change}))
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 317, in run_script
+    self.assertEqual(0, result.returncode, result.stderr.decode(errors='replace'))
+AssertionError: 0 != -6 : extra call op=0 a=0 b=0 index=19
+
+
+======================================================================
+FAIL: test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans (test_p0_qtr.P0QtrSketchTests.test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans) (change={'charge_steps': (4294967295,)})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 419, in test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans
+    self.run_script(Script(overrides={0: change}))
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 317, in run_script
+    self.assertEqual(0, result.returncode, result.stderr.decode(errors='replace'))
+AssertionError: 0 != -6 : extra call op=0 a=0 b=0 index=20
+
+
+======================================================================
+FAIL: test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans (test_p0_qtr.P0QtrSketchTests.test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans) (change={'release': 4294967295})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 419, in test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans
+    self.run_script(Script(overrides={0: change}))
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 317, in run_script
+    self.assertEqual(0, result.returncode, result.stderr.decode(errors='replace'))
+AssertionError: 0 != -6 : extra call op=0 a=0 b=0 index=25
+
+
+======================================================================
+FAIL: test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans (test_p0_qtr.P0QtrSketchTests.test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans) (change={'passes': [(4294967295, (1, 1, 1, 1))]})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 419, in test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans
+    self.run_script(Script(overrides={0: change}))
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 317, in run_script
+    self.assertEqual(0, result.returncode, result.stderr.decode(errors='replace'))
+AssertionError: 0 != -6 : extra call op=0 a=0 b=0 index=30
+
+
+======================================================================
+FAIL: test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans (test_p0_qtr.P0QtrSketchTests.test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans) (change={'cleanup': 4294967295})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 419, in test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans
+    self.run_script(Script(overrides={0: change}))
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 317, in run_script
+    self.assertEqual(0, result.returncode, result.stderr.decode(errors='replace'))
+AssertionError: 0 != -6 : extra call op=0 a=0 b=0 index=30
+
+
+======================================================================
+FAIL: test_d065_sample_total_fault_even_when_component_intervals_valid (test_p0_qtr.P0QtrSketchTests.test_d065_sample_total_fault_even_when_component_intervals_valid)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 422, in test_d065_sample_total_fault_even_when_component_intervals_valid
+    self.run_script(Script(overrides={0: {'drive': HALF - 11}}))
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 317, in run_script
+    self.assertEqual(0, result.returncode, result.stderr.decode(errors='replace'))
+AssertionError: 0 != -6 : extra call op=0 a=0 b=0 index=30
+
+
+======================================================================
+FAIL: test_d065_stopped_charge_clock_exhausts_exactly_4096_and_cleans (test_p0_qtr.P0QtrSketchTests.test_d065_stopped_charge_clock_exhausts_exactly_4096_and_cleans) (index=0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 362, in test_d065_stopped_charge_clock_exhausts_exactly_4096_and_cleans
+    self.run_script(Script(overrides={index: {'charge_steps': (0,) * 4096}}))
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 317, in run_script
+    self.assertEqual(0, result.returncode, result.stderr.decode(errors='replace'))
+AssertionError: 0 != -6 : extra call op=0 a=0 b=0 index=4115
+
+
+======================================================================
+FAIL: test_d065_stopped_charge_clock_exhausts_exactly_4096_and_cleans (test_p0_qtr.P0QtrSketchTests.test_d065_stopped_charge_clock_exhausts_exactly_4096_and_cleans) (index=100)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 362, in test_d065_stopped_charge_clock_exhausts_exactly_4096_and_cleans
+    self.run_script(Script(overrides={index: {'charge_steps': (0,) * 4096}}))
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 317, in run_script
+    self.assertEqual(0, result.returncode, result.stderr.decode(errors='replace'))
+AssertionError: 0 != -6 : extra call op=0 a=0 b=0 index=6915
+
+
+======================================================================
+FAIL: test_d065_stopped_charge_clock_exhausts_exactly_4096_and_cleans (test_p0_qtr.P0QtrSketchTests.test_d065_stopped_charge_clock_exhausts_exactly_4096_and_cleans) (index=199)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 362, in test_d065_stopped_charge_clock_exhausts_exactly_4096_and_cleans
+    self.run_script(Script(overrides={index: {'charge_steps': (0,) * 4096}}))
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 317, in run_script
+    self.assertEqual(0, result.returncode, result.stderr.decode(errors='replace'))
+AssertionError: 0 != -6 : extra call op=0 a=0 b=0 index=9687
+
+
+======================================================================
+FAIL: test_d065_stopped_observation_clock_exhausts_exactly_4096_and_cleans (test_p0_qtr.P0QtrSketchTests.test_d065_stopped_observation_clock_exhausts_exactly_4096_and_cleans)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 390, in test_d065_stopped_observation_clock_exhausts_exactly_4096_and_cleans
+    self.run_script(Script(overrides={0: {'passes': [(0, (1, 1, 1, 1))] * 4096}}))
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 317, in run_script
+    self.assertEqual(0, result.returncode, result.stderr.decode(errors='replace'))
+AssertionError: 0 != -6 : extra call op=0 a=0 b=0 index=20505
+
+
+----------------------------------------------------------------------
+Ran 46 tests in 8.331s
+
+FAILED (failures=45)
+
+--- First repair verification; original 46-method/45-subcase-failure run above retained unchanged ---
+Independent oracle correction strengthens end_us=0 on invalid record duration, as required by D-065. Added allocation tripwire, real-record decoder integration, maximum valid interval acceptance, and fault precedence/publication cases. No implementation file was read by test author.
+
+test_d065_all_header_acceptance_fields_exact (test_p0_qtr.P0QtrDecoderTests.test_d065_all_header_acceptance_fields_exact) ... ok
+test_d065_all_low_requires_all_bits_and_strictly_before_deadline (test_p0_qtr.P0QtrDecoderTests.test_d065_all_low_requires_all_bits_and_strictly_before_deadline) ... ok
+test_d065_charge_at_least_11_and_polls_both_within_guard (test_p0_qtr.P0QtrDecoderTests.test_d065_charge_at_least_11_and_polls_both_within_guard) ... ok
+test_d065_cleanup_attempt_count_is_exactly_four (test_p0_qtr.P0QtrDecoderTests.test_d065_cleanup_attempt_count_is_exactly_four) ... ok
+test_d065_deadline_requires_real_elapsed_at_least_1500 (test_p0_qtr.P0QtrDecoderTests.test_d065_deadline_requires_real_elapsed_at_least_1500) ... ok
+test_d065_each_interval_excludes_half_range_even_with_wrapping_total (test_p0_qtr.P0QtrDecoderTests.test_d065_each_interval_excludes_half_range_even_with_wrapping_total) ... ok
+test_d065_exact_record_length_required (test_p0_qtr.P0QtrDecoderTests.test_d065_exact_record_length_required) ... ok
+test_d065_fault_and_unknown_outcomes_never_accepted (test_p0_qtr.P0QtrDecoderTests.test_d065_fault_and_unknown_outcomes_never_accepted) ... ok
+test_d065_first_low_sentinel_and_mask_must_agree_per_pin (test_p0_qtr.P0QtrDecoderTests.test_d065_first_low_sentinel_and_mask_must_agree_per_pin) ... ok
+test_d065_import_is_quiet_pure_and_has_public_decoder (test_p0_qtr.P0QtrDecoderTests.test_d065_import_is_quiet_pure_and_has_public_decoder) ... ok
+test_d065_large_valid_intervals_and_maximum_unambiguous_record_total_accepted (test_p0_qtr.P0QtrDecoderTests.test_d065_large_valid_intervals_and_maximum_unambiguous_record_total_accepted) ... ok
+test_d065_low_timestamp_must_not_exceed_observation_timestamp (test_p0_qtr.P0QtrDecoderTests.test_d065_low_timestamp_must_not_exceed_observation_timestamp) ... ok
+test_d065_masks_must_be_four_bit_disjoint_complementary (test_p0_qtr.P0QtrDecoderTests.test_d065_masks_must_be_four_bit_disjoint_complementary) ... ok
+test_d065_modes_must_follow_exact_100_then_100_labels (test_p0_qtr.P0QtrDecoderTests.test_d065_modes_must_follow_exact_100_then_100_labels) ... ok
+test_d065_neutral_all_high_deadlines_are_valid_observations (test_p0_qtr.P0QtrDecoderTests.test_d065_neutral_all_high_deadlines_are_valid_observations) ... ok
+test_d065_neutral_every_mask_and_late_low_retained_in_valid_record (test_p0_qtr.P0QtrDecoderTests.test_d065_neutral_every_mask_and_late_low_retained_in_valid_record) ... ok
+test_d065_pullup_any_early_or_late_low_is_explicit_stimulus_failure (test_p0_qtr.P0QtrDecoderTests.test_d065_pullup_any_early_or_late_low_is_explicit_stimulus_failure) ... ok
+test_d065_python_sum_cannot_silently_wrap_uint32 (test_p0_qtr.P0QtrDecoderTests.test_d065_python_sum_cannot_silently_wrap_uint32) ... ok
+test_d065_record_total_covers_sample_totals_plus_overheads_without_subtraction (test_p0_qtr.P0QtrDecoderTests.test_d065_record_total_covers_sample_totals_plus_overheads_without_subtraction) ... ok
+test_d065_record_total_half_range_and_larger_rejected (test_p0_qtr.P0QtrDecoderTests.test_d065_record_total_half_range_and_larger_rejected) ... ok
+test_d065_sample_total_equals_all_five_acquisition_intervals (test_p0_qtr.P0QtrDecoderTests.test_d065_sample_total_equals_all_five_acquisition_intervals) ... ok
+test_d065_separate_datasets_count_first_sample_and_unsubtracted_intervals (test_p0_qtr.P0QtrDecoderTests.test_d065_separate_datasets_count_first_sample_and_unsubtracted_intervals) ... ok
+test_d065_valid_uint32_record_wrap_does_not_mutate_and_is_repeatable (test_p0_qtr.P0QtrDecoderTests.test_d065_valid_uint32_record_wrap_does_not_mutate_and_is_repeatable) ... ok
+test_d065_zero_and_equal_observation_first_low_timestamps_are_valid (test_p0_qtr.P0QtrDecoderTests.test_d065_zero_and_equal_observation_first_low_timestamps_are_valid) ... ok
+test_d065_all_intervals_and_record_survive_uint32_wrap (test_p0_qtr.P0QtrSketchTests.test_d065_all_intervals_and_record_survive_uint32_wrap) ... ok
+test_d065_all_low_before_deadline_and_deadline_wins_exact_tie_overshoot (test_p0_qtr.P0QtrSketchTests.test_d065_all_low_before_deadline_and_deadline_wins_exact_tie_overshoot) ... ok
+test_d065_bad_level_discards_only_bad_pass_retains_prior_lows_and_last_sample (test_p0_qtr.P0QtrSketchTests.test_d065_bad_level_discards_only_bad_pass_retains_prior_lows_and_last_sample) ... 
+  test_d065_bad_level_discards_only_bad_pass_retains_prior_lows_and_last_sample (test_p0_qtr.P0QtrSketchTests.test_d065_bad_level_discards_only_bad_pass_retains_prior_lows_and_last_sample) (index=0) ... FAIL
+  test_d065_bad_level_discards_only_bad_pass_retains_prior_lows_and_last_sample (test_p0_qtr.P0QtrSketchTests.test_d065_bad_level_discards_only_bad_pass_retains_prior_lows_and_last_sample) (index=100) ... FAIL
+  test_d065_bad_level_discards_only_bad_pass_retains_prior_lows_and_last_sample (test_p0_qtr.P0QtrSketchTests.test_d065_bad_level_discards_only_bad_pass_retains_prior_lows_and_last_sample) (index=199) ... FAIL
+test_d065_bad_level_has_priority_over_deadline (test_p0_qtr.P0QtrSketchTests.test_d065_bad_level_has_priority_over_deadline) ... ok
+test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail (test_p0_qtr.P0QtrSketchTests.test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail) ... ok
+test_d065_charge_10_is_insufficient_11_is_exact (test_p0_qtr.P0QtrSketchTests.test_d065_charge_10_is_insufficient_11_is_exact) ... ok
+test_d065_charge_last_guard_call_qualifies_before_exhaustion (test_p0_qtr.P0QtrSketchTests.test_d065_charge_last_guard_call_qualifies_before_exhaustion) ... ok
+test_d065_cleanup_clock_fault_has_priority_over_bad_level_and_poll_guard (test_p0_qtr.P0QtrSketchTests.test_d065_cleanup_clock_fault_has_priority_over_bad_level_and_poll_guard) ... 
+  test_d065_cleanup_clock_fault_has_priority_over_bad_level_and_poll_guard (test_p0_qtr.P0QtrSketchTests.test_d065_cleanup_clock_fault_has_priority_over_bad_level_and_poll_guard) (passes=4096) ... FAIL
+test_d065_clock_fault_has_priority_over_bad_level (test_p0_qtr.P0QtrSketchTests.test_d065_clock_fault_has_priority_over_bad_level) ... ok
+test_d065_each_low_mask_retained_on_deadline_with_actual_late_times (test_p0_qtr.P0QtrSketchTests.test_d065_each_low_mask_retained_on_deadline_with_actual_late_times) ... ok
+test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans (test_p0_qtr.P0QtrSketchTests.test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans) ... ok
+test_d065_each_wrong_installed_pin_mapping_rejected (test_p0_qtr.P0QtrSketchTests.test_d065_each_wrong_installed_pin_mapping_rejected) ... ok
+test_d065_exact_order_both_modes_200_complete_samples_and_empty_loop (test_p0_qtr.P0QtrSketchTests.test_d065_exact_order_both_modes_200_complete_samples_and_empty_loop) ... ok
+test_d065_four_real_reads_include_previously_low_pins_and_sticky_mask (test_p0_qtr.P0QtrSketchTests.test_d065_four_real_reads_include_previously_low_pins_and_sticky_mask) ... ok
+test_d065_last_observation_pass_deadline_or_all_low_wins_guard (test_p0_qtr.P0QtrSketchTests.test_d065_last_observation_pass_deadline_or_all_low_wins_guard) ... ok
+test_d065_motor_enabled_compilation_rejected (test_p0_qtr.P0QtrSketchTests.test_d065_motor_enabled_compilation_rejected) ... ok
+test_d065_nonreturning_first_and_last_sample_calls_never_publish_complete (test_p0_qtr.P0QtrSketchTests.test_d065_nonreturning_first_and_last_sample_calls_never_publish_complete) ... ok
+test_d065_pullup_all_low_is_retained_and_all_200_still_complete (test_p0_qtr.P0QtrSketchTests.test_d065_pullup_all_low_is_retained_and_all_200_still_complete) ... ok
+test_d065_pullup_early_low_does_not_abort_remaining_samples (test_p0_qtr.P0QtrSketchTests.test_d065_pullup_early_low_does_not_abort_remaining_samples) ... ok
+test_d065_readiness_zero_or_either_missing_port_never_touches_pins (test_p0_qtr.P0QtrSketchTests.test_d065_readiness_zero_or_either_missing_port_never_touches_pins) ... ok
+test_d065_real_sketch_record_decodes_and_real_stimulus_failure_rejects (test_p0_qtr.P0QtrSketchTests.test_d065_real_sketch_record_decodes_and_real_stimulus_failure_rejects) ... ok
+test_d065_record_total_fault_keeps_200_samples_but_never_complete (test_p0_qtr.P0QtrSketchTests.test_d065_record_total_fault_keeps_200_samples_but_never_complete) ... ok
+test_d065_sample_total_fault_even_when_component_intervals_valid (test_p0_qtr.P0QtrSketchTests.test_d065_sample_total_fault_even_when_component_intervals_valid) ... ok
+test_d065_stopped_charge_clock_exhausts_exactly_4096_and_cleans (test_p0_qtr.P0QtrSketchTests.test_d065_stopped_charge_clock_exhausts_exactly_4096_and_cleans) ... ok
+test_d065_stopped_observation_clock_exhausts_exactly_4096_and_cleans (test_p0_qtr.P0QtrSketchTests.test_d065_stopped_observation_clock_exhausts_exactly_4096_and_cleans) ... FAIL
+test_d065_zero_overhead_and_zero_observe_are_valid_quantization (test_p0_qtr.P0QtrSketchTests.test_d065_zero_overhead_and_zero_observe_are_valid_quantization) ... ok
+
+======================================================================
+FAIL: test_d065_bad_level_discards_only_bad_pass_retains_prior_lows_and_last_sample (test_p0_qtr.P0QtrSketchTests.test_d065_bad_level_discards_only_bad_pass_retains_prior_lows_and_last_sample) (index=0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 431, in test_d065_bad_level_discards_only_bad_pass_retains_prior_lows_and_last_sample
+    self.run_script(Script(overrides={index: {'passes': passes}}))
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 354, in run_script
+    self.assertEqual(expected, list(words[6 + 18 * index:24 + 18 * index]),
+AssertionError: Lists differ: [0, 6[16 chars], 5, 29, 1, 2, 1, 0, 3, 4294967295, 4294967295, 4294967295, 4] != [0, 6[16 chars], 5, 29, 1, 2, 1, 14, 3, 4294967295, 4294967295, 4294967295, 4]
+
+First differing element 12:
+0
+14
+
+  [0,
+   6,
+   2,
+   3,
+   11,
+   4,
+   6,
+   5,
+   29,
+   1,
+   2,
+   1,
+-  0,
++  14,
+   3,
+   4294967295,
+   4294967295,
+   4294967295,
+   4] : sample 0
+
+======================================================================
+FAIL: test_d065_bad_level_discards_only_bad_pass_retains_prior_lows_and_last_sample (test_p0_qtr.P0QtrSketchTests.test_d065_bad_level_discards_only_bad_pass_retains_prior_lows_and_last_sample) (index=100)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 431, in test_d065_bad_level_discards_only_bad_pass_retains_prior_lows_and_last_sample
+    self.run_script(Script(overrides={index: {'passes': passes}}))
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 354, in run_script
+    self.assertEqual(expected, list(words[6 + 18 * index:24 + 18 * index]),
+AssertionError: Lists differ: [1, 6[16 chars], 5, 29, 1, 2, 1, 0, 3, 4294967295, 4294967295, 4294967295, 4] != [1, 6[16 chars], 5, 29, 1, 2, 1, 14, 3, 4294967295, 4294967295, 4294967295, 4]
+
+First differing element 12:
+0
+14
+
+  [1,
+   6,
+   2,
+   3,
+   11,
+   4,
+   6,
+   5,
+   29,
+   1,
+   2,
+   1,
+-  0,
++  14,
+   3,
+   4294967295,
+   4294967295,
+   4294967295,
+   4] : sample 100
+
+======================================================================
+FAIL: test_d065_bad_level_discards_only_bad_pass_retains_prior_lows_and_last_sample (test_p0_qtr.P0QtrSketchTests.test_d065_bad_level_discards_only_bad_pass_retains_prior_lows_and_last_sample) (index=199)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 431, in test_d065_bad_level_discards_only_bad_pass_retains_prior_lows_and_last_sample
+    self.run_script(Script(overrides={index: {'passes': passes}}))
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 354, in run_script
+    self.assertEqual(expected, list(words[6 + 18 * index:24 + 18 * index]),
+AssertionError: Lists differ: [1, 6[16 chars], 5, 29, 1, 2, 1, 0, 3, 4294967295, 4294967295, 4294967295, 4] != [1, 6[16 chars], 5, 29, 1, 2, 1, 14, 3, 4294967295, 4294967295, 4294967295, 4]
+
+First differing element 12:
+0
+14
+
+  [1,
+   6,
+   2,
+   3,
+   11,
+   4,
+   6,
+   5,
+   29,
+   1,
+   2,
+   1,
+-  0,
++  14,
+   3,
+   4294967295,
+   4294967295,
+   4294967295,
+   4] : sample 199
+
+======================================================================
+FAIL: test_d065_cleanup_clock_fault_has_priority_over_bad_level_and_poll_guard (test_p0_qtr.P0QtrSketchTests.test_d065_cleanup_clock_fault_has_priority_over_bad_level_and_poll_guard) (passes=4096)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 439, in test_d065_cleanup_clock_fault_has_priority_over_bad_level_and_poll_guard
+    self.run_script(Script(overrides={0: {'passes': passes, 'cleanup': HALF}}))
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 354, in run_script
+    self.assertEqual(expected, list(words[6 + 18 * index:24 + 18 * index]),
+AssertionError: Lists differ: [0, 5[45 chars]4096, 0, 0, 4294967295, 4294967295, 4294967295, 4294967295, 4] != [0, 5[45 chars]4096, 0, 15, 4294967295, 4294967295, 4294967295, 4294967295, 4]
+
+First differing element 12:
+0
+15
+
+  [0,
+   5,
+   2,
+   3,
+   11,
+   4,
+   0,
+   2147483648,
+   2147483666,
+   1,
+   4096,
+   0,
+-  0,
++  15,
+   4294967295,
+   4294967295,
+   4294967295,
+   4294967295,
+   4] : sample 0
+
+======================================================================
+FAIL: test_d065_stopped_observation_clock_exhausts_exactly_4096_and_cleans (test_p0_qtr.P0QtrSketchTests.test_d065_stopped_observation_clock_exhausts_exactly_4096_and_cleans)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 408, in test_d065_stopped_observation_clock_exhausts_exactly_4096_and_cleans
+    self.run_script(Script(overrides={0: {'passes': [(0, (1, 1, 1, 1))] * 4096}}))
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_p0_qtr.py", line 354, in run_script
+    self.assertEqual(expected, list(words[6 + 18 * index:24 + 18 * index]),
+AssertionError: Lists differ: [0, 4[28 chars]4096, 0, 0, 4294967295, 4294967295, 4294967295, 4294967295, 4] != [0, 4[28 chars]4096, 0, 15, 4294967295, 4294967295, 4294967295, 4294967295, 4]
+
+First differing element 12:
+0
+15
+
+  [0,
+   4,
+   2,
+   3,
+   11,
+   4,
+   0,
+   5,
+   23,
+   1,
+   4096,
+   0,
+-  0,
++  15,
+   4294967295,
+   4294967295,
+   4294967295,
+   4294967295,
+   4] : sample 0
+
+----------------------------------------------------------------------
+Ran 50 tests in 7.006s
+
+FAILED (failures=5)
+
+--- D-065 constants only; existing B16 validation ---
+
+test_b16_literal_categories_and_array_extent_are_preserved (test_p0_config.P0ConfigTests.test_b16_literal_categories_and_array_extent_are_preserved) ... ok
+test_b16_scope_has_76_defaults_and_excludes_b5_bearing_rows (test_p0_config.P0ConfigTests.test_b16_scope_has_76_defaults_and_excludes_b5_bearing_rows) ... ok
+test_b3_service_defaults_match_d024 (test_p0_config.P0ConfigTests.test_b3_service_defaults_match_d024) ... ok
+test_b4_forward_inner_ratio_matches_seventy_percent (test_p0_config.P0ConfigTests.test_b4_forward_inner_ratio_matches_seventy_percent) ... ok
+test_each_b16_default_matches_its_documented_value (test_p0_config.P0ConfigTests.test_each_b16_default_matches_its_documented_value) ... ok
+test_explicit_behavior_text_defaults_match_spec (test_p0_config.P0ConfigTests.test_explicit_behavior_text_defaults_match_spec) ... ok
+test_only_b16_and_explicit_spec_diagnostic_defaults_are_declared (test_p0_config.P0ConfigTests.test_only_b16_and_explicit_spec_diagnostic_defaults_are_declared) ... ok
+test_p0_diagnostic_defaults_are_explicit_and_unchanged (test_p0_config.P0ConfigTests.test_p0_diagnostic_defaults_are_explicit_and_unchanged) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.024s
+
+OK
+
+--- Second repair verification; original failures retained, timeout_mask now assigned at DEADLINE only ---
+
+test_d065_all_header_acceptance_fields_exact (test_p0_qtr.P0QtrDecoderTests.test_d065_all_header_acceptance_fields_exact) ... ok
+test_d065_all_low_requires_all_bits_and_strictly_before_deadline (test_p0_qtr.P0QtrDecoderTests.test_d065_all_low_requires_all_bits_and_strictly_before_deadline) ... ok
+test_d065_charge_at_least_11_and_polls_both_within_guard (test_p0_qtr.P0QtrDecoderTests.test_d065_charge_at_least_11_and_polls_both_within_guard) ... ok
+test_d065_cleanup_attempt_count_is_exactly_four (test_p0_qtr.P0QtrDecoderTests.test_d065_cleanup_attempt_count_is_exactly_four) ... ok
+test_d065_deadline_requires_real_elapsed_at_least_1500 (test_p0_qtr.P0QtrDecoderTests.test_d065_deadline_requires_real_elapsed_at_least_1500) ... ok
+test_d065_each_interval_excludes_half_range_even_with_wrapping_total (test_p0_qtr.P0QtrDecoderTests.test_d065_each_interval_excludes_half_range_even_with_wrapping_total) ... ok
+test_d065_exact_record_length_required (test_p0_qtr.P0QtrDecoderTests.test_d065_exact_record_length_required) ... ok
+test_d065_fault_and_unknown_outcomes_never_accepted (test_p0_qtr.P0QtrDecoderTests.test_d065_fault_and_unknown_outcomes_never_accepted) ... ok
+test_d065_first_low_sentinel_and_mask_must_agree_per_pin (test_p0_qtr.P0QtrDecoderTests.test_d065_first_low_sentinel_and_mask_must_agree_per_pin) ... ok
+test_d065_import_is_quiet_pure_and_has_public_decoder (test_p0_qtr.P0QtrDecoderTests.test_d065_import_is_quiet_pure_and_has_public_decoder) ... ok
+test_d065_large_valid_intervals_and_maximum_unambiguous_record_total_accepted (test_p0_qtr.P0QtrDecoderTests.test_d065_large_valid_intervals_and_maximum_unambiguous_record_total_accepted) ... ok
+test_d065_low_timestamp_must_not_exceed_observation_timestamp (test_p0_qtr.P0QtrDecoderTests.test_d065_low_timestamp_must_not_exceed_observation_timestamp) ... ok
+test_d065_masks_must_be_four_bit_disjoint_complementary (test_p0_qtr.P0QtrDecoderTests.test_d065_masks_must_be_four_bit_disjoint_complementary) ... ok
+test_d065_modes_must_follow_exact_100_then_100_labels (test_p0_qtr.P0QtrDecoderTests.test_d065_modes_must_follow_exact_100_then_100_labels) ... ok
+test_d065_neutral_all_high_deadlines_are_valid_observations (test_p0_qtr.P0QtrDecoderTests.test_d065_neutral_all_high_deadlines_are_valid_observations) ... ok
+test_d065_neutral_every_mask_and_late_low_retained_in_valid_record (test_p0_qtr.P0QtrDecoderTests.test_d065_neutral_every_mask_and_late_low_retained_in_valid_record) ... ok
+test_d065_pullup_any_early_or_late_low_is_explicit_stimulus_failure (test_p0_qtr.P0QtrDecoderTests.test_d065_pullup_any_early_or_late_low_is_explicit_stimulus_failure) ... ok
+test_d065_python_sum_cannot_silently_wrap_uint32 (test_p0_qtr.P0QtrDecoderTests.test_d065_python_sum_cannot_silently_wrap_uint32) ... ok
+test_d065_record_total_covers_sample_totals_plus_overheads_without_subtraction (test_p0_qtr.P0QtrDecoderTests.test_d065_record_total_covers_sample_totals_plus_overheads_without_subtraction) ... ok
+test_d065_record_total_half_range_and_larger_rejected (test_p0_qtr.P0QtrDecoderTests.test_d065_record_total_half_range_and_larger_rejected) ... ok
+test_d065_sample_total_equals_all_five_acquisition_intervals (test_p0_qtr.P0QtrDecoderTests.test_d065_sample_total_equals_all_five_acquisition_intervals) ... ok
+test_d065_separate_datasets_count_first_sample_and_unsubtracted_intervals (test_p0_qtr.P0QtrDecoderTests.test_d065_separate_datasets_count_first_sample_and_unsubtracted_intervals) ... ok
+test_d065_valid_uint32_record_wrap_does_not_mutate_and_is_repeatable (test_p0_qtr.P0QtrDecoderTests.test_d065_valid_uint32_record_wrap_does_not_mutate_and_is_repeatable) ... ok
+test_d065_zero_and_equal_observation_first_low_timestamps_are_valid (test_p0_qtr.P0QtrDecoderTests.test_d065_zero_and_equal_observation_first_low_timestamps_are_valid) ... ok
+test_d065_all_intervals_and_record_survive_uint32_wrap (test_p0_qtr.P0QtrSketchTests.test_d065_all_intervals_and_record_survive_uint32_wrap) ... ok
+test_d065_all_low_before_deadline_and_deadline_wins_exact_tie_overshoot (test_p0_qtr.P0QtrSketchTests.test_d065_all_low_before_deadline_and_deadline_wins_exact_tie_overshoot) ... ok
+test_d065_bad_level_discards_only_bad_pass_retains_prior_lows_and_last_sample (test_p0_qtr.P0QtrSketchTests.test_d065_bad_level_discards_only_bad_pass_retains_prior_lows_and_last_sample) ... ok
+test_d065_bad_level_has_priority_over_deadline (test_p0_qtr.P0QtrSketchTests.test_d065_bad_level_has_priority_over_deadline) ... ok
+test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail (test_p0_qtr.P0QtrSketchTests.test_d065_bad_levels_finish_all_four_reads_then_cleanup_and_fail) ... ok
+test_d065_charge_10_is_insufficient_11_is_exact (test_p0_qtr.P0QtrSketchTests.test_d065_charge_10_is_insufficient_11_is_exact) ... ok
+test_d065_charge_last_guard_call_qualifies_before_exhaustion (test_p0_qtr.P0QtrSketchTests.test_d065_charge_last_guard_call_qualifies_before_exhaustion) ... ok
+test_d065_cleanup_clock_fault_has_priority_over_bad_level_and_poll_guard (test_p0_qtr.P0QtrSketchTests.test_d065_cleanup_clock_fault_has_priority_over_bad_level_and_poll_guard) ... ok
+test_d065_clock_fault_has_priority_over_bad_level (test_p0_qtr.P0QtrSketchTests.test_d065_clock_fault_has_priority_over_bad_level) ... ok
+test_d065_each_low_mask_retained_on_deadline_with_actual_late_times (test_p0_qtr.P0QtrSketchTests.test_d065_each_low_mask_retained_on_deadline_with_actual_late_times) ... ok
+test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans (test_p0_qtr.P0QtrSketchTests.test_d065_each_measured_interval_detects_ambiguous_half_range_and_cleans) ... ok
+test_d065_each_wrong_installed_pin_mapping_rejected (test_p0_qtr.P0QtrSketchTests.test_d065_each_wrong_installed_pin_mapping_rejected) ... ok
+test_d065_exact_order_both_modes_200_complete_samples_and_empty_loop (test_p0_qtr.P0QtrSketchTests.test_d065_exact_order_both_modes_200_complete_samples_and_empty_loop) ... ok
+test_d065_four_real_reads_include_previously_low_pins_and_sticky_mask (test_p0_qtr.P0QtrSketchTests.test_d065_four_real_reads_include_previously_low_pins_and_sticky_mask) ... ok
+test_d065_last_observation_pass_deadline_or_all_low_wins_guard (test_p0_qtr.P0QtrSketchTests.test_d065_last_observation_pass_deadline_or_all_low_wins_guard) ... ok
+test_d065_motor_enabled_compilation_rejected (test_p0_qtr.P0QtrSketchTests.test_d065_motor_enabled_compilation_rejected) ... ok
+test_d065_nonreturning_first_and_last_sample_calls_never_publish_complete (test_p0_qtr.P0QtrSketchTests.test_d065_nonreturning_first_and_last_sample_calls_never_publish_complete) ... ok
+test_d065_pullup_all_low_is_retained_and_all_200_still_complete (test_p0_qtr.P0QtrSketchTests.test_d065_pullup_all_low_is_retained_and_all_200_still_complete) ... ok
+test_d065_pullup_early_low_does_not_abort_remaining_samples (test_p0_qtr.P0QtrSketchTests.test_d065_pullup_early_low_does_not_abort_remaining_samples) ... ok
+test_d065_readiness_zero_or_either_missing_port_never_touches_pins (test_p0_qtr.P0QtrSketchTests.test_d065_readiness_zero_or_either_missing_port_never_touches_pins) ... ok
+test_d065_real_sketch_record_decodes_and_real_stimulus_failure_rejects (test_p0_qtr.P0QtrSketchTests.test_d065_real_sketch_record_decodes_and_real_stimulus_failure_rejects) ... ok
+test_d065_record_total_fault_keeps_200_samples_but_never_complete (test_p0_qtr.P0QtrSketchTests.test_d065_record_total_fault_keeps_200_samples_but_never_complete) ... ok
+test_d065_sample_total_fault_even_when_component_intervals_valid (test_p0_qtr.P0QtrSketchTests.test_d065_sample_total_fault_even_when_component_intervals_valid) ... ok
+test_d065_stopped_charge_clock_exhausts_exactly_4096_and_cleans (test_p0_qtr.P0QtrSketchTests.test_d065_stopped_charge_clock_exhausts_exactly_4096_and_cleans) ... ok
+test_d065_stopped_observation_clock_exhausts_exactly_4096_and_cleans (test_p0_qtr.P0QtrSketchTests.test_d065_stopped_observation_clock_exhausts_exactly_4096_and_cleans) ... ok
+test_d065_zero_overhead_and_zero_observe_are_valid_quantization (test_p0_qtr.P0QtrSketchTests.test_d065_zero_overhead_and_zero_observe_are_valid_quantization) ... ok
+
+----------------------------------------------------------------------
+Ran 50 tests in 7.804s
+
+OK

@@ -10,7 +10,7 @@ P0_qtr_bare_contract_audit_20260923.md. Preserve every B16 value.
   P0_QTR_PINS={2,4,7,8}, compile-asserted against installed D2/D4/D7/D8.
   Read-only device readiness checks for GPIOA/B produce mask3 before any pin call.
   If either port is not ready, no acquisition/pin writes; complete remains0.
-- No PWM, motor pins, Bridge/Serial begin, I2C, ADC, matrix, interrupt masking,
+- No PWM, motor pins, Bridge/Serial begin, I2C, ADC, matrix, application interrupt masking,
   delay/delayMicroseconds or heap use. All data collected in setup; loop is empty.
 - Collect100 consecutive neutral INPUT samples, then100 separately labeled
   DIAGNOSTIC-ONLY INPUT_PULLUP samples. An early LOW in the latter is retained;
@@ -65,7 +65,7 @@ P0_qtr_bare_contract_audit_20260923.md. Preserve every B16 value.
 
 ## Frozen record and decoder
 
-Public layout is qtr_capture.h:24-byte header and20072-byte samples =14424 bytes.
+Public layout is qtr_capture.h:24-byte header plus200 samples of72 bytes =14424 bytes.
 The passive decoder must require exact length/version1/ready3/complete1/completed200,
 mode0 for first100/mode1 for last100, outcomes1/2, bounded elapsed/count fields,
 cleanup_calls4, disjoint/complementary masks, first-LOW/mask agreement and timestamps

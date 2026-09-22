@@ -19,7 +19,11 @@ DIAGNOSTIC_DEFAULTS = {
     'P0_ADC_PIN': 14,  # D-063 installed A0 diagnostic index; not PINMAP acceptance.
     'P0_GPIO_SAMPLES': 400,  # D-064 exact startup-only GPIO sample count.
     'P0_GPIO_PIN': 50,  # D-064 installed internal LED index; not PINMAP acceptance.
+    'P0_QTR_SAMPLES_PER_MODE': 100,  # D-065 separate neutral/pull-up datasets.
+    'P0_QTR_GUARD_POLLS': 4096,  # D-065 finite acquisition guards.
+    'P0_QTR_QUANTIZATION_US': 1,  # D-065 diagnostic charge margin only.
 }
+DIAGNOSTIC_ARRAY_DEFAULTS = {'P0_QTR_PINS[4]': (2, 4, 7, 8)}  # D-065, not PINMAP OK.
 BEHAVIOR_EXTRA_DEFAULTS = {
     'VBAT_FILTER_MS': 1000,  # B6 one-second time constant.
     'REFLANK_WINDOW_MS': 10000,  # B11.3 existing ten-second rolling window.
@@ -86,7 +90,7 @@ class P0ConfigTests(unittest.TestCase):
         self.assertEqual('1', defaults['MODE_DEFAULT'])
 
     def test_only_b16_and_explicit_spec_diagnostic_defaults_are_declared(self):
-        expected = (set(b16_defaults()) | set(DIAGNOSTIC_DEFAULTS) |
+        expected = (set(b16_defaults()) | set(DIAGNOSTIC_DEFAULTS) | set(DIAGNOSTIC_ARRAY_DEFAULTS) |
                     set(BEHAVIOR_EXTRA_DEFAULTS) | set(BEHAVIOR_EXTRA_FLOAT_DEFAULTS) |
                     set(COUNTDOWN_SERVICE_DEFAULTS))
         self.assertEqual(expected, set(config_declarations()))
@@ -109,6 +113,12 @@ class P0ConfigTests(unittest.TestCase):
         for name, expected in DIAGNOSTIC_DEFAULTS.items():
             with self.subTest(diagnostic=name):
                 self.assertEqual(expected, number(declarations[name][1]))
+        for name, expected in DIAGNOSTIC_ARRAY_DEFAULTS.items():
+            with self.subTest(diagnostic=name):
+                kind, initializer = declarations[name]
+                self.assertEqual('std::uint32_t', kind)
+                self.assertTrue(initializer.startswith('{') and initializer.endswith('}'))
+                self.assertEqual(expected, tuple(number(value) for value in initializer[1:-1].split(',')))
 
     def test_explicit_behavior_text_defaults_match_spec(self):
         declarations = config_declarations()

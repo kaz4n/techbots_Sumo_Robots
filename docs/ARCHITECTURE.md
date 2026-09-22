@@ -12,6 +12,7 @@ the complete robot scheduler, FSM and actuator path do not yet exist.
 | `countdown::Controller` | D-019 full hold after qualification; D-035 StopHold/external STOP before Gate; D-057 START-only routing and qualified-event snapshot | Logical menu and complete Robot FSM |
 | `countdown::Services` | D-024 bounded bias accumulation, rejection/previous-bias retention, latched line warning and latest opponent snapshot | Feed raw gyro/new observations, start/cancel from Controller, apply bias in HAL, complete FSM |
 | `countdown::Lifecycle` | Production Controller-first Services start/cancel/GO composition, explicit failed-start diagnostics and completed evidence retention | HAL bias/heading application, menu/Robot wiring and real MotorGate |
+| `countdown::Menu` | D-058 logical MODE qualification, mode/service cycling and typed service intent, with entry-state/fault precedence and duplicate suppression | Robot running-mode capture, real service consumers and HAL display |
 | `edge::Classifier` | Per-corner threshold and consecutive-white confirmation, persistent white mask | Validated fresh QTR acquisition, escape policy, R5 arbitration |
 | `edge::Guard` | D-020 persistent escape request, black-plus-finished exit, latched all-white motion veto until reset | Escape directions/scripts/replanning and application of veto at MotorGate |
 | `edge::forwardDemand` | D-021 straight/left/right-biased forward requests using 0.80 base and 70% inner-side request | Timed/heading-held segments and selection by the escape planner |
@@ -186,6 +187,17 @@ revoke READY. The latest qualified event snapshot is available without resamplin
 the future menu must check final IDLE/STOP/fault policy before a service request.
 A suppressed idle START cannot start calibration or reset heading. Existing
 attempts retain their original lifetime. No actual menu/service action runs here.
+
+Menu now supplies the logical B13 selection path. A fresh qualified NONE arms
+exclusive MODE; its qualified press anchors duration, while first NONE freezes
+the release duration. Under600ms cycles an item after release qualification;
+600–999ms does nothing; continuous1000ms toggles services once. Entry-state IDLE
+and final non-inhibition are required, so canceling a countdown cannot reuse
+that MODE gesture to change selection. Controller owns START/STOP sampling;
+Menu consumes its qualified START snapshot to emit a service intent with no
+Gate mutation. DRIVE_TEST remains unavailable in P1, and other intents require
+real consumers. Menu never grants permission, executes calibration/dumps or
+supplies a fabricated success for a missing consumer.
 
 Recorder encoding retains multi-revolution heading in signed 32-bit centidegrees
 and event time in uint32 microseconds. Encoding is separate from collection.

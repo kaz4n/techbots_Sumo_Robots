@@ -1,4 +1,4 @@
-// Implements B3 start/services and the D-035 logical STOP qualification and hold.
+// Implements B3 start/services, B13 menus and D-035 logical STOP qualification.
 // Keeps the full hold after release debounce without clocks or hardware writes.
 // Verified by independent locked host boundary, wraparound and seeded stream tests.
 #include "countdown.h"
@@ -246,4 +246,121 @@ void Lifecycle::reset() {
     pending_ = false;
     service_start_failed_ = false;
 }
+
+static_assert(config::MODE_DEFAULT >= 1U && config::MODE_DEFAULT <= 6U);
+static_assert(config::BTN_DEBOUNCE_MS > 0U && config::BTN_LONG_MS > 0U);
+static_assert(config::BTN_DEBOUNCE_MS <= std::numeric_limits<std::uint32_t>::max() / 1000U);
+static_assert(config::BTN_LONG_MS <= std::numeric_limits<std::uint32_t>::max() / 1000U);
+static_assert(config::MODE_SHORT_MS > 0U && config::MODE_SHORT_MS <= config::BTN_LONG_MS);
+
+void Menu::advanceAge(std::uint32_t delta_us, std::uint32_t limit_us) {
+    const auto age = static_cast<std::uint64_t>(age_us_) + delta_us;
+    age_us_ = age < limit_us ? static_cast<std::uint32_t>(age) : limit_us;
+}
+
+void Menu::disarm() {
+    stage_ = Stage::DISARMED;
+    age_us_ = 0U;
+    short_release_ = false;
+}
+
+void Menu::cycle(MenuResult& result) {
+    if (selection_.service_menu) {
+        selection_.service = selection_.service == Service::LOG_DUMP ?
+            Service::SENSOR_VIEW :
+            static_cast<Service>(static_cast<std::uint8_t>(selection_.service) + 1U);
+    } else {
+        selection_.mode = selection_.mode == core::Mode::WAIT ?
+            core::Mode::SIDESTEP_R :
+            static_cast<core::Mode>(static_cast<std::uint8_t>(selection_.mode) + 1U);
+    }
+    result.selection_changed = true;
+}
+
+void Menu::toggle(MenuResult& result) {
+    selection_.service_menu = !selection_.service_menu;
+    if (selection_.service_menu) selection_.service = Service::SENSOR_VIEW;
+    result.selection_changed = true;
+    result.menu_toggled = true;
+}
+
+void Menu::observeMode(std::uint32_t delta_us, MenuResult& result) {
+    if (stage_ == Stage::READY) {
+        stage_ = Stage::PRESS;
+        age_us_ = 0U;
+    } else if (stage_ == Stage::PRESS) {
+        advanceAge(delta_us, config::BTN_DEBOUNCE_MS * 1000U);
+        if (age_us_ == config::BTN_DEBOUNCE_MS * 1000U) {
+            // A delayed qualification starts a complete hold at this call.
+            stage_ = Stage::HELD;
+            age_us_ = 0U;
+        }
+    } else if (stage_ == Stage::HELD) {
+        advanceAge(delta_us, config::BTN_LONG_MS * 1000U);
+        if (age_us_ == config::BTN_LONG_MS * 1000U) {
+            toggle(result);
+            stage_ = Stage::CONSUMED;
+            age_us_ = 0U;
+        }
+    } else if (stage_ != Stage::CONSUMED) {
+        // MODE before rearming or during release loses the whole gesture.
+        disarm();
+    }
+}
+
+void Menu::observeNone(std::uint32_t delta_us, MenuResult& result) {
+    if (stage_ == Stage::HELD) {
+        // Freeze at the first release, before considering a long deadline.
+        advanceAge(delta_us, config::BTN_LONG_MS * 1000U);
+        short_release_ = age_us_ < config::MODE_SHORT_MS * 1000U;
+        stage_ = Stage::RELEASE;
+        age_us_ = 0U;
+    } else if (stage_ == Stage::RELEASE || stage_ == Stage::REARM) {
+        advanceAge(delta_us, config::BTN_DEBOUNCE_MS * 1000U);
+        if (age_us_ == config::BTN_DEBOUNCE_MS * 1000U) {
+            if (stage_ == Stage::RELEASE && short_release_) cycle(result);
+            stage_ = Stage::READY;
+            age_us_ = 0U;
+            short_release_ = false;
+        }
+    } else if (stage_ != Stage::READY) {
+        stage_ = Stage::REARM;
+        age_us_ = 0U;
+        short_release_ = false;
+    }
+}
+
+MenuResult Menu::step(const MenuSample& sample) {
+    MenuResult result;
+    result.selection = selection_;
+    if (observed_ && sample.t_us == last_us_) return result;
+    const std::uint32_t delta_us = observed_ ? sample.t_us - last_us_ : 0U;
+    observed_ = true;
+    last_us_ = sample.t_us;
+    if (sample.state_at_entry != core::State::IDLE || sample.inhibited_fault) {
+        disarm();
+        return result;
+    }
+    if (sample.button == core::ButtonLevel::NONE) {
+        if (selection_.service_menu && sample.qualified_start_release) {
+            result.request = selection_.service;
+            result.request_unavailable = selection_.service == Service::DRIVE_TEST;
+            // A service START replaces any pending MODE gesture with fresh NONE.
+            disarm();
+            observeNone(0U, result);
+        } else {
+            observeNone(delta_us, result);
+        }
+    } else if (sample.button == core::ButtonLevel::MODE) {
+        observeMode(delta_us, result);
+    } else {
+        disarm();
+    }
+    result.selection = selection_;
+    return result;
+}
+
+MenuSelection Menu::selection() const { return selection_; }
+
+void Menu::reset() { *this = Menu{}; }
 } // namespace countdown

@@ -22,6 +22,7 @@ BEHAVIOR_EXTRA_DEFAULTS = {
     'TICK_OVERRUN_PERCENT': 1,  # Existing B14 strict-over-one-percent warning.
     'RECENT_EDGE_MS': 5000,  # Existing B8/B11 recent-escape interval.
     'SEARCH_SCAN_DEG': 360,  # Existing B8 full-scan angle.
+    'MODE_SHORT_MS': 600,  # Existing B13 strict short-press bound, centralized by D-058.
 }
 BEHAVIOR_EXTRA_FLOAT_DEFAULTS = {'EDGE_FWD_INNER_RATIO': Decimal('0.70')}  # B4.2/D-021.
 COUNTDOWN_SERVICE_DEFAULTS = {  # B3 and human-approved D-024; not physical tuning.

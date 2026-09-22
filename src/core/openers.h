@@ -3,6 +3,7 @@
 // Independent host tests cover detections, snapshot use, deadlines and mirroring.
 #pragma once
 #include "core/motion.h"
+#include "core/governor.h"
 #include "core/types.h"
 #include <cstdint>
 
@@ -49,6 +50,7 @@ struct Sample {
 };
 struct FlankResult {
     motion::Result motion;
+    governor::Profile profile = governor::Profile::OPENER;
     Exit exit = Exit::NONE;
     Phase phase = Phase::IDLE;
     bool phase_changed = false;
@@ -81,7 +83,8 @@ public:
     // advance; preserve a timeout pulse. Terminal exits latch zero until restart.
     // Use B7 fallback without deadline extensions; unavailable current yaw uses
     // the last observed finite heading at phase entry, never a fabricated yaw.
-    // All requests go through OPENER governor; caller must preempt for edge/STOP.
+    // Pivot/turn-in use governor PIVOT (0.80 cap); DRIVE/ARC use OPENER (0.85).
+    // Return the selected profile; caller must govern and preempt for edge/STOP.
     // Successive calls <one uint32 wrap; no permission, I/O, clock or allocation.
     FlankResult step(const Sample& sample);
     void reset();

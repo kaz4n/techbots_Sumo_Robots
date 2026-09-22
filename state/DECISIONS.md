@@ -497,3 +497,20 @@ Consequence: this can stop a match on invalid data/permission loss. Test phase
 deadline ties, overshoot, clear/reassertion, all16 masks, exact replan limit,
 permission recovery/reset, context selection, unavailable yaw and inward pulses.
 No sensor timing, pin, B16 value, established locked test or phase gate changes.
+
+## D-055 (2026-09-22, selected under D-051) WAIT approach and complete sidestep
+Context: SC-G conflicts PLAN6.2's evasive intent with O4's no-pivot straight
+segment; the widening front cue could abort that segment immediately. The saved
+spec-only P1_wait_contract_audit.md recommends the complete existing SIDESTEP_R.
+Decision: an ordered widening cue starts the full SIDESTEP_R, including its
+initial pivot, with unchanged gains/durations and D-033/D-034 exits. This explicitly
+supersedes O4's skip-pivot text. HOLD brakes; FC must stay continuously confirmed,
+then a flank newly rises on a later fresh observation within inclusive300ms.
+Initial simultaneous FC+flank is not ordered; a held FC never refreshes/rearms an
+expired window; FC clear rearms. Current side/rear abort outranks cue, cue outranks
+WAIT expiry. Both flank cues select RIGHT. No snapshot/contact substitutes for cue.
+Consequence: extra pivot latency and actual evasive geometry need later physical
+validation. Do not suppress the existing front exit when the pivot finishes.
+Test cue ordering/interruption, exact window/deadline ties, persistent FC, wrap,
+flank delegation, stationary braking and normal qualified reacquisition. No B16
+value, pin, established locked test, motor permission or phase gate changes.

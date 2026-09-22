@@ -406,6 +406,15 @@ PIVOT still ignores front, so outer-side/rear detection there requests DEFEND_TU
 - Side or rear detection: DEFEND_TURN.
 - WAIT_MAX_MS elapsed: SEARCH.
 
+D-055 (selected under D-051,2026-09-22) supersedes the no-pivot instruction:
+the ordered approach cue starts the complete existing SIDESTEP_R, including
+its initial pivot. FC must remain confirmed continuously and a flank must newly
+rise on a later fresh observation within inclusive APPROACH_WINDOW_MS. Initial
+simultaneous FC+flank is not a cue; held FC does not refresh an expired window;
+FC clearing rearms. Current side/rear abort takes priority over cue, then cue
+over WAIT expiry. Existing SIDESTEP aborts and D-034 normal reacquisition remain.
+This is a development policy; physical charger-evasion performance is unmeasured.
+
 D-034 (human-approved 2026-09-22), all opener exits: the ATTACK/target wording
 above denotes a request for normal current-perception arbitration. Current front
 selects TRACK, with ATTACK requiring ATTACK_ENTER_TICKS consecutive centered

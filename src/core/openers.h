@@ -1,4 +1,4 @@
-// Defines B12 DIRECT and mirrored SIDESTEP/ARC motion and transition requests.
+// Defines B12 DIRECT, mirrored SIDESTEP/ARC and WAIT transition requests.
 // Keeps script timing separate from global arbitration, governor and motor gates.
 // Independent host tests cover detections, snapshot use, deadlines and mirroring.
 #pragma once
@@ -63,6 +63,8 @@ public:
     // Only SIDESTEP_R/L and ARC_R/L are accepted. Capture finite initial heading.
     // Config-backed definitions share PIVOT -> TRAVERSE -> TURN_IN, mirrored once.
     // PIVOT uses relative +/-SS_PIVOT_DEG or +/-ARC_PIVOT_DEG at TURN_DUTY.
+    // Use Turn::startRelative for captured relative pivots/turn-ins so float
+    // heading+angle normalization cannot round B7's strict tolerance boundary.
     bool start(std::uint32_t t_us, float heading_deg, bool imu_ok, core::Mode mode);
     // SIDESTEP: PIVOT ignores front/inner, outer side/rear exits (D-033).
     // DRIVE/TURN_IN front exits first, then outer exits. DRIVE inner side/rear
@@ -114,5 +116,63 @@ private:
     bool arc_mode_ = false;
     float mirror_ = 1.0F;
     float last_heading_deg_ = 0.0F;
+};
+
+enum class WaitPhase : std::uint8_t { IDLE, HOLD, FLANK, FINISHED, INVALID };
+struct WaitResult {
+    FlankResult flank; // HOLD uses ACTIVE zero with OPENER profile and no exit.
+    WaitPhase phase = WaitPhase::IDLE;
+    bool brake = true;
+    bool phase_changed = false; // WaitPhase change on this call only.
+    bool approach_cue = false; // Pulse on the call that starts SIDESTEP_R.
+};
+class Wait {
+public:
+    // B12 O4/D-055: start HOLD at this time with a finite last-known heading.
+    // Start/reset discard old cue/deadline/flank state. No snapshot input.
+    bool start(std::uint32_t t_us, float heading_deg);
+    // ONE fresh effective confirmed opponent observation per call, high bit
+    // ignored. HOLD requests immediate brake/zero until cue/abort/deadline.
+    // An FC episode starts at its first observed high sample. Require continuous
+    // FC, then on a later observation a NEW FL15/FR15 rise within inclusive
+    // APPROACH_WINDOW_MS. Initial simultaneous FC+flank is not an ordered cue;
+    // pre-held flank is not new, but another rising flank may qualify. Held FC
+    // never restarts an expired episode; clearing FC cancels/rearms. Time comes
+    // from confirmed observations, not invented earlier raw/debounce timestamps.
+    // HOLD priority: current side/rear abort, invalid healthy yaw, approach cue,
+    // then WAIT_MAX_MS deadline. Cue wins a deadline tie. Front alone keeps HOLD.
+    // Healthy finite yaw updates the last coordinate; unavailable yaw is ignored.
+    // Invalid healthy yaw latches INVALID/zero (side/rear exit needs no yaw).
+    //
+    // Cue starts COMPLETE SIDESTEP_R including its initial pivot, at this
+    // observation's time/current-or-retained heading. Evaluate its first step
+    // immediately; stop WAIT timing/cue processing. Thereafter forward Flank
+    // priorities, profiles, timeout pulses and scan hint without restarting it.
+    // Both FL/FR approach cues select RIGHT; no invented left WAIT mode.
+    // HOLD side/rear -> SIDE_OR_REAR_TARGET; deadline -> SEARCH. These and all
+    // Flank exits remain D-034 current-perception requests, never ATTACK bypass.
+    //
+    // Terminals latch zero/brake until start/reset; phase/approach/timeout pulses
+    // are not replayed. FINISHED/INVALID map to matching Flank terminal phase and
+    // motion DONE/INVALID; IDLE is zero/IDLE. HOLD has Flank phase IDLE, exit NONE,
+    // motion ACTIVE/zero. While FLANK, brake=false only for an active motion.
+    // Caller preempts for gate/STOP/edge first and governs every demand; a HOLD
+    // brake must cancel prior duty immediately. No permission, I/O or allocation.
+    // Consecutive calls less than one uint32 micros wrap, including long holds.
+    WaitResult step(const Sample& sample);
+    void reset();
+private:
+    bool observeApproach(std::uint32_t t_us, std::uint8_t mask);
+    void finish(Exit exit);
+    void runFlank(const Sample& sample);
+    WaitResult result() const;
+    motion::Interval hold_interval_;
+    motion::Interval approach_interval_;
+    Flank flank_;
+    FlankResult current_;
+    WaitPhase phase_ = WaitPhase::IDLE;
+    float last_heading_deg_ = 0.0F;
+    std::uint8_t previous_mask_ = 0U;
+    bool fc_episode_ = false;
 };
 } // namespace openers

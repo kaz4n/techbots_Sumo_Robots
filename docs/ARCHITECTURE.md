@@ -16,11 +16,16 @@ the complete robot scheduler, FSM and actuator path do not yet exist.
 | `edge::forwardDemand` | D-021 straight/left/right-biased forward requests using 0.80 base and 70% inner-side request | Timed/heading-held segments and selection by the escape planner |
 | `opp_fusion::Debouncer` | Per-bit polarity, two-sample assertion, continuous-clear hysteresis | Compose with remaining perception and validated sensor acquisition |
 | `opp_fusion::frontView` | Seven front bearing/centering/close rows from B5.2 | Downstream motion/FSM policy |
-| `opp_fusion::BearingMemory` | Front/side/rear priority, approved bilateral conflicts, world angle and rising-front recency | Phantom/stuck filtering, search/re-flank use, full fusion composition |
+| `opp_fusion::BearingMemory` | Front/side/rear priority, approved bilateral conflicts, world angle and rising-front recency | Search/re-flank use, full fusion composition |
 | `opp_fusion::Contact` | Separate close-pattern qualification, horizontal impact and D-027 centered-ATTACK latch lifetime | FSM contact phase/target-loss braking and physical cue validation |
+| `opp_fusion::PhantomFilter` | D-029/D-030 bounded chase history, contact retention, one replaceable world marker and circular front masking | Compose with contact cues before masking, pre-edge state and full fusion/FSM |
+| `opp_fusion::StuckFilter` | D-031 continuous valid detection plus observed yaw span; independent reset-only latched bits | Unsuppressed confirmed input, icon/event routing, physical sweep validation |
 | `governor::Governor` | D-017 electrical caps after compensation, slew, immediate braking/reversal/cap reductions, one-second battery lag | FSM profile selection and target-loss brake trigger; real MotorGate |
 | `motion::Turn/Straight/Arc/Brake` | B7 demands, D-022 bounded heading correction, D-023 fixed timing with duty-only compensation, bounded IMU fallback | Escape/openers/re-flank scripts, explicit governor profile and MotorGate integration |
-| `logframe` | B15 portable 25-byte frames and 8-byte exact-tick events, explicit invalid/clipped status | Recorder cadence/rings, approved overflow policy, event collection and idle-only dump |
+| `stall::Detector` | D-032 final-duty qualification, timer/deflection routes and persistent per-contact edge history | Governed-duty/contact wiring, event deduplication, physical P4 stall evidence |
+| `stall::ReflankLimiter` | B11.3 rolling two-start limit and D-025 bounded suppression timer | Actual re-flank starts and stall-result suppression in Robot, all safety arbitration |
+| `openers::Direct` | B12 O2 heading-held 400ms request, snapshot/current target exits and latched zero completion | Global target/edge arbitration and OPENER governor, other openers |
+| `logframe` | B15 portable 25-byte frames and 8-byte exact-tick events, explicit invalid/clipped status; D-028 first4096 EventBuffer | HAL-owned buffer instance, frame cadence/storage, event collection, incomplete-evidence marking and idle-only dump |
 
 All inputs are ordinary C++ values. Time arrives from callers as `uint32_t`
 microseconds; elapsed intervals use unsigned subtraction. Motion/services
@@ -92,8 +97,9 @@ boot behavior and log independence still need their own evidence. D-018 approves
 gated-state services before motor inhibition; the complete scheduler/FSM is still
 pending. D-017 approves final electrical caps; the governor implements those for
 the specified profiles. D-020 resolves persistent/all-white inhibition. QTR
-acquisition, timed escape motion/replanning, ALL_IN arbitration
-and recorder policy remain in `state/analysis/spec_conflicts.md`.
+acquisition, timed escape motion/replanning and ALL_IN arbitration remain pending.
+Recorder overflow policy is approved as D-028; actual recording/dump integration
+remains pending. Protected decisions are in `state/analysis/spec_conflicts.md`.
 
 The governor's battery filter is a first-order lag with the existing B6 one-second
 time constant, using backward Euler: `alpha = dt / (tau + dt)`. Its first sample
@@ -131,10 +137,29 @@ owns Buttons and Gate. Line warning does not block GO. Physical sample freshness
 HAL bias application and the heading reset at GO still need integration.
 
 Recorder encoding retains multi-revolution heading in signed 32-bit centidegrees
-and event time in uint32 microseconds. Encoding is separate from collection and
-storage, so it does not resolve B15's finite-buffer overflow conflict. A future
-recorder must handle INVALID/CLAMPED status explicitly and never turn an invalid
-measurement into apparently valid evidence. No CSV/dump or ring exists yet.
+and event time in uint32 microseconds. Encoding is separate from collection.
+EventBuffer now implements D-028 with fixed 32768-byte payload storage: it retains
+the first4096 insertion-ordered encoded events, rejects later entries with a
+latched overflow flag and saturating uint32 count, and resets logical contents in
+constant work. The later HAL recorder owns its instance and lifecycle. It must
+check encoding status before appending, continue frames after event overflow and
+mark an overflowed dump as incomplete evidence. No frame recorder or CSV/dump
+transport exists yet; a non-overflowed container alone does not prove completeness.
+
+The new filter stages remain independently testable components. Stuck qualification
+uses confirmed bits before phantom suppression; invalid IMU restarts only pending
+candidates. It records observed continuous-yaw span, not modulo heading or total
+back-and-forth travel. Phantom detection uses the state before edge arbitration,
+remembering any current contact cue during that chase; a consumed edge cannot be
+replayed to extend a marker. Valid close/side/rear observations override masking.
+Complete fusion still needs to wire those inputs and preserve actual sample age.
+
+Stall detection stores contact heading/edge history separately from the continuous
+qualification timer. Suppression changes its final stalled level only. The limiter
+counts starts even if an escape later interrupts them; denied requests never
+extend an active ALL_IN period. Neither component writes duties or changes Robot
+state. DIRECT returns target/SEARCH exit intents with zero terminal demand; the
+future FSM owns actual transitions, immediate target-loss braking and edge priority.
 
 Student explanation of what exists today: "We pass timestamped values into small
 C++ functions, so the laptop tests the same decisions without a robot. The start

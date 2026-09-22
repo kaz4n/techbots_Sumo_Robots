@@ -90,3 +90,24 @@ recorded. Current core components are host-tested; complete scripts/FSM, target
 compilation and real MotorGate/physical verification remain unfinished. Next
 eligible task: B5.5/B5.6 phantom/stuck contracts and independent tests, followed by
 remaining P1 integration. No board contact, upload/reset, motor run or remote push.
+
+| 2026-09-22 | P1 B11.3/B12 contracts | Limiter and standalone DIRECT interfaces before implementation | IMPLEMENTED; B16 preserved, no HAL | 6e12422,4acc9c1 |
+| 2026-09-22 | P1 protected decisions | Human approves D-029 phantom chase, D-030 marker replacement, D-031 stuck evidence/recovery, D-032 stall triggering | APPROVED; visible B5/B11 amendments, interfaces first | 29779da |
+| 2026-09-22 | P1 B12 O2 DIRECT | Snapshot/current target exit intents and heading-held400ms demand | HOST-TESTED;26 new independent cases; full FSM remains pending | 7ef428f |
+| 2026-09-22 | P1 B11 detector/limit | Qualified final-duty timer/deflection detector and rolling re-flank/ALL_IN limiter | HOST-TESTED;27 new independent cases; script/FSM integration pending | 0838c64 |
+| 2026-09-22 | P1 B5.5/B5.6 filters | Approved phantom episode/marker and latched stuck-sensor handling | HOST-TESTED;35 new cases; corrected randomized coverage reaches all128 masks | a5fb36b |
+| 2026-09-22 | P1 B15 event retention | First4096 encoded events retained; explicit overflow/saturating rejection count | HOST-TESTED;13 new cases; actual frame recording/dump still pending | b1a8266,36767f7 |
+
+2026-09-22 continuation validation:313 cases/8,149,851 assertions pass in normal
+and ASan/UBSan builds, zero failures/skips. Fresh separate scoped review PASS,
+no open BLOCKER/MAJOR/MINOR; one test-generator coverage issue corrected without
+weakening assertions. Exact21-file inert snapshots independently reviewed before
+manifest refresh. Final script result is recorded in the following checkpoint.
+No established locked test changed; no hardware action or human gate inferred.
+
+| 2026-09-22 | P1 final checkpoint |313cases/8149851assertions normal+ASan/UBSan; fresh scoped review PASS;48/48 controlled tooling checks | HOST-TESTED/SCRIPT-TESTED; analysis/P1_filters_events_validation.md; hardware/gates pending | commit containing this row |
+
+Next eligible task: B12 ARC_R/L script contracts/tests and implementation. Preserve
+the approved decisions through D-032 and obtain distinct protected decisions for
+remaining escape/SIDESTEP/FSM ambiguities before their dependent implementation.
+All original P1-P7 exit conditions remain required; no project-complete claim.

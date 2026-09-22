@@ -4,20 +4,21 @@ Independent review of SumoX-26. Reviewer reads AGENTS.md first and edits no file
 This is a filled continuation request, not reviewer output or human approval.
 
 Phase under review: **P1**, developed offline under D-016 while P0 acceptance is
-still pending. Software range: **2c6e95d..c578911**; include the subsequent checkpoint
+still pending. Software range: **2c6e95d..36767f7**; include the subsequent checkpoint
 documentation commit when reviewing the full submission. Recalculate the range
 after additional implementation; do not use this partial snapshot as a complete gate.
 
-Spec sections: BEHAVIOR B0–B16 with D-017 through D-028 amendments;
+Spec sections: BEHAVIOR B0–B16 with D-017 through D-032 amendments;
 HARDWARE section 8; AGENTS R1–R11; P1_core_logic tasks/exit criteria.
 
 Currently evidenced: B0 types, B3 hold/button qualifier and Controller, B4 classifier,
-Guard and forward demands, B5 debounce/bearing memory/contact, B6 governor, B7
-motion and B15 encoding, plus B3 Services. **212 host cases pass**, with 6,089,047
-assertions and separate ASan/UBSan success. Spec-only authors and scoped separate
-reviews are documented; full FSM/scripts, phantom/stuck and recorder buffering
-are absent. Tool controls: 48/48 pass. See analysis/P1_motion_services_validation.md,
-analysis/P1_opp_memory_contact_validation.md and their scoped review reports.
+Guard and forward demands, B5 debounce/bearing memory/contact/phantom/stuck,
+B6 governor, B7 motion, B11 detector/rolling limiter, DIRECT and B15 encoding/
+event retention, plus B3 Services. **313 host cases pass**, with8,149,851 assertions
+and separate ASan/UBSan success. Spec-only authors and fresh scoped separate
+review are documented; complete fusion/FSM, other scripts and frame recording/
+dump remain absent. See analysis/P1_filters_events_validation.md and its scoped
+review; it records the current source-manifest/tooling result separately.
 
 Exit criteria:
 - [ ] 60+ tests **and every specified table row/locked invariant covered**: count

@@ -156,3 +156,30 @@ They do not block the existing B11.3 rolling limiter and D-025 suppression timer
   B: defer. Recommend A; human choice required. Test exact/adjacent deadlines,
   both wheel thresholds/signs, deflection signs, invalid headings, edge/contact
   histories and D-025 suppression without a hidden additional cooldown.
+
+SC-O1/O2/P/Q RESOLVED later in this session by the explicit human approvals
+D-029/D-030/D-031/D-032 respectively. Their recommendations above are now
+accepted in those precise scopes. Interfaces are committed before tests/code.
+
+Further script audit (no decision inferred):
+- SC-R, B4.2 three-white/B4.4 exhausted replans: "toward the black side" still
+  needs an explicit skid-steer direction/command mapping, including multiple
+  black corners after exhaustion. Options: human-approved movement table or
+  explicitly approved inhibited recovery. Recommend a concrete table supported
+  by geometry/bench evidence before movement implementation. Test each 3-bit
+  mask, replan-limit boundary, all-white priority and persistent white.
+- SC-S, B4.3: both rear bits white supply no unique "away" direction; precedence
+  against three-white table rows is also missing. Options: explicit deterministic
+  direction/priority or deferred pushed-out recovery. Recommend decide together
+  with SC-R; test every rear-containing mask with/without centered forward push.
+- SC-T, B12 O1: simultaneous front/outer-side detections request both ATTACK and
+  DEFEND_TURN. Options: front priority or outer-side priority; recommend explicit
+  per-phase arbitration before SIDESTEP implementation. Test both mirrors and
+  every simultaneous mask at each phase boundary. B5 bearing selection alone
+  does not approve a script-exit rule.
+- SC-U, B12 O2/O3 vs B2/B9: opener FRONT_TARGET exit is currently only an intent;
+  the full FSM must reconcile literal ATTACK-on-any-front/snapshot with current
+  centering and target-loss braking. Options: current perception selects TRACK/
+  ATTACK or explicit opener-specific transition policy. Recommend current
+  perception with all safety gates; obtain the protected decision before actual
+  state integration. Test stale snapshot, off-center front, lost target and edge.

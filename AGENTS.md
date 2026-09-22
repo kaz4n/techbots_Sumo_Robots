@@ -195,3 +195,5 @@ D-022/D-023 approve bounded heading correction and duty-only voltage compensatio
 D-024 defines countdown services and D-025 preserves safety rules during ALL_IN.
 D-026/D-027 define bearing conflicts and contact lifetime; D-028 defines explicit
 event overflow handling. Approval of a policy is not evidence of its implementation.
+D-029/D-030 define phantom episodes/replacement; D-031 defines stuck qualification
+and reset-only recovery; D-032 defines qualified timer/deflection stall triggering.

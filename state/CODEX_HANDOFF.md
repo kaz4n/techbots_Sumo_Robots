@@ -259,3 +259,50 @@ Python3.13.11, CMake4.2.1, OpenSSH9.5; WSL g++13.3 verified this continuation.
 An origin remote is now configured as https://github.com/kaz4n/techbots_Sumo_Robots.git.
 Its creation was not part of this turn; preserve it. No fetch/push/publication
 was performed. Earlier no-remote statements describe the original recovery.
+
+## Continuation checkpoint — 2026-09-22 19:42 Asia/Dubai
+
+P1 host-only under D-016 remains active; P0 hardware acceptance and every human
+gate remain pending. Role migration D-015 already exists; do not duplicate it.
+Actual date/time checked in PowerShell. Read AGENTS/CODEX_KICKOFF, active P1,
+BEHAVIOR, latest state ledgers/conflicts, public contracts and relevant roles.
+No relevant memory hit. Source versions/toolchain unchanged from previous refresh.
+
+Completed this continuation:
+- Interfaces first:6e12422 (limiter),4acc9c1 (DIRECT),29779da (approved filters/
+  detector),b1a8266 (EventBuffer). New human approvals D-029–D-032 accepted in
+  their exact scopes and visibly appended to B5/B11. Never re-request them.
+- 7ef428f: DIRECT request/exit executor;0838c64: stall Detector/ReflankLimiter;
+  a5fb36b: PhantomFilter/StuckFilter;36767f7: EventBuffer retains first4096.
+-101 new independent cases. All authors avoided implementation.cpp reads;
+  workers owned disjoint implementation files, root serialized shared contracts.
+- Final normal and ASan/UBSan:313 cases/8,149,851 assertions, zero fail/skip.
+  Commands/raw receipts are in analysis/P1_filters_events_validation.md. Existing
+  locked tests and76 B16 values unchanged. Only two explicitly text-specified
+  config constants added (rolling window/capacity), logged in TUNING_LOG.
+- Fresh separate Codex read-only scoped review PASS, not cross-model/full gate.
+  One MINOR randomized mask coverage gap corrected and rerun: all128 masks now
+  checked. Initial313-case receipts preserved. No open production/test failure.
+- Exact21-file inert source snapshots separately reconstructed/reviewed; manifest
+  refreshed only to approved hashes. Final tooling result is in validation.md.
+
+Implemented policies remain component-scoped. Phantom consumes a chase's edge
+once, retains contact history and holds one expiring marker; stuck candidates use
+observed min/max continuous-yaw span and latched faults. Detector needs final
+governed duties and actual contact/edge history. ALL_IN suppresses its result only.
+DIRECT returns exit intents, not unconditional ATTACK permission. EventBuffer
+does no clock/I/O or motion control; HAL later owns it, keeps frames recording and
+marks incomplete dumps. No full recorder/scheduler or physical claim is made.
+
+Exact next eligible task: B12 ARC_R/L public script contracts, independent tests
+and implementation using existing motion primitives. Then remaining escape/
+SIDESTEP/re-flank/Robot integration after specific protected decisions in
+analysis/spec_conflicts.md. SC-R/S black-direction/pushed-out recovery, SC-T
+simultaneous SIDESTEP exits and SC-U actual opener-to-FSM transitions remain
+unapproved, alongside prior physical button/QTR/STOP/WAIT questions. No blanket
+permission or assumed measurement resolves those. Finish other eligible P1 work.
+
+No board connected/contacted, target compile, upload/reset, motor run, physical
+measurement, PINMAP OK, EXPLAINED OK, human gate, remote push or release tag.
+Human hardware testing remains deferred to project end under the active goal;
+its absence is never a pass. Full P7 completion is still outstanding.

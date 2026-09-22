@@ -9,7 +9,7 @@ the complete robot scheduler, FSM and actuator path do not yet exist.
 | `core/types.h` | B0 logical input fields, state/mode/event names, inert output defaults | Recorder outputs, validated HAL input mapping |
 | `countdown::Buttons/StopHold` | Logical qualification; rejects boot-held START; D-035 qualified BOTH long hold and reset-only STOP latch | Physical A1 decoding |
 | `countdown::Gate` | Full 5.1 s inhibit after a supplied qualified release event, cancel, latched STOP, one GO pulse | Heading reset/calibration/warning/snapshot services, FSM, real MotorGate |
-| `countdown::Controller` | D-019 full hold after qualification; D-035 StopHold/external STOP before Gate | Services composition and complete Robot FSM |
+| `countdown::Controller` | D-019 full hold after qualification; D-035 StopHold/external STOP before Gate; D-057 START-only routing and qualified-event snapshot | Logical menu and complete Robot FSM |
 | `countdown::Services` | D-024 bounded bias accumulation, rejection/previous-bias retention, latched line warning and latest opponent snapshot | Feed raw gyro/new observations, start/cancel from Controller, apply bias in HAL, complete FSM |
 | `countdown::Lifecycle` | Production Controller-first Services start/cancel/GO composition, explicit failed-start diagnostics and completed evidence retention | HAL bias/heading application, menu/Robot wiring and real MotorGate |
 | `edge::Classifier` | Per-corner threshold and consecutive-white confirmation, persistent white mask | Validated fresh QTR acquisition, escape policy, R5 arbitration |
@@ -179,6 +179,13 @@ Lifecycle now owns that service start/cancel ordering in production code while
 Controller remains the only GO authority. It retains completed service evidence
 on a later STOP and reports failed starts explicitly. Services finishing alone
 never grants permission, including on sparse wrapped input streams.
+D-057 adds a START-only routing selector, default true. False consumes a new
+qualified release without passing it to Gate, while debounce, STOP, MODE and
+existing timers still advance. It cannot cancel an already accepted countdown or
+revoke READY. The latest qualified event snapshot is available without resampling;
+the future menu must check final IDLE/STOP/fault policy before a service request.
+A suppressed idle START cannot start calibration or reset heading. Existing
+attempts retain their original lifetime. No actual menu/service action runs here.
 
 Recorder encoding retains multi-revolution heading in signed 32-bit centidegrees
 and event time in uint32 microseconds. Encoding is separate from collection.

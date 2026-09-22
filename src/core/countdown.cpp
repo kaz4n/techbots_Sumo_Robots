@@ -113,19 +113,24 @@ bool StopHold::step(std::uint32_t t_us, core::ButtonLevel level) {
 
 void StopHold::reset() { *this = StopHold{}; }
 
-Result Controller::step(const core::Inputs& inputs, bool stop_requested) {
-    const ButtonEvents events = buttons_.step(inputs.t_us, inputs.button_level);
+Result Controller::step(const core::Inputs& inputs, bool stop_requested,
+                        bool allow_match_start) {
+    events_ = buttons_.step(inputs.t_us, inputs.button_level);
     const bool logical_stop = stop_.step(inputs.t_us, inputs.button_level);
     // A release pulse is generated at this qualifying tick. Using the same tick
     // for Gate prevents raw-edge backdating, including after delayed calls.
     return gate_.step(inputs.t_us,
-                      {events.start_release, events.mode_press, stop_requested || logical_stop});
+                      {allow_match_start && events_.start_release,
+                       events_.mode_press, stop_requested || logical_stop});
 }
+
+ButtonEvents Controller::buttonEvents() const { return events_; }
 
 void Controller::reset() {
     stop_.reset();
     buttons_.reset();
     gate_.reset();
+    events_ = {};
 }
 
 bool Services::start(std::uint32_t release_us, float previous_bias_dps) {
@@ -209,12 +214,13 @@ void Services::cancel() {
 void Services::reset() { *this = Services{}; }
 
 LifecycleResult Lifecycle::step(const ServiceSample& sample, core::ButtonLevel button,
-                                float previous_bias_dps, bool stop_requested) {
+                                float previous_bias_dps, bool stop_requested,
+                                bool allow_match_start) {
     core::Inputs inputs;
     inputs.t_us = sample.t_us;
     inputs.button_level = button;
     LifecycleResult result;
-    result.gate = controller_.step(inputs, stop_requested);
+    result.gate = controller_.step(inputs, stop_requested, allow_match_start);
     if (result.gate.start_release) {
         service_start_failed_ = !services_.start(result.gate.release_us, previous_bias_dps);
         pending_ = true;
@@ -231,6 +237,8 @@ LifecycleResult Lifecycle::step(const ServiceSample& sample, core::ButtonLevel b
     result.heading_reset_requested = result.gate.go;
     return result;
 }
+
+ButtonEvents Lifecycle::buttonEvents() const { return controller_.buttonEvents(); }
 
 void Lifecycle::reset() {
     controller_.reset();

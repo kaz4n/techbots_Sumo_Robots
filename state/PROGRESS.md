@@ -289,3 +289,5 @@ physical acceptance and complete fresh gate reviews remain pending.
 | 2026-09-23 | P1 current core target check | Actual board-side timing/default compile-only, source98c436a4, MATCH0/MOTORS_ALLOWED0 | TARGET-COMPILED exit0;74008B program/33964B globals for inert sketch; no upload/reset/start; complete app absent | checkpoint commit containing this row |
 
 Session checkpoint: state/analysis/P1_escape_wait_validation.md contains commands, receipts, review and limits. No human gate or physical acceptance inferred. Last uploaded board image remains the September22 inert matrix. Next eligible task is B13 logical menu/START routing from P1_mode_menu_contract_audit.md, then complete Robot integration; no further hardware connection requested.
+
+| 2026-09-23 | P1 B3/B13 START routing | D-057 START-only eligibility and qualified-event snapshot;24 new locked cases; original defaults intact | HOST-TESTED740 cases/12122401 assertions normal+ASan/UBSan;116 tooling checks; no hardware command in this batch | implementation commit containing this row |

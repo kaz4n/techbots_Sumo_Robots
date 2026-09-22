@@ -439,6 +439,13 @@ Service menu (long MODE press toggles it): SENSOR_VIEW (7 opponent bits + 4 line
 
 Buttons: MODE short press (under 600 ms) = next item. MODE long press (BTN_LONG_MS) = service menu toggle. START press and release = start the countdown (match modes) or run the service action. Both held BTN_LONG_MS = STOPPED from any state.
 
+D-057 (selected under D-051,2026-09-23): service START routing filters only a new
+qualified release supplied to the match gate. Debounce, MODE cancellation, STOP
+and existing countdown timers always continue. A suppressed release is consumed,
+never replayed when match selection returns. The qualified input snapshot alone
+cannot authorize a service action or motion; final IDLE/fault/STOP policy applies.
+This selector cannot cancel an already accepted hold or revoke READY permission.
+
 D-035 (human-approved 2026-09-22): logical BOTH first qualifies for
 BTN_DEBOUNCE_MS, then the complete BTN_LONG_MS starts on that qualification tick.
 Any observed release before expiry cancels the pending hold. STOPPED remains

@@ -610,3 +610,30 @@ history/last-known recovery, unchanged motion deadlines/references, sticky fault
 extreme finite coordinates, angle ties, duplicates/wrap and truthful provenance.
 This contract does not prove provider continuity, physical yaw, full Robot wiring
 or complete-loop WCET. No pins/config/locked tests/phase or motor authority change.
+
+## D-060 (2026-09-23, selected under D-051) Production Robot transaction and evidence
+Context: all P1 behavior components now exist, but their ordering, input ownership,
+actual-duty feedback and event/frame lifecycle are not yet a production Robot.
+Public-only proposals: P1_robot_api_proposal.md and P1_robot_event_contract_audit.md.
+Decision: adopt the concrete contract in P1_robot_contract.md with public APIs in
+fsm.h/logframe.h. One fresh raw sensor observation, one final Fusion commitment
+and one Governor pass. Preserve original gate/edge/script/centering/contact rules,
+D-059 raw/match coordinates and missing-IMU fallback. Invalid required/stale input
+stops immediately; process STOP while canceling services before stale sampling.
+Applied receipts require exact prior identity/time, permission, finite duties and
+requested direction/magnitude (PWM quantization toward zero). Missing application
+faults; missing/invalid duration only marks timing incomplete. Matched complete-
+tick duration must agree with its start/completion timestamps, not loop intervals.
+Use bounded token/history/event/frame state, explicit metadata and21-event capacity
+with separate loss counters; PHANTOM_SET uses match-world projection. Preserve
+last-match recorder evidence through reset; frames use actual matched application,
+not requests. Stop recording at cancellation, STOPPED or inhibited Escape fault;
+include the final stopping tick in match timing if GO occurred. QTR warning uses
+actual reported opposite-sign duties and continuous white strictly beyond its
+existing duration; warning never changes edge behavior. Contract file records
+remaining exact boundaries, duplicate/reset semantics and invalid-state recovery.
+Consequence: stale or unverified actuator feedback can stop the match; timing or
+logging incompleteness alone cannot. These are explicit software integration
+choices, not measured acquisition, motor or timing facts. Test the actual Robot,
+not another test-only arbiter. Do not modify existing locked cases. No additional
+hardware request, phase gate, wiring, motor-run or configuration-value change.

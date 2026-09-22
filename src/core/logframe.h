@@ -62,6 +62,35 @@ struct EventInput {
 };
 struct EventBytes { std::uint8_t data[EVENT_BYTES] = {}; };
 
+// D-060 metadata version1; explicit wire codes, not behavior tunables.
+inline constexpr std::size_t ROBOT_EVENT_CAPACITY = 21U;
+enum class FaultCode : std::uint8_t {
+    IMU_UNAVAILABLE = 1, OPPONENT_STUCK, QTR_STUCK_WARNING, LOW_BATTERY,
+    CALIBRATION, ESCAPE_FAULT, CORE_CONTRACT_FAULT, TURN_TIMEOUT,
+    TICK_STATISTICS, RESET_CAUSE
+};
+enum EdgeDetail : std::uint8_t {
+    NEW_WHITE = 1U, ENTERED = 2U, REPLANNED = 4U, EXITED = 8U, PUSHED_OUT = 16U
+};
+enum class ReflankCode : std::uint8_t { BACK = 1, SWING = 2, TURN_IN = 3 };
+enum class DirectionCode : std::uint16_t { RIGHT = 1, LEFT = 2 };
+struct EventBatch {
+    EventInput entries[ROBOT_EVENT_CAPACITY] = {};
+    std::uint8_t count = 0;
+    bool overflowed = false;
+    std::uint32_t rejected = 0; // Capacity rejection only, saturating.
+    std::uint32_t invalid_metadata = 0; // Separate semantic failure, saturating.
+};
+// D-060 metadata table in state/analysis/P1_robot_event_contract_audit.md, adopted
+// by D-060 with CORE_CONTRACT bits0..7 and TICK_STATISTICS bits0..2. Validate
+// types/codes/masks, canonical encoded angles, duty bytes and zero reserved bits.
+// Encoding alone still accepts caller-defined metadata (legacy packEvent unchanged).
+bool validEventMetadata(const EventInput& input);
+// Fixed prefix retention. Invalid metadata increments only invalid_metadata;
+// otherwise full count latches overflow/rejected. Never recursively emit a fault,
+// overwrite prior entries or affect motion. Clear with EventBatch{} each result.
+bool appendEvent(EventBatch& batch, const EventInput& input);
+
 // Little-endian layout: t_ms u32 @0; state/mode/line/opp u8 @4..7;
 // heading i32 centidegrees @8; gyro i16 tenths dps @12; ax/ay i16 mg @14/16;
 // duties i8 scale127 @18/19; vbat u16 centivolts @20; flags u8 @22;

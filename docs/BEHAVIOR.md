@@ -97,6 +97,15 @@ EDGE_ESCAPE preempts every moving state (B2). Both buttons held for BTN_LONG_MS 
 
 Invariant (locked test): after GO, a white reading on any QTR puts the robot in EDGE_ESCAPE within 1 tick, except inside the push-through window (B9.4).
 
+D-060 (selected under D-051,2026-09-23) defines the production transaction in
+state/analysis/P1_robot_contract.md. Raw line classification and Fusion run once
+before gated services so they share one observation; services/STOP still precede
+the motor gate. Edge/script/normal/stall arbitration precedes the one final contact
+commitment and Governor pass. Required stale/invalid context or missing actual
+application feedback latches inhibited STOPPED. Feedback must match the prior
+request's direction/cap; timing or recorder incompleteness alone does not inhibit.
+The contract also makes warning, history, frame and event boundaries explicit.
+
 ---
 
 ## B3. Countdown and start

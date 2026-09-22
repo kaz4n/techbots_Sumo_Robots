@@ -5,6 +5,12 @@
 #include "motion.h"
 #include "governor.h"
 #include "types.h"
+#include "countdown.h"
+#include "edge.h"
+#include "opp_fusion.h"
+#include "openers.h"
+#include "stall.h"
+#include "logframe.h"
 #include <cstdint>
 
 namespace fsm {
@@ -358,5 +364,106 @@ private:
     Intent intent_ = Intent::NONE;
     bool active_ = false;
     bool turn_timeout_reported_ = false;
+};
+enum class ResetCause : std::uint8_t { UNKNOWN, WATCHDOG };
+enum RobotFault : std::uint16_t {
+    INVALID_CONTEXT = 1U, SCRIPT_START = 2U, SCRIPT_RESULT = 4U,
+    GOVERNOR_CONTRACT = 8U, APPLICATION_CONTRACT = 16U, STALE_SENSORS = 32U,
+    HEADING_CONTRACT = 64U, TOKEN_EXHAUSTED = 128U
+};
+struct PreviousTick {
+    bool applied_valid = false;
+    std::uint64_t token = 0;
+    std::uint32_t applied_us = 0;
+    bool motors_enabled = false;
+    float duty_l = 0.0F;
+    float duty_r = 0.0F;
+    bool duration_valid = false;
+    std::uint32_t completed_us = 0;
+    std::uint32_t execution_us = 0; // Measured whole tick, not start-to-start interval.
+};
+struct RobotInput {
+    std::uint32_t t_us = 0;
+    bool initialization_complete = false;
+    bool observations_fresh = false; // NEW complete four-QTR/seven-opponent sample.
+    std::uint32_t line_raw_us[4] = {}; // Sole authoritative line source; no line_mask.
+    std::uint8_t opp_raw_mask = 0; // Electrical polarity, D-059 continuous raw yaw.
+    float raw_heading_deg = 0.0F;
+    float raw_gyro_z_dps = 0.0F; // Before bias subtraction, for D-024.
+    float ax_g = 0.0F;
+    float ay_g = 0.0F;
+    bool imu_ok = false; // Missing-at-boot is allowed; never an init-complete prerequisite.
+    float previous_bias_dps = 0.0F; // Consumed only on accepted match release.
+    float vbat_v = 0.0F;
+    bool vbat_valid = false;
+    core::ButtonLevel button = core::ButtonLevel::NONE;
+    bool stop_requested = false; // Local qualified safety stop, no remote command path.
+    ResetCause reset_cause = ResetCause::UNKNOWN; // First boot observation only.
+    PreviousTick previous;
+};
+struct RobotResult {
+    std::uint64_t token = 0;
+    bool fresh = false;
+    core::Outputs outputs; // Governed request/permission; never application evidence.
+    core::Mode running_mode = static_cast<core::Mode>(config::MODE_DEFAULT);
+    countdown::MenuResult menu;
+    countdown::LifecycleResult lifecycle;
+    HeadingResult heading;
+    std::uint16_t contract_faults = 0;
+    edge::EscapeFault escape_fault = edge::EscapeFault::NONE;
+    std::uint8_t line_mask = 0;
+    std::uint8_t opponent_mask = 0; // Effective filtered perception.
+    std::uint8_t opponent_fault_mask = 0;
+    std::uint8_t qtr_warning_mask = 0;
+    bool low_battery = false;
+    bool all_in = false;
+    bool contact = false; // Only the one valid final-state commitment.
+    bool bias_update_requested = false;
+    float accepted_bias_dps = 0.0F;
+    logframe::EventBatch events;
+    bool frame_ready = false;
+    logframe::FrameBytes frame;
+    logframe::PackStatus frame_status = logframe::PackStatus::OK;
+    std::uint64_t frame_token = 0; // Prior completed observation, not current token.
+    std::uint32_t skipped_frames = 0; // Per attempt; saturating missed/lost candidates.
+    logframe::TickStatistics ticks;
+    bool timing_incomplete = false;
+    bool recording_incomplete = false; // Lost/invalid frame or event evidence.
+};
+class Robot {
+public:
+    // Production B0..B15/D-060 transaction; exact contract in
+    // state/analysis/P1_robot_contract.md. No clock/I/O/allocation/remote control.
+    // Every distinct timestamp is one admitted tick, with nonzero monotonic token.
+    // Immediate duplicates ignore changed input/receipt and return cached values
+    // with fresh=false and all action/event/frame pulses cleared; never reapply.
+    // Successive distinct ticks must be <one uint32 wrap apart. Actual new sensor
+    // acquisition is the caller's obligation; stale data after setup faults to
+    // disabled STOPPED while button/STOP processing remains live. BOOT may wait.
+    // First init-complete call goes BOOT->IDLE (or STOP/fault); no BOOT-entry START.
+    // Require one identity/time-matched actual applied receipt after every fresh
+    // result. Disabled reports zero; enabled duty must keep request sign and
+    // magnitude<=request (downward PWM quantization). No invented applied output.
+    // Missing duration marks timing incomplete only; missing/invalid application
+    // latches inhibition. Application/completion lie between prior and current
+    // decision timestamps, in order. Feedback measures settings, not wheel motion.
+    // Gate/services -> D-059 coordinates -> edge -> script/normal/stall routing ->
+    // one final Fusion commit -> one Governor call. Validate rejection inputs
+    // before commit. No preview may grant permission or emit CONTACT. Final STOP
+    // or contract fault inhibits immediately; Escape faults retain EDGE_ESCAPE
+    // with inhibition unless explicit STOP/independent contract fault wins.
+    // Match mode snapshots only on accepted match release; services are intents,
+    // DRIVE_TEST unavailable. Preserve original full hold, edge and contact rules.
+    // Events retain decision order and prior receipt extensions first; <=21 under
+    // the adopted source bound, with explicit independent loss counters. Frames
+    // start at accepted START, at most one per tick, finalized only using its
+    // matched actual receipt. Skips/invalid metadata/codec status stay explicit.
+    RobotResult step(const RobotInput& input);
+    // Clears runtime state/faults/pending evidence while preserving next token,
+    // so stale pre-reset feedback cannot attach to a new result. Recorder storage
+    // remains caller-owned; reset alone does not erase the last match's evidence.
+    void reset();
+private:
+    // Implementation-owned fixed members follow; public contract is frozen first.
 };
 } // namespace fsm

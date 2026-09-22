@@ -2,6 +2,11 @@
 
 ## Current resume point - 2026-09-23 Asia/Dubai
 
+Goal status: BLOCKED after three unchanged eligibility checks. Original P0/P1
+physical/human acceptance still prevents further phase work under D-016. Latest
+substantive implementation is660eb08; evidence/handoff94504c5. No job is running.
+On resume, reload actual eligibility/evidence; preserve the full unfinished goal.
+
 P0 G2 compile-only work is complete: D-067 contractc8e8f55, installed PWM/IRQ
 audits5ad262d, raw-byte preservation54dd976, implementation660eb08. Source
 6578e07a first target compile exit0 at03:22:01+04,80248B/34048B globals. Eight

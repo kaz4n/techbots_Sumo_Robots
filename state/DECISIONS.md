@@ -74,3 +74,23 @@ GATE P0 PASS, PINMAP OK, electrical verification, behavior-conflict resolution,
 locked-test change, P2 HAL work, target upload or motor run is authorized by this
 assumption. Begin independent spec-derived tests and unambiguous pure modules;
 defer dependent behavior until its specific protected decision is resolved.
+
+## D-017 (2026-09-22, accepted) Final electrical governor envelope
+Context: SC-C showed that B6 compensation after cap/slew could violate R6 and the
+measured search cap at low battery voltage. The user explicitly replied
+"Approve A for the governor" to the presented option.
+Decision: apply voltage compensation first, then enforce the state cap and
+acceleration slew on final electrical duty. Braking and safety-cap reductions
+remain immediate. Full duty still requires centered contact.
+Consequence: update B6's pipeline; retain all B16 values. Test 9.0/11.1/12.6 V,
+changing battery voltage, centered/contact loss, cap reductions, reversal and
+exact slew limits. This does not authorize ALL_IN exceptions, wiring or motor runs.
+
+## D-018 (2026-09-22, accepted) Gated-state services precede output inhibition
+Context: SC-D1 identified B2's early return suppressing the countdown and other
+inhibited-state services. The user explicitly replied "Approve A for tick ordering".
+Decision: update button/countdown/gated-state services before the motor-output
+gate. BOOT, IDLE, COUNTDOWN and STOPPED still return zero duties and disabled motors.
+Consequence: service updates are possible while inhibited. This resolves only
+ordering; it does not choose ADC/button semantics, calibration/sample eligibility,
+snapshot aggregation, edge policy, or STOP recovery. Those conflicts remain open.

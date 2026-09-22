@@ -1,7 +1,8 @@
 # Open specification conflicts — 2026-09-22
 
-Verified against the supplied files, not hardware. All recommendations are
-UNAPPROVED. User's later instruction to proceed assuming hardware works permits
+Verified against the supplied files, not hardware. Recommendations are UNAPPROVED
+except SC-C (D-017) and SC-D1 (D-018), explicitly approved below. User's later
+instruction to proceed assuming hardware works permits
 continued eligible software work; it supplies no circuit choice, measurement,
 pin approval, motor authorization, or phase gate.
 
@@ -56,3 +57,12 @@ defined. Options: explicit perception policy or defer affected fusion stages.
 Recommend retain only unambiguous B5.1 filtering until the relevant contracts are
 settled. No policy is approved. Regressions: all 128 masks, group priorities,
 opposite-side/rear conflicts, finite angles and contact reset/lifetime.
+
+## Approved resolutions — 2026-09-22
+
+- SC-C RESOLVED by D-017: user "Approve A for the governor". Final electrical
+  compensation -> state caps -> acceleration slew; braking/cap reductions immediate;
+  full duty requires centered contact. B6 updated visibly; regression work follows.
+- SC-D1 RESOLVED by D-018: user "Approve A for tick ordering". Gated-state
+  services precede output inhibition. B2 updated; this does not resolve SC-J/K
+  service semantics or SC-D2/SC-E arbitration/edge/ALL_IN conflicts.

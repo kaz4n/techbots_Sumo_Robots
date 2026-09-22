@@ -71,7 +71,7 @@ EDGE_ESCAPE preempts every moving state (B2). Both buttons held for BTN_LONG_MS 
 
 ## B2. Arbitration (every tick, in this order)
 
-1. **Gate.** State in {BOOT, IDLE, COUNTDOWN, STOPPED}: duties 0, motors disabled, return.
+1. **Gated-state services, then gate (D-018, human-approved 2026-09-22).** Update button/countdown/gated-state services before checking the motor-output gate. State in {BOOT, IDLE, COUNTDOWN, STOPPED}: duties 0, motors disabled, return. This supersedes the original early gate return; unresolved service semantics remain tracked separately.
 2. **Update perception:** opponent fusion (B5), edge classifier (B4), contact and stall detectors (B11), battery filter.
 3. **Edge.** New edge event and not push-through eligible (B9.4): enter or re-plan EDGE_ESCAPE.
 4. **Escape continues.** EDGE_ESCAPE active: run its script. Only a new edge event interrupts it (re-plan).
@@ -172,7 +172,7 @@ A bit that stays on for OPP_STUCK_MS while the heading changes by more than 360 
 
 ## B6. Speed governor
 
-Pipeline: requested duty per side, then state cap, then slew limit, then voltage compensation, then clamp to [-1, 1].
+Pipeline (D-017, human-approved 2026-09-22): requested duty per side, then voltage compensation, then state cap, then acceleration slew on final electrical duty, then clamp to [-1, 1]. Braking and safety-cap reductions are immediate. Full duty still requires centered contact. This supersedes the original cap/slew-before-compensation ordering; all B16 defaults remain unchanged.
 
 | Situation | Cap |
 |---|---|

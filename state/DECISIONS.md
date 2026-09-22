@@ -270,3 +270,15 @@ snapshot alone cannot authorize ATTACK. Preserve immediate target-loss braking,
 contact rules and edge priority.
 Consequence: executor outputs remain transition intents. Implement and test the
 actual transitions in Robot integration; no snapshot or script grants motor permission.
+
+## D-035 (2026-09-22, accepted) Qualified STOP hold and reset-only recovery
+Context: remaining SC-J left B13 both-held STOP debounce anchoring/recovery undefined.
+User replied "Approve A: qualified STOP hold and reset-only recovery".
+Decision: for logical BOTH input, start the complete BTN_LONG_MS when BOTH has
+qualified for BTN_DEBOUNCE_MS. Any observed release before expiry cancels the
+pending hold. Once STOPPED, remain inhibited until reset; reset returns to the
+normal boot/start sequence.
+Consequence: implement logical hold and Controller composition with exact/adjacent
+debounce/hold deadlines, release priority, boot-held BOTH, delayed calls, wrap,
+latched release behavior and reset tests. SC-A electrical decoding remains separate;
+this neither proves that A1 can distinguish BOTH nor authorizes a board reset.

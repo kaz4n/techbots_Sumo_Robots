@@ -54,16 +54,37 @@ private:
     bool pressed_ = false;
 };
 
+class StopHold {
+public:
+    // D-035: an observed logical BOTH begins debounce, including if held at boot.
+    // Once BTN_DEBOUNCE_MS has elapsed, start the full BTN_LONG_MS at that call;
+    // never backdate a delayed qualification. A non-BOTH observation cancels any
+    // pending stage, including a release on its deadline. After a true result,
+    // retain true regardless of releases/other inputs until reset.
+    // Invalid button enums count as non-BOTH, never as an assumed press.
+    // Successive calls must be <one uint32 micros wrap. No clock or hardware I/O.
+    bool step(std::uint32_t t_us, core::ButtonLevel level);
+    void reset();
+private:
+    enum class Stage : std::uint8_t { IDLE, DEBOUNCE, HOLDING, STOPPED };
+    Stage stage_ = Stage::IDLE;
+    std::uint32_t last_us_ = 0;
+    std::uint32_t age_us_ = 0;
+};
+
 class Controller {
 public:
     // Update Buttons before Gate on every tick, including while inhibited
     // (D-018). D-019 anchors the full hold at completed release qualification,
     // with no backdating after a delayed tick. Returns Gate's one-step pulses.
-    // External qualified STOP is immediate and latched until reset; ADC and B13
-    // both-held timing/recovery remain separate. This never writes motors/duty.
+    // D-035 logical StopHold updates each call; it ORs with an external qualified
+    // immediate STOP before Gate. STOP remains latched until reset; physical ADC
+    // decoding is separate. This never writes motors/duty. Reset clears all three
+    // components; START held at reset is still ignored until a new press/release.
     Result step(const core::Inputs& inputs, bool stop_requested = false);
     void reset();
 private:
+    StopHold stop_;
     Buttons buttons_;
     Gate gate_;
 };

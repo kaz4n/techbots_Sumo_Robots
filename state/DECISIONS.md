@@ -464,3 +464,17 @@ workflow and strict host-key checking; no arbitrary LAN probing or new key setup
 Consequence: attachment/isolation is human-reported; installed/tool/runtime facts
 need their own evidence. Do not request sensors/drivers/motors now or infer
 PINMAP OK, STAND/RING authorization, physical rule compliance or a phase gate.
+
+## D-053 (2026-09-22, selected under D-051) Frozen RAM timing readout
+Context: P0 needs bare-board scheduler measurements; current RouterBridge Monitor
+has unresolved blocking/allocation behavior. Installed core's required Bridge
+library does not justify using Monitor in the measurement loop. A reviewed
+MEM-AP-only debug connection can read completed RAM without reset/halt/MCU writes.
+Decision: retain the existing RAM-only60000-sample diagnostic. Let it finish before
+attachment, verify exact loader/sketch bytes, resolve final-ELF BSS symbols from
+the verified loader's bounded LLEXT list, and validate two identical complete
+snapshots before reporting max/p99. Include installed loop-hook overhead.
+Consequence: no R3/R4 exception or invented log round trip. P0's Monitor counter
+and physical cold-boot/display checks remain distinct pending evidence. No GPIO,
+voltage, wiring, core behavior or config default changes. Incomplete/inconsistent
+reads fail, and an attachment during capture invalidates the unperturbed result.

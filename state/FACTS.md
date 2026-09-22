@@ -130,3 +130,15 @@ F-063 supersedes only the earlier installed-unknown status, not source or timing
 limitations. Packaged loader ELF/bin do not prove flashed-loader identity. No
 PINMAP OK, electrical verification, GPIO/ADC/QTR/IMU measurement or gate follows
 from successful Linux inventory. Source and actual behavior remain distinct.
+
+| ID | Question | Observed answer | Source | Confidence | Hardware-checked |
+|---|---|---|---|---|---|
+| F-066 | Actual target compilation | Timing source3de6da69 and matrix72214f8a compile successfully on UNO Q CLI1.5.1/core1.0.0 with MATCH0/MOTORS_ALLOWED0/default startup. Timing reported74008 bytes program/33964 globals; matrix74444/30216. These CLI size figures are not measured runtime headroom. | analysis/P0_timing_target_compile_deps_20260922.txt; P0_matrix_target_compile_20260922.txt | TARGET-COMPILED | actual board-side compiler, not MCU execution proof |
+| F-067 | Required installed dependency graph | RouterBridge0.4.3, RPClite0.3.1, MsgPack0.4.2, ArxContainer0.7.0, ArxTypeTraits0.3.2, DebugLog0.8.4 installed with explicit pins/no-overwrite/no-deps after core mandatory stub error. No Graphics dependency needed for raw matrix draw. | analysis/P0_library_provenance_20260922.json contains index URLs/checksums; P0_board_libraries_install_20260922.txt | installed and target-compiled | Bridge runtime boundedness still unresolved for application use |
+| F-068 | Actual inert upload | Board-side CLI upload over selected USB2629958581 completed23:19:29+04, reviewed timing3de6da69, MATCH0/MOTORS_ALLOWED0/default/dynamic. MCU reset/flash occurred as upload requires; no motor pins written by sketch. | analysis/P0_timing_upload_20260922.txt | upload command exit0 | capture/runtime readback still pending |
+
+The linked timing ELF includes a local yield/mutex loop hook from RouterBridge,
+but does not call begin/start UART/create RPC threads. Exact constructor and
+packaged-loader mutex branches were inspected before upload; this is specific
+to these binary versions, not a portable guarantee. The uninitialized-mutex API
+pattern is not endorsed for new code. See P0_installed_debug_contract.md.

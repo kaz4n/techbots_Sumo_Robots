@@ -140,3 +140,18 @@ tool's thread limit; reused independent context is explicitly labeled and does
 not satisfy a newly fresh full gate. Next unblocked work: fully specified B4.2
 row executor interfaces/tests/code per analysis/P1_escape_row_contract_audit.md.
 SC-Y/Z/AA/AB decisions still pending; no approval inferred. No board action.
+
+| 2026-09-22 | P1 B4.2 row scripts | Supported-row public contract; centralize existing45° side angle; event bookkeeping clarified | IMPLEMENTING; independent new locked tests and separate review in progress | 76e0360,c5e80b8 |
+
+Previous goal turn made concrete progress (Fusion and verified checkpoint cb0d902).
+This continuation remains P1 under D-016. SC-AC head-on brake/reverse values are
+now presented separately; no answer/approval inferred. All prior open decisions
+and hardware/human gates remain pending. The row executor does not claim full B4.
+
+| 2026-09-22 | P1 B4.2 selected rows | Nine specified mirrored scripts and34 independent locked cases | HOST-TESTED;478cases/11897401assertions normal+ASan/UBSan | 970e083 |
+| 2026-09-22 | P1 scoped checkpoint |48/48 scripts; reused separate read-only review PASS;23-file inert snapshots reviewed | analysis/P1_edge_rows_validation.md; no board action/full gate | commit containing this row |
+
+D-039 single-case locked amendment was rechecked as already recorded/applied;
+this batch changes no established locked test. B16 values unchanged. Full Escape
+and Robot remain incomplete. Next unblocked task is B9 centered qualification
+and immediate target-loss brake composition, leaving disputed loss routing open.

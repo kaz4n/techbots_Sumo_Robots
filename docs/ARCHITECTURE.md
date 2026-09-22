@@ -14,6 +14,7 @@ the complete robot scheduler, FSM and actuator path do not yet exist.
 | `edge::Classifier` | Per-corner threshold and consecutive-white confirmation, persistent white mask | Validated fresh QTR acquisition, escape policy, R5 arbitration |
 | `edge::Guard` | D-020 persistent escape request, black-plus-finished exit, latched all-white motion veto until reset | Escape directions/scripts/replanning and application of veto at MotorGate |
 | `edge::forwardDemand` | D-021 straight/left/right-biased forward requests using 0.80 base and 70% inner-side request | Timed/heading-held segments and selection by the escape planner |
+| `edge::RowExecutor` | B4.2 single-front/diagonal/rear/side scripts, bounded transitions, B7 heading capture/fallback and governor profiles | Row selection, head-on/three-white/pushed-out policies, replanning and full Robot arbitration |
 | `opp_fusion::Debouncer` | Per-bit polarity, two-sample assertion, continuous-clear hysteresis | Validated sensor acquisition |
 | `opp_fusion::frontView` | Seven front bearing/centering/close rows from B5.2 | Downstream motion/FSM policy |
 | `opp_fusion::BearingMemory` | Front/side/rear priority, approved bilateral conflicts, world angle and rising-front recency | Search/re-flank use and memory-age ownership |
@@ -80,6 +81,16 @@ permission; only explicit guard reset clears it. Before GO, line readings do not
 start escape or latch a new fault. Normal escape requires both all-black readings
 and a finished script to clear. Scripts/replanning and freshness remain separate.
 
+RowExecutor now executes nine explicitly selected B4.2 rows. Front/diagonal rows
+brake one tick, reverse120ms and turn120 degrees away; single rear rows advance
+with70% inner-wheel bias; both rear advance straight; same-side rows pivot45
+degrees then advance200ms. Segment entry captures the current/last healthy heading
+and starts its own deadline at the observation time. B7 fallback and governor
+profiles apply. Unsupported rows return an explicit zero/unsupported result;
+that is API coverage, not an approved escape recovery policy. DONE cannot clear
+the guard while white persists. Head-on/three-white/pushed-out selection, replans
+and valid inward-heading recording at the actual exit still need implementation.
+
 This diagram is the implemented standalone Gate, **not the unfinished Robot FSM**:
 
 ```mermaid
@@ -127,11 +138,11 @@ or its right mirror. The caller must pass these through the EDGE_FORWARD governo
 profile and obey the edge guard's veto. The 70% value specifies requested duties;
 compensation, individual caps and acceleration slew can alter the final ratio.
 For example, at 9 V after settling, a left-biased request becomes approximately
-`(0.69067, 0.80)`. This is arithmetic, not a measured turn trajectory. No timed
-segment, heading-hold controller or hardware path is supplied by this helper.
+`(0.69067, 0.80)`. This is arithmetic, not a measured turn trajectory. The helper
+supplies no timing or hardware path; RowExecutor now sequences specified rows.
 
-Motion now supplies those generic primitives separately; it does not yet select
-or sequence escape/opener/re-flank segments. A turn uses shortest signed heading
+Motion supplies generic primitives; script modules compose them without granting
+motor permission. A turn uses shortest signed heading
 error, a strict 5-degree completion tolerance and the original 700ms timeout.
 On IMU loss it times the last known remaining angle once, without extending that
 deadline on recovery. Straight correction preserves wheel direction, including

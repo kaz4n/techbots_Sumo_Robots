@@ -363,3 +363,17 @@ It must not silently select unsupported head-on/three-white/pushed-out/replan
 policies. Full Escape/Robot integration remains pending. Await the four already
 presented SC-Y/Z/AA/AB decisions without re-asking or treating silence as approval.
 Search/re-flank contract audit is saved; no hardware setup is assumed verified.
+
+## Latest row checkpoint — 2026-09-22 Asia/Dubai
+
+Contracts76e0360/c5e80b8 and implementation970e083 add nine specified B4.2 rows.
+34 new locked cases are established.478 cases/11,897,401 assertions pass normal
+and ASan/UBSan;48/48 controlled script checks pass. Reused separate read-only
+review PASS/no finding; exact current23-file inert hashes reviewed/refreshed.
+See analysis/P1_edge_rows_validation.md and reviews/P1_edge_rows_codex.md.
+No established locked test or B16 value changed;45-degree side angle copies B4.2.
+D-039 already records/applies the user's single-case STOP amendment; do not repeat.
+No board action, measurement, target compile or human gate. Full P0-P7 stays open.
+Next unblocked task: B9 centered qualification and immediate target-loss brake
+composition; audit actual loss destination before full Robot integration. Pending
+SC-Y/Z/AA/AB/AC and older protected choices remain unanswered, not approved.

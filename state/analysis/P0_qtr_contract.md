@@ -27,13 +27,17 @@ P0_qtr_bare_contract_audit_20260923.md. Preserve every B16 value.
 - After successful charge, configure each pin INPUT or INPUT_PULLUP in the same
   order. Timestamp after all four transitions. release_us includes that sequential
   release overhead; this timestamp is the observation epoch for the full1500us
-  interval. Individual release skew is not measured and remains a limitation.
+  reported interval. The observation duration has less than1us clock-quantization
+  uncertainty; >=1500 reported ticks is not an exact physical1500us lower bound.
+  Individual release skew is not measured and remains a limitation.
 - Each observation pass performs four actual digitalRead calls in pin order,
   including pins already observed LOW. Timestamp after the whole pass. Every
   first LOW is assigned that end-of-pass elapsed time (shared timestamp/skew).
   Record a sticky low_mask and four first_low_us; unset is UINT32_MAX. This is
   sampled digital evidence, not analog discharge timing or continuous HIGH proof.
 - Validate read results are exactly LOW/HIGH. A different result causes BAD_LEVEL;
+  the installed wrapper maps native read errors to LOW, so this cannot detect
+  those errors; it protects the record against other abnormal API results.
   complete the four reads in that pass, timestamp, then stop and clean up. Clock
   faults take priority. For valid passes first record LOW observations, then test
   elapsed >=QTR_TIMEOUT_US: DEADLINE wins over all-LOW at an exact tie or overshoot.
@@ -45,7 +49,8 @@ P0_qtr_bare_contract_audit_20260923.md. Preserve every B16 value.
   for real elapsed time. All-high pull-up success requires DEADLINE, low_mask0,
   timeout_mask15, all first_low unset and observe_us>=1500; any early LOW fails
   stimulus qualification even if that sample eventually reaches the deadline.
-- After every acquisition, including any post-configuration failure, attempt
+- After every started sample, including an overhead clock fault before any output
+  configuration and every post-configuration failure, attempt
   pinMode(INPUT) exactly once on every pin, no pulls. Timestamp after cleanup;
   cleanup_calls4 records attempts, not native return success. Floating readback
   cannot verify no-pull cleanup, so no LOW expectation is imposed. Retain total_us.

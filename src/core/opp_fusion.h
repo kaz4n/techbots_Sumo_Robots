@@ -5,6 +5,17 @@
 #include <cstdint>
 
 namespace opp_fusion {
+struct FrontView {
+    bool detected = false;
+    bool centered = false;
+    bool close = false;
+    float bearing_deg = 0.0F; // Meaningful only when detected is true.
+};
+// The seven unambiguous front rows in B5.2; input is already polarity-corrected
+// and debounced. Side/rear bits do not change this front-only view. This neither
+// selects side/rear bearings nor changes target memory/contact/phantom policy.
+FrontView frontView(std::uint8_t confirmed_mask);
+
 class Debouncer {
 public:
     // One newly sampled raw electrical seven-bit mask per call/tick.

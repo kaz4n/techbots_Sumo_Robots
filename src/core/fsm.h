@@ -2,9 +2,9 @@
 // Keeps state deadlines and target exits separate from motor permission and I/O.
 // Independent host tests cover capture, target priority, both deadlines and wrap.
 #pragma once
-#include "core/motion.h"
-#include "core/governor.h"
-#include "core/types.h"
+#include "motion.h"
+#include "governor.h"
+#include "types.h"
 #include <cstdint>
 
 namespace fsm {

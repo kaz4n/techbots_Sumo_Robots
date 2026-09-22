@@ -2,9 +2,9 @@
 // Keeps script timing separate from global arbitration, governor and motor gates.
 // Independent host tests cover detections, snapshot use, deadlines and mirroring.
 #pragma once
-#include "core/motion.h"
-#include "core/governor.h"
-#include "core/types.h"
+#include "motion.h"
+#include "governor.h"
+#include "types.h"
 #include <cstdint>
 
 namespace openers {

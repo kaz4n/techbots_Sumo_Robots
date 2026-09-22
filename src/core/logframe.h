@@ -3,7 +3,7 @@
 // Independent host tests use literal byte fixtures, boundaries and invalid inputs.
 #pragma once
 #include "types.h"
-#include "config.h"
+#include "../config.h"
 #include <cstddef>
 #include <cstdint>
 #include <limits>

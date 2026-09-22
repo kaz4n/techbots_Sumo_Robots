@@ -2,8 +2,8 @@
 // Bounds repeated maneuvers without granting motor duty or bypassing safety gates.
 // Spec-derived host tests exercise capacity, exact deadlines, reset and time wrap.
 #pragma once
-#include "config.h"
-#include "core/types.h"
+#include "../config.h"
+#include "types.h"
 #include <cstdint>
 
 namespace stall {

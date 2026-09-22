@@ -1,7 +1,7 @@
 // Implements B11.3 rolling re-flank admission and the D-025 ALL_IN interval.
 // Keeps bounded maneuver history without granting duty or motor permission.
 // Independent host tests cover rolling limits, suppression, reset and clock wrap.
-#include "core/stall.h"
+#include "stall.h"
 #include <limits>
 #include <algorithm>
 #include <cmath>

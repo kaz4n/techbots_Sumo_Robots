@@ -1,9 +1,9 @@
 // Implements B8 search, B9 front requests and bounded B10/B11 motion scripts.
 // Keeps request math and captured commands separate from motor authorization.
 // Independent host tests cover table rows, capture, caps, deadlines and wrap.
-#include "core/fsm.h"
-#include "core/opp_fusion.h"
-#include "config.h"
+#include "fsm.h"
+#include "opp_fusion.h"
+#include "../config.h"
 #include <algorithm>
 #include <cmath>
 #include <limits>

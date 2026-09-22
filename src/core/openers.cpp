@@ -1,8 +1,8 @@
 // Implements B12 DIRECT and mirrored SIDESTEP/ARC scripts with B7 primitives.
 // Reports transition intents so global arbitration retains all safety authority.
 // Independent host tests check phases, priorities, timing, snapshots and mirrors.
-#include "core/openers.h"
-#include "config.h"
+#include "openers.h"
+#include "../config.h"
 #include <cmath>
 
 namespace openers {

@@ -2,8 +2,8 @@
 // Separates bounded motion requests from unresolved selection and hardware writes.
 // Locked host tests cover thresholds, rows, mirrors, timing and guard composition.
 #pragma once
-#include "core/motion.h"
-#include "core/governor.h"
+#include "motion.h"
+#include "governor.h"
 #include <cstdint>
 
 namespace edge {

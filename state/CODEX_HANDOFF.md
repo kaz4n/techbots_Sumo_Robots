@@ -17,7 +17,8 @@ Reviewed manifests: ADCf5f637b2, matrixaabfdebb, timing3ff0baba (latter two chan
 only by unused diagnostic constants). Exact maps and raw receipts are in analysis/.
 
 Next eligible task is P0 0.4 built-in LED GPIO API timing after installed-source
-ownership review, using analysis/P0_gpio_installed_contract_20260923.md when ready.
+ownership review, now recorded in analysis/P0_gpio_installed_contract_20260923.md
+and F-080. Exact candidate code/binary and measurement contract remain next.
 This task precedes P0.5 PINMAP acceptance; do not repeat the solved ADC/counter or
 treat all bare-board microbenchmarks as blocked by PINMAP. QTR timeout-path work
 requires its own exact pin/acquisition contract; cold-power/optical/electrical

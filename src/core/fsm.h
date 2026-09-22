@@ -225,6 +225,7 @@ private:
     Stage stage_ = Stage::IDLE;
     motion::Direction direction_ = motion::Direction::RIGHT;
     float last_heading_deg_ = 0.0F;
+    float turn_origin_heading_deg_ = 0.0F; // Captured yaw for a local relative-turn frame.
 };
 
 struct DefendResult {

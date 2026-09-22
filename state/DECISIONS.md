@@ -60,3 +60,17 @@ Placeholder for replies to docs/PLAN.md section 5 (orientation, mode changes, ra
 Context: the user explicitly invoked docs/prompts/CODEX_KICKOFF.md and authorized Codex takeover in this session.
 Decision: Codex implements and orchestrates; a separate fresh-context reviewer reviews without editing implementation. Supersedes ONLY the agent-role portion of D-009 and corresponding legacy role restrictions. A separate Codex context is not cross-model review.
 Consequence: preserve D-009's on-board compilation/upload over SSH and verified adb fallback, all original documents, R1-R11, phase dependencies, and human gates. No wiring, behavior, purchase, locked-test, motor-run, or phase approval is implied. Coordinator alone merges shared state/configuration; delegated fact checks own separate analysis files.
+
+## D-016 (2026-09-22, accepted) User-directed offline P1 development
+Context: after the P0 hardware checkpoint, the user explicitly instructed:
+"continue working and assume these things are tested and working, i don't have
+hardware connected currently, but commence working".
+Decision: proceed with P1 host development using the intended setup as a development
+assumption. This is a narrow scheduling exception to the P0-before-P1 development
+dependency, not a claim that any physical check passed. The active implementation
+phase is P1 (host only); P0 acceptance remains HARDWARE-PENDING / GATE-PENDING.
+Consequence: preserve the required P0/P1 exit evidence and human gate rights. No
+GATE P0 PASS, PINMAP OK, electrical verification, behavior-conflict resolution,
+locked-test change, P2 HAL work, target upload or motor run is authorized by this
+assumption. Begin independent spec-derived tests and unambiguous pure modules;
+defer dependent behavior until its specific protected decision is resolved.

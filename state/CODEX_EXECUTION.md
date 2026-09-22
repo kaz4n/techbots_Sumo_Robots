@@ -1,4 +1,4 @@
-# P0 execution checklist
+# Execution checklist: P1 host development, P0 acceptance pending
 
 PROGRESS.md is the phase/gate authority. No gates passed; no motor-run authorization.
 
@@ -36,7 +36,8 @@ MPU6050. Keep intended connectivity as an assumption, not verified evidence.
    P0_G6. Do not adopt the inspected Adafruit read path or synchronous I2C fault
    path unchanged. No new driver, ODR, filter, wiring or INT pin is approved.
 4. Finish 0.5 electrical/pin checks, obtain PINMAP OK, complete the full fresh gate
-   review and wait for the human's GATE P0 PASS. P1 is still ineligible.
+   review and wait for the human's GATE P0 PASS. P1 host development is now
+   separately permitted by D-016; this does not satisfy P0 acceptance.
 
 No circuit/timing/governor/arbitration/overflow recommendation in the conflict
 register is approved. Obtain each protected decision before dependent work.
@@ -44,3 +45,15 @@ register is approved. Obtain each protected decision before dependent work.
 Manual work is ordered in docs/P0_MANUAL_CHECKLIST.md. The first reply only needs
 isolation/connections, SSH setup, exact breakout/part identities and available
 instruments. The blank P0_MEASUREMENTS_TEMPLATE.md is not measurement evidence.
+
+## Current development track (D-016)
+
+- P1 1.1: partial contracts for types/countdown/edge classifier/opponent debounce;
+  commit these before separate spec-derived tests and implementation.
+- P1 1.2/1.3: implement and independently test those unambiguous standalone
+  components, including countdown boundaries, wraparound and 10,000 seeded input
+  streams. Do not claim the complete R1 hardware or R5 arbitration proof.
+- P1 remaining interfaces/behaviors: blocked where listed in spec_conflicts.md;
+  governor and full FSM ordering questions are pending explicit human replies.
+- P1 target compile, full test/table coverage, safety gate review, EXPLAINED OK and
+  GATE P1 PASS remain pending. No P2 HAL work is authorized by D-016.

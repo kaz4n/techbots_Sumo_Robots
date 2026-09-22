@@ -37,7 +37,8 @@ Seeded facts are planning provenance, not installed-version/hardware checks.
 Read CODEX_RESUME.md, this file, PROGRESS, DECISIONS, FACTS, execution checklist,
 open conflicts/reviews and P0 before work. See CODEX_EXECUTION.md for exact next task.
 P0 cannot close without board round trip, startup measurements, PINMAP OK, review,
-and the human gate. Do not implement P1 strategy while P0 is pending.
+and the human gate. D-016 now permits P1 host development before that acceptance;
+protected behavior decisions and all hardware gates remain pending.
 All deadlines use Asia/Dubai: P3 scope cut after 28 September; P6 requires P4 by
 30 September; freeze 1 October at 21:00; rehearsal 2 October; competition 3 October.
 Current date is the plan's P0 day; no scope cut or freeze applies yet.
@@ -102,3 +103,15 @@ state/analysis/P0_MEASUREMENTS_TEMPLATE.md, explicitly not evidence. Next: obtai
 the first inventory/isolation/SSH/breakout reply, run read-only preflight when
 possible, then guide the specific approved physical measurements. P0 remains
 active and no gates or motor permissions have been supplied.
+
+## Offline implementation continuation — 2026-09-22 17:53 Asia/Dubai
+
+The user's latest instruction explicitly requests commencing work with no hardware
+connected. D-016 records a narrow P1 host-development scheduling exception. Earlier
+statements that all P1 development must wait are superseded only for this scope.
+No hardware test is marked passed, no human gate is authored, and no protected
+behavior recommendation is approved. Active implementation: P1 host only; P0
+hardware acceptance still pending. Initial contracts cover B0 logical values,
+B3 countdown permission, B4.1 classification and B5.1 debounce; they do not
+implement ADC decoding, MotorGate, full B3 services, escape or the complete FSM.
+Remaining interfaces will be added with resolved semantics, not stubbed as working.

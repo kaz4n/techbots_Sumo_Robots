@@ -6,7 +6,9 @@
    CODEX_EXECUTION.md, TUNING_LOG.md, analysis/spec_conflicts.md and latest reviews.
 3. Recover the active phase from genuine progress/human gates, never templates.
    Read that phase prompt and relevant specification sections. Apply PLAN section
-   3 deadlines; D-015 changes roles only. P7 build-only is --match --compile-only.
+   3 deadlines; D-015 changes roles only. D-016 permits P1 host development while
+   P0 acceptance remains pending; it supplies no hardware evidence or gate.
+   P7 build-only is --match --compile-only.
 4. Briefly report phase, last result, open human/review dependencies, schedule,
    and first eligible unfinished task; execute it. Do not bypass gates to fill time.
 5. Separate host tests, script substitutes, target builds, uploads, measurements,

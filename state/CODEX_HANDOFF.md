@@ -2,6 +2,21 @@
 
 ## Current resume point — 2026-09-23 Asia/Dubai
 
+Latest: logical Menu9d9b858, contract3563a8f/D-058.776 cases/12,231,614 assertions
+pass normal+ASan/UBSan and separate reviewer reproduction;116 tooling checks
+pass39.634s. Preserved initial config-inventory failure and narrow one-line
+expectation addition: analysis/P1_menu_validation.md. Review scoped PASS/no open
+finding: reviews/P1_menu_codex.md. New25 component/11 locked composition cases;
+existing locked tests unchanged. Service execution/full Robot remain unfinished.
+Current inert-source maps: matrixe40b170f/timinge873b5d5, reviewed byte-for-byte;
+no hardware action or new target compile occurred in this batch.
+
+Next: select GO coordinate contract from P1_robot_heading_contract_audit.md under
+D-051, keeping raw continuous yaw for Fusion and match yaw for motion; preserve
+missing-at-boot timed fallback. Then implement production Robot from the saved
+interface/event audits. The audit is a recommendation, not adopted behavior.
+Older resume paragraphs below are historical; use this latest checkpoint.
+
 Latest additional delivery: D-057 contract322ecce, implementation4d323bc adds
 START-only routing and read-only qualified button snapshots.24 new locked tests
 join the previous716:740 cases/12,122,401 assertions pass normal+ASan/UBSan;

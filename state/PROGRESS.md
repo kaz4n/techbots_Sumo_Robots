@@ -295,3 +295,12 @@ Session checkpoint: state/analysis/P1_escape_wait_validation.md contains command
 | 2026-09-23 | P1 START-routing checkpoint | D-0574d323bc; separate reused read-only review and independent binary reproduction PASS |740/12122401 normal+ASan/UBSan;116 scripts; exact23-file inert manifests approved; no new target/hardware claim | checkpoint commit containing this row |
 
 Latest resume: logical B13 menu is the next eligible unfinished task from P1_mode_menu_contract_audit.md; START routing is completed. P1_robot_event_contract_audit.md recommendations are saved but unadopted. Full Robot/app/HAL, physical validation and every human gate remain incomplete. Current date23September Dubai; no deadline cut applies yet. All changes local; no push/tag or new motor/run authorization.
+
+| 2026-09-23 | P1 B13 logical menu | D-058 contract3563a8f then9d9b858 implementation;25 new component/11 new locked composition cases | HOST-TESTED776 cases/12231614 assertions normal+ASan/UBSan; separate scoped review/reproduction PASS |9d9b858 |
+| 2026-09-23 | P1 menu checkpoint | Exact inert maps reviewed;116 scripts PASS39.634s after preserved config-inventory failure and reviewed one-line expectation addition | No established locked amendment; no target/upload/hardware action; original76 B16 values preserved | checkpoint commit containing this row |
+
+Latest next task: select and implement GO coordinate ownership from
+P1_robot_heading_contract_audit.md, then production Robot contracts/integration.
+Menu service requests are intent only, not physical execution. All phase gates
+remain pending; no additional hardware connection is requested. Evidence and
+limitations: P1_menu_validation.md; reviews/P1_menu_codex.md. Local commits only.

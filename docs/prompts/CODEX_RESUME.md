@@ -25,7 +25,10 @@ USB connection as proof that the device is still attached. Full Escape/WAIT/
 contact preview are now HOST-TESTED716cases and TARGET-COMPILED inside inert
 timing only; see P1_escape_wait_validation.md. D-057 START routing subsequently
 passed740host cases and sanitizers (P1_start_routing_validation.md); that later
-source has no new target build. Resume the B13 logical menu contract from
-P1_mode_menu_contract_audit.md, then Robot integration. START routing is complete.
+source has no new target build. Logical Menu9d9b858 is now HOST-TESTED776 cases/
+12,231,614 assertions normal+sanitizers with separate scoped review;116 scripts
+pass. Read P1_menu_validation.md. Resume GO heading ownership from the unadopted
+P1_robot_heading_contract_audit.md, then production Robot integration. Menu and
+START routing are complete as components; service execution remains pending.
 Use the event audit as unadopted recommendations. Keep phase gates and the real
 app/HAL gaps explicit.

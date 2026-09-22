@@ -395,3 +395,23 @@ earlier than the next tick. Edge/STOP and contact requirements remain intact.
 Consequence: test residual masks, TRACK/ATTACK loss from existing duty, loss-tick
 zero and next-tick demand, fresh contact and safety preemption. No motor run or
 phase gate is authorized.
+
+## D-047 (2026-09-22, accepted) Shared opponent-side history for head-on escape
+Context: SC-AF left B4.2's last-seen-opponent side ambiguous after D-044.
+User replied "Approve A: shared opponent-side history".
+Decision: reuse D-041's latest valid nonzero selected relative-bearing sign;
+zero retains the side, and no known history defaults RIGHT. Use this history
+when selecting the head-on escape pivot direction.
+Consequence: test front/side/rear changes, zero/unknown/conflicted observations,
+default/reset and mirrored head-on selection. Approval is not hardware evidence.
+
+## D-048 (2026-09-22, accepted) Inhibited recovery for three-white or exhausted replans
+Context: SC-R lacked an approved wheel-command mapping toward black for three
+white sensors or exhausted replans. User replied "Approve A: inhibited recovery fault".
+Decision: in either case latch an escape fault with zero duties and motors
+disabled until reset. This explicitly replaces the unspecified recovery movement;
+the existing all-white priority and reset-only inhibition remain intact.
+Consequence: test all four three-white masks, the exact replan-limit boundary,
+all-white priority, persistence after black, reset and zero final duties. A stopped
+robot can sacrifice a match; physical validation is still pending. Existing locked
+tests may not be amended without a separately explicit approved amendment.

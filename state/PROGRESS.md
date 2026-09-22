@@ -223,3 +223,9 @@ cycle or existing locked-test change. Evidence: analysis/P1_search_validation.md
 author report and reviews/P1_search_codex.md. Source remains host-only; no target
 build, board contact, physical measurement or gate. Next: B11 re-flank interfaces,
 independent tests and implementation using D-037/038/040/043 and prepared contract.
+
+| 2026-09-22 | P1 B11/B4.2 | Re-flank contract and additive D-044 head-on contract committed; disjoint implementation and spec-derived tests underway | IMPLEMENTING; no established locked edits or new tuning | a37c9c8,8a6cc48 |
+
+| 2026-09-22 | P1 B3 lifecycle | Production Controller/Services composition contract committed; worker and independent NEW locked tests assigned | IMPLEMENTING; Controller remains sole GO authority | 2e629c1 |
+
+| 2026-09-22 22:39 +04 | Human decisions | Shared head-on opponent history and inhibited three-white/exhausted-replan recovery explicitly approved | APPROVED D-047/D-048; dependent integration/tests pending | commit containing this row |

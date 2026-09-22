@@ -1,5 +1,12 @@
 # Open specification conflicts — 2026-09-22
 
+Current resolution index: accepted decisions D-017 through D-046 resolve the
+specific conflicts identified in their dated entries below. Earlier "pending"
+paragraphs are historical where a later resolution applies. Current questions
+SC-AF and the explicit SC-R inhibited-recovery option were presented on resume;
+no approval is inferred while answers are pending. Other physical/escape/WAIT
+dependencies remain separately open.
+
 Verified against the supplied files, not hardware. Recommendations are UNAPPROVED
 except SC-C (D-017), SC-D1 (D-018), SC-J's START anchor (D-019) and SC-D2's
 persistent/all-white policy (D-020), SC-M (D-021), SC-N (D-022/D-023), SC-K
@@ -278,3 +285,33 @@ RESOLVED by D-040/D-041/D-042/D-043/D-044/D-045/D-046 respectively. Exact user
 approvals are recorded in DECISIONS.md. Their earlier pending descriptions are
 historical. Dependent implementation/tests remain pending; other protected
 physical/escape/WAIT issues are unchanged. Do not request these approvals again.
+
+2026-09-22 resumed integration audit:
+- SC-AF, B4.2 head-on row versus D-041/B5: D-044 fixes timing/duty only, not
+  which history means "last seen opponent side". The existing front-side history
+  and latest selected bearing can disagree. A: reuse D-041's latest valid nonzero
+  selected relative-bearing sign, retain side at zero, default RIGHT; B: retain
+  this as an unresolved dependency. Recommend A for one explicit consistent
+  definition. Human decision required before automated head-on side selection.
+  Tests: side/rear after opposite front, zero/unknown/conflicting bearings,
+  reset/default, mirrored head-on and escape precedence.
+- SC-R remains movement-geometry dependent. Proposed bounded safety option:
+  three-white or exhausted replans latches an inhibited escape fault until reset,
+  preserving all-white priority; alternative is defer those cases for a measured
+  movement table. This would replace the specified black-side movement only
+  with explicit human approval, never silently. Test four three-white masks,
+  exact replan count, all-white, black after fault, reset and zero final duties.
+- SC-S retains pushed-out ambiguity for both rear sensors. Proposed explicit
+  ordering: all-white/three-white recovery first; among remaining rear-containing
+  masks in a centered forward push, a single rear side pivots45 degrees away
+  then moves forward per B4.3; both-rear uses the side opposite the latest selected
+  opponent side (RIGHT default history means LEFT pivot). Alternative: defer
+  ambiguous pushed-out selection. No recommendation is adopted without a human
+  decision and physical validation. Test every mask/centering/duty sign, mirrors,
+  exact phase limits and low-voltage governor bounds.
+
+2026-09-22 resumed human approvals: SC-AF is RESOLVED by D-047; SC-R's
+three-white/exhausted-replan movement policy is RESOLVED by D-048. The exact
+proposals were explicitly approved. Selection/inhibited recovery tests and
+implementation remain pending; replan trigger/lifecycle and SC-S pushed-out
+ambiguities are separate. Do not re-ask these approved policy questions.

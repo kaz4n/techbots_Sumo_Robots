@@ -132,6 +132,12 @@ specified EDGE_TURN_FULL_DEG pivot. The interpretation of last-opponent-side
 history remains a separate integration decision; this does not approve changing
 an established locked test.
 
+D-047 (human-approved 2026-09-22): head-on pivot side uses D-041's latest valid
+nonzero selected relative-bearing sign; zero retains it and unknown defaults
+right. D-048 (human-approved 2026-09-22) supersedes the three-white black-side
+movement above: latch an escape fault, duties zero and motors disabled until
+reset. The same inhibited recovery replaces movement after exhausted replans.
+
 ### B4.3 Being pushed out (edge defense)
 Rear bit white while the opponent is centered in front and our duty is forward: we are losing a push. Do not keep pushing straight. Pivot 45 degrees away from the white side at TURN_DUTY, then forward EDGE_FWD_MS. This slides us out of the opponent's line.
 

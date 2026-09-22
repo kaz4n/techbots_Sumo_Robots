@@ -1,4 +1,4 @@
-// Defines bounded B10 defensive-turn requests for the future Robot arbiter.
+// Defines B9 front qualification/demands and B10 turns for the future Robot arbiter.
 // Keeps state deadlines and target exits separate from motor permission and I/O.
 // Independent host tests cover capture, target priority, both deadlines and wrap.
 #pragma once
@@ -8,6 +8,29 @@
 #include <cstdint>
 
 namespace fsm {
+struct FrontQualificationResult {
+    bool front_detected = false;
+    bool centered = false;
+    bool attack_eligible = false;
+};
+class FrontQualification {
+public:
+    // B9.1: each call is one NEW confirmed effective opponent observation in
+    // normal perception. Use Fusion's phantom.filtered_mask; ignore high bits.
+    // Count centered front observations consecutively; absent/off-center front
+    // resets the count. Saturate at ATTACK_ENTER_TICKS; the threshold observation
+    // is eligible. Side/rear bits cannot displace a current front (B2/B5).
+    // Caller must not pass repeated/stale observations and must reset on leaving
+    // normal perception/preemption. This counter does not decide which tick
+    // enters TRACK, select a Robot state, or bypass D-034/D-038 reacquisition.
+    // Eligibility alone never grants contact or motor permission. Caller selects
+    // state, commits Fusion contact once, then applies frontDemand/governor/gates.
+    FrontQualificationResult observe(std::uint8_t effective_mask);
+    void reset();
+private:
+    std::uint32_t centered_ticks_ = 0;
+};
+
 struct FrontDemand {
     float duty_l = 0.0F;
     float duty_r = 0.0F;

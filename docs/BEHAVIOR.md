@@ -130,7 +130,7 @@ physical speed or final curvature is implied by the requested ratio.
 Rear bit white while the opponent is centered in front and our duty is forward: we are losing a push. Do not keep pushing straight. Pivot 45 degrees away from the white side at TURN_DUTY, then forward EDGE_FWD_MS. This slides us out of the opponent's line.
 
 ### B4.4 Rules
-- Turns use IMU heading (B7). Durations are voltage compensated (B6).
+- Turns use IMU heading (B7). D-023 (human-approved 2026-09-22): configured durations remain unchanged across voltages; voltage compensation applies once to duty through B6.
 - A new white bit on the side we are turning toward: re-plan. After EDGE_MAX_REPLANS re-plans, drive toward the black side as in the 3-bit row.
 - Leaving EDGE_ESCAPE requires all 4 bits black and the script finished.
 - After an escape, the final heading points inward. Store it as `inward_heading` for SEARCH (B8).
@@ -202,9 +202,9 @@ Pipeline (D-017, human-approved 2026-09-22): requested duty per side, then volta
 
 - **turnTo(target_heading, max_duty):** pivot in place. Duty = clamp(K_TURN_PER_DEG x error, TURN_MIN_DUTY, max_duty). Done when |error| < HEADING_TOL_DEG, or after TURN_TIMEOUT_MS (log a timeout).
 - **arc(direction, inner_ratio, duty, sweep_deg or max_ms):** outer side at duty, inner side at duty x inner_ratio. Done at the heading sweep or timeout.
-- **straight(duty, ms):** heading hold with a small P term so motor mismatch does not curve the path.
+- **straight(duty, ms):** heading hold with a small P term so motor mismatch does not curve the path. D-022 (human-approved 2026-09-22): use K_TURN_PER_DEG, with correction magnitude limited to min(TURN_MIN_DUTY, abs(base duty)); correction cannot reverse a wheel. All requests still pass through the governor.
 - **brake(ms):** both duties 0 with motors enabled.
-- **IMU fault fallback:** when imu_ok is false, turns run for angle x TURN_MS_PER_DEG (measured in P3), voltage compensated. Show the fault icon.
+- **IMU fault fallback:** when imu_ok is false, turns run for angle x TURN_MS_PER_DEG (measured in P3). D-023 (human-approved 2026-09-22): keep that timing and configured segment durations unchanged across voltages; compensate duty once through B6. Show the fault icon. This supersedes the ambiguous extra duration-compensation wording without changing B16 defaults.
 
 ---
 

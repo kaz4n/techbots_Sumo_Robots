@@ -135,3 +135,24 @@ builder. Centralize the existing B4 70% ratio in config without changing B16
 defaults. This specifies requests and caps, not measured speed/trajectory: voltage
 compensation and per-side saturation may alter the final side ratio. Timed motion,
 heading hold, escape scripts and physical validation remain pending.
+
+## D-022 (2026-09-22, accepted) Bounded straight-line heading correction
+Context: SC-N identified a missing gain and limit for B7 straight motion. The
+user explicitly replied "Approve A: bounded heading correction".
+Decision: use existing K_TURN_PER_DEG (0.02 duty/degree) for straight heading
+correction; limit correction magnitude to min(TURN_MIN_DUTY, abs(base duty)).
+This prevents correction from reversing a wheel. All requests retain governor
+caps; no B16 value changes or new tunables are introduced.
+Consequence: implement/test signed heading correction, forward/reverse requests,
+zero duty, saturation, symmetry and IMU availability. Defaults need physical
+validation; this does not approve wiring, a motor run or a phase gate.
+
+## D-023 (2026-09-22, accepted) Apply voltage compensation once through duty
+Context: SC-N identified undefined extra duration compensation alongside B6's
+duty compensation. The user explicitly replied "Approve A: compensate duty only".
+Decision: configured segment durations and angle * TURN_MS_PER_DEG fallback
+timing remain unchanged across voltages. Apply compensation once through the
+approved B6 governor, with its final caps and slew.
+Consequence: visibly amend B4/B7; implement exact duration/timeout boundaries,
+wraparound and voltage-independent timing tests. Caps and slew can still alter
+physical travel, so no measured equivalence is claimed. Preserve all B16 defaults.

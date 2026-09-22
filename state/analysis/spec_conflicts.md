@@ -103,3 +103,8 @@ whether/how duration compensation combines with duty compensation, or defer the
 affected timed primitives. Recommend explicit definitions before implementation;
 do not invent an additional compensation factor. Needed tests: nominal/low/high
 voltage, exact timeouts, wrap, heading signs, saturation and IMU fault transitions.
+
+SC-N RESOLVED by D-022/D-023 (2026-09-22): user approved bounded heading
+correction using K_TURN_PER_DEG with min(TURN_MIN_DUTY, abs(base)) limit, and
+voltage compensation once through duty with unchanged configured/fallback timing.
+These decisions do not establish physical trajectory or measured timing.

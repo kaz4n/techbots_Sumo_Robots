@@ -3,6 +3,7 @@
 // Locked host tests cover qualified events, debounce, boot-held START and wraparound.
 #pragma once
 #include "types.h"
+#include "../config.h"
 
 namespace countdown {
 enum class Phase : std::uint8_t { IDLE, HOLDING, READY, STOPPED };
@@ -193,5 +194,80 @@ private:
     Services services_;
     bool pending_ = false;
     bool service_start_failed_ = false;
+};
+enum class Service : std::uint8_t { NONE, SENSOR_VIEW, QTR_CAL, DRIVE_TEST, LOG_DUMP };
+struct MenuSelection {
+    core::Mode mode = static_cast<core::Mode>(config::MODE_DEFAULT);
+    bool service_menu = false;
+    Service service = Service::SENSOR_VIEW;
+};
+struct MenuSample {
+    std::uint32_t t_us = 0;
+    core::ButtonLevel button = core::ButtonLevel::NONE;
+    core::State state_at_entry = core::State::BOOT;
+    bool inhibited_fault = false; // Includes final STOP/fault outcome from this tick.
+    bool qualified_start_release = false; // This tick's Controller snapshot only.
+};
+struct MenuResult {
+    MenuSelection selection;
+    bool selection_changed = false; // Any mode/item/view change by this step.
+    bool menu_toggled = false;
+    Service request = Service::NONE; // One-call intent, never actual execution.
+    bool request_unavailable = false; // DRIVE_TEST only; no P1 motion consumer.
+};
+class Menu {
+public:
+    // B13/D-058: only IDLE-at-entry and no final inhibited fault admit gestures
+    // or service requests. Other/invalid states cancel the gesture and retain
+    // selection. Caller includes final STOP in inhibited_fault; a countdown MODE
+    // cancellation still supplies COUNTDOWN-at-entry, not newly reached IDLE.
+    // Boot/reset/contamination require NONE observed for BTN_DEBOUNCE_MS before
+    // arming. Exclusive MODE then qualifies for that duration; its actual
+    // qualification call starts the hold clock, never a backdated raw edge.
+    // A first NONE freezes hold age. After NONE qualifies, age<MODE_SHORT_MS
+    // cycles the selected item once; [MODE_SHORT_MS,BTN_LONG_MS] and later ages
+    // do nothing. NONE at the exact long deadline wins over a pending toggle.
+    // Continuous MODE at age>=BTN_LONG_MS toggles services once; release cannot
+    // also cycle. Interrupted release cancels the entire gesture and requires
+    // new qualified NONE. Any START/BOTH/invalid button immediately disarms MODE.
+    // NONE interrupting an unqualified press also requires fresh NONE arming.
+    // Match modes cycle1..6; service items cycle SENSOR_VIEW/QTR_CAL/DRIVE_TEST/
+    // LOG_DUMP. Entering services selects SENSOR_VIEW; exiting preserves match
+    // mode and the inactive service item. No mode can be injected by a setter.
+    //
+    // A genuine current qualified_start_release from Controller, with raw NONE,
+    // services selected and eligible state, returns the selected request once
+    // and cancels any MODE gesture. That observation begins a fresh NONE arming
+    // interval before another MODE gesture. It is not accepted match START. DRIVE_TEST
+    // sets request_unavailable; other requests still need an eligible, bounded
+    // consumer, and false does not certify installed/physical availability.
+    // Requests are not queued; no consumer response can enable a match or motor.
+    // Caller derives D-057 allow_match_start from ENTRY state/selection, steps
+    // Lifecycle once, then steps Menu using its ButtonEvents and final inhibition.
+    // Capture running match mode only on the Gate's accepted release, preserving
+    // that mode through countdown/moving states. No duplicated Buttons sampling.
+    //
+    // Immediate duplicate timestamp ignores changed data and returns selection
+    // with all pulses/request cleared. Distinct calls must be <one uint32 wrap
+    // apart; bounded accumulated ages prevent long holds retriggering after wrap.
+    // No duties, clocks, I/O, allocation, Gate mutation or actual service actions.
+    MenuResult step(const MenuSample& sample);
+    MenuSelection selection() const;
+    // MODE_DEFAULT/match view/SENSOR_VIEW, no armed gesture or retained request.
+    void reset();
+private:
+    enum class Stage : std::uint8_t { DISARMED, REARM, READY, PRESS, HELD, RELEASE, CONSUMED };
+    void advanceAge(std::uint32_t delta_us, std::uint32_t limit_us);
+    void disarm();
+    void observeMode(std::uint32_t delta_us, MenuResult& result);
+    void observeNone(std::uint32_t delta_us, MenuResult& result);
+    void cycle(MenuResult& result);
+    void toggle(MenuResult& result);
+    MenuSelection selection_;
+    Stage stage_ = Stage::DISARMED;
+    std::uint32_t last_us_ = 0;
+    std::uint32_t age_us_ = 0;
+    bool observed_ = false;
+    bool short_release_ = false;
 };
 } // namespace countdown

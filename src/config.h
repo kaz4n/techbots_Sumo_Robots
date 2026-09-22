@@ -91,6 +91,7 @@ inline constexpr std::uint32_t APPROACH_WINDOW_MS = 300U; // ms
 inline constexpr std::uint32_t LOG_HZ = 50U; // Hz
 inline constexpr std::uint32_t BTN_DEBOUNCE_MS = 20U; // ms
 inline constexpr std::uint32_t BTN_LONG_MS = 1000U; // ms
+inline constexpr std::uint32_t MODE_SHORT_MS = 600U; // ms; existing B13 strict short-press bound
 inline constexpr std::uint32_t MODE_DEFAULT = 1U; // mode
 // B6 specifies a 1 s battery filter outside its B16 table; unchanged spec value.
 inline constexpr std::uint32_t VBAT_FILTER_MS = 1000U; // ms, B6

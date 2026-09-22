@@ -134,3 +134,6 @@ Every bench or ring measurement and every config.h change goes here with its evi
   This shows software progress through the matrix workload, not optical
   correctness, precise clock rate, loaded tick timing or Monitor round trip.
 - No config/pin change, additional hardware or motor operation; no phase gate.
+
+### 2026-09-23 | P1 B13 menu constant centralization | no measured tuning
+- Added MODE_SHORT_MS=600 to config.h, copying the existing strict short-press threshold in BEHAVIOR B13 under D-058. All original B16 defaults are unchanged. Evidence: P1_mode_menu_contract_audit.md and P1_menu_contract.md; exact/adjacent-threshold host tests follow the committed interface. No physical measurement, pin assignment or motor operation.

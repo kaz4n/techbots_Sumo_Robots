@@ -446,6 +446,20 @@ never replayed when match selection returns. The qualified input snapshot alone
 cannot authorize a service action or motion; final IDLE/fault/STOP policy applies.
 This selector cannot cancel an already accepted hold or revoke READY permission.
 
+D-058 (selected under D-051,2026-09-23) defines logical MODE gestures. In IDLE,
+qualify NONE then exclusive MODE for BTN_DEBOUNCE_MS; the actual MODE qualification
+starts its duration. First observed NONE freezes that duration and wins a tied
+long deadline. After NONE qualifies, a duration strictly below600ms advances the
+item;600–999ms is a no-op. Continuously observed MODE reaching BTN_LONG_MS toggles
+services once, with no release action. Boot-held MODE, interrupted releases,
+START/BOTH/invalid input and leaving IDLE require a fresh qualified NONE before
+another gesture. A countdown-canceling MODE cannot also change an IDLE selection.
+Final STOP/fault inhibition overrides every menu action. Services enter at
+SENSOR_VIEW, cycle in listed order and retain match mode on exit. Qualified
+service START emits a typed intent only, and begins a fresh NONE arming interval;
+DRIVE_TEST is unavailable in P1. Consumers remain separately implemented and
+cannot grant a match start. Duplicate timestamps cannot replay menu events.
+
 D-035 (human-approved 2026-09-22): logical BOTH first qualifies for
 BTN_DEBOUNCE_MS, then the complete BTN_LONG_MS starts on that qualification tick.
 Any observed release before expiry cancels the pending hold. STOPPED remains

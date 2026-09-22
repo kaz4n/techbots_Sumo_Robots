@@ -549,3 +549,31 @@ Test suppressed release/re-enable/fresh press, exact hold, cancel/STOP priority,
 snapshot purity/reset, service non-start with invalid previous bias, active service
 continuation, wrapped/delayed observations and default-argument equivalence.
 No menu policy, hardware decoding, config value, phase gate or motor-run change.
+
+## D-058 (2026-09-23, selected under D-051) Logical mode and service menu gestures
+Context: B13 gives six match modes, four services, short MODE under600ms and long
+MODE1000ms, but leaves duration anchors, intermediate holds and gesture recovery
+undefined. P1_mode_menu_contract_audit.md recommends explicit conservative input
+semantics; D-057 already provides qualified service START routing.
+Decision: implement a pure countdown::Menu. Only IDLE-at-entry with no final
+STOP/fault inhibition admits actions. Require qualified NONE after boot/reset or
+contamination, then qualified exclusive MODE; anchor hold at actual qualification.
+First NONE freezes hold and wins a tied long deadline. Qualified release cycles
+only if age<600ms; a [600,1000)ms hold is a no-op. Continuous MODE at>=1000ms
+toggles services once, with no subsequent short action. Interrupted release,
+START/BOTH/invalid input or leaving IDLE cancels gestures and requires rearming.
+Cycle six match modes/four service items in documented order. Service entry
+selects SENSOR_VIEW; exit retains match mode. Reset selects MODE_DEFAULT; expose
+no arbitrary selection setter. Centralize existing600ms as MODE_SHORT_MS only.
+Use D-057's genuine qualified START pulse for a one-call typed service request,
+only with current NONE/services/IDLE/no inhibition; that call starts fresh NONE
+arming. DRIVE_TEST request is explicitly unavailable in P1. Other requests need
+real bounded consumers and do not certify hardware availability. Duplicate time
+returns selection with pulses cleared and ignores changed input. Saturating ages
+prevent repeat actions across timer wraps. Match mode snapshots at accepted match
+START are owned by the future Robot; no service response grants motor permission.
+Consequence: some noisy/medium/late-release gestures do nothing and can be retried.
+Record exact boundaries, cancellation/STOP/state transitions, reset/boot mixtures,
+all selections, service routing/no countdown, duplicate/wrapped/delayed streams
+and finite bounded outputs in independent tests. No ADC/pins/B16 value/motor-run
+or phase-gate change; physical service execution and complete Robot remain open.

@@ -1,6 +1,6 @@
 # Codex handoff
 
-## Current resume point — 2026-09-22, 23:08 Asia/Dubai
+## Current resume point — 2026-09-22 Asia/Dubai
 
 User connected the bare UNO Q and authorized testing it with no other hardware.
 D-052 records this scope without any credential. P1 host work under D-016 and

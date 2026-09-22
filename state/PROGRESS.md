@@ -251,3 +251,8 @@ specific SC-S/replan lifecycle decisions presented separately; not inferred.
 
 | 2026-09-22 | P1 B9 normal integration | Current-perception production helper and16 independent cases | HOST-TESTED625 cases/11994540 assertions normal+ASan/UBSan;48 scripts; separate scoped review PASS | aae9b36 |
 | 2026-09-22 23:08 +04 | P0 connection | User connected bare UNO Q and authorized inert testing; no additional hardware requested | USB/ADB-OBSERVED; D-052; installed inventory and fallback script work active | commit containing this row |
+
+Timestamp correction: the preceding23:08 label was an erroneous coordinator
+estimate, not an observed time. Actual Get-Date check immediately afterward was
+2026-09-22T23:00:26+04:00; device inventory occurred22:54-22:59. Preserve the
+original row as history; use raw command timestamps for evidence.

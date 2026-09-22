@@ -1,0 +1,291 @@
+{
+  "title": "Read-only UNO Q board inventory",
+  "observed_local_interval": "2026-09-22 22:57-22:59 Asia/Dubai",
+  "transport": {
+    "executable": "C:\\Users\\narut\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\adb\\32.0.0\\adb.exe",
+    "prefix": [
+      "-s",
+      "2629958581",
+      "shell"
+    ],
+    "device_identity_source": "P0_connected_inventory_20260922.md"
+  },
+  "scope": "Read-only queries of this exact board; no compile/upload/reset/firmware start/install/credential access. No source or shared ledger changes.",
+  "status": "INVENTORY-COLLECTED-WITH-MISSING-DEPENDENCIES",
+  "summary": {
+    "user": "arduino",
+    "uid": 1000,
+    "home": "/home/arduino",
+    "hostname": "Tarek",
+    "architecture": "aarch64",
+    "kernel": "6.16.7-g0dd6551ae96b",
+    "root_filesystem": {
+      "device": "/dev/mmcblk0p68",
+      "size": "9.8G",
+      "used": "6.5G",
+      "available": "2.8G",
+      "used_percent": 71
+    },
+    "cli": {
+      "path": "/usr/bin/arduino-cli",
+      "version": "1.5.1",
+      "commit": "01f3d4f2b"
+    },
+    "core": {
+      "id": "arduino:zephyr",
+      "installed": "1.0.0",
+      "fqbn": "arduino:zephyr:unoq",
+      "directory": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0",
+      "default_link_mode": "dynamic",
+      "default_startup": "wait_linux_boot=yes",
+      "immediate_option": "wait_linux_boot=no",
+      "app_wait_option": "wait_linux_boot=app"
+    },
+    "sketchbook_libraries": "arduino-cli lib list reports No libraries installed. This does not exclude bundled core libraries.",
+    "bundled_libraries": {
+      "Arduino_LED_Matrix": "0.1.3",
+      "CAN": "1.0.0",
+      "RTC": "1.0.0",
+      "SocketWrapper": "1.0.0",
+      "SPI": "1.0.0",
+      "Wire": "1.0.0"
+    },
+    "python": "3.13.5",
+    "rsync": "absent; command lookup exit 1 and rsync --version exit 127",
+    "packages": {
+      "arduino-cli": "1.5.1",
+      "arduino-router": "0.10.0",
+      "arduino-app-cli": "0.13.0",
+      "arduino-app-lab": "0.10.0"
+    },
+    "debug_tools": {
+      "remoteocd": "/home/arduino/.arduino15/packages/arduino/tools/remoteocd/0.1.1/remoteocd",
+      "openocd": "/home/arduino/.arduino15/packages/SiliconLabs/tools/openocd/0.12.0-arduino1-static/bin/openocd",
+      "compiler_version_directory": "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1"
+    },
+    "loader_artifact_paths": [
+      "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.bin",
+      "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf",
+      "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/flash_bootloader.cfg"
+    ],
+    "router_paths": [
+      "/usr/bin/arduino-router",
+      "/usr/bin/arduino-router-cli",
+      "/etc/systemd/system/arduino-router.service",
+      "/etc/systemd/system/arduino-router-serial.service",
+      "/etc/systemd/system/arduino-router-serial.path"
+    ],
+    "listeners": [
+      "127.0.0.1:38879",
+      "127.0.0.1:7500",
+      "127.0.0.1:8800",
+      "0.0.0.0:22",
+      "[::]:22"
+    ]
+  },
+  "limitations": [
+    "Available files/package metadata do not prove which loader or sketch is currently flashed. No debug tool was executed and no target RAM/register/flash operation occurred.",
+    "flash_bootloader.cfg was read as text only; its reset/halt/write commands were never run.",
+    "The optional loader/ subdirectory is absent; relevant packaged binaries instead exist under firmwares/.",
+    "dpkg pattern queries returned exit 1 when optional patterns had no matches; empty-version entries are not treated as installed packages. Exact installed status was subsequently verified for four Arduino packages.",
+    "All 13 required CLI tool version directories were observed, but tool execution/link functionality is not validated.",
+    "Listener listing establishes bound sockets, not authenticated SSH access or a working Monitor round trip. No monitor connection was opened.",
+    "Board-side rsync is missing, so the current SSH/rsync project build path requires follow-up. No dependency was installed.",
+    "CLI library listing is separate from the observed bundled core libraries; no additional sketchbook libraries were installed.",
+    "Local device isolation is user-reported; no physical measurement, PINMAP OK, motor authorization or phase gate is established.",
+    "Full app-cli public package path output exceeded the tool limit and was truncated; that command is flagged below. The subsequent bounded filtered query preserves complete relevant executable/service paths. Other command outputs are retained as received."
+  ],
+  "commands": [
+    {
+      "command": "uname -a",
+      "exit_code": 0,
+      "output": "Linux Tarek 6.16.7-g0dd6551ae96b #1 SMP PREEMPT Tue Sep 23 12:46:06 UTC 2025 aarch64 GNU/Linux"
+    },
+    {
+      "command": "id",
+      "exit_code": 0,
+      "output": "uid=1000(arduino) gid=1000(arduino) groups=1000(arduino),4(adm),20(dialout),27(sudo),29(audio),44(video),100(users),101(netdev),102(bluetooth),103(docker),987(sysupgrade),991(render),995(input),1001(gpiod)"
+    },
+    {
+      "command": "pwd",
+      "exit_code": 0,
+      "output": "/home/arduino"
+    },
+    {
+      "command": "printf \"%s\\n\" \"$HOME\"",
+      "exit_code": 0,
+      "output": "/home/arduino"
+    },
+    {
+      "command": "date --iso-8601=seconds",
+      "exit_code": 0,
+      "output": "2026-09-22T18:57:47+00:00"
+    },
+    {
+      "command": "df -h /",
+      "exit_code": 0,
+      "output": "Filesystem       Size  Used Avail Use% Mounted on\n/dev/mmcblk0p68  9.8G  6.5G  2.8G  71% /"
+    },
+    {
+      "command": "command -v arduino-cli",
+      "exit_code": 0,
+      "output": "/usr/bin/arduino-cli"
+    },
+    {
+      "command": "command -v rsync",
+      "exit_code": 1,
+      "output": ""
+    },
+    {
+      "command": "command -v python3",
+      "exit_code": 0,
+      "output": "/usr/bin/python3"
+    },
+    {
+      "command": "command -v ss",
+      "exit_code": 0,
+      "output": "/usr/bin/ss"
+    },
+    {
+      "command": "command -v dpkg-query",
+      "exit_code": 0,
+      "output": "/usr/bin/dpkg-query"
+    },
+    {
+      "command": "arduino-cli version",
+      "exit_code": 0,
+      "output": "arduino-cli  Version: 1.5.1 Commit: 01f3d4f2b Date: 2026-06-05T10:22:11Z"
+    },
+    {
+      "command": "arduino-cli core list",
+      "exit_code": 0,
+      "output": "ID             Installed Latest Name\narduino:zephyr 1.0.0     1.0.0  Arduino Q Boards\n"
+    },
+    {
+      "command": "arduino-cli board details --fqbn arduino:zephyr:unoq",
+      "exit_code": 0,
+      "output": "Board name:                Arduino UNO Q\nFQBN:                      arduino:zephyr:unoq\nBoard version:             1.0.0\n\nOfficial Arduino board:    \u001b[32m✔\u001b[0m\n\nIdentification properties: pid=0x0078\n                           vid=0x2341\n\nPackage name:              arduino\nPackage maintainer:        Arduino\nPackage URL:               https://downloads.arduino.cc/packages/package_index.tar.bz2\nPackage website:           https://www.arduino.cc/\nPackage online help:       https://www.arduino.cc/en/Reference/HomePage\n\nPlatform name:             Arduino Q Boards\nPlatform category:         Arduino\nPlatform architecture:     zephyr\nPlatform URL:              https://downloads.arduino.cc/cores/zephyr/ArduinoCore-zephyr_unoq-79b3f1af.tar.bz2\nPlatform file name:        ArduinoCore-zephyr_unoq-79b3f1af.tar.bz2\nPlatform size (bytes):     13982026\nPlatform checksum:         SHA-256:d4510d5772f12d4b11df7d1b41d24f71eb3629fbd3037b127fee5ac41d673a3d\n\nRequired tool: SiliconLabs:openocd                 0.12.0-arduino1-static\nRequired tool: arduino:adb                         32.0.0\nRequired tool: arduino:bin2uf2                     0.1.0\nRequired tool: arduino:bossac                      1.9.1-arduino2\nRequired tool: arduino:dfu-util                    0.11.0-arduino5\nRequired tool: arduino:gen-rodata-ld               0.1.1\nRequired tool: arduino:remoteocd                   0.1.1\nRequired tool: arduino:rp2040tools                 1.1.0-rc1\nRequired tool: arduino:scripting-tools             0.0.7\nRequired tool: arduino:sync-zephyr-artifacts       0.2.2\nRequired tool: arduino:zephyr-check-size           0.1.0\nRequired tool: arduino:zephyr-sketch-tool          0.4.1\nRequired tool: zephyr:arm-zephyr-eabi              1.0.1\n\nOption:        Link mode                                                    link_mode\n               \u001b[32mDynamic\u001b[0m                             \u001b[32m✔\u001b[0m                        \u001b[32mlink_mode=dynamic\u001b[0m\n               Static                                                       link_mode=static\nOption:        Startup mode                                                 wait_linux_boot\n               \u001b[32mWait for Linux\u001b[0m                      \u001b[32m✔\u001b[0m                        \u001b[32mwait_linux_boot=yes\u001b[0m\n               Immediate                                                    wait_linux_boot=no\n               Wait for App                                                 wait_linux_boot=app\nProgrammers:   ID                                  Name\n               cmsis-dap                           ARM CMSIS-DAP compatible\n               jlink                               JLink\n               openocd                             OpenOCD\n"
+    },
+    {
+      "command": "arduino-cli lib list",
+      "exit_code": 0,
+      "output": "No libraries installed."
+    },
+    {
+      "command": "python3 --version",
+      "exit_code": 0,
+      "output": "Python 3.13.5"
+    },
+    {
+      "command": "rsync --version",
+      "exit_code": 127,
+      "output": "/bin/bash: line 1: rsync: command not found"
+    },
+    {
+      "command": "ss -ltn",
+      "exit_code": 0,
+      "output": "State  Recv-Q Send-Q Local Address:Port  Peer Address:Port\nLISTEN 0      4096       127.0.0.1:38879      0.0.0.0:*   \nLISTEN 0      4096       127.0.0.1:7500       0.0.0.0:*   \nLISTEN 0      4096       127.0.0.1:8800       0.0.0.0:*   \nLISTEN 0      128          0.0.0.0:22         0.0.0.0:*   \nLISTEN 0      128             [::]:22            [::]:*   "
+    },
+    {
+      "command": "dpkg-query -W '*arduino*' '*router*' '*loader*' '*remoteocd*' '*openocd*'",
+      "exit_code": 1,
+      "output": "arduino-app-cli\t0.13.0\narduino-app-lab\t0.10.0\narduino-cli\t1.5.1\narduino-router\t0.10.0\nlibxsloader-perl\t\nvulkan-loader\t\nwebp-pixbuf-loader\t\ndpkg-query: no packages found matching *remoteocd*\ndpkg-query: no packages found matching *openocd*"
+    },
+    {
+      "command": "dpkg-query -L arduino-router",
+      "exit_code": 0,
+      "output": "/.\n/etc\n/etc/systemd\n/etc/systemd/system\n/etc/systemd/system/arduino-router-serial.path\n/etc/systemd/system/arduino-router-serial.service\n/etc/systemd/system/arduino-router.service\n/usr\n/usr/bin\n/usr/bin/arduino-router\n/usr/bin/arduino-router-cli\n/usr/lib\n/usr/lib/systemd\n/usr/lib/systemd/system-generators\n/usr/lib/systemd/system-generators/systemd-arduino-router.sh\n/usr/share\n/usr/share/doc\n/usr/share/doc/arduino-router\n/usr/share/doc/arduino-router/copyright\n/var\n/var/lib\n/var/lib/arduino-router\n/var/lib/arduino-router/config\n/var/lib/arduino-router/config/10-imola.conf\n/var/lib/arduino-router/config/10-monza.conf"
+    },
+    {
+      "command": "dpkg-query -L arduino-cli",
+      "exit_code": 0,
+      "output": "/.\n/usr\n/usr/bin\n/usr/bin/arduino-cli\n/usr/share\n/usr/share/doc\n/usr/share/doc/arduino-cli\n/usr/share/doc/arduino-cli/copyright"
+    },
+    {
+      "command": "dpkg-query -L arduino-app-cli",
+      "output_truncated_by_tool": true,
+      "exit_code": 0,
+      "output": "/.\n/etc\n/etc/NetworkManager\n/etc/NetworkManager/conf.d\n/etc/NetworkManager/conf.d/10-allow-any-user.conf\n/etc/apt\n/etc/apt/apt.conf.d\n/etc/apt/apt.conf.d/20updateerrors\n/etc/arduino-app-cli\n/etc/arduino-app-cli/AGENTS.md\n/etc/needrestart\n/etc/needrestart/conf.d\n/etc/needrestart/conf.d/arduino-adbd.conf\n/etc/sudoers.d\n/etc/sudoers.d/10-arduino-passwd\n/etc/sudoers.d/20-arduino-ssh\n/etc/sudoers.d/30-arduino-keyboard\n/etc/sudoers.d/90-arduino-sysupgrade\n/etc/systemd\n/etc/systemd/system\n/etc/systemd/system/arduino-app-cli.service\n/etc/systemd/system/arduino-avahi-serial.service\n/usr\n/usr/bin\n/usr/bin/arduino-app-cli\n/usr/local\n/usr/local/bin\n/usr/local/bin/arduino-passwd\n/usr/local/bin/arduino-set-keyboard-layout\n/usr/share\n/usr/share/doc\n/usr/share/doc/arduino-app-cli\n/usr/share/doc/arduino-app-cli/copyright\n/var\n/var/lib\n/var/lib/arduino-app-cli\n/var/lib/arduino-app-cli/arduino-avahi-serial.sh\n/var/lib/arduino-app-cli/assets\n/var/lib/arduino-app-cli/assets/0.12.0\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/air_quality_monitoring\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/air_quality_monitoring/API.md\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/arduino_cloud\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/arduino_cloud/API.md\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/asr\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/asr/API.md\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/audio_classification\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/audio_classification/API.md\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/camera_code_detection\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/camera_code_detection/API.md\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/cloud_asr\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/cloud_asr/API.md\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/cloud_llm\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/cloud_llm/API.md\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/dbstorage_sqlstore\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/dbstorage_sqlstore/API.md\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/dbstorage_tsstore\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/dbstorage_tsstore/API.md\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/gesture_recognition\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/gesture_recognition/API.md\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/image_classification\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/image_classification/API.md\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/keyword_spotting\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/keyword_spotting/API.md\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/llm\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/llm/API.md\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/mcp_client\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/mcp_client/API.md\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/mood_detector\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/mood_detector/API.md\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/motion_detection\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/motion_detection/API.md\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/mqtt\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/mqtt/API.md\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/object_detection\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/object_detection/API.md\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/sound_generator\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/sound_generator/API.md\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/streamlit_ui\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/streamlit_ui/API.md\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/telegram_bot\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/telegram_bot/API.md\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/tts\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/tts/API.md\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/vibration_anomaly_detection\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/vibration_anomaly_detection/API.md\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/video_image_classification\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/video_image_classification/API.md\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/video_object_detection\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/video_object_detection/API.md\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/visual_anomaly_detection\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/visual_anomaly_detection/API.md\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/vlm\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/vlm/API.md\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/wave_generator\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/wave_generator/API.md\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/weather_forecast\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/weather_forecast/API.md\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/web_ui\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_bricks/web_ui/API.md\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_peripherals\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_peripherals/camera\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_peripherals/camera/API.md\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_peripherals/microphone\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_peripherals/microphone/API.md\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_peripherals/remote_sensor\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_peripherals/remote_sensor/API.md\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_peripherals/speaker\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_peripherals/speaker/API.md\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_peripherals/usb_camera\n/var/lib/arduino-app-cli/assets/0.12.0/api-docs/arduino/app_peripherals/usb_camera/API.md\n/var/lib/arduino-app-cli/assets/0.12.0/bricks-list.yaml\n/var/lib/arduino-app-cli/assets/0.12.0/compose\n/var/lib/arduino-app-cli/assets/0.12.0/compose/arduino\n/var/lib/arduino-app-cli/assets/0.12.0/compose/arduino/audio_classification\n/var/lib/arduino-app-cli/assets/0.12.0/compose/arduino/audio_classification/brick_compose.ventunoq.yaml\n/var/lib/arduino-app-cli/assets/0.12.0/compose/arduino/audio_classification/brick_compose.yaml\n/var/lib/arduino-app-cli/assets/0.12.0/compose/arduino/dbstorage_tsstore\n/var/lib/arduino-app-cli/assets/0.12.0/compose/arduino/dbstorage_tsstore/brick_compose.yaml\n/var/lib/arduino-app-cli/assets/0.12.0/compose/arduino/gesture_recognition\n/var/lib/arduino-app-cli/assets/0.12.0/compose/arduino/gesture_recognition/brick_compose.yaml\n/var/lib/arduino-app-cli/assets/0.12.0/compose/arduino/image_classification\n/var/lib/arduino-app-cli/assets/0.12.0/compose/arduino/image_classification/brick_compose.ventunoq.yaml\n/var/lib/arduino-app-cli/assets/0.12.0/compose/arduino/image_classification/brick_compose.yaml\n/var/lib/arduino-app-cli/assets/0.12.0/compose/arduino/keyword_spotting\n/var/lib/arduino-app-cli/assets/0.12.0/compose/arduino/keyword_spotting/brick_compose.ventunoq.yaml\n/var/lib/arduino-app-cli/assets/0.12.0/compose/arduino/keyword_spotting/brick_compose.yaml\n/var/lib/arduino-app-cli/assets/0.12.0/compose/arduino/motion_detection\n/var/lib/arduino-app-cli/assets/0.12.0/compose/arduino/motion_detection/brick_compose.ventunoq.yaml\n/var/lib/arduino-app-cli/assets/0.12.0/compose/arduino/motion_detection/brick_compose.yaml\n/var/lib/arduino-app-cli/assets/0.12.0/compose/arduino/object_detection\n/var/lib/arduino-app-cli/assets/0.12.0/compose/arduino/object_detection/brick_compose.ventunoq.yaml\n/var/lib/arduino-app-cli/assets/0.12.0/compose/arduino/object_detection/brick_compose.yaml\n/var/lib/arduino-app-cli/assets/0.12.0/compose/arduino/vibration_anomaly_detection\n/var/lib/arduino-app-cli/assets/0.12.0/compose/arduino/vibration_anomaly_detection/brick_compose.ventunoq.yaml\n/var/lib/arduino-app-cli/assets/0.12.0/compose/arduino/vibration_anomaly_detection/brick_compose.yaml\n/var/lib/arduino-app-cli/assets/0.12.0/compose/arduino/video_image_classification\n/var/lib/arduino-app-cli/assets/0.12.0/compose/arduino/video_image_classification/brick_compose.ventunoq.yaml\n/var/lib/arduino-app-cli/assets/0.12.0/compose/arduino/video_image_classification/brick_compose.yaml\n/var/lib/arduino-app-cli/assets/0.12.0/compose/arduino/video_object_detection\n/var/lib/arduino-app-cli/assets/0.12.0/compose/arduino/video_object_detection/brick_compose.ventunoq.yaml\n/var/lib/arduino-app-cli/assets/0.12.0/compose/arduino/video_object_detection/brick_compose.yaml\n/var/lib/arduino-app-cli/assets/0.12.0/compose/arduino/visual_anomaly_detection\n/var/lib/arduino-app-cli/assets/0.12.0/compose/arduino/visual_anomaly_detection/brick_compose.ventunoq.yaml\n/var/lib/arduino-app-cli/assets/0.12.0/compose/arduino/visual_anomaly_detection/brick_compose.yaml\n/var/lib/arduino-app-cli/assets/0.12.0/docs\n/var/lib/arduino-app-cli/assets/0.12.0/docs/arduino\n/var/lib/arduino-app-cli/assets/0.12.0/docs/arduino/air_quality_monitoring\n/var/lib/arduino-app-cli/assets/0.12.0/docs/arduino/air_quality_monitoring/README.md\n/var/lib/arduino-app-cli/assets/0.12.0/docs/arduino/arduino_cloud\n/var/lib/arduino-app-cli/assets/0.12.0/docs/arduino/arduino_cloud/README.md\n/var/lib/arduino-app-cli/assets/0.12.0/docs/arduino/asr\n/var/lib/arduino-app-cli/assets/0.12.0/docs/arduino/asr/README.md\n/var/lib/arduino-app-cli/assets/0.12.0/docs/arduino/audio_classification\n/var/lib/arduino-app-cli/assets/0.12.0/docs/arduino/aud…45117 tokens truncated…s/img/no-gesture-recognized.svg\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/gesture-booth/assets/img/overlays\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/gesture-booth/assets/img/overlays/animated\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/gesture-booth/assets/img/overlays/animated/closed_fist.json\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/gesture-booth/assets/img/overlays/animated/open_palm.json\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/gesture-booth/assets/img/overlays/animated/pointing_up.json\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/gesture-booth/assets/img/overlays/animated/rock.json\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/gesture-booth/assets/img/overlays/animated/thumb_down.json\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/gesture-booth/assets/img/overlays/animated/thumb_up.json\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/gesture-booth/assets/img/overlays/animated/victory.json\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/gesture-booth/assets/img/overlays/static\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/gesture-booth/assets/img/overlays/static/closed_fist.svg\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/gesture-booth/assets/img/overlays/static/open_palm.svg\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/gesture-booth/assets/img/overlays/static/pointing_up.svg\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/gesture-booth/assets/img/overlays/static/rock.svg\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/gesture-booth/assets/img/overlays/static/thumb_down.svg\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/gesture-booth/assets/img/overlays/static/thumb_up.svg\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/gesture-booth/assets/img/overlays/static/victory.svg\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/gesture-booth/assets/img/restart.svg\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/gesture-booth/assets/img/stop.svg\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/gesture-booth/assets/index.html\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/gesture-booth/assets/libs\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/gesture-booth/assets/libs/arduino.js\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/gesture-booth/assets/libs/dotlottie-player.js\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/gesture-booth/assets/libs/socket.io.min.js\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/gesture-booth/assets/style.css\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/gesture-booth/python\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/gesture-booth/python/main.py\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/smart-mirror\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/smart-mirror/README.md\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/smart-mirror/app.yaml\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/smart-mirror/assets\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/smart-mirror/assets/app.js\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/smart-mirror/assets/docs_assets\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/smart-mirror/assets/docs_assets/thumbnail.png\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/smart-mirror/assets/fonts\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/smart-mirror/assets/fonts/Open Sans\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/smart-mirror/assets/fonts/Open Sans/OFL.txt\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/smart-mirror/assets/fonts/Open Sans/OpenSans-VariableFont_wdth,wght.ttf\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/smart-mirror/assets/fonts/Roboto\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/smart-mirror/assets/fonts/Roboto/OFL.txt\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/smart-mirror/assets/fonts/Roboto/RobotoMono-VariableFont_wght.ttf\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/smart-mirror/assets/fonts/fonts.css\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/smart-mirror/assets/img\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/smart-mirror/assets/img/Arduino-Logo.svg\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/smart-mirror/assets/img/cancel.svg\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/smart-mirror/assets/img/favicon.png\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/smart-mirror/assets/img/play.svg\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/smart-mirror/assets/img/restart.svg\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/smart-mirror/assets/img/scanning.svg\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/smart-mirror/assets/index.html\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/smart-mirror/assets/libs\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/smart-mirror/assets/libs/arduino.js\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/smart-mirror/assets/libs/socket.io.min.js\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/smart-mirror/assets/style.css\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/smart-mirror/python\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/smart-mirror/python/main.py\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/smart-mirror/python/prompt.py\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/smart-mirror/python/prompt.yaml\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/video-face-detection\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/video-face-detection/README.md\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/video-face-detection/app.yaml\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/video-face-detection/assets\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/video-face-detection/assets/app.js\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/video-face-detection/assets/docs_assets\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/video-face-detection/assets/docs_assets/hardware-setup.png\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/video-face-detection/assets/docs_assets/launch-app.png\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/video-face-detection/assets/docs_assets/video-face-detection.png\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/video-face-detection/assets/fonts\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/video-face-detection/assets/fonts/Open Sans\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/video-face-detection/assets/fonts/Open Sans/OFL.txt\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/video-face-detection/assets/fonts/Open Sans/OpenSans-VariableFont_wdth,wght.ttf\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/video-face-detection/assets/fonts/Roboto\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/video-face-detection/assets/fonts/Roboto/OFL.txt\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/video-face-detection/assets/fonts/Roboto/RobotoMono-VariableFont_wght.ttf\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/video-face-detection/assets/fonts/fonts.css\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/video-face-detection/assets/img\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/video-face-detection/assets/img/barcode.svg\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/video-face-detection/assets/img/copy.svg\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/video-face-detection/assets/img/delete-scan.svg\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/video-face-detection/assets/img/hand.gif\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/video-face-detection/assets/img/icon-reset.svg\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/video-face-detection/assets/img/info.svg\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/video-face-detection/assets/img/lens.svg\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/video-face-detection/assets/img/link.svg\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/video-face-detection/assets/img/logo.svg\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/video-face-detection/assets/img/no-face.svg\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/video-face-detection/assets/img/stars.svg\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/video-face-detection/assets/index.html\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/video-face-detection/assets/libs\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/video-face-detection/assets/libs/arduino.js\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/video-face-detection/assets/libs/socket.io.min.js\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/video-face-detection/assets/style.css\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/video-face-detection/python\n/var/lib/arduino-app-cli/examples/inspirational/platform_ventunoq/video-face-detection/python/main.py"
+    },
+    {
+      "command": "dpkg-query -W '*zephyr*' '*firmware*' '*stm32*'",
+      "exit_code": 1,
+      "output": "firmware-atheros\t20250808-1~bpo13+1\nfirmware-qcom-media\t\nfirmware-qcom-soc\t20250808-1~bpo13+1\ndpkg-query: no packages found matching *zephyr*\ndpkg-query: no packages found matching *stm32*"
+    },
+    {
+      "command": "ls -ld /home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0",
+      "exit_code": 0,
+      "output": "drwx------ 7 arduino arduino 4096 Sep 22 15:50 /home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0"
+    },
+    {
+      "command": "ls -l /home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/libraries",
+      "exit_code": 0,
+      "output": "total 32\ndrwxr-xr-x 4 arduino arduino 4096 Sep 22 15:49 Arduino_LED_Matrix\ndrwxr-xr-x 3 arduino arduino 4096 Sep 22 15:49 CAN\ndrwxr-xr-x 2 arduino arduino 4096 Sep 22 15:49 ea_malloc\ndrwxr-xr-x 3 arduino arduino 4096 Sep 22 15:49 RTC\ndrwxr-xr-x 2 arduino arduino 4096 Sep 22 15:49 SocketWrapper\ndrwxr-xr-x 2 arduino arduino 4096 Sep 22 15:49 SPI\ndrwxr-xr-x 2 arduino arduino 4096 Sep 22 15:49 stubs\ndrwxr-xr-x 2 arduino arduino 4096 Sep 22 15:49 Wire"
+    },
+    {
+      "command": "find /home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0 -maxdepth 3 -type f -name '*loader*'",
+      "exit_code": 0,
+      "output": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/flash_bootloader.cfg\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_ventuno_q_stm32h5f5xx/flash_bootloader.cfg"
+    },
+    {
+      "command": "find /home/arduino/.arduino15/packages -maxdepth 4 -type d -name 'remoteocd' -o -name 'openocd' -o -name 'arm-zephyr-eabi'",
+      "exit_code": 0,
+      "output": "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi\n/home/arduino/.arduino15/packages/arduino/tools/remoteocd\n/home/arduino/.arduino15/packages/SiliconLabs/tools/openocd"
+    },
+    {
+      "command": "dpkg-query -L arduino-app-cli | grep -E '^/usr/bin/|^/etc/systemd/|loader|remoteocd|openocd'",
+      "exit_code": 0,
+      "output": "/etc/systemd/system\n/etc/systemd/system/arduino-app-cli.service\n/etc/systemd/system/arduino-avahi-serial.service\n/usr/bin/arduino-app-cli"
+    },
+    {
+      "command": "find /home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx -maxdepth 3 -type f",
+      "exit_code": 0,
+      "output": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/arduino_uno_q_stm32u585xx.conf\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/flash_bootloader.cfg\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/cflags.txt\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/syms-dynamic.ld\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/includes.txt\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/arduino_uno_q_stm32u585xx.overlay\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/flash_sketch.cfg\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/known_example_issues.txt\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/scripts/set-to-ram-mode.sh\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/tls-syms.S\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/variant.h\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/cxxflags.txt\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/postvariant.h\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/analogReference.cpp\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/syms-static.ld\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/machine_flags.txt"
+    },
+    {
+      "command": "ls -d /home/arduino/.arduino15/packages/arduino/tools/remoteocd/* /home/arduino/.arduino15/packages/SiliconLabs/tools/openocd/* /home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/*",
+      "exit_code": 0,
+      "output": "/home/arduino/.arduino15/packages/arduino/tools/remoteocd/0.1.1\n/home/arduino/.arduino15/packages/SiliconLabs/tools/openocd/0.12.0-arduino1-static\n/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1"
+    },
+    {
+      "command": "find /home/arduino/.arduino15/packages/arduino/tools/remoteocd /home/arduino/.arduino15/packages/SiliconLabs/tools/openocd -maxdepth 3 -type f -name 'remoteocd' -o -name 'openocd'",
+      "exit_code": 0,
+      "output": "/home/arduino/.arduino15/packages/arduino/tools/remoteocd/0.1.1/remoteocd\n/home/arduino/.arduino15/packages/SiliconLabs/tools/openocd\n/home/arduino/.arduino15/packages/SiliconLabs/tools/openocd/0.12.0-arduino1-static/bin/openocd\n/home/arduino/.arduino15/packages/SiliconLabs/tools/openocd/0.12.0-arduino1-static/share/openocd"
+    },
+    {
+      "command": "grep -E '^(name|version)=' /home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/libraries/*/library.properties",
+      "exit_code": 0,
+      "output": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/libraries/Arduino_LED_Matrix/library.properties:name=Arduino_LED_Matrix\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/libraries/Arduino_LED_Matrix/library.properties:version=0.1.3\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/libraries/CAN/library.properties:name=CAN\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/libraries/CAN/library.properties:version=1.0.0\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/libraries/RTC/library.properties:name=RTC\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/libraries/RTC/library.properties:version=1.0.0\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/libraries/SocketWrapper/library.properties:name=SocketWrapper\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/libraries/SocketWrapper/library.properties:version=1.0.0\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/libraries/SPI/library.properties:name=SPI\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/libraries/SPI/library.properties:version=1.0.0\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/libraries/Wire/library.properties:name=Wire\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/libraries/Wire/library.properties:version=1.0.0"
+    },
+    {
+      "command": "ls -l /home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/loader",
+      "exit_code": 2,
+      "output": "ls: cannot access '/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/loader': No such file or directory"
+    },
+    {
+      "command": "dpkg-query -W -f='${binary:Package}\\t${Version}\\t${db:Status-Status}\\n' arduino-cli arduino-router arduino-app-cli arduino-app-lab",
+      "exit_code": 0,
+      "output": "arduino-app-cli\t0.13.0\tinstalled\narduino-app-lab\t0.10.0\tinstalled\narduino-cli\t1.5.1\tinstalled\narduino-router\t0.10.0\tinstalled"
+    },
+    {
+      "command": "ls -l /home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0",
+      "exit_code": 0,
+      "output": "total 388\n-rw-------  1 arduino arduino   6101 Sep 22 15:49 boards.txt\ndrwxr-xr-x  3 arduino arduino   4096 Sep 22 15:49 cores\ndrwxr-xr-x  2 arduino arduino   4096 Sep 22 15:49 doc\ndrwxr-xr-x  2 arduino arduino   4096 Sep 22 15:50 firmwares\n-rw-r--r--  1 arduino arduino 303397 Sep 22 15:52 installed.json\ndrwxr-xr-x 10 arduino arduino   4096 Sep 22 15:49 libraries\n-rw-r--r--  1 arduino arduino  11357 Sep 22 15:49 LICENSE\n-rw-------  1 arduino arduino  20947 Sep 22 15:49 platform.txt\n-rw-r--r--  1 arduino arduino    597 Sep 22 15:49 programmers.txt\n-rw-r--r--  1 arduino arduino  18208 Sep 22 15:49 README.md\ndrwxr-xr-x  6 arduino arduino   4096 Sep 22 15:49 variants"
+    },
+    {
+      "command": "cat /home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/flash_bootloader.cfg",
+      "exit_code": 0,
+      "output": "# Copyright (c) Arduino s.r.l. and/or its affiliated companies\n# SPDX-License-Identifier: Apache-2.0\n\nreset_config srst_only srst_nogate srst_push_pull connect_assert_srst\ninit\nreset\nhalt\nflash info 0\nif {[catch {flash verify_image ${filename0}}] != 0} {\n\tflash write_image erase ${filename0}\n}\nreset\nshutdown"
+    },
+    {
+      "command": "find /home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0 -maxdepth 4 -type f -name '*.elf' -o -name '*.bin' -o -name '.config'",
+      "exit_code": 0,
+      "output": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_ventuno_q_stm32h5f5xx.bin\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.bin\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_ventuno_q_stm32h5f5xx.elf"
+    },
+    {
+      "command": "ls -d /home/arduino/.arduino15/packages/arduino/tools/*/*",
+      "exit_code": 0,
+      "output": "/home/arduino/.arduino15/packages/arduino/tools/adb/32.0.0\n/home/arduino/.arduino15/packages/arduino/tools/bin2uf2/0.1.0\n/home/arduino/.arduino15/packages/arduino/tools/bossac/1.9.1-arduino2\n/home/arduino/.arduino15/packages/arduino/tools/dfu-util/0.11.0-arduino5\n/home/arduino/.arduino15/packages/arduino/tools/gen-rodata-ld/0.1.1\n/home/arduino/.arduino15/packages/arduino/tools/remoteocd/0.1.1\n/home/arduino/.arduino15/packages/arduino/tools/rp2040tools/1.1.0-rc1\n/home/arduino/.arduino15/packages/arduino/tools/scripting-tools/0.0.7\n/home/arduino/.arduino15/packages/arduino/tools/sync-zephyr-artifacts/0.2.2\n/home/arduino/.arduino15/packages/arduino/tools/zephyr-check-size/0.1.0\n/home/arduino/.arduino15/packages/arduino/tools/zephyr-sketch-tool/0.4.1"
+    }
+  ]
+}

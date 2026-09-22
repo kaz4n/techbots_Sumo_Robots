@@ -112,3 +112,21 @@ physical failure has been observed. Required follow-up: inspect the actual loade
 revision and matrix initialization/ownership under each startup option, select
 and review a non-conflicting observable sketch-start marker, then collect raw
 cold-boot timings. No pin or behavior change is authorized by this finding.
+
+## Connected bare-board inventory, 2026-09-22
+
+D-052 records the user's bare UNO Q setup and authorization. Read-only evidence:
+analysis/P0_connected_inventory_20260922.md and P0_board_inventory_20260922.json
+(38 explicit command/status/output records). No firmware mutation in this inventory.
+
+| ID | Question | Observed answer | Source | Confidence | Hardware-checked |
+|---|---|---|---|---|---|
+| F-062 | Actual USB target | UNO Q VID2341/PID0078 serial2629958581; COM10 and ADB driver OK; matching mDNS serial; ADB device state device | Local PnP/CLI/adb commands in connected inventory | observed device identity | USB connection only; isolation human-reported |
+| F-063 | Installed board toolchain | user arduino; /home/arduino; aarch64 Linux6.16.7; CLI1.5.1 commit01f3d4f2b; arduino:zephyr1.0.0; FQBN options dynamic/default wait_linux_boot=yes and Immediate=no; Python3.13.5;2.8GiB free; rsync missing127 | Exact-device ADB shell commands in board inventory | installed versions observed | actual board OS queried; compilation not yet tested |
+| F-064 | Installed libraries/router | No sketchbook libraries; bundled Arduino_LED_Matrix0.1.3, Wire1.0.0, SPI1.0.0; router package0.10.0 and127.0.0.1:7500 listener; packaged remoteocd0.1.1/OpenOCD0.12.0-arduino1-static/compiler1.0.1 paths exist | Board lib/dpkg/listener/package-file inventory | installed files observed | neither Monitor round trip nor library execution tested |
+| F-065 | Host ADB/CLI fallback | Existing bundled ADB32.0.0 matches running server and reaches the exact USB target; user Windows CLI1.5.2-rc.1 is present but local zephyr core absent; native Python3.13.11 available | Connected inventory; local Get-Command | observed tools/connection | no host-core installation needed for board-side build |
+
+F-063 supersedes only the earlier installed-unknown status, not source or timing
+limitations. Packaged loader ELF/bin do not prove flashed-loader identity. No
+PINMAP OK, electrical verification, GPIO/ADC/QTR/IMU measurement or gate follows
+from successful Linux inventory. Source and actual behavior remain distinct.

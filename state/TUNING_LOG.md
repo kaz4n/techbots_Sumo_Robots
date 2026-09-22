@@ -96,3 +96,10 @@ Every bench or ring measurement and every config.h change goes here with its evi
   under R9. No B16 value, pin, voltage, acquisition or wiring assumption changes.
 - Evidence: BEHAVIOR B4.2/B4.3, exact config-source check and independent row
   executor tests to follow. This is not a measured or tuned escape angle.
+
+### 2026-09-22 | P1 B14 overrun warning threshold | no physical tuning
+- Add TICK_OVERRUN_PERCENT=1 from B14's existing more-than1% warning, centralized
+  under R9. All76 B16 defaults and pins remain unchanged. No motor/fault reaction
+  or measurement is inferred. Strict duration overrun remains duration>TICK_US.
+- Evidence: B14 text, exact config-source assertion; independent statistics
+  boundary tests follow. R4 target WCET<800us still needs actual robot evidence.

@@ -1,4 +1,4 @@
-// Defines fixed B15 frame and exact-tick event encodings.
+// Defines B14 supplied-tick statistics and B15 frame/exact-tick event encodings.
 // Keeps encoding and D-028 bounded event retention independent of HAL transport.
 // Independent host tests use literal byte fixtures, boundaries and invalid inputs.
 #pragma once
@@ -9,6 +9,26 @@
 #include <limits>
 
 namespace logframe {
+struct TickStatistics {
+    std::uint64_t ticks = 0;
+    std::uint64_t overruns = 0;
+    std::uint32_t max_us = 0;
+    bool saturated = false;
+};
+// B14: caller supplies one measured execution duration per included match tick.
+// No scheduler, clock, match membership or motor response is implemented here.
+// Start/reset with TickStatistics{}; valid state has overruns<=ticks. Each call
+// updates max_us and counts a strict measured_execution_us>TICK_US overrun.
+// At UINT64_MAX retained ticks, reject further count updates, latch saturated and
+// continue updating the full maximum. Counts then describe the retained prefix;
+// saturated means incomplete statistics, never a measured pass or zero overruns.
+// Plain value state permits exact arithmetic tests at representational limits.
+void observeTick(TickStatistics& statistics, std::uint32_t measured_execution_us);
+// Current retained-count ratio strictly above TICK_OVERRUN_PERCENT; empty=false.
+// Uses exact integer arithmetic without overflowing even at UINT64_MAX. This is
+// a statistical level, not a latched fault. Caller must preserve saturated status.
+bool overrunRateExceeded(const TickStatistics& statistics);
+
 // Representation constants, not behavior tunables. Explicit byte encoding has
 // no struct padding or native-endian dependency. Layout version is documented.
 inline constexpr std::size_t FRAME_BYTES = 25U;

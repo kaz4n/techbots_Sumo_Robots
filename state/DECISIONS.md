@@ -282,3 +282,49 @@ Consequence: implement logical hold and Controller composition with exact/adjace
 debounce/hold deadlines, release priority, boot-held BOTH, delayed calls, wrap,
 latched release behavior and reset tests. SC-A electrical decoding remains separate;
 this neither proves that A1 can distinguish BOTH nor authorizes a board reset.
+
+## D-036 (2026-09-22, accepted) Bounded TRACK and ATTACK steering
+Context: SC-V left B9's extra pivot and small corrections unquantified. User
+replied "Approve A: bounded steering with existing gains".
+Decision: mix left=base+correction and right=base-correction, bounded to [-1,1].
+TRACK uses TRACK_DUTY and K_TRACK_PER_DEG times bearing, adding signed
+TURN_MIN_DUTY for the +/-15-degree front-only rows; keep SEARCH_FORWARD governor.
+ATTACK uses approach/contact base and K_TRACK_PER_DEG times bearing limited to
+min(TURN_MIN_DUTY,base), with the ATTACK governor.
+Consequence: test every front row, mirrors, invalid inputs, approach/contact,
+final low-voltage caps, target-loss braking and centered qualification in the FSM.
+This is an approved development policy, not measured steering performance.
+
+## D-037 (2026-09-22, accepted) Timed re-flank arc and initial tie direction
+Context: SC-W left B11 SWING duty and initial alternation unspecified. User
+replied "Approve A: timed re-flank arc and right-first tie".
+Decision: outer arc request TURN_DUTY (0.80), REFLANK_ARC_RATIO (0.40), and a
+duration-only REFLANK_ARC_MS (400 ms) limit. When the specified edge/side-history
+rules cannot choose, swing right first, then alternate.
+Consequence: implement a time-only arc without inventing a sweep cutoff; test
+duration boundaries, side precedence/ties, charger skip, both mirrors and safety.
+The existing recent-edge and least-recent-front-side rules retain precedence.
+
+## D-038 (2026-09-22, accepted) Qualified re-flank reacquisition
+Context: SC-X left re-flank's ATTACK exit inconsistent with B9 qualification.
+User replied "Approve A: qualified re-flank reacquisition".
+Decision: re-flank exits use normal current-perception arbitration: current
+front selects TRACK and must satisfy ATTACK_ENTER_TICKS centered observations
+before ATTACK; side/rear selects DEFEND_TURN; none selects SEARCH. Preserve
+D-027's fresh contact requirement.
+Consequence: test qualification interruption, stale contact, every target group,
+target loss and edge priority in the integrated Robot; no direct ATTACK bypass.
+
+## D-039 (2026-09-22, accepted) One specific locked-test amendment for D-035
+Context: the established case "B3 Controller qualified MODE cancels at GO deadline
+and requires a new hold" in tests/locked/test_countdown_integration.cpp holds BOTH
+for 5.1 s yet expects IDLE/restart without reset, contradicting accepted D-035.
+User reviewed the concrete proposal in analysis/P1_stop_locked_conflict.md and
+replied "Approve the single-case locked-test amendment".
+Decision: apply exactly that documented replacement to this case only. Preserve
+MODE cancellation and all initial cancellation/full-countdown checks. The BOTH
+branch must instead assert latched STOPPED, reject release/START and explicitly
+reset before the existing fresh full-hold checks.
+Consequence: no other established locked test is authorized to change. Preserve
+the initial failing receipt; rerun full host/sanitizer suites and separate review.
+This approval synchronizes an old expectation with D-035, not weaker protection.

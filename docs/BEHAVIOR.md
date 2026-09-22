@@ -256,6 +256,12 @@ The pattern is deterministic and visibly purposeful (the tie-break criteria rewa
 - **Centering:** FL15 + FC steers slightly left; FC + FR15 slightly right. Small corrections only.
 
 ### B9.3 Exits
+D-036 (human-approved 2026-09-22): left/right requests are base +/- correction,
+bounded to [-1,1]. TRACK correction is K_TRACK_PER_DEG times bearing plus signed
+TURN_MIN_DUTY for the +/-15-degree front-only rows; retain SEARCH_FORWARD governor.
+ATTACK uses the approach/contact base and that gain limited to
+min(TURN_MIN_DUTY,base), with the ATTACK governor. These quantify B9.1/B9.2 above.
+
 - Front target lost: brake, SEARCH (turn toward the last bearing first).
 - Off-center (FL15 only or FR15 only): TRACK.
 - Stall: REFLANK.
@@ -305,6 +311,14 @@ Phases:
 - **SWING:** pivot REFLANK_PIVOT_DEG right, then arc with the opponent on the inner (left) side at REFLANK_ARC_RATIO for up to REFLANK_ARC_MS. SL or RL detection starts TURN_IN at once.
 - **TURN_IN:** turnTo toward the detected bearing. A front detection enters ATTACK with a fresh contact timer.
 - Edge events preempt every phase.
+
+D-037 (human-approved 2026-09-22): the SWING arc uses TURN_DUTY as its outer
+request and REFLANK_ARC_RATIO, bounded only by REFLANK_ARC_MS (no sweep cutoff).
+When the earlier side-choice rules cannot choose, swing right first, then alternate.
+D-038 (human-approved 2026-09-22): all re-flank exits use current-perception
+arbitration. Current front selects TRACK and must satisfy ATTACK_ENTER_TICKS
+centering before ATTACK; side/rear selects DEFEND_TURN; none selects SEARCH.
+D-027's fresh contact requirement remains in force.
 
 ### B11.3 Limits
 - At most REFLANK_MAX_PER_10S re-flanks in any 10 s window. Beyond that: ALL_IN. D-025 (human-approved 2026-09-22) supersedes unconditional full duty: suppress stall checks for ALL_IN_MS only. Full duty still requires centered contact; target loss still brakes and edge handling retains priority. All B6 caps and the existing default-disabled push-through rule remain in force.

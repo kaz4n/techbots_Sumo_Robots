@@ -15,23 +15,26 @@ the complete robot scheduler, FSM and actuator path do not yet exist.
 | `edge::Classifier` | Per-corner threshold and consecutive-white confirmation, persistent white mask | Validated fresh QTR acquisition, escape policy, R5 arbitration |
 | `edge::Guard` | D-020 persistent escape request, black-plus-finished exit, latched all-white motion veto until reset | Escape directions/scripts/replanning and application of veto at MotorGate |
 | `edge::forwardDemand` | D-021 straight/left/right-biased forward requests using 0.80 base and 70% inner-side request | Timed/heading-held segments and selection by the escape planner |
-| `edge::RowExecutor` | B4.2 single-front/diagonal/rear/side scripts plus D-044 explicit-side head-on entry, bounded transitions, heading capture/fallback and governor profiles | Full row selection, D-047/D-048 policy composition, pushed-out/replanning and Robot arbitration |
+| `edge::RowExecutor` | B4.2 scripts plus explicit-side head-on and pushed-out entry, bounded transitions, relative heading capture/fallback and governor profiles | Production Robot arbitration and fresh HAL observations |
+| `edge::Escape` | D-047..D-050/D-054 full selection, persistent-white replanning, reset-only recovery faults and fresh inward evidence at actual exit | Robot priority, previous applied-duty feedback, validated QTR freshness and MotorGate inhibition |
 | `opp_fusion::Debouncer` | Per-bit polarity, two-sample assertion, continuous-clear hysteresis | Validated sensor acquisition |
 | `opp_fusion::frontView` | Seven front bearing/centering/close rows from B5.2 | Downstream motion/FSM policy |
 | `opp_fusion::BearingMemory` | Front/side/rear priority, approved bilateral conflicts, world angle and rising-front recency | Search/re-flank use and memory-age ownership |
-| `opp_fusion::Contact` | Separate cue observation and D-027 centered-ATTACK latch commitment; legacy step composes both | FSM contact phase/target-loss braking and physical cue validation |
+| `opp_fusion::Contact` | Separate cue observation, read-only candidate preview and D-027 centered-ATTACK latch commitment; legacy step composes observation/commit | FSM contact phase/target-loss braking and physical cue validation |
 | `opp_fusion::PhantomFilter` | D-029/D-030 bounded chase history, contact retention, one replaceable world marker and circular front masking | Robot supplies pre-edge state; icon/event routing and physical validation |
 | `opp_fusion::StuckFilter` | D-031 continuous valid detection plus observed yaw span; independent reset-only latched bits | Icon/event routing and physical sweep validation |
-| `opp_fusion::Fusion` | Ordered fresh-observation pipeline, effective bearing/memory and post-arbitration contact commit | Actual Robot state selection, HAL sampling and governor/event dispatch |
+| `opp_fusion::Fusion` | Ordered fresh-observation pipeline, effective bearing/memory, D-056 read-only contact preview and one final-state contact commit | Actual Robot/stall state selection, HAL sampling and governor/event dispatch |
 | `governor::Governor` | D-017 electrical caps after compensation, slew, immediate braking/reversal/cap reductions, one-second battery lag | FSM profile selection and target-loss brake trigger; real MotorGate |
 | `motion::Turn/Straight/Arc/Brake` | B7 demands, D-022 bounded heading correction, D-023 fixed timing with duty-only compensation, bounded IMU fallback | Escape/openers/re-flank scripts, explicit governor profile and MotorGate integration |
 | `stall::Detector` | D-032 final-duty qualification, timer/deflection routes and persistent per-contact edge history | Governed-duty/contact wiring, event deduplication, physical P4 stall evidence |
 | `stall::ReflankLimiter` | B11.3 rolling two-start limit and D-025 bounded suppression timer | Actual re-flank starts and stall-result suppression in Robot, all safety arbitration |
 | `openers::Direct` | B12 O2 heading-held 400ms request, snapshot/current target exits and latched zero completion | Global target/edge arbitration and OPENER governor, other openers |
-| `openers::Flank` | Shared mirrored SIDESTEP/ARC scripts, D-033 phase-specific aborts, explicit governor profiles and D-034 exit intents | Complete Robot arbitration and WAIT |
+| `openers::Flank` | Shared mirrored SIDESTEP/ARC scripts, D-033 phase-specific aborts, relative turns, explicit governor profiles and D-034 exit intents | Complete Robot arbitration |
+| `openers::Wait` | D-055 stationary hold and ordered approach cue, then complete SIDESTEP_R with existing exits and bounded deadlines | Complete Robot arbitration and physical evasive geometry |
 | `fsm::DefendTurn` | B10 captured target, front/clear exits and separate B7 700ms/B10 800ms deadlines | Global arbitration, PIVOT governor and MotorGate |
 | `fsm::frontDemand` | D-036 TRACK/ATTACK front-row requests, explicit profiles and invalid zero results | Centered qualification/state selection, current D-027 contact, immediate target-loss brake dispatch |
 | `fsm::FrontQualification` | B9 count of consecutive new centered observations, saturating eligibility and explicit reset | Normal-entry observation selection, preemption/reset wiring and complete state/contact/governor arbitration |
+| `fsm::NormalPerception` | D-045 current entry observation and D-046 immediate front-loss brake followed by current-perception routing | Script/edge/stall preemption, actual state lifecycle and one final governor dispatch |
 | `fsm::SearchSide/Search` | D-041 selected-bearing side retention; B8 memory turn, directed full scan, advance and alternating scans with D-042 latched fallback | Truthful history ages, actual escape/hint sources, current perception, global edge/STOP arbitration and governor/MotorGate |
 | `fsm::chooseSwing/Reflank` | D-037/D-043 side priority and B11 BACK/SWING/TURN_IN executor with captured turns, D-040 exits and exact entry notifications | Actual history/limiter admission, D-038/D-045 reacquisition, D-027 contact and global safety arbitration |
 | `motion::TimedArc` | D-037 mirrored duration-only forward arc, no invented heading cutoff | Re-flank sequencing, REFLANK_TURN governor and global safety arbitration |
@@ -86,15 +89,21 @@ permission; only explicit guard reset clears it. Before GO, line readings do not
 start escape or latch a new fault. Normal escape requires both all-black readings
 and a finished script to clear. Scripts/replanning and freshness remain separate.
 
-RowExecutor now executes nine explicitly selected B4.2 rows. Front/diagonal rows
+RowExecutor executes the specified B4.2 rows. Front/diagonal rows
 brake one tick, reverse120ms and turn120 degrees away; single rear rows advance
 with70% inner-wheel bias; both rear advance straight; same-side rows pivot45
 degrees then advance200ms. Segment entry captures the current/last healthy heading
 and starts its own deadline at the observation time. B7 fallback and governor
 profiles apply. Unsupported rows return an explicit zero/unsupported result;
 that is API coverage, not an approved escape recovery policy. DONE cannot clear
-the guard while white persists. Head-on/three-white/pushed-out selection, replans
-and valid inward-heading recording at the actual exit still need implementation.
+the guard while white persists. Explicit head-on and pushed-out entries capture
+their selected directions without retargeting. Escape composes these rows with
+the approved shared-side history, strict positive prior applied duties and
+fault-first pattern priority. It admits at most one replacement per observation,
+allows three replacements, and inhibits on a fourth request. Permission loss
+during escape also latches inhibition until reset. Only actual black-plus-DONE
+exit with current healthy finite yaw publishes inward evidence. The caller must
+supply fresh confirmed observations and apply every inhibition at MotorGate.
 
 This diagram is the implemented standalone Gate, **not the unfinished Robot FSM**:
 
@@ -124,7 +133,7 @@ boot behavior and log independence still need their own evidence. D-018 approves
 gated-state services before motor inhibition; the complete scheduler/FSM is still
 pending. D-017 approves final electrical caps; the governor implements those for
 the specified profiles. D-020 resolves persistent/all-white inhibition. QTR
-acquisition, timed escape motion/replanning and ALL_IN arbitration remain pending.
+acquisition, global escape priority and ALL_IN arbitration remain pending.
 Recorder overflow policy is approved as D-028; actual recording/dump integration
 remains pending. Protected decisions are in `state/analysis/spec_conflicts.md`.
 
@@ -197,6 +206,11 @@ commit returns invalid zero contact and clears the latch; replacing an uncommitt
 observation also clears the old latch. These protocol checks do not validate
 physical acquisition freshness. The full Robot must supply accurate prior/current
 states and apply the result to the governor; the pipeline never grants motion.
+D-056's const preview can predict centered ATTACK contact for a stall decision
+without advancing the latch or consuming the observation. Only the final commit
+may publish CONTACT or authorize the governor; repeated previews are not events.
+Stall and pushed-out checks use the preceding actual applied final duties, with
+zero feedback if the hardware inhibits. The future Robot must call Governor once.
 
 Stall detection stores contact heading/edge history separately from the continuous
 qualification timer. Suppression changes its final stalled level only. The limiter
@@ -223,6 +237,13 @@ not a shortest-angle turn or the short-turn timeout. First IMU loss latches the
 remaining timed sweep once; recovery does not restart it. Inward history ages to
 zero without revival after timestamp wrap. Current targets return zero demand
 and a perception intent; the eventual Robot owns the state change and permission.
+
+WAIT brakes during HOLD. Continuous confirmed FC followed on a later observation
+by a newly asserted front flank within300ms starts complete SIDESTEP_R, including
+the initial pivot, under D-055. A continuously held FC cannot restart an expired
+window. Side/rear aborts outrank the cue; a valid cue outranks the WAIT deadline.
+Flank then supplies all motion, front/side exits and fallback. This explicit
+replacement of the original no-pivot text needs later physical evasion validation.
 
 Student explanation of what exists today: "We pass timestamped values into small
 C++ functions, so the laptop tests the same decisions without a robot. The start

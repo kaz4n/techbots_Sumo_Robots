@@ -4,7 +4,8 @@ Current resolution index: accepted decisions D-017 through D-046 resolve the
 specific conflicts identified in their dated entries below. Earlier "pending"
 paragraphs are historical where a later resolution applies. SC-AF and the explicit
 SC-R inhibited-recovery option are now approved as D-047/D-048. Their dependent
-integration is pending. Other physical/escape/WAIT dependencies remain separately open.
+integration is covered by the D-054 Escape component; full Robot integration is
+pending. D-055 resolves SC-G's WAIT policy; physical validation stays open.
 
 Latest D-049/D-050 resolve pushed-out and replanning details. D-051 delegates
 remaining engineering choices without further questions; select/document the
@@ -38,8 +39,9 @@ PWM capabilities and upload transport) are in P0_G1 through P0_G6. They are fact
 verification blockers rather than authority to change HARDWARE, config pins, or D-005.
 
 Protected decisions are separate: accepting any one row does not approve the others.
-For the next human decision, present its options using AGENTS section 9 CONFUSION
-format and record the exact answer in a new DECISIONS entry before dependent work.
+The original question workflow below is historical where D-051 delegates an
+engineering choice. Record the selected recommendation and regression scope;
+do not manufacture physical evidence, human gates or motor-run authorization.
 
 ## P1 contract audit follow-up (2026-09-22)
 
@@ -326,3 +328,12 @@ replanning lifecycle in P1_escape_remaining_contract.md. D-051 delegates remaini
 engineering decisions to Codex without further questions. Record future choices
 and regression requirements explicitly; unknown facts or absent evidence do not
 become verified through this delegation. No additional decision requests pending.
+
+2026-09-23 component resolutions: D-054 defines Escape call-entry replan priority,
+permission-loss inhibition, consumed-context validation and current-yaw-only
+inward evidence. D-055 RESOLVES SC-G using full SIDESTEP_R after a bounded ordered
+cue, visibly amending O4; the physical latency/evasion tradeoff is unmeasured.
+D-056 defines pure contact preview before one final commitment so a stall-induced
+state change never requires duplicate contact or governor advancement. These
+interfaces preceded their independent tests. Full Robot ordering, physical A1
+decoding, QTR acquisition/freshness and bounded Bridge transport remain unfinished.

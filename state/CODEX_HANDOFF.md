@@ -1,6 +1,32 @@
 # Codex handoff
 
-## Current resume point — 2026-09-22 Asia/Dubai
+## Current resume point — 2026-09-23 Asia/Dubai
+
+Full Escape66f76e4, WAIT6938c63 and contact preview990f287 are implemented and
+HOST-TESTED:716 cases/12,121,189 assertions pass normal+ASan/UBSan;116 tooling
+checks pass. New91 independent cases include42 new locked Escape tests; no
+established locked test/config changed. D-054/D-055/D-056 contracts were committed
+first. Reused separate read-only scoped review and its independent host rerun:
+reviews/P1_escape_wait_codex.md. Exact commands/limits/findings:
+analysis/P1_escape_wait_validation.md. The pre-build unsupported REQUIRE finding
+was corrected in the new test file without changing any predicate/build policy.
+
+Current core also TARGET-COMPILED inside inert p0_timing/default through actual
+board CLI/core, source98c436a4, exit0,MATCH0/MOTORS_ALLOWED0. No upload/reset/start;
+the prior matrix image below remains the last uploaded firmware. This is not the
+complete app build or runtime proof. The exact23-file inert snapshots were
+reviewed before allowlist refresh; physical QTR/button/evasion/WCET remain open.
+
+Next eligible task: select/record the logical B13 menu and service START-routing
+contract from analysis/P1_mode_menu_contract_audit.md, publish headers, then
+independent tests and implementation. Preserve existing Controller defaults and
+locked tests. Then complete Robot integration using P1_robot_interface_audit.md
+and D-056: one fresh observation, truthful history, atomic GO coordinates, prior
+applied-duty feedback, one final contact commitment and one Governor call.
+Read compact CODEX_EXECUTION.md. No human gate has passed; D-016 permits P1 only.
+Date is23September; no deadline-based scope cut applies yet. C: is low(~290MB).
+
+## Prior bare-board checkpoint — 2026-09-22 Asia/Dubai
 
 User connected the bare UNO Q and authorized testing it with no other hardware.
 D-052 records this scope without any credential. P1 host work under D-016 and

@@ -284,3 +284,8 @@ physical acceptance and complete fresh gate reviews remain pending.
 | 2026-09-23 | P1 B12 WAIT | D-055 ordered approach cue and full SIDESTEP_R; relative-turn precision repair;33 new independent cases | HOST-TESTED in716-case normal+sanitizer suite; static scoped review clear; physical evasion pending | commit containing this row |
 
 | 2026-09-23 | P1 B5 contact preview | D-056 pure candidate preview before one final-state latch commit;16 new independent cases | HOST-TESTED in716-case normal+sanitizer suite; pre-build macro finding corrected without predicate changes | commit containing this row |
+
+| 2026-09-23 | P1 batch validation | Escape66f76e4/WAIT6938c63/preview990f287;91 new independent cases; separate scoped review PASS | HOST-TESTED716/12121189 normal+ASan/UBSan;116 scripts; exact inert manifests approved; no open finding | checkpoint commit containing this row |
+| 2026-09-23 | P1 current core target check | Actual board-side timing/default compile-only, source98c436a4, MATCH0/MOTORS_ALLOWED0 | TARGET-COMPILED exit0;74008B program/33964B globals for inert sketch; no upload/reset/start; complete app absent | checkpoint commit containing this row |
+
+Session checkpoint: state/analysis/P1_escape_wait_validation.md contains commands, receipts, review and limits. No human gate or physical acceptance inferred. Last uploaded board image remains the September22 inert matrix. Next eligible task is B13 logical menu/START routing from P1_mode_menu_contract_audit.md, then complete Robot integration; no further hardware connection requested.

@@ -1,105 +1,73 @@
-# Execution checklist: P1 host development and P0 bare-board recovery
+# Execution checklist: P1 host development and P0 acceptance
 
-Current checkpoint2026-09-22 Asia/Dubai: NormalPerception aae9b36 is HOST-TESTED and
-reviewed:625 cases/11,994,540 assertions normal+ASan/UBSan;48 scripts passed.
-User authorizes testing bare UNO Q only (D-052). USB ADB fallback now works with
-actual board-side compile/upload. Inert timing default/Immediate compile-only and
-matrix default builds pass; current MCU runs inert matrix/default. Timing default
-60000-sample capture gives max/p99=3us, zero >=1ms-late observations; separate
-raw-data review confirms this limited measurement.116 tooling tests pass in WSL.
-Matrix counter441->444 observed with exact image/mapping checks. Next: Full Escape
-interface/independent tests/implementation under D-047..D-051. No gate passed.
-Full Escape/WAIT/Robot remain unfinished; D-051 permits documented decisions
-without more questions. Earlier hardware-deferral/next-task statements below
-are historical and superseded by this checkpoint.
+Current checkpoint: 2026-09-23 Asia/Dubai. PROGRESS.md is authoritative;
+D-016 permits P1 host development while P0 acceptance remains pending. No human
+phase gate has passed. D-051 delegates engineering choices without questions;
+D-052 authorizes bare UNO Q diagnostics. No additional hardware is requested.
 
-**RESUMED by explicit human request, 2026-09-22 at22:07 Asia/Dubai.**
-B8 SEARCH is HOST-TESTED/reviewed (540 cases / 11,937,972 assertions). Next:
-B11 re-flank, explicit-side D-044 head-on entry and countdown lifecycle are
-HOST-TESTED/reviewed:609 cases/11,983,801 assertions normal+ASan/UBSan;48 scripts.
-Source47ac972/d78e95d/0171741/144e897. Next: D-045/46 normal arbitration.
-Evidence: analysis/P1_search_validation.md and P1_reflank_headon_validation.md.
-D-047/D-048 now approve shared head-on side history and inhibited three-white/
-exhausted-replan recovery. D-049/D-050 now approve SC-S and replan lifecycle;
-D-051 delegates further engineering choices without questions. Full Escape
-interfaces/tests/implementation follow NormalPerception; no locked amendment inferred.
-The prior next-task and pending-choice paragraphs below are superseded by this
-checkpoint and the final resolution entry in analysis/spec_conflicts.md.
+## Latest bounded delivery
 
-PROGRESS.md is the phase/gate authority. D-016 permits offline P1 development.
-No human gate has passed. No board contact, target compile, upload/reset or motor
-run has occurred. The active user goal defers hardware testing to the end; its
-results remain pending, not assumed successful. Date:2026-09-22, Asia/Dubai.
+- Full Escape:66f76e4; WAIT:6938c63; contact preview:990f287. Interfaces preceded
+  implementation; decisions D-054/D-055/D-056 record the exact added contracts.
+- HOST-TESTED:716 cases /12,121,189 assertions, normal and ASan/UBSan, no failures
+  or skips.91 new independent cases; established locked tests/config unchanged.
+- SCRIPT-TESTED:116 checks,39.233s. Separate reviewer approved both exact23-file
+  inert snapshots before manifest refresh. New sources require their own target
+  evidence; historical uploaded image and measurements remain separate.
+- TARGET-COMPILED: current core inside inert timing/default, source98c436a4,
+  exit0,MATCH0/MOTORS_ALLOWED0;74,008B program/33,964B globals. No upload.
+- Evidence: analysis/P1_escape_wait_validation.md and linked raw receipts;
+  reviews/P1_escape_wait_codex.md. Read its final scoped verdict before reuse.
+- Physical evasion, sampling, real MotorGate and timing acceptance remain open.
 
-| Existing task | Status | Evidence and remaining dependency |
+## Existing phase tasks
+
+| Task | Status | Evidence / remaining acceptance |
 |---|---|---|
-| Kickoff role migration | IMPLEMENTED | D-015, AGENTS, CODEX_HANDOFF; baseline52b935e preserved |
-| P0 0.1 G1-G6 | SOURCE-REVIEWED / INSTALLED-INVENTORY | P0_G*.md; FACTS throughF-072; physical electrical checks pending |
-| P0 0.2 scripts | SCRIPT-TESTED / TARGET-USED |116 tooling cases; actual ADB build/upload receipts, missing rsync explicit; Monitor round trip pending |
-| P0 0.2/0.4 inert demos/timing | BARE-SCHEDULER-MEASURED / MATRIX-COUNTER-OBSERVED |60000 samples max/p99=3us; matrix counter441->444; optical/startup/WCET/GPIO/QTR/ADC/I2C pending |
-| P0 0.3 host scaffold | HOST-TESTED | CMake/doctest2.4.12, all76 B16 defaults preserved |
-| P0 0.5 pin map | BLOCKED | Physical electrical checks and PINMAP OK; no pins assigned in config |
-| P0 gate | GATE-PENDING | P0_gate_request.md prepared; physical evidence and human gate absent |
-| P1 1.1 interfaces | PARTIAL | Existing core modules plus Flank/DefendTurn; remaining scripts/Robot contract pending |
-| P1 1.2 B3/B13 | HOST-TESTED lifecycle | Gate/Buttons/StopHold/Controller/Services + production Lifecycle; HAL bias/heading-reset/menu/Robot wiring pending |
-| P1 1.2 B4 | HOST-TESTED components | Classifier/Guard/forward demands plus nine rows and explicit head-on; D-047/D-048 full selection/replanning/acquisition pending |
-| P1 1.2 B5 | HOST-TESTED pipeline | Fusion orders filters/cues/memory and commits current-state contact once; Robot/physical sampling remain |
-| P1 1.2 B6 | HOST-TESTED | Governor final cap/slew/compensation; FSM target-loss brake/profile selection pending |
-| P1 1.2 B7 | HOST-TESTED | Turn/Straight/Arc/Brake/TimedArc; bounded fallback and cumulative deadlines; scripts/FSM integration pending |
-| P1 1.2 B8 | HOST-TESTED executor | SearchSide/Search, D-041/D-042; truthful histories and global Robot arbitration pending |
-| P1 1.2 B9 | HOST-TESTED components | D-036 frontDemand, qualification and D-045/46 NormalPerception; full Robot wiring pending |
-| P1 1.2 B10 | HOST-TESTED | DefendTurn captures one target and preserves700/800ms deadlines; Robot arbitration pending |
-| P1 1.2 B11 | HOST-TESTED script/components | Detector/limiter/ALL_IN plus chooseSwing and Reflank script; actual history/limiter admission/FSM arbitration pending |
-| P1 1.2 B12 | HOST-TESTED DIRECT/SIDESTEP/ARC | Shared mirrors and current-perception exit intents; WAIT/global arbitration pending |
-| P1 1.2 B14 | HOST-TESTED tick statistics | Exact supplied-duration/rate/max/saturation arithmetic; actual measurements, IMU/QTR/warnings/fault dispatch pending |
-| P1 1.2 B15 | HOST-TESTED encoding/event buffer |25-byte frames/8-byte events; first4096 retained with overflow/count; frame storage/cadence/dump not implemented |
-| P1 1.2 remainder | UNFINISHED | Re-flank/escape/other openers, Robot FSM and B14 integration |
-| P1 1.3 properties | PARTIAL | Countdown/motion/fusion/DIRECT/filter fixed-seed10000 sets; limiter/detector independent references; full Robot R1/R5 and all-script symmetry pending |
-| P1 1.4 architecture | PARTIAL | ARCHITECTURE describes actual components; full FSM diagram/explanation still pending |
-| P1 1.5 target compile | PARTIAL TARGET-COMPILED | Existing core sources compile inside actual inert sketches; complete Robot/app and P1 exit criteria unfinished |
-| P1 1.6 review/gate | SCOPED PASS / GATE-PENDING | Separate read-only component reviews; full fresh gate review, EXPLAINED OK and human GATE P1 PASS absent |
+| P0 0.1 G1-G6 | SOURCE-REVIEWED / INSTALLED-INVENTORY | P0_G*.md; FACTS F-001..F-072; electrical checks pending |
+| P0 0.2 scripts | SCRIPT-TESTED / TARGET-USED |116 tests; actual board-side ADB compile/upload receipts; SSH default retained; missing rsync reported |
+| P0 0.2/0.4 inert demos | BARE-SCHEDULER-MEASURED / MATRIX-COUNTER-OBSERVED |60000 samples,max/p99 lateness3us,zero >=1ms late;counter441->444; P0_bare_board_results_20260922.md |
+| P0 0.3 host scaffold | HOST-TESTED | CMake/C++17/doctest2.4.12; original B16 defaults preserved |
+| P0 0.5 pin map | HARDWARE-PENDING | Electrical measurements and human PINMAP OK absent; config has no proposed pin assignments |
+| P0 gate | GATE-PENDING | Optical/Monitor/cold-start and hardware microbenchmarks unfinished; P0_gate_request.md |
+| P1 1.1 interfaces | PARTIAL | Component headers committed first; remaining B13/Robot integration contract pending |
+| P1 1.2 B3/B13 | HOST-TESTED lifecycle / UI INCOMPLETE | Buttons/StopHold/Gate/Controller/Services/Lifecycle; logical menu and service START routing next |
+| P1 1.2 B4 | HOST-TESTED Escape | Full policy/rows/replans/faults; fresh physical QTR and global Robot/MotorGate integration pending |
+| P1 1.2 B5 | HOST-TESTED fusion/preview | Ordered filters/cues/memory; pure preview and one final commit; Robot wiring pending |
+| P1 1.2 B6/B7 | HOST-TESTED | Electrical cap/slew/compensation and bounded primitives; one Governor invocation in future Robot |
+| P1 1.2 B8/B9/B10 | HOST-TESTED components | SEARCH/front demand/qualification/normal arbitration/DefendTurn; global histories/state lifecycle pending |
+| P1 1.2 B11 | HOST-TESTED components | Detector/limiter/ALL_IN predicate/Reflank; actual final-duty feedback and admission/arbitration pending |
+| P1 1.2 B12 | HOST-TESTED all opener components | DIRECT/SIDESTEP/ARC/WAIT; Robot dispatch and physical opener evidence pending |
+| P1 1.2 B14 | PARTIAL | Supplied-duration tick statistics; warning/freshness/fault dispatch incomplete |
+| P1 1.2 B15 | PARTIAL | Encoding and first4096 event retention; per-tick events/frame cadence/HAL storage/dump unfinished |
+| P1 1.3 properties | PARTIAL | Existing fixed-seed10000-stream component sets, symmetry/wrap/finite tests; full Robot R1/R5 scenarios still required |
+| P1 1.4 architecture | PARTIAL | ARCHITECTURE matches components; complete FSM graph awaits Robot |
+| P1 1.5 target | PARTIAL | Core compiled inside inert sketches; complete app/Robot and prescribed app compile remain unfinished |
+| P1 1.6 gate | GATE-PENDING | Scoped component reviews; complete fresh gate review, EXPLAINED OK and human GATE P1 PASS absent |
 
-Latest completed validation:509 cases/11,920,737 assertions pass normal and
-ASan/UBSan;48/48 controlled script checks. Tick statistics add12 new unlocked cases
-to920394e. Reused
-separate read-only scoped review PASS/no open finding; exact23-file inert
-manifests reviewed. See P1_tick_statistics_validation.md/review. Newly fresh
-reviewer creation hit the tool's thread limit; no full phase-gate review claimed.
-D-039's previous one-case locked amendment remains the sole authorized established
-locked edit; no established locked test or B16 value changed in this latest batch.
+## Next eligible work
 
-Approvals: D-017 governor; D-018 ordering; D-019 release anchor; D-020 persistent/
-all-white guard; D-021 forward0.80; D-022 heading correction; D-023 duty-only
-compensation; D-024 services; D-025 ALL_IN safety; D-026 bearing memory; D-027
-contact lifetime; D-028 explicit overflow; D-029/30 phantom episode/replacement;
-D-031 stuck faults; D-032 qualified timer/deflection; D-033 SIDESTEP priority;
-D-034 current-perception exits; D-035 qualified/reset-only STOP; D-036 steering;
-D-037 timed re-flank arc/right-first tie; D-038 qualified re-flank reacquisition;
-D-039 exactly one documented locked amendment. Do not re-request them.
-Components implement these policies; complete scheduler/recorder integration remains.
+1. Select B13 logical menu/START-routing contract under D-051 from
+   analysis/P1_mode_menu_contract_audit.md; commit interfaces before independent
+   tests/implementation. Keep Controller's default behavior and locked tests.
+2. Complete Robot contracts/implementation from analysis/P1_robot_interface_audit.md:
+   fresh input ownership, same-tick GO coordinate rebase, truthful histories,
+   previous applied duties, one contact commit/Governor call, bounded events,
+   STOP/edge priority and inhibited faults. Add real production scenario tests.
+3. Complete P1 source/table/property coverage and architecture, target compile,
+   then prepare fresh phase review. No P2 HAL implementation without gate/specific
+   scheduling authorization; D-016 authorizes P1 only.
 
-RowExecutor complete at component scope (contract76e0360/c5e80b8, implementation
-970e083). Existing45-degree side angle centralized without changing B16.
-Front-centered qualification (c0b3ad6/1950635) and B14 tick statistics
-(118f9cc/dc9daa4) are HOST-TESTED/reviewed. Full loss routing/Robot remain subject
-to specification reconciliation. Next eligible task: production countdown
-lifecycle contract, independent tests and implementation using existing Controller/
-Services; read analysis/P1_countdown_lifecycle_audit.md. Do not change locked tests
-or derive motion permission from service completion. Other unblocked B14 predicates
-are described in analysis/P1_fault_contract_audit.md.
-Leave unresolved row selection/replanning/head-on cases explicit. Then B8 SEARCH
-and remaining Robot/escape/re-flank/WAIT after required specific decisions. Read
-analysis/P1_search_reflank_contract_audit.md.
-Pending protected choices: SC-Y re-flank completion, SC-Z SEARCH side mapping,
-SC-AA scan fallback, SC-AB unseen-side recency; SC-R/S escape direction/priority,
-SC-AC head-on brake/reverse values; SC-AD entry count and SC-AE loss routing;
-SC-G WAIT geometry; SC-A physical button decoding, SC-B QTR freshness/timing,
-SC-I bounded log demo. Preserve established locked tests. D-016 alone does not
-authorize P2 HAL work. All original gates remain required.
+SC-A physical button decoding, SC-B QTR timing/freshness and SC-I bounded Bridge
+remain real dependencies, not assumed successes. MPU6050 is human-reported;
+installed/physical IMU evidence is absent. Other hardware-dependent acceptance
+is deferred; no additional connection request is needed for these host tasks.
 
-Hardware resumes through docs/P0_MANUAL_CHECKLIST.md when connected: obtain SSH
-alias/user and isolation/part/instrument details, run read-only preflight, inspect
-installed versions and F-061 loader ownership, then perform reviewed inert checks.
-No passwords/private keys in tracked files; no motor-capable upload/run without
-fresh specific STAND OK/RING OK. A source change invalidates inert snapshot hashes
-until separate review. See CODEX_HANDOFF and CODEX_RESUME for full resume order.
+Bare board currently retains the inert matrix/default image uploaded2026-09-22
+23:34:33+04 under D-052. No motor authorization exists. A compile-only action is
+not an upload/run or full control-WCET measurement. Do not reuse old measurement
+helpers with changed firmware identity. Credentials stay outside tracked files.
+
+Schedule: no cut is due on23September. Apply PLAN's Sep28 scope cut and Sep30 P6
+eligibility at their actual deadlines; code freeze remains1October21:00 Dubai.
+C: has about290MB free; avoid large downloads and unnecessary build copies.

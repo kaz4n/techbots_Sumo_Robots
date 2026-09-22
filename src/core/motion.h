@@ -109,6 +109,27 @@ private:
     std::uint32_t duration_us_ = 0;
     Status status_ = Status::IDLE;
 };
+
+class TimedArc {
+public:
+    // B7/D-037 duration-only forward arc. No invented yaw target or IMU input.
+    // Finite duty/ratio in [0,1], valid direction and duration fitting uint32
+    // microseconds are required. Zero duration completes immediately.
+    bool start(std::uint32_t t_us, Direction direction, float inner_ratio,
+               float duty, std::uint32_t duration_ms);
+    // RIGHT -> outer left=duty, inner right=duty*ratio; LEFT mirrors. DONE at
+    // elapsed >= duration, latched zero until start/reset. No heading/voltage
+    // affects timing. B11 uses the REFLANK_TURN governor profile downstream.
+    Result step(std::uint32_t t_us);
+    void reset();
+private:
+    Interval interval_;
+    std::uint32_t duration_us_ = 0;
+    float duty_ = 0.0F;
+    float inner_ratio_ = 0.0F;
+    Direction direction_ = Direction::RIGHT;
+    Status status_ = Status::IDLE;
+};
 // Terminal statuses are latched zero until start/reset. Unsigned per-call deltas
 // accumulate in uint64 so even the longest accepted duration cannot miss expiry
 // across a start-relative wrap. Consecutive sample gaps must be <one uint32 wrap.

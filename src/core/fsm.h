@@ -3,9 +3,28 @@
 // Independent host tests cover capture, target priority, both deadlines and wrap.
 #pragma once
 #include "core/motion.h"
+#include "core/governor.h"
+#include "core/types.h"
 #include <cstdint>
 
 namespace fsm {
+struct FrontDemand {
+    float duty_l = 0.0F;
+    float duty_r = 0.0F;
+    governor::Profile profile = governor::Profile::SEARCH_FORWARD;
+    bool valid = false;
+};
+// B9/D-036 request math only: current B5 front table determines bearing.
+// TRACK base TRACK_DUTY, gain K_TRACK_PER_DEG plus signed TURN_MIN_DUTY
+// for the +/-15-degree rows; SEARCH_FORWARD profile. ATTACK requires a current
+// centered row, uses approach/contact base and gain limited to min(base,
+// TURN_MIN_DUTY), ATTACK profile. Clamp each wheel to [-1,1]. High bits ignored.
+// Missing front, off-center ATTACK or any other state -> invalid/zero. TRACK
+// may consume centered rows while qualification is pending. Contact is the
+// current D-027 latch, never a stale cue. Does not count centered observations,
+// select state, brake the governor, or authorize motors; Robot owns those tasks.
+FrontDemand frontDemand(core::State state, std::uint8_t effective_mask, bool contact);
+
 enum class Intent : std::uint8_t { NONE, PERCEPTION, SEARCH, INVALID };
 struct DefendResult {
     motion::Result motion;

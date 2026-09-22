@@ -4,19 +4,20 @@ Independent review of SumoX-26. Reviewer reads AGENTS.md first and edits no file
 This is a filled continuation request, not reviewer output or human approval.
 
 Phase under review: **P1**, developed offline under D-016 while P0 acceptance is
-still pending. Software range: **2c6e95d..5595b57**; include the subsequent checkpoint
+still pending. Software range: **2c6e95d..c578911**; include the subsequent checkpoint
 documentation commit when reviewing the full submission. Recalculate the range
 after additional implementation; do not use this partial snapshot as a complete gate.
 
-Spec sections: BEHAVIOR B0–B16 with D-017 through D-021 amendments;
+Spec sections: BEHAVIOR B0–B16 with D-017 through D-028 amendments;
 HARDWARE section 8; AGENTS R1–R11; P1_core_logic tasks/exit criteria.
 
 Currently evidenced: B0 types, B3 hold/button qualifier and Controller, B4 classifier,
-Guard and forward demands, B5 debounce/front rows and B6 governor. **106 host cases
-pass**, with 5,220,784 assertions and separate ASan/UBSan success. Spec-only authors
-and scoped separate reviews are documented, including fresh integration review.
-Tool controls: 47/47 pass. See `analysis/P1_forward_validation.md` and both the
-`P1_integration_codex.md` and `P1_forward_codex.md` review reports.
+Guard and forward demands, B5 debounce/bearing memory/contact, B6 governor, B7
+motion and B15 encoding, plus B3 Services. **212 host cases pass**, with 6,089,047
+assertions and separate ASan/UBSan success. Spec-only authors and scoped separate
+reviews are documented; full FSM/scripts, phantom/stuck and recorder buffering
+are absent. Tool controls: 48/48 pass. See analysis/P1_motion_services_validation.md,
+analysis/P1_opp_memory_contact_validation.md and their scoped review reports.
 
 Exit criteria:
 - [ ] 60+ tests **and every specified table row/locked invariant covered**: count

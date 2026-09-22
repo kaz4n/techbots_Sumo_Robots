@@ -14,8 +14,10 @@ the complete robot scheduler, FSM and actuator path do not yet exist.
 | `edge::Classifier` | Per-corner threshold and consecutive-white confirmation, persistent white mask | Validated fresh QTR acquisition, escape policy, R5 arbitration |
 | `edge::Guard` | D-020 persistent escape request, black-plus-finished exit, latched all-white motion veto until reset | Escape directions/scripts/replanning and application of veto at MotorGate |
 | `edge::forwardDemand` | D-021 straight/left/right-biased forward requests using 0.80 base and 70% inner-side request | Timed/heading-held segments and selection by the escape planner |
-| `opp_fusion::Debouncer` | Per-bit polarity, two-sample assertion, continuous-clear hysteresis | Bearing memory, side/rear conflict policy, contact, phantom/stuck logic |
-| `opp_fusion::frontView` | Seven front bearing/centering/close rows from B5.2 | Overall target selection and downstream motion policy |
+| `opp_fusion::Debouncer` | Per-bit polarity, two-sample assertion, continuous-clear hysteresis | Compose with remaining perception and validated sensor acquisition |
+| `opp_fusion::frontView` | Seven front bearing/centering/close rows from B5.2 | Downstream motion/FSM policy |
+| `opp_fusion::BearingMemory` | Front/side/rear priority, approved bilateral conflicts, world angle and rising-front recency | Phantom/stuck filtering, search/re-flank use, full fusion composition |
+| `opp_fusion::Contact` | Separate close-pattern qualification, horizontal impact and D-027 centered-ATTACK latch lifetime | FSM contact phase/target-loss braking and physical cue validation |
 | `governor::Governor` | D-017 electrical caps after compensation, slew, immediate braking/reversal/cap reductions, one-second battery lag | FSM profile selection and target-loss brake trigger; real MotorGate |
 | `motion::Turn/Straight/Arc/Brake` | B7 demands, D-022 bounded heading correction, D-023 fixed timing with duty-only compensation, bounded IMU fallback | Escape/openers/re-flank scripts, explicit governor profile and MotorGate integration |
 | `logframe` | B15 portable 25-byte frames and 8-byte exact-tick events, explicit invalid/clipped status | Recorder cadence/rings, approved overflow policy, event collection and idle-only dump |
@@ -135,9 +137,12 @@ recorder must handle INVALID/CLAMPED status explicitly and never turn an invalid
 measurement into apparently valid evidence. No CSV/dump or ring exists yet.
 
 Student explanation of what exists today: "We pass timestamped values into small
-C++ functions, so the laptop can test the same decisions without a robot. The
-start timer cannot grant permission until the complete hold has elapsed. Separate
-filters reject sensor flicker and classify the line corners; a table converts
-front detections into a bearing. These pieces cannot drive motors by themselves.
-We still have to connect the approved control rules, verify the hardware motor
-gate, and measure the complete loop on the robot."
+C++ functions, so the laptop tests the same decisions without a robot. The start
+timer keeps the full hold, while calibration and warning services run separately.
+Sensor filters reject flicker; bearing memory prioritizes the front and preserves
+uncertainty when sensors disagree. Contact can authorize full duty only while a
+target remains centered in ATTACK. Motion functions request bounded turns and
+straight segments, then the governor limits their electrical duty. The recorder
+codec preserves exact event ticks. These pieces cannot drive motors by themselves:
+we still need complete arbitration and scripts, hardware integration, physical
+motor-gate checks and timing measurements."

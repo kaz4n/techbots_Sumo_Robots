@@ -80,3 +80,13 @@ No target compile, board contact, upload/reset, motor run or physical measuremen
 | 2026-09-22 | P1 B3 Services | Half-open calibration, prior-bias retention, warning/latest snapshot | HOST-TESTED;27 new locked cases; production/HAL integration pending | 3cee6ae |
 | 2026-09-22 | P1 validation |182cases/5872365assertions normal and sanitizer; tooling48checks; separate read-only PASS | HOST-TESTED/SCRIPT-TESTED; analysis/P1_motion_services_validation.md | commit containing this row |
 | 2026-09-22 | P1 perception/recorder contracts | D-026 bearing memory, D-027 contact lifetime, D-028 event overflow; fusion interfaces first | APPROVED; fusion implementation IN PROGRESS; recorder storage later | 290c13b |
+
+| 2026-09-22 | P1 B5.2-B5.4 | BearingMemory and Contact implement D-026/D-027;30 independent cases and10000 mirrored observations | HOST-TESTED; all128mask priorities, recency, contact lifetime/current governor eligibility; phantom/stuck pending | c578911 |
+| 2026-09-22 | P1 fusion validation/checkpoint |212cases/6089047assertions normal+sanitizer;48toolingchecks; exact source review/hash refresh | PASS scoped review, no open findings; analysis/P1_opp_memory_contact_validation.md; no gate or hardware inference | commit containing this row |
+
+2026-09-22 19:15 Asia/Dubai checkpoint: P1 host-only remains active; P0 hardware
+acceptance pending; no gates passed. All supplied approvals through D-028 are
+recorded. Current core components are host-tested; complete scripts/FSM, target
+compilation and real MotorGate/physical verification remain unfinished. Next
+eligible task: B5.5/B5.6 phantom/stuck contracts and independent tests, followed by
+remaining P1 integration. No board contact, upload/reset, motor run or remote push.

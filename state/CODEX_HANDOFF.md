@@ -200,3 +200,62 @@ P1 core/Robot table coverage, target compile, fresh full gate review, EXPLAINED 
 and human gate are still missing. Real MotorGate write-boundary checks belong to
 later HAL work and cannot replace P1 core-output proofs. P0 acceptance remains
 hardware-pending; no board operation, tuning run, motor authorization or gate pass.
+
+## Reviewed motion/services/perception continuation - 2026-09-22
+
+Resumed clean683665b at18:42 Dubai; current day remains before scope-cut/freeze.
+Active goal requests project completion with hardware deferred. Actual host tests
+and reviews ran; hardware checks/audits/gates have not been fabricated or passed.
+P1 host-only remains the active implementation track under D-016.
+
+New accepted decisions D-022 throughD-028 record the user's explicit approvals:
+bounded heading correction, duty-only voltage compensation, countdown services,
+ALL_IN safety, deterministic bearing memory, bounded contact lifetime, explicit
+first4096-events/overflow handling. Do not re-ask these. B3/B4/B5/B7/B11/B15 show
+visible amendments; PLAN/HARDWARE and all76 B16 defaults remain unchanged.
+
+Commits:
+
+- `0caaadb`/`71d2545`: motion/codec public contracts and D-022/D-023.
+- `40c8c9c`: Turn/Straight/Arc/Brake, 30 cases/two 10,000-sample properties.
+- `ae3e9e7`: portable frame/event encoding, 19 independent byte-boundary cases.
+- `5bfcf70`: D-024 service contract/config boundaries and D-025 ALL_IN policy.
+- `3cee6ae`: Services plus 27 NEW locked tests; existing locked tests untouched.
+- `290c13b`: D-026/27/28 plus public bearing/contact contracts.
+- `c578911`: BearingMemory/Contact, 30 cases/10,000 mirrored samples.
+- `ad764c1`: intermediate 182-case evidence and exact source-review snapshot.
+
+Final host and ASan/UBSan:212/212 cases,6,089,047 assertions, zero failures/skips.
+Raw P1_opp_memory_contact_tests.txt and _sanitizer.txt. Final source tooling run
+is recorded separately in _tools.txt. Separate read-only review PASS, no open
+findings; reused Codex review context, not cross-model or full phase-gate review.
+Spec-only test author never opened implementation.cpp files. Implementation
+workers owned disjoint files, coordinator alone edited interfaces/config/ledgers.
+
+Reviewer caught maximum-duration missed expiry across uint32 wrap before tests;
+fix accumulates successive unsigned deltas in uint64 and preserves accepted
+range. It also caught PRNG low-bit path imbalance; tests now explicitly balance
+healthy/fallback samples. One test compile failed CAPTURE macro syntax, fixed by
+splitting diagnostic calls without altering assertions; original failure retained.
+No unresolved failure or second unsuccessful repair was hidden.
+
+Services remains an explicit caller-managed component: start on qualified
+release, cancel on IDLE/STOPPED, supply genuinely new raw gyro observations,
+apply accepted bias in HAL, reset heading at GO. Tests compose real components;
+production Robot/MotorGate path does not yet exist. Contact is cleared outside
+centered ATTACK; target-loss emergency braking still needs the FSM. D-025 ALL_IN
+and D-028 ring overflow are approved policy, not implemented runtime machinery.
+No recorder ring/cadence/dump is supplied by the25/8-byte pure codec.
+
+Exact next task: B5.5/B5.6 phantom/stuck contracts and independent tests, then
+remaining stall/re-flank, escape/openers and FSM integration/table coverage.
+Open physical/buttons/acquisition and other behavior questions remain in
+analysis/spec_conflicts.md. No target compile, board operation, motor permission,
+PINMAP OK, EXPLAINED OK or human gate exists. Preserve fresh per-run approvals.
+No remote publication, history rewrite or release tagging occurred.
+
+Environment refresh at 2026-09-22 19:15:51 +04:00: Windows Git2.52.0.1,
+Python3.13.11, CMake4.2.1, OpenSSH9.5; WSL g++13.3 verified this continuation.
+An origin remote is now configured as https://github.com/kaz4n/techbots_Sumo_Robots.git.
+Its creation was not part of this turn; preserve it. No fetch/push/publication
+was performed. Earlier no-remote statements describe the original recovery.

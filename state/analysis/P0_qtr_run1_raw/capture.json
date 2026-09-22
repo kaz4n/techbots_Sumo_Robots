@@ -1,0 +1,606 @@
+{
+  "status": "QTR-CAPTURED",
+  "diagnostic": "p0_qtr/default",
+  "started_at_utc": "2026-09-22T23:01:28.460629+00:00",
+  "commands": [
+    {
+      "argv": [
+        "/opt/openocd/bin/openocd",
+        "--version"
+      ],
+      "started_at_utc": "2026-09-22T23:01:28.551299+00:00",
+      "timeout_seconds": 30.0,
+      "stdout_file": "cmd-00.out",
+      "stderr_file": "cmd-00.err",
+      "returncode": 0,
+      "finished_at_utc": "2026-09-22T23:01:28.569595+00:00",
+      "stdout": "",
+      "stdout_truncated": false,
+      "stderr": "Open On-Chip Debugger 0.12.0+dev-ge6a2c12f4 (2025-05-22-15:51)\nLicensed under GNU GPL v2\nFor bug reports, read\n\thttp://openocd.org/doc/doxygen/bugs.html\n",
+      "stderr_truncated": false
+    },
+    {
+      "argv": [
+        "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-readelf",
+        "--version"
+      ],
+      "started_at_utc": "2026-09-22T23:01:28.570373+00:00",
+      "timeout_seconds": 30.0,
+      "stdout_file": "cmd-01.out",
+      "stderr_file": "cmd-01.err",
+      "returncode": 0,
+      "finished_at_utc": "2026-09-22T23:01:28.576557+00:00",
+      "stdout": "GNU readelf (Zephyr SDK 1.0.1) 2.43.1\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis program is free software; you may redistribute it under the terms of\nthe GNU General Public License version 3 or (at your option) any later version.\nThis program has absolutely no warranty.\n",
+      "stdout_truncated": false,
+      "stderr": "",
+      "stderr_truncated": false
+    },
+    {
+      "argv": [
+        "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-readelf",
+        "-hSW",
+        "/home/arduino/sumox26-build/61d7a2d00ec1e7f1782d0a7439bd71cb123338dc1073e55abe43b9c6e3fe521e/p0_qtr/artifacts/bench-default/p0_qtr.ino.elf"
+      ],
+      "started_at_utc": "2026-09-22T23:01:28.577346+00:00",
+      "timeout_seconds": 30.0,
+      "stdout_file": "cmd-02.out",
+      "stderr_file": "cmd-02.err",
+      "returncode": 0,
+      "finished_at_utc": "2026-09-22T23:01:28.582852+00:00",
+      "stdout": "ELF Header:\n  Magic:   7f 45 4c 46 01 01 01 00 00 00 00 00 00 00 00 00 \n  Class:                             ELF32\n  Data:                              2's complement, little endian\n  Version:                           1 (current)\n  OS/ABI:                            UNIX - System V\n  ABI Version:                       0\n  Type:                              REL (Relocatable file)\n  Machine:                           ARM\n  Version:                           0x1\n  Entry point address:               0x48c9\n  Start of program headers:          0 (bytes into file)\n  Start of section headers:          76164 (bytes into file)\n  Flags:                             0x5000000, Version5 EABI\n  Size of this header:               52 (bytes)\n  Size of program headers:           0 (bytes)\n  Number of program headers:         0\n  Size of section headers:           40 (bytes)\n  Number of section headers:         19\n  Section header string table index: 18\n\nSection Headers:\n  [Nr] Name              Type            Addr     Off    Size   ES Flg Lk Inf Al\n  [ 0]                   NULL            00000000 000000 000000 00      0   0  0\n  [ 1] .rodata           PROGBITS        00000000 000034 0005d8 00   A  0   0  4\n  [ 2] .rel.rodata       REL             00000000 010580 0007a0 08   I 16   1  4\n  [ 3] .llext.rodata.noreloc PROGBITS        000005d8 00060c 0004a4 00   A  0   0  4\n  [ 4] .text             PROGBITS        00000000 000ab0 005768 00  AX  0   0  8\n  [ 5] .rel.text         REL             00000000 010d20 001b68 08   I 16   4  4\n  [ 6] .static_thread_data_area PROGBITS        00005768 006218 000000 00   W  0   0  1\n  [ 7] .data             PROGBITS        00005768 006218 00000c 00  WA  0   0  4\n  [ 8] .rel.data         REL             00000000 012888 000018 08   I 16   7  4\n  [ 9] .bss              NOBITS          00005778 006228 0055dc 00  WA  0   0  8\n  [10] .exported_sym     PROGBITS        0000ad54 006228 000008 00   A  0   0  4\n  [11] .rel.exported_sym REL             00000000 0128a0 000010 08   I 16  10  4\n  [12] .init_array       INIT_ARRAY      0000ad5c 006230 000010 04  WA  0   0  4\n  [13] .rel.init_array   REL             00000000 0128b0 000020 08   I 16  12  4\n  [14] .fini_array       FINI_ARRAY      0000ad6c 006240 000008 04  WA  0   0  4\n  [15] .rel.fini_array   REL             00000000 0128d0 000010 08   I 16  14  4\n  [16] .symtab           SYMTAB          00000000 006248 004f20 10     17 777  4\n  [17] .strtab           STRTAB          00000000 00b168 005418 00      0   0  1\n  [18] .shstrtab         STRTAB          00000000 0128e0 0000a1 00      0   0  1\nKey to Flags:\n  W (write), A (alloc), X (execute), M (merge), S (strings), I (info),\n  L (link order), O (extra OS processing required), G (group), T (TLS),\n  C (compressed), x (unknown), o (OS specific), E (exclude),\n  D (mbind), y (purecode), p (processor specific)\n",
+      "stdout_truncated": false,
+      "stderr": "",
+      "stderr_truncated": false
+    },
+    {
+      "argv": [
+        "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-readelf",
+        "-sW",
+        "/home/arduino/sumox26-build/61d7a2d00ec1e7f1782d0a7439bd71cb123338dc1073e55abe43b9c6e3fe521e/p0_qtr/artifacts/bench-default/p0_qtr.ino.elf"
+      ],
+      "started_at_utc": "2026-09-22T23:01:28.585665+00:00",
+      "timeout_seconds": 30.0,
+      "stdout_file": "cmd-03.out",
+      "stderr_file": "cmd-03.err",
+      "returncode": 0,
+      "finished_at_utc": "2026-09-22T23:01:28.603912+00:00",
+      "stdout": "\nSymbol table '.symtab' contains 1266 entries:\n   Num:    Value  Size Type    Bind   Vis      Ndx Name\n     0: 00000000     0 NOTYPE  LOCAL  DEFAULT  UND \n     1: 00000000     0 SECTION LOCAL  DEFAULT    1 .rodata\n     2: 00000000     0 SECTION LOCAL  DEFAULT    3 .llext.rodata.noreloc\n     3: 00000000     0 SECTION LOCAL  DEFAULT    7 .data\n     4: 00004ee0     0 NOTYPE  LOCAL  DEFAULT    4 $t\n     5: 00004ee1   212 FUNC    LOCAL  DEFAULT    4 _ZN6zephyr7arduinoL29init_device_with_dependenciesEPK6device\n     6: 00004f98     0 NOTYPE  LOCAL  DEFAULT    4 $d\n     7: 00000000   136 OBJECT  LOCAL  DEFAULT    1 _ZN6zephyr7arduinoL11pinctrl_mapE\n     8: 00004fb4     0 NOTYPE  LOCAL  DEFAULT    4 $t\n     9: 00004fc0     0 NOTYPE  LOCAL  DEFAULT    4 $d\n    10: 00000000     0 NOTYPE  LOCAL  DEFAULT    1 $d\n    11: 000003e0     8 OBJECT  LOCAL  DEFAULT    1 _ZN6zephyr7arduinoL39__pinctrl_dev_config__device_dts_ord_73E\n    12: 000003d8     8 OBJECT  LOCAL  DEFAULT    1 _ZN6zephyr7arduinoL39__pinctrl_dev_config__device_dts_ord_70E\n    13: 000003e8     8 OBJECT  LOCAL  DEFAULT    1 _ZN6zephyr7arduinoL39__pinctrl_dev_config__device_dts_ord_78E\n    14: 000003f0     8 OBJECT  LOCAL  DEFAULT    1 _ZN6zephyr7arduinoL39__pinctrl_dev_config__device_dts_ord_83E\n    15: 000003f8     8 OBJECT  LOCAL  DEFAULT    1 _ZN6zephyr7arduinoL39__pinctrl_dev_config__device_dts_ord_88E\n    16: 000003b8     8 OBJECT  LOCAL  DEFAULT    1 _ZN6zephyr7arduinoL39__pinctrl_dev_config__device_dts_ord_30E\n    17: 000003c0     8 OBJECT  LOCAL  DEFAULT    1 _ZN6zephyr7arduinoL39__pinctrl_dev_config__device_dts_ord_34E\n    18: 000003c8     8 OBJECT  LOCAL  DEFAULT    1 _ZN6zephyr7arduinoL39__pinctrl_dev_config__device_dts_ord_40E\n    19: 00000420     8 OBJECT  LOCAL  DEFAULT    1 _ZN6zephyr7arduinoL40__pinctrl_dev_config__device_dts_ord_120E\n    20: 00000400     8 OBJECT  LOCAL  DEFAULT    1 _ZN6zephyr7arduinoL40__pinctrl_dev_config__device_dts_ord_100E\n    21: 00000408     8 OBJECT  LOCAL  DEFAULT    1 _ZN6zephyr7arduinoL40__pinctrl_dev_config__device_dts_ord_105E\n    22: 00000410     8 OBJECT  LOCAL  DEFAULT    1 _ZN6zephyr7arduinoL40__pinctrl_dev_config__device_dts_ord_109E\n    23: 00000418     8 OBJECT  LOCAL  DEFAULT    1 _ZN6zephyr7arduinoL40__pinctrl_dev_config__device_dts_ord_114E\n    24: 00000428     8 OBJECT  LOCAL  DEFAULT    1 _ZN6zephyr7arduinoL40__pinctrl_dev_config__device_dts_ord_123E\n    25: 000003b0     8 OBJECT  LOCAL  DEFAULT    1 _ZN6zephyr7arduinoL39__pinctrl_dev_config__device_dts_ord_17E\n    26: 000003d0     8 OBJECT  LOCAL  DEFAULT    1 _ZN6zephyr7arduinoL39__pinctrl_dev_config__device_dts_ord_61E\n    27: 000003d0     0 NOTYPE  LOCAL  DEFAULT    1 $d\n    28: 000002f0     8 OBJECT  LOCAL  DEFAULT    1 _ZN6zephyr7arduinoL35__pinctrl_states__device_dts_ord_61E\n    29: 000002f0     0 NOTYPE  LOCAL  DEFAULT    1 $d\n    30: 00000124    16 OBJECT  LOCAL  DEFAULT    3 _ZN6zephyr7arduinoL41__pinctrl_state_pins_0__device_dts_ord_61E\n    31: 00000124     0 NOTYPE  LOCAL  DEFAULT    3 $d\n    32: 000003b0     0 NOTYPE  LOCAL  DEFAULT    1 $d\n    33: 000002b8    24 OBJECT  LOCAL  DEFAULT    1 _ZN6zephyr7arduinoL35__pinctrl_states__device_dts_ord_17E\n    34: 000002b8     0 NOTYPE  LOCAL  DEFAULT    1 $d\n    35: 000000f4     0 OBJECT  LOCAL  DEFAULT    3 _ZN6zephyr7arduinoL41__pinctrl_state_pins_0__device_dts_ord_17E\n    36: 000001b4     0 OBJECT  LOCAL  DEFAULT    3 _ZN6zephyr7arduinoL41__pinctrl_state_pins_1__device_dts_ord_17E\n    37: 000001c4    48 OBJECT  LOCAL  DEFAULT    3 _ZN6zephyr7arduinoL41__pinctrl_state_pins_2__device_dts_ord_17E\n    38: 000001c4     0 NOTYPE  LOCAL  DEFAULT    3 $d\n    39: 00000428     0 NOTYPE  LOCAL  DEFAULT    1 $d\n    40: 00000398    24 OBJECT  LOCAL  DEFAULT    1 _ZN6zephyr7arduinoL36__pinctrl_states__device_dts_ord_123E\n    41: 00000398     0 NOTYPE  LOCAL  DEFAULT    1 $d\n    42: 000001f4     0 OBJECT  LOCAL  DEFAULT    3 _ZN6zephyr7arduinoL42__pinctrl_state_pins_0__device_dts_ord_123E\n    43: 000001f4     0 OBJECT  LOCAL  DEFAULT    3 _ZN6zephyr7arduinoL42__pinctrl_state_pins_1__device_dts_ord_123E\n    44: 0000026c     8 OBJECT  LOCAL  DEFAULT    3 _ZN6zephyr7arduinoL42__pinctrl_state_pins_2__device_dts_ord_123E\n    45: 0000026c     0 NOTYPE  LOCAL  DEFAULT    3 $d\n    46: 00000418     0 NOTYPE  LOCAL  DEFAULT    1 $d\n    47: 00000368    24 OBJECT  LOCAL  DEFAULT    1 _ZN6zephyr7arduinoL36__pinctrl_states__device_dts_ord_114E\n    48: 00000368     0 NOTYPE  LOCAL  DEFAULT    1 $d\n    49: 000001f4     0 OBJECT  LOCAL  DEFAULT    3 _ZN6zephyr7arduinoL42__pinctrl_state_pins_0__device_dts_ord_114E\n    50: 000001f4     0 OBJECT  LOCAL  DEFAULT    3 _ZN6zephyr7arduinoL42__pinctrl_state_pins_1__device_dts_ord_114E\n    51: 00000234    24 OBJECT  LOCAL  DEFAULT    3 _ZN6zephyr7arduinoL42__pinctrl_state_pins_2__device_dts_ord_114E\n    52: 00000234     0 NOTYPE  LOCAL  DEFAULT    3 $d\n    53: 00000410     0 NOTYPE  LOCAL  DEFAULT    1 $d\n    54: 00000350    24 OBJECT  LOCAL  DEFAULT    1 _ZN6zephyr7arduinoL36__pinctrl_states__device_dts_ord_109E\n    55: 00000350     0 NOTYPE  LOCAL  DEFAULT    1 $d\n    56: 000001f4     0 OBJECT  LOCAL  DEFAULT    3 _ZN6zephyr7arduinoL42__pinctrl_state_pins_0__device_dts_ord_109E\n    57: 000001f4     0 OBJECT  LOCAL  DEFAULT    3 _ZN6zephyr7arduinoL42__pinctrl_state_pins_1__device_dts_ord_109E\n    58: 00000224    16 OBJECT  LOCAL  DEFAULT    3 _ZN6zephyr7arduinoL42__pinctrl_state_pins_2__device_dts_ord_109E\n    59: 00000224     0 NOTYPE  LOCAL  DEFAULT    3 $d\n    60: 00000408     0 NOTYPE  LOCAL  DEFAULT    1 $d\n    61: 00000338    24 OBJECT  LOCAL  DEFAULT    1 _ZN6zephyr7arduinoL36__pinctrl_states__device_dts_ord_105E\n    62: 00000338     0 NOTYPE  LOCAL  DEFAULT    1 $d\n    63: 000001f4     0 OBJECT  LOCAL  DEFAULT    3 _ZN6zephyr7arduinoL42__pinctrl_state_pins_0__device_dts_ord_105E\n    64: 000001f4     0 OBJECT  LOCAL  DEFAULT    3 _ZN6zephyr7arduinoL42__pinctrl_state_pins_1__device_dts_ord_105E\n    65: 0000020c    24 OBJECT  LOCAL  DEFAULT    3 _ZN6zephyr7arduinoL42__pinctrl_state_pins_2__device_dts_ord_105E\n    66: 0000020c     0 NOTYPE  LOCAL  DEFAULT    3 $d\n    67: 00000400     0 NOTYPE  LOCAL  DEFAULT    1 $d\n    68: 00000320    24 OBJECT  LOCAL  DEFAULT    1 _ZN6zephyr7arduinoL36__pinctrl_states__device_dts_ord_100E\n    69: 00000320     0 NOTYPE  LOCAL  DEFAULT    1 $d\n    70: 000001f4     0 OBJECT  LOCAL  DEFAULT    3 _ZN6zephyr7arduinoL42__pinctrl_state_pins_0__device_dts_ord_100E\n    71: 000001f4     0 OBJECT  LOCAL  DEFAULT    3 _ZN6zephyr7arduinoL42__pinctrl_state_pins_1__device_dts_ord_100E\n    72: 000001f4    24 OBJECT  LOCAL  DEFAULT    3 _ZN6zephyr7arduinoL42__pinctrl_state_pins_2__device_dts_ord_100E\n    73: 000001f4     0 NOTYPE  LOCAL  DEFAULT    3 $d\n    74: 00000420     0 NOTYPE  LOCAL  DEFAULT    1 $d\n    75: 00000380    24 OBJECT  LOCAL  DEFAULT    1 _ZN6zephyr7arduinoL36__pinctrl_states__device_dts_ord_120E\n    76: 00000380     0 NOTYPE  LOCAL  DEFAULT    1 $d\n    77: 000001f4     0 OBJECT  LOCAL  DEFAULT    3 _ZN6zephyr7arduinoL42__pinctrl_state_pins_0__device_dts_ord_120E\n    78: 000001f4     0 OBJECT  LOCAL  DEFAULT    3 _ZN6zephyr7arduinoL42__pinctrl_state_pins_1__device_dts_ord_120E\n    79: 0000024c    32 OBJECT  LOCAL  DEFAULT    3 _ZN6zephyr7arduinoL42__pinctrl_state_pins_2__device_dts_ord_120E\n    80: 0000024c     0 NOTYPE  LOCAL  DEFAULT    3 $d\n    81: 000003c8     0 NOTYPE  LOCAL  DEFAULT    1 $d\n    82: 000002e0    16 OBJECT  LOCAL  DEFAULT    1 _ZN6zephyr7arduinoL35__pinctrl_states__device_dts_ord_40E\n    83: 000002e0     0 NOTYPE  LOCAL  DEFAULT    1 $d\n    84: 00000114    16 OBJECT  LOCAL  DEFAULT    3 _ZN6zephyr7arduinoL41__pinctrl_state_pins_0__device_dts_ord_40E\n    85: 000001b4    16 OBJECT  LOCAL  DEFAULT    3 _ZN6zephyr7arduinoL41__pinctrl_state_pins_1__device_dts_ord_40E\n    86: 000001b4     0 NOTYPE  LOCAL  DEFAULT    3 $d\n    87: 00000114     0 NOTYPE  LOCAL  DEFAULT    3 $d\n    88: 000003c0     0 NOTYPE  LOCAL  DEFAULT    1 $d\n    89: 000002d8     8 OBJECT  LOCAL  DEFAULT    1 _ZN6zephyr7arduinoL35__pinctrl_states__device_dts_ord_34E\n    90: 000002d8     0 NOTYPE  LOCAL  DEFAULT    1 $d\n    91: 00000104    16 OBJECT  LOCAL  DEFAULT    3 _ZN6zephyr7arduinoL41__pinctrl_state_pins_0__device_dts_ord_34E\n    92: 00000104     0 NOTYPE  LOCAL  DEFAULT    3 $d\n    93: 000003b8     0 NOTYPE  LOCAL  DEFAULT    1 $d\n    94: 000002d0     8 OBJECT  LOCAL  DEFAULT    1 _ZN6zephyr7arduinoL35__pinctrl_states__device_dts_ord_30E\n    95: 000002d0     0 NOTYPE  LOCAL  DEFAULT    1 $d\n    96: 000000f4    16 OBJECT  LOCAL  DEFAULT    3 _ZN6zephyr7arduinoL41__pinctrl_state_pins_0__device_dts_ord_30E\n    97: 000000f4     0 NOTYPE  LOCAL  DEFAULT    3 $d\n    98: 000003f8     0 NOTYPE  LOCAL  DEFAULT    1 $d\n    99: 00000318     8 OBJECT  LOCAL  DEFAULT    1 _ZN6zephyr7arduinoL35__pinctrl_states__device_dts_ord_88E\n   100: 00000318     0 NOTYPE  LOCAL  DEFAULT    1 $d\n   101: 00000194    32 OBJECT  LOCAL  DEFAULT    3 _ZN6zephyr7arduinoL41__pinctrl_state_pins_0__device_dts_ord_88E\n   102: 00000194     0 NOTYPE  LOCAL  DEFAULT    3 $d\n   103: 000003f0     0 NOTYPE  LOCAL  DEFAULT    1 $d\n   104: 00000310     8 OBJECT  LOCAL  DEFAULT    1 _ZN6zephyr7arduinoL35__pinctrl_states__device_dts_ord_83E\n   105: 00000310     0 NOTYPE  LOCAL  DEFAULT    1 $d\n   106: 00000174    32 OBJECT  LOCAL  DEFAULT    3 _ZN6zephyr7arduinoL41__pinctrl_state_pins_0__device_dts_ord_83E\n   107: 00000174     0 NOTYPE  LOCAL  DEFAULT    3 $d\n   108: 000003e8     0 NOTYPE  LOCAL  DEFAULT    1 $d\n   109: 00000308     8 OBJECT  LOCAL  DEFAULT    1 _ZN6zephyr7arduinoL35__pinctrl_states__device_dts_ord_78E\n   110: 00000308     0 NOTYPE  LOCAL  DEFAULT    1 $d\n   111: 00000154    32 OBJECT  LOCAL  DEFAULT    3 _ZN6zephyr7arduinoL41__pinctrl_state_pins_0__device_dts_ord_78E\n   112: 00000154     0 NOTYPE  LOCAL  DEFAULT    3 $d\n   113: 000003d8     0 NOTYPE  LOCAL  DEFAULT    1 $d\n   114: 000002f8     8 OBJECT  LOCAL  DEFAULT    1 _ZN6zephyr7arduinoL35__pinctrl_states__device_dts_ord_70E\n   115: 000002f8     0 NOTYPE  LOCAL  DEFAULT    1 $d\n   116: 00000134    16 OBJECT  LOCAL  DEFAULT    3 _ZN6zephyr7arduinoL41__pinctrl_state_pins_0__device_dts_ord_70E\n   117: 00000134     0 NOTYPE  LOCAL  DEFAULT    3 $d\n   118: 000003e0     0 NOTYPE  LOCAL  DEFAULT    1 $d\n   119: 00000300     8 OBJECT  LOCAL  DEFAULT    1 _ZN6zephyr7arduinoL35__pinctrl_states__device_dts_ord_73E\n   120: 00000300     0 NOTYPE  LOCAL  DEFAULT    1 $d\n   121: 00000144    16 OBJECT  LOCAL  DEFAULT    3 _ZN6zephyr7arduinoL41__pinctrl_state_pins_0__device_dts_ord_73E\n   122: 00000144     0 NOTYPE  LOCAL  DEFAULT    3 $d\n   123: 0000498c     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   124: 0000498d    42 FUNC    LOCAL  DEFAULT    4 gpio_pin_configure_dt.isra.0\n   125: 000049b8     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   126: 000049c4     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   127: 000049c8     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   128: 000049e8     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   129: 00000088   560 OBJECT  LOCAL  DEFAULT    1 _ZN6zephyr7arduinoL12arduino_pinsE\n   130: 000049f8     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   131: 00004a30     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   132: 00004a34     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   133: 00004a74     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   134: 00000088     0 NOTYPE  LOCAL  DEFAULT    1 $d\n   135: 00005682     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   136: 000056b4     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   137: 000056c0     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   138: 000056d0     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   139: 000056d4     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   140: 000056e8     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   141: 00005726     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   142: 0000573e     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   143: 00000430     0 NOTYPE  LOCAL  DEFAULT    1 $d\n   144: 000004c0     0 NOTYPE  LOCAL  DEFAULT    1 $d\n   145: 00005078     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   146: 00005088     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   147: 0000508c     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   148: 000050a0     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   149: 000050dc     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   150: 00005150     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   151: 0000043c     0 NOTYPE  LOCAL  DEFAULT    1 $d\n   152: 000004ec     0 NOTYPE  LOCAL  DEFAULT    1 $d\n   153: 0000546c     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   154: 0000546d     8 FUNC    LOCAL  DEFAULT    4 _ZNK12_GLOBAL__N_122generic_error_category4nameEv\n   155: 00005470     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   156: 00005474     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   157: 00005475    20 FUNC    LOCAL  DEFAULT    4 _ZNK12_GLOBAL__N_122generic_error_category10equivalentEiRKSt15error_condition\n   158: 00005488     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   159: 00005489     2 FUNC    LOCAL  DEFAULT    4 _ZN12_GLOBAL__N_122generic_error_categoryD2Ev\n   160: 00005489     2 FUNC    LOCAL  DEFAULT    4 _ZN12_GLOBAL__N_122generic_error_categoryD1Ev\n   161: 0000548c     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   162: 0000548d     8 FUNC    LOCAL  DEFAULT    4 _ZNK12_GLOBAL__N_121system_error_category4nameEv\n   163: 00005490     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   164: 00005494     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   165: 00005495   100 FUNC    LOCAL  DEFAULT    4 _ZNK12_GLOBAL__N_121system_error_category23default_error_conditionEi\n   166: 000054e8     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   167: 00000008     4 OBJECT  LOCAL  DEFAULT    7 _ZN12_GLOBAL__N_125generic_category_instanceE\n   168: 000054f8     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   169: 000054f9     2 FUNC    LOCAL  DEFAULT    4 _ZN12_GLOBAL__N_121system_error_categoryD2Ev\n   170: 000054f9     2 FUNC    LOCAL  DEFAULT    4 _ZN12_GLOBAL__N_121system_error_categoryD1Ev\n   171: 000054fa     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   172: 00005500     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   173: 00005514     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   174: 00005515     2 FUNC    LOCAL  DEFAULT    4 _ZN12_GLOBAL__N_113constant_initINS_22generic_error_categoryEED2Ev\n   175: 00005515     2 FUNC    LOCAL  DEFAULT    4 _ZN12_GLOBAL__N_113constant_initINS_22generic_error_categoryEED1Ev\n   176: 00005516     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   177: 00005517     2 FUNC    LOCAL  DEFAULT    4 _ZN12_GLOBAL__N_113constant_initINS_21system_error_categoryEED2Ev\n   178: 00005517     2 FUNC    LOCAL  DEFAULT    4 _ZN12_GLOBAL__N_113constant_initINS_21system_error_categoryEED1Ev\n   179: 00005518     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   180: 00005519    12 FUNC    LOCAL  DEFAULT    4 _ZN12_GLOBAL__N_122generic_error_categoryD0Ev\n   181: 00005524     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   182: 00005525    12 FUNC    LOCAL  DEFAULT    4 _ZN12_GLOBAL__N_121system_error_categoryD0Ev\n   183: 00005530     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   184: 00005560     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   185: 00005561    40 FUNC    LOCAL  DEFAULT    4 _ZNK12_GLOBAL__N_121system_error_category10equivalentEiRKSt15error_condition\n   186: 00005588     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   187: 00005589   192 FUNC    LOCAL  DEFAULT    4 _ZNK12_GLOBAL__N_122generic_error_category7messageB5cxx11Ei\n   188: 00005644     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   189: 00005589   192 FUNC    LOCAL  DEFAULT    4 _ZNK12_GLOBAL__N_121system_error_category7messageB5cxx11Ei\n   190: 00000004     4 OBJECT  LOCAL  DEFAULT    7 _ZN12_GLOBAL__N_124system_category_instanceE\n   191: 00005648     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   192: 00005649    48 FUNC    LOCAL  DEFAULT    4 _GLOBAL__sub_I__ZSt20__throw_system_errori\n   193: 00005664     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   194: 0000000c     0 NOTYPE  LOCAL  DEFAULT   12 $d\n   195: 00000460     0 NOTYPE  LOCAL  DEFAULT    1 $d\n   196: 00000454     0 NOTYPE  LOCAL  DEFAULT    1 $d\n   197: 00000454    12 OBJECT  LOCAL  DEFAULT    1 _ZTIN12_GLOBAL__N_122generic_error_categoryE\n   198: 000003c8    42 OBJECT  LOCAL  DEFAULT    3 _ZTSN12_GLOBAL__N_122generic_error_categoryE\n   199: 00000448     0 NOTYPE  LOCAL  DEFAULT    1 $d\n   200: 00000448    12 OBJECT  LOCAL  DEFAULT    1 _ZTIN12_GLOBAL__N_121system_error_categoryE\n   201: 0000039f    41 OBJECT  LOCAL  DEFAULT    3 _ZTSN12_GLOBAL__N_121system_error_categoryE\n   202: 00000540     0 NOTYPE  LOCAL  DEFAULT    1 $d\n   203: 00000540    40 OBJECT  LOCAL  DEFAULT    1 _ZTVN12_GLOBAL__N_122generic_error_categoryE\n   204: 00000518     0 NOTYPE  LOCAL  DEFAULT    1 $d\n   205: 00000518    40 OBJECT  LOCAL  DEFAULT    1 _ZTVN12_GLOBAL__N_121system_error_categoryE\n   206: 00000004     0 NOTYPE  LOCAL  DEFAULT    7 $d\n   207: 00000008     0 NOTYPE  LOCAL  DEFAULT    7 $d\n   208: 000051ac     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   209: 000051b0     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   210: 000051d0     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   211: 000051d4     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   212: 000051e8     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   213: 000051f8     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   214: 000051fc     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   215: 00000468     0 NOTYPE  LOCAL  DEFAULT    1 $d\n   216: 00000474     0 NOTYPE  LOCAL  DEFAULT    1 $d\n   217: 0000059c     0 NOTYPE  LOCAL  DEFAULT    1 $d\n   218: 000005b0     0 NOTYPE  LOCAL  DEFAULT    1 $d\n   219: 00005044     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   220: 00005048     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   221: 0000504c     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   222: 0000505c     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   223: 00005060     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   224: 00000480     0 NOTYPE  LOCAL  DEFAULT    1 $d\n   225: 000005c4     0 NOTYPE  LOCAL  DEFAULT    1 $d\n   226: 00005074     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   227: 0000048c     0 NOTYPE  LOCAL  DEFAULT    1 $d\n   228: 0000517a     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   229: 0000517c     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   230: 00005180     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   231: 00000494     0 NOTYPE  LOCAL  DEFAULT    1 $d\n   232: 00002828     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   233: 0000282c     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   234: 0000282e     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   235: 00002848     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   236: 00002849     8 FUNC    LOCAL  DEFAULT    4 k_yield\n   237: 0000284c     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   238: 00002850     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   239: 00002851     8 FUNC    LOCAL  DEFAULT    4 k_mutex_lock\n   240: 00002854     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   241: 00002858     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   242: 00002859    32 FUNC    LOCAL  DEFAULT    4 _ZNSt12_Vector_baseIhSaIhEE11_M_allocateEj.isra.0\n   243: 00002870     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   244: 00002878     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   245: 00002879     8 FUNC    LOCAL  DEFAULT    4 k_mutex_unlock.isra.0\n   246: 0000287c     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   247: 00002880     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   248: 000028e4     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   249: 000028ec     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   250: 00002928     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   251: 00002930     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   252: 00002931    12 FUNC    LOCAL  DEFAULT    4 k_msleep.constprop.0.isra.0\n   253: 00002938     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   254: 0000293c     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   255: 0000295c     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   256: 00002968     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   257: 000029a0     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   258: 000029a4     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   259: 000029dc     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   260: 000029e4     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   261: 00002a40     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   262: 00002a4c     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   263: 00002a80     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   264: 00002a8c     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   265: 00002a8d   140 FUNC    LOCAL  DEFAULT    4 _ZNSt6vectorIhSaIhEE12emplace_backIJRKhEEERhDpOT_.isra.0\n   266: 00002b00     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   267: 00002b18     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   268: 00002b19   140 FUNC    LOCAL  DEFAULT    4 _ZNSt6vectorIhSaIhEE12emplace_backIJhEEERhDpOT_.isra.0\n   269: 00002b8c     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   270: 00002ba4     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   271: 00002d00     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   272: 00002d1c     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   273: 00002d1d    24 FUNC    LOCAL  DEFAULT    4 _ZN7arduino7msgpack6Packer11packRawByteERKNS0_4TypeE.isra.0\n   274: 00002d30     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   275: 00002d34     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   276: 00002d35   140 FUNC    LOCAL  DEFAULT    4 _ZNSt6vectorIhSaIhEE12emplace_backIJRhEEES3_DpOT_.isra.0\n   277: 00002da8     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   278: 00002dc0     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   279: 00002dc1    80 FUNC    LOCAL  DEFAULT    4 _ZN7arduino7msgpack6Packer11packIntegerIjEENSt9enable_ifIXaaaaaasrSt13is_arithmeticIT_E5valuesrSt11is_integralIS5_E5valuentsrSt7is_sameIS5_bE5valuentsrS9_INSt9remove_cvIS5_E4typeEPcE5valueEvE4typeERKS5_.isra.0\n   280: 00002e00     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   281: 00002e10     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   282: 00002e11   196 FUNC    LOCAL  DEFAULT    4 _ZN7arduino7msgpack6Packer11packIntegerIiEENSt9enable_ifIXaaaaaasrSt13is_arithmeticIT_E5valuesrSt11is_integralIS5_E5valuentsrSt7is_sameIS5_bE5valuentsrS9_INSt9remove_cvIS5_E4typeEPcE5valueEvE4typeERKS5_.isra.0\n   283: 00002ebc     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   284: 00002ed4     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   285: 00002f3c     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   286: 00002f50     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   287: 00002f51    56 FUNC    LOCAL  DEFAULT    4 _ZN7arduino7msgpack6Packer9serializeIJRKiRjRKNS_6StringEEEEvRKNS0_4type9ArraySizeEDpOT_.isra.0\n   288: 00002f78     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   289: 00002f88     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   290: 00002fac     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   291: 00002fad   120 FUNC    LOCAL  DEFAULT    4 _ZN9RPCClient8send_rpcIJEEEbRKN7arduino6StringERjDpOT_.isra.0\n   292: 00003014     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   293: 00003024     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   294: 00003025   136 FUNC    LOCAL  DEFAULT    4 _ZN9RPCClient8send_rpcIJRKN7arduino6StringEEEEbS4_RjDpOT_.isra.0\n   295: 00003098     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   296: 000030ac     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   297: 000030ad   136 FUNC    LOCAL  DEFAULT    4 _ZN9RPCClient8send_rpcIJRKjEEEbRKN7arduino6StringERjDpOT_.isra.0\n   298: 00003120     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   299: 00003134     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   300: 000031ac     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   301: 000031c4     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   302: 000031fc     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   303: 0000322c     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   304: 00003244     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   305: 0000327c     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   306: 00003284     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   307: 000032f0     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   308: 000032fc     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   309: 00003444     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   310: 00003478     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   311: 000034b4     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   312: 000034b8     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   313: 000034ec     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   314: 000034f8     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   315: 0000377c     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   316: 000037dc     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   317: 000038f4     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   318: 0000392c     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   319: 000039b8     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   320: 000039d8     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   321: 00003a0c     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   322: 00003a18     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   323: 00003b0c     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   324: 00003b3c     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   325: 00003d7c     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   326: 00003df0     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   327: 00003ea4     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   328: 00003ecc     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   329: 00003f00     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   330: 00003f0c     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   331: 00003f38     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   332: 00003f40     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   333: 00004180     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   334: 000041ec     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   335: 000042d0     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   336: 00004304     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   337: 000043ec     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   338: 00004428     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   339: 00004460     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   340: 0000446c     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   341: 0000446d   188 FUNC    LOCAL  DEFAULT    4 _GLOBAL__sub_I_Bridge\n   342: 000044fc     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   343: 00000004     0 NOTYPE  LOCAL  DEFAULT   12 $d\n   344: 00004528     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   345: 00004529    32 FUNC    LOCAL  DEFAULT    4 _GLOBAL__sub_D_Bridge\n   346: 0000453c     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   347: 00000004     0 NOTYPE  LOCAL  DEFAULT   14 $d\n   348: 0000049c     0 NOTYPE  LOCAL  DEFAULT    1 $d\n   349: 000038e4     0 NOTYPE  LOCAL  DEFAULT    9 $d\n   350: 000038e8     0 NOTYPE  LOCAL  DEFAULT    9 $d\n   351: 000038ec     0 NOTYPE  LOCAL  DEFAULT    9 $d\n   352: 00003b28     0 NOTYPE  LOCAL  DEFAULT    9 $d\n   353: 000031ff     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   354: 00003200     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   355: 00000001    16 FUNC    LOCAL  DEFAULT    4 __tcf_0\n   356: 000003dd    20 FUNC    LOCAL  DEFAULT    4 __tcf_1\n   357: 000003c9    20 FUNC    LOCAL  DEFAULT    4 __tcf_2\n   358: 00004a9c     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   359: 00004a9d    10 FUNC    LOCAL  DEFAULT    4 z_impl_uart_irq_tx_enable\n   360: 00004aa6     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   361: 00004ab0     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   362: 00004ac8     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   363: 00004acc     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   364: 00004acd     8 FUNC    LOCAL  DEFAULT    4 k_sem_give\n   365: 00004ad0     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   366: 00004ad4     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   367: 00004ad5     8 FUNC    LOCAL  DEFAULT    4 k_sem_take.isra.0\n   368: 00004ad8     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   369: 00004adc     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   370: 00004b18     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   371: 00004b24     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   372: 00004b60     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   373: 00004b6c     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   374: 00004b98     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   375: 00004ba0     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   376: 00004bcc     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   377: 00004bd4     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   378: 00004c8c     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   379: 00004c9c     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   380: 00004ca4     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   381: 00004ca8     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   382: 00004cd0     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   383: 00004cd4     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   384: 00004d30     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   385: 00004d44     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   386: 00004e18     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   387: 00004e2c     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   388: 00004e34     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   389: 00004e38     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   390: 00004e60     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   391: 00004e64     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   392: 00004e65   124 FUNC    LOCAL  DEFAULT    4 _GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt\n   393: 00004ec0     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   394: 00000008     0 NOTYPE  LOCAL  DEFAULT   12 $d\n   395: 00000568     0 NOTYPE  LOCAL  DEFAULT    1 $d\n   396: 00003c88     0 NOTYPE  LOCAL  DEFAULT    9 $d\n   397: 000044f4     0 NOTYPE  LOCAL  DEFAULT    9 $d\n   398: 00004d60     0 NOTYPE  LOCAL  DEFAULT    9 $d\n   399: 00000000     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   400: 00000001    16 FUNC    LOCAL  DEFAULT    4 __tcf_0\n   401: 00000008     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   402: 00000010     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   403: 00000011    32 FUNC    LOCAL  DEFAULT    4 _ZNSt12_Vector_baseIhSaIhEE11_M_allocateEj.isra.0\n   404: 00000028     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   405: 00000030     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   406: 00000031     8 FUNC    LOCAL  DEFAULT    4 k_mutex_unlock.isra.0\n   407: 00000034     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   408: 00000038     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   409: 0000004e     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   410: 0000006c     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   411: 000000ac     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   412: 000000b0     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   413: 0000017c     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   414: 0000018c     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   415: 00000220     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   416: 00000238     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   417: 000002c4     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   418: 000002d8     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   419: 00000338     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   420: 0000033c     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   421: 00000398     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   422: 000003ac     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   423: 000003b0     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   424: 000003c4     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   425: 000003c8     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   426: 000003c9    20 FUNC    LOCAL  DEFAULT    4 __tcf_2\n   427: 000003d4     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   428: 000003dc     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   429: 000003dd    20 FUNC    LOCAL  DEFAULT    4 __tcf_1\n   430: 000003e8     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   431: 000003f0     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   432: 00000410     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   433: 00000460     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   434: 00000464     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   435: 00000470     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   436: 00000474     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   437: 000004c8     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   438: 000004cc     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   439: 00000528     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   440: 0000052c     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   441: 00000548     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   442: 0000054c     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   443: 00000568     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   444: 0000056c     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   445: 000005bc     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   446: 000005c0     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   447: 00000618     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   448: 00000620     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   449: 00000680     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   450: 0000068c     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   451: 000006d0     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   452: 000006d8     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   453: 00000718     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   454: 00000720     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   455: 00000760     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   456: 00000768     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   457: 00000798     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   458: 000007d8     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   459: 000007e0     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   460: 00000814     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   461: 0000082c     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   462: 00000918     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   463: 00000928     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   464: 00000990     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   465: 000009a0     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   466: 000009e0     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   467: 000009e8     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   468: 00000a50     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   469: 00000a60     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   470: 00000a9c     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   471: 00000ae0     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   472: 00000ae8     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   473: 00000b08     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   474: 00000b48     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   475: 00000b50     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   476: 00000b74     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   477: 00000b7c     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   478: 00000ba0     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   479: 00000ba8     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   480: 00000bdc     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   481: 00000be8     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   482: 00000c08     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   483: 00000c40     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   484: 00000c48     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   485: 00000d90     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   486: 00000dbc     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   487: 00000e68     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   488: 00000e80     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   489: 00000e94     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   490: 00000e98     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   491: 00000eb8     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   492: 00000ec4     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   493: 00000f44     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   494: 00000f5c     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   495: 00000fc8     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   496: 00000fd4     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   497: 00001008     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   498: 0000100c     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   499: 0000100d   140 FUNC    LOCAL  DEFAULT    4 _ZNSt6vectorIhSaIhEE12emplace_backIJhEEERhDpOT_.isra.0\n   500: 00001080     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   501: 00001098     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   502: 00001099    24 FUNC    LOCAL  DEFAULT    4 _ZN7arduino7msgpack6Packer11packRawByteERKNS0_4TypeE.isra.0\n   503: 000010ac     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   504: 000010b0     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   505: 000010b1   140 FUNC    LOCAL  DEFAULT    4 _ZNSt6vectorIhSaIhEE12emplace_backIJRKhEEERhDpOT_.isra.0\n   506: 00001124     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   507: 0000113c     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   508: 00001160     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   509: 00001168     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   510: 00001169   140 FUNC    LOCAL  DEFAULT    4 _ZNSt6vectorIhSaIhEE12emplace_backIJRhEEES3_DpOT_.isra.0\n   511: 000011dc     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   512: 000011f4     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   513: 0000120c     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   514: 00001210     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   515: 00001230     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   516: 00001238     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   517: 00001250     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   518: 00001254     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   519: 0000129c     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   520: 000012ac     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   521: 000012d0     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   522: 000012d8     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   523: 000012d9   196 FUNC    LOCAL  DEFAULT    4 _ZN7arduino7msgpack6Packer11packIntegerIiEENSt9enable_ifIXaaaaaasrSt13is_arithmeticIT_E5valuesrSt11is_integralIS5_E5valuentsrSt7is_sameIS5_bE5valuentsrS9_INSt9remove_cvIS5_E4typeEPcE5valueEvE4typeERKS5_.isra.0\n   524: 00001384     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   525: 0000139c     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   526: 00001424     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   527: 0000143c     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   528: 00001474     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   529: 000014e0     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   530: 0000150c     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   531: 00001544     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   532: 0000154c     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   533: 00001586     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   534: 00001620     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   535: 00001668     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   536: 000016a2     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   537: 00001730     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   538: 00001780     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   539: 000017bc     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   540: 000017c4     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   541: 00001808     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   542: 00001848     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   543: 00001864     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   544: 00001904     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   545: 00001924     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   546: 00001ad4     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   547: 00001b18     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   548: 00001b68     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   549: 00001b90     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   550: 00001b94     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   551: 00001c44     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   552: 00001c6c     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   553: 00001c90     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   554: 00001c94     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   555: 00001cb8     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   556: 00001cbc     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   557: 00001db4     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   558: 00001ddc     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   559: 00001e16     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   560: 00001e28     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   561: 00001f38     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   562: 00001f54     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   563: 000021b8     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   564: 00002218     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   565: 000023c8     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   566: 00002420     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   567: 00002540     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   568: 0000255c     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   569: 00002644     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   570: 00002660     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   571: 0000274c     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   572: 0000277c     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   573: 000027a8     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   574: 000027c0     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   575: 000027c1    40 FUNC    LOCAL  DEFAULT    4 _GLOBAL__sub_I_p0Qtr\n   576: 000027dc     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   577: 00000000     0 NOTYPE  LOCAL  DEFAULT   12 $d\n   578: 000027e8     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   579: 000027e9    32 FUNC    LOCAL  DEFAULT    4 _GLOBAL__sub_D_p0Qtr\n   580: 000027fc     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   581: 00000000     0 NOTYPE  LOCAL  DEFAULT   14 $d\n   582: 00000000     0 NOTYPE  LOCAL  DEFAULT    9 $d\n   583: 00000004     0 NOTYPE  LOCAL  DEFAULT    9 $d\n   584: 0000385c     0 NOTYPE  LOCAL  DEFAULT    9 $d\n   585: 00003888     0 NOTYPE  LOCAL  DEFAULT    9 $d\n   586: 00003898     0 NOTYPE  LOCAL  DEFAULT    9 $d\n   587: 0000389c     0 NOTYPE  LOCAL  DEFAULT    9 $d\n   588: 000038a8     0 NOTYPE  LOCAL  DEFAULT    9 $d\n   589: 000038ac     0 NOTYPE  LOCAL  DEFAULT    9 $d\n   590: 000038b0     0 NOTYPE  LOCAL  DEFAULT    9 $d\n   591: 000038b4     0 NOTYPE  LOCAL  DEFAULT    9 $d\n   592: 000038c0     0 NOTYPE  LOCAL  DEFAULT    9 $d\n   593: 000038c4     0 NOTYPE  LOCAL  DEFAULT    9 $d\n   594: 000038d0     0 NOTYPE  LOCAL  DEFAULT    9 $d\n   595: 000038d8     0 NOTYPE  LOCAL  DEFAULT    9 $d\n   596: 000038dc     0 NOTYPE  LOCAL  DEFAULT    9 $d\n   597: 000038e0     0 NOTYPE  LOCAL  DEFAULT    9 $d\n   598: 000038e1     0 NOTYPE  LOCAL  DEFAULT    9 $d\n   599: 000000e4     0 NOTYPE  LOCAL  DEFAULT    3 $d\n   600: 0000088d     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   601: 0000088e     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   602: 00001489     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   603: 0000148a     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   604: 0000159d     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   605: 0000159e     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   606: 000016b9     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   607: 000016ba     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   608: 0000180b     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   609: 0000180c     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   610: 00005210     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   611: 00005211    76 FUNC    LOCAL  DEFAULT    4 _ZNSs12_S_constructIPKcEEPcT_S3_RKSaIcESt20forward_iterator_tag.isra.0\n   612: 00005254     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   613: 0000525c     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   614: 0000525d    36 FUNC    LOCAL  DEFAULT    4 _ZNSsC2EPKcRKSaIcE.isra.0\n   615: 00005280     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   616: 000052a4     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   617: 000052a8     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   618: 000052b8     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   619: 000052bc     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   620: 000052d4     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   621: 000052ec     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   622: 000052f8     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   623: 0000530c     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   624: 00005310     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   625: 00005368     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   626: 00005370     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   627: 00005374     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   628: 0000538c     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   629: 000055cc     0 NOTYPE  LOCAL  DEFAULT    9 $d\n   630: 00005390     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   631: 00005391     8 FUNC    LOCAL  DEFAULT    4 _ZNSt11char_traitsIcE4copyEPcPKcj.isra.0\n   632: 00005398     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   633: 000053aa     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   634: 000053b8     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   635: 000053f0     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   636: 000053f4     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   637: 0000540a     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   638: 00005422     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   639: 00005434     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   640: 000048c4     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   641: 000048c8     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   642: 000048e0     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   643: 00000000     0 NOTYPE  LOCAL  DEFAULT   10 $d\n   644: 00000000     8 OBJECT  LOCAL  DEFAULT   10 _ZL16__llext_sym_main\n   645: 00002808     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   646: 0000281c     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   647: 00004548     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   648: 0000454c     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   649: 00004554     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   650: 00004558     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   651: 0000455c     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   652: 00004564     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   653: 00004568     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   654: 00004570     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   655: 00004574     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   656: 0000457c     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   657: 00004580     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   658: 00004588     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   659: 0000458c     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   660: 00004594     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   661: 00000000     0 NOTYPE  LOCAL  DEFAULT    7 $d\n   662: 00004598     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   663: 000045b0     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   664: 000045c0     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   665: 000045c4     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   666: 000045dc     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   667: 000045e0     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   668: 000045f8     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   669: 000045fc     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   670: 00004620     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   671: 00004624     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   672: 00004654     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   673: 00004660     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   674: 00004684     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   675: 0000468c     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   676: 000046b4     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   677: 000046b8     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   678: 000046d8     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   679: 000046e0     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   680: 000046f4     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   681: 000046f8     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   682: 00004704     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   683: 00004708     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   684: 0000472c     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   685: 00004738     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   686: 00004770     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   687: 00004778     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   688: 00004790     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   689: 00004794     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   690: 000047c0     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   691: 000047c4     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   692: 000047e0     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   693: 000047e4     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   694: 00004808     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   695: 0000480c     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   696: 00004810     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   697: 00004814     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   698: 00004818     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   699: 0000481c     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   700: 00004820     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   701: 00004824     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   702: 00004828     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   703: 0000482c     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   704: 00004830     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   705: 00004834     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   706: 00004838     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   707: 0000483c     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   708: 00004840     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   709: 00004844     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   710: 00004848     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   711: 0000484c     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   712: 00004850     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   713: 00004854     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   714: 0000485e     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   715: 00004868     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   716: 00004872     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   717: 0000487c     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   718: 00004886     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   719: 00004890     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   720: 0000489a     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   721: 000048a4     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   722: 000048b0     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   723: 000048b4     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   724: 000048b8     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   725: 000048c0     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   726: 000048f4     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   727: 000048f5    16 FUNC    LOCAL  DEFAULT    4 _ZL10new_helperj\n   728: 00004900     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   729: 00004904     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   730: 00004908     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   731: 0000490c     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   732: 00004910     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   733: 00004914     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   734: 00004918     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   735: 0000491c     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   736: 00004920     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   737: 0000497c     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   738: 00004a78     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   739: 00004a7c     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   740: 00004a80     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   741: 00004a94     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   742: 00004fc4     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   743: 00004fd8     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   744: 00004fe4     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   745: 0000500c     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   746: 00005014     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   747: 0000503c     0 NOTYPE  LOCAL  DEFAULT    4 $d\n   748: 00005678     0 NOTYPE  LOCAL  DEFAULT    4 $t\n   749: 00000874     0 NOTYPE  LOCAL  DEFAULT    3 $d\n   750: 000008e4     0 NOTYPE  LOCAL  DEFAULT    3 $d\n   751: 0000084c     0 NOTYPE  LOCAL  DEFAULT    3 $d\n   752: 00000653     0 NOTYPE  LOCAL  DEFAULT    3 $d\n   753: 00000875     0 NOTYPE  LOCAL  DEFAULT    3 $d\n   754: 000008fe     0 NOTYPE  LOCAL  DEFAULT    3 $d\n   755: 000005d8     0 NOTYPE  LOCAL  DEFAULT    3 $d\n   756: 0000066f     0 NOTYPE  LOCAL  DEFAULT    3 $d\n   757: 00000665     0 NOTYPE  LOCAL  DEFAULT    3 $d\n   758: 0000065c     0 NOTYPE  LOCAL  DEFAULT    3 $d\n   759: 00000a2b     0 NOTYPE  LOCAL  DEFAULT    3 $d\n   760: 00000893     0 NOTYPE  LOCAL  DEFAULT    3 $d\n   761: 00000a04     0 NOTYPE  LOCAL  DEFAULT    3 $d\n   762: 00000a11     0 NOTYPE  LOCAL  DEFAULT    3 $d\n   763: 00000952     0 NOTYPE  LOCAL  DEFAULT    3 $d\n   764: 00000a1e     0 NOTYPE  LOCAL  DEFAULT    3 $d\n   765: 000009e3     0 NOTYPE  LOCAL  DEFAULT    3 $d\n   766: 000009f3     0 NOTYPE  LOCAL  DEFAULT    3 $d\n   767: 000008a2     0 NOTYPE  LOCAL  DEFAULT    3 $d\n   768: 000008cc     0 NOTYPE  LOCAL  DEFAULT    3 $d\n   769: 00000918     0 NOTYPE  LOCAL  DEFAULT    3 $d\n   770: 0000087d     0 NOTYPE  LOCAL  DEFAULT    3 $d\n   771: 00000876     0 NOTYPE  LOCAL  DEFAULT    3 $d\n   772: 00000885     0 NOTYPE  LOCAL  DEFAULT    3 $d\n   773: 000009ca     0 NOTYPE  LOCAL  DEFAULT    3 $d\n   774: 000009a0     0 NOTYPE  LOCAL  DEFAULT    3 $d\n   775: 00000977     0 NOTYPE  LOCAL  DEFAULT    3 $d\n   776: 00000930     0 NOTYPE  LOCAL  DEFAULT    3 $d\n   777: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_cos\n   778: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real___aeabi_dcmpgt\n   779: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_iscntrl\n   780: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_ldexp\n   781: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_puts\n   782: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_isxdigit\n   783: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_sinf\n   784: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real___aeabi_uidivmod\n   785: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real___aeabi_f2uiz\n   786: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real___aeabi_dcmpun\n   787: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND _sidata\n   788: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_log10\n   789: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real___aeabi_dcmplt\n   790: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real___aeabi_idivmod\n   791: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_isprint\n   792: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_exp2\n   793: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_atan2\n   794: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_log\n   795: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_islower\n   796: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND _sbss\n   797: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real___aeabi_ldivmod\n   798: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_atoi\n   799: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real___aeabi_uidiv\n   800: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real___aeabi_idiv\n   801: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_exit\n   802: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_strchr\n   803: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real___aeabi_ddiv\n   804: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real___aeabi_read_tp\n   805: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real___aeabi_ui2f\n   806: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_strstr\n   807: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND _sdata\n   808: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_sqrtf\n   809: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_strncpy\n   810: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_srand\n   811: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real___aeabi_i2f\n   812: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real___aeabi_fcmpun\n   813: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_strdup\n   814: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_gettimeofday\n   815: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_fmod\n   816: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_toupper\n   817: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_strrchr\n   818: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_tolower\n   819: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_isgraph\n   820: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_atan\n   821: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND _ebss\n   822: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_pow\n   823: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_strtok\n   824: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_vsprintf\n   825: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND kheap_llext_heap\n   826: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND analog_reference\n   827: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_strtod\n   828: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_isalnum\n   829: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real___aeabi_fdiv\n   830: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_sin\n   831: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real___aeabi_fcmple\n   832: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real___aeabi_f2iz\n   833: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND z_impl_k_uptime_ticks\n   834: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_tan\n   835: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND _printf_float\n   836: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_strtoul\n   837: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_strnlen\n   838: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real___aeabi_dsub\n   839: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real___aeabi_d2iz\n   840: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_exp\n   841: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_logf\n   842: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_memmem\n   843: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_sqrt\n   844: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_isupper\n   845: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real___aeabi_dcmple\n   846: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real___aeabi_d2uiz\n   847: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND printk\n   848: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_strncmp\n   849: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real___aeabi_dcmpge\n   850: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_asinf\n   851: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real___aeabi_fadd\n   852: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_isspace\n   853: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real___aeabi_dcmpeq\n   854: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real___aeabi_dmul\n   855: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __heap_end\n   856: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_strcat\n   857: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_putchar\n   858: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real___aeabi_fcmplt\n   859: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_vsnprintf\n   860: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_rand\n   861: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_acos\n   862: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __heap_start\n   863: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_asin\n   864: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND _edata\n   865: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_isdigit\n   866: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real___aeabi_fcmpge\n   867: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_vprintf\n   868: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_vsscanf\n   869: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real___aeabi_fcmpeq\n   870: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_strcasecmp\n   871: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_tanf\n   872: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_atof\n   873: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real___aeabi_dadd\n   874: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_calloc\n   875: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_strtol\n   876: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_acosf\n   877: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_cosf\n   878: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_log2\n   879: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real___aeabi_fmul\n   880: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real___aeabi_d2lz\n   881: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_atan2f\n   882: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND kheap_llext_heap_size\n   883: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_strcpy\n   884: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real__exit\n   885: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_memcmp\n   886: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real___aeabi_fsub\n   887: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_memchr\n   888: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real___aeabi_fcmpgt\n   889: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_atol\n   890: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_atanf\n   891: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_isalpha\n   892: 0000006d    68 FUNC    GLOBAL DEFAULT    4 _Z6chargeRN2p09QtrSampleERj\n   893: 00004559     2 FUNC    GLOBAL DEFAULT    4 __cxa_free_exception\n   894: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __device_dts_ord_70\n   895: 000038d0     8 OBJECT  WEAK   DEFAULT    9 _ZZN8RpcUtils6detail12unpackObjectERN7arduino7msgpack8UnpackerEE5num64\n   896: 000004cd    96 FUNC    WEAK   DEFAULT    4 _ZN7arduino7msgpack8Unpacker11unpackInt64Ev\n   897: 0000517d     4 FUNC    GLOBAL DEFAULT    4 _ZNKSt9type_info15__is_function_pEv\n   898: 00000000     0 NOTYPE  WEAK   DEFAULT  UND __device_dts_ord_40\n   899: 00004599    22 FUNC    GLOBAL DEFAULT    4 _ZN7arduino6StringC1EOS0_\n   900: 00004a79     8 FUNC    GLOBAL DEFAULT    4 yield\n   901: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND z_impl_k_thread_create\n   902: 00001865   192 FUNC    WEAK   DEFAULT    4 _ZN10RPCRequestILj256EE22unpack_request_headersEv\n   903: 000052a9    20 FUNC    GLOBAL DEFAULT    4 _ZNSt12length_errorC2EPKc\n   904: 00002969    60 FUNC    WEAK   DEFAULT    4 _ZN7arduino7msgpack8Unpacker9unpackNilEv\n   905: 00004921   108 FUNC    GLOBAL DEFAULT    4 _Z20start_static_threadsv\n   906: 0000504d    20 FUNC    GLOBAL DEFAULT    4 _ZNSt9bad_allocD2Ev\n   907: 00000239   160 FUNC    GLOBAL DEFAULT    4 _Z13measureSamplej\n   908: 00004569    12 FUNC    GLOBAL DEFAULT    4 __cxa_end_cleanup\n   909: 00004599    22 FUNC    GLOBAL DEFAULT    4 _ZN7arduino6StringC2EOS0_\n   910: 00002a4d    64 FUNC    WEAK   DEFAULT    4 _ZN7RpcCallIJEE8setErrorEiN7arduino6StringE\n   911: 00002829     4 FUNC    WEAK   DEFAULT    4 _ZN7arduino5Print17availableForWriteEv\n   912: 00000000     0 NOTYPE  WEAK   DEFAULT  UND __device_dts_ord_105\n   913: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND z_impl_device_init\n   914: 00005079    20 FUNC    GLOBAL DEFAULT    4 _ZN10__cxxabiv120__si_class_type_infoD2Ev\n   915: 0000037a    37 OBJECT  GLOBAL DEFAULT    3 _ZTSN10__cxxabiv120__si_class_type_infoE\n   916: 0000468d    44 FUNC    GLOBAL DEFAULT    4 _ZN7arduino6String4moveERS0_\n   917: 0000293d    44 FUNC    WEAK   DEFAULT    4 _ZN8RpcErrorC2Ev\n   918: 00000000     4 OBJECT  WEAK   DEFAULT    9 _ZGVN12RouterBridge3HCIE\n   919: 00001cbd   288 FUNC    WEAK   DEFAULT    4 _ZN7arduino7msgpack6object3extC2EaPKhj\n   920: 000053b9    60 FUNC    WEAK   DEFAULT    4 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERjj\n   921: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_abort\n   922: 00004cd5   112 FUNC    GLOBAL DEFAULT    4 _ZN7arduino12ZephyrSerial5writeEPKhj\n   923: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND z_impl_k_thread_name_set\n   924: 00005435    54 FUNC    WEAK   DEFAULT    4 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEj\n   925: 00004815     8 FUNC    GLOBAL DEFAULT    4 memmove\n   926: 0000392d   172 FUNC    WEAK   DEFAULT    4 _ZN11BridgeClass6notifyIJRN7arduino6StringEEEEvS2_DpOT_\n   927: 00000008     0 TLS     GLOBAL DEFAULT  ABS _TLS_MODULE_BASE_\n   928: 00005075     2 FUNC    GLOBAL DEFAULT    4 _ZNSt9exceptionD2Ev\n   929: 00000621   108 FUNC    WEAK   DEFAULT    4 _ZN7arduino7msgpack8Unpacker13unpackFloat64Ev\n   930: 00004c9d    12 FUNC    WEAK   DEFAULT    4 _ZN7arduino12ZephyrSerial3endEv\n   931: 00004ca9    44 FUNC    GLOBAL DEFAULT    4 _ZN7arduino12ZephyrSerial5flushEv\n   932: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_memmove\n   933: 00004581    12 FUNC    GLOBAL DEFAULT    4 __aeabi_unwind_cpp_pr0\n   934: 00003ecd    64 FUNC    WEAK   DEFAULT    4 _ZN7RpcCallIJRjEE8setErrorEiN7arduino6StringE\n   935: 00001211    40 FUNC    WEAK   DEFAULT    4 _ZN7arduino7msgpack6Packer10packUInt32Ej\n   936: 000038e1     1 OBJECT  WEAK   DEFAULT    9 _ZZN8RpcUtils6detail12unpackObjectERN7arduino7msgpack8UnpackerEE3nil\n   937: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND z_impl_k_yield\n   938: 00004d60  2156 OBJECT  GLOBAL DEFAULT    9 Serial1\n   939: 000038e8     4 OBJECT  WEAK   DEFAULT    9 _ZZN7arduino7msgpack8Unpacker10from_arrayIJRiRNS_6StringEEEEbDpOT_E2sz\n   940: 00005375    28 FUNC    WEAK   DEFAULT    4 _ZNSs4_Rep10_M_disposeERKSaIcE\n   941: 00000014     0 TLS     GLOBAL DEFAULT  ABS errno\n   942: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real_malloc\n   943: 0000154d   280 FUNC    WEAK   DEFAULT    4 _ZN7arduino7msgpack8Unpacker11unpackFloatIfEENSt9enable_ifIXaasrSt13is_arithmeticIT_E5valuesrSt17is_floating_pointIS5_E5valueES5_E4typeEv\n   944: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __device_dts_ord_91\n   945: 000039d9    64 FUNC    WEAK   DEFAULT    4 _ZN7RpcCallIJRN7arduino6StringEEE8setErrorEiS1_\n   946: 00002ed5   124 FUNC    WEAK   DEFAULT    4 _ZN7arduino7msgpack6Packer4packERKNS_6StringE\n   947: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real___aeabi_l2f\n   948: 0000001c     0 TLS     GLOBAL DEFAULT  ABS _localtime_buf\n   949: 00004ac9     4 FUNC    WEAK   DEFAULT    4 _ZN7arduino12ZephyrSerialcvbEv\n   950: 000003f2    25 OBJECT  GLOBAL DEFAULT    3 _ZTSNSt3_V214error_categoryE\n   951: 00002809    32 FUNC    GLOBAL DEFAULT    4 _ZN2p012qtrReadyMaskEv\n   952: 00004a35    68 FUNC    GLOBAL DEFAULT    4 digitalRead\n   953: 00000465    16 FUNC    WEAK   DEFAULT    4 _ZNK7arduino7msgpack8Unpacker7getTypeEv\n   954: 000003ad     2 FUNC    GLOBAL DEFAULT    4 loop\n   955: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND sys_clock_cycle_get_64\n   956: 000048c5     2 FUNC    WEAK   DEFAULT    4 initVariant\n   957: 00000f5d   120 FUNC    WEAK   DEFAULT    4 _ZN7arduino7msgpack8Unpacker4feedEPKhj\n   958: 00004835     8 FUNC    GLOBAL DEFAULT    4 __xpg_strerror_r\n   959: 00000000     0 NOTYPE  WEAK   DEFAULT  UND __device_dts_ord_120\n   960: 000051e9    20 FUNC    GLOBAL DEFAULT    4 _ZNSt12length_errorD2Ev\n   961: 00000769    46 FUNC    WEAK   DEFAULT    4 _ZNK7arduino7msgpack8Unpacker11getRawBytesItEET_jj\n   962: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __device_dts_ord_65\n   963: 00000000     0 NOTYPE  WEAK   DEFAULT  UND __device_dts_ord_30\n   964: 000038e4     4 OBJECT  WEAK   DEFAULT    9 _ZGVZN7arduino7msgpack8Unpacker10from_arrayIJRiRNS_6StringEEEEbDpOT_E2sz\n   965: 00002661   284 FUNC    WEAK   DEFAULT    4 _ZN11BridgeClass11update_safeEv\n   966: 000038e0     1 OBJECT  WEAK   DEFAULT    9 _ZZN8RpcUtils6detail12unpackObjectERN7arduino7msgpack8UnpackerEE1b\n   967: 0000480d     8 FUNC    GLOBAL DEFAULT    4 memcpy\n   968: 000056b5    12 FUNC    GLOBAL DEFAULT    4 _ZNK10__cxxabiv117__class_type_info20__do_find_public_srcEiPKvPKS0_S2_\n   969: 00000000     0 NOTYPE  WEAK   DEFAULT  UND __device_dts_ord_83\n   970: 00003888    16 OBJECT  WEAK   DEFAULT    9 _ZZN8RpcUtils6detail12unpackObjectERN7arduino7msgpack8UnpackerEE1t\n   971: 00004d45   232 FUNC    GLOBAL DEFAULT    4 _ZN7arduino12ZephyrSerial10IrqHandlerEv\n   972: 0000113d    44 FUNC    WEAK   DEFAULT    4 _ZN7arduino7msgpack6Packer9packUInt8Eh\n   973: 000045c5    28 FUNC    GLOBAL DEFAULT    4 _ZN7arduino6String10invalidateEv\n   974: 000056c1    20 FUNC    GLOBAL DEFAULT    4 _ZN10__cxxabiv117__class_type_infoD1Ev\n   975: 000048a5    10 FUNC    GLOBAL DEFAULT    4 __aeabi_uldivmod\n   976: 00000000     0 NOTYPE  WEAK   DEFAULT  UND __device_dts_ord_88\n   977: 000053f5    22 FUNC    WEAK   DEFAULT    4 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv\n   978: 00000dbd   196 FUNC    WEAK   DEFAULT    4 _ZN7arduino7msgpack8Unpacker11deserializeINS0_6object8timespecEJEEEbRT_DpOT0_\n   979: 0000483d     8 FUNC    GLOBAL DEFAULT    4 malloc\n   980: 00005423    18 FUNC    WEAK   DEFAULT    4 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv\n   981: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND z_impl_k_mutex_lock\n   982: 00002f89    34 FUNC    WEAK   DEFAULT    4 _ZNK10RpcDecoderILj1024EE4sendEPKhj\n   983: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __device_dts_ord_93\n   984: 000046e1    24 FUNC    GLOBAL DEFAULT    4 _ZN7arduino6StringC1ERKS0_\n   985: 00000004 14424 OBJECT  GLOBAL DEFAULT    9 p0Qtr\n   986: 00005281    40 FUNC    GLOBAL DEFAULT    4 _ZNSt11logic_errorC2EPKc\n   987: 000038d8     4 OBJECT  WEAK   DEFAULT    9 _ZZN8RpcUtils6detail12unpackObjectERN7arduino7msgpack8UnpackerEE5num32\n   988: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND z_impl_k_sem_take\n   989: 00000000     4 OBJECT  GLOBAL HIDDEN     7 __dso_handle\n   990: 0000485f    10 FUNC    GLOBAL DEFAULT    4 __aeabi_ui2d\n   991: 0000573f    42 FUNC    GLOBAL DEFAULT    4 _ZNK10__cxxabiv117__class_type_info10__do_catchEPKSt9type_infoPPvj\n   992: 00001f55  1228 FUNC    WEAK   DEFAULT    4 _ZN8RpcUtils6detail12unpackObjectERN7arduino7msgpack8UnpackerE\n   993: 000038b0     4 OBJECT  WEAK   DEFAULT    9 _ZGVZN8RpcUtils6detail12unpackObjectERN7arduino7msgpack8UnpackerEE5bytes\n   994: 00000000     0 NOTYPE  GLOBAL DEFAULT  UND __real___aeabi_l2d\n   995: 00002",
+      "stdout_truncated": true,
+      "stderr": "",
+      "stderr_truncated": false
+    },
+    {
+      "argv": [
+        "/opt/openocd/bin/openocd",
+        "-f",
+        "/home/arduino/sumox26-capture-tools/qtr-00798d186378b9e5/p0_mem_read.cfg",
+        "-c",
+        "dump_image {/home/arduino/sumox26-capture/qtr-20260922T230128-509720-94555/00-loader.bin} 0x08000000 263680",
+        "-c",
+        "shutdown"
+      ],
+      "started_at_utc": "2026-09-22T23:01:28.740826+00:00",
+      "timeout_seconds": 119.99999526000101,
+      "stdout_file": "cmd-04.out",
+      "stderr_file": "cmd-04.err",
+      "returncode": 0,
+      "finished_at_utc": "2026-09-22T23:02:47.681195+00:00",
+      "stdout": "",
+      "stdout_truncated": false,
+      "stderr": "Open On-Chip Debugger 0.12.0+dev-ge6a2c12f4 (2025-05-22-15:51)\nLicensed under GNU GPL v2\nFor bug reports, read\n\thttp://openocd.org/doc/doxygen/bugs.html\nDEPRECATED! use 'gdb port', not 'gdb_port'\nDEPRECATED! use 'telnet port', not 'telnet_port'\nDEPRECATED! use 'tcl port' not 'tcl_port'\nInfo : Linux GPIOD JTAG/SWD bitbang driver (libgpiod v2)\nInfo : Note: The adapter \"linuxgpiod\" doesn't support configurable speed\nInfo : SWD DPIDR 0x0be12477\nInfo : [sumox.mem] Examination succeed\nInfo : [sumox.mem] gdb port disabled\ndumped 263680 bytes in 78.860474s (3.265 KiB/s)\nshutdown command invoked\n",
+      "stderr_truncated": false
+    },
+    {
+      "argv": [
+        "/opt/openocd/bin/openocd",
+        "-f",
+        "/home/arduino/sumox26-capture-tools/qtr-00798d186378b9e5/p0_mem_read.cfg",
+        "-c",
+        "dump_image {/home/arduino/sumox26-capture/qtr-20260922T230128-509720-94555/01-sketch.bin} 0x08100000 76924",
+        "-c",
+        "shutdown"
+      ],
+      "started_at_utc": "2026-09-22T23:02:47.687754+00:00",
+      "timeout_seconds": 41.05313319200104,
+      "stdout_file": "cmd-05.out",
+      "stderr_file": "cmd-05.err",
+      "returncode": 0,
+      "finished_at_utc": "2026-09-22T23:03:10.741984+00:00",
+      "stdout": "",
+      "stdout_truncated": false,
+      "stderr": "Open On-Chip Debugger 0.12.0+dev-ge6a2c12f4 (2025-05-22-15:51)\nLicensed under GNU GPL v2\nFor bug reports, read\n\thttp://openocd.org/doc/doxygen/bugs.html\nDEPRECATED! use 'gdb port', not 'gdb_port'\nDEPRECATED! use 'telnet port', not 'telnet_port'\nDEPRECATED! use 'tcl port' not 'tcl_port'\nInfo : Linux GPIOD JTAG/SWD bitbang driver (libgpiod v2)\nInfo : Note: The adapter \"linuxgpiod\" doesn't support configurable speed\nInfo : SWD DPIDR 0x0be12477\nInfo : [sumox.mem] Examination succeed\nInfo : [sumox.mem] gdb port disabled\ndumped 76924 bytes in 22.999016s (3.266 KiB/s)\nshutdown command invoked\n",
+      "stderr_truncated": false
+    },
+    {
+      "argv": [
+        "/opt/openocd/bin/openocd",
+        "-f",
+        "/home/arduino/sumox26-capture-tools/qtr-00798d186378b9e5/p0_mem_read.cfg",
+        "-c",
+        "dump_image {/home/arduino/sumox26-capture/qtr-20260922T230128-509720-94555/02-llext-list.bin} 0x200017bc 8",
+        "-c",
+        "shutdown"
+      ],
+      "started_at_utc": "2026-09-22T23:03:10.746968+00:00",
+      "timeout_seconds": 17.993910303999655,
+      "stdout_file": "cmd-06.out",
+      "stderr_file": "cmd-06.err",
+      "returncode": 0,
+      "finished_at_utc": "2026-09-22T23:03:10.782820+00:00",
+      "stdout": "",
+      "stdout_truncated": false,
+      "stderr": "Open On-Chip Debugger 0.12.0+dev-ge6a2c12f4 (2025-05-22-15:51)\nLicensed under GNU GPL v2\nFor bug reports, read\n\thttp://openocd.org/doc/doxygen/bugs.html\nDEPRECATED! use 'gdb port', not 'gdb_port'\nDEPRECATED! use 'telnet port', not 'telnet_port'\nDEPRECATED! use 'tcl port' not 'tcl_port'\nInfo : Linux GPIOD JTAG/SWD bitbang driver (libgpiod v2)\nInfo : Note: The adapter \"linuxgpiod\" doesn't support configurable speed\nInfo : SWD DPIDR 0x0be12477\nInfo : [sumox.mem] Examination succeed\nInfo : [sumox.mem] gdb port disabled\ndumped 8 bytes in 0.005880s (1.329 KiB/s)\nshutdown command invoked\n",
+      "stderr_truncated": false
+    },
+    {
+      "argv": [
+        "/opt/openocd/bin/openocd",
+        "-f",
+        "/home/arduino/sumox26-capture-tools/qtr-00798d186378b9e5/p0_mem_read.cfg",
+        "-c",
+        "dump_image {/home/arduino/sumox26-capture/qtr-20260922T230128-509720-94555/03-node-1.bin} 0x200138e4 196",
+        "-c",
+        "shutdown"
+      ],
+      "started_at_utc": "2026-09-22T23:03:10.785513+00:00",
+      "timeout_seconds": 17.955357196000477,
+      "stdout_file": "cmd-07.out",
+      "stderr_file": "cmd-07.err",
+      "returncode": 0,
+      "finished_at_utc": "2026-09-22T23:03:10.904335+00:00",
+      "stdout": "",
+      "stdout_truncated": false,
+      "stderr": "Open On-Chip Debugger 0.12.0+dev-ge6a2c12f4 (2025-05-22-15:51)\nLicensed under GNU GPL v2\nFor bug reports, read\n\thttp://openocd.org/doc/doxygen/bugs.html\nDEPRECATED! use 'gdb port', not 'gdb_port'\nDEPRECATED! use 'telnet port', not 'telnet_port'\nDEPRECATED! use 'tcl port' not 'tcl_port'\nInfo : Linux GPIOD JTAG/SWD bitbang driver (libgpiod v2)\nInfo : Note: The adapter \"linuxgpiod\" doesn't support configurable speed\nInfo : SWD DPIDR 0x0be12477\nInfo : [sumox.mem] Examination succeed\nInfo : [sumox.mem] gdb port disabled\ndumped 196 bytes in 0.062001s (3.087 KiB/s)\nshutdown command invoked\n",
+      "stderr_truncated": false
+    },
+    {
+      "argv": [
+        "/opt/openocd/bin/openocd",
+        "-f",
+        "/home/arduino/sumox26-capture-tools/qtr-00798d186378b9e5/p0_mem_read.cfg",
+        "-c",
+        "dump_image {/home/arduino/sumox26-capture/qtr-20260922T230128-509720-94555/04-llext-list-confirm.bin} 0x200017bc 8",
+        "-c",
+        "shutdown"
+      ],
+      "started_at_utc": "2026-09-22T23:03:10.907707+00:00",
+      "timeout_seconds": 17.833165493000706,
+      "stdout_file": "cmd-08.out",
+      "stderr_file": "cmd-08.err",
+      "returncode": 0,
+      "finished_at_utc": "2026-09-22T23:03:10.944612+00:00",
+      "stdout": "",
+      "stdout_truncated": false,
+      "stderr": "Open On-Chip Debugger 0.12.0+dev-ge6a2c12f4 (2025-05-22-15:51)\nLicensed under GNU GPL v2\nFor bug reports, read\n\thttp://openocd.org/doc/doxygen/bugs.html\nDEPRECATED! use 'gdb port', not 'gdb_port'\nDEPRECATED! use 'telnet port', not 'telnet_port'\nDEPRECATED! use 'tcl port' not 'tcl_port'\nInfo : Linux GPIOD JTAG/SWD bitbang driver (libgpiod v2)\nInfo : Note: The adapter \"linuxgpiod\" doesn't support configurable speed\nInfo : SWD DPIDR 0x0be12477\nInfo : [sumox.mem] Examination succeed\nInfo : [sumox.mem] gdb port disabled\ndumped 8 bytes in 0.006031s (1.295 KiB/s)\nshutdown command invoked\n",
+      "stderr_truncated": false
+    },
+    {
+      "argv": [
+        "/opt/openocd/bin/openocd",
+        "-f",
+        "/home/arduino/sumox26-capture-tools/qtr-00798d186378b9e5/p0_mem_read.cfg",
+        "-c",
+        "dump_image {/home/arduino/sumox26-capture/qtr-20260922T230128-509720-94555/05-qtr-first.bin} 0x200197b4 14424",
+        "-c",
+        "shutdown"
+      ],
+      "started_at_utc": "2026-09-22T23:03:10.946611+00:00",
+      "timeout_seconds": 17.794209931000296,
+      "stdout_file": "cmd-09.out",
+      "stderr_file": "cmd-09.err",
+      "returncode": 0,
+      "finished_at_utc": "2026-09-22T23:03:15.338936+00:00",
+      "stdout": "",
+      "stdout_truncated": false,
+      "stderr": "Open On-Chip Debugger 0.12.0+dev-ge6a2c12f4 (2025-05-22-15:51)\nLicensed under GNU GPL v2\nFor bug reports, read\n\thttp://openocd.org/doc/doxygen/bugs.html\nDEPRECATED! use 'gdb port', not 'gdb_port'\nDEPRECATED! use 'telnet port', not 'telnet_port'\nDEPRECATED! use 'tcl port' not 'tcl_port'\nInfo : Linux GPIOD JTAG/SWD bitbang driver (libgpiod v2)\nInfo : Note: The adapter \"linuxgpiod\" doesn't support configurable speed\nInfo : SWD DPIDR 0x0be12477\nInfo : [sumox.mem] Examination succeed\nInfo : [sumox.mem] gdb port disabled\ndumped 14424 bytes in 4.313668s (3.265 KiB/s)\nshutdown command invoked\n",
+      "stderr_truncated": false
+    },
+    {
+      "argv": [
+        "/opt/openocd/bin/openocd",
+        "-f",
+        "/home/arduino/sumox26-capture-tools/qtr-00798d186378b9e5/p0_mem_read.cfg",
+        "-c",
+        "dump_image {/home/arduino/sumox26-capture/qtr-20260922T230128-509720-94555/06-qtr-second.bin} 0x200197b4 14424",
+        "-c",
+        "shutdown"
+      ],
+      "started_at_utc": "2026-09-22T23:03:15.342699+00:00",
+      "timeout_seconds": 13.39816966699982,
+      "stdout_file": "cmd-10.out",
+      "stderr_file": "cmd-10.err",
+      "returncode": 0,
+      "finished_at_utc": "2026-09-22T23:03:19.733984+00:00",
+      "stdout": "",
+      "stdout_truncated": false,
+      "stderr": "Open On-Chip Debugger 0.12.0+dev-ge6a2c12f4 (2025-05-22-15:51)\nLicensed under GNU GPL v2\nFor bug reports, read\n\thttp://openocd.org/doc/doxygen/bugs.html\nDEPRECATED! use 'gdb port', not 'gdb_port'\nDEPRECATED! use 'telnet port', not 'telnet_port'\nDEPRECATED! use 'tcl port' not 'tcl_port'\nInfo : Linux GPIOD JTAG/SWD bitbang driver (libgpiod v2)\nInfo : Note: The adapter \"linuxgpiod\" doesn't support configurable speed\nInfo : SWD DPIDR 0x0be12477\nInfo : [sumox.mem] Examination succeed\nInfo : [sumox.mem] gdb port disabled\ndumped 14424 bytes in 4.318468s (3.262 KiB/s)\nshutdown command invoked\n",
+      "stderr_truncated": false
+    },
+    {
+      "argv": [
+        "/opt/openocd/bin/openocd",
+        "-f",
+        "/home/arduino/sumox26-capture-tools/qtr-00798d186378b9e5/p0_mem_read.cfg",
+        "-c",
+        "dump_image {/home/arduino/sumox26-capture/qtr-20260922T230128-509720-94555/07-llext-list.bin} 0x200017bc 8",
+        "-c",
+        "shutdown"
+      ],
+      "started_at_utc": "2026-09-22T23:03:19.737743+00:00",
+      "timeout_seconds": 9.003129613000056,
+      "stdout_file": "cmd-11.out",
+      "stderr_file": "cmd-11.err",
+      "returncode": 0,
+      "finished_at_utc": "2026-09-22T23:03:19.773398+00:00",
+      "stdout": "",
+      "stdout_truncated": false,
+      "stderr": "Open On-Chip Debugger 0.12.0+dev-ge6a2c12f4 (2025-05-22-15:51)\nLicensed under GNU GPL v2\nFor bug reports, read\n\thttp://openocd.org/doc/doxygen/bugs.html\nDEPRECATED! use 'gdb port', not 'gdb_port'\nDEPRECATED! use 'telnet port', not 'telnet_port'\nDEPRECATED! use 'tcl port' not 'tcl_port'\nInfo : Linux GPIOD JTAG/SWD bitbang driver (libgpiod v2)\nInfo : Note: The adapter \"linuxgpiod\" doesn't support configurable speed\nInfo : SWD DPIDR 0x0be12477\nInfo : [sumox.mem] Examination succeed\nInfo : [sumox.mem] gdb port disabled\ndumped 8 bytes in 0.005992s (1.304 KiB/s)\nshutdown command invoked\n",
+      "stderr_truncated": false
+    },
+    {
+      "argv": [
+        "/opt/openocd/bin/openocd",
+        "-f",
+        "/home/arduino/sumox26-capture-tools/qtr-00798d186378b9e5/p0_mem_read.cfg",
+        "-c",
+        "dump_image {/home/arduino/sumox26-capture/qtr-20260922T230128-509720-94555/08-node-1.bin} 0x200138e4 196",
+        "-c",
+        "shutdown"
+      ],
+      "started_at_utc": "2026-09-22T23:03:19.777429+00:00",
+      "timeout_seconds": 8.963448369000616,
+      "stdout_file": "cmd-12.out",
+      "stderr_file": "cmd-12.err",
+      "returncode": 0,
+      "finished_at_utc": "2026-09-22T23:03:19.896360+00:00",
+      "stdout": "",
+      "stdout_truncated": false,
+      "stderr": "Open On-Chip Debugger 0.12.0+dev-ge6a2c12f4 (2025-05-22-15:51)\nLicensed under GNU GPL v2\nFor bug reports, read\n\thttp://openocd.org/doc/doxygen/bugs.html\nDEPRECATED! use 'gdb port', not 'gdb_port'\nDEPRECATED! use 'telnet port', not 'telnet_port'\nDEPRECATED! use 'tcl port' not 'tcl_port'\nInfo : Linux GPIOD JTAG/SWD bitbang driver (libgpiod v2)\nInfo : Note: The adapter \"linuxgpiod\" doesn't support configurable speed\nInfo : SWD DPIDR 0x0be12477\nInfo : [sumox.mem] Examination succeed\nInfo : [sumox.mem] gdb port disabled\ndumped 196 bytes in 0.062058s (3.084 KiB/s)\nshutdown command invoked\n",
+      "stderr_truncated": false
+    },
+    {
+      "argv": [
+        "/opt/openocd/bin/openocd",
+        "-f",
+        "/home/arduino/sumox26-capture-tools/qtr-00798d186378b9e5/p0_mem_read.cfg",
+        "-c",
+        "dump_image {/home/arduino/sumox26-capture/qtr-20260922T230128-509720-94555/09-llext-list-confirm.bin} 0x200017bc 8",
+        "-c",
+        "shutdown"
+      ],
+      "started_at_utc": "2026-09-22T23:03:19.899707+00:00",
+      "timeout_seconds": 8.841160477999438,
+      "stdout_file": "cmd-13.out",
+      "stderr_file": "cmd-13.err",
+      "returncode": 0,
+      "finished_at_utc": "2026-09-22T23:03:19.936444+00:00",
+      "stdout": "",
+      "stdout_truncated": false,
+      "stderr": "Open On-Chip Debugger 0.12.0+dev-ge6a2c12f4 (2025-05-22-15:51)\nLicensed under GNU GPL v2\nFor bug reports, read\n\thttp://openocd.org/doc/doxygen/bugs.html\nDEPRECATED! use 'gdb port', not 'gdb_port'\nDEPRECATED! use 'telnet port', not 'telnet_port'\nDEPRECATED! use 'tcl port' not 'tcl_port'\nInfo : Linux GPIOD JTAG/SWD bitbang driver (libgpiod v2)\nInfo : Note: The adapter \"linuxgpiod\" doesn't support configurable speed\nInfo : SWD DPIDR 0x0be12477\nInfo : [sumox.mem] Examination succeed\nInfo : [sumox.mem] gdb port disabled\ndumped 8 bytes in 0.005836s (1.339 KiB/s)\nshutdown command invoked\n",
+      "stderr_truncated": false
+    }
+  ],
+  "reads": [
+    {
+      "address": 134217728,
+      "address_hex": "0x08000000",
+      "size": 263680,
+      "region": "loader",
+      "file": "00-loader.bin",
+      "requested_at_utc": "2026-09-22T23:01:28.740677+00:00",
+      "sha256": "e9322826c422fb234ac8c2e79ea38a050d0dd8dc32b2a89f6930e0a0ff7ebab2",
+      "completed_at_utc": "2026-09-22T23:02:47.686339+00:00"
+    },
+    {
+      "address": 135266304,
+      "address_hex": "0x08100000",
+      "size": 76924,
+      "region": "sketch",
+      "file": "01-sketch.bin",
+      "requested_at_utc": "2026-09-22T23:02:47.687491+00:00",
+      "sha256": "46d305b50bd71f8f48aa8fb97a8f71d5faff1faa032dad1db123c1b62d93e632",
+      "completed_at_utc": "2026-09-22T23:03:10.745348+00:00"
+    },
+    {
+      "address": 536876988,
+      "address_hex": "0x200017bc",
+      "size": 8,
+      "region": "ram",
+      "file": "02-llext-list.bin",
+      "requested_at_utc": "2026-09-22T23:03:10.746740+00:00",
+      "sha256": "f7cb32caa86650f2b7165d7cefeda3803c809183895796a6abae3b6b042eed35",
+      "completed_at_utc": "2026-09-22T23:03:10.784635+00:00"
+    },
+    {
+      "address": 536951012,
+      "address_hex": "0x200138e4",
+      "size": 196,
+      "region": "ram",
+      "file": "03-node-1.bin",
+      "requested_at_utc": "2026-09-22T23:03:10.785310+00:00",
+      "sha256": "a2ea9766ebb1885b4a10199e736bb500faaaf690232d381d3edf83249691fa9a",
+      "completed_at_utc": "2026-09-22T23:03:10.906888+00:00"
+    },
+    {
+      "address": 536876988,
+      "address_hex": "0x200017bc",
+      "size": 8,
+      "region": "ram",
+      "file": "04-llext-list-confirm.bin",
+      "requested_at_utc": "2026-09-22T23:03:10.907505+00:00",
+      "sha256": "f7cb32caa86650f2b7165d7cefeda3803c809183895796a6abae3b6b042eed35",
+      "completed_at_utc": "2026-09-22T23:03:10.945974+00:00"
+    },
+    {
+      "address": 536975284,
+      "address_hex": "0x200197b4",
+      "size": 14424,
+      "region": "ram",
+      "file": "05-qtr-first.bin",
+      "requested_at_utc": "2026-09-22T23:03:10.946483+00:00",
+      "sha256": "be2205eeecef1c73f7a74058be69eb805b048e41e8aa77be3a99488512cbcca0",
+      "completed_at_utc": "2026-09-22T23:03:15.341949+00:00"
+    },
+    {
+      "address": 536975284,
+      "address_hex": "0x200197b4",
+      "size": 14424,
+      "region": "ram",
+      "file": "06-qtr-second.bin",
+      "requested_at_utc": "2026-09-22T23:03:15.342501+00:00",
+      "sha256": "be2205eeecef1c73f7a74058be69eb805b048e41e8aa77be3a99488512cbcca0",
+      "completed_at_utc": "2026-09-22T23:03:19.736898+00:00"
+    },
+    {
+      "address": 536876988,
+      "address_hex": "0x200017bc",
+      "size": 8,
+      "region": "ram",
+      "file": "07-llext-list.bin",
+      "requested_at_utc": "2026-09-22T23:03:19.737538+00:00",
+      "sha256": "f7cb32caa86650f2b7165d7cefeda3803c809183895796a6abae3b6b042eed35",
+      "completed_at_utc": "2026-09-22T23:03:19.776435+00:00"
+    },
+    {
+      "address": 536951012,
+      "address_hex": "0x200138e4",
+      "size": 196,
+      "region": "ram",
+      "file": "08-node-1.bin",
+      "requested_at_utc": "2026-09-22T23:03:19.777210+00:00",
+      "sha256": "a2ea9766ebb1885b4a10199e736bb500faaaf690232d381d3edf83249691fa9a",
+      "completed_at_utc": "2026-09-22T23:03:19.898906+00:00"
+    },
+    {
+      "address": 536876988,
+      "address_hex": "0x200017bc",
+      "size": 8,
+      "region": "ram",
+      "file": "09-llext-list-confirm.bin",
+      "requested_at_utc": "2026-09-22T23:03:19.899508+00:00",
+      "sha256": "f7cb32caa86650f2b7165d7cefeda3803c809183895796a6abae3b6b042eed35",
+      "completed_at_utc": "2026-09-22T23:03:19.937915+00:00"
+    }
+  ],
+  "file_hashes": {
+    "/opt/openocd/bin/openocd": "04778a80c5c619ee4eef7505db91328f1d7e789107c496f2ddcf96d081f5b0ff",
+    "/opt/openocd/share/openocd/scripts/target/swj-dp.tcl": "aad132008735bbafea3d18a304632c638f0fb99bfc19530c9f577eda2b10410a",
+    "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.bin": "6b2ffd3a24aa77ca40bac1a8c61460c5cdd3292a2ff38cb377b938a6ac939713",
+    "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf": "39d4a4fd47241663323f6e04f94dd8f5a9f9ad6582cf1df37f9709b74026adcd",
+    "/home/arduino/sumox26-capture-tools/qtr-00798d186378b9e5/p0_mem_read.cfg": "89d16a28a1489c23ec743be55ade39824f9ca5213b02b20ef4785079122e4339",
+    "/home/arduino/sumox26-capture-tools/qtr-00798d186378b9e5/p0_capture.py": "885c4e4206aea4ac9e03c4e92e48258db2a0ae302ff83a86430e6913afeeb57c",
+    "/home/arduino/sumox26-build/61d7a2d00ec1e7f1782d0a7439bd71cb123338dc1073e55abe43b9c6e3fe521e/p0_qtr/artifacts/bench-default/p0_qtr.ino.elf": "080142c992024089255c0ced50904bb0ef4a6f41a7caf748ddecfcde625d1077",
+    "/home/arduino/sumox26-build/61d7a2d00ec1e7f1782d0a7439bd71cb123338dc1073e55abe43b9c6e3fe521e/p0_qtr/artifacts/bench-default/p0_qtr.ino.elf-zsk.bin": "46d305b50bd71f8f48aa8fb97a8f71d5faff1faa032dad1db123c1b62d93e632"
+  },
+  "flash_identity_verified": true,
+  "limitations": [
+    "Setup-only empirical API timing, not a whole-robot WCET bound.",
+    "Pull-ups are diagnostic stimulation, not sensor discharge or continuous HIGH proof.",
+    "Completion checked after attachment; debug overlap not excluded.",
+    "No native-error recovery, physical cleanup, sensor freshness or pin-map qualification."
+  ],
+  "capture_directory": "/home/arduino/sumox26-capture/qtr-20260922T230128-509720-94555",
+  "versions": {
+    "python": "3.13.5 (main, Jun 25 2025, 18:55:22) [GCC 14.2.0]",
+    "core": "arduino:zephyr@1.0.0",
+    "openocd": "Open On-Chip Debugger 0.12.0+dev-ge6a2c12f4 (2025-05-22-15:51)\nLicensed under GNU GPL v2\nFor bug reports, read\n\thttp://openocd.org/doc/doxygen/bugs.html\n",
+    "readelf": "GNU readelf (Zephyr SDK 1.0.1) 2.43.1\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis program is free software; you may redistribute it under the terms of\nthe GNU General Public License version 3 or (at your option) any later version.\nThis program has absolutely no warranty.\n"
+  },
+  "layout": {
+    "bss_size": 21980,
+    "bss_elf_address": 22392,
+    "symbol": "p0Qtr",
+    "offset": 4,
+    "size": 14424
+  },
+  "loader_identity": {
+    "reference": "pinned ELF nonempty PT_LOAD physical bytes",
+    "size": 263680,
+    "expected_sha256": "e9322826c422fb234ac8c2e79ea38a050d0dd8dc32b2a89f6930e0a0ff7ebab2",
+    "package_binary_sha256": "6b2ffd3a24aa77ca40bac1a8c61460c5cdd3292a2ff38cb377b938a6ac939713",
+    "package_binary_matches": false,
+    "package_binary_different_bytes": 1,
+    "package_binary_first_differences": [
+      {
+        "offset": 260287,
+        "elf": 0,
+        "binary": 255
+      }
+    ]
+  },
+  "extension": {
+    "node_address": 536951012,
+    "bss_address": 536975280,
+    "bss_size": 21980,
+    "visited_nodes": [
+      536951012
+    ]
+  },
+  "metrics": {
+    "version": 1,
+    "samples": 200,
+    "total_elapsed_us": 308110,
+    "neutral": {
+      "samples": 100,
+      "first_sample": {
+        "mode": 0,
+        "outcome": 2,
+        "overhead_us": 1,
+        "drive_us": 9,
+        "charge_us": 12,
+        "release_us": 6,
+        "observe_us": 1501,
+        "cleanup_us": 7,
+        "total_us": 1535,
+        "charge_polls": 8,
+        "polls": 369,
+        "low_mask": 0,
+        "timeout_mask": 15,
+        "first_low_us": [
+          4294967295,
+          4294967295,
+          4294967295,
+          4294967295
+        ],
+        "cleanup_calls": 4
+      },
+      "subsequent_samples": {
+        "samples": 99,
+        "intervals": {
+          "overhead_us": {
+            "min_us": 1,
+            "max_us": 2,
+            "p99_us": 2
+          },
+          "drive_us": {
+            "min_us": 7,
+            "max_us": 8,
+            "p99_us": 8
+          },
+          "charge_us": {
+            "min_us": 11,
+            "max_us": 12,
+            "p99_us": 12
+          },
+          "release_us": {
+            "min_us": 6,
+            "max_us": 7,
+            "p99_us": 7
+          },
+          "observe_us": {
+            "min_us": 1500,
+            "max_us": 1504,
+            "p99_us": 1504
+          },
+          "cleanup_us": {
+            "min_us": 6,
+            "max_us": 7,
+            "p99_us": 7
+          },
+          "total_us": {
+            "min_us": 1531,
+            "max_us": 1536,
+            "p99_us": 1536
+          }
+        }
+      },
+      "overhead": {
+        "min_us": 1,
+        "max_us": 2,
+        "p99_us": 2
+      },
+      "all_low_samples": 0,
+      "deadline_samples": 100,
+      "timeout_masks": {
+        "15": 100
+      },
+      "poll_range": {
+        "min": 367,
+        "max": 370
+      }
+    },
+    "diagnostic_pullup": {
+      "samples": 100,
+      "first_sample": {
+        "mode": 1,
+        "outcome": 2,
+        "overhead_us": 2,
+        "drive_us": 8,
+        "charge_us": 11,
+        "release_us": 7,
+        "observe_us": 1502,
+        "cleanup_us": 6,
+        "total_us": 1534,
+        "charge_polls": 8,
+        "polls": 369,
+        "low_mask": 0,
+        "timeout_mask": 15,
+        "first_low_us": [
+          4294967295,
+          4294967295,
+          4294967295,
+          4294967295
+        ],
+        "cleanup_calls": 4
+      },
+      "subsequent_samples": {
+        "samples": 99,
+        "intervals": {
+          "overhead_us": {
+            "min_us": 1,
+            "max_us": 2,
+            "p99_us": 2
+          },
+          "drive_us": {
+            "min_us": 7,
+            "max_us": 8,
+            "p99_us": 8
+          },
+          "charge_us": {
+            "min_us": 11,
+            "max_us": 12,
+            "p99_us": 12
+          },
+          "release_us": {
+            "min_us": 6,
+            "max_us": 7,
+            "p99_us": 7
+          },
+          "observe_us": {
+            "min_us": 1500,
+            "max_us": 1503,
+            "p99_us": 1503
+          },
+          "cleanup_us": {
+            "min_us": 6,
+            "max_us": 7,
+            "p99_us": 7
+          },
+          "total_us": {
+            "min_us": 1530,
+            "max_us": 1536,
+            "p99_us": 1536
+          }
+        }
+      },
+      "overhead": {
+        "min_us": 1,
+        "max_us": 2,
+        "p99_us": 2
+      },
+      "all_low_samples": 0,
+      "deadline_samples": 100,
+      "timeout_masks": {
+        "15": 100
+      },
+      "poll_range": {
+        "min": 367,
+        "max": 370
+      }
+    }
+  },
+  "record_address": 536975284,
+  "extension_confirmed_after_samples": true,
+  "finished_at_utc": "2026-09-22T23:03:19.949438+00:00",
+  "capture_duration_seconds": 111.48875905599925
+}

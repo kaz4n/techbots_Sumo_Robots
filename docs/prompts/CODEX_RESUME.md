@@ -17,18 +17,20 @@
    boundary record files/commits, commands/statuses, limitations, human requests,
    review findings and exact next task. Use existing HUMAN ACTION/CONFUSION formats.
 
-Current checkpoint: P0 0.4 GPIO source1dfbd571/default/MOTORS_ALLOWED0 uploaded
-02:36:15.644+04 on23September, revisiona98bcf6.400 readback cycles and final HIGH
-off succeeded. Pair first3us/subsequent2..3us/p993us; pinMode first4us/subsequent
-2..11us/p993us.243 tooling checks and fresh source/binary/post-run reviews PASS.
-Full deployed identity/two frozen records verified; debug overlap unexcluded.
-Read analysis/P0_gpio_validation.md and reviews/P0_gpio_codex.md. This replaces
-ADCf5f637b2 physically; its prior measurement is preserved. Current source maps:
-GPIO1dfbd571/ADC18c4dfa8/matrix5c5a72ac/timing0d5baec0.
-Next: P0 0.4 QTR-style contract from P0_qtr_bare_contract_audit_20260923.md.
-Neutral inputs need separate reporting from diagnostic-only pull-up stimulation.
-Neither proves real sensor timing or resolves SC-B. Pending PINMAP alone does not
-block bare-board P0.4; no additional hardware request or later phase bypass.
+Current MCU: QTR61d7a2d0/revisiondcca300/default/MOTORS_ALLOWED0 uploaded
+03:00:13.327+04 on23September.100 neutral+100 pull-up samples all completed
+DEADLINE/mask15. Acquisition totals about1530..1536us, full deployed image/frozen
+records verified. Fresh post-run review PASS;306 tooling tests PASS. Read
+analysis/P0_qtr_validation.md and reviews/P0_qtr_codex.md. This setup-only result
+is not real sensor/freshness/physical-cleanup/WCET evidence; SC-B stays open.
+Current source maps61d7a2d0/afa72adb/65d7e5a3/e30b5443/9ea79c80. No repeat upload.
+
+Next active P0 task: D-066 MPU6050 compile-only compatibility probe,452502d.
+Read P0_imu_compile_contract.md and P0_imu_installed_contract_20260923.md.
+Three scoped host tests pass; dependency/target build review underway. Probe
+stays outside upload allowlist and setup only anchors addresses, no I2C calls.
+No runtime usability inferred from compilation. Preserve initial fixture receipt.
+No additional hardware request or later phase bypass; human gates remain pending.
 
 Prior checkpoint: P0 fixed counter source75ab5a22/default/MOTORS_ALLOWED0 was
 uploaded01:55:51+04 on23September. Its real logger received4..11 then56..63. Read

@@ -2,31 +2,32 @@
 
 ## Current resume point — 2026-09-23 Asia/Dubai
 
-P0 0.4 GPIO is measured on the bare UNO Q. D-064 contract d01e0f6 precedes
-implementation a98bcf6. Independent diagnostic tests and full243 tooling checks
-pass; fresh source, exact binary and post-run receipt reviews PASS. Read
-analysis/P0_gpio_validation.md and reviews/P0_gpio_codex.md. Current MCU image:
-GPIO source1dfbd571/default/MATCH0/MOTORS_ALLOWED0, uploaded02:36:15.644+04.
-All400 LOW/HIGH/HIGH cycles matched and final HIGH/off readback succeeded.
-Configure/write pair: first3us, subsequent2..3us/p993us. pinMode: first4us,
-subsequent2..11us/p993us. Total8347us; raw overhead retained, not subtracted.
-Full deployed images and two identical frozen records verified. Quiet interval
-71.022s before capture command; independent completion before debug attachment
-is unproved. No optical output, native-error recovery or whole-robot WCET claim.
+P0 0.4 QTR-style diagnostic is measured and independently receipt-reviewed PASS.
+D-065 contractsaf4cc67/db8728b precede implementationdcca300. Current MCU:
+source61d7a2d0/default/MATCH0/MOTORS_ALLOWED0, uploaded03:00:13.327+04.
+Two100-sample datasets (neutral/pull-up) all reached DEADLINE with mask15 and
+no observed LOW. First totals1535/1534us; subsequent ranges1531..1536/1530..1536us,
+p991536us both. Charge11..12us, cleanup attempts4. Full deployed image and two
+frozen14424-byte records verified; all39 raw files reviewed. Same-host quiet
+interval74.259s; capture111.489s. Native errors, physical cleanup, actual QTR
+behavior, sample freshness and robot WCET remain unproved; debug overlap possible.
+Read analysis/P0_qtr_validation.md and reviews/P0_qtr_codex.md. SC-B remains open.
 
-Current reviewed source maps: GPIO1dfbd571, ADC18c4dfa8, matrix5c5a72ac,
-timing0d5baec0. Older physical results retain their original image identities.
-Prior ADCf5f637b2 first276us/subsequent139..140us measurement remains valid for
-that prior setup-only image; stock runtime ADC waits remain unbounded.
+Final306 tooling checks PASS112.485s. Independent50 QTR cases and source/exact
+binary reviews pass; initial failures and repairs preserved. Established locked
+cases and all76 B16 defaults unchanged. Prior GPIO400 cycles/pair2..3us and ADC
+first276us/subsequent139..140us remain evidence for their own earlier images.
+Do not repeat completed microbenchmarks. Current reviewed manifests: QTR61d7a2d0,
+GPIOafa72adb,ADC65d7e5a3,matrixe30b5443,timing9ea79c80. Prior maps are historical.
 
-Next eligible P0 0.4 task: freeze the QTR-style bare-board diagnostic contract
-using analysis/P0_qtr_bare_contract_audit_20260923.md. Neutral inputs cannot
-promise a timeout. A separately labeled internal-pull-up stimulus can exercise
-actual GPIO polling through1500us; charge timing and INPUT/no-pull cleanup need
-explicit tests and exact binary review. No sensor or production freshness claim.
-This precedes P0.5 acceptance; do not repeat completed GPIO/ADC/counter work or
-request extra hardware. Physical electrical/cold-start/optical acceptance and all
-human gates remain pending. P1 software remains verified below; P2 is ineligible.
+Next active P0 task is D-066 MPU6050 compile-only API compatibility, contract452502d
+and analysis/P0_imu_compile_contract.md. Installed Wire/I2C source audit is in
+P0_imu_installed_contract_20260923.md. Probe setup stores addresses only, never
+calls I2C or uploads; no runtime adoption. Three new scoped host tests pass after
+correcting the direct-call exception type in a new fixture, preserving both
+receipts. Dependency installation/actual target compile and review are underway.
+No extra hardware request. P0 optical/cold-start/electrical/PINMAP/human acceptance
+and P1 EXPLAINED OK/GATE remain pending; no P2 authority or motor authorization.
 
 ## Prior fixed-counter checkpoint â€” 2026-09-23
 

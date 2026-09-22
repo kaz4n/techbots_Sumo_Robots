@@ -184,3 +184,14 @@ P0_QTR_PINS{2,4,7,8} and P0_QTR_QUANTIZATION_US1. These bound the setup-only
 bare-board experiment; B16 QTR_CHARGE_US10/TIMEOUT_US1500 are unchanged.
 Source/ownership evidence: P0_qtr_bare_contract_audit_20260923.md. No physical
 measurement, production pin assignment, tuning result or wiring approval yet.
+
+## 2026-09-23 — D-065 actual bare-board QTR-style measurement
+Firmware dcca300/source61d7a2d0, default/MOTORS_ALLOWED0 uploaded03:00:13.327+04.
+No B16 value changed. Neutral100 and diagnostic pull-up100 acquisitions all ended
+DEADLINE with mask15 and no observed LOW;100% stimulus qualification. Charge11..12us,
+cleanup attempts4 each. Neutral first1535us/subsequent1531..1536us/p991536us;
+pull-up first1534us/subsequent1530..1536us/p991536us. Micros overhead1..2us retained.
+Source/binary/host review and actual raw-image/record review PASS; no tuning adopted.
+Evidence P0_qtr_validation.md, P0_qtr_run1_raw/, P0_qtr_codex.md. These empirical
+setup-only data exceed the tick budget; SC-B remains unresolved. Not real sensor
+or calibrated electrical/physical-cleanup/WCET proof; debug overlap unexcluded.

@@ -1,7 +1,7 @@
 # P0 0.4 QTR-style bare-board validation — 2026-09-23
 
-Status: IMPLEMENTED / HOST-TESTED / TARGET-COMPILED / REVIEWED; physical execution
-pending. This is a P0 setup-only diagnostic, not P2 HAL.
+Status: IMPLEMENTED / HOST-TESTED / TARGET-COMPILED / UPLOADED / MEASURED;
+post-run receipt review PASS/no open findings. This is a P0 setup-only diagnostic, not P2 HAL.
 
 ## Contract, source and independent expectations
 
@@ -86,3 +86,38 @@ separator mismatch, corrected in its ephemeral fixture with as_posix; production
 code/tests unchanged. Source/manifest/capture identities rechecked unchanged.
 Staged source/docs/JSON whitespace check passed; preserved initial unittest output
 contains trailing spaces from failed subtests and was not rewritten to hide them.
+
+## Actual inert upload and bare-board measurement
+
+Revision dcca300/source61d7a2d0 uploaded to USB2629958581 with default startup,
+MATCH0/MOTORS_ALLOWED0, ending2026-09-23T03:00:13.3270621+04:00 exit0.
+Receipt P0_qtr_upload_20260923.txt. This replaces the former GPIO image.
+The same-host capture command started74.258867s later; board and host clocks
+are not subtracted to claim that interval. Capture exit0, raw pull exit0.
+
+P0_qtr_capture_20260923.json and P0_qtr_capture_invocation_20260923.json preserve
+commands, timings and tool hashes. P0_qtr_run1_raw/ contains39 files:10 raw reads,
+28 command streams and full capture JSON. All14 commands exited0; total capture
+111.488759s. Loader and complete76924-byte wrapped sketch match pinned identities.
+Two14424-byte records are identical, SHA256
+`be2205eeecef1c73f7a74058be69eb805b048e41e8aa77be3a99488512cbcca0`.
+Header=(1,3,1,200,421401,729511), total308110us. Repeated extension identity:
+node536951012, BSS536975280,size21980, record536975284.
+
+| Dataset | First total | Subsequent99 total min/max/p99 | Observation min/max | Poll count |
+|---|---:|---|---|---|
+| Neutral INPUT |1535us|1531/1536/1536us|1500..1504us|367..370|
+| Diagnostic INPUT_PULLUP |1534us|1530/1536/1536us|1500..1503us|367..370|
+
+Both datasets have100 DEADLINE outcomes, low_mask0, timeout_mask15 and no observed
+LOW timestamp. All200 charge intervals11..12us and cleanup_calls4; overhead1..2us
+is retained without subtraction. Neutral happened to remain HIGH in this run;
+that is not a guaranteed disconnected-input behavior. Pull-up qualification passed
+for every stimulated sample. Every observation pass used four actual GPIO reads.
+
+The1.53ms synchronous path exceeds the1ms schedule and under800us tick budget;
+SC-B remains open. This setup-only measurement proves no real QTR discharge,
+sensor freshness, calibrated voltage, physical no-pull cleanup or whole-loop WCET.
+Wrapper-native errors remain masked. End-of-pass timestamps and sub-us clock
+quantization limit interpretation. Quiet time does not independently establish
+completion before debug attachment; debug overlap remains unexcluded.

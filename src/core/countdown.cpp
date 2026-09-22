@@ -207,4 +207,35 @@ void Services::cancel() {
 }
 
 void Services::reset() { *this = Services{}; }
+
+LifecycleResult Lifecycle::step(const ServiceSample& sample, core::ButtonLevel button,
+                                float previous_bias_dps, bool stop_requested) {
+    core::Inputs inputs;
+    inputs.t_us = sample.t_us;
+    inputs.button_level = button;
+    LifecycleResult result;
+    result.gate = controller_.step(inputs, stop_requested);
+    if (result.gate.start_release) {
+        service_start_failed_ = !services_.start(result.gate.release_us, previous_bias_dps);
+        pending_ = true;
+    }
+    if (pending_ && (result.gate.phase == Phase::IDLE || result.gate.phase == Phase::STOPPED)) {
+        // Cancellation wins before this tick can finish calibration or alter its snapshot.
+        services_.cancel();
+        pending_ = false;
+        service_start_failed_ = false;
+    }
+    result.services = services_.step(sample);
+    if (result.gate.go) pending_ = false;
+    result.service_start_failed = service_start_failed_;
+    result.heading_reset_requested = result.gate.go;
+    return result;
+}
+
+void Lifecycle::reset() {
+    controller_.reset();
+    services_.reset();
+    pending_ = false;
+    service_start_failed_ = false;
+}
 } // namespace countdown

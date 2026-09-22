@@ -458,12 +458,163 @@ public:
     // the adopted source bound, with explicit independent loss counters. Frames
     // start at accepted START, at most one per tick, finalized only using its
     // matched actual receipt. Skips/invalid metadata/codec status stay explicit.
+    // D-061: valid unknown-bearing DEFEND entry waits at zero up to the existing
+    // timeout; a later valid capture cannot extend that pending interval.
     RobotResult step(const RobotInput& input);
     // Clears runtime state/faults/pending evidence while preserving next token,
     // so stale pre-reset feedback cannot attach to a new result. Recorder storage
     // remains caller-owned; reset alone does not erase the last match's evidence.
     void reset();
 private:
-    // Implementation-owned fixed members follow; public contract is frozen first.
+    struct Pending {
+        core::Outputs requested;
+        logframe::FrameInput frame;
+        std::uint64_t token = 0;
+        std::uint32_t t_us = 0;
+        bool valid = false;
+        bool after_go = false;
+        bool match_tick = false;
+        bool frame_due = false;
+    };
+    struct Tick {
+        core::State entry = core::State::BOOT;
+        core::State selected = core::State::BOOT;
+        opp_fusion::FusionObservation observation;
+        opp_fusion::ContactCommit contact;
+        edge::EscapeResult escape;
+        governor::Request request;
+        stall::LimitResult limit;
+        stall::Detection stall;
+        std::uint32_t t_us = 0;
+        std::uint32_t delta_us = 0;
+        std::uint16_t fault_events = 0;
+        std::uint16_t fault_values[11] = {};
+        std::uint8_t new_white = 0;
+        std::uint8_t reflank_entries = 0;
+        motion::Direction reflank_direction = motion::Direction::RIGHT;
+        bool sampled = false;
+        bool permission = false;
+        bool applied_enabled = false;
+        float applied_l = 0.0F;
+        float applied_r = 0.0F;
+        bool stall_selected = false;
+        bool forced_brake = false;
+        bool frame_immediate = false;
+    };
+    void admit(const RobotInput& input);
+    void receive(const RobotInput& input);
+    void receiveTiming(const RobotInput& input, bool identity_time_valid);
+    void receiveFrame(const PreviousTick& receipt, bool applied_valid);
+    void markFault(logframe::FaultCode code, std::uint16_t value = 0);
+    void emit(std::uint32_t t_us, core::Event type, std::uint8_t detail,
+              std::uint16_t value = 0);
+    void prepareInputs(const RobotInput& input);
+    void sampleSensors(const RobotInput& input);
+    void advanceHistories();
+    void rememberObservation();
+    void updateWarnings(const RobotInput& input);
+    void updateQtrWarnings();
+    void runLifecycle(const RobotInput& input);
+    void beginAttempt();
+    void runEscape(const RobotInput& input);
+    void rememberEscape(const RobotInput& input);
+    void cancelMotion();
+    void routeMotion(const RobotInput& input);
+    void startOpener();
+    void runOpener(const RobotInput& input);
+    void acceptFlank(const openers::FlankResult& result, bool brake);
+    void runReflank();
+    void routeNormal(bool reset, bool defer = false);
+    void runNormalExecutor();
+    void runDefend();
+    void finishDefend();
+    void runSearch();
+    SearchContext searchContext() const;
+    SwingContext swingContext() const;
+    openers::Sample openerSample() const;
+    void acceptMotion(const motion::Result& result, governor::Profile profile,
+                      bool brake = false);
+    void checkStall();
+    void prepareFinalRequest();
+    void commitAndGovern(const RobotInput& input);
+    void publishEvents();
+    void publishEdge();
+    void publishPhantom();
+    void prepareFrame(const RobotInput& input);
+    void savePending(const RobotInput& input);
+    void finish(const RobotInput& input);
+    RobotResult exhaust(const RobotInput& input);
+    countdown::Lifecycle lifecycle_;
+    countdown::Menu menu_;
+    HeadingReference heading_;
+    edge::Classifier classifier_;
+    edge::Escape escape_;
+    opp_fusion::Fusion fusion_;
+    NormalPerception normal_;
+    SearchSide side_;
+    Search search_;
+    DefendTurn defend_;
+    Reflank reflank_;
+    openers::Direct direct_;
+    openers::Flank flank_;
+    openers::Wait wait_;
+    stall::Detector detector_;
+    stall::ReflankLimiter limiter_;
+    governor::Governor governor_;
+    RobotResult result_;
+    Pending pending_;
+    Tick tick_;
+    logframe::TickStatistics statistics_;
+    core::State state_ = core::State::BOOT;
+    core::Mode running_mode_ = static_cast<core::Mode>(config::MODE_DEFAULT);
+    std::uint64_t next_token_ = 1;
+    std::uint64_t record_elapsed_us_ = 0;
+    std::uint64_t frame_age_us_ = 0;
+    std::uint64_t front_age_us_[2] = {};
+    std::uint32_t world_age_us_ = 0;
+    std::uint32_t inward_age_us_ = 0;
+    std::uint32_t edge_age_us_ = 0;
+    std::uint32_t qtr_age_us_[4] = {};
+    std::uint32_t last_us_ = 0;
+    std::uint32_t skipped_frames_ = 0;
+    std::uint32_t defend_pending_age_us_ = 0;
+    std::uint32_t defend_pending_last_us_ = 0;
+    std::uint16_t faults_ = 0;
+    std::uint16_t reported_faults_ = 0;
+    std::uint8_t previous_line_ = 0;
+    std::uint8_t previous_front_ = 0;
+    std::uint8_t qtr_active_ = 0;
+    std::uint8_t qtr_warning_ = 0;
+    std::uint8_t escape_sides_ = 0;
+    float inward_raw_deg_ = 0.0F;
+    edge::EscapeFault reported_escape_fault_ = edge::EscapeFault::NONE;
+    motion::Direction edge_side_ = motion::Direction::RIGHT;
+    motion::Direction previous_swing_ = motion::Direction::RIGHT;
+    motion::Direction scan_hint_ = motion::Direction::RIGHT;
+    bool observed_ = false;
+    bool initialized_ = false;
+    bool opener_active_ = false;
+    bool reflank_active_ = false;
+    bool search_active_ = false;
+    bool defend_active_ = false;
+    bool defend_pending_ = false;
+    bool normal_active_ = false;
+    bool world_seen_ = false;
+    bool front_seen_[2] = {};
+    bool inward_valid_ = false;
+    bool edge_side_valid_ = false;
+    bool previous_swing_valid_ = false;
+    bool scan_hint_valid_ = false;
+    bool imu_reported_ = false;
+    bool imu_available_ = false;
+    bool low_battery_ = false;
+    bool calibration_reported_ = false;
+    bool bias_reported_ = false;
+    bool recording_ = false;
+    bool timing_active_ = false;
+    bool attempt_go_ = false;
+    bool first_nonzero_ = false;
+    bool timing_incomplete_ = false;
+    bool recording_incomplete_ = false;
 };
 } // namespace fsm

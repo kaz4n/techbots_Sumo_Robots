@@ -57,6 +57,12 @@ The adapter public header exposes setup, counter submission, deadline service
 and a copied diagnostic snapshot. Initialize once only; failed setup or transmit
 is terminal for the sketch lifetime. Saturating submitted/completed/refused
 counters distinguish software admission, physical TC observation and refusal.
+Repeated begin returns false without reinitializing or changing the established
+state. Failed first begin sets faulted=true/ready=false. A failed submission
+increments refused; successful admission increments submitted; only observed
+final TC increments completed. Transmission faults clear ready and latch faulted.
+Setup rejects initialization/config/callback failure, a nonready device, or any
+configuration other than115200/8N1/no-flow-control. No configuration override.
 The final accepted byte receives one subsequent TC interrupt before completion;
 there are at most37 callbacks per successful36-byte packet. Disable on unexpected
 readiness/completion/zero progress. No receive callback or retry is installed.

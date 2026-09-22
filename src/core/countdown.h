@@ -138,4 +138,38 @@ private:
     double maximum_dps_ = 0.0;
     bool invalid_sample_ = false;
 };
+
+struct LifecycleResult {
+    Result gate;
+    ServiceResult services;
+    bool service_start_failed = false; // Diagnostic, never a new motion policy.
+    bool heading_reset_requested = false; // Exactly the Controller GO pulse.
+};
+class Lifecycle {
+public:
+    // D-018/D-019/D-024/D-035 production composition: update Controller first.
+    // On accepted release, start Services at gate.release_us with this call's
+    // previous bias only. ServiceSample is the single time/raw-observation source;
+    // use gyro before bias subtraction and genuinely new confirmed sensor data.
+    // IDLE/STOPPED cancels a pending attempt BEFORE its sample is processed.
+    // Cancellation clears attempt diagnostics, retaining Services' current bias.
+    // Step Services, then return; Controller alone controls GO/permission. A
+    // service start failure remains explicit until cancellation, restart or reset;
+    // do not reinterpret it as accepted calibration or infer a new motor veto.
+    // At GO the attempt stops being pending; keep completed service evidence on
+    // later STOP. This diagnostic lifetime never overrides latched STOP inhibition.
+    // New accepted release replaces prior service evidence. Previous bias values
+    // on all other ticks are ignored. heading_reset_requested is one GO pulse,
+    // not a board reset. Caller applies bias/heading change through HAL/app.
+    // Existing Gate timing is authoritative even for sparse wrapped call streams;
+    // finished services alone cannot authorize motion. No clock, I/O or allocation.
+    LifecycleResult step(const ServiceSample& sample, core::ButtonLevel button,
+                         float previous_bias_dps, bool stop_requested = false);
+    void reset();
+private:
+    Controller controller_;
+    Services services_;
+    bool pending_ = false;
+    bool service_start_failed_ = false;
+};
 } // namespace countdown

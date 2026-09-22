@@ -637,3 +637,20 @@ logging incompleteness alone cannot. These are explicit software integration
 choices, not measured acquisition, motor or timing facts. Test the actual Robot,
 not another test-only arbiter. Do not modify existing locked cases. No additional
 hardware request, phase gate, wiring, motor-run or configuration-value change.
+
+## D-061 (2026-09-23, selected under D-051) Bounded ambiguous DEFEND entry
+Context: the first production Robot runtime suite passed875/876 cases; seven
+assertions in10000-stream R1/R5 scenarios expected no contract fault for legitimate
+D-026 unknown bearing. Both-side conflict without prior bearing instead reached
+DefendTurn's required-bearing start and safely inhibited with SCRIPT_START.
+This exposes an ambiguity-policy/test-expectation gap, not unsafe motor behavior.
+Decision: adopt P1_ambiguous_defend_contract.md before dependent code/new tests.
+Robot waits at governed zero for up to existing DEFEND_TIMEOUT_MS when entering
+DEFEND without a usable bearing. Later real capture cannot extend that interval;
+front/clear and edge/STOP preserve priority. Expiry uses existing SEARCH routing.
+Keep DefendTurn's strict public API and all other invalid-context faults intact.
+Consequence: conflicting detections can cost800ms but cannot invent a turn or
+permanently fault merely from valid unknown information. Preserve the original
+failure/trace and unchanged locked property; add independent exact/wrap/preemption
+regressions. No B16 values, wiring, physical acceptance, gate or motor authority
+changes. This is an explicit delegated behavior choice, not a hidden test repair.

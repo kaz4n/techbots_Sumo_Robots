@@ -339,6 +339,14 @@ If only front QTR bits are white, the opponent is centered, and FC is on, stay i
 
 ## B10. Defend turn
 
+D-061 (selected under D-051,2026-09-23) handles legitimate D-026 ambiguity at
+Robot entry: without a valid bearing, remain at governed zero in DEFEND_TURN for
+at most DEFEND_TIMEOUT_MS. Later valid capture does not extend that deadline;
+current front/clear, edge and STOP still preempt. At expiry use the existing
+SEARCH exit. See state/analysis/P1_ambiguous_defend_contract.md. This replaces
+safe script-start inhibition for this one missing-bearing case, not validation
+of malformed input or any motor safety rule.
+
 - Trigger: side or rear detection with no front detection.
 - Action: turnTo(heading + bearing) at TURN_DUTY. Any front detection aborts the turn into TRACK or ATTACK.
 - Timeout DEFEND_TIMEOUT_MS: SEARCH.

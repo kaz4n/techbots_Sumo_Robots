@@ -1,277 +1,188 @@
-# Core implementation checkpoint
+# Production core architecture
 
-P1 host development is permitted by D-016. P0 hardware acceptance and all human
-phase gates remain pending. This describes the implemented standalone modules;
-the complete robot scheduler, FSM and actuator path do not yet exist.
+P1 host development is authorized by D-016 while P0 hardware acceptance remains
+pending. D-060/D-061 supply the actual `fsm::Robot` transaction. The895-case
+normal and sanitizer suites pass, and the inert app compiles on the UNO Q;
+validation receipts are in `state/analysis/P1_robot_validation.md`.
+No human phase gate, physical MotorGate check or complete-loop timing is implied.
 
-| Module | Implemented responsibility | Integration still needed |
+## Module ownership
+
+| Module | Responsibility | Boundary still outside the core |
 |---|---|---|
-| `core/types.h` | B0 logical input fields, state/mode/event names, inert output defaults | Recorder outputs, validated HAL input mapping |
-| `countdown::Buttons/StopHold` | Logical qualification; rejects boot-held START; D-035 qualified BOTH long hold and reset-only STOP latch | Physical A1 decoding |
-| `countdown::Gate` | Full 5.1 s inhibit after a supplied qualified release event, cancel, latched STOP, one GO pulse | Heading reset/calibration/warning/snapshot services, FSM, real MotorGate |
-| `countdown::Controller` | D-019 full hold after qualification; D-035 StopHold/external STOP before Gate; D-057 START-only routing and qualified-event snapshot | Logical menu and complete Robot FSM |
-| `countdown::Services` | D-024 bounded bias accumulation, rejection/previous-bias retention, latched line warning and latest opponent snapshot | Feed raw gyro/new observations, start/cancel from Controller, apply bias in HAL, complete FSM |
-| `countdown::Lifecycle` | Production Controller-first Services start/cancel/GO composition, explicit failed-start diagnostics and completed evidence retention | HAL bias/heading application, menu/Robot wiring and real MotorGate |
-| `countdown::Menu` | D-058 logical MODE qualification, mode/service cycling and typed service intent, with entry-state/fault precedence and duplicate suppression | Robot running-mode capture, real service consumers and HAL display |
-| `edge::Classifier` | Per-corner threshold and consecutive-white confirmation, persistent white mask | Validated fresh QTR acquisition, escape policy, R5 arbitration |
-| `edge::Guard` | D-020 persistent escape request, black-plus-finished exit, latched all-white motion veto until reset | Escape directions/scripts/replanning and application of veto at MotorGate |
-| `edge::forwardDemand` | D-021 straight/left/right-biased forward requests using 0.80 base and 70% inner-side request | Timed/heading-held segments and selection by the escape planner |
-| `edge::RowExecutor` | B4.2 scripts plus explicit-side head-on and pushed-out entry, bounded transitions, relative heading capture/fallback and governor profiles | Production Robot arbitration and fresh HAL observations |
-| `edge::Escape` | D-047..D-050/D-054 full selection, persistent-white replanning, reset-only recovery faults and fresh inward evidence at actual exit | Robot priority, previous applied-duty feedback, validated QTR freshness and MotorGate inhibition |
-| `opp_fusion::Debouncer` | Per-bit polarity, two-sample assertion, continuous-clear hysteresis | Validated sensor acquisition |
-| `opp_fusion::frontView` | Seven front bearing/centering/close rows from B5.2 | Downstream motion/FSM policy |
-| `opp_fusion::BearingMemory` | Front/side/rear priority, approved bilateral conflicts, world angle and rising-front recency | Search/re-flank use and memory-age ownership |
-| `opp_fusion::Contact` | Separate cue observation, read-only candidate preview and D-027 centered-ATTACK latch commitment; legacy step composes observation/commit | FSM contact phase/target-loss braking and physical cue validation |
-| `opp_fusion::PhantomFilter` | D-029/D-030 bounded chase history, contact retention, one replaceable world marker and circular front masking | Robot supplies pre-edge state; icon/event routing and physical validation |
-| `opp_fusion::StuckFilter` | D-031 continuous valid detection plus observed yaw span; independent reset-only latched bits | Icon/event routing and physical sweep validation |
-| `opp_fusion::Fusion` | Ordered fresh-observation pipeline, effective bearing/memory, D-056 read-only contact preview and one final-state contact commit | Actual Robot/stall state selection, HAL sampling and governor/event dispatch |
-| `governor::Governor` | D-017 electrical caps after compensation, slew, immediate braking/reversal/cap reductions, one-second battery lag | FSM profile selection and target-loss brake trigger; real MotorGate |
-| `motion::Turn/Straight/Arc/Brake` | B7 demands, D-022 bounded heading correction, D-023 fixed timing with duty-only compensation, bounded IMU fallback | Escape/openers/re-flank scripts, explicit governor profile and MotorGate integration |
-| `stall::Detector` | D-032 final-duty qualification, timer/deflection routes and persistent per-contact edge history | Governed-duty/contact wiring, event deduplication, physical P4 stall evidence |
-| `stall::ReflankLimiter` | B11.3 rolling two-start limit and D-025 bounded suppression timer | Actual re-flank starts and stall-result suppression in Robot, all safety arbitration |
-| `openers::Direct` | B12 O2 heading-held 400ms request, snapshot/current target exits and latched zero completion | Global target/edge arbitration and OPENER governor, other openers |
-| `openers::Flank` | Shared mirrored SIDESTEP/ARC scripts, D-033 phase-specific aborts, relative turns, explicit governor profiles and D-034 exit intents | Complete Robot arbitration |
-| `openers::Wait` | D-055 stationary hold and ordered approach cue, then complete SIDESTEP_R with existing exits and bounded deadlines | Complete Robot arbitration and physical evasive geometry |
-| `fsm::DefendTurn` | B10 captured target, front/clear exits and separate B7 700ms/B10 800ms deadlines | Global arbitration, PIVOT governor and MotorGate |
-| `fsm::frontDemand` | D-036 TRACK/ATTACK front-row requests, explicit profiles and invalid zero results | Centered qualification/state selection, current D-027 contact, immediate target-loss brake dispatch |
-| `fsm::FrontQualification` | B9 count of consecutive new centered observations, saturating eligibility and explicit reset | Normal-entry observation selection, preemption/reset wiring and complete state/contact/governor arbitration |
-| `fsm::NormalPerception` | D-045 current entry observation and D-046 immediate front-loss brake followed by current-perception routing | Script/edge/stall preemption, actual state lifecycle and one final governor dispatch |
-| `fsm::HeadingReference` | D-059 logical GO origin, continuous raw versus match yaw, nominal missing-IMU fallback/recovery, checked projections and reset-only coordinate fault | Production Robot must keep Fusion raw, establish origin before motion, preserve evidence age and inhibit on fault |
-| `fsm::SearchSide/Search` | D-041 selected-bearing side retention; B8 memory turn, directed full scan, advance and alternating scans with D-042 latched fallback | Truthful history ages, actual escape/hint sources, current perception, global edge/STOP arbitration and governor/MotorGate |
-| `fsm::chooseSwing/Reflank` | D-037/D-043 side priority and B11 BACK/SWING/TURN_IN executor with captured turns, D-040 exits and exact entry notifications | Actual history/limiter admission, D-038/D-045 reacquisition, D-027 contact and global safety arbitration |
-| `motion::TimedArc` | D-037 mirrored duration-only forward arc, no invented heading cutoff | Re-flank sequencing, REFLANK_TURN governor and global safety arbitration |
-| `logframe` | B15 portable 25-byte frames and 8-byte exact-tick events, explicit invalid/clipped status; D-028 first4096 EventBuffer | HAL-owned buffer instance, frame cadence/storage, event collection, incomplete-evidence marking and idle-only dump |
-| `logframe::TickStatistics` | B14 counts of supplied durations, strict overrun/rate thresholds, full maximum and explicit saturation | Actual scheduler measurements, match membership, event/recorder dispatch and target WCET evidence |
+| `types.h`, `config.h` | Fixed value types and centralized B16 defaults | Verified pins and physical tuning |
+| `countdown` | Button qualification, full 5.1 s hold, reset-only STOP, countdown calibration/warnings/snapshot, logical mode/service menu | Physical A1 decoding, display, applying accepted bias and service consumers |
+| `edge` | Raw RC classification, persistent-white arbitration, escape rows/replans, inhibited reset-only recovery faults | Fresh acquisition satisfying SC-B, motor braking and ring geometry |
+| `opp_fusion` | Polarity/debounce, stuck and phantom filtering, bearing memory, contact observation/preview and one final-state commitment | Sensor range/polarity, IMU continuity and physical contact evidence |
+| `governor` | Voltage compensation followed by final electrical caps and slew; immediate safety braking/cap reductions | Actual MotorGate application, quantization toward zero and verified PWM APIs |
+| `motion` | Bounded turns, straight segments, arcs and brakes; timed fallback on missing IMU | Measured angle/timing performance |
+| `openers` | DIRECT, mirrored SIDESTEP/ARC and WAIT scripts returning demand or current-perception exit intents | Physical opener clearance and match validation |
+| `stall` | Actual-duty/contact qualification, timer/deflection detection, bounded re-flank admission and ALL_IN suppression | Physical stall measurements |
+| `fsm` helpers | Heading origin, SEARCH/DEFEND/re-flank executors, side history and centered front qualification | Valid input and actual-application providers |
+| `fsm::Robot` (`fsm_robot.cpp`) | Owns components; admits one observation, applies gate/edge/script/current-target priority, commits contact once and governs once; owns bounded histories, warnings and evidence scheduling | Real scheduler, HAL and recorder storage/transport |
+| `logframe` | Explicit portable frame/event encoding, metadata validation, bounded 21-event batch, first4096 event retention, supplied-duration statistics | RAM frame ring, idle-only dump, physical timing source and incomplete-dump presentation |
 
-All inputs are ordinary C++ values. Time arrives from callers as `uint32_t`
-microseconds; elapsed intervals use unsigned subtraction. Motion/services
-accumulate successive deltas in `uint64_t` to avoid losing a long-duration
-deadline at the start-relative wrap. Consecutive calls must remain less than one
-whole microsecond-counter wrap apart. Storage is fixed per object. Modules do
-no I/O and read no clock. Sensor loops have fixed bounds; encoding is fixed-size.
-Host execution does not prove the target's worst-case timing, including math calls.
+Core code is pure C++17: no Arduino headers, clock reads, I/O, allocation or
+Linux dependency. Fixed sensor/metadata loops and bounded script transitions
+keep work finite. Time arrives from the caller as `uint32_t t_us`; consecutive
+observations must be less than one complete micros wrap apart. Histories use
+bounded ages or accumulated deltas, so an old timestamp cannot revive evidence.
+Host runtime and sanitizer checks do not prove the under800us target tick bound.
 
-The current component data paths are:
+## One production observation
+
+1. Admit a distinct timestamp and unique token. An immediate duplicate returns
+   cached persistent values with `fresh=false` and all action/event/frame pulses
+   cleared. Reset clears runtime but preserves token uniqueness.
+2. Validate the previous token's actual output-stage receipt. Duty must be finite,
+   obey prior permission, and have the requested sign and no greater magnitude.
+   Missing/invalid application latches STOPPED. Validate duration independently;
+   missing/malformed duration marks incomplete timing, without changing motion.
+   Finalize any prior frame from actual application and publish prior receipt
+   events before current decisions.
+3. Age histories; validate required fresh QTR/opponent/battery context. On a valid
+   observation, classify raw QTR once and run Fusion once in continuous raw yaw.
+   Stale data cancels services before sampling and is never counted as fresh.
+4. Run real button/STOP/countdown services before the motor gate. Accepted START
+   captures the selected running mode and recording epoch. GO establishes D-059's
+   logical match origin before moving references. Raw Fusion histories stay raw.
+5. With permission, run Escape first, then an ongoing re-flank/opener, then normal
+   current perception. Script exit can make only one normal selection and new
+   executor entry that tick. Loss/escape-exit ticks brake; deferred motion starts
+   no earlier than the next observation.
+6. Preview contact for stall selection with preceding actual duties. Admit at most
+   one re-flank, update swing history only on actual SWING entry, and validate the
+   selected demand. Commit contact once against the final state. Governor runs
+   once; full duty still requires centered ATTACK contact, including during ALL_IN.
+7. Publish deduplicated faults/state/edge/contact/script events and a bounded frame
+   candidate. Return requested duties and permission; these are not proof that
+   MotorGate applied them. The next matching receipt supplies that evidence.
 
 ```mermaid
-flowchart LR
-    L[Logical button samples] --> B[Buttons]
-    B --> E[Qualified events and both timestamps]
-    E -->|D-019 qualification tick| G[Gate]
-    G --> P[Logical motion permission and event pulses]
-    Q[New completed RC observation] --> W[Edge classifier]
-    W --> M[Persistent white mask]
-    M --> EG[Edge guard]
-    P --> EG
-    EG --> EV[Escape request or latched motion veto]
-    R[Raw electrical opponent mask] --> D[Debouncer]
-    D --> SF[Stuck removal]
-    SF --> CQ[Contact cue observation]
-    CQ --> PH[Phantom filter]
-    PH --> BM[Effective bearing and memory]
-    BM --> AR[Caller-selected current state]
-    AR --> CC[Contact latch commitment]
-    CQ --> CC
-    A[Requested duties and explicit cap profile] --> S[Governor]
-    S --> O[Bounded electrical duty requests]
+flowchart TD
+    I[Timestamped fresh sensor and local button values] --> R[fsm Robot admission]
+    P[Previous actual application and duration receipt] --> R
+    R --> V[Validate receipt and finish prior evidence]
+    V --> F[QTR classifier and Fusion raw yaw observation]
+    F --> L[STOP and countdown services then permission]
+    L --> H[GO match origin and retained history projections]
+    H --> E[Escape priority]
+    E --> A[Script or current perception arbitration]
+    A --> S[Contact preview and actual-duty stall selection]
+    S --> C[One final-state contact commitment]
+    C --> G[One Governor pass]
+    G --> O[Requested duties and logical permission]
+    G --> D[Events and pending frame candidate]
+    O -. future P2 .-> M[Only MotorGate writes EN and PWM]
+    M -. actual application receipt .-> P
+    D -. future HAL storage .-> B[RAM recorder and idle-only dump]
 ```
 
-`countdown::Controller` now connects qualification to Gate under D-019. It never
-backdates a late qualifying call to the raw release edge. `motion_permitted` is a
-logical result, not a hardware write. The application must apply the edge guard's
-motion veto to governed outputs and MotorGate: logical permission alone must not
-bypass all-white inhibition. Composed host tests check this path without claiming
-that the full app or real MotorGate exists. Only the future HAL MotorGate may
-write EN/PWM; BOOT, IDLE, COUNTDOWN and STOPPED must inhibit motion.
+The required receipt is an application contract, not measured wheel motion.
+Timing receipts use the whole tick start/completion difference, not successive
+loop intervals. Timing membership starts at GO and includes the final stopping
+tick. The actual scheduler must measure acquisition, decision, application and
+recording, including faults/timeouts; fabricated or desktop durations do not
+qualify the robot.
 
-The edge guard handles the default zero push-through window. A positive configured
-window fails compilation until its bounded exception is implemented and tested.
-An all-white fault persists across black readings, script completion and revoked
-permission; only explicit guard reset clears it. Before GO, line readings do not
-start escape or latch a new fault. Normal escape requires both all-black readings
-and a finished script to clear. Scripts/replanning and freshness remain separate.
+## State transitions and precedence
 
-RowExecutor executes the specified B4.2 rows. Front/diagonal rows
-brake one tick, reverse120ms and turn120 degrees away; single rear rows advance
-with70% inner-wheel bias; both rear advance straight; same-side rows pivot45
-degrees then advance200ms. Segment entry captures the current/last healthy heading
-and starts its own deadline at the observation time. B7 fallback and governor
-profiles apply. Unsupported rows return an explicit zero/unsupported result;
-that is API coverage, not an approved escape recovery policy. DONE cannot clear
-the guard while white persists. Explicit head-on and pushed-out entries capture
-their selected directions without retargeting. Escape composes these rows with
-the approved shared-side history, strict positive prior applied duties and
-fault-first pattern priority. It admits at most one replacement per observation,
-allows three replacements, and inhibits on a fourth request. Permission loss
-during escape also latches inhibition until reset. Only actual black-plus-DONE
-exit with current healthy finite yaw publishes inward evidence. The caller must
-supply fresh confirmed observations and apply every inhibition at MotorGate.
-
-This diagram is the implemented standalone Gate, **not the unfinished Robot FSM**:
+This graph describes D-060 integration and the explicit D-034/D-038/D-045/D-046
+amendments. The older B1 diagram's direct script-to-ATTACK arrows do not bypass
+current centering: exits pass through TRACK and require three observations.
 
 ```mermaid
 stateDiagram-v2
-    [*] --> IDLE
-    IDLE --> HOLDING: supplied qualified START release
-    HOLDING --> IDLE: MODE cancel
-    HOLDING --> READY: elapsed >= 5100000 us
-    IDLE --> STOPPED: STOP request
-    HOLDING --> STOPPED: STOP request
-    READY --> STOPPED: STOP request
-    STOPPED --> IDLE: reset object
-    READY --> IDLE: reset object
+    [*] --> BOOT
+    BOOT --> IDLE: initialized and no inhibit
+    IDLE --> COUNTDOWN: qualified eligible START release
+    COUNTDOWN --> IDLE: MODE cancellation
+    COUNTDOWN --> Running: full hold elapsed, GO
+    state Running {
+        [*] --> OPENER
+        OPENER --> TRACK: current front on eligible exit
+        OPENER --> DEFEND_TURN: side/rear on eligible exit
+        OPENER --> SEARCH: exit without current target
+        SEARCH --> TRACK: current front
+        SEARCH --> DEFEND_TURN: current side/rear
+        DEFEND_TURN --> TRACK: current front
+        DEFEND_TURN --> SEARCH: target clear or 800ms deadline
+        TRACK --> ATTACK: three centered observations
+        ATTACK --> TRACK: off-center current front
+        TRACK --> DEFEND_TURN: front lost, side/rear remains, brake
+        ATTACK --> DEFEND_TURN: front lost, side/rear remains, brake
+        TRACK --> SEARCH: no target, brake
+        ATTACK --> SEARCH: no target, brake
+        ATTACK --> REFLANK: qualified stall, limiter admits
+        REFLANK --> TRACK: eligible exit and current front
+        REFLANK --> DEFEND_TURN: exit and current side/rear
+        REFLANK --> SEARCH: exit without target
+        EDGE_ESCAPE --> TRACK: black and finished, front, brake
+        EDGE_ESCAPE --> DEFEND_TURN: black and finished, side/rear, brake
+        EDGE_ESCAPE --> SEARCH: black and finished, none, brake
+    }
+    Running --> EDGE_ESCAPE: persistent white preempts any moving state
+    EDGE_ESCAPE --> EDGE_ESCAPE: replan or latched inhibited escape fault
+    BOOT --> STOPPED: STOP or contract fault
+    IDLE --> STOPPED: STOP or contract fault
+    COUNTDOWN --> STOPPED: STOP or contract fault
+    Running --> STOPPED: STOP or contract fault
+    STOPPED --> BOOT: explicit reset only
 ```
 
-Reset is a software lifecycle operation. D-035 approves reset-only logical STOP
-recovery; this does not grant permission to reset hardware. GO is emitted once
-on entry to READY; permission stays latched until
-STOP or reset. No commanded motor duties are produced by these services.
+The composite boundary represents global precedence, not a second implementation
+of the state machine. White already present at GO selects Escape before opener
+motion. All-white, three-white and exhausted replacement policies inhibit and
+retain EDGE_ESCAPE until reset, unless explicit STOP/contract failure selects
+STOPPED. Reset from any state returns to the normal BOOT/START sequence. ALL_IN
+is bounded stall suppression within ATTACK, never an edge/contact override.
+DEFEND_TURN's B7 turn completion alone holds terminal zero demand; current front,
+target clear or its separate800ms deadline supplies the actual exit condition.
+D-061 also handles first side/rear conflict without any usable prior bearing:
+Robot waits at zero, with800ms anchored at that first ambiguous observation.
+Later valid capture starts the real turn without extending that deadline. This
+valid unknown information does not itself become a reset-only contract fault.
+DRIVE_TEST remains unavailable in P1. Push-through, optional evasion and IMU stall
+refinement remain disabled; enabling unsupported options is not silently accepted.
 
-The intended complete path remains the original architecture: MCU scheduler reads
-HAL -> builds Inputs -> steps Robot -> governor -> MotorGate. Linux builds,
-flashes and receives idle log dumps. As PLAN section 7 explains, control belongs
-on the MCU so Linux boot and scheduling cannot delay edge response; target timing,
-boot behavior and log independence still need their own evidence. D-018 approves
-gated-state services before motor inhibition; the complete scheduler/FSM is still
-pending. D-017 approves final electrical caps; the governor implements those for
-the specified profiles. D-020 resolves persistent/all-white inhibition. QTR
-acquisition, global escape priority and ALL_IN arbitration remain pending.
-Recorder overflow policy is approved as D-028; actual recording/dump integration
-remains pending. Protected decisions are in `state/analysis/spec_conflicts.md`.
+## Evidence and device separation
 
-The governor's battery filter is a first-order lag with the existing B6 one-second
-time constant, using backward Euler: `alpha = dt / (tau + dt)`. Its first sample
-initializes voltage and has zero acceleration budget. Signed braking and reductions
-to smaller safety caps are immediate; reversal emits zero before opposite torque.
-Nonfinite inputs yield a zero result with `valid=false`, leaving the application
-fault decision to its future controller. Target-loss braking still requires the
-FSM to assert `brake`; dropping centered/contact flags alone selects the approach
-cap and is not an implementation of the separate B6 target-loss transition.
+Frames start at accepted START and use a50Hz phase-anchored schedule, at most one
+candidate per observation with explicit skipped slots. A frame waits for its
+matched actual application; CLAMPED/INVALID status is retained and marks evidence
+incomplete. No application means no completed frame. Cancellation or an inhibited
+stop produces one final candidate and ends collection. Before GO heading is raw;
+after GO it is match-relative. The gyro rate is explicitly raw/pre-bias. Missing
+IMU never turns a nominal heading into a healthy measurement.
 
-D-021 now supplies the forward escape base and cap: EDGE_BACK_DUTY (0.80 default).
-The pure demand builder produces `(0.80, 0.80)`, `(0.56, 0.80)` for left bias,
-or its right mirror. The caller must pass these through the EDGE_FORWARD governor
-profile and obey the edge guard's veto. The 70% value specifies requested duties;
-compensation, individual caps and acceleration slew can alter the final ratio.
-For example, at 9 V after settling, a left-biased request becomes approximately
-`(0.69067, 0.80)`. This is arithmetic, not a measured turn trajectory. The helper
-supplies no timing or hardware path; RowExecutor now sequences specified rows.
+The fixed21-entry event batch includes up to two prior receipt extensions and19
+current decision events. Invalid metadata and full-batch rejections have separate
+saturating counters. The separately owned4096-event buffer preserves the first
+entries, reports overflow/rejections and must not stop frame recording. No event
+or timing overflow can authorize motion. HAL storage must retain last-match data
+across Robot reset; storage/dump implementation remains a later phase task.
 
-Motion supplies generic primitives; script modules compose them without granting
-motor permission. A turn uses shortest signed heading
-error, a strict 5-degree completion tolerance and the original 700ms timeout.
-On IMU loss it times the last known remaining angle once, without extending that
-deadline on recovery. Straight correction preserves wheel direction, including
-reverse, and arcs use accumulated yaw. Every terminal command requests zero;
-only the eventual caller/governor/MotorGate path can grant and apply motion.
-Relative turns keep captured origin and measured-yaw math in double internally,
-preserving strict tolerance and exact antipodal direction without inventing
-observations. A healthy nonfinite yaw invalidates even latched fallback; the
-original turn deadline still wins at its exact tick.
+Per PLAN section7, the STM32U585 owns sensing/decisions/actuation without waiting
+for Linux. Linux builds/flashes and later stores/plots logs. No radio, Bridge or
+serial motion-command path exists. A later MATCH dump is permitted only in IDLE
+and must be bounded and startup-ready; it cannot enter the control dependency.
 
-Countdown Services uses the D-024 half-open [1500,4500)ms window and reports its
-result once. It accepts raw gyro values before bias subtraction. Missing samples
-are never manufactured; any invalid in-window observation rejects calibration,
-and duplicate timestamps add no observation. The application must start this
-object on the qualified release and cancel it on IDLE/STOPPED transitions. The
-independent host harness checks that composition; Controller alone still only
-owns Buttons, StopHold and Gate. Line warning does not block GO. Physical sample freshness,
-HAL bias application and the heading reset at GO still need integration.
-Lifecycle now owns that service start/cancel ordering in production code while
-Controller remains the only GO authority. It retains completed service evidence
-on a later STOP and reports failed starts explicitly. Services finishing alone
-never grants permission, including on sparse wrapped input streams.
-D-057 adds a START-only routing selector, default true. False consumes a new
-qualified release without passing it to Gate, while debounce, STOP, MODE and
-existing timers still advance. It cannot cancel an already accepted countdown or
-revoke READY. The latest qualified event snapshot is available without resampling;
-the future menu must check final IDLE/STOP/fault policy before a service request.
-A suppressed idle START cannot start calibration or reset heading. Existing
-attempts retain their original lifetime. No actual menu/service action runs here.
+`src/app/app.ino` currently supplies an inert compile/link entry for P1 task1.5:
+one default BOOT Robot call in setup, a volatile RAM check and an empty loop. A
+compile-time guard rejects motor-enabled builds. It is not the P2 scheduler or
+HAL. Tooling rejects app uploads. Actual inert app target compilation and host
+results must be reported separately from uploads and physical tests.
 
-Menu now supplies the logical B13 selection path. A fresh qualified NONE arms
-exclusive MODE; its qualified press anchors duration, while first NONE freezes
-the release duration. Under600ms cycles an item after release qualification;
-600–999ms does nothing; continuous1000ms toggles services once. Entry-state IDLE
-and final non-inhibition are required, so canceling a countdown cannot reuse
-that MODE gesture to change selection. Controller owns START/STOP sampling;
-Menu consumes its qualified START snapshot to emit a service intent with no
-Gate mutation. DRIVE_TEST remains unavailable in P1, and other intents require
-real consumers. Menu never grants permission, executes calibration/dumps or
-supplies a fabricated success for a missing consumer.
+## Sixty-second explanation
 
-Recorder encoding retains multi-revolution heading in signed 32-bit centidegrees
-and event time in uint32 microseconds. Encoding is separate from collection.
-EventBuffer now implements D-028 with fixed 32768-byte payload storage: it retains
-the first4096 insertion-ordered encoded events, rejects later entries with a
-latched overflow flag and saturating uint32 count, and resets logical contents in
-constant work. The later HAL recorder owns its instance and lifecycle. It must
-check encoding status before appending, continue frames after event overflow and
-mark an overflowed dump as incomplete evidence. No frame recorder or CSV/dump
-transport exists yet; a non-overflowed container alone does not prove completeness.
-
-The filter stages remain independently testable components. Stuck qualification
-uses confirmed bits before phantom suppression; invalid IMU restarts only pending
-candidates. It records observed continuous-yaw span, not modulo heading or total
-back-and-forth travel. Phantom detection uses the state before edge arbitration,
-remembering any current contact cue during that chase; a consumed edge cannot be
-replayed to extend a marker. Valid close/side/rear observations override masking.
-Fusion now wires this order: debounce, stuck removal, contact cue observation,
-phantom masking with the prior state, then effective bearing/memory. It never
-uses unavailable IMU yaw as fresh world-bearing evidence. The caller then selects
-the final state and commits contact once, so ATTACK entry/exit uses this tick's cue
-without counting the same close-sensor observation twice. Repeated timestamps
-return cached data marked nonfresh with event pulses cleared. Missing or repeated
-commit returns invalid zero contact and clears the latch; replacing an uncommitted
-observation also clears the old latch. These protocol checks do not validate
-physical acquisition freshness. The full Robot must supply accurate prior/current
-states and apply the result to the governor; the pipeline never grants motion.
-D-056's const preview can predict centered ATTACK contact for a stall decision
-without advancing the latch or consuming the observation. Only the final commit
-may publish CONTACT or authorize the governor; repeated previews are not events.
-Stall and pushed-out checks use the preceding actual applied final duties, with
-zero feedback if the hardware inhibits. The future Robot must call Governor once.
-
-Stall detection stores contact heading/edge history separately from the continuous
-qualification timer. Suppression changes its final stalled level only. The limiter
-counts starts even if an escape later interrupts them; denied requests never
-extend an active ALL_IN period. Neither component writes duties or changes Robot
-state. DIRECT returns target/SEARCH exit intents with zero terminal demand; the
-future FSM owns actual transitions, immediate target-loss braking and edge priority.
-Reflank captures BACK, its swing pivot, the opposite-direction timed arc and
-TURN_IN independently. Inner-side triggers preempt either swing segment. Both
-same-tick public phase entries remain visible for exact event recording. The
-caller must record actual swing history, admit starts through the limiter and
-reset qualification/contact before current-perception reacquisition.
-
-Tick statistics consume durations supplied by the caller; they read no clock.
-Overruns are strictly above TICK_US, and the current retained-count ratio is
-compared exactly against B14's1%. Counts stop at uint64 capacity and mark the
-statistics incomplete; the full uint32 maximum continues updating. Frame packing
-reports its own narrower-field clamping. Neither a zero overrun count nor a
-passing arithmetic test proves that the robot meets R4's under800us requirement.
-
-SEARCH captures its initial memory turn and first scan direction, then alternates
-full scans with short heading-held advances. Its full sweep uses continuous yaw,
-not a shortest-angle turn or the short-turn timeout. First IMU loss latches the
-remaining timed sweep once; recovery does not restart it. Inward history ages to
-zero without revival after timestamp wrap. Current targets return zero demand
-and a perception intent; the eventual Robot owns the state change and permission.
-
-WAIT brakes during HOLD. Continuous confirmed FC followed on a later observation
-by a newly asserted front flank within300ms starts complete SIDESTEP_R, including
-the initial pivot, under D-055. A continuously held FC cannot restart an expired
-window. Side/rear aborts outrank the cue; a valid cue outranks the WAIT deadline.
-Flank then supplies all motion, front/side exits and fallback. This explicit
-replacement of the original no-pivot text needs later physical evasion validation.
-
-Student explanation of what exists today: "We pass timestamped values into small
-C++ functions, so the laptop tests the same decisions without a robot. The start
-timer keeps the full hold, while calibration and warning services run separately.
-Sensor filters reject flicker; bearing memory prioritizes the front and preserves
-uncertainty when sensors disagree. Contact can authorize full duty only while a
-target remains centered in ATTACK. Motion functions request bounded turns and
-straight segments, then the governor limits their electrical duty. The recorder
-codec preserves exact event ticks. These pieces cannot drive motors by themselves:
-we still need complete arbitration and scripts, hardware integration, physical
-motor-gate checks and timing measurements."
+"The microcontroller gets one fresh sensor snapshot and runs the same C++ Robot
+that we test on the laptop. START must be released and debounced before the full
+five-second hold begins. During that hold, motors remain disabled while we
+calibrate and watch the sensors. After GO, the edge sensors have priority over
+all fighting strategies. Otherwise the selected opening leads into search,
+tracking and attack. Contact only permits full duty while the opponent remains
+centered. If a push stalls, a bounded re-flank can try its side. Every demand goes
+through the governor, and only MotorGate will write motor pins. We record actual
+application feedback and exact event times; missing evidence stays visible.
+Linux never controls movement. Laptop tests and an inert target build still need
+physical wiring, motor-gate, timing and ring checks before this can compete."

@@ -1,8 +1,10 @@
-// Implements the bounded B10 defensive turn and current-target exit requests.
-// Keeps its captured B7 command separate from the defensive-state deadline.
-// Independent host tests cover capture, target priority, timeout pulses and wrap.
+// Implements B9 front steering and bounded B10 defensive-turn requests.
+// Keeps request math and captured commands separate from motor authorization.
+// Independent host tests cover table rows, capture, caps, deadlines and wrap.
 #include "core/fsm.h"
+#include "core/opp_fusion.h"
 #include "config.h"
+#include <algorithm>
 #include <cmath>
 #include <limits>
 
@@ -23,6 +25,29 @@ float normalizedHeading(float heading_deg) {
     return result <= -180.0F ? 180.0F : result;
 }
 } // namespace
+
+FrontDemand frontDemand(core::State state, std::uint8_t effective_mask, bool contact) {
+    FrontDemand result;
+    const auto view = opp_fusion::frontView(effective_mask);
+    const bool attack = state == core::State::ATTACK;
+    if (!view.detected || (state != core::State::TRACK && !attack) ||
+        (attack && !view.centered)) return result;
+    float base = config::TRACK_DUTY;
+    float correction = config::K_TRACK_PER_DEG * view.bearing_deg;
+    if (attack) {
+        base = contact ? config::ATTACK_DUTY : config::ATTACK_APPROACH_DUTY;
+        const float limit = std::min(config::TURN_MIN_DUTY, base);
+        correction = std::clamp(correction, -limit, limit);
+        result.profile = governor::Profile::ATTACK;
+    } else if (std::fabs(view.bearing_deg) == 15.0F) {
+        // These two discrete B5 rows receive the specifically approved pivot.
+        correction += std::copysign(config::TURN_MIN_DUTY, view.bearing_deg);
+    }
+    result.duty_l = std::clamp(base + correction, -1.0F, 1.0F);
+    result.duty_r = std::clamp(base - correction, -1.0F, 1.0F);
+    result.valid = true;
+    return result;
+}
 
 bool DefendTurn::start(std::uint32_t t_us, float heading_deg, float bearing_deg,
                        bool bearing_valid, bool imu_ok) {

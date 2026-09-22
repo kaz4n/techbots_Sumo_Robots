@@ -103,3 +103,9 @@ Every bench or ring measurement and every config.h change goes here with its evi
   or measurement is inferred. Strict duration overrun remains duration>TICK_US.
 - Evidence: B14 text, exact config-source assertion; independent statistics
   boundary tests follow. R4 target WCET<800us still needs actual robot evidence.
+
+### 2026-09-22 | P1 B8/B11 existing sweep and recency | no physical tuning
+- Centralize SEARCH_SCAN_DEG=360 and RECENT_EDGE_MS=5000 from existing B8/B11
+  text. D-041/D-042 define side memory and loss fallback; no B16 value/pin changes.
+- Evidence: B8/B11, accepted decisions, exact config-source checks; independent
+  SEARCH boundary tests follow. Neither angle nor duration has physical evidence.

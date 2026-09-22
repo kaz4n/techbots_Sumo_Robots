@@ -99,6 +99,8 @@ inline constexpr std::uint32_t LOG_EVENT_CAPACITY = 4096U; // events, B15/D-028
 inline constexpr float EDGE_FWD_INNER_RATIO = 0.70F; // ratio, B4.2/D-021
 inline constexpr std::uint32_t EDGE_SIDE_TURN_DEG = 45U; // deg, B4.2 side row/B4.3
 inline constexpr std::uint32_t TICK_OVERRUN_PERCENT = 1U; // percent, B14 warning threshold
+inline constexpr std::uint32_t RECENT_EDGE_MS = 5000U; // ms, B8/B11 inward/side history
+inline constexpr std::uint32_t SEARCH_SCAN_DEG = 360U; // deg, B8 full directed sweep
 // B3 service boundaries and the human-approved D-024 minimum sample count.
 inline constexpr std::uint32_t CAL_START_MS = 1500U; // ms after qualified release
 inline constexpr std::uint32_t CAL_END_MS = 4500U; // ms, exclusive sample endpoint

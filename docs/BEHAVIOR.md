@@ -241,6 +241,15 @@ Pipeline (D-017, human-approved 2026-09-22): requested duty per side, then volta
 
 The pattern is deterministic and visibly purposeful (the tie-break criteria reward deliberate movement).
 
+D-041 (human-approved 2026-09-22): last seen side is the sign of the latest valid
+nonzero selected relative bearing. Zero retains the previous side; no known side
+defaults right. SIDESTEP's explicit hint still controls its first scan.
+D-042 (human-approved 2026-09-22): use directed yaw progress while IMU-valid.
+On loss, latch one timed fallback for the last known remaining sweep clamped to
+0..360 degrees, at TURN_MS_PER_DEG from that loss observation. Recovery cannot
+restart it. Missing IMU at scan entry times the entire360-degree sweep; do not
+inherit the short turn's700ms cutoff or count unavailable yaw as fresh evidence.
+
 ---
 
 ## B9. Track and attack

@@ -211,9 +211,20 @@ TEST_CASE("B3 Controller qualified MODE cancels at GO deadline and requires a ne
         checkBlocked(runner.after(DEBOUNCE_US - 1U, mode), Phase::HOLDING);
         checkBlocked(runner.after(1U, mode), Phase::IDLE);
         CHECK(runner.go_pulses == 0U);
-        checkBlocked(runner.after(HOLD_US, mode), Phase::IDLE);
-        runner.after(1000U);
-        runner.after(DEBOUNCE_US);
+        if (mode == ButtonLevel::BOTH) {
+            checkBlocked(runner.after(HOLD_US, mode), Phase::STOPPED);
+            checkBlocked(runner.after(1000U), Phase::STOPPED);
+            checkBlocked(runner.after(DEBOUNCE_US), Phase::STOPPED);
+            checkBlocked(runner.after(HOLD_US, ButtonLevel::START), Phase::STOPPED);
+            checkBlocked(runner.after(DEBOUNCE_US), Phase::STOPPED);
+            CHECK_FALSE(runner.last.start_release);
+            CHECK(runner.go_pulses == 0U);
+            runner.controller.reset();
+        } else {
+            checkBlocked(runner.after(HOLD_US, mode), Phase::IDLE);
+            runner.after(1000U);
+            runner.after(DEBOUNCE_US);
+        }
         startHold(runner);
         checkBlocked(runner.after(HOLD_US - 1U), Phase::HOLDING);
         CHECK(runner.after(1U).go);

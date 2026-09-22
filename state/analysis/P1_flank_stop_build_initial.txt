@@ -1,0 +1,55 @@
+-- Configuring done (0.2s)
+-- Generating done (0.3s)
+-- Build files have been written to: /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/build/host
+[  3%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/core/countdown.cpp.o
+[  7%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/core/openers.cpp.o
+[ 10%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/test_countdown.cpp.o
+[ 14%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/test_countdown_integration.cpp.o
+[ 17%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/test_countdown_services.cpp.o
+[ 21%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/test_edge_guard.cpp.o
+[ 25%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_opener_direct.cpp.o
+[ 28%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_opener_flank.cpp.o
+[ 32%] Linking CXX executable sumox26_tests
+[100%] Built target sumox26_tests
+Internal ctest changing into directory: /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/build/host
+Test project /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/build/host
+    Start 1: sumox26_host
+1/1 Test #1: sumox26_host .....................***Failed    1.59 sec
+[doctest] doctest version is "2.4.12"
+[doctest] run with "--help" for options
+===============================================================================
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/test_countdown_integration.cpp:205:
+TEST CASE:  B3 Controller qualified MODE cancels at GO deadline and requires a new hold
+
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/test_countdown_integration.cpp:45: ERROR: CHECK( result.phase == phase ) is NOT correct!
+  values: CHECK( 3 == 0 )
+
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/test_countdown_integration.cpp:45: ERROR: CHECK( result.phase == phase ) is NOT correct!
+  values: CHECK( 3 == 1 )
+
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/test_countdown_integration.cpp:57: ERROR: CHECK( release.start_release ) is NOT correct!
+  values: CHECK( false )
+
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/test_countdown_integration.cpp:58: ERROR: CHECK( release.release_us == static_cast<std::uint32_t>(runner.now_us) ) is NOT correct!
+  values: CHECK( 42000 == 10305000 )
+
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/test_countdown_integration.cpp:45: ERROR: CHECK( result.phase == phase ) is NOT correct!
+  values: CHECK( 3 == 1 )
+
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/test_countdown_integration.cpp:219: ERROR: CHECK( runner.after(1U).go ) is NOT correct!
+  values: CHECK( false )
+
+===============================================================================
+[doctest] test cases:     348 |     347 passed | 1 failed | 0 skipped
+[doctest] assertions: 8708591 | 8708585 passed | 6 failed |
+[doctest] Status: FAILURE!
+
+
+0% tests passed, 1 tests failed out of 1
+
+Total Test time (real) =   1.66 sec
+
+The following tests FAILED:
+	  1 - sumox26_host (Failed)
+Errors while running CTest
+exit_status=8

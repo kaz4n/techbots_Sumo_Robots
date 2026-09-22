@@ -1,10 +1,11 @@
-// Implements B3 qualification, hold and approved calibration/warning/snapshot services.
+// Implements B3 start/services and the D-035 logical STOP qualification and hold.
 // Keeps the full hold after release debounce without clocks or hardware writes.
 // Verified by independent locked host boundary, wraparound and seeded stream tests.
 #include "countdown.h"
 #include "../config.h"
 #include <algorithm>
 #include <cmath>
+#include <limits>
 
 namespace countdown {
 Result Gate::step(std::uint32_t t_us, Commands commands) {
@@ -76,15 +77,53 @@ void Buttons::reset() {
     *this = Buttons{};
 }
 
+bool StopHold::step(std::uint32_t t_us, core::ButtonLevel level) {
+    static_assert(config::BTN_DEBOUNCE_MS > 0U && config::BTN_LONG_MS > 0U);
+    static_assert(config::BTN_DEBOUNCE_MS <= std::numeric_limits<std::uint32_t>::max() / 1000U);
+    static_assert(config::BTN_LONG_MS <= std::numeric_limits<std::uint32_t>::max() / 1000U);
+    const std::uint32_t elapsed_us = t_us - last_us_;
+    last_us_ = t_us;
+    if (stage_ == Stage::STOPPED) return true;
+    // An actual release takes priority over a deadline not yet observed.
+    if (level != core::ButtonLevel::BOTH) {
+        stage_ = Stage::IDLE;
+        age_us_ = 0U;
+        return false;
+    }
+    if (stage_ == Stage::IDLE) {
+        stage_ = Stage::DEBOUNCE;
+        age_us_ = 0U;
+        return false;
+    }
+    const std::uint32_t required_us = (stage_ == Stage::DEBOUNCE ?
+        config::BTN_DEBOUNCE_MS : config::BTN_LONG_MS) * 1000U;
+    const auto age = static_cast<std::uint64_t>(age_us_) + elapsed_us;
+    if (age < required_us) {
+        age_us_ = static_cast<std::uint32_t>(age);
+        return false;
+    }
+    age_us_ = 0U;
+    if (stage_ == Stage::DEBOUNCE) {
+        stage_ = Stage::HOLDING;
+        return false;
+    }
+    stage_ = Stage::STOPPED;
+    return true;
+}
+
+void StopHold::reset() { *this = StopHold{}; }
+
 Result Controller::step(const core::Inputs& inputs, bool stop_requested) {
     const ButtonEvents events = buttons_.step(inputs.t_us, inputs.button_level);
+    const bool logical_stop = stop_.step(inputs.t_us, inputs.button_level);
     // A release pulse is generated at this qualifying tick. Using the same tick
     // for Gate prevents raw-edge backdating, including after delayed calls.
     return gate_.step(inputs.t_us,
-                      {events.start_release, events.mode_press, stop_requested});
+                      {events.start_release, events.mode_press, stop_requested || logical_stop});
 }
 
 void Controller::reset() {
+    stop_.reset();
     buttons_.reset();
     gate_.reset();
 }

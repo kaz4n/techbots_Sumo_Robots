@@ -1,10 +1,21 @@
-// Classifies B4.1 white levels and applies the D-020 persistent edge guard.
+// Classifies B4.1 white, guards persistent edges and builds D-021 forward requests.
 // Prevents all-white motion guesses while preserving the countdown's precedence.
 // Locked host tests cover masks, confirmation, fault latching and reset.
 #include "edge.h"
 #include "../config.h"
 
 namespace edge {
+ForwardDemand forwardDemand(ForwardBias bias) {
+    const float outer = config::EDGE_BACK_DUTY;
+    const float inner = outer * config::EDGE_FWD_INNER_RATIO;
+    switch (bias) {
+    case ForwardBias::NONE: return {outer, outer, true};
+    case ForwardBias::LEFT: return {inner, outer, true};
+    case ForwardBias::RIGHT: return {outer, inner, true};
+    default: return {};
+    }
+}
+
 std::uint8_t Classifier::observe(const std::uint32_t (&raw_us)[4]) {
     std::uint8_t white_mask = 0U;
     for (std::uint32_t i = 0U; i < 4U; ++i) {

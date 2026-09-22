@@ -24,6 +24,7 @@ bool profileCap(const Request& request, float& cap) {
                                                    config::ATTACK_APPROACH_DUTY;
         break;
     case Profile::EDGE_REVERSE: cap = config::EDGE_BACK_DUTY; break;
+    case Profile::EDGE_FORWARD: cap = config::EDGE_BACK_DUTY; break;
     case Profile::REFLANK_BACK: cap = config::REFLANK_BACK_DUTY; break;
     case Profile::REFLANK_TURN: cap = config::TURN_DUTY; break;
     default: return false;

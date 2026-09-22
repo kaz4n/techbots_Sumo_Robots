@@ -18,3 +18,5 @@ software while deferring hardware checks. Hardware assumptions remain unverified
 no STAND OK, RING OK, PINMAP OK, or human gate was provided.
 
 | 2026-09-22 | P0 recovery 0.3/0.4 | Correct B16 extraction (76 defaults; remove unrelated FC), recover inert matrix/timing sketches, fix elapsed counter and add independent checks | HOST-TESTED: 11 focused checks plus host CTest 1/1; analysis/P0_scaffold_audit.md and P0_host_tests_recovery.txt; no target measurements | commit containing this row |
+
+| 2026-09-22 | P0 recovery 0.2 | Recover SSH staging/compile/upload and receive-only log scripts; fix prerequisite/staging/symlink failures; bind inert upload to reviewed source | SCRIPT-TESTED: full suite 32/32, exit 0; analysis/P0_tool_tests_recovery.txt; separate-context software review PASS in reviews/P0_recovery_codex.md; no board contacted | commit containing this row |

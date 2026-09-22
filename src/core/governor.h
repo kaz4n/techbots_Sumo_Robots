@@ -6,9 +6,10 @@
 
 namespace governor {
 // Profiles name the specified B6 cap rows. The future FSM selects its phase's
-// profile; choosing an escape forward-motion cap is still an unresolved contract.
+// profile; D-021 assigns the existing escape cap to forward motion as well.
 enum class Profile : std::uint8_t {
-    SEARCH_FORWARD, PIVOT, OPENER, ATTACK, EDGE_REVERSE, REFLANK_BACK, REFLANK_TURN
+    SEARCH_FORWARD, PIVOT, OPENER, ATTACK, EDGE_REVERSE, REFLANK_BACK, REFLANK_TURN,
+    EDGE_FORWARD
 };
 struct Request {
     float duty_l = 0.0F;

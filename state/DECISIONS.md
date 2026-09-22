@@ -121,3 +121,17 @@ test every mask, white at GO, persistent white, re-entry, completion/clear order
 and a fault that cannot clear on black readings alone. Motion directions, forward
 escape duty (SC-M), replan-limit direction and actual HAL safety remain separate.
 No sensor acquisition change, pin approval, physical test or motor run is implied.
+
+## D-021 (2026-09-22, accepted) Forward escape uses the existing 0.80 limit
+Context: SC-M identified missing forward escape duty/cap. The user explicitly
+replied "Approve A: reuse 0.80" to the proposed reuse of EDGE_BACK_DUTY as the
+requested base and final cap, retaining the specified 70% inner-wheel bias and
+approved governor rules.
+Decision: forward escape requests use EDGE_BACK_DUTY (currently 0.80) as base and
+final cap. Where B4 specifies a biased forward segment, request 70% of that base
+on the inner side. Apply the same D-017 compensation, per-side caps and slew.
+Consequence: add a named forward governor profile and pure straight/biased demand
+builder. Centralize the existing B4 70% ratio in config without changing B16
+defaults. This specifies requests and caps, not measured speed/trajectory: voltage
+compensation and per-side saturation may alter the final side ratio. Timed motion,
+heading hold, escape scripts and physical validation remain pending.

@@ -120,6 +120,12 @@ Invariant (locked test): after GO, a white reading on any QTR puts the robot in 
 | 3 bits | Mostly outside | Drive toward the side whose sensors read black, at EDGE_BACK_DUTY, until 2 bits clear |
 | 4 bits | No known black direction | D-020: remain in EDGE_ESCAPE, latch a fault, duties 0 and motors disabled until reset; do not guess a direction |
 
+D-021 (human-approved 2026-09-22): forward escape segments request
+EDGE_BACK_DUTY (0.80 default) as their base duty and use it as the final electrical
+cap. Where the table calls for a bias, request 70% of base on the inner wheel.
+All requests still pass through B6's compensation, per-side caps and slew; no
+physical speed or final curvature is implied by the requested ratio.
+
 ### B4.3 Being pushed out (edge defense)
 Rear bit white while the opponent is centered in front and our duty is forward: we are losing a push. Do not keep pushing straight. Pivot 45 degrees away from the white side at TURN_DUTY, then forward EDGE_FWD_MS. This slides us out of the opponent's line.
 
@@ -183,6 +189,7 @@ Pipeline (D-017, human-approved 2026-09-22): requested duty per side, then volta
 | ATTACK before contact | ATTACK_APPROACH_DUTY |
 | ATTACK after contact | ATTACK_DUTY (1.0) |
 | EDGE_ESCAPE reverse | EDGE_BACK_DUTY |
+| EDGE_ESCAPE forward (D-021) | EDGE_BACK_DUTY |
 | REFLANK | REFLANK_BACK_DUTY or TURN_DUTY per phase |
 
 - **Target loss in ATTACK:** the tick the front target clears (after debounce), brake both sides, then cap to SEARCH_DUTY_MAX. The recorder must show the drop within OPP_CLEAR_MS + 5 ms (P4 test 4.2).

@@ -5,6 +5,19 @@
 #include <cstdint>
 
 namespace edge {
+enum class ForwardBias : std::uint8_t { NONE, LEFT, RIGHT };
+struct ForwardDemand {
+    float duty_l = 0.0F;
+    float duty_r = 0.0F;
+    bool valid = false;
+};
+// B4.2/D-021 base requests only: NONE is straight, LEFT slows the left/inner side
+// (rear-right row), RIGHT mirrors it (rear-left row). Pass these requests through
+// governor EDGE_FORWARD, with the guard's veto. This does not run a timed script
+// or heading hold; 70% is the requested ratio before compensation/caps/slew.
+// Unknown bias values return invalid zero demand.
+ForwardDemand forwardDemand(ForwardBias bias);
+
 class Classifier {
 public:
     // Each call represents one NEW complete observation. Repeated/stale samples

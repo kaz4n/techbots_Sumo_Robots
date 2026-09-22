@@ -94,6 +94,7 @@ inline constexpr std::uint32_t BTN_LONG_MS = 1000U; // ms
 inline constexpr std::uint32_t MODE_DEFAULT = 1U; // mode
 // B6 specifies a 1 s battery filter outside its B16 table; unchanged spec value.
 inline constexpr std::uint32_t VBAT_FILTER_MS = 1000U; // ms, B6
+inline constexpr float EDGE_FWD_INNER_RATIO = 0.70F; // ratio, B4.2/D-021
 // P0 diagnostic-only defaults; no behavior tuning or proposed pin assignments.
 inline constexpr std::uint32_t P0_SCROLL_MS = 100U;
 inline constexpr std::uint32_t P0_COUNTER_MS = 1000U;

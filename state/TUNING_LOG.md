@@ -58,3 +58,12 @@ Every bench or ring measurement and every config.h change goes here with its evi
   a named exact-value check rather than allowing arbitrary additional tunables.
 - Evidence: docs/BEHAVIOR.md B6; independent governor tests and host results to be
   recorded in P1_core_tests evidence. M1-M13 remain unmeasured.
+
+### 2026-09-22 | P1 B4.2/D-021 forward demand | no physical tuning
+- Setup: host only, no board or measured battery.
+- Change: add EDGE_FWD_INNER_RATIO=0.70 from B4.2's existing 70% inner-wheel
+  request. D-021 approves reusing unchanged EDGE_BACK_DUTY=0.80 as the forward
+  base and final cap. All 76 B16 defaults remain unchanged; no pin assignment.
+- Evidence: human D-021; exact-value config test and independent forward-demand
+  governor tests. Actual trajectory/ratio after compensation and cap saturation
+  is not a physical measurement. M1-M13 remain unmeasured.

@@ -15,6 +15,7 @@ DIAGNOSTIC_DEFAULTS = {
     'P0_JITTER_HISTOGRAM_US': 1000,
 }
 BEHAVIOR_EXTRA_DEFAULTS = {'VBAT_FILTER_MS': 1000}  # B6 one-second time constant.
+BEHAVIOR_EXTRA_FLOAT_DEFAULTS = {'EDGE_FWD_INNER_RATIO': Decimal('0.70')}  # B4.2/D-021.
 
 
 def b16_defaults():
@@ -64,7 +65,7 @@ class P0ConfigTests(unittest.TestCase):
 
     def test_only_b16_and_explicit_spec_diagnostic_defaults_are_declared(self):
         expected = (set(b16_defaults()) | set(DIAGNOSTIC_DEFAULTS) |
-                    set(BEHAVIOR_EXTRA_DEFAULTS))
+                    set(BEHAVIOR_EXTRA_DEFAULTS) | set(BEHAVIOR_EXTRA_FLOAT_DEFAULTS))
         self.assertEqual(expected, set(config_declarations()))
 
     def test_b16_literal_categories_and_array_extent_are_preserved(self):
@@ -90,6 +91,12 @@ class P0ConfigTests(unittest.TestCase):
         declarations = config_declarations()
         for name, expected in BEHAVIOR_EXTRA_DEFAULTS.items():
             self.assertEqual('std::uint32_t', declarations[name][0])
+            self.assertEqual(expected, number(declarations[name][1]))
+
+    def test_b4_forward_inner_ratio_matches_seventy_percent(self):
+        declarations = config_declarations()
+        for name, expected in BEHAVIOR_EXTRA_FLOAT_DEFAULTS.items():
+            self.assertEqual('float', declarations[name][0])
             self.assertEqual(expected, number(declarations[name][1]))
 
     def test_each_b16_default_matches_its_documented_value(self):

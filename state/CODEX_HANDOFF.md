@@ -1,5 +1,33 @@
 # Codex handoff
 
+## Current resume point — 2026-09-22 Asia/Dubai
+
+Active implementation is **P1 host development under D-016**; P0 hardware
+acceptance and every human phase gate remain pending. The dated sections below
+are preserved history, not current phase instructions. No target compilation,
+upload/reset, motor run or physical measurement has occurred. Origin is configured
+and retained; no publication. User reports MPU6050; exact breakout/interface is
+unverified. Hardware work is deferred until connection details/setup are available.
+
+Latest verified source dc9daa4:509 cases/11,920,737 assertions normal+ASan/UBSan,
+48/48 controlled scripts, reused separate read-only scoped review PASS. Exact
+evidence: analysis/P1_tick_statistics_validation.md and its linked review.
+B14 tick statistics are complete at component scope (contract118f9cc). Next:
+finalize the production countdown lifecycle contract using Controller/Services,
+then independent tests/implementation; read analysis/P1_countdown_lifecycle_audit.md.
+Full Robot/scripts, other B14 integration and all later phases remain unfinished.
+This continuation made actual software progress, not an impasse or goal completion.
+
+D-039 already records/applies the user's one-case locked STOP amendment. All
+other established locked tests remain protected. No human gates are simulated.
+Pending SC-Y/Z/AA/AB/AC/AD/AE and older physical/escape/WAIT choices are listed in
+analysis/spec_conflicts.md; questions already presented must not be reasked or
+treated as approved through silence. New reviewer creation hit the tool thread
+limit; scoped reviews use an existing separate read-only context and are not a
+fresh complete phase gate. Resume through docs/prompts/CODEX_RESUME.md.
+
+## Historical recovery and checkpoints
+
 Objective: implement the supplied SumoX-26 plan under R1-R11, preserving human gates.
 Recovered 2026-09-22 at 17:00 Asia/Dubai: fresh planning kit, P0 active, no gates,
 no source/tool scaffold, no existing Git repository. Original 30 files inspected

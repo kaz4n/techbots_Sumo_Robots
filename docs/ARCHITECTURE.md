@@ -33,6 +33,7 @@ the complete robot scheduler, FSM and actuator path do not yet exist.
 | `fsm::FrontQualification` | B9 count of consecutive new centered observations, saturating eligibility and explicit reset | Normal-entry observation selection, preemption/reset wiring and complete state/contact/governor arbitration |
 | `motion::TimedArc` | D-037 mirrored duration-only forward arc, no invented heading cutoff | Re-flank sequencing, REFLANK_TURN governor and global safety arbitration |
 | `logframe` | B15 portable 25-byte frames and 8-byte exact-tick events, explicit invalid/clipped status; D-028 first4096 EventBuffer | HAL-owned buffer instance, frame cadence/storage, event collection, incomplete-evidence marking and idle-only dump |
+| `logframe::TickStatistics` | B14 counts of supplied durations, strict overrun/rate thresholds, full maximum and explicit saturation | Actual scheduler measurements, match membership, event/recorder dispatch and target WCET evidence |
 
 All inputs are ordinary C++ values. Time arrives from callers as `uint32_t`
 microseconds; elapsed intervals use unsigned subtraction. Motion/services
@@ -192,6 +193,13 @@ counts starts even if an escape later interrupts them; denied requests never
 extend an active ALL_IN period. Neither component writes duties or changes Robot
 state. DIRECT returns target/SEARCH exit intents with zero terminal demand; the
 future FSM owns actual transitions, immediate target-loss braking and edge priority.
+
+Tick statistics consume durations supplied by the caller; they read no clock.
+Overruns are strictly above TICK_US, and the current retained-count ratio is
+compared exactly against B14's1%. Counts stop at uint64 capacity and mark the
+statistics incomplete; the full uint32 maximum continues updating. Frame packing
+reports its own narrower-field clamping. Neither a zero overrun count nor a
+passing arithmetic test proves that the robot meets R4's under800us requirement.
 
 Student explanation of what exists today: "We pass timestamped values into small
 C++ functions, so the laptop tests the same decisions without a robot. The start

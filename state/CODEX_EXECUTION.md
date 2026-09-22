@@ -24,6 +24,7 @@ results remain pending, not assumed successful. Date:2026-09-22, Asia/Dubai.
 | P1 1.2 B10 | HOST-TESTED | DefendTurn captures one target and preserves700/800ms deadlines; Robot arbitration pending |
 | P1 1.2 B11 | HOST-TESTED components | Qualified timer/deflection Detector and rolling limiter/ALL_IN; real re-flank script/FSM arbitration pending |
 | P1 1.2 B12 | HOST-TESTED DIRECT/SIDESTEP/ARC | Shared mirrors and current-perception exit intents; WAIT/global arbitration pending |
+| P1 1.2 B14 | HOST-TESTED tick statistics | Exact supplied-duration/rate/max/saturation arithmetic; actual measurements, IMU/QTR/warnings/fault dispatch pending |
 | P1 1.2 B15 | HOST-TESTED encoding/event buffer |25-byte frames/8-byte events; first4096 retained with overflow/count; frame storage/cadence/dump not implemented |
 | P1 1.2 remainder | UNFINISHED | Re-flank/escape/other openers, Robot FSM and B14 integration |
 | P1 1.3 properties | PARTIAL | Countdown/motion/fusion/DIRECT/filter fixed-seed10000 sets; limiter/detector independent references; full Robot R1/R5 and all-script symmetry pending |
@@ -31,10 +32,11 @@ results remain pending, not assumed successful. Date:2026-09-22, Asia/Dubai.
 | P1 1.5 target compile | HARDWARE-PENDING | No connected/verified UNO Q toolchain |
 | P1 1.6 review/gate | SCOPED PASS / GATE-PENDING | Separate read-only component reviews; full fresh gate review, EXPLAINED OK and human GATE P1 PASS absent |
 
-Latest completed validation:497 cases/11,920,333 assertions pass normal and
-ASan/UBSan. FrontQualification adds19 new unlocked cases to b073a48. Reused
+Latest completed validation:509 cases/11,920,737 assertions pass normal and
+ASan/UBSan;48/48 controlled script checks. Tick statistics add12 new unlocked cases
+to920394e. Reused
 separate read-only scoped review PASS/no open finding; exact23-file inert
-manifests reviewed. See P1_front_qualification_validation.md/review. Newly fresh
+manifests reviewed. See P1_tick_statistics_validation.md/review. Newly fresh
 reviewer creation hit the tool's thread limit; no full phase-gate review claimed.
 D-039's previous one-case locked amendment remains the sole authorized established
 locked edit; no established locked test or B16 value changed in this latest batch.
@@ -51,10 +53,13 @@ Components implement these policies; complete scheduler/recorder integration rem
 
 RowExecutor complete at component scope (contract76e0360/c5e80b8, implementation
 970e083). Existing45-degree side angle centralized without changing B16.
-Front-centered qualification contract c0b3ad6 and implementation1950635 are
-HOST-TESTED/reviewed. Full loss routing and Robot remain subject to specification
-reconciliation. Next unblocked host task: B14 tick statistics per
-analysis/P1_fault_contract_audit.md; do not claim target timing from supplied data.
+Front-centered qualification (c0b3ad6/1950635) and B14 tick statistics
+(118f9cc/dc9daa4) are HOST-TESTED/reviewed. Full loss routing/Robot remain subject
+to specification reconciliation. Next eligible task: production countdown
+lifecycle contract, independent tests and implementation using existing Controller/
+Services; read analysis/P1_countdown_lifecycle_audit.md. Do not change locked tests
+or derive motion permission from service completion. Other unblocked B14 predicates
+are described in analysis/P1_fault_contract_audit.md.
 Leave unresolved row selection/replanning/head-on cases explicit. Then B8 SEARCH
 and remaining Robot/escape/re-flank/WAIT after required specific decisions. Read
 analysis/P1_search_reflank_contract_audit.md.

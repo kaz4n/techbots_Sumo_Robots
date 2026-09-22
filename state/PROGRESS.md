@@ -168,3 +168,23 @@ in analysis/P1_front_arbitration_contract_audit.md. Existing pending choices rem
 SC-AD/AE decisions await replies; the counter deliberately does not select them.
 Next unblocked host task: B14 tick-overrun statistics (analysis/P1_fault_contract_audit.md).
 Current goal turn made concrete implemented/tested progress; this is not an impasse.
+
+| 2026-09-22 | P1 B14 tick statistics | Pure supplied-duration counters, strict thresholds and explicit saturation; existing1% centralized | IMPLEMENTING; independent tests/review underway | 118f9cc |
+
+| 2026-09-22 | P1 B14 statistics |12 independent cases; strict duration/rate, wide counts, saturation, maximum/packing | HOST-TESTED;509cases/11920737assertions normal+ASan/UBSan | dc9daa4 |
+| 2026-09-22 | P1 session checkpoint |48/48 controlled scripts; reused separate review PASS; exact23-file inert snapshots approved/refreshed | analysis/P1_tick_statistics_validation.md and linked review | commit containing this row |
+
+This continuation completed RowExecutor970e083, FrontQualification1950635 and
+TickStatisticsdc9daa4, with contracts first and independent tests/reviews. All
+runs passed; no failed production-test fix attempts. Only existing-text45-degree
+side angle and1% overrun threshold were centralized; all76 B16 values unchanged.
+No established locked test changed in this continuation; D-039's earlier exact
+STOP amendment remains the sole approved established-case change.
+
+Next eligible task: finalize production countdown lifecycle public contract and
+independent tests/code from analysis/P1_countdown_lifecycle_audit.md, preserving
+Controller as GO authority, raw/confirmed inputs and explicit service result status.
+Unanswered SC-Y/Z/AA/AB/AC/AD/AE and older protected choices remain pending.
+Full P0-P7 objective is unfinished. Current goal turn made substantial meaningful
+progress; no blocked threshold applies. No board action/target build/measurement,
+PINMAP OK, EXPLAINED OK, human GATE, publication or release tag was fabricated.

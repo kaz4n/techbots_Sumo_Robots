@@ -1,0 +1,38 @@
+{
+  "target": "2629958581",
+  "captured_at_utc": "2026-09-22T21:56:46.265670+00:00",
+  "logger": "tools/board_tool.py logs (the implementation invoked by tools/logs.sh)",
+  "logger_sha256": "ed1a20ebed7be33f11850706085e09bd590401bb39da3eb202005e78831ccac3",
+  "deadline_seconds": 8,
+  "sent_monitor_bytes": 0,
+  "scope": "Actual project receive-only logger, prefixed only with a Linux SIGALRM deadline.",
+  "original_logger_command": [
+    "python3",
+    "-u",
+    "-c",
+    "import socket,sys\nwith socket.create_connection((\"127.0.0.1\",7500),10) as s:\n s.settimeout(None)\n while True:\n  data=s.recv(4096)\n  if not data: raise SystemExit(\"Monitor connection closed\")\n  sys.stdout.buffer.write(data); sys.stdout.buffer.flush()\n"
+  ],
+  "executed_remote_command": [
+    "python3",
+    "-u",
+    "-c",
+    "import signal\nsignal.alarm(8)\nimport socket,sys\nwith socket.create_connection((\"127.0.0.1\",7500),10) as s:\n s.settimeout(None)\n while True:\n  data=s.recv(4096)\n  if not data: raise SystemExit(\"Monitor connection closed\")\n  sys.stdout.buffer.write(data); sys.stdout.buffer.flush()\n"
+  ],
+  "remote_returncode": 142,
+  "stdout": "P0 counter=0000000056\nP0 counter=0000000057\nP0 counter=0000000058\nP0 counter=0000000059\nP0 counter=0000000060\nP0 counter=0000000061\nP0 counter=0000000062\nP0 counter=0000000063\n",
+  "stderr": "",
+  "elapsed_seconds": 8.130008299951442,
+  "counters": [
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63
+  ],
+  "complete_lines": 8,
+  "status": "MONITOR-COUNTERS-OBSERVED",
+  "termination": "expected remote SIGALRM (142)"
+}

@@ -92,8 +92,12 @@ Later motor uploads require fresh scope/revision-bound human permission.
 `bash tools/logs.sh` connects over SSH and receives only from the board's router
 Monitor TCP endpoint 127.0.0.1:7500. It sends no keyboard/serial/motion command.
 Requires Python 3 and the actual router service on the board. Disconnect/failure
-is nonzero; Ctrl-C terminates. MCU logging API is separately blocked by SC-I:
-RouterBridge Monitor/notify is not demonstrated bounded or allocation-free.
+is nonzero; Ctrl-C terminates. Stock RouterBridge Monitor/notify remains unsuitable
+under R3/R4. D-062's separate fixed P0 notification adapter has now delivered real
+counters to this receiver on the bare UNO Q; production recorder transport is
+still a later dependency. See `state/analysis/P0_counter_validation.md` for the
+explicit8-second capture deadline, raw exits and scope. No receive command path
+was added to the MCU or this logger.
 
 `python3 -m unittest discover -s tests/tooling -v` uses controlled SSH/rsync
 substitutes. These tests must check argument rejection, all flag combinations,

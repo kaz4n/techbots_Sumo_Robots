@@ -137,3 +137,17 @@ Every bench or ring measurement and every config.h change goes here with its evi
 
 ### 2026-09-23 | P1 B13 menu constant centralization | no measured tuning
 - Added MODE_SHORT_MS=600 to config.h, copying the existing strict short-press threshold in BEHAVIOR B13 under D-058. All original B16 defaults are unchanged. Evidence: P1_mode_menu_contract_audit.md and P1_menu_contract.md; exact/adjacent-threshold host tests follow the committed interface. No physical measurement, pin assignment or motor operation.
+
+### 2026-09-23 | P0 counter transport | diagnostic settings, no strategy tuning
+- D-062 adds P0_MONITOR_TIMEOUT_US=100000 as an explicit diagnostic development
+  timeout, not a measured safe control-loop duration. P0_MONITOR_BAUD_BPS=115200
+  validates the installed internal UART/router configuration; it never changes
+  that link. Original76 B16 values, pins, gains and motor limits are unchanged.
+- Evidence: P0_counter_transport_contract.md; installed UART/router receipts;
+  independent25 packet cases/39 adapter cases, ASan/UBSan and156 full tool checks.
+- Inert source75ab5a22/default/MOTORS_ALLOWED0 uploaded01:55:51+04. Actual logger
+  received4..11 and56..63 in two8-second windows, with no input bytes sent. This
+  measures delivery, not IRQ timing, precise1Hz accuracy, optical output or WCET.
+- Exact receipts and limitations: analysis/P0_counter_validation.md. Linux stayed
+  running; another Monitor client existed. No physical fault injection or motor
+  operation, no additional hardware request, and no human phase gate.

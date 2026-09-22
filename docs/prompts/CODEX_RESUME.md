@@ -17,23 +17,33 @@
    boundary record files/commits, commands/statuses, limitations, human requests,
    review findings and exact next task. Use existing HUMAN ACTION/CONFUSION formats.
 
-Current checkpoint: production P1 core is implemented and software-verified.
+Current checkpoint: P0 fixed counter source75ab5a22/default/MOTORS_ALLOWED0 was
+uploaded01:55:51+04 on23September. Its real logger received4..11 then56..63. Read
+analysis/P0_counter_validation.md and reviews/P0_counter_codex.md first:156 tool
+checks and40 sanitizer checks pass; fresh source/separate binary audits PASS.
+Current reviewed manifests75ab5a22/b4c61daf replace the old snapshots. The8-second
+logger deadline is explicit (remote142, local validation0). Another Monitor client
+existed; do not claim Linux-down/no-subscriber, optical, cold-boot or WCET proof.
+
+Production P1 core is implemented and previously software-verified.
 Metadata59376fe, Robot/scenarios8692734, inert app/architecture3e46ea4.895 cases /
 13,765,968 assertions pass normal and ASan/UBSan;116 tooling checks pass. Fresh
 full-core and reused scoped reviews PASS, with independent runtime reproduction.
 Actual bare UNO Q app compile-only sourcece90f09d passed, MATCH0/MOTORS_ALLOWED0,
-125508B program/61004B globals. No upload/reset/start or new motor permission.
+125508B program/61004B globals. That P1 compile did not upload/reset/start; the
+separate P0 inert upload above did. No motor permission or human gate is inferred.
 Read analysis/P1_robot_validation.md, preserved P1_robot_failure_analysis.md,
 reviews/P1_fresh_gate_codex.md and reviews/P1_robot_codex.md.
 
 No human phase gate has passed. P1 needs EXPLAINED OK and GATE P1 PASS; P0 still
-needs optical/Monitor/cold-start and electrical/pin-map evidence. Current packets
+needs optical/cold-start and electrical/pin-map evidence. Fixed Monitor counter
+delivery is now observed; stock Bridge/production transport remain separate. Current packets
 are reviews/P1_gate_request.md and reviews/P0_gate_request.md. Do not redo solved
 Robot contracts/tests or start P2 HAL solely because P1 software checks pass.
 
-Next eligible work must respect those gates: review remaining P0 bare-board-only
-transport/startup dependencies from existing G3/G4/Facts before any new bounded
-inert test; otherwise retain the checkpoint pending the original human evidence.
-SC-A/B/I remain hardware/API dependencies, not assumed successes. No additional
+Next action must respect those gates: retain the checkpoint pending remaining
+original physical/optical/cold-start and human acceptance when no eligible work
+exists. Do not redo the completed D-062 counter to fill time. SC-A/B and production
+SC-I remain hardware/API dependencies, not assumed successes. No additional
 hardware request now. Do not manufacture a gate, measurement or uninterrupted
 background run; the complete app/HAL and original P2–P7 remain unfinished.

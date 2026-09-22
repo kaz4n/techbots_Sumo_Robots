@@ -165,3 +165,53 @@ PASS remains the source/test disposition; no open source/test review prerequisit
 for the already authorized narrow default-startup inert experiment. No upload, execution,
 actual received counter, timing, optical result, motor authorization or human phase-gate
 pass is claimed by this follow-up.
+
+## Post-upload evidence follow-up - same date
+
+Same reviewer, reused context, local receipt review only. No new build, board command,
+upload, readback or execution was performed by this reviewer. Reviewed coordinator
+receipts `P0_counter_upload_20260923.txt`, `P0_counter_monitor_capture_20260923.json`,
+`P0_counter_monitor_reconnect_20260923.json` and
+`P0_counter_post_upload_identity_20260923.json`.
+
+No material evidence inconsistency or unsupported claim in the proposed narrow scope;
+no new BLOCKER, MAJOR or MINOR finding. Upload receipt identifies revision 6b99a60,
+approved matrix source 75ab5a22, MATCH=0/MOTORS_ALLOWED=0/default startup, actual OpenOCD
+upload/reset/start and PROCESS_EXIT=0. Its recorded completion 21:55:51.731637 UTC is
+01:55:51.731637 on 23 September Dubai. This is a successful upload command receipt,
+not independent byte-for-byte MCU flash verification.
+
+Independently validated the captured JSON and current logger source locally:
+
+- Both recorded logger SHA-256 values match `tools/board_tool.py`. AST extraction of
+  its actual `logs()` program matches each recorded original command exactly. Executed
+  commands add only `import signal; signal.alarm(8)` on separate lines before that body.
+  The program receives socket bytes and writes stdout; it has no application-payload
+  send operation. This supports the recorded zero monitor bytes sent.
+- First capture contains exactly eight complete formatted lines, counters 4 through 11,
+  in 8.119839899940416 s. The second contains exactly eight complete formatted lines,
+  counters 56 through 63, in 8.130008299951442 s. Independently parsed counters exactly
+  match the stored arrays and counts, with no malformed or duplicate line.
+- Both receipts record empty stderr and remote status 142, consistent with the explicit
+  eight-second SIGALRM deadline; this is expected observer termination, not a claimed
+  zero-exit logger or MCU fault. Local receipt consistency validation exited 0.
+- Capture-start timestamps differ by 52.015743 s and the first counter values differ
+  by 52. These records show continuing counter output and this client's reconnection;
+  absent per-line receive timestamps they do not measure precise 1 Hz cadence or jitter.
+- Post-upload Linux debug ELF, stripped ELF and wrapped binary hashes all equal the
+  separate pre-upload binary audit values. The read command hashes Linux filesystem
+  artifacts only; it neither reads nor verifies deployed MCU flash.
+
+The `ss` observation shows an already established 127.0.0.1:7500 client before the second
+capture. Therefore the interval cannot be described as having no monitor subscribers,
+and these runs do not demonstrate Linux-unavailable or router-stalled resilience.
+Observed complete counter strings support actual delivery through the physical diagnostic
+path into Linux and this receive-only logger. They do not directly observe the adapter's
+submitted/completed counters, every UART interrupt, timeout/fault injection or optical
+matrix appearance. The earlier 3 us RAM-jitter result belongs to a different image and
+workload and must not be assigned to this counter/matrix workload.
+
+PASS remains limited to the reviewed inert source/tests and the consistent observed
+upload/counter-delivery/reconnect evidence above. Cold power-on timing, optical acceptance,
+IRQ count/rate, new-workload WCET, physical fault handling, production Bridge/HAL/P2
+acceptance and human phase gates remain open. No motor action or permission follows.

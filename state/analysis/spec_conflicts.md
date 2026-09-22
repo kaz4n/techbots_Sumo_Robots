@@ -364,3 +364,11 @@ See P1_robot_validation.md. Older "Robot unfinished/unadopted" descriptions abov
 are historical, not current blockers. No established locked test was weakened.
 SC-A physical button decoding, SC-B physical QTR freshness/timing and SC-I bounded
 Bridge transport remain unresolved dependencies; no human phase gate passed.
+
+2026-09-23 SC-I P0-only follow-up: D-062 selects a fixed mon/write notification
+through the existing internal UART, never starting stock Bridge. Contracts precede
+independent tests/implementation; scoped source and exact binary reviews PASS.
+Actual inert upload and counters4..11/56..63 observed: P0_counter_validation.md.
+This closes the fixed P0 counter round-trip dependency. Production recorder/
+Immediate-mode transport, complete-loop timing, Linux-down/fault behavior and
+original physical/human gates remain separate; no R3/R4 exception was taken.

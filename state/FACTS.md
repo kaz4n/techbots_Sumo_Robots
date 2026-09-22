@@ -175,3 +175,12 @@ matrix image; no Immediate upload, cold boot, Monitor output or motor action.
 D-062 selects a small P0 diagnostic adaptation of the existing notification
 protocol, not a production recorder or an R3/R4 waiver. Source/binary and host
 substitute results remain separate from actual delivery and timing measurements.
+
+| ID | Question | Observed answer | Source | Confidence | Hardware-checked |
+|---|---|---|---|---|---|
+| F-076 | Reviewed counter deployment | Revision6b99a60/source75ab5a22 uploaded to USB2629958581; MATCH0/MOTORS_ALLOWED0/default; upload/reset/start exit0 at2026-09-23 01:55:51.731+04. Rebuilt Linux artifacts retain pre-upload reviewed hashes. | analysis/P0_counter_upload_20260923.txt; P0_counter_post_upload_identity_20260923.json | actual inert upload plus artifact identity | post-check is Linux artifact identity, not MCU flash readback |
+| F-077 | Actual MCU Monitor counter delivery | Real project receive-only logger observed4..11 and56..63, eight complete sequential counter lines in each8-second window; sent0input bytes. Linux SIGALRM intentionally ended each remote capture with142; local validator passed separately. | analysis/P0_counter_monitor_capture_20260923.json; P0_counter_monitor_reconnect_20260923.json; P0_counter_validation.md | actual physical output and this-client reconnection | another client was established; no no-subscriber/Linux-down/WCET/optical/cold-boot claim |
+
+F-077 closes the fixed P0 counter round-trip gap for D-062's explicit adapter,
+not the stock Bridge API or production recorder. Current image is the inert
+default matrix/counter fromF-076. Prior timing measurements use a different image.

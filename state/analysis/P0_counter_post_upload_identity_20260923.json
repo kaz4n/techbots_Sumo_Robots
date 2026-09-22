@@ -1,0 +1,30 @@
+{
+  "captured_at_utc": "2026-09-22T21:56:45.920119+00:00",
+  "target": "2629958581",
+  "command": [
+    "python3",
+    "-c",
+    "from pathlib import Path\nimport json,hashlib,subprocess\nbase=Path('/home/arduino/sumox26-build/75ab5a2257a6f322bc9b5c2ee9059f3e8ac6b3817eca39f03991d18e2ebda0af/p0_matrix/artifacts/bench-default')\nexpected={'p0_matrix.ino_debug.elf':'1af12c624fa5b8b42364deb319f0189d1ea94144351e5d3d8a98e02c322dc17e','p0_matrix.ino.elf':'cac3fac85e3dfc76cb0b41248e914788788d46f4ea5c564247227437a0036e3d','p0_matrix.ino.elf-zsk.bin':'06de35038870da90a14e7259770d689438c656a5b6346c164db81209eb964939'}\nresult={name:{'sha256':hashlib.sha256((base/name).read_bytes()).hexdigest(),'expected':wanted} for name,wanted in expected.items()}\nsockets=subprocess.run(['ss','-tn','state','established','sport = :7500'],capture_output=True,text=True,check=True)\nprint(json.dumps({'artifacts':result,'monitor_established_sockets':sockets.stdout,'sockets_returncode':sockets.returncode},indent=2))\nraise SystemExit(0 if all(v['sha256']==v['expected'] for v in result.values()) else 1)\n"
+  ],
+  "returncode": 0,
+  "stderr": "",
+  "result": {
+    "artifacts": {
+      "p0_matrix.ino_debug.elf": {
+        "sha256": "1af12c624fa5b8b42364deb319f0189d1ea94144351e5d3d8a98e02c322dc17e",
+        "expected": "1af12c624fa5b8b42364deb319f0189d1ea94144351e5d3d8a98e02c322dc17e"
+      },
+      "p0_matrix.ino.elf": {
+        "sha256": "cac3fac85e3dfc76cb0b41248e914788788d46f4ea5c564247227437a0036e3d",
+        "expected": "cac3fac85e3dfc76cb0b41248e914788788d46f4ea5c564247227437a0036e3d"
+      },
+      "p0_matrix.ino.elf-zsk.bin": {
+        "sha256": "06de35038870da90a14e7259770d689438c656a5b6346c164db81209eb964939",
+        "expected": "06de35038870da90a14e7259770d689438c656a5b6346c164db81209eb964939"
+      }
+    },
+    "monitor_established_sockets": "Recv-Q Send-Q Local Address:Port Peer Address:Port \n0      0          127.0.0.1:7500    127.0.0.1:51316\n",
+    "sockets_returncode": 0
+  },
+  "scope": "Post-upload artifacts on Linux match pre-upload reviewed bytes; socket observation only, no MCU flash readback."
+}

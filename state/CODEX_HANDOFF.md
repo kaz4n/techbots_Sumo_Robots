@@ -2,6 +2,37 @@
 
 ## Current resume point — 2026-09-23 Asia/Dubai
 
+P0 fixed counter transport is implemented, reviewed and observed on the bare
+UNO Q. Source/contract commits8f94452,cab665c,3f9ea7f and clarification2f7e1b4
+precede packetdd4ed33 and adapter6b99a60. D-062 selects one fixed, transmit-only
+internal-UART notification, no Bridge start/receives/motor writes. Independent
+packet25cases/156553assertions and adapter39cases pass; sanitizer40checks pass;
+full tooling156checks/44.130s pass. Fresh scoped source review and separate exact
+binary audit PASS. Initial test/fixture failures are retained, not overwritten.
+
+Actual matrix source75ab5a22 compiled and uploaded01:55:51+04, default startup,
+MATCH0/MOTORS_ALLOWED0. Real project receive-only logger captured4..11 and56..63
+in two8-second windows. Linux artifact hashes match pre-upload review. Evidence:
+analysis/P0_counter_validation.md and reviews/P0_counter_codex.md. Current28/24-file
+inert manifests75ab5a22/b4c61daf replace older snapshots. This is the current running
+image; the older matrix upload and timing observations below are historical.
+
+The local logger deliberately used an8-second Linux SIGALRM deadline (remote142,
+separately validated local0). Another Monitor client existed, so this demonstrates
+our client's reconnection, not no-subscriber/Linux-down resilience. No new MCU
+flash readback, IRQ count/latency, physical fault injection, optical appearance,
+cold power timing or complete-tick WCET was measured. Prior max3us scheduler data
+belongs to the older bare timing workload, not this matrix/UART image.
+
+P1 software remains verified at its prior895-case checkpoint below; no human
+phase gate has passed. Next action is remaining P0 physical/optical/cold-start and
+pin-map acceptance plus P1 EXPLAINED OK/GATE dependencies, using current packets.
+No additional hardware request now, no P2 gate bypass and no motor authority.
+Do not repeat the completed fixed-counter implementation or treat it as production
+Bridge/recorder transport. Preserve the checkpoint when no eligible work remains.
+
+## Prior P1 software checkpoint — 2026-09-23 Asia/Dubai
+
 Production P1 core is implemented and verified at the software level. D-060/D-061
 contracts preceded source and independent tests;59376fe implements event metadata,
 8692734 implements actual Robot and scenarios,3e46ea4 adds the inert app target

@@ -16,3 +16,5 @@ Gates passed: none
 2026-09-22 checkpoint: P0 remains active; no gates passed. User requested continuing
 software while deferring hardware checks. Hardware assumptions remain unverified;
 no STAND OK, RING OK, PINMAP OK, or human gate was provided.
+
+| 2026-09-22 | P0 recovery 0.3/0.4 | Correct B16 extraction (76 defaults; remove unrelated FC), recover inert matrix/timing sketches, fix elapsed counter and add independent checks | HOST-TESTED: 11 focused checks plus host CTest 1/1; analysis/P0_scaffold_audit.md and P0_host_tests_recovery.txt; no target measurements | commit containing this row |

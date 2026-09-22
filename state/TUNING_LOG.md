@@ -36,3 +36,15 @@ Every bench or ring measurement and every config.h change goes here with its evi
 - Evidence: comparison script reported all 77 B16 values exactly equal; C++17
   host build/CTest passed (analysis/P0_host_tests.txt). P0 smoke test only.
 - Metric status: M1-M13 unmeasured; no tuning or physical performance claimed.
+
+### 2026-09-22 | P0 recovery | scaffold correction, no physical tuning
+- Setup: WSL host and synthetic clocks only; no board or battery.
+- Correction to the previous initialization entry: B16 has **76**, not 77,
+  constants. The old extraction also imported `FC = 0` from the B5 bearing table.
+  Removed that extraneous declaration; all 76 B16 names, values and types remain
+  unchanged. The four explicitly documented P0 diagnostic values also remain unchanged.
+- Evidence: independent B16-scoped checks and real-sketch synthetic runtime
+  tests in tests/tooling/test_p0_*.py; state/analysis/P0_scaffold_audit.md.
+- Corrected the matrix RAM seconds accumulator to preserve elapsed whole seconds
+  after delayed calls; no duty, timing threshold, pin, or wiring value changed.
+- Metric status: M1-M13 remain unmeasured; source/host checks do not satisfy them.

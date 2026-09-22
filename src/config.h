@@ -16,7 +16,6 @@ static_assert(MOTORS_ALLOWED == 0 || MOTORS_ALLOWED == 1, "MOTORS_ALLOWED must b
 namespace config {
 // Names follow B16 verbatim, including its count/ratio/gain naming exceptions.
 // Pin assignments await P0 source verification and human PINMAP OK.
-inline constexpr std::uint32_t FC = 0U; // yes
 inline constexpr std::uint32_t COUNTDOWN_MS = 5000U; // ms
 inline constexpr std::uint32_t COUNTDOWN_MARGIN_MS = 100U; // ms
 inline constexpr std::uint32_t TICK_US = 1000U; // us

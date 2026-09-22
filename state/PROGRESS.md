@@ -266,3 +266,15 @@ original row as history; use raw command timestamps for evidence.
 | 2026-09-22 23:33:36 +04 | P0 0.4 scheduler | Actual frozen60000-sample readout, full loader/sketch identity and two matching RAM snapshots | MEASURED max3us/p99=3us, zero >=1ms-late observations; bare scheduler only | commit containing this row |
 | 2026-09-22 | P0 startup build | Inert timing Immediate compile-only | TARGET-COMPILED exit0; no upload/startup measurement | 32f0403 |
 | 2026-09-22 23:34:33 +04 | P0 matrix demo | Default inert72214f8a image compiled/uploaded to USB2629958581 | UPLOADED exit0; optical/counter observation separate; no motor run | commit containing this row |
+
+| 2026-09-22 | P0 counter observer | Separate pinned matrix readout; post-observation mapping check; no helper broadening | SCRIPT-TESTED116/116; separate scoped review PASS | a287867 |
+| 2026-09-22 23:41:57 +04 | P0 matrix progress | Actual counter441->444; full flashed-image identity and post-counter mapping checks pass | COUNTER-ADVANCED exit0; optical/Monitor/startup checks remain pending | commit containing this row |
+
+Bare-board session checkpoint: installed tools and real build/upload now verified;
+default scheduler measured60000 samples max/p99=3us, and inert matrix counter
+advancement observed. Current image remains matrix72214f8a/default/MOTORS_ALLOWED0.
+Detailed receipts and remaining scope: analysis/P0_bare_board_results_20260922.md.
+No extra hardware requested, motor-capable firmware/run, changed locked test or
+config value, remote push or human gate. Next software task is full Escape
+contract/tests/implementation under D-047..D-051, followed by WAIT/Robot; P0
+physical acceptance and complete fresh gate reviews remain pending.

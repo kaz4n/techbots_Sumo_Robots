@@ -8,4 +8,5 @@
 CMakeLists.txt text eol=lf
 host/third_party/doctest.h -text
 host/third_party/doctest-LICENSE.txt -text
-state/analysis/P0_*_raw/** -text
+# Raw instrument/ELF dumps must retain exact bytes, including output whitespace.
+state/analysis/P0_*_raw/** binary

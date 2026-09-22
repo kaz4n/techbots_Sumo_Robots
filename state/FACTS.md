@@ -157,3 +157,11 @@ The first debug attachment began over248s after timing upload completed. Run2
 captured the frozen histogram in104.316s; debug reads are not part of the sampled
 one-minute scheduler workload. No power-on timestamp, loaded-tick WCET, matrix
 optical confirmation, external-pin measurement or phase gate is inferred.
+
+| ID | Question | Observed answer | Source | Confidence | Hardware-checked |
+|---|---|---|---|---|---|
+| F-072 | Matrix sketch progress | Default matrix image verified byte-for-byte; p0Seconds441 then444 with three-second requested wait, observed read bounds3.000219..3.078029s; same list/sketch/BSS mapping confirmed afterward; exit0 | analysis/P0_matrix_capture_20260922.json; P0_matrix_run1_raw/ | MCU counter advancement observed | software progress through matrix workload; optical appearance/1Hz accuracy not qualified |
+
+F-072 supersedes only F-071's pending counter observation. Full readout took
+104.838s inside the unchanged120s limit. The MCU remains on the inert default
+matrix image; no Immediate upload, cold boot, Monitor output or motor action.

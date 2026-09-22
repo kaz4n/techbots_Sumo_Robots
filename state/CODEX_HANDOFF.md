@@ -25,17 +25,21 @@ compile-only, plus matrix default, succeeded. Timing default was uploaded at23:1
 under D-052, then measured through reviewed MEM-AP reads under D-053. Run1's one-byte
 packaged-BIN/reference mismatch failed safely;32f0403 verifies exact ELF PT_LOAD
 bytes. Run2 captured60000 samples: max3us/p99=3us/zero >=1ms-late observations.
-All107 tooling tests pass under WSL; separate raw-data review reproduces metrics.
+All116 tooling tests pass under WSL; separate raw-data review reproduces metrics.
 This is bare-scheduler lateness, not complete control WCET or a phase pass.
 
 Current MCU image: inert p0_matrix/default/MOTORS_ALLOWED0, source72214f8a, uploaded
 23:34:33+04. Exact full hash/artifacts are in analysis/P0_matrix_readout_plan.md.
-Current next task: finish/review the separate bounded matrix RAM-counter observer,
-capture actual advancement, then save the bare-board checkpoint. Optical display,
-Monitor round trip and power-on startup timing remain distinct pending evidence.
+Matrix readout under a287867 verified exact flashed bytes and observed counter441
+then444 across a3s wait, with matching runtime mapping before/after. Final results:
+analysis/P0_bare_board_results_20260922.md, FACTS F-072 and raw/review files linked
+there. Optical display, Monitor round trip and power-on startup timing remain
+distinct pending evidence. Two inert uploads total; no later reset/upload.
 Immediate matrix remains blocked F-061. Do not request additional hardware now.
 C: remains low (~350MB); avoid local tool downloads. No motor-capable firmware/run.
-After bare-board tasks, resume saved Full Escape/WAIT contract work and P1.
+Next task: resume saved Full Escape contract work under D-047..D-051: publish its
+public interface first, derive independent tests, implement, validate and review.
+Then WAIT/Robot integration. P0 acceptance and every human phase gate remain open.
 
 ## Prior 22:07 resume checkpoint — superseded above
 

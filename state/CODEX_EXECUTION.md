@@ -6,8 +6,9 @@ User authorizes testing bare UNO Q only (D-052). USB ADB fallback now works with
 actual board-side compile/upload. Inert timing default/Immediate compile-only and
 matrix default builds pass; current MCU runs inert matrix/default. Timing default
 60000-sample capture gives max/p99=3us, zero >=1ms-late observations; separate
-raw-data review confirms this limited measurement.107 tooling tests pass in WSL.
-Next: separately reviewed matrix RAM-counter observation and checkpoint. No gate passed.
+raw-data review confirms this limited measurement.116 tooling tests pass in WSL.
+Matrix counter441->444 observed with exact image/mapping checks. Next: Full Escape
+interface/independent tests/implementation under D-047..D-051. No gate passed.
 Full Escape/WAIT/Robot remain unfinished; D-051 permits documented decisions
 without more questions. Earlier hardware-deferral/next-task statements below
 are historical and superseded by this checkpoint.
@@ -33,9 +34,9 @@ results remain pending, not assumed successful. Date:2026-09-22, Asia/Dubai.
 | Existing task | Status | Evidence and remaining dependency |
 |---|---|---|
 | Kickoff role migration | IMPLEMENTED | D-015, AGENTS, CODEX_HANDOFF; baseline52b935e preserved |
-| P0 0.1 G1-G6 | SOURCE-REVIEWED / INSTALLED-INVENTORY | P0_G*.md; FACTS throughF-071; physical electrical checks pending |
-| P0 0.2 scripts | SCRIPT-TESTED / TARGET-USED |107 tooling cases; actual ADB build/upload receipts, missing rsync explicit; Monitor round trip pending |
-| P0 0.2/0.4 inert demos/timing | BARE-SCHEDULER-MEASURED / MATRIX-UPLOADED |60000 samples max/p99=3us; matrix counter next; optical/startup/WCET/GPIO/QTR/ADC/I2C pending |
+| P0 0.1 G1-G6 | SOURCE-REVIEWED / INSTALLED-INVENTORY | P0_G*.md; FACTS throughF-072; physical electrical checks pending |
+| P0 0.2 scripts | SCRIPT-TESTED / TARGET-USED |116 tooling cases; actual ADB build/upload receipts, missing rsync explicit; Monitor round trip pending |
+| P0 0.2/0.4 inert demos/timing | BARE-SCHEDULER-MEASURED / MATRIX-COUNTER-OBSERVED |60000 samples max/p99=3us; matrix counter441->444; optical/startup/WCET/GPIO/QTR/ADC/I2C pending |
 | P0 0.3 host scaffold | HOST-TESTED | CMake/doctest2.4.12, all76 B16 defaults preserved |
 | P0 0.5 pin map | BLOCKED | Physical electrical checks and PINMAP OK; no pins assigned in config |
 | P0 gate | GATE-PENDING | P0_gate_request.md prepared; physical evidence and human gate absent |

@@ -16,3 +16,10 @@
 6. Keep PROGRESS append-only; make small local commits, never publish. At the
    boundary record files/commits, commands/statuses, limitations, human requests,
    review findings and exact next task. Use existing HUMAN ACTION/CONFUSION formats.
+
+Current bare-board checkpoint: read state/analysis/P0_bare_board_results_20260922.md.
+The last image is inert p0_matrix/default, not robot firmware. D-051 delegates
+engineering choices without questions; D-052 permits bare-board diagnostics only.
+Do not request additional hardware for the next P1 host task or reuse a recorded
+USB connection as proof that the device is still attached. Resume full Escape
+contracts/tests/implementation, then WAIT/Robot, with existing phase gates intact.

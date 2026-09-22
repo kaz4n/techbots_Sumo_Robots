@@ -124,3 +124,13 @@ Every bench or ring measurement and every config.h change goes here with its evi
 - Scope: bare scheduler lateness including installed yield/mutex loop hook;
   not complete control-tick WCET, pin/API timings, startup or ring evidence.
   No config value or pin changed; M1-M13 remain unmeasured.
+
+### 2026-09-22 | P0 bare UNO Q matrix progress | no tuning change
+- Inert source72214f8a/default/MOTORS_ALLOWED0 uploaded23:34:33+04 to USB2629958581.
+- Actual p0Seconds counter441 then444; requested3s wait, read-to-read time bounds
+  3.000219..3.078029s. Full loader/sketch comparison and before/after runtime
+  mapping checks passed; capture exit0 in104.838s.
+- Evidence: analysis/P0_matrix_capture_20260922.json and P0_matrix_run1_raw/.
+  This shows software progress through the matrix workload, not optical
+  correctness, precise clock rate, loaded tick timing or Monitor round trip.
+- No config/pin change, additional hardware or motor operation; no phase gate.

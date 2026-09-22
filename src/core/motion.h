@@ -14,6 +14,15 @@ struct Result {
     bool imu_fallback = false;
 };
 
+// Internal elapsed-time accumulator; caller supplies time, never reads a clock.
+// Successive call gaps must be less than one complete uint32 microsecond wrap.
+struct Interval {
+    std::uint32_t last_us = 0;
+    std::uint64_t elapsed_us = 0;
+    void begin(std::uint32_t t_us);
+    void advance(std::uint32_t t_us);
+};
+
 class Turn {
 public:
     // Finite target/last-known heading; max duty in [TURN_MIN_DUTY,1]. Time
@@ -31,9 +40,9 @@ public:
     Result step(std::uint32_t t_us, float heading_deg, bool imu_ok);
     void reset();
 private:
-    void beginFallback(std::uint32_t t_us);
-    std::uint32_t started_us_ = 0;
-    std::uint32_t fallback_us_ = 0;
+    void beginFallback();
+    Interval interval_;
+    std::uint64_t fallback_elapsed_us_ = 0;
     double fallback_duration_us_ = 0.0;
     float target_heading_deg_ = 0.0F;
     double error_deg_ = 0.0;
@@ -57,7 +66,7 @@ public:
     Result step(std::uint32_t t_us, float heading_deg, bool imu_ok);
     void reset();
 private:
-    std::uint32_t started_us_ = 0;
+    Interval interval_;
     std::uint32_t duration_us_ = 0;
     float heading_deg_ = 0.0F;
     float duty_ = 0.0F;
@@ -78,7 +87,7 @@ public:
     Result step(std::uint32_t t_us, float heading_deg, bool imu_ok);
     void reset();
 private:
-    std::uint32_t started_us_ = 0;
+    Interval interval_;
     std::uint32_t duration_us_ = 0;
     float heading_deg_ = 0.0F;
     float sweep_deg_ = 0.0F;
@@ -96,12 +105,13 @@ public:
     Result step(std::uint32_t t_us);
     void reset();
 private:
-    std::uint32_t started_us_ = 0;
+    Interval interval_;
     std::uint32_t duration_us_ = 0;
     Status status_ = Status::IDLE;
 };
-// Terminal statuses are latched zero until start/reset. All times use unsigned
-// subtraction; caller samples before a full uint32 wrap can hide an interval.
+// Terminal statuses are latched zero until start/reset. Unsigned per-call deltas
+// accumulate in uint64 so even the longest accepted duration cannot miss expiry
+// across a start-relative wrap. Consecutive sample gaps must be <one uint32 wrap.
 // These components never grant permission: requests pass through governor and
 // MotorGate. D-023 keeps durations independent of voltage. No clock, I/O or heap.
 } // namespace motion

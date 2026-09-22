@@ -29,3 +29,23 @@ contract. Required checks: turn signs/gain/min/max, strict 5-degree boundary,
 180-degree convention, mirrored turns excluding the tie, stationary brake
 boundaries, literal frame/event bytes, quantization/clamps and invalid poisoning.
 No existing locked test is edited. Target compilation and robot WCET are pending.
+
+## Approved extension and review amendment - 2026-09-22
+
+The initial contract above was extended after the user approved D-022 bounded
+straight correction and D-023 duty-only voltage compensation. Current motion.h
+now defines Turn (closed loop and timed fallback), Straight, Arc and Brake.
+Turn latches fallback once per command using last valid remaining angle; the
+original timeout always remains in force. Straight resumes its original heading
+reference after recovery. Arc receives accumulated yaw and uses its time bound
+when IMU data is unavailable. All terminal requests are zero; the components
+grant no motor permission. These transition mechanics are explicit API contracts,
+not measured dynamics, new strategy or an IMU acquisition implementation.
+
+Separate read-only review found a MAJOR interval-boundary defect before the first
+full test run: the largest accepted duration could miss expiry when a 1 kHz call
+crossed the start-relative uint32 wrap. Preserve the accepted duration range and
+fix by accumulating unsigned successive time deltas in uint64, with <one wrap
+between consecutive calls; stop advancing after terminal status. Independent
+tests add that exact reproduction and late-call coverage. No assertion or
+accepted input range is weakened to obtain a pass. Final re-review is required.

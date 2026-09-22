@@ -165,3 +165,13 @@ optical confirmation, external-pin measurement or phase gate is inferred.
 F-072 supersedes only F-071's pending counter observation. Full readout took
 104.838s inside the unchanged120s limit. The MCU remains on the inert default
 matrix image; no Immediate upload, cold boot, Monitor output or motor action.
+
+| ID | Question | Observed answer | Source | Confidence | Hardware-checked |
+|---|---|---|---|---|---|
+| F-073 | Installed bounded-output primitives | Stock Monitor/Bridge/RPClite/ZephyrSerial lack a bounded runtime send path. Installed core disables async UART; internal router LPUART1 is deferred-init,115200/8N1/no flow control, separate from console. One-byte interrupt FIFO output is conditionally usable with exclusive ownership and short IRQ-lock containment of CR1 exclusive retries; setup initialization itself can wait and must never enter runtime paths. | analysis/P0_bounded_transport_source_20260923.md; P0_transport_installed_20260923.json; P0_uart_irq_installed_20260923.md | installed source/binary plus pinned primary-source verification | no adapter runtime/WCET proof |
+| F-074 | Linux Monitor sink reachability | Receive-only connection to127.0.0.1:7500 accepted; sent0bytes, received0bytes, ended on3.004518694s receive deadline. Existing RAM-only matrix image remained installed. | analysis/P0_monitor_sink_20260923.json | actual Linux endpoint observation | not an MCU counter round trip |
+| F-075 | Fixed-counter target compile | Candidate matrix source75ab5a22 compiles on selected UNO Q with MATCH0/MOTORS_ALLOWED0/default;77596B program,31416B globals,230728B remaining per compiler; exit0. One fixed packet slot, no Bridge start, separate final-TC completion. | analysis/P0_counter_target_compile_20260923.txt; P0_counter_inert_manifest_proposal.json | TARGET-COMPILED | no upload/reset/runtime during this compile |
+
+D-062 selects a small P0 diagnostic adaptation of the existing notification
+protocol, not a production recorder or an R3/R4 waiver. Source/binary and host
+substitute results remain separate from actual delivery and timing measurements.

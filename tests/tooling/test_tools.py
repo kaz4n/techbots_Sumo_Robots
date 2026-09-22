@@ -410,6 +410,9 @@ class ToolContractTests(unittest.TestCase):
         for name in ('p0_matrix', 'p0_timing'):
             shutil.copyfile(PROJECT / f'bench/{name}/{name}.ino',
                             self.root / f'bench/{name}/{name}.ino')
+            local_source = PROJECT / f'bench/{name}/src'
+            if local_source.is_dir():
+                shutil.copytree(local_source, self.root / f'bench/{name}/src')
             self.assertEqual(0, self.run_tool(f'bench/{name}', '--compile-only').returncode)
             sketch = self.root / f'build/stage/{name}/{name}.ino'
             for motors in (0, 1):

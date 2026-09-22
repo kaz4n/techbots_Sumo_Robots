@@ -107,21 +107,57 @@ int main(int argc, char** argv) {
 MATRIX_HARNESS = '''#include <cassert>
 #include <string>
 #include "Arduino.h"
+#include "bench/p0_matrix/src/counter_uart.h"
+
+// Scheduling fixture only; separate opaque adapter tests verify real transport.
+namespace transportStub {
+unsigned begins = 0;
+unsigned services = 0;
+unsigned submissions = 0;
+std::uint32_t lastCounter = 0;
+std::uint32_t lastSubmitUs = 0;
+}
+namespace p0 {
+bool beginCounterTransport() {
+    ++transportStub::begins;
+    return true;
+}
+void serviceCounter(std::uint32_t now_us) {
+    assert(transportStub::begins == 1);
+    assert(now_us == fakeNow);
+    ++transportStub::services;
+}
+bool submitCounter(std::uint32_t counter, std::uint32_t now_us) {
+    assert(transportStub::begins == 1);
+    assert(now_us == fakeNow);
+    ++transportStub::submissions;
+    transportStub::lastCounter = counter;
+    transportStub::lastSubmitUs = now_us;
+    return true;
+}
+}
 #include "bench/p0_matrix/p0_matrix.ino"
 
 void counterWrap() {
     const std::uint32_t start = 0xfffffe0cU;
     fakeNow = start;
     setup();
+    assert(transportStub::begins == 1 && transportStub::submissions == 0);
     fakeNow = start + 999U;
     loop();
     assert(p0Seconds == 0);
+    assert(transportStub::submissions == 0 && transportStub::services == 1);
     fakeNow = start + 1000U;
     loop();
     assert(p0Seconds == 1);
+    assert(transportStub::submissions == 1 && transportStub::lastCounter == 1);
+    assert(transportStub::lastSubmitUs == start + 1000U);
     fakeNow = start + 2000U;
     loop();
     assert(p0Seconds == 2);
+    assert(transportStub::submissions == 2 && transportStub::lastCounter == 2);
+    assert(transportStub::lastSubmitUs == start + 2000U);
+    assert(transportStub::services == 3);
 }
 
 void delayedCounter() {
@@ -129,17 +165,23 @@ void delayedCounter() {
     fakeNow = 1500;
     loop();
     assert(p0Seconds == 1);
+    assert(transportStub::submissions == 1 && transportStub::lastCounter == 1);
     fakeNow = 2100;
     loop();
     assert(p0Seconds == 2);
+    assert(transportStub::submissions == 2 && transportStub::lastCounter == 2);
     fakeNow = 5500;
     loop();
     assert(p0Seconds == 5);
+    assert(transportStub::submissions == 3 && transportStub::lastCounter == 5);
     loop();
     assert(p0Seconds == 5);
+    assert(transportStub::submissions == 3);
     fakeNow = 6000;
     loop();
     assert(p0Seconds == 6);
+    assert(transportStub::submissions == 4 && transportStub::lastCounter == 6);
+    assert(transportStub::lastSubmitUs == 6000 && transportStub::services == 5);
 }
 
 void visibleAndBounded() {

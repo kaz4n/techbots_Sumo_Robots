@@ -13,6 +13,8 @@ DIAGNOSTIC_DEFAULTS = {
     'P0_COUNTER_MS': 1000,
     'P0_JITTER_SAMPLES': 60000,
     'P0_JITTER_HISTOGRAM_US': 1000,
+    'P0_MONITOR_TIMEOUT_US': 100000,  # D-062 fixed-counter diagnostic deadline.
+    'P0_MONITOR_BAUD_BPS': 115200,  # D-062 existing internal UART configuration.
 }
 BEHAVIOR_EXTRA_DEFAULTS = {
     'VBAT_FILTER_MS': 1000,  # B6 one-second time constant.

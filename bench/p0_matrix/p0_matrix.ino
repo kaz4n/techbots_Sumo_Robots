@@ -1,7 +1,8 @@
-// Displays a fixed SUMO scroll on the on-board matrix with a RAM seconds counter.
-// Exercises an inert P0 sketch without Bridge, motor writes or proposed pins.
-// Host syntax/staging checked; target compile and visual check remain pending.
+// Displays SUMO and submits a fixed counter notification on the internal UART.
+// Exercises an inert P0 sketch without blocking Bridge calls or motor writes.
+// Packet/adapter tests, target compile and physical receipt are separate evidence.
 #include "src/config.h"
+#include "src/counter_uart.h"
 #include <Arduino_LED_Matrix.h>
 
 static_assert(MOTORS_ALLOWED == 0, "This P0 diagnostic must remain inert");
@@ -36,10 +37,12 @@ void drawScroll() {
 void setup() {
     matrix.begin();
     matrix.setGrayscaleBits(3);
+    p0::beginCounterTransport();
     lastCounterMs = lastScrollMs = millis();
 }
 
 void loop() {
+    p0::serviceCounter(micros());
     const std::uint32_t now = millis();
     if (now - lastScrollMs >= config::P0_SCROLL_MS) {
         lastScrollMs = now;
@@ -49,5 +52,6 @@ void loop() {
     if (periods != 0) {
         lastCounterMs += periods * config::P0_COUNTER_MS;
         p0Seconds += periods;
+        p0::submitCounter(p0Seconds, micros());
     }
 }

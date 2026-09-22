@@ -344,3 +344,5 @@ image remains September22 inert matrix. All commits local; no push or tag.
 History correction: the earlier in-progress paragraph labeled01:09 was written
 at approximately01:07 per its actual command receipt; it was a timestamp
 transcription error. The paragraph is retained and superseded by this checkpoint.
+
+2026-09-23 01:49 Dubai — P0 0.1/0.2 bounded counter work: D-062 contract/source evidence8f94452, installed UART/setup contractcab665c/3f9ea7f, explicit test-expectation reconciliation2f7e1b4. Installed source/binary audit separates unavailable stock APIs from conditional TX-only IRQ path. Actual receive-only Linux sink accepted; zero payload. Candidate75ab5a22 TARGET-COMPILED exit0, no upload/reset. Independent packet25cases/156553assertions and adapter39cases pass; initial31/34 discrepancies preserved. Exact binary audit/fresh source approval/full tooling and real counter receipt still pending. Old default matrix remains installed; human gates/P2/physical external checks unchanged.

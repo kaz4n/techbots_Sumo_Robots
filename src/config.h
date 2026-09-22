@@ -112,6 +112,7 @@ inline constexpr std::uint32_t COUNTDOWN_SNAPSHOT_MS = 300U; // ms before GO
 inline constexpr std::uint32_t P0_SCROLL_MS = 100U;
 inline constexpr std::uint32_t P0_COUNTER_MS = 1000U;
 inline constexpr std::uint32_t P0_MONITOR_TIMEOUT_US = 100000U; // D-062 diagnostic only
+inline constexpr std::uint32_t P0_MONITOR_BAUD_BPS = 115200U; // validate installed link, never reconfigure
 inline constexpr std::uint32_t P0_JITTER_SAMPLES = 60000U;
 inline constexpr std::uint32_t P0_JITTER_HISTOGRAM_US = 1000U;
 } // namespace config

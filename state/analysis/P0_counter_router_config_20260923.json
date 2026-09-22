@@ -1,0 +1,23 @@
+[
+  {
+    "command": [
+      "systemctl",
+      "show",
+      "arduino-router.service",
+      "--property=ExecStart",
+      "--property=ActiveState"
+    ],
+    "returncode": 0,
+    "stdout": "ExecStart={ path=/usr/bin/arduino-router ; argv[]=/usr/bin/arduino-router --unix-port /var/run/arduino-router.sock --serial-port /dev/ttyHS1 --serial-baudrate 115200 --after-ready /usr/bin/gpioset -c /dev/gpiochip1 -t0 70=1 ; ignore_errors=no ; start_time=[Tue 2026-09-22 16:04:14 UTC] ; stop_time=[n/a] ; pid=576 ; code=(null) ; status=0/0 }\nActiveState=active\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "arduino-router",
+      "--help"
+    ],
+    "returncode": 0,
+    "stdout": "Arduino router for msgpack RPC service protocol\n\nUsage:\n  arduino-router [flags]\n  arduino-router [command]\n\nAvailable Commands:\n  completion  Generate the autocompletion script for the specified shell\n  help        Help about any command\n  version     \n\nFlags:\n      --after-ready string    Execute a command after the router is ready)\n  -h, --help                  help for arduino-router\n  -l, --listen-port string    Listening port for RPC services\n  -m, --monitor-port string   Listening port for MCU monitor proxy (default \"127.0.0.1:7500\")\n  -b, --serial-baudrate int   Serial port baud rate (default 115200)\n  -p, --serial-port string    Serial port address\n  -u, --unix-port string      Listening port for RPC services (default \"/var/run/arduino-router.sock\")\n  -v, --verbose               Enable verbose logging\n\nUse \"arduino-router [command] --help\" for more information about a command.\n",
+    "stderr": ""
+  }
+]

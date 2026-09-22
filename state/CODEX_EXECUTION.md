@@ -7,6 +7,10 @@ D-052 authorizes bare UNO Q diagnostics. No additional hardware is requested.
 
 ## Latest bounded delivery
 
+- IN PROGRESS: D-060 production Robot contract ea4618c/4ae6d45 is published.
+  fsm_robot.cpp, independent actual-Robot/locked/event scenarios, metadata batch
+  validation and inert app compile entry are being implemented. These changed
+  sources have no whole-suite or target validation yet;807 below is the baseline.
 - Full Escape:66f76e4; WAIT:6938c63; contact preview:990f287. Interfaces preceded
   implementation; decisions D-054/D-055/D-056 record the exact added contracts.
 - D-057 START-only routing:4d323bc, contract322ecce. Suppression cannot replay a
@@ -60,15 +64,17 @@ D-052 authorizes bare UNO Q diagnostics. No additional hardware is requested.
 
 ## Next eligible work
 
-1. Adopt/revise the concrete production API from analysis/P1_robot_api_proposal.md
-   under a new D-060; D-059 heading ownership is now implemented, not a pending
-   question. Commit Robot interfaces before independent tests/implementation.
-2. Implement actual Robot from that API and analysis/P1_robot_interface_audit.md:
+1. Finish D-060 Robot source and independent scenario/event/locked tests, then
+   freeze for separate review and normal/sanitized host validation. The adopted
+   contract is analysis/P1_robot_contract.md and the actual public headers;
+   ea4618c/4ae6d45 preceded source/tests. Proposals are superseded where clarified.
+2. Verify actual Robot from that API and analysis/P1_robot_interface_audit.md:
    fresh input ownership, same-tick GO coordinate rebase, truthful histories,
    previous applied duties, one contact commit/Governor call, bounded events,
    STOP/edge priority and inhibited faults. Add real production scenario tests.
-   P1_robot_event_contract_audit.md supplies unadopted metadata/batch
-   recommendations; its21-event bound is conditional, not proved Robot behavior.
+   D-060 adopts the event metadata/batch table with explicit clarifications;
+   its21-event bound still needs production tests/review. Complete inert app
+   compile-only on UNO Q after host validation; app uploads remain forbidden.
 3. Complete P1 source/table/property coverage and architecture, target compile,
    then prepare fresh phase review. No P2 HAL implementation without gate/specific
    scheduling authorization; D-016 authorizes P1 only.

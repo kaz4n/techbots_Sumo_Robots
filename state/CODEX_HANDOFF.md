@@ -2,6 +2,17 @@
 
 ## Current resume point — 2026-09-23 Asia/Dubai
 
+IN PROGRESS after the validated807-case baseline below: D-060 public Robot and
+event interfaces were committed as ea4618c/4ae6d45. Read
+analysis/P1_robot_contract.md as the adopted integration contract. Source worker
+owns fsm_robot.cpp and Robot's private header members; independent test author
+owns new actual-Robot scenarios, events and locked tests. Coordinator owns
+logframe metadata implementation, inert app compile entry and shared ledgers.
+No full Robot build has run yet. Complete source/test freeze, separate review,
+normal/sanitized host validation, reviewed inert snapshots/tooling, then prescribed
+app compile-only on the bare UNO Q. Do not treat baseline results as proof of these
+new working changes. Historical next-task paragraphs below are superseded here.
+
 Latest completed components: D-058 Menu9d9b858 (contract3563a8f) and D-059
 HeadingReference4671c8b (contractsfd40a5b/0a63190/6e57949/ca82293 first).
 807 cases/12,233,461 assertions pass normal+ASan/UBSan and separate reviewer

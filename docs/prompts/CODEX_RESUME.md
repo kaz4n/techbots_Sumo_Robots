@@ -24,10 +24,12 @@ COMPILED inside inert p0_timing/default sourcebbf6c22, MATCH0/MOTORS_ALLOWED0,
 exit0. No new upload/reset/start; prior inert p0_matrix remains the last firmware.
 Read P1_menu_validation.md, P1_heading_validation.md and their scoped reviews.
 
-Next: adopt/revise P1_robot_api_proposal.md under D-051 as D-060, publish production
-Robot interfaces, then independent actual Robot scenario tests and implementation.
+Current work: D-060 public Robot interfaces ea4618c/4ae6d45 are committed. Complete
+fsm_robot.cpp and independent actual-Robot/locked/event tests against the adopted
+analysis/P1_robot_contract.md, then freeze/review/build. Metadata implementation
+and inert app compile entry are also in progress, not yet whole-suite validated.
 D-059 heading ownership and D-057/D-058 logical menu/routing are completed components;
 service consumers, full Robot/app/HAL and all human phase gates remain pending.
-The API/event proposals remain unadopted until the coordinator records the decision.
+The adopted contract and actual headers supersede proposal declaration sketches.
 Do not request extra hardware now or treat historical USB evidence as live access.
 Bare-board evidence is P0_bare_board_results_20260922.md; no motor permission exists.

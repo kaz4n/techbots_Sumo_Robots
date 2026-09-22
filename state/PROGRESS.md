@@ -317,3 +317,11 @@ as components. Full app/HAL, physical measurements, P1 full fresh gate review an
 all human phase gates remain outstanding. Last uploaded image is still September22
 inert matrix; no new motor authorization. Evidence: P1_heading_validation.md and
 reviews/P1_heading_codex.md. Date23September Dubai; no schedule cut applies yet.
+
+| 2026-09-23 | P1 production Robot interfaces | D-060 ea4618c/4ae6d45 published before independent tests/source; public contract resolves transaction/order/evidence semantics | IMPLEMENTING actual Robot, metadata batch and inert app compile entry; no current full build claim | checkpoint commit containing this row |
+
+01:09 Dubai work checkpoint: independent Robot safety/scenario/event test author
+and source worker are active with separate ownership; coordinator implements
+metadata validation and inert app entry.807-case results remain the prior baseline.
+Next freeze source/tests, review, run host+sanitizer/tooling validation, then actual
+app compile-only. No upload/run, physical acceptance or human gate in this batch.

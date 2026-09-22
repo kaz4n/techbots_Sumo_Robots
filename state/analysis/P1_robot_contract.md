@@ -122,6 +122,10 @@ that status (INVALID has codec-zero bytes), and mark recording_incomplete. Such
 an emitted frame does not increment skipped_frames. Missing/invalid application
 emits no frame, increments skipped_frames for its candidate and marks incomplete.
 Before GO frame yaw is the actual raw continuous input; after GO it is match yaw.
+Frame gyro_z_dps is the supplied raw_gyro_z_dps (pre-bias), the only live rate in
+RobotInput. Do not subtract previous_bias_dps outside its accepted-release service
+use or invent a corrected-rate sample. Dump field documentation must retain this
+meaning; a later corrected-rate channel requires an explicit public contract.
 IMU_OK describes current actual availability with valid coordinate; nominal/retained
 fallback yaw is never marked healthy. Nonfinite fields retain codec INVALID status.
 RobotResult contains no raw nonfinite measurement outputs.

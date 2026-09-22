@@ -1,4 +1,4 @@
-// Implements B8 search, B9 front qualification/steering and B10 defensive turns.
+// Implements B8 search, B9 front requests and bounded B10/B11 motion scripts.
 // Keeps request math and captured commands separate from motor authorization.
 // Independent host tests cover table rows, capture, caps, deadlines and wrap.
 #include "core/fsm.h"
@@ -35,6 +35,12 @@ bool runningSearch(SearchPhase phase) {
     return phase == SearchPhase::MEMORY_TURN || phase == SearchPhase::SCAN ||
            phase == SearchPhase::ADVANCE;
 }
+
+motion::Direction oppositeDirection(motion::Direction direction) {
+    return direction == motion::Direction::RIGHT ? motion::Direction::LEFT :
+                                                  motion::Direction::RIGHT;
+}
+
 } // namespace
 
 FrontQualificationResult FrontQualification::observe(std::uint8_t effective_mask) {
@@ -249,6 +255,177 @@ SearchResult Search::step(std::uint32_t t_us, float heading_deg, bool imu_ok,
 }
 
 void Search::reset() { *this = Search{}; }
+
+SwingChoice chooseSwing(const SwingContext& context) {
+    if (context.edge_side_valid && context.edge_age_us <
+        static_cast<std::uint64_t>(config::RECENT_EDGE_MS) * 1000U) {
+        if (!validDirection(context.edge_side)) return {};
+        return {oppositeDirection(context.edge_side), true};
+    }
+    if (context.front_left_seen != context.front_right_seen) {
+        return {context.front_left_seen ? motion::Direction::RIGHT : motion::Direction::LEFT,
+                true};
+    }
+    if (context.front_left_seen && context.front_left_age_us != context.front_right_age_us) {
+        return {context.front_left_age_us > context.front_right_age_us ?
+                motion::Direction::LEFT : motion::Direction::RIGHT, true};
+    }
+    if (!context.previous_swing_valid) return {motion::Direction::RIGHT, true};
+    if (!validDirection(context.previous_swing)) return {};
+    return {oppositeDirection(context.previous_swing), true};
+}
+
+bool Reflank::start(std::uint32_t t_us, float heading_deg, bool /*imu_ok*/,
+                    motion::Direction direction) {
+    reset();
+    stage_ = Stage::INVALID;
+    if (!std::isfinite(heading_deg) || !validDirection(direction)) return false;
+    if (!back_.start(t_us, heading_deg, -config::REFLANK_BACK_DUTY,
+                     config::REFLANK_BACK_MS)) return false;
+    last_heading_deg_ = heading_deg;
+    direction_ = direction;
+    stage_ = Stage::BACK;
+    return true;
+}
+
+bool Reflank::beginSwing(std::uint32_t t_us, bool imu_ok) {
+    const float pivot = static_cast<float>(config::REFLANK_PIVOT_DEG) *
+                        (direction_ == motion::Direction::RIGHT ? 1.0F : -1.0F);
+    if (!turn_.startRelative(t_us, last_heading_deg_, pivot, config::TURN_DUTY, imu_ok)) {
+        stage_ = Stage::INVALID;
+        return false;
+    }
+    stage_ = Stage::PIVOT;
+    return true;
+}
+
+bool Reflank::beginTurnIn(std::uint32_t t_us, bool imu_ok, float bearing_deg, bool valid) {
+    if (!valid || !std::isfinite(bearing_deg) || bearing_deg <= -180.0F || bearing_deg > 180.0F) {
+        stage_ = Stage::INVALID;
+        return false;
+    }
+    if (!turn_.startRelative(t_us, last_heading_deg_, bearing_deg, config::TURN_DUTY, imu_ok)) {
+        stage_ = Stage::INVALID;
+        return false;
+    }
+    stage_ = Stage::TURN_IN;
+    return true;
+}
+
+motion::Result Reflank::runMotion(std::uint32_t t_us, float heading_deg, bool imu_ok) {
+    switch (stage_) {
+    case Stage::BACK: return back_.step(t_us, heading_deg, imu_ok);
+    case Stage::PIVOT: case Stage::TURN_IN:
+        return turn_.step(t_us, heading_deg, imu_ok);
+    case Stage::ARC: return arc_.step(t_us);
+    default: return {};
+    }
+}
+
+bool Reflank::advanceStage(std::uint32_t t_us, bool imu_ok) {
+    switch (stage_) {
+    case Stage::BACK: return beginSwing(t_us, imu_ok);
+    case Stage::PIVOT:
+        if (!arc_.start(t_us, oppositeDirection(direction_), config::REFLANK_ARC_RATIO,
+                         config::TURN_DUTY, config::REFLANK_ARC_MS)) {
+            stage_ = Stage::INVALID;
+            return false;
+        }
+        stage_ = Stage::ARC;
+        return true;
+    case Stage::ARC: case Stage::TURN_IN:
+        stage_ = Stage::FINISHED;
+        return true;
+    default:
+        stage_ = Stage::INVALID;
+        return false;
+    }
+}
+
+ReflankResult Reflank::result(const motion::Result& motion) const {
+    ReflankResult output;
+    output.direction = direction_;
+    output.motion = motion;
+    switch (stage_) {
+    case Stage::BACK:
+        output.phase = ReflankPhase::BACK;
+        output.profile = governor::Profile::REFLANK_BACK;
+        return output;
+    case Stage::PIVOT: case Stage::ARC:
+        output.phase = ReflankPhase::SWING;
+        return output;
+    case Stage::TURN_IN:
+        output.phase = ReflankPhase::TURN_IN;
+        return output;
+    case Stage::FINISHED:
+        output.phase = ReflankPhase::FINISHED;
+        output.intent = Intent::PERCEPTION;
+        output.motion = {0.0F, 0.0F, motion::Status::DONE, false};
+        return output;
+    case Stage::INVALID:
+        output.phase = ReflankPhase::INVALID;
+        output.intent = Intent::INVALID;
+        output.motion = {0.0F, 0.0F, motion::Status::INVALID, false};
+        return output;
+    default:
+        output.motion = {};
+        return output;
+    }
+}
+
+ReflankResult Reflank::step(std::uint32_t t_us, float heading_deg, bool imu_ok,
+                           std::uint8_t effective_mask, bool contact_cue,
+                           float bearing_deg, bool bearing_valid) {
+    if (stage_ == Stage::IDLE || stage_ == Stage::FINISHED || stage_ == Stage::INVALID) return result({});
+    const auto mask = static_cast<std::uint8_t>(effective_mask & 0x7FU);
+    const bool front = (mask & 0x07U) != 0U;
+    if (stage_ == Stage::TURN_IN && front) {
+        stage_ = Stage::FINISHED;
+        return result({});
+    }
+    if (imu_ok && !std::isfinite(heading_deg)) {
+        stage_ = Stage::INVALID;
+        return result({});
+    }
+    if (imu_ok) last_heading_deg_ = heading_deg;
+    const std::uint8_t inner = direction_ == motion::Direction::RIGHT ? 0x28U : 0x50U;
+    ReflankResult entries;
+    motion::Result demand;
+    for (std::uint32_t visits = 0U; visits < 4U; ++visits) {
+        if (stage_ == Stage::TURN_IN && front) {
+            stage_ = Stage::FINISHED;
+            break;
+        }
+        if (stage_ == Stage::BACK && front && contact_cue) {
+            entries.entered_swing = beginSwing(t_us, imu_ok);
+            if (!entries.entered_swing) break;
+            continue;
+        }
+        if ((stage_ == Stage::PIVOT || stage_ == Stage::ARC) && (mask & inner) != 0U) {
+            entries.entered_turn_in = beginTurnIn(t_us, imu_ok, bearing_deg, bearing_valid);
+            if (!entries.entered_turn_in) break;
+            continue;
+        }
+        demand = runMotion(t_us, heading_deg, imu_ok);
+        if (demand.status == motion::Status::INVALID) {
+            stage_ = Stage::INVALID;
+            break;
+        }
+        if (demand.status != motion::Status::DONE && demand.status != motion::Status::TIMED_OUT) break;
+        entries.turn_timed_out = entries.turn_timed_out || demand.status == motion::Status::TIMED_OUT;
+        const bool leaving_back = stage_ == Stage::BACK;
+        if (!advanceStage(t_us, imu_ok)) break;
+        entries.entered_swing = entries.entered_swing || leaving_back;
+        if (stage_ == Stage::FINISHED) break;
+    }
+    ReflankResult output = result(demand);
+    output.entered_swing = entries.entered_swing;
+    output.entered_turn_in = entries.entered_turn_in;
+    output.turn_timed_out = entries.turn_timed_out;
+    return output;
+}
+
+void Reflank::reset() { *this = Reflank{}; }
 
 bool DefendTurn::start(std::uint32_t t_us, float heading_deg, float bearing_deg,
                        bool bearing_valid, bool imu_ok) {

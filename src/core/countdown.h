@@ -1,11 +1,16 @@
 // Defines the standalone B3 release-to-GO permission timer.
 // Separates a testable logical interlock from ADC decoding and hardware MotorGate.
-// Locked host tests cover release debounce, boot-held START, hold and wraparound.
+// Locked host tests cover qualified events, debounce, boot-held START and wraparound.
 #pragma once
 #include "types.h"
 
 namespace countdown {
 enum class Phase : std::uint8_t { IDLE, HOLDING, READY, STOPPED };
+struct Commands {
+    bool start_release = false; // Qualified logical event, not a raw button level.
+    bool mode_press = false;
+    bool stop_requested = false;
+};
 struct Result {
     Phase phase = Phase::IDLE;
     bool motion_permitted = false;
@@ -15,25 +20,37 @@ struct Result {
 };
 class Gate {
 public:
-    // Call once per tick, including inhibited states; no clock or I/O is read here.
-    // First sample establishes the boot level. Boot-held START is not a press.
-    // Only a debounced NONE -> START -> NONE sequence starts a countdown.
-    // MODE (including BOTH) cancels a hold when debounced. A stop request is
-    // immediate and latched until reset; its B13 button decoder is not implemented.
-    Result step(std::uint32_t t_us, core::ButtonLevel level,
-                bool stop_requested = false);
+    // An accepted release starts the hold at the supplied event time t_us.
+    // Caller supplies qualified commands. Mapping raw-release vs qualification
+    // time into this service awaits a documented integration decision (SC-J).
+    // STOP is latched until reset. MODE cancels a hold; neither can grant motion.
+    Result step(std::uint32_t t_us, Commands commands = {});
     void reset();
 private:
-    void updateButton(std::uint32_t t_us, core::ButtonLevel level);
-    void onButtonChange(std::uint32_t t_us);
     Phase phase_ = Phase::IDLE;
+    std::uint32_t release_us_ = 0;
+};
+struct ButtonEvents {
+    bool start_release = false;
+    bool mode_press = false;
+    std::uint32_t edge_us = 0; // First sample of the now-qualified transition.
+    std::uint32_t qualified_us = 0;
+};
+class Buttons {
+public:
+    // Qualifies stable logical levels for BTN_DEBOUNCE_MS. The first sample
+    // establishes the boot level; a boot-held START is not a valid press.
+    // A qualified NONE -> START -> NONE sequence emits one start-release pulse.
+    // Both timestamps are exposed; no Gate wiring or hold-anchor choice is made.
+    // MODE includes BOTH. B13 both-held STOP and ADC decoding remain separate.
+    ButtonEvents step(std::uint32_t t_us, core::ButtonLevel level);
+    void reset();
+private:
     core::ButtonLevel candidate_ = core::ButtonLevel::NONE;
     core::ButtonLevel stable_ = core::ButtonLevel::NONE;
     std::uint32_t candidate_since_us_ = 0;
-    std::uint32_t release_us_ = 0;
     bool initialized_ = false;
     bool armed_ = false;
     bool pressed_ = false;
-    bool released_this_step_ = false;
 };
 } // namespace countdown

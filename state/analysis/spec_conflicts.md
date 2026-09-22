@@ -26,3 +26,33 @@ verification blockers rather than authority to change HARDWARE, config pins, or 
 Protected decisions are separate: accepting any one row does not approve the others.
 For the next human decision, present its options using AGENTS section 9 CONFUSION
 format and record the exact answer in a new DECISIONS entry before dependent work.
+
+## P1 contract audit follow-up (2026-09-22)
+
+SC-F scheduling update: D-016 permits P1 host development only while P0 acceptance
+remains pending. It does not permit P2 HAL implementation or imply a passed gate.
+
+SC-J (B3/B13, separate-context spec audit): "starts at the release" does not say
+whether the hold anchors to the first raw release sample or debounce completion.
+Both-held STOP debounce/hold anchoring and recovery interaction are also unspecified.
+Options: A anchor accepted START release to debounce completion (conservative extra
+20 ms); B anchor to the first sample once stability is proven. Recommend A. Human
+decision required before button-to-gate integration. Independent Gate accepts an
+explicit logical event time; Buttons exposes both edge and qualification times
+without connecting them. Regression: interrupted releases, 19,999/20,000/20,001 us,
+5,099,999/5,100,000 us from the approved anchor, boot-held/reset and wraparound.
+
+SC-K (B3): calibration endpoint inclusion, definition of spread, missing/invalid
+sample treatment/minimum sample count, warning persistence and snapshot aggregation
+(latest versus OR during the final 300 ms) are unspecified. Options: explicitly
+define sample eligibility/aggregation and boundaries, or defer those services.
+Recommend defining these before integrated B3 work; only the hold timer proceeds.
+Human decision needed; regressions cover 1.5/4.5 s boundaries, exactly 2 dps spread,
+invalid/no samples, and 4.1/4.8/5.1 s warning/snapshot boundaries.
+
+SC-L (B5.2-B5.4): simultaneous rear-left/rear-right bearing, no-target initial
+bearing, impact magnitude interpretation and contact-latch lifetime are not fully
+defined. Options: explicit perception policy or defer affected fusion stages.
+Recommend retain only unambiguous B5.1 filtering until the relevant contracts are
+settled. No policy is approved. Regressions: all 128 masks, group priorities,
+opposite-side/rear conflicts, finite angles and contact reset/lifetime.

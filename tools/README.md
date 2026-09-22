@@ -101,6 +101,32 @@ default macros, actual staging include paths, strict host checking, no upload/
 reset/start during compile-only, wrong core, and propagation of SSH/sync/compile
 failures. A substitute returning zero is script-test evidence only.
 
-Research/provenance: state/analysis/P0_G3.md and P0_G4.md. adb remains unavailable
-and unvalidated; no fallback claims are made. `dump_match.sh` belongs to P2 and
+## Explicit USB ADB fallback
+
+Set `SUMO_TRANSPORT=adb`, `SUMO_ADB_SERIAL` to the observed USB serial, and optionally
+`SUMO_ADB_EXECUTABLE` to the installed adb executable path (default: `adb`). The
+serial is mandatory even with one device. There is no automatic device selection,
+server restart, root escalation, package installation or network discovery.
+`SUMO_REMOTE_ROOT` remains a dedicated absolute directory on the UNO Q. The SSH
+transport remains the default and retains strict host-key verification.
+
+ADB executes quoted shell commands on the board and pushes each staged file to
+its exact content-addressed path; compilation and upload still run on the board.
+No local UNO Q core is needed. Errors propagate and all compile-only, inert hash,
+startup and motor guards apply identically. No rsync dependency is needed for this
+transport. Inventory still reports missing rsync explicitly; this does not prevent
+an ADB build. See analysis/P0_connected_inventory_20260922.md for observed tools.
+An ADB inventory exit1 conservatively stops remaining queries: that status can
+represent a transport failure or a remote command failure. Other command failures
+remain explicit, and any failed item makes the report INCOMPLETE/nonzero.
+
+With Windows adb.exe, use native Python so local push paths use Windows syntax:
+`python tools/board_tool.py preflight` or
+`python tools/board_tool.py flash bench/p0_timing --compile-only`.
+The Bash entry points remain available with a native Linux adb. Logs use the same
+receive-only Python socket program on the board; ADB never reads local keyboard
+input. Set connection variables in the invoking shell, never tracked credentials.
+
+Research/provenance: state/analysis/P0_G3.md and P0_G4.md. USB discovery is now
+observed; compile/upload evidence is recorded separately. `dump_match.sh` belongs to P2 and
 `plot_match.py` to eligible P6; neither is falsely implemented as a successful stub.

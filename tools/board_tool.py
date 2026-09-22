@@ -32,7 +32,30 @@ def setting(name, pattern):
 
 
 def target():
+    if transport() == 'adb':
+        return setting('SUMO_ADB_SERIAL', r'[A-Za-z0-9][A-Za-z0-9_.:-]*')
     return setting('SUMO_SSH_TARGET', r'[A-Za-z0-9_][A-Za-z0-9_.@-]*')
+
+
+def transport():
+    value = os.environ.get('SUMO_TRANSPORT', 'ssh')
+    if value not in ('ssh', 'adb'):
+        fail('SUMO_TRANSPORT must be ssh or adb')
+    return value
+
+
+def adb_executable():
+    value = os.environ.get('SUMO_ADB_EXECUTABLE', 'adb')
+    if not value or shutil.which(value) is None:
+        fail('required local ADB executable is unavailable; see SUMO_ADB_EXECUTABLE')
+    return value
+
+
+def require_transport(sync=False):
+    if transport() == 'adb':
+        adb_executable()
+    else:
+        require_tools('ssh', *(['rsync'] if sync else []))
 
 
 def require_tools(*names):
@@ -54,9 +77,28 @@ def check_source(folder):
 
 
 def remote(board, args, capture=False, timeout=None):
-    return subprocess.run(['ssh', *SSH_OPTIONS, board, shlex.join(args)],
+    prefix = ([adb_executable(), '-s', board, 'shell', '-T']
+              if transport() == 'adb' else ['ssh', *SSH_OPTIONS, board])
+    return subprocess.run([*prefix, shlex.join(args)],
                           check=True, text=True, capture_output=capture,
                           timeout=timeout, stdin=subprocess.DEVNULL)
+
+
+def sync_sources(board, folder, board_folder):
+    if transport() == 'ssh':
+        subprocess.run(['rsync', '-rlt', '--safe-links', '-e',
+                        shlex.join(['ssh', *SSH_OPTIONS]), str(folder) + '/',
+                        f'{board}:{board_folder}/'], check=True)
+        return
+    files = sorted(p for p in folder.rglob('*') if p.is_file())
+    parents = sorted({f'{board_folder}/{p.relative_to(folder).parent.as_posix()}'
+                      for p in files})
+    remote(board, ['mkdir', '-p', *parents])
+    # Exact filenames avoid adb's different existing-directory nesting semantics.
+    for item in files:
+        destination = f'{board_folder}/{item.relative_to(folder).as_posix()}'
+        subprocess.run([adb_executable(), '-s', board, 'push', str(item), destination],
+                       check=True, stdin=subprocess.DEVNULL)
 
 
 def stage(sketch):
@@ -149,9 +191,9 @@ def flash(args):
         fail('P0 uploads allow only the reviewed inert p0_matrix and p0_timing sketches')
     board = target()
     remote_root = setting('SUMO_REMOTE_ROOT', r'/[A-Za-z0-9_/-]+')
-    if '..' in remote_root.split('/') or remote_root == '/':
+    if '..' in remote_root.split('/') or not remote_root.strip('/'):
         fail('SUMO_REMOTE_ROOT must be a dedicated absolute directory')
-    require_tools('ssh', 'rsync')
+    require_transport(sync=True)
     folder = stage(args.sketch)
     checksum = source_hash(folder)
     if not args.compile_only:
@@ -161,9 +203,7 @@ def flash(args):
     board_folder = f'{remote_root.rstrip("/")}/{checksum}/{folder.name}'
     verify_core(board)
     remote(board, ['mkdir', '-p', board_folder])
-    subprocess.run(['rsync', '-rlt', '--safe-links', '-e',
-                    shlex.join(['ssh', *SSH_OPTIONS]), str(folder) + '/',
-                    f'{board}:{board_folder}/'], check=True)
+    sync_sources(board, folder, board_folder)
     flags = f'-DMATCH={int(args.match)} -DMOTORS_ALLOWED={int(args.match)}'
     artifact_folder = f'{board_folder}/artifacts/{"match" if args.match else "bench"}-{startup}'
     remote(board, ['arduino-cli', 'compile', '--fqbn', fqbn,
@@ -182,7 +222,7 @@ def flash(args):
 
 def logs():
     board = target()
-    require_tools('ssh')
+    require_transport()
     # Router Monitor server, source-verified; installed service still needs P0 check.
     # recv only: no keyboard data or MCU command is transmitted.
     program = ('import socket,sys\n'
@@ -211,7 +251,7 @@ def inventory_check(board, name, command):
 
 def preflight():
     board = target()
-    require_tools('ssh')
+    require_transport()
     commands = [
         ('kernel', ['uname', '-srmo']),
         ('cli', ['arduino-cli', 'version']),
@@ -225,11 +265,14 @@ def preflight():
     checks = []
     for name, command in commands:
         checks.append(inventory_check(board, name, command))
-        if checks[-1]['returncode'] in (124, 255):
+        code = checks[-1]['returncode']
+        if code in (124, 255) or (transport() == 'adb' and code == 1):
+            # ADB shares exit1 between transport and some remote-command failures.
             break  # Avoid repeating a failed or unresponsive connection.
     complete = len(checks) == len(commands) and all(c['status'] == 'OK' for c in checks)
     report = dict(status='INVENTORY-COLLECTED' if complete else 'INCOMPLETE',
-                  target=board, captured_at_utc=datetime.now(timezone.utc).isoformat(),
+                  target=board, transport=transport(),
+                  captured_at_utc=datetime.now(timezone.utc).isoformat(),
                   checks=checks, limitations=[
                       'Inventory only; outputs still require version and option review.',
                       'No compile, upload, reset, monitor connection or sensor operation.',

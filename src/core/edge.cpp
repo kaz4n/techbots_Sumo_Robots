@@ -1,6 +1,6 @@
-// Classifies B4 white, guards persistent edges and executes selected escape rows.
-// Keeps specified motion requests separate from row selection and motor permission.
-// Locked host tests cover masks, guard composition, row timing and mirror symmetry.
+// Classifies B4 white and composes bounded escape rows, replans and fault inhibition.
+// Keeps approved recovery policy and motion requests separate from hardware permission.
+// Locked host tests cover masks, selection, row timing, replanning and mirror symmetry.
 #include "edge.h"
 #include "../config.h"
 #include <cmath>
@@ -74,12 +74,18 @@ bool runningPhase(ScriptPhase phase) {
            phase == ScriptPhase::PIVOT || phase == ScriptPhase::FORWARD;
 }
 
-float turnHeading(float heading_deg) {
-    // Reduce before adding a relative turn so extreme finite yaw keeps the angle.
-    double heading = std::fmod(static_cast<double>(heading_deg), 360.0);
-    if (heading > 180.0) heading -= 360.0;
-    if (heading <= -180.0) heading += 360.0;
-    return static_cast<float>(heading);
+bool validDirection(motion::Direction direction) {
+    return direction == motion::Direction::LEFT || direction == motion::Direction::RIGHT;
+}
+
+bool validAppliedDuty(float duty) {
+    return std::isfinite(duty) && duty >= -1.0F && duty <= 1.0F;
+}
+
+bool faultPattern(std::uint8_t mask) {
+    std::uint32_t count = 0U;
+    for (std::uint32_t bit = 0U; bit < 4U; ++bit) count += (mask >> bit) & 1U;
+    return count >= 3U;
 }
 } // namespace
 
@@ -129,12 +135,10 @@ bool RowExecutor::beginPhase(std::uint32_t t_us, ScriptPhase phase, bool imu_ok)
         started = straight_.start(t_us, last_heading_deg_, -config::EDGE_BACK_DUTY,
                                   head_on_ ? config::EDGE_BACK_LONG_MS : config::EDGE_BACK_MS);
         break;
-    case ScriptPhase::PIVOT: {
-        const float heading = turnHeading(last_heading_deg_);
-        started = turn_.start(t_us, heading, heading + pivot_deg_,
-                              config::TURN_DUTY, imu_ok);
+    case ScriptPhase::PIVOT:
+        started = turn_.startRelative(t_us, last_heading_deg_, pivot_deg_,
+                                      config::TURN_DUTY, imu_ok);
         break;
-    }
     case ScriptPhase::FORWARD:
         started = biased_forward_ ? arc_.start(t_us, bias_direction_,
             config::EDGE_FWD_INNER_RATIO, config::EDGE_BACK_DUTY, config::EDGE_FWD_MS) :
@@ -166,6 +170,17 @@ bool RowExecutor::startHeadOn(std::uint32_t t_us, float heading_deg, bool imu_ok
     return beginPhase(t_us, ScriptPhase::BRAKE, imu_ok);
 }
 
+bool RowExecutor::startPushedOut(std::uint32_t t_us, float heading_deg, bool imu_ok,
+                                motion::Direction direction) {
+    reset();
+    phase_ = ScriptPhase::INVALID;
+    if (!std::isfinite(heading_deg) || !validDirection(direction)) return false;
+    last_heading_deg_ = heading_deg;
+    pivot_deg_ = static_cast<float>(config::EDGE_SIDE_TURN_DEG) *
+        (direction == motion::Direction::RIGHT ? 1.0F : -1.0F);
+    return beginPhase(t_us, ScriptPhase::PIVOT, imu_ok);
+}
+
 bool RowExecutor::advancePhase(std::uint32_t t_us, bool imu_ok) {
     switch (phase_) {
     case ScriptPhase::BRAKE: return beginPhase(t_us, ScriptPhase::BACK, imu_ok);
@@ -190,7 +205,7 @@ motion::Result RowExecutor::runMotion(std::uint32_t t_us, float heading_deg,
     case ScriptPhase::BACK:
         return straight_.step(t_us, heading_deg, imu_ok);
     case ScriptPhase::PIVOT:
-        return turn_.step(t_us, imu_ok ? turnHeading(heading_deg) : 0.0F, imu_ok);
+        return turn_.step(t_us, heading_deg, imu_ok);
     case ScriptPhase::FORWARD:
         return biased_forward_ ? arc_.step(t_us) : straight_.step(t_us, heading_deg, imu_ok);
     default: return {};
@@ -242,5 +257,156 @@ RowResult RowExecutor::step(std::uint32_t t_us, float heading_deg, bool imu_ok) 
 
 void RowExecutor::reset() {
     *this = RowExecutor{};
+}
+
+bool Escape::startRow(const EscapeSample& sample, bool replacement) {
+    const auto mask = static_cast<std::uint8_t>(sample.line_mask & 0x0FU);
+    const auto rear = static_cast<std::uint8_t>(mask & 0x0CU);
+    if (!replacement) {
+        if (!std::isfinite(sample.heading_deg)) {
+            latchFault(EscapeFault::INVALID_CONTEXT);
+            return false;
+        }
+        last_heading_deg_ = sample.heading_deg;
+    }
+    bool pushed = false;
+    if (rear != 0U && sample.centered_front) {
+        if (!validAppliedDuty(sample.applied_duty_l) || !validAppliedDuty(sample.applied_duty_r)) {
+            latchFault(EscapeFault::INVALID_CONTEXT);
+            return false;
+        }
+        pushed = sample.applied_duty_l > 0.0F && sample.applied_duty_r > 0.0F;
+    }
+    if ((mask == 0x03U || (pushed && rear == 0x0CU)) && !validDirection(sample.opponent_side)) {
+        latchFault(EscapeFault::INVALID_CONTEXT);
+        return false;
+    }
+    motion::Direction direction = (mask & 0x01U) != 0U ?
+        motion::Direction::RIGHT : motion::Direction::LEFT;
+    if (mask == 0x03U) direction = sample.opponent_side;
+    if (pushed) {
+        direction = rear == 0x04U || (rear == 0x0CU && sample.opponent_side == motion::Direction::LEFT) ?
+            motion::Direction::RIGHT : motion::Direction::LEFT;
+    }
+    const bool started = pushed ? row_.startPushedOut(sample.t_us, last_heading_deg_, sample.imu_ok, direction) :
+        (mask == 0x03U ? row_.startHeadOn(sample.t_us, last_heading_deg_, sample.imu_ok, direction) :
+                        row_.start(sample.t_us, mask, last_heading_deg_, sample.imu_ok));
+    if (!started) {
+        latchFault(EscapeFault::INVALID_CONTEXT);
+        return false;
+    }
+    const bool timed_out = current_.turn_timed_out;
+    current_ = row_.step(sample.t_us, sample.heading_deg, sample.imu_ok);
+    current_.turn_timed_out = current_.turn_timed_out || timed_out;
+    if (current_.motion.status == motion::Status::INVALID) {
+        latchFault(EscapeFault::INVALID_CONTEXT);
+        return false;
+    }
+    selected_mask_ = mask;
+    pushed_out_ = pushed;
+    pivot_direction_ = direction;
+    active_ = true;
+    if (replacement) ++replans_;
+    return true;
+}
+
+bool Escape::needsReplan(std::uint8_t new_bits) const {
+    if (current_.phase == ScriptPhase::PIVOT) {
+        const std::uint8_t turning_side = pivot_direction_ == motion::Direction::LEFT ? 0x05U : 0x0AU;
+        return (new_bits & turning_side) != 0U;
+    }
+    return runningPhase(current_.phase) && new_bits != 0U;
+}
+
+bool Escape::advanceRow(const EscapeSample& sample, std::uint8_t new_bits) {
+    if (sample.imu_ok && !std::isfinite(sample.heading_deg)) {
+        latchFault(EscapeFault::INVALID_CONTEXT);
+        return false;
+    }
+    if (sample.imu_ok) last_heading_deg_ = sample.heading_deg;
+    // New bits use the entry phase, before this observation advances a primitive.
+    bool replacement = needsReplan(new_bits);
+    if (!replacement) {
+        current_ = row_.step(sample.t_us, sample.heading_deg, sample.imu_ok);
+        if (current_.motion.status == motion::Status::INVALID) {
+            latchFault(EscapeFault::INVALID_CONTEXT);
+            return false;
+        }
+        replacement = current_.phase == ScriptPhase::DONE && (sample.line_mask & 0x0FU) != 0U;
+    }
+    if (!replacement) return false;
+    if (replans_ >= config::EDGE_MAX_REPLANS) {
+        latchFault(EscapeFault::REPLAN_LIMIT);
+        return false;
+    }
+    return startRow(sample, true);
+}
+
+void Escape::latchFault(EscapeFault fault) {
+    if (fault_ == EscapeFault::NONE) fault_ = fault;
+    active_ = true;
+    const bool timed_out = current_.turn_timed_out;
+    const bool changed = current_.phase != ScriptPhase::INVALID;
+    current_ = RowResult{};
+    current_.phase = ScriptPhase::INVALID;
+    current_.motion.status = motion::Status::INVALID;
+    current_.phase_changed = changed;
+    current_.turn_timed_out = timed_out;
+}
+
+EscapeResult Escape::result(bool permitted) const {
+    EscapeResult out;
+    out.row = !permitted && fault_ == EscapeFault::NONE ? RowResult{} : current_;
+    out.fault = fault_;
+    out.escape_required = permitted && active_;
+    out.inhibit_motion = !permitted || fault_ != EscapeFault::NONE;
+    out.replans = replans_;
+    out.selected_mask = selected_mask_;
+    out.pushed_out = pushed_out_;
+    out.pivot_direction = pivot_direction_;
+    return out;
+}
+
+EscapeResult Escape::step(const EscapeSample& sample) {
+    current_.phase_changed = false;
+    current_.turn_timed_out = false;
+    if (!sample.motion_permitted) {
+        if (active_ && fault_ == EscapeFault::NONE) latchFault(EscapeFault::PERMISSION_LOST);
+        guard_.step(sample.line_mask, false, false);
+        return result(false);
+    }
+    if (fault_ != EscapeFault::NONE) return result(true);
+    const auto mask = static_cast<std::uint8_t>(sample.line_mask & 0x0FU);
+    const auto new_bits = static_cast<std::uint8_t>(mask & ~previous_mask_);
+    const bool entered = !active_ && mask != 0U;
+    bool replanned = false;
+    if (faultPattern(mask)) {
+        latchFault(EscapeFault::WHITE_PATTERN);
+    } else if (!active_) {
+        current_ = RowResult{};
+        if (mask != 0U) startRow(sample, false);
+    } else {
+        replanned = advanceRow(sample, new_bits);
+    }
+    previous_mask_ = mask;
+    const GuardResult guarded = guard_.step(mask, true, current_.phase == ScriptPhase::DONE);
+    const bool exited = active_ && fault_ == EscapeFault::NONE && !guarded.escape_required;
+    if (exited) {
+        active_ = false;
+        replans_ = 0U;
+    }
+    EscapeResult out = result(true);
+    out.entered = entered;
+    out.exited = exited;
+    out.replanned = replanned;
+    if (exited && sample.imu_ok && std::isfinite(sample.heading_deg)) {
+        out.inward_valid = true;
+        out.inward_heading_deg = sample.heading_deg;
+    }
+    return out;
+}
+
+void Escape::reset() {
+    *this = Escape{};
 }
 } // namespace edge

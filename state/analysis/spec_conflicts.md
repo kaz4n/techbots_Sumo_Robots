@@ -6,6 +6,11 @@ paragraphs are historical where a later resolution applies. SC-AF and the explic
 SC-R inhibited-recovery option are now approved as D-047/D-048. Their dependent
 integration is pending. Other physical/escape/WAIT dependencies remain separately open.
 
+Latest D-049/D-050 resolve pushed-out and replanning details. D-051 delegates
+remaining engineering choices without further questions; select/document the
+recommended course and retain explicit limits and regression requirements.
+Missing hardware facts, measurements and phase gates are still not evidence.
+
 Verified against the supplied files, not hardware. Recommendations are UNAPPROVED
 except SC-C (D-017), SC-D1 (D-018), SC-J's START anchor (D-019) and SC-D2's
 persistent/all-white policy (D-020), SC-M (D-021), SC-N (D-022/D-023), SC-K

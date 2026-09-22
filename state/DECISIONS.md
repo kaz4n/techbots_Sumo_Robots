@@ -451,3 +451,16 @@ instruction is not evidence of physical testing, a written phase-gate pass, or a
 specific identified motor run. Preserve established locked tests where possible;
 do not fabricate human measurements, approvals or reviewer output. Unknown
 hardware/API facts remain unknown until verified; continue feasible host work.
+
+## D-052 (2026-09-22, accepted) Bare UNO Q testing scope
+Context: user reports UNO Q connected with nothing else, authorizes testing it,
+and requests no additional hardware connections. User supplied a Windows CLI
+and permits WSL/tools if needed. USB inventory identifies explicit ADB serial
+2629958581; existing ADB suffices. No credentials are recorded or required.
+Decision: execute eligible inert P0 board inventory/build/upload/measurement
+tasks using the existing board-side toolchain and documented USB ADB fallback.
+Keep MOTORS_ALLOWED=0 and reviewed-source restrictions. Preserve default SSH
+workflow and strict host-key checking; no arbitrary LAN probing or new key setup.
+Consequence: attachment/isolation is human-reported; installed/tool/runtime facts
+need their own evidence. Do not request sensors/drivers/motors now or infer
+PINMAP OK, STAND/RING authorization, physical rule compliance or a phase gate.

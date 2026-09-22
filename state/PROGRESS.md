@@ -245,3 +245,9 @@ one verified generated object (source/test/binary retained), restored the summar
 then scripts passed. No board action, physical evidence, publication or gate.
 Next: D-045/D-046 normal arbitration. D-047/D-048 full Escape integration follows
 specific SC-S/replan lifecycle decisions presented separately; not inferred.
+
+| 2026-09-22 | Human decisions | Pushed-out selection and bounded replan lifecycle explicitly approved; further engineering choices delegated without questions | ACCEPTED D-049/D-050/D-051; physical evidence/gates remain pending | 986a6d6 |
+| 2026-09-22 | P1 B9 normal integration | D-045/D-046 NormalPerception interface committed and implementation frozen | IMPLEMENTING; independent tests/review pending | b17696d |
+
+| 2026-09-22 | P1 B9 normal integration | Current-perception production helper and16 independent cases | HOST-TESTED625 cases/11994540 assertions normal+ASan/UBSan;48 scripts; separate scoped review PASS | aae9b36 |
+| 2026-09-22 23:08 +04 | P0 connection | User connected bare UNO Q and authorized inert testing; no additional hardware requested | USB/ADB-OBSERVED; D-052; installed inventory and fallback script work active | commit containing this row |

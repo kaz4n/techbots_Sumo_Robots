@@ -1,4 +1,13 @@
-# Execution checklist: P1 host development; hardware acceptance pending
+# Execution checklist: P1 host development and P0 bare-board recovery
+
+Current checkpoint23:08 Asia/Dubai: NormalPerception aae9b36 is HOST-TESTED and
+reviewed:625 cases/11,994,540 assertions normal+ASan/UBSan;48 scripts passed.
+User now authorizes testing bare UNO Q only (D-052). USB ADB is connected;
+finish explicit ADB script tests/review, real preflight and inert target builds,
+then safe P0 measurements possible without attached hardware. No gate passed.
+Full Escape/WAIT/Robot remain unfinished; D-051 permits documented decisions
+without more questions. Earlier hardware-deferral/next-task statements below
+are historical and superseded by this checkpoint.
 
 **RESUMED by explicit human request, 2026-09-22 at22:07 Asia/Dubai.**
 B8 SEARCH is HOST-TESTED/reviewed (540 cases / 11,937,972 assertions). Next:
@@ -7,8 +16,9 @@ HOST-TESTED/reviewed:609 cases/11,983,801 assertions normal+ASan/UBSan;48 script
 Source47ac972/d78e95d/0171741/144e897. Next: D-045/46 normal arbitration.
 Evidence: analysis/P1_search_validation.md and P1_reflank_headon_validation.md.
 D-047/D-048 now approve shared head-on side history and inhibited three-white/
-exhausted-replan recovery. Full Escape integration must still resolve SC-S and
-replan lifecycle details; no existing locked amendment was authorized.
+exhausted-replan recovery. D-049/D-050 now approve SC-S and replan lifecycle;
+D-051 delegates further engineering choices without questions. Full Escape
+interfaces/tests/implementation follow NormalPerception; no locked amendment inferred.
 The prior next-task and pending-choice paragraphs below are superseded by this
 checkpoint and the final resolution entry in analysis/spec_conflicts.md.
 
@@ -33,7 +43,7 @@ results remain pending, not assumed successful. Date:2026-09-22, Asia/Dubai.
 | P1 1.2 B6 | HOST-TESTED | Governor final cap/slew/compensation; FSM target-loss brake/profile selection pending |
 | P1 1.2 B7 | HOST-TESTED | Turn/Straight/Arc/Brake/TimedArc; bounded fallback and cumulative deadlines; scripts/FSM integration pending |
 | P1 1.2 B8 | HOST-TESTED executor | SearchSide/Search, D-041/D-042; truthful histories and global Robot arbitration pending |
-| P1 1.2 B9 | HOST-TESTED request math/qualification | D-036 frontDemand and three-observation FrontQualification; actual state-entry/reset/loss routing still pending |
+| P1 1.2 B9 | HOST-TESTED components | D-036 frontDemand, qualification and D-045/46 NormalPerception; full Robot wiring pending |
 | P1 1.2 B10 | HOST-TESTED | DefendTurn captures one target and preserves700/800ms deadlines; Robot arbitration pending |
 | P1 1.2 B11 | HOST-TESTED script/components | Detector/limiter/ALL_IN plus chooseSwing and Reflank script; actual history/limiter admission/FSM arbitration pending |
 | P1 1.2 B12 | HOST-TESTED DIRECT/SIDESTEP/ARC | Shared mirrors and current-perception exit intents; WAIT/global arbitration pending |

@@ -1,6 +1,33 @@
 # Codex handoff
 
-## Current resume point — 2026-09-22 Asia/Dubai
+## Current resume point — 2026-09-22, 23:08 Asia/Dubai
+
+User connected the bare UNO Q and authorized testing it with no other hardware.
+D-052 records this scope without any credential. P1 host work under D-016 and
+P0 hardware recovery are active; no human phase gate has passed. Do not request
+additional hardware now. D-051 delegates engineering choices without questions.
+
+Latest host checkpoint: NormalPerception aae9b36 (contract b17696d),625 cases /
+11,994,540 assertions normal+ASan/UBSan,48/48 controlled script checks. Separate
+reused read-only scoped review PASS and23-file inert snapshots refreshed. See
+analysis/P1_normal_perception_validation.md and reviews/P1_normal_perception_codex.md.
+Established locked tests/config unchanged; full Robot and full Escape remain pending.
+
+USB ADB device2629958581 is observed, matching Windows USB/mDNS identity. Native
+Windows CLI1.5.2-rc.1 is user supplied and ignored by Git. Existing bundled ADB32.0.0
+works without installing tools or using a password. Board inventory is underway;
+initial results show arduino user, CLI1.5.1/core1.0.0,2.8GiB free, no rsync.
+Exact evidence: analysis/P0_connected_inventory_20260922.md and target inventory.
+Root is adding tested explicit ADB transport to the existing board-side workflow.
+No compile/upload/reset has occurred at this checkpoint. Source/hash guards remain.
+
+Next: finish separate script review, run real ADB preflight, compile inert timing
+and default-startup matrix, then verified inert upload/observations. Inspect loader
+and debug readout before claiming timing; Immediate matrix remains blocked F-061.
+C: is low (about300MB); avoid local tool downloads. No motor-capable firmware/run.
+After bare-board tasks, continue the saved Full Escape/WAIT contract work and P1.
+
+## Prior 22:07 resume checkpoint — superseded above
 
 **RESUMED by the human on 2026-09-22 at22:07 Asia/Dubai.**
 Host implementation resumes; no hardware connection is assumed from this request.
@@ -19,11 +46,16 @@ SC-AF shared side history and SC-R inhibited recovery were explicitly approved
 as D-047/D-048 in1dfaa7d; integration remains pending. Established locked tests
 stay unchanged; inspect their component scopes before implementing the new policy.
 Next eligible task: D-045/D-046 normal-perception production routing/qualification,
-per analysis/P1_normal_perception_contract.md. Full Escape needs the two specific
-pushed-out/replanning decisions now presented in P1_escape_remaining_contract.md.
-No answers inferred. Check disk space before more builds: C: briefly reached0;
+per analysis/P1_normal_perception_contract.md; contract b17696d is committed and
+implementation is frozen pending independent tests. Full Escape's remaining
+pushed-out/replanning decisions are now approved as D-049/D-050. D-051 delegates
+remaining engineering choices without further questions; record choices/tests,
+never manufacture measurements or gates. Commit986a6d6 persists these updates.
+Check disk space before more builds: C: briefly reached0;
 one verified untracked sanitizer object was removed, all evidence restored, and
 about594MB was subsequently available. Raw results/source/tests remained intact.
+Later observation recovered to about1.55GB; unexplained extra space was not
+attributed to the single6.4MB object removal. Full Escape contract audit is active.
 
 Active implementation is **P1 host development under D-016**; P0 hardware
 acceptance and every human phase gate remain pending. The dated sections below

@@ -386,3 +386,34 @@ do not remove the indefinite-wait proof. A future delegated design decision must
 precede dependent HAL. Required regressions include missing conversion interrupt,
 contention, invalid/error result, stale sample, wrap, cancellation/recovery and
 complete on-target tick WCET. No driver/API behavior or deadline is invented here.
+
+
+## SC-AG — installed IMU transport versus R4/valid-data requirements (2026-09-23)
+
+Sources: AGENTS R4; P0 G6; BEHAVIOR B7/B14; F-084 and
+analysis/P0_imu_installed_contract_20260923.md sections Installed synchronous API,
+Installed timeout/fault paths, and Pinned Adafruit source. Installed Wire1 is
+now verified as I2C4, but synchronous completion can wait500ms per message and
+bus/config ownership waits indefinitely. Wire discards stopBit, causing two
+STOP-terminated transfers rather than the requested repeated START. Source and
+actual loader disassembly imply a BERR-only wake can return success; not measured.
+Adafruit discards burst-read failure, returns success from getEvent, and reset
+polling can remain indefinite after BusIO returns0xffffffff for failed reads.
+
+Consequence: successful compilation or a nominal read cannot prove a bounded,
+truthful production acquisition. Do not mark repeated/stale/failed data fresh or
+put unchanged stock reads inside the required under800us control tick.
+Options: A) At the eligible HAL phase, investigate a supported bounded acquisition
+path with explicit per-operation deadlines, error propagation and sample-age
+semantics. B) Propose a separate, explicit timing/safety requirement change.
+Recommendation A; current D-066 only authorizes never-executed compile/link
+compatibility, not either runtime policy. No loader/library patch or waiver now.
+
+Decision needed before dependent runtime implementation: concrete supported API,
+ownership, transaction semantics, deadline/cancellation, freshness and failure
+contract with installed evidence. D-051 delegates engineering selection, while
+physical facts and human phase gates remain required. Regressions must include
+NACK, BERR, arbitration loss, absent/stuck bus, lost completion, contention,
+partial reads, reset failure, duplicate/stale samples, wrap and cancellation;
+measure complete worst-case tick and actual waveform/config/sample generation.
+These future tests cannot be replaced by this compile-only probe.

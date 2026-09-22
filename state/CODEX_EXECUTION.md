@@ -17,7 +17,7 @@ results remain pending, not assumed successful. Date:2026-09-22, Asia/Dubai.
 | P1 1.1 interfaces | PARTIAL | Existing core modules plus Flank/DefendTurn; remaining scripts/Robot contract pending |
 | P1 1.2 B3/B13 | HOST-TESTED components | Gate/Buttons/StopHold/Controller +Services; production service/bias/heading-reset/menu wiring pending |
 | P1 1.2 B4 | HOST-TESTED components | Classifier/Guard/forward demands;16 locked edge cases; scripts/replanning/acquisition pending |
-| P1 1.2 B5 | HOST-TESTED components | Debouncer/front table/BearingMemory/Contact/PhantomFilter/StuckFilter; full fusion composition pending |
+| P1 1.2 B5 | HOST-TESTED pipeline | Fusion orders filters/cues/memory and commits current-state contact once; Robot/physical sampling remain |
 | P1 1.2 B6 | HOST-TESTED | Governor final cap/slew/compensation; FSM target-loss brake/profile selection pending |
 | P1 1.2 B7 | HOST-TESTED | Turn/Straight/Arc/Brake/TimedArc; bounded fallback and cumulative deadlines; scripts/FSM integration pending |
 | P1 1.2 B9 | HOST-TESTED request math | D-036 frontDemand; state selection/centered count/target-loss integration still pending |
@@ -31,10 +31,11 @@ results remain pending, not assumed successful. Date:2026-09-22, Asia/Dubai.
 | P1 1.5 target compile | HARDWARE-PENDING | No connected/verified UNO Q toolchain |
 | P1 1.6 review/gate | SCOPED PASS / GATE-PENDING | Separate read-only component reviews; full fresh gate review, EXPLAINED OK and human GATE P1 PASS absent |
 
-Latest completed validation:419 cases/10,226,416 assertions pass normal and
-ASan/UBSan;48/48 controlled tooling checks. D-036 frontDemand and D-037 TimedArc
-add36 independent cases to dc42029. Separate scoped review PASS/no open finding;
-exact23-file inert manifests reviewed. See P1_steering_arc_validation.md/review.
+Latest completed validation:444 cases/10,442,964 assertions pass normal and
+ASan/UBSan;48/48 controlled tooling checks. Fusion adds25 independent cases to
+c2d6bfa. Reused separate read-only scoped review PASS/no open finding; exact23-file
+inert manifests reviewed. See P1_pipeline_validation.md/review. Newly fresh
+reviewer creation hit the tool's thread limit; no full phase-gate review claimed.
 D-039's previous one-case locked amendment remains the sole authorized established
 locked edit; no existing locked/config changes in this latest implementation.
 
@@ -48,8 +49,12 @@ D-037 timed re-flank arc/right-first tie; D-038 qualified re-flank reacquisition
 D-039 exactly one documented locked amendment. Do not re-request them.
 Components implement these policies; complete scheduler/recorder integration remains.
 
-Next: B8 SEARCH and remaining
-Robot/escape/re-flank/WAIT. Read analysis/P1_search_reflank_contract_audit.md.
+Fusion complete at component scope (30b16d5/a54f177). Next unblocked task: commit
+a public B4.2 executor contract for fully specified single-front/diagonal/rear/
+side rows, then independent tests and code. See P1_escape_row_contract_audit.md;
+leave unresolved row selection/replanning/head-on cases explicit. Then B8 SEARCH
+and remaining Robot/escape/re-flank/WAIT after required specific decisions. Read
+analysis/P1_search_reflank_contract_audit.md.
 Pending protected choices: SC-Y re-flank completion, SC-Z SEARCH side mapping,
 SC-AA scan fallback, SC-AB unseen-side recency; SC-R/S escape direction/priority,
 SC-G WAIT geometry; SC-A physical button decoding, SC-B QTR freshness/timing,

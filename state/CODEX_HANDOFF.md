@@ -339,3 +339,27 @@ questions. Do not infer approval from elapsed time. Read the concrete public
 contract recommendations in analysis/P1_search_reflank_contract_audit.md before
 their dependent implementations. Continue eligible P1 composition/integration;
 P0 hardware acceptance, every human gate and full P7 completion remain outstanding.
+
+## Boundary checkpoint — 2026-09-22 Asia/Dubai
+
+Fusion contract30b16d5 and implementation/tests a54f177 complete this bounded
+task. It orders debounce/stuck/cue/phantom/effective bearing, then commits contact
+against the final selected state without re-counting observations. Legacy API
+tests remain unchanged. Normal+ASan/UBSan444 cases/10,442,964 assertions pass;
+48/48 controlled scripts pass. Exact evidence: analysis/P1_pipeline_validation.md.
+No open review finding. Collaboration refused a new reviewer thread; reused
+p1_next_task_audit stayed read-only. Label that scoped review accurately, not
+newly fresh/cross-model/full gate. Current23-file inert hashes reviewed/refreshed.
+
+No existing locked test or config changed after c2d6bfa. The sole earlier locked
+amendment remains D-039's exact approved case. All source changes are local,
+without push/hardware connection/compile/upload/reset/motor run or physical claim.
+Original P0-P7 scope and every human gate remain outstanding as applicable.
+
+Exact next unblocked task: B4.2 table-row executor for fully specified single-front,
+diagonal, rear and side rows. Read analysis/P1_escape_row_contract_audit.md; commit
+public interfaces first, then independent spec-derived tests and bounded code.
+It must not silently select unsupported head-on/three-white/pushed-out/replan
+policies. Full Escape/Robot integration remains pending. Await the four already
+presented SC-Y/Z/AA/AB decisions without re-asking or treating silence as approval.
+Search/re-flank contract audit is saved; no hardware setup is assumed verified.

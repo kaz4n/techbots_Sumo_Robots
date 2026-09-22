@@ -14,12 +14,13 @@ the complete robot scheduler, FSM and actuator path do not yet exist.
 | `edge::Classifier` | Per-corner threshold and consecutive-white confirmation, persistent white mask | Validated fresh QTR acquisition, escape policy, R5 arbitration |
 | `edge::Guard` | D-020 persistent escape request, black-plus-finished exit, latched all-white motion veto until reset | Escape directions/scripts/replanning and application of veto at MotorGate |
 | `edge::forwardDemand` | D-021 straight/left/right-biased forward requests using 0.80 base and 70% inner-side request | Timed/heading-held segments and selection by the escape planner |
-| `opp_fusion::Debouncer` | Per-bit polarity, two-sample assertion, continuous-clear hysteresis | Compose with remaining perception and validated sensor acquisition |
+| `opp_fusion::Debouncer` | Per-bit polarity, two-sample assertion, continuous-clear hysteresis | Validated sensor acquisition |
 | `opp_fusion::frontView` | Seven front bearing/centering/close rows from B5.2 | Downstream motion/FSM policy |
-| `opp_fusion::BearingMemory` | Front/side/rear priority, approved bilateral conflicts, world angle and rising-front recency | Search/re-flank use, full fusion composition |
-| `opp_fusion::Contact` | Separate close-pattern qualification, horizontal impact and D-027 centered-ATTACK latch lifetime | FSM contact phase/target-loss braking and physical cue validation |
-| `opp_fusion::PhantomFilter` | D-029/D-030 bounded chase history, contact retention, one replaceable world marker and circular front masking | Compose with contact cues before masking, pre-edge state and full fusion/FSM |
-| `opp_fusion::StuckFilter` | D-031 continuous valid detection plus observed yaw span; independent reset-only latched bits | Unsuppressed confirmed input, icon/event routing, physical sweep validation |
+| `opp_fusion::BearingMemory` | Front/side/rear priority, approved bilateral conflicts, world angle and rising-front recency | Search/re-flank use and memory-age ownership |
+| `opp_fusion::Contact` | Separate cue observation and D-027 centered-ATTACK latch commitment; legacy step composes both | FSM contact phase/target-loss braking and physical cue validation |
+| `opp_fusion::PhantomFilter` | D-029/D-030 bounded chase history, contact retention, one replaceable world marker and circular front masking | Robot supplies pre-edge state; icon/event routing and physical validation |
+| `opp_fusion::StuckFilter` | D-031 continuous valid detection plus observed yaw span; independent reset-only latched bits | Icon/event routing and physical sweep validation |
+| `opp_fusion::Fusion` | Ordered fresh-observation pipeline, effective bearing/memory and post-arbitration contact commit | Actual Robot state selection, HAL sampling and governor/event dispatch |
 | `governor::Governor` | D-017 electrical caps after compensation, slew, immediate braking/reversal/cap reductions, one-second battery lag | FSM profile selection and target-loss brake trigger; real MotorGate |
 | `motion::Turn/Straight/Arc/Brake` | B7 demands, D-022 bounded heading correction, D-023 fixed timing with duty-only compensation, bounded IMU fallback | Escape/openers/re-flank scripts, explicit governor profile and MotorGate integration |
 | `stall::Detector` | D-032 final-duty qualification, timer/deflection routes and persistent per-contact edge history | Governed-duty/contact wiring, event deduplication, physical P4 stall evidence |
@@ -39,7 +40,7 @@ whole microsecond-counter wrap apart. Storage is fixed per object. Modules do
 no I/O and read no clock. Sensor loops have fixed bounds; encoding is fixed-size.
 Host execution does not prove the target's worst-case timing, including math calls.
 
-The current isolated data paths are:
+The current component data paths are:
 
 ```mermaid
 flowchart LR
@@ -53,8 +54,13 @@ flowchart LR
     P --> EG
     EG --> EV[Escape request or latched motion veto]
     R[Raw electrical opponent mask] --> D[Debouncer]
-    D --> F[Front table]
-    F --> V[Front bearing, centered and close cues]
+    D --> SF[Stuck removal]
+    SF --> CQ[Contact cue observation]
+    CQ --> PH[Phantom filter]
+    PH --> BM[Effective bearing and memory]
+    BM --> AR[Caller-selected current state]
+    AR --> CC[Contact latch commitment]
+    CQ --> CC
     A[Requested duties and explicit cap profile] --> S[Governor]
     S --> O[Bounded electrical duty requests]
 ```
@@ -151,13 +157,22 @@ check encoding status before appending, continue frames after event overflow and
 mark an overflowed dump as incomplete evidence. No frame recorder or CSV/dump
 transport exists yet; a non-overflowed container alone does not prove completeness.
 
-The new filter stages remain independently testable components. Stuck qualification
+The filter stages remain independently testable components. Stuck qualification
 uses confirmed bits before phantom suppression; invalid IMU restarts only pending
 candidates. It records observed continuous-yaw span, not modulo heading or total
 back-and-forth travel. Phantom detection uses the state before edge arbitration,
 remembering any current contact cue during that chase; a consumed edge cannot be
 replayed to extend a marker. Valid close/side/rear observations override masking.
-Complete fusion still needs to wire those inputs and preserve actual sample age.
+Fusion now wires this order: debounce, stuck removal, contact cue observation,
+phantom masking with the prior state, then effective bearing/memory. It never
+uses unavailable IMU yaw as fresh world-bearing evidence. The caller then selects
+the final state and commits contact once, so ATTACK entry/exit uses this tick's cue
+without counting the same close-sensor observation twice. Repeated timestamps
+return cached data marked nonfresh with event pulses cleared. Missing or repeated
+commit returns invalid zero contact and clears the latch; replacing an uncommitted
+observation also clears the old latch. These protocol checks do not validate
+physical acquisition freshness. The full Robot must supply accurate prior/current
+states and apply the result to the governor; the pipeline never grants motion.
 
 Stall detection stores contact heading/edge history separately from the continuous
 qualification timer. Suppression changes its final stalled level only. The limiter

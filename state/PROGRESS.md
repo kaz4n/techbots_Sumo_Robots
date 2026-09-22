@@ -129,3 +129,14 @@ Existing locked tests and config unchanged since dc42029. One pre-build review
 finding in a new unlocked test macro corrected without altering predicates or
 compiler flags. All tests pass, no open review finding. SC-Y/Z/AA/AB human choices
 remain pending; exact questions and next contract audit saved in analysis/.
+
+| 2026-09-22 | P1 B5 composition | Fusion public contract; cue observation separated from post-arbitration latch | IMPLEMENTING; distinct worker/test-author, no new policy approval needed | 30b16d5 |
+
+| 2026-09-22 | P1 B5 composition | Ordered Fusion pipeline, single cue observation and current-state contact commit;25 independent cases | HOST-TESTED; full444cases/10442964assertions normal+ASan/UBSan | a54f177 |
+| 2026-09-22 | P1 scoped checkpoint |48/48 scripts; reused separate read-only review PASS/no open finding; exact23-file inert hashes approved | analysis/P1_pipeline_validation.md; full gate/hardware still pending | commit containing this row |
+
+No existing locked/config edit in this batch. Newly fresh reviewer spawn hit the
+tool's thread limit; reused independent context is explicitly labeled and does
+not satisfy a newly fresh full gate. Next unblocked work: fully specified B4.2
+row executor interfaces/tests/code per analysis/P1_escape_row_contract_audit.md.
+SC-Y/Z/AA/AB decisions still pending; no approval inferred. No board action.

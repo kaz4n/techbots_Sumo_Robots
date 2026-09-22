@@ -119,4 +119,8 @@ inline constexpr std::uint32_t P0_ADC_SAMPLES = 1000U; // D-063 startup-only cal
 inline constexpr std::uint32_t P0_ADC_PIN = 14U; // installed A0; diagnostic only, not PINMAP OK
 inline constexpr std::uint32_t P0_GPIO_SAMPLES = 400U; // D-064 fixed RAM diagnostic
 inline constexpr std::uint32_t P0_GPIO_PIN = 50U; // installed LED_BUILTIN/LED3_R, not D13
+inline constexpr std::uint32_t P0_QTR_SAMPLES_PER_MODE = 100U; // D-065 diagnostic datasets
+inline constexpr std::uint32_t P0_QTR_GUARD_POLLS = 4096U; // finite charge/observation guard
+inline constexpr std::uint32_t P0_QTR_PINS[4] = {2U, 4U, 7U, 8U}; // installed D2/D4/D7/D8; no PINMAP approval
+inline constexpr std::uint32_t P0_QTR_QUANTIZATION_US = 1U; // additional clock tick after requested charge
 } // namespace config

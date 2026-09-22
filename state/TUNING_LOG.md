@@ -177,3 +177,10 @@ Every bench or ring measurement and every config.h change goes here with its evi
   same-host quiet interval; possible debug overlap remains. No optical proof,
   recovered native error codes, header-pin timing or full-robot WCET claim.
   No additional external hardware, motor operation or human gate.
+
+## 2026-09-23 — D-065 diagnostic-only configuration
+Added P0_QTR_SAMPLES_PER_MODE100, P0_QTR_GUARD_POLLS4096,
+P0_QTR_PINS{2,4,7,8} and P0_QTR_QUANTIZATION_US1. These bound the setup-only
+bare-board experiment; B16 QTR_CHARGE_US10/TIMEOUT_US1500 are unchanged.
+Source/ownership evidence: P0_qtr_bare_contract_audit_20260923.md. No physical
+measurement, production pin assignment, tuning result or wiring approval yet.

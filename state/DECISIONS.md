@@ -695,3 +695,18 @@ passive capture. Default-only, MOTORS_ALLOWED0; no header or motor pins.
 Consequence: readbacks cannot recover discarded native errors or prove optical
 behavior. Finite instruction paths and measured maxima do not prove robot WCET.
 No wiring assumption change, B16 tuning, PINMAP approval or phase gate follows.
+
+## D-065 (2026-09-23, selected under D-051) P0 bare-board QTR-style timing
+Context: P0 0.4 requests four-pin charge/timeout timing without attached sensors.
+F-082 verifies installed GPIOA/B mappings and finite API paths; floating neutral
+inputs cannot guarantee a timeout, and delayMicroseconds(10) requests only9us.
+Decision: adopt P0_qtr_contract.md and qtr_capture.h before code/tests. Collect
+100 neutral and100 distinctly labeled diagnostic pull-up acquisitions on the
+specified D2/D4/D7/D8, with measured11us charge guard, actual four-read passes,
+full1500us observation window, finite4096 guards and no-pull INPUT cleanup.
+Preserve raw late/early LOW observations and failure records; no synthetic HIGH
+or substituted timeout. Default-only inert setup, exact reviewed passive readout.
+Consequence: stimulated success proves sampled bare-pad timeout-path timing only.
+No sensor discharge/freshness, physical cleanup, PINMAP, wiring/B16 change or R4
+acceptance follows. SC-B and all human gates remain open. Independent tests,
+source/binary review and exact inert manifests are required before any upload.

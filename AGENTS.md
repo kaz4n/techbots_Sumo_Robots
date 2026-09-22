@@ -191,3 +191,5 @@ it is not a passed gate. D-017/D-018 record the human-approved governor and
 gated-service ordering changes; other protected decisions remain separate.
 D-019/D-020/D-021 approve the release-debounce anchor, persistent/all-white edge
 guard and forward escape base/cap. Read their precise scopes before integration.
+D-022/D-023 approve bounded heading correction and duty-only voltage compensation;
+D-024 defines countdown services and D-025 preserves safety rules during ALL_IN.

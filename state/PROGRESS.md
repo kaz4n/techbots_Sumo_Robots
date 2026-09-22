@@ -72,3 +72,11 @@ base/cap are approved and implemented within the documented component scope.
 Next integration dependencies are SC-N timed/heading-held motion and SC-K other
 countdown services; remaining fusion/ALL_IN/recorder decisions stay separate.
 No target compile, board contact, upload/reset, motor run or physical measurement.
+
+| 2026-09-22 | P1 B7 contracts/approvals | D-022 bounded correction and D-023 duty-only voltage compensation | APPROVED; interfaces first; B16 unchanged | 0caaadb,71d2545 |
+| 2026-09-22 | P1 B7 motion | Turn/Straight/Arc/Brake and cumulative wrap-safe deadlines | HOST-TESTED;30 cases, two10000-sample properties; review-found timer defect fixed | 40c8c9c |
+| 2026-09-22 | P1 B15 encoding | Fixed25-byte frames and8-byte exact-tick events | HOST-TESTED;19 byte/boundary cases; no storage/dump | ae3e9e7 |
+| 2026-09-22 | P1 B3/ALL_IN decisions | Record D-024 services and D-025 retained safety envelope | APPROVED; ALL_IN implementation pending | 5bfcf70 |
+| 2026-09-22 | P1 B3 Services | Half-open calibration, prior-bias retention, warning/latest snapshot | HOST-TESTED;27 new locked cases; production/HAL integration pending | 3cee6ae |
+| 2026-09-22 | P1 validation |182cases/5872365assertions normal and sanitizer; tooling48checks; separate read-only PASS | HOST-TESTED/SCRIPT-TESTED; analysis/P1_motion_services_validation.md | commit containing this row |
+| 2026-09-22 | P1 perception/recorder contracts | D-026 bearing memory, D-027 contact lifetime, D-028 event overflow; fusion interfaces first | APPROVED; fusion implementation IN PROGRESS; recorder storage later | 290c13b |

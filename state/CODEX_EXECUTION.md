@@ -80,3 +80,20 @@ tests when extending coverage. No P2 HAL work is authorized by D-016.
 P0 hardware work resumes separately when available through the checklist above.
 P1 still needs full core/table coverage, target compile, genuinely fresh gate
 review, EXPLAINED OK and the human GATE P1 PASS. No phase gate has passed.
+
+## Current continuation (supersedes the preceding next-task paragraph)
+
+D-022/D-023 resolved SC-N; D-024 resolved SC-K; D-025 resolved SC-E1;
+D-026/D-027 resolved SC-L; D-028 resolved SC-E2. Do not ask again for these choices.
+- B7 motion and B15 representation IMPLEMENTED/HOST-TESTED:40c8c9c,ae3e9e7.
+- B3 Services IMPLEMENTED/HOST-TESTED:3cee6ae,27 new locked cases. Production
+  start/cancel/rawgyro/bias application and GO heading reset remain pending.
+- Latest completed snapshot:182hostcases/5,872,365assertions, sanitizer clean,
+  48toolingchecks; P1_motion_services_validation.md and separate scoped PASS.
+- BearingMemory/Contact interfaces290c13b; implementation/spec-only tests IN
+  PROGRESS. Next validate/review these and refresh exact inert hashes.
+- D-025 ALL_IN is approved policy, not implemented. D-028 is approved; pure codec
+  is not a recorder buffer/transport implementation.
+- Complete fusion including phantom/stuck, escape/openers/stall/FSM and integration
+  remain P1 work. SC-A physical buttons, SC-B acquisition and other explicitly
+  open cases stay separate. No gate or target evidence inferred.

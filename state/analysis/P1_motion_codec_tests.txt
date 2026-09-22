@@ -1,0 +1,23 @@
+-- Configuring done (0.1s)
+-- Generating done (0.2s)
+-- Build files have been written to: /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/build/host
+[  5%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/core/logframe.cpp.o
+[ 11%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/core/motion.cpp.o
+[ 16%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_logframe.cpp.o
+[ 22%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_motion.cpp.o
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_motion.cpp:84:32: error: macro "CAPTURE" passed 2 arguments, but takes just 1
+   84 |             CAPTURE(index, sign);
+      |                                ^
+In file included from /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_motion.cpp:4:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/host/third_party/doctest.h:2954: note: macro "CAPTURE" defined here
+ 2954 | #define CAPTURE(x) DOCTEST_CAPTURE(x)
+      | 
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_motion.cpp: In function ‘void DOCTEST_ANON_FUNC_4()’:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_motion.cpp:84:13: error: ‘CAPTURE’ was not declared in this scope
+   84 |             CAPTURE(index, sign);
+      |             ^~~~~~~
+gmake[2]: *** [CMakeFiles/sumox26_tests.dir/build.make:272: CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_motion.cpp.o] Error 1
+gmake[2]: *** Waiting for unfinished jobs....
+gmake[1]: *** [CMakeFiles/Makefile2:83: CMakeFiles/sumox26_tests.dir/all] Error 2
+gmake: *** [Makefile:101: all] Error 2
+exit_status=2

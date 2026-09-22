@@ -26,3 +26,13 @@ Every bench or ring measurement and every config.h change goes here with its evi
 | M11 brownout resets | 0 in 20 | | | |
 | M12 weight | 2,950 g +/- 20 | | | |
 | M13 footprint | 199 x 199 mm | | | |
+
+### 2026-09-22 | P0 0.3 software configuration initialization
+- Setup: host only; no board, battery, bench or ring measurement.
+- Change: created src/config.h with all 77 B16 constants unchanged. No pin values assigned.
+- Added diagnostic-only defaults: P0_SCROLL_MS=100, P0_COUNTER_MS=1000,
+  P0_JITTER_SAMPLES=60000, P0_JITTER_HISTOGRAM_US=1000. These parameterize P0
+  display/capture scaffolds and do not alter robot behavior or safety timing.
+- Evidence: comparison script reported all 77 B16 values exactly equal; C++17
+  host build/CTest passed (analysis/P0_host_tests.txt). P0 smoke test only.
+- Metric status: M1-M13 unmeasured; no tuning or physical performance claimed.

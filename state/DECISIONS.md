@@ -94,3 +94,30 @@ gate. BOOT, IDLE, COUNTDOWN and STOPPED still return zero duties and disabled mo
 Consequence: service updates are possible while inhibited. This resolves only
 ordering; it does not choose ADC/button semantics, calibration/sample eligibility,
 snapshot aggregation, edge policy, or STOP recovery. Those conflicts remain open.
+
+## D-019 (2026-09-22, accepted) Full hold starts after release debounce
+Context: SC-J left the hold timestamp ambiguous. The user explicitly replied
+"Approve A: after debounce" to the presented timestamp choice.
+Decision: start COUNTDOWN_MS + COUNTDOWN_MARGIN_MS at the tick when START-release
+debounce completes. With unchanged defaults, this is a full 5.1-second hold after
+at least 20 ms of stable release; a delayed qualifying tick starts the hold then.
+Consequence: connect Buttons to Gate using qualification time, never the earlier
+raw edge. Test bounce, delayed ticks, exact deadlines, reset/boot-held START,
+cancel/STOP and wraparound through the composed controller. Existing locked tests
+remain unchanged; add new integration tests. This resolves the START time-anchor
+portion of SC-J only, not ADC decoding or both-held STOP/recovery semantics.
+
+## D-020 (2026-09-22, accepted) Persistent edge and inhibited all-white fault
+Context: SC-D2 left all-four-white without a black direction and rising-only
+edge handling could miss white already present at GO. The user explicitly replied
+"Approve A: inhibited all-white fault" to the presented policy.
+Decision: after the countdown gate permits motion, enter or remain in EDGE_ESCAPE
+on persistent white. All-four-white latches a fault with zero duties and motors
+disabled until reset. Otherwise leave escape only when all sensors are black and
+its script is finished. Preserve the configured push-through exception, disabled
+by default; no positive window is enabled by this decision.
+Consequence: implement a pure edge guard for the default zero-window configuration;
+test every mask, white at GO, persistent white, re-entry, completion/clear ordering
+and a fault that cannot clear on black readings alone. Motion directions, forward
+escape duty (SC-M), replan-limit direction and actual HAL safety remain separate.
+No sensor acquisition change, pin approval, physical test or motor run is implied.

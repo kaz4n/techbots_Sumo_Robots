@@ -73,7 +73,7 @@ EDGE_ESCAPE preempts every moving state (B2). Both buttons held for BTN_LONG_MS 
 
 1. **Gated-state services, then gate (D-018, human-approved 2026-09-22).** Update button/countdown/gated-state services before checking the motor-output gate. State in {BOOT, IDLE, COUNTDOWN, STOPPED}: duties 0, motors disabled, return. This supersedes the original early gate return; unresolved service semantics remain tracked separately.
 2. **Update perception:** opponent fusion (B5), edge classifier (B4), contact and stall detectors (B11), battery filter.
-3. **Edge.** New edge event and not push-through eligible (B9.4): enter or re-plan EDGE_ESCAPE.
+3. **Edge (D-020, human-approved 2026-09-22).** After the countdown gate, persistent white requires entering or remaining in EDGE_ESCAPE unless push-through eligible (B9.4); this includes white already present at GO and white still present when an escape script finishes. New white bits may re-plan per B4.4. All-four-white latches an inhibited fault per B4.2.
 4. **Escape continues.** EDGE_ESCAPE active: run its script. Only a new edge event interrupts it (re-plan).
 5. **Re-flank phases BACK and SWING continue.** Front detections are expected here and ignored (B11).
 6. **Opener continues** unless its abort condition fired (B12).
@@ -88,13 +88,13 @@ Invariant (locked test): after GO, a white reading on any QTR puts the robot in 
 
 ## B3. Countdown and start
 
-- **IDLE:** a short MODE press cycles the mode (B13). A START press followed by release (debounced BTN_DEBOUNCE_MS) enters COUNTDOWN. The countdown starts at the release.
+- **IDLE:** a short MODE press cycles the mode (B13). A START press followed by release (debounced BTN_DEBOUNCE_MS) enters COUNTDOWN. Under D-019 (human-approved 2026-09-22), the complete countdown starts on the tick when release debounce completes, not at the earlier raw release sample.
 - **START held at boot:** ignored until released and pressed again.
 - **COUNTDOWN duration:** COUNTDOWN_MS + COUNTDOWN_MARGIN_MS (5000 + 100). MOTOR_EN stays LOW. The LED matrix shows 5, 4, 3, 2, 1.
 - **Gyro bias calibration:** average gyro_z from 1.5 s to 4.5 s into the hold (the operator's hand is gone, the robot is still). If the gyro spread exceeds CAL_MAX_SPREAD_DPS, keep the previous bias and set a flag.
 - **Line check:** if any QTR reads white during the last 1 s, flash a warning (robot placed on a line). Do not block the start.
 - **Opponent snapshot:** store opp_mask during the last 300 ms. Openers use it (B12).
-- **GO:** at t_release + hold. Heading resets to 0. MotorGate enables. The recorder logs START release, GO, and the first nonzero duty time (metric M1).
+- **GO:** at t_release + hold, where t_release is the completed-release-debounce timestamp under D-019. Heading resets to 0. MotorGate enables subject to higher safety inhibits, including D-020's all-white fault. The recorder logs START release, GO, and the first nonzero duty time (metric M1).
 - **MODE press during COUNTDOWN:** cancel to IDLE (bench and practice use).
 
 ---
@@ -117,7 +117,8 @@ Invariant (locked test): after GO, a white reading on any QTR puts the robot in 
 | RL + RR | Rear at edge | Forward EDGE_FWD_MS straight |
 | FR + RR | Right side along the edge | Pivot left 45 degrees; forward EDGE_FWD_MS |
 | Diagonal (FL + RR or FR + RL) | Unusual angle | Treat as the front bit |
-| 3 or 4 bits | Mostly outside | Drive toward the side whose sensors read black, at EDGE_BACK_DUTY, until 2 bits clear |
+| 3 bits | Mostly outside | Drive toward the side whose sensors read black, at EDGE_BACK_DUTY, until 2 bits clear |
+| 4 bits | No known black direction | D-020: remain in EDGE_ESCAPE, latch a fault, duties 0 and motors disabled until reset; do not guess a direction |
 
 ### B4.3 Being pushed out (edge defense)
 Rear bit white while the opponent is centered in front and our duty is forward: we are losing a push. Do not keep pushing straight. Pivot 45 degrees away from the white side at TURN_DUTY, then forward EDGE_FWD_MS. This slides us out of the opponent's line.

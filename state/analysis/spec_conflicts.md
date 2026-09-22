@@ -1,7 +1,8 @@
 # Open specification conflicts — 2026-09-22
 
 Verified against the supplied files, not hardware. Recommendations are UNAPPROVED
-except SC-C (D-017) and SC-D1 (D-018), explicitly approved below. User's later
+except SC-C (D-017), SC-D1 (D-018), SC-J's START anchor (D-019) and SC-D2's
+persistent/all-white policy (D-020), explicitly approved below. User's later
 instruction to proceed assuming hardware works permits
 continued eligible software work; it supplies no circuit choice, measurement,
 pin approval, motor authorization, or phase gate.
@@ -76,3 +77,15 @@ governor implements only named, already specified B6 profiles and leaves profile
 selection to the future FSM. Regression: forward escape rows at low voltage,
 left/right bias, cap/slew limits and all-white behavior. D-017's pipeline approval
 does not by itself choose this missing cap.
+
+## Approved continuation — 2026-09-22
+
+- SC-J START anchor RESOLVED by D-019, user "Approve A: after debounce": the
+  complete hold starts on the completed release-qualification tick, including
+  delayed calls. Both-held STOP timing/recovery and SC-K are still unresolved.
+- SC-D2 persistent/all-white policy RESOLVED by D-020, user "Approve A: inhibited
+  all-white fault": persistent white after the permission gate requires escape;
+  all-white latches zero duty and disabled motors until reset. Other escape exits
+  require all black plus script completion. Acquisition, actual scripts, SC-M
+  forward duty and direction after exhausting replans remain pending. Default
+  push-through stays disabled; this approval does not enable a positive window.

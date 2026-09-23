@@ -1,0 +1,65 @@
+{
+  "recorded_utc": "2026-09-23T23:41:37.811752+00:00",
+  "status": "FROZEN BEFORE FIRST COMPILATION OR IMPLEMENTATION EXECUTION",
+  "independence": "Reused separate author context; no D117 production bodies read. Public contract/headers and established fixtures only. Earlier D104 runner implementation context disclosed.",
+  "test_methods": [
+    "test_passive_constructors_factory_and_first_enum_grant_context_priority",
+    "test_exact_setup_sequence_readbacks_readiness_and_lifetime_owner",
+    "test_initial_metadata_installed_state_and_autonomous_uart_refuse",
+    "test_each_partial_setup_stage_preserves_first_fault_owned_or_skipped_cleanup",
+    "test_real_fifo_room_and_stop_bit_completion_exact_packet_lengths",
+    "test_unchanged_time_store_packet_caps_wrap_and_pending_identity",
+    "test_live_loss_before_first_mid_and_after_eighth_store",
+    "test_cancellation_keeps_shifted_prefix_and_never_repairs_foreign_state",
+    "test_actual_d116_payload_packet_replay_and_strict_receiver",
+    "test_all_raw_capacity_slots_use_actual_formatter_and_native_packets",
+    "test_six_effective_stores_complete_and_five_refuse_without_invented_fifo_contents",
+    "test_both_real_sketches_select_fifo_with_unchanged_default_dump_passivity"
+  ],
+  "planned_new_native_stimuli_per_profile": 201,
+  "planned_new_native_profiles": [
+    "normal",
+    "ASan_UBSan"
+  ],
+  "planned_sketch_profiles": [
+    "recorder_M0_normal",
+    "recorder_M0_san",
+    "app_M0_normal",
+    "app_M0_san",
+    "app_M1_normal",
+    "app_M1_san"
+  ],
+  "unchanged_regressions": [
+    "D090 eleven methods normal/san",
+    "D116 three methods incl normal/san pipeline/config/default/flags"
+  ],
+  "root_owned_regressions": [
+    "D101 unchanged factory193",
+    "full Runtime/control/dump/service and host suite"
+  ],
+  "sha256": {
+    "tests/tooling/test_dump_uart_fifo.py": "ae9e2c8454a82730da015d71dea07df0d7002b25f94819acc6ef9765b26b0e3c",
+    "state/analysis/P2_dump_fifo_raw/author/run_tests.py": "2125e823af73a8f49a40fbb524af5b3785112662adae74fd5e05b3cfd818b397",
+    "tests/fixtures/dump_uart_fifo/cases.cc": "4445f5857efcaa7c64b95ef3dc022a342c8b358d9e1dab645cbdd8c251d4b6c8",
+    "tests/fixtures/dump_uart_fifo/fixture.h": "a23878e5cadbd74216cfd1a32a84a615b4d1c977a4dff7bed97a46b4652bc173",
+    "tests/fixtures/dump_uart_fifo/hardware.cc": "5f25d894cf86180061d5ea2f5b1aaa318fb95eb5f0c08a41d7741cc5c0e138e2",
+    "tests/fixtures/dump_uart_fifo/sketch.cc": "30982edc06def89a443f8ba18285be576e61849bf59de140b3433aec5f25ad1a",
+    "tests/fixtures/dump_uart_fifo/sketch_dump_stub.h": "12dd8ed86a58874f98de9136f0b0f5abbcce34b03f350cd713c30589ced72c94",
+    "tests/fixtures/dump_uart_fifo/sketch_runner_stub.h": "e585d647d20e00bc9b6e3aca57f42e73e370d149ce81ce57bf9a4a3e46da0517",
+    "tests/fixtures/dump_uart_fifo/sketch_sources_stub.h": "5a8b8ae0827f7790d87ef670a8c6e82e394d97c310b28e28c2c72ea514b889f4",
+    "tests/fixtures/dump_uart_fifo/streams.cc": "19b44deb650c6d6a1c87bef7d56182d9284a62f2d9a18c6d29e635ffbb2ec9d3"
+  },
+  "basis_sha256": {
+    "state/analysis/P2_dump_fifo_contract.md": "00a6c36c92c6b9f9eb5fd4b453de1ebe9a9e3a58fc28ab1907ca8328550f11f8",
+    "src/hal/dump_uart_unoq.h": "c924ae2fc21569884ae7bc9138de948da7358014c81be314a5cf0508fa508e6e",
+    "src/hal/recorder_csv.h": "0be2bebf0d8cc80376fcd4ca259a258e028647f4103dab5934bc7b972f12d8e2",
+    "src/app/dump_port.h": "9dca1b44c22e77ee1a8af17905452e9d3c509e5d798412b6cfde9cd5dcf1c4bb"
+  },
+  "limitations": [
+    "Serial FIFO timing is a reference model, not measured hardware.",
+    "Six-store guaranteed progress is a conditional arithmetic model separate from actual native FIFO ceiling.",
+    "Raw capacity stress intentionally preserves arbitrary invalid enum bytes and is not a semantically valid Robot attempt.",
+    "Sketch substitution tests public selection/false grants; actual D116 Runner and app Runtime are tested separately.",
+    "No board action or production/body reads."
+  ]
+}

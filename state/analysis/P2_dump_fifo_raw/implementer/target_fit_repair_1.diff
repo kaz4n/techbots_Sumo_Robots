@@ -1,0 +1,27 @@
+--- first/src/hal/dump_uart_unoq.cpp
++++ second/src/hal/dump_uart_unoq.cpp
+@@ -215,18 +215,18 @@
+     // No polling: immediate readbacks may conservatively refuse physical setup.
+     baud_register_ = 355556U;
+     for (unsigned i = 0U; i < 8U; ++i) clock_registers_[i] = clockRegister(i);
+-    const std::uint32_t states[] = {0U, USART_CR1_TE | USART_CR1_FIFOEN,
+-                                  TX_MODE | USART_CR1_FIFOEN};
+     std::uint32_t verified = TX_MODE | USART_CR1_RE;
+     for (unsigned i = 0U; i < 3U; ++i) {
+         const auto reason = ownedState(verified, verified, false);
+         if (reason != NativeStatus::OK)
+             return i == 0U ? reason : failFifo(reason, verified, verified);
+-        LPUART1_NS->CR1 = states[i];
++        const std::uint32_t attempted = i == 0U ? 0U :
++            USART_CR1_TE | USART_CR1_FIFOEN | (i == 2U ? USART_CR1_UE : 0U);
++        LPUART1_NS->CR1 = attempted;
+         __DMB();
+-        if (LPUART1_NS->CR1 != states[i])
+-            return failFifo(NativeStatus::REGISTER, verified, states[i]);
+-        verified = states[i];
++        if (LPUART1_NS->CR1 != attempted)
++            return failFifo(NativeStatus::REGISTER, verified, attempted);
++        verified = attempted;
+     }
+     initialized_ = true;
+     const auto reason = ownership();

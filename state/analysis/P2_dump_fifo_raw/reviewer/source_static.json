@@ -1,0 +1,61 @@
+{
+  "utc": "2026-09-23T23:32:53.047853+00:00",
+  "verdict": "PASS_STATIC_ONLY_TESTS_AND_TARGETS_PENDING",
+  "scope": "Read-only source and AST checks; no implementation/test execution, import or board access",
+  "baseline": "993afdd0",
+  "files": {
+    "src/hal/dump_uart_unoq.h": {
+      "sha256": "c924ae2fc21569884ae7bc9138de948da7358014c81be314a5cf0508fa508e6e",
+      "bytes": 2227,
+      "frozen_match": true
+    },
+    "src/hal/dump_uart_unoq.cpp": {
+      "sha256": "5d1d343951d98d5ffb0ebbf6a42145c3b7048566872997525b21c1d568716d40",
+      "bytes": 17509,
+      "frozen_match": true
+    },
+    "src/app/app.ino": {
+      "sha256": "bf80c961c22b5cee89beaaca2c6d2a413af13d9b7e466d267b04752dbbebfa35",
+      "bytes": 829,
+      "frozen_match": true
+    },
+    "bench/recorder/recorder.ino": {
+      "sha256": "2456ba5d0e28eef2d1564014e087aa733abcb244d1e51f0ce64a35520ef63569",
+      "bytes": 706,
+      "frozen_match": true
+    }
+  },
+  "changed_production_paths": [
+    "bench/recorder/recorder.ino",
+    "src/app/app.ino",
+    "src/hal/dump_uart_unoq.cpp",
+    "src/hal/dump_uart_unoq.h"
+  ],
+  "identical_function_tokens": {
+    "sampleReady": true,
+    "ready": true,
+    "port": true,
+    "write": true,
+    "cancel": true,
+    "prepare": true,
+    "withinDeadline": true,
+    "advance": true,
+    "transmit": true,
+    "fail": true,
+    "deviceMetadata": true,
+    "metadata": true,
+    "clocksAvailable": true,
+    "nominalClock": true,
+    "clockRegister": true,
+    "padsOwned": true,
+    "irqIdle": true
+  },
+  "abort_after_poison_inline_identical": true,
+  "sketches_only_explicit_constructor": {
+    "src/app/app.ino": true,
+    "bench/recorder/recorder.ino": true
+  },
+  "collector_sha256": "e8c23dcbd73c59c1014720f82d5f8bcd5ff42d9c555b96d0262c42377379cf3c",
+  "collector_and_literal_syntax": "PASS",
+  "contract_sha256": "00a6c36c92c6b9f9eb5fd4b453de1ebe9a9e3a58fc28ab1907ca8328550f11f8"
+}

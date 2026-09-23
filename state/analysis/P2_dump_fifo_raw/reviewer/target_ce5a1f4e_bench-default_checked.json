@@ -1,0 +1,826 @@
+{
+  "verdict": "PASS_EXACT_CHECKED_DEFAULT_RECORDER_TARGET_AND_CONDITIONAL_FIT",
+  "source_sha256": "ce5a1f4e2cbc576754f0ddc98e0c99b0b2e368c839eeb180e0a82f3eb5ad32d2",
+  "source_files": 95,
+  "unchanged_shared_files": 88,
+  "artifact_records": [
+    {
+      "file": "recorder.ino.elf",
+      "sha256": "442970591605181388099db48c2a35fd8131fe77f396ed4f3510f2c10bffb5e6",
+      "bytes": 103236,
+      "payload": 217340,
+      "conditional_peak": 220744,
+      "free_span": 41400,
+      "largest_free_payload": 41396,
+      "allocations": [
+        {
+          "purpose": "extension",
+          "chunk": 200,
+          "available_before": 262056,
+          "fits": true
+        },
+        {
+          "purpose": "section_map",
+          "chunk": 136,
+          "available_before": 261856,
+          "fits": true
+        },
+        {
+          "purpose": ".text",
+          "chunk": 52928,
+          "available_before": 261720,
+          "fits": true
+        },
+        {
+          "purpose": ".data",
+          "chunk": 216,
+          "available_before": 208792,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata",
+          "chunk": 32,
+          "available_before": 208576,
+          "fits": true
+        },
+        {
+          "purpose": ".bss",
+          "chunk": 164192,
+          "available_before": 208544,
+          "fits": true
+        },
+        {
+          "purpose": ".exported_sym",
+          "chunk": 16,
+          "available_before": 44352,
+          "fits": true
+        },
+        {
+          "purpose": ".init_array",
+          "chunk": 8,
+          "available_before": 44336,
+          "fits": true
+        },
+        {
+          "purpose": "global_symbols",
+          "chunk": 2912,
+          "available_before": 44328,
+          "fits": true
+        },
+        {
+          "purpose": "export_copy",
+          "chunk": 16,
+          "available_before": 41416,
+          "fits": true
+        }
+      ],
+      "copied_regions": [
+        {
+          "name": ".rodata",
+          "payload": 24,
+          "alignment": 4,
+          "prepad": 0,
+          "retained_chunk": 32
+        },
+        {
+          "name": ".text",
+          "payload": 52916,
+          "alignment": 8,
+          "prepad": 0,
+          "retained_chunk": 52928
+        },
+        {
+          "name": ".data",
+          "payload": 208,
+          "alignment": 4,
+          "prepad": 0,
+          "retained_chunk": 216
+        },
+        {
+          "name": ".bss",
+          "payload": 164180,
+          "alignment": 8,
+          "prepad": 0,
+          "retained_chunk": 164192
+        },
+        {
+          "name": ".exported_sym",
+          "payload": 8,
+          "alignment": 4,
+          "prepad": 0,
+          "retained_chunk": 16
+        },
+        {
+          "name": ".init_array",
+          "payload": 4,
+          "alignment": 4,
+          "prepad": 0,
+          "retained_chunk": 8
+        }
+      ],
+      "metadata": {
+        "extension": 200,
+        "section_map": 136,
+        "global_symbols": 2912,
+        "export_copy": 16,
+        "initial_bookkeeping": 88
+      },
+      "used_imports": {
+        "__device_dts_ord_78": "0x0801c13c",
+        "__device_dts_ord_9": "0x0801befc",
+        "__device_dts_ord_94": "0x0801bf8c",
+        "__real___aeabi_d2f": "0x08000bc5",
+        "__real___aeabi_d2iz": "0x08000b35",
+        "__real___aeabi_dadd": "0x08000269",
+        "__real___aeabi_dcmpeq": "0x08000aa5",
+        "__real___aeabi_dcmpge": "0x08000ae1",
+        "__real___aeabi_dcmpgt": "0x08000af5",
+        "__real___aeabi_dcmple": "0x08000acd",
+        "__real___aeabi_dcmplt": "0x08000ab9",
+        "__real___aeabi_dcmpun": "0x08000b09",
+        "__real___aeabi_ddiv": "0x08000829",
+        "__real___aeabi_dmul": "0x080005d5",
+        "__real___aeabi_dsub": "0x08000265",
+        "__real___aeabi_f2d": "0x08000525",
+        "__real___aeabi_i2d": "0x08000501",
+        "__real___aeabi_ui2d": "0x080004e1",
+        "__real___aeabi_ul2d": "0x08000569",
+        "__real___aeabi_uldivmod": "0x08001365",
+        "__real_abort": "0x08007fad",
+        "__real_fmod": "0x0801504d",
+        "__real_memcpy": "0x0801b2d3",
+        "__real_memset": "0x0801b31f",
+        "__real_sqrt": "0x08014ed1",
+        "sys_clock_cycle_get_64": "0x080103d5",
+        "z_impl_device_init": "0x08019e5d",
+        "z_impl_device_is_ready": "0x08019e6f",
+        "z_impl_k_thread_create": "0x08011479",
+        "z_impl_k_thread_name_set": "0x0801138d"
+      },
+      "sole_initializer": [
+        {
+          "section": ".init_array",
+          "offset": 0,
+          "type": 2,
+          "name": "_GLOBAL__sub_I_setup",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 53
+        }
+      ],
+      "runner": {
+        "name": "_ZN12_GLOBAL__N_16runnerE",
+        "value": 0,
+        "size": 164176,
+        "bind": 0,
+        "type": 1,
+        "other": 0,
+        "section_index": 8,
+        "section": ".bss"
+      },
+      "native": {
+        "name": "_ZN12_GLOBAL__N_111native_dumpE",
+        "value": 0,
+        "size": 208,
+        "bind": 0,
+        "type": 1,
+        "other": 0,
+        "section_index": 7,
+        "section": ".data"
+      },
+      "bss": {
+        "name_offset": 102,
+        "type": 8,
+        "flags": 3,
+        "address": 53128,
+        "offset": 54480,
+        "size": 164180,
+        "link": 0,
+        "info": 0,
+        "alignment": 8,
+        "entry_size": 0,
+        "index": 8,
+        "name": ".bss"
+      },
+      "thread_bounds": [
+        {
+          "name": "__static_thread_data_list_end",
+          "value": 0,
+          "size": 0,
+          "bind": 1,
+          "type": 0,
+          "other": 0,
+          "section_index": 6,
+          "section": ".static_thread_data_area"
+        },
+        {
+          "name": "__static_thread_data_list_start",
+          "value": 0,
+          "size": 0,
+          "bind": 1,
+          "type": 0,
+          "other": 0,
+          "section_index": 6,
+          "section": ".static_thread_data_area"
+        }
+      ],
+      "function_identity_count": 405,
+      "default_enabled": false,
+      "startup_callback_or_clock_io": false
+    },
+    {
+      "file": "recorder.ino_debug.elf",
+      "sha256": "e6df08a97e4d8b0b03c8a6da7bcc23e973783fc08aa334adf52aa6d247000173",
+      "bytes": 1761124,
+      "payload": 217340,
+      "conditional_peak": 220856,
+      "free_span": 41288,
+      "largest_free_payload": 41284,
+      "allocations": [
+        {
+          "purpose": "extension",
+          "chunk": 200,
+          "available_before": 262056,
+          "fits": true
+        },
+        {
+          "purpose": "section_map",
+          "chunk": 248,
+          "available_before": 261856,
+          "fits": true
+        },
+        {
+          "purpose": ".text",
+          "chunk": 52928,
+          "available_before": 261608,
+          "fits": true
+        },
+        {
+          "purpose": ".data",
+          "chunk": 216,
+          "available_before": 208680,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata",
+          "chunk": 32,
+          "available_before": 208464,
+          "fits": true
+        },
+        {
+          "purpose": ".bss",
+          "chunk": 164192,
+          "available_before": 208432,
+          "fits": true
+        },
+        {
+          "purpose": ".exported_sym",
+          "chunk": 16,
+          "available_before": 44240,
+          "fits": true
+        },
+        {
+          "purpose": ".init_array",
+          "chunk": 8,
+          "available_before": 44224,
+          "fits": true
+        },
+        {
+          "purpose": "global_symbols",
+          "chunk": 2912,
+          "available_before": 44216,
+          "fits": true
+        },
+        {
+          "purpose": "export_copy",
+          "chunk": 16,
+          "available_before": 41304,
+          "fits": true
+        }
+      ],
+      "copied_regions": [
+        {
+          "name": ".rodata",
+          "payload": 24,
+          "alignment": 4,
+          "prepad": 0,
+          "retained_chunk": 32
+        },
+        {
+          "name": ".text",
+          "payload": 52916,
+          "alignment": 8,
+          "prepad": 0,
+          "retained_chunk": 52928
+        },
+        {
+          "name": ".data",
+          "payload": 208,
+          "alignment": 4,
+          "prepad": 0,
+          "retained_chunk": 216
+        },
+        {
+          "name": ".bss",
+          "payload": 164180,
+          "alignment": 8,
+          "prepad": 0,
+          "retained_chunk": 164192
+        },
+        {
+          "name": ".exported_sym",
+          "payload": 8,
+          "alignment": 4,
+          "prepad": 0,
+          "retained_chunk": 16
+        },
+        {
+          "name": ".init_array",
+          "payload": 4,
+          "alignment": 4,
+          "prepad": 0,
+          "retained_chunk": 8
+        }
+      ],
+      "metadata": {
+        "extension": 200,
+        "section_map": 248,
+        "global_symbols": 2912,
+        "export_copy": 16,
+        "initial_bookkeeping": 88
+      },
+      "used_imports": {
+        "__device_dts_ord_78": "0x0801c13c",
+        "__device_dts_ord_9": "0x0801befc",
+        "__device_dts_ord_94": "0x0801bf8c",
+        "__real___aeabi_d2f": "0x08000bc5",
+        "__real___aeabi_d2iz": "0x08000b35",
+        "__real___aeabi_dadd": "0x08000269",
+        "__real___aeabi_dcmpeq": "0x08000aa5",
+        "__real___aeabi_dcmpge": "0x08000ae1",
+        "__real___aeabi_dcmpgt": "0x08000af5",
+        "__real___aeabi_dcmple": "0x08000acd",
+        "__real___aeabi_dcmplt": "0x08000ab9",
+        "__real___aeabi_dcmpun": "0x08000b09",
+        "__real___aeabi_ddiv": "0x08000829",
+        "__real___aeabi_dmul": "0x080005d5",
+        "__real___aeabi_dsub": "0x08000265",
+        "__real___aeabi_f2d": "0x08000525",
+        "__real___aeabi_i2d": "0x08000501",
+        "__real___aeabi_ui2d": "0x080004e1",
+        "__real___aeabi_ul2d": "0x08000569",
+        "__real___aeabi_uldivmod": "0x08001365",
+        "__real_abort": "0x08007fad",
+        "__real_fmod": "0x0801504d",
+        "__real_memcpy": "0x0801b2d3",
+        "__real_memset": "0x0801b31f",
+        "__real_sqrt": "0x08014ed1",
+        "sys_clock_cycle_get_64": "0x080103d5",
+        "z_impl_device_init": "0x08019e5d",
+        "z_impl_device_is_ready": "0x08019e6f",
+        "z_impl_k_thread_create": "0x08011479",
+        "z_impl_k_thread_name_set": "0x0801138d"
+      },
+      "sole_initializer": [
+        {
+          "section": ".init_array",
+          "offset": 0,
+          "type": 2,
+          "name": "_GLOBAL__sub_I_setup",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 53
+        }
+      ],
+      "runner": {
+        "name": "_ZN12_GLOBAL__N_16runnerE",
+        "value": 0,
+        "size": 164176,
+        "bind": 0,
+        "type": 1,
+        "other": 0,
+        "section_index": 8,
+        "section": ".bss"
+      },
+      "native": {
+        "name": "_ZN12_GLOBAL__N_111native_dumpE",
+        "value": 0,
+        "size": 208,
+        "bind": 0,
+        "type": 1,
+        "other": 0,
+        "section_index": 7,
+        "section": ".data"
+      },
+      "bss": {
+        "name_offset": 102,
+        "type": 8,
+        "flags": 3,
+        "address": 53128,
+        "offset": 54480,
+        "size": 164180,
+        "link": 0,
+        "info": 0,
+        "alignment": 8,
+        "entry_size": 0,
+        "index": 8,
+        "name": ".bss"
+      },
+      "thread_bounds": [
+        {
+          "name": "__static_thread_data_list_end",
+          "value": 0,
+          "size": 0,
+          "bind": 1,
+          "type": 0,
+          "other": 0,
+          "section_index": 6,
+          "section": ".static_thread_data_area"
+        },
+        {
+          "name": "__static_thread_data_list_start",
+          "value": 0,
+          "size": 0,
+          "bind": 1,
+          "type": 0,
+          "other": 0,
+          "section_index": 6,
+          "section": ".static_thread_data_area"
+        }
+      ],
+      "function_identity_count": 405,
+      "default_enabled": false,
+      "startup_callback_or_clock_io": false
+    },
+    {
+      "file": "recorder.ino_temp.elf",
+      "sha256": "6286088265e98d11e0ba6aff53088f5fa06b1282b1823f321192c6017f86646d",
+      "bytes": 1761984,
+      "payload": 218604,
+      "conditional_peak": 222264,
+      "free_span": 39880,
+      "largest_free_payload": 39876,
+      "allocations": [
+        {
+          "purpose": "extension",
+          "chunk": 200,
+          "available_before": 262056,
+          "fits": true
+        },
+        {
+          "purpose": "section_map",
+          "chunk": 312,
+          "available_before": 261856,
+          "fits": true
+        },
+        {
+          "purpose": ".text",
+          "chunk": 52928,
+          "available_before": 261544,
+          "fits": true
+        },
+        {
+          "purpose": ".data",
+          "chunk": 216,
+          "available_before": 208616,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata",
+          "chunk": 304,
+          "available_before": 208400,
+          "fits": true
+        },
+        {
+          "purpose": ".bss",
+          "chunk": 164192,
+          "available_before": 208096,
+          "fits": true
+        },
+        {
+          "purpose": ".exported_sym",
+          "chunk": 16,
+          "available_before": 43904,
+          "fits": true
+        },
+        {
+          "purpose": ".init_array",
+          "chunk": 8,
+          "available_before": 43888,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZZNK7openers5Flank10definitionEvE11definitions",
+          "chunk": 48,
+          "available_before": 43880,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN8recorder4dump12UnoQDumpPort7prepareEPKcj.str1.1",
+          "chunk": 24,
+          "available_before": 43832,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN8recorder3csv12_GLOBAL__N_14Line6rawHexEPKhj.str1.1",
+          "chunk": 24,
+          "available_before": 43808,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN8recorder3csv12_GLOBAL__N_1L14SUMMARY_HEADERE",
+          "chunk": 560,
+          "available_before": 43784,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN8recorder3csv12_GLOBAL__N_1L12EVENT_HEADERE",
+          "chunk": 64,
+          "available_before": 43224,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN8recorder3csv12_GLOBAL__N_1L12FRAME_HEADERE",
+          "chunk": 176,
+          "available_before": 43160,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN8recorder4dump8Transfer15prepareEnvelopeEv.str1.1",
+          "chunk": 32,
+          "available_before": 42984,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata.str1.1",
+          "chunk": 112,
+          "available_before": 42952,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata.CSWTCH.50",
+          "chunk": 32,
+          "available_before": 42840,
+          "fits": true
+        },
+        {
+          "purpose": "global_symbols",
+          "chunk": 2912,
+          "available_before": 42808,
+          "fits": true
+        },
+        {
+          "purpose": "export_copy",
+          "chunk": 16,
+          "available_before": 39896,
+          "fits": true
+        }
+      ],
+      "copied_regions": [
+        {
+          "name": ".text",
+          "payload": 52916,
+          "alignment": 8,
+          "prepad": 0,
+          "retained_chunk": 52928
+        },
+        {
+          "name": ".data",
+          "payload": 208,
+          "alignment": 4,
+          "prepad": 0,
+          "retained_chunk": 216
+        },
+        {
+          "name": ".bss",
+          "payload": 164180,
+          "alignment": 8,
+          "prepad": 0,
+          "retained_chunk": 164192
+        },
+        {
+          "name": ".exported_sym",
+          "payload": 8,
+          "alignment": 4,
+          "prepad": 0,
+          "retained_chunk": 16
+        },
+        {
+          "name": ".rodata",
+          "payload": 290,
+          "alignment": 8,
+          "prepad": 0,
+          "retained_chunk": 304
+        },
+        {
+          "name": ".rodata._ZZNK7openers5Flank10definitionEvE11definitions",
+          "payload": 40,
+          "alignment": 4,
+          "prepad": 0,
+          "retained_chunk": 48
+        },
+        {
+          "name": ".rodata._ZN8recorder4dump12UnoQDumpPort7prepareEPKcj.str1.1",
+          "payload": 15,
+          "alignment": 1,
+          "prepad": 0,
+          "retained_chunk": 24
+        },
+        {
+          "name": ".rodata._ZN8recorder3csv12_GLOBAL__N_14Line6rawHexEPKhj.str1.1",
+          "payload": 17,
+          "alignment": 1,
+          "prepad": 0,
+          "retained_chunk": 24
+        },
+        {
+          "name": ".rodata._ZN8recorder3csv12_GLOBAL__N_1L14SUMMARY_HEADERE",
+          "payload": 556,
+          "alignment": 1,
+          "prepad": 0,
+          "retained_chunk": 560
+        },
+        {
+          "name": ".rodata._ZN8recorder3csv12_GLOBAL__N_1L12EVENT_HEADERE",
+          "payload": 55,
+          "alignment": 1,
+          "prepad": 0,
+          "retained_chunk": 64
+        },
+        {
+          "name": ".rodata._ZN8recorder3csv12_GLOBAL__N_1L12FRAME_HEADERE",
+          "payload": 165,
+          "alignment": 1,
+          "prepad": 0,
+          "retained_chunk": 176
+        },
+        {
+          "name": ".rodata._ZN8recorder4dump8Transfer15prepareEnvelopeEv.str1.1",
+          "payload": 21,
+          "alignment": 1,
+          "prepad": 0,
+          "retained_chunk": 32
+        },
+        {
+          "name": ".rodata.str1.1",
+          "payload": 105,
+          "alignment": 1,
+          "prepad": 0,
+          "retained_chunk": 112
+        },
+        {
+          "name": ".rodata.CSWTCH.50",
+          "payload": 24,
+          "alignment": 4,
+          "prepad": 0,
+          "retained_chunk": 32
+        },
+        {
+          "name": ".init_array",
+          "payload": 4,
+          "alignment": 4,
+          "prepad": 0,
+          "retained_chunk": 8
+        }
+      ],
+      "metadata": {
+        "extension": 200,
+        "section_map": 312,
+        "global_symbols": 2912,
+        "export_copy": 16,
+        "initial_bookkeeping": 88
+      },
+      "used_imports": {
+        "__device_dts_ord_78": "0x0801c13c",
+        "__device_dts_ord_9": "0x0801befc",
+        "__device_dts_ord_94": "0x0801bf8c",
+        "__real___aeabi_d2f": "0x08000bc5",
+        "__real___aeabi_d2iz": "0x08000b35",
+        "__real___aeabi_dadd": "0x08000269",
+        "__real___aeabi_dcmpeq": "0x08000aa5",
+        "__real___aeabi_dcmpge": "0x08000ae1",
+        "__real___aeabi_dcmpgt": "0x08000af5",
+        "__real___aeabi_dcmple": "0x08000acd",
+        "__real___aeabi_dcmplt": "0x08000ab9",
+        "__real___aeabi_dcmpun": "0x08000b09",
+        "__real___aeabi_ddiv": "0x08000829",
+        "__real___aeabi_dmul": "0x080005d5",
+        "__real___aeabi_dsub": "0x08000265",
+        "__real___aeabi_f2d": "0x08000525",
+        "__real___aeabi_i2d": "0x08000501",
+        "__real___aeabi_ui2d": "0x080004e1",
+        "__real___aeabi_ul2d": "0x08000569",
+        "__real___aeabi_uldivmod": "0x08001365",
+        "__real_abort": "0x08007fad",
+        "__real_fmod": "0x0801504d",
+        "__real_memcpy": "0x0801b2d3",
+        "__real_memset": "0x0801b31f",
+        "__real_sqrt": "0x08014ed1",
+        "sys_clock_cycle_get_64": "0x080103d5",
+        "z_impl_device_init": "0x08019e5d",
+        "z_impl_device_is_ready": "0x08019e6f",
+        "z_impl_k_thread_create": "0x08011479",
+        "z_impl_k_thread_name_set": "0x0801138d"
+      },
+      "sole_initializer": [
+        {
+          "section": ".init_array",
+          "offset": 0,
+          "type": 2,
+          "name": "_GLOBAL__sub_I_setup",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 53
+        }
+      ],
+      "runner": {
+        "name": "_ZN12_GLOBAL__N_16runnerE",
+        "value": 0,
+        "size": 164176,
+        "bind": 0,
+        "type": 1,
+        "other": 0,
+        "section_index": 5,
+        "section": ".bss"
+      },
+      "native": {
+        "name": "_ZN12_GLOBAL__N_111native_dumpE",
+        "value": 0,
+        "size": 208,
+        "bind": 0,
+        "type": 1,
+        "other": 0,
+        "section_index": 4,
+        "section": ".data"
+      },
+      "bss": {
+        "name_offset": 68,
+        "type": 8,
+        "flags": 3,
+        "address": 53128,
+        "offset": 53184,
+        "size": 164180,
+        "link": 0,
+        "info": 0,
+        "alignment": 8,
+        "entry_size": 0,
+        "index": 5,
+        "name": ".bss"
+      },
+      "thread_bounds": [
+        {
+          "name": "__static_thread_data_list_end",
+          "value": 0,
+          "size": 0,
+          "bind": 1,
+          "type": 0,
+          "other": 0,
+          "section_index": 3,
+          "section": ".static_thread_data_area"
+        },
+        {
+          "name": "__static_thread_data_list_start",
+          "value": 0,
+          "size": 0,
+          "bind": 1,
+          "type": 0,
+          "other": 0,
+          "section_index": 3,
+          "section": ".static_thread_data_area"
+        }
+      ],
+      "function_identity_count": 405,
+      "default_enabled": false,
+      "startup_callback_or_clock_io": false
+    }
+  ],
+  "source_freeze_path": "state\\analysis\\P2_dump_fifo_raw\\implementer\\second_source_freeze.json",
+  "source_freeze_sha256": "e4a0dd770e6fd593625735f7da5b0fbc6f8a3d32ff6728c5720edf36e01b7620",
+  "abi": {
+    "Runner": 164176,
+    "Report": 120,
+    "ClockPort": 8,
+    "Transaction": 162544,
+    "TransactionReport": 504,
+    "DumpPort": 24,
+    "AttemptRecorder": 159200,
+    "FrameBuffer": 126300,
+    "Transfer": 1408,
+    "UnoQDumpPort": 208
+  },
+  "abi_offsets": {
+    "report": 32,
+    "transaction": 152,
+    "transfer": 162696,
+    "attempted": 164161
+  },
+  "elf_sha256": "442970591605181388099db48c2a35fd8131fe77f396ed4f3510f2c10bffb5e6",
+  "zsk_sha256": "5649535048692ebce16b67be40e4fe9b4ef1da2b2da156297114f6f401cbccf3",
+  "loader_sha256": "39d4a4fd47241663323f6e04f94dd8f5a9f9ad6582cf1df37f9709b74026adcd",
+  "model_sha256": "1456224b9a6fa949fefb0abf6c80b7e461508ab6dc0d8063d3ff9e1235f21123",
+  "zsk_header_hex": "7f454c46010101014493010041230000",
+  "reviewer_harness_corrections": "D116 model and final/debug/temp normalization reused; see target_harness_notes.md for D117 run corrections.",
+  "evidence": "Direct byte parsing and retained16 offline ELF/ABI commands. Every function compared final/debug and ABS32-normalized temporary image. Actual default false branch and startup constructor references inspected; no target execution.",
+  "import_qualification": "Native UART/device/clock callback code is retained but not invoked by passive default startup. Static thread bounds are empty; unused matrix/allocator/core import declarations are not runtime dependencies.",
+  "limits": "Conditional pristine256KiB loader pool, persistent aligned peeks, unchanged loader/config, no interleaved or constructor allocation. No actual load/free-RAM/stack/WCET/receiver delivery or upload permission. Actual setup ACK, byte service rate, clean framing and delivery remain unqualified; FIFO reference-model tests are separate."
+}

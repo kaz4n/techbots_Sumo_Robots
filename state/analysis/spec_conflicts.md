@@ -689,3 +689,12 @@ Decision needed: a separate D117 interface/setup/ownership contract and independ
 Regression/acceptance: unchanged legacy tests; serial-time8-entry FIFO reference model with full5001-frame/4096-event worst-width stream, no overflow, actual TC, deadlines and poison; exact target/startup/import/loader checks. Full-capacity source model fits212658 1kHz calls at8 stores,283574 at6; actual<80us/store service and hardware delivery remain unmeasured. Root arithmetic receipt: P2_recorder_transport_raw/coordinator/cadence_arithmetic.json.
 
 DUMP-RATE-1 bound correction before D117 adoption: use unrestricted raw FR170 rather than semantically valid166. Corrected full-capacity217659 calls at8/288575 at6 still fit the300s model;5-store331091 exceeds it. No production budget changed. Original arithmetic retained; see F143 correction and P2_dump_fifo_test_preflight.md.
+
+DUMP-RATE-1 D117 software disposition 2026-09-24T03:47:36.209335+04:00: explicit FIFO8 selection now passes
+frozen independent normal/sanitizer native FIFO/serial-time/full-capacity tests,
+unchanged legacy/factory/D116 checks, fullhost regressions and exact three-target
+conditional fit audits. This resolves the selected software cadence design;
+actual effective service rate and native delivery remain HARDWARE-PENDING.
+The corrected unrestricted170-byte bound is retained. No budget/capacity reduction,
+framing/ownership grant or human gate. P2_dump_fifo_validation.md has evidence.
+SC-AL loadedRAM remainsopen; corrected appdefault has only8bytes modeled span.

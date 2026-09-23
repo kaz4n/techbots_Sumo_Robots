@@ -1,0 +1,1061 @@
+00000000 <setup>:
+       0:	b57f      	push	{r0, r1, r2, r3, r4, r5, r6, lr}
+       2:	2215      	movs	r2, #21
+       4:	2100      	movs	r1, #0
+       6:	4668      	mov	r0, sp
+       8:	4b04      	ldr	r3, [pc, #16]	@ (1c <setup+0x1c>)
+       a:	4798      	blx	r3
+       c:	4669      	mov	r1, sp
+       e:	4b04      	ldr	r3, [pc, #16]	@ (20 <setup+0x20>)
+      10:	4804      	ldr	r0, [pc, #16]	@ (24 <setup+0x24>)
+      12:	4798      	blx	r3
+      14:	b007      	add	sp, #28
+      16:	f85d fb04 	ldr.w	pc, [sp], #4
+      1a:	bf00      	nop
+	...
+			1c: R_ARM_ABS32	memset
+			20: R_ARM_ABS32	_ZN3app7Runtime5beginERKNS_11SetupGrantsE
+			24: R_ARM_ABS32	.bss
+
+00000028 <loop>:
+      28:	4801      	ldr	r0, [pc, #4]	@ (30 <loop+0x8>)
+      2a:	4b02      	ldr	r3, [pc, #8]	@ (34 <loop+0xc>)
+      2c:	4718      	bx	r3
+      2e:	bf00      	nop
+	...
+			30: R_ARM_ABS32	.bss
+			34: R_ARM_ABS32	_ZN3app7Runtime4stepEv
+
+00000038 <_GLOBAL__sub_I_setup>:
+      38:	b5f0      	push	{r4, r5, r6, r7, lr}
+      3a:	2400      	movs	r4, #0
+      3c:	4859      	ldr	r0, [pc, #356]	@ (1a4 <_GLOBAL__sub_I_setup+0x16c>)
+      3e:	b0a9      	sub	sp, #164	@ 0xa4
+      40:	4d59      	ldr	r5, [pc, #356]	@ (1a8 <_GLOBAL__sub_I_setup+0x170>)
+      42:	4621      	mov	r1, r4
+      44:	22b4      	movs	r2, #180	@ 0xb4
+      46:	f800 4b08 	strb.w	r4, [r0], #8
+      4a:	47a8      	blx	r5
+      4c:	4b55      	ldr	r3, [pc, #340]	@ (1a4 <_GLOBAL__sub_I_setup+0x16c>)
+      4e:	2601      	movs	r6, #1
+      50:	461f      	mov	r7, r3
+      52:	f103 00d8 	add.w	r0, r3, #216	@ 0xd8
+      56:	4621      	mov	r1, r4
+      58:	2210      	movs	r2, #16
+      5a:	e9c3 4430 	strd	r4, r4, [r3, #192]	@ 0xc0
+      5e:	e9c3 4432 	strd	r4, r4, [r3, #200]	@ 0xc8
+      62:	e9c3 4434 	strd	r4, r4, [r3, #208]	@ 0xd0
+      66:	725e      	strb	r6, [r3, #9]
+      68:	f883 40bc 	strb.w	r4, [r3, #188]	@ 0xbc
+      6c:	f883 40bd 	strb.w	r4, [r3, #189]	@ 0xbd
+      70:	f883 40be 	strb.w	r4, [r3, #190]	@ 0xbe
+      74:	f883 40bf 	strb.w	r4, [r3, #191]	@ 0xbf
+      78:	47a8      	blx	r5
+      7a:	f107 00e8 	add.w	r0, r7, #232	@ 0xe8
+      7e:	4621      	mov	r1, r4
+      80:	2210      	movs	r2, #16
+      82:	47a8      	blx	r5
+      84:	f107 00f8 	add.w	r0, r7, #248	@ 0xf8
+      88:	4621      	mov	r1, r4
+      8a:	2210      	movs	r2, #16
+      8c:	47a8      	blx	r5
+      8e:	2200      	movs	r2, #0
+      90:	2300      	movs	r3, #0
+      92:	e9c7 2344 	strd	r2, r3, [r7, #272]	@ 0x110
+      96:	2309      	movs	r3, #9
+      98:	f8c7 4108 	str.w	r4, [r7, #264]	@ 0x108
+      9c:	f887 410c 	strb.w	r4, [r7, #268]	@ 0x10c
+      a0:	f8a7 4118 	strh.w	r4, [r7, #280]	@ 0x118
+      a4:	f887 611a 	strb.w	r6, [r7, #282]	@ 0x11a
+      a8:	f8a7 4128 	strh.w	r4, [r7, #296]	@ 0x128
+      ac:	f887 412a 	strb.w	r4, [r7, #298]	@ 0x12a
+      b0:	f8c7 413c 	str.w	r4, [r7, #316]	@ 0x13c
+      b4:	e9c7 4448 	strd	r4, r4, [r7, #288]	@ 0x120
+      b8:	e9c7 334b 	strd	r3, r3, [r7, #300]	@ 0x12c
+      bc:	e9c7 444d 	strd	r4, r4, [r7, #308]	@ 0x134
+      c0:	f507 77a0 	add.w	r7, r7, #320	@ 0x140
+      c4:	4621      	mov	r1, r4
+      c6:	22e8      	movs	r2, #232	@ 0xe8
+      c8:	4638      	mov	r0, r7
+      ca:	47a8      	blx	r5
+      cc:	f5a7 72a0 	sub.w	r2, r7, #320	@ 0x140
+      d0:	4613      	mov	r3, r2
+      d2:	4621      	mov	r1, r4
+      d4:	f503 70d0 	add.w	r0, r3, #416	@ 0x1a0
+      d8:	223c      	movs	r2, #60	@ 0x3c
+      da:	f887 6028 	strb.w	r6, [r7, #40]	@ 0x28
+      de:	47a8      	blx	r5
+      e0:	4621      	mov	r1, r4
+      e2:	2223      	movs	r2, #35	@ 0x23
+      e4:	f107 009d 	add.w	r0, r7, #157	@ 0x9d
+      e8:	f887 6064 	strb.w	r6, [r7, #100]	@ 0x64
+      ec:	47a8      	blx	r5
+      ee:	f5a7 73a0 	sub.w	r3, r7, #320	@ 0x140
+      f2:	f887 609c 	strb.w	r6, [r7, #156]	@ 0x9c
+      f6:	f887 60c1 	strb.w	r6, [r7, #193]	@ 0xc1
+      fa:	f8c7 70e8 	str.w	r7, [r7, #232]	@ 0xe8
+      fe:	461f      	mov	r7, r3
+     100:	4621      	mov	r1, r4
+     102:	f503 700b 	add.w	r0, r3, #556	@ 0x22c
+     106:	2218      	movs	r2, #24
+     108:	47a8      	blx	r5
+     10a:	f887 622e 	strb.w	r6, [r7, #558]	@ 0x22e
+     10e:	f8c7 4244 	str.w	r4, [r7, #580]	@ 0x244
+     112:	f887 4248 	strb.w	r4, [r7, #584]	@ 0x248
+     116:	f507 7013 	add.w	r0, r7, #588	@ 0x24c
+     11a:	2703      	movs	r7, #3
+     11c:	4621      	mov	r1, r4
+     11e:	2268      	movs	r2, #104	@ 0x68
+     120:	47a8      	blx	r5
+     122:	4b20      	ldr	r3, [pc, #128]	@ (1a4 <_GLOBAL__sub_I_setup+0x16c>)
+     124:	226c      	movs	r2, #108	@ 0x6c
+     126:	4621      	mov	r1, r4
+     128:	f503 7032 	add.w	r0, r3, #712	@ 0x2c8
+     12c:	e9c3 44ae 	strd	r4, r4, [r3, #696]	@ 0x2b8
+     130:	f883 7250 	strb.w	r7, [r3, #592]	@ 0x250
+     134:	f883 6294 	strb.w	r6, [r3, #660]	@ 0x294
+     138:	f883 42b4 	strb.w	r4, [r3, #692]	@ 0x2b4
+     13c:	f883 42b5 	strb.w	r4, [r3, #693]	@ 0x2b5
+     140:	f883 42b6 	strb.w	r4, [r3, #694]	@ 0x2b6
+     144:	f8c3 42c0 	str.w	r4, [r3, #704]	@ 0x2c0
+     148:	f883 42c4 	strb.w	r4, [r3, #708]	@ 0x2c4
+     14c:	47a8      	blx	r5
+     14e:	4b15      	ldr	r3, [pc, #84]	@ (1a4 <_GLOBAL__sub_I_setup+0x16c>)
+     150:	a80d      	add	r0, sp, #52	@ 0x34
+     152:	e9c3 44cd 	strd	r4, r4, [r3, #820]	@ 0x334
+     156:	e9c3 44cf 	strd	r4, r4, [r3, #828]	@ 0x33c
+     15a:	f883 72d0 	strb.w	r7, [r3, #720]	@ 0x2d0
+     15e:	f883 6314 	strb.w	r6, [r3, #788]	@ 0x314
+     162:	f883 4344 	strb.w	r4, [r3, #836]	@ 0x344
+     166:	f883 4345 	strb.w	r4, [r3, #837]	@ 0x345
+     16a:	f883 4346 	strb.w	r4, [r3, #838]	@ 0x346
+     16e:	f8c3 4348 	str.w	r4, [r3, #840]	@ 0x348
+     172:	490e      	ldr	r1, [pc, #56]	@ (1ac <_GLOBAL__sub_I_setup+0x174>)
+     174:	4b0e      	ldr	r3, [pc, #56]	@ (1b0 <_GLOBAL__sub_I_setup+0x178>)
+     176:	4798      	blx	r3
+     178:	a802      	add	r0, sp, #8
+     17a:	490a      	ldr	r1, [pc, #40]	@ (1a4 <_GLOBAL__sub_I_setup+0x16c>)
+     17c:	4b0d      	ldr	r3, [pc, #52]	@ (1b4 <_GLOBAL__sub_I_setup+0x17c>)
+     17e:	4798      	blx	r3
+     180:	ac07      	add	r4, sp, #28
+     182:	a818      	add	r0, sp, #96	@ 0x60
+     184:	4907      	ldr	r1, [pc, #28]	@ (1a4 <_GLOBAL__sub_I_setup+0x16c>)
+     186:	4b0c      	ldr	r3, [pc, #48]	@ (1b8 <_GLOBAL__sub_I_setup+0x180>)
+     188:	4798      	blx	r3
+     18a:	4620      	mov	r0, r4
+     18c:	490b      	ldr	r1, [pc, #44]	@ (1bc <_GLOBAL__sub_I_setup+0x184>)
+     18e:	4b0c      	ldr	r3, [pc, #48]	@ (1c0 <_GLOBAL__sub_I_setup+0x188>)
+     190:	4798      	blx	r3
+     192:	9400      	str	r4, [sp, #0]
+     194:	ab18      	add	r3, sp, #96	@ 0x60
+     196:	4c0b      	ldr	r4, [pc, #44]	@ (1c4 <_GLOBAL__sub_I_setup+0x18c>)
+     198:	aa02      	add	r2, sp, #8
+     19a:	a90d      	add	r1, sp, #52	@ 0x34
+     19c:	480a      	ldr	r0, [pc, #40]	@ (1c8 <_GLOBAL__sub_I_setup+0x190>)
+     19e:	47a0      	blx	r4
+     1a0:	b029      	add	sp, #164	@ 0xa4
+     1a2:	bdf0      	pop	{r4, r5, r6, r7, pc}
+     1a4:	00028a10 	.word	0x00028a10
+			1a4: R_ARM_ABS32	.bss
+     1a8:	00000000 	.word	0x00000000
+			1a8: R_ARM_ABS32	memset
+     1ac:	000289e8 	.word	0x000289e8
+			1ac: R_ARM_ABS32	.bss
+	...
+			1b0: R_ARM_ABS32	_ZN6motors8UnoQPort4portEv
+			1b4: R_ARM_ABS32	_ZN3app13NativeSources7adcPortEv
+			1b8: R_ARM_ABS32	_ZN3app13NativeSources4portEv
+			1bc: R_ARM_ABS32	.data
+			1c0: R_ARM_ABS32	_ZN3app12unoQDumpPortERN8recorder4dump12UnoQDumpPortE
+			1c4: R_ARM_ABS32	_ZN3app7RuntimeC1ERKN6motors4PortERKN5power9InputPortERKNS_10SourcePortERKNS_8DumpPortE
+			1c8: R_ARM_ABS32	.bss
+
+0000c0a4 <_ZN8recorder4dump12UnoQDumpPort6poisonEv>:
+    c0a4:	2300      	movs	r3, #0
+    c0a6:	e9c0 3326 	strd	r3, r3, [r0, #152]	@ 0x98
+    c0aa:	f880 30cb 	strb.w	r3, [r0, #203]	@ 0xcb
+    c0ae:	f8c0 3094 	str.w	r3, [r0, #148]	@ 0x94
+    c0b2:	2301      	movs	r3, #1
+    c0b4:	f880 30cc 	strb.w	r3, [r0, #204]	@ 0xcc
+    c0b8:	2308      	movs	r3, #8
+    c0ba:	7043      	strb	r3, [r0, #1]
+    c0bc:	4770      	bx	lr
+	...
+
+0000c0c0 <_ZN8recorder4dump12UnoQDumpPort8failFifoENS0_12NativeStatusEjj>:
+    c0c0:	b570      	push	{r4, r5, r6, lr}
+    c0c2:	460c      	mov	r4, r1
+    c0c4:	4e0c      	ldr	r6, [pc, #48]	@ (c0f8 <_ZN8recorder4dump12UnoQDumpPort8failFifoENS0_12NativeStatusEjj+0x38>)
+    c0c6:	4611      	mov	r1, r2
+    c0c8:	461a      	mov	r2, r3
+    c0ca:	2300      	movs	r3, #0
+    c0cc:	4605      	mov	r5, r0
+    c0ce:	47b0      	blx	r6
+    c0d0:	2801      	cmp	r0, #1
+    c0d2:	d10a      	bne.n	c0ea <_ZN8recorder4dump12UnoQDumpPort8failFifoENS0_12NativeStatusEjj+0x2a>
+    c0d4:	2200      	movs	r2, #0
+    c0d6:	4b09      	ldr	r3, [pc, #36]	@ (c0fc <_ZN8recorder4dump12UnoQDumpPort8failFifoENS0_12NativeStatusEjj+0x3c>)
+    c0d8:	601a      	str	r2, [r3, #0]
+    c0da:	f3bf 8f5f 	dmb	sy
+    c0de:	681b      	ldr	r3, [r3, #0]
+    c0e0:	fab3 f383 	clz	r3, r3
+    c0e4:	095b      	lsrs	r3, r3, #5
+    c0e6:	f885 30c8 	strb.w	r3, [r5, #200]	@ 0xc8
+    c0ea:	4628      	mov	r0, r5
+    c0ec:	4b04      	ldr	r3, [pc, #16]	@ (c100 <_ZN8recorder4dump12UnoQDumpPort8failFifoENS0_12NativeStatusEjj+0x40>)
+    c0ee:	4798      	blx	r3
+    c0f0:	706c      	strb	r4, [r5, #1]
+    c0f2:	4620      	mov	r0, r4
+    c0f4:	bd70      	pop	{r4, r5, r6, pc}
+    c0f6:	bf00      	nop
+    c0f8:	00000000 	.word	0x00000000
+			c0f8: R_ARM_ABS32	_ZNK8recorder4dump12UnoQDumpPort10ownedStateEjjb
+    c0fc:	46002400 	.word	0x46002400
+    c100:	00000000 	.word	0x00000000
+			c100: R_ARM_ABS32	_ZN8recorder4dump12UnoQDumpPort6poisonEv
+
+0000c104 <_ZN8recorder4dump12UnoQDumpPort9beginFifoEv>:
+    c104:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+    c108:	4605      	mov	r5, r0
+    c10a:	4604      	mov	r4, r0
+    c10c:	2100      	movs	r1, #0
+    c10e:	4b29      	ldr	r3, [pc, #164]	@ (c1b4 <_ZN8recorder4dump12UnoQDumpPort9beginFifoEv+0xb0>)
+    c110:	4e29      	ldr	r6, [pc, #164]	@ (c1b8 <_ZN8recorder4dump12UnoQDumpPort9beginFifoEv+0xb4>)
+    c112:	b085      	sub	sp, #20
+    c114:	f845 3fa4 	str.w	r3, [r5, #164]!
+    c118:	4608      	mov	r0, r1
+    c11a:	47b0      	blx	r6
+    c11c:	3101      	adds	r1, #1
+    c11e:	2908      	cmp	r1, #8
+    c120:	f845 0f04 	str.w	r0, [r5, #4]!
+    c124:	d1f8      	bne.n	c118 <_ZN8recorder4dump12UnoQDumpPort9beginFifoEv+0x14>
+    c126:	2700      	movs	r7, #0
+    c128:	260d      	movs	r6, #13
+    c12a:	4b24      	ldr	r3, [pc, #144]	@ (c1bc <_ZN8recorder4dump12UnoQDumpPort9beginFifoEv+0xb8>)
+    c12c:	ad01      	add	r5, sp, #4
+    c12e:	e893 0007 	ldmia.w	r3, {r0, r1, r2}
+    c132:	e885 0007 	stmia.w	r5, {r0, r1, r2}
+    c136:	f8df 9094 	ldr.w	r9, [pc, #148]	@ c1cc <_ZN8recorder4dump12UnoQDumpPort9beginFifoEv+0xc8>
+    c13a:	f8df 8094 	ldr.w	r8, [pc, #148]	@ c1d0 <_ZN8recorder4dump12UnoQDumpPort9beginFifoEv+0xcc>
+    c13e:	4631      	mov	r1, r6
+    c140:	2300      	movs	r3, #0
+    c142:	4632      	mov	r2, r6
+    c144:	4620      	mov	r0, r4
+    c146:	47c8      	blx	r9
+    c148:	2801      	cmp	r0, #1
+    c14a:	4601      	mov	r1, r0
+    c14c:	4683      	mov	fp, r0
+    c14e:	d005      	beq.n	c15c <_ZN8recorder4dump12UnoQDumpPort9beginFifoEv+0x58>
+    c150:	b367      	cbz	r7, c1ac <_ZN8recorder4dump12UnoQDumpPort9beginFifoEv+0xa8>
+    c152:	4633      	mov	r3, r6
+    c154:	461a      	mov	r2, r3
+    c156:	e00e      	b.n	c176 <_ZN8recorder4dump12UnoQDumpPort9beginFifoEv+0x72>
+    c158:	4656      	mov	r6, sl
+    c15a:	e7f0      	b.n	c13e <_ZN8recorder4dump12UnoQDumpPort9beginFifoEv+0x3a>
+    c15c:	682b      	ldr	r3, [r5, #0]
+    c15e:	f8c8 3000 	str.w	r3, [r8]
+    c162:	f3bf 8f5f 	dmb	sy
+    c166:	f8d8 a000 	ldr.w	sl, [r8]
+    c16a:	f855 3b04 	ldr.w	r3, [r5], #4
+    c16e:	459a      	cmp	sl, r3
+    c170:	d008      	beq.n	c184 <_ZN8recorder4dump12UnoQDumpPort9beginFifoEv+0x80>
+    c172:	4632      	mov	r2, r6
+    c174:	2107      	movs	r1, #7
+    c176:	4620      	mov	r0, r4
+    c178:	4c11      	ldr	r4, [pc, #68]	@ (c1c0 <_ZN8recorder4dump12UnoQDumpPort9beginFifoEv+0xbc>)
+    c17a:	46a4      	mov	ip, r4
+    c17c:	b005      	add	sp, #20
+    c17e:	e8bd 4ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+    c182:	4760      	bx	ip
+    c184:	3701      	adds	r7, #1
+    c186:	2f03      	cmp	r7, #3
+    c188:	d1e6      	bne.n	c158 <_ZN8recorder4dump12UnoQDumpPort9beginFifoEv+0x54>
+    c18a:	f884 00c9 	strb.w	r0, [r4, #201]	@ 0xc9
+    c18e:	4b0d      	ldr	r3, [pc, #52]	@ (c1c4 <_ZN8recorder4dump12UnoQDumpPort9beginFifoEv+0xc0>)
+    c190:	4620      	mov	r0, r4
+    c192:	4798      	blx	r3
+    c194:	2801      	cmp	r0, #1
+    c196:	4601      	mov	r1, r0
+    c198:	4683      	mov	fp, r0
+    c19a:	d001      	beq.n	c1a0 <_ZN8recorder4dump12UnoQDumpPort9beginFifoEv+0x9c>
+    c19c:	4653      	mov	r3, sl
+    c19e:	e7d9      	b.n	c154 <_ZN8recorder4dump12UnoQDumpPort9beginFifoEv+0x50>
+    c1a0:	4620      	mov	r0, r4
+    c1a2:	4b09      	ldr	r3, [pc, #36]	@ (c1c8 <_ZN8recorder4dump12UnoQDumpPort9beginFifoEv+0xc4>)
+    c1a4:	4798      	blx	r3
+    c1a6:	2806      	cmp	r0, #6
+    c1a8:	4601      	mov	r1, r0
+    c1aa:	d0f7      	beq.n	c19c <_ZN8recorder4dump12UnoQDumpPort9beginFifoEv+0x98>
+    c1ac:	4658      	mov	r0, fp
+    c1ae:	b005      	add	sp, #20
+    c1b0:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+    c1b4:	00056ce4 	.word	0x00056ce4
+    c1b8:	00000000 	.word	0x00000000
+			c1b8: R_ARM_ABS32	_ZN8recorder4dump12_GLOBAL__N_113clockRegisterEj
+    c1bc:	00000130 	.word	0x00000130
+			c1bc: R_ARM_ABS32	.rodata
+	...
+			c1c0: R_ARM_ABS32	_ZN8recorder4dump12UnoQDumpPort8failFifoENS0_12NativeStatusEjj
+			c1c4: R_ARM_ABS32	_ZNK8recorder4dump12UnoQDumpPort9ownershipEv
+			c1c8: R_ARM_ABS32	_ZNK8recorder4dump12UnoQDumpPort11sampleReadyEv
+			c1cc: R_ARM_ABS32	_ZNK8recorder4dump12UnoQDumpPort10ownedStateEjjb
+    c1d0:	46002400 	.word	0x46002400
+
+0000bde4 <_ZNK8recorder4dump12UnoQDumpPort10ownedStateEjjb>:
+    bde4:	e92d 47f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
+    bde8:	461e      	mov	r6, r3
+    bdea:	4b3c      	ldr	r3, [pc, #240]	@ (bedc <_ZNK8recorder4dump12UnoQDumpPort10ownedStateEjjb+0xf8>)
+    bdec:	4604      	mov	r4, r0
+    bdee:	4688      	mov	r8, r1
+    bdf0:	4617      	mov	r7, r2
+    bdf2:	4798      	blx	r3
+    bdf4:	2800      	cmp	r0, #0
+    bdf6:	d06b      	beq.n	bed0 <_ZNK8recorder4dump12UnoQDumpPort10ownedStateEjjb+0xec>
+    bdf8:	b116      	cbz	r6, be00 <_ZNK8recorder4dump12UnoQDumpPort10ownedStateEjjb+0x1c>
+    bdfa:	f894 00c9 	ldrb.w	r0, [r4, #201]	@ 0xc9
+    bdfe:	b120      	cbz	r0, be0a <_ZNK8recorder4dump12UnoQDumpPort10ownedStateEjjb+0x26>
+    be00:	4b37      	ldr	r3, [pc, #220]	@ (bee0 <_ZNK8recorder4dump12UnoQDumpPort10ownedStateEjjb+0xfc>)
+    be02:	681b      	ldr	r3, [r3, #0]
+    be04:	429c      	cmp	r4, r3
+    be06:	d002      	beq.n	be0e <_ZNK8recorder4dump12UnoQDumpPort10ownedStateEjjb+0x2a>
+    be08:	2003      	movs	r0, #3
+    be0a:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
+    be0e:	4b35      	ldr	r3, [pc, #212]	@ (bee4 <_ZNK8recorder4dump12UnoQDumpPort10ownedStateEjjb+0x100>)
+    be10:	4798      	blx	r3
+    be12:	b908      	cbnz	r0, be18 <_ZNK8recorder4dump12UnoQDumpPort10ownedStateEjjb+0x34>
+    be14:	2004      	movs	r0, #4
+    be16:	e7f8      	b.n	be0a <_ZNK8recorder4dump12UnoQDumpPort10ownedStateEjjb+0x26>
+    be18:	4833      	ldr	r0, [pc, #204]	@ (bee8 <_ZNK8recorder4dump12UnoQDumpPort10ownedStateEjjb+0x104>)
+    be1a:	4b34      	ldr	r3, [pc, #208]	@ (beec <_ZNK8recorder4dump12UnoQDumpPort10ownedStateEjjb+0x108>)
+    be1c:	4798      	blx	r3
+    be1e:	2800      	cmp	r0, #0
+    be20:	d0f8      	beq.n	be14 <_ZNK8recorder4dump12UnoQDumpPort10ownedStateEjjb+0x30>
+    be22:	4b33      	ldr	r3, [pc, #204]	@ (bef0 <_ZNK8recorder4dump12UnoQDumpPort10ownedStateEjjb+0x10c>)
+    be24:	4798      	blx	r3
+    be26:	2800      	cmp	r0, #0
+    be28:	d0ee      	beq.n	be08 <_ZNK8recorder4dump12UnoQDumpPort10ownedStateEjjb+0x24>
+    be2a:	4b32      	ldr	r3, [pc, #200]	@ (bef4 <_ZNK8recorder4dump12UnoQDumpPort10ownedStateEjjb+0x110>)
+    be2c:	4798      	blx	r3
+    be2e:	2800      	cmp	r0, #0
+    be30:	d0ea      	beq.n	be08 <_ZNK8recorder4dump12UnoQDumpPort10ownedStateEjjb+0x24>
+    be32:	4831      	ldr	r0, [pc, #196]	@ (bef8 <_ZNK8recorder4dump12UnoQDumpPort10ownedStateEjjb+0x114>)
+    be34:	69c3      	ldr	r3, [r0, #28]
+    be36:	f413 5f02 	tst.w	r3, #8320	@ 0x2080
+    be3a:	d1e5      	bne.n	be08 <_ZNK8recorder4dump12UnoQDumpPort10ownedStateEjjb+0x24>
+    be3c:	6803      	ldr	r3, [r0, #0]
+    be3e:	f013 6f40 	tst.w	r3, #201326592	@ 0xc000000
+    be42:	d1e1      	bne.n	be08 <_ZNK8recorder4dump12UnoQDumpPort10ownedStateEjjb+0x24>
+    be44:	68c3      	ldr	r3, [r0, #12]
+    be46:	f003 6340 	and.w	r3, r3, #201326592	@ 0xc000000
+    be4a:	f1b3 6f00 	cmp.w	r3, #134217728	@ 0x8000000
+    be4e:	d1db      	bne.n	be08 <_ZNK8recorder4dump12UnoQDumpPort10ownedStateEjjb+0x24>
+    be50:	6803      	ldr	r3, [r0, #0]
+    be52:	f403 4340 	and.w	r3, r3, #49152	@ 0xc000
+    be56:	f5b3 4f00 	cmp.w	r3, #32768	@ 0x8000
+    be5a:	d1d5      	bne.n	be08 <_ZNK8recorder4dump12UnoQDumpPort10ownedStateEjjb+0x24>
+    be5c:	6845      	ldr	r5, [r0, #4]
+    be5e:	f015 0580 	ands.w	r5, r5, #128	@ 0x80
+    be62:	d1d1      	bne.n	be08 <_ZNK8recorder4dump12UnoQDumpPort10ownedStateEjjb+0x24>
+    be64:	6a03      	ldr	r3, [r0, #32]
+    be66:	f003 4370 	and.w	r3, r3, #4026531840	@ 0xf0000000
+    be6a:	f1b3 4f00 	cmp.w	r3, #2147483648	@ 0x80000000
+    be6e:	d1cb      	bne.n	be08 <_ZNK8recorder4dump12UnoQDumpPort10ownedStateEjjb+0x24>
+    be70:	4b22      	ldr	r3, [pc, #136]	@ (befc <_ZNK8recorder4dump12UnoQDumpPort10ownedStateEjjb+0x118>)
+    be72:	4798      	blx	r3
+    be74:	2800      	cmp	r0, #0
+    be76:	d0c7      	beq.n	be08 <_ZNK8recorder4dump12UnoQDumpPort10ownedStateEjjb+0x24>
+    be78:	f8df 9088 	ldr.w	r9, [pc, #136]	@ bf04 <_ZNK8recorder4dump12UnoQDumpPort10ownedStateEjjb+0x120>
+    be7c:	f104 01a4 	add.w	r1, r4, #164	@ 0xa4
+    be80:	4628      	mov	r0, r5
+    be82:	f851 af04 	ldr.w	sl, [r1, #4]!
+    be86:	47c8      	blx	r9
+    be88:	4582      	cmp	sl, r0
+    be8a:	d1bd      	bne.n	be08 <_ZNK8recorder4dump12UnoQDumpPort10ownedStateEjjb+0x24>
+    be8c:	3501      	adds	r5, #1
+    be8e:	2d08      	cmp	r5, #8
+    be90:	d1f6      	bne.n	be80 <_ZNK8recorder4dump12UnoQDumpPort10ownedStateEjjb+0x9c>
+    be92:	481b      	ldr	r0, [pc, #108]	@ (bf00 <_ZNK8recorder4dump12UnoQDumpPort10ownedStateEjjb+0x11c>)
+    be94:	6803      	ldr	r3, [r0, #0]
+    be96:	4598      	cmp	r8, r3
+    be98:	d001      	beq.n	be9e <_ZNK8recorder4dump12UnoQDumpPort10ownedStateEjjb+0xba>
+    be9a:	429f      	cmp	r7, r3
+    be9c:	d11a      	bne.n	bed4 <_ZNK8recorder4dump12UnoQDumpPort10ownedStateEjjb+0xf0>
+    be9e:	6843      	ldr	r3, [r0, #4]
+    bea0:	b9c3      	cbnz	r3, bed4 <_ZNK8recorder4dump12UnoQDumpPort10ownedStateEjjb+0xf0>
+    bea2:	6883      	ldr	r3, [r0, #8]
+    bea4:	b9b3      	cbnz	r3, bed4 <_ZNK8recorder4dump12UnoQDumpPort10ownedStateEjjb+0xf0>
+    bea6:	6ac3      	ldr	r3, [r0, #44]	@ 0x2c
+    bea8:	b9a3      	cbnz	r3, bed4 <_ZNK8recorder4dump12UnoQDumpPort10ownedStateEjjb+0xf0>
+    beaa:	68c2      	ldr	r2, [r0, #12]
+    beac:	f8d4 30a4 	ldr.w	r3, [r4, #164]	@ 0xa4
+    beb0:	429a      	cmp	r2, r3
+    beb2:	d10f      	bne.n	bed4 <_ZNK8recorder4dump12UnoQDumpPort10ownedStateEjjb+0xf0>
+    beb4:	b116      	cbz	r6, bebc <_ZNK8recorder4dump12UnoQDumpPort10ownedStateEjjb+0xd8>
+    beb6:	69c3      	ldr	r3, [r0, #28]
+    beb8:	029b      	lsls	r3, r3, #10
+    beba:	d50b      	bpl.n	bed4 <_ZNK8recorder4dump12UnoQDumpPort10ownedStateEjjb+0xf0>
+    bebc:	7823      	ldrb	r3, [r4, #0]
+    bebe:	2b01      	cmp	r3, #1
+    bec0:	d10a      	bne.n	bed8 <_ZNK8recorder4dump12UnoQDumpPort10ownedStateEjjb+0xf4>
+    bec2:	4b0f      	ldr	r3, [pc, #60]	@ (bf00 <_ZNK8recorder4dump12UnoQDumpPort10ownedStateEjjb+0x11c>)
+    bec4:	6b1b      	ldr	r3, [r3, #48]	@ 0x30
+    bec6:	2b00      	cmp	r3, #0
+    bec8:	bf14      	ite	ne
+    beca:	2007      	movne	r0, #7
+    becc:	2001      	moveq	r0, #1
+    bece:	e79c      	b.n	be0a <_ZNK8recorder4dump12UnoQDumpPort10ownedStateEjjb+0x26>
+    bed0:	2002      	movs	r0, #2
+    bed2:	e79a      	b.n	be0a <_ZNK8recorder4dump12UnoQDumpPort10ownedStateEjjb+0x26>
+    bed4:	2007      	movs	r0, #7
+    bed6:	e798      	b.n	be0a <_ZNK8recorder4dump12UnoQDumpPort10ownedStateEjjb+0x26>
+    bed8:	2001      	movs	r0, #1
+    beda:	e796      	b.n	be0a <_ZNK8recorder4dump12UnoQDumpPort10ownedStateEjjb+0x26>
+    bedc:	00000000 	.word	0x00000000
+			bedc: R_ARM_ABS32	_ZN8recorder4dump12_GLOBAL__N_113threadContextEv
+    bee0:	00028d60 	.word	0x00028d60
+			bee0: R_ARM_ABS32	.bss
+	...
+			bee4: R_ARM_ABS32	_ZN8recorder4dump12_GLOBAL__N_18metadataEv
+			bee8: R_ARM_ABS32	__device_dts_ord_78
+			beec: R_ARM_ABS32	z_impl_device_is_ready
+			bef0: R_ARM_ABS32	_ZN8recorder4dump12_GLOBAL__N_115clocksAvailableEv
+			bef4: R_ARM_ABS32	_ZN8recorder4dump12_GLOBAL__N_112nominalClockEv
+    bef8:	42021800 	.word	0x42021800
+    befc:	00000000 	.word	0x00000000
+			befc: R_ARM_ABS32	_ZN8recorder4dump12_GLOBAL__N_17irqIdleEv
+    bf00:	46002400 	.word	0x46002400
+    bf04:	00000000 	.word	0x00000000
+			bf04: R_ARM_ABS32	_ZN8recorder4dump12_GLOBAL__N_113clockRegisterEj
+
+0000c1d4 <_ZN8recorder4dump12UnoQDumpPort5abortEv>:
+    c1d4:	b537      	push	{r0, r1, r2, r4, r5, lr}
+    c1d6:	f890 50cc 	ldrb.w	r5, [r0, #204]	@ 0xcc
+    c1da:	4604      	mov	r4, r0
+    c1dc:	b9d5      	cbnz	r5, c214 <_ZN8recorder4dump12UnoQDumpPort5abortEv+0x40>
+    c1de:	4b10      	ldr	r3, [pc, #64]	@ (c220 <_ZN8recorder4dump12UnoQDumpPort5abortEv+0x4c>)
+    c1e0:	4798      	blx	r3
+    c1e2:	b1b8      	cbz	r0, c214 <_ZN8recorder4dump12UnoQDumpPort5abortEv+0x40>
+    c1e4:	f3ef 8310 	mrs	r3, PRIMASK
+    c1e8:	9301      	str	r3, [sp, #4]
+    c1ea:	b672      	cpsid	i
+    c1ec:	4b0d      	ldr	r3, [pc, #52]	@ (c224 <_ZN8recorder4dump12UnoQDumpPort5abortEv+0x50>)
+    c1ee:	4620      	mov	r0, r4
+    c1f0:	4798      	blx	r3
+    c1f2:	2801      	cmp	r0, #1
+    c1f4:	d109      	bne.n	c20a <_ZN8recorder4dump12UnoQDumpPort5abortEv+0x36>
+    c1f6:	4b0c      	ldr	r3, [pc, #48]	@ (c228 <_ZN8recorder4dump12UnoQDumpPort5abortEv+0x54>)
+    c1f8:	601d      	str	r5, [r3, #0]
+    c1fa:	f3bf 8f5f 	dmb	sy
+    c1fe:	681b      	ldr	r3, [r3, #0]
+    c200:	fab3 f383 	clz	r3, r3
+    c204:	095b      	lsrs	r3, r3, #5
+    c206:	f884 30c8 	strb.w	r3, [r4, #200]	@ 0xc8
+    c20a:	f3bf 8f5f 	dmb	sy
+    c20e:	9b01      	ldr	r3, [sp, #4]
+    c210:	f383 8810 	msr	PRIMASK, r3
+    c214:	4620      	mov	r0, r4
+    c216:	4b05      	ldr	r3, [pc, #20]	@ (c22c <_ZN8recorder4dump12UnoQDumpPort5abortEv+0x58>)
+    c218:	b003      	add	sp, #12
+    c21a:	e8bd 4030 	ldmia.w	sp!, {r4, r5, lr}
+    c21e:	4718      	bx	r3
+	...
+			c220: R_ARM_ABS32	_ZN8recorder4dump12_GLOBAL__N_113threadContextEv
+			c224: R_ARM_ABS32	_ZNK8recorder4dump12UnoQDumpPort9ownershipEv
+    c228:	46002400 	.word	0x46002400
+    c22c:	00000000 	.word	0x00000000
+			c22c: R_ARM_ABS32	_ZN8recorder4dump12UnoQDumpPort6poisonEv
+
+0000c230 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE>:
+    c230:	e92d 47f3 	stmdb	sp!, {r0, r1, r4, r5, r6, r7, r8, r9, sl, lr}
+    c234:	f890 30ca 	ldrb.w	r3, [r0, #202]	@ 0xca
+    c238:	4605      	mov	r5, r0
+    c23a:	b913      	cbnz	r3, c242 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x12>
+    c23c:	f890 30cc 	ldrb.w	r3, [r0, #204]	@ 0xcc
+    c240:	b13b      	cbz	r3, c252 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x22>
+    c242:	4628      	mov	r0, r5
+    c244:	4b69      	ldr	r3, [pc, #420]	@ (c3ec <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x1bc>)
+    c246:	4798      	blx	r3
+    c248:	786c      	ldrb	r4, [r5, #1]
+    c24a:	4620      	mov	r0, r4
+    c24c:	b002      	add	sp, #8
+    c24e:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
+    c252:	2301      	movs	r3, #1
+    c254:	f880 30ca 	strb.w	r3, [r0, #202]	@ 0xca
+    c258:	7803      	ldrb	r3, [r0, #0]
+    c25a:	2b01      	cmp	r3, #1
+    c25c:	d902      	bls.n	c264 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x34>
+    c25e:	240a      	movs	r4, #10
+    c260:	706c      	strb	r4, [r5, #1]
+    c262:	e7f2      	b.n	c24a <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x1a>
+    c264:	780b      	ldrb	r3, [r1, #0]
+    c266:	b12b      	cbz	r3, c274 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x44>
+    c268:	784b      	ldrb	r3, [r1, #1]
+    c26a:	b11b      	cbz	r3, c274 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x44>
+    c26c:	788b      	ldrb	r3, [r1, #2]
+    c26e:	b10b      	cbz	r3, c274 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x44>
+    c270:	78cb      	ldrb	r3, [r1, #3]
+    c272:	b90b      	cbnz	r3, c278 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x48>
+    c274:	2403      	movs	r4, #3
+    c276:	e7f3      	b.n	c260 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x30>
+    c278:	f8df 91b4 	ldr.w	r9, [pc, #436]	@ c430 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x200>
+    c27c:	47c8      	blx	r9
+    c27e:	b908      	cbnz	r0, c284 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x54>
+    c280:	2402      	movs	r4, #2
+    c282:	e7ed      	b.n	c260 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x30>
+    c284:	f8df a1ac 	ldr.w	sl, [pc, #428]	@ c434 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x204>
+    c288:	f8da 3000 	ldr.w	r3, [sl]
+    c28c:	2b00      	cmp	r3, #0
+    c28e:	d1f1      	bne.n	c274 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x44>
+    c290:	f8df 81a4 	ldr.w	r8, [pc, #420]	@ c438 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x208>
+    c294:	47c0      	blx	r8
+    c296:	b908      	cbnz	r0, c29c <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x6c>
+    c298:	2404      	movs	r4, #4
+    c29a:	e7e1      	b.n	c260 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x30>
+    c29c:	4c54      	ldr	r4, [pc, #336]	@ (c3f0 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x1c0>)
+    c29e:	4e55      	ldr	r6, [pc, #340]	@ (c3f4 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x1c4>)
+    c2a0:	4620      	mov	r0, r4
+    c2a2:	47b0      	blx	r6
+    c2a4:	2800      	cmp	r0, #0
+    c2a6:	d0f7      	beq.n	c298 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x68>
+    c2a8:	4853      	ldr	r0, [pc, #332]	@ (c3f8 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x1c8>)
+    c2aa:	47b0      	blx	r6
+    c2ac:	2800      	cmp	r0, #0
+    c2ae:	d0f3      	beq.n	c298 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x68>
+    c2b0:	4f52      	ldr	r7, [pc, #328]	@ (c3fc <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x1cc>)
+    c2b2:	68fb      	ldr	r3, [r7, #12]
+    c2b4:	785a      	ldrb	r2, [r3, #1]
+    c2b6:	07d1      	lsls	r1, r2, #31
+    c2b8:	d4dc      	bmi.n	c274 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x44>
+    c2ba:	781b      	ldrb	r3, [r3, #0]
+    c2bc:	2b00      	cmp	r3, #0
+    c2be:	d1d9      	bne.n	c274 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x44>
+    c2c0:	4b4f      	ldr	r3, [pc, #316]	@ (c400 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x1d0>)
+    c2c2:	4798      	blx	r3
+    c2c4:	2800      	cmp	r0, #0
+    c2c6:	d0d5      	beq.n	c274 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x44>
+    c2c8:	f8ca 5000 	str.w	r5, [sl]
+    c2cc:	6921      	ldr	r1, [r4, #16]
+    c2ce:	68a2      	ldr	r2, [r4, #8]
+    c2d0:	680b      	ldr	r3, [r1, #0]
+    c2d2:	4620      	mov	r0, r4
+    c2d4:	f423 5300 	bic.w	r3, r3, #8192	@ 0x2000
+    c2d8:	600b      	str	r3, [r1, #0]
+    c2da:	6813      	ldr	r3, [r2, #0]
+    c2dc:	210d      	movs	r1, #13
+    c2de:	4a49      	ldr	r2, [pc, #292]	@ (c404 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x1d4>)
+    c2e0:	4798      	blx	r3
+    c2e2:	b108      	cbz	r0, c2e8 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0xb8>
+    c2e4:	2406      	movs	r4, #6
+    c2e6:	e7bb      	b.n	c260 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x30>
+    c2e8:	4b47      	ldr	r3, [pc, #284]	@ (c408 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x1d8>)
+    c2ea:	4638      	mov	r0, r7
+    c2ec:	4798      	blx	r3
+    c2ee:	2800      	cmp	r0, #0
+    c2f0:	d1d2      	bne.n	c298 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x68>
+    c2f2:	4638      	mov	r0, r7
+    c2f4:	47b0      	blx	r6
+    c2f6:	2800      	cmp	r0, #0
+    c2f8:	d0ce      	beq.n	c298 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x68>
+    c2fa:	f3ef 8310 	mrs	r3, PRIMASK
+    c2fe:	9301      	str	r3, [sp, #4]
+    c300:	b672      	cpsid	i
+    c302:	47c8      	blx	r9
+    c304:	2800      	cmp	r0, #0
+    c306:	d03d      	beq.n	c384 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x154>
+    c308:	47c0      	blx	r8
+    c30a:	2800      	cmp	r0, #0
+    c30c:	d03a      	beq.n	c384 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x154>
+    c30e:	4b3f      	ldr	r3, [pc, #252]	@ (c40c <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x1dc>)
+    c310:	4798      	blx	r3
+    c312:	2800      	cmp	r0, #0
+    c314:	d036      	beq.n	c384 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x154>
+    c316:	4b3e      	ldr	r3, [pc, #248]	@ (c410 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x1e0>)
+    c318:	4798      	blx	r3
+    c31a:	2800      	cmp	r0, #0
+    c31c:	d032      	beq.n	c384 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x154>
+    c31e:	4b3d      	ldr	r3, [pc, #244]	@ (c414 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x1e4>)
+    c320:	f8d3 2208 	ldr.w	r2, [r3, #520]	@ 0x208
+    c324:	0752      	lsls	r2, r2, #29
+    c326:	d42d      	bmi.n	c384 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x154>
+    c328:	f8d3 3108 	ldr.w	r3, [r3, #264]	@ 0x108
+    c32c:	075b      	lsls	r3, r3, #29
+    c32e:	d429      	bmi.n	c384 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x154>
+    c330:	4b39      	ldr	r3, [pc, #228]	@ (c418 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x1e8>)
+    c332:	681a      	ldr	r2, [r3, #0]
+    c334:	2a0d      	cmp	r2, #13
+    c336:	d156      	bne.n	c3e6 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x1b6>
+    c338:	685a      	ldr	r2, [r3, #4]
+    c33a:	2a00      	cmp	r2, #0
+    c33c:	d153      	bne.n	c3e6 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x1b6>
+    c33e:	689a      	ldr	r2, [r3, #8]
+    c340:	2a00      	cmp	r2, #0
+    c342:	d150      	bne.n	c3e6 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x1b6>
+    c344:	6ad9      	ldr	r1, [r3, #44]	@ 0x2c
+    c346:	2900      	cmp	r1, #0
+    c348:	d14d      	bne.n	c3e6 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x1b6>
+    c34a:	68da      	ldr	r2, [r3, #12]
+    c34c:	4b33      	ldr	r3, [pc, #204]	@ (c41c <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x1ec>)
+    c34e:	429a      	cmp	r2, r3
+    c350:	d149      	bne.n	c3e6 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x1b6>
+    c352:	782b      	ldrb	r3, [r5, #0]
+    c354:	2b01      	cmp	r3, #1
+    c356:	d103      	bne.n	c360 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x130>
+    c358:	4b2f      	ldr	r3, [pc, #188]	@ (c418 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x1e8>)
+    c35a:	6b1b      	ldr	r3, [r3, #48]	@ 0x30
+    c35c:	2b00      	cmp	r3, #0
+    c35e:	d142      	bne.n	c3e6 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x1b6>
+    c360:	2204      	movs	r2, #4
+    c362:	4b2c      	ldr	r3, [pc, #176]	@ (c414 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x1e4>)
+    c364:	f8c3 2088 	str.w	r2, [r3, #136]	@ 0x88
+    c368:	f3bf 8f4f 	dsb	sy
+    c36c:	f3bf 8f6f 	isb	sy
+    c370:	f8c3 2188 	str.w	r2, [r3, #392]	@ 0x188
+    c374:	782b      	ldrb	r3, [r5, #0]
+    c376:	2b01      	cmp	r3, #1
+    c378:	d10c      	bne.n	c394 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x164>
+    c37a:	4628      	mov	r0, r5
+    c37c:	4b28      	ldr	r3, [pc, #160]	@ (c420 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x1f0>)
+    c37e:	4798      	blx	r3
+    c380:	4604      	mov	r4, r0
+    c382:	e000      	b.n	c386 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x156>
+    c384:	2403      	movs	r4, #3
+    c386:	706c      	strb	r4, [r5, #1]
+    c388:	f3bf 8f5f 	dmb	sy
+    c38c:	9b01      	ldr	r3, [sp, #4]
+    c38e:	f383 8810 	msr	PRIMASK, r3
+    c392:	e75a      	b.n	c24a <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x1a>
+    c394:	2209      	movs	r2, #9
+    c396:	4b20      	ldr	r3, [pc, #128]	@ (c418 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x1e8>)
+    c398:	601a      	str	r2, [r3, #0]
+    c39a:	f3bf 8f5f 	dmb	sy
+    c39e:	462c      	mov	r4, r5
+    c3a0:	68db      	ldr	r3, [r3, #12]
+    c3a2:	4e20      	ldr	r6, [pc, #128]	@ (c424 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x1f4>)
+    c3a4:	f844 3fa4 	str.w	r3, [r4, #164]!
+    c3a8:	4608      	mov	r0, r1
+    c3aa:	47b0      	blx	r6
+    c3ac:	3101      	adds	r1, #1
+    c3ae:	2908      	cmp	r1, #8
+    c3b0:	f844 0f04 	str.w	r0, [r4, #4]!
+    c3b4:	d1f8      	bne.n	c3a8 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x178>
+    c3b6:	2301      	movs	r3, #1
+    c3b8:	4628      	mov	r0, r5
+    c3ba:	f885 30c9 	strb.w	r3, [r5, #201]	@ 0xc9
+    c3be:	4b1a      	ldr	r3, [pc, #104]	@ (c428 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x1f8>)
+    c3c0:	4798      	blx	r3
+    c3c2:	4604      	mov	r4, r0
+    c3c4:	2c01      	cmp	r4, #1
+    c3c6:	7068      	strb	r0, [r5, #1]
+    c3c8:	4628      	mov	r0, r5
+    c3ca:	d002      	beq.n	c3d2 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x1a2>
+    c3cc:	4b07      	ldr	r3, [pc, #28]	@ (c3ec <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x1bc>)
+    c3ce:	4798      	blx	r3
+    c3d0:	e7d9      	b.n	c386 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x156>
+    c3d2:	4b16      	ldr	r3, [pc, #88]	@ (c42c <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x1fc>)
+    c3d4:	4798      	blx	r3
+    c3d6:	2806      	cmp	r0, #6
+    c3d8:	4606      	mov	r6, r0
+    c3da:	d1d4      	bne.n	c386 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x156>
+    c3dc:	4628      	mov	r0, r5
+    c3de:	4b03      	ldr	r3, [pc, #12]	@ (c3ec <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x1bc>)
+    c3e0:	4798      	blx	r3
+    c3e2:	4634      	mov	r4, r6
+    c3e4:	e7cf      	b.n	c386 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x156>
+    c3e6:	2407      	movs	r4, #7
+    c3e8:	e7cd      	b.n	c386 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x156>
+    c3ea:	bf00      	nop
+	...
+			c3ec: R_ARM_ABS32	_ZN8recorder4dump12UnoQDumpPort5abortEv
+			c3f0: R_ARM_ABS32	__device_dts_ord_94
+			c3f4: R_ARM_ABS32	z_impl_device_is_ready
+			c3f8: R_ARM_ABS32	__device_dts_ord_9
+			c3fc: R_ARM_ABS32	__device_dts_ord_78
+			c400: R_ARM_ABS32	_ZN8recorder4dump12_GLOBAL__N_17irqIdleEv
+    c404:	00010020 	.word	0x00010020
+	...
+			c408: R_ARM_ABS32	z_impl_device_init
+			c40c: R_ARM_ABS32	_ZN8recorder4dump12_GLOBAL__N_115clocksAvailableEv
+			c410: R_ARM_ABS32	_ZN8recorder4dump12_GLOBAL__N_112nominalClockEv
+    c414:	e000e100 	.word	0xe000e100
+    c418:	46002400 	.word	0x46002400
+    c41c:	00056ce4 	.word	0x00056ce4
+	...
+			c420: R_ARM_ABS32	_ZN8recorder4dump12UnoQDumpPort9beginFifoEv
+			c424: R_ARM_ABS32	_ZN8recorder4dump12_GLOBAL__N_113clockRegisterEj
+			c428: R_ARM_ABS32	_ZNK8recorder4dump12UnoQDumpPort9ownershipEv
+			c42c: R_ARM_ABS32	_ZNK8recorder4dump12UnoQDumpPort11sampleReadyEv
+			c430: R_ARM_ABS32	_ZN8recorder4dump12_GLOBAL__N_113threadContextEv
+    c434:	00028d60 	.word	0x00028d60
+			c434: R_ARM_ABS32	.bss
+    c438:	00000000 	.word	0x00000000
+			c438: R_ARM_ABS32	_ZN8recorder4dump12_GLOBAL__N_18metadataEv
+
+0000bf60 <_ZN8recorder4dump12UnoQDumpPort5readyEv>:
+    bf60:	b513      	push	{r0, r1, r4, lr}
+    bf62:	f890 30cc 	ldrb.w	r3, [r0, #204]	@ 0xcc
+    bf66:	4604      	mov	r4, r0
+    bf68:	b123      	cbz	r3, bf74 <_ZN8recorder4dump12UnoQDumpPort5readyEv+0x14>
+    bf6a:	2308      	movs	r3, #8
+    bf6c:	2000      	movs	r0, #0
+    bf6e:	7063      	strb	r3, [r4, #1]
+    bf70:	b002      	add	sp, #8
+    bf72:	bd10      	pop	{r4, pc}
+    bf74:	4b0d      	ldr	r3, [pc, #52]	@ (bfac <_ZN8recorder4dump12UnoQDumpPort5readyEv+0x4c>)
+    bf76:	4798      	blx	r3
+    bf78:	b908      	cbnz	r0, bf7e <_ZN8recorder4dump12UnoQDumpPort5readyEv+0x1e>
+    bf7a:	2302      	movs	r3, #2
+    bf7c:	e7f6      	b.n	bf6c <_ZN8recorder4dump12UnoQDumpPort5readyEv+0xc>
+    bf7e:	f3ef 8310 	mrs	r3, PRIMASK
+    bf82:	9301      	str	r3, [sp, #4]
+    bf84:	b672      	cpsid	i
+    bf86:	4b0a      	ldr	r3, [pc, #40]	@ (bfb0 <_ZN8recorder4dump12UnoQDumpPort5readyEv+0x50>)
+    bf88:	4620      	mov	r0, r4
+    bf8a:	4798      	blx	r3
+    bf8c:	2801      	cmp	r0, #1
+    bf8e:	7060      	strb	r0, [r4, #1]
+    bf90:	d103      	bne.n	bf9a <_ZN8recorder4dump12UnoQDumpPort5readyEv+0x3a>
+    bf92:	4620      	mov	r0, r4
+    bf94:	4b07      	ldr	r3, [pc, #28]	@ (bfb4 <_ZN8recorder4dump12UnoQDumpPort5readyEv+0x54>)
+    bf96:	4798      	blx	r3
+    bf98:	7060      	strb	r0, [r4, #1]
+    bf9a:	1e43      	subs	r3, r0, #1
+    bf9c:	4258      	negs	r0, r3
+    bf9e:	4158      	adcs	r0, r3
+    bfa0:	f3bf 8f5f 	dmb	sy
+    bfa4:	9b01      	ldr	r3, [sp, #4]
+    bfa6:	f383 8810 	msr	PRIMASK, r3
+    bfaa:	e7e1      	b.n	bf70 <_ZN8recorder4dump12UnoQDumpPort5readyEv+0x10>
+	...
+			bfac: R_ARM_ABS32	_ZN8recorder4dump12_GLOBAL__N_113threadContextEv
+			bfb0: R_ARM_ABS32	_ZNK8recorder4dump12UnoQDumpPort9ownershipEv
+			bfb4: R_ARM_ABS32	_ZNK8recorder4dump12UnoQDumpPort11sampleReadyEv
+
+0000c554 <_ZN8recorder4dump12UnoQDumpPort7advanceEPKcj>:
+    c554:	e92d 47f3 	stmdb	sp!, {r0, r1, r4, r5, r6, r7, r8, r9, sl, lr}
+    c558:	f891 a0cc 	ldrb.w	sl, [r1, #204]	@ 0xcc
+    c55c:	4605      	mov	r5, r0
+    c55e:	460c      	mov	r4, r1
+    c560:	4690      	mov	r8, r2
+    c562:	4699      	mov	r9, r3
+    c564:	f1ba 0f00 	cmp.w	sl, #0
+    c568:	d00c      	beq.n	c584 <_ZN8recorder4dump12UnoQDumpPort7advanceEPKcj+0x30>
+    c56a:	4b25      	ldr	r3, [pc, #148]	@ (c600 <_ZN8recorder4dump12UnoQDumpPort7advanceEPKcj+0xac>)
+    c56c:	4608      	mov	r0, r1
+    c56e:	4798      	blx	r3
+    c570:	2308      	movs	r3, #8
+    c572:	7063      	strb	r3, [r4, #1]
+    c574:	2302      	movs	r3, #2
+    c576:	702b      	strb	r3, [r5, #0]
+    c578:	2300      	movs	r3, #0
+    c57a:	606b      	str	r3, [r5, #4]
+    c57c:	4628      	mov	r0, r5
+    c57e:	b002      	add	sp, #8
+    c580:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
+    c584:	4b1f      	ldr	r3, [pc, #124]	@ (c604 <_ZN8recorder4dump12UnoQDumpPort7advanceEPKcj+0xb0>)
+    c586:	4798      	blx	r3
+    c588:	4606      	mov	r6, r0
+    c58a:	b938      	cbnz	r0, c59c <_ZN8recorder4dump12UnoQDumpPort7advanceEPKcj+0x48>
+    c58c:	4b1c      	ldr	r3, [pc, #112]	@ (c600 <_ZN8recorder4dump12UnoQDumpPort7advanceEPKcj+0xac>)
+    c58e:	4608      	mov	r0, r1
+    c590:	4798      	blx	r3
+    c592:	2302      	movs	r3, #2
+    c594:	606e      	str	r6, [r5, #4]
+    c596:	7063      	strb	r3, [r4, #1]
+    c598:	702b      	strb	r3, [r5, #0]
+    c59a:	e7ef      	b.n	c57c <_ZN8recorder4dump12UnoQDumpPort7advanceEPKcj+0x28>
+    c59c:	4b1a      	ldr	r3, [pc, #104]	@ (c608 <_ZN8recorder4dump12UnoQDumpPort7advanceEPKcj+0xb4>)
+    c59e:	4798      	blx	r3
+    c5a0:	4607      	mov	r7, r0
+    c5a2:	f3ef 8310 	mrs	r3, PRIMASK
+    c5a6:	9301      	str	r3, [sp, #4]
+    c5a8:	b672      	cpsid	i
+    c5aa:	4b18      	ldr	r3, [pc, #96]	@ (c60c <_ZN8recorder4dump12UnoQDumpPort7advanceEPKcj+0xb8>)
+    c5ac:	4620      	mov	r0, r4
+    c5ae:	4798      	blx	r3
+    c5b0:	2801      	cmp	r0, #1
+    c5b2:	4606      	mov	r6, r0
+    c5b4:	d00d      	beq.n	c5d2 <_ZN8recorder4dump12UnoQDumpPort7advanceEPKcj+0x7e>
+    c5b6:	4b12      	ldr	r3, [pc, #72]	@ (c600 <_ZN8recorder4dump12UnoQDumpPort7advanceEPKcj+0xac>)
+    c5b8:	4620      	mov	r0, r4
+    c5ba:	4798      	blx	r3
+    c5bc:	2302      	movs	r3, #2
+    c5be:	7066      	strb	r6, [r4, #1]
+    c5c0:	702b      	strb	r3, [r5, #0]
+    c5c2:	f8c5 a004 	str.w	sl, [r5, #4]
+    c5c6:	f3bf 8f5f 	dmb	sy
+    c5ca:	9b01      	ldr	r3, [sp, #4]
+    c5cc:	f383 8810 	msr	PRIMASK, r3
+    c5d0:	e7d4      	b.n	c57c <_ZN8recorder4dump12UnoQDumpPort7advanceEPKcj+0x28>
+    c5d2:	464a      	mov	r2, r9
+    c5d4:	4641      	mov	r1, r8
+    c5d6:	4620      	mov	r0, r4
+    c5d8:	4b0d      	ldr	r3, [pc, #52]	@ (c610 <_ZN8recorder4dump12UnoQDumpPort7advanceEPKcj+0xbc>)
+    c5da:	4798      	blx	r3
+    c5dc:	4606      	mov	r6, r0
+    c5de:	b940      	cbnz	r0, c5f2 <_ZN8recorder4dump12UnoQDumpPort7advanceEPKcj+0x9e>
+    c5e0:	4b07      	ldr	r3, [pc, #28]	@ (c600 <_ZN8recorder4dump12UnoQDumpPort7advanceEPKcj+0xac>)
+    c5e2:	4620      	mov	r0, r4
+    c5e4:	4798      	blx	r3
+    c5e6:	230a      	movs	r3, #10
+    c5e8:	7063      	strb	r3, [r4, #1]
+    c5ea:	2302      	movs	r3, #2
+    c5ec:	606e      	str	r6, [r5, #4]
+    c5ee:	702b      	strb	r3, [r5, #0]
+    c5f0:	e7e9      	b.n	c5c6 <_ZN8recorder4dump12UnoQDumpPort7advanceEPKcj+0x72>
+    c5f2:	463a      	mov	r2, r7
+    c5f4:	4621      	mov	r1, r4
+    c5f6:	4628      	mov	r0, r5
+    c5f8:	4b06      	ldr	r3, [pc, #24]	@ (c614 <_ZN8recorder4dump12UnoQDumpPort7advanceEPKcj+0xc0>)
+    c5fa:	4798      	blx	r3
+    c5fc:	e7e3      	b.n	c5c6 <_ZN8recorder4dump12UnoQDumpPort7advanceEPKcj+0x72>
+    c5fe:	bf00      	nop
+	...
+			c600: R_ARM_ABS32	_ZN8recorder4dump12UnoQDumpPort5abortEv
+			c604: R_ARM_ABS32	_ZN8recorder4dump12_GLOBAL__N_113threadContextEv
+			c608: R_ARM_ABS32	micros
+			c60c: R_ARM_ABS32	_ZNK8recorder4dump12UnoQDumpPort9ownershipEv
+			c610: R_ARM_ABS32	_ZN8recorder4dump12UnoQDumpPort7prepareEPKcj
+			c614: R_ARM_ABS32	_ZN8recorder4dump12UnoQDumpPort8transmitEj
+
+0000bfcc <_ZN8recorder4dump12UnoQDumpPort7prepareEPKcj>:
+    bfcc:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+    bfce:	4604      	mov	r4, r0
+    bfd0:	4608      	mov	r0, r1
+    bfd2:	b1d9      	cbz	r1, c00c <_ZN8recorder4dump12UnoQDumpPort7prepareEPKcj+0x40>
+    bfd4:	1e53      	subs	r3, r2, #1
+    bfd6:	2b3f      	cmp	r3, #63	@ 0x3f
+    bfd8:	d846      	bhi.n	c068 <_ZN8recorder4dump12UnoQDumpPort7prepareEPKcj+0x9c>
+    bfda:	f894 50cb 	ldrb.w	r5, [r4, #203]	@ 0xcb
+    bfde:	b1b5      	cbz	r5, c00e <_ZN8recorder4dump12UnoQDumpPort7prepareEPKcj+0x42>
+    bfe0:	f8d4 3094 	ldr.w	r3, [r4, #148]	@ 0x94
+    bfe4:	429a      	cmp	r2, r3
+    bfe6:	d13f      	bne.n	c068 <_ZN8recorder4dump12UnoQDumpPort7prepareEPKcj+0x9c>
+    bfe8:	2300      	movs	r3, #0
+    bfea:	1ca6      	adds	r6, r4, #2
+    bfec:	5cc1      	ldrb	r1, [r0, r3]
+    bfee:	290a      	cmp	r1, #10
+    bff0:	d003      	beq.n	bffa <_ZN8recorder4dump12UnoQDumpPort7prepareEPKcj+0x2e>
+    bff2:	f1a1 0720 	sub.w	r7, r1, #32
+    bff6:	2f5e      	cmp	r7, #94	@ 0x5e
+    bff8:	d836      	bhi.n	c068 <_ZN8recorder4dump12UnoQDumpPort7prepareEPKcj+0x9c>
+    bffa:	b115      	cbz	r5, c002 <_ZN8recorder4dump12UnoQDumpPort7prepareEPKcj+0x36>
+    bffc:	5cf7      	ldrb	r7, [r6, r3]
+    bffe:	428f      	cmp	r7, r1
+    c000:	d132      	bne.n	c068 <_ZN8recorder4dump12UnoQDumpPort7prepareEPKcj+0x9c>
+    c002:	1c59      	adds	r1, r3, #1
+    c004:	428a      	cmp	r2, r1
+    c006:	d104      	bne.n	c012 <_ZN8recorder4dump12UnoQDumpPort7prepareEPKcj+0x46>
+    c008:	b12d      	cbz	r5, c016 <_ZN8recorder4dump12UnoQDumpPort7prepareEPKcj+0x4a>
+    c00a:	2001      	movs	r0, #1
+    c00c:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+    c00e:	462b      	mov	r3, r5
+    c010:	e7eb      	b.n	bfea <_ZN8recorder4dump12UnoQDumpPort7prepareEPKcj+0x1e>
+    c012:	460b      	mov	r3, r1
+    c014:	e7ea      	b.n	bfec <_ZN8recorder4dump12UnoQDumpPort7prepareEPKcj+0x20>
+    c016:	4a15      	ldr	r2, [pc, #84]	@ (c06c <_ZN8recorder4dump12UnoQDumpPort7prepareEPKcj+0xa0>)
+    c018:	f104 0542 	add.w	r5, r4, #66	@ 0x42
+    c01c:	f102 060c 	add.w	r6, r2, #12
+    c020:	f852 7b04 	ldr.w	r7, [r2], #4
+    c024:	42b2      	cmp	r2, r6
+    c026:	f845 7b04 	str.w	r7, [r5], #4
+    c02a:	d1f9      	bne.n	c020 <_ZN8recorder4dump12UnoQDumpPort7prepareEPKcj+0x54>
+    c02c:	8812      	ldrh	r2, [r2, #0]
+    c02e:	1846      	adds	r6, r0, r1
+    c030:	802a      	strh	r2, [r5, #0]
+    c032:	f884 1050 	strb.w	r1, [r4, #80]	@ 0x50
+    c036:	1c62      	adds	r2, r4, #1
+    c038:	f810 5b01 	ldrb.w	r5, [r0], #1
+    c03c:	f802 5f01 	strb.w	r5, [r2, #1]!
+    c040:	4286      	cmp	r6, r0
+    c042:	f882 504f 	strb.w	r5, [r2, #79]	@ 0x4f
+    c046:	d1f7      	bne.n	c038 <_ZN8recorder4dump12UnoQDumpPort7prepareEPKcj+0x6c>
+    c048:	3310      	adds	r3, #16
+    c04a:	f8c4 3098 	str.w	r3, [r4, #152]	@ 0x98
+    c04e:	2300      	movs	r3, #0
+    c050:	f8c4 1094 	str.w	r1, [r4, #148]	@ 0x94
+    c054:	f8c4 309c 	str.w	r3, [r4, #156]	@ 0x9c
+    c058:	4b05      	ldr	r3, [pc, #20]	@ (c070 <_ZN8recorder4dump12UnoQDumpPort7prepareEPKcj+0xa4>)
+    c05a:	4798      	blx	r3
+    c05c:	2301      	movs	r3, #1
+    c05e:	f8c4 00a0 	str.w	r0, [r4, #160]	@ 0xa0
+    c062:	f884 30cb 	strb.w	r3, [r4, #203]	@ 0xcb
+    c066:	e7d0      	b.n	c00a <_ZN8recorder4dump12UnoQDumpPort7prepareEPKcj+0x3e>
+    c068:	2000      	movs	r0, #0
+    c06a:	e7cf      	b.n	c00c <_ZN8recorder4dump12UnoQDumpPort7prepareEPKcj+0x40>
+    c06c:	0000085d 	.word	0x0000085d
+			c06c: R_ARM_ABS32	.llext.rodata.noreloc
+    c070:	00000000 	.word	0x00000000
+			c070: R_ARM_ABS32	micros
+
+0000c448 <_ZN8recorder4dump12UnoQDumpPort8transmitEj>:
+    c448:	e92d 4ff8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, sl, fp, lr}
+    c44c:	4607      	mov	r7, r0
+    c44e:	460c      	mov	r4, r1
+    c450:	4616      	mov	r6, r2
+    c452:	f04f 0808 	mov.w	r8, #8
+    c456:	f8df 90f4 	ldr.w	r9, [pc, #244]	@ c54c <_ZN8recorder4dump12UnoQDumpPort8transmitEj+0x104>
+    c45a:	f8df b0ec 	ldr.w	fp, [pc, #236]	@ c548 <_ZN8recorder4dump12UnoQDumpPort8transmitEj+0x100>
+    c45e:	f8df a0f0 	ldr.w	sl, [pc, #240]	@ c550 <_ZN8recorder4dump12UnoQDumpPort8transmitEj+0x108>
+    c462:	e9d4 3226 	ldrd	r3, r2, [r4, #152]	@ 0x98
+    c466:	429a      	cmp	r2, r3
+    c468:	d222      	bcs.n	c4b0 <_ZN8recorder4dump12UnoQDumpPort8transmitEj+0x68>
+    c46a:	4620      	mov	r0, r4
+    c46c:	47c8      	blx	r9
+    c46e:	4605      	mov	r5, r0
+    c470:	2d01      	cmp	r5, #1
+    c472:	4620      	mov	r0, r4
+    c474:	d009      	beq.n	c48a <_ZN8recorder4dump12UnoQDumpPort8transmitEj+0x42>
+    c476:	4b32      	ldr	r3, [pc, #200]	@ (c540 <_ZN8recorder4dump12UnoQDumpPort8transmitEj+0xf8>)
+    c478:	4798      	blx	r3
+    c47a:	7065      	strb	r5, [r4, #1]
+    c47c:	2200      	movs	r2, #0
+    c47e:	2502      	movs	r5, #2
+    c480:	703d      	strb	r5, [r7, #0]
+    c482:	607a      	str	r2, [r7, #4]
+    c484:	4638      	mov	r0, r7
+    c486:	e8bd 8ff8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, sl, fp, pc}
+    c48a:	47d8      	blx	fp
+    c48c:	2801      	cmp	r0, #1
+    c48e:	4605      	mov	r5, r0
+    c490:	d001      	beq.n	c496 <_ZN8recorder4dump12UnoQDumpPort8transmitEj+0x4e>
+    c492:	4620      	mov	r0, r4
+    c494:	e7ef      	b.n	c476 <_ZN8recorder4dump12UnoQDumpPort8transmitEj+0x2e>
+    c496:	4631      	mov	r1, r6
+    c498:	4620      	mov	r0, r4
+    c49a:	47d0      	blx	sl
+    c49c:	b920      	cbnz	r0, c4a8 <_ZN8recorder4dump12UnoQDumpPort8transmitEj+0x60>
+    c49e:	4620      	mov	r0, r4
+    c4a0:	4b27      	ldr	r3, [pc, #156]	@ (c540 <_ZN8recorder4dump12UnoQDumpPort8transmitEj+0xf8>)
+    c4a2:	4798      	blx	r3
+    c4a4:	2509      	movs	r5, #9
+    c4a6:	e7e8      	b.n	c47a <_ZN8recorder4dump12UnoQDumpPort8transmitEj+0x32>
+    c4a8:	4d26      	ldr	r5, [pc, #152]	@ (c544 <_ZN8recorder4dump12UnoQDumpPort8transmitEj+0xfc>)
+    c4aa:	69eb      	ldr	r3, [r5, #28]
+    c4ac:	061b      	lsls	r3, r3, #24
+    c4ae:	d431      	bmi.n	c514 <_ZN8recorder4dump12UnoQDumpPort8transmitEj+0xcc>
+    c4b0:	4620      	mov	r0, r4
+    c4b2:	47c8      	blx	r9
+    c4b4:	2801      	cmp	r0, #1
+    c4b6:	4605      	mov	r5, r0
+    c4b8:	d1eb      	bne.n	c492 <_ZN8recorder4dump12UnoQDumpPort8transmitEj+0x4a>
+    c4ba:	4620      	mov	r0, r4
+    c4bc:	4b22      	ldr	r3, [pc, #136]	@ (c548 <_ZN8recorder4dump12UnoQDumpPort8transmitEj+0x100>)
+    c4be:	4798      	blx	r3
+    c4c0:	2801      	cmp	r0, #1
+    c4c2:	4605      	mov	r5, r0
+    c4c4:	d1e5      	bne.n	c492 <_ZN8recorder4dump12UnoQDumpPort8transmitEj+0x4a>
+    c4c6:	4631      	mov	r1, r6
+    c4c8:	4620      	mov	r0, r4
+    c4ca:	f8df 9084 	ldr.w	r9, [pc, #132]	@ c550 <_ZN8recorder4dump12UnoQDumpPort8transmitEj+0x108>
+    c4ce:	47c8      	blx	r9
+    c4d0:	2800      	cmp	r0, #0
+    c4d2:	d0e4      	beq.n	c49e <_ZN8recorder4dump12UnoQDumpPort8transmitEj+0x56>
+    c4d4:	e9d4 3226 	ldrd	r3, r2, [r4, #152]	@ 0x98
+    c4d8:	429a      	cmp	r2, r3
+    c4da:	bf08      	it	eq
+    c4dc:	4b19      	ldreq	r3, [pc, #100]	@ (c544 <_ZN8recorder4dump12UnoQDumpPort8transmitEj+0xfc>)
+    c4de:	4631      	mov	r1, r6
+    c4e0:	bf08      	it	eq
+    c4e2:	69db      	ldreq	r3, [r3, #28]
+    c4e4:	4620      	mov	r0, r4
+    c4e6:	bf14      	ite	ne
+    c4e8:	f04f 0800 	movne.w	r8, #0
+    c4ec:	f3c3 1880 	ubfxeq	r8, r3, #6, #1
+    c4f0:	47c8      	blx	r9
+    c4f2:	2800      	cmp	r0, #0
+    c4f4:	d0d3      	beq.n	c49e <_ZN8recorder4dump12UnoQDumpPort8transmitEj+0x56>
+    c4f6:	2301      	movs	r3, #1
+    c4f8:	7063      	strb	r3, [r4, #1]
+    c4fa:	2300      	movs	r3, #0
+    c4fc:	f1b8 0f00 	cmp.w	r8, #0
+    c500:	d01b      	beq.n	c53a <_ZN8recorder4dump12UnoQDumpPort8transmitEj+0xf2>
+    c502:	f8d4 2094 	ldr.w	r2, [r4, #148]	@ 0x94
+    c506:	e9c4 3326 	strd	r3, r3, [r4, #152]	@ 0x98
+    c50a:	f884 30cb 	strb.w	r3, [r4, #203]	@ 0xcb
+    c50e:	f8c4 3094 	str.w	r3, [r4, #148]	@ 0x94
+    c512:	e7b5      	b.n	c480 <_ZN8recorder4dump12UnoQDumpPort8transmitEj+0x38>
+    c514:	4631      	mov	r1, r6
+    c516:	4620      	mov	r0, r4
+    c518:	47d0      	blx	sl
+    c51a:	2800      	cmp	r0, #0
+    c51c:	d0bf      	beq.n	c49e <_ZN8recorder4dump12UnoQDumpPort8transmitEj+0x56>
+    c51e:	f8d4 309c 	ldr.w	r3, [r4, #156]	@ 0x9c
+    c522:	f1b8 0801 	subs.w	r8, r8, #1
+    c526:	f103 0201 	add.w	r2, r3, #1
+    c52a:	f8c4 209c 	str.w	r2, [r4, #156]	@ 0x9c
+    c52e:	4423      	add	r3, r4
+    c530:	f893 3042 	ldrb.w	r3, [r3, #66]	@ 0x42
+    c534:	62ab      	str	r3, [r5, #40]	@ 0x28
+    c536:	d194      	bne.n	c462 <_ZN8recorder4dump12UnoQDumpPort8transmitEj+0x1a>
+    c538:	e7ba      	b.n	c4b0 <_ZN8recorder4dump12UnoQDumpPort8transmitEj+0x68>
+    c53a:	4645      	mov	r5, r8
+    c53c:	4642      	mov	r2, r8
+    c53e:	e79f      	b.n	c480 <_ZN8recorder4dump12UnoQDumpPort8transmitEj+0x38>
+    c540:	00000000 	.word	0x00000000
+			c540: R_ARM_ABS32	_ZN8recorder4dump12UnoQDumpPort5abortEv
+    c544:	46002400 	.word	0x46002400
+	...
+			c548: R_ARM_ABS32	_ZNK8recorder4dump12UnoQDumpPort11sampleReadyEv
+			c54c: R_ARM_ABS32	_ZNK8recorder4dump12UnoQDumpPort9ownershipEv
+			c550: R_ARM_ABS32	_ZNK8recorder4dump12UnoQDumpPort14withinDeadlineEj
+
+0000c074 <_ZNK8recorder4dump12UnoQDumpPort14withinDeadlineEj>:
+    c074:	b538      	push	{r3, r4, r5, lr}
+    c076:	4b09      	ldr	r3, [pc, #36]	@ (c09c <_ZNK8recorder4dump12UnoQDumpPort14withinDeadlineEj+0x28>)
+    c078:	460c      	mov	r4, r1
+    c07a:	4605      	mov	r5, r0
+    c07c:	4798      	blx	r3
+    c07e:	1b04      	subs	r4, r0, r4
+    c080:	2c4f      	cmp	r4, #79	@ 0x4f
+    c082:	d808      	bhi.n	c096 <_ZNK8recorder4dump12UnoQDumpPort14withinDeadlineEj+0x22>
+    c084:	f8d5 30a0 	ldr.w	r3, [r5, #160]	@ 0xa0
+    c088:	1ac0      	subs	r0, r0, r3
+    c08a:	4b05      	ldr	r3, [pc, #20]	@ (c0a0 <_ZNK8recorder4dump12UnoQDumpPort14withinDeadlineEj+0x2c>)
+    c08c:	4298      	cmp	r0, r3
+    c08e:	bf8c      	ite	hi
+    c090:	2000      	movhi	r0, #0
+    c092:	2001      	movls	r0, #1
+    c094:	bd38      	pop	{r3, r4, r5, pc}
+    c096:	2000      	movs	r0, #0
+    c098:	e7fc      	b.n	c094 <_ZNK8recorder4dump12UnoQDumpPort14withinDeadlineEj+0x20>
+    c09a:	bf00      	nop
+    c09c:	00000000 	.word	0x00000000
+			c09c: R_ARM_ABS32	micros
+    c0a0:	0001869f 	.word	0x0001869f
+
+0000bf08 <_ZNK8recorder4dump12UnoQDumpPort9ownershipEv>:
+    bf08:	b410      	push	{r4}
+    bf0a:	7803      	ldrb	r3, [r0, #0]
+    bf0c:	4a05      	ldr	r2, [pc, #20]	@ (bf24 <_ZNK8recorder4dump12UnoQDumpPort9ownershipEv+0x1c>)
+    bf0e:	2b01      	cmp	r3, #1
+    bf10:	bf18      	it	ne
+    bf12:	2209      	movne	r2, #9
+    bf14:	4c04      	ldr	r4, [pc, #16]	@ (bf28 <_ZNK8recorder4dump12UnoQDumpPort9ownershipEv+0x20>)
+    bf16:	2301      	movs	r3, #1
+    bf18:	46a4      	mov	ip, r4
+    bf1a:	4611      	mov	r1, r2
+    bf1c:	f85d 4b04 	ldr.w	r4, [sp], #4
+    bf20:	4760      	bx	ip
+    bf22:	bf00      	nop
+    bf24:	20000009 	.word	0x20000009
+    bf28:	00000000 	.word	0x00000000
+			bf28: R_ARM_ABS32	_ZNK8recorder4dump12UnoQDumpPort10ownedStateEjjb
+
+000001dc <_ZN3app12unoQDumpPortERN8recorder4dump12UnoQDumpPortE>:
+     1dc:	b510      	push	{r4, lr}
+     1de:	4604      	mov	r4, r0
+     1e0:	4b05      	ldr	r3, [pc, #20]	@ (1f8 <_ZN3app12unoQDumpPortERN8recorder4dump12UnoQDumpPortE+0x1c>)
+     1e2:	6001      	str	r1, [r0, #0]
+     1e4:	6043      	str	r3, [r0, #4]
+     1e6:	4b05      	ldr	r3, [pc, #20]	@ (1fc <_ZN3app12unoQDumpPortERN8recorder4dump12UnoQDumpPortE+0x20>)
+     1e8:	300c      	adds	r0, #12
+     1ea:	f840 3c04 	str.w	r3, [r0, #-4]
+     1ee:	4b04      	ldr	r3, [pc, #16]	@ (200 <_ZN3app12unoQDumpPortERN8recorder4dump12UnoQDumpPortE+0x24>)
+     1f0:	4798      	blx	r3
+     1f2:	4620      	mov	r0, r4
+     1f4:	bd10      	pop	{r4, pc}
+     1f6:	bf00      	nop
+	...
+			1f8: R_ARM_ABS32	_ZN3app12_GLOBAL__N_15beginEPvRKN8recorder4dump10SetupGrantE
+			1fc: R_ARM_ABS32	_ZN3app12_GLOBAL__N_15readyEPv
+			200: R_ARM_ABS32	_ZN8recorder4dump12UnoQDumpPort4portEv

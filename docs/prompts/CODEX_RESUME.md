@@ -1,3 +1,34 @@
+## Active checkpoint - 2026-09-24T03:48:55.910026+04:00
+
+P2 software active. D117 explicit FIFO transport completed in this implementation
+commit after independent frozen tests and separate same-model scoped review PASS.
+Read F145/P2_dump_fifo_validation.md and final review. First26methods/private12,
+factory193, fullnormal+san1478main+187Gate PASS. No old/locked test/config change.
+Exact appsourcee820c0e1 defaultpeak262136/span8, MATCH260504; recorderce5a1f4e
+peak220744. First8-byte deficit retained; equivalent repair1/nativefdd3df0b passes.
+The8-byte default margin is conditional loader arithmetic, not actual free RAM.
+Current MCU remains completed D114396bcc45; no new upload/reset/UART operation.
+DUMP-RATE-1 has a host-tested FIFO software solution; actual service/framing/
+ownership/delivery and fullapp RAM/800us remain pending. No human phase gate.
+Next: complete the separate read-only native-dump prerequisite followup; current
+UID1000 inventory cannot inspect most process fd directories. Do not assume sole
+UART ownership, set grants, repeat the consumed ADC run or add upload authority.
+
+## Active checkpoint - 2026-09-24T03:36:01.187617+04:00
+
+P2 software active. D116 completed in993afdd0. D117 contract/interface adopted
+in3510f682; first four-file native implementation is frozen and syntax/static
+review passes. Independent FIFO tests are being authored, not yet executed.
+First app source5e301997 compiled in default and MATCH Immediate; both exact
+collections are under P2_dump_fifo_raw. Default loader-model peak262152 misses
+262144 by8bytes; preserve first failure and exact artifacts. Read
+P2_dump_fifo_fit_failure.md and reviewer/first_app_fit.json. Implementer is
+proposing one minimal size repair; root must coordinate any source change,
+new freeze, corrected builds and independent tests/review. Recorder target
+will follow repair. GDB alignof(T) is supported; __alignof__ probe error retained.
+Current MCU remains completed D114396bcc45; no upload or reset has occurred.
+No native grants, physical acceptance, STAND/RING or human gates were inferred.
+
 ## Active checkpoint - 2026-09-24T03:24:52.542645+04:00
 
 P2 software active. D116 software/test/target review complete: full200s synthetic

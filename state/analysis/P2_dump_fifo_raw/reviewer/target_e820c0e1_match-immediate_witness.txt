@@ -1,0 +1,167 @@
+00000000 <setup>:
+       0:	b57f      	push	{r0, r1, r2, r3, r4, r5, r6, lr}
+       2:	2215      	movs	r2, #21
+       4:	2100      	movs	r1, #0
+       6:	4668      	mov	r0, sp
+       8:	4b04      	ldr	r3, [pc, #16]	@ (1c <setup+0x1c>)
+       a:	4798      	blx	r3
+       c:	4669      	mov	r1, sp
+       e:	4b04      	ldr	r3, [pc, #16]	@ (20 <setup+0x20>)
+      10:	4804      	ldr	r0, [pc, #16]	@ (24 <setup+0x24>)
+      12:	4798      	blx	r3
+      14:	b007      	add	sp, #28
+      16:	f85d fb04 	ldr.w	pc, [sp], #4
+      1a:	bf00      	nop
+	...
+00000028 <loop>:
+      28:	4801      	ldr	r0, [pc, #4]	@ (30 <loop+0x8>)
+      2a:	4b02      	ldr	r3, [pc, #8]	@ (34 <loop+0xc>)
+      2c:	4718      	bx	r3
+      2e:	bf00      	nop
+	...
+00000038 <_GLOBAL__sub_I_setup>:
+      38:	b5f0      	push	{r4, r5, r6, r7, lr}
+      3a:	2400      	movs	r4, #0
+      3c:	4859      	ldr	r0, [pc, #356]	@ (1a4 <_GLOBAL__sub_I_setup+0x16c>)
+      3e:	b0a9      	sub	sp, #164	@ 0xa4
+      40:	4d59      	ldr	r5, [pc, #356]	@ (1a8 <_GLOBAL__sub_I_setup+0x170>)
+      42:	4621      	mov	r1, r4
+      44:	22b4      	movs	r2, #180	@ 0xb4
+      46:	f800 4b08 	strb.w	r4, [r0], #8
+      4a:	47a8      	blx	r5
+      4c:	4b55      	ldr	r3, [pc, #340]	@ (1a4 <_GLOBAL__sub_I_setup+0x16c>)
+      4e:	2601      	movs	r6, #1
+      50:	461f      	mov	r7, r3
+      52:	f103 00d8 	add.w	r0, r3, #216	@ 0xd8
+      56:	4621      	mov	r1, r4
+      58:	2210      	movs	r2, #16
+      5a:	e9c3 4430 	strd	r4, r4, [r3, #192]	@ 0xc0
+      5e:	e9c3 4432 	strd	r4, r4, [r3, #200]	@ 0xc8
+      62:	e9c3 4434 	strd	r4, r4, [r3, #208]	@ 0xd0
+      66:	725e      	strb	r6, [r3, #9]
+      68:	f883 40bc 	strb.w	r4, [r3, #188]	@ 0xbc
+      6c:	f883 40bd 	strb.w	r4, [r3, #189]	@ 0xbd
+      70:	f883 40be 	strb.w	r4, [r3, #190]	@ 0xbe
+      74:	f883 40bf 	strb.w	r4, [r3, #191]	@ 0xbf
+      78:	47a8      	blx	r5
+      7a:	f107 00e8 	add.w	r0, r7, #232	@ 0xe8
+      7e:	4621      	mov	r1, r4
+      80:	2210      	movs	r2, #16
+      82:	47a8      	blx	r5
+      84:	f107 00f8 	add.w	r0, r7, #248	@ 0xf8
+      88:	4621      	mov	r1, r4
+      8a:	2210      	movs	r2, #16
+      8c:	47a8      	blx	r5
+      8e:	2200      	movs	r2, #0
+      90:	2300      	movs	r3, #0
+      92:	e9c7 2344 	strd	r2, r3, [r7, #272]	@ 0x110
+      96:	2309      	movs	r3, #9
+      98:	f8c7 4108 	str.w	r4, [r7, #264]	@ 0x108
+      9c:	f887 410c 	strb.w	r4, [r7, #268]	@ 0x10c
+      a0:	f8a7 4118 	strh.w	r4, [r7, #280]	@ 0x118
+      a4:	f887 611a 	strb.w	r6, [r7, #282]	@ 0x11a
+      a8:	f8a7 4128 	strh.w	r4, [r7, #296]	@ 0x128
+      ac:	f887 412a 	strb.w	r4, [r7, #298]	@ 0x12a
+      b0:	f8c7 413c 	str.w	r4, [r7, #316]	@ 0x13c
+      b4:	e9c7 4448 	strd	r4, r4, [r7, #288]	@ 0x120
+      b8:	e9c7 334b 	strd	r3, r3, [r7, #300]	@ 0x12c
+      bc:	e9c7 444d 	strd	r4, r4, [r7, #308]	@ 0x134
+      c0:	f507 77a0 	add.w	r7, r7, #320	@ 0x140
+      c4:	4621      	mov	r1, r4
+      c6:	22e8      	movs	r2, #232	@ 0xe8
+      c8:	4638      	mov	r0, r7
+      ca:	47a8      	blx	r5
+      cc:	f5a7 72a0 	sub.w	r2, r7, #320	@ 0x140
+      d0:	4613      	mov	r3, r2
+      d2:	4621      	mov	r1, r4
+      d4:	f503 70d0 	add.w	r0, r3, #416	@ 0x1a0
+      d8:	223c      	movs	r2, #60	@ 0x3c
+      da:	f887 6028 	strb.w	r6, [r7, #40]	@ 0x28
+      de:	47a8      	blx	r5
+      e0:	4621      	mov	r1, r4
+      e2:	2223      	movs	r2, #35	@ 0x23
+      e4:	f107 009d 	add.w	r0, r7, #157	@ 0x9d
+      e8:	f887 6064 	strb.w	r6, [r7, #100]	@ 0x64
+      ec:	47a8      	blx	r5
+      ee:	f5a7 73a0 	sub.w	r3, r7, #320	@ 0x140
+      f2:	f887 609c 	strb.w	r6, [r7, #156]	@ 0x9c
+      f6:	f887 60c1 	strb.w	r6, [r7, #193]	@ 0xc1
+      fa:	f8c7 70e8 	str.w	r7, [r7, #232]	@ 0xe8
+      fe:	461f      	mov	r7, r3
+     100:	4621      	mov	r1, r4
+     102:	f503 700b 	add.w	r0, r3, #556	@ 0x22c
+     106:	2218      	movs	r2, #24
+     108:	47a8      	blx	r5
+     10a:	f887 622e 	strb.w	r6, [r7, #558]	@ 0x22e
+     10e:	f8c7 4244 	str.w	r4, [r7, #580]	@ 0x244
+     112:	f887 4248 	strb.w	r4, [r7, #584]	@ 0x248
+     116:	f507 7013 	add.w	r0, r7, #588	@ 0x24c
+     11a:	2703      	movs	r7, #3
+     11c:	4621      	mov	r1, r4
+     11e:	2268      	movs	r2, #104	@ 0x68
+     120:	47a8      	blx	r5
+     122:	4b20      	ldr	r3, [pc, #128]	@ (1a4 <_GLOBAL__sub_I_setup+0x16c>)
+     124:	226c      	movs	r2, #108	@ 0x6c
+     126:	4621      	mov	r1, r4
+     128:	f503 7032 	add.w	r0, r3, #712	@ 0x2c8
+     12c:	e9c3 44ae 	strd	r4, r4, [r3, #696]	@ 0x2b8
+     130:	f883 7250 	strb.w	r7, [r3, #592]	@ 0x250
+     134:	f883 6294 	strb.w	r6, [r3, #660]	@ 0x294
+     138:	f883 42b4 	strb.w	r4, [r3, #692]	@ 0x2b4
+     13c:	f883 42b5 	strb.w	r4, [r3, #693]	@ 0x2b5
+     140:	f883 42b6 	strb.w	r4, [r3, #694]	@ 0x2b6
+     144:	f8c3 42c0 	str.w	r4, [r3, #704]	@ 0x2c0
+     148:	f883 42c4 	strb.w	r4, [r3, #708]	@ 0x2c4
+     14c:	47a8      	blx	r5
+     14e:	4b15      	ldr	r3, [pc, #84]	@ (1a4 <_GLOBAL__sub_I_setup+0x16c>)
+     150:	a80d      	add	r0, sp, #52	@ 0x34
+     152:	e9c3 44cd 	strd	r4, r4, [r3, #820]	@ 0x334
+     156:	e9c3 44cf 	strd	r4, r4, [r3, #828]	@ 0x33c
+     15a:	f883 72d0 	strb.w	r7, [r3, #720]	@ 0x2d0
+     15e:	f883 6314 	strb.w	r6, [r3, #788]	@ 0x314
+     162:	f883 4344 	strb.w	r4, [r3, #836]	@ 0x344
+     166:	f883 4345 	strb.w	r4, [r3, #837]	@ 0x345
+     16a:	f883 4346 	strb.w	r4, [r3, #838]	@ 0x346
+     16e:	f8c3 4348 	str.w	r4, [r3, #840]	@ 0x348
+     172:	490e      	ldr	r1, [pc, #56]	@ (1ac <_GLOBAL__sub_I_setup+0x174>)
+     174:	4b0e      	ldr	r3, [pc, #56]	@ (1b0 <_GLOBAL__sub_I_setup+0x178>)
+     176:	4798      	blx	r3
+     178:	a802      	add	r0, sp, #8
+     17a:	490a      	ldr	r1, [pc, #40]	@ (1a4 <_GLOBAL__sub_I_setup+0x16c>)
+     17c:	4b0d      	ldr	r3, [pc, #52]	@ (1b4 <_GLOBAL__sub_I_setup+0x17c>)
+     17e:	4798      	blx	r3
+     180:	ac07      	add	r4, sp, #28
+     182:	a818      	add	r0, sp, #96	@ 0x60
+     184:	4907      	ldr	r1, [pc, #28]	@ (1a4 <_GLOBAL__sub_I_setup+0x16c>)
+     186:	4b0c      	ldr	r3, [pc, #48]	@ (1b8 <_GLOBAL__sub_I_setup+0x180>)
+     188:	4798      	blx	r3
+     18a:	4620      	mov	r0, r4
+     18c:	490b      	ldr	r1, [pc, #44]	@ (1bc <_GLOBAL__sub_I_setup+0x184>)
+     18e:	4b0c      	ldr	r3, [pc, #48]	@ (1c0 <_GLOBAL__sub_I_setup+0x188>)
+     190:	4798      	blx	r3
+     192:	9400      	str	r4, [sp, #0]
+     194:	ab18      	add	r3, sp, #96	@ 0x60
+     196:	4c0b      	ldr	r4, [pc, #44]	@ (1c4 <_GLOBAL__sub_I_setup+0x18c>)
+     198:	aa02      	add	r2, sp, #8
+     19a:	a90d      	add	r1, sp, #52	@ 0x34
+     19c:	480a      	ldr	r0, [pc, #40]	@ (1c8 <_GLOBAL__sub_I_setup+0x190>)
+     19e:	47a0      	blx	r4
+     1a0:	b029      	add	sp, #164	@ 0xa4
+     1a2:	bdf0      	pop	{r4, r5, r6, r7, pc}
+     1a4:	000289c8 	.word	0x000289c8
+     1a8:	00000000 	.word	0x00000000
+     1ac:	000289a0 	.word	0x000289a0
+	...
+Not included in retained disassembly excerpt; ELF bytes independently checked: _ZN8recorder4dump12UnoQDumpPort6poisonEv
+Not included in retained disassembly excerpt; ELF bytes independently checked: _ZN8recorder4dump12UnoQDumpPort8failFifoENS0_12NativeStatusEjj
+Not included in retained disassembly excerpt; ELF bytes independently checked: _ZN8recorder4dump12UnoQDumpPort9beginFifoEv
+Not included in retained disassembly excerpt; ELF bytes independently checked: _ZNK8recorder4dump12UnoQDumpPort10ownedStateEjjb
+Not included in retained disassembly excerpt; ELF bytes independently checked: _ZN8recorder4dump12UnoQDumpPort5abortEv
+Not included in retained disassembly excerpt; ELF bytes independently checked: _ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE
+Not included in retained disassembly excerpt; ELF bytes independently checked: _ZN8recorder4dump12UnoQDumpPort5readyEv
+Not included in retained disassembly excerpt; ELF bytes independently checked: _ZN8recorder4dump12UnoQDumpPort7advanceEPKcj
+Not included in retained disassembly excerpt; ELF bytes independently checked: _ZN8recorder4dump12UnoQDumpPort7prepareEPKcj
+Not included in retained disassembly excerpt; ELF bytes independently checked: _ZN8recorder4dump12UnoQDumpPort8transmitEj
+Not included in retained disassembly excerpt; ELF bytes independently checked: _ZNK8recorder4dump12UnoQDumpPort14withinDeadlineEj
+Not included in retained disassembly excerpt; ELF bytes independently checked: _ZNK8recorder4dump12UnoQDumpPort9ownershipEv
+Not included in retained disassembly excerpt; ELF bytes independently checked: _ZN3app12unoQDumpPortERN8recorder4dump12UnoQDumpPortE

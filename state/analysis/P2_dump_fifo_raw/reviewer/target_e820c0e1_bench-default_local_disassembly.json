@@ -1,0 +1,16 @@
+{
+  "elf_sha256": "8379f152554649fd1b96165f29fda1f165c2b5cfc51d8dca430a37e19f693257",
+  "tool_receipt": "local_disassembly.json",
+  "command": [
+    "wsl",
+    "-d",
+    "Ubuntu",
+    "--",
+    "/usr/bin/arm-none-eabi-objdump",
+    "-dr",
+    "state\\analysis\\P2_dump_fifo_raw\\target_e820c0e1_bench-default\\app.ino.elf"
+  ],
+  "returncode": 0,
+  "output_sha256": "88b5fda394be0bfb1411dc9d435e9cc7c3cb610840ed6f85ddd0acfeac38274e",
+  "scope": "Local copied ELF only; no board/MCU access"
+}

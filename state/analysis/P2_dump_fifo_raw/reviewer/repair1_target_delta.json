@@ -1,0 +1,105 @@
+{
+  "verdict": "PASS_REPAIR1_CODE_DELTA_AND_CONDITIONAL_FIT",
+  "old_elf": "0ac42e6cd098e4ce8c8932d199603b429fa6d0a35f2a7546137afa99d12f40f0",
+  "new_elf": "8379f152554649fd1b96165f29fda1f165c2b5cfc51d8dca430a37e19f693257",
+  "function_inventory_unchanged": true,
+  "only_changed_normalized_function": [
+    "_ZN8recorder4dump12UnoQDumpPort9beginFifoEv"
+  ],
+  "old_rodata_bytes": 2136,
+  "new_rodata_bytes": 2124,
+  "old_table_offset": 304,
+  "old_table_count": 1,
+  "new_table_count": 0,
+  "old_regions": [
+    {
+      "name": ".rodata",
+      "payload": 2136,
+      "alignment": 8,
+      "prepad": 0,
+      "retained_chunk": 2144
+    },
+    {
+      "name": ".text",
+      "payload": 87672,
+      "alignment": 8,
+      "prepad": 0,
+      "retained_chunk": 87680
+    },
+    {
+      "name": ".data",
+      "payload": 208,
+      "alignment": 4,
+      "prepad": 0,
+      "retained_chunk": 216
+    },
+    {
+      "name": ".bss",
+      "payload": 167272,
+      "alignment": 8,
+      "prepad": 0,
+      "retained_chunk": 167280
+    },
+    {
+      "name": ".exported_sym",
+      "payload": 8,
+      "alignment": 4,
+      "prepad": 0,
+      "retained_chunk": 16
+    },
+    {
+      "name": ".init_array",
+      "payload": 4,
+      "alignment": 4,
+      "prepad": 0,
+      "retained_chunk": 8
+    }
+  ],
+  "new_regions": [
+    {
+      "name": ".rodata",
+      "payload": 2124,
+      "alignment": 8,
+      "prepad": 0,
+      "retained_chunk": 2136
+    },
+    {
+      "name": ".text",
+      "payload": 87664,
+      "alignment": 8,
+      "prepad": 0,
+      "retained_chunk": 87672
+    },
+    {
+      "name": ".data",
+      "payload": 208,
+      "alignment": 4,
+      "prepad": 0,
+      "retained_chunk": 216
+    },
+    {
+      "name": ".bss",
+      "payload": 167272,
+      "alignment": 8,
+      "prepad": 0,
+      "retained_chunk": 167280
+    },
+    {
+      "name": ".exported_sym",
+      "payload": 8,
+      "alignment": 4,
+      "prepad": 0,
+      "retained_chunk": 16
+    },
+    {
+      "name": ".init_array",
+      "payload": 4,
+      "alignment": 4,
+      "prepad": 0,
+      "retained_chunk": 8
+    }
+  ],
+  "old_peak": 262152,
+  "new_peak": 262136,
+  "limitation": "First image remains failed; new image fits only8 spare bytes in pristine conditional model, not measured RAM."
+}

@@ -1,0 +1,20 @@
+{
+  "argv": [
+    "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-gdb",
+    "-nx",
+    "-nh",
+    "-batch",
+    "-ex",
+    "set language c++",
+    "-ex",
+    "p __alignof__(int)",
+    "-ex",
+    "p alignof(int)"
+  ],
+  "start_utc": "2026-09-23T23:29:59.376524+00:00",
+  "end_utc": "2026-09-23T23:29:59.471182+00:00",
+  "returncode": 0,
+  "stdout": "$1 = 4\n",
+  "stderr": "A syntax error in expression, near `int)'.\n",
+  "scope": "Offline primitive type syntax only; no ELF load or MCU operation"
+}

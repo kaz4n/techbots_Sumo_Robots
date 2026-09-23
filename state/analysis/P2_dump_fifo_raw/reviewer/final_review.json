@@ -1,0 +1,142 @@
+{
+  "utc": "2026-09-23T23:48:37.176684+00:00",
+  "verdict": "PASS_SCOPED_SOURCE_TESTS_AND_CONDITIONAL_THREE_TARGET_FIT",
+  "independence": "Reused separate same-model source-aware reviewer, not cross-model or human gate. Independent author froze public-contract oracles before first execution; reviewer executed exact frozen new12 in a private WSL copy.",
+  "source_files": {
+    "src/hal/dump_uart_unoq.h": {
+      "sha256": "c924ae2fc21569884ae7bc9138de948da7358014c81be314a5cf0508fa508e6e",
+      "bytes": 2227
+    },
+    "src/hal/dump_uart_unoq.cpp": {
+      "sha256": "fdd3df0bff64a510a1333dd906f0aa0a1031214caf1bca0c00508ab7507b27fe",
+      "bytes": 17505
+    },
+    "src/app/app.ino": {
+      "sha256": "bf80c961c22b5cee89beaaca2c6d2a413af13d9b7e466d267b04752dbbebfa35",
+      "bytes": 829
+    },
+    "bench/recorder/recorder.ino": {
+      "sha256": "2456ba5d0e28eef2d1564014e087aa733abcb244d1e51f0ce64a35520ef63569",
+      "bytes": 706
+    }
+  },
+  "changed_production_paths": [
+    "bench/recorder/recorder.ino",
+    "src/app/app.ino",
+    "src/hal/dump_uart_unoq.cpp",
+    "src/hal/dump_uart_unoq.h"
+  ],
+  "contract_sha256": "00a6c36c92c6b9f9eb5fd4b453de1ebe9a9e3a58fc28ab1907ca8328550f11f8",
+  "test_sha256": {
+    "tests/tooling/test_dump_uart_fifo.py": "ae9e2c8454a82730da015d71dea07df0d7002b25f94819acc6ef9765b26b0e3c",
+    "state/analysis/P2_dump_fifo_raw/author/run_tests.py": "2125e823af73a8f49a40fbb524af5b3785112662adae74fd5e05b3cfd818b397",
+    "tests/fixtures/dump_uart_fifo/cases.cc": "4445f5857efcaa7c64b95ef3dc022a342c8b358d9e1dab645cbdd8c251d4b6c8",
+    "tests/fixtures/dump_uart_fifo/fixture.h": "a23878e5cadbd74216cfd1a32a84a615b4d1c977a4dff7bed97a46b4652bc173",
+    "tests/fixtures/dump_uart_fifo/hardware.cc": "5f25d894cf86180061d5ea2f5b1aaa318fb95eb5f0c08a41d7741cc5c0e138e2",
+    "tests/fixtures/dump_uart_fifo/sketch.cc": "30982edc06def89a443f8ba18285be576e61849bf59de140b3433aec5f25ad1a",
+    "tests/fixtures/dump_uart_fifo/sketch_dump_stub.h": "12dd8ed86a58874f98de9136f0b0f5abbcce34b03f350cd713c30589ced72c94",
+    "tests/fixtures/dump_uart_fifo/sketch_runner_stub.h": "e585d647d20e00bc9b6e3aca57f42e73e370d149ce81ce57bf9a4a3e46da0517",
+    "tests/fixtures/dump_uart_fifo/sketch_sources_stub.h": "5a8b8ae0827f7790d87ef670a8c6e82e394d97c310b28e28c2c72ea514b889f4",
+    "tests/fixtures/dump_uart_fifo/streams.cc": "19b44deb650c6d6a1c87bef7d56182d9284a62f2d9a18c6d29e635ffbb2ec9d3"
+  },
+  "private_methods": 12,
+  "private_commands": 416,
+  "private_profiles": {
+    "normal": {
+      "stimuli": 201,
+      "checks": 21915290,
+      "d116_replay": "D116 payload=532562 wire=682967 calls=99267\nchecks=6858530 failures=0 submitted=682967 emitted=682967 queue_max=7\n",
+      "raw_capacity": "RAW_STRESS payload=1148071 wire=1496311 calls=215676 frames=5001 events=4096\nchecks=15035499 failures=0 submitted=1496311 emitted=1496311 queue_max=7\n"
+    },
+    "asan_ubsan": {
+      "stimuli": 201,
+      "checks": 21915290,
+      "d116_replay": "D116 payload=532562 wire=682967 calls=99267\nchecks=6858530 failures=0 submitted=682967 emitted=682967 queue_max=7\n",
+      "raw_capacity": "RAW_STRESS payload=1148071 wire=1496311 calls=215676 frames=5001 events=4096\nchecks=15035499 failures=0 submitted=1496311 emitted=1496311 queue_max=7\n"
+    }
+  },
+  "author_methods": 26,
+  "author_test_amendments": 0,
+  "root_factory_checks": 193,
+  "root_full_host_profiles": [
+    {
+      "profile": "host",
+      "source": "build\\host\\Testing\\Temporary\\LastTest.log",
+      "artifact": "state\\analysis\\P2_dump_fifo_raw\\coordinator\\host_LastTest.log",
+      "sha256": "39febcdca26c695120c57b5ee05fe1380d5a234770984f6e835a166ec1b4f596",
+      "doctest_summaries": [
+        "[doctest] test cases:     1478 |     1478 passed | 0 failed | 0 skipped",
+        "[doctest] assertions: 50172466 | 50172466 passed | 0 failed |",
+        "[doctest] Status: SUCCESS!",
+        "[doctest] test cases:     187 |     187 passed | 0 failed | 0 skipped",
+        "[doctest] assertions: 4536952 | 4536952 passed | 0 failed |",
+        "[doctest] Status: SUCCESS!"
+      ]
+    },
+    {
+      "profile": "host-sanitize",
+      "source": "build\\host-sanitize\\Testing\\Temporary\\LastTest.log",
+      "artifact": "state\\analysis\\P2_dump_fifo_raw\\coordinator\\host-sanitize_LastTest.log",
+      "sha256": "d87caf1a5996802286b6753e4e3162b4bc0e6596e30a224a63d06e542c26ee3f",
+      "doctest_summaries": [
+        "[doctest] test cases:     1478 |     1478 passed | 0 failed | 0 skipped",
+        "[doctest] assertions: 50172466 | 50172466 passed | 0 failed |",
+        "[doctest] Status: SUCCESS!",
+        "[doctest] test cases:     187 |     187 passed | 0 failed | 0 skipped",
+        "[doctest] assertions: 4536952 | 4536952 passed | 0 failed |",
+        "[doctest] Status: SUCCESS!"
+      ]
+    }
+  ],
+  "target_profiles": [
+    {
+      "review_path": "state\\analysis\\P2_dump_fifo_raw\\reviewer\\target_e820c0e1_bench-default.json",
+      "review_sha256": "f98fb1aaf9085818643059ba1fbbc4b29609b155515fc2fa8c08dbec5daf5879",
+      "source_sha256": "e820c0e16c29cfd289889273f02721a995e5336b14397f64d6093cffd42b8b69",
+      "elf_sha256": "8379f152554649fd1b96165f29fda1f165c2b5cfc51d8dca430a37e19f693257",
+      "zsk_sha256": "c60443cd8d90c26a85591153dfa38d5f9233bd686b413b2ab7daa3e1457f6df5",
+      "payload": 257280,
+      "peak": 262136,
+      "span": 8,
+      "largest_payload": 4
+    },
+    {
+      "review_path": "state\\analysis\\P2_dump_fifo_raw\\reviewer\\target_e820c0e1_match-immediate.json",
+      "review_sha256": "5faf5df453eca6516693958d1849c041918a41c19a01debac36ca54675e5f40a",
+      "source_sha256": "e820c0e16c29cfd289889273f02721a995e5336b14397f64d6093cffd42b8b69",
+      "elf_sha256": "79844885c55170804e1431556850f8ed32507a4f491160a08b21dcf2e6ba9295",
+      "zsk_sha256": "e49f04a1bf65d03b4b12e9a7cb7546147b50ca3cf3ad6f8a47c75845180b476f",
+      "payload": 255696,
+      "peak": 260504,
+      "span": 1640,
+      "largest_payload": 1636
+    },
+    {
+      "review_path": "state\\analysis\\P2_dump_fifo_raw\\reviewer\\target_ce5a1f4e_bench-default_checked.json",
+      "review_sha256": "50cc78a5738bc6fc02f665b59ce4b85ff5b427512eda11cdc2f9a718ab466a60",
+      "source_sha256": "ce5a1f4e2cbc576754f0ddc98e0c99b0b2e368c839eeb180e0a82f3eb5ad32d2",
+      "elf_sha256": "442970591605181388099db48c2a35fd8131fe77f396ed4f3510f2c10bffb5e6",
+      "zsk_sha256": "5649535048692ebce16b67be40e4fe9b4ef1da2b2da156297114f6f401cbccf3",
+      "payload": 217340,
+      "peak": 220744,
+      "span": 41400,
+      "largest_payload": 41396
+    }
+  ],
+  "closed_finding": {
+    "first_source": "5e30199705228299231025e1048c90566feaf625516763d1f1eae312d561b0ab",
+    "first_elf": "0ac42e6cd098e4ce8c8932d199603b429fa6d0a35f2a7546137afa99d12f40f0",
+    "first_peak": 262152,
+    "deficit": 8,
+    "disposition": "Preserved failed artifact. Only beginFifo bounded-index representation changes; native byte/time caps and behavior untouched; actual repaired default peak262136."
+  },
+  "reviewer_corrections": "Retained raw app failures: existing THM_JUMP24 handled exactly and final-only supplementary command keys. Retained recorder BSS-size assumption failure corrected from Runner164176+owner4 symbols to164180 before allocator rounding. Supplemental local objdump corrects initial excerpt-only witness labels. No product/test/model/capacity change.",
+  "remaining_limits": [
+    "Default app has only8 free modeled bytes/largest payload4 at allocation peak; not an actual free-RAM result.",
+    "Pristine256KiB pool, fixed loader, aligned persistent flash peeks and no interleaved/constructor allocations required.",
+    "Eight-queue-plus-shifter rational serial timing and six-effective-store cadence are reference-model assumptions, not hardware minima.",
+    "Immediate setup TEACK reliability and inherited device_init waits are unqualified; no native WCET/whole800us tick measurement.",
+    "No physical framing reset, actual receiver delivery, source/ownership grants, motor permission or human phase gate.",
+    "No reviewer board/MCU/upload operation; compile-only M1 artifact is not permission to run."
+  ]
+}

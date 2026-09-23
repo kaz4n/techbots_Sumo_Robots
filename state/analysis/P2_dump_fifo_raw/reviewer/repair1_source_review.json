@@ -1,0 +1,37 @@
+{
+  "verdict": "PASS_EXACT_LOCAL_REPRESENTATION_REPAIR_FIT_PENDING",
+  "files": {
+    "src/hal/dump_uart_unoq.h": {
+      "sha256": "c924ae2fc21569884ae7bc9138de948da7358014c81be314a5cf0508fa508e6e",
+      "bytes": 2227
+    },
+    "src/hal/dump_uart_unoq.cpp": {
+      "sha256": "fdd3df0bff64a510a1333dd906f0aa0a1031214caf1bca0c00508ab7507b27fe",
+      "bytes": 17505
+    },
+    "src/app/app.ino": {
+      "sha256": "bf80c961c22b5cee89beaaca2c6d2a413af13d9b7e466d267b04752dbbebfa35",
+      "bytes": 829
+    },
+    "bench/recorder/recorder.ino": {
+      "sha256": "2456ba5d0e28eef2d1564014e087aa733abcb244d1e51f0ce64a35520ef63569",
+      "bytes": 706
+    }
+  },
+  "only_function": "beginFifo",
+  "outside_function_text_identical": true,
+  "exact_replacement_verified": true,
+  "index_domain": [
+    0,
+    1,
+    2
+  ],
+  "old_and_new_states": [
+    "0",
+    "TE|FIFOEN",
+    "UE|TE|FIFOEN"
+  ],
+  "priority": "Ternary condition i==0 else bitwise OR with parenthesized UE ternary; all three exact states equal.",
+  "ordering": "No ownership, write, barrier, readback or failure/cleanup argument change; no test execution.",
+  "first_fit_json_sha256": "89eaa4227de006e546399e9fbff3a17a72e9c8760b33a18e5410f836c74f11e0"
+}

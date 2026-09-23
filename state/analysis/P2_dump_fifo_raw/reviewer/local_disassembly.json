@@ -1,0 +1,15 @@
+{
+  "scope": "Local offline disassembly of exact copied ELF only; no board or MCU access",
+  "executable": "/usr/bin/arm-none-eabi-objdump",
+  "host": "WSL Ubuntu",
+  "version": "2.42-1ubuntu1+23",
+  "tool_sha256": "d8e94d502fd80248334d739b3e4705369897381a69b12dc7c8cf01eadecb7d32",
+  "argv": [
+    "arm-none-eabi-objdump",
+    "-dr",
+    "target_5e301997_bench-default/app.ino.elf"
+  ],
+  "returncode": 0,
+  "output_sha256": "13f713df108e3c14a1da6fe8b618bc8e4fc401a06e014812faf2117011a739ff",
+  "note": "Inherited app collector disassembly string is a selected startup excerpt, not every function and not missing symbol aliases. Initial witness label corrected by this complete supplemental file. First setup extraction also corrected newline-at-offset0 slicing. Source/ELF/function/model results unchanged."
+}

@@ -1,0 +1,30 @@
+{
+  "argv": [
+    "g++",
+    "-std=c++17",
+    "-O1",
+    "-Wall",
+    "-Wextra",
+    "-Wpedantic",
+    "-Werror",
+    "-fno-exceptions",
+    "-fno-rtti",
+    "-DDOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS",
+    "-I",
+    "/dev/shm/d116-native-h_3m2hmu/src",
+    "-I",
+    "/dev/shm/d116-native-h_3m2hmu",
+    "-I",
+    "/dev/shm/d116-native-h_3m2hmu/bench/recorder/src",
+    "-isystem",
+    "/dev/shm/d117-author-_zn4l0um/host/third_party",
+    "-DMATCH=1",
+    "-DMOTORS_ALLOWED=0",
+    "-DARDUINO_ARCH_ZEPHYR",
+    "-fsyntax-only",
+    "/dev/shm/d116-native-h_3m2hmu/bench/recorder/sketch.cpp"
+  ],
+  "returncode": 1,
+  "stdout": "",
+  "stderr": "In file included from /dev/shm/d116-native-h_3m2hmu/bench/recorder/sketch.cpp:5:\n/dev/shm/d116-native-h_3m2hmu/bench/recorder/src/recorder_transport.h:9:21: error: static assertion failed: D116 requires an inert bench build\n    9 | static_assert(MATCH == 0 && MOTORS_ALLOWED == 0, \"D116 requires an inert bench build\");\n/dev/shm/d116-native-h_3m2hmu/bench/recorder/src/recorder_transport.h:9:21: note: the comparison reduces to \u2018(1 == 0)\u2019\n/dev/shm/d116-native-h_3m2hmu/bench/recorder/sketch.cpp:8:21: error: static assertion failed: Recorder bench must remain inert\n    8 | static_assert(MATCH == 0 && MOTORS_ALLOWED == 0, \"Recorder bench must remain inert\");\n/dev/shm/d116-native-h_3m2hmu/bench/recorder/sketch.cpp:8:21: note: the comparison reduces to \u2018(1 == 0)\u2019\n"
+}

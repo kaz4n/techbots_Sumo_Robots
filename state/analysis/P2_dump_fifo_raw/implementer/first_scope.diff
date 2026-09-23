@@ -1,0 +1,182 @@
+diff --git a/bench/recorder/recorder.ino b/bench/recorder/recorder.ino
+index fdad0dc8..267a152f 100644
+--- a/bench/recorder/recorder.ino
++++ b/bench/recorder/recorder.ino
+@@ -8,7 +8,7 @@
+ static_assert(MATCH == 0 && MOTORS_ALLOWED == 0, "Recorder bench must remain inert");
+ namespace {
+ std::uint32_t clockUs(void*) { return micros(); }
+-recorder::dump::UnoQDumpPort native_dump;
++recorder::dump::UnoQDumpPort native_dump{recorder::dump::Buffering::FIFO8};
+ recorder_transport::Runner runner({nullptr, clockUs}, app::unoQDumpPort(native_dump));
+ }
+ void setup() { runner.begin(false, {}); }
+diff --git a/src/app/app.ino b/src/app/app.ino
+index b344a093..5750cca6 100644
+--- a/src/app/app.ino
++++ b/src/app/app.ino
+@@ -10,7 +10,7 @@
+ namespace {
+ app::NativeSources sources;
+ motors::UnoQPort motor_port;
+-recorder::dump::UnoQDumpPort dump_port;
++recorder::dump::UnoQDumpPort dump_port{recorder::dump::Buffering::FIFO8};
+ app::Runtime runtime{motor_port.port(), sources.adcPort(), sources.port(),
+     app::unoQDumpPort(dump_port)};
+ }
+diff --git a/src/hal/dump_uart_unoq.cpp b/src/hal/dump_uart_unoq.cpp
+index ac2ad4aa..8e75a728 100644
+--- a/src/hal/dump_uart_unoq.cpp
++++ b/src/hal/dump_uart_unoq.cpp
+@@ -1,6 +1,6 @@
+ // Emits bounded transmit-only MessagePack notifications through the internal UART.
+ // A lifetime owner and permanent poison prevent reuse of an uncertain byte stream.
+-// Independent native substitutes and actual target inspection test D090 software.
++// Independent legacy/FIFO substitutes and actual target inspection test D090/D117.
+ #include "dump_uart_unoq.h"
+ 
+ #if defined(ARDUINO_ARCH_ZEPHYR)
+@@ -138,6 +138,8 @@ bool irqIdle() {
+ NativeStatus UnoQDumpPort::begin(const SetupGrant& grant) {
+     if (attempted_ || poisoned_) { abort(); return status_; }
+     attempted_ = true;
++    if (buffering_ != Buffering::LEGACY_SINGLE && buffering_ != Buffering::FIFO8)
++        return status_ = NativeStatus::INVALID_ARGUMENT;
+     if (!grant.setup_phase || !grant.exclusive_uart || !grant.ready_pin_owned ||
+         !grant.framing_clean) return status_ = NativeStatus::OWNERSHIP;
+     if (!threadContext()) return status_ = NativeStatus::CONTEXT;
+@@ -159,10 +161,12 @@ NativeStatus UnoQDumpPort::begin(const SetupGrant& grant) {
+         return status_ = NativeStatus::OWNERSHIP;
+     if (LPUART1_NS->CR1 != (TX_MODE | USART_CR1_RE) || LPUART1_NS->CR2 != 0U ||
+         LPUART1_NS->CR3 != 0U || LPUART1_NS->PRESC != 0U ||
+-        LPUART1_NS->BRR != 355556U)
++        LPUART1_NS->BRR != 355556U ||
++        (buffering_ == Buffering::FIFO8 && LPUART1_NS->AUTOCR != 0U))
+         return status_ = NativeStatus::REGISTER;
+     NVIC_DisableIRQ(LPUART1_IRQn);
+     NVIC_ClearPendingIRQ(LPUART1_IRQn);
++    if (buffering_ == Buffering::FIFO8) return status_ = beginFifo();
+     LPUART1_NS->CR1 = TX_MODE; // No RX, interrupt, FIFO or DMA service.
+     __DMB();
+     baud_register_ = LPUART1_NS->BRR;
+@@ -184,20 +188,67 @@ NativeStatus UnoQDumpPort::begin(const SetupGrant& grant) {
+ }
+ 
+ NativeStatus UnoQDumpPort::ownership() const {
++    const auto mode = TX_MODE | (buffering_ == Buffering::FIFO8 ? USART_CR1_FIFOEN : 0U);
++    return ownedState(mode, mode, true);
++}
++
++NativeStatus UnoQDumpPort::ownedState(std::uint32_t expected, std::uint32_t alternate,
++                                    bool live) const {
+     if (!threadContext()) return NativeStatus::CONTEXT;
+-    if (!initialized_) return NativeStatus::NOT_INITIALIZED;
++    if (live && !initialized_) return NativeStatus::NOT_INITIALIZED;
+     if (uart_owner != this) return NativeStatus::OWNERSHIP;
+     if (!metadata() || !device_is_ready(uartDevice())) return NativeStatus::DEVICE;
+     if (!clocksAvailable() || !nominalClock() || !padsOwned() || !irqIdle())
+         return NativeStatus::OWNERSHIP;
+     for (unsigned i = 0U; i < 8U; ++i)
+         if (clock_registers_[i] != clockRegister(i)) return NativeStatus::OWNERSHIP;
+-    if (LPUART1_NS->CR1 != TX_MODE || LPUART1_NS->CR2 != 0U || LPUART1_NS->CR3 != 0U ||
++    const auto mode = static_cast<std::uint32_t>(LPUART1_NS->CR1);
++    if ((mode != expected && mode != alternate) || LPUART1_NS->CR2 != 0U || LPUART1_NS->CR3 != 0U ||
+         LPUART1_NS->PRESC != 0U || LPUART1_NS->BRR != baud_register_ ||
+-        (LPUART1_NS->ISR & USART_ISR_TEACK) == 0U) return NativeStatus::REGISTER;
++        (live && (LPUART1_NS->ISR & USART_ISR_TEACK) == 0U) ||
++        (buffering_ == Buffering::FIFO8 && LPUART1_NS->AUTOCR != 0U))
++        return NativeStatus::REGISTER;
++    return NativeStatus::OK;
++}
++
++NativeStatus UnoQDumpPort::beginFifo() {
++    // No polling: immediate readbacks may conservatively refuse physical setup.
++    baud_register_ = 355556U;
++    for (unsigned i = 0U; i < 8U; ++i) clock_registers_[i] = clockRegister(i);
++    const std::uint32_t states[] = {0U, USART_CR1_TE | USART_CR1_FIFOEN,
++                                  TX_MODE | USART_CR1_FIFOEN};
++    std::uint32_t verified = TX_MODE | USART_CR1_RE;
++    for (unsigned i = 0U; i < 3U; ++i) {
++        const auto reason = ownedState(verified, verified, false);
++        if (reason != NativeStatus::OK)
++            return i == 0U ? reason : failFifo(reason, verified, verified);
++        LPUART1_NS->CR1 = states[i];
++        __DMB();
++        if (LPUART1_NS->CR1 != states[i])
++            return failFifo(NativeStatus::REGISTER, verified, states[i]);
++        verified = states[i];
++    }
++    initialized_ = true;
++    const auto reason = ownership();
++    if (reason != NativeStatus::OK) return failFifo(reason, verified, verified);
++    const auto ready_status = sampleReady();
++    if (ready_status == NativeStatus::READY_ERROR)
++        return failFifo(ready_status, verified, verified);
+     return NativeStatus::OK;
+ }
+ 
++NativeStatus UnoQDumpPort::failFifo(NativeStatus reason, std::uint32_t verified,
++                                  std::uint32_t attempted) {
++    // Setup owns the interrupt mask. Missing TEACK alone cannot bypass inhibit.
++    if (ownedState(verified, attempted, false) == NativeStatus::OK) {
++        LPUART1_NS->CR1 = 0U;
++        __DMB();
++        cleanup_verified_ = LPUART1_NS->CR1 == 0U;
++    }
++    poison();
++    return status_ = reason;
++}
++
+ NativeStatus UnoQDumpPort::sampleReady() const {
+     const int value = gpio_pin_get_dt(&ready_pad);
+     if (value != 0 && value != 1) return NativeStatus::READY_ERROR;
+@@ -271,8 +322,8 @@ WriteResult UnoQDumpPort::transmit(std::uint32_t step_started) {
+         const auto ready_status = sampleReady();
+         if (ready_status != NativeStatus::OK) return fail(ready_status);
+         if (!withinDeadline(step_started)) return fail(NativeStatus::TIMEOUT);
+-        // Installed uart_stm32_fifo_fill uses this TXE/TDR pair; unlike the
+-        // public ISR-only API, this owner performs one nonwaiting Thread store.
++        // Bit7 means TXE in legacy mode and TXFNF in the selected FIFO mode.
++        // Unlike the public ISR-only API, this is one nonwaiting Thread store.
+         if ((LPUART1_NS->ISR & USART_ISR_TXE) == 0U) break;
+         if (!withinDeadline(step_started)) return fail(NativeStatus::TIMEOUT);
+         LPUART1_NS->TDR = packet_[offset_++];
+@@ -306,11 +357,15 @@ void UnoQDumpPort::abort() {
+             LPUART1_NS->CR1 = 0U;
+             __DMB();
+             // Installed LL LPUART header:520-537 and RM0456 Rev6:p2882
+-            // document immediate discard on UE=0. TXFRQ is FIFO-only; this
+-            // FIFO-disabled owner must not treat TXE as a flush acknowledgement.
++            // document immediate discard on UE=0. Neither mode treats room or
++            // a FIFO flush as proof of complete framing at the remote decoder.
+             cleanup_verified_ = LPUART1_NS->CR1 == 0U;
+         }
+     }
++    poison();
++}
++
++void UnoQDumpPort::poison() {
+     // Already shifted bytes cannot be recalled. No framing recovery is implied.
+     active_ = false;
+     payload_size_ = packet_size_ = offset_ = 0U;
+diff --git a/src/hal/dump_uart_unoq.h b/src/hal/dump_uart_unoq.h
+index 656fdbd0..349032c0 100644
+--- a/src/hal/dump_uart_unoq.h
++++ b/src/hal/dump_uart_unoq.h
+@@ -31,12 +31,16 @@ private:
+  static void cancel(void*);
+  WriteResult advance(const char*, std::size_t);
+  NativeStatus ownership() const;
++ NativeStatus ownedState(std::uint32_t expected, std::uint32_t alternate, bool live) const;
++ NativeStatus beginFifo();
++ NativeStatus failFifo(NativeStatus, std::uint32_t verified, std::uint32_t attempted);
+  NativeStatus sampleReady() const;
+  WriteResult fail(NativeStatus);
+  bool prepare(const char*, std::size_t);
+  bool withinDeadline(std::uint32_t) const;
+  WriteResult transmit(std::uint32_t);
+  void abort();
++ void poison();
+  NativeStatus status_ = NativeStatus::NOT_INITIALIZED;
+  char payload_[64] = {};
+  std::uint8_t packet_[79] = {};

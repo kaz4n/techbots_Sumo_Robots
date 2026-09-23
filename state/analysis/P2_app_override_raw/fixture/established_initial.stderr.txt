@@ -1,0 +1,314 @@
+test_bench_startup_modes_keep_motors_disabled_and_artifacts_separate (tests.tooling.test_tools.ToolContractTests.test_bench_startup_modes_keep_motors_disabled_and_artifacts_separate) ... ok
+test_compile_only_all_argument_orders_and_build_configurations (tests.tooling.test_tools.ToolContractTests.test_compile_only_all_argument_orders_and_build_configurations) ... 
+  test_compile_only_all_argument_orders_and_build_configurations (tests.tooling.test_tools.ToolContractTests.test_compile_only_all_argument_orders_and_build_configurations) (order=('app', '--compile-only')) ... FAIL
+  test_compile_only_all_argument_orders_and_build_configurations (tests.tooling.test_tools.ToolContractTests.test_compile_only_all_argument_orders_and_build_configurations) (order=('--compile-only', 'app')) ... FAIL
+  test_compile_only_all_argument_orders_and_build_configurations (tests.tooling.test_tools.ToolContractTests.test_compile_only_all_argument_orders_and_build_configurations) (order=('app', '--compile-only', '--match')) ... FAIL
+  test_compile_only_all_argument_orders_and_build_configurations (tests.tooling.test_tools.ToolContractTests.test_compile_only_all_argument_orders_and_build_configurations) (order=('app', '--match', '--compile-only')) ... FAIL
+  test_compile_only_all_argument_orders_and_build_configurations (tests.tooling.test_tools.ToolContractTests.test_compile_only_all_argument_orders_and_build_configurations) (order=('--compile-only', 'app', '--match')) ... FAIL
+  test_compile_only_all_argument_orders_and_build_configurations (tests.tooling.test_tools.ToolContractTests.test_compile_only_all_argument_orders_and_build_configurations) (order=('--compile-only', '--match', 'app')) ... FAIL
+  test_compile_only_all_argument_orders_and_build_configurations (tests.tooling.test_tools.ToolContractTests.test_compile_only_all_argument_orders_and_build_configurations) (order=('--match', 'app', '--compile-only')) ... FAIL
+  test_compile_only_all_argument_orders_and_build_configurations (tests.tooling.test_tools.ToolContractTests.test_compile_only_all_argument_orders_and_build_configurations) (order=('--match', '--compile-only', 'app')) ... FAIL
+test_failure_propagation_stops_later_stages (tests.tooling.test_tools.ToolContractTests.test_failure_propagation_stops_later_stages) ... ok
+test_immediate_matrix_upload_waits_for_loader_ownership_verification (tests.tooling.test_tools.ToolContractTests.test_immediate_matrix_upload_waits_for_loader_ownership_verification) ... ok
+test_invalid_arguments_and_unsafe_paths_fail_before_transport (tests.tooling.test_tools.ToolContractTests.test_invalid_arguments_and_unsafe_paths_fail_before_transport) ... ok
+test_logs_execute_receive_only_request_and_report_disconnect (tests.tooling.test_tools.ToolContractTests.test_logs_execute_receive_only_request_and_report_disconnect) ... ok
+test_logs_propagate_ssh_failure_and_reject_arguments (tests.tooling.test_tools.ToolContractTests.test_logs_propagate_ssh_failure_and_reject_arguments) ... ok
+test_match_is_not_upload_permission_and_other_targets_stay_blocked (tests.tooling.test_tools.ToolContractTests.test_match_is_not_upload_permission_and_other_targets_stay_blocked) ... ok
+test_missing_connection_configuration_fails_before_transport (tests.tooling.test_tools.ToolContractTests.test_missing_connection_configuration_fails_before_transport) ... ok
+test_missing_or_wrong_core_prevents_compile_and_upload (tests.tooling.test_tools.ToolContractTests.test_missing_or_wrong_core_prevents_compile_and_upload) ... ok
+test_missing_rsync_fails_before_transport (tests.tooling.test_tools.ToolContractTests.test_missing_rsync_fails_before_transport) ... ok
+test_missing_source_or_config_fails_before_transport (tests.tooling.test_tools.ToolContractTests.test_missing_source_or_config_fails_before_transport) ... ok
+test_only_allowlisted_inert_sketches_upload_after_compile_without_port (tests.tooling.test_tools.ToolContractTests.test_only_allowlisted_inert_sketches_upload_after_compile_without_port) ... ok
+test_real_diagnostics_host_syntax_and_inert_guard (tests.tooling.test_tools.ToolContractTests.test_real_diagnostics_host_syntax_and_inert_guard) ... ok
+test_reviewed_inert_immediate_upload_uses_same_artifact_and_zero_motor_macro (tests.tooling.test_tools.ToolContractTests.test_reviewed_inert_immediate_upload_uses_same_artifact_and_zero_motor_macro) ... ok
+test_reviewed_snapshot_survives_lf_checkout (tests.tooling.test_tools.ToolContractTests.test_reviewed_snapshot_survives_lf_checkout) ... ok
+test_sketch_local_project_collisions_fail_before_transport (tests.tooling.test_tools.ToolContractTests.test_sketch_local_project_collisions_fail_before_transport) ... ok
+test_sketch_local_src_is_preserved_and_compiles (tests.tooling.test_tools.ToolContractTests.test_sketch_local_src_is_preserved_and_compiles) ... ok
+test_source_ancestor_symlink_is_rejected_before_transport (tests.tooling.test_tools.ToolContractTests.test_source_ancestor_symlink_is_rejected_before_transport) ... ok
+test_source_symlinks_are_rejected_before_transport (tests.tooling.test_tools.ToolContractTests.test_source_symlinks_are_rejected_before_transport) ... ok
+test_staging_preserves_project_and_sketch_local_includes (tests.tooling.test_tools.ToolContractTests.test_staging_preserves_project_and_sketch_local_includes) ... ok
+test_startup_selection_cannot_bypass_upload_or_configuration_guards (tests.tooling.test_tools.ToolContractTests.test_startup_selection_cannot_bypass_upload_or_configuration_guards) ... ok
+test_transport_is_strict_and_content_addressed_without_deletion (tests.tooling.test_tools.ToolContractTests.test_transport_is_strict_and_content_addressed_without_deletion) ... ok
+test_upload_rejects_changed_or_added_source_before_transport (tests.tooling.test_tools.ToolContractTests.test_upload_rejects_changed_or_added_source_before_transport) ... ok
+test_upload_requires_readable_reviewed_snapshot (tests.tooling.test_tools.ToolContractTests.test_upload_requires_readable_reviewed_snapshot) ... ok
+test_adb_does_not_bypass_match_allowlist_startup_or_unreviewed_source_guards (tests.tooling.test_adb_transport.AdbTransportTests.test_adb_does_not_bypass_match_allowlist_startup_or_unreviewed_source_guards) ... ok
+test_adb_shell_failure_stops_compile_and_is_not_successful_inventory (tests.tooling.test_adb_transport.AdbTransportTests.test_adb_shell_failure_stops_compile_and_is_not_successful_inventory) ... ok
+test_compile_failure_prevents_reviewed_inert_upload (tests.tooling.test_adb_transport.AdbTransportTests.test_compile_failure_prevents_reviewed_inert_upload) ... ok
+test_compile_only_argument_orders_and_match_never_upload_start_or_reset (tests.tooling.test_adb_transport.AdbTransportTests.test_compile_only_argument_orders_and_match_never_upload_start_or_reset) ... ok
+test_content_address_is_stable_then_changes_with_source_without_deletion (tests.tooling.test_adb_transport.AdbTransportTests.test_content_address_is_stable_then_changes_with_source_without_deletion) ... ok
+test_default_and_explicit_ssh_preserve_strict_settings_and_ignore_adb_options (tests.tooling.test_adb_transport.AdbTransportTests.test_default_and_explicit_ssh_preserve_strict_settings_and_ignore_adb_options) ... ok
+test_each_staged_regular_file_is_pushed_once_to_its_exact_remote_filename (tests.tooling.test_adb_transport.AdbTransportTests.test_each_staged_regular_file_is_pushed_once_to_its_exact_remote_filename) ... ok
+test_explicit_executable_path_with_spaces_and_path_name_both_work (tests.tooling.test_adb_transport.AdbTransportTests.test_explicit_executable_path_with_spaces_and_path_name_both_work) ... ok
+test_explicit_startup_options_keep_inert_macros_and_separate_artifacts (tests.tooling.test_adb_transport.AdbTransportTests.test_explicit_startup_options_keep_inert_macros_and_separate_artifacts) ... ok
+test_invalid_transport_never_falls_back_or_contacts_a_device (tests.tooling.test_adb_transport.AdbTransportTests.test_invalid_transport_never_falls_back_or_contacts_a_device) ... ok
+test_logs_use_explicit_adb_and_execute_receive_only_monitor_request (tests.tooling.test_adb_transport.AdbTransportTests.test_logs_use_explicit_adb_and_execute_receive_only_monitor_request) ... ok
+test_missing_empty_directory_and_nonexecutable_adb_fail_locally (tests.tooling.test_adb_transport.AdbTransportTests.test_missing_empty_directory_and_nonexecutable_adb_fail_locally) ... ok
+test_missing_or_invalid_serial_never_automatically_selects_a_device (tests.tooling.test_adb_transport.AdbTransportTests.test_missing_or_invalid_serial_never_automatically_selects_a_device) ... ok
+test_missing_or_wrong_core_blocks_compile_and_upload (tests.tooling.test_adb_transport.AdbTransportTests.test_missing_or_wrong_core_blocks_compile_and_upload) ... ok
+test_preflight_ambiguous_or_transport_failure_stops_but_missing_utility_continues (tests.tooling.test_adb_transport.AdbTransportTests.test_preflight_ambiguous_or_transport_failure_stops_but_missing_utility_continues) ... ok
+test_preflight_and_logs_reject_unrequested_arguments_before_adb (tests.tooling.test_adb_transport.AdbTransportTests.test_preflight_and_logs_reject_unrequested_arguments_before_adb) ... ok
+test_preflight_failed_command_remains_in_incomplete_json (tests.tooling.test_adb_transport.AdbTransportTests.test_preflight_failed_command_remains_in_incomplete_json) ... ok
+test_preflight_json_names_explicit_serial_and_requires_no_ssh_or_root (tests.tooling.test_adb_transport.AdbTransportTests.test_preflight_json_names_explicit_serial_and_requires_no_ssh_or_root) ... ok
+test_push_failure_prevents_compile_and_upload (tests.tooling.test_adb_transport.AdbTransportTests.test_push_failure_prevents_compile_and_upload) ... ok
+test_remote_root_retains_strict_absolute_dedicated_path_validation (tests.tooling.test_adb_transport.AdbTransportTests.test_remote_root_retains_strict_absolute_dedicated_path_validation) ... ok
+test_reviewed_default_inert_upload_follows_compile_with_same_artifact (tests.tooling.test_adb_transport.AdbTransportTests.test_reviewed_default_inert_upload_follows_compile_with_same_artifact) ... ok
+test_reviewed_upload_rejects_added_or_changed_source_before_adb (tests.tooling.test_adb_transport.AdbTransportTests.test_reviewed_upload_rejects_added_or_changed_source_before_adb) ... ok
+test_serial_grammar_accepts_explicit_alphanumeric_and_documented_punctuation (tests.tooling.test_adb_transport.AdbTransportTests.test_serial_grammar_accepts_explicit_alphanumeric_and_documented_punctuation) ... ok
+test_unset_transport_remains_ssh_and_does_not_use_available_adb (tests.tooling.test_adb_transport.AdbTransportTests.test_unset_transport_remains_ssh_and_does_not_use_available_adb) ... ok
+test_D099_arbitrary_flag_or_policy_arguments_never_reach_compile (tests.tooling.test_app_build_policy.AppBuildCommandTests.test_D099_arbitrary_flag_or_policy_arguments_never_reach_compile) ... ERROR
+test_D099_bench_commands_keep_original_dependency_behavior (tests.tooling.test_app_build_policy.AppBuildCommandTests.test_D099_bench_commands_keep_original_dependency_behavior) ... ERROR
+test_D099_build_and_output_paths_are_fresh_and_outside_sketch (tests.tooling.test_app_build_policy.AppBuildCommandTests.test_D099_build_and_output_paths_are_fresh_and_outside_sketch) ... ERROR
+test_D099_changed_or_missing_dependency_and_artifact_evidence_fail (tests.tooling.test_app_build_policy.AppBuildCommandTests.test_D099_changed_or_missing_dependency_and_artifact_evidence_fail) ... ERROR
+test_D099_compiler_failure_retains_error_and_never_reports_success (tests.tooling.test_app_build_policy.AppBuildCommandTests.test_D099_compiler_failure_retains_error_and_never_reports_success) ... ERROR
+test_D099_default_immediate_match_use_exact_fixed_compile_properties (tests.tooling.test_app_build_policy.AppBuildCommandTests.test_D099_default_immediate_match_use_exact_fixed_compile_properties) ... ERROR
+test_D099_every_app_upload_is_rejected_before_transport_lookup (tests.tooling.test_app_build_policy.AppBuildCommandTests.test_D099_every_app_upload_is_rejected_before_transport_lookup) ... ERROR
+test_D099_nonzero_process_rejects_even_successful_json (tests.tooling.test_app_build_policy.AppBuildCommandTests.test_D099_nonzero_process_rejects_even_successful_json) ... ERROR
+test_D099_result_rejection_is_wired_into_real_public_compile_command (tests.tooling.test_app_build_policy.AppBuildCommandTests.test_D099_result_rejection_is_wired_into_real_public_compile_command) ... ERROR
+test_D099_success_checks_all_three_elfs_package_and_installed_pins (tests.tooling.test_app_build_policy.AppBuildCommandTests.test_D099_success_checks_all_three_elfs_package_and_installed_pins) ... ERROR
+test_D099_wrong_cli_identity_and_core_stop_before_compilation (tests.tooling.test_app_build_policy.AppBuildCommandTests.test_D099_wrong_cli_identity_and_core_stop_before_compilation) ... ERROR
+test_D099_any_external_library_or_wrong_library_type_fails (tests.tooling.test_app_build_policy.AppBuildParserTests.test_D099_any_external_library_or_wrong_library_type_fails) ... ok
+test_D099_both_platforms_require_exact_id_version_and_absolute_root (tests.tooling.test_app_build_policy.AppBuildParserTests.test_D099_both_platforms_require_exact_id_version_and_absolute_root) ... ok
+test_D099_builder_object_and_fresh_build_path_are_required (tests.tooling.test_app_build_policy.AppBuildParserTests.test_D099_builder_object_and_fresh_build_path_are_required) ... ok
+test_D099_cli_wrong_missing_or_ambiguous_identity_is_rejected (tests.tooling.test_app_build_policy.AppBuildParserTests.test_D099_cli_wrong_missing_or_ambiguous_identity_is_rejected) ... ok
+test_D099_compile_only_upload_result_is_absent_or_empty_object (tests.tooling.test_app_build_policy.AppBuildParserTests.test_D099_compile_only_upload_result_is_absent_or_empty_object) ... ok
+test_D099_controlled_safety_flags_cannot_be_overridden_or_appended (tests.tooling.test_app_build_policy.AppBuildParserTests.test_D099_controlled_safety_flags_cannot_be_overridden_or_appended) ... ok
+test_D099_default_immediate_and_match_properties_are_distinct (tests.tooling.test_app_build_policy.AppBuildParserTests.test_D099_default_immediate_and_match_properties_are_distinct) ... ERROR
+test_D099_duplicate_keys_are_rejected_at_every_object_depth (tests.tooling.test_app_build_policy.AppBuildParserTests.test_D099_duplicate_keys_are_rejected_at_every_object_depth) ... ok
+test_D099_each_required_property_missing_or_changed_fails (tests.tooling.test_app_build_policy.AppBuildParserTests.test_D099_each_required_property_missing_or_changed_fails) ... ok
+test_D099_library_omission_cannot_rescue_an_incomplete_envelope (tests.tooling.test_app_build_policy.AppBuildParserTests.test_D099_library_omission_cannot_rescue_an_incomplete_envelope) ... ok
+test_D099_omitted_and_empty_libraries_accept_after_complete_envelope (tests.tooling.test_app_build_policy.AppBuildParserTests.test_D099_omitted_and_empty_libraries_accept_after_complete_envelope) ... ERROR
+test_D099_optional_output_strings_errors_and_upload_envelope (tests.tooling.test_app_build_policy.AppBuildParserTests.test_D099_optional_output_strings_errors_and_upload_envelope) ... ERROR
+test_D099_pinned_cli_accepts_surrounding_whitespace (tests.tooling.test_app_build_policy.AppBuildParserTests.test_D099_pinned_cli_accepts_surrounding_whitespace) ... ok
+test_D099_platform_roots_and_variant_path_must_agree (tests.tooling.test_app_build_policy.AppBuildParserTests.test_D099_platform_roots_and_variant_path_must_agree) ... ok
+test_D099_property_collection_requires_unique_well_formed_strings (tests.tooling.test_app_build_policy.AppBuildParserTests.test_D099_property_collection_requires_unique_well_formed_strings) ... ok
+test_D099_result_must_be_one_strict_json_object (tests.tooling.test_app_build_policy.AppBuildParserTests.test_D099_result_must_be_one_strict_json_object) ... ERROR
+test_D099_success_must_be_present_boolean_true (tests.tooling.test_app_build_policy.AppBuildParserTests.test_D099_success_must_be_present_boolean_true) ... ok
+test_D099_unreviewed_extra_build_or_link_flags_fail (tests.tooling.test_app_build_policy.AppBuildParserTests.test_D099_unreviewed_extra_build_or_link_flags_fail) ... ok
+
+======================================================================
+ERROR: test_D099_arbitrary_flag_or_policy_arguments_never_reach_compile (tests.tooling.test_app_build_policy.AppBuildCommandTests.test_D099_arbitrary_flag_or_policy_arguments_never_reach_compile)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_app_build_policy.py", line 276, in setUp
+    from test_tools import ToolContractTests
+ModuleNotFoundError: No module named 'test_tools'
+
+======================================================================
+ERROR: test_D099_bench_commands_keep_original_dependency_behavior (tests.tooling.test_app_build_policy.AppBuildCommandTests.test_D099_bench_commands_keep_original_dependency_behavior)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_app_build_policy.py", line 276, in setUp
+    from test_tools import ToolContractTests
+ModuleNotFoundError: No module named 'test_tools'
+
+======================================================================
+ERROR: test_D099_build_and_output_paths_are_fresh_and_outside_sketch (tests.tooling.test_app_build_policy.AppBuildCommandTests.test_D099_build_and_output_paths_are_fresh_and_outside_sketch)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_app_build_policy.py", line 276, in setUp
+    from test_tools import ToolContractTests
+ModuleNotFoundError: No module named 'test_tools'
+
+======================================================================
+ERROR: test_D099_changed_or_missing_dependency_and_artifact_evidence_fail (tests.tooling.test_app_build_policy.AppBuildCommandTests.test_D099_changed_or_missing_dependency_and_artifact_evidence_fail)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_app_build_policy.py", line 276, in setUp
+    from test_tools import ToolContractTests
+ModuleNotFoundError: No module named 'test_tools'
+
+======================================================================
+ERROR: test_D099_compiler_failure_retains_error_and_never_reports_success (tests.tooling.test_app_build_policy.AppBuildCommandTests.test_D099_compiler_failure_retains_error_and_never_reports_success)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_app_build_policy.py", line 276, in setUp
+    from test_tools import ToolContractTests
+ModuleNotFoundError: No module named 'test_tools'
+
+======================================================================
+ERROR: test_D099_default_immediate_match_use_exact_fixed_compile_properties (tests.tooling.test_app_build_policy.AppBuildCommandTests.test_D099_default_immediate_match_use_exact_fixed_compile_properties)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_app_build_policy.py", line 276, in setUp
+    from test_tools import ToolContractTests
+ModuleNotFoundError: No module named 'test_tools'
+
+======================================================================
+ERROR: test_D099_every_app_upload_is_rejected_before_transport_lookup (tests.tooling.test_app_build_policy.AppBuildCommandTests.test_D099_every_app_upload_is_rejected_before_transport_lookup)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_app_build_policy.py", line 276, in setUp
+    from test_tools import ToolContractTests
+ModuleNotFoundError: No module named 'test_tools'
+
+======================================================================
+ERROR: test_D099_nonzero_process_rejects_even_successful_json (tests.tooling.test_app_build_policy.AppBuildCommandTests.test_D099_nonzero_process_rejects_even_successful_json)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_app_build_policy.py", line 276, in setUp
+    from test_tools import ToolContractTests
+ModuleNotFoundError: No module named 'test_tools'
+
+======================================================================
+ERROR: test_D099_result_rejection_is_wired_into_real_public_compile_command (tests.tooling.test_app_build_policy.AppBuildCommandTests.test_D099_result_rejection_is_wired_into_real_public_compile_command)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_app_build_policy.py", line 276, in setUp
+    from test_tools import ToolContractTests
+ModuleNotFoundError: No module named 'test_tools'
+
+======================================================================
+ERROR: test_D099_success_checks_all_three_elfs_package_and_installed_pins (tests.tooling.test_app_build_policy.AppBuildCommandTests.test_D099_success_checks_all_three_elfs_package_and_installed_pins)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_app_build_policy.py", line 276, in setUp
+    from test_tools import ToolContractTests
+ModuleNotFoundError: No module named 'test_tools'
+
+======================================================================
+ERROR: test_D099_wrong_cli_identity_and_core_stop_before_compilation (tests.tooling.test_app_build_policy.AppBuildCommandTests.test_D099_wrong_cli_identity_and_core_stop_before_compilation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_app_build_policy.py", line 276, in setUp
+    from test_tools import ToolContractTests
+ModuleNotFoundError: No module named 'test_tools'
+
+======================================================================
+ERROR: test_D099_default_immediate_and_match_properties_are_distinct (tests.tooling.test_app_build_policy.AppBuildParserTests.test_D099_default_immediate_and_match_properties_are_distinct)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_app_build_policy.py", line 99, in test_D099_default_immediate_and_match_properties_are_distinct
+    self.assertEqual(fqbn, self.validate(doc, fqbn, flags)['build.fqbn'])
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_app_build_policy.py", line 59, in validate
+    return self.policy.validate_result(json.dumps(document), fqbn, flags, path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tools/app_build_policy.py", line 157, in validate_result
+    return validated_properties(builder, platform, fqbn, flags, build_path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tools/app_build_policy.py", line 147, in validated_properties
+    raise ValueError('App compiler or build root differs from selected location')
+ValueError: App compiler or build root differs from selected location
+
+======================================================================
+ERROR: test_D099_omitted_and_empty_libraries_accept_after_complete_envelope (tests.tooling.test_app_build_policy.AppBuildParserTests.test_D099_omitted_and_empty_libraries_accept_after_complete_envelope)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_app_build_policy.py", line 86, in test_D099_omitted_and_empty_libraries_accept_after_complete_envelope
+    actual = self.validate(doc)
+             ^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_app_build_policy.py", line 59, in validate
+    return self.policy.validate_result(json.dumps(document), fqbn, flags, path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tools/app_build_policy.py", line 157, in validate_result
+    return validated_properties(builder, platform, fqbn, flags, build_path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tools/app_build_policy.py", line 147, in validated_properties
+    raise ValueError('App compiler or build root differs from selected location')
+ValueError: App compiler or build root differs from selected location
+
+======================================================================
+ERROR: test_D099_optional_output_strings_errors_and_upload_envelope (tests.tooling.test_app_build_policy.AppBuildParserTests.test_D099_optional_output_strings_errors_and_upload_envelope)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_app_build_policy.py", line 108, in test_D099_optional_output_strings_errors_and_upload_envelope
+    self.validate(doc)
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_app_build_policy.py", line 59, in validate
+    return self.policy.validate_result(json.dumps(document), fqbn, flags, path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tools/app_build_policy.py", line 157, in validate_result
+    return validated_properties(builder, platform, fqbn, flags, build_path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tools/app_build_policy.py", line 147, in validated_properties
+    raise ValueError('App compiler or build root differs from selected location')
+ValueError: App compiler or build root differs from selected location
+
+======================================================================
+ERROR: test_D099_result_must_be_one_strict_json_object (tests.tooling.test_app_build_policy.AppBuildParserTests.test_D099_result_must_be_one_strict_json_object)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_app_build_policy.py", line 131, in test_D099_result_must_be_one_strict_json_object
+    self.policy.validate_result('\n \t' + text + '\n', FQBN, FLAGS, BUILD_PATH)
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tools/app_build_policy.py", line 157, in validate_result
+    return validated_properties(builder, platform, fqbn, flags, build_path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tools/app_build_policy.py", line 147, in validated_properties
+    raise ValueError('App compiler or build root differs from selected location')
+ValueError: App compiler or build root differs from selected location
+
+======================================================================
+FAIL: test_compile_only_all_argument_orders_and_build_configurations (tests.tooling.test_tools.ToolContractTests.test_compile_only_all_argument_orders_and_build_configurations) (order=('app', '--compile-only'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_tools.py", line 123, in test_compile_only_all_argument_orders_and_build_configurations
+    self.assertEqual(0, result.returncode, result.stderr)
+AssertionError: 0 != 2 : ERROR: Missing or unreviewed effective app command/hook property
+
+
+======================================================================
+FAIL: test_compile_only_all_argument_orders_and_build_configurations (tests.tooling.test_tools.ToolContractTests.test_compile_only_all_argument_orders_and_build_configurations) (order=('--compile-only', 'app'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_tools.py", line 123, in test_compile_only_all_argument_orders_and_build_configurations
+    self.assertEqual(0, result.returncode, result.stderr)
+AssertionError: 0 != 2 : ERROR: Missing or unreviewed effective app command/hook property
+
+
+======================================================================
+FAIL: test_compile_only_all_argument_orders_and_build_configurations (tests.tooling.test_tools.ToolContractTests.test_compile_only_all_argument_orders_and_build_configurations) (order=('app', '--compile-only', '--match'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_tools.py", line 123, in test_compile_only_all_argument_orders_and_build_configurations
+    self.assertEqual(0, result.returncode, result.stderr)
+AssertionError: 0 != 2 : ERROR: Missing or unreviewed effective app command/hook property
+
+
+======================================================================
+FAIL: test_compile_only_all_argument_orders_and_build_configurations (tests.tooling.test_tools.ToolContractTests.test_compile_only_all_argument_orders_and_build_configurations) (order=('app', '--match', '--compile-only'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_tools.py", line 123, in test_compile_only_all_argument_orders_and_build_configurations
+    self.assertEqual(0, result.returncode, result.stderr)
+AssertionError: 0 != 2 : ERROR: Missing or unreviewed effective app command/hook property
+
+
+======================================================================
+FAIL: test_compile_only_all_argument_orders_and_build_configurations (tests.tooling.test_tools.ToolContractTests.test_compile_only_all_argument_orders_and_build_configurations) (order=('--compile-only', 'app', '--match'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_tools.py", line 123, in test_compile_only_all_argument_orders_and_build_configurations
+    self.assertEqual(0, result.returncode, result.stderr)
+AssertionError: 0 != 2 : ERROR: Missing or unreviewed effective app command/hook property
+
+
+======================================================================
+FAIL: test_compile_only_all_argument_orders_and_build_configurations (tests.tooling.test_tools.ToolContractTests.test_compile_only_all_argument_orders_and_build_configurations) (order=('--compile-only', '--match', 'app'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_tools.py", line 123, in test_compile_only_all_argument_orders_and_build_configurations
+    self.assertEqual(0, result.returncode, result.stderr)
+AssertionError: 0 != 2 : ERROR: Missing or unreviewed effective app command/hook property
+
+
+======================================================================
+FAIL: test_compile_only_all_argument_orders_and_build_configurations (tests.tooling.test_tools.ToolContractTests.test_compile_only_all_argument_orders_and_build_configurations) (order=('--match', 'app', '--compile-only'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_tools.py", line 123, in test_compile_only_all_argument_orders_and_build_configurations
+    self.assertEqual(0, result.returncode, result.stderr)
+AssertionError: 0 != 2 : ERROR: Missing or unreviewed effective app command/hook property
+
+
+======================================================================
+FAIL: test_compile_only_all_argument_orders_and_build_configurations (tests.tooling.test_tools.ToolContractTests.test_compile_only_all_argument_orders_and_build_configurations) (order=('--match', '--compile-only', 'app'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_tools.py", line 123, in test_compile_only_all_argument_orders_and_build_configurations
+    self.assertEqual(0, result.returncode, result.stderr)
+AssertionError: 0 != 2 : ERROR: Missing or unreviewed effective app command/hook property
+
+
+----------------------------------------------------------------------
+Ran 78 tests in 51.477s
+
+FAILED (failures=8, errors=15)

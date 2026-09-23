@@ -14,8 +14,11 @@ import types
 
 
 PLATFORM = '/fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0'
-COMPILER = '/fixture/.arduino15/packages/arduino/tools/arm-zephyr-eabi/1.0.1'
+COMPILER = '/fixture/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1'
 VARIANT = 'arduino_uno_q_stm32u585xx'
+OVERRIDE_PROBE = ('for path do if test -e "$path" || test -L "$path"; then '
+                  'printf \'Unreviewed app override: %s\\n\' "$path" >&2; '
+                  'exit 1; fi; done')
 
 
 def record(kind, **fields):
@@ -33,7 +36,7 @@ def fake_ssh(args):
     if index >= len(args) or args[index] != 'fixture@board.invalid':
         return 91
     command = shlex.split(' '.join(args[index + 1:]))
-    if not command or command[0] not in ('arduino-cli', 'mkdir', 'python3', 'sha256sum'):
+    if not command or command[0] not in ('arduino-cli', 'mkdir', 'python3', 'sha256sum', 'sh'):
         record('rejected_remote', args=command)
         return 92
     if command[0] == 'mkdir':
@@ -52,16 +55,33 @@ def fake_rsync(args):
 
 
 def app_properties(args):
-    # Model documented CLI/core properties independently of the policy validator.
+    # Contextualize saved actual properties, independently of the policy validator.
     fqbn = args[args.index('--fqbn') + 1]
-    properties = {
+    build_path = args[args.index('--build-path') + 1]
+    immediate = 'wait_linux_boot=no' in fqbn
+    custom = dict(args[index + 1].split('=', 1) for index, argument in enumerate(args[:-1])
+                  if argument == '--build-property')
+    reference = json.loads(Path(__file__).with_name('fake_app_reference.json').read_text())
+    properties = {}
+    for key, value in reference['properties'].items():
+        flag_key = ('compiler.c.extra_flags' if key in
+                    ('compiler.c.extra_flags', 'recipe.c.o.pattern') else 'compiler.cpp.extra_flags')
+        value = value.replace(reference['build_path'], build_path)
+        value = value.replace(reference['data_directory'], '/fixture/.arduino15')
+        value = value.replace('-DMATCH=0 -DMOTORS_ALLOWED=0', custom.get(flag_key, ''))
+        value = value.replace('-DARDUINO_LIBRARY_DISCOVERY_PHASE=0',
+            custom.get('build.library_discovery_phase_flag', '-DARDUINO_LIBRARY_DISCOVERY_PHASE=1'))
+        if immediate and key.startswith('recipe.hooks.objcopy.postobjcopy.'):
+            value = value.replace('/zephyr-sketch-tool"    ', '/zephyr-sketch-tool"   -immediate ')
+        properties[key] = value
+    properties.update({
         'build.fqbn': fqbn,
         'build.core': 'arduino',
         'build.variant': VARIANT,
         'runtime.platform.path': PLATFORM,
         'build.variant.path': PLATFORM + '/variants/' + VARIANT,
         'build.project_name': 'app.ino',
-        'build.path': args[args.index('--build-path') + 1],
+        'build.path': build_path,
         'build.library_discovery_phase_flag': '-DARDUINO_LIBRARY_DISCOVERY_PHASE=1',
         'compiler.c.extra_flags': '',
         'compiler.cpp.extra_flags': '',
@@ -73,14 +93,11 @@ def app_properties(args):
         'compiler.libraries.ldflags': '',
         'build.link_mode': 'dynamic',
         'build.link_args.dynamic': '-e main',
-        'build.boot_mode': 'immediate' if 'wait_linux_boot=no' in fqbn else 'wait',
+        'build.boot_mode': 'immediate' if immediate else 'wait',
         'runtime.tools.arm-zephyr-eabi-1.0.1.path': COMPILER,
         'compiler.path': COMPILER + '/bin/',
-    }
-    for index, argument in enumerate(args[:-1]):
-        if argument == '--build-property':
-            key, value = args[index + 1].split('=', 1)
-            properties[key] = value
+    })
+    properties.update(custom)
     return [key + '=' + value for key, value in properties.items()]
 
 
@@ -100,9 +117,17 @@ def app_compile_result(args):
 
 
 def fake_arduino(args):
-    record('arduino', args=args)
+    properties_only = '--show-properties=expanded' in args
+    record('properties_query' if properties_only else 'arduino', args=args)
     if args == ['version']:
         print('arduino-cli  Version: 1.5.1 Commit: 01f3d4f2b Date: 2026-06-05T10:22:11Z')
+        return 0
+    if args[:2] == ['config', 'get'] and args[-1:] == ['--json']:
+        directories = {'directories.data': '/fixture/.arduino15',
+                       'directories.user': '/fixture/Arduino'}
+        if len(args) != 4 or args[2] not in directories:
+            return 94
+        print(json.dumps(directories[args[2]]))
         return 0
     if args[:2] == ['core', 'list']:
         version = os.environ.get('FAKE_CORE_VERSION', '1.0.0')
@@ -112,12 +137,34 @@ def fake_arduino(args):
         return 0
     if not args or args[0] not in ('compile', 'upload'):
         return 94
+    if args[0] == 'compile' and properties_only and '--json' in args:
+        result = app_compile_result(args)
+        result['compiler_out'] = ''
+        print(json.dumps(result))
+        return 0
     if os.environ.get('FAKE_FAIL') == args[0]:
         return {'compile': 43, 'upload': 44}[args[0]]
     if args[0] == 'compile' and '--json' in args:
         print(json.dumps(app_compile_result(args)))
         return 0
     print('SIMULATED ' + args[0])
+    return 0
+
+
+def fake_sh(args):
+    # Recognize only the fixed absent-file protocol; never execute shell text.
+    record('override_check', args=args)
+    if len(args) != 9 or args[:3] != ['-c', OVERRIDE_PROBE, 'sumo-app-override-check']:
+        return 96
+    expected = ['/fixture/.arduino15/packages/platform.txt',
+                '/fixture/Arduino/hardware/platform.txt',
+                PLATFORM + '/platform.local.txt', PLATFORM + '/boards.local.txt']
+    remote = Path(os.environ['SUMO_REMOTE_ROOT']).resolve()
+    profiles = [Path(value) for value in args[7:]]
+    if args[3:7] != expected or [path.name for path in profiles] != ['sketch.yaml', 'sketch.yml']:
+        return 96
+    if any(not path.is_absolute() or not path.resolve().is_relative_to(remote) for path in profiles):
+        return 96
     return 0
 
 
@@ -216,5 +263,5 @@ def fake_remote_python(args):
 if __name__ == '__main__':
     functions = {'ssh': fake_ssh, 'rsync': fake_rsync,
                  'arduino-cli': fake_arduino, 'python3': fake_remote_python,
-                 'sha256sum': fake_sha256sum}
+                 'sha256sum': fake_sha256sum, 'sh': fake_sh}
     raise SystemExit(functions[Path(sys.argv[0]).name](sys.argv[1:]))

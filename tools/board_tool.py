@@ -189,6 +189,39 @@ def build_startup(args):
     return args.startup or ('immediate' if args.match else 'default')
 
 
+def capture_app_command(board, command, receipt, name):
+    (receipt / (name + '.command.json')).write_text(json.dumps(command, indent=2) + '\n')
+    try:
+        result = remote(board, command, capture=True)
+        if result.returncode != 0:
+            raise subprocess.CalledProcessError(result.returncode, command,
+                                                result.stdout, result.stderr)
+    except subprocess.CalledProcessError as error:
+        (receipt / (name + '.stdout.json')).write_text(error.stdout or '', encoding='utf-8')
+        (receipt / (name + '.stderr.txt')).write_text(error.stderr or '', encoding='utf-8')
+        print(f'App {name} failed; raw output: {receipt}', file=sys.stderr)
+        raise
+    (receipt / (name + '.stdout.json')).write_text(result.stdout, encoding='utf-8')
+    (receipt / (name + '.stderr.txt')).write_text(result.stderr, encoding='utf-8')
+    return result
+
+
+def app_preflight(policy, board, command, receipt, fqbn, flags, build_path):
+    directories = {}
+    for name in ('data', 'user'):
+        result = capture_app_command(board, ['arduino-cli', 'config', 'get',
+                                     'directories.' + name, '--json'], receipt, name + '_directory')
+        directories[name] = policy.resolved_directory(result.stdout)
+    override_reader = lambda target, args, **kwargs: capture_app_command(target, args, receipt, 'overrides')
+    policy.check_overrides(override_reader, board, directories['data'], directories['user'], command[-1])
+    pin_reader = lambda target, args, **kwargs: capture_app_command(target, args, receipt, 'precompile_pins')
+    policy.verify_hashes(pin_reader, board, policy.installed_pins(directories['data']))
+    query = [*command[:-1], '--show-properties=expanded', command[-1]]
+    result = capture_app_command(board, query, receipt, 'properties')
+    policy.validate_preflight(result.stdout, fqbn, flags, build_path, directories['data'])
+    return directories
+
+
 def compile_app(board, checksum, board_folder, remote_root, fqbn, flags, startup):
     spec = importlib.util.spec_from_file_location('sumo_app_policy', ROOT / 'tools/app_build_policy.py')
     policy = importlib.util.module_from_spec(spec)
@@ -208,23 +241,14 @@ def compile_app(board, checksum, board_folder, remote_root, fqbn, flags, startup
     receipt = ROOT / 'build/app-receipts' / run_id
     receipt.mkdir(parents=True, exist_ok=False)
     (receipt / 'command.json').write_text(json.dumps(command, indent=2) + '\n')
-    try:
-        result = remote(board, command, capture=True)
-        if result.returncode != 0:
-            raise subprocess.CalledProcessError(result.returncode, command,
-                                                result.stdout, result.stderr)
-    except subprocess.CalledProcessError as error:
-        (receipt / 'compile.stdout.json').write_text(error.stdout or '', encoding='utf-8')
-        (receipt / 'compile.stderr.txt').write_text(error.stderr or '', encoding='utf-8')
-        print(f'App compilation failed; raw output: {receipt}', file=sys.stderr)
-        raise
-    (receipt / 'compile.stdout.json').write_text(result.stdout, encoding='utf-8')
-    (receipt / 'compile.stderr.txt').write_text(result.stderr, encoding='utf-8')
+    directories = app_preflight(policy, board, command, receipt, fqbn, flags, build_path)
+    result = capture_app_command(board, command, receipt, 'compile')
     properties = policy.validate_result(result.stdout, fqbn, flags, build_path)
     hashes = policy.verify_files(remote, board, properties, build_path, artifacts)
     report = dict(policy=policy.POLICY, source_sha256=checksum, fqbn=fqbn,
                   build_path=build_path, artifacts=artifacts, file_sha256=hashes,
-                  compiler_returncode=result.returncode, used_libraries=[])
+                  compiler_returncode=result.returncode, used_libraries=[],
+                  resolved_directories=directories, precompile_checks=True)
     (receipt / 'verified.json').write_text(json.dumps(report, indent=2) + '\n')
     print(f'APP BUILD CHECKED: {policy.POLICY}; receipt={receipt}')
     result_object = policy.decode(result.stdout)
@@ -234,6 +258,9 @@ def compile_app(board, checksum, board_folder, remote_root, fqbn, flags, startup
 
 def flash(args):
     startup = build_startup(args)
+    if args.sketch == 'app' and any(os.path.lexists(ROOT / 'src/app' / name)
+                                    for name in ('sketch.yaml', 'sketch.yml')):
+        fail('App sketch profiles are unreviewed; remove sketch.yaml/sketch.yml from this build')
     if not args.compile_only and args.sketch in ('bench/p0_matrix', 'bench/ui_matrix') and startup == 'immediate':
         fail('Immediate matrix uploads pending verified loader/matrix ownership; '
              'use --compile-only; see FACTS F-061')

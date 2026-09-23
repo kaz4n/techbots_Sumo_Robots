@@ -36,11 +36,13 @@ class ToolContractTests(unittest.TestCase):
         self.bin = self.root / 'bin'
         self.remote_bin = self.root / 'remote-bin'
         for directory, commands in ((self.bin, ('ssh', 'rsync')),
-                                    (self.remote_bin, ('arduino-cli', 'python3', 'sha256sum'))):
+                                    (self.remote_bin, ('arduino-cli', 'python3', 'sha256sum', 'sh'))):
             directory.mkdir()
             for command in commands:
                 shutil.copyfile(FAKE, directory / command)
                 (directory / command).chmod(0o755)
+        shutil.copyfile(FAKE.with_name('fake_app_reference.json'),
+                        self.remote_bin / 'fake_app_reference.json')
         self.trace = self.root / 'trace.jsonl'
         self.env = {key: value for key, value in os.environ.items()
                     if not key.startswith(('SUMO_', 'FAKE_'))}

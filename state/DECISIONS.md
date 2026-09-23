@@ -1298,3 +1298,10 @@ ban for a separate preflight only, never as firmware-build/library success.
 Consequence: preserve default/Immediate/MATCH meaning and all upload restrictions;
 no source/config/capacity or hardware authority change. Independent regressions,
 exact primary-source audit, actual target evidence and separate review required.
+
+D-100 clarification (2026-09-23): the effective reference has84 keys including
+build.compiler_path/build.crossprefix/build.zip.pattern. Reject all six documented
+override/profile paths (regular files or dangling symlinks), and reject ambiguous
+or shell-active directory strings before properties/compilation. Ordinary spaces
+remain allowed. See the contract addendum and independent regression receipts;
+these tighten build-input checks without changing firmware or any human gate.

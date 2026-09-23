@@ -1,0 +1,29 @@
+{
+  "scope": "LOCAL SYNTHETIC MUTATIONS ONLY; no board or network call",
+  "policy_sha256": "c29e6d4aafc2296fbabff2a26ba31401abaca5978d477bf9afad29694ae8ca9b",
+  "baseline_validated": true,
+  "saved_default_source": "570ef35fa0ed25601b5f04097d5e5361545c357d958530d62092c5c5c77c6d84",
+  "probes": {
+    "recipe_drops_controlled_safety_flags": {
+      "property": "recipe.cpp.o.pattern",
+      "original": "\"/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-g++\" -g -Os -std=gnu++17 -c -D_PICOLIBC_CTYPE_SMALL=1 -w \"-imacros/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/generated/zephyr/autoconf.h\" \"-imacros/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/zephyr/toolchain/zephyr_stdint.h\" \"@/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/machine_flags.txt\" \"@/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/cxxflags.txt\" -fno-exceptions -fno-rtti -fno-threadsafe-statics -fno-unwind-tables -fno-use-cxa-atexit -lnosys -nostdlib -Wl,-u,__cxa_allocate_exception -lstdc++ -lsupc++ -lm -lgcc -lc -fno-exceptions -fno-rtti -fdata-sections -ffunction-sections -fno-unwind-tables -fno-extern-tls-init  -MMD -DARDUINO=10607 -DARDUINO_UNO_Q -DARDUINO_ARCH_ZEPHYR -DARDUINO_ARCH_ZEPHYR -DARDUINO_LIBRARY_DISCOVERY_PHASE=0 {includes}   -DMATCH=0 -DMOTORS_ALLOWED=0 \"-I/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/cores/arduino/api/deprecated\" \"-I/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/cores/arduino/api/deprecated-avr-comp\" \"-iprefix/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx\" \"@/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/includes.txt\" \"{source_file}\" -o \"{object_file}\"",
+      "replacement": "\"/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-g++\" -g -Os -std=gnu++17 -c -D_PICOLIBC_CTYPE_SMALL=1 -w \"-imacros/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/generated/zephyr/autoconf.h\" \"-imacros/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/zephyr/toolchain/zephyr_stdint.h\" \"@/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/machine_flags.txt\" \"@/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/cxxflags.txt\" -fno-exceptions -fno-rtti -fno-threadsafe-statics -fno-unwind-tables -fno-use-cxa-atexit -lnosys -nostdlib -Wl,-u,__cxa_allocate_exception -lstdc++ -lsupc++ -lm -lgcc -lc -fno-exceptions -fno-rtti -fdata-sections -ffunction-sections -fno-unwind-tables -fno-extern-tls-init  -MMD -DARDUINO=10607 -DARDUINO_UNO_Q -DARDUINO_ARCH_ZEPHYR -DARDUINO_ARCH_ZEPHYR -DARDUINO_LIBRARY_DISCOVERY_PHASE=0 {includes}   -DMATCH=1 -DMOTORS_ALLOWED=1 \"-I/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/cores/arduino/api/deprecated\" \"-I/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/cores/arduino/api/deprecated-avr-comp\" \"-iprefix/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx\" \"@/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/includes.txt\" \"{source_file}\" -o \"{object_file}\"",
+      "result": "REJECTED: Unreviewed effective app command property: recipe.cpp.o.pattern",
+      "changed": true
+    },
+    "compiler_command_changes": {
+      "property": "compiler.cpp.cmd",
+      "original": "arm-zephyr-eabi-g++",
+      "replacement": "unreviewed-compiler",
+      "result": "REJECTED: Unreviewed effective app command property: compiler.cpp.cmd",
+      "changed": true
+    },
+    "additional_build_hook": {
+      "property": "recipe.hooks.prebuild.1.pattern",
+      "original": "sh -c 'if [ ! -f \"/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/includes.txt\" ]; then echo \"Error: No binaries found for unoq. See README.md to compile or download them first.\" && exit 1; fi'",
+      "replacement": "unreviewed-hook",
+      "result": "REJECTED: Unreviewed effective app command property: recipe.hooks.prebuild.1.pattern",
+      "changed": true
+    }
+  }
+}

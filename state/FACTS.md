@@ -446,3 +446,9 @@ F112 final software disposition 2026-09-23T16:49:58+04:00: fresh separate same-m
 | ID | Question | Observed answer | Source | Confidence | Hardware-checked |
 |---|---|---|---|---|---|
 | F-122 | Does the new wrapper complete a default actual app build? | Yes, exit0/248308B, finalELF hash identical to D098 candidate.29new+49established tooling tests pass. Adoption remains FAIL: D099-R1 MAJOR demonstrates unchecked effective recipe/compiler/hook overrides; Immediate/MATCH/library experiment and final review pending. | analysis/P2_app_build_checkpoint.md/raw; reviews/P2_app_build_checkpoint_review.md/raw | Default TARGET-COMPILED; policy WIP/REVIEW-PENDING; no blanket acceptance | Existing board-Linux compile finished before pause. No upload/reset/MCU/loadedRAM/WCET/physical/gate claim. User explicitly paused further work. |
+
+## D100 local precompile correction,2026-09-23
+
+| ID | Question | Observed answer | Source | Confidence | Hardware-checked |
+|---|---|---|---|---|---|
+| F-123 | Does the corrected wrapper close the demonstrated effective-command gap locally? |46 independent new+78 established cases PASS, old assertions unchanged. Fresh same-model review verifies84 templates,19 controls/3118 rejected mutations and reruns46 cases; no open local findings. D099-R1 addressed locally; target adoption pending. | analysis/P2_app_override_checkpoint.md/contract/source_audit/raw; reviews/P2_app_override_review.md/raw | IMPLEMENTED/HOST-TESTED/LOCAL-REVIEW-PASS; TARGET-PENDING | No corrected-wrapper target compile/upload/MCU run. Prior get-state reported device and auto-restarted local ADB on protocol mismatch; stderr/correction saved. Paused by user. |

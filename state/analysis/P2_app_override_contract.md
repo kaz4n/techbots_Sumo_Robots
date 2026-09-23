@@ -12,8 +12,10 @@ Use exactly the same CLI/config/environment context for the following sequence:
    environment aliases. Reject malformed/empty/nonabsolute paths. Do not use
    config dump's explicit-values-only map as proof of resolved defaults.
 3. Before properties/build, refuse presence (including dangling symlinks) of
-   data/packages/platform.txt, user/hardware/platform.txt, and platform.local.txt
-   or boards.local.txt beside the expected pinned installed core. Check the18
+   data/packages/platform.txt, user/hardware/platform.txt, platform.local.txt
+   or boards.local.txt beside the expected pinned installed core, and remote
+   sketch.yaml/sketch.yml (including stale files in the content-addressed tree).
+   Check the18
    existing selected installed-file hashes before compile, as well as afterward.
    This checks documented global/local override sources; it is not protection
    against a compromised host changing files between individual commands.
@@ -58,3 +60,15 @@ no actual compilation or upload may follow. Profiles fail before board lookup.
 Existing parser/transport assertions remain, with explicit fixture protocol/data
 updates only; new independent tests derive from this contract and primary sources.
 Target default/Immediate/MATCH and library fixture acceptance remain separate.
+
+Implementation clarification (2026-09-23, before local review): the reference
+contains84 effective command properties, including build.compiler_path,
+build.crossprefix and build.zip.pattern in addition to the original81-prefix
+set. All84 values and their presence are checked at both validator boundaries.
+Resolved paths reject root-only, nonnormalized or multiple-leading-slash paths,
+backslashes, control bytes, quotes, backticks and dollar signs. The latter
+characters can become shell syntax inside the pinned platform's own recipes;
+normal spaces remain permitted. The six absent-file paths include both remote
+sketch metadata names, even if the current local source has neither file.
+These are tooling constraints only; the recorded mode and firmware policy stays
+unchanged. The independently authored tests use these explicit clarifications.

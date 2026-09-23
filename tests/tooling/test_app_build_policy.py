@@ -30,6 +30,20 @@ def properties(document):
 
 def set_property(document, key, value):
     entries = properties(document)
+    # Deliberate mode changes also update saved expanded commands. Boot metadata
+    # stays independent so the existing final mismatched-boot negative stays real.
+    current = dict(entry.split('=', 1) for entry in entries)
+    old = current.get(key, '')
+    if key in ('compiler.c.extra_flags', 'compiler.cpp.extra_flags') and old:
+        entries[:] = [entry.replace(old, value) if entry.startswith('recipe.') else entry
+                      for entry in entries]
+    if key == 'build.fqbn':
+        old_boot = '-immediate' if 'wait_linux_boot=no' in old else ''
+        new_boot = '-immediate' if 'wait_linux_boot=no' in value else ''
+        entries[:] = [entry.replace('/zephyr-sketch-tool"   ' + old_boot + ' ',
+                                   '/zephyr-sketch-tool"   ' + new_boot + ' ')
+                      if entry.startswith('recipe.hooks.objcopy.postobjcopy.') else entry
+                      for entry in entries]
     entries[:] = [entry for entry in entries if entry.split('=', 1)[0] != key]
     entries.append(key + '=' + value)
 

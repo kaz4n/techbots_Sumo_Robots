@@ -29,7 +29,8 @@ if name == 'arduino-cli' and args == ['version']:
     if fault == 'cli_commit':
         out = out.replace('01f3d4f2b', '01f3d4f2c')
 
-if name == 'arduino-cli' and args and args[0] == 'compile' and '--json' in args:
+if (name == 'arduino-cli' and args and args[0] == 'compile' and '--json' in args
+        and '--show-properties=expanded' not in args):
     if fault == 'compile_failure':
         out = '{"success":false,"error":"fixture failed","compiler_out":' \
               '"retained inner stdout\\n","compiler_err":"retained inner stderr\\n"}\n'

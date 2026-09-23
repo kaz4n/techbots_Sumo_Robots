@@ -101,6 +101,8 @@ if command and command[0] == 'arduino-cli' and mode == 'flash':
     raise SystemExit(helper['fake_arduino'](command[1:]))
 if command and command[0] == 'sha256sum' and mode == 'flash':
     raise SystemExit(helper['fake_sha256sum'](command[1:]))
+if command and command[0] == 'sh' and mode == 'flash':
+    raise SystemExit(helper['fake_sh'](command[1:]))
 if command and command[0] == 'python3' and mode == 'logs':
     raise SystemExit(helper['fake_remote_python'](command[1:]))
 record('rejected_remote', reason='Unexpected remote command', args=command)
@@ -147,6 +149,8 @@ class AdbTransportTests(unittest.TestCase):
         self.adb.chmod(0o755)
         self.helper = self.base / 'fake_commands.py'
         shutil.copyfile(HELPER, self.helper)
+        shutil.copyfile(HELPER.with_name('fake_app_reference.json'),
+                        self.base / 'fake_app_reference.json')
         self.remote = self.base / 'remote-root'
         self.trace = self.base / 'trace.jsonl'
         self.secret = 'fixture-only-secret-must-not-be-dumped'

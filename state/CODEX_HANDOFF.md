@@ -1,3 +1,34 @@
+## User-requested pause checkpoint - 2026-09-23T21:11:19+04:00
+
+Work is PAUSED at the user's request. Resume only when the user says so. P2
+software remains active under D051/D075; full P0-P7 incomplete, no human gates.
+
+D100 contract d338d1d and local implementation address D099-R1:84 effective
+command checks, six override/profile refusals,18 precompile pins and a separate
+expanded-properties preflight before real compilation.46 new and78 established
+tests PASS; existing assertions unchanged. Fresh same-model review PASS with no
+open local findings,19 positive/3118 negative probes and a46-case rerun. Read
+analysis/P2_app_override_checkpoint.md, contract, source_audit and
+reviews/P2_app_override_review.md; all raw evidence and original failures saved.
+
+FIRST RESUME TASK: remaining D099/D100 actual-target acceptance. Verify connection
+availability, then corrected-wrapper default, inert Immediate and MATCH compile-
+only builds, explicit-library fixture, source/object/ELF/startup/import audits and
+final adoption review. The older default248308B compile does not exercise the new
+preflight. Do not rerun completed host tests without new cause. No actual-app
+upload; no new inert key or motor authority. If disconnected, continue only an
+eligible independent P2 task without invented target proof.
+
+No firmware/config/locked-test change in D100. Latest MCU image remains the older
+D0911502e948 inert synthetic recorder. Before this pause, get-state automatically
+restarted local ADB on protocol40/41 mismatch; raw stderr and explicit correction
+connection_state_addendum.md are preserved. No new board/network operation for
+this pause; no upload/reset/MCU/motor action. LoadedRAM, full800us, nativeUART/
+localreset/calibration integration and physical/human gates remain outstanding.
+All task files/evidence saved locally; no push/tag or background work on pause.
+
+--- Earlier handoff preserved below ---
+
 ## User-requested pause checkpoint - 2026-09-23T20:16:28+04:00
 
 P2 software remains active under D051/D075, but work is PAUSED at the user's

@@ -11,6 +11,11 @@ DISCOVERY = '-DARDUINO_LIBRARY_DISCOVERY_PHASE=0'
 BASE_FQBN = 'arduino:zephyr:unoq'
 VARIANT = 'arduino_uno_q_stm32u585xx'
 COMPILER_ROOT = 'runtime.tools.arm-zephyr-eabi-1.0.1.path'
+COMMAND_PREFIXES = ('recipe.', 'compiler.', 'build.link', 'build.check_command',
+                    'build.zsk_args', 'build.postbuild.', 'tools.ctags.', 'preproc.',
+                    'build.compiler_path', 'build.crossprefix', 'build.zip.pattern')
+PLATFORM_SUFFIX = '/packages/arduino/hardware/zephyr/1.0.0'
+COMPILER_SUFFIX = '/packages/zephyr/tools/arm-zephyr-eabi/1.0.1'
 
 
 def unique_object(pairs):
@@ -38,12 +43,16 @@ def validate_cli(text):
 
 
 def absolute_path(value):
-    if (not isinstance(value, str) or not value.startswith('/') or
-            any(char in value for char in '\r\n\\') or
+    if (not isinstance(value, str) or not value.startswith('/') or value.startswith('//') or
+            any(ord(char) < 32 or ord(char) == 127 or char in '\\\"\'`$' for char in value) or
             '..' in PurePosixPath(value).parts or
             PurePosixPath(value).as_posix() != value or value == '/'):
         raise ValueError('App build result has an invalid absolute path')
     return value
+
+
+def resolved_directory(text):
+    return absolute_path(decode(text))
 
 
 def properties_from(builder):
@@ -84,7 +93,7 @@ def expected_properties(fqbn, flags, platform):
     return expected
 
 
-def validate_result(text, fqbn, flags, build_path):
+def validated_builder(text, build_path):
     result = decode(text)
     if not isinstance(result, dict) or result.get('success') is not True:
         raise ValueError('App compiler result is not a successful JSON object')
@@ -105,9 +114,25 @@ def validate_result(text, fqbn, flags, build_path):
         if platform is not None and current != platform:
             raise ValueError('Board and build platform paths differ')
         platform = current
-    libraries = builder.get('used_libraries', [])
-    if not isinstance(libraries, list) or libraries:
-        raise ValueError('App native dependency policy rejects every external library')
+    return builder, platform
+
+
+def validate_effective(properties, flags, build_path, data_dir):
+    reference = decode(Path(__file__).with_name('app_build_commands.json').read_text())
+    controlled = {key: value for key, value in properties.items() if key.startswith(COMMAND_PREFIXES)}
+    if controlled.keys() != reference.keys():
+        raise ValueError('Missing or unreviewed effective app command/hook property')
+    substitutions = {'BUILD_PATH': build_path, 'DATA_DIR': data_dir,
+                     'SAFETY_FLAGS': flags,
+                     'BOOT_ARGUMENT': '-immediate' if properties['build.boot_mode'] == 'immediate' else ''}
+    for key, template in reference.items():
+        expected = re.sub(r'@(BUILD_PATH|DATA_DIR|SAFETY_FLAGS|BOOT_ARGUMENT)@',
+                          lambda match: substitutions[match[1]], template)
+        if controlled[key] != expected:
+            raise ValueError('Unreviewed effective app command property: ' + key)
+
+
+def validated_properties(builder, platform, fqbn, flags, build_path):
     properties = properties_from(builder)
     for key, expected in expected_properties(fqbn, flags, platform).items():
         if properties.get(key) != expected:
@@ -115,17 +140,48 @@ def validate_result(text, fqbn, flags, build_path):
     compiler = absolute_path(properties.get(COMPILER_ROOT))
     if properties.get('compiler.path') != compiler + '/bin/':
         raise ValueError('Unexpected compiler path')
+    if not platform.endswith(PLATFORM_SUFFIX):
+        raise ValueError('App core must be in the pinned installed package location')
+    data_dir = absolute_path(platform[:-len(PLATFORM_SUFFIX)])
+    if compiler != data_dir + COMPILER_SUFFIX or properties.get('build.path') != build_path:
+        raise ValueError('App compiler or build root differs from selected location')
+    validate_effective(properties, flags, build_path, data_dir)
     return properties
 
 
-def verify_files(remote, board, properties, build_path, artifact_folder):
+def validate_result(text, fqbn, flags, build_path):
+    builder, platform = validated_builder(text, build_path)
+    libraries = builder.get('used_libraries', [])
+    if not isinstance(libraries, list) or libraries:
+        raise ValueError('App native dependency policy rejects every external library')
+    return validated_properties(builder, platform, fqbn, flags, build_path)
+
+
+def validate_preflight(text, fqbn, flags, build_path, data_dir):
+    builder, platform = validated_builder(text, build_path)
+    if platform != absolute_path(data_dir) + PLATFORM_SUFFIX:
+        raise ValueError('App preflight core differs from resolved CLI data directory')
+    # A properties-only query has not discovered libraries or compiled an image.
+    return validated_properties(builder, platform, fqbn, flags, build_path)
+
+
+def installed_pins(data_dir):
     pins = decode(Path(__file__).with_name('app_build_pins.json').read_text())
-    roots = dict(platform=properties['runtime.platform.path'], compiler=properties[COMPILER_ROOT])
-    expected = {roots[group] + '/' + name: value
-                for group, files in pins.items() for name, value in files.items()}
+    roots = dict(platform=data_dir + PLATFORM_SUFFIX, compiler=data_dir + COMPILER_SUFFIX)
+    return {roots[group] + '/' + name: value
+            for group, files in pins.items() for name, value in files.items()}
+
+
+def verify_files(remote, board, properties, build_path, artifact_folder):
+    data_dir = properties['runtime.platform.path'][:-len(PLATFORM_SUFFIX)]
+    expected = installed_pins(data_dir)
     artifacts = [build_path + '/app.ino' + suffix
                  for suffix in ('.elf', '_debug.elf', '_temp.elf')]
     artifacts.append(artifact_folder + '/app.ino.elf-zsk.bin')
+    return verify_hashes(remote, board, expected, artifacts)
+
+
+def verify_hashes(remote, board, expected, artifacts=()):
     paths = [*expected, *artifacts]
     result = remote(board, ['sha256sum', '--', *paths], capture=True)
     lines = result.stdout.splitlines()
@@ -143,3 +199,13 @@ def verify_files(remote, board, properties, build_path, artifact_folder):
             raise ValueError('Empty app build artifact: ' + name)
         hashes[name] = digest
     return hashes
+
+
+def check_overrides(remote, board, data_dir, user_dir, sketch):
+    platform = data_dir + PLATFORM_SUFFIX
+    paths = [data_dir + '/packages/platform.txt', user_dir + '/hardware/platform.txt',
+             platform + '/platform.local.txt', platform + '/boards.local.txt',
+             sketch + '/sketch.yaml', sketch + '/sketch.yml']
+    program = ('for path do if test -e "$path" || test -L "$path"; then '
+               "printf 'Unreviewed app override: %s\\n' \"$path\" >&2; exit 1; fi; done")
+    remote(board, ['sh', '-c', program, 'sumo-app-override-check', *paths], capture=True)

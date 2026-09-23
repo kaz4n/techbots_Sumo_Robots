@@ -15,27 +15,23 @@ D051/D075 permit active P2 software while physical acceptance remains pending.
 | P2 B6 | A1327c5db/gesturesb69fa12/matrix385c46c/D093fixedowner tested/target/review | Physical buttons/SC-A, optical acceptance, physical acceptance |
 | P2 2.4 | QTR calibration311bf40 tested/target/review | Actual threshold printing/app/physical calibration |
 | P2 B8 | Storage/D090dump febde53 tested/target/review; D09117bb38a actual200s synthetic MCU recorder PASS | Native UART, app lifetime/local reset UI, physical B8 |
-| Integration/B7/P3-P7 | D092timing2081ca1/D093a15cffd/D095390005c transaction tested/target/review | D0973d84958 + D0981447ec8; default candidate fits; D099 adoption MAJOR open; full800us/physical pending |
+| Integration/B7/P3-P7 | D092timing2081ca1/D093a15cffd/D095390005c transaction tested/target/review | D0973d84958 + D0981447ec8; default candidate fits; D100 locally reviewed; target adoption pending; full800us/physical pending |
 
 D0973d84958 passive IMU accessor implemented/tested/reviewed; real696B saving.
 Fullnormal/san1418main+173Gate PASS. D0981447ec8 isolated Bridge dependency
 experiment/review PASS,27452B saving: actual default248308B with493projectfunction
 identities/startup preserved. Conditional loader arithmetic is not loadedRAM.
 
-D099contract6b48779/tool implementation WIP. Actual default wrappercompileexit0,
-finalELF exactly D098 reviewed candidate.29new+49established tooling tests PASS;
-oldassertions AST-identical. Open D099-R1 MAJOR: effective compiler/recipe/hook
-and local overrides evade selected metadata checks. Adoption review FAIL.
-Read P2_app_build_checkpoint.md/raw and checkpointreview. All original evidence
-and fixture/oracle failures preserved. No config/source/locked change or upload.
+D100contractd338d1d addresses D099-R1 locally:46new+78established cases PASS,
+oldassertions unchanged. Fresh same-model review PASS,19positive/3118negative
+probes and46-case rerun. Read P2_app_override_checkpoint.md/contract/source_audit/
+raw and override review. No firmware/config/locked-test change or upload.
 
-User explicitly paused work for hardware/network disconnection. STOP here until
-resume. First task: independent regressions and bounded D099-R1 fix, including
-precompile refusal of unreviewed overrides and effective recipe checks. Then
-missing Immediate/MATCH, explicit-library fixture, actual source/object/ELF
-checks and final adoption review. Default binary compile is already complete;
-do not repeat merely because this is a new context. Recheck connection only
-once resumed before any board-dependent step; no new board/network actions now.
+PAUSED at user request. First resume task: verify connection then corrected-wrapper
+actual default/Immediate/MATCH compile-only checks, explicit-library fixture,
+source/object/ELF/startup/import audits and final adoption review. Earlier default
+248308B binary does not validate this new preflight. No new board/network actions
+for pause. Prior get-state auto-restarted local ADB; correction/raw output saved.
 
 Lastknown MCU remains D0911502e948 synthetic recorder, seveninertkeys unchanged.
 Physical acceptance, loadedRAM/full800us, SC-A circuit, SC-AJ clock, nativeUART/

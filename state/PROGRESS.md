@@ -750,3 +750,16 @@ regressions reproduce141 accepted bad-property cases with positive controls. Pin
 primary source identifies resolved config paths and hook-free property return;
 D100 contract defines bounded fix. No new board action yet, no gate or physical
 assumption. FullP0-P7 active/incomplete. | contract=this commit
+
+2026-09-23T21:11:19+04:00 | P2 D100 local task completed; USER-REQUESTED PAUSE |
+Contractd338d1d correction:84effective properties, sixoverride/profile refusals,
+18precompile pins, separate properties preflight.46new+78established cases PASS;
+oldassertions unchanged. Fresh same-model local review PASS,19controls/3118
+rejections and46-case rerun; D099-R1 addressed locally. Corrected target default/
+Immediate/MATCH/library/ELF acceptance remains pending. No firmware/config/locked/
+MCU/upload/gate change. Prior get-state auto-restarted local ADB40/41; original
+stderr/correction preserved. No new board/network work for pause. First resume:
+verify availability then corrected-wrapper compile-only acceptance; no appupload.
+Handoff/checklist/resume saved; fullP0-P7 incomplete. Stop until user resumes.
+Evidence P2_app_override_checkpoint.md/raw and P2_app_override_review.md/raw.
+| local correction and checkpoint=this commit

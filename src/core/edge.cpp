@@ -18,9 +18,16 @@ ForwardDemand forwardDemand(ForwardBias bias) {
 }
 
 std::uint8_t Classifier::observe(const std::uint32_t (&raw_us)[4]) {
+    std::uint8_t candidates = 0U;
+    for (std::uint32_t i = 0U; i < 4U; ++i)
+        if (raw_us[i] < config::QTR_WHITE_US[i]) candidates |= static_cast<std::uint8_t>(1U << i);
+    return observeMask(candidates);
+}
+
+std::uint8_t Classifier::observeMask(std::uint8_t white_candidates) {
     std::uint8_t white_mask = 0U;
     for (std::uint32_t i = 0U; i < 4U; ++i) {
-        if (raw_us[i] >= config::QTR_WHITE_US[i]) {
+        if ((white_candidates & (1U << i)) == 0U) {
             consecutive_[i] = 0U;
             continue;
         }
@@ -325,14 +332,15 @@ bool Escape::advanceRow(const EscapeSample& sample, std::uint8_t new_bits) {
     }
     if (sample.imu_ok) last_heading_deg_ = sample.heading_deg;
     // New bits use the entry phase, before this observation advances a primitive.
-    bool replacement = needsReplan(new_bits);
+    bool replacement = sample.line_updated && needsReplan(new_bits);
     if (!replacement) {
         current_ = row_.step(sample.t_us, sample.heading_deg, sample.imu_ok);
         if (current_.motion.status == motion::Status::INVALID) {
             latchFault(EscapeFault::INVALID_CONTEXT);
             return false;
         }
-        replacement = current_.phase == ScriptPhase::DONE && (sample.line_mask & 0x0FU) != 0U;
+        replacement = sample.line_updated && current_.phase == ScriptPhase::DONE &&
+                      (sample.line_mask & 0x0FU) != 0U;
     }
     if (!replacement) return false;
     if (replans_ >= config::EDGE_MAX_REPLANS) {
@@ -388,8 +396,10 @@ EscapeResult Escape::step(const EscapeSample& sample) {
     } else {
         replanned = advanceRow(sample, new_bits);
     }
-    previous_mask_ = mask;
-    const GuardResult guarded = guard_.step(mask, true, current_.phase == ScriptPhase::DONE);
+    // A retained level may enter at GO; it becomes the entry baseline once.
+    if (sample.line_updated || entered) previous_mask_ = mask;
+    const GuardResult guarded = guard_.step(mask, true,
+        sample.line_updated && current_.phase == ScriptPhase::DONE);
     const bool exited = active_ && fault_ == EscapeFault::NONE && !guarded.escape_required;
     if (exited) {
         active_ = false;

@@ -252,7 +252,12 @@ ServiceResult Services::step(const ServiceSample& sample) {
         return result_;
     }
     if (elapsed_us_ >= (hold_ms - config::COUNTDOWN_LINE_WARN_MS) * 1000U) {
-        result_.line_warning = result_.line_warning || (sample.line_mask & 0x0FU) != 0U;
+        const std::uint32_t age = sample.t_us - sample.line_source_us;
+        const bool source_in_window = sample.line_updated &&
+            age < config::QTR_SAMPLE_MAX_AGE_US && elapsed_us_ >= age &&
+            elapsed_us_ - age >= (hold_ms - config::COUNTDOWN_LINE_WARN_MS) * 1000U;
+        if (!sample.explicit_line || source_in_window)
+            result_.line_warning = result_.line_warning || (sample.line_mask & 0x0FU) != 0U;
     }
     if (elapsed_us_ >= (hold_ms - config::COUNTDOWN_SNAPSHOT_MS) * 1000U) {
         result_.opponent_snapshot = sample.confirmed_opp_mask & 0x7FU;

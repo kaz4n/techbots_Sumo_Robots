@@ -125,6 +125,8 @@ resurrection. No accepted line history at initialization_complete also inhibits.
 Unavailable line state before initialization may wait in BOOT without a fault.
 
 Only a distinct accepted line frame advances QTR_CONFIRM_TICKS (default remains1).
+An expired retained interval breaks confirmation even before initialization;
+retain identity history for ordering, but reset its classification counters.
 Retained confirmed white preserves edge priority, including white already present
 at GO. Opponent Fusion/debounce/contact still see each fresh1kHz opponent sample.
 Escape phase timers advance each control tick, but retained line evidence cannot
@@ -192,3 +194,6 @@ Pending maps ABSENT only after its structural validation; malformed/unknown
 phase/status/payload maps INVALID with contract_validfalse. Valid provider fault
 or ambiguous raw frame maps INVALID with contract_validtrue. All unrelated inputs
 and actual source fields are preserved only for qualified VALID evidence.
+Pending interval/time fields are diagnostic and are not qualified or forwarded;
+their structural validation covers the specified phase/status/valid/cleanup/mask
+shape and native statuses0/1. Only COMPLETE timing intervals are qualified.

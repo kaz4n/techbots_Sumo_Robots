@@ -61,6 +61,7 @@ void clearActions(RobotResult& result) {
     result.lifecycle.heading_reset_requested = false;
     result.heading.origin_changed = false;
     result.heading.heading_updated = false;
+    result.line_updated = false;
     result.menu.selection_changed = false;
     result.menu.menu_toggled = false;
     result.menu.request = countdown::Service::NONE;
@@ -84,6 +85,7 @@ RobotResult Robot::step(const RobotInput& input) {
     receive(resolved);
     advanceHistories();
     prepareImu(resolved);
+    prepareLine(resolved);
     prepareInputs(resolved);
     sampleSensors(resolved);
     runLifecycle(resolved);
@@ -207,7 +209,8 @@ void Robot::advanceHistories() {
 
 void Robot::prepareInputs(const RobotInput& input) {
     initialized_ = initialized_ || input.initialization_complete;
-    if (initialized_ && !input.observations_fresh) faults_ |= STALE_SENSORS;
+    const bool fresh = input.line.explicit_values ? input.opponent_fresh : input.observations_fresh;
+    if (initialized_ && !fresh) faults_ |= STALE_SENSORS;
     if (initialized_ && (!input.vbat_valid || !std::isfinite(input.vbat_v)))
         faults_ |= INVALID_CONTEXT;
     if (input.imu_ok && !std::isfinite(input.raw_heading_deg)) faults_ |= HEADING_CONTRACT;
@@ -217,10 +220,7 @@ void Robot::prepareInputs(const RobotInput& input) {
 }
 
 void Robot::sampleSensors(const RobotInput& input) {
-    if (!input.observations_fresh) return;
-    result_.line_mask = classifier_.observe(input.line_raw_us);
-    tick_.new_white = static_cast<std::uint8_t>(result_.line_mask & ~previous_line_);
-    previous_line_ = result_.line_mask;
+    if (!(input.line.explicit_values ? input.opponent_fresh : input.observations_fresh)) return;
     tick_.observation = fusion_.observe({input.t_us, input.opp_raw_mask, tick_.entry,
         input.raw_heading_deg, input.ax_g, input.ay_g, input.imu_ok, tick_.new_white != 0U,
         input.imu.explicit_values, input.imu.heading_updated,
@@ -275,6 +275,9 @@ void Robot::runLifecycle(const RobotInput& input) {
         faults_ == 0U && !menu_.selection().service_menu;
     countdown::ServiceSample sample{input.t_us, input.raw_gyro_z_dps, input.imu_ok,
         result_.line_mask, tick_.sampled ? tick_.observation.confirmed_mask : std::uint8_t{0}};
+    sample.explicit_line = input.line.explicit_values;
+    sample.line_updated = result_.line_updated;
+    sample.line_source_us = result_.line_source_us;
     if (input.imu.explicit_values) {
         sample.gyro_presence = static_cast<countdown::GyroPresence>(input.imu.gyro);
         sample.gyro_observation_us = input.imu.observation_us;
@@ -318,11 +321,11 @@ void Robot::runLifecycle(const RobotInput& input) {
 }
 
 void Robot::runEscape(const RobotInput& input) {
-    if (!tick_.sampled) return;
+    if (!tick_.sampled && !input.line.explicit_values) return;
     const edge::EscapeSample sample{input.t_us, result_.line_mask,
         result_.heading.heading_deg, result_.heading.imu_ok, tick_.permission,
         tick_.observation.bearing.centered, tick_.applied_l, tick_.applied_r, side_.direction(),
-        result_.heading.heading_updated};
+        result_.heading.heading_updated, result_.line_updated};
     tick_.escape = escape_.step(sample);
     result_.escape_fault = tick_.escape.fault;
     if (tick_.escape.fault != edge::EscapeFault::NONE &&
@@ -705,7 +708,7 @@ void Robot::commitAndGovern(const RobotInput& input) {
 }
 
 void Robot::updateQtrWarnings() {
-    const bool pivot = tick_.sampled && tick_.applied_enabled &&
+    const bool pivot = tick_.sampled && result_.line_available && tick_.applied_enabled &&
         ((tick_.applied_l > 0.0F && tick_.applied_r < 0.0F) ||
          (tick_.applied_l < 0.0F && tick_.applied_r > 0.0F));
     std::uint8_t newly_warned = 0;

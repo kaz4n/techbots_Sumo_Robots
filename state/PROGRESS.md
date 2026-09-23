@@ -722,3 +722,12 @@ finding. Actual570ef35f compileexit1:275760memory/13616excess, real696B saving.
 Originalfixture/REQUIRE errors retained; no oldtests/config/pins/startup edits.
 No upload/reset/MCU; D098 control/candidate experiment separate, productionflags
 unchanged. Evidence P2_imu_fault_access_validation.md/raw/review. | this commit
+
+2026-09-23T20:06:23+04:00 | P2 D098 isolated dependency experiment | Actual same
+82-file570ef35f controlcompileexit1/275760B; candidateexit0/248308B,27452B saving.
+Separate fresh same-model review PASS:6ELFs exact,1438commonsections/2904relocations,
+493projectfunctions/startup preserved,188to176imports/no additions. Conditional
+pristine loaderpeak252472/largest9668B is not measured loadedRAM. CLI1.5.1 schema
+primary-source follow-up saved. No productionflags/source/capacity/startup/MCU
+change, no upload/gate. Next separate app-only checked build contract/tests.
+Evidence P2_bridge_dependency_validation.md/raw and independentreview. | this commit

@@ -434,3 +434,9 @@ F112 final software disposition 2026-09-23T16:49:58+04:00: fresh separate same-m
 | ID | Question | Observed answer | Source | Confidence | Hardware-checked |
 |---|---|---|---|---|---|
 | F-120 | Does passive setup-fault retrieval remove the unintended legacy runtime dependency? | Yes: exact570ef35f threeELFs omit268B read and484B acquireMotion, retain56B getter; net696B saving.82sources exact;188imports/loader/startup unchanged. Fullnormal/san1418main+173Gate and separate685111assertion review pass. Actual compile stillexit1 at275760B/13616Bexcess. | analysis/P2_imu_fault_access_contract.md,validation.md,raw; reviews/P2_imu_fault_access_review.md/raw | HOST-TESTED/dependency reduction verified; fullapp TARGET-BLOCKED | Board Linux compile/offlinefiles only. No upload/reset/MCU/pin operation, measured loadedRAM/full800us, human gate or motor authority. |
+
+## D098 isolated dependency experiment,2026-09-23
+
+| ID | Question | Observed answer | Source | Confidence | Hardware-checked |
+|---|---|---|---|---|---|
+| F-121 | Does the isolated discovery-property change remove incidental Bridge roots while preserving the app? | Exact82-file570ef35f control exits1 at275760B; candidate exits0 at248308B,27452B saving. SixELFs/1438common object sections reviewed;493projectfunctions/startup retained;188imports become176 with no additions,39native42AEABI exports present. Conditional pristine loaderpeak252472B/largest9668B. | analysis/P2_bridge_dependency_audit.md,experiment.md,validation.md,raw; reviews/P2_bridge_dependency_review.md/raw | EXPERIMENT TARGET-COMPILED; independent same-model review PASS; production policy not adopted | Board Linux compile/file reads only. No actual load/freeRAM/WCET/MCU operation, physical/gate or motor authority. Ordinary production command still RAM-blocked. |

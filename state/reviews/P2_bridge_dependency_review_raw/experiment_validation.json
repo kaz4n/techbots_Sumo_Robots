@@ -1,0 +1,57 @@
+{
+  "scope": "Independent local source/command comparison; remote completeness separate",
+  "branches": [
+    {
+      "branch": "control",
+      "source_sha256": "570ef35fa0ed25601b5f04097d5e5361545c357d958530d62092c5c5c77c6d84",
+      "source_files": 82,
+      "receipt_sha256": "e375082a76d6b88777304d5be533c30bb298335432dd5f54cf8686801bb4b24d",
+      "returncode": 1,
+      "argv": [
+        "arduino-cli",
+        "compile",
+        "--fqbn",
+        "arduino:zephyr:unoq",
+        "--verbose",
+        "--build-path",
+        "<ISOLATED>/build",
+        "--output-dir",
+        "<ISOLATED>/artifacts",
+        "--build-property",
+        "compiler.cpp.extra_flags=-DMATCH=0 -DMOTORS_ALLOWED=0",
+        "--build-property",
+        "compiler.c.extra_flags=-DMATCH=0 -DMOTORS_ALLOWED=0",
+        "/home/arduino/sumox26_codex_build/570ef35fa0ed25601b5f04097d5e5361545c357d958530d62092c5c5c77c6d84/app"
+      ],
+      "stdout_sha256": "a25cfedd2be43a7bd6321d43b61f3397f29b97beb5cb37150c8284ba99b217f8",
+      "stderr_sha256": "e163953b02d3d9041a77d502aa145947c989223596eedf9a1a8746b6b2801fa6"
+    },
+    {
+      "branch": "candidate",
+      "source_sha256": "570ef35fa0ed25601b5f04097d5e5361545c357d958530d62092c5c5c77c6d84",
+      "source_files": 82,
+      "receipt_sha256": "650de9be9ef22a7cf1bd925de5ada8e0c25c3530f43bcb752a6b5736b37249d3",
+      "returncode": 0,
+      "argv": [
+        "arduino-cli",
+        "compile",
+        "--fqbn",
+        "arduino:zephyr:unoq",
+        "--verbose",
+        "--build-path",
+        "<ISOLATED>/build",
+        "--output-dir",
+        "<ISOLATED>/artifacts",
+        "--build-property",
+        "compiler.cpp.extra_flags=-DMATCH=0 -DMOTORS_ALLOWED=0",
+        "--build-property",
+        "compiler.c.extra_flags=-DMATCH=0 -DMOTORS_ALLOWED=0",
+        "--build-property",
+        "build.library_discovery_phase_flag=-DARDUINO_LIBRARY_DISCOVERY_PHASE=0",
+        "/home/arduino/sumox26_codex_build/570ef35fa0ed25601b5f04097d5e5361545c357d958530d62092c5c5c77c6d84/app"
+      ],
+      "stdout_sha256": "be97faf712ecdf042d558d51178f2ae5da56bb206611383f006a8fbc4f10b537",
+      "stderr_sha256": "3fe17e6cda7bdb36e2f337b83ace237ca01811a9bdfc7d1ed261d956629d4479"
+    }
+  ]
+}

@@ -177,3 +177,102 @@ removal track at this explicit premise. Continue the proven source-only
 opportunities; do not replace the mandatory library with a fake local stub,
 shadow Arduino.h/postvariant.h, alter installed packages, or claim that the
 existing 21962-byte attributed cohort is now removable.
+
+## Follow-up: CLI1.5.1 JSON dependency check contract (not adopted)
+
+2026-09-23, subsequent read-only source audit while the coordinator validates its
+separate D098 experiment. This append does not rewrite the original observations
+above or certify that experiment. New pinned primary sources and hashes are under
+`P2_bridge_dependency_raw/schema/`. No board command, compilation, implementation,
+test or production-policy change occurred in this follow-up. A possible D099 is
+not yet selected by this audit.
+
+The smallest mechanism is **one existing compile invocation with `--json`, followed
+by a narrow parser of its result before the wrapper reports app-build success**.
+No second compiler, new framework, text-table scraping or source include allowlist
+is needed for the specific zero-external-library policy. Apply it only to the
+canonical actual app, leaving intentionally library-using benches under their
+existing contracts. CLI's command implementation and JSON serialization are
+`internal/cli/compile/compile.go:379-440` and
+`internal/cli/feedback/feedback.go:229-258` at the pinned01f3d4f2 commit.
+
+| Result path | Exact CLI shape / meaning |
+|---|---|
+| `success` | Required boolean; constructed from `compileError == nil` |
+| `error` | Optional nonempty build-error string on the normal failure path |
+| `compiler_out`, `compiler_err` | Strings containing captured compiler output; warnings need not imply failure |
+| `builder_result` | Object, or null if no builder result was produced |
+| `builder_result.used_libraries` | Array of library objects; **omitted when empty** because of `omitempty` |
+| `builder_result.build_properties` | Array of `key=value` strings, normally expanded |
+| `builder_result.board_platform`, `.build_platform` | Objects with optional string `id`, `version`, `install_dir`, `package_url` |
+| `upload_result` | Object; normally empty for compile-only |
+
+There is no top-level FQBN, CLI-version or compiler-version field in this compile
+result. Library objects carry `name`, `version`, `install_dir`, `source_dir` and
+other metadata; rejecting every nonempty list avoids interpreting incomplete
+individual entries. `NewBuilderResult` explicitly returns nil for nil RPC input
+and constructs its library array before Go's JSON encoder omits length zero.
+The CLI JSON schema, rather than protobuf JSON naming/default rules, is decisive.
+[Pinned result conversion, lines913-979](https://github.com/arduino/arduino-cli/blob/01f3d4f2ba7c2eaafb5dc710c8a1903af7762fea/internal/cli/feedback/result/rpc.go#L913).
+
+Proposed fail-closed acceptance, all required together:
+
+1. Actual process exit0; stdout parses as exactly one JSON object with no duplicate
+   object keys/trailing data; strict `success` boolean true. Reject malformed,
+   truncated, missing or alternate fatal-error envelopes. Accept `error` only
+   absent or the empty string; reject explicit null/wrong types/nonempty text.
+2. Require object `builder_result`, expected nonempty `build_path`, and both
+   platform objects matching `id=arduino:zephyr`, `version=1.0.0` and the verified
+   installed root. Require the existing independently obtained CLI1.5.1 identity;
+   do not invent it from this result or from a path suffix.
+3. Require a nonempty array of property strings; split each on its **first** `=`,
+   reject empty/duplicate keys, and match the selected app contract's exact
+   `build.fqbn`, `build.core=arduino`, variant, discovery-flag value, and controlled
+   C/CPP safety flags. Check resulting link/startup properties against the existing
+   contract too. Do not reject unrelated ordinary properties or assume the list
+   is a JSON object. `build.fqbn` preserves the requested parsed FQBN; it does not
+   automatically expand omitted default menu options.
+4. Accept `used_libraries` only if absent or an empty array. Reject null, other
+   types, or any array element, including null. An unknown library must fail just
+   as RouterBridge does. A missing list is acceptable only after the other checks
+   establish the expected normal successful build envelope.
+
+Properties are sorted and expanded by `commands/service_compile.go:302-315`.
+The normal-build imported-library list is populated by its deferred conversion
+at338-344; board/core platform references come from resolved installed packages
+at120-138. `internal/arduino/cores/board.go:129-139` writes `build.fqbn` from the
+parsed request before applying menu properties. JSON metadata reports package
+identity, not immutable package bytes; retain existing source/core/hash evidence.
+[Pinned compile service](https://github.com/arduino/arduino-cli/blob/01f3d4f2ba7c2eaafb5dc710c8a1903af7762fea/commands/service_compile.go#L302),
+[pinned board properties](https://github.com/arduino/arduino-cli/blob/01f3d4f2ba7c2eaafb5dc710c8a1903af7762fea/internal/arduino/cores/board.go#L129).
+
+**Invocation is part of the check.** Prohibit `--show-properties`, `--preprocess`,
+`--only-compilation-database`, `--skip-libraries-discovery` and upload flags for
+this result path. Show-properties/preprocess return successfully before the
+normal-build library-list collection (`service_compile.go:317-343`); success
+plus an absent list is therefore insufficient alone. Require the already
+established artifact/hash checks for a completed build. Normal build failures
+use `success:false`, `error` and nonzero exit; earlier failures can emit a different
+error envelope to stderr (`feedback.go:173-204`). Preserve stdout/stderr separately;
+do not treat nonempty compiler warnings as the result's failure signal.
+
+**Macro0 does not disable ordinary explicit library resolution.** The detector
+queues the merged sketch and all src translation units, runs the preprocessor,
+extracts a missing active header from its error, resolves that header, adds the
+library/include directory and repeats. Its resolution algorithm has no
+`ARDUINO_LIBRARY_DISCOVERY_PHASE` branch. An unconditional explicit
+`#include <Arduino_RouterBridge.h>` still reaches this process at either macro
+value, then makes the header available to subsequent `__has_include` checks.
+The candidate changes which preprocessor branches are active; it does not set
+CLI's separate skip-discovery option or restrict its resolver. This conclusion
+is source-verified, not a new empirical compilation result.
+[Pinned detector, lines350-383 and461-564](https://github.com/arduino/arduino-cli/blob/01f3d4f2ba7c2eaafb5dc710c8a1903af7762fea/internal/arduino/builder/internal/detector/detector.go#L350).
+
+The qualification matters: phase-conditional includes or headers may intentionally
+behave differently for0/1, so there is no universal equality claim for arbitrary
+libraries. A future small verification fixture should use one unconditional
+header with phase-independent contents, confirm it appears in `used_libraries`
+for both settings, and prove the app-only check rejects it. No such fixture or
+policy is implemented here. The library list covers CLI-discovered libraries,
+not every linked archive, core file, copied source or absolute-path header;
+existing staging hashes and ELF audits retain those responsibilities.

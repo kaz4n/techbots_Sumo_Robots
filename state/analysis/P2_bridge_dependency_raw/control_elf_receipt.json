@@ -1,0 +1,33 @@
+{
+  "status": "PASS_DOWNLOADED_EXACT",
+  "source_sha256": "570ef35fa0ed25601b5f04097d5e5361545c357d958530d62092c5c5c77c6d84",
+  "branch": "control",
+  "argv": [
+    "python3",
+    "-c",
+    "import base64,hashlib,json,pathlib,sys\nout=[]\nfor name in json.loads(sys.argv[1]):\n    p=pathlib.Path(name); data=p.read_bytes()\n    out.append(dict(path=name,sha256=hashlib.sha256(data).hexdigest(),bytes=len(data),\n                    base64=base64.b64encode(data).decode()))\nprint(json.dumps(out))\n",
+    "[\"/home/arduino/sumox26_codex_build/_dependency_probes/570ef35fa0ed25601b5f04097d5e5361545c357d958530d62092c5c5c77c6d84/control/build/app.ino.elf\", \"/home/arduino/sumox26_codex_build/_dependency_probes/570ef35fa0ed25601b5f04097d5e5361545c357d958530d62092c5c5c77c6d84/control/build/app.ino_debug.elf\", \"/home/arduino/sumox26_codex_build/_dependency_probes/570ef35fa0ed25601b5f04097d5e5361545c357d958530d62092c5c5c77c6d84/control/build/app.ino_temp.elf\"]"
+  ],
+  "returncode": 0,
+  "files": [
+    {
+      "remote_path": "/home/arduino/sumox26_codex_build/_dependency_probes/570ef35fa0ed25601b5f04097d5e5361545c357d958530d62092c5c5c77c6d84/control/build/app.ino.elf",
+      "local_path": "state/analysis/P2_bridge_dependency_raw/control_elf/app.ino.elf",
+      "bytes": 210600,
+      "sha256": "ba7ded9ac63e262d0b17f620a8463a064c05d90cedefec660592faaf98d7d17b"
+    },
+    {
+      "remote_path": "/home/arduino/sumox26_codex_build/_dependency_probes/570ef35fa0ed25601b5f04097d5e5361545c357d958530d62092c5c5c77c6d84/control/build/app.ino_debug.elf",
+      "local_path": "state/analysis/P2_bridge_dependency_raw/control_elf/app.ino_debug.elf",
+      "bytes": 6506668,
+      "sha256": "1a5971b8db4561eff086cbb445605581d05749e882e3f8c5ede418ae44b05dc1"
+    },
+    {
+      "remote_path": "/home/arduino/sumox26_codex_build/_dependency_probes/570ef35fa0ed25601b5f04097d5e5361545c357d958530d62092c5c5c77c6d84/control/build/app.ino_temp.elf",
+      "local_path": "state/analysis/P2_bridge_dependency_raw/control_elf/app.ino_temp.elf",
+      "bytes": 6524948,
+      "sha256": "910d8030d47f5d9240376f807702fe31ebbefb0df83280d4e0321cc00a074369"
+    }
+  ],
+  "scope": "Board Linux file reads only; no MCU or upload"
+}

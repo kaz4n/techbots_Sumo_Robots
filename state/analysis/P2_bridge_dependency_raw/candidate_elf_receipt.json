@@ -1,0 +1,33 @@
+{
+  "status": "PASS_DOWNLOADED_EXACT",
+  "source_sha256": "570ef35fa0ed25601b5f04097d5e5361545c357d958530d62092c5c5c77c6d84",
+  "branch": "candidate",
+  "argv": [
+    "python3",
+    "-c",
+    "import base64,hashlib,json,pathlib,sys\nout=[]\nfor name in json.loads(sys.argv[1]):\n    p=pathlib.Path(name); data=p.read_bytes()\n    out.append(dict(path=name,sha256=hashlib.sha256(data).hexdigest(),bytes=len(data),\n                    base64=base64.b64encode(data).decode()))\nprint(json.dumps(out))\n",
+    "[\"/home/arduino/sumox26_codex_build/_dependency_probes/570ef35fa0ed25601b5f04097d5e5361545c357d958530d62092c5c5c77c6d84/candidate/build/app.ino.elf\", \"/home/arduino/sumox26_codex_build/_dependency_probes/570ef35fa0ed25601b5f04097d5e5361545c357d958530d62092c5c5c77c6d84/candidate/build/app.ino_debug.elf\", \"/home/arduino/sumox26_codex_build/_dependency_probes/570ef35fa0ed25601b5f04097d5e5361545c357d958530d62092c5c5c77c6d84/candidate/build/app.ino_temp.elf\"]"
+  ],
+  "returncode": 0,
+  "files": [
+    {
+      "remote_path": "/home/arduino/sumox26_codex_build/_dependency_probes/570ef35fa0ed25601b5f04097d5e5361545c357d958530d62092c5c5c77c6d84/candidate/build/app.ino.elf",
+      "local_path": "state/analysis/P2_bridge_dependency_raw/candidate_elf/app.ino.elf",
+      "bytes": 153684,
+      "sha256": "9808dc594d77be8f43865a17542a48b715b4d5ee4a1277d6f946d0a6ccb09e65"
+    },
+    {
+      "remote_path": "/home/arduino/sumox26_codex_build/_dependency_probes/570ef35fa0ed25601b5f04097d5e5361545c357d958530d62092c5c5c77c6d84/candidate/build/app.ino_debug.elf",
+      "local_path": "state/analysis/P2_bridge_dependency_raw/candidate_elf/app.ino_debug.elf",
+      "bytes": 2334960,
+      "sha256": "e25039886c3d8412a65bbfd6e728c26582ce9f7c24d4534165d486f4c494b6c9"
+    },
+    {
+      "remote_path": "/home/arduino/sumox26_codex_build/_dependency_probes/570ef35fa0ed25601b5f04097d5e5361545c357d958530d62092c5c5c77c6d84/candidate/build/app.ino_temp.elf",
+      "local_path": "state/analysis/P2_bridge_dependency_raw/candidate_elf/app.ino_temp.elf",
+      "bytes": 2347880,
+      "sha256": "37e47d06eff06f4ac539e598092975a23faa9522c12f24f28b63a44be4681ff8"
+    }
+  ],
+  "scope": "Board Linux file reads only; no MCU or upload"
+}

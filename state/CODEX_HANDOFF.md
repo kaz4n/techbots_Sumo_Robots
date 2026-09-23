@@ -2,6 +2,27 @@
 
 ## Current resume point - 2026-09-23 Asia/Dubai
 
+D-072 contract1dd1050/implementation9acc0cc complete within scope. Adopted25Hz
+B15 fallback: sole B16 value change,5001frame endpoints/40ms; other75defaults
+and all locked/core/HAL body files unchanged.975cases/15667813assertions pass
+normal2.677s andASanUBSan16.623s;340tools pass140.157s, exit0. Fresh same-model
+review PASS/no open findings; five existing inert guards approved/refreshed.
+Actual current source772bda55 target probe226584B, ELF identical D071candidate25.
+No upload/reset/MCU/motor action. Evidence P2_rate_adoption_validation.md/raw
+and reviews/P2_rate_adoption_codex.md; failures and repairs retained.
+
+Original full goal ACTIVE/incomplete; P0/P1 gates remain pending. SC-AH rate
+choice resolved only; fullHAL/load/freeRAM/200s/dump/WCET and F091 inherited
+Bridge/runtime limits remain. Last known uploaded image remains inert QTR
+61d7a2d0/default at03:00:13.327+04, not this compile-only memory probe.
+Next selected task: bounded offline B8 CSV formatting contract under D051.
+No dump script/API exists yet; offline formatting alone grants no live dump
+permission. Preserve IDLE-only policy, original gates and deferred hardware.
+
+## Historical D-071 resume checkpoint
+
+## Current resume point - 2026-09-23 Asia/Dubai
+
 Original full P0-P7 goal ACTIVE/incomplete. No human phase gate passed.
 D-068/D-070 offline B8 storage and D-071 isolated compile track are complete
 within their scope; app/Bridge runtime integration and physical acceptance remain

@@ -1,0 +1,89 @@
+{
+  "input_receipt": "../P2_adc_native_raw/installed_source_01.json",
+  "selected": [
+    [
+      1954,
+      "/* Note: On this STM32 series, a minimum number of ADC clock cycles           */"
+    ],
+    [
+      1955,
+      "/*       are required between ADC end of calibration and ADC enable.          */"
+    ],
+    [
+      1956,
+      "/*       Wait time can be computed in user application by waiting for the     */"
+    ],
+    [
+      1957,
+      "/*       equivalent number of CPU cycles, by taking into account              */"
+    ],
+    [
+      1958,
+      "/*       ratio of CPU clock versus ADC clock prescalers.                      */"
+    ],
+    [
+      1959,
+      "/* Unit: ADC clock cycles.                                                    */"
+    ],
+    [
+      1960,
+      "#define LL_ADC_DELAY_CALIB_ENABLE_ADC_CYCLES (  4UL)"
+    ],
+    [
+      7918,
+      "/**"
+    ],
+    [
+      7919,
+      "  * @brief  Start ADC calibration in the mode single-ended"
+    ],
+    [
+      7920,
+      "  *         or differential (for devices with differential mode available)."
+    ],
+    [
+      7921,
+      "  * @note   On this STM32 series, a minimum number of ADC clock cycles"
+    ],
+    [
+      7922,
+      "  *         are required between ADC end of calibration and ADC enable."
+    ],
+    [
+      7923,
+      "  *         Refer to literal @ref LL_ADC_DELAY_CALIB_ENABLE_ADC_CYCLES."
+    ],
+    [
+      7924,
+      "  * @note   Calibration duration:"
+    ],
+    [
+      7925,
+      "  *         - Calibration of offset: 520 ADC clock cycles"
+    ],
+    [
+      7926,
+      "  *         - Calibration of linearity: 131072 ADC clock cycles"
+    ],
+    [
+      7927,
+      "  * @note   For devices with differential mode available:"
+    ],
+    [
+      7928,
+      "  *         Calibration of offset is specific to each of"
+    ],
+    [
+      7929,
+      "  *         single-ended and differential modes"
+    ],
+    [
+      7930,
+      "  *         (calibration run must be performed for each of these"
+    ],
+    [
+      7931,
+      "  *         differential modes, if used afterwards and if the application"
+    ]
+  ]
+}

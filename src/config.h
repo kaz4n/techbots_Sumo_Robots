@@ -25,6 +25,19 @@ inline constexpr std::uint32_t MOTOR_ENABLE_PIN = 10U;
 inline constexpr std::uint32_t MOTOR_PWM_HZ = 10000U; // Hz
 inline constexpr std::uint32_t MOTOR_PWM_SETTLE_US = 150U; // us, whole settle pass
 inline constexpr std::uint32_t MOTOR_PWM_SETTLE_MAX_POLLS = 4096U; // count-name exception
+// D078 native ADC development bounds and unchanged HARDWARE2/3 proposal.
+// Nominal scaling is not measured divider/reference calibration or PINMAP OK.
+inline constexpr std::uint32_t VBAT_INPUT_PIN = 14U; // A0 / PA4 / ADC1 channel9
+inline constexpr float VBAT_ADC_REFERENCE_V = 3.3F; // nominal V
+inline constexpr float VBAT_DIVIDER_RATIO = 122.0F / 22.0F; // dimensionless exception
+inline constexpr std::uint32_t VBAT_ADC_REGULATOR_US = 100U;
+inline constexpr std::uint32_t VBAT_ADC_CALIBRATION_US = 5000U;
+inline constexpr std::uint32_t VBAT_ADC_POST_CAL_US = 2U;
+inline constexpr std::uint32_t VBAT_ADC_ENABLE_US = 100U;
+inline constexpr std::uint32_t VBAT_ADC_CONVERSION_US = 100U;
+inline constexpr std::uint32_t VBAT_ADC_SHUTDOWN_US = 100U;
+inline constexpr std::uint32_t VBAT_ADC_SETUP_MAX_POLLS = 65536U; // count exception
+inline constexpr std::uint32_t VBAT_ADC_READ_MAX_POLLS = 4096U; // count exception
 inline constexpr std::uint32_t COUNTDOWN_MS = 5000U; // ms
 inline constexpr std::uint32_t COUNTDOWN_MARGIN_MS = 100U; // ms
 inline constexpr std::uint32_t TICK_US = 1000U; // us

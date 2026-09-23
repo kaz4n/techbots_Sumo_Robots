@@ -1,0 +1,47 @@
+Analog-to-digital converter (ADC12) RM0456
+1344/3653 RM0456 Rev 6
+33.6.3 ADC control register (ADC_CR)
+Address offset: 0x08
+Reset value: 0x2000 0000
+         
+         
+Bit 1 EOSMPIE: End of sampling flag interrupt enable for regular conversions
+This bit is set and cleared by software to enable/disable the end of the sampling phase interrupt for 
+regular conversions.
+0: EOSMP interrupt disabled.
+1: EOSMP interrupt enabled. An interrupt is generated when the EOSMP bit is set.
+Note: Software is allowed to write this bit only when ADSTART = 0 (which ensures that no regular 
+conversion is ongoing).
+Bit 0 ADRDYIE: ADC ready interrupt enable
+This bit is set and cleared by software to enable/disable the ADC Ready interrupt.
+0: ADRDY interrupt disabled
+1: ADRDY interrupt enabled. An interrupt is generated when the ADRDY bit is set.
+Note: Software is allowed to write this bit only when ADSTART = 0 and JADSTART = 0 (which 
+ensures that no conversion is ongoing).
+31 30 29 28 27 26 25 24 23 22 21 20 19 18 17 16
+ADCA
+L Res. DEEP
+PWD
+ADVREG
+EN CALINDEX[3:0] Res. Res. Res. Res. Res. Res. Res. ADCA
+LLIN
+rs rw rw rw rw rw rw rw
+15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0
+Res. Res. Res. Res. Res. Res. Res. Res. Res. Res. JADSTP ADSTP JADST
+ART
+ADSTA
+RT ADDIS ADEN
+rs rs rs rs rs rs
+Bit 31 ADCAL: ADC calibration
+This bit is set by software to start the ADC calibration.
+It is cleared by hardware after calibration is complete.
+0: Calibration complete
+1: Write 1 to calibrate the ADC. Read at 1 means that a calibration in progress.
+Note: The software is allowed to launch a calibration by setting ADCAL only when ADEN = 0.
+Bit 30 Reserved, must be kept at reset value.
+Bit 29 DEEPPWD: Deep-power-down enable
+This bit is set and cleared by software to put the ADC in Deep-power-down mode.
+0: ADC not in deep-power down
+1: ADC in Deep-power-down (default reset state)
+Note: The software is allowed to write this bit only when the ADC is disabled (ADCAL = 0, 
+JADSTART = 0, JADSTP = 0, ADSTART = 0, ADSTP = 0, ADDIS = 0 and ADEN = 0).

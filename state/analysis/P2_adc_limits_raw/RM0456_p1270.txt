@@ -1,0 +1,45 @@
+Analog-to-digital converter (ADC12) RM0456
+1270/3653 RM0456 Rev 6
+33.4.2 ADC pins a nd internal signals
+         
+         
+         
+Table 305. ADC input/output pins
+Name Signal type Description
+VREF+ Input, analog reference 
+positive Higher/positive reference voltage for the ADC
+VDDA Input, analog supply Analog power supply equal V DDA
+VREF– Input, analog reference 
+negative
+Lower/negative reference voltage for the ADC, 
+VREF– = VSSA
+VSSA Input, analog supply ground Ground for analog power supply equal to V SS
+ADCx_INy External analog input signals Up to 17 external analog input channels
+Table 306. ADC internal input/output signals 
+Internal signal name Si gnal type Description
+VINP[i] Analog inputs Positive input analog channels for each ADC
+VINN[i] Analog inputs Negative input analog channels for each ADC
+adc_ext_trgy Inputs
+External trigger inputs for the regular 
+conversions (can be connected to on-chip 
+timers).
+adc_jext_trgy Inputs
+External trigger inputs for the injected 
+conversions (can be connected to on-chip 
+timers).
+adc_awd1
+adc_awd2
+adc_awd3
+Outputs Internal analog watchdog output signal 
+connected to on-chip timers.
+adc_it Output ADC interrupt
+adc_hclk Input AHB clock
+adc_ker_ck Input ADC kernel clock 
+adc_dma Output ADC DMA requests
+adcx_dat[15:0] Output ADC data outputs (regular data register)
+Table 307. ADC1/ADC12 interconnection
+Signal name Source/destination
+ADCx VINP[0] (x = 1, 2) V REFINT buffered voltage
+ADCx VINP[18] (x = 1, 2) V BAT/4 
+ADCx VINP[19] (x = 1, 2) V SENSE
+adcx_dat[15:0] (x = 1, 2) mdf1_adcx_dat[15:0] 

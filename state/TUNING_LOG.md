@@ -242,3 +242,16 @@ claim: source-derived carrier periods3200/250/3200/3200 still need setup rate
 validation; complete tick/WCET/physicalwaveforms remain pending. Primary manual/
 errata and installedclock evidence in P2_motor_update_audit.md/P2_motor_clock_audit.md.
 No wiring approval, upload, motor run or human gate.
+
+
+2026-09-23 - D078 native battery development constants
+Added VBAT_INPUT_PIN14 (unchanged A0 proposal), nominal VBAT_ADC_REFERENCE_V3.3
+and VBAT_DIVIDER_RATIO122/22. New VBAT_ADC_REGULATOR_US100,
+VBAT_ADC_CALIBRATION_US5000, VBAT_ADC_POST_CAL_US2 (minimum spacing),
+VBAT_ADC_ENABLE_US100, VBAT_ADC_CONVERSION_US100, VBAT_ADC_SHUTDOWN_US100,
+VBAT_ADC_SETUP_MAX_POLLS65536 and VBAT_ADC_READ_MAX_POLLS4096. No B16 changes.
+Source timing basis: P2_adc_limits.md; acquisition/ownership/errata reports and
+P2_power_contract.md distinguish software deadlines from physical bounds.
+These are development fail-closed selections under D051/D075/D078, not tuning
+measurements, divider calibration, wiring approval or runtime/WCET acceptance.
+

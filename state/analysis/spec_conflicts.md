@@ -527,3 +527,25 @@ SC-AI physical/runtime acceptance remains OPEN: source/host/register simulation
 cannot prove EN voltage, active waveform, real reversal/brake, pin ownership,
 frequency or whole-tick worst-case timing. App integration and motor execution
 remain unperformed; no physical or human phase gate is inferred.
+
+
+## SC-AJ: Installed MSI automatic-calibration clock qualification (OPEN)
+2026-09-23, references ES0499 Rev12 2.2.27 p16, RM0456 Rev6 pp491/511/916/920,
+installed DT clk_msis msi_pll_mode1 and clock_stm32_ll_u5.c840-843.
+Installed MSIS auto calibration is enabled. Spurious unlock can degrade clock
+accuracy; MSISRDY and clock metadata do not prove lock. W/U expose an EXTI23
+event shared with LSECSS; revisionX lacks it. Historical unlock cannot be excluded
+by reading an unarmed event flag. This affects global timing/frequency assumptions,
+not merely ADC scaling. Hardware revision/live frequency remain unmeasured.
+Options: source-verified whole-platform detection/history/recovery with explicit
+revision policy; or separately verified clock configuration. Recommendation:
+resolve at platform integration before runtime deployment; do not retune clocks
+inside a sensor HAL or assert readiness equals frequency accuracy. D078 keeps
+stock settings for host/compile-only development and records the conditional
+clock premise. No new physical or gate approval is inferred.
+Needed before deployment: source/installed ISR ownership and boot-history policy,
+silicon revision and clock qualification, tests for unlock before/during samples,
+latched invalidity/recovery timing and effects on countdown/PWM/tick. ADC fixtures
+must not fabricate an unavailable lock predicate. No human question needed to
+continue the authorized software work; unresolved runtime issue stays visible.
+

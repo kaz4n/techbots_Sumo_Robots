@@ -1,0 +1,160 @@
+RM0456 Rev 6 1269/3653
+RM0456 Analog-to-digital converter (ADC12)
+1377
+33.4 ADC functional description
+33.4.1 ADC block diagram
+Figure 221 shows the ADC block diagram and Table 305 gives the ADC pin description.
+Figure 221. ADC block diagram 
+MSv62467V4
+adc_ext_trg0
+adc_ext_trg1
+CONT
+Input 
+selection & 
+scan 
+control
+SMPx[2:0]
+sampling time
+Start & Stop
+Control
+ADCx_INi
+analog input
+channels
+AUTDLY
+auto delayed                                                                                                                                
+ADSTART
+start conv
+S/W trigger
+EXTEN[1:0]
+trigger enable
+and edge selection
+h/w
+trigger
+EXTi mapped at 
+product level EXTSEL[4:0]
+trigger selection
+DEEPPWD
+ADVREGEN
+ADCAL
+Analog 
+supply
+(VDDA)
+VREF+        
+start
+ALIGN
+left/right
+RES[1:0], 
+14,12,10,8 bits
+OVRMOD
+overrun mode
+AHB 
+interface
+DAMDF[1:0]
+adc_dma
+adc_it
+adc_awd1
+JEXTEN[1:0]
+trigger enable
+and edge selection
+H/W
+trigger
+JEXTSEL[4:0]
+trigger selection
+JEXTi mapped at 
+product level
+JL[1:0], JSQx
+L[3:0], SQx
+JAUTO
+DMNGT[1:0]
+AWD1EN
+JAWD1EN
+Analog watchdog 1,2,3
+AWD1SGL
+S/W trigger
+AWD1CH[4:0]
+LTR1[25:0]
+HTR1[25:0]
+OFFSETy[25:0]
+OFFSETy_CH[4:0]
+JDISCEN
+DISCEN
+DISCNU[2:0]
+Discontinuous
+mode
+AWD1
+AWD2CH[19:0]
+AWD3CH[19:0]
+LTR2[25:0]
+HTR2[25:0]
+LTR3[25:0]
+HTR3[25:0]
+AWD2
+AWD3
+adc_awd2
+adc_awd3
+.......
+.......
+.......
+RDATA[31:0]
+VINP[i]
+VINN[i]
+JDATA1[31:0]
+JDATA2[31:0]
+JDATA3[31:0]
+JDATA4[31:0]
+Oversampler
+ROVSM
+TROVS
+JOVSE
+ROVSE
+OVSS[3:0]
+OSR[9:0]
+Oversampling 
+options
+ADCALDIF
+ADEN/ADDIS
+REG.
+To internal digital circuit
+ADSTP
+stop conv
+JADSTART
+JADSTP
+LINCALRD
+YW6..1
+BOOST
+RSHIFT4..1
+LSHIFT[3:0]
+SSATE
+DIFSEL[19:0]
+CALFACT_D
+[10:0]
+CALFACT_S
+[10:0]
+LINCALFACT
+[30:0]
+BOOST
+AHB 
+interface
+ADRDY
+EOSMP
+EOC
+EOS
+OVR
+JEOC
+JEOS
+AWDx
+adc_ker_ck
+adc_hclk
+adc_jext_trg0
+adc_jext_trg1
+VIN
+SAR ADC
+Bias & Ref
+CONVERTED 
+DATA
+AHB
+slave
+.......
+adcx_dat
+[15:0]
+VREF- 

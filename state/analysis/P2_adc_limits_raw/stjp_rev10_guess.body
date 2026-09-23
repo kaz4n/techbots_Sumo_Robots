@@ -1,0 +1,838 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="language" content="ja">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PS8K2KF');</script>
+<!-- End Google Tag Manager -->
+<link rel="icon" type="image/png" href="https://www.stmcu.jp/wp/wp-content/themes/herab/common/images/favicon.ico">
+
+
+		<!-- All in One SEO 5.0.1.1 - aioseo.com -->
+		<title>STM32, STM8ファミリはSTの32bit／8bit汎用マイクロコントローラ製品 | STマイクロエレクトロニクス</title>
+	<meta name="description" content="ST-MCUの汎用マイクロコントローラ製品は、ARM Cortex-Mベースの32bitマイコンのSTM32と高性能8bitマイコンのSTM8の2つの製品ファミリで構成されています。" />
+	<meta name="robots" content="max-image-preview:large" />
+	<meta name="keywords" content="stm32,stm8,arm,cortex-m,マイコン,マイクロコントローラ,mcu," />
+	<link rel="canonical" href="https://www.stmcu.jp/" />
+	<meta name="generator" content="All in One SEO (AIOSEO) 5.0.1.1" />
+		<script type="application/ld+json" class="aioseo-schema">
+			{"@context":"https:\/\/schema.org","@graph":[{"@type":"BreadcrumbList","@id":"https:\/\/www.stmcu.jp\/#breadcrumblist","itemListElement":[{"@type":"ListItem","@id":"https:\/\/www.stmcu.jp#listItem","position":1,"name":"\u30db\u30fc\u30e0"}]},{"@type":"CollectionPage","@id":"https:\/\/www.stmcu.jp\/#collectionpage","url":"https:\/\/www.stmcu.jp\/","name":"STM32, STM8\u30d5\u30a1\u30df\u30ea\u306fST\u306e32bit\uff0f8bit\u6c4e\u7528\u30de\u30a4\u30af\u30ed\u30b3\u30f3\u30c8\u30ed\u30fc\u30e9\u88fd\u54c1 | ST\u30de\u30a4\u30af\u30ed\u30a8\u30ec\u30af\u30c8\u30ed\u30cb\u30af\u30b9","description":"ST-MCU\u306e\u6c4e\u7528\u30de\u30a4\u30af\u30ed\u30b3\u30f3\u30c8\u30ed\u30fc\u30e9\u88fd\u54c1\u306f\u3001ARM Cortex-M\u30d9\u30fc\u30b9\u306e32bit\u30de\u30a4\u30b3\u30f3\u306eSTM32\u3068\u9ad8\u6027\u80fd8bit\u30de\u30a4\u30b3\u30f3\u306eSTM8\u306e2\u3064\u306e\u88fd\u54c1\u30d5\u30a1\u30df\u30ea\u3067\u69cb\u6210\u3055\u308c\u3066\u3044\u307e\u3059\u3002","inLanguage":"ja","isPartOf":{"@id":"https:\/\/www.stmcu.jp\/#website"},"breadcrumb":{"@id":"https:\/\/www.stmcu.jp\/#breadcrumblist"},"about":{"@id":"https:\/\/www.stmcu.jp\/#organization"}},{"@type":"Organization","@id":"https:\/\/www.stmcu.jp\/#organization","name":"STM32, STM8\u30d5\u30a1\u30df\u30ea\u306fST\u306e32bit\uff0f8bit\u6c4e\u7528\u30de\u30a4\u30af\u30ed\u30b3\u30f3\u30c8\u30ed\u30fc\u30e9\u88fd\u54c1","description":"ST\u306e\u6c4e\u7528\u30de\u30a4\u30af\u30ed\u30b3\u30f3\u30c8\u30ed\u30fc\u30e9\u88fd\u54c1\u30b5\u30a4\u30c8","url":"https:\/\/www.stmcu.jp\/"},{"@type":"WebSite","@id":"https:\/\/www.stmcu.jp\/#website","url":"https:\/\/www.stmcu.jp\/","name":"STM32, STM8\u30d5\u30a1\u30df\u30ea\u306fST\u306e32bit\uff0f8bit\u6c4e\u7528\u30de\u30a4\u30af\u30ed\u30b3\u30f3\u30c8\u30ed\u30fc\u30e9\u88fd\u54c1","description":"ST\u306e\u6c4e\u7528\u30de\u30a4\u30af\u30ed\u30b3\u30f3\u30c8\u30ed\u30fc\u30e9\u88fd\u54c1\u30b5\u30a4\u30c8","inLanguage":"ja","publisher":{"@id":"https:\/\/www.stmcu.jp\/#organization"}}]}
+		</script>
+		<!-- All in One SEO -->
+
+
+<!-- Google Tag Manager for WordPress by gtm4wp.com -->
+<script data-cfasync="false" data-pagespeed-no-defer type="text/javascript">
+	var gtm4wp_datalayer_name = "dataLayer";
+	var dataLayer = dataLayer || [];
+</script>
+<!-- End Google Tag Manager for WordPress by gtm4wp.com -->
+<!-- Google Tag Manager for WordPress by gtm4wp.com -->
+<!-- GTM Container placement set to off -->
+<script data-cfasync="false" data-pagespeed-no-defer type="text/javascript">
+	var dataLayer_content = {"pagePostType":"frontpage"};
+	dataLayer.push( dataLayer_content );
+</script>
+<script data-cfasync="false" data-pagespeed-no-defer type="text/javascript">
+	console.warn && console.warn("[GTM4WP] Google Tag Manager container code placement set to OFF !!!");
+	console.warn && console.warn("[GTM4WP] Data layer codes are active but GTM container must be loaded using custom coding !!!");
+</script>
+<!-- End Google Tag Manager for WordPress by gtm4wp.com --><meta property="og:type" content="">
+<meta property="og:title" content="">
+<meta property="og:description" content="">
+<meta property="og:url" content="">
+<meta property="og:image" content="">
+<meta property="og:site_name" content="">
+<meta property="twitter:title" content="">
+<meta property="twitter:description" content="">
+<meta property="twitter:url" content="">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="https://www.stmcu.jp/wp/wp-content/themes/herab/common/css/normalize.css" type="text/css">
+<link rel="stylesheet" href="https://www.stmcu.jp/wp/wp-content/themes/herab/common/css/slick-theme.css">
+<link rel="stylesheet" href="https://www.stmcu.jp/wp/wp-content/themes/herab/common/css/slick.css">
+<link rel="stylesheet" href="https://www.stmcu.jp/wp/wp-content/themes/herab/common/css/common.css?date=20260730" type="text/css">
+<link rel="stylesheet" href="https://www.stmcu.jp/wp/wp-content/themes/herab/common/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://www.stmcu.jp/wp/wp-content/themes/herab/common/css/fontawesome.min.css">
+<link rel="stylesheet" href="https://www.stmcu.jp/wp/wp-content/themes/herab/common/css/solid.min.css">
+<link rel="stylesheet" href="https://www.stmcu.jp/wp/wp-content/themes/herab/common/css/darktooltip.css">
+<link rel="stylesheet" href="https://www.stmcu.jp/wp/wp-content/themes/herab/common/css/add.css?date=20220620" type="text/css">
+<link rel="stylesheet" href="https://www.stmcu.jp/wp/wp-content/themes/herab/common/css/add_20210303.css?date=20240523" type="text/css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:700,900&display=swap&subset=japanese">
+<link href="#"/><!-- 会員機能側書換用タグ -->
+	
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/jquery-migrate-3.3.2.js"></script>
+<script>
+jQuery.migrateMute=true
+</script>
+
+	
+<!--Add dataLayer digitalData-->	
+<script language="JavaScript" type="text/javascript">
+var digitalData = {
+    pageInstanceID: "Homepage", //environment + pageName defined below
+    page:{
+        pageInfo:{
+            pageID:'stmcu.jp', //URL without http and by replacing "/" by ":". In JavaScript can be equal to: (document.location.host+document.location.pathname).replace(/\//gi, ":");
+            pageName:'STMCU JP Home',//pageName: breadcrumb
+            hierarchie1:'STMCU JP Home', // section to access to the page, same as page.pageInfo.pageName
+            hierarchie2:'',
+            pageShortName:'STMCU JP Home', // if length>100 characters, keep the same shortname. In the other case, keep the two first section and the last part. example: section1:section11:section123:section1000:page becomes section1:section2:[...]:pages
+            server:document.location.hostname, //it will be "www.stmcu.jp"
+            destinationURL:document.location.href,//enter the url. If you have a specific pageName. If your app is full Ajax, you have to manually define the location. it will be "https://www.stmcu.jp/"
+            isIframe:false,
+            contentIframe:false,
+            downloadURL:'',//keep blank
+            urlShortcut:'',//kepp blank
+            breadCrumbs:'STMCU JP',//URL path with / replaced by :
+            referringURL:document.referrer, //the referrer of the parent page, not the referrer of your page as it is an iframe. you can try window.parent.document.referrer.
+            sysEnv:'desktop',
+            previous:{pageShortName:''} // keep blank
+        },
+        category:{
+            primaryCategory:'STMCU JP Home',
+            error:'', //only for error page
+            Type:'stmcu.jp'
+        },
+        attributes:{
+            language:'Japanese',
+            version:'1.0'
+        }
+    },
+    user:[
+        {profile:
+        [
+            {
+                profileInfo:{profileID:''},
+                attributes:{
+                    FailedLogin:false,
+                    region:'',
+                    userCRMCompany:'',
+                    userFunction:'',
+                    userLevel:'',
+                    userRegCompany:'',
+                    TeamspaceName:'',
+                    LoggedIn:false
+                }
+            }
+        ]
+        }
+    ],
+    component:'stmcu.jp:',
+    environment:'prod',
+    site:'stmcu.jp'
+}</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function (event) {
+    (function ($) {
+        $('form').each(function (i, form) {
+          var $form = $(form);
+
+          var once = function () {
+            var formStarted = new CustomEvent('formStarted');
+            $form[0].dispatchEvent(formStarted);
+
+            console.log('Form has been started');
+
+            once = function () {};
+          };
+          var onceSubmitted = function () {
+            var formSubmitted = new CustomEvent('formSubmitted');
+            $form[0].dispatchEvent(formSubmitted);
+
+            console.log('Form has been submitted');
+
+            onceSubmitted = function () {};
+          };
+
+          var $controls = $('input:not(:hidden), select', $form);
+
+          $controls.on('change.dtm', function () {
+            once();
+            $controls.off('change.dtm');
+          });
+          $form.on('submit.dtm', function (e) {
+            onceSubmitted();
+            $form.off('submit.dtm');
+          });
+        });
+    })(jQuery);
+});
+</script>
+
+
+<!-- Adobe Analytics Production-->
+<script src="//assets.adobedtm.com/a86419113799/f1c68b1a9abd/launch-158b1bdc99ea.min.js"></script>
+
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PS8K2KF"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- Header -->
+<div class="layer"></div>
+<div class="contents">
+<header id="header">
+	<div class="container">
+		<div class="left">
+			<a href="/" class="mark pc"><img src="https://www.stmcu.jp/wp/wp-content/themes/herab/common/images/st-logo-blue.svg" alt="STMicroelectronics"></a>
+			<a href="/" class="mark sp"><img src="https://www.stmcu.jp/wp/wp-content/themes/herab/common/images/st-logo-blue.svg" alt="STMicroelectronics"></a>
+			<a href="/" class="logo">汎用マイコン / <br class="sp">マイクロプロセッサ</a>
+		</div>
+		<div class="right">
+								<ul class="links no-bullet">
+				<li>
+					<a href="https://www.st.com/"><i class="fa fa-globe fa-lg"></i>st.com</a>
+				</li>
+				<li>
+					<a href="/member/entry/regist/"><i class="fa fa-address-book fa-lg"></i>新規会員登録</a>
+				</li>
+				<li>
+					<a href="/member/mypage/login/"><i class="fa fa-user fa-lg"></i>ログイン</a>
+				</li>
+				<li>
+					<a href="https://www.st.com/content/st_com/ja.html" target="_blank"><img src="https://www.stmcu.jp/wp/wp-content/themes/herab/common/images/logo_name.png" alt="STマイクロエレクトロニクス"></a>
+				</li>
+			</ul>
+					<div class="search-box clearfix">
+				<form method="get" id="form-search" action="https://www.stmcu.jp/">
+					<input type="search" name="s" placeholder="検索" class="search-bar" value="">
+					<button type="searchsubmit"><i class="fa fa-search"></i></button>
+				</form>
+			</div>
+		</div>
+		<span class="fas fa-search" id="SpSearch"></span>
+		<div id="Menu-btn">
+			<span></span>
+		</div>
+		
+			</div>
+	<nav id="globalnavi">
+		<span id="goback"><i class="fas fa-angle-left"></i>戻る</span>
+		<ul id="globalnavilist">
+			<li id="globalnavilist01"><a href="/product/micon">製品概要</a>
+				<div class="globalnavisublist">
+					<ul>
+						<li><a href="/product/micon"><i class="fas fa-angle-right"></i>汎用マイコン/マイクロプロセッサ概要</a></li>
+						<li><a href="/product/university"><i class="fas fa-angle-right"></i>ユニバーシティ・プログラム</a></li>
+						<li><a href="/product/longevity"><i class="fas fa-angle-right"></i>10年間の供給保証</a></li>
+						<li><a href="/product/naming"><i class="fas fa-angle-right"></i>製品品名ルール</a></li>
+					</ul>
+				</div>
+			</li>
+			<li id="globalnavilist02"><a href="/stm32family">STM32 <span>(32bit マイコン)</span></a>
+				<div class="globalnavisublist">
+					<div>
+						<h2>Arm<sup>&reg;</sup> Cortex<sup>&reg;</sup>-Mマイコン</h2>
+						<ul>
+							<li><a href="/stm32family">STM32マイコン概要 <i class="fas fa-angle-right"></i></a></li>
+							<li><a class="link-btn" href="/stm32-high-performance-mcus">ハイパフォーマンス</a>
+								<div class="child">
+									<ul>
+										<li><a href="/stm32/stm32n6/">STM32N6（Cortex-M55）</a></li>
+										<li><a href="/stm32/stm32h7/">STM32H7（Cortex-M7/M4）</a></li>
+										<li><a href="/stm32/stm32f7/">STM32F7（Cortex-M7）</a></li>
+										<li><a href="/stm32/stm32h5/">STM32H5（Cortex-M33）<span style="color: #e6007e;">New</span></a></li>
+										<li><a href="/stm32/stm32f4/">STM32F4（Cortex-M4）</a></li>
+										<li><a href="/stm32/stm32f2/">STM32F2（Cortex-M3）</a></li>
+									</ul>
+								</div>
+							</li>
+							<li class="margin-01"><a class="link-btn" href="/stm32-mainstream-mcus">メインストリーム</a>
+								<div class="child">
+									<ul>
+										<li><a href="/stm32/stm32c5/">STM32C5（Cortex-M33）</a></li>
+										<li><a href="/stm32/stm32g4/">STM32G4（Cortex-M4）</a></li>
+										<li><a href="/stm32/stm32f3/">STM32F3（Cortex-M4）</a></li>
+										<li><a href="/stm32/stm32f1/">STM32F1（Cortex-M3）</a></li>
+										<li><a href="/stm32/stm32g0/">STM32G0（Cortex-M0+）</a></li>
+										<li><a href="/stm32/stm32f0/">STM32F0（Cortex-M0）</a></li>
+										<li><a href="/stm32/stm32c0/">STM32C0（Cortex-M0+）</a></li>
+									</ul>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div>
+						<ul>
+							<li><a class="link-btn" href="/stm32-ultra-low-power-mcus">超低消費電力</a>
+								<div class="child">
+									<ul>
+										<li><a href="/stm32/stm32u3/">STM32U3（Cortex-M33）</a></li>
+										<li><a href="/stm32/stm32u5/">STM32U5（Cortex-M33）</a></li>
+										<li><a href="/stm32/stm32l5/">STM32L5（Cortex-M33）</a></li>
+										<li><a href="/stm32/stm32l4plus/">STM32L4+（Cortex-M4）</a></li>
+										<li><a href="/stm32/stm32l4/">STM32L4（Cortex-M4）</a></li>
+										<li><a href="/stm32/stm32l1/">STM32L1（Cortex-M3）</a></li>
+										<li><a href="/stm32/stm32u0/">STM32U0（Cortex-M0+）</a></li>
+										<li><a href="/stm32/stm32l0/">STM32L0（Cortex-M0+）</a></li>
+									</ul>
+								</div>
+							</li>
+							<li class="margin-02"><a class="link-btn" href="/stm32-wireless-mcus">ワイヤレス</a>
+								<div class="child">
+									<ul>
+										<li><a href="/stm32/stm32wba/">STM32WBA（Cortex-M33）</a></li>
+										<li><a href="/stm32/stm32wb/">STM32WB（Cortex-M4/M0+）</a></li>
+										<li><a href="/stm32/stm32wl/">STM32WL（Cortex-M4）</a></li>
+										<li><a href="/stm32/stm32wb0/">STM32WB0（Cortex-M0+）</a></li>
+
+									</ul>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div class="a-micro-area">
+						<h2>Arm<sup>&reg;</sup> Cortex<sup>&reg;</sup>-Aマイクロプロセッサ</h2>
+						<ul>
+							<li><a class="link-btn" href="/stm32-arm-cortex-mpus">STM32マイクロプロセッサ概要</a>
+								<div class="child">
+									<ul>
+										<li><a href="/stm32/stm32mp2/">STM32MP2（Cortex-A35/M33）</a></li>
+										<li><a href="/stm32/stm32mp1/">STM32MP1（Cortex-A7/M4）</a></li>
+									</ul>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</li>
+			<li id="globalnavilist03"><a href="/stm8family">STM8 <span>(8bit マイコン) </span></a>
+				<div class="globalnavisublist">
+					<ul>
+						<li><a href="/stm8family">STM8マイコン概要 <i class="fas fa-angle-right"></i></a>
+							<div class="child">
+								<ul>
+									<li><a class="link-btn" href="/stm8/stm8s/">メインストリーム</a></li>
+									<li><a href="/stm8/stm8s/">STM8S</a></li>
+									<li><a class="link-btn" href="/stm8/stm8l/">超低消費電力</a></li>
+									<li><a href="/stm8/stm8l/">STM8L</a></li>
+									<li><a class="link-btn" href="/stm8/stm8af/">車載用</a></li>
+									<li><a href="/stm8/stm8af/">STM8AF</a></li>
+									<li><a class="link-btn" href="/stm8/stm8al/">車載用 超低消費電力</a></li>
+									<li><a href="/stm8/stm8al/">STM8AL</a></li>
+								</ul>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</li>
+			<!-- デザイン/サポート -->
+			<li id="globalnavilist04"><a href="/design">デザイン/サポート</a>
+				<div class="globalnavisublist">
+					<div>
+						<ul>
+							<!--li><a href="/stm8/stm8al/">STM8AL</a></li-->
+							<li><a href="/design"><i class="fas fa-angle-right"></i>ドキュメント</a>
+								<div class="child">
+									<ul>
+										<li><a href="/design/document/datasheet/">データシート</a></li>
+										<li><a href="/design/document/errata_sheet/">エラッタ</a></li>
+										<li><a href="/design/document/reference_manual/">リファレンス マニュアル</a></li>
+										<li><a href="/design/document/reference_manual_j/">リファレンス マニュアル（日本語）</a></li>
+										<li><a href="/design/document/programming_manual/">プログラミング マニュアル</a></li>
+										<li><a href="/design/document/application_note/">アプリケーション ノート</a></li>
+										<li><a href="/design/document/application_note_j/">アプリケーション ノート（日本語）</a></li>
+										<li><a href="/design/document/technical_note/">技術ノート（日本語）</a></li>
+										<li><a href="/design/document/users_manual/">ユーザ マニュアル</a></li>
+										<li><a href="/design/document/users_manual_j/">ユーザ マニュアル（日本語）</a></li>
+										<li><a href="/design/document/brochure_j/">カタログ（日本語）</a></li>
+										<li><a href="/design/document/presentation_j/">プレゼンテーション（日本語）</a></li>
+										<li><a href="/design/document/training-materials_j/">トレーニング資料（日本語）</a></li>
+										<li><a href="/white-paper-index/">ホワイトペーパー（日本語）</a></li>
+										<li><a href="/design/document/other-document/">その他</a></li>
+									</ul>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div>
+						<ul>
+							<li><a href="/design"><i class="fas fa-angle-right"></i>ハードウェア開発環境</a>
+								<div class="child">
+									<ul>
+										<li><a href="/design/hwdevelop/nucleo/">STM32 / STM8 Nucleo開発ボード</a></li>
+										<li><a href="/design/hwdevelop/x-nucleo/ ">X-NUCLEO機能拡張ボード</a></li>
+										<li><a href="/design/hwdevelop/eval/">評価ボード（EVALボード）</a></li>
+										<li><a href="/design/hwdevelop/discovery/">STM32 / STM8 Discovery開発ボード</a></li>
+										<li><a href="/design/hwdevelop/debugger/">デバッガ</a></li>
+										<li><a href="/design/hwdevelop/cad/">CAD</a></li>
+										<li><a href="/design/hwdevelop/other/">その他</a></li>
+									</ul>
+								</div>
+							</li>
+							<li><a href="/design"><i class="fas fa-angle-right"></i>ソフトウェア開発環境</a>
+								<div class="child">
+									<ul>
+										<li><a href="/design/sw_dev/firmware/">ファームウェア</a></li>
+										<li><a href="/design/sw_dev/pc_soft/">PCソフト</a></li>
+										<!-- <li><a href="/design/sw_dev/other-sw_dev/">その他</a></li> -->
+									</ul>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div>
+						<ul>
+							<li><a href="/design"><i class="fas fa-angle-right"></i>パートナーソリューション</a>
+								<div class="child">
+									<ul>
+										<li><a href="/design/thirdparty/unity_dev/">統合開発環境</a></li>
+										<li><a href="/design/thirdparty/3rd_debugger/">デバッガ</a></li>
+										<li><a href="/design/thirdparty/os/">OS</a></li>
+										<li><a href="/design/thirdparty/middleware/">ミドルウェア</a></li>
+										<li><a href="/design/thirdparty/embedded_ai/">組込みAI / IoT / クラウドサービス</a></li>
+										<li><a href="/design/thirdparty/clock_hw/">クロック周辺ハードウェア</a></li>
+										<!-- li><a href="/design/thirdparty/3rd_eval/">評価ボード</a></li -->
+										<li><a href="/design/thirdparty/programmer/">プログラマ / 書込みサービス</a></li>
+										<li><a href="/design/thirdparty/sw_hw_dev/">設計・開発委託</a></li>
+										<li><a href="/design/thirdparty/development_support_tool/">開発支援ツール</a></li>
+										<li><a href="/design/thirdparty/other-thirdparty/">その他</a></li>
+									</ul>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div>
+						<ul>
+							<li><!-- <a href="/beginners/"> --><i class="fas fa-angle-right"></i>技術･製品解説<!-- </a> -->
+								<div class="child">
+									<ul>
+										<li><a href="/technical/hint/">開発のヒント</a></li>
+										<li><a href="/beginners/"><span style="color: #e6007e;">【NEW】</span>マイコン技術連載（EDN Japan）</a></li>
+										<li><a href="/beginners-2/"><span style="color: #e6007e;">【NEW】</span>MPU技術連載（EDN Japan）</a></li>
+										<li><a href="/monthly-update/">マンスリーニュースレター</a></li>
+										<li><a href="/technical/blog/">技術関連ブログ</a></li>
+									</ul>
+								</div>
+							</li>
+							<li><a href="/product/university/"><i class="fas fa-angle-right"></i>ユニバーシティ・プログラム</a></li>
+							<li><a href="/faq/"><i class="fas fa-angle-right"></i>FAQ</a></li>
+						</ul>
+					</div>
+				</div>
+			</li>
+			<!-- /デザイン/サポート -->
+			<li id="globalnavilist05"><a href="/event">セミナー/イベント</a>
+				<div class="globalnavisublist">
+					<ul>
+						<li><a href="/event"><i class="fas fa-angle-right"></i>セミナー</a></li>
+						<li><a href="/event/#event"><i class="fas fa-angle-right"></i>イベント</a></li>
+						<!-- <li><a href="/video/"><i class="fas fa-angle-right"></i>ビデオ</a></li> -->
+					</ul>
+				</div>
+			</li>
+			<li id="globalnavilist06"><a href="/video/">ビデオ</a>
+				<div class="globalnavisublist">
+					<ul>
+						<li><a href="/video/event-video/"><i class="fas fa-angle-right"></i>イベント・アーカイブ動画</a></li>
+						<li><a href="/video/handson/"><i class="fas fa-angle-right"></i>体験実習ビデオ</a></li>
+						<li><a href="/video/olt/"><i class="fas fa-angle-right"></i>STM32 Online Training</a></li>
+						<li><a href="/video/library/"><i class="fas fa-angle-right"></i>STM32ビデオライブラリ</a></li>
+				</ul>
+			</div>
+			</li>
+			<li id="globalnavilist07"><a href="/inquiry/">｜&nbsp;お問合せ/購入&nbsp;｜</a>
+				<div class="globalnavisublist">
+					<ul>
+						<li><a href="/inquiry"><i class="fas fa-angle-right"></i>STオフィス</a></li>
+						<li><a href="/inquiry"><i class="fas fa-angle-right"></i>販売代理店一覧</a></li>
+						<li><a href="/onlineshop/"><i class="fas fa-angle-right"></i>オンラインショップ</a></li>
+				</ul>
+			</div>
+			</li>
+		</ul>
+
+	</nav>
+</header>
+<!-- /Header -->
+
+<!-- Contents -->
+<article id="slider">
+	<ul class="slider">
+		<li class="bnr-047 yellow"><a href="https://content.st.com/Smart-industry-Robotics-Solution-Webinar-JP.html" target="_blank" onclick="gtag('event', 'top_banner_click', {'link_text': 'Smart-industry-Robotics-Solution-Webinar-JP','link_url': 'https://content.st.com/Smart-industry-Robotics-Solution-Webinar-JP.html','send_to': 'G-E2N85GJMBP'});"><p>【ウェビナー】フィジカルAIを動く製品へ、<br>STのロボティクス技術を解説<span>実機デモを交え、センシングやエッジAI、モータ制御、<br>Sim-to-Real、PoCから製品化までの実装課題を詳しく<br>解説します。
+<span>詳細情報</span></span></p></a></li>
+		<li class="bnr-046 yellow"><a href="/stm32/stm32c5/" onclick="gtag('event', 'top_banner_click', {'link_text': 'STM32C5','link_url': '/stm32/stm32c5/','send_to': 'G-E2N85GJMBP'});"><p>常識をくつがえす。<br>洗練されたパフォーマンスを<br>最小限のコストで<span>最新シリーズ STM32C5は、<br>エントリレベル･マイコンの性能と価値の新たな基準を打ち立てます。
+<span>詳細情報</span></span></p></a></li>
+		<li class="bnr-043 blue"><a href="/design/sw_dev/pc_soft/63338/" onclick="gtag('event', 'top_banner_click', {'link_text': 'TouchGFXDesigner','link_url': '/design/sw_dev/pc_soft/63338/','send_to': 'G-E2N85GJMBP'});"><p>UI開発ツールの最新機能<span>TouchGFX 4.25版の新しいフレームバッファ機能により、<br>使用するメモリ容量の削減やディスプレイの<br>グラフィックRAMが不要になります。<span>詳細情報</span></span></p></a></li>
+		<li class="bnr-044 yellow"><a href="/stm32/stm32wba2x/" onclick="gtag('event', 'top_banner_click', {'link_text': 'STM32WBA2','link_url': '/stm32/stm32wba2x/','send_to': 'G-E2N85GJMBP'});"><p>STM32WBA2 Nucleo<span>512KB Flash、96KB RAM、USB FS、Q-SPI、<br class="pc-only">高度なセキュリティ搭載、<br class="pc-only">高コスト効率・省電力Bluetooth LE評価ボードです。<span>詳細情報</span></span></p></a></li>
+		<li class="bnr-041 blue"><a href="/stm32/stm32c0/" onclick="gtag('event', 'top_banner_click', {'link_text': 'STM32C0','link_url': '/stm32/stm32c0/','send_to': 'G-E2N85GJMBP'});"><p>幅広い設計の選択肢を提供<br class="pc-only">&nbsp;<span>最も低価格なSTM32C0マイコン·シリーズに、<br>メモリが拡張され、FD CAN機能が搭載された<br>新ラインが追加されました。<span>詳細情報</span></span></p></a></li>
+		<li class="bnr-042 yellow"><a href="/stm32/stm32wba6x/" onclick="gtag('event', 'top_banner_click', {'link_text': 'STM32WBA64/65','link_url': '/stm32/stm32wba6x/','send_to': 'G-E2N85GJMBP'});"><p>STM32ワイヤレスSoC新製品<br><span>最新プロトコル（Bluetooth LEやMatter）に加えて<br class="pc-only">Auracastブロードキャストに対応し、<br>最大2MBのFlashと512KバイトのRAMを備えています。<span>詳細情報</span></span></p></a></li>
+	</ul>
+</article>
+<article id="contents" class="index">
+	<section class="wrap">
+		<div class="main-block">
+
+			<header class="area-contents">
+				<div class="big-banner">
+					<h1><span>STM32/STM8 汎用マイコン</span>
+						STマイクロエレクトロニクスは、高性能シリーズから低消費電力シリーズまでを取り揃えたArm<sup>®</sup> Cortex<sup>®</sup>-Mベースの32bitマイコン、Cortex<sup>®</sup>-AとCortex<sup>®</sup>-Mを組み合わせた高性能32bitマイクロプロセッサ、さらには多様なシステムに最適な8bitマイコンまで、汎用マイコン &amp; マイクロプロセッサの幅広い製品ポートフォリオを提供しています。
+					</h1>
+					<div class="flex">
+						<p>
+							<a href="/stm32family" onclick="gtag('event', 'top_selectbtn_click', {'link_text': 'STM32ファミリ','link_url': '/stm32family/','send_to': 'G-E2N85GJMBP'});"><img src="/common/images/banner_stm32_4.png" alt="32bit 汎用マイコン STM32ファミリ"></a>
+						</p>
+						<p>
+							<a href="/stm8family" onclick="gtag('event', 'top_selectbtn_click', {'link_text': 'STM8ファミリ','link_url': '/stm8family/','send_to': 'G-E2N85GJMBP'});"><img src="/common/images/banner_stm8_4.png" alt="8bit 汎用マイコン STM8ファミリ"></a>
+						</p>
+					</div>
+				</div>
+			</header>
+
+			<div class="features-select area-contents">
+				<h2 class="features-index"><span>特徴で選ぶ</span></h2>
+				<div class="flex">
+					<div>
+						<h2><img src="/common/images/title_stm32_2.png" alt="STM32"></h2>
+						<ul>
+							<li><a class="link-btn" href="/stm32-arm-cortex-mpus/">マイクロプロセッサ</a></li>
+							<li><a class="link-btn" href="/stm32-ultra-low-power-mcus/">超低消費電力</a></li>
+							<li><a class="link-btn" href="/stm32-high-performance-mcus/">ハイパフォーマンス</a></li>
+							<li><a class="link-btn" href="/stm32-wireless-mcus/">ワイヤレス</a></li>
+							<li><a class="link-btn" href="/stm32-mainstream-mcus/">メインストリーム</a></li>
+						</ul>
+					</div>
+					<div>
+						<h2><img src="/common/images/title_stm8_2.png" alt="STM8"></h2>
+						<ul>
+							<li><a class="link-btn" href="/stm8/stm8s/">メインストリーム</a></li>
+							<li><a class="link-btn" href="/stm8/stm8l/">超低消費電力</a></li>
+							<li><a class="link-btn" href="/stm8/stm8af/">車載用</a></li>
+							<li><a class="link-btn" href="/stm8/stm8al/">車載用 超低消費電力</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div class="clearfix">
+				<div class="seminar-block">
+					<h3>セミナー / イベント / キャンペーン</h3>
+					<a href="https://www.stmcu.jp/event" class="golist">一覧</a>
+											<dl class="list flex">
+							<dt>8月25日～9月25日</dt>
+							<dd>
+																	<span class="online">オン<br>ライン</span>
+															</dd>
+							<dd>
+								<a href="https://www.stmcu.jp/event/event/124269/">ITmedia Virtual EXPO 2026 夏</a>
+																							</dd>
+						</dl>
+											<dl class="list flex">
+							<dt>10月8日</dt>
+							<dd>
+																	<span class="online">オン<br>ライン</span>
+															</dd>
+							<dd>
+								<a href="https://www.stmcu.jp/event/seminar/124798/">【ウェビナー】GUI設計ツール「TouchGFX」入門 &#8211; 組込みシステムのGUI開発を簡単に！</a>
+																							</dd>
+						</dl>
+									</div>
+
+				<div class="news-block">
+					<h3>ニュース</h3>
+					<a href="https://www.stmcu.jp/news" class="golist">一覧</a>
+					
+					
+					
+					<dl class="list clearfix">
+						<dt>03/05</dt>
+						<dd><a href="https://www.stmcu.jp/news/press/120402/">STマイクロエレクトロニクス、 エントリレベル･マイコンの性能と価値の新たな基準を打ち立てる新製品を発表</a></dd>
+					</dl>
+					<dl class="list clearfix">
+						<dt>02/27</dt>
+						<dd><a href="https://www.stmcu.jp/news/press/121434/">STマイクロエレクトロニクス、Aliro準拠のワイヤレス / セキュリティ技術により次世代のデジタル･アクセス制御を推進</a></dd>
+					</dl>
+					<dl class="list clearfix">
+						<dt>11/18</dt>
+						<dd><a href="https://www.stmcu.jp/news/press/118164/">STマイクロエレクトロニクス、業界初、高性能アプリケーション向け18nmマイコンを発表</a></dd>
+					</dl>
+					<dl class="list clearfix">
+						<dt>11/18</dt>
+						<dd><a href="https://www.stmcu.jp/news/press/118141/">STマイクロエレクトロニクス、フィジカルAIの開発を加速させる業界最大のマイコン用学習済みAIモデル･ライブラリを発表</a></dd>
+					</dl>
+					<dl class="list clearfix">
+						<dt>06/25</dt>
+						<dd><a href="https://www.stmcu.jp/news/press/116318/">STマイクロエレクトロニクスのSTM32マイコンとAI開発ツール、 ニデック社のESCに採用され、ドローン用モータの異常を検出</a></dd>
+					</dl>
+					
+					
+					
+				</div>
+			</div>
+		</div>
+		<div class="aside">
+								<h3>会員ログイン</h3>
+			<div class="login-box">
+				<form action="/member/mypage/login/login" novalidate id="SmmLoginOnValidIndexForm" method="post" accept-charset="utf-8">
+					<dl>
+						<dt>ユーザー名</dt>
+						<dd><input name="login_user_id" maxlength="256" class="middle" type="text" id="SmmLoginOnValidLoginUserId" required="required"/></dd>
+						<dt>パスワード</dt>
+						<dd><input name="login_password" maxlength="20" class="middle" type="password" id="SmmLoginOnValidLoginPassword" required="required"/></dd>
+					</dl>
+					<!-- <a class="pwd-loss" href="">パスワードを忘れた方はこちら &gt;</a> -->
+					<div class="submit side-submit">
+						<div class="login-btn">
+							<input type="submit" class="button" value="ログイン">
+						</div>
+						<a class="nm-btn" href="/member/entry/regist/">新規会員登録はこちら</a>
+					</div>
+				</form>
+			
+			
+				<p class="merit">
+					<a href="https://www.stmcu.jp/benefits">会員のメリットをみる &gt;</a>
+				</p>
+			</div>
+			<ul class="side-banner">
+				<li><a href="https://www.zaikostore.com/zaikostore/special/ST_MICROELECTRONICS" target="_blank"><img src="/common/images/banner_side_stm2.jpg"></a></li>
+				<li><a href="https://www.arrow.com/ja/manufacturers/s/stmicroelectronics.html?_fsi=15JElfXI&_fsi=6qOfeo45" target="_blank"><img src="/common/images/banner_side_stm.jpg"></a></li>
+				<li><a href="https://www.facebook.com/STM32Japan/" target="_blank"><img src="/common/images/banner_side_fb.jpg"></a></li>
+			</ul>
+			<h3 class="link"><a href="https://www.stmcu.jp/faq">よくある質問と答え</a></h3>
+		
+		</div>
+	</section>
+</article>
+<!-- /Contents -->
+
+<!-- Footer -->
+<div id="menu-footer">
+	<div class="container">
+		<ul class="clearfix">
+			<li class="box box2">
+				<div>製品概要</div>
+				<ul class="no-bullet">
+					<li><a href="/product/micon">汎用マイコン概要</a></li>
+					<li><a href="/product/university">ユニバーシティ・プログラム</a></li>
+					<li><a href="/product/longevity">10年間の供給保証</a></li>
+					<li><a href="/product/naming">製品品名ルール</a></li>
+				</ul>
+			</li>
+			<li class="box">
+				<div>STM32 (32bit マイコン) </div>
+				<ul class="no-bullet">
+					<li>
+						<p class="fsp-title ft-first">Arm<sup>®</sup> Cortex<sup>®</sup>-M マイコン</p>
+						<ul>
+							<li><a href="/stm32family">STM32マイコン概要</a></li>
+						</ul>
+					</li>
+					
+					<li>
+						<p class="fsp-title">ハイパフォーマンス</p>
+						<ul>
+							<li><a href="/stm32/stm32n6/">STM32N6シリーズ</a></li>
+							<li><a href="/stm32/stm32h7/">STM32H7シリーズ</a></li>
+							<li><a href="/stm32/stm32f7/">STM32F7シリーズ</a></li>
+							<li><a href="/stm32/stm32h5/">STM32H5シリーズ</a></li>
+							<li><a href="/stm32/stm32f4/">STM32F4シリーズ</a></li>
+							<li><a href="/stm32/stm32f2/">STM32F2シリーズ</a></li>
+						</ul>
+					</li>
+					<li>
+						<p class="fsp-title">メインストリーム</p>
+						<ul>
+							<li><a href="/stm32/stm32c5/">STM32C5シリーズ</a></li>
+							<li><a href="/stm32/stm32g4/">STM32G4シリーズ</a></li>
+							<li><a href="/stm32/stm32f3/">STM32F3シリーズ</a></li>
+							<li><a href="/stm32/stm32f1/">STM32F1シリーズ</a></li>
+							<li><a href="/stm32/stm32g0/">STM32G0シリーズ</a></li>
+							<li><a href="/stm32/stm32f0/">STM32F0シリーズ</a></li>
+							<li><a href="/stm32/stm32c0/">STM32C0シリーズ</a></li>
+						</ul>
+					</li>
+					<li>
+						<p class="fsp-title">超低消費電力</p>
+						<ul>
+                            <li><a href="/stm32/stm32u3/">STM32U3シリーズ</a></li>
+							<li><a href="/stm32/stm32u5/">STM32U5シリーズ</a></li>
+							<li><a href="/stm32/stm32l5/">STM32L5シリーズ</a></li>
+							<li><a href="/stm32/stm32l4plus/">STM32L4+シリーズ</a></li>
+							<li><a href="/stm32/stm32l4/">STM32L4シリーズ</a></li>
+							<li><a href="/stm32/stm32l1/">STM32L1シリーズ</a></li>
+							<li><a href="/stm32/stm32u0/">STM32U0シリーズ</a></li>
+							<li><a href="/stm32/stm32l0/">STM32L0シリーズ</a></li>
+						</ul>
+					</li>
+					<li>
+						<p class="fsp-title">ワイヤレス</p>
+						<ul>
+							<li><a href="/stm32/stm32wba/">STM32WBAシリーズ</a></li>
+							<li><a href="/stm32/stm32wb/">STM32WBシリーズ</a></li>
+							<li><a href="/stm32/stm32wl/">STM32WLシリーズ</a></li>
+							<li><a href="/stm32/stm32wb0/">STM32WB0シリーズ</a></li>
+						</ul>
+					</li>
+					<li>
+						<p class="fsp-title">Arm<sup>®</sup> Cortex<sup>®</sup>-A マイクロプロセッサ</p>
+						<ul>
+							<li><a href="/stm32/stm32mp2/">STM32MP2シリーズ</a></li>
+							<li><a href="/stm32/stm32mp1/">STM32MP1シリーズ</a></li>
+
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li class="box">
+				<div>STM8 (8bit マイコン)</div>
+				<ul class="no-bullet">
+					<li style="margin-bottom: 1em;"><a href="/stm8family">STM8マイコン概要</a></li>
+					<li>
+						<p class="fsp-title ft-first">メインストリーム</p>
+						<ul>
+							<li><a href="/stm8/stm8s/">STM8Sシリーズ</a></li>
+						</ul>
+					</li>
+					<li>
+						<p class="fsp-title">超低消費電力</p>
+						<ul>
+							<li><a href="/stm8/stm8l/">STM8Lシリーズ</a></li>
+						</ul>
+					</li>
+					<li>
+						<p class="fsp-title">車載用</p>
+						<ul>
+							<li><a href="/stm8/stm8af/">STM8AFシリーズ</a></li>
+						</ul>
+					</li>
+					<li>
+						<p class="fsp-title">車載用 超低消費電力</p>
+						<ul>
+							<li><a href="/stm8/stm8al/">STM8ALシリーズ</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li class="box clearfix wide box2">
+				<div>デザイン/サポート</div>
+				<ul class="no-bullet">
+					<li>
+						<a class="fsp-title2" href="/design">ドキュメント</a>
+						<ul class="child">
+							<li><a href="/design/document/datasheet/">データシート</a></li>
+							<li><a href="/design/document/errata_sheet/">エラッタ</a></li>
+							<li><a href="/design/document/reference_manual/">リファレンス マニュアル</a></li>
+							<li><a href="/design/document/reference_manual_j/">リファレンス マニュアル（日本語）</a></li>
+							<li><a href="/design/document/programming_manual/">プログラミング マニュアル</a></li></a></li>
+							<li><a href="/design/document/application_note/">アプリケーション ノート</a></li>
+							<li><a href="/design/document/application_note_j/">アプリケーション ノート（日本語）</a></li>
+							<li><a href="/design/document/technical_note/">技術ノート（日本語）</a></li>
+							<li><a href="/design/document/users_manual/">ユーザ マニュアル</a></li>
+							<li><a href="/design/document/users_manual_j/">ユーザ マニュアル（日本語）</a></li>
+							<li><a href="/design/document/brochure_j/">カタログ（日本語）</a></li>
+							<li><a href="/design/document/presentation_j/">プレゼンテーション（日本語）</a></li>
+							<li><a href="/design/document/training-materials_j/">トレーニング資料（日本語）</a></li>
+							<li><a href="/design/document/other-document/">その他</a></li>
+						</ul>
+					</li>
+					<li><a href="/design">HW開発環境</a></li>
+					<li><a href="/design">SW開発環境</a></li>
+					<li><a href="/design">パートナーソリューション</a></li>
+				</ul>
+			</li>
+			<li class="box box2">
+				<div>セミナー/イベント</div>
+				<ul class="no-bullet">
+					<li><a href="/event">セミナー</a></li>
+					<li><a href="/event#event">イベント</a></li>
+					<li><a href="/video/">ビデオ</a></li>
+				</ul>
+			</li>
+			<li class="box vertical box2">
+				<div>お問合せ</div>
+				<ul class="no-bullet">
+					<li><a href="/inquiry">STオフィス</a></li>
+					<li><a href="/inquiry">販売代理店一覧</a></li>
+					<li><a href="/faq">FAQ</a></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</div>
+<p id="pagetop"><a href="#"><i class="fa fa-chevron-up"></i></a></p>
+<footer id="copyright">
+	<p class="copy">
+		<small>All rights reserved &copy; STMicroelectronics</small>
+	</p>
+	<p class="footer-nav">
+		<small class="hide-for-print">
+			<a class="color-inherit" href="https://www.st.com/content/st_com/ja/about/st_company_information/who-we-are.html" target="_blank">会社概要</a>
+			<a class="color-inherit" href="/purpose">当サイトの目的</a>
+			<a class="color-inherit" href="/termsofuse">利用条件</a>
+			<a class="color-inherit" href="/termsandconditions">取引条件</a>
+			<a class="color-inherit" href="https://www.st.com/content/st_com/ja/common/privacy-portal/corporate-privacy-statement-ja.html" target="_blank">プライバシー・ポリシー</a>
+		</small>
+	</p>
+	<a href="/inquiry" class="footer-contact">お問合せ <i class="fas fa-chevron-right"></i></a>
+</footer>
+<!-- Footer -->
+</div>
+
+<div id="modal-area">
+</div>
+
+<script src="https://www.stmcu.jp/wp/wp-content/themes/herab/common/js/jquery.collapser.js"></script>
+<script src="https://www.stmcu.jp/wp/wp-content/themes/herab/common/js/common.js?date=20260730"></script>
+<script src="https://www.stmcu.jp/wp/wp-content/themes/herab/common/js/fixed_midashi.js"></script>
+<script src="https://www.stmcu.jp/wp/wp-content/themes/herab/common/js/favorite.js"></script>
+<script src="https://www.stmcu.jp/wp/wp-content/themes/herab/common/js/slick.min.js"></script>
+<script>
+$(function() {
+	$('.slider').slick({
+		infinite: true,
+		dots:true,
+		speed: 500,
+		slidesToShow: 1,
+		autoplay:true
+	});
+});
+</script>
+<script src="https://www.stmcu.jp/wp/wp-content/themes/herab/common/js/script.js?date=20210406"></script>
+
+<script>
+	var $win = $(window);
+
+	// $win.on('load resize', function() {
+	$win.on('load', function() {
+	  var windowWidth = window.innerWidth;
+	
+	  if (windowWidth > 1024) {
+		// PCの処理
+	  } else if (windowWidth > 768) {
+		// TABの処理
+	  } else {
+			  
+		$(".box div").on("click", function() {
+			$(this).next().slideToggle();
+			$(this).toggleClass("open");
+		});
+		$(".fsp-title").on("click", function() {
+			$(this).next().slideToggle();
+			$(this).toggleClass("open");
+		});
+	  }
+	});
+</script>
+
+
+
+<script type="text/javascript" src="/member/system/js/include.js"></script>
+<link rel="stylesheet" type="text/css" href="/member/system/css/common.css" media="all"/>
+<link rel="stylesheet" type="text/css" href="/member/system/css/include.css" media="all"/>
+<link href="#"/><!-- 会員機能側書換用タグ -->
+
+<!-- # To include at page bottom, before </body></html> -->
+<script type="text/javascript">if (typeof _satellite !== 'undefined') { _satellite.pageBottom(); }</script>
+</body>
+</html>

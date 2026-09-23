@@ -1,0 +1,254 @@
+Web response retained verbatim; URL in body. No original PDF bytes were obtained.
+Datasheet - STM32U585xx - Ultra-low-power Arm<Sup>®</Sup> Cortex<Sup>®</Sup>-M33 32-bit MCU+TrustZone<Sup>®</Sup>+FPU, 240 DMIPS, up to 2 MB Flash memory, 786 KB SRAM, crypto (https://www.st.com/resource/en/datasheet/stm32u585ai.pdf)
+citeturn144view0 [wordlim: 200] Crawled: today; Content type: application/pdf; Number of pages: 350; Source: open({"ref_id":"https://www.st.com/resource/en/datasheet/stm32u585ai.pdf","lineno":11845}); Total lines: 16696
+L11774@P242: The pulse on the interrupt input must have a minimal length in order to guarantee that it is
+L11775@P242: detected by the event controller.
+L11776@P242: 5.3.18 Analog switches booster
+L11777@P242: 
+L11778@P242: MS19878V3
+L11779@P242: RPU
+L11780@P242: VDD
+L11781@P242: Internal reset
+L11782@P242: External
+L11783@P242: reset circuit(1)
+L11784@P242: NRST(2)
+L11785@P242: Filter
+L11786@P242: 0.1 μF(3)
+L11787@P242: Table 103. EXTI input characteristics(1)
+L11788@P242: Symbol Parameter Conditions Min Typ Max Unit
+L11789@P242: PLEC Pulse length to event controller - 20 - - ns
+L11790@P242: 1. Specified by design. Not tested in production.
+L11791@P242: Table 104. Analog switches booster characteristics(1)
+L11792@P242: Symbol Parameter Min Typ Max Unit
+L11793@P242: VDD Supply voltage 1.6 1.8 3.6 V
+L11794@P242: tSU(BOOST) Booster startup time - - 50 µs
+L11795@P242: IDD(BOOST) Booster consumption - - 125 µA
+L11796@P242-243: 1. Specified by design. Not tested in production.Electrical characteristics STM32U585xx
+L11797@P243: 244/350 DS13086 Rev 10
+L11798@P243: 5.3.19 14-bit analog-to-digital converter (ADC1) characteristics
+L11799@P243: Unless otherwise specified, the parameters given in the table below are values derived from
+L11800@P243: tests performed under ambient temperature, fHCLK frequency and VDDA supply voltage
+L11801@P243: conditions summarized in Table 33.
+L11802@P243: Note: It is recommended to perform a calibration after each power-up.
+L11803@P243: 
+L11804@P243: Table 105. 14-bit ADC1 characteristics(1)(2)
+L11805@P243: Symbol Parameter Conditions Min Typ Max Unit
+L11806@P243: VDDA
+L11807@P243: Analog power supply for
+L11808@P243: ADC ON - 1.62 - 3.6
+L11809@P243: VREF+ V Positive reference
+L11810@P243: voltage
+L11811@P243: VDDA ≥ 2 V 2 - VDDA
+L11812@P243: VDDA < 2 V VDDA
+L11813@P243: VREFNegative reference
+L11814@P243: voltage -VSSA
+L11815@P243: fADC
+L11816@P243: ADC clock frequency 1.62 V ≤ VDDA ≤ 3.6 V 5(3) - 55 MHz
+L11817@P243: ADC clock ratio - 45 - 55 %
+L11818@P243: fs Sampling rate
+L11819@P243: Resolution = 14 bits 0.23 - 2.5
+L11820@P243: Msps
+L11821@P243: Resolution = 12 bits 0.25 - 2.75
+L11822@P243: Resolution = 10 bits 0.28 - 3.05
+L11823@P243: Resolution = 8 bits 0.31 - 3.44
+L11824@P243: tTRIG External trigger period Resolution = 14 bits 26 - - 1/fADC
+L11825@P243: VAIN(4) Conversion voltage
+L11826@P243: range
+L11827@P243: - 0 -VREF+ V
+L11828@P243: VCIMV
+L11829@P243: Common mode input
+L11830@P243: voltage -VREF+/2 - 10% VREF+/2 VREF+/2 + 10% V
+L11831@P243: RAIN(5) External input
+L11832@P243: impedance
+L11833@P243: Resolution = 14 bits
+L11834@P243: Tj = 130 °C - - 1000
+L11835@P243: Ω
+L11836@P243: Resolution = 12 bits
+L11837@P243: Tj = 130 °C - - 1000
+L11838@P243: Resolution = 10 bits
+L11839@P243: Tj = 130 °C - - 4700
+L11840@P243: Resolution = 8 bits
+L11841@P243: Tj = 130 °C - - 22000
+L11842@P243: CADC
+L11843@P243: Internal sample and
+L11844@P243: hold capacitor - - 5 - pF
+L11845@P243: tADCVREG_
+L11846@P243: STUP
+L11847@P243: ADC LDO startup time - - - 17 µs
+L11848@P243: tSTAB ADC power-up time LDO already started (3 × 1/fADC) + 1 conversion Cycle
+L11849@P243: tCAL
+L11850@P243: Offset and linearity
+L11851@P243: calibration time - 31849
+L11852@P243: 1/fADC
+L11853@P243-244: tOFF_CAL Offset calibration time - 885DS13086 Rev 10 245/350
+L11854@P244: STM32U585xx Electrical characteristics
+L11855@P244: 309
+L11856@P244: tLATR
+L11857@P244: Trigger conversion
+L11858@P244: latency for regular and
+L11859@P244: injected channels,
+L11860@P244: without aborting the
+L11861@P244: conversion
+L11862@P244: PRESC = 0 3
+L11863@P244: 1/fADC
+L11864@P244: PRESC = 1 7
+L11865@P244: PRESC = 2 13
+L11866@P244: tLATRINJ
+L11867@P244: Trigger conversion
+L11868@P244: latency Injected
+L11869@P244: channels aborting a
+L11870@P244: regular conversion
+L11871@P244: PRESC = 0 4
+L11872@P244: PRESC = 1 9
+L11873@P244: PRESC = 2 17
+L11874@P244: ts Sampling time - 5 - 814
+L11875@P244: tCONV
+L11876@P244: Total conversion time
+L11877@P244: (including sampling
+L11878@P244: time)
+L11879@P244: Resolution = N bits ts + N + 3
+L11880@P244: IDDA_D(ADC)
+L11881@P244: ADC consumption on
+L11882@P244: VDDA Differential mode
+L11883@P244: fs = 2.5 Msps,
+L11884@P244: resolution = 14 bits - 970 -
+L11885@P244: µA
+L11886@P244: fs = 1 Msps,
+L11887@P244: resolution = 14 bits - 550 -
+L11888@P244: fs = 10 ksps,
+L11889@P244: resolution = 14 bits - 130 -
+L11890@P244: fs = 2.5 Msps,
+L11891@P244: resolution = 12 bits - 940 -
+L11892@P244: fs = 2.5 Msps,
+L11893@P244: resolution = 10 bits - 840 -
+L11894@P244: fs = 2.5 Msps,
+L11895@P244: resolution = 8bits - 730 -
+L11896@P244: IDDV_D(ADC)
+L11897@P244: ADC consumption on
+L11898@P244: VREF+ Differential mode
+L11899@P244: fs = 2.5 Msps,
+L11900@P244: resolution = 14 bits - 140 -
+L11901@P244: µA
+L11902@P244: fs = 1 Msps,
+L11903@P244: resolution = 14 bits - 80 -
+L11904@P244: fs = 10 ksps,
+L11905@P244: resolution = 14 bits - 13 -
+L11906@P244: fs = 2.5 Msps,
+L11907@P244: resolution = 12 bits - 140 -
+L11908@P244: fs = 2.5 Msps,
+L11909@P244: resolution = 10 bits - 140 -
+L11910@P244: fs = 2.5 Msps,
+L11911@P244: resolution = 8bits - 120 -
+L11912@P244: Table 105. 14-bit ADC1 characteristics(1)(2) (continued)
+L11913@P244-245: Symbol Parameter Conditions Min Typ Max UnitElectrical characteristics STM32U585xx
+L11914@P245: 246/350 DS13086 Rev 10
+L11915@P245: The maximum value of RAIN can be found in the table below.
+L11916@P245: 
+L11917@P245: IDDA_s(ADC)
+L11918@P245: ADC consumption on
+L11919@P245: VDDA Singe-ended
+L11920@P245: mode
+L11921@P245: fs = 2.5 Msps,
+L11922@P245: resolution = 14 bits - 980 -
+L11923@P245: µA
+L11924@P245: fs = 1 Msps,
+L11925@P245: resolution = 14 bits - 550 -
+L11926@P245: fs = 10 ksps,
+L11927@P245: resolution = 14 bits - 130 -
+L11928@P245: fs = 2.5 Msps,
+L11929@P245: resolution = 12 bits - 900 -
+L11930@P245: fs = 2.5 Msps,
+L11931@P245: resolution = 10 bits - 840 -
+L11932@P245: fs = 2.5 Msps,
+L11933@P245: resolution = 8bits - 770 -
+L11934@P245: IDDV_s(ADC)
+L11935@P245: ADC consumption on
+L11936@P245: VREF+ Single-ended
+L11937@P245: mode
+L11938@P245: fs = 2.5 Msps,
+L11939@P245: resolution = 14 bits - 160 -
+L11940@P245: µA
+L11941@P245: fs = 1 Msps,
+L11942@P245: resolution = 14 bits - 90 -
+L11943@P245: fs = 10 ksps,
+L11944@P245: resolution = 14 bits - 15 -
+L11945@P245: fs = 2.5 Msps,
+L11946@P245: resolution = 12 bits - 150 -
+L11947@P245: fs = 2.5 Msps,
+L11948@P245: resolution = 10 bits - 150 -
+L11949@P245: fs = 2.5 Msps,
+L11950@P245: resolution = 8bits - 150 -
+L11951@P245: 1. Specified by design. Not tested in production.
+L11952@P245: 2. The voltage booster on the ADC switches must be used when VDDA < 2.4 V (embedded I/O switches).
+L11953@P245: 3. Degraded differential linearity error below 10 MHz.
+L11954@P245: 4. Depending on the package, VREF+ can be internally connected to VDDA and VREF- can be internally connected to VSSA.
+L11955@P245: 5. The maximum value of Rain is specified to keep leakage induced offset within the specified tolerance. The tolerance is
+L11956@P245: 4 LSBs for 14-bit resolution and 2 LSBs for 12-bit, 10-bit, and 8-bit resolutions.
+L11957@P245: Table 105. 14-bit ADC1 characteristics(1)(2) (continued)
+L11958@P245: Symbol Parameter Conditions Min Typ Max Unit
+L11959@P245: Table 106. Maximum RAIN for 14-bit ADC1(1)(2) (3)
+L11960@P245: Resolution(4) RAIN max (Ω)
+L11961@P245: (5) Sampling time [ns] Sampling cycle at 5 MHz Sampling cycle at 55 MHz
+L11962@P245: 14 bits
+L11963@P245: 47 142
+L11964@P245: 68 145 5 12
+L11965@P245-246: 100 170DS13086 Rev 10 247/350
+L11966@P246: STM32U585xx Electrical characteristics
+L11967@P246: 309
+L11968@P246: 12 bits
+L11969@P246: 47 135
+L11970@P246: 5 12
+L11971@P246: 68 135
+L11972@P246: 100 140
+L11973@P246: 150 145
+L11974@P246: 220 150
+L11975@P246: 330 155
+L11976@P246: 470 180
+L11977@P246: 10 bits
+L11978@P246: 47 128
+L11979@P246: 5
+L11980@P246: 12
+L11981@P246: 68 130
+L11982@P246: 100 132
+L11983@P246: 150 134
+L11984@P246: 220 140
+L11985@P246: 330 146
+L11986@P246: 470 160
+L11987@P246: 680 176
+L11988@P246: 12
+L11989@P246: 1000 200
+L11990@P246: 1500 240
+L11991@P246: 20
+L11992@P246: 2200 320
+L11993@P246: 8 bits
+L11994@P246: 47 123
+L11995@P246: 5
+L11996@P246: 12
+L11997@P246: 68 124
+L11998@P246: 100 125
+L11999@P246: 150 128
+L12000@P246: 220 130
+L12001@P246: 330 137
+L12002@P246: 470 140
+L12003@P246: 680 157
+L12004@P246: 1000 178
+L12005@P246: 1500 204
+L12006@P246: 2200 250
+L12007@P246: 20
+L12008@P246: 3300 313
+L12009@P246: 4700 400
+L12010@P246: 5
+L12011@P246: 36
+L12012@P246: 6800 546
+L12013@P246: 10000 830 68
+L12014@P246: 1. Specified by design. Not tested in production.
+L12015@P246: 2. BOOSTEN and ANASWVDD configured properly according to VDD and VDDA values.
+L12016@P246: 3. Values without external capacitor.
+L12017@P246: Table 106. Maximum RAIN for 14-bit ADC1(1)(2) (3) (continued)
+L12018@P246: Resolution(4) RAIN max (Ω)
+L12019@P246-247: (5) Sampling time [ns] Sampling cycle at 5 MHz Sampling cycle at 55 MHzElectrical characteristics STM32U585xx
+L12020@P247: 248/350 DS13086 Rev 10
+L12021@P247: 
+L12022@P247: 4. The tolerance is 2 LSBs for 14 bits and 1 LSB for other resolutions.
+L12023@P247: 5. The maximum value of RAIN is obtained in a worst-case scenario: channel conversion in scan mode with channel i
+

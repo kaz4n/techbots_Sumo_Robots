@@ -1,0 +1,492 @@
+Datasheet - STM32U585xx - Ultra-low-power Arm<Sup>®</Sup> Cortex<Sup>®</Sup>-M33 32-bit MCU+TrustZone<Sup>®</Sup>+FPU, 240 DMIPS, up to 2 MB Flash memory, 786 KB SRAM, crypto (https://www.st.com/resource/en/datasheet/stm32u585ai.pdf)
+citeturn135view0 [wordlim: 200] Crawled: today; Content type: application/pdf; Number of pages: 350; Source: open({"ref_id":"turn127view0","lineno":8300}); Total lines: 16696
+L8137@P151: AF8 AF9 AF10 AF11 AF12 AF13 AF14 AF15
+L8138@P151: LPUART1/
+L8139@P151: SDMMC1/
+L8140@P151: UART4/5
+L8141@P151: CAN1/TSC
+L8142@P151: CRS/DCMI/
+L8143@P151: OCTOSPIM_P1/2/
+L8144@P151: OTG_FS
+L8145@P151: LPGPIO1/
+L8146@P151: SDMMC2/
+L8147@P151: UCPD1/FMC
+L8148@P151: COMP1/2/FMC/
+L8149@P151: SDMMC1/2
+L8150@P151: LPTIM2/4/
+L8151@P151: SAI1/2
+L8158@P152: PI4 - - DCMI_D5/PSSI_D5 - - - - EVENTOUTPI5 - - DCMI_VSYNC/ PSSI_RDY - - - - EVENTOUT
+L8159@P152: PI6 - - DCMI_D6/PSSI_D6 - - - - EVENTOUTPI7 - - DCMI_D7/PSSI_D7 - - - - EVENTOUT
+L8160@P152: 1. For AF0 to AF7 refer to the previous table.
+L8161@P152: Table 29. Alternate function AF8 to AF15(1) (continued)
+L8162@P152: Port
+L8163@P152: AF8 AF9 AF10 AF11 AF12 AF13 AF14 AF15
+L8164@P152: LPUART1/
+L8165@P152: SDMMC1/
+L8166@P152: UART4/5
+L8167@P152: CAN1/TSC
+L8168@P152: CRS/DCMI/
+L8169@P152: OCTOSPIM_P1/2/
+L8170@P152: OTG_FS
+L8171@P152: LPGPIO1/
+L8172@P152: SDMMC2/
+L8173@P152: UCPD1/FMC
+L8174@P152: COMP1/2/FMC/
+L8175@P152: SDMMC1/2
+L8176@P152: LPTIM2/4/
+L8177@P152: SAI1/2
+L8178@P152: LPTIM2/3/
+L8179@P152-153: TIM2/15/16/17 EVENTOUTElectrical characteristics STM32U585xx
+L8180@P153: 154/350 DS13086 Rev 10
+L8181@P153: 5 Electrical characteristics
+L8182@P153: 5.1 Parameter conditions
+L8183@P153: Unless otherwise specified, all voltages are referenced to VSS.
+L8184@P153: 5.1.1 Minimum and maximum values
+L8185@P153: Unless otherwise specified, the minimum and maximum values are guaranteed in the worst
+L8186@P153: conditions of ambient temperature, supply voltage and frequencies by tests in production on
+L8187@P153: 100% of the devices with an ambient temperature at TA = 25 °C and TA = TAmax (given by
+L8188@P153: the selected temperature range).
+L8189@P153: Data based on characterization results, design simulation and/or technology characteristics
+L8190@P153: are indicated in the table footnotes, and are not tested in production. Based on
+L8191@P153: characterization, the minimum and maximum values refer to sample tests and represent the
+L8192@P153: mean value plus or minus three times the standard deviation (mean ±3σ).
+L8193@P153: 5.1.2 Typical values
+L8194@P153: Unless otherwise specified, typical data are based on TA = 25 °C, VDD = VDDA = 3 V.
+L8195@P153: They are given only as design guidelines and are not tested.
+L8196@P153: Typical ADC accuracy values are determined by characterization of a batch of samples from
+L8197@P153: a standard diffusion lot over the full temperature range and supply voltage range, where
+L8198@P153: 95% of the devices have an error less than or equal to the value indicated (mean ±2σ).
+L8199@P153: 5.1.3 Typical curves
+L8200@P153: Unless otherwise specified, all typical curves are given only as design guidelines and are
+L8201@P153: not tested.
+L8202@P153: 5.1.4 Loading capacitor
+L8203@P153: The loading conditions used for pin parameter measurement are shown in Figure 22.
+L8204@P153: 5.1.5 Pin input voltage
+L8205@P153: The input voltage measurement on a pin of the device is described in Figure 23.
+L8206@P153: 
+L8207@P153: 5.1.6 Power supply scheme
+L8208@P153: Each power supply pair (such as VDD/VSS or VDDA/VSSA) must be decoupled with filtering
+L8209@P153: ceramic capacitors as shown in Figure 24 and Figure 25. These capacitors must be placed
+L8210@P153: Figure 22. Pin loading conditions Figure 23. Pin input voltage
+L8211@P153: MSv68045V1
+L8212@P153: MCU pin
+L8213@P153: C = 50 pF
+L8214@P153: MSv68046V1
+L8215@P153: MCU pin
+L8216@P153-154: VINDS13086 Rev 10 155/350
+L8217@P154: STM32U585xx Electrical characteristics
+L8218@P154: 309
+L8219@P154: as close as possible to, or below, the appropriate pins on the underside of the PCB to
+L8220@P154: ensure the proper functionality of the device.
+L8221@P154: Figure 24. STM32U585xx power supply scheme (without SMPS)
+L8222@P154: Caution: If there are two VCAP pins (UFBGA169 package), each pin must be connected to a 2.2 µF
+L8223@P154: (typical) capacitor.
+L8224@P154: The external capacitor on VCAP pin requires the following characteristics:
+L8225@P154: • COUT = 4.7 µF or 2 × 2.2 µF ±20%
+L8226@P154: • COUT ESR < 20 mΩ at 3 MHz
+L8227@P154: • COUT rated voltage ≥ 10 V
+L8228@P154: MSv64358V4
+L8229@P154: VDDIO2
+L8230@P154: VDD
+L8231@P154: Level shifter
+L8232@P154: I/O
+L8233@P154: logic
+L8234@P154: Kernel logic
+L8235@P154: (CPU, digital
+L8236@P154: and
+L8237@P154: memories)
+L8238@P154: Backup circuitry
+L8239@P154: (LSE, RTC, TAMP
+L8240@P154: backup registers,
+L8241@P154: backup SRAM)
+L8242@P154: IN
+L8243@P154: OUT
+L8244@P154: LDO
+L8245@P154: regulator
+L8246@P154: GPIOs
+L8247@P154: 1.65 – 3.6 V
+L8248@P154: IN
+L8249@P154: OUT
+L8250@P154: GPIOs
+L8251@P154: n x 100 nF
+L8252@P154: + 1 x 10 μF
+L8253@P154: m x 100 nF
+L8254@P154: Level shifter
+L8255@P154: I/O
+L8256@P154: logic + 4.7 μF
+L8257@P154: m x VDDIO2
+L8258@P154: m x VSS
+L8259@P154: n x VSS
+L8260@P154: n x VDD
+L8261@P154: VBAT
+L8262@P154: VCORE
+L8263@P154: Power switch
+L8264@P154: VDDIO2
+L8265@P154: VDDIO1
+L8266@P154: ADCs/
+L8267@P154: DACs/
+L8268@P154: OPAMPs/
+L8269@P154: COMPs/
+L8270@P154: VREFBUF
+L8271@P154: VREF+
+L8272@P154: VREFVDDA
+L8273@P154: 100 nF
+L8274@P154: +1 μF
+L8275@P154: VDDA
+L8276@P154: VSSA
+L8277@P154: VREF
+L8278@P154: 100 nF+ 1 μF
+L8279@P154: VCORE
+L8280@P154: COUT = 4.7 μF
+L8281@P154: VCAP
+L8282@P154: VDDUSB
+L8283@P154: VDDUSB
+L8284@P154-155: 100 nFElectrical characteristics STM32U585xx
+L8285@P155: 156/350 DS13086 Rev 10
+L8286@P155: Figure 25. STM32U585xQ power supply scheme (with SMPS)
+L8287@P155: Note: SMPS and LDO regulators provide, in a concurrent way, the VCORE supply depending on
+L8288@P155: application requirements. However, only one of them is active at the same time. When
+L8289@P155: SMPS is active, it feeds the VCORE on the two VDD11 pins supplied by the filtered SMPS
+L8290@P155: VLXSMPS output pin. When LDO is active, it supplies the VCORE and regulates it using the
+L8291@P155: same capacitors on VDD11 pins. It is recommended to add a decoupling capacitor of 100 nF
+L8292@P155: near each VDD11 pin/ball, but it is not mandatory.
+L8293@P155: MSv64359V4
+L8294@P155: VDDIO2
+L8295@P155: VDD
+L8296@P155: Kernel logic
+L8297@P155: (CPU, digital
+L8298@P155: and memories)
+L8299@P155: Level shifter
+L8300@P155: I/O
+L8301@P155: logic
+L8302@P155: Backup circuitry
+L8303@P155: (LSE, RTC, TAMP,
+L8304@P155: backup registers,
+L8305@P155: backup SRAM)
+L8306@P155: IN
+L8307@P155: OUT
+L8308@P155: GPIOs
+L8309@P155: 1.65 – 3.6 V
+L8310@P155: IN
+L8311@P155: OUT
+L8312@P155: GPIOs
+L8313@P155: n x 100 nF
+L8314@P155: + 10 μF
+L8315@P155: m x100 nF
+L8316@P155: Level shifter
+L8317@P155: I/O
+L8318@P155: logic + 4.7 μF
+L8319@P155: m x VDDIO2
+L8320@P155: m x VSS
+L8321@P155: n x VSS
+L8322@P155: n x VDD
+L8323@P155: VBAT
+L8324@P155: VCORE
+L8325@P155: Power switch
+L8326@P155: VDDIO2
+L8327@P155: VDDIO1
+L8328@P155: ADCs/
+L8329@P155: DACs/
+L8330@P155: OPAMPs/
+L8331@P155: COMPs/
+L8332@P155: VREFBUF
+L8333@P155: VREF+
+L8334@P155: VREFVDDA
+L8335@P155: 100 nF
+L8336@P155: + 1 μF
+L8337@P155: VDDA
+L8338@P155: VSSA
+L8339@P155: VREF
+L8340@P155: 100 nF+ 1 μF
+L8341@P155: VSSSMPS
+L8342@P155: 2 x VDD11
+L8343@P155: VLXSMPS
+L8344@P155: VDDSMPS
+L8345@P155: VDD
+L8346@P155: L = 2.2 μH
+L8347@P155: COUT = 2 x 2.2 μF
+L8348@P155: CIN = 10 μF
+L8349@P155: SMPS ON
+L8350@P155: SMPS OFF
+L8351@P155: LDO
+L8352@P155: SMPS
+L8353@P155: VDDUSB
+L8354@P155: 100 nF
+L8355@P155: Voltage regulator
+L8356@P155-156: VDDUSBDS13086 Rev 10 157/350
+L8357@P156: STM32U585xx Electrical characteristics
+L8358@P156: 309
+L8359@P156: The external capacitors on VDD11 pins require the following characteristics:
+L8360@P156: • COUT = 2 × 2.2 µF ±20%
+L8361@P156: • COUT ESR < 20 mΩ at 3 MHz
+L8362@P156: • COUT rated voltage ≥ 10 V
+L8363@P156: The external capacitor on VDDSMPS pin requires the following characteristics:
+L8364@P156: • CIN = 10 µF ±20%
+L8365@P156: • CIN ESR < 10 mΩ at 3 MHz
+L8366@P156: • CIN rated voltage ≥ 10 V
+L8367@P156: The external inductance between VLXSMPS and VDD11 requires the following
+L8368@P156: characteristics:
+L8369@P156: • L = 2.2 µH ±20%
+L8370@P156: • L ISAT > 0.5 A
+L8371@P156: • L DCR < 200 mΩ
+L8372@P156: 5.1.7 Current consumption measurement
+L8373@P156: The IDD parameters given in various tables in the next sections, represent the total MCU
+L8374@P156: consumption including the current supplying VDD, VDDIO2, VDDA, VDDUSB, VBAT and
+L8375@P156: VDDSMPS (if the device embeds the SMPS).
+L8376@P156: Figure 26. Current consumption measurement
+L8377@P156: 5.2 Absolute maximum ratings
+L8378@P156: Stresses above the absolute maximum ratings listed in Table 30, Table 31 and Table 32
+L8379@P156: may cause permanent damage to the device. These are stress ratings only and the
+L8380@P156: functional operation of the device at these conditions is not implied. Exposure to maximum
+L8381@P156: rating conditions for extended periods may affect device reliability. Device mission profile
+L8382@P156: (application conditions) is compliant with JEDEC JESD47 qualification standard, extended
+L8383@P156: mission profiles are available on demand.
+L8384@P156: MSv62920V2
+L8385@P156: IDD_VBAT
+L8386@P156: IDD
+L8387@P156: VBAT
+L8388@P156: VDD
+L8389@P156: VDDA
+L8390@P156: VDDUSB
+L8391@P156: VDDSMPS
+L8392@P156-157: VDDIO2Electrical characteristics STM32U585xx
+L8393@P157: 158/350 DS13086 Rev 10
+L8394@P157: 
+L8395@P157: 
+L8396@P157: Table 30. Voltage characteristics(1)(2)
+L8397@P157: Symbol Ratings Min Max Unit
+L8398@P157: VDDX - VSS
+L8399@P157: External main supply voltage (including
+L8400@P157: VDDSMPS, VDDA, VDDUSB, VBAT, VREF+) -0.3 4.0
+L8401@P157: V
+L8402@P157: VDDIOx(3) - VSS
+L8403@P157: I/O supply when HSLV = 0 -0.3 4.0
+L8404@P157: I/O supply when HSLV = 1 -0.3 2.75
+L8405@P157: VIN(4)
+L8406@P157: Input voltage on FT_xx pins except
+L8407@P157: FT_c pins VSS - 0.3 Min (min (VDD, VDDA, VDDUSB, VDDIO2)
+L8408@P157: + 4.0, 6.0)(5)(6)
+L8409@P157: Input voltage on FT_t pins in
+L8410@P157: VBAT mode VSS - 0.3 Min (min (VBAT, VDDA, VDDUSB,
+L8411@P157: VDDIO2) + 4.0, 6.0) (5)(6)
+L8412@P157: VIN(4) Input voltage on FT_c pins VSS - 0.3 5.5
+L8413@P157: V Input voltage on any other pins VSS - 0.3 4.0
+L8414@P157: VREF+ - VDDA
+L8415@P157: Allowed voltage difference for
+L8416@P157: VREF+ > VDDA
+L8417@P157: - 0.4
+L8418@P157: |∆VDDx| Variations between different VDDx
+L8419@P157: power pins of the same domain - 50.0
+L8420@P157: mV
+L8421@P157: |VSSx-VSS| Variations between all the different
+L8422@P157: ground pins(7) - 50.0
+L8423@P157: 1. All main power (VDD, VDDSMPS, VDDA, VDDUSB, VDDIO2, VBAT) and ground (VSS, VSSA, VSSSMPS) pins must
+L8424@P157: always be connected to the external power supply, in the permitted range.
+L8425@P157: 2. The I/O structure options listed in this table can be a concatenation of options including the option explicitly listed. For
+L8426@P157: instance TT_a refers to any TT I/O with _a option. TT_xx refers to any TT I/O and FT_xx refers to any FT I/O.
+L8427@P157: 3. VDDIO1 or VDDIO2 or VSW, VDDIO1 = VDD.
+L8428@P157: 4. VIN maximum must always be respected. Refer to Table 31 for the maximum allowed injected current values.
+L8429@P157: 5. To sustain a voltage higher than 4 V, the internal pull-up/pull-down resistors must be disabled.
+L8430@P157: 6. This formula has to be applied only on the power supplies related to the I/O structure described in the pin definition table.
+L8431@P157: 7. Including VREF- pin.
+L8432@P157: Table 31. Current characteristics
+L8433@P157: Symbol Ratings Max Unit
+L8434@P157: ∑IVDD Total current into sum of all VDD power lines (source)(1) 200
+L8435@P157: mA
+L8436@P157: ∑IVSS Total current out of sum of all VSS ground lines (sink)(1) 200
+L8437@P157: IVDD Maximum current into each VDD power pin (source)(1) 100
+L8438@P157: IVSS Maximum current out of each VSS ground pin (sink)(1) 100
+L8439@P157: IIO
+L8440@P157: Output current sunk by any I/O and control pin 20
+L8441@P157: Output current sourced by any I/O and control pin 20
+L8442@P157: ∑I(PIN)
+L8443@P157: Total output current sunk by sum of all I/Os and control pins(2) 120
+L8444@P157: Total output current sourced by sum of all I/Os and control pins(2) 120
+L8445@P157: IINJ(PIN)(3)(4) Injected current on FT_xx, TT_xx, RST pins -5/+0
+L8446@P157: ∑|IINJ(PIN)| Total injected current (sum of all I/Os and control pins)(5) ±25
+L8447@P157: 1. All main power (VDD, VDDSMPS, VDDA, VDDUSB, VDDIO2, VBAT) and ground (VSS, VSSA, VSSSMPS) pins must
+L8448@P157-158: always be connected to the external power supplies, in the permitted range.DS13086 Rev 10 159/350
+L8449@P158: STM32U585xx Electrical characteristics
+L8450@P158: 309
+L8451@P158: 2. This current consumption must be correctly distributed over all I/Os and control pins. The total output current must not be
+L8452@P158: sunk/sourced between two consecutive power supply pins, referring to high pin count QFP packages.
+L8453@P158: 3. Positive injection (when VIN > VDDIOx) is not possible on these I/Os and does not occur for input voltages lower than the
+L8454@P158: specified maximum value.
+L8455@P158: 4. A negative injection is induced by VIN < VSS. IINJ(PIN) must never be exceeded. Refer also to Table 30 for the minimum
+L8456@P158: allowed input voltage values.
+L8457@P158: 5. When several inputs are submitted to a current injection, the maximum ∑|IINJ(PIN) is the absolute sum of the negative
+L8458@P158: injected currents (instantaneous values).
+L8459@P158: Table 32. Thermal characteristics
+L8460@P158: Symbol Ratings Value Unit
+L8461@P158: TSTG Storage temperature range –65 to +150
+L8462@P158: °C
+L8463@P158-159: TJ Maximum junction temperature 140Electrical characteristics STM32U585xx
+L8464@P159: 160/350 DS13086 Rev 10
+L8465@P159: 5.3 Operating conditions
+L8466@P159: 5.3.1 General operating conditions
+L8467@P159: Table 33. General operating conditions
+L8468@P159: Symbol Parameter Conditions Min Typ Max Unit
+L8469@P159: VDD
+L8470@P159: Standard operating
+L8471@P159: voltage
+L8472@P159: IO_VDD_HSLV(1) = 0 1.71(2) - 3.6
+L8473@P159: V
+L8474@P159: IO_VDD_HSLV = 1 1.71(2) - 2.7
+L8475@P159: VDDSMPS
+L8476@P159: Supply voltage for
+L8477@P159: the internal SMPS
+L8478@P159: step-down
+L8479@P159: converter
+L8480@P159: -VDD
+L8481@P159: VDDIO2
+L8482@P159: Supply voltage for
+L8483@P159: PG[15:2] I/Os
+L8484@P159: At least one I/O in
+L8485@P159: PG[15:2] used,
+L8486@P159: IO_VDDIO2_HSLV = 0
+L8487@P159: 1.08 - 3.6
+L8488@P159: At least one I/O in
+L8489@P159: PG[15:2] used,
+L8490@P159: IO_VDDIO2_HSLV = 1
+L8491@P159: 1.08 - 2.7
+L8492@P159: PG[15:2] I/Os not used 0 - 3.6
+L8493@P159: VDDUSB USB supply voltage
+L8494@P159: USB used 3.0 - 3.6
+L8495@P159: USB not used 0 - 3.6
+L8496@P159: VDDA
+L8497@P159: Analog supply
+L8498@P159: voltage
+L8499@P159: COMP used 1.58 - 3.6
+L8500@P159: DAC or OPAMP used 1.60 3.6
+L8501@P159: ADC used 1.62 - 3.6
+L8502@P159: VREFBUF used
+L8503@P159: (normal mode) 1.8 - 3.6
+L8504@P159: ADC, DAC, COMP,
+L8505@P159: OPAMP, and VREFBUF
+L8506@P159: not used
+L8507@P159: 0 - 3.6
+L8508@P159: VBAT
+L8509@P159: Backup domain
+L8510@P159: supply voltage - 1.65(3) - 3.6
+L8511@P159: VIN I/O input voltage
+L8512@P159: All I/Os except FT_c and
+L8513@P159: TT_xx pins -0.3 - Min(min(VDD, VDDA, VDDUSB,
+L8514@P159: VDDIO2) +3.6, 5.5)(4)(5)
+L8515@P159: V
+L8516@P159: Input voltage on FT_t pins
+L8517@P159: in VBAT mode -0.3 -
+L8518@P159: Min(min(VBAT, VDDA,
+L8519@P159: VDDUSB, VDDIO2)+ 3.6,
+L8520@P159: 5.5)(4)(5)
+L8521@P159: FT_c I/Os -0.3 - 5.0
+L8522@P159: TT_xx I/Os -0.3 - VDDIOx + 0.3
+L8523@P159: IIO_SW
+L8524@P159: Sum of output
+L8525@P159: current sourced by
+L8526@P159: all I/Os powered by
+L8527@P159: VSW(6)
+L8528@P159-160: - - - 3 mADS13086 Rev 10 161/350
+L8529@P160: STM32U585xx Electrical characteristics
+L8530@P160: 309
+L8531@P160: VCORE
+L8532@P160: Internal regulator
+L8533@P160: ON
+L8534@P160: Range 1 1.15 1.21 1.27
+L8535@P160: V
+L8536@P160: Range 2 1.05 1.1 1.15
+L8537@P160: Range 3 0.95 1.0 1.05
+L8538@P160: Range 4 0.81 0.9 0.99
+L8539@P160: fHCLK
+L8540@P160: AHB clock
+L8541@P160: frequency
+L8542@P160: Range 1 - - 160
+L8543@P160: MHz
+L8544@P160: Range 2 - - 110
+L8545@P160: Range 3 - - 55
+L8546@P160: Range 4 - - 25
+L8547@P160: fPCLKx
+L8548@P160: (x = 1, 2, 3)
+L8549@P160: APB1, APB2,
+L8550@P160: APB3 clock
+L8551@P160: frequency
+L8552@P160: Range 1 - - 160
+L8553@P160: Range 2 - - 110
+L8554@P160: Range 3 - - 55
+L8555@P160: Range 4 - - 25
+L8556@P160: PD
+L8557@P160: Power dissipation
+L8558@P160: at TA = 85 °C
+L8559@P160: for suffix 6(7)
+L8560@P160: LQFP48
+L8561@P160: See Section 6.9: Package thermal
+L8562@P160: characteristics for application appropriate
+L8563@P160: thermal resistance and package. The power
+L8564@P160: dissipation is then calculated according to
+L8565@P160: ambient temperature (TA) and maximum
+L8566@P160: junction temperature (TJ) and selected thermal
+L8567@P160: resistance.
+L8568@P160: mW
+L8569@P160: UFQFPN48
+L8570@P160: LQFP64
+L8571@P160: WLCSP90
+L8572@P160: LQFP100
+L8573@P160: UFBGA132
+L8574@P160: LQFP144
+L8575@P160: UFBGA169
+L8576@P160: PD
+L8577@P160: Power dissipation
+L8578@P160: at TA = 125 °C
+L8579@P160: for suffix 3(7)
+L8580@P160: LQFP48
+L8581@P160: See Section 6.9: Package thermal
+L8582@P160: characteristics for application appropriate
+L8583@P160: thermal resistance and package. The power
+L8584@P160: dissipation is then calculated according
+L8585@P160: ambient temperature (TA) and maximum
+L8586@P160: junction temperature (TJ) and selected thermal
+L8587@P160: resistance.
+L8588@P160: UFQFPN48
+L8589@P160: LQFP64
+L8590@P160: WLCSP90
+L8591@P160: LQFP100
+L8592@P160: UFBGA132
+L8593@P160: LQFP144
+L8594@P160: UFBGA169
+L8595@P160: Table 33. General operating conditions (continued)
+L8596@P160-161: Symbol Parameter Conditions Min Typ Max UnitElectrical characteristics STM32U585xx
+L8597@P161: 162/350 DS13086 Rev 10
+L8598@P161: 5.3.2 Operating conditions at power-up/power-down
+L8599@P161: The parameters given in the table below are derived from tests performed under the
+L8600@P161: ambient temperature condition summarized in Table 33.
+L8601@P161: 
+L8602@P161: TA
+L8603@P161: Ambient
+L8604@P161: temperature
+L8605@P161: for suffix 6
+L8606@P161: Maximum power
+L8607@P161: dissipation –40 - 85
+L8608@P161: °C
+L8609@P161: Low-power dissipation(8) –40 - 105
+L8610@P161: Ambient
+L8611@P161: temperature
+L8612@P161: for suffix 3
+L8613@P161: Maximum power
+L8614@P161: dissipation –40 - 125
+L8615@P161: Low-power dissipation(8) –40 - 130
+L8616@P161: TJ
+L8617@P161: Junction
+L8618@P161: temperature range
+L8619@P161: Suffix 6 version –40 - 105
+L8620@P161: Suffix 3 version –40 - 130
+L8621@P161: 1. HSLV means high-speed low-voltage mode (refer to the product reference manual).
+L8622@P161: 2. When RESET is released, the functionality is guaranteed down to VBORx min.
+L8623@P161: 3. In VBAT mode, the functionality is guaranteed down to VBOR_VBAT min.
+L8624@P161: 4. This formula has to be applied only on the power supplies related to the I/O structure described by the pin definition table.
+L8625@P161: The maximum I/O input voltage is the smallest value between Min (VDD, VDDA, VDDUSB, VDDIO2)+3.6 V, and 5.5V.
+L8626@P161: 5. For operation with voltage higher than Min (VDD, VDDA, VDDUSB, VDDIO2) +0.3 V, the internal pull-up and pull-down resistors
+L8627@P161: must be disabled.
+L8628@P161: 6. The I/Os powered by VSW are:
+L8629@P161: - PC13, PC14, PC15 when VDD is present,
+L8630@P161: - PC13, PC14, PC15, and all FT_t I/Os in VBAT mode.
+L8631@P161: 7. If TA is lower, higher PD values are allowed as long as TJ does not exceed TJ max (see Section 6.9: Package thermal
+

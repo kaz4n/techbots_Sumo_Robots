@@ -881,3 +881,24 @@ failures/ownership mismatch or missing fresh updates fail closed. Preserve old
 locked tests; add independently authored native safety tests, real target builds
 and separate fresh review. No app integration, upload/run, wiring change, physical
 waveform/WCET/PINMAP or human gate follows. All candidate timing needs later proof.
+
+
+## D-078 (2026-09-23, selected under D-051/D-075) Bounded native battery ADC
+Context: stock ADC calls have unbounded waits (F078); current installed-source,
+RM0456, DS13086 and ES0499 checks support a concrete private ADC1/A0 candidate.
+Decision: adopt P2_power_contract.md/power.h, ordinary14-bit channel9 calibration,
+814-cycle sampling with required LFTRIG1, one fresh synchronous native conversion,
+explicit validity/status/timestamps and reset-only fault lifecycle. Preserve the
+unchanged A0/100k/22k proposal; nominal3.3V/122:22 scaling is not measured accuracy.
+New setup deadlines100/5000/2-minimum/100us, runtime100us and separate total100us
+fault cleanup; setup65536/runtime4096 poll guards (count-name exceptions).
+No stale voltage, second B6 filter, stock ADC call, peripheral reset or blind
+cleanup after ownership loss. No B16 value changes or wiring authorization.
+Consequence: independent native-source tests and inert target compilation/fresh
+review are required. Preserve actual stock MSIS auto-calibration configuration;
+its ES0499 2.2.27 unlock/accuracy issue is a separate GLOBAL runtime integration
+blocker. Readiness/metadata is not a lock/frequency measurement. Do not turn off
+shared clocks, invent a lock predicate or claim this resolves deployed runtime.
+Physical B5 accuracy, supply/reference/pin verification, tick WCET and all human
+gates remain pending. Only software/compile-only work is authorized here.
+

@@ -34,6 +34,18 @@ NATIVE_MOTOR_DEFAULTS = {
     'MOTOR_PWM_SETTLE_MAX_POLLS': 4096,  # Explicit count-name exception, not WCET.
 }
 NATIVE_MOTOR_ARRAY_DEFAULTS = {'MOTOR_PWM_PINS[4]': (3, 5, 6, 9)}
+NATIVE_POWER_DEFAULTS = {
+    'VBAT_INPUT_PIN': 14,
+    'VBAT_ADC_REGULATOR_US': 100,
+    'VBAT_ADC_CALIBRATION_US': 5000,
+    'VBAT_ADC_POST_CAL_US': 2,
+    'VBAT_ADC_ENABLE_US': 100,
+    'VBAT_ADC_CONVERSION_US': 100,
+    'VBAT_ADC_SHUTDOWN_US': 100,
+    'VBAT_ADC_SETUP_MAX_POLLS': 65536,
+    'VBAT_ADC_READ_MAX_POLLS': 4096,
+}
+NATIVE_POWER_FLOAT_NAMES = {'VBAT_ADC_REFERENCE_V', 'VBAT_DIVIDER_RATIO'}
 BEHAVIOR_EXTRA_DEFAULTS = {
     'VBAT_FILTER_MS': 1000,  # B6 one-second time constant.
     'REFLANK_WINDOW_MS': 10000,  # B11.3 existing ten-second rolling window.
@@ -107,7 +119,8 @@ class P0ConfigTests(unittest.TestCase):
                     set(BEHAVIOR_EXTRA_DEFAULTS) | set(BEHAVIOR_EXTRA_FLOAT_DEFAULTS) |
                     set(BEHAVIOR_DERIVED_TYPES) | set(COUNTDOWN_SERVICE_DEFAULTS) |
                     set(PROPOSED_PIN_ARRAY_DEFAULTS) | set(NATIVE_MOTOR_DEFAULTS) |
-                    set(NATIVE_MOTOR_ARRAY_DEFAULTS))
+                    set(NATIVE_MOTOR_ARRAY_DEFAULTS) | set(NATIVE_POWER_DEFAULTS) |
+                    NATIVE_POWER_FLOAT_NAMES)
         self.assertEqual(expected, set(config_declarations()))
 
     def test_d076_proposed_opponent_pin_type_values_and_extent_match_hardware3(self):
@@ -146,6 +159,18 @@ class P0ConfigTests(unittest.TestCase):
         for name in DIAGNOSTIC_DEFAULTS:
             with self.subTest(diagnostic=name):
                 self.assertEqual('std::uint32_t', declarations[name][0])
+
+    def test_d078_native_power_limits_and_nominal_scaling_are_explicit(self):
+        declarations = config_declarations()
+        for name, expected in NATIVE_POWER_DEFAULTS.items():
+            with self.subTest(native_power=name):
+                self.assertEqual('std::uint32_t', declarations[name][0])
+                self.assertEqual(expected, number(declarations[name][1]))
+        self.assertEqual(('float', '3.3F'), declarations['VBAT_ADC_REFERENCE_V'])
+        self.assertEqual('float', declarations['VBAT_DIVIDER_RATIO'][0])
+        numerator, denominator = declarations['VBAT_DIVIDER_RATIO'][1].split('/')
+        self.assertEqual(Decimal('122'), number(numerator))
+        self.assertEqual(Decimal('22'), number(denominator))
 
     def test_p0_diagnostic_defaults_are_explicit_and_unchanged(self):
         declarations = config_declarations()

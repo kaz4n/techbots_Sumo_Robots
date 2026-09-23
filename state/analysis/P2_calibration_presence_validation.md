@@ -53,6 +53,10 @@ Retained failures and repairs:
 - Author's initial outer shell exit file is invalid due to quoting. Inner command
   receipts preserve the actual compiler failures; the corrected literal runner
   retains final exit0. Do not use the initial exit file as a valid status receipt.
+- The initial Git whitespace check treated preserved CRLF raw receipts as source
+  text. Their attributes were corrected from -text to binary, matching previous
+  evidence directories. No receipt bytes were edited;92raw files had already
+  passed index byte comparison before evidence commit398676d.
 
 Raw paths above are in state/analysis/P2_calibration_presence_raw unless indicated.
 No upload/reset/MCU/pad/sensor/motor action occurred. The last-known MCU image is

@@ -86,6 +86,7 @@ inline constexpr std::uint32_t QTR_CLEANUP_MAX_US = 100U;
 inline constexpr std::uint32_t QTR_CHARGE_MAX_US = 100U;
 inline constexpr std::uint32_t QTR_MAX_ADVANCES = 8192U; // count exception
 inline constexpr std::uint32_t QTR_SAMPLE_MAX_AGE_US = 6000U;
+inline constexpr std::uint32_t QTR_BENCH_FRAMES = 128U; // D109 finite bench capture; count exception
 inline constexpr std::uint32_t COUNTDOWN_MS = 5000U; // ms
 inline constexpr std::uint32_t COUNTDOWN_MARGIN_MS = 100U; // ms
 inline constexpr std::uint32_t TICK_US = 1000U; // us

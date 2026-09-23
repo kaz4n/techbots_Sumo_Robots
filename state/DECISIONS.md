@@ -1416,3 +1416,15 @@ independent projection regressions. Preserve original D088 text as provenance.
 Consequence: no core/pin/polarity/config/native or locked-test change. Full host,
 target and separate review evidence precede acceptance; no physical/gate/upload
 authority follows from this delegated presentation correction.
+
+## D-109 (2026-09-24, selected under D051/D075) Finite QTR bench evidence
+Context: D085 native acquisition exists, but the named B2 raw bench is missing.
+Decision: adopt P2_qtr_raw_contract.md and public Runner/Native headers, including
+the pre-test clock/cleanup precedence clarifications. One Reader, default-false
+pad grant, cooperative single-call servicing and immutable first128 raw frames;
+automatic finite freeze, separate actual fault/cleanup evidence, no other owners.
+Add only QTR_BENCH_FRAMES=128 to config and its unlocked literal registry; preserve
+all earlier values/assertions. No new output transport or acquisition semantics.
+Consequence: independent tests precede implementation, exact native checked target
+review follows; stable RAM capture is software preparation, not physical surface
+evidence or readout. No pad/pin/electrical/upload/motor grant or human gate follows.

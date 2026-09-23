@@ -59,6 +59,21 @@ NATIVE_IMU_BUS_DEFAULTS = {
     'IMU_I2C_CLEANUP_US': 50,
     'IMU_I2C_MAX_POLLS': 8192,
 }
+# D-080 checked profile and finite setup; no physical settling acceptance implied.
+IMU_SETUP_DEFAULTS = {
+    'IMU_GYRO_RANGE_DPS': 1000,
+    'IMU_ACCEL_RANGE_G': 8,
+    'IMU_DLPF_CFG': 1,
+    'IMU_SAMPLE_DIVIDER': 0,
+    'IMU_POWER_WAIT_US': 110000,
+    'IMU_RESET_WAIT_US': 110000,
+    'IMU_GYRO_WAIT_US': 50000,
+    'IMU_PLL_WAIT_US': 20000,
+    'IMU_FILTER_WAIT_US': 20000,
+    'IMU_SETUP_DEADLINE_US': 1000000,
+    'IMU_SETUP_MAX_ADVANCES': 1024,
+    'IMU_SETUP_MAX_REQUESTS': 64,
+}
 BEHAVIOR_EXTRA_DEFAULTS = {
     'VBAT_FILTER_MS': 1000,  # B6 one-second time constant.
     'REFLANK_WINDOW_MS': 10000,  # B11.3 existing ten-second rolling window.
@@ -133,7 +148,8 @@ class P0ConfigTests(unittest.TestCase):
                     set(BEHAVIOR_DERIVED_TYPES) | set(COUNTDOWN_SERVICE_DEFAULTS) |
                     set(PROPOSED_PIN_ARRAY_DEFAULTS) | set(NATIVE_MOTOR_DEFAULTS) |
                     set(NATIVE_MOTOR_ARRAY_DEFAULTS) | set(NATIVE_POWER_DEFAULTS) |
-                    NATIVE_POWER_FLOAT_NAMES | set(NATIVE_IMU_BUS_DEFAULTS))
+                    NATIVE_POWER_FLOAT_NAMES | set(NATIVE_IMU_BUS_DEFAULTS) |
+                    set(IMU_SETUP_DEFAULTS))
         self.assertEqual(expected, set(config_declarations()))
 
     def test_d076_proposed_opponent_pin_type_values_and_extent_match_hardware3(self):
@@ -177,6 +193,13 @@ class P0ConfigTests(unittest.TestCase):
         declarations = config_declarations()
         for name, expected in NATIVE_IMU_BUS_DEFAULTS.items():
             with self.subTest(native_imu_bus=name):
+                self.assertEqual('std::uint32_t', declarations[name][0])
+                self.assertEqual(expected, number(declarations[name][1]))
+
+    def test_d080_checked_profile_waits_deadline_and_count_caps_are_explicit(self):
+        declarations = config_declarations()
+        for name, expected in IMU_SETUP_DEFAULTS.items():
+            with self.subTest(imu_setup=name):
                 self.assertEqual('std::uint32_t', declarations[name][0])
                 self.assertEqual(expected, number(declarations[name][1]))
 

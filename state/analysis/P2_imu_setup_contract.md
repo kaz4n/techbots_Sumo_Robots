@@ -79,6 +79,13 @@ No disable/reset is attempted by Setup after a semantic failure; transport is
 already idle on a completed semantic rejection, and further use is prohibited
 by this Setup lifecycle. Bus remains externally exclusive to this driver.
 
+Clarified response-check precedence before implementation/testing: nonOK status,
+then shape/cleanup/error flags, then forward timestamp order, then transfer
+duration, then setup absolute deadline. Both setup and decode require a positive
+IMU_I2C_TRANSFER_US below2^31; invalidity is INVALID_CONFIG. The decoder does not
+depend on setup-only waits/caps/deadline. Its malformed or backwards/ambiguous
+observation interval is RESPONSE (DecodeStatus has no TIME_ORDER value).
+
 The setup waits are conservative engineering acceptance choices. They are not
 proof of all-temperature gyro/filter settling, oscillator accuracy or calibration.
 

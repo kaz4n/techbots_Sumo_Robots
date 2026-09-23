@@ -1,0 +1,84 @@
+{
+  "args": [
+    "bench/p0_matrix",
+    "--compile-only"
+  ],
+  "kwargs": {},
+  "returncode": 0,
+  "stdout": "SIMULATED compile\nCOMPILE command completed: bench/p0_matrix; source SHA256=aca351741acaedf04f7d13290cb3b64caf340f1b006455fb780710c135a97e87; MATCH=0 MOTORS_ALLOWED=0 STARTUP=default\nCompile-only: no upload requested\n",
+  "stderr": "",
+  "events": [
+    {
+      "kind": "ssh",
+      "args": [
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "StrictHostKeyChecking=yes",
+        "-o",
+        "ConnectTimeout=10",
+        "fixture@board.invalid",
+        "arduino-cli core list"
+      ]
+    },
+    {
+      "kind": "arduino",
+      "args": [
+        "core",
+        "list"
+      ]
+    },
+    {
+      "kind": "ssh",
+      "args": [
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "StrictHostKeyChecking=yes",
+        "-o",
+        "ConnectTimeout=10",
+        "fixture@board.invalid",
+        "mkdir -p /tmp/sumo-tools-cbyfskm0/remote/aca351741acaedf04f7d13290cb3b64caf340f1b006455fb780710c135a97e87/p0_matrix"
+      ]
+    },
+    {
+      "kind": "rsync",
+      "args": [
+        "-rlt",
+        "--safe-links",
+        "-e",
+        "ssh -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10",
+        "/tmp/sumo-tools-cbyfskm0/build/stage/p0_matrix/",
+        "fixture@board.invalid:/tmp/sumo-tools-cbyfskm0/remote/aca351741acaedf04f7d13290cb3b64caf340f1b006455fb780710c135a97e87/p0_matrix/"
+      ]
+    },
+    {
+      "kind": "ssh",
+      "args": [
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "StrictHostKeyChecking=yes",
+        "-o",
+        "ConnectTimeout=10",
+        "fixture@board.invalid",
+        "arduino-cli compile --fqbn arduino:zephyr:unoq --output-dir /tmp/sumo-tools-cbyfskm0/remote/aca351741acaedf04f7d13290cb3b64caf340f1b006455fb780710c135a97e87/p0_matrix/artifacts/bench-default --build-property 'compiler.cpp.extra_flags=-DMATCH=0 -DMOTORS_ALLOWED=0' --build-property 'compiler.c.extra_flags=-DMATCH=0 -DMOTORS_ALLOWED=0' /tmp/sumo-tools-cbyfskm0/remote/aca351741acaedf04f7d13290cb3b64caf340f1b006455fb780710c135a97e87/p0_matrix"
+      ]
+    },
+    {
+      "kind": "arduino",
+      "args": [
+        "compile",
+        "--fqbn",
+        "arduino:zephyr:unoq",
+        "--output-dir",
+        "/tmp/sumo-tools-cbyfskm0/remote/aca351741acaedf04f7d13290cb3b64caf340f1b006455fb780710c135a97e87/p0_matrix/artifacts/bench-default",
+        "--build-property",
+        "compiler.cpp.extra_flags=-DMATCH=0 -DMOTORS_ALLOWED=0",
+        "--build-property",
+        "compiler.c.extra_flags=-DMATCH=0 -DMOTORS_ALLOWED=0",
+        "/tmp/sumo-tools-cbyfskm0/remote/aca351741acaedf04f7d13290cb3b64caf340f1b006455fb780710c135a97e87/p0_matrix"
+      ]
+    }
+  ]
+}

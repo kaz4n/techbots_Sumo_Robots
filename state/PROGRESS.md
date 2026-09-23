@@ -689,3 +689,16 @@ original-grid scheduling, finite service, RAW handover and real STOP tail. New
 limits are unmeasureddevelopment policy; defaults confirm no hardware. Independent
 tests and actual runtime/native composition next; no phase/physical/motor claim.
 | contract=this commit
+
+2026-09-23T19:43:00+04:00 | P2 D096 software integration | IMPLEMENTED/HOST-TESTED,
+TARGET-BLOCKED. Actual native Runtime, source projection, original-grid scheduling,
+RAW calibration/handover and real STOP tail replace app scaffold. Fullnormal/san
+1411main/25187345+173Gate/4536382 PASS; author37default/68688 and43configured/105510
+permode,6newtools61oldtools PASS; reviewer131711checks eachmode.2clockMAJORs and
+QTRstarvation fixed; oldcore/HAL/locked unchanged. Finalapp4cb637f9 compileexit1,
+211444program276456memory/14312excess;82sources3linkedcacheELFs exact, not accepted
+firmware. Sevenexistinginertkeys reviewed/refreshed; no appkey/upload/reset/MCU.
+Evidence P2_app_runtime_validation.md/raw,failures.md,ram_audit.md and review.
+Next reduce retained app dependencies without shrinking evidence/safety capacity;
+physical/WCET/loadedRAM/nativeUART/localreset and human gates remain pending.
+| implementation/evidence=this commit

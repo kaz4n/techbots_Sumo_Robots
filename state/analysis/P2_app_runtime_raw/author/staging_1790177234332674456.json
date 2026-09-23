@@ -1,0 +1,85 @@
+{
+  "args": [
+    "app",
+    "--match",
+    "--compile-only"
+  ],
+  "kwargs": {},
+  "returncode": 0,
+  "stdout": "SIMULATED compile\nCOMPILE command completed: app; source SHA256=5821a2fd93311856bccd261767bdecb367e35d4f70cca640f41e86d010372039; MATCH=1 MOTORS_ALLOWED=1 STARTUP=immediate\nCompile-only: no upload requested\n",
+  "stderr": "",
+  "events": [
+    {
+      "kind": "ssh",
+      "args": [
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "StrictHostKeyChecking=yes",
+        "-o",
+        "ConnectTimeout=10",
+        "fixture@board.invalid",
+        "arduino-cli core list"
+      ]
+    },
+    {
+      "kind": "arduino",
+      "args": [
+        "core",
+        "list"
+      ]
+    },
+    {
+      "kind": "ssh",
+      "args": [
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "StrictHostKeyChecking=yes",
+        "-o",
+        "ConnectTimeout=10",
+        "fixture@board.invalid",
+        "mkdir -p /tmp/sumo-tools-862wy6j7/remote/5821a2fd93311856bccd261767bdecb367e35d4f70cca640f41e86d010372039/app"
+      ]
+    },
+    {
+      "kind": "rsync",
+      "args": [
+        "-rlt",
+        "--safe-links",
+        "-e",
+        "ssh -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10",
+        "/tmp/sumo-tools-862wy6j7/build/stage/app/",
+        "fixture@board.invalid:/tmp/sumo-tools-862wy6j7/remote/5821a2fd93311856bccd261767bdecb367e35d4f70cca640f41e86d010372039/app/"
+      ]
+    },
+    {
+      "kind": "ssh",
+      "args": [
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "StrictHostKeyChecking=yes",
+        "-o",
+        "ConnectTimeout=10",
+        "fixture@board.invalid",
+        "arduino-cli compile --fqbn arduino:zephyr:unoq:wait_linux_boot=no --output-dir /tmp/sumo-tools-862wy6j7/remote/5821a2fd93311856bccd261767bdecb367e35d4f70cca640f41e86d010372039/app/artifacts/match-immediate --build-property 'compiler.cpp.extra_flags=-DMATCH=1 -DMOTORS_ALLOWED=1' --build-property 'compiler.c.extra_flags=-DMATCH=1 -DMOTORS_ALLOWED=1' /tmp/sumo-tools-862wy6j7/remote/5821a2fd93311856bccd261767bdecb367e35d4f70cca640f41e86d010372039/app"
+      ]
+    },
+    {
+      "kind": "arduino",
+      "args": [
+        "compile",
+        "--fqbn",
+        "arduino:zephyr:unoq:wait_linux_boot=no",
+        "--output-dir",
+        "/tmp/sumo-tools-862wy6j7/remote/5821a2fd93311856bccd261767bdecb367e35d4f70cca640f41e86d010372039/app/artifacts/match-immediate",
+        "--build-property",
+        "compiler.cpp.extra_flags=-DMATCH=1 -DMOTORS_ALLOWED=1",
+        "--build-property",
+        "compiler.c.extra_flags=-DMATCH=1 -DMOTORS_ALLOWED=1",
+        "/tmp/sumo-tools-862wy6j7/remote/5821a2fd93311856bccd261767bdecb367e35d4f70cca640f41e86d010372039/app"
+      ]
+    }
+  ]
+}

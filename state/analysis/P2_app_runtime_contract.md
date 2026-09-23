@@ -41,7 +41,7 @@ Do not mistake a pulse-free beginRead FAULT snapshot for a completed acquisition
 
 ## Decision-time projection seam
 
-Add Transaction.decide(DecisionSource) alongside the established by-value API.
+Add Transaction.decideFrom(DecisionSource) alongside the established by-value API.
 The same phase/clock/duplicate-D checks occur first. A missing projection callback
 fails ORDER and inhibits without a Robot decision. Call the projection exactly
 once with actual D, then overwrite t_us/timing/previous exactly as D095 before the
@@ -50,8 +50,30 @@ bookkeeping only; no clock/backend/sensor or actuator call. Legacy decide behavi
 and all established assertions remain unchanged. This closes the age boundary
 race between an earlier caller time and Transaction's actual D.
 
+API naming clarification after public freeze: the distinct decideFrom name
+preserves existing decide({}) source compatibility. An overloaded aggregate
+DecisionSource argument makes that previously valid call ambiguous. This changes
+no projection or legacy behavior and requires no established test amendment.
+
+Review correction before test establishment: DecisionSource additionally has an
+optional pure clockAccepted callback, checked after projection and before Robot.
+False selects Transaction CLOCK/halt without Robot/Gate.apply/recorder.consume.
+Runtime uses it to reject D preceding its last observed acquisition clock even
+when Transaction's narrower S..D check passes; Runtime reports CLOCK. Do not encode
+an app clock failure as LINE_CONTRACT to force a fabricated stopping Robot decision,
+or call actuator-bearing abort from the pure projection callback. The earlier
+implementation followed that wrong path; separate reviewer reproduction and fix
+evidence must be preserved. Ordinary malformed source evidence still goes to core.
+
 Runtime retains the exact projected RobotInput and line snapshot used by that
 decision for Calibration/display; no post-Gate timestamp substitutes for D.
+
+Further review correction: accept the actual Gate applied_us into outer clock
+chronology before any post-decision service. Transaction.finishAfter takes the
+last actual outer observation and requires D/application <= observation <= actual
+C before publishing finished/timing_valid/previous receipt. Legacy finish remains
+unchanged. A regressing C must never briefly publish a successful completion before
+Runtime detects it. This adds no clock call, guessed timestamp or clamping.
 
 ## Actual release grid and clock failures
 
@@ -112,7 +134,9 @@ clock observations; never derive the complete duration from sensor timestamps.
 
 An active DISCHARGING QTR frame may span epochs. Preserve its elapsed interval,
 native counters, source identity and actual service-gap diagnostic. No servicing
-occurs in idle gaps. Some thresholds/transitions can remain ambiguous; retain the
+occurs in idle gaps. Pump must advance every active QTR at least once each real
+epoch before applying its early-exit policy; a retained lower bound cannot starve
+future discharge completion. Some thresholds/transitions can remain ambiguous; retain the
 adapter's failure rather than infer color. This software schedule is not physical
 color qualification. Atomic ADC guards,600us IMU, two possible150us Gate settle
 passes and cleanup can exceed800us in adverse cases. Measure and fix that before

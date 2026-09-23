@@ -646,3 +646,6 @@ ordinary timing overrun remains B14 count/log only. See app_transaction contract
 validation/review. SC-AL remains OPEN for actual native setup, source admission,
 QTR/IMU/ADC resource scheduling, expiry/output/cleanup and measured full800us.
 app.ino remains inert; no complete scheduler or hardware acceptance is implied.
+
+
+2026-09-23 D096 SC-AL update: native Runtime/SourcePort composition now implemented; see P2_app_runtime_contract.md and validation.md for exact final host evidence. Explicit setup grants remain absent by default. Actual target final build4cb637f9 FAILS RAM276456>262144,14312B excess. Fresh review retains RAM BLOCKER; linked-source identity is not target acceptance. Next bounded memory dependency work follows P2_app_runtime_ram_audit.md; no recorder reduction, new hardware grant, full800us claim or human gate. NativeUART/localreset/calibration-snippet delivery remains pending.

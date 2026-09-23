@@ -1228,3 +1228,24 @@ Original IMU600us/ADC/QTR/Gate guards remain. Adverse sum can exceed800us; recor
 actual complete timing and resolve before physical acceptance. NativeUART/local
 reset/calibration-snippet transport remain follow-on P2 tasks, not completed here.
 Preserve old tests and motor-run restrictions; compile actual app only, no upload.
+
+D096 API naming clarification: name the projection entry decideFrom(DecisionSource),
+not an overload of decide. The overload made existing D095 smoke decide({}) calls
+ambiguous. Preserve legacy source compatibility and unchanged callback semantics;
+record/add regression before new test establishment, no old test edits.
+
+D096 review clarification: optional pure DecisionSource.clockAccepted rejects
+source-owner clock chronology after projection but before Robot/Gate.apply/recorder.
+False causes Transaction CLOCK/halt and Runtime CLOCK. A late D earlier than actual
+acquisition observations must not be encoded as LINE_CONTRACT to manufacture a
+stopping Robot tick. Reviewer identified this MAJOR; preserve originalreproduction,
+fix and independentverification. Pure projection performs no actuator-bearing abort.
+
+D096 further independent corrections: admit actual Gate A into Runtime clock
+chronology before postwork; finishAfter validates actual latest outer observation
+against D/A/C before publishing completion/previous feedback. Retain legacy finish.
+Pump advances every active QTR at least once per actual epoch before threshold
+short-circuiting, preventing retained lower bounds from starving frame completion.
+Both are implementation corrections, not altered source timing/color or Gate rules.
+Actual full-app compile first failed RAM276368 >262144; preserve target failure and
+linked artifacts. No capacity reduction, fake compile success or upload follows.

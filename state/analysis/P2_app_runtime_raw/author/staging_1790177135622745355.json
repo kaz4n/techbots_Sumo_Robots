@@ -1,0 +1,89 @@
+{
+  "args": [
+    "app",
+    "--match",
+    "--compile-only"
+  ],
+  "kwargs": {
+    "changes": {
+      "FAKE_FAIL": "compile"
+    }
+  },
+  "returncode": 43,
+  "stdout": "",
+  "stderr": "ERROR: Command '['ssh', '-o', 'BatchMode=yes', '-o', 'StrictHostKeyChecking=yes', '-o', 'ConnectTimeout=10', 'fixture@board.invalid', \"arduino-cli compile --fqbn arduino:zephyr:unoq:wait_linux_boot=no --output-dir /tmp/sumo-tools-z68fn0iy/remote/e2ec335adbd490607afcb4b6ef16572075ae31fccdd67cbf2b89e12e9f776628/app/artifacts/match-immediate --build-property 'compiler.cpp.extra_flags=-DMATCH=1 -DMOTORS_ALLOWED=1' --build-property 'compiler.c.extra_flags=-DMATCH=1 -DMOTORS_ALLOWED=1' /tmp/sumo-tools-z68fn0iy/remote/e2ec335adbd490607afcb4b6ef16572075ae31fccdd67cbf2b89e12e9f776628/app\"]' returned non-zero exit status 43.\n",
+  "events": [
+    {
+      "kind": "ssh",
+      "args": [
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "StrictHostKeyChecking=yes",
+        "-o",
+        "ConnectTimeout=10",
+        "fixture@board.invalid",
+        "arduino-cli core list"
+      ]
+    },
+    {
+      "kind": "arduino",
+      "args": [
+        "core",
+        "list"
+      ]
+    },
+    {
+      "kind": "ssh",
+      "args": [
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "StrictHostKeyChecking=yes",
+        "-o",
+        "ConnectTimeout=10",
+        "fixture@board.invalid",
+        "mkdir -p /tmp/sumo-tools-z68fn0iy/remote/e2ec335adbd490607afcb4b6ef16572075ae31fccdd67cbf2b89e12e9f776628/app"
+      ]
+    },
+    {
+      "kind": "rsync",
+      "args": [
+        "-rlt",
+        "--safe-links",
+        "-e",
+        "ssh -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10",
+        "/tmp/sumo-tools-z68fn0iy/build/stage/app/",
+        "fixture@board.invalid:/tmp/sumo-tools-z68fn0iy/remote/e2ec335adbd490607afcb4b6ef16572075ae31fccdd67cbf2b89e12e9f776628/app/"
+      ]
+    },
+    {
+      "kind": "ssh",
+      "args": [
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "StrictHostKeyChecking=yes",
+        "-o",
+        "ConnectTimeout=10",
+        "fixture@board.invalid",
+        "arduino-cli compile --fqbn arduino:zephyr:unoq:wait_linux_boot=no --output-dir /tmp/sumo-tools-z68fn0iy/remote/e2ec335adbd490607afcb4b6ef16572075ae31fccdd67cbf2b89e12e9f776628/app/artifacts/match-immediate --build-property 'compiler.cpp.extra_flags=-DMATCH=1 -DMOTORS_ALLOWED=1' --build-property 'compiler.c.extra_flags=-DMATCH=1 -DMOTORS_ALLOWED=1' /tmp/sumo-tools-z68fn0iy/remote/e2ec335adbd490607afcb4b6ef16572075ae31fccdd67cbf2b89e12e9f776628/app"
+      ]
+    },
+    {
+      "kind": "arduino",
+      "args": [
+        "compile",
+        "--fqbn",
+        "arduino:zephyr:unoq:wait_linux_boot=no",
+        "--output-dir",
+        "/tmp/sumo-tools-z68fn0iy/remote/e2ec335adbd490607afcb4b6ef16572075ae31fccdd67cbf2b89e12e9f776628/app/artifacts/match-immediate",
+        "--build-property",
+        "compiler.cpp.extra_flags=-DMATCH=1 -DMOTORS_ALLOWED=1",
+        "--build-property",
+        "compiler.c.extra_flags=-DMATCH=1 -DMOTORS_ALLOWED=1",
+        "/tmp/sumo-tools-z68fn0iy/remote/e2ec335adbd490607afcb4b6ef16572075ae31fccdd67cbf2b89e12e9f776628/app"
+      ]
+    }
+  ]
+}

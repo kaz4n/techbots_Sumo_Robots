@@ -55,16 +55,39 @@ bool Transaction::open() {
     return true;
 }
 
-bool Transaction::decide(fsm::RobotInput input) {
+bool Transaction::beginDecision(std::uint32_t& now_us) {
     if (report_.phase == Phase::FAULT) return false;
     if (report_.phase != Phase::ACQUIRING) { fail(Fault::ORDER); return false; }
-    std::uint32_t now_us = 0U;
     if (!observe(now_us) || now_us - report_.started_us >= 0x80000000U ||
         (decision_seen_ && now_us == last_decision_us_)) {
         fail(Fault::CLOCK);
         return false;
     }
     report_.decision_us = now_us;
+    return true;
+}
+
+bool Transaction::decide(fsm::RobotInput input) {
+    std::uint32_t now_us = 0U;
+    return beginDecision(now_us) && applyDecision(input, now_us);
+}
+
+bool Transaction::decideFrom(const DecisionSource& source) {
+    std::uint32_t now_us = 0U;
+    if (!beginDecision(now_us)) return false;
+    if (source.project == nullptr) { fail(Fault::ORDER); return false; }
+    const auto input = source.project(source.context, now_us);
+    // Projection is pure. Preserve a terminal interruption if a faulty caller
+    // nevertheless aborts this owner while composing its input.
+    if (report_.phase != Phase::ACQUIRING) return false;
+    if (source.clockAccepted != nullptr && !source.clockAccepted(source.context)) {
+        fail(Fault::CLOCK);
+        return false;
+    }
+    return applyDecision(input, now_us);
+}
+
+bool Transaction::applyDecision(fsm::RobotInput input, std::uint32_t now_us) {
     input.t_us = now_us;
     input.timing = {true, true, report_.started_us};
     input.previous = previous_;
@@ -88,6 +111,14 @@ bool Transaction::decide(fsm::RobotInput input) {
 }
 
 bool Transaction::finish() {
+    return complete(false, 0U);
+}
+
+bool Transaction::finishAfter(std::uint32_t last_observed_us) {
+    return complete(true, last_observed_us);
+}
+
+bool Transaction::complete(bool has_observation, std::uint32_t last_observed_us) {
     if (report_.phase == Phase::FAULT) return false;
     if (report_.phase != Phase::DECIDED) { fail(Fault::ORDER); return false; }
     std::uint32_t now_us = 0U;
@@ -98,6 +129,12 @@ bool Transaction::finish() {
     const auto decision_offset = report_.decision_us - report_.started_us;
     const auto applied_offset = report_.applied.feedback.applied_us - report_.started_us;
     const auto completed_offset = now_us - report_.started_us;
+    const auto observed_offset = last_observed_us - report_.started_us;
+    if (has_observation && (observed_offset < decision_offset ||
+        observed_offset < applied_offset || observed_offset > completed_offset)) {
+        fail(Fault::CLOCK);
+        return false;
+    }
     if (applied_offset < decision_offset || applied_offset > completed_offset) {
         fail(Fault::RECEIPT);
         return false;

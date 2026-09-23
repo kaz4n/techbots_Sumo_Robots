@@ -12,6 +12,8 @@ enum class Fault : std::uint8_t { NONE, SETUP, ORDER, CLOCK, IDENTITY, RECEIPT, 
 struct DecisionSource {
     void* context = nullptr;
     fsm::RobotInput (*project)(void*, std::uint32_t decision_us) = nullptr;
+    // Optional pure check of the source owner's additional clock chronology.
+    bool (*clockAccepted)(void*) = nullptr;
 };
 struct TransactionReport {
     Phase phase = Phase::NOT_INITIALIZED;
@@ -41,9 +43,11 @@ public:
     // Owns real decision time and prior feedback, overriding those caller fields.
     // True means one actual decision/application/record step, even if HAL failed.
     bool decide(fsm::RobotInput input);
-    bool decide(const DecisionSource& source);
+    bool decideFrom(const DecisionSource& source);
     // Call after all admitted post-decision work, including output/cleanup.
     bool finish();
+    // Additional actual outer observation must precede C and follow D/application.
+    bool finishAfter(std::uint32_t last_observed_us);
     // Local end-of-stream/invariant abort; terminal, no fake Robot tick or reset.
     void abort();
     const TransactionReport& report() const { return report_; }
@@ -53,6 +57,9 @@ private:
     // Implementation owner may extend only private helpers/state.
     void fail(Fault fault);
     bool observe(std::uint32_t& now_us);
+    bool beginDecision(std::uint32_t& now_us);
+    bool applyDecision(fsm::RobotInput input, std::uint32_t now_us);
+    bool complete(bool has_observation, std::uint32_t last_observed_us);
     motors::Port port_;
     motors::MotorGate gate_;
     fsm::Robot robot_;

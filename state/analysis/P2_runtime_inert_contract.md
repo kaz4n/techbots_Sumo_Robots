@@ -118,3 +118,40 @@ fixed ABI and malformed capture. Independent review must inspect final source,
 actual target and capture commands before upload/read. This probe cannot prove
 the different full-app ELF load, native sensors/UART, D103 active reset, historical
 stack peak, calibrated clock, five-minute full800us, motor behavior or any gate.
+
+## Boundary and tooling API clarification before independent test freeze
+
+Before starting a new Runtime step, elapsed>=BTN_LONG_MS with no prior completed
+epoch fails the first-epoch guard. Elapsed>=window+BTN_LONG_MS without an earlier
+frozen success fails the overall guard. A completed epoch may qualify success
+at C>=window if all invariants/counts pass and C is strictly before the overall
+deadline. The first clock sample establishes a baseline; exactly
+APP_CLOCK_STALL_MAX_POLLS consecutive equal deltas fails.
+
+Checked policy public validators retain all old call forms. Optional project
+selection defaults to app.ino and accepts only app.ino or runtime_inert.ino;
+the latter additionally requires flags0/default FQBN. Every effective-command
+template and artifact name is bound to that selected literal project. Unknown
+names, mixed app/probe filenames, flags/startup mismatches and injected strings
+fail. The probe upload must use the exact output directory returned by its
+successful checked compile, never the old unverified generic bench directory.
+
+Runner duration ends at its actual closing clock sample. Substantive invariant
+checks/report preparation precede that sample; validation/bookkeeping of the
+endpoint (clock count, elapsed and maximum assignment) necessarily follows and
+is excluded, as is native publication. No recursively self-inclusive timing claim.
+
+On FAILED, last_* and owner status preserve the latest actual Transaction, which
+may be partial; epochs counts completed epochs separately. Only FROZEN success
+asserts the complete final chronology. Native stack.valid0/faultN independently
+fails physical acceptance even if the pure Runner reached FROZEN. Stack metadata
+has no input into Runner: do not invent a clock fault or abort to conflate them.
+The diagnostic gate_fault uses the current actual halt.fault when halt.fresh;
+otherwise it uses applied.fault. An older application receipt must not hide a
+later real terminal halt fault. Setup refusal is still the actual Transaction
+SETUP fault; do not invent a native status that its public report does not expose.
+
+The closing clock sample must also remain strictly before the overall deadline,
+even when the completed C had qualified for success. A late endpoint produces
+FAILED/DEADLINE, preserving the genuine C and first failure. D104-R1 verifies
+the exact deadline and keeps the original failed regression receipt.

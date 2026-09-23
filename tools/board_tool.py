@@ -183,6 +183,22 @@ def verify_inert_source(sketch, checksum):
              'use --compile-only and obtain a new source review')
 
 
+def verify_runtime_artifacts(board, artifacts):
+    # A fresh checked build must reproduce the reviewed loadable bytes before upload.
+    import runtime_capture
+    import app_build_policy
+    if not artifacts.endswith('/artifacts'):
+        fail('Runtime probe artifact directory is not a checked build output')
+    pins = {
+        artifacts + '/runtime_inert.ino.elf': runtime_capture.ELF_HASH,
+        artifacts + '/runtime_inert.ino.elf-zsk.bin': runtime_capture.BINARY_HASH,
+    }
+    if any(not isinstance(value, str) or re.fullmatch(r'[0-9a-f]{64}', value) is None
+           for value in pins.values()):
+        fail('Runtime probe reviewed artifact hashes are unset')
+    app_build_policy.verify_hashes(remote, board, pins)
+
+
 def build_startup(args):
     if args.match and args.startup == 'default':
         fail('--match requires Immediate startup; omit --startup or use immediate')
@@ -206,7 +222,7 @@ def capture_app_command(board, command, receipt, name):
     return result
 
 
-def app_preflight(policy, board, command, receipt, fqbn, flags, build_path):
+def app_preflight(policy, board, command, receipt, fqbn, flags, build_path, project='app.ino'):
     directories = {}
     for name in ('data', 'user'):
         result = capture_app_command(board, ['arduino-cli', 'config', 'get',
@@ -218,14 +234,16 @@ def app_preflight(policy, board, command, receipt, fqbn, flags, build_path):
     policy.verify_hashes(pin_reader, board, policy.installed_pins(directories['data']))
     query = [*command[:-1], '--show-properties=expanded', command[-1]]
     result = capture_app_command(board, query, receipt, 'properties')
-    policy.validate_preflight(result.stdout, fqbn, flags, build_path, directories['data'])
+    options = {} if project == 'app.ino' else {'project': project}
+    policy.validate_preflight(result.stdout, fqbn, flags, build_path, directories['data'], **options)
     return directories
 
 
-def compile_app(board, checksum, board_folder, remote_root, fqbn, flags, startup):
+def compile_app(board, checksum, board_folder, remote_root, fqbn, flags, startup, project='app.ino'):
     spec = importlib.util.spec_from_file_location('sumo_app_policy', ROOT / 'tools/app_build_policy.py')
     policy = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(policy)
+    policy.selected_project(project, fqbn, flags)
     version = remote(board, ['arduino-cli', 'version'], capture=True)
     policy.validate_cli(version.stdout)
     mode = ('match' if 'MATCH=1' in flags else 'bench') + '-' + startup
@@ -241,9 +259,10 @@ def compile_app(board, checksum, board_folder, remote_root, fqbn, flags, startup
     receipt = ROOT / 'build/app-receipts' / run_id
     receipt.mkdir(parents=True, exist_ok=False)
     (receipt / 'command.json').write_text(json.dumps(command, indent=2) + '\n')
-    directories = app_preflight(policy, board, command, receipt, fqbn, flags, build_path)
+    options = {} if project == 'app.ino' else {'project': project}
+    directories = app_preflight(policy, board, command, receipt, fqbn, flags, build_path, **options)
     result = capture_app_command(board, command, receipt, 'compile')
-    properties = policy.validate_result(result.stdout, fqbn, flags, build_path)
+    properties = policy.validate_result(result.stdout, fqbn, flags, build_path, **options)
     hashes = policy.verify_files(remote, board, properties, build_path, artifacts)
     report = dict(policy=policy.POLICY, source_sha256=checksum, fqbn=fqbn,
                   build_path=build_path, artifacts=artifacts, file_sha256=hashes,
@@ -254,11 +273,16 @@ def compile_app(board, checksum, board_folder, remote_root, fqbn, flags, startup
     result_object = policy.decode(result.stdout)
     print(result_object.get('compiler_out', ''), end='')
     print(result_object.get('compiler_err', ''), end='', file=sys.stderr)
+    return artifacts
 
 
 def flash(args):
     startup = build_startup(args)
-    if args.sketch == 'app' and any(os.path.lexists(ROOT / 'src/app' / name)
+    probe = args.sketch == 'bench/runtime_inert'
+    if probe and (args.match or startup != 'default'):
+        fail('Runtime inert probe requires default startup and MATCH=0 MOTORS_ALLOWED=0')
+    checked_folder = ROOT / ('bench/runtime_inert' if probe else 'src/app')
+    if (args.sketch == 'app' or probe) and any(os.path.lexists(checked_folder / name)
                                     for name in ('sketch.yaml', 'sketch.yml')):
         fail('App sketch profiles are unreviewed; remove sketch.yaml/sketch.yml from this build')
     if not args.compile_only and args.sketch in ('bench/p0_matrix', 'bench/ui_matrix') and startup == 'immediate':
@@ -272,7 +296,7 @@ def flash(args):
         fail('motor-capable uploads disabled in P0; --match is not STAND OK/RING OK')
     if not args.compile_only and args.sketch not in ['bench/p0_matrix', 'bench/p0_timing',
                                                    'bench/p0_adc', 'bench/p0_gpio', 'bench/p0_qtr',
-                                                   'bench/ui_matrix', 'bench/recorder_inert']:
+                                                   'bench/ui_matrix', 'bench/recorder_inert', 'bench/runtime_inert']:
         fail('Uploads allow only the explicitly reviewed inert diagnostic sketches')
     board = target()
     remote_root = setting('SUMO_REMOTE_ROOT', r'/[A-Za-z0-9_/-]+')
@@ -293,6 +317,9 @@ def flash(args):
     artifact_folder = f'{board_folder}/artifacts/{"match" if args.match else "bench"}-{startup}'
     if args.sketch == 'app':
         compile_app(board, checksum, board_folder, remote_root, fqbn, flags, startup)
+    elif probe:
+        artifact_folder = compile_app(board, checksum, board_folder, remote_root, fqbn,
+                                      flags, startup, project='runtime_inert.ino')
     else:
         remote(board, ['arduino-cli', 'compile', '--fqbn', fqbn,
                        '--output-dir', artifact_folder,
@@ -301,6 +328,8 @@ def flash(args):
     print(f'COMPILE command completed: {args.sketch}; source SHA256={checksum}; '
           f'MATCH={int(args.match)} MOTORS_ALLOWED={int(args.match)} STARTUP={startup}')
     if not args.compile_only:
+        if probe:
+            verify_runtime_artifacts(board, artifact_folder)
         remote(board, ['arduino-cli', 'upload', '--fqbn', fqbn,
                        '--input-dir', artifact_folder, board_folder])
         print('UPLOAD command completed; physical operation still requires observation')

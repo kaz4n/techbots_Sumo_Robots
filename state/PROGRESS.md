@@ -795,3 +795,7 @@ physical/loadedRAM/gate claim. | contract=this commit
 2026-09-23 P2 D103 optional inhibited local service reset IMPLEMENTED HOST-TESTED TARGET-COMPILED REVIEW-PASS: fullnormal/san1443main+187Gate, independent configured34/strict4roundtrips, finaltarget1fbd7238 default/MATCH modeledpeaks261056/261448 fit narrowly. Same7inertkeys reviewed/refreshed; no upload/gate. Source/test oracle failures preserved and reviewed. Evidence P2_service_reset_validation.md/raw/review. User reconfirmed bareboard testing authorization; next scope inert Runtime load with no external-pin operations. | implementation commit recorded in Git
 
 2026-09-23 D103 completed commit1b1d77d. P2 D104 bareboard actualRuntime probe contract/public192B report/232B diagnostic frozen under fresh user authorization. No source grants/pin I/O; new upload key remains pending exact source/ELF/capture review. Independent test/implementation next; physical gates unchanged.
+
+| 2026-09-23 22:52 +04 | P2 D104 | Actual Runtime no-pin probe implemented; corrected reviewer deadline finding; final91-file2bd817c4 target/ABI/model verified; 148 tooling tests PASS. Identified bare-board run prepared, upload/capture not yet executed; final review pending. | source baseline6d2ae96 + D104 software checkpoint |
+
+| 2026-09-23 22:54 +04 | P2 D104 | Independent final scoped source/target/capture/upload-guard review PASS; D104-R1 closed. 109policy/decoder+9capture guards and final21Runner normal/san cases pass; one identified bare-board run ready. No physical/human gate implied. | D104 software commit |

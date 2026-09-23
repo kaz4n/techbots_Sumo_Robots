@@ -70,7 +70,18 @@ def properties_from(builder):
     return result
 
 
-def expected_properties(fqbn, flags, platform):
+def selected_project(project, fqbn=None, flags=None):
+    if not isinstance(project, str) or project not in ('app.ino', 'runtime_inert.ino'):
+        raise ValueError('Unreviewed native project name')
+    if project == 'runtime_inert.ino' and (
+            (fqbn is not None and fqbn != BASE_FQBN) or
+            (flags is not None and flags != '-DMATCH=0 -DMOTORS_ALLOWED=0')):
+        raise ValueError('Runtime probe requires default startup and inert flags')
+    return project
+
+
+def expected_properties(fqbn, flags, platform, project='app.ino'):
+    project = selected_project(project, fqbn, flags)
     if fqbn not in (BASE_FQBN, BASE_FQBN + ':wait_linux_boot=no'):
         raise ValueError('Unsupported app FQBN')
     if flags not in ('-DMATCH=0 -DMOTORS_ALLOWED=0', '-DMATCH=1 -DMOTORS_ALLOWED=1'):
@@ -81,7 +92,7 @@ def expected_properties(fqbn, flags, platform):
     expected = {
         'build.fqbn': fqbn, 'build.core': 'arduino', 'build.variant': VARIANT,
         'runtime.platform.path': platform, 'build.variant.path': platform + '/variants/' + VARIANT,
-        'build.project_name': 'app.ino', 'build.library_discovery_phase_flag': DISCOVERY,
+        'build.project_name': project, 'build.library_discovery_phase_flag': DISCOVERY,
         'compiler.c.extra_flags': flags, 'compiler.cpp.extra_flags': flags,
         'build.link_mode': 'dynamic', 'build.link_args.dynamic': '-e main',
         'build.boot_mode': 'immediate' if immediate else 'wait',
@@ -117,7 +128,8 @@ def validated_builder(text, build_path):
     return builder, platform
 
 
-def validate_effective(properties, flags, build_path, data_dir):
+def validate_effective(properties, flags, build_path, data_dir, project='app.ino'):
+    project = selected_project(project, properties.get('build.fqbn'), flags)
     reference = decode(Path(__file__).with_name('app_build_commands.json').read_text())
     controlled = {key: value for key, value in properties.items() if key.startswith(COMMAND_PREFIXES)}
     if controlled.keys() != reference.keys():
@@ -126,15 +138,17 @@ def validate_effective(properties, flags, build_path, data_dir):
                      'SAFETY_FLAGS': flags,
                      'BOOT_ARGUMENT': '-immediate' if properties['build.boot_mode'] == 'immediate' else ''}
     for key, template in reference.items():
+        # Only the two literal reviewed sketch names may specialize this reference.
+        template = template.replace('app.ino', project)
         expected = re.sub(r'@(BUILD_PATH|DATA_DIR|SAFETY_FLAGS|BOOT_ARGUMENT)@',
                           lambda match: substitutions[match[1]], template)
         if controlled[key] != expected:
             raise ValueError('Unreviewed effective app command property: ' + key)
 
 
-def validated_properties(builder, platform, fqbn, flags, build_path):
+def validated_properties(builder, platform, fqbn, flags, build_path, project='app.ino'):
     properties = properties_from(builder)
-    for key, expected in expected_properties(fqbn, flags, platform).items():
+    for key, expected in expected_properties(fqbn, flags, platform, project).items():
         if properties.get(key) != expected:
             raise ValueError('App build property differs from pinned policy: ' + key)
     compiler = absolute_path(properties.get(COMPILER_ROOT))
@@ -145,24 +159,24 @@ def validated_properties(builder, platform, fqbn, flags, build_path):
     data_dir = absolute_path(platform[:-len(PLATFORM_SUFFIX)])
     if compiler != data_dir + COMPILER_SUFFIX or properties.get('build.path') != build_path:
         raise ValueError('App compiler or build root differs from selected location')
-    validate_effective(properties, flags, build_path, data_dir)
+    validate_effective(properties, flags, build_path, data_dir, project)
     return properties
 
 
-def validate_result(text, fqbn, flags, build_path):
+def validate_result(text, fqbn, flags, build_path, project='app.ino'):
     builder, platform = validated_builder(text, build_path)
     libraries = builder.get('used_libraries', [])
     if not isinstance(libraries, list) or libraries:
         raise ValueError('App native dependency policy rejects every external library')
-    return validated_properties(builder, platform, fqbn, flags, build_path)
+    return validated_properties(builder, platform, fqbn, flags, build_path, project)
 
 
-def validate_preflight(text, fqbn, flags, build_path, data_dir):
+def validate_preflight(text, fqbn, flags, build_path, data_dir, project='app.ino'):
     builder, platform = validated_builder(text, build_path)
     if platform != absolute_path(data_dir) + PLATFORM_SUFFIX:
         raise ValueError('App preflight core differs from resolved CLI data directory')
     # A properties-only query has not discovered libraries or compiled an image.
-    return validated_properties(builder, platform, fqbn, flags, build_path)
+    return validated_properties(builder, platform, fqbn, flags, build_path, project)
 
 
 def installed_pins(data_dir):
@@ -173,11 +187,12 @@ def installed_pins(data_dir):
 
 
 def verify_files(remote, board, properties, build_path, artifact_folder):
+    project = selected_project(properties.get('build.project_name'))
     data_dir = properties['runtime.platform.path'][:-len(PLATFORM_SUFFIX)]
     expected = installed_pins(data_dir)
-    artifacts = [build_path + '/app.ino' + suffix
+    artifacts = [build_path + '/' + project + suffix
                  for suffix in ('.elf', '_debug.elf', '_temp.elf')]
-    artifacts.append(artifact_folder + '/app.ino.elf-zsk.bin')
+    artifacts.append(artifact_folder + '/' + project + '.elf-zsk.bin')
     return verify_hashes(remote, board, expected, artifacts)
 
 

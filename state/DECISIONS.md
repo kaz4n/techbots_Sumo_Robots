@@ -962,3 +962,23 @@ Independent scripted-bus tests, target compile and separate review are required.
 Setup readiness means observed profile, not physical settling or accepted sensor
 freshness. Defer acquisition aggregate deadline, bias/axes/yaw to subsequent B3
 work; SC-AJ/F091, physical acceptance and human gates remain pending.
+
+
+## D-081 (2026-09-23, selected under D-051/D-075) Qualified MPU acquisition
+Context: D080 settings/coherent decoding alone do not establish a new sample.
+F101 source audit supplies a conditional status/STOP/15byte-shadow inference;
+B14 requires explicit failure when no data is observed for20ms.
+Decision: adopt P2_imu_acquisition_contract.md and its public native/Acquirer
+headers. One native600us/8192 Operation covers status plus full15byte burst;
+keep existing cleanup bound and all previous public transport behavior. Preserve
+both status bytes diagnostically, no second generation or retry of a consumed
+event. Acquirer privately owns Bus/Setup and emits NOT_READY/NO_NEW/OBSERVATION/
+FAULT, never cached gyro as new. Name B14 IMU_SILENCE_US20000; anchor to setup
+completion then accepted observation completions, check both call and completion
+with equality failing. Select reset-only silence/runtime-fault recovery.
+Consequence: sample freshness is conditional on documented shadow behavior and
+exclusive verified profile, not physical silicon proof.198clock slow corner can
+exceed600us and must fault; no changed timing budget,800us tick claim or gate.
+Independent native and wrapper tests, full relevant regression, inert target
+compile and separate review required. Bias, axes, calibration-presence and
+continuous-yaw integration follow separately; SC-AJ/F091 remain global blockers.

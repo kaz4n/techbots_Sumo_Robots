@@ -63,6 +63,7 @@ inline constexpr std::uint32_t IMU_FILTER_WAIT_US = 20000U;
 inline constexpr std::uint32_t IMU_SETUP_DEADLINE_US = 1000000U;
 inline constexpr std::uint32_t IMU_SETUP_MAX_ADVANCES = 1024U; // count exception
 inline constexpr std::uint32_t IMU_SETUP_MAX_REQUESTS = 64U; // count exception
+inline constexpr std::uint32_t IMU_SILENCE_US = 20000U; // B14; D081 observed-data deadline
 inline constexpr std::uint32_t COUNTDOWN_MS = 5000U; // ms
 inline constexpr std::uint32_t COUNTDOWN_MARGIN_MS = 100U; // ms
 inline constexpr std::uint32_t TICK_US = 1000U; // us

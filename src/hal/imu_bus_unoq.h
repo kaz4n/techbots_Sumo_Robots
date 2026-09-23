@@ -33,6 +33,18 @@ struct BusTransfer {
     std::uint32_t error_flags = 0U; // Native errors and unexpected protocol status.
     bool complete = false;
 };
+enum class AcquisitionState : std::uint8_t { FAULT, NO_NEW, OBSERVATION };
+struct BusAcquisition {
+    AcquisitionState state = AcquisitionState::FAULT;
+    BusTransfer transfer{}; // One aggregate interval; payload only on OBSERVATION.
+    std::uint8_t readiness_status = 0U;
+    bool readiness_observed = false;
+    std::uint32_t readiness_completed_us = 0U;
+    bool motion_attempted = false;
+    std::uint32_t motion_started_us = 0U; // Before second admission, not sample time.
+    bool motion_status_observed = false;
+    std::uint8_t motion_status = 0U; // Diagnostic only, never a second generation.
+};
 class Bus {
 public:
     Bus() = default;
@@ -46,6 +58,9 @@ public:
     // Reads INT_STATUS plus the coherent 14-byte motion window, 0x3A..0x48.
     // Completion does not prove a new sample or validate the sensor settings.
     BusTransfer readMotion();
+    // D081 profile/exclusive-owner precondition; status, STOP/idle, then15bytes.
+    // Shares one deadline/poll budget; freshness relies on documented shadow behavior.
+    BusAcquisition acquireMotion();
 private:
     struct Operation {
         std::uint32_t started_us = 0U;
@@ -68,6 +83,8 @@ private:
     BusStatus receive(Operation& op, BusTransfer& staging, std::uint8_t count);
     BusStatus finish(Operation& op);
     BusStatus admitRequest(Operation& op);
+    BusTransfer transfer(Operation& op, Register reg, std::uint8_t value,
+                         std::uint8_t count, bool writing);
     BusTransfer request(Register reg, std::uint8_t value, std::uint8_t count, bool writing);
     bool attempted_ = false;
     bool ready_ = false;

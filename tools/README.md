@@ -263,7 +263,8 @@ an offline wire fixture without contacting hardware. Omit `--input` to receive
 from the board's loopback Monitor socket over the existing configured SSH/ADB
 transport. Start capture before the local LOG_DUMP service trigger. The command
 only receives; it never uploads firmware, requests motion, resets the robot or
-restarts the router. Full app/local reset service integration is still pending.
+restarts the router. D101/D103 implement the app dump and inhibited local reset
+services in software; their physical native transport acceptance remains pending.
 
 Successful capture publishes a unique directory with frames/events/summary CSV,
 manifest, validation report, capture metadata and original wire bytes. Protocol,
@@ -275,6 +276,49 @@ Live `--timeout` defaults to330seconds (range1..3600); connection timeout is at 
 10seconds. Native UART cancellation permanently poisons that firmware instance's
 transport; MCU reset alone does not establish a clean Linux decoder. Never
 automatically restart `arduino-router`: its stop hooks can reset the MCU.
+
+## Observable capture connection (D113)
+
+The optional connection ticket lets a second terminal check whether a particular
+capture has a live TCP connection while the capture command is still running.
+Set `SUMO_TRANSPORT` explicitly to `ssh` or `adb`, with its corresponding target;
+these optional modes require it even when ordinary SSH capture uses the default.
+Generate a fresh ticket for every attempt; use the printed value in both commands:
+
+```
+python -c "import uuid; print(uuid.uuid4().hex)"
+python tools/dump_match.py --connection-ticket <fresh-ticket> --output-dir logs/run-new --timeout 30
+python tools/dump_match.py --observe-connection <same-ticket>
+```
+
+Start the observation command in a second terminal. The tool never backgrounds
+itself or starts a transmitter. Observation exits0 for a valid JSON observation;
+check its `state`, which can be PENDING, CONNECTED, TERMINAL, EXPIRED or UNKNOWN.
+Operational failures exit1 with error evidence. Invalid argument combinations
+exit2 before contacting the board. Observation cannot combine with capture or
+offline options. Ordinary captures without a ticket retain their existing path.
+
+CONNECTED proves only a sampled TCP connection to the board's loopback Monitor.
+It does not acknowledge registration inside the router, guarantee future bytes,
+prove clean UART framing, or grant MCU/motor permission. The connection may close
+immediately after the query. Keep the corresponding capture process running and
+associate its newly generated ticket with this attempt. Reusing a capture ticket
+fails before connection; querying an old still-live ticket describes that original
+capture, never a newly attempted one.
+
+The receiver retains small immutable Linux receipt files under a fixed private
+`/tmp/sumox26-dump-connection-<ticket>` directory. They record the actual claim,
+connection and terminal outcome. The observer checks bounded process/socket
+metadata and never opens a UART, sends application bytes/RPC, changes a service,
+resets the MCU or uploads firmware. A missing or expired receipt is not readiness.
+Receipts stay available for review; the tool does not remove or repair them.
+
+Final `capture.json` or `error.json` includes `connection_evidence` for an opt-in
+capture. Connection/metadata/receive failures preserve actual partial wire bytes;
+an observed END still needs the existing CRC and CSV validation. A ticket adds
+one final metadata query bounded to5seconds after the ordinary capture command's
+timeout+15 outer bound. It never extends the remote receive deadline. No ticket
+or offline capture has null connection evidence and needs no observation query.
 
 ## D091 inert recorder evidence
 

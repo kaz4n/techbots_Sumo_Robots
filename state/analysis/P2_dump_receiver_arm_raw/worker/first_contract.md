@@ -446,11 +446,3 @@ executable or actual launch failure after a valid target/argv is an operational
 CONNECTION_TRANSPORT failure with the actual intended command and host failure
 times; remote observation times stay null. The author may add one new independent
 unlocked case before first execution; all originally frozen assertions remain.
-
-The executable/launch sentence above applies to the observer and final metadata
-query. A receive-command launch failure retains the established capture primary
-code TRANSPORT and actual receive outcome; any subsequent query launch failure
-is CONNECTION_TRANSPORT in connection_evidence. This literal qualification
-preserves the earlier receive-first rule and no-ticket behavior. Missing explicit
-SUMO_TRANSPORT is configuration error2 for both new CLI modes even if an SSH
-target happens to be set; do not apply board.transport's legacy ssh default here.

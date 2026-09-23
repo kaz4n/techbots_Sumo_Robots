@@ -1,3 +1,11 @@
+## Active checkpoint - 2026-09-24T01:55:24.654212+04:00
+
+D113 final5a78257a passes independent/private75-method suites and scoped review;
+see P2_dump_receiver_arm_validation.md and F137. No board execution yet. Next
+reviewed Linux-only smoke plus D114 bare ADC preparation. D114 adopted58446fb,
+wrapper/staging prepared; tests/checked target/pinned readout and identified run
+remain pending. MCU stays D1042bd817c4. P2 software active, no human gates.
+
 ## Active checkpoint - 2026-09-24T01:37:57.185244+04:00
 
 D112 finite A1 bench committedd8a5bf5 with full scoped software review PASS;

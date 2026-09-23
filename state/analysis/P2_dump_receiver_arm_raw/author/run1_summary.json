@@ -1,0 +1,168 @@
+{
+  "tests_run": 74,
+  "failures": 35,
+  "errors": 3,
+  "skipped": 0,
+  "success": false,
+  "approved_additive_registry_context": {
+    "VBAT_SAMPLE_PERIOD_US": 10000,
+    "VBAT_SAMPLE_MAX_AGE_US": 20000,
+    "APP_QTR_SERVICE_US": 600,
+    "APP_SERVICE_MAX_PASSES": 8192,
+    "APP_CLOCK_STALL_MAX_POLLS": 65536
+  },
+  "findings": [
+    {
+      "test": "test_actual_observer_connected_original_identity_and_live_claim_pending (tests.tooling.test_dump_connection.ConnectionRemoteTests.test_actual_observer_connected_original_identity_and_live_claim_pending)",
+      "last_line": "+ CONNECTED"
+    },
+    {
+      "test": "test_actual_observer_directory_replacement_cannot_keep_connected (tests.tooling.test_dump_connection.ConnectionRemoteTests.test_actual_observer_directory_replacement_cannot_keep_connected)",
+      "last_line": "+ UNKNOWN"
+    },
+    {
+      "test": "test_actual_observer_future_event_is_invalid_but_future_deadline_is_live (tests.tooling.test_dump_connection.ConnectionRemoteTests.test_actual_observer_future_event_is_invalid_but_future_deadline_is_live)",
+      "last_line": "+ CONNECTED"
+    },
+    {
+      "test": "test_actual_observer_missing_malformed_and_bounded_proc_are_unknown (tests.tooling.test_dump_connection.ConnectionRemoteTests.test_actual_observer_missing_malformed_and_bounded_proc_are_unknown) (length=8)",
+      "last_line": "+ UNKNOWN"
+    },
+    {
+      "test": "test_actual_observer_missing_malformed_and_bounded_proc_are_unknown (tests.tooling.test_dump_connection.ConnectionRemoteTests.test_actual_observer_missing_malformed_and_bounded_proc_are_unknown) (length=1048577)",
+      "last_line": "+ UNKNOWN"
+    },
+    {
+      "test": "test_actual_observer_missing_malformed_and_bounded_proc_are_unknown (tests.tooling.test_dump_connection.ConnectionRemoteTests.test_actual_observer_missing_malformed_and_bounded_proc_are_unknown) (length=8201)",
+      "last_line": "+ UNKNOWN"
+    },
+    {
+      "test": "test_actual_observer_missing_malformed_and_bounded_proc_are_unknown (tests.tooling.test_dump_connection.ConnectionRemoteTests.test_actual_observer_missing_malformed_and_bounded_proc_are_unknown)",
+      "last_line": "+ UNKNOWN"
+    },
+    {
+      "test": "test_actual_observer_pid_and_fd_reuse_zombie_and_tcp_state_are_unknown (tests.tooling.test_dump_connection.ConnectionRemoteTests.test_actual_observer_pid_and_fd_reuse_zombie_and_tcp_state_are_unknown) (updates={'ticks': 901})",
+      "last_line": "+ UNKNOWN"
+    },
+    {
+      "test": "test_actual_observer_pid_and_fd_reuse_zombie_and_tcp_state_are_unknown (tests.tooling.test_dump_connection.ConnectionRemoteTests.test_actual_observer_pid_and_fd_reuse_zombie_and_tcp_state_are_unknown) (updates={'process_state': 'Z'})",
+      "last_line": "+ UNKNOWN"
+    },
+    {
+      "test": "test_actual_observer_pid_and_fd_reuse_zombie_and_tcp_state_are_unknown (tests.tooling.test_dump_connection.ConnectionRemoteTests.test_actual_observer_pid_and_fd_reuse_zombie_and_tcp_state_are_unknown) (updates={'socket_inode': 6001})",
+      "last_line": "+ UNKNOWN"
+    },
+    {
+      "test": "test_actual_observer_pid_and_fd_reuse_zombie_and_tcp_state_are_unknown (tests.tooling.test_dump_connection.ConnectionRemoteTests.test_actual_observer_pid_and_fd_reuse_zombie_and_tcp_state_are_unknown) (updates={'tcp_state': '08'})",
+      "last_line": "+ UNKNOWN"
+    },
+    {
+      "test": "test_actual_observer_second_identity_check_detects_fd_reuse (tests.tooling.test_dump_connection.ConnectionRemoteTests.test_actual_observer_second_identity_check_detects_fd_reuse)",
+      "last_line": "+ UNKNOWN"
+    },
+    {
+      "test": "test_actual_observer_second_identity_check_detects_pid_reuse (tests.tooling.test_dump_connection.ConnectionRemoteTests.test_actual_observer_second_identity_check_detects_pid_reuse)",
+      "last_line": "+ UNKNOWN"
+    },
+    {
+      "test": "test_actual_observer_strict_files_and_identity_refuse_as_metadata (tests.tooling.test_dump_connection.ConnectionRemoteTests.test_actual_observer_strict_files_and_identity_refuse_as_metadata) (name='claim.json', content='{')",
+      "last_line": "AssertionError: 'state' unexpectedly found in {'observed_utc': '2026-09-23T21:46:28.525468Z', 'observed_monotonic_ns': 10000000000, 'claim': None, 'connection': None, 'terminal': None, 'state': 'PENDING'}"
+    },
+    {
+      "test": "test_actual_observer_strict_files_and_identity_refuse_as_metadata (tests.tooling.test_dump_connection.ConnectionRemoteTests.test_actual_observer_strict_files_and_identity_refuse_as_metadata) (name='claim.json', content='xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx')",
+      "last_line": "AssertionError: 'state' unexpectedly found in {'observed_utc': '2026-09-23T21:46:28.529847Z', 'observed_monotonic_ns': 10000000000, 'claim': None, 'connection': None, 'terminal': None, 'state': 'PENDING'}"
+    },
+    {
+      "test": "test_actual_observer_strict_files_and_identity_refuse_as_metadata (tests.tooling.test_dump_connection.ConnectionRemoteTests.test_actual_observer_strict_files_and_identity_refuse_as_metadata) (name='claim.json', content=\"{'schema_version': 1, 'ticket': '0123456789abcdef0123456789abcdef', 't\")",
+      "last_line": "AssertionError: 'state' unexpectedly found in {'observed_utc': '2026-09-23T21:46:28.533373Z', 'observed_monotonic_ns': 10000000000, 'claim': None, 'connection': None, 'terminal': None, 'state': 'PENDING'}"
+    },
+    {
+      "test": "test_actual_observer_strict_files_and_identity_refuse_as_metadata (tests.tooling.test_dump_connection.ConnectionRemoteTests.test_actual_observer_strict_files_and_identity_refuse_as_metadata) (name='claim.json', content=\"{'schema_version': 1, 'ticket': '0123456789abcdef0123456789abcdef', 't\")",
+      "last_line": "AssertionError: 'state' unexpectedly found in {'observed_utc': '2026-09-23T21:46:28.536942Z', 'observed_monotonic_ns': 10000000000, 'claim': None, 'connection': None, 'terminal': None, 'state': 'PENDING'}"
+    },
+    {
+      "test": "test_actual_observer_strict_files_and_identity_refuse_as_metadata (tests.tooling.test_dump_connection.ConnectionRemoteTests.test_actual_observer_strict_files_and_identity_refuse_as_metadata) (name='claim.json', content=\"{'schema_version': 1, 'ticket': '0123456789abcdef0123456789abcdef', 't\")",
+      "last_line": "AssertionError: 'state' unexpectedly found in {'observed_utc': '2026-09-23T21:46:28.541441Z', 'observed_monotonic_ns': 10000000000, 'claim': None, 'connection': None, 'terminal': None, 'state': 'PENDING'}"
+    },
+    {
+      "test": "test_actual_observer_strict_files_and_identity_refuse_as_metadata (tests.tooling.test_dump_connection.ConnectionRemoteTests.test_actual_observer_strict_files_and_identity_refuse_as_metadata) (name='connected.json', content=\"{'schema_version': 1, 'claim': {'schema_version': 1, 'ticket': '012345\")",
+      "last_line": "AssertionError: 'state' unexpectedly found in {'observed_utc': '2026-09-23T21:46:28.546111Z', 'observed_monotonic_ns': 10000000000, 'claim': None, 'connection': None, 'terminal': None, 'state': 'PENDING'}"
+    },
+    {
+      "test": "test_actual_observer_terminal_cannot_hide_malformed_connection (tests.tooling.test_dump_connection.ConnectionRemoteTests.test_actual_observer_terminal_cannot_hide_malformed_connection)",
+      "last_line": "AssertionError: 'state' unexpectedly found in {'observed_utc': '2026-09-23T21:46:28.554260Z', 'observed_monotonic_ns': 50000000000, 'claim': None, 'connection': None, 'terminal': None, 'state': 'PENDING'}"
+    },
+    {
+      "test": "test_actual_observer_terminal_then_expiry_before_dead_process (tests.tooling.test_dump_connection.ConnectionRemoteTests.test_actual_observer_terminal_then_expiry_before_dead_process)",
+      "last_line": "+ TERMINAL"
+    },
+    {
+      "test": "test_actual_receiver_close_failure_has_no_terminal (tests.tooling.test_dump_connection.ConnectionRemoteTests.test_actual_receiver_close_failure_has_no_terminal)",
+      "last_line": "AssertionError: connect before claim publication"
+    },
+    {
+      "test": "test_actual_receiver_connect_deadline_and_connect_failure (tests.tooling.test_dump_connection.ConnectionRemoteTests.test_actual_receiver_connect_deadline_and_connect_failure)",
+      "last_line": "AssertionError: unexpected absolute path /dev/shm/d113-author-9zz6ryck/tests/tooling/test_dump_connection.py"
+    },
+    {
+      "test": "test_actual_receiver_connected_publication_collision_is_not_repaired (tests.tooling.test_dump_connection.ConnectionRemoteTests.test_actual_receiver_connected_publication_collision_is_not_repaired)",
+      "last_line": "AssertionError: unexpected absolute path /dev/shm/d113-author-9zz6ryck/tests/tooling/test_dump_connection.py"
+    },
+    {
+      "test": "test_actual_receiver_early_raw_end_is_only_receiver_observation (tests.tooling.test_dump_connection.ConnectionRemoteTests.test_actual_receiver_early_raw_end_is_only_receiver_observation)",
+      "last_line": "AssertionError: unexpected absolute path /dev/shm/d113-author-9zz6ryck/tests/tooling/test_dump_connection.py"
+    },
+    {
+      "test": "test_actual_receiver_eof_preserves_prefix_and_socket_timeout (tests.tooling.test_dump_connection.ConnectionRemoteTests.test_actual_receiver_eof_preserves_prefix_and_socket_timeout)",
+      "last_line": "AssertionError: unexpected absolute path /dev/shm/d113-author-9zz6ryck/tests/tooling/test_dump_connection.py"
+    },
+    {
+      "test": "test_actual_receiver_exact_line_bound_and_pending_bound (tests.tooling.test_dump_connection.ConnectionRemoteTests.test_actual_receiver_exact_line_bound_and_pending_bound)",
+      "last_line": "AssertionError: unexpected absolute path /dev/shm/d113-author-9zz6ryck/tests/tooling/test_dump_connection.py"
+    },
+    {
+      "test": "test_actual_receiver_failed_connect_retains_claim_and_error_terminal (tests.tooling.test_dump_connection.ConnectionRemoteTests.test_actual_receiver_failed_connect_retains_claim_and_error_terminal)",
+      "last_line": "AssertionError: unexpected absolute path /dev/shm/d113-author-9zz6ryck/tests/tooling/test_dump_connection.py"
+    },
+    {
+      "test": "test_actual_receiver_late_end_preserves_bytes_and_timeout_wins (tests.tooling.test_dump_connection.ConnectionRemoteTests.test_actual_receiver_late_end_preserves_bytes_and_timeout_wins)",
+      "last_line": "AssertionError: unexpected absolute path /dev/shm/d113-author-9zz6ryck/tests/tooling/test_dump_connection.py"
+    },
+    {
+      "test": "test_actual_receiver_line_failure_preserves_chunk_and_precedes_end (tests.tooling.test_dump_connection.ConnectionRemoteTests.test_actual_receiver_line_failure_preserves_chunk_and_precedes_end)",
+      "last_line": "AssertionError: unexpected absolute path /dev/shm/d113-author-9zz6ryck/tests/tooling/test_dump_connection.py"
+    },
+    {
+      "test": "test_actual_receiver_order_records_exact_bytes_and_zero_sends (tests.tooling.test_dump_connection.ConnectionRemoteTests.test_actual_receiver_order_records_exact_bytes_and_zero_sends)",
+      "last_line": "AssertionError: unexpected absolute path /dev/shm/d113-author-9zz6ryck/tests/tooling/test_dump_connection.py"
+    },
+    {
+      "test": "test_actual_receiver_terminal_publication_collision_keeps_wire_and_fails (tests.tooling.test_dump_connection.ConnectionRemoteTests.test_actual_receiver_terminal_publication_collision_keeps_wire_and_fails)",
+      "last_line": "AssertionError: unexpected absolute path /dev/shm/d113-author-9zz6ryck/tests/tooling/test_dump_connection.py"
+    },
+    {
+      "test": "test_actual_receiver_thrown_timeout_is_timeout (tests.tooling.test_dump_connection.ConnectionRemoteTests.test_actual_receiver_thrown_timeout_is_timeout)",
+      "last_line": "AssertionError: unexpected absolute path /dev/shm/d113-author-9zz6ryck/tests/tooling/test_dump_connection.py"
+    },
+    {
+      "test": "test_actual_receiver_ticket_collision_never_connects_or_overwrites (tests.tooling.test_dump_connection.ConnectionRemoteTests.test_actual_receiver_ticket_collision_never_connects_or_overwrites)",
+      "last_line": "AssertionError: unexpected absolute path /dev/shm/d113-author-9zz6ryck/tests/tooling/test_dump_connection.py"
+    },
+    {
+      "test": "test_actual_receiver_total_limit_returns_plus_one_then_errors (tests.tooling.test_dump_connection.ConnectionRemoteTests.test_actual_receiver_total_limit_returns_plus_one_then_errors)",
+      "last_line": "AssertionError: unexpected absolute path /dev/shm/d113-author-9zz6ryck/tests/tooling/test_dump_connection.py"
+    },
+    {
+      "test": "test_actual_observer_file_identity_change_during_read_is_error (tests.tooling.test_dump_connection.ConnectionRemoteTests.test_actual_observer_file_identity_change_during_read_is_error)",
+      "last_line": "KeyError: 'error'"
+    },
+    {
+      "test": "test_actual_observer_orphan_receipt_is_error_and_private_temporary_is_ignored (tests.tooling.test_dump_connection.ConnectionRemoteTests.test_actual_observer_orphan_receipt_is_error_and_private_temporary_is_ignored)",
+      "last_line": "KeyError: 'error'"
+    },
+    {
+      "test": "test_actual_observer_wrong_file_mode_hardlink_and_symlink_refuse (tests.tooling.test_dump_connection.ConnectionRemoteTests.test_actual_observer_wrong_file_mode_hardlink_and_symlink_refuse)",
+      "last_line": "KeyError: 'error'"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+--- frozen_environment_test
++++ fixture_fix1_proposal
+@@ -447,7 +447,7 @@
+                 self.proc_hook(self, raw)
+             return str(self.proc) + raw[5:]
+         if raw == '/':
+-            return path
++            return str(self.root)
+         raise AssertionError('unexpected absolute path '+raw)
+ 
+     def populate_proc(self, process_state='S', ticks=900, socket_inode=6000, tcp_state='01'):
+@@ -509,11 +509,16 @@
+     def fake_stat(self, path, *args, **kwargs):
+         actual = self.mapped(path)
+         result = self.real['stat'](actual, *args, **kwargs)
++        if kwargs.get('dir_fd') is not None and not isinstance(actual, int) and not os.path.isabs(actual):
++            actual = os.path.join(self.fd_paths.get(kwargs['dir_fd'], ''), os.fsdecode(actual))
+         return self.root_stat(result, actual) if not isinstance(actual, int) else result
+ 
+     def fake_lstat(self, path, *args, **kwargs):
+         actual = self.mapped(path)
+-        return self.root_stat(self.real['lstat'](actual, *args, **kwargs), actual)
++        result = self.real['lstat'](actual, *args, **kwargs)
++        if kwargs.get('dir_fd') is not None and not os.path.isabs(actual):
++            actual = os.path.join(self.fd_paths.get(kwargs['dir_fd'], ''), os.fsdecode(actual))
++        return self.root_stat(result, actual)
+ 
+     def fake_fstat(self, fd):
+         if fd == 987:
+@@ -573,8 +578,9 @@
+     def execute(self, argv):
+         if argv[:3] != ['python3', '-u', '-c']:
+             raise AssertionError('unexpected remote command shape')
+-        output, error = io.StringIO(), io.StringIO()
+-        code = 0
++        output = io.TextIOWrapper(io.BytesIO(), encoding='utf-8', newline='')
++        error = io.StringIO()
++        code, failure = 0, None
+         with self.patched(), mock.patch.object(sys, 'argv', ['-c']+argv[4:]):
+             with contextlib.redirect_stdout(output), contextlib.redirect_stderr(error):
+                 try:
+@@ -585,8 +591,11 @@
+                     raise
+                 except Exception:
+                     code = 1
+-                    traceback.print_exc()
+-        return subprocess.CompletedProcess(argv, code, output.getvalue(), error.getvalue())
++                    failure = sys.exc_info()
++        if failure:
++            traceback.print_exception(*failure, file=error)
++        output.flush()
++        return subprocess.CompletedProcess(argv, code, output.buffer.getvalue().decode('utf-8'), error.getvalue())
+ 
+ 
+ @unittest.skipUnless(sys.platform.startswith('linux'), 'Actual remote Python requires isolated Linux fixtures')

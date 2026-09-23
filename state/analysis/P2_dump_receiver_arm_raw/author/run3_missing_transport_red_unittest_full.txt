@@ -1,0 +1,65 @@
+test_missing_explicit_transport_is_argument_error_for_both_new_modes (tests.tooling.test_dump_connection.ConnectionHostTests.test_missing_explicit_transport_is_argument_error_for_both_new_modes) ... 
+  test_missing_explicit_transport_is_argument_error_for_both_new_modes (tests.tooling.test_dump_connection.ConnectionHostTests.test_missing_explicit_transport_is_argument_error_for_both_new_modes) (args=['--observe-connection', '0123456789abcdef0123456789abcdef']) ... FAIL
+  test_missing_explicit_transport_is_argument_error_for_both_new_modes (tests.tooling.test_dump_connection.ConnectionHostTests.test_missing_explicit_transport_is_argument_error_for_both_new_modes) (args=['--connection-ticket', '0123456789abcdef0123456789abcdef', '--output-dir', '/tmp/d113-author-s1mcde1d/capture']) ... FAIL
+
+======================================================================
+FAIL: test_missing_explicit_transport_is_argument_error_for_both_new_modes (tests.tooling.test_dump_connection.ConnectionHostTests.test_missing_explicit_transport_is_argument_error_for_both_new_modes) (args=['--observe-connection', '0123456789abcdef0123456789abcdef'])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/d113-author-1thyowwo/tests/tooling/test_dump_connection.py", line 159, in test_missing_explicit_transport_is_argument_error_for_both_new_modes
+    self.module.main(args)
+  File "/dev/shm/d113-author-1thyowwo/tools/dump_match.py", line 1028, in main
+    return _observe_cli(target, args.observe_connection)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/d113-author-1thyowwo/tools/dump_match.py", line 1014, in _observe_cli
+    evidence = observe_connection(target, ticket)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/d113-author-1thyowwo/tools/dump_match.py", line 864, in observe_connection
+    output, outcome, failure = _connection_command(target, arguments, 5)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/d113-author-1thyowwo/tools/dump_match.py", line 796, in _connection_command
+    result = board.remote(target, arguments, capture=True, timeout=timeout)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1134, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1138, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1193, in _execute_mock_call
+    raise effect
+AssertionError: missing transport reached remote
+
+======================================================================
+FAIL: test_missing_explicit_transport_is_argument_error_for_both_new_modes (tests.tooling.test_dump_connection.ConnectionHostTests.test_missing_explicit_transport_is_argument_error_for_both_new_modes) (args=['--connection-ticket', '0123456789abcdef0123456789abcdef', '--output-dir', '/tmp/d113-author-s1mcde1d/capture'])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/d113-author-1thyowwo/tests/tooling/test_dump_connection.py", line 159, in test_missing_explicit_transport_is_argument_error_for_both_new_modes
+    self.module.main(args)
+  File "/dev/shm/d113-author-1thyowwo/tools/dump_match.py", line 1041, in main
+    destination = save_capture(chunks, args.output_dir, receive_mode=mode, target=target, **identities)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/d113-author-1thyowwo/tools/dump_match.py", line 253, in save_capture
+    for chunk in chunks:
+  File "/dev/shm/d113-author-1thyowwo/tools/dump_match.py", line 888, in __iter__
+    yield from self._connected_iter()
+  File "/dev/shm/d113-author-1thyowwo/tools/dump_match.py", line 938, in _connected_iter
+    output, self.outcome, failure = _connection_command(self.target, arguments, self.timeout + 15)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/dev/shm/d113-author-1thyowwo/tools/dump_match.py", line 796, in _connection_command
+    result = board.remote(target, arguments, capture=True, timeout=timeout)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1134, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1138, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1193, in _execute_mock_call
+    raise effect
+AssertionError: missing transport reached remote
+
+----------------------------------------------------------------------
+Ran 1 test in 0.025s
+
+FAILED (failures=2)

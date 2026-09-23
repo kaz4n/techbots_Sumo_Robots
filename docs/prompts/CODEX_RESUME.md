@@ -33,8 +33,11 @@ D111 implementationc1f48d4; historical registry compatibility769727a.
 D112 UI raw/decoder bench complete in software:30profiles,normal/san35cases/21759assertions,
 90registrychecks and128policy methods PASS; exactbf67d46d default/Immediate
 ELF4fa8171d,conditionalpeak17128; final scoped review PASS/no findings. Read
-its validation/raw/F136. D113 minimal native-dump attachment-receipt contract adopted. Next independent
-frozen tests, implementation, unchanged legacy suite and separate source review. Receipt cannot prove router registration/clean framing.
+its validation/raw/F136. D113 receiver connection evidence final5a78257a passes independent/private75
+methods and scoped review. See F137/validation; original failures remain. Next
+reviewed Linux-only smoke. D114 adopted58446fb; wrapper/staging in progress,
+checked target/pinned readout/identified run still pending. Receipt cannot prove
+router registration/clean framing.
 Read P2_remaining_software_after_D111.md and native_dump_bare_feasibility; no
 new dump run policy or clean-framing grant is established.
 

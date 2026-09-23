@@ -93,3 +93,9 @@ registration/clean-framing grant follows. Remaining stand-bench software follows
 D113 adopted: minimal receive-only TCP connection ticket/observer in existing dump tool.
 Next independent frozen tests/implementation/source review. D112d8a5bf5 complete;
 ADC/stand feasibility191046f. No actual new board/MCU action. See handoff/contracts.
+
+D113 final5a78257a complete in software: independent/private75methods PASS,
+no open scoped finding; F137/validation retains original failures. Next reviewed
+bare Linux receive-only smoke. D114 adopted58446fb; wrapper/staging prepared,
+independent tests/checked route/exact target/readout/run review still pending.
+MCU remains D1042bd817c4; no new upload/reset or human gate.

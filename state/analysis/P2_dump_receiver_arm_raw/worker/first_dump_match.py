@@ -1001,7 +1001,6 @@ def _validate_cli(parser, args, identities):
                 path = local_path(args.input)
                 require(path.is_file() and stat.S_ISREG(path.stat().st_mode), "INPUT", "Input must be a regular file.")
         if ticket is not None:
-            require("SUMO_TRANSPORT" in os.environ, "MODE", "Connection-ticket modes require explicit SUMO_TRANSPORT.")
             target, mode = board.target(), board.transport()
             _validate_connection_request(target, ticket)
             return target, mode

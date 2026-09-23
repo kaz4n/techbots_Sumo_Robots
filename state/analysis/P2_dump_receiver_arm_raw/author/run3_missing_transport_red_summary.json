@@ -1,0 +1,24 @@
+{
+  "tests_run": 1,
+  "failures": 2,
+  "errors": 0,
+  "skipped": 0,
+  "success": false,
+  "approved_additive_registry_context": {
+    "VBAT_SAMPLE_PERIOD_US": 10000,
+    "VBAT_SAMPLE_MAX_AGE_US": 20000,
+    "APP_QTR_SERVICE_US": 600,
+    "APP_SERVICE_MAX_PASSES": 8192,
+    "APP_CLOCK_STALL_MAX_POLLS": 65536
+  },
+  "findings": [
+    {
+      "test": "test_missing_explicit_transport_is_argument_error_for_both_new_modes (tests.tooling.test_dump_connection.ConnectionHostTests.test_missing_explicit_transport_is_argument_error_for_both_new_modes) (args=['--observe-connection', '0123456789abcdef0123456789abcdef'])",
+      "last_line": "AssertionError: missing transport reached remote"
+    },
+    {
+      "test": "test_missing_explicit_transport_is_argument_error_for_both_new_modes (tests.tooling.test_dump_connection.ConnectionHostTests.test_missing_explicit_transport_is_argument_error_for_both_new_modes) (args=['--connection-ticket', '0123456789abcdef0123456789abcdef', '--output-dir', '/tmp/d113-author-s1mcde1d/capture'])",
+      "last_line": "AssertionError: missing transport reached remote"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+--- first_frozen_test
++++ environment_addition
+@@ -133,6 +133,21 @@
+ 
+ 
+ class ConnectionHostTests(ConnectionBase):
++    def test_invalid_environment_is_argument_error_before_transport(self):
++        environments = ({'SUMO_TRANSPORT': 'invalid', 'SUMO_SSH_TARGET': TARGET},
++                        {'SUMO_TRANSPORT': 'ssh'}, {'SUMO_TRANSPORT': 'adb'})
++        commands = (['--observe-connection', TICKET],
++                    ['--connection-ticket', TICKET, '--output-dir', str(self.root / 'capture')])
++        for environment in environments:
++            for args in commands:
++                with self.subTest(environment=environment, args=args):
++                    with mock.patch.dict(os.environ, environment, clear=True):
++                        with mock.patch.object(self.module.board, 'remote', side_effect=AssertionError('I/O')):
++                            with contextlib.redirect_stderr(io.StringIO()):
++                                with self.assertRaises(SystemExit) as caught:
++                                    self.module.main(args)
++                            self.assertEqual(caught.exception.code, 2)
++
+     def test_passive_constructor_and_invalid_public_arguments_before_transport(self):
+         with mock.patch.object(self.module.board, 'remote', side_effect=AssertionError('I/O')):
+             capture = self.module.live_chunks(TARGET, 30, connection_ticket=TICKET)

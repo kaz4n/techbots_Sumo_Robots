@@ -1,0 +1,65 @@
+{
+  "verdict": "PASS_SCOPED_D113_SOURCE_AND_CONTROLLED_TESTS",
+  "utc": "2026-09-23T21:53:36.118186+00:00",
+  "reviewer": "Reused separate same-model read-only context; source body read; not human/cross-model gate",
+  "source_sha256": "5a78257ac02733231958477ff7e139bb3a0987ce0fb893446132cc9b05853717",
+  "test_sha256": "c864142fed553356254cdbfc97d7cdccf41eb2b4a78ed4a1cc4537292445fe44",
+  "contract_sha256": "37dca22f86c9bb636ce7bd4188c86907ef8f16b6948631da0f8e5994f9d06f7a",
+  "documentation_sha256": "6bdcb612b8f8421fce66cbbb60ff2dfee322b2c4aa174e5aac00d1968e6f0d5f",
+  "private_receipt": "private_1790200331977387435.json",
+  "private_receipt_sha256": "08dc0011747bb72a6b09b2dfe90a58504783efbd52db0ec3f58fd65220b1d4c7",
+  "original_test_methods_preserved": 40,
+  "final_new_test_methods": 42,
+  "prior_test_files_unchanged": 341,
+  "private_tests": {
+    "methods": 75,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0
+  },
+  "source_fix": "Exact one-line explicit SUMO_TRANSPORT check; private red then green",
+  "findings": [
+    {
+      "id": "R1",
+      "severity": "MINOR",
+      "status": "CLOSED",
+      "evidence": [
+        "edge_1492b81d.json",
+        "edge_5a78257a.json"
+      ]
+    },
+    {
+      "id": "E1",
+      "severity": "MINOR",
+      "status": "CLOSED_FIXTURE_COMPATIBILITY",
+      "evidence": [
+        "fixture_fix1_review.json",
+        "../author/run1_summary.json",
+        "../author/run2_fixture1_summary.json"
+      ]
+    }
+  ],
+  "preserved_failures": [
+    "../author/run1_summary.json",
+    "private_1790200264870632165.json",
+    "edge_1492b81d.json",
+    "finalizer_initial_failure.json"
+  ],
+  "checks": [
+    "Legacy Parser/bundle/offline definitions and original remote receiver unchanged",
+    "Exact no-follow records; bounded process/fd/TCP sampling; no application sends",
+    "Final query before yield; receive/parser/query failure precedence",
+    "Actual board.remote SSH and ADB missing executable paths controlled without process launch",
+    "Original 40 independent methods unchanged; additions and fixture correction separately frozen"
+  ],
+  "scope_limits": [
+    "No board/Linux receiver execution, real sockets, UART, MCU, reset, upload or service actions",
+    "TCP observation never proves router registration, clean decoder, physical acceptance or MCU permission",
+    "Concurrent D114 board_tool staging edit is outside this verdict; copied helper hashes preserved in private receipt",
+    "No full unchanged host-suite rerun required by coordinator; actual D090 C++ roundtrip executed"
+  ],
+  "private_helper_sha256": {
+    "tools/board_tool.py": "6e3fb9b10eb2eae5fe8ee7d3ba6fd75159a817db71416efe968ef19c2e7f1b5c",
+    "tools/validate_csv_bundle.py": "1c4781fdd0f77a610998644db610bf6adf5a2373d4f32f3ec7ca486185ff52f2"
+  }
+}

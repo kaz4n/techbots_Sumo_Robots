@@ -434,23 +434,3 @@ observation or CONNECTED. A response cannot have both state and error. Unexpecte
 shape/extra keys/types/code is itself CONNECTION_METADATA. Actual process launch,
 nonzero exit or subprocess timeout is CONNECTION_TRANSPORT and does not promote
 unvalidated stdout records. Do not infer metadata status from free-form stderr.
-
-## Before-execution environment clarification
-
-For the new ticket-capture and observer CLI paths only, missing/invalid configured
-SUMO_TRANSPORT or the transport's required target is argument/configuration error2
-before board.remote; no query has occurred and no command outcome is invented.
-This includes invalid transport, missing/malformed SSH target and missing/malformed
-ADB serial under existing syntax. No-ticket CLI behavior stays unchanged. Missing
-executable or actual launch failure after a valid target/argv is an operational
-CONNECTION_TRANSPORT failure with the actual intended command and host failure
-times; remote observation times stay null. The author may add one new independent
-unlocked case before first execution; all originally frozen assertions remain.
-
-The executable/launch sentence above applies to the observer and final metadata
-query. A receive-command launch failure retains the established capture primary
-code TRANSPORT and actual receive outcome; any subsequent query launch failure
-is CONNECTION_TRANSPORT in connection_evidence. This literal qualification
-preserves the earlier receive-first rule and no-ticket behavior. Missing explicit
-SUMO_TRANSPORT is configuration error2 for both new CLI modes even if an SSH
-target happens to be set; do not apply board.transport's legacy ssh default here.

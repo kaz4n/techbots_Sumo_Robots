@@ -938,3 +938,11 @@ measured guarantee or permission to exceed MCU ratings; SC-AJ remains global.
 No stock Wire calls, new generic framework, app integration, hardware evidence,
 phase gate or upload/run follows. MPU bounded setup/config/readback, sample-age
 and axis/bias integration remain a distinct next B3 task.
+
+
+D079 diagnostic clarification (2026-09-23): error_flags retains both observed
+hardware error flags and unexpected protocol status bits, includingADDR/TCR or
+unexpectedTXIS/RXNE/STOPF/TC/DIR/ADDCODE. Normal allowed progress is not an error.
+Independent tests exposed the initial ambiguity; choose retained causal evidence
+before PE0 rather than dropping protocol-fault evidence. No partial data or
+success assertion is weakened. Original failures stay in author receipts.

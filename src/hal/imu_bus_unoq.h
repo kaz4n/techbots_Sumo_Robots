@@ -30,7 +30,7 @@ struct BusTransfer {
     std::uint8_t count = 0U;
     std::uint32_t started_us = 0U;
     std::uint32_t completed_us = 0U;
-    std::uint32_t error_flags = 0U;
+    std::uint32_t error_flags = 0U; // Native errors and unexpected protocol status.
     bool complete = false;
 };
 class Bus {
@@ -47,11 +47,41 @@ public:
     // Completion does not prove a new sample or validate the sensor settings.
     BusTransfer readMotion();
 private:
+    struct Operation {
+        std::uint32_t started_us = 0U;
+        std::uint32_t observed_us = 0U;
+        std::uint32_t polls = 0U;
+        std::uint32_t error_flags = 0U;
+    };
+    bool controlsOwned(bool changing_pe = false);
+    bool ownershipValid(bool changing_pe = false);
+    BusStatus setupCheckpoint(Operation& op);
+    BusStatus configurePad(std::uint32_t pin, Operation& op);
+    BusStatus initialize(Operation& op);
+    BusCleanup disableOwned();
+    BusTransfer failed(BusStatus status, Operation& op);
+    BusStatus checkFlags(Operation& op, std::uint32_t allowed, std::uint32_t flags);
+    BusStatus observe(Operation& op, std::uint32_t allowed, std::uint32_t& flags);
+    BusStatus waitFor(Operation& op, std::uint32_t wanted, std::uint32_t allowed);
+    BusStatus launch(Operation& op, std::uint8_t count, bool reading, bool automatic);
+    BusStatus sendByte(Operation& op, std::uint8_t value);
+    BusStatus receive(Operation& op, BusTransfer& staging, std::uint8_t count);
+    BusStatus finish(Operation& op);
+    BusStatus admitRequest(Operation& op);
+    BusTransfer request(Register reg, std::uint8_t value, std::uint8_t count, bool writing);
     bool attempted_ = false;
     bool ready_ = false;
     bool owned_ = false;
     bool faulted_ = false;
     bool configured_ = false;
+    bool pe_enabled_ = false;
+    bool ownership_lost_ = false;
+    std::uint32_t pad_mode_ = 0U;
+    std::uint32_t pad_pull_ = 0U;
+    std::uint32_t pad_type_ = 0U;
+    std::uint32_t pad_speed_ = 0U;
+    std::uint32_t pad_af_ = 0U;
+    std::uint32_t cr2_expected_ = 0U;
     BusCleanup cleanup_ = BusCleanup::NOT_ATTEMPTED;
 };
 } // namespace imu

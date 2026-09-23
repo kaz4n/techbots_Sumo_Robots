@@ -60,6 +60,11 @@ Before begin, transfer methods return NOT_INITIALIZED without I/O; after a
 terminal failure, supported methods return FAULT_LATCHED without new I/O.
 Malformed requests are rejected first as INVALID_REQUEST. Fault results include
 recorded native error flags before cleanup and a distinct cleanup status.
+error_flags retains observed ARLO/BERR/NACKF/OVR/PECERR/TIMEOUT/ALERT and any
+unexpected protocol status bits (TXIS/RXNE/ADDR/STOPF/TC/TCR/DIR/ADDCODE).
+Ordinary allowed progress bits are not errors. Missing flags cannot be invented
+when a deadline or ownership failure prevents further safe observation. This
+explicit diagnostic definition includes protocol faults before PE0 erases them.
 
 BusTransfer is value-initialized. All failed calls leave bytes zero, count0 and
 complete=false. Successful reads publish exactly1 or15 bytes; successful writes

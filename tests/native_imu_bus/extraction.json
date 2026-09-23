@@ -1,0 +1,99 @@
+{
+  "cmsis": {
+    "path": "state\\analysis\\P2_adc_ownership_raw\\headers\\stm32u585xx.h",
+    "sha256": "8b66d5b9d1514f3ce0950b7a96402e7c026a0779e1cc36c3771be05432b68c06"
+  },
+  "adaptations": [
+    "__STATIC_INLINE becomes inline",
+    "__IO/__I uint32_t storage becomes volatile four-byte Reg",
+    "comments stripped from selected bodies, trailing whitespace removed, LF newlines"
+  ],
+  "headers": {
+    "i2c": {
+      "path": "state\\analysis\\P2_i2c_native_raw\\stm32u5xx_ll_i2c.h",
+      "sha256": "aeb2be3a463efbf1ca47b15c4696da323b5a212a47055b10cdd8fd2e8e92ae0a",
+      "functions": [
+        "LL_I2C_Enable",
+        "LL_I2C_Disable",
+        "LL_I2C_IsEnabled",
+        "LL_I2C_ConfigFilters",
+        "LL_I2C_SetTiming",
+        "LL_I2C_HandleTransfer",
+        "LL_I2C_GenerateStopCondition",
+        "LL_I2C_ReceiveData8",
+        "LL_I2C_TransmitData8",
+        "LL_I2C_IsActiveFlag_TXE",
+        "LL_I2C_IsActiveFlag_TXIS",
+        "LL_I2C_IsActiveFlag_RXNE",
+        "LL_I2C_IsActiveFlag_ADDR",
+        "LL_I2C_IsActiveFlag_NACK",
+        "LL_I2C_IsActiveFlag_STOP",
+        "LL_I2C_IsActiveFlag_TC",
+        "LL_I2C_IsActiveFlag_TCR",
+        "LL_I2C_IsActiveFlag_BERR",
+        "LL_I2C_IsActiveFlag_ARLO",
+        "LL_I2C_IsActiveFlag_OVR",
+        "LL_I2C_IsActiveFlag_BUSY",
+        "LL_I2C_ClearFlag_ADDR",
+        "LL_I2C_ClearFlag_NACK",
+        "LL_I2C_ClearFlag_STOP",
+        "LL_I2C_ClearFlag_BERR",
+        "LL_I2C_ClearFlag_ARLO",
+        "LL_I2C_ClearFlag_OVR"
+      ],
+      "host_warning_scope": null
+    },
+    "gpio": {
+      "path": "state\\analysis\\P2_adc_ownership_raw\\headers\\stm32u5xx_ll_gpio.h",
+      "sha256": "5e6772bee2e03314b266d5bb9ad448c02bcd5a41f618fc126375006db7cfc346",
+      "functions": [
+        "LL_GPIO_SetPinMode",
+        "LL_GPIO_GetPinMode",
+        "LL_GPIO_SetPinPull",
+        "LL_GPIO_GetPinPull",
+        "LL_GPIO_SetPinOutputType",
+        "LL_GPIO_GetPinOutputType",
+        "LL_GPIO_SetPinSpeed",
+        "LL_GPIO_GetPinSpeed",
+        "LL_GPIO_SetAFPin_8_15",
+        "LL_GPIO_GetAFPin_8_15",
+        "LL_GPIO_IsPinLocked",
+        "LL_GPIO_ReadInputPort",
+        "LL_GPIO_IsInputPinSet"
+      ],
+      "host_warning_scope": null
+    },
+    "bus": {
+      "path": "state\\analysis\\P2_adc_ownership_raw\\headers\\stm32u5xx_ll_bus.h",
+      "sha256": "a771a988182391a991c4b419c47d4e2cbf70f79f378add0c60fe9f3cb5cac6f2",
+      "functions": [
+        "LL_APB1_GRP2_EnableClock",
+        "LL_APB1_GRP2_IsEnabledClock"
+      ],
+      "host_warning_scope": null
+    },
+    "rcc": {
+      "path": "state\\analysis\\P2_adc_ownership_raw\\headers\\stm32u5xx_ll_rcc.h",
+      "sha256": "08a13b1c17bc496658c1ad1b32fc4718d4d864aecf3165a47c360cbdc82c8191",
+      "functions": [
+        "LL_RCC_GetSysClkSource",
+        "LL_RCC_GetAHBPrescaler",
+        "LL_RCC_GetAPB1Prescaler",
+        "LL_RCC_GetI2CClockSource",
+        "LL_RCC_PLL1_GetMainSource",
+        "LL_RCC_PLL1_GetDivider",
+        "LL_RCC_PLL1_GetN",
+        "LL_RCC_PLL1_GetR",
+        "LL_RCC_PLL1_IsReady",
+        "LL_RCC_PLL1_IsEnabledDomain_SYS",
+        "LL_RCC_PLL1FRACN_IsEnabled",
+        "LL_RCC_MSI_IsEnabledRangeSelect",
+        "LL_RCC_MSIS_GetRange",
+        "LL_RCC_MSIS_IsReady",
+        "LL_RCC_IsEnabledPLLMode",
+        "LL_RCC_GetMSIPLLMode"
+      ],
+      "host_warning_scope": "RCC fixed 32-bit peripheral-address cast warning only"
+    }
+  }
+}

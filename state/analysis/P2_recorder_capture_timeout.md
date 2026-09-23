@@ -18,3 +18,11 @@ failed due missing tests/tooling PYTHONPATH; the remaining7passed with correctpa
 The suspected ELFoffset defect was retracted before code edits: GNU nm includes
 sectionVMA; readelf st_value0x28928 was already correct. Six additive tests protect
 that interpretation. A fresh reviewer independently reproduced it.
+
+## Fix disposition
+
+Final helperfd1932ac was separately reviewed and its51additive/current capture
+methods passed. Retry runtime_retry1 succeeded with47reads,934892B,51commands
+and281.632730s; longest command19.673451s, below30s. All original limits held.
+No firmware change/reset/reupload. Both captured pools and terminal diagnostics
+match; independent retained-row CRC verified. Attempt1 failure remains archived.

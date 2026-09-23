@@ -19,3 +19,15 @@ and CRC freeze afterSTOP/sealing. Do not reupload changed bytes under this recor
 Capture is a separate read-only step after reviewed pins/guards are ready.
 This run cannot satisfy physical sensors, native transport, fullrobotWCET,
 SC-AJ calibrated time, B7 or human phase gates.
+
+## Observed outcome - 2026-09-23 17:38 +04
+
+Software committed17bb38a; exact bytes above unchanged. Upload exit0. First capture
+timed out before private RAM; reviewed flash subdivision retry completed without
+reupload/reset or daemon action. Evidence runtime_retry1/ and runtime_summary.json.
+Actual MCU-clock200000998us recording,5001frames/8events, CRC900325728 verified
+independently from two identical captured pools. All actual duties remain zero.
+Expected absent-IMU calibration rejection is logged. Native UART was not tested.
+See P2_recorder_bench_validation.md for timing/memory numbers and explicit limits.
+Board remains frozen in this inert image. No further board action needed for this
+scoped task; next work is SC-AK software timing integration.

@@ -171,3 +171,86 @@ the failure and final reproduction. The same identified inert firmware may be
 read again through this helper without upload, reset or daemon action. The
 original source/ELF review remains valid. Runtime/physical/human gates remain
 outside this approval.
+
+## Actual runtime evidence addendum
+
+**PASS for the scoped synthetic MCU run and bounded MEM-AP readback. No open
+BLOCKER, MAJOR or MINOR finding was identified in this runtime evidence review.**
+This is a separate same-model review, not a cross-model review or human phase
+gate. The reviewer performed only local file reads, computation and writes to
+this review directory; no hardware command, upload, reset or attachment occurred.
+
+The source approval above remains attached to aggregate
+`1502e9484068921fe3f96adef402e12fc85a00093b544e4a6c0dee165476b583`
+and final ELF
+`eff3e050072b41d888c343ea57c4d966069882892a7dc50bb0224946a26a798d`.
+All 74 staged source hashes also match the committed blobs in
+`17bb38a6e47ed119c5eb563fa6347d547a4e0841`; the uploaded sketch hash remains
+`0448e3ac5a5409bdfd08226f42f0d74c66dbe85d7bfd2ffb27a76acc3a7bfd2a`.
+The upload receipt records the coordinator's successful explicit CLI upload.
+The subsequent retry used the reviewed `fd1932ac...` capture helper on that same
+firmware. The first timeout and its partial bytes remain preserved separately.
+
+Independent verification covered all 152 original capture-manifest entries and
+all 155 final entries, including the three derived storage files. Every hash
+matches. The retry made exactly 47 reads totaling 934,892 bytes in 51 commands
+over 281.632730 seconds. Every command returned zero, none timed out, and the
+longest command took 19.673451 seconds. Exact purpose labels, address sequence,
+chunk sizes, timing brackets and stored output agree with the capture receipt.
+The unchanged limits of 48 reads, 2 MiB, 16 KiB per RAM read, 64 commands,
+600 seconds total and 30 seconds per command were respected. One loaded
+extension was observed; the remaining single-read allowance does not authorize
+an unbounded extension search. Loader reconstruction matches the pinned ELF
+image, including its zero byte at offset 260287, and the complete sketch matches
+the pinned ZSK before any private RAM read.
+
+First and last 296-byte diagnostics are identical, with even sequence 410166,
+FROZEN phase, failure mask zero and SEALED source. First and last heap descriptors
+are identical. Both full 262,144-byte pools are byte-identical with SHA256
+`caa1c1ccd64e6370f500839a6852e7acede99675ec9fbf929ff2caf50ab935fb`.
+The independent allocator walk checked chunk boundaries, left links, footer,
+reciprocal free lists and the canonical metadata digest. It found nine used
+and three free chunks: 236,892 used payload bytes plus 25,116 free payload bytes
+plus 136 metadata bytes exactly account for the pool. The largest free payload
+is 21,604 bytes. The diagnostic and retained storage lie within the identified
+BSS and a validated allocated chunk.
+
+The reviewer independently located the runner and storage from the actual
+readelf symbol and offline DWARF offset receipts tied to the pinned debug ELF.
+Without calling the production heap decoder or coordinator's storage extractor,
+the review reconstructed 5,001 frames and eight events from the pool and computed
+bitwise reflected CRC32/ISO-HDLC: **900325728**, equal to the MCU checksum.
+All raw bytes, ordinals, packing statuses and scalar CSV fields agree with those
+rows. Frame timestamps span 0 through 200,000 ms. The 5,000 intervals comprise
+809 at 39 ms, 3,382 at 40 ms and 809 at 41 ms; these are observed timestamp
+quantization/jitter, with no recorded skipped slots or overwritten frames.
+All reported recorder loss counters, missed ticks, timing overruns, robot
+contract faults and active PWM/EN writes are zero. Five inert configure calls
+are recorded. There is one expected synthetic FAULT event: calibration rejection
+for the explicitly absent IMU at 5,007,803 us; the corresponding frame flags are
+preserved. A blanket claim that no fault event occurred would be incorrect.
+
+The MCU release-to-GO interval is exactly 5,100,000 us. Release-to-STOP is
+200,000,998 us; release-to-terminal is 200,137,638 us including bounded checksum
+completion. These values come from the retained runtime timestamps, not invented
+elapsed time. The Linux upload-to-first-diagnostic bracket is about 753 seconds
+and supports chronology only; it is not synchronized clock qualification.
+Maximum measured runner step is 203 us with 194,902 retained timing observations
+and zero reported overruns. Minimum sampled SP gives 31,208 bytes of headroom
+inside the reported 32,768-byte stack region, with zero stack metadata faults.
+This uses the nonnull current-thread accessor; it does not call the unavailable
+stack watermark API.
+
+Reproduction and machine-readable evidence are in
+`P2_recorder_bench_review_raw/runtime_review.py`, `runtime_review.json`,
+`runtime_review.txt` and `runtime_source_commit.json`. This supersedes only the
+earlier statement that actual runtime evidence was absent. The observed heap
+is the LLEXT pool at the captured terminal state, not a loader transient peak,
+all-system free RAM or a historical minimum. Stack headroom is sampled, not a
+watermark. The 203-us measurement covers the instrumented synthetic runner,
+not complete application/HAL/diagnostic WCET. Matching terminal samples and
+complete pools do not establish atomic reads or exclude every intervening cycle.
+MEM-AP extraction is not a UART transport test or proof of physical B8 behavior.
+SC-AJ clock qualification, actual sensors/motors, complete P2 application and
+transport integration, physical acceptance and all human phase gates remain
+pending outside this approval.

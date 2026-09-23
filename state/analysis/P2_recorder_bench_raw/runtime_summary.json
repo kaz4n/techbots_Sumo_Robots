@@ -1,0 +1,44 @@
+{
+  "status": "PASS_SYNTHETIC_BARE_BOARD_RECORDER",
+  "firmware_source": "1502e9484068921fe3f96adef402e12fc85a00093b544e4a6c0dee165476b583",
+  "software_commit": "17bb38a",
+  "target": "UNO Q ADB2629958581",
+  "capture_status": "CAPTURED",
+  "capture_reads": 47,
+  "capture_bytes": 934892,
+  "capture_seconds": 281.6327302410027,
+  "record_duration_us": 200000998,
+  "go_after_accepted_release_us": 5100000,
+  "frames": 5001,
+  "events": 8,
+  "independent_crc32": 900325728,
+  "frame_interval_ms_counts": {
+    "39": 809,
+    "40": 3382,
+    "41": 809
+  },
+  "all_duties_zero": true,
+  "missed_scheduler_slots": 0,
+  "maximum_scheduler_lateness_us": 3,
+  "synthetic_runner_maximum_us": 203,
+  "timing_overruns": 0,
+  "recording_incomplete": false,
+  "llext_free_payload_bytes": 25116,
+  "llext_largest_free_payload_bytes": 21604,
+  "sampled_stack_headroom_bytes": 31208,
+  "limitations": [
+    "Inputs synthetic; no attached sensor or motor validation.",
+    "MEM-AP extraction, not native UART/log-dump path.",
+    "MCU-clock elapsed/call durations; SC-AJ independent calibration pending.",
+    "Runner timing excludes real HAL acquisition and diagnostic wrapper; not full800us WCET.",
+    "Free capacity is only the loaded LLEXT pool at two matching snapshots, not all RAM or historical minimum.",
+    "Stack headroom is sampled at clock call sites, not a historical stack watermark.",
+    "No human phase gate, wiring approval or motor-run authorization."
+  ],
+  "expected_absent_imu_calibration_event": {
+    "t_us": 5007803,
+    "type": 9,
+    "detail": 5,
+    "value": 1
+  }
+}

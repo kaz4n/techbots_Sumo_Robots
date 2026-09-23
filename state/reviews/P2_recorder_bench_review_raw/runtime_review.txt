@@ -1,0 +1,73 @@
+{
+  "verdict": "PASS_SCOPED_SYNTHETIC_RUNTIME_EVIDENCE",
+  "hardware_commands_by_reviewer": false,
+  "reviewed_manifest_files": 152,
+  "final_manifest_files": 155,
+  "scalar_csv_fields_verified": true,
+  "capture_reads": 47,
+  "capture_commands": 51,
+  "capture_bytes": 934892,
+  "capture_seconds": 281.6327302410027,
+  "max_command_seconds": 19.673450844002218,
+  "frozen_diagnostic_sequence": 410166,
+  "diagnostic_sha256": "582b8977a720b8928ee563bdafb6122b3b8f1f244debe4537fd2716bcee7413b",
+  "pool_sha256": "caa1c1ccd64e6370f500839a6852e7acede99675ec9fbf929ff2caf50ab935fb",
+  "identical_pools": true,
+  "descriptor_stable": true,
+  "diagnostic_stable": true,
+  "frame_count": 5001,
+  "event_count": 8,
+  "crc32": 900325728,
+  "crc_method": "independent reflected bitwise ISO-HDLC",
+  "first_frame_ms": 0,
+  "last_frame_ms": 200000,
+  "interval_ms_counts": {
+    "40": 3382,
+    "41": 809,
+    "39": 809
+  },
+  "frame_flag_counts": {
+    "80": 113,
+    "88": 4888
+  },
+  "all_pack_statuses_ok": true,
+  "nonzero_applied_frame_duties": 0,
+  "synthetic_calibration_rejection_events": [
+    [
+      5007803,
+      9,
+      5,
+      1
+    ]
+  ],
+  "release_to_stop_mcu_us": 200000998,
+  "release_to_terminal_mcu_us": 200137638,
+  "go_hold_mcu_us": 5100000,
+  "runner_max_step_us": 203,
+  "retained_timing_ticks": 194902,
+  "sampled_stack_headroom_bytes": 31208,
+  "heap_free_payload_bytes": 25116,
+  "heap_largest_free_payload_bytes": 21604,
+  "heap_used_payload_bytes": 236892,
+  "heap_overhead_bytes": 136,
+  "heap_free_chunks": 3,
+  "heap_used_chunks": 9,
+  "linux_upload_end_to_first_diagnostic_seconds": 753.3433321240009,
+  "source_sha256": "1502e9484068921fe3f96adef402e12fc85a00093b544e4a6c0dee165476b583",
+  "source_commit": "17bb38a",
+  "input_artifacts_sha256": {
+    "state\\analysis\\P2_recorder_bench_raw\\runtime_retry1\\capture.json": "6271907688c6c3121997f44eab80358d94798dc9faaf5c16f9111feeeba69543",
+    "state\\analysis\\P2_recorder_bench_raw\\storage_layout.json": "213db295a4c250c129a5ab5d6a7d9d603a89b4747ba6c97e7593b5e5cbc93237",
+    "state\\analysis\\P2_recorder_bench_raw\\final_symbols.json": "fcca45dd7b5ab56fdce8779de7c21310d0e4cb19eae985e2171ba9c4f2f3f6f2",
+    "state\\analysis\\P2_recorder_bench_raw\\capture_retry1_manifest.json": "bb415ba6539ade526e1bb0c062c6f3ebdb652bab1dd53ad4bb283183f18ea766",
+    "state\\analysis\\P2_recorder_bench_raw\\capture_retry_tool_sync.json": "bb2faf5b2010e242d44858ee492c34ff2166e4beedca671075b0b8d1a11bffde"
+  },
+  "limitations": [
+    "Synthetic MCU inputs and MEM-AP extraction; not native UART dump or physical B8.",
+    "MCU duration is not independent clock qualification; Linux bracket is not synchronized timing.",
+    "203us covers instrumented runner only, not full app/HAL/diagnostic WCET.",
+    "Heap and stack values are sampled, not historical minima/high-water or other heaps.",
+    "Full matching pools and terminal samples do not prove atomicity or no intervening cycles.",
+    "No human phase gate follows."
+  ]
+}

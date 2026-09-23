@@ -294,3 +294,15 @@ runtime_report.json/runtime_run1; independent review follows receipt.
 
 
 2026-09-23T16:47:40+04:00 | D090 SOFTWARE DEVELOPMENT DEFAULTS ONLY | DUMP_PAYLOAD_BYTES64, DUMP_STALL_MS2000, DUMP_TOTAL_MS300000, DUMP_UART_STEP_BYTES8, DUMP_UART_STEP_US80, DUMP_UART_PACKET_MS100. These bound transport work/lifetime, not measured throughput/WCET/baud. No B16 value, motor cap, hold or pin changed. Source/math/host/target evidence: analysis/P2_dump_contract.md/native_contract.md/validation.md. Native source uses verified existing internalUART/PG13; no new wiring or physical acceptance.
+
+2026-09-23 D091 actualbareUNOQ2629958581,source1502e948/software17bb38a:
+MOTORS_ALLOWED0/MATCH0/default,existingreviewedartifactuploadexit0. Syntheticactual
+MCUrelease507802us->GO5607802us->STOP200508800us;200000998usrecorded.5001frames/
+8events,CRC900325728 independentlymatches bothidenticalRAMsnapshots; no recorded
+loss/misses/overruns/activewrites,syntheticrunnermax203us/lateness3us. Expected
+absentIMU calibration-rejection event retained. LLEXTpointfreepayload25116B/
+largest21604B;sampledSPheadroom31208B(notwatermark).47read-onlyMEMAPreads934892B
+281.633s; first30s wholeloadercapturefailure preserved; smallerflashreads retained
+everyoriginalguard. No configtuning/pins/sensors/motor run or human gate. No native
+UARTdump, calibratedclock/fullapp800us or allRAMminimum claim. Evidence
+analysis/P2_recorder_bench_raw/runtime_summary.json,runtime_retry1/,validation.md.

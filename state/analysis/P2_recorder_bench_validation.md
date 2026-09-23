@@ -11,11 +11,14 @@ No sensor, GPIO motor, ADC, QTR, IMU, matrix, UART, Bridge or RX initialization.
 The actual source supplies synthetic data, clearly identified in all evidence.
 Strong empty loop hook remains. Capture uses reviewed read-only MEM-AP only.
 
-Status: IMPLEMENTED/HOST-TESTED/TARGET-COMPILED/INERT-UPLOADED. Fresh separate
-same-model review PASS, no open findings. Exact source1502e948/ELFeff3e050 uploaded
-at13:17:26UTC to bareUNOQ2629958581. Firstcapture failed30s wholeloaderread before
-privateRAM; preservedruntime_run1. Reviewed chunkedidentity retry is running,
-without firmware change/reset. Runtime result remains UNOBSERVED until decoded.
+Status: PASS_SYNTHETIC_BARE_BOARD_RECORDER. Software17bb38a is implemented,
+host-tested, target-compiled and independently reviewed. Exactsource1502e948 /
+ELFeff3e050 /ZSK0448e3ac uploaded at13:17:26UTC to bareUNOQ2629958581.
+Firstcapture failed30s wholeloaderread before privateRAM and remains preserved.
+The reviewed smaller-read retry succeeded without changing/resetting firmware.
+Fresh separate same-model runtime review PASS, no open findings; independently
+verified155 artifacts, retained rows/bitwise CRC, heap accounting and read guards.
+See reviews/P2_recorder_bench_review.md; no physical B8 or human gate.
 
 ## Evidence and limits
 
@@ -58,3 +61,39 @@ VMA while readelf st_value0x28928 was already relative; six new tests protect it
 One ELF audit helper initially inherited the old raw output directory; only its
 new uniquely named receipt was moved within the verified workspace, with a move
 receipt. Existing artifacts were untouched. No established/locked tests changed.
+
+## Actual bare-board runtime / capture
+
+Evidence: P2_recorder_bench_raw/runtime_summary.json andruntime_retry1/.
+MCU terminalFROZEN/failure0/recorderSEALED; sourceepoch71. Synthetic release507802us,
+GO5607802us (full5100000us hold), STOP200508800us (recording200000998us). Terminal
+elapsed200137638us includes CRC completion. Inputs explicitlysynthetic; no real
+sensors or motion. MissingIMU deliberately produces one calibration-rejection
+FAULT event(type9/detail5/value1), not an unexplained fault-free sensor claim.
+
+Retained5001frames/8events,5009checksumrows; independent extraction from actual
+captured RAM matches MCU CRC900325728 and both snapshots. Frames0..200000ms,
+allpackOK/actualappliedduties0;5000intervals39ms809,40ms3382,41ms809. No skipped,
+overwritten, rejected, invalid, incomplete or overflowing recorder evidence.
+200073scheduler ticks,missedslots0,maxlateness3us;194902membertimingreceipts,
+overruns0,maxstep203us. This is the synthetic runner only, not full app/HAL WCET.
+
+LLEXT pool262144B: usedpayload236892,freepayload25116,largestfree21604,overhead136;
+9used/3free chunks. Fulltwo262144Bsnapshots are identical (caa1c1cc...935fb),
+validated logicalmetadata consistent. These are point-in-time capacity facts for
+this loaded pool, not combined system/libc memory, allocation history or all RAM.
+Mainthread region32768B/delta64; sampledminimumSP gives31208B headroom at clock
+call sites,51,544,630samples. No stackpainting or historicalwatermark claim.
+
+Capture47actualreads/934892B/51commands/281.632730s; every native read-only MEM-AP
+command remains bounded30s and original48read/2MiB/600s guards unchanged. Deployed
+loader/ELF/ZSK verified before privateRAM, fixed296B terminaldiagnostic and24B
+heapdescriptor identical before/after. Loaderpackagedbin's known one-byte padding
+difference is reported; deployedflash equals pinnedELF exactly. No second upload,
+MCU reset, router/daemon action, Cortex attach or memory write during capture.
+The earlier explicit CLIupload used the documented board programmer/reset path.
+
+Leave the board in frozen inert recorderdiagnostic1502e948. Native UART/B8 dump,
+physical sensors/buttons/wiring, SC-AJ calibratedtime, fullRAM history/full800us
+WCET and humanphasegates remainpending. Next eligible software task is SC-AK whole
+acquisition/decision timing, documented in P2_app_integration_map.md.

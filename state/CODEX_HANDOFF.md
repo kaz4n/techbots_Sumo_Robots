@@ -1,3 +1,39 @@
+## Latest checkpoint - 2026-09-23 17:38 +04
+
+Active phase: P2 software under D051/D075. D091 software commit17bb38a has now
+completed its authorized bare-UNO-Q synthetic recorder run. Read
+analysis/P2_recorder_bench_validation.md, run.md, raw/runtime_summary.json and
+reviews/P2_recorder_bench_review.md (including runtime evidence addendum).
+
+Exact source1502e948 (74 files), ELF eff3e050 / ZSK0448e3ac uploaded once to
+ADB2629958581 at13:17:26UTC. Default startup, MATCH0/MOTORS_ALLOWED0. Board is left
+in frozen inert recorder diagnostics; no sensors, native motor GPIO or UART
+initialized. Do not reuse this scope for changed firmware or motor-capable builds.
+
+Actual MCU-clock release-to-STOP200000998us, hold5100000us; retained5001frames/
+8events, independent CRC900325728. No dropped/overwritten/invalid recorder rows,
+missed scheduler slots or active motor callbacks. One expected calibration-reject
+FAULT event records the deliberately absent synthetic IMU. Runner max203us is
+not full app/HAL WCET. Two identical loaded LLEXT snapshots show25116B free
+payload, largest21604B; sampled stack headroom31208B is not a high-water mark.
+
+First capture timed out before RAM; receipts preserved. Reviewed fixed flash
+chunks succeeded without reupload/reset:47reads,934892B,51commands,281.633s under
+unchanged limits. MEM-AP extraction is not native UART dump. SC-AJ independent
+clock qualification, assembled physical acceptance and every human gate remain
+pending. No motor authority/PINMAP/EXPLAINED is implied; fullP0-P7 ACTIVE/incomplete.
+
+Exact next eligible task: SC-AK whole-tick acquisition-start versus decision-time
+accounting, mapped in analysis/P2_app_integration_map.md and spec_conflicts.md.
+Record a narrow D051 delegated decision/public contract, independent additive
+spec-derived tests, then bounded implementation in fsm.h/fsm_robot.cpp. Preserve
+legacy receipts and established locked tests. Count actual acquisition time
+without backdating sensor evidence. After that, implement the app transaction
+owner and separately solve native acquisition scheduling; app.ino remains inert
+link scaffold. No additional hardware needed for this software slice.
+
+--- Earlier handoff preserved below ---
+
 ## Latest in-progress checkpoint - 2026-09-23 17:25 +04
 
 ActiveP2 underD051/D075. D091 source1502e948 (74files) is independently reviewed,

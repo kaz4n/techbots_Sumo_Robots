@@ -578,3 +578,16 @@ P2_button_routing_validation.md. No phase/hardware acceptance follows.
 
 
 D087 SC-A software follow-up: decoder/gesture routingb69fa12 is implemented, host/sanitizer tested, targetcompiled and independently reviewed. Raw windows remain unconfigured. This does not resolve or approve the physical circuit; SC-A remains OPEN. See P2_button_routing_validation.md.
+
+## SC-AK: decision timestamp versus whole-tick acquisition timing (OPEN software contract)
+
+2026-09-23. P2_imu_integration_contract.md34-36 requires post-acquisition decision
+time; P1_robot_contract.md74-78 calls preceding t_us the complete-tick start.
+fsm_robot.cpp170-174 enforces execution_us=completed_us-pending decisiontime.
+Consequence: acquisition is excluded, or fresh sensor evidence appears future.
+OptionsA: additive explicit start metadata preserving legacy default/lockedtests;
+B: defer app timing. RecommendA under delegatedD051, with exact contract first.
+Validate forward/wrap/half-range ordering, boundaries, duplicate/reset, GO/STOP,
+realGate receipts and recorder propagation. Malformed timing alone retains the
+existing incomplete-evidence semantics. No physical timing/clock acceptance.
+See analysis/P2_app_integration_map.md for exactnextscope and API responsibilities.

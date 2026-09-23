@@ -822,3 +822,18 @@ Consequence: no transport/cursor/app integration or live dump authorization.
 SEALED does not prove IDLE and incomplete=false does not prove completion.
 No config/locked/behavior value changes, upload, physical claim or human gate.
 Independent tests/fresh review and exact existing inert-guard review required.
+
+
+## D-074 (2026-09-23, selected under D-051) Local CSV evidence validation
+Context: D073 formats exact rows but does not verify stored file integrity,
+owner-summary consistency or supplied provenance. Hardware and runtime dump
+requirements remain unfulfilled. A separate public-contract audit identified
+raw codes/ordinals, lifetime counts and phase/loss distinctions to preserve.
+Decision: adopt P2_csv_bundle_contract.md before separate implementation/tests.
+Extend offline B8 preparation only to one read-only local-file Python validator
+with bounded input, exact raw/schema checks, separate consistency/loss/lifecycle
+reports and optional explicit caller-declared hash/provenance metadata.
+Consequence: no firmware/config/locked-test/transport/app change or fabricated
+physical/common-attempt/closure proof. Valid files are not B8 acceptance.
+Independent synthetic fixtures, actual host formatter roundtrip, full relevant
+tooling checks and fresh read-only review are required. No board action/gate.

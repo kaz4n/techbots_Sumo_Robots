@@ -735,3 +735,35 @@ Consequence: no probe execution, upload allowlist entry, pin selection, frequenc
 adoption, asynchronous QTR semantics, upstream change, P2 HAL or motor authority.
 Preserve actual installed source, compile, ELF, test and fresh review evidence;
 unmeasured electrical/timing behavior and genuine phase/human gates remain open.
+
+
+## D-068 (2026-09-23, selected under D-051) Narrow offline B8 preparation on resume
+Context: after the saved blocked checkpoint, the user resumed "cotinue working".
+The existing direction defers physical testing and delegates recommended engineering
+choices without questions. P2 permits early individual drivers and reserves GATE P1
+for integration; fixed RAM storage needs no external part. A separate read-only
+scope audit identified an overly broad stop on this offline preparation.
+Decision: as a coordinator interpretation of those instructions, select a narrow
+scheduling exception for offline P2 B8 RAM storage components and independent host
+tests. Supersede only D-016's scheduling exclusion for this specified track.
+Do not characterize the latest short resume as an explicit human P2 approval.
+Consequence: P0/P1 remain HARDWARE/GATE-PENDING. No integration, Bridge runtime
+transport, upload, new hardware request, pins/wiring, motor authority, measured
+RAM or B8/P2 acceptance. Record contracts and independent reviews; retain actual
+failures. This is software preparation under delegated choice, not a phase pass.
+
+## D-069 (2026-09-23, selected under D-051) Latest-frame ring with explicit evidence loss
+Context: B15 specifies a200-second frame capacity but no frame eviction policy;
+D-028's first4096 rule is specifically for events. Core supplies25-byte encoded
+frames with separate PackStatus and already owns cadence/actual-duty matching.
+Decision: adopt P2_frame_buffer_contract.md and recorder_frames.h. Fixed latest-
+frame ring, exact bytes plus status, saturating overwrite/unknown-status/CLAMPED/
+INVALID counters and explicit local incomplete flag. Logical reset is constant
+work and remains a future accepted-attempt owner's responsibility. Capacity is
+ceil(200000ms*LOG_HZ/1000)+1 to retain initial/final endpoints.
+Consequence: overwritten or degraded data never appears gap-free. Keep all B16
+values, notably LOG_HZ50. Required frame/event payload292794B exceeds installed
+262144B pool; deployment remains blocked pending explicit memory/cadence work,
+not a claimed fit. No lifecycle integration, event-ring duplication, transport,
+physical measurement, hardware approval or phase gate. Independent boundary,
+wrap, reset, status, alias-source and oracle tests precede fresh review.

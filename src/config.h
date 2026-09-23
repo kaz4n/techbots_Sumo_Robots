@@ -97,6 +97,10 @@ inline constexpr std::uint32_t MODE_DEFAULT = 1U; // mode
 inline constexpr std::uint32_t VBAT_FILTER_MS = 1000U; // ms, B6
 inline constexpr std::uint32_t REFLANK_WINDOW_MS = 10000U; // ms, B11.3 rolling window
 inline constexpr std::uint32_t LOG_EVENT_CAPACITY = 4096U; // events, B15/D-028
+inline constexpr std::uint32_t LOG_FRAME_WINDOW_MS = 200000U; // ms, B15 minimum window
+// D-069 includes the initial frame and a coalesced or off-cadence final frame.
+inline constexpr std::uint64_t LOG_FRAME_CAPACITY =
+    (static_cast<std::uint64_t>(LOG_FRAME_WINDOW_MS) * LOG_HZ + 999U) / 1000U + 1U;
 inline constexpr float EDGE_FWD_INNER_RATIO = 0.70F; // ratio, B4.2/D-021
 inline constexpr std::uint32_t EDGE_SIDE_TURN_DEG = 45U; // deg, B4.2 side row/B4.3
 inline constexpr std::uint32_t TICK_OVERRUN_PERCENT = 1U; // percent, B14 warning threshold

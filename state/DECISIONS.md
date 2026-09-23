@@ -1401,3 +1401,8 @@ half-range clocks are TIME_ORDER. Preserve literal phase mapping above.
 Context: D105 default modeled loader peak263112 exceeds262144 by968 bytes. Four native consumers retain identical560-byte installed tables.
 Decision: adopt P2_pin_table_contract.md; one lifetime-stable const table/count definition derived from installed wiring_private.h, with unchanged native bounds, metadata, grants, operation order and errors.
 Consequence: require independent cross-unit tests, unchanged native suites, exact table/relocation/import/startup and ordered loader audits. No pin/config/core-installation change, hardware approval, upload or relaxed assertion. Gross1680-byte removal is not a measured net-fit result.
+
+## D-107 (2026-09-23, selected under D051/D075) Motor-free opponent-view bench
+Context: P2 B1 has native driver and compile probe, but lacks its named live-view bench. OPP-VIEW-1 geometric UI discrepancy is recorded separately.
+Decision: adopt P2_opp_view_contract.md and public Runner/Native headers. Literal channel-index strip, current unknown/error indication, actual bounded source/callback timing, one sensor/matrix owner and all grants false. No motor owner or EN/PWM operation.
+Consequence: independent literal tests, compile-only target review and default startup silence precede software acceptance. Upload allowlist remains closed; no sensor electrical grant, physical ranges/false-hit result, optical claim or phase gate. Existing production geometric display remains separately tracked.

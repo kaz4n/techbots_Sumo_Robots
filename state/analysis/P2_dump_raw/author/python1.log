@@ -1,0 +1,58 @@
+test_actual_cpp_pipeline_stream_roundtrip (test_dump_match.DumpCaptureTests.test_actual_cpp_pipeline_stream_roundtrip) ... ok
+test_cli_symlink_input_is_rejected_without_published_capture (test_dump_match.DumpCaptureTests.test_cli_symlink_input_is_rejected_without_published_capture) ... ERROR
+test_consistency_failure_cannot_publish_but_reported_loss_can (test_dump_match.DumpCaptureTests.test_consistency_failure_cannot_publish_but_reported_loss_can) ... ok
+test_declared_firmware_and_hash_formats_are_validated (test_dump_match.DumpCaptureTests.test_declared_firmware_and_hash_formats_are_validated) ... ok
+test_failed_protocol_and_input_generator_preserve_partial_evidence (test_dump_match.DumpCaptureTests.test_failed_protocol_and_input_generator_preserve_partial_evidence) ... ok
+test_offline_main_never_opens_network_or_process_and_bad_args_do_not_publish (test_dump_match.DumpCaptureTests.test_offline_main_never_opens_network_or_process_and_bad_args_do_not_publish) ... ok
+test_offline_origin_claim_is_preserved_without_upgrading_it (test_dump_match.DumpCaptureTests.test_offline_origin_claim_is_preserved_without_upgrading_it) ... ok
+test_publication_validates_exact_files_and_manifest_without_authentication (test_dump_match.DumpCaptureTests.test_publication_validates_exact_files_and_manifest_without_authentication) ... ok
+test_same_second_captures_do_not_overwrite_existing_files (test_dump_match.DumpCaptureTests.test_same_second_captures_do_not_overwrite_existing_files) ... ok
+test_symlink_output_and_ancestry_are_rejected (test_dump_match.DumpCaptureTests.test_symlink_output_and_ancestry_are_rejected) ... ok
+test_all_declared_origins_and_lower_capacity_domains (test_dump_match.DumpParserTests.test_all_declared_origins_and_lower_capacity_domains) ... ok
+test_ascii_line_and_total_size_limits (test_dump_match.DumpParserTests.test_ascii_line_and_total_size_limits) ... ok
+test_crc_corruption_and_declared_tail_counts (test_dump_match.DumpParserTests.test_crc_corruption_and_declared_tail_counts) ... ok
+test_empty_collections_keep_headers_and_interrupted_loss (test_dump_match.DumpParserTests.test_empty_collections_keep_headers_and_interrupted_loss) ... ok
+test_envelope_ranges_and_canonical_decimal (test_dump_match.DumpParserTests.test_envelope_ranges_and_canonical_decimal) ... ok
+test_every_record_rejects_cross_session_mix (test_dump_match.DumpParserTests.test_every_record_rejects_cross_session_mix) ... ok
+test_every_single_split_and_fixed_seed_fragments (test_dump_match.DumpParserTests.test_every_single_split_and_fixed_seed_fragments) ... ok
+test_exact_csv_headers_and_raw_bytes_are_checked (test_dump_match.DumpParserTests.test_exact_csv_headers_and_raw_bytes_are_checked) ... ok
+test_literal_bytes_and_metadata (test_dump_match.DumpParserTests.test_literal_bytes_and_metadata) ... ok
+test_loss_statuses_raw_signed_extrema_and_unknown_codes_are_preserved (test_dump_match.DumpParserTests.test_loss_statuses_raw_signed_extrema_and_unknown_codes_are_preserved) ... ok
+test_maximum_row_collections_are_bounded_and_exact (test_dump_match.DumpParserTests.test_maximum_row_collections_are_bounded_and_exact) ... ok
+test_missing_duplicate_and_reordered_record_kinds (test_dump_match.DumpParserTests.test_missing_duplicate_and_reordered_record_kinds) ... ok
+test_ordinals_are_contiguous_and_begin_at_zero (test_dump_match.DumpParserTests.test_ordinals_are_contiguous_and_begin_at_zero) ... ok
+test_sender_cannot_inject_a_filename_or_path (test_dump_match.DumpParserTests.test_sender_cannot_inject_a_filename_or_path) ... ok
+test_summary_identity_lifecycle_and_terminal_exhaustion (test_dump_match.DumpParserTests.test_summary_identity_lifecycle_and_terminal_exhaustion) ... ok
+test_truncation_at_every_boundary_and_trailing_bytes (test_dump_match.DumpParserTests.test_truncation_at_every_boundary_and_trailing_bytes) ... ok
+
+======================================================================
+ERROR: test_cli_symlink_input_is_rejected_without_published_capture (test_dump_match.DumpCaptureTests.test_cli_symlink_input_is_rejected_without_published_capture)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tools/dump_match.py", line 313, in main
+    path = local_path(args.input)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tools/dump_match.py", line 171, in local_path
+    require(not item.is_symlink() and not (hasattr(item, "is_junction") and item.is_junction()),
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tools/dump_match.py", line 36, in require
+    raise CaptureError(code, message)
+dump_match.CaptureError: Symlink/junction path ancestry is not permitted.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_dump_match.py", line 318, in test_cli_symlink_input_is_rejected_without_published_capture
+    self.assertEqual(self.module.main(["--input", str(link), "--output-dir", str(output)]), 1)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tools/dump_match.py", line 316, in main
+    parser.error(str(error))
+  File "/usr/lib/python3.12/argparse.py", line 2677, in error
+    self.exit(2, _('%(prog)s: error: %(message)s\n') % args)
+  File "/usr/lib/python3.12/argparse.py", line 2664, in exit
+    _sys.exit(status)
+SystemExit: 2
+
+----------------------------------------------------------------------
+Ran 26 tests in 5.641s
+
+FAILED (errors=1)

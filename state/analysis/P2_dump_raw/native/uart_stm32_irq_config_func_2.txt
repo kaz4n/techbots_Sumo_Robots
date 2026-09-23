@@ -1,0 +1,17 @@
+
+/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf:     file format elf32-littlearm
+
+
+Disassembly of section rom_start:
+
+Disassembly of section text:
+
+080198ec <uart_stm32_irq_config_func_2>:
+ 80198ec:	2200      	movs	r2, #0
+ 80198ee:	b508      	push	{r3, lr}
+ 80198f0:	2042      	movs	r0, #66	@ 0x42
+ 80198f2:	4611      	mov	r1, r2
+ 80198f4:	f7fe fb06 	bl	8017f04 <arm_irq_priority_set>
+ 80198f8:	e8bd 4008 	ldmia.w	sp!, {r3, lr}
+ 80198fc:	2042      	movs	r0, #66	@ 0x42
+ 80198fe:	f7ee b9b3 	b.w	8007c68 <arm_irq_enable>

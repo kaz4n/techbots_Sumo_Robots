@@ -543,3 +543,9 @@ e50c6da3,normalstartup,MOTORS_ALLOWED0,serial2629958581. Upload/capture next.
 2026-09-23 D089 receipt correction before commit: additive strict-config wrapper ran18 original tests, not19; all18 passed. Raw author/tooling_runs.jsonl is authoritative.
 
 2026-09-23T16:13:09+04:00 | P2 D089 session checkpoint | Implementation311bf40, fresh reviewerPASS/no open findings, fullnormal/san1255main+39GatePASS,31newcases1915assertions, finaltargetcc4819aa67exactfiles. Fourtoolingmethods incl18configcases, variants and25+5+2existing checksPASS. Source-era defect fixed; failures preserved. No MCU/upload/reset/sensor/motor action. Next actual bounded IDLE recorder transport per P2_service_next_task.md. FullprojectACTIVE/incomplete, physical/app/transport/humangates pending. | evidencecommit=this commit
+
+
+2026-09-23T16:47:40+04:00 | P2 B8/B13/B15 D090 IMPLEMENTED/HOST-TESTED/TARGET-COMPILED | Actual Transfer/nativeUART/stronghook/receive-only capture implemented. Fullnormal/san1281main24481257assertions+65enabledGate3847552PASS; independent26owner/33receiver/11native154scenario tests pass. Actual finalb8bb9366target72files3ELFs40native42AEABI+fmod/sqrt;315332program/238596compiler globals lowRAMwarning. Fresh source review no openproductionfinding, sixexistinginertkeys approved/refreshed; final56existingcontrolled tooling checks running. No MCU/upload/reset/sensor/motor action; fullgoalACTIVE, all physical/humangates pending. | implementationcommit follows
+
+
+2026-09-23T16:49:58+04:00 | P2 D090 software review complete | Fresh separate same-model reviewerPASS/no openfindings;56existingcontrolledmethodsPASS79.241s,4Windows publication/outcome checksPASS. ThreeELFs strongemptyhook+main/startup/imports verified; exact72current/target sources, sixexistingregistrykeys approved/refreshed. D090 remains no-upload; runtime/RAM/200s/app/physical/human gates pending. | implementationcommit=this commit; checkpoint follows

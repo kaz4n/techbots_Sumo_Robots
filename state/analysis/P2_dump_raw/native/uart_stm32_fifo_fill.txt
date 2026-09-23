@@ -1,0 +1,43 @@
+
+/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf:     file format elf32-littlearm
+
+
+Disassembly of section rom_start:
+
+Disassembly of section text:
+
+080199d4 <uart_stm32_fifo_fill>:
+ 80199d4:	b538      	push	{r3, r4, r5, lr}
+ 80199d6:	6843      	ldr	r3, [r0, #4]
+ 80199d8:	460c      	mov	r4, r1
+ 80199da:	681b      	ldr	r3, [r3, #0]
+ 80199dc:	6818      	ldr	r0, [r3, #0]
+ 80199de:	6819      	ldr	r1, [r3, #0]
+ 80199e0:	f000 2010 	and.w	r0, r0, #268439552	@ 0x10001000
+ 80199e4:	f401 61c0 	and.w	r1, r1, #1536	@ 0x600
+ 80199e8:	f7ff feea 	bl	80197c0 <uart_stm32_ll2cfg_databits>
+ 80199ec:	2804      	cmp	r0, #4
+ 80199ee:	d01a      	beq.n	8019a26 <uart_stm32_fifo_fill+0x52>
+ 80199f0:	69d8      	ldr	r0, [r3, #28]
+ 80199f2:	f010 0080 	ands.w	r0, r0, #128	@ 0x80
+ 80199f6:	d015      	beq.n	8019a24 <uart_stm32_fifo_fill+0x50>
+ 80199f8:	f3ef 8111 	mrs	r1, BASEPRI
+ 80199fc:	2010      	movs	r0, #16
+ 80199fe:	f380 8812 	msr	BASEPRI_MAX, r0
+ 8019a02:	f3bf 8f6f 	isb	sy
+ 8019a06:	2000      	movs	r0, #0
+ 8019a08:	1a15      	subs	r5, r2, r0
+ 8019a0a:	2d00      	cmp	r5, #0
+ 8019a0c:	dd06      	ble.n	8019a1c <uart_stm32_fifo_fill+0x48>
+ 8019a0e:	69dd      	ldr	r5, [r3, #28]
+ 8019a10:	062d      	lsls	r5, r5, #24
+ 8019a12:	d503      	bpl.n	8019a1c <uart_stm32_fifo_fill+0x48>
+ 8019a14:	5c25      	ldrb	r5, [r4, r0]
+ 8019a16:	3001      	adds	r0, #1
+ 8019a18:	629d      	str	r5, [r3, #40]	@ 0x28
+ 8019a1a:	e7f5      	b.n	8019a08 <uart_stm32_fifo_fill+0x34>
+ 8019a1c:	f381 8811 	msr	BASEPRI, r1
+ 8019a20:	f3bf 8f6f 	isb	sy
+ 8019a24:	bd38      	pop	{r3, r4, r5, pc}
+ 8019a26:	f06f 0085 	mvn.w	r0, #133	@ 0x85
+ 8019a2a:	e7fb      	b.n	8019a24 <uart_stm32_fifo_fill+0x50>

@@ -1,0 +1,37 @@
+{
+  "source_sha256": "b8bb9366458c2472d856e81ea4678716ff16d00a3b3d16b51d008e1624818307",
+  "argv": [
+    "python3",
+    "-c",
+    "\nimport json,pathlib,subprocess,sys\nroot=pathlib.Path(sys.argv[1])\nprefix='/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-'\nbase='/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf'\ndef run(argv):\n    result=subprocess.run(argv,text=True,capture_output=True,timeout=30)\n    if result.returncode: raise RuntimeError(result.stderr)\n    return dict(argv=argv,returncode=result.returncode,stdout=result.stdout,stderr=result.stderr)\nelf=next(p for p in root.glob('*.elf') if p.name.endswith('.ino.elf'))\nassembly=run([prefix+'objdump','-d','-C',str(elf)])\nselected=[];retain=False\nfor line in assembly['stdout'].splitlines():\n    if line.endswith('>:'): retain=('<main>:' in line or ('ZephyrSerialBuffer<' in line and '::ZephyrSerialBuffer()' in line))\n    if retain: selected.append(line)\nassembly['stdout']='\\n'.join(selected)\nbindings=run([prefix+'gdb','-nx','-nh','-batch',base,\n    '-ex','p/x __llext_sym___real_fmod.addr','-ex','p/x __llext_sym___real_sqrt.addr'])\nprint(json.dumps(dict(assembly=assembly,bindings=bindings),indent=2))\n",
+    "/home/arduino/sumox26_codex_build/b8bb9366458c2472d856e81ea4678716ff16d00a3b3d16b51d008e1624818307/p2_dump_compile/artifacts/bench-default"
+  ],
+  "returncode": 0,
+  "assembly": {
+    "argv": [
+      "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-objdump",
+      "-d",
+      "-C",
+      "/home/arduino/sumox26_codex_build/b8bb9366458c2472d856e81ea4678716ff16d00a3b3d16b51d008e1624818307/p2_dump_compile/artifacts/bench-default/p2_dump_compile.ino.elf"
+    ],
+    "returncode": 0,
+    "stdout": "0000e6f0 <main>:\n    e6f0:\tb538      \tpush\t{r3, r4, r5, lr}\n    e6f2:\t4b05      \tldr\tr3, [pc, #20]\t@ (e708 <main+0x18>)\n    e6f4:\t4798      \tblx\tr3\n    e6f6:\t4b05      \tldr\tr3, [pc, #20]\t@ (e70c <main+0x1c>)\n    e6f8:\t4798      \tblx\tr3\n    e6fa:\t4b05      \tldr\tr3, [pc, #20]\t@ (e710 <main+0x20>)\n    e6fc:\t4798      \tblx\tr3\n    e6fe:\t4d05      \tldr\tr5, [pc, #20]\t@ (e714 <main+0x24>)\n    e700:\t4c05      \tldr\tr4, [pc, #20]\t@ (e718 <main+0x28>)\n    e702:\t47a8      \tblx\tr5\n    e704:\t47a0      \tblx\tr4\n    e706:\te7fc      \tb.n\te702 <main+0x12>\n\t...\n\n0000ec58 <arduino::ZephyrSerial::ZephyrSerialBuffer<1024>::ZephyrSerialBuffer()>:\n    ec58:\tb510      \tpush\t{r4, lr}\n    ec5a:\t4604      \tmov\tr4, r0\n    ec5c:\t2201      \tmovs\tr2, #1\n    ec5e:\t4b08      \tldr\tr3, [pc, #32]\t@ (ec80 <arduino::ZephyrSerial::ZephyrSerialBuffer<1024>::ZephyrSerialBuffer()+0x28>)\n    ec60:\t4611      \tmov\tr1, r2\n    ec62:\tf200 4014 \taddw\tr0, r0, #1044\t@ 0x414\n    ec66:\t4798      \tblx\tr3\n    ec68:\tf104 0314 \tadd.w\tr3, r4, #20\n    ec6c:\t6023      \tstr\tr3, [r4, #0]\n    ec6e:\t2300      \tmovs\tr3, #0\n    ec70:\te9c4 3301 \tstrd\tr3, r3, [r4, #4]\n    ec74:\t60e3      \tstr\tr3, [r4, #12]\n    ec76:\tf44f 6380 \tmov.w\tr3, #1024\t@ 0x400\n    ec7a:\t6123      \tstr\tr3, [r4, #16]\n    ec7c:\t4620      \tmov\tr0, r4\n    ec7e:\tbd10      \tpop\t{r4, pc}\n    ec80:\t00000000 \t.word\t0x00000000\n",
+    "stderr": ""
+  },
+  "bindings": {
+    "argv": [
+      "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-gdb",
+      "-nx",
+      "-nh",
+      "-batch",
+      "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf",
+      "-ex",
+      "p/x __llext_sym___real_fmod.addr",
+      "-ex",
+      "p/x __llext_sym___real_sqrt.addr"
+    ],
+    "returncode": 0,
+    "stdout": "$1 = 0x801504d\n$2 = 0x8014ed1\n",
+    "stderr": ""
+  }
+}

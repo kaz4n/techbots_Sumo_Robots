@@ -213,5 +213,26 @@ Validation accepts arbitrary ordinals, wrapped/equal timestamps, raw unknown
 codes, INVALID/CLAMPED frames and lifetime loss counters without rewriting the
 input files. Detailed evidence remains in those CSVs. Local byte hashes
 cannot prove a common attempt, transport completion, live IDLE, free RAM or
-physical200s/no-gap acceptance. `dump_match.sh` and live transport remain pending.
+physical200s/no-gap acceptance. D090 adds the receiver below; physical live
+transport qualification remains pending.
 Synthetic fixtures are test evidence only and must be labeled SYNTHETIC.
+
+## IDLE recorder capture (D090)
+
+`bash tools/dump_match.sh --input path/to/wire.txt --output-dir logs` validates
+an offline wire fixture without contacting hardware. Omit `--input` to receive
+from the board's loopback Monitor socket over the existing configured SSH/ADB
+transport. Start capture before the local LOG_DUMP service trigger. The command
+only receives; it never uploads firmware, requests motion, resets the robot or
+restarts the router. Full app/local reset service integration is still pending.
+
+Successful capture publishes a unique directory with frames/events/summary CSV,
+manifest, validation report, capture metadata and original wire bytes. Protocol,
+CRC or connection failures retain a `.partial` directory and error report. A
+successful interrupted/loss-bearing capture still reports its loss. Optional
+`--firmware-revision`, `--source-sha256` and `--config-sha256` are caller declarations;
+local hashes and an offline capture do not prove physical source or acceptance.
+Live `--timeout` defaults to330seconds (range1..3600); connection timeout is at most
+10seconds. Native UART cancellation permanently poisons that firmware instance's
+transport; MCU reset alone does not establish a clean Linux decoder. Never
+automatically restart `arduino-router`: its stop hooks can reset the MCU.

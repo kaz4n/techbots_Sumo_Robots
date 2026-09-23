@@ -1,0 +1,29 @@
+
+/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf:     file format elf32-littlearm
+
+
+Disassembly of section rom_start:
+
+Disassembly of section text:
+
+08019a2c <uart_stm32_poll_out>:
+ 8019a2c:	b510      	push	{r4, lr}
+ 8019a2e:	6843      	ldr	r3, [r0, #4]
+ 8019a30:	2010      	movs	r0, #16
+ 8019a32:	681b      	ldr	r3, [r3, #0]
+ 8019a34:	69da      	ldr	r2, [r3, #28]
+ 8019a36:	0612      	lsls	r2, r2, #24
+ 8019a38:	d5fc      	bpl.n	8019a34 <uart_stm32_poll_out+0x8>
+ 8019a3a:	f3ef 8211 	mrs	r2, BASEPRI
+ 8019a3e:	f380 8812 	msr	BASEPRI_MAX, r0
+ 8019a42:	f3bf 8f6f 	isb	sy
+ 8019a46:	69dc      	ldr	r4, [r3, #28]
+ 8019a48:	0624      	lsls	r4, r4, #24
+ 8019a4a:	d404      	bmi.n	8019a56 <uart_stm32_poll_out+0x2a>
+ 8019a4c:	f382 8811 	msr	BASEPRI, r2
+ 8019a50:	f3bf 8f6f 	isb	sy
+ 8019a54:	e7ee      	b.n	8019a34 <uart_stm32_poll_out+0x8>
+ 8019a56:	6299      	str	r1, [r3, #40]	@ 0x28
+ 8019a58:	f382 8811 	msr	BASEPRI, r2
+ 8019a5c:	f3bf 8f6f 	isb	sy
+ 8019a60:	bd10      	pop	{r4, pc}

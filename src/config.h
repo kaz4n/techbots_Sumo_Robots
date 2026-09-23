@@ -166,6 +166,13 @@ inline constexpr std::uint32_t UI_BENCH_SCENE_MS = 2000U;
 // D089 provisional batch size/deadline; not optical calibration evidence.
 inline constexpr std::uint32_t QTR_CAL_SAMPLES = 16U; // count exception
 inline constexpr std::uint32_t QTR_CAL_CAPTURE_MS = 1000U;
+// D090 bounded IDLE export defaults; no measured throughput or WCET claim.
+inline constexpr std::uint32_t DUMP_PAYLOAD_BYTES = 64U;
+inline constexpr std::uint32_t DUMP_STALL_MS = 2000U;
+inline constexpr std::uint32_t DUMP_TOTAL_MS = 300000U;
+inline constexpr std::uint32_t DUMP_UART_STEP_BYTES = 8U;
+inline constexpr std::uint32_t DUMP_UART_STEP_US = 80U;
+inline constexpr std::uint32_t DUMP_UART_PACKET_MS = 100U;
 inline constexpr std::uint32_t BTN_LONG_MS = 1000U; // ms
 inline constexpr std::uint32_t MODE_SHORT_MS = 600U; // ms; existing B13 strict short-press bound
 inline constexpr std::uint32_t MODE_DEFAULT = 1U; // mode

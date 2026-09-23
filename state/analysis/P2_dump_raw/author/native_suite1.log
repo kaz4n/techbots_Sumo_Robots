@@ -1,0 +1,36 @@
+test_exact_messagepack_packets_and_primask_preservation (test_dump_uart_unoq.NativeDumpTests.test_exact_messagepack_packets_and_primask_preservation) ... ok
+test_invalid_payloads_and_pending_identity_changes (test_dump_uart_unoq.NativeDumpTests.test_invalid_payloads_and_pending_identity_changes) ... ok
+test_live_register_context_dma_irq_and_metadata_corruption (test_dump_uart_unoq.NativeDumpTests.test_live_register_context_dma_irq_and_metadata_corruption) ... ok
+test_packet_deadline_adjacent_values_and_wrap (test_dump_uart_unoq.NativeDumpTests.test_packet_deadline_adjacent_values_and_wrap) ... ok
+test_partial_cancel_poison_and_foreign_context_no_register_write (test_dump_uart_unoq.NativeDumpTests.test_partial_cancel_poison_and_foreign_context_no_register_write) ... ok
+test_ready_low_error_and_setup_api_errors (test_dump_uart_unoq.NativeDumpTests.test_ready_low_error_and_setup_api_errors) ... 
+  test_ready_low_error_and_setup_api_errors (test_dump_uart_unoq.NativeDumpTests.test_ready_low_error_and_setup_api_errors) (variant='normal', case=('ready', 3)) ... FAIL
+  test_ready_low_error_and_setup_api_errors (test_dump_uart_unoq.NativeDumpTests.test_ready_low_error_and_setup_api_errors) (variant='san', case=('ready', 3)) ... FAIL
+test_setup_grants_and_thread_privilege_refuse_before_io (test_dump_uart_unoq.NativeDumpTests.test_setup_grants_and_thread_privilege_refuse_before_io) ... ok
+test_tc_pending_does_not_acknowledge_submission (test_dump_uart_unoq.NativeDumpTests.test_tc_pending_does_not_acknowledge_submission) ... ok
+test_txe_low_and_mid_call_partial_progress_stay_pending (test_dump_uart_unoq.NativeDumpTests.test_txe_low_and_mid_call_partial_progress_stay_pending) ... ok
+
+======================================================================
+FAIL: test_ready_low_error_and_setup_api_errors (test_dump_uart_unoq.NativeDumpTests.test_ready_low_error_and_setup_api_errors) (variant='normal', case=('ready', 3))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_dump_uart_unoq.py", line 61, in run_cases
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+AssertionError: 1 != 0 : checks=14 failures=1 tx=0 clock_calls=0
+line 128: status == NativeStatus::OK
+
+
+======================================================================
+FAIL: test_ready_low_error_and_setup_api_errors (test_dump_uart_unoq.NativeDumpTests.test_ready_low_error_and_setup_api_errors) (variant='san', case=('ready', 3))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_dump_uart_unoq.py", line 61, in run_cases
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+AssertionError: 1 != 0 : checks=14 failures=1 tx=0 clock_calls=0
+line 128: status == NativeStatus::OK
+
+
+----------------------------------------------------------------------
+Ran 9 tests in 4.176s
+
+FAILED (failures=2)

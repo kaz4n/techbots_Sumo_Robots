@@ -1,0 +1,143 @@
+{
+  "argv": [
+    "python3",
+    "-c",
+    "from pathlib import Path\nimport subprocess,json\nc=Path('/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0');p='/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-';elf=str(c/'firmwares/zephyr-arduino_uno_q_stm32u585xx.elf');out=[]\nfor fn in ['uart_stm32_fifo_fill','uart_stm32_fifo_read','uart_stm32_poll_in','uart_stm32_poll_out','uart_stm32_irq_tx_ready','uart_stm32_irq_tx_complete','uart_stm32_config_get','uart_stm32_irq_callback_set','uart_stm32_isr','uart_stm32_irq_tx_disable','uart_stm32_irq_rx_disable']:\n cmd=[p+'objdump','-d','--disassemble='+fn,elf];r=subprocess.run(cmd,text=True,capture_output=True);out.append(dict(name=fn,argv=cmd,returncode=r.returncode,stdout=r.stdout,stderr=r.stderr))\nprint(json.dumps(out))\n"
+  ],
+  "returncode": 0,
+  "stderr": "",
+  "commands": [
+    {
+      "name": "uart_stm32_fifo_fill",
+      "argv": [
+        "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-objdump",
+        "-d",
+        "--disassemble=uart_stm32_fifo_fill",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf"
+      ],
+      "returncode": 0,
+      "stdout": "\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf:     file format elf32-littlearm\n\n\nDisassembly of section rom_start:\n\nDisassembly of section text:\n\n080199d4 <uart_stm32_fifo_fill>:\n 80199d4:\tb538      \tpush\t{r3, r4, r5, lr}\n 80199d6:\t6843      \tldr\tr3, [r0, #4]\n 80199d8:\t460c      \tmov\tr4, r1\n 80199da:\t681b      \tldr\tr3, [r3, #0]\n 80199dc:\t6818      \tldr\tr0, [r3, #0]\n 80199de:\t6819      \tldr\tr1, [r3, #0]\n 80199e0:\tf000 2010 \tand.w\tr0, r0, #268439552\t@ 0x10001000\n 80199e4:\tf401 61c0 \tand.w\tr1, r1, #1536\t@ 0x600\n 80199e8:\tf7ff feea \tbl\t80197c0 <uart_stm32_ll2cfg_databits>\n 80199ec:\t2804      \tcmp\tr0, #4\n 80199ee:\td01a      \tbeq.n\t8019a26 <uart_stm32_fifo_fill+0x52>\n 80199f0:\t69d8      \tldr\tr0, [r3, #28]\n 80199f2:\tf010 0080 \tands.w\tr0, r0, #128\t@ 0x80\n 80199f6:\td015      \tbeq.n\t8019a24 <uart_stm32_fifo_fill+0x50>\n 80199f8:\tf3ef 8111 \tmrs\tr1, BASEPRI\n 80199fc:\t2010      \tmovs\tr0, #16\n 80199fe:\tf380 8812 \tmsr\tBASEPRI_MAX, r0\n 8019a02:\tf3bf 8f6f \tisb\tsy\n 8019a06:\t2000      \tmovs\tr0, #0\n 8019a08:\t1a15      \tsubs\tr5, r2, r0\n 8019a0a:\t2d00      \tcmp\tr5, #0\n 8019a0c:\tdd06      \tble.n\t8019a1c <uart_stm32_fifo_fill+0x48>\n 8019a0e:\t69dd      \tldr\tr5, [r3, #28]\n 8019a10:\t062d      \tlsls\tr5, r5, #24\n 8019a12:\td503      \tbpl.n\t8019a1c <uart_stm32_fifo_fill+0x48>\n 8019a14:\t5c25      \tldrb\tr5, [r4, r0]\n 8019a16:\t3001      \tadds\tr0, #1\n 8019a18:\t629d      \tstr\tr5, [r3, #40]\t@ 0x28\n 8019a1a:\te7f5      \tb.n\t8019a08 <uart_stm32_fifo_fill+0x34>\n 8019a1c:\tf381 8811 \tmsr\tBASEPRI, r1\n 8019a20:\tf3bf 8f6f \tisb\tsy\n 8019a24:\tbd38      \tpop\t{r3, r4, r5, pc}\n 8019a26:\tf06f 0085 \tmvn.w\tr0, #133\t@ 0x85\n 8019a2a:\te7fb      \tb.n\t8019a24 <uart_stm32_fifo_fill+0x50>\n",
+      "stderr": ""
+    },
+    {
+      "name": "uart_stm32_fifo_read",
+      "argv": [
+        "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-objdump",
+        "-d",
+        "--disassemble=uart_stm32_fifo_read",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf"
+      ],
+      "returncode": 0,
+      "stdout": "\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf:     file format elf32-littlearm\n\n\nDisassembly of section rom_start:\n\nDisassembly of section text:\n\n08019a86 <uart_stm32_fifo_read>:\n 8019a86:\tb538      \tpush\t{r3, r4, r5, lr}\n 8019a88:\t6843      \tldr\tr3, [r0, #4]\n 8019a8a:\t460c      \tmov\tr4, r1\n 8019a8c:\t681b      \tldr\tr3, [r3, #0]\n 8019a8e:\t6818      \tldr\tr0, [r3, #0]\n 8019a90:\t6819      \tldr\tr1, [r3, #0]\n 8019a92:\tf000 2010 \tand.w\tr0, r0, #268439552\t@ 0x10001000\n 8019a96:\tf401 61c0 \tand.w\tr1, r1, #1536\t@ 0x600\n 8019a9a:\tf7ff fe91 \tbl\t80197c0 <uart_stm32_ll2cfg_databits>\n 8019a9e:\t2804      \tcmp\tr0, #4\n 8019aa0:\td00f      \tbeq.n\t8019ac2 <uart_stm32_fifo_read+0x3c>\n 8019aa2:\t2000      \tmovs\tr0, #0\n 8019aa4:\t2108      \tmovs\tr1, #8\n 8019aa6:\t1a15      \tsubs\tr5, r2, r0\n 8019aa8:\t2d00      \tcmp\tr5, #0\n 8019aaa:\tdd0c      \tble.n\t8019ac6 <uart_stm32_fifo_read+0x40>\n 8019aac:\t69dd      \tldr\tr5, [r3, #28]\n 8019aae:\t06ad      \tlsls\tr5, r5, #26\n 8019ab0:\td509      \tbpl.n\t8019ac6 <uart_stm32_fifo_read+0x40>\n 8019ab2:\t6a5d      \tldr\tr5, [r3, #36]\t@ 0x24\n 8019ab4:\t5425      \tstrb\tr5, [r4, r0]\n 8019ab6:\t69dd      \tldr\tr5, [r3, #28]\n 8019ab8:\t3001      \tadds\tr0, #1\n 8019aba:\t072d      \tlsls\tr5, r5, #28\n 8019abc:\td5f3      \tbpl.n\t8019aa6 <uart_stm32_fifo_read+0x20>\n 8019abe:\t6219      \tstr\tr1, [r3, #32]\n 8019ac0:\te7f1      \tb.n\t8019aa6 <uart_stm32_fifo_read+0x20>\n 8019ac2:\tf06f 0085 \tmvn.w\tr0, #133\t@ 0x85\n 8019ac6:\tbd38      \tpop\t{r3, r4, r5, pc}\n",
+      "stderr": ""
+    },
+    {
+      "name": "uart_stm32_poll_in",
+      "argv": [
+        "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-objdump",
+        "-d",
+        "--disassemble=uart_stm32_poll_in",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf"
+      ],
+      "returncode": 0,
+      "stdout": "\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf:     file format elf32-littlearm\n\n\nDisassembly of section rom_start:\n\nDisassembly of section text:\n\n08019ac8 <uart_stm32_poll_in>:\n 8019ac8:\t6843      \tldr\tr3, [r0, #4]\n 8019aca:\t681b      \tldr\tr3, [r3, #0]\n 8019acc:\t69da      \tldr\tr2, [r3, #28]\n 8019ace:\t0710      \tlsls\tr0, r2, #28\n 8019ad0:\tbf44      \titt\tmi\n 8019ad2:\t2208      \tmovmi\tr2, #8\n 8019ad4:\t621a      \tstrmi\tr2, [r3, #32]\n 8019ad6:\t69da      \tldr\tr2, [r3, #28]\n 8019ad8:\t0692      \tlsls\tr2, r2, #26\n 8019ada:\tbf43      \tittte\tmi\n 8019adc:\t6a5b      \tldrmi\tr3, [r3, #36]\t@ 0x24\n 8019ade:\t2000      \tmovmi\tr0, #0\n 8019ae0:\t700b      \tstrbmi\tr3, [r1, #0]\n 8019ae2:\tf04f 30ff \tmovpl.w\tr0, #4294967295\t@ 0xffffffff\n 8019ae6:\t4770      \tbx\tlr\n",
+      "stderr": ""
+    },
+    {
+      "name": "uart_stm32_poll_out",
+      "argv": [
+        "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-objdump",
+        "-d",
+        "--disassemble=uart_stm32_poll_out",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf"
+      ],
+      "returncode": 0,
+      "stdout": "\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf:     file format elf32-littlearm\n\n\nDisassembly of section rom_start:\n\nDisassembly of section text:\n\n08019a2c <uart_stm32_poll_out>:\n 8019a2c:\tb510      \tpush\t{r4, lr}\n 8019a2e:\t6843      \tldr\tr3, [r0, #4]\n 8019a30:\t2010      \tmovs\tr0, #16\n 8019a32:\t681b      \tldr\tr3, [r3, #0]\n 8019a34:\t69da      \tldr\tr2, [r3, #28]\n 8019a36:\t0612      \tlsls\tr2, r2, #24\n 8019a38:\td5fc      \tbpl.n\t8019a34 <uart_stm32_poll_out+0x8>\n 8019a3a:\tf3ef 8211 \tmrs\tr2, BASEPRI\n 8019a3e:\tf380 8812 \tmsr\tBASEPRI_MAX, r0\n 8019a42:\tf3bf 8f6f \tisb\tsy\n 8019a46:\t69dc      \tldr\tr4, [r3, #28]\n 8019a48:\t0624      \tlsls\tr4, r4, #24\n 8019a4a:\td404      \tbmi.n\t8019a56 <uart_stm32_poll_out+0x2a>\n 8019a4c:\tf382 8811 \tmsr\tBASEPRI, r2\n 8019a50:\tf3bf 8f6f \tisb\tsy\n 8019a54:\te7ee      \tb.n\t8019a34 <uart_stm32_poll_out+0x8>\n 8019a56:\t6299      \tstr\tr1, [r3, #40]\t@ 0x28\n 8019a58:\tf382 8811 \tmsr\tBASEPRI, r2\n 8019a5c:\tf3bf 8f6f \tisb\tsy\n 8019a60:\tbd10      \tpop\t{r4, pc}\n",
+      "stderr": ""
+    },
+    {
+      "name": "uart_stm32_irq_tx_ready",
+      "argv": [
+        "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-objdump",
+        "-d",
+        "--disassemble=uart_stm32_irq_tx_ready",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf"
+      ],
+      "returncode": 0,
+      "stdout": "\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf:     file format elf32-littlearm\n\n\nDisassembly of section rom_start:\n\nDisassembly of section text:\n\n0801992e <uart_stm32_irq_tx_ready>:\n 801992e:\t6843      \tldr\tr3, [r0, #4]\n 8019930:\t681b      \tldr\tr3, [r3, #0]\n 8019932:\t69d8      \tldr\tr0, [r3, #28]\n 8019934:\tf010 0080 \tands.w\tr0, r0, #128\t@ 0x80\n 8019938:\tbf1c      \titt\tne\n 801993a:\t6818      \tldrne\tr0, [r3, #0]\n 801993c:\tf3c0 1080 \tubfxne\tr0, r0, #6, #1\n 8019940:\t4770      \tbx\tlr\n",
+      "stderr": ""
+    },
+    {
+      "name": "uart_stm32_irq_tx_complete",
+      "argv": [
+        "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-objdump",
+        "-d",
+        "--disassemble=uart_stm32_irq_tx_complete",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf"
+      ],
+      "returncode": 0,
+      "stdout": "\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf:     file format elf32-littlearm\n\n\nDisassembly of section rom_start:\n\nDisassembly of section text:\n\n08019922 <uart_stm32_irq_tx_complete>:\n 8019922:\t6843      \tldr\tr3, [r0, #4]\n 8019924:\t681b      \tldr\tr3, [r3, #0]\n 8019926:\t69d8      \tldr\tr0, [r3, #28]\n 8019928:\tf3c0 1080 \tubfx\tr0, r0, #6, #1\n 801992c:\t4770      \tbx\tlr\n",
+      "stderr": ""
+    },
+    {
+      "name": "uart_stm32_config_get",
+      "argv": [
+        "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-objdump",
+        "-d",
+        "--disassemble=uart_stm32_config_get",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf"
+      ],
+      "returncode": 0,
+      "stdout": "\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf:     file format elf32-littlearm\n\n\nDisassembly of section rom_start:\n\nDisassembly of section text:\n\n08019942 <uart_stm32_config_get>:\n 8019942:\tb510      \tpush\t{r4, lr}\n 8019944:\t6902      \tldr\tr2, [r0, #16]\n 8019946:\t4604      \tmov\tr4, r0\n 8019948:\t6812      \tldr\tr2, [r2, #0]\n 801994a:\t460b      \tmov\tr3, r1\n 801994c:\t6812      \tldr\tr2, [r2, #0]\n 801994e:\t600a      \tstr\tr2, [r1, #0]\n 8019950:\t6842      \tldr\tr2, [r0, #4]\n 8019952:\t6812      \tldr\tr2, [r2, #0]\n 8019954:\t6812      \tldr\tr2, [r2, #0]\n 8019956:\tf402 62c0 \tand.w\tr2, r2, #1536\t@ 0x600\n 801995a:\tf5b2 6f80 \tcmp.w\tr2, #1024\t@ 0x400\n 801995e:\td033      \tbeq.n\t80199c8 <uart_stm32_config_get+0x86>\n 8019960:\tf5a2 60c0 \tsub.w\tr0, r2, #1536\t@ 0x600\n 8019964:\t4242      \tnegs\tr2, r0\n 8019966:\t4142      \tadcs\tr2, r0\n 8019968:\t711a      \tstrb\tr2, [r3, #4]\n 801996a:\t6862      \tldr\tr2, [r4, #4]\n 801996c:\t6812      \tldr\tr2, [r2, #0]\n 801996e:\t6852      \tldr\tr2, [r2, #4]\n 8019970:\tf402 5240 \tand.w\tr2, r2, #12288\t@ 0x3000\n 8019974:\tf5b2 5f80 \tcmp.w\tr2, #4096\t@ 0x1000\n 8019978:\td028      \tbeq.n\t80199cc <uart_stm32_config_get+0x8a>\n 801997a:\tf5b2 5f40 \tcmp.w\tr2, #12288\t@ 0x3000\n 801997e:\td027      \tbeq.n\t80199d0 <uart_stm32_config_get+0x8e>\n 8019980:\t2a00      \tcmp\tr2, #0\n 8019982:\tbf0c      \tite\teq\n 8019984:\t2201      \tmoveq\tr2, #1\n 8019986:\t2203      \tmovne\tr2, #3\n 8019988:\t715a      \tstrb\tr2, [r3, #5]\n 801998a:\t6862      \tldr\tr2, [r4, #4]\n 801998c:\t6812      \tldr\tr2, [r2, #0]\n 801998e:\t6810      \tldr\tr0, [r2, #0]\n 8019990:\t6811      \tldr\tr1, [r2, #0]\n 8019992:\tf000 2010 \tand.w\tr0, r0, #268439552\t@ 0x10001000\n 8019996:\tf401 61c0 \tand.w\tr1, r1, #1536\t@ 0x600\n 801999a:\tf7ff ff11 \tbl\t80197c0 <uart_stm32_ll2cfg_databits>\n 801999e:\t7198      \tstrb\tr0, [r3, #6]\n 80199a0:\t6862      \tldr\tr2, [r4, #4]\n 80199a2:\t2000      \tmovs\tr0, #0\n 80199a4:\t6812      \tldr\tr2, [r2, #0]\n 80199a6:\t6892      \tldr\tr2, [r2, #8]\n 80199a8:\tf402 7240 \tand.w\tr2, r2, #768\t@ 0x300\n 80199ac:\tf5a2 7140 \tsub.w\tr1, r2, #768\t@ 0x300\n 80199b0:\t424a      \tnegs\tr2, r1\n 80199b2:\t414a      \tadcs\tr2, r1\n 80199b4:\t71da      \tstrb\tr2, [r3, #7]\n 80199b6:\t6861      \tldr\tr1, [r4, #4]\n 80199b8:\t6809      \tldr\tr1, [r1, #0]\n 80199ba:\t6889      \tldr\tr1, [r1, #8]\n 80199bc:\tf411 4f80 \ttst.w\tr1, #16384\t@ 0x4000\n 80199c0:\tbf18      \tit\tne\n 80199c2:\t2203      \tmovne\tr2, #3\n 80199c4:\t71da      \tstrb\tr2, [r3, #7]\n 80199c6:\tbd10      \tpop\t{r4, pc}\n 80199c8:\t2202      \tmovs\tr2, #2\n 80199ca:\te7cd      \tb.n\t8019968 <uart_stm32_config_get+0x26>\n 80199cc:\t2200      \tmovs\tr2, #0\n 80199ce:\te7db      \tb.n\t8019988 <uart_stm32_config_get+0x46>\n 80199d0:\t2202      \tmovs\tr2, #2\n 80199d2:\te7d9      \tb.n\t8019988 <uart_stm32_config_get+0x46>\n",
+      "stderr": ""
+    },
+    {
+      "name": "uart_stm32_irq_callback_set",
+      "argv": [
+        "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-objdump",
+        "-d",
+        "--disassemble=uart_stm32_irq_callback_set",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf"
+      ],
+      "returncode": 0,
+      "stdout": "\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf:     file format elf32-littlearm\n\n\nDisassembly of section rom_start:\n\nDisassembly of section text:\n\n080198ac <uart_stm32_irq_callback_set>:\n 80198ac:\t6903      \tldr\tr3, [r0, #16]\n 80198ae:\te9c3 1201 \tstrd\tr1, r2, [r3, #4]\n 80198b2:\t4770      \tbx\tlr\n",
+      "stderr": ""
+    },
+    {
+      "name": "uart_stm32_isr",
+      "argv": [
+        "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-objdump",
+        "-d",
+        "--disassemble=uart_stm32_isr",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf"
+      ],
+      "returncode": 0,
+      "stdout": "\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf:     file format elf32-littlearm\n\n\nDisassembly of section rom_start:\n\nDisassembly of section text:\n\n080198b4 <uart_stm32_isr>:\n 80198b4:\t6902      \tldr\tr2, [r0, #16]\n 80198b6:\t6853      \tldr\tr3, [r2, #4]\n 80198b8:\tb10b      \tcbz\tr3, 80198be <uart_stm32_isr+0xa>\n 80198ba:\t6891      \tldr\tr1, [r2, #8]\n 80198bc:\t4718      \tbx\tr3\n 80198be:\t4770      \tbx\tlr\n",
+      "stderr": ""
+    },
+    {
+      "name": "uart_stm32_irq_tx_disable",
+      "argv": [
+        "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-objdump",
+        "-d",
+        "--disassemble=uart_stm32_irq_tx_disable",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf"
+      ],
+      "returncode": 0,
+      "stdout": "\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf:     file format elf32-littlearm\n\n\nDisassembly of section rom_start:\n\nDisassembly of section text:\n\n0801985a <uart_stm32_irq_tx_disable>:\n 801985a:\t6843      \tldr\tr3, [r0, #4]\n 801985c:\t681a      \tldr\tr2, [r3, #0]\n 801985e:\te852 3f00 \tldrex\tr3, [r2]\n 8019862:\tf023 0340 \tbic.w\tr3, r3, #64\t@ 0x40\n 8019866:\te842 3100 \tstrex\tr1, r3, [r2]\n 801986a:\t2900      \tcmp\tr1, #0\n 801986c:\td1f7      \tbne.n\t801985e <uart_stm32_irq_tx_disable+0x4>\n 801986e:\t4770      \tbx\tlr\n",
+      "stderr": ""
+    },
+    {
+      "name": "uart_stm32_irq_rx_disable",
+      "argv": [
+        "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-objdump",
+        "-d",
+        "--disassemble=uart_stm32_irq_rx_disable",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf"
+      ],
+      "returncode": 0,
+      "stdout": "\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf:     file format elf32-littlearm\n\n\nDisassembly of section rom_start:\n\nDisassembly of section text:\n\n08019886 <uart_stm32_irq_rx_disable>:\n 8019886:\t6843      \tldr\tr3, [r0, #4]\n 8019888:\t681a      \tldr\tr2, [r3, #0]\n 801988a:\te852 3f00 \tldrex\tr3, [r2]\n 801988e:\tf023 0320 \tbic.w\tr3, r3, #32\n 8019892:\te842 3100 \tstrex\tr1, r3, [r2]\n 8019896:\t2900      \tcmp\tr1, #0\n 8019898:\td1f7      \tbne.n\t801988a <uart_stm32_irq_rx_disable+0x4>\n 801989a:\t4770      \tbx\tlr\n",
+      "stderr": ""
+    }
+  ]
+}

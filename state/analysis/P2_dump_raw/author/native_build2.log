@@ -1,0 +1,37 @@
+src/hal/dump_uart_unoq.cpp: In function ‘bool recorder::dump::{anonymous}::metadata()’:
+src/hal/dump_uart_unoq.cpp:72:41: error: ISO C++ forbids declaration of ‘type name’ with no type [-fpermissive]
+   72 |     const auto* cfg = static_cast<const gpio_driver_config*>(gpio->config);
+      |                                         ^~~~~~~~~~~~~~~~~~
+src/hal/dump_uart_unoq.cpp:72:41: error: expected ‘>’ before ‘gpio_driver_config’
+src/hal/dump_uart_unoq.cpp:72:41: error: expected ‘(’ before ‘gpio_driver_config’
+   72 |     const auto* cfg = static_cast<const gpio_driver_config*>(gpio->config);
+      |                                         ^~~~~~~~~~~~~~~~~~
+      |                                         (
+src/hal/dump_uart_unoq.cpp:72:41: error: ‘gpio_driver_config’ was not declared in this scope
+   72 |     const auto* cfg = static_cast<const gpio_driver_config*>(gpio->config);
+      |                                         ^~~~~~~~~~~~~~~~~~
+src/hal/dump_uart_unoq.cpp:72:60: error: expected primary-expression before ‘>’ token
+   72 |     const auto* cfg = static_cast<const gpio_driver_config*>(gpio->config);
+      |                                                            ^
+src/hal/dump_uart_unoq.cpp:72:75: error: expected ‘)’ before ‘;’ token
+   72 |     const auto* cfg = static_cast<const gpio_driver_config*>(gpio->config);
+      |                                                                           ^
+      |                                                                           )
+src/hal/dump_uart_unoq.cpp:73:41: error: ISO C++ forbids declaration of ‘type name’ with no type [-fpermissive]
+   73 |     const auto* api = static_cast<const gpio_driver_api*>(gpio->api);
+      |                                         ^~~~~~~~~~~~~~~
+src/hal/dump_uart_unoq.cpp:73:41: error: expected ‘>’ before ‘gpio_driver_api’
+src/hal/dump_uart_unoq.cpp:73:41: error: expected ‘(’ before ‘gpio_driver_api’
+   73 |     const auto* api = static_cast<const gpio_driver_api*>(gpio->api);
+      |                                         ^~~~~~~~~~~~~~~
+      |                                         (
+src/hal/dump_uart_unoq.cpp:73:41: error: ‘gpio_driver_api’ was not declared in this scope
+   73 |     const auto* api = static_cast<const gpio_driver_api*>(gpio->api);
+      |                                         ^~~~~~~~~~~~~~~
+src/hal/dump_uart_unoq.cpp:73:57: error: expected primary-expression before ‘>’ token
+   73 |     const auto* api = static_cast<const gpio_driver_api*>(gpio->api);
+      |                                                         ^
+src/hal/dump_uart_unoq.cpp:73:69: error: expected ‘)’ before ‘;’ token
+   73 |     const auto* api = static_cast<const gpio_driver_api*>(gpio->api);
+      |                                                                     ^
+      |                                                                     )

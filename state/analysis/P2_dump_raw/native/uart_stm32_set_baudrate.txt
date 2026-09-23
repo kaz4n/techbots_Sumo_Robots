@@ -1,0 +1,112 @@
+
+/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf:     file format elf32-littlearm
+
+
+Disassembly of section rom_start:
+
+Disassembly of section text:
+
+0800f10c <uart_stm32_set_baudrate>:
+ 800f10c:	e92d 43f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, lr}
+ 800f110:	6843      	ldr	r3, [r0, #4]
+ 800f112:	4607      	mov	r7, r0
+ 800f114:	460c      	mov	r4, r1
+ 800f116:	681d      	ldr	r5, [r3, #0]
+ 800f118:	b089      	sub	sp, #36	@ 0x24
+ 800f11a:	2900      	cmp	r1, #0
+ 800f11c:	d03f      	beq.n	800f19e <uart_stm32_set_baudrate+0x92>
+ 800f11e:	6858      	ldr	r0, [r3, #4]
+ 800f120:	6919      	ldr	r1, [r3, #16]
+ 800f122:	6883      	ldr	r3, [r0, #8]
+ 800f124:	68db      	ldr	r3, [r3, #12]
+ 800f126:	b18b      	cbz	r3, 800f14c <uart_stm32_set_baudrate+0x40>
+ 800f128:	aa07      	add	r2, sp, #28
+ 800f12a:	4798      	blx	r3
+ 800f12c:	1e06      	subs	r6, r0, #0
+ 800f12e:	da10      	bge.n	800f152 <uart_stm32_set_baudrate+0x46>
+ 800f130:	4b32      	ldr	r3, [pc, #200]	@ (800f1fc <uart_stm32_set_baudrate+0xf0>)
+ 800f132:	2201      	movs	r2, #1
+ 800f134:	9302      	str	r3, [sp, #8]
+ 800f136:	2300      	movs	r3, #0
+ 800f138:	4931      	ldr	r1, [pc, #196]	@ (800f200 <uart_stm32_set_baudrate+0xf4>)
+ 800f13a:	4618      	mov	r0, r3
+ 800f13c:	e9cd 3300 	strd	r3, r3, [sp]
+ 800f140:	f00a fbdf 	bl	8019902 <z_log_msg_runtime_create.constprop.0>
+ 800f144:	4630      	mov	r0, r6
+ 800f146:	b009      	add	sp, #36	@ 0x24
+ 800f148:	e8bd 83f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, pc}
+ 800f14c:	f06f 0657 	mvn.w	r6, #87	@ 0x57
+ 800f150:	e7ee      	b.n	800f130 <uart_stm32_set_baudrate+0x24>
+ 800f152:	4b2c      	ldr	r3, [pc, #176]	@ (800f204 <uart_stm32_set_baudrate+0xf8>)
+ 800f154:	429d      	cmp	r5, r3
+ 800f156:	d003      	beq.n	800f160 <uart_stm32_set_baudrate+0x54>
+ 800f158:	f103 5380 	add.w	r3, r3, #268435456	@ 0x10000000
+ 800f15c:	429d      	cmp	r5, r3
+ 800f15e:	d121      	bne.n	800f1a4 <uart_stm32_set_baudrate+0x98>
+ 800f160:	2600      	movs	r6, #0
+ 800f162:	f8dd 801c 	ldr.w	r8, [sp, #28]
+ 800f166:	f8df 90a8 	ldr.w	r9, [pc, #168]	@ 800f210 <uart_stm32_set_baudrate+0x104>
+ 800f16a:	4623      	mov	r3, r4
+ 800f16c:	4640      	mov	r0, r8
+ 800f16e:	2100      	movs	r1, #0
+ 800f170:	b2b2      	uxth	r2, r6
+ 800f172:	f7ff ffb3 	bl	800f0dc <lpuartdiv_calc>
+ 800f176:	f5a0 7040 	sub.w	r0, r0, #768	@ 0x300
+ 800f17a:	4548      	cmp	r0, r9
+ 800f17c:	d921      	bls.n	800f1c2 <uart_stm32_set_baudrate+0xb6>
+ 800f17e:	3601      	adds	r6, #1
+ 800f180:	2e10      	cmp	r6, #16
+ 800f182:	d1f2      	bne.n	800f16a <uart_stm32_set_baudrate+0x5e>
+ 800f184:	9404      	str	r4, [sp, #16]
+ 800f186:	683b      	ldr	r3, [r7, #0]
+ 800f188:	2201      	movs	r2, #1
+ 800f18a:	9303      	str	r3, [sp, #12]
+ 800f18c:	4b1e      	ldr	r3, [pc, #120]	@ (800f208 <uart_stm32_set_baudrate+0xfc>)
+ 800f18e:	491c      	ldr	r1, [pc, #112]	@ (800f200 <uart_stm32_set_baudrate+0xf4>)
+ 800f190:	9302      	str	r3, [sp, #8]
+ 800f192:	2300      	movs	r3, #0
+ 800f194:	4618      	mov	r0, r3
+ 800f196:	e9cd 3300 	strd	r3, r3, [sp]
+ 800f19a:	f00a fbb2 	bl	8019902 <z_log_msg_runtime_create.constprop.0>
+ 800f19e:	f06f 0615 	mvn.w	r6, #21
+ 800f1a2:	e7cf      	b.n	800f144 <uart_stm32_set_baudrate+0x38>
+ 800f1a4:	682b      	ldr	r3, [r5, #0]
+ 800f1a6:	f423 4300 	bic.w	r3, r3, #32768	@ 0x8000
+ 800f1aa:	602b      	str	r3, [r5, #0]
+ 800f1ac:	9b07      	ldr	r3, [sp, #28]
+ 800f1ae:	eb03 0354 	add.w	r3, r3, r4, lsr #1
+ 800f1b2:	fbb3 f3f4 	udiv	r3, r3, r4
+ 800f1b6:	2b0f      	cmp	r3, #15
+ 800f1b8:	d9e4      	bls.n	800f184 <uart_stm32_set_baudrate+0x78>
+ 800f1ba:	b29b      	uxth	r3, r3
+ 800f1bc:	60eb      	str	r3, [r5, #12]
+ 800f1be:	2600      	movs	r6, #0
+ 800f1c0:	e7c0      	b.n	800f144 <uart_stm32_set_baudrate+0x38>
+ 800f1c2:	6aeb      	ldr	r3, [r5, #44]	@ 0x2c
+ 800f1c4:	4640      	mov	r0, r8
+ 800f1c6:	f023 030f 	bic.w	r3, r3, #15
+ 800f1ca:	4333      	orrs	r3, r6
+ 800f1cc:	62eb      	str	r3, [r5, #44]	@ 0x2c
+ 800f1ce:	4b0f      	ldr	r3, [pc, #60]	@ (800f20c <uart_stm32_set_baudrate+0x100>)
+ 800f1d0:	f44f 7780 	mov.w	r7, #256	@ 0x100
+ 800f1d4:	f833 2016 	ldrh.w	r2, [r3, r6, lsl #1]
+ 800f1d8:	2300      	movs	r3, #0
+ 800f1da:	4619      	mov	r1, r3
+ 800f1dc:	f7f2 f8c2 	bl	8001364 <__aeabi_uldivmod>
+ 800f1e0:	2300      	movs	r3, #0
+ 800f1e2:	4606      	mov	r6, r0
+ 800f1e4:	4619      	mov	r1, r3
+ 800f1e6:	0860      	lsrs	r0, r4, #1
+ 800f1e8:	4622      	mov	r2, r4
+ 800f1ea:	fbe6 0107 	umlal	r0, r1, r6, r7
+ 800f1ee:	f7f2 f8b9 	bl	8001364 <__aeabi_uldivmod>
+ 800f1f2:	f3c0 0013 	ubfx	r0, r0, #0, #20
+ 800f1f6:	60e8      	str	r0, [r5, #12]
+ 800f1f8:	e7e1      	b.n	800f1be <uart_stm32_set_baudrate+0xb2>
+ 800f1fa:	bf00      	nop
+ 800f1fc:	08023d9a 	.word	0x08023d9a
+ 800f200:	0801c8dc 	.word	0x0801c8dc
+ 800f204:	46002400 	.word	0x46002400
+ 800f208:	080241fe 	.word	0x080241fe
+ 800f20c:	0801f0ec 	.word	0x0801f0ec
+ 800f210:	000ffcff 	.word	0x000ffcff

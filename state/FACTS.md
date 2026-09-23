@@ -372,3 +372,13 @@ F109 final disposition 2026-09-23T15:18:47+04:00: separate reused same-model rev
 | ID | Question | Observed answer | Source | Confidence | Hardware-checked |
 |---|---|---|---|---|---|
 | F-111 | Can raw QTR calibration feed an atomic threshold bank without bypassing Robot or MotorGate inhibition? | Implementation311bf40; fullnormal/san1255main+39GatePASS;31newcases1915assertions;4toolingmethods/alternateprofiles/config18checks PASS. Fresh reviewer fixed and rechecked source-era replay defect, finalPASS. Actualcompile-onlycc4819aa145824program/72004compiler globals,67exactGit/sourcefiles/3ELFs/40native42AEABI verified;6existinginertkeys reapproved. | analysis/P2_qtr_cal_contract.md/validation.md/review.md; raw/source_integrity.json and command receipts | IMPLEMENTED/HOST-TESTED/TARGET-COMPILED; fresh separate same-model review | Board Linux compile/files only, no MCU/upload/reset/pad/sensor/motor action. All calibration samples synthetic; no physical thresholds/buttons/WCET/human gate. App acquisition/lifetime and print transport remain pending. |
+
+
+## D090 bounded IDLE dump software,2026-09-23
+
+| ID | Question | Observed answer | Source | Confidence | Hardware-checked |
+|---|---|---|---|---|---|
+| F-112 | Can a retained attempt be streamed with bounded IDLE authority and reconstructed without hiding loss? |26independent owner cases4052assertions;33receiver methods including18config checks;11native methods154normal/san scenarios4870assertions PASS. Fullnormal/san1281main+65enabledGate PASS. Actual finalcompile-onlyb8bb9366,315332program/238596compiler globals and lowRAMwarning;72exactsourcefiles/3ELFs/40native42AEABI+fmod/sqrt bindings. Fresh reviewer verified strong empty __loopHook and actual main linkage/constructors, approved six existing inert source keys; final review records remaining tooling closure. | analysis/P2_dump_contract.md/native_audit.md/native_contract.md/validation.md/raw; reviews/P2_dump_review.md/raw | IMPLEMENTED/HOST-TESTED/TARGET-COMPILED; fresh separate same-model source review | Board Linux compilation/offlinefiles only; no MCU/upload/reset/peripheral/sensor/motor action. Setup device_init has unbounded acknowledgement waits; SC-AJ clock, actual UART/framing/cleanup, loaded freeRAM/200s/no-gap, fullapp/WCET and all human gates remain pending. |
+
+
+F112 final software disposition 2026-09-23T16:49:58+04:00: fresh separate same-model review PASS/no openfindings. All72target/current files exact; strongemptyhook in3ELFs andactualmain/startup/imports inspected. Final56existingcontrolledchecks and4Windows publication/outcome methods PASS. No upload/runtime/humangate follows; software source approval applies onlysixexistinginertkeys.

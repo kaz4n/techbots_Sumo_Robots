@@ -1,0 +1,182 @@
+// This file is part of arduino-router.
+//
+// SPDX-FileCopyrightText: Arduino s.r.l. and/or its affiliated companies
+// SPDX-License-Identifier: GPL-3.0-or-later
+
+package monitorapi
+
+import (
+	"fmt"
+	"log/slog"
+	"net"
+	"sync"
+	"sync/atomic"
+	"time"
+
+	"github.com/djherbis/buffer"
+	"github.com/djherbis/nio/v3"
+
+	"github.com/arduino/arduino-router/internal/msgpackrouter"
+	"github.com/arduino/arduino-router/msgpackrpc"
+)
+
+var socketsLock sync.RWMutex
+var sockets map[net.Conn]struct{}
+var monSendPipeRd *nio.PipeReader
+var monSendPipeWr *nio.PipeWriter
+var bytesInSendPipe atomic.Int64
+
+// Register the Monitor API methods
+func Register(router *msgpackrouter.Router, addr string) error {
+	listener, err := net.Listen("tcp", addr)
+	if err != nil {
+		return fmt.Errorf("failed to start listener: %w", err)
+	}
+	sockets = make(map[net.Conn]struct{})
+	monSendPipeRd, monSendPipeWr = nio.Pipe(buffer.New(1024))
+
+	go connectionHandler(listener)
+	_ = router.RegisterMethod("mon/connected", connected)
+	_ = router.RegisterMethod("mon/read", read)
+	_ = router.RegisterMethod("mon/write", write)
+	_ = router.RegisterMethod("mon/reset", reset)
+	return nil
+}
+
+func connectionHandler(listener net.Listener) {
+	for {
+		conn, err := listener.Accept()
+		if err != nil {
+			slog.Error("Failed to accept monitor connection", "error", err)
+			return
+		}
+
+		slog.Info("Accepted monitor connection", "from", conn.RemoteAddr())
+		socketsLock.Lock()
+		sockets[conn] = struct{}{}
+		socketsLock.Unlock()
+
+		go func() {
+			defer close(conn)
+
+			// Read from the connection and write to the monitor send pipe
+			buff := make([]byte, 1024)
+			for {
+				if n, err := conn.Read(buff); err != nil {
+					// Connection closed from client
+					return
+				} else if written, err := monSendPipeWr.Write(buff[:n]); err != nil {
+					return
+				} else {
+					bytesInSendPipe.Add(int64(written))
+				}
+			}
+		}()
+	}
+}
+
+func connected(rpc *msgpackrpc.Connection, params []any, res msgpackrouter.RouterResponseHandler) {
+	if len(params) != 0 {
+		res(nil, []any{1, "Invalid number of parameters, expected no parameters"})
+		return
+	}
+
+	socketsLock.RLock()
+	connected := len(sockets) > 0
+	socketsLock.RUnlock()
+
+	res(connected, nil)
+}
+
+func read(rpc *msgpackrpc.Connection, params []any, res msgpackrouter.RouterResponseHandler) {
+	if len(params) != 1 {
+		res(nil, []any{1, "Invalid number of parameters, expected max bytes to read"})
+		return
+	}
+	maxBytes, ok := msgpackrpc.ToUint(params[0])
+	if !ok {
+		res(nil, []any{1, "Invalid parameter type, expected positive int for max bytes to read"})
+		return
+	}
+
+	if bytesInSendPipe.Load() == 0 {
+		res([]byte{}, nil)
+		return
+	}
+
+	buffer := make([]byte, maxBytes)
+	if readed, err := monSendPipeRd.Read(buffer); err != nil {
+		slog.Error("Error reading monitor", "error", err)
+		res(nil, []any{3, "Failed to read from connection: " + err.Error()})
+	} else {
+		bytesInSendPipe.Add(int64(-readed))
+		res(buffer[:readed], nil)
+	}
+}
+
+func write(rpc *msgpackrpc.Connection, params []any, res msgpackrouter.RouterResponseHandler) {
+	if len(params) != 1 {
+		res(nil, []any{1, "Invalid number of parameters, expected data to write"})
+		return
+	}
+	data, ok := params[0].([]byte)
+	if !ok {
+		if dataStr, ok := params[0].(string); ok {
+			data = []byte(dataStr)
+		} else {
+			// If data is not []byte or string, return an error
+			res(nil, []any{1, "Invalid parameter type, expected []byte or string for data to write"})
+			return
+		}
+	}
+
+	socketsLock.RLock()
+	clients := make([]net.Conn, 0, len(sockets))
+	for c := range sockets {
+		clients = append(clients, c)
+	}
+	socketsLock.RUnlock()
+
+	for _, conn := range clients {
+		if len(clients) > 1 {
+			// If there are multiple clients, allow 500 ms for the data to
+			// get through each one.
+			_ = conn.SetWriteDeadline(time.Now().Add(time.Millisecond * 500))
+		} else {
+			_ = conn.SetWriteDeadline(time.Time{})
+		}
+		if _, err := conn.Write(data); err != nil {
+			// If we get an error, we assume the connection is lost.
+			slog.Error("Monitor connection lost, closing connection", "error", err)
+			close(conn)
+		}
+	}
+
+	res(len(data), nil)
+}
+
+func close(conn net.Conn) {
+	socketsLock.Lock()
+	delete(sockets, conn)
+	socketsLock.Unlock()
+	_ = conn.Close()
+}
+
+func reset(rpc *msgpackrpc.Connection, params []any, res msgpackrouter.RouterResponseHandler) {
+	if len(params) != 0 {
+		res(nil, []any{1, "Invalid number of parameters, expected no parameters"})
+		return
+	}
+
+	socketsLock.Lock()
+	socketsToClose := sockets
+	sockets = make(map[net.Conn]struct{})
+	socketsLock.Unlock()
+
+	for c := range socketsToClose {
+		_ = c.Close()
+	}
+
+	slog.Info("Monitor connection reset")
+	res(true, nil)
+}

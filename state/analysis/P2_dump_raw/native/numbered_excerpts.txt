@@ -1,0 +1,1004 @@
+
+sources/Arduino_RouterBridge/src/bridge.h
+40: class RpcCall {
+41: 
+42:     RpcError error;
+43: 
+44:     void setError(int code, MsgPack::str_t text) {
+45:         k_mutex_lock(&call_mutex, K_FOREVER);
+46:         error.code = code;
+47:         error.traceback = std::move(text);
+48:         k_mutex_unlock(&call_mutex);
+49:     }
+50: 
+51: public:
+52: 
+53:     RpcCall(const MsgPack::str_t& m, RPCClient* c, struct k_mutex* rm, struct k_mutex* wm, Args&&... args): method(m), client(c), read_mutex(rm), write_mutex(wm), callback_params(std::forward_as_tuple(std::forward<Args>(args)...)) {
+54:         k_mutex_init(&call_mutex);
+55:         setError(GENERIC_ERR, "This call is not yet executed");
+56:     }
+57: 
+58:     bool isError() {
+59:         k_mutex_lock(&call_mutex, K_FOREVER);
+60:         const bool out = error.code > NO_ERR;
+61:         k_mutex_unlock(&call_mutex);
+62:         return out;
+63:     }
+64: 
+65:     int getErrorCode() {
+66:         k_mutex_lock(&call_mutex, K_FOREVER);
+67:         const int out = error.code;
+68:         k_mutex_unlock(&call_mutex);
+69:         return out;
+70:     }
+71: 
+72:     MsgPack::str_t getErrorMessage() {
+73:         k_mutex_lock(&call_mutex, K_FOREVER);
+74:         MsgPack::str_t out = error.traceback;
+75:         k_mutex_unlock(&call_mutex);
+76:         return out;
+77:     }
+78: 
+79:     template<typename RType> bool result(RType& result) {
+80: 
+81:         if (!atomic_cas(&_executed, 0, 1)){
+82:             // this thread lost the race
+83:             setError(GENERIC_ERR, "This call is no longer available");
+84:             return false;
+85:         }
+86: 
+87:         while (true) {
+88:             if (k_mutex_lock(write_mutex, K_MSEC(10)) == 0) {
+89:                 std::apply([this](const auto&... elems) {
+90:                     client->send_rpc(method, msg_id_wait, elems...);
+91:                 }, callback_params);
+92:                 k_mutex_unlock(write_mutex);
+93:                 break;
+94:             } else {
+95:                 k_yield();
+96:             }
+97:         }
+98: 
+99:         while(true) {
+100:             if (k_mutex_lock(read_mutex, K_MSEC(10)) == 0 ) {
+101:                 RpcError temp_err;
+102:                 if (client->get_response(msg_id_wait, result, temp_err)) {
+103:                     k_mutex_unlock(read_mutex);
+104:                     // if (error.code == PARSING_ERR) {
+105:                     //     k_mutex_lock(write_mutex, K_FOREVER);
+106:                     //     client->notify(BRIDGE_ERROR, error.traceback);
+107:                     //     k_mutex_unlock(write_mutex);
+108:                     // }
+109:                     setError(temp_err.code, temp_err.traceback);
+110:                     break;
+111:                 }
+112:                 k_mutex_unlock(read_mutex);
+113:                 k_msleep(1);
+114:             } else {
+115:                 k_yield();
+116:             }
+117:         }
+118: 
+119:         return !isError();
+120:     }
+121: 
+122:     bool result() {
+123:         MsgPack::object::nil_t nil;
+124:         return result(nil);
+125:     }
+126: 
+127:     ~RpcCall(){
+128:         result();
+129:     }
+130: 
+131:     operator bool() {
+132:         return result();
+133:     }
+134: 
+135: private:
+136:     uint32_t msg_id_wait{};
+137:     atomic_t _executed = ATOMIC_INIT(0);;
+138: 
+139:     MsgPack::str_t method;
+140:     RPCClient* client;
+141:     struct k_mutex* read_mutex;
+142:     struct k_mutex* write_mutex;
+143:     struct k_mutex call_mutex{};
+144:     std::tuple<Args...> callback_params;
+145: };
+146: 
+147: class BridgeClass {
+148: 
+149:     RPCClient* client = nullptr;
+150:     RPCServer* server = nullptr;
+
+sources/Arduino_RouterBridge/src/bridge.h
+168:     }
+169: 
+170:     operator bool() {
+171:         return is_started();
+172:     }
+173: 
+174:     bool is_started() {
+175:         k_mutex_lock(&bridge_mutex, K_FOREVER);
+176:         bool out = started;
+177:         k_mutex_unlock(&bridge_mutex);
+178:         return out;
+179:     }
+180: 
+181:     // Initialize the bridge
+182:     bool begin(unsigned long baud=DEFAULT_SERIAL_BAUD) {
+183:         k_mutex_init(&read_mutex);
+184:         k_mutex_init(&write_mutex);
+185:         k_mutex_init(&bridge_mutex);
+186: 
+187:         if (is_started()) return true;
+188: 
+189:         k_mutex_lock(&bridge_mutex, K_FOREVER);
+190: 
+191:         serial_ptr->begin(baud);
+192:         while (!*serial_ptr){
+193:             k_yield();
+194:         }
+195: #if defined(ARDUINO_UNO_Q) 
+196:         // Flush broken RPCs from the previous run on hardware serial.
+197:         serial_ptr->write("MCU starting RPC Bridge communication");
+198: #endif
+199:         transport = new SerialTransport(*serial_ptr);
+200: 
+201:         client = new RPCClient(*transport);
+202:         server = new RPCServer(*transport);
+203: 
+204:         upd_stack_area = k_thread_stack_alloc(UPDATE_THREAD_STACK_SIZE, 0);
+205:         upd_tid = k_thread_create(&upd_thread_data, upd_stack_area,
+206:                                 UPDATE_THREAD_STACK_SIZE,
+207:                                 updateEntryPoint,
+208:                                 NULL, NULL, NULL,
+209:                                 UPDATE_THREAD_PRIORITY, 0, K_NO_WAIT);
+210:         k_thread_name_set(upd_tid, "bridge");
+211: 
+212:         bool res = false;
+213:         started = call(RESET_METHOD).result(res) && res;
+214:         notify(SET_BUF_METHOD, BRIDGE_RPC_BUFFER_SIZE);     // no effect if Router is not exposing SET_BUF_METHOD
+215:         k_mutex_unlock(&bridge_mutex);
+216:         return res;
+217:     }
+218: 
+
+sources/Arduino_RouterBridge/src/bridge.h
+275:     }
+276: 
+277:     template<typename... Args>
+278:     void notify(const MsgPack::str_t method, Args&&... args)  {
+279:         while (true) {
+280:             if (k_mutex_lock(&write_mutex, K_MSEC(10)) == 0) {
+281:                 client->notify(method, std::forward<Args>(args)...);
+282:                 k_mutex_unlock(&write_mutex);
+283:                 break;
+284:             }
+285:             k_yield();
+286:         }
+287:     }
+288: 
+289: private:
+290: 
+291:     void update_safe() {
+292: 
+293:         // Lock read mutex
+294:         if (k_mutex_lock(&read_mutex, K_MSEC(10)) != 0 ) return;
+295: 
+296:         RPCRequest<BRIDGE_RPC_BUFFER_SIZE> req;
+297:         if (!server->get_rpc(req, "__safe__")) {
+298:             k_mutex_unlock(&read_mutex);
+299:             k_msleep(1);
+300:             return;
+301:         }
+302: 
+303:         k_mutex_unlock(&read_mutex);
+304: 
+305:         server->process_request(req);
+306: 
+307:         // Lock write mutex
+308:         while (true) {
+309: 
+310:             if (k_mutex_lock(&write_mutex, K_MSEC(10)) == 0){
+311:                 server->send_response(req);
+312:                 k_mutex_unlock(&write_mutex);
+313:                 break;
+314:             } else {
+315:                 k_yield();
+316:             }
+317: 
+318:         }
+319: 
+320:     }
+321: 
+322:     friend class BridgeClassUpdater;
+323: 
+324: };
+325: 
+326: extern BridgeClass Bridge;
+327: 
+328: class BridgeClassUpdater {
+329: public:
+330:     static void safeUpdate(BridgeClass* bridge) {
+331:         if (*bridge) {
+332:             bridge->update_safe();
+333:         }
+334:     }
+335: 
+336: private:
+337:     BridgeClassUpdater() = delete; // prevents instantiation
+338: };
+339: 
+340: inline void updateEntryPoint(void *, void *, void *){
+341:     while (true) {
+342:         if (Bridge) {
+343:             Bridge.update();
+344:         }
+345:         k_yield();
+346:     }
+347: }
+348: 
+349: static void safeUpdate(){
+350:     BridgeClassUpdater::safeUpdate(&Bridge);
+351: }
+352: 
+353: // leave as is
+354: void __attribute__((weak)) __loopHook(void){
+355:     k_yield();
+356:     safeUpdate();
+357: }
+358: 
+359: #endif // ROUTER_BRIDGE_H
+
+sources/Arduino_RouterBridge/src/monitor.h
+38: 
+39:     using Print::write;
+40: 
+41:     bool begin(unsigned long _legacy_baud=0, uint16_t _legacy_config=0) {
+42: 	// unused parameters for compatibility with Stream
+43: 	(void)_legacy_baud;
+44: 	(void)_legacy_config;
+45: 
+46:         k_mutex_init(&monitor_mutex);
+47: 
+48:         if (is_connected()) return true;
+49: 
+50:         k_mutex_lock(&monitor_mutex, K_FOREVER);
+51:         bool bridge_started = (*bridge);
+52:         if (!bridge_started) {
+53:             bridge_started = bridge->begin();
+54:         }
+55: 
+56:         if (!bridge_started) {
+57:             k_mutex_unlock(&monitor_mutex);
+58:             return false;
+59:         }
+60: 
+61:         bool out = false;
+62:         _connected = bridge->call(MON_CONNECTED_METHOD).result(out) && out;
+63:         MsgPack::str_t ver;
+64:         _compatibility_mode = !bridge->getRouterVersion(ver);
+65:         k_mutex_unlock(&monitor_mutex);
+66:         return out;
+67:     }
+68: 
+69:     bool is_connected() {
+70:         k_mutex_lock(&monitor_mutex, K_FOREVER);
+71:         bool out = _connected;
+72:         k_mutex_unlock(&monitor_mutex);
+73:         return out;
+74:     }
+75: 
+76:     explicit operator bool() {
+77:         k_mutex_lock(&monitor_mutex, K_FOREVER);
+78:         bool out = _connected;
+79:         if (!_connected) {
+80:             bridge->call(MON_CONNECTED_METHOD).result(out);
+81:             _connected = out;
+82:         }
+83:         k_mutex_unlock(&monitor_mutex);
+84:         return out;
+85:     }
+86: 
+87:     int read() override {
+88:         uint8_t c = 0;
+89:         int cch_read;
+90: 
+
+sources/Arduino_RouterBridge/src/monitor.h
+139: 
+140:         if (_compatibility_mode) {
+141:             bridge->call(MON_WRITE_METHOD, send_buffer).result(written);
+142:         } else {
+143:             bridge->notify(MON_WRITE_METHOD, send_buffer);
+144:             written = size;
+145:         }
+146: 
+147:         return written;
+148:     }
+149: 
+150:     bool reset() {
+151:         k_mutex_lock(&monitor_mutex, K_FOREVER);
+152:         bool res = false;
+153:         bridge->call(MON_RESET_METHOD).result(res);
+154:         if (res) {_connected = false;}
+155:         k_mutex_unlock(&monitor_mutex);
+156:         return res;
+157:     }
+158: 
+
+sources/Arduino_RPClite/src/decoder.h
+35: 
+36:     template<typename... Args>
+37:     bool send_call(const int call_type, const MsgPack::str_t& method, uint32_t& msg_id, Args&&... args) {
+38: 
+39:         if (call_type!=CALL_MSG && call_type!=NOTIFY_MSG) return false;
+40: 
+41:         MsgPack::Packer packer;
+42:         packer.clear();
+43: 
+44:         if (call_type == CALL_MSG){
+45:             msg_id = _msg_id;
+46:             MsgPack::arr_size_t call_size(REQUEST_SIZE);
+47:             packer.serialize(call_size, call_type, msg_id, method);
+48:         } else {
+49:             MsgPack::arr_size_t call_size(NOTIFY_SIZE);
+50:             packer.serialize(call_size, call_type, method);
+51:         }
+52: 
+53:         MsgPack::arr_size_t arg_size(sizeof...(args));
+54:         packer.serialize(arg_size, std::forward<Args>(args)...);
+55: 
+56:         if (send(reinterpret_cast<const uint8_t*>(packer.data()), packer.size()) == packer.size()){
+57:             _msg_id++;
+58:             return true;
+59:         }
+60:         return false;
+61:     }
+
+sources/Arduino_RPClite/src/decoder.h
+284:     bool buffer_full() const { return _bytes_stored == BufferSize; }
+285: 
+286:     bool buffer_empty() const { return _bytes_stored == 0;}
+287: 
+288:     // This is a blocking send, under the assumption _transport->write will always succeed eventually
+289:     size_t send(const uint8_t* data, const size_t size) const {
+290: 
+291:         size_t offset = 0;
+292: 
+293:         while (offset < size) {
+294:             size_t bytes_written = _transport->write(data + offset, size - offset);
+295:             offset += bytes_written;
+296:         }
+297: 
+298:         return offset;
+299:     }
+300: 
+301:     size_t pop_packet(uint8_t* buffer, size_t buffer_size) {
+
+sources/core/cores/arduino/zephyrSerial.cpp
+70: 	k_sem_take(&rx.sem, K_FOREVER);
+71: 	ring_buf_reset(&rx.ringbuf);
+72: 	k_sem_give(&rx.sem);
+73: 
+74: 	uart_irq_rx_enable(uart);
+75: }
+76: 
+77: void arduino::ZephyrSerial::IrqHandler() {
+78: 	uint8_t buf[8];
+79: 	int length;
+80: 	int ret = 0;
+81: 
+82: 	if (!uart_irq_update(uart)) {
+83: 		return;
+84: 	}
+85: 
+86: 	k_sem_take(&rx.sem, K_NO_WAIT);
+87: 	while (uart_irq_rx_ready(uart) && ((length = uart_fifo_read(uart, buf, sizeof(buf))) > 0)) {
+88: 		length = min(sizeof(buf), static_cast<size_t>(length));
+89: 		ring_buf_put(&rx.ringbuf, &buf[0], length);
+
+sources/core/cores/arduino/zephyrSerial.cpp
+135: 	return ret;
+136: }
+137: 
+138: int arduino::ZephyrSerial::peek() {
+139: 	uint8_t data;
+140: 
+141: 	k_sem_take(&rx.sem, K_FOREVER);
+142: 	uint32_t cb_ret = ring_buf_peek(&rx.ringbuf, &data, 1);
+143: 	k_sem_give(&rx.sem);
+144: 
+145: 	return cb_ret ? data : -1;
+146: }
+147: 
+148: int arduino::ZephyrSerial::read() {
+149: 	uint8_t data;
+150: 
+151: 	k_sem_take(&rx.sem, K_FOREVER);
+152: 	uint32_t cb_ret = ring_buf_get(&rx.ringbuf, &data, 1);
+153: 	k_sem_give(&rx.sem);
+154: 
+155: 	return cb_ret ? data : -1;
+156: }
+157: 
+158: size_t arduino::ZephyrSerial::write(const uint8_t *buffer, size_t size) {
+159: 	size_t idx = 0;
+160: 
+161: 	while (1) {
+162: 		k_sem_take(&tx.sem, K_FOREVER);
+163: 		auto ret = ring_buf_put(&tx.ringbuf, &buffer[idx], size - idx);
+164: 		k_sem_give(&tx.sem);
+165: 		idx += ret;
+166: 		if (ret == 0) {
+167: 			uart_irq_tx_enable(uart);
+168: 			yield();
+169: 		}
+170: 		if (idx == size) {
+171: 			break;
+172: 		}
+173: 	}
+174: 
+175: 	uart_irq_tx_enable(uart);
+176: 
+177: 	return size;
+178: }
+179: 
+180: void arduino::ZephyrSerial::flush() {
+181: 	while (ring_buf_size_get(&tx.ringbuf) > 0) {
+182: 		k_yield();
+183: 	}
+184: 	while (uart_irq_tx_complete(uart) == 0) {
+185: 		k_yield();
+186: 	}
+187: }
+188: 
+189: #if DT_NODE_HAS_PROP(DT_PATH(zephyr_user), serials)
+190: #define DEFINE_SERIAL_N(n, p, i)                                                                   \
+191: 	arduino::ZephyrSerial ZARD_SERIAL_NAME(i)(DEVICE_DT_GET(DT_PHANDLE_BY_IDX(n, p, i)));
+192: DT_FOREACH_PROP_ELEM(DT_PATH(zephyr_user), serials, DEFINE_SERIAL_N)
+193: 
+194: #elif DT_NODE_HAS_STATUS_OKAY(DT_NODELABEL(arduino_serial))
+195: arduino::ZephyrSerial ZARD_SERIAL_NAME(0)(DEVICE_DT_GET(DT_NODELABEL(arduino_serial)));
+196: #endif
+197: 
+198: #if ZARD_FIRST_SERIAL_IS_STUB
+199: arduino::ZephyrSerialStub Serial;
+200: #endif
+201: 
+202: #define DEFINE_WEAK_SERIALEVENT_N(n, s)                                                            \
+203: 	__attribute__((weak)) void CONCAT(serial, ZARD_SERIAL_STEM(n), Event)() {                      \
+204: 	}
+205: 
+
+sources/core/cores/arduino/main.cpp
+19: void __attribute__((weak)) initVariant(void) {
+20: }
+21: 
+22: // This function can be overwritten by one library.
+23: void __attribute__((weak)) __loopHook(void) {
+24: }
+25: 
+26: int main(void) {
+27: #if ZARD_BOARD_HAS_SERIALUSB
+28: 	SerialUSB.begin(115200);
+29: #endif
+30: 
+31: 	initVariant();
+32: 
+33: #ifdef CONFIG_MULTITHREADING
+34: 	start_static_threads();
+35: #endif
+36: 
+37: 	setup();
+38: 
+39: 	for (;;) {
+40: 		loop();
+41: #if 0 //(DT_NODE_HAS_PROP(DT_PATH(zephyr_user), cdc_acm) && CONFIG_USB_CDC_ACM) ||
+42: 	  // DT_NODE_HAS_PROP(DT_PATH(zephyr_user), serials)
+43:     if (arduino::serialEventRun) arduino::serialEventRun();
+44: #endif
+45: 		__loopHook();
+46: 	}
+
+sources/core/variants/arduino_uno_q_stm32u585xx/arduino_uno_q_stm32u585xx.overlay
+264: 	pinctrl-0 = <&usart3_tx_pb10 &usart3_rx_pb11>;
+265: 	pinctrl-names = "default";
+266: 	current-speed = <115200>;
+267: };
+268: 
+269: &lpuart1 {
+270: 	status = "okay";
+271: 	zephyr,deferred-init;
+272: };
+273: 
+
+sources/core/variants/arduino_uno_q_stm32u585xx/arduino_uno_q_stm32u585xx.overlay
+388: 					<&gpioc 0 0>;
+389: 
+390: 		arduino,router-serial = <&lpuart1>; /* 'Serial' is provided by the Monitor */
+391: 		serials = <&usart1>, <&lpuart1>, <&usart3>;
+392: 		cans = <&fdcan1>;
+393: 		i2cs = <&i2c2>, <&i2c4>, <&i2c3>;
+394: 		spis = <&spi2>, <&spi3>;
+395: 		/* PWM mapping for the digital pins  */
+396: 		/* Currently only the pins marked with ~ on the pin headers are enabled */
+397: 		pwms = 
+398: 		       /*<&pwm4 2 PWM_HZ(500) PWM_POLARITY_NORMAL>,*/   /* D0/PB7 → TIM4_CH2 */
+399: 		       /*<&pwm4 1 PWM_HZ(500) PWM_POLARITY_NORMAL>,*/   /* D1/PB6 → TIM4_CH1 */
+400: 		       <&pwm2 2 PWM_HZ(500) PWM_POLARITY_NORMAL>,   /* D2/PB3 → TIM2_CH2 */
+401: 		       <&pwm3 3 PWM_HZ(500) PWM_POLARITY_NORMAL>,   /* D3/PB0 → TIM3_CH3 */
+402: 		       <&pwm1 4 PWM_HZ(500) PWM_POLARITY_NORMAL>,   /* D5/PA11 → TIM1_CH4 */
+403: 		       <&pwm3 4 PWM_HZ(500) PWM_POLARITY_NORMAL>,   /* D6/PB1 → TIM3_CH4 */
+404: 		       <&pwm8 4 PWM_HZ(500) (PWM_POLARITY_NORMAL | STM32_PWM_COMPLEMENTARY)>, /* D7/PB2 → TIM8_CH4N */
+405: 		       <&pwm3 1 PWM_HZ(500) PWM_POLARITY_NORMAL>,   /* D8/PB4 → TIM3_CH1 */
+406: 		       <&pwm4 3 PWM_HZ(500) PWM_POLARITY_NORMAL>,   /* D9/PB8 → TIM4_CH3 */
+407: 		       <&pwm4 4 PWM_HZ(500) PWM_POLARITY_NORMAL>,   /* D10/PB9 → TIM4_CH4 */
+408: 		       <&pwm1 3 PWM_HZ(500) (PWM_POLARITY_NORMAL | STM32_PWM_COMPLEMENTARY)>, /* D11/PB15 → TIM1_CH3N */
+409: 		       <&pwm1 2 PWM_HZ(500) (PWM_POLARITY_NORMAL | STM32_PWM_COMPLEMENTARY)>, /* D12/PB14 → TIM1_CH2N */
+410: 		       <&pwm1 1 PWM_HZ(500) (PWM_POLARITY_NORMAL | STM32_PWM_COMPLEMENTARY)>, /* D13/PB13 → TIM1_CH1N */
+411: 		       <&pwm2 4 PWM_HZ(500) PWM_POLARITY_NORMAL>,   /* D20/PB11 → TIM2_CH4 */
+412: 		       <&pwm2 3 PWM_HZ(500) PWM_POLARITY_NORMAL>,   /* D21/PB10 → TIM2_CH3 */
+413: 		       <&pwm5 1 PWM_HZ(500) PWM_POLARITY_INVERTED>,   /* LED3_R/PH10 → TIM5_CH1 */
+414: 		       <&pwm5 2 PWM_HZ(500) PWM_POLARITY_INVERTED>,   /* LED3_G/PH11 → TIM5_CH2 */
+415: 		       <&pwm5 3 PWM_HZ(500) PWM_POLARITY_INVERTED>;   /* LED3_B/PH12 → TIM5_CH3 */
+416: 
+417: 		control-gpios = <&gpiog 13 GPIO_ACTIVE_HIGH>,   /* Internal SPI RDY */
+418: 				<&gpiog 15 GPIO_ACTIVE_HIGH>;   /* FORCED_USB_BOOT status */
+419: 		analog-switch-gpios = <&gpioa 2 GPIO_ACTIVE_HIGH>;    /* Analog switch for VREF */
+
+sources/edk/zephyr/include/zephyr/drivers/uart.h
+458: 
+459: /**
+460:  * @brief Fill FIFO with data.
+461:  *
+462:  * @details This function is expected to be called from UART
+463:  * interrupt handler (ISR), if uart_irq_tx_ready() returns true.
+464:  * Result of calling this function not from an ISR is undefined
+465:  * (hardware-dependent). Likewise, *not* calling this function
+466:  * from an ISR if uart_irq_tx_ready() returns true may lead to
+467:  * undefined behavior, e.g. infinite interrupt loops. It's
+468:  * mandatory to test return value of this function, as different
+469:  * hardware has different FIFO depth (oftentimes just 1).
+470:  *
+471:  * @param dev UART device instance.
+472:  * @param tx_data Data to transmit.
+473:  * @param size Number of bytes to send.
+474:  *
+475:  * @return Number of bytes sent.
+476:  * @retval -ENOSYS  if this function is not supported
+477:  * @retval -ENOTSUP If API is not enabled.
+478:  */
+479: static inline int uart_fifo_fill(const struct device *dev, const uint8_t *tx_data, int size);
+480: 
+
+uart_stm32.c
+927: static int uart_stm32_fifo_fill_visitor(const struct device *dev, const void *tx_data, int size,
+928: 					fifo_fill_fn fill_fn)
+929: {
+930: 	const struct uart_stm32_config *config = dev->config;
+931: 	USART_TypeDef *usart = config->usart;
+932: 	int num_tx = 0U;
+933: 	unsigned int key;
+934: 
+935: 	if (!ll_usart_is_active_txe(usart)) {
+936: 		return num_tx;
+937: 	}
+938: 
+939: 	/* Lock interrupts to prevent nested interrupts or thread switch */
+940: 	key = irq_lock();
+941: 
+942: 	while ((size - num_tx > 0) && ll_usart_is_active_txe(usart)) {
+943: 		/* TXE flag will be cleared with byte write to DR|RDR register */
+944: 
+945: 		/* Send a character */
+946: 		fill_fn(usart, tx_data, num_tx);
+947: 		num_tx++;
+948: 	}
+949: 
+950: 	irq_unlock(key);
+951: 
+952: 	return num_tx;
+953: }
+954: 
+955: static void fifo_fill_with_u8(USART_TypeDef *usart, const void *tx_data, const int offset)
+956: {
+957: 	const uint8_t *data = (const uint8_t *)tx_data;
+958: 	/* Send a character (8bit) */
+959: 	LL_USART_TransmitData8(usart, data[offset]);
+960: }
+961: 
+962: static int uart_stm32_fifo_fill(const struct device *dev, const uint8_t *tx_data, int size)
+963: {
+964: 	if (uart_stm32_ll2cfg_databits(uart_stm32_get_databits(dev), uart_stm32_get_parity(dev)) ==
+965: 	    UART_CFG_DATA_BITS_9) {
+966: 		return -ENOTSUP;
+967: 	}
+968: 	return uart_stm32_fifo_fill_visitor(dev, (const void *)tx_data, size,
+969: 					    fifo_fill_with_u8);
+970: }
+
+uart_stm32.c
+1095: 	irq_unlock(key);
+1096: #endif
+1097: }
+1098: 
+1099: static int uart_stm32_irq_tx_ready(const struct device *dev)
+1100: {
+1101: 	const struct uart_stm32_config *config = dev->config;
+1102: 
+1103: 	return ll_usart_is_active_txe(config->usart) &&
+1104: 		LL_USART_IsEnabledIT_TC(config->usart);
+1105: }
+1106: 
+1107: static int uart_stm32_irq_tx_complete(const struct device *dev)
+1108: {
+1109: 	const struct uart_stm32_config *config = dev->config;
+1110: 
+1111: 	return LL_USART_IsActiveFlag_TC(config->usart);
+1112: }
+1113: 
+
+uart_stm32.c
+2390: #endif /* CONFIG_PM && IS_UART_WAKEUP_FROMSTOP_INSTANCE */
+2391: 
+2392: 	LL_USART_Enable(usart);
+2393: 
+2394: #ifdef USART_ISR_TEACK
+2395: 	/* Wait until TEACK flag is set */
+2396: 	while (!(LL_USART_IsActiveFlag_TEACK(usart))) {
+2397: 	}
+2398: #endif /* USART_ISR_TEACK */
+2399: 
+2400: #ifdef USART_ISR_REACK
+2401: 	/* Wait until REACK flag is set */
+2402: 	while (!(LL_USART_IsActiveFlag_REACK(usart))) {
+2403: 	}
+2404: #endif /* USART_ISR_REACK */
+2405: 
+2406: 	return 0;
+2407: }
+2408: 
+2409: /**
+2410:  * @brief Initialize UART channel
+2411:  *
+2412:  * This routine is called to reset the chip in a quiescent state.
+2413:  * It is assumed that this function is called only once per UART.
+2414:  *
+2415:  * @param dev UART device struct
+2416:  *
+2417:  * @return 0
+2418:  */
+2419: static int uart_stm32_init(const struct device *dev)
+2420: {
+2421: 	const struct uart_stm32_config *config = dev->config;
+2422: 	int err;
+2423: 
+2424: 	err = uart_stm32_clocks_enable(dev);
+2425: 	if (err < 0) {
+2426: 		return err;
+2427: 	}
+2428: 
+2429: 	/* Configure dt provided device signals when available */
+2430: 	err = pinctrl_apply_state(config->pcfg, PINCTRL_STATE_DEFAULT);
+2431: 	if (err < 0) {
+2432: 		return err;
+2433: 	}
+2434: 
+2435: 	err = uart_stm32_registers_configure(dev);
+2436: 	if (err < 0) {
+2437: 		return err;
+2438: 	}
+2439: 
+2440: #if defined(CONFIG_PM) || \
+2441: 	defined(CONFIG_UART_INTERRUPT_DRIVEN) || \
+2442: 	defined(CONFIG_UART_ASYNC_API)
+2443: 	config->irq_config_func(dev);
+2444: #endif /* CONFIG_PM || CONFIG_UART_INTERRUPT_DRIVEN || CONFIG_UART_ASYNC_API */
+2445: 
+2446: #ifdef CONFIG_UART_ASYNC_API
+2447: 	return uart_stm32_async_init(dev);
+2448: #else
+2449: 	return 0;
+2450: #endif
+
+official_main.c
+239: 	if ((!sketch_valid) || !(sketch_hdr->flags & SKETCH_FLAG_IMMEDIATE)) {
+240: 		// Start the bootanimation while waiting for the MPU to boot
+241: 
+242: 		const struct gpio_dt_spec mpu_booted =
+243: 			GPIO_DT_SPEC_GET_BY_IDX(DT_PATH(zephyr_user), control_gpios, 0);
+244: 		gpio_pin_configure_dt(&mpu_booted, GPIO_INPUT | GPIO_PULL_DOWN);
+245: 		const struct gpio_dt_spec usb_mode =
+246: 			GPIO_DT_SPEC_GET_BY_IDX(DT_PATH(zephyr_user), control_gpios, 1);
+247: 		gpio_pin_configure_dt(&usb_mode, GPIO_INPUT | GPIO_PULL_UP);
+248: 
+249: 		k_sleep(K_MSEC(400));
+250: 
+251: 		if (gpio_pin_get_dt(&usb_mode) == 0) {
+252: 			// USB mode, skip the animation
+253: 			matrixBegin();
+254: 			matrixSetGrayscaleBits(8);
+255: 			while (1) {
+256: 				matrixPlay(usbanimation_raw, usbanimation_raw_len);
+257: 				k_sleep(K_MSEC(10));
+258: 			}
+259: 		}
+260: 
+261: 		if (gpio_pin_get_dt(&mpu_booted) == 0) {
+262: 			matrixBegin();
+263: 			matrixSetGrayscaleBits(8);
+264: 			while (gpio_pin_get_dt(&mpu_booted) == 0) {
+265: 				matrixPlay(_bootanimation, _bootanimation_len);
+266: 			}
+267: 			matrixPlay(_bootanimation_end, _bootanimation_end_len);
+268: 			uint8_t _framebuffer[104] = {0};
+
+router/main.go
+73: 	cmd.Flags().StringVarP(&cfg.ListenTCPAddr, "listen-port", "l", "", "Listening port for RPC services")
+74: 	cmd.Flags().StringVarP(&cfg.ListenUnixAddr, "unix-port", "u", "/var/run/arduino-router.sock", "Listening port for RPC services")
+75: 	cmd.Flags().StringVar(&cfg.AfterReadyCommand, "after-ready", "", "Execute a command after the router is ready)")
+76: 	cmd.Flags().StringVarP(&cfg.SerialPortAddr, "serial-port", "p", "", "Serial port address")
+77: 	cmd.Flags().IntVarP(&cfg.SerialBaudRate, "serial-baudrate", "b", 115200, "Serial port baud rate")
+78: 	cmd.Flags().StringVarP(&cfg.MonitorPortAddr, "monitor-port", "m", "127.0.0.1:7500", "Listening port for MCU monitor proxy")
+79: 	cmd.AddCommand(&cobra.Command{
+
+router/internal/monitorapi/monitor-api.go
+117: func write(rpc *msgpackrpc.Connection, params []any, res msgpackrouter.RouterResponseHandler) {
+118: 	if len(params) != 1 {
+119: 		res(nil, []any{1, "Invalid number of parameters, expected data to write"})
+120: 		return
+121: 	}
+122: 	data, ok := params[0].([]byte)
+123: 	if !ok {
+124: 		if dataStr, ok := params[0].(string); ok {
+125: 			data = []byte(dataStr)
+126: 		} else {
+127: 			// If data is not []byte or string, return an error
+128: 			res(nil, []any{1, "Invalid parameter type, expected []byte or string for data to write"})
+129: 			return
+130: 		}
+131: 	}
+132: 
+133: 	socketsLock.RLock()
+134: 	clients := make([]net.Conn, 0, len(sockets))
+135: 	for c := range sockets {
+136: 		clients = append(clients, c)
+137: 	}
+138: 	socketsLock.RUnlock()
+139: 
+140: 	for _, conn := range clients {
+141: 		if len(clients) > 1 {
+142: 			// If there are multiple clients, allow 500 ms for the data to
+143: 			// get through each one.
+144: 			_ = conn.SetWriteDeadline(time.Now().Add(time.Millisecond * 500))
+145: 		} else {
+146: 			_ = conn.SetWriteDeadline(time.Time{})
+147: 		}
+148: 		if _, err := conn.Write(data); err != nil {
+149: 			// If we get an error, we assume the connection is lost.
+150: 			slog.Error("Monitor connection lost, closing connection", "error", err)
+151: 			close(conn)
+152: 		}
+153: 	}
+154: 
+155: 	res(len(data), nil)
+156: }
+
+router/msgpackrpc/connection.go
+162: func (c *Connection) decodeRpcPacket(in *msgpack.Decoder) (rpcPacket, error) {
+163: 	// This function is used to skip the invalid packet and return an error.
+164: 	// n elements will be skipped from the decoder, and the error will be returned.
+165: 	// If also skipping fails, the skipping error will be returned, with the original error incorporated.
+166: 	skipAndError := func(n int, err error) (rpcPacket, error) {
+167: 		for range n {
+168: 			if skipErr := in.Skip(); skipErr != nil {
+169: 				return rpcPacket{}, fmt.Errorf("failed to skip invalid packet: %w; invalid packet: %v", skipErr, err)
+170: 			}
+171: 		}
+172: 		return rpcPacket{}, err
+173: 	}
+174: 
+175: 	if t, err := in.PeekCode(); err != nil {
+176: 		return rpcPacket{}, fmt.Errorf("can't read message: %w", err)
+177: 	} else if !msgpcode.IsFixedArray(t) && t != msgpcode.Array16 && t != msgpcode.Array32 {
+178: 		return skipAndError(1, &invalidRPCMessageError{msg: "invalid packet, expected array"})
+179: 	}
+180: 	l, _ := in.DecodeArrayLen()
+181: 	if l < 3 || l > 4 {
+182: 		return skipAndError(l, &invalidRPCMessageError{msg: "invalid packet, expected array with 3 or 4 elements"})
+183: 	}
+184: 
+185: 	maybeMsgType, err := in.DecodeInterface()
+186: 	if err != nil {
+187: 		return rpcPacket{}, fmt.Errorf("can't read message type: %w", err)
+188: 	}
+189: 	l--
+190: 
+191: 	var packet rpcPacket
+192: 	if msgType, ok := ToInt(maybeMsgType); !ok {
+193: 		return skipAndError(l, &invalidRPCMessageError{msg: "invalid packet, expected int for message type", cause: err})
+194: 	} else {
+195: 		packet.msgType = msgType
+196: 		switch msgType {
+197: 		case messageTypeRequest, messageTypeResponse:
+198: 			if l != 3 {
+199: 				return skipAndError(l, &invalidRPCMessageError{msg: "invalid packet, expected array with 4 elements for request or response"})
+200: 			}
+201: 		case messageTypeNotification:
+202: 			if l != 2 {
+203: 				return skipAndError(l, &invalidRPCMessageError{msg: "invalid packet, expected array with 3 elements for notification"})
+204: 			}
+205: 		default:
+206: 			return skipAndError(l, &invalidRPCMessageError{msg: "invalid packet, expected request, response or notification"})
+207: 		}
+208: 	}
+209: 
+210: 	// Decode the message ID for requests and responses
+211: 	switch packet.msgType {
+212: 	case messageTypeRequest, messageTypeResponse:
+213: 		maybeId, err := in.DecodeInterface()
+214: 		if err != nil {
+215: 			return rpcPacket{}, fmt.Errorf("can't read message ID: %w", err)
+216: 		}
+217: 		l--
+218: 		if id, ok := ToUint(maybeId); !ok {
+219: 			return skipAndError(l, &invalidRPCMessageError{msg: "invalid packet, expected uint for message ID", cause: err})
+220: 		} else {
+221: 			packet.msgID = MessageID(id)
+222: 		}
+223: 	}
+224: 
+225: 	switch packet.msgType {
+226: 	case messageTypeRequest, messageTypeNotification:
+227: 		maybeMethod, err := in.DecodeInterface()
+228: 		if err != nil {
+229: 			return rpcPacket{}, fmt.Errorf("can't read method name: %w", err)
+230: 		}
+231: 		l--
+232: 		if method, ok := maybeMethod.(string); !ok {
+233: 			return skipAndError(l, &invalidRPCMessageError{msg: "invalid packet, expected string for method name", cause: err})
+234: 		} else {
+235: 			packet.method = method
+236: 		}
+237: 
+238: 		if t, err := in.PeekCode(); err != nil {
+239: 			return rpcPacket{}, fmt.Errorf("can't read message: %w", err)
+240: 		} else if !msgpcode.IsFixedArray(t) && t != msgpcode.Array16 && t != msgpcode.Array32 {
+241: 			return skipAndError(1, &invalidRPCMessageError{msg: "invalid packet, expected array for parameters"})
+242: 		}
+243: 		paramLen, _ := in.DecodeArrayLen()
+244: 
+245: 		// Now remains only the params to decode, which is an array of length paramLen
+246: 
+247: 		packet.params = make([]any, paramLen)
+248: 		toSkip := paramLen
+249: 		for i := range paramLen {
+250: 			var p any
+251: 			if c.paramsAndResponsesAsRaw {
+252: 				p, err = in.DecodeRaw()
+253: 			} else {
+254: 				p, err = in.DecodeInterface()
+255: 			}
+256: 			if err != nil {
+257: 				return rpcPacket{}, fmt.Errorf("error decoding param %d: %w", i, err)
+258: 			}
+259: 			packet.params[i] = p
+260: 			toSkip--
+261: 		}
+262: 
+
+Corrected exact monitor write, zephyr serial ranges and hook:
+sources/Arduino_RouterBridge/src/monitor.h:128:     size_t write(const uint8_t* buffer, size_t size) override {
+sources/Arduino_RouterBridge/src/monitor.h:129: 
+sources/Arduino_RouterBridge/src/monitor.h:130:         if (!*this) { return 0; }
+sources/Arduino_RouterBridge/src/monitor.h:131: 
+sources/Arduino_RouterBridge/src/monitor.h:132:         String send_buffer;
+sources/Arduino_RouterBridge/src/monitor.h:133: 
+sources/Arduino_RouterBridge/src/monitor.h:134:         for (size_t i = 0; i < size; ++i) {
+sources/Arduino_RouterBridge/src/monitor.h:135:             send_buffer += static_cast<char>(buffer[i]);
+sources/Arduino_RouterBridge/src/monitor.h:136:         }
+sources/Arduino_RouterBridge/src/monitor.h:137: 
+sources/Arduino_RouterBridge/src/monitor.h:138:         size_t written = 0;
+sources/Arduino_RouterBridge/src/monitor.h:139: 
+sources/Arduino_RouterBridge/src/monitor.h:140:         if (_compatibility_mode) {
+sources/Arduino_RouterBridge/src/monitor.h:141:             bridge->call(MON_WRITE_METHOD, send_buffer).result(written);
+sources/Arduino_RouterBridge/src/monitor.h:142:         } else {
+sources/Arduino_RouterBridge/src/monitor.h:143:             bridge->notify(MON_WRITE_METHOD, send_buffer);
+sources/Arduino_RouterBridge/src/monitor.h:144:             written = size;
+sources/Arduino_RouterBridge/src/monitor.h:145:         }
+sources/Arduino_RouterBridge/src/monitor.h:146: 
+sources/Arduino_RouterBridge/src/monitor.h:147:         return written;
+sources/Arduino_RouterBridge/src/monitor.h:148:     }
+sources/Arduino_RouterBridge/src/monitor.h:149: 
+sources/Arduino_RouterBridge/src/monitor.h:150:     bool reset() {
+sources/core/cores/arduino/zephyrSerial.cpp:118: int arduino::ZephyrSerial::available() {
+sources/core/cores/arduino/zephyrSerial.cpp:119: 	int ret;
+sources/core/cores/arduino/zephyrSerial.cpp:120: 
+sources/core/cores/arduino/zephyrSerial.cpp:121: 	k_sem_take(&rx.sem, K_FOREVER);
+sources/core/cores/arduino/zephyrSerial.cpp:122: 	ret = ring_buf_size_get(&rx.ringbuf);
+sources/core/cores/arduino/zephyrSerial.cpp:123: 	k_sem_give(&rx.sem);
+sources/core/cores/arduino/zephyrSerial.cpp:124: 
+sources/core/cores/arduino/zephyrSerial.cpp:125: 	return ret;
+sources/core/cores/arduino/zephyrSerial.cpp:126: }
+sources/core/cores/arduino/zephyrSerial.cpp:127: 
+sources/core/cores/arduino/zephyrSerial.cpp:128: int arduino::ZephyrSerial::availableForWrite() {
+sources/core/cores/arduino/zephyrSerial.cpp:129: 	int ret;
+sources/core/cores/arduino/zephyrSerial.cpp:130: 
+sources/core/cores/arduino/zephyrSerial.cpp:131: 	k_sem_take(&tx.sem, K_FOREVER);
+sources/core/cores/arduino/zephyrSerial.cpp:132: 	ret = ring_buf_space_get(&tx.ringbuf);
+sources/core/cores/arduino/zephyrSerial.cpp:133: 	k_sem_give(&tx.sem);
+sources/core/cores/arduino/zephyrSerial.cpp:134: 
+sources/core/cores/arduino/zephyrSerial.cpp:135: 	return ret;
+sources/core/cores/arduino/zephyrSerial.cpp:136: }
+sources/core/cores/arduino/zephyrSerial.cpp:137: 
+sources/core/cores/arduino/zephyrSerial.cpp:138: int arduino::ZephyrSerial::peek() {
+sources/core/cores/arduino/zephyrSerial.cpp:139: 	uint8_t data;
+sources/core/cores/arduino/zephyrSerial.cpp:140: 
+sources/core/cores/arduino/zephyrSerial.cpp:141: 	k_sem_take(&rx.sem, K_FOREVER);
+sources/core/cores/arduino/zephyrSerial.cpp:142: 	uint32_t cb_ret = ring_buf_peek(&rx.ringbuf, &data, 1);
+sources/core/cores/arduino/zephyrSerial.cpp:143: 	k_sem_give(&rx.sem);
+sources/core/cores/arduino/zephyrSerial.cpp:144: 
+sources/core/cores/arduino/zephyrSerial.cpp:145: 	return cb_ret ? data : -1;
+sources/core/cores/arduino/zephyrSerial.cpp:146: }
+sources/core/cores/arduino/zephyrSerial.cpp:147: 
+sources/core/cores/arduino/zephyrSerial.cpp:148: int arduino::ZephyrSerial::read() {
+sources/core/cores/arduino/zephyrSerial.cpp:149: 	uint8_t data;
+sources/core/cores/arduino/zephyrSerial.cpp:150: 
+sources/core/cores/arduino/zephyrSerial.cpp:151: 	k_sem_take(&rx.sem, K_FOREVER);
+sources/core/cores/arduino/zephyrSerial.cpp:152: 	uint32_t cb_ret = ring_buf_get(&rx.ringbuf, &data, 1);
+sources/core/cores/arduino/zephyrSerial.cpp:153: 	k_sem_give(&rx.sem);
+sources/core/cores/arduino/zephyrSerial.cpp:154: 
+sources/core/cores/arduino/zephyrSerial.cpp:155: 	return cb_ret ? data : -1;
+sources/core/cores/arduino/zephyrSerial.cpp:156: }
+sources/core/cores/arduino/zephyrSerial.cpp:157: 
+sources/core/cores/arduino/zephyrSerial.cpp:158: size_t arduino::ZephyrSerial::write(const uint8_t *buffer, size_t size) {
+sources/core/cores/arduino/zephyrSerial.cpp:159: 	size_t idx = 0;
+sources/core/cores/arduino/zephyrSerial.cpp:160: 
+sources/core/cores/arduino/zephyrSerial.cpp:161: 	while (1) {
+sources/core/cores/arduino/zephyrSerial.cpp:162: 		k_sem_take(&tx.sem, K_FOREVER);
+sources/core/cores/arduino/zephyrSerial.cpp:163: 		auto ret = ring_buf_put(&tx.ringbuf, &buffer[idx], size - idx);
+sources/core/cores/arduino/zephyrSerial.cpp:164: 		k_sem_give(&tx.sem);
+sources/core/cores/arduino/zephyrSerial.cpp:165: 		idx += ret;
+sources/core/cores/arduino/zephyrSerial.cpp:166: 		if (ret == 0) {
+sources/core/cores/arduino/zephyrSerial.cpp:167: 			uart_irq_tx_enable(uart);
+sources/core/cores/arduino/zephyrSerial.cpp:168: 			yield();
+sources/core/cores/arduino/zephyrSerial.cpp:169: 		}
+sources/core/cores/arduino/zephyrSerial.cpp:170: 		if (idx == size) {
+sources/core/cores/arduino/zephyrSerial.cpp:171: 			break;
+sources/core/cores/arduino/zephyrSerial.cpp:172: 		}
+sources/core/cores/arduino/zephyrSerial.cpp:173: 	}
+sources/core/cores/arduino/zephyrSerial.cpp:174: 
+sources/core/cores/arduino/zephyrSerial.cpp:175: 	uart_irq_tx_enable(uart);
+sources/core/cores/arduino/zephyrSerial.cpp:176: 
+sources/core/cores/arduino/zephyrSerial.cpp:177: 	return size;
+sources/core/cores/arduino/zephyrSerial.cpp:178: }
+sources/core/cores/arduino/zephyrSerial.cpp:179: 
+sources/core/cores/arduino/zephyrSerial.cpp:180: void arduino::ZephyrSerial::flush() {
+sources/core/cores/arduino/zephyrSerial.cpp:181: 	while (ring_buf_size_get(&tx.ringbuf) > 0) {
+sources/core/cores/arduino/zephyrSerial.cpp:182: 		k_yield();
+sources/core/cores/arduino/zephyrSerial.cpp:183: 	}
+sources/core/cores/arduino/zephyrSerial.cpp:184: 	while (uart_irq_tx_complete(uart) == 0) {
+sources/core/cores/arduino/zephyrSerial.cpp:185: 		k_yield();
+sources/core/cores/arduino/zephyrSerial.cpp:186: 	}
+sources/core/cores/arduino/zephyrSerial.cpp:187: }
+sources/Arduino_RouterBridge/src/bridge.h:340: inline void updateEntryPoint(void *, void *, void *){
+sources/Arduino_RouterBridge/src/bridge.h:341:     while (true) {
+sources/Arduino_RouterBridge/src/bridge.h:342:         if (Bridge) {
+sources/Arduino_RouterBridge/src/bridge.h:343:             Bridge.update();
+sources/Arduino_RouterBridge/src/bridge.h:344:         }
+sources/Arduino_RouterBridge/src/bridge.h:345:         k_yield();
+sources/Arduino_RouterBridge/src/bridge.h:346:     }
+sources/Arduino_RouterBridge/src/bridge.h:347: }
+sources/Arduino_RouterBridge/src/bridge.h:348: 
+sources/Arduino_RouterBridge/src/bridge.h:349: static void safeUpdate(){
+sources/Arduino_RouterBridge/src/bridge.h:350:     BridgeClassUpdater::safeUpdate(&Bridge);
+sources/Arduino_RouterBridge/src/bridge.h:351: }
+sources/Arduino_RouterBridge/src/bridge.h:352: 
+sources/Arduino_RouterBridge/src/bridge.h:353: // leave as is
+sources/Arduino_RouterBridge/src/bridge.h:354: void __attribute__((weak)) __loopHook(void){
+sources/Arduino_RouterBridge/src/bridge.h:355:     k_yield();
+sources/Arduino_RouterBridge/src/bridge.h:356:     safeUpdate();
+sources/Arduino_RouterBridge/src/bridge.h:357: }

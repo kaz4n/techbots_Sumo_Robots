@@ -1124,3 +1124,17 @@ era alias after full wrap. Adopt the contract source-era addendum: indefinite
 absence stays inhibited, but valid source presentation at accumulated half-range
 requires reset; below it, tie source deltas to accumulated decision age. Robot
 LINE_CONTRACT/owner SOURCE_ORDER preserve banks and faults; add regression tests.
+
+
+## D-090 (2026-09-23, selected under D-051/D-075) Bounded IDLE dump path
+Context: B8/B15 has RAM/CSV but no live transfer; stock Bridge uses allocation
+and unbounded locks. SEALED alone cannot authorize STOPPED dumping.
+Decision: adopt P2_dump_contract.md. One current-IDLE local service intent owns
+a bounded, cancelable, checksummed stream of the retained real recorder; Linux
+capture receives only and publishes exact validated CSV without motion/reset.
+Retain explicit origin, source/epoch/summary identity, missing/loss metadata and
+SENT_UNCONFIRMED status. Native transport requires installed-source proof and a
+separate bounded backend; no stock blocking Bridge call is accepted.
+Consequence: actual implementation, independent tests, target compilation and
+fresh review required. Local reset UI/app integration, physical RAM/WCET/200s
+and all human gates remain pending. No new wiring, motor upload/run or gate.

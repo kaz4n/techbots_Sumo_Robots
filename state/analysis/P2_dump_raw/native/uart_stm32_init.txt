@@ -1,0 +1,203 @@
+
+/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf:     file format elf32-littlearm
+
+
+Disassembly of section rom_start:
+
+Disassembly of section text:
+
+0800f350 <uart_stm32_init>:
+ 800f350:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+ 800f354:	f8d0 8004 	ldr.w	r8, [r0, #4]
+ 800f358:	4607      	mov	r7, r0
+ 800f35a:	f8d8 0004 	ldr.w	r0, [r8, #4]
+ 800f35e:	f8d8 1010 	ldr.w	r1, [r8, #16]
+ 800f362:	6883      	ldr	r3, [r0, #8]
+ 800f364:	b086      	sub	sp, #24
+ 800f366:	681b      	ldr	r3, [r3, #0]
+ 800f368:	b173      	cbz	r3, 800f388 <uart_stm32_init+0x38>
+ 800f36a:	4798      	blx	r3
+ 800f36c:	4605      	mov	r5, r0
+ 800f36e:	b968      	cbnz	r0, 800f38c <uart_stm32_init+0x3c>
+ 800f370:	2100      	movs	r1, #0
+ 800f372:	f8d8 0024 	ldr.w	r0, [r8, #36]	@ 0x24
+ 800f376:	aa05      	add	r2, sp, #20
+ 800f378:	f00a f94b 	bl	8019612 <pinctrl_lookup_state>
+ 800f37c:	1e05      	subs	r5, r0, #0
+ 800f37e:	da12      	bge.n	800f3a6 <uart_stm32_init+0x56>
+ 800f380:	4628      	mov	r0, r5
+ 800f382:	b006      	add	sp, #24
+ 800f384:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+ 800f388:	f06f 0557 	mvn.w	r5, #87	@ 0x57
+ 800f38c:	4b62      	ldr	r3, [pc, #392]	@ (800f518 <uart_stm32_init+0x1c8>)
+ 800f38e:	2201      	movs	r2, #1
+ 800f390:	9302      	str	r3, [sp, #8]
+ 800f392:	2300      	movs	r3, #0
+ 800f394:	4961      	ldr	r1, [pc, #388]	@ (800f51c <uart_stm32_init+0x1cc>)
+ 800f396:	4618      	mov	r0, r3
+ 800f398:	e9cd 3300 	strd	r3, r3, [sp]
+ 800f39c:	f00a fab1 	bl	8019902 <z_log_msg_runtime_create.constprop.0>
+ 800f3a0:	2d00      	cmp	r5, #0
+ 800f3a2:	dbed      	blt.n	800f380 <uart_stm32_init+0x30>
+ 800f3a4:	e7e4      	b.n	800f370 <uart_stm32_init+0x20>
+ 800f3a6:	9b05      	ldr	r3, [sp, #20]
+ 800f3a8:	2200      	movs	r2, #0
+ 800f3aa:	7919      	ldrb	r1, [r3, #4]
+ 800f3ac:	6818      	ldr	r0, [r3, #0]
+ 800f3ae:	f00a f942 	bl	8019636 <pinctrl_configure_pins>
+ 800f3b2:	1e05      	subs	r5, r0, #0
+ 800f3b4:	dbe4      	blt.n	800f380 <uart_stm32_init+0x30>
+ 800f3b6:	687e      	ldr	r6, [r7, #4]
+ 800f3b8:	693b      	ldr	r3, [r7, #16]
+ 800f3ba:	6834      	ldr	r4, [r6, #0]
+ 800f3bc:	681d      	ldr	r5, [r3, #0]
+ 800f3be:	6823      	ldr	r3, [r4, #0]
+ 800f3c0:	f023 0301 	bic.w	r3, r3, #1
+ 800f3c4:	6023      	str	r3, [r4, #0]
+ 800f3c6:	68b0      	ldr	r0, [r6, #8]
+ 800f3c8:	f00a fd51 	bl	8019e6e <z_impl_device_is_ready>
+ 800f3cc:	4603      	mov	r3, r0
+ 800f3ce:	b950      	cbnz	r0, 800f3e6 <uart_stm32_init+0x96>
+ 800f3d0:	4a53      	ldr	r2, [pc, #332]	@ (800f520 <uart_stm32_init+0x1d0>)
+ 800f3d2:	4952      	ldr	r1, [pc, #328]	@ (800f51c <uart_stm32_init+0x1cc>)
+ 800f3d4:	e9cd 0201 	strd	r0, r2, [sp, #4]
+ 800f3d8:	9000      	str	r0, [sp, #0]
+ 800f3da:	2201      	movs	r2, #1
+ 800f3dc:	f00a fa91 	bl	8019902 <z_log_msg_runtime_create.constprop.0>
+ 800f3e0:	f06f 0512 	mvn.w	r5, #18
+ 800f3e4:	e7cc      	b.n	800f380 <uart_stm32_init+0x30>
+ 800f3e6:	e9d6 0102 	ldrd	r0, r1, [r6, #8]
+ 800f3ea:	6883      	ldr	r3, [r0, #8]
+ 800f3ec:	68db      	ldr	r3, [r3, #12]
+ 800f3ee:	b103      	cbz	r3, 800f3f2 <uart_stm32_init+0xa2>
+ 800f3f0:	4798      	blx	r3
+ 800f3f2:	e854 3f00 	ldrex	r3, [r4]
+ 800f3f6:	f043 030c 	orr.w	r3, r3, #12
+ 800f3fa:	e844 3200 	strex	r2, r3, [r4]
+ 800f3fe:	2a00      	cmp	r2, #0
+ 800f400:	d1f7      	bne.n	800f3f2 <uart_stm32_init+0xa2>
+ 800f402:	4629      	mov	r1, r5
+ 800f404:	4638      	mov	r0, r7
+ 800f406:	f00a fb6f 	bl	8019ae8 <uart_stm32_parameters_set>
+ 800f40a:	4605      	mov	r5, r0
+ 800f40c:	b110      	cbz	r0, 800f414 <uart_stm32_init+0xc4>
+ 800f40e:	f06f 0515 	mvn.w	r5, #21
+ 800f412:	e7b5      	b.n	800f380 <uart_stm32_init+0x30>
+ 800f414:	7e33      	ldrb	r3, [r6, #24]
+ 800f416:	b11b      	cbz	r3, 800f420 <uart_stm32_init+0xd0>
+ 800f418:	68a3      	ldr	r3, [r4, #8]
+ 800f41a:	f043 0308 	orr.w	r3, r3, #8
+ 800f41e:	60a3      	str	r3, [r4, #8]
+ 800f420:	7e73      	ldrb	r3, [r6, #25]
+ 800f422:	b11b      	cbz	r3, 800f42c <uart_stm32_init+0xdc>
+ 800f424:	6863      	ldr	r3, [r4, #4]
+ 800f426:	f443 4300 	orr.w	r3, r3, #32768	@ 0x8000
+ 800f42a:	6063      	str	r3, [r4, #4]
+ 800f42c:	7eb3      	ldrb	r3, [r6, #26]
+ 800f42e:	b11b      	cbz	r3, 800f438 <uart_stm32_init+0xe8>
+ 800f430:	6863      	ldr	r3, [r4, #4]
+ 800f432:	f443 3380 	orr.w	r3, r3, #65536	@ 0x10000
+ 800f436:	6063      	str	r3, [r4, #4]
+ 800f438:	7ef3      	ldrb	r3, [r6, #27]
+ 800f43a:	b11b      	cbz	r3, 800f444 <uart_stm32_init+0xf4>
+ 800f43c:	6863      	ldr	r3, [r4, #4]
+ 800f43e:	f443 3300 	orr.w	r3, r3, #131072	@ 0x20000
+ 800f442:	6063      	str	r3, [r4, #4]
+ 800f444:	7f33      	ldrb	r3, [r6, #28]
+ 800f446:	2b00      	cmp	r3, #0
+ 800f448:	d04f      	beq.n	800f4ea <uart_stm32_init+0x19a>
+ 800f44a:	4b36      	ldr	r3, [pc, #216]	@ (800f524 <uart_stm32_init+0x1d4>)
+ 800f44c:	429c      	cmp	r4, r3
+ 800f44e:	d032      	beq.n	800f4b6 <uart_stm32_init+0x166>
+ 800f450:	f103 5380 	add.w	r3, r3, #268435456	@ 0x10000000
+ 800f454:	429c      	cmp	r4, r3
+ 800f456:	d02e      	beq.n	800f4b6 <uart_stm32_init+0x166>
+ 800f458:	4b33      	ldr	r3, [pc, #204]	@ (800f528 <uart_stm32_init+0x1d8>)
+ 800f45a:	429c      	cmp	r4, r3
+ 800f45c:	d02b      	beq.n	800f4b6 <uart_stm32_init+0x166>
+ 800f45e:	f103 5380 	add.w	r3, r3, #268435456	@ 0x10000000
+ 800f462:	429c      	cmp	r4, r3
+ 800f464:	d027      	beq.n	800f4b6 <uart_stm32_init+0x166>
+ 800f466:	4b31      	ldr	r3, [pc, #196]	@ (800f52c <uart_stm32_init+0x1dc>)
+ 800f468:	429c      	cmp	r4, r3
+ 800f46a:	d024      	beq.n	800f4b6 <uart_stm32_init+0x166>
+ 800f46c:	f103 5380 	add.w	r3, r3, #268435456	@ 0x10000000
+ 800f470:	429c      	cmp	r4, r3
+ 800f472:	d020      	beq.n	800f4b6 <uart_stm32_init+0x166>
+ 800f474:	4b2e      	ldr	r3, [pc, #184]	@ (800f530 <uart_stm32_init+0x1e0>)
+ 800f476:	429c      	cmp	r4, r3
+ 800f478:	d01d      	beq.n	800f4b6 <uart_stm32_init+0x166>
+ 800f47a:	f103 5380 	add.w	r3, r3, #268435456	@ 0x10000000
+ 800f47e:	429c      	cmp	r4, r3
+ 800f480:	d019      	beq.n	800f4b6 <uart_stm32_init+0x166>
+ 800f482:	4b2c      	ldr	r3, [pc, #176]	@ (800f534 <uart_stm32_init+0x1e4>)
+ 800f484:	429c      	cmp	r4, r3
+ 800f486:	d016      	beq.n	800f4b6 <uart_stm32_init+0x166>
+ 800f488:	f1b4 2f50 	cmp.w	r4, #1342197760	@ 0x50005000
+ 800f48c:	d013      	beq.n	800f4b6 <uart_stm32_init+0x166>
+ 800f48e:	4b2a      	ldr	r3, [pc, #168]	@ (800f538 <uart_stm32_init+0x1e8>)
+ 800f490:	429c      	cmp	r4, r3
+ 800f492:	d010      	beq.n	800f4b6 <uart_stm32_init+0x166>
+ 800f494:	f103 5380 	add.w	r3, r3, #268435456	@ 0x10000000
+ 800f498:	429c      	cmp	r4, r3
+ 800f49a:	d00c      	beq.n	800f4b6 <uart_stm32_init+0x166>
+ 800f49c:	683b      	ldr	r3, [r7, #0]
+ 800f49e:	2201      	movs	r2, #1
+ 800f4a0:	9303      	str	r3, [sp, #12]
+ 800f4a2:	4b26      	ldr	r3, [pc, #152]	@ (800f53c <uart_stm32_init+0x1ec>)
+ 800f4a4:	491d      	ldr	r1, [pc, #116]	@ (800f51c <uart_stm32_init+0x1cc>)
+ 800f4a6:	9302      	str	r3, [sp, #8]
+ 800f4a8:	2300      	movs	r3, #0
+ 800f4aa:	4618      	mov	r0, r3
+ 800f4ac:	e9cd 3300 	strd	r3, r3, [sp]
+ 800f4b0:	f00a fa27 	bl	8019902 <z_log_msg_runtime_create.constprop.0>
+ 800f4b4:	e7ab      	b.n	800f40e <uart_stm32_init+0xbe>
+ 800f4b6:	687b      	ldr	r3, [r7, #4]
+ 800f4b8:	681a      	ldr	r2, [r3, #0]
+ 800f4ba:	6893      	ldr	r3, [r2, #8]
+ 800f4bc:	f443 4380 	orr.w	r3, r3, #16384	@ 0x4000
+ 800f4c0:	6093      	str	r3, [r2, #8]
+ 800f4c2:	6823      	ldr	r3, [r4, #0]
+ 800f4c4:	7f72      	ldrb	r2, [r6, #29]
+ 800f4c6:	f023 7378 	bic.w	r3, r3, #65011712	@ 0x3e00000
+ 800f4ca:	ea43 5342 	orr.w	r3, r3, r2, lsl #21
+ 800f4ce:	6023      	str	r3, [r4, #0]
+ 800f4d0:	6823      	ldr	r3, [r4, #0]
+ 800f4d2:	7fb2      	ldrb	r2, [r6, #30]
+ 800f4d4:	f423 13f8 	bic.w	r3, r3, #2031616	@ 0x1f0000
+ 800f4d8:	ea43 4302 	orr.w	r3, r3, r2, lsl #16
+ 800f4dc:	6023      	str	r3, [r4, #0]
+ 800f4de:	7ff3      	ldrb	r3, [r6, #31]
+ 800f4e0:	b11b      	cbz	r3, 800f4ea <uart_stm32_init+0x19a>
+ 800f4e2:	68a3      	ldr	r3, [r4, #8]
+ 800f4e4:	f443 4300 	orr.w	r3, r3, #32768	@ 0x8000
+ 800f4e8:	60a3      	str	r3, [r4, #8]
+ 800f4ea:	f896 3020 	ldrb.w	r3, [r6, #32]
+ 800f4ee:	b11b      	cbz	r3, 800f4f8 <uart_stm32_init+0x1a8>
+ 800f4f0:	6823      	ldr	r3, [r4, #0]
+ 800f4f2:	f043 5300 	orr.w	r3, r3, #536870912	@ 0x20000000
+ 800f4f6:	6023      	str	r3, [r4, #0]
+ 800f4f8:	6823      	ldr	r3, [r4, #0]
+ 800f4fa:	f043 0301 	orr.w	r3, r3, #1
+ 800f4fe:	6023      	str	r3, [r4, #0]
+ 800f500:	69e3      	ldr	r3, [r4, #28]
+ 800f502:	029a      	lsls	r2, r3, #10
+ 800f504:	d5fc      	bpl.n	800f500 <uart_stm32_init+0x1b0>
+ 800f506:	69e3      	ldr	r3, [r4, #28]
+ 800f508:	025b      	lsls	r3, r3, #9
+ 800f50a:	d5fc      	bpl.n	800f506 <uart_stm32_init+0x1b6>
+ 800f50c:	4638      	mov	r0, r7
+ 800f50e:	f8d8 3028 	ldr.w	r3, [r8, #40]	@ 0x28
+ 800f512:	4798      	blx	r3
+ 800f514:	e734      	b.n	800f380 <uart_stm32_init+0x30>
+ 800f516:	bf00      	nop
+ 800f518:	08024215 	.word	0x08024215
+ 800f51c:	0801c8dc 	.word	0x0801c8dc
+ 800f520:	08023804 	.word	0x08023804
+ 800f524:	40013800 	.word	0x40013800
+ 800f528:	40004400 	.word	0x40004400
+ 800f52c:	40004800 	.word	0x40004800
+ 800f530:	40004c00 	.word	0x40004c00
+ 800f534:	40005000 	.word	0x40005000
+ 800f538:	46002400 	.word	0x46002400
+ 800f53c:	08024235 	.word	0x08024235

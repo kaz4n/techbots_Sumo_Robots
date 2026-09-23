@@ -1,0 +1,125 @@
+[doctest] doctest version is "2.4.12"
+[doctest] run with "--help" for options
+===============================================================================
+tests/test_recorder_dump.cpp:54:
+TEST CASE:  B15 D090 literal stream retains all records order decimal envelope and independent CRC
+
+tests/test_recorder_dump.cpp:59: ERROR: CHECK( p.sink.bytes == expected ) is NOT correct!
+  values: CHECK( SUMOX26_DUMP,1,10,1,1,25,5001,4096,2,1
+SH,10,schema_version,epoch_token,last_frame_token,release_us,mode,phase,observed_results,missing_results,rejected_results,identity_rejected,malformed_batches,event_semantic_rejected,upstream_event_rejected,upstream_event_invalid,source_regressions,skipped_frames,ticks,overruns,tick_max_us,ticks_saturated,upstream_event_overflow,timing_incomplete,recording_incomplete,go_seen,final_frame_missing,interrupted,terminal_exhausted,frame_count,frame_overwritten,frame_rejected_status,frame_clamped,frame_invalid,event_count,event_overflow,event_rejected,incomplete
+SR,10,1,1,2,1234,1,3,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,1,0,0,0
+FH,10,schema_version,ordinal,pack_status,t_ms,state,mode,line_mask,opp_mask,heading_cdeg,gyro_z_dps10,ax_mg,ay_mg,duty_l_127,duty_r_127,vbat_cv,flags,tick_max_us,raw_hex
+FR,10,1,0,0,0,2,1,0,0,0,0,0,0,0,0,0,0,0,00000000020100000000000000000000000000000000000000
+FR,10,1,1,0,0,10,1,0,0,0,0,0,0,0,0,0,0,0,000000000a0100000000000000000000000000000000000000
+EH,10,schema_version,ordinal,t_us,type,detail,value,raw_hex
+ER,10,1,0,1234,0,1,0,d204000000010000
+END,10,2,1,1404409802
+ == SUMOX26_DUMP,1,10,1,1,25,5001,4096,2,1
+SH,10,schema_version,epoch_token,last_frame_token,release_us,mode,phase,observed_results,missing_results,rejected_results,identity_rejected,malformed_batches,event_semantic_rejected,upstream_event_rejected,upstream_event_invalid,source_regressions,skipped_frames,ticks,overruns,tick_max_us,ticks_saturated,upstream_event_overflow,timing_incomplete,recording_incomplete,go_seen,final_frame_missing,interrupted,terminal_exhausted,frame_count,frame_overwritten,frame_rejected_status,frame_clamped,frame_invalid,event_count,event_overflow,event_rejected,incomplete
+SR,10,1,1,2,1234,1,3,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,1,0,0,0
+FH,10,schema_version,ordinal,pack_status,t_ms,state,mode,line_mask,opp_mask,heading_cdeg,gyro_z_dps10,ax_mg,ay_mg,duty_l_127,duty_r_127,vbat_cv,flags,tick_max_us,raw_hex
+FR,10,1,0,0,0,2,1,0,0,0,0,0,0,0,0,0,0,0,00000000020100000000000000000000000000000000000000
+FR,10,1,1,0,0,10,1,0,0,0,0,0,0,0,0,0,0,0,000000000a01000000000000000000000000000000000000
+EH,10,schema_version,ordinal,t_us,type,detail,value,raw_hex
+ER,10,1,0,1234,0,1,0,d204000000010000
+END,10,2,1,3523823742
+ )
+
+tests/test_recorder_dump.cpp:60: ERROR: CHECK( p.report.crc == crc(prefix) ) is NOT correct!
+  values: CHECK( 1404409802 == 3523823742 )
+
+tests/test_recorder_dump.cpp:61: ERROR: CHECK( p.report.bytes == expected.size() ) is NOT correct!
+  values: CHECK( 1154 == 1152 )
+
+===============================================================================
+tests/test_recorder_dump.cpp:71:
+TEST CASE:  B15 D090 partial acknowledgments preserve exact bytes and never duplicate CRC
+
+tests/test_recorder_dump.cpp:76: ERROR: CHECK( p.sink.bytes == prefix + "END,10,2,1," + std::to_string(crc(prefix)) + "\n" ) is NOT correct!
+  values: CHECK( SUMOX26_DUMP,1,10,1,1,25,5001,4096,2,1
+SH,10,schema_version,epoch_token,last_frame_token,release_us,mode,phase,observed_results,missing_results,rejected_results,identity_rejected,malformed_batches,event_semantic_rejected,upstream_event_rejected,upstream_event_invalid,source_regressions,skipped_frames,ticks,overruns,tick_max_us,ticks_saturated,upstream_event_overflow,timing_incomplete,recording_incomplete,go_seen,final_frame_missing,interrupted,terminal_exhausted,frame_count,frame_overwritten,frame_rejected_status,frame_clamped,frame_invalid,event_count,event_overflow,event_rejected,incomplete
+SR,10,1,1,2,1234,1,3,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,1,0,0,0
+FH,10,schema_version,ordinal,pack_status,t_ms,state,mode,line_mask,opp_mask,heading_cdeg,gyro_z_dps10,ax_mg,ay_mg,duty_l_127,duty_r_127,vbat_cv,flags,tick_max_us,raw_hex
+FR,10,1,0,0,0,2,1,0,0,0,0,0,0,0,0,0,0,0,00000000020100000000000000000000000000000000000000
+FR,10,1,1,0,0,10,1,0,0,0,0,0,0,0,0,0,0,0,000000000a0100000000000000000000000000000000000000
+EH,10,schema_version,ordinal,t_us,type,detail,value,raw_hex
+ER,10,1,0,1234,0,1,0,d204000000010000
+END,10,2,1,1404409802
+ == SUMOX26_DUMP,1,10,1,1,25,5001,4096,2,1
+SH,10,schema_version,epoch_token,last_frame_token,release_us,mode,phase,observed_results,missing_results,rejected_results,identity_rejected,malformed_batches,event_semantic_rejected,upstream_event_rejected,upstream_event_invalid,source_regressions,skipped_frames,ticks,overruns,tick_max_us,ticks_saturated,upstream_event_overflow,timing_incomplete,recording_incomplete,go_seen,final_frame_missing,interrupted,terminal_exhausted,frame_count,frame_overwritten,frame_rejected_status,frame_clamped,frame_invalid,event_count,event_overflow,event_rejected,incomplete
+SR,10,1,1,2,1234,1,3,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,1,0,0,0
+FH,10,schema_version,ordinal,pack_status,t_ms,state,mode,line_mask,opp_mask,heading_cdeg,gyro_z_dps10,ax_mg,ay_mg,duty_l_127,duty_r_127,vbat_cv,flags,tick_max_us,raw_hex
+FR,10,1,0,0,0,2,1,0,0,0,0,0,0,0,0,0,0,0,00000000020100000000000000000000000000000000000000
+FR,10,1,1,0,0,10,1,0,0,0,0,0,0,0,0,0,0,0,000000000a01000000000000000000000000000000000000
+EH,10,schema_version,ordinal,t_us,type,detail,value,raw_hex
+ER,10,1,0,1234,0,1,0,d204000000010000
+END,10,2,1,3523823742
+ )
+
+tests/test_recorder_dump.cpp:76: ERROR: CHECK( p.sink.bytes == prefix + "END,10,2,1," + std::to_string(crc(prefix)) + "\n" ) is NOT correct!
+  values: CHECK( SUMOX26_DUMP,1,10,1,1,25,5001,4096,2,1
+SH,10,schema_version,epoch_token,last_frame_token,release_us,mode,phase,observed_results,missing_results,rejected_results,identity_rejected,malformed_batches,event_semantic_rejected,upstream_event_rejected,upstream_event_invalid,source_regressions,skipped_frames,ticks,overruns,tick_max_us,ticks_saturated,upstream_event_overflow,timing_incomplete,recording_incomplete,go_seen,final_frame_missing,interrupted,terminal_exhausted,frame_count,frame_overwritten,frame_rejected_status,frame_clamped,frame_invalid,event_count,event_overflow,event_rejected,incomplete
+SR,10,1,1,2,1234,1,3,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,1,0,0,0
+FH,10,schema_version,ordinal,pack_status,t_ms,state,mode,line_mask,opp_mask,heading_cdeg,gyro_z_dps10,ax_mg,ay_mg,duty_l_127,duty_r_127,vbat_cv,flags,tick_max_us,raw_hex
+FR,10,1,0,0,0,2,1,0,0,0,0,0,0,0,0,0,0,0,00000000020100000000000000000000000000000000000000
+FR,10,1,1,0,0,10,1,0,0,0,0,0,0,0,0,0,0,0,000000000a0100000000000000000000000000000000000000
+EH,10,schema_version,ordinal,t_us,type,detail,value,raw_hex
+ER,10,1,0,1234,0,1,0,d204000000010000
+END,10,2,1,1404409802
+ == SUMOX26_DUMP,1,10,1,1,25,5001,4096,2,1
+SH,10,schema_version,epoch_token,last_frame_token,release_us,mode,phase,observed_results,missing_results,rejected_results,identity_rejected,malformed_batches,event_semantic_rejected,upstream_event_rejected,upstream_event_invalid,source_regressions,skipped_frames,ticks,overruns,tick_max_us,ticks_saturated,upstream_event_overflow,timing_incomplete,recording_incomplete,go_seen,final_frame_missing,interrupted,terminal_exhausted,frame_count,frame_overwritten,frame_rejected_status,frame_clamped,frame_invalid,event_count,event_overflow,event_rejected,incomplete
+SR,10,1,1,2,1234,1,3,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,1,0,0,0
+FH,10,schema_version,ordinal,pack_status,t_ms,state,mode,line_mask,opp_mask,heading_cdeg,gyro_z_dps10,ax_mg,ay_mg,duty_l_127,duty_r_127,vbat_cv,flags,tick_max_us,raw_hex
+FR,10,1,0,0,0,2,1,0,0,0,0,0,0,0,0,0,0,0,00000000020100000000000000000000000000000000000000
+FR,10,1,1,0,0,10,1,0,0,0,0,0,0,0,0,0,0,0,000000000a01000000000000000000000000000000000000
+EH,10,schema_version,ordinal,t_us,type,detail,value,raw_hex
+ER,10,1,0,1234,0,1,0,d204000000010000
+END,10,2,1,3523823742
+ )
+
+tests/test_recorder_dump.cpp:76: ERROR: CHECK( p.sink.bytes == prefix + "END,10,2,1," + std::to_string(crc(prefix)) + "\n" ) is NOT correct!
+  values: CHECK( SUMOX26_DUMP,1,10,1,1,25,5001,4096,2,1
+SH,10,schema_version,epoch_token,last_frame_token,release_us,mode,phase,observed_results,missing_results,rejected_results,identity_rejected,malformed_batches,event_semantic_rejected,upstream_event_rejected,upstream_event_invalid,source_regressions,skipped_frames,ticks,overruns,tick_max_us,ticks_saturated,upstream_event_overflow,timing_incomplete,recording_incomplete,go_seen,final_frame_missing,interrupted,terminal_exhausted,frame_count,frame_overwritten,frame_rejected_status,frame_clamped,frame_invalid,event_count,event_overflow,event_rejected,incomplete
+SR,10,1,1,2,1234,1,3,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,1,0,0,0
+FH,10,schema_version,ordinal,pack_status,t_ms,state,mode,line_mask,opp_mask,heading_cdeg,gyro_z_dps10,ax_mg,ay_mg,duty_l_127,duty_r_127,vbat_cv,flags,tick_max_us,raw_hex
+FR,10,1,0,0,0,2,1,0,0,0,0,0,0,0,0,0,0,0,00000000020100000000000000000000000000000000000000
+FR,10,1,1,0,0,10,1,0,0,0,0,0,0,0,0,0,0,0,000000000a0100000000000000000000000000000000000000
+EH,10,schema_version,ordinal,t_us,type,detail,value,raw_hex
+ER,10,1,0,1234,0,1,0,d204000000010000
+END,10,2,1,1404409802
+ == SUMOX26_DUMP,1,10,1,1,25,5001,4096,2,1
+SH,10,schema_version,epoch_token,last_frame_token,release_us,mode,phase,observed_results,missing_results,rejected_results,identity_rejected,malformed_batches,event_semantic_rejected,upstream_event_rejected,upstream_event_invalid,source_regressions,skipped_frames,ticks,overruns,tick_max_us,ticks_saturated,upstream_event_overflow,timing_incomplete,recording_incomplete,go_seen,final_frame_missing,interrupted,terminal_exhausted,frame_count,frame_overwritten,frame_rejected_status,frame_clamped,frame_invalid,event_count,event_overflow,event_rejected,incomplete
+SR,10,1,1,2,1234,1,3,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,1,0,0,0
+FH,10,schema_version,ordinal,pack_status,t_ms,state,mode,line_mask,opp_mask,heading_cdeg,gyro_z_dps10,ax_mg,ay_mg,duty_l_127,duty_r_127,vbat_cv,flags,tick_max_us,raw_hex
+FR,10,1,0,0,0,2,1,0,0,0,0,0,0,0,0,0,0,0,00000000020100000000000000000000000000000000000000
+FR,10,1,1,0,0,10,1,0,0,0,0,0,0,0,0,0,0,0,000000000a01000000000000000000000000000000000000
+EH,10,schema_version,ordinal,t_us,type,detail,value,raw_hex
+ER,10,1,0,1234,0,1,0,d204000000010000
+END,10,2,1,3523823742
+ )
+
+tests/test_recorder_dump.cpp:76: ERROR: CHECK( p.sink.bytes == prefix + "END,10,2,1," + std::to_string(crc(prefix)) + "\n" ) is NOT correct!
+  values: CHECK( SUMOX26_DUMP,1,10,1,1,25,5001,4096,2,1
+SH,10,schema_version,epoch_token,last_frame_token,release_us,mode,phase,observed_results,missing_results,rejected_results,identity_rejected,malformed_batches,event_semantic_rejected,upstream_event_rejected,upstream_event_invalid,source_regressions,skipped_frames,ticks,overruns,tick_max_us,ticks_saturated,upstream_event_overflow,timing_incomplete,recording_incomplete,go_seen,final_frame_missing,interrupted,terminal_exhausted,frame_count,frame_overwritten,frame_rejected_status,frame_clamped,frame_invalid,event_count,event_overflow,event_rejected,incomplete
+SR,10,1,1,2,1234,1,3,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,1,0,0,0
+FH,10,schema_version,ordinal,pack_status,t_ms,state,mode,line_mask,opp_mask,heading_cdeg,gyro_z_dps10,ax_mg,ay_mg,duty_l_127,duty_r_127,vbat_cv,flags,tick_max_us,raw_hex
+FR,10,1,0,0,0,2,1,0,0,0,0,0,0,0,0,0,0,0,00000000020100000000000000000000000000000000000000
+FR,10,1,1,0,0,10,1,0,0,0,0,0,0,0,0,0,0,0,000000000a0100000000000000000000000000000000000000
+EH,10,schema_version,ordinal,t_us,type,detail,value,raw_hex
+ER,10,1,0,1234,0,1,0,d204000000010000
+END,10,2,1,1404409802
+ == SUMOX26_DUMP,1,10,1,1,25,5001,4096,2,1
+SH,10,schema_version,epoch_token,last_frame_token,release_us,mode,phase,observed_results,missing_results,rejected_results,identity_rejected,malformed_batches,event_semantic_rejected,upstream_event_rejected,upstream_event_invalid,source_regressions,skipped_frames,ticks,overruns,tick_max_us,ticks_saturated,upstream_event_overflow,timing_incomplete,recording_incomplete,go_seen,final_frame_missing,interrupted,terminal_exhausted,frame_count,frame_overwritten,frame_rejected_status,frame_clamped,frame_invalid,event_count,event_overflow,event_rejected,incomplete
+SR,10,1,1,2,1234,1,3,3,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,1,0,0,0
+FH,10,schema_version,ordinal,pack_status,t_ms,state,mode,line_mask,opp_mask,heading_cdeg,gyro_z_dps10,ax_mg,ay_mg,duty_l_127,duty_r_127,vbat_cv,flags,tick_max_us,raw_hex
+FR,10,1,0,0,0,2,1,0,0,0,0,0,0,0,0,0,0,0,00000000020100000000000000000000000000000000000000
+FR,10,1,1,0,0,10,1,0,0,0,0,0,0,0,0,0,0,0,000000000a01000000000000000000000000000000000000
+EH,10,schema_version,ordinal,t_us,type,detail,value,raw_hex
+ER,10,1,0,1234,0,1,0,d204000000010000
+END,10,2,1,3523823742
+ )
+
+===============================================================================
+[doctest] test cases:  22 |  20 passed | 2 failed | 0 skipped
+[doctest] assertions: 568 | 561 passed | 7 failed |
+[doctest] Status: FAILURE!

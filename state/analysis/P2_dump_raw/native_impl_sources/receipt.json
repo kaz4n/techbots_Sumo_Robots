@@ -1,0 +1,65 @@
+{
+  "argv": [
+    "python3",
+    "-c",
+    "from pathlib import Path\nimport json,hashlib,base64\nc=Path('/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0');v=c/'variants/arduino_uno_q_stm32u585xx';edk=v/'llext-edk/include'\nnames={'stm32u5xx_ll_usart.h','stm32u5xx_ll_lpuart.h','stm32u585xx.h','stm32u5xx.h','stm32_ll_usart.h','stm32_ll_lpuart.h'}\nfiles=[v/'includes.txt']+[p for p in edk.rglob('*.h') if p.name in names]+[edk/'zephyr/include/zephyr/drivers/gpio.h',edk/'zephyr/drivers/gpio/gpio_stm32.h']\nout=[]\nfor p in files:\n if p.is_file():\n  raw=p.read_bytes();out.append(dict(path=str(p),size=len(raw),sha256=hashlib.sha256(raw).hexdigest(),base64=base64.b64encode(raw).decode()))\n else:out.append(dict(path=str(p),missing=True))\nprint(json.dumps(out))\n"
+  ],
+  "exit_status": 0,
+  "stderr": "",
+  "files": [
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/includes.txt",
+      "size": 1163,
+      "sha256": "7189bd9a00755c1292194716cabac68d5f08ef8fcefa22f01ae4b8810f480575",
+      "local": "state/analysis/P2_dump_raw/native_impl_sources/includes.txt"
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/modules/hal/stm32/stm32cube/stm32u5xx/soc/stm32u585xx.h",
+      "size": 1517115,
+      "sha256": "8b66d5b9d1514f3ce0950b7a96402e7c026a0779e1cc36c3771be05432b68c06",
+      "local": "state/analysis/P2_dump_raw/native_impl_sources/modules/hal/stm32/stm32cube/stm32u5xx/soc/stm32u585xx.h"
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/modules/hal/stm32/stm32cube/stm32u5xx/soc/stm32u5xx.h",
+      "size": 10647,
+      "sha256": "871027858d90b8692d0e207f4ed66be71fca5fc4c7e04c97716735bd61c8f48b",
+      "local": "state/analysis/P2_dump_raw/native_impl_sources/modules/hal/stm32/stm32cube/stm32u5xx/soc/stm32u5xx.h"
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/modules/hal/stm32/stm32cube/stm32u5xx/drivers/include/stm32u5xx_ll_usart.h",
+      "size": 169280,
+      "sha256": "52b9b0e06b59fc453c3d2cb9934afa70a64b8d4d831ae8d163ff4e99449c07a7",
+      "local": "state/analysis/P2_dump_raw/native_impl_sources/modules/hal/stm32/stm32cube/stm32u5xx/drivers/include/stm32u5xx_ll_usart.h"
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/modules/hal/stm32/stm32cube/stm32u5xx/drivers/include/stm32u5xx_ll_lpuart.h",
+      "size": 95225,
+      "sha256": "6ef9bf504ddd453112b69b977fe3d6b0ae7e5be4638219e5f30a60e85cbc6247",
+      "local": "state/analysis/P2_dump_raw/native_impl_sources/modules/hal/stm32/stm32cube/stm32u5xx/drivers/include/stm32u5xx_ll_lpuart.h"
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/modules/hal/stm32/stm32cube/common_ll/include/stm32_ll_usart.h",
+      "size": 2192,
+      "sha256": "e4fc7559fe80657c04d721a69a1c8a26eb6b8ef7bb51e38a981c99b44ce88b72",
+      "local": "state/analysis/P2_dump_raw/native_impl_sources/modules/hal/stm32/stm32cube/common_ll/include/stm32_ll_usart.h"
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/modules/hal/stm32/stm32cube/common_ll/include/stm32_ll_lpuart.h",
+      "size": 1464,
+      "sha256": "75242dae86f88241a6d9e36b61c19c5f5d8a0e386d5348fec30baa39d6d76de5",
+      "local": "state/analysis/P2_dump_raw/native_impl_sources/modules/hal/stm32/stm32cube/common_ll/include/stm32_ll_lpuart.h"
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/zephyr/drivers/gpio.h",
+      "size": 62665,
+      "sha256": "aab7888876f29b6ad98217d8099aac677f5238249b95599511038cc35d982316",
+      "local": "state/analysis/P2_dump_raw/native_impl_sources/zephyr/include/zephyr/drivers/gpio.h"
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/drivers/gpio/gpio_stm32.h",
+      "size": 1974,
+      "sha256": "faf1bfb798cdc65484bc63de5a3df55c2920c0b433aebbcee778686b68f466f7",
+      "local": "state/analysis/P2_dump_raw/native_impl_sources/zephyr/drivers/gpio/gpio_stm32.h"
+    }
+  ]
+}

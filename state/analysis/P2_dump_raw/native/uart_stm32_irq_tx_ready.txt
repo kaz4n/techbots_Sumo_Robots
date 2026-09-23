@@ -1,0 +1,17 @@
+
+/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf:     file format elf32-littlearm
+
+
+Disassembly of section rom_start:
+
+Disassembly of section text:
+
+0801992e <uart_stm32_irq_tx_ready>:
+ 801992e:	6843      	ldr	r3, [r0, #4]
+ 8019930:	681b      	ldr	r3, [r3, #0]
+ 8019932:	69d8      	ldr	r0, [r3, #28]
+ 8019934:	f010 0080 	ands.w	r0, r0, #128	@ 0x80
+ 8019938:	bf1c      	itt	ne
+ 801993a:	6818      	ldrne	r0, [r3, #0]
+ 801993c:	f3c0 1080 	ubfxne	r0, r0, #6, #1
+ 8019940:	4770      	bx	lr

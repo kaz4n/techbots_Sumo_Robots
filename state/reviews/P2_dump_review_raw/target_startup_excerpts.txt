@@ -1,0 +1,330 @@
+00000064 <setup>:
+      64:	4b01      	ldr	r3, [pc, #4]	@ (6c <setup+0x8>)
+      66:	4a02      	ldr	r2, [pc, #8]	@ (70 <setup+0xc>)
+      68:	601a      	str	r2, [r3, #0]
+      6a:	4770      	bx	lr
+	...
+
+
+00000074 <loop>:
+      74:	4770      	bx	lr
+	...
+
+
+00001c98 <_GLOBAL__sub_I__ZN10dump_probe5entryE>:
+    1c98:	4a06      	ldr	r2, [pc, #24]	@ (1cb4 <_GLOBAL__sub_I__ZN10dump_probe5entryE+0x1c>)
+    1c9a:	6813      	ldr	r3, [r2, #0]
+    1c9c:	1c59      	adds	r1, r3, #1
+    1c9e:	6011      	str	r1, [r2, #0]
+    1ca0:	b933      	cbnz	r3, 1cb0 <_GLOBAL__sub_I__ZN10dump_probe5entryE+0x18>
+    1ca2:	4a05      	ldr	r2, [pc, #20]	@ (1cb8 <_GLOBAL__sub_I__ZN10dump_probe5entryE+0x20>)
+    1ca4:	4905      	ldr	r1, [pc, #20]	@ (1cbc <_GLOBAL__sub_I__ZN10dump_probe5entryE+0x24>)
+    1ca6:	e9c2 3307 	strd	r3, r3, [r2, #28]
+    1caa:	6011      	str	r1, [r2, #0]
+    1cac:	7613      	strb	r3, [r2, #24]
+    1cae:	6253      	str	r3, [r2, #36]	@ 0x24
+    1cb0:	4770      	bx	lr
+    1cb2:	bf00      	nop
+	...
+
+
+0000a220 <_GLOBAL__sub_I__ZN10dump_probe5robotE>:
+    a220:	b5f0      	push	{r4, r5, r6, r7, lr}
+    a222:	b085      	sub	sp, #20
+    a224:	ad01      	add	r5, sp, #4
+    a226:	4628      	mov	r0, r5
+    a228:	4935      	ldr	r1, [pc, #212]	@ (a300 <_GLOBAL__sub_I__ZN10dump_probe5robotE+0xe0>)
+    a22a:	4b36      	ldr	r3, [pc, #216]	@ (a304 <_GLOBAL__sub_I__ZN10dump_probe5robotE+0xe4>)
+    a22c:	4798      	blx	r3
+    a22e:	e895 0007 	ldmia.w	r5, {r0, r1, r2}
+    a232:	2301      	movs	r3, #1
+    a234:	2500      	movs	r5, #0
+    a236:	2600      	movs	r6, #0
+    a238:	2700      	movs	r7, #0
+    a23a:	4c33      	ldr	r4, [pc, #204]	@ (a308 <_GLOBAL__sub_I__ZN10dump_probe5robotE+0xe8>)
+    a23c:	e884 0007 	stmia.w	r4, {r0, r1, r2}
+    a240:	f884 304c 	strb.w	r3, [r4, #76]	@ 0x4c
+    a244:	f44f 6290 	mov.w	r2, #1152	@ 0x480
+    a248:	4629      	mov	r1, r5
+    a24a:	4b30      	ldr	r3, [pc, #192]	@ (a30c <_GLOBAL__sub_I__ZN10dump_probe5robotE+0xec>)
+    a24c:	f104 00c4 	add.w	r0, r4, #196	@ 0xc4
+    a250:	e9c4 6706 	strd	r6, r7, [r4, #24]
+    a254:	e9c4 6708 	strd	r6, r7, [r4, #32]
+    a258:	e9c4 550a 	strd	r5, r5, [r4, #40]	@ 0x28
+    a25c:	e9c4 550c 	strd	r5, r5, [r4, #48]	@ 0x30
+    a260:	e9c4 670e 	strd	r6, r7, [r4, #56]	@ 0x38
+    a264:	e9c4 6710 	strd	r6, r7, [r4, #64]	@ 0x40
+    a268:	e9c4 5514 	strd	r5, r5, [r4, #80]	@ 0x50
+    a26c:	e9c4 5516 	strd	r5, r5, [r4, #88]	@ 0x58
+    a270:	e9c4 5518 	strd	r5, r5, [r4, #96]	@ 0x60
+    a274:	e9c4 551a 	strd	r5, r5, [r4, #104]	@ 0x68
+    a278:	e9c4 551c 	strd	r5, r5, [r4, #112]	@ 0x70
+    a27c:	e9c4 671e 	strd	r6, r7, [r4, #120]	@ 0x78
+    a280:	e9c4 6720 	strd	r6, r7, [r4, #128]	@ 0x80
+    a284:	8225      	strh	r5, [r4, #16]
+    a286:	64a5      	str	r5, [r4, #72]	@ 0x48
+    a288:	f8c4 5088 	str.w	r5, [r4, #136]	@ 0x88
+    a28c:	f884 508c 	strb.w	r5, [r4, #140]	@ 0x8c
+    a290:	f8c4 5090 	str.w	r5, [r4, #144]	@ 0x90
+    a294:	f8a4 5094 	strh.w	r5, [r4, #148]	@ 0x94
+    a298:	e9c4 5527 	strd	r5, r5, [r4, #156]	@ 0x9c
+    a29c:	e9c4 5529 	strd	r5, r5, [r4, #164]	@ 0xa4
+    a2a0:	e9c4 552b 	strd	r5, r5, [r4, #172]	@ 0xac
+    a2a4:	f884 5096 	strb.w	r5, [r4, #150]	@ 0x96
+    a2a8:	f884 5098 	strb.w	r5, [r4, #152]	@ 0x98
+    a2ac:	f884 50b4 	strb.w	r5, [r4, #180]	@ 0xb4
+    a2b0:	f8c4 50b8 	str.w	r5, [r4, #184]	@ 0xb8
+    a2b4:	f884 50bc 	strb.w	r5, [r4, #188]	@ 0xbc
+    a2b8:	f8c4 50c0 	str.w	r5, [r4, #192]	@ 0xc0
+    a2bc:	4798      	blx	r3
+    a2be:	f504 63aa 	add.w	r3, r4, #1360	@ 0x550
+    a2c2:	e9c3 6700 	strd	r6, r7, [r3]
+    a2c6:	f504 63ac 	add.w	r3, r4, #1376	@ 0x560
+    a2ca:	e943 6702 	strd	r6, r7, [r3, #-8]
+    a2ce:	f04f 33ff 	mov.w	r3, #4294967295	@ 0xffffffff
+    a2d2:	f8c4 5544 	str.w	r5, [r4, #1348]	@ 0x544
+    a2d6:	f8c4 5548 	str.w	r5, [r4, #1352]	@ 0x548
+    a2da:	f8a4 554c 	strh.w	r5, [r4, #1356]	@ 0x54c
+    a2de:	f8c4 5560 	str.w	r5, [r4, #1376]	@ 0x560
+    a2e2:	f8c4 5564 	str.w	r5, [r4, #1380]	@ 0x564
+    a2e6:	f8c4 5568 	str.w	r5, [r4, #1384]	@ 0x568
+    a2ea:	f8c4 556c 	str.w	r5, [r4, #1388]	@ 0x56c
+    a2ee:	f8c4 5570 	str.w	r5, [r4, #1392]	@ 0x570
+    a2f2:	f8c4 3574 	str.w	r3, [r4, #1396]	@ 0x574
+    a2f6:	f884 5578 	strb.w	r5, [r4, #1400]	@ 0x578
+    a2fa:	b005      	add	sp, #20
+    a2fc:	bdf0      	pop	{r4, r5, r6, r7, pc}
+    a2fe:	bf00      	nop
+	...
+
+
+0000ac18 <_GLOBAL__sub_I__ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE>:
+    ac18:	4a06      	ldr	r2, [pc, #24]	@ (ac34 <_GLOBAL__sub_I__ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x1c>)
+    ac1a:	6813      	ldr	r3, [r2, #0]
+    ac1c:	1c59      	adds	r1, r3, #1
+    ac1e:	6011      	str	r1, [r2, #0]
+    ac20:	b933      	cbnz	r3, ac30 <_GLOBAL__sub_I__ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x18>
+    ac22:	4a05      	ldr	r2, [pc, #20]	@ (ac38 <_GLOBAL__sub_I__ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x20>)
+    ac24:	4905      	ldr	r1, [pc, #20]	@ (ac3c <_GLOBAL__sub_I__ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x24>)
+    ac26:	e9c2 3307 	strd	r3, r3, [r2, #28]
+    ac2a:	6011      	str	r1, [r2, #0]
+    ac2c:	7613      	strb	r3, [r2, #24]
+    ac2e:	6253      	str	r3, [r2, #36]	@ 0x24
+    ac30:	4770      	bx	lr
+    ac32:	bf00      	nop
+	...
+
+
+0000ac60 <_GLOBAL__sub_I__ZN3imu3Bus13controlsOwnedEb>:
+    ac60:	4a06      	ldr	r2, [pc, #24]	@ (ac7c <_GLOBAL__sub_I__ZN3imu3Bus13controlsOwnedEb+0x1c>)
+    ac62:	6813      	ldr	r3, [r2, #0]
+    ac64:	1c59      	adds	r1, r3, #1
+    ac66:	6011      	str	r1, [r2, #0]
+    ac68:	b933      	cbnz	r3, ac78 <_GLOBAL__sub_I__ZN3imu3Bus13controlsOwnedEb+0x18>
+    ac6a:	4a05      	ldr	r2, [pc, #20]	@ (ac80 <_GLOBAL__sub_I__ZN3imu3Bus13controlsOwnedEb+0x20>)
+    ac6c:	4905      	ldr	r1, [pc, #20]	@ (ac84 <_GLOBAL__sub_I__ZN3imu3Bus13controlsOwnedEb+0x24>)
+    ac6e:	e9c2 3307 	strd	r3, r3, [r2, #28]
+    ac72:	6011      	str	r1, [r2, #0]
+    ac74:	7613      	strb	r3, [r2, #24]
+    ac76:	6253      	str	r3, [r2, #36]	@ 0x24
+    ac78:	4770      	bx	lr
+    ac7a:	bf00      	nop
+	...
+
+
+0000aca8 <_GLOBAL__sub_I__ZNK8line_qtr6Reader11globalOwnedEv>:
+    aca8:	4a06      	ldr	r2, [pc, #24]	@ (acc4 <_GLOBAL__sub_I__ZNK8line_qtr6Reader11globalOwnedEv+0x1c>)
+    acaa:	6813      	ldr	r3, [r2, #0]
+    acac:	1c59      	adds	r1, r3, #1
+    acae:	6011      	str	r1, [r2, #0]
+    acb0:	b933      	cbnz	r3, acc0 <_GLOBAL__sub_I__ZNK8line_qtr6Reader11globalOwnedEv+0x18>
+    acb2:	4a05      	ldr	r2, [pc, #20]	@ (acc8 <_GLOBAL__sub_I__ZNK8line_qtr6Reader11globalOwnedEv+0x20>)
+    acb4:	4905      	ldr	r1, [pc, #20]	@ (accc <_GLOBAL__sub_I__ZNK8line_qtr6Reader11globalOwnedEv+0x24>)
+    acb6:	e9c2 3307 	strd	r3, r3, [r2, #28]
+    acba:	6011      	str	r1, [r2, #0]
+    acbc:	7613      	strb	r3, [r2, #24]
+    acbe:	6253      	str	r3, [r2, #36]	@ 0x24
+    acc0:	4770      	bx	lr
+    acc2:	bf00      	nop
+	...
+
+
+0000acf0 <__loopHook()>:
+    acf0:	4770      	bx	lr
+	...
+
+
+0000acf4 <_GLOBAL__sub_I__ZN6motors8UnoQPort4portEv>:
+    acf4:	4a06      	ldr	r2, [pc, #24]	@ (ad10 <_GLOBAL__sub_I__ZN6motors8UnoQPort4portEv+0x1c>)
+    acf6:	6813      	ldr	r3, [r2, #0]
+    acf8:	1c59      	adds	r1, r3, #1
+    acfa:	6011      	str	r1, [r2, #0]
+    acfc:	b933      	cbnz	r3, ad0c <_GLOBAL__sub_I__ZN6motors8UnoQPort4portEv+0x18>
+    acfe:	4a05      	ldr	r2, [pc, #20]	@ (ad14 <_GLOBAL__sub_I__ZN6motors8UnoQPort4portEv+0x20>)
+    ad00:	4905      	ldr	r1, [pc, #20]	@ (ad18 <_GLOBAL__sub_I__ZN6motors8UnoQPort4portEv+0x24>)
+    ad02:	e9c2 3307 	strd	r3, r3, [r2, #28]
+    ad06:	6011      	str	r1, [r2, #0]
+    ad08:	7613      	strb	r3, [r2, #24]
+    ad0a:	6253      	str	r3, [r2, #36]	@ 0x24
+    ad0c:	4770      	bx	lr
+    ad0e:	bf00      	nop
+	...
+
+
+0000ad3c <_GLOBAL__sub_I__ZN11opp_sensors7Sensors5beginEv>:
+    ad3c:	4a06      	ldr	r2, [pc, #24]	@ (ad58 <_GLOBAL__sub_I__ZN11opp_sensors7Sensors5beginEv+0x1c>)
+    ad3e:	6813      	ldr	r3, [r2, #0]
+    ad40:	1c59      	adds	r1, r3, #1
+    ad42:	6011      	str	r1, [r2, #0]
+    ad44:	b933      	cbnz	r3, ad54 <_GLOBAL__sub_I__ZN11opp_sensors7Sensors5beginEv+0x18>
+    ad46:	4a05      	ldr	r2, [pc, #20]	@ (ad5c <_GLOBAL__sub_I__ZN11opp_sensors7Sensors5beginEv+0x20>)
+    ad48:	4905      	ldr	r1, [pc, #20]	@ (ad60 <_GLOBAL__sub_I__ZN11opp_sensors7Sensors5beginEv+0x24>)
+    ad4a:	e9c2 3307 	strd	r3, r3, [r2, #28]
+    ad4e:	6011      	str	r1, [r2, #0]
+    ad50:	7613      	strb	r3, [r2, #24]
+    ad52:	6253      	str	r3, [r2, #36]	@ 0x24
+    ad54:	4770      	bx	lr
+    ad56:	bf00      	nop
+	...
+
+
+0000ad84 <_GLOBAL__sub_I__ZNK5power6Reader13controlsOwnedEv>:
+    ad84:	4a06      	ldr	r2, [pc, #24]	@ (ada0 <_GLOBAL__sub_I__ZNK5power6Reader13controlsOwnedEv+0x1c>)
+    ad86:	6813      	ldr	r3, [r2, #0]
+    ad88:	1c59      	adds	r1, r3, #1
+    ad8a:	6011      	str	r1, [r2, #0]
+    ad8c:	b933      	cbnz	r3, ad9c <_GLOBAL__sub_I__ZNK5power6Reader13controlsOwnedEv+0x18>
+    ad8e:	4a05      	ldr	r2, [pc, #20]	@ (ada4 <_GLOBAL__sub_I__ZNK5power6Reader13controlsOwnedEv+0x20>)
+    ad90:	4905      	ldr	r1, [pc, #20]	@ (ada8 <_GLOBAL__sub_I__ZNK5power6Reader13controlsOwnedEv+0x24>)
+    ad92:	e9c2 3307 	strd	r3, r3, [r2, #28]
+    ad96:	6011      	str	r1, [r2, #0]
+    ad98:	7613      	strb	r3, [r2, #24]
+    ad9a:	6253      	str	r3, [r2, #36]	@ 0x24
+    ad9c:	4770      	bx	lr
+    ad9e:	bf00      	nop
+	...
+
+
+0000e2a8 <_GLOBAL__sub_I_Bridge>:
+    e2a8:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+    e2ac:	4a22      	ldr	r2, [pc, #136]	@ (e338 <_GLOBAL__sub_I_Bridge+0x90>)
+    e2ae:	4e23      	ldr	r6, [pc, #140]	@ (e33c <_GLOBAL__sub_I_Bridge+0x94>)
+    e2b0:	6813      	ldr	r3, [r2, #0]
+    e2b2:	1c59      	adds	r1, r3, #1
+    e2b4:	6011      	str	r1, [r2, #0]
+    e2b6:	b92b      	cbnz	r3, e2c4 <_GLOBAL__sub_I_Bridge+0x1c>
+    e2b8:	4a21      	ldr	r2, [pc, #132]	@ (e340 <_GLOBAL__sub_I_Bridge+0x98>)
+    e2ba:	e9c2 3307 	strd	r3, r3, [r2, #28]
+    e2be:	6016      	str	r6, [r2, #0]
+    e2c0:	7613      	strb	r3, [r2, #24]
+    e2c2:	6253      	str	r3, [r2, #36]	@ 0x24
+    e2c4:	2400      	movs	r4, #0
+    e2c6:	f44f 7880 	mov.w	r8, #256	@ 0x100
+    e2ca:	4f1e      	ldr	r7, [pc, #120]	@ (e344 <_GLOBAL__sub_I_Bridge+0x9c>)
+    e2cc:	2214      	movs	r2, #20
+    e2ce:	4621      	mov	r1, r4
+    e2d0:	481d      	ldr	r0, [pc, #116]	@ (e348 <_GLOBAL__sub_I_Bridge+0xa0>)
+    e2d2:	e9c6 4400 	strd	r4, r4, [r6]
+    e2d6:	60f4      	str	r4, [r6, #12]
+    e2d8:	47b8      	blx	r7
+    e2da:	2214      	movs	r2, #20
+    e2dc:	4621      	mov	r1, r4
+    e2de:	481b      	ldr	r0, [pc, #108]	@ (e34c <_GLOBAL__sub_I_Bridge+0xa4>)
+    e2e0:	47b8      	blx	r7
+    e2e2:	2214      	movs	r2, #20
+    e2e4:	4621      	mov	r1, r4
+    e2e6:	481a      	ldr	r0, [pc, #104]	@ (e350 <_GLOBAL__sub_I_Bridge+0xa8>)
+    e2e8:	47b8      	blx	r7
+    e2ea:	4642      	mov	r2, r8
+    e2ec:	4621      	mov	r1, r4
+    e2ee:	4819      	ldr	r0, [pc, #100]	@ (e354 <_GLOBAL__sub_I_Bridge+0xac>)
+    e2f0:	e9c6 4413 	strd	r4, r4, [r6, #76]	@ 0x4c
+    e2f4:	47b8      	blx	r7
+    e2f6:	4b18      	ldr	r3, [pc, #96]	@ (e358 <_GLOBAL__sub_I_Bridge+0xb0>)
+    e2f8:	4d18      	ldr	r5, [pc, #96]	@ (e35c <_GLOBAL__sub_I_Bridge+0xb4>)
+    e2fa:	60b3      	str	r3, [r6, #8]
+    e2fc:	f44f 737a 	mov.w	r3, #1000	@ 0x3e8
+    e300:	60ab      	str	r3, [r5, #8]
+    e302:	4b17      	ldr	r3, [pc, #92]	@ (e360 <_GLOBAL__sub_I_Bridge+0xb8>)
+    e304:	f44f 7200 	mov.w	r2, #512	@ 0x200
+    e308:	4621      	mov	r1, r4
+    e30a:	f105 0014 	add.w	r0, r5, #20
+    e30e:	602b      	str	r3, [r5, #0]
+    e310:	f886 4158 	strb.w	r4, [r6, #344]	@ 0x158
+    e314:	606c      	str	r4, [r5, #4]
+    e316:	612e      	str	r6, [r5, #16]
+    e318:	47b8      	blx	r7
+    e31a:	2214      	movs	r2, #20
+    e31c:	4621      	mov	r1, r4
+    e31e:	f505 7008 	add.w	r0, r5, #544	@ 0x220
+    e322:	f8c5 4214 	str.w	r4, [r5, #532]	@ 0x214
+    e326:	f8c5 4218 	str.w	r4, [r5, #536]	@ 0x218
+    e32a:	f8c5 421c 	str.w	r4, [r5, #540]	@ 0x21c
+    e32e:	47b8      	blx	r7
+    e330:	f8a5 8234 	strh.w	r8, [r5, #564]	@ 0x234
+    e334:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+	...
+    e348:	00000010 	.word	0x00000010
+    e34c:	00000024 	.word	0x00000024
+    e350:	00000038 	.word	0x00000038
+    e354:	00000058 	.word	0x00000058
+	...
+    e360:	00000008 	.word	0x00000008
+
+
+0000ec84 <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt>:
+    ec84:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+    ec88:	f04f 0800 	mov.w	r8, #0
+    ec8c:	f44f 777a 	mov.w	r7, #1000	@ 0x3e8
+    ec90:	4d13      	ldr	r5, [pc, #76]	@ (ece0 <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt+0x5c>)
+    ec92:	4e14      	ldr	r6, [pc, #80]	@ (ece4 <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt+0x60>)
+    ec94:	4b14      	ldr	r3, [pc, #80]	@ (ece8 <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt+0x64>)
+    ec96:	4c15      	ldr	r4, [pc, #84]	@ (ecec <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt+0x68>)
+    ec98:	f105 0014 	add.w	r0, r5, #20
+    ec9c:	612b      	str	r3, [r5, #16]
+    ec9e:	e9c5 8701 	strd	r8, r7, [r5, #4]
+    eca2:	602e      	str	r6, [r5, #0]
+    eca4:	47a0      	blx	r4
+    eca6:	f505 6088 	add.w	r0, r5, #1088	@ 0x440
+    ecaa:	4d11      	ldr	r5, [pc, #68]	@ (ecf0 <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt+0x6c>)
+    ecac:	47a0      	blx	r4
+    ecae:	4b11      	ldr	r3, [pc, #68]	@ (ecf4 <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt+0x70>)
+    ecb0:	f105 0014 	add.w	r0, r5, #20
+    ecb4:	612b      	str	r3, [r5, #16]
+    ecb6:	e9c5 8701 	strd	r8, r7, [r5, #4]
+    ecba:	602e      	str	r6, [r5, #0]
+    ecbc:	47a0      	blx	r4
+    ecbe:	f505 6088 	add.w	r0, r5, #1088	@ 0x440
+    ecc2:	4d0d      	ldr	r5, [pc, #52]	@ (ecf8 <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt+0x74>)
+    ecc4:	47a0      	blx	r4
+    ecc6:	4b0d      	ldr	r3, [pc, #52]	@ (ecfc <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt+0x78>)
+    ecc8:	f105 0014 	add.w	r0, r5, #20
+    eccc:	e9c5 8701 	strd	r8, r7, [r5, #4]
+    ecd0:	602e      	str	r6, [r5, #0]
+    ecd2:	612b      	str	r3, [r5, #16]
+    ecd4:	47a0      	blx	r4
+    ecd6:	f505 6088 	add.w	r0, r5, #1088	@ 0x440
+    ecda:	47a0      	blx	r4
+    ecdc:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+    ece0:	00000000 	.word	0x00000000
+    ece4:	00000008 	.word	0x00000008
+	...
+
+
+0000f384 <_GLOBAL__sub_I__ZSt20__throw_system_errori>:
+    f384:	4a06      	ldr	r2, [pc, #24]	@ (f3a0 <_GLOBAL__sub_I__ZSt20__throw_system_errori+0x1c>)
+    f386:	4907      	ldr	r1, [pc, #28]	@ (f3a4 <_GLOBAL__sub_I__ZSt20__throw_system_errori+0x20>)
+    f388:	4807      	ldr	r0, [pc, #28]	@ (f3a8 <_GLOBAL__sub_I__ZSt20__throw_system_errori+0x24>)
+    f38a:	b508      	push	{r3, lr}
+    f38c:	f7ff fffe 	bl	f3b4 <__aeabi_atexit>
+    f390:	4a03      	ldr	r2, [pc, #12]	@ (f3a0 <_GLOBAL__sub_I__ZSt20__throw_system_errori+0x1c>)
+    f392:	4906      	ldr	r1, [pc, #24]	@ (f3ac <_GLOBAL__sub_I__ZSt20__throw_system_errori+0x28>)
+    f394:	4806      	ldr	r0, [pc, #24]	@ (f3b0 <_GLOBAL__sub_I__ZSt20__throw_system_errori+0x2c>)
+    f396:	e8bd 4008 	ldmia.w	sp!, {r3, lr}
+    f39a:	f7ff bffe 	b.w	f3b4 <__aeabi_atexit>
+    f39e:	bf00      	nop
+	...
+    f3a8:	000286d8 	.word	0x000286d8
+    f3ac:	00000000 	.word	0x00000000
+    f3b0:	000286d4 	.word	0x000286d4
+

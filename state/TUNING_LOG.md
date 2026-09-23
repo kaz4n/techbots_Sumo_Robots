@@ -291,3 +291,6 @@ No new config change or externalhardware/motor test. EvidenceP2_matrix_raw/
 runtime_report.json/runtime_run1; independent review follows receipt.
 
 2026-09-23T16:10:03+04:00 | D089 SOFTWARE DEFAULTS ONLY | Added QTR_CAL_SAMPLES=16 count and QTR_CAL_CAPTURE_MS=1000ms for bounded per-stage raw acquisition, selected underD051/D075. No B16 QTR_WHITE_US or confirmation value changed; candidate RAM thresholds come only from valid complete calibration. Tests use synthetic intervals; no physical tuning/measurement. Evidence analysis/P2_qtr_cal_contract.md, validation.md, raw.
+
+
+2026-09-23T16:47:40+04:00 | D090 SOFTWARE DEVELOPMENT DEFAULTS ONLY | DUMP_PAYLOAD_BYTES64, DUMP_STALL_MS2000, DUMP_TOTAL_MS300000, DUMP_UART_STEP_BYTES8, DUMP_UART_STEP_US80, DUMP_UART_PACKET_MS100. These bound transport work/lifetime, not measured throughput/WCET/baud. No B16 value, motor cap, hold or pin changed. Source/math/host/target evidence: analysis/P2_dump_contract.md/native_contract.md/validation.md. Native source uses verified existing internalUART/PG13; no new wiring or physical acceptance.

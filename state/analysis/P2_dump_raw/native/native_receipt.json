@@ -1,0 +1,50 @@
+{
+  "files": [
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/zephyr/drivers/uart.h",
+      "size": 31956,
+      "sha256": "14f92ea816456e26126f384481f822d2218a4e09cf3db4bde07a3bee84e0ee89",
+      "local": "state/analysis/P2_dump_raw/native/sources/edk/zephyr/include/zephyr/drivers/uart.h"
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/drivers/serial/uart_stm32.h",
+      "size": 4266,
+      "sha256": "39fd3d68a38e164b4f33ec8b0b8684fcbfc12b7ef1829d637e79e0137fe4fb5f",
+      "local": "state/analysis/P2_dump_raw/native/sources/edk/zephyr/drivers/serial/uart_stm32.h"
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/generated/zephyr/devicetree_generated.h",
+      "size": 2601581,
+      "sha256": "5b0e9b1d0f7d878415d53a5d724e976061aca52177967d90d7c76c3cb0b0fb80",
+      "local": "state/analysis/P2_dump_raw/native/sources/edk/zephyr/include/generated/zephyr/devicetree_generated.h"
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/generated/zephyr/autoconf.h",
+      "size": 22526,
+      "sha256": "52178f5eefcf276720b859bdd60fc87ca4207b0130ac1fd5ba099af74b877a0c",
+      "local": "state/analysis/P2_dump_raw/native/sources/edk/zephyr/include/generated/zephyr/autoconf.h"
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/generated/zephyr/version.h",
+      "size": 878,
+      "sha256": "edc930eb795ececf06480cea0a0365392ecb9d1e47a5d038f8d708e7dad6ecf8",
+      "local": "state/analysis/P2_dump_raw/native/sources/edk/zephyr/include/generated/zephyr/version.h"
+    }
+  ],
+  "argv": [
+    "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-nm",
+    "-C",
+    "-n",
+    "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf"
+  ],
+  "returncode": 0,
+  "stderr": "",
+  "elf_sha256": "39d4a4fd47241663323f6e04f94dd8f5a9f9ad6582cf1df37f9709b74026adcd",
+  "remote_argv": [
+    "python3",
+    "-c",
+    "from pathlib import Path\nimport json,base64,hashlib,subprocess\nc=Path('/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0');edk=c/'variants/arduino_uno_q_stm32u585xx/llext-edk/include'\nfiles=[edk/p for p in ['zephyr/include/zephyr/drivers/uart.h','zephyr/drivers/serial/uart_stm32.h','zephyr/include/generated/zephyr/devicetree_generated.h','zephyr/include/generated/zephyr/autoconf.h','zephyr/include/generated/zephyr/version.h']]\nout=[]\nfor p in files:\n if p.exists():\n  raw=p.read_bytes();out.append(dict(path=str(p),size=len(raw),sha256=hashlib.sha256(raw).hexdigest(),base64=base64.b64encode(raw).decode()))\n else:out.append(dict(path=str(p),missing=True))\nprefix='/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-';elf=str(c/'firmwares/zephyr-arduino_uno_q_stm32u585xx.elf')\ncmd=[prefix+'nm','-C','-n',elf];r=subprocess.run(cmd,text=True,capture_output=True)\nprint(json.dumps(dict(files=out,argv=cmd,returncode=r.returncode,stdout=r.stdout,stderr=r.stderr,elf_sha256=hashlib.sha256(Path(elf).read_bytes()).hexdigest())))\n"
+  ],
+  "remote_exit": 0,
+  "remote_stderr": ""
+}

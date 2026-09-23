@@ -1,0 +1,26 @@
+{
+  "time_utc": "2026-09-23T12:45:41.056509+00:00",
+  "review": "Fresh separate same-model read-only D090 review",
+  "decision": "APPROVE_EXACT_EXISTING_SIX_SOURCE_KEYS",
+  "scope": "Only refresh these six existing inert source identities. No new key, upload/run, motor authority, hardware qualification or phase gate.",
+  "source_sha256": "b8bb9366458c2472d856e81ea4678716ff16d00a3b3d16b51d008e1624818307",
+  "keys": {
+    "bench/p0_adc": "db0f223bfd9628240869feb9897f4fa5810d739c6d8bdde9b3a51e5d2e9af8f0",
+    "bench/p0_gpio": "63b34edd3c83721afccd4e062d250be407dfc2fa05a27ed4e4772ccf7cdd2552",
+    "bench/p0_matrix": "26897bb0c4f903f5267dfa678dd2a5c9b499a980a23dca45781c8cad05f30641",
+    "bench/p0_qtr": "84830ca1f2fcfc9b9acf7a173d66779f09533269566c8d54850db74ceeae9c73",
+    "bench/p0_timing": "62ae16823ba2f568ca5f8d068b8239cf98279af3aaed602ee2765704548ee6e2",
+    "bench/ui_matrix": "8b2396cd2a0e416d6588fcca781bc7a53a90b3cc2cfea1460bde8f14dcb1eb5d"
+  },
+  "maps": "inert_proposal.json",
+  "target": "target_review.json",
+  "supplement": "../../analysis/P2_dump_raw/link_bodies.json",
+  "supplemental_relocations": [
+    "0000e708  00066c02 R_ARM_ABS32            0000e6ed   initVariant",
+    "0000e70c  00060f02 R_ARM_ABS32            0000e749   _Z20start_static_threadsv",
+    "0000e718  0007e402 R_ARM_ABS32            0000acf1   _Z10__loopHookv",
+    "0000ec80  0006d702 R_ARM_ABS32            00000000   z_impl_k_sem_init"
+  ],
+  "reviewer_tests": "26 owner cases /4052 assertions each normal and ASan/UBSan;44 tooling methods including154 native normal/sanitizer process cases/4870 assertions",
+  "remaining": "Root must rerun existing controlled upload/staging guards after exact source identity refresh; then final review report."
+}

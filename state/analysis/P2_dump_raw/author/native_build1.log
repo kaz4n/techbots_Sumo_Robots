@@ -1,0 +1,111 @@
+src/hal/dump_uart_unoq.cpp: In function ‘bool recorder::dump::{anonymous}::deviceMetadata()’:
+src/hal/dump_uart_unoq.cpp:53:26: error: ‘LPUART1_NS’ was not declared in this scope; did you mean ‘LPUART1_BASE’?
+   53 |     return cfg->usart == LPUART1_NS && cfg->clock == DEVICE_DT_GET(DT_NODELABEL(rcc)) &&
+      |                          ^~~~~~~~~~
+      |                          LPUART1_BASE
+src/hal/dump_uart_unoq.cpp: In function ‘bool recorder::dump::{anonymous}::metadata()’:
+src/hal/dump_uart_unoq.cpp:72:41: error: ISO C++ forbids declaration of ‘type name’ with no type [-fpermissive]
+   72 |     const auto* cfg = static_cast<const gpio_driver_config*>(gpio->config);
+      |                                         ^~~~~~~~~~~~~~~~~~
+src/hal/dump_uart_unoq.cpp:72:41: error: expected ‘>’ before ‘gpio_driver_config’
+src/hal/dump_uart_unoq.cpp:72:41: error: expected ‘(’ before ‘gpio_driver_config’
+   72 |     const auto* cfg = static_cast<const gpio_driver_config*>(gpio->config);
+      |                                         ^~~~~~~~~~~~~~~~~~
+      |                                         (
+src/hal/dump_uart_unoq.cpp:72:41: error: ‘gpio_driver_config’ was not declared in this scope
+   72 |     const auto* cfg = static_cast<const gpio_driver_config*>(gpio->config);
+      |                                         ^~~~~~~~~~~~~~~~~~
+src/hal/dump_uart_unoq.cpp:72:60: error: expected primary-expression before ‘>’ token
+   72 |     const auto* cfg = static_cast<const gpio_driver_config*>(gpio->config);
+      |                                                            ^
+src/hal/dump_uart_unoq.cpp:72:75: error: expected ‘)’ before ‘;’ token
+   72 |     const auto* cfg = static_cast<const gpio_driver_config*>(gpio->config);
+      |                                                                           ^
+      |                                                                           )
+src/hal/dump_uart_unoq.cpp:73:41: error: ISO C++ forbids declaration of ‘type name’ with no type [-fpermissive]
+   73 |     const auto* api = static_cast<const gpio_driver_api*>(gpio->api);
+      |                                         ^~~~~~~~~~~~~~~
+src/hal/dump_uart_unoq.cpp:73:41: error: expected ‘>’ before ‘gpio_driver_api’
+src/hal/dump_uart_unoq.cpp:73:41: error: expected ‘(’ before ‘gpio_driver_api’
+   73 |     const auto* api = static_cast<const gpio_driver_api*>(gpio->api);
+      |                                         ^~~~~~~~~~~~~~~
+      |                                         (
+src/hal/dump_uart_unoq.cpp:73:41: error: ‘gpio_driver_api’ was not declared in this scope
+   73 |     const auto* api = static_cast<const gpio_driver_api*>(gpio->api);
+      |                                         ^~~~~~~~~~~~~~~
+src/hal/dump_uart_unoq.cpp:73:57: error: expected primary-expression before ‘>’ token
+   73 |     const auto* api = static_cast<const gpio_driver_api*>(gpio->api);
+      |                                                         ^
+src/hal/dump_uart_unoq.cpp:73:69: error: expected ‘)’ before ‘;’ token
+   73 |     const auto* api = static_cast<const gpio_driver_api*>(gpio->api);
+      |                                                                     ^
+      |                                                                     )
+src/hal/dump_uart_unoq.cpp:74:83: error: ‘LPUART1_NS’ was not declared in this scope; did you mean ‘LPUART1_BASE’?
+   74 |     return DT_REG_ADDR(DT_NODELABEL(lpuart1)) == reinterpret_cast<std::uintptr_t>(LPUART1_NS) &&
+      |                                                                                   ^~~~~~~~~~
+      |                                                                                   LPUART1_BASE
+In file included from tests/fixtures/dump_uart_native/zephyr/drivers/gpio.h:7,
+                 from src/hal/dump_uart_unoq.cpp:10:
+tests/fixtures/dump_uart_native/zephyr/devicetree.h:7:22: error: ‘lpuart1’ was not declared in this scope
+    7 | #define DT_PROP(n,p) lpuart1
+      |                      ^~~~~~~
+src/hal/dump_uart_unoq.cpp:76:9: note: in expansion of macro ‘DT_PROP’
+   76 |         DT_PROP(DT_NODELABEL(lpuart1), zephyr_deferred_init) == 1 &&
+      |         ^~~~~~~
+src/hal/dump_uart_unoq.cpp: In function ‘bool recorder::dump::{anonymous}::clocksAvailable()’:
+src/hal/dump_uart_unoq.cpp:87:10: error: ‘RCC_NS’ was not declared in this scope
+   87 |         (RCC_NS->APB3ENR & RCC_APB3ENR_LPUART1EN) != 0U &&
+      |          ^~~~~~
+src/hal/dump_uart_unoq.cpp: In function ‘bool recorder::dump::{anonymous}::nominalClock()’:
+src/hal/dump_uart_unoq.cpp:105:9: error: ‘LL_RCC_IsEnabledPLLMode’ was not declared in this scope; did you mean ‘LL_RCC_MSI_IsEnabledPLLMode’?
+  105 |         LL_RCC_IsEnabledPLLMode() == 1U && LL_RCC_GetMSIPLLMode() == LL_RCC_PLLMODE_MSIS &&
+      |         ^~~~~~~~~~~~~~~~~~~~~~~
+      |         LL_RCC_MSI_IsEnabledPLLMode
+src/hal/dump_uart_unoq.cpp:105:44: error: ‘LL_RCC_GetMSIPLLMode’ was not declared in this scope; did you mean ‘LL_RCC_MSI_GetMSIPLLMode’?
+  105 |         LL_RCC_IsEnabledPLLMode() == 1U && LL_RCC_GetMSIPLLMode() == LL_RCC_PLLMODE_MSIS &&
+      |                                            ^~~~~~~~~~~~~~~~~~~~
+      |                                            LL_RCC_MSI_GetMSIPLLMode
+src/hal/dump_uart_unoq.cpp:106:10: error: ‘RCC_NS’ was not declared in this scope
+  106 |         (RCC_NS->PLL1CFGR & RCC_PLL1CFGR_PLL1MBOOST) == 0U &&
+      |          ^~~~~~
+src/hal/dump_uart_unoq.cpp: In function ‘uint32_t recorder::dump::{anonymous}::clockRegister(unsigned int)’:
+src/hal/dump_uart_unoq.cpp:112:21: error: ‘RCC_NS’ was not declared in this scope
+  112 |     case 0U: return RCC_NS->CFGR1;
+      |                     ^~~~~~
+src/hal/dump_uart_unoq.cpp: In function ‘bool recorder::dump::{anonymous}::padsOwned()’:
+src/hal/dump_uart_unoq.cpp:124:13: error: ‘GPIOG_NS’ was not declared in this scope; did you mean ‘GPIOG’?
+  124 |     return (GPIOG_NS->LCKR & ((1U << 7U) | (1U << 13U))) == 0U &&
+      |             ^~~~~~~~
+      |             GPIOG
+src/hal/dump_uart_unoq.cpp: In member function ‘recorder::dump::NativeStatus recorder::dump::UnoQDumpPort::begin(const recorder::dump::SetupGrant&)’:
+src/hal/dump_uart_unoq.cpp:160:9: error: ‘LPUART1_NS’ was not declared in this scope; did you mean ‘LPUART1_BASE’?
+  160 |     if (LPUART1_NS->CR1 != (TX_MODE | USART_CR1_RE) || LPUART1_NS->CR2 != 0U ||
+      |         ^~~~~~~~~~
+      |         LPUART1_BASE
+src/hal/dump_uart_unoq.cpp:166:5: error: ‘LPUART1_NS’ was not declared in this scope; did you mean ‘LPUART1_BASE’?
+  166 |     LPUART1_NS->CR1 = TX_MODE; // No RX, interrupt, FIFO or DMA service.
+      |     ^~~~~~~~~~
+      |     LPUART1_BASE
+src/hal/dump_uart_unoq.cpp: In member function ‘recorder::dump::NativeStatus recorder::dump::UnoQDumpPort::ownership() const’:
+src/hal/dump_uart_unoq.cpp:195:9: error: ‘LPUART1_NS’ was not declared in this scope; did you mean ‘LPUART1_BASE’?
+  195 |     if (LPUART1_NS->CR1 != TX_MODE || LPUART1_NS->CR2 != 0U || LPUART1_NS->CR3 != 0U ||
+      |         ^~~~~~~~~~
+      |         LPUART1_BASE
+src/hal/dump_uart_unoq.cpp: In member function ‘recorder::dump::WriteResult recorder::dump::UnoQDumpPort::transmit(uint32_t)’:
+src/hal/dump_uart_unoq.cpp:274:14: error: ‘LPUART1_NS’ was not declared in this scope; did you mean ‘LPUART1_BASE’?
+  274 |         if ((LPUART1_NS->ISR & USART_ISR_TXE) == 0U) break;
+      |              ^~~~~~~~~~
+      |              LPUART1_BASE
+src/hal/dump_uart_unoq.cpp:276:9: error: ‘LPUART1_NS’ was not declared in this scope; did you mean ‘LPUART1_BASE’?
+  276 |         LPUART1_NS->TDR = packet_[offset_++];
+      |         ^~~~~~~~~~
+      |         LPUART1_BASE
+src/hal/dump_uart_unoq.cpp:283:55: error: ‘LPUART1_NS’ was not declared in this scope; did you mean ‘LPUART1_BASE’?
+  283 |     const bool complete = offset_ == packet_size_ && (LPUART1_NS->ISR & USART_ISR_TC) != 0U;
+      |                                                       ^~~~~~~~~~
+      |                                                       LPUART1_BASE
+src/hal/dump_uart_unoq.cpp: In member function ‘void recorder::dump::UnoQDumpPort::abort()’:
+src/hal/dump_uart_unoq.cpp:304:13: error: ‘LPUART1_NS’ was not declared in this scope; did you mean ‘LPUART1_BASE’?
+  304 |             LPUART1_NS->CR1 = 0U;
+      |             ^~~~~~~~~~
+      |             LPUART1_BASE

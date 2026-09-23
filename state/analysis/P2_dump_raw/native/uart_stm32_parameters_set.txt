@@ -1,0 +1,135 @@
+
+/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf:     file format elf32-littlearm
+
+
+Disassembly of section rom_start:
+
+Disassembly of section text:
+
+08019ae8 <uart_stm32_parameters_set>:
+ 8019ae8:	e92d 43f8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
+ 8019aec:	790c      	ldrb	r4, [r1, #4]
+ 8019aee:	6903      	ldr	r3, [r0, #16]
+ 8019af0:	2c01      	cmp	r4, #1
+ 8019af2:	4605      	mov	r5, r0
+ 8019af4:	460e      	mov	r6, r1
+ 8019af6:	f8d0 9004 	ldr.w	r9, [r0, #4]
+ 8019afa:	681f      	ldr	r7, [r3, #0]
+ 8019afc:	d015      	beq.n	8019b2a <uart_stm32_parameters_set+0x42>
+ 8019afe:	f1a4 0c02 	sub.w	ip, r4, #2
+ 8019b02:	f1dc 0800 	rsbs	r8, ip, #0
+ 8019b06:	eb48 080c 	adc.w	r8, r8, ip
+ 8019b0a:	ea4f 2888 	mov.w	r8, r8, lsl #10
+ 8019b0e:	4648      	mov	r0, r9
+ 8019b10:	7971      	ldrb	r1, [r6, #5]
+ 8019b12:	f7f5 fabd 	bl	800f090 <uart_stm32_cfg2ll_stopbits>
+ 8019b16:	79b3      	ldrb	r3, [r6, #6]
+ 8019b18:	2b02      	cmp	r3, #2
+ 8019b1a:	d009      	beq.n	8019b30 <uart_stm32_parameters_set+0x48>
+ 8019b1c:	2b04      	cmp	r3, #4
+ 8019b1e:	d030      	beq.n	8019b82 <uart_stm32_parameters_set+0x9a>
+ 8019b20:	1e23      	subs	r3, r4, #0
+ 8019b22:	bf18      	it	ne
+ 8019b24:	2301      	movne	r3, #1
+ 8019b26:	031b      	lsls	r3, r3, #12
+ 8019b28:	e006      	b.n	8019b38 <uart_stm32_parameters_set+0x50>
+ 8019b2a:	f44f 68c0 	mov.w	r8, #1536	@ 0x600
+ 8019b2e:	e7ee      	b.n	8019b0e <uart_stm32_parameters_set+0x26>
+ 8019b30:	fab4 f384 	clz	r3, r4
+ 8019b34:	095b      	lsrs	r3, r3, #5
+ 8019b36:	071b      	lsls	r3, r3, #28
+ 8019b38:	79f2      	ldrb	r2, [r6, #7]
+ 8019b3a:	f8d9 1000 	ldr.w	r1, [r9]
+ 8019b3e:	2a01      	cmp	r2, #1
+ 8019b40:	bf0c      	ite	eq
+ 8019b42:	f44f 7440 	moveq.w	r4, #768	@ 0x300
+ 8019b46:	2400      	movne	r4, #0
+ 8019b48:	42b7      	cmp	r7, r6
+ 8019b4a:	d11d      	bne.n	8019b88 <uart_stm32_parameters_set+0xa0>
+ 8019b4c:	680a      	ldr	r2, [r1, #0]
+ 8019b4e:	f022 5280 	bic.w	r2, r2, #268435456	@ 0x10000000
+ 8019b52:	f422 52b0 	bic.w	r2, r2, #5632	@ 0x1600
+ 8019b56:	ea42 0208 	orr.w	r2, r2, r8
+ 8019b5a:	431a      	orrs	r2, r3
+ 8019b5c:	600a      	str	r2, [r1, #0]
+ 8019b5e:	684b      	ldr	r3, [r1, #4]
+ 8019b60:	f423 5340 	bic.w	r3, r3, #12288	@ 0x3000
+ 8019b64:	4303      	orrs	r3, r0
+ 8019b66:	604b      	str	r3, [r1, #4]
+ 8019b68:	686b      	ldr	r3, [r5, #4]
+ 8019b6a:	4628      	mov	r0, r5
+ 8019b6c:	681a      	ldr	r2, [r3, #0]
+ 8019b6e:	6893      	ldr	r3, [r2, #8]
+ 8019b70:	f423 7340 	bic.w	r3, r3, #768	@ 0x300
+ 8019b74:	4323      	orrs	r3, r4
+ 8019b76:	6093      	str	r3, [r2, #8]
+ 8019b78:	6839      	ldr	r1, [r7, #0]
+ 8019b7a:	e8bd 43f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
+ 8019b7e:	f7f5 bac5 	b.w	800f10c <uart_stm32_set_baudrate>
+ 8019b82:	f44f 5380 	mov.w	r3, #4096	@ 0x1000
+ 8019b86:	e7d7      	b.n	8019b38 <uart_stm32_parameters_set+0x50>
+ 8019b88:	f8d1 c000 	ldr.w	ip, [r1]
+ 8019b8c:	f40c 6cc0 	and.w	ip, ip, #1536	@ 0x600
+ 8019b90:	45e0      	cmp	r8, ip
+ 8019b92:	bf1f      	itttt	ne
+ 8019b94:	f8d1 c000 	ldrne.w	ip, [r1]
+ 8019b98:	f42c 6cc0 	bicne.w	ip, ip, #1536	@ 0x600
+ 8019b9c:	ea4c 0c08 	orrne.w	ip, ip, r8
+ 8019ba0:	f8c1 c000 	strne.w	ip, [r1]
+ 8019ba4:	6869      	ldr	r1, [r5, #4]
+ 8019ba6:	f8d1 c000 	ldr.w	ip, [r1]
+ 8019baa:	f8dc 1004 	ldr.w	r1, [ip, #4]
+ 8019bae:	f401 5140 	and.w	r1, r1, #12288	@ 0x3000
+ 8019bb2:	4288      	cmp	r0, r1
+ 8019bb4:	bf1f      	itttt	ne
+ 8019bb6:	f8dc 1004 	ldrne.w	r1, [ip, #4]
+ 8019bba:	f421 5140 	bicne.w	r1, r1, #12288	@ 0x3000
+ 8019bbe:	4301      	orrne	r1, r0
+ 8019bc0:	f8cc 1004 	strne.w	r1, [ip, #4]
+ 8019bc4:	6869      	ldr	r1, [r5, #4]
+ 8019bc6:	6808      	ldr	r0, [r1, #0]
+ 8019bc8:	6801      	ldr	r1, [r0, #0]
+ 8019bca:	f001 2110 	and.w	r1, r1, #268439552	@ 0x10001000
+ 8019bce:	428b      	cmp	r3, r1
+ 8019bd0:	bf1f      	itttt	ne
+ 8019bd2:	6801      	ldrne	r1, [r0, #0]
+ 8019bd4:	f021 2110 	bicne.w	r1, r1, #268439552	@ 0x10001000
+ 8019bd8:	430b      	orrne	r3, r1
+ 8019bda:	6003      	strne	r3, [r0, #0]
+ 8019bdc:	686b      	ldr	r3, [r5, #4]
+ 8019bde:	6819      	ldr	r1, [r3, #0]
+ 8019be0:	688b      	ldr	r3, [r1, #8]
+ 8019be2:	f403 7340 	and.w	r3, r3, #768	@ 0x300
+ 8019be6:	429c      	cmp	r4, r3
+ 8019be8:	bf1f      	itttt	ne
+ 8019bea:	688b      	ldrne	r3, [r1, #8]
+ 8019bec:	f423 7340 	bicne.w	r3, r3, #768	@ 0x300
+ 8019bf0:	4323      	orrne	r3, r4
+ 8019bf2:	608b      	strne	r3, [r1, #8]
+ 8019bf4:	686b      	ldr	r3, [r5, #4]
+ 8019bf6:	1ed4      	subs	r4, r2, #3
+ 8019bf8:	681b      	ldr	r3, [r3, #0]
+ 8019bfa:	4260      	negs	r0, r4
+ 8019bfc:	6899      	ldr	r1, [r3, #8]
+ 8019bfe:	4160      	adcs	r0, r4
+ 8019c00:	f3c1 3180 	ubfx	r1, r1, #14, #1
+ 8019c04:	4288      	cmp	r0, r1
+ 8019c06:	d007      	beq.n	8019c18 <uart_stm32_parameters_set+0x130>
+ 8019c08:	2a03      	cmp	r2, #3
+ 8019c0a:	689a      	ldr	r2, [r3, #8]
+ 8019c0c:	bf0c      	ite	eq
+ 8019c0e:	f442 4280 	orreq.w	r2, r2, #16384	@ 0x4000
+ 8019c12:	f422 4280 	bicne.w	r2, r2, #16384	@ 0x4000
+ 8019c16:	609a      	str	r2, [r3, #8]
+ 8019c18:	6831      	ldr	r1, [r6, #0]
+ 8019c1a:	683b      	ldr	r3, [r7, #0]
+ 8019c1c:	4299      	cmp	r1, r3
+ 8019c1e:	d007      	beq.n	8019c30 <uart_stm32_parameters_set+0x148>
+ 8019c20:	4628      	mov	r0, r5
+ 8019c22:	f7f5 fa73 	bl	800f10c <uart_stm32_set_baudrate>
+ 8019c26:	b908      	cbnz	r0, 8019c2c <uart_stm32_parameters_set+0x144>
+ 8019c28:	6833      	ldr	r3, [r6, #0]
+ 8019c2a:	603b      	str	r3, [r7, #0]
+ 8019c2c:	e8bd 83f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
+ 8019c30:	2000      	movs	r0, #0
+ 8019c32:	e7fb      	b.n	8019c2c <uart_stm32_parameters_set+0x144>

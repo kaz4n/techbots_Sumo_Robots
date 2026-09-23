@@ -457,6 +457,7 @@ struct RobotResult {
     std::uint32_t line_age_us = 0U;
     std::uint32_t line_sequence = 0U;
     bool button_available = false;
+    bool imu_available = false; // D088 validated raw availability, including pre-GO.
     bool button_updated = false;
     core::ButtonLevel button_level = core::ButtonLevel::NONE;
     std::uint32_t button_source_us = 0U; // Earliest conversion age.

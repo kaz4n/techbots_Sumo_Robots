@@ -520,3 +520,9 @@ Session checkpoint: implementation9de8cd1 is current inert ADC firmwaref5f637b2/
 
 
 2026-09-23T15:18:47+04:00 | P2 D087 final checkpoint | IMPLEMENTED/HOST-TESTED/TARGET-COMPILED; separate reused same-model reviewPASS/no openfindings. Contract6c01bb4/sourceb69fa12; fullhost/san2/2PASS1209main+38Gate, independent36cases/8methods and18config25tools2stagingPASS53methods. Final557e0e5f142288/69864B59sources/3ELFs/59exactGitblobs/native/math verified;5existinginertkeys approved/adopted. Failed early fixtures/reviewscript/CRLF registry receipts retained; oldlocked/behavioral tests unchanged. No physical/human gate. NextactualB6 matrix renderer/nativeoutput. FullgoalACTIVE/incomplete, thisturnPROGRESS. | evidencecommit follows
+
+2026-09-23 P2 B6 D088 contract/source audit: fixed matrix layout, explicit unknown data,
+submitted-only native status and bounded saved-PRIMASK copy specified under D051/D075.
+User authorizes bare-board inert display runtime; no external hardware requested.
+Source/API evidence analysis/P2_matrix_native_audit.md/raw/source; public/config
+contract HOST-SYNTAX-CHECKED, implementation/runtime validation follows. Commit: this commit.

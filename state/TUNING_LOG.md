@@ -272,3 +272,10 @@ measurements, divider calibration, wiring approval or runtime/WCET acceptance.
 
 
 2026-09-23T15:04:02+04:00 | D087 SOFTWARE DEVELOPMENT DEFAULTS, NOT MEASURED TUNING | BUTTON_WINDOWS_CONFIGURED0, low/high raw arrays all0, BUTTON_SAMPLE_MAX_AGE_US5000. Deliberately unqualified windows; age is software continuity policy, not measured cadence. B16 unchanged. Contract analysis/P2_button_routing_contract.md; config_initial18methodsPASS. | 6c01bb4
+
+
+2026-09-23 D088 display-only development defaults (not measured tuning):
+UI_FRAME_PERIOD_US40000, UI_FAULT_PAGE_MS500, UI_BATTERY_EMPTY_V9.5,
+UI_BATTERY_FULL_V12.6, UI_BENCH_SCENE_MS2000. Evidence/semantics in
+analysis/P2_matrix_contract.md; no B16 motor/sensor/hold value changed.
+Battery bar scale is not calibration or a power-control threshold.

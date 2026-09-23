@@ -1089,3 +1089,17 @@ Consequence: actual decoder/Robot/gesture/event implementation, independent test
 real MotorGate boundary checks, target compile-only and fresh review are required.
 No unique START/BOTH electrical distinction, wiring change, physical acceptance,
 full-tick timing, app integration, human gate or motor permission is inferred.
+
+
+## D-088 (2026-09-23, selected under D-051/D-075) Bounded matrix output
+Context: B3/B13/B14 require actual UI rendering; installed matrix APIs are void
+and the ISR shares one104-byte buffer. User explicitly permits bare-board tests.
+Decision: adopt P2_matrix_contract.md and the installed source audit. Fixed pure
+renderer, explicit unavailable data, display-only ranges/cadence and one granted
+normal-startup owner use checked native calls with exact saved-PRIMASK restore.
+Return initialization/submission unconfirmed, never fabricated optical readiness.
+A separately reviewed inert built-in-matrix bench may run on the connected bare
+UNO Q with recorded target/source/artifacts; no external acquisition or motor path.
+Consequence: independent tests, actual target/disassembly and separate review
+precede deployment. Runtime counters are not optical acceptance or full800us WCET.
+No existing locked test, wiring, gate, motor-run or physical fact changes.

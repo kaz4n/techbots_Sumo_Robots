@@ -157,6 +157,12 @@ inline constexpr std::uint32_t WAIT_MAX_MS = 2000U; // ms
 inline constexpr std::uint32_t APPROACH_WINDOW_MS = 300U; // ms
 inline constexpr std::uint32_t LOG_HZ = 25U; // Hz; D-072 B15 low-memory fallback
 inline constexpr std::uint32_t BTN_DEBOUNCE_MS = 20U; // ms
+// D088 display-only development choices, not battery calibration or tick proof.
+inline constexpr std::uint32_t UI_FRAME_PERIOD_US = 40000U;
+inline constexpr std::uint32_t UI_FAULT_PAGE_MS = 500U;
+inline constexpr float UI_BATTERY_EMPTY_V = 9.5F;
+inline constexpr float UI_BATTERY_FULL_V = 12.6F;
+inline constexpr std::uint32_t UI_BENCH_SCENE_MS = 2000U;
 inline constexpr std::uint32_t BTN_LONG_MS = 1000U; // ms
 inline constexpr std::uint32_t MODE_SHORT_MS = 600U; // ms; existing B13 strict short-press bound
 inline constexpr std::uint32_t MODE_DEFAULT = 1U; // mode

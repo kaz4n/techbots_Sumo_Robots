@@ -62,8 +62,11 @@ also passes: firstsource54b0a21b, normal/san32/20131, native/capacity/config/pol
 exact5c468e20 default/Immediate conditionalpeak32920. See F133 and validation.
 All pad grants false; physical colors/cadence/readout and gates remain pending.
 
-D110c3ed3eb finite battery contract/interfaces/config128 adopted. Independent
-preflight supplies float boundary and public missed-counter saturation oracles.
-Worker currentb5fa7eea; independent tests/policy implementation/target review are
-active. Next: finish verified bench and commit, then remaining named P2 benches.
-MCU remains D104; no extra hardware request or new upload authority.
+D110a0ee402 finite battery bench completes its software task:28 executable
+profiles,114policy methods, exact8e3efb92 default/Immediate conditionalpeak13200,
+separate review PASS. Contractc3ed3eb/tooling1304f0e; physical0.05V/readout pending.
+
+Next: D111 named IMU heading bench draft and independent public-contract
+preflight. Not adopted or implemented. Resolve exact timing/calibration/cleanup
+oracles, then implement/test/target-review. MCU remains D104; no extra hardware
+request or upload authority. Continue remaining named P2 benches afterward.

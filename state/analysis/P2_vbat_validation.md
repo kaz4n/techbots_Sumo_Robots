@@ -109,3 +109,8 @@ used the previous worker's manifest key and failed before writing a result;
 the corrected traversal reads this manifest's files list, with no changed check.
 The reviewer's summary-schema correction likewise changed no executed tests.
 All software, conditional-model and physical evidence limits above remain.
+
+Local implementation/evidence commit: a0ee402. The final Git whitespace check
+reported one extra blank line at tests/tooling/vbat_cases.cc EOF. Root retains
+the exact frozen, passing oracle bytes; this is a disclosed formatting-only
+limitation, with no changed assertion or production behavior.

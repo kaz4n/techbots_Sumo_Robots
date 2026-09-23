@@ -1,22 +1,24 @@
-## Active checkpoint - 2026-09-24T00:34:00+04:00
+## Active checkpoint - 2026-09-24T00:43:00+04:00
 
-P2 software remains active under D051/D075. D109 committed6563aaa: first54b0a21b
-source, independent normal/san32cases/20131assertions, actualbinding/default,
-capacity profiles and policy107 methods PASS. Exact96-file5c468e20 default/
-Immediate targets share ELFe65ffd46 and conditionalpeak32920. Separate scoped
-review PASS; MINOR newline-evidence claim corrected while preserving original.
-Read P2_qtr_raw_validation.md/final review. Physical/gates remain pending.
+P2 software active under D051/D075. D1096563aaa QTR raw bench and D110a0ee402
+battery bench are implemented/host-tested/checked-target-reviewed. D109 exact
+5c468e20 default/Immediate peak32920; D110 exact8e3efb92 default/Immediate
+peak13200. Read their validation/reviews/F133-F134 for exact scopes and retained
+failures. D11028 executable profiles +114policy methods pass; no open reviewer
+finding. One trailing test blank line is disclosed; frozen oracle remains intact.
 
-D110 contract/interfaces/config128 adoptedc3ed3eb after independent preflight.
-Worker sources frozen, currentb5fa7eea after a pre-execution source-order fix;
-author writes independent tests without body reads. Root owns tools/config/state.
-Next: execute frozen tests, repair findings, checked default/Immediate target
-compiles and exact source/startup/import/loader review; then commit. New policy
-fixtures are frozen and expected red before the literal route addition.
+Next: D111 missing named IMU heading bench. Worker drafts
+P2_imu_heading_bench_contract_draft.md and declaration headers in analysis;
+separate author preflights public APIs without implementation-body reads. Draft
+is not adopted. Resolve specific clock/cancel/calibration-anchor/checkpoint
+oracles, adopt minimal contract/config/interfaces, then implement/test/compile/
+review the one-Acquirer trial. No shared source changes for D111 yet.
 
-MCU remains frozen D1042bd817c4. No upload/reset/run, extra hardware request,
-motor authority, human gate, push or tag. Preserve failures/snapshots and continue
-remaining named P2 benches after this software task. Historical checkpoints follow.
+MCU remains frozen exact D1042bd817c4 after its earlier measured inert run.
+No new upload/reset/run, extra hardware request, pin/motor permission, human
+gate, push or tag. Physical P0/P1/P2 acceptance, readout, full-app800us and
+P3-P7 remain pending. Continue eligible software and preserve actual failures.
+Historical checkpoints below are provenance.
 
 ## Active checkpoint - 2026-09-24T00:04:00+04:00
 

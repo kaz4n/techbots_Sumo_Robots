@@ -22,11 +22,13 @@ fullnormal/san1446main+187Gate and exact618d3a96 app default/MATCH review PASS.
 FinalELFs change only two read-only bytes vsD106. Read its validation/review.
 D1096563aaa finite QTR bench is implemented/host-tested/target-reviewed. Read
 P2_qtr_raw_contract.md/validation.md/final review: exact5c468e20 default/Immediate,
-ELFe65ffd46, conditionalpeak32920; no physical evidence. Next: D110c3ed3eb contract,
-publicheaders/config128 adopted, workercurrentb5fa7eea frozen and author active.
-Finish independent tests and checked inert route, default/Immediate target
-artifacts and separate scoped review. Preserve first freezes/failures and the
-corrected D109 evidence claim. Continue remaining named P2 benches afterward.
+ELFe65ffd46, conditionalpeak32920; no physical evidence. D110a0ee402 battery bench is also complete in software:28 executable profiles,
+114policy methods and exact8e3efb92 default/Immediate targets/review PASS;
+conditionalpeak13200. Read P2_vbat_validation.md/review/raw and F134.
+Next: D111 IMU heading bench draft and independent public-interface preflight.
+Read P2_imu_heading_bench_design.md, contract_draft and analysisheaders; resolve
+remaining oracle details before adopting/implementing. No D111 config/source
+change yet. Continue eligible named P2 bench software with exact evidence.
 
 MCU remains frozen D1042bd817c4 after one reviewed inert run:200001epochs,
 zero misses, maxRuntime269us, all outputs inhibited. This is not full-app or

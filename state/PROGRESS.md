@@ -681,3 +681,11 @@ tool evidence recorded. Handoff/execution/resume updated. Next actualnative sour
 resource scheduler contract and implementation using Transaction; app.ino still
 inert. FullP0-P7 ACTIVE, physical/gates pending; no MCU upload/reset/motor action
 or push/tag. User requests no artificial commit spacing; adopted. | checkpoint=this commit
+
+
+2026-09-23T19:20:32+04:00 | P2 D096 contract | Previous turn PROGRESS390005c/38d71d3.
+Native integration public contracts frozen: source ownership, actualD projection,
+original-grid scheduling, finite service, RAW handover and real STOP tail. New
+limits are unmeasureddevelopment policy; defaults confirm no hardware. Independent
+tests and actual runtime/native composition next; no phase/physical/motor claim.
+| contract=this commit

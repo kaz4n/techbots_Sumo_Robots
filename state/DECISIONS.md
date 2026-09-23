@@ -1209,3 +1209,22 @@ Consequence: ordinary800/1000us timing retains B14 count/log behavior; no new
 runtime timing stop, source schedule, config/wiring change, physical proof or
 phase gate. Source scheduling/grants/expiry remain next integration work. Add
 independent tests and real inert target/source review; preserve all old tests.
+
+
+## D-096 (2026-09-23, selected under D051/D075) Actual native app source scheduling
+Context: D095 supplies actual transactions; app.ino remains inert. Native source
+integration requires exclusive QTR charge service, truthful source expiry at actual
+D, raw calibration readiness and a real release/STOP-tail owner. Separate codebase
+explorers identified the projection-time race and raw-readiness/publication traps.
+Decision: adopt P2_app_runtime_contract.md and public runtime/DecisionSource headers.
+Bind existing native HAL owners; complete real epochs on the original1kHz grid;
+finite service/clock guards, no catch-up. Project source ages at actual D, retain
+genuine source identity, raw boot unless thresholds explicitly confirmed, and
+actual post-Gate calibration/display/STOP cleanup inside S..C. Default hardware
+grants stay false. STOP receives one real final tail then passive runtime stop.
+Consequence: no B16 change, physical grant or measured800us claim. New development
+limits are QTR servicewindow600us,8192pump passes,65536equal-idle-clock observations.
+Original IMU600us/ADC/QTR/Gate guards remain. Adverse sum can exceed800us; record
+actual complete timing and resolve before physical acceptance. NativeUART/local
+reset/calibration-snippet transport remain follow-on P2 tasks, not completed here.
+Preserve old tests and motor-run restrictions; compile actual app only, no upload.

@@ -311,3 +311,10 @@ analysis/P2_recorder_bench_raw/runtime_summary.json,runtime_retry1/,validation.m
 VBAT_SAMPLE_MAX_AGE_US20000 select bounded app battery retention. No physical
 measurement or original B16 change. Evidence/semantics P2_power_inputs_contract.md;
 actual ADC timing/voltage transient validation and complete schedulerWCET pending.
+
+
+2026-09-23 D096 SOFTWARE DEVELOPMENT LIMITS, NOT MEASURED TUNING:
+APP_QTR_SERVICE_US600 bounds the selected pump window; APP_SERVICE_MAX_PASSES8192
+and APP_CLOCK_STALL_MAX_POLLS65536 bound work/frozen clocks. Original QTR charge/
+discharge, IMU600us and all existing B16 values unchanged. Actual complete800us
+and physical source/color/clock validation pending. ContractP2_app_runtime_contract.

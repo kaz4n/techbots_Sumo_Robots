@@ -89,6 +89,10 @@ inline constexpr std::uint32_t QTR_SAMPLE_MAX_AGE_US = 6000U;
 inline constexpr std::uint32_t COUNTDOWN_MS = 5000U; // ms
 inline constexpr std::uint32_t COUNTDOWN_MARGIN_MS = 100U; // ms
 inline constexpr std::uint32_t TICK_US = 1000U; // us
+// D096 development service limits; no claim of measured complete-tick WCET.
+inline constexpr std::uint32_t APP_QTR_SERVICE_US = 600U;
+inline constexpr std::uint32_t APP_SERVICE_MAX_PASSES = 8192U; // count exception
+inline constexpr std::uint32_t APP_CLOCK_STALL_MAX_POLLS = 65536U; // count exception
 inline constexpr std::uint32_t QTR_CHARGE_US = 10U; // us
 inline constexpr std::uint32_t QTR_TIMEOUT_US = 1500U; // us
 inline constexpr std::uint32_t QTR_WHITE_US[4] = {300U, 300U, 300U, 300U};

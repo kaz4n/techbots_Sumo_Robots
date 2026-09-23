@@ -8,6 +8,11 @@
 namespace app {
 enum class Phase : std::uint8_t { NOT_INITIALIZED, IDLE, ACQUIRING, DECIDED, FAULT };
 enum class Fault : std::uint8_t { NONE, SETUP, ORDER, CLOCK, IDENTITY, RECEIPT, ABORTED };
+// D096 pure projection seam: called once after actual D, never acquires hardware.
+struct DecisionSource {
+    void* context = nullptr;
+    fsm::RobotInput (*project)(void*, std::uint32_t decision_us) = nullptr;
+};
 struct TransactionReport {
     Phase phase = Phase::NOT_INITIALIZED;
     Fault fault = Fault::NONE;
@@ -36,6 +41,7 @@ public:
     // Owns real decision time and prior feedback, overriding those caller fields.
     // True means one actual decision/application/record step, even if HAL failed.
     bool decide(fsm::RobotInput input);
+    bool decide(const DecisionSource& source);
     // Call after all admitted post-decision work, including output/cleanup.
     bool finish();
     // Local end-of-stream/invariant abort; terminal, no fake Robot tick or reset.

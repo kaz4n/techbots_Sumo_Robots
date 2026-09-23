@@ -1,3 +1,35 @@
+# D079 checkpoint - active P2 software development, 2026-09-23 Asia/Dubai
+
+Native MPU6050 transport implementation a749816 and contract/source4ec0ef4 are
+HOST-TESTED/TARGET-COMPILED with separate fresh same-model review PASS. Author
+and reviewer each pass10methods/83positive native cases/992parent assertions;
+four reviewer boundary regressions pass after preserved draft failures. Existing
+421tooling methods pass526.431s; total431 across separate runs. Normalhost2/2
+and ASanUBSan2/2 pass (1030cases plus37 enabled MotorGate cases).
+
+Final sourcef3e9b546 actual UNO Q Linux compile-only:81992B program/33788B compiler
+memory, exit0.42source files/3ELFs/native bindings and inert startup checked.
+P2_imu_bus_validation.md/raw and reviews/P2_imu_bus_review.md/raw bind evidence.
+No upload/reset/MCU/I2C/pad operation. Last-known MCU image remains QTR61d7a2d0.
+Only source/compiler software results are established; no physical phase gate.
+
+Next B3 work: P2_mpu6050_sample_audit.md supplies the concrete bounded device
+setup/readback and sensor-coordinate decoder profile. Implement that narrow
+layer before freshness/yaw/app integration. INT_STATUS is not documented as an
+atomic generation tag for the coherent motion shadow. The proposed two-request
+freshness handshake costs198clocks and needs one aggregate operation budget;
+do not combine two independent600us budgets and claim800us whole-tick compliance.
+Calibration observation presence, mounting axes and continuous-yaw gap policy
+remain explicit integration work. Do not count repeated bytes as fresh samples.
+
+D051/D075 authorize continuing actual P2 software before physical P0/P1 acceptance;
+full P0-P7 goal remains ACTIVE/incomplete. SC-AJ clock and F091 inherited runtime
+limits remain global deployment blockers. No PINMAP/EXPLAINED/GATE or motor-run
+permission has been created. Original deadlines remain. Recheck board connection
+when needed; known CLI1.5.1/core1.0.0/USB2629958581. No more hardware requests now.
+
+--- Earlier handoff preserved below ---
+
 # D078 checkpoint - active P2 software development, 2026-09-23 Asia/Dubai
 
 Completed actual bounded battery ADC implementation e6b7060, contract/source

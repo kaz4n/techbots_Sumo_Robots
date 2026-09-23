@@ -10,17 +10,18 @@ D075 permits actual P2 software while physical acceptance remains pending.
 | P2 B1 | Native opponent588ceb9; tests/target/review PASS | Live matrix, physical polarity/ranges/60s, app invalid-sample policy |
 | P2 B4 | Gate1c45f72/native99f8668; tests/target/review PASS | Stand/integration, physical EN/PWM/reversal/B4/B7/WCET |
 | P2 B5 | Actual ADC e6b7060; independent tests/target/review PASS | Physical divider/reference/0.05V accuracy and integration |
-| P2 B3 | Native I2C4 source mechanism audited; timing calculation underway | Freeze contract; implement/test/compile/review bounded transfer then MPU setup/freshness |
+| P2 B3 | Native bus a749816; independent tests/target/review PASS | Checked MPU setup/decode, aggregate freshness, bias/yaw, physical B3 |
 | P2 B2/B6 | Unfinished; established GPIO/ADC constraints | Real QTR/UI drivers and explicit acquisition semantics |
 | P2 B8 | Offline storage/CSV25Hz implemented/reviewed | Bounded IDLE transport, full RAM/200s/no-gap evidence |
 | Integration/B7/P3-P7 | Unfinished | SC-AJ clock/F091 platform limits, full scheduler/HAL/WCET, physical acceptance/per-run permissions |
 
-D078:420 distinct tooling methods PASS across existing411 and native9 separate
-runs; normalhost2/2 and sanitizer2/2 PASS. Independent native reviewer9methods/
-75positive cases PASS. Final a936d10d compile-only81132/33476B exit0. F098 and
-P2_power_validation.md/raw/review retain failures, exact source/ELF receipts and
-limits. No upload/reset/MCU/ADC/pin/motor action or human acceptance.
+D079:431 distinct tooling methods PASS across existing421 and native10 separate
+runs; normalhost2/2 and sanitizer2/2 PASS. Independent native reviewer10methods/
+83positive cases PASS plus4boundary regressions. Final f3e9b546 compile-only
+81992/33788B exit0. F100 and P2_imu_bus_validation.md/raw/review retain failed
+attempts, exact source/ELF receipts and limits. No upload/reset/MCU/I2C/pad action.
 
-Next: P2_i2c_native_audit.md and its concrete timing calculation; narrow B3
-contract/header before independent implementation/tests. Source clock profile is
-conditional; SC-AJ remains global and no runtime frequency lock is claimed.
+Next: implement finite checked MPU6050 setup and sensor-coordinate decoder from
+P2_mpu6050_sample_audit.md. Freshness needs an explicit aggregate deadline and
+status/shadow handshake; heading/calibration integration follows separately.
+SC-AJ remains global and no runtime frequency lock or physical gate is claimed.

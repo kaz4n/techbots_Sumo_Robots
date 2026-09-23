@@ -1,0 +1,56 @@
+{
+  "scope": "Source and offline target ELF only; no deployed-loader or physical runtime guarantee",
+  "source_sha256": "f3e9b5464c0d83b0249cabf78c7cf73a5d150d4b3823277bce320d7d7a84d224",
+  "matched_source_files": 42,
+  "raw_receipt_sha256": "3e81d246286d614080d888eaa9a17d3b0839dd90e525b860d3f41ac83262fbdf",
+  "native_exports": 36,
+  "all_collection_commands_zero": true,
+  "startup_functions": {
+    "0000006c <setup>:": "0000006c <setup>:\n      6c:\t4b01      \tldr\tr3, [pc, #4]\t@ (74 <setup+0x8>)\n      6e:\t4a02      \tldr\tr2, [pc, #8]\t@ (78 <setup+0xc>)\n      70:\t601a      \tstr\tr2, [r3, #0]\n      72:\t4770      \tbx\tlr\n\t...\n\n",
+    "0000007c <loop>:": "0000007c <loop>:\n      7c:\t4770      \tbx\tlr\n\t...\n\n",
+    "00002490 <_GLOBAL__sub_I__ZN13imu_bus_probe3busE>:": "00002490 <_GLOBAL__sub_I__ZN13imu_bus_probe3busE>:\n    2490:\t4a06      \tldr\tr2, [pc, #24]\t@ (24ac <_GLOBAL__sub_I__ZN13imu_bus_probe3busE+0x1c>)\n    2492:\t6813      \tldr\tr3, [r2, #0]\n    2494:\t1c59      \tadds\tr1, r3, #1\n    2496:\t6011      \tstr\tr1, [r2, #0]\n    2498:\tb933      \tcbnz\tr3, 24a8 <_GLOBAL__sub_I__ZN13imu_bus_probe3busE+0x18>\n    249a:\t4a05      \tldr\tr2, [pc, #20]\t@ (24b0 <_GLOBAL__sub_I__ZN13imu_bus_probe3busE+0x20>)\n    249c:\t4905      \tldr\tr1, [pc, #20]\t@ (24b4 <_GLOBAL__sub_I__ZN13imu_bus_probe3busE+0x24>)\n    249e:\te9c2 3307 \tstrd\tr3, r3, [r2, #28]\n    24a2:\t6011      \tstr\tr1, [r2, #0]\n    24a4:\t7613      \tstrb\tr3, [r2, #24]\n    24a6:\t6253      \tstr\tr3, [r2, #36]\t@ 0x24\n    24a8:\t4770      \tbx\tlr\n    24aa:\tbf00      \tnop\n\t...\n\n",
+    "00003250 <_GLOBAL__sub_I__ZN3imu3Bus13controlsOwnedEb>:": "00003250 <_GLOBAL__sub_I__ZN3imu3Bus13controlsOwnedEb>:\n    3250:\t4a06      \tldr\tr2, [pc, #24]\t@ (326c <_GLOBAL__sub_I__ZN3imu3Bus13controlsOwnedEb+0x1c>)\n    3252:\t6813      \tldr\tr3, [r2, #0]\n    3254:\t1c59      \tadds\tr1, r3, #1\n    3256:\t6011      \tstr\tr1, [r2, #0]\n    3258:\tb933      \tcbnz\tr3, 3268 <_GLOBAL__sub_I__ZN3imu3Bus13controlsOwnedEb+0x18>\n    325a:\t4a05      \tldr\tr2, [pc, #20]\t@ (3270 <_GLOBAL__sub_I__ZN3imu3Bus13controlsOwnedEb+0x20>)\n    325c:\t4905      \tldr\tr1, [pc, #20]\t@ (3274 <_GLOBAL__sub_I__ZN3imu3Bus13controlsOwnedEb+0x24>)\n    325e:\te9c2 3307 \tstrd\tr3, r3, [r2, #28]\n    3262:\t6011      \tstr\tr1, [r2, #0]\n    3264:\t7613      \tstrb\tr3, [r2, #24]\n    3266:\t6253      \tstr\tr3, [r2, #36]\t@ 0x24\n    3268:\t4770      \tbx\tlr\n    326a:\tbf00      \tnop\n\t...\n\n"
+  },
+  "selected_relocations": [
+    "00000074  00000102 R_ARM_ABS32            00000000   .rodata",
+    "00000078  00049a02 R_ARM_ABS32            00000000   __device_dts_ord_61",
+    "00000074  00043102 R_ARM_ABS32            00000004   _ZN13imu_bus_probe5entryE",
+    "00000078  00051302 R_ARM_ABS32            00003371   _ZN13imu_bus_probe8exerciseEv",
+    "000024ac  0003ec02 R_ARM_ABS32            00000000   _ZGVN12RouterBridge3HCIE",
+    "000024b0  0004e702 R_ARM_ABS32            0000002c   _ZN12RouterBridge3HCIE",
+    "000024b4  0004ea02 R_ARM_ABS32            000002f8   Bridge",
+    "0000326c  0003ec02 R_ARM_ABS32            00000000   _ZGVN12RouterBridge3HCIE",
+    "00003270  0004e702 R_ARM_ABS32            0000002c   _ZN12RouterBridge3HCIE",
+    "00003274  0004ea02 R_ARM_ABS32            000002f8   Bridge",
+    "000033f4  0003e002 R_ARM_ABS32            00002b01   _ZN3imu3Bus5beginEv",
+    "000033fc  00050e02 R_ARM_ABS32            000031a5   _ZN3imu3Bus12readRegisterENS_8RegisterE",
+    "00003400  00047002 R_ARM_ABS32            000031ed   _ZN3imu3Bus13writeRegisterENS_8RegisterEh",
+    "00003404  00047502 R_ARM_ABS32            00003235   _ZN3imu3Bus10readMotionEv"
+  ],
+  "elf": [
+    {
+      "path": "/home/arduino/sumox26_codex_build/f3e9b5464c0d83b0249cabf78c7cf73a5d150d4b3823277bce320d7d7a84d224/p2_imu_bus_compile/artifacts/bench-default/p2_imu_bus_compile.ino.elf",
+      "bytes": 81992,
+      "sha256": "6e6f3bde1df722ca3a2cfd689191b2f72f07b053b948a2d593b6b2443f46df75"
+    },
+    {
+      "path": "/home/arduino/sumox26_codex_build/f3e9b5464c0d83b0249cabf78c7cf73a5d150d4b3823277bce320d7d7a84d224/p2_imu_bus_compile/artifacts/bench-default/p2_imu_bus_compile.ino_debug.elf",
+      "bytes": 3167568,
+      "sha256": "962ac15e9d141e2fbce7bdb21823839a56d927ed539a8961b5664b6d6f0e155e"
+    },
+    {
+      "path": "/home/arduino/sumox26_codex_build/f3e9b5464c0d83b0249cabf78c7cf73a5d150d4b3823277bce320d7d7a84d224/p2_imu_bus_compile/artifacts/bench-default/p2_imu_bus_compile.ino_temp.elf",
+      "bytes": 3182500,
+      "sha256": "c2d135e01e1f45ea9700a51aacf4a5fd023f7690ebb9a1ebac237fd4cd31b6fc"
+    }
+  ],
+  "observations": [
+    "setup stores only the exercise address; loop returns",
+    "new source/probe constructor wrappers contain only inherited RouterBridge HCI memory initialization and no calls",
+    "exercise retains actual begin/read/write/burst methods via relocations, never called by setup",
+    "I2C4/GPIOD/RCC/PWR literals and finite direct NVIC enable/pending/active reads retained",
+    "36 native import exports resolve in the inspected packaged loader, including I2C4 ordinal40",
+    "inherited Bridge/Serial/static-library initialization and __loopHook remain F091 runtime qualifications",
+    "source clock checks are nominal configuration predicates; SC-AJ remains global"
+  ]
+}

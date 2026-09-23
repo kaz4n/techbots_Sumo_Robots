@@ -1,0 +1,107 @@
+{
+  "rate_hz": 25,
+  "utc": "2026-09-23T02:40:07.205346+00:00",
+  "remote_elf": "/home/arduino/sumox26-build/a060474c08f4e27908ef6c23edc46d6324600cef3b577da19ff27e2223876509/p2_recorder_memory/artifacts/bench-default/p2_recorder_memory.ino.elf",
+  "compile_exit_status": 0,
+  "checks": [
+    {
+      "name": "sections",
+      "argv": [
+        "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-readelf",
+        "-hSW",
+        "/home/arduino/sumox26-build/a060474c08f4e27908ef6c23edc46d6324600cef3b577da19ff27e2223876509/p2_recorder_memory/artifacts/bench-default/p2_recorder_memory.ino.elf"
+      ],
+      "exit_status": 0,
+      "path": "state/analysis/P2_memory_validation_raw/elf_25_sections.txt",
+      "sha256": "c65d1abf2a60f4ac8c92e312524f807a5cc7c26eb363109c9e3d805c67eb952b",
+      "stderr": ""
+    },
+    {
+      "name": "symbols",
+      "argv": [
+        "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-nm",
+        "-C",
+        "-S",
+        "--size-sort",
+        "/home/arduino/sumox26-build/a060474c08f4e27908ef6c23edc46d6324600cef3b577da19ff27e2223876509/p2_recorder_memory/artifacts/bench-default/p2_recorder_memory.ino.elf"
+      ],
+      "exit_status": 0,
+      "path": "state/analysis/P2_memory_validation_raw/elf_25_symbols.txt",
+      "sha256": "30403d6699d3ef6e80151e0240ea26d2eb785e82e1fa40ea52987941b069faf1",
+      "stderr": ""
+    },
+    {
+      "name": "relocations",
+      "argv": [
+        "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-readelf",
+        "-rW",
+        "/home/arduino/sumox26-build/a060474c08f4e27908ef6c23edc46d6324600cef3b577da19ff27e2223876509/p2_recorder_memory/artifacts/bench-default/p2_recorder_memory.ino.elf"
+      ],
+      "exit_status": 0,
+      "path": "state/analysis/P2_memory_validation_raw/elf_25_relocations.txt",
+      "sha256": "4af61edc6ab2245eb2ac5fd0f3330367cb14d407bc413c951859777e3785a11e",
+      "stderr": ""
+    },
+    {
+      "name": "disassembly",
+      "argv": [
+        "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-objdump",
+        "-Cd",
+        "/home/arduino/sumox26-build/a060474c08f4e27908ef6c23edc46d6324600cef3b577da19ff27e2223876509/p2_recorder_memory/artifacts/bench-default/p2_recorder_memory.ino.elf"
+      ],
+      "exit_status": 0,
+      "path": "state/analysis/P2_memory_validation_raw/elf_25_disassembly.txt",
+      "sha256": "0637957cc04172d68f16363c1b8ebdc88689ab994cfea60aea11ba0cd2acc345",
+      "stderr": ""
+    },
+    {
+      "name": "remote_hash",
+      "argv": [
+        "sha256sum",
+        "/home/arduino/sumox26-build/a060474c08f4e27908ef6c23edc46d6324600cef3b577da19ff27e2223876509/p2_recorder_memory/artifacts/bench-default/p2_recorder_memory.ino.elf"
+      ],
+      "exit_status": 0,
+      "path": "state/analysis/P2_memory_validation_raw/elf_25_remote_hash.txt",
+      "sha256": "9466e89a22d52bd2513427919b3d7476cd37990080dfed381c544532fd8e868b",
+      "stderr": ""
+    },
+    {
+      "name": "compiler_version",
+      "argv": [
+        "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-g++",
+        "--version"
+      ],
+      "exit_status": 0,
+      "path": "state/analysis/P2_memory_validation_raw/elf_25_compiler_version.txt",
+      "sha256": "a95a92210d9874d83eafc091fd6d03f60556ccdbee9dc31b43fd56e97bda0d58",
+      "stderr": ""
+    },
+    {
+      "name": "libraries",
+      "argv": [
+        "arduino-cli",
+        "lib",
+        "list"
+      ],
+      "exit_status": 0,
+      "path": "state/analysis/P2_memory_validation_raw/elf_25_libraries.txt",
+      "sha256": "87ab4f64e05745e3b06799ccc4b3cb0ec4c0b8289d8992b5a8715371744e24d4",
+      "stderr": ""
+    },
+    {
+      "name": "pull",
+      "argv": [
+        "C:\\Users\\narut\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\adb\\32.0.0\\adb.exe",
+        "-s",
+        "2629958581",
+        "pull",
+        "/home/arduino/sumox26-build/a060474c08f4e27908ef6c23edc46d6324600cef3b577da19ff27e2223876509/p2_recorder_memory/artifacts/bench-default/p2_recorder_memory.ino.elf",
+        "C:\\Users\\narut\\OneDrive\\Desktop\\Project\\techbots_Sumo_Robots\\state\\analysis\\P2_memory_validation_raw\\candidate_25.elf"
+      ],
+      "exit_status": 0,
+      "stdout": "/home/arduino/sumox26-build/a060474c08f4e27908ef6c23edc46d6324600cef3b577da19ff27e2223876509/p2_recorder_memory/artifacts/bench-default/p2_recorder_memory.ino.elf: 1 file pulled, 0 skipped. 28.2 MB/s (294932 bytes in 0.010s)\n",
+      "stderr": ""
+    }
+  ],
+  "local_elf_sha256": "b1fd86780b5d2a3a91c7c41031a2329484226991f5a198309bc8515d60a3df76"
+}

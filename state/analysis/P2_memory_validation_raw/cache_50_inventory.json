@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "python3",
+    "-c",
+    "from pathlib import Path\nimport json,sys\nrows=[]\nfor base in [Path.home()/'.cache/arduino/sketches',Path('/tmp/arduino/sketches')]:\n for f in base.glob('*/build.options.json'):\n  data=json.loads(f.read_text())\n  if data.get('sketchLocation')==sys.argv[1]:\n   rows.append(dict(options_path=str(f),options=data,artifacts=[dict(name=str(p),size=p.stat().st_size) for p in f.parent.glob('*.elf')]))\nprint(json.dumps(rows))\n",
+    "/home/arduino/sumox26-build/9d82fea5748a3221007832d86002c608fa978a1d4b9ad6ff77a309ce2a62a190/p2_recorder_memory"
+  ],
+  "exit_status": 0,
+  "stdout": "[{\"options_path\": \"/home/arduino/.cache/arduino/sketches/79964486EC6D35D6188FECDBC141D111/build.options.json\", \"options\": {\"additionalFiles\": \"../../..,../../../..,../../../..,../../../..,../../../..,../../../..,../../../..,../../../..,../../../..,../../../..,../../../..,../../../..,../../../..,../../../..,../../../..,../../../..,../../../..,../../../..,../../../..,../../../..,../../../..,../../../..,../../../..,../../../..,../../../..,../../..,../../..\", \"compiler.optimization_flags\": \"\", \"customBuildProperties\": \"compiler.cpp.extra_flags=-DMATCH=0 -DMOTORS_ALLOWED=0,compiler.c.extra_flags=-DMATCH=0 -DMOTORS_ALLOWED=0\", \"fqbn\": \"arduino:zephyr:unoq\", \"hardwareFolders\": \"/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0,/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0\", \"otherLibrariesFolders\": \"/home/arduino/Arduino/libraries\", \"sketchLocation\": \"/home/arduino/sumox26-build/9d82fea5748a3221007832d86002c608fa978a1d4b9ad6ff77a309ce2a62a190/p2_recorder_memory\"}, \"artifacts\": [{\"name\": \"/home/arduino/.cache/arduino/sketches/79964486EC6D35D6188FECDBC141D111/p2_recorder_memory.ino_temp.elf\", \"size\": 2288508}, {\"name\": \"/home/arduino/.cache/arduino/sketches/79964486EC6D35D6188FECDBC141D111/p2_recorder_memory.ino_debug.elf\", \"size\": 2273292}, {\"name\": \"/home/arduino/.cache/arduino/sketches/79964486EC6D35D6188FECDBC141D111/p2_recorder_memory.ino.elf\", \"size\": 424956}]}]\n",
+  "stderr": ""
+}

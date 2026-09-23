@@ -1,0 +1,50 @@
+{
+  "utc": "2026-09-23T02:26:07.840504+00:00",
+  "scope": "Read-only Linux build inventory; no MCU or peripheral action",
+  "checks": [
+    {
+      "argv": [
+        "C:\\Users\\narut\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\adb\\32.0.0\\adb.exe",
+        "-s",
+        "2629958581",
+        "shell",
+        "-T",
+        "arduino-cli",
+        "version"
+      ],
+      "exit_status": 0,
+      "stdout": "arduino-cli  Version: 1.5.1 Commit: 01f3d4f2b Date: 2026-06-05T10:22:11Z\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "C:\\Users\\narut\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\adb\\32.0.0\\adb.exe",
+        "-s",
+        "2629958581",
+        "shell",
+        "-T",
+        "arduino-cli",
+        "core",
+        "list"
+      ],
+      "exit_status": 0,
+      "stdout": "ID             Installed Latest Name\narduino:zephyr 1.0.0     1.0.0  Arduino Q Boards\n\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "C:\\Users\\narut\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\adb\\32.0.0\\adb.exe",
+        "-s",
+        "2629958581",
+        "shell",
+        "-T",
+        "df",
+        "-Pk",
+        "/home/arduino"
+      ],
+      "exit_status": 0,
+      "stdout": "Filesystem      1024-blocks    Used Available Capacity Mounted on\n/dev/mmcblk0p69    18764188 1331996  16649096       8% /home/arduino\n",
+      "stderr": ""
+    }
+  ]
+}

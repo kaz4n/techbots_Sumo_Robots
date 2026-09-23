@@ -1,0 +1,107 @@
+{
+  "rate_hz": 50,
+  "utc": "2026-09-23T02:39:48.211910+00:00",
+  "remote_elf": "/home/arduino/.cache/arduino/sketches/79964486EC6D35D6188FECDBC141D111/p2_recorder_memory.ino.elf",
+  "compile_exit_status": 1,
+  "checks": [
+    {
+      "name": "sections",
+      "argv": [
+        "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-readelf",
+        "-hSW",
+        "/home/arduino/.cache/arduino/sketches/79964486EC6D35D6188FECDBC141D111/p2_recorder_memory.ino.elf"
+      ],
+      "exit_status": 0,
+      "path": "state/analysis/P2_memory_validation_raw/elf_50_sections.txt",
+      "sha256": "8eefe6e722d34ed70085c43619c6beb414a6790e8372a936db09dec3c3f9d3db",
+      "stderr": ""
+    },
+    {
+      "name": "symbols",
+      "argv": [
+        "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-nm",
+        "-C",
+        "-S",
+        "--size-sort",
+        "/home/arduino/.cache/arduino/sketches/79964486EC6D35D6188FECDBC141D111/p2_recorder_memory.ino.elf"
+      ],
+      "exit_status": 0,
+      "path": "state/analysis/P2_memory_validation_raw/elf_50_symbols.txt",
+      "sha256": "ff7220abb90cf9f0c772d7641fd9fcd4ddf6ef144c01fd67a09e3cb4f1a6f3e5",
+      "stderr": ""
+    },
+    {
+      "name": "relocations",
+      "argv": [
+        "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-readelf",
+        "-rW",
+        "/home/arduino/.cache/arduino/sketches/79964486EC6D35D6188FECDBC141D111/p2_recorder_memory.ino.elf"
+      ],
+      "exit_status": 0,
+      "path": "state/analysis/P2_memory_validation_raw/elf_50_relocations.txt",
+      "sha256": "d27104e6ca816afc67fa358b36b8040fc56a56a4f910c37b3b2ac3b7c5542859",
+      "stderr": ""
+    },
+    {
+      "name": "disassembly",
+      "argv": [
+        "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-objdump",
+        "-Cd",
+        "/home/arduino/.cache/arduino/sketches/79964486EC6D35D6188FECDBC141D111/p2_recorder_memory.ino.elf"
+      ],
+      "exit_status": 0,
+      "path": "state/analysis/P2_memory_validation_raw/elf_50_disassembly.txt",
+      "sha256": "b78247b717e0b60c9749a752b7e0b8d63618eac04a5503fd5905da6a05a6982d",
+      "stderr": ""
+    },
+    {
+      "name": "remote_hash",
+      "argv": [
+        "sha256sum",
+        "/home/arduino/.cache/arduino/sketches/79964486EC6D35D6188FECDBC141D111/p2_recorder_memory.ino.elf"
+      ],
+      "exit_status": 0,
+      "path": "state/analysis/P2_memory_validation_raw/elf_50_remote_hash.txt",
+      "sha256": "498bcabcd31e0015b61e37c703d1e7dad9e01d4f7cb147083cbe7b231b9bd840",
+      "stderr": ""
+    },
+    {
+      "name": "compiler_version",
+      "argv": [
+        "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-g++",
+        "--version"
+      ],
+      "exit_status": 0,
+      "path": "state/analysis/P2_memory_validation_raw/elf_50_compiler_version.txt",
+      "sha256": "a95a92210d9874d83eafc091fd6d03f60556ccdbee9dc31b43fd56e97bda0d58",
+      "stderr": ""
+    },
+    {
+      "name": "libraries",
+      "argv": [
+        "arduino-cli",
+        "lib",
+        "list"
+      ],
+      "exit_status": 0,
+      "path": "state/analysis/P2_memory_validation_raw/elf_50_libraries.txt",
+      "sha256": "87ab4f64e05745e3b06799ccc4b3cb0ec4c0b8289d8992b5a8715371744e24d4",
+      "stderr": ""
+    },
+    {
+      "name": "pull",
+      "argv": [
+        "C:\\Users\\narut\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\adb\\32.0.0\\adb.exe",
+        "-s",
+        "2629958581",
+        "pull",
+        "/home/arduino/.cache/arduino/sketches/79964486EC6D35D6188FECDBC141D111/p2_recorder_memory.ino.elf",
+        "C:\\Users\\narut\\OneDrive\\Desktop\\Project\\techbots_Sumo_Robots\\state\\analysis\\P2_memory_validation_raw\\candidate_50.elf"
+      ],
+      "exit_status": 0,
+      "stdout": "/home/arduino/.cache/arduino/sketches/79964486EC6D35D6188FECDBC141D111/p2_recorder_memory.ino.elf: 1 file pulled, 0 skipped. 34.5 MB/s (424956 bytes in 0.012s)\n",
+      "stderr": ""
+    }
+  ],
+  "local_elf_sha256": "197ae66ad5a1852df5d28192e6476b02dc087b9d0df86b8def9b0bfe2f7d6581"
+}

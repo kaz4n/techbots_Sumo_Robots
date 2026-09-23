@@ -1,0 +1,27 @@
+{
+  "command": [
+    "python",
+    "state/analysis/P2_memory_elf_account.py"
+  ],
+  "exit_status": 1,
+  "script_sha256": "0d61eb919b98036739184a9761c719cfef5912f82e6551685a0bec399134efe3",
+  "observed_error": "AssertionError in account at ABI word validation",
+  "cause": "Raw ELF32 ET_REL st_value is section-relative. The initial offline parser incorrectly subtracted sh_addr; nm display adds it.",
+  "diagnostic": {
+    "raw_abi_st_value": 380,
+    "section_addr": 936,
+    "section_file_offset": 992,
+    "correct_first_words": [
+      1,
+      96,
+      50,
+      200000,
+      10001,
+      4096,
+      4,
+      4
+    ]
+  },
+  "scope": "Offline analysis-script defect, not firmware/test or target compile failure",
+  "repair": "Require ET_REL and use sh_offset + st_value; preserve original diagnostic and independently cross-check readelf."
+}

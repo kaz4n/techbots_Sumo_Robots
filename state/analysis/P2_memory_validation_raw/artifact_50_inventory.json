@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "python3",
+    "-c",
+    "from pathlib import Path; import json,sys; p=Path(sys.argv[1]); print(json.dumps(dict(exists=p.exists(),files=[dict(name=f.name,size=f.stat().st_size) for f in p.glob(\"*\") if f.is_file()])))",
+    "/home/arduino/sumox26-build/9d82fea5748a3221007832d86002c608fa978a1d4b9ad6ff77a309ce2a62a190/p2_recorder_memory/artifacts/bench-default"
+  ],
+  "exit_status": 0,
+  "stdout": "{\"exists\": false, \"files\": []}\n",
+  "stderr": ""
+}

@@ -63,3 +63,11 @@ engineering choice; no human phase gate or physical result is inferred.
 
 Separate fresh-context same-model reviewer required. This is not cross-model
 review. All failures and review findings remain in state/analysis or state/reviews.
+
+Target-compatibility addendum: the first50Hz compile failed in preprocessing,
+before any memory estimate, because auto-included Arduino/Zephyr defines EMPTY
+and the pure recorder enum uses that spelling. The bench public include boundary
+pushes/undefines/restores that macro while parsing project headers. Production
+API names and bodies remain unchanged. Add an independent empty-macro fixture
+and verify restoration. Future app include integration must explicitly handle
+this same boundary; this probe does not establish general Arduino-safe headers.

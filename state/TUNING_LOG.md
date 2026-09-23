@@ -203,3 +203,12 @@ at unchanged LOG_HZ50. All76 B16 values remain. Actual host ABI sizeof objects
 292848B; payload292794B exceeds installed262144-byte LLEXT pool before app.
 Evidence P2_frame_host_size_20260923.json/P2_frame_buffer_validation.md. No MCU
 allocation/free RAM, ring measurement, rate change or target-fit claim.
+
+## 2026-09-23 - D-071 isolated rate experiment, no production tuning
+Production LOG_HZ50 and all76 B16 values unchanged. Candidate copies alone use25Hz
+with5001 endpoints/200s; target owner162952B, image RAM226584B. Repaired50Hz
+baseline356608B fails262144B size limit;25Hz passes. This is target compilation,
+not a physical run/free-RAM/recording measurement. P2_memory_compile_validation.md
+and raw provenance retain all source differences, commands, failures and hashes.
+Conditional pristine loader peak230072B is analysis only. Rate adoption remains
+separate; no full-HAL, loadability,200s/dump/WCET, wiring or gate claim.

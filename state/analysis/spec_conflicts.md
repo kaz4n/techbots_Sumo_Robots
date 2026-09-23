@@ -472,3 +472,18 @@ Arduino's dynamic globals figure includes RAM-loaded code sections. Do not
 add upload-file size again. Conditional25Hz still needs actual owner/full-image
 link/load/metadata/peak/headroom evidence; no rate or build mode was changed.
 D-070 offline owner is host-tested/reviewed, not integrated or target-qualified.
+
+
+D-071/F-090 SC-AH follow-up: actual50Hz memory probe fails size check at356608B;
+isolated25Hz passes at226584B. No production value changed. Conditional source
+model peaks230072B in a pristine pool, not measured free RAM. Actual complete
+HAL/loader/200s/dump/WCET evidence remains absent; see P2_memory_compile_validation.md
+and P2_memory_loader_budget.md. A separate cadence adoption decision and regression
+updates precede production change. Original B8/human gates remain pending.
+
+SC-I/F-091 follow-up: final default ELF retains platform constructors and a loop
+hook with indefinite mutex wait/conditional Bridge.update_safe despite inert user
+setup/loop. Future eligible runtime integration must resolve actual platform hook/
+startup paths as well as application calls, with installed source/ELF, fault-path
+and timing evidence. The bench include boundary quarantines Zephyr's EMPTY macro;
+future Arduino inclusion must handle that collision explicitly.

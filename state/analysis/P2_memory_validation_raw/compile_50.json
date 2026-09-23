@@ -1,0 +1,81 @@
+{
+  "start_utc": "2026-09-23T02:34:24.998055+00:00",
+  "rate_hz": 50,
+  "scope": "Linux compile only; no upload/reset/MCU or probe execution",
+  "command": [
+    "C:\\Users\\narut\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+    "tools/recorder_memory_build.py",
+    "--log-hz",
+    "50",
+    "--compile-only"
+  ],
+  "before_config_sha256": "8716f1d21b210a3481a3c366dc5bb2129799438b74f3467454f90d210d0d21d4",
+  "remote_commands": [
+    {
+      "target": "2629958581",
+      "argv": [
+        "arduino-cli",
+        "core",
+        "list"
+      ],
+      "start_utc": "2026-09-23T02:34:25.286821+00:00",
+      "exit_status": 0,
+      "stdout": "ID             Installed Latest Name\narduino:zephyr 1.0.0     1.0.0  Arduino Q Boards\n\n",
+      "stderr": "",
+      "end_utc": "2026-09-23T02:34:26.873974+00:00"
+    },
+    {
+      "target": "2629958581",
+      "argv": [
+        "mkdir",
+        "-p",
+        "/home/arduino/sumox26-build/990b5b80b43eaa0a571131d2f47ecca5627e098c2b8ec63992df890e56dc69ba/p2_recorder_memory"
+      ],
+      "start_utc": "2026-09-23T02:34:26.874521+00:00",
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": "",
+      "end_utc": "2026-09-23T02:34:26.910105+00:00"
+    },
+    {
+      "target": "2629958581",
+      "argv": [
+        "mkdir",
+        "-p",
+        "/home/arduino/sumox26-build/990b5b80b43eaa0a571131d2f47ecca5627e098c2b8ec63992df890e56dc69ba/p2_recorder_memory/.",
+        "/home/arduino/sumox26-build/990b5b80b43eaa0a571131d2f47ecca5627e098c2b8ec63992df890e56dc69ba/p2_recorder_memory/src",
+        "/home/arduino/sumox26-build/990b5b80b43eaa0a571131d2f47ecca5627e098c2b8ec63992df890e56dc69ba/p2_recorder_memory/src/core",
+        "/home/arduino/sumox26-build/990b5b80b43eaa0a571131d2f47ecca5627e098c2b8ec63992df890e56dc69ba/p2_recorder_memory/src/hal"
+      ],
+      "start_utc": "2026-09-23T02:34:26.912735+00:00",
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": "",
+      "end_utc": "2026-09-23T02:34:26.947809+00:00"
+    },
+    {
+      "target": "2629958581",
+      "argv": [
+        "arduino-cli",
+        "compile",
+        "--fqbn",
+        "arduino:zephyr:unoq",
+        "--output-dir",
+        "/home/arduino/sumox26-build/990b5b80b43eaa0a571131d2f47ecca5627e098c2b8ec63992df890e56dc69ba/p2_recorder_memory/artifacts/bench-default",
+        "--build-property",
+        "compiler.cpp.extra_flags=-DMATCH=0 -DMOTORS_ALLOWED=0",
+        "--build-property",
+        "compiler.c.extra_flags=-DMATCH=0 -DMOTORS_ALLOWED=0",
+        "/home/arduino/sumox26-build/990b5b80b43eaa0a571131d2f47ecca5627e098c2b8ec63992df890e56dc69ba/p2_recorder_memory"
+      ],
+      "start_utc": "2026-09-23T02:34:27.805308+00:00",
+      "exit_status": 1,
+      "stdout": "\n\u001b[92mUsed library\u001b[0m         \u001b[92mVersion\u001b[0m \u001b[90mPath\u001b[0m\n\u001b[93mArduino_RouterBridge\u001b[0m 0.4.3   \u001b[90m/home/arduino/Arduino/libraries/Arduino_RouterBridge\u001b[0m\n\u001b[93mArduino_RPClite\u001b[0m      0.3.1   \u001b[90m/home/arduino/Arduino/libraries/Arduino_RPClite\u001b[0m\n\u001b[93mMsgPack\u001b[0m              0.4.2   \u001b[90m/home/arduino/Arduino/libraries/MsgPack\u001b[0m\n\u001b[93mDebugLog\u001b[0m             0.8.4   \u001b[90m/home/arduino/Arduino/libraries/DebugLog\u001b[0m\n\u001b[93mArxTypeTraits\u001b[0m        0.3.2   \u001b[90m/home/arduino/Arduino/libraries/ArxTypeTraits\u001b[0m\n\u001b[93mArxContainer\u001b[0m         0.7.0   \u001b[90m/home/arduino/Arduino/libraries/ArxContainer\u001b[0m\n\n\u001b[92mUsed platform\u001b[0m  \u001b[92mVersion\u001b[0m \u001b[90mPath\u001b[0m\n\u001b[93marduino:zephyr\u001b[0m 1.0.0   \u001b[90m/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0\u001b[0m\n",
+      "stderr": "In file included from /home/arduino/sumox26-build/990b5b80b43eaa0a571131d2f47ecca5627e098c2b8ec63992df890e56dc69ba/p2_recorder_memory/src/memory_probe.h:6,\n                 from /home/arduino/sumox26-build/990b5b80b43eaa0a571131d2f47ecca5627e098c2b8ec63992df890e56dc69ba/p2_recorder_memory/p2_recorder_memory.ino:5:\n/home/arduino/sumox26-build/990b5b80b43eaa0a571131d2f47ecca5627e098c2b8ec63992df890e56dc69ba/p2_recorder_memory/src/hal/recorder.h:11:47: error: expected identifier before ',' token\n   11 | enum class AttemptPhase : std::uint8_t { EMPTY, RECORDING, DRAINING, SEALED, INTERRUPTED };\n      |                                               ^\n/home/arduino/sumox26-build/990b5b80b43eaa0a571131d2f47ecca5627e098c2b8ec63992df890e56dc69ba/p2_recorder_memory/src/hal/recorder.h:72:46: error: expected unqualified-id at end of input\n   72 |     AttemptPhase phase_ = AttemptPhase::EMPTY;\n      |                                              ^\nMultiple libraries were found for \"Arduino_RouterBridge.h\"\n  Used: /home/arduino/Arduino/libraries/Arduino_RouterBridge\n  Not used: /home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/libraries/stubs\nError during build: exit status 1\n",
+      "end_utc": "2026-09-23T02:35:13.049315+00:00"
+    }
+  ],
+  "exit_status": 1,
+  "end_utc": "2026-09-23T02:35:13.050032+00:00",
+  "after_config_sha256": "8716f1d21b210a3481a3c366dc5bb2129799438b74f3467454f90d210d0d21d4"
+}

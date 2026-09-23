@@ -1,0 +1,81 @@
+{
+  "start_utc": "2026-09-23T02:37:01.004091+00:00",
+  "rate_hz": 50,
+  "scope": "Linux compile only; no upload/reset/MCU or probe execution",
+  "command": [
+    "C:\\Users\\narut\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+    "tools/recorder_memory_build.py",
+    "--log-hz",
+    "50",
+    "--compile-only"
+  ],
+  "before_config_sha256": "8716f1d21b210a3481a3c366dc5bb2129799438b74f3467454f90d210d0d21d4",
+  "remote_commands": [
+    {
+      "target": "2629958581",
+      "argv": [
+        "arduino-cli",
+        "core",
+        "list"
+      ],
+      "start_utc": "2026-09-23T02:37:01.279100+00:00",
+      "exit_status": 0,
+      "stdout": "ID             Installed Latest Name\narduino:zephyr 1.0.0     1.0.0  Arduino Q Boards\n\n",
+      "stderr": "",
+      "end_utc": "2026-09-23T02:37:02.886515+00:00"
+    },
+    {
+      "target": "2629958581",
+      "argv": [
+        "mkdir",
+        "-p",
+        "/home/arduino/sumox26-build/9d82fea5748a3221007832d86002c608fa978a1d4b9ad6ff77a309ce2a62a190/p2_recorder_memory"
+      ],
+      "start_utc": "2026-09-23T02:37:02.887061+00:00",
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": "",
+      "end_utc": "2026-09-23T02:37:02.921157+00:00"
+    },
+    {
+      "target": "2629958581",
+      "argv": [
+        "mkdir",
+        "-p",
+        "/home/arduino/sumox26-build/9d82fea5748a3221007832d86002c608fa978a1d4b9ad6ff77a309ce2a62a190/p2_recorder_memory/.",
+        "/home/arduino/sumox26-build/9d82fea5748a3221007832d86002c608fa978a1d4b9ad6ff77a309ce2a62a190/p2_recorder_memory/src",
+        "/home/arduino/sumox26-build/9d82fea5748a3221007832d86002c608fa978a1d4b9ad6ff77a309ce2a62a190/p2_recorder_memory/src/core",
+        "/home/arduino/sumox26-build/9d82fea5748a3221007832d86002c608fa978a1d4b9ad6ff77a309ce2a62a190/p2_recorder_memory/src/hal"
+      ],
+      "start_utc": "2026-09-23T02:37:02.922908+00:00",
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": "",
+      "end_utc": "2026-09-23T02:37:02.958485+00:00"
+    },
+    {
+      "target": "2629958581",
+      "argv": [
+        "arduino-cli",
+        "compile",
+        "--fqbn",
+        "arduino:zephyr:unoq",
+        "--output-dir",
+        "/home/arduino/sumox26-build/9d82fea5748a3221007832d86002c608fa978a1d4b9ad6ff77a309ce2a62a190/p2_recorder_memory/artifacts/bench-default",
+        "--build-property",
+        "compiler.cpp.extra_flags=-DMATCH=0 -DMOTORS_ALLOWED=0",
+        "--build-property",
+        "compiler.c.extra_flags=-DMATCH=0 -DMOTORS_ALLOWED=0",
+        "/home/arduino/sumox26-build/9d82fea5748a3221007832d86002c608fa978a1d4b9ad6ff77a309ce2a62a190/p2_recorder_memory"
+      ],
+      "start_utc": "2026-09-23T02:37:03.753613+00:00",
+      "exit_status": 1,
+      "stdout": "Sketch uses 424956 bytes (54%) of program storage space. Maximum is 786432 bytes.\nGlobal variables use 356608 bytes (136%) of dynamic memory, leaving -94464 bytes for local variables. Maximum is 262144 bytes.\n\n\u001b[92mUsed library\u001b[0m         \u001b[92mVersion\u001b[0m \u001b[90mPath\u001b[0m\n\u001b[93mArduino_RouterBridge\u001b[0m 0.4.3   \u001b[90m/home/arduino/Arduino/libraries/Arduino_RouterBridge\u001b[0m\n\u001b[93mArduino_RPClite\u001b[0m      0.3.1   \u001b[90m/home/arduino/Arduino/libraries/Arduino_RPClite\u001b[0m\n\u001b[93mMsgPack\u001b[0m              0.4.2   \u001b[90m/home/arduino/Arduino/libraries/MsgPack\u001b[0m\n\u001b[93mDebugLog\u001b[0m             0.8.4   \u001b[90m/home/arduino/Arduino/libraries/DebugLog\u001b[0m\n\u001b[93mArxTypeTraits\u001b[0m        0.3.2   \u001b[90m/home/arduino/Arduino/libraries/ArxTypeTraits\u001b[0m\n\u001b[93mArxContainer\u001b[0m         0.7.0   \u001b[90m/home/arduino/Arduino/libraries/ArxContainer\u001b[0m\n\n\u001b[92mUsed platform\u001b[0m  \u001b[92mVersion\u001b[0m \u001b[90mPath\u001b[0m\n\u001b[93marduino:zephyr\u001b[0m 1.0.0   \u001b[90m/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0\u001b[0m\n",
+      "stderr": "Not enough memory; see https://support.arduino.cc/hc/en-us/articles/360013825179 for tips on reducing your footprint.\nError during build: data section exceeds available space in board\n",
+      "end_utc": "2026-09-23T02:38:20.993434+00:00"
+    }
+  ],
+  "exit_status": 1,
+  "end_utc": "2026-09-23T02:38:20.994214+00:00",
+  "after_config_sha256": "8716f1d21b210a3481a3c366dc5bb2129799438b74f3467454f90d210d0d21d4"
+}

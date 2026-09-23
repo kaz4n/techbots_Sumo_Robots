@@ -2,6 +2,10 @@
 // Separates retained compilation paths from firmware execution and acceptance.
 // Tested independently from D-071 and inspected in the final target ELF.
 #pragma once
+// Arduino's auto-included Zephyr headers define EMPTY; quarantine that macro
+// while parsing the pure recorder interface, then restore the caller's macros.
+#pragma push_macro("EMPTY")
+#undef EMPTY
 #include "core/fsm.h"
 #include "hal/recorder.h"
 #include <cstddef>
@@ -47,3 +51,4 @@ extern ConsumeProbe volatile consume_address;
 extern QueryProbe volatile query_address;
 extern ResetProbe volatile reset_address;
 } // namespace memory_probe
+#pragma pop_macro("EMPTY")

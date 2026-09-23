@@ -440,4 +440,3 @@ Session checkpoint: implementation9de8cd1 is current inert ADC firmwaref5f637b2/
 
 
 2026-09-23T10:47:55.117294+04:00 - D078 P2 B5 contract/header/config selected underD051/D075; actual native ADC driver and independent tests underway. Current source audits resolve LFTRIG, high-supply limits and ADC4/DAC ownership; stock MSIS auto calibration revealed SC-AJ global runtime integration blocker, explicitly not a fabricated lock/frequency claim. Existing core/app/locked tests unchanged; no B16 default changed.11 config checks PASS locally. No upload/reset/MCU action or phase acceptance. Current turn PROGRESS; full goalACTIVE/incomplete.
-

@@ -1,0 +1,617 @@
+{
+  "exit": 0,
+  "stderr": "",
+  "records": [
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/modules/hal/stm32/stm32cube/stm32u5xx/drivers/include/stm32u5xx_ll_rcc.h",
+      "sha256": "08a13b1c17bc496658c1ad1b32fc4718d4d864aecf3165a47c360cbdc82c8191",
+      "bytes": 219479,
+      "lines": [
+        [
+          233,
+          "  * @}"
+        ],
+        [
+          234,
+          "  */"
+        ],
+        [
+          235,
+          ""
+        ],
+        [
+          236,
+          "/** @defgroup RCC_LL_EC_MSIPLLMODE  MSIS/MSIK Pll Mode"
+        ],
+        [
+          237,
+          "  * @{"
+        ],
+        [
+          238,
+          "  */"
+        ],
+        [
+          239,
+          "#define LL_RCC_PLLMODE_MSIS                  RCC_CR_MSIPLLSEL"
+        ],
+        [
+          240,
+          "#define LL_RCC_PLLMODE_MSIK                  0U"
+        ],
+        [
+          241,
+          "/**"
+        ],
+        [
+          242,
+          "  * @}"
+        ],
+        [
+          243,
+          "  */"
+        ],
+        [
+          244,
+          ""
+        ],
+        [
+          245,
+          "/** @defgroup RCC_LL_EC_MSIBIASMODE  MSI BIAS Mode"
+        ],
+        [
+          2077,
+          ""
+        ],
+        [
+          2078,
+          "/**"
+        ],
+        [
+          2079,
+          "  * @brief  Enable MSI PLL-mode (Hardware auto calibration with LSE)"
+        ],
+        [
+          2080,
+          "  * @note MSIPLLEN must be enabled after LSE is enabled (LSEON enabled)"
+        ],
+        [
+          2081,
+          "  *       and ready (LSERDY set by hardware)"
+        ],
+        [
+          2082,
+          "  * @note hardware protection to avoid enabling MSIPLLEN if LSE is not"
+        ],
+        [
+          2083,
+          "  *       ready"
+        ],
+        [
+          2084,
+          "  * @rmtoll CR           MSIPLLEN      LL_RCC_MSI_EnablePLLMode"
+        ],
+        [
+          2085,
+          "  * @retval None"
+        ],
+        [
+          2086,
+          "  */"
+        ],
+        [
+          2087,
+          "__STATIC_INLINE void LL_RCC_MSI_EnablePLLMode(void)"
+        ],
+        [
+          2088,
+          "{"
+        ],
+        [
+          2089,
+          "  SET_BIT(RCC->CR, RCC_CR_MSIPLLEN);"
+        ],
+        [
+          2090,
+          "}"
+        ],
+        [
+          2091,
+          ""
+        ],
+        [
+          2092,
+          "/**"
+        ],
+        [
+          2093,
+          "  * @brief  Disable MSI-PLL mode"
+        ],
+        [
+          2094,
+          "  * @note cleared by hardware when LSE is disabled (LSEON = 0) or when"
+        ],
+        [
+          2095,
+          "  *       the Clock Security System on LSE detects a LSE failure"
+        ],
+        [
+          2096,
+          "  * @rmtoll CR           MSIPLLEN      LL_RCC_MSI_DisablePLLMode"
+        ],
+        [
+          2097,
+          "  * @retval None"
+        ],
+        [
+          2098,
+          "  */"
+        ],
+        [
+          2099,
+          "__STATIC_INLINE void LL_RCC_MSI_DisablePLLMode(void)"
+        ],
+        [
+          2100,
+          "{"
+        ],
+        [
+          2101,
+          "  CLEAR_BIT(RCC->CR, RCC_CR_MSIPLLEN);"
+        ],
+        [
+          2102,
+          "}"
+        ],
+        [
+          2103,
+          ""
+        ],
+        [
+          2104,
+          "/**"
+        ],
+        [
+          2105,
+          "  * @brief  Check if MSI-PLL mode has been enabled or not"
+        ],
+        [
+          2106,
+          "  * @rmtoll CR           MSIPLLEN      LL_RCC_IsEnabledPLLMode"
+        ],
+        [
+          2107,
+          "  * @retval State of bit (1 or 0)."
+        ],
+        [
+          2108,
+          "  */"
+        ],
+        [
+          2109,
+          "__STATIC_INLINE uint32_t LL_RCC_IsEnabledPLLMode(void)"
+        ],
+        [
+          2110,
+          "{"
+        ],
+        [
+          2111,
+          "  return ((READ_BIT(RCC->CR, RCC_CR_MSIPLLEN) == RCC_CR_MSIPLLEN) ? 1UL : 0UL);"
+        ],
+        [
+          2112,
+          "}"
+        ],
+        [
+          2113,
+          ""
+        ],
+        [
+          2114,
+          "/**"
+        ],
+        [
+          2115,
+          "  * @brief Set clock source in PLL mode"
+        ],
+        [
+          2116,
+          "  * @rmtoll CR          MSIPLLSEL         LL_RCC_SetMSIPLLMode"
+        ],
+        [
+          2117,
+          "  * @param  Source This parameter can be one of the following values:"
+        ],
+        [
+          2118,
+          "  *         @arg @ref LL_RCC_PLLMODE_MSIS"
+        ],
+        [
+          2119,
+          "  *         @arg @ref LL_RCC_PLLMODE_MSIK"
+        ],
+        [
+          2120,
+          "  * @retval None"
+        ],
+        [
+          2121,
+          "  */"
+        ],
+        [
+          2122,
+          "__STATIC_INLINE void LL_RCC_SetMSIPLLMode(uint32_t Source)"
+        ],
+        [
+          2123,
+          "{"
+        ],
+        [
+          2124,
+          "  MODIFY_REG(RCC->CR, RCC_CR_MSIPLLSEL, Source);"
+        ],
+        [
+          2125,
+          "}"
+        ],
+        [
+          2126,
+          ""
+        ],
+        [
+          2127,
+          "/**"
+        ],
+        [
+          2128,
+          "  * @brief  Get Clock source in PLL Mode"
+        ],
+        [
+          2129,
+          "  * @rmtoll CR         MSIPLLSEL        LL_RCC_GetMSIPLLMode"
+        ],
+        [
+          2130,
+          "  * @retval Returned value can be one of the following values:"
+        ],
+        [
+          2131,
+          "  *         @arg @ref LL_RCC_PLLMODE_MSIS"
+        ],
+        [
+          2132,
+          "  *         @arg @ref LL_RCC_PLLMODE_MSIK"
+        ],
+        [
+          2133,
+          "  */"
+        ],
+        [
+          2134,
+          "__STATIC_INLINE uint32_t LL_RCC_GetMSIPLLMode(void)"
+        ],
+        [
+          2135,
+          "{"
+        ],
+        [
+          2136,
+          "  return (uint32_t)(READ_BIT(RCC->CR, RCC_CR_MSIPLLSEL));"
+        ],
+        [
+          2137,
+          "}"
+        ],
+        [
+          2138,
+          ""
+        ],
+        [
+          2139,
+          "/**"
+        ],
+        [
+          2140,
+          "  * @brief  Enable MSI fast mode"
+        ],
+        [
+          2141,
+          "  * @rmtoll CR           MSIPLLFAST        LL_RCC_Enable_MSIPLLFAST"
+        ],
+        [
+          2142,
+          "  * @note     This bit is used only if PLL mode is selected."
+        ],
+        [
+          2143,
+          "  */"
+        ],
+        [
+          2144,
+          "__STATIC_INLINE void LL_RCC_Enable_MSIPLLFAST(void)"
+        ],
+        [
+          2145,
+          "{"
+        ],
+        [
+          2146,
+          "  SET_BIT(RCC->CR, RCC_CR_MSIPLLFAST);"
+        ],
+        [
+          2147,
+          "}"
+        ],
+        [
+          2148,
+          ""
+        ],
+        [
+          2149,
+          "/**"
+        ],
+        [
+          2150,
+          "  * @brief  Disable MSI fast mode"
+        ],
+        [
+          2151,
+          "  * @rmtoll CR           MSIPLLFAST        LL_RCC_Disable_MSIPLLFAST"
+        ],
+        [
+          2152,
+          "  * @note     This bit is used only if PLL mode is selected."
+        ],
+        [
+          2153,
+          "  */"
+        ],
+        [
+          2154,
+          "__STATIC_INLINE void LL_RCC_Disable_MSIPLLFAST(void)"
+        ],
+        [
+          2155,
+          "{"
+        ],
+        [
+          2156,
+          "  CLEAR_BIT(RCC->CR, RCC_CR_MSIPLLFAST);"
+        ],
+        [
+          2157,
+          "}"
+        ],
+        [
+          2158,
+          ""
+        ],
+        [
+          2159,
+          "/**"
+        ],
+        [
+          2160,
+          "  * @brief  Check if MSI PLL Fast Mode is enable"
+        ],
+        [
+          2161,
+          "  * @rmtoll CR           MSIPLLFAST        LL_RCC_MSI_IsEnabledMSIPLLFAST"
+        ],
+        [
+          2162,
+          "  * @retval State of bit (1 or 0)."
+        ],
+        [
+          2163,
+          "  */"
+        ],
+        [
+          2164,
+          "__STATIC_INLINE uint32_t LL_RCC_MSI_IsEnabledMSIPLLFAST(void)"
+        ],
+        [
+          2165,
+          "{"
+        ],
+        [
+          2166,
+          "  return ((READ_BIT(RCC->CR, RCC_CR_MSIPLLFAST) == RCC_CR_MSIPLLFAST) ? 1UL : 0UL);"
+        ],
+        [
+          2167,
+          "}"
+        ],
+        [
+          2168,
+          ""
+        ],
+        [
+          2169,
+          "/**"
+        ],
+        [
+          2170,
+          "  * @brief  Set MSI Bias mode"
+        ],
+        [
+          2171,
+          "  * @rmtoll ICSCR1         MSIBIAS        LL_RCC_MSI_SetMSIBiasMode"
+        ],
+        [
+          2172,
+          "  * @param  BiasMode This parameter can be one of the following values:"
+        ]
+      ]
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/modules/hal/stm32/stm32cube/stm32u5xx/soc/stm32u585xx.h",
+      "sha256": "8b66d5b9d1514f3ce0950b7a96402e7c026a0779e1cc36c3771be05432b68c06",
+      "bytes": 1517115,
+      "lines": [
+        [
+          77,
+          "  GTZC_IRQn                 = 8,"
+        ],
+        [
+          78,
+          "  RCC_IRQn                  = 9,"
+        ],
+        [
+          79,
+          "  RCC_S_IRQn                = 10,"
+        ],
+        [
+          80,
+          "  EXTI0_IRQn                = 11,"
+        ],
+        [
+          15628,
+          "#define RCC_CR_MSISRDY                      RCC_CR_MSISRDY_Msk"
+        ],
+        [
+          15629,
+          "#define RCC_CR_MSIPLLEN_Pos                 (3UL)"
+        ],
+        [
+          15630,
+          "#define RCC_CR_MSIPLLEN_Msk                 (0x1UL << RCC_CR_MSIPLLEN_Pos)"
+        ],
+        [
+          15631,
+          "#define RCC_CR_MSIPLLEN                     RCC_CR_MSIPLLEN_Msk"
+        ],
+        [
+          15632,
+          "#define RCC_CR_MSIKON_Pos                   (4UL)"
+        ],
+        [
+          15633,
+          "#define RCC_CR_MSIKON_Msk                   (0x1UL << RCC_CR_MSIKON_Pos)"
+        ],
+        [
+          15637,
+          "#define RCC_CR_MSIKRDY                      RCC_CR_MSIKRDY_Msk"
+        ],
+        [
+          15638,
+          "#define RCC_CR_MSIPLLSEL_Pos                (6UL)"
+        ],
+        [
+          15639,
+          "#define RCC_CR_MSIPLLSEL_Msk                (0x1UL << RCC_CR_MSIPLLSEL_Pos)"
+        ],
+        [
+          15640,
+          "#define RCC_CR_MSIPLLSEL                    RCC_CR_MSIPLLSEL_Msk"
+        ],
+        [
+          15641,
+          "#define RCC_CR_MSIPLLFAST_Pos               (7UL)"
+        ],
+        [
+          15642,
+          "#define RCC_CR_MSIPLLFAST_Msk               (0x1UL << RCC_CR_MSIPLLFAST_Pos)"
+        ],
+        [
+          15643,
+          "#define RCC_CR_MSIPLLFAST                   RCC_CR_MSIPLLFAST_Msk"
+        ],
+        [
+          15644,
+          "#define RCC_CR_HSION_Pos                    (8UL)"
+        ],
+        [
+          15645,
+          "#define RCC_CR_HSION_Msk                    (0x1UL << RCC_CR_HSION_Pos)"
+        ]
+      ]
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/modules/hal/stm32/stm32cube/stm32u5xx/drivers/include/stm32u5xx_ll_exti.h",
+      "sha256": "654e9e2d41ac7691b57c64c2594ba72d08bbbdc7adcaee5489d5611e04eb3000",
+      "bytes": 56130,
+      "lines": []
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/generated/zephyr/devicetree_generated.h",
+      "sha256": "5b0e9b1d0f7d878415d53a5d724e976061aca52177967d90d7c76c3cb0b0fb80",
+      "bytes": 2601581,
+      "lines": [
+        [
+          1568,
+          "#define DT_N_S_clocks_S_clk_msis_STATUS_okay 1"
+        ],
+        [
+          1574,
+          "#define DT_N_S_clocks_S_clk_msis_P_msi_range 4"
+        ],
+        [
+          1575,
+          "#define DT_N_S_clocks_S_clk_msis_P_msi_range_IDX_0_ENUM_IDX 4"
+        ],
+        [
+          1576,
+          "#define DT_N_S_clocks_S_clk_msis_P_msi_range_IDX_0_EXISTS 1"
+        ],
+        [
+          1577,
+          "#define DT_N_S_clocks_S_clk_msis_P_msi_range_IDX_0_ENUM_VAL_4_EXISTS 1"
+        ],
+        [
+          1578,
+          "#define DT_N_S_clocks_S_clk_msis_P_msi_range_ENUM_VAL_4_EXISTS 1"
+        ],
+        [
+          1579,
+          "#define DT_N_S_clocks_S_clk_msis_P_msi_range_EXISTS 1"
+        ],
+        [
+          1580,
+          "#define DT_N_S_clocks_S_clk_msis_P_msi_pll_mode 1"
+        ],
+        [
+          1581,
+          "#define DT_N_S_clocks_S_clk_msis_P_msi_pll_mode_EXISTS 1"
+        ]
+      ]
+    },
+    {
+      "gdb": "info functions rcc",
+      "exit": 0,
+      "stdout": "All functions matching regular expression \"rcc\":\n",
+      "stderr": ""
+    },
+    {
+      "gdb": "info functions stm32.*clock",
+      "exit": 0,
+      "stdout": "All functions matching regular expression \"stm32.*clock\":\n\nFile /home/runner/work/ArduinoCore-zephyr/zephyr/drivers/can/can_stm32_fdcan.c:\n409:\tstatic int can_stm32fd_get_core_clock(const struct device *, uint32_t *);\n\nFile /home/runner/work/ArduinoCore-zephyr/zephyr/drivers/clock_control/clock_stm32_ll_u5.c:\n897:\tint stm32_clock_control_init(const struct device *);\n206:\tstatic int stm32_clock_control_configure(const struct device *, clock_control_subsys_t, void *);\n402:\tstatic enum clock_control_status stm32_clock_control_get_status(const struct device *, clock_control_subsys_t);\n237:\tstatic int stm32_clock_control_get_subsys_rate(const struct device *, clock_control_subsys_t, uint32_t *);\n189:\tstatic int stm32_clock_control_off(const struct device *, clock_control_subsys_t);\n168:\tstatic int stm32_clock_control_on(const struct device *, clock_control_subsys_t);\n",
+      "stderr": ""
+    },
+    {
+      "gdb": "p _sw_isr_table[9]",
+      "exit": 0,
+      "stdout": "$1 = {arg = 0x0, isr = 0x8017f0d <z_irq_spurious>}\n",
+      "stderr": ""
+    },
+    {
+      "gdb": "p _sw_isr_table[10]",
+      "exit": 0,
+      "stdout": "$1 = {arg = 0x0, isr = 0x8017f0d <z_irq_spurious>}\n",
+      "stderr": ""
+    },
+    {
+      "gdb": "info variables MSI",
+      "exit": 0,
+      "stdout": "All variables matching regular expression \"MSI\":\n\nFile /home/runner/work/ArduinoCore-zephyr/modules/hal/stm32/stm32cube/stm32u5xx/soc/system_stm32u5xx.c:\n171:\tconst uint32_t MSIRangeTable[16];\n",
+      "stderr": ""
+    },
+    {
+      "gdb": "disassemble stm32_clock_control_init",
+      "exit": 0,
+      "stdout": "Dump of assembler code for function stm32_clock_control_init:\n   0x0800badc <+0>:\tpush\t{r0, r1, r2, r4, r5, lr}\n   0x0800bade <+2>:\tldr\tr4, [pc, #644]\t@ (0x800bd64 <stm32_clock_control_init+648>)\n   0x0800bae0 <+4>:\tldr\tr3, [r4, #28]\n   0x0800bae2 <+6>:\tand.w\tr3, r3, #12\n   0x0800bae6 <+10>:\tcmp\tr3, #8\n   0x0800bae8 <+12>:\tbeq.w\t0x800bd54 <stm32_clock_control_init+632>\n   0x0800baec <+16>:\tldr\tr2, [pc, #632]\t@ (0x800bd68 <stm32_clock_control_init+652>)\n   0x0800baee <+18>:\tasr.w\tr3, r2, r3\n   0x0800baf2 <+22>:\tlsls\tr0, r3, #31\n   0x0800baf4 <+24>:\tbmi.w\t0x800bd58 <stm32_clock_control_init+636>\n   0x0800baf8 <+28>:\tbl\t0x800b9ac <get_msis_frequency>\n   0x0800bafc <+32>:\tldr\tr3, [r4, #32]\n   0x0800bafe <+34>:\tldr\tr2, [pc, #620]\t@ (0x800bd6c <stm32_clock_control_init+656>)\n   0x0800bb00 <+36>:\tand.w\tr3, r3, #15\n   0x0800bb04 <+40>:\tldrb\tr3, [r2, r3]\n   0x0800bb06 <+42>:\tlsr.w\tr5, r0, r3\n   0x0800bb0a <+46>:\tldr\tr3, [pc, #612]\t@ (0x800bd70 <stm32_clock_control_init+660>)\n   0x0800bb0c <+48>:\tldr\tr2, [r3, #12]\n   0x0800bb0e <+50>:\torr.w\tr2, r2, #196608\t@ 0x30000\n   0x0800bb12 <+54>:\tstr\tr2, [r3, #12]\n   0x0800bb14 <+56>:\tldr\tr2, [r3, #12]\n   0x0800bb16 <+58>:\tlsls\tr1, r2, #16\n   0x0800bb18 <+60>:\tbpl.n\t0x800bb14 <stm32_clock_control_init+56>\n   0x0800bb1a <+62>:\tldr\tr0, [pc, #600]\t@ (0x800bd74 <stm32_clock_control_init+664>)\n   0x0800bb1c <+64>:\tcmp\tr5, r0\n   0x0800bb1e <+66>:\tbcs.n\t0x800bb24 <stm32_clock_control_init+72>\n   0x0800bb20 <+68>:\tbl\t0x801046c <LL_SetFlashLatency>\n   0x0800bb24 <+72>:\tldr\tr4, [pc, #572]\t@ (0x800bd64 <stm32_clock_control_init+648>)\n   0x0800bb26 <+74>:\tldr\tr3, [r4, #0]\n   0x0800bb28 <+76>:\tbic.w\tr3, r3, #262144\t@ 0x40000\n   0x0800bb2c <+80>:\tstr\tr3, [r4, #0]\n   0x0800bb2e <+82>:\tldr\tr3, [r4, #0]\n   0x0800bb30 <+84>:\torr.w\tr3, r3, #65536\t@ 0x10000\n   0x0800bb34 <+88>:\tstr\tr3, [r4, #0]\n   0x0800bb36 <+90>:\tldr\tr3, [r4, #0]\n   0x0800bb38 <+92>:\tlsls\tr2, r3, #14\n   0x0800bb3a <+94>:\tbpl.n\t0x800bb36 <stm32_clock_control_init+90>\n   0x0800bb3c <+96>:\tldr.w\tr3, [r4, #148]\t@ 0x94\n   0x0800bb40 <+100>:\torr.w\tr3, r3, #4\n   0x0800bb44 <+104>:\tstr.w\tr3, [r4, #148]\t@ 0x94\n   0x0800bb48 <+108>:\tldr.w\tr3, [r4, #148]\t@ 0x94\n   0x0800bb4c <+112>:\tand.w\tr3, r3, #4\n   0x0800bb50 <+116>:\tstr\tr3, [sp, #4]\n   0x0800bb52 <+118>:\tldr\tr3, [sp, #4]\n   0x0800bb54 <+120>:\tbl\t0x80065b8 <stm32_backup_domain_enable_access>\n   0x0800bb58 <+124>:\tldr.w\tr3, [r4, #240]\t@ 0xf0\n   0x0800bb5c <+128>:\tbic.w\tr3, r3, #24\n   0x0800bb60 <+132>:\torr.w\tr3, r3, #16\n   0x0800bb64 <+136>:\tstr.w\tr3, [r4, #240]\t@ 0xf0\n   0x0800bb68 <+140>:\tldr.w\tr3, [r4, #240]\t@ 0xf0\n   0x0800bb6c <+144>:\torr.w\tr3, r3, #1\n   0x0800bb70 <+148>:\tstr.w\tr3, [r4, #240]\t@ 0xf0\n   0x0800bb74 <+152>:\tldr\tr4, [pc, #492]\t@ (0x800bd64 <stm32_clock_control_init+648>)\n   0x0800bb76 <+154>:\tldr.w\tr3, [r4, #240]\t@ 0xf0\n   0x0800bb7a <+158>:\tlsls\tr3, r3, #30\n   0x0800bb7c <+160>:\tbpl.n\t0x800bb76 <stm32_clock_control_init+154>\n   0x0800bb7e <+162>:\tldr.w\tr3, [r4, #240]\t@ 0xf0\n   0x0800bb82 <+166>:\torr.w\tr3, r3, #128\t@ 0x80\n   0x0800bb86 <+170>:\tstr.w\tr3, [r4, #240]\t@ 0xf0\n   0x0800bb8a <+174>:\tldr.w\tr3, [r4, #240]\t@ 0xf0\n   0x0800bb8e <+178>:\tlsls\tr0, r3, #20\n   0x0800bb90 <+180>:\tbpl.n\t0x800bb8a <stm32_clock_control_init+174>\n   0x0800bb92 <+182>:\tbl\t0x80065f4 <stm32_backup_domain_disable_access>\n   0x0800bb96 <+186>:\tldr\tr3, [r4, #8]\n   0x0800bb98 <+188>:\torr.w\tr3, r3, #8388608\t@ 0x800000\n   0x0800bb9c <+192>:\tstr\tr3, [r4, #8]\n   0x0800bb9e <+194>:\tldr\tr3, [r4, #8]\n   0x0800bba0 <+196>:\tbic.w\tr3, r3, #4026531840\t@ 0xf0000000\n   0x0800bba4 <+200>:\torr.w\tr3, r3, #1073741824\t@ 0x40000000\n   0x0800bba8 <+204>:\tstr\tr3, [r4, #8]\n   0x0800bbaa <+206>:\tldr\tr3, [r4, #0]\n   0x0800bbac <+208>:\torr.w\tr3, r3, #64\t@ 0x40\n   0x0800bbb0 <+212>:\tstr\tr3, [r4, #0]\n   0x0800bbb2 <+214>:\tldr\tr3, [r4, #0]\n   0x0800bbb4 <+216>:\torr.w\tr3, r3, #8\n   0x0800bbb8 <+220>:\tstr\tr3, [r4, #0]\n   0x0800bbba <+222>:\tldr\tr3, [r4, #0]\n   0x0800bbbc <+224>:\torr.w\tr3, r3, #1\n   0x0800bbc0 <+228>:\tstr\tr3, [r4, #0]\n   0x0800bbc2 <+230>:\tldr\tr3, [pc, #416]\t@ (0x800bd64 <stm32_clock_control_init+648>)\n   0x0800bbc4 <+232>:\tldr\tr2, [r3, #0]\n   0x0800bbc6 <+234>:\tlsls\tr1, r2, #29\n   0x0800bbc8 <+236>:\tbpl.n\t0x800bbc4 <stm32_clock_control_init+232>\n   0x0800bbca <+238>:\tldr\tr2, [r3, #0]\n   0x0800bbcc <+240>:\torr.w\tr2, r2, #4096\t@ 0x1000\n   0x0800bbd0 <+244>:\tstr\tr2, [r3, #0]\n   0x0800bbd2 <+246>:\tldr\tr2, [r3, #0]\n   0x0800bbd4 <+248>:\tlsls\tr2, r2, #18\n   0x0800bbd6 <+250>:\tbpl.n\t0x800bbd2 <stm32_clock_control_init+246>\n   0x0800bbd8 <+252>:\tldr\tr2, [r3, #28]\n   0x0800bbda <+254>:\tand.w\tr2, r2, #12\n   0x0800bbde <+258>:\tcmp\tr2, #12\n   0x0800bbe0 <+260>:\tbne.n\t0x800bc18 <stm32_clock_control_init+316>\n   0x0800bbe2 <+262>:\tldr\tr2, [r3, #0]\n   0x0800bbe4 <+264>:\tlsls\tr4, r2, #21\n   0x0800bbe6 <+266>:\tbmi.n\t0x800bbf8 <stm32_clock_control_init+284>\n   0x0800bbe8 <+268>:\tldr\tr2, [r3, #0]\n   0x0800bbea <+270>:\torr.w\tr2, r2, #256\t@ 0x100\n   0x0800bbee <+274>:\tstr\tr2, [r3, #0]\n   0x0800bbf0 <+276>:\tldr\tr2, [pc, #368]\t@ (0x800bd64 <stm32_clock_control_init+648>)\n   0x0800bbf2 <+278>:\tldr\tr3, [r2, #0]\n   0x0800bbf4 <+280>:\tlsls\tr0, r3, #21\n   0x0800bbf6 <+282>:\tbpl.n\t0x800bbf2 <stm32_clock_control_init+278>\n   0x0800bbf8 <+284>:\tldr\tr3, [pc, #360]\t@ (0x800bd64 <stm32_clock_control_init+648>)\n   0x0800bbfa <+286>:\tldr\tr2, [r3, #28]\n   0x0800bbfc <+288>:\tbic.w\tr2, r2, #3\n   0x0800bc00 <+292>:\torr.w\tr2, r2, #1\n   0x0800bc04 <+296>:\tstr\tr2, [r3, #28]\n   0x0800bc06 <+298>:\tldr\tr2, [r3, #28]\n   0x0800bc08 <+300>:\tand.w\tr2, r2, #12\n   0x0800bc0c <+304>:\tcmp\tr2, #4\n   0x0800bc0e <+306>:\tbne.n\t0x800bc06 <stm32_clock_control_init+298>\n   0x0800bc10 <+308>:\tldr\tr2, [r3, #32]\n   0x0800bc12 <+310>:\tbic.w\tr2, r2, #15\n   0x0800bc16 <+314>:\tstr\tr2, [r3, #32]\n   0x0800bc18 <+316>:\tldr\tr3, [pc, #328]\t@ (0x800bd64 <stm32_clock_control_init+648>)\n   0x0800bc1a <+318>:\tldr\tr2, [r3, #0]\n   0x0800bc1c <+320>:\tbic.w\tr2, r2, #16777216\t@ 0x1000000\n   0x0800bc20 <+324>:\tstr\tr2, [r3, #0]\n   0x0800bc22 <+326>:\tldr\tr2, [r3, #40]\t@ 0x28\n   0x0800bc24 <+328>:\tbic.w\tr2, r2, #3\n   0x0800bc28 <+332>:\torr.w\tr2, r2, #1\n   0x0800bc2c <+336>:\tstr\tr2, [r3, #40]\t@ 0x28\n   0x0800bc2e <+338>:\tldr\tr2, [pc, #320]\t@ (0x800bd70 <stm32_clock_control_init+660>)\n   0x0800bc30 <+340>:\tldr\tr1, [r2, #12]\n   0x0800bc32 <+342>:\tbic.w\tr1, r1, #262144\t@ 0x40000\n   0x0800bc36 <+346>:\tstr\tr1, [r2, #12]\n   0x0800bc38 <+348>:\tldr\tr4, [r2, #12]\n   0x0800bc3a <+350>:\tands.w\tr4, r4, #16384\t@ 0x4000\n   0x0800bc3e <+354>:\tbne.n\t0x800bc38 <stm32_clock_control_init+348>\n   0x0800bc40 <+356>:\tldr\tr2, [r3, #40]\t@ 0x28\n   0x0800bc42 <+358>:\tldr\tr1, [pc, #288]\t@ (0x800bd64 <stm32_clock_control_init+648>)\n   0x0800bc44 <+360>:\tbic.w\tr2, r2, #61440\t@ 0xf000\n   0x0800bc48 <+364>:\tstr\tr2, [r3, #40]\t@ 0x28\n   0x0800bc4a <+366>:\tldr\tr3, [pc, #300]\t@ (0x800bd78 <stm32_clock_control_init+668>)\n   0x0800bc4c <+368>:\tldr\tr2, [pc, #300]\t@ (0x800bd7c <stm32_clock_control_init+672>)\n   0x0800bc4e <+370>:\tldr\tr3, [r3, #16]\n   0x0800bc50 <+372>:\tcmp\tr3, r2\n   0x0800bc52 <+374>:\titet\tlt\n   0x0800bc54 <+376>:\tldrlt\tr2, [pc, #296]\t@ (0x800bd80 <stm32_clock_control_init+676>)\n   0x0800bc56 <+378>:\tmovge\tr3, #16\n   0x0800bc58 <+380>:\tsdivlt\tr3, r3, r2\n   0x0800bc5c <+384>:\tldr\tr2, [r1, #40]\t@ 0x28\n   0x0800bc5e <+386>:\tadd.w\tr3, r3, r3, lsr #31\n   0x0800bc62 <+390>:\tbic.w\tr2, r2, #61440\t@ 0xf000\n   0x0800bc66 <+394>:\tasrs\tr3, r3, #1\n   0x0800bc68 <+396>:\torr.w\tr3, r2, r3, lsl #12\n   0x0800bc6c <+400>:\tstr\tr3, [r1, #40]\t@ 0x28\n   0x0800bc6e <+402>:\tldr\tr3, [pc, #256]\t@ (0x800bd70 <stm32_clock_control_init+660>)\n   0x0800bc70 <+404>:\tldr\tr2, [r3, #12]\n   0x0800bc72 <+406>:\torr.w\tr2, r2, #262144\t@ 0x40000\n   0x0800bc76 <+410>:\tstr\tr2, [r3, #12]\n   0x0800bc78 <+412>:\tldr\tr2, [r3, #12]\n   0x0800bc7a <+414>:\tlsls\tr1, r2, #17\n   0x0800bc7c <+416>:\tbpl.n\t0x800bc78 <stm32_clock_control_init+412>\n   0x0800bc7e <+418>:\tbl\t0x800b9ac <get_msis_frequency>\n   0x0800bc82 <+422>:\tldr\tr2, [pc, #256]\t@ (0x800bd84 <stm32_clock_control_init+680>)\n   0x0800bc84 <+424>:\tsub.w\tr3, r0, #3997696\t@ 0x3d0000\n   0x0800bc88 <+428>:\tsub.w\tr3, r3, #2304\t@ 0x900\n   0x0800bc8c <+432>:\tcmp\tr3, r2\n   0x0800bc8e <+434>:\tbls.n\t0x800bc9c <stm32_clock_control_init+448>\n   0x0800bc90 <+436>:\tldr\tr3, [pc, #244]\t@ (0x800bd88 <stm32_clock_control_init+684>)\n   0x0800bc92 <+438>:\tldr\tr2, [pc, #236]\t@ (0x800bd80 <stm32_clock_control_init+676>)\n   0x0800bc94 <+440>:\tadd\tr3, r0\n   0x0800bc96 <+442>:\tcmp\tr3, r2\n   0x0800bc98 <+444>:\tbcs.n\t0x800bd5c <stm32_clock_control_init+640>\n   0x0800bc9a <+446>:\tmovs\tr4, #12\n   0x0800bc9c <+448>:\tldr\tr3, [pc, #196]\t@ (0x800bd64 <stm32_clock_control_init+648>)\n   0x0800bc9e <+450>:\tldr\tr2, [r3, #40]\t@ 0x28\n   0x0800bca0 <+452>:\tbic.w\tr2, r2, #3840\t@ 0xf00\n   0x0800bca4 <+456>:\tstr\tr2, [r3, #40]\t@ 0x28\n   0x0800bca6 <+458>:\tldr\tr2, [r3, #40]\t@ 0x28\n   0x0800bca8 <+460>:\tbic.w\tr2, r2, #12\n   0x0800bcac <+464>:\torrs\tr2, r4\n   0x0800bcae <+466>:\tstr\tr2, [r3, #40]\t@ 0x28\n   0x0800bcb0 <+468>:\tldr\tr2, [r3, #52]\t@ 0x34\n   0x0800bcb2 <+470>:\tbfc\tr2, #0, #9\n   0x0800bcb6 <+474>:\torr.w\tr2, r2, #79\t@ 0x4f\n   0x0800bcba <+478>:\tstr\tr2, [r3, #52]\t@ 0x34\n   0x0800bcbc <+480>:\tldr\tr2, [r3, #40]\t@ 0x28\n   0x0800bcbe <+482>:\tbic.w\tr2, r2, #16\n   0x0800bcc2 <+486>:\tstr\tr2, [r3, #40]\t@ 0x28\n   0x0800bcc4 <+488>:\tldr\tr2, [r3, #52]\t@ 0x34\n   0x0800bcc6 <+490>:\tbic.w\tr2, r2, #8323072\t@ 0x7f0000\n   0x0800bcca <+494>:\torr.w\tr2, r2, #65536\t@ 0x10000\n   0x0800bcce <+498>:\tstr\tr2, [r3, #52]\t@ 0x34\n   0x0800bcd0 <+500>:\tldr\tr2, [r3, #40]\t@ 0x28\n   0x0800bcd2 <+502>:\torr.w\tr2, r2, #131072\t@ 0x20000\n   0x0800bcd6 <+506>:\tstr\tr2, [r3, #40]\t@ 0x28\n   0x0800bcd8 <+508>:\tldr\tr2, [r3, #52]\t@ 0x34\n   0x0800bcda <+510>:\tbic.w\tr2, r2, #2130706432\t@ 0x7f000000\n   0x0800bcde <+514>:\torr.w\tr2, r2, #16777216\t@ 0x1000000\n   0x0800bce2 <+518>:\tstr\tr2, [r3, #52]\t@ 0x34\n   0x0800bce4 <+520>:\tldr\tr2, [r3, #40]\t@ 0x28\n   0x0800bce6 <+522>:\torr.w\tr2, r2, #262144\t@ 0x40000\n   0x0800bcea <+526>:\tstr\tr2, [r3, #40]\t@ 0x28\n   0x0800bcec <+528>:\tldr\tr2, [r3, #0]\n   0x0800bcee <+530>:\torr.w\tr2, r2, #16777216\t@ 0x1000000\n   0x0800bcf2 <+534>:\tstr\tr2, [r3, #0]\n   0x0800bcf4 <+536>:\tldr\tr2, [r3, #0]\n   0x0800bcf6 <+538>:\tlsls\tr2, r2, #6\n   0x0800bcf8 <+540>:\tbpl.n\t0x800bcf4 <stm32_clock_control_init+536>\n   0x0800bcfa <+542>:\tldr\tr2, [r3, #44]\t@ 0x2c\n   0x0800bcfc <+544>:\tbic.w\tr2, r2, #3\n   0x0800bd00 <+548>:\tstr\tr2, [r3, #44]\t@ 0x2c\n   0x0800bd02 <+550>:\tldr\tr2, [r3, #48]\t@ 0x30\n   0x0800bd04 <+552>:\tbic.w\tr2, r2, #3\n   0x0800bd08 <+556>:\tstr\tr2, [r3, #48]\t@ 0x30\n   0x0800bd0a <+558>:\tldr\tr2, [r3, #32]\n   0x0800bd0c <+560>:\tbic.w\tr2, r2, #15\n   0x0800bd10 <+564>:\tstr\tr2, [r3, #32]\n   0x0800bd12 <+566>:\tldr\tr2, [r3, #32]\n   0x0800bd14 <+568>:\tbic.w\tr2, r2, #112\t@ 0x70\n   0x0800bd18 <+572>:\tstr\tr2, [r3, #32]\n   0x0800bd1a <+574>:\tldr\tr2, [r3, #32]\n   0x0800bd1c <+576>:\tbic.w\tr2, r2, #1792\t@ 0x700\n   0x0800bd20 <+580>:\tstr\tr2, [r3, #32]\n   0x0800bd22 <+582>:\tldr\tr2, [r3, #36]\t@ 0x24\n   0x0800bd24 <+584>:\tbic.w\tr2, r2, #112\t@ 0x70\n   0x0800bd28 <+588>:\tstr\tr2, [r3, #36]\t@ 0x24\n   0x0800bd2a <+590>:\tldr\tr2, [r3, #28]\n   0x0800bd2c <+592>:\torr.w\tr2, r2, #3\n   0x0800bd30 <+596>:\tstr\tr2, [r3, #28]\n   0x0800bd32 <+598>:\tldr\tr2, [pc, #48]\t@ (0x800bd64 <stm32_clock_control_init+648>)\n   0x0800bd34 <+600>:\tldr\tr3, [r2, #28]\n   0x0800bd36 <+602>:\tand.w\tr3, r3, #12\n   0x0800bd3a <+606>:\tcmp\tr3, #12\n   0x0800bd3c <+608>:\tbne.n\t0x800bd34 <stm32_clock_control_init+600>\n   0x0800bd3e <+610>:\tldr\tr4, [pc, #52]\t@ (0x800bd74 <stm32_clock_control_init+664>)\n   0x0800bd40 <+612>:\tcmp\tr5, r4\n   0x0800bd42 <+614>:\tbcc.n\t0x800bd4a <stm32_clock_control_init+622>\n   0x0800bd44 <+616>:\tmov\tr0, r4\n   0x0800bd46 <+618>:\tbl\t0x801046c <LL_SetFlashLatency>\n   0x0800bd4a <+622>:\tmovs\tr0, #0\n   0x0800bd4c <+624>:\tldr\tr3, [pc, #60]\t@ (0x800bd8c <stm32_clock_control_init+688>)\n   0x0800bd4e <+626>:\tstr\tr4, [r3, #0]\n   0x0800bd50 <+628>:\tadd\tsp, #12\n   0x0800bd52 <+630>:\tpop\t{r4, r5, pc}\n   0x0800bd54 <+632>:\tldr\tr0, [pc, #56]\t@ (0x800bd90 <stm32_clock_control_init+692>)\n   0x0800bd56 <+634>:\tb.n\t0x800bafc <stm32_clock_control_init+32>\n   0x0800bd58 <+636>:\tmovs\tr0, #0\n   0x0800bd5a <+638>:\tb.n\t0x800bafc <stm32_clock_control_init+32>\n   0x0800bd5c <+640>:\tmvn.w\tr0, #33\t@ 0x21\n   0x0800bd60 <+644>:\tb.n\t0x800bd50 <stm32_clock_control_init+628>\n   0x0800bd62 <+646>:\tnop\n   0x0800bd64 <+648>:\tlsrs\tr0, r0, #16\n   0x0800bd66 <+650>:\tmov\tr2, r0\n   0x0800bd68 <+652>:\t\t\t@ <UNDEFINED> instruction: 0xeffeffff\n   0x0800bd6c <+656>:\tbics.w\tr8, r6, #8585216\t@ 0x830000\n   0x0800bd70 <+660>:\tlsrs\tr0, r0, #32\n   0x0800bd72 <+662>:\tmov\tr2, r0\n   0x0800bd74 <+664>:\tldr\tr0, [r0, #0]\n   0x0800bd76 <+666>:\tlsrs\tr1, r1, #6\n   0x0800bd78 <+668>:\tbics.w\tr8, r12, r1\n   0x0800bd7c <+672>:\tmovs\tr0, #0\n   0x0800bd7e <+674>:\tlsls\tr1, r4, #30\n   0x0800bd80 <+676>:\tasrs\tr0, r0, #8\n   0x0800bd82 <+678>:\tlsls\tr2, r7, #1\n   0x0800bd84 <+680>:\tlsrs\tr0, r0, #4\n   0x0800bd86 <+682>:\tmovs\tr5, r7\n   0x0800bd88 <+684>:\t\t\t@ <UNDEFINED> instruction: 0xedffff85\n   0x0800bd8c <+688>:\tlsls\tr4, r0, #16\n   0x0800bd8e <+690>:\tmovs\tr0, #0\n   0x0800bd90 <+692>:\tmovs\tr4, #0\n   0x0800bd92 <+694>:\tlsls\tr4, r6, #3\nEnd of assembler dump.\n",
+      "stderr": ""
+    }
+  ]
+}

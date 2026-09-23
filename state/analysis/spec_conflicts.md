@@ -548,4 +548,3 @@ silicon revision and clock qualification, tests for unlock before/during samples
 latched invalidity/recovery timing and effects on countdown/PWM/tick. ADC fixtures
 must not fabricate an unavailable lock predicate. No human question needed to
 continue the authorized software work; unresolved runtime issue stays visible.
-

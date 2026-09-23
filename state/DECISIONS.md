@@ -901,4 +901,3 @@ blocker. Readiness/metadata is not a lock/frequency measurement. Do not turn off
 shared clocks, invent a lock predicate or claim this resolves deployed runtime.
 Physical B5 accuracy, supply/reference/pin verification, tick WCET and all human
 gates remain pending. Only software/compile-only work is authorized here.
-

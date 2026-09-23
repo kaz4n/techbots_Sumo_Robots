@@ -1,0 +1,2348 @@
+{
+  "exit": 0,
+  "stderr": "",
+  "records": [
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/generated/zephyr/devicetree_generated.h",
+      "sha256": "5b0e9b1d0f7d878415d53a5d724e976061aca52177967d90d7c76c3cb0b0fb80",
+      "bytes": 2601581,
+      "lines": [
+        [
+          1435,
+          "#define DT_N_S_clocks_FOREACH_CHILD(fn) fn(DT_N_S_clocks_S_clk_hse) fn(DT_N_S_clocks_S_clk_hsi) fn(DT_N_S_clocks_S_clk_hsi48) fn(DT_N_S_clocks_S_clk_msis) fn(DT_N_S_clocks_S_clk_msik) fn(DT_N_S_clocks_S_clk_lse) fn(DT_N_S_clocks_S_clk_lsi) fn(DT_N_S_clocks_S_pll) fn(DT_N_S_clocks_S_pll2) fn(DT_N_S_clocks_S_pll3)"
+        ],
+        [
+          1436,
+          "#define DT_N_S_clocks_FOREACH_CHILD_SEP(fn, sep) fn(DT_N_S_clocks_S_clk_hse) DT_DEBRACKET_INTERNAL sep fn(DT_N_S_clocks_S_clk_hsi) DT_DEBRACKET_INTERNAL sep fn(DT_N_S_clocks_S_clk_hsi48) DT_DEBRACKET_INTERNAL sep fn(DT_N_S_clocks_S_clk_msis) DT_DEBRACKET_INTERNAL sep fn(DT_N_S_clocks_S_clk_msik) DT_DEBRACKET_INTERNAL sep fn(DT_N_S_clocks_S_clk_lse) DT_DEBRACKET_INTERNAL sep fn(DT_N_S_clocks_S_clk_lsi) DT_DEBRACKET_INTERNAL sep fn(DT_N_S_clocks_S_pll) DT_DEBRACKET_INTERNAL sep fn(DT_N_S_clocks_S_pll2) DT_DEBRACKET_INTERNAL sep fn(DT_N_S_clocks_S_pll3)"
+        ],
+        [
+          1437,
+          "#define DT_N_S_clocks_FOREACH_CHILD_VARGS(fn, ...) fn(DT_N_S_clocks_S_clk_hse, __VA_ARGS__) fn(DT_N_S_clocks_S_clk_hsi, __VA_ARGS__) fn(DT_N_S_clocks_S_clk_hsi48, __VA_ARGS__) fn(DT_N_S_clocks_S_clk_msis, __VA_ARGS__) fn(DT_N_S_clocks_S_clk_msik, __VA_ARGS__) fn(DT_N_S_clocks_S_clk_lse, __VA_ARGS__) fn(DT_N_S_clocks_S_clk_lsi, __VA_ARGS__) fn(DT_N_S_clocks_S_pll, __VA_ARGS__) fn(DT_N_S_clocks_S_pll2, __VA_ARGS__) fn(DT_N_S_clocks_S_pll3, __VA_ARGS__)"
+        ],
+        [
+          1438,
+          "#define DT_N_S_clocks_FOREACH_CHILD_SEP_VARGS(fn, sep, ...) fn(DT_N_S_clocks_S_clk_hse, __VA_ARGS__) DT_DEBRACKET_INTERNAL sep fn(DT_N_S_clocks_S_clk_hsi, __VA_ARGS__) DT_DEBRACKET_INTERNAL sep fn(DT_N_S_clocks_S_clk_hsi48, __VA_ARGS__) DT_DEBRACKET_INTERNAL sep fn(DT_N_S_clocks_S_clk_msis, __VA_ARGS__) DT_DEBRACKET_INTERNAL sep fn(DT_N_S_clocks_S_clk_msik, __VA_ARGS__) DT_DEBRACKET_INTERNAL sep fn(DT_N_S_clocks_S_clk_lse, __VA_ARGS__) DT_DEBRACKET_INTERNAL sep fn(DT_N_S_clocks_S_clk_lsi, __VA_ARGS__) DT_DEBRACKET_INTERNAL sep fn(DT_N_S_clocks_S_pll, __VA_ARGS__) DT_DEBRACKET_INTERNAL sep fn(DT_N_S_clocks_S_pll2, __VA_ARGS__) DT_DEBRACKET_INTERNAL sep fn(DT_N_S_clocks_S_pll3, __VA_ARGS__)"
+        ],
+        [
+          1439,
+          "#define DT_N_S_clocks_FOREACH_CHILD_STATUS_OKAY(fn) fn(DT_N_S_clocks_S_clk_hse) fn(DT_N_S_clocks_S_clk_hsi48) fn(DT_N_S_clocks_S_clk_msis) fn(DT_N_S_clocks_S_clk_lse) fn(DT_N_S_clocks_S_pll)"
+        ],
+        [
+          1440,
+          "#define DT_N_S_clocks_FOREACH_CHILD_STATUS_OKAY_SEP(fn, sep) fn(DT_N_S_clocks_S_clk_hse) DT_DEBRACKET_INTERNAL sep fn(DT_N_S_clocks_S_clk_hsi48) DT_DEBRACKET_INTERNAL sep fn(DT_N_S_clocks_S_clk_msis) DT_DEBRACKET_INTERNAL sep fn(DT_N_S_clocks_S_clk_lse) DT_DEBRACKET_INTERNAL sep fn(DT_N_S_clocks_S_pll)"
+        ],
+        [
+          1441,
+          "#define DT_N_S_clocks_FOREACH_CHILD_STATUS_OKAY_VARGS(fn, ...) fn(DT_N_S_clocks_S_clk_hse, __VA_ARGS__) fn(DT_N_S_clocks_S_clk_hsi48, __VA_ARGS__) fn(DT_N_S_clocks_S_clk_msis, __VA_ARGS__) fn(DT_N_S_clocks_S_clk_lse, __VA_ARGS__) fn(DT_N_S_clocks_S_pll, __VA_ARGS__)"
+        ],
+        [
+          1442,
+          "#define DT_N_S_clocks_FOREACH_CHILD_STATUS_OKAY_SEP_VARGS(fn, sep, ...) fn(DT_N_S_clocks_S_clk_hse, __VA_ARGS__) DT_DEBRACKET_INTERNAL sep fn(DT_N_S_clocks_S_clk_hsi48, __VA_ARGS__) DT_DEBRACKET_INTERNAL sep fn(DT_N_S_clocks_S_clk_msis, __VA_ARGS__) DT_DEBRACKET_INTERNAL sep fn(DT_N_S_clocks_S_clk_lse, __VA_ARGS__) DT_DEBRACKET_INTERNAL sep fn(DT_N_S_clocks_S_pll, __VA_ARGS__)"
+        ],
+        [
+          1491,
+          " * Node identifier: DT_N_S_clocks_S_clk_msis"
+        ],
+        [
+          1501,
+          "#define DT_N_S_clocks_S_clk_msis_PATH \"/clocks/clk-msis\""
+        ],
+        [
+          1504,
+          "#define DT_N_S_clocks_S_clk_msis_FULL_NAME \"clk-msis\""
+        ],
+        [
+          1505,
+          "#define DT_N_S_clocks_S_clk_msis_FULL_NAME_UNQUOTED clk-msis"
+        ],
+        [
+          1506,
+          "#define DT_N_S_clocks_S_clk_msis_FULL_NAME_TOKEN clk_msis"
+        ],
+        [
+          1507,
+          "#define DT_N_S_clocks_S_clk_msis_FULL_NAME_UPPER_TOKEN CLK_MSIS"
+        ],
+        [
+          1510,
+          "#define DT_N_S_clocks_S_clk_msis_PARENT DT_N_S_clocks"
+        ],
+        [
+          1513,
+          "#define DT_N_S_clocks_S_clk_msis_CHILD_IDX 3"
+        ],
+        [
+          1516,
+          "#define DT_N_S_clocks_S_clk_msis_NODELABEL_NUM 1"
+        ],
+        [
+          1517,
+          "#define DT_N_S_clocks_S_clk_msis_FOREACH_NODELABEL(fn) fn(clk_msis)"
+        ],
+        [
+          1518,
+          "#define DT_N_S_clocks_S_clk_msis_FOREACH_NODELABEL_VARGS(fn, ...) fn(clk_msis, __VA_ARGS__)"
+        ],
+        [
+          1519,
+          "#define DT_N_S_clocks_S_clk_msis_FOREACH_ANCESTOR(fn) fn(DT_N_S_clocks) fn(DT_N)"
+        ],
+        [
+          1522,
+          "#define DT_N_S_clocks_S_clk_msis_CHILD_NUM 0"
+        ],
+        [
+          1523,
+          "#define DT_N_S_clocks_S_clk_msis_CHILD_NUM_STATUS_OKAY 0"
+        ],
+        [
+          1524,
+          "#define DT_N_S_clocks_S_clk_msis_FOREACH_CHILD(fn) "
+        ],
+        [
+          1525,
+          "#define DT_N_S_clocks_S_clk_msis_FOREACH_CHILD_SEP(fn, sep) "
+        ],
+        [
+          1526,
+          "#define DT_N_S_clocks_S_clk_msis_FOREACH_CHILD_VARGS(fn, ...) "
+        ],
+        [
+          1527,
+          "#define DT_N_S_clocks_S_clk_msis_FOREACH_CHILD_SEP_VARGS(fn, sep, ...) "
+        ],
+        [
+          1528,
+          "#define DT_N_S_clocks_S_clk_msis_FOREACH_CHILD_STATUS_OKAY(fn) "
+        ],
+        [
+          1529,
+          "#define DT_N_S_clocks_S_clk_msis_FOREACH_CHILD_STATUS_OKAY_SEP(fn, sep) "
+        ],
+        [
+          1530,
+          "#define DT_N_S_clocks_S_clk_msis_FOREACH_CHILD_STATUS_OKAY_VARGS(fn, ...) "
+        ],
+        [
+          1531,
+          "#define DT_N_S_clocks_S_clk_msis_FOREACH_CHILD_STATUS_OKAY_SEP_VARGS(fn, sep, ...) "
+        ],
+        [
+          1534,
+          "#define DT_N_S_clocks_S_clk_msis_HASH QyQ4ZZC3o8Es6eNth6YAe6yCU_U5SVwQtGiN8HZur74"
+        ],
+        [
+          1537,
+          "#define DT_N_S_clocks_S_clk_msis_ORD 7"
+        ],
+        [
+          1538,
+          "#define DT_N_S_clocks_S_clk_msis_ORD_STR_SORTABLE 00007"
+        ],
+        [
+          1541,
+          "#define DT_N_S_clocks_S_clk_msis_REQUIRES_ORDS \\"
+        ],
+        [
+          1545,
+          "#define DT_N_S_clocks_S_clk_msis_SUPPORTS_ORDS \\"
+        ],
+        [
+          1549,
+          "#define DT_N_S_clocks_S_clk_msis_EXISTS 1"
+        ],
+        [
+          1550,
+          "#define DT_N_INST_0_st_stm32u5_msi_clock DT_N_S_clocks_S_clk_msis"
+        ],
+        [
+          1551,
+          "#define DT_N_NODELABEL_clk_msis          DT_N_S_clocks_S_clk_msis"
+        ],
+        [
+          1554,
+          "#define DT_N_S_clocks_S_clk_msis_REG_NUM 0"
+        ],
+        [
+          1555,
+          "#define DT_N_S_clocks_S_clk_msis_FOREACH_REG(fn) "
+        ],
+        [
+          1556,
+          "#define DT_N_S_clocks_S_clk_msis_FOREACH_REG_SEP(fn, sep) "
+        ],
+        [
+          1557,
+          "#define DT_N_S_clocks_S_clk_msis_FOREACH_REG_VARGS(fn, ...) "
+        ],
+        [
+          1558,
+          "#define DT_N_S_clocks_S_clk_msis_FOREACH_REG_SEP_VARGS(fn, sep, ...) "
+        ],
+        [
+          1559,
+          "#define DT_N_S_clocks_S_clk_msis_RANGES_NUM 0"
+        ],
+        [
+          1560,
+          "#define DT_N_S_clocks_S_clk_msis_FOREACH_RANGE(fn) "
+        ],
+        [
+          1561,
+          "#define DT_N_S_clocks_S_clk_msis_IRQ_NUM 0"
+        ],
+        [
+          1562,
+          "#define DT_N_S_clocks_S_clk_msis_IRQ_LEVEL 0"
+        ],
+        [
+          1563,
+          "#define DT_N_S_clocks_S_clk_msis_COMPAT_MATCHES_st_stm32u5_msi_clock 1"
+        ],
+        [
+          1564,
+          "#define DT_N_S_clocks_S_clk_msis_COMPAT_VENDOR_IDX_0_EXISTS 1"
+        ],
+        [
+          1565,
+          "#define DT_N_S_clocks_S_clk_msis_COMPAT_VENDOR_IDX_0 \"STMicroelectronics\""
+        ],
+        [
+          1566,
+          "#define DT_N_S_clocks_S_clk_msis_COMPAT_MODEL_IDX_0_EXISTS 1"
+        ],
+        [
+          1567,
+          "#define DT_N_S_clocks_S_clk_msis_COMPAT_MODEL_IDX_0 \"stm32u5-msi-clock\""
+        ],
+        [
+          1568,
+          "#define DT_N_S_clocks_S_clk_msis_STATUS_okay 1"
+        ],
+        [
+          1571,
+          "#define DT_N_S_clocks_S_clk_msis_PINCTRL_NUM 0"
+        ],
+        [
+          1574,
+          "#define DT_N_S_clocks_S_clk_msis_P_msi_range 4"
+        ],
+        [
+          1575,
+          "#define DT_N_S_clocks_S_clk_msis_P_msi_range_IDX_0_ENUM_IDX 4"
+        ],
+        [
+          1576,
+          "#define DT_N_S_clocks_S_clk_msis_P_msi_range_IDX_0_EXISTS 1"
+        ],
+        [
+          1577,
+          "#define DT_N_S_clocks_S_clk_msis_P_msi_range_IDX_0_ENUM_VAL_4_EXISTS 1"
+        ],
+        [
+          1578,
+          "#define DT_N_S_clocks_S_clk_msis_P_msi_range_ENUM_VAL_4_EXISTS 1"
+        ],
+        [
+          1579,
+          "#define DT_N_S_clocks_S_clk_msis_P_msi_range_EXISTS 1"
+        ],
+        [
+          1580,
+          "#define DT_N_S_clocks_S_clk_msis_P_msi_pll_mode 1"
+        ],
+        [
+          1581,
+          "#define DT_N_S_clocks_S_clk_msis_P_msi_pll_mode_EXISTS 1"
+        ],
+        [
+          1582,
+          "#define DT_N_S_clocks_S_clk_msis_P_status \"okay\""
+        ],
+        [
+          1583,
+          "#define DT_N_S_clocks_S_clk_msis_P_status_STRING_UNQUOTED okay"
+        ],
+        [
+          1584,
+          "#define DT_N_S_clocks_S_clk_msis_P_status_STRING_TOKEN okay"
+        ],
+        [
+          1585,
+          "#define DT_N_S_clocks_S_clk_msis_P_status_STRING_UPPER_TOKEN OKAY"
+        ],
+        [
+          1586,
+          "#define DT_N_S_clocks_S_clk_msis_P_status_IDX_0 \"okay\""
+        ],
+        [
+          1587,
+          "#define DT_N_S_clocks_S_clk_msis_P_status_IDX_0_EXISTS 1"
+        ],
+        [
+          1588,
+          "#define DT_N_S_clocks_S_clk_msis_P_status_IDX_0_ENUM_IDX 0"
+        ],
+        [
+          1589,
+          "#define DT_N_S_clocks_S_clk_msis_P_status_IDX_0_ENUM_VAL_okay_EXISTS 1"
+        ],
+        [
+          1590,
+          "#define DT_N_S_clocks_S_clk_msis_P_status_ENUM_VAL_okay_EXISTS 1"
+        ],
+        [
+          1591,
+          "#define DT_N_S_clocks_S_clk_msis_P_status_FOREACH_PROP_ELEM(fn) fn(DT_N_S_clocks_S_clk_msis, status, 0)"
+        ],
+        [
+          1592,
+          "#define DT_N_S_clocks_S_clk_msis_P_status_FOREACH_PROP_ELEM_SEP(fn, sep) fn(DT_N_S_clocks_S_clk_msis, status, 0)"
+        ],
+        [
+          1593,
+          "#define DT_N_S_clocks_S_clk_msis_P_status_FOREACH_PROP_ELEM_VARGS(fn, ...) fn(DT_N_S_clocks_S_clk_msis, status, 0, __VA_ARGS__)"
+        ],
+        [
+          1594,
+          "#define DT_N_S_clocks_S_clk_msis_P_status_FOREACH_PROP_ELEM_SEP_VARGS(fn, sep, ...) fn(DT_N_S_clocks_S_clk_msis, status, 0, __VA_ARGS__)"
+        ],
+        [
+          1595,
+          "#define DT_N_S_clocks_S_clk_msis_P_status_LEN 1"
+        ],
+        [
+          1596,
+          "#define DT_N_S_clocks_S_clk_msis_P_status_EXISTS 1"
+        ],
+        [
+          1597,
+          "#define DT_N_S_clocks_S_clk_msis_P_compatible {\"st,stm32u5-msi-clock\"}"
+        ],
+        [
+          1598,
+          "#define DT_N_S_clocks_S_clk_msis_P_compatible_IDX_0_EXISTS 1"
+        ],
+        [
+          1599,
+          "#define DT_N_S_clocks_S_clk_msis_P_compatible_IDX_0 \"st,stm32u5-msi-clock\""
+        ],
+        [
+          1600,
+          "#define DT_N_S_clocks_S_clk_msis_P_compatible_IDX_0_STRING_UNQUOTED st,stm32u5-msi-clock"
+        ],
+        [
+          1601,
+          "#define DT_N_S_clocks_S_clk_msis_P_compatible_IDX_0_STRING_TOKEN st_stm32u5_msi_clock"
+        ],
+        [
+          1602,
+          "#define DT_N_S_clocks_S_clk_msis_P_compatible_IDX_0_STRING_UPPER_TOKEN ST_STM32U5_MSI_CLOCK"
+        ],
+        [
+          1603,
+          "#define DT_N_S_clocks_S_clk_msis_P_compatible_FOREACH_PROP_ELEM(fn) fn(DT_N_S_clocks_S_clk_msis, compatible, 0)"
+        ],
+        [
+          1604,
+          "#define DT_N_S_clocks_S_clk_msis_P_compatible_FOREACH_PROP_ELEM_SEP(fn, sep) fn(DT_N_S_clocks_S_clk_msis, compatible, 0)"
+        ],
+        [
+          1605,
+          "#define DT_N_S_clocks_S_clk_msis_P_compatible_FOREACH_PROP_ELEM_VARGS(fn, ...) fn(DT_N_S_clocks_S_clk_msis, compatible, 0, __VA_ARGS__)"
+        ],
+        [
+          1606,
+          "#define DT_N_S_clocks_S_clk_msis_P_compatible_FOREACH_PROP_ELEM_SEP_VARGS(fn, sep, ...) fn(DT_N_S_clocks_S_clk_msis, compatible, 0, __VA_ARGS__)"
+        ],
+        [
+          1607,
+          "#define DT_N_S_clocks_S_clk_msis_P_compatible_LEN 1"
+        ],
+        [
+          1608,
+          "#define DT_N_S_clocks_S_clk_msis_P_compatible_EXISTS 1"
+        ],
+        [
+          1609,
+          "#define DT_N_S_clocks_S_clk_msis_P_zephyr_deferred_init 0"
+        ],
+        [
+          1610,
+          "#define DT_N_S_clocks_S_clk_msis_P_zephyr_deferred_init_EXISTS 1"
+        ],
+        [
+          1611,
+          "#define DT_N_S_clocks_S_clk_msis_P_wakeup_source 0"
+        ],
+        [
+          1612,
+          "#define DT_N_S_clocks_S_clk_msis_P_wakeup_source_EXISTS 1"
+        ],
+        [
+          1613,
+          "#define DT_N_S_clocks_S_clk_msis_P_zephyr_pm_device_runtime_auto 0"
+        ],
+        [
+          1614,
+          "#define DT_N_S_clocks_S_clk_msis_P_zephyr_pm_device_runtime_auto_EXISTS 1"
+        ],
+        [
+          1705,
+          "#define DT_N_S_clocks_S_pll_P_clocks_IDX_0_PH DT_N_S_clocks_S_clk_msis"
+        ],
+        [
+          21816,
+          " * Node identifier: DT_N_S_clocks_S_clk_msik"
+        ],
+        [
+          21826,
+          "#define DT_N_S_clocks_S_clk_msik_PATH \"/clocks/clk-msik\""
+        ],
+        [
+          21829,
+          "#define DT_N_S_clocks_S_clk_msik_FULL_NAME \"clk-msik\""
+        ],
+        [
+          21830,
+          "#define DT_N_S_clocks_S_clk_msik_FULL_NAME_UNQUOTED clk-msik"
+        ],
+        [
+          21831,
+          "#define DT_N_S_clocks_S_clk_msik_FULL_NAME_TOKEN clk_msik"
+        ],
+        [
+          21832,
+          "#define DT_N_S_clocks_S_clk_msik_FULL_NAME_UPPER_TOKEN CLK_MSIK"
+        ],
+        [
+          21835,
+          "#define DT_N_S_clocks_S_clk_msik_PARENT DT_N_S_clocks"
+        ],
+        [
+          21838,
+          "#define DT_N_S_clocks_S_clk_msik_CHILD_IDX 4"
+        ],
+        [
+          21841,
+          "#define DT_N_S_clocks_S_clk_msik_NODELABEL_NUM 1"
+        ],
+        [
+          21842,
+          "#define DT_N_S_clocks_S_clk_msik_FOREACH_NODELABEL(fn) fn(clk_msik)"
+        ],
+        [
+          21843,
+          "#define DT_N_S_clocks_S_clk_msik_FOREACH_NODELABEL_VARGS(fn, ...) fn(clk_msik, __VA_ARGS__)"
+        ],
+        [
+          21844,
+          "#define DT_N_S_clocks_S_clk_msik_FOREACH_ANCESTOR(fn) fn(DT_N_S_clocks) fn(DT_N)"
+        ],
+        [
+          21847,
+          "#define DT_N_S_clocks_S_clk_msik_CHILD_NUM 0"
+        ],
+        [
+          21848,
+          "#define DT_N_S_clocks_S_clk_msik_CHILD_NUM_STATUS_OKAY 0"
+        ],
+        [
+          21849,
+          "#define DT_N_S_clocks_S_clk_msik_FOREACH_CHILD(fn) "
+        ],
+        [
+          21850,
+          "#define DT_N_S_clocks_S_clk_msik_FOREACH_CHILD_SEP(fn, sep) "
+        ],
+        [
+          21851,
+          "#define DT_N_S_clocks_S_clk_msik_FOREACH_CHILD_VARGS(fn, ...) "
+        ],
+        [
+          21852,
+          "#define DT_N_S_clocks_S_clk_msik_FOREACH_CHILD_SEP_VARGS(fn, sep, ...) "
+        ],
+        [
+          21853,
+          "#define DT_N_S_clocks_S_clk_msik_FOREACH_CHILD_STATUS_OKAY(fn) "
+        ],
+        [
+          21854,
+          "#define DT_N_S_clocks_S_clk_msik_FOREACH_CHILD_STATUS_OKAY_SEP(fn, sep) "
+        ],
+        [
+          21855,
+          "#define DT_N_S_clocks_S_clk_msik_FOREACH_CHILD_STATUS_OKAY_VARGS(fn, ...) "
+        ],
+        [
+          21856,
+          "#define DT_N_S_clocks_S_clk_msik_FOREACH_CHILD_STATUS_OKAY_SEP_VARGS(fn, sep, ...) "
+        ],
+        [
+          21859,
+          "#define DT_N_S_clocks_S_clk_msik_HASH 7qU6EROR0oV1In6AtcjhDn6HbRnkvSkRxmeYxM0ogXY"
+        ],
+        [
+          21862,
+          "#define DT_N_S_clocks_S_clk_msik_ORD 130"
+        ],
+        [
+          21863,
+          "#define DT_N_S_clocks_S_clk_msik_ORD_STR_SORTABLE 00130"
+        ],
+        [
+          21866,
+          "#define DT_N_S_clocks_S_clk_msik_REQUIRES_ORDS \\"
+        ],
+        [
+          21870,
+          "#define DT_N_S_clocks_S_clk_msik_SUPPORTS_ORDS"
+        ],
+        [
+          21873,
+          "#define DT_N_S_clocks_S_clk_msik_EXISTS 1"
+        ],
+        [
+          21874,
+          "#define DT_N_INST_1_st_stm32u5_msi_clock DT_N_S_clocks_S_clk_msik"
+        ],
+        [
+          21875,
+          "#define DT_N_NODELABEL_clk_msik          DT_N_S_clocks_S_clk_msik"
+        ],
+        [
+          21878,
+          "#define DT_N_S_clocks_S_clk_msik_REG_NUM 0"
+        ],
+        [
+          21879,
+          "#define DT_N_S_clocks_S_clk_msik_FOREACH_REG(fn) "
+        ],
+        [
+          21880,
+          "#define DT_N_S_clocks_S_clk_msik_FOREACH_REG_SEP(fn, sep) "
+        ],
+        [
+          21881,
+          "#define DT_N_S_clocks_S_clk_msik_FOREACH_REG_VARGS(fn, ...) "
+        ],
+        [
+          21882,
+          "#define DT_N_S_clocks_S_clk_msik_FOREACH_REG_SEP_VARGS(fn, sep, ...) "
+        ],
+        [
+          21883,
+          "#define DT_N_S_clocks_S_clk_msik_RANGES_NUM 0"
+        ],
+        [
+          21884,
+          "#define DT_N_S_clocks_S_clk_msik_FOREACH_RANGE(fn) "
+        ],
+        [
+          21885,
+          "#define DT_N_S_clocks_S_clk_msik_IRQ_NUM 0"
+        ],
+        [
+          21886,
+          "#define DT_N_S_clocks_S_clk_msik_IRQ_LEVEL 0"
+        ],
+        [
+          21887,
+          "#define DT_N_S_clocks_S_clk_msik_COMPAT_MATCHES_st_stm32u5_msi_clock 1"
+        ],
+        [
+          21888,
+          "#define DT_N_S_clocks_S_clk_msik_COMPAT_VENDOR_IDX_0_EXISTS 1"
+        ],
+        [
+          21889,
+          "#define DT_N_S_clocks_S_clk_msik_COMPAT_VENDOR_IDX_0 \"STMicroelectronics\""
+        ],
+        [
+          21890,
+          "#define DT_N_S_clocks_S_clk_msik_COMPAT_MODEL_IDX_0_EXISTS 1"
+        ],
+        [
+          21891,
+          "#define DT_N_S_clocks_S_clk_msik_COMPAT_MODEL_IDX_0 \"stm32u5-msi-clock\""
+        ],
+        [
+          21892,
+          "#define DT_N_S_clocks_S_clk_msik_STATUS_disabled 1"
+        ],
+        [
+          21895,
+          "#define DT_N_S_clocks_S_clk_msik_PINCTRL_NUM 0"
+        ],
+        [
+          21898,
+          "#define DT_N_S_clocks_S_clk_msik_P_msi_range 4"
+        ],
+        [
+          21899,
+          "#define DT_N_S_clocks_S_clk_msik_P_msi_range_IDX_0_ENUM_IDX 4"
+        ],
+        [
+          21900,
+          "#define DT_N_S_clocks_S_clk_msik_P_msi_range_IDX_0_EXISTS 1"
+        ],
+        [
+          21901,
+          "#define DT_N_S_clocks_S_clk_msik_P_msi_range_IDX_0_ENUM_VAL_4_EXISTS 1"
+        ],
+        [
+          21902,
+          "#define DT_N_S_clocks_S_clk_msik_P_msi_range_ENUM_VAL_4_EXISTS 1"
+        ],
+        [
+          21903,
+          "#define DT_N_S_clocks_S_clk_msik_P_msi_range_EXISTS 1"
+        ],
+        [
+          21904,
+          "#define DT_N_S_clocks_S_clk_msik_P_msi_pll_mode 0"
+        ],
+        [
+          21905,
+          "#define DT_N_S_clocks_S_clk_msik_P_msi_pll_mode_EXISTS 1"
+        ],
+        [
+          21906,
+          "#define DT_N_S_clocks_S_clk_msik_P_status \"disabled\""
+        ],
+        [
+          21907,
+          "#define DT_N_S_clocks_S_clk_msik_P_status_STRING_UNQUOTED disabled"
+        ],
+        [
+          21908,
+          "#define DT_N_S_clocks_S_clk_msik_P_status_STRING_TOKEN disabled"
+        ],
+        [
+          21909,
+          "#define DT_N_S_clocks_S_clk_msik_P_status_STRING_UPPER_TOKEN DISABLED"
+        ],
+        [
+          21910,
+          "#define DT_N_S_clocks_S_clk_msik_P_status_IDX_0 \"disabled\""
+        ],
+        [
+          21911,
+          "#define DT_N_S_clocks_S_clk_msik_P_status_IDX_0_EXISTS 1"
+        ],
+        [
+          21912,
+          "#define DT_N_S_clocks_S_clk_msik_P_status_IDX_0_ENUM_IDX 1"
+        ],
+        [
+          21913,
+          "#define DT_N_S_clocks_S_clk_msik_P_status_IDX_0_ENUM_VAL_disabled_EXISTS 1"
+        ],
+        [
+          21914,
+          "#define DT_N_S_clocks_S_clk_msik_P_status_ENUM_VAL_disabled_EXISTS 1"
+        ],
+        [
+          21915,
+          "#define DT_N_S_clocks_S_clk_msik_P_status_FOREACH_PROP_ELEM(fn) fn(DT_N_S_clocks_S_clk_msik, status, 0)"
+        ],
+        [
+          21916,
+          "#define DT_N_S_clocks_S_clk_msik_P_status_FOREACH_PROP_ELEM_SEP(fn, sep) fn(DT_N_S_clocks_S_clk_msik, status, 0)"
+        ],
+        [
+          21917,
+          "#define DT_N_S_clocks_S_clk_msik_P_status_FOREACH_PROP_ELEM_VARGS(fn, ...) fn(DT_N_S_clocks_S_clk_msik, status, 0, __VA_ARGS__)"
+        ],
+        [
+          21918,
+          "#define DT_N_S_clocks_S_clk_msik_P_status_FOREACH_PROP_ELEM_SEP_VARGS(fn, sep, ...) fn(DT_N_S_clocks_S_clk_msik, status, 0, __VA_ARGS__)"
+        ],
+        [
+          21919,
+          "#define DT_N_S_clocks_S_clk_msik_P_status_LEN 1"
+        ],
+        [
+          21920,
+          "#define DT_N_S_clocks_S_clk_msik_P_status_EXISTS 1"
+        ],
+        [
+          21921,
+          "#define DT_N_S_clocks_S_clk_msik_P_compatible {\"st,stm32u5-msi-clock\"}"
+        ],
+        [
+          21922,
+          "#define DT_N_S_clocks_S_clk_msik_P_compatible_IDX_0_EXISTS 1"
+        ],
+        [
+          21923,
+          "#define DT_N_S_clocks_S_clk_msik_P_compatible_IDX_0 \"st,stm32u5-msi-clock\""
+        ],
+        [
+          21924,
+          "#define DT_N_S_clocks_S_clk_msik_P_compatible_IDX_0_STRING_UNQUOTED st,stm32u5-msi-clock"
+        ],
+        [
+          21925,
+          "#define DT_N_S_clocks_S_clk_msik_P_compatible_IDX_0_STRING_TOKEN st_stm32u5_msi_clock"
+        ],
+        [
+          21926,
+          "#define DT_N_S_clocks_S_clk_msik_P_compatible_IDX_0_STRING_UPPER_TOKEN ST_STM32U5_MSI_CLOCK"
+        ],
+        [
+          21927,
+          "#define DT_N_S_clocks_S_clk_msik_P_compatible_FOREACH_PROP_ELEM(fn) fn(DT_N_S_clocks_S_clk_msik, compatible, 0)"
+        ],
+        [
+          21928,
+          "#define DT_N_S_clocks_S_clk_msik_P_compatible_FOREACH_PROP_ELEM_SEP(fn, sep) fn(DT_N_S_clocks_S_clk_msik, compatible, 0)"
+        ],
+        [
+          21929,
+          "#define DT_N_S_clocks_S_clk_msik_P_compatible_FOREACH_PROP_ELEM_VARGS(fn, ...) fn(DT_N_S_clocks_S_clk_msik, compatible, 0, __VA_ARGS__)"
+        ],
+        [
+          21930,
+          "#define DT_N_S_clocks_S_clk_msik_P_compatible_FOREACH_PROP_ELEM_SEP_VARGS(fn, sep, ...) fn(DT_N_S_clocks_S_clk_msik, compatible, 0, __VA_ARGS__)"
+        ],
+        [
+          21931,
+          "#define DT_N_S_clocks_S_clk_msik_P_compatible_LEN 1"
+        ],
+        [
+          21932,
+          "#define DT_N_S_clocks_S_clk_msik_P_compatible_EXISTS 1"
+        ],
+        [
+          21933,
+          "#define DT_N_S_clocks_S_clk_msik_P_zephyr_deferred_init 0"
+        ],
+        [
+          21934,
+          "#define DT_N_S_clocks_S_clk_msik_P_zephyr_deferred_init_EXISTS 1"
+        ],
+        [
+          21935,
+          "#define DT_N_S_clocks_S_clk_msik_P_wakeup_source 0"
+        ],
+        [
+          21936,
+          "#define DT_N_S_clocks_S_clk_msik_P_wakeup_source_EXISTS 1"
+        ],
+        [
+          21937,
+          "#define DT_N_S_clocks_S_clk_msik_P_zephyr_pm_device_runtime_auto 0"
+        ],
+        [
+          21938,
+          "#define DT_N_S_clocks_S_clk_msik_P_zephyr_pm_device_runtime_auto_EXISTS 1"
+        ],
+        [
+          37817,
+          "#define DT_FOREACH_HELPER(fn) fn(DT_N) fn(DT_N_S_chosen) fn(DT_N_S_aliases) fn(DT_N_S_soc) fn(DT_N_S_soc_S_interrupt_controller_e000e100) fn(DT_N_S_soc_S_timer_e000e010) fn(DT_N_S_soc_S_flash_controller_40022000) fn(DT_N_S_soc_S_flash_controller_40022000_S_flash_8000000) fn(DT_N_S_soc_S_flash_controller_40022000_S_flash_8000000_S_partitions) fn(DT_N_S_soc_S_flash_controller_40022000_S_flash_8000000_S_partitions_S_partition_0) fn(DT_N_S_soc_S_flash_controller_40022000_S_flash_8000000_S_partitions_S_partition_10000) fn(DT_N_S_soc_S_flash_controller_40022000_S_flash_8000000_S_partitions_S_partition_d0000) fn(DT_N_S_soc_S_flash_controller_40022000_S_flash_8000000_S_partitions_S_partition_100000) fn(DT_N_S_soc_S_flash_controller_40022000_S_flash_8000000_S_partitions_S_partition_1c0000) fn(DT_N_S_soc_S_flash_controller_40022000_S_flash_bfa0000) fn(DT_N_S_soc_S_flash_controller_40022000_S_flash_bfa0500) fn(DT_N_S_soc_S_flash_controller_40022000_S_flash_bfa0500_S_nvmem_layout) fn(DT_N_S_soc_S_flash_controller_40022000_S_flash_bfa0500_S_nvmem_layout_S_ts_cal1_210) fn(DT_N_S_soc_S_flash_controller_40022000_S_flash_bfa0500_S_nvmem_layout_S_ts_cal2_242) fn(DT_N_S_soc_S_flash_controller_40022000_S_flash_bfa0500_S_nvmem_layout_S_vrefint_2a5) fn(DT_N_S_soc_S_rcc_46020c00) fn(DT_N_S_soc_S_rcc_46020c00_S_reset_controller) fn(DT_N_S_soc_S_interrupt_controller_46022000) fn(DT_N_S_soc_S_pin_controller_42020000) fn(DT_N_S_soc_S_pin_controller_42020000_S_gpio_42020000) fn(DT_N_S_soc_S_pin_controller_42020000_S_gpio_42020400) fn(DT_N_S_soc_S_pin_controller_42020000_S_gpio_42020800) fn(DT_N_S_soc_S_pin_controller_42020000_S_gpio_42020c00) fn(DT_N_S_soc_S_pin_controller_42020000_S_gpio_42021000) fn(DT_N_S_soc_S_pin_controller_42020000_S_gpio_42021800) fn(DT_N_S_soc_S_pin_controller_42020000_S_gpio_42021c00) fn(DT_N_S_soc_S_pin_controller_42020000_S_adc1_in9_pa4) fn(DT_N_S_soc_S_pin_controller_42020000_S_adc1_in10_pa5) fn(DT_N_S_soc_S_pin_controller_42020000_S_adc1_in11_pa6) fn(DT_N_S_soc_S_pin_controller_42020000_S_adc1_in12_pa7) fn(DT_N_S_soc_S_pin_controller_42020000_S_adc1_in1_pc0) fn(DT_N_S_soc_S_pin_controller_42020000_S_adc1_in2_pc1) fn(DT_N_S_soc_S_pin_controller_42020000_S_analog_pa13) fn(DT_N_S_soc_S_pin_controller_42020000_S_analog_pa14) fn(DT_N_S_soc_S_pin_controller_42020000_S_analog_pa15) fn(DT_N_S_soc_S_pin_controller_42020000_S_analog_pb3) fn(DT_N_S_soc_S_pin_controller_42020000_S_analog_pb4) fn(DT_N_S_soc_S_pin_controller_42020000_S_dac1_out1_pa4) fn(DT_N_S_soc_S_pin_controller_42020000_S_dac1_out2_pa5) fn(DT_N_S_soc_S_pin_controller_42020000_S_fdcan1_rx_pa11) fn(DT_N_S_soc_S_pin_controller_42020000_S_fdcan1_tx_pa12) fn(DT_N_S_soc_S_pin_controller_42020000_S_i2c2_scl_pb10) fn(DT_N_S_soc_S_pin_controller_42020000_S_i2c3_scl_pc0) fn(DT_N_S_soc_S_pin_controller_42020000_S_i2c4_scl_pd12) fn(DT_N_S_soc_S_pin_controller_42020000_S_i2c4_scl_pf14) fn(DT_N_S_soc_S_pin_controller_42020000_S_i2c2_sda_pb11) fn(DT_N_S_soc_S_pin_controller_42020000_S_i2c3_sda_pc1) fn(DT_N_S_soc_S_pin_controller_42020000_S_i2c4_sda_pd13) fn(DT_N_S_soc_S_pin_controller_42020000_S_i2c4_sda_pf15) fn(DT_N_S_soc_S_pin_controller_42020000_S_debug_jtms_swdio_pa13) fn(DT_N_S_soc_S_pin_controller_42020000_S_debug_jtck_swclk_pa14) fn(DT_N_S_soc_S_pin_controller_42020000_S_debug_jtdi_pa15) fn(DT_N_S_soc_S_pin_controller_42020000_S_debug_jtdo_swo_pb3) fn(DT_N_S_soc_S_pin_controller_42020000_S_debug_njtrst_pb4) fn(DT_N_S_soc_S_pin_controller_42020000_S_rcc_mco_pa8) fn(DT_N_S_soc_S_pin_controller_42020000_S_spi2_miso_pb14) fn(DT_N_S_soc_S_pin_controller_42020000_S_spi3_miso_pg10) fn(DT_N_S_soc_S_pin_controller_42020000_S_spi2_mosi_pb15) fn(DT_N_S_soc_S_pin_controller_42020000_S_spi3_mosi_pb5) fn(DT_N_S_soc_S_pin_controller_42020000_S_spi2_nss_pb9) fn(DT_N_S_soc_S_pin_controller_42020000_S_spi3_nss_pg12) fn(DT_N_S_soc_S_pin_controller_42020000_S_spi2_sck_pb13) fn(DT_N_S_soc_S_pin_controller_42020000_S_spi3_sck_pg9) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim1_ch4_pa11) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim1_ch1n_pb13) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim1_ch2n_pb14) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim1_ch3n_pb15) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim2_ch2_pb3) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim2_ch3_pb10) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim2_ch4_pb11) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim3_ch3_pb0) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim3_ch4_pb1) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim3_ch1_pb4) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim4_ch3_pb8) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim4_ch4_pb9) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim5_ch1_ph10) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim5_ch2_ph11) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim5_ch3_ph12) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim8_ch4n_pb2) fn(DT_N_S_soc_S_pin_controller_42020000_S_lpuart1_cts_pg5) fn(DT_N_S_soc_S_pin_controller_42020000_S_lpuart1_rts_pg6) fn(DT_N_S_soc_S_pin_controller_42020000_S_usart1_rx_pb7) fn(DT_N_S_soc_S_pin_controller_42020000_S_lpuart1_rx_pg8) fn(DT_N_S_soc_S_pin_controller_42020000_S_usart3_rx_pb11) fn(DT_N_S_soc_S_pin_controller_42020000_S_usart1_tx_pb6) fn(DT_N_S_soc_S_pin_controller_42020000_S_lpuart1_tx_pg7) fn(DT_N_S_soc_S_pin_controller_42020000_S_usart3_tx_pb10) fn(DT_N_S_soc_S_pin_controller_42020000_S_usb_otg_fs_dm_pa11) fn(DT_N_S_soc_S_pin_controller_42020000_S_usb_otg_fs_dp_pa12) fn(DT_N_S_soc_S_watchdog_40003000) fn(DT_N_S_soc_S_watchdog_40002c00) fn(DT_N_S_soc_S_memory_40036400) fn(DT_N_S_soc_S_serial_40013800) fn(DT_N_S_soc_S_serial_40004800) fn(DT_N_S_soc_S_serial_40004c00) fn(DT_N_S_soc_S_serial_40005000) fn(DT_N_S_soc_S_serial_46002400) fn(DT_N_S_soc_S_spi_40013000) fn(DT_N_S_soc_S_spi_40003800) fn(DT_N_S_soc_S_spi_46002000) fn(DT_N_S_soc_S_spi_46002000_S_device_0) fn(DT_N_S_soc_S_i2c_40005400) fn(DT_N_S_soc_S_i2c_40005800) fn(DT_N_S_soc_S_i2c_46002800) fn(DT_N_S_soc_S_i2c_40008400) fn(DT_N_S_soc_S_timers_46004400) fn(DT_N_S_soc_S_timers_40009400) fn(DT_N_S_soc_S_timers_46004800) fn(DT_N_S_soc_S_timers_46004c00) fn(DT_N_S_soc_S_rtc_46007800) fn(DT_N_S_soc_S_sai1_40015404) fn(DT_N_S_soc_S_sai1_40015424) fn(DT_N_S_soc_S_timers_40012c00) fn(DT_N_S_soc_S_timers_40012c00_S_pwm) fn(DT_N_S_soc_S_timers_40012c00_S_counter) fn(DT_N_S_soc_S_timers_40012c00_S_qdec) fn(DT_N_S_soc_S_timers_40000000) fn(DT_N_S_soc_S_timers_40000000_S_pwm) fn(DT_N_S_soc_S_timers_40000000_S_counter) fn(DT_N_S_soc_S_timers_40000000_S_qdec) fn(DT_N_S_soc_S_timers_40000400) fn(DT_N_S_soc_S_timers_40000400_S_pwm) fn(DT_N_S_soc_S_timers_40000400_S_counter) fn(DT_N_S_soc_S_timers_40000400_S_qdec) fn(DT_N_S_soc_S_timers_40000800) fn(DT_N_S_soc_S_timers_40000800_S_pwm) fn(DT_N_S_soc_S_timers_40000800_S_counter) fn(DT_N_S_soc_S_timers_40000800_S_qdec) fn(DT_N_S_soc_S_timers_40000c00) fn(DT_N_S_soc_S_timers_40000c00_S_pwm) fn(DT_N_S_soc_S_timers_40000c00_S_counter) fn(DT_N_S_soc_S_timers_40000c00_S_qdec) fn(DT_N_S_soc_S_timers_40001000) fn(DT_N_S_soc_S_timers_40001000_S_pwm) fn(DT_N_S_soc_S_timers_40001000_S_counter) fn(DT_N_S_soc_S_timers_40001400) fn(DT_N_S_soc_S_timers_40001400_S_pwm) fn(DT_N_S_soc_S_timers_40001400_S_counter) fn(DT_N_S_soc_S_timers_40013400) fn(DT_N_S_soc_S_timers_40013400_S_pwm) fn(DT_N_S_soc_S_timers_40013400_S_counter) fn(DT_N_S_soc_S_timers_40013400_S_qdec) fn(DT_N_S_soc_S_timers_40014000) fn(DT_N_S_soc_S_timers_40014000_S_pwm) fn(DT_N_S_soc_S_timers_40014000_S_counter) fn(DT_N_S_soc_S_timers_40014400) fn(DT_N_S_soc_S_timers_40014400_S_pwm) fn(DT_N_S_soc_S_timers_40014400_S_counter) fn(DT_N_S_soc_S_timers_40014800) fn(DT_N_S_soc_S_timers_40014800_S_pwm) fn(DT_N_S_soc_S_timers_40014800_S_counter) fn(DT_N_S_soc_S_spi_420d1400) fn(DT_N_S_soc_S_spi_420d2400) fn(DT_N_S_soc_S_rng_420c0800) fn(DT_N_S_soc_S_sdmmc_420c8000) fn(DT_N_S_soc_S_dac_46021800) fn(DT_N_S_soc_S_adc_42028000) fn(DT_N_S_soc_S_adc_42028000_S_channel_1) fn(DT_N_S_soc_S_adc_42028000_S_channel_2) fn(DT_N_S_soc_S_adc_42028000_S_channel_9) fn(DT_N_S_soc_S_adc_42028000_S_channel_a) fn(DT_N_S_soc_S_adc_42028000_S_channel_b) fn(DT_N_S_soc_S_adc_42028000_S_channel_c) fn(DT_N_S_soc_S_adc_46021000) fn(DT_N_S_soc_S_can_4000a400) fn(DT_N_S_soc_S_dma_40020000) fn(DT_N_S_soc_S_hash_420c0400) fn(DT_N_S_soc_S_vrefbuf_46007400) fn(DT_N_S_soc_S_dcmi_4202c000) fn(DT_N_S_soc_S_power_46020800) fn(DT_N_S_soc_S_power_46020800_S_wkup_pin_1) fn(DT_N_S_soc_S_power_46020800_S_wkup_pin_2) fn(DT_N_S_soc_S_power_46020800_S_wkup_pin_3) fn(DT_N_S_soc_S_power_46020800_S_wkup_pin_4) fn(DT_N_S_soc_S_power_46020800_S_wkup_pin_5) fn(DT_N_S_soc_S_power_46020800_S_wkup_pin_6) fn(DT_N_S_soc_S_power_46020800_S_wkup_pin_7) fn(DT_N_S_soc_S_power_46020800_S_wkup_pin_8) fn(DT_N_S_soc_S_crc_40023000) fn(DT_N_S_soc_S_serial_40004400) fn(DT_N_S_soc_S_gpio_42021400) fn(DT_N_S_soc_S_gpio_42022000) fn(DT_N_S_soc_S_sdmmc_420c8c00) fn(DT_N_S_soc_S_memory_controller_420d0400) fn(DT_N_S_soc_S_memory_controller_420d0400_S_sram) fn(DT_N_S_soc_S_ucpd_4000dc00) fn(DT_N_S_soc_S_otgfs_42040000) fn(DT_N_S_soc_S_aes_420c0000) fn(DT_N_S_cpus) fn(DT_N_S_cpus_S_cpu_0) fn(DT_N_S_cpus_S_cpu_0_S_mpu_e000ed90) fn(DT_N_S_cpus_S_power_states) fn(DT_N_S_cpus_S_power_states_S_state0) fn(DT_N_S_cpus_S_power_states_S_state1) fn(DT_N_S_cpus_S_power_states_S_state2) fn(DT_N_S_memory_20000000) fn(DT_N_S_clocks) fn(DT_N_S_clocks_S_clk_hse) fn(DT_N_S_clocks_S_clk_hsi) fn(DT_N_S_clocks_S_clk_hsi48) fn(DT_N_S_clocks_S_clk_msis) fn(DT_N_S_clocks_S_clk_msik) fn(DT_N_S_clocks_S_clk_lse) fn(DT_N_S_clocks_S_clk_lsi) fn(DT_N_S_clocks_S_pll) fn(DT_N_S_clocks_S_pll2) fn(DT_N_S_clocks_S_pll3) fn(DT_N_S_mcos) fn(DT_N_S_mcos_S_mco1) fn(DT_N_S_swj_port) fn(DT_N_S_dietemp) fn(DT_N_S_vref_1) fn(DT_N_S_vref_4) fn(DT_N_S_vbat_1) fn(DT_N_S_vbat_4) fn(DT_N_S_smbus1) fn(DT_N_S_smbus2) fn(DT_N_S_smbus3) fn(DT_N_S_smbus4) fn(DT_N_S_otgfs_phy) fn(DT_N_S_memory_28000000) fn(DT_N_S_connector) fn(DT_N_S_leds) fn(DT_N_S_leds_S_led3_red) fn(DT_N_S_leds_S_led3_green) fn(DT_N_S_leds_S_led3_blue) fn(DT_N_S_leds_S_led4_red) fn(DT_N_S_leds_S_led4_green) fn(DT_N_S_leds_S_led4_blue) fn(DT_N_S_zephyr_user)"
+        ],
+        [
+          37818,
+          "#define DT_FOREACH_OKAY_HELPER(fn) fn(DT_N) fn(DT_N_S_chosen) fn(DT_N_S_aliases) fn(DT_N_S_soc) fn(DT_N_S_soc_S_interrupt_controller_e000e100) fn(DT_N_S_soc_S_timer_e000e010) fn(DT_N_S_soc_S_flash_controller_40022000) fn(DT_N_S_soc_S_flash_controller_40022000_S_flash_8000000) fn(DT_N_S_soc_S_flash_controller_40022000_S_flash_8000000_S_partitions) fn(DT_N_S_soc_S_flash_controller_40022000_S_flash_8000000_S_partitions_S_partition_0) fn(DT_N_S_soc_S_flash_controller_40022000_S_flash_8000000_S_partitions_S_partition_10000) fn(DT_N_S_soc_S_flash_controller_40022000_S_flash_8000000_S_partitions_S_partition_d0000) fn(DT_N_S_soc_S_flash_controller_40022000_S_flash_8000000_S_partitions_S_partition_100000) fn(DT_N_S_soc_S_flash_controller_40022000_S_flash_8000000_S_partitions_S_partition_1c0000) fn(DT_N_S_soc_S_flash_controller_40022000_S_flash_bfa0500) fn(DT_N_S_soc_S_flash_controller_40022000_S_flash_bfa0500_S_nvmem_layout) fn(DT_N_S_soc_S_flash_controller_40022000_S_flash_bfa0500_S_nvmem_layout_S_ts_cal1_210) fn(DT_N_S_soc_S_flash_controller_40022000_S_flash_bfa0500_S_nvmem_layout_S_ts_cal2_242) fn(DT_N_S_soc_S_flash_controller_40022000_S_flash_bfa0500_S_nvmem_layout_S_vrefint_2a5) fn(DT_N_S_soc_S_rcc_46020c00) fn(DT_N_S_soc_S_rcc_46020c00_S_reset_controller) fn(DT_N_S_soc_S_interrupt_controller_46022000) fn(DT_N_S_soc_S_pin_controller_42020000) fn(DT_N_S_soc_S_pin_controller_42020000_S_gpio_42020000) fn(DT_N_S_soc_S_pin_controller_42020000_S_gpio_42020400) fn(DT_N_S_soc_S_pin_controller_42020000_S_gpio_42020800) fn(DT_N_S_soc_S_pin_controller_42020000_S_gpio_42020c00) fn(DT_N_S_soc_S_pin_controller_42020000_S_gpio_42021000) fn(DT_N_S_soc_S_pin_controller_42020000_S_gpio_42021800) fn(DT_N_S_soc_S_pin_controller_42020000_S_gpio_42021c00) fn(DT_N_S_soc_S_pin_controller_42020000_S_adc1_in9_pa4) fn(DT_N_S_soc_S_pin_controller_42020000_S_adc1_in10_pa5) fn(DT_N_S_soc_S_pin_controller_42020000_S_adc1_in11_pa6) fn(DT_N_S_soc_S_pin_controller_42020000_S_adc1_in12_pa7) fn(DT_N_S_soc_S_pin_controller_42020000_S_adc1_in1_pc0) fn(DT_N_S_soc_S_pin_controller_42020000_S_adc1_in2_pc1) fn(DT_N_S_soc_S_pin_controller_42020000_S_analog_pa13) fn(DT_N_S_soc_S_pin_controller_42020000_S_analog_pa14) fn(DT_N_S_soc_S_pin_controller_42020000_S_analog_pa15) fn(DT_N_S_soc_S_pin_controller_42020000_S_analog_pb3) fn(DT_N_S_soc_S_pin_controller_42020000_S_analog_pb4) fn(DT_N_S_soc_S_pin_controller_42020000_S_dac1_out1_pa4) fn(DT_N_S_soc_S_pin_controller_42020000_S_dac1_out2_pa5) fn(DT_N_S_soc_S_pin_controller_42020000_S_fdcan1_rx_pa11) fn(DT_N_S_soc_S_pin_controller_42020000_S_fdcan1_tx_pa12) fn(DT_N_S_soc_S_pin_controller_42020000_S_i2c2_scl_pb10) fn(DT_N_S_soc_S_pin_controller_42020000_S_i2c3_scl_pc0) fn(DT_N_S_soc_S_pin_controller_42020000_S_i2c4_scl_pd12) fn(DT_N_S_soc_S_pin_controller_42020000_S_i2c4_scl_pf14) fn(DT_N_S_soc_S_pin_controller_42020000_S_i2c2_sda_pb11) fn(DT_N_S_soc_S_pin_controller_42020000_S_i2c3_sda_pc1) fn(DT_N_S_soc_S_pin_controller_42020000_S_i2c4_sda_pd13) fn(DT_N_S_soc_S_pin_controller_42020000_S_i2c4_sda_pf15) fn(DT_N_S_soc_S_pin_controller_42020000_S_debug_jtms_swdio_pa13) fn(DT_N_S_soc_S_pin_controller_42020000_S_debug_jtck_swclk_pa14) fn(DT_N_S_soc_S_pin_controller_42020000_S_debug_jtdi_pa15) fn(DT_N_S_soc_S_pin_controller_42020000_S_debug_jtdo_swo_pb3) fn(DT_N_S_soc_S_pin_controller_42020000_S_debug_njtrst_pb4) fn(DT_N_S_soc_S_pin_controller_42020000_S_rcc_mco_pa8) fn(DT_N_S_soc_S_pin_controller_42020000_S_spi2_miso_pb14) fn(DT_N_S_soc_S_pin_controller_42020000_S_spi3_miso_pg10) fn(DT_N_S_soc_S_pin_controller_42020000_S_spi2_mosi_pb15) fn(DT_N_S_soc_S_pin_controller_42020000_S_spi3_mosi_pb5) fn(DT_N_S_soc_S_pin_controller_42020000_S_spi2_nss_pb9) fn(DT_N_S_soc_S_pin_controller_42020000_S_spi3_nss_pg12) fn(DT_N_S_soc_S_pin_controller_42020000_S_spi2_sck_pb13) fn(DT_N_S_soc_S_pin_controller_42020000_S_spi3_sck_pg9) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim1_ch4_pa11) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim1_ch1n_pb13) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim1_ch2n_pb14) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim1_ch3n_pb15) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim2_ch2_pb3) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim2_ch3_pb10) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim2_ch4_pb11) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim3_ch3_pb0) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim3_ch4_pb1) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim3_ch1_pb4) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim4_ch3_pb8) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim4_ch4_pb9) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim5_ch1_ph10) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim5_ch2_ph11) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim5_ch3_ph12) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim8_ch4n_pb2) fn(DT_N_S_soc_S_pin_controller_42020000_S_lpuart1_cts_pg5) fn(DT_N_S_soc_S_pin_controller_42020000_S_lpuart1_rts_pg6) fn(DT_N_S_soc_S_pin_controller_42020000_S_usart1_rx_pb7) fn(DT_N_S_soc_S_pin_controller_42020000_S_lpuart1_rx_pg8) fn(DT_N_S_soc_S_pin_controller_42020000_S_usart3_rx_pb11) fn(DT_N_S_soc_S_pin_controller_42020000_S_usart1_tx_pb6) fn(DT_N_S_soc_S_pin_controller_42020000_S_lpuart1_tx_pg7) fn(DT_N_S_soc_S_pin_controller_42020000_S_usart3_tx_pb10) fn(DT_N_S_soc_S_pin_controller_42020000_S_usb_otg_fs_dm_pa11) fn(DT_N_S_soc_S_pin_controller_42020000_S_usb_otg_fs_dp_pa12) fn(DT_N_S_soc_S_watchdog_40003000) fn(DT_N_S_soc_S_memory_40036400) fn(DT_N_S_soc_S_serial_40013800) fn(DT_N_S_soc_S_serial_40004800) fn(DT_N_S_soc_S_serial_46002400) fn(DT_N_S_soc_S_spi_40003800) fn(DT_N_S_soc_S_spi_46002000) fn(DT_N_S_soc_S_spi_46002000_S_device_0) fn(DT_N_S_soc_S_i2c_40005800) fn(DT_N_S_soc_S_i2c_46002800) fn(DT_N_S_soc_S_i2c_40008400) fn(DT_N_S_soc_S_timers_46004400) fn(DT_N_S_soc_S_rtc_46007800) fn(DT_N_S_soc_S_timers_40012c00) fn(DT_N_S_soc_S_timers_40012c00_S_pwm) fn(DT_N_S_soc_S_timers_40000000) fn(DT_N_S_soc_S_timers_40000000_S_pwm) fn(DT_N_S_soc_S_timers_40000400) fn(DT_N_S_soc_S_timers_40000400_S_pwm) fn(DT_N_S_soc_S_timers_40000800) fn(DT_N_S_soc_S_timers_40000800_S_pwm) fn(DT_N_S_soc_S_timers_40000c00) fn(DT_N_S_soc_S_timers_40000c00_S_pwm) fn(DT_N_S_soc_S_timers_40013400) fn(DT_N_S_soc_S_timers_40013400_S_pwm) fn(DT_N_S_soc_S_timers_40014400) fn(DT_N_S_soc_S_timers_40014400_S_counter) fn(DT_N_S_soc_S_timers_40014800) fn(DT_N_S_soc_S_timers_40014800_S_counter) fn(DT_N_S_soc_S_rng_420c0800) fn(DT_N_S_soc_S_dac_46021800) fn(DT_N_S_soc_S_adc_42028000) fn(DT_N_S_soc_S_adc_42028000_S_channel_1) fn(DT_N_S_soc_S_adc_42028000_S_channel_2) fn(DT_N_S_soc_S_adc_42028000_S_channel_9) fn(DT_N_S_soc_S_adc_42028000_S_channel_a) fn(DT_N_S_soc_S_adc_42028000_S_channel_b) fn(DT_N_S_soc_S_adc_42028000_S_channel_c) fn(DT_N_S_soc_S_adc_46021000) fn(DT_N_S_soc_S_can_4000a400) fn(DT_N_S_soc_S_dma_40020000) fn(DT_N_S_soc_S_power_46020800_S_wkup_pin_1) fn(DT_N_S_soc_S_power_46020800_S_wkup_pin_2) fn(DT_N_S_soc_S_power_46020800_S_wkup_pin_3) fn(DT_N_S_soc_S_power_46020800_S_wkup_pin_4) fn(DT_N_S_soc_S_power_46020800_S_wkup_pin_5) fn(DT_N_S_soc_S_power_46020800_S_wkup_pin_6) fn(DT_N_S_soc_S_power_46020800_S_wkup_pin_7) fn(DT_N_S_soc_S_power_46020800_S_wkup_pin_8) fn(DT_N_S_soc_S_gpio_42021400) fn(DT_N_S_soc_S_gpio_42022000) fn(DT_N_S_soc_S_aes_420c0000) fn(DT_N_S_cpus) fn(DT_N_S_cpus_S_cpu_0) fn(DT_N_S_cpus_S_cpu_0_S_mpu_e000ed90) fn(DT_N_S_cpus_S_power_states) fn(DT_N_S_cpus_S_power_states_S_state0) fn(DT_N_S_cpus_S_power_states_S_state1) fn(DT_N_S_cpus_S_power_states_S_state2) fn(DT_N_S_memory_20000000) fn(DT_N_S_clocks) fn(DT_N_S_clocks_S_clk_hse) fn(DT_N_S_clocks_S_clk_hsi48) fn(DT_N_S_clocks_S_clk_msis) fn(DT_N_S_clocks_S_clk_lse) fn(DT_N_S_clocks_S_pll) fn(DT_N_S_mcos) fn(DT_N_S_mcos_S_mco1) fn(DT_N_S_swj_port) fn(DT_N_S_dietemp) fn(DT_N_S_vref_1) fn(DT_N_S_vbat_4) fn(DT_N_S_otgfs_phy) fn(DT_N_S_memory_28000000) fn(DT_N_S_connector) fn(DT_N_S_leds) fn(DT_N_S_leds_S_led3_red) fn(DT_N_S_leds_S_led3_green) fn(DT_N_S_leds_S_led3_blue) fn(DT_N_S_leds_S_led4_red) fn(DT_N_S_leds_S_led4_green) fn(DT_N_S_leds_S_led4_blue) fn(DT_N_S_zephyr_user)"
+        ],
+        [
+          37819,
+          "#define DT_FOREACH_VARGS_HELPER(fn, ...) fn(DT_N, __VA_ARGS__) fn(DT_N_S_chosen, __VA_ARGS__) fn(DT_N_S_aliases, __VA_ARGS__) fn(DT_N_S_soc, __VA_ARGS__) fn(DT_N_S_soc_S_interrupt_controller_e000e100, __VA_ARGS__) fn(DT_N_S_soc_S_timer_e000e010, __VA_ARGS__) fn(DT_N_S_soc_S_flash_controller_40022000, __VA_ARGS__) fn(DT_N_S_soc_S_flash_controller_40022000_S_flash_8000000, __VA_ARGS__) fn(DT_N_S_soc_S_flash_controller_40022000_S_flash_8000000_S_partitions, __VA_ARGS__) fn(DT_N_S_soc_S_flash_controller_40022000_S_flash_8000000_S_partitions_S_partition_0, __VA_ARGS__) fn(DT_N_S_soc_S_flash_controller_40022000_S_flash_8000000_S_partitions_S_partition_10000, __VA_ARGS__) fn(DT_N_S_soc_S_flash_controller_40022000_S_flash_8000000_S_partitions_S_partition_d0000, __VA_ARGS__) fn(DT_N_S_soc_S_flash_controller_40022000_S_flash_8000000_S_partitions_S_partition_100000, __VA_ARGS__) fn(DT_N_S_soc_S_flash_controller_40022000_S_flash_8000000_S_partitions_S_partition_1c0000, __VA_ARGS__) fn(DT_N_S_soc_S_flash_controller_40022000_S_flash_bfa0000, __VA_ARGS__) fn(DT_N_S_soc_S_flash_controller_40022000_S_flash_bfa0500, __VA_ARGS__) fn(DT_N_S_soc_S_flash_controller_40022000_S_flash_bfa0500_S_nvmem_layout, __VA_ARGS__) fn(DT_N_S_soc_S_flash_controller_40022000_S_flash_bfa0500_S_nvmem_layout_S_ts_cal1_210, __VA_ARGS__) fn(DT_N_S_soc_S_flash_controller_40022000_S_flash_bfa0500_S_nvmem_layout_S_ts_cal2_242, __VA_ARGS__) fn(DT_N_S_soc_S_flash_controller_40022000_S_flash_bfa0500_S_nvmem_layout_S_vrefint_2a5, __VA_ARGS__) fn(DT_N_S_soc_S_rcc_46020c00, __VA_ARGS__) fn(DT_N_S_soc_S_rcc_46020c00_S_reset_controller, __VA_ARGS__) fn(DT_N_S_soc_S_interrupt_controller_46022000, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_gpio_42020000, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_gpio_42020400, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_gpio_42020800, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_gpio_42020c00, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_gpio_42021000, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_gpio_42021800, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_gpio_42021c00, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_adc1_in9_pa4, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_adc1_in10_pa5, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_adc1_in11_pa6, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_adc1_in12_pa7, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_adc1_in1_pc0, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_adc1_in2_pc1, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_analog_pa13, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_analog_pa14, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_analog_pa15, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_analog_pb3, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_analog_pb4, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_dac1_out1_pa4, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_dac1_out2_pa5, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_fdcan1_rx_pa11, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_fdcan1_tx_pa12, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_i2c2_scl_pb10, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_i2c3_scl_pc0, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_i2c4_scl_pd12, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_i2c4_scl_pf14, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_i2c2_sda_pb11, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_i2c3_sda_pc1, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_i2c4_sda_pd13, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_i2c4_sda_pf15, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_debug_jtms_swdio_pa13, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_debug_jtck_swclk_pa14, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_debug_jtdi_pa15, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_debug_jtdo_swo_pb3, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_debug_njtrst_pb4, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_rcc_mco_pa8, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_spi2_miso_pb14, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_spi3_miso_pg10, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_spi2_mosi_pb15, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_spi3_mosi_pb5, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_spi2_nss_pb9, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_spi3_nss_pg12, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_spi2_sck_pb13, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_spi3_sck_pg9, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim1_ch4_pa11, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim1_ch1n_pb13, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim1_ch2n_pb14, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim1_ch3n_pb15, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim2_ch2_pb3, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim2_ch3_pb10, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim2_ch4_pb11, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim3_ch3_pb0, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim3_ch4_pb1, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim3_ch1_pb4, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim4_ch3_pb8, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim4_ch4_pb9, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim5_ch1_ph10, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim5_ch2_ph11, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim5_ch3_ph12, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim8_ch4n_pb2, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_lpuart1_cts_pg5, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_lpuart1_rts_pg6, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_usart1_rx_pb7, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_lpuart1_rx_pg8, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_usart3_rx_pb11, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_usart1_tx_pb6, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_lpuart1_tx_pg7, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_usart3_tx_pb10, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_usb_otg_fs_dm_pa11, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_usb_otg_fs_dp_pa12, __VA_ARGS__) fn(DT_N_S_soc_S_watchdog_40003000, __VA_ARGS__) fn(DT_N_S_soc_S_watchdog_40002c00, __VA_ARGS__) fn(DT_N_S_soc_S_memory_40036400, __VA_ARGS__) fn(DT_N_S_soc_S_serial_40013800, __VA_ARGS__) fn(DT_N_S_soc_S_serial_40004800, __VA_ARGS__) fn(DT_N_S_soc_S_serial_40004c00, __VA_ARGS__) fn(DT_N_S_soc_S_serial_40005000, __VA_ARGS__) fn(DT_N_S_soc_S_serial_46002400, __VA_ARGS__) fn(DT_N_S_soc_S_spi_40013000, __VA_ARGS__) fn(DT_N_S_soc_S_spi_40003800, __VA_ARGS__) fn(DT_N_S_soc_S_spi_46002000, __VA_ARGS__) fn(DT_N_S_soc_S_spi_46002000_S_device_0, __VA_ARGS__) fn(DT_N_S_soc_S_i2c_40005400, __VA_ARGS__) fn(DT_N_S_soc_S_i2c_40005800, __VA_ARGS__) fn(DT_N_S_soc_S_i2c_46002800, __VA_ARGS__) fn(DT_N_S_soc_S_i2c_40008400, __VA_ARGS__) fn(DT_N_S_soc_S_timers_46004400, __VA_ARGS__) fn(DT_N_S_soc_S_timers_40009400, __VA_ARGS__) fn(DT_N_S_soc_S_timers_46004800, __VA_ARGS__) fn(DT_N_S_soc_S_timers_46004c00, __VA_ARGS__) fn(DT_N_S_soc_S_rtc_46007800, __VA_ARGS__) fn(DT_N_S_soc_S_sai1_40015404, __VA_ARGS__) fn(DT_N_S_soc_S_sai1_40015424, __VA_ARGS__) fn(DT_N_S_soc_S_timers_40012c00, __VA_ARGS__) fn(DT_N_S_soc_S_timers_40012c00_S_pwm, __VA_ARGS__) fn(DT_N_S_soc_S_timers_40012c00_S_counter, __VA_ARGS__) fn(DT_N_S_soc_S_timers_40012c00_S_qdec, __VA_ARGS__) fn(DT_N_S_soc_S_timers_40000000, __VA_ARGS__) fn(DT_N_S_soc_S_timers_40000000_S_pwm, __VA_ARGS__) fn(DT_N_S_soc_S_timers_40000000_S_counter, __VA_ARGS__) fn(DT_N_S_soc_S_timers_40000000_S_qdec, __VA_ARGS__) fn(DT_N_S_soc_S_timers_40000400, __VA_ARGS__) fn(DT_N_S_soc_S_timers_40000400_S_pwm, __VA_ARGS__) fn(DT_N_S_soc_S_timers_40000400_S_counter, __VA_ARGS__) fn(DT_N_S_soc_S_timers_40000400_S_qdec, __VA_ARGS__) fn(DT_N_S_soc_S_timers_40000800, __VA_ARGS__) fn(DT_N_S_soc_S_timers_40000800_S_pwm, __VA_ARGS__) fn(DT_N_S_soc_S_timers_40000800_S_counter, __VA_ARGS__) fn(DT_N_S_soc_S_timers_40000800_S_qdec, __VA_ARGS__) fn(DT_N_S_soc_S_timers_40000c00, __VA_ARGS__) fn(DT_N_S_soc_S_timers_40000c00_S_pwm, __VA_ARGS__) fn(DT_N_S_soc_S_timers_40000c00_S_counter, __VA_ARGS__) fn(DT_N_S_soc_S_timers_40000c00_S_qdec, __VA_ARGS__) fn(DT_N_S_soc_S_timers_40001000, __VA_ARGS__) fn(DT_N_S_soc_S_timers_40001000_S_pwm, __VA_ARGS__) fn(DT_N_S_soc_S_timers_40001000_S_counter, __VA_ARGS__) fn(DT_N_S_soc_S_timers_40001400, __VA_ARGS__) fn(DT_N_S_soc_S_timers_40001400_S_pwm, __VA_ARGS__) fn(DT_N_S_soc_S_timers_40001400_S_counter, __VA_ARGS__) fn(DT_N_S_soc_S_timers_40013400, __VA_ARGS__) fn(DT_N_S_soc_S_timers_40013400_S_pwm, __VA_ARGS__) fn(DT_N_S_soc_S_timers_40013400_S_counter, __VA_ARGS__) fn(DT_N_S_soc_S_timers_40013400_S_qdec, __VA_ARGS__) fn(DT_N_S_soc_S_timers_40014000, __VA_ARGS__) fn(DT_N_S_soc_S_timers_40014000_S_pwm, __VA_ARGS__) fn(DT_N_S_soc_S_timers_40014000_S_counter, __VA_ARGS__) fn(DT_N_S_soc_S_timers_40014400, __VA_ARGS__) fn(DT_N_S_soc_S_timers_40014400_S_pwm, __VA_ARGS__) fn(DT_N_S_soc_S_timers_40014400_S_counter, __VA_ARGS__) fn(DT_N_S_soc_S_timers_40014800, __VA_ARGS__) fn(DT_N_S_soc_S_timers_40014800_S_pwm, __VA_ARGS__) fn(DT_N_S_soc_S_timers_40014800_S_counter, __VA_ARGS__) fn(DT_N_S_soc_S_spi_420d1400, __VA_ARGS__) fn(DT_N_S_soc_S_spi_420d2400, __VA_ARGS__) fn(DT_N_S_soc_S_rng_420c0800, __VA_ARGS__) fn(DT_N_S_soc_S_sdmmc_420c8000, __VA_ARGS__) fn(DT_N_S_soc_S_dac_46021800, __VA_ARGS__) fn(DT_N_S_soc_S_adc_42028000, __VA_ARGS__) fn(DT_N_S_soc_S_adc_42028000_S_channel_1, __VA_ARGS__) fn(DT_N_S_soc_S_adc_42028000_S_channel_2, __VA_ARGS__) fn(DT_N_S_soc_S_adc_42028000_S_channel_9, __VA_ARGS__) fn(DT_N_S_soc_S_adc_42028000_S_channel_a, __VA_ARGS__) fn(DT_N_S_soc_S_adc_42028000_S_channel_b, __VA_ARGS__) fn(DT_N_S_soc_S_adc_42028000_S_channel_c, __VA_ARGS__) fn(DT_N_S_soc_S_adc_46021000, __VA_ARGS__) fn(DT_N_S_soc_S_can_4000a400, __VA_ARGS__) fn(DT_N_S_soc_S_dma_40020000, __VA_ARGS__) fn(DT_N_S_soc_S_hash_420c0400, __VA_ARGS__) fn(DT_N_S_soc_S_vrefbuf_46007400, __VA_ARGS__) fn(DT_N_S_soc_S_dcmi_4202c000, __VA_ARGS__) fn(DT_N_S_soc_S_power_46020800, __VA_ARGS__) fn(DT_N_S_soc_S_power_46020800_S_wkup_pin_1, __VA_ARGS__) fn(DT_N_S_soc_S_power_46020800_S_wkup_pin_2, __VA_ARGS__) fn(DT_N_S_soc_S_power_46020800_S_wkup_pin_3, __VA_ARGS__) fn(DT_N_S_soc_S_power_46020800_S_wkup_pin_4, __VA_ARGS__) fn(DT_N_S_soc_S_power_46020800_S_wkup_pin_5, __VA_ARGS__) fn(DT_N_S_soc_S_power_46020800_S_wkup_pin_6, __VA_ARGS__) fn(DT_N_S_soc_S_power_46020800_S_wkup_pin_7, __VA_ARGS__) fn(DT_N_S_soc_S_power_46020800_S_wkup_pin_8, __VA_ARGS__) fn(DT_N_S_soc_S_crc_40023000, __VA_ARGS__) fn(DT_N_S_soc_S_serial_40004400, __VA_ARGS__) fn(DT_N_S_soc_S_gpio_42021400, __VA_ARGS__) fn(DT_N_S_soc_S_gpio_42022000, __VA_ARGS__) fn(DT_N_S_soc_S_sdmmc_420c8c00, __VA_ARGS__) fn(DT_N_S_soc_S_memory_controller_420d0400, __VA_ARGS__) fn(DT_N_S_soc_S_memory_controller_420d0400_S_sram, __VA_ARGS__) fn(DT_N_S_soc_S_ucpd_4000dc00, __VA_ARGS__) fn(DT_N_S_soc_S_otgfs_42040000, __VA_ARGS__) fn(DT_N_S_soc_S_aes_420c0000, __VA_ARGS__) fn(DT_N_S_cpus, __VA_ARGS__) fn(DT_N_S_cpus_S_cpu_0, __VA_ARGS__) fn(DT_N_S_cpus_S_cpu_0_S_mpu_e000ed90, __VA_ARGS__) fn(DT_N_S_cpus_S_power_states, __VA_ARGS__) fn(DT_N_S_cpus_S_power_states_S_state0, __VA_ARGS__) fn(DT_N_S_cpus_S_power_states_S_state1, __VA_ARGS__) fn(DT_N_S_cpus_S_power_states_S_state2, __VA_ARGS__) fn(DT_N_S_memory_20000000, __VA_ARGS__) fn(DT_N_S_clocks, __VA_ARGS__) fn(DT_N_S_clocks_S_clk_hse, __VA_ARGS__) fn(DT_N_S_clocks_S_clk_hsi, __VA_ARGS__) fn(DT_N_S_clocks_S_clk_hsi48, __VA_ARGS__) fn(DT_N_S_clocks_S_clk_msis, __VA_ARGS__) fn(DT_N_S_clocks_S_clk_msik, __VA_ARGS__) fn(DT_N_S_clocks_S_clk_lse, __VA_ARGS__) fn(DT_N_S_clocks_S_clk_lsi, __VA_ARGS__) fn(DT_N_S_clocks_S_pll, __VA_ARGS__) fn(DT_N_S_clocks_S_pll2, __VA_ARGS__) fn(DT_N_S_clocks_S_pll3, __VA_ARGS__) fn(DT_N_S_mcos, __VA_ARGS__) fn(DT_N_S_mcos_S_mco1, __VA_ARGS__) fn(DT_N_S_swj_port, __VA_ARGS__) fn(DT_N_S_dietemp, __VA_ARGS__) fn(DT_N_S_vref_1, __VA_ARGS__) fn(DT_N_S_vref_4, __VA_ARGS__) fn(DT_N_S_vbat_1, __VA_ARGS__) fn(DT_N_S_vbat_4, __VA_ARGS__) fn(DT_N_S_smbus1, __VA_ARGS__) fn(DT_N_S_smbus2, __VA_ARGS__) fn(DT_N_S_smbus3, __VA_ARGS__) fn(DT_N_S_smbus4, __VA_ARGS__) fn(DT_N_S_otgfs_phy, __VA_ARGS__) fn(DT_N_S_memory_28000000, __VA_ARGS__) fn(DT_N_S_connector, __VA_ARGS__) fn(DT_N_S_leds, __VA_ARGS__) fn(DT_N_S_leds_S_led3_red, __VA_ARGS__) fn(DT_N_S_leds_S_led3_green, __VA_ARGS__) fn(DT_N_S_leds_S_led3_blue, __VA_ARGS__) fn(DT_N_S_leds_S_led4_red, __VA_ARGS__) fn(DT_N_S_leds_S_led4_green, __VA_ARGS__) fn(DT_N_S_leds_S_led4_blue, __VA_ARGS__) fn(DT_N_S_zephyr_user, __VA_ARGS__)"
+        ],
+        [
+          37820,
+          "#define DT_FOREACH_OKAY_VARGS_HELPER(fn, ...) fn(DT_N, __VA_ARGS__) fn(DT_N_S_chosen, __VA_ARGS__) fn(DT_N_S_aliases, __VA_ARGS__) fn(DT_N_S_soc, __VA_ARGS__) fn(DT_N_S_soc_S_interrupt_controller_e000e100, __VA_ARGS__) fn(DT_N_S_soc_S_timer_e000e010, __VA_ARGS__) fn(DT_N_S_soc_S_flash_controller_40022000, __VA_ARGS__) fn(DT_N_S_soc_S_flash_controller_40022000_S_flash_8000000, __VA_ARGS__) fn(DT_N_S_soc_S_flash_controller_40022000_S_flash_8000000_S_partitions, __VA_ARGS__) fn(DT_N_S_soc_S_flash_controller_40022000_S_flash_8000000_S_partitions_S_partition_0, __VA_ARGS__) fn(DT_N_S_soc_S_flash_controller_40022000_S_flash_8000000_S_partitions_S_partition_10000, __VA_ARGS__) fn(DT_N_S_soc_S_flash_controller_40022000_S_flash_8000000_S_partitions_S_partition_d0000, __VA_ARGS__) fn(DT_N_S_soc_S_flash_controller_40022000_S_flash_8000000_S_partitions_S_partition_100000, __VA_ARGS__) fn(DT_N_S_soc_S_flash_controller_40022000_S_flash_8000000_S_partitions_S_partition_1c0000, __VA_ARGS__) fn(DT_N_S_soc_S_flash_controller_40022000_S_flash_bfa0500, __VA_ARGS__) fn(DT_N_S_soc_S_flash_controller_40022000_S_flash_bfa0500_S_nvmem_layout, __VA_ARGS__) fn(DT_N_S_soc_S_flash_controller_40022000_S_flash_bfa0500_S_nvmem_layout_S_ts_cal1_210, __VA_ARGS__) fn(DT_N_S_soc_S_flash_controller_40022000_S_flash_bfa0500_S_nvmem_layout_S_ts_cal2_242, __VA_ARGS__) fn(DT_N_S_soc_S_flash_controller_40022000_S_flash_bfa0500_S_nvmem_layout_S_vrefint_2a5, __VA_ARGS__) fn(DT_N_S_soc_S_rcc_46020c00, __VA_ARGS__) fn(DT_N_S_soc_S_rcc_46020c00_S_reset_controller, __VA_ARGS__) fn(DT_N_S_soc_S_interrupt_controller_46022000, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_gpio_42020000, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_gpio_42020400, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_gpio_42020800, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_gpio_42020c00, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_gpio_42021000, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_gpio_42021800, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_gpio_42021c00, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_adc1_in9_pa4, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_adc1_in10_pa5, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_adc1_in11_pa6, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_adc1_in12_pa7, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_adc1_in1_pc0, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_adc1_in2_pc1, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_analog_pa13, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_analog_pa14, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_analog_pa15, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_analog_pb3, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_analog_pb4, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_dac1_out1_pa4, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_dac1_out2_pa5, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_fdcan1_rx_pa11, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_fdcan1_tx_pa12, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_i2c2_scl_pb10, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_i2c3_scl_pc0, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_i2c4_scl_pd12, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_i2c4_scl_pf14, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_i2c2_sda_pb11, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_i2c3_sda_pc1, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_i2c4_sda_pd13, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_i2c4_sda_pf15, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_debug_jtms_swdio_pa13, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_debug_jtck_swclk_pa14, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_debug_jtdi_pa15, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_debug_jtdo_swo_pb3, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_debug_njtrst_pb4, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_rcc_mco_pa8, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_spi2_miso_pb14, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_spi3_miso_pg10, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_spi2_mosi_pb15, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_spi3_mosi_pb5, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_spi2_nss_pb9, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_spi3_nss_pg12, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_spi2_sck_pb13, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_spi3_sck_pg9, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim1_ch4_pa11, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim1_ch1n_pb13, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim1_ch2n_pb14, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim1_ch3n_pb15, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim2_ch2_pb3, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim2_ch3_pb10, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim2_ch4_pb11, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim3_ch3_pb0, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim3_ch4_pb1, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim3_ch1_pb4, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim4_ch3_pb8, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim4_ch4_pb9, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim5_ch1_ph10, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim5_ch2_ph11, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim5_ch3_ph12, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_tim8_ch4n_pb2, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_lpuart1_cts_pg5, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_lpuart1_rts_pg6, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_usart1_rx_pb7, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_lpuart1_rx_pg8, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_usart3_rx_pb11, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_usart1_tx_pb6, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_lpuart1_tx_pg7, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_usart3_tx_pb10, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_usb_otg_fs_dm_pa11, __VA_ARGS__) fn(DT_N_S_soc_S_pin_controller_42020000_S_usb_otg_fs_dp_pa12, __VA_ARGS__) fn(DT_N_S_soc_S_watchdog_40003000, __VA_ARGS__) fn(DT_N_S_soc_S_memory_40036400, __VA_ARGS__) fn(DT_N_S_soc_S_serial_40013800, __VA_ARGS__) fn(DT_N_S_soc_S_serial_40004800, __VA_ARGS__) fn(DT_N_S_soc_S_serial_46002400, __VA_ARGS__) fn(DT_N_S_soc_S_spi_40003800, __VA_ARGS__) fn(DT_N_S_soc_S_spi_46002000, __VA_ARGS__) fn(DT_N_S_soc_S_spi_46002000_S_device_0, __VA_ARGS__) fn(DT_N_S_soc_S_i2c_40005800, __VA_ARGS__) fn(DT_N_S_soc_S_i2c_46002800, __VA_ARGS__) fn(DT_N_S_soc_S_i2c_40008400, __VA_ARGS__) fn(DT_N_S_soc_S_timers_46004400, __VA_ARGS__) fn(DT_N_S_soc_S_rtc_46007800, __VA_ARGS__) fn(DT_N_S_soc_S_timers_40012c00, __VA_ARGS__) fn(DT_N_S_soc_S_timers_40012c00_S_pwm, __VA_ARGS__) fn(DT_N_S_soc_S_timers_40000000, __VA_ARGS__) fn(DT_N_S_soc_S_timers_40000000_S_pwm, __VA_ARGS__) fn(DT_N_S_soc_S_timers_40000400, __VA_ARGS__) fn(DT_N_S_soc_S_timers_40000400_S_pwm, __VA_ARGS__) fn(DT_N_S_soc_S_timers_40000800, __VA_ARGS__) fn(DT_N_S_soc_S_timers_40000800_S_pwm, __VA_ARGS__) fn(DT_N_S_soc_S_timers_40000c00, __VA_ARGS__) fn(DT_N_S_soc_S_timers_40000c00_S_pwm, __VA_ARGS__) fn(DT_N_S_soc_S_timers_40013400, __VA_ARGS__) fn(DT_N_S_soc_S_timers_40013400_S_pwm, __VA_ARGS__) fn(DT_N_S_soc_S_timers_40014400, __VA_ARGS__) fn(DT_N_S_soc_S_timers_40014400_S_counter, __VA_ARGS__) fn(DT_N_S_soc_S_timers_40014800, __VA_ARGS__) fn(DT_N_S_soc_S_timers_40014800_S_counter, __VA_ARGS__) fn(DT_N_S_soc_S_rng_420c0800, __VA_ARGS__) fn(DT_N_S_soc_S_dac_46021800, __VA_ARGS__) fn(DT_N_S_soc_S_adc_42028000, __VA_ARGS__) fn(DT_N_S_soc_S_adc_42028000_S_channel_1, __VA_ARGS__) fn(DT_N_S_soc_S_adc_42028000_S_channel_2, __VA_ARGS__) fn(DT_N_S_soc_S_adc_42028000_S_channel_9, __VA_ARGS__) fn(DT_N_S_soc_S_adc_42028000_S_channel_a, __VA_ARGS__) fn(DT_N_S_soc_S_adc_42028000_S_channel_b, __VA_ARGS__) fn(DT_N_S_soc_S_adc_42028000_S_channel_c, __VA_ARGS__) fn(DT_N_S_soc_S_adc_46021000, __VA_ARGS__) fn(DT_N_S_soc_S_can_4000a400, __VA_ARGS__) fn(DT_N_S_soc_S_dma_40020000, __VA_ARGS__) fn(DT_N_S_soc_S_power_46020800_S_wkup_pin_1, __VA_ARGS__) fn(DT_N_S_soc_S_power_46020800_S_wkup_pin_2, __VA_ARGS__) fn(DT_N_S_soc_S_power_46020800_S_wkup_pin_3, __VA_ARGS__) fn(DT_N_S_soc_S_power_46020800_S_wkup_pin_4, __VA_ARGS__) fn(DT_N_S_soc_S_power_46020800_S_wkup_pin_5, __VA_ARGS__) fn(DT_N_S_soc_S_power_46020800_S_wkup_pin_6, __VA_ARGS__) fn(DT_N_S_soc_S_power_46020800_S_wkup_pin_7, __VA_ARGS__) fn(DT_N_S_soc_S_power_46020800_S_wkup_pin_8, __VA_ARGS__) fn(DT_N_S_soc_S_gpio_42021400, __VA_ARGS__) fn(DT_N_S_soc_S_gpio_42022000, __VA_ARGS__) fn(DT_N_S_soc_S_aes_420c0000, __VA_ARGS__) fn(DT_N_S_cpus, __VA_ARGS__) fn(DT_N_S_cpus_S_cpu_0, __VA_ARGS__) fn(DT_N_S_cpus_S_cpu_0_S_mpu_e000ed90, __VA_ARGS__) fn(DT_N_S_cpus_S_power_states, __VA_ARGS__) fn(DT_N_S_cpus_S_power_states_S_state0, __VA_ARGS__) fn(DT_N_S_cpus_S_power_states_S_state1, __VA_ARGS__) fn(DT_N_S_cpus_S_power_states_S_state2, __VA_ARGS__) fn(DT_N_S_memory_20000000, __VA_ARGS__) fn(DT_N_S_clocks, __VA_ARGS__) fn(DT_N_S_clocks_S_clk_hse, __VA_ARGS__) fn(DT_N_S_clocks_S_clk_hsi48, __VA_ARGS__) fn(DT_N_S_clocks_S_clk_msis, __VA_ARGS__) fn(DT_N_S_clocks_S_clk_lse, __VA_ARGS__) fn(DT_N_S_clocks_S_pll, __VA_ARGS__) fn(DT_N_S_mcos, __VA_ARGS__) fn(DT_N_S_mcos_S_mco1, __VA_ARGS__) fn(DT_N_S_swj_port, __VA_ARGS__) fn(DT_N_S_dietemp, __VA_ARGS__) fn(DT_N_S_vref_1, __VA_ARGS__) fn(DT_N_S_vbat_4, __VA_ARGS__) fn(DT_N_S_otgfs_phy, __VA_ARGS__) fn(DT_N_S_memory_28000000, __VA_ARGS__) fn(DT_N_S_connector, __VA_ARGS__) fn(DT_N_S_leds, __VA_ARGS__) fn(DT_N_S_leds_S_led3_red, __VA_ARGS__) fn(DT_N_S_leds_S_led3_green, __VA_ARGS__) fn(DT_N_S_leds_S_led3_blue, __VA_ARGS__) fn(DT_N_S_leds_S_led4_red, __VA_ARGS__) fn(DT_N_S_leds_S_led4_green, __VA_ARGS__) fn(DT_N_S_leds_S_led4_blue, __VA_ARGS__) fn(DT_N_S_zephyr_user, __VA_ARGS__)"
+        ],
+        [
+          38137,
+          "#define DT_FOREACH_OKAY_st_stm32u5_msi_clock(fn) fn(DT_N_S_clocks_S_clk_msis)"
+        ],
+        [
+          38138,
+          "#define DT_FOREACH_OKAY_VARGS_st_stm32u5_msi_clock(fn, ...) fn(DT_N_S_clocks_S_clk_msis, __VA_ARGS__)"
+        ]
+      ]
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/zephyr/drivers/clock_control/stm32_clock_control.h",
+      "sha256": "5ff73868f537e9a761b7b4b45d7fed7147a929cb526760cb5678a01afa2f3936",
+      "bytes": 41259,
+      "lines": [
+        [
+          576,
+          "#define STM32_MSIS_ENABLED\t1"
+        ],
+        [
+          577,
+          "#define STM32_MSIS_RANGE\tDT_PROP(DT_NODELABEL(clk_msis), msi_range)"
+        ],
+        [
+          578,
+          "#define STM32_MSIS_PLL_MODE\tDT_PROP(DT_NODELABEL(clk_msis), msi_pll_mode)"
+        ],
+        [
+          579,
+          "#else"
+        ],
+        [
+          580,
+          "#define STM32_MSIS_RANGE\t0"
+        ],
+        [
+          581,
+          "#define STM32_MSIS_PLL_MODE\t0"
+        ],
+        [
+          582,
+          "#endif"
+        ],
+        [
+          583,
+          ""
+        ],
+        [
+          584,
+          "#if DT_NODE_HAS_COMPAT_STATUS(DT_NODELABEL(clk_msik), st_stm32u5_msi_clock, okay) || \\"
+        ],
+        [
+          586,
+          "#define STM32_MSIK_ENABLED\t1"
+        ],
+        [
+          587,
+          "#define STM32_MSIK_RANGE\tDT_PROP(DT_NODELABEL(clk_msik), msi_range)"
+        ],
+        [
+          588,
+          "#define STM32_MSIK_PLL_MODE\tDT_PROP(DT_NODELABEL(clk_msik), msi_pll_mode)"
+        ],
+        [
+          589,
+          "#else"
+        ],
+        [
+          590,
+          "#define STM32_MSIK_RANGE\t0"
+        ],
+        [
+          591,
+          "#define STM32_MSIK_PLL_MODE\t0"
+        ],
+        [
+          592,
+          "#endif"
+        ],
+        [
+          593,
+          ""
+        ],
+        [
+          594,
+          "#if DT_NODE_HAS_COMPAT_STATUS(DT_NODELABEL(clk_csi), fixed_clock, okay)"
+        ]
+      ]
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/modules/hal/stm32/stm32cube/stm32u5xx/drivers/include/stm32u5xx_ll_rcc.h",
+      "sha256": "08a13b1c17bc496658c1ad1b32fc4718d4d864aecf3165a47c360cbdc82c8191",
+      "bytes": 219479,
+      "lines": [
+        [
+          2085,
+          "  * @retval None"
+        ],
+        [
+          2086,
+          "  */"
+        ],
+        [
+          2087,
+          "__STATIC_INLINE void LL_RCC_MSI_EnablePLLMode(void)"
+        ],
+        [
+          2088,
+          "{"
+        ],
+        [
+          2089,
+          "  SET_BIT(RCC->CR, RCC_CR_MSIPLLEN);"
+        ],
+        [
+          2090,
+          "}"
+        ],
+        [
+          2091,
+          ""
+        ],
+        [
+          2092,
+          "/**"
+        ],
+        [
+          2093,
+          "  * @brief  Disable MSI-PLL mode"
+        ],
+        [
+          2094,
+          "  * @note cleared by hardware when LSE is disabled (LSEON = 0) or when"
+        ],
+        [
+          2095,
+          "  *       the Clock Security System on LSE detects a LSE failure"
+        ],
+        [
+          2096,
+          "  * @rmtoll CR           MSIPLLEN      LL_RCC_MSI_DisablePLLMode"
+        ],
+        [
+          2097,
+          "  * @retval None"
+        ],
+        [
+          2098,
+          "  */"
+        ],
+        [
+          2099,
+          "__STATIC_INLINE void LL_RCC_MSI_DisablePLLMode(void)"
+        ],
+        [
+          2100,
+          "{"
+        ],
+        [
+          2101,
+          "  CLEAR_BIT(RCC->CR, RCC_CR_MSIPLLEN);"
+        ],
+        [
+          2102,
+          "}"
+        ],
+        [
+          2103,
+          ""
+        ],
+        [
+          2104,
+          "/**"
+        ],
+        [
+          2105,
+          "  * @brief  Check if MSI-PLL mode has been enabled or not"
+        ],
+        [
+          2106,
+          "  * @rmtoll CR           MSIPLLEN      LL_RCC_IsEnabledPLLMode"
+        ],
+        [
+          2107,
+          "  * @retval State of bit (1 or 0)."
+        ],
+        [
+          2108,
+          "  */"
+        ],
+        [
+          2109,
+          "__STATIC_INLINE uint32_t LL_RCC_IsEnabledPLLMode(void)"
+        ],
+        [
+          2110,
+          "{"
+        ],
+        [
+          2111,
+          "  return ((READ_BIT(RCC->CR, RCC_CR_MSIPLLEN) == RCC_CR_MSIPLLEN) ? 1UL : 0UL);"
+        ],
+        [
+          2112,
+          "}"
+        ],
+        [
+          2113,
+          ""
+        ],
+        [
+          2114,
+          "/**"
+        ],
+        [
+          2115,
+          "  * @brief Set clock source in PLL mode"
+        ],
+        [
+          2116,
+          "  * @rmtoll CR          MSIPLLSEL         LL_RCC_SetMSIPLLMode"
+        ],
+        [
+          2117,
+          "  * @param  Source This parameter can be one of the following values:"
+        ],
+        [
+          2118,
+          "  *         @arg @ref LL_RCC_PLLMODE_MSIS"
+        ],
+        [
+          2119,
+          "  *         @arg @ref LL_RCC_PLLMODE_MSIK"
+        ],
+        [
+          2132,
+          "  *         @arg @ref LL_RCC_PLLMODE_MSIK"
+        ],
+        [
+          2133,
+          "  */"
+        ],
+        [
+          2134,
+          "__STATIC_INLINE uint32_t LL_RCC_GetMSIPLLMode(void)"
+        ],
+        [
+          2135,
+          "{"
+        ],
+        [
+          2136,
+          "  return (uint32_t)(READ_BIT(RCC->CR, RCC_CR_MSIPLLSEL));"
+        ],
+        [
+          2137,
+          "}"
+        ],
+        [
+          2138,
+          ""
+        ],
+        [
+          2139,
+          "/**"
+        ],
+        [
+          2140,
+          "  * @brief  Enable MSI fast mode"
+        ],
+        [
+          2141,
+          "  * @rmtoll CR           MSIPLLFAST        LL_RCC_Enable_MSIPLLFAST"
+        ],
+        [
+          2142,
+          "  * @note     This bit is used only if PLL mode is selected."
+        ],
+        [
+          2143,
+          "  */"
+        ],
+        [
+          2144,
+          "__STATIC_INLINE void LL_RCC_Enable_MSIPLLFAST(void)"
+        ]
+      ]
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/modules/hal/stm32/stm32cube/stm32u5xx/soc/stm32u585xx.h",
+      "sha256": "8b66d5b9d1514f3ce0950b7a96402e7c026a0779e1cc36c3771be05432b68c06",
+      "bytes": 1517115,
+      "lines": [
+        [
+          3542,
+          "#define ADC_IER_ADRDYIE_Pos               (0UL)"
+        ],
+        [
+          3543,
+          "#define ADC_IER_ADRDYIE_Msk               (0x1UL << ADC_IER_ADRDYIE_Pos)"
+        ],
+        [
+          3544,
+          "#define ADC_IER_ADRDYIE                   ADC_IER_ADRDYIE_Msk"
+        ],
+        [
+          3545,
+          "#define ADC_IER_EOSMPIE_Pos               (1UL)"
+        ],
+        [
+          3546,
+          "#define ADC_IER_EOSMPIE_Msk               (0x1UL << ADC_IER_EOSMPIE_Pos)"
+        ],
+        [
+          3547,
+          "#define ADC_IER_EOSMPIE                   ADC_IER_EOSMPIE_Msk"
+        ],
+        [
+          3548,
+          "#define ADC_IER_EOCIE_Pos                 (2UL)"
+        ],
+        [
+          3549,
+          "#define ADC_IER_EOCIE_Msk                 (0x1UL << ADC_IER_EOCIE_Pos)"
+        ],
+        [
+          3550,
+          "#define ADC_IER_EOCIE                     ADC_IER_EOCIE_Msk"
+        ],
+        [
+          3551,
+          "#define ADC_IER_EOSIE_Pos                 (3UL)"
+        ],
+        [
+          3552,
+          "#define ADC_IER_EOSIE_Msk                 (0x1UL << ADC_IER_EOSIE_Pos)"
+        ],
+        [
+          3553,
+          "#define ADC_IER_EOSIE                     ADC_IER_EOSIE_Msk"
+        ],
+        [
+          3554,
+          "#define ADC_IER_OVRIE_Pos                 (4UL)"
+        ],
+        [
+          3555,
+          "#define ADC_IER_OVRIE_Msk                 (0x1UL << ADC_IER_OVRIE_Pos)"
+        ],
+        [
+          3556,
+          "#define ADC_IER_OVRIE                     ADC_IER_OVRIE_Msk"
+        ],
+        [
+          3557,
+          "#define ADC_IER_JEOCIE_Pos                (5UL)"
+        ],
+        [
+          3558,
+          "#define ADC_IER_JEOCIE_Msk                (0x1UL << ADC_IER_JEOCIE_Pos)"
+        ],
+        [
+          3559,
+          "#define ADC_IER_JEOCIE                    ADC_IER_JEOCIE_Msk"
+        ],
+        [
+          3560,
+          "#define ADC_IER_JEOSIE_Pos                (6UL)"
+        ],
+        [
+          3561,
+          "#define ADC_IER_JEOSIE_Msk                (0x1UL << ADC_IER_JEOSIE_Pos)"
+        ],
+        [
+          3562,
+          "#define ADC_IER_JEOSIE                    ADC_IER_JEOSIE_Msk"
+        ],
+        [
+          3563,
+          "#define ADC_IER_AWD1IE_Pos                (7UL)"
+        ],
+        [
+          3564,
+          "#define ADC_IER_AWD1IE_Msk                (0x1UL << ADC_IER_AWD1IE_Pos)"
+        ],
+        [
+          3565,
+          "#define ADC_IER_AWD1IE                    ADC_IER_AWD1IE_Msk"
+        ],
+        [
+          3566,
+          "#define ADC_IER_AWD2IE_Pos                (8UL)"
+        ],
+        [
+          3567,
+          "#define ADC_IER_AWD2IE_Msk                (0x1UL << ADC_IER_AWD2IE_Pos)"
+        ],
+        [
+          3568,
+          "#define ADC_IER_AWD2IE                    ADC_IER_AWD2IE_Msk"
+        ],
+        [
+          3569,
+          "#define ADC_IER_AWD3IE_Pos                (9UL)"
+        ],
+        [
+          3570,
+          "#define ADC_IER_AWD3IE_Msk                (0x1UL << ADC_IER_AWD3IE_Pos)"
+        ],
+        [
+          3571,
+          "#define ADC_IER_AWD3IE                    ADC_IER_AWD3IE_Msk"
+        ],
+        [
+          3572,
+          "#define ADC_IER_JQOVFIE_Pos               (10UL)"
+        ],
+        [
+          3573,
+          "#define ADC_IER_JQOVFIE_Msk               (0x1UL << ADC_IER_JQOVFIE_Pos)"
+        ],
+        [
+          3574,
+          "#define ADC_IER_JQOVFIE                   ADC_IER_JQOVFIE_Msk"
+        ],
+        [
+          3575,
+          "#define ADC_IER_EOCALIE_Pos               (11UL)"
+        ],
+        [
+          3576,
+          "#define ADC_IER_EOCALIE_Msk               (0x1UL << ADC_IER_EOCALIE_Pos)"
+        ],
+        [
+          3577,
+          "#define ADC_IER_EOCALIE                   ADC_IER_EOCALIE_Msk"
+        ],
+        [
+          3578,
+          "#define ADC_IER_LDORDYIE_Pos              (12UL)"
+        ],
+        [
+          3579,
+          "#define ADC_IER_LDORDYIE_Msk              (0x1UL << ADC_IER_LDORDYIE_Pos)"
+        ],
+        [
+          3580,
+          "#define ADC_IER_LDORDYIE                  ADC_IER_LDORDYIE_Msk"
+        ],
+        [
+          3583,
+          "#define ADC_CR_ADEN_Pos                   (0UL)"
+        ],
+        [
+          3584,
+          "#define ADC_CR_ADEN_Msk                   (0x1UL << ADC_CR_ADEN_Pos)"
+        ],
+        [
+          3585,
+          "#define ADC_CR_ADEN                       ADC_CR_ADEN_Msk"
+        ],
+        [
+          3586,
+          "#define ADC_CR_ADDIS_Pos                  (1UL)"
+        ],
+        [
+          3587,
+          "#define ADC_CR_ADDIS_Msk                  (0x1UL << ADC_CR_ADDIS_Pos)"
+        ],
+        [
+          3588,
+          "#define ADC_CR_ADDIS                      ADC_CR_ADDIS_Msk"
+        ],
+        [
+          3589,
+          "#define ADC_CR_ADSTART_Pos                (2UL)"
+        ],
+        [
+          3590,
+          "#define ADC_CR_ADSTART_Msk                (0x1UL << ADC_CR_ADSTART_Pos)"
+        ],
+        [
+          3591,
+          "#define ADC_CR_ADSTART                    ADC_CR_ADSTART_Msk"
+        ],
+        [
+          3595,
+          "#define ADC_CR_ADSTP_Pos                  (4UL)"
+        ],
+        [
+          3596,
+          "#define ADC_CR_ADSTP_Msk                  (0x1UL << ADC_CR_ADSTP_Pos)"
+        ],
+        [
+          3597,
+          "#define ADC_CR_ADSTP                      ADC_CR_ADSTP_Msk"
+        ],
+        [
+          3601,
+          "#define ADC_CR_ADCALLIN_Pos               (16UL)"
+        ],
+        [
+          3602,
+          "#define ADC_CR_ADCALLIN_Msk               (0x1UL << ADC_CR_ADCALLIN_Pos)"
+        ],
+        [
+          3603,
+          "#define ADC_CR_ADCALLIN                   ADC_CR_ADCALLIN_Msk"
+        ],
+        [
+          3626,
+          "#define ADC_CR_ADCAL_Pos                  (31UL)"
+        ],
+        [
+          3627,
+          "#define ADC_CR_ADCAL_Msk                  (0x1UL << ADC_CR_ADCAL_Pos)"
+        ],
+        [
+          3628,
+          "#define ADC_CR_ADCAL                      ADC_CR_ADCAL_Msk"
+        ],
+        [
+          3643,
+          "#define ADC4_CFGR1_DMAEN_Pos                (0UL)"
+        ],
+        [
+          3644,
+          "#define ADC4_CFGR1_DMAEN_Msk                (0x1UL << ADC4_CFGR1_DMAEN_Pos)"
+        ],
+        [
+          3645,
+          "#define ADC4_CFGR1_DMAEN                    ADC4_CFGR1_DMAEN_Msk"
+        ],
+        [
+          3646,
+          "#define ADC4_CFGR1_DMACFG_Pos               (1UL)"
+        ],
+        [
+          3647,
+          "#define ADC4_CFGR1_DMACFG_Msk               (0x1UL << ADC4_CFGR1_DMACFG_Pos)"
+        ],
+        [
+          3648,
+          "#define ADC4_CFGR1_DMACFG                   ADC4_CFGR1_DMACFG_Msk"
+        ],
+        [
+          3667,
+          "#define ADC_CFGR1_EXTEN_Pos                (10UL)"
+        ],
+        [
+          3668,
+          "#define ADC_CFGR1_EXTEN_Msk                (0x3UL << ADC_CFGR1_EXTEN_Pos)"
+        ],
+        [
+          3669,
+          "#define ADC_CFGR1_EXTEN                    ADC_CFGR1_EXTEN_Msk"
+        ],
+        [
+          3670,
+          "#define ADC_CFGR1_EXTEN_0                  (0x1UL << ADC_CFGR1_EXTEN_Pos)"
+        ],
+        [
+          3671,
+          "#define ADC_CFGR1_EXTEN_1                  (0x2UL << ADC_CFGR1_EXTEN_Pos)"
+        ],
+        [
+          3676,
+          "#define ADC_CFGR1_CONT_Pos                 (13UL)"
+        ],
+        [
+          3677,
+          "#define ADC_CFGR1_CONT_Msk                 (0x1UL << ADC_CFGR1_CONT_Pos)"
+        ],
+        [
+          3678,
+          "#define ADC_CFGR1_CONT                     ADC_CFGR1_CONT_Msk"
+        ],
+        [
+          5422,
+          "#define DAC_CR_EN1_Pos                      (0UL)"
+        ],
+        [
+          5423,
+          "#define DAC_CR_EN1_Msk                      (0x1UL << DAC_CR_EN1_Pos)"
+        ],
+        [
+          5424,
+          "#define DAC_CR_EN1                          DAC_CR_EN1_Msk"
+        ],
+        [
+          5425,
+          "#define DAC_CR_TEN1_Pos                     (1UL)"
+        ],
+        [
+          5426,
+          "#define DAC_CR_TEN1_Msk                     (0x1UL << DAC_CR_TEN1_Pos)"
+        ],
+        [
+          5427,
+          "#define DAC_CR_TEN1                         DAC_CR_TEN1_Msk"
+        ],
+        [
+          5435,
+          "#define DAC_CR_WAVE1_Pos                    (6UL)"
+        ],
+        [
+          5436,
+          "#define DAC_CR_WAVE1_Msk                    (0x3UL << DAC_CR_WAVE1_Pos)"
+        ],
+        [
+          5437,
+          "#define DAC_CR_WAVE1                        DAC_CR_WAVE1_Msk"
+        ],
+        [
+          5438,
+          "#define DAC_CR_WAVE1_0                      (0x1UL << DAC_CR_WAVE1_Pos)"
+        ],
+        [
+          5439,
+          "#define DAC_CR_WAVE1_1                      (0x2UL << DAC_CR_WAVE1_Pos)"
+        ],
+        [
+          5447,
+          "#define DAC_CR_DMAEN1_Pos                   (12UL)"
+        ],
+        [
+          5448,
+          "#define DAC_CR_DMAEN1_Msk                   (0x1UL << DAC_CR_DMAEN1_Pos)"
+        ],
+        [
+          5449,
+          "#define DAC_CR_DMAEN1                       DAC_CR_DMAEN1_Msk"
+        ],
+        [
+          5453,
+          "#define DAC_CR_CEN1_Pos                     (14UL)"
+        ],
+        [
+          5454,
+          "#define DAC_CR_CEN1_Msk                     (0x1UL << DAC_CR_CEN1_Pos)"
+        ],
+        [
+          5455,
+          "#define DAC_CR_CEN1                         DAC_CR_CEN1_Msk"
+        ],
+        [
+          15629,
+          "#define RCC_CR_MSIPLLEN_Pos                 (3UL)"
+        ],
+        [
+          15630,
+          "#define RCC_CR_MSIPLLEN_Msk                 (0x1UL << RCC_CR_MSIPLLEN_Pos)"
+        ],
+        [
+          15631,
+          "#define RCC_CR_MSIPLLEN                     RCC_CR_MSIPLLEN_Msk"
+        ]
+      ]
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/modules/hal/stm32/stm32cube/stm32u5xx/drivers/include/stm32u5xx_ll_adc.h",
+      "sha256": "c72e076314ab1e3ec41928bfb04c942e321065a47ca778358f0503984f0f441f",
+      "bytes": 467733,
+      "lines": [
+        [
+          4173,
+          "  *         Value \"1\" if trigger source SW start."
+        ],
+        [
+          4174,
+          "  */"
+        ],
+        [
+          4175,
+          "__STATIC_INLINE uint32_t LL_ADC_REG_IsTriggerSourceSWStart(const ADC_TypeDef *ADCx)"
+        ],
+        [
+          4176,
+          "{"
+        ],
+        [
+          4177,
+          "  return ((READ_BIT(ADCx->CFGR1, ADC_CFGR1_EXTEN) == (LL_ADC_REG_TRIG_SOFTWARE & ADC_CFGR1_EXTEN)) ? 1UL : 0UL);"
+        ],
+        [
+          4178,
+          "}"
+        ],
+        [
+          4179,
+          ""
+        ],
+        [
+          4180,
+          "/**"
+        ],
+        [
+          4181,
+          "  * @brief  Set ADC group regular conversion trigger polarity."
+        ],
+        [
+          4182,
+          "  * @note   Applicable only for trigger source set to external trigger."
+        ],
+        [
+          4183,
+          "  * @note   On this STM32 series, setting of this feature is conditioned to"
+        ],
+        [
+          4184,
+          "  *         ADC state:"
+        ],
+        [
+          4185,
+          "  *         ADC must be disabled or enabled without conversion on going"
+        ],
+        [
+          5444,
+          "  *         @arg @ref LL_ADC_REG_CONV_CONTINUOUS"
+        ],
+        [
+          5445,
+          "  */"
+        ],
+        [
+          5446,
+          "__STATIC_INLINE uint32_t LL_ADC_REG_GetContinuousMode(const ADC_TypeDef *ADCx)"
+        ],
+        [
+          5447,
+          "{"
+        ],
+        [
+          5448,
+          "  return (uint32_t)(READ_BIT(ADCx->CFGR1, ADC_CFGR1_CONT));"
+        ],
+        [
+          5449,
+          "}"
+        ],
+        [
+          5450,
+          ""
+        ],
+        [
+          5451,
+          "/**"
+        ],
+        [
+          5452,
+          "  * @brief  Set ADC data transfer mode"
+        ],
+        [
+          5453,
+          "  * @note   Conversion data can be either:"
+        ],
+        [
+          5454,
+          "  *            - Available in Data Register"
+        ],
+        [
+          5455,
+          "  *            - Transferred by DMA in one shot mode"
+        ],
+        [
+          5456,
+          "  *            - Transferred by DMA in circular mode"
+        ],
+        [
+          5556,
+          "  *         @arg @ref LL_ADC_REG_DMA_TRANSFER_UNLIMITED"
+        ],
+        [
+          5557,
+          "  */"
+        ],
+        [
+          5558,
+          "__STATIC_INLINE uint32_t LL_ADC_REG_GetDMATransfer(const ADC_TypeDef *ADCx)"
+        ],
+        [
+          5559,
+          "{"
+        ],
+        [
+          5560,
+          "  return (uint32_t)(READ_BIT(ADCx->CFGR1, ADC4_CFGR1_DMAEN | ADC4_CFGR1_DMACFG));"
+        ],
+        [
+          5561,
+          "}"
+        ],
+        [
+          5562,
+          ""
+        ],
+        [
+          5563,
+          "/**"
+        ],
+        [
+          5564,
+          "  * @brief  Set ADC group regular behavior in case of overrun:"
+        ],
+        [
+          5565,
+          "  *         data preserved or overwritten."
+        ],
+        [
+          5566,
+          "  * @note   Compatibility with devices without feature overrun:"
+        ],
+        [
+          5567,
+          "  *         other devices without this feature have a behavior"
+        ],
+        [
+          5568,
+          "  *         equivalent to data overwritten."
+        ],
+        [
+          7900,
+          "  * @retval 0: ADC is disabled, 1: ADC is enabled."
+        ],
+        [
+          7901,
+          "  */"
+        ],
+        [
+          7902,
+          "__STATIC_INLINE uint32_t LL_ADC_IsEnabled(const ADC_TypeDef *ADCx)"
+        ],
+        [
+          7903,
+          "{"
+        ],
+        [
+          7904,
+          "  return ((READ_BIT(ADCx->CR, ADC_CR_ADEN) == (ADC_CR_ADEN)) ? 1UL : 0UL);"
+        ],
+        [
+          7905,
+          "}"
+        ],
+        [
+          7906,
+          ""
+        ],
+        [
+          7907,
+          "/**"
+        ],
+        [
+          7908,
+          "  * @brief  Get the selected ADC instance disable state."
+        ],
+        [
+          7909,
+          "  * @rmtoll CR       ADDIS          LL_ADC_IsDisableOngoing"
+        ],
+        [
+          7910,
+          "  * @param  ADCx ADC instance"
+        ],
+        [
+          7911,
+          "  * @retval 0: no ADC disable command on going."
+        ],
+        [
+          7912,
+          "  */"
+        ],
+        [
+          7969,
+          "  * @retval 0: calibration complete, 1: calibration in progress."
+        ],
+        [
+          7970,
+          "  */"
+        ],
+        [
+          7971,
+          "__STATIC_INLINE uint32_t LL_ADC_IsCalibrationOnGoing(const ADC_TypeDef *ADCx)"
+        ],
+        [
+          7972,
+          "{"
+        ],
+        [
+          7973,
+          "  return ((READ_BIT(ADCx->CR, ADC_CR_ADCAL) == (ADC_CR_ADCAL)) ? 1UL : 0UL);"
+        ],
+        [
+          7974,
+          "}"
+        ],
+        [
+          7975,
+          ""
+        ],
+        [
+          7976,
+          "/**"
+        ],
+        [
+          7977,
+          "  * @}"
+        ],
+        [
+          7978,
+          "  */"
+        ],
+        [
+          7979,
+          ""
+        ],
+        [
+          7980,
+          "/** @defgroup ADC_LL_EF_Operation_ADC_Group_Regular Operation on ADC hierarchical scope: group regular"
+        ],
+        [
+          7981,
+          "  * @{"
+        ],
+        [
+          8034,
+          "  * @retval 0: no conversion is on going on ADC group regular."
+        ],
+        [
+          8035,
+          "  */"
+        ],
+        [
+          8036,
+          "__STATIC_INLINE uint32_t LL_ADC_REG_IsConversionOngoing(const ADC_TypeDef *ADCx)"
+        ],
+        [
+          8037,
+          "{"
+        ],
+        [
+          8038,
+          "  return ((READ_BIT(ADCx->CR, ADC_CR_ADSTART) == (ADC_CR_ADSTART)) ? 1UL : 0UL);"
+        ],
+        [
+          8039,
+          "}"
+        ],
+        [
+          8040,
+          ""
+        ],
+        [
+          8041,
+          "/**"
+        ],
+        [
+          8042,
+          "  * @brief  Get ADC group regular command of conversion stop state"
+        ],
+        [
+          8043,
+          "  * @rmtoll CR       ADSTP          LL_ADC_REG_IsStopConversionOngoing"
+        ],
+        [
+          8044,
+          "  * @param  ADCx ADC instance"
+        ],
+        [
+          8045,
+          "  * @retval 0: no command of conversion stop is on going on ADC group regular."
+        ],
+        [
+          8046,
+          "  */"
+        ],
+        [
+          8915,
+          "  * @retval State of bit (1 or 0)."
+        ],
+        [
+          8916,
+          "  */"
+        ],
+        [
+          8917,
+          "__STATIC_INLINE uint32_t LL_ADC_IsEnabledIT_ADRDY(const ADC_TypeDef *ADCx)"
+        ],
+        [
+          8918,
+          "{"
+        ],
+        [
+          8919,
+          "  return ((READ_BIT(ADCx->IER, LL_ADC_IT_ADRDY) == (LL_ADC_IT_ADRDY)) ? 1UL : 0UL);"
+        ],
+        [
+          8920,
+          "}"
+        ],
+        [
+          8921,
+          ""
+        ],
+        [
+          8922,
+          "/**"
+        ],
+        [
+          8923,
+          "  * @brief  Get state of interruption ADC group regular end of unitary conversion"
+        ],
+        [
+          8924,
+          "  *         (0: interrupt disabled, 1: interrupt enabled)."
+        ],
+        [
+          8925,
+          "  * @rmtoll IER      EOCIE          LL_ADC_IsEnabledIT_EOC"
+        ],
+        [
+          8926,
+          "  * @param  ADCx ADC instance"
+        ],
+        [
+          8927,
+          "  * @retval State of bit (1 or 0)."
+        ],
+        [
+          8928,
+          "  */"
+        ],
+        [
+          8929,
+          "__STATIC_INLINE uint32_t LL_ADC_IsEnabledIT_EOC(const ADC_TypeDef *ADCx)"
+        ],
+        [
+          8930,
+          "{"
+        ],
+        [
+          8931,
+          "  return ((READ_BIT(ADCx->IER, LL_ADC_IT_EOC) == (LL_ADC_IT_EOC)) ? 1UL : 0UL);"
+        ],
+        [
+          8932,
+          "}"
+        ],
+        [
+          8933,
+          ""
+        ],
+        [
+          8934,
+          "/**"
+        ],
+        [
+          8935,
+          "  * @brief  Get state of interruption ADC group regular end of sequence conversions"
+        ],
+        [
+          8936,
+          "  *         (0: interrupt disabled, 1: interrupt enabled)."
+        ],
+        [
+          8937,
+          "  * @rmtoll IER      EOSIE          LL_ADC_IsEnabledIT_EOS"
+        ],
+        [
+          8938,
+          "  * @param  ADCx ADC instance"
+        ],
+        [
+          8939,
+          "  * @retval State of bit (1 or 0)."
+        ],
+        [
+          8940,
+          "  */"
+        ],
+        [
+          8941,
+          "__STATIC_INLINE uint32_t LL_ADC_IsEnabledIT_EOS(const ADC_TypeDef *ADCx)"
+        ],
+        [
+          8942,
+          "{"
+        ],
+        [
+          8943,
+          "  return ((READ_BIT(ADCx->IER, LL_ADC_IT_EOS) == (LL_ADC_IT_EOS)) ? 1UL : 0UL);"
+        ],
+        [
+          8944,
+          "}"
+        ],
+        [
+          8945,
+          ""
+        ],
+        [
+          8946,
+          "/**"
+        ],
+        [
+          8947,
+          "  * @brief  Get state of interruption ADC group regular overrun"
+        ],
+        [
+          8948,
+          "  *         (0: interrupt disabled, 1: interrupt enabled)."
+        ],
+        [
+          8949,
+          "  * @rmtoll IER      OVRIE          LL_ADC_IsEnabledIT_OVR"
+        ],
+        [
+          8950,
+          "  * @param  ADCx ADC instance"
+        ],
+        [
+          8951,
+          "  * @retval State of bit (1 or 0)."
+        ],
+        [
+          8952,
+          "  */"
+        ],
+        [
+          8953,
+          "__STATIC_INLINE uint32_t LL_ADC_IsEnabledIT_OVR(const ADC_TypeDef *ADCx)"
+        ],
+        [
+          8954,
+          "{"
+        ],
+        [
+          8955,
+          "  return ((READ_BIT(ADCx->IER, LL_ADC_IT_OVR) == (LL_ADC_IT_OVR)) ? 1UL : 0UL);"
+        ],
+        [
+          8956,
+          "}"
+        ],
+        [
+          8957,
+          ""
+        ],
+        [
+          8958,
+          "/**"
+        ],
+        [
+          8959,
+          "  * @brief  Get state of interruption ADC group regular end of sampling"
+        ],
+        [
+          8960,
+          "  *         (0: interrupt disabled, 1: interrupt enabled)."
+        ],
+        [
+          8961,
+          "  * @rmtoll IER      EOSMPIE        LL_ADC_IsEnabledIT_EOSMP"
+        ],
+        [
+          8962,
+          "  * @param  ADCx ADC instance"
+        ],
+        [
+          8963,
+          "  * @retval State of bit (1 or 0)."
+        ],
+        [
+          8964,
+          "  */"
+        ],
+        [
+          8965,
+          "__STATIC_INLINE uint32_t LL_ADC_IsEnabledIT_EOSMP(const ADC_TypeDef *ADCx)"
+        ],
+        [
+          8966,
+          "{"
+        ],
+        [
+          8967,
+          "  return ((READ_BIT(ADCx->IER, LL_ADC_IT_EOSMP) == (LL_ADC_IT_EOSMP)) ? 1UL : 0UL);"
+        ],
+        [
+          8968,
+          "}"
+        ],
+        [
+          8969,
+          ""
+        ],
+        [
+          8970,
+          "/**"
+        ],
+        [
+          8971,
+          "  * @brief  Get state of interruption ADC group injected end of unitary conversion"
+        ],
+        [
+          8972,
+          "  *         (0: interrupt disabled, 1: interrupt enabled)."
+        ],
+        [
+          8973,
+          "  * @rmtoll IER      JEOCIE         LL_ADC_IsEnabledIT_JEOC"
+        ],
+        [
+          8974,
+          "  * @param  ADCx ADC instance"
+        ],
+        [
+          8975,
+          "  * @retval State of bit (1 or 0)."
+        ],
+        [
+          8976,
+          "  */"
+        ],
+        [
+          8977,
+          "__STATIC_INLINE uint32_t LL_ADC_IsEnabledIT_JEOC(const ADC_TypeDef *ADCx)"
+        ],
+        [
+          8978,
+          "{"
+        ],
+        [
+          8979,
+          "  return ((READ_BIT(ADCx->IER, LL_ADC_IT_JEOC) == (LL_ADC_IT_JEOC)) ? 1UL : 0UL);"
+        ],
+        [
+          8980,
+          "}"
+        ],
+        [
+          8981,
+          ""
+        ],
+        [
+          8982,
+          "/**"
+        ],
+        [
+          8983,
+          "  * @brief  Get state of interruption ADC group injected end of sequence conversions"
+        ],
+        [
+          8984,
+          "  *         (0: interrupt disabled, 1: interrupt enabled)."
+        ],
+        [
+          8985,
+          "  * @rmtoll IER      JEOSIE         LL_ADC_IsEnabledIT_JEOS"
+        ],
+        [
+          8986,
+          "  * @param  ADCx ADC instance"
+        ],
+        [
+          8987,
+          "  * @retval State of bit (1 or 0)."
+        ],
+        [
+          8988,
+          "  */"
+        ],
+        [
+          8989,
+          "__STATIC_INLINE uint32_t LL_ADC_IsEnabledIT_JEOS(const ADC_TypeDef *ADCx)"
+        ],
+        [
+          8990,
+          "{"
+        ],
+        [
+          8991,
+          "  return ((READ_BIT(ADCx->IER, LL_ADC_IT_JEOS) == (LL_ADC_IT_JEOS)) ? 1UL : 0UL);"
+        ],
+        [
+          8992,
+          "}"
+        ],
+        [
+          8993,
+          ""
+        ],
+        [
+          8994,
+          "/**"
+        ],
+        [
+          8995,
+          "  * @brief  Get state of interruption ADC analog watchdog 1"
+        ],
+        [
+          8996,
+          "  *         (0: interrupt disabled, 1: interrupt enabled)."
+        ],
+        [
+          8997,
+          "  * @rmtoll IER      AWD1IE         LL_ADC_IsEnabledIT_AWD1"
+        ],
+        [
+          8998,
+          "  * @param  ADCx ADC instance"
+        ],
+        [
+          8999,
+          "  * @retval State of bit (1 or 0)."
+        ],
+        [
+          9000,
+          "  */"
+        ],
+        [
+          9001,
+          "__STATIC_INLINE uint32_t LL_ADC_IsEnabledIT_AWD1(const ADC_TypeDef *ADCx)"
+        ],
+        [
+          9002,
+          "{"
+        ],
+        [
+          9003,
+          "  return ((READ_BIT(ADCx->IER, LL_ADC_IT_AWD1) == (LL_ADC_IT_AWD1)) ? 1UL : 0UL);"
+        ],
+        [
+          9004,
+          "}"
+        ],
+        [
+          9005,
+          ""
+        ],
+        [
+          9006,
+          "/**"
+        ],
+        [
+          9007,
+          "  * @brief  Get state of interruption Get ADC analog watchdog 2"
+        ],
+        [
+          9008,
+          "  *         (0: interrupt disabled, 1: interrupt enabled)."
+        ],
+        [
+          9009,
+          "  * @rmtoll IER      AWD2IE         LL_ADC_IsEnabledIT_AWD2"
+        ],
+        [
+          9010,
+          "  * @param  ADCx ADC instance"
+        ],
+        [
+          9011,
+          "  * @retval State of bit (1 or 0)."
+        ],
+        [
+          9012,
+          "  */"
+        ],
+        [
+          9013,
+          "__STATIC_INLINE uint32_t LL_ADC_IsEnabledIT_AWD2(const ADC_TypeDef *ADCx)"
+        ],
+        [
+          9014,
+          "{"
+        ],
+        [
+          9015,
+          "  return ((READ_BIT(ADCx->IER, LL_ADC_IT_AWD2) == (LL_ADC_IT_AWD2)) ? 1UL : 0UL);"
+        ],
+        [
+          9016,
+          "}"
+        ],
+        [
+          9017,
+          ""
+        ],
+        [
+          9018,
+          "/**"
+        ],
+        [
+          9019,
+          "  * @brief  Get state of interruption Get ADC analog watchdog 3"
+        ],
+        [
+          9020,
+          "  *         (0: interrupt disabled, 1: interrupt enabled)."
+        ],
+        [
+          9021,
+          "  * @rmtoll IER      AWD3IE         LL_ADC_IsEnabledIT_AWD3"
+        ],
+        [
+          9022,
+          "  * @param  ADCx ADC instance"
+        ],
+        [
+          9023,
+          "  * @retval State of bit (1 or 0)."
+        ],
+        [
+          9024,
+          "  */"
+        ],
+        [
+          9025,
+          "__STATIC_INLINE uint32_t LL_ADC_IsEnabledIT_AWD3(const ADC_TypeDef *ADCx)"
+        ],
+        [
+          9026,
+          "{"
+        ],
+        [
+          9027,
+          "  return ((READ_BIT(ADCx->IER, LL_ADC_IT_AWD3) == (LL_ADC_IT_AWD3)) ? 1UL : 0UL);"
+        ],
+        [
+          9028,
+          "}"
+        ],
+        [
+          9029,
+          ""
+        ],
+        [
+          9030,
+          "/**"
+        ],
+        [
+          9031,
+          "  * @brief  Get state of interruption ADC end of calibration"
+        ],
+        [
+          9032,
+          "  *         (0: interrupt disabled, 1: interrupt enabled)."
+        ],
+        [
+          9033,
+          "  * @rmtoll IER      EOCALIE        LL_ADC_IsEnabledIT_EOCAL"
+        ],
+        [
+          9034,
+          "  * @param  ADCx ADC instance"
+        ],
+        [
+          9035,
+          "  * @retval State of bit (1 or 0)."
+        ],
+        [
+          9036,
+          "  */"
+        ],
+        [
+          9037,
+          "__STATIC_INLINE uint32_t LL_ADC_IsEnabledIT_EOCAL(const ADC_TypeDef *ADCx)"
+        ],
+        [
+          9038,
+          "{"
+        ],
+        [
+          9039,
+          "  return ((READ_BIT(ADCx->IER, LL_ADC_IT_EOCAL) == (LL_ADC_IT_EOCAL)) ? 1UL : 0UL);"
+        ],
+        [
+          9040,
+          "}"
+        ],
+        [
+          9041,
+          ""
+        ],
+        [
+          9042,
+          "/**"
+        ],
+        [
+          9043,
+          "  * @}"
+        ],
+        [
+          9044,
+          "  */"
+        ],
+        [
+          9045,
+          ""
+        ],
+        [
+          9046,
+          "#if defined(USE_FULL_LL_DRIVER)"
+        ],
+        [
+          9047,
+          "/** @defgroup ADC_LL_EF_Init Initialization and de-initialization functions"
+        ]
+      ]
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/zephyr/drivers/clock_control/stm32_clock_control.h",
+      "sha256": "5ff73868f537e9a761b7b4b45d7fed7147a929cb526760cb5678a01afa2f3936",
+      "bytes": 41259,
+      "lines": [
+        [
+          576,
+          "#define STM32_MSIS_ENABLED\t1"
+        ],
+        [
+          577,
+          "#define STM32_MSIS_RANGE\tDT_PROP(DT_NODELABEL(clk_msis), msi_range)"
+        ],
+        [
+          578,
+          "#define STM32_MSIS_PLL_MODE\tDT_PROP(DT_NODELABEL(clk_msis), msi_pll_mode)"
+        ],
+        [
+          579,
+          "#else"
+        ],
+        [
+          580,
+          "#define STM32_MSIS_RANGE\t0"
+        ],
+        [
+          581,
+          "#define STM32_MSIS_PLL_MODE\t0"
+        ],
+        [
+          582,
+          "#endif"
+        ],
+        [
+          583,
+          ""
+        ],
+        [
+          584,
+          "#if DT_NODE_HAS_COMPAT_STATUS(DT_NODELABEL(clk_msik), st_stm32u5_msi_clock, okay) || \\"
+        ],
+        [
+          586,
+          "#define STM32_MSIK_ENABLED\t1"
+        ],
+        [
+          587,
+          "#define STM32_MSIK_RANGE\tDT_PROP(DT_NODELABEL(clk_msik), msi_range)"
+        ],
+        [
+          588,
+          "#define STM32_MSIK_PLL_MODE\tDT_PROP(DT_NODELABEL(clk_msik), msi_pll_mode)"
+        ],
+        [
+          589,
+          "#else"
+        ],
+        [
+          590,
+          "#define STM32_MSIK_RANGE\t0"
+        ],
+        [
+          591,
+          "#define STM32_MSIK_PLL_MODE\t0"
+        ],
+        [
+          592,
+          "#endif"
+        ],
+        [
+          593,
+          ""
+        ],
+        [
+          594,
+          "#if DT_NODE_HAS_COMPAT_STATUS(DT_NODELABEL(clk_csi), fixed_clock, okay)"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,2302 @@
+{
+  "exit": 0,
+  "stderr": "",
+  "records": [
+    {
+      "core_cm33_paths": [
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/modules/hal/cmsis_6/CMSIS/Core/Include/core_cm33.h"
+      ]
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/modules/hal/cmsis_6/CMSIS/Core/Include/core_cm33.h",
+      "sha256": "28837edccc98d00852e30213482bb2e6d039cdd7e696b976b01bd1621a38e283",
+      "bytes": 112329,
+      "lines": [
+        [
+          2268,
+          "#else"
+        ],
+        [
+          2269,
+          "  #define NVIC_SetPriorityGrouping    __NVIC_SetPriorityGrouping"
+        ],
+        [
+          2270,
+          "  #define NVIC_GetPriorityGrouping    __NVIC_GetPriorityGrouping"
+        ],
+        [
+          2271,
+          "  #define NVIC_EnableIRQ              __NVIC_EnableIRQ"
+        ],
+        [
+          2272,
+          "  #define NVIC_GetEnableIRQ           __NVIC_GetEnableIRQ"
+        ],
+        [
+          2273,
+          "  #define NVIC_DisableIRQ             __NVIC_DisableIRQ"
+        ],
+        [
+          2274,
+          "  #define NVIC_GetPendingIRQ          __NVIC_GetPendingIRQ"
+        ],
+        [
+          2275,
+          "  #define NVIC_SetPendingIRQ          __NVIC_SetPendingIRQ"
+        ],
+        [
+          2276,
+          "  #define NVIC_ClearPendingIRQ        __NVIC_ClearPendingIRQ"
+        ],
+        [
+          2277,
+          "  #define NVIC_GetActive              __NVIC_GetActive"
+        ],
+        [
+          2278,
+          "  #define NVIC_SetPriority            __NVIC_SetPriority"
+        ],
+        [
+          2279,
+          "  #define NVIC_GetPriority            __NVIC_GetPriority"
+        ],
+        [
+          2280,
+          "  #define NVIC_SystemReset            __NVIC_SystemReset"
+        ],
+        [
+          2281,
+          "#endif /* CMSIS_NVIC_VIRTUAL */"
+        ],
+        [
+          2282,
+          ""
+        ],
+        [
+          2283,
+          "#ifdef CMSIS_VECTAB_VIRTUAL"
+        ],
+        [
+          2284,
+          "  #ifndef CMSIS_VECTAB_VIRTUAL_HEADER_FILE"
+        ],
+        [
+          2285,
+          "    #define CMSIS_VECTAB_VIRTUAL_HEADER_FILE \"cmsis_vectab_virtual.h\""
+        ],
+        [
+          2286,
+          "  #endif"
+        ],
+        [
+          2287,
+          "  #include CMSIS_VECTAB_VIRTUAL_HEADER_FILE"
+        ],
+        [
+          2288,
+          "#else"
+        ],
+        [
+          2289,
+          "  #define NVIC_SetVector              __NVIC_SetVector"
+        ],
+        [
+          2290,
+          "  #define NVIC_GetVector              __NVIC_GetVector"
+        ],
+        [
+          2291,
+          "#endif  /* (CMSIS_VECTAB_VIRTUAL) */"
+        ],
+        [
+          2292,
+          ""
+        ],
+        [
+          2293,
+          "#define NVIC_USER_IRQ_OFFSET          16"
+        ],
+        [
+          2294,
+          ""
+        ],
+        [
+          2295,
+          ""
+        ],
+        [
+          2296,
+          "/* Special LR values for Secure/Non-Secure call handling and exception handling                                               */"
+        ],
+        [
+          2297,
+          ""
+        ],
+        [
+          2298,
+          "/* Function Return Payload (from ARMv8-M Architecture Reference Manual) LR value on entry from Secure BLXNS                   */"
+        ],
+        [
+          2299,
+          "#define FNC_RETURN                 (0xFEFFFFFFUL)"
+        ],
+        [
+          2300,
+          ""
+        ],
+        [
+          2301,
+          "/* The following EXC_RETURN mask values are used to evaluate the LR on exception entry */"
+        ],
+        [
+          2373,
+          "  \\return             0  Interrupt is not enabled."
+        ],
+        [
+          2374,
+          "  \\return             1  Interrupt is enabled."
+        ],
+        [
+          2375,
+          "  \\note    IRQn must not be negative."
+        ],
+        [
+          2376,
+          " */"
+        ],
+        [
+          2377,
+          "__STATIC_INLINE uint32_t __NVIC_GetEnableIRQ(IRQn_Type IRQn)"
+        ],
+        [
+          2378,
+          "{"
+        ],
+        [
+          2379,
+          "  if ((int32_t)(IRQn) >= 0)"
+        ],
+        [
+          2380,
+          "  {"
+        ],
+        [
+          2381,
+          "    return((uint32_t)(((NVIC->ISER[(((uint32_t)IRQn) >> 5UL)] & (1UL << (((uint32_t)IRQn) & 0x1FUL))) != 0UL) ? 1UL : 0UL));"
+        ],
+        [
+          2382,
+          "  }"
+        ],
+        [
+          2383,
+          "  else"
+        ],
+        [
+          2384,
+          "  {"
+        ],
+        [
+          2385,
+          "    return(0U);"
+        ],
+        [
+          2386,
+          "  }"
+        ],
+        [
+          2387,
+          "}"
+        ],
+        [
+          2388,
+          ""
+        ],
+        [
+          2389,
+          ""
+        ],
+        [
+          2390,
+          "/**"
+        ],
+        [
+          2391,
+          "  \\brief   Disable Interrupt"
+        ],
+        [
+          2392,
+          "  \\details Disables a device specific interrupt in the NVIC interrupt controller."
+        ],
+        [
+          2393,
+          "  \\param [in]      IRQn  Device specific interrupt number."
+        ],
+        [
+          2394,
+          "  \\note    IRQn must not be negative."
+        ],
+        [
+          2395,
+          " */"
+        ],
+        [
+          2396,
+          "__STATIC_INLINE void __NVIC_DisableIRQ(IRQn_Type IRQn)"
+        ],
+        [
+          2397,
+          "{"
+        ],
+        [
+          2398,
+          "  if ((int32_t)(IRQn) >= 0)"
+        ],
+        [
+          2399,
+          "  {"
+        ],
+        [
+          2400,
+          "    NVIC->ICER[(((uint32_t)IRQn) >> 5UL)] = (uint32_t)(1UL << (((uint32_t)IRQn) & 0x1FUL));"
+        ],
+        [
+          2401,
+          "    __DSB();"
+        ],
+        [
+          2411,
+          "  \\return             0  Interrupt status is not pending."
+        ],
+        [
+          2412,
+          "  \\return             1  Interrupt status is pending."
+        ],
+        [
+          2413,
+          "  \\note    IRQn must not be negative."
+        ],
+        [
+          2414,
+          " */"
+        ],
+        [
+          2415,
+          "__STATIC_INLINE uint32_t __NVIC_GetPendingIRQ(IRQn_Type IRQn)"
+        ],
+        [
+          2416,
+          "{"
+        ],
+        [
+          2417,
+          "  if ((int32_t)(IRQn) >= 0)"
+        ],
+        [
+          2418,
+          "  {"
+        ],
+        [
+          2419,
+          "    return((uint32_t)(((NVIC->ISPR[(((uint32_t)IRQn) >> 5UL)] & (1UL << (((uint32_t)IRQn) & 0x1FUL))) != 0UL) ? 1UL : 0UL));"
+        ],
+        [
+          2420,
+          "  }"
+        ],
+        [
+          2421,
+          "  else"
+        ],
+        [
+          2422,
+          "  {"
+        ],
+        [
+          2423,
+          "    return(0U);"
+        ],
+        [
+          2424,
+          "  }"
+        ],
+        [
+          2425,
+          "}"
+        ],
+        [
+          2426,
+          ""
+        ],
+        [
+          2427,
+          ""
+        ],
+        [
+          2428,
+          "/**"
+        ],
+        [
+          2429,
+          "  \\brief   Set Pending Interrupt"
+        ],
+        [
+          2430,
+          "  \\details Sets the pending bit of a device specific interrupt in the NVIC pending register."
+        ],
+        [
+          2431,
+          "  \\param [in]      IRQn  Device specific interrupt number."
+        ],
+        [
+          2432,
+          "  \\note    IRQn must not be negative."
+        ],
+        [
+          2433,
+          " */"
+        ],
+        [
+          2434,
+          "__STATIC_INLINE void __NVIC_SetPendingIRQ(IRQn_Type IRQn)"
+        ],
+        [
+          2435,
+          "{"
+        ],
+        [
+          2436,
+          "  if ((int32_t)(IRQn) >= 0)"
+        ],
+        [
+          2437,
+          "  {"
+        ],
+        [
+          2438,
+          "    NVIC->ISPR[(((uint32_t)IRQn) >> 5UL)] = (uint32_t)(1UL << (((uint32_t)IRQn) & 0x1FUL));"
+        ],
+        [
+          2439,
+          "  }"
+        ],
+        [
+          2462,
+          "  \\return             0  Interrupt status is not active."
+        ],
+        [
+          2463,
+          "  \\return             1  Interrupt status is active."
+        ],
+        [
+          2464,
+          "  \\note    IRQn must not be negative."
+        ],
+        [
+          2465,
+          " */"
+        ],
+        [
+          2466,
+          "__STATIC_INLINE uint32_t __NVIC_GetActive(IRQn_Type IRQn)"
+        ],
+        [
+          2467,
+          "{"
+        ],
+        [
+          2468,
+          "  if ((int32_t)(IRQn) >= 0)"
+        ],
+        [
+          2469,
+          "  {"
+        ],
+        [
+          2470,
+          "    return((uint32_t)(((NVIC->IABR[(((uint32_t)IRQn) >> 5UL)] & (1UL << (((uint32_t)IRQn) & 0x1FUL))) != 0UL) ? 1UL : 0UL));"
+        ],
+        [
+          2471,
+          "  }"
+        ],
+        [
+          2472,
+          "  else"
+        ],
+        [
+          2473,
+          "  {"
+        ],
+        [
+          2474,
+          "    return(0U);"
+        ],
+        [
+          2475,
+          "  }"
+        ],
+        [
+          2476,
+          "}"
+        ],
+        [
+          2477,
+          ""
+        ],
+        [
+          2478,
+          ""
+        ],
+        [
+          2479,
+          "#if defined (__ARM_FEATURE_CMSE) && (__ARM_FEATURE_CMSE == 3U)"
+        ],
+        [
+          2480,
+          "/**"
+        ],
+        [
+          2481,
+          "  \\brief   Get Interrupt Target State"
+        ],
+        [
+          2482,
+          "  \\details Reads the interrupt target field in the NVIC and returns the interrupt target bit for the device specific interrupt."
+        ],
+        [
+          2483,
+          "  \\param [in]      IRQn  Device specific interrupt number."
+        ],
+        [
+          2484,
+          "  \\return             0  if interrupt is assigned to Secure"
+        ],
+        [
+          2485,
+          "  \\return             1  if interrupt is assigned to Non Secure"
+        ],
+        [
+          2486,
+          "  \\note    IRQn must not be negative."
+        ],
+        [
+          2487,
+          " */"
+        ],
+        [
+          2488,
+          "__STATIC_INLINE uint32_t NVIC_GetTargetState(IRQn_Type IRQn)"
+        ],
+        [
+          2489,
+          "{"
+        ],
+        [
+          2490,
+          "  if ((int32_t)(IRQn) >= 0)"
+        ],
+        [
+          2748,
+          "  \\return             0  Interrupt is not enabled."
+        ],
+        [
+          2749,
+          "  \\return             1  Interrupt is enabled."
+        ],
+        [
+          2750,
+          "  \\note    IRQn must not be negative."
+        ],
+        [
+          2751,
+          " */"
+        ],
+        [
+          2752,
+          "__STATIC_INLINE uint32_t TZ_NVIC_GetEnableIRQ_NS(IRQn_Type IRQn)"
+        ],
+        [
+          2753,
+          "{"
+        ],
+        [
+          2754,
+          "  if ((int32_t)(IRQn) >= 0)"
+        ],
+        [
+          2755,
+          "  {"
+        ],
+        [
+          2756,
+          "    return((uint32_t)(((NVIC_NS->ISER[(((uint32_t)IRQn) >> 5UL)] & (1UL << (((uint32_t)IRQn) & 0x1FUL))) != 0UL) ? 1UL : 0UL));"
+        ],
+        [
+          2757,
+          "  }"
+        ],
+        [
+          2758,
+          "  else"
+        ],
+        [
+          2759,
+          "  {"
+        ],
+        [
+          2760,
+          "    return(0U);"
+        ],
+        [
+          2761,
+          "  }"
+        ],
+        [
+          2762,
+          "}"
+        ],
+        [
+          2763,
+          ""
+        ],
+        [
+          2764,
+          ""
+        ],
+        [
+          2765,
+          "/**"
+        ],
+        [
+          2766,
+          "  \\brief   Disable Interrupt (non-secure)"
+        ],
+        [
+          2767,
+          "  \\details Disables a device specific interrupt in the non-secure NVIC interrupt controller when in secure state."
+        ],
+        [
+          2768,
+          "  \\param [in]      IRQn  Device specific interrupt number."
+        ],
+        [
+          2769,
+          "  \\note    IRQn must not be negative."
+        ],
+        [
+          2770,
+          " */"
+        ],
+        [
+          2771,
+          "__STATIC_INLINE void TZ_NVIC_DisableIRQ_NS(IRQn_Type IRQn)"
+        ],
+        [
+          2772,
+          "{"
+        ],
+        [
+          2773,
+          "  if ((int32_t)(IRQn) >= 0)"
+        ],
+        [
+          2774,
+          "  {"
+        ],
+        [
+          2775,
+          "    NVIC_NS->ICER[(((uint32_t)IRQn) >> 5UL)] = (uint32_t)(1UL << (((uint32_t)IRQn) & 0x1FUL));"
+        ],
+        [
+          2776,
+          "  }"
+        ],
+        [
+          2784,
+          "  \\return             0  Interrupt status is not pending."
+        ],
+        [
+          2785,
+          "  \\return             1  Interrupt status is pending."
+        ],
+        [
+          2786,
+          "  \\note    IRQn must not be negative."
+        ],
+        [
+          2787,
+          " */"
+        ],
+        [
+          2788,
+          "__STATIC_INLINE uint32_t TZ_NVIC_GetPendingIRQ_NS(IRQn_Type IRQn)"
+        ],
+        [
+          2789,
+          "{"
+        ],
+        [
+          2790,
+          "  if ((int32_t)(IRQn) >= 0)"
+        ],
+        [
+          2791,
+          "  {"
+        ],
+        [
+          2792,
+          "    return((uint32_t)(((NVIC_NS->ISPR[(((uint32_t)IRQn) >> 5UL)] & (1UL << (((uint32_t)IRQn) & 0x1FUL))) != 0UL) ? 1UL : 0UL));"
+        ],
+        [
+          2793,
+          "  }"
+        ],
+        [
+          2794,
+          "  else"
+        ],
+        [
+          2795,
+          "  {"
+        ],
+        [
+          2796,
+          "    return(0U);"
+        ],
+        [
+          2797,
+          "  }"
+        ],
+        [
+          2798,
+          "}"
+        ],
+        [
+          2799,
+          ""
+        ],
+        [
+          2800,
+          ""
+        ],
+        [
+          2801,
+          "/**"
+        ],
+        [
+          2802,
+          "  \\brief   Set Pending Interrupt (non-secure)"
+        ],
+        [
+          2803,
+          "  \\details Sets the pending bit of a device specific interrupt in the non-secure NVIC pending register when in secure state."
+        ],
+        [
+          2804,
+          "  \\param [in]      IRQn  Device specific interrupt number."
+        ],
+        [
+          2805,
+          "  \\note    IRQn must not be negative."
+        ],
+        [
+          2806,
+          " */"
+        ],
+        [
+          2807,
+          "__STATIC_INLINE void TZ_NVIC_SetPendingIRQ_NS(IRQn_Type IRQn)"
+        ],
+        [
+          2808,
+          "{"
+        ],
+        [
+          2809,
+          "  if ((int32_t)(IRQn) >= 0)"
+        ],
+        [
+          2810,
+          "  {"
+        ],
+        [
+          2811,
+          "    NVIC_NS->ISPR[(((uint32_t)IRQn) >> 5UL)] = (uint32_t)(1UL << (((uint32_t)IRQn) & 0x1FUL));"
+        ],
+        [
+          2812,
+          "  }"
+        ],
+        [
+          2835,
+          "  \\return             0  Interrupt status is not active."
+        ],
+        [
+          2836,
+          "  \\return             1  Interrupt status is active."
+        ],
+        [
+          2837,
+          "  \\note    IRQn must not be negative."
+        ],
+        [
+          2838,
+          " */"
+        ],
+        [
+          2839,
+          "__STATIC_INLINE uint32_t TZ_NVIC_GetActive_NS(IRQn_Type IRQn)"
+        ],
+        [
+          2840,
+          "{"
+        ],
+        [
+          2841,
+          "  if ((int32_t)(IRQn) >= 0)"
+        ],
+        [
+          2842,
+          "  {"
+        ],
+        [
+          2843,
+          "    return((uint32_t)(((NVIC_NS->IABR[(((uint32_t)IRQn) >> 5UL)] & (1UL << (((uint32_t)IRQn) & 0x1FUL))) != 0UL) ? 1UL : 0UL));"
+        ],
+        [
+          2844,
+          "  }"
+        ],
+        [
+          2845,
+          "  else"
+        ],
+        [
+          2846,
+          "  {"
+        ],
+        [
+          2847,
+          "    return(0U);"
+        ],
+        [
+          2848,
+          "  }"
+        ],
+        [
+          2849,
+          "}"
+        ],
+        [
+          2850,
+          ""
+        ],
+        [
+          2851,
+          ""
+        ],
+        [
+          2852,
+          "/**"
+        ],
+        [
+          2853,
+          "  \\brief   Set Interrupt Priority (non-secure)"
+        ],
+        [
+          2854,
+          "  \\details Sets the priority of a non-secure device specific interrupt or a non-secure processor exception when in secure state."
+        ],
+        [
+          2855,
+          "           The interrupt number can be positive to specify a device specific interrupt,"
+        ],
+        [
+          2856,
+          "           or negative to specify a processor exception."
+        ],
+        [
+          2857,
+          "  \\param [in]      IRQn  Interrupt number."
+        ],
+        [
+          2858,
+          "  \\param [in]  priority  Priority to set."
+        ],
+        [
+          2859,
+          "  \\note    The priority cannot be set for every non-secure processor exception."
+        ],
+        [
+          2860,
+          " */"
+        ],
+        [
+          2861,
+          "__STATIC_INLINE void TZ_NVIC_SetPriority_NS(IRQn_Type IRQn, uint32_t priority)"
+        ],
+        [
+          2862,
+          "{"
+        ],
+        [
+          2863,
+          "  if ((int32_t)(IRQn) >= 0)"
+        ]
+      ]
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/modules/hal/stm32/stm32cube/stm32u5xx/soc/stm32u585xx.h",
+      "sha256": "8b66d5b9d1514f3ce0950b7a96402e7c026a0779e1cc36c3771be05432b68c06",
+      "bytes": 1517115,
+      "lines": [
+        [
+          104,
+          "  GPDMA1_Channel6_IRQn      = 35,"
+        ],
+        [
+          105,
+          "  GPDMA1_Channel7_IRQn      = 36,"
+        ],
+        [
+          106,
+          "  ADC1_IRQn                 = 37,"
+        ],
+        [
+          107,
+          "  DAC1_IRQn                 = 38,"
+        ],
+        [
+          108,
+          "  FDCAN1_IT0_IRQn           = 39,"
+        ],
+        [
+          109,
+          "  FDCAN1_IT1_IRQn           = 40,"
+        ],
+        [
+          110,
+          "  TIM1_BRK_IRQn             = 41,"
+        ],
+        [
+          111,
+          "  TIM1_UP_IRQn              = 42,"
+        ],
+        [
+          180,
+          "  DCACHE1_IRQn              = 111,"
+        ],
+        [
+          181,
+          "  ADF1_IRQn                 = 112,"
+        ],
+        [
+          182,
+          "  ADC4_IRQn                 = 113,"
+        ],
+        [
+          183,
+          "  LPDMA1_Channel0_IRQn      = 114,"
+        ],
+        [
+          184,
+          "  LPDMA1_Channel1_IRQn      = 115,"
+        ],
+        [
+          185,
+          "  LPDMA1_Channel2_IRQn      = 116,"
+        ],
+        [
+          186,
+          "  LPDMA1_Channel3_IRQn      = 117,"
+        ],
+        [
+          1852,
+          "#define GPIOH_BASE_NS            (AHB2PERIPH_BASE_NS + 0x01C00UL)"
+        ],
+        [
+          1853,
+          "#define GPIOI_BASE_NS            (AHB2PERIPH_BASE_NS + 0x02000UL)"
+        ],
+        [
+          1854,
+          "#define ADC1_BASE_NS             (AHB2PERIPH_BASE_NS + 0x08000UL)"
+        ],
+        [
+          1855,
+          "#define ADC12_COMMON_BASE_NS     (AHB2PERIPH_BASE_NS + 0x08308UL)"
+        ],
+        [
+          1856,
+          "#define DCMI_BASE_NS             (AHB2PERIPH_BASE_NS + 0x0C000UL)"
+        ],
+        [
+          1857,
+          "#define PSSI_BASE_NS             (AHB2PERIPH_BASE_NS + 0x0C400UL)"
+        ],
+        [
+          1858,
+          "#define USB_OTG_FS_BASE_NS       (AHB2PERIPH_BASE_NS + 0x20000UL)"
+        ],
+        [
+          1859,
+          "#define AES_BASE_NS              (AHB2PERIPH_BASE_NS + 0xA0000UL)"
+        ],
+        [
+          1893,
+          "#define PWR_BASE_NS              (AHB3PERIPH_BASE_NS + 0x0800UL)"
+        ],
+        [
+          1894,
+          "#define RCC_BASE_NS              (AHB3PERIPH_BASE_NS + 0x0C00UL)"
+        ],
+        [
+          1895,
+          "#define ADC4_BASE_NS             (AHB3PERIPH_BASE_NS + 0x1000UL)"
+        ],
+        [
+          1896,
+          "#define ADC4_COMMON_BASE_NS      (AHB3PERIPH_BASE_NS + 0x1308UL)"
+        ],
+        [
+          1897,
+          "#define DAC1_BASE_NS             (AHB3PERIPH_BASE_NS + 0x1800UL)"
+        ],
+        [
+          1898,
+          "#define EXTI_BASE_NS             (AHB3PERIPH_BASE_NS + 0x2000UL)"
+        ],
+        [
+          1899,
+          "#define GTZC_TZSC2_BASE_NS       (AHB3PERIPH_BASE_NS + 0x3000UL)"
+        ],
+        [
+          2302,
+          "#define GPIOH_NS               ((GPIO_TypeDef *) GPIOH_BASE_NS)"
+        ],
+        [
+          2303,
+          "#define GPIOI_NS               ((GPIO_TypeDef *) GPIOI_BASE_NS)"
+        ],
+        [
+          2304,
+          "#define ADC1_NS                ((ADC_TypeDef *) ADC1_BASE_NS)"
+        ],
+        [
+          2305,
+          "#define ADC12_COMMON_NS        ((ADC_Common_TypeDef *) ADC12_COMMON_BASE_NS)"
+        ],
+        [
+          2306,
+          "#define DCMI_NS                ((DCMI_TypeDef *) DCMI_BASE_NS)"
+        ],
+        [
+          2307,
+          "#define PSSI_NS                ((PSSI_TypeDef *) PSSI_BASE_NS)"
+        ],
+        [
+          2308,
+          "#define USB_OTG_FS_NS          ((USB_OTG_GlobalTypeDef *) USB_OTG_FS_BASE_NS)"
+        ],
+        [
+          2309,
+          "#define AES_NS                 ((AES_TypeDef *) AES_BASE_NS)"
+        ],
+        [
+          2340,
+          "#define PWR_NS                 ((PWR_TypeDef *) PWR_BASE_NS)"
+        ],
+        [
+          2341,
+          "#define RCC_NS                 ((RCC_TypeDef *) RCC_BASE_NS)"
+        ],
+        [
+          2342,
+          "#define ADC4_NS                ((ADC_TypeDef *) ADC4_BASE_NS)"
+        ],
+        [
+          2343,
+          "#define ADC4_COMMON_NS         ((ADC_Common_TypeDef *) ADC4_COMMON_BASE_NS)"
+        ],
+        [
+          2344,
+          "#define DAC1_NS                ((DAC_TypeDef *) DAC1_BASE_NS)"
+        ],
+        [
+          2345,
+          "#define EXTI_NS                ((EXTI_TypeDef *) EXTI_BASE_NS)"
+        ],
+        [
+          2346,
+          "#define GTZC_TZSC2_NS          ((GTZC_TZSC_TypeDef *) GTZC_TZSC2_BASE_NS)"
+        ],
+        [
+          3355,
+          ""
+        ],
+        [
+          3356,
+          "#define ADC1                           ADC1_NS"
+        ],
+        [
+          3357,
+          "#define ADC1_BASE                      ADC1_BASE_NS"
+        ],
+        [
+          3358,
+          ""
+        ],
+        [
+          3359,
+          "#define ADC12_COMMON                   ADC12_COMMON_NS"
+        ],
+        [
+          3360,
+          "#define ADC12_COMMON_BASE              ADC12_COMMON_BASE_NS"
+        ],
+        [
+          3361,
+          ""
+        ],
+        [
+          3362,
+          "#define ADC4                           ADC4_NS"
+        ],
+        [
+          3363,
+          "#define ADC4_BASE                      ADC4_BASE_NS"
+        ],
+        [
+          3364,
+          ""
+        ],
+        [
+          3365,
+          "#define ADC4_COMMON                    ADC4_COMMON_NS"
+        ],
+        [
+          3366,
+          "#define ADC4_COMMON_BASE               ADC4_COMMON_BASE_NS"
+        ],
+        [
+          3367,
+          ""
+        ],
+        [
+          5420,
+          ""
+        ],
+        [
+          5421,
+          "/********************  Bit definition for DAC_CR register  ********************/"
+        ],
+        [
+          5422,
+          "#define DAC_CR_EN1_Pos                      (0UL)"
+        ],
+        [
+          5423,
+          "#define DAC_CR_EN1_Msk                      (0x1UL << DAC_CR_EN1_Pos)"
+        ],
+        [
+          5424,
+          "#define DAC_CR_EN1                          DAC_CR_EN1_Msk"
+        ],
+        [
+          5425,
+          "#define DAC_CR_TEN1_Pos                     (1UL)"
+        ],
+        [
+          5426,
+          "#define DAC_CR_TEN1_Msk                     (0x1UL << DAC_CR_TEN1_Pos)"
+        ],
+        [
+          5427,
+          "#define DAC_CR_TEN1                         DAC_CR_TEN1_Msk"
+        ],
+        [
+          5428,
+          "#define DAC_CR_TSEL1_Pos                    (2UL)"
+        ],
+        [
+          5429,
+          "#define DAC_CR_TSEL1_Msk                    (0xFUL << DAC_CR_TSEL1_Pos)"
+        ],
+        [
+          5430,
+          "#define DAC_CR_TSEL1                        DAC_CR_TSEL1_Msk"
+        ],
+        [
+          5431,
+          "#define DAC_CR_TSEL1_0                      (0x1UL << DAC_CR_TSEL1_Pos)"
+        ],
+        [
+          5454,
+          "#define DAC_CR_CEN1_Msk                     (0x1UL << DAC_CR_CEN1_Pos)"
+        ],
+        [
+          5455,
+          "#define DAC_CR_CEN1                         DAC_CR_CEN1_Msk"
+        ],
+        [
+          5456,
+          "#define DAC_CR_EN2_Pos                      (16UL)"
+        ],
+        [
+          5457,
+          "#define DAC_CR_EN2_Msk                      (0x1UL << DAC_CR_EN2_Pos)"
+        ],
+        [
+          5458,
+          "#define DAC_CR_EN2                          DAC_CR_EN2_Msk"
+        ],
+        [
+          5459,
+          "#define DAC_CR_TEN2_Pos                     (17UL)"
+        ],
+        [
+          5460,
+          "#define DAC_CR_TEN2_Msk                     (0x1UL << DAC_CR_TEN2_Pos)"
+        ],
+        [
+          5461,
+          "#define DAC_CR_TEN2                         DAC_CR_TEN2_Msk"
+        ],
+        [
+          5462,
+          "#define DAC_CR_TSEL2_Pos                    (18UL)"
+        ],
+        [
+          14218,
+          "#define PWR_SVMCR_IO2SV_Msk                 (0x1UL << PWR_SVMCR_IO2SV_Pos)"
+        ],
+        [
+          14219,
+          "#define PWR_SVMCR_IO2SV                     PWR_SVMCR_IO2SV_Msk"
+        ],
+        [
+          14220,
+          "#define PWR_SVMCR_ASV_Pos                   (30UL)"
+        ],
+        [
+          14221,
+          "#define PWR_SVMCR_ASV_Msk                   (0x1UL << PWR_SVMCR_ASV_Pos)"
+        ],
+        [
+          14222,
+          "#define PWR_SVMCR_ASV                       PWR_SVMCR_ASV_Msk"
+        ],
+        [
+          14223,
+          ""
+        ],
+        [
+          14224,
+          "/*******************  Bit definition for PWR_WUCR1 register  ******************/"
+        ],
+        [
+          14225,
+          "#define PWR_WUCR1_WUPEN1_Pos                (0UL)"
+        ],
+        [
+          14226,
+          "#define PWR_WUCR1_WUPEN1_Msk                (0x1UL << PWR_WUCR1_WUPEN1_Pos)"
+        ],
+        [
+          16375,
+          "#define RCC_AHB2RSTR1_GPIOIRST_Msk          (0x1UL << RCC_AHB2RSTR1_GPIOIRST_Pos)"
+        ],
+        [
+          16376,
+          "#define RCC_AHB2RSTR1_GPIOIRST              RCC_AHB2RSTR1_GPIOIRST_Msk"
+        ],
+        [
+          16377,
+          "#define RCC_AHB2RSTR1_ADC12RST_Pos           (10UL)"
+        ],
+        [
+          16378,
+          "#define RCC_AHB2RSTR1_ADC12RST_Msk           (0x1UL << RCC_AHB2RSTR1_ADC12RST_Pos)"
+        ],
+        [
+          16379,
+          "#define RCC_AHB2RSTR1_ADC12RST               RCC_AHB2RSTR1_ADC12RST_Msk"
+        ],
+        [
+          16380,
+          "#define RCC_AHB2RSTR1_DCMI_PSSIRST_Pos      (12UL)"
+        ],
+        [
+          16381,
+          "#define RCC_AHB2RSTR1_DCMI_PSSIRST_Msk      (0x1UL << RCC_AHB2RSTR1_DCMI_PSSIRST_Pos)"
+        ],
+        [
+          16382,
+          "#define RCC_AHB2RSTR1_DCMI_PSSIRST          RCC_AHB2RSTR1_DCMI_PSSIRST_Msk"
+        ],
+        [
+          16383,
+          "#define RCC_AHB2RSTR1_OTGRST_Pos            (14UL)"
+        ],
+        [
+          16631,
+          "#define RCC_AHB2ENR1_GPIOIEN_Msk            (0x1UL << RCC_AHB2ENR1_GPIOIEN_Pos)"
+        ],
+        [
+          16632,
+          "#define RCC_AHB2ENR1_GPIOIEN                RCC_AHB2ENR1_GPIOIEN_Msk"
+        ],
+        [
+          16633,
+          "#define RCC_AHB2ENR1_ADC12EN_Pos             (10UL)"
+        ],
+        [
+          16634,
+          "#define RCC_AHB2ENR1_ADC12EN_Msk             (0x1UL << RCC_AHB2ENR1_ADC12EN_Pos)"
+        ],
+        [
+          16635,
+          "#define RCC_AHB2ENR1_ADC12EN                 RCC_AHB2ENR1_ADC12EN_Msk"
+        ],
+        [
+          16636,
+          "#define RCC_AHB2ENR1_DCMI_PSSIEN_Pos        (12UL)"
+        ],
+        [
+          16637,
+          "#define RCC_AHB2ENR1_DCMI_PSSIEN_Msk        (0x1UL << RCC_AHB2ENR1_DCMI_PSSIEN_Pos)"
+        ],
+        [
+          16638,
+          "#define RCC_AHB2ENR1_DCMI_PSSIEN            RCC_AHB2ENR1_DCMI_PSSIEN_Msk"
+        ],
+        [
+          16639,
+          "#define RCC_AHB2ENR1_OTGEN_Pos              (14UL)"
+        ]
+      ]
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/zephyr/device.h",
+      "sha256": "300420020155fc22a7e4e3a867f26fe30c6a79b9be3474caf990bacfecbd2d19",
+      "bytes": 51752,
+      "lines": [
+        [
+          217,
+          " * device object can be obtained with `DEVICE_DT_GET(node_id)` from any source"
+        ],
+        [
+          218,
+          " * file that includes `<zephyr/device.h>` (even from extensions, when"
+        ],
+        [
+          219,
+          " * @kconfig{CONFIG_LLEXT_EXPORT_SYMBOL_GROUP_DEVICE} is enabled). Before using"
+        ],
+        [
+          220,
+          " * the pointer, the referenced object should be checked using device_is_ready()."
+        ],
+        [
+          221,
+          " *"
+        ],
+        [
+          222,
+          " * Note: deinit_fn will only be used if CONFIG_DEVICE_DEINIT_SUPPORT is enabled."
+        ],
+        [
+          223,
+          " *"
+        ],
+        [
+          224,
+          " * @param node_id The devicetree node identifier."
+        ],
+        [
+          225,
+          " * @param init_fn Pointer to the device's initialization function, which will be"
+        ],
+        [
+          226,
+          " * run by the kernel during system initialization. Can be `NULL`."
+        ],
+        [
+          227,
+          " * @param deinit_fn Pointer to the device's de-initialization function. Can be"
+        ],
+        [
+          228,
+          " * `NULL`. It must release any acquired resources (e.g. pins, bus, clock...) and"
+        ],
+        [
+          229,
+          " * leave the device in its reset state."
+        ],
+        [
+          230,
+          " * @param pm Pointer to the device's power management resources, a"
+        ],
+        [
+          231,
+          " * @ref pm_device, which will be stored in @ref device.pm. Use `NULL` if the"
+        ],
+        [
+          232,
+          " * device does not use PM."
+        ],
+        [
+          233,
+          " * @param data Pointer to the device's private mutable data, which will be"
+        ],
+        [
+          234,
+          " * stored in @ref device.data."
+        ],
+        [
+          338,
+          " * If there are multiple, this returns an arbitrary one."
+        ],
+        [
+          339,
+          " *"
+        ],
+        [
+          340,
+          " * If this returns non-NULL, the device must be checked for readiness"
+        ],
+        [
+          341,
+          " * before use, e.g. with device_is_ready()."
+        ],
+        [
+          342,
+          " *"
+        ],
+        [
+          343,
+          " * @param compat lowercase-and-underscores devicetree compatible"
+        ],
+        [
+          344,
+          " * @return a pointer to a device, or NULL"
+        ],
+        [
+          345,
+          " */"
+        ],
+        [
+          346,
+          "#define DEVICE_DT_GET_ANY(compat)                                              \\"
+        ],
+        [
+          347,
+          "\tCOND_CODE_1(DT_HAS_COMPAT_STATUS_OKAY(compat),                         \\"
+        ],
+        [
+          348,
+          "\t\t    (DEVICE_DT_GET(DT_COMPAT_GET_ANY_STATUS_OKAY(compat))),    \\"
+        ],
+        [
+          349,
+          "\t\t    (NULL))"
+        ],
+        [
+          350,
+          ""
+        ],
+        [
+          351,
+          "/**"
+        ],
+        [
+          352,
+          " * @brief Get a @ref device reference from a devicetree compatible."
+        ],
+        [
+          353,
+          " *"
+        ],
+        [
+          354,
+          " * If an enabled devicetree node has the given compatible and a device object"
+        ],
+        [
+          355,
+          " * was created from it, this returns a pointer to that device."
+        ],
+        [
+          359,
+          " * If there are multiple, this returns an arbitrary one."
+        ],
+        [
+          360,
+          " *"
+        ],
+        [
+          361,
+          " * If this returns non-NULL, the device must be checked for readiness before"
+        ],
+        [
+          362,
+          " * use, e.g. with device_is_ready()."
+        ],
+        [
+          363,
+          " *"
+        ],
+        [
+          364,
+          " * @param compat lowercase-and-underscores devicetree compatible"
+        ],
+        [
+          365,
+          " * @return a pointer to a device"
+        ],
+        [
+          366,
+          " */"
+        ],
+        [
+          367,
+          "#define DEVICE_DT_GET_ONE(compat)                                              \\"
+        ],
+        [
+          368,
+          "\tCOND_CODE_1(DT_HAS_COMPAT_STATUS_OKAY(compat),                         \\"
+        ],
+        [
+          369,
+          "\t\t    (DEVICE_DT_GET(DT_COMPAT_GET_ANY_STATUS_OKAY(compat))),    \\"
+        ],
+        [
+          370,
+          "\t\t    (ZERO_OR_COMPILE_ERROR(0)))"
+        ],
+        [
+          371,
+          ""
+        ],
+        [
+          372,
+          "/**"
+        ],
+        [
+          373,
+          " * @brief Utility macro to obtain an optional reference to a device."
+        ],
+        [
+          374,
+          " *"
+        ],
+        [
+          375,
+          " * If the node identifier refers to a node with status `okay`, this returns"
+        ],
+        [
+          376,
+          " * `DEVICE_DT_GET(node_id)`. Otherwise, it returns `NULL`."
+        ],
+        [
+          455,
+          " * responsible for ensuring that any non-zero initialization is done"
+        ],
+        [
+          456,
+          " * before they are accessed."
+        ],
+        [
+          457,
+          " */"
+        ],
+        [
+          458,
+          "struct device_state {"
+        ],
+        [
+          459,
+          "\t/**"
+        ],
+        [
+          460,
+          "\t * Device initialization return code (positive errno value)."
+        ],
+        [
+          461,
+          "\t *"
+        ],
+        [
+          462,
+          "\t * Device initialization functions return a negative errno code if they"
+        ],
+        [
+          463,
+          "\t * fail. In Zephyr, errno values do not exceed 255, so we can store the"
+        ],
+        [
+          464,
+          "\t * positive result value in a uint8_t type."
+        ],
+        [
+          465,
+          "\t */"
+        ],
+        [
+          466,
+          "\tuint8_t init_res;"
+        ],
+        [
+          467,
+          ""
+        ],
+        [
+          468,
+          "\t/** Indicates the device initialization function has been"
+        ],
+        [
+          469,
+          "\t * invoked."
+        ],
+        [
+          470,
+          "\t */"
+        ],
+        [
+          471,
+          "\tbool initialized : 1;"
+        ],
+        [
+          472,
+          "};"
+        ],
+        [
+          473,
+          ""
+        ],
+        [
+          474,
+          "struct pm_device_base;"
+        ],
+        [
+          475,
+          "struct pm_device;"
+        ],
+        [
+          476,
+          "struct pm_device_isr;"
+        ],
+        [
+          477,
+          "#if defined(CONFIG_DEVICE_DT_METADATA) || defined(__DOXYGEN__)"
+        ],
+        [
+          478,
+          "struct device_dt_metadata;"
+        ],
+        [
+          479,
+          "#endif"
+        ],
+        [
+          480,
+          ""
+        ],
+        [
+          481,
+          "#ifdef CONFIG_DEVICE_DEPS_DYNAMIC"
+        ],
+        [
+          482,
+          "#define Z_DEVICE_DEPS_CONST"
+        ],
+        [
+          483,
+          "#else"
+        ],
+        [
+          484,
+          "#define Z_DEVICE_DEPS_CONST const"
+        ],
+        [
+          485,
+          "#endif"
+        ],
+        [
+          510,
+          "/**"
+        ],
+        [
+          511,
+          " * @brief Runtime device structure (in ROM) per driver instance"
+        ],
+        [
+          512,
+          " */"
+        ],
+        [
+          513,
+          "struct device {"
+        ],
+        [
+          514,
+          "\t/** Name of the device instance */"
+        ],
+        [
+          515,
+          "\tconst char *name;"
+        ],
+        [
+          516,
+          "\t/** Address of device instance config information */"
+        ],
+        [
+          517,
+          "\tconst void *config;"
+        ],
+        [
+          518,
+          "\t/** Address of the API structure exposed by the device instance */"
+        ],
+        [
+          519,
+          "\tconst void *api;"
+        ],
+        [
+          520,
+          "\t/** Address of the common device state */"
+        ],
+        [
+          521,
+          "\tstruct device_state *state;"
+        ],
+        [
+          522,
+          "\t/** Address of the device instance private data */"
+        ],
+        [
+          523,
+          "\tvoid *data;"
+        ],
+        [
+          524,
+          "\t/** Device operations */"
+        ],
+        [
+          525,
+          "\tstruct device_ops ops;"
+        ],
+        [
+          526,
+          "\t/** Device flags */"
+        ],
+        [
+          527,
+          "\tdevice_flags_t flags;"
+        ],
+        [
+          528,
+          "#if defined(CONFIG_DEVICE_DEPS) || defined(__DOXYGEN__)"
+        ],
+        [
+          529,
+          "\t/**"
+        ],
+        [
+          530,
+          "\t * Optional pointer to dependencies associated with the device."
+        ],
+        [
+          531,
+          "\t *"
+        ],
+        [
+          532,
+          "\t * This encodes a sequence of sets of device handles that have some"
+        ],
+        [
+          533,
+          "\t * relationship to this node. The individual sets are extracted with"
+        ],
+        [
+          534,
+          "\t * dedicated API, such as device_required_handles_get(). Only available"
+        ],
+        [
+          535,
+          "\t * if @kconfig{CONFIG_DEVICE_DEPS} is enabled."
+        ],
+        [
+          866,
+          " * @retval false If the device is not ready for use or if a NULL device pointer"
+        ],
+        [
+          867,
+          " * is passed as argument."
+        ],
+        [
+          868,
+          " */"
+        ],
+        [
+          869,
+          "__syscall bool device_is_ready(const struct device *dev);"
+        ],
+        [
+          870,
+          ""
+        ],
+        [
+          871,
+          "/**"
+        ],
+        [
+          872,
+          " * @brief Writes a \"device not ready\" warning message to the log."
+        ],
+        [
+          873,
+          " *"
+        ],
+        [
+          874,
+          " * @details Writes a \"device not ready\" warning message to the log using the"
+        ],
+        [
+          875,
+          " * device name as reference, meant to be used in device_is_ready checks."
+        ],
+        [
+          876,
+          " *"
+        ],
+        [
+          877,
+          " * @param dev pointer to a struct device."
+        ],
+        [
+          878,
+          " */"
+        ],
+        [
+          879,
+          "#define LOG_WRN_DEVICE_NOT_READY(dev) \\"
+        ],
+        [
+          880,
+          "\tLOG_WRN(\"%s device not ready\", (dev) ? (dev)->name : \"(null)\")"
+        ],
+        [
+          881,
+          ""
+        ],
+        [
+          882,
+          "/**"
+        ],
+        [
+          883,
+          " * @brief Writes a \"device not ready\" error message to the log."
+        ],
+        [
+          945,
+          " * @param dev_id Device identifier."
+        ],
+        [
+          946,
+          " */"
+        ],
+        [
+          947,
+          "#define Z_DEVICE_STATE_DEFINE(dev_id)                                          \\"
+        ],
+        [
+          948,
+          "\tstatic Z_DECL_ALIGN(struct device_state) Z_DEVICE_STATE_NAME(dev_id)   \\"
+        ],
+        [
+          949,
+          "\t\t__attribute__((__section__(\".z_devstate\")))"
+        ],
+        [
+          950,
+          ""
+        ],
+        [
+          951,
+          "/**"
+        ],
+        [
+          952,
+          " * @brief Device flags obtained from DT."
+        ],
+        [
+          953,
+          " *"
+        ],
+        [
+          954,
+          " * @param node_id Devicetree node identifier."
+        ],
+        [
+          955,
+          " */"
+        ],
+        [
+          956,
+          "#define Z_DEVICE_DT_FLAGS(node_id)                                             \\"
+        ],
+        [
+          957,
+          "\t(DT_PROP_OR(node_id, zephyr_deferred_init, 0U) * DEVICE_FLAG_INIT_DEFERRED)"
+        ],
+        [
+          958,
+          ""
+        ],
+        [
+          959,
+          "#if defined(CONFIG_DEVICE_DEPS) || defined(__DOXYGEN__)"
+        ],
+        [
+          960,
+          ""
+        ],
+        [
+          961,
+          "/**"
+        ],
+        [
+          962,
+          " * @brief Synthesize the name of the object that holds device ordinal and"
+        ]
+      ]
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/generated/zephyr/autoconf.h",
+      "sha256": "52178f5eefcf276720b859bdd60fc87ca4207b0130ac1fd5ba099af74b877a0c",
+      "bytes": 22526,
+      "lines": [
+        [
+          13,
+          "#define CONFIG_DT_HAS_SOC_NV_FLASH_ENABLED 1"
+        ],
+        [
+          14,
+          "#define CONFIG_DT_HAS_ST_STM32_ADC_ENABLED 1"
+        ],
+        [
+          15,
+          "#define CONFIG_DT_HAS_ST_STM32_AES_ENABLED 1"
+        ],
+        [
+          18,
+          "#define CONFIG_DT_HAS_ST_STM32_COUNTER_ENABLED 1"
+        ],
+        [
+          19,
+          "#define CONFIG_DT_HAS_ST_STM32_DAC_ENABLED 1"
+        ],
+        [
+          20,
+          "#define CONFIG_DT_HAS_ST_STM32_EXTI_ENABLED 1"
+        ],
+        [
+          55,
+          "#define CONFIG_DT_HAS_ZEPHYR_POWER_STATE_ENABLED 1"
+        ],
+        [
+          56,
+          "#define CONFIG_ADC_INIT_PRIORITY 50"
+        ],
+        [
+          57,
+          "#define CONFIG_MAIN_STACK_SIZE 32768"
+        ],
+        [
+          229,
+          "#define CONFIG_ARCH_HAS_TIMING_FUNCTIONS 1"
+        ],
+        [
+          230,
+          "#define CONFIG_ARCH_HAS_TRUSTED_EXECUTION 1"
+        ],
+        [
+          231,
+          "#define CONFIG_ARCH_HAS_STACK_PROTECTION 1"
+        ],
+        [
+          302,
+          "#define CONFIG_APPLICATION_INIT_PRIORITY 90"
+        ],
+        [
+          303,
+          "#define CONFIG_ADC 1"
+        ],
+        [
+          304,
+          "#define CONFIG_ADC_HAS_SEQUENCE_PRIORITY 1"
+        ],
+        [
+          305,
+          "#define CONFIG_ADC_LOG_LEVEL_DEFAULT 1"
+        ],
+        [
+          306,
+          "#define CONFIG_ADC_LOG_LEVEL 3"
+        ],
+        [
+          307,
+          "#define CONFIG_ADC_STM32 1"
+        ],
+        [
+          308,
+          "#define CONFIG_CACHE_HAS_DRIVER 1"
+        ],
+        [
+          340,
+          "#define CONFIG_COUNTER_TIMER_STM32 1"
+        ],
+        [
+          341,
+          "#define CONFIG_DAC 1"
+        ],
+        [
+          342,
+          "#define CONFIG_DAC_LOG_LEVEL_DEFAULT 1"
+        ],
+        [
+          343,
+          "#define CONFIG_DAC_LOG_LEVEL 3"
+        ],
+        [
+          344,
+          "#define CONFIG_DAC_INIT_PRIORITY 50"
+        ],
+        [
+          345,
+          "#define CONFIG_DAC_STM32 1"
+        ],
+        [
+          346,
+          "#define CONFIG_DMA 1"
+        ]
+      ]
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/generated/zephyr/devicetree_generated.h",
+      "sha256": "5b0e9b1d0f7d878415d53a5d724e976061aca52177967d90d7c76c3cb0b0fb80",
+      "bytes": 2601581,
+      "lines": [
+        [
+          8146,
+          "#define DT_N_S_soc_S_adc_46021000_ORD 54"
+        ],
+        [
+          8193,
+          "#define DT_N_S_soc_S_adc_46021000_PINCTRL_NUM 0"
+        ],
+        [
+          8449,
+          "#define DT_N_S_soc_S_adc_46021000_P_status \"okay\""
+        ],
+        [
+          8476,
+          "#define DT_N_S_soc_S_adc_46021000_P_zephyr_deferred_init 0"
+        ],
+        [
+          8477,
+          "#define DT_N_S_soc_S_adc_46021000_P_zephyr_deferred_init_EXISTS 1"
+        ],
+        [
+          9847,
+          "#define DT_N_S_soc_S_dac_46021800_ORD 64"
+        ],
+        [
+          9887,
+          "#define DT_N_S_soc_S_dac_46021800_PINCTRL_NUM 1"
+        ],
+        [
+          9888,
+          "#define DT_N_S_soc_S_dac_46021800_PINCTRL_IDX_0_EXISTS 1"
+        ],
+        [
+          9889,
+          "#define DT_N_S_soc_S_dac_46021800_PINCTRL_IDX_0_TOKEN default"
+        ],
+        [
+          9890,
+          "#define DT_N_S_soc_S_dac_46021800_PINCTRL_IDX_0_UPPER_TOKEN DEFAULT"
+        ],
+        [
+          9891,
+          "#define DT_N_S_soc_S_dac_46021800_PINCTRL_NAME_default_EXISTS 1"
+        ],
+        [
+          9892,
+          "#define DT_N_S_soc_S_dac_46021800_PINCTRL_NAME_default_IDX 0"
+        ],
+        [
+          9893,
+          "#define DT_N_S_soc_S_dac_46021800_PINCTRL_NAME_default_IDX_0_PH DT_N_S_soc_S_pin_controller_42020000_S_dac1_out1_pa4"
+        ],
+        [
+          9894,
+          "#define DT_N_S_soc_S_dac_46021800_PINCTRL_NAME_default_IDX_1_PH DT_N_S_soc_S_pin_controller_42020000_S_dac1_out2_pa5"
+        ],
+        [
+          9903,
+          "#define DT_N_S_soc_S_dac_46021800_P_clocks_IDX_0_EXISTS 1"
+        ],
+        [
+          9904,
+          "#define DT_N_S_soc_S_dac_46021800_P_clocks_IDX_0_PH DT_N_S_soc_S_rcc_46020c00"
+        ],
+        [
+          9905,
+          "#define DT_N_S_soc_S_dac_46021800_P_clocks_IDX_0_VAL_bus 148"
+        ],
+        [
+          9906,
+          "#define DT_N_S_soc_S_dac_46021800_P_clocks_IDX_0_VAL_bus_EXISTS 1"
+        ],
+        [
+          9907,
+          "#define DT_N_S_soc_S_dac_46021800_P_clocks_IDX_0_VAL_bits 64"
+        ],
+        [
+          9908,
+          "#define DT_N_S_soc_S_dac_46021800_P_clocks_IDX_0_VAL_bits_EXISTS 1"
+        ],
+        [
+          9909,
+          "#define DT_N_S_soc_S_dac_46021800_P_clocks_IDX_0_FOREACH_CELL(fn) fn(DT_N_S_soc_S_dac_46021800, clocks, 0, bus) \\"
+        ],
+        [
+          9911,
+          "#define DT_N_S_soc_S_dac_46021800_P_clocks_IDX_0_FOREACH_CELL_SEP(fn, sep) fn(DT_N_S_soc_S_dac_46021800, clocks, 0, bus) DT_DEBRACKET_INTERNAL sep \\"
+        ],
+        [
+          9913,
+          "#define DT_N_S_soc_S_dac_46021800_P_clocks_IDX_0_NUM_CELLS 2"
+        ],
+        [
+          9914,
+          "#define DT_N_S_soc_S_dac_46021800_P_clocks_FOREACH_PROP_ELEM(fn) fn(DT_N_S_soc_S_dac_46021800, clocks, 0)"
+        ],
+        [
+          9915,
+          "#define DT_N_S_soc_S_dac_46021800_P_clocks_FOREACH_PROP_ELEM_SEP(fn, sep) fn(DT_N_S_soc_S_dac_46021800, clocks, 0)"
+        ],
+        [
+          9916,
+          "#define DT_N_S_soc_S_dac_46021800_P_clocks_FOREACH_PROP_ELEM_VARGS(fn, ...) fn(DT_N_S_soc_S_dac_46021800, clocks, 0, __VA_ARGS__)"
+        ],
+        [
+          9917,
+          "#define DT_N_S_soc_S_dac_46021800_P_clocks_FOREACH_PROP_ELEM_SEP_VARGS(fn, sep, ...) fn(DT_N_S_soc_S_dac_46021800, clocks, 0, __VA_ARGS__)"
+        ],
+        [
+          9918,
+          "#define DT_N_S_soc_S_dac_46021800_P_clocks_LEN 1"
+        ],
+        [
+          9919,
+          "#define DT_N_S_soc_S_dac_46021800_P_clocks_EXISTS 1"
+        ],
+        [
+          9920,
+          "#define DT_N_S_soc_S_dac_46021800_P_status \"okay\""
+        ],
+        [
+          9947,
+          "#define DT_N_S_soc_S_dac_46021800_P_zephyr_deferred_init 0"
+        ],
+        [
+          9948,
+          "#define DT_N_S_soc_S_dac_46021800_P_zephyr_deferred_init_EXISTS 1"
+        ],
+        [
+          9953,
+          "#define DT_N_S_soc_S_dac_46021800_P_pinctrl_0_IDX_0 DT_N_S_soc_S_pin_controller_42020000_S_dac1_out1_pa4"
+        ],
+        [
+          9954,
+          "#define DT_N_S_soc_S_dac_46021800_P_pinctrl_0_IDX_0_PH DT_N_S_soc_S_pin_controller_42020000_S_dac1_out1_pa4"
+        ],
+        [
+          9955,
+          "#define DT_N_S_soc_S_dac_46021800_P_pinctrl_0_IDX_0_EXISTS 1"
+        ],
+        [
+          9956,
+          "#define DT_N_S_soc_S_dac_46021800_P_pinctrl_0_IDX_1 DT_N_S_soc_S_pin_controller_42020000_S_dac1_out2_pa5"
+        ],
+        [
+          9957,
+          "#define DT_N_S_soc_S_dac_46021800_P_pinctrl_0_IDX_1_PH DT_N_S_soc_S_pin_controller_42020000_S_dac1_out2_pa5"
+        ],
+        [
+          9958,
+          "#define DT_N_S_soc_S_dac_46021800_P_pinctrl_0_IDX_1_EXISTS 1"
+        ],
+        [
+          9959,
+          "#define DT_N_S_soc_S_dac_46021800_P_pinctrl_0_FOREACH_PROP_ELEM(fn) fn(DT_N_S_soc_S_dac_46021800, pinctrl_0, 0) \\"
+        ],
+        [
+          9961,
+          "#define DT_N_S_soc_S_dac_46021800_P_pinctrl_0_FOREACH_PROP_ELEM_SEP(fn, sep) fn(DT_N_S_soc_S_dac_46021800, pinctrl_0, 0) DT_DEBRACKET_INTERNAL sep \\"
+        ],
+        [
+          9963,
+          "#define DT_N_S_soc_S_dac_46021800_P_pinctrl_0_FOREACH_PROP_ELEM_VARGS(fn, ...) fn(DT_N_S_soc_S_dac_46021800, pinctrl_0, 0, __VA_ARGS__) \\"
+        ],
+        [
+          9965,
+          "#define DT_N_S_soc_S_dac_46021800_P_pinctrl_0_FOREACH_PROP_ELEM_SEP_VARGS(fn, sep, ...) fn(DT_N_S_soc_S_dac_46021800, pinctrl_0, 0, __VA_ARGS__) DT_DEBRACKET_INTERNAL sep \\"
+        ],
+        [
+          9967,
+          "#define DT_N_S_soc_S_dac_46021800_P_pinctrl_0_LEN 2"
+        ],
+        [
+          9968,
+          "#define DT_N_S_soc_S_dac_46021800_P_pinctrl_0_EXISTS 1"
+        ],
+        [
+          9969,
+          "#define DT_N_S_soc_S_dac_46021800_P_pinctrl_names {\"default\"}"
+        ],
+        [
+          9970,
+          "#define DT_N_S_soc_S_dac_46021800_P_pinctrl_names_IDX_0_EXISTS 1"
+        ],
+        [
+          9971,
+          "#define DT_N_S_soc_S_dac_46021800_P_pinctrl_names_IDX_0 \"default\""
+        ],
+        [
+          9972,
+          "#define DT_N_S_soc_S_dac_46021800_P_pinctrl_names_IDX_0_STRING_UNQUOTED default"
+        ],
+        [
+          9973,
+          "#define DT_N_S_soc_S_dac_46021800_P_pinctrl_names_IDX_0_STRING_TOKEN default"
+        ],
+        [
+          9974,
+          "#define DT_N_S_soc_S_dac_46021800_P_pinctrl_names_IDX_0_STRING_UPPER_TOKEN DEFAULT"
+        ],
+        [
+          9975,
+          "#define DT_N_S_soc_S_dac_46021800_P_pinctrl_names_FOREACH_PROP_ELEM(fn) fn(DT_N_S_soc_S_dac_46021800, pinctrl_names, 0)"
+        ],
+        [
+          9976,
+          "#define DT_N_S_soc_S_dac_46021800_P_pinctrl_names_FOREACH_PROP_ELEM_SEP(fn, sep) fn(DT_N_S_soc_S_dac_46021800, pinctrl_names, 0)"
+        ],
+        [
+          9977,
+          "#define DT_N_S_soc_S_dac_46021800_P_pinctrl_names_FOREACH_PROP_ELEM_VARGS(fn, ...) fn(DT_N_S_soc_S_dac_46021800, pinctrl_names, 0, __VA_ARGS__)"
+        ],
+        [
+          9978,
+          "#define DT_N_S_soc_S_dac_46021800_P_pinctrl_names_FOREACH_PROP_ELEM_SEP_VARGS(fn, sep, ...) fn(DT_N_S_soc_S_dac_46021800, pinctrl_names, 0, __VA_ARGS__)"
+        ],
+        [
+          9979,
+          "#define DT_N_S_soc_S_dac_46021800_P_pinctrl_names_LEN 1"
+        ],
+        [
+          9980,
+          "#define DT_N_S_soc_S_dac_46021800_P_pinctrl_names_EXISTS 1"
+        ]
+      ]
+    },
+    {
+      "gdb": "p __device_dts_ord_64",
+      "exit": 0,
+      "stdout": "$1 = {name = 0x80238fa \"dac@46021800\", config = 0x801e2e0 <dac_stm32_cfg_0>, api = 0x801c690 <api_stm32_driver_api>, state = 0x200010e8 <__devstate_dts_ord_64>, data = 0x20000449 <dac_stm32_data_0>, ops = {init = 0x800c38d <dac_stm32_init>, deinit = 0x0}, flags = 0 '\\000', deps = 0x801c4c6 <__devicedeps_dts_ord_64>}\n",
+      "stderr": ""
+    },
+    {
+      "gdb": "p dac_stm32_cfg_0",
+      "exit": 0,
+      "stdout": "$1 = {base = 0x46021800, pclken = {bus = 148, div = 0, enr = 64}, pcfg = 0x801e2f0 <__pinctrl_dev_config__device_dts_ord_64>}\n",
+      "stderr": ""
+    },
+    {
+      "gdb": "p dac_stm32_data_0",
+      "exit": 0,
+      "stdout": "$1 = {channel_count = 2 '\\002', resolution = 0 '\\000'}\n",
+      "stderr": ""
+    },
+    {
+      "gdb": "p __pinctrl_states__device_dts_ord_64",
+      "exit": 0,
+      "stdout": "$1 = {{pins = 0x801e300 <__pinctrl_state_pins_0__device_dts_ord_64>, pin_cnt = 2 '\\002', id = 0 '\\000'}}\n",
+      "stderr": ""
+    },
+    {
+      "gdb": "p __pinctrl_states__device_dts_ord_54",
+      "exit": 0,
+      "stdout": "$1 = 0x801dfb0 <adc_stm32_cfg_0>\n",
+      "stderr": ""
+    },
+    {
+      "gdb": "p _sw_isr_table[37]",
+      "exit": 0,
+      "stdout": "$1 = {arg = 0x0, isr = 0x80098e1 <adc_stm32_isr_37>}\n",
+      "stderr": ""
+    },
+    {
+      "gdb": "p _sw_isr_table[113]",
+      "exit": 0,
+      "stdout": "$1 = {arg = 0x0, isr = 0x80098ed <adc_stm32_isr_113>}\n",
+      "stderr": ""
+    },
+    {
+      "gdb": "disassemble dac_stm32_init",
+      "exit": 0,
+      "stdout": "Dump of assembler code for function dac_stm32_init:\n   0x0800c38c <+0>:\tpush\t{r4, r5, lr}\n   0x0800c38e <+2>:\tldr\tr4, [r0, #4]\n   0x0800c390 <+4>:\tldr\tr0, [pc, #88]\t@ (0x800c3ec <dac_stm32_init+96>)\n   0x0800c392 <+6>:\tsub\tsp, #28\n   0x0800c394 <+8>:\tldr\tr3, [r0, #8]\n   0x0800c396 <+10>:\tadds\tr1, r4, #4\n   0x0800c398 <+12>:\tldr\tr3, [r3, #0]\n   0x0800c39a <+14>:\tcbnz\tr3, 0x800c3a6 <dac_stm32_init+26>\n   0x0800c39c <+16>:\tmvn.w\tr4, #4\n   0x0800c3a0 <+20>:\tmov\tr0, r4\n   0x0800c3a2 <+22>:\tadd\tsp, #28\n   0x0800c3a4 <+24>:\tpop\t{r4, r5, pc}\n   0x0800c3a6 <+26>:\tblx\tr3\n   0x0800c3a8 <+28>:\tmov\tr5, r0\n   0x0800c3aa <+30>:\tcmp\tr0, #0\n   0x0800c3ac <+32>:\tbne.n\t0x800c39c <dac_stm32_init+16>\n   0x0800c3ae <+34>:\tmov\tr1, r0\n   0x0800c3b0 <+36>:\tadd\tr2, sp, #20\n   0x0800c3b2 <+38>:\tldr\tr0, [r4, #12]\n   0x0800c3b4 <+40>:\tbl\t0x8019612 <pinctrl_lookup_state>\n   0x0800c3b8 <+44>:\tsubs\tr4, r0, #0\n   0x0800c3ba <+46>:\tblt.n\t0x800c3d0 <dac_stm32_init+68>\n   0x0800c3bc <+48>:\tldr\tr3, [sp, #20]\n   0x0800c3be <+50>:\tmov\tr2, r5\n   0x0800c3c0 <+52>:\tldrb\tr1, [r3, #4]\n   0x0800c3c2 <+54>:\tldr\tr0, [r3, #0]\n   0x0800c3c4 <+56>:\tbl\t0x8019636 <pinctrl_configure_pins>\n   0x0800c3c8 <+60>:\tsubs\tr4, r0, #0\n   0x0800c3ca <+62>:\tblt.n\t0x800c3d0 <dac_stm32_init+68>\n   0x0800c3cc <+64>:\tmovs\tr4, #0\n   0x0800c3ce <+66>:\tb.n\t0x800c3a0 <dac_stm32_init+20>\n   0x0800c3d0 <+68>:\tadds\tr3, r4, #2\n   0x0800c3d2 <+70>:\tbeq.n\t0x800c3cc <dac_stm32_init+64>\n   0x0800c3d4 <+72>:\tldr\tr3, [pc, #24]\t@ (0x800c3f0 <dac_stm32_init+100>)\n   0x0800c3d6 <+74>:\tmovs\tr2, #1\n   0x0800c3d8 <+76>:\tstr\tr3, [sp, #8]\n   0x0800c3da <+78>:\tmovs\tr3, #0\n   0x0800c3dc <+80>:\tldr\tr1, [pc, #20]\t@ (0x800c3f4 <dac_stm32_init+104>)\n   0x0800c3de <+82>:\tmov\tr0, r3\n   0x0800c3e0 <+84>:\tstrd\tr3, r3, [sp]\n   0x0800c3e4 <+88>:\tstr\tr4, [sp, #12]\n   0x0800c3e6 <+90>:\tbl\t0x8018d52 <z_log_msg_runtime_create>\n   0x0800c3ea <+94>:\tb.n\t0x800c3a0 <dac_stm32_init+20>\n   0x0800c3ec <+96>:\tbkpt\t0x00fc\n   0x0800c3ee <+98>:\tlsrs\tr1, r0, #32\n   0x0800c3f0 <+100>:\tsubs\tr0, #200\t@ 0xc8\n   0x0800c3f2 <+102>:\tlsrs\tr2, r0, #32\n   0x0800c3f4 <+104>:\tldmia\tr0!, {r2, r3}\n   0x0800c3f6 <+106>:\tlsrs\tr1, r0, #32\nEnd of assembler dump.\n",
+      "stderr": ""
+    },
+    {
+      "gdb": "disassemble dac_stm32_channel_setup",
+      "exit": 0,
+      "stdout": "Dump of assembler code for function dac_stm32_channel_setup:\n   0x0800c234 <+0>:\tpush\t{r0, r1, r2, r3, r4, r5, r6, lr}\n   0x0800c236 <+2>:\tldr\tr2, [r0, #16]\n   0x0800c238 <+4>:\tldr\tr4, [r0, #4]\n   0x0800c23a <+6>:\tldrb\tr3, [r1, #0]\n   0x0800c23c <+8>:\tldrb\tr0, [r2, #0]\n   0x0800c23e <+10>:\tcmp\tr0, r3\n   0x0800c240 <+12>:\tbcc.n\t0x800c244 <dac_stm32_channel_setup+16>\n   0x0800c242 <+14>:\tcbnz\tr3, 0x800c262 <dac_stm32_channel_setup+46>\n   0x0800c244 <+16>:\tstr\tr3, [sp, #12]\n   0x0800c246 <+18>:\tldr\tr3, [pc, #144]\t@ (0x800c2d8 <dac_stm32_channel_setup+164>)\n   0x0800c248 <+20>:\tmovs\tr2, #1\n   0x0800c24a <+22>:\tstr\tr3, [sp, #8]\n   0x0800c24c <+24>:\tmovs\tr3, #0\n   0x0800c24e <+26>:\tldr\tr1, [pc, #140]\t@ (0x800c2dc <dac_stm32_channel_setup+168>)\n   0x0800c250 <+28>:\tmov\tr0, r3\n   0x0800c252 <+30>:\tstrd\tr3, r3, [sp]\n   0x0800c256 <+34>:\tbl\t0x8018d52 <z_log_msg_runtime_create>\n   0x0800c25a <+38>:\tmvn.w\tr0, #21\n   0x0800c25e <+42>:\tadd\tsp, #16\n   0x0800c260 <+44>:\tpop\t{r4, r5, r6, pc}\n   0x0800c262 <+46>:\tldrb\tr3, [r1, #1]\n   0x0800c264 <+48>:\tand.w\tr0, r3, #251\t@ 0xfb\n   0x0800c268 <+52>:\tcmp\tr0, #8\n   0x0800c26a <+54>:\tbne.n\t0x800c2bc <dac_stm32_channel_setup+136>\n   0x0800c26c <+56>:\tstrb\tr3, [r2, #1]\n   0x0800c26e <+58>:\tldrb\tr3, [r1, #0]\n   0x0800c270 <+60>:\tldr\tr2, [pc, #108]\t@ (0x800c2e0 <dac_stm32_channel_setup+172>)\n   0x0800c272 <+62>:\tsubs\tr3, #1\n   0x0800c274 <+64>:\tldr.w\tr2, [r2, r3, lsl #2]\n   0x0800c278 <+68>:\tldrb\tr3, [r1, #2]\n   0x0800c27a <+70>:\tmovs\tr5, #2\n   0x0800c27c <+72>:\tmvns\tr3, r3\n   0x0800c27e <+74>:\tldr\tr6, [r4, #0]\n   0x0800c280 <+76>:\tand.w\tr2, r2, #16\n   0x0800c284 <+80>:\tldr\tr0, [r6, #60]\t@ 0x3c\n   0x0800c286 <+82>:\tand.w\tr3, r3, #1\n   0x0800c28a <+86>:\tlsls\tr5, r2\n   0x0800c28c <+88>:\tlsls\tr3, r3, #1\n   0x0800c28e <+90>:\tbic.w\tr0, r0, r5\n   0x0800c292 <+94>:\tlsls\tr3, r2\n   0x0800c294 <+96>:\torrs\tr3, r0\n   0x0800c296 <+98>:\tmovs\tr0, #1\n   0x0800c298 <+100>:\tstr\tr3, [r6, #60]\t@ 0x3c\n   0x0800c29a <+102>:\tldr\tr6, [r4, #0]\n   0x0800c29c <+104>:\tldrb\tr3, [r1, #2]\n   0x0800c29e <+106>:\tldr\tr5, [r6, #60]\t@ 0x3c\n   0x0800c2a0 <+108>:\tlsls\tr0, r2\n   0x0800c2a2 <+110>:\tubfx\tr3, r3, #1, #1\n   0x0800c2a6 <+114>:\tlsls\tr3, r2\n   0x0800c2a8 <+116>:\tbic.w\tr2, r5, r0\n   0x0800c2ac <+120>:\torrs\tr3, r2\n   0x0800c2ae <+122>:\tstr\tr3, [r6, #60]\t@ 0x3c\n   0x0800c2b0 <+124>:\tldr\tr2, [r4, #0]\n   0x0800c2b2 <+126>:\tldr\tr3, [r2, #0]\n   0x0800c2b4 <+128>:\torrs\tr3, r0\n   0x0800c2b6 <+130>:\tstr\tr3, [r2, #0]\n   0x0800c2b8 <+132>:\tmovs\tr0, #0\n   0x0800c2ba <+134>:\tb.n\t0x800c25e <dac_stm32_channel_setup+42>\n   0x0800c2bc <+136>:\tldr\tr3, [pc, #36]\t@ (0x800c2e4 <dac_stm32_channel_setup+176>)\n   0x0800c2be <+138>:\tmovs\tr2, #1\n   0x0800c2c0 <+140>:\tstr\tr3, [sp, #8]\n   0x0800c2c2 <+142>:\tmovs\tr3, #0\n   0x0800c2c4 <+144>:\tldr\tr1, [pc, #20]\t@ (0x800c2dc <dac_stm32_channel_setup+168>)\n   0x0800c2c6 <+146>:\tmov\tr0, r3\n   0x0800c2c8 <+148>:\tstrd\tr3, r3, [sp]\n   0x0800c2cc <+152>:\tbl\t0x8018d52 <z_log_msg_runtime_create>\n   0x0800c2d0 <+156>:\tmvn.w\tr0, #133\t@ 0x85\n   0x0800c2d4 <+160>:\tb.n\t0x800c25e <dac_stm32_channel_setup+42>\n   0x0800c2d6 <+162>:\tnop\n   0x0800c2d8 <+164>:\tsubs\tr0, #126\t@ 0x7e\n   0x0800c2da <+166>:\tlsrs\tr2, r0, #32\n   0x0800c2dc <+168>:\tldmia\tr0!, {r2, r3}\n   0x0800c2de <+170>:\tlsrs\tr1, r0, #32\n   0x0800c2e0 <+172>:\tb.n\t0x800c904 <dma_stm32_reload+84>\n   0x0800c2e2 <+174>:\tlsrs\tr1, r0, #32\n   0x0800c2e4 <+176>:\tsubs\tr0, #150\t@ 0x96\n   0x0800c2e6 <+178>:\tlsrs\tr2, r0, #32\nEnd of assembler dump.\n",
+      "stderr": ""
+    },
+    {
+      "gdb": "disassemble dac_stm32_write_value",
+      "exit": 0,
+      "stdout": "Dump of assembler code for function dac_stm32_write_value:\n   0x0800c2e8 <+0>:\tpush\t{r4, r5, lr}\n   0x0800c2ea <+2>:\tmov\tr3, r2\n   0x0800c2ec <+4>:\tldr\tr2, [r0, #16]\n   0x0800c2ee <+6>:\tldr\tr4, [r0, #4]\n   0x0800c2f0 <+8>:\tldrb\tr0, [r2, #0]\n   0x0800c2f2 <+10>:\tsub\tsp, #20\n   0x0800c2f4 <+12>:\tcmp\tr0, r1\n   0x0800c2f6 <+14>:\tbcc.n\t0x800c2fa <dac_stm32_write_value+18>\n   0x0800c2f8 <+16>:\tcbnz\tr1, 0x800c318 <dac_stm32_write_value+48>\n   0x0800c2fa <+18>:\tldr\tr3, [pc, #128]\t@ (0x800c37c <dac_stm32_write_value+148>)\n   0x0800c2fc <+20>:\tmovs\tr2, #1\n   0x0800c2fe <+22>:\tstr\tr3, [sp, #8]\n   0x0800c300 <+24>:\tmovs\tr3, #0\n   0x0800c302 <+26>:\tstrd\tr3, r3, [sp]\n   0x0800c306 <+30>:\tstr\tr1, [sp, #12]\n   0x0800c308 <+32>:\tmov\tr0, r3\n   0x0800c30a <+34>:\tldr\tr1, [pc, #116]\t@ (0x800c380 <dac_stm32_write_value+152>)\n   0x0800c30c <+36>:\tbl\t0x8018d52 <z_log_msg_runtime_create>\n   0x0800c310 <+40>:\tmvn.w\tr0, #21\n   0x0800c314 <+44>:\tadd\tsp, #20\n   0x0800c316 <+46>:\tpop\t{r4, r5, pc}\n   0x0800c318 <+48>:\tldrb\tr0, [r2, #1]\n   0x0800c31a <+50>:\tmovs\tr2, #1\n   0x0800c31c <+52>:\tlsl.w\tr5, r2, r0\n   0x0800c320 <+56>:\tcmp\tr5, r3\n   0x0800c322 <+58>:\tbhi.n\t0x800c332 <dac_stm32_write_value+74>\n   0x0800c324 <+60>:\tstr\tr3, [sp, #12]\n   0x0800c326 <+62>:\tldr\tr3, [pc, #92]\t@ (0x800c384 <dac_stm32_write_value+156>)\n   0x0800c328 <+64>:\tstr\tr3, [sp, #8]\n   0x0800c32a <+66>:\tmovs\tr3, #0\n   0x0800c32c <+68>:\tstrd\tr3, r3, [sp]\n   0x0800c330 <+72>:\tb.n\t0x800c308 <dac_stm32_write_value+32>\n   0x0800c332 <+74>:\tcmp\tr0, #8\n   0x0800c334 <+76>:\tbne.n\t0x800c358 <dac_stm32_write_value+112>\n   0x0800c336 <+78>:\tldr\tr2, [pc, #80]\t@ (0x800c388 <dac_stm32_write_value+160>)\n   0x0800c338 <+80>:\tldr\tr0, [r4, #0]\n   0x0800c33a <+82>:\tadd.w\tr2, r2, r1, lsl #2\n   0x0800c33e <+86>:\tldrb.w\tr2, [r2, #-1]\n   0x0800c342 <+90>:\tadds\tr0, #8\n   0x0800c344 <+92>:\tlsls\tr2, r2, #2\n   0x0800c346 <+94>:\tand.w\tr2, r2, #60\t@ 0x3c\n   0x0800c34a <+98>:\tldr\tr1, [r0, r2]\n   0x0800c34c <+100>:\tbic.w\tr1, r1, #255\t@ 0xff\n   0x0800c350 <+104>:\torrs\tr3, r1\n   0x0800c352 <+106>:\tstr\tr3, [r0, r2]\n   0x0800c354 <+108>:\tmovs\tr0, #0\n   0x0800c356 <+110>:\tb.n\t0x800c314 <dac_stm32_write_value+44>\n   0x0800c358 <+112>:\tcmp\tr0, #12\n   0x0800c35a <+114>:\tbne.n\t0x800c354 <dac_stm32_write_value+108>\n   0x0800c35c <+116>:\tldr\tr2, [pc, #40]\t@ (0x800c388 <dac_stm32_write_value+160>)\n   0x0800c35e <+118>:\tsubs\tr1, #1\n   0x0800c360 <+120>:\tldr.w\tr0, [r2, r1, lsl #2]\n   0x0800c364 <+124>:\tldr\tr1, [r4, #0]\n   0x0800c366 <+126>:\tlsrs\tr0, r0, #28\n   0x0800c368 <+128>:\tadds\tr1, #8\n   0x0800c36a <+130>:\tldr.w\tr2, [r1, r0, lsl #2]\n   0x0800c36e <+134>:\tbfc\tr2, #0, #12\n   0x0800c372 <+138>:\torrs\tr3, r2\n   0x0800c374 <+140>:\tstr.w\tr3, [r1, r0, lsl #2]\n   0x0800c378 <+144>:\tb.n\t0x800c354 <dac_stm32_write_value+108>\n   0x0800c37a <+146>:\tnop\n   0x0800c37c <+148>:\tsubs\tr0, #126\t@ 0x7e\n   0x0800c37e <+150>:\tlsrs\tr2, r0, #32\n   0x0800c380 <+152>:\tldmia\tr0!, {r2, r3}\n   0x0800c382 <+154>:\tlsrs\tr1, r0, #32\n   0x0800c384 <+156>:\tsubs\tr0, #175\t@ 0xaf\n   0x0800c386 <+158>:\tlsrs\tr2, r0, #32\n   0x0800c388 <+160>:\tb.n\t0x800c9ac <dma_stm32_configure+124>\n   0x0800c38a <+162>:\tlsrs\tr1, r0, #32\nEnd of assembler dump.\n",
+      "stderr": ""
+    },
+    {
+      "gdb": "disassemble adc_stm32_isr_113",
+      "exit": 0,
+      "stdout": "Dump of assembler code for function adc_stm32_isr_113:\n   0x080098ec <+0>:\tldr\tr0, [pc, #4]\t@ (0x80098f4 <adc_stm32_isr_113+8>)\n   0x080098ee <+2>:\tb.w\t0x80097dc <adc_stm32_isr>\n   0x080098f2 <+6>:\tnop\n   0x080098f4 <+8>:\tstmia\tr2!, {r2, r4}\n   0x080098f6 <+10>:\tlsrs\tr1, r0, #32\nEnd of assembler dump.\n",
+      "stderr": ""
+    },
+    {
+      "gdb": "disassemble adc_stm32_isr_37",
+      "exit": 0,
+      "stdout": "Dump of assembler code for function adc_stm32_isr_37:\n   0x080098e0 <+0>:\tldr\tr0, [pc, #4]\t@ (0x80098e8 <adc_stm32_isr_37+8>)\n   0x080098e2 <+2>:\tb.w\t0x80097dc <adc_stm32_isr>\n   0x080098e6 <+6>:\tnop\n   0x080098e8 <+8>:\tstmia\tr2!, {r3, r4, r5}\n   0x080098ea <+10>:\tlsrs\tr1, r0, #32\nEnd of assembler dump.\n",
+      "stderr": ""
+    },
+    {
+      "gdb": "disassemble adc_stm32_init",
+      "exit": 0,
+      "stdout": "Dump of assembler code for function adc_stm32_init:\n   0x0800a128 <+0>:\tmovw\tr3, #65535\t@ 0xffff\n   0x0800a12c <+4>:\tstmdb\tsp!, {r4, r5, r6, r7, r8, r9, r10, r11, lr}\n   0x0800a130 <+8>:\tldr\tr7, [r0, #4]\n   0x0800a132 <+10>:\tldr.w\tr8, [r0, #16]\n   0x0800a136 <+14>:\tldr\tr5, [r7, #0]\n   0x0800a138 <+16>:\tsub\tsp, #28\n   0x0800a13a <+18>:\tstr.w\tr0, [r8, #160]\t@ 0xa0\n   0x0800a13e <+22>:\tstrh.w\tr3, [r8, #182]\t@ 0xb6\n   0x0800a142 <+26>:\tldr\tr4, [r0, #4]\n   0x0800a144 <+28>:\tldr.w\tr11, [pc, #292]\t@ 0x800a26c <adc_stm32_init+324>\n   0x0800a148 <+32>:\tmov\tr1, r4\n   0x0800a14a <+34>:\tldr.w\tr10, [r11, #8]\n   0x0800a14e <+38>:\tmov\tr6, r0\n   0x0800a150 <+40>:\tldr.w\tr3, [r10]\n   0x0800a154 <+44>:\tldr.w\tr9, [r1], #8\n   0x0800a158 <+48>:\tcbz\tr3, 0x800a1b0 <adc_stm32_init+136>\n   0x0800a15a <+50>:\tmov\tr0, r11\n   0x0800a15c <+52>:\tblx\tr3\n   0x0800a15e <+54>:\tmov\tr2, r0\n   0x0800a160 <+56>:\tcbnz\tr0, 0x800a1b0 <adc_stm32_init+136>\n   0x0800a162 <+58>:\tldrb.w\tr3, [r4, #69]\t@ 0x45\n   0x0800a166 <+62>:\tlsls\tr3, r3, #31\n   0x0800a168 <+64>:\tbmi.n\t0x800a19e <adc_stm32_init+118>\n   0x0800a16a <+66>:\tldrb.w\tr3, [r4, #69]\t@ 0x45\n   0x0800a16e <+70>:\tlsls\tr0, r3, #30\n   0x0800a170 <+72>:\tbpl.n\t0x800a184 <adc_stm32_init+92>\n   0x0800a172 <+74>:\tldr.w\tr3, [r10, #24]\n   0x0800a176 <+78>:\tadd.w\tr1, r4, #24\n   0x0800a17a <+82>:\tcbz\tr3, 0x800a1b0 <adc_stm32_init+136>\n   0x0800a17c <+84>:\tmovs\tr2, #0\n   0x0800a17e <+86>:\tldr\tr0, [pc, #236]\t@ (0x800a26c <adc_stm32_init+324>)\n   0x0800a180 <+88>:\tblx\tr3\n   0x0800a182 <+90>:\tcbnz\tr0, 0x800a1b0 <adc_stm32_init+136>\n   0x0800a184 <+92>:\tldr\tr3, [pc, #232]\t@ (0x800a270 <adc_stm32_init+328>)\n   0x0800a186 <+94>:\tldr\tr1, [pc, #236]\t@ (0x800a274 <adc_stm32_init+332>)\n   0x0800a188 <+96>:\tldr\tr2, [pc, #236]\t@ (0x800a278 <adc_stm32_init+336>)\n   0x0800a18a <+98>:\tcmp\tr9, r3\n   0x0800a18c <+100>:\tit\tne\n   0x0800a18e <+102>:\tmovne\tr2, r1\n   0x0800a190 <+104>:\tldr\tr3, [r2, #0]\n   0x0800a192 <+106>:\tldr\tr1, [r4, #32]\n   0x0800a194 <+108>:\tbic.w\tr3, r3, #3932160\t@ 0x3c0000\n   0x0800a198 <+112>:\torrs\tr3, r1\n   0x0800a19a <+114>:\tstr\tr3, [r2, #0]\n   0x0800a19c <+116>:\tb.n\t0x800a1b0 <adc_stm32_init+136>\n   0x0800a19e <+118>:\tldr.w\tr3, [r10, #24]\n   0x0800a1a2 <+122>:\tadd.w\tr1, r4, #16\n   0x0800a1a6 <+126>:\tcbz\tr3, 0x800a1b0 <adc_stm32_init+136>\n   0x0800a1a8 <+128>:\tmov\tr0, r11\n   0x0800a1aa <+130>:\tblx\tr3\n   0x0800a1ac <+132>:\tcmp\tr0, #0\n   0x0800a1ae <+134>:\tbeq.n\t0x800a16a <adc_stm32_init+66>\n   0x0800a1b0 <+136>:\tmovs\tr1, #0\n   0x0800a1b2 <+138>:\tldr\tr0, [r7, #36]\t@ 0x24\n   0x0800a1b4 <+140>:\tadd\tr2, sp, #20\n   0x0800a1b6 <+142>:\tbl\t0x8019612 <pinctrl_lookup_state>\n   0x0800a1ba <+146>:\tsubs\tr4, r0, #0\n   0x0800a1bc <+148>:\tblt.n\t0x800a1ce <adc_stm32_init+166>\n   0x0800a1be <+150>:\tldr\tr3, [sp, #20]\n   0x0800a1c0 <+152>:\tmovs\tr2, #0\n   0x0800a1c2 <+154>:\tldrb\tr1, [r3, #4]\n   0x0800a1c4 <+156>:\tldr\tr0, [r3, #0]\n   0x0800a1c6 <+158>:\tbl\t0x8019636 <pinctrl_configure_pins>\n   0x0800a1ca <+162>:\tsubs\tr4, r0, #0\n   0x0800a1cc <+164>:\tbge.n\t0x800a1f0 <adc_stm32_init+200>\n   0x0800a1ce <+166>:\tadds\tr1, r4, #2\n   0x0800a1d0 <+168>:\tbeq.n\t0x800a1f0 <adc_stm32_init+200>\n   0x0800a1d2 <+170>:\tldr\tr3, [pc, #168]\t@ (0x800a27c <adc_stm32_init+340>)\n   0x0800a1d4 <+172>:\tmovs\tr2, #1\n   0x0800a1d6 <+174>:\tstr\tr3, [sp, #8]\n   0x0800a1d8 <+176>:\tmovs\tr3, #0\n   0x0800a1da <+178>:\tldr\tr1, [pc, #164]\t@ (0x800a280 <adc_stm32_init+344>)\n   0x0800a1dc <+180>:\tmov\tr0, r3\n   0x0800a1de <+182>:\tstrd\tr3, r3, [sp]\n   0x0800a1e2 <+186>:\tstr\tr4, [sp, #12]\n   0x0800a1e4 <+188>:\tbl\t0x8018330 <z_log_msg_runtime_create>\n   0x0800a1e8 <+192>:\tmov\tr0, r4\n   0x0800a1ea <+194>:\tadd\tsp, #28\n   0x0800a1ec <+196>:\tldmia.w\tsp!, {r4, r5, r6, r7, r8, r9, r10, r11, pc}\n   0x0800a1f0 <+200>:\tldr\tr2, [pc, #144]\t@ (0x800a284 <adc_stm32_init+348>)\n   0x0800a1f2 <+202>:\tldr\tr3, [r2, #16]\n   0x0800a1f4 <+204>:\torr.w\tr3, r3, #1073741824\t@ 0x40000000\n   0x0800a1f8 <+208>:\tstr\tr3, [r2, #16]\n   0x0800a1fa <+210>:\tldrb.w\tr3, [r7, #69]\t@ 0x45\n   0x0800a1fe <+214>:\tlsls\tr2, r3, #29\n   0x0800a200 <+216>:\titttt\tmi\n   0x0800a202 <+218>:\tldrmi\tr3, [r5, #8]\n   0x0800a204 <+220>:\tbicmi.w\tr3, r3, #2684354560\t@ 0xa0000000\n   0x0800a208 <+224>:\tbicmi.w\tr3, r3, #63\t@ 0x3f\n   0x0800a20c <+228>:\tstrmi\tr3, [r5, #8]\n   0x0800a20e <+230>:\tldrsb.w\tr3, [r7, #68]\t@ 0x44\n   0x0800a212 <+234>:\tcbz\tr3, 0x800a232 <adc_stm32_init+266>\n   0x0800a214 <+236>:\tldr\tr3, [r5, #8]\n   0x0800a216 <+238>:\tbic.w\tr3, r3, #2415919104\t@ 0x90000000\n   0x0800a21a <+242>:\tbic.w\tr3, r3, #63\t@ 0x3f\n   0x0800a21e <+246>:\torr.w\tr3, r3, #268435456\t@ 0x10000000\n   0x0800a222 <+250>:\tstr\tr3, [r5, #8]\n   0x0800a224 <+252>:\tldrsb.w\tr3, [r7, #68]\t@ 0x44\n   0x0800a228 <+256>:\tcmp\tr3, #2\n   0x0800a22a <+258>:\tbne.n\t0x800a232 <adc_stm32_init+266>\n   0x0800a22c <+260>:\tldr\tr3, [r5, #0]\n   0x0800a22e <+262>:\tlsls\tr3, r3, #19\n   0x0800a230 <+264>:\tbpl.n\t0x800a22c <adc_stm32_init+260>\n   0x0800a232 <+266>:\tldr\tr3, [r7, #4]\n   0x0800a234 <+268>:\tcbz\tr3, 0x800a238 <adc_stm32_init+272>\n   0x0800a236 <+270>:\tblx\tr3\n   0x0800a238 <+272>:\tmovs\tr1, #1\n   0x0800a23a <+274>:\tmov\tr0, r6\n   0x0800a23c <+276>:\tbl\t0x8009c54 <adc_stm32_calibrate>\n   0x0800a240 <+280>:\tldr\tr3, [pc, #68]\t@ (0x800a288 <adc_stm32_init+352>)\n   0x0800a242 <+282>:\tmovs\tr1, #1\n   0x0800a244 <+284>:\tcmp\tr5, r3\n   0x0800a246 <+286>:\tldr\tr3, [r5, #12]\n   0x0800a248 <+288>:\tmov\tr0, r5\n   0x0800a24a <+290>:\tite\tne\n   0x0800a24c <+292>:\tbicne.w\tr3, r3, #4064\t@ 0xfe0\n   0x0800a250 <+296>:\tbiceq.w\tr3, r3, #3520\t@ 0xdc0\n   0x0800a254 <+300>:\tstr\tr3, [r5, #12]\n   0x0800a256 <+302>:\tbl\t0x80183d2 <adc_stm32_disable>\n   0x0800a25a <+306>:\tldr.w\tr3, [r8, #72]\t@ 0x48\n   0x0800a25e <+310>:\tcbnz\tr3, 0x800a268 <adc_stm32_init+320>\n   0x0800a260 <+312>:\tadd.w\tr0, r8, #64\t@ 0x40\n   0x0800a264 <+316>:\tbl\t0x8010d34 <z_impl_k_sem_give>\n   0x0800a268 <+320>:\tmovs\tr4, #0\n   0x0800a26a <+322>:\tb.n\t0x800a1e8 <adc_stm32_init+192>\n   0x0800a26c <+324>:\tbkpt\t0x00fc\n   0x0800a26e <+326>:\tlsrs\tr1, r0, #32\n   0x0800a270 <+328>:\tstrh\tr0, [r0, #0]\n   0x0800a272 <+330>:\ttst\tr2, r0\n   0x0800a274 <+332>:\tasrs\tr0, r1, #12\n   0x0800a276 <+334>:\tmov\tr2, r0\n   0x0800a278 <+336>:\tstrh\tr0, [r1, #24]\n   0x0800a27a <+338>:\ttst\tr2, r0\n   0x0800a27c <+340>:\tadds\tr0, #95\t@ 0x5f\n   0x0800a27e <+342>:\tlsrs\tr2, r0, #32\n   0x0800a280 <+344>:\tstmia\tr7!, {r2, r4, r6, r7}\n   0x0800a282 <+346>:\tlsrs\tr1, r0, #32\n   0x0800a284 <+348>:\tlsrs\tr0, r0, #32\n   0x0800a286 <+350>:\tmov\tr2, r0\n   0x0800a288 <+352>:\tasrs\tr0, r0, #32\n   0x0800a28a <+354>:\tmov\tr2, r0\nEnd of assembler dump.\n",
+      "stderr": ""
+    },
+    {
+      "gdb": "disassemble stm32_clock_control_on",
+      "exit": 0,
+      "stdout": "Dump of assembler code for function stm32_clock_control_on:\n   0x080189a2 <+0>:\tldrh\tr3, [r1, #0]\n   0x080189a4 <+2>:\tsub\tsp, #8\n   0x080189a6 <+4>:\tubfx\tr3, r3, #0, #12\n   0x080189aa <+8>:\taddw\tr2, r3, #3960\t@ 0xf78\n   0x080189ae <+12>:\tubfx\tr2, r2, #0, #12\n   0x080189b2 <+16>:\tcmp\tr2, #32\n   0x080189b4 <+18>:\tbhi.n\t0x80189e0 <stm32_clock_control_on+62>\n   0x080189b6 <+20>:\tadd.w\tr3, r3, #1174405120\t@ 0x46000000\n   0x080189ba <+24>:\tadd.w\tr3, r3, #134144\t@ 0x20c00\n   0x080189be <+28>:\tldr\tr2, [r3, #0]\n   0x080189c0 <+30>:\tldr\tr0, [r1, #4]\n   0x080189c2 <+32>:\torrs\tr2, r0\n   0x080189c4 <+34>:\tmovs\tr0, #0\n   0x080189c6 <+36>:\tstr\tr2, [r3, #0]\n   0x080189c8 <+38>:\tldrh\tr3, [r1, #0]\n   0x080189ca <+40>:\tubfx\tr3, r3, #0, #12\n   0x080189ce <+44>:\tadd.w\tr3, r3, #1174405120\t@ 0x46000000\n   0x080189d2 <+48>:\tadd.w\tr3, r3, #134144\t@ 0x20c00\n   0x080189d6 <+52>:\tldr\tr3, [r3, #0]\n   0x080189d8 <+54>:\tstr\tr3, [sp, #4]\n   0x080189da <+56>:\tldr\tr3, [sp, #4]\n   0x080189dc <+58>:\tadd\tsp, #8\n   0x080189de <+60>:\tbx\tlr\n   0x080189e0 <+62>:\tmvn.w\tr0, #133\t@ 0x85\n   0x080189e4 <+66>:\tb.n\t0x80189dc <stm32_clock_control_on+58>\nEnd of assembler dump.\n",
+      "stderr": ""
+    }
+  ]
+}

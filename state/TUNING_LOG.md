@@ -254,4 +254,3 @@ Source timing basis: P2_adc_limits.md; acquisition/ownership/errata reports and
 P2_power_contract.md distinguish software deadlines from physical bounds.
 These are development fail-closed selections under D051/D075/D078, not tuning
 measurements, divider calibration, wiring approval or runtime/WCET acceptance.
-

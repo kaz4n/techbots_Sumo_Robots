@@ -1,0 +1,1551 @@
+{
+  "exit": 0,
+  "stderr": "",
+  "records": [
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/generated/zephyr/devicetree_generated.h",
+      "sha256": "5b0e9b1d0f7d878415d53a5d724e976061aca52177967d90d7c76c3cb0b0fb80",
+      "bytes": 2601581,
+      "lines": []
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/zephyr/drivers/clock_control/stm32_clock_control.h",
+      "sha256": "5ff73868f537e9a761b7b4b45d7fed7147a929cb526760cb5678a01afa2f3936",
+      "bytes": 41259,
+      "lines": [
+        [
+          576,
+          "#define STM32_MSIS_ENABLED\t1"
+        ],
+        [
+          577,
+          "#define STM32_MSIS_RANGE\tDT_PROP(DT_NODELABEL(clk_msis), msi_range)"
+        ],
+        [
+          578,
+          "#define STM32_MSIS_PLL_MODE\tDT_PROP(DT_NODELABEL(clk_msis), msi_pll_mode)"
+        ],
+        [
+          579,
+          "#else"
+        ],
+        [
+          580,
+          "#define STM32_MSIS_RANGE\t0"
+        ],
+        [
+          581,
+          "#define STM32_MSIS_PLL_MODE\t0"
+        ],
+        [
+          582,
+          "#endif"
+        ],
+        [
+          583,
+          ""
+        ],
+        [
+          584,
+          "#if DT_NODE_HAS_COMPAT_STATUS(DT_NODELABEL(clk_msik), st_stm32u5_msi_clock, okay) || \\"
+        ],
+        [
+          586,
+          "#define STM32_MSIK_ENABLED\t1"
+        ],
+        [
+          587,
+          "#define STM32_MSIK_RANGE\tDT_PROP(DT_NODELABEL(clk_msik), msi_range)"
+        ],
+        [
+          588,
+          "#define STM32_MSIK_PLL_MODE\tDT_PROP(DT_NODELABEL(clk_msik), msi_pll_mode)"
+        ],
+        [
+          589,
+          "#else"
+        ],
+        [
+          590,
+          "#define STM32_MSIK_RANGE\t0"
+        ],
+        [
+          591,
+          "#define STM32_MSIK_PLL_MODE\t0"
+        ],
+        [
+          592,
+          "#endif"
+        ],
+        [
+          593,
+          ""
+        ],
+        [
+          594,
+          "#if DT_NODE_HAS_COMPAT_STATUS(DT_NODELABEL(clk_csi), fixed_clock, okay)"
+        ]
+      ]
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/modules/hal/stm32/stm32cube/stm32u5xx/drivers/include/stm32u5xx_ll_rcc.h",
+      "sha256": "08a13b1c17bc496658c1ad1b32fc4718d4d864aecf3165a47c360cbdc82c8191",
+      "bytes": 219479,
+      "lines": [
+        [
+          2085,
+          "  * @retval None"
+        ],
+        [
+          2086,
+          "  */"
+        ],
+        [
+          2087,
+          "__STATIC_INLINE void LL_RCC_MSI_EnablePLLMode(void)"
+        ],
+        [
+          2088,
+          "{"
+        ],
+        [
+          2089,
+          "  SET_BIT(RCC->CR, RCC_CR_MSIPLLEN);"
+        ],
+        [
+          2090,
+          "}"
+        ],
+        [
+          2091,
+          ""
+        ],
+        [
+          2092,
+          "/**"
+        ],
+        [
+          2093,
+          "  * @brief  Disable MSI-PLL mode"
+        ],
+        [
+          2094,
+          "  * @note cleared by hardware when LSE is disabled (LSEON = 0) or when"
+        ],
+        [
+          2095,
+          "  *       the Clock Security System on LSE detects a LSE failure"
+        ],
+        [
+          2096,
+          "  * @rmtoll CR           MSIPLLEN      LL_RCC_MSI_DisablePLLMode"
+        ],
+        [
+          2097,
+          "  * @retval None"
+        ],
+        [
+          2098,
+          "  */"
+        ],
+        [
+          2099,
+          "__STATIC_INLINE void LL_RCC_MSI_DisablePLLMode(void)"
+        ],
+        [
+          2100,
+          "{"
+        ],
+        [
+          2101,
+          "  CLEAR_BIT(RCC->CR, RCC_CR_MSIPLLEN);"
+        ],
+        [
+          2102,
+          "}"
+        ],
+        [
+          2103,
+          ""
+        ],
+        [
+          2104,
+          "/**"
+        ],
+        [
+          2105,
+          "  * @brief  Check if MSI-PLL mode has been enabled or not"
+        ],
+        [
+          2106,
+          "  * @rmtoll CR           MSIPLLEN      LL_RCC_IsEnabledPLLMode"
+        ],
+        [
+          2107,
+          "  * @retval State of bit (1 or 0)."
+        ],
+        [
+          2108,
+          "  */"
+        ],
+        [
+          2109,
+          "__STATIC_INLINE uint32_t LL_RCC_IsEnabledPLLMode(void)"
+        ],
+        [
+          2132,
+          "  *         @arg @ref LL_RCC_PLLMODE_MSIK"
+        ],
+        [
+          2133,
+          "  */"
+        ],
+        [
+          2134,
+          "__STATIC_INLINE uint32_t LL_RCC_GetMSIPLLMode(void)"
+        ],
+        [
+          2135,
+          "{"
+        ],
+        [
+          2136,
+          "  return (uint32_t)(READ_BIT(RCC->CR, RCC_CR_MSIPLLSEL));"
+        ],
+        [
+          2137,
+          "}"
+        ],
+        [
+          2138,
+          ""
+        ],
+        [
+          2139,
+          "/**"
+        ],
+        [
+          2140,
+          "  * @brief  Enable MSI fast mode"
+        ],
+        [
+          2141,
+          "  * @rmtoll CR           MSIPLLFAST        LL_RCC_Enable_MSIPLLFAST"
+        ],
+        [
+          2142,
+          "  * @note     This bit is used only if PLL mode is selected."
+        ],
+        [
+          2143,
+          "  */"
+        ],
+        [
+          2144,
+          "__STATIC_INLINE void LL_RCC_Enable_MSIPLLFAST(void)"
+        ]
+      ]
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/modules/hal/stm32/stm32cube/stm32u5xx/soc/stm32u585xx.h",
+      "sha256": "8b66d5b9d1514f3ce0950b7a96402e7c026a0779e1cc36c3771be05432b68c06",
+      "bytes": 1517115,
+      "lines": [
+        [
+          3542,
+          "#define ADC_IER_ADRDYIE_Pos               (0UL)"
+        ],
+        [
+          3543,
+          "#define ADC_IER_ADRDYIE_Msk               (0x1UL << ADC_IER_ADRDYIE_Pos)"
+        ],
+        [
+          3544,
+          "#define ADC_IER_ADRDYIE                   ADC_IER_ADRDYIE_Msk"
+        ],
+        [
+          3545,
+          "#define ADC_IER_EOSMPIE_Pos               (1UL)"
+        ],
+        [
+          3546,
+          "#define ADC_IER_EOSMPIE_Msk               (0x1UL << ADC_IER_EOSMPIE_Pos)"
+        ],
+        [
+          3547,
+          "#define ADC_IER_EOSMPIE                   ADC_IER_EOSMPIE_Msk"
+        ],
+        [
+          3548,
+          "#define ADC_IER_EOCIE_Pos                 (2UL)"
+        ],
+        [
+          3549,
+          "#define ADC_IER_EOCIE_Msk                 (0x1UL << ADC_IER_EOCIE_Pos)"
+        ],
+        [
+          3550,
+          "#define ADC_IER_EOCIE                     ADC_IER_EOCIE_Msk"
+        ],
+        [
+          3551,
+          "#define ADC_IER_EOSIE_Pos                 (3UL)"
+        ],
+        [
+          3552,
+          "#define ADC_IER_EOSIE_Msk                 (0x1UL << ADC_IER_EOSIE_Pos)"
+        ],
+        [
+          3553,
+          "#define ADC_IER_EOSIE                     ADC_IER_EOSIE_Msk"
+        ],
+        [
+          3554,
+          "#define ADC_IER_OVRIE_Pos                 (4UL)"
+        ],
+        [
+          3555,
+          "#define ADC_IER_OVRIE_Msk                 (0x1UL << ADC_IER_OVRIE_Pos)"
+        ],
+        [
+          3556,
+          "#define ADC_IER_OVRIE                     ADC_IER_OVRIE_Msk"
+        ],
+        [
+          3557,
+          "#define ADC_IER_JEOCIE_Pos                (5UL)"
+        ],
+        [
+          3558,
+          "#define ADC_IER_JEOCIE_Msk                (0x1UL << ADC_IER_JEOCIE_Pos)"
+        ],
+        [
+          3559,
+          "#define ADC_IER_JEOCIE                    ADC_IER_JEOCIE_Msk"
+        ],
+        [
+          3560,
+          "#define ADC_IER_JEOSIE_Pos                (6UL)"
+        ],
+        [
+          3561,
+          "#define ADC_IER_JEOSIE_Msk                (0x1UL << ADC_IER_JEOSIE_Pos)"
+        ],
+        [
+          3562,
+          "#define ADC_IER_JEOSIE                    ADC_IER_JEOSIE_Msk"
+        ],
+        [
+          3563,
+          "#define ADC_IER_AWD1IE_Pos                (7UL)"
+        ],
+        [
+          3564,
+          "#define ADC_IER_AWD1IE_Msk                (0x1UL << ADC_IER_AWD1IE_Pos)"
+        ],
+        [
+          3565,
+          "#define ADC_IER_AWD1IE                    ADC_IER_AWD1IE_Msk"
+        ],
+        [
+          3566,
+          "#define ADC_IER_AWD2IE_Pos                (8UL)"
+        ],
+        [
+          3567,
+          "#define ADC_IER_AWD2IE_Msk                (0x1UL << ADC_IER_AWD2IE_Pos)"
+        ],
+        [
+          3568,
+          "#define ADC_IER_AWD2IE                    ADC_IER_AWD2IE_Msk"
+        ],
+        [
+          3569,
+          "#define ADC_IER_AWD3IE_Pos                (9UL)"
+        ],
+        [
+          3570,
+          "#define ADC_IER_AWD3IE_Msk                (0x1UL << ADC_IER_AWD3IE_Pos)"
+        ],
+        [
+          3571,
+          "#define ADC_IER_AWD3IE                    ADC_IER_AWD3IE_Msk"
+        ],
+        [
+          3572,
+          "#define ADC_IER_JQOVFIE_Pos               (10UL)"
+        ],
+        [
+          3573,
+          "#define ADC_IER_JQOVFIE_Msk               (0x1UL << ADC_IER_JQOVFIE_Pos)"
+        ],
+        [
+          3574,
+          "#define ADC_IER_JQOVFIE                   ADC_IER_JQOVFIE_Msk"
+        ],
+        [
+          3575,
+          "#define ADC_IER_EOCALIE_Pos               (11UL)"
+        ],
+        [
+          3576,
+          "#define ADC_IER_EOCALIE_Msk               (0x1UL << ADC_IER_EOCALIE_Pos)"
+        ],
+        [
+          3577,
+          "#define ADC_IER_EOCALIE                   ADC_IER_EOCALIE_Msk"
+        ],
+        [
+          3578,
+          "#define ADC_IER_LDORDYIE_Pos              (12UL)"
+        ],
+        [
+          3579,
+          "#define ADC_IER_LDORDYIE_Msk              (0x1UL << ADC_IER_LDORDYIE_Pos)"
+        ],
+        [
+          3580,
+          "#define ADC_IER_LDORDYIE                  ADC_IER_LDORDYIE_Msk"
+        ],
+        [
+          3583,
+          "#define ADC_CR_ADEN_Pos                   (0UL)"
+        ],
+        [
+          3584,
+          "#define ADC_CR_ADEN_Msk                   (0x1UL << ADC_CR_ADEN_Pos)"
+        ],
+        [
+          3585,
+          "#define ADC_CR_ADEN                       ADC_CR_ADEN_Msk"
+        ],
+        [
+          3586,
+          "#define ADC_CR_ADDIS_Pos                  (1UL)"
+        ],
+        [
+          3587,
+          "#define ADC_CR_ADDIS_Msk                  (0x1UL << ADC_CR_ADDIS_Pos)"
+        ],
+        [
+          3588,
+          "#define ADC_CR_ADDIS                      ADC_CR_ADDIS_Msk"
+        ],
+        [
+          3589,
+          "#define ADC_CR_ADSTART_Pos                (2UL)"
+        ],
+        [
+          3590,
+          "#define ADC_CR_ADSTART_Msk                (0x1UL << ADC_CR_ADSTART_Pos)"
+        ],
+        [
+          3591,
+          "#define ADC_CR_ADSTART                    ADC_CR_ADSTART_Msk"
+        ],
+        [
+          3595,
+          "#define ADC_CR_ADSTP_Pos                  (4UL)"
+        ],
+        [
+          3596,
+          "#define ADC_CR_ADSTP_Msk                  (0x1UL << ADC_CR_ADSTP_Pos)"
+        ],
+        [
+          3597,
+          "#define ADC_CR_ADSTP                      ADC_CR_ADSTP_Msk"
+        ],
+        [
+          3601,
+          "#define ADC_CR_ADCALLIN_Pos               (16UL)"
+        ],
+        [
+          3602,
+          "#define ADC_CR_ADCALLIN_Msk               (0x1UL << ADC_CR_ADCALLIN_Pos)"
+        ],
+        [
+          3603,
+          "#define ADC_CR_ADCALLIN                   ADC_CR_ADCALLIN_Msk"
+        ],
+        [
+          3626,
+          "#define ADC_CR_ADCAL_Pos                  (31UL)"
+        ],
+        [
+          3627,
+          "#define ADC_CR_ADCAL_Msk                  (0x1UL << ADC_CR_ADCAL_Pos)"
+        ],
+        [
+          3628,
+          "#define ADC_CR_ADCAL                      ADC_CR_ADCAL_Msk"
+        ],
+        [
+          3643,
+          "#define ADC4_CFGR1_DMAEN_Pos                (0UL)"
+        ],
+        [
+          3644,
+          "#define ADC4_CFGR1_DMAEN_Msk                (0x1UL << ADC4_CFGR1_DMAEN_Pos)"
+        ],
+        [
+          3645,
+          "#define ADC4_CFGR1_DMAEN                    ADC4_CFGR1_DMAEN_Msk"
+        ],
+        [
+          3646,
+          "#define ADC4_CFGR1_DMACFG_Pos               (1UL)"
+        ],
+        [
+          3647,
+          "#define ADC4_CFGR1_DMACFG_Msk               (0x1UL << ADC4_CFGR1_DMACFG_Pos)"
+        ],
+        [
+          3648,
+          "#define ADC4_CFGR1_DMACFG                   ADC4_CFGR1_DMACFG_Msk"
+        ],
+        [
+          3667,
+          "#define ADC_CFGR1_EXTEN_Pos                (10UL)"
+        ],
+        [
+          3668,
+          "#define ADC_CFGR1_EXTEN_Msk                (0x3UL << ADC_CFGR1_EXTEN_Pos)"
+        ],
+        [
+          3669,
+          "#define ADC_CFGR1_EXTEN                    ADC_CFGR1_EXTEN_Msk"
+        ],
+        [
+          3670,
+          "#define ADC_CFGR1_EXTEN_0                  (0x1UL << ADC_CFGR1_EXTEN_Pos)"
+        ],
+        [
+          3671,
+          "#define ADC_CFGR1_EXTEN_1                  (0x2UL << ADC_CFGR1_EXTEN_Pos)"
+        ],
+        [
+          3676,
+          "#define ADC_CFGR1_CONT_Pos                 (13UL)"
+        ],
+        [
+          3677,
+          "#define ADC_CFGR1_CONT_Msk                 (0x1UL << ADC_CFGR1_CONT_Pos)"
+        ],
+        [
+          3678,
+          "#define ADC_CFGR1_CONT                     ADC_CFGR1_CONT_Msk"
+        ],
+        [
+          5422,
+          "#define DAC_CR_EN1_Pos                      (0UL)"
+        ],
+        [
+          5423,
+          "#define DAC_CR_EN1_Msk                      (0x1UL << DAC_CR_EN1_Pos)"
+        ],
+        [
+          5424,
+          "#define DAC_CR_EN1                          DAC_CR_EN1_Msk"
+        ],
+        [
+          5425,
+          "#define DAC_CR_TEN1_Pos                     (1UL)"
+        ],
+        [
+          5426,
+          "#define DAC_CR_TEN1_Msk                     (0x1UL << DAC_CR_TEN1_Pos)"
+        ],
+        [
+          5427,
+          "#define DAC_CR_TEN1                         DAC_CR_TEN1_Msk"
+        ],
+        [
+          5435,
+          "#define DAC_CR_WAVE1_Pos                    (6UL)"
+        ],
+        [
+          5436,
+          "#define DAC_CR_WAVE1_Msk                    (0x3UL << DAC_CR_WAVE1_Pos)"
+        ],
+        [
+          5437,
+          "#define DAC_CR_WAVE1                        DAC_CR_WAVE1_Msk"
+        ],
+        [
+          5438,
+          "#define DAC_CR_WAVE1_0                      (0x1UL << DAC_CR_WAVE1_Pos)"
+        ],
+        [
+          5439,
+          "#define DAC_CR_WAVE1_1                      (0x2UL << DAC_CR_WAVE1_Pos)"
+        ],
+        [
+          5447,
+          "#define DAC_CR_DMAEN1_Pos                   (12UL)"
+        ],
+        [
+          5448,
+          "#define DAC_CR_DMAEN1_Msk                   (0x1UL << DAC_CR_DMAEN1_Pos)"
+        ],
+        [
+          5449,
+          "#define DAC_CR_DMAEN1                       DAC_CR_DMAEN1_Msk"
+        ],
+        [
+          5453,
+          "#define DAC_CR_CEN1_Pos                     (14UL)"
+        ],
+        [
+          5454,
+          "#define DAC_CR_CEN1_Msk                     (0x1UL << DAC_CR_CEN1_Pos)"
+        ],
+        [
+          5455,
+          "#define DAC_CR_CEN1                         DAC_CR_CEN1_Msk"
+        ],
+        [
+          15629,
+          "#define RCC_CR_MSIPLLEN_Pos                 (3UL)"
+        ],
+        [
+          15630,
+          "#define RCC_CR_MSIPLLEN_Msk                 (0x1UL << RCC_CR_MSIPLLEN_Pos)"
+        ],
+        [
+          15631,
+          "#define RCC_CR_MSIPLLEN                     RCC_CR_MSIPLLEN_Msk"
+        ]
+      ]
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/modules/hal/stm32/stm32cube/stm32u5xx/drivers/include/stm32u5xx_ll_adc.h",
+      "sha256": "c72e076314ab1e3ec41928bfb04c942e321065a47ca778358f0503984f0f441f",
+      "bytes": 467733,
+      "lines": [
+        [
+          4173,
+          "  *         Value \"1\" if trigger source SW start."
+        ],
+        [
+          4174,
+          "  */"
+        ],
+        [
+          4175,
+          "__STATIC_INLINE uint32_t LL_ADC_REG_IsTriggerSourceSWStart(const ADC_TypeDef *ADCx)"
+        ],
+        [
+          4176,
+          "{"
+        ],
+        [
+          4177,
+          "  return ((READ_BIT(ADCx->CFGR1, ADC_CFGR1_EXTEN) == (LL_ADC_REG_TRIG_SOFTWARE & ADC_CFGR1_EXTEN)) ? 1UL : 0UL);"
+        ],
+        [
+          4178,
+          "}"
+        ],
+        [
+          4179,
+          ""
+        ],
+        [
+          4180,
+          "/**"
+        ],
+        [
+          4181,
+          "  * @brief  Set ADC group regular conversion trigger polarity."
+        ],
+        [
+          4182,
+          "  * @note   Applicable only for trigger source set to external trigger."
+        ],
+        [
+          4183,
+          "  * @note   On this STM32 series, setting of this feature is conditioned to"
+        ],
+        [
+          4184,
+          "  *         ADC state:"
+        ],
+        [
+          4185,
+          "  *         ADC must be disabled or enabled without conversion on going"
+        ],
+        [
+          5444,
+          "  *         @arg @ref LL_ADC_REG_CONV_CONTINUOUS"
+        ],
+        [
+          5445,
+          "  */"
+        ],
+        [
+          5446,
+          "__STATIC_INLINE uint32_t LL_ADC_REG_GetContinuousMode(const ADC_TypeDef *ADCx)"
+        ],
+        [
+          5447,
+          "{"
+        ],
+        [
+          5448,
+          "  return (uint32_t)(READ_BIT(ADCx->CFGR1, ADC_CFGR1_CONT));"
+        ],
+        [
+          5449,
+          "}"
+        ],
+        [
+          5450,
+          ""
+        ],
+        [
+          5451,
+          "/**"
+        ],
+        [
+          5452,
+          "  * @brief  Set ADC data transfer mode"
+        ],
+        [
+          5453,
+          "  * @note   Conversion data can be either:"
+        ],
+        [
+          5454,
+          "  *            - Available in Data Register"
+        ],
+        [
+          5455,
+          "  *            - Transferred by DMA in one shot mode"
+        ],
+        [
+          5456,
+          "  *            - Transferred by DMA in circular mode"
+        ],
+        [
+          5556,
+          "  *         @arg @ref LL_ADC_REG_DMA_TRANSFER_UNLIMITED"
+        ],
+        [
+          5557,
+          "  */"
+        ],
+        [
+          5558,
+          "__STATIC_INLINE uint32_t LL_ADC_REG_GetDMATransfer(const ADC_TypeDef *ADCx)"
+        ],
+        [
+          5559,
+          "{"
+        ],
+        [
+          5560,
+          "  return (uint32_t)(READ_BIT(ADCx->CFGR1, ADC4_CFGR1_DMAEN | ADC4_CFGR1_DMACFG));"
+        ],
+        [
+          5561,
+          "}"
+        ],
+        [
+          5562,
+          ""
+        ],
+        [
+          5563,
+          "/**"
+        ],
+        [
+          5564,
+          "  * @brief  Set ADC group regular behavior in case of overrun:"
+        ],
+        [
+          5565,
+          "  *         data preserved or overwritten."
+        ],
+        [
+          5566,
+          "  * @note   Compatibility with devices without feature overrun:"
+        ],
+        [
+          5567,
+          "  *         other devices without this feature have a behavior"
+        ],
+        [
+          5568,
+          "  *         equivalent to data overwritten."
+        ],
+        [
+          7900,
+          "  * @retval 0: ADC is disabled, 1: ADC is enabled."
+        ],
+        [
+          7901,
+          "  */"
+        ],
+        [
+          7902,
+          "__STATIC_INLINE uint32_t LL_ADC_IsEnabled(const ADC_TypeDef *ADCx)"
+        ],
+        [
+          7903,
+          "{"
+        ],
+        [
+          7904,
+          "  return ((READ_BIT(ADCx->CR, ADC_CR_ADEN) == (ADC_CR_ADEN)) ? 1UL : 0UL);"
+        ],
+        [
+          7905,
+          "}"
+        ],
+        [
+          7906,
+          ""
+        ],
+        [
+          7907,
+          "/**"
+        ],
+        [
+          7908,
+          "  * @brief  Get the selected ADC instance disable state."
+        ],
+        [
+          7909,
+          "  * @rmtoll CR       ADDIS          LL_ADC_IsDisableOngoing"
+        ],
+        [
+          7910,
+          "  * @param  ADCx ADC instance"
+        ],
+        [
+          7911,
+          "  * @retval 0: no ADC disable command on going."
+        ],
+        [
+          7912,
+          "  */"
+        ],
+        [
+          7969,
+          "  * @retval 0: calibration complete, 1: calibration in progress."
+        ],
+        [
+          7970,
+          "  */"
+        ],
+        [
+          7971,
+          "__STATIC_INLINE uint32_t LL_ADC_IsCalibrationOnGoing(const ADC_TypeDef *ADCx)"
+        ],
+        [
+          7972,
+          "{"
+        ],
+        [
+          7973,
+          "  return ((READ_BIT(ADCx->CR, ADC_CR_ADCAL) == (ADC_CR_ADCAL)) ? 1UL : 0UL);"
+        ],
+        [
+          7974,
+          "}"
+        ],
+        [
+          7975,
+          ""
+        ],
+        [
+          7976,
+          "/**"
+        ],
+        [
+          7977,
+          "  * @}"
+        ],
+        [
+          7978,
+          "  */"
+        ],
+        [
+          7979,
+          ""
+        ],
+        [
+          7980,
+          "/** @defgroup ADC_LL_EF_Operation_ADC_Group_Regular Operation on ADC hierarchical scope: group regular"
+        ],
+        [
+          7981,
+          "  * @{"
+        ],
+        [
+          8034,
+          "  * @retval 0: no conversion is on going on ADC group regular."
+        ],
+        [
+          8035,
+          "  */"
+        ],
+        [
+          8036,
+          "__STATIC_INLINE uint32_t LL_ADC_REG_IsConversionOngoing(const ADC_TypeDef *ADCx)"
+        ],
+        [
+          8037,
+          "{"
+        ],
+        [
+          8038,
+          "  return ((READ_BIT(ADCx->CR, ADC_CR_ADSTART) == (ADC_CR_ADSTART)) ? 1UL : 0UL);"
+        ],
+        [
+          8039,
+          "}"
+        ],
+        [
+          8040,
+          ""
+        ],
+        [
+          8041,
+          "/**"
+        ],
+        [
+          8042,
+          "  * @brief  Get ADC group regular command of conversion stop state"
+        ],
+        [
+          8043,
+          "  * @rmtoll CR       ADSTP          LL_ADC_REG_IsStopConversionOngoing"
+        ],
+        [
+          8044,
+          "  * @param  ADCx ADC instance"
+        ],
+        [
+          8045,
+          "  * @retval 0: no command of conversion stop is on going on ADC group regular."
+        ],
+        [
+          8046,
+          "  */"
+        ],
+        [
+          8915,
+          "  * @retval State of bit (1 or 0)."
+        ],
+        [
+          8916,
+          "  */"
+        ],
+        [
+          8917,
+          "__STATIC_INLINE uint32_t LL_ADC_IsEnabledIT_ADRDY(const ADC_TypeDef *ADCx)"
+        ],
+        [
+          8918,
+          "{"
+        ],
+        [
+          8919,
+          "  return ((READ_BIT(ADCx->IER, LL_ADC_IT_ADRDY) == (LL_ADC_IT_ADRDY)) ? 1UL : 0UL);"
+        ],
+        [
+          8920,
+          "}"
+        ],
+        [
+          8921,
+          ""
+        ],
+        [
+          8922,
+          "/**"
+        ],
+        [
+          8923,
+          "  * @brief  Get state of interruption ADC group regular end of unitary conversion"
+        ],
+        [
+          8924,
+          "  *         (0: interrupt disabled, 1: interrupt enabled)."
+        ],
+        [
+          8925,
+          "  * @rmtoll IER      EOCIE          LL_ADC_IsEnabledIT_EOC"
+        ],
+        [
+          8926,
+          "  * @param  ADCx ADC instance"
+        ],
+        [
+          8927,
+          "  * @retval State of bit (1 or 0)."
+        ],
+        [
+          8928,
+          "  */"
+        ],
+        [
+          8929,
+          "__STATIC_INLINE uint32_t LL_ADC_IsEnabledIT_EOC(const ADC_TypeDef *ADCx)"
+        ],
+        [
+          8930,
+          "{"
+        ],
+        [
+          8931,
+          "  return ((READ_BIT(ADCx->IER, LL_ADC_IT_EOC) == (LL_ADC_IT_EOC)) ? 1UL : 0UL);"
+        ],
+        [
+          8932,
+          "}"
+        ],
+        [
+          8933,
+          ""
+        ],
+        [
+          8934,
+          "/**"
+        ],
+        [
+          8935,
+          "  * @brief  Get state of interruption ADC group regular end of sequence conversions"
+        ],
+        [
+          8936,
+          "  *         (0: interrupt disabled, 1: interrupt enabled)."
+        ],
+        [
+          8937,
+          "  * @rmtoll IER      EOSIE          LL_ADC_IsEnabledIT_EOS"
+        ],
+        [
+          8938,
+          "  * @param  ADCx ADC instance"
+        ],
+        [
+          8939,
+          "  * @retval State of bit (1 or 0)."
+        ],
+        [
+          8940,
+          "  */"
+        ],
+        [
+          8941,
+          "__STATIC_INLINE uint32_t LL_ADC_IsEnabledIT_EOS(const ADC_TypeDef *ADCx)"
+        ],
+        [
+          8942,
+          "{"
+        ],
+        [
+          8943,
+          "  return ((READ_BIT(ADCx->IER, LL_ADC_IT_EOS) == (LL_ADC_IT_EOS)) ? 1UL : 0UL);"
+        ],
+        [
+          8944,
+          "}"
+        ],
+        [
+          8945,
+          ""
+        ],
+        [
+          8946,
+          "/**"
+        ],
+        [
+          8947,
+          "  * @brief  Get state of interruption ADC group regular overrun"
+        ],
+        [
+          8948,
+          "  *         (0: interrupt disabled, 1: interrupt enabled)."
+        ],
+        [
+          8949,
+          "  * @rmtoll IER      OVRIE          LL_ADC_IsEnabledIT_OVR"
+        ],
+        [
+          8950,
+          "  * @param  ADCx ADC instance"
+        ],
+        [
+          8951,
+          "  * @retval State of bit (1 or 0)."
+        ],
+        [
+          8952,
+          "  */"
+        ],
+        [
+          8953,
+          "__STATIC_INLINE uint32_t LL_ADC_IsEnabledIT_OVR(const ADC_TypeDef *ADCx)"
+        ],
+        [
+          8954,
+          "{"
+        ],
+        [
+          8955,
+          "  return ((READ_BIT(ADCx->IER, LL_ADC_IT_OVR) == (LL_ADC_IT_OVR)) ? 1UL : 0UL);"
+        ],
+        [
+          8956,
+          "}"
+        ],
+        [
+          8957,
+          ""
+        ],
+        [
+          8958,
+          "/**"
+        ],
+        [
+          8959,
+          "  * @brief  Get state of interruption ADC group regular end of sampling"
+        ],
+        [
+          8960,
+          "  *         (0: interrupt disabled, 1: interrupt enabled)."
+        ],
+        [
+          8961,
+          "  * @rmtoll IER      EOSMPIE        LL_ADC_IsEnabledIT_EOSMP"
+        ],
+        [
+          8962,
+          "  * @param  ADCx ADC instance"
+        ],
+        [
+          8963,
+          "  * @retval State of bit (1 or 0)."
+        ],
+        [
+          8964,
+          "  */"
+        ],
+        [
+          8965,
+          "__STATIC_INLINE uint32_t LL_ADC_IsEnabledIT_EOSMP(const ADC_TypeDef *ADCx)"
+        ],
+        [
+          8966,
+          "{"
+        ],
+        [
+          8967,
+          "  return ((READ_BIT(ADCx->IER, LL_ADC_IT_EOSMP) == (LL_ADC_IT_EOSMP)) ? 1UL : 0UL);"
+        ],
+        [
+          8968,
+          "}"
+        ],
+        [
+          8969,
+          ""
+        ],
+        [
+          8970,
+          "/**"
+        ],
+        [
+          8971,
+          "  * @brief  Get state of interruption ADC group injected end of unitary conversion"
+        ],
+        [
+          8972,
+          "  *         (0: interrupt disabled, 1: interrupt enabled)."
+        ],
+        [
+          8973,
+          "  * @rmtoll IER      JEOCIE         LL_ADC_IsEnabledIT_JEOC"
+        ],
+        [
+          8974,
+          "  * @param  ADCx ADC instance"
+        ],
+        [
+          8975,
+          "  * @retval State of bit (1 or 0)."
+        ],
+        [
+          8976,
+          "  */"
+        ],
+        [
+          8977,
+          "__STATIC_INLINE uint32_t LL_ADC_IsEnabledIT_JEOC(const ADC_TypeDef *ADCx)"
+        ],
+        [
+          8978,
+          "{"
+        ],
+        [
+          8979,
+          "  return ((READ_BIT(ADCx->IER, LL_ADC_IT_JEOC) == (LL_ADC_IT_JEOC)) ? 1UL : 0UL);"
+        ],
+        [
+          8980,
+          "}"
+        ],
+        [
+          8981,
+          ""
+        ],
+        [
+          8982,
+          "/**"
+        ],
+        [
+          8983,
+          "  * @brief  Get state of interruption ADC group injected end of sequence conversions"
+        ],
+        [
+          8984,
+          "  *         (0: interrupt disabled, 1: interrupt enabled)."
+        ],
+        [
+          8985,
+          "  * @rmtoll IER      JEOSIE         LL_ADC_IsEnabledIT_JEOS"
+        ],
+        [
+          8986,
+          "  * @param  ADCx ADC instance"
+        ],
+        [
+          8987,
+          "  * @retval State of bit (1 or 0)."
+        ],
+        [
+          8988,
+          "  */"
+        ],
+        [
+          8989,
+          "__STATIC_INLINE uint32_t LL_ADC_IsEnabledIT_JEOS(const ADC_TypeDef *ADCx)"
+        ],
+        [
+          8990,
+          "{"
+        ],
+        [
+          8991,
+          "  return ((READ_BIT(ADCx->IER, LL_ADC_IT_JEOS) == (LL_ADC_IT_JEOS)) ? 1UL : 0UL);"
+        ],
+        [
+          8992,
+          "}"
+        ],
+        [
+          8993,
+          ""
+        ],
+        [
+          8994,
+          "/**"
+        ],
+        [
+          8995,
+          "  * @brief  Get state of interruption ADC analog watchdog 1"
+        ],
+        [
+          8996,
+          "  *         (0: interrupt disabled, 1: interrupt enabled)."
+        ],
+        [
+          8997,
+          "  * @rmtoll IER      AWD1IE         LL_ADC_IsEnabledIT_AWD1"
+        ],
+        [
+          8998,
+          "  * @param  ADCx ADC instance"
+        ],
+        [
+          8999,
+          "  * @retval State of bit (1 or 0)."
+        ],
+        [
+          9000,
+          "  */"
+        ],
+        [
+          9001,
+          "__STATIC_INLINE uint32_t LL_ADC_IsEnabledIT_AWD1(const ADC_TypeDef *ADCx)"
+        ],
+        [
+          9002,
+          "{"
+        ],
+        [
+          9003,
+          "  return ((READ_BIT(ADCx->IER, LL_ADC_IT_AWD1) == (LL_ADC_IT_AWD1)) ? 1UL : 0UL);"
+        ],
+        [
+          9004,
+          "}"
+        ],
+        [
+          9005,
+          ""
+        ],
+        [
+          9006,
+          "/**"
+        ],
+        [
+          9007,
+          "  * @brief  Get state of interruption Get ADC analog watchdog 2"
+        ],
+        [
+          9008,
+          "  *         (0: interrupt disabled, 1: interrupt enabled)."
+        ],
+        [
+          9009,
+          "  * @rmtoll IER      AWD2IE         LL_ADC_IsEnabledIT_AWD2"
+        ],
+        [
+          9010,
+          "  * @param  ADCx ADC instance"
+        ],
+        [
+          9011,
+          "  * @retval State of bit (1 or 0)."
+        ],
+        [
+          9012,
+          "  */"
+        ],
+        [
+          9013,
+          "__STATIC_INLINE uint32_t LL_ADC_IsEnabledIT_AWD2(const ADC_TypeDef *ADCx)"
+        ],
+        [
+          9014,
+          "{"
+        ],
+        [
+          9015,
+          "  return ((READ_BIT(ADCx->IER, LL_ADC_IT_AWD2) == (LL_ADC_IT_AWD2)) ? 1UL : 0UL);"
+        ],
+        [
+          9016,
+          "}"
+        ],
+        [
+          9017,
+          ""
+        ],
+        [
+          9018,
+          "/**"
+        ],
+        [
+          9019,
+          "  * @brief  Get state of interruption Get ADC analog watchdog 3"
+        ],
+        [
+          9020,
+          "  *         (0: interrupt disabled, 1: interrupt enabled)."
+        ],
+        [
+          9021,
+          "  * @rmtoll IER      AWD3IE         LL_ADC_IsEnabledIT_AWD3"
+        ],
+        [
+          9022,
+          "  * @param  ADCx ADC instance"
+        ],
+        [
+          9023,
+          "  * @retval State of bit (1 or 0)."
+        ],
+        [
+          9024,
+          "  */"
+        ],
+        [
+          9025,
+          "__STATIC_INLINE uint32_t LL_ADC_IsEnabledIT_AWD3(const ADC_TypeDef *ADCx)"
+        ],
+        [
+          9026,
+          "{"
+        ],
+        [
+          9027,
+          "  return ((READ_BIT(ADCx->IER, LL_ADC_IT_AWD3) == (LL_ADC_IT_AWD3)) ? 1UL : 0UL);"
+        ],
+        [
+          9028,
+          "}"
+        ],
+        [
+          9029,
+          ""
+        ],
+        [
+          9030,
+          "/**"
+        ],
+        [
+          9031,
+          "  * @brief  Get state of interruption ADC end of calibration"
+        ],
+        [
+          9032,
+          "  *         (0: interrupt disabled, 1: interrupt enabled)."
+        ],
+        [
+          9033,
+          "  * @rmtoll IER      EOCALIE        LL_ADC_IsEnabledIT_EOCAL"
+        ],
+        [
+          9034,
+          "  * @param  ADCx ADC instance"
+        ],
+        [
+          9035,
+          "  * @retval State of bit (1 or 0)."
+        ],
+        [
+          9036,
+          "  */"
+        ],
+        [
+          9037,
+          "__STATIC_INLINE uint32_t LL_ADC_IsEnabledIT_EOCAL(const ADC_TypeDef *ADCx)"
+        ],
+        [
+          9038,
+          "{"
+        ],
+        [
+          9039,
+          "  return ((READ_BIT(ADCx->IER, LL_ADC_IT_EOCAL) == (LL_ADC_IT_EOCAL)) ? 1UL : 0UL);"
+        ],
+        [
+          9040,
+          "}"
+        ],
+        [
+          9041,
+          ""
+        ],
+        [
+          9042,
+          "/**"
+        ],
+        [
+          9043,
+          "  * @}"
+        ],
+        [
+          9044,
+          "  */"
+        ],
+        [
+          9045,
+          ""
+        ],
+        [
+          9046,
+          "#if defined(USE_FULL_LL_DRIVER)"
+        ],
+        [
+          9047,
+          "/** @defgroup ADC_LL_EF_Init Initialization and de-initialization functions"
+        ]
+      ]
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/zephyr/drivers/clock_control/stm32_clock_control.h",
+      "sha256": "5ff73868f537e9a761b7b4b45d7fed7147a929cb526760cb5678a01afa2f3936",
+      "bytes": 41259,
+      "lines": [
+        [
+          576,
+          "#define STM32_MSIS_ENABLED\t1"
+        ],
+        [
+          577,
+          "#define STM32_MSIS_RANGE\tDT_PROP(DT_NODELABEL(clk_msis), msi_range)"
+        ],
+        [
+          578,
+          "#define STM32_MSIS_PLL_MODE\tDT_PROP(DT_NODELABEL(clk_msis), msi_pll_mode)"
+        ],
+        [
+          579,
+          "#else"
+        ],
+        [
+          580,
+          "#define STM32_MSIS_RANGE\t0"
+        ],
+        [
+          581,
+          "#define STM32_MSIS_PLL_MODE\t0"
+        ],
+        [
+          582,
+          "#endif"
+        ],
+        [
+          583,
+          ""
+        ],
+        [
+          584,
+          "#if DT_NODE_HAS_COMPAT_STATUS(DT_NODELABEL(clk_msik), st_stm32u5_msi_clock, okay) || \\"
+        ],
+        [
+          586,
+          "#define STM32_MSIK_ENABLED\t1"
+        ],
+        [
+          587,
+          "#define STM32_MSIK_RANGE\tDT_PROP(DT_NODELABEL(clk_msik), msi_range)"
+        ],
+        [
+          588,
+          "#define STM32_MSIK_PLL_MODE\tDT_PROP(DT_NODELABEL(clk_msik), msi_pll_mode)"
+        ],
+        [
+          589,
+          "#else"
+        ],
+        [
+          590,
+          "#define STM32_MSIK_RANGE\t0"
+        ],
+        [
+          591,
+          "#define STM32_MSIK_PLL_MODE\t0"
+        ],
+        [
+          592,
+          "#endif"
+        ],
+        [
+          593,
+          ""
+        ],
+        [
+          594,
+          "#if DT_NODE_HAS_COMPAT_STATUS(DT_NODELABEL(clk_csi), fixed_clock, okay)"
+        ]
+      ]
+    }
+  ]
+}

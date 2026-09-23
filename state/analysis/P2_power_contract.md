@@ -50,8 +50,14 @@ Host/compile-only work proceeds under D075; no ADC deployment/runtime acceptance
 or claim of a qualified40MHz frequency follows. Future platform clock handling
 must resolve detection/history/recovery and MCU-revision conditions before use.
 
-Only enable ADC1's peripheral clock through checked finite native dispatch, then
-confirm readback; configure PA4 alone analog/no-pull, not the six-pin ADC state.
+Admission order: validate config, mapping, stock device/IRQ, shared environment
+and pad ownership first. Then enable ADC1's peripheral clock through checked
+finite native dispatch and confirm readback BEFORE reading its reset registers;
+a gated read cannot prove reset state. Clock enable alone does not claim ADC1.
+If reset-state admission then fails, return NOT_ATTEMPTED without ADC/pad writes
+or clock rollback; leaving that clock enabled is explicit, not a disabled-device
+acknowledgement. Only after compatible pristine registers are observed does this
+instance claim ADC1. Configure PA4 alone analog/no-pull, not the six-pin ADC state.
 Check initial pin is already analog/no-pull (stock DAC boot pinctrl); reject an
 unrelated remux rather than seize it. No global analog-power/reference writes.
 

@@ -1,0 +1,6298 @@
+{
+  "exit": 0,
+  "stderr": "",
+  "records": [
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.config",
+      "sha256": "a1c866dac9f190630713405d831918bc294753fc82f76e7f6d4135daae7e2bba",
+      "bytes": 48880,
+      "lines": [
+        [
+          63,
+          "# CONFIG_WIFI is not set"
+        ],
+        [
+          64,
+          "CONFIG_ADC_INIT_PRIORITY=50"
+        ],
+        [
+          65,
+          "CONFIG_MAIN_STACK_SIZE=32768"
+        ],
+        [
+          101,
+          "CONFIG_SHARED_IRQ_MAX_NUM_CLIENTS=2"
+        ],
+        [
+          102,
+          "# CONFIG_PM_DEVICE is not set"
+        ],
+        [
+          103,
+          "CONFIG_DCACHE=y"
+        ],
+        [
+          113,
+          "# CONFIG_MULTI_LEVEL_INTERRUPTS is not set"
+        ],
+        [
+          114,
+          "# CONFIG_PM is not set"
+        ],
+        [
+          115,
+          "# CONFIG_ZERO_LATENCY_IRQS is not set"
+        ],
+        [
+          120,
+          "CONFIG_GEN_IRQ_VECTOR_TABLE=y"
+        ],
+        [
+          121,
+          "CONFIG_DYNAMIC_INTERRUPTS=y"
+        ],
+        [
+          122,
+          "CONFIG_GEN_ISR_TABLES=y"
+        ],
+        [
+          140,
+          "CONFIG_LOG=y"
+        ],
+        [
+          141,
+          "# CONFIG_PM_CPU_OPS is not set"
+        ],
+        [
+          142,
+          "CONFIG_RESET=y"
+        ],
+        [
+          731,
+          "#"
+        ],
+        [
+          732,
+          "CONFIG_ADC=y"
+        ],
+        [
+          733,
+          "CONFIG_ADC_HAS_SEQUENCE_PRIORITY=y"
+        ],
+        [
+          734,
+          "# CONFIG_ADC_SEQUENCE_PRIORITY is not set"
+        ],
+        [
+          735,
+          "# CONFIG_ADC_ASYNC is not set"
+        ],
+        [
+          736,
+          "# CONFIG_ADC_STREAM is not set"
+        ],
+        [
+          737,
+          "# CONFIG_ADC_DEFAULT_RTIO is not set"
+        ],
+        [
+          738,
+          "# CONFIG_ADC_LOG_LEVEL_OFF is not set"
+        ],
+        [
+          739,
+          "# CONFIG_ADC_LOG_LEVEL_ERR is not set"
+        ],
+        [
+          740,
+          "# CONFIG_ADC_LOG_LEVEL_WRN is not set"
+        ],
+        [
+          741,
+          "# CONFIG_ADC_LOG_LEVEL_INF is not set"
+        ],
+        [
+          742,
+          "# CONFIG_ADC_LOG_LEVEL_DBG is not set"
+        ],
+        [
+          743,
+          "CONFIG_ADC_LOG_LEVEL_DEFAULT=y"
+        ],
+        [
+          744,
+          "CONFIG_ADC_LOG_LEVEL=3"
+        ],
+        [
+          745,
+          "CONFIG_ADC_STM32=y"
+        ],
+        [
+          746,
+          "# CONFIG_ADC_STM32_DMA is not set"
+        ],
+        [
+          747,
+          "# CONFIG_AUDIO is not set"
+        ],
+        [
+          837,
+          "# CONFIG_CRYPTO is not set"
+        ],
+        [
+          838,
+          "CONFIG_DAC=y"
+        ],
+        [
+          839,
+          "# CONFIG_DAC_LOG_LEVEL_OFF is not set"
+        ],
+        [
+          840,
+          "# CONFIG_DAC_LOG_LEVEL_ERR is not set"
+        ],
+        [
+          841,
+          "# CONFIG_DAC_LOG_LEVEL_WRN is not set"
+        ],
+        [
+          842,
+          "# CONFIG_DAC_LOG_LEVEL_INF is not set"
+        ],
+        [
+          843,
+          "# CONFIG_DAC_LOG_LEVEL_DBG is not set"
+        ],
+        [
+          844,
+          "CONFIG_DAC_LOG_LEVEL_DEFAULT=y"
+        ],
+        [
+          845,
+          "CONFIG_DAC_LOG_LEVEL=3"
+        ],
+        [
+          846,
+          "CONFIG_DAC_INIT_PRIORITY=50"
+        ],
+        [
+          847,
+          "CONFIG_DAC_STM32=y"
+        ],
+        [
+          848,
+          "# CONFIG_DAI is not set"
+        ],
+        [
+          1617,
+          "CONFIG_HAS_PM=y"
+        ],
+        [
+          1618,
+          "# CONFIG_PM_POLICY_LATENCY_STANDALONE is not set"
+        ],
+        [
+          1619,
+          "# end of Power Management"
+        ]
+      ]
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/cores/arduino/wiring_analog.cpp",
+      "sha256": "32d805872068e175b03cc291d3697f3ea7443501424dd870165d0bebeddd6c98",
+      "bytes": 7834,
+      "lines": [
+        [
+          21,
+          "\tDIGITAL_PIN_GPIOS_FIND_PIN(DT_REG_ADDR(DT_PHANDLE_BY_IDX(DT_PATH(zephyr_user), p, i)),         \\"
+        ],
+        [
+          22,
+          "\t\t\t\t\t\t\t   DT_PHA_BY_IDX(DT_PATH(zephyr_user), p, i, pin)),"
+        ],
+        [
+          23,
+          "#define ADC_CH_CFG(n, p, i) arduino_adc[i].channel_cfg,"
+        ],
+        [
+          24,
+          ""
+        ],
+        [
+          25,
+          "#define DAC_NODE       DT_PHANDLE(DT_PATH(zephyr_user), dac)"
+        ],
+        [
+          26,
+          "#define DAC_RESOLUTION DT_PROP(DT_PATH(zephyr_user), dac_resolution)"
+        ],
+        [
+          27,
+          "#define DAC_CHANNEL_DEFINE(n, p, i)                                                                \\"
+        ],
+        [
+          28,
+          "\t{                                                                                              \\"
+        ],
+        [
+          29,
+          "\t\t.channel_id = DT_PROP_BY_IDX(n, p, i),                                                     \\"
+        ],
+        [
+          30,
+          "\t\t.resolution = DAC_RESOLUTION,                                                              \\"
+        ],
+        [
+          31,
+          "\t\t.buffered = true,                                                                          \\"
+        ],
+        [
+          32,
+          "\t\t.internal = false,                                                                         \\"
+        ],
+        [
+          33,
+          "\t},"
+        ],
+        [
+          34,
+          ""
+        ],
+        [
+          35,
+          "namespace {"
+        ],
+        [
+          36,
+          ""
+        ],
+        [
+          37,
+          "#ifdef CONFIG_PWM"
+        ],
+        [
+          38,
+          ""
+        ],
+        [
+          39,
+          "const struct pwm_dt_spec arduino_pwm[] = {"
+        ],
+        [
+          40,
+          "\tDT_FOREACH_PROP_ELEM(DT_PATH(zephyr_user), pwms, PWM_DT_SPEC)};"
+        ],
+        [
+          54,
+          ""
+        ],
+        [
+          55,
+          "#endif // CONFIG_PWM"
+        ],
+        [
+          56,
+          ""
+        ],
+        [
+          57,
+          "#ifdef CONFIG_ADC"
+        ],
+        [
+          58,
+          ""
+        ],
+        [
+          59,
+          "const struct adc_dt_spec arduino_adc[] = {"
+        ],
+        [
+          60,
+          "\tDT_FOREACH_PROP_ELEM(DT_PATH(zephyr_user), io_channels, ADC_DT_SPEC)};"
+        ],
+        [
+          61,
+          ""
+        ],
+        [
+          62,
+          "/* io-channel-pins node provides a mapping digital pin numbers to adc channels */"
+        ],
+        [
+          63,
+          "const pin_size_t arduino_analog_pins[] = {"
+        ],
+        [
+          64,
+          "\tDT_FOREACH_PROP_ELEM(DT_PATH(zephyr_user), adc_pin_gpios, ADC_PINS)};"
+        ],
+        [
+          65,
+          ""
+        ],
+        [
+          66,
+          "struct adc_channel_cfg channel_cfg[] = {"
+        ],
+        [
+          67,
+          "\tDT_FOREACH_PROP_ELEM(DT_PATH(zephyr_user), io_channels, ADC_CH_CFG)};"
+        ],
+        [
+          68,
+          ""
+        ],
+        [
+          69,
+          "size_t analog_pin_index(pin_size_t pinNumber) {"
+        ],
+        [
+          70,
+          "\tfor (size_t i = 0; i < ARRAY_SIZE(arduino_analog_pins); i++) {"
+        ],
+        [
+          71,
+          "\t\tif (arduino_analog_pins[i] == pinNumber) {"
+        ],
+        [
+          72,
+          "\t\t\treturn i;"
+        ],
+        [
+          73,
+          "\t\t}"
+        ],
+        [
+          74,
+          "\t}"
+        ],
+        [
+          75,
+          "\treturn (size_t)-1;"
+        ],
+        [
+          76,
+          "}"
+        ],
+        [
+          77,
+          ""
+        ],
+        [
+          78,
+          "#endif // CONFIG_ADC"
+        ],
+        [
+          79,
+          ""
+        ],
+        [
+          80,
+          "#ifdef CONFIG_DAC"
+        ],
+        [
+          81,
+          ""
+        ],
+        [
+          82,
+          "#if (DT_NODE_HAS_PROP(DT_PATH(zephyr_user), dac))"
+        ],
+        [
+          83,
+          ""
+        ],
+        [
+          84,
+          "const struct device *const dac_dev = DEVICE_DT_GET(DAC_NODE);"
+        ],
+        [
+          85,
+          ""
+        ],
+        [
+          86,
+          "#if DT_PROP_LEN_OR(DT_PATH(zephyr_user), dac_channels, 0) > 0"
+        ],
+        [
+          87,
+          "static const struct dac_channel_cfg dac_ch_cfg[] = {"
+        ],
+        [
+          88,
+          "\tDT_FOREACH_PROP_ELEM(DT_PATH(zephyr_user), dac_channels, DAC_CHANNEL_DEFINE)};"
+        ],
+        [
+          89,
+          ""
+        ],
+        [
+          90,
+          "#endif"
+        ],
+        [
+          91,
+          ""
+        ],
+        [
+          92,
+          "#endif"
+        ],
+        [
+          93,
+          ""
+        ],
+        [
+          94,
+          "#endif // CONFIG_DAC"
+        ],
+        [
+          95,
+          ""
+        ],
+        [
+          96,
+          "#if defined(CONFIG_DAC) || defined(CONFIG_PWM)"
+        ],
+        [
+          97,
+          "int _analog_write_resolution = 8;"
+        ],
+        [
+          98,
+          "#endif"
+        ],
+        [
+          99,
+          ""
+        ],
+        [
+          100,
+          "} // anonymous namespace"
+        ],
+        [
+          101,
+          ""
+        ],
+        [
+          102,
+          "uint32_t map64(uint32_t x, uint32_t in_min, uint32_t in_max, uint32_t out_min, uint32_t out_max) {"
+        ],
+        [
+          103,
+          "\treturn ((uint64_t)(x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min);"
+        ],
+        [
+          104,
+          "}"
+        ],
+        [
+          105,
+          ""
+        ],
+        [
+          106,
+          "#if defined(CONFIG_DAC) || defined(CONFIG_PWM)"
+        ],
+        [
+          107,
+          "void analogWriteResolution(int bits) {"
+        ],
+        [
+          108,
+          "\t_analog_write_resolution = CLAMP(bits, 1, 31);"
+        ],
+        [
+          109,
+          "}"
+        ],
+        [
+          110,
+          ""
+        ],
+        [
+          111,
+          "int analogWriteResolution() {"
+        ],
+        [
+          112,
+          "\treturn _analog_write_resolution;"
+        ],
+        [
+          113,
+          "}"
+        ],
+        [
+          114,
+          "#endif"
+        ],
+        [
+          115,
+          ""
+        ],
+        [
+          116,
+          "#ifdef CONFIG_PWM"
+        ],
+        [
+          117,
+          ""
+        ],
+        [
+          118,
+          "void analogWrite(pin_size_t pinNumber, int value) {"
+        ],
+        [
+          119,
+          "\tconst int maxInput = BIT(_analog_write_resolution) - 1U;"
+        ],
+        [
+          120,
+          "\tconst int digitalThreshold = maxInput >> 1;"
+        ],
+        [
+          121,
+          "\tsize_t idx = pwm_pin_index(pinNumber);"
+        ],
+        [
+          122,
+          ""
+        ],
+        [
+          123,
+          "\tif (idx >= ARRAY_SIZE(arduino_pwm)) {"
+        ],
+        [
+          124,
+          "\t\tpinMode(pinNumber, OUTPUT);"
+        ],
+        [
+          125,
+          "\t\tdigitalWrite(pinNumber, value > digitalThreshold ? HIGH : LOW);"
+        ],
+        [
+          126,
+          "\t\treturn;"
+        ],
+        [
+          127,
+          "\t}"
+        ],
+        [
+          128,
+          ""
+        ],
+        [
+          129,
+          "\t(void)init_dev_apply_channel_pinctrl(arduino_pwm[idx].dev,"
+        ],
+        [
+          130,
+          "\t\t\t\t\t\t\t\t\t\t state_pin_index_from_spec_index(arduino_pwm, idx));"
+        ],
+        [
+          131,
+          ""
+        ],
+        [
+          132,
+          "\tif (!pwm_is_ready_dt(&arduino_pwm[idx])) {"
+        ],
+        [
+          147,
+          "}"
+        ],
+        [
+          148,
+          ""
+        ],
+        [
+          149,
+          "#endif"
+        ],
+        [
+          150,
+          ""
+        ],
+        [
+          151,
+          "#ifdef CONFIG_DAC"
+        ],
+        [
+          152,
+          "void analogWrite(enum dacPins dacName, int value) {"
+        ],
+        [
+          153,
+          "#if DT_PROP_LEN_OR(DT_PATH(zephyr_user), dac_channels, 0) > 0"
+        ],
+        [
+          154,
+          "\tconst int maxInput = BIT(_analog_write_resolution) - 1U;"
+        ],
+        [
+          155,
+          "\tint ret = 0;"
+        ],
+        [
+          156,
+          ""
+        ],
+        [
+          157,
+          "\tif (dacName >= NUM_OF_DACS) {"
+        ],
+        [
+          158,
+          "\t\treturn;"
+        ],
+        [
+          159,
+          "\t}"
+        ],
+        [
+          160,
+          ""
+        ],
+        [
+          161,
+          "\t// TODO: add reverse map to find pin name from DAC* define"
+        ],
+        [
+          162,
+          "\t// In the meantime, consider A0 == DAC0"
+        ],
+        [
+          163,
+          "\t(void)init_dev_apply_pinctrl(dac_dev);"
+        ],
+        [
+          164,
+          "\tret = dac_channel_setup(dac_dev, &dac_ch_cfg[dacName]);"
+        ],
+        [
+          165,
+          "\tif (ret != 0) {"
+        ],
+        [
+          166,
+          "\t\treturn;"
+        ],
+        [
+          167,
+          "\t}"
+        ],
+        [
+          168,
+          ""
+        ],
+        [
+          169,
+          "\tvalue = CLAMP(value, 0, maxInput);"
+        ],
+        [
+          170,
+          ""
+        ],
+        [
+          171,
+          "\tconst int max_dac_value = BIT(dac_ch_cfg[dacName].resolution) - 1;"
+        ],
+        [
+          172,
+          "\tconst uint32_t output = map(value, 0, maxInput, 0, max_dac_value);"
+        ],
+        [
+          173,
+          ""
+        ],
+        [
+          174,
+          "\t(void)dac_write_value(dac_dev, dac_ch_cfg[dacName].channel_id, output);"
+        ],
+        [
+          175,
+          "#else"
+        ],
+        [
+          176,
+          "\tARG_UNUSED(dacName);"
+        ],
+        [
+          177,
+          "\tARG_UNUSED(value);"
+        ],
+        [
+          178,
+          "#endif"
+        ],
+        [
+          179,
+          "}"
+        ],
+        [
+          180,
+          "#endif"
+        ],
+        [
+          181,
+          ""
+        ],
+        [
+          182,
+          "#ifdef CONFIG_ADC"
+        ],
+        [
+          183,
+          ""
+        ],
+        [
+          184,
+          "// Note: We can not update the arduino_adc structure as it is read only..."
+        ],
+        [
+          185,
+          "static int read_resolution = 10;"
+        ],
+        [
+          186,
+          ""
+        ],
+        [
+          187,
+          "void __attribute__((weak)) analogReference(uint8_t mode) {"
+        ],
+        [
+          188,
+          "\t/*"
+        ],
+        [
+          189,
+          "\t * The Arduino API not clearly defined what means of"
+        ],
+        [
+          190,
+          "\t * the mode argument of analogReference()."
+        ],
+        [
+          191,
+          "\t * Treat the value as equivalent to zephyr's adc_reference."
+        ],
+        [
+          192,
+          "\t */"
+        ],
+        [
+          193,
+          "\tfor (size_t i = 0; i < ARRAY_SIZE(channel_cfg); i++) {"
+        ],
+        [
+          194,
+          "\t\tchannel_cfg[i].reference = static_cast<adc_reference>(mode);"
+        ],
+        [
+          195,
+          "\t}"
+        ],
+        [
+          196,
+          "}"
+        ],
+        [
+          197,
+          ""
+        ],
+        [
+          198,
+          "void analogReadResolution(int bits) {"
+        ],
+        [
+          199,
+          "\tread_resolution = CLAMP(bits, 1, 31);"
+        ],
+        [
+          200,
+          "}"
+        ],
+        [
+          201,
+          ""
+        ],
+        [
+          202,
+          "int analogReadResolution() {"
+        ],
+        [
+          203,
+          "\treturn read_resolution;"
+        ],
+        [
+          204,
+          "}"
+        ],
+        [
+          205,
+          ""
+        ],
+        [
+          206,
+          "int analogRead(pin_size_t pinNumber) {"
+        ],
+        [
+          207,
+          "\tint err;"
+        ],
+        [
+          208,
+          "\tuint16_t buf;"
+        ],
+        [
+          209,
+          "\tstruct adc_sequence seq = {.options = nullptr,"
+        ],
+        [
+          210,
+          "\t\t\t\t\t\t\t   .channels = 0,"
+        ],
+        [
+          211,
+          "\t\t\t\t\t\t\t   .buffer = &buf,"
+        ],
+        [
+          212,
+          "\t\t\t\t\t\t\t   .buffer_size = sizeof(buf),"
+        ],
+        [
+          213,
+          "#if defined(CONFIG_ADC_SEQUENCE_PRIORITY)"
+        ],
+        [
+          214,
+          "\t\t\t\t\t\t\t   .priority = 0,"
+        ],
+        [
+          215,
+          "#endif"
+        ],
+        [
+          216,
+          "\t\t\t\t\t\t\t   .resolution = 0,"
+        ],
+        [
+          217,
+          "\t\t\t\t\t\t\t   .oversampling = 0,"
+        ],
+        [
+          218,
+          "\t\t\t\t\t\t\t   .calibrate = false};"
+        ],
+        [
+          219,
+          "\tsize_t idx = analog_pin_index(pinNumber);"
+        ],
+        [
+          220,
+          ""
+        ],
+        [
+          221,
+          "\tif (idx >= ARRAY_SIZE(arduino_adc)) {"
+        ],
+        [
+          222,
+          "\t\treturn -EINVAL;"
+        ],
+        [
+          223,
+          "\t}"
+        ],
+        [
+          229,
+          "\tif (arduino_adc[idx].resolution > 16) {"
+        ],
+        [
+          230,
+          "\t\treturn -ENOTSUP;"
+        ],
+        [
+          231,
+          "\t}"
+        ],
+        [
+          232,
+          ""
+        ],
+        [
+          233,
+          "\t/*"
+        ],
+        [
+          234,
+          "\t * Init the ADC device for the first acquisition and restore only the required pin to analog"
+        ],
+        [
+          235,
+          "\t * mode for following operations. The pin is selected from the ADC device \"arduino\" pinctrl"
+        ],
+        [
+          236,
+          "\t * state. Not checking the return value because the device might not have pinctrl (e.g. nRF"
+        ],
+        [
+          237,
+          "\t * SAADC)."
+        ],
+        [
+          238,
+          "\t */"
+        ],
+        [
+          239,
+          "\t(void)init_dev_apply_channel_pinctrl(arduino_adc[idx].dev,"
+        ],
+        [
+          240,
+          "\t\t\t\t\t\t\t\t\t\t state_pin_index_from_spec_index(arduino_adc, idx));"
+        ],
+        [
+          241,
+          ""
+        ],
+        [
+          242,
+          "\terr = adc_channel_setup(arduino_adc[idx].dev, &arduino_adc[idx].channel_cfg);"
+        ],
+        [
+          243,
+          "\tif (err < 0) {"
+        ],
+        [
+          244,
+          "\t\treturn err;"
+        ],
+        [
+          245,
+          "\t}"
+        ],
+        [
+          246,
+          ""
+        ],
+        [
+          247,
+          "\tseq.channels = BIT(arduino_adc[idx].channel_id);"
+        ],
+        [
+          248,
+          "\tseq.resolution = arduino_adc[idx].resolution;"
+        ],
+        [
+          249,
+          "\tseq.oversampling = arduino_adc[idx].oversampling;"
+        ],
+        [
+          250,
+          ""
+        ],
+        [
+          251,
+          "\terr = adc_read(arduino_adc[idx].dev, &seq);"
+        ],
+        [
+          252,
+          "\tif (err < 0) {"
+        ],
+        [
+          253,
+          "\t\treturn err;"
+        ],
+        [
+          254,
+          "\t}"
+        ],
+        [
+          255,
+          ""
+        ],
+        [
+          256,
+          "\t/*"
+        ],
+        [
+          257,
+          "\t * If necessary map the return value to the"
+        ],
+        [
+          258,
+          "\t * number of bits the user has asked for"
+        ],
+        [
+          259,
+          "\t */"
+        ],
+        [
+          260,
+          "\tif (read_resolution == seq.resolution) {"
+        ],
+        [
+          261,
+          "\t\treturn buf;"
+        ],
+        [
+          262,
+          "\t}"
+        ],
+        [
+          263,
+          "\tif (read_resolution < seq.resolution) {"
+        ],
+        [
+          264,
+          "\t\treturn buf >> (seq.resolution - read_resolution);"
+        ],
+        [
+          265,
+          "\t}"
+        ]
+      ]
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/modules/hal/stm32/stm32cube/stm32u5xx/drivers/include/stm32u5xx_ll_dac.h",
+      "sha256": "a3f4d42a4cd91768bc2abf77ad7785f68523e0c1d7e341962a5bf25c4972cef4",
+      "bytes": 89320,
+      "lines": [
+        [
+          258,
+          "  */"
+        ],
+        [
+          259,
+          "#define LL_DAC_CHANNEL_1                   (DAC_REG_SHSR1_REGOFFSET | DAC_REG_DOR1_REGOFFSET | DAC_REG_DHR12R1_REGOFFSET | DAC_REG_DHR12L1_REGOFFSET | DAC_REG_DHR8R1_REGOFFSET | DAC_CR_CH1_BITOFFSET | DAC_SWTR_CH1)"
+        ],
+        [
+          260,
+          "#define LL_DAC_CHANNEL_2                   (DAC_REG_SHSR2_REGOFFSET | DAC_REG_DOR2_REGOFFSET | DAC_REG_DHR12R2_REGOFFSET | DAC_REG_DHR12L2_REGOFFSET | DAC_REG_DHR8R2_REGOFFSET | DAC_CR_CH2_BITOFFSET | DAC_SWTR_CH2)"
+        ],
+        [
+          261,
+          "/**"
+        ],
+        [
+          262,
+          "  * @}"
+        ],
+        [
+          263,
+          "  */"
+        ],
+        [
+          264,
+          ""
+        ],
+        [
+          265,
+          "/** @defgroup DAC_LL_EC_HIGH_FREQUENCY_MODE DAC high frequency interface mode"
+        ],
+        [
+          266,
+          "  * @brief    High frequency interface mode defines that can be used"
+        ],
+        [
+          267,
+          "  *           with LL_DAC_SetHighFrequencyMode and LL_DAC_GetHighFrequencyMode"
+        ],
+        [
+          268,
+          "  * @{"
+        ],
+        [
+          269,
+          "  */"
+        ],
+        [
+          270,
+          "#define LL_DAC_HIGH_FREQ_MODE_DISABLE         0x00000000UL"
+        ],
+        [
+          271,
+          "#define LL_DAC_HIGH_FREQ_MODE_ABOVE_80MHZ     (DAC_MCR_HFSEL_0)"
+        ],
+        [
+          272,
+          "#define LL_DAC_HIGH_FREQ_MODE_ABOVE_160MHZ    (DAC_MCR_HFSEL_1)"
+        ],
+        [
+          273,
+          "/**"
+        ],
+        [
+          494,
+          "  *         Example:"
+        ],
+        [
+          495,
+          "  *            __LL_DAC_CHANNEL_TO_DECIMAL_NB(LL_DAC_CHANNEL_1)"
+        ],
+        [
+          496,
+          "  *            will return decimal number \"1\"."
+        ],
+        [
+          497,
+          "  * @note   The input can be a value from functions where a channel"
+        ],
+        [
+          498,
+          "  *         number is returned."
+        ],
+        [
+          499,
+          "  * @param  __CHANNEL__ This parameter can be one of the following values:"
+        ],
+        [
+          500,
+          "  *         @arg @ref LL_DAC_CHANNEL_1"
+        ],
+        [
+          501,
+          "  *         @arg @ref LL_DAC_CHANNEL_2"
+        ],
+        [
+          502,
+          "  * @retval 1...2"
+        ],
+        [
+          503,
+          "  */"
+        ],
+        [
+          504,
+          "#define __LL_DAC_CHANNEL_TO_DECIMAL_NB(__CHANNEL__)                            \\"
+        ],
+        [
+          505,
+          "  ((__CHANNEL__) & DAC_SWTR_CHX_MASK)"
+        ],
+        [
+          506,
+          ""
+        ],
+        [
+          507,
+          "/**"
+        ],
+        [
+          508,
+          "  * @brief  Helper macro to get DAC channel in literal format LL_DAC_CHANNEL_x"
+        ],
+        [
+          509,
+          "  *         from number in decimal format."
+        ],
+        [
+          510,
+          "  *         Example:"
+        ],
+        [
+          511,
+          "  *           __LL_DAC_DECIMAL_NB_TO_CHANNEL(1)"
+        ],
+        [
+          512,
+          "  *           will return a data equivalent to \"LL_DAC_CHANNEL_1\"."
+        ],
+        [
+          513,
+          "  * @note  If the input parameter does not correspond to a DAC channel,"
+        ],
+        [
+          514,
+          "  *        this macro returns value '0'."
+        ],
+        [
+          515,
+          "  * @param  __DECIMAL_NB__ 1...2"
+        ],
+        [
+          516,
+          "  * @retval Returned value can be one of the following values:"
+        ],
+        [
+          517,
+          "  *         @arg @ref LL_DAC_CHANNEL_1"
+        ],
+        [
+          518,
+          "  *         @arg @ref LL_DAC_CHANNEL_2"
+        ],
+        [
+          519,
+          "  */"
+        ],
+        [
+          520,
+          "#define __LL_DAC_DECIMAL_NB_TO_CHANNEL(__DECIMAL_NB__)\\"
+        ],
+        [
+          521,
+          "  (((__DECIMAL_NB__) == 1UL)? (LL_DAC_CHANNEL_1  ):(((__DECIMAL_NB__) == 2UL) ? ( LL_DAC_CHANNEL_2):(0UL)))"
+        ],
+        [
+          522,
+          ""
+        ],
+        [
+          523,
+          "/**"
+        ],
+        [
+          524,
+          "  * @brief  Helper macro to define the DAC conversion data full-scale digital"
+        ],
+        [
+          525,
+          "  *         value corresponding to the selected DAC resolution."
+        ],
+        [
+          526,
+          "  * @note   DAC conversion data full-scale corresponds to voltage range"
+        ],
+        [
+          527,
+          "  *         determined by analog voltage references Vref+ and Vref-"
+        ],
+        [
+          528,
+          "  *         (refer to reference manual)."
+        ],
+        [
+          529,
+          "  * @param  __DAC_RESOLUTION__ This parameter can be one of the following values:"
+        ],
+        [
+          530,
+          "  *         @arg @ref LL_DAC_RESOLUTION_12B"
+        ],
+        [
+          531,
+          "  *         @arg @ref LL_DAC_RESOLUTION_8B"
+        ],
+        [
+          532,
+          "  * @retval ADC conversion data equivalent voltage value (unit: mVolt)"
+        ],
+        [
+          533,
+          "  */"
+        ],
+        [
+          534,
+          "#define __LL_DAC_DIGITAL_SCALE(__DAC_RESOLUTION__)                             \\"
+        ],
+        [
+          535,
+          "  ((0x00000FFFUL) >> ((__DAC_RESOLUTION__) << 1UL))"
+        ],
+        [
+          619,
+          "  * @param  DAC_Channel This parameter can be one of the following values:"
+        ],
+        [
+          620,
+          "  *         @arg @ref LL_DAC_CHANNEL_1"
+        ],
+        [
+          621,
+          "  *         @arg @ref LL_DAC_CHANNEL_2"
+        ],
+        [
+          622,
+          "  * @param  ChannelMode This parameter can be one of the following values:"
+        ],
+        [
+          623,
+          "  *         @arg @ref LL_DAC_MODE_NORMAL_OPERATION"
+        ],
+        [
+          624,
+          "  *         @arg @ref LL_DAC_MODE_CALIBRATION"
+        ],
+        [
+          625,
+          "  * @retval None"
+        ],
+        [
+          626,
+          "  */"
+        ],
+        [
+          627,
+          "__STATIC_INLINE void LL_DAC_SetMode(DAC_TypeDef *DACx, uint32_t DAC_Channel, uint32_t ChannelMode)"
+        ],
+        [
+          628,
+          "{"
+        ],
+        [
+          629,
+          "  MODIFY_REG(DACx->CR,"
+        ],
+        [
+          630,
+          "             DAC_CR_CEN1 << (DAC_Channel & DAC_CR_CHX_BITOFFSET_MASK),"
+        ],
+        [
+          631,
+          "             ChannelMode << (DAC_Channel & DAC_CR_CHX_BITOFFSET_MASK));"
+        ],
+        [
+          632,
+          "}"
+        ],
+        [
+          633,
+          ""
+        ],
+        [
+          634,
+          "/**"
+        ],
+        [
+          640,
+          "  * @param  DAC_Channel This parameter can be one of the following values:"
+        ],
+        [
+          641,
+          "  *         @arg @ref LL_DAC_CHANNEL_1"
+        ],
+        [
+          642,
+          "  *         @arg @ref LL_DAC_CHANNEL_2"
+        ],
+        [
+          643,
+          "  * @retval Returned value can be one of the following values:"
+        ],
+        [
+          644,
+          "  *         @arg @ref LL_DAC_MODE_NORMAL_OPERATION"
+        ],
+        [
+          645,
+          "  *         @arg @ref LL_DAC_MODE_CALIBRATION"
+        ],
+        [
+          646,
+          "  */"
+        ],
+        [
+          647,
+          "__STATIC_INLINE uint32_t LL_DAC_GetMode(const DAC_TypeDef *DACx, uint32_t DAC_Channel)"
+        ],
+        [
+          648,
+          "{"
+        ],
+        [
+          649,
+          "  return (uint32_t)(READ_BIT(DACx->CR, DAC_CR_CEN1 << (DAC_Channel & DAC_CR_CHX_BITOFFSET_MASK))"
+        ],
+        [
+          650,
+          "                    >> (DAC_Channel & DAC_CR_CHX_BITOFFSET_MASK)"
+        ],
+        [
+          651,
+          "                   );"
+        ],
+        [
+          652,
+          "}"
+        ],
+        [
+          653,
+          ""
+        ],
+        [
+          654,
+          "/**"
+        ],
+        [
+          655,
+          "  * @brief  Set the offset trimming value for the selected DAC channel."
+        ],
+        [
+          661,
+          "  * @param  DAC_Channel This parameter can be one of the following values:"
+        ],
+        [
+          662,
+          "  *         @arg @ref LL_DAC_CHANNEL_1"
+        ],
+        [
+          663,
+          "  *         @arg @ref LL_DAC_CHANNEL_2"
+        ],
+        [
+          664,
+          "  * @param  TrimmingValue Value between Min_Data=0x00 and Max_Data=0x1F"
+        ],
+        [
+          665,
+          "  * @retval None"
+        ],
+        [
+          666,
+          "  */"
+        ],
+        [
+          667,
+          "__STATIC_INLINE void LL_DAC_SetTrimmingValue(DAC_TypeDef *DACx, uint32_t DAC_Channel, uint32_t TrimmingValue)"
+        ],
+        [
+          668,
+          "{"
+        ],
+        [
+          669,
+          "  MODIFY_REG(DACx->CCR,"
+        ],
+        [
+          670,
+          "             DAC_CCR_OTRIM1 << (DAC_Channel & DAC_CR_CHX_BITOFFSET_MASK),"
+        ],
+        [
+          671,
+          "             TrimmingValue << (DAC_Channel & DAC_CR_CHX_BITOFFSET_MASK));"
+        ],
+        [
+          672,
+          "}"
+        ],
+        [
+          673,
+          ""
+        ],
+        [
+          674,
+          "/**"
+        ],
+        [
+          675,
+          "  * @brief  Get the offset trimming value for the selected DAC channel."
+        ],
+        [
+          676,
+          "  *         Trimming has an impact when output buffer is enabled"
+        ],
+        [
+          681,
+          "  * @param  DAC_Channel This parameter can be one of the following values:"
+        ],
+        [
+          682,
+          "  *         @arg @ref LL_DAC_CHANNEL_1"
+        ],
+        [
+          683,
+          "  *         @arg @ref LL_DAC_CHANNEL_2"
+        ],
+        [
+          684,
+          "  * @retval TrimmingValue Value between Min_Data=0x00 and Max_Data=0x1F"
+        ],
+        [
+          685,
+          "  */"
+        ],
+        [
+          686,
+          "__STATIC_INLINE uint32_t LL_DAC_GetTrimmingValue(const DAC_TypeDef *DACx, uint32_t DAC_Channel)"
+        ],
+        [
+          687,
+          "{"
+        ],
+        [
+          688,
+          "  return (uint32_t)(READ_BIT(DACx->CCR, DAC_CCR_OTRIM1 << (DAC_Channel & DAC_CR_CHX_BITOFFSET_MASK))"
+        ],
+        [
+          689,
+          "                    >> (DAC_Channel & DAC_CR_CHX_BITOFFSET_MASK)"
+        ],
+        [
+          690,
+          "                   );"
+        ],
+        [
+          691,
+          "}"
+        ],
+        [
+          692,
+          ""
+        ],
+        [
+          693,
+          "/**"
+        ],
+        [
+          694,
+          "  * @brief  Set the conversion trigger source for the selected DAC channel."
+        ],
+        [
+          695,
+          "  * @note   For conversion trigger source to be effective, DAC trigger"
+        ],
+        [
+          696,
+          "  *         must be enabled using function @ref LL_DAC_EnableTrigger()."
+        ],
+        [
+          704,
+          "  * @param  DAC_Channel This parameter can be one of the following values:"
+        ],
+        [
+          705,
+          "  *         @arg @ref LL_DAC_CHANNEL_1"
+        ],
+        [
+          706,
+          "  *         @arg @ref LL_DAC_CHANNEL_2"
+        ],
+        [
+          707,
+          "  * @param  TriggerSource This parameter can be one of the following values:"
+        ],
+        [
+          708,
+          "  *         @arg @ref LL_DAC_TRIG_SOFTWARE"
+        ],
+        [
+          709,
+          "  *         @arg @ref LL_DAC_TRIG_EXT_TIM1_TRGO"
+        ],
+        [
+          710,
+          "  *         @arg @ref LL_DAC_TRIG_EXT_TIM2_TRGO"
+        ],
+        [
+          711,
+          "  *         @arg @ref LL_DAC_TRIG_EXT_TIM4_TRGO"
+        ],
+        [
+          712,
+          "  *         @arg @ref LL_DAC_TRIG_EXT_TIM5_TRGO"
+        ],
+        [
+          713,
+          "  *         @arg @ref LL_DAC_TRIG_EXT_TIM6_TRGO"
+        ],
+        [
+          714,
+          "  *         @arg @ref LL_DAC_TRIG_EXT_TIM7_TRGO"
+        ],
+        [
+          715,
+          "  *         @arg @ref LL_DAC_TRIG_EXT_TIM8_TRGO"
+        ],
+        [
+          716,
+          "  *         @arg @ref LL_DAC_TRIG_EXT_TIM15_TRGO"
+        ],
+        [
+          717,
+          "  *         @arg @ref LL_DAC_TRIG_EXT_LPTIM1_CH1"
+        ],
+        [
+          718,
+          "  *         @arg @ref LL_DAC_TRIG_EXT_LPTIM3_CH1"
+        ],
+        [
+          719,
+          "  *         @arg @ref LL_DAC_TRIG_EXT_EXTI_LINE9"
+        ],
+        [
+          738,
+          "  * @param  DAC_Channel This parameter can be one of the following values:"
+        ],
+        [
+          739,
+          "  *         @arg @ref LL_DAC_CHANNEL_1"
+        ],
+        [
+          740,
+          "  *         @arg @ref LL_DAC_CHANNEL_2"
+        ],
+        [
+          741,
+          "  * @retval Returned value can be one of the following values:"
+        ],
+        [
+          742,
+          "  *         @arg @ref LL_DAC_TRIG_SOFTWARE"
+        ],
+        [
+          743,
+          "  *         @arg @ref LL_DAC_TRIG_EXT_TIM1_TRGO"
+        ],
+        [
+          744,
+          "  *         @arg @ref LL_DAC_TRIG_EXT_TIM2_TRGO"
+        ],
+        [
+          745,
+          "  *         @arg @ref LL_DAC_TRIG_EXT_TIM4_TRGO"
+        ],
+        [
+          746,
+          "  *         @arg @ref LL_DAC_TRIG_EXT_TIM5_TRGO"
+        ],
+        [
+          747,
+          "  *         @arg @ref LL_DAC_TRIG_EXT_TIM6_TRGO"
+        ],
+        [
+          748,
+          "  *         @arg @ref LL_DAC_TRIG_EXT_TIM7_TRGO"
+        ],
+        [
+          749,
+          "  *         @arg @ref LL_DAC_TRIG_EXT_TIM8_TRGO"
+        ],
+        [
+          750,
+          "  *         @arg @ref LL_DAC_TRIG_EXT_TIM15_TRGO"
+        ],
+        [
+          751,
+          "  *         @arg @ref LL_DAC_TRIG_EXT_LPTIM1_CH1"
+        ],
+        [
+          752,
+          "  *         @arg @ref LL_DAC_TRIG_EXT_LPTIM3_CH1"
+        ],
+        [
+          753,
+          "  *         @arg @ref LL_DAC_TRIG_EXT_EXTI_LINE9"
+        ],
+        [
+          768,
+          "  * @param  DAC_Channel This parameter can be one of the following values:"
+        ],
+        [
+          769,
+          "  *         @arg @ref LL_DAC_CHANNEL_1"
+        ],
+        [
+          770,
+          "  *         @arg @ref LL_DAC_CHANNEL_2"
+        ],
+        [
+          771,
+          "  * @param  WaveAutoGeneration This parameter can be one of the following values:"
+        ],
+        [
+          772,
+          "  *         @arg @ref LL_DAC_WAVE_AUTO_GENERATION_NONE"
+        ],
+        [
+          773,
+          "  *         @arg @ref LL_DAC_WAVE_AUTO_GENERATION_NOISE"
+        ],
+        [
+          774,
+          "  *         @arg @ref LL_DAC_WAVE_AUTO_GENERATION_TRIANGLE"
+        ],
+        [
+          775,
+          "  * @retval None"
+        ],
+        [
+          776,
+          "  */"
+        ],
+        [
+          777,
+          "__STATIC_INLINE void LL_DAC_SetWaveAutoGeneration(DAC_TypeDef *DACx, uint32_t DAC_Channel, uint32_t WaveAutoGeneration)"
+        ],
+        [
+          778,
+          "{"
+        ],
+        [
+          779,
+          "  MODIFY_REG(DACx->CR,"
+        ],
+        [
+          780,
+          "             DAC_CR_WAVE1 << (DAC_Channel & DAC_CR_CHX_BITOFFSET_MASK),"
+        ],
+        [
+          781,
+          "             WaveAutoGeneration << (DAC_Channel & DAC_CR_CHX_BITOFFSET_MASK));"
+        ],
+        [
+          782,
+          "}"
+        ],
+        [
+          783,
+          ""
+        ],
+        [
+          790,
+          "  * @param  DAC_Channel This parameter can be one of the following values:"
+        ],
+        [
+          791,
+          "  *         @arg @ref LL_DAC_CHANNEL_1"
+        ],
+        [
+          792,
+          "  *         @arg @ref LL_DAC_CHANNEL_2"
+        ],
+        [
+          793,
+          "  * @retval Returned value can be one of the following values:"
+        ],
+        [
+          794,
+          "  *         @arg @ref LL_DAC_WAVE_AUTO_GENERATION_NONE"
+        ],
+        [
+          795,
+          "  *         @arg @ref LL_DAC_WAVE_AUTO_GENERATION_NOISE"
+        ],
+        [
+          796,
+          "  *         @arg @ref LL_DAC_WAVE_AUTO_GENERATION_TRIANGLE"
+        ],
+        [
+          797,
+          "  */"
+        ],
+        [
+          798,
+          "__STATIC_INLINE uint32_t LL_DAC_GetWaveAutoGeneration(const DAC_TypeDef *DACx, uint32_t DAC_Channel)"
+        ],
+        [
+          799,
+          "{"
+        ],
+        [
+          800,
+          "  return (uint32_t)(READ_BIT(DACx->CR, DAC_CR_WAVE1 << (DAC_Channel & DAC_CR_CHX_BITOFFSET_MASK))"
+        ],
+        [
+          801,
+          "                    >> (DAC_Channel & DAC_CR_CHX_BITOFFSET_MASK)"
+        ],
+        [
+          802,
+          "                   );"
+        ],
+        [
+          803,
+          "}"
+        ],
+        [
+          804,
+          ""
+        ],
+        [
+          805,
+          "/**"
+        ],
+        [
+          816,
+          "  * @param  DAC_Channel This parameter can be one of the following values:"
+        ],
+        [
+          817,
+          "  *         @arg @ref LL_DAC_CHANNEL_1"
+        ],
+        [
+          818,
+          "  *         @arg @ref LL_DAC_CHANNEL_2"
+        ],
+        [
+          819,
+          "  * @param  NoiseLFSRMask This parameter can be one of the following values:"
+        ],
+        [
+          820,
+          "  *         @arg @ref LL_DAC_NOISE_LFSR_UNMASK_BIT0"
+        ],
+        [
+          821,
+          "  *         @arg @ref LL_DAC_NOISE_LFSR_UNMASK_BITS1_0"
+        ],
+        [
+          822,
+          "  *         @arg @ref LL_DAC_NOISE_LFSR_UNMASK_BITS2_0"
+        ],
+        [
+          823,
+          "  *         @arg @ref LL_DAC_NOISE_LFSR_UNMASK_BITS3_0"
+        ],
+        [
+          824,
+          "  *         @arg @ref LL_DAC_NOISE_LFSR_UNMASK_BITS4_0"
+        ],
+        [
+          825,
+          "  *         @arg @ref LL_DAC_NOISE_LFSR_UNMASK_BITS5_0"
+        ],
+        [
+          826,
+          "  *         @arg @ref LL_DAC_NOISE_LFSR_UNMASK_BITS6_0"
+        ],
+        [
+          827,
+          "  *         @arg @ref LL_DAC_NOISE_LFSR_UNMASK_BITS7_0"
+        ],
+        [
+          828,
+          "  *         @arg @ref LL_DAC_NOISE_LFSR_UNMASK_BITS8_0"
+        ],
+        [
+          829,
+          "  *         @arg @ref LL_DAC_NOISE_LFSR_UNMASK_BITS9_0"
+        ],
+        [
+          830,
+          "  *         @arg @ref LL_DAC_NOISE_LFSR_UNMASK_BITS10_0"
+        ],
+        [
+          831,
+          "  *         @arg @ref LL_DAC_NOISE_LFSR_UNMASK_BITS11_0"
+        ],
+        [
+          847,
+          "  * @param  DAC_Channel This parameter can be one of the following values:"
+        ],
+        [
+          848,
+          "  *         @arg @ref LL_DAC_CHANNEL_1"
+        ],
+        [
+          849,
+          "  *         @arg @ref LL_DAC_CHANNEL_2"
+        ],
+        [
+          850,
+          "  * @retval Returned value can be one of the following values:"
+        ],
+        [
+          851,
+          "  *         @arg @ref LL_DAC_NOISE_LFSR_UNMASK_BIT0"
+        ],
+        [
+          852,
+          "  *         @arg @ref LL_DAC_NOISE_LFSR_UNMASK_BITS1_0"
+        ],
+        [
+          853,
+          "  *         @arg @ref LL_DAC_NOISE_LFSR_UNMASK_BITS2_0"
+        ],
+        [
+          854,
+          "  *         @arg @ref LL_DAC_NOISE_LFSR_UNMASK_BITS3_0"
+        ],
+        [
+          855,
+          "  *         @arg @ref LL_DAC_NOISE_LFSR_UNMASK_BITS4_0"
+        ],
+        [
+          856,
+          "  *         @arg @ref LL_DAC_NOISE_LFSR_UNMASK_BITS5_0"
+        ],
+        [
+          857,
+          "  *         @arg @ref LL_DAC_NOISE_LFSR_UNMASK_BITS6_0"
+        ],
+        [
+          858,
+          "  *         @arg @ref LL_DAC_NOISE_LFSR_UNMASK_BITS7_0"
+        ],
+        [
+          859,
+          "  *         @arg @ref LL_DAC_NOISE_LFSR_UNMASK_BITS8_0"
+        ],
+        [
+          860,
+          "  *         @arg @ref LL_DAC_NOISE_LFSR_UNMASK_BITS9_0"
+        ],
+        [
+          861,
+          "  *         @arg @ref LL_DAC_NOISE_LFSR_UNMASK_BITS10_0"
+        ],
+        [
+          862,
+          "  *         @arg @ref LL_DAC_NOISE_LFSR_UNMASK_BITS11_0"
+        ],
+        [
+          882,
+          "  * @param  DAC_Channel This parameter can be one of the following values:"
+        ],
+        [
+          883,
+          "  *         @arg @ref LL_DAC_CHANNEL_1"
+        ],
+        [
+          884,
+          "  *         @arg @ref LL_DAC_CHANNEL_2"
+        ],
+        [
+          885,
+          "  * @param  TriangleAmplitude This parameter can be one of the following values:"
+        ],
+        [
+          886,
+          "  *         @arg @ref LL_DAC_TRIANGLE_AMPLITUDE_1"
+        ],
+        [
+          887,
+          "  *         @arg @ref LL_DAC_TRIANGLE_AMPLITUDE_3"
+        ],
+        [
+          888,
+          "  *         @arg @ref LL_DAC_TRIANGLE_AMPLITUDE_7"
+        ],
+        [
+          889,
+          "  *         @arg @ref LL_DAC_TRIANGLE_AMPLITUDE_15"
+        ],
+        [
+          890,
+          "  *         @arg @ref LL_DAC_TRIANGLE_AMPLITUDE_31"
+        ],
+        [
+          891,
+          "  *         @arg @ref LL_DAC_TRIANGLE_AMPLITUDE_63"
+        ],
+        [
+          892,
+          "  *         @arg @ref LL_DAC_TRIANGLE_AMPLITUDE_127"
+        ],
+        [
+          893,
+          "  *         @arg @ref LL_DAC_TRIANGLE_AMPLITUDE_255"
+        ],
+        [
+          894,
+          "  *         @arg @ref LL_DAC_TRIANGLE_AMPLITUDE_511"
+        ],
+        [
+          895,
+          "  *         @arg @ref LL_DAC_TRIANGLE_AMPLITUDE_1023"
+        ],
+        [
+          896,
+          "  *         @arg @ref LL_DAC_TRIANGLE_AMPLITUDE_2047"
+        ],
+        [
+          897,
+          "  *         @arg @ref LL_DAC_TRIANGLE_AMPLITUDE_4095"
+        ],
+        [
+          914,
+          "  * @param  DAC_Channel This parameter can be one of the following values:"
+        ],
+        [
+          915,
+          "  *         @arg @ref LL_DAC_CHANNEL_1"
+        ],
+        [
+          916,
+          "  *         @arg @ref LL_DAC_CHANNEL_2"
+        ],
+        [
+          917,
+          "  * @retval Returned value can be one of the following values:"
+        ],
+        [
+          918,
+          "  *         @arg @ref LL_DAC_TRIANGLE_AMPLITUDE_1"
+        ],
+        [
+          919,
+          "  *         @arg @ref LL_DAC_TRIANGLE_AMPLITUDE_3"
+        ],
+        [
+          920,
+          "  *         @arg @ref LL_DAC_TRIANGLE_AMPLITUDE_7"
+        ],
+        [
+          921,
+          "  *         @arg @ref LL_DAC_TRIANGLE_AMPLITUDE_15"
+        ],
+        [
+          922,
+          "  *         @arg @ref LL_DAC_TRIANGLE_AMPLITUDE_31"
+        ],
+        [
+          923,
+          "  *         @arg @ref LL_DAC_TRIANGLE_AMPLITUDE_63"
+        ],
+        [
+          924,
+          "  *         @arg @ref LL_DAC_TRIANGLE_AMPLITUDE_127"
+        ],
+        [
+          925,
+          "  *         @arg @ref LL_DAC_TRIANGLE_AMPLITUDE_255"
+        ],
+        [
+          926,
+          "  *         @arg @ref LL_DAC_TRIANGLE_AMPLITUDE_511"
+        ],
+        [
+          927,
+          "  *         @arg @ref LL_DAC_TRIANGLE_AMPLITUDE_1023"
+        ],
+        [
+          928,
+          "  *         @arg @ref LL_DAC_TRIANGLE_AMPLITUDE_2047"
+        ],
+        [
+          929,
+          "  *         @arg @ref LL_DAC_TRIANGLE_AMPLITUDE_4095"
+        ],
+        [
+          968,
+          "  * @param  DAC_Channel This parameter can be one of the following values:"
+        ],
+        [
+          969,
+          "  *         @arg @ref LL_DAC_CHANNEL_1"
+        ],
+        [
+          970,
+          "  *         @arg @ref LL_DAC_CHANNEL_2"
+        ],
+        [
+          971,
+          "  * @param  OutputMode This parameter can be one of the following values:"
+        ],
+        [
+          972,
+          "  *         @arg @ref LL_DAC_OUTPUT_MODE_NORMAL"
+        ],
+        [
+          973,
+          "  *         @arg @ref LL_DAC_OUTPUT_MODE_SAMPLE_AND_HOLD"
+        ],
+        [
+          974,
+          "  * @param  OutputBuffer This parameter can be one of the following values:"
+        ],
+        [
+          975,
+          "  *         @arg @ref LL_DAC_OUTPUT_BUFFER_ENABLE"
+        ],
+        [
+          976,
+          "  *         @arg @ref LL_DAC_OUTPUT_BUFFER_DISABLE"
+        ],
+        [
+          977,
+          "  * @param  OutputConnection This parameter can be one of the following values:"
+        ],
+        [
+          978,
+          "  *         @arg @ref LL_DAC_OUTPUT_CONNECT_GPIO"
+        ],
+        [
+          979,
+          "  *         @arg @ref LL_DAC_OUTPUT_CONNECT_INTERNAL"
+        ],
+        [
+          980,
+          "  * @retval None"
+        ],
+        [
+          981,
+          "  */"
+        ],
+        [
+          982,
+          "__STATIC_INLINE void LL_DAC_ConfigOutput(DAC_TypeDef *DACx, uint32_t DAC_Channel, uint32_t OutputMode,"
+        ],
+        [
+          983,
+          "                                         uint32_t OutputBuffer, uint32_t OutputConnection)"
+        ],
+        [
+          1002,
+          "  * @param  DAC_Channel This parameter can be one of the following values:"
+        ],
+        [
+          1003,
+          "  *         @arg @ref LL_DAC_CHANNEL_1"
+        ],
+        [
+          1004,
+          "  *         @arg @ref LL_DAC_CHANNEL_2"
+        ],
+        [
+          1005,
+          "  * @param  OutputMode This parameter can be one of the following values:"
+        ],
+        [
+          1006,
+          "  *         @arg @ref LL_DAC_OUTPUT_MODE_NORMAL"
+        ],
+        [
+          1007,
+          "  *         @arg @ref LL_DAC_OUTPUT_MODE_SAMPLE_AND_HOLD"
+        ],
+        [
+          1008,
+          "  * @retval None"
+        ],
+        [
+          1009,
+          "  */"
+        ],
+        [
+          1010,
+          "__STATIC_INLINE void LL_DAC_SetOutputMode(DAC_TypeDef *DACx, uint32_t DAC_Channel, uint32_t OutputMode)"
+        ],
+        [
+          1011,
+          "{"
+        ],
+        [
+          1012,
+          "  MODIFY_REG(DACx->MCR,"
+        ],
+        [
+          1013,
+          "             (uint32_t)DAC_MCR_MODE1_2 << (DAC_Channel & DAC_CR_CHX_BITOFFSET_MASK),"
+        ],
+        [
+          1014,
+          "             OutputMode << (DAC_Channel & DAC_CR_CHX_BITOFFSET_MASK));"
+        ],
+        [
+          1015,
+          "}"
+        ],
+        [
+          1016,
+          ""
+        ],
+        [
+          1017,
+          "/**"
+        ],
+        [
+          1022,
+          "  * @param  DAC_Channel This parameter can be one of the following values:"
+        ],
+        [
+          1023,
+          "  *         @arg @ref LL_DAC_CHANNEL_1"
+        ],
+        [
+          1024,
+          "  *         @arg @ref LL_DAC_CHANNEL_2"
+        ],
+        [
+          1025,
+          "  * @retval Returned value can be one of the following values:"
+        ],
+        [
+          1026,
+          "  *         @arg @ref LL_DAC_OUTPUT_MODE_NORMAL"
+        ],
+        [
+          1027,
+          "  *         @arg @ref LL_DAC_OUTPUT_MODE_SAMPLE_AND_HOLD"
+        ],
+        [
+          1028,
+          "  */"
+        ],
+        [
+          1029,
+          "__STATIC_INLINE uint32_t LL_DAC_GetOutputMode(const DAC_TypeDef *DACx, uint32_t DAC_Channel)"
+        ],
+        [
+          1030,
+          "{"
+        ],
+        [
+          1031,
+          "  return (uint32_t)(READ_BIT(DACx->MCR, (uint32_t)DAC_MCR_MODE1_2 << (DAC_Channel & DAC_CR_CHX_BITOFFSET_MASK))"
+        ],
+        [
+          1032,
+          "                    >> (DAC_Channel & DAC_CR_CHX_BITOFFSET_MASK)"
+        ],
+        [
+          1033,
+          "                   );"
+        ],
+        [
+          1034,
+          "}"
+        ],
+        [
+          1035,
+          ""
+        ],
+        [
+          1036,
+          "/**"
+        ],
+        [
+          1037,
+          "  * @brief  Set the output buffer for the selected DAC channel."
+        ],
+        [
+          1045,
+          "  * @param  DAC_Channel This parameter can be one of the following values:"
+        ],
+        [
+          1046,
+          "  *         @arg @ref LL_DAC_CHANNEL_1"
+        ],
+        [
+          1047,
+          "  *         @arg @ref LL_DAC_CHANNEL_2"
+        ],
+        [
+          1048,
+          "  * @param  OutputBuffer This parameter can be one of the following values:"
+        ],
+        [
+          1049,
+          "  *         @arg @ref LL_DAC_OUTPUT_BUFFER_ENABLE"
+        ],
+        [
+          1050,
+          "  *         @arg @ref LL_DAC_OUTPUT_BUFFER_DISABLE"
+        ],
+        [
+          1051,
+          "  * @retval None"
+        ],
+        [
+          1052,
+          "  */"
+        ],
+        [
+          1053,
+          "__STATIC_INLINE void LL_DAC_SetOutputBuffer(DAC_TypeDef *DACx, uint32_t DAC_Channel, uint32_t OutputBuffer)"
+        ],
+        [
+          1054,
+          "{"
+        ],
+        [
+          1055,
+          "  MODIFY_REG(DACx->MCR,"
+        ],
+        [
+          1056,
+          "             (uint32_t)DAC_MCR_MODE1_1 << (DAC_Channel & DAC_CR_CHX_BITOFFSET_MASK),"
+        ],
+        [
+          1057,
+          "             OutputBuffer << (DAC_Channel & DAC_CR_CHX_BITOFFSET_MASK));"
+        ],
+        [
+          1058,
+          "}"
+        ],
+        [
+          1059,
+          ""
+        ],
+        [
+          1060,
+          "/**"
+        ],
+        [
+          1065,
+          "  * @param  DAC_Channel This parameter can be one of the following values:"
+        ],
+        [
+          1066,
+          "  *         @arg @ref LL_DAC_CHANNEL_1"
+        ],
+        [
+          1067,
+          "  *         @arg @ref LL_DAC_CHANNEL_2"
+        ],
+        [
+          1068,
+          "  * @retval Returned value can be one of the following values:"
+        ],
+        [
+          1069,
+          "  *         @arg @ref LL_DAC_OUTPUT_BUFFER_ENABLE"
+        ],
+        [
+          1070,
+          "  *         @arg @ref LL_DAC_OUTPUT_BUFFER_DISABLE"
+        ],
+        [
+          1071,
+          "  */"
+        ],
+        [
+          1072,
+          "__STATIC_INLINE uint32_t LL_DAC_GetOutputBuffer(const DAC_TypeDef *DACx, uint32_t DAC_Channel)"
+        ],
+        [
+          1073,
+          "{"
+        ],
+        [
+          1074,
+          "  return (uint32_t)(READ_BIT(DACx->MCR, (uint32_t)DAC_MCR_MODE1_1 << (DAC_Channel & DAC_CR_CHX_BITOFFSET_MASK))"
+        ],
+        [
+          1075,
+          "                    >> (DAC_Channel & DAC_CR_CHX_BITOFFSET_MASK)"
+        ],
+        [
+          1076,
+          "                   );"
+        ],
+        [
+          1077,
+          "}"
+        ],
+        [
+          1078,
+          ""
+        ],
+        [
+          1079,
+          "/**"
+        ],
+        [
+          1080,
+          "  * @brief  Set the output connection for the selected DAC channel."
+        ],
+        [
+          1094,
+          "  * @param  DAC_Channel This parameter can be one of the following values:"
+        ],
+        [
+          1095,
+          "  *         @arg @ref LL_DAC_CHANNEL_1"
+        ],
+        [
+          1096,
+          "  *         @arg @ref LL_DAC_CHANNEL_2"
+        ],
+        [
+          1097,
+          "  * @param  OutputConnection This parameter can be one of the following values:"
+        ],
+        [
+          1098,
+          "  *         @arg @ref LL_DAC_OUTPUT_CONNECT_GPIO"
+        ],
+        [
+          1099,
+          "  *         @arg @ref LL_DAC_OUTPUT_CONNECT_INTERNAL"
+        ],
+        [
+          1100,
+          "  * @retval None"
+        ],
+        [
+          1101,
+          "  */"
+        ],
+        [
+          1102,
+          "__STATIC_INLINE void LL_DAC_SetOutputConnection(DAC_TypeDef *DACx, uint32_t DAC_Channel, uint32_t OutputConnection)"
+        ],
+        [
+          1103,
+          "{"
+        ],
+        [
+          1104,
+          "  MODIFY_REG(DACx->MCR,"
+        ],
+        [
+          1105,
+          "             (uint32_t)DAC_MCR_MODE1_0 << (DAC_Channel & DAC_CR_CHX_BITOFFSET_MASK),"
+        ],
+        [
+          1106,
+          "             OutputConnection << (DAC_Channel & DAC_CR_CHX_BITOFFSET_MASK));"
+        ],
+        [
+          1107,
+          "}"
+        ],
+        [
+          1108,
+          ""
+        ],
+        [
+          1109,
+          "/**"
+        ],
+        [
+          1124,
+          "  * @param  DAC_Channel This parameter can be one of the following values:"
+        ],
+        [
+          1125,
+          "  *         @arg @ref LL_DAC_CHANNEL_1"
+        ],
+        [
+          1126,
+          "  *         @arg @ref LL_DAC_CHANNEL_2"
+        ],
+        [
+          1127,
+          "  * @retval Returned value can be one of the following values:"
+        ],
+        [
+          1128,
+          "  *         @arg @ref LL_DAC_OUTPUT_CONNECT_GPIO"
+        ],
+        [
+          1129,
+          "  *         @arg @ref LL_DAC_OUTPUT_CONNECT_INTERNAL"
+        ],
+        [
+          1130,
+          "  */"
+        ],
+        [
+          1131,
+          "__STATIC_INLINE uint32_t LL_DAC_GetOutputConnection(const DAC_TypeDef *DACx, uint32_t DAC_Channel)"
+        ],
+        [
+          1132,
+          "{"
+        ],
+        [
+          1133,
+          "  return (uint32_t)(READ_BIT(DACx->MCR, (uint32_t)DAC_MCR_MODE1_0 << (DAC_Channel & DAC_CR_CHX_BITOFFSET_MASK))"
+        ],
+        [
+          1134,
+          "                    >> (DAC_Channel & DAC_CR_CHX_BITOFFSET_MASK)"
+        ],
+        [
+          1135,
+          "                   );"
+        ],
+        [
+          1136,
+          "}"
+        ],
+        [
+          1137,
+          ""
+        ],
+        [
+          1138,
+          "/**"
+        ],
+        [
+          1139,
+          "  * @brief  Set the sample-and-hold timing for the selected DAC channel:"
+        ],
+        [
+          1148,
+          "  * @param  DAC_Channel This parameter can be one of the following values:"
+        ],
+        [
+          1149,
+          "  *         @arg @ref LL_DAC_CHANNEL_1"
+        ],
+        [
+          1150,
+          "  *         @arg @ref LL_DAC_CHANNEL_2"
+        ],
+        [
+          1151,
+          "  * @param  SampleTime Value between Min_Data=0x000 and Max_Data=0x3FF"
+        ],
+        [
+          1152,
+          "  * @retval None"
+        ],
+        [
+          1153,
+          "  */"
+        ],
+        [
+          1154,
+          "__STATIC_INLINE void LL_DAC_SetSampleAndHoldSampleTime(DAC_TypeDef *DACx, uint32_t DAC_Channel, uint32_t SampleTime)"
+        ],
+        [
+          1155,
+          "{"
+        ],
+        [
+          1156,
+          "  __IO uint32_t *preg = __DAC_PTR_REG_OFFSET(DACx->SHSR1, (DAC_Channel >> DAC_REG_SHSRX_REGOFFSET_BITOFFSET_POS)"
+        ],
+        [
+          1157,
+          "                                             & DAC_REG_SHSRX_REGOFFSET_MASK_POSBIT0);"
+        ],
+        [
+          1158,
+          ""
+        ],
+        [
+          1159,
+          "  MODIFY_REG(*preg, DAC_SHSR1_TSAMPLE1, SampleTime);"
+        ],
+        [
+          1160,
+          "}"
+        ],
+        [
+          1161,
+          ""
+        ],
+        [
+          1162,
+          "/**"
+        ],
+        [
+          1163,
+          "  * @brief  Get the sample-and-hold timing for the selected DAC channel:"
+        ],
+        [
+          1168,
+          "  * @param  DAC_Channel This parameter can be one of the following values:"
+        ],
+        [
+          1169,
+          "  *         @arg @ref LL_DAC_CHANNEL_1"
+        ],
+        [
+          1170,
+          "  *         @arg @ref LL_DAC_CHANNEL_2"
+        ],
+        [
+          1171,
+          "  * @retval Value between Min_Data=0x000 and Max_Data=0x3FF"
+        ],
+        [
+          1172,
+          "  */"
+        ],
+        [
+          1173,
+          "__STATIC_INLINE uint32_t LL_DAC_GetSampleAndHoldSampleTime(const DAC_TypeDef *DACx, uint32_t DAC_Channel)"
+        ],
+        [
+          1174,
+          "{"
+        ],
+        [
+          1175,
+          "  __IO uint32_t const *preg = __DAC_PTR_REG_OFFSET(DACx->SHSR1, (DAC_Channel >> DAC_REG_SHSRX_REGOFFSET_BITOFFSET_POS)"
+        ],
+        [
+          1176,
+          "                                                   & DAC_REG_SHSRX_REGOFFSET_MASK_POSBIT0);"
+        ],
+        [
+          1177,
+          ""
+        ],
+        [
+          1178,
+          "  return (uint32_t) READ_BIT(*preg, DAC_SHSR1_TSAMPLE1);"
+        ],
+        [
+          1179,
+          "}"
+        ],
+        [
+          1180,
+          ""
+        ],
+        [
+          1181,
+          "/**"
+        ],
+        [
+          1182,
+          "  * @brief  Set the sample-and-hold timing for the selected DAC channel:"
+        ],
+        [
+          1183,
+          "  *         hold time"
+        ],
+        [
+          1187,
+          "  * @param  DAC_Channel This parameter can be one of the following values:"
+        ],
+        [
+          1188,
+          "  *         @arg @ref LL_DAC_CHANNEL_1"
+        ],
+        [
+          1189,
+          "  *         @arg @ref LL_DAC_CHANNEL_2"
+        ],
+        [
+          1190,
+          "  * @param  HoldTime Value between Min_Data=0x000 and Max_Data=0x3FF"
+        ],
+        [
+          1191,
+          "  * @retval None"
+        ],
+        [
+          1192,
+          "  */"
+        ],
+        [
+          1193,
+          "__STATIC_INLINE void LL_DAC_SetSampleAndHoldHoldTime(DAC_TypeDef *DACx, uint32_t DAC_Channel, uint32_t HoldTime)"
+        ],
+        [
+          1194,
+          "{"
+        ],
+        [
+          1195,
+          "  MODIFY_REG(DACx->SHHR,"
+        ],
+        [
+          1196,
+          "             DAC_SHHR_THOLD1 << (DAC_Channel & DAC_CR_CHX_BITOFFSET_MASK),"
+        ],
+        [
+          1197,
+          "             HoldTime << (DAC_Channel & DAC_CR_CHX_BITOFFSET_MASK));"
+        ],
+        [
+          1198,
+          "}"
+        ],
+        [
+          1199,
+          ""
+        ],
+        [
+          1200,
+          "/**"
+        ],
+        [
+          1201,
+          "  * @brief  Get the sample-and-hold timing for the selected DAC channel:"
+        ],
+        [
+          1202,
+          "  *         hold time"
+        ],
+        [
+          1206,
+          "  * @param  DAC_Channel This parameter can be one of the following values:"
+        ],
+        [
+          1207,
+          "  *         @arg @ref LL_DAC_CHANNEL_1"
+        ],
+        [
+          1208,
+          "  *         @arg @ref LL_DAC_CHANNEL_2"
+        ],
+        [
+          1209,
+          "  * @retval Value between Min_Data=0x000 and Max_Data=0x3FF"
+        ],
+        [
+          1210,
+          "  */"
+        ],
+        [
+          1211,
+          "__STATIC_INLINE uint32_t LL_DAC_GetSampleAndHoldHoldTime(const DAC_TypeDef *DACx, uint32_t DAC_Channel)"
+        ],
+        [
+          1212,
+          "{"
+        ],
+        [
+          1213,
+          "  return (uint32_t)(READ_BIT(DACx->SHHR, DAC_SHHR_THOLD1 << (DAC_Channel & DAC_CR_CHX_BITOFFSET_MASK))"
+        ],
+        [
+          1214,
+          "                    >> (DAC_Channel & DAC_CR_CHX_BITOFFSET_MASK)"
+        ],
+        [
+          1215,
+          "                   );"
+        ],
+        [
+          1216,
+          "}"
+        ],
+        [
+          1217,
+          ""
+        ],
+        [
+          1218,
+          "/**"
+        ],
+        [
+          1219,
+          "  * @brief  Set the sample-and-hold timing for the selected DAC channel:"
+        ],
+        [
+          1220,
+          "  *         refresh time"
+        ],
+        [
+          1221,
+          "  * @rmtoll SHRR     TREFRESH1      LL_DAC_SetSampleAndHoldRefreshTime\\n"
+        ],
+        [
+          1224,
+          "  * @param  DAC_Channel This parameter can be one of the following values:"
+        ],
+        [
+          1225,
+          "  *         @arg @ref LL_DAC_CHANNEL_1"
+        ],
+        [
+          1226,
+          "  *         @arg @ref LL_DAC_CHANNEL_2"
+        ],
+        [
+          1227,
+          "  * @param  RefreshTime Value between Min_Data=0x00 and Max_Data=0xFF"
+        ],
+        [
+          1228,
+          "  * @retval None"
+        ],
+        [
+          1229,
+          "  */"
+        ],
+        [
+          1230,
+          "__STATIC_INLINE void LL_DAC_SetSampleAndHoldRefreshTime(DAC_TypeDef *DACx, uint32_t DAC_Channel, uint32_t RefreshTime)"
+        ],
+        [
+          1231,
+          "{"
+        ],
+        [
+          1232,
+          "  MODIFY_REG(DACx->SHRR,"
+        ],
+        [
+          1233,
+          "             DAC_SHRR_TREFRESH1 << (DAC_Channel & DAC_CR_CHX_BITOFFSET_MASK),"
+        ],
+        [
+          1234,
+          "             RefreshTime << (DAC_Channel & DAC_CR_CHX_BITOFFSET_MASK));"
+        ],
+        [
+          1235,
+          "}"
+        ],
+        [
+          1236,
+          ""
+        ],
+        [
+          1237,
+          "/**"
+        ],
+        [
+          1238,
+          "  * @brief  Get the sample-and-hold timing for the selected DAC channel:"
+        ],
+        [
+          1239,
+          "  *         refresh time"
+        ],
+        [
+          1243,
+          "  * @param  DAC_Channel This parameter can be one of the following values:"
+        ],
+        [
+          1244,
+          "  *         @arg @ref LL_DAC_CHANNEL_1"
+        ],
+        [
+          1245,
+          "  *         @arg @ref LL_DAC_CHANNEL_2"
+        ],
+        [
+          1246,
+          "  * @retval Value between Min_Data=0x00 and Max_Data=0xFF"
+        ],
+        [
+          1247,
+          "  */"
+        ],
+        [
+          1248,
+          "__STATIC_INLINE uint32_t LL_DAC_GetSampleAndHoldRefreshTime(const DAC_TypeDef *DACx, uint32_t DAC_Channel)"
+        ],
+        [
+          1249,
+          "{"
+        ],
+        [
+          1250,
+          "  return (uint32_t)(READ_BIT(DACx->SHRR, DAC_SHRR_TREFRESH1 << (DAC_Channel & DAC_CR_CHX_BITOFFSET_MASK))"
+        ],
+        [
+          1251,
+          "                    >> (DAC_Channel & DAC_CR_CHX_BITOFFSET_MASK)"
+        ],
+        [
+          1252,
+          "                   );"
+        ],
+        [
+          1253,
+          "}"
+        ],
+        [
+          1254,
+          ""
+        ],
+        [
+          1255,
+          "/**"
+        ],
+        [
+          1256,
+          "  * @brief  Set the signed format for the selected DAC channel."
+        ],
+        [
+          1257,
+          "  * @note   On this STM32 series, signed format can be used to inject"
+        ],
+        [
+          1258,
+          "  *         Q1.15, Q1.11, Q1.7 signed format data to DAC."
+        ],
+        [
+          1267,
+          "  * @param  DAC_Channel This parameter can be one of the following values:"
+        ],
+        [
+          1268,
+          "  *         @arg @ref LL_DAC_CHANNEL_1"
+        ],
+        [
+          1269,
+          "  *         @arg @ref LL_DAC_CHANNEL_2"
+        ],
+        [
+          1270,
+          "  * @param  SignedFormat This parameter can be one of the following values:"
+        ],
+        [
+          1271,
+          "  *         @arg @ref LL_DAC_SIGNED_FORMAT_ENABLE"
+        ],
+        [
+          1272,
+          "  *         @arg @ref LL_DAC_SIGNED_FORMAT_DISABLE"
+        ],
+        [
+          1273,
+          "  * @retval None"
+        ],
+        [
+          1274,
+          "  */"
+        ],
+        [
+          1275,
+          "__STATIC_INLINE void LL_DAC_SetSignedFormat(DAC_TypeDef *DACx, uint32_t DAC_Channel, uint32_t SignedFormat)"
+        ],
+        [
+          1276,
+          "{"
+        ],
+        [
+          1277,
+          "  MODIFY_REG(DACx->MCR,"
+        ],
+        [
+          1278,
+          "             DAC_MCR_SINFORMAT1 << (DAC_Channel & DAC_CR_CHX_BITOFFSET_MASK),"
+        ],
+        [
+          1279,
+          "             SignedFormat << (DAC_Channel & DAC_CR_CHX_BITOFFSET_MASK));"
+        ],
+        [
+          1280,
+          "}"
+        ],
+        [
+          1281,
+          ""
+        ],
+        [
+          1282,
+          "/**"
+        ],
+        [
+          1287,
+          "  * @param  DAC_Channel This parameter can be one of the following values:"
+        ],
+        [
+          1288,
+          "  *         @arg @ref LL_DAC_CHANNEL_1"
+        ],
+        [
+          1289,
+          "  *         @arg @ref LL_DAC_CHANNEL_2"
+        ],
+        [
+          1290,
+          "  * @retval Returned value can be one of the following values:"
+        ],
+        [
+          1291,
+          "  *         @arg @ref LL_DAC_SIGNED_FORMAT_ENABLE"
+        ],
+        [
+          1292,
+          "  *         @arg @ref LL_DAC_SIGNED_FORMAT_DISABLE"
+        ],
+        [
+          1293,
+          "  */"
+        ],
+        [
+          1294,
+          "__STATIC_INLINE uint32_t LL_DAC_GetSignedFormat(const DAC_TypeDef *DACx, uint32_t DAC_Channel)"
+        ],
+        [
+          1295,
+          "{"
+        ],
+        [
+          1296,
+          "  return (uint32_t)(READ_BIT(DACx->MCR, DAC_MCR_SINFORMAT1 << (DAC_Channel & DAC_CR_CHX_BITOFFSET_MASK))"
+        ],
+        [
+          1297,
+          "                    >> (DAC_Channel & DAC_CR_CHX_BITOFFSET_MASK)"
+        ],
+        [
+          1298,
+          "                   );"
+        ],
+        [
+          1299,
+          "}"
+        ],
+        [
+          1300,
+          ""
+        ],
+        [
+          1301,
+          "/**"
+        ],
+        [
+          1302,
+          "  * @}"
+        ],
+        [
+          1316,
+          "  * @param  DAC_Channel This parameter can be one of the following values:"
+        ],
+        [
+          1317,
+          "  *         @arg @ref LL_DAC_CHANNEL_1"
+        ],
+        [
+          1318,
+          "  *         @arg @ref LL_DAC_CHANNEL_2"
+        ],
+        [
+          1319,
+          "  * @retval None"
+        ],
+        [
+          1320,
+          "  */"
+        ],
+        [
+          1321,
+          "__STATIC_INLINE void LL_DAC_EnableDMAReq(DAC_TypeDef *DACx, uint32_t DAC_Channel)"
+        ],
+        [
+          1322,
+          "{"
+        ],
+        [
+          1323,
+          "  SET_BIT(DACx->CR,"
+        ],
+        [
+          1324,
+          "          DAC_CR_DMAEN1 << (DAC_Channel & DAC_CR_CHX_BITOFFSET_MASK));"
+        ],
+        [
+          1325,
+          "}"
+        ],
+        [
+          1326,
+          ""
+        ],
+        [
+          1327,
+          "/**"
+        ],
+        [
+          1328,
+          "  * @brief  Disable DAC DMA transfer request of the selected channel."
+        ],
+        [
+          1329,
+          "  * @note   To configure DMA source address (peripheral address),"
+        ],
+        [
+          1330,
+          "  *         use function @ref LL_DAC_DMA_GetRegAddr()."
+        ],
+        [
+          1331,
+          "  * @rmtoll CR       DMAEN1         LL_DAC_DisableDMAReq\\n"
+        ],
+        [
+          1332,
+          "  *         CR       DMAEN2         LL_DAC_DisableDMAReq"
+        ],
+        [
+          1333,
+          "  * @param  DACx DAC instance"
+        ],
+        [
+          1334,
+          "  * @param  DAC_Channel This parameter can be one of the following values:"
+        ],
+        [
+          1335,
+          "  *         @arg @ref LL_DAC_CHANNEL_1"
+        ],
+        [
+          1336,
+          "  *         @arg @ref LL_DAC_CHANNEL_2"
+        ],
+        [
+          1337,
+          "  * @retval None"
+        ],
+        [
+          1338,
+          "  */"
+        ],
+        [
+          1339,
+          "__STATIC_INLINE void LL_DAC_DisableDMAReq(DAC_TypeDef *DACx, uint32_t DAC_Channel)"
+        ],
+        [
+          1340,
+          "{"
+        ],
+        [
+          1341,
+          "  CLEAR_BIT(DACx->CR,"
+        ],
+        [
+          1342,
+          "            DAC_CR_DMAEN1 << (DAC_Channel & DAC_CR_CHX_BITOFFSET_MASK));"
+        ],
+        [
+          1343,
+          "}"
+        ],
+        [
+          1344,
+          ""
+        ],
+        [
+          1345,
+          "/**"
+        ],
+        [
+          1346,
+          "  * @brief  Get DAC DMA transfer request state of the selected channel."
+        ],
+        [
+          1347,
+          "  *         (0: DAC DMA transfer request is disabled, 1: DAC DMA transfer request is enabled)"
+        ],
+        [
+          1348,
+          "  * @rmtoll CR       DMAEN1         LL_DAC_IsDMAReqEnabled\\n"
+        ],
+        [
+          1349,
+          "  *         CR       DMAEN2         LL_DAC_IsDMAReqEnabled"
+        ],
+        [
+          1350,
+          "  * @param  DACx DAC instance"
+        ],
+        [
+          1351,
+          "  * @param  DAC_Channel This parameter can be one of the following values:"
+        ],
+        [
+          1352,
+          "  *         @arg @ref LL_DAC_CHANNEL_1"
+        ],
+        [
+          1353,
+          "  *         @arg @ref LL_DAC_CHANNEL_2"
+        ],
+        [
+          1354,
+          "  * @retval State of bit (1 or 0)."
+        ],
+        [
+          1355,
+          "  */"
+        ],
+        [
+          1356,
+          "__STATIC_INLINE uint32_t LL_DAC_IsDMAReqEnabled(const DAC_TypeDef *DACx, uint32_t DAC_Channel)"
+        ],
+        [
+          1357,
+          "{"
+        ],
+        [
+          1358,
+          "  return ((READ_BIT(DACx->CR,"
+        ],
+        [
+          1359,
+          "                    DAC_CR_DMAEN1 << (DAC_Channel & DAC_CR_CHX_BITOFFSET_MASK))"
+        ],
+        [
+          1360,
+          "           == (DAC_CR_DMAEN1 << (DAC_Channel & DAC_CR_CHX_BITOFFSET_MASK))) ? 1UL : 0UL);"
+        ],
+        [
+          1361,
+          "}"
+        ],
+        [
+          1362,
+          ""
+        ],
+        [
+          1363,
+          "/**"
+        ],
+        [
+          1364,
+          "  * @brief  Enable DAC DMA Double data mode of the selected channel."
+        ],
+        [
+          1365,
+          "  * @rmtoll MCR      DMADOUBLE1     LL_DAC_EnableDMADoubleDataMode\\n"
+        ],
+        [
+          1366,
+          "  *         MCR      DMADOUBLE2     LL_DAC_EnableDMADoubleDataMode"
+        ],
+        [
+          1368,
+          "  * @param  DAC_Channel This parameter can be one of the following values:"
+        ],
+        [
+          1369,
+          "  *         @arg @ref LL_DAC_CHANNEL_1"
+        ],
+        [
+          1370,
+          "  *         @arg @ref LL_DAC_CHANNEL_2"
+        ],
+        [
+          1371,
+          "  * @retval None"
+        ],
+        [
+          1372,
+          "  */"
+        ],
+        [
+          1373,
+          "__STATIC_INLINE void LL_DAC_EnableDMADoubleDataMode(DAC_TypeDef *DACx, uint32_t DAC_Channel)"
+        ],
+        [
+          1374,
+          "{"
+        ],
+        [
+          1375,
+          "  SET_BIT(DACx->MCR,"
+        ],
+        [
+          1376,
+          "          DAC_MCR_DMADOUBLE1 << (DAC_Channel & DAC_CR_CHX_BITOFFSET_MASK));"
+        ],
+        [
+          1377,
+          "}"
+        ],
+        [
+          1378,
+          ""
+        ],
+        [
+          1379,
+          "/**"
+        ],
+        [
+          1380,
+          "  * @brief  Disable DAC DMA Double data mode of the selected channel."
+        ],
+        [
+          1381,
+          "  * @rmtoll MCR      DMADOUBLE1     LL_DAC_DisableDMADoubleDataMode\\n"
+        ],
+        [
+          1382,
+          "  *         MCR      DMADOUBLE2     LL_DAC_DisableDMADoubleDataMode"
+        ],
+        [
+          1383,
+          "  * @param  DACx DAC instance"
+        ],
+        [
+          1384,
+          "  * @param  DAC_Channel This parameter can be one of the following values:"
+        ],
+        [
+          1385,
+          "  *         @arg @ref LL_DAC_CHANNEL_1"
+        ],
+        [
+          1386,
+          "  *         @arg @ref LL_DAC_CHANNEL_2"
+        ],
+        [
+          1387,
+          "  * @retval None"
+        ],
+        [
+          1388,
+          "  */"
+        ],
+        [
+          1389,
+          "__STATIC_INLINE void LL_DAC_DisableDMADoubleDataMode(DAC_TypeDef *DACx, uint32_t DAC_Channel)"
+        ],
+        [
+          1390,
+          "{"
+        ],
+        [
+          1391,
+          "  CLEAR_BIT(DACx->MCR,"
+        ],
+        [
+          1392,
+          "            DAC_MCR_DMADOUBLE1 << (DAC_Channel & DAC_CR_CHX_BITOFFSET_MASK));"
+        ],
+        [
+          1393,
+          "}"
+        ],
+        [
+          1394,
+          ""
+        ],
+        [
+          1395,
+          "/**"
+        ],
+        [
+          1396,
+          "  * @brief  Get DAC DMA double data mode state of the selected channel."
+        ],
+        [
+          1397,
+          "  *         (0: DAC DMA double data mode is disabled, 1: DAC DMA double data mode is enabled)"
+        ],
+        [
+          1398,
+          "  * @rmtoll MCR      DMADOUBLE1     LL_DAC_IsDMADoubleDataModeEnabled\\n"
+        ],
+        [
+          1399,
+          "  *         MCR      DMADOUBLE2     LL_DAC_IsDMADoubleDataModeEnabled"
+        ],
+        [
+          1400,
+          "  * @param  DACx DAC instance"
+        ],
+        [
+          1401,
+          "  * @param  DAC_Channel This parameter can be one of the following values:"
+        ],
+        [
+          1402,
+          "  *         @arg @ref LL_DAC_CHANNEL_1"
+        ],
+        [
+          1403,
+          "  *         @arg @ref LL_DAC_CHANNEL_2"
+        ],
+        [
+          1404,
+          "  * @retval State of bit (1 or 0)."
+        ],
+        [
+          1405,
+          "  */"
+        ],
+        [
+          1406,
+          "__STATIC_INLINE uint32_t LL_DAC_IsDMADoubleDataModeEnabled(const DAC_TypeDef *DACx, uint32_t DAC_Channel)"
+        ],
+        [
+          1407,
+          "{"
+        ],
+        [
+          1408,
+          "  return ((READ_BIT(DACx->MCR,"
+        ],
+        [
+          1409,
+          "                    DAC_MCR_DMADOUBLE1 << (DAC_Channel & DAC_CR_CHX_BITOFFSET_MASK))"
+        ],
+        [
+          1410,
+          "           == (DAC_MCR_DMADOUBLE1 << (DAC_Channel & DAC_CR_CHX_BITOFFSET_MASK))) ? 1UL : 0UL);"
+        ],
+        [
+          1411,
+          "}"
+        ],
+        [
+          1412,
+          ""
+        ],
+        [
+          1413,
+          "/**"
+        ],
+        [
+          1414,
+          "  * @brief  Function to help to configure DMA transfer to DAC: retrieve the"
+        ],
+        [
+          1415,
+          "  *         DAC register address from DAC instance and a list of DAC registers"
+        ],
+        [
+          1416,
+          "  *         intended to be used (most commonly) with DMA transfer."
+        ],
+        [
+          1425,
+          "  *                                  (uint32_t)&< array or variable >,"
+        ],
+        [
+          1426,
+          "  *                                  LL_DAC_DMA_GetRegAddr(DAC1, LL_DAC_CHANNEL_1,"
+        ],
+        [
+          1427,
+          "  *                                  LL_DAC_DMA_REG_DATA_12BITS_RIGHT_ALIGNED),"
+        ],
+        [
+          1428,
+          "  *                                  LL_DMA_DIRECTION_MEMORY_TO_PERIPH);"
+        ],
+        [
+          1429,
+          "  * @rmtoll DHR12R1  DACC1DHR       LL_DAC_DMA_GetRegAddr\\n"
+        ],
+        [
+          1430,
+          "  *         DHR12L1  DACC1DHR       LL_DAC_DMA_GetRegAddr\\n"
+        ],
+        [
+          1431,
+          "  *         DHR8R1   DACC1DHR       LL_DAC_DMA_GetRegAddr\\n"
+        ],
+        [
+          1432,
+          "  *         DHR12R2  DACC2DHR       LL_DAC_DMA_GetRegAddr\\n"
+        ],
+        [
+          1433,
+          "  *         DHR12L2  DACC2DHR       LL_DAC_DMA_GetRegAddr\\n"
+        ],
+        [
+          1434,
+          "  *         DHR8R2   DACC2DHR       LL_DAC_DMA_GetRegAddr"
+        ],
+        [
+          1435,
+          "  * @param  DACx DAC instance"
+        ],
+        [
+          1436,
+          "  * @param  DAC_Channel This parameter can be one of the following values:"
+        ],
+        [
+          1437,
+          "  *         @arg @ref LL_DAC_CHANNEL_1"
+        ],
+        [
+          1438,
+          "  *         @arg @ref LL_DAC_CHANNEL_2"
+        ],
+        [
+          1439,
+          "  * @param  Register This parameter can be one of the following values:"
+        ],
+        [
+          1440,
+          "  *         @arg @ref LL_DAC_DMA_REG_DATA_12BITS_RIGHT_ALIGNED"
+        ],
+        [
+          1441,
+          "  *         @arg @ref LL_DAC_DMA_REG_DATA_12BITS_LEFT_ALIGNED"
+        ],
+        [
+          1442,
+          "  *         @arg @ref LL_DAC_DMA_REG_DATA_8BITS_RIGHT_ALIGNED"
+        ],
+        [
+          1443,
+          "  * @retval DAC register address"
+        ],
+        [
+          1444,
+          "  */"
+        ],
+        [
+          1445,
+          "__STATIC_INLINE uint32_t LL_DAC_DMA_GetRegAddr(const DAC_TypeDef *DACx, uint32_t DAC_Channel, uint32_t Register)"
+        ],
+        [
+          1446,
+          "{"
+        ],
+        [
+          1447,
+          "  /* Retrieve address of register DHR12Rx, DHR12Lx or DHR8Rx depending on     */"
+        ],
+        [
+          1448,
+          "  /* DAC channel selected.                                                    */"
+        ],
+        [
+          1449,
+          "  return ((uint32_t)(__DAC_PTR_REG_OFFSET((DACx)->DHR12R1, ((DAC_Channel >> (Register & 0x1FUL))"
+        ],
+        [
+          1450,
+          "                                                            & DAC_REG_DHR_REGOFFSET_MASK_POSBIT0))));"
+        ],
+        [
+          1451,
+          "}"
+        ],
+        [
+          1468,
+          "  * @param  DAC_Channel This parameter can be one of the following values:"
+        ],
+        [
+          1469,
+          "  *         @arg @ref LL_DAC_CHANNEL_1"
+        ],
+        [
+          1470,
+          "  *         @arg @ref LL_DAC_CHANNEL_2"
+        ],
+        [
+          1471,
+          "  * @retval None"
+        ],
+        [
+          1472,
+          "  */"
+        ],
+        [
+          1473,
+          "__STATIC_INLINE void LL_DAC_Enable(DAC_TypeDef *DACx, uint32_t DAC_Channel)"
+        ],
+        [
+          1474,
+          "{"
+        ],
+        [
+          1475,
+          "  SET_BIT(DACx->CR,"
+        ],
+        [
+          1476,
+          "          DAC_CR_EN1 << (DAC_Channel & DAC_CR_CHX_BITOFFSET_MASK));"
+        ],
+        [
+          1477,
+          "}"
+        ],
+        [
+          1478,
+          ""
+        ],
+        [
+          1479,
+          "/**"
+        ],
+        [
+          1480,
+          "  * @brief  Disable DAC selected channel."
+        ],
+        [
+          1481,
+          "  * @rmtoll CR       EN1            LL_DAC_Disable\\n"
+        ],
+        [
+          1482,
+          "  *         CR       EN2            LL_DAC_Disable"
+        ],
+        [
+          1483,
+          "  * @param  DACx DAC instance"
+        ],
+        [
+          1484,
+          "  * @param  DAC_Channel This parameter can be one of the following values:"
+        ],
+        [
+          1485,
+          "  *         @arg @ref LL_DAC_CHANNEL_1"
+        ],
+        [
+          1486,
+          "  *         @arg @ref LL_DAC_CHANNEL_2"
+        ],
+        [
+          1487,
+          "  * @retval None"
+        ],
+        [
+          1488,
+          "  */"
+        ],
+        [
+          1489,
+          "__STATIC_INLINE void LL_DAC_Disable(DAC_TypeDef *DACx, uint32_t DAC_Channel)"
+        ],
+        [
+          1490,
+          "{"
+        ],
+        [
+          1491,
+          "  CLEAR_BIT(DACx->CR,"
+        ],
+        [
+          1492,
+          "            DAC_CR_EN1 << (DAC_Channel & DAC_CR_CHX_BITOFFSET_MASK));"
+        ],
+        [
+          1493,
+          "}"
+        ],
+        [
+          1494,
+          ""
+        ],
+        [
+          1495,
+          "/**"
+        ],
+        [
+          1496,
+          "  * @brief  Get DAC enable state of the selected channel."
+        ],
+        [
+          1497,
+          "  *         (0: DAC channel is disabled, 1: DAC channel is enabled)"
+        ],
+        [
+          1498,
+          "  * @rmtoll CR       EN1            LL_DAC_IsEnabled\\n"
+        ],
+        [
+          1499,
+          "  *         CR       EN2            LL_DAC_IsEnabled"
+        ],
+        [
+          1500,
+          "  * @param  DACx DAC instance"
+        ],
+        [
+          1501,
+          "  * @param  DAC_Channel This parameter can be one of the following values:"
+        ],
+        [
+          1502,
+          "  *         @arg @ref LL_DAC_CHANNEL_1"
+        ],
+        [
+          1503,
+          "  *         @arg @ref LL_DAC_CHANNEL_2"
+        ],
+        [
+          1504,
+          "  * @retval State of bit (1 or 0)."
+        ],
+        [
+          1505,
+          "  */"
+        ],
+        [
+          1506,
+          "__STATIC_INLINE uint32_t LL_DAC_IsEnabled(const DAC_TypeDef *DACx, uint32_t DAC_Channel)"
+        ],
+        [
+          1507,
+          "{"
+        ],
+        [
+          1508,
+          "  return ((READ_BIT(DACx->CR,"
+        ],
+        [
+          1509,
+          "                    DAC_CR_EN1 << (DAC_Channel & DAC_CR_CHX_BITOFFSET_MASK))"
+        ],
+        [
+          1510,
+          "           == (DAC_CR_EN1 << (DAC_Channel & DAC_CR_CHX_BITOFFSET_MASK))) ? 1UL : 0UL);"
+        ],
+        [
+          1511,
+          "}"
+        ],
+        [
+          1512,
+          ""
+        ],
+        [
+          1513,
+          "/**"
+        ],
+        [
+          1514,
+          "  * @brief  Get DAC ready for conversion state of the selected channel."
+        ],
+        [
+          1515,
+          "  *         (0: DAC channel is not ready, 1: DAC channel is ready)"
+        ],
+        [
+          1516,
+          "  * @rmtoll SR       DAC1RDY        LL_DAC_IsReady\\n"
+        ],
+        [
+          1517,
+          "  *         SR       DAC2RDY        LL_DAC_IsReady"
+        ],
+        [
+          1518,
+          "  * @param  DACx DAC instance"
+        ],
+        [
+          1519,
+          "  * @param  DAC_Channel This parameter can be one of the following values:"
+        ],
+        [
+          1520,
+          "  *         @arg @ref LL_DAC_CHANNEL_1"
+        ],
+        [
+          1521,
+          "  *         @arg @ref LL_DAC_CHANNEL_2"
+        ],
+        [
+          1522,
+          "  * @retval State of bit (1 or 0)."
+        ],
+        [
+          1523,
+          "  */"
+        ],
+        [
+          1524,
+          "__STATIC_INLINE uint32_t LL_DAC_IsReady(const DAC_TypeDef *DACx, uint32_t DAC_Channel)"
+        ],
+        [
+          1525,
+          "{"
+        ],
+        [
+          1526,
+          "  return ((READ_BIT(DACx->SR,"
+        ],
+        [
+          1527,
+          "                    DAC_SR_DAC1RDY << (DAC_Channel & DAC_CR_CHX_BITOFFSET_MASK))"
+        ],
+        [
+          1528,
+          "           == (DAC_SR_DAC1RDY << (DAC_Channel & DAC_CR_CHX_BITOFFSET_MASK))) ? 1UL : 0UL);"
+        ],
+        [
+          1529,
+          "}"
+        ],
+        [
+          1530,
+          ""
+        ],
+        [
+          1531,
+          "/**"
+        ],
+        [
+          1532,
+          "  * @brief  Enable DAC trigger of the selected channel."
+        ],
+        [
+          1533,
+          "  * @note   - If DAC trigger is disabled, DAC conversion is performed"
+        ],
+        [
+          1534,
+          "  *           automatically once the data holding register is updated,"
+        ],
+        [
+          1544,
+          "  * @param  DAC_Channel This parameter can be one of the following values:"
+        ],
+        [
+          1545,
+          "  *         @arg @ref LL_DAC_CHANNEL_1"
+        ],
+        [
+          1546,
+          "  *         @arg @ref LL_DAC_CHANNEL_2"
+        ],
+        [
+          1547,
+          "  * @retval None"
+        ],
+        [
+          1548,
+          "  */"
+        ],
+        [
+          1549,
+          "__STATIC_INLINE void LL_DAC_EnableTrigger(DAC_TypeDef *DACx, uint32_t DAC_Channel)"
+        ],
+        [
+          1550,
+          "{"
+        ],
+        [
+          1551,
+          "  SET_BIT(DACx->CR,"
+        ],
+        [
+          1552,
+          "          DAC_CR_TEN1 << (DAC_Channel & DAC_CR_CHX_BITOFFSET_MASK));"
+        ],
+        [
+          1553,
+          "}"
+        ],
+        [
+          1554,
+          ""
+        ],
+        [
+          1555,
+          "/**"
+        ],
+        [
+          1556,
+          "  * @brief  Disable DAC trigger of the selected channel."
+        ],
+        [
+          1557,
+          "  * @rmtoll CR       TEN1           LL_DAC_DisableTrigger\\n"
+        ],
+        [
+          1558,
+          "  *         CR       TEN2           LL_DAC_DisableTrigger"
+        ],
+        [
+          1559,
+          "  * @param  DACx DAC instance"
+        ],
+        [
+          1560,
+          "  * @param  DAC_Channel This parameter can be one of the following values:"
+        ],
+        [
+          1561,
+          "  *         @arg @ref LL_DAC_CHANNEL_1"
+        ],
+        [
+          1562,
+          "  *         @arg @ref LL_DAC_CHANNEL_2"
+        ],
+        [
+          1563,
+          "  * @retval None"
+        ],
+        [
+          1564,
+          "  */"
+        ],
+        [
+          1565,
+          "__STATIC_INLINE void LL_DAC_DisableTrigger(DAC_TypeDef *DACx, uint32_t DAC_Channel)"
+        ],
+        [
+          1566,
+          "{"
+        ],
+        [
+          1567,
+          "  CLEAR_BIT(DACx->CR,"
+        ],
+        [
+          1568,
+          "            DAC_CR_TEN1 << (DAC_Channel & DAC_CR_CHX_BITOFFSET_MASK));"
+        ],
+        [
+          1569,
+          "}"
+        ],
+        [
+          1570,
+          ""
+        ],
+        [
+          1571,
+          "/**"
+        ],
+        [
+          1572,
+          "  * @brief  Get DAC trigger state of the selected channel."
+        ],
+        [
+          1573,
+          "  *         (0: DAC trigger is disabled, 1: DAC trigger is enabled)"
+        ],
+        [
+          1574,
+          "  * @rmtoll CR       TEN1           LL_DAC_IsTriggerEnabled\\n"
+        ],
+        [
+          1575,
+          "  *         CR       TEN2           LL_DAC_IsTriggerEnabled"
+        ],
+        [
+          1576,
+          "  * @param  DACx DAC instance"
+        ],
+        [
+          1577,
+          "  * @param  DAC_Channel This parameter can be one of the following values:"
+        ],
+        [
+          1578,
+          "  *         @arg @ref LL_DAC_CHANNEL_1"
+        ],
+        [
+          1579,
+          "  *         @arg @ref LL_DAC_CHANNEL_2"
+        ],
+        [
+          1580,
+          "  * @retval State of bit (1 or 0)."
+        ],
+        [
+          1581,
+          "  */"
+        ],
+        [
+          1582,
+          "__STATIC_INLINE uint32_t LL_DAC_IsTriggerEnabled(const DAC_TypeDef *DACx, uint32_t DAC_Channel)"
+        ],
+        [
+          1583,
+          "{"
+        ],
+        [
+          1584,
+          "  return ((READ_BIT(DACx->CR,"
+        ],
+        [
+          1585,
+          "                    DAC_CR_TEN1 << (DAC_Channel & DAC_CR_CHX_BITOFFSET_MASK))"
+        ],
+        [
+          1586,
+          "           == (DAC_CR_TEN1 << (DAC_Channel & DAC_CR_CHX_BITOFFSET_MASK))) ? 1UL : 0UL);"
+        ],
+        [
+          1587,
+          "}"
+        ],
+        [
+          1588,
+          ""
+        ],
+        [
+          1589,
+          "/**"
+        ],
+        [
+          1590,
+          "  * @brief  Trig DAC conversion by software for the selected DAC channel."
+        ],
+        [
+          1591,
+          "  * @note   Preliminarily, DAC trigger must be set to software trigger"
+        ],
+        [
+          1592,
+          "  *         using function"
+        ],
+        [
+          1600,
+          "  *         Two channels can be selected as parameter."
+        ],
+        [
+          1601,
+          "  *         Example: (LL_DAC_CHANNEL_1 | LL_DAC_CHANNEL_2)"
+        ],
+        [
+          1602,
+          "  * @rmtoll SWTRIGR  SWTRIG1        LL_DAC_TrigSWConversion\\n"
+        ],
+        [
+          1603,
+          "  *         SWTRIGR  SWTRIG2        LL_DAC_TrigSWConversion"
+        ],
+        [
+          1604,
+          "  * @param  DACx DAC instance"
+        ],
+        [
+          1605,
+          "  * @param  DAC_Channel  This parameter can a combination of the following values:"
+        ],
+        [
+          1606,
+          "  *         @arg @ref LL_DAC_CHANNEL_1"
+        ],
+        [
+          1607,
+          "  *         @arg @ref LL_DAC_CHANNEL_2"
+        ],
+        [
+          1608,
+          "  * @retval None"
+        ],
+        [
+          1609,
+          "  */"
+        ],
+        [
+          1610,
+          "__STATIC_INLINE void LL_DAC_TrigSWConversion(DAC_TypeDef *DACx, uint32_t DAC_Channel)"
+        ],
+        [
+          1611,
+          "{"
+        ],
+        [
+          1612,
+          "  SET_BIT(DACx->SWTRIGR,"
+        ],
+        [
+          1613,
+          "          (DAC_Channel & DAC_SWTR_CHX_MASK));"
+        ],
+        [
+          1614,
+          "}"
+        ],
+        [
+          1615,
+          ""
+        ],
+        [
+          1616,
+          "/**"
+        ],
+        [
+          1617,
+          "  * @brief  Set the data to be loaded in the data holding register"
+        ],
+        [
+          1618,
+          "  *         in format 12 bits left alignment (LSB aligned on bit 0),"
+        ],
+        [
+          1619,
+          "  *         for the selected DAC channel."
+        ],
+        [
+          1620,
+          "  * @rmtoll DHR12R1  DACC1DHR       LL_DAC_ConvertData12RightAligned\\n"
+        ],
+        [
+          1623,
+          "  * @param  DAC_Channel This parameter can be one of the following values:"
+        ],
+        [
+          1624,
+          "  *         @arg @ref LL_DAC_CHANNEL_1"
+        ],
+        [
+          1625,
+          "  *         @arg @ref LL_DAC_CHANNEL_2"
+        ],
+        [
+          1626,
+          "  * @param  Data Value between Min_Data=0x000 and Max_Data=0xFFF"
+        ],
+        [
+          1627,
+          "  * @retval None"
+        ],
+        [
+          1628,
+          "  */"
+        ],
+        [
+          1629,
+          "__STATIC_INLINE void LL_DAC_ConvertData12RightAligned(DAC_TypeDef *DACx, uint32_t DAC_Channel, uint32_t Data)"
+        ],
+        [
+          1630,
+          "{"
+        ],
+        [
+          1631,
+          "  __IO uint32_t *preg = __DAC_PTR_REG_OFFSET(DACx->DHR12R1, (DAC_Channel >> DAC_REG_DHR12RX_REGOFFSET_BITOFFSET_POS)"
+        ],
+        [
+          1632,
+          "                                             & DAC_REG_DHR_REGOFFSET_MASK_POSBIT0);"
+        ],
+        [
+          1633,
+          ""
+        ],
+        [
+          1634,
+          "  MODIFY_REG(*preg, DAC_DHR12R1_DACC1DHR, Data);"
+        ],
+        [
+          1635,
+          "}"
+        ],
+        [
+          1636,
+          ""
+        ],
+        [
+          1637,
+          "/**"
+        ],
+        [
+          1638,
+          "  * @brief  Set the data to be loaded in the data holding register"
+        ],
+        [
+          1644,
+          "  * @param  DAC_Channel This parameter can be one of the following values:"
+        ],
+        [
+          1645,
+          "  *         @arg @ref LL_DAC_CHANNEL_1"
+        ],
+        [
+          1646,
+          "  *         @arg @ref LL_DAC_CHANNEL_2"
+        ],
+        [
+          1647,
+          "  * @param  Data Value between Min_Data=0x000 and Max_Data=0xFFF"
+        ],
+        [
+          1648,
+          "  * @retval None"
+        ],
+        [
+          1649,
+          "  */"
+        ],
+        [
+          1650,
+          "__STATIC_INLINE void LL_DAC_ConvertData12LeftAligned(DAC_TypeDef *DACx, uint32_t DAC_Channel, uint32_t Data)"
+        ],
+        [
+          1651,
+          "{"
+        ],
+        [
+          1652,
+          "  __IO uint32_t *preg = __DAC_PTR_REG_OFFSET(DACx->DHR12R1, (DAC_Channel >> DAC_REG_DHR12LX_REGOFFSET_BITOFFSET_POS)"
+        ],
+        [
+          1653,
+          "                                             & DAC_REG_DHR_REGOFFSET_MASK_POSBIT0);"
+        ],
+        [
+          1654,
+          ""
+        ],
+        [
+          1655,
+          "  MODIFY_REG(*preg, DAC_DHR12L1_DACC1DHR, Data);"
+        ],
+        [
+          1656,
+          "}"
+        ],
+        [
+          1657,
+          ""
+        ],
+        [
+          1658,
+          "/**"
+        ],
+        [
+          1659,
+          "  * @brief  Set the data to be loaded in the data holding register"
+        ],
+        [
+          1665,
+          "  * @param  DAC_Channel This parameter can be one of the following values:"
+        ],
+        [
+          1666,
+          "  *         @arg @ref LL_DAC_CHANNEL_1"
+        ],
+        [
+          1667,
+          "  *         @arg @ref LL_DAC_CHANNEL_2"
+        ],
+        [
+          1668,
+          "  * @param  Data Value between Min_Data=0x00 and Max_Data=0xFF"
+        ],
+        [
+          1669,
+          "  * @retval None"
+        ],
+        [
+          1670,
+          "  */"
+        ],
+        [
+          1671,
+          "__STATIC_INLINE void LL_DAC_ConvertData8RightAligned(DAC_TypeDef *DACx, uint32_t DAC_Channel, uint32_t Data)"
+        ],
+        [
+          1672,
+          "{"
+        ],
+        [
+          1673,
+          "  __IO uint32_t *preg = __DAC_PTR_REG_OFFSET(DACx->DHR12R1, (DAC_Channel >> DAC_REG_DHR8RX_REGOFFSET_BITOFFSET_POS)"
+        ],
+        [
+          1674,
+          "                                             & DAC_REG_DHR_REGOFFSET_MASK_POSBIT0);"
+        ],
+        [
+          1675,
+          ""
+        ],
+        [
+          1676,
+          "  MODIFY_REG(*preg, DAC_DHR8R1_DACC1DHR, Data);"
+        ],
+        [
+          1677,
+          "}"
+        ],
+        [
+          1678,
+          ""
+        ],
+        [
+          1679,
+          ""
+        ],
+        [
+          1680,
+          "/**"
+        ],
+        [
+          1750,
+          "  * @param  DAC_Channel This parameter can be one of the following values:"
+        ],
+        [
+          1751,
+          "  *         @arg @ref LL_DAC_CHANNEL_1"
+        ],
+        [
+          1752,
+          "  *         @arg @ref LL_DAC_CHANNEL_2"
+        ],
+        [
+          1753,
+          "  * @retval Value between Min_Data=0x000 and Max_Data=0xFFF"
+        ],
+        [
+          1754,
+          "  */"
+        ],
+        [
+          1755,
+          "__STATIC_INLINE uint32_t LL_DAC_RetrieveOutputData(const DAC_TypeDef *DACx, uint32_t DAC_Channel)"
+        ],
+        [
+          1756,
+          "{"
+        ],
+        [
+          1757,
+          "  __IO uint32_t const *preg = __DAC_PTR_REG_OFFSET(DACx->DOR1, (DAC_Channel >> DAC_REG_DORX_REGOFFSET_BITOFFSET_POS)"
+        ],
+        [
+          1758,
+          "                                                   & DAC_REG_DORX_REGOFFSET_MASK_POSBIT0);"
+        ],
+        [
+          1759,
+          ""
+        ],
+        [
+          1760,
+          "  return (uint16_t) READ_BIT(*preg, DAC_DOR1_DACC1DOR);"
+        ],
+        [
+          1761,
+          "}"
+        ],
+        [
+          1762,
+          ""
+        ],
+        [
+          1763,
+          "/**"
+        ],
+        [
+          1764,
+          "  * @}"
+        ],
+        [
+          1765,
+          "  */"
+        ],
+        [
+          1926,
+          "  */"
+        ],
+        [
+          1927,
+          "__STATIC_INLINE void LL_DAC_EnableIT_DMAUDR1(DAC_TypeDef *DACx)"
+        ],
+        [
+          1928,
+          "{"
+        ],
+        [
+          1929,
+          "  SET_BIT(DACx->CR, LL_DAC_IT_DMAUDRIE1);"
+        ],
+        [
+          1930,
+          "}"
+        ],
+        [
+          1931,
+          ""
+        ],
+        [
+          1932,
+          ""
+        ],
+        [
+          1933,
+          "/**"
+        ],
+        [
+          1934,
+          "  * @brief  Enable DMA underrun interrupt for DAC channel 2"
+        ],
+        [
+          1935,
+          "  * @rmtoll CR       DMAUDRIE2      LL_DAC_EnableIT_DMAUDR2"
+        ],
+        [
+          1936,
+          "  * @param  DACx DAC instance"
+        ],
+        [
+          1937,
+          "  * @retval None"
+        ],
+        [
+          1938,
+          "  */"
+        ],
+        [
+          1939,
+          "__STATIC_INLINE void LL_DAC_EnableIT_DMAUDR2(DAC_TypeDef *DACx)"
+        ],
+        [
+          1940,
+          "{"
+        ],
+        [
+          1941,
+          "  SET_BIT(DACx->CR, LL_DAC_IT_DMAUDRIE2);"
+        ],
+        [
+          1942,
+          "}"
+        ],
+        [
+          1943,
+          ""
+        ],
+        [
+          1944,
+          ""
+        ],
+        [
+          1945,
+          "/**"
+        ],
+        [
+          1946,
+          "  * @brief  Disable DMA underrun interrupt for DAC channel 1"
+        ],
+        [
+          1947,
+          "  * @rmtoll CR       DMAUDRIE1      LL_DAC_DisableIT_DMAUDR1"
+        ],
+        [
+          1948,
+          "  * @param  DACx DAC instance"
+        ],
+        [
+          1949,
+          "  * @retval None"
+        ],
+        [
+          1950,
+          "  */"
+        ],
+        [
+          1951,
+          "__STATIC_INLINE void LL_DAC_DisableIT_DMAUDR1(DAC_TypeDef *DACx)"
+        ],
+        [
+          1952,
+          "{"
+        ],
+        [
+          1953,
+          "  CLEAR_BIT(DACx->CR, LL_DAC_IT_DMAUDRIE1);"
+        ],
+        [
+          1954,
+          "}"
+        ],
+        [
+          1955,
+          ""
+        ],
+        [
+          1956,
+          ""
+        ],
+        [
+          1957,
+          "/**"
+        ],
+        [
+          1958,
+          "  * @brief  Disable DMA underrun interrupt for DAC channel 2"
+        ],
+        [
+          1959,
+          "  * @rmtoll CR       DMAUDRIE2      LL_DAC_DisableIT_DMAUDR2"
+        ],
+        [
+          1960,
+          "  * @param  DACx DAC instance"
+        ],
+        [
+          1961,
+          "  * @retval None"
+        ],
+        [
+          1962,
+          "  */"
+        ],
+        [
+          1963,
+          "__STATIC_INLINE void LL_DAC_DisableIT_DMAUDR2(DAC_TypeDef *DACx)"
+        ],
+        [
+          1964,
+          "{"
+        ],
+        [
+          1965,
+          "  CLEAR_BIT(DACx->CR, LL_DAC_IT_DMAUDRIE2);"
+        ],
+        [
+          1966,
+          "}"
+        ],
+        [
+          1967,
+          ""
+        ],
+        [
+          1968,
+          ""
+        ],
+        [
+          1969,
+          "/**"
+        ],
+        [
+          1970,
+          "  * @brief  Get DMA underrun interrupt for DAC channel 1"
+        ],
+        [
+          1971,
+          "  * @rmtoll CR       DMAUDRIE1      LL_DAC_IsEnabledIT_DMAUDR1"
+        ],
+        [
+          1972,
+          "  * @param  DACx DAC instance"
+        ],
+        [
+          1973,
+          "  * @retval State of bit (1 or 0)."
+        ],
+        [
+          1974,
+          "  */"
+        ],
+        [
+          1975,
+          "__STATIC_INLINE uint32_t LL_DAC_IsEnabledIT_DMAUDR1(const DAC_TypeDef *DACx)"
+        ],
+        [
+          1976,
+          "{"
+        ],
+        [
+          1977,
+          "  return ((READ_BIT(DACx->CR, LL_DAC_IT_DMAUDRIE1) == (LL_DAC_IT_DMAUDRIE1)) ? 1UL : 0UL);"
+        ],
+        [
+          1978,
+          "}"
+        ],
+        [
+          1979,
+          ""
+        ],
+        [
+          1980,
+          ""
+        ],
+        [
+          1981,
+          "/**"
+        ],
+        [
+          1982,
+          "  * @brief  Get DMA underrun interrupt for DAC channel 2"
+        ],
+        [
+          1983,
+          "  * @rmtoll CR       DMAUDRIE2      LL_DAC_IsEnabledIT_DMAUDR2"
+        ],
+        [
+          1984,
+          "  * @param  DACx DAC instance"
+        ],
+        [
+          1985,
+          "  * @retval State of bit (1 or 0)."
+        ],
+        [
+          1986,
+          "  */"
+        ],
+        [
+          1987,
+          "__STATIC_INLINE uint32_t LL_DAC_IsEnabledIT_DMAUDR2(const DAC_TypeDef *DACx)"
+        ],
+        [
+          1988,
+          "{"
+        ],
+        [
+          1989,
+          "  return ((READ_BIT(DACx->CR, LL_DAC_IT_DMAUDRIE2) == (LL_DAC_IT_DMAUDRIE2)) ? 1UL : 0UL);"
+        ],
+        [
+          1990,
+          "}"
+        ],
+        [
+          1991,
+          ""
+        ],
+        [
+          1992,
+          ""
+        ],
+        [
+          1993,
+          "/**"
+        ],
+        [
+          1994,
+          "  * @brief  Enable DAC autonomous mode."
+        ],
+        [
+          1995,
+          "  * @rmtoll AUTOCR       AUTOMODE           LL_DAC_EnableAutonomousMode"
+        ],
+        [
+          1996,
+          "  * @param  DACx DAC instance"
+        ],
+        [
+          1997,
+          "  * @retval None"
+        ],
+        [
+          1998,
+          "  */"
+        ],
+        [
+          1999,
+          "__STATIC_INLINE void LL_DAC_EnableAutonomousMode(DAC_TypeDef *DACx)"
+        ],
+        [
+          2000,
+          "{"
+        ],
+        [
+          2001,
+          "  SET_BIT(DACx->AUTOCR, DAC_AUTOCR_AUTOMODE);"
+        ],
+        [
+          2002,
+          "}"
+        ],
+        [
+          2003,
+          ""
+        ],
+        [
+          2004,
+          "/**"
+        ],
+        [
+          2005,
+          "  * @brief  Disable DAC autonomous mode."
+        ],
+        [
+          2006,
+          "  * @rmtoll AUTOCR       AUTOMODE           LL_DAC_DisableAutonomousMode"
+        ],
+        [
+          2007,
+          "  * @param  DACx DAC instance"
+        ],
+        [
+          2008,
+          "  * @retval None"
+        ],
+        [
+          2009,
+          "  */"
+        ],
+        [
+          2010,
+          "__STATIC_INLINE void LL_DAC_DisableAutonomousMode(DAC_TypeDef *DACx)"
+        ],
+        [
+          2011,
+          "{"
+        ],
+        [
+          2012,
+          "  CLEAR_BIT(DACx->AUTOCR, DAC_AUTOCR_AUTOMODE);"
+        ],
+        [
+          2013,
+          "}"
+        ],
+        [
+          2014,
+          ""
+        ],
+        [
+          2015,
+          "/**"
+        ],
+        [
+          2016,
+          "  * @brief  Get DAC autonomous mode state."
+        ],
+        [
+          2017,
+          "  *         (0: DAC autonomous mode is disabled, 1: DAC autonomous mode is enabled)"
+        ],
+        [
+          2018,
+          "  * @param  DACx DAC instance"
+        ],
+        [
+          2019,
+          "  * @retval State of bit (1 or 0)."
+        ],
+        [
+          2020,
+          "  */"
+        ],
+        [
+          2021,
+          "__STATIC_INLINE uint32_t LL_DAC_IsAutonomousModeEnabled(const DAC_TypeDef *DACx)"
+        ],
+        [
+          2022,
+          "{"
+        ],
+        [
+          2023,
+          "  return ((READ_BIT(DACx->AUTOCR, DAC_AUTOCR_AUTOMODE) == (DAC_AUTOCR_AUTOMODE)) ? 1UL : 0UL);"
+        ],
+        [
+          2024,
+          "}"
+        ]
+      ]
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/modules/hal/stm32/stm32cube/stm32u5xx/drivers/include/stm32u5xx_ll_adc.h",
+      "sha256": "c72e076314ab1e3ec41928bfb04c942e321065a47ca778358f0503984f0f441f",
+      "bytes": 467733,
+      "lines": [
+        [
+          477,
+          ""
+        ],
+        [
+          478,
+          "/* ADC registers bits groups */"
+        ],
+        [
+          479,
+          "#define ADC_CR_BITS_PROPERTY_RS     ( ADC_CR_ADCAL | ADC_CR_JADSTP | ADC_CR_ADSTP | ADC_CR_JADSTART | ADC_CR_ADSTART \\"
+        ],
+        [
+          480,
+          "                                      | ADC_CR_ADDIS | ADC_CR_ADEN) /* ADC register CR bits with HW property \"rs\":"
+        ],
+        [
+          481,
+          "                                                                       Software can read as well as set this bit."
+        ],
+        [
+          482,
+          "                                                                       Writing '0' has no effect on the bit value. */"
+        ],
+        [
+          483,
+          ""
+        ],
+        [
+          484,
+          "/* ADC internal channels related definitions */"
+        ],
+        [
+          485,
+          "/* Internal voltage reference VrefInt */"
+        ],
+        [
+          486,
+          "#define VREFINT_CAL_ADDR            ((const uint16_t*) (0x0BFA07A5UL)) /* Internal voltage reference, address of parameter"
+        ],
+        [
+          487,
+          "                                                                    VREFINT_CAL: VrefInt ADC raw data acquired at"
+        ],
+        [
+          488,
+          "                                                                    temperature 30 DegC (tolerance: +-5 DegC),"
+        ],
+        [
+          489,
+          "                                                                    Vref+ = 3.0 V (tolerance: +-10 mV).              */"
+        ],
+        [
+          490,
+          "#define VREFINT_CAL_VREF            (3000UL)                     /* Analog voltage reference (Vref+) value with which"
+        ],
+        [
+          491,
+          "                                                                    VrefInt has been calibrated in production"
+        ],
+        [
+          492,
+          "                                                                    (tolerance: +-10 mV) (unit: mV).      */"
+        ],
+        [
+          493,
+          "/* Temperature sensor */"
+        ],
+        [
+          4099,
+          "  *         of which peripheral is selected as external trigger,"
+        ],
+        [
+          4100,
+          "  *         (equivalent to"
+        ],
+        [
+          4101,
+          "  *         \"if(LL_ADC_REG_GetTriggerSource(ADC1) == LL_ADC_REG_TRIG_SOFTWARE)\")"
+        ],
+        [
+          4102,
+          "  *         use function @ref LL_ADC_REG_IsTriggerSourceSWStart."
+        ],
+        [
+          4103,
+          "  * @note   Availability of parameters of trigger sources from timer"
+        ],
+        [
+          4104,
+          "  *         depends on timers availability on the selected device."
+        ],
+        [
+          4105,
+          "  * @rmtoll CFGR     EXTSEL         LL_ADC_REG_GetTriggerSource\\n"
+        ],
+        [
+          4106,
+          "  *         CFGR     EXTEN          LL_ADC_REG_GetTriggerSource"
+        ],
+        [
+          4107,
+          "  * @param  ADCx ADC instance"
+        ],
+        [
+          4108,
+          "  * @retval Returned value can be one of the following values:"
+        ],
+        [
+          4109,
+          "  *         @arg @ref LL_ADC_REG_TRIG_SOFTWARE"
+        ],
+        [
+          4110,
+          "  *         @arg @ref LL_ADC_REG_TRIG_EXT_TIM1_CH1"
+        ],
+        [
+          4111,
+          "  *         @arg @ref LL_ADC_REG_TRIG_EXT_TIM1_CH2"
+        ],
+        [
+          4112,
+          "  *         @arg @ref LL_ADC_REG_TRIG_EXT_TIM1_CH3"
+        ],
+        [
+          4113,
+          "  *         @arg @ref LL_ADC_REG_TRIG_EXT_TIM2_CH2"
+        ],
+        [
+          4114,
+          "  *         @arg @ref LL_ADC_REG_TRIG_EXT_TIM3_TRGO"
+        ],
+        [
+          4115,
+          "  *         @arg @ref LL_ADC_REG_TRIG_EXT_TIM4_CH4"
+        ],
+        [
+          4116,
+          "  *         @arg @ref LL_ADC_REG_TRIG_EXT_EXTI_LINE11"
+        ],
+        [
+          4117,
+          "  *         @arg @ref LL_ADC_REG_TRIG_EXT_TIM8_TRGO"
+        ],
+        [
+          4118,
+          "  *         @arg @ref LL_ADC_REG_TRIG_EXT_TIM8_TRGO2"
+        ],
+        [
+          4119,
+          "  *         @arg @ref LL_ADC_REG_TRIG_EXT_TIM1_TRGO"
+        ],
+        [
+          4120,
+          "  *         @arg @ref LL_ADC_REG_TRIG_EXT_TIM1_TRGO2"
+        ],
+        [
+          4128,
+          "  *         @arg @ref LL_ADC_REG_TRIG_EXT_LPTIM3_CH1"
+        ],
+        [
+          4129,
+          "  */"
+        ],
+        [
+          4130,
+          "__STATIC_INLINE uint32_t LL_ADC_REG_GetTriggerSource(const ADC_TypeDef *ADCx)"
+        ],
+        [
+          4131,
+          "{"
+        ],
+        [
+          4132,
+          "  if (ADCx != ADC4)"
+        ],
+        [
+          4133,
+          "  {"
+        ],
+        [
+          4134,
+          "    __IO uint32_t trigger_source = READ_BIT(ADCx->CFGR1, ADC_CFGR1_EXTSEL | ADC_CFGR1_EXTEN);"
+        ],
+        [
+          4135,
+          ""
+        ],
+        [
+          4136,
+          "    /* Value for shift of {0; 4; 8; 12} depending on value of bitfield          */"
+        ],
+        [
+          4137,
+          "    /* corresponding to ADC_CFGR_EXTEN {0; 1; 2; 3}.                            */"
+        ],
+        [
+          4138,
+          "    uint32_t shift_exten = ((trigger_source & ADC_CFGR1_EXTEN) >> (ADC_REG_TRIG_EXTEN_BITOFFSET_POS - 2UL));"
+        ],
+        [
+          4139,
+          ""
+        ],
+        [
+          4140,
+          "    /* Set bitfield corresponding to ADC_CFGR_EXTEN and ADC_CFGR_EXTSEL         */"
+        ],
+        [
+          4141,
+          "    /* to match with triggers literals definition.                              */"
+        ],
+        [
+          4142,
+          "    return ((trigger_source"
+        ],
+        [
+          4143,
+          "             & (ADC_REG_TRIG_SOURCE_MASK >> shift_exten) & ADC_CFGR1_EXTSEL)"
+        ],
+        [
+          4144,
+          "            | ((ADC_REG_TRIG_EDGE_MASK >> shift_exten) & ADC_CFGR1_EXTEN)"
+        ],
+        [
+          4167,
+          "  * @note   In case of group regular trigger source set to external trigger,"
+        ],
+        [
+          4168,
+          "  *         to determine which peripheral is selected as external trigger,"
+        ],
+        [
+          4169,
+          "  *         use function @ref LL_ADC_REG_GetTriggerSource()."
+        ],
+        [
+          4170,
+          "  * @rmtoll CFGR     EXTEN          LL_ADC_REG_IsTriggerSourceSWStart"
+        ],
+        [
+          4171,
+          "  * @param  ADCx ADC instance"
+        ],
+        [
+          4172,
+          "  * @retval Value \"0\" if trigger source external trigger"
+        ],
+        [
+          4173,
+          "  *         Value \"1\" if trigger source SW start."
+        ],
+        [
+          4174,
+          "  */"
+        ],
+        [
+          4175,
+          "__STATIC_INLINE uint32_t LL_ADC_REG_IsTriggerSourceSWStart(const ADC_TypeDef *ADCx)"
+        ],
+        [
+          4176,
+          "{"
+        ],
+        [
+          4177,
+          "  return ((READ_BIT(ADCx->CFGR1, ADC_CFGR1_EXTEN) == (LL_ADC_REG_TRIG_SOFTWARE & ADC_CFGR1_EXTEN)) ? 1UL : 0UL);"
+        ],
+        [
+          4178,
+          "}"
+        ],
+        [
+          4179,
+          ""
+        ],
+        [
+          4180,
+          "/**"
+        ],
+        [
+          4181,
+          "  * @brief  Set ADC group regular conversion trigger polarity."
+        ],
+        [
+          4182,
+          "  * @note   Applicable only for trigger source set to external trigger."
+        ],
+        [
+          4183,
+          "  * @note   On this STM32 series, setting of this feature is conditioned to"
+        ],
+        [
+          5438,
+          "  *         - continuous mode: after the first trigger, following"
+        ],
+        [
+          5439,
+          "  *           conversions launched successively automatically."
+        ],
+        [
+          5440,
+          "  * @rmtoll CFGR     CONT           LL_ADC_REG_GetContinuousMode"
+        ],
+        [
+          5441,
+          "  * @param  ADCx ADC instance"
+        ],
+        [
+          5442,
+          "  * @retval Returned value can be one of the following values:"
+        ],
+        [
+          5443,
+          "  *         @arg @ref LL_ADC_REG_CONV_SINGLE"
+        ],
+        [
+          5444,
+          "  *         @arg @ref LL_ADC_REG_CONV_CONTINUOUS"
+        ],
+        [
+          5445,
+          "  */"
+        ],
+        [
+          5446,
+          "__STATIC_INLINE uint32_t LL_ADC_REG_GetContinuousMode(const ADC_TypeDef *ADCx)"
+        ],
+        [
+          5447,
+          "{"
+        ],
+        [
+          5448,
+          "  return (uint32_t)(READ_BIT(ADCx->CFGR1, ADC_CFGR1_CONT));"
+        ],
+        [
+          5449,
+          "}"
+        ],
+        [
+          5450,
+          ""
+        ],
+        [
+          5451,
+          "/**"
+        ],
+        [
+          5452,
+          "  * @brief  Set ADC data transfer mode"
+        ],
+        [
+          5453,
+          "  * @note   Conversion data can be either:"
+        ],
+        [
+          5454,
+          "  *            - Available in Data Register"
+        ],
+        [
+          5455,
+          "  *            - Transferred by DMA in one shot mode"
+        ],
+        [
+          5456,
+          "  *            - Transferred by DMA in circular mode"
+        ],
+        [
+          5457,
+          "  *            - Transferred to MDF data register"
+        ],
+        [
+          5458,
+          "  * @rmtoll CFGR     DMNGT           LL_ADC_REG_SetDataTransferMode"
+        ],
+        [
+          5459,
+          "  * @param  ADCx ADC instance"
+        ],
+        [
+          5460,
+          "  * @param  DataTransferMode This parameter can be one of the following values:"
+        ],
+        [
+          7767,
+          "  /*       instead of modifying only the selected bit for this function,      */"
+        ],
+        [
+          7768,
+          "  /*       to not interfere with bits with HW property \"rs\".                  */"
+        ],
+        [
+          7769,
+          "  MODIFY_REG(ADCx->CR, ADC_CR_BITS_PROPERTY_RS, ADC_CR_DEEPPWD);"
+        ],
+        [
+          7770,
+          "}"
+        ],
+        [
+          7771,
+          ""
+        ],
+        [
+          7772,
+          "/**"
+        ],
+        [
+          7773,
+          "  * @brief  Disable ADC deep power down mode."
+        ],
+        [
+          7774,
+          "  * @note   In case of ADC calibration necessary: When ADC is in deep-power-down"
+        ],
+        [
+          7775,
+          "  *         state, the internal analog calibration is lost. After exiting from"
+        ],
+        [
+          7776,
+          "  *         deep power down, calibration must be relaunched or calibration factor"
+        ],
+        [
+          7777,
+          "  *         (preliminarily saved) must be set back into calibration register."
+        ],
+        [
+          7778,
+          "  * @note   On this STM32 series, setting of this feature is conditioned to"
+        ],
+        [
+          7779,
+          "  *         ADC state:"
+        ],
+        [
+          7780,
+          "  *         ADC must be ADC disabled."
+        ],
+        [
+          7781,
+          "  * @rmtoll CR       DEEPPWD        LL_ADC_DisableDeepPowerDown"
+        ],
+        [
+          7782,
+          "  * @param  ADCx ADC instance"
+        ],
+        [
+          7783,
+          "  * @retval None"
+        ],
+        [
+          7788,
+          "  /*       instead of modifying only the selected bit for this function,      */"
+        ],
+        [
+          7789,
+          "  /*       to not interfere with bits with HW property \"rs\".                  */"
+        ],
+        [
+          7790,
+          "  CLEAR_BIT(ADCx->CR, (ADC_CR_DEEPPWD | ADC_CR_BITS_PROPERTY_RS));"
+        ],
+        [
+          7791,
+          "}"
+        ],
+        [
+          7792,
+          ""
+        ],
+        [
+          7793,
+          "/**"
+        ],
+        [
+          7794,
+          "  * @brief  Get the selected ADC instance deep power down state."
+        ],
+        [
+          7795,
+          "  * @rmtoll CR       DEEPPWD        LL_ADC_IsDeepPowerDownEnabled"
+        ],
+        [
+          7796,
+          "  * @param  ADCx ADC instance"
+        ],
+        [
+          7797,
+          "  * @retval 0: deep power down is disabled, 1: deep power down is enabled."
+        ],
+        [
+          7798,
+          "  */"
+        ],
+        [
+          7799,
+          "__STATIC_INLINE uint32_t LL_ADC_IsDeepPowerDownEnabled(const ADC_TypeDef *ADCx)"
+        ],
+        [
+          7800,
+          "{"
+        ],
+        [
+          7801,
+          "  return ((READ_BIT(ADCx->CR, ADC_CR_DEEPPWD) == (ADC_CR_DEEPPWD)) ? 1UL : 0UL);"
+        ],
+        [
+          7802,
+          "}"
+        ],
+        [
+          7803,
+          ""
+        ],
+        [
+          7804,
+          "/**"
+        ],
+        [
+          7821,
+          "  /*       instead of modifying only the selected bit for this function,      */"
+        ],
+        [
+          7822,
+          "  /*       to not interfere with bits with HW property \"rs\".                  */"
+        ],
+        [
+          7823,
+          "  MODIFY_REG(ADCx->CR, ADC_CR_BITS_PROPERTY_RS, ADC_CR_ADVREGEN);"
+        ],
+        [
+          7824,
+          "}"
+        ],
+        [
+          7825,
+          ""
+        ],
+        [
+          7826,
+          "/**"
+        ],
+        [
+          7827,
+          "  * @brief  Disable ADC internal voltage regulator."
+        ],
+        [
+          7828,
+          "  * @note   On this STM32 series, setting of this feature is conditioned to"
+        ],
+        [
+          7829,
+          "  *         ADC state:"
+        ],
+        [
+          7830,
+          "  *         ADC must be ADC disabled."
+        ],
+        [
+          7831,
+          "  * @rmtoll CR       ADVREGEN       LL_ADC_DisableInternalRegulator"
+        ],
+        [
+          7832,
+          "  * @param  ADCx ADC instance"
+        ],
+        [
+          7833,
+          "  * @retval None"
+        ],
+        [
+          7834,
+          "  */"
+        ],
+        [
+          7835,
+          "__STATIC_INLINE void LL_ADC_DisableInternalRegulator(ADC_TypeDef *ADCx)"
+        ],
+        [
+          7836,
+          "{"
+        ],
+        [
+          7837,
+          "  CLEAR_BIT(ADCx->CR, (ADC_CR_ADVREGEN | ADC_CR_BITS_PROPERTY_RS));"
+        ],
+        [
+          7838,
+          "}"
+        ],
+        [
+          7839,
+          ""
+        ],
+        [
+          7840,
+          "/**"
+        ],
+        [
+          7841,
+          "  * @brief  Get the selected ADC instance internal voltage regulator state."
+        ],
+        [
+          7842,
+          "  * @rmtoll CR       ADVREGEN       LL_ADC_IsInternalRegulatorEnabled"
+        ],
+        [
+          7843,
+          "  * @param  ADCx ADC instance"
+        ],
+        [
+          7844,
+          "  * @retval 0: internal regulator is disabled, 1: internal regulator is enabled."
+        ],
+        [
+          7845,
+          "  */"
+        ],
+        [
+          7846,
+          "__STATIC_INLINE uint32_t LL_ADC_IsInternalRegulatorEnabled(const ADC_TypeDef *ADCx)"
+        ],
+        [
+          7847,
+          "{"
+        ],
+        [
+          7848,
+          "  return ((READ_BIT(ADCx->CR, ADC_CR_ADVREGEN) == (ADC_CR_ADVREGEN)) ? 1UL : 0UL);"
+        ],
+        [
+          7849,
+          "}"
+        ],
+        [
+          7850,
+          ""
+        ],
+        [
+          7851,
+          "/**"
+        ],
+        [
+          7870,
+          "  /*       instead of modifying only the selected bit for this function,      */"
+        ],
+        [
+          7871,
+          "  /*       to not interfere with bits with HW property \"rs\".                  */"
+        ],
+        [
+          7872,
+          "  MODIFY_REG(ADCx->CR, ADC_CR_BITS_PROPERTY_RS, ADC_CR_ADEN);"
+        ],
+        [
+          7873,
+          "}"
+        ],
+        [
+          7874,
+          ""
+        ],
+        [
+          7875,
+          "/**"
+        ],
+        [
+          7876,
+          "  * @brief  Disable the selected ADC instance."
+        ],
+        [
+          7877,
+          "  * @note   On this STM32 series, setting of this feature is conditioned to"
+        ],
+        [
+          7878,
+          "  *         ADC state:"
+        ],
+        [
+          7879,
+          "  *         ADC must be not disabled. Must be enabled without conversion on going"
+        ],
+        [
+          7880,
+          "  *         on either groups regular or injected."
+        ],
+        [
+          7881,
+          "  * @rmtoll CR       ADDIS          LL_ADC_Disable"
+        ],
+        [
+          7882,
+          "  * @param  ADCx ADC instance"
+        ],
+        [
+          7883,
+          "  * @retval None"
+        ],
+        [
+          7884,
+          "  */"
+        ],
+        [
+          7885,
+          "__STATIC_INLINE void LL_ADC_Disable(ADC_TypeDef *ADCx)"
+        ],
+        [
+          7886,
+          "{"
+        ],
+        [
+          7888,
+          "  /*       instead of modifying only the selected bit for this function,      */"
+        ],
+        [
+          7889,
+          "  /*       to not interfere with bits with HW property \"rs\".                  */"
+        ],
+        [
+          7890,
+          "  MODIFY_REG(ADCx->CR, ADC_CR_BITS_PROPERTY_RS, ADC_CR_ADDIS);"
+        ],
+        [
+          7891,
+          "}"
+        ],
+        [
+          7892,
+          ""
+        ],
+        [
+          7893,
+          "/**"
+        ],
+        [
+          7894,
+          "  * @brief  Get the selected ADC instance enable state."
+        ],
+        [
+          7895,
+          "  * @note   On this STM32 series, flag LL_ADC_FLAG_ADRDY is raised when the ADC"
+        ],
+        [
+          7896,
+          "  *         is enabled and when conversion clock is active."
+        ],
+        [
+          7897,
+          "  *         (not only core clock: this ADC has a dual clock domain)"
+        ],
+        [
+          7898,
+          "  * @rmtoll CR       ADEN           LL_ADC_IsEnabled"
+        ],
+        [
+          7899,
+          "  * @param  ADCx ADC instance"
+        ],
+        [
+          7900,
+          "  * @retval 0: ADC is disabled, 1: ADC is enabled."
+        ],
+        [
+          7901,
+          "  */"
+        ],
+        [
+          7902,
+          "__STATIC_INLINE uint32_t LL_ADC_IsEnabled(const ADC_TypeDef *ADCx)"
+        ],
+        [
+          7903,
+          "{"
+        ],
+        [
+          7904,
+          "  return ((READ_BIT(ADCx->CR, ADC_CR_ADEN) == (ADC_CR_ADEN)) ? 1UL : 0UL);"
+        ],
+        [
+          7954,
+          "  {"
+        ],
+        [
+          7955,
+          "    MODIFY_REG(ADCx->CR,"
+        ],
+        [
+          7956,
+          "               ADC_CR_ADCALLIN | ADC_CR_BITS_PROPERTY_RS,"
+        ],
+        [
+          7957,
+          "               ADC_CR_ADCAL | (CalibrationMode & ADC_CALIB_MODE_MASK));"
+        ],
+        [
+          7958,
+          "  }"
+        ],
+        [
+          7959,
+          "  else"
+        ],
+        [
+          7960,
+          "  {"
+        ],
+        [
+          7961,
+          "    MODIFY_REG(ADCx->CR,  ADC_CR_BITS_PROPERTY_RS,    ADC_CR_ADCAL);"
+        ],
+        [
+          7962,
+          "  }"
+        ],
+        [
+          7963,
+          "}"
+        ],
+        [
+          7964,
+          ""
+        ],
+        [
+          7965,
+          "/**"
+        ],
+        [
+          7966,
+          "  * @brief  Get ADC calibration state."
+        ],
+        [
+          7967,
+          "  * @rmtoll CR       ADCAL          LL_ADC_IsCalibrationOnGoing"
+        ],
+        [
+          7968,
+          "  * @param  ADCx ADC instance"
+        ],
+        [
+          7969,
+          "  * @retval 0: calibration complete, 1: calibration in progress."
+        ],
+        [
+          7970,
+          "  */"
+        ],
+        [
+          7971,
+          "__STATIC_INLINE uint32_t LL_ADC_IsCalibrationOnGoing(const ADC_TypeDef *ADCx)"
+        ],
+        [
+          7972,
+          "{"
+        ],
+        [
+          7973,
+          "  return ((READ_BIT(ADCx->CR, ADC_CR_ADCAL) == (ADC_CR_ADCAL)) ? 1UL : 0UL);"
+        ],
+        [
+          7974,
+          "}"
+        ],
+        [
+          7975,
+          ""
+        ],
+        [
+          7976,
+          "/**"
+        ],
+        [
+          7977,
+          "  * @}"
+        ],
+        [
+          7978,
+          "  */"
+        ],
+        [
+          7979,
+          ""
+        ],
+        [
+          7980,
+          "/** @defgroup ADC_LL_EF_Operation_ADC_Group_Regular Operation on ADC hierarchical scope: group regular"
+        ],
+        [
+          7981,
+          "  * @{"
+        ],
+        [
+          7982,
+          "  */"
+        ],
+        [
+          7983,
+          ""
+        ],
+        [
+          7984,
+          "/**"
+        ],
+        [
+          7985,
+          "  * @brief  Start ADC group regular conversion."
+        ],
+        [
+          8005,
+          "  /*       instead of modifying only the selected bit for this function,      */"
+        ],
+        [
+          8006,
+          "  /*       to not interfere with bits with HW property \"rs\".                  */"
+        ],
+        [
+          8007,
+          "  MODIFY_REG(ADCx->CR, ADC_CR_BITS_PROPERTY_RS, ADC_CR_ADSTART);"
+        ],
+        [
+          8008,
+          "}"
+        ],
+        [
+          8009,
+          ""
+        ],
+        [
+          8010,
+          "/**"
+        ],
+        [
+          8011,
+          "  * @brief  Stop ADC group regular conversion."
+        ],
+        [
+          8012,
+          "  * @note   On this STM32 series, setting of this feature is conditioned to"
+        ],
+        [
+          8013,
+          "  *         ADC state:"
+        ],
+        [
+          8014,
+          "  *         ADC must be enabled with conversion on going on group regular,"
+        ],
+        [
+          8015,
+          "  *         without ADC disable command on going."
+        ],
+        [
+          8016,
+          "  * @rmtoll CR       ADSTP          LL_ADC_REG_StopConversion"
+        ],
+        [
+          8017,
+          "  * @param  ADCx ADC instance"
+        ],
+        [
+          8018,
+          "  * @retval None"
+        ],
+        [
+          8019,
+          "  */"
+        ],
+        [
+          8020,
+          "__STATIC_INLINE void LL_ADC_REG_StopConversion(ADC_TypeDef *ADCx)"
+        ],
+        [
+          8021,
+          "{"
+        ],
+        [
+          8024,
+          "  /*       to not interfere with bits with HW property \"rs\".                  */"
+        ],
+        [
+          8025,
+          "  MODIFY_REG(ADCx->CR,"
+        ],
+        [
+          8026,
+          "             ADC_CR_BITS_PROPERTY_RS,"
+        ],
+        [
+          8027,
+          "             ADC_CR_ADSTP);"
+        ],
+        [
+          8028,
+          "}"
+        ],
+        [
+          8029,
+          ""
+        ],
+        [
+          8030,
+          "/**"
+        ],
+        [
+          8031,
+          "  * @brief  Get ADC group regular conversion state."
+        ],
+        [
+          8032,
+          "  * @rmtoll CR       ADSTART        LL_ADC_REG_IsConversionOngoing"
+        ],
+        [
+          8033,
+          "  * @param  ADCx ADC instance"
+        ],
+        [
+          8034,
+          "  * @retval 0: no conversion is on going on ADC group regular."
+        ],
+        [
+          8035,
+          "  */"
+        ],
+        [
+          8036,
+          "__STATIC_INLINE uint32_t LL_ADC_REG_IsConversionOngoing(const ADC_TypeDef *ADCx)"
+        ],
+        [
+          8037,
+          "{"
+        ],
+        [
+          8038,
+          "  return ((READ_BIT(ADCx->CR, ADC_CR_ADSTART) == (ADC_CR_ADSTART)) ? 1UL : 0UL);"
+        ],
+        [
+          8039,
+          "}"
+        ],
+        [
+          8040,
+          ""
+        ],
+        [
+          8041,
+          "/**"
+        ],
+        [
+          8042,
+          "  * @brief  Get ADC group regular command of conversion stop state"
+        ],
+        [
+          8043,
+          "  * @rmtoll CR       ADSTP          LL_ADC_REG_IsStopConversionOngoing"
+        ],
+        [
+          8044,
+          "  * @param  ADCx ADC instance"
+        ],
+        [
+          8045,
+          "  * @retval 0: no command of conversion stop is on going on ADC group regular."
+        ],
+        [
+          8046,
+          "  */"
+        ],
+        [
+          8047,
+          "__STATIC_INLINE uint32_t LL_ADC_REG_IsStopConversionOngoing(const ADC_TypeDef *ADCx)"
+        ],
+        [
+          8048,
+          "{"
+        ],
+        [
+          8049,
+          "  return ((READ_BIT(ADCx->CR, ADC_CR_ADSTP) == (ADC_CR_ADSTP)) ? 1UL : 0UL);"
+        ],
+        [
+          8050,
+          "}"
+        ],
+        [
+          8198,
+          "  /*       instead of modifying only the selected bit for this function,      */"
+        ],
+        [
+          8199,
+          "  /*       to not interfere with bits with HW property \"rs\".                  */"
+        ],
+        [
+          8200,
+          "  MODIFY_REG(ADCx->CR, ADC_CR_BITS_PROPERTY_RS, ADC_CR_JADSTART);"
+        ],
+        [
+          8201,
+          "}"
+        ],
+        [
+          8202,
+          ""
+        ],
+        [
+          8203,
+          "/**"
+        ],
+        [
+          8204,
+          "  * @brief  Stop ADC group injected conversion."
+        ],
+        [
+          8205,
+          "  * @note   On this STM32 series, setting of this feature is conditioned to"
+        ],
+        [
+          8206,
+          "  *         ADC state:"
+        ],
+        [
+          8207,
+          "  *         ADC must be enabled with conversion on going on group injected,"
+        ],
+        [
+          8208,
+          "  *         without ADC disable command on going."
+        ],
+        [
+          8209,
+          "  * @rmtoll CR       JADSTP         LL_ADC_INJ_StopConversion"
+        ],
+        [
+          8210,
+          "  * @param  ADCx ADC instance"
+        ],
+        [
+          8211,
+          "  * @retval None"
+        ],
+        [
+          8212,
+          "  */"
+        ],
+        [
+          8213,
+          "__STATIC_INLINE void LL_ADC_INJ_StopConversion(ADC_TypeDef *ADCx)"
+        ],
+        [
+          8214,
+          "{"
+        ],
+        [
+          8216,
+          "  /*       instead of modifying only the selected bit for this function,      */"
+        ],
+        [
+          8217,
+          "  /*       to not interfere with bits with HW property \"rs\".                  */"
+        ],
+        [
+          8218,
+          "  MODIFY_REG(ADCx->CR, ADC_CR_BITS_PROPERTY_RS, ADC_CR_JADSTP);"
+        ],
+        [
+          8219,
+          "}"
+        ],
+        [
+          8220,
+          ""
+        ],
+        [
+          8221,
+          "/**"
+        ],
+        [
+          8222,
+          "  * @brief  Get ADC group injected conversion state."
+        ],
+        [
+          8223,
+          "  * @rmtoll CR       JADSTART       LL_ADC_INJ_IsConversionOngoing"
+        ],
+        [
+          8224,
+          "  * @param  ADCx ADC instance"
+        ],
+        [
+          8225,
+          "  * @retval 0: no conversion is on going on ADC group injected."
+        ],
+        [
+          8226,
+          "  */"
+        ],
+        [
+          8227,
+          "__STATIC_INLINE uint32_t LL_ADC_INJ_IsConversionOngoing(const ADC_TypeDef *ADCx)"
+        ],
+        [
+          8228,
+          "{"
+        ],
+        [
+          8229,
+          "  return ((READ_BIT(ADCx->CR, ADC_CR_JADSTART) == (ADC_CR_JADSTART)) ? 1UL : 0UL);"
+        ],
+        [
+          8230,
+          "}"
+        ],
+        [
+          8231,
+          ""
+        ],
+        [
+          8232,
+          "/**"
+        ]
+      ]
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/modules/hal/stm32/stm32cube/stm32u5xx/soc/stm32u585xx.h",
+      "sha256": "8b66d5b9d1514f3ce0950b7a96402e7c026a0779e1cc36c3771be05432b68c06",
+      "bytes": 1517115,
+      "lines": [
+        [
+          3643,
+          "#define ADC4_CFGR1_DMAEN_Pos                (0UL)"
+        ],
+        [
+          3644,
+          "#define ADC4_CFGR1_DMAEN_Msk                (0x1UL << ADC4_CFGR1_DMAEN_Pos)"
+        ],
+        [
+          3645,
+          "#define ADC4_CFGR1_DMAEN                    ADC4_CFGR1_DMAEN_Msk"
+        ],
+        [
+          3646,
+          "#define ADC4_CFGR1_DMACFG_Pos               (1UL)"
+        ],
+        [
+          3647,
+          "#define ADC4_CFGR1_DMACFG_Msk               (0x1UL << ADC4_CFGR1_DMACFG_Pos)"
+        ],
+        [
+          3684,
+          "#define ADC4_CFGR1_WAIT_Pos                (14UL)"
+        ],
+        [
+          3685,
+          "#define ADC4_CFGR1_WAIT_Msk                (0x1UL << ADC4_CFGR1_WAIT_Pos)"
+        ],
+        [
+          3686,
+          "#define ADC4_CFGR1_WAIT                    ADC4_CFGR1_WAIT_Msk"
+        ],
+        [
+          3687,
+          ""
+        ],
+        [
+          3688,
+          "#define ADC_CFGR1_DISCEN_Pos               (16UL)"
+        ],
+        [
+          5422,
+          "#define DAC_CR_EN1_Pos                      (0UL)"
+        ],
+        [
+          5423,
+          "#define DAC_CR_EN1_Msk                      (0x1UL << DAC_CR_EN1_Pos)"
+        ],
+        [
+          5424,
+          "#define DAC_CR_EN1                          DAC_CR_EN1_Msk"
+        ],
+        [
+          5425,
+          "#define DAC_CR_TEN1_Pos                     (1UL)"
+        ],
+        [
+          5426,
+          "#define DAC_CR_TEN1_Msk                     (0x1UL << DAC_CR_TEN1_Pos)"
+        ],
+        [
+          5427,
+          "#define DAC_CR_TEN1                         DAC_CR_TEN1_Msk"
+        ],
+        [
+          5428,
+          "#define DAC_CR_TSEL1_Pos                    (2UL)"
+        ],
+        [
+          5429,
+          "#define DAC_CR_TSEL1_Msk                    (0xFUL << DAC_CR_TSEL1_Pos)"
+        ],
+        [
+          5435,
+          "#define DAC_CR_WAVE1_Pos                    (6UL)"
+        ],
+        [
+          5436,
+          "#define DAC_CR_WAVE1_Msk                    (0x3UL << DAC_CR_WAVE1_Pos)"
+        ],
+        [
+          5437,
+          "#define DAC_CR_WAVE1                        DAC_CR_WAVE1_Msk"
+        ],
+        [
+          5438,
+          "#define DAC_CR_WAVE1_0                      (0x1UL << DAC_CR_WAVE1_Pos)"
+        ],
+        [
+          5439,
+          "#define DAC_CR_WAVE1_1                      (0x2UL << DAC_CR_WAVE1_Pos)"
+        ],
+        [
+          5440,
+          "#define DAC_CR_MAMP1_Pos                    (8UL)"
+        ],
+        [
+          5441,
+          "#define DAC_CR_MAMP1_Msk                    (0xFUL << DAC_CR_MAMP1_Pos)"
+        ],
+        [
+          5442,
+          "#define DAC_CR_MAMP1                        DAC_CR_MAMP1_Msk"
+        ],
+        [
+          5443,
+          "#define DAC_CR_MAMP1_0                      (0x1UL << DAC_CR_MAMP1_Pos)"
+        ],
+        [
+          5444,
+          "#define DAC_CR_MAMP1_1                      (0x2UL << DAC_CR_MAMP1_Pos)"
+        ],
+        [
+          5445,
+          "#define DAC_CR_MAMP1_2                      (0x4UL << DAC_CR_MAMP1_Pos)"
+        ],
+        [
+          5446,
+          "#define DAC_CR_MAMP1_3                      (0x8UL << DAC_CR_MAMP1_Pos)"
+        ],
+        [
+          5447,
+          "#define DAC_CR_DMAEN1_Pos                   (12UL)"
+        ],
+        [
+          5448,
+          "#define DAC_CR_DMAEN1_Msk                   (0x1UL << DAC_CR_DMAEN1_Pos)"
+        ],
+        [
+          5449,
+          "#define DAC_CR_DMAEN1                       DAC_CR_DMAEN1_Msk"
+        ],
+        [
+          5450,
+          "#define DAC_CR_DMAUDRIE1_Pos                (13UL)"
+        ],
+        [
+          5451,
+          "#define DAC_CR_DMAUDRIE1_Msk                (0x1UL << DAC_CR_DMAUDRIE1_Pos)"
+        ],
+        [
+          5452,
+          "#define DAC_CR_DMAUDRIE1                    DAC_CR_DMAUDRIE1_Msk"
+        ],
+        [
+          5453,
+          "#define DAC_CR_CEN1_Pos                     (14UL)"
+        ],
+        [
+          5454,
+          "#define DAC_CR_CEN1_Msk                     (0x1UL << DAC_CR_CEN1_Pos)"
+        ],
+        [
+          5455,
+          "#define DAC_CR_CEN1                         DAC_CR_CEN1_Msk"
+        ],
+        [
+          5456,
+          "#define DAC_CR_EN2_Pos                      (16UL)"
+        ],
+        [
+          5457,
+          "#define DAC_CR_EN2_Msk                      (0x1UL << DAC_CR_EN2_Pos)"
+        ],
+        [
+          16633,
+          "#define RCC_AHB2ENR1_ADC12EN_Pos             (10UL)"
+        ],
+        [
+          16634,
+          "#define RCC_AHB2ENR1_ADC12EN_Msk             (0x1UL << RCC_AHB2ENR1_ADC12EN_Pos)"
+        ],
+        [
+          16635,
+          "#define RCC_AHB2ENR1_ADC12EN                 RCC_AHB2ENR1_ADC12EN_Msk"
+        ],
+        [
+          16636,
+          "#define RCC_AHB2ENR1_DCMI_PSSIEN_Pos        (12UL)"
+        ],
+        [
+          16637,
+          "#define RCC_AHB2ENR1_DCMI_PSSIEN_Msk        (0x1UL << RCC_AHB2ENR1_DCMI_PSSIEN_Pos)"
+        ],
+        [
+          16697,
+          "#define RCC_AHB3ENR_ADC4EN_Pos              (5UL)"
+        ],
+        [
+          16698,
+          "#define RCC_AHB3ENR_ADC4EN_Msk              (0x1UL << RCC_AHB3ENR_ADC4EN_Pos)"
+        ],
+        [
+          16699,
+          "#define RCC_AHB3ENR_ADC4EN                  RCC_AHB3ENR_ADC4EN_Msk"
+        ],
+        [
+          16700,
+          "#define RCC_AHB3ENR_DAC1EN_Pos              (6UL)"
+        ],
+        [
+          16701,
+          "#define RCC_AHB3ENR_DAC1EN_Msk              (0x1UL << RCC_AHB3ENR_DAC1EN_Pos)"
+        ],
+        [
+          17312,
+          "#define RCC_CCIPR3_ADCDACSEL_Pos            (12UL)"
+        ],
+        [
+          17313,
+          "#define RCC_CCIPR3_ADCDACSEL_Msk            (0x7UL << RCC_CCIPR3_ADCDACSEL_Pos)"
+        ],
+        [
+          17314,
+          "#define RCC_CCIPR3_ADCDACSEL                RCC_CCIPR3_ADCDACSEL_Msk"
+        ],
+        [
+          17315,
+          "#define RCC_CCIPR3_ADCDACSEL_0              (0x1UL << RCC_CCIPR3_ADCDACSEL_Pos)"
+        ],
+        [
+          17316,
+          "#define RCC_CCIPR3_ADCDACSEL_1              (0x2UL << RCC_CCIPR3_ADCDACSEL_Pos)"
+        ],
+        [
+          17317,
+          "#define RCC_CCIPR3_ADCDACSEL_2              (0x4UL << RCC_CCIPR3_ADCDACSEL_Pos)"
+        ],
+        [
+          17318,
+          "#define RCC_CCIPR3_DAC1SEL_Pos              (15UL)"
+        ],
+        [
+          17319,
+          "#define RCC_CCIPR3_DAC1SEL_Msk              (0x1UL << RCC_CCIPR3_DAC1SEL_Pos)"
+        ]
+      ]
+    },
+    {
+      "cmsis_wrapper_candidates": [
+        {
+          "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/modules/cmsis_6/cmsis_core_m_defaults.h",
+          "sha256": "a68679f75af648fc0cc48798f900bc752345465398a9c388648a307ea6b67796",
+          "matches": []
+        }
+      ]
+    },
+    {
+      "gdb": "p __pinctrl_state_pins_0__device_dts_ord_64",
+      "exit": 0,
+      "stdout": "$1 = {{pinmux = 144, pincfg = 0}, {pinmux = 176, pincfg = 0}}\n",
+      "stderr": ""
+    },
+    {
+      "gdb": "p __pinctrl_dev_config__device_dts_ord_54",
+      "exit": 0,
+      "stdout": "$1 = {states = 0x801dfb0 <adc_stm32_cfg_0>, state_cnt = 0 '\\000'}\n",
+      "stderr": ""
+    },
+    {
+      "gdb": "p/x *(unsigned int*)0x080098e8",
+      "exit": 0,
+      "stdout": "$1 = 0x801c238\n",
+      "stderr": ""
+    },
+    {
+      "gdb": "p/x *(unsigned int*)0x080098f4",
+      "exit": 0,
+      "stdout": "$1 = 0x801c214\n",
+      "stderr": ""
+    },
+    {
+      "gdb": "p/x &__device_dts_ord_17",
+      "exit": 0,
+      "stdout": "$1 = 0x801c238\n",
+      "stderr": ""
+    },
+    {
+      "gdb": "p/x &__device_dts_ord_54",
+      "exit": 0,
+      "stdout": "$1 = 0x801c214\n",
+      "stderr": ""
+    },
+    {
+      "gdb": "disassemble z_impl_device_init",
+      "exit": 1,
+      "stdout": "",
+      "stderr": "No function contains specified address.\n"
+    },
+    {
+      "gdb": "disassemble do_device_init",
+      "exit": 0,
+      "stdout": "Dump of assembler code for function do_device_init:\n   0x08019e2c <+0>:\tpush\t{r4, lr}\n   0x08019e2e <+2>:\tldr\tr3, [r0, #20]\n   0x08019e30 <+4>:\tmov\tr4, r0\n   0x08019e32 <+6>:\tcbnz\tr3, 0x8019e44 <do_device_init+24>\n   0x08019e34 <+8>:\tmovs\tr0, #0\n   0x08019e36 <+10>:\tldr\tr2, [r4, #12]\n   0x08019e38 <+12>:\tnegs\tr0, r0\n   0x08019e3a <+14>:\tldrb\tr3, [r2, #1]\n   0x08019e3c <+16>:\torr.w\tr3, r3, #1\n   0x08019e40 <+20>:\tstrb\tr3, [r2, #1]\n   0x08019e42 <+22>:\tpop\t{r4, pc}\n   0x08019e44 <+24>:\tblx\tr3\n   0x08019e46 <+26>:\tcmp\tr0, #0\n   0x08019e48 <+28>:\tbeq.n\t0x8019e34 <do_device_init+8>\n   0x08019e4a <+30>:\tcmp\tr0, #0\n   0x08019e4c <+32>:\tit\tlt\n   0x08019e4e <+34>:\tneglt\tr0, r0\n   0x08019e50 <+36>:\tcmp\tr0, #255\t@ 0xff\n   0x08019e52 <+38>:\tit\tge\n   0x08019e54 <+40>:\tmovge\tr0, #255\t@ 0xff\n   0x08019e56 <+42>:\tldr\tr3, [r4, #12]\n   0x08019e58 <+44>:\tstrb\tr0, [r3, #0]\n   0x08019e5a <+46>:\tb.n\t0x8019e36 <do_device_init+10>\nEnd of assembler dump.\n",
+      "stderr": ""
+    },
+    {
+      "gdb": "disassemble z_impl_device_deinit",
+      "exit": 1,
+      "stdout": "",
+      "stderr": "No function contains specified address.\n"
+    },
+    {
+      "gdb": "disassemble adc_stm32_disable",
+      "exit": 0,
+      "stdout": "Dump of assembler code for function adc_stm32_disable:\n   0x080183d2 <+0>:\tldr\tr3, [r0, #8]\n   0x080183d4 <+2>:\tlsls\tr2, r3, #31\n   0x080183d6 <+4>:\tbpl.n\t0x801840c <adc_stm32_disable+58>\n   0x080183d8 <+6>:\tldr\tr3, [r0, #8]\n   0x080183da <+8>:\tlsls\tr3, r3, #29\n   0x080183dc <+10>:\tbpl.n\t0x80183f6 <adc_stm32_disable+36>\n   0x080183de <+12>:\tcbz\tr1, 0x8018410 <adc_stm32_disable+62>\n   0x080183e0 <+14>:\tldr\tr3, [r0, #8]\n   0x080183e2 <+16>:\tbic.w\tr3, r3, #2147483648\t@ 0x80000000\n   0x080183e6 <+20>:\tbic.w\tr3, r3, #63\t@ 0x3f\n   0x080183ea <+24>:\torr.w\tr3, r3, #16\n   0x080183ee <+28>:\tstr\tr3, [r0, #8]\n   0x080183f0 <+30>:\tldr\tr3, [r0, #8]\n   0x080183f2 <+32>:\tlsls\tr2, r3, #29\n   0x080183f4 <+34>:\tbmi.n\t0x80183f0 <adc_stm32_disable+30>\n   0x080183f6 <+36>:\tldr\tr3, [r0, #8]\n   0x080183f8 <+38>:\tbic.w\tr3, r3, #2147483648\t@ 0x80000000\n   0x080183fc <+42>:\tbic.w\tr3, r3, #63\t@ 0x3f\n   0x08018400 <+46>:\torr.w\tr3, r3, #2\n   0x08018404 <+50>:\tstr\tr3, [r0, #8]\n   0x08018406 <+52>:\tldr\tr3, [r0, #8]\n   0x08018408 <+54>:\tlsls\tr3, r3, #31\n   0x0801840a <+56>:\tbmi.n\t0x8018406 <adc_stm32_disable+52>\n   0x0801840c <+58>:\tmovs\tr0, #0\n   0x0801840e <+60>:\tbx\tlr\n   0x08018410 <+62>:\tmvn.w\tr0, #15\n   0x08018414 <+66>:\tbx\tlr\nEnd of assembler dump.\n",
+      "stderr": ""
+    },
+    {
+      "gdb": "disassemble adc_stm32_calibration_start",
+      "exit": 0,
+      "stdout": "Dump of assembler code for function adc_stm32_calibration_start:\n   0x08009bc0 <+0>:\tpush\t{r4, lr}\n   0x08009bc2 <+2>:\tldr\tr3, [pc, #128]\t@ (0x8009c44 <adc_stm32_calibration_start+132>)\n   0x08009bc4 <+4>:\tldr\tr4, [r0, #0]\n   0x08009bc6 <+6>:\tcmp\tr4, r3\n   0x08009bc8 <+8>:\tbne.n\t0x8009be2 <adc_stm32_calibration_start+34>\n   0x08009bca <+10>:\tldr\tr3, [r4, #8]\n   0x08009bcc <+12>:\tbic.w\tr3, r3, #2147483648\t@ 0x80000000\n   0x08009bd0 <+16>:\tbic.w\tr3, r3, #63\t@ 0x3f\n   0x08009bd4 <+20>:\torr.w\tr3, r3, #2147483648\t@ 0x80000000\n   0x08009bd8 <+24>:\tstr\tr3, [r4, #8]\n   0x08009bda <+26>:\tldr\tr3, [r4, #8]\n   0x08009bdc <+28>:\tcmp\tr3, #0\n   0x08009bde <+30>:\tblt.n\t0x8009bda <adc_stm32_calibration_start+26>\n   0x08009be0 <+32>:\tpop\t{r4, pc}\n   0x08009be2 <+34>:\tmovw\tr1, #1154\t@ 0x482\n   0x08009be6 <+38>:\tldr\tr2, [pc, #96]\t@ (0x8009c48 <adc_stm32_calibration_start+136>)\n   0x08009be8 <+40>:\tldr\tr3, [r2, #0]\n   0x08009bea <+42>:\tldr\tr2, [r2, #0]\n   0x08009bec <+44>:\tubfx\tr3, r3, #0, #12\n   0x08009bf0 <+48>:\tcmp\tr3, r1\n   0x08009bf2 <+50>:\tbeq.n\t0x8009c3a <adc_stm32_calibration_start+122>\n   0x08009bf4 <+52>:\tmovw\tr3, #8193\t@ 0x2001\n   0x08009bf8 <+56>:\tcmp.w\tr3, r2, lsr #16\n   0x08009bfc <+60>:\tbeq.n\t0x8009c3a <adc_stm32_calibration_start+122>\n   0x08009bfe <+62>:\tmov\tr0, r4\n   0x08009c00 <+64>:\tbl\t0x8018398 <adc_stm32_enable>\n   0x08009c04 <+68>:\tldr\tr3, [r4, #8]\n   0x08009c06 <+70>:\tbic.w\tr3, r3, #251658240\t@ 0xf000000\n   0x08009c0a <+74>:\torr.w\tr3, r3, #150994944\t@ 0x9000000\n   0x08009c0e <+78>:\tstr\tr3, [r4, #8]\n   0x08009c10 <+80>:\tdmb\tsy\n   0x08009c14 <+84>:\tldr.w\tr2, [r4, #200]\t@ 0xc8\n   0x08009c18 <+88>:\tldr\tr3, [pc, #48]\t@ (0x8009c4c <adc_stm32_calibration_start+140>)\n   0x08009c1a <+90>:\tuxtb\tr2, r2\n   0x08009c1c <+92>:\torrs\tr3, r2\n   0x08009c1e <+94>:\tstr.w\tr3, [r4, #200]\t@ 0xc8\n   0x08009c22 <+98>:\tdmb\tsy\n   0x08009c26 <+102>:\tldr.w\tr3, [r4, #196]\t@ 0xc4\n   0x08009c2a <+106>:\tmovs\tr1, #1\n   0x08009c2c <+108>:\torr.w\tr3, r3, #16777216\t@ 0x1000000\n   0x08009c30 <+112>:\tmov\tr0, r4\n   0x08009c32 <+114>:\tstr.w\tr3, [r4, #196]\t@ 0xc4\n   0x08009c36 <+118>:\tbl\t0x80183d2 <adc_stm32_disable>\n   0x08009c3a <+122>:\tldr\tr2, [r4, #8]\n   0x08009c3c <+124>:\tldr\tr3, [pc, #16]\t@ (0x8009c50 <adc_stm32_calibration_start+144>)\n   0x08009c3e <+126>:\tands\tr3, r2\n   0x08009c40 <+128>:\tb.n\t0x8009bd4 <adc_stm32_calibration_start+20>\n   0x08009c42 <+130>:\tnop\n   0x08009c44 <+132>:\tasrs\tr0, r0, #32\n   0x08009c46 <+134>:\tmov\tr2, r0\n   0x08009c48 <+136>:\tands\tr0, r0\n   0x08009c4a <+138>:\tb.n\t0x8009c56 <adc_stm32_calibrate+2>\n   0x08009c4c <+140>:\tasrs\tr0, r0, #4\n   0x08009c4e <+142>:\tlsls\tr2, r0, #12\n   0x08009c50 <+144>:\t\t\t@ <UNDEFINED> instruction: 0xffc07ffe\nEnd of assembler dump.\n",
+      "stderr": ""
+    },
+    {
+      "gdb": "disassemble adc_stm32_calibrate",
+      "exit": 0,
+      "stdout": "Dump of assembler code for function adc_stm32_calibrate:\n   0x08009c54 <+0>:\tpush\t{r4, r5, r6, lr}\n   0x08009c56 <+2>:\tldr\tr6, [r0, #4]\n   0x08009c58 <+4>:\tmov\tr4, r0\n   0x08009c5a <+6>:\tldr\tr5, [r6, #0]\n   0x08009c5c <+8>:\tsub\tsp, #24\n   0x08009c5e <+10>:\tmov\tr0, r5\n   0x08009c60 <+12>:\tbl\t0x80183d2 <adc_stm32_disable>\n   0x08009c64 <+16>:\tcmp\tr0, #0\n   0x08009c66 <+18>:\tbne.n\t0x8009cce <adc_stm32_calibrate+122>\n   0x08009c68 <+20>:\tldr\tr0, [r4, #4]\n   0x08009c6a <+22>:\tbl\t0x8009bc0 <adc_stm32_calibration_start>\n   0x08009c6e <+26>:\tldrb.w\tr3, [r6, #69]\t@ 0x45\n   0x08009c72 <+30>:\tlsls\tr3, r3, #26\n   0x08009c74 <+32>:\tbpl.n\t0x8009c7c <adc_stm32_calibrate+40>\n   0x08009c76 <+34>:\tldr\tr0, [r4, #4]\n   0x08009c78 <+36>:\tbl\t0x8009bc0 <adc_stm32_calibration_start>\n   0x08009c7c <+40>:\tldr\tr0, [pc, #84]\t@ (0x8009cd4 <adc_stm32_calibrate+128>)\n   0x08009c7e <+42>:\tldr\tr1, [r4, #4]\n   0x08009c80 <+44>:\tldr\tr3, [r0, #8]\n   0x08009c82 <+46>:\tadds\tr1, #8\n   0x08009c84 <+48>:\tldr\tr3, [r3, #12]\n   0x08009c86 <+50>:\tcbnz\tr3, 0x8009cc4 <adc_stm32_calibrate+112>\n   0x08009c88 <+52>:\tldr\tr3, [pc, #76]\t@ (0x8009cd8 <adc_stm32_calibrate+132>)\n   0x08009c8a <+54>:\tmovs\tr2, #1\n   0x08009c8c <+56>:\tstr\tr3, [sp, #8]\n   0x08009c8e <+58>:\tmovs\tr3, #0\n   0x08009c90 <+60>:\tldr\tr1, [pc, #72]\t@ (0x8009cdc <adc_stm32_calibrate+136>)\n   0x08009c92 <+62>:\tmov\tr0, r3\n   0x08009c94 <+64>:\tstrd\tr3, r3, [sp]\n   0x08009c98 <+68>:\tbl\t0x8018330 <z_log_msg_runtime_create>\n   0x08009c9c <+72>:\tldr\tr3, [sp, #20]\n   0x08009c9e <+74>:\tcbnz\tr3, 0x8009cb2 <adc_stm32_calibrate+94>\n   0x08009ca0 <+76>:\tldr\tr2, [pc, #60]\t@ (0x8009ce0 <adc_stm32_calibrate+140>)\n   0x08009ca2 <+78>:\tmov\tr0, r3\n   0x08009ca4 <+80>:\tstrd\tr3, r2, [sp, #4]\n   0x08009ca8 <+84>:\tldr\tr1, [pc, #48]\t@ (0x8009cdc <adc_stm32_calibrate+136>)\n   0x08009caa <+86>:\tmovs\tr2, #1\n   0x08009cac <+88>:\tstr\tr3, [sp, #0]\n   0x08009cae <+90>:\tbl\t0x8018330 <z_log_msg_runtime_create>\n   0x08009cb2 <+94>:\tmov\tr0, r5\n   0x08009cb4 <+96>:\tbl\t0x8018398 <adc_stm32_enable>\n   0x08009cb8 <+100>:\tcmp\tr0, #0\n   0x08009cba <+102>:\tit\tne\n   0x08009cbc <+104>:\tmvnne.w\tr0, #115\t@ 0x73\n   0x08009cc0 <+108>:\tadd\tsp, #24\n   0x08009cc2 <+110>:\tpop\t{r4, r5, r6, pc}\n   0x08009cc4 <+112>:\tadd\tr2, sp, #20\n   0x08009cc6 <+114>:\tblx\tr3\n   0x08009cc8 <+116>:\tcmp\tr0, #0\n   0x08009cca <+118>:\tbge.n\t0x8009c9c <adc_stm32_calibrate+72>\n   0x08009ccc <+120>:\tb.n\t0x8009c88 <adc_stm32_calibrate+52>\n   0x08009cce <+122>:\tmvn.w\tr0, #15\n   0x08009cd2 <+126>:\tb.n\t0x8009cc0 <adc_stm32_calibrate+108>\n   0x08009cd4 <+128>:\tbkpt\t0x00fc\n   0x08009cd6 <+130>:\tlsrs\tr1, r0, #32\n   0x08009cd8 <+132>:\tcmp\tr7, #32\n   0x08009cda <+134>:\tlsrs\tr2, r0, #32\n   0x08009cdc <+136>:\tstmia\tr7!, {r2, r4, r6, r7}\n   0x08009cde <+138>:\tlsrs\tr1, r0, #32\n   0x08009ce0 <+140>:\tcmp\tr7, #58\t@ 0x3a\n   0x08009ce2 <+142>:\tlsrs\tr2, r0, #32\nEnd of assembler dump.\n",
+      "stderr": ""
+    },
+    {
+      "gdb": "disassemble dac_stm32_channel_setup",
+      "exit": 0,
+      "stdout": "Dump of assembler code for function dac_stm32_channel_setup:\n   0x0800c234 <+0>:\tpush\t{r0, r1, r2, r3, r4, r5, r6, lr}\n   0x0800c236 <+2>:\tldr\tr2, [r0, #16]\n   0x0800c238 <+4>:\tldr\tr4, [r0, #4]\n   0x0800c23a <+6>:\tldrb\tr3, [r1, #0]\n   0x0800c23c <+8>:\tldrb\tr0, [r2, #0]\n   0x0800c23e <+10>:\tcmp\tr0, r3\n   0x0800c240 <+12>:\tbcc.n\t0x800c244 <dac_stm32_channel_setup+16>\n   0x0800c242 <+14>:\tcbnz\tr3, 0x800c262 <dac_stm32_channel_setup+46>\n   0x0800c244 <+16>:\tstr\tr3, [sp, #12]\n   0x0800c246 <+18>:\tldr\tr3, [pc, #144]\t@ (0x800c2d8 <dac_stm32_channel_setup+164>)\n   0x0800c248 <+20>:\tmovs\tr2, #1\n   0x0800c24a <+22>:\tstr\tr3, [sp, #8]\n   0x0800c24c <+24>:\tmovs\tr3, #0\n   0x0800c24e <+26>:\tldr\tr1, [pc, #140]\t@ (0x800c2dc <dac_stm32_channel_setup+168>)\n   0x0800c250 <+28>:\tmov\tr0, r3\n   0x0800c252 <+30>:\tstrd\tr3, r3, [sp]\n   0x0800c256 <+34>:\tbl\t0x8018d52 <z_log_msg_runtime_create>\n   0x0800c25a <+38>:\tmvn.w\tr0, #21\n   0x0800c25e <+42>:\tadd\tsp, #16\n   0x0800c260 <+44>:\tpop\t{r4, r5, r6, pc}\n   0x0800c262 <+46>:\tldrb\tr3, [r1, #1]\n   0x0800c264 <+48>:\tand.w\tr0, r3, #251\t@ 0xfb\n   0x0800c268 <+52>:\tcmp\tr0, #8\n   0x0800c26a <+54>:\tbne.n\t0x800c2bc <dac_stm32_channel_setup+136>\n   0x0800c26c <+56>:\tstrb\tr3, [r2, #1]\n   0x0800c26e <+58>:\tldrb\tr3, [r1, #0]\n   0x0800c270 <+60>:\tldr\tr2, [pc, #108]\t@ (0x800c2e0 <dac_stm32_channel_setup+172>)\n   0x0800c272 <+62>:\tsubs\tr3, #1\n   0x0800c274 <+64>:\tldr.w\tr2, [r2, r3, lsl #2]\n   0x0800c278 <+68>:\tldrb\tr3, [r1, #2]\n   0x0800c27a <+70>:\tmovs\tr5, #2\n   0x0800c27c <+72>:\tmvns\tr3, r3\n   0x0800c27e <+74>:\tldr\tr6, [r4, #0]\n   0x0800c280 <+76>:\tand.w\tr2, r2, #16\n   0x0800c284 <+80>:\tldr\tr0, [r6, #60]\t@ 0x3c\n   0x0800c286 <+82>:\tand.w\tr3, r3, #1\n   0x0800c28a <+86>:\tlsls\tr5, r2\n   0x0800c28c <+88>:\tlsls\tr3, r3, #1\n   0x0800c28e <+90>:\tbic.w\tr0, r0, r5\n   0x0800c292 <+94>:\tlsls\tr3, r2\n   0x0800c294 <+96>:\torrs\tr3, r0\n   0x0800c296 <+98>:\tmovs\tr0, #1\n   0x0800c298 <+100>:\tstr\tr3, [r6, #60]\t@ 0x3c\n   0x0800c29a <+102>:\tldr\tr6, [r4, #0]\n   0x0800c29c <+104>:\tldrb\tr3, [r1, #2]\n   0x0800c29e <+106>:\tldr\tr5, [r6, #60]\t@ 0x3c\n   0x0800c2a0 <+108>:\tlsls\tr0, r2\n   0x0800c2a2 <+110>:\tubfx\tr3, r3, #1, #1\n   0x0800c2a6 <+114>:\tlsls\tr3, r2\n   0x0800c2a8 <+116>:\tbic.w\tr2, r5, r0\n   0x0800c2ac <+120>:\torrs\tr3, r2\n   0x0800c2ae <+122>:\tstr\tr3, [r6, #60]\t@ 0x3c\n   0x0800c2b0 <+124>:\tldr\tr2, [r4, #0]\n   0x0800c2b2 <+126>:\tldr\tr3, [r2, #0]\n   0x0800c2b4 <+128>:\torrs\tr3, r0\n   0x0800c2b6 <+130>:\tstr\tr3, [r2, #0]\n   0x0800c2b8 <+132>:\tmovs\tr0, #0\n   0x0800c2ba <+134>:\tb.n\t0x800c25e <dac_stm32_channel_setup+42>\n   0x0800c2bc <+136>:\tldr\tr3, [pc, #36]\t@ (0x800c2e4 <dac_stm32_channel_setup+176>)\n   0x0800c2be <+138>:\tmovs\tr2, #1\n   0x0800c2c0 <+140>:\tstr\tr3, [sp, #8]\n   0x0800c2c2 <+142>:\tmovs\tr3, #0\n   0x0800c2c4 <+144>:\tldr\tr1, [pc, #20]\t@ (0x800c2dc <dac_stm32_channel_setup+168>)\n   0x0800c2c6 <+146>:\tmov\tr0, r3\n   0x0800c2c8 <+148>:\tstrd\tr3, r3, [sp]\n   0x0800c2cc <+152>:\tbl\t0x8018d52 <z_log_msg_runtime_create>\n   0x0800c2d0 <+156>:\tmvn.w\tr0, #133\t@ 0x85\n   0x0800c2d4 <+160>:\tb.n\t0x800c25e <dac_stm32_channel_setup+42>\n   0x0800c2d6 <+162>:\tnop\n   0x0800c2d8 <+164>:\tsubs\tr0, #126\t@ 0x7e\n   0x0800c2da <+166>:\tlsrs\tr2, r0, #32\n   0x0800c2dc <+168>:\tldmia\tr0!, {r2, r3}\n   0x0800c2de <+170>:\tlsrs\tr1, r0, #32\n   0x0800c2e0 <+172>:\tb.n\t0x800c904 <dma_stm32_reload+84>\n   0x0800c2e2 <+174>:\tlsrs\tr1, r0, #32\n   0x0800c2e4 <+176>:\tsubs\tr0, #150\t@ 0x96\n   0x0800c2e6 <+178>:\tlsrs\tr2, r0, #32\nEnd of assembler dump.\n",
+      "stderr": ""
+    },
+    {
+      "gdb": "disassemble dac_stm32_write_value",
+      "exit": 0,
+      "stdout": "Dump of assembler code for function dac_stm32_write_value:\n   0x0800c2e8 <+0>:\tpush\t{r4, r5, lr}\n   0x0800c2ea <+2>:\tmov\tr3, r2\n   0x0800c2ec <+4>:\tldr\tr2, [r0, #16]\n   0x0800c2ee <+6>:\tldr\tr4, [r0, #4]\n   0x0800c2f0 <+8>:\tldrb\tr0, [r2, #0]\n   0x0800c2f2 <+10>:\tsub\tsp, #20\n   0x0800c2f4 <+12>:\tcmp\tr0, r1\n   0x0800c2f6 <+14>:\tbcc.n\t0x800c2fa <dac_stm32_write_value+18>\n   0x0800c2f8 <+16>:\tcbnz\tr1, 0x800c318 <dac_stm32_write_value+48>\n   0x0800c2fa <+18>:\tldr\tr3, [pc, #128]\t@ (0x800c37c <dac_stm32_write_value+148>)\n   0x0800c2fc <+20>:\tmovs\tr2, #1\n   0x0800c2fe <+22>:\tstr\tr3, [sp, #8]\n   0x0800c300 <+24>:\tmovs\tr3, #0\n   0x0800c302 <+26>:\tstrd\tr3, r3, [sp]\n   0x0800c306 <+30>:\tstr\tr1, [sp, #12]\n   0x0800c308 <+32>:\tmov\tr0, r3\n   0x0800c30a <+34>:\tldr\tr1, [pc, #116]\t@ (0x800c380 <dac_stm32_write_value+152>)\n   0x0800c30c <+36>:\tbl\t0x8018d52 <z_log_msg_runtime_create>\n   0x0800c310 <+40>:\tmvn.w\tr0, #21\n   0x0800c314 <+44>:\tadd\tsp, #20\n   0x0800c316 <+46>:\tpop\t{r4, r5, pc}\n   0x0800c318 <+48>:\tldrb\tr0, [r2, #1]\n   0x0800c31a <+50>:\tmovs\tr2, #1\n   0x0800c31c <+52>:\tlsl.w\tr5, r2, r0\n   0x0800c320 <+56>:\tcmp\tr5, r3\n   0x0800c322 <+58>:\tbhi.n\t0x800c332 <dac_stm32_write_value+74>\n   0x0800c324 <+60>:\tstr\tr3, [sp, #12]\n   0x0800c326 <+62>:\tldr\tr3, [pc, #92]\t@ (0x800c384 <dac_stm32_write_value+156>)\n   0x0800c328 <+64>:\tstr\tr3, [sp, #8]\n   0x0800c32a <+66>:\tmovs\tr3, #0\n   0x0800c32c <+68>:\tstrd\tr3, r3, [sp]\n   0x0800c330 <+72>:\tb.n\t0x800c308 <dac_stm32_write_value+32>\n   0x0800c332 <+74>:\tcmp\tr0, #8\n   0x0800c334 <+76>:\tbne.n\t0x800c358 <dac_stm32_write_value+112>\n   0x0800c336 <+78>:\tldr\tr2, [pc, #80]\t@ (0x800c388 <dac_stm32_write_value+160>)\n   0x0800c338 <+80>:\tldr\tr0, [r4, #0]\n   0x0800c33a <+82>:\tadd.w\tr2, r2, r1, lsl #2\n   0x0800c33e <+86>:\tldrb.w\tr2, [r2, #-1]\n   0x0800c342 <+90>:\tadds\tr0, #8\n   0x0800c344 <+92>:\tlsls\tr2, r2, #2\n   0x0800c346 <+94>:\tand.w\tr2, r2, #60\t@ 0x3c\n   0x0800c34a <+98>:\tldr\tr1, [r0, r2]\n   0x0800c34c <+100>:\tbic.w\tr1, r1, #255\t@ 0xff\n   0x0800c350 <+104>:\torrs\tr3, r1\n   0x0800c352 <+106>:\tstr\tr3, [r0, r2]\n   0x0800c354 <+108>:\tmovs\tr0, #0\n   0x0800c356 <+110>:\tb.n\t0x800c314 <dac_stm32_write_value+44>\n   0x0800c358 <+112>:\tcmp\tr0, #12\n   0x0800c35a <+114>:\tbne.n\t0x800c354 <dac_stm32_write_value+108>\n   0x0800c35c <+116>:\tldr\tr2, [pc, #40]\t@ (0x800c388 <dac_stm32_write_value+160>)\n   0x0800c35e <+118>:\tsubs\tr1, #1\n   0x0800c360 <+120>:\tldr.w\tr0, [r2, r1, lsl #2]\n   0x0800c364 <+124>:\tldr\tr1, [r4, #0]\n   0x0800c366 <+126>:\tlsrs\tr0, r0, #28\n   0x0800c368 <+128>:\tadds\tr1, #8\n   0x0800c36a <+130>:\tldr.w\tr2, [r1, r0, lsl #2]\n   0x0800c36e <+134>:\tbfc\tr2, #0, #12\n   0x0800c372 <+138>:\torrs\tr3, r2\n   0x0800c374 <+140>:\tstr.w\tr3, [r1, r0, lsl #2]\n   0x0800c378 <+144>:\tb.n\t0x800c354 <dac_stm32_write_value+108>\n   0x0800c37a <+146>:\tnop\n   0x0800c37c <+148>:\tsubs\tr0, #126\t@ 0x7e\n   0x0800c37e <+150>:\tlsrs\tr2, r0, #32\n   0x0800c380 <+152>:\tldmia\tr0!, {r2, r3}\n   0x0800c382 <+154>:\tlsrs\tr1, r0, #32\n   0x0800c384 <+156>:\tsubs\tr0, #175\t@ 0xaf\n   0x0800c386 <+158>:\tlsrs\tr2, r0, #32\n   0x0800c388 <+160>:\tb.n\t0x800c9ac <dma_stm32_configure+124>\n   0x0800c38a <+162>:\tlsrs\tr1, r0, #32\nEnd of assembler dump.\n",
+      "stderr": ""
+    }
+  ]
+}

@@ -24,7 +24,8 @@ struct Abi {
 };
 static_assert(sizeof(Abi) == 96U, "ABI record must be 24 uint32 words");
 struct View {
-    const recorder::StoredFrame* frame;
+    recorder::StoredFrame frame;
+    bool frame_present;
     const logframe::EventBytes* event;
     recorder::AttemptSummary summary;
     std::size_t frame_count, event_count;

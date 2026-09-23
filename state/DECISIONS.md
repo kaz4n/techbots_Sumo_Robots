@@ -1323,3 +1323,17 @@ Consequence: independently test actual app pipeline, final target memory/depende
 and fresh review. No new protocol/remote control/config/pins/permission. Post-STOP
 local service reset and calibration delivery remain explicit subsequent tasks;
 this does not claim physical B8 or a phase gate.
+
+## D-102 (2026-09-23, selected under D051/D075) Lossless frame storage
+Context: D101 Runtime dump is host-tested but cache-source MATCH model exceeds
+its262144B loader pool by256B. The26-byte frame includes only three accepted
+status values; storing status in two bits preserves its exact information.
+Decision: adopt P2_frame_packing_contract.md, separate25-byte payloads and two-bit
+status lanes. Explicitly replace D069 StoredFrame pointer lookup with copied
+read(index,out), plus bytesAt for its genuine retained-payload alias guarantee.
+Preserve5001frames/4096events/25Hz, every raw byte/status/loss/counter, constant
+logical reset, CSV/wire/CRC and existing test expectations. Migrate only current
+unlocked fixtures/API callers; leave locked tests and historical evidence intact.
+Consequence: independently test the contract and review lifetime/fixture changes,
+then verify actual source/ELF/loader savings before closing D101-R1. This is not
+loadedRAM/WCET/physical evidence, a gate, new wiring or upload/motor permission.

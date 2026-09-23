@@ -785,3 +785,5 @@ existing Transfer semantics and complete timing; independent tests next. No
 physical/loadedRAM/gate claim. | contract=this commit
 
 2026-09-23 P2 D101 actual Runtime dump attachment/abort IMPLEMENTED HOST-TESTED: fullnormal/san1423main+178Gate and independent review tests PASS; cache-only MATCH83600858 TARGET-COMPILED257784B but conditional loader262400B exceeds262144 by256B, D101-R1 BLOCKER open. Evidence P2_app_dump_validation.md/raw/review; no upload/gate. Next lossless frame packing; commit recorded in Git.
+
+2026-09-23 P2 D101 checkpoint0b1013b saved with loader BLOCKER open. D102 lossless frame/status packing contract and public read/bytesAt interfaces frozen; independent tests then bounded implementation next. No capacity/cadence/evidence reduction or human gate.

@@ -31,9 +31,12 @@ public:
     // A full buffer replaces exactly the oldest entry and counts that overwrite.
     bool append(const logframe::FrameBytes& bytes, logframe::PackStatus status);
     std::size_t size() const;
-    // Insertion order, oldest first; timestamp values are opaque, never sorted.
-    // Null outside size. Borrowed pointer must not survive append/reset/destruction.
-    const StoredFrame* at(std::size_t chronological_index) const;
+    // D102: oldest first, exact bytes/status into caller-owned storage. Outside
+    // size (including SIZE_MAX) returns false and leaves output unchanged.
+    bool read(std::size_t chronological_index, StoredFrame& output) const;
+    // Genuine retained payload for alias-safe append; null outside size. Other
+    // reads preserve it; append/reset/destruction end this borrowed lifetime.
+    const logframe::FrameBytes* bytesAt(std::size_t chronological_index) const;
     std::uint32_t overwrittenCount() const;
     std::uint32_t rejectedStatusCount() const;
     // Attempt-lifetime accepted counts, including entries subsequently overwritten.

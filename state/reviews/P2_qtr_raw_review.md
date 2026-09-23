@@ -1,0 +1,14 @@
+# D109 QTR capture: independent review in progress
+
+2026-09-24 Asia/Dubai. Reused same-model safety-review context; separate from implementation/test authors. This receipt covers tooling source and private mocked policy execution only. Contract preflight is recorded separately in `P2_qtr_raw_preflight.md`.
+
+**Interim verdict: PASS_SCOPED_BUILD_TOOLING. No tooling finding. Runner/native implementation and exact default/Immediate target review remain pending; no future artifact or upload approval.**
+
+- `tools/app_build_policy.py:73`: only qtr_raw.ino is added to the literal project names; it shares the existing sensor bench inert-only flag restriction. Runtime probe default-only constraints, app profiles, installed pins, effective command checks, precompile validation, library refusal and artifact hashing remain intact.
+- `tools/board_tool.py:281`: qtr_raw joins the named sensor route. MATCH, uploads and regular/dangling sketch.yaml/yml profiles are refused before transport. An exact three-entry map binds reviewed sketch names to filenames. Checked exceptions propagate; no generic fallback or upload follows failure. Other projects and the upload manifest are unchanged.
+- Exact reviewed hashes: board_tool `c3dc2e31e447165c4e83c65913b534a0649f4f51114a2998b68c5986579aa5d7`; app_build_policy `218cad95f4d443e7af68893c0f63b57120da888fc73ac6f0f03cea1b1bd51343`.
+- New7 fixture methods `062c0c03f29df6ddb8bfeeee7b1808f633b648db790109e094674940a73692a7` are coordinator-authored and frozen before its tooling edit. Reviewer reads and executes those same bytes; this is separate execution, not independent oracle authorship. Original coordinator red/green receipts remain under P2_app_build_raw/d109_policy_*.
+- Reviewer private WSL execution passes new7 plus unchanged100 D100/D104/D107 methods, without skips, in `P2_qtr_raw_review_raw/policy_1790194542142774429.json`. Both profile validators, mixed filenames, library refusal, artifact names, bad flags, early refusal, real dangling links, route dispatch and failure propagation are exercised. All four old tooling files and upload manifest match the prior D107 reviewer snapshot byte-for-byte.
+- `policy_source_review.json`, `policy_diff.patch` and `tooling_review.json` bind this result. No production, existing test or manifest was edited by this reviewer. Firmware tests are separately authored in parallel with implementation from the frozen contract/API; executable oracles freeze before first execution without implementation-body reads. Do not describe that as all test writing predating implementation writing.
+
+Additional NOT_DUE observation-count and admitted S..A measurement clauses are coherent with first-fault/clock rules. Existing contract questions stay closed. Actual capture semantics, native grants, startup/import behavior and conditional loader fit require later exact evidence. No board/network/MCU action, physical surface evidence, actual WCET or phase pass is claimed.

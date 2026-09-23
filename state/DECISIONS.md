@@ -1425,6 +1425,8 @@ pad grant, cooperative single-call servicing and immutable first128 raw frames;
 automatic finite freeze, separate actual fault/cleanup evidence, no other owners.
 Add only QTR_BENCH_FRAMES=128 to config and its unlocked literal registry; preserve
 all earlier values/assertions. No new output transport or acquisition semantics.
-Consequence: independent tests precede implementation, exact native checked target
+Consequence: independent expectations precede implementation execution; separate
+author/implementer contexts may write in parallel from the frozen public contract.
+Freeze executable tests before their first run. Exact native checked target
 review follows; stable RAM capture is software preparation, not physical surface
 evidence or readout. No pad/pin/electrical/upload/motor grant or human gate follows.

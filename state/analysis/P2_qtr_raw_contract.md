@@ -173,7 +173,10 @@ No stop, failure, repeated begin or accessor resets the Reader or clears evidenc
 
 ## Required validation and limits
 
-Independent tests precede implementation: passive/default/repeated begin; missing
+Independent expectations use this frozen contract/public API before implementation
+execution. Separate author/implementer contexts may complete their files in parallel;
+the author must not read implementation bodies and freezes executable tests before
+their first run. Required cases: passive/default/repeated begin; missing
 ports/zero capacity; command/phase/status transitions; shared raw validation;
 first1/contiguous identity and immutable active identity; source brackets and
 natural time wrap; aggregate half-range; NOT_DUE unchanged record; one append per
@@ -199,6 +202,9 @@ No source/target/physical success follows merely from this adopted contract.
 - NOT_DUE also requires elapsed from the preceding start to S strictly below
   QTR_START_PERIOD_US. S..A may straddle the boundary because the native internal
   observation is not separately supplied. A late NOT_DUE is CONTRACT.
+  For changed NOT_DUE evidence, invalid raw/changed phase/late status takes
+  CONTRACT precedence; changed sequence/start/drive/completion/advance identity
+  is SOURCE_ORDER; any other structurally valid payload change is CONTRACT.
 - Clear possible-active uncertainty for neutral IDLE/COMPLETE only after raw,
   command, identity and accepted A/source-bracket checks, before C. A bad C after
   that coherent neutral result needs no cancel; bad A/identity still does.
@@ -214,6 +220,10 @@ No source/target/physical success follows merely from this adopted contract.
 - Timing start/advance last_valid clears only when its callback is actually
   invoked; a bad S changes poll timing only. Accepted S..A source measurement
   survives bad C; setup timing requires accepted S..C.
+  Accepted S..A is measured even for a provider/semantic failure; invalid A
+  suppresses it. not_due counts every actual start() return NOT_DUE, including
+  a subsequently rejected record, late status or bad A/C. It is an observation
+  counter, not a count of accepted native commands.
 - Active-stop cancellation precedence: malformed raw/wrong phase is CONTRACT;
   changed source identity is SOURCE_ORDER; explicit unsuccessful cleanup is
   CLEANUP (including native status CLEANUP); otherwise a non-CANCELLED status
@@ -232,3 +242,14 @@ No source/target/physical success follows merely from this adopted contract.
   QTR_BENCH_FRAMES=128 expectation. Preserve all assertions and other values;
   the existing D106 wrapper must still execute the18 checks, with an additional
   deliberate wrong-capacity profile rejected by the original value assertion.
+
+## Exact target build route
+
+Extend only the existing checked native policy's literal project allowlist with
+qtr_raw.ino and route bench/qtr_raw there. Permit inert default/Immediate compile
+profiles; reject MATCH, uploads and sketch.yaml/yml (including dangling symlinks)
+before transport. Keep every D100/D107 dependency/property/result/artifact check
+and existing project constraint. No inert manifest entry is added. Root-authored
+fixture tests and separate reviewer execution cover the routing addition; label
+their authorship accurately. A full generic build is unnecessary after D107's
+documented inherited-Bridge finding. Actual checked artifacts still need review.

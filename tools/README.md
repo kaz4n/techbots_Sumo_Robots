@@ -32,6 +32,11 @@ profiles are refused before transport; no upload manifest entry was added.
 Other bench recipes retain their existing behavior. See the named bench README
 and `state/analysis/P2_opp_view_contract.md` for the source and hardware limits.
 
+D109 adds only `bench/qtr_raw` to those checked inert sensor-bench compile routes.
+It also permits default/Immediate compilation, refuses MATCH/profiles/uploads,
+and adds no upload identity. Its default pad grant is false and its finite RAM
+capture does not establish physical QTR color or timing acceptance.
+
 D-075 MotorGate target checks use
 `python tools/board_tool.py flash bench/p2_motor_gate_compile --compile-only`
 and the same command with `--match --compile-only`. Both only build on board

@@ -1,0 +1,60 @@
+diff --git a/tools/app_build_policy.py b/tools/app_build_policy.py
+index 83de9e0..b6d1af2 100644
+--- a/tools/app_build_policy.py
++++ b/tools/app_build_policy.py
+@@ -71,14 +71,15 @@ def properties_from(builder):
+ 
+ 
+ def selected_project(project, fqbn=None, flags=None):
+-    if not isinstance(project, str) or project not in ('app.ino', 'runtime_inert.ino', 'opp_view.ino'):
++    if not isinstance(project, str) or project not in (
++            'app.ino', 'runtime_inert.ino', 'opp_view.ino', 'qtr_raw.ino'):
+         raise ValueError('Unreviewed native project name')
+     if project == 'runtime_inert.ino' and (
+             (fqbn is not None and fqbn != BASE_FQBN) or
+             (flags is not None and flags != '-DMATCH=0 -DMOTORS_ALLOWED=0')):
+         raise ValueError('Runtime probe requires default startup and inert flags')
+-    if project == 'opp_view.ino' and flags is not None and flags != '-DMATCH=0 -DMOTORS_ALLOWED=0':
+-        raise ValueError('Opponent view requires inert flags')
++    if project in ('opp_view.ino', 'qtr_raw.ino') and flags is not None and flags != '-DMATCH=0 -DMOTORS_ALLOWED=0':
++        raise ValueError('Sensor bench requires inert flags')
+     return project
+ 
+ 
+diff --git a/tools/board_tool.py b/tools/board_tool.py
+index 5cf6b59..b4d3d10 100644
+--- a/tools/board_tool.py
++++ b/tools/board_tool.py
+@@ -279,13 +279,13 @@ def compile_app(board, checksum, board_folder, remote_root, fqbn, flags, startup
+ def flash(args):
+     startup = build_startup(args)
+     probe = args.sketch == 'bench/runtime_inert'
+-    opponent_view = args.sketch == 'bench/opp_view'
++    sensor_bench = args.sketch in ('bench/opp_view', 'bench/qtr_raw')
+     if probe and (args.match or startup != 'default'):
+         fail('Runtime inert probe requires default startup and MATCH=0 MOTORS_ALLOWED=0')
+-    if opponent_view and args.match:
+-        fail('Opponent view requires MATCH=0 MOTORS_ALLOWED=0')
+-    checked_folder = ROOT / (args.sketch if probe or opponent_view else 'src/app')
+-    if (args.sketch == 'app' or probe or opponent_view) and any(os.path.lexists(checked_folder / name)
++    if sensor_bench and args.match:
++        fail('Sensor bench requires MATCH=0 MOTORS_ALLOWED=0')
++    checked_folder = ROOT / (args.sketch if probe or sensor_bench else 'src/app')
++    if (args.sketch == 'app' or probe or sensor_bench) and any(os.path.lexists(checked_folder / name)
+                                     for name in ('sketch.yaml', 'sketch.yml')):
+         fail('App sketch profiles are unreviewed; remove sketch.yaml/sketch.yml from this build')
+     if not args.compile_only and args.sketch in ('bench/p0_matrix', 'bench/ui_matrix') and startup == 'immediate':
+@@ -320,9 +320,11 @@ def flash(args):
+     artifact_folder = f'{board_folder}/artifacts/{"match" if args.match else "bench"}-{startup}'
+     if args.sketch == 'app':
+         compile_app(board, checksum, board_folder, remote_root, fqbn, flags, startup)
+-    elif probe or opponent_view:
++    elif probe or sensor_bench:
++        project = {'bench/runtime_inert': 'runtime_inert.ino',
++                   'bench/opp_view': 'opp_view.ino', 'bench/qtr_raw': 'qtr_raw.ino'}[args.sketch]
+         artifact_folder = compile_app(board, checksum, board_folder, remote_root, fqbn,
+-                                      flags, startup, project='runtime_inert.ino' if probe else 'opp_view.ino')
++                                      flags, startup, project=project)
+     else:
+         remote(board, ['arduino-cli', 'compile', '--fqbn', fqbn,
+                        '--output-dir', artifact_folder,

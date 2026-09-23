@@ -20,8 +20,11 @@ contract/validation/review. All grants false; upload policy remains refused.
 D108 contract9ff7405 front-display coordinate correction is complete in software:
 fullnormal/san1446main+187Gate and exact618d3a96 app default/MATCH review PASS.
 FinalELFs change only two read-only bytes vsD106. Read its validation/review.
-Next: review/adopt D109 qtr_raw draft/headers
-and add its config count serially before independent tests and implementation.
+Next: D109 qtr_raw contract/interfaces/config128 adoptedf786fa5. Read its contract,
+including observable clarifications, worker/test-author state and scoped tooling
+review. Finish actual Runner/native/default sketch and independent frozen tests,
+then checked default/Immediate compile-only artifacts and separate source/target
+review. Build-policy107methods PASS does not approve a future firmware artifact.
 Continue remaining named P2 benches; no new hardware is needed for this work.
 
 MCU remains frozen D1042bd817c4 after one reviewed inert run:200001epochs,

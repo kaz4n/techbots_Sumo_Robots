@@ -329,3 +329,9 @@ diagnostics/pools,acceptancePASS. No tunable/pin/sourcegrant changed. Full-app/
 live-sensor800us,calibratedtime,nativeUART,motors and all human gates remain
 pending. Evidence analysis/P2_runtime_inert_raw/runtime_summary.json/runtime_run1,
 P2_runtime_inert_validation.md and separate actualreview.
+
+2026-09-24 D109 SOFTWARE CAPTURE CAPACITY, NOT MEASURED TUNING:
+QTR_BENCH_FRAMES128 is a new finite bench-only immutable raw capture bound.
+No existing charge/discharge/frame/threshold/pin value changed. Selection basis:
+P2_qtr_raw_contract.md,f786fa5; host capacity cases and exact target fit pending.
+This is not an observed surface, cadence or electrical measurement.

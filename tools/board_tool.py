@@ -279,13 +279,13 @@ def compile_app(board, checksum, board_folder, remote_root, fqbn, flags, startup
 def flash(args):
     startup = build_startup(args)
     probe = args.sketch == 'bench/runtime_inert'
-    opponent_view = args.sketch == 'bench/opp_view'
+    sensor_bench = args.sketch in ('bench/opp_view', 'bench/qtr_raw')
     if probe and (args.match or startup != 'default'):
         fail('Runtime inert probe requires default startup and MATCH=0 MOTORS_ALLOWED=0')
-    if opponent_view and args.match:
-        fail('Opponent view requires MATCH=0 MOTORS_ALLOWED=0')
-    checked_folder = ROOT / (args.sketch if probe or opponent_view else 'src/app')
-    if (args.sketch == 'app' or probe or opponent_view) and any(os.path.lexists(checked_folder / name)
+    if sensor_bench and args.match:
+        fail('Sensor bench requires MATCH=0 MOTORS_ALLOWED=0')
+    checked_folder = ROOT / (args.sketch if probe or sensor_bench else 'src/app')
+    if (args.sketch == 'app' or probe or sensor_bench) and any(os.path.lexists(checked_folder / name)
                                     for name in ('sketch.yaml', 'sketch.yml')):
         fail('App sketch profiles are unreviewed; remove sketch.yaml/sketch.yml from this build')
     if not args.compile_only and args.sketch in ('bench/p0_matrix', 'bench/ui_matrix') and startup == 'immediate':
@@ -320,9 +320,11 @@ def flash(args):
     artifact_folder = f'{board_folder}/artifacts/{"match" if args.match else "bench"}-{startup}'
     if args.sketch == 'app':
         compile_app(board, checksum, board_folder, remote_root, fqbn, flags, startup)
-    elif probe or opponent_view:
+    elif probe or sensor_bench:
+        project = {'bench/runtime_inert': 'runtime_inert.ino',
+                   'bench/opp_view': 'opp_view.ino', 'bench/qtr_raw': 'qtr_raw.ino'}[args.sketch]
         artifact_folder = compile_app(board, checksum, board_folder, remote_root, fqbn,
-                                      flags, startup, project='runtime_inert.ino' if probe else 'opp_view.ino')
+                                      flags, startup, project=project)
     else:
         remote(board, ['arduino-cli', 'compile', '--fqbn', fqbn,
                        '--output-dir', artifact_folder,

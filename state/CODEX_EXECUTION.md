@@ -60,5 +60,7 @@ D107 named opponent bench is implemented/host-tested/target-reviewed. Checked
 332787f0 default/Immediate peak4496; generic artifacts rejected and retained.
 All hardware grants false; no upload allowlist addition. D108 corrects geometric
 front display ordering: fullnormal/san1446main+187Gate and exact618d3a96 app
-default/MATCH target/review PASS. D109 qtr_raw contract/header draft is prepared, not yet adopted;
-next software task is one-Reader bounded raw capture. No extra hardware requested.
+default/MATCH target/review PASS (138e32e). D109contract/interfaces/config128
+adoptedf786fa5. Bounded one-Reader capture implementation and independent tests
+are in separate parallel contexts; exact policy7new+100old methods and separate
+review PASS. Firmware tests/target/review remain active. No extra hardware requested.

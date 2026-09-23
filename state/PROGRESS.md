@@ -821,3 +821,5 @@ physical/loadedRAM/gate claim. | contract=this commit
 | 2026-09-24 00:05 +04 | P2 D107 | Opponent-view IMPLEMENTED/HOST-TESTED/TARGET-COMPILED, separate scoped review PASS. Exact332787f0 default/Immediate ELF2a20fbc1 conditional peak4496;15new+85old policy methods PASS. Both generic artifacts remain rejected. No upload or hardware/gate claim. | this task commit |
 
 | 2026-09-24 00:09 +04 | P2 D108 | Front display identity corrected; independent red/green and fullnormal/san1446main+187Gate PASS. Exact618d3a96 default/MATCH target and separate review PASS; only two read-only bytes differ from D106. OPP-VIEW-1 CLOSED in software. No upload/physical/gate. | this task commit |
+
+| 2026-09-24 00:19 +04 | P2 D109 | Finite128-frame QTR contract/interface/config adoptedf786fa5; actual implementation and independent tests in parallel contexts. Checked literal build extension HOST-TESTED:7new+100old methods and separate policy review PASS. Firmware/target pending; no upload/grant/gate. | this policy task commit |

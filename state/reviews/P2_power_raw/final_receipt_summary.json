@@ -1,0 +1,60 @@
+{
+  "scope": "independent reviewer native rerun only",
+  "python_methods": 9,
+  "duration_seconds": 163.787,
+  "exit_code": 0,
+  "positive_case_executions": 75,
+  "parent_status_assertions": 480,
+  "child_assertion_total": "not claimed",
+  "subprocess_receipts": 104,
+  "subprocess_statuses": {
+    "0": 102,
+    "1": 2
+  },
+  "expected_negative_commands": [
+    [
+      "/dev/shm/sumo-native-power-g5xxf9qi/variant-46/native-power",
+      "--no-colors",
+      "--test-case=*assertion*"
+    ],
+    [
+      "/dev/shm/sumo-native-power-g5xxf9qi/variant-46/native-power",
+      "--no-colors",
+      "--test-case=*signal*"
+    ]
+  ],
+  "reviewed_file_sha256": {
+    "tests/native_power/Arduino.h": "96de6fa7ce2bd377b7783be423b7820ab6f1172e2a2ebc02eaab83ced74a8e36",
+    "tests/native_power/cases.cc": "feb3256834c72d3941c43ae9f88a1c93b97c7978f5ac8192eb6752321822f3c4",
+    "tests/native_power/config_cases.cc": "1ae546233a43f5334050a2a88b3b7594987bf14d23c4536bf1d578c061f08df9",
+    "tests/native_power/extract_bits.py": "34d771de67ac13bea0b3c02ed3356a72c574c9d919e1a8a733b5d25e98473bf0",
+    "tests/native_power/installed_bits.h": "d50e0c8998972e1eb34592da28ec3128069d0b5186ccb27ba47bf171834fb4ff",
+    "tests/native_power/installed_types.h": "f359012f15104a06d30cfabe5792e96c5d4ec6ed4184eb9233c7075a14d343a5",
+    "tests/native_power/isolation.cc": "16d0650fa60d167fcbb07b86f93c270b97258ad2a5162b5ab6908017a284df4b",
+    "tests/native_power/isolation.h": "01c4864655ea466945c134eabff3465a5ca04f54d42c53c76aa450c5472dbbeb",
+    "tests/native_power/isolation_selftest.cc": "3f94031c028748ac3b2bf8150d270de3147ac2e830a94ee64325c1e49b257930",
+    "tests/native_power/metadata_cases.cc": "46870626e709e172774dd31f14aad918893d1787a3791b63e21bd0951ede425c",
+    "tests/native_power/native_cmsis.h": "f02ee12f3834b62a2d2a31caf566847ec2f51a7b7d553085e7c793f5feb12a4a",
+    "tests/native_power/native_fixture.cc": "6548ac766075e169af45cd40226b0a19ef8fa0f567f62fb362c491bfff580d5a",
+    "tests/native_power/native_fixture.h": "becdbbe199fcdf436870b803a264daf8424bde4dbf3e85312699627d842574b9",
+    "tests/native_power/ownership_cases.cc": "6f88050e5bbb3d3826cb289fc3efa47af36296d4bb18fd52ce0dc043f2f37e51",
+    "tests/native_power/probe_cases.cc": "93b2d002a9ea85bedb59519cbb8115d79dda92d880d2867299b28713825ee851",
+    "tests/native_power/README.md": "9cec4e0807973dc471aef3626f795f3aa50177472039338ab24aec02091dd66c",
+    "tests/native_power/register.h": "b63047e9bc4aea2d198c1b6034109b033fe848ec8b195ebc45ef9f81b4000066",
+    "tests/native_power/stm32u5xx_ll_adc.h": "8fc235ce33aee056940d2b457b996e390783d3c310c659f9acb4ebb53bb03616",
+    "tests/native_power/stm32u5xx_ll_gpio.h": "18a2324cf848db5285a0ee232d614fc2b05d2c15fdfd29b7ac6e4784b6849678",
+    "tests/native_power/stm32u5xx_ll_rcc.h": "8d75b941d14e8782784bc1eaf911f8005967f52dd12a80aabeef54b3aab34ecf",
+    "tests/native_power/takeover_cases.cc": "d3281962fec95d7466b9bb41e4683ee55590741398d0207fd810399f505b541b",
+    "tests/native_power/test_main.cc": "b0277646bed186fb2567028ff5a58f57f0f0b0ecf014bb1d7879a889dce27640",
+    "tests/native_power/timing_cases.cc": "a3571b75d86e433b195d6b32c0a3bd0d01c21e05b415bcfa0790ba177c2d424d",
+    "tests/native_power/wiring_private.h": "789f3157ab13ba712011c67f24211b09286d09ae7e9fd5e07bf6d65eb75bbda0",
+    "tests/native_power/zephyr/device.h": "bfe3985d80830054ea43e5257a132ed1fcb14874d7143cfe8343c14f1b0b6d67",
+    "tests/native_power/zephyr/devicetree.h": "ea12dc8100965243de2927ef1cedbe953f064c5fe5942afb1c356908518ceabe",
+    "tests/native_power/zephyr/drivers/gpio.h": "3318427099a7d0d48b9bc4f5b8d353e7a43903eed43569ec6f8b4c066f171524",
+    "tests/native_power/zephyr/drivers/clock_control/stm32_clock_control.h": "d413b02ca0f9fcde21d11d7ae5d533ba039f5f9ed3ad6b8edfbef97efe44aa30",
+    "tests/tooling/test_power_unoq.py": "351b6e3fbe778ba93e64138a35f8c3e89fd141c43a6ad27db543b688fb5e884d",
+    "src/hal/power.cpp": "505e008ea99f6e739968572ae5674a858fc646a81001f6e6af01e3117c60543d",
+    "src/hal/power.h": "bc927275bfa22d24f9eaf3070896d58ceb22537de1242ae90adc4e449e33e4d0",
+    "src/config.h": "e109e565c48899f983bf70cf6b0f9264a9dda36ba0e02c27c6063fdfc065c069"
+  }
+}

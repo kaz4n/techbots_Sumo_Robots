@@ -1,0 +1,776 @@
+{
+  "scope": "Read-only official cached manual and installed source. No MCU action or physical qualification.",
+  "manual": {
+    "path": "build\\cache\\RM0456_Rev6_52152e41.pdf",
+    "sha256": "52152e414e2ac329cfd9038481b97e8ff70592f9892d171dcb63b7d283722616",
+    "revision": "RM0456 Rev 6",
+    "pages": [
+      {
+        "printed_page": 410,
+        "text_path": "state\\analysis\\P2_power_raw\\epod_rm_page_410.txt",
+        "text_sha256": "3a8442a6dab371429886abc80592b4d86c6cfd730a7a64d9b74350d6a6dd14d1"
+      },
+      {
+        "printed_page": 411,
+        "text_path": "state\\analysis\\P2_power_raw\\epod_rm_page_411.txt",
+        "text_sha256": "e4c2391c8ec1f0945c01e4acfc24a51ab87ed6cbb7c4a14d151538d82efaebec"
+      }
+    ]
+  },
+  "source": [
+    {
+      "path": "state\\analysis\\P2_adc_native_raw\\clock_stm32_ll_u5.c",
+      "sha256": "ae2a361260bda1c543824d45c7b7bd0b6124590047cd82e0cb9163cb4a84b1cd",
+      "lines": [
+        [
+          486,
+          "#if defined(STM32_PLL_ENABLED)"
+        ],
+        [
+          487,
+          "/*"
+        ],
+        [
+          488,
+          " * Dynamic voltage scaling:"
+        ],
+        [
+          489,
+          " * Enable the Booster mode before enabling then PLL for sysclock above 55MHz"
+        ],
+        [
+          490,
+          " * The goal of this function is to set the epod prescaler, so that epod clock freq"
+        ],
+        [
+          491,
+          " * is between 4MHz and 16MHz."
+        ],
+        [
+          492,
+          " * Up to now only MSI as PLL1 source clock can be > 16MHz, requiring a epod prescaler > 1"
+        ],
+        [
+          493,
+          " * For HSI16, epod prescaler is default (div1, not divided)."
+        ],
+        [
+          494,
+          " * Once HSE is > 16MHz, the epod prescaler would also be also required."
+        ],
+        [
+          495,
+          " */"
+        ],
+        [
+          496,
+          "static void set_epod_booster(void)"
+        ],
+        [
+          497,
+          "{"
+        ],
+        [
+          498,
+          "\t/* Reset Epod Prescaler in case it was set earlier with another DIV value */"
+        ],
+        [
+          499,
+          "\tLL_PWR_DisableEPODBooster();"
+        ],
+        [
+          500,
+          "\twhile (LL_PWR_IsActiveFlag_BOOST() == 1) {"
+        ],
+        [
+          501,
+          "\t}"
+        ],
+        [
+          502,
+          ""
+        ],
+        [
+          503,
+          "\tLL_RCC_SetPll1EPodPrescaler(LL_RCC_PLL1MBOOST_DIV_1);"
+        ],
+        [
+          504,
+          ""
+        ],
+        [
+          505,
+          "\tif (MHZ(55) <= CONFIG_SYS_CLOCK_HW_CYCLES_PER_SEC) {"
+        ],
+        [
+          506,
+          "\t\t/*"
+        ],
+        [
+          507,
+          "\t\t * Set EPOD clock prescaler based on PLL1 input freq"
+        ],
+        [
+          508,
+          "\t\t * (MSI/PLLM  or HSE/PLLM when HSE is > 16MHz"
+        ],
+        [
+          509,
+          "\t\t * Booster clock frequency should be between 4 and 16MHz"
+        ],
+        [
+          510,
+          "\t\t * This is done in following steps:"
+        ],
+        [
+          511,
+          "\t\t * Read MSI Frequency or HSE oscillaor freq"
+        ],
+        [
+          512,
+          "\t\t * Divide PLL1 input freq (MSI/PLL or HSE/PLLM)"
+        ],
+        [
+          513,
+          "\t\t * by the targeted freq (8MHz)."
+        ],
+        [
+          514,
+          "\t\t * Make sure value is not higher than 16"
+        ],
+        [
+          515,
+          "\t\t * Shift in the register space (/2)"
+        ],
+        [
+          516,
+          "\t\t */"
+        ],
+        [
+          517,
+          "\t\tint tmp;"
+        ],
+        [
+          518,
+          ""
+        ],
+        [
+          519,
+          "\t\tif (IS_ENABLED(STM32_PLL_SRC_MSIS)) {"
+        ],
+        [
+          520,
+          "\t\t\ttmp = __LL_RCC_CALC_MSIS_FREQ(LL_RCC_MSIRANGESEL_RUN,"
+        ],
+        [
+          521,
+          "\t\t\t STM32_MSIS_RANGE << RCC_ICSCR1_MSISRANGE_Pos);"
+        ],
+        [
+          522,
+          "\t\t} else if (IS_ENABLED(STM32_PLL_SRC_HSE) && (MHZ(16) < STM32_HSE_FREQ)) {"
+        ],
+        [
+          523,
+          "\t\t\ttmp = STM32_HSE_FREQ;"
+        ],
+        [
+          524,
+          "\t\t} else {"
+        ],
+        [
+          525,
+          "\t\t\treturn;"
+        ],
+        [
+          526,
+          "\t\t}"
+        ],
+        [
+          527,
+          ""
+        ],
+        [
+          528,
+          "\t\ttmp = MIN(tmp / STM32_PLL_M_DIVISOR / 8000000, 16);"
+        ],
+        [
+          529,
+          "\t\ttmp = tmp / 2;"
+        ],
+        [
+          530,
+          ""
+        ],
+        [
+          531,
+          "\t\t/* Configure the epod clock frequency between 4 and 16 MHz */"
+        ],
+        [
+          532,
+          "\t\tLL_RCC_SetPll1EPodPrescaler(tmp << RCC_PLL1CFGR_PLL1MBOOST_Pos);"
+        ],
+        [
+          533,
+          ""
+        ],
+        [
+          534,
+          "\t\t/* Enable EPOD booster and wait for booster ready flag set */"
+        ],
+        [
+          535,
+          "\t\tLL_PWR_EnableEPODBooster();"
+        ],
+        [
+          536,
+          "\t\twhile (LL_PWR_IsActiveFlag_BOOST() == 0) {"
+        ],
+        [
+          537,
+          "\t\t}"
+        ],
+        [
+          538,
+          "\t}"
+        ],
+        [
+          539,
+          "}"
+        ],
+        [
+          590,
+          "\t\tLL_RCC_PLL1_SetMainSource(LL_RCC_PLL1SOURCE_MSIS);"
+        ],
+        [
+          591,
+          "\t} else if (IS_ENABLED(STM32_PLL_SRC_HSI)) {"
+        ],
+        [
+          592,
+          "\t\t/* Main PLL configuration and activation */"
+        ],
+        [
+          593,
+          "\t\tLL_RCC_PLL1_SetMainSource(LL_RCC_PLL1SOURCE_HSI);"
+        ],
+        [
+          594,
+          "\t} else {"
+        ],
+        [
+          595,
+          "\t\treturn -ENOTSUP;"
+        ],
+        [
+          596,
+          "\t}"
+        ],
+        [
+          597,
+          ""
+        ],
+        [
+          598,
+          "\t/*"
+        ],
+        [
+          599,
+          "\t * Configure the EPOD booster"
+        ],
+        [
+          600,
+          "\t * before increasing the system clock freq"
+        ],
+        [
+          601,
+          "\t * and after pll clock source is set"
+        ],
+        [
+          602,
+          "\t */"
+        ],
+        [
+          603,
+          "\tset_epod_booster();"
+        ],
+        [
+          604,
+          ""
+        ],
+        [
+          605,
+          "\tr = get_vco_input_range(STM32_PLL_M_DIVISOR, &vco_input_range, PLL1_ID);"
+        ],
+        [
+          606,
+          "\tif (r < 0) {"
+        ],
+        [
+          607,
+          "\t\treturn r;"
+        ],
+        [
+          608,
+          "\t}"
+        ],
+        [
+          609,
+          ""
+        ],
+        [
+          610,
+          "\tLL_RCC_PLL1_SetDivider(STM32_PLL_M_DIVISOR);"
+        ],
+        [
+          611,
+          ""
+        ],
+        [
+          612,
+          "\t/* Set VCO Input before enabling the PLL, depends on freq used for PLL1 */"
+        ],
+        [
+          613,
+          "\tLL_RCC_PLL1_SetVCOInputRange(vco_input_range);"
+        ],
+        [
+          614,
+          ""
+        ],
+        [
+          615,
+          "\tLL_RCC_PLL1_SetN(STM32_PLL_N_MULTIPLIER);"
+        ],
+        [
+          616,
+          ""
+        ],
+        [
+          617,
+          "\tLL_RCC_PLL1FRACN_Disable();"
+        ]
+      ]
+    },
+    {
+      "path": "state\\analysis\\P2_adc_ownership_raw\\headers\\stm32u5xx_ll_pwr.h",
+      "sha256": "5f7f9a5c03f840bd145ee473abe55d42a2f5138eea47a46512395aa3c41ec18f",
+      "lines": [
+        [
+          1720,
+          "  * @brief  Enable the EPOD (Embedded Power Distribution) booster."
+        ],
+        [
+          1721,
+          "  * @rmtoll VOSR    BOOSTEN       LL_PWR_EnableEPODBooster"
+        ],
+        [
+          1722,
+          "  * @retval None"
+        ],
+        [
+          1723,
+          "  */"
+        ],
+        [
+          1724,
+          "__STATIC_INLINE void LL_PWR_EnableEPODBooster(void)"
+        ],
+        [
+          1725,
+          "{"
+        ],
+        [
+          1726,
+          "  SET_BIT(PWR->VOSR, PWR_VOSR_BOOSTEN);"
+        ],
+        [
+          1727,
+          "}"
+        ],
+        [
+          1728,
+          ""
+        ],
+        [
+          1729,
+          "/**"
+        ],
+        [
+          1730,
+          "  * @brief  Disable the EPOD (Embedded Power Distribution) booster."
+        ],
+        [
+          1731,
+          "  * @rmtoll VOSR    BOOSTEN       LL_PWR_DisableEPODBooster"
+        ],
+        [
+          1732,
+          "  * @retval None"
+        ],
+        [
+          1733,
+          "  */"
+        ],
+        [
+          1734,
+          "__STATIC_INLINE void LL_PWR_DisableEPODBooster(void)"
+        ],
+        [
+          1735,
+          "{"
+        ],
+        [
+          1736,
+          "  CLEAR_BIT(PWR->VOSR, PWR_VOSR_BOOSTEN);"
+        ],
+        [
+          1737,
+          "}"
+        ],
+        [
+          1738,
+          ""
+        ],
+        [
+          1739,
+          "/**"
+        ],
+        [
+          1740,
+          "  * @brief  Check if  the EPOD (Embedded Power Distribution) booster is enabled."
+        ],
+        [
+          1741,
+          "  * @rmtoll VOSR    BOOSTEN       LL_PWR_IsEnabledEPODBooster"
+        ],
+        [
+          1742,
+          "  * @retval State of bit (1 or 0)."
+        ],
+        [
+          1743,
+          "  */"
+        ],
+        [
+          1744,
+          "__STATIC_INLINE uint32_t LL_PWR_IsEnabledEPODBooster(void)"
+        ],
+        [
+          1745,
+          "{"
+        ],
+        [
+          1746,
+          "  return ((READ_BIT(PWR->VOSR, PWR_VOSR_BOOSTEN) == (PWR_VOSR_BOOSTEN)) ? 1UL : 0UL);"
+        ],
+        [
+          1747,
+          "}"
+        ],
+        [
+          2870,
+          ""
+        ],
+        [
+          2871,
+          "/**"
+        ],
+        [
+          2872,
+          "  * @brief  Indicate whether the EPOD (Embedded Power Distribution) booster is"
+        ],
+        [
+          2873,
+          "  *         ready OR not."
+        ],
+        [
+          2874,
+          "  * @rmtoll VOSR   BOOSTRDY       LL_PWR_IsActiveFlag_BOOST"
+        ],
+        [
+          2875,
+          "  * @retval State of bit (1 or 0)."
+        ],
+        [
+          2876,
+          "  */"
+        ],
+        [
+          2877,
+          "__STATIC_INLINE uint32_t LL_PWR_IsActiveFlag_BOOST(void)"
+        ],
+        [
+          2878,
+          "{"
+        ],
+        [
+          2879,
+          "  return ((READ_BIT(PWR->VOSR, PWR_VOSR_BOOSTRDY) == (PWR_VOSR_BOOSTRDY)) ? 1UL : 0UL);"
+        ],
+        [
+          2880,
+          "}"
+        ]
+      ]
+    },
+    {
+      "path": "state\\analysis\\P2_adc_ownership_raw\\headers\\stm32u5xx_ll_rcc.h",
+      "sha256": "08a13b1c17bc496658c1ad1b32fc4718d4d864aecf3165a47c360cbdc82c8191",
+      "lines": [
+        [
+          270,
+          "  */"
+        ],
+        [
+          271,
+          ""
+        ],
+        [
+          272,
+          ""
+        ],
+        [
+          273,
+          "/** @defgroup RCC_LL_EC_PLL1MBOOST_DIV  EPOD prescaler"
+        ],
+        [
+          274,
+          "  * @{"
+        ],
+        [
+          275,
+          "  */"
+        ],
+        [
+          276,
+          "#define LL_RCC_PLL1MBOOST_DIV_1              0x00000000U"
+        ],
+        [
+          277,
+          "#define LL_RCC_PLL1MBOOST_DIV_2              RCC_PLL1CFGR_PLL1MBOOST_0"
+        ],
+        [
+          278,
+          "#define LL_RCC_PLL1MBOOST_DIV_4              RCC_PLL1CFGR_PLL1MBOOST_1"
+        ],
+        [
+          279,
+          "#define LL_RCC_PLL1MBOOST_DIV_6              (RCC_PLL1CFGR_PLL1MBOOST_1 | RCC_PLL1CFGR_PLL1MBOOST_0)"
+        ],
+        [
+          280,
+          "#define LL_RCC_PLL1MBOOST_DIV_8              RCC_PLL1CFGR_PLL1MBOOST_2"
+        ],
+        [
+          281,
+          "#define LL_RCC_PLL1MBOOST_DIV_10             (RCC_PLL1CFGR_PLL1MBOOST_2 | RCC_PLL1CFGR_PLL1MBOOST_0)"
+        ],
+        [
+          282,
+          "#define LL_RCC_PLL1MBOOST_DIV_12             (RCC_PLL1CFGR_PLL1MBOOST_2 | RCC_PLL1CFGR_PLL1MBOOST_1)"
+        ],
+        [
+          283,
+          "#define LL_RCC_PLL1MBOOST_DIV_14             (RCC_PLL1CFGR_PLL1MBOOST_2 | RCC_PLL1CFGR_PLL1MBOOST_1 | \\"
+        ],
+        [
+          284,
+          "                                              RCC_PLL1CFGR_PLL1MBOOST_0)"
+        ],
+        [
+          285,
+          "#define LL_RCC_PLL1MBOOST_DIV_16             RCC_PLL1CFGR_PLL1MBOOST_3"
+        ],
+        [
+          286,
+          "/**"
+        ],
+        [
+          287,
+          "  * @}"
+        ],
+        [
+          288,
+          "  */"
+        ],
+        [
+          4280,
+          "}"
+        ],
+        [
+          4281,
+          "#define LL_RCC_PLL_SetVCOInputRange     LL_RCC_PLL1_SetVCOInputRange"
+        ],
+        [
+          4282,
+          ""
+        ],
+        [
+          4283,
+          "/**"
+        ],
+        [
+          4284,
+          "  * @brief  Set PLL1 EPOD Prescaler booster input clock"
+        ],
+        [
+          4285,
+          "  * @rmtoll PLL1CFGR       PLL1MBOOST      LL_RCC_SetPll1EPodPrescaler"
+        ],
+        [
+          4286,
+          "  * @param  BoostDiv This parameter can be one of the following values:"
+        ],
+        [
+          4287,
+          "  *         @arg @ref   LL_RCC_PLL1MBOOST_DIV_1"
+        ],
+        [
+          4288,
+          "  *         @arg @ref   LL_RCC_PLL1MBOOST_DIV_2"
+        ],
+        [
+          4289,
+          "  *         @arg @ref   LL_RCC_PLL1MBOOST_DIV_4"
+        ],
+        [
+          4290,
+          "  *         @arg @ref   LL_RCC_PLL1MBOOST_DIV_6"
+        ],
+        [
+          4291,
+          "  *         @arg @ref   LL_RCC_PLL1MBOOST_DIV_8"
+        ],
+        [
+          4292,
+          "  *         @arg @ref   LL_RCC_PLL1MBOOST_DIV_10"
+        ],
+        [
+          4293,
+          "  *         @arg @ref   LL_RCC_PLL1MBOOST_DIV_12"
+        ],
+        [
+          4294,
+          "  *         @arg @ref   LL_RCC_PLL1MBOOST_DIV_14"
+        ],
+        [
+          4295,
+          "  *         @arg @ref   LL_RCC_PLL1MBOOST_DIV_16"
+        ],
+        [
+          4296,
+          "  */"
+        ],
+        [
+          4297,
+          "__STATIC_INLINE void LL_RCC_SetPll1EPodPrescaler(uint32_t BoostDiv)"
+        ],
+        [
+          4298,
+          "{"
+        ],
+        [
+          4299,
+          "  MODIFY_REG(RCC->PLL1CFGR, RCC_PLL1CFGR_PLL1MBOOST, BoostDiv);"
+        ],
+        [
+          4300,
+          "}"
+        ],
+        [
+          4301,
+          ""
+        ],
+        [
+          4302,
+          "/**"
+        ],
+        [
+          4303,
+          "  * @brief  Get PLL1 EPOD Prescaler booster input clock"
+        ],
+        [
+          4304,
+          "  * @rmtoll PLL1CFGR       PLL1MBOOST      LL_RCC_GetPll1EPodPrescaler"
+        ],
+        [
+          4305,
+          "  * @retval Returned value can be one of the following values:"
+        ],
+        [
+          4306,
+          "  *         @arg @ref   LL_RCC_PLL1MBOOST_DIV_1"
+        ],
+        [
+          4307,
+          "  *         @arg @ref   LL_RCC_PLL1MBOOST_DIV_2"
+        ],
+        [
+          4308,
+          "  *         @arg @ref   LL_RCC_PLL1MBOOST_DIV_4"
+        ],
+        [
+          4309,
+          "  *         @arg @ref   LL_RCC_PLL1MBOOST_DIV_6"
+        ],
+        [
+          4310,
+          "  *         @arg @ref   LL_RCC_PLL1MBOOST_DIV_8"
+        ],
+        [
+          4311,
+          "  *         @arg @ref   LL_RCC_PLL1MBOOST_DIV_10"
+        ],
+        [
+          4312,
+          "  *         @arg @ref   LL_RCC_PLL1MBOOST_DIV_12"
+        ],
+        [
+          4313,
+          "  *         @arg @ref   LL_RCC_PLL1MBOOST_DIV_14"
+        ],
+        [
+          4314,
+          "  *         @arg @ref   LL_RCC_PLL1MBOOST_DIV_16"
+        ],
+        [
+          4315,
+          "  */"
+        ],
+        [
+          4316,
+          "__STATIC_INLINE uint32_t LL_RCC_GetPll1EPodPrescaler(void)"
+        ],
+        [
+          4317,
+          "{"
+        ],
+        [
+          4318,
+          "  return (uint32_t)(READ_BIT(RCC->PLL1CFGR, RCC_PLL1CFGR_PLL1MBOOST));"
+        ],
+        [
+          4319,
+          "}"
+        ]
+      ]
+    }
+  ],
+  "findings": [
+    "RM section 10.5.4 requires EPOD enabled and ready before SYSCLK above 55 MHz in voltage ranges 1 or 2.",
+    "The clock feeding EPOD must be 4 to 16 MHz. Installed MSIS 4 MHz / PLLM1 uses PLL1MBOOST division1, encoded0.",
+    "Require PWR_VOSR BOOSTEN and BOOSTRDY both1 and RCC_PLL1CFGR PLL1MBOOST masked0. Do not set these shared controls from power HAL.",
+    "EPOD PWR BOOSTEN1 is distinct from analog switch SYSCFG BOOSTEN0; both conditions are required for the narrow nominal profile."
+  ],
+  "retrieval_failure": {
+    "first_read": "pypdf pages370..441 extracted selected EPOD lines to default cp1252 stdout",
+    "exit": 1,
+    "error": "UnicodeEncodeError on U+2264 while printing after relevant pages410/411 excerpts",
+    "repair": "Repeat exact pages410/411 with stdout.reconfigure(encoding=utf-8), exit0. No source or PDF alteration."
+  },
+  "extraction_commands": [
+    "pdf = pypdf.PdfReader('build/cache/RM0456_Rev6_52152e41.pdf'); text = pdf.pages[printed_page - 1].extract_text(); Path(output).write_text(text, encoding='utf-8') for printed_page in [410, 411]",
+    "data = Path(source).read_bytes(); digest = hashlib.sha256(data).hexdigest(); lines = data.decode().splitlines(); selected = [[i, lines[i-1]] for lo,hi in ranges for i in range(lo,hi+1)] (each source/range preserved in source[].lines)"
+  ]
+}

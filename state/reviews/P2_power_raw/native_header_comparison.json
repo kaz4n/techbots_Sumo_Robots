@@ -1,0 +1,52 @@
+{
+  "kind": "offline-source-body-comparison",
+  "all_match": true,
+  "reports": [
+    {
+      "name": "stm32u5xx_ll_adc.h",
+      "functions": {
+        "LL_ADC_DisableDeepPowerDown": true,
+        "LL_ADC_EnableInternalRegulator": true,
+        "LL_ADC_StartCalibration": true,
+        "LL_ADC_Enable": true,
+        "LL_ADC_REG_StartConversion": true,
+        "LL_ADC_REG_StopConversion": true,
+        "LL_ADC_Disable": true,
+        "LL_ADC_REG_ReadConversionData32": true,
+        "LL_ADC_SetCommonClock": true
+      },
+      "fixture_sha256": "8fc235ce33aee056940d2b457b996e390783d3c310c659f9acb4ebb53bb03616"
+    },
+    {
+      "name": "stm32u5xx_ll_gpio.h",
+      "functions": {
+        "LL_GPIO_SetPinMode": true,
+        "LL_GPIO_GetPinMode": true,
+        "LL_GPIO_SetPinPull": true,
+        "LL_GPIO_GetPinPull": true,
+        "LL_GPIO_IsPinLocked": true
+      },
+      "fixture_sha256": "18a2324cf848db5285a0ee232d614fc2b05d2c15fdfd29b7ac6e4784b6849678"
+    },
+    {
+      "name": "stm32u5xx_ll_rcc.h",
+      "functions": {
+        "LL_RCC_GetSysClkSource": true,
+        "LL_RCC_GetAHBPrescaler": true,
+        "LL_RCC_PLL1_GetMainSource": true,
+        "LL_RCC_PLL1_GetDivider": true,
+        "LL_RCC_PLL1_GetN": true,
+        "LL_RCC_PLL1_GetR": true,
+        "LL_RCC_PLL1_IsReady": true,
+        "LL_RCC_PLL1_IsEnabledDomain_SYS": true,
+        "LL_RCC_PLL1FRACN_IsEnabled": true,
+        "LL_RCC_MSI_IsEnabledRangeSelect": true,
+        "LL_RCC_MSIS_GetRange": true,
+        "LL_RCC_MSIS_IsReady": true,
+        "LL_RCC_IsEnabledPLLMode": true,
+        "LL_RCC_GetMSIPLLMode": true
+      },
+      "fixture_sha256": "8d75b941d14e8782784bc1eaf911f8005967f52dd12a80aabeef54b3aab34ecf"
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "kind": "offline-evidence-review-not-runtime",
+  "source_sha256": "a936d10d471c80c937bee3d312a99de40acfbc57fefced9fd51d409a097024dd",
+  "matched_source_files": 40,
+  "raw_receipt_sha256": "1c2b290061532e3cbc31f01022cd29fb3a96fa677aea8ee01006ab478e5b3695",
+  "all_collection_commands_zero": true,
+  "native_export_bindings": 36,
+  "elf": [
+    {
+      "path": "/home/arduino/sumox26_codex_build/a936d10d471c80c937bee3d312a99de40acfbc57fefced9fd51d409a097024dd/p2_power_compile/artifacts/bench-default/p2_power_compile.ino.elf",
+      "bytes": 81132,
+      "sha256": "93b66eaa69238030e45c22c96b47d44609a99f8505916b7f35e9727385a1976c"
+    },
+    {
+      "path": "/home/arduino/sumox26_codex_build/a936d10d471c80c937bee3d312a99de40acfbc57fefced9fd51d409a097024dd/p2_power_compile/artifacts/bench-default/p2_power_compile.ino_debug.elf",
+      "bytes": 2705408,
+      "sha256": "e76fc30ba8cdd0599f3c9f27772ad0810430969d1a163f852128fc82ee63b8bc"
+    },
+    {
+      "path": "/home/arduino/sumox26_codex_build/a936d10d471c80c937bee3d312a99de40acfbc57fefced9fd51d409a097024dd/p2_power_compile/artifacts/bench-default/p2_power_compile.ino_temp.elf",
+      "bytes": 2720756,
+      "sha256": "141379c9788dc8584477e14cac14393383fdc2eafb75f92914db3daa1d0bbbd6"
+    }
+  ],
+  "mmio_literals": [
+    "42028000",
+    "42020000",
+    "46020c00",
+    "46020800",
+    "46000400",
+    "46021000",
+    "46021800",
+    "e000e100"
+  ],
+  "source_startup_functions": {
+    "0000006c <setup>:": "0000006c <setup>:\n      6c:\t4b01      \tldr\tr3, [pc, #4]\t@ (74 <setup+0x8>)\n      6e:\t4a02      \tldr\tr2, [pc, #8]\t@ (78 <setup+0xc>)\n      70:\t601a      \tstr\tr2, [r3, #0]\n      72:\t4770      \tbx\tlr\n\t...\n\n",
+    "0000007c <loop>:": "0000007c <loop>:\n      7c:\t4770      \tbx\tlr\n\t...\n\n",
+    "00002490 <_GLOBAL__sub_I__ZN11power_probe6readerE>:": "00002490 <_GLOBAL__sub_I__ZN11power_probe6readerE>:\n    2490:\t4a06      \tldr\tr2, [pc, #24]\t@ (24ac <_GLOBAL__sub_I__ZN11power_probe6readerE+0x1c>)\n    2492:\t6813      \tldr\tr3, [r2, #0]\n    2494:\t1c59      \tadds\tr1, r3, #1\n    2496:\t6011      \tstr\tr1, [r2, #0]\n    2498:\tb933      \tcbnz\tr3, 24a8 <_GLOBAL__sub_I__ZN11power_probe6readerE+0x18>\n    249a:\t4a05      \tldr\tr2, [pc, #20]\t@ (24b0 <_GLOBAL__sub_I__ZN11power_probe6readerE+0x20>)\n    249c:\t4905      \tldr\tr1, [pc, #20]\t@ (24b4 <_GLOBAL__sub_I__ZN11power_probe6readerE+0x24>)\n    249e:\te9c2 3307 \tstrd\tr3, r3, [r2, #28]\n    24a2:\t6011      \tstr\tr1, [r2, #0]\n    24a4:\t7613      \tstrb\tr3, [r2, #24]\n    24a6:\t6253      \tstr\tr3, [r2, #36]\t@ 0x24\n    24a8:\t4770      \tbx\tlr\n    24aa:\tbf00      \tnop\n\t...\n\n",
+    "00003024 <_GLOBAL__sub_I__ZNK5power6Reader13controlsOwnedEv>:": "00003024 <_GLOBAL__sub_I__ZNK5power6Reader13controlsOwnedEv>:\n    3024:\t4a06      \tldr\tr2, [pc, #24]\t@ (3040 <_GLOBAL__sub_I__ZNK5power6Reader13controlsOwnedEv+0x1c>)\n    3026:\t6813      \tldr\tr3, [r2, #0]\n    3028:\t1c59      \tadds\tr1, r3, #1\n    302a:\t6011      \tstr\tr1, [r2, #0]\n    302c:\tb933      \tcbnz\tr3, 303c <_GLOBAL__sub_I__ZNK5power6Reader13controlsOwnedEv+0x18>\n    302e:\t4a05      \tldr\tr2, [pc, #20]\t@ (3044 <_GLOBAL__sub_I__ZNK5power6Reader13controlsOwnedEv+0x20>)\n    3030:\t4905      \tldr\tr1, [pc, #20]\t@ (3048 <_GLOBAL__sub_I__ZNK5power6Reader13controlsOwnedEv+0x24>)\n    3032:\te9c2 3307 \tstrd\tr3, r3, [r2, #28]\n    3036:\t6011      \tstr\tr1, [r2, #0]\n    3038:\t7613      \tstrb\tr3, [r2, #24]\n    303a:\t6253      \tstr\tr3, [r2, #36]\t@ 0x24\n    303c:\t4770      \tbx\tlr\n    303e:\tbf00      \tnop\n\t...\n\n"
+  },
+  "selected_relocations": [
+    "000024ac  0003ca02 R_ARM_ABS32            00000000   _ZGVN12RouterBridge3HCIE",
+    "000024b0  0004c302 R_ARM_ABS32            00000018   _ZN12RouterBridge3HCIE",
+    "000024b4  0004c602 R_ARM_ABS32            000002e0   Bridge",
+    "00003040  0003ca02 R_ARM_ABS32            00000000   _ZGVN12RouterBridge3HCIE",
+    "00003044  0004c302 R_ARM_ABS32            00000018   _ZN12RouterBridge3HCIE",
+    "00003048  0004c602 R_ARM_ABS32            000002e0   Bridge",
+    "000030b4  0004f702 R_ARM_ABS32            00002c91   _ZN5power6Reader5beginEv",
+    "000030b8  0004f902 R_ARM_ABS32            00000008   _ZN11power_probe6readerE",
+    "000030bc  00041b02 R_ARM_ABS32            00002f31   _ZN5power6Reader4readEv"
+  ],
+  "observations": [
+    "setup only stores exercise address; loop returns",
+    "new power/probe constructor wrappers only initialize inherited RouterBridge::HCI memory; no call instruction",
+    "exercise retains begin/read through function relocations",
+    "ADC1 + 0x308 common CCR offset and 65536/4096 finite count literals retained",
+    "two calibration DMB instructions retained",
+    "inherited Bridge constructor and __loopHook remain separate runtime limitations",
+    "this does not prove deployed-loader identity, electrical accuracy or timing"
+  ]
+}

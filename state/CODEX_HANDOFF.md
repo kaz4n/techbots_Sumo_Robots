@@ -1,3 +1,44 @@
+# D078 checkpoint - active P2 software development, 2026-09-23 Asia/Dubai
+
+Completed actual bounded battery ADC implementation e6b7060, contract/source
+prerequisites a8e840d/fbd9d96. Read P2_power_validation.md and the fresh separate
+same-model review P2_power_review.md. Both independent native9-method suites
+PASS:75positive cases each; expected failure sentinels distinguish real errors.
+Existing411tooling methods PASS; total420 across separate runs. Normalhost2/2
+and ASanUBSan2/2 PASS (1030cases/20982541assertions plus37/3796846).
+
+Final power.cpp SHA505e008e, staged sourcea936d10d, actual UNO Q Linux compile-only
+81132B program/33476B compiler memory, exit0.40file source map,36native exports,
+register/barrier paths and inert startup independently reviewed. Five existing
+inert source hashes updated without adding upload keys. Source/raw integrity,
+fixture newline normalization and original failed tests are separately evidenced.
+
+One fresh14bit sample, explicit status/timestamps, finite deadlines/poll guards,
+boot-lifetime claim and reset-only faults. Original A0/divider proposals preserved;
+no B16 value changed. No app/core/established locked-test change or upload/reset/
+MCU/pin operation. Last-known MCU image remains QTR61d7a2d0. Physical B5 accuracy,
+clock/reference/divider, full tick WCET, PINMAP/EXPLAINED and human gates pending.
+SC-AJ MSI auto-calibration is a GLOBAL runtime blocker; mode/readiness predicates
+do not prove frequency or lock history. F091 inherited runtime limits remain.
+
+D075 still authorizes actual P2 software before P0/P1 physical acceptance. Full
+P0-P7 goal ACTIVE/incomplete. No new hardware question or motor-run permission.
+Do not restore obsolete blocked scheduling or infer a phase pass from test counts.
+
+Next task: concrete bounded I2C4/MPU6050 transport for P2 B3. The completed
+P2_i2c_native_audit.md/raw binds I2C4/PD12/PD13/AF4, finite native transfer/cleanup
+mechanism and exact installed sources. P2_i2c_timing.md is being prepared to
+justify a constant timing/filter profile and bounded deadlines. Freeze the narrow
+contract and public header before independent tests/code. Do not invoke stock
+Wire's unbounded path, treat partial data as valid, or count repeated sensor data
+as fresh. Later sensor setup/readback/freshness and axes remain explicit work.
+
+Board CLI1.5.1/core1.0.0,USB2629958581 and WSL builds were observed. Only read-only
+Linux/source and compile-only work is in scope. Recheck availability as needed.
+Preserve original Sep28 scope cut/Oct1 freeze and all recorded hardware limits.
+
+--- Earlier handoff preserved below ---
+
 # D077 checkpoint - active P2 software development, 2026-09-23 Asia/Dubai
 
 Completed native MotorGate backend: implementation 99f8668, evidence 25a0858,

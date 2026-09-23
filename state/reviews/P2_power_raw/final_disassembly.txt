@@ -1,0 +1,1343 @@
+0000006c <setup>:
+      6c:	4b01      	ldr	r3, [pc, #4]	@ (74 <setup+0x8>)
+      6e:	4a02      	ldr	r2, [pc, #8]	@ (78 <setup+0xc>)
+      70:	601a      	str	r2, [r3, #0]
+      72:	4770      	bx	lr
+	...
+
+0000007c <loop>:
+      7c:	4770      	bx	lr
+	...
+
+0000244c <__loopHook()>:
+    244c:	b538      	push	{r3, r4, r5, lr}
+    244e:	4b0a      	ldr	r3, [pc, #40]	@ (2478 <__loopHook()+0x2c>)
+    2450:	4798      	blx	r3
+    2452:	4c0a      	ldr	r4, [pc, #40]	@ (247c <__loopHook()+0x30>)
+    2454:	f04f 33ff 	mov.w	r3, #4294967295	@ 0xffffffff
+    2458:	f04f 32ff 	mov.w	r2, #4294967295	@ 0xffffffff
+    245c:	4808      	ldr	r0, [pc, #32]	@ (2480 <__loopHook()+0x34>)
+    245e:	4909      	ldr	r1, [pc, #36]	@ (2484 <__loopHook()+0x38>)
+    2460:	4788      	blx	r1
+    2462:	f894 5158 	ldrb.w	r5, [r4, #344]	@ 0x158
+    2466:	4b08      	ldr	r3, [pc, #32]	@ (2488 <__loopHook()+0x3c>)
+    2468:	f104 0038 	add.w	r0, r4, #56	@ 0x38
+    246c:	4798      	blx	r3
+    246e:	b115      	cbz	r5, 2476 <__loopHook()+0x2a>
+    2470:	4620      	mov	r0, r4
+    2472:	4b06      	ldr	r3, [pc, #24]	@ (248c <__loopHook()+0x40>)
+    2474:	4798      	blx	r3
+    2476:	bd38      	pop	{r3, r4, r5, pc}
+	...
+    2480:	00000038 	.word	0x00000038
+	...
+
+00002490 <_GLOBAL__sub_I__ZN11power_probe6readerE>:
+    2490:	4a06      	ldr	r2, [pc, #24]	@ (24ac <_GLOBAL__sub_I__ZN11power_probe6readerE+0x1c>)
+    2492:	6813      	ldr	r3, [r2, #0]
+    2494:	1c59      	adds	r1, r3, #1
+    2496:	6011      	str	r1, [r2, #0]
+    2498:	b933      	cbnz	r3, 24a8 <_GLOBAL__sub_I__ZN11power_probe6readerE+0x18>
+    249a:	4a05      	ldr	r2, [pc, #20]	@ (24b0 <_GLOBAL__sub_I__ZN11power_probe6readerE+0x20>)
+    249c:	4905      	ldr	r1, [pc, #20]	@ (24b4 <_GLOBAL__sub_I__ZN11power_probe6readerE+0x24>)
+    249e:	e9c2 3307 	strd	r3, r3, [r2, #28]
+    24a2:	6011      	str	r1, [r2, #0]
+    24a4:	7613      	strb	r3, [r2, #24]
+    24a6:	6253      	str	r3, [r2, #36]	@ 0x24
+    24a8:	4770      	bx	lr
+    24aa:	bf00      	nop
+	...
+
+000024d8 <_GLOBAL__sub_I__ZN6motors8UnoQPort4portEv>:
+    24d8:	4a06      	ldr	r2, [pc, #24]	@ (24f4 <_GLOBAL__sub_I__ZN6motors8UnoQPort4portEv+0x1c>)
+    24da:	6813      	ldr	r3, [r2, #0]
+    24dc:	1c59      	adds	r1, r3, #1
+    24de:	6011      	str	r1, [r2, #0]
+    24e0:	b933      	cbnz	r3, 24f0 <_GLOBAL__sub_I__ZN6motors8UnoQPort4portEv+0x18>
+    24e2:	4a05      	ldr	r2, [pc, #20]	@ (24f8 <_GLOBAL__sub_I__ZN6motors8UnoQPort4portEv+0x20>)
+    24e4:	4905      	ldr	r1, [pc, #20]	@ (24fc <_GLOBAL__sub_I__ZN6motors8UnoQPort4portEv+0x24>)
+    24e6:	e9c2 3307 	strd	r3, r3, [r2, #28]
+    24ea:	6011      	str	r1, [r2, #0]
+    24ec:	7613      	strb	r3, [r2, #24]
+    24ee:	6253      	str	r3, [r2, #36]	@ 0x24
+    24f0:	4770      	bx	lr
+    24f2:	bf00      	nop
+	...
+
+00002520 <_GLOBAL__sub_I__ZN11opp_sensors7Sensors5beginEv>:
+    2520:	4a06      	ldr	r2, [pc, #24]	@ (253c <_GLOBAL__sub_I__ZN11opp_sensors7Sensors5beginEv+0x1c>)
+    2522:	6813      	ldr	r3, [r2, #0]
+    2524:	1c59      	adds	r1, r3, #1
+    2526:	6011      	str	r1, [r2, #0]
+    2528:	b933      	cbnz	r3, 2538 <_GLOBAL__sub_I__ZN11opp_sensors7Sensors5beginEv+0x18>
+    252a:	4a05      	ldr	r2, [pc, #20]	@ (2540 <_GLOBAL__sub_I__ZN11opp_sensors7Sensors5beginEv+0x20>)
+    252c:	4905      	ldr	r1, [pc, #20]	@ (2544 <_GLOBAL__sub_I__ZN11opp_sensors7Sensors5beginEv+0x24>)
+    252e:	e9c2 3307 	strd	r3, r3, [r2, #28]
+    2532:	6011      	str	r1, [r2, #0]
+    2534:	7613      	strb	r3, [r2, #24]
+    2536:	6253      	str	r3, [r2, #36]	@ 0x24
+    2538:	4770      	bx	lr
+    253a:	bf00      	nop
+	...
+
+00002568 <power::(anonymous namespace)::validPad(gpio_dt_spec const&)>:
+    2568:	4603      	mov	r3, r0
+    256a:	6800      	ldr	r0, [r0, #0]
+    256c:	b160      	cbz	r0, 2588 <power::(anonymous namespace)::validPad(gpio_dt_spec const&)+0x20>
+    256e:	6842      	ldr	r2, [r0, #4]
+    2570:	b14a      	cbz	r2, 2586 <power::(anonymous namespace)::validPad(gpio_dt_spec const&)+0x1e>
+    2572:	88d8      	ldrh	r0, [r3, #6]
+    2574:	b938      	cbnz	r0, 2586 <power::(anonymous namespace)::validPad(gpio_dt_spec const&)+0x1e>
+    2576:	791b      	ldrb	r3, [r3, #4]
+    2578:	2b0f      	cmp	r3, #15
+    257a:	d805      	bhi.n	2588 <power::(anonymous namespace)::validPad(gpio_dt_spec const&)+0x20>
+    257c:	6810      	ldr	r0, [r2, #0]
+    257e:	40d8      	lsrs	r0, r3
+    2580:	f000 0001 	and.w	r0, r0, #1
+    2584:	4770      	bx	lr
+    2586:	2000      	movs	r0, #0
+    2588:	4770      	bx	lr
+	...
+
+0000258c <power::(anonymous namespace)::fixedModes(bool)>:
+    258c:	4b23      	ldr	r3, [pc, #140]	@ (261c <power::(anonymous namespace)::fixedModes(bool)+0x90>)
+    258e:	4602      	mov	r2, r0
+    2590:	6858      	ldr	r0, [r3, #4]
+    2592:	2800      	cmp	r0, #0
+    2594:	d13e      	bne.n	2614 <power::(anonymous namespace)::fixedModes(bool)+0x88>
+    2596:	68d9      	ldr	r1, [r3, #12]
+    2598:	f1b1 4f00 	cmp.w	r1, #2147483648	@ 0x80000000
+    259c:	d13d      	bne.n	261a <power::(anonymous namespace)::fixedModes(bool)+0x8e>
+    259e:	6919      	ldr	r1, [r3, #16]
+    25a0:	ebb1 6fc2 	cmp.w	r1, r2, lsl #27
+    25a4:	d139      	bne.n	261a <power::(anonymous namespace)::fixedModes(bool)+0x8e>
+    25a6:	2a00      	cmp	r2, #0
+    25a8:	bf18      	it	ne
+    25aa:	f04f 5060 	movne.w	r0, #939524096	@ 0x38000000
+    25ae:	6959      	ldr	r1, [r3, #20]
+    25b0:	4281      	cmp	r1, r0
+    25b2:	d12f      	bne.n	2614 <power::(anonymous namespace)::fixedModes(bool)+0x88>
+    25b4:	6998      	ldr	r0, [r3, #24]
+    25b6:	bb68      	cbnz	r0, 2614 <power::(anonymous namespace)::fixedModes(bool)+0x88>
+    25b8:	69d9      	ldr	r1, [r3, #28]
+    25ba:	ebb1 2f42 	cmp.w	r1, r2, lsl #9
+    25be:	d12c      	bne.n	261a <power::(anonymous namespace)::fixedModes(bool)+0x8e>
+    25c0:	2a00      	cmp	r2, #0
+    25c2:	bf18      	it	ne
+    25c4:	f44f 7010 	movne.w	r0, #576	@ 0x240
+    25c8:	6b19      	ldr	r1, [r3, #48]	@ 0x30
+    25ca:	4281      	cmp	r1, r0
+    25cc:	d122      	bne.n	2614 <power::(anonymous namespace)::fixedModes(bool)+0x88>
+    25ce:	6b58      	ldr	r0, [r3, #52]	@ 0x34
+    25d0:	bb00      	cbnz	r0, 2614 <power::(anonymous namespace)::fixedModes(bool)+0x88>
+    25d2:	6b9a      	ldr	r2, [r3, #56]	@ 0x38
+    25d4:	bb0a      	cbnz	r2, 261a <power::(anonymous namespace)::fixedModes(bool)+0x8e>
+    25d6:	6bda      	ldr	r2, [r3, #60]	@ 0x3c
+    25d8:	b9e2      	cbnz	r2, 2614 <power::(anonymous namespace)::fixedModes(bool)+0x88>
+    25da:	6cda      	ldr	r2, [r3, #76]	@ 0x4c
+    25dc:	b9d2      	cbnz	r2, 2614 <power::(anonymous namespace)::fixedModes(bool)+0x88>
+    25de:	6e18      	ldr	r0, [r3, #96]	@ 0x60
+    25e0:	b9d0      	cbnz	r0, 2618 <power::(anonymous namespace)::fixedModes(bool)+0x8c>
+    25e2:	6e5a      	ldr	r2, [r3, #100]	@ 0x64
+    25e4:	b9ca      	cbnz	r2, 261a <power::(anonymous namespace)::fixedModes(bool)+0x8e>
+    25e6:	6e98      	ldr	r0, [r3, #104]	@ 0x68
+    25e8:	b9b0      	cbnz	r0, 2618 <power::(anonymous namespace)::fixedModes(bool)+0x8c>
+    25ea:	6eda      	ldr	r2, [r3, #108]	@ 0x6c
+    25ec:	b9aa      	cbnz	r2, 261a <power::(anonymous namespace)::fixedModes(bool)+0x8e>
+    25ee:	6f18      	ldr	r0, [r3, #112]	@ 0x70
+    25f0:	b990      	cbnz	r0, 2618 <power::(anonymous namespace)::fixedModes(bool)+0x8c>
+    25f2:	f8d3 20a0 	ldr.w	r2, [r3, #160]	@ 0xa0
+    25f6:	b982      	cbnz	r2, 261a <power::(anonymous namespace)::fixedModes(bool)+0x8e>
+    25f8:	f8d3 00a4 	ldr.w	r0, [r3, #164]	@ 0xa4
+    25fc:	b960      	cbnz	r0, 2618 <power::(anonymous namespace)::fixedModes(bool)+0x8c>
+    25fe:	f8d3 20c0 	ldr.w	r2, [r3, #192]	@ 0xc0
+    2602:	b952      	cbnz	r2, 261a <power::(anonymous namespace)::fixedModes(bool)+0x8e>
+    2604:	f8d3 00c4 	ldr.w	r0, [r3, #196]	@ 0xc4
+    2608:	f000 7040 	and.w	r0, r0, #50331648	@ 0x3000000
+    260c:	fab0 f080 	clz	r0, r0
+    2610:	0940      	lsrs	r0, r0, #5
+    2612:	4770      	bx	lr
+    2614:	2000      	movs	r0, #0
+    2616:	4770      	bx	lr
+    2618:	4610      	mov	r0, r2
+    261a:	4770      	bx	lr
+    261c:	42028000 	.word	0x42028000
+
+00002620 <power::(anonymous namespace)::separatePin(unsigned int, gpio_dt_spec const&) [clone .constprop.0]>:
+    2620:	2845      	cmp	r0, #69	@ 0x45
+    2622:	4601      	mov	r1, r0
+    2624:	b538      	push	{r3, r4, r5, lr}
+    2626:	d810      	bhi.n	264a <power::(anonymous namespace)::separatePin(unsigned int, gpio_dt_spec const&) [clone .constprop.0]+0x2a>
+    2628:	4d09      	ldr	r5, [pc, #36]	@ (2650 <power::(anonymous namespace)::separatePin(unsigned int, gpio_dt_spec const&) [clone .constprop.0]+0x30>)
+    262a:	4b0a      	ldr	r3, [pc, #40]	@ (2654 <power::(anonymous namespace)::separatePin(unsigned int, gpio_dt_spec const&) [clone .constprop.0]+0x34>)
+    262c:	eb05 04c0 	add.w	r4, r5, r0, lsl #3
+    2630:	4620      	mov	r0, r4
+    2632:	4798      	blx	r3
+    2634:	b140      	cbz	r0, 2648 <power::(anonymous namespace)::separatePin(unsigned int, gpio_dt_spec const&) [clone .constprop.0]+0x28>
+    2636:	f855 2031 	ldr.w	r2, [r5, r1, lsl #3]
+    263a:	4b07      	ldr	r3, [pc, #28]	@ (2658 <power::(anonymous namespace)::separatePin(unsigned int, gpio_dt_spec const&) [clone .constprop.0]+0x38>)
+    263c:	429a      	cmp	r2, r3
+    263e:	d103      	bne.n	2648 <power::(anonymous namespace)::separatePin(unsigned int, gpio_dt_spec const&) [clone .constprop.0]+0x28>
+    2640:	7920      	ldrb	r0, [r4, #4]
+    2642:	3804      	subs	r0, #4
+    2644:	bf18      	it	ne
+    2646:	2001      	movne	r0, #1
+    2648:	bd38      	pop	{r3, r4, r5, pc}
+    264a:	2000      	movs	r0, #0
+    264c:	e7fc      	b.n	2648 <power::(anonymous namespace)::separatePin(unsigned int, gpio_dt_spec const&) [clone .constprop.0]+0x28>
+    264e:	bf00      	nop
+    2650:	00000088 	.word	0x00000088
+	...
+
+0000265c <power::(anonymous namespace)::environmentOwned()>:
+    265c:	4b6f      	ldr	r3, [pc, #444]	@ (281c <power::(anonymous namespace)::environmentOwned()+0x1c0>)
+    265e:	b510      	push	{r4, lr}
+    2660:	68db      	ldr	r3, [r3, #12]
+    2662:	b90b      	cbnz	r3, 2668 <power::(anonymous namespace)::environmentOwned()+0xc>
+    2664:	2000      	movs	r0, #0
+    2666:	bd10      	pop	{r4, pc}
+    2668:	785a      	ldrb	r2, [r3, #1]
+    266a:	07d2      	lsls	r2, r2, #31
+    266c:	d4fa      	bmi.n	2664 <power::(anonymous namespace)::environmentOwned()+0x8>
+    266e:	781b      	ldrb	r3, [r3, #0]
+    2670:	2b00      	cmp	r3, #0
+    2672:	d1f7      	bne.n	2664 <power::(anonymous namespace)::environmentOwned()+0x8>
+    2674:	486a      	ldr	r0, [pc, #424]	@ (2820 <power::(anonymous namespace)::environmentOwned()+0x1c4>)
+    2676:	6883      	ldr	r3, [r0, #8]
+    2678:	2b00      	cmp	r3, #0
+    267a:	d0f3      	beq.n	2664 <power::(anonymous namespace)::environmentOwned()+0x8>
+    267c:	4c69      	ldr	r4, [pc, #420]	@ (2824 <power::(anonymous namespace)::environmentOwned()+0x1c8>)
+    267e:	47a0      	blx	r4
+    2680:	2800      	cmp	r0, #0
+    2682:	d0ef      	beq.n	2664 <power::(anonymous namespace)::environmentOwned()+0x8>
+    2684:	4868      	ldr	r0, [pc, #416]	@ (2828 <power::(anonymous namespace)::environmentOwned()+0x1cc>)
+    2686:	47a0      	blx	r4
+    2688:	2800      	cmp	r0, #0
+    268a:	d0eb      	beq.n	2664 <power::(anonymous namespace)::environmentOwned()+0x8>
+    268c:	4867      	ldr	r0, [pc, #412]	@ (282c <power::(anonymous namespace)::environmentOwned()+0x1d0>)
+    268e:	47a0      	blx	r4
+    2690:	2800      	cmp	r0, #0
+    2692:	d0e7      	beq.n	2664 <power::(anonymous namespace)::environmentOwned()+0x8>
+    2694:	4866      	ldr	r0, [pc, #408]	@ (2830 <power::(anonymous namespace)::environmentOwned()+0x1d4>)
+    2696:	47a0      	blx	r4
+    2698:	2800      	cmp	r0, #0
+    269a:	d0e3      	beq.n	2664 <power::(anonymous namespace)::environmentOwned()+0x8>
+    269c:	4a65      	ldr	r2, [pc, #404]	@ (2834 <power::(anonymous namespace)::environmentOwned()+0x1d8>)
+    269e:	f8d2 3094 	ldr.w	r3, [r2, #148]	@ 0x94
+    26a2:	f003 0364 	and.w	r3, r3, #100	@ 0x64
+    26a6:	2b64      	cmp	r3, #100	@ 0x64
+    26a8:	d1dc      	bne.n	2664 <power::(anonymous namespace)::environmentOwned()+0x8>
+    26aa:	f8d2 30a8 	ldr.w	r3, [r2, #168]	@ 0xa8
+    26ae:	079c      	lsls	r4, r3, #30
+    26b0:	d5d8      	bpl.n	2664 <power::(anonymous namespace)::environmentOwned()+0x8>
+    26b2:	4b61      	ldr	r3, [pc, #388]	@ (2838 <power::(anonymous namespace)::environmentOwned()+0x1dc>)
+    26b4:	691a      	ldr	r2, [r3, #16]
+    26b6:	0050      	lsls	r0, r2, #1
+    26b8:	d5d4      	bpl.n	2664 <power::(anonymous namespace)::environmentOwned()+0x8>
+    26ba:	68da      	ldr	r2, [r3, #12]
+    26bc:	f402 22f8 	and.w	r2, r2, #507904	@ 0x7c000
+    26c0:	f5b2 2ff8 	cmp.w	r2, #507904	@ 0x7c000
+    26c4:	d1ce      	bne.n	2664 <power::(anonymous namespace)::environmentOwned()+0x8>
+    26c6:	6bdb      	ldr	r3, [r3, #60]	@ 0x3c
+    26c8:	f403 3360 	and.w	r3, r3, #229376	@ 0x38000
+    26cc:	f5b3 3f60 	cmp.w	r3, #229376	@ 0x38000
+    26d0:	d1c8      	bne.n	2664 <power::(anonymous namespace)::environmentOwned()+0x8>
+    26d2:	4b5a      	ldr	r3, [pc, #360]	@ (283c <power::(anonymous namespace)::environmentOwned()+0x1e0>)
+    26d4:	685b      	ldr	r3, [r3, #4]
+    26d6:	f413 7f40 	tst.w	r3, #768	@ 0x300
+    26da:	d1c3      	bne.n	2664 <power::(anonymous namespace)::environmentOwned()+0x8>
+    26dc:	4b55      	ldr	r3, [pc, #340]	@ (2834 <power::(anonymous namespace)::environmentOwned()+0x1d8>)
+    26de:	69da      	ldr	r2, [r3, #28]
+    26e0:	f002 020c 	and.w	r2, r2, #12
+    26e4:	2a0c      	cmp	r2, #12
+    26e6:	d1bd      	bne.n	2664 <power::(anonymous namespace)::environmentOwned()+0x8>
+    26e8:	6a1a      	ldr	r2, [r3, #32]
+    26ea:	0711      	lsls	r1, r2, #28
+    26ec:	d1ba      	bne.n	2664 <power::(anonymous namespace)::environmentOwned()+0x8>
+    26ee:	6a9a      	ldr	r2, [r3, #40]	@ 0x28
+    26f0:	f002 0203 	and.w	r2, r2, #3
+    26f4:	2a01      	cmp	r2, #1
+    26f6:	d1b5      	bne.n	2664 <power::(anonymous namespace)::environmentOwned()+0x8>
+    26f8:	6a9a      	ldr	r2, [r3, #40]	@ 0x28
+    26fa:	f412 6f70 	tst.w	r2, #3840	@ 0xf00
+    26fe:	d1b1      	bne.n	2664 <power::(anonymous namespace)::environmentOwned()+0x8>
+    2700:	6b5a      	ldr	r2, [r3, #52]	@ 0x34
+    2702:	f3c2 0208 	ubfx	r2, r2, #0, #9
+    2706:	2a4f      	cmp	r2, #79	@ 0x4f
+    2708:	d1ac      	bne.n	2664 <power::(anonymous namespace)::environmentOwned()+0x8>
+    270a:	6b5b      	ldr	r3, [r3, #52]	@ 0x34
+    270c:	f003 43fe 	and.w	r3, r3, #2130706432	@ 0x7f000000
+    2710:	f1b3 7f80 	cmp.w	r3, #16777216	@ 0x1000000
+    2714:	d1a6      	bne.n	2664 <power::(anonymous namespace)::environmentOwned()+0x8>
+    2716:	4b47      	ldr	r3, [pc, #284]	@ (2834 <power::(anonymous namespace)::environmentOwned()+0x1d8>)
+    2718:	681a      	ldr	r2, [r3, #0]
+    271a:	0192      	lsls	r2, r2, #6
+    271c:	d5a2      	bpl.n	2664 <power::(anonymous namespace)::environmentOwned()+0x8>
+    271e:	6a9a      	ldr	r2, [r3, #40]	@ 0x28
+    2720:	0354      	lsls	r4, r2, #13
+    2722:	d59f      	bpl.n	2664 <power::(anonymous namespace)::environmentOwned()+0x8>
+    2724:	6a9a      	ldr	r2, [r3, #40]	@ 0x28
+    2726:	06d0      	lsls	r0, r2, #27
+    2728:	d49c      	bmi.n	2664 <power::(anonymous namespace)::environmentOwned()+0x8>
+    272a:	689a      	ldr	r2, [r3, #8]
+    272c:	0211      	lsls	r1, r2, #8
+    272e:	d599      	bpl.n	2664 <power::(anonymous namespace)::environmentOwned()+0x8>
+    2730:	689a      	ldr	r2, [r3, #8]
+    2732:	f002 4270 	and.w	r2, r2, #4026531840	@ 0xf0000000
+    2736:	f1b2 4f80 	cmp.w	r2, #1073741824	@ 0x40000000
+    273a:	d193      	bne.n	2664 <power::(anonymous namespace)::environmentOwned()+0x8>
+    273c:	681a      	ldr	r2, [r3, #0]
+    273e:	0752      	lsls	r2, r2, #29
+    2740:	d590      	bpl.n	2664 <power::(anonymous namespace)::environmentOwned()+0x8>
+    2742:	681a      	ldr	r2, [r3, #0]
+    2744:	0714      	lsls	r4, r2, #28
+    2746:	d58d      	bpl.n	2664 <power::(anonymous namespace)::environmentOwned()+0x8>
+    2748:	681a      	ldr	r2, [r3, #0]
+    274a:	0650      	lsls	r0, r2, #25
+    274c:	d58a      	bpl.n	2664 <power::(anonymous namespace)::environmentOwned()+0x8>
+    274e:	6a9a      	ldr	r2, [r3, #40]	@ 0x28
+    2750:	f412 4f70 	tst.w	r2, #61440	@ 0xf000
+    2754:	d186      	bne.n	2664 <power::(anonymous namespace)::environmentOwned()+0x8>
+    2756:	f8d3 30e8 	ldr.w	r3, [r3, #232]	@ 0xe8
+    275a:	f413 4fe0 	tst.w	r3, #28672	@ 0x7000
+    275e:	d181      	bne.n	2664 <power::(anonymous namespace)::environmentOwned()+0x8>
+    2760:	4b34      	ldr	r3, [pc, #208]	@ (2834 <power::(anonymous namespace)::environmentOwned()+0x1d8>)
+    2762:	f8d3 308c 	ldr.w	r3, [r3, #140]	@ 0x8c
+    2766:	07d9      	lsls	r1, r3, #31
+    2768:	f57f af7c 	bpl.w	2664 <power::(anonymous namespace)::environmentOwned()+0x8>
+    276c:	4b34      	ldr	r3, [pc, #208]	@ (2840 <power::(anonymous namespace)::environmentOwned()+0x1e4>)
+    276e:	69da      	ldr	r2, [r3, #28]
+    2770:	06d2      	lsls	r2, r2, #27
+    2772:	f53f af77 	bmi.w	2664 <power::(anonymous namespace)::environmentOwned()+0x8>
+    2776:	2210      	movs	r2, #16
+    2778:	fa92 f2a2 	rbit	r2, r2
+    277c:	fab2 f282 	clz	r2, r2
+    2780:	6819      	ldr	r1, [r3, #0]
+    2782:	2303      	movs	r3, #3
+    2784:	0052      	lsls	r2, r2, #1
+    2786:	4093      	lsls	r3, r2
+    2788:	400b      	ands	r3, r1
+    278a:	2210      	movs	r2, #16
+    278c:	fa92 f2a2 	rbit	r2, r2
+    2790:	2a00      	cmp	r2, #0
+    2792:	f43f af67 	beq.w	2664 <power::(anonymous namespace)::environmentOwned()+0x8>
+    2796:	fab2 f282 	clz	r2, r2
+    279a:	0051      	lsls	r1, r2, #1
+    279c:	40cb      	lsrs	r3, r1
+    279e:	2b03      	cmp	r3, #3
+    27a0:	f47f af60 	bne.w	2664 <power::(anonymous namespace)::environmentOwned()+0x8>
+    27a4:	4826      	ldr	r0, [pc, #152]	@ (2840 <power::(anonymous namespace)::environmentOwned()+0x1e4>)
+    27a6:	408b      	lsls	r3, r1
+    27a8:	68c0      	ldr	r0, [r0, #12]
+    27aa:	4003      	ands	r3, r0
+    27ac:	40cb      	lsrs	r3, r1
+    27ae:	f47f af59 	bne.w	2664 <power::(anonymous namespace)::environmentOwned()+0x8>
+    27b2:	4b24      	ldr	r3, [pc, #144]	@ (2844 <power::(anonymous namespace)::environmentOwned()+0x1e8>)
+    27b4:	685a      	ldr	r2, [r3, #4]
+    27b6:	0694      	lsls	r4, r2, #26
+    27b8:	f53f af54 	bmi.w	2664 <power::(anonymous namespace)::environmentOwned()+0x8>
+    27bc:	f8d3 2104 	ldr.w	r2, [r3, #260]	@ 0x104
+    27c0:	0690      	lsls	r0, r2, #26
+    27c2:	f53f af4f 	bmi.w	2664 <power::(anonymous namespace)::environmentOwned()+0x8>
+    27c6:	f8d3 2204 	ldr.w	r2, [r3, #516]	@ 0x204
+    27ca:	0691      	lsls	r1, r2, #26
+    27cc:	f53f af4a 	bmi.w	2664 <power::(anonymous namespace)::environmentOwned()+0x8>
+    27d0:	f8d3 210c 	ldr.w	r2, [r3, #268]	@ 0x10c
+    27d4:	0392      	lsls	r2, r2, #14
+    27d6:	f53f af45 	bmi.w	2664 <power::(anonymous namespace)::environmentOwned()+0x8>
+    27da:	f8d3 320c 	ldr.w	r3, [r3, #524]	@ 0x20c
+    27de:	039b      	lsls	r3, r3, #14
+    27e0:	f53f af40 	bmi.w	2664 <power::(anonymous namespace)::environmentOwned()+0x8>
+    27e4:	4b18      	ldr	r3, [pc, #96]	@ (2848 <power::(anonymous namespace)::environmentOwned()+0x1ec>)
+    27e6:	4a19      	ldr	r2, [pc, #100]	@ (284c <power::(anonymous namespace)::environmentOwned()+0x1f0>)
+    27e8:	6899      	ldr	r1, [r3, #8]
+    27ea:	4211      	tst	r1, r2
+    27ec:	f47f af3a 	bne.w	2664 <power::(anonymous namespace)::environmentOwned()+0x8>
+    27f0:	685a      	ldr	r2, [r3, #4]
+    27f2:	2a00      	cmp	r2, #0
+    27f4:	f47f af36 	bne.w	2664 <power::(anonymous namespace)::environmentOwned()+0x8>
+    27f8:	68da      	ldr	r2, [r3, #12]
+    27fa:	f642 4303 	movw	r3, #11267	@ 0x2c03
+    27fe:	421a      	tst	r2, r3
+    2800:	f47f af30 	bne.w	2664 <power::(anonymous namespace)::environmentOwned()+0x8>
+    2804:	4b12      	ldr	r3, [pc, #72]	@ (2850 <power::(anonymous namespace)::environmentOwned()+0x1f4>)
+    2806:	6818      	ldr	r0, [r3, #0]
+    2808:	f420 503c 	bic.w	r0, r0, #12032	@ 0x2f00
+    280c:	f020 003c 	bic.w	r0, r0, #60	@ 0x3c
+    2810:	0440      	lsls	r0, r0, #17
+    2812:	0c40      	lsrs	r0, r0, #17
+    2814:	fab0 f080 	clz	r0, r0
+    2818:	0940      	lsrs	r0, r0, #5
+    281a:	e724      	b.n	2666 <power::(anonymous namespace)::environmentOwned()+0xa>
+	...
+    2834:	46020c00 	.word	0x46020c00
+    2838:	46020800 	.word	0x46020800
+    283c:	46000400 	.word	0x46000400
+    2840:	42020000 	.word	0x42020000
+    2844:	e000e100 	.word	0xe000e100
+    2848:	46021000 	.word	0x46021000
+    284c:	80000017 	.word	0x80000017
+    2850:	46021800 	.word	0x46021800
+
+00002854 <power::Reader::controlsOwned() const>:
+    2854:	b510      	push	{r4, lr}
+    2856:	7883      	ldrb	r3, [r0, #2]
+    2858:	4604      	mov	r4, r0
+    285a:	b90b      	cbnz	r3, 2860 <power::Reader::controlsOwned() const+0xc>
+    285c:	2000      	movs	r0, #0
+    285e:	bd10      	pop	{r4, pc}
+    2860:	4b11      	ldr	r3, [pc, #68]	@ (28a8 <power::Reader::controlsOwned() const+0x54>)
+    2862:	4798      	blx	r3
+    2864:	2800      	cmp	r0, #0
+    2866:	d0f9      	beq.n	285c <power::Reader::controlsOwned() const+0x8>
+    2868:	4b10      	ldr	r3, [pc, #64]	@ (28ac <power::Reader::controlsOwned() const+0x58>)
+    286a:	f8d3 308c 	ldr.w	r3, [r3, #140]	@ 0x8c
+    286e:	0559      	lsls	r1, r3, #21
+    2870:	d5f4      	bpl.n	285c <power::Reader::controlsOwned() const+0x8>
+    2872:	79e3      	ldrb	r3, [r4, #7]
+    2874:	b11b      	cbz	r3, 287e <power::Reader::controlsOwned() const+0x2a>
+    2876:	4b0e      	ldr	r3, [pc, #56]	@ (28b0 <power::Reader::controlsOwned() const+0x5c>)
+    2878:	681b      	ldr	r3, [r3, #0]
+    287a:	04da      	lsls	r2, r3, #19
+    287c:	d5ee      	bpl.n	285c <power::Reader::controlsOwned() const+0x8>
+    287e:	79a0      	ldrb	r0, [r4, #6]
+    2880:	4b0c      	ldr	r3, [pc, #48]	@ (28b4 <power::Reader::controlsOwned() const+0x60>)
+    2882:	4798      	blx	r3
+    2884:	2800      	cmp	r0, #0
+    2886:	d0e9      	beq.n	285c <power::Reader::controlsOwned() const+0x8>
+    2888:	4b09      	ldr	r3, [pc, #36]	@ (28b0 <power::Reader::controlsOwned() const+0x5c>)
+    288a:	7961      	ldrb	r1, [r4, #5]
+    288c:	f8d3 2308 	ldr.w	r2, [r3, #776]	@ 0x308
+    2890:	ebb2 4fc1 	cmp.w	r2, r1, lsl #19
+    2894:	d1e2      	bne.n	285c <power::Reader::controlsOwned() const+0x8>
+    2896:	6898      	ldr	r0, [r3, #8]
+    2898:	68e3      	ldr	r3, [r4, #12]
+    289a:	ea20 0003 	bic.w	r0, r0, r3
+    289e:	68a3      	ldr	r3, [r4, #8]
+    28a0:	1ac3      	subs	r3, r0, r3
+    28a2:	4258      	negs	r0, r3
+    28a4:	4158      	adcs	r0, r3
+    28a6:	e7da      	b.n	285e <power::Reader::controlsOwned() const+0xa>
+    28a8:	00000000 	.word	0x00000000
+    28ac:	46020c00 	.word	0x46020c00
+    28b0:	42028000 	.word	0x42028000
+    28b4:	00000000 	.word	0x00000000
+
+000028b8 <power::Reader::waitFlag(bool, unsigned int, bool, unsigned int, unsigned int, power::Status)>:
+    28b8:	e92d 4ff7 	stmdb	sp!, {r0, r1, r2, r4, r5, r6, r7, r8, r9, sl, fp, lr}
+    28bc:	4604      	mov	r4, r0
+    28be:	460e      	mov	r6, r1
+    28c0:	4617      	mov	r7, r2
+    28c2:	4698      	mov	r8, r3
+    28c4:	f44f 3580 	mov.w	r5, #65536	@ 0x10000
+    28c8:	f8df 9064 	ldr.w	r9, [pc, #100]	@ 2930 <power::Reader::waitFlag(bool, unsigned int, bool, unsigned int, unsigned int, power::Status)+0x78>
+    28cc:	f8df a064 	ldr.w	sl, [pc, #100]	@ 2934 <power::Reader::waitFlag(bool, unsigned int, bool, unsigned int, unsigned int, power::Status)+0x7c>
+    28d0:	4620      	mov	r0, r4
+    28d2:	47c8      	blx	r9
+    28d4:	b348      	cbz	r0, 292a <power::Reader::waitFlag(bool, unsigned int, bool, unsigned int, unsigned int, power::Status)+0x72>
+    28d6:	b186      	cbz	r6, 28fa <power::Reader::waitFlag(bool, unsigned int, bool, unsigned int, unsigned int, power::Status)+0x42>
+    28d8:	f8da 3008 	ldr.w	r3, [sl, #8]
+    28dc:	f8df b058 	ldr.w	fp, [pc, #88]	@ 2938 <power::Reader::waitFlag(bool, unsigned int, bool, unsigned int, unsigned int, power::Status)+0x80>
+    28e0:	9301      	str	r3, [sp, #4]
+    28e2:	47d8      	blx	fp
+    28e4:	9b0c      	ldr	r3, [sp, #48]	@ 0x30
+    28e6:	1ac0      	subs	r0, r0, r3
+    28e8:	9b0d      	ldr	r3, [sp, #52]	@ 0x34
+    28ea:	4298      	cmp	r0, r3
+    28ec:	9b01      	ldr	r3, [sp, #4]
+    28ee:	d307      	bcc.n	2900 <power::Reader::waitFlag(bool, unsigned int, bool, unsigned int, unsigned int, power::Status)+0x48>
+    28f0:	f89d 0038 	ldrb.w	r0, [sp, #56]	@ 0x38
+    28f4:	b003      	add	sp, #12
+    28f6:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+    28fa:	f8da 3000 	ldr.w	r3, [sl]
+    28fe:	e7ed      	b.n	28dc <power::Reader::waitFlag(bool, unsigned int, bool, unsigned int, unsigned int, power::Status)+0x24>
+    2900:	403b      	ands	r3, r7
+    2902:	3b00      	subs	r3, #0
+    2904:	bf18      	it	ne
+    2906:	2301      	movne	r3, #1
+    2908:	4543      	cmp	r3, r8
+    290a:	d10a      	bne.n	2922 <power::Reader::waitFlag(bool, unsigned int, bool, unsigned int, unsigned int, power::Status)+0x6a>
+    290c:	4620      	mov	r0, r4
+    290e:	47c8      	blx	r9
+    2910:	b158      	cbz	r0, 292a <power::Reader::waitFlag(bool, unsigned int, bool, unsigned int, unsigned int, power::Status)+0x72>
+    2912:	47d8      	blx	fp
+    2914:	9b0c      	ldr	r3, [sp, #48]	@ 0x30
+    2916:	1ac0      	subs	r0, r0, r3
+    2918:	9b0d      	ldr	r3, [sp, #52]	@ 0x34
+    291a:	4298      	cmp	r0, r3
+    291c:	d2e8      	bcs.n	28f0 <power::Reader::waitFlag(bool, unsigned int, bool, unsigned int, unsigned int, power::Status)+0x38>
+    291e:	2000      	movs	r0, #0
+    2920:	e7e8      	b.n	28f4 <power::Reader::waitFlag(bool, unsigned int, bool, unsigned int, unsigned int, power::Status)+0x3c>
+    2922:	3d01      	subs	r5, #1
+    2924:	d1d4      	bne.n	28d0 <power::Reader::waitFlag(bool, unsigned int, bool, unsigned int, unsigned int, power::Status)+0x18>
+    2926:	2009      	movs	r0, #9
+    2928:	e7e4      	b.n	28f4 <power::Reader::waitFlag(bool, unsigned int, bool, unsigned int, unsigned int, power::Status)+0x3c>
+    292a:	2004      	movs	r0, #4
+    292c:	e7e2      	b.n	28f4 <power::Reader::waitFlag(bool, unsigned int, bool, unsigned int, unsigned int, power::Status)+0x3c>
+    292e:	bf00      	nop
+    2930:	00000000 	.word	0x00000000
+    2934:	42028000 	.word	0x42028000
+    2938:	00000000 	.word	0x00000000
+
+0000293c <power::Reader::waitCalibrationGap()>:
+    293c:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+    2940:	4f0e      	ldr	r7, [pc, #56]	@ (297c <power::Reader::waitCalibrationGap()+0x40>)
+    2942:	4604      	mov	r4, r0
+    2944:	47b8      	blx	r7
+    2946:	f44f 3580 	mov.w	r5, #65536	@ 0x10000
+    294a:	4606      	mov	r6, r0
+    294c:	f8df 8030 	ldr.w	r8, [pc, #48]	@ 2980 <power::Reader::waitCalibrationGap()+0x44>
+    2950:	4620      	mov	r0, r4
+    2952:	47c0      	blx	r8
+    2954:	b178      	cbz	r0, 2976 <power::Reader::waitCalibrationGap()+0x3a>
+    2956:	47b8      	blx	r7
+    2958:	1b80      	subs	r0, r0, r6
+    295a:	2801      	cmp	r0, #1
+    295c:	d907      	bls.n	296e <power::Reader::waitCalibrationGap()+0x32>
+    295e:	4620      	mov	r0, r4
+    2960:	47c0      	blx	r8
+    2962:	f080 0001 	eor.w	r0, r0, #1
+    2966:	0080      	lsls	r0, r0, #2
+    2968:	b2c0      	uxtb	r0, r0
+    296a:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+    296e:	3d01      	subs	r5, #1
+    2970:	d1ee      	bne.n	2950 <power::Reader::waitCalibrationGap()+0x14>
+    2972:	2009      	movs	r0, #9
+    2974:	e7f9      	b.n	296a <power::Reader::waitCalibrationGap()+0x2e>
+    2976:	2004      	movs	r0, #4
+    2978:	e7f7      	b.n	296a <power::Reader::waitCalibrationGap()+0x2e>
+    297a:	bf00      	nop
+	...
+
+00002984 <power::Reader::initialize()>:
+    2984:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+    2988:	4a75      	ldr	r2, [pc, #468]	@ (2b60 <power::Reader::initialize()+0x1dc>)
+    298a:	b087      	sub	sp, #28
+    298c:	f8d2 3308 	ldr.w	r3, [r2, #776]	@ 0x308
+    2990:	4604      	mov	r4, r0
+    2992:	f423 1370 	bic.w	r3, r3, #3932160	@ 0x3c0000
+    2996:	f443 2300 	orr.w	r3, r3, #524288	@ 0x80000
+    299a:	f8c2 3308 	str.w	r3, [r2, #776]	@ 0x308
+    299e:	2301      	movs	r3, #1
+    29a0:	7143      	strb	r3, [r0, #5]
+    29a2:	4b70      	ldr	r3, [pc, #448]	@ (2b64 <power::Reader::initialize()+0x1e0>)
+    29a4:	2203      	movs	r2, #3
+    29a6:	6819      	ldr	r1, [r3, #0]
+    29a8:	2310      	movs	r3, #16
+    29aa:	fa93 f3a3 	rbit	r3, r3
+    29ae:	fab3 f383 	clz	r3, r3
+    29b2:	005b      	lsls	r3, r3, #1
+    29b4:	fa02 f303 	lsl.w	r3, r2, r3
+    29b8:	ea21 0103 	bic.w	r1, r1, r3
+    29bc:	2310      	movs	r3, #16
+    29be:	fa93 f3a3 	rbit	r3, r3
+    29c2:	fab3 f383 	clz	r3, r3
+    29c6:	005b      	lsls	r3, r3, #1
+    29c8:	409a      	lsls	r2, r3
+    29ca:	2310      	movs	r3, #16
+    29cc:	fa93 f3a3 	rbit	r3, r3
+    29d0:	fab3 f383 	clz	r3, r3
+    29d4:	2003      	movs	r0, #3
+    29d6:	430a      	orrs	r2, r1
+    29d8:	4962      	ldr	r1, [pc, #392]	@ (2b64 <power::Reader::initialize()+0x1e0>)
+    29da:	005b      	lsls	r3, r3, #1
+    29dc:	600a      	str	r2, [r1, #0]
+    29de:	68ca      	ldr	r2, [r1, #12]
+    29e0:	fa00 f303 	lsl.w	r3, r0, r3
+    29e4:	ea22 0303 	bic.w	r3, r2, r3
+    29e8:	4620      	mov	r0, r4
+    29ea:	4e5f      	ldr	r6, [pc, #380]	@ (2b68 <power::Reader::initialize()+0x1e4>)
+    29ec:	60cb      	str	r3, [r1, #12]
+    29ee:	47b0      	blx	r6
+    29f0:	b928      	cbnz	r0, 29fe <power::Reader::initialize()+0x7a>
+    29f2:	f04f 0b0a 	mov.w	fp, #10
+    29f6:	4658      	mov	r0, fp
+    29f8:	b007      	add	sp, #28
+    29fa:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+    29fe:	2700      	movs	r7, #0
+    2a00:	4d57      	ldr	r5, [pc, #348]	@ (2b60 <power::Reader::initialize()+0x1dc>)
+    2a02:	4620      	mov	r0, r4
+    2a04:	68ab      	ldr	r3, [r5, #8]
+    2a06:	f023 4320 	bic.w	r3, r3, #2684354560	@ 0xa0000000
+    2a0a:	f023 033f 	bic.w	r3, r3, #63	@ 0x3f
+    2a0e:	60ab      	str	r3, [r5, #8]
+    2a10:	60a7      	str	r7, [r4, #8]
+    2a12:	47b0      	blx	r6
+    2a14:	2800      	cmp	r0, #0
+    2a16:	d0ec      	beq.n	29f2 <power::Reader::initialize()+0x6e>
+    2a18:	f8df a158 	ldr.w	sl, [pc, #344]	@ 2b74 <power::Reader::initialize()+0x1f0>
+    2a1c:	47d0      	blx	sl
+    2a1e:	68ab      	ldr	r3, [r5, #8]
+    2a20:	f04f 0c05 	mov.w	ip, #5
+    2a24:	f023 4310 	bic.w	r3, r3, #2415919104	@ 0x90000000
+    2a28:	f023 033f 	bic.w	r3, r3, #63	@ 0x3f
+    2a2c:	f043 5380 	orr.w	r3, r3, #268435456	@ 0x10000000
+    2a30:	60ab      	str	r3, [r5, #8]
+    2a32:	f04f 5380 	mov.w	r3, #268435456	@ 0x10000000
+    2a36:	60a3      	str	r3, [r4, #8]
+    2a38:	2364      	movs	r3, #100	@ 0x64
+    2a3a:	9000      	str	r0, [sp, #0]
+    2a3c:	e9cd 3c01 	strd	r3, ip, [sp, #4]
+    2a40:	f44f 5280 	mov.w	r2, #4096	@ 0x1000
+    2a44:	2301      	movs	r3, #1
+    2a46:	4639      	mov	r1, r7
+    2a48:	4620      	mov	r0, r4
+    2a4a:	f8df 912c 	ldr.w	r9, [pc, #300]	@ 2b78 <power::Reader::initialize()+0x1f4>
+    2a4e:	47c8      	blx	r9
+    2a50:	4683      	mov	fp, r0
+    2a52:	2800      	cmp	r0, #0
+    2a54:	d1cf      	bne.n	29f6 <power::Reader::initialize()+0x72>
+    2a56:	f04f 0801 	mov.w	r8, #1
+    2a5a:	f884 8007 	strb.w	r8, [r4, #7]
+    2a5e:	47d0      	blx	sl
+    2a60:	9005      	str	r0, [sp, #20]
+    2a62:	4620      	mov	r0, r4
+    2a64:	47b0      	blx	r6
+    2a66:	b910      	cbnz	r0, 2a6e <power::Reader::initialize()+0xea>
+    2a68:	f04f 0b04 	mov.w	fp, #4
+    2a6c:	e7c3      	b.n	29f6 <power::Reader::initialize()+0x72>
+    2a6e:	f04f 4200 	mov.w	r2, #2147483648	@ 0x80000000
+    2a72:	68a3      	ldr	r3, [r4, #8]
+    2a74:	60e2      	str	r2, [r4, #12]
+    2a76:	f443 3380 	orr.w	r3, r3, #65536	@ 0x10000
+    2a7a:	60a3      	str	r3, [r4, #8]
+    2a7c:	68ab      	ldr	r3, [r5, #8]
+    2a7e:	4f3b      	ldr	r7, [pc, #236]	@ (2b6c <power::Reader::initialize()+0x1e8>)
+    2a80:	403b      	ands	r3, r7
+    2a82:	4313      	orrs	r3, r2
+    2a84:	f443 3380 	orr.w	r3, r3, #65536	@ 0x10000
+    2a88:	60ab      	str	r3, [r5, #8]
+    2a8a:	f3bf 8f5f 	dmb	sy
+    2a8e:	f241 3388 	movw	r3, #5000	@ 0x1388
+    2a92:	2006      	movs	r0, #6
+    2a94:	e9cd 3001 	strd	r3, r0, [sp, #4]
+    2a98:	9b05      	ldr	r3, [sp, #20]
+    2a9a:	4641      	mov	r1, r8
+    2a9c:	9300      	str	r3, [sp, #0]
+    2a9e:	4620      	mov	r0, r4
+    2aa0:	465b      	mov	r3, fp
+    2aa2:	47c8      	blx	r9
+    2aa4:	4683      	mov	fp, r0
+    2aa6:	2800      	cmp	r0, #0
+    2aa8:	d1a5      	bne.n	29f6 <power::Reader::initialize()+0x72>
+    2aaa:	60e0      	str	r0, [r4, #12]
+    2aac:	4b30      	ldr	r3, [pc, #192]	@ (2b70 <power::Reader::initialize()+0x1ec>)
+    2aae:	4620      	mov	r0, r4
+    2ab0:	4798      	blx	r3
+    2ab2:	4683      	mov	fp, r0
+    2ab4:	2800      	cmp	r0, #0
+    2ab6:	d19e      	bne.n	29f6 <power::Reader::initialize()+0x72>
+    2ab8:	68ab      	ldr	r3, [r5, #8]
+    2aba:	403b      	ands	r3, r7
+    2abc:	60ab      	str	r3, [r5, #8]
+    2abe:	f04f 5380 	mov.w	r3, #268435456	@ 0x10000000
+    2ac2:	60a3      	str	r3, [r4, #8]
+    2ac4:	f3bf 8f5f 	dmb	sy
+    2ac8:	4620      	mov	r0, r4
+    2aca:	47b0      	blx	r6
+    2acc:	2800      	cmp	r0, #0
+    2ace:	d0cb      	beq.n	2a68 <power::Reader::initialize()+0xe4>
+    2ad0:	f8c5 8000 	str.w	r8, [r5]
+    2ad4:	682b      	ldr	r3, [r5, #0]
+    2ad6:	07d9      	lsls	r1, r3, #31
+    2ad8:	d48b      	bmi.n	29f2 <power::Reader::initialize()+0x6e>
+    2ada:	47d0      	blx	sl
+    2adc:	4607      	mov	r7, r0
+    2ade:	4620      	mov	r0, r4
+    2ae0:	47b0      	blx	r6
+    2ae2:	2800      	cmp	r0, #0
+    2ae4:	d0c0      	beq.n	2a68 <power::Reader::initialize()+0xe4>
+    2ae6:	f8c4 800c 	str.w	r8, [r4, #12]
+    2aea:	68ab      	ldr	r3, [r5, #8]
+    2aec:	2207      	movs	r2, #7
+    2aee:	f023 4300 	bic.w	r3, r3, #2147483648	@ 0x80000000
+    2af2:	f023 033f 	bic.w	r3, r3, #63	@ 0x3f
+    2af6:	f043 0301 	orr.w	r3, r3, #1
+    2afa:	60ab      	str	r3, [r5, #8]
+    2afc:	2364      	movs	r3, #100	@ 0x64
+    2afe:	4659      	mov	r1, fp
+    2b00:	e9cd 3201 	strd	r3, r2, [sp, #4]
+    2b04:	4620      	mov	r0, r4
+    2b06:	4643      	mov	r3, r8
+    2b08:	4642      	mov	r2, r8
+    2b0a:	9700      	str	r7, [sp, #0]
+    2b0c:	47c8      	blx	r9
+    2b0e:	4683      	mov	fp, r0
+    2b10:	2800      	cmp	r0, #0
+    2b12:	f47f af70 	bne.w	29f6 <power::Reader::initialize()+0x72>
+    2b16:	68a3      	ldr	r3, [r4, #8]
+    2b18:	4620      	mov	r0, r4
+    2b1a:	f043 0301 	orr.w	r3, r3, #1
+    2b1e:	60a3      	str	r3, [r4, #8]
+    2b20:	2300      	movs	r3, #0
+    2b22:	60e3      	str	r3, [r4, #12]
+    2b24:	47b0      	blx	r6
+    2b26:	2800      	cmp	r0, #0
+    2b28:	d09e      	beq.n	2a68 <power::Reader::initialize()+0xe4>
+    2b2a:	4b0d      	ldr	r3, [pc, #52]	@ (2b60 <power::Reader::initialize()+0x1dc>)
+    2b2c:	4620      	mov	r0, r4
+    2b2e:	691a      	ldr	r2, [r3, #16]
+    2b30:	f042 6200 	orr.w	r2, r2, #134217728	@ 0x8000000
+    2b34:	611a      	str	r2, [r3, #16]
+    2b36:	695a      	ldr	r2, [r3, #20]
+    2b38:	f042 5260 	orr.w	r2, r2, #939524096	@ 0x38000000
+    2b3c:	615a      	str	r2, [r3, #20]
+    2b3e:	69da      	ldr	r2, [r3, #28]
+    2b40:	f442 7200 	orr.w	r2, r2, #512	@ 0x200
+    2b44:	61da      	str	r2, [r3, #28]
+    2b46:	6b1a      	ldr	r2, [r3, #48]	@ 0x30
+    2b48:	f422 62f8 	bic.w	r2, r2, #1984	@ 0x7c0
+    2b4c:	f442 7210 	orr.w	r2, r2, #576	@ 0x240
+    2b50:	631a      	str	r2, [r3, #48]	@ 0x30
+    2b52:	2301      	movs	r3, #1
+    2b54:	71a3      	strb	r3, [r4, #6]
+    2b56:	47b0      	blx	r6
+    2b58:	2800      	cmp	r0, #0
+    2b5a:	f47f af4c 	bne.w	29f6 <power::Reader::initialize()+0x72>
+    2b5e:	e748      	b.n	29f2 <power::Reader::initialize()+0x6e>
+    2b60:	42028000 	.word	0x42028000
+    2b64:	42020000 	.word	0x42020000
+    2b68:	00000000 	.word	0x00000000
+    2b6c:	7ffeffc0 	.word	0x7ffeffc0
+	...
+
+00002b7c <power::Reader::stopOwned()>:
+    2b7c:	e92d 4ff7 	stmdb	sp!, {r0, r1, r2, r4, r5, r6, r7, r8, r9, sl, fp, lr}
+    2b80:	f8df 80e0 	ldr.w	r8, [pc, #224]	@ 2c64 <power::Reader::stopOwned()+0xe8>
+    2b84:	4604      	mov	r4, r0
+    2b86:	f04f 0b00 	mov.w	fp, #0
+    2b8a:	47c0      	blx	r8
+    2b8c:	f44f 5780 	mov.w	r7, #4096	@ 0x1000
+    2b90:	4606      	mov	r6, r0
+    2b92:	46da      	mov	sl, fp
+    2b94:	f8df 90c4 	ldr.w	r9, [pc, #196]	@ 2c5c <power::Reader::stopOwned()+0xe0>
+    2b98:	4620      	mov	r0, r4
+    2b9a:	4b2d      	ldr	r3, [pc, #180]	@ (2c50 <power::Reader::stopOwned()+0xd4>)
+    2b9c:	4798      	blx	r3
+    2b9e:	b918      	cbnz	r0, 2ba8 <power::Reader::stopOwned()+0x2c>
+    2ba0:	2002      	movs	r0, #2
+    2ba2:	b003      	add	sp, #12
+    2ba4:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+    2ba8:	9001      	str	r0, [sp, #4]
+    2baa:	f8d9 5008 	ldr.w	r5, [r9, #8]
+    2bae:	47c0      	blx	r8
+    2bb0:	1b80      	subs	r0, r0, r6
+    2bb2:	2863      	cmp	r0, #99	@ 0x63
+    2bb4:	d8f4      	bhi.n	2ba0 <power::Reader::stopOwned()+0x24>
+    2bb6:	4b27      	ldr	r3, [pc, #156]	@ (2c54 <power::Reader::stopOwned()+0xd8>)
+    2bb8:	421d      	tst	r5, r3
+    2bba:	d1f1      	bne.n	2ba0 <power::Reader::stopOwned()+0x24>
+    2bbc:	4926      	ldr	r1, [pc, #152]	@ (2c58 <power::Reader::stopOwned()+0xdc>)
+    2bbe:	9b01      	ldr	r3, [sp, #4]
+    2bc0:	420d      	tst	r5, r1
+    2bc2:	d10f      	bne.n	2be4 <power::Reader::stopOwned()+0x68>
+    2bc4:	4620      	mov	r0, r4
+    2bc6:	4b22      	ldr	r3, [pc, #136]	@ (2c50 <power::Reader::stopOwned()+0xd4>)
+    2bc8:	4798      	blx	r3
+    2bca:	2800      	cmp	r0, #0
+    2bcc:	d0e8      	beq.n	2ba0 <power::Reader::stopOwned()+0x24>
+    2bce:	f8d9 3008 	ldr.w	r3, [r9, #8]
+    2bd2:	4921      	ldr	r1, [pc, #132]	@ (2c58 <power::Reader::stopOwned()+0xdc>)
+    2bd4:	420b      	tst	r3, r1
+    2bd6:	d1e3      	bne.n	2ba0 <power::Reader::stopOwned()+0x24>
+    2bd8:	47c0      	blx	r8
+    2bda:	1b80      	subs	r0, r0, r6
+    2bdc:	2863      	cmp	r0, #99	@ 0x63
+    2bde:	d8df      	bhi.n	2ba0 <power::Reader::stopOwned()+0x24>
+    2be0:	2001      	movs	r0, #1
+    2be2:	e7de      	b.n	2ba2 <power::Reader::stopOwned()+0x26>
+    2be4:	07e8      	lsls	r0, r5, #31
+    2be6:	d503      	bpl.n	2bf0 <power::Reader::stopOwned()+0x74>
+    2be8:	f8d9 1000 	ldr.w	r1, [r9]
+    2bec:	07c9      	lsls	r1, r1, #31
+    2bee:	d5d7      	bpl.n	2ba0 <power::Reader::stopOwned()+0x24>
+    2bf0:	076a      	lsls	r2, r5, #29
+    2bf2:	d516      	bpl.n	2c22 <power::Reader::stopOwned()+0xa6>
+    2bf4:	f1ba 0f00 	cmp.w	sl, #0
+    2bf8:	d10f      	bne.n	2c1a <power::Reader::stopOwned()+0x9e>
+    2bfa:	f015 0f12 	tst.w	r5, #18
+    2bfe:	d10d      	bne.n	2c1c <power::Reader::stopOwned()+0xa0>
+    2c00:	68e1      	ldr	r1, [r4, #12]
+    2c02:	4816      	ldr	r0, [pc, #88]	@ (2c5c <power::Reader::stopOwned()+0xe0>)
+    2c04:	f041 0110 	orr.w	r1, r1, #16
+    2c08:	60e1      	str	r1, [r4, #12]
+    2c0a:	6881      	ldr	r1, [r0, #8]
+    2c0c:	f021 4100 	bic.w	r1, r1, #2147483648	@ 0x80000000
+    2c10:	f021 013f 	bic.w	r1, r1, #63	@ 0x3f
+    2c14:	f041 0110 	orr.w	r1, r1, #16
+    2c18:	6081      	str	r1, [r0, #8]
+    2c1a:	469a      	mov	sl, r3
+    2c1c:	3f01      	subs	r7, #1
+    2c1e:	d1bb      	bne.n	2b98 <power::Reader::stopOwned()+0x1c>
+    2c20:	e7be      	b.n	2ba0 <power::Reader::stopOwned()+0x24>
+    2c22:	490f      	ldr	r1, [pc, #60]	@ (2c60 <power::Reader::stopOwned()+0xe4>)
+    2c24:	420d      	tst	r5, r1
+    2c26:	d1f9      	bne.n	2c1c <power::Reader::stopOwned()+0xa0>
+    2c28:	f1bb 0f00 	cmp.w	fp, #0
+    2c2c:	d10e      	bne.n	2c4c <power::Reader::stopOwned()+0xd0>
+    2c2e:	68a2      	ldr	r2, [r4, #8]
+    2c30:	490a      	ldr	r1, [pc, #40]	@ (2c5c <power::Reader::stopOwned()+0xe0>)
+    2c32:	f022 0201 	bic.w	r2, r2, #1
+    2c36:	60a2      	str	r2, [r4, #8]
+    2c38:	2203      	movs	r2, #3
+    2c3a:	60e2      	str	r2, [r4, #12]
+    2c3c:	688a      	ldr	r2, [r1, #8]
+    2c3e:	f022 4200 	bic.w	r2, r2, #2147483648	@ 0x80000000
+    2c42:	f022 023f 	bic.w	r2, r2, #63	@ 0x3f
+    2c46:	f042 0202 	orr.w	r2, r2, #2
+    2c4a:	608a      	str	r2, [r1, #8]
+    2c4c:	469b      	mov	fp, r3
+    2c4e:	e7e5      	b.n	2c1c <power::Reader::stopOwned()+0xa0>
+    2c50:	00000000 	.word	0x00000000
+    2c54:	80000028 	.word	0x80000028
+    2c58:	8000003f 	.word	0x8000003f
+    2c5c:	42028000 	.word	0x42028000
+    2c60:	8000003e 	.word	0x8000003e
+    2c64:	00000000 	.word	0x00000000
+
+00002c68 <power::Reader::fail(power::Status)>:
+    2c68:	2300      	movs	r3, #0
+    2c6a:	b510      	push	{r4, lr}
+    2c6c:	7043      	strb	r3, [r0, #1]
+    2c6e:	2301      	movs	r3, #1
+    2c70:	70c3      	strb	r3, [r0, #3]
+    2c72:	7883      	ldrb	r3, [r0, #2]
+    2c74:	4604      	mov	r4, r0
+    2c76:	b13b      	cbz	r3, 2c88 <power::Reader::fail(power::Status)+0x20>
+    2c78:	2904      	cmp	r1, #4
+    2c7a:	d003      	beq.n	2c84 <power::Reader::fail(power::Status)+0x1c>
+    2c7c:	4b03      	ldr	r3, [pc, #12]	@ (2c8c <power::Reader::fail(power::Status)+0x24>)
+    2c7e:	4798      	blx	r3
+    2c80:	7120      	strb	r0, [r4, #4]
+    2c82:	bd10      	pop	{r4, pc}
+    2c84:	2002      	movs	r0, #2
+    2c86:	e7fb      	b.n	2c80 <power::Reader::fail(power::Status)+0x18>
+    2c88:	4618      	mov	r0, r3
+    2c8a:	e7f9      	b.n	2c80 <power::Reader::fail(power::Status)+0x18>
+    2c8c:	00000000 	.word	0x00000000
+
+00002c90 <power::Reader::begin()>:
+    2c90:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+    2c94:	7805      	ldrb	r5, [r0, #0]
+    2c96:	4604      	mov	r4, r0
+    2c98:	b088      	sub	sp, #32
+    2c9a:	b13d      	cbz	r5, 2cac <power::Reader::begin()+0x1c>
+    2c9c:	2302      	movs	r3, #2
+    2c9e:	f88d 3000 	strb.w	r3, [sp]
+    2ca2:	7923      	ldrb	r3, [r4, #4]
+    2ca4:	7865      	ldrb	r5, [r4, #1]
+    2ca6:	f88d 3001 	strb.w	r3, [sp, #1]
+    2caa:	e00d      	b.n	2cc8 <power::Reader::begin()+0x38>
+    2cac:	2301      	movs	r3, #1
+    2cae:	4f4a      	ldr	r7, [pc, #296]	@ (2dd8 <power::Reader::begin()+0x148>)
+    2cb0:	7003      	strb	r3, [r0, #0]
+    2cb2:	783b      	ldrb	r3, [r7, #0]
+    2cb4:	b1b3      	cbz	r3, 2ce4 <power::Reader::begin()+0x54>
+    2cb6:	4b49      	ldr	r3, [pc, #292]	@ (2ddc <power::Reader::begin()+0x14c>)
+    2cb8:	2104      	movs	r1, #4
+    2cba:	4798      	blx	r3
+    2cbc:	2304      	movs	r3, #4
+    2cbe:	f88d 3000 	strb.w	r3, [sp]
+    2cc2:	7923      	ldrb	r3, [r4, #4]
+    2cc4:	f88d 3001 	strb.w	r3, [sp, #1]
+    2cc8:	2000      	movs	r0, #0
+    2cca:	f89d 3000 	ldrb.w	r3, [sp]
+    2cce:	f363 0007 	bfi	r0, r3, #0, #8
+    2cd2:	f89d 3001 	ldrb.w	r3, [sp, #1]
+    2cd6:	f363 200f 	bfi	r0, r3, #8, #8
+    2cda:	f365 4017 	bfi	r0, r5, #16, #8
+    2cde:	b008      	add	sp, #32
+    2ce0:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+    2ce4:	466d      	mov	r5, sp
+    2ce6:	4e3e      	ldr	r6, [pc, #248]	@ (2de0 <power::Reader::begin()+0x150>)
+    2ce8:	ce0f      	ldmia	r6!, {r0, r1, r2, r3}
+    2cea:	c50f      	stmia	r5!, {r0, r1, r2, r3}
+    2cec:	e896 000f 	ldmia.w	r6, {r0, r1, r2, r3}
+    2cf0:	e885 000f 	stmia.w	r5, {r0, r1, r2, r3}
+    2cf4:	466a      	mov	r2, sp
+    2cf6:	2309      	movs	r3, #9
+    2cf8:	3b01      	subs	r3, #1
+    2cfa:	d11f      	bne.n	2d3c <power::Reader::begin()+0xac>
+    2cfc:	4839      	ldr	r0, [pc, #228]	@ (2de4 <power::Reader::begin()+0x154>)
+    2cfe:	4b3a      	ldr	r3, [pc, #232]	@ (2de8 <power::Reader::begin()+0x158>)
+    2d00:	4798      	blx	r3
+    2d02:	b1f8      	cbz	r0, 2d44 <power::Reader::begin()+0xb4>
+    2d04:	2505      	movs	r5, #5
+    2d06:	f8df 8100 	ldr.w	r8, [pc, #256]	@ 2e08 <power::Reader::begin()+0x178>
+    2d0a:	4e38      	ldr	r6, [pc, #224]	@ (2dec <power::Reader::begin()+0x15c>)
+    2d0c:	3d01      	subs	r5, #1
+    2d0e:	d11b      	bne.n	2d48 <power::Reader::begin()+0xb8>
+    2d10:	2508      	movs	r5, #8
+    2d12:	f8df 80f8 	ldr.w	r8, [pc, #248]	@ 2e0c <power::Reader::begin()+0x17c>
+    2d16:	3d01      	subs	r5, #1
+    2d18:	d11c      	bne.n	2d54 <power::Reader::begin()+0xc4>
+    2d1a:	2505      	movs	r5, #5
+    2d1c:	f8df 80f0 	ldr.w	r8, [pc, #240]	@ 2e10 <power::Reader::begin()+0x180>
+    2d20:	3d01      	subs	r5, #1
+    2d22:	d11d      	bne.n	2d60 <power::Reader::begin()+0xd0>
+    2d24:	200a      	movs	r0, #10
+    2d26:	47b0      	blx	r6
+    2d28:	b160      	cbz	r0, 2d44 <power::Reader::begin()+0xb4>
+    2d2a:	4e31      	ldr	r6, [pc, #196]	@ (2df0 <power::Reader::begin()+0x160>)
+    2d2c:	47b0      	blx	r6
+    2d2e:	b9e8      	cbnz	r0, 2d6c <power::Reader::begin()+0xdc>
+    2d30:	2504      	movs	r5, #4
+    2d32:	4629      	mov	r1, r5
+    2d34:	4620      	mov	r0, r4
+    2d36:	4b29      	ldr	r3, [pc, #164]	@ (2ddc <power::Reader::begin()+0x14c>)
+    2d38:	4798      	blx	r3
+    2d3a:	e04a      	b.n	2dd2 <power::Reader::begin()+0x142>
+    2d3c:	f852 1b04 	ldr.w	r1, [r2], #4
+    2d40:	2900      	cmp	r1, #0
+    2d42:	dcd9      	bgt.n	2cf8 <power::Reader::begin()+0x68>
+    2d44:	2503      	movs	r5, #3
+    2d46:	e7f4      	b.n	2d32 <power::Reader::begin()+0xa2>
+    2d48:	f858 0b04 	ldr.w	r0, [r8], #4
+    2d4c:	47b0      	blx	r6
+    2d4e:	2800      	cmp	r0, #0
+    2d50:	d1dc      	bne.n	2d0c <power::Reader::begin()+0x7c>
+    2d52:	e7f7      	b.n	2d44 <power::Reader::begin()+0xb4>
+    2d54:	f858 0b04 	ldr.w	r0, [r8], #4
+    2d58:	47b0      	blx	r6
+    2d5a:	2800      	cmp	r0, #0
+    2d5c:	d1db      	bne.n	2d16 <power::Reader::begin()+0x86>
+    2d5e:	e7f1      	b.n	2d44 <power::Reader::begin()+0xb4>
+    2d60:	f858 0b04 	ldr.w	r0, [r8], #4
+    2d64:	47b0      	blx	r6
+    2d66:	2800      	cmp	r0, #0
+    2d68:	d1da      	bne.n	2d20 <power::Reader::begin()+0x90>
+    2d6a:	e7eb      	b.n	2d44 <power::Reader::begin()+0xb4>
+    2d6c:	4821      	ldr	r0, [pc, #132]	@ (2df4 <power::Reader::begin()+0x164>)
+    2d6e:	6883      	ldr	r3, [r0, #8]
+    2d70:	681a      	ldr	r2, [r3, #0]
+    2d72:	b90a      	cbnz	r2, 2d78 <power::Reader::begin()+0xe8>
+    2d74:	250a      	movs	r5, #10
+    2d76:	e7dc      	b.n	2d32 <power::Reader::begin()+0xa2>
+    2d78:	218c      	movs	r1, #140	@ 0x8c
+    2d7a:	f44f 6280 	mov.w	r2, #1024	@ 0x400
+    2d7e:	e9cd 1200 	strd	r1, r2, [sp]
+    2d82:	4669      	mov	r1, sp
+    2d84:	681b      	ldr	r3, [r3, #0]
+    2d86:	4798      	blx	r3
+    2d88:	2800      	cmp	r0, #0
+    2d8a:	d1f3      	bne.n	2d74 <power::Reader::begin()+0xe4>
+    2d8c:	4b1a      	ldr	r3, [pc, #104]	@ (2df8 <power::Reader::begin()+0x168>)
+    2d8e:	f8d3 308c 	ldr.w	r3, [r3, #140]	@ 0x8c
+    2d92:	055b      	lsls	r3, r3, #21
+    2d94:	d5ee      	bpl.n	2d74 <power::Reader::begin()+0xe4>
+    2d96:	47b0      	blx	r6
+    2d98:	2800      	cmp	r0, #0
+    2d9a:	d0c9      	beq.n	2d30 <power::Reader::begin()+0xa0>
+    2d9c:	4628      	mov	r0, r5
+    2d9e:	4b17      	ldr	r3, [pc, #92]	@ (2dfc <power::Reader::begin()+0x16c>)
+    2da0:	4798      	blx	r3
+    2da2:	2800      	cmp	r0, #0
+    2da4:	d0c4      	beq.n	2d30 <power::Reader::begin()+0xa0>
+    2da6:	4b16      	ldr	r3, [pc, #88]	@ (2e00 <power::Reader::begin()+0x170>)
+    2da8:	689a      	ldr	r2, [r3, #8]
+    2daa:	f1b2 5f00 	cmp.w	r2, #536870912	@ 0x20000000
+    2dae:	d1bf      	bne.n	2d30 <power::Reader::begin()+0xa0>
+    2db0:	f8d3 3308 	ldr.w	r3, [r3, #776]	@ 0x308
+    2db4:	2b00      	cmp	r3, #0
+    2db6:	d1bb      	bne.n	2d30 <power::Reader::begin()+0xa0>
+    2db8:	2601      	movs	r6, #1
+    2dba:	f04f 5300 	mov.w	r3, #536870912	@ 0x20000000
+    2dbe:	4620      	mov	r0, r4
+    2dc0:	60a3      	str	r3, [r4, #8]
+    2dc2:	70a6      	strb	r6, [r4, #2]
+    2dc4:	4b0f      	ldr	r3, [pc, #60]	@ (2e04 <power::Reader::begin()+0x174>)
+    2dc6:	703e      	strb	r6, [r7, #0]
+    2dc8:	4798      	blx	r3
+    2dca:	4605      	mov	r5, r0
+    2dcc:	2800      	cmp	r0, #0
+    2dce:	d1b0      	bne.n	2d32 <power::Reader::begin()+0xa2>
+    2dd0:	7066      	strb	r6, [r4, #1]
+    2dd2:	f88d 5000 	strb.w	r5, [sp]
+    2dd6:	e764      	b.n	2ca2 <power::Reader::begin()+0x12>
+    2dd8:	0000009a 	.word	0x0000009a
+	...
+    2de4:	000000f8 	.word	0x000000f8
+	...
+    2df8:	46020c00 	.word	0x46020c00
+    2dfc:	00000000 	.word	0x00000000
+    2e00:	42028000 	.word	0x42028000
+	...
+
+00002e14 <power::Reader::sampleStatus(unsigned int) const>:
+    2e14:	b510      	push	{r4, lr}
+    2e16:	4b0c      	ldr	r3, [pc, #48]	@ (2e48 <power::Reader::sampleStatus(unsigned int) const+0x34>)
+    2e18:	460c      	mov	r4, r1
+    2e1a:	4798      	blx	r3
+    2e1c:	b178      	cbz	r0, 2e3e <power::Reader::sampleStatus(unsigned int) const+0x2a>
+    2e1e:	4b0b      	ldr	r3, [pc, #44]	@ (2e4c <power::Reader::sampleStatus(unsigned int) const+0x38>)
+    2e20:	681a      	ldr	r2, [r3, #0]
+    2e22:	07d2      	lsls	r2, r2, #31
+    2e24:	d50b      	bpl.n	2e3e <power::Reader::sampleStatus(unsigned int) const+0x2a>
+    2e26:	681b      	ldr	r3, [r3, #0]
+    2e28:	06db      	lsls	r3, r3, #27
+    2e2a:	d40a      	bmi.n	2e42 <power::Reader::sampleStatus(unsigned int) const+0x2e>
+    2e2c:	4b08      	ldr	r3, [pc, #32]	@ (2e50 <power::Reader::sampleStatus(unsigned int) const+0x3c>)
+    2e2e:	4798      	blx	r3
+    2e30:	1b00      	subs	r0, r0, r4
+    2e32:	2863      	cmp	r0, #99	@ 0x63
+    2e34:	bf94      	ite	ls
+    2e36:	2000      	movls	r0, #0
+    2e38:	2001      	movhi	r0, #1
+    2e3a:	00c0      	lsls	r0, r0, #3
+    2e3c:	bd10      	pop	{r4, pc}
+    2e3e:	2004      	movs	r0, #4
+    2e40:	e7fc      	b.n	2e3c <power::Reader::sampleStatus(unsigned int) const+0x28>
+    2e42:	200b      	movs	r0, #11
+    2e44:	e7fa      	b.n	2e3c <power::Reader::sampleStatus(unsigned int) const+0x28>
+    2e46:	bf00      	nop
+    2e48:	00000000 	.word	0x00000000
+    2e4c:	42028000 	.word	0x42028000
+    2e50:	00000000 	.word	0x00000000
+
+00002e54 <power::Reader::finishSample(power::Sample&)>:
+    2e54:	e92d 4ff8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, sl, fp, lr}
+    2e58:	ed2d 8b02 	vpush	{d8}
+    2e5c:	4e2c      	ldr	r6, [pc, #176]	@ (2f10 <power::Reader::finishSample(power::Sample&)+0xbc>)
+    2e5e:	4681      	mov	r9, r0
+    2e60:	f8d6 8040 	ldr.w	r8, [r6, #64]	@ 0x40
+    2e64:	460d      	mov	r5, r1
+    2e66:	f5b8 4f80 	cmp.w	r8, #16384	@ 0x4000
+    2e6a:	d305      	bcc.n	2e78 <power::Reader::finishSample(power::Sample&)+0x24>
+    2e6c:	240c      	movs	r4, #12
+    2e6e:	ecbd 8b02 	vpop	{d8}
+    2e72:	4620      	mov	r0, r4
+    2e74:	e8bd 8ff8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, sl, fp, pc}
+    2e78:	6849      	ldr	r1, [r1, #4]
+    2e7a:	f8df b0ac 	ldr.w	fp, [pc, #172]	@ 2f28 <power::Reader::finishSample(power::Sample&)+0xd4>
+    2e7e:	47d8      	blx	fp
+    2e80:	4604      	mov	r4, r0
+    2e82:	2800      	cmp	r0, #0
+    2e84:	d1f3      	bne.n	2e6e <power::Reader::finishSample(power::Sample&)+0x1a>
+    2e86:	68b3      	ldr	r3, [r6, #8]
+    2e88:	f8df a0a0 	ldr.w	sl, [pc, #160]	@ 2f2c <power::Reader::finishSample(power::Sample&)+0xd8>
+    2e8c:	ea13 0f0a 	tst.w	r3, sl
+    2e90:	d001      	beq.n	2e96 <power::Reader::finishSample(power::Sample&)+0x42>
+    2e92:	240a      	movs	r4, #10
+    2e94:	e7eb      	b.n	2e6e <power::Reader::finishSample(power::Sample&)+0x1a>
+    2e96:	6837      	ldr	r7, [r6, #0]
+    2e98:	f007 070c 	and.w	r7, r7, #12
+    2e9c:	2f08      	cmp	r7, #8
+    2e9e:	d1f8      	bne.n	2e92 <power::Reader::finishSample(power::Sample&)+0x3e>
+    2ea0:	ee07 8a90 	vmov	s15, r8
+    2ea4:	eeb8 7ae7 	vcvt.f32.s32	s14, s15
+    2ea8:	eddf 7a1a 	vldr	s15, [pc, #104]	@ 2f14 <power::Reader::finishSample(power::Sample&)+0xc0>
+    2eac:	ee87 8a27 	vdiv.f32	s16, s14, s15
+    2eb0:	eddf 7a19 	vldr	s15, [pc, #100]	@ 2f18 <power::Reader::finishSample(power::Sample&)+0xc4>
+    2eb4:	ee28 8a27 	vmul.f32	s16, s16, s15
+    2eb8:	eddf 7a18 	vldr	s15, [pc, #96]	@ 2f1c <power::Reader::finishSample(power::Sample&)+0xc8>
+    2ebc:	ee28 8a27 	vmul.f32	s16, s16, s15
+    2ec0:	eddf 7a17 	vldr	s15, [pc, #92]	@ 2f20 <power::Reader::finishSample(power::Sample&)+0xcc>
+    2ec4:	eeb0 7ac8 	vabs.f32	s14, s16
+    2ec8:	eeb4 7a67 	vcmp.f32	s14, s15
+    2ecc:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+    2ed0:	6037      	str	r7, [r6, #0]
+    2ed2:	d8cb      	bhi.n	2e6c <power::Reader::finishSample(power::Sample&)+0x18>
+    2ed4:	4648      	mov	r0, r9
+    2ed6:	6869      	ldr	r1, [r5, #4]
+    2ed8:	47d8      	blx	fp
+    2eda:	4604      	mov	r4, r0
+    2edc:	2800      	cmp	r0, #0
+    2ede:	d1c6      	bne.n	2e6e <power::Reader::finishSample(power::Sample&)+0x1a>
+    2ee0:	6833      	ldr	r3, [r6, #0]
+    2ee2:	f013 0f0c 	tst.w	r3, #12
+    2ee6:	d1d4      	bne.n	2e92 <power::Reader::finishSample(power::Sample&)+0x3e>
+    2ee8:	68b3      	ldr	r3, [r6, #8]
+    2eea:	ea13 0f0a 	tst.w	r3, sl
+    2eee:	d1d0      	bne.n	2e92 <power::Reader::finishSample(power::Sample&)+0x3e>
+    2ef0:	4b0c      	ldr	r3, [pc, #48]	@ (2f24 <power::Reader::finishSample(power::Sample&)+0xd0>)
+    2ef2:	4798      	blx	r3
+    2ef4:	686b      	ldr	r3, [r5, #4]
+    2ef6:	1ac3      	subs	r3, r0, r3
+    2ef8:	2b63      	cmp	r3, #99	@ 0x63
+    2efa:	bf9b      	ittet	ls
+    2efc:	2301      	movls	r3, #1
+    2efe:	ed85 8a03 	vstrls	s16, [r5, #12]
+    2f02:	463c      	movhi	r4, r7
+    2f04:	f8a5 8002 	strhls.w	r8, [r5, #2]
+    2f08:	bf9c      	itt	ls
+    2f0a:	60a8      	strls	r0, [r5, #8]
+    2f0c:	742b      	strbls	r3, [r5, #16]
+    2f0e:	e7ae      	b.n	2e6e <power::Reader::finishSample(power::Sample&)+0x1a>
+    2f10:	42028000 	.word	0x42028000
+    2f14:	467ffc00 	.word	0x467ffc00
+    2f18:	40533333 	.word	0x40533333
+    2f1c:	40b1745d 	.word	0x40b1745d
+    2f20:	7f7fffff 	.word	0x7f7fffff
+	...
+    2f2c:	8000003e 	.word	0x8000003e
+
+00002f30 <power::Reader::read()>:
+    2f30:	e92d 4ff8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, sl, fp, lr}
+    2f34:	2301      	movs	r3, #1
+    2f36:	7003      	strb	r3, [r0, #0]
+    2f38:	2300      	movs	r3, #0
+    2f3a:	2200      	movs	r2, #0
+    2f3c:	e9c0 3301 	strd	r3, r3, [r0, #4]
+    2f40:	8043      	strh	r3, [r0, #2]
+    2f42:	7403      	strb	r3, [r0, #16]
+    2f44:	790b      	ldrb	r3, [r1, #4]
+    2f46:	4605      	mov	r5, r0
+    2f48:	7043      	strb	r3, [r0, #1]
+    2f4a:	780b      	ldrb	r3, [r1, #0]
+    2f4c:	460e      	mov	r6, r1
+    2f4e:	60c2      	str	r2, [r0, #12]
+    2f50:	b11b      	cbz	r3, 2f5a <power::Reader::read()+0x2a>
+    2f52:	78cb      	ldrb	r3, [r1, #3]
+    2f54:	b123      	cbz	r3, 2f60 <power::Reader::read()+0x30>
+    2f56:	230d      	movs	r3, #13
+    2f58:	7003      	strb	r3, [r0, #0]
+    2f5a:	4628      	mov	r0, r5
+    2f5c:	e8bd 8ff8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, sl, fp, pc}
+    2f60:	4f2a      	ldr	r7, [pc, #168]	@ (300c <power::Reader::read()+0xdc>)
+    2f62:	47b8      	blx	r7
+    2f64:	4b2a      	ldr	r3, [pc, #168]	@ (3010 <power::Reader::read()+0xe0>)
+    2f66:	6068      	str	r0, [r5, #4]
+    2f68:	4630      	mov	r0, r6
+    2f6a:	4798      	blx	r3
+    2f6c:	2800      	cmp	r0, #0
+    2f6e:	d049      	beq.n	3004 <power::Reader::read()+0xd4>
+    2f70:	7873      	ldrb	r3, [r6, #1]
+    2f72:	2b00      	cmp	r3, #0
+    2f74:	d046      	beq.n	3004 <power::Reader::read()+0xd4>
+    2f76:	231e      	movs	r3, #30
+    2f78:	f8df a0a0 	ldr.w	sl, [pc, #160]	@ 301c <power::Reader::read()+0xec>
+    2f7c:	f8ca 3000 	str.w	r3, [sl]
+    2f80:	f8da 3000 	ldr.w	r3, [sl]
+    2f84:	f013 0f1e 	tst.w	r3, #30
+    2f88:	d13e      	bne.n	3008 <power::Reader::read()+0xd8>
+    2f8a:	f8d5 8004 	ldr.w	r8, [r5, #4]
+    2f8e:	4630      	mov	r0, r6
+    2f90:	4641      	mov	r1, r8
+    2f92:	f8df 908c 	ldr.w	r9, [pc, #140]	@ 3020 <power::Reader::read()+0xf0>
+    2f96:	47c8      	blx	r9
+    2f98:	4604      	mov	r4, r0
+    2f9a:	bb00      	cbnz	r0, 2fde <power::Reader::read()+0xae>
+    2f9c:	2304      	movs	r3, #4
+    2f9e:	f44f 5b80 	mov.w	fp, #4096	@ 0x1000
+    2fa2:	60f3      	str	r3, [r6, #12]
+    2fa4:	f8da 3008 	ldr.w	r3, [sl, #8]
+    2fa8:	f023 4300 	bic.w	r3, r3, #2147483648	@ 0x80000000
+    2fac:	f023 033f 	bic.w	r3, r3, #63	@ 0x3f
+    2fb0:	f043 0304 	orr.w	r3, r3, #4
+    2fb4:	f8ca 3008 	str.w	r3, [sl, #8]
+    2fb8:	4641      	mov	r1, r8
+    2fba:	4630      	mov	r0, r6
+    2fbc:	47c8      	blx	r9
+    2fbe:	4604      	mov	r4, r0
+    2fc0:	b968      	cbnz	r0, 2fde <power::Reader::read()+0xae>
+    2fc2:	f8da 3000 	ldr.w	r3, [sl]
+    2fc6:	f003 030c 	and.w	r3, r3, #12
+    2fca:	2b0c      	cmp	r3, #12
+    2fcc:	d103      	bne.n	2fd6 <power::Reader::read()+0xa6>
+    2fce:	f8da 3008 	ldr.w	r3, [sl, #8]
+    2fd2:	075b      	lsls	r3, r3, #29
+    2fd4:	d50a      	bpl.n	2fec <power::Reader::read()+0xbc>
+    2fd6:	f1bb 0b01 	subs.w	fp, fp, #1
+    2fda:	d1ed      	bne.n	2fb8 <power::Reader::read()+0x88>
+    2fdc:	2409      	movs	r4, #9
+    2fde:	4621      	mov	r1, r4
+    2fe0:	4630      	mov	r0, r6
+    2fe2:	4b0c      	ldr	r3, [pc, #48]	@ (3014 <power::Reader::read()+0xe4>)
+    2fe4:	4798      	blx	r3
+    2fe6:	47b8      	blx	r7
+    2fe8:	60a8      	str	r0, [r5, #8]
+    2fea:	e007      	b.n	2ffc <power::Reader::read()+0xcc>
+    2fec:	4629      	mov	r1, r5
+    2fee:	4630      	mov	r0, r6
+    2ff0:	4b09      	ldr	r3, [pc, #36]	@ (3018 <power::Reader::read()+0xe8>)
+    2ff2:	4798      	blx	r3
+    2ff4:	4604      	mov	r4, r0
+    2ff6:	2800      	cmp	r0, #0
+    2ff8:	d1f1      	bne.n	2fde <power::Reader::read()+0xae>
+    2ffa:	60f0      	str	r0, [r6, #12]
+    2ffc:	7933      	ldrb	r3, [r6, #4]
+    2ffe:	702c      	strb	r4, [r5, #0]
+    3000:	706b      	strb	r3, [r5, #1]
+    3002:	e7aa      	b.n	2f5a <power::Reader::read()+0x2a>
+    3004:	2404      	movs	r4, #4
+    3006:	e7ea      	b.n	2fde <power::Reader::read()+0xae>
+    3008:	240a      	movs	r4, #10
+    300a:	e7e8      	b.n	2fde <power::Reader::read()+0xae>
+	...
+    301c:	42028000 	.word	0x42028000
+    3020:	00000000 	.word	0x00000000
+
+00003024 <_GLOBAL__sub_I__ZNK5power6Reader13controlsOwnedEv>:
+    3024:	4a06      	ldr	r2, [pc, #24]	@ (3040 <_GLOBAL__sub_I__ZNK5power6Reader13controlsOwnedEv+0x1c>)
+    3026:	6813      	ldr	r3, [r2, #0]
+    3028:	1c59      	adds	r1, r3, #1
+    302a:	6011      	str	r1, [r2, #0]
+    302c:	b933      	cbnz	r3, 303c <_GLOBAL__sub_I__ZNK5power6Reader13controlsOwnedEv+0x18>
+    302e:	4a05      	ldr	r2, [pc, #20]	@ (3044 <_GLOBAL__sub_I__ZNK5power6Reader13controlsOwnedEv+0x20>)
+    3030:	4905      	ldr	r1, [pc, #20]	@ (3048 <_GLOBAL__sub_I__ZNK5power6Reader13controlsOwnedEv+0x24>)
+    3032:	e9c2 3307 	strd	r3, r3, [r2, #28]
+    3036:	6011      	str	r1, [r2, #0]
+    3038:	7613      	strb	r3, [r2, #24]
+    303a:	6253      	str	r3, [r2, #36]	@ 0x24
+    303c:	4770      	bx	lr
+    303e:	bf00      	nop
+	...
+
+0000306c <power_probe::exercise()>:
+    306c:	b570      	push	{r4, r5, r6, lr}
+    306e:	4604      	mov	r4, r0
+    3070:	4e0f      	ldr	r6, [pc, #60]	@ (30b0 <power_probe::exercise()+0x44>)
+    3072:	b086      	sub	sp, #24
+    3074:	4605      	mov	r5, r0
+    3076:	ce0f      	ldmia	r6!, {r0, r1, r2, r3}
+    3078:	c40f      	stmia	r4!, {r0, r1, r2, r3}
+    307a:	e896 0003 	ldmia.w	r6, {r0, r1}
+    307e:	4b0d      	ldr	r3, [pc, #52]	@ (30b4 <power_probe::exercise()+0x48>)
+    3080:	e884 0003 	stmia.w	r4, {r0, r1}
+    3084:	480c      	ldr	r0, [pc, #48]	@ (30b8 <power_probe::exercise()+0x4c>)
+    3086:	4798      	blx	r3
+    3088:	7028      	strb	r0, [r5, #0]
+    308a:	f3c0 2307 	ubfx	r3, r0, #8, #8
+    308e:	f3c0 4007 	ubfx	r0, r0, #16, #8
+    3092:	706b      	strb	r3, [r5, #1]
+    3094:	70a8      	strb	r0, [r5, #2]
+    3096:	4908      	ldr	r1, [pc, #32]	@ (30b8 <power_probe::exercise()+0x4c>)
+    3098:	a801      	add	r0, sp, #4
+    309a:	4b08      	ldr	r3, [pc, #32]	@ (30bc <power_probe::exercise()+0x50>)
+    309c:	1d2e      	adds	r6, r5, #4
+    309e:	ac01      	add	r4, sp, #4
+    30a0:	4798      	blx	r3
+    30a2:	cc0f      	ldmia	r4!, {r0, r1, r2, r3}
+    30a4:	c60f      	stmia	r6!, {r0, r1, r2, r3}
+    30a6:	4628      	mov	r0, r5
+    30a8:	6823      	ldr	r3, [r4, #0]
+    30aa:	7033      	strb	r3, [r6, #0]
+    30ac:	b006      	add	sp, #24
+    30ae:	bd70      	pop	{r4, r5, r6, pc}
+    30b0:	00000020 	.word	0x00000020
+	...
+
+00004d04 <_GLOBAL__sub_I_Bridge>:
+    4d04:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+    4d08:	4a22      	ldr	r2, [pc, #136]	@ (4d94 <_GLOBAL__sub_I_Bridge+0x90>)
+    4d0a:	4e23      	ldr	r6, [pc, #140]	@ (4d98 <_GLOBAL__sub_I_Bridge+0x94>)
+    4d0c:	6813      	ldr	r3, [r2, #0]
+    4d0e:	1c59      	adds	r1, r3, #1
+    4d10:	6011      	str	r1, [r2, #0]
+    4d12:	b92b      	cbnz	r3, 4d20 <_GLOBAL__sub_I_Bridge+0x1c>
+    4d14:	4a21      	ldr	r2, [pc, #132]	@ (4d9c <_GLOBAL__sub_I_Bridge+0x98>)
+    4d16:	e9c2 3307 	strd	r3, r3, [r2, #28]
+    4d1a:	6016      	str	r6, [r2, #0]
+    4d1c:	7613      	strb	r3, [r2, #24]
+    4d1e:	6253      	str	r3, [r2, #36]	@ 0x24
+    4d20:	2400      	movs	r4, #0
+    4d22:	f44f 7880 	mov.w	r8, #256	@ 0x100
+    4d26:	4f1e      	ldr	r7, [pc, #120]	@ (4da0 <_GLOBAL__sub_I_Bridge+0x9c>)
+    4d28:	2214      	movs	r2, #20
+    4d2a:	4621      	mov	r1, r4
+    4d2c:	481d      	ldr	r0, [pc, #116]	@ (4da4 <_GLOBAL__sub_I_Bridge+0xa0>)
+    4d2e:	e9c6 4400 	strd	r4, r4, [r6]
+    4d32:	60f4      	str	r4, [r6, #12]
+    4d34:	47b8      	blx	r7
+    4d36:	2214      	movs	r2, #20
+    4d38:	4621      	mov	r1, r4
+    4d3a:	481b      	ldr	r0, [pc, #108]	@ (4da8 <_GLOBAL__sub_I_Bridge+0xa4>)
+    4d3c:	47b8      	blx	r7
+    4d3e:	2214      	movs	r2, #20
+    4d40:	4621      	mov	r1, r4
+    4d42:	481a      	ldr	r0, [pc, #104]	@ (4dac <_GLOBAL__sub_I_Bridge+0xa8>)
+    4d44:	47b8      	blx	r7
+    4d46:	4642      	mov	r2, r8
+    4d48:	4621      	mov	r1, r4
+    4d4a:	4819      	ldr	r0, [pc, #100]	@ (4db0 <_GLOBAL__sub_I_Bridge+0xac>)
+    4d4c:	e9c6 4413 	strd	r4, r4, [r6, #76]	@ 0x4c
+    4d50:	47b8      	blx	r7
+    4d52:	4b18      	ldr	r3, [pc, #96]	@ (4db4 <_GLOBAL__sub_I_Bridge+0xb0>)
+    4d54:	4d18      	ldr	r5, [pc, #96]	@ (4db8 <_GLOBAL__sub_I_Bridge+0xb4>)
+    4d56:	60b3      	str	r3, [r6, #8]
+    4d58:	f44f 737a 	mov.w	r3, #1000	@ 0x3e8
+    4d5c:	60ab      	str	r3, [r5, #8]
+    4d5e:	4b17      	ldr	r3, [pc, #92]	@ (4dbc <_GLOBAL__sub_I_Bridge+0xb8>)
+    4d60:	f44f 7200 	mov.w	r2, #512	@ 0x200
+    4d64:	4621      	mov	r1, r4
+    4d66:	f105 0014 	add.w	r0, r5, #20
+    4d6a:	602b      	str	r3, [r5, #0]
+    4d6c:	f886 4158 	strb.w	r4, [r6, #344]	@ 0x158
+    4d70:	606c      	str	r4, [r5, #4]
+    4d72:	612e      	str	r6, [r5, #16]
+    4d74:	47b8      	blx	r7
+    4d76:	2214      	movs	r2, #20
+    4d78:	4621      	mov	r1, r4
+    4d7a:	f505 7008 	add.w	r0, r5, #544	@ 0x220
+    4d7e:	f8c5 4214 	str.w	r4, [r5, #532]	@ 0x214
+    4d82:	f8c5 4218 	str.w	r4, [r5, #536]	@ 0x218
+    4d86:	f8c5 421c 	str.w	r4, [r5, #540]	@ 0x21c
+    4d8a:	47b8      	blx	r7
+    4d8c:	f8a5 8234 	strh.w	r8, [r5, #564]	@ 0x234
+    4d90:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+	...
+    4da4:	00000010 	.word	0x00000010
+    4da8:	00000024 	.word	0x00000024
+    4dac:	00000038 	.word	0x00000038
+    4db0:	00000058 	.word	0x00000058
+	...
+    4dbc:	00000008 	.word	0x00000008
+
+0000515c <initVariant>:
+    515c:	4770      	bx	lr
+	...
+
+000056f4 <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt>:
+    56f4:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+    56f8:	f04f 0800 	mov.w	r8, #0
+    56fc:	f44f 777a 	mov.w	r7, #1000	@ 0x3e8
+    5700:	4d13      	ldr	r5, [pc, #76]	@ (5750 <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt+0x5c>)
+    5702:	4e14      	ldr	r6, [pc, #80]	@ (5754 <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt+0x60>)
+    5704:	4b14      	ldr	r3, [pc, #80]	@ (5758 <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt+0x64>)
+    5706:	4c15      	ldr	r4, [pc, #84]	@ (575c <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt+0x68>)
+    5708:	f105 0014 	add.w	r0, r5, #20
+    570c:	612b      	str	r3, [r5, #16]
+    570e:	e9c5 8701 	strd	r8, r7, [r5, #4]
+    5712:	602e      	str	r6, [r5, #0]
+    5714:	47a0      	blx	r4
+    5716:	f505 6088 	add.w	r0, r5, #1088	@ 0x440
+    571a:	4d11      	ldr	r5, [pc, #68]	@ (5760 <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt+0x6c>)
+    571c:	47a0      	blx	r4
+    571e:	4b11      	ldr	r3, [pc, #68]	@ (5764 <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt+0x70>)
+    5720:	f105 0014 	add.w	r0, r5, #20
+    5724:	612b      	str	r3, [r5, #16]
+    5726:	e9c5 8701 	strd	r8, r7, [r5, #4]
+    572a:	602e      	str	r6, [r5, #0]
+    572c:	47a0      	blx	r4
+    572e:	f505 6088 	add.w	r0, r5, #1088	@ 0x440
+    5732:	4d0d      	ldr	r5, [pc, #52]	@ (5768 <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt+0x74>)
+    5734:	47a0      	blx	r4
+    5736:	4b0d      	ldr	r3, [pc, #52]	@ (576c <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt+0x78>)
+    5738:	f105 0014 	add.w	r0, r5, #20
+    573c:	e9c5 8701 	strd	r8, r7, [r5, #4]
+    5740:	602e      	str	r6, [r5, #0]
+    5742:	612b      	str	r3, [r5, #16]
+    5744:	47a0      	blx	r4
+    5746:	f505 6088 	add.w	r0, r5, #1088	@ 0x440
+    574a:	47a0      	blx	r4
+    574c:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+    5750:	00000000 	.word	0x00000000
+    5754:	00000008 	.word	0x00000008
+	...
+
+00005df4 <_GLOBAL__sub_I__ZSt20__throw_system_errori>:
+    5df4:	4a06      	ldr	r2, [pc, #24]	@ (5e10 <_GLOBAL__sub_I__ZSt20__throw_system_errori+0x1c>)
+    5df6:	4907      	ldr	r1, [pc, #28]	@ (5e14 <_GLOBAL__sub_I__ZSt20__throw_system_errori+0x20>)
+    5df8:	4807      	ldr	r0, [pc, #28]	@ (5e18 <_GLOBAL__sub_I__ZSt20__throw_system_errori+0x24>)
+    5dfa:	b508      	push	{r3, lr}
+    5dfc:	f7ff fffe 	bl	5e24 <__aeabi_atexit>
+    5e00:	4a03      	ldr	r2, [pc, #12]	@ (5e10 <_GLOBAL__sub_I__ZSt20__throw_system_errori+0x1c>)
+    5e02:	4906      	ldr	r1, [pc, #24]	@ (5e1c <_GLOBAL__sub_I__ZSt20__throw_system_errori+0x28>)
+    5e04:	4806      	ldr	r0, [pc, #24]	@ (5e20 <_GLOBAL__sub_I__ZSt20__throw_system_errori+0x2c>)
+    5e06:	e8bd 4008 	ldmia.w	sp!, {r3, lr}
+    5e0a:	f7ff bffe 	b.w	5e24 <__aeabi_atexit>
+    5e0e:	bf00      	nop
+	...
+    5e18:	00000008 	.word	0x00000008
+    5e1c:	00000000 	.word	0x00000000
+    5e20:	00000004 	.word	0x00000004

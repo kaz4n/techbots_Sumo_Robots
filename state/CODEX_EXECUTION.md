@@ -6,22 +6,21 @@ D075 permits actual P2 software while physical acceptance remains pending.
 | Existing task | Software/evidence | Remaining |
 |---|---|---|
 | P0 | Toolchain/source audits and actual inert diagnostics | Optical/cold-start/pin/electrical acceptance and human gate |
-| P1 | Reviewed core; 1030 current host cases pass | EXPLAINED OK and human GATE P1 PASS |
-| P2 B1 | Native opponent driver588ceb9, independent tests/target/review PASS | Live matrix, physical polarity/ranges/60s, app invalid-sample policy |
-| P2 B4 | Gate1c45f72 + native backend99f8668; tests/target/fresh review PASS | Stand sketch/integration and physical EN/PWM/reversal/B4/B7/WCET |
-| P2 B5 | Next: source prerequisites for concrete native ADC1/A0 | Complete targeted audit, freeze contract, implement/test/compile/review |
-| P2 B2/B3/B6 | Unfinished; established GPIO/I2C/ADC constraints | Real bounded drivers and explicit QTR/UI acquisition semantics |
+| P1 | Reviewed core;1030 current host cases pass | EXPLAINED OK and human GATE P1 PASS |
+| P2 B1 | Native opponent588ceb9; tests/target/review PASS | Live matrix, physical polarity/ranges/60s, app invalid-sample policy |
+| P2 B4 | Gate1c45f72/native99f8668; tests/target/review PASS | Stand/integration, physical EN/PWM/reversal/B4/B7/WCET |
+| P2 B5 | Actual ADC e6b7060; independent tests/target/review PASS | Physical divider/reference/0.05V accuracy and integration |
+| P2 B3 | Native I2C4 source mechanism audited; timing calculation underway | Freeze contract; implement/test/compile/review bounded transfer then MPU setup/freshness |
+| P2 B2/B6 | Unfinished; established GPIO/ADC constraints | Real QTR/UI drivers and explicit acquisition semantics |
 | P2 B8 | Offline storage/CSV25Hz implemented/reviewed | Bounded IDLE transport, full RAM/200s/no-gap evidence |
-| Integration/B7/P3-P7 | Unfinished | Full scheduler/HAL/WCET, physical acceptance and per-run permissions |
+| Integration/B7/P3-P7 | Unfinished | SC-AJ clock/F091 platform limits, full scheduler/HAL/WCET, physical acceptance/per-run permissions |
 
-Final D077: 410 tooling tests PASS432.397s; normal host2/2 PASS; sanitized
-1030/20982541 plus37/3796846 PASS. Fresh native replay152/217368 PASS across
-78 executables. Final c35726f4 default85052/35160B and enabled85588/35552B compile.
-Evidence25a0858, P2_motor_native_validation.md/raw/review, F096/SC-AI.
-No upload/reset/GPIO/MCU/motor action. Old locked/core/app unchanged; new native
-safety tests now locked. All five inert hash replacements independently approved.
+D078:420 distinct tooling methods PASS across existing411 and native9 separate
+runs; normalhost2/2 and sanitizer2/2 PASS. Independent native reviewer9methods/
+75positive cases PASS. Final a936d10d compile-only81132/33476B exit0. F098 and
+P2_power_validation.md/raw/review retain failures, exact source/ELF receipts and
+limits. No upload/reset/MCU/ADC/pin/motor action or human acceptance.
 
-Next: read P2_next_hal_audit.md and P2_adc_native_audit.md/raw. Complete the narrow
-ADC source/errata gap before actual B5 contract/code. No V_NOM fallback, stale-as-
-fresh reading, extra governor filter or guessed initialization. Hardware pending
-is not software success and does not require a new human question for source work.
+Next: P2_i2c_native_audit.md and its concrete timing calculation; narrow B3
+contract/header before independent implementation/tests. Source clock profile is
+conditional; SC-AJ remains global and no runtime frequency lock is claimed.

@@ -1,0 +1,80 @@
+{
+  "functions": [
+    {
+      "signature": "bool profileValid() {",
+      "first": 72,
+      "last": 75,
+      "lines": 4
+    },
+    {
+      "signature": "bool transferBoundValid() {",
+      "first": 77,
+      "last": 79,
+      "lines": 3
+    },
+    {
+      "signature": "bool setupConfigValid() {",
+      "first": 81,
+      "last": 92,
+      "lines": 12
+    },
+    {
+      "signature": "bool responseShape(const BusTransfer& transfer, std::uint8_t count) {",
+      "first": 94,
+      "last": 97,
+      "lines": 4
+    },
+    {
+      "signature": "std::int32_t signedWord(const std::uint8_t* bytes) {",
+      "first": 99,
+      "last": 103,
+      "lines": 5
+    },
+    {
+      "signature": "bool rail(std::int32_t value) { return value == -32768 || value == 32767; }",
+      "first": 105,
+      "last": 105,
+      "lines": 1
+    },
+    {
+      "signature": "SetupReport Setup::fail(SetupFault fault) {",
+      "first": 108,
+      "last": 112,
+      "lines": 5
+    },
+    {
+      "signature": "SetupReport Setup::start(std::uint32_t now_us, bool power_confirmed) {",
+      "first": 114,
+      "last": 123,
+      "lines": 10
+    },
+    {
+      "signature": "bool Setup::acceptTime(std::uint32_t now_us) {",
+      "first": 125,
+      "last": 136,
+      "lines": 12
+    },
+    {
+      "signature": "bool Setup::acceptTransfer(const BusTransfer& transfer, std::uint8_t count, std::uint32_t call_us) {",
+      "first": 138,
+      "last": 154,
+      "lines": 17
+    },
+    {
+      "signature": "SetupReport Setup::advance(std::uint32_t now_us) {",
+      "first": 156,
+      "last": 187,
+      "lines": 32
+    },
+    {
+      "signature": "CoherentMotion decodeMotion(const BusTransfer& transfer) {",
+      "first": 189,
+      "last": 212,
+      "lines": 24
+    }
+  ],
+  "maximum_function_lines": 32,
+  "config_diff": "diff --git a/src/config.h b/src/config.h\nindex 807a48a..d9e408d 100644\n--- a/src/config.h\n+++ b/src/config.h\n@@ -50,6 +50,19 @@ inline constexpr std::uint32_t IMU_I2C_SETUP_US = 100U;\n inline constexpr std::uint32_t IMU_I2C_TRANSFER_US = 600U;\n inline constexpr std::uint32_t IMU_I2C_CLEANUP_US = 50U;\n inline constexpr std::uint32_t IMU_I2C_MAX_POLLS = 8192U; // count exception\n+// D080 fixed MPU6050 profile and finite setup acceptance, not measured settling.\n+inline constexpr std::uint32_t IMU_GYRO_RANGE_DPS = 1000U;\n+inline constexpr std::uint32_t IMU_ACCEL_RANGE_G = 8U;\n+inline constexpr std::uint32_t IMU_DLPF_CFG = 1U; // register-field exception\n+inline constexpr std::uint32_t IMU_SAMPLE_DIVIDER = 0U; // register-field exception\n+inline constexpr std::uint32_t IMU_POWER_WAIT_US = 110000U;\n+inline constexpr std::uint32_t IMU_RESET_WAIT_US = 110000U;\n+inline constexpr std::uint32_t IMU_GYRO_WAIT_US = 50000U;\n+inline constexpr std::uint32_t IMU_PLL_WAIT_US = 20000U;\n+inline constexpr std::uint32_t IMU_FILTER_WAIT_US = 20000U;\n+inline constexpr std::uint32_t IMU_SETUP_DEADLINE_US = 1000000U;\n+inline constexpr std::uint32_t IMU_SETUP_MAX_ADVANCES = 1024U; // count exception\n+inline constexpr std::uint32_t IMU_SETUP_MAX_REQUESTS = 64U; // count exception\n inline constexpr std::uint32_t COUNTDOWN_MS = 5000U; // ms\n inline constexpr std::uint32_t COUNTDOWN_MARGIN_MS = 100U; // ms\n inline constexpr std::uint32_t TICK_US = 1000U; // us\n",
+  "target_base_unchanged_from_D079": true,
+  "imu_cpp_sha256": "f38f0f2116f77534a9c812acd925c574d009fff8c3a521dd6af3c255f49e8a37"
+}

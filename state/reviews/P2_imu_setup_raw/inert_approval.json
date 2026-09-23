@@ -1,0 +1,21 @@
+{
+  "scope": "Only exact existing P0 inert-source manifest replacements; no new key, target upload/run, runtime or sensor acceptance",
+  "approved": {
+    "bench/p0_adc": "ab34426472be4d6fcba2d9c46933d8326d0d87eb89d4e43332a7eb51b85889f7",
+    "bench/p0_gpio": "ade5f8b47324e86a908dc3213ed3e3c46153564c359e31df05ceefd8c812a3d2",
+    "bench/p0_matrix": "0aa2bd6a9b9f295fc70495aebdce528ad772dcb14d442a963e08a7361df644ba",
+    "bench/p0_qtr": "829ad2ba8c22d1341d0033a9f04b3969ab39a50453cb97373dcea3b66693de07",
+    "bench/p0_timing": "2e5ab081c622e080413835a1fe82e8d6703fa343fdb181e07e9dc256b8d79267"
+  },
+  "target_source": "c45ffd3dda53de8b8fbf6c8008fc939362ca2024aedcb4cd23e4c55ce138cd41",
+  "target_receipt_sha256": "39e648437a69b024c6cd4569ae0196cbbeab75010143d2055fff7e56f4c5ba99",
+  "evidence": [
+    "setup0x6c writes entry pointer and returns; relocations0x74=entry/0x78=exercise",
+    "loop0x7c returns",
+    "probe constructor0x2490 writes inherited RouterBridge HCI memory plus Setup report/reference memory; only call at0x24b8 resolves memset via0x24e0",
+    "init_array8 entries include only this new probe initialization; no new imu.cpp initializer",
+    "exercise0x3748 retains start/advance/native readMotion/decodeMotion; no startup caller",
+    "all36 collected native bindings are nonzero; inherited F091 initialization and loop-hook limitations remain"
+  ],
+  "status": "APPROVED source/startup boundary only; independent host test verdict pending"
+}

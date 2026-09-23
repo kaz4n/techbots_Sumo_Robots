@@ -1,32 +1,41 @@
-# D079 checkpoint - active P2 software development, 2026-09-23 Asia/Dubai
+# D080 checkpoint - active P2 software development, 2026-09-23 Asia/Dubai
 
-Native MPU6050 transport implementation a749816 and contract/source4ec0ef4 are
-HOST-TESTED/TARGET-COMPILED with separate fresh same-model review PASS. Author
-and reviewer each pass10methods/83positive native cases/992parent assertions;
-four reviewer boundary regressions pass after preserved draft failures. Existing
-421tooling methods pass526.431s; total431 across separate runs. Normalhost2/2
-and ASanUBSan2/2 pass (1030cases plus37 enabled MotorGate cases).
+Completed checked MPU6050 setup/decoder63c7eaa, contract/source00f96ee. Native bus
+D079 a749816/evidence70b52c5 remains unchanged. Read P2_imu_setup_validation.md and
+fresh same-model review P2_imu_setup_review.md. Author/reviewer26cases/1562374
+assertions pass;44configuration variants and2actual inert probes pass;13strict
+config checks pass. Root fullhost2/2 PASS8.19s and sanitizer2/2 PASS32.36s:
+1056cases/22544915assertions plus37/3796846, nofail/skip.
 
-Final sourcef3e9b546 actual UNO Q Linux compile-only:81992B program/33788B compiler
-memory, exit0.42source files/3ELFs/native bindings and inert startup checked.
-P2_imu_bus_validation.md/raw and reviews/P2_imu_bus_review.md/raw bind evidence.
-No upload/reset/MCU/I2C/pad operation. Last-known MCU image remains QTR61d7a2d0.
-Only source/compiler software results are established; no physical phase gate.
+Actual UNO Q Linux compile-only sourcec45ffd3d:84132B program/34748B compiler
+memory,exit0.44files/3ELFs/native bindings/startup verified;5existing inert source
+hashes reviewed/adopted, no newkey. Existing432tooling methods PASS630.788s,exit0;
+442distinct methods across separate existing/new runs. Raw subprocess receipts
+and failures are preserved; all jobs completed before this checkpoint.
+No upload/reset/MCU/I2C/pad action. Last-known MCU image remains QTR61d7a2d0.
 
-Next B3 work: P2_mpu6050_sample_audit.md supplies the concrete bounded device
-setup/readback and sensor-coordinate decoder profile. Implement that narrow
-layer before freshness/yaw/app integration. INT_STATUS is not documented as an
-atomic generation tag for the coherent motion shadow. The proposed two-request
-freshness handshake costs198clocks and needs one aggregate operation budget;
-do not combine two independent600us budgets and claim800us whole-tick compliance.
-Calibration observation presence, mounting axes and continuous-yaw gap policy
-remain explicit integration work. Do not count repeated bytes as fresh samples.
+Next real B3 task: explicitly adopt source-audited status/STOP/motion freshness
+inference and implement one bounded acquisition with NO_NEW/OBSERVATION/FAULT.
+Small concrete refactor: let private transaction body accept shared Operation;
+existing public methods keep their per-request wrapper, new compound acquisition
+shares the same600us/8192 budget across status and burst. Do not reset budgets,
+retry a consumed event, or assign another generation from the burst status bit.
+198clock slow corner can exceed600us; timely healthy rate and whole-tick WCET
+remain physical/integration questions. No new constant or D081 decision yet.
+Then explicit observation-presence/calibration, mounting-axis, bias and continuous
+unreset-yaw/gap contracts. Setup PROFILE_READY/coherent decoding is not freshness.
 
-D051/D075 authorize continuing actual P2 software before physical P0/P1 acceptance;
-full P0-P7 goal remains ACTIVE/incomplete. SC-AJ clock and F091 inherited runtime
-limits remain global deployment blockers. No PINMAP/EXPLAINED/GATE or motor-run
-permission has been created. Original deadlines remain. Recheck board connection
-when needed; known CLI1.5.1/core1.0.0/USB2629958581. No more hardware requests now.
+A bounded codebase check also found no production QTR driver or adopted runtime
+cadence. D065/D067 remain diagnostics only; RobotInput.observations_fresh currently
+requires new complete QTR+opponent data, and false latches STALE_SENSORS. Do not
+feed alternating1500us QTR scans into that interface as though1kHz-fresh. Resolve
+SC-B and the observation API explicitly before runtime QTR integration.
+
+D051/D075 authorize actual P2 software before physical P0/P1 acceptance; original
+P0-P7 goal remains ACTIVE/incomplete. SC-AJ clock/F091 inherited runtime limits
+remain global deployment blockers. No PINMAP/EXPLAINED/GATE/motor-run authority.
+No more hardware requests now. Original deadlines remain; boardCLI1.5.1/core1.0.0/
+USB2629958581 and WSL were observed, recheck availability when needed.
 
 --- Earlier handoff preserved below ---
 

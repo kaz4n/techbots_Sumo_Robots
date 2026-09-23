@@ -284,3 +284,12 @@ default matrix/counter fromF-076. Prior timing measurements use a different imag
 | ID | Question | Observed answer | Source | Confidence | Hardware-checked |
 |---|---|---|---|---|---|
 | F-101 | What do the manufacturer sources establish for MPU6050 setup and data freshness? | Documented registers support checked reset/profile/readback and coherent14motion-byte decoding. Status-to-shadow atomic generation binding is not specified. A status/STOP/motion handshake is a labelled inference with198clock cost; it requires aggregate budgeting. Setup waits and8g selection are D080 engineering defaults, not guaranteed settling. | analysis/P2_mpu6050_sample_audit.md/raw, linked manufacturer RMRev4.0 and product tables with revision/download limits; analysis/P2_imu_setup_contract.md | PRIMARY-DOCUMENT REVIEW plus labelled temporal model; not physical proof | No sensor/bus operation. Actual identity/address/power/settling/rate/axes/yaw/WCET remain pending |
+
+
+## D080 actual checked MPU6050 setup and coherent decoding, 2026-09-23
+
+| ID | Question | Observed answer | Source | Confidence | Hardware-checked |
+|---|---|---|---|---|---|
+| F-102 | Does the concrete MPU6050 setup/decoder pass software validation and target compilation? | Implementation63c7eaa CPPf38f0f21. Independent author and reviewer pass26cases/1562374assertions,44config variants plus2inert probe builds/eight upload refusals;13strictconfig checks. Root fullhost andsanitizer2/2 pass. Actual targetsourcec45ffd3d compiles84132Bprogram/34748Bcompiler memory,exit0;44filemap/3ELFs/startup verified. | analysis/P2_imu_setup_validation.md/raw; reviews/P2_imu_setup_review.md/raw | HOST-TESTED/TARGET-COMPILED, fresh same-model review PASS/no open findings | No MCU/I2C/pad/upload operation. Observed configuration/coherent bytes do not prove physical settling, freshness, axes, bias, yaw or full-tick WCET. SC-AJ/F091 and human gates remain pending |
+
+F102 final regression addendum: existing432tooling methods PASS630.788s exit0;442distinct methods across separate existing/new setup runs. NativeBus102new subprocess receipts preserve100exit0 plus2required failure sentinels. Exact aggregate command/output and relocation provenance are in P2_imu_setup_raw. This adds software regression evidence only.

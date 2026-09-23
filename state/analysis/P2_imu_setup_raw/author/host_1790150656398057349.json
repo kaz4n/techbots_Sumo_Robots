@@ -1,0 +1,37 @@
+{
+  "argv": [
+    "g++",
+    "-std=c++17",
+    "-O1",
+    "-Wall",
+    "-Wextra",
+    "-Wpedantic",
+    "-Werror",
+    "-fno-exceptions",
+    "-fno-rtti",
+    "-DDOCTEST_CONFIG_NO_EXCEPTIONS",
+    "-I",
+    "src",
+    "-isystem",
+    "host/third_party",
+    "tests/test_scaffold.cpp",
+    "tests/test_imu_setup.cpp",
+    "tests/support/imu_bus_fake.cpp",
+    "src/hal/imu.cpp",
+    "-o",
+    "/dev/shm/sumo-d080-independent"
+  ],
+  "cwd": "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots",
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "In file included from tests/test_imu_setup.cpp:4:\ntests/test_imu_setup.cpp: In lambda function:\ntests/test_imu_setup.cpp:132:9: error: static assertion failed: Exceptions are disabled! Use DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS if you want to compile with exceptions disabled.\n  132 |         REQUIRE(index < 48U);\n      |         ^~~~~~~\ntests/test_imu_setup.cpp: In member function \u2018imu::SetupReport {anonymous}::Fixture::next()\u2019:\ntests/test_imu_setup.cpp:132:9: error: expression cannot be used as a function\n  132 |         REQUIRE(index < 48U);\n      |         ^\ntests/test_imu_setup.cpp: In lambda function:\ntests/test_imu_setup.cpp:134:9: error: static assertion failed: Exceptions are disabled! Use DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS if you want to compile with exceptions disabled.\n  134 |         REQUIRE(imu_fake::script.count == index + 1U);\n      |         ^~~~~~~\ntests/test_imu_setup.cpp: In member function \u2018imu::SetupReport {anonymous}::Fixture::next()\u2019:\ntests/test_imu_setup.cpp:134:9: error: expression cannot be used as a function\n  134 |         REQUIRE(imu_fake::script.count == index + 1U);\n      |         ^\ntests/test_imu_setup.cpp: In lambda function:\ntests/test_imu_setup.cpp:145:13: error: static assertion failed: Exceptions are disabled! Use DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS if you want to compile with exceptions disabled.\n  145 |             REQUIRE(report.state == imu::SetupState::IN_PROGRESS);\n      |             ^~~~~~~\ntests/test_imu_setup.cpp: In member function \u2018void {anonymous}::Fixture::before(std::size_t)\u2019:\ntests/test_imu_setup.cpp:145:13: error: expression cannot be used as a function\n  145 |             REQUIRE(report.state == imu::SetupState::IN_PROGRESS);\n      |             ^\ntests/test_imu_setup.cpp: In lambda function:\ntests/test_imu_setup.cpp:150:9: error: static assertion failed: Exceptions are disabled! Use DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS if you want to compile with exceptions disabled.\n  150 |         REQUIRE(report.state == imu::SetupState::FAULT);\n      |         ^~~~~~~\ntests/test_imu_setup.cpp: In member function \u2018void {anonymous}::Fixture::terminal(imu::SetupFault)\u2019:\ntests/test_imu_setup.cpp:150:9: error: expression cannot be used as a function\n  150 |         REQUIRE(report.state == imu::SetupState::FAULT);\n      |         ^\ntests/test_imu_setup.cpp: In lambda function:\ntests/test_imu_setup.cpp:231:9: error: static assertion failed: Exceptions are disabled! Use DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS if you want to compile with exceptions disabled.\n  231 |         REQUIRE(ready.state == imu::SetupState::PROFILE_READY);\n      |         ^~~~~~~\ntests/test_imu_setup.cpp: In function \u2018void DOCTEST_ANON_FUNC_6()\u2019:\ntests/test_imu_setup.cpp:231:9: error: expression cannot be used as a function\n  231 |         REQUIRE(ready.state == imu::SetupState::PROFILE_READY);\n      |         ^\ntests/test_imu_setup.cpp: In lambda function:\ntests/test_imu_setup.cpp:426:9: error: static assertion failed: Exceptions are disabled! Use DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS if you want to compile with exceptions disabled.\n  426 |         REQUIRE(report.state == imu::SetupState::IN_PROGRESS);\n      |         ^~~~~~~\ntests/test_imu_setup.cpp: In function \u2018void DOCTEST_ANON_FUNC_47()\u2019:\ntests/test_imu_setup.cpp:426:9: error: expression cannot be used as a function\n  426 |         REQUIRE(report.state == imu::SetupState::IN_PROGRESS);\n      |         ^\ntests/test_imu_setup.cpp: In lambda function:\ntests/test_imu_setup.cpp:441:5: error: static assertion failed: Exceptions are disabled! Use DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS if you want to compile with exceptions disabled.\n  441 |     REQUIRE(result.coherent);\n      |     ^~~~~~~\ntests/test_imu_setup.cpp: In function \u2018void DOCTEST_ANON_FUNC_49()\u2019:\ntests/test_imu_setup.cpp:441:5: error: expression cannot be used as a function\n  441 |     REQUIRE(result.coherent);\n      |     ^\ntests/test_imu_setup.cpp: In lambda function:\ntests/test_imu_setup.cpp:465:9: error: static assertion failed: Exceptions are disabled! Use DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS if you want to compile with exceptions disabled.\n  465 |         REQUIRE(result.coherent);\n      |         ^~~~~~~\ntests/test_imu_setup.cpp: In function \u2018void DOCTEST_ANON_FUNC_51()\u2019:\ntests/test_imu_setup.cpp:465:9: error: expression cannot be used as a function\n  465 |         REQUIRE(result.coherent);\n      |         ^\ntests/test_imu_setup.cpp: In lambda function:\ntests/test_imu_setup.cpp:482:9: error: static assertion failed: Exceptions are disabled! Use DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS if you want to compile with exceptions disabled.\n  482 |         REQUIRE(result.coherent);\n      |         ^~~~~~~\ntests/test_imu_setup.cpp: In function \u2018void DOCTEST_ANON_FUNC_53()\u2019:\ntests/test_imu_setup.cpp:482:9: error: expression cannot be used as a function\n  482 |         REQUIRE(result.coherent);\n      |         ^\n",
+  "capture": "text mode; newline normalized",
+  "sha256": {
+    "src/hal/imu.cpp": "f38f0f2116f77534a9c812acd925c574d009fff8c3a521dd6af3c255f49e8a37",
+    "src/hal/imu.h": "6c967d4a5a6a644036b2a80ae768cda2871dc55ec4e00fcb33f2d82f3821e750",
+    "src/config.h": "58ade8dec2249e2851268c3917d69978d11addb3f6080ac78d6962ccf5bb5a9c",
+    "tests/test_imu_setup.cpp": "cddfefe5a5f65fe80da74dbc59165adb819231b431f0613924cfe5cc4c8bb12e",
+    "tests/support/imu_bus_fake.cpp": "a79fd44adb8ca1f1ca4aa3f09984ede3291099a39a89fc35cc6c07fafbebd5cd",
+    "tests/support/imu_bus_fake.h": "6e30ccd5d9a877196e1b67f4aa4222f6120c88b53e87b3657817a1bc4aaf66f1"
+  }
+}

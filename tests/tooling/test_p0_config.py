@@ -90,6 +90,11 @@ QTR_ACQUISITION_DEFAULTS = {
 }
 QTR_PROPOSED_ARRAY_DEFAULTS = {'QTR_INPUT_PINS[4]': (2, 4, 7, 8)}
 BEHAVIOR_EXTRA_DEFAULTS = {
+    'IMU_BENCH_TRIAL_US': 60000000,  # D111 finite heading bench bound.
+    'IMU_BENCH_CHECKPOINT_US': 1000000,  # D111 finite heading bench bound.
+    'IMU_BENCH_CHECKPOINTS': 61,  # D111 finite heading bench bound.
+    'IMU_BENCH_DEADLINE_US': 70000000,  # D111 finite heading bench bound.
+    'IMU_BENCH_MAX_POLLS': 100000000,  # D111 finite heading bench bound.
     'VBAT_BENCH_SAMPLES': 128,  # D110 finite battery bench capture, approved count.
     'QTR_BENCH_FRAMES': 128,  # D109 finite raw bench capture, approved count.
     'VBAT_FILTER_MS': 1000,  # B6 one-second time constant.

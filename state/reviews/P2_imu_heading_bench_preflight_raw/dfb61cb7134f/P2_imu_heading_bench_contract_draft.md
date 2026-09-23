@@ -50,8 +50,6 @@ entry faults LIMIT before another clock/native progress, apart from required
 pending cancellation. Timing.calls still counts that faulting active entry.
 Elapsed deadline runs from begin's first S through every accepted later wrapper
 clock; equality faults DEADLINE. Neither bound acts when the caller stops polling.
-Chronological acceptance is separate from operational health: a clock can be
-accepted while a nonclock fault is already primary, allowing real timing evidence.
 
 ## Wrapper clocks, first faults and publication
 
@@ -75,13 +73,9 @@ An unobserved full wrap cannot be detected. CLOCK is primary only if no earlier
 fault; clock_fault independently latches. First fault remains immutable.
 
 When a wrapper failure may leave a read pending, cancel exactly once. Conservatively
-mark possibly_pending before beginRead. A known, well-formed native FAULT clears
-it before A chronology: its native owner already owns the terminal cleanup path,
-and the actual cleanup field is retained without another cancellation. A malformed
-apparent FAULT is not evidence of cleanup. A healthy COMPLETE clears it only after
-chronologically accepted A AND admitted wrapper source brackets, before either
-pure consumer. Thus bad A or rejected source brackets still cancel once; a later
-pure-consumer fault or bad C after a coherent terminal result does not cancel.
+mark possibly_pending before beginRead; clear it only after a structurally valid
+terminal result. A well-formed native FAULT already owns cleanup and is not
+cancelled again; a malformed apparent FAULT is not evidence of cleanup.
 If A is accepted and failure is known before C, call cancelRead(A) before C and
 save its actual result separately; C closes the cleanup-inclusive poll. Cancellation
 shape never overwrites the first fault. If S/A/C chronology fails, or LIMIT prevents
@@ -94,31 +88,7 @@ duration/cleanup success. Cancellation return is never fed to Estimator/Services
 No cancel exists for Setup; a completed semantic setup rejection is not a claim
 that I2C was disabled. No implicit cleanup on successful COMPLETE.
 
-If a chronologically valid S reaches DEADLINE, suppress the normal callback.
-If possibly_pending, call cancelRead(S) once, then observe C; with no pending work,
-still observe C. Chronologically accepted C measures the failed poll S..C and,
-when cancelled, the cancel S..C trigger bracket including validation. A later
-chronology rejection suppresses these measurements and any additional clocks.
-LIMIT before S instead cancels with the last accepted actual timestamp, performs
-no clock call and has no measured poll/cancellation duration. A deadline first
-detected at chronologically accepted C measures the existing poll S..C, then
-cancels at C if still pending with no readback clock; that later cleanup duration
-is unmeasured and excluded from the recorded poll span. Preserve the first fault.
-
 ## Begin, setup and read scheduling
-
-A chronologically admitted A that first reaches DEADLINE still validates an
-already-returned well-formed terminal reply for diagnostic delivery. For a healthy
-COMPLETE, qualify wrapper source brackets, clear possible pending on success,
-then call the actual Estimator and active calibration Services once. A native
-FAULT follows its mandatory diagnostic delivery rule. Preserve any actual bias
-application/report change; never publish a checkpoint, observation pulse/count,
-measurement update or healthy phase transition from this failed operation.
-Malformed/source-invalid replies are not delivered. A PENDING reply at that A
-requires cancellation at actual A before C. C closes the failed poll normally
-if its chronology is valid. This permits bounded pure processing of a result
-already obtained; it authorizes no further normal native operation. Earlier
-native/shape faults retain first-cause priority over DEADLINE.
 
 After pure admission, begin observes S and calls startSetup(S,true), then A/C.
 Retain the exact SetupReport. Known FAULT with a known non-NONE SetupFault is SETUP;
@@ -172,10 +142,8 @@ For a terminal FAULT, require SampleStateFAULT and a known non-NONE SampleFault,
 known BusStatus/Cleanup, default motion/phase/gap/previous-observation fields;
 retain its sequence/checked time/error flags and actual native cause. Select SOURCE
 before A chronology, with no success-only timestamp constraint. A well-formed fault
-is consumed once by Estimator after chronologically accepted A for actual source-
-fault evidence. During CALIBRATION, its actual invalid Estimate MUST be delivered
-to Services exactly once at that A, preserving the first SOURCE cause. Rejected A
-does not fabricate a delivery or Services call.
+is consumed once by Estimator after accepted A for actual source-fault evidence;
+its invalid estimate can be delivered to Services if calibration is still active.
 
 For COMPLETE require SampleState NO_NEW or OBSERVATION, faultNONE, busOK,
 cleanupNOT_ATTEMPTED and flags0. Successful checked_us lies in the current S..A.
@@ -189,9 +157,7 @@ validation; do not duplicate the byte decoder. Any Estimator FAULT is HEADING
 unless SOURCE already won. First accepted observation sequence is1, then+1;
 NO_NEW retains identity, through the actual Estimator. Do not seed private state.
 
-After chronologically accepted A, deliver each well-formed completion to Estimator
-exactly once; a healthy COMPLETE additionally requires admitted wrapper source
-brackets first. Rejected A/brackets do not produce a pure observation. In CALIBRATION,
+Deliver each well-formed completion to Estimator exactly once. In CALIBRATION,
 step Services exactly once for each such completion at delivery A: raw pre-bias
 body-Z plus VALID/ABSENT/INVALID mapped from actual Estimate; source time/sequence
 from Estimate; explicit_line=true with no line/opp payload. No call on PENDING or
@@ -204,9 +170,7 @@ is terminal CALIBRATION with prior bias retained. Otherwise applyBias exactly on
 false is HEADING. Record actual accepted bias/application flag and the actual
 Estimator.report after application: applyBias updates only its bias field, retaining
 the last raw/corrected observation values until a later observation. Never rewrite
-that earlier evidence with a newly subtracted bias. A successful actual applyBias,
-its report and bias_applied=true remain retained even if C later fails; there is
-no fabricated rollback. Enter MEASURING only after accepted C with no wrapper fault.
+that earlier evidence with a newly subtracted bias. After accepted C enter MEASURING.
 The completion that closed calibration is never the measurement anchor. Stop
 stepping Services after its calibration result is frozen; active/
 finished remain its actual values, not an invented completed countdown. No yaw reset.
@@ -216,7 +180,7 @@ finished remain its actual values, not an invented completed countdown. No yaw r
 The first subsequent updated heading anchors measurement and stages checkpoint0.
 Only updated observations contribute; NO_NEW does not move endpoints or extrema.
 Retain actual source start/end, sequences, headings, relative delta and elapsed
-source time. Only after accepted C with no wrapper fault, update min/max delta, max absolute
+source time. On every accepted-C observation, update min/max delta, max absolute
 excursion and observation count. Compute delta as double(current published heading)
 minus double(anchor published heading), without re-integrating or claiming access
 to the Estimator's private double accumulator. Require finite derived differences; NUMERIC is
@@ -235,22 +199,16 @@ Access returns const pointer only for index<count; capacity always reports confi
 
 poll returns true only for a newly published checkpoint. Each entry clears
 checkpoint_fresh and observation_fresh; terminal/disabled entries change nothing
-else and perform no callback. observation_fresh is true only for an updated
-observation committed after accepted C AND no wrapper fault, including calibration
-observations; it does not mean checkpoint or
+else and perform no callback. observation_fresh is true for any accepted-C updated
+observation, including calibration observations; it does not mean checkpoint or
 physical freshness. Report diagnostics retain actual most recent setup/progress/
 estimate/calibration/cancellation. completions counts actual well-formed terminal
 replies before A validation, including native FAULT and later closing failures;
 pending_results likewise counts actual well-formed pending replies even if A/C
 later fails. observations/no_new count successful Estimator categories committed
 after accepted C with no wrapper fault. missed releases count invocations.
-Measurement.observations covers only measurement observations committed after
-accepted C AND no wrapper fault, anchor included. maximum_observation_gap_us likewise
-updates only from updated samples committed after accepted C AND no wrapper fault,
-across both calibration and measurement phases. Closing timing alone does not
-authorize any observation flag, accepted observations/no_new counter, extrema or
-checkpoint publication. Actual pending/completion reply counters retain their
-separately specified pre-A diagnostic meaning.
+Measurement.observations covers only accepted-C measurement observations, anchor
+included. maximum_observation_gap_us covers accepted updated samples across phases.
 
 All wrapper diagnostic uint32 additions saturate; flag only attempted overflow,
 not exact arrival at max. admitted_polls caps at its configured limit; checkpoint
@@ -259,9 +217,8 @@ Timing.calls counts actual callbacks, and active poll entries for poll_timing.
 Clear last_valid when attempted, preserve old numeric history after rejected time.
 Normal callback timing is S..A; poll timing S..C includes validation/pure work/
 tentative copying and any pre-C cancellation. Accepted A measures even semantic
-failure. Early not-due polls have no measured poll duration. Cancellation timing is
-the accepted trigger A..C bracket, or S..C for a deadline detected at S, including
-intervening validation; late/invalid-
+failure. Early polls have no measured poll duration. Cancellation timing is the
+accepted trigger A..C bracket, which includes intervening validation; late/invalid-
 clock cleanup has no measured duration. These are observations, not physical WCET.
 
 ## Checks, scope and adoption items

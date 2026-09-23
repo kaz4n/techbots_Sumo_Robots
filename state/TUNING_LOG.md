@@ -337,3 +337,5 @@ P2_qtr_raw_contract.md,f786fa5; host capacity cases and exact target fit pending
 This is not an observed surface, cadence or electrical measurement.
 
 - 2026-09-24 D110 SOFTWARE-CAPACITY: added VBAT_BENCH_SAMPLES128 for finite named battery bench storage. Existing ADC values/scaling/pins/cadence unchanged. Not a physical tuning measurement; target fit/test evidence pending. Contract P2_vbat_contract.md.
+
+- 2026-09-24 D111 SOFTWARE-BOUNDS: IMU_BENCH_TRIAL_US60000000, CHECKPOINT_US1000000, CHECKPOINTS61, DEADLINE_US70000000, MAX_POLLS100000000. Finite bench evidence, not measured physical timing/capacity or changed native/calibration defaults. Contract P2_imu_heading_bench_contract.md; target fit/tests pending.

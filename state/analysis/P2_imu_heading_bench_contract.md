@@ -1,7 +1,6 @@
-# Draft: finite B3 IMU heading bench
+# D111 finite B3 IMU heading bench
 
-Proposed2026-09-24; NOT ADOPTED. Public drafts are in
-`P2_imu_heading_bench_headers/`. Source inventory:
+Adopted2026-09-24 under D051/D075 after independent author and source/API preflight. Public headers are in `bench/imu_heading/src/`. Source inventory:
 `P2_imu_heading_bench_design.md`. Existing D080/D081/D082/D083/D094 semantics,
 native guards, pins, mounting and calibration defaults remain unchanged.
 
@@ -14,7 +13,7 @@ UART/Bridge, network, reset or stop interface. Runner owns the actual pure
 Estimator and countdown::Services; do not duplicate integration or averaging.
 Construction/destruction/port creation/accessors are passive.
 
-This decision would explicitly permit a bench-only timer anchor in Services::start,
+This decision explicitly permits a bench-only timer anchor in Services::start,
 preserving D024/D083 windows and admission. It is not a Controller release, START,
 GO, countdown permission or motor gate. Existing core/header behavior is unchanged.
 
@@ -28,12 +27,12 @@ Estimator.begin(mounting, initial_bias_dps). Estimator failure is HEADING and it
 actual report is retained, with no clock/native call. Default sketch passes Grants{}
 and asserts MATCH=0/MOTORS_ALLOWED=0. Permission values are caller evidence only.
 
-## Proposed configuration and bounds
+## Adopted configuration and bounds
 
 Add only uint32 duration/count constants: IMU_BENCH_TRIAL_US60000000,
 IMU_BENCH_CHECKPOINT_US1000000, IMU_BENCH_CHECKPOINTS61,
 IMU_BENCH_DEADLINE_US70000000 and IMU_BENCH_MAX_POLLS100000000.
-These are proposed engineering bounds, not measured rate/WCET guarantees.
+These are engineering bounds, not measured rate/WCET guarantees.
 Use existing TICK_US for setup and new-read releases; do not change its default.
 
 Require 0<TICK_US<=IMU_HEADING_MAX_GAP_US<2^31; positive checkpoint period >=
@@ -285,7 +284,8 @@ MATCH/upload/profile and symlink refusal before transport, no upload key. Audit
 actual staged source/objects/ELFs, native paths, startup/imports and conditional
 loader fit; declaration or syntax success alone is insufficient.
 
-Adoption must confirm the proposed five constants and timer-anchor permission.
+The five constants and bench-only timer-anchor permission above are adopted.
+Existing Controller-qualified countdown use and all motor gates remain unchanged.
 No other software requirement is intentionally deferred. Later physical work must
 verify supply/bus/mounting/stillness/clock and capture provenance. STILL uses actual
 duration, endpoint drift AND maximum observed excursion against2deg; a separately
@@ -293,3 +293,9 @@ labelled hand-rotation run compares actual signed delta with externally confirme
 +/-360deg within3deg. The bench does not know that the hand turned exactly360deg.
 One trial per boot; no physical accuracy, healthy cadence,800us app WCET or gate
 follows from synthetic tests, guards or nominal60s clock arithmetic.
+
+The coordinator adds exactly the five literal expectations to the unlocked P0
+registry; every prior assertion/value remains. Independent tests freeze before
+first execution; separate author and implementer contexts may write in parallel.
+Public state is never privately seeded to reach otherwise impossible counters.
+Source-review unreachable defensive guards without inventing executed evidence.

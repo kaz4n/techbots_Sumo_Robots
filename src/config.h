@@ -74,6 +74,12 @@ inline constexpr std::uint32_t IMU_FILTER_WAIT_US = 20000U;
 inline constexpr std::uint32_t IMU_SETUP_DEADLINE_US = 1000000U;
 inline constexpr std::uint32_t IMU_SETUP_MAX_ADVANCES = 1024U; // count exception
 inline constexpr std::uint32_t IMU_SETUP_MAX_REQUESTS = 64U; // count exception
+// D111 finite bench evidence bounds, not physical timing; counts are naming exceptions.
+inline constexpr std::uint32_t IMU_BENCH_TRIAL_US = 60000000U;
+inline constexpr std::uint32_t IMU_BENCH_CHECKPOINT_US = 1000000U;
+inline constexpr std::uint32_t IMU_BENCH_CHECKPOINTS = 61U;
+inline constexpr std::uint32_t IMU_BENCH_DEADLINE_US = 70000000U;
+inline constexpr std::uint32_t IMU_BENCH_MAX_POLLS = 100000000U;
 inline constexpr std::uint32_t IMU_SILENCE_US = 20000U; // B14; D081 observed-data deadline
 inline constexpr std::uint32_t IMU_HEADING_MAX_GAP_US = 2000U; // D082 development continuity limit
 // D085 asynchronous QTR development bounds and unchanged HARDWARE pin proposals.

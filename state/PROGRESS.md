@@ -833,3 +833,5 @@ physical/loadedRAM/gate claim. | contract=this commit
 - 2026-09-24T00:42+04:00 | P2 B5 D110 | Battery-only finite bench IMPLEMENTED/HOST-TESTED/TARGET-COMPILED and separate review PASS, no findings.28 executable profiles,114 policy methods; exact8e3efb92 default/Immediate peak13200. Evidence P2_vbat_validation.md/review/raw and F134. Physical0.05V/readout/gates pending; MCU still D104. Local implementation commit recorded next checkpoint.
 
 - 2026-09-24T00:43+04:00 | P2 checkpoint | D110 implementation/evidence committeda0ee402 after contractc3ed3eb/tooling1304f0e; F134 and final review PASS. Next eligible task: D111 named IMU bench draft/public-interface preflight, not adopted or implemented yet. Root diff whitespace check noted one trailing blank line in the frozen new vbat_cases.cc; preserved exact successful test bytes, no behavioral concern or assertion change. No human gate or new MCU action.
+
+- 2026-09-24T00:51:25.385188+04:00 | P2 B3 D111 | Adopted preflight-reviewed finite IMU bench contract/public interfaces and five software bounds. Implementation and independent tests next; no physical claim/gate/new upload. Prior D110 checkpoint60e2193.

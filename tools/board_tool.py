@@ -4,6 +4,7 @@
 import argparse
 from datetime import datetime, timezone
 import hashlib
+import importlib.util
 import json
 import os
 from pathlib import Path
@@ -12,6 +13,7 @@ import shlex
 import shutil
 import subprocess
 import sys
+import uuid
 
 ROOT = Path(__file__).resolve().parents[1]
 SSH_OPTIONS = ['-o', 'BatchMode=yes', '-o', 'StrictHostKeyChecking=yes',
@@ -187,6 +189,49 @@ def build_startup(args):
     return args.startup or ('immediate' if args.match else 'default')
 
 
+def compile_app(board, checksum, board_folder, remote_root, fqbn, flags, startup):
+    spec = importlib.util.spec_from_file_location('sumo_app_policy', ROOT / 'tools/app_build_policy.py')
+    policy = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(policy)
+    version = remote(board, ['arduino-cli', 'version'], capture=True)
+    policy.validate_cli(version.stdout)
+    mode = ('match' if 'MATCH=1' in flags else 'bench') + '-' + startup
+    run_id = uuid.uuid4().hex
+    run_root = f'{remote_root.rstrip("/")}/_app_builds/{policy.POLICY}/{checksum}/{mode}/{run_id}'
+    build_path, artifacts = run_root + '/build', run_root + '/artifacts'
+    command = ['arduino-cli', 'compile', '--json', '--fqbn', fqbn,
+               '--build-path', build_path, '--output-dir', artifacts,
+               '--build-property', f'compiler.cpp.extra_flags={flags}',
+               '--build-property', f'compiler.c.extra_flags={flags}',
+               '--build-property', 'build.library_discovery_phase_flag=' + policy.DISCOVERY,
+               board_folder]
+    receipt = ROOT / 'build/app-receipts' / run_id
+    receipt.mkdir(parents=True, exist_ok=False)
+    (receipt / 'command.json').write_text(json.dumps(command, indent=2) + '\n')
+    try:
+        result = remote(board, command, capture=True)
+        if result.returncode != 0:
+            raise subprocess.CalledProcessError(result.returncode, command,
+                                                result.stdout, result.stderr)
+    except subprocess.CalledProcessError as error:
+        (receipt / 'compile.stdout.json').write_text(error.stdout or '', encoding='utf-8')
+        (receipt / 'compile.stderr.txt').write_text(error.stderr or '', encoding='utf-8')
+        print(f'App compilation failed; raw output: {receipt}', file=sys.stderr)
+        raise
+    (receipt / 'compile.stdout.json').write_text(result.stdout, encoding='utf-8')
+    (receipt / 'compile.stderr.txt').write_text(result.stderr, encoding='utf-8')
+    properties = policy.validate_result(result.stdout, fqbn, flags, build_path)
+    hashes = policy.verify_files(remote, board, properties, build_path, artifacts)
+    report = dict(policy=policy.POLICY, source_sha256=checksum, fqbn=fqbn,
+                  build_path=build_path, artifacts=artifacts, file_sha256=hashes,
+                  compiler_returncode=result.returncode, used_libraries=[])
+    (receipt / 'verified.json').write_text(json.dumps(report, indent=2) + '\n')
+    print(f'APP BUILD CHECKED: {policy.POLICY}; receipt={receipt}')
+    result_object = policy.decode(result.stdout)
+    print(result_object.get('compiler_out', ''), end='')
+    print(result_object.get('compiler_err', ''), end='', file=sys.stderr)
+
+
 def flash(args):
     startup = build_startup(args)
     if not args.compile_only and args.sketch in ('bench/p0_matrix', 'bench/ui_matrix') and startup == 'immediate':
@@ -219,10 +264,13 @@ def flash(args):
     sync_sources(board, folder, board_folder)
     flags = f'-DMATCH={int(args.match)} -DMOTORS_ALLOWED={int(args.match)}'
     artifact_folder = f'{board_folder}/artifacts/{"match" if args.match else "bench"}-{startup}'
-    remote(board, ['arduino-cli', 'compile', '--fqbn', fqbn,
-                   '--output-dir', artifact_folder,
-                   '--build-property', f'compiler.cpp.extra_flags={flags}',
-                   '--build-property', f'compiler.c.extra_flags={flags}', board_folder])
+    if args.sketch == 'app':
+        compile_app(board, checksum, board_folder, remote_root, fqbn, flags, startup)
+    else:
+        remote(board, ['arduino-cli', 'compile', '--fqbn', fqbn,
+                       '--output-dir', artifact_folder,
+                       '--build-property', f'compiler.cpp.extra_flags={flags}',
+                       '--build-property', f'compiler.c.extra_flags={flags}', board_folder])
     print(f'COMPILE command completed: {args.sketch}; source SHA256={checksum}; '
           f'MATCH={int(args.match)} MOTORS_ALLOWED={int(args.match)} STARTUP={startup}')
     if not args.compile_only:

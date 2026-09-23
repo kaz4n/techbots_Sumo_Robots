@@ -1,6 +1,6 @@
 # Execution checklist - 2026-09-23 Asia/Dubai
 
-PROGRESS is authoritative. Full P0-P7 ACTIVE/incomplete; no human gate passed.
+PROGRESS is authoritative. Full P0-P7 incomplete; user-requested PAUSE; no human gate passed.
 D051/D075 permit active P2 software while physical acceptance remains pending.
 
 | Existing task | Software/evidence | Remaining |
@@ -15,30 +15,30 @@ D051/D075 permit active P2 software while physical acceptance remains pending.
 | P2 B6 | A1327c5db/gesturesb69fa12/matrix385c46c/D093fixedowner tested/target/review | Physical buttons/SC-A, optical acceptance, physical acceptance |
 | P2 2.4 | QTR calibration311bf40 tested/target/review | Actual threshold printing/app/physical calibration |
 | P2 B8 | Storage/D090dump febde53 tested/target/review; D09117bb38a actual200s synthetic MCU recorder PASS | Native UART, app lifetime/local reset UI, physical B8 |
-| Integration/B7/P3-P7 | D092timing2081ca1/D093a15cffd/D095390005c transaction tested/target/review | D0963be9669 host-tested; target RAM BLOCKER14312B; full800us/physical pending |
+| Integration/B7/P3-P7 | D092timing2081ca1/D093a15cffd/D095390005c transaction tested/target/review | D0973d84958 + D0981447ec8; default candidate fits; D099 adoption MAJOR open; full800us/physical pending |
 
-D096 contract36c251f/implementation3be9669: actual Runtime/native bindings/app
-composition, original release grid, actual source expiry, RAW calibration/handover,
-and real STOP tail now implemented. All setup grants remain false by default.
-Fullnormal/san1411main+173Gate pass; author37default/43configured cases eachmode,
-6newtools61oldtools, reviewer131711checks eachmode PASS. Clock and QTR starvation
-findings fixed; no old core/HAL/locked-test change. Exact82compiledsources250rawfiles
-and5newtests verified in index; original failures retained.
+D0973d84958 passive IMU accessor implemented/tested/reviewed; real696B saving.
+Fullnormal/san1418main+173Gate PASS. D0981447ec8 isolated Bridge dependency
+experiment/review PASS,27452B saving: actual default248308B with493projectfunction
+identities/startup preserved. Conditional loader arithmetic is not loadedRAM.
 
-TARGET BLOCKER: final actualapp4cb637f9 compileexit1,276456memory>262144/14312B
-excess.82sources3linkedcacheELFs exact,188imports/loader unchanged,40native42AEABI
-exports12initentries audited; this is not a successful target build. Sevenexisting
-inertkeys reviewed/refreshed, no appkey/upload/reset/MCU action. Lastknown image
-D0911502e948 old frozen synthetic recorder only.
+D099contract6b48779/tool implementation WIP. Actual default wrappercompileexit0,
+finalELF exactly D098 reviewed candidate.29new+49established tooling tests PASS;
+oldassertions AST-identical. Open D099-R1 MAJOR: effective compiler/recipe/hook
+and local overrides evade selected metadata checks. Adoption review FAIL.
+Read P2_app_build_checkpoint.md/raw and checkpointreview. All original evidence
+and fixture/oracle failures preserved. No config/source/locked change or upload.
 
-Next: bounded passive Acquirer setup-fault accessor to remove accidental legacy
-runtime retention; public contract/independent tests first, preserve legacy API.
-Then sameapp compile-only/ELF comparison measures real saving (752B estimate only,
-insufficient alone). Investigate inherited Bridge/Serial dependencies with isolated
-source/ELF startup comparisons; no core/toolchain/startup/capacity change assumed.
-Read P2_app_runtime_ram_audit.md. Do not claim a RAM remedy from symbol totals.
+User explicitly paused work for hardware/network disconnection. STOP here until
+resume. First task: independent regressions and bounded D099-R1 fix, including
+precompile refusal of unreviewed overrides and effective recipe checks. Then
+missing Immediate/MATCH, explicit-library fixture, actual source/object/ELF
+checks and final adoption review. Default binary compile is already complete;
+do not repeat merely because this is a new context. Recheck connection only
+once resumed before any board-dependent step; no new board/network actions now.
 
-SC-AL full800us, SC-A circuit/windows, SC-AJ clock, physical acceptance, loadedRAM,
-nativeUART/localreset/calibration-snippet transport and human gates remain pending.
-No extra hardware requested, motor authority/PINMAP/EXPLAINED, push/tag. Commit
-promptly after validation; no artificial spacing. FullP0-P7 remains ACTIVE.
+Lastknown MCU remains D0911502e948 synthetic recorder, seveninertkeys unchanged.
+Physical acceptance, loadedRAM/full800us, SC-A circuit, SC-AJ clock, nativeUART/
+localreset/calibration-snippet integration and human gates remain outstanding.
+No extra hardware requested or motor authority; no push/tag. Commit promptly
+without artificial spacing. Nothing continues in the background during pause.

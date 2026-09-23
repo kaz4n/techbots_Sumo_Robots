@@ -731,3 +731,15 @@ pristine loaderpeak252472/largest9668B is not measured loadedRAM. CLI1.5.1 schem
 primary-source follow-up saved. No productionflags/source/capacity/startup/MCU
 change, no upload/gate. Next separate app-only checked build contract/tests.
 Evidence P2_bridge_dependency_validation.md/raw and independentreview. | this commit
+
+2026-09-23T20:16:28+04:00 | P2 USER-REQUESTED PAUSE checkpoint | D0973d84958,
+D0981447ec8 complete scoped work; D099contract6b48779 implementation WIP. Current
+in-flight defaultcompile completedexit0/248308B, finalELF identical D098 candidate.
+29new+49established tooling tests PASS, oldassertions AST-identical. Separate
+checkpointreview FAIL for adoption: open D099-R1 MAJOR effective recipe/compiler/
+hook overrides can bypass selected metadata. Preserve reproduction and failures.
+Immediate/MATCH/library fixture and final target audits not run; no further board/
+network operation started after pause request. First resume fix D099-R1 before
+adoption, then remaining target evidence. No source/config/locked/MCU/upload/gate
+change. Handoff/execution/resume saved; stop until explicit human resume.
+Evidence P2_app_build_checkpoint.md/raw and checkpointreview. | checkpoint=this commit

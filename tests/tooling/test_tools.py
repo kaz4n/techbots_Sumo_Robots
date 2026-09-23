@@ -36,7 +36,7 @@ class ToolContractTests(unittest.TestCase):
         self.bin = self.root / 'bin'
         self.remote_bin = self.root / 'remote-bin'
         for directory, commands in ((self.bin, ('ssh', 'rsync')),
-                                    (self.remote_bin, ('arduino-cli', 'python3'))):
+                                    (self.remote_bin, ('arduino-cli', 'python3', 'sha256sum'))):
             directory.mkdir()
             for command in commands:
                 shutil.copyfile(FAKE, directory / command)

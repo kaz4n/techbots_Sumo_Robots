@@ -1,0 +1,63 @@
+test_D099_arbitrary_flag_or_policy_arguments_never_reach_compile (test_app_build_policy.AppBuildCommandTests.test_D099_arbitrary_flag_or_policy_arguments_never_reach_compile) ... ok
+test_D099_bench_commands_keep_original_dependency_behavior (test_app_build_policy.AppBuildCommandTests.test_D099_bench_commands_keep_original_dependency_behavior) ... ok
+test_D099_build_and_output_paths_are_fresh_and_outside_sketch (test_app_build_policy.AppBuildCommandTests.test_D099_build_and_output_paths_are_fresh_and_outside_sketch) ... ok
+test_D099_changed_or_missing_dependency_and_artifact_evidence_fail (test_app_build_policy.AppBuildCommandTests.test_D099_changed_or_missing_dependency_and_artifact_evidence_fail) ... 
+  test_D099_changed_or_missing_dependency_and_artifact_evidence_fail (test_app_build_policy.AppBuildCommandTests.test_D099_changed_or_missing_dependency_and_artifact_evidence_fail) (fault='changed_pin') ... FAIL
+  test_D099_changed_or_missing_dependency_and_artifact_evidence_fail (test_app_build_policy.AppBuildCommandTests.test_D099_changed_or_missing_dependency_and_artifact_evidence_fail) (fault='missing_pin') ... FAIL
+test_D099_compiler_failure_retains_error_and_never_reports_success (test_app_build_policy.AppBuildCommandTests.test_D099_compiler_failure_retains_error_and_never_reports_success) ... ok
+test_D099_default_immediate_match_use_exact_fixed_compile_properties (test_app_build_policy.AppBuildCommandTests.test_D099_default_immediate_match_use_exact_fixed_compile_properties) ... ok
+test_D099_every_app_upload_is_rejected_before_transport_lookup (test_app_build_policy.AppBuildCommandTests.test_D099_every_app_upload_is_rejected_before_transport_lookup) ... ok
+test_D099_nonzero_process_rejects_even_successful_json (test_app_build_policy.AppBuildCommandTests.test_D099_nonzero_process_rejects_even_successful_json) ... ok
+test_D099_result_rejection_is_wired_into_real_public_compile_command (test_app_build_policy.AppBuildCommandTests.test_D099_result_rejection_is_wired_into_real_public_compile_command) ... ok
+test_D099_wrong_cli_identity_and_core_stop_before_compilation (test_app_build_policy.AppBuildCommandTests.test_D099_wrong_cli_identity_and_core_stop_before_compilation) ... ok
+test_D099_any_external_library_or_wrong_library_type_fails (test_app_build_policy.AppBuildParserTests.test_D099_any_external_library_or_wrong_library_type_fails) ... ok
+test_D099_both_platforms_require_exact_id_version_and_absolute_root (test_app_build_policy.AppBuildParserTests.test_D099_both_platforms_require_exact_id_version_and_absolute_root) ... ok
+test_D099_builder_object_and_fresh_build_path_are_required (test_app_build_policy.AppBuildParserTests.test_D099_builder_object_and_fresh_build_path_are_required) ... ok
+test_D099_cli_wrong_missing_or_ambiguous_identity_is_rejected (test_app_build_policy.AppBuildParserTests.test_D099_cli_wrong_missing_or_ambiguous_identity_is_rejected) ... ok
+test_D099_compile_only_upload_result_is_absent_or_empty_object (test_app_build_policy.AppBuildParserTests.test_D099_compile_only_upload_result_is_absent_or_empty_object) ... ok
+test_D099_controlled_safety_flags_cannot_be_overridden_or_appended (test_app_build_policy.AppBuildParserTests.test_D099_controlled_safety_flags_cannot_be_overridden_or_appended) ... ok
+test_D099_default_immediate_and_match_properties_are_distinct (test_app_build_policy.AppBuildParserTests.test_D099_default_immediate_and_match_properties_are_distinct) ... ok
+test_D099_duplicate_keys_are_rejected_at_every_object_depth (test_app_build_policy.AppBuildParserTests.test_D099_duplicate_keys_are_rejected_at_every_object_depth) ... ok
+test_D099_each_required_property_missing_or_changed_fails (test_app_build_policy.AppBuildParserTests.test_D099_each_required_property_missing_or_changed_fails) ... ok
+test_D099_library_omission_cannot_rescue_an_incomplete_envelope (test_app_build_policy.AppBuildParserTests.test_D099_library_omission_cannot_rescue_an_incomplete_envelope) ... ok
+test_D099_omitted_and_empty_libraries_accept_after_complete_envelope (test_app_build_policy.AppBuildParserTests.test_D099_omitted_and_empty_libraries_accept_after_complete_envelope) ... ok
+test_D099_optional_output_strings_errors_and_upload_envelope (test_app_build_policy.AppBuildParserTests.test_D099_optional_output_strings_errors_and_upload_envelope) ... ok
+test_D099_pinned_cli_accepts_surrounding_whitespace (test_app_build_policy.AppBuildParserTests.test_D099_pinned_cli_accepts_surrounding_whitespace) ... ok
+test_D099_platform_roots_and_variant_path_must_agree (test_app_build_policy.AppBuildParserTests.test_D099_platform_roots_and_variant_path_must_agree) ... ok
+test_D099_property_collection_requires_unique_well_formed_strings (test_app_build_policy.AppBuildParserTests.test_D099_property_collection_requires_unique_well_formed_strings) ... ok
+test_D099_result_must_be_one_strict_json_object (test_app_build_policy.AppBuildParserTests.test_D099_result_must_be_one_strict_json_object) ... ok
+test_D099_success_must_be_present_boolean_true (test_app_build_policy.AppBuildParserTests.test_D099_success_must_be_present_boolean_true) ... ok
+test_D099_unreviewed_extra_build_or_link_flags_fail (test_app_build_policy.AppBuildParserTests.test_D099_unreviewed_extra_build_or_link_flags_fail) ... ok
+
+======================================================================
+FAIL: test_D099_changed_or_missing_dependency_and_artifact_evidence_fail (test_app_build_policy.AppBuildCommandTests.test_D099_changed_or_missing_dependency_and_artifact_evidence_fail) (fault='changed_pin')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_app_build_policy.py", line 398, in test_D099_changed_or_missing_dependency_and_artifact_evidence_fail
+    self.assert_no_success(result)
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_app_build_policy.py", line 276, in assert_no_success
+    self.assertNotEqual(0, result.returncode, result.stdout + result.stderr)
+AssertionError: 0 == 0 : APP BUILD CHECKED: native-app-v1; receipt=/tmp/sumo-tools-7yfqimns/build/app-receipts/1f9f8cebaacb40ee9b7d0f66c93d0cbf
+SIMULATED compile
+COMPILE command completed: app; source SHA256=e2ec335adbd490607afcb4b6ef16572075ae31fccdd67cbf2b89e12e9f776628; MATCH=0 MOTORS_ALLOWED=0 STARTUP=default
+Compile-only: no upload requested
+
+
+======================================================================
+FAIL: test_D099_changed_or_missing_dependency_and_artifact_evidence_fail (test_app_build_policy.AppBuildCommandTests.test_D099_changed_or_missing_dependency_and_artifact_evidence_fail) (fault='missing_pin')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_app_build_policy.py", line 398, in test_D099_changed_or_missing_dependency_and_artifact_evidence_fail
+    self.assert_no_success(result)
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_app_build_policy.py", line 276, in assert_no_success
+    self.assertNotEqual(0, result.returncode, result.stdout + result.stderr)
+AssertionError: 0 == 0 : APP BUILD CHECKED: native-app-v1; receipt=/tmp/sumo-tools-7yfqimns/build/app-receipts/a27eabbd23aa4254bb6e22dfb01bcb15
+SIMULATED compile
+COMPILE command completed: app; source SHA256=e2ec335adbd490607afcb4b6ef16572075ae31fccdd67cbf2b89e12e9f776628; MATCH=0 MOTORS_ALLOWED=0 STARTUP=default
+Compile-only: no upload requested
+
+
+----------------------------------------------------------------------
+Ran 28 tests in 14.838s
+
+FAILED (failures=2)

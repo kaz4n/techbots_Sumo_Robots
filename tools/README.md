@@ -1,5 +1,28 @@
 # P0 tooling contract
 
+## D099 app build checkpoint
+
+Canonical `app --compile-only` now selects the fixed `native-app-v1` dependency
+policy: pinned CLI1.5.1/core1.0.0, a literal discovery-phase flag and a strict JSON
+result check that rejects every external library. Selected installed compiler,
+core, EDK and loader bytes plus four generated artifacts are hashed. Each build
+has a fresh policy/source/mode directory; raw compiler output is retained under
+`build/app-receipts/<run-id>/`. Existing bench commands and upload guards remain.
+No additional caller-supplied flags or library policy are accepted.
+
+This implementation is a WIP checkpoint, not accepted adoption. Independent review
+found an open MAJOR: effective compile recipes/compiler/hook overrides are not yet
+fully checked, and an unreviewed platform.local.txt can leave the pinned platform
+hash unchanged. Fix that before relying on the policy's checked-build message.
+The actual default ELF matches the separately reviewed D098 candidate.
+
+The default actual app compile has passed; Immediate/MATCH target checks, the
+explicit-library experiment and final adoption review remain pending at the
+user-requested pause. Host command tests do not substitute for those target checks.
+The discovery override is not an official Bridge-disable option. Read
+`state/analysis/P2_app_build_contract.md` and the current checkpoint before relying
+on an unqualified build mode. App uploads remain disabled in all modes.
+
 D-075 MotorGate target checks use
 `python tools/board_tool.py flash bench/p2_motor_gate_compile --compile-only`
 and the same command with `--match --compile-only`. Both only build on board

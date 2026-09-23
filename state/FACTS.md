@@ -440,3 +440,9 @@ F112 final software disposition 2026-09-23T16:49:58+04:00: fresh separate same-m
 | ID | Question | Observed answer | Source | Confidence | Hardware-checked |
 |---|---|---|---|---|---|
 | F-121 | Does the isolated discovery-property change remove incidental Bridge roots while preserving the app? | Exact82-file570ef35f control exits1 at275760B; candidate exits0 at248308B,27452B saving. SixELFs/1438common object sections reviewed;493projectfunctions/startup retained;188imports become176 with no additions,39native42AEABI exports present. Conditional pristine loaderpeak252472B/largest9668B. | analysis/P2_bridge_dependency_audit.md,experiment.md,validation.md,raw; reviews/P2_bridge_dependency_review.md/raw | EXPERIMENT TARGET-COMPILED; independent same-model review PASS; production policy not adopted | Board Linux compile/file reads only. No actual load/freeRAM/WCET/MCU operation, physical/gate or motor authority. Ordinary production command still RAM-blocked. |
+
+## D099 partial checked-build checkpoint,2026-09-23
+
+| ID | Question | Observed answer | Source | Confidence | Hardware-checked |
+|---|---|---|---|---|---|
+| F-122 | Does the new wrapper complete a default actual app build? | Yes, exit0/248308B, finalELF hash identical to D098 candidate.29new+49established tooling tests pass. Adoption remains FAIL: D099-R1 MAJOR demonstrates unchecked effective recipe/compiler/hook overrides; Immediate/MATCH/library experiment and final review pending. | analysis/P2_app_build_checkpoint.md/raw; reviews/P2_app_build_checkpoint_review.md/raw | Default TARGET-COMPILED; policy WIP/REVIEW-PENDING; no blanket acceptance | Existing board-Linux compile finished before pause. No upload/reset/MCU/loadedRAM/WCET/physical/gate claim. User explicitly paused further work. |

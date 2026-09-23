@@ -1,3 +1,35 @@
+## User-requested pause checkpoint - 2026-09-23T20:16:28+04:00
+
+P2 software remains active under D051/D075, but work is PAUSED at the user's
+explicit request for hardware/network disconnection. Resume only on their signal.
+Full P0-P7 incomplete; no human gate/PINMAP/EXPLAINED or motor-run authority.
+
+Completed: D097 getter3d84958; D098 experiment/review1447ec8. D097 fullnormal/san
+1418main+173Gate PASS; D098 actual27452B saving and preserved native/app/startup.
+Current D099contract6b48779/tool implementation is WIP, NOT accepted adoption.
+Read analysis/P2_app_build_checkpoint.md and reviews/P2_app_build_checkpoint_review.md.
+Default app compile finishedexit0/248308B; finalELF exactly D098 candidate.
+29new+49established host tooling tests PASS; original failures preserved.
+
+FIRST RESUME TASK: fix open D099-R1 MAJOR. Selected metadata checks currently
+accept changed effective compile recipes/compiler commands/prebuild hooks; local
+platform overrides can evade pinned platform.txt. Add independent regression tests,
+reject unreviewed local/global overrides before compiling, and verify effective
+compiler/link/startup/hook settings using primary CLI behavior. Do not infer that
+the passing29-test scope resolves the review. Then perform missing Immediate/MATCH
+and explicit-library experiment, current source/object/ELF audits and final review.
+Default raw metadata/artifact hashes are saved locally; no board needed to inspect.
+
+No new board/network action was started after the pause request; no process remains
+running. Nothing uploaded/reset/executed on MCU. Last known image D0911502e948 old
+synthetic recorder only. Seven inert keys unchanged; no source/config/locked edits.
+LoadedRAM/full800us/physical sensor-motor acceptance, nativeUART/localreset and all
+human gates still pending. Hardware may be disconnected: recheck read-only presence
+only after resume before any dependent target operation; never assume connection.
+All work is committed locally; no push/tag. No background work during this pause.
+
+--- Earlier handoff preserved below ---
+
 ## Latest checkpoint - 2026-09-23T19:44:30+04:00
 
 P2 software remains active under D051/D075; full P0-P7 ACTIVE/incomplete. D096

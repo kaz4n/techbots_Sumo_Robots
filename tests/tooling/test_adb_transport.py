@@ -99,6 +99,8 @@ if command and command[0] == 'mkdir':
     raise SystemExit(0)
 if command and command[0] == 'arduino-cli' and mode == 'flash':
     raise SystemExit(helper['fake_arduino'](command[1:]))
+if command and command[0] == 'sha256sum' and mode == 'flash':
+    raise SystemExit(helper['fake_sha256sum'](command[1:]))
 if command and command[0] == 'python3' and mode == 'logs':
     raise SystemExit(helper['fake_remote_python'](command[1:]))
 record('rejected_remote', reason='Unexpected remote command', args=command)

@@ -16,15 +16,19 @@ D051/D075 permit P2 software while physical acceptance remains pending.
 | P2 B8 | Offline storage/CSV25Hz implemented/reviewed | Bounded IDLE transport, full RAM/200s/no-gap evidence |
 | Integration/B7/P3-P7 | Unfinished | SC-AJ/F091, scheduler/HAL/WCET, physical acceptance |
 
-D088 evidence P2_matrix_validation.md/raw,F110 and fresh separate same-model review
-PASS. Fullhost/san1224main+38Gate;15newrenderer cases/23nativecapturemethods,
-5newupload+27existingtools/stagingPASS. Actuale50c6da3 source61files/3ELFs and
-6exactinertkeys verified. Bare-board normalstartup uploadrun1 exit0; deployed
-identity and3341->3418submissions/failures0 verified in9read-only MEM-AP reads.
-No optical/independentclock/800us/physicalbutton/human gate follows.
+D089 implementation311bf40: actual QTR_CAL owner/adapter/Robot handover,
+atomic RAM bank/export and matrix progress IMPLEMENTED/HOST-TESTED/TARGET-COMPILED.
+Full normal/san1255main+39GatePASS;31newcases1915assertions.4scoped tooling methods
+(including18legacy config cases), alternate confirmation/batch profiles and
+25existing scripts+5matrixupload+2staging PASS. Fresh same-model reviewPASS after
+source-era MAJOR fixed. Finalcc4819aa67sources/3ELFs/40native42AEABI exact; six
+existing inert hashes refreshed. No upload or physical calibration this turn.
 
-Next: P2 2.4 actual QTR_CAL boundedconsumer/RAMthreshold lifecycle, using raw
-D085 evidence and preserving reset-only faults. P2_qtr_cal_next_task.md is a
-read-only requirements inventory; freeze delegatedchoices beforetesting/code.
-SC-A productionwindows stayunconfigured. Future app must resolveIMU600+motor150+
-twoADC100 budget beforeotherwork;SC-AJ/F091 and physical/human gates remainpending.
+Last-known MCU: D088 inert ui_matrixe50c6da3, prior measured counter+77/failures0.
+All optical/independentclock/full800us/physical/button/human gates remain pending.
+QTR_CAL still needs actual app lifetime/acquisition selection and print transport.
+
+Next: P2 B8/B13/B15 actual bounded IDLE log-dump owner/transport. Read
+P2_service_next_task.md, resolve STOPPED-to-IDLE RAM lifetime and native Bridge
+boundedness before implementation. SC-A production windows stay unconfigured;
+SC-AJ/F091/full RAM/tick budget and physical/human gates stay explicit.

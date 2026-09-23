@@ -1,3 +1,44 @@
+# D089 checkpoint - active P2 software,2026-09-23 Asia/Dubai
+
+Implemented actual QTR_CAL software in311bf40: raw adapter, inhibited Robot menu
+preparation, eight-stage owner, atomic versioned RAM thresholds, later-source
+handover/fresh START, bounded snippet export and matrix progress. Read
+analysis/P2_qtr_cal_contract.md,validation.md,review.md and raw evidence.
+
+Frozen normal and ASan/UBSan PASS:1255main/24477205assertions plus39enabled
+MotorGate/3843500;31newcases1915assertions. Four scoped tooling methods PASS,
+including actual inert startup/10000loops, alternate confirmation/batch profiles
+and18 unchanged strict-config tests through additive registration. Final31case
+variants/maxbatch256 rechecked. Existing25scripts+5matrixupload+2stagingPASS.
+Author was a reused separate context with D089 CPP unread; reviewer genuinely
+fresh separate same-model, PASS/no open findings. Not cross-model or human gate.
+
+Reviewer reproduced old unseen frames aliasing a fresh source after clock wrap
+in Robot and owner. First production fix rejects ambiguous half-range continuity;
+independent adjacent-boundary/full-wrap tests pass. Failed fixtures, first script
+old-hash refusal and first target build retained. Existing/locked tests unchanged.
+
+Final compile-only cc4819aa on UNO Q Linux:145824program/72004compiler globals,
+67sourcefiles/3ELFs/40native42AEABI exact; physical/Git/target bytes equal. Six
+existing inert source keys reapproved, no new upload key. No MCU/upload/reset or
+sensor/motor action this turn. Last-known MCU remains D088 ui_matrix e50c6da3,
+whose previous actual run advanced77submissions/zero failures. Recheck connection
+before future board work. New calibration source was compiled, never executed.
+
+All calibration fixtures synthetic; no optical thresholds or physical buttons
+proved. No config QTR_WHITE_US/B16 value changed. Actual printing transport and
+app selection/acquisition/scheduler remain unfinished. Full P0-P7 ACTIVE/incomplete;
+physical/PINMAP/EXPLAINED/human gates, SC-A/SC-AJ/F091 and complete800us budget open.
+Do not request connecting sensors now. No motor-run authority exists.
+
+Exact next eligible task: actual bounded IDLE recorder dump owner/transport for
+P2 B8/B13/B15. Read analysis/P2_service_next_task.md and reconcile STOPPED-to-IDLE
+RAM preservation and installed Bridge boundedness before dependent implementation.
+D051/D075 permit software choices, not invented hardware facts or phase passes.
+Original Dubai deadlines and small local commits only; no push/tag/historyrewrite.
+
+--- Earlier handoff preserved below ---
+
 # D088 checkpoint - active P2 software,2026-09-23 Asia/Dubai
 
 Actual matrix renderer/native output implemented385c46c, contract8fd11dd,

@@ -1,0 +1,383 @@
+In file included from tests/test_qtr_cal.cpp:4:
+tests/test_qtr_cal.cpp: In lambda function:
+host/third_party/doctest.h:2824:57: error: static assertion failed: Exceptions are disabled! Use DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS if you want to compile with exceptions disabled.
+ 2824 | #define DOCTEST_EXCEPTION_EMPTY_FUNC [] { static_assert(false, "Exceptions are disabled! " \
+      |                                                         ^~~~~
+host/third_party/doctest.h:2840:25: note: in expansion of macro ‘DOCTEST_EXCEPTION_EMPTY_FUNC’
+ 2840 | #define DOCTEST_REQUIRE DOCTEST_EXCEPTION_EMPTY_FUNC
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+host/third_party/doctest.h:2977:22: note: in expansion of macro ‘DOCTEST_REQUIRE’
+ 2977 | #define REQUIRE(...) DOCTEST_REQUIRE(__VA_ARGS__)
+      |                      ^~~~~~~~~~~~~~~
+tests/test_qtr_cal.cpp:75:5: note: in expansion of macro ‘REQUIRE’
+   75 |     REQUIRE(narrow.complete(200U, 201U).phase == qtr_cal::Phase::SUCCESS);
+      |     ^~~~~~~
+tests/test_qtr_cal.cpp: In function ‘void DOCTEST_ANON_FUNC_6()’:
+host/third_party/doctest.h:2977:37: error: expression cannot be used as a function
+ 2977 | #define REQUIRE(...) DOCTEST_REQUIRE(__VA_ARGS__)
+      |                                     ^
+tests/test_qtr_cal.cpp:75:5: note: in expansion of macro ‘REQUIRE’
+   75 |     REQUIRE(narrow.complete(200U, 201U).phase == qtr_cal::Phase::SUCCESS);
+      |     ^~~~~~~
+tests/test_qtr_cal.cpp: In lambda function:
+host/third_party/doctest.h:2824:57: error: static assertion failed: Exceptions are disabled! Use DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS if you want to compile with exceptions disabled.
+ 2824 | #define DOCTEST_EXCEPTION_EMPTY_FUNC [] { static_assert(false, "Exceptions are disabled! " \
+      |                                                         ^~~~~
+host/third_party/doctest.h:2840:25: note: in expansion of macro ‘DOCTEST_EXCEPTION_EMPTY_FUNC’
+ 2840 | #define DOCTEST_REQUIRE DOCTEST_EXCEPTION_EMPTY_FUNC
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+host/third_party/doctest.h:2977:22: note: in expansion of macro ‘DOCTEST_REQUIRE’
+ 2977 | #define REQUIRE(...) DOCTEST_REQUIRE(__VA_ARGS__)
+      |                      ^~~~~~~~~~~~~~~
+tests/test_qtr_cal.cpp:78:5: note: in expansion of macro ‘REQUIRE’
+   78 |     REQUIRE(censored.complete(200U, 1600U, true).phase == qtr_cal::Phase::SUCCESS);
+      |     ^~~~~~~
+tests/test_qtr_cal.cpp: In function ‘void DOCTEST_ANON_FUNC_6()’:
+host/third_party/doctest.h:2977:37: error: expression cannot be used as a function
+ 2977 | #define REQUIRE(...) DOCTEST_REQUIRE(__VA_ARGS__)
+      |                                     ^
+tests/test_qtr_cal.cpp:78:5: note: in expansion of macro ‘REQUIRE’
+   78 |     REQUIRE(censored.complete(200U, 1600U, true).phase == qtr_cal::Phase::SUCCESS);
+      |     ^~~~~~~
+tests/test_qtr_cal.cpp: In lambda function:
+host/third_party/doctest.h:2824:57: error: static assertion failed: Exceptions are disabled! Use DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS if you want to compile with exceptions disabled.
+ 2824 | #define DOCTEST_EXCEPTION_EMPTY_FUNC [] { static_assert(false, "Exceptions are disabled! " \
+      |                                                         ^~~~~
+host/third_party/doctest.h:2840:25: note: in expansion of macro ‘DOCTEST_EXCEPTION_EMPTY_FUNC’
+ 2840 | #define DOCTEST_REQUIRE DOCTEST_EXCEPTION_EMPTY_FUNC
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+host/third_party/doctest.h:2977:22: note: in expansion of macro ‘DOCTEST_REQUIRE’
+ 2977 | #define REQUIRE(...) DOCTEST_REQUIRE(__VA_ARGS__)
+      |                      ^~~~~~~~~~~~~~~
+tests/test_qtr_cal.cpp:88:5: note: in expansion of macro ‘REQUIRE’
+   88 |     REQUIRE(p.complete().phase == qtr_cal::Phase::SUCCESS);
+      |     ^~~~~~~
+tests/test_qtr_cal.cpp: In function ‘void DOCTEST_ANON_FUNC_8()’:
+host/third_party/doctest.h:2977:37: error: expression cannot be used as a function
+ 2977 | #define REQUIRE(...) DOCTEST_REQUIRE(__VA_ARGS__)
+      |                                     ^
+tests/test_qtr_cal.cpp:88:5: note: in expansion of macro ‘REQUIRE’
+   88 |     REQUIRE(p.complete().phase == qtr_cal::Phase::SUCCESS);
+      |     ^~~~~~~
+tests/test_qtr_cal.cpp: In lambda function:
+host/third_party/doctest.h:2824:57: error: static assertion failed: Exceptions are disabled! Use DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS if you want to compile with exceptions disabled.
+ 2824 | #define DOCTEST_EXCEPTION_EMPTY_FUNC [] { static_assert(false, "Exceptions are disabled! " \
+      |                                                         ^~~~~
+host/third_party/doctest.h:2840:25: note: in expansion of macro ‘DOCTEST_EXCEPTION_EMPTY_FUNC’
+ 2840 | #define DOCTEST_REQUIRE DOCTEST_EXCEPTION_EMPTY_FUNC
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+host/third_party/doctest.h:2977:22: note: in expansion of macro ‘DOCTEST_REQUIRE’
+ 2977 | #define REQUIRE(...) DOCTEST_REQUIRE(__VA_ARGS__)
+      |                      ^~~~~~~~~~~~~~~
+tests/test_qtr_cal.cpp:122:5: note: in expansion of macro ‘REQUIRE’
+  122 |     REQUIRE(p.report.phase == qtr_cal::Phase::WAITING);
+      |     ^~~~~~~
+tests/test_qtr_cal.cpp: In function ‘void DOCTEST_ANON_FUNC_12()’:
+host/third_party/doctest.h:2977:37: error: expression cannot be used as a function
+ 2977 | #define REQUIRE(...) DOCTEST_REQUIRE(__VA_ARGS__)
+      |                                     ^
+tests/test_qtr_cal.cpp:122:5: note: in expansion of macro ‘REQUIRE’
+  122 |     REQUIRE(p.report.phase == qtr_cal::Phase::WAITING);
+      |     ^~~~~~~
+tests/test_qtr_cal.cpp: In lambda function:
+host/third_party/doctest.h:2824:57: error: static assertion failed: Exceptions are disabled! Use DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS if you want to compile with exceptions disabled.
+ 2824 | #define DOCTEST_EXCEPTION_EMPTY_FUNC [] { static_assert(false, "Exceptions are disabled! " \
+      |                                                         ^~~~~
+host/third_party/doctest.h:2840:25: note: in expansion of macro ‘DOCTEST_EXCEPTION_EMPTY_FUNC’
+ 2840 | #define DOCTEST_REQUIRE DOCTEST_EXCEPTION_EMPTY_FUNC
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+host/third_party/doctest.h:2977:22: note: in expansion of macro ‘DOCTEST_REQUIRE’
+ 2977 | #define REQUIRE(...) DOCTEST_REQUIRE(__VA_ARGS__)
+      |                      ^~~~~~~~~~~~~~~
+tests/test_qtr_cal.cpp:212:5: note: in expansion of macro ‘REQUIRE’
+  212 |     REQUIRE(p.complete().phase == qtr_cal::Phase::SUCCESS);
+      |     ^~~~~~~
+tests/test_qtr_cal.cpp: In function ‘void DOCTEST_ANON_FUNC_24()’:
+host/third_party/doctest.h:2977:37: error: expression cannot be used as a function
+ 2977 | #define REQUIRE(...) DOCTEST_REQUIRE(__VA_ARGS__)
+      |                                     ^
+tests/test_qtr_cal.cpp:212:5: note: in expansion of macro ‘REQUIRE’
+  212 |     REQUIRE(p.complete().phase == qtr_cal::Phase::SUCCESS);
+      |     ^~~~~~~
+tests/test_qtr_cal.cpp: In lambda function:
+host/third_party/doctest.h:2824:57: error: static assertion failed: Exceptions are disabled! Use DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS if you want to compile with exceptions disabled.
+ 2824 | #define DOCTEST_EXCEPTION_EMPTY_FUNC [] { static_assert(false, "Exceptions are disabled! " \
+      |                                                         ^~~~~
+host/third_party/doctest.h:2840:25: note: in expansion of macro ‘DOCTEST_EXCEPTION_EMPTY_FUNC’
+ 2840 | #define DOCTEST_REQUIRE DOCTEST_EXCEPTION_EMPTY_FUNC
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+host/third_party/doctest.h:2977:22: note: in expansion of macro ‘DOCTEST_REQUIRE’
+ 2977 | #define REQUIRE(...) DOCTEST_REQUIRE(__VA_ARGS__)
+      |                      ^~~~~~~~~~~~~~~
+tests/test_qtr_cal.cpp:244:5: note: in expansion of macro ‘REQUIRE’
+  244 |     REQUIRE(p.report.phase == qtr_cal::Phase::WAITING);
+      |     ^~~~~~~
+tests/test_qtr_cal.cpp: In function ‘void DOCTEST_ANON_FUNC_26()’:
+host/third_party/doctest.h:2977:37: error: expression cannot be used as a function
+ 2977 | #define REQUIRE(...) DOCTEST_REQUIRE(__VA_ARGS__)
+      |                                     ^
+tests/test_qtr_cal.cpp:244:5: note: in expansion of macro ‘REQUIRE’
+  244 |     REQUIRE(p.report.phase == qtr_cal::Phase::WAITING);
+      |     ^~~~~~~
+In file included from tests/test_qtr_cal_handover.cpp:4:
+tests/test_qtr_cal_handover.cpp: In lambda function:
+host/third_party/doctest.h:2824:57: error: static assertion failed: Exceptions are disabled! Use DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS if you want to compile with exceptions disabled.
+ 2824 | #define DOCTEST_EXCEPTION_EMPTY_FUNC [] { static_assert(false, "Exceptions are disabled! " \
+      |                                                         ^~~~~
+host/third_party/doctest.h:2840:25: note: in expansion of macro ‘DOCTEST_EXCEPTION_EMPTY_FUNC’
+ 2840 | #define DOCTEST_REQUIRE DOCTEST_EXCEPTION_EMPTY_FUNC
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+host/third_party/doctest.h:2977:22: note: in expansion of macro ‘DOCTEST_REQUIRE’
+ 2977 | #define REQUIRE(...) DOCTEST_REQUIRE(__VA_ARGS__)
+      |                      ^~~~~~~~~~~~~~~
+tests/test_qtr_cal_handover.cpp:33:5: note: in expansion of macro ‘REQUIRE’
+   33 |     REQUIRE(p.result.menu.selection.service_menu);
+      |     ^~~~~~~
+tests/test_qtr_cal_handover.cpp: In function ‘void DOCTEST_ANON_FUNC_4()’:
+host/third_party/doctest.h:2977:37: error: expression cannot be used as a function
+ 2977 | #define REQUIRE(...) DOCTEST_REQUIRE(__VA_ARGS__)
+      |                                     ^
+tests/test_qtr_cal_handover.cpp:33:5: note: in expansion of macro ‘REQUIRE’
+   33 |     REQUIRE(p.result.menu.selection.service_menu);
+      |     ^~~~~~~
+tests/test_qtr_cal_handover.cpp: In lambda function:
+host/third_party/doctest.h:2824:57: error: static assertion failed: Exceptions are disabled! Use DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS if you want to compile with exceptions disabled.
+ 2824 | #define DOCTEST_EXCEPTION_EMPTY_FUNC [] { static_assert(false, "Exceptions are disabled! " \
+      |                                                         ^~~~~
+host/third_party/doctest.h:2840:25: note: in expansion of macro ‘DOCTEST_EXCEPTION_EMPTY_FUNC’
+ 2840 | #define DOCTEST_REQUIRE DOCTEST_EXCEPTION_EMPTY_FUNC
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+host/third_party/doctest.h:2977:22: note: in expansion of macro ‘DOCTEST_REQUIRE’
+ 2977 | #define REQUIRE(...) DOCTEST_REQUIRE(__VA_ARGS__)
+      |                      ^~~~~~~~~~~~~~~
+tests/test_qtr_cal_handover.cpp:34:5: note: in expansion of macro ‘REQUIRE’
+   34 |     REQUIRE(p.result.menu.selection.service == countdown::Service::QTR_CAL);
+      |     ^~~~~~~
+tests/test_qtr_cal_handover.cpp: In function ‘void DOCTEST_ANON_FUNC_4()’:
+host/third_party/doctest.h:2977:37: error: expression cannot be used as a function
+ 2977 | #define REQUIRE(...) DOCTEST_REQUIRE(__VA_ARGS__)
+      |                                     ^
+tests/test_qtr_cal_handover.cpp:34:5: note: in expansion of macro ‘REQUIRE’
+   34 |     REQUIRE(p.result.menu.selection.service == countdown::Service::QTR_CAL);
+      |     ^~~~~~~
+tests/test_qtr_cal_handover.cpp: In lambda function:
+host/third_party/doctest.h:2824:57: error: static assertion failed: Exceptions are disabled! Use DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS if you want to compile with exceptions disabled.
+ 2824 | #define DOCTEST_EXCEPTION_EMPTY_FUNC [] { static_assert(false, "Exceptions are disabled! " \
+      |                                                         ^~~~~
+host/third_party/doctest.h:2840:25: note: in expansion of macro ‘DOCTEST_EXCEPTION_EMPTY_FUNC’
+ 2840 | #define DOCTEST_REQUIRE DOCTEST_EXCEPTION_EMPTY_FUNC
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+host/third_party/doctest.h:2977:22: note: in expansion of macro ‘DOCTEST_REQUIRE’
+ 2977 | #define REQUIRE(...) DOCTEST_REQUIRE(__VA_ARGS__)
+      |                      ^~~~~~~~~~~~~~~
+tests/test_qtr_cal_handover.cpp:52:5: note: in expansion of macro ‘REQUIRE’
+   52 |     REQUIRE(p.report.phase == qtr_cal::Phase::SUCCESS);
+      |     ^~~~~~~
+tests/test_qtr_cal_handover.cpp: In function ‘void DOCTEST_ANON_FUNC_6()’:
+host/third_party/doctest.h:2977:37: error: expression cannot be used as a function
+ 2977 | #define REQUIRE(...) DOCTEST_REQUIRE(__VA_ARGS__)
+      |                                     ^
+tests/test_qtr_cal_handover.cpp:52:5: note: in expansion of macro ‘REQUIRE’
+   52 |     REQUIRE(p.report.phase == qtr_cal::Phase::SUCCESS);
+      |     ^~~~~~~
+tests/test_qtr_cal_handover.cpp: In lambda function:
+host/third_party/doctest.h:2824:57: error: static assertion failed: Exceptions are disabled! Use DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS if you want to compile with exceptions disabled.
+ 2824 | #define DOCTEST_EXCEPTION_EMPTY_FUNC [] { static_assert(false, "Exceptions are disabled! " \
+      |                                                         ^~~~~
+host/third_party/doctest.h:2841:31: note: in expansion of macro ‘DOCTEST_EXCEPTION_EMPTY_FUNC’
+ 2841 | #define DOCTEST_REQUIRE_FALSE DOCTEST_EXCEPTION_EMPTY_FUNC
+      |                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+host/third_party/doctest.h:2978:28: note: in expansion of macro ‘DOCTEST_REQUIRE_FALSE’
+ 2978 | #define REQUIRE_FALSE(...) DOCTEST_REQUIRE_FALSE(__VA_ARGS__)
+      |                            ^~~~~~~~~~~~~~~~~~~~~
+tests/test_qtr_cal_handover.cpp:82:5: note: in expansion of macro ‘REQUIRE_FALSE’
+   82 |     REQUIRE_FALSE(p.result.line_calibration_hold);
+      |     ^~~~~~~~~~~~~
+tests/test_qtr_cal_handover.cpp: In function ‘void DOCTEST_ANON_FUNC_8()’:
+host/third_party/doctest.h:2978:49: error: expression cannot be used as a function
+ 2978 | #define REQUIRE_FALSE(...) DOCTEST_REQUIRE_FALSE(__VA_ARGS__)
+      |                                                 ^
+tests/test_qtr_cal_handover.cpp:82:5: note: in expansion of macro ‘REQUIRE_FALSE’
+   82 |     REQUIRE_FALSE(p.result.line_calibration_hold);
+      |     ^~~~~~~~~~~~~
+tests/test_qtr_cal_handover.cpp: In lambda function:
+host/third_party/doctest.h:2824:57: error: static assertion failed: Exceptions are disabled! Use DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS if you want to compile with exceptions disabled.
+ 2824 | #define DOCTEST_EXCEPTION_EMPTY_FUNC [] { static_assert(false, "Exceptions are disabled! " \
+      |                                                         ^~~~~
+host/third_party/doctest.h:2840:25: note: in expansion of macro ‘DOCTEST_EXCEPTION_EMPTY_FUNC’
+ 2840 | #define DOCTEST_REQUIRE DOCTEST_EXCEPTION_EMPTY_FUNC
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+host/third_party/doctest.h:2977:22: note: in expansion of macro ‘DOCTEST_REQUIRE’
+ 2977 | #define REQUIRE(...) DOCTEST_REQUIRE(__VA_ARGS__)
+      |                      ^~~~~~~~~~~~~~~
+tests/test_qtr_cal_handover.cpp:105:9: note: in expansion of macro ‘REQUIRE’
+  105 |         REQUIRE(p.report.phase == qtr_cal::Phase::COLLECTING);
+      |         ^~~~~~~
+tests/test_qtr_cal_handover.cpp: In function ‘void DOCTEST_ANON_FUNC_10()’:
+host/third_party/doctest.h:2977:37: error: expression cannot be used as a function
+ 2977 | #define REQUIRE(...) DOCTEST_REQUIRE(__VA_ARGS__)
+      |                                     ^
+tests/test_qtr_cal_handover.cpp:105:9: note: in expansion of macro ‘REQUIRE’
+  105 |         REQUIRE(p.report.phase == qtr_cal::Phase::COLLECTING);
+      |         ^~~~~~~
+tests/test_qtr_cal_handover.cpp: In lambda function:
+host/third_party/doctest.h:2824:57: error: static assertion failed: Exceptions are disabled! Use DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS if you want to compile with exceptions disabled.
+ 2824 | #define DOCTEST_EXCEPTION_EMPTY_FUNC [] { static_assert(false, "Exceptions are disabled! " \
+      |                                                         ^~~~~
+host/third_party/doctest.h:2840:25: note: in expansion of macro ‘DOCTEST_EXCEPTION_EMPTY_FUNC’
+ 2840 | #define DOCTEST_REQUIRE DOCTEST_EXCEPTION_EMPTY_FUNC
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+host/third_party/doctest.h:2977:22: note: in expansion of macro ‘DOCTEST_REQUIRE’
+ 2977 | #define REQUIRE(...) DOCTEST_REQUIRE(__VA_ARGS__)
+      |                      ^~~~~~~~~~~~~~~
+tests/test_qtr_cal_handover.cpp:142:5: note: in expansion of macro ‘REQUIRE’
+  142 |     REQUIRE(p.report.phase == qtr_cal::Phase::SUCCESS);
+      |     ^~~~~~~
+tests/test_qtr_cal_handover.cpp: In function ‘void DOCTEST_ANON_FUNC_14()’:
+host/third_party/doctest.h:2977:37: error: expression cannot be used as a function
+ 2977 | #define REQUIRE(...) DOCTEST_REQUIRE(__VA_ARGS__)
+      |                                     ^
+tests/test_qtr_cal_handover.cpp:142:5: note: in expansion of macro ‘REQUIRE’
+  142 |     REQUIRE(p.report.phase == qtr_cal::Phase::SUCCESS);
+      |     ^~~~~~~
+tests/test_qtr_cal_handover.cpp: In lambda function:
+host/third_party/doctest.h:2824:57: error: static assertion failed: Exceptions are disabled! Use DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS if you want to compile with exceptions disabled.
+ 2824 | #define DOCTEST_EXCEPTION_EMPTY_FUNC [] { static_assert(false, "Exceptions are disabled! " \
+      |                                                         ^~~~~
+host/third_party/doctest.h:2840:25: note: in expansion of macro ‘DOCTEST_EXCEPTION_EMPTY_FUNC’
+ 2840 | #define DOCTEST_REQUIRE DOCTEST_EXCEPTION_EMPTY_FUNC
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+host/third_party/doctest.h:2977:22: note: in expansion of macro ‘DOCTEST_REQUIRE’
+ 2977 | #define REQUIRE(...) DOCTEST_REQUIRE(__VA_ARGS__)
+      |                      ^~~~~~~~~~~~~~~
+tests/test_qtr_cal_handover.cpp:144:5: note: in expansion of macro ‘REQUIRE’
+  144 |     REQUIRE(p.result.line_start_rearming);
+      |     ^~~~~~~
+tests/test_qtr_cal_handover.cpp: In function ‘void DOCTEST_ANON_FUNC_14()’:
+host/third_party/doctest.h:2977:37: error: expression cannot be used as a function
+ 2977 | #define REQUIRE(...) DOCTEST_REQUIRE(__VA_ARGS__)
+      |                                     ^
+tests/test_qtr_cal_handover.cpp:144:5: note: in expansion of macro ‘REQUIRE’
+  144 |     REQUIRE(p.result.line_start_rearming);
+      |     ^~~~~~~
+In file included from tests/test_qtr_cal_motor_gate.cpp:4:
+tests/test_qtr_cal_motor_gate.cpp: In lambda function:
+host/third_party/doctest.h:2824:57: error: static assertion failed: Exceptions are disabled! Use DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS if you want to compile with exceptions disabled.
+ 2824 | #define DOCTEST_EXCEPTION_EMPTY_FUNC [] { static_assert(false, "Exceptions are disabled! " \
+      |                                                         ^~~~~
+host/third_party/doctest.h:2840:25: note: in expansion of macro ‘DOCTEST_EXCEPTION_EMPTY_FUNC’
+ 2840 | #define DOCTEST_REQUIRE DOCTEST_EXCEPTION_EMPTY_FUNC
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+host/third_party/doctest.h:2977:22: note: in expansion of macro ‘DOCTEST_REQUIRE’
+ 2977 | #define REQUIRE(...) DOCTEST_REQUIRE(__VA_ARGS__)
+      |                      ^~~~~~~~~~~~~~~
+tests/test_qtr_cal_motor_gate.cpp:10:5: note: in expansion of macro ‘REQUIRE’
+   10 |     REQUIRE(p.report.phase == qtr_cal::Phase::SUCCESS);
+      |     ^~~~~~~
+tests/test_qtr_cal_motor_gate.cpp: In function ‘void DOCTEST_ANON_FUNC_2()’:
+host/third_party/doctest.h:2977:37: error: expression cannot be used as a function
+ 2977 | #define REQUIRE(...) DOCTEST_REQUIRE(__VA_ARGS__)
+      |                                     ^
+tests/test_qtr_cal_motor_gate.cpp:10:5: note: in expansion of macro ‘REQUIRE’
+   10 |     REQUIRE(p.report.phase == qtr_cal::Phase::SUCCESS);
+      |     ^~~~~~~
+tests/test_qtr_cal_motor_gate.cpp: In lambda function:
+host/third_party/doctest.h:2824:57: error: static assertion failed: Exceptions are disabled! Use DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS if you want to compile with exceptions disabled.
+ 2824 | #define DOCTEST_EXCEPTION_EMPTY_FUNC [] { static_assert(false, "Exceptions are disabled! " \
+      |                                                         ^~~~~
+host/third_party/doctest.h:2840:25: note: in expansion of macro ‘DOCTEST_EXCEPTION_EMPTY_FUNC’
+ 2840 | #define DOCTEST_REQUIRE DOCTEST_EXCEPTION_EMPTY_FUNC
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+host/third_party/doctest.h:2977:22: note: in expansion of macro ‘DOCTEST_REQUIRE’
+ 2977 | #define REQUIRE(...) DOCTEST_REQUIRE(__VA_ARGS__)
+      |                      ^~~~~~~~~~~~~~~
+tests/test_qtr_cal_motor_gate.cpp:11:5: note: in expansion of macro ‘REQUIRE’
+   11 |     REQUIRE(p.requests == 8U);
+      |     ^~~~~~~
+tests/test_qtr_cal_motor_gate.cpp: In function ‘void DOCTEST_ANON_FUNC_2()’:
+host/third_party/doctest.h:2977:37: error: expression cannot be used as a function
+ 2977 | #define REQUIRE(...) DOCTEST_REQUIRE(__VA_ARGS__)
+      |                                     ^
+tests/test_qtr_cal_motor_gate.cpp:11:5: note: in expansion of macro ‘REQUIRE’
+   11 |     REQUIRE(p.requests == 8U);
+      |     ^~~~~~~
+tests/test_qtr_cal_motor_gate.cpp: In lambda function:
+host/third_party/doctest.h:2824:57: error: static assertion failed: Exceptions are disabled! Use DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS if you want to compile with exceptions disabled.
+ 2824 | #define DOCTEST_EXCEPTION_EMPTY_FUNC [] { static_assert(false, "Exceptions are disabled! " \
+      |                                                         ^~~~~
+host/third_party/doctest.h:2841:31: note: in expansion of macro ‘DOCTEST_EXCEPTION_EMPTY_FUNC’
+ 2841 | #define DOCTEST_REQUIRE_FALSE DOCTEST_EXCEPTION_EMPTY_FUNC
+      |                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+host/third_party/doctest.h:2978:28: note: in expansion of macro ‘DOCTEST_REQUIRE_FALSE’
+ 2978 | #define REQUIRE_FALSE(...) DOCTEST_REQUIRE_FALSE(__VA_ARGS__)
+      |                            ^~~~~~~~~~~~~~~~~~~~~
+tests/test_qtr_cal_motor_gate.cpp:15:5: note: in expansion of macro ‘REQUIRE_FALSE’
+   15 |     REQUIRE_FALSE(p.result.line_calibration_hold);
+      |     ^~~~~~~~~~~~~
+tests/test_qtr_cal_motor_gate.cpp: In function ‘void DOCTEST_ANON_FUNC_2()’:
+host/third_party/doctest.h:2978:49: error: expression cannot be used as a function
+ 2978 | #define REQUIRE_FALSE(...) DOCTEST_REQUIRE_FALSE(__VA_ARGS__)
+      |                                                 ^
+tests/test_qtr_cal_motor_gate.cpp:15:5: note: in expansion of macro ‘REQUIRE_FALSE’
+   15 |     REQUIRE_FALSE(p.result.line_calibration_hold);
+      |     ^~~~~~~~~~~~~
+tests/test_qtr_cal_motor_gate.cpp: In lambda function:
+host/third_party/doctest.h:2824:57: error: static assertion failed: Exceptions are disabled! Use DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS if you want to compile with exceptions disabled.
+ 2824 | #define DOCTEST_EXCEPTION_EMPTY_FUNC [] { static_assert(false, "Exceptions are disabled! " \
+      |                                                         ^~~~~
+host/third_party/doctest.h:2841:31: note: in expansion of macro ‘DOCTEST_EXCEPTION_EMPTY_FUNC’
+ 2841 | #define DOCTEST_REQUIRE_FALSE DOCTEST_EXCEPTION_EMPTY_FUNC
+      |                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+host/third_party/doctest.h:2978:28: note: in expansion of macro ‘DOCTEST_REQUIRE_FALSE’
+ 2978 | #define REQUIRE_FALSE(...) DOCTEST_REQUIRE_FALSE(__VA_ARGS__)
+      |                            ^~~~~~~~~~~~~~~~~~~~~
+tests/test_qtr_cal_motor_gate.cpp:17:5: note: in expansion of macro ‘REQUIRE_FALSE’
+   17 |     REQUIRE_FALSE(p.result.menu.selection.service_menu);
+      |     ^~~~~~~~~~~~~
+tests/test_qtr_cal_motor_gate.cpp: In function ‘void DOCTEST_ANON_FUNC_2()’:
+host/third_party/doctest.h:2978:49: error: expression cannot be used as a function
+ 2978 | #define REQUIRE_FALSE(...) DOCTEST_REQUIRE_FALSE(__VA_ARGS__)
+      |                                                 ^
+tests/test_qtr_cal_motor_gate.cpp:17:5: note: in expansion of macro ‘REQUIRE_FALSE’
+   17 |     REQUIRE_FALSE(p.result.menu.selection.service_menu);
+      |     ^~~~~~~~~~~~~
+tests/test_qtr_cal_motor_gate.cpp: In lambda function:
+host/third_party/doctest.h:2824:57: error: static assertion failed: Exceptions are disabled! Use DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS if you want to compile with exceptions disabled.
+ 2824 | #define DOCTEST_EXCEPTION_EMPTY_FUNC [] { static_assert(false, "Exceptions are disabled! " \
+      |                                                         ^~~~~
+host/third_party/doctest.h:2841:31: note: in expansion of macro ‘DOCTEST_EXCEPTION_EMPTY_FUNC’
+ 2841 | #define DOCTEST_REQUIRE_FALSE DOCTEST_EXCEPTION_EMPTY_FUNC
+      |                               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+host/third_party/doctest.h:2978:28: note: in expansion of macro ‘DOCTEST_REQUIRE_FALSE’
+ 2978 | #define REQUIRE_FALSE(...) DOCTEST_REQUIRE_FALSE(__VA_ARGS__)
+      |                            ^~~~~~~~~~~~~~~~~~~~~
+tests/test_qtr_cal_motor_gate.cpp:18:5: note: in expansion of macro ‘REQUIRE_FALSE’
+   18 |     REQUIRE_FALSE(p.result.line_start_rearming);
+      |     ^~~~~~~~~~~~~
+tests/test_qtr_cal_motor_gate.cpp: In function ‘void DOCTEST_ANON_FUNC_2()’:
+host/third_party/doctest.h:2978:49: error: expression cannot be used as a function
+ 2978 | #define REQUIRE_FALSE(...) DOCTEST_REQUIRE_FALSE(__VA_ARGS__)
+      |                                                 ^
+tests/test_qtr_cal_motor_gate.cpp:18:5: note: in expansion of macro ‘REQUIRE_FALSE’
+   18 |     REQUIRE_FALSE(p.result.line_start_rearming);
+      |     ^~~~~~~~~~~~~
+tests/test_qtr_cal_motor_gate.cpp: In lambda function:
+host/third_party/doctest.h:2824:57: error: static assertion failed: Exceptions are disabled! Use DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS if you want to compile with exceptions disabled.
+ 2824 | #define DOCTEST_EXCEPTION_EMPTY_FUNC [] { static_assert(false, "Exceptions are disabled! " \
+      |                                                         ^~~~~
+host/third_party/doctest.h:2840:25: note: in expansion of macro ‘DOCTEST_EXCEPTION_EMPTY_FUNC’
+ 2840 | #define DOCTEST_REQUIRE DOCTEST_EXCEPTION_EMPTY_FUNC
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+host/third_party/doctest.h:2977:22: note: in expansion of macro ‘DOCTEST_REQUIRE’
+ 2977 | #define REQUIRE(...) DOCTEST_REQUIRE(__VA_ARGS__)
+      |                      ^~~~~~~~~~~~~~~
+tests/test_qtr_cal_motor_gate.cpp:21:5: note: in expansion of macro ‘REQUIRE’
+   21 |     REQUIRE(p.result.lifecycle.gate.phase == countdown::Phase::HOLDING);
+      |     ^~~~~~~
+tests/test_qtr_cal_motor_gate.cpp: In function ‘void DOCTEST_ANON_FUNC_2()’:
+host/third_party/doctest.h:2977:37: error: expression cannot be used as a function
+ 2977 | #define REQUIRE(...) DOCTEST_REQUIRE(__VA_ARGS__)
+      |                                     ^
+tests/test_qtr_cal_motor_gate.cpp:21:5: note: in expansion of macro ‘REQUIRE’
+   21 |     REQUIRE(p.result.lifecycle.gate.phase == countdown::Phase::HOLDING);
+      |     ^~~~~~~

@@ -1,0 +1,12 @@
+tests/test_qtr_cal_display.cpp: In function ‘void DOCTEST_ANON_FUNC_2()’:
+tests/test_qtr_cal_display.cpp:36:89: error: deducing from brace-enclosed initializer list requires ‘#include <initializer_list>’
+    6 | #include <cstring>
+  +++ |+#include <initializer_list>
+    7 | 
+......
+   36 |     for (auto phase : {ui::CalibrationScreen::WAITING, ui::CalibrationScreen::COLLECTING}) {
+      |                                                                                         ^
+tests/test_qtr_cal_display.cpp: In function ‘void DOCTEST_ANON_FUNC_4()’:
+tests/test_qtr_cal_display.cpp:63:56: error: deducing from brace-enclosed initializer list requires ‘#include <initializer_list>’
+   63 |                        ui::CalibrationScreen::CANCELLED}) {
+      |                                                        ^

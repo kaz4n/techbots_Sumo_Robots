@@ -74,6 +74,7 @@ IMU_SETUP_DEFAULTS = {
     'IMU_SETUP_MAX_ADVANCES': 1024,
     'IMU_SETUP_MAX_REQUESTS': 64,
 }
+IMU_ACQUISITION_DEFAULTS = {'IMU_SILENCE_US': 20000}  # D-081 existing B14 deadline.
 BEHAVIOR_EXTRA_DEFAULTS = {
     'VBAT_FILTER_MS': 1000,  # B6 one-second time constant.
     'REFLANK_WINDOW_MS': 10000,  # B11.3 existing ten-second rolling window.
@@ -149,7 +150,7 @@ class P0ConfigTests(unittest.TestCase):
                     set(PROPOSED_PIN_ARRAY_DEFAULTS) | set(NATIVE_MOTOR_DEFAULTS) |
                     set(NATIVE_MOTOR_ARRAY_DEFAULTS) | set(NATIVE_POWER_DEFAULTS) |
                     NATIVE_POWER_FLOAT_NAMES | set(NATIVE_IMU_BUS_DEFAULTS) |
-                    set(IMU_SETUP_DEFAULTS))
+                    set(IMU_SETUP_DEFAULTS) | set(IMU_ACQUISITION_DEFAULTS))
         self.assertEqual(expected, set(config_declarations()))
 
     def test_d076_proposed_opponent_pin_type_values_and_extent_match_hardware3(self):
@@ -202,6 +203,12 @@ class P0ConfigTests(unittest.TestCase):
             with self.subTest(imu_setup=name):
                 self.assertEqual('std::uint32_t', declarations[name][0])
                 self.assertEqual(expected, number(declarations[name][1]))
+
+    def test_d081_observed_silence_is_exactly_the_existing_b14_twenty_ms(self):
+        declarations = config_declarations()
+        for name, expected in IMU_ACQUISITION_DEFAULTS.items():
+            self.assertEqual('std::uint32_t', declarations[name][0])
+            self.assertEqual(expected, number(declarations[name][1]))
 
     def test_d078_native_power_limits_and_nominal_scaling_are_explicit(self):
         declarations = config_declarations()

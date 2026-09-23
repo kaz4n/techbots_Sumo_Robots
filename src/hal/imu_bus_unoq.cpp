@@ -432,12 +432,9 @@ BusStatus Bus::admitRequest(Operation& op) {
     return observe(op, 0U, observed);
 }
 
-BusTransfer Bus::request(Register reg, std::uint8_t value, std::uint8_t count, bool writing) {
+BusTransfer Bus::transfer(Operation& op, Register reg, std::uint8_t value,
+                          std::uint8_t count, bool writing) {
     BusTransfer staging{};
-    if (!attempted_) return staging;
-    if (faulted_ || !ready_) { staging.status = BusStatus::FAULT_LATCHED; staging.cleanup = cleanup_; return staging; }
-    Operation op{};
-    op.started_us = clockUs();
     auto status = admitRequest(op);
     if (status == BusStatus::OK) status = launch(op, writing ? 2U : 1U, false, writing);
     if (status == BusStatus::OK) status = sendByte(op, static_cast<std::uint8_t>(reg));
@@ -453,6 +450,55 @@ BusTransfer Bus::request(Register reg, std::uint8_t value, std::uint8_t count, b
     staging.count = writing ? 0U : count;
     staging.complete = true;
     return staging;
+}
+
+BusTransfer Bus::request(Register reg, std::uint8_t value, std::uint8_t count, bool writing) {
+    BusTransfer result{};
+    if (!attempted_) return result;
+    if (faulted_ || !ready_) { result.status = BusStatus::FAULT_LATCHED; result.cleanup = cleanup_; return result; }
+    Operation op{};
+    op.started_us = clockUs();
+    return transfer(op, reg, value, count, writing);
+}
+
+BusAcquisition Bus::acquireMotion() {
+    BusAcquisition result{};
+    if (!attempted_) return result;
+    if (faulted_ || !ready_) {
+        result.transfer.status = BusStatus::FAULT_LATCHED;
+        result.transfer.cleanup = cleanup_;
+        return result;
+    }
+    Operation op{};
+    op.started_us = clockUs();
+    result.transfer = transfer(op, Register::INTERRUPT_STATUS, 0U, 1U, false);
+    if (result.transfer.status != BusStatus::OK) return result;
+    result.readiness_observed = true;
+    result.readiness_status = result.transfer.bytes[0];
+    result.readiness_completed_us = result.transfer.completed_us;
+    if ((result.readiness_status & 0xFEU) != 0U) {
+        result.transfer = failed(BusStatus::PROTOCOL, op);
+        return result;
+    }
+    if (result.readiness_status == 0U) {
+        result.state = AcquisitionState::NO_NEW;
+        result.transfer.bytes[0] = 0U;
+        result.transfer.count = 0U;
+        return result;
+    }
+    // The first transaction has completed STOP/idle; the same budget continues.
+    result.motion_attempted = true;
+    result.motion_started_us = clockUs();
+    result.transfer = transfer(op, Register::INTERRUPT_STATUS, 0U, 15U, false);
+    if (result.transfer.status != BusStatus::OK) return result;
+    result.motion_status_observed = true;
+    result.motion_status = result.transfer.bytes[0];
+    if ((result.motion_status & 0xFEU) != 0U) {
+        result.transfer = failed(BusStatus::PROTOCOL, op);
+        return result;
+    }
+    result.state = AcquisitionState::OBSERVATION;
+    return result;
 }
 
 BusTransfer Bus::readRegister(Register reg) {

@@ -336,3 +336,14 @@ new review. CAPTURED means collected evidence, including any actual failure/loss
 recorder_heap.py decodes only the pinned262144B LLEXT pool offline; capacity is a
 point-in-time observation. None of these tools supplies motion commands or proves
 native UART transfer, physical B8, calibrated MCU time or complete robot WCET.
+
+## Bare A1 observation probe (D114)
+
+`python tools/board_tool.py flash bench/ui_adc_probe --compile-only` uses the
+checked default-startup, MATCH0/MOTORS_ALLOWED0 route. It stages the exact four
+existing UI bench implementation files beneath src/ with one true-grant wrapper.
+The ordinary bench/ui remains default-disabled. Immediate, MATCH, conflicting
+profiles and uploads are refused. An actual run needs the separately reviewed
+exact target/readout and identified run record described in
+state/analysis/P2_ui_adc_probe_contract.md. Floating A1 codes have no expected
+voltage or logical button meaning; SC-A and SC-AJ remain open.

@@ -1,0 +1,70 @@
+{
+  "observed_utc": "2026-09-23T21:59:03.926294+00:00",
+  "scope": "D112 false-grant baseline only. No enabled D114 ABI or runtime address claim.",
+  "audit_path": "state\\analysis\\P2_ui_bench_raw\\target_bf67d46d_bench-default_checked\\audit.json",
+  "audit_sha256": "d940b3bbc1a42d1f27b7b3f520ccc913ffb1995ea7384ff25e610ccf2f4a70ca",
+  "source_sha256": "bf67d46da629cd4a59e14be62721b766070feac1c95d28b7a797f47d3a8172f6",
+  "artifacts": [
+    {
+      "name": "ui.ino.elf",
+      "bytes": 19840,
+      "sha256": "4fa8171d133eca1e60a2329a380af6a8a7553ec29534796152f7b61c31dc419a"
+    },
+    {
+      "name": "ui.ino_debug.elf",
+      "bytes": 557132,
+      "sha256": "a13d3eae30b43583b51442e58f3cf6fa71b6a3ebdab2f116783222623fc1610d"
+    },
+    {
+      "name": "ui.ino_temp.elf",
+      "bytes": 557808,
+      "sha256": "a27e5410b38d74f205f9815de13664c8ffeee7306284457951a3349691dc582d"
+    },
+    {
+      "name": "ui.ino.elf-zsk.bin",
+      "bytes": 19840,
+      "sha256": "a7a5f300e1f0b644cc7e06e5c99af1447a569ea31bdf2570b9481d4e0e4b5835"
+    }
+  ],
+  "abi_command": [
+    "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-gdb",
+    "-nx",
+    "-nh",
+    "-batch",
+    "/home/arduino/sumox26_codex_build/_app_builds/native-app-v1/bf67d46da629cd4a59e14be62721b766070feac1c95d28b7a797f47d3a8172f6/bench-default/63c8b798db3f4049bfb65df2bc578d27/build/ui.ino_debug.elf",
+    "-ex",
+    "set language c++",
+    "-ex",
+    "set max-value-size unlimited",
+    "-ex",
+    "p sizeof(ui_bench::Runner)",
+    "-ex",
+    "p sizeof(ui_bench::Native)",
+    "-ex",
+    "ptype /o ui_bench::Runner"
+  ],
+  "abi_returncode": 0,
+  "abi_stdout": "$1 = 9892\n$2 = 32\n/* offset      |    size */  type = class ui_bench::Runner {\n/*      0      |      16 */    struct ui_bench::Port {\n/*      0      |       4 */        void *context;\n/*      4      |       4 */        uint32_t (*clockUs)(void *);\n/*      8      |       4 */        power::InitResult (*beginButtons)(void *);\n/*     12      |       4 */        power::ButtonSample (*readButtons)(void *);\n\n                                   /* total size (bytes):   16 */\n                               } port_;\n/*     16      |     132 */    struct ui_bench::Report {\n/*     16      |       1 */        ui_bench::Phase phase;\n/*     17      |       1 */        ui_bench::Fault fault;\n/*     18      |       1 */        bool fresh;\n/*     19      |       1 */        bool clock_fault;\n/*     20      |       1 */        bool counter_saturated;\n/*     21      |       1 */        bool sample_seen;\n/*     22      |       1 */        bool last_read_accepted;\n/*     23      |       1 */        bool decode_matches_sample;\n/*     24      |       3 */        struct power::InitResult {\n/*     24      |       1 */            power::Status status;\n/*     25      |       1 */            power::Shutdown shutdown;\n/*     26      |       1 */            bool ready;\n\n                                       /* total size (bytes):    3 */\n                                   } setup;\n/* XXX  1-byte hole      */\n/*     28      |      20 */        struct power::ButtonSample {\n/*     28      |       1 */            power::Status status;\n/*     29      |       1 */            power::Shutdown shutdown;\n/*     30      |       2 */            uint16_t raw;\n/*     32      |       4 */            uint32_t started_us;\n/*     36      |       4 */            uint32_t completed_us;\n/*     40      |       4 */            uint32_t sequence;\n/*     44      |       1 */            bool valid;\n/* XXX  3-byte padding   */\n\n                                       /* total size (bytes):   20 */\n                                   } sample;\n/*     48      |      28 */        struct ui::ButtonDecode {\n/*     48      |       1 */            ui::ButtonQualification qualification;\n/* XXX  3-byte hole      */\n/*     52      |      20 */            struct core::ButtonEvidence {\n/*     52      |       1 */                bool explicit_values;\n/*     53      |       1 */                bool contract_valid;\n/*     54      |       1 */                core::ButtonPresence presence;\n/*     55      |       1 */                core::ButtonLevel level;\n/*     56      |       2 */                uint16_t raw;\n/* XXX  2-byte hole      */\n/*     60      |       4 */                uint32_t sequence;\n/*     64      |       4 */                uint32_t started_us;\n/*     68      |       4 */                uint32_t completed_us;\n\n                                           /* total size (bytes):   20 */\n                                       } evidence;\n/*     72      |       1 */            uint8_t candidate_mask;\n/* XXX  3-byte padding   */\n\n                                       /* total size (bytes):   28 */\n                                   } decoded;\n/*     76      |       4 */        uint32_t captured_samples;\n/*     80      |       4 */        uint32_t not_due;\n/*     84      |       4 */        uint32_t missed_releases;\n/*     88      |      20 */        struct ui_bench::Timing {\n/*     88      |       4 */            uint32_t calls;\n/*     92      |       4 */            uint32_t measured_calls;\n/*     96      |       4 */            uint32_t last_us;\n/*    100      |       4 */            uint32_t maximum_us;\n/*    104      |       1 */            bool last_valid;\n/* XXX  3-byte padding   */\n\n                                       /* total size (bytes):   20 */\n                                   } setup_timing;\n/*    108      |      20 */        struct ui_bench::Timing {\n/*    108      |       4 */            uint32_t calls;\n/*    112      |       4 */            uint32_t measured_calls;\n/*    116      |       4 */            uint32_t last_us;\n/*    120      |       4 */            uint32_t maximum_us;\n/*    124      |       1 */            bool last_valid;\n/* XXX  3-byte padding   */\n\n                                       /* total size (bytes):   20 */\n                                   } read_timing;\n/*    128      |      20 */        struct ui_bench::Timing {\n/*    128      |       4 */            uint32_t calls;\n/*    132      |       4 */            uint32_t measured_calls;\n/*    136      |       4 */            uint32_t last_us;\n/*    140      |       4 */            uint32_t maximum_us;\n/*    144      |       1 */            bool last_valid;\n/* XXX  3-byte padding   */\n\n                                       /* total size (bytes):   20 */\n                                   } poll_timing;\n\n                                   /* total size (bytes):  132 */\n                               } report_;\n/*    148      |    9728 */    ui_bench::Capture captures_[128];\n/*   9876      |       1 */    bool attempted_;\n/*   9877      |       1 */    bool clock_seen_;\n/*   9878      |       1 */    bool interval_active_;\n/*   9879      |       1 */    bool source_seen_;\n/*   9880      |       4 */    uint32_t last_clock_us_;\n/*   9884      |       4 */    uint32_t interval_elapsed_us_;\n/*   9888      |       4 */    uint32_t source_age_us_;\n\n                               /* total size (bytes): 9892 */\n                             }\n",
+  "capture_layout_status": "Derived from public member order and actual76-byte element stride; enabled ptype /o confirmation required",
+  "expected_runner_size": 9892,
+  "expected_report_offset": 16,
+  "expected_report_size": 132,
+  "expected_capture_offset": 148,
+  "expected_capture_stride": 76,
+  "expected_capture_capacity": 128,
+  "baseline_layout": {
+    "symbol": "_ZN12_GLOBAL__N_16runnerE",
+    "symbol_value": 5776,
+    "symbol_size": 9892,
+    "bss_address": 5776,
+    "bss_size": 9893,
+    "candidate_section_relative_offset": 0,
+    "limitation": "Enabled final ELF and installed LLEXT relocation semantics must confirm normalization before pinning."
+  },
+  "helper_hashes": {
+    "tools\\p0_capture.py": "885c4e4206aea4ac9e03c4e92e48258db2a0ae302ff83a86430e6913afeeb57c",
+    "tools\\p0_mem_read.cfg": "89d16a28a1489c23ec743be55ade39824f9ca5213b02b20ef4785079122e4339",
+    "tools\\runtime_capture.py": "a4d58b3cbac8b0a3cf96ce6d4f53bc17e935b9aee9bc1c09809ee20ea806fdae"
+  },
+  "adopted_scope_sha256": "1250e761bc46b517816ca012b45c7ecc89ce665847e7f04e06b4e99a7c1dab0e"
+}

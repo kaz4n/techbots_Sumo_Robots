@@ -1455,3 +1455,12 @@ Consequence: independent frozen tests and actual source review before acceptance
 Context: user freshly reports bare UNO Q and permits testing; D112 driver/bench software passed but default grant remains false. D078 compile-only policy and SC-AJ clock qualification must remain visible.
 Decision: adopt analysis/P2_ui_adc_probe_contract.md for a named true-grant wrapper reusing unchanged D112 sources. Narrowly supersede D078 compile-only restriction only for a separately identified and independently reviewed observation-only bare ADC diagnostic. Preserve SC-AJ as open, all native guards, pins, limits/reference/divider/windows, and no competing ADC/DAC/pad owner.
 Consequence: firmware/staging preparation may proceed; independent host checks, exact enabled target/startup/ownership/loader audit, public pinned readout contract/tests and run-specific upload review precede any MCU action. No physical button/clock/voltage qualification, PINMAP, motors, production runtime or human gate is inferred. Original bench/ui default/upload refusal stays unchanged.
+
+D-114 readout software adoption 2026-09-24T02:05:42.112669+04:00: adopt P2_ui_adc_capture_contract.md
+from enabled-target proposal7d18789b; exact Runner9892/public fields, raw ET_REL
+symbol offset0, two flash/descriptor brackets,22 reads/588016bytes/26 commands.
+Full-byte terminal consistency includes semantically ignored padding; truthful
+fault/nonterminal/invalid snapshots stay distinct from COMPLETE128. Independent
+literal fixtures precede execution; unchanged p0 helpers and fixed public seams.
+Original incorrect nm interpretation preserved/corrected before implementation.
+No capture execution, artifact placement, upload key or identified MCU run yet.

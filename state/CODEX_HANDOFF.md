@@ -1,3 +1,14 @@
+## Active checkpoint - 2026-09-24T02:08:19.070107+04:00
+
+D113 software38df60c plus actual Linux-only timeoutsmoke e202c86 complete; F138
+records CONNECTED->TERMINAL/TIMEOUT,0bytes and stable services. D114 bare ADC
+firmware/staging/source396bcc45 passes145 policy methods and scoped target
+review; see F139/firmware_validation. No new MCU upload/reset.
+Next: adopted P2_ui_adc_capture_contract.md02b101fc, independent literal tests
+and capture implementation in separate contexts, exact source/readout review,
+then one reviewed pinned run guard. P2 software remains active; human gates and
+SC-A/SC-AJ/physical acceptance remain pending. No extra hardware requested.
+
 ## Active checkpoint - 2026-09-24T01:55:24.654212+04:00
 
 D113 final5a78257a passes independent/private75-method suites and scoped review;

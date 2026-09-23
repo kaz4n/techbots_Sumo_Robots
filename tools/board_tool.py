@@ -143,6 +143,7 @@ def stage(sketch):
         shutil.copytree(local_src, staged_src)
     else:
         staged_src.mkdir()
+    stage_ui_probe_sources(sketch, staged_src)
     shutil.copy2(ROOT / 'src/config.h', staged_src / 'config.h')
     for module in ['core', 'hal']:
         shutil.copytree(ROOT / 'src' / module, staged_src / module)
@@ -153,6 +154,19 @@ def stage(sketch):
             target_file.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(item, target_file)
     return destination
+
+
+def stage_ui_probe_sources(sketch, destination):
+    if sketch != 'bench/ui_adc_probe':
+        return
+    shared = ROOT / 'bench/ui/src'
+    check_source(shared)
+    for name in ('ui_bench.h', 'ui_bench.cpp', 'ui_bench_native.h', 'ui_bench_native.cpp'):
+        source = shared / name
+        target_file = destination / name
+        if not source.is_file() or source.is_symlink() or os.path.lexists(target_file):
+            fail('bare ADC probe requires exact non-conflicting shared UI sources')
+        shutil.copy2(source, target_file)
 
 
 def source_hash(folder):
@@ -279,9 +293,9 @@ def compile_app(board, checksum, board_folder, remote_root, fqbn, flags, startup
 def flash(args):
     startup = build_startup(args)
     probe = args.sketch == 'bench/runtime_inert'
-    sensor_bench = args.sketch in ('bench/opp_view', 'bench/qtr_raw', 'bench/vbat', 'bench/imu_heading', 'bench/ui')
-    if probe and (args.match or startup != 'default'):
-        fail('Runtime inert probe requires default startup and MATCH=0 MOTORS_ALLOWED=0')
+    sensor_bench = args.sketch in ('bench/opp_view', 'bench/qtr_raw', 'bench/vbat', 'bench/imu_heading', 'bench/ui', 'bench/ui_adc_probe')
+    if (probe or args.sketch == 'bench/ui_adc_probe') and (args.match or startup != 'default'):
+        fail('Native probe requires default startup and MATCH=0 MOTORS_ALLOWED=0')
     if sensor_bench and args.match:
         fail('Sensor bench requires MATCH=0 MOTORS_ALLOWED=0')
     checked_folder = ROOT / (args.sketch if probe or sensor_bench else 'src/app')
@@ -324,7 +338,7 @@ def flash(args):
         project = {'bench/runtime_inert': 'runtime_inert.ino',
                    'bench/opp_view': 'opp_view.ino', 'bench/qtr_raw': 'qtr_raw.ino',
                    'bench/vbat': 'vbat.ino', 'bench/imu_heading': 'imu_heading.ino',
-                   'bench/ui': 'ui.ino'}[args.sketch]
+                   'bench/ui': 'ui.ino', 'bench/ui_adc_probe': 'ui_adc_probe.ino'}[args.sketch]
         artifact_folder = compile_app(board, checksum, board_folder, remote_root, fqbn,
                                       flags, startup, project=project)
     else:

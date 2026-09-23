@@ -5,6 +5,13 @@ TUNING_LOG, CODEX_EXECUTION, open findings/reviews and the active P2 prompt.
 Verify Git, current Asia/Dubai date and schedule; preserve all work. Latest
 checkpoint supersedes historical ones. Never author a human gate.
 
+Latest checkpoint: D113 software38df60c and Linux-only smoke e202c86 complete
+(F137/F138). D114 firmware396bcc45 reviewed/compiled; F139 and firmwarevalidation
+are authoritative. Readout contract02b101fc is adopted; independent decoder/
+collector tests and implementation in progress. Resume their first unfinished
+check, then exact capture/run guard review. No new MCU upload; historical
+checkpoints below describe provenance, not the current next task.
+
 P2 software is active under D051/D075. D105 calibration delivery2eb97cc and
 receiver36ae9bc pass independent host/source review. D106 native pin-table
 deduplication resolves its loader deficit: exact91-filed72bff70 default/Immediate/

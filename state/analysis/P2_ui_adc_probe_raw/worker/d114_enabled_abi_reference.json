@@ -1,0 +1,130 @@
+{
+  "observed_utc": "2026-09-23T22:02:52.494725+00:00",
+  "scope": "Enabled D114 offline target binding only; no live address or physical acceptance.",
+  "audit_path": "state/analysis/P2_ui_adc_probe_raw/target_396bcc45_bench-default_checked/audit.json",
+  "audit_sha256": "369d535afcb8ee9c905dd0addf92dc912ddaa7a08395467717fa850c9d889a10",
+  "source_sha256": "396bcc45fbaf30d38b170bf0c0063c555d5e88cdad512829b86a52ffede18642",
+  "source_file_count": 96,
+  "receipt": "73d13df1e7244ddc8a71d1a7e52c0ed8",
+  "artifacts": [
+    {
+      "name": "ui_adc_probe.ino.elf",
+      "path": "/home/arduino/sumox26_codex_build/_app_builds/native-app-v1/396bcc45fbaf30d38b170bf0c0063c555d5e88cdad512829b86a52ffede18642/bench-default/73d13df1e7244ddc8a71d1a7e52c0ed8/build/ui_adc_probe.ino.elf",
+      "bytes": 19840,
+      "sha256": "76e23fe03631d5cc2144578d35ca78b9bafd44158e0d18b2ab026922e4c9d05b"
+    },
+    {
+      "name": "ui_adc_probe.ino_debug.elf",
+      "path": "/home/arduino/sumox26_codex_build/_app_builds/native-app-v1/396bcc45fbaf30d38b170bf0c0063c555d5e88cdad512829b86a52ffede18642/bench-default/73d13df1e7244ddc8a71d1a7e52c0ed8/build/ui_adc_probe.ino_debug.elf",
+      "bytes": 557388,
+      "sha256": "7544d2477751f099ecd43c1779cef05376ca73a4a3fa946c5b20bf682dae8781"
+    },
+    {
+      "name": "ui_adc_probe.ino_temp.elf",
+      "path": "/home/arduino/sumox26_codex_build/_app_builds/native-app-v1/396bcc45fbaf30d38b170bf0c0063c555d5e88cdad512829b86a52ffede18642/bench-default/73d13df1e7244ddc8a71d1a7e52c0ed8/build/ui_adc_probe.ino_temp.elf",
+      "bytes": 558064,
+      "sha256": "2fbde2712b7a06ebdedf2b74efa882c107bf58ec3cbfe623709a9783d1207df5"
+    },
+    {
+      "name": "ui_adc_probe.ino.elf-zsk.bin",
+      "path": "/home/arduino/sumox26_codex_build/_app_builds/native-app-v1/396bcc45fbaf30d38b170bf0c0063c555d5e88cdad512829b86a52ffede18642/bench-default/73d13df1e7244ddc8a71d1a7e52c0ed8/artifacts/ui_adc_probe.ino.elf-zsk.bin",
+      "bytes": 19840,
+      "sha256": "567fb90da6965cf74efc5ac2221e543d6d2150e3bf70ddae3e2346e6646c7fb9"
+    }
+  ],
+  "abi": {
+    "argv": [
+      "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-gdb",
+      "-nx",
+      "-nh",
+      "-batch",
+      "/home/arduino/sumox26_codex_build/_app_builds/native-app-v1/396bcc45fbaf30d38b170bf0c0063c555d5e88cdad512829b86a52ffede18642/bench-default/73d13df1e7244ddc8a71d1a7e52c0ed8/build/ui_adc_probe.ino_debug.elf",
+      "-ex",
+      "set language c++",
+      "-ex",
+      "set max-value-size unlimited",
+      "-ex",
+      "p sizeof(ui_bench::Runner)",
+      "-ex",
+      "p sizeof(ui_bench::Native)",
+      "-ex",
+      "ptype /o ui_bench::Runner",
+      "-ex",
+      "ptype /o ui_bench::Report",
+      "-ex",
+      "ptype /o ui_bench::Capture",
+      "-ex",
+      "ptype /o power::ButtonSample",
+      "-ex",
+      "ptype /o ui::ButtonDecode"
+    ],
+    "returncode": 0,
+    "stdout": "$1 = 9892\n$2 = 32\n/* offset      |    size */  type = class ui_bench::Runner {\n/*      0      |      16 */    struct ui_bench::Port {\n/*      0      |       4 */        void *context;\n/*      4      |       4 */        uint32_t (*clockUs)(void *);\n/*      8      |       4 */        power::InitResult (*beginButtons)(void *);\n/*     12      |       4 */        power::ButtonSample (*readButtons)(void *);\n\n                                   /* total size (bytes):   16 */\n                               } port_;\n/*     16      |     132 */    struct ui_bench::Report {\n/*     16      |       1 */        ui_bench::Phase phase;\n/*     17      |       1 */        ui_bench::Fault fault;\n/*     18      |       1 */        bool fresh;\n/*     19      |       1 */        bool clock_fault;\n/*     20      |       1 */        bool counter_saturated;\n/*     21      |       1 */        bool sample_seen;\n/*     22      |       1 */        bool last_read_accepted;\n/*     23      |       1 */        bool decode_matches_sample;\n/*     24      |       3 */        struct power::InitResult {\n/*     24      |       1 */            power::Status status;\n/*     25      |       1 */            power::Shutdown shutdown;\n/*     26      |       1 */            bool ready;\n\n                                       /* total size (bytes):    3 */\n                                   } setup;\n/* XXX  1-byte hole      */\n/*     28      |      20 */        struct power::ButtonSample {\n/*     28      |       1 */            power::Status status;\n/*     29      |       1 */            power::Shutdown shutdown;\n/*     30      |       2 */            uint16_t raw;\n/*     32      |       4 */            uint32_t started_us;\n/*     36      |       4 */            uint32_t completed_us;\n/*     40      |       4 */            uint32_t sequence;\n/*     44      |       1 */            bool valid;\n/* XXX  3-byte padding   */\n\n                                       /* total size (bytes):   20 */\n                                   } sample;\n/*     48      |      28 */        struct ui::ButtonDecode {\n/*     48      |       1 */            ui::ButtonQualification qualification;\n/* XXX  3-byte hole      */\n/*     52      |      20 */            struct core::ButtonEvidence {\n/*     52      |       1 */                bool explicit_values;\n/*     53      |       1 */                bool contract_valid;\n/*     54      |       1 */                core::ButtonPresence presence;\n/*     55      |       1 */                core::ButtonLevel level;\n/*     56      |       2 */                uint16_t raw;\n/* XXX  2-byte hole      */\n/*     60      |       4 */                uint32_t sequence;\n/*     64      |       4 */                uint32_t started_us;\n/*     68      |       4 */                uint32_t completed_us;\n\n                                           /* total size (bytes):   20 */\n                                       } evidence;\n/*     72      |       1 */            uint8_t candidate_mask;\n/* XXX  3-byte padding   */\n\n                                       /* total size (bytes):   28 */\n                                   } decoded;\n/*     76      |       4 */        uint32_t captured_samples;\n/*     80      |       4 */        uint32_t not_due;\n/*     84      |       4 */        uint32_t missed_releases;\n/*     88      |      20 */        struct ui_bench::Timing {\n/*     88      |       4 */            uint32_t calls;\n/*     92      |       4 */            uint32_t measured_calls;\n/*     96      |       4 */            uint32_t last_us;\n/*    100      |       4 */            uint32_t maximum_us;\n/*    104      |       1 */            bool last_valid;\n/* XXX  3-byte padding   */\n\n                                       /* total size (bytes):   20 */\n                                   } setup_timing;\n/*    108      |      20 */        struct ui_bench::Timing {\n/*    108      |       4 */            uint32_t calls;\n/*    112      |       4 */            uint32_t measured_calls;\n/*    116      |       4 */            uint32_t last_us;\n/*    120      |       4 */            uint32_t maximum_us;\n/*    124      |       1 */            bool last_valid;\n/* XXX  3-byte padding   */\n\n                                       /* total size (bytes):   20 */\n                                   } read_timing;\n/*    128      |      20 */        struct ui_bench::Timing {\n/*    128      |       4 */            uint32_t calls;\n/*    132      |       4 */            uint32_t measured_calls;\n/*    136      |       4 */            uint32_t last_us;\n/*    140      |       4 */            uint32_t maximum_us;\n/*    144      |       1 */            bool last_valid;\n/* XXX  3-byte padding   */\n\n                                       /* total size (bytes):   20 */\n                                   } poll_timing;\n\n                                   /* total size (bytes):  132 */\n                               } report_;\n/*    148      |    9728 */    ui_bench::Capture captures_[128];\n/*   9876      |       1 */    bool attempted_;\n/*   9877      |       1 */    bool clock_seen_;\n/*   9878      |       1 */    bool interval_active_;\n/*   9879      |       1 */    bool source_seen_;\n/*   9880      |       4 */    uint32_t last_clock_us_;\n/*   9884      |       4 */    uint32_t interval_elapsed_us_;\n/*   9888      |       4 */    uint32_t source_age_us_;\n\n                               /* total size (bytes): 9892 */\n                             }\n/* offset      |    size */  type = struct ui_bench::Report {\n/*      0      |       1 */    ui_bench::Phase phase;\n/*      1      |       1 */    ui_bench::Fault fault;\n/*      2      |       1 */    bool fresh;\n/*      3      |       1 */    bool clock_fault;\n/*      4      |       1 */    bool counter_saturated;\n/*      5      |       1 */    bool sample_seen;\n/*      6      |       1 */    bool last_read_accepted;\n/*      7      |       1 */    bool decode_matches_sample;\n/*      8      |       3 */    struct power::InitResult {\n/*      8      |       1 */        power::Status status;\n/*      9      |       1 */        power::Shutdown shutdown;\n/*     10      |       1 */        bool ready;\n\n                                   /* total size (bytes):    3 */\n                               } setup;\n/* XXX  1-byte hole      */\n/*     12      |      20 */    struct power::ButtonSample {\n/*     12      |       1 */        power::Status status;\n/*     13      |       1 */        power::Shutdown shutdown;\n/*     14      |       2 */        uint16_t raw;\n/*     16      |       4 */        uint32_t started_us;\n/*     20      |       4 */        uint32_t completed_us;\n/*     24      |       4 */        uint32_t sequence;\n/*     28      |       1 */        bool valid;\n/* XXX  3-byte padding   */\n\n                                   /* total size (bytes):   20 */\n                               } sample;\n/*     32      |      28 */    struct ui::ButtonDecode {\n/*     32      |       1 */        ui::ButtonQualification qualification;\n/* XXX  3-byte hole      */\n/*     36      |      20 */        struct core::ButtonEvidence {\n/*     36      |       1 */            bool explicit_values;\n/*     37      |       1 */            bool contract_valid;\n/*     38      |       1 */            core::ButtonPresence presence;\n/*     39      |       1 */            core::ButtonLevel level;\n/*     40      |       2 */            uint16_t raw;\n/* XXX  2-byte hole      */\n/*     44      |       4 */            uint32_t sequence;\n/*     48      |       4 */            uint32_t started_us;\n/*     52      |       4 */            uint32_t completed_us;\n\n                                       /* total size (bytes):   20 */\n                                   } evidence;\n/*     56      |       1 */        uint8_t candidate_mask;\n/* XXX  3-byte padding   */\n\n                                   /* total size (bytes):   28 */\n                               } decoded;\n/*     60      |       4 */    uint32_t captured_samples;\n/*     64      |       4 */    uint32_t not_due;\n/*     68      |       4 */    uint32_t missed_releases;\n/*     72      |      20 */    struct ui_bench::Timing {\n/*     72      |       4 */        uint32_t calls;\n/*     76      |       4 */        uint32_t measured_calls;\n/*     80      |       4 */        uint32_t last_us;\n/*     84      |       4 */        uint32_t maximum_us;\n/*     88      |       1 */        bool last_valid;\n/* XXX  3-byte padding   */\n\n                                   /* total size (bytes):   20 */\n                               } setup_timing;\n/*     92      |      20 */    struct ui_bench::Timing {\n/*     92      |       4 */        uint32_t calls;\n/*     96      |       4 */        uint32_t measured_calls;\n/*    100      |       4 */        uint32_t last_us;\n/*    104      |       4 */        uint32_t maximum_us;\n/*    108      |       1 */        bool last_valid;\n/* XXX  3-byte padding   */\n\n                                   /* total size (bytes):   20 */\n                               } read_timing;\n/*    112      |      20 */    struct ui_bench::Timing {\n/*    112      |       4 */        uint32_t calls;\n/*    116      |       4 */        uint32_t measured_calls;\n/*    120      |       4 */        uint32_t last_us;\n/*    124      |       4 */        uint32_t maximum_us;\n/*    128      |       1 */        bool last_valid;\n/* XXX  3-byte padding   */\n\n                                   /* total size (bytes):   20 */\n                               } poll_timing;\n\n                               /* total size (bytes):  132 */\n                             }\n/* offset      |    size */  type = struct ui_bench::Capture {\n/*      0      |      20 */    struct power::ButtonSample {\n/*      0      |       1 */        power::Status status;\n/*      1      |       1 */        power::Shutdown shutdown;\n/*      2      |       2 */        uint16_t raw;\n/*      4      |       4 */        uint32_t started_us;\n/*      8      |       4 */        uint32_t completed_us;\n/*     12      |       4 */        uint32_t sequence;\n/*     16      |       1 */        bool valid;\n/* XXX  3-byte padding   */\n\n                                   /* total size (bytes):   20 */\n                               } sample;\n/*     20      |      28 */    struct ui::ButtonDecode {\n/*     20      |       1 */        ui::ButtonQualification qualification;\n/* XXX  3-byte hole      */\n/*     24      |      20 */        struct core::ButtonEvidence {\n/*     24      |       1 */            bool explicit_values;\n/*     25      |       1 */            bool contract_valid;\n/*     26      |       1 */            core::ButtonPresence presence;\n/*     27      |       1 */            core::ButtonLevel level;\n/*     28      |       2 */            uint16_t raw;\n/* XXX  2-byte hole      */\n/*     32      |       4 */            uint32_t sequence;\n/*     36      |       4 */            uint32_t started_us;\n/*     40      |       4 */            uint32_t completed_us;\n\n                                       /* total size (bytes):   20 */\n                                   } evidence;\n/*     44      |       1 */        uint8_t candidate_mask;\n/* XXX  3-byte padding   */\n\n                                   /* total size (bytes):   28 */\n                               } decoded;\n/*     48      |       4 */    uint32_t call_started_us;\n/*     52      |       4 */    uint32_t call_returned_us;\n/*     56      |       4 */    uint32_t poll_closed_us;\n/*     60      |       4 */    uint32_t source_us;\n/*     64      |       4 */    uint32_t read_us;\n/*     68      |       4 */    uint32_t poll_us;\n/*     72      |       4 */    uint32_t missed_before;\n\n                               /* total size (bytes):   76 */\n                             }\n/* offset      |    size */  type = struct power::ButtonSample {\n/*      0      |       1 */    power::Status status;\n/*      1      |       1 */    power::Shutdown shutdown;\n/*      2      |       2 */    uint16_t raw;\n/*      4      |       4 */    uint32_t started_us;\n/*      8      |       4 */    uint32_t completed_us;\n/*     12      |       4 */    uint32_t sequence;\n/*     16      |       1 */    bool valid;\n/* XXX  3-byte padding   */\n\n                               /* total size (bytes):   20 */\n                             }\n/* offset      |    size */  type = struct ui::ButtonDecode {\n/*      0      |       1 */    ui::ButtonQualification qualification;\n/* XXX  3-byte hole      */\n/*      4      |      20 */    struct core::ButtonEvidence {\n/*      4      |       1 */        bool explicit_values;\n/*      5      |       1 */        bool contract_valid;\n/*      6      |       1 */        core::ButtonPresence presence;\n/*      7      |       1 */        core::ButtonLevel level;\n/*      8      |       2 */        uint16_t raw;\n/* XXX  2-byte hole      */\n/*     12      |       4 */        uint32_t sequence;\n/*     16      |       4 */        uint32_t started_us;\n/*     20      |       4 */        uint32_t completed_us;\n\n                                   /* total size (bytes):   20 */\n                               } evidence;\n/*     24      |       1 */    uint8_t candidate_mask;\n/* XXX  3-byte padding   */\n\n                               /* total size (bytes):   28 */\n                             }\n",
+    "stderr": ""
+  },
+  "installed_tool_hashes": {
+    "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf": "39d4a4fd47241663323f6e04f94dd8f5a9f9ad6582cf1df37f9709b74026adcd",
+    "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-readelf": "c37462dcd380ae1039eb8a0aab379a619415e1100472291ffea2eae34161092e",
+    "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-nm": "e4b5641c091ad5ca522aa7d335b4efb566fbdfa54a4f4a7fcee975be3b113f66",
+    "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-objdump": "744434050215f6fddd2902a42a86384420501d2a477bc9b9e7465c749d211819",
+    "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-gdb": "8e709e322c50351a932d1bdf4103caf238eaf226a4984e56e6f353e64bc4b778"
+  },
+  "raw_final_elf_symbol": {
+    "name": "_ZN12_GLOBAL__N_16runnerE",
+    "entry_file_offset": 7844,
+    "entry_hex": "6201000000000000a426000001000800",
+    "st_value": 0,
+    "st_size": 9892,
+    "st_info": 1,
+    "st_other": 0,
+    "st_shndx": 8
+  },
+  "bss": {
+    "section": 8,
+    "sh_addr": 5776,
+    "sh_offset": 6616,
+    "sh_size": 9893,
+    "alignment": 4,
+    "runner_section_offset": 0
+  },
+  "confirmed_layout": {
+    "runner_size": 9892,
+    "report_offset": 16,
+    "report_size": 132,
+    "capture_offset": 148,
+    "capture_stride": 76,
+    "capture_capacity": 128,
+    "capture_field_offsets": {
+      "sample": 0,
+      "decoded": 20,
+      "call_started_us": 48,
+      "call_returned_us": 52,
+      "poll_closed_us": 56,
+      "source_us": 60,
+      "read_us": 64,
+      "poll_us": 68,
+      "missed_before": 72
+    }
+  },
+  "read_plan": {
+    "loader_bytes": 263680,
+    "sketch_bytes": 19840,
+    "runner_bytes": 9892,
+    "flash_chunk_bytes": 65536,
+    "max_nodes": 3,
+    "node_bytes": 196,
+    "list_bytes": 8,
+    "reads": 22,
+    "bytes": 588016,
+    "commands": 26
+  },
+  "correction": "Earlier D112 reference/proposal incorrectly labelled nm display0x1690 as raw st_value. Raw symbol value is0. Do not subtract section VMA from raw ET_REL st_value. Retained baseline reference is historical, not an address oracle.",
+  "supporting_hashes": {
+    "tools/p0_capture.py": "885c4e4206aea4ac9e03c4e92e48258db2a0ae302ff83a86430e6913afeeb57c",
+    "tools/p0_mem_read.cfg": "89d16a28a1489c23ec743be55ade39824f9ca5213b02b20ef4785079122e4339",
+    "tools/runtime_capture.py": "a4d58b3cbac8b0a3cf96ce6d4f53bc17e935b9aee9bc1c09809ee20ea806fdae",
+    "state/analysis/P2_memory_validation_raw/llext_load.c": "68c999737ed275a4bb81801d571fc044a2db0ef760d21214d9a34b4f7b388413",
+    "state/analysis/P2_memory_validation_raw/source_receipt.json": "86433d7d97d9dac83f1790d66ddcf1fdd0d06510eb924222992c5ce0fdf2f89f",
+    "state/analysis/P0_installed_debug_contract.md": "d0b350a98e83836e54630b2793535f842104d262b97d7c3df33afea2c89426de"
+  }
+}

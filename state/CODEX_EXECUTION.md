@@ -99,3 +99,10 @@ no open scoped finding; F137/validation retains original failures. Next reviewed
 bare Linux receive-only smoke. D114 adopted58446fb; wrapper/staging prepared,
 independent tests/checked route/exact target/readout/run review still pending.
 MCU remains D1042bd817c4; no new upload/reset or human gate.
+
+D113 software38df60c and actual Linux-only smoke e202c86 complete within scope;
+F138 CONNECTED->TIMEOUT with0bytes, unchanged services, no MCU action. D114
+firmware/staging exact396bcc45 passes independent/private24 and root145policy
+methods plus targetreview (F139). Upload remains refused. Adopted readout
+contract02b101fc; next independent frozen decoder/collector tests, source review,
+exact pinned one-run guard, then identified bare diagnostic. MCU remains D104.

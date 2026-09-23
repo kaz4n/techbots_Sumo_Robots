@@ -146,3 +146,14 @@ Separate test-author context uses this finalized contract/public headers/API fac
 not implementation cpp. Separate fresh reviewer is read-only. Preserve locked
 tests, failures and exact raw bytes. Existing five inert source guards change only
 after independent diff approval; never expand the upload allowlist.
+
+Probe public interface: bench/p2_motor_native_compile/src/native_motor_probe.h
+declares Result{began,applied,reset}, Probe=Result(*)(uint32_t,constRobotResult&),
+native/gate/address globals and exercise. Global native default construction and
+gate{native.port()} perform no I/O. exercise calls actual begin/apply/reset in that
+order and retains every result, but no startup/loop path invokes it. setup assigns
+the address only; loop is empty. Both MOTORS_ALLOWED0/default and1/MATCH may compile
+for retained-path evidence; neither upload is allowed. Quarantine the platform
+EMPTY macro at the public probe include boundary. Tests must execute startup and
+10000 loops in both configurations with zero native I/O, and verify upload refusal
+for both transports/default/Immediate, before target lookup or any board action.

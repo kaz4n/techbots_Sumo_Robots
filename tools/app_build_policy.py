@@ -1,4 +1,4 @@
-# Validates the pinned app-only native dependency build policy.
+# Validates the pinned native dependency policy for explicitly reviewed projects.
 # Rejects library and toolchain drift before reporting a completed app build.
 # Tested with independent malformed-result and controlled transport cases.
 import hashlib
@@ -71,12 +71,14 @@ def properties_from(builder):
 
 
 def selected_project(project, fqbn=None, flags=None):
-    if not isinstance(project, str) or project not in ('app.ino', 'runtime_inert.ino'):
+    if not isinstance(project, str) or project not in ('app.ino', 'runtime_inert.ino', 'opp_view.ino'):
         raise ValueError('Unreviewed native project name')
     if project == 'runtime_inert.ino' and (
             (fqbn is not None and fqbn != BASE_FQBN) or
             (flags is not None and flags != '-DMATCH=0 -DMOTORS_ALLOWED=0')):
         raise ValueError('Runtime probe requires default startup and inert flags')
+    if project == 'opp_view.ino' and flags is not None and flags != '-DMATCH=0 -DMOTORS_ALLOWED=0':
+        raise ValueError('Opponent view requires inert flags')
     return project
 
 
@@ -138,7 +140,7 @@ def validate_effective(properties, flags, build_path, data_dir, project='app.ino
                      'SAFETY_FLAGS': flags,
                      'BOOT_ARGUMENT': '-immediate' if properties['build.boot_mode'] == 'immediate' else ''}
     for key, template in reference.items():
-        # Only the two literal reviewed sketch names may specialize this reference.
+        # Only literal reviewed sketch names may specialize this reference.
         template = template.replace('app.ino', project)
         expected = re.sub(r'@(BUILD_PATH|DATA_DIR|SAFETY_FLAGS|BOOT_ARGUMENT)@',
                           lambda match: substitutions[match[1]], template)

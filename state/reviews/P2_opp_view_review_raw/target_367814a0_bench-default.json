@@ -1,0 +1,1817 @@
+{
+  "verdict": "BLOCKER_D107_R3_UNRELATED_NATIVE_STARTUP_DEPENDENCIES",
+  "source_sha256": "367814a050f0d2f2482303d39406f2622d8cb546f147200c91df8e4b87725a8e",
+  "source_files": 95,
+  "artifacts": [
+    {
+      "file": "opp_view.ino.elf",
+      "sha256": "84d03ef078b6db6fda30aa74383b896a9780fecedc9510c0733609d4dc154f01",
+      "bytes": 80324,
+      "compiler_payload": 31912,
+      "conditional_peak": 33784,
+      "init": [
+        {
+          "section": ".init_array",
+          "offset": 0,
+          "type": 2,
+          "name": "_GLOBAL__sub_I_setup",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 7345
+        },
+        {
+          "section": ".init_array",
+          "offset": 4,
+          "type": 2,
+          "name": "_GLOBAL__sub_I__ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 7453
+        },
+        {
+          "section": ".init_array",
+          "offset": 8,
+          "type": 2,
+          "name": "_GLOBAL__sub_I__ZNK3imu3Bus12motionReportEv",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 7525
+        },
+        {
+          "section": ".init_array",
+          "offset": 12,
+          "type": 2,
+          "name": "_GLOBAL__sub_I__ZN3imu3Bus13controlsOwnedEb",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 7597
+        },
+        {
+          "section": ".init_array",
+          "offset": 16,
+          "type": 2,
+          "name": "_GLOBAL__sub_I__ZNK8line_qtr6Reader11globalOwnedEv",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 7669
+        },
+        {
+          "section": ".init_array",
+          "offset": 20,
+          "type": 2,
+          "name": "_GLOBAL__sub_I__ZN6motors8UnoQPort4portEv",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 7745
+        },
+        {
+          "section": ".init_array",
+          "offset": 24,
+          "type": 2,
+          "name": "_GLOBAL__sub_I__ZN11native_pins5TABLEE",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 7817
+        },
+        {
+          "section": ".init_array",
+          "offset": 28,
+          "type": 2,
+          "name": "_GLOBAL__sub_I__ZN11opp_sensors7Sensors5beginEv",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 8437
+        },
+        {
+          "section": ".init_array",
+          "offset": 32,
+          "type": 2,
+          "name": "_GLOBAL__sub_I__ZNK5power6Reader13controlsOwnedEv",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 8509
+        },
+        {
+          "section": ".init_array",
+          "offset": 36,
+          "type": 2,
+          "name": "_GLOBAL__sub_I__ZN5power15readerInputPortERNS_6ReaderE",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 8581
+        },
+        {
+          "section": ".init_array",
+          "offset": 40,
+          "type": 2,
+          "name": "_GLOBAL__sub_I__ZN8opp_view6Native4portEv",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 10601
+        },
+        {
+          "section": ".init_array",
+          "offset": 44,
+          "type": 2,
+          "name": "_GLOBAL__sub_I_Bridge",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 17909
+        },
+        {
+          "section": ".init_array",
+          "offset": 48,
+          "type": 2,
+          "name": "_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 20309
+        },
+        {
+          "section": ".init_array",
+          "offset": 52,
+          "type": 2,
+          "name": "_GLOBAL__sub_I__ZSt20__throw_system_errori",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 22101
+        }
+      ],
+      "fini": [
+        {
+          "section": ".fini_array",
+          "offset": 0,
+          "type": 2,
+          "name": "_GLOBAL__sub_D_setup",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 7421
+        },
+        {
+          "section": ".fini_array",
+          "offset": 4,
+          "type": 2,
+          "name": "_GLOBAL__sub_D__ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 7493
+        },
+        {
+          "section": ".fini_array",
+          "offset": 8,
+          "type": 2,
+          "name": "_GLOBAL__sub_D__ZNK3imu3Bus12motionReportEv",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 7565
+        },
+        {
+          "section": ".fini_array",
+          "offset": 12,
+          "type": 2,
+          "name": "_GLOBAL__sub_D__ZN3imu3Bus13controlsOwnedEb",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 7637
+        },
+        {
+          "section": ".fini_array",
+          "offset": 16,
+          "type": 2,
+          "name": "_GLOBAL__sub_D__ZNK8line_qtr6Reader11globalOwnedEv",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 7709
+        },
+        {
+          "section": ".fini_array",
+          "offset": 20,
+          "type": 2,
+          "name": "_GLOBAL__sub_D__ZN6motors8UnoQPort4portEv",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 7785
+        },
+        {
+          "section": ".fini_array",
+          "offset": 24,
+          "type": 2,
+          "name": "_GLOBAL__sub_D__ZN11native_pins5TABLEE",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 7857
+        },
+        {
+          "section": ".fini_array",
+          "offset": 28,
+          "type": 2,
+          "name": "_GLOBAL__sub_D__ZN11opp_sensors7Sensors5beginEv",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 8477
+        },
+        {
+          "section": ".fini_array",
+          "offset": 32,
+          "type": 2,
+          "name": "_GLOBAL__sub_D__ZNK5power6Reader13controlsOwnedEv",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 8549
+        },
+        {
+          "section": ".fini_array",
+          "offset": 36,
+          "type": 2,
+          "name": "_GLOBAL__sub_D__ZN5power15readerInputPortERNS_6ReaderE",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 8621
+        },
+        {
+          "section": ".fini_array",
+          "offset": 40,
+          "type": 2,
+          "name": "_GLOBAL__sub_D__ZN8opp_view6Native4portEv",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 10641
+        },
+        {
+          "section": ".fini_array",
+          "offset": 44,
+          "type": 2,
+          "name": "_GLOBAL__sub_D_Bridge",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 18097
+        }
+      ],
+      "used_imports": [
+        "__device_dts_ord_100",
+        "__device_dts_ord_105",
+        "__device_dts_ord_109",
+        "__device_dts_ord_114",
+        "__device_dts_ord_120",
+        "__device_dts_ord_123",
+        "__device_dts_ord_17",
+        "__device_dts_ord_233",
+        "__device_dts_ord_30",
+        "__device_dts_ord_34",
+        "__device_dts_ord_40",
+        "__device_dts_ord_61",
+        "__device_dts_ord_65",
+        "__device_dts_ord_66",
+        "__device_dts_ord_70",
+        "__device_dts_ord_73",
+        "__device_dts_ord_78",
+        "__device_dts_ord_83",
+        "__device_dts_ord_88",
+        "__device_dts_ord_89",
+        "__device_dts_ord_90",
+        "__device_dts_ord_91",
+        "__device_dts_ord_92",
+        "__device_dts_ord_93",
+        "__device_dts_ord_94",
+        "__device_dts_ord_95",
+        "__real___aeabi_d2f",
+        "__real___aeabi_f2d",
+        "__real___aeabi_i2d",
+        "__real___aeabi_l2d",
+        "__real___aeabi_l2f",
+        "__real___aeabi_ui2d",
+        "__real___aeabi_ul2d",
+        "__real___aeabi_ul2f",
+        "__real___aeabi_uldivmod",
+        "__real___xpg_strerror_r",
+        "__real_abort",
+        "__real_atexit",
+        "__real_free",
+        "__real_malloc",
+        "__real_memcpy",
+        "__real_memmove",
+        "__real_memset",
+        "__real_realloc",
+        "__real_strcmp",
+        "__real_strlen",
+        "_device_list_end",
+        "_device_list_start",
+        "matrixBegin",
+        "matrixGrayscaleWrite",
+        "matrixSetGrayscaleBits",
+        "pinctrl_configure_pins",
+        "pinctrl_lookup_state",
+        "ring_buf_get",
+        "ring_buf_peek",
+        "ring_buf_put",
+        "sys_clock_cycle_get_64",
+        "z_impl_device_deinit",
+        "z_impl_device_init",
+        "z_impl_device_is_ready",
+        "z_impl_k_mutex_init",
+        "z_impl_k_mutex_lock",
+        "z_impl_k_mutex_unlock",
+        "z_impl_k_sem_give",
+        "z_impl_k_sem_init",
+        "z_impl_k_sem_take",
+        "z_impl_k_sleep",
+        "z_impl_k_thread_create",
+        "z_impl_k_thread_name_set",
+        "z_impl_k_yield"
+      ],
+      "sized_bss": [
+        {
+          "name": "_ZN12_GLOBAL__N_16runnerE",
+          "value": 4,
+          "size": 332,
+          "bind": 0,
+          "type": 1,
+          "other": 0,
+          "section_index": 9,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZN12_GLOBAL__N_16nativeE",
+          "value": 336,
+          "size": 12,
+          "bind": 0,
+          "type": 1,
+          "other": 0,
+          "section_index": 9,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZN2ui12_GLOBAL__N_114matrix_claimedE",
+          "value": 482,
+          "size": 1,
+          "bind": 0,
+          "type": 1,
+          "other": 0,
+          "section_index": 9,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZZN8RpcUtils6detail12unpackObjectERN7arduino7msgpack8UnpackerEE5num64",
+          "value": 464,
+          "size": 8,
+          "bind": 2,
+          "type": 1,
+          "other": 0,
+          "section_index": 9,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZGVN12RouterBridge3HCIE",
+          "value": 0,
+          "size": 4,
+          "bind": 2,
+          "type": 1,
+          "other": 0,
+          "section_index": 9,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZZN8RpcUtils6detail12unpackObjectERN7arduino7msgpack8UnpackerEE3nil",
+          "value": 481,
+          "size": 1,
+          "bind": 2,
+          "type": 1,
+          "other": 0,
+          "section_index": 9,
+          "section": ".bss"
+        },
+        {
+          "name": "Serial1",
+          "value": 5728,
+          "size": 2156,
+          "bind": 1,
+          "type": 1,
+          "other": 0,
+          "section_index": 9,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZZN7arduino7msgpack8Unpacker10from_arrayIJRiRNS_6StringEEEEbDpOT_E2sz",
+          "value": 488,
+          "size": 4,
+          "bind": 2,
+          "type": 1,
+          "other": 0,
+          "section_index": 9,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZGVZN7arduino7msgpack8Unpacker10from_arrayIJRiRNS_6StringEEEEbDpOT_E2sz",
+          "value": 484,
+          "size": 4,
+          "bind": 2,
+          "type": 1,
+          "other": 0,
+          "section_index": 9,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZZN8RpcUtils6detail12unpackObjectERN7arduino7msgpack8UnpackerEE1b",
+          "value": 480,
+          "size": 1,
+          "bind": 2,
+          "type": 1,
+          "other": 0,
+          "section_index": 9,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZZN8RpcUtils6detail12unpackObjectERN7arduino7msgpack8UnpackerEE1t",
+          "value": 392,
+          "size": 16,
+          "bind": 2,
+          "type": 1,
+          "other": 0,
+          "section_index": 9,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZZN8RpcUtils6detail12unpackObjectERN7arduino7msgpack8UnpackerEE5num32",
+          "value": 472,
+          "size": 4,
+          "bind": 2,
+          "type": 1,
+          "other": 0,
+          "section_index": 9,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZGVZN8RpcUtils6detail12unpackObjectERN7arduino7msgpack8UnpackerEE5bytes",
+          "value": 432,
+          "size": 4,
+          "bind": 2,
+          "type": 1,
+          "other": 0,
+          "section_index": 9,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZZN8RpcUtils6detail12unpackObjectERN7arduino7msgpack8UnpackerEE6arr_sz",
+          "value": 428,
+          "size": 4,
+          "bind": 2,
+          "type": 1,
+          "other": 0,
+          "section_index": 9,
+          "section": ".bss"
+        },
+        {
+          "name": "Serial3",
+          "value": 1416,
+          "size": 2156,
+          "bind": 1,
+          "type": 1,
+          "other": 0,
+          "section_index": 9,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZZN8RpcUtils6detail12unpackObjectERN7arduino7msgpack8UnpackerEE5bytes",
+          "value": 436,
+          "size": 12,
+          "bind": 2,
+          "type": 1,
+          "other": 0,
+          "section_index": 9,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZGVZN8RpcUtils6detail12unpackObjectERN7arduino7msgpack8UnpackerEE1e",
+          "value": 408,
+          "size": 4,
+          "bind": 2,
+          "type": 1,
+          "other": 0,
+          "section_index": 9,
+          "section": ".bss"
+        },
+        {
+          "name": "Serial",
+          "value": 492,
+          "size": 568,
+          "bind": 1,
+          "type": 1,
+          "other": 0,
+          "section_index": 9,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZNSs4_Rep20_S_empty_rep_storageE",
+          "value": 7884,
+          "size": 16,
+          "bind": 2,
+          "type": 1,
+          "other": 0,
+          "section_index": 9,
+          "section": ".bss"
+        },
+        {
+          "name": "Monitor",
+          "value": 492,
+          "size": 568,
+          "bind": 1,
+          "type": 1,
+          "other": 0,
+          "section_index": 9,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZZN8RpcUtils6detail12unpackObjectERN7arduino7msgpack8UnpackerEE1e",
+          "value": 412,
+          "size": 12,
+          "bind": 2,
+          "type": 1,
+          "other": 0,
+          "section_index": 9,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZZN8RpcUtils6detail12unpackObjectERN7arduino7msgpack8UnpackerEE6map_sz",
+          "value": 424,
+          "size": 4,
+          "bind": 2,
+          "type": 1,
+          "other": 0,
+          "section_index": 9,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZN12RouterBridge3HCIE",
+          "value": 348,
+          "size": 40,
+          "bind": 2,
+          "type": 1,
+          "other": 0,
+          "section_index": 9,
+          "section": ".bss"
+        },
+        {
+          "name": "Bridge",
+          "value": 1064,
+          "size": 352,
+          "bind": 1,
+          "type": 1,
+          "other": 0,
+          "section_index": 9,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZZN8RpcUtils6detail12unpackObjectERN7arduino7msgpack8UnpackerEE7integer",
+          "value": 476,
+          "size": 4,
+          "bind": 2,
+          "type": 1,
+          "other": 0,
+          "section_index": 9,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZGVZN8RpcUtils6detail12unpackObjectERN7arduino7msgpack8UnpackerEE6string",
+          "value": 448,
+          "size": 4,
+          "bind": 2,
+          "type": 1,
+          "other": 0,
+          "section_index": 9,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZZN8RpcUtils6detail12unpackObjectERN7arduino7msgpack8UnpackerEE6string",
+          "value": 452,
+          "size": 12,
+          "bind": 2,
+          "type": 1,
+          "other": 0,
+          "section_index": 9,
+          "section": ".bss"
+        },
+        {
+          "name": "Serial2",
+          "value": 3572,
+          "size": 2156,
+          "bind": 1,
+          "type": 1,
+          "other": 0,
+          "section_index": 9,
+          "section": ".bss"
+        }
+      ],
+      "empty_strong_loop_hook": true
+    },
+    {
+      "file": "opp_view.ino_debug.elf",
+      "sha256": "a0e0027a4cdba14bc3e9df2526eb78def8961347731b0fec08f1bd322ed52a4c",
+      "bytes": 5746956,
+      "compiler_payload": 31912,
+      "conditional_peak": 33896,
+      "init": [
+        {
+          "section": ".init_array",
+          "offset": 0,
+          "type": 2,
+          "name": "_GLOBAL__sub_I_setup",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 7345
+        },
+        {
+          "section": ".init_array",
+          "offset": 4,
+          "type": 2,
+          "name": "_GLOBAL__sub_I__ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 7453
+        },
+        {
+          "section": ".init_array",
+          "offset": 8,
+          "type": 2,
+          "name": "_GLOBAL__sub_I__ZNK3imu3Bus12motionReportEv",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 7525
+        },
+        {
+          "section": ".init_array",
+          "offset": 12,
+          "type": 2,
+          "name": "_GLOBAL__sub_I__ZN3imu3Bus13controlsOwnedEb",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 7597
+        },
+        {
+          "section": ".init_array",
+          "offset": 16,
+          "type": 2,
+          "name": "_GLOBAL__sub_I__ZNK8line_qtr6Reader11globalOwnedEv",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 7669
+        },
+        {
+          "section": ".init_array",
+          "offset": 20,
+          "type": 2,
+          "name": "_GLOBAL__sub_I__ZN6motors8UnoQPort4portEv",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 7745
+        },
+        {
+          "section": ".init_array",
+          "offset": 24,
+          "type": 2,
+          "name": "_GLOBAL__sub_I__ZN11native_pins5TABLEE",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 7817
+        },
+        {
+          "section": ".init_array",
+          "offset": 28,
+          "type": 2,
+          "name": "_GLOBAL__sub_I__ZN11opp_sensors7Sensors5beginEv",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 8437
+        },
+        {
+          "section": ".init_array",
+          "offset": 32,
+          "type": 2,
+          "name": "_GLOBAL__sub_I__ZNK5power6Reader13controlsOwnedEv",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 8509
+        },
+        {
+          "section": ".init_array",
+          "offset": 36,
+          "type": 2,
+          "name": "_GLOBAL__sub_I__ZN5power15readerInputPortERNS_6ReaderE",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 8581
+        },
+        {
+          "section": ".init_array",
+          "offset": 40,
+          "type": 2,
+          "name": "_GLOBAL__sub_I__ZN8opp_view6Native4portEv",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 10601
+        },
+        {
+          "section": ".init_array",
+          "offset": 44,
+          "type": 2,
+          "name": "_GLOBAL__sub_I_Bridge",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 17909
+        },
+        {
+          "section": ".init_array",
+          "offset": 48,
+          "type": 2,
+          "name": "_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 20309
+        },
+        {
+          "section": ".init_array",
+          "offset": 52,
+          "type": 2,
+          "name": "_GLOBAL__sub_I__ZSt20__throw_system_errori",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 22101
+        }
+      ],
+      "fini": [
+        {
+          "section": ".fini_array",
+          "offset": 0,
+          "type": 2,
+          "name": "_GLOBAL__sub_D_setup",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 7421
+        },
+        {
+          "section": ".fini_array",
+          "offset": 4,
+          "type": 2,
+          "name": "_GLOBAL__sub_D__ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 7493
+        },
+        {
+          "section": ".fini_array",
+          "offset": 8,
+          "type": 2,
+          "name": "_GLOBAL__sub_D__ZNK3imu3Bus12motionReportEv",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 7565
+        },
+        {
+          "section": ".fini_array",
+          "offset": 12,
+          "type": 2,
+          "name": "_GLOBAL__sub_D__ZN3imu3Bus13controlsOwnedEb",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 7637
+        },
+        {
+          "section": ".fini_array",
+          "offset": 16,
+          "type": 2,
+          "name": "_GLOBAL__sub_D__ZNK8line_qtr6Reader11globalOwnedEv",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 7709
+        },
+        {
+          "section": ".fini_array",
+          "offset": 20,
+          "type": 2,
+          "name": "_GLOBAL__sub_D__ZN6motors8UnoQPort4portEv",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 7785
+        },
+        {
+          "section": ".fini_array",
+          "offset": 24,
+          "type": 2,
+          "name": "_GLOBAL__sub_D__ZN11native_pins5TABLEE",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 7857
+        },
+        {
+          "section": ".fini_array",
+          "offset": 28,
+          "type": 2,
+          "name": "_GLOBAL__sub_D__ZN11opp_sensors7Sensors5beginEv",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 8477
+        },
+        {
+          "section": ".fini_array",
+          "offset": 32,
+          "type": 2,
+          "name": "_GLOBAL__sub_D__ZNK5power6Reader13controlsOwnedEv",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 8549
+        },
+        {
+          "section": ".fini_array",
+          "offset": 36,
+          "type": 2,
+          "name": "_GLOBAL__sub_D__ZN5power15readerInputPortERNS_6ReaderE",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 8621
+        },
+        {
+          "section": ".fini_array",
+          "offset": 40,
+          "type": 2,
+          "name": "_GLOBAL__sub_D__ZN8opp_view6Native4portEv",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 10641
+        },
+        {
+          "section": ".fini_array",
+          "offset": 44,
+          "type": 2,
+          "name": "_GLOBAL__sub_D_Bridge",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 18097
+        }
+      ],
+      "used_imports": [
+        "__device_dts_ord_100",
+        "__device_dts_ord_105",
+        "__device_dts_ord_109",
+        "__device_dts_ord_114",
+        "__device_dts_ord_120",
+        "__device_dts_ord_123",
+        "__device_dts_ord_17",
+        "__device_dts_ord_233",
+        "__device_dts_ord_30",
+        "__device_dts_ord_34",
+        "__device_dts_ord_40",
+        "__device_dts_ord_61",
+        "__device_dts_ord_65",
+        "__device_dts_ord_66",
+        "__device_dts_ord_70",
+        "__device_dts_ord_73",
+        "__device_dts_ord_78",
+        "__device_dts_ord_83",
+        "__device_dts_ord_88",
+        "__device_dts_ord_89",
+        "__device_dts_ord_90",
+        "__device_dts_ord_91",
+        "__device_dts_ord_92",
+        "__device_dts_ord_93",
+        "__device_dts_ord_94",
+        "__device_dts_ord_95",
+        "__real___aeabi_d2f",
+        "__real___aeabi_f2d",
+        "__real___aeabi_i2d",
+        "__real___aeabi_l2d",
+        "__real___aeabi_l2f",
+        "__real___aeabi_ui2d",
+        "__real___aeabi_ul2d",
+        "__real___aeabi_ul2f",
+        "__real___aeabi_uldivmod",
+        "__real___xpg_strerror_r",
+        "__real_abort",
+        "__real_atexit",
+        "__real_free",
+        "__real_malloc",
+        "__real_memcpy",
+        "__real_memmove",
+        "__real_memset",
+        "__real_realloc",
+        "__real_strcmp",
+        "__real_strlen",
+        "_device_list_end",
+        "_device_list_start",
+        "matrixBegin",
+        "matrixGrayscaleWrite",
+        "matrixSetGrayscaleBits",
+        "pinctrl_configure_pins",
+        "pinctrl_lookup_state",
+        "ring_buf_get",
+        "ring_buf_peek",
+        "ring_buf_put",
+        "sys_clock_cycle_get_64",
+        "z_impl_device_deinit",
+        "z_impl_device_init",
+        "z_impl_device_is_ready",
+        "z_impl_k_mutex_init",
+        "z_impl_k_mutex_lock",
+        "z_impl_k_mutex_unlock",
+        "z_impl_k_sem_give",
+        "z_impl_k_sem_init",
+        "z_impl_k_sem_take",
+        "z_impl_k_sleep",
+        "z_impl_k_thread_create",
+        "z_impl_k_thread_name_set",
+        "z_impl_k_yield"
+      ],
+      "sized_bss": [
+        {
+          "name": "_ZN12_GLOBAL__N_16runnerE",
+          "value": 4,
+          "size": 332,
+          "bind": 0,
+          "type": 1,
+          "other": 0,
+          "section_index": 9,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZN12_GLOBAL__N_16nativeE",
+          "value": 336,
+          "size": 12,
+          "bind": 0,
+          "type": 1,
+          "other": 0,
+          "section_index": 9,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZN2ui12_GLOBAL__N_114matrix_claimedE",
+          "value": 482,
+          "size": 1,
+          "bind": 0,
+          "type": 1,
+          "other": 0,
+          "section_index": 9,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZZN8RpcUtils6detail12unpackObjectERN7arduino7msgpack8UnpackerEE5num64",
+          "value": 464,
+          "size": 8,
+          "bind": 2,
+          "type": 1,
+          "other": 0,
+          "section_index": 9,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZGVN12RouterBridge3HCIE",
+          "value": 0,
+          "size": 4,
+          "bind": 2,
+          "type": 1,
+          "other": 0,
+          "section_index": 9,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZZN8RpcUtils6detail12unpackObjectERN7arduino7msgpack8UnpackerEE3nil",
+          "value": 481,
+          "size": 1,
+          "bind": 2,
+          "type": 1,
+          "other": 0,
+          "section_index": 9,
+          "section": ".bss"
+        },
+        {
+          "name": "Serial1",
+          "value": 5728,
+          "size": 2156,
+          "bind": 1,
+          "type": 1,
+          "other": 0,
+          "section_index": 9,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZZN7arduino7msgpack8Unpacker10from_arrayIJRiRNS_6StringEEEEbDpOT_E2sz",
+          "value": 488,
+          "size": 4,
+          "bind": 2,
+          "type": 1,
+          "other": 0,
+          "section_index": 9,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZGVZN7arduino7msgpack8Unpacker10from_arrayIJRiRNS_6StringEEEEbDpOT_E2sz",
+          "value": 484,
+          "size": 4,
+          "bind": 2,
+          "type": 1,
+          "other": 0,
+          "section_index": 9,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZZN8RpcUtils6detail12unpackObjectERN7arduino7msgpack8UnpackerEE1b",
+          "value": 480,
+          "size": 1,
+          "bind": 2,
+          "type": 1,
+          "other": 0,
+          "section_index": 9,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZZN8RpcUtils6detail12unpackObjectERN7arduino7msgpack8UnpackerEE1t",
+          "value": 392,
+          "size": 16,
+          "bind": 2,
+          "type": 1,
+          "other": 0,
+          "section_index": 9,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZZN8RpcUtils6detail12unpackObjectERN7arduino7msgpack8UnpackerEE5num32",
+          "value": 472,
+          "size": 4,
+          "bind": 2,
+          "type": 1,
+          "other": 0,
+          "section_index": 9,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZGVZN8RpcUtils6detail12unpackObjectERN7arduino7msgpack8UnpackerEE5bytes",
+          "value": 432,
+          "size": 4,
+          "bind": 2,
+          "type": 1,
+          "other": 0,
+          "section_index": 9,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZZN8RpcUtils6detail12unpackObjectERN7arduino7msgpack8UnpackerEE6arr_sz",
+          "value": 428,
+          "size": 4,
+          "bind": 2,
+          "type": 1,
+          "other": 0,
+          "section_index": 9,
+          "section": ".bss"
+        },
+        {
+          "name": "Serial3",
+          "value": 1416,
+          "size": 2156,
+          "bind": 1,
+          "type": 1,
+          "other": 0,
+          "section_index": 9,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZZN8RpcUtils6detail12unpackObjectERN7arduino7msgpack8UnpackerEE5bytes",
+          "value": 436,
+          "size": 12,
+          "bind": 2,
+          "type": 1,
+          "other": 0,
+          "section_index": 9,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZGVZN8RpcUtils6detail12unpackObjectERN7arduino7msgpack8UnpackerEE1e",
+          "value": 408,
+          "size": 4,
+          "bind": 2,
+          "type": 1,
+          "other": 0,
+          "section_index": 9,
+          "section": ".bss"
+        },
+        {
+          "name": "Serial",
+          "value": 492,
+          "size": 568,
+          "bind": 1,
+          "type": 1,
+          "other": 0,
+          "section_index": 9,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZNSs4_Rep20_S_empty_rep_storageE",
+          "value": 7884,
+          "size": 16,
+          "bind": 2,
+          "type": 1,
+          "other": 0,
+          "section_index": 9,
+          "section": ".bss"
+        },
+        {
+          "name": "Monitor",
+          "value": 492,
+          "size": 568,
+          "bind": 1,
+          "type": 1,
+          "other": 0,
+          "section_index": 9,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZZN8RpcUtils6detail12unpackObjectERN7arduino7msgpack8UnpackerEE1e",
+          "value": 412,
+          "size": 12,
+          "bind": 2,
+          "type": 1,
+          "other": 0,
+          "section_index": 9,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZZN8RpcUtils6detail12unpackObjectERN7arduino7msgpack8UnpackerEE6map_sz",
+          "value": 424,
+          "size": 4,
+          "bind": 2,
+          "type": 1,
+          "other": 0,
+          "section_index": 9,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZN12RouterBridge3HCIE",
+          "value": 348,
+          "size": 40,
+          "bind": 2,
+          "type": 1,
+          "other": 0,
+          "section_index": 9,
+          "section": ".bss"
+        },
+        {
+          "name": "Bridge",
+          "value": 1064,
+          "size": 352,
+          "bind": 1,
+          "type": 1,
+          "other": 0,
+          "section_index": 9,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZZN8RpcUtils6detail12unpackObjectERN7arduino7msgpack8UnpackerEE7integer",
+          "value": 476,
+          "size": 4,
+          "bind": 2,
+          "type": 1,
+          "other": 0,
+          "section_index": 9,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZGVZN8RpcUtils6detail12unpackObjectERN7arduino7msgpack8UnpackerEE6string",
+          "value": 448,
+          "size": 4,
+          "bind": 2,
+          "type": 1,
+          "other": 0,
+          "section_index": 9,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZZN8RpcUtils6detail12unpackObjectERN7arduino7msgpack8UnpackerEE6string",
+          "value": 452,
+          "size": 12,
+          "bind": 2,
+          "type": 1,
+          "other": 0,
+          "section_index": 9,
+          "section": ".bss"
+        },
+        {
+          "name": "Serial2",
+          "value": 3572,
+          "size": 2156,
+          "bind": 1,
+          "type": 1,
+          "other": 0,
+          "section_index": 9,
+          "section": ".bss"
+        }
+      ],
+      "empty_strong_loop_hook": true
+    },
+    {
+      "file": "opp_view.ino_temp.elf",
+      "sha256": "ccbad4cfefdcb12dfd07054a8354c9751510e2d755c888072cee08872d07e648",
+      "bytes": 5762176,
+      "compiler_payload": 33107,
+      "conditional_peak": 37120,
+      "init": [
+        {
+          "section": ".init_array",
+          "offset": 0,
+          "type": 2,
+          "name": "_GLOBAL__sub_I_setup",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 7345
+        },
+        {
+          "section": ".init_array",
+          "offset": 4,
+          "type": 2,
+          "name": "_GLOBAL__sub_I__ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 7453
+        },
+        {
+          "section": ".init_array",
+          "offset": 8,
+          "type": 2,
+          "name": "_GLOBAL__sub_I__ZNK3imu3Bus12motionReportEv",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 7525
+        },
+        {
+          "section": ".init_array",
+          "offset": 12,
+          "type": 2,
+          "name": "_GLOBAL__sub_I__ZN3imu3Bus13controlsOwnedEb",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 7597
+        },
+        {
+          "section": ".init_array",
+          "offset": 16,
+          "type": 2,
+          "name": "_GLOBAL__sub_I__ZNK8line_qtr6Reader11globalOwnedEv",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 7669
+        },
+        {
+          "section": ".init_array",
+          "offset": 20,
+          "type": 2,
+          "name": "_GLOBAL__sub_I__ZN6motors8UnoQPort4portEv",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 7745
+        },
+        {
+          "section": ".init_array",
+          "offset": 24,
+          "type": 2,
+          "name": "_GLOBAL__sub_I__ZN11native_pins5TABLEE",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 7817
+        },
+        {
+          "section": ".init_array",
+          "offset": 28,
+          "type": 2,
+          "name": "_GLOBAL__sub_I__ZN11opp_sensors7Sensors5beginEv",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 8437
+        },
+        {
+          "section": ".init_array",
+          "offset": 32,
+          "type": 2,
+          "name": "_GLOBAL__sub_I__ZNK5power6Reader13controlsOwnedEv",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 8509
+        },
+        {
+          "section": ".init_array",
+          "offset": 36,
+          "type": 2,
+          "name": "_GLOBAL__sub_I__ZN5power15readerInputPortERNS_6ReaderE",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 8581
+        },
+        {
+          "section": ".init_array",
+          "offset": 40,
+          "type": 2,
+          "name": "_GLOBAL__sub_I__ZN8opp_view6Native4portEv",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 10601
+        },
+        {
+          "section": ".init_array",
+          "offset": 44,
+          "type": 2,
+          "name": "_GLOBAL__sub_I_Bridge",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 17909
+        },
+        {
+          "section": ".init_array",
+          "offset": 48,
+          "type": 2,
+          "name": "_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 20309
+        },
+        {
+          "section": ".init_array",
+          "offset": 52,
+          "type": 2,
+          "name": "_GLOBAL__sub_I__ZSt20__throw_system_errori",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 22101
+        }
+      ],
+      "fini": [
+        {
+          "section": ".fini_array",
+          "offset": 0,
+          "type": 2,
+          "name": "_GLOBAL__sub_D_setup",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 7421
+        },
+        {
+          "section": ".fini_array",
+          "offset": 4,
+          "type": 2,
+          "name": "_GLOBAL__sub_D__ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 7493
+        },
+        {
+          "section": ".fini_array",
+          "offset": 8,
+          "type": 2,
+          "name": "_GLOBAL__sub_D__ZNK3imu3Bus12motionReportEv",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 7565
+        },
+        {
+          "section": ".fini_array",
+          "offset": 12,
+          "type": 2,
+          "name": "_GLOBAL__sub_D__ZN3imu3Bus13controlsOwnedEb",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 7637
+        },
+        {
+          "section": ".fini_array",
+          "offset": 16,
+          "type": 2,
+          "name": "_GLOBAL__sub_D__ZNK8line_qtr6Reader11globalOwnedEv",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 7709
+        },
+        {
+          "section": ".fini_array",
+          "offset": 20,
+          "type": 2,
+          "name": "_GLOBAL__sub_D__ZN6motors8UnoQPort4portEv",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 7785
+        },
+        {
+          "section": ".fini_array",
+          "offset": 24,
+          "type": 2,
+          "name": "_GLOBAL__sub_D__ZN11native_pins5TABLEE",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 7857
+        },
+        {
+          "section": ".fini_array",
+          "offset": 28,
+          "type": 2,
+          "name": "_GLOBAL__sub_D__ZN11opp_sensors7Sensors5beginEv",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 8477
+        },
+        {
+          "section": ".fini_array",
+          "offset": 32,
+          "type": 2,
+          "name": "_GLOBAL__sub_D__ZNK5power6Reader13controlsOwnedEv",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 8549
+        },
+        {
+          "section": ".fini_array",
+          "offset": 36,
+          "type": 2,
+          "name": "_GLOBAL__sub_D__ZN5power15readerInputPortERNS_6ReaderE",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 8621
+        },
+        {
+          "section": ".fini_array",
+          "offset": 40,
+          "type": 2,
+          "name": "_GLOBAL__sub_D__ZN8opp_view6Native4portEv",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 10641
+        },
+        {
+          "section": ".fini_array",
+          "offset": 44,
+          "type": 2,
+          "name": "_GLOBAL__sub_D_Bridge",
+          "symbol_section": ".text",
+          "symbol_type": 2,
+          "symbol_value": 18097
+        }
+      ],
+      "used_imports": [
+        "__device_dts_ord_100",
+        "__device_dts_ord_105",
+        "__device_dts_ord_109",
+        "__device_dts_ord_114",
+        "__device_dts_ord_120",
+        "__device_dts_ord_123",
+        "__device_dts_ord_17",
+        "__device_dts_ord_233",
+        "__device_dts_ord_30",
+        "__device_dts_ord_34",
+        "__device_dts_ord_40",
+        "__device_dts_ord_61",
+        "__device_dts_ord_65",
+        "__device_dts_ord_66",
+        "__device_dts_ord_70",
+        "__device_dts_ord_73",
+        "__device_dts_ord_78",
+        "__device_dts_ord_83",
+        "__device_dts_ord_88",
+        "__device_dts_ord_89",
+        "__device_dts_ord_90",
+        "__device_dts_ord_91",
+        "__device_dts_ord_92",
+        "__device_dts_ord_93",
+        "__device_dts_ord_94",
+        "__device_dts_ord_95",
+        "__real___aeabi_d2f",
+        "__real___aeabi_f2d",
+        "__real___aeabi_i2d",
+        "__real___aeabi_l2d",
+        "__real___aeabi_l2f",
+        "__real___aeabi_ui2d",
+        "__real___aeabi_ul2d",
+        "__real___aeabi_ul2f",
+        "__real___aeabi_uldivmod",
+        "__real___xpg_strerror_r",
+        "__real_abort",
+        "__real_atexit",
+        "__real_free",
+        "__real_malloc",
+        "__real_memcpy",
+        "__real_memmove",
+        "__real_memset",
+        "__real_realloc",
+        "__real_strcmp",
+        "__real_strlen",
+        "_device_list_end",
+        "_device_list_start",
+        "matrixBegin",
+        "matrixGrayscaleWrite",
+        "matrixSetGrayscaleBits",
+        "pinctrl_configure_pins",
+        "pinctrl_lookup_state",
+        "ring_buf_get",
+        "ring_buf_peek",
+        "ring_buf_put",
+        "sys_clock_cycle_get_64",
+        "z_impl_device_deinit",
+        "z_impl_device_init",
+        "z_impl_device_is_ready",
+        "z_impl_k_mutex_init",
+        "z_impl_k_mutex_lock",
+        "z_impl_k_mutex_unlock",
+        "z_impl_k_sem_give",
+        "z_impl_k_sem_init",
+        "z_impl_k_sem_take",
+        "z_impl_k_sleep",
+        "z_impl_k_thread_create",
+        "z_impl_k_thread_name_set",
+        "z_impl_k_yield"
+      ],
+      "sized_bss": [
+        {
+          "name": "_ZN12_GLOBAL__N_16runnerE",
+          "value": 4,
+          "size": 332,
+          "bind": 0,
+          "type": 1,
+          "other": 0,
+          "section_index": 6,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZN12_GLOBAL__N_16nativeE",
+          "value": 336,
+          "size": 12,
+          "bind": 0,
+          "type": 1,
+          "other": 0,
+          "section_index": 6,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZN2ui12_GLOBAL__N_114matrix_claimedE",
+          "value": 482,
+          "size": 1,
+          "bind": 0,
+          "type": 1,
+          "other": 0,
+          "section_index": 6,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZZN8RpcUtils6detail12unpackObjectERN7arduino7msgpack8UnpackerEE5num64",
+          "value": 464,
+          "size": 8,
+          "bind": 2,
+          "type": 1,
+          "other": 0,
+          "section_index": 6,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZGVN12RouterBridge3HCIE",
+          "value": 0,
+          "size": 4,
+          "bind": 2,
+          "type": 1,
+          "other": 0,
+          "section_index": 6,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZZN8RpcUtils6detail12unpackObjectERN7arduino7msgpack8UnpackerEE3nil",
+          "value": 481,
+          "size": 1,
+          "bind": 2,
+          "type": 1,
+          "other": 0,
+          "section_index": 6,
+          "section": ".bss"
+        },
+        {
+          "name": "Serial1",
+          "value": 5728,
+          "size": 2156,
+          "bind": 1,
+          "type": 1,
+          "other": 0,
+          "section_index": 6,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZZN7arduino7msgpack8Unpacker10from_arrayIJRiRNS_6StringEEEEbDpOT_E2sz",
+          "value": 488,
+          "size": 4,
+          "bind": 2,
+          "type": 1,
+          "other": 0,
+          "section_index": 6,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZGVZN7arduino7msgpack8Unpacker10from_arrayIJRiRNS_6StringEEEEbDpOT_E2sz",
+          "value": 484,
+          "size": 4,
+          "bind": 2,
+          "type": 1,
+          "other": 0,
+          "section_index": 6,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZZN8RpcUtils6detail12unpackObjectERN7arduino7msgpack8UnpackerEE1b",
+          "value": 480,
+          "size": 1,
+          "bind": 2,
+          "type": 1,
+          "other": 0,
+          "section_index": 6,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZZN8RpcUtils6detail12unpackObjectERN7arduino7msgpack8UnpackerEE1t",
+          "value": 392,
+          "size": 16,
+          "bind": 2,
+          "type": 1,
+          "other": 0,
+          "section_index": 6,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZZN8RpcUtils6detail12unpackObjectERN7arduino7msgpack8UnpackerEE5num32",
+          "value": 472,
+          "size": 4,
+          "bind": 2,
+          "type": 1,
+          "other": 0,
+          "section_index": 6,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZGVZN8RpcUtils6detail12unpackObjectERN7arduino7msgpack8UnpackerEE5bytes",
+          "value": 432,
+          "size": 4,
+          "bind": 2,
+          "type": 1,
+          "other": 0,
+          "section_index": 6,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZZN8RpcUtils6detail12unpackObjectERN7arduino7msgpack8UnpackerEE6arr_sz",
+          "value": 428,
+          "size": 4,
+          "bind": 2,
+          "type": 1,
+          "other": 0,
+          "section_index": 6,
+          "section": ".bss"
+        },
+        {
+          "name": "Serial3",
+          "value": 1416,
+          "size": 2156,
+          "bind": 1,
+          "type": 1,
+          "other": 0,
+          "section_index": 6,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZZN8RpcUtils6detail12unpackObjectERN7arduino7msgpack8UnpackerEE5bytes",
+          "value": 436,
+          "size": 12,
+          "bind": 2,
+          "type": 1,
+          "other": 0,
+          "section_index": 6,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZGVZN8RpcUtils6detail12unpackObjectERN7arduino7msgpack8UnpackerEE1e",
+          "value": 408,
+          "size": 4,
+          "bind": 2,
+          "type": 1,
+          "other": 0,
+          "section_index": 6,
+          "section": ".bss"
+        },
+        {
+          "name": "Serial",
+          "value": 492,
+          "size": 568,
+          "bind": 1,
+          "type": 1,
+          "other": 0,
+          "section_index": 6,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZNSs4_Rep20_S_empty_rep_storageE",
+          "value": 7884,
+          "size": 16,
+          "bind": 2,
+          "type": 1,
+          "other": 0,
+          "section_index": 6,
+          "section": ".bss"
+        },
+        {
+          "name": "Monitor",
+          "value": 492,
+          "size": 568,
+          "bind": 1,
+          "type": 1,
+          "other": 0,
+          "section_index": 6,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZZN8RpcUtils6detail12unpackObjectERN7arduino7msgpack8UnpackerEE1e",
+          "value": 412,
+          "size": 12,
+          "bind": 2,
+          "type": 1,
+          "other": 0,
+          "section_index": 6,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZZN8RpcUtils6detail12unpackObjectERN7arduino7msgpack8UnpackerEE6map_sz",
+          "value": 424,
+          "size": 4,
+          "bind": 2,
+          "type": 1,
+          "other": 0,
+          "section_index": 6,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZN12RouterBridge3HCIE",
+          "value": 348,
+          "size": 40,
+          "bind": 2,
+          "type": 1,
+          "other": 0,
+          "section_index": 6,
+          "section": ".bss"
+        },
+        {
+          "name": "Bridge",
+          "value": 1064,
+          "size": 352,
+          "bind": 1,
+          "type": 1,
+          "other": 0,
+          "section_index": 6,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZZN8RpcUtils6detail12unpackObjectERN7arduino7msgpack8UnpackerEE7integer",
+          "value": 476,
+          "size": 4,
+          "bind": 2,
+          "type": 1,
+          "other": 0,
+          "section_index": 6,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZGVZN8RpcUtils6detail12unpackObjectERN7arduino7msgpack8UnpackerEE6string",
+          "value": 448,
+          "size": 4,
+          "bind": 2,
+          "type": 1,
+          "other": 0,
+          "section_index": 6,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZZN8RpcUtils6detail12unpackObjectERN7arduino7msgpack8UnpackerEE6string",
+          "value": 452,
+          "size": 12,
+          "bind": 2,
+          "type": 1,
+          "other": 0,
+          "section_index": 6,
+          "section": ".bss"
+        },
+        {
+          "name": "Serial2",
+          "value": 3572,
+          "size": 2156,
+          "bind": 1,
+          "type": 1,
+          "other": 0,
+          "section_index": 6,
+          "section": ".bss"
+        }
+      ],
+      "empty_strong_loop_hook": true
+    }
+  ],
+  "packages": [
+    {
+      "name": "opp_view.ino.elf-zsk.bin",
+      "sha256": "709abf568168cf181e58b9a2f46c55287727d85a80efe6de113922c074c5202c",
+      "bytes": 80324
+    }
+  ],
+  "actual_abi": "$1 = 332\n$2 = 12\n",
+  "boundary": "No upload or target execution; heap figures exclude extra constructor allocations and are not acceptance",
+  "finding": "Bridge/Serial and their initializers survive generic library discovery despite all-false bench setup; no claim that every retained import executes"
+}

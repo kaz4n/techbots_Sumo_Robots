@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "python3",
+    "-c",
+    "\nimport base64,hashlib,json,pathlib,subprocess,sys\nroot=pathlib.Path(sys.argv[1]); mode=sys.argv[2]\nprefix='/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-'\nbase=pathlib.Path('/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf')\nsources={p.relative_to(root).as_posix():hashlib.sha256(p.read_bytes()).hexdigest()\n for p in root.rglob('*') if p.is_file() and p.relative_to(root).parts[0]!='artifacts'}\nrecords=[]\ndef run(args):\n r=subprocess.run(args,capture_output=True,text=True,timeout=30)\n return dict(argv=args,returncode=r.returncode,stdout=r.stdout,stderr=r.stderr)\nfolder=root/'artifacts'/mode\nfor p in sorted(folder.iterdir()):\n if not p.is_file() or p.suffix not in ('.elf','.bin'): continue\n blob=p.read_bytes()\n record=dict(name=p.name,path=str(p),bytes=len(blob),sha256=hashlib.sha256(blob).hexdigest(),base64=base64.b64encode(blob).decode())\n if p.suffix=='.elf':\n  record['commands']=[run([prefix+'readelf','-SW',str(p)]),run([prefix+'readelf','-rW',str(p)]),\n   run([prefix+'nm','-S',str(p)]),run([prefix+'objdump','-dr',str(p)])]\n records.append(record)\ndebug=folder/'opp_view.ino_debug.elf'\ngdb=[prefix+'gdb','-nx','-nh','-batch',str(debug),'-ex','set language c++','-ex','set max-value-size unlimited']\nfor q in ['p sizeof(opp_view::Runner)','p sizeof(opp_view::Native)','ptype /o opp_view::Runner']:\n gdb+=['-ex',q]\npaths=[base,pathlib.Path(prefix+'readelf'),pathlib.Path(prefix+'nm'),pathlib.Path(prefix+'objdump'),pathlib.Path(prefix+'gdb')]\nprint(json.dumps(dict(source_files=sources,records=records,abi=run(gdb),\n file_sha256={str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in paths}),indent=2))\n",
+    "/home/arduino/sumox26_codex_build/9fb6f9bf00e5abe5095e7e079eaad118a2aa8ec6efb6390994a983d092d72d22/opp_view",
+    "bench-default"
+  ],
+  "start_utc": "2026-09-23T19:52:26.323234+00:00",
+  "scope": "Generic bench compile artifacts, board Linux/offline tools only; not D100 checked app policy",
+  "returncode": 0,
+  "end_utc": "2026-09-23T19:52:29.871466+00:00"
+}

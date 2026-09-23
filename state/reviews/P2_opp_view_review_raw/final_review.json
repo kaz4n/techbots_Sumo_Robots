@@ -1,0 +1,101 @@
+{
+  "verdict": "PASS_SCOPED_SOURCE_HOST_POLICY_AND_CHECKED_TARGET",
+  "findings": {
+    "D107-R1": "CLOSED",
+    "D107-R2": "CLOSED",
+    "D107-R3": "CLOSED_EXACT_CHECKED_ONLY_GENERIC_STILL_REJECTED"
+  },
+  "profiles": {
+    "bench-default": {
+      "review_sha256": "09d6c5c117cc9a23f0a05ef6157295b8379e59db41a01b30ca37996d057a90b2",
+      "source_sha256": "332787f09d3cb35a96f4cc1e3caad535ac24103372f4894ab56bf7329e3d0451",
+      "artifacts": [
+        {
+          "file": "opp_view.ino.elf",
+          "sha256": "2a20fbc108befc40b681cbb6d2f6450b05370201f8048157158519f7e4c462af",
+          "bytes": 14572,
+          "payload": 3733,
+          "conditional_peak": 4496,
+          "free_span": 257648,
+          "largest_free_payload": 257644
+        },
+        {
+          "file": "opp_view.ino_debug.elf",
+          "sha256": "ff6cf2fe80cea3a4d21da1333c079850d57ad7af5042faf340a91544193bf469",
+          "bytes": 447556,
+          "payload": 3733,
+          "conditional_peak": 4608,
+          "free_span": 257536,
+          "largest_free_payload": 257532
+        },
+        {
+          "file": "opp_view.ino_temp.elf",
+          "sha256": "b7e3d2337e1a19d7cfe668fe2345a240ad37d34495ca7706fb28f0ff2a6214a7",
+          "bytes": 447896,
+          "payload": 3846,
+          "conditional_peak": 4776,
+          "free_span": 257368,
+          "largest_free_payload": 257364
+        }
+      ],
+      "zsk_sha256": "e0082b47c22bc8d706e92689d3dddebaa561451831af9654ce8a76d151b93817"
+    },
+    "bench-immediate": {
+      "review_sha256": "772f16b7ee316af3fc73346ad061fd1afe300580f3183c49ac54c3c8fea15a7b",
+      "source_sha256": "332787f09d3cb35a96f4cc1e3caad535ac24103372f4894ab56bf7329e3d0451",
+      "artifacts": [
+        {
+          "file": "opp_view.ino.elf",
+          "sha256": "2a20fbc108befc40b681cbb6d2f6450b05370201f8048157158519f7e4c462af",
+          "bytes": 14572,
+          "payload": 3733,
+          "conditional_peak": 4496,
+          "free_span": 257648,
+          "largest_free_payload": 257644
+        },
+        {
+          "file": "opp_view.ino_debug.elf",
+          "sha256": "f8bac9f19a5a187872f268439583ac76cbba57a1a14ae3be6372056eccedbb85",
+          "bytes": 447588,
+          "payload": 3733,
+          "conditional_peak": 4608,
+          "free_span": 257536,
+          "largest_free_payload": 257532
+        },
+        {
+          "file": "opp_view.ino_temp.elf",
+          "sha256": "36087a8d69bd7b0c5a07245ffcb8ae5c002c46ffa17a16bd66da956e35edab4e",
+          "bytes": 447928,
+          "payload": 3846,
+          "conditional_peak": 4776,
+          "free_span": 257368,
+          "largest_free_payload": 257364
+        }
+      ],
+      "zsk_sha256": "2e43f6ae4da5a05f9e3523efe40b9b702a35d70945eaaf15901d242cebe6de81"
+    }
+  },
+  "files_sha256": {
+    "bench/opp_view/opp_view.ino": "42ac2b38b9ce5749aad674bbd82466f0de1f27f39d2cce4fc05dc9c375ad6960",
+    "bench/opp_view/src/opp_view.cpp": "1be9bc511d0b1af5d1a95f664f20e93e0779c0cd617596cd272fe615ea1c55e3",
+    "bench/opp_view/src/opp_view.h": "ba57008a94e65e9b2a21ffef8ec4a6d6d0086cb2f3a5aca9e9add49916c5b11a",
+    "bench/opp_view/src/opp_view_native.h": "4e646e7c5aae3abc7f3813243661490d47585b30e947cb5aa9b72ac922519114",
+    "bench/opp_view/src/opp_view_native.cpp": "010dee72ba08cab784e4919a4b8e587606bdd51cbae4d4d79145cd71261c8f2f",
+    "tools/board_tool.py": "64121041c3bf3103a1ae2ef965b953a8c5d44c6f4c9d40dcb2dc176e411e3724",
+    "tools/app_build_policy.py": "7541634391c26bb1a346199ebb40b0a2a6b794c04110e5130fc7c388f66a5899",
+    "tools/p0_inert_sources.json": "d706c700b4d41df86d6480b3f16e54960e74c6d5cd8a9ce48647b82687cae65a",
+    "tests/tooling/test_opp_view_policy.py": "59155eebc8905f9b16ce00ccfa917ec8391237511557b31c8c96a643f220d59a",
+    "tests/tooling/test_opp_view.py": "d1d45a5f152becf3c7ba067022dd442cac4fbdafc03b7764386402156ce0f3c0",
+    "tests/tooling/opp_view_cases.cc": "f4e62547d1f3cb9e511ae0f5768ce0f42f698a40b0aa77c2f3dd63fcb623348c",
+    "state/analysis/P2_opp_view_contract.md": "34d65800aff5dfc2d097ed802ae20a916c625ee4a7530b9fcafe118f1b459ed1",
+    "state/reviews/P2_opp_view_review.md": "db9fd634a0899b26bb1b324f440260ca35cba9728979473a26a2ff17807dee53"
+  },
+  "reviewer_test_receipts": [
+    "host_1790193025104410083.json",
+    "host_1790193374436463538.json",
+    "passive_1790193155331447426.json",
+    "policy_1790193719040116930.json"
+  ],
+  "unchanged_scope": "Listed old files match Git HEAD after checkout newline normalization; raw hashes separately retained",
+  "limits": "No upload, board/network/MCU operation, physical grant, actual free RAM/WCET or phase pass. Reused same-model reviewer context."
+}

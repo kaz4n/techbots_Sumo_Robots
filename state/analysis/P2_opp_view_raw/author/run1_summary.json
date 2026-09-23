@@ -1,0 +1,315 @@
+[
+  {
+    "receipt": "command_1790192871816538286.json",
+    "returncode": 0,
+    "argv": [
+      "/dev/shm/sumo-d107-author-56totojk/normal",
+      "--no-colors"
+    ],
+    "result_lines": [
+      "[doctest] test cases:    24 |    24 passed | 0 failed | 0 skipped",
+      "[doctest] assertions: 40087 | 40087 passed | 0 failed |"
+    ],
+    "expected_flag_refusal": false
+  },
+  {
+    "receipt": "command_1790192879349133007.json",
+    "returncode": 0,
+    "argv": [
+      "/dev/shm/sumo-d107-author-56totojk/asan_ubsan",
+      "--no-colors"
+    ],
+    "result_lines": [
+      "[doctest] test cases:    24 |    24 passed | 0 failed | 0 skipped",
+      "[doctest] assertions: 40087 | 40087 passed | 0 failed |"
+    ],
+    "expected_flag_refusal": false
+  },
+  {
+    "receipt": "command_1790192880641174483.json",
+    "returncode": 0,
+    "argv": [
+      "/dev/shm/sumo-d107-author-56totojk/native_normal",
+      "--no-colors",
+      "--test-case=D107 Native*,D107 default sketch*"
+    ],
+    "result_lines": [
+      "[doctest] test cases:  2 |  2 passed | 0 failed | 24 skipped",
+      "[doctest] assertions: 51 | 51 passed | 0 failed |"
+    ],
+    "expected_flag_refusal": false
+  },
+  {
+    "receipt": "command_1790192883686564748.json",
+    "returncode": 0,
+    "argv": [
+      "/dev/shm/sumo-d107-author-56totojk/native_san",
+      "--no-colors",
+      "--test-case=D107 Native*,D107 default sketch*"
+    ],
+    "result_lines": [
+      "[doctest] test cases:  2 |  2 passed | 0 failed | 24 skipped",
+      "[doctest] assertions: 51 | 51 passed | 0 failed |"
+    ],
+    "expected_flag_refusal": false
+  },
+  {
+    "receipt": "command_1790192884389598441.json",
+    "returncode": 1,
+    "argv": [
+      "/usr/bin/g++",
+      "-std=c++17",
+      "-O1",
+      "-Wall",
+      "-Wextra",
+      "-Wpedantic",
+      "-Werror",
+      "-fno-exceptions",
+      "-fno-rtti",
+      "-DDOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS",
+      "-DD107_TEST_SEPARATE_MAIN",
+      "-DMOTORS_ALLOWED=0",
+      "-DMATCH=0",
+      "-I",
+      "/dev/shm/sumo-d107-author-56totojk/src",
+      "-I",
+      "/dev/shm/sumo-d107-author-56totojk/bench/src",
+      "-I",
+      "/dev/shm/sumo-d107-author-56totojk",
+      "-isystem",
+      "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/host/third_party",
+      "-Wl,--wrap=malloc,--wrap=calloc,--wrap=realloc,--wrap=free",
+      "-fsanitize=address,undefined",
+      "-fno-sanitize-recover=all",
+      "-fno-omit-frame-pointer",
+      "-no-pie",
+      "-DTEST_BAD_CONFIG",
+      "/dev/shm/sumo-d107-author-56totojk/cases.cc",
+      "/dev/shm/sumo-d107-author-56totojk/bench/src/opp_view.cpp",
+      "/dev/shm/sumo-d107-author-56totojk/doctest-san.o",
+      "-o",
+      "/dev/shm/sumo-d107-author-56totojk/config-0"
+    ],
+    "result_lines": [],
+    "expected_flag_refusal": false
+  },
+  {
+    "receipt": "command_1790192885237239173.json",
+    "returncode": 0,
+    "argv": [
+      "/dev/shm/sumo-d107-author-56totojk/config-1",
+      "--no-colors"
+    ],
+    "result_lines": [
+      "[doctest] test cases:  1 |  1 passed | 0 failed | 0 skipped",
+      "[doctest] assertions: 29 | 29 passed | 0 failed |"
+    ],
+    "expected_flag_refusal": false
+  },
+  {
+    "receipt": "command_1790192886084187966.json",
+    "returncode": 0,
+    "argv": [
+      "/dev/shm/sumo-d107-author-56totojk/config-2",
+      "--no-colors"
+    ],
+    "result_lines": [
+      "[doctest] test cases:  1 |  1 passed | 0 failed | 0 skipped",
+      "[doctest] assertions: 29 | 29 passed | 0 failed |"
+    ],
+    "expected_flag_refusal": false
+  },
+  {
+    "receipt": "command_1790192886917781811.json",
+    "returncode": 0,
+    "argv": [
+      "/dev/shm/sumo-d107-author-56totojk/config-3",
+      "--no-colors"
+    ],
+    "result_lines": [
+      "[doctest] test cases:  1 |  1 passed | 0 failed | 0 skipped",
+      "[doctest] assertions: 29 | 29 passed | 0 failed |"
+    ],
+    "expected_flag_refusal": false
+  },
+  {
+    "receipt": "command_1790192887756150847.json",
+    "returncode": 0,
+    "argv": [
+      "/dev/shm/sumo-d107-author-56totojk/config-4",
+      "--no-colors"
+    ],
+    "result_lines": [
+      "[doctest] test cases:  1 |  1 passed | 0 failed | 0 skipped",
+      "[doctest] assertions: 29 | 29 passed | 0 failed |"
+    ],
+    "expected_flag_refusal": false
+  },
+  {
+    "receipt": "command_1790192888607150485.json",
+    "returncode": 0,
+    "argv": [
+      "/dev/shm/sumo-d107-author-56totojk/config-5",
+      "--no-colors"
+    ],
+    "result_lines": [
+      "[doctest] test cases:  1 |  1 passed | 0 failed | 0 skipped",
+      "[doctest] assertions: 29 | 29 passed | 0 failed |"
+    ],
+    "expected_flag_refusal": false
+  },
+  {
+    "receipt": "command_1790192891295315050.json",
+    "returncode": 0,
+    "argv": [
+      "/dev/shm/sumo-d107-author-56totojk/config-6",
+      "--no-colors",
+      "--test-case=D107 all 128*"
+    ],
+    "result_lines": [
+      "[doctest] test cases:     1 |     1 passed | 0 failed | 23 skipped",
+      "[doctest] assertions: 16002 | 16002 passed | 0 failed |"
+    ],
+    "expected_flag_refusal": false
+  },
+  {
+    "receipt": "command_1790192894049210564.json",
+    "returncode": 0,
+    "argv": [
+      "/dev/shm/sumo-d107-author-56totojk/config-7",
+      "--no-colors",
+      "--test-case=D107 all 128*"
+    ],
+    "result_lines": [
+      "[doctest] test cases:     1 |     1 passed | 0 failed | 23 skipped",
+      "[doctest] assertions: 16002 | 16002 passed | 0 failed |"
+    ],
+    "expected_flag_refusal": false
+  },
+  {
+    "receipt": "command_1790192894136351803.json",
+    "returncode": 1,
+    "argv": [
+      "/usr/bin/g++",
+      "-std=c++17",
+      "-O1",
+      "-Wall",
+      "-Wextra",
+      "-Wpedantic",
+      "-Werror",
+      "-fno-exceptions",
+      "-fno-rtti",
+      "-DDOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS",
+      "-DD107_TEST_SEPARATE_MAIN",
+      "-I",
+      "/dev/shm/sumo-d107-author-56totojk/src",
+      "-I",
+      "/dev/shm/sumo-d107-author-56totojk/bench/src",
+      "-I",
+      "/dev/shm/sumo-d107-author-56totojk",
+      "-isystem",
+      "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/host/third_party",
+      "-Wl,--wrap=malloc,--wrap=calloc,--wrap=realloc,--wrap=free",
+      "-DMOTORS_ALLOWED=1",
+      "-DMATCH=0",
+      "-DARDUINO_ARCH_ZEPHYR",
+      "-fsyntax-only",
+      "/dev/shm/sumo-d107-author-56totojk/bench/sketch.cpp"
+    ],
+    "result_lines": [],
+    "expected_flag_refusal": true
+  },
+  {
+    "receipt": "command_1790192894182324200.json",
+    "returncode": 1,
+    "argv": [
+      "wsl.exe",
+      "--exec",
+      "python3",
+      "-m",
+      "unittest",
+      "tests.tooling.test_opp_view",
+      "-v"
+    ],
+    "result_lines": [
+      "normal: [doctest] test cases:    24 |    24 passed | 0 failed | 0 skipped | [doctest] assertions: 40087 | 40087 passed | 0 failed |",
+      "asan_ubsan: [doctest] test cases:    24 |    24 passed | 0 failed | 0 skipped | [doctest] assertions: 40087 | 40087 passed | 0 failed |",
+      "native_normal: [doctest] test cases:  2 |  2 passed | 0 failed | 24 skipped | [doctest] assertions: 51 | 51 passed | 0 failed |",
+      "native_san: [doctest] test cases:  2 |  2 passed | 0 failed | 24 skipped | [doctest] assertions: 51 | 51 passed | 0 failed |",
+      "config-1: [doctest] test cases:  1 |  1 passed | 0 failed | 0 skipped | [doctest] assertions: 29 | 29 passed | 0 failed |",
+      "config-2: [doctest] test cases:  1 |  1 passed | 0 failed | 0 skipped | [doctest] assertions: 29 | 29 passed | 0 failed |",
+      "config-3: [doctest] test cases:  1 |  1 passed | 0 failed | 0 skipped | [doctest] assertions: 29 | 29 passed | 0 failed |",
+      "config-4: [doctest] test cases:  1 |  1 passed | 0 failed | 0 skipped | [doctest] assertions: 29 | 29 passed | 0 failed |",
+      "config-5: [doctest] test cases:  1 |  1 passed | 0 failed | 0 skipped | [doctest] assertions: 29 | 29 passed | 0 failed |",
+      "config-6: [doctest] test cases:     1 |     1 passed | 0 failed | 23 skipped | [doctest] assertions: 16002 | 16002 passed | 0 failed |",
+      "config-7: [doctest] test cases:     1 |     1 passed | 0 failed | 23 skipped | [doctest] assertions: 16002 | 16002 passed | 0 failed |"
+    ],
+    "expected_flag_refusal": false
+  },
+  {
+    "receipt": "command_1790192894219276833.json",
+    "returncode": 1,
+    "argv": [
+      "/usr/bin/g++",
+      "-std=c++17",
+      "-O1",
+      "-Wall",
+      "-Wextra",
+      "-Wpedantic",
+      "-Werror",
+      "-fno-exceptions",
+      "-fno-rtti",
+      "-DDOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS",
+      "-DD107_TEST_SEPARATE_MAIN",
+      "-I",
+      "/dev/shm/sumo-d107-author-56totojk/src",
+      "-I",
+      "/dev/shm/sumo-d107-author-56totojk/bench/src",
+      "-I",
+      "/dev/shm/sumo-d107-author-56totojk",
+      "-isystem",
+      "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/host/third_party",
+      "-Wl,--wrap=malloc,--wrap=calloc,--wrap=realloc,--wrap=free",
+      "-DMOTORS_ALLOWED=0",
+      "-DMATCH=1",
+      "-DARDUINO_ARCH_ZEPHYR",
+      "-fsyntax-only",
+      "/dev/shm/sumo-d107-author-56totojk/bench/sketch.cpp"
+    ],
+    "result_lines": [],
+    "expected_flag_refusal": true
+  },
+  {
+    "receipt": "command_1790192894306812888.json",
+    "returncode": 1,
+    "argv": [
+      "/usr/bin/g++",
+      "-std=c++17",
+      "-O1",
+      "-Wall",
+      "-Wextra",
+      "-Wpedantic",
+      "-Werror",
+      "-fno-exceptions",
+      "-fno-rtti",
+      "-DDOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS",
+      "-DD107_TEST_SEPARATE_MAIN",
+      "-I",
+      "/dev/shm/sumo-d107-author-56totojk/src",
+      "-I",
+      "/dev/shm/sumo-d107-author-56totojk/bench/src",
+      "-I",
+      "/dev/shm/sumo-d107-author-56totojk",
+      "-isystem",
+      "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/host/third_party",
+      "-Wl,--wrap=malloc,--wrap=calloc,--wrap=realloc,--wrap=free",
+      "-DMOTORS_ALLOWED=1",
+      "-DMATCH=1",
+      "-DARDUINO_ARCH_ZEPHYR",
+      "-fsyntax-only",
+      "/dev/shm/sumo-d107-author-56totojk/bench/sketch.cpp"
+    ],
+    "result_lines": [],
+    "expected_flag_refusal": true
+  }
+]

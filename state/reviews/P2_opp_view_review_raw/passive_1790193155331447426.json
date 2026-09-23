@@ -1,0 +1,84 @@
+{
+  "scope": "Synthetic public-state regression; no board or private state",
+  "interim_provenance": "Exact reconstruction by reversing admission movement; SHA matches independently observed interim bytes",
+  "source_sha256": {
+    "interim": "23a24bb0a740876b41cc823e1ff4299758dbedc188f161870d993d2497c964b8",
+    "fixed": "1be9bc511d0b1af5d1a95f664f20e93e0779c0cd617596cd272fe615ea1c55e3"
+  },
+  "results": [
+    {
+      "profile": "interim",
+      "argv": [
+        "g++",
+        "-std=c++17",
+        "-O1",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Werror",
+        "-fno-exceptions",
+        "-fno-rtti",
+        "-I",
+        "/tmp/d107-passive-review-ehi_1uer/src",
+        "-I",
+        "/tmp/d107-passive-review-ehi_1uer/bench/src",
+        "-include",
+        "initializer_list",
+        "/tmp/d107-passive-review-ehi_1uer/bench/src/opp_view.cpp",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/reviews/P2_opp_view_review_raw/passive_zero.cc",
+        "-o",
+        "/tmp/d107-passive-review-ehi_1uer/interim"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "profile": "interim",
+      "argv": [
+        "/tmp/d107-passive-review-ehi_1uer/interim"
+      ],
+      "returncode": 1,
+      "stdout": "FAIL line 16: unopened.report().phase == Phase::NOT_STARTED\nFAIL line 17: unopened.report().fault == Fault::NONE\nFAIL line 26: disabled.report().phase == Phase::DISABLED\nFAIL line 27: disabled.report().fault == Fault::NONE\nFAIL line 34: disabled.report().phase == Phase::DISABLED\nFAIL line 26: disabled.report().phase == Phase::DISABLED\nFAIL line 27: disabled.report().fault == Fault::NONE\nFAIL line 34: disabled.report().phase == Phase::DISABLED\nPassive zero-period failures: 8\n",
+      "stderr": ""
+    },
+    {
+      "profile": "fixed",
+      "argv": [
+        "g++",
+        "-std=c++17",
+        "-O1",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Werror",
+        "-fno-exceptions",
+        "-fno-rtti",
+        "-I",
+        "/tmp/d107-passive-review-ehi_1uer/src",
+        "-I",
+        "/tmp/d107-passive-review-ehi_1uer/bench/src",
+        "-include",
+        "initializer_list",
+        "/tmp/d107-passive-review-ehi_1uer/bench/src/opp_view.cpp",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/reviews/P2_opp_view_review_raw/passive_zero.cc",
+        "-o",
+        "/tmp/d107-passive-review-ehi_1uer/fixed"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "profile": "fixed",
+      "argv": [
+        "/tmp/d107-passive-review-ehi_1uer/fixed"
+      ],
+      "returncode": 0,
+      "stdout": "Passive zero-period failures: 0\n",
+      "stderr": ""
+    }
+  ],
+  "zero_config_sha256": "6557f7ce6e77d75c490c2f129233b64258814b63961d14002836c2f319520064",
+  "test_sha256": "388e0e76607a9a2e4f84e1dbf5977d9f9cc9c751dc1c89300850df7b7256bb80"
+}

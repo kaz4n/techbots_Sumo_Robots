@@ -1,0 +1,33 @@
+{
+  "argv": [
+    "/usr/bin/g++",
+    "-std=c++17",
+    "-O1",
+    "-Wall",
+    "-Wextra",
+    "-Wpedantic",
+    "-Werror",
+    "-fno-exceptions",
+    "-fno-rtti",
+    "-DDOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS",
+    "-DD107_TEST_SEPARATE_MAIN",
+    "-I",
+    "/dev/shm/sumo-d107-author-nytpmvq6/src",
+    "-I",
+    "/dev/shm/sumo-d107-author-nytpmvq6/bench/src",
+    "-I",
+    "/dev/shm/sumo-d107-author-nytpmvq6",
+    "-isystem",
+    "/tmp/d107-review-6tznew6g/host/third_party",
+    "-Wl,--wrap=malloc,--wrap=calloc,--wrap=realloc,--wrap=free",
+    "-DMOTORS_ALLOWED=0",
+    "-DMATCH=1",
+    "-DARDUINO_ARCH_ZEPHYR",
+    "-fsyntax-only",
+    "/dev/shm/sumo-d107-author-nytpmvq6/bench/sketch.cpp"
+  ],
+  "returncode": 1,
+  "stdout": "",
+  "stderr": "/dev/shm/sumo-d107-author-nytpmvq6/bench/sketch.cpp:7:21: error: static assertion failed: Opponent view is motor-free bench software\n    7 | static_assert(MATCH == 0 && MOTORS_ALLOWED == 0, \"Opponent view is motor-free bench software\");\n/dev/shm/sumo-d107-author-nytpmvq6/bench/sketch.cpp:7:21: note: the comparison reduces to \u2018(1 == 0)\u2019\n",
+  "utc": "2026-09-23T19:56:46.193858+00:00"
+}

@@ -1,0 +1,250 @@
+{
+  "exit_code": 0,
+  "commands": 30,
+  "unexpected_failures": [],
+  "binaries": [
+    {
+      "receipt": "command_1790193136737045143.json",
+      "argv": [
+        "/dev/shm/sumo-d107-author-9va9ctup/normal",
+        "--no-colors"
+      ],
+      "returncode": 0,
+      "results": [
+        "[doctest] test cases:    24 |    24 passed | 0 failed | 0 skipped",
+        "[doctest] assertions: 40087 | 40087 passed | 0 failed |"
+      ]
+    },
+    {
+      "receipt": "command_1790193144604575662.json",
+      "argv": [
+        "/dev/shm/sumo-d107-author-9va9ctup/asan_ubsan",
+        "--no-colors"
+      ],
+      "returncode": 0,
+      "results": [
+        "[doctest] test cases:    24 |    24 passed | 0 failed | 0 skipped",
+        "[doctest] assertions: 40087 | 40087 passed | 0 failed |"
+      ]
+    },
+    {
+      "receipt": "command_1790193145963452795.json",
+      "argv": [
+        "/dev/shm/sumo-d107-author-9va9ctup/native_normal",
+        "--no-colors",
+        "--test-case=D107 Native*,D107 default sketch*"
+      ],
+      "returncode": 0,
+      "results": [
+        "[doctest] test cases:  2 |  2 passed | 0 failed | 24 skipped",
+        "[doctest] assertions: 51 | 51 passed | 0 failed |"
+      ]
+    },
+    {
+      "receipt": "command_1790193149131638239.json",
+      "argv": [
+        "/dev/shm/sumo-d107-author-9va9ctup/native_san",
+        "--no-colors",
+        "--test-case=D107 Native*,D107 default sketch*"
+      ],
+      "returncode": 0,
+      "results": [
+        "[doctest] test cases:  2 |  2 passed | 0 failed | 24 skipped",
+        "[doctest] assertions: 51 | 51 passed | 0 failed |"
+      ]
+    },
+    {
+      "receipt": "command_1790193149979874371.json",
+      "argv": [
+        "/dev/shm/sumo-d107-author-9va9ctup/config-0",
+        "--no-colors"
+      ],
+      "returncode": 0,
+      "results": [
+        "[doctest] test cases:  1 |  1 passed | 0 failed | 0 skipped",
+        "[doctest] assertions: 29 | 29 passed | 0 failed |"
+      ]
+    },
+    {
+      "receipt": "command_1790193150955969710.json",
+      "argv": [
+        "/dev/shm/sumo-d107-author-9va9ctup/config-1",
+        "--no-colors"
+      ],
+      "returncode": 0,
+      "results": [
+        "[doctest] test cases:  1 |  1 passed | 0 failed | 0 skipped",
+        "[doctest] assertions: 29 | 29 passed | 0 failed |"
+      ]
+    },
+    {
+      "receipt": "command_1790193151908223495.json",
+      "argv": [
+        "/dev/shm/sumo-d107-author-9va9ctup/config-2",
+        "--no-colors"
+      ],
+      "returncode": 0,
+      "results": [
+        "[doctest] test cases:  1 |  1 passed | 0 failed | 0 skipped",
+        "[doctest] assertions: 29 | 29 passed | 0 failed |"
+      ]
+    },
+    {
+      "receipt": "command_1790193152763626895.json",
+      "argv": [
+        "/dev/shm/sumo-d107-author-9va9ctup/config-3",
+        "--no-colors"
+      ],
+      "returncode": 0,
+      "results": [
+        "[doctest] test cases:  1 |  1 passed | 0 failed | 0 skipped",
+        "[doctest] assertions: 29 | 29 passed | 0 failed |"
+      ]
+    },
+    {
+      "receipt": "command_1790193153627622378.json",
+      "argv": [
+        "/dev/shm/sumo-d107-author-9va9ctup/config-4",
+        "--no-colors"
+      ],
+      "returncode": 0,
+      "results": [
+        "[doctest] test cases:  1 |  1 passed | 0 failed | 0 skipped",
+        "[doctest] assertions: 29 | 29 passed | 0 failed |"
+      ]
+    },
+    {
+      "receipt": "command_1790193154515286901.json",
+      "argv": [
+        "/dev/shm/sumo-d107-author-9va9ctup/config-5",
+        "--no-colors"
+      ],
+      "returncode": 0,
+      "results": [
+        "[doctest] test cases:  1 |  1 passed | 0 failed | 0 skipped",
+        "[doctest] assertions: 29 | 29 passed | 0 failed |"
+      ]
+    },
+    {
+      "receipt": "command_1790193157437662297.json",
+      "argv": [
+        "/dev/shm/sumo-d107-author-9va9ctup/config-6",
+        "--no-colors",
+        "--test-case=D107 all 128*"
+      ],
+      "returncode": 0,
+      "results": [
+        "[doctest] test cases:     1 |     1 passed | 0 failed | 23 skipped",
+        "[doctest] assertions: 16002 | 16002 passed | 0 failed |"
+      ]
+    },
+    {
+      "receipt": "command_1790193160046907246.json",
+      "argv": [
+        "/dev/shm/sumo-d107-author-9va9ctup/config-7",
+        "--no-colors",
+        "--test-case=D107 all 128*"
+      ],
+      "returncode": 0,
+      "results": [
+        "[doctest] test cases:     1 |     1 passed | 0 failed | 23 skipped",
+        "[doctest] assertions: 16002 | 16002 passed | 0 failed |"
+      ]
+    }
+  ],
+  "expected_flag_refusals": [
+    {
+      "receipt": "command_1790193160182953927.json",
+      "argv": [
+        "/usr/bin/g++",
+        "-std=c++17",
+        "-O1",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Werror",
+        "-fno-exceptions",
+        "-fno-rtti",
+        "-DDOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS",
+        "-DD107_TEST_SEPARATE_MAIN",
+        "-I",
+        "/dev/shm/sumo-d107-author-9va9ctup/src",
+        "-I",
+        "/dev/shm/sumo-d107-author-9va9ctup/bench/src",
+        "-I",
+        "/dev/shm/sumo-d107-author-9va9ctup",
+        "-isystem",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/host/third_party",
+        "-Wl,--wrap=malloc,--wrap=calloc,--wrap=realloc,--wrap=free",
+        "-DMOTORS_ALLOWED=1",
+        "-DMATCH=0",
+        "-DARDUINO_ARCH_ZEPHYR",
+        "-fsyntax-only",
+        "/dev/shm/sumo-d107-author-9va9ctup/bench/sketch.cpp"
+      ],
+      "returncode": 1
+    },
+    {
+      "receipt": "command_1790193160264854035.json",
+      "argv": [
+        "/usr/bin/g++",
+        "-std=c++17",
+        "-O1",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Werror",
+        "-fno-exceptions",
+        "-fno-rtti",
+        "-DDOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS",
+        "-DD107_TEST_SEPARATE_MAIN",
+        "-I",
+        "/dev/shm/sumo-d107-author-9va9ctup/src",
+        "-I",
+        "/dev/shm/sumo-d107-author-9va9ctup/bench/src",
+        "-I",
+        "/dev/shm/sumo-d107-author-9va9ctup",
+        "-isystem",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/host/third_party",
+        "-Wl,--wrap=malloc,--wrap=calloc,--wrap=realloc,--wrap=free",
+        "-DMOTORS_ALLOWED=0",
+        "-DMATCH=1",
+        "-DARDUINO_ARCH_ZEPHYR",
+        "-fsyntax-only",
+        "/dev/shm/sumo-d107-author-9va9ctup/bench/sketch.cpp"
+      ],
+      "returncode": 1
+    },
+    {
+      "receipt": "command_1790193160340582602.json",
+      "argv": [
+        "/usr/bin/g++",
+        "-std=c++17",
+        "-O1",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Werror",
+        "-fno-exceptions",
+        "-fno-rtti",
+        "-DDOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS",
+        "-DD107_TEST_SEPARATE_MAIN",
+        "-I",
+        "/dev/shm/sumo-d107-author-9va9ctup/src",
+        "-I",
+        "/dev/shm/sumo-d107-author-9va9ctup/bench/src",
+        "-I",
+        "/dev/shm/sumo-d107-author-9va9ctup",
+        "-isystem",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/host/third_party",
+        "-Wl,--wrap=malloc,--wrap=calloc,--wrap=realloc,--wrap=free",
+        "-DMOTORS_ALLOWED=1",
+        "-DMATCH=1",
+        "-DARDUINO_ARCH_ZEPHYR",
+        "-fsyntax-only",
+        "/dev/shm/sumo-d107-author-9va9ctup/bench/sketch.cpp"
+      ],
+      "returncode": 1
+    }
+  ]
+}

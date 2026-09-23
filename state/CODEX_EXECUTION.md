@@ -7,13 +7,13 @@ D051/D075 permit active P2 software while physical acceptance remains pending.
 |---|---|---|
 | P0 | Toolchain/source audits and inert diagnostics | Physical/pin/electrical acceptance and human gate |
 | P1 | Reviewed core; full host suites PASS | EXPLAINED OK and human GATE P1 PASS |
-| P2 B1 | Native opponent588ceb9; tests/target/review PASS | Live polarity/ranges/60s, physical qualification |
+| P2 B1 | Native opponent588ceb9 and D107 named bench; host/checked default+Immediate target/review PASS | Live polarity/ranges/60s, physical qualification |
 | P2 B4 | Gate1c45f72/native99f8668; tests/target/review PASS | Physical EN/PWM/reversal/B4/B7/WCET |
 | P2 B5 | Native ADCe6b7060 +D093ownera15cffd tested/target/review PASS | Divider/reference/0.05V accuracy, physical qualification |
 | P2 B3 | Acquisition7b46598/estimatorc1188b1/calibration5516bef/Robot2c16023 | D094fab551f resume tested/target/review; physical mounting/B3, physical qualification |
 | P2 B2 | QTR/adapter/Robot47f4d9a tested/target/review | Physical color/cadence, pad ownership, full WCET |
 | P2 B6 | A1327c5db/gesturesb69fa12/matrix385c46c/D093fixedowner tested/target/review | Physical buttons/SC-A, optical acceptance, physical acceptance |
-| P2 2.4 | QTR calibration311bf40 tested/target/review | Actual threshold printing/app/physical calibration |
+| P2 2.4 | QTR calibration311bf40 +D105 actual app delivery2eb97cc/receiver36ae9bc; D106 target fit6471204 | Physical calibration and actual UART receive |
 | P2 B8 | Storage/D090dump febde53 tested/target/review; D09117bb38a actual200s synthetic MCU recorder PASS | Native UART, app lifetime/local reset UI, physical B8 |
 | Integration/B7/P3-P7 | D092timing2081ca1/D093a15cffd/D095390005c transaction tested/target/review | D0973d84958 + D0981447ec8; default candidate fits; D099/D100 target adoption reviewed; full800us/physical pending |
 
@@ -56,7 +56,9 @@ remaining span456B and MATCH2088B. Native27+26methods PASS; unchanged old regist
 assertions pass through the new additive D096 wrapper. No upload or physical claim.
 Read P2_pin_table_validation.md and its final review for precise limitations.
 
-D107contract/interfaces cd5d784 active: implement/test/review/compile the named
-opponent-view bench, all hardware grants false. Author and worker own separate
-files. Existing production geometric display discrepancy OPP-VIEW-1 in
-P2_opp_view_design.md needs a separate correction; bench uses literal channel order.
+D107 named opponent bench is implemented/host-tested/target-reviewed. Checked
+332787f0 default/Immediate peak4496; generic artifacts rejected and retained.
+All hardware grants false; no upload allowlist addition. D108 corrects geometric
+front display ordering: fullnormal/san1446main+187Gate PASS, app target/review
+pending. D109 qtr_raw contract/header draft is under preparation, not yet adopted;
+next software task is one-Reader bounded raw capture. No extra hardware requested.

@@ -1,3 +1,26 @@
+## Active checkpoint - 2026-09-24T00:04:00+04:00
+
+P2 software active under D051/D075. D106 completed6471204; D107 opponent-view
+bench is implemented/host-tested/checked-target-reviewed. Read its validation,
+contract and final separate review. Exact332787f0 default/Immediate ELF2a20fbc1
+has conditional peak4496; both generic builds remain rejected for inherited
+Bridge startup.15new+85existing policy methods PASS; all bench grants false,
+no upload key. Current checked source includes the separate D108 renderer fix.
+
+D108 contract9ff7405: one production coordinate swap9e9d5d9a and explicit
+unlocked oracle amendment/new independent cases. Fullnormal/san1446main+
+187Gate PASS; original red pixel failures retained. Finish app default/MATCH
+target collection and separate review, then commit its implementation/evidence.
+No existing locked test changed. D109 qtr_raw contract/header draft is prepared,
+not adopted; review/adopt after serial config/source changes are safe, then
+implement/test/review the bounded one-Reader capture. No extra hardware needed.
+
+MCU remains exact frozen D1042bd817c4 after its recorded200s inert run. Do not
+repeat upload or infer source/sensor/motor/full-app WCET acceptance. All physical,
+PINMAP/EXPLAINED and human gates remain pending; no push/tag/motor authority.
+Previous checkpoints below are historical. Preserve failed receipts and source
+freezes; current PROGRESS remains authoritative.
+
 ## Active checkpoint - 2026-09-23T23:44:00+04:00
 
 P2 software active under D051/D075. D105 actual calibration delivery2eb97cc and

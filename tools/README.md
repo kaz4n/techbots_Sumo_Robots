@@ -23,6 +23,15 @@ not prove compilation or library discovery. Compiler low-memory warnings remain;
 loadedRAM, stack, physical timing and all human gates require separate evidence.
 Bench commands/upload guards are retained; app uploads are disabled in all modes.
 
+D104 applies the same checked policy to `bench/runtime_inert` with its existing
+default-startup/inert-only restrictions and exact reviewed upload identities.
+D107 also selects it for `bench/opp_view --compile-only`, with default or
+Immediate startup and inert flags only. Its generic-build artifacts were rejected
+for inherited Bridge initialization. Opponent-view uploads, MATCH and sketch
+profiles are refused before transport; no upload manifest entry was added.
+Other bench recipes retain their existing behavior. See the named bench README
+and `state/analysis/P2_opp_view_contract.md` for the source and hardware limits.
+
 D-075 MotorGate target checks use
 `python tools/board_tool.py flash bench/p2_motor_gate_compile --compile-only`
 and the same command with `--match --compile-only`. Both only build on board

@@ -1,0 +1,59 @@
+test_frozen_runner_profiles_native_binding_and_disabled_sketch (tests.tooling.test_opp_view.OppViewTests.test_frozen_runner_profiles_native_binding_and_disabled_sketch) ... FAIL
+
+======================================================================
+FAIL: test_frozen_runner_profiles_native_binding_and_disabled_sketch (tests.tooling.test_opp_view.OppViewTests.test_frozen_runner_profiles_native_binding_and_disabled_sketch)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tests\tooling\test_opp_view.py", line 66, in test_frozen_runner_profiles_native_binding_and_disabled_sketch
+    self.command(["wsl.exe", "--exec", "python3", "-m", "unittest",
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                  "tests.tooling.test_opp_view", "-v"])
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tests\tooling\test_opp_view.py", line 44, in command
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : normal: [doctest] test cases:    24 |    24 passed | 0 failed | 0 skipped | [doctest] assertions: 40087 | 40087 passed | 0 failed |
+asan_ubsan: [doctest] test cases:    24 |    24 passed | 0 failed | 0 skipped | [doctest] assertions: 40087 | 40087 passed | 0 failed |
+native_normal: [doctest] test cases:  2 |  2 passed | 0 failed | 24 skipped | [doctest] assertions: 51 | 51 passed | 0 failed |
+native_san: [doctest] test cases:  2 |  2 passed | 0 failed | 24 skipped | [doctest] assertions: 51 | 51 passed | 0 failed |
+config-1: [doctest] test cases:  1 |  1 passed | 0 failed | 0 skipped | [doctest] assertions: 29 | 29 passed | 0 failed |
+config-2: [doctest] test cases:  1 |  1 passed | 0 failed | 0 skipped | [doctest] assertions: 29 | 29 passed | 0 failed |
+config-3: [doctest] test cases:  1 |  1 passed | 0 failed | 0 skipped | [doctest] assertions: 29 | 29 passed | 0 failed |
+config-4: [doctest] test cases:  1 |  1 passed | 0 failed | 0 skipped | [doctest] assertions: 29 | 29 passed | 0 failed |
+config-5: [doctest] test cases:  1 |  1 passed | 0 failed | 0 skipped | [doctest] assertions: 29 | 29 passed | 0 failed |
+config-6: [doctest] test cases:     1 |     1 passed | 0 failed | 23 skipped | [doctest] assertions: 16002 | 16002 passed | 0 failed |
+config-7: [doctest] test cases:     1 |     1 passed | 0 failed | 23 skipped | [doctest] assertions: 16002 | 16002 passed | 0 failed |
+test_frozen_runner_profiles_native_binding_and_disabled_sketch (tests.tooling.test_opp_view.OppViewTests.test_frozen_runner_profiles_native_binding_and_disabled_sketch) ... 
+  test_frozen_runner_profiles_native_binding_and_disabled_sketch (tests.tooling.test_opp_view.OppViewTests.test_frozen_runner_profiles_native_binding_and_disabled_sketch) (config='TICK_US', value='0U') ... FAIL
+
+======================================================================
+FAIL: test_frozen_runner_profiles_native_binding_and_disabled_sketch (tests.tooling.test_opp_view.OppViewTests.test_frozen_runner_profiles_native_binding_and_disabled_sketch) (config='TICK_US', value='0U')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_opp_view.py", line 110, in test_frozen_runner_profiles_native_binding_and_disabled_sketch
+    self.execute(common, [*sanitizer, *(["-DTEST_BAD_CONFIG"] if bad else [])],
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_opp_view.py", line 51, in execute
+    self.command([*common, *flags, *sources, main, "-o", binary])
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_opp_view.py", line 44, in command
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+AssertionError: 1 != 0 : /dev/shm/sumo-d107-author-56totojk/bench/src/opp_view.cpp: In member function ‘bool opp_view::Runner::finish(uint32_t, uint32_t, uint32_t)’:
+/dev/shm/sumo-d107-author-56totojk/bench/src/opp_view.cpp:195:47: error: division by zero [-Werror=div-by-zero]
+  195 |         const auto skipped = 1U + (late - 1U) / config::TICK_US;
+      |                                   ~~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+/dev/shm/sumo-d107-author-56totojk/bench/src/opp_view.cpp: In member function ‘bool opp_view::Runner::poll()’:
+/dev/shm/sumo-d107-author-56totojk/bench/src/opp_view.cpp:211:29: error: division by zero [-Werror=div-by-zero]
+  211 |     const auto missed = due / config::TICK_US;
+      |                         ~~~~^~~~~~~~~~~~~~~~~
+cc1plus: all warnings being treated as errors
+
+
+----------------------------------------------------------------------
+Ran 1 test in 27.101s
+
+FAILED (failures=1)
+
+
+----------------------------------------------------------------------
+Ran 1 test in 34.440s
+
+FAILED (failures=1)

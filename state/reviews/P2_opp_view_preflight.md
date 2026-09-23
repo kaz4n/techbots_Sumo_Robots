@@ -1,0 +1,13 @@
+# D107 opponent-view specification preflight
+
+2026-09-23 Asia/Dubai. Read-only review of contract `a7fba7b6…`, public Runner header `4abb71a1…` and Native header `4e646e7c…`; no implementation body or future target is approved.
+
+- **MINOR D107-P1, CLOSED — P2_opp_view_contract.md:103:** the pre-test clarification explicitly makes enabled begin true upon RUNNING, including latched sensor_error, and false on terminal/repeated begin. DISABLED remains true.
+- **MINOR D107-P2, CLOSED — P2_opp_view_contract.md:103:** the same clause defines DISABLED from the two enable flags; unused nested MatrixGrant fields do not enable callbacks or clocks.
+- No protected contradiction found: actual one-owner public bindings, all-disabled sketch, closed upload allowlist, no motor owner/EN/PWM operation, no UART/Bridge/Runtime, no pin/config/old-test change. Matrix's normal-startup/exclusive-owner fields are forwarded unchanged and never inferred from a successful compile.
+- Qualification preserves genuine native masks/status/timestamps and rejects partial, inconsistent, future/reversed samples. Invalid reads cannot produce active-low detections; a later genuine valid read may restore availability with the historical error stripe retained. Disabled acquisition alone is unknown, not error.
+- Actual clock brackets, fixed release grid, at-most-one read/submit, saturation flag, first-fault precedence, below-half-range aggregate setup/poll chronology and terminal passivity are specified. An accepted closing C measures matrix-failure paths; invalid C does not invent a duration. Publication after C remains outside the inner metric.
+- The literal index strip does not resolve or change existing **OPP-VIEW-1**, the separately recorded production display front-channel geometry discrepancy. Physical polarity/ranges/60-second false-hit test, optical confirmation, powered-hardware inhibition and full-app WCET remain unproved.
+- Implementation review must still verify constructor/default-sketch silence, real native binding ownership, every clock failure position, independent literal pixels/traces, native substitutions, normal/sanitizer results and exact default/Immediate ELF imports/startup/loader fit. Generic bench compilation is not automatically the checked app policy. No upload is part of this scope.
+
+Verdict: specification boundary PASS; both clarifications are literal in the independently frozen contract `e4e3dcbe77ee8a8a24a1ef12862a274c558e66ae3418df6d4acef5c3af5f9d9e`. Its additional matrix inter-attempt aggregate half-range guard correctly preserves the native owner's timestamp bound. Source/tests/target review is separate; no future artifact is approved.

@@ -1,0 +1,478 @@
+{
+  "verdict": "PASS_EXACT_CHECKED_TARGET_STARTUP_AND_CONDITIONAL_FIT",
+  "source_sha256": "332787f09d3cb35a96f4cc1e3caad535ac24103372f4894ab56bf7329e3d0451",
+  "source_files": 96,
+  "source_delta_from_367814a0": {
+    "README.md": {
+      "before": null,
+      "after": "04a7430b2fafdd389c9fb92a9da046ebe395c6d567fd8aa8fe3e4f2d57b933e4"
+    },
+    "src/hal/ui_display.cpp": {
+      "before": "4b03f677e27f839ae7a0a77ed0a88635f7a2d33c759c3c80c26ea6cb2e55728b",
+      "after": "9e9d5d9a44d8b0d637f2301d042f7021df890a270995e1806d4d4456dd58c535"
+    }
+  },
+  "source_order": "Explicit PureWindowsPath order, matching the Windows producer board.source_hash; all individual bytes rehashed",
+  "profile": {
+    "match": 0,
+    "motors_allowed": 0,
+    "startup": "immediate"
+  },
+  "artifacts": [
+    {
+      "file": "opp_view.ino.elf",
+      "sha256": "2a20fbc108befc40b681cbb6d2f6450b05370201f8048157158519f7e4c462af",
+      "bytes": 14572,
+      "payload": 3733,
+      "conditional_peak": 4496,
+      "free_span": 257648,
+      "largest_free_payload": 257644,
+      "allocations": [
+        {
+          "purpose": "extension",
+          "chunk": 200,
+          "available_before": 262056
+        },
+        {
+          "purpose": "section_map",
+          "chunk": 128,
+          "available_before": 261856
+        },
+        {
+          "purpose": ".text",
+          "chunk": 2816,
+          "available_before": 261728
+        },
+        {
+          "purpose": ".rodata",
+          "chunk": 568,
+          "available_before": 258912
+        },
+        {
+          "purpose": ".bss",
+          "chunk": 352,
+          "available_before": 258344
+        },
+        {
+          "purpose": ".exported_sym",
+          "chunk": 16,
+          "available_before": 257992
+        },
+        {
+          "purpose": ".init_array",
+          "chunk": 8,
+          "available_before": 257976
+        },
+        {
+          "purpose": "global_symbols",
+          "chunk": 304,
+          "available_before": 257968
+        },
+        {
+          "purpose": "export_copy",
+          "chunk": 16,
+          "available_before": 257664
+        }
+      ],
+      "used_imports": [
+        "__device_dts_ord_233",
+        "__device_dts_ord_65",
+        "__device_dts_ord_66",
+        "__device_dts_ord_89",
+        "__device_dts_ord_90",
+        "__device_dts_ord_91",
+        "__device_dts_ord_92",
+        "__device_dts_ord_93",
+        "__device_dts_ord_94",
+        "__device_dts_ord_95",
+        "__real___aeabi_uldivmod",
+        "__real_abort",
+        "__real_memset",
+        "matrixBegin",
+        "matrixGrayscaleWrite",
+        "matrixSetGrayscaleBits",
+        "sys_clock_cycle_get_64",
+        "z_impl_device_is_ready",
+        "z_impl_k_thread_create",
+        "z_impl_k_thread_name_set"
+      ],
+      "init_refs": [
+        "_ZN8opp_view6Native4portEv",
+        "_ZN8opp_view6RunnerC1ERKNS_4PortE"
+      ],
+      "thread_bounds": [
+        {
+          "name": "__static_thread_data_list_end",
+          "value": 0,
+          "size": 0,
+          "bind": 1,
+          "type": 0,
+          "other": 0,
+          "section_index": 6,
+          "section": ".static_thread_data_area"
+        },
+        {
+          "name": "__static_thread_data_list_start",
+          "value": 0,
+          "size": 0,
+          "bind": 1,
+          "type": 0,
+          "other": 0,
+          "section_index": 6,
+          "section": ".static_thread_data_area"
+        }
+      ],
+      "native_bindings": {
+        "_ZN8opp_view6Native14beginOpponentsEPv": "_ZN11opp_sensors7Sensors5beginEv",
+        "_ZN8opp_view6Native13readOpponentsEPv": "_ZNK11opp_sensors7Sensors4readEv",
+        "_ZN8opp_view6Native11beginMatrixEPvN2ui11MatrixGrantE": "_ZN2ui10UnoQMatrix5beginENS_11MatrixGrantE",
+        "_ZN8opp_view6Native12submitMatrixEPvjRKN2ui5FrameE": "_ZN2ui10UnoQMatrix6submitEjRKNS_5FrameE",
+        "_ZN8opp_view6Native7clockUsEPv": "micros"
+      },
+      "bss": [
+        {
+          "name": "_ZN12_GLOBAL__N_16runnerE",
+          "value": 0,
+          "size": 332,
+          "bind": 0,
+          "type": 1,
+          "other": 0,
+          "section_index": 7,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZN12_GLOBAL__N_16nativeE",
+          "value": 332,
+          "size": 12,
+          "bind": 0,
+          "type": 1,
+          "other": 0,
+          "section_index": 7,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZN2ui12_GLOBAL__N_114matrix_claimedE",
+          "value": 344,
+          "size": 1,
+          "bind": 0,
+          "type": 1,
+          "other": 0,
+          "section_index": 7,
+          "section": ".bss"
+        }
+      ]
+    },
+    {
+      "file": "opp_view.ino_debug.elf",
+      "sha256": "f8bac9f19a5a187872f268439583ac76cbba57a1a14ae3be6372056eccedbb85",
+      "bytes": 447588,
+      "payload": 3733,
+      "conditional_peak": 4608,
+      "free_span": 257536,
+      "largest_free_payload": 257532,
+      "allocations": [
+        {
+          "purpose": "extension",
+          "chunk": 200,
+          "available_before": 262056
+        },
+        {
+          "purpose": "section_map",
+          "chunk": 240,
+          "available_before": 261856
+        },
+        {
+          "purpose": ".text",
+          "chunk": 2816,
+          "available_before": 261616
+        },
+        {
+          "purpose": ".rodata",
+          "chunk": 568,
+          "available_before": 258800
+        },
+        {
+          "purpose": ".bss",
+          "chunk": 352,
+          "available_before": 258232
+        },
+        {
+          "purpose": ".exported_sym",
+          "chunk": 16,
+          "available_before": 257880
+        },
+        {
+          "purpose": ".init_array",
+          "chunk": 8,
+          "available_before": 257864
+        },
+        {
+          "purpose": "global_symbols",
+          "chunk": 304,
+          "available_before": 257856
+        },
+        {
+          "purpose": "export_copy",
+          "chunk": 16,
+          "available_before": 257552
+        }
+      ],
+      "used_imports": [
+        "__device_dts_ord_233",
+        "__device_dts_ord_65",
+        "__device_dts_ord_66",
+        "__device_dts_ord_89",
+        "__device_dts_ord_90",
+        "__device_dts_ord_91",
+        "__device_dts_ord_92",
+        "__device_dts_ord_93",
+        "__device_dts_ord_94",
+        "__device_dts_ord_95",
+        "__real___aeabi_uldivmod",
+        "__real_abort",
+        "__real_memset",
+        "matrixBegin",
+        "matrixGrayscaleWrite",
+        "matrixSetGrayscaleBits",
+        "sys_clock_cycle_get_64",
+        "z_impl_device_is_ready",
+        "z_impl_k_thread_create",
+        "z_impl_k_thread_name_set"
+      ],
+      "init_refs": [
+        "_ZN8opp_view6Native4portEv",
+        "_ZN8opp_view6RunnerC1ERKNS_4PortE"
+      ],
+      "thread_bounds": [
+        {
+          "name": "__static_thread_data_list_end",
+          "value": 0,
+          "size": 0,
+          "bind": 1,
+          "type": 0,
+          "other": 0,
+          "section_index": 6,
+          "section": ".static_thread_data_area"
+        },
+        {
+          "name": "__static_thread_data_list_start",
+          "value": 0,
+          "size": 0,
+          "bind": 1,
+          "type": 0,
+          "other": 0,
+          "section_index": 6,
+          "section": ".static_thread_data_area"
+        }
+      ],
+      "native_bindings": {
+        "_ZN8opp_view6Native14beginOpponentsEPv": "_ZN11opp_sensors7Sensors5beginEv",
+        "_ZN8opp_view6Native13readOpponentsEPv": "_ZNK11opp_sensors7Sensors4readEv",
+        "_ZN8opp_view6Native11beginMatrixEPvN2ui11MatrixGrantE": "_ZN2ui10UnoQMatrix5beginENS_11MatrixGrantE",
+        "_ZN8opp_view6Native12submitMatrixEPvjRKN2ui5FrameE": "_ZN2ui10UnoQMatrix6submitEjRKNS_5FrameE",
+        "_ZN8opp_view6Native7clockUsEPv": "micros"
+      },
+      "bss": [
+        {
+          "name": "_ZN12_GLOBAL__N_16runnerE",
+          "value": 0,
+          "size": 332,
+          "bind": 0,
+          "type": 1,
+          "other": 0,
+          "section_index": 7,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZN12_GLOBAL__N_16nativeE",
+          "value": 332,
+          "size": 12,
+          "bind": 0,
+          "type": 1,
+          "other": 0,
+          "section_index": 7,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZN2ui12_GLOBAL__N_114matrix_claimedE",
+          "value": 344,
+          "size": 1,
+          "bind": 0,
+          "type": 1,
+          "other": 0,
+          "section_index": 7,
+          "section": ".bss"
+        }
+      ]
+    },
+    {
+      "file": "opp_view.ino_temp.elf",
+      "sha256": "36087a8d69bd7b0c5a07245ffcb8ae5c002c46ffa17a16bd66da956e35edab4e",
+      "bytes": 447928,
+      "payload": 3846,
+      "conditional_peak": 4776,
+      "free_span": 257368,
+      "largest_free_payload": 257364,
+      "allocations": [
+        {
+          "purpose": "extension",
+          "chunk": 200,
+          "available_before": 262056
+        },
+        {
+          "purpose": "section_map",
+          "chunk": 272,
+          "available_before": 261856
+        },
+        {
+          "purpose": ".text",
+          "chunk": 2816,
+          "available_before": 261584
+        },
+        {
+          "purpose": ".bss",
+          "chunk": 352,
+          "available_before": 258768
+        },
+        {
+          "purpose": ".exported_sym",
+          "chunk": 16,
+          "available_before": 258416
+        },
+        {
+          "purpose": ".init_array",
+          "chunk": 8,
+          "available_before": 258400
+        },
+        {
+          "purpose": ".rodata._ZN6config14OPP_INPUT_PINSE",
+          "chunk": 32,
+          "available_before": 258392
+        },
+        {
+          "purpose": ".rodata._ZN11native_pins5COUNTE",
+          "chunk": 8,
+          "available_before": 258360
+        },
+        {
+          "purpose": ".rodata._ZN11native_pins5TABLEE",
+          "chunk": 8,
+          "available_before": 258352
+        },
+        {
+          "purpose": ".rodata._ZN6zephyr7arduinoL12arduino_pinsE",
+          "chunk": 568,
+          "available_before": 258344
+        },
+        {
+          "purpose": ".rodata.str1.1",
+          "chunk": 88,
+          "available_before": 257776
+        },
+        {
+          "purpose": "global_symbols",
+          "chunk": 304,
+          "available_before": 257688
+        },
+        {
+          "purpose": "export_copy",
+          "chunk": 16,
+          "available_before": 257384
+        }
+      ],
+      "used_imports": [
+        "__device_dts_ord_233",
+        "__device_dts_ord_65",
+        "__device_dts_ord_66",
+        "__device_dts_ord_89",
+        "__device_dts_ord_90",
+        "__device_dts_ord_91",
+        "__device_dts_ord_92",
+        "__device_dts_ord_93",
+        "__device_dts_ord_94",
+        "__device_dts_ord_95",
+        "__real___aeabi_uldivmod",
+        "__real_abort",
+        "__real_memset",
+        "matrixBegin",
+        "matrixGrayscaleWrite",
+        "matrixSetGrayscaleBits",
+        "sys_clock_cycle_get_64",
+        "z_impl_device_is_ready",
+        "z_impl_k_thread_create",
+        "z_impl_k_thread_name_set"
+      ],
+      "init_refs": [
+        "_ZN8opp_view6Native4portEv",
+        "_ZN8opp_view6RunnerC1ERKNS_4PortE"
+      ],
+      "thread_bounds": [
+        {
+          "name": "__static_thread_data_list_end",
+          "value": 0,
+          "size": 0,
+          "bind": 1,
+          "type": 0,
+          "other": 0,
+          "section_index": 3,
+          "section": ".static_thread_data_area"
+        },
+        {
+          "name": "__static_thread_data_list_start",
+          "value": 0,
+          "size": 0,
+          "bind": 1,
+          "type": 0,
+          "other": 0,
+          "section_index": 3,
+          "section": ".static_thread_data_area"
+        }
+      ],
+      "native_bindings": {
+        "_ZN8opp_view6Native14beginOpponentsEPv": "_ZN11opp_sensors7Sensors5beginEv",
+        "_ZN8opp_view6Native13readOpponentsEPv": "_ZNK11opp_sensors7Sensors4readEv",
+        "_ZN8opp_view6Native11beginMatrixEPvN2ui11MatrixGrantE": "_ZN2ui10UnoQMatrix5beginENS_11MatrixGrantE",
+        "_ZN8opp_view6Native12submitMatrixEPvjRKN2ui5FrameE": "_ZN2ui10UnoQMatrix6submitEjRKNS_5FrameE",
+        "_ZN8opp_view6Native7clockUsEPv": "micros"
+      },
+      "bss": [
+        {
+          "name": "_ZN12_GLOBAL__N_16runnerE",
+          "value": 0,
+          "size": 332,
+          "bind": 0,
+          "type": 1,
+          "other": 0,
+          "section_index": 4,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZN12_GLOBAL__N_16nativeE",
+          "value": 332,
+          "size": 12,
+          "bind": 0,
+          "type": 1,
+          "other": 0,
+          "section_index": 4,
+          "section": ".bss"
+        },
+        {
+          "name": "_ZN2ui12_GLOBAL__N_114matrix_claimedE",
+          "value": 344,
+          "size": 1,
+          "bind": 0,
+          "type": 1,
+          "other": 0,
+          "section_index": 4,
+          "section": ".bss"
+        }
+      ]
+    }
+  ],
+  "zsk_sha256": "2e43f6ae4da5a05f9e3523efe40b9b702a35d70945eaaf15901d242cebe6de81",
+  "abi": {
+    "Runner": 332,
+    "Native": 12
+  },
+  "caveats": "Core thread starter retains thread imports but has equal empty bounds. Exception allocator stub calls abort. Only local bytes/model; no load, MCU execution, native grant or physical acceptance."
+}

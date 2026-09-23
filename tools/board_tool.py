@@ -279,10 +279,13 @@ def compile_app(board, checksum, board_folder, remote_root, fqbn, flags, startup
 def flash(args):
     startup = build_startup(args)
     probe = args.sketch == 'bench/runtime_inert'
+    opponent_view = args.sketch == 'bench/opp_view'
     if probe and (args.match or startup != 'default'):
         fail('Runtime inert probe requires default startup and MATCH=0 MOTORS_ALLOWED=0')
-    checked_folder = ROOT / ('bench/runtime_inert' if probe else 'src/app')
-    if (args.sketch == 'app' or probe) and any(os.path.lexists(checked_folder / name)
+    if opponent_view and args.match:
+        fail('Opponent view requires MATCH=0 MOTORS_ALLOWED=0')
+    checked_folder = ROOT / (args.sketch if probe or opponent_view else 'src/app')
+    if (args.sketch == 'app' or probe or opponent_view) and any(os.path.lexists(checked_folder / name)
                                     for name in ('sketch.yaml', 'sketch.yml')):
         fail('App sketch profiles are unreviewed; remove sketch.yaml/sketch.yml from this build')
     if not args.compile_only and args.sketch in ('bench/p0_matrix', 'bench/ui_matrix') and startup == 'immediate':
@@ -317,9 +320,9 @@ def flash(args):
     artifact_folder = f'{board_folder}/artifacts/{"match" if args.match else "bench"}-{startup}'
     if args.sketch == 'app':
         compile_app(board, checksum, board_folder, remote_root, fqbn, flags, startup)
-    elif probe:
+    elif probe or opponent_view:
         artifact_folder = compile_app(board, checksum, board_folder, remote_root, fqbn,
-                                      flags, startup, project='runtime_inert.ino')
+                                      flags, startup, project='runtime_inert.ino' if probe else 'opp_view.ino')
     else:
         remote(board, ['arduino-cli', 'compile', '--fqbn', fqbn,
                        '--output-dir', artifact_folder,

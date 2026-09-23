@@ -815,3 +815,7 @@ physical/loadedRAM/gate claim. | contract=this commit
 | 2026-09-23 23:44 +04 | P2 D106/D107 | D106 exactd72bff70 all three target profiles compile and fit conditional loader model; full/native/cross-unit tests checked, final review pending. D107 motor-free bench contract/interfaces cd5d784 adopted and implementation/tests active. No upload/human gate. | pending D106 evidence commit |
 
 | 2026-09-23 23:45 +04 | P2 D106 | Final separate source/three-profile target review PASS; exactd72bff70 conditional capacity closes D105-R2. All native/cross-unit checks accounted; original failed invocation evidence retained. No upload or human gate. D107bench implementation/tests active. | this task commit |
+
+| 2026-09-24 00:00 +04 | P2 D107/D108 | D107 independent runner/native/config tests and15 new/85 existing policy methods PASS. Generic target rejected for inherited Bridge startup; checked replacement compiling. D108 presentation-only fix9e9d5d9a passes targeted normal/sanitizer18 cases and full normal1446main/187Gate; full sanitizer/review/target pending. MCU remains frozen D104; no upload/gate. | D1066471204; D108contract9ff7405; implementation pending |
+
+| 2026-09-24 00:05 +04 | P2 D107 | Opponent-view IMPLEMENTED/HOST-TESTED/TARGET-COMPILED, separate scoped review PASS. Exact332787f0 default/Immediate ELF2a20fbc1 conditional peak4496;15new+85old policy methods PASS. Both generic artifacts remain rejected. No upload or hardware/gate claim. | this task commit |

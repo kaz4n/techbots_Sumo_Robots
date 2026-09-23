@@ -12,14 +12,17 @@ MATCH profiles compile and pass separate final review; modeled peaks261688/
 261688/260056 in262144. Read P2_pin_table_validation.md/review/raw; actual loaded
 full-app RAM/WCET remains unmeasured and original failed-fit evidence remains.
 
-Next active task D107: contract/public interfaces cd5d784 for bench/opp_view.
-Reload P2_opp_view_contract.md (including pre-test clarifications), design,
-worker/test-author state and actual files before resuming first unfinished task.
-No motor owner, all hardware grants false, upload policy remains refused.
-Finish independent tests, real binding/default setup checks, source review and
-exact compile-only target evidence. OPP-VIEW-1 production geometric display
-discrepancy is a separate open finding; do not silently modify its old tests.
-Then continue the remaining named P2 bench software as dependencies permit.
+D107 named opponent bench is complete in software: independent source/tests/
+policy and exact332787f0 checked default/Immediate review PASS. Generic builds
+remain rejected for inherited Bridge startup; retain both histories. Read its
+contract/validation/review. All grants false; upload policy remains refused.
+
+Next unfinished task D108: contract9ff7405 front-display coordinate correction,
+fullnormal/san1446main+187Gate PASS. Finish actual app default/MATCH artifact
+collection/review and commit its one-line implementation plus independent
+unlocked test amendment/evidence. Then review/adopt D109 qtr_raw draft/headers
+and add its config count serially before independent tests and implementation.
+Continue remaining named P2 benches; no new hardware is needed for this work.
 
 MCU remains frozen D1042bd817c4 after one reviewed inert run:200001epochs,
 zero misses, maxRuntime269us, all outputs inhibited. This is not full-app or

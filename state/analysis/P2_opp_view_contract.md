@@ -104,6 +104,10 @@ remain pending. Never infer electrical approval from this default-disabled bench
 
 ## Pre-test observable clarifications
 
+- Disabled means both enable flags opponents/matrix are false; unused nested
+  MatrixGrant fields do not enable anything. Enabled begin returns true if it
+  reaches RUNNING, including failed sensor setup with latched sensor_error;
+  terminal fault and repeated begin return false.
 - Every poll clears fresh before admission; repeated begin preserves every field.
 - Unavailable detection_mask is canonically0, while the genuine Snapshot remains
   retained. A fault also makes current_available=false/detection_mask=0.
@@ -125,3 +129,27 @@ remain pending. Never infer electrical approval from this default-disabled bench
   conceal a half-range or wrapped total interval. Reaching that boundary fails
   CLOCK without publishing a successful duration or grid update; no private
   seeded counter is needed to test this chronology rule.
+- Preserve the matrix owner's separate timestamp contract: after its first
+  attempt, accumulate accepted clock deltas since that attempt without wrap
+  aliasing. If that gap reaches half-range, fail CLOCK before another submit,
+  even if each poll/individual clock gap was smaller. No stale timestamp may be
+  passed to the native matrix owner. With matrix disabled this extra bound does
+  not apply. Equality at UI_FRAME_PERIOD_US still permits an ordinary attempt.
+
+## Target build correction after generic artifact review
+
+D107-R3 rejects the first generic artifacts: inherited Arduino Bridge/Serial
+constructors run outside Runner grants; the image also retains thread/allocation
+imports. Retention alone does not show that each imported operation executes.
+Adopt the existing exact D100 native dependency policy for this one additional
+literal project, opp_view.ino. Require MATCH=0/MOTORS_ALLOWED=0 for default and
+Immediate compile profiles; reject MATCH before transport. Reject sketch.yaml/
+sketch.yml before transport, including symlinks. Preserve every installed hash,
+effective-command, no-library, preflight and result check. Other generic benches,
+app and runtime_inert retain their existing routing and constraints. No upload
+allowlist/key change. Matrix enablement still requires normal startup even though
+the all-disabled bench also compiles with Immediate startup.
+
+Add independent controlled route/profile/refusal tests and retain the rejected
+generic source/artifacts as evidence. New checked artifacts need source, ELF,
+constructor/import and conditional loader review; a compiler exit0 is insufficient.

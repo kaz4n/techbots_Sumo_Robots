@@ -1,0 +1,201 @@
+
+00001cb0 <_GLOBAL__sub_I_setup>:
+    1cb0:	b57f      	push	{r0, r1, r2, r3, r4, r5, r6, lr}
+    1cb2:	4a0b      	ldr	r2, [pc, #44]	@ (1ce0 <_GLOBAL__sub_I_setup+0x30>)
+    1cb4:	6813      	ldr	r3, [r2, #0]
+    1cb6:	1c59      	adds	r1, r3, #1
+    1cb8:	6011      	str	r1, [r2, #0]
+    1cba:	b933      	cbnz	r3, 1cca <_GLOBAL__sub_I_setup+0x1a>
+    1cbc:	4a09      	ldr	r2, [pc, #36]	@ (1ce4 <_GLOBAL__sub_I_setup+0x34>)
+    1cbe:	490a      	ldr	r1, [pc, #40]	@ (1ce8 <_GLOBAL__sub_I_setup+0x38>)
+    1cc0:	e9c2 3307 	strd	r3, r3, [r2, #28]
+    1cc4:	6011      	str	r1, [r2, #0]
+    1cc6:	7613      	strb	r3, [r2, #24]
+    1cc8:	6253      	str	r3, [r2, #36]	@ 0x24
+    1cca:	4668      	mov	r0, sp
+    1ccc:	4907      	ldr	r1, [pc, #28]	@ (1cec <_GLOBAL__sub_I_setup+0x3c>)
+    1cce:	4b08      	ldr	r3, [pc, #32]	@ (1cf0 <_GLOBAL__sub_I_setup+0x40>)
+    1cd0:	4798      	blx	r3
+    1cd2:	4669      	mov	r1, sp
+    1cd4:	4b07      	ldr	r3, [pc, #28]	@ (1cf4 <_GLOBAL__sub_I_setup+0x44>)
+    1cd6:	4808      	ldr	r0, [pc, #32]	@ (1cf8 <_GLOBAL__sub_I_setup+0x48>)
+    1cd8:	4798      	blx	r3
+    1cda:	b007      	add	sp, #28
+    1cdc:	f85d fb04 	ldr.w	pc, [sp], #4
+	...
+			1ce0: R_ARM_ABS32	_ZGVN12RouterBridge3HCIE
+			1ce4: R_ARM_ABS32	_ZN12RouterBridge3HCIE
+			1ce8: R_ARM_ABS32	Bridge
+    1cec:	00000150 	.word	0x00000150
+			1cec: R_ARM_ABS32	.bss
+	...
+			1cf0: R_ARM_ABS32	_ZN8opp_view6Native4portEv
+			1cf4: R_ARM_ABS32	_ZN8opp_view6RunnerC1ERKNS_4PortE
+    1cf8:	00000004 	.word	0x00000004
+			1cf8: R_ARM_ABS32	.bss
+
+00001e88 <_GLOBAL__sub_I__ZN11native_pins5TABLEE>:
+    1e88:	4a06      	ldr	r2, [pc, #24]	@ (1ea4 <_GLOBAL__sub_I__ZN11native_pins5TABLEE+0x1c>)
+    1e8a:	6813      	ldr	r3, [r2, #0]
+    1e8c:	1c59      	adds	r1, r3, #1
+    1e8e:	6011      	str	r1, [r2, #0]
+    1e90:	b933      	cbnz	r3, 1ea0 <_GLOBAL__sub_I__ZN11native_pins5TABLEE+0x18>
+    1e92:	4a05      	ldr	r2, [pc, #20]	@ (1ea8 <_GLOBAL__sub_I__ZN11native_pins5TABLEE+0x20>)
+    1e94:	4905      	ldr	r1, [pc, #20]	@ (1eac <_GLOBAL__sub_I__ZN11native_pins5TABLEE+0x24>)
+    1e96:	e9c2 3307 	strd	r3, r3, [r2, #28]
+    1e9a:	6011      	str	r1, [r2, #0]
+    1e9c:	7613      	strb	r3, [r2, #24]
+    1e9e:	6253      	str	r3, [r2, #36]	@ 0x24
+    1ea0:	4770      	bx	lr
+    1ea2:	bf00      	nop
+	...
+			1ea4: R_ARM_ABS32	_ZGVN12RouterBridge3HCIE
+			1ea8: R_ARM_ABS32	_ZN12RouterBridge3HCIE
+			1eac: R_ARM_ABS32	Bridge
+
+000045f4 <_GLOBAL__sub_I_Bridge>:
+    45f4:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+    45f8:	4a22      	ldr	r2, [pc, #136]	@ (4684 <_GLOBAL__sub_I_Bridge+0x90>)
+    45fa:	4e23      	ldr	r6, [pc, #140]	@ (4688 <_GLOBAL__sub_I_Bridge+0x94>)
+    45fc:	6813      	ldr	r3, [r2, #0]
+    45fe:	1c59      	adds	r1, r3, #1
+    4600:	6011      	str	r1, [r2, #0]
+    4602:	b92b      	cbnz	r3, 4610 <_GLOBAL__sub_I_Bridge+0x1c>
+    4604:	4a21      	ldr	r2, [pc, #132]	@ (468c <_GLOBAL__sub_I_Bridge+0x98>)
+    4606:	e9c2 3307 	strd	r3, r3, [r2, #28]
+    460a:	6016      	str	r6, [r2, #0]
+    460c:	7613      	strb	r3, [r2, #24]
+    460e:	6253      	str	r3, [r2, #36]	@ 0x24
+    4610:	2400      	movs	r4, #0
+    4612:	f44f 7880 	mov.w	r8, #256	@ 0x100
+    4616:	4f1e      	ldr	r7, [pc, #120]	@ (4690 <_GLOBAL__sub_I_Bridge+0x9c>)
+    4618:	2214      	movs	r2, #20
+    461a:	4621      	mov	r1, r4
+    461c:	481d      	ldr	r0, [pc, #116]	@ (4694 <_GLOBAL__sub_I_Bridge+0xa0>)
+    461e:	e9c6 4400 	strd	r4, r4, [r6]
+    4622:	60f4      	str	r4, [r6, #12]
+    4624:	47b8      	blx	r7
+    4626:	2214      	movs	r2, #20
+    4628:	4621      	mov	r1, r4
+    462a:	481b      	ldr	r0, [pc, #108]	@ (4698 <_GLOBAL__sub_I_Bridge+0xa4>)
+    462c:	47b8      	blx	r7
+    462e:	2214      	movs	r2, #20
+    4630:	4621      	mov	r1, r4
+    4632:	481a      	ldr	r0, [pc, #104]	@ (469c <_GLOBAL__sub_I_Bridge+0xa8>)
+    4634:	47b8      	blx	r7
+    4636:	4642      	mov	r2, r8
+    4638:	4621      	mov	r1, r4
+    463a:	4819      	ldr	r0, [pc, #100]	@ (46a0 <_GLOBAL__sub_I_Bridge+0xac>)
+    463c:	e9c6 4413 	strd	r4, r4, [r6, #76]	@ 0x4c
+    4640:	47b8      	blx	r7
+    4642:	4b18      	ldr	r3, [pc, #96]	@ (46a4 <_GLOBAL__sub_I_Bridge+0xb0>)
+    4644:	4d18      	ldr	r5, [pc, #96]	@ (46a8 <_GLOBAL__sub_I_Bridge+0xb4>)
+    4646:	60b3      	str	r3, [r6, #8]
+    4648:	f44f 737a 	mov.w	r3, #1000	@ 0x3e8
+    464c:	60ab      	str	r3, [r5, #8]
+    464e:	4b17      	ldr	r3, [pc, #92]	@ (46ac <_GLOBAL__sub_I_Bridge+0xb8>)
+    4650:	f44f 7200 	mov.w	r2, #512	@ 0x200
+    4654:	4621      	mov	r1, r4
+    4656:	f105 0014 	add.w	r0, r5, #20
+    465a:	602b      	str	r3, [r5, #0]
+    465c:	f886 4158 	strb.w	r4, [r6, #344]	@ 0x158
+    4660:	606c      	str	r4, [r5, #4]
+    4662:	612e      	str	r6, [r5, #16]
+    4664:	47b8      	blx	r7
+    4666:	2214      	movs	r2, #20
+    4668:	4621      	mov	r1, r4
+    466a:	f505 7008 	add.w	r0, r5, #544	@ 0x220
+    466e:	f8c5 4214 	str.w	r4, [r5, #532]	@ 0x214
+    4672:	f8c5 4218 	str.w	r4, [r5, #536]	@ 0x218
+    4676:	f8c5 421c 	str.w	r4, [r5, #540]	@ 0x21c
+    467a:	47b8      	blx	r7
+    467c:	f8a5 8234 	strh.w	r8, [r5, #564]	@ 0x234
+    4680:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+	...
+			4684: R_ARM_ABS32	_ZGVN12RouterBridge3HCIE
+			4688: R_ARM_ABS32	Bridge
+			468c: R_ARM_ABS32	_ZN12RouterBridge3HCIE
+			4690: R_ARM_ABS32	memset
+    4694:	00000010 	.word	0x00000010
+			4694: R_ARM_ABS32	Bridge
+    4698:	00000024 	.word	0x00000024
+			4698: R_ARM_ABS32	Bridge
+    469c:	00000038 	.word	0x00000038
+			469c: R_ARM_ABS32	Bridge
+    46a0:	00000058 	.word	0x00000058
+			46a0: R_ARM_ABS32	Bridge
+	...
+			46a4: R_ARM_ABS32	Serial2
+			46a8: R_ARM_ABS32	Monitor
+    46ac:	00000008 	.word	0x00000008
+			46ac: R_ARM_ABS32	_ZTV13BridgeMonitorILj512EE
+
+00004f54 <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt>:
+    4f54:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+    4f58:	f04f 0800 	mov.w	r8, #0
+    4f5c:	f44f 777a 	mov.w	r7, #1000	@ 0x3e8
+    4f60:	4d13      	ldr	r5, [pc, #76]	@ (4fb0 <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt+0x5c>)
+    4f62:	4e14      	ldr	r6, [pc, #80]	@ (4fb4 <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt+0x60>)
+    4f64:	4b14      	ldr	r3, [pc, #80]	@ (4fb8 <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt+0x64>)
+    4f66:	4c15      	ldr	r4, [pc, #84]	@ (4fbc <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt+0x68>)
+    4f68:	f105 0014 	add.w	r0, r5, #20
+    4f6c:	612b      	str	r3, [r5, #16]
+    4f6e:	e9c5 8701 	strd	r8, r7, [r5, #4]
+    4f72:	602e      	str	r6, [r5, #0]
+    4f74:	47a0      	blx	r4
+    4f76:	f505 6088 	add.w	r0, r5, #1088	@ 0x440
+    4f7a:	4d11      	ldr	r5, [pc, #68]	@ (4fc0 <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt+0x6c>)
+    4f7c:	47a0      	blx	r4
+    4f7e:	4b11      	ldr	r3, [pc, #68]	@ (4fc4 <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt+0x70>)
+    4f80:	f105 0014 	add.w	r0, r5, #20
+    4f84:	612b      	str	r3, [r5, #16]
+    4f86:	e9c5 8701 	strd	r8, r7, [r5, #4]
+    4f8a:	602e      	str	r6, [r5, #0]
+    4f8c:	47a0      	blx	r4
+    4f8e:	f505 6088 	add.w	r0, r5, #1088	@ 0x440
+    4f92:	4d0d      	ldr	r5, [pc, #52]	@ (4fc8 <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt+0x74>)
+    4f94:	47a0      	blx	r4
+    4f96:	4b0d      	ldr	r3, [pc, #52]	@ (4fcc <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt+0x78>)
+    4f98:	f105 0014 	add.w	r0, r5, #20
+    4f9c:	e9c5 8701 	strd	r8, r7, [r5, #4]
+    4fa0:	602e      	str	r6, [r5, #0]
+    4fa2:	612b      	str	r3, [r5, #16]
+    4fa4:	47a0      	blx	r4
+    4fa6:	f505 6088 	add.w	r0, r5, #1088	@ 0x440
+    4faa:	47a0      	blx	r4
+    4fac:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+    4fb0:	00000000 	.word	0x00000000
+			4fb0: R_ARM_ABS32	Serial1
+    4fb4:	00000008 	.word	0x00000008
+			4fb4: R_ARM_ABS32	_ZTVN7arduino12ZephyrSerialE
+	...
+			4fb8: R_ARM_ABS32	__device_dts_ord_73
+			4fbc: R_ARM_ABS32	_ZN7arduino12ZephyrSerial18ZephyrSerialBufferILi1024EEC1Ev
+			4fc0: R_ARM_ABS32	Serial2
+			4fc4: R_ARM_ABS32	__device_dts_ord_78
+			4fc8: R_ARM_ABS32	Serial3
+			4fcc: R_ARM_ABS32	__device_dts_ord_70
+
+00004f28 <_ZN7arduino12ZephyrSerial18ZephyrSerialBufferILi1024EEC1Ev>:
+    4f28:	b510      	push	{r4, lr}
+    4f2a:	4604      	mov	r4, r0
+    4f2c:	2201      	movs	r2, #1
+    4f2e:	4b08      	ldr	r3, [pc, #32]	@ (4f50 <_ZN7arduino12ZephyrSerial18ZephyrSerialBufferILi1024EEC1Ev+0x28>)
+    4f30:	4611      	mov	r1, r2
+    4f32:	f200 4014 	addw	r0, r0, #1044	@ 0x414
+    4f36:	4798      	blx	r3
+    4f38:	f104 0314 	add.w	r3, r4, #20
+    4f3c:	6023      	str	r3, [r4, #0]
+    4f3e:	2300      	movs	r3, #0
+    4f40:	e9c4 3301 	strd	r3, r3, [r4, #4]
+    4f44:	60e3      	str	r3, [r4, #12]
+    4f46:	f44f 6380 	mov.w	r3, #1024	@ 0x400
+    4f4a:	6123      	str	r3, [r4, #16]
+    4f4c:	4620      	mov	r0, r4
+    4f4e:	bd10      	pop	{r4, pc}
+    4f50:	00000000 	.word	0x00000000
+			4f50: R_ARM_ABS32	z_impl_k_sem_init
+
+00001e3c <_Z10__loopHookv>:
+    1e3c:	4770      	bx	lr
+	...

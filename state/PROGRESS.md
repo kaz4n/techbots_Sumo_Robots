@@ -467,3 +467,6 @@ Session checkpoint: implementation9de8cd1 is current inert ADC firmwaref5f637b2/
 
 
 2026-09-23T12:50:17+04:00 | P2 B3 D081 final checkpoint | Existing443tooling PASS678.339s exit0;450distinct methods across separate existing/new runs. All validation jobs complete. Implementation7b46598/contractf0031e8; full cleanhost/sanitizer/actualcompile-only/separate review PASS as recorded. Shared native receipts preserve369exit0+4expected sentinel exits1; setup92exit0. No upload/reset/MCU/sensor/motor, physical acceptance or human gate. Next actual estimator/presence/bias/axis/continuous-yaw work from bounded next_b3_audit.md; full P0-P7 goalACTIVE/incomplete. | evidence commit follows
+
+
+2026-09-23T12:58:11+04:00 | P2 B3 D082 | Previous goal turn classified PROGRESS: actual D081 acquisition implemented/reviewed/validated in7b46598/2ab0f6e;450tooling checks and full host/sanitizer/actual target compile-only pass. Clean current baseline verified. Freeze explicit mounting/continuous-yaw/bias/gap contract and header before separate implementation/tests. Fresh-context same-model reviewer finds no material contract conflict. No physical map or human gate assumed. | prerequisites commit follows

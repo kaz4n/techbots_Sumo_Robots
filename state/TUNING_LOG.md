@@ -261,3 +261,6 @@ measurements, divider calibration, wiring approval or runtime/WCET acceptance.
 2026-09-23 | D080 DEVELOPMENT DEFAULTS, no physical tuning | Added MPU6050 fixed1000dps/8g/DLPF1/divider0 and setup110/110/50/20/20ms waits,1s/1024advance/64request caps. Source: analysis/P2_mpu6050_sample_audit.md and P2_imu_setup_contract.md. B16 values unchanged; settings/settling/rate/bias/clock remain unmeasured.
 
 2026-09-23 | D081 SPEC CONSTANT | Add IMU_SILENCE_US20000 from BEHAVIOR B14, with explicit observed-data/completion and reset-only lifecycle in P2_imu_acquisition_contract.md. No physical tuning, changed B16 value or transfer budget.
+
+
+2026-09-23T12:58:11+04:00 | D082 software development constant | Add IMU_HEADING_MAX_GAP_US=2000 (two default control periods), allow equality and reject larger observed heading gaps. This is an explicit conservative continuity choice under D051, not physical tuning evidence or a measured sample-age guarantee. Existing B14 IMU_SILENCE_US20000 and all B16 defaults remain unchanged. Evidence/acceptance contract: analysis/P2_imu_heading_contract.md.

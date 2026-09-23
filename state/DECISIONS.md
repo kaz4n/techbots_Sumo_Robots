@@ -982,3 +982,24 @@ exceed600us and must fault; no changed timing budget,800us tick claim or gate.
 Independent native and wrapper tests, full relevant regression, inert target
 compile and separate review required. Bias, axes, calibration-presence and
 continuous-yaw integration follow separately; SC-AJ/F091 remain global blockers.
+
+
+## D-082 (2026-09-23, selected under D-051/D-075) Explicit body coordinates and yaw
+Context: D081 publishes qualified sensor-coordinate observations. B3/D059 need
+continuous yaw, a future-increment bias path and distinct fresh/retained evidence.
+The physical sensor orientation and a numerical gap rule were unspecified.
+Decision: adopt P2_imu_heading_contract.md and imu_heading.h. Require an explicitly
+confirmed proper signed axis permutation; choose body X forward, Y right, Z down,
+without selecting the robot's unverified mounting. Integrate mapped body-Z rate
+with a double trapezoidal accumulator using observed completion times, explicitly
+an approximation. First observation anchors zero; no GO reset or NO_NEW increment.
+Select IMU_HEADING_MAX_GAP_US=2000 as a development continuity limit, equality
+allowed, larger gaps reset-only faults. B14's separate20ms acquisition deadline
+is unchanged. Apply finite accepted bias to future increments only. Distinguish
+fresh gyro/acceleration from retained bounded-age heading; selected yaw gyro rail
+loses continuity, horizontal acceleration rails invalidate acceleration only.
+Consequence: no physical map, measured timing/accuracy or gate is inferred. This
+is the concrete HAL estimator, not yet core/app wiring: the current combined
+imu_ok still needs separate availability/freshness routing. D024 averaging and
+D059 logical GO origin remain unchanged. New spec-derived tests, target compile
+and fresh separate review are required; no old locked assertion changes.

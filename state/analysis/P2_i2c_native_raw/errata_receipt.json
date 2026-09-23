@@ -1,0 +1,23 @@
+{
+  "url": "https://www.st.com/resource/en/errata_sheet/es0499-stm32u575xx-and-stm32u585xx-device-errata-stmicroelectronics.pdf",
+  "document": "ES0499 Rev12 June2026; 51 pages",
+  "retrieved": "2026-09-23; official web PDF reader; no local PDF byte hash claimed",
+  "intervals": [
+    {
+      "pages": "4,32-33",
+      "sections": "2.20.1-2.20.3",
+      "web_lines": "195-199,1350-1394"
+    },
+    {
+      "pages": "17",
+      "section": "2.4.1",
+      "web_lines": "731-752"
+    }
+  ],
+  "conclusions": [
+    "Fast-mode standards-compliant transmitter setup of100ns requires I2C kernel at least10MHz; source nominal160MHz satisfies this conditional inequality.",
+    "Controller BERR may be spurious and does not terminate transfer; specified workaround clears BERR while normal handling can continue.",
+    "SMBus target timeout issue is excluded by proposed controller-only SMBus-disabled mode.",
+    "RevisionX GPIO excess-current issue depends on filters/pad level/Stop or filter-disable ordering; no low-power mode or filter-mode change is adopted."
+  ]
+}

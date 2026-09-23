@@ -1,0 +1,75 @@
+RM0456 Rev 6
+2721/3653
+RM0456
+Inter-integrated circuit interface (I2C)
+2756
+Figure 801. Transfer bus diagrams for I2C controller receiver
+(mandatory events only)
+65.4.10 
+I2C_TIMINGR register configuration examples
+The following tables provide examples of how to program the I2C_TIMINGR register to 
+obtain timings compliant with the I²C-bus specification. To get more accurate configuration 
+values, use the STM32CubeMX tool (I2C Configuration window).
+MSv19865V2
+Example I2C
+receiver 2 bytes, automatic end mode (STOP)
+INIT: program
+address,  program NBYTES = 2,  AUTOEND=1, set START
+EV1: RXNE ISR:  rd data1
+EV2: RXNE ISR:  rd data2
+A
+RXNE
+RXNE
+NBYTES
+legend:
+transmission
+reception
+SCL stretch
+EV1
+xx
+2
+INIT
+Example I2C
+receiver 2 bytes, software end mode (RESTART)
+INIT: program
+address, program NBYTES = 2, AUTOEND=0, set START
+EV1: RXNE ISR: rd data1
+EV2: RXNE ISR: read data2
+EV3: TC ISR:  program
+address, program NBYTES = N,  set START
+A
+RXNE
+RXNE
+NBYTES
+legend:
+transmission
+reception
+SCL stretch
+EV1
+EV2
+xx
+INIT
+N
+EV2
+2
+TC
+Address
+S
+A
+data1
+data2
+NA
+ReS
+Address
+S
+Address
+A
+data1
+data2
+NA
+P
+controller
+controller
+target
+target
+target

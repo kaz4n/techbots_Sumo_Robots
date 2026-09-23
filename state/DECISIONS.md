@@ -912,3 +912,29 @@ EPOD BOOSTEN/BOOSTRDY and stock PLL1MBOOST DIV1 at160MHz (RM10.5.4 pp410–411),
 distinct from the analog-switch booster. These are read-only operating guards;
 no source/timing default or shared clock/power setting changes. Targeted tests
 preserve actual readiness-loss and ignored-write draft failures before repair.
+
+
+## D-079 (2026-09-23, selected under D-051/D-075) Bounded native MPU6050 transport
+Context: installed Wire1/I2C4 has indefinite ownership waits and500ms completion
+waits; elapsed checks afterward cannot satisfy R4. Native installed registers,
+RM0456/current ES0499 and the U585-specific filter/timing calculation support a
+finite polling mechanism while source clock and electrical premises stay open.
+Decision: adopt P2_imu_bus_contract.md/public imu_bus_unoq.h. Retain the installed
+PD12/PD13 AF4 Qwiic route; name it in config, not as wiring/PINMAP approval.
+Select address0x68 with0x69 supported; the real AD0 strap remains unverified.
+Select conditional TIMINGR0x40EB202C, analog filterON/DNF0,100us setup acceptance,
+600us whole-transfer acceptance,50us separate local disable and8192 shared polls.
+These are new development constants; no B16 value changes. Limit the transport
+to typed MPU6050 register reads/writes and one15byte INT_STATUS+motion burst.
+Completion is not sensor identity/settings/freshness/heading. Any runtime fault
+latches until reset; retain the irreversible boot claim even after ignored first
+writes. Invalid requests do no I/O. Choose conservative invalidation for BERR;
+cleanup only clears PE under retained ownership, with finite acknowledgement.
+No synthesizedSTOP/retry/reenable/RCCreset/bit-banging; DISABLED means localPE0,
+not externally idle/recovered bus. Do not blindly clean up after ownership loss.
+Consequence: independent spec-derived actual-source tests, inert target compile
+and fresh review required. The proposed ±1% clock envelope is conditional, not a
+measured guarantee or permission to exceed MCU ratings; SC-AJ remains global.
+No stock Wire calls, new generic framework, app integration, hardware evidence,
+phase gate or upload/run follows. MPU bounded setup/config/readback, sample-age
+and axis/bias integration remain a distinct next B3 task.

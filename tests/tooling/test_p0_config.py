@@ -46,6 +46,19 @@ NATIVE_POWER_DEFAULTS = {
     'VBAT_ADC_READ_MAX_POLLS': 4096,
 }
 NATIVE_POWER_FLOAT_NAMES = {'VBAT_ADC_REFERENCE_V', 'VBAT_DIVIDER_RATIO'}
+# D-079 narrow native MPU6050 transport; conditional software defaults only.
+NATIVE_IMU_BUS_DEFAULTS = {
+    'IMU_I2C_ADDRESS': 0x68,
+    'IMU_I2C_GPIO_PORT': 3,
+    'IMU_I2C_SCL_PIN': 12,
+    'IMU_I2C_SDA_PIN': 13,
+    'IMU_I2C_AF': 4,
+    'IMU_I2C_TIMINGR': 0x40EB202C,
+    'IMU_I2C_SETUP_US': 100,
+    'IMU_I2C_TRANSFER_US': 600,
+    'IMU_I2C_CLEANUP_US': 50,
+    'IMU_I2C_MAX_POLLS': 8192,
+}
 BEHAVIOR_EXTRA_DEFAULTS = {
     'VBAT_FILTER_MS': 1000,  # B6 one-second time constant.
     'REFLANK_WINDOW_MS': 10000,  # B11.3 existing ten-second rolling window.
@@ -120,7 +133,7 @@ class P0ConfigTests(unittest.TestCase):
                     set(BEHAVIOR_DERIVED_TYPES) | set(COUNTDOWN_SERVICE_DEFAULTS) |
                     set(PROPOSED_PIN_ARRAY_DEFAULTS) | set(NATIVE_MOTOR_DEFAULTS) |
                     set(NATIVE_MOTOR_ARRAY_DEFAULTS) | set(NATIVE_POWER_DEFAULTS) |
-                    NATIVE_POWER_FLOAT_NAMES)
+                    NATIVE_POWER_FLOAT_NAMES | set(NATIVE_IMU_BUS_DEFAULTS))
         self.assertEqual(expected, set(config_declarations()))
 
     def test_d076_proposed_opponent_pin_type_values_and_extent_match_hardware3(self):
@@ -159,6 +172,13 @@ class P0ConfigTests(unittest.TestCase):
         for name in DIAGNOSTIC_DEFAULTS:
             with self.subTest(diagnostic=name):
                 self.assertEqual('std::uint32_t', declarations[name][0])
+
+    def test_d079_native_imu_bus_route_timing_address_and_bounds_are_explicit(self):
+        declarations = config_declarations()
+        for name, expected in NATIVE_IMU_BUS_DEFAULTS.items():
+            with self.subTest(native_imu_bus=name):
+                self.assertEqual('std::uint32_t', declarations[name][0])
+                self.assertEqual(expected, number(declarations[name][1]))
 
     def test_d078_native_power_limits_and_nominal_scaling_are_explicit(self):
         declarations = config_declarations()

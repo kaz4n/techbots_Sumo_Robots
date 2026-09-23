@@ -1,0 +1,772 @@
+{
+  "exit": 0,
+  "stderr": "",
+  "records": [
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/soc/st/stm32/common/pinctrl_soc.h",
+      "sha256": "f49dfad5a5ca5c68cbf1d631bb87ff763f04cf238d9c0bfb889f0e892ccaf595",
+      "bytes": 11448,
+      "lines": [
+        [
+          39,
+          "\tuint32_t pinmux;"
+        ],
+        [
+          40,
+          "\t/** Pin configuration (bias, drive, slew rate, I/O retime) */"
+        ],
+        [
+          41,
+          "\tuint32_t pincfg;"
+        ],
+        [
+          42,
+          "} pinctrl_soc_pin_t;"
+        ],
+        [
+          43,
+          ""
+        ],
+        [
+          44,
+          "/**"
+        ],
+        [
+          47,
+          " * @param node_id Node identifier."
+        ],
+        [
+          48,
+          " */"
+        ],
+        [
+          49,
+          "#define Z_PINCTRL_STM32_PINMUX_INIT(node_id) DT_PROP(node_id, pinmux)"
+        ],
+        [
+          50,
+          ""
+        ],
+        [
+          51,
+          "/**"
+        ],
+        [
+          52,
+          " * @brief Definitions used to initialize fields in #pinctrl_pin_t"
+        ],
+        [
+          72,
+          " *    GPIO Output PP/OD   [ 5 ]"
+        ],
+        [
+          73,
+          " *    GPIO Output AF/GP   [ 6 ]"
+        ],
+        [
+          74,
+          " *    GPIO PUPD Config    [ 7 : 8 ]"
+        ],
+        [
+          75,
+          " *    GPIO ODR            [ 9 ]"
+        ],
+        [
+          76,
+          " *"
+        ],
+        [
+          77,
+          " * Applicable to STM32F1 series"
+        ],
+        [
+          87,
+          "#define STM32_CNF_IN_ANALOG\t\t(0x0 << STM32_CNF_IN_SHIFT)"
+        ],
+        [
+          88,
+          "#define STM32_CNF_IN_FLOAT\t\t(0x1 << STM32_CNF_IN_SHIFT)"
+        ],
+        [
+          89,
+          "#define STM32_CNF_IN_PUPD\t\t(0x2 << STM32_CNF_IN_SHIFT)"
+        ],
+        [
+          90,
+          "#define STM32_CNF_IN_MASK\t\t0x3"
+        ],
+        [
+          91,
+          "#define STM32_CNF_IN_SHIFT\t\t1"
+        ],
+        [
+          92,
+          ""
+        ],
+        [
+          93,
+          "/* Output Port configuration */"
+        ],
+        [
+          94,
+          "#define STM32_MODE_OUTPUT_MAX_10\t(0x0 << STM32_MODE_OSPEED_SHIFT)"
+        ],
+        [
+          95,
+          "#define STM32_MODE_OUTPUT_MAX_2\t\t(0x1 << STM32_MODE_OSPEED_SHIFT)"
+        ],
+        [
+          96,
+          "#define STM32_MODE_OUTPUT_MAX_50\t(0x2 << STM32_MODE_OSPEED_SHIFT)"
+        ],
+        [
+          97,
+          "#define STM32_MODE_OSPEED_MASK\t\t0x3"
+        ],
+        [
+          98,
+          "#define STM32_MODE_OSPEED_SHIFT\t\t3"
+        ],
+        [
+          99,
+          ""
+        ],
+        [
+          100,
+          "#define STM32_CNF_PUSH_PULL\t\t(0x0 << STM32_CNF_OUT_0_SHIFT)"
+        ],
+        [
+          101,
+          "#define STM32_CNF_OPEN_DRAIN\t\t(0x1 << STM32_CNF_OUT_0_SHIFT)"
+        ],
+        [
+          109,
+          ""
+        ],
+        [
+          110,
+          "/* GPIO High impedance/Pull-up/Pull-down */"
+        ],
+        [
+          111,
+          "#define STM32_PUPD_NO_PULL\t\t(0x0 << STM32_PUPD_SHIFT)"
+        ],
+        [
+          112,
+          "#define STM32_PUPD_PULL_UP\t\t(0x1 << STM32_PUPD_SHIFT)"
+        ],
+        [
+          113,
+          "#define STM32_PUPD_PULL_DOWN\t\t(0x2 << STM32_PUPD_SHIFT)"
+        ],
+        [
+          114,
+          "#define STM32_PUPD_MASK\t\t\t0x3"
+        ],
+        [
+          115,
+          "#define STM32_PUPD_SHIFT\t\t7"
+        ],
+        [
+          116,
+          ""
+        ],
+        [
+          117,
+          "/* GPIO plain output value */"
+        ],
+        [
+          118,
+          "#define STM32_ODR_0\t\t\t(0x0 << STM32_ODR_SHIFT)"
+        ],
+        [
+          122,
+          ""
+        ],
+        [
+          123,
+          "/**"
+        ],
+        [
+          124,
+          " * @brief Utility macro to initialize pincfg field in #pinctrl_pin_t (F1)."
+        ],
+        [
+          125,
+          " *"
+        ],
+        [
+          126,
+          " * @param node_id Node identifier."
+        ],
+        [
+          127,
+          " */"
+        ],
+        [
+          128,
+          "#define Z_PINCTRL_STM32_PINCFG_INIT(node_id)\t\t\t\t       \\"
+        ],
+        [
+          129,
+          "\t(((STM32_NO_PULL * DT_PROP(node_id, bias_disable)) << STM32_PUPD_SHIFT) | \\"
+        ],
+        [
+          130,
+          "\t ((STM32_PULL_UP * DT_PROP(node_id, bias_pull_up)) << STM32_PUPD_SHIFT) | \\"
+        ],
+        [
+          131,
+          "\t ((STM32_PULL_DOWN * DT_PROP(node_id, bias_pull_down)) << STM32_PUPD_SHIFT) | \\"
+        ],
+        [
+          132,
+          "\t ((STM32_PUSH_PULL * DT_PROP(node_id, drive_push_pull)) << STM32_CNF_OUT_0_SHIFT) | \\"
+        ],
+        [
+          133,
+          "\t ((STM32_OPEN_DRAIN * DT_PROP(node_id, drive_open_drain)) << STM32_CNF_OUT_0_SHIFT) | \\"
+        ],
+        [
+          134,
+          "\t ((STM32_OUTPUT_LOW * DT_PROP(node_id, output_low)) << STM32_ODR_SHIFT) | \\"
+        ],
+        [
+          135,
+          "\t ((STM32_OUTPUT_HIGH * DT_PROP(node_id, output_high)) << STM32_ODR_SHIFT) | \\"
+        ],
+        [
+          136,
+          "\t (DT_ENUM_IDX(node_id, slew_rate) << STM32_MODE_OSPEED_SHIFT))"
+        ],
+        [
+          137,
+          "#else"
+        ],
+        [
+          138,
+          ""
+        ],
+        [
+          139,
+          "/**"
+        ],
+        [
+          146,
+          " *\t[   06] GPIO Output type"
+        ],
+        [
+          147,
+          " *\t[08:07] GPIO Speed"
+        ],
+        [
+          148,
+          " *\t[10:09] GPIO PUPD config"
+        ],
+        [
+          149,
+          " *\t[   11] GPIO Output data"
+        ],
+        [
+          150,
+          " *"
+        ],
+        [
+          151,
+          " * These fields are only used when pinctrl with compatible"
+        ],
+        [
+          170,
+          ""
+        ],
+        [
+          171,
+          "/* GPIO Output type */"
+        ],
+        [
+          172,
+          "#define STM32_OTYPER_PUSH_PULL\t\t(0x0 << STM32_OTYPER_SHIFT)"
+        ],
+        [
+          173,
+          "#define STM32_OTYPER_OPEN_DRAIN\t\t(0x1 << STM32_OTYPER_SHIFT)"
+        ],
+        [
+          174,
+          "#define STM32_OTYPER_MASK\t\t0x1"
+        ],
+        [
+          175,
+          "#define STM32_OTYPER_SHIFT\t\t6"
+        ],
+        [
+          176,
+          ""
+        ],
+        [
+          177,
+          "/* GPIO speed */"
+        ],
+        [
+          178,
+          "#define STM32_OSPEEDR_LOW_SPEED\t\t(0x0 << STM32_OSPEEDR_SHIFT)"
+        ],
+        [
+          179,
+          "#define STM32_OSPEEDR_MEDIUM_SPEED\t(0x1 << STM32_OSPEEDR_SHIFT)"
+        ],
+        [
+          180,
+          "#define STM32_OSPEEDR_HIGH_SPEED\t(0x2 << STM32_OSPEEDR_SHIFT)"
+        ],
+        [
+          181,
+          "#define STM32_OSPEEDR_VERY_HIGH_SPEED\t(0x3 << STM32_OSPEEDR_SHIFT)"
+        ],
+        [
+          182,
+          "#define STM32_OSPEEDR_MASK\t\t0x3"
+        ],
+        [
+          183,
+          "#define STM32_OSPEEDR_SHIFT\t\t7"
+        ],
+        [
+          184,
+          ""
+        ],
+        [
+          185,
+          "/* GPIO High impedance/Pull-up/pull-down */"
+        ],
+        [
+          186,
+          "#define STM32_PUPDR_NO_PULL\t\t(0x0 << STM32_PUPDR_SHIFT)"
+        ],
+        [
+          187,
+          "#define STM32_PUPDR_PULL_UP\t\t(0x1 << STM32_PUPDR_SHIFT)"
+        ],
+        [
+          188,
+          "#define STM32_PUPDR_PULL_DOWN\t\t(0x2 << STM32_PUPDR_SHIFT)"
+        ],
+        [
+          189,
+          "#define STM32_PUPDR_MASK\t\t0x3"
+        ],
+        [
+          190,
+          "#define STM32_PUPDR_SHIFT\t\t9"
+        ],
+        [
+          191,
+          ""
+        ],
+        [
+          192,
+          "/* GPIO plain output value */"
+        ],
+        [
+          193,
+          "#define STM32_ODR_0\t\t\t(0x0 << STM32_ODR_SHIFT)"
+        ],
+        [
+          240,
+          ""
+        ],
+        [
+          241,
+          "/**"
+        ],
+        [
+          242,
+          " * @brief Utility macro to initialize fields of @ref{pinctrl_pin_t}.pincfg"
+        ],
+        [
+          243,
+          " *        related to the I/O synchronization feature"
+        ],
+        [
+          244,
+          " *"
+        ],
+        [
+          245,
+          " * @param node_id Pinctrl node identifier"
+        ],
+        [
+          269,
+          ""
+        ],
+        [
+          270,
+          "/**"
+        ],
+        [
+          271,
+          " * @brief Utility macro to initialize pincfg field in #pinctrl_pin_t (non-F1)."
+        ],
+        [
+          272,
+          " *"
+        ],
+        [
+          273,
+          " * @param node_id Node identifier."
+        ],
+        [
+          274,
+          " */"
+        ],
+        [
+          275,
+          "#define Z_PINCTRL_STM32_PINCFG_INIT(node_id)\t\t\t\t       \\"
+        ],
+        [
+          276,
+          "\t(((STM32_NO_PULL * DT_PROP(node_id, bias_disable)) << STM32_PUPDR_SHIFT) | \\"
+        ],
+        [
+          277,
+          "\t ((STM32_PULL_UP * DT_PROP(node_id, bias_pull_up)) << STM32_PUPDR_SHIFT) | \\"
+        ],
+        [
+          278,
+          "\t ((STM32_PULL_DOWN * DT_PROP(node_id, bias_pull_down)) << STM32_PUPDR_SHIFT) | \\"
+        ],
+        [
+          279,
+          "\t ((STM32_PUSH_PULL * DT_PROP(node_id, drive_push_pull)) << STM32_OTYPER_SHIFT) | \\"
+        ],
+        [
+          280,
+          "\t ((STM32_OPEN_DRAIN * DT_PROP(node_id, drive_open_drain)) << STM32_OTYPER_SHIFT) | \\"
+        ],
+        [
+          281,
+          "\t ((STM32_OUTPUT_LOW * DT_PROP(node_id, output_low)) << STM32_ODR_SHIFT) | \\"
+        ],
+        [
+          282,
+          "\t ((STM32_OUTPUT_HIGH * DT_PROP(node_id, output_high)) << STM32_ODR_SHIFT) | \\"
+        ],
+        [
+          283,
+          "\t ((STM32_GPIO_OUTPUT * DT_PROP(node_id, output_low)) << STM32_MODER_SHIFT) | \\"
+        ],
+        [
+          284,
+          "\t ((STM32_GPIO_OUTPUT * DT_PROP(node_id, output_high)) << STM32_MODER_SHIFT) | \\"
+        ],
+        [
+          285,
+          "\t (DT_ENUM_IDX(node_id, slew_rate) << STM32_OSPEEDR_SHIFT) | \\"
+        ],
+        [
+          286,
+          "\t (Z_PINCTRL_STM32_IOSYNC_INIT(node_id)) | \\"
+        ],
+        [
+          287,
+          "\t (Z_PINCTRL_STM32_HSLV_INIT(node_id)))"
+        ],
+        [
+          288,
+          "#endif /* CONFIG_SOC_SERIES_STM32F1X */"
+        ],
+        [
+          296,
+          " */"
+        ],
+        [
+          297,
+          "#define Z_PINCTRL_STATE_PIN_INIT(node_id, state_prop, idx)\t\t       \\"
+        ],
+        [
+          298,
+          "\t{ .pinmux = Z_PINCTRL_STM32_PINMUX_INIT(\t\t\t       \\"
+        ],
+        [
+          299,
+          "\t\tDT_PROP_BY_IDX(node_id, state_prop, idx)),\t\t       \\"
+        ],
+        [
+          300,
+          "\t  .pincfg = Z_PINCTRL_STM32_PINCFG_INIT(\t\t\t       \\"
+        ],
+        [
+          301,
+          "\t\tDT_PROP_BY_IDX(node_id, state_prop, idx)) },"
+        ],
+        [
+          302,
+          ""
+        ],
+        [
+          303,
+          "/**"
+        ]
+      ]
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/zephyr/dt-bindings/pinctrl/stm32-pinctrl.h",
+      "sha256": "c76c396f9e907d199eb6fb178fbd657c513202444f8d5fc77cc0d2fcc0a02f54",
+      "bytes": 1743,
+      "lines": [
+        [
+          60,
+          " * @param mode Mode (ANALOG, GPIO_IN, ALTERNATE)."
+        ],
+        [
+          61,
+          " */"
+        ],
+        [
+          62,
+          "#define STM32_PINMUX(port, line, mode)\t\t\t\t\t       \\"
+        ],
+        [
+          63,
+          "\t\t(((((port) - 'A') & STM32_PORT_MASK) << STM32_PORT_SHIFT) |    \\"
+        ],
+        [
+          64,
+          "\t\t(((line) & STM32_LINE_MASK) << STM32_LINE_SHIFT) |\t       \\"
+        ],
+        [
+          65,
+          "\t\t(((STM32_ ## mode) & STM32_MODE_MASK) << STM32_MODE_SHIFT))"
+        ]
+      ]
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/zephyr/dt-bindings/pinctrl/stm32-pinctrl-common.h",
+      "sha256": "3d75ca3182fcdfb55adf7ae4e661ce99bc2486f5192460ba605247e51743a5b4",
+      "bytes": 928,
+      "lines": []
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/generated/zephyr/devicetree_generated.h",
+      "sha256": "5b0e9b1d0f7d878415d53a5d724e976061aca52177967d90d7c76c3cb0b0fb80",
+      "lines": [
+        [
+          5895,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_i2c4_scl_pd12_P_pinmux 1924"
+        ],
+        [
+          5896,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_i2c4_scl_pd12_P_pinmux_EXISTS 1"
+        ],
+        [
+          5897,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_i2c4_scl_pd12_P_slew_rate \"low-speed\""
+        ],
+        [
+          5898,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_i2c4_scl_pd12_P_slew_rate_STRING_UNQUOTED low-speed"
+        ],
+        [
+          5899,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_i2c4_scl_pd12_P_slew_rate_STRING_TOKEN low_speed"
+        ],
+        [
+          5900,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_i2c4_scl_pd12_P_slew_rate_STRING_UPPER_TOKEN LOW_SPEED"
+        ],
+        [
+          5901,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_i2c4_scl_pd12_P_slew_rate_IDX_0 \"low-speed\""
+        ],
+        [
+          5902,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_i2c4_scl_pd12_P_slew_rate_IDX_0_EXISTS 1"
+        ],
+        [
+          5903,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_i2c4_scl_pd12_P_slew_rate_IDX_0_ENUM_IDX 0"
+        ],
+        [
+          5904,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_i2c4_scl_pd12_P_slew_rate_IDX_0_ENUM_VAL_low_speed_EXISTS 1"
+        ],
+        [
+          5905,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_i2c4_scl_pd12_P_slew_rate_ENUM_VAL_low_speed_EXISTS 1"
+        ],
+        [
+          5906,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_i2c4_scl_pd12_P_slew_rate_FOREACH_PROP_ELEM(fn) fn(DT_N_S_soc_S_pin_controller_42020000_S_i2c4_scl_pd12, slew_rate, 0)"
+        ],
+        [
+          5907,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_i2c4_scl_pd12_P_slew_rate_FOREACH_PROP_ELEM_SEP(fn, sep) fn(DT_N_S_soc_S_pin_controller_42020000_S_i2c4_scl_pd12, slew_rate, 0)"
+        ],
+        [
+          5908,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_i2c4_scl_pd12_P_slew_rate_FOREACH_PROP_ELEM_VARGS(fn, ...) fn(DT_N_S_soc_S_pin_controller_42020000_S_i2c4_scl_pd12, slew_rate, 0, __VA_ARGS__)"
+        ],
+        [
+          5909,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_i2c4_scl_pd12_P_slew_rate_FOREACH_PROP_ELEM_SEP_VARGS(fn, sep, ...) fn(DT_N_S_soc_S_pin_controller_42020000_S_i2c4_scl_pd12, slew_rate, 0, __VA_ARGS__)"
+        ],
+        [
+          5910,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_i2c4_scl_pd12_P_slew_rate_LEN 1"
+        ],
+        [
+          5911,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_i2c4_scl_pd12_P_slew_rate_EXISTS 1"
+        ],
+        [
+          5912,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_i2c4_scl_pd12_P_bias_disable 0"
+        ],
+        [
+          5913,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_i2c4_scl_pd12_P_bias_disable_EXISTS 1"
+        ],
+        [
+          5914,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_i2c4_scl_pd12_P_bias_pull_up 1"
+        ],
+        [
+          5915,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_i2c4_scl_pd12_P_bias_pull_up_EXISTS 1"
+        ],
+        [
+          5916,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_i2c4_scl_pd12_P_bias_pull_down 0"
+        ],
+        [
+          5917,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_i2c4_scl_pd12_P_bias_pull_down_EXISTS 1"
+        ],
+        [
+          5918,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_i2c4_scl_pd12_P_drive_push_pull 0"
+        ],
+        [
+          5919,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_i2c4_scl_pd12_P_drive_push_pull_EXISTS 1"
+        ],
+        [
+          5920,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_i2c4_scl_pd12_P_drive_open_drain 1"
+        ],
+        [
+          5921,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_i2c4_scl_pd12_P_drive_open_drain_EXISTS 1"
+        ],
+        [
+          6113,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_i2c4_sda_pd13_P_pinmux 1956"
+        ],
+        [
+          6114,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_i2c4_sda_pd13_P_pinmux_EXISTS 1"
+        ],
+        [
+          6115,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_i2c4_sda_pd13_P_slew_rate \"low-speed\""
+        ],
+        [
+          6116,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_i2c4_sda_pd13_P_slew_rate_STRING_UNQUOTED low-speed"
+        ],
+        [
+          6117,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_i2c4_sda_pd13_P_slew_rate_STRING_TOKEN low_speed"
+        ],
+        [
+          6118,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_i2c4_sda_pd13_P_slew_rate_STRING_UPPER_TOKEN LOW_SPEED"
+        ],
+        [
+          6119,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_i2c4_sda_pd13_P_slew_rate_IDX_0 \"low-speed\""
+        ],
+        [
+          6120,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_i2c4_sda_pd13_P_slew_rate_IDX_0_EXISTS 1"
+        ],
+        [
+          6121,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_i2c4_sda_pd13_P_slew_rate_IDX_0_ENUM_IDX 0"
+        ],
+        [
+          6122,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_i2c4_sda_pd13_P_slew_rate_IDX_0_ENUM_VAL_low_speed_EXISTS 1"
+        ],
+        [
+          6123,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_i2c4_sda_pd13_P_slew_rate_ENUM_VAL_low_speed_EXISTS 1"
+        ],
+        [
+          6124,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_i2c4_sda_pd13_P_slew_rate_FOREACH_PROP_ELEM(fn) fn(DT_N_S_soc_S_pin_controller_42020000_S_i2c4_sda_pd13, slew_rate, 0)"
+        ],
+        [
+          6125,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_i2c4_sda_pd13_P_slew_rate_FOREACH_PROP_ELEM_SEP(fn, sep) fn(DT_N_S_soc_S_pin_controller_42020000_S_i2c4_sda_pd13, slew_rate, 0)"
+        ],
+        [
+          6126,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_i2c4_sda_pd13_P_slew_rate_FOREACH_PROP_ELEM_VARGS(fn, ...) fn(DT_N_S_soc_S_pin_controller_42020000_S_i2c4_sda_pd13, slew_rate, 0, __VA_ARGS__)"
+        ],
+        [
+          6127,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_i2c4_sda_pd13_P_slew_rate_FOREACH_PROP_ELEM_SEP_VARGS(fn, sep, ...) fn(DT_N_S_soc_S_pin_controller_42020000_S_i2c4_sda_pd13, slew_rate, 0, __VA_ARGS__)"
+        ],
+        [
+          6128,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_i2c4_sda_pd13_P_slew_rate_LEN 1"
+        ],
+        [
+          6129,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_i2c4_sda_pd13_P_slew_rate_EXISTS 1"
+        ],
+        [
+          6130,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_i2c4_sda_pd13_P_bias_disable 0"
+        ],
+        [
+          6131,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_i2c4_sda_pd13_P_bias_disable_EXISTS 1"
+        ],
+        [
+          6132,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_i2c4_sda_pd13_P_bias_pull_up 1"
+        ],
+        [
+          6133,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_i2c4_sda_pd13_P_bias_pull_up_EXISTS 1"
+        ],
+        [
+          6134,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_i2c4_sda_pd13_P_bias_pull_down 0"
+        ],
+        [
+          6135,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_i2c4_sda_pd13_P_bias_pull_down_EXISTS 1"
+        ],
+        [
+          6136,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_i2c4_sda_pd13_P_drive_push_pull 0"
+        ],
+        [
+          6137,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_i2c4_sda_pd13_P_drive_push_pull_EXISTS 1"
+        ],
+        [
+          6138,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_i2c4_sda_pd13_P_drive_open_drain 1"
+        ],
+        [
+          6139,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_i2c4_sda_pd13_P_drive_open_drain_EXISTS 1"
+        ]
+      ]
+    }
+  ]
+}

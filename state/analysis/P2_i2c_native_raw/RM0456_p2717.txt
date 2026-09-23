@@ -1,0 +1,66 @@
+RM0456 Rev 6
+2717/3653
+RM0456
+Inter-integrated circuit interface (I2C)
+2756
+Figure 798. Transfer bus diagrams for I2C controller transmitter
+(mandatory events only)
+MSv19862V3
+Example I2C controller transmitter 2 bytes, automatic end mode (STOP)
+INIT: program
+address,  program NBYTES = 2,  AUTOEND = 1, set START
+EV1: TXIS ISR: wr data1
+EV2: TXIS ISR: wr data2
+TXIS
+TXIS
+legend:
+transmission
+reception
+SCL stretch
+EV1 EV2
+xx
+2
+INIT
+Example I2C controller transmitter 2 bytes, software end mode (RESTART)
+INIT: program
+address, program NBYTES = 2, AUTOEND = 0, set START
+EV1: TXIS ISR: wr data1
+EV2: TXIS ISR: wr data2
+EV3: TC ISR: program
+address, program NBYTES = N, set START
+TXIS TXIS
+legend:
+transmission
+reception
+SCL stretch
+EV1
+EV2
+INIT
+TC
+TXE
+TXE
+EV3
+NBYTES
+NBYTES
+2
+xx
+S
+Address
+A
+data1
+A
+data2
+ReS
+Address
+A
+S
+Address
+A
+data1
+A
+data2
+A
+P
+target
+target
+target

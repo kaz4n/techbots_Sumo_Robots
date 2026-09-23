@@ -38,6 +38,18 @@ inline constexpr std::uint32_t VBAT_ADC_CONVERSION_US = 100U;
 inline constexpr std::uint32_t VBAT_ADC_SHUTDOWN_US = 100U;
 inline constexpr std::uint32_t VBAT_ADC_SETUP_MAX_POLLS = 65536U; // count exception
 inline constexpr std::uint32_t VBAT_ADC_READ_MAX_POLLS = 4096U; // count exception
+// D079 installed Qwiic route and conditional native timing; not PINMAP approval.
+// Address remains a development selection until the actual AD0 strap is checked.
+inline constexpr std::uint32_t IMU_I2C_ADDRESS = 0x68U; // 7-bit address exception
+inline constexpr std::uint32_t IMU_I2C_GPIO_PORT = 3U; // port D, zero-based exception
+inline constexpr std::uint32_t IMU_I2C_SCL_PIN = 12U; // installed PD12
+inline constexpr std::uint32_t IMU_I2C_SDA_PIN = 13U; // installed PD13
+inline constexpr std::uint32_t IMU_I2C_AF = 4U; // installed alternate-function exception
+inline constexpr std::uint32_t IMU_I2C_TIMINGR = 0x40EB202CU; // register-value exception
+inline constexpr std::uint32_t IMU_I2C_SETUP_US = 100U;
+inline constexpr std::uint32_t IMU_I2C_TRANSFER_US = 600U;
+inline constexpr std::uint32_t IMU_I2C_CLEANUP_US = 50U;
+inline constexpr std::uint32_t IMU_I2C_MAX_POLLS = 8192U; // count exception
 inline constexpr std::uint32_t COUNTDOWN_MS = 5000U; // ms
 inline constexpr std::uint32_t COUNTDOWN_MARGIN_MS = 100U; // ms
 inline constexpr std::uint32_t TICK_US = 1000U; // us

@@ -1,0 +1,31 @@
+RM0456 Rev 6
+2719/3653
+RM0456
+Inter-integrated circuit interface (I2C)
+2756
+Figure 799. Transfer sequence flow for I2C controller receiver, N ≤ 255 bytes 
+MSv19863V3
+Controller initialization
+Controller 
+reception
+Read I2C_RXDR
+I2C_ISR.RXNE 
+=1?
+No
+Yes
+NBYTES = N
+AUTOEND = 0 for RESTART; 1 for STOP
+Configure target address
+Set I2C_CR2.START
+NBYTES 
+received?
+I2C_ISR.TC = 
+1?
+Yes
+End
+No
+Yes
+No
+Set I2C_CR2.START with 
+target addess NBYTES
+ ...

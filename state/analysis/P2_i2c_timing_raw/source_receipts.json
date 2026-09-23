@@ -1,0 +1,84 @@
+{
+  "date": "2026-09-23",
+  "scope": "Offline conditional timing calculation; no observed hardware",
+  "sources": [
+    {
+      "document": "RM0456 Rev6 January2025",
+      "url": "https://www.stmcu.jp/wp/wp-content/uploads/2021/07/RM0456_Rev6.pdf",
+      "local_pdf": "build/cache/RM0456_Rev6_52152e41.pdf",
+      "pdf_sha256": "52152e414e2ac329cfd9038481b97e8ff70592f9892d171dcb63b7d283722616",
+      "retained_page_hash_manifest": "state/analysis/P2_i2c_native_raw/manual_pages.json",
+      "page_hash_note": "Retained manifest hashes LF text. Current checkout page bytes use CRLF; checkpoint records both byte hash and LF-normalized hash, all eight normalized hashes match. Original PDF byte hash matches exactly.",
+      "pages": [2693, 2695, 2696, 2697, 2698, 2710, 2712, 2743],
+      "use": "U585 timing equations, synchronization2..3 cycles, filters, mode controls, PE cleanup and three-APB-cycle condition"
+    },
+    {
+      "document": "AN4235 Rev2",
+      "url": "https://www.st.com/resource/en/application_note/an4235-i2c-timing-configuration-tool-for-stm32f3xxxx-and-stm32f0xxxx-microcontrollers-stmicroelectronics.pdf",
+      "retrieval": "Official web PDF reader succeeded; direct download timed out; no local original PDF/hash claimed",
+      "pages": [10, 11, 12],
+      "use": "Calculation methodology, cross-checked against U585 RM; F0/F3 scope and analog-filter maximum are not transferred to U585",
+      "equations": {
+        "tpresc": "(PRESC+1)*T",
+        "SCLDEL_min": "(tr+tSU_DAT_min)/tpresc-1",
+        "SDADEL_min": "(tf+tHD_DAT_min-tAFmin-DNF*T-3*T)/tpresc",
+        "SDADEL_max": "(tVD_DAT_max-tr-tAFmax-DNF*T-4*T)/tpresc",
+        "tSCL": "tf+tLOW+tr+tHIGH"
+      }
+    },
+    {
+      "document": "DS13086 Rev10 July2024",
+      "url": "https://www.st.com/resource/en/datasheet/stm32u585ri.pdf",
+      "retrieval": "Official web PDF reader succeeded; direct download timed out; no local original PDF/hash claimed",
+      "pages": [221, 224, 298, 299],
+      "table148_analog_filter_ns": [50, 115],
+      "filter_characterization": "Specified by design, not production tested",
+      "table83_clock_caution": "MSI PLL-mode accuracy follows LSE crystal accuracy; this does not establish installed locked clock tolerance",
+      "rated_clock_caution": "Actual operating profile must remain within applicable160MHz maximum independently of mathematical161.6MHz timing corner"
+    },
+    {
+      "document": "PS-MPU-6000A-00 Rev3.4 August19,2013",
+      "url": "https://invensense.tdk.com/wp-content/uploads/2015/02/MPU-6000-Datasheet.pdf",
+      "retrieval": "Manufacturer-domain indexed search extraction returned section6.7 page18 table; direct PDF404/web open unavailable; no original PDF/hash claimed",
+      "page": 18,
+      "section": "6.7 I2C Timing Characterization",
+      "conditions": "Typical operating circuit, TA25C, VDD2.375..3.46V, VLOGIC1.8V+/-5% or VDD",
+      "limits": {
+        "scl_max_hz": 400000,
+        "low_min_ns": 1300,
+        "high_min_ns": 600,
+        "start_hold_min_ns": 600,
+        "repeated_start_setup_min_ns": 600,
+        "data_hold_min_ns": 0,
+        "data_setup_min_ns": 100,
+        "rise_fall_min_ns": "20+0.1*Cb, Cb in pF",
+        "rise_fall_max_ns": 300,
+        "stop_setup_min_ns": 600,
+        "bus_free_min_ns": 1300,
+        "data_ack_valid_max_ns": 900,
+        "table_capacitance_interval_pf": [10, 400]
+      },
+      "caution": "This characterization table does not prove breakout, pull-up, actual temperature, voltage or waveform compliance"
+    },
+    {
+      "document": "ES0499 Rev12 June2026",
+      "url": "https://www.st.com/resource/en/errata_sheet/es0499-stm32u575xx-and-stm32u585xx-device-errata-stmicroelectronics.pdf",
+      "retained_receipt": "state/analysis/P2_i2c_native_raw/errata_receipt.json",
+      "sections": ["2.2.27", "2.4.1", "2.20.1", "2.20.2"],
+      "use": "SC-AJ unresolved MSI clock qualification; Run-only fixed analog filter; Fast-mode100ns setup requires kernel>=10MHz; terminal BERR policy remains conservative"
+    }
+  ],
+  "engineering_inputs_not_observations": {
+    "clock_hz": [158400000, 161600000],
+    "independent_rise_fall_ns": [0, 300],
+    "effective_counter_interval_clock_tolerance_required": true,
+    "actual_rated_frequency_limit_also_required": true,
+    "request_acceptance_us": 600,
+    "terminal_cleanup_acceptance_us": 50,
+    "setup_acceptance_us": 100,
+    "shared_poll_backstop": 8192
+  },
+  "direct_fetch_failures": "retrieval.json",
+  "reproduction": "python state/analysis/P2_i2c_timing_raw/calculate.py",
+  "result": "128 timing corners and encoding/setup/hold/valid constraints pass; no physical clock, waveform, guaranteed transfer completion or whole-tick WCET claim"
+}

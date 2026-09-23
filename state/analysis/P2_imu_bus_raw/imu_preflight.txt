@@ -1,0 +1,108 @@
+{
+  "status": "INCOMPLETE",
+  "target": "2629958581",
+  "transport": "adb",
+  "captured_at_utc": "2026-09-23T07:23:28.287058+00:00",
+  "checks": [
+    {
+      "name": "kernel",
+      "command": [
+        "uname",
+        "-srmo"
+      ],
+      "status": "OK",
+      "returncode": 0,
+      "stdout": "Linux 6.16.7-g0dd6551ae96b aarch64 GNU/Linux\n",
+      "stderr": ""
+    },
+    {
+      "name": "cli",
+      "command": [
+        "arduino-cli",
+        "version"
+      ],
+      "status": "OK",
+      "returncode": 0,
+      "stdout": "arduino-cli  Version: 1.5.1 Commit: 01f3d4f2b Date: 2026-06-05T10:22:11Z\n",
+      "stderr": ""
+    },
+    {
+      "name": "cores",
+      "command": [
+        "arduino-cli",
+        "core",
+        "list"
+      ],
+      "status": "OK",
+      "returncode": 0,
+      "stdout": "ID             Installed Latest Name\narduino:zephyr 1.0.0     1.0.0  Arduino Q Boards\n\n",
+      "stderr": ""
+    },
+    {
+      "name": "board_options",
+      "command": [
+        "arduino-cli",
+        "board",
+        "details",
+        "--fqbn",
+        "arduino:zephyr:unoq"
+      ],
+      "status": "OK",
+      "returncode": 0,
+      "stdout": "Board name:                Arduino UNO Q\nFQBN:                      arduino:zephyr:unoq\nBoard version:             1.0.0\n\nOfficial Arduino board:    \u001b[32m\u00e2\u0153\u201d\u001b[0m\n\nIdentification properties: pid=0x0078\n                           vid=0x2341\n\nPackage name:              arduino\nPackage maintainer:        Arduino\nPackage URL:               https://downloads.arduino.cc/packages/package_index.tar.bz2\nPackage website:           https://www.arduino.cc/\nPackage online help:       https://www.arduino.cc/en/Reference/HomePage\n\nPlatform name:             Arduino Q Boards\nPlatform category:         Arduino\nPlatform architecture:     zephyr\nPlatform URL:              https://downloads.arduino.cc/cores/zephyr/ArduinoCore-zephyr_unoq-79b3f1af.tar.bz2\nPlatform file name:        ArduinoCore-zephyr_unoq-79b3f1af.tar.bz2\nPlatform size (bytes):     13982026\nPlatform checksum:         SHA-256:d4510d5772f12d4b11df7d1b41d24f71eb3629fbd3037b127fee5ac41d673a3d\n\nRequired tool: SiliconLabs:openocd                 0.12.0-arduino1-static\nRequired tool: arduino:adb                         32.0.0\nRequired tool: arduino:bin2uf2                     0.1.0\nRequired tool: arduino:bossac                      1.9.1-arduino2\nRequired tool: arduino:dfu-util                    0.11.0-arduino5\nRequired tool: arduino:gen-rodata-ld               0.1.1\nRequired tool: arduino:remoteocd                   0.1.1\nRequired tool: arduino:rp2040tools                 1.1.0-rc1\nRequired tool: arduino:scripting-tools             0.0.7\nRequired tool: arduino:sync-zephyr-artifacts       0.2.2\nRequired tool: arduino:zephyr-check-size           0.1.0\nRequired tool: arduino:zephyr-sketch-tool          0.4.1\nRequired tool: zephyr:arm-zephyr-eabi              1.0.1\n\nOption:        Link mode                                                    link_mode\n               \u001b[32mDynamic\u001b[0m                             \u001b[32m\u00e2\u0153\u201d\u001b[0m                        \u001b[32mlink_mode=dynamic\u001b[0m\n               Static                                                       link_mode=static\nOption:        Startup mode                                                 wait_linux_boot\n               \u001b[32mWait for Linux\u001b[0m                      \u001b[32m\u00e2\u0153\u201d\u001b[0m                        \u001b[32mwait_linux_boot=yes\u001b[0m\n               Immediate                                                    wait_linux_boot=no\n               Wait for App                                                 wait_linux_boot=app\nProgrammers:   ID                                  Name\n               cmsis-dap                           ARM CMSIS-DAP compatible\n               jlink                               JLink\n               openocd                             OpenOCD\n\n",
+      "stderr": ""
+    },
+    {
+      "name": "libraries",
+      "command": [
+        "arduino-cli",
+        "lib",
+        "list"
+      ],
+      "status": "OK",
+      "returncode": 0,
+      "stdout": "Name                    Installed Available Location Description\nAdafruit BusIO          1.17.4    -         user     -\nAdafruit MPU6050        2.2.9     -         user     -\nAdafruit Unified Sensor 1.1.15    -         user     -\nArduino_RouterBridge    0.4.3     -         user     -\nArduino_RPClite         0.3.1     -         user     -\nArxContainer            0.7.0     -         user     -\nArxTypeTraits           0.3.2     -         user     -\nDebugLog                0.8.4     -         user     -\nMsgPack                 0.4.2     -         user     -\n\n",
+      "stderr": ""
+    },
+    {
+      "name": "rsync",
+      "command": [
+        "rsync",
+        "--version"
+      ],
+      "status": "FAILED",
+      "returncode": 127,
+      "stdout": "",
+      "stderr": "/bin/bash: line 1: rsync: command not found\n"
+    },
+    {
+      "name": "python",
+      "command": [
+        "python3",
+        "--version"
+      ],
+      "status": "OK",
+      "returncode": 0,
+      "stdout": "Python 3.13.5\n",
+      "stderr": ""
+    },
+    {
+      "name": "listeners",
+      "command": [
+        "ss",
+        "-ltn"
+      ],
+      "status": "OK",
+      "returncode": 0,
+      "stdout": "State  Recv-Q Send-Q Local Address:Port  Peer Address:Port\nLISTEN 0      4096       127.0.0.1:8800       0.0.0.0:*   \nLISTEN 0      128          0.0.0.0:22         0.0.0.0:*   \nLISTEN 0      4096       127.0.0.1:7500       0.0.0.0:*   \nLISTEN 0      4096       127.0.0.1:46637      0.0.0.0:*   \nLISTEN 0      128             [::]:22            [::]:*   \n",
+      "stderr": ""
+    }
+  ],
+  "limitations": [
+    "Inventory only; outputs still require version and option review.",
+    "No compile, upload, reset, monitor connection or sensor operation.",
+    "Does not verify wiring, pin safety, MCU behavior, timing or a phase gate.",
+    "Loader config, library source and router identity still need inspection.",
+    "Transport failure or timeout stops remaining checks."
+  ]
+}

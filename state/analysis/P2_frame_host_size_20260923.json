@@ -1,0 +1,33 @@
+{
+  "scope": "Host ABI sizeof only; no MCU allocation/load/headroom measurement",
+  "utc": "2026-09-23T02:03:14.230700+00:00",
+  "checks": [
+    {
+      "command": [
+        "wsl",
+        "g++",
+        "-std=c++17",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-fno-exceptions",
+        "-fno-rtti",
+        "build/p2_frame_size.cpp",
+        "-o",
+        "build/p2_frame_size"
+      ],
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "wsl",
+        "./build/p2_frame_size"
+      ],
+      "exit_status": 0,
+      "stdout": "frame_bytes=25\nstored_frame_bytes=26\ncapacity=10001\nframe_buffer_bytes=260064\nevent_buffer_bytes=32784\n",
+      "stderr": ""
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+[
+  {
+    "command": [
+      "wsl",
+      "cmake",
+      "-S",
+      "host",
+      "-B",
+      "build/host",
+      "-DCMAKE_BUILD_TYPE=Debug"
+    ],
+    "started_utc": "2026-09-23T02:07:23.091456+00:00",
+    "ended_utc": "2026-09-23T02:07:24.327168+00:00",
+    "exit_status": 0,
+    "stdout": "state\\analysis\\P2_frame_validation_raw\\normal_retry1_1.stdout",
+    "stderr": "state\\analysis\\P2_frame_validation_raw\\normal_retry1_1.stderr"
+  },
+  {
+    "command": [
+      "wsl",
+      "cmake",
+      "--build",
+      "build/host",
+      "--parallel",
+      "2"
+    ],
+    "started_utc": "2026-09-23T02:07:24.327976+00:00",
+    "ended_utc": "2026-09-23T02:07:38.764540+00:00",
+    "exit_status": 0,
+    "stdout": "state\\analysis\\P2_frame_validation_raw\\normal_retry1_2.stdout",
+    "stderr": "state\\analysis\\P2_frame_validation_raw\\normal_retry1_2.stderr"
+  },
+  {
+    "command": [
+      "wsl",
+      "ctest",
+      "--test-dir",
+      "build/host",
+      "--verbose"
+    ],
+    "started_utc": "2026-09-23T02:07:38.765439+00:00",
+    "ended_utc": "2026-09-23T02:07:42.930102+00:00",
+    "exit_status": 0,
+    "stdout": "state\\analysis\\P2_frame_validation_raw\\normal_retry1_3.stdout",
+    "stderr": "state\\analysis\\P2_frame_validation_raw\\normal_retry1_3.stderr"
+  }
+]

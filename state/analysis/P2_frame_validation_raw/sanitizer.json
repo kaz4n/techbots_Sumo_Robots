@@ -1,0 +1,35 @@
+[
+  {
+    "command": [
+      "wsl",
+      "cmake",
+      "-S",
+      "host",
+      "-B",
+      "build/host-sanitize",
+      "-DCMAKE_BUILD_TYPE=Debug",
+      "-DCMAKE_CXX_FLAGS=-fsanitize=address,undefined -fno-omit-frame-pointer",
+      "-DCMAKE_EXE_LINKER_FLAGS=-fsanitize=address,undefined"
+    ],
+    "started_utc": "2026-09-23T02:05:35.930240+00:00",
+    "ended_utc": "2026-09-23T02:05:43.389451+00:00",
+    "exit_status": 0,
+    "stdout": "state\\analysis\\P2_frame_validation_raw\\sanitizer_1.stdout",
+    "stderr": "state\\analysis\\P2_frame_validation_raw\\sanitizer_1.stderr"
+  },
+  {
+    "command": [
+      "wsl",
+      "cmake",
+      "--build",
+      "build/host-sanitize",
+      "--parallel",
+      "2"
+    ],
+    "started_utc": "2026-09-23T02:05:43.390098+00:00",
+    "ended_utc": "2026-09-23T02:06:08.011136+00:00",
+    "exit_status": 2,
+    "stdout": "state\\analysis\\P2_frame_validation_raw\\sanitizer_2.stdout",
+    "stderr": "state\\analysis\\P2_frame_validation_raw\\sanitizer_2.stderr"
+  }
+]

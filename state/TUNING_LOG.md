@@ -195,3 +195,11 @@ Source/binary/host review and actual raw-image/record review PASS; no tuning ado
 Evidence P0_qtr_validation.md, P0_qtr_run1_raw/, P0_qtr_codex.md. These empirical
 setup-only data exceed the tick budget; SC-B remains unresolved. Not real sensor
 or calibrated electrical/physical-cleanup/WCET proof; debug overlap unexcluded.
+
+
+## 2026-09-23 - D-069 offline storage capacity, no physical tuning
+Added LOG_FRAME_WINDOW_MS200000 from B15 and derived LOG_FRAME_CAPACITY10001
+at unchanged LOG_HZ50. All76 B16 values remain. Actual host ABI sizeof objects
+292848B; payload292794B exceeds installed262144-byte LLEXT pool before app.
+Evidence P2_frame_host_size_20260923.json/P2_frame_buffer_validation.md. No MCU
+allocation/free RAM, ring measurement, rate change or target-fit claim.

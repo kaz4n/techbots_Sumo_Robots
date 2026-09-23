@@ -28,6 +28,7 @@ BEHAVIOR_EXTRA_DEFAULTS = {
     'VBAT_FILTER_MS': 1000,  # B6 one-second time constant.
     'REFLANK_WINDOW_MS': 10000,  # B11.3 existing ten-second rolling window.
     'LOG_EVENT_CAPACITY': 4096,  # B15/D-028 first-event retention capacity.
+    'LOG_FRAME_WINDOW_MS': 200000,  # B15/D-069 frame retention window.
     'EDGE_SIDE_TURN_DEG': 45,  # Existing B4.2 side-row/B4.3 pivot, not new tuning.
     'TICK_OVERRUN_PERCENT': 1,  # Existing B14 strict-over-one-percent warning.
     'RECENT_EDGE_MS': 5000,  # Existing B8/B11 recent-escape interval.
@@ -35,6 +36,8 @@ BEHAVIOR_EXTRA_DEFAULTS = {
     'MODE_SHORT_MS': 600,  # Existing B13 strict short-press bound, centralized by D-058.
 }
 BEHAVIOR_EXTRA_FLOAT_DEFAULTS = {'EDGE_FWD_INNER_RATIO': Decimal('0.70')}  # B4.2/D-021.
+# D-069: independent C++ tests verify the derived capacity and retained endpoints.
+BEHAVIOR_DERIVED_TYPES = {'LOG_FRAME_CAPACITY': 'std::uint64_t'}
 COUNTDOWN_SERVICE_DEFAULTS = {  # B3 and human-approved D-024; not physical tuning.
     'CAL_START_MS': 1500,
     'CAL_END_MS': 4500,
@@ -92,7 +95,7 @@ class P0ConfigTests(unittest.TestCase):
     def test_only_b16_and_explicit_spec_diagnostic_defaults_are_declared(self):
         expected = (set(b16_defaults()) | set(DIAGNOSTIC_DEFAULTS) | set(DIAGNOSTIC_ARRAY_DEFAULTS) |
                     set(BEHAVIOR_EXTRA_DEFAULTS) | set(BEHAVIOR_EXTRA_FLOAT_DEFAULTS) |
-                    set(COUNTDOWN_SERVICE_DEFAULTS))
+                    set(BEHAVIOR_DERIVED_TYPES) | set(COUNTDOWN_SERVICE_DEFAULTS))
         self.assertEqual(expected, set(config_declarations()))
 
     def test_b16_literal_categories_and_array_extent_are_preserved(self):
@@ -125,6 +128,8 @@ class P0ConfigTests(unittest.TestCase):
         for name, expected in BEHAVIOR_EXTRA_DEFAULTS.items():
             self.assertEqual('std::uint32_t', declarations[name][0])
             self.assertEqual(expected, number(declarations[name][1]))
+        for name, expected_type in BEHAVIOR_DERIVED_TYPES.items():
+            self.assertEqual(expected_type, declarations[name][0])
 
     def test_b4_forward_inner_ratio_matches_seventy_percent(self):
         declarations = config_declarations()

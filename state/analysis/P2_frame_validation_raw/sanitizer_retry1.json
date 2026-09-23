@@ -1,0 +1,49 @@
+[
+  {
+    "command": [
+      "wsl",
+      "cmake",
+      "-S",
+      "host",
+      "-B",
+      "build/host-sanitize",
+      "-DCMAKE_BUILD_TYPE=Debug",
+      "-DCMAKE_CXX_FLAGS=-fsanitize=address,undefined -fno-omit-frame-pointer",
+      "-DCMAKE_EXE_LINKER_FLAGS=-fsanitize=address,undefined"
+    ],
+    "started_utc": "2026-09-23T02:07:23.091751+00:00",
+    "ended_utc": "2026-09-23T02:07:24.319573+00:00",
+    "exit_status": 0,
+    "stdout": "state\\analysis\\P2_frame_validation_raw\\sanitizer_retry1_1.stdout",
+    "stderr": "state\\analysis\\P2_frame_validation_raw\\sanitizer_retry1_1.stderr"
+  },
+  {
+    "command": [
+      "wsl",
+      "cmake",
+      "--build",
+      "build/host-sanitize",
+      "--parallel",
+      "2"
+    ],
+    "started_utc": "2026-09-23T02:07:24.320470+00:00",
+    "ended_utc": "2026-09-23T02:07:45.218856+00:00",
+    "exit_status": 0,
+    "stdout": "state\\analysis\\P2_frame_validation_raw\\sanitizer_retry1_2.stdout",
+    "stderr": "state\\analysis\\P2_frame_validation_raw\\sanitizer_retry1_2.stderr"
+  },
+  {
+    "command": [
+      "wsl",
+      "ctest",
+      "--test-dir",
+      "build/host-sanitize",
+      "--verbose"
+    ],
+    "started_utc": "2026-09-23T02:07:45.219537+00:00",
+    "ended_utc": "2026-09-23T02:08:03.558654+00:00",
+    "exit_status": 0,
+    "stdout": "state\\analysis\\P2_frame_validation_raw\\sanitizer_retry1_3.stdout",
+    "stderr": "state\\analysis\\P2_frame_validation_raw\\sanitizer_retry1_3.stderr"
+  }
+]

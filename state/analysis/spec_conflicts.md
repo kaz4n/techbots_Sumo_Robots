@@ -446,3 +446,23 @@ without changing any pin, period or output policy. Recommend a checked native
 path only within later eligible MotorGate work, with error-injection tests at
 actual write boundary and separately authorized physical waveform/run evidence.
 D-067 compiles APIs but selects no production driver or runtime workaround.
+
+
+## SC-AH - B15 recorder capacity versus installed extension RAM (2026-09-23)
+
+Sources: BEHAVIOR B15/B16, P2 B8, F-032/installed LLEXT evidence,
+P2_frame_buffer_contract.md and P2_frame_host_size_20260923.json. At unchanged
+LOG_HZ50, 200-second endpoint capacity10001 times26 encoded/status bytes plus
+4096 times8 event bytes requires292794 bytes before metadata or application.
+This exceeds the installed262144-byte LLEXT pool. Host ABI objects292848B are
+a separate measured host result, not MCU allocation or free-memory evidence.
+Consequence: offline buffers can be verified, but the default production recorder
+cannot be called deployable or B8-passed. Options: A explicitly adopt B15's
+conditional25Hz after a complete target memory budget/map; B investigate a
+smaller evidence-preserving representation or supported memory placement with
+installed proof. Recommend A as the existing specified fallback, conditional on
+actual full-image headroom. D-069 selects neither; D-051 delegates a later
+engineering decision, not measured evidence or gate acceptance. Required checks:
+200-second endpoints/final flush, cadence and lost-slot accounting, event4096
+overflow independence, actual target link/load/free RAM including stack/heap,
+and complete tick budget. No silent rate/default change or loader patch.

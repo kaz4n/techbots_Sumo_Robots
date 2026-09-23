@@ -9,7 +9,9 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 enable_testing()
 file(GLOB CORE_SOURCES CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/../src/core/*.cpp")
 file(GLOB_RECURSE TEST_SOURCES CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/../tests/*.cpp")
-add_executable(sumox26_tests ${CORE_SOURCES} ${TEST_SOURCES})
+# D-068 admits this I/O-free B8 owner only; hardware HAL stays outside host tests.
+add_executable(sumox26_tests ${CORE_SOURCES} ${TEST_SOURCES}
+  "${CMAKE_CURRENT_SOURCE_DIR}/../src/hal/recorder_frames.cpp")
 target_include_directories(sumox26_tests PRIVATE ../src)
 target_include_directories(sumox26_tests SYSTEM PRIVATE third_party)
 target_compile_definitions(sumox26_tests PRIVATE DOCTEST_CONFIG_NO_EXCEPTIONS)

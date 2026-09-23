@@ -1,0 +1,129 @@
+{
+  "timestamp": "2026-09-23T15:46:29.319556+00:00",
+  "scope": "Read-only board Linux source-file capture and CLI version; no compile or MCU operation",
+  "argv": [
+    "C:\\Users\\narut\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\adb\\32.0.0\\adb.exe",
+    "-s",
+    "2629958581",
+    "shell",
+    "-T",
+    "python3 -c 'import pathlib,json,hashlib,subprocess; paths=['\"'\"'/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/cores/arduino/Arduino.h'\"'\"', '\"'\"'/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/cores/arduino/inlines.h'\"'\"', '\"'\"'/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/cores/arduino/main.cpp'\"'\"', '\"'\"'/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/cores/arduino/zephyrSerial.cpp'\"'\"', '\"'\"'/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/cores/arduino/zephyrSerial.h'\"'\"', '\"'\"'/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/cores/arduino/SerialUSB.h'\"'\"', '\"'\"'/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/postvariant.h'\"'\"', '\"'\"'/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/variant.h'\"'\"', '\"'\"'/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/cxxflags.txt'\"'\"', '\"'\"'/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/platform.txt'\"'\"', '\"'\"'/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/boards.txt'\"'\"', '\"'\"'/home/arduino/Arduino/libraries/Arduino_RouterBridge/library.properties'\"'\"', '\"'\"'/home/arduino/Arduino/libraries/Arduino_RouterBridge/src/Arduino_RouterBridge.h'\"'\"', '\"'\"'/home/arduino/Arduino/libraries/Arduino_RouterBridge/src/hci.h'\"'\"', '\"'\"'/home/arduino/Arduino/libraries/Arduino_RouterBridge/src/singletons.cpp'\"'\"', '\"'\"'/home/arduino/Arduino/libraries/Arduino_RouterBridge/src/bridge.h'\"'\"']; print(json.dumps({\"version\":subprocess.run([\"arduino-cli\",\"version\"],capture_output=True,text=True).stdout,\"files\":[{\"path\":p,\"sha256\":hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest(),\"text\":pathlib.Path(p).read_text()} for p in paths]}))'"
+  ],
+  "returncode": 0,
+  "stderr": "",
+  "version": "arduino-cli  Version: 1.5.1 Commit: 01f3d4f2b Date: 2026-06-05T10:22:11Z\n",
+  "files": [
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/cores/arduino/Arduino.h",
+      "saved": "state\\analysis\\P2_bridge_dependency_raw\\installed\\core\\cores\\arduino\\Arduino.h",
+      "bytes": 6277,
+      "sha256": "5f068c10a0aeb2f6d3cec1fa8b2a313b1f7374bcb77716f0b6cddba5bc198514",
+      "copy_sha256": "5f068c10a0aeb2f6d3cec1fa8b2a313b1f7374bcb77716f0b6cddba5bc198514"
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/cores/arduino/inlines.h",
+      "saved": "state\\analysis\\P2_bridge_dependency_raw\\installed\\core\\cores\\arduino\\inlines.h",
+      "bytes": 499,
+      "sha256": "1598991f2cf2fbaeb42c2a565f1fd3bd32bbd81eb7b056e998d3ffe162c98481",
+      "copy_sha256": "1598991f2cf2fbaeb42c2a565f1fd3bd32bbd81eb7b056e998d3ffe162c98481"
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/cores/arduino/main.cpp",
+      "saved": "state\\analysis\\P2_bridge_dependency_raw\\installed\\core\\cores\\arduino\\main.cpp",
+      "bytes": 2515,
+      "sha256": "d31dc5f78acf0a3535b4650a63a8952908f8c6f4bf8164d639da4a02486b87ed",
+      "copy_sha256": "d31dc5f78acf0a3535b4650a63a8952908f8c6f4bf8164d639da4a02486b87ed"
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/cores/arduino/zephyrSerial.cpp",
+      "saved": "state\\analysis\\P2_bridge_dependency_raw\\installed\\core\\cores\\arduino\\zephyrSerial.cpp",
+      "bytes": 5294,
+      "sha256": "8ec1c12e9771e3a17a9d8a0fb59b22f091262ba105c7f6e60fb6e7eaec9e689f",
+      "copy_sha256": "8ec1c12e9771e3a17a9d8a0fb59b22f091262ba105c7f6e60fb6e7eaec9e689f"
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/cores/arduino/zephyrSerial.h",
+      "saved": "state\\analysis\\P2_bridge_dependency_raw\\installed\\core\\cores\\arduino\\zephyrSerial.h",
+      "bytes": 6377,
+      "sha256": "40f88d2c2bb25f703acbac10d195167611ea2d8156fb7a02348044aef0ec24e6",
+      "copy_sha256": "40f88d2c2bb25f703acbac10d195167611ea2d8156fb7a02348044aef0ec24e6"
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/cores/arduino/SerialUSB.h",
+      "saved": "state\\analysis\\P2_bridge_dependency_raw\\installed\\core\\cores\\arduino\\SerialUSB.h",
+      "bytes": 1274,
+      "sha256": "4013a46af977f1d13b32c0a02e213343f592f3cbeaff6ee4be6ea3695e698350",
+      "copy_sha256": "4013a46af977f1d13b32c0a02e213343f592f3cbeaff6ee4be6ea3695e698350"
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/postvariant.h",
+      "saved": "state\\analysis\\P2_bridge_dependency_raw\\installed\\core\\variants\\arduino_uno_q_stm32u585xx\\postvariant.h",
+      "bytes": 627,
+      "sha256": "7a9789a1b9752a8da3f96ff5bc9c3f9c18ab37cb1eef2c6a871f4f3036589e79",
+      "copy_sha256": "7a9789a1b9752a8da3f96ff5bc9c3f9c18ab37cb1eef2c6a871f4f3036589e79"
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/variant.h",
+      "saved": "state\\analysis\\P2_bridge_dependency_raw\\installed\\core\\variants\\arduino_uno_q_stm32u585xx\\variant.h",
+      "bytes": 1540,
+      "sha256": "b684000848b9100b6781185045688dcc6701184fa3d43b12696f73747623d678",
+      "copy_sha256": "b684000848b9100b6781185045688dcc6701184fa3d43b12696f73747623d678"
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/cxxflags.txt",
+      "saved": "state\\analysis\\P2_bridge_dependency_raw\\installed\\core\\variants\\arduino_uno_q_stm32u585xx\\cxxflags.txt",
+      "bytes": 665,
+      "sha256": "fd3d40463ce35184f52c7e41010cd96f4d4f1ae403cfd784472e3ea51b0ec800",
+      "copy_sha256": "fd3d40463ce35184f52c7e41010cd96f4d4f1ae403cfd784472e3ea51b0ec800"
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/platform.txt",
+      "saved": "state\\analysis\\P2_bridge_dependency_raw\\installed\\core\\platform.txt",
+      "bytes": 20947,
+      "sha256": "d4c824fceb2f4cf0057da4df3235d3aee195bbbd71f59a48d344c818fcd5e638",
+      "copy_sha256": "d4c824fceb2f4cf0057da4df3235d3aee195bbbd71f59a48d344c818fcd5e638"
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/boards.txt",
+      "saved": "state\\analysis\\P2_bridge_dependency_raw\\installed\\core\\boards.txt",
+      "bytes": 6101,
+      "sha256": "bd4f03904d8fe16bf845baf09d0435e79f5a46c6e6a4f445f3ee592994652b84",
+      "copy_sha256": "bd4f03904d8fe16bf845baf09d0435e79f5a46c6e6a4f445f3ee592994652b84"
+    },
+    {
+      "path": "/home/arduino/Arduino/libraries/Arduino_RouterBridge/library.properties",
+      "saved": "state\\analysis\\P2_bridge_dependency_raw\\installed\\Arduino_RouterBridge\\library.properties",
+      "bytes": 417,
+      "sha256": "a7d74f8dee9513cd7e4e29486de32bad071ddb6a1bcbd1ecc541f3ebeacd2aba",
+      "copy_sha256": "a7d74f8dee9513cd7e4e29486de32bad071ddb6a1bcbd1ecc541f3ebeacd2aba"
+    },
+    {
+      "path": "/home/arduino/Arduino/libraries/Arduino_RouterBridge/src/Arduino_RouterBridge.h",
+      "saved": "state\\analysis\\P2_bridge_dependency_raw\\installed\\Arduino_RouterBridge\\src\\Arduino_RouterBridge.h",
+      "bytes": 562,
+      "sha256": "c283abd94478dedf5e55db274e376dde694fd0827e9d05e9a8404be798b11b7e",
+      "copy_sha256": "c283abd94478dedf5e55db274e376dde694fd0827e9d05e9a8404be798b11b7e"
+    },
+    {
+      "path": "/home/arduino/Arduino/libraries/Arduino_RouterBridge/src/hci.h",
+      "saved": "state\\analysis\\P2_bridge_dependency_raw\\installed\\Arduino_RouterBridge\\src\\hci.h",
+      "bytes": 4284,
+      "sha256": "3151c72764945649405ad189f3954402f9d2e074d5542df13878a634d872e050",
+      "copy_sha256": "3151c72764945649405ad189f3954402f9d2e074d5542df13878a634d872e050"
+    },
+    {
+      "path": "/home/arduino/Arduino/libraries/Arduino_RouterBridge/src/singletons.cpp",
+      "saved": "state\\analysis\\P2_bridge_dependency_raw\\installed\\Arduino_RouterBridge\\src\\singletons.cpp",
+      "bytes": 696,
+      "sha256": "6184e7a02393b01457dc4233d0e96e543f2b8cf051e9a03adeb6da343dc3b045",
+      "copy_sha256": "6184e7a02393b01457dc4233d0e96e543f2b8cf051e9a03adeb6da343dc3b045"
+    },
+    {
+      "path": "/home/arduino/Arduino/libraries/Arduino_RouterBridge/src/bridge.h",
+      "saved": "state\\analysis\\P2_bridge_dependency_raw\\installed\\Arduino_RouterBridge\\src\\bridge.h",
+      "bytes": 9487,
+      "sha256": "ca275c57d1865db16a24e14c901757c31fac7ada91bb09130e07dfb6b4b9febb",
+      "copy_sha256": "ca275c57d1865db16a24e14c901757c31fac7ada91bb09130e07dfb6b4b9febb"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "timestamp": "2026-09-23T15:48:14.265928+00:00",
+  "scope": "Read-only board Linux files only; no compile or MCU action",
+  "argv": [
+    "C:\\Users\\narut\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\adb\\32.0.0\\adb.exe",
+    "-s",
+    "2629958581",
+    "shell",
+    "-T",
+    "python3 -c 'import pathlib,json,hashlib; paths=['\"'\"'/home/arduino/.cache/arduino/sketches/879B9F9F23C493429270B813C6D3B43F/sketch/app.ino.cpp'\"'\"', '\"'\"'/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/boards.local.txt'\"'\"']; print(json.dumps([{\"path\":p,\"exists\":pathlib.Path(p).exists(),\"sha256\":hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest() if pathlib.Path(p).exists() else None,\"text\":pathlib.Path(p).read_text() if pathlib.Path(p).exists() else None} for p in paths]))'"
+  ],
+  "returncode": 0,
+  "stderr": "",
+  "files": [
+    {
+      "path": "/home/arduino/.cache/arduino/sketches/879B9F9F23C493429270B813C6D3B43F/sketch/app.ino.cpp",
+      "exists": true,
+      "sha256": "a0b967ed18445450c65b10cd929921eb3a8a8c8098dfd3341411a005b6502e8e",
+      "saved": "state\\analysis\\P2_bridge_dependency_raw\\installed\\app.ino.cpp"
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/boards.local.txt",
+      "exists": false,
+      "sha256": null,
+      "text": null
+    }
+  ]
+}

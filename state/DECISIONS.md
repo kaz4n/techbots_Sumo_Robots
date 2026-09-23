@@ -1261,3 +1261,16 @@ Consequence: preserve all legacy/async/setup semantics and every evidence field;
 no capacity/config/timing/startup change. Independent tests, target dependency/
 size comparison and separate review required. Estimated saving is not proof and
 cannot alone close the full RAM blocker. No upload or physical/gate authority.
+
+## D-098 (2026-09-23, selected under D051/D075) Isolated forced-library experiment
+Context: primary-source audit finds mandatory RouterBridge discovery and directly
+linked singleton objects, with no supported source-level opt-out. Actual app RAM
+exceeds the limit. Source-only include changes cannot prove removal.
+Decision: adopt P2_bridge_dependency_experiment.md for a compile-only control/
+candidate comparison using the single explicit discovery-flag property override,
+identical frozen source and separate output/build directories. No production
+policy is changed; inspect all native/startup/dependency and memory consequences.
+Consequence: property is CLI-supported but not an official Bridge opt-out; accept
+no speculative saving or fabricated compile. Separate review and explicit future
+build contract/tests required before adoption. No installed edits, capacity change,
+new upload key, MCU operation, physical gate or motor authority.

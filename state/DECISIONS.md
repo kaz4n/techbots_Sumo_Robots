@@ -793,3 +793,19 @@ Consequence: no firmware execution, upload allowlist expansion, transport runtim
 loader change or gate. A size-check failure remains failure; candidate fit is not
 free-RAM, loadability,200s/no-gap recording or WCET proof. Preserve source hashes,
 failures, independent candidate/locked tests and separate fresh-context review.
+
+## D-072 (2026-09-23, selected under D-051) Adopt specified25Hz recorder fallback
+Context: D-071 proves actual50Hz owner image exceeds installedRAM356608/262144B;
+the specified B15 fallback25Hz compiles226584B with reviewed source/ELF and245
+candidate/locked regressions. Full firmware/load/free-RAM/physical acceptance is
+still absent; this evidence supports a development default, not deployment.
+Decision: adopt P2_rate_adoption_contract.md. Set LOG_HZ25 with visible B15/B16
+provenance,5001frame capacity/40ms cadence; preserve200s window,4096events and all
+motion/sensor/control timing. Supersede only D-069/070/071's production50 retention.
+Update independent unlocked rate/capacity expectations without removing assertions;
+retain every locked file and full fixed-seed requirements. Keep25/50 compile
+experiments reproducible from either supported source rate, always compile-only.
+Consequence: one evidenced B16 value changes; other75 remain. No app/transport
+integration, runtime/loader workaround, physical tuning, upload authority or gate.
+Independent tests/review and exact source-guard review precede completion claims;
+SC-AH deployment and SC-I platform/runtime issues remain explicit.

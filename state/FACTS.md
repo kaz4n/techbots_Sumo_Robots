@@ -210,3 +210,8 @@ default matrix/counter fromF-076. Prior timing measurements use a different imag
 | ID | Question | Observed answer | Source | Confidence | Hardware-checked |
 |---|---|---|---|---|---|
 | F-088 | Actual retained PWM/interrupt compilation | D-067 implementation660eb08/source6578e07a target-compiles on UNO Q CLI1.5.1/core1.0.0, exit0 at03:22:01+04;80248B program/34048B globals. Exact26 source entries, three ELFs, retained probes, inline native dispatch and nonzero selected pinctrl/device exports independently verified.8 scoped host checks pass and fresh same-model review PASS/no findings. | analysis/P0_pwm_irq_compile_validation.md; compile/provenance/test receipts; reviews/P0_pwm_irq_compile_codex.md | TARGET-COMPILED/HOST-TESTED/REVIEWED; compile-only | No upload/reset, PWM/IRQ execution, live mapping/waveform/timing or runtime-load qualification; F-086/F-087 limits remain |
+
+
+| ID | Question | Observed answer | Source | Confidence | Hardware-checked |
+|---|---|---|---|---|---|
+| F-089 | Arduino dynamic size label and recorder budget | Pinned zephyr-check-size sums allocated ELF sections incl text, excluding configured no-reloc rodata; program figure is upload-file length. Cached F-088 ELF independently sums34048B, matching its compile report. Default50Hz recorder payload292794B alone exceeds262144B pool;25Hz162794B is only a conditional candidate. Do not double-count P1 program125508B on top of its61004B RAM estimate. | analysis/P2_memory_budget_followup_20260923.md; pinned primary source URL, cached ELF/hash and corrected readelf receipt therein | SOURCE-VERIFIED; cached-artifact consistent; complete target headroom unknown | No current board query, load/allocation/free-RAM or B8 acceptance; host owner sizeof292968B is separate |

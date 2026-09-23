@@ -466,3 +466,9 @@ engineering decision, not measured evidence or gate acceptance. Required checks:
 200-second endpoints/final flush, cadence and lost-slot accounting, event4096
 overflow independence, actual target link/load/free RAM including stack/heap,
 and complete tick budget. No silent rate/default change or loader patch.
+
+SC-AH follow-up: F-089/P2_memory_budget_followup_20260923.md verifies that
+Arduino's dynamic globals figure includes RAM-loaded code sections. Do not
+add upload-file size again. Conditional25Hz still needs actual owner/full-image
+link/load/metadata/peak/headroom evidence; no rate or build mode was changed.
+D-070 offline owner is host-tested/reviewed, not integrated or target-qualified.

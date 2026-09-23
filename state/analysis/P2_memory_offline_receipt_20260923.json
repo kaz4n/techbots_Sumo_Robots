@@ -1,0 +1,47 @@
+{
+  "scope": "Offline comparison using cached prior P0 artifacts; not a current-board check",
+  "command": [
+    "wsl",
+    "readelf",
+    "-SW",
+    "build\\p0_pwm_irq_review\\p0_pwm_irq_compile.ino.elf"
+  ],
+  "exit_status": 1,
+  "elf": "build\\p0_pwm_irq_review\\p0_pwm_irq_compile.ino.elf",
+  "elf_sha256": "28af3e12493370098ab8ec35ab221638ec32d944e324835c46f98a181870917e",
+  "stdout": "",
+  "stderr": "readelf: Error: 'buildp0_pwm_irq_reviewp0_pwm_irq_compile.ino.elf': No such file\n",
+  "prior_qtr_node_source": "state\\analysis\\P0_qtr_run1_raw\\03-node-1.bin",
+  "prior_qtr_node_sha256": "a2ea9766ebb1885b4a10199e736bb500faaaf690232d381d3edf83249691fa9a",
+  "prior_qtr_node_words": {
+    "20": "0x20013a50",
+    "24": "0x200191bc",
+    "28": "0x200191cc",
+    "32": "0x200197b0",
+    "36": "0x2001ed94",
+    "40": "0x8106248",
+    "44": "0x810b168",
+    "48": "0x81128e0",
+    "52": "0x0",
+    "56": "0x2001eda4",
+    "60": "0x2001edbc",
+    "64": "0x810060c",
+    "68": "0x1010101",
+    "72": "0x1",
+    "76": "0x10100",
+    "80": "0x5768",
+    "84": "0xc",
+    "88": "0x5d8",
+    "92": "0x55dc",
+    "96": "0x8",
+    "100": "0x4f20",
+    "104": "0x5418",
+    "108": "0xa1",
+    "112": "0x0"
+  },
+  "size_tool_primary_source": {
+    "url": "https://raw.githubusercontent.com/arduino/ArduinoCore-zephyr/79b3f1afdad455f55e4a25030953617152c0227c/tools/zephyr-check-size/main.go",
+    "sha256": "70f32b4faa234f395f2faa552f7fcd7815f5ec5e03e9768e7e8b43af87c222d7",
+    "text": "// Copyright (c) Arduino s.r.l. and/or its affiliated companies\n// SPDX-License-Identifier: Apache-2.0\n\npackage main\n\nimport (\n\t\"bufio\"\n\t\"debug/elf\"\n\t\"fmt\"\n\t\"os\"\n\t\"strings\"\n)\n\nfunc main() {\n\tif len(os.Args) != 5 {\n\t\tfmt.Fprintf(os.Stderr, \"Usage: %s <link_mode> <config_path> <upload_file> <elf_file>\\n\\n\", os.Args[0])\n\t\tfmt.Fprintf(os.Stderr, \"Computes sketch size for Arduino IDE.\\n\\n\")\n\t\tfmt.Fprintf(os.Stderr, \"Arguments:\\n\")\n\t\tfmt.Fprintf(os.Stderr, \"  link_mode    'static' or 'dynamic'\\n\")\n\t\tfmt.Fprintf(os.Stderr, \"  config_path  Path to Zephyr .config file\\n\")\n\t\tfmt.Fprintf(os.Stderr, \"  upload_file  Path to upload binary (for flash size)\\n\")\n\t\tfmt.Fprintf(os.Stderr, \"  elf_file     Path to ELF file (for section analysis)\\n\")\n\t\tos.Exit(1)\n\t}\n\n\tlinkMode := os.Args[1]\n\tconfigPath := os.Args[2]\n\tuploadFile := os.Args[3]\n\telfFile := os.Args[4]\n\n\t// Flash size = filesystem size of the upload file\n\tflashSize, err := fileSize(uploadFile)\n\tif err != nil {\n\t\tfmt.Fprintf(os.Stderr, \"Error reading upload file: %v\\n\", err)\n\t\tos.Exit(1)\n\t}\n\n\t// Heap size = sum of relevant ELF sections\n\theapSize, err := computeHeapSize(elfFile, linkMode, configPath)\n\tif err != nil {\n\t\tfmt.Fprintf(os.Stderr, \"Error computing heap size: %v\\n\", err)\n\t\tos.Exit(1)\n\t}\n\n\tfmt.Printf(\".text %12d\\n\", flashSize)\n\tfmt.Printf(\".data %12d\\n\", heapSize)\n}\n\nfunc fileSize(path string) (int64, error) {\n\tinfo, err := os.Stat(path)\n\tif err != nil {\n\t\treturn 0, err\n\t}\n\treturn info.Size(), nil\n}\n\nfunc computeHeapSize(elfFile, linkMode, configPath string) (uint64, error) {\n\tf, err := elf.Open(elfFile)\n\tif err != nil {\n\t\treturn 0, err\n\t}\n\tdefer f.Close()\n\n\tnoReloc := false\n\tif linkMode == \"dynamic\" {\n\t\tnoReloc = checkConfigFlag(configPath, \"CONFIG_LLEXT_RODATA_NO_RELOC\")\n\t}\n\n\tvar total uint64\n\tfor _, section := range f.Sections {\n\t\tif section.Flags&elf.SHF_ALLOC == 0 {\n\t\t\tcontinue\n\t\t}\n\n\t\tif linkMode == \"static\" {\n\t\t\t// // Static mode: only writable sections (.data, .bss) use RAM\n\t\t\tif section.Flags&elf.SHF_WRITE != 0 {\n\t\t\t\ttotal += section.Size\n\t\t\t}\n\t\t} else {\n\t\t\t// Dynamic mode: all allocated sections go to LLEXT heap.\n\t\t\tif noReloc && strings.HasPrefix(section.Name, \".llext.rodata.noreloc\") {\n\t\t\t\tcontinue\n\t\t\t}\n\t\t\ttotal += section.Size\n\t\t}\n\t}\n\n\treturn total, nil\n}\n\nfunc checkConfigFlag(configPath, key string) bool {\n\tf, err := os.Open(configPath)\n\tif err != nil {\n\t\treturn false\n\t}\n\tdefer f.Close()\n\n\ttarget := key + \"=y\"\n\tscanner := bufio.NewScanner(f)\n\tfor scanner.Scan() {\n\t\tif strings.TrimSpace(scanner.Text()) == target {\n\t\t\treturn true\n\t\t}\n\t}\n\treturn false\n}\n"
+  }
+}

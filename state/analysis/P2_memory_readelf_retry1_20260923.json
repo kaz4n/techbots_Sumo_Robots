@@ -1,0 +1,13 @@
+{
+  "command": [
+    "wsl",
+    "readelf",
+    "-SW",
+    "build/p0_pwm_irq_review/p0_pwm_irq_compile.ino.elf"
+  ],
+  "exit_status": 0,
+  "stdout": "There are 19 section headers, starting at offset 0x13680:\n\nSection Headers:\n  [Nr] Name              Type            Addr     Off    Size   ES Flg Lk Inf Al\n  [ 0]                   NULL            00000000 000000 000000 00      0   0  0\n  [ 1] .rodata           PROGBITS        00000000 000034 000908 00   A  0   0  4\n  [ 2] .rel.rodata       REL             00000000 010f14 000a50 08   I 16   1  4\n  [ 3] .llext.rodata.noreloc PROGBITS        00000908 00093c 0004b8 00   A  0   0  4\n  [ 4] .text             PROGBITS        00000000 000df8 005900 00  AX  0   0  8\n  [ 5] .rel.text         REL             00000000 011964 001c10 08   I 16   4  4\n  [ 6] .static_thread_data_area PROGBITS        00005900 0066f8 000000 00   W  0   0  1\n  [ 7] .data             PROGBITS        00005900 0066f8 000010 00  WA  0   0  4\n  [ 8] .rel.data         REL             00000000 013574 000018 08   I 16   7  4\n  [ 9] .bss              NOBITS          00005910 006708 0022c0 00  WA  0   0  8\n  [10] .exported_sym     PROGBITS        00007bd0 006708 000008 00   A  0   0  4\n  [11] .rel.exported_sym REL             00000000 01358c 000010 08   I 16  10  4\n  [12] .init_array       INIT_ARRAY      00007bd8 006710 000014 04  WA  0   0  4\n  [13] .rel.init_array   REL             00000000 01359c 000028 08   I 16  12  4\n  [14] .fini_array       FINI_ARRAY      00007bec 006724 00000c 04  WA  0   0  4\n  [15] .rel.fini_array   REL             00000000 0135c4 000018 08   I 16  14  4\n  [16] .symtab           SYMTAB          00000000 006730 0051b0 10     17 814  4\n  [17] .strtab           STRTAB          00000000 00b8e0 005634 00      0   0  1\n  [18] .shstrtab         STRTAB          00000000 0135dc 0000a1 00      0   0  1\nKey to Flags:\n  W (write), A (alloc), X (execute), M (merge), S (strings), I (info),\n  L (link order), O (extra OS processing required), G (group), T (TLS),\n  C (compressed), x (unknown), o (OS specific), E (exclude),\n  D (mbind), y (purecode), p (processor specific)\n",
+  "stderr": "",
+  "elf_sha256": "28af3e12493370098ab8ec35ab221638ec32d944e324835c46f98a181870917e",
+  "utc": "2026-09-23T02:21:29.542570+00:00"
+}

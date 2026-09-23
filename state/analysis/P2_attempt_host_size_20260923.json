@@ -1,0 +1,34 @@
+{
+  "scope": "Host ABI sizeof only; no MCU allocation/load/headroom/WCET measurement",
+  "utc": "2026-09-23T02:16:17.643803+00:00",
+  "source": "#include \"../src/hal/recorder.h\"\n#include <cstdio>\nint main() {\n    std::printf(\"attempt_summary_bytes=%zu\\nattempt_recorder_bytes=%zu\\nframe_buffer_bytes=%zu\\nevent_buffer_bytes=%zu\\n\", sizeof(recorder::AttemptSummary), sizeof(recorder::AttemptRecorder), sizeof(recorder::FrameBuffer), sizeof(logframe::EventBuffer));\n}\n",
+  "checks": [
+    {
+      "command": [
+        "wsl",
+        "g++",
+        "-std=c++17",
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-fno-exceptions",
+        "-fno-rtti",
+        "build/p2_attempt_size.cpp",
+        "-o",
+        "build/p2_attempt_size"
+      ],
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "wsl",
+        "./build/p2_attempt_size"
+      ],
+      "exit_status": 0,
+      "stdout": "attempt_summary_bytes=96\nattempt_recorder_bytes=292968\nframe_buffer_bytes=260064\nevent_buffer_bytes=32784\n",
+      "stderr": ""
+    }
+  ]
+}

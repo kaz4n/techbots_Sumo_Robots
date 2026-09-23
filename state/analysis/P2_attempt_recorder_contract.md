@@ -62,8 +62,8 @@ Use recorder.h/.cpp; FrameBuffer and EventBuffer remain the sole payload owners.
    Accept only a ready frame satisfying rule5 AND frame_token==stopping token;
    another ready frame increments identity_rejected. Missing/rejected final frame
    latches final_frame_missing. Append its event batch and counter/timing snapshot,
-   then SEALED. A malformed-state rejected result does not seal, so later gaps
-   expose loss. Once SEALED, ignore payload until accepted START. No frame
+   then SEALED. A malformed-state rejected result does not seal; rejection is explicit,
+   and later tail identity/final-frame checks expose any lost final receipt. Once SEALED, ignore payload until accepted START. No frame
    synthetic fill, reset inference, sorting of wrapped timestamps or catch-up.
 10. onRobotReset preserves all bytes/counters/token identity. RECORDING or
     DRAINING -> INTERRUPTED, interrupted=true; if go_seen latch timing_incomplete.

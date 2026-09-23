@@ -596,3 +596,15 @@ battery retention selected under D051/D075, explicitly amending app-level D078.
 Previous turn PROGRESS: D0922081ca1/8e4544a validated full timing. Independent
 tests/implementation follow; no hardware action, physical measurement or gate.
 Contract commit=this commit.
+
+
+2026-09-23T18:17:00+04:00 | P2 D093 implementation/validation | Contractd248782;
+fixed ADC InputOwner retains truthful battery source age for <20ms with10ms period,
+shared reset-only A0/A1 faults and unchanged governor. Fullnormal/san1327main/
+24484165assertions +111Gate/3850460 PASS; independent24cases2421assertions eachmode,
+native/config/probe suites,61tools and fresh reviewer6cases20059assertions PASS.
+Actualcompile-only4d5e21cc:76exactsources/3ELFs/40native42AEABI;321652program/
+241524globals,lowRAMwarning. Sevenexistinginertkeys reviewed/refreshed; no newkey
+or MCU/upload/reset/motor/physicalgate. Newharnessfailures preserved/fixed without
+weakening expectations. SC-AL actualschedule remainsopen; next bounded resumable
+IMU sourceaudit/contract. FullgoalACTIVE/incomplete. | implementationcommit=this commit

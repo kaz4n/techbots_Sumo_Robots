@@ -602,3 +602,28 @@ independently tested and fresh-reviewed PASS. Fullnormal/san1303main+87Gate case
 and61controlledtooling methods PASS; actual5451e99d target72sourcefiles/3ELFs
 verified, no upload. See P2_tick_timing_validation.md. Physical complete800us and
 SC-AJ clock calibration remain separate OPEN requirements.
+
+
+## SC-AL: whole-application acquisition scheduling (OPEN software contract)
+
+D093's fixed ADC owner resolves bounded app-level battery retention only. Current
+runtime imu::Acquirer::read and Bus::acquireMotion execute atomic polling transfers
+(imu_acquisition.cpp121-149, imu_bus_unoq.cpp464-501); they cannot yield to QTR.
+QTR charge release requires [11,100)us, and long discharge sampling gaps can make
+color ambiguous. MotorGate failure may invoke two settle passes; IMU source
+completion excludes cleanup. See P2_app_schedule_dependencies.md for exact source
+references and preserved source-age obligations. Existing per-call guards and a
+nominal1kHz loop cannot establish R4's complete worst-case below800us.
+
+Options: A) Audit and adopt resumable native IMU service with one unchanged600us
+wall-clock deadline/poll budget, bounded advances and truthful pending/final
+evidence, then compose the resource schedule. B) Defer scheduling until a physically
+measured atomic schedule can support every guard. Recommendation A under D051/D075;
+no new interface/semantic choice is yet frozen by this note. Installed/primary
+peripheral-state verification must precede dependent implementation. No timing,
+sensor-age or human gate requirement is relaxed.
+
+Required regression evidence: interrupted protocol ordering/STOP, no partial
+publication, aggregate deadline/poll budget including interleaved work, cleanup
+exactly once, source-age/sequence continuity, QTR release service and complete
+D092 timing. Physical color/rate/clock and full800us acceptance remain separate.

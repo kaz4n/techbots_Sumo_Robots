@@ -1,0 +1,89 @@
+In file included from state/reviews/P2_power_inputs_review_raw/adversarial.cpp:5:
+state/reviews/P2_power_inputs_review_raw/adversarial.cpp: In lambda function:
+state/reviews/P2_power_inputs_review_raw/adversarial.cpp:56:52: error: static assertion failed: Exceptions are disabled! Use DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS if you want to compile with exceptions disabled.
+   56 |         Port p; power::InputOwner owner(p.port()); REQUIRE(owner.begin());
+      |                                                    ^~~~~~~
+state/reviews/P2_power_inputs_review_raw/adversarial.cpp: In function ‘void DOCTEST_ANON_FUNC_14()’:
+state/reviews/P2_power_inputs_review_raw/adversarial.cpp:56:52: error: expression cannot be used as a function
+   56 |         Port p; power::InputOwner owner(p.port()); REQUIRE(owner.begin());
+      |                                                    ^
+state/reviews/P2_power_inputs_review_raw/adversarial.cpp: In lambda function:
+state/reviews/P2_power_inputs_review_raw/adversarial.cpp:93:44: error: static assertion failed: Exceptions are disabled! Use DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS if you want to compile with exceptions disabled.
+   93 |         power::InputOwner owner(p.port()); REQUIRE(owner.begin());
+      |                                            ^~~~~~~
+state/reviews/P2_power_inputs_review_raw/adversarial.cpp: In function ‘void DOCTEST_ANON_FUNC_18()’:
+state/reviews/P2_power_inputs_review_raw/adversarial.cpp:93:44: error: expression cannot be used as a function
+   93 |         power::InputOwner owner(p.port()); REQUIRE(owner.begin());
+      |                                            ^
+state/reviews/P2_power_inputs_review_raw/adversarial.cpp: In lambda function:
+state/reviews/P2_power_inputs_review_raw/adversarial.cpp:104:48: error: static assertion failed: Exceptions are disabled! Use DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS if you want to compile with exceptions disabled.
+  104 |     Port p; power::InputOwner owner(p.port()); REQUIRE(owner.begin());
+      |                                                ^~~~~~~
+state/reviews/P2_power_inputs_review_raw/adversarial.cpp: In function ‘void DOCTEST_ANON_FUNC_20()’:
+state/reviews/P2_power_inputs_review_raw/adversarial.cpp:104:48: error: expression cannot be used as a function
+  104 |     Port p; power::InputOwner owner(p.port()); REQUIRE(owner.begin());
+      |                                                ^
+state/reviews/P2_power_inputs_review_raw/adversarial.cpp: In lambda function:
+state/reviews/P2_power_inputs_review_raw/adversarial.cpp:105:39: error: static assertion failed: Exceptions are disabled! Use DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS if you want to compile with exceptions disabled.
+  105 |     p.fresh(1000U,1000U,1001U,1001U); REQUIRE(owner.readBatteryIfDue(true).accepted);
+      |                                       ^~~~~~~
+state/reviews/P2_power_inputs_review_raw/adversarial.cpp: In function ‘void DOCTEST_ANON_FUNC_20()’:
+state/reviews/P2_power_inputs_review_raw/adversarial.cpp:105:39: error: expression cannot be used as a function
+  105 |     p.fresh(1000U,1000U,1001U,1001U); REQUIRE(owner.readBatteryIfDue(true).accepted);
+      |                                       ^
+state/reviews/P2_power_inputs_review_raw/adversarial.cpp: In lambda function:
+state/reviews/P2_power_inputs_review_raw/adversarial.cpp:115:41: error: static assertion failed: Exceptions are disabled! Use DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS if you want to compile with exceptions disabled.
+  115 |     p.fresh(time,time,time+1U,time+1U); REQUIRE(owner.readBatteryIfDue(true).accepted);
+      |                                         ^~~~~~~
+state/reviews/P2_power_inputs_review_raw/adversarial.cpp: In function ‘void DOCTEST_ANON_FUNC_20()’:
+state/reviews/P2_power_inputs_review_raw/adversarial.cpp:115:41: error: expression cannot be used as a function
+  115 |     p.fresh(time,time,time+1U,time+1U); REQUIRE(owner.readBatteryIfDue(true).accepted);
+      |                                         ^
+state/reviews/P2_power_inputs_review_raw/adversarial.cpp: In lambda function:
+state/reviews/P2_power_inputs_review_raw/adversarial.cpp:127:5: error: static assertion failed: Exceptions are disabled! Use DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS if you want to compile with exceptions disabled.
+  127 |     REQUIRE(owner.begin()); p.fresh(1000U,1000U,1001U,1001U); REQUIRE(owner.readBatteryIfDue(true).accepted);
+      |     ^~~~~~~
+state/reviews/P2_power_inputs_review_raw/adversarial.cpp: In function ‘void DOCTEST_ANON_FUNC_22()’:
+state/reviews/P2_power_inputs_review_raw/adversarial.cpp:127:5: error: expression cannot be used as a function
+  127 |     REQUIRE(owner.begin()); p.fresh(1000U,1000U,1001U,1001U); REQUIRE(owner.readBatteryIfDue(true).accepted);
+      |     ^
+state/reviews/P2_power_inputs_review_raw/adversarial.cpp: In lambda function:
+state/reviews/P2_power_inputs_review_raw/adversarial.cpp:127:63: error: static assertion failed: Exceptions are disabled! Use DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS if you want to compile with exceptions disabled.
+  127 |     REQUIRE(owner.begin()); p.fresh(1000U,1000U,1001U,1001U); REQUIRE(owner.readBatteryIfDue(true).accepted);
+      |                                                               ^~~~~~~
+state/reviews/P2_power_inputs_review_raw/adversarial.cpp: In function ‘void DOCTEST_ANON_FUNC_22()’:
+state/reviews/P2_power_inputs_review_raw/adversarial.cpp:127:63: error: expression cannot be used as a function
+  127 |     REQUIRE(owner.begin()); p.fresh(1000U,1000U,1001U,1001U); REQUIRE(owner.readBatteryIfDue(true).accepted);
+      |                                                               ^
+state/reviews/P2_power_inputs_review_raw/adversarial.cpp: In lambda function:
+state/reviews/P2_power_inputs_review_raw/adversarial.cpp:128:23: error: static assertion failed: Exceptions are disabled! Use DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS if you want to compile with exceptions disabled.
+  128 |     input.t_us=2000U; REQUIRE(owner.applyBattery(input)); owner.applyButtons(input,{});
+      |                       ^~~~~~~
+state/reviews/P2_power_inputs_review_raw/adversarial.cpp: In function ‘void DOCTEST_ANON_FUNC_22()’:
+state/reviews/P2_power_inputs_review_raw/adversarial.cpp:128:23: error: expression cannot be used as a function
+  128 |     input.t_us=2000U; REQUIRE(owner.applyBattery(input)); owner.applyButtons(input,{});
+      |                       ^
+state/reviews/P2_power_inputs_review_raw/adversarial.cpp: In lambda function:
+state/reviews/P2_power_inputs_review_raw/adversarial.cpp:129:50: error: static assertion failed: Exceptions are disabled! Use DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS if you want to compile with exceptions disabled.
+  129 |     CHECK(owner.report().battery_age_us==1000U); REQUIRE(owner.applyBattery(input));
+      |                                                  ^~~~~~~
+state/reviews/P2_power_inputs_review_raw/adversarial.cpp: In function ‘void DOCTEST_ANON_FUNC_22()’:
+state/reviews/P2_power_inputs_review_raw/adversarial.cpp:129:50: error: expression cannot be used as a function
+  129 |     CHECK(owner.report().battery_age_us==1000U); REQUIRE(owner.applyBattery(input));
+      |                                                  ^
+state/reviews/P2_power_inputs_review_raw/adversarial.cpp: In lambda function:
+state/reviews/P2_power_inputs_review_raw/adversarial.cpp:136:48: error: static assertion failed: Exceptions are disabled! Use DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS if you want to compile with exceptions disabled.
+  136 |     Port p; power::InputOwner owner(p.port()); REQUIRE(owner.begin());
+      |                                                ^~~~~~~
+state/reviews/P2_power_inputs_review_raw/adversarial.cpp: In function ‘void DOCTEST_ANON_FUNC_24()’:
+state/reviews/P2_power_inputs_review_raw/adversarial.cpp:136:48: error: expression cannot be used as a function
+  136 |     Port p; power::InputOwner owner(p.port()); REQUIRE(owner.begin());
+      |                                                ^
+state/reviews/P2_power_inputs_review_raw/adversarial.cpp: In lambda function:
+state/reviews/P2_power_inputs_review_raw/adversarial.cpp:137:39: error: static assertion failed: Exceptions are disabled! Use DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS if you want to compile with exceptions disabled.
+  137 |     p.fresh(1000U,1000U,1001U,1001U); REQUIRE(owner.readBatteryIfDue(true).accepted);
+      |                                       ^~~~~~~
+state/reviews/P2_power_inputs_review_raw/adversarial.cpp: In function ‘void DOCTEST_ANON_FUNC_24()’:
+state/reviews/P2_power_inputs_review_raw/adversarial.cpp:137:39: error: expression cannot be used as a function
+  137 |     p.fresh(1000U,1000U,1001U,1001U); REQUIRE(owner.readBatteryIfDue(true).accepted);
+      |                                       ^

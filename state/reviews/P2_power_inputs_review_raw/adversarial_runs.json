@@ -1,0 +1,64 @@
+{
+  "source_hashes": {
+    "src/hal/power_inputs.cpp": "a0f6e910eae7309ab6b778ecb2647ff21e94a9d5bd3f60e6558a50b3d9cfa32c",
+    "src/hal/power_inputs.h": "4c36caf8eb8d2e80380cf993cfbe8682a030ed21cb7dd08d513584b11ce20864",
+    "src/hal/power_inputs_unoq.cpp": "c1756accbff46213c12c2d6c93569e6fc6495618e09d1fa67a3a47967e332173",
+    "src/hal/ui.cpp": "cfda5ea3077b28325425e45bee0dc54fb95803ab826ee4e098348a359ed4a3e8",
+    "src/config.h": "8f42cf1f54dd093cef8c9058ad92ff4fbee0c51405dbeb90fdbe054d0abfc3b5",
+    "state/reviews/P2_power_inputs_review_raw/adversarial.cpp": "386130a373996c9d4f252cd803f763e35bd693fe1a89c58dfc9314dccbd4d13f"
+  },
+  "records": [
+    {
+      "profile": "normal",
+      "action": "compile",
+      "argv": [
+        "wsl.exe",
+        "--cd",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots",
+        "bash",
+        "-lc",
+        "g++ -std=c++17 -O2 -Wall -Wextra -Wpedantic -Werror -fno-exceptions -fno-rtti -DDOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS -Isrc -isystem host/third_party src/hal/power_inputs.cpp src/hal/ui.cpp state/reviews/P2_power_inputs_review_raw/adversarial.cpp -o /tmp/sumo-d093-review-normal"
+      ],
+      "returncode": 0,
+      "seconds": 4.994860999984667
+    },
+    {
+      "profile": "normal",
+      "action": "test",
+      "argv": [
+        "wsl.exe",
+        "--cd",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots",
+        "/tmp/sumo-d093-review-normal"
+      ],
+      "returncode": 0,
+      "seconds": 0.0832821000367403
+    },
+    {
+      "profile": "sanitizer",
+      "action": "compile",
+      "argv": [
+        "wsl.exe",
+        "--cd",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots",
+        "bash",
+        "-lc",
+        "g++ -std=c++17 -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie -no-pie -Wall -Wextra -Wpedantic -Werror -fno-exceptions -fno-rtti -DDOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS -Isrc -isystem host/third_party src/hal/power_inputs.cpp src/hal/ui.cpp state/reviews/P2_power_inputs_review_raw/adversarial.cpp -o /tmp/sumo-d093-review-sanitizer"
+      ],
+      "returncode": 0,
+      "seconds": 12.766461200080812
+    },
+    {
+      "profile": "sanitizer",
+      "action": "test",
+      "argv": [
+        "wsl.exe",
+        "--cd",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots",
+        "/tmp/sumo-d093-review-sanitizer"
+      ],
+      "returncode": 0,
+      "seconds": 0.09177759999874979
+    }
+  ]
+}

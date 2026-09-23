@@ -1,0 +1,200 @@
+{
+  "status": "PASS_FINAL_D093_SOFTWARE_EVIDENCE",
+  "author_final_sha256": {
+    "tests/test_power_inputs.cpp": "8b42bb9b6c2e808dcb2b8996692159d22f8d1b2d7f35351373780ac2c2655723",
+    "tests/fixtures/power_inputs_fixture.h": "11e50b560cf885f48caa87816fca77679c68ededfacef6d468152044b0b3e891",
+    "tests/native_power/input_owner_cases.cc": "d4d2191da8d8dcc6d8f79e489357e3defb1711f360cb958e4e16090c0addd73f",
+    "tests/native_power/input_owner_limits.cc": "11a5d9876550a206b047553f85d03e770d2bfed1c90791b505d1ce5d31d8bcfa",
+    "tests/native_power/input_owner_probe.cc": "efde6f354cbd34b7e168d94e9c3954f79aabc7e19c1c6526f5f74ceb07ffe782",
+    "tests/tooling/test_power_inputs.py": "c2d184aae33ffd4ba1668074b5d6e46d6dcd3445f066e736cd7b2af529642609",
+    "state/analysis/P2_power_inputs_contract.md": "23503f5b533189aad07309a1b11f43e65b8a8ef1ba4904f8ea16e03c532e49fa",
+    "src/hal/power_inputs.h": "4c36caf8eb8d2e80380cf993cfbe8682a030ed21cb7dd08d513584b11ce20864",
+    "src/hal/power_inputs.cpp": "a0f6e910eae7309ab6b778ecb2647ff21e94a9d5bd3f60e6558a50b3d9cfa32c",
+    "src/hal/power_inputs_unoq.cpp": "c1756accbff46213c12c2d6c93569e6fc6495618e09d1fa67a3a47967e332173",
+    "src/config.h": "8f42cf1f54dd093cef8c9058ad92ff4fbee0c51405dbeb90fdbe054d0abfc3b5"
+  },
+  "coordinator_receipts": {
+    "full_host_include_retry1": {
+      "receipt": {
+        "start_utc": "2026-09-23T14:14:01.362413+00:00",
+        "end_utc": "2026-09-23T14:14:41.319561+00:00",
+        "argv": [
+          "bash",
+          "tools/test_host.sh"
+        ],
+        "returncode": 0
+      },
+      "output_sha256": "b7ccfa57b49e62419f19ee7cbf2424af486ce80b390c5e1590b25483ef55bfe2"
+    },
+    "full_sanitizer_include_retry1": {
+      "receipt": {
+        "start_utc": "2026-09-23T14:14:01.366350+00:00",
+        "end_utc": "2026-09-23T14:15:10.851801+00:00",
+        "argv": [
+          "bash",
+          "-c",
+          "cmake --build build/host-sanitize -j2 && ctest --test-dir build/host-sanitize --output-on-failure"
+        ],
+        "returncode": 0
+      },
+      "output_sha256": "cf6052fafa58380d5ec9b6e89a14d1833695bcc38a419618b0eb94ae9643343e"
+    },
+    "target_compile": {
+      "receipt": {
+        "start_utc": "2026-09-23T14:05:29.164599+00:00",
+        "end_utc": "2026-09-23T14:07:50.330004+00:00",
+        "argv": [
+          "python",
+          "tools/board_tool.py",
+          "flash",
+          "bench/p2_power_inputs_compile",
+          "--compile-only"
+        ],
+        "returncode": 0
+      },
+      "output_sha256": "2e2d89ad0837d95896e9f0b8184fe8f49488a26c7b23b03bdcaf7905f50f9d59"
+    },
+    "target_audit": {
+      "receipt": {
+        "start_utc": "2026-09-23T14:12:11.265811+00:00",
+        "end_utc": "2026-09-23T14:12:14.641338+00:00",
+        "argv": [
+          "python",
+          "state/analysis/P2_power_inputs_target_audit.py",
+          "4d5e21cc418a6089b593fe95c020b129787c63786a7e44511b183bef9e7d65da",
+          "bench-default"
+        ],
+        "returncode": 0
+      },
+      "output_sha256": "67c32f0ee3cb8550c4cfbee166292a55850904aff7331b03ff71ebda86c0dea7"
+    },
+    "source_audit": {
+      "receipt": {
+        "start_utc": "2026-09-23T14:12:29.429929+00:00",
+        "end_utc": "2026-09-23T14:12:29.942758+00:00",
+        "argv": [
+          "python",
+          "state/analysis/P2_power_inputs_source_audit.py",
+          "4d5e21cc418a6089b593fe95c020b129787c63786a7e44511b183bef9e7d65da"
+        ],
+        "returncode": 0
+      },
+      "output_sha256": "a5b3a728793187293085eac3692c6e5b596b19ec9d456354f6f9b0d024f532a4"
+    },
+    "tools_regression": {
+      "receipt": {
+        "start_utc": "2026-09-23T14:08:14.954925+00:00",
+        "end_utc": "2026-09-23T14:09:39.034856+00:00",
+        "argv": [
+          "env",
+          "PYTHONPATH=tests/tooling",
+          "python3",
+          "-m",
+          "unittest",
+          "test_tools",
+          "test_adb_transport",
+          "test_ui_matrix_upload",
+          "test_staged_core",
+          "test_recorder_upload",
+          "-v"
+        ],
+        "returncode": 0
+      },
+      "output_sha256": "f41e8262c4439888ce863c107959fb0afb80922fc872e597757731f2b8f61784"
+    }
+  },
+  "author_final_runs": {
+    "native": [
+      "[doctest] test cases:  5 |  5 passed | 0 failed | 0 skipped",
+      "[doctest] assertions: 24 | 24 passed | 0 failed |"
+    ],
+    "limits": [
+      "[doctest] test cases:  2 |  2 passed | 0 failed | 0 skipped",
+      "[doctest] assertions: 30 | 30 passed | 0 failed |"
+    ],
+    "probe0": [
+      "[doctest] test cases:  1 |  1 passed | 0 failed | 0 skipped",
+      "[doctest] assertions: 14 | 14 passed | 0 failed |"
+    ],
+    "probe1": [
+      "[doctest] test cases:  1 |  1 passed | 0 failed | 0 skipped",
+      "[doctest] assertions: 14 | 14 passed | 0 failed |"
+    ],
+    "host0": [
+      "[doctest] test cases:   24 |   24 passed | 0 failed | 0 skipped",
+      "[doctest] assertions: 2421 | 2421 passed | 0 failed |"
+    ],
+    "host1": [
+      "[doctest] test cases:   24 |   24 passed | 0 failed | 0 skipped",
+      "[doctest] assertions: 2421 | 2421 passed | 0 failed |"
+    ],
+    "config_case0": [
+      "[doctest] test cases: 1 | 1 passed | 0 failed | 0 skipped",
+      "[doctest] assertions: 5 | 5 passed | 0 failed |"
+    ],
+    "config_case1": [
+      "[doctest] test cases: 1 | 1 passed | 0 failed | 0 skipped",
+      "[doctest] assertions: 5 | 5 passed | 0 failed |"
+    ],
+    "config_case2": [
+      "[doctest] test cases: 1 | 1 passed | 0 failed | 0 skipped",
+      "[doctest] assertions: 5 | 5 passed | 0 failed |"
+    ],
+    "config_case3": [
+      "[doctest] test cases: 1 | 1 passed | 0 failed | 0 skipped",
+      "[doctest] assertions: 5 | 5 passed | 0 failed |"
+    ],
+    "config_case4": [
+      "[doctest] test cases: 1 | 1 passed | 0 failed | 0 skipped",
+      "[doctest] assertions: 5 | 5 passed | 0 failed |"
+    ],
+    "config_case5": [
+      "[doctest] test cases: 1 | 1 passed | 0 failed | 0 skipped",
+      "[doctest] assertions: 5 | 5 passed | 0 failed |"
+    ],
+    "config_case6": [
+      "[doctest] test cases: 1 | 1 passed | 0 failed | 0 skipped",
+      "[doctest] assertions: 5 | 5 passed | 0 failed |"
+    ],
+    "config_case7": [
+      "[doctest] test cases: 1 | 1 passed | 0 failed | 0 skipped",
+      "[doctest] assertions: 5 | 5 passed | 0 failed |"
+    ],
+    "config_case8": [
+      "[doctest] test cases: 1 | 1 passed | 0 failed | 0 skipped",
+      "[doctest] assertions: 5 | 5 passed | 0 failed |"
+    ],
+    "config_case9": [
+      "[doctest] test cases: 1 | 1 passed | 0 failed | 0 skipped",
+      "[doctest] assertions: 5 | 5 passed | 0 failed |"
+    ],
+    "config_case10": [
+      "[doctest] test cases: 1 | 1 passed | 0 failed | 0 skipped",
+      "[doctest] assertions: 5 | 5 passed | 0 failed |"
+    ],
+    "config_case11": [
+      "[doctest] test cases: 1 | 1 passed | 0 failed | 0 skipped",
+      "[doctest] assertions: 2 | 2 passed | 0 failed |"
+    ],
+    "config_case12": [
+      "[doctest] test cases: 1 | 1 passed | 0 failed | 0 skipped",
+      "[doctest] assertions: 2 | 2 passed | 0 failed |"
+    ],
+    "config_case13": [
+      "[doctest] test cases: 1 | 1 passed | 0 failed | 0 skipped",
+      "[doctest] assertions: 2 | 2 passed | 0 failed |"
+    ],
+    "config_case14": [
+      "[doctest] test cases: 1 | 1 passed | 0 failed | 0 skipped",
+      "[doctest] assertions: 2 | 2 passed | 0 failed |"
+    ]
+  },
+  "preserved_author_failed_commands": 2,
+  "upload_refusals": 8,
+  "registry_wrapper": {
+    "success": true,
+    "tests_run": 1,
+    "output": "test_additive_d088_d089_d090_registry_runs_all_legacy_config_checks (tests.tooling.test_dump_match.DumpCaptureTests.test_additive_d088_d089_d090_registry_runs_all_legacy_config_checks) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.103s\n\nOK\n"
+  },
+  "scope": "No current-image runtime or physical/gate claim"
+}

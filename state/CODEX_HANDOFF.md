@@ -2,6 +2,43 @@
 
 ## Current resume point - 2026-09-23 Asia/Dubai
 
+D074 contract5e25917/implementation659abf0 completed the selected localCSV
+validation task.38independent tests, full378toolingPASS169.749s/exit0, actual
+hostC++ formatter roundtrip, synthetic5001frames/4096events and nativeWindows
+CLI checks pass. Fresh same-model reviewer PASS/no open findings; independently
+38PASS2.584s. MAJOR mixedUNC path issue reproduced with mockedaccess, firstrepair
+passes; MINOR docswording corrected. Raw pre-fixsource/failure/hashes retained.
+All46source/locked/inertmanifest paths unchanged; no firmware/board action.
+Evidence P2_csv_bundle_validation.md/raw, failure_analysis and freshreview.
+
+Original full P0-P7 goal ACTIVE/incomplete. This goal turn made real PROGRESS.
+No human gate passed. Read P2_offline_scope_completion_audit.md: selected offline
+B8 tasks are complete; no further required artifact remains within that scope.
+Actual bench/recorder, dump_match.sh, MotorGate and runtime scheduler are absent.
+P2 integration requires human GATE P1 PASS; D068-D074 do not authorize transport
+or liveintegration. P0 optical/cold-start/electrical/PINMAP and P1 EXPLAINED/gate
+records remain missing in existing gate packets. Do not invent more metadata
+infrastructure, repeat solved probes or treat assumptions as approvals.
+
+Next dependent action is original P0/P1 acceptance when real evidence/human
+records become available, via existing manual checklist/measurement template/
+gate packets. Hardware tests are deferred; issue no new hardware request now.
+No live commands/workers. If next turns revalidate the same impasse without
+meaningful work, apply the required consecutive-turn blocked audit. Current
+progress turn does not satisfy that threshold; do not mark the full goal complete.
+
+Prior D073 ea2d6b0 remains993C++cases/16989315assertions normal+ASanUBSan.
+D074 changed none of its inputs; those suites were not redundantly rerun.
+D072 9acc0cc target226584B predates CSVsource and is not currenttargetfit proof.
+Last known MCU stays inertQTR61d7a2d0/default03:00:13.327+04; no motorpermission,
+push or tag. SC-A/B/I/AG and actualRAM/fullHAL/200s/dump/WCET remain unresolved.
+C: free space ~24MiB; check before builds, preserve source/evidence.
+Retain Sep28 cut,Sep30 P6 condition,Oct1 21:00Dubai freeze,Oct2/3 schedule.
+
+## Historical D-073 checkpoint
+
+## Current resume point - 2026-09-23 Asia/Dubai
+
 D073 contractc32b47c/implementationea2d6b0 completes bounded offline B8 CSV.
 18independent cases added; full993cases/16989315assertions pass normal5.574s
 andASanUBSan21.952s,0fail/skip;340tools pass183.058s. Fresh same-model reviewer

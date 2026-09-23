@@ -163,7 +163,7 @@ class VbatTests(unittest.TestCase):
     def test_registry_single_addition_original_18_checks_and_wrong_129(self):
         from . import test_runtime_config_registry as registry
         original = (RAW / "test_p0_config_before.py").read_bytes()
-        current = (ROOT / "tests/tooling/test_p0_config.py").read_bytes()
+        current = (ROOT / "state/analysis/P2_vbat_raw/registry/test_p0_config_after.py").read_bytes()
         added = b"    'VBAT_BENCH_SAMPLES': 128,  # D110 finite battery bench capture, approved count.\n"
         self.assertEqual(current.count(added), 1)
         self.assertEqual(current.replace(added, b"", 1), original)

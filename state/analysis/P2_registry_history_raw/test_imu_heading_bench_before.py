@@ -168,7 +168,7 @@ class ImuHeadingBenchTests(unittest.TestCase):
         from . import test_runtime_config_registry as registry
         folder = ROOT / "state/analysis/P2_imu_heading_bench_raw/registry"
         before = (folder / "test_p0_config_before.py").read_bytes()
-        after = (folder / "test_p0_config_after.py").read_bytes()
+        after = (ROOT / "tests/tooling/test_p0_config.py").read_bytes()
         restored = after
         for name, value in DEFAULTS.items():
             line = f"    '{name}': {value},  # D111 finite heading bench bound.\n".encode()

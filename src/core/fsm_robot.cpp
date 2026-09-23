@@ -60,6 +60,7 @@ void clearActions(RobotResult& result) {
     result.lifecycle.gate.go = false;
     result.lifecycle.heading_reset_requested = false;
     result.heading.origin_changed = false;
+    result.heading.heading_updated = false;
     result.menu.selection_changed = false;
     result.menu.menu_toggled = false;
     result.menu.request = countdown::Service::NONE;
@@ -78,19 +79,21 @@ RobotResult Robot::step(const RobotInput& input) {
         return duplicate;
     }
     if (next_token_ == 0U) return exhaust(input);
-    admit(input);
-    receive(input);
+    RobotInput resolved = input;
+    admit(resolved);
+    receive(resolved);
     advanceHistories();
-    prepareInputs(input);
-    sampleSensors(input);
-    runLifecycle(input);
-    runEscape(input);
-    routeMotion(input);
+    prepareImu(resolved);
+    prepareInputs(resolved);
+    sampleSensors(resolved);
+    runLifecycle(resolved);
+    runEscape(resolved);
+    routeMotion(resolved);
     checkStall();
     prepareFinalRequest();
-    commitAndGovern(input);
-    updateWarnings(input);
-    finish(input);
+    commitAndGovern(resolved);
+    updateWarnings(resolved);
+    finish(resolved);
     return result_;
 }
 
@@ -219,7 +222,9 @@ void Robot::sampleSensors(const RobotInput& input) {
     tick_.new_white = static_cast<std::uint8_t>(result_.line_mask & ~previous_line_);
     previous_line_ = result_.line_mask;
     tick_.observation = fusion_.observe({input.t_us, input.opp_raw_mask, tick_.entry,
-        input.raw_heading_deg, input.ax_g, input.ay_g, input.imu_ok, tick_.new_white != 0U});
+        input.raw_heading_deg, input.ax_g, input.ay_g, input.imu_ok, tick_.new_white != 0U,
+        input.imu.explicit_values, input.imu.heading_updated,
+        input.imu.accel == core::ImuPresence::VALID, input.imu.observation_us});
     tick_.sampled = tick_.observation.fresh;
     if (!tick_.sampled && initialized_) faults_ |= STALE_SENSORS;
     result_.opponent_mask = tick_.observation.phantom.filtered_mask;
@@ -232,9 +237,10 @@ void Robot::sampleSensors(const RobotInput& input) {
 void Robot::rememberObservation() {
     const auto& bearing = tick_.observation.bearing;
     side_.observe(bearing.relative_deg, bearing.bearing_valid);
-    if (bearing.detected && bearing.bearing_valid) {
+    if (bearing.detected && (bearing.world_valid ||
+        (!explicit_imu_mode_ && bearing.bearing_valid))) {
         world_seen_ = true;
-        world_age_us_ = 0;
+        world_age_us_ = bearing.world_valid ? tick_.t_us - bearing.heading_observation_us : 0U;
     }
     const auto front = static_cast<std::uint8_t>(result_.opponent_mask & 5U);
     const auto rising = static_cast<std::uint8_t>(front & ~previous_front_);
@@ -267,8 +273,13 @@ void Robot::beginAttempt() {
 void Robot::runLifecycle(const RobotInput& input) {
     const bool allow_start = tick_.entry == core::State::IDLE && initialized_ &&
         faults_ == 0U && !menu_.selection().service_menu;
-    const countdown::ServiceSample sample{input.t_us, input.raw_gyro_z_dps, input.imu_ok,
+    countdown::ServiceSample sample{input.t_us, input.raw_gyro_z_dps, input.imu_ok,
         result_.line_mask, tick_.sampled ? tick_.observation.confirmed_mask : std::uint8_t{0}};
+    if (input.imu.explicit_values) {
+        sample.gyro_presence = static_cast<countdown::GyroPresence>(input.imu.gyro);
+        sample.gyro_observation_us = input.imu.observation_us;
+        sample.gyro_sequence = input.imu.sequence;
+    }
     result_.lifecycle = lifecycle_.step(sample, input.button, input.previous_bias_dps,
                                         input.stop_requested || faults_ != 0U, allow_start);
     if (result_.lifecycle.gate.start_release) beginAttempt();
@@ -285,8 +296,11 @@ void Robot::runLifecycle(const RobotInput& input) {
         result_.accepted_bias_dps = services.bias_dps;
         bias_reported_ = true;
     }
-    result_.heading = heading_.step(input.t_us, input.raw_heading_deg, input.imu_ok,
-                                    result_.lifecycle.gate.go);
+    result_.heading = input.imu.explicit_values ? heading_.step(
+        HeadingSample{input.t_us, input.raw_heading_deg, input.imu.heading_available,
+                      input.imu.heading_updated, input.imu.observation_us},
+        result_.lifecycle.gate.go) : heading_.step(input.t_us, input.raw_heading_deg,
+            input.imu_ok, result_.lifecycle.gate.go);
     if (result_.heading.fault) faults_ |= HEADING_CONTRACT;
     if (result_.lifecycle.gate.go) {
         attempt_go_ = true;
@@ -307,7 +321,8 @@ void Robot::runEscape(const RobotInput& input) {
     if (!tick_.sampled) return;
     const edge::EscapeSample sample{input.t_us, result_.line_mask,
         result_.heading.heading_deg, result_.heading.imu_ok, tick_.permission,
-        tick_.observation.bearing.centered, tick_.applied_l, tick_.applied_r, side_.direction()};
+        tick_.observation.bearing.centered, tick_.applied_l, tick_.applied_r, side_.direction(),
+        result_.heading.heading_updated};
     tick_.escape = escape_.step(sample);
     result_.escape_fault = tick_.escape.fault;
     if (tick_.escape.fault != edge::EscapeFault::NONE &&
@@ -339,7 +354,7 @@ void Robot::rememberEscape(const RobotInput& input) {
     if (tick_.escape.inward_valid && input.imu_ok && std::isfinite(input.raw_heading_deg)) {
         inward_valid_ = true;
         inward_raw_deg_ = input.raw_heading_deg;
-        inward_age_us_ = 0;
+        inward_age_us_ = input.imu.explicit_values ? input.t_us - input.imu.observation_us : 0U;
     }
 }
 
@@ -621,7 +636,7 @@ void Robot::checkStall() {
     sample.duty_l = tick_.applied_l;
     sample.duty_r = tick_.applied_r;
     sample.heading_deg = result_.heading.heading_deg;
-    sample.imu_ok = result_.heading.imu_ok;
+    sample.imu_ok = result_.heading.imu_ok && result_.heading.heading_updated;
     sample.suppress = tick_.limit.all_in_active;
     tick_.stall = detector_.step(sample);
     if (!tick_.stall.stalled || !tick_.permission || faults_ != 0U) return;
@@ -820,6 +835,10 @@ void Robot::prepareFrame(const RobotInput& input) {
         frame.gyro_z_dps = input.raw_gyro_z_dps;
         frame.ax_g = input.ax_g;
         frame.ay_g = input.ay_g;
+        frame.explicit_imu = input.imu.explicit_values;
+        if (frame.explicit_imu) frame.flags |= static_cast<std::uint8_t>(
+            (static_cast<std::uint8_t>(input.imu.gyro) << 4U) |
+            (static_cast<std::uint8_t>(input.imu.accel) << 6U));
         frame.vbat_v = input.vbat_valid ? input.vbat_v : std::numeric_limits<float>::quiet_NaN();
         const bool imu = attempt_go_ ? result_.heading.imu_ok :
             input.imu_ok && std::isfinite(input.raw_heading_deg);

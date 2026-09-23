@@ -17,7 +17,8 @@ add_executable(sumox26_tests ${CORE_SOURCES} ${TEST_SOURCES}
   "${CMAKE_CURRENT_SOURCE_DIR}/../src/hal/motors.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/../src/hal/imu.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/../src/hal/imu_acquisition.cpp"
-  "${CMAKE_CURRENT_SOURCE_DIR}/../src/hal/imu_heading.cpp")
+  "${CMAKE_CURRENT_SOURCE_DIR}/../src/hal/imu_heading.cpp"
+  "${CMAKE_CURRENT_SOURCE_DIR}/../src/hal/imu_adapter.cpp")
 target_include_directories(sumox26_tests PRIVATE ../src)
 target_include_directories(sumox26_tests SYSTEM PRIVATE third_party)
 target_compile_definitions(sumox26_tests PRIVATE DOCTEST_CONFIG_NO_EXCEPTIONS)

@@ -44,6 +44,15 @@ void writeU32(std::uint8_t* destination, std::uint32_t value) {
     destination[3] = static_cast<std::uint8_t>((value >> 24U) & 0xFFU);
 }
 
+bool validPresence(const FrameInput& input) {
+    if (!input.explicit_imu) return (input.flags & 0xF0U) == 0U;
+    const auto gyro = (input.flags >> 4U) & 3U;
+    const auto accel = (input.flags >> 6U) & 3U;
+    return gyro != 0U && accel != 0U &&
+        (gyro == 2U || input.gyro_z_dps == 0.0F) &&
+        (accel == 2U || (input.ax_g == 0.0F && input.ay_g == 0.0F));
+}
+
 bool validFrame(const FrameInput& input) {
     const auto state = static_cast<std::uint8_t>(input.state);
     const auto mode = static_cast<std::uint8_t>(input.mode);
@@ -51,7 +60,7 @@ bool validFrame(const FrameInput& input) {
         mode >= static_cast<std::uint8_t>(core::Mode::SIDESTEP_R) &&
         mode <= static_cast<std::uint8_t>(core::Mode::WAIT) &&
         (input.line_mask & 0xF0U) == 0U &&
-        (input.opp_mask & 0x80U) == 0U && (input.flags & 0xF0U) == 0U &&
+        (input.opp_mask & 0x80U) == 0U && validPresence(input) &&
         std::isfinite(input.heading_deg) && std::isfinite(input.gyro_z_dps) &&
         std::isfinite(input.ax_g) && std::isfinite(input.ay_g) &&
         std::isfinite(input.duty_l) && std::isfinite(input.duty_r) &&

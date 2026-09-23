@@ -399,7 +399,8 @@ EscapeResult Escape::step(const EscapeSample& sample) {
     out.entered = entered;
     out.exited = exited;
     out.replanned = replanned;
-    if (exited && sample.imu_ok && std::isfinite(sample.heading_deg)) {
+    if (exited && sample.imu_ok && sample.heading_updated &&
+        std::isfinite(sample.heading_deg)) {
         out.inward_valid = true;
         out.inward_heading_deg = sample.heading_deg;
     }

@@ -526,51 +526,91 @@ bool HeadingReference::resolved() const {
            result_.origin != HeadingOrigin::NOMINAL_PENDING;
 }
 
-void HeadingReference::captureOrigin(std::uint32_t t_us, float raw_heading_deg,
-                                     bool imu_ok) {
+void HeadingReference::captureOrigin(const HeadingSample& sample) {
+    const bool fresh = sample.available && sample.updated;
     result_.match_started = true;
     result_.origin_changed = true;
     result_.heading_deg = 0.0F;
-    result_.origin_t_us = imu_ok || !has_raw_ ? t_us : last_raw_us_;
-    result_.origin = imu_ok ? HeadingOrigin::CURRENT_GO :
+    result_.origin_t_us = fresh ? sample.observation_us :
+        (has_raw_ ? last_raw_us_ : sample.t_us);
+    result_.origin = fresh ? HeadingOrigin::CURRENT_GO :
         (has_raw_ ? HeadingOrigin::LAST_KNOWN : HeadingOrigin::NOMINAL_PENDING);
-    origin_deg_ = imu_ok ? static_cast<double>(raw_heading_deg) :
-                          static_cast<double>(last_raw_deg_);
+    origin_deg_ = fresh ? static_cast<double>(sample.raw_heading_deg) :
+                         static_cast<double>(last_raw_deg_);
 }
 
 HeadingResult HeadingReference::step(std::uint32_t t_us, float raw_heading_deg,
                                      bool imu_ok, bool go) {
+    return advance({t_us, raw_heading_deg, imu_ok, imu_ok, t_us}, go, false);
+}
+
+HeadingResult HeadingReference::step(const HeadingSample& sample, bool go) {
+    return advance(sample, go, true);
+}
+
+bool HeadingReference::acceptSource(const HeadingSample& sample) {
+    if (!sample.available) return !sample.updated;
+    const std::uint32_t age_us = sample.t_us - sample.observation_us;
+    if (age_us > config::IMU_HEADING_MAX_GAP_US) return false;
+    if (!sample.updated) {
+        return has_raw_ && sample.observation_us == last_raw_us_ &&
+            sample.raw_heading_deg == last_raw_deg_ &&
+            raw_age_us_ <= config::IMU_HEADING_MAX_GAP_US;
+    }
+    const std::uint32_t source_delta = sample.observation_us - last_raw_us_;
+    return !has_raw_ || (source_delta != 0U && source_delta < 0x80000000U);
+}
+
+HeadingResult HeadingReference::advance(const HeadingSample& sample, bool go,
+                                        bool explicit_source) {
     result_.origin_changed = false;
-    if (sampled_ && t_us == last_us_) return result_;
+    result_.heading_updated = false;
+    if (sampled_ && sample.t_us == last_us_) return result_;
+    const std::uint32_t elapsed_us = sampled_ ? sample.t_us - last_us_ : 0U;
+    if (has_raw_) {
+        const auto age = static_cast<std::uint64_t>(raw_age_us_) + elapsed_us;
+        raw_age_us_ = static_cast<std::uint32_t>(std::min(age,
+            static_cast<std::uint64_t>(std::numeric_limits<std::uint32_t>::max())));
+        result_.observation_us = last_raw_us_;
+        result_.heading_age_us = raw_age_us_;
+    }
     sampled_ = true;
-    last_us_ = t_us;
+    last_us_ = sample.t_us;
     result_.imu_ok = false;
     if (result_.fault) return result_;
-    if ((imu_ok && !std::isfinite(raw_heading_deg)) || (go && result_.match_started)) {
+    if ((sample.available && !std::isfinite(sample.raw_heading_deg)) ||
+        (sample.updated && !sample.available) || (go && result_.match_started) ||
+        (explicit_source && !acceptSource(sample))) {
         result_.fault = true;
         return result_;
     }
-    if (go) captureOrigin(t_us, raw_heading_deg, imu_ok);
-    if (!imu_ok) return result_;
-    if (result_.origin == HeadingOrigin::NOMINAL_PENDING) {
+    if (go) captureOrigin(sample);
+    if (!sample.available) return result_;
+    if (sample.updated && result_.origin == HeadingOrigin::NOMINAL_PENDING) {
         // The nominal coordinate stayed zero; anchor once without moving a target.
-        origin_deg_ = static_cast<double>(raw_heading_deg);
+        origin_deg_ = static_cast<double>(sample.raw_heading_deg);
         result_.origin = HeadingOrigin::FIRST_RECOVERY;
-        result_.origin_t_us = t_us;
+        result_.origin_t_us = sample.observation_us;
         result_.origin_changed = true;
     }
     if (result_.match_started) {
-        const auto local = projectHeading(raw_heading_deg);
+        const auto local = projectHeading(sample.raw_heading_deg);
         if (!local.valid) {
             result_.fault = true;
             return result_;
         }
         result_.heading_deg = local.heading_deg;
         result_.imu_ok = true;
+        result_.heading_updated = sample.updated;
     }
-    last_raw_deg_ = raw_heading_deg;
-    last_raw_us_ = t_us;
-    has_raw_ = true;
+    if (sample.updated) {
+        last_raw_deg_ = sample.raw_heading_deg;
+        last_raw_us_ = sample.observation_us;
+        raw_age_us_ = sample.t_us - sample.observation_us;
+        has_raw_ = true;
+        result_.observation_us = last_raw_us_;
+        result_.heading_age_us = raw_age_us_;
+    }
     return result_;
 }
 

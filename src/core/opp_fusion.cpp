@@ -148,6 +148,11 @@ void BearingMemory::rememberFrontSide(std::uint32_t t_us, std::uint8_t mask) {
 
 BearingView BearingMemory::step(std::uint32_t t_us, std::uint8_t confirmed_mask,
                                 float heading_deg) {
+    return step(t_us, confirmed_mask, heading_deg, t_us);
+}
+
+BearingView BearingMemory::step(std::uint32_t t_us, std::uint8_t confirmed_mask,
+                                float heading_deg, std::uint32_t heading_observation_us) {
     const auto mask = static_cast<std::uint8_t>(confirmed_mask & 0x7FU);
     rememberFrontSide(t_us, mask);
     BearingView view = selectBearing(mask, memory_);
@@ -157,11 +162,13 @@ BearingView BearingMemory::step(std::uint32_t t_us, std::uint8_t confirmed_mask,
     view.world_valid = std::isfinite(heading_deg);
     view.world_deg = view.world_valid ? worldBearing(heading_deg, view.relative_deg) :
                                        0.0F;
+    view.heading_observation_us = view.world_valid ? heading_observation_us : 0U;
     memory_.valid = true;
     memory_.world_valid = view.world_valid;
     memory_.last_rel_bearing_deg = view.relative_deg;
     memory_.last_world_bearing_deg = view.world_deg;
     memory_.last_seen_us = t_us;
+    memory_.world_heading_us = view.heading_observation_us;
     return view;
 }
 
@@ -266,8 +273,10 @@ PhantomResult PhantomFilter::step(const PhantomSample& sample) {
             consumed_ = true;
             const std::uint64_t window_us =
                 static_cast<std::uint64_t>(config::PHANTOM_WINDOW_MS) * 1000U;
-            if (!contacted_ && heading_valid && episode_age_us_ <= window_us) {
+            if (!contacted_ && heading_valid && sample.heading_updated &&
+                episode_age_us_ <= window_us) {
                 marker_deg_ = world_deg;
+                marker_heading_us_ = sample.heading_observation_us;
                 marker_age_us_ = 0U;
                 active_ = true;
                 result.phantom_set = true;
@@ -283,6 +292,7 @@ PhantomResult PhantomFilter::step(const PhantomSample& sample) {
     }
     result.active = active_;
     result.world_deg = active_ ? marker_deg_ : 0.0F;
+    result.heading_observation_us = active_ ? marker_heading_us_ : 0U;
     return result;
 }
 
@@ -290,11 +300,12 @@ void PhantomFilter::reset() {
     last_us_ = 0U;
     episode_age_us_ = marker_age_us_ = 0U;
     marker_deg_ = 0.0F;
+    marker_heading_us_ = 0U;
     clock_started_ = episode_ = contacted_ = consumed_ = active_ = false;
 }
 
 StuckResult StuckFilter::step(std::uint32_t t_us, std::uint8_t confirmed_mask,
-                             float heading_deg, bool imu_ok) {
+                             float heading_deg, bool imu_ok, bool heading_updated) {
     const auto mask = static_cast<std::uint8_t>(confirmed_mask & 0x7FU);
     const std::uint32_t elapsed_us = clock_started_ ? t_us - last_us_ : 0U;
     last_us_ = t_us;
@@ -313,15 +324,16 @@ StuckResult StuckFilter::step(std::uint32_t t_us, std::uint8_t confirmed_mask,
             continue;
         }
         if (!candidate.active) {
+            if (!heading_updated) continue;
             candidate = {0U, heading_deg, heading_deg, true};
         } else {
             // Saturate time so a late sweep still qualifies after many wraps.
             candidate.age_us = elapsed_us >= required_us - candidate.age_us ?
                 required_us : candidate.age_us + elapsed_us;
-            if (heading_deg < candidate.min_deg) {
+            if (heading_updated && heading_deg < candidate.min_deg) {
                 candidate.min_deg = heading_deg;
             }
-            if (heading_deg > candidate.max_deg) {
+            if (heading_updated && heading_deg > candidate.max_deg) {
                 candidate.max_deg = heading_deg;
             }
         }
@@ -360,19 +372,23 @@ FusionObservation Fusion::observe(const FusionSample& sample) {
     }
     observed_us_ = sample.t_us;
     observed_ = pending_ = true;
+    const bool heading_updated = !sample.explicit_imu || sample.heading_updated;
+    const bool accel_valid = sample.explicit_imu ? sample.accel_valid : sample.imu_ok;
+    const std::uint32_t heading_us = sample.explicit_imu ?
+        sample.heading_observation_us : sample.t_us;
     observation_.confirmed_mask = debounce_.step(sample.t_us, sample.raw_mask);
     observation_.stuck = stuck_.step(sample.t_us, observation_.confirmed_mask,
-                                     sample.heading_deg, sample.imu_ok);
+                                     sample.heading_deg, sample.imu_ok, heading_updated);
     observation_.cue = contact_.observeCue(observation_.stuck.filtered_mask,
-                                           sample.ax_g, sample.ay_g, sample.imu_ok);
+                                           sample.ax_g, sample.ay_g, accel_valid);
     observation_.phantom = phantom_.step({sample.t_us, sample.prior_state,
         observation_.stuck.filtered_mask, sample.heading_deg, sample.imu_ok,
-        sample.edge_event, observation_.cue.cue});
+        sample.edge_event, observation_.cue.cue, heading_updated, heading_us});
     // BearingMemory accepts a finite yaw as evidence; reject stale unavailable yaw.
     const float heading_deg = sample.imu_ok ? sample.heading_deg :
         std::numeric_limits<float>::quiet_NaN();
     observation_.bearing = bearing_.step(sample.t_us,
-        observation_.phantom.filtered_mask, heading_deg);
+        observation_.phantom.filtered_mask, heading_deg, heading_us);
     observation_.fresh = true;
     return observation_;
 }

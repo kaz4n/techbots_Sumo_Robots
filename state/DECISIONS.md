@@ -780,3 +780,16 @@ Consequence: no generic erase, phantom final frame or silent loss; no new cadenc
 app/transport integration, hardware instance or gate. Keep SC-AH RAM deployment
 blocker/B16 defaults. Independent contract-derived tests and fresh review remain
 required before declaring this software component complete.
+
+## D-071 (2026-09-23, selected under D-051) Isolated B8 target-memory candidates
+Context: default50Hz frame/event payload alone exceeds the installed extension
+pool; B15 permits25Hz when RAM is short but target owner/code costs are unknown.
+Decision: adopt P2_memory_compile_contract.md and memory_probe.h before code and
+independent tests. Prepare isolated50Hz baseline and25Hz fallback source trees,
+retaining actual single Robot/AttemptRecorder owners and never-called paths for
+compile-only ABI/section/constructor evidence. Supersede D-070's hardware-instance
+exclusion only for this bench; keep production cadence/config/app unchanged.
+Consequence: no firmware execution, upload allowlist expansion, transport runtime,
+loader change or gate. A size-check failure remains failure; candidate fit is not
+free-RAM, loadability,200s/no-gap recording or WCET proof. Preserve source hashes,
+failures, independent candidate/locked tests and separate fresh-context review.

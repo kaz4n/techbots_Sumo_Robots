@@ -743,3 +743,10 @@ network operation started after pause request. First resume fix D099-R1 before
 adoption, then remaining target evidence. No source/config/locked/MCU/upload/gate
 change. Handoff/execution/resume saved; stop until explicit human resume.
 Evidence P2_app_build_checkpoint.md/raw and checkpointreview. | checkpoint=this commit
+
+2026-09-23T21:01:41+04:00 | P2 goal resumed from cf61b84 | Previous goal turn PROGRESS;
+active goal continuation recovered D099-R1 and clean checkpoint. Independent red
+regressions reproduce141 accepted bad-property cases with positive controls. Pinned
+primary source identifies resolved config paths and hook-free property return;
+D100 contract defines bounded fix. No new board action yet, no gate or physical
+assumption. FullP0-P7 active/incomplete. | contract=this commit

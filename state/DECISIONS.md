@@ -1286,3 +1286,15 @@ Consequence: bypass is not an official Bridge-disable API; reject drift or any
 external library. Validate all adopted modes on board Linux only, with exact
 source/ELF/startup/import evidence and separate review. No firmware/config change,
 loadedRAM/WCET/physical/gate claim or upload follows.
+
+## D-100 (2026-09-23, selected under D051/D075) Precompile effective configuration
+Context: D099-R1 proves selected safety metadata does not constrain effective
+recipes/compiler/hooks; postcompile rejection cannot prevent a bad prebuild hook.
+Decision: adopt P2_app_override_contract.md: resolved directory queries, explicit
+profile/local/global override refusal, precompile installed pins, one hook-free
+expanded-properties preflight and complete effective-command reference checks,
+then real compile and repeated checks. This narrowly amends D099's show-properties
+ban for a separate preflight only, never as firmware-build/library success.
+Consequence: preserve default/Immediate/MATCH meaning and all upload restrictions;
+no source/config/capacity or hardware authority change. Independent regressions,
+exact primary-source audit, actual target evidence and separate review required.

@@ -20,6 +20,9 @@ HARDWARE, existing motors.h/cpp and P2_motor_gate_contract, SC-AI, F086/F088/F09
 and P2_next_driver_audit.md. Resolve period construction/deferred initialization
 and actual fresh timer-update confirmation while EN LOW in a bounded contract.
 Then independent spec-derived tests, implementation, compile-only and fresh review.
+First verify U585 update/preload semantics and errata plus installed clock lineage:
+P2_next_driver_audit.md records RM0456 retrieval failures and unadopted candidate
+10kHz/150us/4096-poll defaults. Do not treat that recommendation as approval or proof.
 Do not replace settling with a successful write or arbitrary delay. Existing37
 MotorGate cases are locked. No native backend/app integration is complete yet.
 

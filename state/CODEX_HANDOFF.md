@@ -28,6 +28,13 @@ Current board Linux CLI1.5.1/core1.0.0/USB2629958581. Disk query9:43 about11.5GB
 normal/sanitized durable builds available. No further D076 validation is required
 unless code changes. Original scope cuts/freeze and all physical gates remain.
 
+Final D076 evidence commits1977367/72e9f8c preserve raw bytes;30 receipts verified
+against staged blobs after correcting Git newline normalization. Failure retained.
+Next audit is complete, no livejobs: P2_next_driver_audit.md. Candidate natural
+UIF settling still needs RM0456 preload/update/errata and clock lineage evidence,
+plus explicit period-validation contract clarification. No proposed frequency/
+settle/poll default adopted. These are next software tasks, not a human blocker.
+
 --- Earlier handoff preserved below ---
 
 # D075 checkpoint - ACTIVE software development, 2026-09-23 09:26 Asia/Dubai

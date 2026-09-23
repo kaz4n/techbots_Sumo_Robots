@@ -22,3 +22,7 @@ Next: checked native MotorGate contract following P2_next_driver_audit.md. Requi
 real bounded confirmation of latestPWM latching before EN; preserve old boundary
 and lockedtests. Installed flags/readback alone are not waveform qualification.
 No fake success, hardware claim, phase pass or broader upload authority.
+
+Checkpoint: evidence1977367/72e9f8c saved; receipt newline correction verified.
+Next audit complete; U585 update/errata and clock-lineage prerequisites remain.
+No proposed new PWM default adopted, no livejobs or human action request.

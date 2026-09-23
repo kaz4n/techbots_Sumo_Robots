@@ -1,55 +1,42 @@
 # Resume SumoX-26 with Codex
 
-Read AGENTS.md fully, state/CODEX_HANDOFF.md, PROGRESS.md, DECISIONS.md, FACTS.md,
-TUNING_LOG.md and CODEX_EXECUTION.md. Inspect actual Git status/diffs/commits and
+Read AGENTS.md fully, CODEX_HANDOFF.md, PROGRESS.md, DECISIONS.md, FACTS.md,
+TUNING_LOG.md and CODEX_EXECUTION.md under state/. Inspect Git status/diffs and
 open findings in state/analysis/spec_conflicts.md and state/reviews/. Preserve
-unrelated edits. Check actual UTC/Dubai date before applying PLAN deadlines.
+unrelated work. Check actual UTC/Dubai time before PLAN deadlines.
 
-Recover the active phase from real progress/human gate records, not a template.
-No human phase gate is currently passed. P0/P1 acceptance remains pending. D-016
-allows the completed P1 host track; D-068 under D-051 selects narrow offline B8
-RAM storage preparation only. Read P2_hal_bench.md, BEHAVIOR B15 and the active
-contracts. This is not permission for app/Bridge integration or physical claims.
+No human phase gate has passed. Original goal ACTIVE/incomplete. D-016 permits
+completed P1host work; D-068/070 offline B8 and D-071 isolated compile preparation
+are selected exceptions under D-051, not permission for app/Bridge integration.
+Load P2_hal_bench.md, B15/B16 and active contracts before further recorder work.
 
-Completed offline storage: D-069 frame ringf733c4e/contract7f446a9 and D-070
-attempt owner193bd33/contractd38c0eb. Final969hostcases/17459867assertions pass
-normal+ASanUBSan,0fail/skip;317tooltests pass. Fresh same-model reviews PASS with
-independent runtime reproduction. Read both P2_frame_buffer_validation.md and
-P2_attempt_recorder_validation.md, preserved failures and P2 reviews. No worker
-or command is still running; resume from the committed evidence.
+Latest task complete within scope: contract390b7cc/implementationf351d20. Read
+P2_memory_compile_validation.md, loader_budget.md, raw receipts and fresh review.
+Actual50Hz image size-check fails356608B; isolated25Hz compiles226584B.245candidate
+plus unchangedlockedcases/8451027 assertions pass normal+ASanUBSan;335tools pass.
+Source/ABI/ELF reviewed.43protectedfiles unchanged, production50Hz retained.
+Prior969production test result remains valid; its inputs did not change.
 
-Exact next task: resolve SC-AH using F-089/P2_memory_budget_followup_20260923.md,
-then freeze a scoped candidate memory/compile-only contract before selecting
-B15's conditional25Hz or another representation/placement. Do not silently
-change LOG_HZ, use a planning sum as target-fit, change loader mode or integrate
-app/Bridge runtime. Actual memory accounting must include owner code, metadata,
-other HAL and load peaks/headroom. Physical B8 free-RAM/200s/WCET stays pending.
+First next task: assess/select B15's25Hz production fallback through a separate
+D-051 engineering decision, then independently update only affected unlocked
+cadence/capacity expectations with visible B16/config consistency. Preserve and
+rerun original locked tests. Refresh existing inert source guards only after
+separate source review; never expand upload/run authority or invent measurements.
 
-Use independent test-author context (spec/header only) and separate read-only
-reviewer; this is same-model review, not cross-model/human acceptance. Assign
-exclusive files, serialize shared header/config/build/state changes. Preserve
-raw commands/statuses/failures and exact source maps. Existing locked tests
-require an explicit human-approved amendment; do not weaken assertions.
+Candidate RAM/conditional loaderpeak230072B is not actual freeRAM/loadability,
+completeHAL fit,200s/no-gap/dump evidence or WCET. F091: stock initializers and
+indefinite-mutex Bridge hook remain; future runtime must address these paths.
+Retain EMPTY include-boundary issue, reset stack2392B before callees and original
+failed target/offline-parser receipts. Do not repeat solved candidate work.
 
-Known deployment blocker SC-AH: unchanged50Hz frame/event payload292794B exceeds
-installed262144B pool before app/metadata. Host object292848B is not MCU fit.
-Keep B16 defaults unless a separate evidenced decision applies. No RAM/WCET/B8
-acceptance from host tests. Recorder transport/CSV/app integration is unfinished.
+No worker/command is running. Last known MCU remains inertQTR61d7a2d0/default
+uploaded23September03:00:13.327+04. D071 only built/read Linux files; no MCU action.
+P0physical/electrical/PINMAP, P1EXPLAINED and all human gates still absent.
+No extra hardware request now; user defers hardware tests. D051 delegates
+engineering choices, never physical facts or STAND OK/RING OK for motor runs.
 
-Existing P1 core895-case software/actual inert target compile/fresh review remains
-valid; do not restart solved modules. P0 measured ADC/GPIO/QTR and never-called
-MPU6050/PWM/IRQ probes remain scoped evidence; do not repeat them to fill time.
-Physical matrix/cold-start/electrical/PINMAP and EXPLAINED/human gates still absent.
-No extra hardware connection request now; user defers those tests. Current MCU
-is earlier inert QTR61d7a2d0/default uploaded23September03:00:13.327+04. Later
-offline source-manifest refresh does not mean that new source was uploaded.
-
-Follow current user authorization without repeating questions; D-051 delegates
-engineering choices but cannot create measurements/human gate entries or motor
-run permission. No STAND OK/RING OK exists. Keep credentials outside tracked
-files; retain SSH host-key checks. Compile-only never uploads/resets/starts.
-
-Finish each eligible task, validate, record evidence and make small local commits.
-Never push or move release tags. At session boundary record completed work,
-commits/files, actual tests/results, open limits and exact first next task.
-Full P0-P7 remains unfinished; do not mark goal complete on a software checkpoint.
+Use independent spec/header-only author and fresh-context read-only reviewer;
+label same-model review accurately. Assign exclusive ownership, serialize shared
+config/interfaces/ledgers, preserve failed receipts and small local commits.
+Never push/tag/rewrite history. At each boundary save actual completed work,
+commits/tests/evidence/limits and first next task. Do not mark full goal complete.

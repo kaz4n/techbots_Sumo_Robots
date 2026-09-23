@@ -2,6 +2,59 @@
 
 ## Current resume point - 2026-09-23 Asia/Dubai
 
+Original full P0-P7 goal ACTIVE/incomplete. No human phase gate passed.
+D-068/D-070 offline B8 storage and D-071 isolated compile track are complete
+within their scope; app/Bridge runtime integration and physical acceptance remain
+pending. No worker/command continues in the background.
+
+Latest task: contract390b7cc and implementation/evidencef351d20. Added inert memory
+probe, isolated-candidate builder,18 independent tooling tests and6 candidate-only
+cases. Actual UNO Q Linux CLI1.5.1/core1.0.0 compiled default/MATCH0/MOTORS_ALLOWED0
+via ADB. Initial50Hz failed from EMPTY macro; bench-only include quarantine
+repaired it. Repaired50Hz then failed size check356608B vs262144B. Candidate25Hz
+compiled exit0 at226584B, leaving35560B compiler difference. No upload/reset/MCU
+run or peripheral action; last known uploaded image stays inert QTR61d7a2d0/default
+from03:00:13.327+04. No motor permission or new hardware request.
+
+HOST-TESTED:245candidate+unchangedlockedcases/8451027assertions pass normal0.420s
+andASanUBSan5.594s,0fail/skip. SCRIPT-TESTED:335pass136.757s. Fresh same-model
+read-only reviewer independently rebuilt245cases/reproduced18focusedchecks and
+verified source maps, ELF hashes, ABI/census and command outcomes. PASS/no open
+finding within compile-only scope. Both prior969-case production inputs and all43
+protected files unchanged. Existingfiveuploadguards remain193bd33. No B16 value
+changed; actual25 rate exists only in copied candidates.
+
+Evidence: analysis/P2_memory_compile_validation.md, P2_memory_loader_budget.md,
+P2_memory_validation_raw/ and reviews/P2_memory_compile_codex.md. Raw43-file
+SHA256 manifest includes successful/failed commands and final ELFs. Original
+macro failure and corrected offline ET_REL parser error are preserved. Separate
+conditional pristine-heap model230072B peak/largestallocatable32068B is NOT
+measured free memory. F-090/F-091 distinguish target facts and runtime limits.
+
+Critical runtime limits: default image inherits4 platform initializers and a
+Bridge loop hook with indefinite mutex wait. Pure user setup/loop inertness does
+not certify the whole binary bounded or Linux-independent. Robot reset stack2392B
+before callees; full stack/load/free-RAM/full-HAL growth/200s/dump/WCET unmeasured.
+SC-AH deployment and SC-I runtime path remain open, along with other hardware
+conflicts. Production50Hz is still too large with this owner.
+
+Exact first next task: assess/select B15's25Hz production fallback under D-051
+with a separate explicit decision before changing B16/config/test expectations.
+Use the actual D-071 evidence and carry full-HAL/load/physical limits forward.
+Independent author must adjust only affected unlocked cadence/capacity expectations;
+retain original locked files and rerun them at adopted rate. Refresh existing
+inert source guards only after reviewed changed source; never add upload authority.
+Do not redo this candidate experiment or treat it as a gate/full firmware fit.
+Further app/transport integration stays subject to original phase eligibility.
+
+Earlier P0/P1 software/target evidence remains valid; physical PINMAP/electrical,
+EXPLAINED and human GATE records absent. No STAND OK/RING OK, push or release tag.
+23September is before the scope/freeze deadlines: retain Sep28 cut,Sep30 P6
+condition,Oct1 21:00Dubai freeze and Oct2/3 rehearsal/competition. Do not invent
+physical success or a human gate because time passes.
+
+## Prior D-070 resume point - 2026-09-23 Asia/Dubai
+
 Original full-project goal is ACTIVE after user resume. No human phase gate has
 passed. D-068 under D-051 selects narrow offline B8 RAM storage preparation;
 it supersedes only D-016's scheduling exclusion for that track. P0/P1 physical/

@@ -1,0 +1,2998 @@
+[
+  {
+    "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/modules/hal/stm32/stm32cube/stm32u5xx/soc/stm32u585xx.h",
+    "sha256": "8b66d5b9d1514f3ce0950b7a96402e7c026a0779e1cc36c3771be05432b68c06",
+    "lines": [
+      [
+        105,
+        "  GPDMA1_Channel7_IRQn      = 36,"
+      ],
+      [
+        106,
+        "  ADC1_IRQn                 = 37,"
+      ],
+      [
+        107,
+        "  DAC1_IRQn                 = 38,"
+      ],
+      [
+        108,
+        "  FDCAN1_IT0_IRQn           = 39,"
+      ],
+      [
+        109,
+        "  FDCAN1_IT1_IRQn           = 40,"
+      ],
+      [
+        110,
+        "  TIM1_BRK_IRQn             = 41,"
+      ],
+      [
+        111,
+        "  TIM1_UP_IRQn              = 42,"
+      ],
+      [
+        112,
+        "  TIM1_TRG_COM_IRQn         = 43,"
+      ],
+      [
+        113,
+        "  TIM1_CC_IRQn              = 44,"
+      ],
+      [
+        114,
+        "  TIM2_IRQn                 = 45,"
+      ],
+      [
+        115,
+        "  TIM3_IRQn                 = 46,"
+      ],
+      [
+        116,
+        "  TIM4_IRQn                 = 47,"
+      ],
+      [
+        117,
+        "  TIM5_IRQn                 = 48,"
+      ],
+      [
+        118,
+        "  TIM6_IRQn                 = 49,"
+      ],
+      [
+        119,
+        "  TIM7_IRQn                 = 50,"
+      ],
+      [
+        1736,
+        "#define AHB1PERIPH_BASE_NS       (PERIPH_BASE_NS + 0x00020000UL)"
+      ],
+      [
+        1737,
+        "#define AHB2PERIPH_BASE_NS       (PERIPH_BASE_NS + 0x02020000UL)"
+      ],
+      [
+        1738,
+        "#define APB3PERIPH_BASE_NS       (PERIPH_BASE_NS + 0x06000000UL)"
+      ],
+      [
+        1739,
+        "#define AHB3PERIPH_BASE_NS       (PERIPH_BASE_NS + 0x06020000UL)"
+      ],
+      [
+        1740,
+        ""
+      ],
+      [
+        1741,
+        "/*!< APB1 Non secure peripherals */"
+      ],
+      [
+        1742,
+        "#define TIM2_BASE_NS             (APB1PERIPH_BASE_NS + 0x0000UL)"
+      ],
+      [
+        1743,
+        "#define TIM3_BASE_NS             (APB1PERIPH_BASE_NS + 0x0400UL)"
+      ],
+      [
+        1744,
+        "#define TIM4_BASE_NS             (APB1PERIPH_BASE_NS + 0x0800UL)"
+      ],
+      [
+        1745,
+        "#define TIM5_BASE_NS             (APB1PERIPH_BASE_NS + 0x0C00UL)"
+      ],
+      [
+        1746,
+        "#define TIM6_BASE_NS             (APB1PERIPH_BASE_NS + 0x1000UL)"
+      ],
+      [
+        1747,
+        "#define TIM7_BASE_NS             (APB1PERIPH_BASE_NS + 0x1400UL)"
+      ],
+      [
+        1748,
+        "#define WWDG_BASE_NS             (APB1PERIPH_BASE_NS + 0x2C00UL)"
+      ],
+      [
+        1749,
+        "#define IWDG_BASE_NS             (APB1PERIPH_BASE_NS + 0x3000UL)"
+      ],
+      [
+        1750,
+        "#define SPI2_BASE_NS             (APB1PERIPH_BASE_NS + 0x3800UL)"
+      ],
+      [
+        1844,
+        "/*!< AHB2 Non secure peripherals */"
+      ],
+      [
+        1845,
+        "#define GPIOA_BASE_NS            (AHB2PERIPH_BASE_NS + 0x00000UL)"
+      ],
+      [
+        1846,
+        "#define GPIOB_BASE_NS            (AHB2PERIPH_BASE_NS + 0x00400UL)"
+      ],
+      [
+        1847,
+        "#define GPIOC_BASE_NS            (AHB2PERIPH_BASE_NS + 0x00800UL)"
+      ],
+      [
+        1848,
+        "#define GPIOD_BASE_NS            (AHB2PERIPH_BASE_NS + 0x00C00UL)"
+      ],
+      [
+        1849,
+        "#define GPIOE_BASE_NS            (AHB2PERIPH_BASE_NS + 0x01000UL)"
+      ],
+      [
+        1850,
+        "#define GPIOF_BASE_NS            (AHB2PERIPH_BASE_NS + 0x01400UL)"
+      ],
+      [
+        1851,
+        "#define GPIOG_BASE_NS            (AHB2PERIPH_BASE_NS + 0x01800UL)"
+      ],
+      [
+        1852,
+        "#define GPIOH_BASE_NS            (AHB2PERIPH_BASE_NS + 0x01C00UL)"
+      ],
+      [
+        1853,
+        "#define GPIOI_BASE_NS            (AHB2PERIPH_BASE_NS + 0x02000UL)"
+      ],
+      [
+        1854,
+        "#define ADC1_BASE_NS             (AHB2PERIPH_BASE_NS + 0x08000UL)"
+      ],
+      [
+        1855,
+        "#define ADC12_COMMON_BASE_NS     (AHB2PERIPH_BASE_NS + 0x08308UL)"
+      ],
+      [
+        1856,
+        "#define DCMI_BASE_NS             (AHB2PERIPH_BASE_NS + 0x0C000UL)"
+      ],
+      [
+        1857,
+        "#define PSSI_BASE_NS             (AHB2PERIPH_BASE_NS + 0x0C400UL)"
+      ],
+      [
+        1858,
+        "#define USB_OTG_FS_BASE_NS       (AHB2PERIPH_BASE_NS + 0x20000UL)"
+      ],
+      [
+        1859,
+        "#define AES_BASE_NS              (AHB2PERIPH_BASE_NS + 0xA0000UL)"
+      ],
+      [
+        1860,
+        "#define HASH_BASE_NS             (AHB2PERIPH_BASE_NS + 0xA0400UL)"
+      ],
+      [
+        1861,
+        "#define HASH_DIGEST_BASE_NS      (AHB2PERIPH_BASE_NS + 0xA0710UL)"
+      ],
+      [
+        1862,
+        "#define RNG_BASE_NS              (AHB2PERIPH_BASE_NS + 0xA0800UL)"
+      ],
+      [
+        1863,
+        "#define SAES_BASE_NS             (AHB2PERIPH_BASE_NS + 0xA0C00UL)"
+      ],
+      [
+        1864,
+        "#define PKA_BASE_NS              (AHB2PERIPH_BASE_NS + 0xA2000UL)"
+      ],
+      [
+        1865,
+        "#define PKA_RAM_BASE_NS          (AHB2PERIPH_BASE_NS + 0xA2400UL)"
+      ],
+      [
+        1866,
+        "#define OCTOSPIM_R_BASE_NS       (AHB2PERIPH_BASE_NS + 0xA4000UL)"
+      ],
+      [
+        1867,
+        "#define OTFDEC1_BASE_NS          (AHB2PERIPH_BASE_NS + 0xA5000UL)"
+      ],
+      [
+        1868,
+        "#define OTFDEC1_REGION1_BASE_NS  (OTFDEC1_BASE_NS + 0x20UL)"
+      ],
+      [
+        1869,
+        "#define OTFDEC1_REGION2_BASE_NS  (OTFDEC1_BASE_NS + 0x50UL)"
+      ],
+      [
+        1870,
+        "#define OTFDEC1_REGION3_BASE_NS  (OTFDEC1_BASE_NS + 0x80UL)"
+      ],
+      [
+        1871,
+        "#define OTFDEC1_REGION4_BASE_NS  (OTFDEC1_BASE_NS + 0xB0UL)"
+      ],
+      [
+        1872,
+        "#define OTFDEC2_BASE_NS          (AHB2PERIPH_BASE_NS + 0xA5400UL)"
+      ],
+      [
+        1873,
+        "#define OTFDEC2_REGION1_BASE_NS  (OTFDEC2_BASE_NS + 0x20UL)"
+      ],
+      [
+        1874,
+        "#define OTFDEC2_REGION2_BASE_NS  (OTFDEC2_BASE_NS + 0x50UL)"
+      ],
+      [
+        1875,
+        "#define OTFDEC2_REGION3_BASE_NS  (OTFDEC2_BASE_NS + 0x80UL)"
+      ],
+      [
+        1876,
+        "#define OTFDEC2_REGION4_BASE_NS  (OTFDEC2_BASE_NS + 0xB0UL)"
+      ],
+      [
+        1877,
+        "#define SDMMC1_BASE_NS           (AHB2PERIPH_BASE_NS + 0xA8000UL)"
+      ],
+      [
+        1878,
+        "#define SDMMC2_BASE_NS           (AHB2PERIPH_BASE_NS + 0xA8C00UL)"
+      ],
+      [
+        1879,
+        "#define DLYB_SDMMC1_BASE_NS      (AHB2PERIPH_BASE_NS + 0xA8400UL)"
+      ],
+      [
+        1880,
+        "#define DLYB_SDMMC2_BASE_NS      (AHB2PERIPH_BASE_NS + 0xA8800UL)"
+      ],
+      [
+        1881,
+        "#define DLYB_OCTOSPI1_BASE_NS    (AHB2PERIPH_BASE_NS + 0xAF000UL)"
+      ],
+      [
+        1882,
+        "#define DLYB_OCTOSPI2_BASE_NS    (AHB2PERIPH_BASE_NS + 0xAF400UL)"
+      ],
+      [
+        1883,
+        "#define FMC_R_BASE_NS            (AHB2PERIPH_BASE_NS + 0xB0400UL)"
+      ],
+      [
+        1884,
+        "/*!< FMC Banks Non secure registers base address */"
+      ],
+      [
+        1885,
+        "#define FMC_Bank1_R_BASE_NS      (FMC_R_BASE_NS + 0x0000UL)"
+      ],
+      [
+        1886,
+        "#define FMC_Bank1E_R_BASE_NS     (FMC_R_BASE_NS + 0x0104UL)"
+      ],
+      [
+        1887,
+        "#define FMC_Bank3_R_BASE_NS      (FMC_R_BASE_NS + 0x0080UL)"
+      ],
+      [
+        1888,
+        "#define OCTOSPI1_R_BASE_NS       (AHB2PERIPH_BASE_NS + 0xB1400UL)"
+      ],
+      [
+        1889,
+        "#define OCTOSPI2_R_BASE_NS       (AHB2PERIPH_BASE_NS + 0xB2400UL)"
+      ],
+      [
+        1890,
+        ""
+      ],
+      [
+        1891,
+        "/*!< AHB3 Non secure peripherals */"
+      ],
+      [
+        1892,
+        "#define LPGPIO1_BASE_NS          (AHB3PERIPH_BASE_NS)"
+      ],
+      [
+        1893,
+        "#define PWR_BASE_NS              (AHB3PERIPH_BASE_NS + 0x0800UL)"
+      ],
+      [
+        1894,
+        "#define RCC_BASE_NS              (AHB3PERIPH_BASE_NS + 0x0C00UL)"
+      ],
+      [
+        1895,
+        "#define ADC4_BASE_NS             (AHB3PERIPH_BASE_NS + 0x1000UL)"
+      ],
+      [
+        1896,
+        "#define ADC4_COMMON_BASE_NS      (AHB3PERIPH_BASE_NS + 0x1308UL)"
+      ],
+      [
+        1897,
+        "#define DAC1_BASE_NS             (AHB3PERIPH_BASE_NS + 0x1800UL)"
+      ],
+      [
+        1898,
+        "#define EXTI_BASE_NS             (AHB3PERIPH_BASE_NS + 0x2000UL)"
+      ],
+      [
+        1899,
+        "#define GTZC_TZSC2_BASE_NS       (AHB3PERIPH_BASE_NS + 0x3000UL)"
+      ],
+      [
+        1900,
+        "#define GTZC_TZIC2_BASE_NS       (AHB3PERIPH_BASE_NS + 0x3400UL)"
+      ],
+      [
+        1901,
+        "#define GTZC_MPCBB4_BASE_NS      (AHB3PERIPH_BASE_NS + 0x3800UL)"
+      ],
+      [
+        1902,
+        "#define ADF1_BASE_NS             (AHB3PERIPH_BASE_NS + 0x4000UL)"
+      ],
+      [
+        2038,
+        "#define GPIOI_BASE_S            (AHB2PERIPH_BASE_S + 0x02000UL)"
+      ],
+      [
+        2039,
+        "#define ADC1_BASE_S             (AHB2PERIPH_BASE_S + 0x08000UL)"
+      ],
+      [
+        2040,
+        "#define ADC12_COMMON_BASE_S     (AHB2PERIPH_BASE_S + 0x08308UL)"
+      ],
+      [
+        2041,
+        "#define DCMI_BASE_S             (AHB2PERIPH_BASE_S + 0x0C000UL)"
+      ],
+      [
+        2042,
+        "#define PSSI_BASE_S             (AHB2PERIPH_BASE_S + 0x0C400UL)"
+      ],
+      [
+        2043,
+        "#define USB_OTG_FS_BASE_S       (AHB2PERIPH_BASE_S + 0x20000UL)"
+      ],
+      [
+        2044,
+        "#define AES_BASE_S              (AHB2PERIPH_BASE_S + 0xA0000UL)"
+      ],
+      [
+        2045,
+        "#define HASH_BASE_S             (AHB2PERIPH_BASE_S + 0xA0400UL)"
+      ],
+      [
+        2046,
+        "#define HASH_DIGEST_BASE_S      (AHB2PERIPH_BASE_S + 0xA0710UL)"
+      ],
+      [
+        2047,
+        "#define RNG_BASE_S              (AHB2PERIPH_BASE_S + 0xA0800UL)"
+      ],
+      [
+        2048,
+        "#define SAES_BASE_S             (AHB2PERIPH_BASE_S + 0xA0C00UL)"
+      ],
+      [
+        2049,
+        "#define PKA_BASE_S              (AHB2PERIPH_BASE_S + 0xA2000UL)"
+      ],
+      [
+        2050,
+        "#define PKA_RAM_BASE_S          (AHB2PERIPH_BASE_S + 0xA2400UL)"
+      ],
+      [
+        2051,
+        "#define OTFDEC1_BASE_S          (AHB2PERIPH_BASE_S + 0xA5000UL)"
+      ],
+      [
+        2052,
+        "#define OTFDEC1_REGION1_BASE_S  (OTFDEC1_BASE_S + 0x20UL)"
+      ],
+      [
+        2053,
+        "#define OTFDEC1_REGION2_BASE_S  (OTFDEC1_BASE_S + 0x50UL)"
+      ],
+      [
+        2303,
+        "#define GPIOI_NS               ((GPIO_TypeDef *) GPIOI_BASE_NS)"
+      ],
+      [
+        2304,
+        "#define ADC1_NS                ((ADC_TypeDef *) ADC1_BASE_NS)"
+      ],
+      [
+        2305,
+        "#define ADC12_COMMON_NS        ((ADC_Common_TypeDef *) ADC12_COMMON_BASE_NS)"
+      ],
+      [
+        2306,
+        "#define DCMI_NS                ((DCMI_TypeDef *) DCMI_BASE_NS)"
+      ],
+      [
+        2307,
+        "#define PSSI_NS                ((PSSI_TypeDef *) PSSI_BASE_NS)"
+      ],
+      [
+        2308,
+        "#define USB_OTG_FS_NS          ((USB_OTG_GlobalTypeDef *) USB_OTG_FS_BASE_NS)"
+      ],
+      [
+        2309,
+        "#define AES_NS                 ((AES_TypeDef *) AES_BASE_NS)"
+      ],
+      [
+        2310,
+        "#define HASH_NS                ((HASH_TypeDef *) HASH_BASE_NS)"
+      ],
+      [
+        2311,
+        "#define HASH_DIGEST_NS         ((HASH_DIGEST_TypeDef *) HASH_DIGEST_BASE_NS)"
+      ],
+      [
+        2312,
+        "#define RNG_NS                 ((RNG_TypeDef *) RNG_BASE_NS)"
+      ],
+      [
+        2313,
+        "#define SAES_NS                ((AES_TypeDef *) SAES_BASE_NS)"
+      ],
+      [
+        2314,
+        "#define PKA_NS                 ((PKA_TypeDef *) PKA_BASE_NS)"
+      ],
+      [
+        2315,
+        "#define OTFDEC1_NS             ((OTFDEC_TypeDef *) OTFDEC1_BASE_NS)"
+      ],
+      [
+        2316,
+        "#define OTFDEC1_REGION1_NS     ((OTFDEC_Region_TypeDef *) OTFDEC1_REGION1_BASE_NS)"
+      ],
+      [
+        2317,
+        "#define OTFDEC1_REGION2_NS     ((OTFDEC_Region_TypeDef *) OTFDEC1_REGION2_BASE_NS)"
+      ],
+      [
+        2318,
+        "#define OTFDEC1_REGION3_NS     ((OTFDEC_Region_TypeDef *) OTFDEC1_REGION3_BASE_NS)"
+      ],
+      [
+        2468,
+        "#define GPIOI_S                ((GPIO_TypeDef *) GPIOI_BASE_S)"
+      ],
+      [
+        2469,
+        "#define ADC1_S                 ((ADC_TypeDef *) ADC1_BASE_S)"
+      ],
+      [
+        2470,
+        "#define ADC12_COMMON_S         ((ADC_Common_TypeDef *) ADC12_COMMON_BASE_S)"
+      ],
+      [
+        2471,
+        "#define DCMI_S                 ((DCMI_TypeDef *) DCMI_BASE_S)"
+      ],
+      [
+        2472,
+        "#define PSSI_S                 ((PSSI_TypeDef *) PSSI_BASE_S)"
+      ],
+      [
+        2473,
+        "#define USB_OTG_FS_S           ((USB_OTG_GlobalTypeDef *) USB_OTG_FS_BASE_S)"
+      ],
+      [
+        2474,
+        "#define AES_S                  ((AES_TypeDef *) AES_BASE_S)"
+      ],
+      [
+        2475,
+        "#define HASH_S                 ((HASH_TypeDef *) HASH_BASE_S)"
+      ],
+      [
+        2476,
+        "#define HASH_DIGEST_S          ((HASH_DIGEST_TypeDef *) HASH_DIGEST_BASE_S)"
+      ],
+      [
+        2477,
+        "#define RNG_S                  ((RNG_TypeDef *) RNG_BASE_S)"
+      ],
+      [
+        2478,
+        "#define SAES_S                 ((AES_TypeDef *) SAES_BASE_S)"
+      ],
+      [
+        2479,
+        "#define PKA_S                  ((PKA_TypeDef *) PKA_BASE_S)"
+      ],
+      [
+        2480,
+        "#define OTFDEC1_S              ((OTFDEC_TypeDef *) OTFDEC1_BASE_S)"
+      ],
+      [
+        2481,
+        "#define OTFDEC1_REGION1_S      ((OTFDEC_Region_TypeDef *) OTFDEC1_REGION1_BASE_S)"
+      ],
+      [
+        2482,
+        "#define OTFDEC1_REGION2_S      ((OTFDEC_Region_TypeDef *) OTFDEC1_REGION2_BASE_S)"
+      ],
+      [
+        2483,
+        "#define OTFDEC1_REGION3_S      ((OTFDEC_Region_TypeDef *) OTFDEC1_REGION3_BASE_S)"
+      ],
+      [
+        2876,
+        ""
+      ],
+      [
+        2877,
+        "#define ADC1                           ADC1_S"
+      ],
+      [
+        2878,
+        "#define ADC1_BASE                      ADC1_BASE_S"
+      ],
+      [
+        2879,
+        ""
+      ],
+      [
+        2880,
+        "#define ADC12_COMMON                   ADC12_COMMON_S"
+      ],
+      [
+        2881,
+        "#define ADC12_COMMON_BASE              ADC12_COMMON_BASE_S"
+      ],
+      [
+        2882,
+        ""
+      ],
+      [
+        2883,
+        ""
+      ],
+      [
+        2884,
+        "#define ADC4                           ADC4_S"
+      ],
+      [
+        2885,
+        "#define ADC4_BASE                      ADC4_BASE_S"
+      ],
+      [
+        2886,
+        ""
+      ],
+      [
+        2887,
+        "#define ADC4_COMMON                    ADC4_COMMON_S"
+      ],
+      [
+        2888,
+        "#define ADC4_COMMON_BASE               ADC4_COMMON_BASE_S"
+      ],
+      [
+        2889,
+        ""
+      ],
+      [
+        2890,
+        "#define HASH                           HASH_S"
+      ],
+      [
+        2891,
+        "#define HASH_BASE                      HASH_BASE_S"
+      ],
+      [
+        2892,
+        ""
+      ],
+      [
+        2893,
+        "#define HASH_DIGEST                    HASH_DIGEST_S"
+      ],
+      [
+        2894,
+        "#define HASH_DIGEST_BASE               HASH_DIGEST_BASE_S"
+      ],
+      [
+        3019,
+        "#define AHB1PERIPH_BASE                AHB1PERIPH_BASE_NS"
+      ],
+      [
+        3020,
+        "#define AHB2PERIPH_BASE                AHB2PERIPH_BASE_NS"
+      ],
+      [
+        3021,
+        ""
+      ],
+      [
+        3022,
+        "/*!< Instance aliases and base addresses for Non secure peripherals */"
+      ],
+      [
+        3023,
+        "#define CORDIC                         CORDIC_NS"
+      ],
+      [
+        3024,
+        "#define CORDIC_BASE                    CORDIC_BASE_NS"
+      ],
+      [
+        3025,
+        ""
+      ],
+      [
+        3026,
+        "#define RCC                            RCC_NS"
+      ],
+      [
+        3027,
+        "#define RCC_BASE                       RCC_BASE_NS"
+      ],
+      [
+        3028,
+        ""
+      ],
+      [
+        3029,
+        "#define DMA2D                          DMA2D_NS"
+      ],
+      [
+        3030,
+        "#define DMA2D_BASE                     DMA2D_BASE_NS"
+      ],
+      [
+        3031,
+        ""
+      ],
+      [
+        3032,
+        "#define DCMI                           DCMI_NS"
+      ],
+      [
+        3033,
+        "#define DCMI_BASE                      DCMI_BASE_NS"
+      ],
+      [
+        3355,
+        ""
+      ],
+      [
+        3356,
+        "#define ADC1                           ADC1_NS"
+      ],
+      [
+        3357,
+        "#define ADC1_BASE                      ADC1_BASE_NS"
+      ],
+      [
+        3358,
+        ""
+      ],
+      [
+        3359,
+        "#define ADC12_COMMON                   ADC12_COMMON_NS"
+      ],
+      [
+        3360,
+        "#define ADC12_COMMON_BASE              ADC12_COMMON_BASE_NS"
+      ],
+      [
+        3361,
+        ""
+      ],
+      [
+        3362,
+        "#define ADC4                           ADC4_NS"
+      ],
+      [
+        3363,
+        "#define ADC4_BASE                      ADC4_BASE_NS"
+      ],
+      [
+        3364,
+        ""
+      ],
+      [
+        3365,
+        "#define ADC4_COMMON                    ADC4_COMMON_NS"
+      ],
+      [
+        3366,
+        "#define ADC4_COMMON_BASE               ADC4_COMMON_BASE_NS"
+      ],
+      [
+        3367,
+        ""
+      ],
+      [
+        3368,
+        "#define HASH                           HASH_NS"
+      ],
+      [
+        3369,
+        "#define HASH_BASE                      HASH_BASE_NS"
+      ],
+      [
+        3370,
+        ""
+      ],
+      [
+        3371,
+        "#define HASH_DIGEST                    HASH_DIGEST_NS"
+      ],
+      [
+        3372,
+        "#define HASH_DIGEST_BASE               HASH_DIGEST_BASE_NS"
+      ],
+      [
+        3373,
+        ""
+      ],
+      [
+        24465,
+        "/******************************* ADC Instances ********************************/"
+      ],
+      [
+        24466,
+        "#define IS_ADC_ALL_INSTANCE(INSTANCE) (((INSTANCE) == ADC1_NS)||                   \\"
+      ],
+      [
+        24467,
+        "                                       ((INSTANCE) == ADC1_S) ||                   \\"
+      ],
+      [
+        24468,
+        "                                       ((INSTANCE) == ADC4_NS)||                   \\"
+      ],
+      [
+        24469,
+        "                                       ((INSTANCE) == ADC4_S))"
+      ],
+      [
+        24470,
+        ""
+      ],
+      [
+        24471,
+        "#define IS_ADC_MULTIMODE_MASTER_INSTANCE(INSTANCE) (((INSTANCE) == ADC1_NS) || \\"
+      ],
+      [
+        24472,
+        "                                                    ((INSTANCE) == ADC1_S))"
+      ],
+      [
+        24473,
+        ""
+      ],
+      [
+        24474,
+        "#define IS_ADC_COMMON_INSTANCE(INSTANCE) (((INSTANCE) == ADC12_COMMON_NS) ||         \\"
+      ],
+      [
+        24475,
+        "                                          ((INSTANCE) == ADC12_COMMON_S)  ||         \\"
+      ],
+      [
+        24476,
+        "                                          ((INSTANCE) == ADC4_COMMON_NS)  ||         \\"
+      ],
+      [
+        24477,
+        "                                          ((INSTANCE) == ADC4_COMMON_S))"
+      ],
+      [
+        24478,
+        ""
+      ],
+      [
+        24479,
+        "/******************************* AES Instances ********************************/"
+      ],
+      [
+        24480,
+        "#define IS_AES_ALL_INSTANCE(INSTANCE) (((INSTANCE) == AES_NS) || ((INSTANCE) == AES_S))"
+      ],
+      [
+        24481,
+        ""
+      ],
+      [
+        24482,
+        "/******************************* PKA Instances ********************************/"
+      ],
+      [
+        24483,
+        "#define IS_PKA_ALL_INSTANCE(INSTANCE) (((INSTANCE) == PKA_NS) || ((INSTANCE) == PKA_S))"
+      ],
+      [
+        24484,
+        ""
+      ],
+      [
+        24485,
+        "/******************************** FDCAN Instances *****************************/"
+      ],
+      [
+        24486,
+        "#define IS_FDCAN_ALL_INSTANCE(INSTANCE) (((INSTANCE) == FDCAN1_NS) || ((INSTANCE) == FDCAN1_S))"
+      ],
+      [
+        24487,
+        ""
+      ],
+      [
+        24488,
+        "/******************************** COMP Instances ******************************/"
+      ]
+    ]
+  },
+  {
+    "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/modules/hal/stm32/stm32cube/stm32u5xx/drivers/include/stm32u5xx_ll_adc.h",
+    "sha256": "c72e076314ab1e3ec41928bfb04c942e321065a47ca778358f0503984f0f441f",
+    "lines": [
+      [
+        478,
+        "/* ADC registers bits groups */"
+      ],
+      [
+        479,
+        "#define ADC_CR_BITS_PROPERTY_RS     ( ADC_CR_ADCAL | ADC_CR_JADSTP | ADC_CR_ADSTP | ADC_CR_JADSTART | ADC_CR_ADSTART \\"
+      ],
+      [
+        480,
+        "                                      | ADC_CR_ADDIS | ADC_CR_ADEN) /* ADC register CR bits with HW property \"rs\":"
+      ],
+      [
+        481,
+        "                                                                       Software can read as well as set this bit."
+      ],
+      [
+        482,
+        "                                                                       Writing '0' has no effect on the bit value. */"
+      ],
+      [
+        483,
+        ""
+      ],
+      [
+        484,
+        "/* ADC internal channels related definitions */"
+      ],
+      [
+        485,
+        "/* Internal voltage reference VrefInt */"
+      ],
+      [
+        486,
+        "#define VREFINT_CAL_ADDR            ((const uint16_t*) (0x0BFA07A5UL)) /* Internal voltage reference, address of parameter"
+      ],
+      [
+        487,
+        "                                                                    VREFINT_CAL: VrefInt ADC raw data acquired at"
+      ],
+      [
+        488,
+        "                                                                    temperature 30 DegC (tolerance: +-5 DegC),"
+      ],
+      [
+        489,
+        "                                                                    Vref+ = 3.0 V (tolerance: +-10 mV).              */"
+      ],
+      [
+        490,
+        "#define VREFINT_CAL_VREF            (3000UL)                     /* Analog voltage reference (Vref+) value with which"
+      ],
+      [
+        491,
+        "                                                                    VrefInt has been calibrated in production"
+      ],
+      [
+        492,
+        "                                                                    (tolerance: +-10 mV) (unit: mV).      */"
+      ],
+      [
+        871,
+        "                                                             register accessed by LL function"
+      ],
+      [
+        872,
+        "                                                             @ref LL_ADC_REG_ReadConversionData32() and"
+      ],
+      [
+        873,
+        "                                                             other functions @ref LL_ADC_REG_ReadConversionDatax() */"
+      ],
+      [
+        874,
+        "#if defined(ADC_MULTIMODE_SUPPORT)"
+      ],
+      [
+        875,
+        "#define LL_ADC_DMA_REG_REGULAR_DATA_MULTI    (0x00000001UL) /* ADC group regular conversion data register"
+      ],
+      [
+        876,
+        "                                                               (corresponding to register CDR) to be used with"
+      ],
+      [
+        877,
+        "                                                               ADC configured in multimode (available on STM32 devices"
+      ],
+      [
+        878,
+        "                                                               with several ADC instances). Without DMA transfer,"
+      ],
+      [
+        879,
+        "                                                               register accessed by LL function"
+      ],
+      [
+        880,
+        "                                                               @ref LL_ADC_REG_ReadMultiConversionData32() */"
+      ],
+      [
+        881,
+        "#endif /* ADC_MULTIMODE_SUPPORT */"
+      ],
+      [
+        882,
+        "/**"
+      ],
+      [
+        883,
+        "  * @}"
+      ],
+      [
+        884,
+        "  */"
+      ],
+      [
+        885,
+        ""
+      ],
+      [
+        2584,
+        "#if defined(ADC2)"
+      ],
+      [
+        2585,
+        "#define __LL_ADC_COMMON_INSTANCE(__ADCx__)                                     \\"
+      ],
+      [
+        2586,
+        "  ((((__ADCx__) == ADC1) || ((__ADCx__) == ADC2)) ? (ADC12_COMMON) : (ADC4_COMMON))"
+      ],
+      [
+        2587,
+        "#else"
+      ],
+      [
+        2588,
+        "#define __LL_ADC_COMMON_INSTANCE(__ADCx__)                                     \\"
+      ],
+      [
+        2589,
+        "  (((__ADCx__) == ADC1) ? (ADC12_COMMON) : (ADC4_COMMON))"
+      ],
+      [
+        2590,
+        "#endif /* ADC2 */"
+      ],
+      [
+        2591,
+        ""
+      ],
+      [
+        2592,
+        "/**"
+      ],
+      [
+        2593,
+        "  * @brief  Helper macro to check if all ADC instances sharing the same"
+      ],
+      [
+        2594,
+        "  *         ADC common instance are disabled."
+      ],
+      [
+        2595,
+        "  * @note   This check is required by functions with setting conditioned to"
+      ],
+      [
+        2596,
+        "  *         ADC state:"
+      ],
+      [
+        2597,
+        "  *         All ADC instances of the ADC common group must be disabled."
+      ],
+      [
+        2598,
+        "  *         Refer to functions having argument \"ADCxy_COMMON\" as parameter."
+      ],
+      [
+        2599,
+        "  * @note   On devices with only 1 ADC common instance, parameter of this macro"
+      ],
+      [
+        2600,
+        "  *         is useless and can be ignored (parameter kept for compatibility"
+      ],
+      [
+        2601,
+        "  *         with devices featuring several ADC common instances)."
+      ],
+      [
+        2602,
+        "  * @param  __ADCXY_COMMON__ ADC common instance"
+      ],
+      [
+        2603,
+        "  *         (can be set directly from CMSIS definition or by using helper macro @ref __LL_ADC_COMMON_INSTANCE() )"
+      ],
+      [
+        2604,
+        "  * @retval Value \"0\" if all ADC instances sharing the same ADC common instance"
+      ],
+      [
+        2605,
+        "  *         are disabled."
+      ],
+      [
+        2606,
+        "  *         Value \"1\" if at least one ADC instance sharing the same ADC common instance"
+      ],
+      [
+        2607,
+        "  *         is enabled."
+      ],
+      [
+        2608,
+        "  */"
+      ],
+      [
+        2609,
+        "#if defined(ADC2)"
+      ],
+      [
+        2610,
+        "#define __LL_ADC_IS_ENABLED_ALL_COMMON_INSTANCE(__ADCXY_COMMON__)              \\"
+      ],
+      [
+        2611,
+        "  (((__ADCXY_COMMON__) == ADC12_COMMON) ? (LL_ADC_IsEnabled(ADC1) | LL_ADC_IsEnabled(ADC2)) : (LL_ADC_IsEnabled(ADC4)))"
+      ],
+      [
+        2612,
+        "#else"
+      ],
+      [
+        2613,
+        "#define __LL_ADC_IS_ENABLED_ALL_COMMON_INSTANCE(__ADCXY_COMMON__)              \\"
+      ],
+      [
+        2614,
+        "  (((__ADCXY_COMMON__) == ADC12_COMMON) ? (LL_ADC_IsEnabled(ADC1)) : (LL_ADC_IsEnabled(ADC4)))"
+      ],
+      [
+        2615,
+        "#endif /* ADC2 */"
+      ],
+      [
+        2616,
+        ""
+      ],
+      [
+        2947,
+        "    /* Retrieve address of register CDR */"
+      ],
+      [
+        2948,
+        "    data_reg_addr = (uint32_t) &((__LL_ADC_COMMON_INSTANCE(ADCx))->CDR);"
+      ],
+      [
+        2949,
+        "  }"
+      ],
+      [
+        2950,
+        ""
+      ],
+      [
+        2951,
+        "  return data_reg_addr;"
+      ],
+      [
+        2952,
+        "}"
+      ],
+      [
+        2953,
+        "#else"
+      ],
+      [
+        2954,
+        "/**"
+      ],
+      [
+        2955,
+        "  * @brief  Function to help to configure DMA transfer from ADC: retrieve the"
+      ],
+      [
+        2956,
+        "  *         ADC register address from ADC instance and a list of ADC registers"
+      ],
+      [
+        2957,
+        "  *         intended to be used (most commonly) with DMA transfer."
+      ],
+      [
+        2958,
+        "  * @note   These ADC registers are data registers:"
+      ],
+      [
+        2959,
+        "  *         when ADC conversion data is available in ADC data registers,"
+      ],
+      [
+        2960,
+        "  *         ADC generates a DMA transfer request."
+      ],
+      [
+        2961,
+        "  * @note   This macro is intended to be used with LL DMA driver, refer to"
+      ],
+      [
+        3012,
+        "  * @param  ADCxy_COMMON ADC common instance"
+      ],
+      [
+        3013,
+        "  *         (can be set directly from CMSIS definition or by using helper macro @ref __LL_ADC_COMMON_INSTANCE() )"
+      ],
+      [
+        3014,
+        "  * @param  CommonClock This parameter can be one of the following values:"
+      ],
+      [
+        3015,
+        "  *         @arg @ref LL_ADC_CLOCK_ASYNC_DIV1"
+      ],
+      [
+        3016,
+        "  *         @arg @ref LL_ADC_CLOCK_ASYNC_DIV2"
+      ],
+      [
+        3017,
+        "  *         @arg @ref LL_ADC_CLOCK_ASYNC_DIV4"
+      ],
+      [
+        3018,
+        "  *         @arg @ref LL_ADC_CLOCK_ASYNC_DIV6"
+      ],
+      [
+        3019,
+        "  *         @arg @ref LL_ADC_CLOCK_ASYNC_DIV8"
+      ],
+      [
+        3020,
+        "  *         @arg @ref LL_ADC_CLOCK_ASYNC_DIV10"
+      ],
+      [
+        3021,
+        "  *         @arg @ref LL_ADC_CLOCK_ASYNC_DIV12"
+      ],
+      [
+        3022,
+        "  *         @arg @ref LL_ADC_CLOCK_ASYNC_DIV16"
+      ],
+      [
+        3023,
+        "  *         @arg @ref LL_ADC_CLOCK_ASYNC_DIV32"
+      ],
+      [
+        3024,
+        "  *         @arg @ref LL_ADC_CLOCK_ASYNC_DIV64"
+      ],
+      [
+        3025,
+        "  *         @arg @ref LL_ADC_CLOCK_ASYNC_DIV128"
+      ],
+      [
+        3026,
+        "  *         @arg @ref LL_ADC_CLOCK_ASYNC_DIV256"
+      ],
+      [
+        3038,
+        "  * @param  ADCxy_COMMON ADC common instance"
+      ],
+      [
+        3039,
+        "  *         (can be set directly from CMSIS definition or by using helper macro @ref __LL_ADC_COMMON_INSTANCE() )"
+      ],
+      [
+        3040,
+        "  * @retval Returned value can be one of the following values:"
+      ],
+      [
+        3041,
+        "  *         @arg @ref LL_ADC_CLOCK_ASYNC_DIV1"
+      ],
+      [
+        3042,
+        "  *         @arg @ref LL_ADC_CLOCK_ASYNC_DIV2"
+      ],
+      [
+        3043,
+        "  *         @arg @ref LL_ADC_CLOCK_ASYNC_DIV4"
+      ],
+      [
+        3044,
+        "  *         @arg @ref LL_ADC_CLOCK_ASYNC_DIV6"
+      ],
+      [
+        3045,
+        "  *         @arg @ref LL_ADC_CLOCK_ASYNC_DIV8"
+      ],
+      [
+        3046,
+        "  *         @arg @ref LL_ADC_CLOCK_ASYNC_DIV10"
+      ],
+      [
+        3047,
+        "  *         @arg @ref LL_ADC_CLOCK_ASYNC_DIV12"
+      ],
+      [
+        3048,
+        "  *         @arg @ref LL_ADC_CLOCK_ASYNC_DIV16"
+      ],
+      [
+        3049,
+        "  *         @arg @ref LL_ADC_CLOCK_ASYNC_DIV32"
+      ],
+      [
+        3050,
+        "  *         @arg @ref LL_ADC_CLOCK_ASYNC_DIV64"
+      ],
+      [
+        3051,
+        "  *         @arg @ref LL_ADC_CLOCK_ASYNC_DIV128"
+      ],
+      [
+        3052,
+        "  *         @arg @ref LL_ADC_CLOCK_ASYNC_DIV256"
+      ],
+      [
+        3086,
+        "  * @param  ADCxy_COMMON ADC common instance"
+      ],
+      [
+        3087,
+        "  *         (can be set directly from CMSIS definition or by using helper macro @ref __LL_ADC_COMMON_INSTANCE() )"
+      ],
+      [
+        3088,
+        "  * @param  PathInternal This parameter can be a combination of the following values:"
+      ],
+      [
+        3089,
+        "  *         @arg @ref LL_ADC_PATH_INTERNAL_NONE"
+      ],
+      [
+        3090,
+        "  *         @arg @ref LL_ADC_PATH_INTERNAL_VREFINT"
+      ],
+      [
+        3091,
+        "  *         @arg @ref LL_ADC_PATH_INTERNAL_TEMPSENSOR"
+      ],
+      [
+        3092,
+        "  *         @arg @ref LL_ADC_PATH_INTERNAL_VBAT"
+      ],
+      [
+        3093,
+        "  * @retval None"
+      ],
+      [
+        3094,
+        "  */"
+      ],
+      [
+        3095,
+        "__STATIC_INLINE void LL_ADC_SetCommonPathInternalChAdd(ADC_Common_TypeDef *ADCxy_COMMON, uint32_t PathInternal)"
+      ],
+      [
+        3096,
+        "{"
+      ],
+      [
+        3097,
+        "  SET_BIT(ADCxy_COMMON->CCR, PathInternal);"
+      ],
+      [
+        3098,
+        "}"
+      ],
+      [
+        3099,
+        ""
+      ],
+      [
+        3100,
+        "/**"
+      ],
+      [
+        3116,
+        "  * @param  ADCxy_COMMON ADC common instance"
+      ],
+      [
+        3117,
+        "  *         (can be set directly from CMSIS definition or by using helper macro @ref __LL_ADC_COMMON_INSTANCE() )"
+      ],
+      [
+        3118,
+        "  * @param  PathInternal This parameter can be a combination of the following values:"
+      ],
+      [
+        3119,
+        "  *         @arg @ref LL_ADC_PATH_INTERNAL_NONE"
+      ],
+      [
+        3120,
+        "  *         @arg @ref LL_ADC_PATH_INTERNAL_VREFINT"
+      ],
+      [
+        3121,
+        "  *         @arg @ref LL_ADC_PATH_INTERNAL_TEMPSENSOR"
+      ],
+      [
+        3122,
+        "  *         @arg @ref LL_ADC_PATH_INTERNAL_VBAT"
+      ],
+      [
+        3123,
+        "  * @retval None"
+      ],
+      [
+        3124,
+        "  */"
+      ],
+      [
+        3125,
+        "__STATIC_INLINE void LL_ADC_SetCommonPathInternalChRem(ADC_Common_TypeDef *ADCxy_COMMON, uint32_t PathInternal)"
+      ],
+      [
+        3126,
+        "{"
+      ],
+      [
+        3127,
+        "  CLEAR_BIT(ADCxy_COMMON->CCR, PathInternal);"
+      ],
+      [
+        3128,
+        "}"
+      ],
+      [
+        3129,
+        ""
+      ],
+      [
+        3130,
+        "/**"
+      ],
+      [
+        3156,
+        "  * @param  ADCxy_COMMON ADC common instance"
+      ],
+      [
+        3157,
+        "  *         (can be set directly from CMSIS definition or by using helper macro @ref __LL_ADC_COMMON_INSTANCE() )"
+      ],
+      [
+        3158,
+        "  * @param  PathInternal This parameter can be a combination of the following values:"
+      ],
+      [
+        3159,
+        "  *         @arg @ref LL_ADC_PATH_INTERNAL_NONE"
+      ],
+      [
+        3160,
+        "  *         @arg @ref LL_ADC_PATH_INTERNAL_VREFINT"
+      ],
+      [
+        3161,
+        "  *         @arg @ref LL_ADC_PATH_INTERNAL_TEMPSENSOR"
+      ],
+      [
+        3162,
+        "  *         @arg @ref LL_ADC_PATH_INTERNAL_VBAT"
+      ],
+      [
+        3163,
+        "  * @retval None"
+      ],
+      [
+        3164,
+        "  */"
+      ],
+      [
+        3165,
+        "__STATIC_INLINE void LL_ADC_SetCommonPathInternalCh(ADC_Common_TypeDef *ADCxy_COMMON, uint32_t PathInternal)"
+      ],
+      [
+        3166,
+        "{"
+      ],
+      [
+        3167,
+        "  MODIFY_REG(ADCxy_COMMON->CCR, ADC_CCR_VREFEN | ADC_CCR_VSENSEEN | ADC_CCR_VBATEN, PathInternal);"
+      ],
+      [
+        3168,
+        "}"
+      ],
+      [
+        3169,
+        ""
+      ],
+      [
+        3170,
+        "/**"
+      ],
+      [
+        3179,
+        "  * @param  ADCxy_COMMON ADC common instance"
+      ],
+      [
+        3180,
+        "  *         (can be set directly from CMSIS definition or by using helper macro @ref __LL_ADC_COMMON_INSTANCE() )"
+      ],
+      [
+        3181,
+        "  * @retval Returned value can be a combination of the following values:"
+      ],
+      [
+        3182,
+        "  *         @arg @ref LL_ADC_PATH_INTERNAL_NONE"
+      ],
+      [
+        3183,
+        "  *         @arg @ref LL_ADC_PATH_INTERNAL_VREFINT"
+      ],
+      [
+        3184,
+        "  *         @arg @ref LL_ADC_PATH_INTERNAL_TEMPSENSOR"
+      ],
+      [
+        3185,
+        "  *         @arg @ref LL_ADC_PATH_INTERNAL_VBAT"
+      ],
+      [
+        3186,
+        "  */"
+      ],
+      [
+        3187,
+        "__STATIC_INLINE uint32_t LL_ADC_GetCommonPathInternalCh(const ADC_Common_TypeDef *ADCxy_COMMON)"
+      ],
+      [
+        3188,
+        "{"
+      ],
+      [
+        3189,
+        "  return (uint32_t)(READ_BIT(ADCxy_COMMON->CCR, ADC_CCR_VREFEN | ADC_CCR_VSENSEEN | ADC_CCR_VBATEN));"
+      ],
+      [
+        3190,
+        "}"
+      ],
+      [
+        3191,
+        ""
+      ],
+      [
+        3192,
+        "/**"
+      ],
+      [
+        3193,
+        "  * @}"
+      ],
+      [
+        7531,
+        "  * @param  ADCxy_COMMON ADC common instance"
+      ],
+      [
+        7532,
+        "  *         (can be set directly from CMSIS definition or by using helper macro @ref __LL_ADC_COMMON_INSTANCE() )"
+      ],
+      [
+        7533,
+        "  * @param  Multimode This parameter can be one of the following values:"
+      ],
+      [
+        7534,
+        "  *         @arg @ref LL_ADC_MULTI_INDEPENDENT"
+      ],
+      [
+        7535,
+        "  *         @arg @ref LL_ADC_MULTI_DUAL_REG_SIMULT"
+      ],
+      [
+        7536,
+        "  *         @arg @ref LL_ADC_MULTI_DUAL_REG_INTERL"
+      ],
+      [
+        7537,
+        "  *         @arg @ref LL_ADC_MULTI_DUAL_INJ_SIMULT"
+      ],
+      [
+        7538,
+        "  *         @arg @ref LL_ADC_MULTI_DUAL_INJ_ALTERN"
+      ],
+      [
+        7539,
+        "  *         @arg @ref LL_ADC_MULTI_DUAL_REG_SIM_INJ_SIM"
+      ],
+      [
+        7540,
+        "  *         @arg @ref LL_ADC_MULTI_DUAL_REG_SIM_INJ_ALT"
+      ],
+      [
+        7541,
+        "  *         @arg @ref LL_ADC_MULTI_DUAL_REG_INT_INJ_SIM"
+      ],
+      [
+        7542,
+        "  * @retval None"
+      ],
+      [
+        7543,
+        "  */"
+      ],
+      [
+        7544,
+        "__STATIC_INLINE void LL_ADC_SetMultimode(ADC_Common_TypeDef *ADCxy_COMMON, uint32_t Multimode)"
+      ],
+      [
+        7545,
+        "{"
+      ],
+      [
+        7556,
+        "  * @param  ADCxy_COMMON ADC common instance"
+      ],
+      [
+        7557,
+        "  *         (can be set directly from CMSIS definition or by using helper macro @ref __LL_ADC_COMMON_INSTANCE() )"
+      ],
+      [
+        7558,
+        "  * @retval Returned value can be one of the following values:"
+      ],
+      [
+        7559,
+        "  *         @arg @ref LL_ADC_MULTI_INDEPENDENT"
+      ],
+      [
+        7560,
+        "  *         @arg @ref LL_ADC_MULTI_DUAL_REG_SIMULT"
+      ],
+      [
+        7561,
+        "  *         @arg @ref LL_ADC_MULTI_DUAL_REG_INTERL"
+      ],
+      [
+        7562,
+        "  *         @arg @ref LL_ADC_MULTI_DUAL_INJ_SIMULT"
+      ],
+      [
+        7563,
+        "  *         @arg @ref LL_ADC_MULTI_DUAL_INJ_ALTERN"
+      ],
+      [
+        7564,
+        "  *         @arg @ref LL_ADC_MULTI_DUAL_REG_SIM_INJ_SIM"
+      ],
+      [
+        7565,
+        "  *         @arg @ref LL_ADC_MULTI_DUAL_REG_SIM_INJ_ALT"
+      ],
+      [
+        7566,
+        "  *         @arg @ref LL_ADC_MULTI_DUAL_REG_INT_INJ_SIM"
+      ],
+      [
+        7567,
+        "  */"
+      ],
+      [
+        7568,
+        "__STATIC_INLINE uint32_t LL_ADC_GetMultimode(const ADC_Common_TypeDef *ADCxy_COMMON)"
+      ],
+      [
+        7569,
+        "{"
+      ],
+      [
+        7570,
+        "  return (uint32_t)(READ_BIT(ADCxy_COMMON->CCR, ADC_CCR_DUAL));"
+      ],
+      [
+        7608,
+        "  * @param  ADCxy_COMMON ADC common instance"
+      ],
+      [
+        7609,
+        "  *         (can be set directly from CMSIS definition or by using helper macro @ref __LL_ADC_COMMON_INSTANCE() )"
+      ],
+      [
+        7610,
+        "  * @param  MultiDMATransfer This parameter can be one of the following values:"
+      ],
+      [
+        7611,
+        "  *         @arg @ref LL_ADC_MULTI_REG_DMA_EACH_ADC"
+      ],
+      [
+        7612,
+        "  *         @arg @ref LL_ADC_MULTI_REG_DMA_RES_32_10B"
+      ],
+      [
+        7613,
+        "  *         @arg @ref LL_ADC_MULTI_REG_DMA_RES_8B"
+      ],
+      [
+        7614,
+        "  * @retval None"
+      ],
+      [
+        7615,
+        "  */"
+      ],
+      [
+        7616,
+        "__STATIC_INLINE void LL_ADC_SetMultiDMATransfer(ADC_Common_TypeDef *ADCxy_COMMON, uint32_t MultiDMATransfer)"
+      ],
+      [
+        7617,
+        "{"
+      ],
+      [
+        7618,
+        "  MODIFY_REG(ADCxy_COMMON->CCR, ADC_CCR_DAMDF, MultiDMATransfer);"
+      ],
+      [
+        7619,
+        "}"
+      ],
+      [
+        7620,
+        ""
+      ],
+      [
+        7621,
+        "/**"
+      ],
+      [
+        7622,
+        "  * @brief  Get ADC multimode conversion data transfer: no transfer"
+      ],
+      [
+        7652,
+        "  * @param  ADCxy_COMMON ADC common instance"
+      ],
+      [
+        7653,
+        "  *         (can be set directly from CMSIS definition or by using helper macro @ref __LL_ADC_COMMON_INSTANCE() )"
+      ],
+      [
+        7654,
+        "  * @retval Returned value can be one of the following values:"
+      ],
+      [
+        7655,
+        "  *         @arg @ref LL_ADC_MULTI_REG_DMA_EACH_ADC"
+      ],
+      [
+        7656,
+        "  *         @arg @ref LL_ADC_MULTI_REG_DMA_RES_32_10B"
+      ],
+      [
+        7657,
+        "  *         @arg @ref LL_ADC_MULTI_REG_DMA_RES_8B"
+      ],
+      [
+        7658,
+        "  */"
+      ],
+      [
+        7659,
+        "__STATIC_INLINE uint32_t LL_ADC_GetMultiDMATransfer(const ADC_Common_TypeDef *ADCxy_COMMON)"
+      ],
+      [
+        7660,
+        "{"
+      ],
+      [
+        7661,
+        "  return (uint32_t)(READ_BIT(ADCxy_COMMON->CCR, ADC_CCR_DAMDF));"
+      ],
+      [
+        7662,
+        "}"
+      ],
+      [
+        7663,
+        ""
+      ],
+      [
+        7664,
+        "/**"
+      ],
+      [
+        7665,
+        "  * @brief  Set ADC multimode delay between 2 sampling phases."
+      ],
+      [
+        7666,
+        "  * @note   The sampling delay range depends on ADC resolution:"
+      ],
+      [
+        7678,
+        "  * @param  ADCxy_COMMON ADC common instance"
+      ],
+      [
+        7679,
+        "  *         (can be set directly from CMSIS definition or by using helper macro @ref __LL_ADC_COMMON_INSTANCE() )"
+      ],
+      [
+        7680,
+        "  * @param  MultiTwoSamplingDelay This parameter can be one of the following values:"
+      ],
+      [
+        7681,
+        "  *         @arg @ref LL_ADC_MULTI_TWOSMP_DELAY_1CYCLE"
+      ],
+      [
+        7682,
+        "  *         @arg @ref LL_ADC_MULTI_TWOSMP_DELAY_2CYCLES"
+      ],
+      [
+        7683,
+        "  *         @arg @ref LL_ADC_MULTI_TWOSMP_DELAY_3CYCLES"
+      ],
+      [
+        7684,
+        "  *         @arg @ref LL_ADC_MULTI_TWOSMP_DELAY_4CYCLES"
+      ],
+      [
+        7685,
+        "  *         @arg @ref LL_ADC_MULTI_TWOSMP_DELAY_5CYCLES"
+      ],
+      [
+        7686,
+        "  *         @arg @ref LL_ADC_MULTI_TWOSMP_DELAY_6CYCLES"
+      ],
+      [
+        7687,
+        "  *         @arg @ref LL_ADC_MULTI_TWOSMP_DELAY_7CYCLES"
+      ],
+      [
+        7688,
+        "  *         @arg @ref LL_ADC_MULTI_TWOSMP_DELAY_8CYCLES"
+      ],
+      [
+        7689,
+        "  *         @arg @ref LL_ADC_MULTI_TWOSMP_DELAY_9CYCLES"
+      ],
+      [
+        7690,
+        "  *         @arg @ref LL_ADC_MULTI_TWOSMP_DELAY_10CYCLES"
+      ],
+      [
+        7691,
+        "  *         @arg @ref LL_ADC_MULTI_TWOSMP_DELAY_11CYCLES"
+      ],
+      [
+        7692,
+        "  *         @arg @ref LL_ADC_MULTI_TWOSMP_DELAY_12CYCLES"
+      ],
+      [
+        7712,
+        "  * @param  ADCxy_COMMON ADC common instance"
+      ],
+      [
+        7713,
+        "  *         (can be set directly from CMSIS definition or by using helper macro @ref __LL_ADC_COMMON_INSTANCE() )"
+      ],
+      [
+        7714,
+        "  * @retval Returned value can be one of the following values:"
+      ],
+      [
+        7715,
+        "  *         @arg @ref LL_ADC_MULTI_TWOSMP_DELAY_1CYCLE"
+      ],
+      [
+        7716,
+        "  *         @arg @ref LL_ADC_MULTI_TWOSMP_DELAY_2CYCLES"
+      ],
+      [
+        7717,
+        "  *         @arg @ref LL_ADC_MULTI_TWOSMP_DELAY_3CYCLES"
+      ],
+      [
+        7718,
+        "  *         @arg @ref LL_ADC_MULTI_TWOSMP_DELAY_4CYCLES"
+      ],
+      [
+        7719,
+        "  *         @arg @ref LL_ADC_MULTI_TWOSMP_DELAY_5CYCLES"
+      ],
+      [
+        7720,
+        "  *         @arg @ref LL_ADC_MULTI_TWOSMP_DELAY_6CYCLES"
+      ],
+      [
+        7721,
+        "  *         @arg @ref LL_ADC_MULTI_TWOSMP_DELAY_7CYCLES"
+      ],
+      [
+        7722,
+        "  *         @arg @ref LL_ADC_MULTI_TWOSMP_DELAY_8CYCLES"
+      ],
+      [
+        7723,
+        "  *         @arg @ref LL_ADC_MULTI_TWOSMP_DELAY_9CYCLES"
+      ],
+      [
+        7724,
+        "  *         @arg @ref LL_ADC_MULTI_TWOSMP_DELAY_10CYCLES"
+      ],
+      [
+        7725,
+        "  *         @arg @ref LL_ADC_MULTI_TWOSMP_DELAY_11CYCLES"
+      ],
+      [
+        7726,
+        "  *         @arg @ref LL_ADC_MULTI_TWOSMP_DELAY_12CYCLES"
+      ],
+      [
+        7768,
+        "  /*       to not interfere with bits with HW property \"rs\".                  */"
+      ],
+      [
+        7769,
+        "  MODIFY_REG(ADCx->CR, ADC_CR_BITS_PROPERTY_RS, ADC_CR_DEEPPWD);"
+      ],
+      [
+        7770,
+        "}"
+      ],
+      [
+        7771,
+        ""
+      ],
+      [
+        7772,
+        "/**"
+      ],
+      [
+        7773,
+        "  * @brief  Disable ADC deep power down mode."
+      ],
+      [
+        7774,
+        "  * @note   In case of ADC calibration necessary: When ADC is in deep-power-down"
+      ],
+      [
+        7775,
+        "  *         state, the internal analog calibration is lost. After exiting from"
+      ],
+      [
+        7776,
+        "  *         deep power down, calibration must be relaunched or calibration factor"
+      ],
+      [
+        7777,
+        "  *         (preliminarily saved) must be set back into calibration register."
+      ],
+      [
+        7778,
+        "  * @note   On this STM32 series, setting of this feature is conditioned to"
+      ],
+      [
+        7779,
+        "  *         ADC state:"
+      ],
+      [
+        7780,
+        "  *         ADC must be ADC disabled."
+      ],
+      [
+        7781,
+        "  * @rmtoll CR       DEEPPWD        LL_ADC_DisableDeepPowerDown"
+      ],
+      [
+        7782,
+        "  * @param  ADCx ADC instance"
+      ],
+      [
+        7789,
+        "  /*       to not interfere with bits with HW property \"rs\".                  */"
+      ],
+      [
+        7790,
+        "  CLEAR_BIT(ADCx->CR, (ADC_CR_DEEPPWD | ADC_CR_BITS_PROPERTY_RS));"
+      ],
+      [
+        7791,
+        "}"
+      ],
+      [
+        7792,
+        ""
+      ],
+      [
+        7793,
+        "/**"
+      ],
+      [
+        7794,
+        "  * @brief  Get the selected ADC instance deep power down state."
+      ],
+      [
+        7795,
+        "  * @rmtoll CR       DEEPPWD        LL_ADC_IsDeepPowerDownEnabled"
+      ],
+      [
+        7796,
+        "  * @param  ADCx ADC instance"
+      ],
+      [
+        7797,
+        "  * @retval 0: deep power down is disabled, 1: deep power down is enabled."
+      ],
+      [
+        7798,
+        "  */"
+      ],
+      [
+        7799,
+        "__STATIC_INLINE uint32_t LL_ADC_IsDeepPowerDownEnabled(const ADC_TypeDef *ADCx)"
+      ],
+      [
+        7800,
+        "{"
+      ],
+      [
+        7801,
+        "  return ((READ_BIT(ADCx->CR, ADC_CR_DEEPPWD) == (ADC_CR_DEEPPWD)) ? 1UL : 0UL);"
+      ],
+      [
+        7802,
+        "}"
+      ],
+      [
+        7803,
+        ""
+      ],
+      [
+        7822,
+        "  /*       to not interfere with bits with HW property \"rs\".                  */"
+      ],
+      [
+        7823,
+        "  MODIFY_REG(ADCx->CR, ADC_CR_BITS_PROPERTY_RS, ADC_CR_ADVREGEN);"
+      ],
+      [
+        7824,
+        "}"
+      ],
+      [
+        7825,
+        ""
+      ],
+      [
+        7826,
+        "/**"
+      ],
+      [
+        7827,
+        "  * @brief  Disable ADC internal voltage regulator."
+      ],
+      [
+        7828,
+        "  * @note   On this STM32 series, setting of this feature is conditioned to"
+      ],
+      [
+        7829,
+        "  *         ADC state:"
+      ],
+      [
+        7830,
+        "  *         ADC must be ADC disabled."
+      ],
+      [
+        7831,
+        "  * @rmtoll CR       ADVREGEN       LL_ADC_DisableInternalRegulator"
+      ],
+      [
+        7832,
+        "  * @param  ADCx ADC instance"
+      ],
+      [
+        7833,
+        "  * @retval None"
+      ],
+      [
+        7834,
+        "  */"
+      ],
+      [
+        7835,
+        "__STATIC_INLINE void LL_ADC_DisableInternalRegulator(ADC_TypeDef *ADCx)"
+      ],
+      [
+        7836,
+        "{"
+      ],
+      [
+        7837,
+        "  CLEAR_BIT(ADCx->CR, (ADC_CR_ADVREGEN | ADC_CR_BITS_PROPERTY_RS));"
+      ],
+      [
+        7838,
+        "}"
+      ],
+      [
+        7839,
+        ""
+      ],
+      [
+        7840,
+        "/**"
+      ],
+      [
+        7841,
+        "  * @brief  Get the selected ADC instance internal voltage regulator state."
+      ],
+      [
+        7842,
+        "  * @rmtoll CR       ADVREGEN       LL_ADC_IsInternalRegulatorEnabled"
+      ],
+      [
+        7843,
+        "  * @param  ADCx ADC instance"
+      ],
+      [
+        7844,
+        "  * @retval 0: internal regulator is disabled, 1: internal regulator is enabled."
+      ],
+      [
+        7845,
+        "  */"
+      ],
+      [
+        7846,
+        "__STATIC_INLINE uint32_t LL_ADC_IsInternalRegulatorEnabled(const ADC_TypeDef *ADCx)"
+      ],
+      [
+        7847,
+        "{"
+      ],
+      [
+        7848,
+        "  return ((READ_BIT(ADCx->CR, ADC_CR_ADVREGEN) == (ADC_CR_ADVREGEN)) ? 1UL : 0UL);"
+      ],
+      [
+        7849,
+        "}"
+      ],
+      [
+        7850,
+        ""
+      ],
+      [
+        7871,
+        "  /*       to not interfere with bits with HW property \"rs\".                  */"
+      ],
+      [
+        7872,
+        "  MODIFY_REG(ADCx->CR, ADC_CR_BITS_PROPERTY_RS, ADC_CR_ADEN);"
+      ],
+      [
+        7873,
+        "}"
+      ],
+      [
+        7874,
+        ""
+      ],
+      [
+        7875,
+        "/**"
+      ],
+      [
+        7876,
+        "  * @brief  Disable the selected ADC instance."
+      ],
+      [
+        7877,
+        "  * @note   On this STM32 series, setting of this feature is conditioned to"
+      ],
+      [
+        7878,
+        "  *         ADC state:"
+      ],
+      [
+        7879,
+        "  *         ADC must be not disabled. Must be enabled without conversion on going"
+      ],
+      [
+        7880,
+        "  *         on either groups regular or injected."
+      ],
+      [
+        7881,
+        "  * @rmtoll CR       ADDIS          LL_ADC_Disable"
+      ],
+      [
+        7882,
+        "  * @param  ADCx ADC instance"
+      ],
+      [
+        7883,
+        "  * @retval None"
+      ],
+      [
+        7884,
+        "  */"
+      ],
+      [
+        7885,
+        "__STATIC_INLINE void LL_ADC_Disable(ADC_TypeDef *ADCx)"
+      ],
+      [
+        7889,
+        "  /*       to not interfere with bits with HW property \"rs\".                  */"
+      ],
+      [
+        7890,
+        "  MODIFY_REG(ADCx->CR, ADC_CR_BITS_PROPERTY_RS, ADC_CR_ADDIS);"
+      ],
+      [
+        7891,
+        "}"
+      ],
+      [
+        7892,
+        ""
+      ],
+      [
+        7893,
+        "/**"
+      ],
+      [
+        7894,
+        "  * @brief  Get the selected ADC instance enable state."
+      ],
+      [
+        7895,
+        "  * @note   On this STM32 series, flag LL_ADC_FLAG_ADRDY is raised when the ADC"
+      ],
+      [
+        7896,
+        "  *         is enabled and when conversion clock is active."
+      ],
+      [
+        7897,
+        "  *         (not only core clock: this ADC has a dual clock domain)"
+      ],
+      [
+        7898,
+        "  * @rmtoll CR       ADEN           LL_ADC_IsEnabled"
+      ],
+      [
+        7899,
+        "  * @param  ADCx ADC instance"
+      ],
+      [
+        7900,
+        "  * @retval 0: ADC is disabled, 1: ADC is enabled."
+      ],
+      [
+        7901,
+        "  */"
+      ],
+      [
+        7902,
+        "__STATIC_INLINE uint32_t LL_ADC_IsEnabled(const ADC_TypeDef *ADCx)"
+      ],
+      [
+        7903,
+        "{"
+      ],
+      [
+        7955,
+        "    MODIFY_REG(ADCx->CR,"
+      ],
+      [
+        7956,
+        "               ADC_CR_ADCALLIN | ADC_CR_BITS_PROPERTY_RS,"
+      ],
+      [
+        7957,
+        "               ADC_CR_ADCAL | (CalibrationMode & ADC_CALIB_MODE_MASK));"
+      ],
+      [
+        7958,
+        "  }"
+      ],
+      [
+        7959,
+        "  else"
+      ],
+      [
+        7960,
+        "  {"
+      ],
+      [
+        7961,
+        "    MODIFY_REG(ADCx->CR,  ADC_CR_BITS_PROPERTY_RS,    ADC_CR_ADCAL);"
+      ],
+      [
+        7962,
+        "  }"
+      ],
+      [
+        7963,
+        "}"
+      ],
+      [
+        7964,
+        ""
+      ],
+      [
+        7965,
+        "/**"
+      ],
+      [
+        7966,
+        "  * @brief  Get ADC calibration state."
+      ],
+      [
+        7967,
+        "  * @rmtoll CR       ADCAL          LL_ADC_IsCalibrationOnGoing"
+      ],
+      [
+        7968,
+        "  * @param  ADCx ADC instance"
+      ],
+      [
+        7969,
+        "  * @retval 0: calibration complete, 1: calibration in progress."
+      ],
+      [
+        7970,
+        "  */"
+      ],
+      [
+        7971,
+        "__STATIC_INLINE uint32_t LL_ADC_IsCalibrationOnGoing(const ADC_TypeDef *ADCx)"
+      ],
+      [
+        7972,
+        "{"
+      ],
+      [
+        7973,
+        "  return ((READ_BIT(ADCx->CR, ADC_CR_ADCAL) == (ADC_CR_ADCAL)) ? 1UL : 0UL);"
+      ],
+      [
+        7974,
+        "}"
+      ],
+      [
+        8006,
+        "  /*       to not interfere with bits with HW property \"rs\".                  */"
+      ],
+      [
+        8007,
+        "  MODIFY_REG(ADCx->CR, ADC_CR_BITS_PROPERTY_RS, ADC_CR_ADSTART);"
+      ],
+      [
+        8008,
+        "}"
+      ],
+      [
+        8009,
+        ""
+      ],
+      [
+        8010,
+        "/**"
+      ],
+      [
+        8011,
+        "  * @brief  Stop ADC group regular conversion."
+      ],
+      [
+        8012,
+        "  * @note   On this STM32 series, setting of this feature is conditioned to"
+      ],
+      [
+        8013,
+        "  *         ADC state:"
+      ],
+      [
+        8014,
+        "  *         ADC must be enabled with conversion on going on group regular,"
+      ],
+      [
+        8015,
+        "  *         without ADC disable command on going."
+      ],
+      [
+        8016,
+        "  * @rmtoll CR       ADSTP          LL_ADC_REG_StopConversion"
+      ],
+      [
+        8017,
+        "  * @param  ADCx ADC instance"
+      ],
+      [
+        8018,
+        "  * @retval None"
+      ],
+      [
+        8019,
+        "  */"
+      ],
+      [
+        8020,
+        "__STATIC_INLINE void LL_ADC_REG_StopConversion(ADC_TypeDef *ADCx)"
+      ],
+      [
+        8025,
+        "  MODIFY_REG(ADCx->CR,"
+      ],
+      [
+        8026,
+        "             ADC_CR_BITS_PROPERTY_RS,"
+      ],
+      [
+        8027,
+        "             ADC_CR_ADSTP);"
+      ],
+      [
+        8028,
+        "}"
+      ],
+      [
+        8029,
+        ""
+      ],
+      [
+        8030,
+        "/**"
+      ],
+      [
+        8031,
+        "  * @brief  Get ADC group regular conversion state."
+      ],
+      [
+        8032,
+        "  * @rmtoll CR       ADSTART        LL_ADC_REG_IsConversionOngoing"
+      ],
+      [
+        8033,
+        "  * @param  ADCx ADC instance"
+      ],
+      [
+        8034,
+        "  * @retval 0: no conversion is on going on ADC group regular."
+      ],
+      [
+        8035,
+        "  */"
+      ],
+      [
+        8036,
+        "__STATIC_INLINE uint32_t LL_ADC_REG_IsConversionOngoing(const ADC_TypeDef *ADCx)"
+      ],
+      [
+        8037,
+        "{"
+      ],
+      [
+        8038,
+        "  return ((READ_BIT(ADCx->CR, ADC_CR_ADSTART) == (ADC_CR_ADSTART)) ? 1UL : 0UL);"
+      ],
+      [
+        8039,
+        "}"
+      ],
+      [
+        8056,
+        "  *         with feature oversampling)."
+      ],
+      [
+        8057,
+        "  * @rmtoll DR       RDATA          LL_ADC_REG_ReadConversionData32"
+      ],
+      [
+        8058,
+        "  * @param  ADCx ADC instance"
+      ],
+      [
+        8059,
+        "  * @retval Value between Min_Data=0x00000000 and Max_Data=0xFFFFFFFF"
+      ],
+      [
+        8060,
+        "  */"
+      ],
+      [
+        8061,
+        "__STATIC_INLINE uint32_t LL_ADC_REG_ReadConversionData32(const ADC_TypeDef *ADCx)"
+      ],
+      [
+        8062,
+        "{"
+      ],
+      [
+        8063,
+        "  return (uint32_t)(READ_BIT(ADCx->DR, ADC_DR_RDATA));"
+      ],
+      [
+        8064,
+        "}"
+      ],
+      [
+        8065,
+        ""
+      ],
+      [
+        8066,
+        "/**"
+      ],
+      [
+        8067,
+        "  * @brief  Get ADC group regular conversion data, range fit for"
+      ],
+      [
+        8068,
+        "  *         ADC resolution 16 bits."
+      ],
+      [
+        8069,
+        "  * @note   For devices with feature oversampling: Oversampling"
+      ],
+      [
+        8070,
+        "  *         can increase data width, function for extended range"
+      ],
+      [
+        8071,
+        "  *         may be needed: @ref LL_ADC_REG_ReadConversionData32."
+      ],
+      [
+        8072,
+        "  * @rmtoll DR       RDATA          LL_ADC_REG_ReadConversionData16"
+      ],
+      [
+        8073,
+        "  * @param  ADCx ADC instance"
+      ],
+      [
+        8074,
+        "  * @retval Value between Min_Data=0x00 and Max_Data=0xFFFF"
+      ],
+      [
+        8075,
+        "  */"
+      ],
+      [
+        8076,
+        "__STATIC_INLINE uint16_t LL_ADC_REG_ReadConversionData16(const ADC_TypeDef *ADCx)"
+      ],
+      [
+        8077,
+        "{"
+      ],
+      [
+        8078,
+        "  return (uint16_t)(READ_BIT(ADCx->DR, ADC_DR_RDATA));"
+      ],
+      [
+        8079,
+        "}"
+      ],
+      [
+        8080,
+        ""
+      ],
+      [
+        8081,
+        "/**"
+      ],
+      [
+        8082,
+        "  * @brief  Get ADC group regular conversion data, range fit for"
+      ],
+      [
+        8083,
+        "  *         ADC resolution 14 bits."
+      ],
+      [
+        8084,
+        "  * @note   For devices with feature oversampling: Oversampling"
+      ],
+      [
+        8085,
+        "  *         can increase data width, function for extended range"
+      ],
+      [
+        8086,
+        "  *         may be needed: @ref LL_ADC_REG_ReadConversionData32."
+      ],
+      [
+        8087,
+        "  * @rmtoll DR       RDATA          LL_ADC_REG_ReadConversionData14"
+      ],
+      [
+        8088,
+        "  * @param  ADCx ADC instance"
+      ],
+      [
+        8089,
+        "  * @retval Value between Min_Data=0x00 and Max_Data=0x3FF"
+      ],
+      [
+        8090,
+        "  */"
+      ],
+      [
+        8091,
+        "__STATIC_INLINE uint16_t LL_ADC_REG_ReadConversionData14(const ADC_TypeDef *ADCx)"
+      ],
+      [
+        8092,
+        "{"
+      ],
+      [
+        8093,
+        "  return (uint16_t)(READ_BIT(ADCx->DR, ADC_DR_RDATA));"
+      ],
+      [
+        8094,
+        "}"
+      ],
+      [
+        8095,
+        ""
+      ],
+      [
+        8096,
+        "/**"
+      ],
+      [
+        8097,
+        "  * @brief  Get ADC group regular conversion data, range fit for"
+      ],
+      [
+        8098,
+        "  *         ADC resolution 12 bits."
+      ],
+      [
+        8099,
+        "  * @note   For devices with feature oversampling: Oversampling"
+      ],
+      [
+        8100,
+        "  *         can increase data width, function for extended range"
+      ],
+      [
+        8101,
+        "  *         may be needed: @ref LL_ADC_REG_ReadConversionData32."
+      ],
+      [
+        8102,
+        "  * @rmtoll DR       RDATA          LL_ADC_REG_ReadConversionData12"
+      ],
+      [
+        8103,
+        "  * @param  ADCx ADC instance"
+      ],
+      [
+        8104,
+        "  * @retval Value between Min_Data=0x000 and Max_Data=0xFFF"
+      ],
+      [
+        8105,
+        "  */"
+      ],
+      [
+        8106,
+        "__STATIC_INLINE uint16_t LL_ADC_REG_ReadConversionData12(const ADC_TypeDef *ADCx)"
+      ],
+      [
+        8107,
+        "{"
+      ],
+      [
+        8108,
+        "  return (uint16_t)(READ_BIT(ADCx->DR, ADC_DR_RDATA));"
+      ],
+      [
+        8109,
+        "}"
+      ],
+      [
+        8110,
+        ""
+      ],
+      [
+        8111,
+        "/**"
+      ],
+      [
+        8112,
+        "  * @brief  Get ADC group regular conversion data, range fit for"
+      ],
+      [
+        8113,
+        "  *         ADC resolution 10 bits."
+      ],
+      [
+        8114,
+        "  * @note   For devices with feature oversampling: Oversampling"
+      ],
+      [
+        8115,
+        "  *         can increase data width, function for extended range"
+      ],
+      [
+        8116,
+        "  *         may be needed: @ref LL_ADC_REG_ReadConversionData32."
+      ],
+      [
+        8117,
+        "  * @rmtoll DR       RDATA          LL_ADC_REG_ReadConversionData10"
+      ],
+      [
+        8118,
+        "  * @param  ADCx ADC instance"
+      ],
+      [
+        8119,
+        "  * @retval Value between Min_Data=0x000 and Max_Data=0x3FF"
+      ],
+      [
+        8120,
+        "  */"
+      ],
+      [
+        8121,
+        "__STATIC_INLINE uint16_t LL_ADC_REG_ReadConversionData10(const ADC_TypeDef *ADCx)"
+      ],
+      [
+        8122,
+        "{"
+      ],
+      [
+        8123,
+        "  return (uint16_t)(READ_BIT(ADCx->DR, ADC_DR_RDATA));"
+      ],
+      [
+        8124,
+        "}"
+      ],
+      [
+        8125,
+        ""
+      ],
+      [
+        8126,
+        "/**"
+      ],
+      [
+        8127,
+        "  * @brief  Get ADC group regular conversion data, range fit for"
+      ],
+      [
+        8128,
+        "  *         ADC resolution 8 bits."
+      ],
+      [
+        8129,
+        "  * @note   For devices with feature oversampling: Oversampling"
+      ],
+      [
+        8130,
+        "  *         can increase data width, function for extended range"
+      ],
+      [
+        8131,
+        "  *         may be needed: @ref LL_ADC_REG_ReadConversionData32."
+      ],
+      [
+        8132,
+        "  * @rmtoll DR       RDATA          LL_ADC_REG_ReadConversionData8"
+      ],
+      [
+        8133,
+        "  * @param  ADCx ADC instance"
+      ],
+      [
+        8134,
+        "  * @retval Value between Min_Data=0x00 and Max_Data=0xFF"
+      ],
+      [
+        8135,
+        "  */"
+      ],
+      [
+        8136,
+        "__STATIC_INLINE uint8_t LL_ADC_REG_ReadConversionData8(const ADC_TypeDef *ADCx)"
+      ],
+      [
+        8137,
+        "{"
+      ],
+      [
+        8138,
+        "  return (uint8_t)(READ_BIT(ADCx->DR, ADC_DR_RDATA));"
+      ],
+      [
+        8139,
+        "}"
+      ],
+      [
+        8140,
+        ""
+      ],
+      [
+        8141,
+        "#if defined(ADC_MULTIMODE_SUPPORT)"
+      ],
+      [
+        8142,
+        "/**"
+      ],
+      [
+        8143,
+        "  * @brief  Get ADC multimode conversion data of ADC master, ADC slave"
+      ],
+      [
+        8144,
+        "  *         or raw data with ADC master and slave concatenated."
+      ],
+      [
+        8155,
+        "  * @param  ADCxy_COMMON ADC common instance"
+      ],
+      [
+        8156,
+        "  *         (can be set directly from CMSIS definition or by using helper macro @ref __LL_ADC_COMMON_INSTANCE() )"
+      ],
+      [
+        8157,
+        "  * @param  ConversionData This parameter can be one of the following values:"
+      ],
+      [
+        8158,
+        "  *         @arg @ref LL_ADC_MULTI_MASTER"
+      ],
+      [
+        8159,
+        "  *         @arg @ref LL_ADC_MULTI_SLAVE"
+      ],
+      [
+        8160,
+        "  *         @arg @ref LL_ADC_MULTI_MASTER_SLAVE"
+      ],
+      [
+        8161,
+        "  * @retval Value between Min_Data=0x00000000 and Max_Data=0xFFFFFFFF"
+      ],
+      [
+        8162,
+        "  */"
+      ],
+      [
+        8163,
+        "__STATIC_INLINE uint32_t LL_ADC_REG_ReadMultiConversionData32(const ADC_Common_TypeDef *ADCxy_COMMON,"
+      ],
+      [
+        8164,
+        "                                                              uint32_t ConversionData)"
+      ],
+      [
+        8165,
+        "{"
+      ],
+      [
+        8166,
+        "  return (uint32_t)(READ_BIT(ADCxy_COMMON->CDR, ConversionData) >> (POSITION_VAL(ConversionData) & 0x1FUL));"
+      ],
+      [
+        8167,
+        "}"
+      ],
+      [
+        8168,
+        "#endif /* ADC_MULTIMODE_SUPPORT */"
+      ],
+      [
+        8169,
+        "/**"
+      ],
+      [
+        8199,
+        "  /*       to not interfere with bits with HW property \"rs\".                  */"
+      ],
+      [
+        8200,
+        "  MODIFY_REG(ADCx->CR, ADC_CR_BITS_PROPERTY_RS, ADC_CR_JADSTART);"
+      ],
+      [
+        8201,
+        "}"
+      ],
+      [
+        8202,
+        ""
+      ],
+      [
+        8203,
+        "/**"
+      ],
+      [
+        8204,
+        "  * @brief  Stop ADC group injected conversion."
+      ],
+      [
+        8205,
+        "  * @note   On this STM32 series, setting of this feature is conditioned to"
+      ],
+      [
+        8206,
+        "  *         ADC state:"
+      ],
+      [
+        8207,
+        "  *         ADC must be enabled with conversion on going on group injected,"
+      ],
+      [
+        8208,
+        "  *         without ADC disable command on going."
+      ],
+      [
+        8209,
+        "  * @rmtoll CR       JADSTP         LL_ADC_INJ_StopConversion"
+      ],
+      [
+        8210,
+        "  * @param  ADCx ADC instance"
+      ],
+      [
+        8211,
+        "  * @retval None"
+      ],
+      [
+        8212,
+        "  */"
+      ],
+      [
+        8213,
+        "__STATIC_INLINE void LL_ADC_INJ_StopConversion(ADC_TypeDef *ADCx)"
+      ],
+      [
+        8217,
+        "  /*       to not interfere with bits with HW property \"rs\".                  */"
+      ],
+      [
+        8218,
+        "  MODIFY_REG(ADCx->CR, ADC_CR_BITS_PROPERTY_RS, ADC_CR_JADSTP);"
+      ],
+      [
+        8219,
+        "}"
+      ],
+      [
+        8220,
+        ""
+      ],
+      [
+        8221,
+        "/**"
+      ],
+      [
+        8222,
+        "  * @brief  Get ADC group injected conversion state."
+      ],
+      [
+        8223,
+        "  * @rmtoll CR       JADSTART       LL_ADC_INJ_IsConversionOngoing"
+      ],
+      [
+        8224,
+        "  * @param  ADCx ADC instance"
+      ],
+      [
+        8225,
+        "  * @retval 0: no conversion is on going on ADC group injected."
+      ],
+      [
+        8226,
+        "  */"
+      ],
+      [
+        8227,
+        "__STATIC_INLINE uint32_t LL_ADC_INJ_IsConversionOngoing(const ADC_TypeDef *ADCx)"
+      ],
+      [
+        8228,
+        "{"
+      ],
+      [
+        8229,
+        "  return ((READ_BIT(ADCx->CR, ADC_CR_JADSTART) == (ADC_CR_JADSTART)) ? 1UL : 0UL);"
+      ],
+      [
+        8230,
+        "}"
+      ],
+      [
+        8231,
+        ""
+      ]
+    ]
+  },
+  {
+    "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/cmsis/CMSIS/Core/Include/core_cm33.h",
+    "error": "absent"
+  }
+]

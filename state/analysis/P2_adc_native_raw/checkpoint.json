@@ -1,0 +1,121 @@
+{
+  "captured_at": "2026-09-23T10:34:27.421118+04:00",
+  "scope": "Installed Linux files and offline ELF only; no MCU action, implementation or decisions. Existing next_hal_audit corrected for RobotInput.vbat_valid.",
+  "result": "PREREQUISITE_CHECKPOINT_INCOMPLETE",
+  "remaining": [
+    "Detailed current ES0499 ADC/supply/clock/reference paragraphs",
+    "DS13086 operating limits/calibration timing",
+    "Final CMSIS NVIC and inherited ADC4/DAC ownership guards",
+    "Implementation contract, independent tests and target compilation"
+  ],
+  "errata": {
+    "successful_url": "https://www.st.com/resource/en/errata_sheet/dm00648236.pdf",
+    "observed_revision": "ES0499 Rev12 June2026",
+    "pages": 51,
+    "observed_pages": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "observed_adc1_table_sections": [
+      "2.8.1 ADC_AWDy_OUT reset by non-guarded channels",
+      "2.8.2 Injected data stored in wrong ADC_JDRx registers"
+    ],
+    "detailed_adc_paragraphs": "not retrieved; follow-up HTTP404/timeouts",
+    "pdf_bytes_saved": false
+  },
+  "live_jobs": [],
+  "files": [
+    {
+      "path": "state/analysis/P2_adc_native_audit.md",
+      "bytes": 16147,
+      "sha256": "659187dbef2e8766cf7b77fef41fd8574b59e19a3a1196571fa3b0dd89ef4841"
+    },
+    {
+      "path": "state/analysis/P2_next_hal_audit.md",
+      "bytes": 12371,
+      "sha256": "f8db213d784669d91dec839b31954fb0122a7299c4102149dc0eed4ea7748dff"
+    },
+    {
+      "path": "state/analysis/P2_adc_native_raw/adc_stm32.c",
+      "bytes": 76275,
+      "sha256": "d70756d2a035794897a0aab1c2c5393b92c34d3aac885bac7d6dc72b58caf397"
+    },
+    {
+      "path": "state/analysis/P2_adc_native_raw/clock_stm32_ll_u5.c",
+      "bytes": 28846,
+      "sha256": "ae2a361260bda1c543824d45c7b7bd0b6124590047cd82e0cb9163cb4a84b1cd"
+    },
+    {
+      "path": "state/analysis/P2_adc_native_raw/collect_installed.py",
+      "bytes": 3485,
+      "sha256": "bb135515ba3de77e9669707e097b9efabe0e9908292b03318590c58efa27d52c"
+    },
+    {
+      "path": "state/analysis/P2_adc_native_raw/downloads.json",
+      "bytes": 1305,
+      "sha256": "539512662f0e3c2cb9b648426073e097db3f2319ab9be91a358c0f9c5afdcf5a"
+    },
+    {
+      "path": "state/analysis/P2_adc_native_raw/errata_download.json",
+      "bytes": 137,
+      "sha256": "bff2ddad2fabb464e2e013b9bae94bdae78b940d373bfba773c648daaa931c65"
+    },
+    {
+      "path": "state/analysis/P2_adc_native_raw/installed_source_01.json",
+      "bytes": 782626,
+      "sha256": "b4af5cc6f1f12236c17342365e6e8ae49ab84aab3c57841b95a4b6d8dae08f20"
+    },
+    {
+      "path": "state/analysis/P2_adc_native_raw/installed_source_02.json",
+      "bytes": 133275,
+      "sha256": "7e7b155d13417c4717a3b601fe0a74ea1efc9820841f753d3a04bb22f59e65c4"
+    },
+    {
+      "path": "state/analysis/P2_adc_native_raw/installed_source_03.json",
+      "bytes": 133028,
+      "sha256": "526d69da07d2ddb5a1c0b5fc9c2c88863a20f7c6459313ed50a1e9bc998c63a2"
+    },
+    {
+      "path": "state/analysis/P2_adc_native_raw/installed_source_04.json",
+      "bytes": 11445,
+      "sha256": "c9158bca8a31ec24d9a87b041745326d6b3902155a0a6f7c2d252788267f3b3f"
+    },
+    {
+      "path": "state/analysis/P2_adc_native_raw/installed_source_05.json",
+      "bytes": 70480,
+      "sha256": "1fb5cf088b4615d252c72a489411e8ecf34b0475ba2d3b7cb563c99ed39ca058"
+    },
+    {
+      "path": "state/analysis/P2_adc_native_raw/jp_errata_index.json",
+      "bytes": 7431,
+      "sha256": "9bcbb22a33a8e40938e59201d2c01aa3a91fbd04737517c4a78873897ba657f5"
+    },
+    {
+      "path": "state/analysis/P2_adc_native_raw/manual_page_hashes.json",
+      "bytes": 6371,
+      "sha256": "39e369b1f9269fe0a210ab9aea0a53137dd41543459717224930ead68a13a356"
+    },
+    {
+      "path": "state/analysis/P2_adc_native_raw/query_installed_02.py",
+      "bytes": 2561,
+      "sha256": "773862a33000b30c5190b6ef1d29c17d53c6bd94caf84c15e2e6c1ea1ca5629f"
+    },
+    {
+      "path": "state/analysis/P2_adc_native_raw/query_installed_03.py",
+      "bytes": 2253,
+      "sha256": "8a268f1856728021cbcfd13359503ab4bd84c9ae0424fe639cd31cb284024b5c"
+    },
+    {
+      "path": "state/analysis/P2_adc_native_raw/query_installed_04.py",
+      "bytes": 841,
+      "sha256": "39ca5fe9306802b70e941f981937e638bf87547a83ef18bcce27720bbd021399"
+    },
+    {
+      "path": "state/analysis/P2_adc_native_raw/query_installed_05.py",
+      "bytes": 976,
+      "sha256": "a534daa0b95ad68024757bcb25519adb4bce632b2e9975d9d288add289abb69c"
+    }
+  ]
+}

@@ -1,3 +1,50 @@
+# D077 checkpoint - active P2 software development, 2026-09-23 Asia/Dubai
+
+Completed native MotorGate backend: implementation 99f8668, evidence 25a0858,
+contracts b979172/8d252f0. Full tooling 410 PASS (432.397 s); normal host 2/2 PASS;
+ASan+UBSan 1030 cases/20982541 assertions plus enabled Gate 37/3796846 PASS.
+Fresh separate same-model review PASS/no open findings; independently replayed
+152 native case executions/217368 assertions across 78 executables, and 10 config
+checks. The new native safety tests are now locked; all old locked/core/app files
+remain unchanged. Existing MotorGate remains the only transaction boundary.
+
+Actual final UNO Q source c35726f4 compiles in both configurations: default
+85052B program/35160B compiler memory; MATCH+Immediate 85588B/35552B. Both exits0.
+This is board Linux compilation only. No upload/reset/MCU/pin/motor execution
+occurred. F096 and P2_motor_native_validation.md/raw plus the fresh review retain
+all failures, source maps, MMIO/ELF evidence and limits. All 554 raw receipts plus
+the integrity report were checked byte-identical to staged blobs. Git canonical
+LF conversion of 21 new test files is recorded separately; no work source changed.
+
+D077 validates source-derived periods after EN LOW, then checks four writes and
+fresh TIM1/3/4 update events before activation. The 10kHz/150us/4096-pass choices
+are development defaults, not measured waveform/tick results. Physical B4/B7,
+PINMAP/EXPLAINED and original human phase gates remain pending. App remains inert;
+last-known MCU image is QTR61d7a2d0. F091 inherited Bridge/runtime paths are still
+unqualified. No motor-capable upload/run permission is present.
+
+D075 continues to authorize actual P2 software before human P0/P1 acceptance.
+Original full P0-P7 goal remains ACTIVE/incomplete; this turn made implementation
+progress. Do not restore the obsolete blocked scheduling checkpoint or ask for
+more hardware now. No push/tag/history rewrite was performed.
+
+Next real driver is B5 battery acquisition. Read P2_next_hal_audit.md and the
+new P2_adc_native_audit.md/raw checkpoint. Stock ADC calls have unbounded waits;
+the candidate must be a concrete bounded ADC1/A0 implementation, not a successful
+stub, timeout-after-blocking wrapper or another framework. Finish remaining
+ADC-specific primary errata/ownership/initialization prerequisites before freezing
+the contract. ADC4/DAC share clock/supply resources; ADC1 alone is deferred.
+Preserve existing fsm::RobotInput.vbat_valid and the sole B6 governor filter;
+never promote stale/invalid measurements to fresh input. No ADC implementation,
+new calibration/pin decision or physical accuracy result has been established.
+
+Current toolchain observations: board CLI1.5.1/core1.0.0, USB2629958581; host WSL
+normal/sanitizer builds available. Recheck connection/disk when next needed.
+Original scope-cut/freeze dates remain unchanged. Resume the first unfinished
+ADC prerequisite, then independent contract-derived tests and implementation.
+
+--- Earlier handoff preserved below ---
+
 # D076 checkpoint - ACTIVE software development, 2026-09-23 Asia/Dubai
 
 Latest completed task: native opponent-input driver588ceb9 (contracts98adcda/

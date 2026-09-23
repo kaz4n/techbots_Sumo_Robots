@@ -1,0 +1,5345 @@
+[
+  {
+    "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/modules/hal/stm32/stm32cube/stm32u5xx/drivers/include/stm32u5xx_ll_gpio.h",
+    "sha256": "5e6772bee2e03314b266d5bb9ad448c02bcd5a41f618fc126375006db7cfc346",
+    "bytes": 44282,
+    "lines": [
+      [
+        69,
+        "  uint32_t Mode;         /*!< Specifies the operating mode for the selected pins."
+      ],
+      [
+        70,
+        "                              This parameter can be a value of @ref GPIO_LL_EC_MODE."
+      ],
+      [
+        71,
+        ""
+      ],
+      [
+        72,
+        "                              GPIO HW configuration can be modified afterwards using unitary function"
+      ],
+      [
+        73,
+        "                              @ref LL_GPIO_SetPinMode().*/"
+      ],
+      [
+        74,
+        ""
+      ],
+      [
+        75,
+        "  uint32_t Speed;        /*!< Specifies the speed for the selected pins."
+      ],
+      [
+        76,
+        "                              This parameter can be a value of @ref GPIO_LL_EC_SPEED."
+      ],
+      [
+        77,
+        ""
+      ],
+      [
+        78,
+        "                              GPIO HW configuration can be modified afterwards using unitary function"
+      ],
+      [
+        79,
+        "                              @ref LL_GPIO_SetPinSpeed().*/"
+      ],
+      [
+        80,
+        ""
+      ],
+      [
+        81,
+        "  uint32_t OutputType;   /*!< Specifies the operating output type for the selected pins."
+      ],
+      [
+        82,
+        "                              This parameter can be a value of @ref GPIO_LL_EC_OUTPUT."
+      ],
+      [
+        83,
+        ""
+      ],
+      [
+        84,
+        "                              GPIO HW configuration can be modified afterwards using unitary function"
+      ],
+      [
+        85,
+        "                              @ref LL_GPIO_SetPinOutputType().*/"
+      ],
+      [
+        87,
+        "  uint32_t Pull;         /*!< Specifies the operating Pull-up/Pull down for the selected pins."
+      ],
+      [
+        88,
+        "                              This parameter can be a value of @ref GPIO_LL_EC_PULL."
+      ],
+      [
+        89,
+        ""
+      ],
+      [
+        90,
+        "                              GPIO HW configuration can be modified afterwards using unitary function"
+      ],
+      [
+        91,
+        "                              @ref LL_GPIO_SetPinPull().*/"
+      ],
+      [
+        92,
+        ""
+      ],
+      [
+        93,
+        "  uint32_t Alternate;    /*!< Specifies the Peripheral to be connected to the selected pins."
+      ],
+      [
+        94,
+        "                              This parameter can be a value of @ref GPIO_LL_EC_AF."
+      ],
+      [
+        95,
+        ""
+      ],
+      [
+        96,
+        "                              GPIO HW configuration can be modified afterwards using unitary function"
+      ],
+      [
+        97,
+        "                              @ref LL_GPIO_SetAFPin_0_7() and LL_GPIO_SetAFPin_8_15().*/"
+      ],
+      [
+        98,
+        "} LL_GPIO_InitTypeDef;"
+      ],
+      [
+        99,
+        ""
+      ],
+      [
+        100,
+        "/**"
+      ],
+      [
+        101,
+        "  * @}"
+      ],
+      [
+        102,
+        "  */"
+      ],
+      [
+        103,
+        "#endif /* USE_FULL_LL_DRIVER */"
+      ],
+      [
+        141,
+        "  */"
+      ],
+      [
+        142,
+        "#define LL_GPIO_MODE_INPUT                 (0x00000000U)"
+      ],
+      [
+        143,
+        "#define LL_GPIO_MODE_OUTPUT                GPIO_MODER_MODE0_0"
+      ],
+      [
+        144,
+        "#define LL_GPIO_MODE_ALTERNATE             GPIO_MODER_MODE0_1"
+      ],
+      [
+        145,
+        "#define LL_GPIO_MODE_ANALOG                GPIO_MODER_MODE0"
+      ],
+      [
+        146,
+        "/**"
+      ],
+      [
+        147,
+        "  * @}"
+      ],
+      [
+        148,
+        "  */"
+      ],
+      [
+        149,
+        ""
+      ],
+      [
+        150,
+        "/** @defgroup GPIO_LL_EC_OUTPUT Output Type"
+      ],
+      [
+        151,
+        "  * @{"
+      ],
+      [
+        152,
+        "  */"
+      ],
+      [
+        153,
+        "#define LL_GPIO_OUTPUT_PUSHPULL            (0x00000000U)"
+      ],
+      [
+        154,
+        "#define LL_GPIO_OUTPUT_OPENDRAIN           GPIO_OTYPER_OT0"
+      ],
+      [
+        155,
+        "/**"
+      ],
+      [
+        156,
+        "  * @}"
+      ],
+      [
+        157,
+        "  */"
+      ],
+      [
+        253,
+        "/**"
+      ],
+      [
+        254,
+        "  * @brief  Configure gpio mode for a dedicated pin on dedicated port."
+      ],
+      [
+        255,
+        "  * @note   I/O mode can be Input mode, General purpose output, Alternate function mode or Analog."
+      ],
+      [
+        256,
+        "  * @note   Warning: only one pin can be passed as parameter."
+      ],
+      [
+        257,
+        "  * @rmtoll MODER        MODEy         LL_GPIO_SetPinMode"
+      ],
+      [
+        258,
+        "  * @param  GPIOx GPIO Port"
+      ],
+      [
+        259,
+        "  * @param  Pin This parameter can be one of the following values:"
+      ],
+      [
+        260,
+        "  *         @arg @ref LL_GPIO_PIN_0"
+      ],
+      [
+        261,
+        "  *         @arg @ref LL_GPIO_PIN_1"
+      ],
+      [
+        262,
+        "  *         @arg @ref LL_GPIO_PIN_2"
+      ],
+      [
+        263,
+        "  *         @arg @ref LL_GPIO_PIN_3"
+      ],
+      [
+        264,
+        "  *         @arg @ref LL_GPIO_PIN_4"
+      ],
+      [
+        265,
+        "  *         @arg @ref LL_GPIO_PIN_5"
+      ],
+      [
+        266,
+        "  *         @arg @ref LL_GPIO_PIN_6"
+      ],
+      [
+        267,
+        "  *         @arg @ref LL_GPIO_PIN_7"
+      ],
+      [
+        268,
+        "  *         @arg @ref LL_GPIO_PIN_8"
+      ],
+      [
+        269,
+        "  *         @arg @ref LL_GPIO_PIN_9"
+      ],
+      [
+        276,
+        "  * @param  Mode This parameter can be one of the following values:"
+      ],
+      [
+        277,
+        "  *         @arg @ref LL_GPIO_MODE_INPUT"
+      ],
+      [
+        278,
+        "  *         @arg @ref LL_GPIO_MODE_OUTPUT"
+      ],
+      [
+        279,
+        "  *         @arg @ref LL_GPIO_MODE_ALTERNATE"
+      ],
+      [
+        280,
+        "  *         @arg @ref LL_GPIO_MODE_ANALOG"
+      ],
+      [
+        281,
+        "  * @retval None"
+      ],
+      [
+        282,
+        "  */"
+      ],
+      [
+        283,
+        "__STATIC_INLINE void LL_GPIO_SetPinMode(GPIO_TypeDef *GPIOx, uint32_t Pin, uint32_t Mode)"
+      ],
+      [
+        284,
+        "{"
+      ],
+      [
+        285,
+        "  MODIFY_REG(GPIOx->MODER, (GPIO_MODER_MODE0 << (POSITION_VAL(Pin) * GPIO_MODER_MODE1_Pos)),"
+      ],
+      [
+        286,
+        "             (Mode << (POSITION_VAL(Pin) * GPIO_MODER_MODE1_Pos)));"
+      ],
+      [
+        287,
+        "}"
+      ],
+      [
+        288,
+        ""
+      ],
+      [
+        289,
+        "/**"
+      ],
+      [
+        290,
+        "  * @brief  Return gpio mode for a dedicated pin on dedicated port."
+      ],
+      [
+        291,
+        "  * @note   I/O mode can be Input mode, General purpose output, Alternate function mode or Analog."
+      ],
+      [
+        292,
+        "  * @note   Warning: only one pin can be passed as parameter."
+      ],
+      [
+        293,
+        "  * @rmtoll MODER        MODEy         LL_GPIO_GetPinMode"
+      ],
+      [
+        294,
+        "  * @param  GPIOx GPIO Port"
+      ],
+      [
+        295,
+        "  * @param  Pin This parameter can be one of the following values:"
+      ],
+      [
+        296,
+        "  *         @arg @ref LL_GPIO_PIN_0"
+      ],
+      [
+        297,
+        "  *         @arg @ref LL_GPIO_PIN_1"
+      ],
+      [
+        298,
+        "  *         @arg @ref LL_GPIO_PIN_2"
+      ],
+      [
+        299,
+        "  *         @arg @ref LL_GPIO_PIN_3"
+      ],
+      [
+        300,
+        "  *         @arg @ref LL_GPIO_PIN_4"
+      ],
+      [
+        301,
+        "  *         @arg @ref LL_GPIO_PIN_5"
+      ],
+      [
+        302,
+        "  *         @arg @ref LL_GPIO_PIN_6"
+      ],
+      [
+        303,
+        "  *         @arg @ref LL_GPIO_PIN_7"
+      ],
+      [
+        304,
+        "  *         @arg @ref LL_GPIO_PIN_8"
+      ],
+      [
+        305,
+        "  *         @arg @ref LL_GPIO_PIN_9"
+      ],
+      [
+        312,
+        "  * @retval Returned value can be one of the following values:"
+      ],
+      [
+        313,
+        "  *         @arg @ref LL_GPIO_MODE_INPUT"
+      ],
+      [
+        314,
+        "  *         @arg @ref LL_GPIO_MODE_OUTPUT"
+      ],
+      [
+        315,
+        "  *         @arg @ref LL_GPIO_MODE_ALTERNATE"
+      ],
+      [
+        316,
+        "  *         @arg @ref LL_GPIO_MODE_ANALOG"
+      ],
+      [
+        317,
+        "  */"
+      ],
+      [
+        318,
+        "__STATIC_INLINE uint32_t LL_GPIO_GetPinMode(const GPIO_TypeDef *GPIOx, uint32_t Pin)"
+      ],
+      [
+        319,
+        "{"
+      ],
+      [
+        320,
+        "  return (uint32_t)(READ_BIT(GPIOx->MODER, (GPIO_MODER_MODE0 << (POSITION_VAL(Pin) * GPIO_MODER_MODE1_Pos))) >>"
+      ],
+      [
+        321,
+        "                    (POSITION_VAL(Pin) * GPIO_MODER_MODE1_Pos));"
+      ],
+      [
+        322,
+        "}"
+      ],
+      [
+        323,
+        ""
+      ],
+      [
+        324,
+        "/**"
+      ],
+      [
+        325,
+        "  * @brief  Configure gpio output type for several pins on dedicated port."
+      ],
+      [
+        326,
+        "  * @note   Output type as to be set when gpio pin is in output or"
+      ],
+      [
+        327,
+        "  *         alternate modes. Possible type are Push-pull or Open-drain."
+      ],
+      [
+        328,
+        "  * @rmtoll OTYPER       OTy           LL_GPIO_SetPinOutputType"
+      ],
+      [
+        329,
+        "  * @param  GPIOx GPIO Port"
+      ],
+      [
+        330,
+        "  * @param  PinMask This parameter can be a combination of the following values:"
+      ],
+      [
+        467,
+        ""
+      ],
+      [
+        468,
+        "/**"
+      ],
+      [
+        469,
+        "  * @brief  Configure gpio pull-up or pull-down for a dedicated pin on a dedicated port."
+      ],
+      [
+        470,
+        "  * @note   Warning: only one pin can be passed as parameter."
+      ],
+      [
+        471,
+        "  * @rmtoll PUPDR        PUPDy         LL_GPIO_SetPinPull"
+      ],
+      [
+        472,
+        "  * @param  GPIOx GPIO Port"
+      ],
+      [
+        473,
+        "  * @param  Pin This parameter can be one of the following values:"
+      ],
+      [
+        474,
+        "  *         @arg @ref LL_GPIO_PIN_0"
+      ],
+      [
+        475,
+        "  *         @arg @ref LL_GPIO_PIN_1"
+      ],
+      [
+        476,
+        "  *         @arg @ref LL_GPIO_PIN_2"
+      ],
+      [
+        477,
+        "  *         @arg @ref LL_GPIO_PIN_3"
+      ],
+      [
+        478,
+        "  *         @arg @ref LL_GPIO_PIN_4"
+      ],
+      [
+        479,
+        "  *         @arg @ref LL_GPIO_PIN_5"
+      ],
+      [
+        480,
+        "  *         @arg @ref LL_GPIO_PIN_6"
+      ],
+      [
+        481,
+        "  *         @arg @ref LL_GPIO_PIN_7"
+      ],
+      [
+        482,
+        "  *         @arg @ref LL_GPIO_PIN_8"
+      ],
+      [
+        483,
+        "  *         @arg @ref LL_GPIO_PIN_9"
+      ],
+      [
+        492,
+        "  *         @arg @ref LL_GPIO_PULL_UP"
+      ],
+      [
+        493,
+        "  *         @arg @ref LL_GPIO_PULL_DOWN"
+      ],
+      [
+        494,
+        "  * @retval None"
+      ],
+      [
+        495,
+        "  */"
+      ],
+      [
+        496,
+        "__STATIC_INLINE void LL_GPIO_SetPinPull(GPIO_TypeDef *GPIOx, uint32_t Pin, uint32_t Pull)"
+      ],
+      [
+        497,
+        "{"
+      ],
+      [
+        498,
+        "  MODIFY_REG(GPIOx->PUPDR, (GPIO_PUPDR_PUPD0 << (POSITION_VAL(Pin) * GPIO_PUPDR_PUPD1_Pos)),"
+      ],
+      [
+        499,
+        "             (Pull << (POSITION_VAL(Pin) * GPIO_PUPDR_PUPD1_Pos)));"
+      ],
+      [
+        500,
+        "}"
+      ],
+      [
+        501,
+        ""
+      ],
+      [
+        502,
+        "/**"
+      ],
+      [
+        503,
+        "  * @brief  Return gpio pull-up or pull-down for a dedicated pin on a dedicated port"
+      ],
+      [
+        504,
+        "  * @note   Warning: only one pin can be passed as parameter."
+      ],
+      [
+        505,
+        "  * @rmtoll PUPDR        PUPDy         LL_GPIO_GetPinPull"
+      ],
+      [
+        506,
+        "  * @param  GPIOx GPIO Port"
+      ],
+      [
+        507,
+        "  * @param  Pin This parameter can be one of the following values:"
+      ],
+      [
+        508,
+        "  *         @arg @ref LL_GPIO_PIN_0"
+      ],
+      [
+        509,
+        "  *         @arg @ref LL_GPIO_PIN_1"
+      ],
+      [
+        510,
+        "  *         @arg @ref LL_GPIO_PIN_2"
+      ],
+      [
+        511,
+        "  *         @arg @ref LL_GPIO_PIN_3"
+      ],
+      [
+        512,
+        "  *         @arg @ref LL_GPIO_PIN_4"
+      ],
+      [
+        513,
+        "  *         @arg @ref LL_GPIO_PIN_5"
+      ],
+      [
+        514,
+        "  *         @arg @ref LL_GPIO_PIN_6"
+      ],
+      [
+        515,
+        "  *         @arg @ref LL_GPIO_PIN_7"
+      ],
+      [
+        516,
+        "  *         @arg @ref LL_GPIO_PIN_8"
+      ],
+      [
+        517,
+        "  *         @arg @ref LL_GPIO_PIN_9"
+      ],
+      [
+        525,
+        "  *         @arg @ref LL_GPIO_PULL_NO"
+      ],
+      [
+        526,
+        "  *         @arg @ref LL_GPIO_PULL_UP"
+      ],
+      [
+        527,
+        "  *         @arg @ref LL_GPIO_PULL_DOWN"
+      ],
+      [
+        528,
+        "  */"
+      ],
+      [
+        529,
+        "__STATIC_INLINE uint32_t LL_GPIO_GetPinPull(const GPIO_TypeDef *GPIOx, uint32_t Pin)"
+      ],
+      [
+        530,
+        "{"
+      ],
+      [
+        531,
+        "  return (uint32_t)(READ_BIT(GPIOx->PUPDR, (GPIO_PUPDR_PUPD0 << \\"
+      ],
+      [
+        532,
+        "                                            (POSITION_VAL(Pin) * GPIO_PUPDR_PUPD1_Pos))) >> \\"
+      ],
+      [
+        533,
+        "                    (POSITION_VAL(Pin) * GPIO_PUPDR_PUPD1_Pos));"
+      ],
+      [
+        534,
+        "}"
+      ],
+      [
+        535,
+        ""
+      ],
+      [
+        536,
+        "/**"
+      ],
+      [
+        537,
+        "  * @brief  Configure gpio alternate function of a dedicated pin from 0 to 7 for a dedicated port."
+      ],
+      [
+        538,
+        "  * @note   Possible values are from AF0 to AF15 depending on target."
+      ],
+      [
+        539,
+        "  * @note   Warning: only one pin can be passed as parameter."
+      ],
+      [
+        540,
+        "  * @rmtoll AFRL         AFSELy        LL_GPIO_SetAFPin_0_7"
+      ],
+      [
+        541,
+        "  * @param  GPIOx GPIO Port"
+      ],
+      [
+        729,
+        "}"
+      ],
+      [
+        730,
+        ""
+      ],
+      [
+        731,
+        "/**"
+      ],
+      [
+        732,
+        "  * @brief  Return 1 if all pins passed as parameter, of a dedicated port, are locked. else Return 0."
+      ],
+      [
+        733,
+        "  * @rmtoll LCKR         LCKy          LL_GPIO_IsPinLocked"
+      ],
+      [
+        734,
+        "  * @param  GPIOx GPIO Port"
+      ],
+      [
+        735,
+        "  * @param  PinMask This parameter can be a combination of the following values:"
+      ],
+      [
+        736,
+        "  *         @arg @ref LL_GPIO_PIN_0"
+      ],
+      [
+        737,
+        "  *         @arg @ref LL_GPIO_PIN_1"
+      ],
+      [
+        738,
+        "  *         @arg @ref LL_GPIO_PIN_2"
+      ],
+      [
+        739,
+        "  *         @arg @ref LL_GPIO_PIN_3"
+      ],
+      [
+        740,
+        "  *         @arg @ref LL_GPIO_PIN_4"
+      ],
+      [
+        741,
+        "  *         @arg @ref LL_GPIO_PIN_5"
+      ],
+      [
+        742,
+        "  *         @arg @ref LL_GPIO_PIN_6"
+      ],
+      [
+        743,
+        "  *         @arg @ref LL_GPIO_PIN_7"
+      ],
+      [
+        744,
+        "  *         @arg @ref LL_GPIO_PIN_8"
+      ],
+      [
+        745,
+        "  *         @arg @ref LL_GPIO_PIN_9"
+      ],
+      [
+        751,
+        "  *         @arg @ref LL_GPIO_PIN_15"
+      ],
+      [
+        752,
+        "  *         @arg @ref LL_GPIO_PIN_ALL"
+      ],
+      [
+        753,
+        "  * @retval State of bit (1 or 0)."
+      ],
+      [
+        754,
+        "  */"
+      ],
+      [
+        755,
+        "__STATIC_INLINE uint32_t LL_GPIO_IsPinLocked(const GPIO_TypeDef *GPIOx, uint32_t PinMask)"
+      ],
+      [
+        756,
+        "{"
+      ],
+      [
+        757,
+        "  return ((READ_BIT(GPIOx->LCKR, PinMask) == (PinMask)) ? 1UL : 0UL);"
+      ],
+      [
+        758,
+        "}"
+      ],
+      [
+        759,
+        ""
+      ],
+      [
+        760,
+        "/**"
+      ],
+      [
+        761,
+        "  * @brief  Return 1 if one of the pin of a dedicated port is locked. else return 0."
+      ],
+      [
+        762,
+        "  * @rmtoll LCKR         LCKK          LL_GPIO_IsAnyPinLocked"
+      ],
+      [
+        763,
+        "  * @param  GPIOx GPIO Port"
+      ],
+      [
+        764,
+        "  * @retval State of bit (1 or 0)."
+      ],
+      [
+        765,
+        "  */"
+      ],
+      [
+        766,
+        "__STATIC_INLINE uint32_t LL_GPIO_IsAnyPinLocked(const GPIO_TypeDef *GPIOx)"
+      ],
+      [
+        767,
+        "{"
+      ]
+    ]
+  },
+  {
+    "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/modules/hal/stm32/stm32cube/stm32u5xx/drivers/include/stm32u5xx_ll_pwr.h",
+    "sha256": "5f7f9a5c03f840bd145ee473abe55d42a2f5138eea47a46512395aa3c41ec18f",
+    "bytes": 122824,
+    "lines": [
+      [
+        1982,
+        "  */"
+      ],
+      [
+        1983,
+        "__STATIC_INLINE void LL_PWR_EnableVddA(void)"
+      ],
+      [
+        1984,
+        "{"
+      ],
+      [
+        1985,
+        "  SET_BIT(PWR->SVMCR, PWR_SVMCR_ASV);"
+      ],
+      [
+        1986,
+        "}"
+      ],
+      [
+        1987,
+        "#define LL_PWR_EnableVDDA  LL_PWR_EnableVddA"
+      ],
+      [
+        1988,
+        ""
+      ],
+      [
+        1989,
+        "/**"
+      ],
+      [
+        1990,
+        "  * @brief  Disable the independent analog supply."
+      ],
+      [
+        1991,
+        "  * @rmtoll SVMCR    ASV       LL_PWR_DisableVddA"
+      ],
+      [
+        1992,
+        "  * @retval None"
+      ],
+      [
+        1993,
+        "  */"
+      ],
+      [
+        1994,
+        "__STATIC_INLINE void LL_PWR_DisableVddA(void)"
+      ],
+      [
+        1995,
+        "{"
+      ],
+      [
+        1996,
+        "  CLEAR_BIT(PWR->SVMCR, PWR_SVMCR_ASV);"
+      ],
+      [
+        1997,
+        "}"
+      ],
+      [
+        1998,
+        "#define LL_PWR_DisableVDDA  LL_PWR_DisableVddA"
+      ],
+      [
+        1999,
+        ""
+      ],
+      [
+        2000,
+        "/**"
+      ],
+      [
+        2001,
+        "  * @brief  Check if the independent analog supply is enabled."
+      ],
+      [
+        2002,
+        "  * @rmtoll SVMCR    ASV       LL_PWR_IsEnabledVddA"
+      ],
+      [
+        2003,
+        "  * @retval State of bit (1 or 0)."
+      ],
+      [
+        2004,
+        "  */"
+      ],
+      [
+        2005,
+        "__STATIC_INLINE uint32_t LL_PWR_IsEnabledVddA(void)"
+      ],
+      [
+        2006,
+        "{"
+      ],
+      [
+        2007,
+        "  return ((READ_BIT(PWR->SVMCR, PWR_SVMCR_ASV) == (PWR_SVMCR_ASV)) ? 1UL : 0UL);"
+      ],
+      [
+        2008,
+        "}"
+      ],
+      [
+        2009,
+        "#define LL_PWR_IsEnabledVDDA  LL_PWR_IsEnabledVddA"
+      ],
+      [
+        2010,
+        ""
+      ],
+      [
+        2011,
+        "/**"
+      ],
+      [
+        2012,
+        "  * @brief  Enable the independent USB supply monitor."
+      ],
+      [
+        2013,
+        "  * @rmtoll SVMCR    UVMEN       LL_PWR_EnableVddUSBMonitor"
+      ],
+      [
+        2014,
+        "  * @retval None"
+      ],
+      [
+        2015,
+        "  */"
+      ],
+      [
+        2016,
+        "__STATIC_INLINE void LL_PWR_EnableVddUSBMonitor(void)"
+      ],
+      [
+        2017,
+        "{"
+      ],
+      [
+        2018,
+        "  SET_BIT(PWR->SVMCR, PWR_SVMCR_UVMEN);"
+      ],
+      [
+        2019,
+        "}"
+      ],
+      [
+        2020,
+        "#define LL_PWR_EnableVDDUSBMonitor  LL_PWR_EnableVddUSBMonitor"
+      ],
+      [
+        2021,
+        ""
+      ],
+      [
+        2022,
+        "/**"
+      ],
+      [
+        2023,
+        "  * @brief  Disable the independent USB supply monitor."
+      ],
+      [
+        2083,
+        "{"
+      ],
+      [
+        2084,
+        "  SET_BIT(PWR->SVMCR, PWR_SVMCR_AVM1EN);"
+      ],
+      [
+        2085,
+        "}"
+      ],
+      [
+        2086,
+        "#define LL_PWR_EnableVDDAMonitor1  LL_PWR_EnableVddAMonitor1"
+      ],
+      [
+        2087,
+        ""
+      ],
+      [
+        2088,
+        "/**"
+      ],
+      [
+        2089,
+        "  * @brief  Disable the independent analog supply monitor 1."
+      ],
+      [
+        2090,
+        "  * @rmtoll SVMCR    AVM1EN       LL_PWR_DisableVddAMonitor1"
+      ],
+      [
+        2091,
+        "  * @retval None"
+      ],
+      [
+        2092,
+        "  */"
+      ],
+      [
+        2093,
+        "__STATIC_INLINE void LL_PWR_DisableVddAMonitor1(void)"
+      ],
+      [
+        2094,
+        "{"
+      ],
+      [
+        2095,
+        "  CLEAR_BIT(PWR->SVMCR, PWR_SVMCR_AVM1EN);"
+      ],
+      [
+        2096,
+        "}"
+      ],
+      [
+        2097,
+        "#define LL_PWR_DisableVDDAMonitor1  LL_PWR_DisableVddAMonitor1"
+      ],
+      [
+        2098,
+        ""
+      ],
+      [
+        2099,
+        "/**"
+      ],
+      [
+        2100,
+        "  * @brief  Check if the independent analog supply monitor 1 is enabled."
+      ],
+      [
+        2105,
+        "{"
+      ],
+      [
+        2106,
+        "  return ((READ_BIT(PWR->SVMCR, PWR_SVMCR_AVM1EN) == (PWR_SVMCR_AVM1EN)) ? 1UL : 0UL);"
+      ],
+      [
+        2107,
+        "}"
+      ],
+      [
+        2108,
+        "#define LL_PWR_IsEnabledVDDAMonitor1  LL_PWR_IsEnabledVddAMonitor1"
+      ],
+      [
+        2109,
+        ""
+      ],
+      [
+        2110,
+        "/**"
+      ],
+      [
+        2111,
+        "  * @brief  Enable the independent analog supply monitor 2."
+      ],
+      [
+        2112,
+        "  * @rmtoll SVMCR    AVM2EN       LL_PWR_EnableVddAMonitor2"
+      ],
+      [
+        2113,
+        "  * @retval None"
+      ],
+      [
+        2114,
+        "  */"
+      ],
+      [
+        2115,
+        "__STATIC_INLINE void LL_PWR_EnableVddAMonitor2(void)"
+      ],
+      [
+        2116,
+        "{"
+      ],
+      [
+        2117,
+        "  SET_BIT(PWR->SVMCR, PWR_SVMCR_AVM2EN);"
+      ],
+      [
+        2118,
+        "}"
+      ],
+      [
+        2119,
+        "#define LL_PWR_EnableVDDAMonitor2  LL_PWR_EnableVddAMonitor2"
+      ],
+      [
+        2120,
+        ""
+      ],
+      [
+        2121,
+        "/**"
+      ],
+      [
+        2122,
+        "  * @brief  Disable the independent analog supply monitor 2."
+      ],
+      [
+        2123,
+        "  * @rmtoll SVMCR    AVM2EN       LL_PWR_DisableVddAMonitor2"
+      ],
+      [
+        2124,
+        "  * @retval None"
+      ],
+      [
+        2125,
+        "  */"
+      ],
+      [
+        2126,
+        "__STATIC_INLINE void LL_PWR_DisableVddAMonitor2(void)"
+      ],
+      [
+        2127,
+        "{"
+      ],
+      [
+        2128,
+        "  CLEAR_BIT(PWR->SVMCR, PWR_SVMCR_AVM2EN);"
+      ],
+      [
+        2129,
+        "}"
+      ],
+      [
+        2130,
+        "#define LL_PWR_DisableVDDAMonitor2  LL_PWR_DisableVddAMonitor2"
+      ],
+      [
+        2131,
+        ""
+      ],
+      [
+        2132,
+        "/**"
+      ],
+      [
+        2133,
+        "  * @brief  Check if the independent analog supply monitor 2 is enabled."
+      ],
+      [
+        2138,
+        "{"
+      ],
+      [
+        2139,
+        "  return ((READ_BIT(PWR->SVMCR, PWR_SVMCR_AVM2EN) == (PWR_SVMCR_AVM2EN)) ? 1UL : 0UL);"
+      ],
+      [
+        2140,
+        "}"
+      ],
+      [
+        2141,
+        "#define LL_PWR_IsEnabledVDDAMonitor2  LL_PWR_IsEnabledVddAMonitor2"
+      ],
+      [
+        2142,
+        ""
+      ],
+      [
+        2143,
+        "/**"
+      ],
+      [
+        2144,
+        "  * @brief  Enable the wake up pin_x."
+      ],
+      [
+        2145,
+        "  * @rmtoll WUCR1    WUPENx       LL_PWR_EnableWakeUpPin"
+      ],
+      [
+        2146,
+        "  * @param  WakeUpPin This parameter can be a combination of the following values:"
+      ],
+      [
+        2147,
+        "  *         @arg @ref LL_PWR_WAKEUP_PIN1"
+      ],
+      [
+        2148,
+        "  *         @arg @ref LL_PWR_WAKEUP_PIN2"
+      ],
+      [
+        2149,
+        "  *         @arg @ref LL_PWR_WAKEUP_PIN3"
+      ],
+      [
+        2150,
+        "  *         @arg @ref LL_PWR_WAKEUP_PIN4"
+      ],
+      [
+        2151,
+        "  *         @arg @ref LL_PWR_WAKEUP_PIN5"
+      ],
+      [
+        2152,
+        "  *         @arg @ref LL_PWR_WAKEUP_PIN6"
+      ],
+      [
+        2153,
+        "  *         @arg @ref LL_PWR_WAKEUP_PIN7"
+      ],
+      [
+        2154,
+        "  *         @arg @ref LL_PWR_WAKEUP_PIN8"
+      ],
+      [
+        2155,
+        "  * @retval None"
+      ]
+    ]
+  },
+  {
+    "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/modules/hal/stm32/stm32cube/stm32u5xx/drivers/include/stm32u5xx_ll_bus.h",
+    "sha256": "a771a988182391a991c4b419c47d4e2cbf70f79f378add0c60fe9f3cb5cac6f2",
+    "bytes": 149841,
+    "lines": [
+      [
+        107,
+        "  */"
+      ],
+      [
+        108,
+        "#define LL_AHB2_GRP1_PERIPH_ALL            0xFFFFFFFFU"
+      ],
+      [
+        109,
+        "#define LL_AHB2_GRP1_PERIPH_GPIOA          RCC_AHB2ENR1_GPIOAEN"
+      ],
+      [
+        110,
+        "#define LL_AHB2_GRP1_PERIPH_GPIOB          RCC_AHB2ENR1_GPIOBEN"
+      ],
+      [
+        111,
+        "#define LL_AHB2_GRP1_PERIPH_GPIOC          RCC_AHB2ENR1_GPIOCEN"
+      ],
+      [
+        112,
+        "#define LL_AHB2_GRP1_PERIPH_GPIOD          RCC_AHB2ENR1_GPIODEN"
+      ],
+      [
+        113,
+        "#define LL_AHB2_GRP1_PERIPH_GPIOE          RCC_AHB2ENR1_GPIOEEN"
+      ],
+      [
+        114,
+        "#if defined(GPIOF)"
+      ],
+      [
+        115,
+        "#define LL_AHB2_GRP1_PERIPH_GPIOF          RCC_AHB2ENR1_GPIOFEN"
+      ],
+      [
+        116,
+        "#endif /* GPIOF */"
+      ],
+      [
+        117,
+        "#define LL_AHB2_GRP1_PERIPH_GPIOG          RCC_AHB2ENR1_GPIOGEN"
+      ],
+      [
+        118,
+        "#define LL_AHB2_GRP1_PERIPH_GPIOH          RCC_AHB2ENR1_GPIOHEN"
+      ],
+      [
+        119,
+        "#if defined (GPIOI)"
+      ],
+      [
+        120,
+        "#define LL_AHB2_GRP1_PERIPH_GPIOI          RCC_AHB2ENR1_GPIOIEN"
+      ],
+      [
+        121,
+        "#endif /* GPIOI */"
+      ],
+      [
+        123,
+        "#define LL_AHB2_GRP1_PERIPH_GPIOJ          RCC_AHB2ENR1_GPIOJEN"
+      ],
+      [
+        124,
+        "#endif /* defined (GPIOJ) */"
+      ],
+      [
+        125,
+        "#define LL_AHB2_GRP1_PERIPH_ADC12          RCC_AHB2ENR1_ADC12EN"
+      ],
+      [
+        126,
+        "#define LL_AHB2_GRP1_PERIPH_DCMI_PSSI      RCC_AHB2ENR1_DCMI_PSSIEN"
+      ],
+      [
+        127,
+        "#if defined(USB_OTG_FS)"
+      ],
+      [
+        128,
+        "#define LL_AHB2_GRP1_PERIPH_OTG_FS         RCC_AHB2ENR1_OTGEN"
+      ],
+      [
+        129,
+        "/* Legacy define */"
+      ],
+      [
+        130,
+        "#define LL_AHB2_GRP1_PERIPH_USBFS          LL_AHB2_GRP1_PERIPH_OTG_FS"
+      ],
+      [
+        131,
+        "#elif defined(USB_OTG_HS)"
+      ],
+      [
+        132,
+        "#define LL_AHB2_GRP1_PERIPH_OTG_HS         RCC_AHB2ENR1_OTGEN"
+      ],
+      [
+        133,
+        "/* Legacy define */"
+      ],
+      [
+        134,
+        "#define LL_AHB2_GRP1_PERIPH_USBHS          LL_AHB2_GRP1_PERIPH_OTG_HS"
+      ],
+      [
+        135,
+        "#endif /* defined(USB_OTG_HS) */"
+      ],
+      [
+        136,
+        "#if defined(RCC_AHB2ENR1_USBPHYCEN)"
+      ],
+      [
+        137,
+        "#define LL_AHB2_GRP1_PERIPH_USBPHY         RCC_AHB2ENR1_USBPHYCEN"
+      ],
+      [
+        173,
+        "#define LL_AHB3_GRP1_PERIPH_ALL            0xFFFFFFFFU"
+      ],
+      [
+        174,
+        "#define LL_AHB3_GRP1_PERIPH_LPGPIO1        RCC_AHB3ENR_LPGPIO1EN"
+      ],
+      [
+        175,
+        "#define LL_AHB3_GRP1_PERIPH_PWR            RCC_AHB3ENR_PWREN"
+      ],
+      [
+        176,
+        "#define LL_AHB3_GRP1_PERIPH_ADC4           RCC_AHB3ENR_ADC4EN"
+      ],
+      [
+        177,
+        "#define LL_AHB3_GRP1_PERIPH_DAC1           RCC_AHB3ENR_DAC1EN"
+      ],
+      [
+        178,
+        "#define LL_AHB3_GRP1_PERIPH_LPDMA1         RCC_AHB3ENR_LPDMA1EN"
+      ],
+      [
+        179,
+        "#define LL_AHB3_GRP1_PERIPH_ADF1           RCC_AHB3ENR_ADF1EN"
+      ],
+      [
+        180,
+        "#define LL_AHB3_GRP1_PERIPH_GTZC2          RCC_AHB3ENR_GTZC2EN"
+      ],
+      [
+        181,
+        "#define LL_AHB3_GRP1_PERIPH_SRAM4          RCC_AHB3ENR_SRAM4EN"
+      ],
+      [
+        182,
+        ""
+      ],
+      [
+        183,
+        "/**"
+      ],
+      [
+        184,
+        "  * @}"
+      ],
+      [
+        185,
+        "  */"
+      ],
+      [
+        186,
+        ""
+      ],
+      [
+        187,
+        "/** @defgroup BUS_LL_EC_AHB2_GRP2_PERIPH  AHB2 GRP2 PERIPH"
+      ],
+      [
+        188,
+        "  * @{"
+      ],
+      [
+        322,
+        "#define LL_SRDAMR_GRP1_PERIPH_VREF        RCC_SRDAMR_VREFAMEN"
+      ],
+      [
+        323,
+        "#define LL_SRDAMR_GRP1_PERIPH_RTCAPB      RCC_SRDAMR_RTCAPBAMEN"
+      ],
+      [
+        324,
+        "#define LL_SRDAMR_GRP1_PERIPH_ADC4        RCC_SRDAMR_ADC4AMEN"
+      ],
+      [
+        325,
+        "#define LL_SRDAMR_GRP1_PERIPH_LPGPIO1     RCC_SRDAMR_LPGPIO1AMEN"
+      ],
+      [
+        326,
+        "#define LL_SRDAMR_GRP1_PERIPH_DAC1        RCC_SRDAMR_DAC1AMEN"
+      ],
+      [
+        327,
+        "#define LL_SRDAMR_GRP1_PERIPH_LPDMA1      RCC_SRDAMR_LPDMA1AMEN"
+      ],
+      [
+        328,
+        "#define LL_SRDAMR_GRP1_PERIPH_ADF1        RCC_SRDAMR_ADF1AMEN"
+      ],
+      [
+        329,
+        "#define LL_SRDAMR_GRP1_PERIPH_SRAM4       RCC_SRDAMR_SRAM4AMEN"
+      ],
+      [
+        330,
+        "/**"
+      ],
+      [
+        331,
+        "  * @}"
+      ],
+      [
+        332,
+        "  */"
+      ],
+      [
+        333,
+        "/** @defgroup LL_RCC_Aliased_Constants  LL RCC Aliased Constants maintained for legacy purpose"
+      ],
+      [
+        334,
+        "  * @{"
+      ],
+      [
+        335,
+        "  */"
+      ],
+      [
+        336,
+        "#define LL_AHB2_GRP1_PERIPH_ADC1             LL_AHB2_GRP1_PERIPH_ADC12"
+      ],
+      [
+        337,
+        "#define LL_SRDAMR_GRP1_PERIPH_SPI3AMEN       LL_SRDAMR_GRP1_PERIPH_SPI3"
+      ],
+      [
+        338,
+        "#define LL_SRDAMR_GRP1_PERIPH_LPUART1AMEN    LL_SRDAMR_GRP1_PERIPH_LPUART1"
+      ],
+      [
+        339,
+        "#define LL_SRDAMR_GRP1_PERIPH_I2C3AMEN       LL_SRDAMR_GRP1_PERIPH_I2C3"
+      ],
+      [
+        340,
+        "#define LL_SRDAMR_GRP1_PERIPH_LPTIM1AMEN     LL_SRDAMR_GRP1_PERIPH_LPTIM1"
+      ],
+      [
+        341,
+        "#define LL_SRDAMR_GRP1_PERIPH_LPTIM3AMEN     LL_SRDAMR_GRP1_PERIPH_LPTIM3"
+      ],
+      [
+        342,
+        "#define LL_SRDAMR_GRP1_PERIPH_LPTIM4AMEN     LL_SRDAMR_GRP1_PERIPH_LPTIM4"
+      ],
+      [
+        343,
+        "#define LL_SRDAMR_GRP1_PERIPH_OPAMPAMEN      LL_SRDAMR_GRP1_PERIPH_OPAMP"
+      ],
+      [
+        344,
+        "#define LL_SRDAMR_GRP1_PERIPH_COMPAMEN       LL_SRDAMR_GRP1_PERIPH_COMP"
+      ],
+      [
+        345,
+        "#define LL_SRDAMR_GRP1_PERIPH_VREFAMEN       LL_SRDAMR_GRP1_PERIPH_VREF"
+      ],
+      [
+        346,
+        "#define LL_SRDAMR_GRP1_PERIPH_RTCAPBAMEN     LL_SRDAMR_GRP1_PERIPH_RTCAPB"
+      ],
+      [
+        347,
+        "#define LL_SRDAMR_GRP1_PERIPH_ADC4AMEN       LL_SRDAMR_GRP1_PERIPH_ADC4"
+      ],
+      [
+        348,
+        "#define LL_SRDAMR_GRP1_PERIPH_LPGPIO1AMEN    LL_SRDAMR_GRP1_PERIPH_LPGPIO1"
+      ],
+      [
+        349,
+        "#define LL_SRDAMR_GRP1_PERIPH_DAC1AMEN       LL_SRDAMR_GRP1_PERIPH_DAC1"
+      ],
+      [
+        350,
+        "#define LL_SRDAMR_GRP1_PERIPH_LPDMA1AMEN     LL_SRDAMR_GRP1_PERIPH_LPDMA1"
+      ],
+      [
+        351,
+        "#define LL_SRDAMR_GRP1_PERIPH_ADF1AMEN       LL_SRDAMR_GRP1_PERIPH_ADF1"
+      ],
+      [
+        352,
+        "#define LL_SRDAMR_GRP1_PERIPH_SRAM4AMEN      LL_SRDAMR_GRP1_PERIPH_SRAM4"
+      ],
+      [
+        353,
+        "/**"
+      ],
+      [
+        354,
+        "  * @}"
+      ],
+      [
+        355,
+        "  */"
+      ],
+      [
+        356,
+        "/**"
+      ],
+      [
+        357,
+        "  * @}"
+      ],
+      [
+        358,
+        "  */"
+      ],
+      [
+        359,
+        ""
+      ],
+      [
+        784,
+        "/**"
+      ],
+      [
+        785,
+        "  * @brief  Enable AHB2 peripherals clock."
+      ],
+      [
+        786,
+        "  * @rmtoll AHB2ENR1      GPIOAEN       LL_AHB2_GRP1_EnableClock\\n"
+      ],
+      [
+        787,
+        "  *         AHB2ENR1      GPIOBEN       LL_AHB2_GRP1_EnableClock\\n"
+      ],
+      [
+        788,
+        "  *         AHB2ENR1      GPIOCEN       LL_AHB2_GRP1_EnableClock\\n"
+      ],
+      [
+        789,
+        "  *         AHB2ENR1      GPIODEN       LL_AHB2_GRP1_EnableClock\\n"
+      ],
+      [
+        790,
+        "  *         AHB2ENR1      GPIOEEN       LL_AHB2_GRP1_EnableClock\\n"
+      ],
+      [
+        791,
+        "  *         AHB2ENR1      GPIOFEN       LL_AHB2_GRP1_EnableClock\\n"
+      ],
+      [
+        792,
+        "  *         AHB2ENR1      GPIOGEN       LL_AHB2_GRP1_EnableClock\\n"
+      ],
+      [
+        793,
+        "  *         AHB2ENR1      GPIOHEN       LL_AHB2_GRP1_EnableClock\\n"
+      ],
+      [
+        794,
+        "  *         AHB2ENR1      GPIOIEN       LL_AHB2_GRP1_EnableClock\\n"
+      ],
+      [
+        795,
+        "  *         AHB2ENR1      GPIOJEN       LL_AHB2_GRP1_EnableClock\\n"
+      ],
+      [
+        796,
+        "  *         AHB2ENR1      ADC12EN       LL_AHB2_GRP1_EnableClock\\n"
+      ],
+      [
+        797,
+        "  *         AHB2ENR1      DCMI_PSSIEN   LL_AHB2_GRP1_EnableClock\\n"
+      ],
+      [
+        798,
+        "  *         AHB2ENR1      OTGEN         LL_AHB2_GRP1_EnableClock\\n"
+      ],
+      [
+        799,
+        "  *         AHB2ENR1      USBPHYCEN     LL_AHB2_GRP1_EnableClock\\n"
+      ],
+      [
+        800,
+        "  *         AHB2ENR1      AESEN         LL_AHB2_GRP1_EnableClock\\n"
+      ],
+      [
+        801,
+        "  *         AHB2ENR1      HASHEN        LL_AHB2_GRP1_EnableClock\\n"
+      ],
+      [
+        802,
+        "  *         AHB2ENR1      RNGEN         LL_AHB2_GRP1_EnableClock\\n"
+      ],
+      [
+        803,
+        "  *         AHB2ENR1      PKAEN         LL_AHB2_GRP1_EnableClock\\n"
+      ],
+      [
+        804,
+        "  *         AHB2ENR1      SAESEN        LL_AHB2_GRP1_EnableClock\\n"
+      ],
+      [
+        805,
+        "  *         AHB2ENR1      OCTOSPIMEN    LL_AHB2_GRP1_EnableClock\\n"
+      ],
+      [
+        806,
+        "  *         AHB2ENR1      OTFDEC1EN     LL_AHB2_GRP1_EnableClock\\n"
+      ],
+      [
+        807,
+        "  *         AHB2ENR1      OTFDEC2EN     LL_AHB2_GRP1_EnableClock\\n"
+      ],
+      [
+        808,
+        "  *         AHB2ENR1      SDMMC1EN      LL_AHB2_GRP1_EnableClock\\n"
+      ],
+      [
+        809,
+        "  *         AHB2ENR1      SDMMC2EN      LL_AHB2_GRP1_EnableClock\\n"
+      ],
+      [
+        810,
+        "  *         AHB2ENR1      SRAM2EN       LL_AHB2_GRP1_EnableClock\\n"
+      ],
+      [
+        811,
+        "  *         AHB2ENR1      SRAM3EN       LL_AHB2_GRP1_EnableClock\\n"
+      ],
+      [
+        812,
+        "  * @param  Periphs This parameter can be a combination of the following values:"
+      ],
+      [
+        813,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_ALL"
+      ],
+      [
+        814,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOA"
+      ],
+      [
+        815,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOB"
+      ],
+      [
+        816,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOC"
+      ],
+      [
+        817,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOD"
+      ],
+      [
+        818,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOE"
+      ],
+      [
+        819,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOF (*)"
+      ],
+      [
+        820,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOG"
+      ],
+      [
+        821,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOH"
+      ],
+      [
+        822,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOI (*)"
+      ],
+      [
+        823,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOJ (*)"
+      ],
+      [
+        824,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_ADC12"
+      ],
+      [
+        825,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_DCMI_PSSI"
+      ],
+      [
+        826,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_OTG_FS (*)"
+      ],
+      [
+        827,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_OTG_HS (*)"
+      ],
+      [
+        828,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_USBPHY (*)"
+      ],
+      [
+        829,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_AES"
+      ],
+      [
+        830,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_HASH"
+      ],
+      [
+        831,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_RNG"
+      ],
+      [
+        832,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_PKA"
+      ],
+      [
+        833,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_SAES (*)"
+      ],
+      [
+        834,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_OCTOSPIM (*)"
+      ],
+      [
+        835,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_OTFDEC1 (*)"
+      ],
+      [
+        836,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_OTFDEC2 (*)"
+      ],
+      [
+        843,
+        "  * @retval None"
+      ],
+      [
+        844,
+        "  */"
+      ],
+      [
+        845,
+        "__STATIC_INLINE void LL_AHB2_GRP1_EnableClock(uint32_t Periphs)"
+      ],
+      [
+        846,
+        "{"
+      ],
+      [
+        847,
+        "  __IO uint32_t tmpreg;"
+      ],
+      [
+        848,
+        "  SET_BIT(RCC->AHB2ENR1, Periphs);"
+      ],
+      [
+        849,
+        "  /* Delay after an RCC peripheral clock enabling */"
+      ],
+      [
+        850,
+        "  tmpreg = READ_BIT(RCC->AHB2ENR1, Periphs);"
+      ],
+      [
+        851,
+        "  (void)tmpreg;"
+      ],
+      [
+        852,
+        "}"
+      ],
+      [
+        853,
+        ""
+      ],
+      [
+        854,
+        "/**"
+      ],
+      [
+        855,
+        "  * @brief  Check if AHB2 peripheral clock is enabled or not"
+      ],
+      [
+        856,
+        "  * @rmtoll AHB2ENR1      GPIOAEN       LL_AHB2_GRP1_IsEnabledClock\\n"
+      ],
+      [
+        857,
+        "  *         AHB2ENR1      GPIOBEN       LL_AHB2_GRP1_IsEnabledClock\\n"
+      ],
+      [
+        858,
+        "  *         AHB2ENR1      GPIOCEN       LL_AHB2_GRP1_IsEnabledClock\\n"
+      ],
+      [
+        859,
+        "  *         AHB2ENR1      GPIODEN       LL_AHB2_GRP1_IsEnabledClock\\n"
+      ],
+      [
+        860,
+        "  *         AHB2ENR1      GPIOEEN       LL_AHB2_GRP1_IsEnabledClock\\n"
+      ],
+      [
+        861,
+        "  *         AHB2ENR1      GPIOFEN       LL_AHB2_GRP1_IsEnabledClock\\n"
+      ],
+      [
+        862,
+        "  *         AHB2ENR1      GPIOGEN       LL_AHB2_GRP1_IsEnabledClock\\n"
+      ],
+      [
+        863,
+        "  *         AHB2ENR1      GPIOHEN       LL_AHB2_GRP1_IsEnabledClock\\n"
+      ],
+      [
+        864,
+        "  *         AHB2ENR1      GPIOIEN       LL_AHB2_GRP1_IsEnabledClock\\n"
+      ],
+      [
+        865,
+        "  *         AHB2ENR1      GPIOJEN       LL_AHB2_GRP1_IsEnabledClock\\n"
+      ],
+      [
+        866,
+        "  *         AHB2ENR1      ADC12EN       LL_AHB2_GRP1_IsEnabledClock\\n"
+      ],
+      [
+        867,
+        "  *         AHB2ENR1      DCMI_PSSIEN   LL_AHB2_GRP1_IsEnabledClock\\n"
+      ],
+      [
+        868,
+        "  *         AHB2ENR1      OTGEN         LL_AHB2_GRP1_IsEnabledClock\\n"
+      ],
+      [
+        869,
+        "  *         AHB2ENR1      USBPHYCEN     LL_AHB2_GRP1_IsEnabledClock\\n"
+      ],
+      [
+        870,
+        "  *         AHB2ENR1      AESEN         LL_AHB2_GRP1_IsEnabledClock\\n"
+      ],
+      [
+        871,
+        "  *         AHB2ENR1      HASHEN        LL_AHB2_GRP1_IsEnabledClock\\n"
+      ],
+      [
+        872,
+        "  *         AHB2ENR1      RNGEN         LL_AHB2_GRP1_IsEnabledClock\\n"
+      ],
+      [
+        873,
+        "  *         AHB2ENR1      PKAEN         LL_AHB2_GRP1_IsEnabledClock\\n"
+      ],
+      [
+        874,
+        "  *         AHB2ENR1      SAESEN        LL_AHB2_GRP1_IsEnabledClock\\n"
+      ],
+      [
+        875,
+        "  *         AHB2ENR1      OCTOSPIMEN    LL_AHB2_GRP1_IsEnabledClock\\n"
+      ],
+      [
+        876,
+        "  *         AHB2ENR1      OTFDEC1EN     LL_AHB2_GRP1_IsEnabledClock\\n"
+      ],
+      [
+        877,
+        "  *         AHB2ENR1      OTFDEC2EN     LL_AHB2_GRP1_IsEnabledClock\\n"
+      ],
+      [
+        878,
+        "  *         AHB2ENR1      SDMMC1EN      LL_AHB2_GRP1_IsEnabledClock\\n"
+      ],
+      [
+        879,
+        "  *         AHB2ENR1      SDMMC2EN      LL_AHB2_GRP1_IsEnabledClock\\n"
+      ],
+      [
+        880,
+        "  *         AHB2ENR1      SRAM2EN       LL_AHB2_GRP1_IsEnabledClock\\n"
+      ],
+      [
+        881,
+        "  *         AHB2ENR1      SRAM3EN       LL_AHB2_GRP1_IsEnabledClock\\n"
+      ],
+      [
+        882,
+        "  * @param  Periphs This parameter can be a combination of the following values:"
+      ],
+      [
+        883,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_ALL"
+      ],
+      [
+        884,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOA"
+      ],
+      [
+        885,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOB"
+      ],
+      [
+        886,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOC"
+      ],
+      [
+        887,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOD"
+      ],
+      [
+        888,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOE"
+      ],
+      [
+        889,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOF (*)"
+      ],
+      [
+        890,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOG"
+      ],
+      [
+        891,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOH"
+      ],
+      [
+        892,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOI (*)"
+      ],
+      [
+        893,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOJ (*)"
+      ],
+      [
+        894,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_ADC12"
+      ],
+      [
+        895,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_DCMI_PSSI"
+      ],
+      [
+        896,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_OTG_FS (*)"
+      ],
+      [
+        897,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_OTG_HS (*)"
+      ],
+      [
+        898,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_USBPHY (*)"
+      ],
+      [
+        899,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_AES"
+      ],
+      [
+        900,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_HASH"
+      ],
+      [
+        901,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_RNG"
+      ],
+      [
+        902,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_PKA"
+      ],
+      [
+        903,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_SAES (*)"
+      ],
+      [
+        904,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_OCTOSPIM (*)"
+      ],
+      [
+        905,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_OTFDEC1 (*)"
+      ],
+      [
+        906,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_OTFDEC2 (*)"
+      ],
+      [
+        913,
+        "  * @retval State of Periphs (1 or 0)."
+      ],
+      [
+        914,
+        "  */"
+      ],
+      [
+        915,
+        "__STATIC_INLINE uint32_t LL_AHB2_GRP1_IsEnabledClock(uint32_t Periphs)"
+      ],
+      [
+        916,
+        "{"
+      ],
+      [
+        917,
+        "  return ((READ_BIT(RCC->AHB2ENR1, Periphs) == Periphs) ? 1UL : 0UL);"
+      ],
+      [
+        918,
+        "}"
+      ],
+      [
+        919,
+        ""
+      ],
+      [
+        920,
+        "/**"
+      ],
+      [
+        921,
+        "  * @brief  Disable AHB2_1 bus clock."
+      ],
+      [
+        922,
+        "  * @note   except for SRAM2 and SRAM3."
+      ],
+      [
+        923,
+        "  * @rmtoll CFGR2    AHB2DIS1     LL_AHB2_GRP1_DisableBusClock"
+      ],
+      [
+        924,
+        "  * @retval None"
+      ],
+      [
+        925,
+        "  */"
+      ],
+      [
+        926,
+        "__STATIC_INLINE void LL_AHB2_GRP1_DisableBusClock(void)"
+      ],
+      [
+        927,
+        "{"
+      ],
+      [
+        959,
+        "  * @param  Periphs This parameter can be a combination of the following values:"
+      ],
+      [
+        960,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_ALL"
+      ],
+      [
+        961,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOA"
+      ],
+      [
+        962,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOB"
+      ],
+      [
+        963,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOC"
+      ],
+      [
+        964,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOD"
+      ],
+      [
+        965,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOE"
+      ],
+      [
+        966,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOF (*)"
+      ],
+      [
+        967,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOG"
+      ],
+      [
+        968,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOH"
+      ],
+      [
+        969,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOI (*)"
+      ],
+      [
+        970,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOJ (*)"
+      ],
+      [
+        971,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_ADC12"
+      ],
+      [
+        972,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_DCMI_PSSI"
+      ],
+      [
+        973,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_OTG_FS (*)"
+      ],
+      [
+        974,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_OTG_HS (*)"
+      ],
+      [
+        975,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_USBPHY (*)"
+      ],
+      [
+        976,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_AES"
+      ],
+      [
+        977,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_HASH"
+      ],
+      [
+        978,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_RNG"
+      ],
+      [
+        979,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_PKA"
+      ],
+      [
+        980,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_SAES (*)"
+      ],
+      [
+        981,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_OCTOSPIM (*)"
+      ],
+      [
+        982,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_OTFDEC1 (*)"
+      ],
+      [
+        983,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_OTFDEC2 (*)"
+      ],
+      [
+        1023,
+        "  * @param  Periphs This parameter can be a combination of the following values:"
+      ],
+      [
+        1024,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_ALL"
+      ],
+      [
+        1025,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOA"
+      ],
+      [
+        1026,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOB"
+      ],
+      [
+        1027,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOC"
+      ],
+      [
+        1028,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOD"
+      ],
+      [
+        1029,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOE"
+      ],
+      [
+        1030,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOF (*)"
+      ],
+      [
+        1031,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOG"
+      ],
+      [
+        1032,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOH"
+      ],
+      [
+        1033,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOI (*)"
+      ],
+      [
+        1034,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOJ (*)"
+      ],
+      [
+        1035,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_ADC12"
+      ],
+      [
+        1036,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_DCMI_PSSI"
+      ],
+      [
+        1037,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_OTG_FS (*)"
+      ],
+      [
+        1038,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_OTG_HS (*)"
+      ],
+      [
+        1039,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_USBPHY (*)"
+      ],
+      [
+        1040,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_AES"
+      ],
+      [
+        1041,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_HASH"
+      ],
+      [
+        1042,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_RNG"
+      ],
+      [
+        1043,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_PKA"
+      ],
+      [
+        1044,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_SAES (*)"
+      ],
+      [
+        1045,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_OCTOSPIM (*)"
+      ],
+      [
+        1046,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_OTFDEC1 (*)"
+      ],
+      [
+        1047,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_OTFDEC2 (*)"
+      ],
+      [
+        1085,
+        "  * @param  Periphs This parameter can be a combination of the following values:"
+      ],
+      [
+        1086,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_ALL"
+      ],
+      [
+        1087,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOA"
+      ],
+      [
+        1088,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOB"
+      ],
+      [
+        1089,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOC"
+      ],
+      [
+        1090,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOD"
+      ],
+      [
+        1091,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOE"
+      ],
+      [
+        1092,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOF (*)"
+      ],
+      [
+        1093,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOG"
+      ],
+      [
+        1094,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOH"
+      ],
+      [
+        1095,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOI (*)"
+      ],
+      [
+        1096,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOJ (*)"
+      ],
+      [
+        1097,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_ADC12"
+      ],
+      [
+        1098,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_DCMI_PSSI"
+      ],
+      [
+        1099,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_OTG_FS (*)"
+      ],
+      [
+        1100,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_OTG_HS (*)"
+      ],
+      [
+        1101,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_USBPHY (*)"
+      ],
+      [
+        1102,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_AES"
+      ],
+      [
+        1103,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_HASH"
+      ],
+      [
+        1104,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_RNG"
+      ],
+      [
+        1105,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_PKA"
+      ],
+      [
+        1106,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_SAES (*)"
+      ],
+      [
+        1107,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_OCTOSPIM (*)"
+      ],
+      [
+        1108,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_OTFDEC1 (*)"
+      ],
+      [
+        1109,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_OTFDEC2 (*)"
+      ],
+      [
+        1121,
+        "/**"
+      ],
+      [
+        1122,
+        "  * @brief  Enable AHB2 peripheral clocks in Sleep and Stop modes"
+      ],
+      [
+        1123,
+        "  * @rmtoll AHB2SMENR1    GPIOASMEN      LL_AHB2_GRP1_EnableClockStopSleep\\n"
+      ],
+      [
+        1124,
+        "  *         AHB2SMENR1    GPIOBSMEN      LL_AHB2_GRP1_EnableClockStopSleep\\n"
+      ],
+      [
+        1125,
+        "  *         AHB2SMENR1    GPIOCSMEN      LL_AHB2_GRP1_EnableClockStopSleep\\n"
+      ],
+      [
+        1126,
+        "  *         AHB2SMENR1    GPIODSMEN      LL_AHB2_GRP1_EnableClockStopSleep\\n"
+      ],
+      [
+        1127,
+        "  *         AHB2SMENR1    GPIOESMEN      LL_AHB2_GRP1_EnableClockStopSleep\\n"
+      ],
+      [
+        1128,
+        "  *         AHB2SMENR1    GPIOFSMEN      LL_AHB2_GRP1_EnableClockStopSleep\\n"
+      ],
+      [
+        1129,
+        "  *         AHB2SMENR1    GPIOGSMEN      LL_AHB2_GRP1_EnableClockStopSleep\\n"
+      ],
+      [
+        1130,
+        "  *         AHB2SMENR1    GPIOHSMEN      LL_AHB2_GRP1_EnableClockStopSleep\\n"
+      ],
+      [
+        1131,
+        "  *         AHB2SMENR1    GPIOISMEN      LL_AHB2_GRP1_EnableClockStopSleep\\n"
+      ],
+      [
+        1132,
+        "  *         AHB2SMENR1    GPIOJSMEN      LL_AHB2_GRP1_EnableClockStopSleep\\n"
+      ],
+      [
+        1133,
+        "  *         AHB2SMENR1    ADC12SMEN      LL_AHB2_GRP1_EnableClockStopSleep\\n"
+      ],
+      [
+        1134,
+        "  *         AHB2SMENR1    DCMI_PSSISMEN  LL_AHB2_GRP1_EnableClockStopSleep\\n"
+      ],
+      [
+        1135,
+        "  *         AHB2SMENR1    OTGSMEN        LL_AHB2_GRP1_EnableClockStopSleep\\n"
+      ],
+      [
+        1136,
+        "  *         AHB2ENR1      USBPHYCEN      LL_AHB2_GRP1_EnableClockStopSleep\\n"
+      ],
+      [
+        1137,
+        "  *         AHB2SMENR1    AESSMEN        LL_AHB2_GRP1_EnableClockStopSleep\\n"
+      ],
+      [
+        1138,
+        "  *         AHB2SMENR1    HASHSMEN       LL_AHB2_GRP1_EnableClockStopSleep\\n"
+      ],
+      [
+        1139,
+        "  *         AHB2SMENR1    RNGSMEN        LL_AHB2_GRP1_EnableClockStopSleep\\n"
+      ],
+      [
+        1140,
+        "  *         AHB2SMENR1    PKASMEN        LL_AHB2_GRP1_EnableClockStopSleep\\n"
+      ],
+      [
+        1141,
+        "  *         AHB2SMENR1    SAESSMEN       LL_AHB2_GRP1_EnableClockStopSleep\\n"
+      ],
+      [
+        1142,
+        "  *         AHB2SMENR1    OSPIMSMEN      LL_AHB2_GRP1_EnableClockStopSleep\\n"
+      ],
+      [
+        1143,
+        "  *         AHB2SMENR1    OTFDEC1SMEN    LL_AHB2_GRP1_EnableClockStopSleep\\n"
+      ],
+      [
+        1144,
+        "  *         AHB2SMENR1    OTFDEC2SMEN    LL_AHB2_GRP1_EnableClockStopSleep\\n"
+      ],
+      [
+        1145,
+        "  *         AHB2SMENR1    SDMMC1SMEN     LL_AHB2_GRP1_EnableClockStopSleep\\n"
+      ],
+      [
+        1146,
+        "  *         AHB2SMENR1    SDMMC2SMEN     LL_AHB2_GRP1_EnableClockStopSleep\\n"
+      ],
+      [
+        1147,
+        "  *         AHB2SMENR1    SRAM2SMEN      LL_AHB2_GRP1_EnableClockStopSleep\\n"
+      ],
+      [
+        1148,
+        "  *         AHB2SMENR1    SRAM3SMEN      LL_AHB2_GRP1_EnableClockStopSleep\\n"
+      ],
+      [
+        1149,
+        "  * @param  Periphs This parameter can be a combination of the following values:"
+      ],
+      [
+        1150,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_ALL"
+      ],
+      [
+        1151,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOA"
+      ],
+      [
+        1152,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOB"
+      ],
+      [
+        1153,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOC"
+      ],
+      [
+        1154,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOD"
+      ],
+      [
+        1155,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOE"
+      ],
+      [
+        1156,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOF (*)"
+      ],
+      [
+        1157,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOG"
+      ],
+      [
+        1158,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOH"
+      ],
+      [
+        1159,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOI (*)"
+      ],
+      [
+        1160,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOJ (*)"
+      ],
+      [
+        1161,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_ADC12"
+      ],
+      [
+        1162,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_DCMI_PSSI"
+      ],
+      [
+        1163,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_OTG_FS (*)"
+      ],
+      [
+        1164,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_OTG_HS (*)"
+      ],
+      [
+        1165,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_USBPHY (*)"
+      ],
+      [
+        1166,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_AES"
+      ],
+      [
+        1167,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_HASH"
+      ],
+      [
+        1168,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_RNG"
+      ],
+      [
+        1169,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_PKA"
+      ],
+      [
+        1170,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_SAES (*)"
+      ],
+      [
+        1171,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_OCTOSPIM (*)"
+      ],
+      [
+        1172,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_OTFDEC1 (*)"
+      ],
+      [
+        1173,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_OTFDEC2 (*)"
+      ],
+      [
+        1180,
+        "  * @retval None"
+      ],
+      [
+        1181,
+        "  */"
+      ],
+      [
+        1182,
+        "__STATIC_INLINE void LL_AHB2_GRP1_EnableClockStopSleep(uint32_t Periphs)"
+      ],
+      [
+        1183,
+        "{"
+      ],
+      [
+        1184,
+        "  __IO uint32_t tmpreg;"
+      ],
+      [
+        1185,
+        "  SET_BIT(RCC->AHB2SMENR1, Periphs);"
+      ],
+      [
+        1186,
+        "  /* Delay after an RCC peripheral clock enabling */"
+      ],
+      [
+        1187,
+        "  tmpreg = READ_BIT(RCC->AHB2SMENR1, Periphs);"
+      ],
+      [
+        1188,
+        "  (void)tmpreg;"
+      ],
+      [
+        1189,
+        "}"
+      ],
+      [
+        1190,
+        ""
+      ],
+      [
+        1191,
+        "/**"
+      ],
+      [
+        1192,
+        "  * @brief  Check if AHB2 peripheral clocks in Sleep and Stop modes is enabled or not"
+      ],
+      [
+        1193,
+        "  * @rmtoll AHB2SMENR1    GPIOASMEN      LL_AHB2_GRP1_IsEnabledClockStopSleep\\n"
+      ],
+      [
+        1194,
+        "  *         AHB2SMENR1    GPIOBSMEN      LL_AHB2_GRP1_IsEnabledClockStopSleep\\n"
+      ],
+      [
+        1195,
+        "  *         AHB2SMENR1    GPIOCSMEN      LL_AHB2_GRP1_IsEnabledClockStopSleep\\n"
+      ],
+      [
+        1196,
+        "  *         AHB2SMENR1    GPIODSMEN      LL_AHB2_GRP1_IsEnabledClockStopSleep\\n"
+      ],
+      [
+        1197,
+        "  *         AHB2SMENR1    GPIOESMEN      LL_AHB2_GRP1_IsEnabledClockStopSleep\\n"
+      ],
+      [
+        1198,
+        "  *         AHB2SMENR1    GPIOFSMEN      LL_AHB2_GRP1_IsEnabledClockStopSleep\\n"
+      ],
+      [
+        1199,
+        "  *         AHB2SMENR1    GPIOGSMEN      LL_AHB2_GRP1_IsEnabledClockStopSleep\\n"
+      ],
+      [
+        1200,
+        "  *         AHB2SMENR1    GPIOHSMEN      LL_AHB2_GRP1_IsEnabledClockStopSleep\\n"
+      ],
+      [
+        1201,
+        "  *         AHB2SMENR1    GPIOISMEN      LL_AHB2_GRP1_IsEnabledClockStopSleep\\n"
+      ],
+      [
+        1202,
+        "  *         AHB2SMENR1    GPIOJSMEN      LL_AHB2_GRP1_IsEnabledClockStopSleep\\n"
+      ],
+      [
+        1203,
+        "  *         AHB2SMENR1    ADC12SMEN      LL_AHB2_GRP1_IsEnabledClockStopSleep\\n"
+      ],
+      [
+        1204,
+        "  *         AHB2SMENR1    DCMI_PSSISMEN  LL_AHB2_GRP1_IsEnabledClockStopSleep\\n"
+      ],
+      [
+        1205,
+        "  *         AHB2SMENR1    OTGSMEN        LL_AHB2_GRP1_IsEnabledClockStopSleep\\n"
+      ],
+      [
+        1206,
+        "  *         AHB2SMENR1    USBPHYCMEN     LL_AHB2_GRP1_IsEnabledClockStopSleep\\n"
+      ],
+      [
+        1207,
+        "  *         AHB2SMENR1    AESSMEN        LL_AHB2_GRP1_IsEnabledClockStopSleep\\n"
+      ],
+      [
+        1208,
+        "  *         AHB2SMENR1    HASHSMEN       LL_AHB2_GRP1_IsEnabledClockStopSleep\\n"
+      ],
+      [
+        1209,
+        "  *         AHB2SMENR1    RNGSMEN        LL_AHB2_GRP1_IsEnabledClockStopSleep\\n"
+      ],
+      [
+        1210,
+        "  *         AHB2SMENR1    PKASMEN        LL_AHB2_GRP1_IsEnabledClockStopSleep\\n"
+      ],
+      [
+        1211,
+        "  *         AHB2SMENR1    SAESSMEN       LL_AHB2_GRP1_IsEnabledClockStopSleep\\n"
+      ],
+      [
+        1212,
+        "  *         AHB2SMENR1    OSPIMSMEN      LL_AHB2_GRP1_IsEnabledClockStopSleep\\n"
+      ],
+      [
+        1213,
+        "  *         AHB2SMENR1    OTFDEC1SMEN    LL_AHB2_GRP1_IsEnabledClockStopSleep\\n"
+      ],
+      [
+        1214,
+        "  *         AHB2SMENR1    OTFDEC2SMEN    LL_AHB2_GRP1_IsEnabledClockStopSleep\\n"
+      ],
+      [
+        1215,
+        "  *         AHB2SMENR1    SDMMC1SMEN     LL_AHB2_GRP1_IsEnabledClockStopSleep\\n"
+      ],
+      [
+        1216,
+        "  *         AHB2SMENR1    SDMMC2SMEN     LL_AHB2_GRP1_IsEnabledClockStopSleep\\n"
+      ],
+      [
+        1217,
+        "  *         AHB2SMENR1    SRAM2SMEN      LL_AHB2_GRP1_IsEnabledClockStopSleep\\n"
+      ],
+      [
+        1218,
+        "  *         AHB2SMENR1    SRAM3SMEN      LL_AHB2_GRP1_IsEnabledClockStopSleep\\n"
+      ],
+      [
+        1219,
+        "  * @param  Periphs This parameter can be a combination of the following values:"
+      ],
+      [
+        1220,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_ALL"
+      ],
+      [
+        1221,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOA"
+      ],
+      [
+        1222,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOB"
+      ],
+      [
+        1223,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOC"
+      ],
+      [
+        1224,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOD"
+      ],
+      [
+        1225,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOE"
+      ],
+      [
+        1226,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOF (*)"
+      ],
+      [
+        1227,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOG"
+      ],
+      [
+        1228,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOH"
+      ],
+      [
+        1229,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOI (*)"
+      ],
+      [
+        1230,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOJ (*)"
+      ],
+      [
+        1231,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_ADC12"
+      ],
+      [
+        1232,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_DCMI_PSSI"
+      ],
+      [
+        1233,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_OTG_FS (*)"
+      ],
+      [
+        1234,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_OTG_HS (*)"
+      ],
+      [
+        1235,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_USBPHY (*)"
+      ],
+      [
+        1236,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_AES"
+      ],
+      [
+        1237,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_HASH"
+      ],
+      [
+        1238,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_RNG"
+      ],
+      [
+        1239,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_PKA"
+      ],
+      [
+        1240,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_SAES (*)"
+      ],
+      [
+        1241,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_OCTOSPIM (*)"
+      ],
+      [
+        1242,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_OTFDEC1 (*)"
+      ],
+      [
+        1243,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_OTFDEC2 (*)"
+      ],
+      [
+        1250,
+        "  * @retval State of Periphs (1 or 0)."
+      ],
+      [
+        1251,
+        "  */"
+      ],
+      [
+        1252,
+        "__STATIC_INLINE uint32_t LL_AHB2_GRP1_IsEnabledClockStopSleep(uint32_t Periphs)"
+      ],
+      [
+        1253,
+        "{"
+      ],
+      [
+        1254,
+        "  return ((READ_BIT(RCC->AHB2SMENR1, Periphs) == Periphs) ? 1UL : 0UL);"
+      ],
+      [
+        1255,
+        "}"
+      ],
+      [
+        1256,
+        ""
+      ],
+      [
+        1257,
+        "/**"
+      ],
+      [
+        1258,
+        "  * @brief  Disable AHB2 peripheral clocks in Sleep and Stop modes"
+      ],
+      [
+        1259,
+        "  * @rmtoll AHB2SMENR1    GPIOASMEN      LL_AHB2_GRP1_DisableClockStopSleep\\n"
+      ],
+      [
+        1260,
+        "  *         AHB2SMENR1    GPIOBSMEN      LL_AHB2_GRP1_DisableClockStopSleep\\n"
+      ],
+      [
+        1261,
+        "  *         AHB2SMENR1    GPIOCSMEN      LL_AHB2_GRP1_DisableClockStopSleep\\n"
+      ],
+      [
+        1262,
+        "  *         AHB2SMENR1    GPIODSMEN      LL_AHB2_GRP1_DisableClockStopSleep\\n"
+      ],
+      [
+        1263,
+        "  *         AHB2SMENR1    GPIOESMEN      LL_AHB2_GRP1_DisableClockStopSleep\\n"
+      ],
+      [
+        1264,
+        "  *         AHB2SMENR1    GPIOFSMEN      LL_AHB2_GRP1_DisableClockStopSleep\\n"
+      ],
+      [
+        1285,
+        "  * @param  Periphs This parameter can be a combination of the following values:"
+      ],
+      [
+        1286,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_ALL"
+      ],
+      [
+        1287,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOA"
+      ],
+      [
+        1288,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOB"
+      ],
+      [
+        1289,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOC"
+      ],
+      [
+        1290,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOD"
+      ],
+      [
+        1291,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOE"
+      ],
+      [
+        1292,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOF (*)"
+      ],
+      [
+        1293,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOG"
+      ],
+      [
+        1294,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOH"
+      ],
+      [
+        1295,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOI (*)"
+      ],
+      [
+        1296,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_GPIOJ (*)"
+      ],
+      [
+        1297,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_ADC12"
+      ],
+      [
+        1298,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_DCMI_PSSI"
+      ],
+      [
+        1299,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_OTG_FS (*)"
+      ],
+      [
+        1300,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_OTG_HS (*)"
+      ],
+      [
+        1301,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_USBPHY (*)"
+      ],
+      [
+        1302,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_AES"
+      ],
+      [
+        1303,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_HASH"
+      ],
+      [
+        1304,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_RNG"
+      ],
+      [
+        1305,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_PKA"
+      ],
+      [
+        1306,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_SAES (*)"
+      ],
+      [
+        1307,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_OCTOSPIM (*)"
+      ],
+      [
+        1308,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_OTFDEC1 (*)"
+      ],
+      [
+        1309,
+        "  *         @arg @ref LL_AHB2_GRP1_PERIPH_OTFDEC2 (*)"
+      ],
+      [
+        1344,
+        "/**"
+      ],
+      [
+        1345,
+        "  * @brief  Enable AHB3 peripherals clock."
+      ],
+      [
+        1346,
+        "  * @rmtoll AHB3ENR  LPGPIO1EN     LL_AHB3_GRP1_EnableClock\\n"
+      ],
+      [
+        1347,
+        "  *         AHB3ENR  PWREN         LL_AHB3_GRP1_EnableClock\\n"
+      ],
+      [
+        1348,
+        "  *         AHB3ENR  ADC4EN        LL_AHB3_GRP1_EnableClock\\n"
+      ],
+      [
+        1349,
+        "  *         AHB3ENR  DAC1EN        LL_AHB3_GRP1_EnableClock\\n"
+      ],
+      [
+        1350,
+        "  *         AHB3ENR  LPDMA1EN      LL_AHB3_GRP1_EnableClock\\n"
+      ],
+      [
+        1351,
+        "  *         AHB3ENR  ADF1EN        LL_AHB3_GRP1_EnableClock\\n"
+      ],
+      [
+        1352,
+        "  *         AHB3ENR  GTZC2EN       LL_AHB3_GRP1_EnableClock\\n"
+      ],
+      [
+        1353,
+        "  *         AHB3ENR  SRAM4EN       LL_AHB3_GRP1_EnableClock\\n"
+      ],
+      [
+        1354,
+        "  * @param  Periphs This parameter can be a combination of the following values:"
+      ],
+      [
+        1355,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_ALL"
+      ],
+      [
+        1356,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_LPGPIO1"
+      ],
+      [
+        1357,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_PWR"
+      ],
+      [
+        1358,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_ADC4"
+      ],
+      [
+        1359,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_DAC1"
+      ],
+      [
+        1360,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_LPDMA1"
+      ],
+      [
+        1361,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_ADF1"
+      ],
+      [
+        1362,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_GTZC2"
+      ],
+      [
+        1363,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_SRAM4"
+      ],
+      [
+        1364,
+        "  * @retval None"
+      ],
+      [
+        1365,
+        "  */"
+      ],
+      [
+        1366,
+        "__STATIC_INLINE void LL_AHB3_GRP1_EnableClock(uint32_t Periphs)"
+      ],
+      [
+        1367,
+        "{"
+      ],
+      [
+        1368,
+        "  __IO uint32_t tmpreg;"
+      ],
+      [
+        1369,
+        "  SET_BIT(RCC->AHB3ENR, Periphs);"
+      ],
+      [
+        1370,
+        "  /* Delay after an RCC peripheral clock enabling */"
+      ],
+      [
+        1371,
+        "  tmpreg = READ_BIT(RCC->AHB3ENR, Periphs);"
+      ],
+      [
+        1372,
+        "  (void)tmpreg;"
+      ],
+      [
+        1373,
+        "}"
+      ],
+      [
+        1374,
+        ""
+      ],
+      [
+        1375,
+        "/**"
+      ],
+      [
+        1376,
+        "  * @brief  Check if AHB3 peripheral clock is enabled or not"
+      ],
+      [
+        1377,
+        "  * @rmtoll AHB3ENR  LPGPIO1EN     LL_AHB3_GRP1_IsEnabledClock\\n"
+      ],
+      [
+        1378,
+        "  *         AHB3ENR  PWREN         LL_AHB3_GRP1_IsEnabledClock\\n"
+      ],
+      [
+        1379,
+        "  *         AHB3ENR  ADC4EN        LL_AHB3_GRP1_IsEnabledClock\\n"
+      ],
+      [
+        1380,
+        "  *         AHB3ENR  DAC1EN        LL_AHB3_GRP1_IsEnabledClock\\n"
+      ],
+      [
+        1381,
+        "  *         AHB3ENR  LPDMA1EN      LL_AHB3_GRP1_IsEnabledClock\\n"
+      ],
+      [
+        1382,
+        "  *         AHB3ENR  ADF1EN        LL_AHB3_GRP1_IsEnabledClock\\n"
+      ],
+      [
+        1383,
+        "  *         AHB3ENR  GTZC2EN       LL_AHB3_GRP1_IsEnabledClock\\n"
+      ],
+      [
+        1384,
+        "  *         AHB3ENR  SRAM4EN       LL_AHB3_GRP1_IsEnabledClock\\n"
+      ],
+      [
+        1385,
+        "  * @param  Periphs This parameter can be a combination of the following values:"
+      ],
+      [
+        1386,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_ALL"
+      ],
+      [
+        1387,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_LPGPIO1"
+      ],
+      [
+        1388,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_PWR"
+      ],
+      [
+        1389,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_ADC4"
+      ],
+      [
+        1390,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_DAC1"
+      ],
+      [
+        1391,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_LPDMA1"
+      ],
+      [
+        1392,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_ADF1"
+      ],
+      [
+        1393,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_GTZC2"
+      ],
+      [
+        1394,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_SRAM4"
+      ],
+      [
+        1395,
+        "  * @retval State of Periphs (1 or 0)."
+      ],
+      [
+        1396,
+        "  */"
+      ],
+      [
+        1397,
+        "__STATIC_INLINE uint32_t LL_AHB3_GRP1_IsEnabledClock(uint32_t Periphs)"
+      ],
+      [
+        1398,
+        "{"
+      ],
+      [
+        1399,
+        "  return ((READ_BIT(RCC->AHB3ENR, Periphs) == Periphs) ? 1UL : 0UL);"
+      ],
+      [
+        1400,
+        "}"
+      ],
+      [
+        1401,
+        ""
+      ],
+      [
+        1402,
+        "/**"
+      ],
+      [
+        1403,
+        "  * @brief  Disable AHB3 bus clock."
+      ],
+      [
+        1404,
+        "  * @rmtoll CFGR2    AHB3DIS     LL_AHB3_GRP1_DisableBusClock"
+      ],
+      [
+        1405,
+        "  * @retval None"
+      ],
+      [
+        1406,
+        "  */"
+      ],
+      [
+        1407,
+        "__STATIC_INLINE void LL_AHB3_GRP1_DisableBusClock(void)"
+      ],
+      [
+        1408,
+        "{"
+      ],
+      [
+        1409,
+        "  SET_BIT(RCC->CFGR3, RCC_CFGR3_AHB3DIS);"
+      ],
+      [
+        1423,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_ALL"
+      ],
+      [
+        1424,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_LPGPIO1"
+      ],
+      [
+        1425,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_PWR"
+      ],
+      [
+        1426,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_ADC4"
+      ],
+      [
+        1427,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_DAC1"
+      ],
+      [
+        1428,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_LPDMA1"
+      ],
+      [
+        1429,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_ADF1"
+      ],
+      [
+        1430,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_GTZC2"
+      ],
+      [
+        1431,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_SRAM4"
+      ],
+      [
+        1432,
+        "  * @retval None"
+      ],
+      [
+        1433,
+        "  */"
+      ],
+      [
+        1434,
+        "__STATIC_INLINE void LL_AHB3_GRP1_DisableClock(uint32_t Periphs)"
+      ],
+      [
+        1435,
+        "{"
+      ],
+      [
+        1436,
+        "  CLEAR_BIT(RCC->AHB3ENR, Periphs);"
+      ],
+      [
+        1437,
+        "}"
+      ],
+      [
+        1438,
+        ""
+      ],
+      [
+        1449,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_ALL"
+      ],
+      [
+        1450,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_LPGPIO1"
+      ],
+      [
+        1451,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_PWR"
+      ],
+      [
+        1452,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_ADC4"
+      ],
+      [
+        1453,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_DAC1"
+      ],
+      [
+        1454,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_LPDMA1"
+      ],
+      [
+        1455,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_ADF1"
+      ],
+      [
+        1456,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_GTZC2"
+      ],
+      [
+        1457,
+        "  * @retval None"
+      ],
+      [
+        1458,
+        "  */"
+      ],
+      [
+        1459,
+        "__STATIC_INLINE void LL_AHB3_GRP1_ForceReset(uint32_t Periphs)"
+      ],
+      [
+        1460,
+        "{"
+      ],
+      [
+        1461,
+        "  SET_BIT(RCC->AHB3RSTR, Periphs);"
+      ],
+      [
+        1462,
+        "}"
+      ],
+      [
+        1463,
+        ""
+      ],
+      [
+        1464,
+        "/**"
+      ],
+      [
+        1474,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_ALL"
+      ],
+      [
+        1475,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_LPGPIO1"
+      ],
+      [
+        1476,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_PWR"
+      ],
+      [
+        1477,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_ADC4"
+      ],
+      [
+        1478,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_DAC1"
+      ],
+      [
+        1479,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_LPDMA1"
+      ],
+      [
+        1480,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_ADF1"
+      ],
+      [
+        1481,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_GTZC2"
+      ],
+      [
+        1482,
+        "  * @retval None"
+      ],
+      [
+        1483,
+        "  */"
+      ],
+      [
+        1484,
+        "__STATIC_INLINE void LL_AHB3_GRP1_ReleaseReset(uint32_t Periphs)"
+      ],
+      [
+        1485,
+        "{"
+      ],
+      [
+        1486,
+        "  CLEAR_BIT(RCC->AHB3RSTR, Periphs);"
+      ],
+      [
+        1487,
+        "}"
+      ],
+      [
+        1488,
+        ""
+      ],
+      [
+        1489,
+        "/**"
+      ],
+      [
+        1490,
+        "  * @brief  Enable AHB3 peripheral clocks in Sleep and Stop modes"
+      ],
+      [
+        1491,
+        "  * @rmtoll AHB3SMENR  LPGPIO1SMEN    LL_AHB3_GRP1_EnableClockStopSleep\\n"
+      ],
+      [
+        1492,
+        "  *         AHB3SMENR  PWRSMEN        LL_AHB3_GRP1_EnableClockStopSleep\\n"
+      ],
+      [
+        1493,
+        "  *         AHB3SMENR  ADC4SMEN       LL_AHB3_GRP1_EnableClockStopSleep\\n"
+      ],
+      [
+        1494,
+        "  *         AHB3SMENR  DAC1SMEN       LL_AHB3_GRP1_EnableClockStopSleep\\n"
+      ],
+      [
+        1495,
+        "  *         AHB3SMENR  LPDMA1SMEN     LL_AHB3_GRP1_EnableClockStopSleep\\n"
+      ],
+      [
+        1496,
+        "  *         AHB3SMENR  ADF1SMEN       LL_AHB3_GRP1_EnableClockStopSleep\\n"
+      ],
+      [
+        1497,
+        "  *         AHB3SMENR  GTZC2SMEN      LL_AHB3_GRP1_EnableClockStopSleep\\n"
+      ],
+      [
+        1498,
+        "  *         AHB3SMENR  SRAM4SMEN      LL_AHB3_GRP1_EnableClockStopSleep\\n"
+      ],
+      [
+        1499,
+        "  * @param  Periphs This parameter can be a combination of the following values:"
+      ],
+      [
+        1500,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_ALL"
+      ],
+      [
+        1501,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_LPGPIO1"
+      ],
+      [
+        1502,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_PWR"
+      ],
+      [
+        1503,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_ADC4"
+      ],
+      [
+        1504,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_DAC1"
+      ],
+      [
+        1505,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_LPDMA1"
+      ],
+      [
+        1506,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_ADF1"
+      ],
+      [
+        1507,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_GTZC2"
+      ],
+      [
+        1508,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_SRAM4"
+      ],
+      [
+        1509,
+        "  * @retval None"
+      ],
+      [
+        1510,
+        "  */"
+      ],
+      [
+        1511,
+        "__STATIC_INLINE void LL_AHB3_GRP1_EnableClockStopSleep(uint32_t Periphs)"
+      ],
+      [
+        1512,
+        "{"
+      ],
+      [
+        1513,
+        "  __IO uint32_t tmpreg;"
+      ],
+      [
+        1514,
+        "  SET_BIT(RCC->AHB3SMENR, Periphs);"
+      ],
+      [
+        1515,
+        "  /* Delay after an RCC peripheral clock enabling */"
+      ],
+      [
+        1516,
+        "  tmpreg = READ_BIT(RCC->AHB3SMENR, Periphs);"
+      ],
+      [
+        1517,
+        "  (void)tmpreg;"
+      ],
+      [
+        1518,
+        "}"
+      ],
+      [
+        1519,
+        ""
+      ],
+      [
+        1520,
+        "/**"
+      ],
+      [
+        1521,
+        "  * @brief  Check if AHB3 peripheral clocks in Sleep and Stop modes is enabled or not"
+      ],
+      [
+        1522,
+        "  * @rmtoll AHB3SMENR  LPGPIO1SMEN    LL_AHB3_GRP1_IsEnabledClockStopSleep\\n"
+      ],
+      [
+        1523,
+        "  *         AHB3SMENR  PWRSMEN        LL_AHB3_GRP1_IsEnabledClockStopSleep\\n"
+      ],
+      [
+        1524,
+        "  *         AHB3SMENR  ADC4SMEN       LL_AHB3_GRP1_IsEnabledClockStopSleep\\n"
+      ],
+      [
+        1525,
+        "  *         AHB3SMENR  DAC1SMEN       LL_AHB3_GRP1_IsEnabledClockStopSleep\\n"
+      ],
+      [
+        1526,
+        "  *         AHB3SMENR  LPDMA1SMEN     LL_AHB3_GRP1_IsEnabledClockStopSleep\\n"
+      ],
+      [
+        1527,
+        "  *         AHB3SMENR  ADF1SMEN       LL_AHB3_GRP1_IsEnabledClockStopSleep\\n"
+      ],
+      [
+        1528,
+        "  *         AHB3SMENR  GTZC2SMEN      LL_AHB3_GRP1_IsEnabledClockStopSleep\\n"
+      ],
+      [
+        1529,
+        "  *         AHB3SMENR  SRAM4SMEN      LL_AHB3_GRP1_IsEnabledClockStopSleep\\n"
+      ],
+      [
+        1530,
+        "  * @param  Periphs This parameter can be a combination of the following values:"
+      ],
+      [
+        1531,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_ALL"
+      ],
+      [
+        1532,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_LPGPIO1"
+      ],
+      [
+        1533,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_PWR"
+      ],
+      [
+        1534,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_ADC4"
+      ],
+      [
+        1535,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_DAC1"
+      ],
+      [
+        1536,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_LPDMA1"
+      ],
+      [
+        1537,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_ADF1"
+      ],
+      [
+        1538,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_GTZC2"
+      ],
+      [
+        1539,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_SRAM4"
+      ],
+      [
+        1540,
+        "  * @retval State of Periphs (1 or 0)."
+      ],
+      [
+        1541,
+        "  */"
+      ],
+      [
+        1542,
+        "__STATIC_INLINE uint32_t LL_AHB3_GRP1_IsEnabledClockStopSleep(uint32_t Periphs)"
+      ],
+      [
+        1543,
+        "{"
+      ],
+      [
+        1544,
+        "  return ((READ_BIT(RCC->AHB3SMENR, Periphs) == Periphs) ? 1UL : 0UL);"
+      ],
+      [
+        1545,
+        "}"
+      ],
+      [
+        1546,
+        ""
+      ],
+      [
+        1547,
+        "/**"
+      ],
+      [
+        1548,
+        "  * @brief  Disable AHB3 peripheral clocks in Sleep and Stop modes"
+      ],
+      [
+        1549,
+        "  * @rmtoll AHB3SMENR  LPGPIO1SMEN    LL_AHB3_GRP1_DisableClockStopSleep\\n"
+      ],
+      [
+        1550,
+        "  *         AHB3SMENR  PWRSMEN        LL_AHB3_GRP1_DisableClockStopSleep\\n"
+      ],
+      [
+        1551,
+        "  *         AHB3SMENR  ADC4SMEN       LL_AHB3_GRP1_DisableClockStopSleep\\n"
+      ],
+      [
+        1552,
+        "  *         AHB3SMENR  DAC1SMEN       LL_AHB3_GRP1_DisableClockStopSleep\\n"
+      ],
+      [
+        1553,
+        "  *         AHB3SMENR  LPDMA1SMEN     LL_AHB3_GRP1_DisableClockStopSleep\\n"
+      ],
+      [
+        1554,
+        "  *         AHB3SMENR  ADF1SMEN       LL_AHB3_GRP1_DisableClockStopSleep\\n"
+      ],
+      [
+        1558,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_ALL"
+      ],
+      [
+        1559,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_LPGPIO1"
+      ],
+      [
+        1560,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_PWR"
+      ],
+      [
+        1561,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_ADC4"
+      ],
+      [
+        1562,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_DAC1"
+      ],
+      [
+        1563,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_LPDMA1"
+      ],
+      [
+        1564,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_ADF1"
+      ],
+      [
+        1565,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_GTZC2"
+      ],
+      [
+        1566,
+        "  *         @arg @ref LL_AHB3_GRP1_PERIPH_SRAM4"
+      ],
+      [
+        1567,
+        "  * @retval None"
+      ],
+      [
+        1568,
+        "  */"
+      ],
+      [
+        1569,
+        "__STATIC_INLINE void LL_AHB3_GRP1_DisableClockStopSleep(uint32_t Periphs)"
+      ],
+      [
+        1570,
+        "{"
+      ],
+      [
+        1571,
+        "  CLEAR_BIT(RCC->AHB3SMENR, Periphs);"
+      ],
+      [
+        1572,
+        "}"
+      ],
+      [
+        1573,
+        ""
+      ],
+      [
+        3097,
+        "  *         @arg @ref LL_SRDAMR_GRP1_PERIPH_VREF"
+      ],
+      [
+        3098,
+        "  *         @arg @ref LL_SRDAMR_GRP1_PERIPH_RTCAPB"
+      ],
+      [
+        3099,
+        "  *         @arg @ref LL_SRDAMR_GRP1_PERIPH_ADC4"
+      ],
+      [
+        3100,
+        "  *         @arg @ref LL_SRDAMR_GRP1_PERIPH_LPGPIO1"
+      ],
+      [
+        3101,
+        "  *         @arg @ref LL_SRDAMR_GRP1_PERIPH_DAC1"
+      ],
+      [
+        3102,
+        "  *         @arg @ref LL_SRDAMR_GRP1_PERIPH_LPDMA1"
+      ],
+      [
+        3103,
+        "  *         @arg @ref LL_SRDAMR_GRP1_PERIPH_ADF1"
+      ],
+      [
+        3104,
+        "  *         @arg @ref LL_SRDAMR_GRP1_PERIPH_SRAM4"
+      ],
+      [
+        3105,
+        "  * @retval None"
+      ],
+      [
+        3106,
+        "  */"
+      ],
+      [
+        3107,
+        "__STATIC_INLINE void LL_SRDAMR_GRP1_EnableAutonomousClock(uint32_t Periphs)"
+      ],
+      [
+        3108,
+        "{"
+      ],
+      [
+        3109,
+        "  __IO uint32_t tmpreg;"
+      ],
+      [
+        3110,
+        "  SET_BIT(RCC->SRDAMR, Periphs);"
+      ],
+      [
+        3111,
+        "  /* Delay after an RCC peripheral clock enabling */"
+      ],
+      [
+        3145,
+        "  *         @arg @ref LL_SRDAMR_GRP1_PERIPH_VREF"
+      ],
+      [
+        3146,
+        "  *         @arg @ref LL_SRDAMR_GRP1_PERIPH_RTCAPB"
+      ],
+      [
+        3147,
+        "  *         @arg @ref LL_SRDAMR_GRP1_PERIPH_ADC4"
+      ],
+      [
+        3148,
+        "  *         @arg @ref LL_SRDAMR_GRP1_PERIPH_LPGPIO1"
+      ],
+      [
+        3149,
+        "  *         @arg @ref LL_SRDAMR_GRP1_PERIPH_DAC1"
+      ],
+      [
+        3150,
+        "  *         @arg @ref LL_SRDAMR_GRP1_PERIPH_LPDMA1"
+      ],
+      [
+        3151,
+        "  *         @arg @ref LL_SRDAMR_GRP1_PERIPH_ADF1"
+      ],
+      [
+        3152,
+        "  *         @arg @ref LL_SRDAMR_GRP1_PERIPH_SRAM4"
+      ],
+      [
+        3153,
+        "  * @retval State of Periphs (1 or 0)."
+      ],
+      [
+        3154,
+        "  */"
+      ],
+      [
+        3155,
+        "__STATIC_INLINE uint32_t LL_SRDAMR_GRP1_IsEnabledAutonomousClock(uint32_t Periphs)"
+      ],
+      [
+        3156,
+        "{"
+      ],
+      [
+        3157,
+        "  return ((READ_BIT(RCC->SRDAMR, Periphs) == Periphs) ? 1UL : 0UL);"
+      ],
+      [
+        3158,
+        "}"
+      ],
+      [
+        3159,
+        ""
+      ],
+      [
+        3189,
+        "  *         @arg @ref LL_SRDAMR_GRP1_PERIPH_VREF"
+      ],
+      [
+        3190,
+        "  *         @arg @ref LL_SRDAMR_GRP1_PERIPH_RTCAPB"
+      ],
+      [
+        3191,
+        "  *         @arg @ref LL_SRDAMR_GRP1_PERIPH_ADC4"
+      ],
+      [
+        3192,
+        "  *         @arg @ref LL_SRDAMR_GRP1_PERIPH_LPGPIO1"
+      ],
+      [
+        3193,
+        "  *         @arg @ref LL_SRDAMR_GRP1_PERIPH_DAC1"
+      ],
+      [
+        3194,
+        "  *         @arg @ref LL_SRDAMR_GRP1_PERIPH_LPDMA1"
+      ],
+      [
+        3195,
+        "  *         @arg @ref LL_SRDAMR_GRP1_PERIPH_ADF1"
+      ],
+      [
+        3196,
+        "  *         @arg @ref LL_SRDAMR_GRP1_PERIPH_SRAM4"
+      ],
+      [
+        3197,
+        "  * @retval None"
+      ],
+      [
+        3198,
+        "  */"
+      ],
+      [
+        3199,
+        "__STATIC_INLINE void LL_SRDAMR_GRP1_DisableAutonomousClock(uint32_t Periphs)"
+      ],
+      [
+        3200,
+        "{"
+      ],
+      [
+        3201,
+        "  CLEAR_BIT(RCC->SRDAMR, Periphs);"
+      ],
+      [
+        3202,
+        "}"
+      ],
+      [
+        3203,
+        "/**"
+      ]
+    ]
+  },
+  {
+    "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/zephyr/device.h",
+    "sha256": "300420020155fc22a7e4e3a867f26fe30c6a79b9be3474caf990bacfecbd2d19",
+    "bytes": 51752,
+    "lines": [
+      [
+        216,
+        " * The device is declared with extern visibility, so a pointer to a global"
+      ],
+      [
+        217,
+        " * device object can be obtained with `DEVICE_DT_GET(node_id)` from any source"
+      ],
+      [
+        218,
+        " * file that includes `<zephyr/device.h>` (even from extensions, when"
+      ],
+      [
+        219,
+        " * @kconfig{CONFIG_LLEXT_EXPORT_SYMBOL_GROUP_DEVICE} is enabled). Before using"
+      ],
+      [
+        220,
+        " * the pointer, the referenced object should be checked using device_is_ready()."
+      ],
+      [
+        221,
+        " *"
+      ],
+      [
+        222,
+        " * Note: deinit_fn will only be used if CONFIG_DEVICE_DEINIT_SUPPORT is enabled."
+      ],
+      [
+        223,
+        " *"
+      ],
+      [
+        224,
+        " * @param node_id The devicetree node identifier."
+      ],
+      [
+        225,
+        " * @param init_fn Pointer to the device's initialization function, which will be"
+      ],
+      [
+        226,
+        " * run by the kernel during system initialization. Can be `NULL`."
+      ],
+      [
+        227,
+        " * @param deinit_fn Pointer to the device's de-initialization function. Can be"
+      ],
+      [
+        228,
+        " * `NULL`. It must release any acquired resources (e.g. pins, bus, clock...) and"
+      ],
+      [
+        229,
+        " * leave the device in its reset state."
+      ],
+      [
+        230,
+        " * @param pm Pointer to the device's power management resources, a"
+      ],
+      [
+        231,
+        " * @ref pm_device, which will be stored in @ref device.pm. Use `NULL` if the"
+      ],
+      [
+        232,
+        " * device does not use PM."
+      ],
+      [
+        233,
+        " * @param data Pointer to the device's private mutable data, which will be"
+      ],
+      [
+        234,
+        " * stored in @ref device.data."
+      ],
+      [
+        337,
+        " *"
+      ],
+      [
+        338,
+        " * If there are multiple, this returns an arbitrary one."
+      ],
+      [
+        339,
+        " *"
+      ],
+      [
+        340,
+        " * If this returns non-NULL, the device must be checked for readiness"
+      ],
+      [
+        341,
+        " * before use, e.g. with device_is_ready()."
+      ],
+      [
+        342,
+        " *"
+      ],
+      [
+        343,
+        " * @param compat lowercase-and-underscores devicetree compatible"
+      ],
+      [
+        344,
+        " * @return a pointer to a device, or NULL"
+      ],
+      [
+        345,
+        " */"
+      ],
+      [
+        346,
+        "#define DEVICE_DT_GET_ANY(compat)                                              \\"
+      ],
+      [
+        347,
+        "\tCOND_CODE_1(DT_HAS_COMPAT_STATUS_OKAY(compat),                         \\"
+      ],
+      [
+        348,
+        "\t\t    (DEVICE_DT_GET(DT_COMPAT_GET_ANY_STATUS_OKAY(compat))),    \\"
+      ],
+      [
+        349,
+        "\t\t    (NULL))"
+      ],
+      [
+        350,
+        ""
+      ],
+      [
+        351,
+        "/**"
+      ],
+      [
+        352,
+        " * @brief Get a @ref device reference from a devicetree compatible."
+      ],
+      [
+        353,
+        " *"
+      ],
+      [
+        354,
+        " * If an enabled devicetree node has the given compatible and a device object"
+      ],
+      [
+        355,
+        " * was created from it, this returns a pointer to that device."
+      ],
+      [
+        358,
+        " *"
+      ],
+      [
+        359,
+        " * If there are multiple, this returns an arbitrary one."
+      ],
+      [
+        360,
+        " *"
+      ],
+      [
+        361,
+        " * If this returns non-NULL, the device must be checked for readiness before"
+      ],
+      [
+        362,
+        " * use, e.g. with device_is_ready()."
+      ],
+      [
+        363,
+        " *"
+      ],
+      [
+        364,
+        " * @param compat lowercase-and-underscores devicetree compatible"
+      ],
+      [
+        365,
+        " * @return a pointer to a device"
+      ],
+      [
+        366,
+        " */"
+      ],
+      [
+        367,
+        "#define DEVICE_DT_GET_ONE(compat)                                              \\"
+      ],
+      [
+        368,
+        "\tCOND_CODE_1(DT_HAS_COMPAT_STATUS_OKAY(compat),                         \\"
+      ],
+      [
+        369,
+        "\t\t    (DEVICE_DT_GET(DT_COMPAT_GET_ANY_STATUS_OKAY(compat))),    \\"
+      ],
+      [
+        370,
+        "\t\t    (ZERO_OR_COMPILE_ERROR(0)))"
+      ],
+      [
+        371,
+        ""
+      ],
+      [
+        372,
+        "/**"
+      ],
+      [
+        373,
+        " * @brief Utility macro to obtain an optional reference to a device."
+      ],
+      [
+        374,
+        " *"
+      ],
+      [
+        375,
+        " * If the node identifier refers to a node with status `okay`, this returns"
+      ],
+      [
+        376,
+        " * `DEVICE_DT_GET(node_id)`. Otherwise, it returns `NULL`."
+      ],
+      [
+        449,
+        ""
+      ],
+      [
+        450,
+        "/**"
+      ],
+      [
+        451,
+        " * @brief Runtime device dynamic structure (in RAM) per driver instance"
+      ],
+      [
+        452,
+        " *"
+      ],
+      [
+        453,
+        " * Fields in this are expected to be default-initialized to zero. The"
+      ],
+      [
+        454,
+        " * kernel driver infrastructure and driver access functions are"
+      ],
+      [
+        455,
+        " * responsible for ensuring that any non-zero initialization is done"
+      ],
+      [
+        456,
+        " * before they are accessed."
+      ],
+      [
+        457,
+        " */"
+      ],
+      [
+        458,
+        "struct device_state {"
+      ],
+      [
+        459,
+        "\t/**"
+      ],
+      [
+        460,
+        "\t * Device initialization return code (positive errno value)."
+      ],
+      [
+        461,
+        "\t *"
+      ],
+      [
+        462,
+        "\t * Device initialization functions return a negative errno code if they"
+      ],
+      [
+        463,
+        "\t * fail. In Zephyr, errno values do not exceed 255, so we can store the"
+      ],
+      [
+        464,
+        "\t * positive result value in a uint8_t type."
+      ],
+      [
+        465,
+        "\t */"
+      ],
+      [
+        466,
+        "\tuint8_t init_res;"
+      ],
+      [
+        467,
+        ""
+      ],
+      [
+        468,
+        "\t/** Indicates the device initialization function has been"
+      ],
+      [
+        469,
+        "\t * invoked."
+      ],
+      [
+        470,
+        "\t */"
+      ],
+      [
+        471,
+        "\tbool initialized : 1;"
+      ],
+      [
+        472,
+        "};"
+      ],
+      [
+        473,
+        ""
+      ],
+      [
+        474,
+        "struct pm_device_base;"
+      ],
+      [
+        475,
+        "struct pm_device;"
+      ],
+      [
+        476,
+        "struct pm_device_isr;"
+      ],
+      [
+        477,
+        "#if defined(CONFIG_DEVICE_DT_METADATA) || defined(__DOXYGEN__)"
+      ],
+      [
+        478,
+        "struct device_dt_metadata;"
+      ],
+      [
+        479,
+        "#endif"
+      ],
+      [
+        480,
+        ""
+      ],
+      [
+        481,
+        "#ifdef CONFIG_DEVICE_DEPS_DYNAMIC"
+      ],
+      [
+        482,
+        "#define Z_DEVICE_DEPS_CONST"
+      ],
+      [
+        483,
+        "#else"
+      ],
+      [
+        484,
+        "#define Z_DEVICE_DEPS_CONST const"
+      ],
+      [
+        485,
+        "#endif"
+      ],
+      [
+        517,
+        "\tconst void *config;"
+      ],
+      [
+        518,
+        "\t/** Address of the API structure exposed by the device instance */"
+      ],
+      [
+        519,
+        "\tconst void *api;"
+      ],
+      [
+        520,
+        "\t/** Address of the common device state */"
+      ],
+      [
+        521,
+        "\tstruct device_state *state;"
+      ],
+      [
+        522,
+        "\t/** Address of the device instance private data */"
+      ],
+      [
+        523,
+        "\tvoid *data;"
+      ],
+      [
+        524,
+        "\t/** Device operations */"
+      ],
+      [
+        525,
+        "\tstruct device_ops ops;"
+      ],
+      [
+        526,
+        "\t/** Device flags */"
+      ],
+      [
+        527,
+        "\tdevice_flags_t flags;"
+      ],
+      [
+        528,
+        "#if defined(CONFIG_DEVICE_DEPS) || defined(__DOXYGEN__)"
+      ],
+      [
+        529,
+        "\t/**"
+      ],
+      [
+        530,
+        "\t * Optional pointer to dependencies associated with the device."
+      ],
+      [
+        531,
+        "\t *"
+      ],
+      [
+        532,
+        "\t * This encodes a sequence of sets of device handles that have some"
+      ],
+      [
+        533,
+        "\t * relationship to this node. The individual sets are extracted with"
+      ],
+      [
+        534,
+        "\t * dedicated API, such as device_required_handles_get(). Only available"
+      ],
+      [
+        535,
+        "\t * if @kconfig{CONFIG_DEVICE_DEPS} is enabled."
+      ],
+      [
+        821,
+        "/**"
+      ],
+      [
+        822,
+        " * @brief Get a @ref device reference from its @ref device.name field."
+      ],
+      [
+        823,
+        " *"
+      ],
+      [
+        824,
+        " * This function iterates through the devices on the system. If a device with"
+      ],
+      [
+        825,
+        " * the given @p name field is found, and that device initialized successfully at"
+      ],
+      [
+        826,
+        " * boot time, this function returns a pointer to the device."
+      ],
+      [
+        827,
+        " *"
+      ],
+      [
+        828,
+        " * If no device has the given @p name, this function returns `NULL`."
+      ],
+      [
+        829,
+        " *"
+      ],
+      [
+        830,
+        " * This function also returns NULL when a device is found, but it failed to"
+      ],
+      [
+        831,
+        " * initialize successfully at boot time. (To troubleshoot this case, set a"
+      ],
+      [
+        832,
+        " * breakpoint on your device driver's initialization function.)"
+      ],
+      [
+        833,
+        " *"
+      ],
+      [
+        834,
+        " * @param name device name to search for. A null pointer, or a pointer to an"
+      ],
+      [
+        835,
+        " * empty string, will cause NULL to be returned."
+      ],
+      [
+        836,
+        " *"
+      ],
+      [
+        837,
+        " * @return pointer to device structure with the given name; `NULL` if the device"
+      ],
+      [
+        838,
+        " * is not found or if the device with that name's initialization function"
+      ],
+      [
+        839,
+        " * failed."
+      ],
+      [
+        857,
+        " * in a state where it can be used with its standard API."
+      ],
+      [
+        858,
+        " *"
+      ],
+      [
+        859,
+        " * This can be used with device pointers captured from DEVICE_DT_GET(), which"
+      ],
+      [
+        860,
+        " * does not include the readiness checks of device_get_binding(). At minimum"
+      ],
+      [
+        861,
+        " * this means that the device has been successfully initialized."
+      ],
+      [
+        862,
+        " *"
+      ],
+      [
+        863,
+        " * @param dev pointer to the device in question."
+      ],
+      [
+        864,
+        " *"
+      ],
+      [
+        865,
+        " * @retval true If the device is ready for use."
+      ],
+      [
+        866,
+        " * @retval false If the device is not ready for use or if a NULL device pointer"
+      ],
+      [
+        867,
+        " * is passed as argument."
+      ],
+      [
+        868,
+        " */"
+      ],
+      [
+        869,
+        "__syscall bool device_is_ready(const struct device *dev);"
+      ],
+      [
+        870,
+        ""
+      ],
+      [
+        871,
+        "/**"
+      ],
+      [
+        872,
+        " * @brief Writes a \"device not ready\" warning message to the log."
+      ],
+      [
+        873,
+        " *"
+      ],
+      [
+        874,
+        " * @details Writes a \"device not ready\" warning message to the log using the"
+      ],
+      [
+        875,
+        " * device name as reference, meant to be used in device_is_ready checks."
+      ],
+      [
+        876,
+        " *"
+      ],
+      [
+        877,
+        " * @param dev pointer to a struct device."
+      ],
+      [
+        878,
+        " */"
+      ],
+      [
+        879,
+        "#define LOG_WRN_DEVICE_NOT_READY(dev) \\"
+      ],
+      [
+        880,
+        "\tLOG_WRN(\"%s device not ready\", (dev) ? (dev)->name : \"(null)\")"
+      ],
+      [
+        881,
+        ""
+      ],
+      [
+        882,
+        "/**"
+      ],
+      [
+        883,
+        " * @brief Writes a \"device not ready\" error message to the log."
+      ],
+      [
+        884,
+        " *"
+      ],
+      [
+        885,
+        " * @details Writes a \"device not ready\" error message to the log using the"
+      ],
+      [
+        886,
+        " * device name as reference, meant to be used in device_is_ready checks."
+      ],
+      [
+        887,
+        " *"
+      ],
+      [
+        888,
+        " * @param dev pointer to a struct device."
+      ],
+      [
+        889,
+        " */"
+      ],
+      [
+        890,
+        "#define LOG_ERR_DEVICE_NOT_READY(dev) \\"
+      ],
+      [
+        891,
+        "\tLOG_ERR(\"%s device not ready\", (dev) ? (dev)->name : \"(null)\")"
+      ],
+      [
+        892,
+        ""
+      ],
+      [
+        893,
+        "/**"
+      ],
+      [
+        894,
+        " * @brief Initialize a device."
+      ],
+      [
+        895,
+        " *"
+      ],
+      [
+        896,
+        " * A device whose initialization was deferred (by marking it as"
+      ],
+      [
+        897,
+        " * ``zephyr,deferred-init`` on devicetree) needs to be initialized manually via"
+      ],
+      [
+        898,
+        " * this call. De-initialized devices can also be initialized again via this"
+      ],
+      [
+        899,
+        " * call."
+      ],
+      [
+        900,
+        " *"
+      ],
+      [
+        901,
+        " * @param dev device to be initialized."
+      ],
+      [
+        902,
+        " *"
+      ],
+      [
+        903,
+        " * @retval -EALREADY Device is already initialized."
+      ],
+      [
+        904,
+        " * @retval -errno For other errors."
+      ],
+      [
+        905,
+        " */"
+      ],
+      [
+        906,
+        "__syscall int device_init(const struct device *dev);"
+      ],
+      [
+        907,
+        ""
+      ],
+      [
+        908,
+        "/**"
+      ],
+      [
+        909,
+        " * @brief De-initialize a device."
+      ],
+      [
+        910,
+        " *"
+      ],
+      [
+        911,
+        " * When a device is de-initialized, it will release any resources it has"
+      ],
+      [
+        912,
+        " * acquired (e.g. pins, memory, clocks, DMA channels, etc.) and its status will"
+      ],
+      [
+        913,
+        " * be left as in its reset state."
+      ],
+      [
+        914,
+        " *"
+      ],
+      [
+        915,
+        " * Note: this will be available if CONFIG_DEVICE_DEINIT_SUPPORT is enabled."
+      ],
+      [
+        916,
+        " *"
+      ],
+      [
+        917,
+        " * @warning It is the responsibility of the caller to ensure that the device is"
+      ],
+      [
+        918,
+        " * ready to be de-initialized."
+      ],
+      [
+        919,
+        " *"
+      ],
+      [
+        920,
+        " * @param dev device to be de-initialized."
+      ],
+      [
+        921,
+        " *"
+      ],
+      [
+        922,
+        " * @retval 0 If successful"
+      ],
+      [
+        923,
+        " * @retval -EPERM If device has not been initialized."
+      ],
+      [
+        924,
+        " * @retval -ENOTSUP If device does not support de-initialization, or if the"
+      ],
+      [
+        925,
+        " *         feature is not enabled (see CONFIG_DEVICE_DEINIT_SUPPORT)"
+      ],
+      [
+        926,
+        " * @retval -errno For any other errors."
+      ],
+      [
+        927,
+        " */"
+      ],
+      [
+        928,
+        "__syscall int device_deinit(const struct device *dev);"
+      ],
+      [
+        929,
+        ""
+      ],
+      [
+        930,
+        "/**"
+      ],
+      [
+        931,
+        " * @}"
+      ],
+      [
+        932,
+        " */"
+      ],
+      [
+        933,
+        ""
+      ],
+      [
+        934,
+        "/** @cond INTERNAL_HIDDEN */"
+      ],
+      [
+        935,
+        ""
+      ],
+      [
+        936,
+        "/**"
+      ],
+      [
+        937,
+        " * @brief Synthesize a unique name for the device state associated with"
+      ],
+      [
+        944,
+        " *"
+      ],
+      [
+        945,
+        " * @param dev_id Device identifier."
+      ],
+      [
+        946,
+        " */"
+      ],
+      [
+        947,
+        "#define Z_DEVICE_STATE_DEFINE(dev_id)                                          \\"
+      ],
+      [
+        948,
+        "\tstatic Z_DECL_ALIGN(struct device_state) Z_DEVICE_STATE_NAME(dev_id)   \\"
+      ],
+      [
+        949,
+        "\t\t__attribute__((__section__(\".z_devstate\")))"
+      ],
+      [
+        950,
+        ""
+      ],
+      [
+        951,
+        "/**"
+      ],
+      [
+        952,
+        " * @brief Device flags obtained from DT."
+      ],
+      [
+        953,
+        " *"
+      ],
+      [
+        954,
+        " * @param node_id Devicetree node identifier."
+      ],
+      [
+        955,
+        " */"
+      ],
+      [
+        956,
+        "#define Z_DEVICE_DT_FLAGS(node_id)                                             \\"
+      ],
+      [
+        957,
+        "\t(DT_PROP_OR(node_id, zephyr_deferred_init, 0U) * DEVICE_FLAG_INIT_DEFERRED)"
+      ],
+      [
+        958,
+        ""
+      ],
+      [
+        959,
+        "#if defined(CONFIG_DEVICE_DEPS) || defined(__DOXYGEN__)"
+      ],
+      [
+        960,
+        ""
+      ],
+      [
+        961,
+        "/**"
+      ],
+      [
+        962,
+        " * @brief Synthesize the name of the object that holds device ordinal and"
+      ],
+      [
+        1072,
+        " *"
+      ],
+      [
+        1073,
+        " * 1. a device was defined from a devicetree node, for example"
+      ],
+      [
+        1074,
+        " *    with DEVICE_DT_DEFINE() or another similar macro, and"
+      ],
+      [
+        1075,
+        " * 2. that devicetree node has @p nodelabel as one of its node labels, and"
+      ],
+      [
+        1076,
+        " * 3. the device initialized successfully at boot time,"
+      ],
+      [
+        1077,
+        " *"
+      ],
+      [
+        1078,
+        " * then this function returns a pointer to the device. Otherwise, it"
+      ],
+      [
+        1079,
+        " * returns NULL."
+      ],
+      [
+        1080,
+        " *"
+      ],
+      [
+        1081,
+        " * @param nodelabel a devicetree node label"
+      ],
+      [
+        1082,
+        " * @return a device reference for a device created from a node with that"
+      ],
+      [
+        1083,
+        " *         node label, or NULL if either no such device exists or the device"
+      ],
+      [
+        1084,
+        " *         failed to initialize"
+      ],
+      [
+        1085,
+        " */"
+      ],
+      [
+        1086,
+        "__syscall const struct device *device_get_by_dt_nodelabel(const char *nodelabel);"
+      ],
+      [
+        1087,
+        ""
+      ],
+      [
+        1088,
+        "/**"
+      ],
+      [
+        1089,
+        " * @brief Get the devicetree node labels associated with a device"
+      ],
+      [
+        1090,
+        " * @param dev device whose metadata to look up"
+      ]
+    ]
+  },
+  {
+    "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/generated/zephyr/devicetree_generated.h",
+    "sha256": "5b0e9b1d0f7d878415d53a5d724e976061aca52177967d90d7c76c3cb0b0fb80",
+    "bytes": 2601581,
+    "lines": [
+      [
+        1806,
+        "#define DT_N_S_soc_S_rcc_46020c00_ORD 9"
+      ],
+      [
+        2789,
+        "#define DT_N_S_soc_S_pin_controller_42020000_S_adc1_in9_pa4_P_pinmux 144"
+      ],
+      [
+        2790,
+        "#define DT_N_S_soc_S_pin_controller_42020000_S_adc1_in9_pa4_P_pinmux_EXISTS 1"
+      ],
+      [
+        2791,
+        "#define DT_N_S_soc_S_pin_controller_42020000_S_adc1_in9_pa4_P_slew_rate \"low-speed\""
+      ],
+      [
+        2792,
+        "#define DT_N_S_soc_S_pin_controller_42020000_S_adc1_in9_pa4_P_slew_rate_STRING_UNQUOTED low-speed"
+      ],
+      [
+        2793,
+        "#define DT_N_S_soc_S_pin_controller_42020000_S_adc1_in9_pa4_P_slew_rate_STRING_TOKEN low_speed"
+      ],
+      [
+        2794,
+        "#define DT_N_S_soc_S_pin_controller_42020000_S_adc1_in9_pa4_P_slew_rate_STRING_UPPER_TOKEN LOW_SPEED"
+      ],
+      [
+        2795,
+        "#define DT_N_S_soc_S_pin_controller_42020000_S_adc1_in9_pa4_P_slew_rate_IDX_0 \"low-speed\""
+      ],
+      [
+        2796,
+        "#define DT_N_S_soc_S_pin_controller_42020000_S_adc1_in9_pa4_P_slew_rate_IDX_0_EXISTS 1"
+      ],
+      [
+        2797,
+        "#define DT_N_S_soc_S_pin_controller_42020000_S_adc1_in9_pa4_P_slew_rate_IDX_0_ENUM_IDX 0"
+      ],
+      [
+        2798,
+        "#define DT_N_S_soc_S_pin_controller_42020000_S_adc1_in9_pa4_P_slew_rate_IDX_0_ENUM_VAL_low_speed_EXISTS 1"
+      ],
+      [
+        2799,
+        "#define DT_N_S_soc_S_pin_controller_42020000_S_adc1_in9_pa4_P_slew_rate_ENUM_VAL_low_speed_EXISTS 1"
+      ],
+      [
+        2800,
+        "#define DT_N_S_soc_S_pin_controller_42020000_S_adc1_in9_pa4_P_slew_rate_FOREACH_PROP_ELEM(fn) fn(DT_N_S_soc_S_pin_controller_42020000_S_adc1_in9_pa4, slew_rate, 0)"
+      ],
+      [
+        2801,
+        "#define DT_N_S_soc_S_pin_controller_42020000_S_adc1_in9_pa4_P_slew_rate_FOREACH_PROP_ELEM_SEP(fn, sep) fn(DT_N_S_soc_S_pin_controller_42020000_S_adc1_in9_pa4, slew_rate, 0)"
+      ],
+      [
+        2802,
+        "#define DT_N_S_soc_S_pin_controller_42020000_S_adc1_in9_pa4_P_slew_rate_FOREACH_PROP_ELEM_VARGS(fn, ...) fn(DT_N_S_soc_S_pin_controller_42020000_S_adc1_in9_pa4, slew_rate, 0, __VA_ARGS__)"
+      ],
+      [
+        2803,
+        "#define DT_N_S_soc_S_pin_controller_42020000_S_adc1_in9_pa4_P_slew_rate_FOREACH_PROP_ELEM_SEP_VARGS(fn, sep, ...) fn(DT_N_S_soc_S_pin_controller_42020000_S_adc1_in9_pa4, slew_rate, 0, __VA_ARGS__)"
+      ],
+      [
+        2804,
+        "#define DT_N_S_soc_S_pin_controller_42020000_S_adc1_in9_pa4_P_slew_rate_LEN 1"
+      ],
+      [
+        2805,
+        "#define DT_N_S_soc_S_pin_controller_42020000_S_adc1_in9_pa4_P_slew_rate_EXISTS 1"
+      ],
+      [
+        2806,
+        "#define DT_N_S_soc_S_pin_controller_42020000_S_adc1_in9_pa4_P_bias_disable 0"
+      ],
+      [
+        2807,
+        "#define DT_N_S_soc_S_pin_controller_42020000_S_adc1_in9_pa4_P_bias_disable_EXISTS 1"
+      ],
+      [
+        2808,
+        "#define DT_N_S_soc_S_pin_controller_42020000_S_adc1_in9_pa4_P_bias_pull_up 0"
+      ],
+      [
+        2809,
+        "#define DT_N_S_soc_S_pin_controller_42020000_S_adc1_in9_pa4_P_bias_pull_up_EXISTS 1"
+      ],
+      [
+        2810,
+        "#define DT_N_S_soc_S_pin_controller_42020000_S_adc1_in9_pa4_P_bias_pull_down 0"
+      ],
+      [
+        2811,
+        "#define DT_N_S_soc_S_pin_controller_42020000_S_adc1_in9_pa4_P_bias_pull_down_EXISTS 1"
+      ],
+      [
+        2812,
+        "#define DT_N_S_soc_S_pin_controller_42020000_S_adc1_in9_pa4_P_drive_push_pull 0"
+      ],
+      [
+        2813,
+        "#define DT_N_S_soc_S_pin_controller_42020000_S_adc1_in9_pa4_P_drive_push_pull_EXISTS 1"
+      ],
+      [
+        2814,
+        "#define DT_N_S_soc_S_pin_controller_42020000_S_adc1_in9_pa4_P_drive_open_drain 0"
+      ],
+      [
+        2815,
+        "#define DT_N_S_soc_S_pin_controller_42020000_S_adc1_in9_pa4_P_drive_open_drain_EXISTS 1"
+      ],
+      [
+        2816,
+        "#define DT_N_S_soc_S_pin_controller_42020000_S_adc1_in9_pa4_P_output_low 0"
+      ],
+      [
+        2817,
+        "#define DT_N_S_soc_S_pin_controller_42020000_S_adc1_in9_pa4_P_output_low_EXISTS 1"
+      ],
+      [
+        2818,
+        "#define DT_N_S_soc_S_pin_controller_42020000_S_adc1_in9_pa4_P_output_high 0"
+      ],
+      [
+        2819,
+        "#define DT_N_S_soc_S_pin_controller_42020000_S_adc1_in9_pa4_P_output_high_EXISTS 1"
+      ],
+      [
+        8146,
+        "#define DT_N_S_soc_S_adc_46021000_ORD 54"
+      ],
+      [
+        8204,
+        "#define DT_N_S_soc_S_adc_46021000_P_clocks_IDX_0_VAL_bus 148"
+      ],
+      [
+        8205,
+        "#define DT_N_S_soc_S_adc_46021000_P_clocks_IDX_0_VAL_bus_EXISTS 1"
+      ],
+      [
+        8206,
+        "#define DT_N_S_soc_S_adc_46021000_P_clocks_IDX_0_VAL_bits 32"
+      ],
+      [
+        8207,
+        "#define DT_N_S_soc_S_adc_46021000_P_clocks_IDX_0_VAL_bits_EXISTS 1"
+      ],
+      [
+        8222,
+        "#define DT_N_S_soc_S_adc_46021000_P_clocks_NAME_adcx_VAL_bus DT_N_S_soc_S_adc_46021000_P_clocks_IDX_0_VAL_bus"
+      ],
+      [
+        8224,
+        "#define DT_N_S_soc_S_adc_46021000_P_clocks_NAME_adcx_VAL_bits DT_N_S_soc_S_adc_46021000_P_clocks_IDX_0_VAL_bits"
+      ],
+      [
+        8228,
+        "#define DT_N_S_soc_S_adc_46021000_P_clocks_IDX_1_VAL_bus 9"
+      ],
+      [
+        8229,
+        "#define DT_N_S_soc_S_adc_46021000_P_clocks_IDX_1_VAL_bus_EXISTS 1"
+      ],
+      [
+        8230,
+        "#define DT_N_S_soc_S_adc_46021000_P_clocks_IDX_1_VAL_bits 4980968"
+      ],
+      [
+        8231,
+        "#define DT_N_S_soc_S_adc_46021000_P_clocks_IDX_1_VAL_bits_EXISTS 1"
+      ],
+      [
+        8246,
+        "#define DT_N_S_soc_S_adc_46021000_P_clocks_NAME_adc_ker_VAL_bus DT_N_S_soc_S_adc_46021000_P_clocks_IDX_1_VAL_bus"
+      ],
+      [
+        8248,
+        "#define DT_N_S_soc_S_adc_46021000_P_clocks_NAME_adc_ker_VAL_bits DT_N_S_soc_S_adc_46021000_P_clocks_IDX_1_VAL_bits"
+      ],
+      [
+        8476,
+        "#define DT_N_S_soc_S_adc_46021000_P_zephyr_deferred_init 0"
+      ],
+      [
+        9847,
+        "#define DT_N_S_soc_S_dac_46021800_ORD 64"
+      ],
+      [
+        9905,
+        "#define DT_N_S_soc_S_dac_46021800_P_clocks_IDX_0_VAL_bus 148"
+      ],
+      [
+        9906,
+        "#define DT_N_S_soc_S_dac_46021800_P_clocks_IDX_0_VAL_bus_EXISTS 1"
+      ],
+      [
+        9907,
+        "#define DT_N_S_soc_S_dac_46021800_P_clocks_IDX_0_VAL_bits 64"
+      ],
+      [
+        9908,
+        "#define DT_N_S_soc_S_dac_46021800_P_clocks_IDX_0_VAL_bits_EXISTS 1"
+      ],
+      [
+        9947,
+        "#define DT_N_S_soc_S_dac_46021800_P_zephyr_deferred_init 0"
+      ]
+    ]
+  },
+  {
+    "gdb": "p __device_dts_ord_10",
+    "exit": 1,
+    "stdout": "",
+    "stderr": "No symbol \"__device_dts_ord_10\" in current context.\n"
+  },
+  {
+    "gdb": "p rcc_stm32_driver_api",
+    "exit": 1,
+    "stdout": "",
+    "stderr": "No symbol \"rcc_stm32_driver_api\" in current context.\n"
+  },
+  {
+    "gdb": "p __pinctrl_states__device_dts_ord_17",
+    "exit": 0,
+    "stdout": "$1 = {{pins = 0x801e058 <table_oversampling_ratio>, pin_cnt = 0 '\\000', id = 0 '\\000'}, {pins = 0x801e058 <table_oversampling_ratio>, pin_cnt = 0 '\\000', id = 1 '\\001'}, {pins = 0x801e028 <__pinctrl_state_pins_2__device_dts_ord_17>, pin_cnt = 6 '\\006', id = 2 '\\002'}}\n",
+    "stderr": ""
+  },
+  {
+    "gdb": "p __pinctrl_state_pins_2__device_dts_ord_17",
+    "exit": 0,
+    "stdout": "$1 = {{pinmux = 144, pincfg = 0}, {pinmux = 176, pincfg = 0}, {pinmux = 208, pincfg = 0}, {pinmux = 240, pincfg = 0}, {pinmux = 1072, pincfg = 0}, {pinmux = 1040, pincfg = 0}}\n",
+    "stderr": ""
+  },
+  {
+    "gdb": "p __devstate_dts_ord_17",
+    "exit": 0,
+    "stdout": "$1 = {init_res = 0 '\\000', initialized = false}\n",
+    "stderr": ""
+  },
+  {
+    "gdb": "p/x &_sw_isr_table[37]",
+    "exit": 0,
+    "stdout": "$1 = 0x20000574\n",
+    "stderr": ""
+  },
+  {
+    "gdb": "p _sw_isr_table[37]",
+    "exit": 0,
+    "stdout": "$1 = {arg = 0x0, isr = 0x80098e1 <adc_stm32_isr_37>}\n",
+    "stderr": ""
+  },
+  {
+    "gdb": "disassemble adc_stm32_isr_37_init",
+    "exit": 0,
+    "stdout": "Dump of assembler code for function adc_stm32_isr_37_init:\n   0x08018304 <+0>:\tmovs\tr2, #0\n   0x08018306 <+2>:\tpush\t{r3, lr}\n   0x08018308 <+4>:\tmovs\tr0, #37\t@ 0x25\n   0x0801830a <+6>:\tmov\tr1, r2\n   0x0801830c <+8>:\tbl\t0x8017f04 <arm_irq_priority_set>\n   0x08018310 <+12>:\tldmia.w\tsp!, {r3, lr}\n   0x08018314 <+16>:\tmovs\tr0, #37\t@ 0x25\n   0x08018316 <+18>:\tb.w\t0x8007c68 <arm_irq_enable>\nEnd of assembler dump.\n",
+    "stderr": ""
+  },
+  {
+    "gdb": "disassemble adc_stm32_calibration_start",
+    "exit": 0,
+    "stdout": "Dump of assembler code for function adc_stm32_calibration_start:\n   0x08009bc0 <+0>:\tpush\t{r4, lr}\n   0x08009bc2 <+2>:\tldr\tr3, [pc, #128]\t@ (0x8009c44 <adc_stm32_calibration_start+132>)\n   0x08009bc4 <+4>:\tldr\tr4, [r0, #0]\n   0x08009bc6 <+6>:\tcmp\tr4, r3\n   0x08009bc8 <+8>:\tbne.n\t0x8009be2 <adc_stm32_calibration_start+34>\n   0x08009bca <+10>:\tldr\tr3, [r4, #8]\n   0x08009bcc <+12>:\tbic.w\tr3, r3, #2147483648\t@ 0x80000000\n   0x08009bd0 <+16>:\tbic.w\tr3, r3, #63\t@ 0x3f\n   0x08009bd4 <+20>:\torr.w\tr3, r3, #2147483648\t@ 0x80000000\n   0x08009bd8 <+24>:\tstr\tr3, [r4, #8]\n   0x08009bda <+26>:\tldr\tr3, [r4, #8]\n   0x08009bdc <+28>:\tcmp\tr3, #0\n   0x08009bde <+30>:\tblt.n\t0x8009bda <adc_stm32_calibration_start+26>\n   0x08009be0 <+32>:\tpop\t{r4, pc}\n   0x08009be2 <+34>:\tmovw\tr1, #1154\t@ 0x482\n   0x08009be6 <+38>:\tldr\tr2, [pc, #96]\t@ (0x8009c48 <adc_stm32_calibration_start+136>)\n   0x08009be8 <+40>:\tldr\tr3, [r2, #0]\n   0x08009bea <+42>:\tldr\tr2, [r2, #0]\n   0x08009bec <+44>:\tubfx\tr3, r3, #0, #12\n   0x08009bf0 <+48>:\tcmp\tr3, r1\n   0x08009bf2 <+50>:\tbeq.n\t0x8009c3a <adc_stm32_calibration_start+122>\n   0x08009bf4 <+52>:\tmovw\tr3, #8193\t@ 0x2001\n   0x08009bf8 <+56>:\tcmp.w\tr3, r2, lsr #16\n   0x08009bfc <+60>:\tbeq.n\t0x8009c3a <adc_stm32_calibration_start+122>\n   0x08009bfe <+62>:\tmov\tr0, r4\n   0x08009c00 <+64>:\tbl\t0x8018398 <adc_stm32_enable>\n   0x08009c04 <+68>:\tldr\tr3, [r4, #8]\n   0x08009c06 <+70>:\tbic.w\tr3, r3, #251658240\t@ 0xf000000\n   0x08009c0a <+74>:\torr.w\tr3, r3, #150994944\t@ 0x9000000\n   0x08009c0e <+78>:\tstr\tr3, [r4, #8]\n   0x08009c10 <+80>:\tdmb\tsy\n   0x08009c14 <+84>:\tldr.w\tr2, [r4, #200]\t@ 0xc8\n   0x08009c18 <+88>:\tldr\tr3, [pc, #48]\t@ (0x8009c4c <adc_stm32_calibration_start+140>)\n   0x08009c1a <+90>:\tuxtb\tr2, r2\n   0x08009c1c <+92>:\torrs\tr3, r2\n   0x08009c1e <+94>:\tstr.w\tr3, [r4, #200]\t@ 0xc8\n   0x08009c22 <+98>:\tdmb\tsy\n   0x08009c26 <+102>:\tldr.w\tr3, [r4, #196]\t@ 0xc4\n   0x08009c2a <+106>:\tmovs\tr1, #1\n   0x08009c2c <+108>:\torr.w\tr3, r3, #16777216\t@ 0x1000000\n   0x08009c30 <+112>:\tmov\tr0, r4\n   0x08009c32 <+114>:\tstr.w\tr3, [r4, #196]\t@ 0xc4\n   0x08009c36 <+118>:\tbl\t0x80183d2 <adc_stm32_disable>\n   0x08009c3a <+122>:\tldr\tr2, [r4, #8]\n   0x08009c3c <+124>:\tldr\tr3, [pc, #16]\t@ (0x8009c50 <adc_stm32_calibration_start+144>)\n   0x08009c3e <+126>:\tands\tr3, r2\n   0x08009c40 <+128>:\tb.n\t0x8009bd4 <adc_stm32_calibration_start+20>\n   0x08009c42 <+130>:\tnop\n   0x08009c44 <+132>:\tasrs\tr0, r0, #32\n   0x08009c46 <+134>:\tmov\tr2, r0\n   0x08009c48 <+136>:\tands\tr0, r0\n   0x08009c4a <+138>:\tb.n\t0x8009c56 <adc_stm32_calibrate+2>\n   0x08009c4c <+140>:\tasrs\tr0, r0, #4\n   0x08009c4e <+142>:\tlsls\tr2, r0, #12\n   0x08009c50 <+144>:\t\t\t@ <UNDEFINED> instruction: 0xffc07ffe\nEnd of assembler dump.\n",
+    "stderr": ""
+  },
+  {
+    "gdb": "disassemble stm32_clock_control_on",
+    "exit": 0,
+    "stdout": "Dump of assembler code for function stm32_clock_control_on:\n   0x080189a2 <+0>:\tldrh\tr3, [r1, #0]\n   0x080189a4 <+2>:\tsub\tsp, #8\n   0x080189a6 <+4>:\tubfx\tr3, r3, #0, #12\n   0x080189aa <+8>:\taddw\tr2, r3, #3960\t@ 0xf78\n   0x080189ae <+12>:\tubfx\tr2, r2, #0, #12\n   0x080189b2 <+16>:\tcmp\tr2, #32\n   0x080189b4 <+18>:\tbhi.n\t0x80189e0 <stm32_clock_control_on+62>\n   0x080189b6 <+20>:\tadd.w\tr3, r3, #1174405120\t@ 0x46000000\n   0x080189ba <+24>:\tadd.w\tr3, r3, #134144\t@ 0x20c00\n   0x080189be <+28>:\tldr\tr2, [r3, #0]\n   0x080189c0 <+30>:\tldr\tr0, [r1, #4]\n   0x080189c2 <+32>:\torrs\tr2, r0\n   0x080189c4 <+34>:\tmovs\tr0, #0\n   0x080189c6 <+36>:\tstr\tr2, [r3, #0]\n   0x080189c8 <+38>:\tldrh\tr3, [r1, #0]\n   0x080189ca <+40>:\tubfx\tr3, r3, #0, #12\n   0x080189ce <+44>:\tadd.w\tr3, r3, #1174405120\t@ 0x46000000\n   0x080189d2 <+48>:\tadd.w\tr3, r3, #134144\t@ 0x20c00\n   0x080189d6 <+52>:\tldr\tr3, [r3, #0]\n   0x080189d8 <+54>:\tstr\tr3, [sp, #4]\n   0x080189da <+56>:\tldr\tr3, [sp, #4]\n   0x080189dc <+58>:\tadd\tsp, #8\n   0x080189de <+60>:\tbx\tlr\n   0x080189e0 <+62>:\tmvn.w\tr0, #133\t@ 0x85\n   0x080189e4 <+66>:\tb.n\t0x80189dc <stm32_clock_control_on+58>\nEnd of assembler dump.\n",
+    "stderr": ""
+  },
+  {
+    "gdb": "disassemble stm32_clock_control_get_subsys_rate",
+    "exit": 0,
+    "stdout": "Dump of assembler code for function stm32_clock_control_get_subsys_rate:\n   0x0800b9ec <+0>:\tpush\t{r3, r4, r5, lr}\n   0x0800b9ee <+2>:\tldrh\tr3, [r1, #0]\n   0x0800b9f0 <+4>:\tmov\tr5, r1\n   0x0800b9f2 <+6>:\tubfx\tr3, r3, #0, #12\n   0x0800b9f6 <+10>:\tcmp\tr3, #17\n   0x0800b9f8 <+12>:\tmov\tr4, r2\n   0x0800b9fa <+14>:\tbhi.n\t0x800ba66 <stm32_clock_control_get_subsys_rate+122>\n   0x0800b9fc <+16>:\tcbnz\tr3, 0x800ba04 <stm32_clock_control_get_subsys_rate+24>\n   0x0800b9fe <+18>:\tmvn.w\tr0, #133\t@ 0x85\n   0x0800ba02 <+22>:\tb.n\t0x800ba64 <stm32_clock_control_get_subsys_rate+120>\n   0x0800ba04 <+24>:\tsubs\tr3, #1\n   0x0800ba06 <+26>:\tcmp\tr3, #16\n   0x0800ba08 <+28>:\tbhi.n\t0x800b9fe <stm32_clock_control_get_subsys_rate+18>\n   0x0800ba0a <+30>:\tadd\tr2, pc, #4\t@ (adr r2, 0x800ba10 <stm32_clock_control_get_subsys_rate+36>)\n   0x0800ba0c <+32>:\tldr.w\tpc, [r2, r3, lsl #2]\n   0x0800ba10 <+36>:\thlt\t0x0007\n   0x0800ba12 <+38>:\tlsrs\tr0, r0, #32\n   0x0800ba14 <+40>:\trev16\tr5, r2\n   0x0800ba16 <+42>:\tlsrs\tr0, r0, #32\n   0x0800ba18 <+44>:\tcbnz\tr7, 0x800ba5a <stm32_clock_control_get_subsys_rate+110>\n   0x0800ba1a <+46>:\tlsrs\tr0, r0, #32\n   0x0800ba1c <+48>:\thlt\t0x003b\n   0x0800ba1e <+50>:\tlsrs\tr0, r0, #32\n   0x0800ba20 <+52>:\tcbnz\tr7, 0x800ba62 <stm32_clock_control_get_subsys_rate+118>\n   0x0800ba22 <+54>:\tlsrs\tr0, r0, #32\n   0x0800ba24 <+56>:\thlt\t0x0023\n   0x0800ba26 <+58>:\tlsrs\tr0, r0, #32\n   0x0800ba28 <+60>:\thlt\t0x001d\n   0x0800ba2a <+62>:\tlsrs\tr0, r0, #32\n   0x0800ba2c <+64>:\tcbnz\tr7, 0x800ba6e <stm32_clock_control_get_subsys_rate+130>\n   0x0800ba2e <+66>:\tlsrs\tr0, r0, #32\n   0x0800ba30 <+68>:\thlt\t0x0001\n   0x0800ba32 <+70>:\tlsrs\tr0, r0, #32\n   0x0800ba34 <+72>:\thlt\t0x0001\n   0x0800ba36 <+74>:\tlsrs\tr0, r0, #32\n   0x0800ba38 <+76>:\thlt\t0x0001\n   0x0800ba3a <+78>:\tlsrs\tr0, r0, #32\n   0x0800ba3c <+80>:\thlt\t0x0001\n   0x0800ba3e <+82>:\tlsrs\tr0, r0, #32\n   0x0800ba40 <+84>:\thlt\t0x0001\n   0x0800ba42 <+86>:\tlsrs\tr0, r0, #32\n   0x0800ba44 <+88>:\thlt\t0x0001\n   0x0800ba46 <+90>:\tlsrs\tr0, r0, #32\n   0x0800ba48 <+92>:\thlt\t0x0027\n   0x0800ba4a <+94>:\tlsrs\tr0, r0, #32\n   0x0800ba4c <+96>:\thlt\t0x0007\n   0x0800ba4e <+98>:\tlsrs\tr0, r0, #32\n   0x0800ba50 <+100>:\thlt\t0x0007\n   0x0800ba52 <+102>:\tlsrs\tr0, r0, #32\n   0x0800ba54 <+104>:\tmov.w\tr0, #32768\t@ 0x8000\n   0x0800ba58 <+108>:\tstr\tr0, [r4, #0]\n   0x0800ba5a <+110>:\tldr\tr3, [r5, #0]\n   0x0800ba5c <+112>:\tcmp.w\tr3, #4096\t@ 0x1000\n   0x0800ba60 <+116>:\tbcs.n\t0x800babe <stm32_clock_control_get_subsys_rate+210>\n   0x0800ba62 <+118>:\tmovs\tr0, #0\n   0x0800ba64 <+120>:\tpop\t{r3, r4, r5, pc}\n   0x0800ba66 <+122>:\tcmp\tr3, #136\t@ 0x88\n   0x0800ba68 <+124>:\tbeq.n\t0x800ba80 <stm32_clock_control_get_subsys_rate+148>\n   0x0800ba6a <+126>:\taddw\tr3, r3, #3956\t@ 0xf74\n   0x0800ba6e <+130>:\tubfx\tr3, r3, #0, #12\n   0x0800ba72 <+134>:\tcmp\tr3, #28\n   0x0800ba74 <+136>:\tbhi.n\t0x800b9fe <stm32_clock_control_get_subsys_rate+18>\n   0x0800ba76 <+138>:\tldr\tr2, [pc, #84]\t@ (0x800bacc <stm32_clock_control_get_subsys_rate+224>)\n   0x0800ba78 <+140>:\tlsr.w\tr3, r2, r3\n   0x0800ba7c <+144>:\tlsls\tr3, r3, #31\n   0x0800ba7e <+146>:\tbpl.n\t0x800b9fe <stm32_clock_control_get_subsys_rate+18>\n   0x0800ba80 <+148>:\tldr\tr3, [pc, #76]\t@ (0x800bad0 <stm32_clock_control_get_subsys_rate+228>)\n   0x0800ba82 <+150>:\tldr\tr0, [r3, #0]\n   0x0800ba84 <+152>:\tb.n\t0x800ba58 <stm32_clock_control_get_subsys_rate+108>\n   0x0800ba86 <+154>:\tbl\t0x800b9ac <get_msis_frequency>\n   0x0800ba8a <+158>:\tmov.w\tr3, #655360\t@ 0xa0000\n   0x0800ba8e <+162>:\tumull\tr0, r3, r0, r3\n   0x0800ba92 <+166>:\tlsrs\tr0, r0, #13\n   0x0800ba94 <+168>:\torr.w\tr0, r0, r3, lsl #19\n   0x0800ba98 <+172>:\tlsrs\tr0, r0, #1\n   0x0800ba9a <+174>:\tb.n\t0x800ba58 <stm32_clock_control_get_subsys_rate+108>\n   0x0800ba9c <+176>:\tbl\t0x800b9ac <get_msis_frequency>\n   0x0800baa0 <+180>:\tb.n\t0x800ba58 <stm32_clock_control_get_subsys_rate+108>\n   0x0800baa2 <+182>:\tldr\tr0, [pc, #48]\t@ (0x800bad4 <stm32_clock_control_get_subsys_rate+232>)\n   0x0800baa4 <+184>:\tb.n\t0x800ba58 <stm32_clock_control_get_subsys_rate+108>\n   0x0800baa6 <+186>:\tbl\t0x800b9ac <get_msis_frequency>\n   0x0800baaa <+190>:\tmov.w\tr3, #655360\t@ 0xa0000\n   0x0800baae <+194>:\tumull\tr0, r3, r0, r3\n   0x0800bab2 <+198>:\tlsrs\tr0, r0, #13\n   0x0800bab4 <+200>:\torr.w\tr0, r0, r3, lsl #19\n   0x0800bab8 <+204>:\tb.n\t0x800ba58 <stm32_clock_control_get_subsys_rate+108>\n   0x0800baba <+206>:\tldr\tr0, [pc, #28]\t@ (0x800bad8 <stm32_clock_control_get_subsys_rate+236>)\n   0x0800babc <+208>:\tb.n\t0x800ba58 <stm32_clock_control_get_subsys_rate+108>\n   0x0800babe <+210>:\tubfx\tr3, r3, #12, #20\n   0x0800bac2 <+214>:\tadds\tr3, #1\n   0x0800bac4 <+216>:\tudiv\tr0, r0, r3\n   0x0800bac8 <+220>:\tstr\tr0, [r4, #0]\n   0x0800baca <+222>:\tb.n\t0x800ba62 <stm32_clock_control_get_subsys_rate+118>\n   0x0800bacc <+224>:\tlsls\tr1, r2, #4\n   0x0800bace <+226>:\tasrs\tr1, r2, #4\n   0x0800bad0 <+228>:\tlsls\tr4, r0, #16\n   0x0800bad2 <+230>:\tmovs\tr0, #0\n   0x0800bad4 <+232>:\tldr\tr0, [r0, #64]\t@ 0x40\n   0x0800bad6 <+234>:\tlsls\tr4, r3, #11\n   0x0800bad8 <+236>:\tmovs\tr4, #0\n   0x0800bada <+238>:\tlsls\tr4, r6, #3\nEnd of assembler dump.\n",
+    "stderr": ""
+  },
+  {
+    "gdb": "disassemble stm32_clock_control_configure",
+    "exit": 0,
+    "stdout": "Dump of assembler code for function stm32_clock_control_configure:\n   0x08018a12 <+0>:\tpush\t{r4, r5, r6, lr}\n   0x08018a14 <+2>:\tldrh\tr0, [r1, #0]\n   0x08018a16 <+4>:\tldr\tr2, [r1, #4]\n   0x08018a18 <+6>:\tubfx\tr0, r0, #0, #12\n   0x08018a1c <+10>:\tuxth\tr4, r2\n   0x08018a1e <+12>:\tubfx\tr5, r2, #16, #5\n   0x08018a22 <+16>:\tbl\t0x800bd94 <enabled_clock>\n   0x08018a26 <+20>:\tcbnz\tr0, 0x8018a52 <stm32_clock_control_configure+64>\n   0x08018a28 <+22>:\tcmp\tr2, #255\t@ 0xff\n   0x08018a2a <+24>:\tbeq.n\t0x8018a50 <stm32_clock_control_configure+62>\n   0x08018a2c <+26>:\tmovs\tr3, #1\n   0x08018a2e <+28>:\tubfx\tr6, r2, #21, #2\n   0x08018a32 <+32>:\tadd.w\tr1, r4, #1174405120\t@ 0x46000000\n   0x08018a36 <+36>:\tadds\tr6, #1\n   0x08018a38 <+38>:\tadd.w\tr1, r1, #134144\t@ 0x20c00\n   0x08018a3c <+42>:\tlsls\tr3, r6\n   0x08018a3e <+44>:\tldr\tr4, [r1, #0]\n   0x08018a40 <+46>:\tsubs\tr3, #1\n   0x08018a42 <+48>:\tlsls\tr3, r5\n   0x08018a44 <+50>:\tlsrs\tr2, r2, #24\n   0x08018a46 <+52>:\tbic.w\tr3, r4, r3\n   0x08018a4a <+56>:\tlsls\tr2, r5\n   0x08018a4c <+58>:\torrs\tr3, r2\n   0x08018a4e <+60>:\tstr\tr3, [r1, #0]\n   0x08018a50 <+62>:\tpop\t{r4, r5, r6, pc}\n   0x08018a52 <+64>:\tmvn.w\tr0, #133\t@ 0x85\n   0x08018a56 <+68>:\tb.n\t0x8018a50 <stm32_clock_control_configure+62>\nEnd of assembler dump.\n",
+    "stderr": ""
+  }
+]

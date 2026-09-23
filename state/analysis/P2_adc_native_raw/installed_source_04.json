@@ -1,0 +1,74 @@
+[
+  {
+    "gdb": "p __device_dts_ord_9",
+    "exit": 0,
+    "stdout": "$1 = {name = 0x8023774 \"rcc@46020c00\", config = 0x0, api = 0x801c76c <stm32_clock_control_api>, state = 0x200010e2 <__devstate_dts_ord_9>, data = 0x0, ops = {init = 0x800badd <stm32_clock_control_init>, deinit = 0x0}, flags = 0 '\\000', deps = 0x801c5a6 <__devicedeps_dts_ord_9>}\n",
+    "stderr": ""
+  },
+  {
+    "gdb": "p *(struct clock_control_driver_api*)__device_dts_ord_9.api",
+    "exit": 0,
+    "stdout": "$1 = {on = 0x80189a3 <stm32_clock_control_on>, off = 0x80189e7 <stm32_clock_control_off>, async_on = 0x0, get_rate = 0x800b9ed <stm32_clock_control_get_subsys_rate>, get_status = 0x8018a59 <stm32_clock_control_get_status>, set_rate = 0x0, configure = 0x8018a13 <stm32_clock_control_configure>}\n",
+    "stderr": ""
+  },
+  {
+    "gdb": "p __llext_sym___device_dts_ord_9",
+    "exit": 0,
+    "stdout": "$1 = {{name = 0x8023761 \"__device_dts_ord_9\", slid = 134362977}, addr = 0x801befc <__device_dts_ord_9>}\n",
+    "stderr": ""
+  },
+  {
+    "gdb": "p __device_dts_ord_54",
+    "exit": 0,
+    "stdout": "$1 = {name = 0x8023091 \"adc@46021000\", config = 0x801df50 <adc_stm32_cfg_1>, api = 0x801c5f4 <api_stm32_driver_api>, state = 0x200010da <__devstate_dts_ord_54>, data = 0x20000000 <adc_stm32_data_1>, ops = {init = 0x800a129 <adc_stm32_init>, deinit = 0x0}, flags = 0 '\\000', deps = 0x801c4d6 <__devicedeps_dts_ord_54>}\n",
+    "stderr": ""
+  },
+  {
+    "gdb": "p __device_dts_ord_64",
+    "exit": 0,
+    "stdout": "$1 = {name = 0x80238fa \"dac@46021800\", config = 0x801e2e0 <dac_stm32_cfg_0>, api = 0x801c690 <api_stm32_driver_api>, state = 0x200010e8 <__devstate_dts_ord_64>, data = 0x20000449 <dac_stm32_data_0>, ops = {init = 0x800c38d <dac_stm32_init>, deinit = 0x0}, flags = 0 '\\000', deps = 0x801c4c6 <__devicedeps_dts_ord_64>}\n",
+    "stderr": ""
+  },
+  {
+    "gdb": "p adc_stm32_cfg_1",
+    "exit": 0,
+    "stdout": "$1 = {base = 0x46021000, irq_cfg_func = 0x801831b <adc_stm32_isr_113_init>, pclken = {bus = 148, div = 0, enr = 32}, pclken_ker = {bus = 9, div = 0, enr = 4980968}, pclken_pre = {bus = 0, div = 0, enr = 0}, clk_prescaler = 524288, pcfg = 0x801dfa8 <__pinctrl_dev_config__device_dts_ord_54>, table_raw_resolution = 0x803f3e4 <table_raw_resolution1> \"\\f\\n\\b\\006\\016\\f\\n\\b\", table_ll_resolution = 0x801df98 <table_ll_resolution1>, sampling_time_table = {2, 4, 8, 13, 20, 40, 80, 815}, table_resolution_size = 4 '\\004', num_sampling_time_common_channels = 2 '\\002', sequencer_type = 0 '\\000', oversampler_type = 1 '\\001', internal_regulator = 2 '\\002', has_pclken_ker = true, has_pclken_pre = false, has_deep_powerdown = false, has_channel_preselection = false, has_differential_support = false, differential_channels_used = false, has_injected_support = false}\n",
+    "stderr": ""
+  },
+  {
+    "gdb": "ptype /o ADC_TypeDef",
+    "exit": 0,
+    "stdout": "type = struct {\n/*      0      |       4 */    volatile uint32_t ISR;\n/*      4      |       4 */    volatile uint32_t IER;\n/*      8      |       4 */    volatile uint32_t CR;\n/*     12      |       4 */    volatile uint32_t CFGR1;\n/*     16      |       4 */    volatile uint32_t CFGR2;\n/*     20      |       4 */    volatile uint32_t SMPR1;\n/*     24      |       4 */    volatile uint32_t SMPR2;\n/*     28      |       4 */    volatile uint32_t PCSEL;\n/*     32      |       4 */    volatile uint32_t AWD1TR;\n/*     36      |       4 */    volatile uint32_t AWD2TR;\n/*     40      |       4 */    volatile uint32_t CHSELR;\n/*     44      |       4 */    volatile uint32_t AWD3TR;\n/*     48      |       4 */    volatile uint32_t SQR1;\n/*     52      |       4 */    volatile uint32_t SQR2;\n/*     56      |       4 */    volatile uint32_t SQR3;\n/*     60      |       4 */    volatile uint32_t SQR4;\n/*     64      |       4 */    volatile uint32_t DR;\n/*     68      |       4 */    volatile uint32_t PWRR;\n/*     72      |       4 */    uint32_t RESERVED1;\n/*     76      |       4 */    volatile uint32_t JSQR;\n/*     80      |      16 */    uint32_t RESERVED2[4];\n/*     96      |       4 */    volatile uint32_t OFR1;\n/*    100      |       4 */    volatile uint32_t OFR2;\n/*    104      |       4 */    volatile uint32_t OFR3;\n/*    108      |       4 */    volatile uint32_t OFR4;\n/*    112      |       4 */    volatile uint32_t GCOMP;\n/*    116      |      12 */    uint32_t RESERVED3[3];\n/*    128      |       4 */    volatile uint32_t JDR1;\n/*    132      |       4 */    volatile uint32_t JDR2;\n/*    136      |       4 */    volatile uint32_t JDR3;\n/*    140      |       4 */    volatile uint32_t JDR4;\n/*    144      |      16 */    uint32_t RESERVED4[4];\n/*    160      |       4 */    volatile uint32_t AWD2CR;\n/*    164      |       4 */    volatile uint32_t AWD3CR;\n/*    168      |       4 */    volatile uint32_t LTR1;\n/*    172      |       4 */    volatile uint32_t HTR1;\n/*    176      |       4 */    volatile uint32_t LTR2;\n/*    180      |       4 */    volatile uint32_t HTR2;\n/*    184      |       4 */    volatile uint32_t LTR3;\n/*    188      |       4 */    volatile uint32_t HTR3;\n/*    192      |       4 */    volatile uint32_t DIFSEL;\n/*    196      |       4 */    volatile uint32_t CALFACT;\n/*    200      |       4 */    volatile uint32_t CALFACT2;\n/*    204      |       4 */    uint32_t RESERVED5;\n/*    208      |       4 */    volatile uint32_t OR;\n\n                               /* total size (bytes):  212 */\n                             }\n",
+    "stderr": ""
+  },
+  {
+    "gdb": "ptype /o ADC_Common_TypeDef",
+    "exit": 0,
+    "stdout": "type = struct {\n/*      0      |       4 */    volatile uint32_t CCR;\n\n                               /* total size (bytes):    4 */\n                             }\n",
+    "stderr": ""
+  },
+  {
+    "gdb": "p/x ADC1",
+    "exit": 1,
+    "stdout": "",
+    "stderr": "No symbol \"ADC1\" in current context.\n"
+  },
+  {
+    "gdb": "p/x ADC1_COMMON",
+    "exit": 1,
+    "stdout": "",
+    "stderr": "No symbol \"ADC1_COMMON\" in current context.\n"
+  },
+  {
+    "gdb": "disassemble adc_stm32_isr_37",
+    "exit": 0,
+    "stdout": "Dump of assembler code for function adc_stm32_isr_37:\n   0x080098e0 <+0>:\tldr\tr0, [pc, #4]\t@ (0x80098e8 <adc_stm32_isr_37+8>)\n   0x080098e2 <+2>:\tb.w\t0x80097dc <adc_stm32_isr>\n   0x080098e6 <+6>:\tnop\n   0x080098e8 <+8>:\tstmia\tr2!, {r3, r4, r5}\n   0x080098ea <+10>:\tlsrs\tr1, r0, #32\nEnd of assembler dump.\n",
+    "stderr": ""
+  },
+  {
+    "gdb": "disassemble adc_stm32_isr",
+    "exit": 0,
+    "stdout": "Dump of assembler code for function adc_stm32_isr:\n   0x080097dc <+0>:\tpush\t{r4, r5, r6, lr}\n   0x080097de <+2>:\tldr\tr3, [r0, #4]\n   0x080097e0 <+4>:\tmov\tr5, r0\n   0x080097e2 <+6>:\tldr\tr6, [r3, #0]\n   0x080097e4 <+8>:\tldr\tr4, [r0, #16]\n   0x080097e6 <+10>:\tldr\tr3, [r6, #0]\n   0x080097e8 <+12>:\tsub\tsp, #24\n   0x080097ea <+14>:\tlsls\tr1, r3, #27\n   0x080097ec <+16>:\tbpl.n\t0x8009806 <adc_stm32_isr+42>\n   0x080097ee <+18>:\tmovs\tr3, #16\n   0x080097f0 <+20>:\tstr\tr3, [r6, #0]\n   0x080097f2 <+22>:\tldr\tr3, [pc, #228]\t@ (0x80098d8 <adc_stm32_isr+252>)\n   0x080097f4 <+24>:\tmovs\tr2, #1\n   0x080097f6 <+26>:\tstr\tr3, [sp, #8]\n   0x080097f8 <+28>:\tmovs\tr3, #0\n   0x080097fa <+30>:\tldr\tr1, [pc, #224]\t@ (0x80098dc <adc_stm32_isr+256>)\n   0x080097fc <+32>:\tmov\tr0, r3\n   0x080097fe <+34>:\tstrd\tr3, r3, [sp]\n   0x08009802 <+38>:\tbl\t0x8018330 <z_log_msg_runtime_create>\n   0x08009806 <+42>:\tldr\tr3, [r6, #0]\n   0x08009808 <+44>:\tlsls\tr2, r3, #29\n   0x0800980a <+46>:\tbpl.n\t0x8009892 <adc_stm32_isr+182>\n   0x0800980c <+48>:\tldr.w\tr3, [r4, #164]\t@ 0xa4\n   0x08009810 <+52>:\tldr\tr2, [r6, #64]\t@ 0x40\n   0x08009812 <+54>:\tadds\tr1, r3, #2\n   0x08009814 <+56>:\tstr.w\tr1, [r4, #164]\t@ 0xa4\n   0x08009818 <+60>:\tstrh\tr2, [r3, #0]\n   0x0800981a <+62>:\tldrb.w\tr3, [r4, #181]\t@ 0xb5\n   0x0800981e <+66>:\tldrb.w\tr2, [r4, #180]\t@ 0xb4\n   0x08009822 <+70>:\tadds\tr3, #1\n   0x08009824 <+72>:\tuxtb\tr3, r3\n   0x08009826 <+74>:\tcmp\tr2, r3\n   0x08009828 <+76>:\tstrb.w\tr3, [r4, #181]\t@ 0xb5\n   0x0800982c <+80>:\tbne.n\t0x8009892 <adc_stm32_isr+182>\n   0x0800982e <+82>:\tmovs\tr3, #0\n   0x08009830 <+84>:\tstrb.w\tr3, [r4, #181]\t@ 0xb5\n   0x08009834 <+88>:\tldr\tr3, [r4, #116]\t@ 0x74\n   0x08009836 <+90>:\tcbz\tr3, 0x80098a4 <adc_stm32_isr+200>\n   0x08009838 <+92>:\tldr.w\tr3, [r4, #140]\t@ 0x8c\n   0x0800983c <+96>:\tcbz\tr3, 0x8009852 <adc_stm32_isr+118>\n   0x0800983e <+98>:\tmov\tr0, r5\n   0x08009840 <+100>:\tldrh.w\tr2, [r4, #152]\t@ 0x98\n   0x08009844 <+104>:\tadd.w\tr1, r4, #116\t@ 0x74\n   0x08009848 <+108>:\tblx\tr3\n   0x0800984a <+110>:\tcmp\tr0, #1\n   0x0800984c <+112>:\tbeq.n\t0x8009876 <adc_stm32_isr+154>\n   0x0800984e <+114>:\tcmp\tr0, #2\n   0x08009850 <+116>:\tbeq.n\t0x8009896 <adc_stm32_isr+186>\n   0x08009852 <+118>:\tldrh.w\tr3, [r4, #152]\t@ 0x98\n   0x08009856 <+122>:\tldrh.w\tr2, [r4, #148]\t@ 0x94\n   0x0800985a <+126>:\tcmp\tr2, r3\n   0x0800985c <+128>:\tbls.n\t0x8009896 <adc_stm32_isr+186>\n   0x0800985e <+130>:\tadds\tr3, #1\n   0x08009860 <+132>:\tstrh.w\tr3, [r4, #152]\t@ 0x98\n   0x08009864 <+136>:\tldr.w\tr3, [r4, #136]\t@ 0x88\n   0x08009868 <+140>:\tcbnz\tr3, 0x8009880 <adc_stm32_isr+164>\n   0x0800986a <+142>:\tmov\tr0, r4\n   0x0800986c <+144>:\tadd\tsp, #24\n   0x0800986e <+146>:\tldmia.w\tsp!, {r4, r5, r6, lr}\n   0x08009872 <+150>:\tb.w\t0x8018350 <adc_context_start_sampling>\n   0x08009876 <+154>:\tldr.w\tr3, [r4, #168]\t@ 0xa8\n   0x0800987a <+158>:\tstr.w\tr3, [r4, #164]\t@ 0xa4\n   0x0800987e <+162>:\tb.n\t0x8009864 <adc_stm32_isr+136>\n   0x08009880 <+164>:\tldaex\tr3, [r4]\n   0x08009884 <+168>:\tsubs\tr2, r3, #1\n   0x08009886 <+170>:\tstlex\tr1, r2, [r4]\n   0x0800988a <+174>:\tcmp\tr1, #0\n   0x0800988c <+176>:\tbne.n\t0x8009880 <adc_stm32_isr+164>\n   0x0800988e <+178>:\tcmp\tr3, #1\n   0x08009890 <+180>:\tbgt.n\t0x800986a <adc_stm32_isr+142>\n   0x08009892 <+182>:\tadd\tsp, #24\n   0x08009894 <+184>:\tpop\t{r4, r5, r6, pc}\n   0x08009896 <+186>:\tldr.w\tr3, [r4, #136]\t@ 0x88\n   0x0800989a <+190>:\tcbz\tr3, 0x80098a4 <adc_stm32_isr+200>\n   0x0800989c <+192>:\tadd.w\tr0, r4, #8\n   0x080098a0 <+196>:\tbl\t0x80122f0 <z_impl_k_timer_stop>\n   0x080098a4 <+200>:\tmovw\tr1, #65535\t@ 0xffff\n   0x080098a8 <+204>:\tldr.w\tr3, [r4, #160]\t@ 0xa0\n   0x080098ac <+208>:\tldr\tr3, [r3, #4]\n   0x080098ae <+210>:\tldr\tr2, [r3, #0]\n   0x080098b0 <+212>:\tstrh.w\tr1, [r4, #182]\t@ 0xb6\n   0x080098b4 <+216>:\tldrb.w\tr3, [r3, #69]\t@ 0x45\n   0x080098b8 <+220>:\tlsls\tr3, r3, #28\n   0x080098ba <+222>:\tbpl.n\t0x80098c8 <adc_stm32_isr+236>\n   0x080098bc <+224>:\tldr\tr3, [r2, #28]\n   0x080098be <+226>:\tstr\tr3, [sp, #20]\n   0x080098c0 <+228>:\tldr\tr3, [sp, #20]\n   0x080098c2 <+230>:\torr.w\tr3, r3, #1\n   0x080098c6 <+234>:\tstr\tr3, [r2, #28]\n   0x080098c8 <+236>:\tadd.w\tr0, r4, #88\t@ 0x58\n   0x080098cc <+240>:\tadd\tsp, #24\n   0x080098ce <+242>:\tldmia.w\tsp!, {r4, r5, r6, lr}\n   0x080098d2 <+246>:\tb.w\t0x8010d34 <z_impl_k_sem_give>\n   0x080098d6 <+250>:\tnop\n   0x080098d8 <+252>:\tcmp\tr5, #34\t@ 0x22\n   0x080098da <+254>:\tlsrs\tr2, r0, #32\n   0x080098dc <+256>:\tstmia\tr7!, {r2, r4, r6, r7}\n   0x080098de <+258>:\tlsrs\tr1, r0, #32\nEnd of assembler dump.\n",
+    "stderr": ""
+  }
+]

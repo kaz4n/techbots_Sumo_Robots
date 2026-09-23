@@ -13,7 +13,7 @@
 #include <vector>
 
 namespace {
-constexpr std::size_t APPROVED_CAPACITY = 10001U;
+constexpr std::size_t APPROVED_CAPACITY = 5001U;
 using logframe::PackStatus;
 
 logframe::FrameBytes ordinalBytes(std::uint32_t ordinal) {
@@ -149,14 +149,14 @@ logframe::FrameBytes randomBytes(std::uint32_t& seed) {
 } // namespace
 
 TEST_CASE("B15 D069 literal capacity includes 200 second endpoints and 26 byte records") {
-    CHECK(config::LOG_HZ == 50U);
+    CHECK(config::LOG_HZ == 25U);
     CHECK(config::LOG_FRAME_WINDOW_MS == 200000U);
     CHECK(config::LOG_FRAME_CAPACITY == APPROVED_CAPACITY);
     CHECK(logframe::FRAME_BYTES == 25U);
     CHECK(sizeof(recorder::StoredFrame) == 26U);
-    CHECK(sizeof(recorder::StoredFrame) * config::LOG_FRAME_CAPACITY == 260026U);
+    CHECK(sizeof(recorder::StoredFrame) * config::LOG_FRAME_CAPACITY == 130026U);
     CHECK(sizeof(recorder::StoredFrame) * config::LOG_FRAME_CAPACITY +
-          8U * config::LOG_EVENT_CAPACITY == 292794U);
+          8U * config::LOG_EVENT_CAPACITY == 162794U);
     CHECK_FALSE(std::is_copy_constructible<recorder::FrameBuffer>::value);
     CHECK_FALSE(std::is_copy_assignable<recorder::FrameBuffer>::value);
 }
@@ -227,17 +227,17 @@ TEST_CASE("B15 D069 append owns an exact value copy beyond caller mutation and l
 TEST_CASE("B15 D069 capacity minus one exact capacity and plus one evict only oldest") {
     recorder::FrameBuffer buffer;
     fillFrames(buffer, APPROVED_CAPACITY - 1U);
-    CHECK(buffer.size() == 10000U);
-    CHECK(buffer.at(10000U) == nullptr);
+    CHECK(buffer.size() == 5000U);
+    CHECK(buffer.at(5000U) == nullptr);
     checkClean(buffer);
-    CHECK(buffer.append(ordinalBytes(10000U), PackStatus::OK));
-    CHECK(buffer.size() == 10001U);
-    CHECK(buffer.at(10001U) == nullptr);
+    CHECK(buffer.append(ordinalBytes(5000U), PackStatus::OK));
+    CHECK(buffer.size() == 5001U);
+    CHECK(buffer.at(5001U) == nullptr);
     checkClean(buffer);
     checkRecord(buffer, 0U, ordinalBytes(0U), PackStatus::OK);
-    checkRecord(buffer, 10000U, ordinalBytes(10000U), PackStatus::OK);
-    CHECK(buffer.append(ordinalBytes(10001U), PackStatus::OK));
-    CHECK(buffer.size() == 10001U);
+    checkRecord(buffer, 5000U, ordinalBytes(5000U), PackStatus::OK);
+    CHECK(buffer.append(ordinalBytes(5001U), PackStatus::OK));
+    CHECK(buffer.size() == 5001U);
     CHECK(buffer.overwrittenCount() == 1U);
     CHECK(buffer.incomplete());
     CHECK(buffer.rejectedStatusCount() == 0U);
@@ -249,34 +249,34 @@ TEST_CASE("B15 D069 capacity minus one exact capacity and plus one evict only ol
     }
 }
 
-TEST_CASE("B15 D069 50 Hz samples retain both literal zero and 200000 ms endpoints") {
+TEST_CASE("B15 D069 25 Hz samples retain both literal zero and 200000 ms endpoints") {
     recorder::FrameBuffer buffer;
-    for (std::uint32_t t_ms = 0U; t_ms <= 200000U; t_ms += 20U) {
+    for (std::uint32_t t_ms = 0U; t_ms <= 200000U; t_ms += 40U) {
         const bool accepted = buffer.append(ordinalBytes(t_ms), PackStatus::OK);
         CHECK(accepted);
         if (!accepted) return;
     }
-    CHECK(buffer.size() == 10001U);
+    CHECK(buffer.size() == 5001U);
     checkClean(buffer);
     for (std::size_t index = 0U; index < APPROVED_CAPACITY; ++index) {
-        checkRecord(buffer, index, ordinalBytes(static_cast<std::uint32_t>(index * 20U)),
+        checkRecord(buffer, index, ordinalBytes(static_cast<std::uint32_t>(index * 40U)),
                     PackStatus::OK);
     }
 }
 
-TEST_CASE("B15 D069 final off cadence sample fits after all preceding 50 Hz samples") {
+TEST_CASE("B15 D069 final off cadence sample fits after all preceding 25 Hz samples") {
     recorder::FrameBuffer buffer;
-    for (std::uint32_t t_ms = 0U; t_ms < 199999U; t_ms += 20U) {
+    for (std::uint32_t t_ms = 0U; t_ms < 199999U; t_ms += 40U) {
         const bool accepted = buffer.append(ordinalBytes(t_ms), PackStatus::OK);
         CHECK(accepted);
         if (!accepted) return;
     }
-    CHECK(buffer.size() == 10000U);
+    CHECK(buffer.size() == 5000U);
     CHECK(buffer.append(ordinalBytes(199999U), PackStatus::OK));
-    CHECK(buffer.size() == 10001U);
+    CHECK(buffer.size() == 5001U);
     checkRecord(buffer, 0U, ordinalBytes(0U), PackStatus::OK);
-    checkRecord(buffer, 9999U, ordinalBytes(199980U), PackStatus::OK);
-    checkRecord(buffer, 10000U, ordinalBytes(199999U), PackStatus::OK);
+    checkRecord(buffer, 4999U, ordinalBytes(199960U), PackStatus::OK);
+    checkRecord(buffer, 5000U, ordinalBytes(199999U), PackStatus::OK);
     checkClean(buffer);
 }
 
@@ -360,11 +360,11 @@ TEST_CASE("B15 D069 full unknown status rejection preserves clean retained data 
         CHECK(buffer.incomplete());
     }
     checkSnapshot(buffer, expected);
-    CHECK(buffer.append(ordinalBytes(10001U), PackStatus::OK));
+    CHECK(buffer.append(ordinalBytes(5001U), PackStatus::OK));
     CHECK(buffer.overwrittenCount() == 1U);
     CHECK(buffer.rejectedStatusCount() == 253U);
     checkRecord(buffer, 0U, ordinalBytes(1U), PackStatus::OK);
-    checkRecord(buffer, 10000U, ordinalBytes(10001U), PackStatus::OK);
+    checkRecord(buffer, 5000U, ordinalBytes(5001U), PackStatus::OK);
 }
 
 TEST_CASE("B15 D069 mixed status totals include accepted records after those records are evicted") {
@@ -381,13 +381,13 @@ TEST_CASE("B15 D069 mixed status totals include accepted records after those rec
         checkRecord(buffer, index, ordinalBytes(static_cast<std::uint32_t>(index + 2U)),
                     PackStatus::OK);
     }
-    CHECK(buffer.append(ordinalBytes(10003U), PackStatus::CLAMPED));
-    CHECK(buffer.append(ordinalBytes(10004U), PackStatus::INVALID));
+    CHECK(buffer.append(ordinalBytes(5003U), PackStatus::CLAMPED));
+    CHECK(buffer.append(ordinalBytes(5004U), PackStatus::INVALID));
     CHECK(buffer.clampedCount() == 2U);
     CHECK(buffer.invalidCount() == 2U);
     CHECK(buffer.overwrittenCount() == 4U);
-    checkRecord(buffer, 9999U, ordinalBytes(10003U), PackStatus::CLAMPED);
-    checkRecord(buffer, 10000U, ordinalBytes(10004U), PackStatus::INVALID);
+    checkRecord(buffer, 4999U, ordinalBytes(5003U), PackStatus::CLAMPED);
+    checkRecord(buffer, 5000U, ordinalBytes(5004U), PackStatus::INVALID);
 }
 
 TEST_CASE("B15 D069 rejection after mixed status wraps preserves all other counters and contents") {
@@ -395,7 +395,7 @@ TEST_CASE("B15 D069 rejection after mixed status wraps preserves all other count
     CHECK(buffer.append(ordinalBytes(0U), PackStatus::CLAMPED));
     CHECK(buffer.append(ordinalBytes(1U), PackStatus::INVALID));
     fillFrames(buffer, APPROVED_CAPACITY + 7U, 2U);
-    CHECK(buffer.append(ordinalBytes(10010U), PackStatus::INVALID));
+    CHECK(buffer.append(ordinalBytes(5010U), PackStatus::INVALID));
     const auto expected = snapshot(buffer);
     for (unsigned code : {3U, 4U, 127U, 128U, 254U, 255U}) {
         CHECK_FALSE(buffer.append(ordinalBytes(code), static_cast<PackStatus>(code)));
@@ -433,26 +433,26 @@ TEST_CASE("B15 D069 full oldest source survives replacement of its own destinati
     CHECK(buffer.overwrittenCount() == 1U);
     CHECK(buffer.clampedCount() == 1U);
     checkRecord(buffer, 0U, ordinalBytes(1U), PackStatus::OK);
-    checkRecord(buffer, APPROVED_CAPACITY - 2U, ordinalBytes(10000U), PackStatus::OK);
+    checkRecord(buffer, APPROVED_CAPACITY - 2U, ordinalBytes(5000U), PackStatus::OK);
     checkRecord(buffer, APPROVED_CAPACITY - 1U, expected, PackStatus::CLAMPED);
 }
 
 TEST_CASE("B15 D069 wrapped interior and newest borrowed sources preserve bytes and ordering") {
     recorder::FrameBuffer buffer;
     fillFrames(buffer, APPROVED_CAPACITY + 17U);
-    const auto* middle = buffer.at(5000U);
+    const auto* middle = buffer.at(2500U);
     CHECK(middle != nullptr);
     if (middle == nullptr) return;
     const auto expected = middle->bytes;
     CHECK(buffer.append(middle->bytes, PackStatus::INVALID));
-    checkRecord(buffer, 4999U, expected, PackStatus::OK);
-    checkRecord(buffer, 10000U, expected, PackStatus::INVALID);
-    const auto* newest = buffer.at(10000U);
+    checkRecord(buffer, 2499U, expected, PackStatus::OK);
+    checkRecord(buffer, 5000U, expected, PackStatus::INVALID);
+    const auto* newest = buffer.at(5000U);
     CHECK(newest != nullptr);
     if (newest == nullptr) return;
     CHECK(buffer.append(newest->bytes, PackStatus::CLAMPED));
-    checkRecord(buffer, 9999U, expected, PackStatus::INVALID);
-    checkRecord(buffer, 10000U, expected, PackStatus::CLAMPED);
+    checkRecord(buffer, 4999U, expected, PackStatus::INVALID);
+    checkRecord(buffer, 5000U, expected, PackStatus::CLAMPED);
     checkRecord(buffer, 0U, ordinalBytes(19U), PackStatus::OK);
     CHECK(buffer.overwrittenCount() == 19U);
     CHECK(buffer.invalidCount() == 1U);
@@ -508,7 +508,7 @@ TEST_CASE("B15 D069 repeated reset restores full capacity after partial and wrap
         checkRecord(buffer, index, ordinalBytes(100000U + static_cast<std::uint32_t>(index)),
                     PackStatus::OK);
     }
-    CHECK(buffer.append(ordinalBytes(110001U), PackStatus::OK));
+    CHECK(buffer.append(ordinalBytes(105001U), PackStatus::OK));
     CHECK(buffer.overwrittenCount() == 1U);
     checkRecord(buffer, 0U, ordinalBytes(100001U), PackStatus::OK);
 }
@@ -540,7 +540,7 @@ TEST_CASE("B15 D069 D028 event overflow does not stop frame recording or mark lo
     CHECK(events.overflowed());
     fillFrames(frames, APPROVED_CAPACITY);
     checkClean(frames);
-    checkRecord(frames, 10000U, ordinalBytes(10000U), PackStatus::OK);
+    checkRecord(frames, 5000U, ordinalBytes(5000U), PackStatus::OK);
     CHECK(events.size() == 4096U);
     CHECK(events.rejectedCount() == 1U);
     frames.reset();

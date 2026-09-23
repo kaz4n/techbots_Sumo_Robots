@@ -208,6 +208,7 @@ D-068 selects narrow offline B8 RAM storage/host-test preparation under D-051;
 D-070 defines its attempt owner. This does not authorize app integration,
 transport, hardware acceptance or a phase pass; retain the explicit RAM blocker.
 
-D-071 permits isolated recorder memory compile probes only. Production LOG_HZ50
-stays unchanged; candidate25 compiled, but loader/free-RAM/WCET and inherited
-Bridge runtime paths remain unqualified. See state/analysis/P2_memory_compile_validation.md.
+D-071 isolated memory probes support D-072's adoption of B15's25Hz low-memory
+fallback. LOG_HZ is the only changed B16 value; original50Hz evidence remains.
+Loader/free-RAM/WCET and inherited Bridge runtime paths remain unqualified.
+See state/analysis/P2_rate_adoption_validation.md; no app integration or gate follows.

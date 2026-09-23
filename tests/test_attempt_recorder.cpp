@@ -1157,20 +1157,20 @@ TEST_CASE("B15 D070 D028 event 4097 overflows while frame receipts continue inde
 TEST_CASE("B15 D070 D069 frame overwrite does not consume event capacity or suppress new events") {
     recorder::AttemptRecorder owner;
     startOwner(owner);
-    for (std::uint64_t token = 2U; token <= 10003U; ++token) {
+    for (std::uint64_t token = 2U; token <= 5003U; ++token) {
         auto result = resultAt(token);
         giveFrame(result, token - 1U, PackStatus::OK, static_cast<std::uint32_t>(token));
         CHECK(owner.consume(result) == ConsumeStatus::ACCEPTED);
-        if (token == 10002U) {
-            CHECK(owner.frames().size() == 10001U);
+        if (token == 5002U) {
+            CHECK(owner.frames().size() == 5001U);
             CHECK(owner.frames().overwrittenCount() == 0U);
         }
     }
-    CHECK(owner.frames().size() == 10001U);
+    CHECK(owner.frames().size() == 5001U);
     CHECK(owner.frames().overwrittenCount() == 1U);
     checkFrame(owner, 0U, markedFrame(3U));
-    checkFrame(owner, 10000U, markedFrame(10003U));
-    auto result = resultAt(10004U);
+    checkFrame(owner, 5000U, markedFrame(5003U));
+    auto result = resultAt(5004U);
     result.events.count = 1U;
     result.events.entries[0] = goEvent(0U);
     CHECK(owner.consume(result) == ConsumeStatus::ACCEPTED);

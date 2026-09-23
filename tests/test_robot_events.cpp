@@ -167,24 +167,24 @@ TEST_CASE("B15 Robot START frame waits for matching application and uses raw pre
     CHECK(result.skipped_frames == 0U);
 }
 
-TEST_CASE("B15 Robot50Hz frame cadence is phase anchored and delayed calls count missing slots") {
+TEST_CASE("B15 Robot25Hz frame cadence is phase anchored and delayed calls count missing slots") {
     Rig rig;
     const auto anchor = release(rig, idle(rig));
     CHECK(rig.step(anchor + 1U).frame_ready);
-    CHECK_FALSE(rig.step(anchor + 19999U).frame_ready);
-    CHECK_FALSE(rig.step(anchor + 20000U).frame_ready);
+    CHECK_FALSE(rig.step(anchor + 39999U).frame_ready);
+    CHECK_FALSE(rig.step(anchor + 40000U).frame_ready);
     const auto due_token = rig.last.token;
-    const auto due = rig.step(anchor + 20001U);
+    const auto due = rig.step(anchor + 40001U);
     CHECK(due.frame_ready);
     CHECK(due.frame_token == due_token);
-    CHECK(u32(due.frame, 0U) == 20U);
-    CHECK_FALSE(rig.step(anchor + 100000U).frame_ready);
-    CHECK(rig.last.skipped_frames == 3U); //40,60,80ms;100ms captures current data once.
+    CHECK(u32(due.frame, 0U) == 40U);
+    CHECK_FALSE(rig.step(anchor + 200000U).frame_ready);
+    CHECK(rig.last.skipped_frames == 3U); //80,120,160ms;200ms captures current data once.
     const auto delayed_token = rig.last.token;
-    const auto delayed = rig.step(anchor + 100001U);
+    const auto delayed = rig.step(anchor + 200001U);
     CHECK(delayed.frame_ready);
     CHECK(delayed.frame_token == delayed_token);
-    CHECK(u32(delayed.frame, 0U) == 100U);
+    CHECK(u32(delayed.frame, 0U) == 200U);
     CHECK(delayed.skipped_frames == 3U);
 }
 
@@ -194,10 +194,11 @@ TEST_CASE("B15 Robot match frames contain match yaw and actual downscaled duty")
     const auto time = go(rig, Mode::DIRECT);
     rig.step(time + 20000U);
     rig.input.raw_heading_deg = 721.0F;
-    rig.step(time + 40000U);
+    // GO is 20ms after a START-anchored 40ms slot; GO+60ms is the next slot.
+    rig.step(time + 60000U);
     const auto prior = rig.last;
     rig.applied_scale = 0.5F;
-    const auto result = rig.step(time + 40001U);
+    const auto result = rig.step(time + 60001U);
     CHECK(result.frame_ready);
     CHECK(result.frame_token == prior.token);
     CHECK(u32(result.frame, 8U) == 100U);

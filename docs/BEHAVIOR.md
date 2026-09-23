@@ -515,12 +515,19 @@ Matrix bottom row: battery bar. Fault icons: IMU, stuck sensor, low battery, gyr
 
 ## B15. Flight recorder
 
-- **Frames** at LOG_HZ (50): t_ms, state, mode, line_mask, opp_mask, heading (0.01 degree), gyro_z (0.1 dps), ax and ay (mg), duty_l and duty_r (int8, scale 127), vbat (0.01 V), flags (imu_ok, phantom active, stuck, calibration rejected), tick_max_us. About 24 bytes per frame.
+- **Frames** at LOG_HZ (25, D-072): t_ms, state, mode, line_mask, opp_mask, heading (0.01 degree), gyro_z (0.1 dps), ax and ay (mg), duty_l and duty_r (int8, scale 127), vbat (0.01 V), flags (imu_ok, phantom active, stuck, calibration rejected), tick_max_us. About 24 bytes per frame.
 - **Events** at their exact tick: START_RELEASE, GO, FIRST_NONZERO_DUTY, every state change, EDGE (with mask), CONTACT, STALL, REFLANK phase changes, PHANTOM_SET, faults. 8 bytes each, ring of 4096.
 - **Capacity:** at least 200 s of frames. If RAM is short, drop to 25 Hz. D-028 (human-approved 2026-09-22) supersedes the impossible unlimited "Never drop events" requirement: retain the first4096 events. On further events latch overflow, increment a saturating rejected-event counter, continue frame recording and clearly mark the dump as incomplete evidence. Overflow does not change motion; never silently overwrite retained events.
 - **Dump:** only in IDLE (service mode LOG_DUMP or a request from Linux). CSV lines go over Bridge/Monitor to Linux; tools/dump_match.sh stores `logs/<date>_<time>_<mode>_frames.csv` and `_events.csv`. Never during a match (rule R2).
 
 ---
+
+D-072 (2026-09-23, selected under D-051) adopts the existing25Hz fallback. The
+original50Hz owner image failed the installed RAM size check (356608B/262144B);
+the isolated25Hz image passed at226584B. See state/analysis/P2_memory_compile_validation.md.
+This changes logging cadence only: keep200s of frames,4096exact-tick events and
+the1kHz control loop. Actual loading/free RAM, full HAL growth,200s/no-gap dump
+and worst-case timing remain unverified; no phase or hardware gate follows.
 
 ## B16. Tunables (src/config.h)
 
@@ -600,7 +607,7 @@ Defaults are starting points. "Tuned in" names the phase that sets the final val
 | ARC_MAX_MS | 1500 | ms | P5 |
 | WAIT_MAX_MS | 2000 | ms | P5 (never above 2000) |
 | APPROACH_WINDOW_MS | 300 | ms | P5 |
-| LOG_HZ | 50 | Hz | P2 |
+| LOG_HZ | 25 | Hz | P2; D-072 low-memory fallback |
 | BTN_DEBOUNCE_MS | 20 | ms | P2 |
 | BTN_LONG_MS | 1000 | ms | P2 |
 | MODE_DEFAULT | 1 | mode | locked |

@@ -1,4 +1,4 @@
-# Checks D-071 from its frozen contract and public header without reading probe code.
+# Checks D-071/D-072 frozen contracts and public header without reading probe code.
 # Keeps candidate preparation, inert startup and compile-only authority independently tested.
 # Runs with unittest under WSL using strict C++17 counted substitutes and no board access.
 from contextlib import ExitStack, redirect_stderr, redirect_stdout
@@ -74,18 +74,23 @@ class RecorderMemoryPreparationTests(unittest.TestCase):
         with redirect_stdout(io.StringIO()):
             return self.module.prepare_source(rate)
 
-    def check_candidate(self, candidate, rate):
+    def check_candidate(self, candidate, rate, source_rate=50, expected_config=None):
         self.assertIsInstance(candidate, Path)
         self.assertTrue(candidate.resolve().is_relative_to(
             (self.root / 'build/memory_sources').resolve()))
         self.assertNotEqual(candidate.resolve(), self.root.resolve())
         expected = dict(self.before)
-        if rate == 25:
-            expected['src/config.h'] = expected['src/config.h'].replace(LITERAL, b'LOG_HZ = 25U')
+        if expected_config is not None:
+            expected['src/config.h'] = expected_config
+        else:
+            declaration = f'inline constexpr unsigned LOG_HZ = {source_rate}U;'.encode()
+            expected['src/config.h'] = expected['src/config.h'].replace(
+                declaration, f'inline constexpr unsigned LOG_HZ = {rate}U;'.encode())
         self.assertEqual(expected, input_bytes(candidate))
         self.assertEqual(self.before, input_bytes(self.root))
         provenance = json.loads((candidate / 'provenance.json').read_text())
         self.assertEqual(rate, provenance['rate_hz'])
+        self.assertEqual(source_rate, provenance['source_rate_hz'])
         self.assertEqual(hash_bytes(self.before['src/config.h']),
                          provenance['original_config_sha256'])
         self.assertEqual(hash_bytes(expected['src/config.h']),
@@ -102,6 +107,98 @@ class RecorderMemoryPreparationTests(unittest.TestCase):
 
     def test_d071_25hz_changes_only_the_one_config_literal(self):
         self.check_candidate(self.prepare(25), 25)
+
+    def test_d072_both_source_rates_support_both_destination_rates_with_exact_provenance(self):
+        for source_rate in (25, 50):
+            config = (b'// fixture\r\ninline constexpr unsigned LOG_HZ = ' +
+                      str(source_rate).encode() + b'U; // Hz\r\n')
+            (self.root / 'src/config.h').write_bytes(config)
+            self.before = input_bytes(self.root)
+            for rate in (25, 50):
+                with self.subTest(source=source_rate, destination=rate):
+                    self.check_candidate(self.prepare(rate), rate, source_rate)
+
+    def test_d072_changes_only_active_digits_and_preserves_comments_adjacent_values_and_crlf(self):
+        prefix = (b'// Original inline constexpr std::uint32_t LOG_HZ = 50U;\r\n'
+                  b'/* inline constexpr unsigned LOG_HZ = 25U; */\r\n'
+                  b'namespace config {\r\ninline constexpr unsigned NEIGHBOR_HZ = 50U;\r\n'
+                  b'inline constexpr std::uint32_t LOG_HZ = ')
+        suffix = (b'U; // fallback25Hz from original50; LOG_HZ = 50U\r\n'
+                  b'inline constexpr unsigned NEXT_HZ = 25U;\r\n}\r\n')
+        for source_rate in (25, 50):
+            config = prefix + str(source_rate).encode() + suffix
+            (self.root / 'src/config.h').write_bytes(config)
+            self.before = input_bytes(self.root)
+            for rate in (25, 50):
+                with self.subTest(source=source_rate, destination=rate):
+                    expected = prefix + str(rate).encode() + suffix
+                    self.check_candidate(self.prepare(rate), rate, source_rate, expected)
+
+    def test_d072_unsupported_nonliteral_and_ambiguous_declarations_reject_before_copy(self):
+        declaration = b'inline constexpr std::uint32_t LOG_HZ = 25U;\n'
+        invalid = (
+            b'// ' + declaration,
+            b'/* ' + declaration + b' */\n',
+            b'#define LOG_HZ 25U\n',
+            declaration.replace(b'25U', b'49U'),
+            declaration.replace(b'25U', b'0U'),
+            declaration.replace(b'25U', b'(25U)'),
+            declaration.replace(b'25U', b'25U + 0U'),
+            declaration.replace(b'25U', b'OTHER_HZ'),
+            declaration + declaration,
+            declaration + declaration.replace(b'25U', b'50U'),
+            declaration + declaration.replace(b'25U', b'49U'),
+            declaration + b'#define LOG_HZ 50U\n',
+            b'struct Fixture { ' + declaration + b'};\n',
+        )
+        with mock.patch.object(shutil, 'copy2') as copy_file, \
+                mock.patch.object(shutil, 'copytree') as copy_tree:
+            for config in invalid:
+                (self.root / 'src/config.h').write_bytes(config)
+                for rate in (25, 50):
+                    with self.subTest(config=config, rate=rate), self.assertRaises(ValueError):
+                        self.prepare(rate)
+                    self.assertEqual(config, (self.root / 'src/config.h').read_bytes())
+                    self.assertEqual(self.board_root, self.module.board_tool.ROOT)
+            copy_file.assert_not_called()
+            copy_tree.assert_not_called()
+        self.flash_mock.assert_not_called()
+
+    def test_d072_conditionals_continuations_and_array_duplicates_reject_before_copy(self):
+        declaration = b'inline constexpr unsigned LOG_HZ = 25U;\n'
+        invalid = (
+            b'#if 0\n' + declaration + b'#endif\n',
+            b'#if 1\n' + declaration + b'#endif\n',
+            b'#define FAKE \\\n' + declaration,
+            b'// continued comment \\\n' + declaration,
+            declaration + b'inline constexpr unsigned LOG_HZ[1] = {50U};\n',
+        )
+        with mock.patch.object(shutil, 'copy2', side_effect=AssertionError('copy forbidden')) as copy_file, \
+                mock.patch.object(shutil, 'copytree', side_effect=AssertionError('copy forbidden')) as copy_tree:
+            for config in invalid:
+                (self.root / 'src/config.h').write_bytes(config)
+                for rate in (25, 50):
+                    with self.subTest(config=config, rate=rate), self.assertRaises(ValueError):
+                        self.prepare(rate)
+                    self.assertEqual(config, (self.root / 'src/config.h').read_bytes())
+                    self.assertEqual(self.board_root, self.module.board_tool.ROOT)
+            copy_file.assert_not_called()
+            copy_tree.assert_not_called()
+        self.flash_mock.assert_not_called()
+
+    def test_d072_closed_unrelated_preprocessor_guards_preserve_valid_top_level_rate(self):
+        prefix = (b'#ifndef MATCH\n#define MATCH 0\n#endif\n'
+                  b'#ifndef MOTORS_ALLOWED\n#define MOTORS_ALLOWED 0\n#endif\n'
+                  b'namespace config {\ninline constexpr std::uint32_t LOG_HZ = ')
+        suffix = b'U; // Hz\n}\n'
+        for source_rate in (25, 50):
+            config = prefix + str(source_rate).encode() + suffix
+            (self.root / 'src/config.h').write_bytes(config)
+            self.before = input_bytes(self.root)
+            for rate in (25, 50):
+                with self.subTest(source=source_rate, destination=rate):
+                    expected = prefix + str(rate).encode() + suffix
+                    self.check_candidate(self.prepare(rate), rate, source_rate, expected)
 
     def test_d071_each_preparation_is_fresh_and_preserves_previous_candidate(self):
         first = self.prepare(25)
@@ -370,8 +467,8 @@ int main() {
     assert(step_address == nullptr && consume_address == nullptr);
     assert(query_address == nullptr && reset_address == nullptr);
     assert(allocations == 0 && api_calls == 0 && probe_calls == 0);
-    assert(abi.version == 1 && abi.record_bytes == 96 && abi.log_hz == 50);
-    assert(abi.window_ms == 200000 && abi.frame_capacity == 10001 && abi.event_capacity == 4096);
+    assert(abi.version == 1 && abi.record_bytes == 96 && abi.log_hz == 25);
+    assert(abi.window_ms == 200000 && abi.frame_capacity == 5001 && abi.event_capacity == 4096);
     assert(abi.pointer_bytes == sizeof(void*) && abi.size_t_bytes == sizeof(std::size_t));
     const std::uint32_t sizes[] = {sizeof(fsm::Robot), sizeof(recorder::AttemptRecorder),
         sizeof(recorder::FrameBuffer), sizeof(recorder::StoredFrame), sizeof(logframe::EventBuffer),

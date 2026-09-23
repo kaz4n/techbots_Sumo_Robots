@@ -1,0 +1,107 @@
+{
+  "utc": "2026-09-23T02:52:46.028293+00:00",
+  "command": [
+    "python",
+    "tools/board_tool.py",
+    "flash",
+    "bench/p2_recorder_memory",
+    "--compile-only"
+  ],
+  "scope": "Linux compile only, no upload/reset/MCU action",
+  "checks": [
+    {
+      "argv": [
+        "arduino-cli",
+        "core",
+        "list"
+      ],
+      "target": "2629958581",
+      "utc": "2026-09-23T02:52:46.148592+00:00",
+      "exit_status": 0,
+      "stdout": "ID             Installed Latest Name\narduino:zephyr 1.0.0     1.0.0  Arduino Q Boards\n\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "mkdir",
+        "-p",
+        "/home/arduino/sumox26-build/772bda5578ef4be55513b95e25d433a225faeadefdf4c6efb119457f3140c690/p2_recorder_memory"
+      ],
+      "target": "2629958581",
+      "utc": "2026-09-23T02:52:47.731131+00:00",
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "mkdir",
+        "-p",
+        "/home/arduino/sumox26-build/772bda5578ef4be55513b95e25d433a225faeadefdf4c6efb119457f3140c690/p2_recorder_memory/.",
+        "/home/arduino/sumox26-build/772bda5578ef4be55513b95e25d433a225faeadefdf4c6efb119457f3140c690/p2_recorder_memory/src",
+        "/home/arduino/sumox26-build/772bda5578ef4be55513b95e25d433a225faeadefdf4c6efb119457f3140c690/p2_recorder_memory/src/core",
+        "/home/arduino/sumox26-build/772bda5578ef4be55513b95e25d433a225faeadefdf4c6efb119457f3140c690/p2_recorder_memory/src/hal"
+      ],
+      "target": "2629958581",
+      "utc": "2026-09-23T02:52:47.770148+00:00",
+      "exit_status": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "arduino-cli",
+        "compile",
+        "--fqbn",
+        "arduino:zephyr:unoq",
+        "--output-dir",
+        "/home/arduino/sumox26-build/772bda5578ef4be55513b95e25d433a225faeadefdf4c6efb119457f3140c690/p2_recorder_memory/artifacts/bench-default",
+        "--build-property",
+        "compiler.cpp.extra_flags=-DMATCH=0 -DMOTORS_ALLOWED=0",
+        "--build-property",
+        "compiler.c.extra_flags=-DMATCH=0 -DMOTORS_ALLOWED=0",
+        "/home/arduino/sumox26-build/772bda5578ef4be55513b95e25d433a225faeadefdf4c6efb119457f3140c690/p2_recorder_memory"
+      ],
+      "target": "2629958581",
+      "utc": "2026-09-23T02:52:48.647155+00:00",
+      "exit_status": 0,
+      "stdout": "Sketch uses 294932 bytes (37%) of program storage space. Maximum is 786432 bytes.\nGlobal variables use 226584 bytes (86%) of dynamic memory, leaving 35560 bytes for local variables. Maximum is 262144 bytes.\n",
+      "stderr": "Low memory available, stability problems may occur.\n"
+    }
+  ],
+  "exit_status": 0,
+  "end_utc": "2026-09-23T02:54:04.368132+00:00",
+  "staged_sha256": "772bda5578ef4be55513b95e25d433a225faeadefdf4c6efb119457f3140c690",
+  "staged_files": {
+    "p2_recorder_memory.ino": "9c21948a38ef4e3d9e60c289370a80606ded02c274df224060363ee1d9fdfc64",
+    "src/config.h": "fd0f351f64e4f9f436689d2ee23681300d1bcda06abb9dea56768d88813a4b15",
+    "src/core/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/core/countdown.cpp": "34558f66b118c8298c0138d62ba4b98437864007935c08fcd9969507c3f1761b",
+    "src/core/countdown.h": "1ad9fe88b6a9e368626cccf65701815bfce2c8609c9526ed1dcc68fb72b5f9da",
+    "src/core/edge.cpp": "b48df54ad7708ec1776b30edb107fbbed57557b4a218ee1258e42aaec1e75835",
+    "src/core/edge.h": "1fb78c92fb46d661272a660a663ef0aaf3aff416dd6e4b329607c0abb9134389",
+    "src/core/fsm.cpp": "9334be82f508064e554a322ac7c11be598da73ff49d0cf80fd09dfbf94bc25cb",
+    "src/core/fsm.h": "4ffb1cccaf44b21dd49a99892cadbbb6f7e21fc1f2cccbbe11a406cabc6555b9",
+    "src/core/fsm_robot.cpp": "206d3d1dd82a3cb3be0eea2187fa1c703443620a5bf4caf03d470e902cab6daa",
+    "src/core/governor.cpp": "249259d7230c5e0d033cf3fb3ff938b854a5a0629d22e83c81eee45b29ad2d68",
+    "src/core/governor.h": "48174995c9c420a47bda8406774ca2241cb36366c476452aa20ca5169feb5999",
+    "src/core/logframe.cpp": "daee8d7fe49d64e1f92102ad68c28817dac15d2481d98dbb1f62d19dfe73ae32",
+    "src/core/logframe.h": "4cde17409858ba5e85e610f866537f1687bcea26bb9bb14b405235dd3345515b",
+    "src/core/motion.cpp": "c8f4286e42d964275c269b97dca9e00b5d8d55524046a3ed63433ae0e9cb9656",
+    "src/core/motion.h": "1d8baa81d23bc794562d9b3f695ba98eacd0a3fedfc3ae0f0b6ad4923d66fb78",
+    "src/core/openers.cpp": "d924761e1d4af313530ba57f59949b217f0018915bd31811295d351dc65817b9",
+    "src/core/openers.h": "4ef64dc3cddef2ece35070cda6d5099644d89935689289983e37b997f056a1be",
+    "src/core/opp_fusion.cpp": "97bb8ed35f3ddfc59a19692da25452aeabf0e1643404f352d6f036bb53cb5be2",
+    "src/core/opp_fusion.h": "0afd417533b1186e0a1a9e959655a2d0baa40d04b119075e40e53d864ed25956",
+    "src/core/stall.cpp": "46e0f67eb3d3b820150d156eb2a1cae2e074e44c56f98d6ab4b739c837229436",
+    "src/core/stall.h": "88accba473a43b04949a30696d968f3aaf308493ef00a9ba16aa40018765b9e3",
+    "src/core/types.h": "28067a3e384f07abdd115b686c22b24d9e2789c117b611548ba4570255177dd7",
+    "src/hal/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/hal/recorder.cpp": "8873d8f50f5b6e04c8ee92a986d118569624877d8cfebcad4206d0c638fee5b7",
+    "src/hal/recorder.h": "51a95f35475c38588acdc7cd12c372f0c11afd482077c556a98c92baa169ffec",
+    "src/hal/recorder_frames.cpp": "8e7050123a89a48d6a0a039fc9b21849a0a8ef60da4687f3391984a9438abee1",
+    "src/hal/recorder_frames.h": "adaccb144cc3caa2a47dacf1f6c3cc01a019527e1376718638452bef344852ea",
+    "src/memory_probe.cpp": "b5212ccdf18187b916c3d7d8042246d6409ed3bae224f36e5820db2d53aa9fac",
+    "src/memory_probe.h": "28bd6a0396550e4dec254fca88a4c6382ab057d65c89ce3e0a52f0edeada8887"
+  }
+}

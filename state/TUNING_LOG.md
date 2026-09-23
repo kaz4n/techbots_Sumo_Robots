@@ -212,3 +212,15 @@ not a physical run/free-RAM/recording measurement. P2_memory_compile_validation.
 and raw provenance retain all source differences, commands, failures and hashes.
 Conditional pristine loader peak230072B is analysis only. Rate adoption remains
 separate; no full-HAL, loadability,200s/dump/WCET, wiring or gate claim.
+
+
+## 2026-09-23 - D-072 specified low-memory fallback adoption
+Production LOG_HZ50->25 is the only changed B16 value, under D-051/D-072.
+B15 already permits25Hz when RAM is short. Actual50Hz probe356608B exceeds
+262144B; actual current25Hz probe226584B exits0 and matches D-071 candidate ELF.
+5001frame endpoints/40ms cadence;200s window,4096events and1kHz control unchanged.
+Evidence: P2_rate_adoption_validation.md/raw, F-092 and fresh same-model review.
+975hostcases/15667813assertions normal+ASanUBSan and340controlledtools pass.
+This is an evidence-backed development default, not ring tuning or measured
+free RAM. Load/fullHAL/200s/no-gap dump/WCET and original human gates remain.
+No core/HAL body, locked test, motion/sensor parameter, upload or MCU action.

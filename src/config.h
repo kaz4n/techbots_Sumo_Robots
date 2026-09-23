@@ -1,4 +1,4 @@
-// Holds the unchanged BEHAVIOR.md B16 defaults.
+// Holds the documented BEHAVIOR.md B16 development defaults.
 // Centralizes tunables without asserting that proposed hardware pins are verified.
 // P0 scaffold compiles this header; behavior and target tests follow their gates.
 #pragma once
@@ -88,7 +88,7 @@ inline constexpr std::uint32_t ARC_SWEEP_DEG = 200U; // deg
 inline constexpr std::uint32_t ARC_MAX_MS = 1500U; // ms
 inline constexpr std::uint32_t WAIT_MAX_MS = 2000U; // ms
 inline constexpr std::uint32_t APPROACH_WINDOW_MS = 300U; // ms
-inline constexpr std::uint32_t LOG_HZ = 50U; // Hz
+inline constexpr std::uint32_t LOG_HZ = 25U; // Hz; D-072 B15 low-memory fallback
 inline constexpr std::uint32_t BTN_DEBOUNCE_MS = 20U; // ms
 inline constexpr std::uint32_t BTN_LONG_MS = 1000U; // ms
 inline constexpr std::uint32_t MODE_SHORT_MS = 600U; // ms; existing B13 strict short-press bound

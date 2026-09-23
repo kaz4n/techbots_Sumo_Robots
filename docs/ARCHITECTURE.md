@@ -147,7 +147,8 @@ refinement remain disabled; enabling unsupported options is not silently accepte
 
 ## Evidence and device separation
 
-Frames start at accepted START and use a50Hz phase-anchored schedule, at most one
+Frames start at accepted START and use a25Hz phase-anchored schedule (D-072's
+specified B15 low-memory fallback from the original50Hz), at most one
 candidate per observation with explicit skipped slots. A frame waits for its
 matched actual application; CLAMPED/INVALID status is retained and marks evidence
 incomplete. No application means no completed frame. Cancellation or an inhibited

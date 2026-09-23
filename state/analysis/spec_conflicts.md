@@ -487,3 +487,13 @@ setup/loop. Future eligible runtime integration must resolve actual platform hoo
 startup paths as well as application calls, with installed source/ELF, fault-path
 and timing evidence. The bench include boundary quarantines Zephyr's EMPTY macro;
 future Arduino inclusion must handle that collision explicitly.
+
+
+D-072/F-092 SC-AH follow-up (2026-09-23): development rate selection RESOLVED
+through B15's existing25Hz fallback under D-051, visibly recorded in config/B16.
+Actual current production-source probe compiles226584B; exact ELF matches D-071
+candidate25.975hostcases normal+ASanUBSan and340tools pass after independent
+expectation updates. Only LOG_HZ changed among76defaults; locked files unchanged.
+Deployment acceptance remains OPEN: fullHAL/app/loader/freeRAM/200s/no-gap dump
+and WCET are unmeasured. SC-I inherited Bridge/initializer paths remain. No
+human/physical gate follows. See P2_rate_adoption_validation.md and fresh review.

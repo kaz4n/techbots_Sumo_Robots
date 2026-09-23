@@ -38,6 +38,9 @@ public:
     SetupReport start(std::uint32_t now_us, bool power_confirmed);
     SetupReport advanceSetup(std::uint32_t now_us);
     SetupReport setupReport() const { return setup_.report(); }
+    // Pure latched setup-fault evidence; default NOT_READY unless setup is FAULT.
+    // No bus/clock call, lifecycle change, observation or completion pulse.
+    Sample setupFailure() const;
     // Caller time shares Bus micros() domain. No I/O before PROFILE_READY or after fault.
     // NO_NEW advances no sample sequence, calibration value or yaw integration.
     Sample read(std::uint32_t now_us);

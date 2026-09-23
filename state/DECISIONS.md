@@ -1249,3 +1249,15 @@ short-circuiting, preventing retained lower bounds from starving frame completio
 Both are implementation corrections, not altered source timing/color or Gate rules.
 Actual full-app compile first failed RAM276368 >262144; preserve target failure and
 linked artifacts. No capacity reduction, fake compile success or upload follows.
+
+## D-097 (2026-09-23, selected under D051/D075) Passive IMU setup-fault evidence
+Context: actual app exceeds target memory by14312B. Native setup-fault retrieval
+currently references the legacy runtime read API solely to obtain a stored fault,
+retaining unused synchronous runtime paths in the app image.
+Decision: adopt P2_imu_fault_access_contract.md; add const setupFailure() returning
+exact latched setup fault, or canonical NOT_READY outside actual setupFAULT. Bind
+only native setup-fault retrieval to it, ignoring that callback's time argument.
+Consequence: preserve all legacy/async/setup semantics and every evidence field;
+no capacity/config/timing/startup change. Independent tests, target dependency/
+size comparison and separate review required. Estimated saving is not proof and
+cannot alone close the full RAM blocker. No upload or physical/gate authority.

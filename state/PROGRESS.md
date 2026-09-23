@@ -708,3 +708,8 @@ committed immediately after actual validation/index checks. Host results PASS;
 actual target RAM BLOCKER remains. Handoff/execution/resume now identify exact
 passive setup-fault dependency correction and subsequent inherited Bridge/Serial
 investigation. No task or gate falsely closed; fullP0-P7 ACTIVE/incomplete.
+
+2026-09-23T19:46:00+04:00 | P2 D097 contract | Previous turn PROGRESS3be9669/a93d536.
+Freeze passive setup-fault accessor semantics and exact native callback replacement.
+No implementation yet; tests and same-app target comparison next. Full RAM blocker
+remains14312B; no capacity/startup/physical/gate change. | contract=this commit

@@ -236,3 +236,20 @@ Live `--timeout` defaults to330seconds (range1..3600); connection timeout is at 
 10seconds. Native UART cancellation permanently poisons that firmware instance's
 transport; MCU reset alone does not establish a clean Linux decoder. Never
 automatically restart `arduino-router`: its stop hooks can reset the MCU.
+
+## D091 inert recorder evidence
+
+`python tools/board_tool.py flash bench/recorder_inert --compile-only` compiles the
+bare-board synthetic recorder probe. Default-only inert uploads require its exact
+separately reviewed source key in p0_inert_sources.json; MATCH uploads remain
+blocked. For the identified D091 run, the already-built ELF/ZSK bytes were checked
+and uploaded separately, preserving exact reviewed artifact identity.
+
+`recorder_capture.py` is a pinned board-Linux read-only MEM-AP collector with its own
+48-read/2MiB/16KiB-RAM/64-command/600s-sequence/30s-command ceilings. Copy it alongside
+unchanged p0_capture.py/p0_mem_read.cfg and recorder_heap.py, preserving reviewed
+hashes. Its fixed artifact pins are run-specific; different firmware requires
+new review. CAPTURED means collected evidence, including any actual failure/loss.
+recorder_heap.py decodes only the pinned262144B LLEXT pool offline; capacity is a
+point-in-time observation. None of these tools supplies motion commands or proves
+native UART transfer, physical B8, calibrated MCU time or complete robot WCET.

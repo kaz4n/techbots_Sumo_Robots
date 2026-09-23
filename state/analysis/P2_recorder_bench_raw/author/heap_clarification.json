@@ -1,0 +1,10 @@
+{
+  "time": "2026-09-23T13:03:22.240831+00:00",
+  "clarification": "Root confirmed all reserved/padding bytes excluded from allocator metadata. Small chunk0 offsets4..7 are unused although z_heap struct reserves two chunkid_t slots. Exclude offsets76..79 and terminal padding262140..262143. Error-code names not frozen; nonempty code only.",
+  "implementation_notice": "Worker initially reported whole76-byte prefix including4..7; notified and worker changed before new test run. No failing test result was produced; initial mismatch is a contract clarification, not a red/green test claim.",
+  "validation": "28 independent unittest methods PASS after padding and valid-head-rotation tests added. Prior26-method receipt retained.",
+  "files": {
+    "tests/tooling/test_recorder_heap.py": "868564affa32805874eda085b19829e00591541aac44d20e10f8fe157b50f2a2",
+    "tests/fixtures/recorder_heap_vectors.py": "bbfa4edda07fd28319d7180112b302b4941f9a1a0305fbfe40a0d2c83e8998f4"
+  }
+}

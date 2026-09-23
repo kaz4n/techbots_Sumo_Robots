@@ -30,3 +30,9 @@ First prove actual elapsed200s synthetic recording/retention and bounded memory
 facts; later native transport requires knownclean decoder. Nevercall zero stack
 watermark export, inventheapstats, or silentlyrelax p0_capture16-read guard.
 All SC-A buttonwindows/physical/humangates, SC-AJ/fullRAM/800us and fullapp remain.
+
+D091inprogress17:25+04: synthetic recorder source1502e948 reviewed/tested/compiled
+and exactinertimage uploaded13:17:26UTC (runrecordP2_recorder_bench_run.md).
+Readback1failed30s wholeloadercopy beforeRAM; new65536B flashchunks keep original
+48read/2MiB/600s/30s ceilings. Nextapprove/retrycapture unchangedfirmware, inspect
+actualdiagnostics/pool, independentCRC/cadence; runtime statusstillUNOBSERVED.

@@ -39,3 +39,14 @@ P0_G1/G2/G5/G6 specify their measurement plans. Motors/drivers must
 remain disconnected for the bare-board P0 procedure. The old bare timing image
 was measured separately; its max3us lateness is not timing evidence for the new
 matrix/UART workload. No pin approval or phase gate follows from either run.
+
+## D091 bare-board recorder probe
+
+`bench/recorder_inert` runs actual Robot, inert checked MotorGate and AttemptRecorder
+with explicitly synthetic inputs for200s of MCU time. It initializes no native
+sensor, header motor output, ADC, QTR, IMU, matrix or UART backend. Both MATCH and
+MOTORS_ALLOWED must be0. A terminal296B diagnostic and retained-row CRC freeze.
+The separately reviewed tools/recorder_capture.py reads exact-identity MEM-AP
+evidence; captured heap capacity and sampled SP headroom are not stack watermarks
+or fullapp WCET. See state/analysis/P2_recorder_bench_contract.md and run record.
+No UART/no-gap physical B8 or human-gate claim follows from this probe.

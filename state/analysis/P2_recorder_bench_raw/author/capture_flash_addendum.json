@@ -1,0 +1,51 @@
+{
+  "time": "2026-09-23T13:27:44.526848+00:00",
+  "scope": "New independent indexed flash tests only; existing capture tests unchanged. No production body inspected or changed, no hardware action.",
+  "new_file": "tests/tooling/test_recorder_capture_flash.py",
+  "new_methods": 12,
+  "combined_methods": 51,
+  "result": "PASS12newflash+39existingcapturemethods,1.905s",
+  "exact_flash_reads": {
+    "loader": {
+      "base": "0x08000000",
+      "chunks": [
+        65536,
+        65536,
+        65536,
+        65536,
+        1536
+      ]
+    },
+    "sketch": {
+      "base": "0x08100000",
+      "chunks": [
+        65536,
+        65536,
+        15000
+      ]
+    },
+    "total_bytes": 409752
+  },
+  "integration": "ActualCapture+verify_flash+find_bss+capture_values under mockedmemorycommands:1extension47readsPASS,2extensions48readsPASS,3extensionsneeds49andfailsclosedat48retainingbothpools. No48read/2MiB/command/deadlineguardchange.",
+  "clarification": "InitialtestincorrectlyrequiredpackagedloaderbinaryequalcanonicalELF. Rootconfirmedexistingpinnedpolicy:packagebyte255differsfromELF0atoffset260287(0x3F8BF);bothlocalartifactsareindependentlypinned. NewtestrequiresexplicitpackagedifferencereportandstrictdeployedELFbytecomparisonatthatposition. Originalfailedreceiptretainedinflash_runs.jsonl.",
+  "covered": [
+    "Exact8indexedrangesandtotalbytes",
+    "Firstandlastbytecorruptionineveryblock",
+    "Everyblockshortorcommandfailed",
+    "NoRAMauthorityuntilall8matched",
+    "Stalepretrueauthoritycleared",
+    "Unverifiedidentityblocked",
+    "Badindex,size,address,regionrejected",
+    "Read48/byte2MiBbudgetsunchanged",
+    "Failedreadcharged,nonretryable,partialrawpreserved",
+    "Full47/48/49readintegration"
+  ],
+  "existing_test_hash_unchanged": true,
+  "post_run_opaque_hashes": {
+    "tests/tooling/test_recorder_capture_flash.py": "b0ae79905bfbca2ff86f66c74bb4307933a09a66db135cdfa32b39856da447d4",
+    "tests/tooling/test_recorder_capture.py": "a0288e51cf6202bdc296505a9fa982e31c5729aa657991b6d15cce51ca9afe8f",
+    "tools/recorder_capture.py": "fd1932acc3f78ce68fb833f54b1e1ce72ab97aeb3942cc53dad27acb45dc6e25",
+    "tools/p0_capture.py": "885c4e4206aea4ac9e03c4e92e48258db2a0ae302ff83a86430e6913afeeb57c"
+  },
+  "limitations": "Syntheticofflinefixturetests; boardtimeoutrecovery,actualcaptureexecutionandreviewremainroot-owned."
+}

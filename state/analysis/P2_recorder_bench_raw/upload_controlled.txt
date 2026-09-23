@@ -1,0 +1,22 @@
+test_compile_failure_cannot_reach_upload (tests.tooling.test_recorder_upload.RecorderUploadTests.test_compile_failure_cannot_reach_upload) ... ok
+test_compile_only_never_uploads_even_for_match_or_unapproved_source (tests.tooling.test_recorder_upload.RecorderUploadTests.test_compile_only_never_uploads_even_for_match_or_unapproved_source) ... ok
+test_match_and_immediate_uploads_fail_before_transport (tests.tooling.test_recorder_upload.RecorderUploadTests.test_match_and_immediate_uploads_fail_before_transport) ... ok
+test_missing_or_changed_source_snapshot_fails_before_board_commands (tests.tooling.test_recorder_upload.RecorderUploadTests.test_missing_or_changed_source_snapshot_fails_before_board_commands) ... ok
+test_only_reviewed_default_inert_source_can_upload (tests.tooling.test_recorder_upload.RecorderUploadTests.test_only_reviewed_default_inert_source_can_upload) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.021s
+
+OK
+COMPILE command completed: bench/recorder_inert; source SHA256=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa; MATCH=0 MOTORS_ALLOWED=0 STARTUP=default
+Compile-only: no upload requested
+COMPILE command completed: bench/recorder_inert; source SHA256=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa; MATCH=0 MOTORS_ALLOWED=0 STARTUP=default
+Compile-only: no upload requested
+COMPILE command completed: bench/recorder_inert; source SHA256=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa; MATCH=0 MOTORS_ALLOWED=0 STARTUP=immediate
+Compile-only: no upload requested
+COMPILE command completed: bench/recorder_inert; source SHA256=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa; MATCH=1 MOTORS_ALLOWED=1 STARTUP=immediate
+Compile-only: no upload requested
+COMPILE command completed: bench/recorder_inert; source SHA256=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa; MATCH=1 MOTORS_ALLOWED=1 STARTUP=immediate
+Compile-only: no upload requested
+COMPILE command completed: bench/recorder_inert; source SHA256=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa; MATCH=0 MOTORS_ALLOWED=0 STARTUP=default
+UPLOAD command completed; physical operation still requires observation

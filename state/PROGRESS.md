@@ -552,3 +552,7 @@ e50c6da3,normalstartup,MOTORS_ALLOWED0,serial2629958581. Upload/capture next.
 
 
 2026-09-23T16:54:09+04:00 | P2 D090 checkpoint | Implementedfebde53; freshreviewPASS and allspecifiedhost/tooling/target checks passed; no currentMCUaction. InitialGit-index audit Windowsseparator/cache issues corrected;72target/current/index and194rawblobs exact. Read-only nextbench audit proves runtimeheapstats/stackpainting absent and stackspaceexportNULL; actual200s/freeRAM/synthetictransport stillpending. FullgoalACTIVE; nextfreezeinert recorderbenchcontract, independenttests and identifiedrun. | checkpointcommit follows
+
+- 2026-09-23 17:10 +04 | P2 B8 D091 | IMPLEMENTED/PENDING: inert200s recorder Runner, fixed296B diagnostics and offline pinnedheap decoder; independent28heap tests PASS, Runner/target/capture review in progress. No new MCU upload; no gates. Evidence state/analysis/P2_recorder_bench_validation.md; local work atop19f6f7e.
+
+- 2026-09-23 17:25 +04 | P2 B8 D091 | TARGET-COMPILED/INERT-UPLOADED: exact1502e948/eff3e050 reviewed74files uploaded13:17:26UTC tobareUNOQ2629958581; no sensor/motor/UARTsetup. Capture1 FAILED30s wholeloaderread,94208B partial/noRAMinterpretation. Chunkedidentityfix keepsalloriginalguards; additive tests/reviewpending before retry. RuntimeoutcomeUNOBSERVED; evidence P2_recorder_bench_run.md/P2_recorder_capture_timeout.md; uncommitted atop19f6f7e.

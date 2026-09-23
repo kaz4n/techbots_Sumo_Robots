@@ -1,3 +1,19 @@
+## Latest in-progress checkpoint - 2026-09-23 17:25 +04
+
+ActiveP2 underD051/D075. D091 source1502e948 (74files) is independently reviewed,
+host-tested and target-compiled. Exact inert ELF eff3e050/ZSK0448e3ac uploaded to
+bareUNOQ ADB2629958581 at13:17:26UTC, MATCH0/MOTORS_ALLOWED0/default. No sensors,
+header motor I/O or UART initialized. This supersedes old last-known ui_matrix.
+Runrecord analysis/P2_recorder_bench_run.md; no runtime result claimed yet.
+First readback failed at30s wholeloaderread,94208partialbytes, before privateRAM.
+Originalcapture/runtime_run1 evidence retained. Newhelper splits only flashidentity
+into65536B blocks;48reads/2MiB/600s/30s limits and p0_capture remainunchanged.
+Next: finish additiveflash tests/review, syncexactapprovedhelper, retry readback
+WITHOUT reupload/reset. Never assume the recording passed from upload success.
+Then independently extract/CRC retained rows fromthecapturedpool using actual
+DWARF/readelf offsets; labelallinputsSYNTHETIC and MEMAPextractionnotUARTdump.
+See P2_recorder_capture_timeout.md. No humanphasegate or motor authority.
+
 # D090 checkpoint - active P2 software,2026-09-23 Asia/Dubai
 
 Implemented bounded IDLE recorder transfer/native UART/strong loop hook and

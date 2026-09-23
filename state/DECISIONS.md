@@ -1138,3 +1138,9 @@ separate bounded backend; no stock blocking Bridge call is accepted.
 Consequence: actual implementation, independent tests, target compilation and
 fresh review required. Local reset UI/app integration, physical RAM/WCET/200s
 and all human gates remain pending. No new wiring, motor upload/run or gate.
+
+
+## D-091 (2026-09-23, selected under D051/D075) Inert recorder runtime probe
+Context: D090 software is tested/target-compiled; actual200s loaded recording/freeRAM remain unmeasured. User authorizes bareUNOQ tests without sensors. Installed heapstats/stackwatermark APIs are unavailable (F113).
+Decision: adopt analysis/P2_recorder_bench_contract.md. First isolate real-time synthetic Robot/MotorGate/AttemptRecorder retention with no nativeoutput/sensor/UART operations; use fixed diagnostics and separately reviewed read-only allocator snapshots/parser. Explicit failures/losses remain evidence; no fast-forwarded time or claimed stack high-water. Exact inert source/run review precedes upload; never relax old capture guards implicitly.
+Consequence: actualboard runtime/memory evidence may advance B8 preparation, not physicalsensor/motor/fullWCET/human gate. Clean nativeUART transport is a subsequent separately identified scope. No B16 values or wiring change.

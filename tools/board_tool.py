@@ -184,14 +184,15 @@ def flash(args):
     if not args.compile_only and args.sketch in ('bench/p0_matrix', 'bench/ui_matrix') and startup == 'immediate':
         fail('Immediate matrix uploads pending verified loader/matrix ownership; '
              'use --compile-only; see FACTS F-061')
-    if not args.compile_only and args.sketch in ('bench/p0_adc', 'bench/p0_gpio', 'bench/p0_qtr') and startup == 'immediate':
-        fail('P0 ADC/GPIO/QTR upload is reviewed for default startup only; use --compile-only')
+    if not args.compile_only and args.sketch in ('bench/p0_adc', 'bench/p0_gpio', 'bench/p0_qtr',
+                                                      'bench/recorder_inert') and startup == 'immediate':
+        fail('This inert diagnostic upload is reviewed for default startup only; use --compile-only')
     # P0 has no motor-run receipt workflow; reject motor uploads before any I/O.
     if args.match and not args.compile_only:
         fail('motor-capable uploads disabled in P0; --match is not STAND OK/RING OK')
     if not args.compile_only and args.sketch not in ['bench/p0_matrix', 'bench/p0_timing',
                                                    'bench/p0_adc', 'bench/p0_gpio', 'bench/p0_qtr',
-                                                   'bench/ui_matrix']:
+                                                   'bench/ui_matrix', 'bench/recorder_inert']:
         fail('Uploads allow only the explicitly reviewed inert diagnostic sketches')
     board = target()
     remote_root = setting('SUMO_REMOTE_ROOT', r'/[A-Za-z0-9_/-]+')

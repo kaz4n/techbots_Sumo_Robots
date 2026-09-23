@@ -1,0 +1,23 @@
+{
+  "time": "2026-09-23T13:17:44.877167+00:00",
+  "supersedes_count_in": "author_validation.json capture_unittest_methods33 only; historical results unchanged",
+  "capture_unittest_methods": 39,
+  "added_layout_methods": 6,
+  "result": "PASS39methods0.216s",
+  "corrected_hypothesis": "Root initially interpreted nm00037a58 as ELF st_value and proposed subtracting.bss sh_addr0000f130. Actual readelf-sW st_value00028928 is alreadysectionrelative; rootretractedhypothesis beforeproductionedit. Independenttests preserveoffset00028928 withnonzero sectionVMA, accept0/belowVMA/lastvalid and rejectnmVMAvalueoutofbounds.",
+  "new_coverage": [
+    "ActualliteralELF32littleARMREL readelfsection/symbol fixture",
+    "Legalsectionrelativeoffset0,0xF12C,0x2A61C",
+    "OutofboundsnmVMAvalue0x37A58,overruns,uint32max",
+    "Duplicatesymbols/sections",
+    "Diagnosticsize/type/section/presence",
+    "UnsupportedELFclass,endian,machine,type"
+  ],
+  "failure_preservation": "Firstnewtestplacement accidentally splitexistingtestmethod, causingNameError4subcases. Correctedtestplacement, preservingalloldchecks. Failedreceipt andfinal39methodresult appendedcapture_runs.jsonl. No parser-bodyinspectionorproductionedit.",
+  "identity": {
+    "tests/tooling/test_recorder_capture.py": "a0288e51cf6202bdc296505a9fa982e31c5729aa657991b6d15cce51ca9afe8f",
+    "state/analysis/P2_recorder_bench_raw/final_symbols.json": "fcca45dd7b5ab56fdce8779de7c21310d0e4cb19eae985e2171ba9c4f2f3f6f2",
+    "state/analysis/P2_recorder_bench_raw/target_1502e948_bench-default.json": "3d9a19d34b435b24729da6cb88a021a4b99dc7101e657c48ef2266e304d9b289"
+  },
+  "scope": "Purelocalmockedreadelftranscripts; nohardwareorcommands. Signature/publicreturntype observed withmockedAPI only. Rootauthorizesactualtargetsectionandsymbolreceiptevidence."
+}

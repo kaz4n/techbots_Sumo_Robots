@@ -1,0 +1,15 @@
+{
+  "status": "PASS_ACTUAL_READELF_LAYOUT",
+  "bss_size": 173892,
+  "symbols": {
+    "recorderDiagnostics": {
+      "offset": 166184,
+      "size": 296
+    }
+  },
+  "raw_diagnostic_line": [
+    "  2045: 00028928   296 OBJECT  GLOBAL DEFAULT    9 recorderDiagnostics"
+  ],
+  "false_alarm": "Coordinator and reviewer initially inferred st_value from GNU nm. Actual readelf st_value is already section-relative. No parser fix was applied; subtracting sh_addr would have been incorrect.",
+  "hardware_commands": false
+}

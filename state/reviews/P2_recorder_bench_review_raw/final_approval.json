@@ -1,0 +1,39 @@
+{
+  "reviewed_at_utc": "2026-09-23T13:18:42.767381+00:00",
+  "verdict": "PASS_SCOPED_SOURCE_AND_CAPTURE_REVIEW",
+  "open_findings": [],
+  "source_sha256": "1502e9484068921fe3f96adef402e12fc85a00093b544e4a6c0dee165476b583",
+  "elf_sha256": "eff3e050072b41d888c343ea57c4d966069882892a7dc50bb0224946a26a798d",
+  "zsk_sha256": "0448e3ac5a5409bdfd08226f42f0d74c66dbe85d7bfd2ffb27a76acc3a7bfd2a",
+  "artifact_dir": "/home/arduino/sumox26_codex_build/1502e9484068921fe3f96adef402e12fc85a00093b544e4a6c0dee165476b583/recorder_inert/artifacts/bench-default",
+  "files": {
+    "bench/recorder_inert/recorder_inert.ino": "f8f75098ba3c58e9ece132329861edad4b28b8cac25f0211b1247ad1dddaf8f4",
+    "bench/recorder_inert/src/recorder_bench.cpp": "0e3e797445be85402266abe71d3dd28ca2c2698774907eafea55bc4f7aed7177",
+    "bench/recorder_inert/src/recorder_bench.h": "ef5fdd64ed0a33c936ef859b46b31fd4409dc3d4a7fa1b171fa0185a86047acd",
+    "bench/recorder_inert/src/recorder_native.cpp": "dda8cf81e04c5a8faf16c492237f208059b9a52418dabb777b857aee058ef739",
+    "bench/recorder_inert/src/recorder_native.h": "bf24fa3a0414ba9366e0c3078e8a427ac74e2590e277743747e77038e7f5b52a",
+    "tools/recorder_capture.py": "06f692583d40bc03d0b22c097edcc83a60f24816742d1fd91d6a3e33c3ed0f14",
+    "tools/recorder_heap.py": "d661024975925a7d8a83f4b772199bbf59911adb5adb8ea69a2082b69eed4b92",
+    "tools/board_tool.py": "a89391ba7e99036132825c6effcc0b6af1190105f7750b564da476b5930a8bce",
+    "tools/p0_capture.py": "885c4e4206aea4ac9e03c4e92e48258db2a0ae302ff83a86430e6913afeeb57c",
+    "tools/p0_mem_read.cfg": "89d16a28a1489c23ec743be55ade39824f9ca5213b02b20ef4785079122e4339",
+    "tests/tooling/test_recorder_capture.py": "a0288e51cf6202bdc296505a9fa982e31c5729aa657991b6d15cce51ca9afe8f",
+    "tests/tooling/test_recorder_heap.py": "868564affa32805874eda085b19829e00591541aac44d20e10f8fe157b50f2a2",
+    "tests/tooling/test_recorder_upload.py": "c4de3e3fc040026f23664802762b9ac6d85611fd39d3cc8abce92c98c75b744d",
+    "tests/tooling/test_recorder_bench_runner.py": "097ee5a84c8d532f35a1ec8863a9ee0110ab84250b77f7fe63c75ef4f027f9a0",
+    "tests/tooling/recorder_bench_cases.cc": "f032ffe39c6d78209723eeefb11edb9beae45adc03f275a360eca7a066c4c81d",
+    "tests/fixtures/recorder_heap_vectors.py": "bbfa4edda07fd28319d7180112b302b4941f9a1a0305fbfe40a0d2c83e8998f4"
+  },
+  "capture_limits": {
+    "memory_reads": 48,
+    "total_memory_bytes": 2097152,
+    "per_ram_read_bytes": 16384,
+    "commands": 64,
+    "sequence_seconds": 600,
+    "command_seconds": 30
+  },
+  "limitations": [
+    "Only the exact inert artifact and fixed capture are reviewed; no human phase gate.",
+    "Run evidence, physical acceptance and transport remain separate."
+  ]
+}

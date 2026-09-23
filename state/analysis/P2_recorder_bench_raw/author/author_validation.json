@@ -1,0 +1,100 @@
+{
+  "time": "2026-09-23T13:14:45.597352+00:00",
+  "objective": "Independent D091 heap, actual Runner and capture contract tests without production-body inspection.",
+  "owned_files": [
+    "tests/tooling/test_recorder_heap.py",
+    "tests/fixtures/recorder_heap_vectors.py",
+    "tests/tooling/recorder_bench_cases.cc",
+    "tests/tooling/test_recorder_bench_runner.py",
+    "tests/tooling/test_recorder_capture.py"
+  ],
+  "post_run_opaque_hashes": {
+    "tests/tooling/test_recorder_heap.py": {
+      "bytes": 11204,
+      "sha256": "868564affa32805874eda085b19829e00591541aac44d20e10f8fe157b50f2a2"
+    },
+    "tests/fixtures/recorder_heap_vectors.py": {
+      "bytes": 2438,
+      "sha256": "bbfa4edda07fd28319d7180112b302b4941f9a1a0305fbfe40a0d2c83e8998f4"
+    },
+    "tests/tooling/recorder_bench_cases.cc": {
+      "bytes": 15601,
+      "sha256": "f032ffe39c6d78209723eeefb11edb9beae45adc03f275a360eca7a066c4c81d"
+    },
+    "tests/tooling/test_recorder_bench_runner.py": {
+      "bytes": 2858,
+      "sha256": "097ee5a84c8d532f35a1ec8863a9ee0110ab84250b77f7fe63c75ef4f027f9a0"
+    },
+    "tests/tooling/test_recorder_capture.py": {
+      "bytes": 32866,
+      "sha256": "b599be0e3be00a8c9401ec4f52a4494fe445bb444bb696890c580e5519b2b38e"
+    },
+    "bench/recorder_inert/src/recorder_bench.h": {
+      "bytes": 6162,
+      "sha256": "ef5fdd64ed0a33c936ef859b46b31fd4409dc3d4a7fa1b171fa0185a86047acd"
+    },
+    "bench/recorder_inert/src/recorder_bench.cpp": {
+      "bytes": 14050,
+      "sha256": "0e3e797445be85402266abe71d3dd28ca2c2698774907eafea55bc4f7aed7177"
+    },
+    "tools/recorder_heap.py": {
+      "bytes": 11002,
+      "sha256": "d661024975925a7d8a83f4b772199bbf59911adb5adb8ea69a2082b69eed4b92"
+    },
+    "tools/recorder_capture.py": {
+      "bytes": 22225,
+      "sha256": "9bc29e26399d97d097cce62173bf3cc105e28b268274512e29e3b8cb9fd64192"
+    },
+    "state/analysis/P2_recorder_bench_contract.md": {
+      "bytes": 9422,
+      "sha256": "3bbdee2c1b559145266cd0fbaeb735c238fd66e8521bef027f553a4ce384442b"
+    }
+  },
+  "completed": {
+    "heap_unittest_methods": 28,
+    "capture_unittest_methods": 33,
+    "runner_unittest_methods": 1,
+    "runner_cpp_cases": 11,
+    "runner_profiles": [
+      "normal",
+      "address+undefined sanitizer"
+    ],
+    "runner_results": [
+      {
+        "command": [
+          "/tmp/sumox26_recorder_bench_0s56rptl/normal"
+        ],
+        "returncode": 0,
+        "summary": [
+          "[doctest] test cases:      11 |      11 passed | 0 failed | 0 skipped",
+          "[doctest] assertions: 1464342 | 1464342 passed | 0 failed |",
+          "[doctest] Status: SUCCESS!"
+        ]
+      },
+      {
+        "command": [
+          "/tmp/sumox26_recorder_bench_0s56rptl/sanitizer"
+        ],
+        "returncode": 0,
+        "summary": [
+          "[doctest] test cases:      11 |      11 passed | 0 failed | 0 skipped",
+          "[doctest] assertions: 1464342 | 1464342 passed | 0 failed |",
+          "[doctest] Status: SUCCESS!"
+        ]
+      }
+    ]
+  },
+  "independence": "Tests derived from frozen contracts, public headers and pinned external heap sources. No new Runner, heap decoder or capture implementation body read. Production paths hashed opaquely only for this manifest after execution. No production changes, existing/locked test changes, hardware access, upload, gate, ledger or commit.",
+  "failed_runs": "Every invoked test outcome is append-only in heap_runs.jsonl, runner_runs.jsonl or capture_runs.jsonl. Compiler macro, STOPPED expectation, capture fixture issues and interface clarifications retained; no original failing receipt removed.",
+  "capture_fixture_corrections": [
+    "check_identities requires capture and artifact argument; now pass an unpinned local path.",
+    "Once-purpose failure variant originally shared an output directory with success, so stale raw fragment correctly blocked before mocked command. Use isolated directories.",
+    "Subprocess mock must write partial output through supplied stdout/stderr file handles before timeout; TimeoutExpired.output is not populated in actual redirected-stream invocation."
+  ],
+  "limits": [
+    "All input clocks, heap pools, diagnostic bytes and capture transports are synthetic host fixtures.",
+    "Host tests do not establish actual MCU execution, loaded free RAM, stack history, physical B8 acceptance or a human gate.",
+    "Runner timing tests cover explicit synthetic clock-port durations, not full application/native execution WCET.",
+    "Post-run source hashes are identity observations at manifest time, not an atomic freeze with prior test processes."
+  ]
+}

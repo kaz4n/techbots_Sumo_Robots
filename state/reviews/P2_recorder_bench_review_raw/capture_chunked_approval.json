@@ -1,0 +1,56 @@
+{
+  "reviewed_at_utc": "2026-09-23T13:27:21.557575+00:00",
+  "verdict": "PASS_CHUNKED_CAPTURE_DELTA",
+  "open_findings": [],
+  "capture_sha256": "fd1932acc3f78ce68fb833f54b1e1ce72ab97aeb3942cc53dad27acb45dc6e25",
+  "source_sha256": "1502e9484068921fe3f96adef402e12fc85a00093b544e4a6c0dee165476b583",
+  "elf_sha256": "eff3e050072b41d888c343ea57c4d966069882892a7dc50bb0224946a26a798d",
+  "zsk_sha256": "0448e3ac5a5409bdfd08226f42f0d74c66dbe85d7bfd2ffb27a76acc3a7bfd2a",
+  "test_files_sha256": {
+    "tests/tooling/test_recorder_capture_flash.py": "32835b905e608f33457c253aaf73596031047bce912c006ae6890a2ffddc5932"
+  },
+  "fixed_flash_blocks": {
+    "max_bytes": 65536,
+    "loader_blocks": 5,
+    "sketch_blocks": 3,
+    "loader_last_bytes": 1536,
+    "sketch_last_bytes": 15000
+  },
+  "single_sketch_total_reads": 47,
+  "limits": {
+    "memory_reads": 48,
+    "total_memory_bytes": 2097152,
+    "per_ram_read_bytes": 16384,
+    "commands": 64,
+    "sequence_seconds": 600,
+    "command_seconds": 30
+  },
+  "unchanged_checked_files": [
+    "tools/p0_capture.py",
+    "tools/p0_mem_read.cfg",
+    "tests/tooling/test_recorder_capture.py",
+    "tools/recorder_heap.py"
+  ],
+  "tests": {
+    "methods": 50,
+    "passed": 50,
+    "failed": 0,
+    "skipped": 0,
+    "seconds": 0.824
+  },
+  "initial_capture": {
+    "status": "FAILED",
+    "read_attempts": 1,
+    "timeout_seconds": 30,
+    "partial_loader_bytes": 94208,
+    "diagnostic_reads": 0,
+    "receipt_sha256": "22f8c596a3110db5533865ae52b5264c8c586d3b0edec13829e6237e547d7bfd"
+  },
+  "scope": "One readback retry of the same exact inert firmware; no upload, reset, daemon action or expanded limits.",
+  "notes": [
+    "More loaded extensions may exhaust48reads and must fail closed.",
+    "All pinned ELF-derived loader bytes and sketch bytes compare before private RAM authority.",
+    "Original39capturetests remain unchanged. New package-equality expectation corrected to known ELF-versus-package semantics; initial failure preserved.",
+    "No runtime acceptance, RAM result or phase gate follows from this helper review."
+  ]
+}

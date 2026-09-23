@@ -1,0 +1,28 @@
+{
+  "result": "PASS",
+  "scope": "offline synthetic implementation smoke only",
+  "checks": [
+    "all_free_exact_totals",
+    "all_used_exact_totals",
+    "fragmented_exact_totals",
+    "maximal_forward_chain",
+    "used_and_stale_payload_excluded",
+    "different_valid_metadata_rejected"
+  ],
+  "rejected": {
+    "zero_normal_size": "CHUNK_ZERO_SIZE",
+    "left_link": "LEFT_LINK",
+    "bad_footer": "END_MARKER",
+    "high_bucket_bit": "BUCKET_MASK",
+    "bad_free_link": "FREE_LINK",
+    "wrong_end_chunk": "HEADER",
+    "wrong_metadata_size": "CHUNK_ZERO",
+    "pool_size": "POOL_SIZE",
+    "base_address": "BASE_ADDRESS",
+    "mutable_input": "INPUT_TYPE",
+    "adjacent_free": "ADJACENT_FREE",
+    "missing_free_node": "FREE_COVERAGE"
+  },
+  "elapsed_s": 0.036332299932837486,
+  "source_sha256": "09879bcfa6bf1534baa5820d3905d3551067dd6ddbfb1e462053b165f2b7f2c0"
+}

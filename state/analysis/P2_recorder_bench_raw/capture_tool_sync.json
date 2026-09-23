@@ -1,0 +1,83 @@
+{
+  "folder": "/home/arduino/sumox26-capture-tools/recorder-06f69258",
+  "records": [
+    {
+      "argv": [
+        "C:\\Users\\narut\\AppData\\Local/Arduino15/packages/arduino/tools/adb/32.0.0/adb.exe",
+        "-s",
+        "2629958581",
+        "shell",
+        "-T",
+        "mkdir -p /home/arduino/sumox26-capture-tools/recorder-06f69258"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "C:\\Users\\narut\\AppData\\Local/Arduino15/packages/arduino/tools/adb/32.0.0/adb.exe",
+        "-s",
+        "2629958581",
+        "push",
+        "tools\\recorder_capture.py",
+        "/home/arduino/sumox26-capture-tools/recorder-06f69258/recorder_capture.py"
+      ],
+      "returncode": 0,
+      "stdout": "tools\\recorder_capture.py: 1 file pushed, 0 skipped. 18.7 MB/s (22536 bytes in 0.001s)\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "C:\\Users\\narut\\AppData\\Local/Arduino15/packages/arduino/tools/adb/32.0.0/adb.exe",
+        "-s",
+        "2629958581",
+        "push",
+        "tools\\recorder_heap.py",
+        "/home/arduino/sumox26-capture-tools/recorder-06f69258/recorder_heap.py"
+      ],
+      "returncode": 0,
+      "stdout": "tools\\recorder_heap.py: 1 file pushed, 0 skipped. 49.6 MB/s (11002 bytes in 0.000s)\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "C:\\Users\\narut\\AppData\\Local/Arduino15/packages/arduino/tools/adb/32.0.0/adb.exe",
+        "-s",
+        "2629958581",
+        "push",
+        "tools\\p0_capture.py",
+        "/home/arduino/sumox26-capture-tools/recorder-06f69258/p0_capture.py"
+      ],
+      "returncode": 0,
+      "stdout": "tools\\p0_capture.py: 1 file pushed, 0 skipped. 72.1 MB/s (18880 bytes in 0.000s)\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "C:\\Users\\narut\\AppData\\Local/Arduino15/packages/arduino/tools/adb/32.0.0/adb.exe",
+        "-s",
+        "2629958581",
+        "push",
+        "tools\\p0_mem_read.cfg",
+        "/home/arduino/sumox26-capture-tools/recorder-06f69258/p0_mem_read.cfg"
+      ],
+      "returncode": 0,
+      "stdout": "tools\\p0_mem_read.cfg: 1 file pushed, 0 skipped. 4.0 MB/s (694 bytes in 0.000s)\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "C:\\Users\\narut\\AppData\\Local/Arduino15/packages/arduino/tools/adb/32.0.0/adb.exe",
+        "-s",
+        "2629958581",
+        "shell",
+        "-T",
+        "sha256sum /home/arduino/sumox26-capture-tools/recorder-06f69258/recorder_capture.py /home/arduino/sumox26-capture-tools/recorder-06f69258/recorder_heap.py /home/arduino/sumox26-capture-tools/recorder-06f69258/p0_capture.py /home/arduino/sumox26-capture-tools/recorder-06f69258/p0_mem_read.cfg"
+      ],
+      "returncode": 0,
+      "stdout": "06f692583d40bc03d0b22c097edcc83a60f24816742d1fd91d6a3e33c3ed0f14  /home/arduino/sumox26-capture-tools/recorder-06f69258/recorder_capture.py\nd661024975925a7d8a83f4b772199bbf59911adb5adb8ea69a2082b69eed4b92  /home/arduino/sumox26-capture-tools/recorder-06f69258/recorder_heap.py\n885c4e4206aea4ac9e03c4e92e48258db2a0ae302ff83a86430e6913afeeb57c  /home/arduino/sumox26-capture-tools/recorder-06f69258/p0_capture.py\n89d16a28a1489c23ec743be55ade39824f9ca5213b02b20ef4785079122e4339  /home/arduino/sumox26-capture-tools/recorder-06f69258/p0_mem_read.cfg\n",
+      "stderr": ""
+    }
+  ]
+}

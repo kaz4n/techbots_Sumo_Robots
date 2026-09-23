@@ -1,0 +1,49 @@
+{
+  "time": "2026-09-23T13:02:01.363251+00:00",
+  "files": {
+    "state/analysis/P2_recorder_bench_contract.md": {
+      "bytes": 6624,
+      "sha256": "addaecceed40ccd7065d811685f3f677a8409d3aee7e9049a2a9f7ca67b84de8"
+    },
+    "state/analysis/P2_recorder_bench_native_audit.md": {
+      "bytes": 17405,
+      "sha256": "07209947a202fa4577a9ba52702d1958d615ebe6c45e871bfcb2b95877f9e028"
+    },
+    "state/analysis/P2_recorder_bench_raw/native/primary/lib/heap/heap.h": {
+      "bytes": 9623,
+      "sha256": "ab4f448e15c0f887158e4bdb0748a2f33e01971467a87678ab4f6d3e291c92d4"
+    },
+    "state/analysis/P2_recorder_bench_raw/native/primary/lib/heap/heap.c": {
+      "bytes": 21162,
+      "sha256": "55db5bce2fa1fc4f30f6489adc8981ee53cb382ea3a24f059d74afd4c57222a7"
+    },
+    "tests/fixtures/recorder_heap_vectors.py": {
+      "bytes": 2438,
+      "sha256": "bbfa4edda07fd28319d7180112b302b4941f9a1a0305fbfe40a0d2c83e8998f4"
+    },
+    "tests/tooling/test_recorder_heap.py": {
+      "bytes": 9945,
+      "sha256": "47f23b147b86aeeaebb3184452534ac7248743c13ce1c4661300c358a6d14610"
+    }
+  },
+  "independence": "Authored from public contract and pinned heap.h/heap.c; tools/recorder_heap.py implementation body was not read. Module imported only for execution. No hardware action.",
+  "accounting_literals": {
+    "fresh_free_payload": 262052,
+    "fresh_overhead": 92,
+    "fragment_free": 261924,
+    "fragment_used": 108,
+    "fragment_overhead": 112,
+    "maximum_normal_chunks": 32757,
+    "maximum_alternating_free_nodes": 16379
+  },
+  "limitations": [
+    "Error-code names not frozen; require public HeapError with nonempty string code.",
+    "Reserved chunk0/footer bytes excluded from payload mutation tests pending precise canonical digest clarification.",
+    "No physical pool or MCU observation."
+  ],
+  "environment_failure": {
+    "command": "Get-Command python, g++ | Select-Object Name,Source",
+    "exit_code": 1,
+    "detail": "PowerShell g++ command not found; Python 3.13 at C:\\Users\\narut\\AppData\\Local\\Programs\\Python\\Python313\\python.exe. No C++ test invocation attempted."
+  }
+}

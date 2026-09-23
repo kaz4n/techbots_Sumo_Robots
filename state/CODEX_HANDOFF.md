@@ -1,3 +1,46 @@
+## Latest checkpoint - 2026-09-23T19:44:30+04:00
+
+P2 software remains active under D051/D075; full P0-P7 ACTIVE/incomplete. D096
+contract36c251f and implementation3be9669 integrate actual native app Runtime,
+sources, original1kHz grid, actualD expiry, RAW calibration/handover and STOP tail.
+Read analysis/P2_app_runtime_contract.md,validation.md,failures.md,ram_audit.md and
+reviews/P2_app_runtime_review.md. app.ino now owns this actual pipeline, with all
+setup grants false; it is no longer the inert scaffold and is NOT upload-allowlisted.
+
+Fullnormal/san1411main/25187345+173Gate/4536382 pass. Independent author37default/
+68688 and43configured/105510 per motor mode,6newtools61oldtools PASS. Reviewer
+131711ASan/UBSan checks eachmode;2clockMAJORs fixed, QTRstarvation fixed. Original
+failures retained. Oldcore/HAL/locked unchanged.82compiledsources250rawfiles and
+5newtests indexexact; whitespace-only final testEOF cleanup separately hashed.
+
+OPEN BLOCKER: actual target compile-only finalsource4cb637f9 exits1;211444program,
+276456memory versus262144,14312B excess.3linkedcacheELFs/82sources match exactsource,
+188imports/loader unchanged,40native42AEABI exports/12initentries audited, but this
+is NOT TARGET-COMPILED/loader accepted. No MATCH target build, upload/reset/MCU
+operation. Sevenexistinginertkeys source-reviewed/refreshed, no newkey. Lastknown
+MCU image remains old D0911502e948 frozen synthetic recorder only.
+
+First eligible unfinished task: address actual app retained dependencies without
+reducing recorder capacity/rate, changing behavior/timing or replacing startup.
+P2_app_runtime_ram_audit.md recommends a small bounded initial correction: expose
+an Acquirer const latched-sample accessor and use it only for setup-fault retrieval,
+preserving every field and the established legacy read API. Independently test
+start/advanceSetup faults/passive reads, then compile the SAME actualapp and measure
+whether legacy Acquirer.read/Bus.acquireMotion disappear. Estimated752B directtext
+is not measured and cannot alone close14312B. Subsequent isolated primary-source
+dependency/startup investigation should address inherited Bridge/RPC/Serial roots
+(named21962B cohort, removability unproved) and four generated pin-table copies
+(gross1680B candidate, no handwritten pinmap). No remedy selected or implemented yet.
+
+SC-AL complete800us, loadedRAM, SC-A circuitry/windows, SC-AJ clock and physical
+sensor/motor acceptance remain open. NativeUART/localreset/calibration-snippet
+transport remains follow-on P2 work. No human gates/PINMAP/EXPLAINED/motor authority,
+push/tag/historyrewrite or additional hardware request. Original Dubai deadlines
+remain. Commit promptly after validation, no artificial spacing; preserve actual
+failures and continue eligible software rather than assuming a passing target.
+
+--- Earlier handoff preserved below ---
+
 ## Latest checkpoint - 2026-09-23T19:09:28+04:00
 
 Active P2 software under D051/D075; full P0-P7 ACTIVE/incomplete. D095 public

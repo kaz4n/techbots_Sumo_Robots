@@ -702,3 +702,9 @@ Evidence P2_app_runtime_validation.md/raw,failures.md,ram_audit.md and review.
 Next reduce retained app dependencies without shrinking evidence/safety capacity;
 physical/WCET/loadedRAM/nativeUART/localreset and human gates remain pending.
 | implementation/evidence=this commit
+
+2026-09-23T19:45:00+04:00 | P2 checkpoint | D096 implementation/evidence3be9669
+committed immediately after actual validation/index checks. Host results PASS;
+actual target RAM BLOCKER remains. Handoff/execution/resume now identify exact
+passive setup-fault dependency correction and subsequent inherited Bridge/Serial
+investigation. No task or gate falsely closed; fullP0-P7 ACTIVE/incomplete.

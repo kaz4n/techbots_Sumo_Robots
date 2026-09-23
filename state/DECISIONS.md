@@ -1466,3 +1466,8 @@ Original incorrect nm interpretation preserved/corrected before implementation.
 No capture execution, artifact placement, upload key or identified MCU run yet.
 
 D-114 readout/guard acceptance 2026-09-24T02:23:09.648935+04:00: final contract0e8ead40 retains fullBSS range and once-only ordered metadata clarification. Run contractb37fb854 adopts exact default M0 run01 guard; independent capture/guard reviews and tests pass. Add only the exact396bcc45 probe manifest key, preserving all eight old values. This does not approve another run or assert physical success; run01 must bind the completed software, final review and actual tool staging before launch.
+
+## D-115 (2026-09-24T02:29:41.458146+04:00, selected under D051/D075) Finite motor inhibition preparation
+Context: named motor_stand bench remains missing; complete B4 needs a separate command authority and full B7 conflicts with retained R6. Existing D091/D104 synthetic composition is not repeated.
+Decision: adopt analysis/P2_motor_stand_inhibit_contract.md after source/public-oracle preflights. One native Port/Gate, defaultfalsegrant, actual begin once then D095 halt once, retained immediate begin fault and actual halt receipt, terminal passivity. MATCH0/M0 only; no apply/reset, demand, token, contact, clock wrapper or new tunable.
+Consequence: independent frozen host traces, exact checked target and separate review precede software acceptance. Truegrant exists only in controlled host fixtures in this scope. No upload key, physical pin operation, directional/brake/powered-kill/B7 claim, wiring or locked-test change, motor authority or human gate follows. Full B4/B7 remains explicitly incomplete.

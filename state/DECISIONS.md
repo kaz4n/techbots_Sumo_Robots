@@ -1194,3 +1194,18 @@ nonOK TRANSPORT precedence over remaining pulse/shape/time checks. Independent
 review found the missing state check; production was corrected. Two contradictory
 new authored expectations were reconciled with additive unknown+NACK coverage;
 no established/locked test changed. See P2_imu_resume_failures.md and contract.
+
+
+## D-095 (2026-09-23, selected under D051/D075) Actual application transaction owner
+Context: after D094, app composition still lacks an exclusive S..C/Robot/Gate/
+recorder owner. Invalid clock or lifecycle can prevent a fresh Robot command;
+Gate.reset clears faults and duplicate-token apply is not a valid emergency API.
+Decision: adopt P2_app_transaction_contract.md and frozen public headers. Add one
+terminal non-token MotorGate.halt and a fixed app::Transaction owning actualRobot,
+Gate and AttemptRecorder. It captures real start/decision/completion, overrides
+caller receipt fields, applies once and preserves final real-tail recording.
+Invalid lifecycle/clock/identity halts once and interrupts evidence truthfully.
+Consequence: ordinary800/1000us timing retains B14 count/log behavior; no new
+runtime timing stop, source schedule, config/wiring change, physical proof or
+phase gate. Source scheduling/grants/expiry remain next integration work. Add
+independent tests and real inert target/source review; preserve all old tests.

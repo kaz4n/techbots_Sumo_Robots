@@ -653,3 +653,10 @@ Handoff/execution/resume refreshed. First unfinished: fixed app transaction/reso
 contract per P2_app_schedule_dependencies.md D094map; D095 notselected. Active P2
 software/fullP0-P7 ACTIVE, physical/clock/loadedRAM/full800us and all human gates
 pending. No upload/reset/MCU/motor operation or push/tag. | checkpoint=this commit
+
+
+2026-09-23T18:56:24+04:00 | P2 D095 contract | Previous goal turn PROGRESS: fab551f/1b5bc3a D094 complete.
+Public-spec and native-scheduling audits identify actual transaction ownership and
+non-token terminal inhibition as concrete app prerequisites. D095 freezes halt and
+app::Transaction S/D/A/C lifecycle; B14 overrun remains count/log only. No physical
+schedule/motor/gate claim. Implement/test actual owner now. | contract=this commit

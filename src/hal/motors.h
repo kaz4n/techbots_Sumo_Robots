@@ -23,12 +23,24 @@ struct Result {
     Fault fault = Fault::NONE;
     bool consumed = false;
 };
+struct HaltResult {
+    bool fresh = false; // Invocation pulse; repeated halt returns a passive snapshot.
+    bool attempted = false;
+    bool inhibition_confirmed = false; // Callback acknowledgement, not measured pins.
+    bool timing_valid = false;
+    std::uint32_t started_us = 0U;
+    std::uint32_t completed_us = 0U;
+    Fault fault = Fault::NONE;
+};
 class MotorGate {
 public:
     // Exact callback, lifecycle, failure and receipt rules: P2_motor_gate_contract.md.
     explicit MotorGate(const Port& port);
     bool begin();
     Result apply(std::uint32_t decision_us, const fsm::RobotResult& command);
+    // D095 local terminal inhibition, never a token/application receipt or reset.
+    // First call after begin attempts LOW/all-zero/settle once; repeats are passive.
+    HaltResult halt();
     bool reset();
     Fault fault() const;
 private:
@@ -46,5 +58,7 @@ private:
     bool hold_complete_ = false;
     std::uint32_t release_us_ = 0;
     std::uint64_t last_token_ = 0;
+    bool halted_ = false;
+    HaltResult halt_result_;
 };
 } // namespace motors

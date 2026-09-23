@@ -1,38 +1,26 @@
-# Execution checklist - 2026-09-23 Asia/Dubai
+# Execution checklist - 2026-09-23 09:26 Asia/Dubai
 
-Latest eligibility recheck: 2026-09-23 audit3/3, NO IMPLEMENTATION PROGRESS.
-No new human/physical gate records or eligible task; goal tool returned BLOCKED.
-Previous D074 progress is preserved below; see latest PROGRESS entry.
+PROGRESS.md is authoritative. Full goal ACTIVE/incomplete; no human gate passed.
+D075 explicitly permits P2 software preparation while hardware is untested.
 
-PROGRESS.md remains authoritative; full goal BLOCKED/incomplete, no human gate
-passed. D016 P1host and D068-D074 offlineB8 are selected scheduling exceptions.
-
-| Existing phase task | Verified status/evidence | Remaining dependency |
+| Existing task | Verified status/evidence | Remaining |
 |---|---|---|
-| P0 G1-G6/scaffold/tooling | Source/installed/host/script evidence;378current tool checks | Physical/electrical/PINMAP acceptance |
-| P0 diagnostics | Actual prior counter/scheduler/ADC/GPIO/QTR setup receipts | Optical matrix/true cold startup/sensors/full WCET |
-| P0 gate | P0_gate_request; NOT READY | Actual missing checks, independent fullgate review, human GATE P0 PASS |
-| P1 tasks1.1-1.6 | Core/tests/target/architecture/review; subsequent993host normal+sanitizer pass | EXPLAINED OK and human GATE P1 PASS |
-| Selected B8 offline storage/rate | D069-D072 reviewed;25Hz fallback; revision9acc0cc probe226584B | Runtime/freeRAM/fullHAL/200s/no-gap/WCET |
-| B8 offline CSV formatting | D073 ea2d6b0;993hostcases and340tools,reviewPASS | Live owner/transport not included |
-| B8 local file validation | D074659abf0;38new/378total tools, C++roundtrip/nativeCLI,reviewPASS | Local integrity is not actual B8 acceptance |
-| B8 runtime/dump command | bench/recorder and dump_match.sh absent | Original runtime/transport scope and gates |
-| P2 HAL/app/P3-P7 | UNFINISHED; MotorGate absent,appinert | Original dependencies, realmeasurements, runpermissions/reviews/human gates |
+| P0 verification/toolchain/diagnostics | Installed/source/actual inert results | Optical/cold-start/pin/electrical acceptance and gate |
+| P1 core | Full review/target evidence; current1030host tests pass | EXPLAINED OK and human GATE P1 PASS |
+| P2 B4 MotorGate boundary | IMPLEMENTED1c45f72; host normal+sanitizer; target both modes; freshreviewPASS | Native checked Port, PWM settling/electrical/stand proof |
+| P2 B8 offline storage/CSV | D069-D074 implemented/reviewed;25Hz;381currenttooltestsPASS | Live bounded IDLE transport, actual RAM/200s/no gaps |
+| P2 B1 opponent inputs | NEXT software task | Installed checked GPIO audit, header contract, independent tests, compile |
+| P2 B2/B3/B5/B6 | Unfinished | Real drivers; SC-A/B/I/AG dependencies |
+| P2 integration/B7/P3-P7 | Unfinished | Full HAL/scheduler/WCET, acceptance and per-run permissions |
 
-Read P2_offline_scope_completion_audit.md. No furtherrequired task remains in
-selectedoffline scope; return to original P0/P1 prerequisites when real evidence
-and human records are supplied. Do not invent another metadata layer or infer
-a gate to continue. User defers hardware; no additionalconnectionrequest now.
+Latest validation: full1030cases/20982541assertions and separate active37cases/
+3796846assertions pass normal+ASanUBSan;381toolsPASS. Probe source807b5768 compiled
+on actual board Linux: default76220/31276B, enabled76692/31612B program/globals.
+Evidence P2_motor_gate_validation.md/raw/failures and separate reviewer report.
+These are not physical settings, fullfirmware RAM, phase gates or motor permission.
 
-D074 implementation made progress; three subsequent audits found no eligible
-work under the same prerequisites. update_goal returned BLOCKED. No livejobs.
-On userresume, revalidate actual state/new evidence or scope and begin a fresh
-blocked audit; do not markcomplete or infer a gate from assumed tests.
-
-All46source/locked/inertmanifest paths unchanged byD074. Earlier993hostresults
-remain valid, not rerun this task. No targetbuild/boardaction. Last knownMCU
-inertQTR61d7a2d0/default03:00:13.327+04. D072probe226584B is not currentCSVtree
-targetfit. SC-A/B/I/AG and SC-AHdeployment/F091runtime limits remain.
-
-Retain Sep28cut/Sep30P6condition/Oct1 21:00Dubai freeze/Oct2rehearsal/Oct3event.
-No STAND/RING/PINMAP/EXPLAINED or phasepass, push, tag or assumedphysicalsuccess.
+Next: B1 contract/audit; preserve raw polarity for Robot, explicit invalid reads,
+fixed work and real evidence. New MotorGate tests are now locked. App stays inert,
+last MCU imageQTR61d7a2d0 unchanged. No native MotorGate adapter or pin approval.
+Original scope cuts/deadlines remain. No live jobs. Recheck disk; /dev/shm artifacts
+are temporary. Resume software, not old blocked audits: user changed eligibility.

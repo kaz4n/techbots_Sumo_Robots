@@ -60,3 +60,10 @@ normal+sanitizer and378controlledtool checks are recorded in their validation
 reports. Original target app result above belongs to its historical source, not
 the current CSV tree. Physical/EXPLAINED/PINMAP and human gate status unchanged.
 See P2_offline_scope_completion_audit.md; no runtime integration or gate inferred.
+
+2026-09-23 D075 update: user explicitly permits P2 software preparation before
+physical/human acceptance. MotorGate checked callback boundary1c45f72 now exists
+with independent locked tests,1030full+37active host cases and target compile-only
+proof; no native UNO Q Port or application integration exists. This supersedes
+the historical blanket no-MotorGate statement only. EXPLAINED/GATE records remain
+absent; D075 is software scheduling authority, not P1/P0/P2 acceptance.

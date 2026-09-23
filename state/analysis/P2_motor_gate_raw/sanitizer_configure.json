@@ -1,0 +1,15 @@
+{
+  "start_utc": "2026-09-23T05:21:03.260209+00:00",
+  "end_utc": "2026-09-23T05:21:04.658449+00:00",
+  "argv": [
+    "cmake",
+    "-S",
+    "host",
+    "-B",
+    "/dev/shm/sumox-d075-sanitizer",
+    "-DCMAKE_BUILD_TYPE=Debug",
+    "-DCMAKE_CXX_FLAGS=-fsanitize=address,undefined -fno-omit-frame-pointer",
+    "-DCMAKE_EXE_LINKER_FLAGS=-fsanitize=address,undefined"
+  ],
+  "returncode": 0
+}

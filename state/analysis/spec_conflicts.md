@@ -497,3 +497,21 @@ expectation updates. Only LOG_HZ changed among76defaults; locked files unchanged
 Deployment acceptance remains OPEN: fullHAL/app/loader/freeRAM/200s/no-gap dump
 and WCET are unmeasured. SC-I inherited Bridge/initializer paths remain. No
 human/physical gate follows. See P2_rate_adoption_validation.md and fresh review.
+
+## SC-AI: Native MotorGate backend and PWM settling (OPEN, D075 software boundary implemented)
+References: HARDWARE5.4; AGENTS R1/R4/R6; F086/F088 installed PWM audit;
+P2_motor_gate_contract.md and src/hal/motors.h Port contract.
+Consequence: checked writes may update timer preload before the waveform changes;
+EN HIGH immediately after a successful write cannot be called safe activation.
+Arduino analogWrite also hides errors and can fall back HIGH. Host callbacks and
+F093 target compilation do not provide native hardware behavior.
+Options: implement/validate bounded checked GPIO/PWM+settle callbacks using actual
+per-channel periods and exclusive ownership; or retain inhibition until such an
+adapter exists. Recommendation: checked backend preparation with compile-only
+validation, keeping activation unavailable pending actual latch/waveform evidence.
+Decision authority: D051/D075 permit software choices; pin/electrical acceptance
+and fresh motor-run authorization remain human. No stub may return success.
+Required regressions: every native API failure, shared-timer/channel routing,
+latched compare timing on reversal/brake, zero/full-cycle quantization, EN boot/
+reset/fault waveforms and complete fault-path tick WCET. Existing MotorGate
+37-case locked tests cover the software write boundary only.

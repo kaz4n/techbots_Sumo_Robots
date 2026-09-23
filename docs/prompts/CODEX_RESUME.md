@@ -1,35 +1,29 @@
 # Resume SumoX-26 with Codex
 
-Read AGENTS.md fully, state/CODEX_HANDOFF.md, PROGRESS.md, DECISIONS.md, FACTS.md,
-TUNING_LOG.md and CODEX_EXECUTION.md. Inspect Git status/diffs and open findings
-in state/analysis/spec_conflicts.md and reviews. Preserve unrelated work. Check
-actual UTC/Dubai time against original PLAN deadlines.
+Read AGENTS fully, state/CODEX_HANDOFF, PROGRESS, DECISIONS, FACTS, TUNING_LOG,
+CODEX_EXECUTION and open conflicts/reviews. Inspect Git, actual Dubai date and
+original PLAN deadlines. Preserve unrelated edits and historical evidence.
 
-Full goal BLOCKED/incomplete after three consecutive prerequisite audits; no human gate passed. Latest completed taskD074:
-contract5e25917/implementation659abf0, read-only localCSV validation with exact
-format/raw checks and separate consistency/loss/lifecycle/declaredprovenance.
-38independent cases/full378tools PASS; actualhostC++roundtrip/nativeWindowsCLI
-and synthetic5001frame4096event fixtures pass. Freshsame-modelreview PASS.
-Read P2_csv_bundle_validation.md/raw/review and retained firstUNCfailure/repair.
-All46source/locked/manifest files unchanged. No board/firmware action.
+D075 records explicit user authorization for P2 software despite untested hardware.
+Full P0-P7 goal ACTIVE/incomplete; previous BLOCKED scope is superseded. No human
+PINMAP/EXPLAINED/GATE or motor-run permission follows. No new hardware request now.
 
-First resume action: revalidate P2_offline_scope_completion_audit.md against
-actual state/new human records. SelectedD068-D074 offlineB8 scope is complete.
-Remainingrequired artifacts bench/recorder and dump_match.sh require excluded
-runtime/transport work; appintegration requires GATE P1. P0physical/PINMAP and
-P1EXPLAINED/human gates remain absent. Return to existing prerequisite packets
-when actual evidence arrives. No more metadata tools or repeated solvedprobes
-merely to avoid a genuine block. Never infer gateapproval from a template.
+Completed MotorGate boundary1c45f72; contractsbc01d13/447ff94. Full1030/20982541 and
+active37/3796846 pass normal+ASanUBSan;381toolsPASS. Actual UNO Q compile-only
+source807b5768 passes default0 and enabled1; fresh same-model review PASS. Read
+P2_motor_gate_validation.md/raw/failures, checkpoint and review. New MotorGate
+37-case file is locked; all14olderlockedfiles/core/config/app remained unchanged.
 
-D074 made real progress, followed by three audited no-progress turns. Goaltool
-returned BLOCKED; no fullcompletion/paused claim. Userresume starts a fresh
-blocked-audit count. Revalidate new acceptance evidence/scope before any dependent
-work. No liveworker/job exists, and hardware testing remains user-deferred.
+Next eligible task: P2 B1 opponent-input HAL. Read P2/HARDWARE/G1/G5 and installed
+GPIO evidence; define checked initialization/read failure and raw electrical-mask
+contract, then independent tests/implementation/compile-only. Do not double-apply
+polarity/debounce already in core or fabricate readings. Preserve safe build default.
 
-Prior993C++cases normal+ASanUBSan remain valid because inputs unchanged; D074
-only addedPython/docs/tests. D072226584B targetprobe predates CSVsource; actual
-fullHAL/load/freeRAM/200s/dump/WCET and F091 inheritedBridge/resetstack unresolved.
-Last knownMCU inertQTR61d7a2d0/default03:00:13.327+04. No motorpermission/gates.
-Checkdisk beforebuilds (~24MiBC: atcheckpoint); preserve source/evidence. Use
-exclusiveownership, independent tests/freshreview, actualfailurereceipts and small
-localcommits. Never push/tag/rewrite history. Keep the originalP0-P7 objective.
+Native MotorGate Port absent: shared timer/preload settling and checked writes
+need implementation/qualification. App inert; P0/P1 acceptance and all physical
+B1-B8 gates pending. SC-A/B/I/AG and fullRAM/200s/dump/WCET remain unresolved.
+Board CLI1.5.1/core1.0.0/USB2629958581 refreshed; MCU last-known inertQTR61d7a2d0.
+No livejobs. Check disk: initially full,09:26 query~10GB free; only two generated
+host executables were removed by us. RAM configure/build/tests need one WSL lifetime.
+Use bounded ownership, independent reviews, real receipts and task-local commits.
+Never push/tag/rewrite history or mark original P7 objective complete prematurely.

@@ -223,3 +223,9 @@ default matrix/counter fromF-076. Prior timing measurements use a different imag
 | ID | Question | Observed answer | Source | Confidence | Hardware-checked |
 |---|---|---|---|---|---|
 | F-092 | Adopted25Hz production-source memory probe | D-072 changes only LOG_HZ among76B16 values. Actual source772bda55 compiles exit0 on CLI1.5.1/core1.0.0, default/MATCH0/MOTORS_ALLOWED0; ELF294932B, compiler RAM226584B. ELF b1fd8678 is byte-identical to reviewed D-071 candidate25.5001frames/40ms cadence,200s window and4096events preserved. | analysis/P2_rate_adoption_validation.md; P2_rate_validation_raw/; reviews/P2_rate_adoption_codex.md | HOST/SCRIPT-TESTED, TARGET-COMPILED, independently REVIEWED | Linux compile/read-only file evidence only; no upload/reset/MCU action, actual load/freeRAM/fullHAL/200s/WCET or human gate. F-091 runtime limits remain |
+
+## D075 MotorGate target compilation, 2026-09-23
+
+| ID | Question | Observed answer | Source | Confidence | Hardware-checked |
+|---|---|---|---|---|---|
+| F-093 | Does the real MotorGate boundary compile for the installed UNO Q toolchain? | CLI1.5.1/core1.0.0 refreshed on USB2629958581. Source807b576899bc8c9f9703e284d2d43ab1ab75a9eeb36e3b006ae53220cde79965 compiled default0:76220B program/31276B globals; enabled1 Immediate:76692B/31612B. Both exit0. Retained methods, pointer-only setup and empty loop independently reviewed from ELF; no Port implementation or execution. | analysis/P2_motor_gate_validation.md; P2_motor_gate_raw/target_default.json, target_enabled.json, target_elf_symbols.json; reviews/P2_motor_gate_codex.md | TARGET-COMPILED and source/ELF-reviewed | board Linux build only; no upload, PWM, native adapter, physical acceptance, fullfirmware RAM or WCET claim |

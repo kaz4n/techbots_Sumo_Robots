@@ -493,7 +493,7 @@ D-058 (selected under D-051,2026-09-23) defines logical MODE gestures. In IDLE,
 qualify NONE then exclusive MODE for BTN_DEBOUNCE_MS; the actual MODE qualification
 starts its duration. First observed NONE freezes that duration and wins a tied
 long deadline. After NONE qualifies, a duration strictly below600ms advances the
-item;600â€“999ms is a no-op. Continuously observed MODE reaching BTN_LONG_MS toggles
+item;600Ã¢â‚¬â€œ999ms is a no-op. Continuously observed MODE reaching BTN_LONG_MS toggles
 services once, with no release action. Boot-held MODE, interrupted releases,
 START/BOTH/invalid input and leaving IDLE require a fresh qualified NONE before
 another gesture. A countdown-canceling MODE cannot also change an IDLE selection.
@@ -512,6 +512,14 @@ decoding is still governed by the unresolved hardware decision SC-A.
 Matrix bottom row: battery bar. Fault icons: IMU, stuck sensor, low battery, gyro calibration rejected.
 
 ---
+
+D-093 (delegated D051/D075) permits app-owned battery retention: acquire due A0
+at a10000us development period and admit its value only at age<20000us from
+actual source start. Shared A0/A1 faults invalidate both outputs; expired values
+cannot revive without a genuine new call. Keep the existing per-decision voltage
+filter, final governor caps/slew and frame format. Frame voltage may be held;
+source age is separate owner evidence. See state/analysis/P2_power_inputs_contract.md.
+These limits are not physical voltage accuracy, settling or scheduler-WCET proof.
 
 ## B14. Faults and degraded modes
 

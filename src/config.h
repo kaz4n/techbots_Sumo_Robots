@@ -43,6 +43,9 @@ inline constexpr std::uint32_t VBAT_ADC_POST_CAL_US = 2U;
 inline constexpr std::uint32_t VBAT_ADC_ENABLE_US = 100U;
 inline constexpr std::uint32_t VBAT_ADC_CONVERSION_US = 100U;
 inline constexpr std::uint32_t VBAT_ADC_SHUTDOWN_US = 100U;
+// D093 app evidence limits; development defaults, not measured physical margins.
+inline constexpr std::uint32_t VBAT_SAMPLE_PERIOD_US = 10000U;
+inline constexpr std::uint32_t VBAT_SAMPLE_MAX_AGE_US = 20000U;
 inline constexpr std::uint32_t VBAT_ADC_SETUP_MAX_POLLS = 65536U; // count exception
 inline constexpr std::uint32_t VBAT_ADC_READ_MAX_POLLS = 4096U; // count exception
 // D079 installed Qwiic route and conditional native timing; not PINMAP approval.

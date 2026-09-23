@@ -590,3 +590,9 @@ last deployed D0911502e948 remains inert. FullgoalACTIVE/incomplete. Next freeze
 bounded battery-age/app ownership contract from P2_app_battery_audit.md; proposed
 10/20ms limits not adopted, D093 not allocated. Human/physical/clock/full800us and
 app/nativeUART remain pending. | checkpointcommit=this commit
+
+2026-09-23 P2 D093 contract/public header: fixed ADC InputOwner and bounded10/20ms
+battery retention selected under D051/D075, explicitly amending app-level D078.
+Previous turn PROGRESS: D0922081ca1/8e4544a validated full timing. Independent
+tests/implementation follow; no hardware action, physical measurement or gate.
+Contract commit=this commit.

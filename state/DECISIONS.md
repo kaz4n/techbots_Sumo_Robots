@@ -1155,3 +1155,17 @@ timing remains incomplete evidence only; preserve actual application validation,
 legacy defaults, GO/STOP membership, sensor timestamps and established tests.
 Consequence: independent additive tests, actual target compile-only and fresh
 review must prove integration. No clock/WCET/physical/gate or motor-run claim.
+
+## D-093 (2026-09-23, selected under D051/D075) Fixed ADC app input owner
+Context: per-tick A0+A1 contributes to a native deadline sum exceeding800us before
+other work. D078's fresh-only API supplies timestamps but app integration lacks
+qualified retained battery evidence and shared failure routing.
+Decision: adopt P2_power_inputs_contract.md and public power_inputs.h. A fixed
+exclusive callback owner performs one pair setup and all A0/A1 calls, with10ms A0
+period and strictly below20ms retained age, real source brackets, accumulated age
+and reset-only shared faults. This explicitly permits bounded retained voltage at
+app projection only; native Reader stays fresh-only. Existing each-tick governor
+filter/caps, UI validity, Robot inhibition and locked tests remain unchanged.
+Consequence: independent host/native/pipeline tests, inert target compile and fresh
+review required. Limits are development choices, not measured margins or800us proof.
+No hardware/wiring/gate/motor-run permission or actual scheduler is implied.

@@ -170,3 +170,10 @@ both results. setup only assigns entry=&exercise; loop is empty. No result/globa
 initializer or startup callback invokes exercise. The public probe header may
 quarantine inherited platform macros if necessary; never alter production names
 or weaken the startup test to accommodate platform collisions.
+
+## D093 app retention amendment
+
+Native Reader remains fresh-only and unchanged. The exclusive app InputOwner may
+retain accepted voltage under the explicit source-age/shared-fault contract in
+P2_power_inputs_contract.md. This supersedes only the earlier app-level no-retained-
+voltage assumption, not the native no-cache rule or any physical acceptance.

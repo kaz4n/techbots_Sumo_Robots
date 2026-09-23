@@ -306,3 +306,8 @@ largest21604B;sampledSPheadroom31208B(notwatermark).47read-onlyMEMAPreads934892B
 everyoriginalguard. No configtuning/pins/sensors/motor run or human gate. No native
 UARTdump, calibratedclock/fullapp800us or allRAMminimum claim. Evidence
 analysis/P2_recorder_bench_raw/runtime_summary.json,runtime_retry1/,validation.md.
+
+2026-09-23 D093 DEVELOPMENT DEFAULTS: VBAT_SAMPLE_PERIOD_US10000 and
+VBAT_SAMPLE_MAX_AGE_US20000 select bounded app battery retention. No physical
+measurement or original B16 change. Evidence/semantics P2_power_inputs_contract.md;
+actual ADC timing/voltage transient validation and complete schedulerWCET pending.

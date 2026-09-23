@@ -1,0 +1,54 @@
+{
+  "verdict": "ELIGIBLE_DIAGNOSTIC_DRAFT_WITH_ONE_SCOPE_CLARIFICATION",
+  "utc": "2026-09-23T21:44:09.325120+00:00",
+  "draft_sha256": "49c4b0d2cad5ca5f96e60ba3d129694f4345fd350777946211bd100fc49c2f3f",
+  "source_sha256": {
+    "state/analysis/P2_ui_bare_capture_feasibility.md": "a2f3bb49cffd02520f49d39b210041f3f3ae5bf3ab4e289a36077534272817da",
+    "src/hal/power.cpp": "eae110a771708f9f9f8a7890d943693427c60cc6f0cb083f23a129c516937599",
+    "src/hal/power.h": "22dfc8aad43c164fbd1f078b2aa3f3e5377e8a314aede60ce19172b7f51fb94d",
+    "bench/ui/src/ui_bench_native.cpp": "a9bd1c4d71cb167a94953194435857c88823ffd755db89d80ed9dccb6a2381d0",
+    "bench/ui/src/ui_bench_native.h": "74d66c0ff294ce09ff1a1eaa387c686b3726557cac19e2027e1f6e1c1144fee4",
+    "bench/ui/src/ui_bench.cpp": "bc2def36d611f534112288dfca538ab36d51aff58d73c7e5e09eb1f0d9a7e70d",
+    "bench/ui/src/ui_bench.h": "881eceb27b8eb54654777529b50c8df49597a2303352f11f9b34695310e7094e",
+    "bench/ui/ui.ino": "be6dd812eac69d4d1df49a4bbc04378d799604a065ef27abdf22212b03a09139",
+    "state/analysis/P2_adc_ownership.md": "aeb3da9c5644d3b7bff0f2df8d2f9c65df0257acd07019bc49162c59467a1b5b",
+    "state/analysis/P2_power_contract.md": "402117871ce1c98bf9866047618c170f502521fc2251db7dd4305200441128f9",
+    "tools/p0_capture.py": "885c4e4206aea4ac9e03c4e92e48258db2a0ae302ff83a86430e6913afeeb57c",
+    "tools/runtime_capture.py": "a4d58b3cbac8b0a3cf96ce6d4f53bc17e935b9aee9bc1c09809ee20ea806fdae",
+    "tools/board_tool.py": "91716ebeadeb1bcbb466342cf01f28ec56c384442e8d9ed553d9d3234d1885e9"
+  },
+  "actual_D112_ABI": {
+    "debug_elf_sha256": "a13d3eae30b43583b51442e58f3cf6fa71b6a3ebdab2f116783222623fc1610d",
+    "abi_receipt_sha256": "d940b3bbc1a42d1f27b7b3f520ccc913ffb1995ea7384ff25e610ccf2f4a70ca",
+    "Runner": 9892,
+    "Native": 32,
+    "Report": 132,
+    "report_offset": 16,
+    "Capture": 76,
+    "capture_offset": 148,
+    "capture_count": 128,
+    "capture_bytes": 9728
+  },
+  "finding": {
+    "severity": "MINOR",
+    "reference": "P2_ui_adc_probe_contract_draft.md:67-73",
+    "issue": "Absolute exclusion of other pad/clock owners may include required stock boot initialization or unused exported APIs.",
+    "clarification": "Exclude competing/reachable writers during or after ADC admission; permit only the audited stock boot setup completed beforehand. Mere loader exports/device descriptors are not execution. Exact enabled-image plus installed-loader call/worker analysis and live guards remain mandatory."
+  },
+  "authority": "D051 engineering choice plus current user-reported bare UNO Q test authorization can support a newly explicit observation-only D078 deployment exception. D052 by itself names P0; adoption must explicitly state new scope rather than claiming old D078 already allowed it. SC-AJ, R8 pin/wiring rights, all physical gates and motor restrictions remain unchanged.",
+  "native_review": [
+    "One passive Native embeds one Reader; beginWithButtons, rank10 readButtons only; no A0 conversion.",
+    "A0/PA4 and A1/PA5 fixed admission checked; PA4 rewrite same checked analog mode, PA5 not remuxed.",
+    "ADC1 clock gate may remain enabled after failed pristine admission; no fabricated no-side-effect or shutdown claim.",
+    "Existing clock/supply/stock ADC1/ADC4/DAC/IRQ/reset-only guards retained; whole-image concurrency exclusion remains separately necessary.",
+    "COMPLETE leaves ADC enabled/idle; no stop API. Frozen-clock early polling can remain RUNNING and must be reported, not repaired."
+  ],
+  "minimality": "One named wrapper and literal stage reuse of four exact D112 files is narrower than a fork/shared-source framework; collision and ancestry checks plus unchanged ordinary UI behavior are required.",
+  "deferred_requirements": [
+    "Re-derive all ABI and relocated symbol offsets from enabled image; D112 values are verified baseline only.",
+    "Freeze public decoder schema before tests, including terminal semantic equality/padding treatment, honest partial FAULT and nonterminal/torn samples.",
+    "Pin full deployed loader/sketch and exact read plan/count/byte/command/time ceilings before any RAM read; D104 and P0 helpers have different limits, so name the selected wrapper explicitly.",
+    "Exact source/ELF/package/loader/startup/native ownership/guard/readout review and identified single run remain required; no present upload approval."
+  ],
+  "limits": "Read-only local draft/source/cached-artifact preflight, reused same-model reviewer. No tests, board/socket, MCU attach/read/write/reset, source/test/config or ledger changes."
+}

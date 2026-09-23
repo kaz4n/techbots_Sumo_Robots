@@ -428,3 +428,9 @@ F112 final software disposition 2026-09-23T16:49:58+04:00: fresh separate same-m
 | ID | Question | Observed answer | Source | Confidence | Hardware-checked |
 |---|---|---|---|---|---|
 | F-119 | Does the full native application fit the pinned target build? | No. Finalsource4cb637f9 actualcompileexit1:211444program,276456memory versus262144,14312Bexcess.82exactsourcefiles/3linkedcacheELFs,188unchangedimports/loader,40native42AEABI exports; sourceidentity passes but target_compile_accepted=false. Freshreview independently verifies131711sanitizerchecks eachmotor setting and fixes2clockMAJORs; RAM remainsBLOCKER. | analysis/P2_app_runtime_contract.md,validation.md,failures.md,ram_audit.md,raw; reviews/P2_app_runtime_review.md/raw | ACTUAL-TARGET-BUILD-FAILED; linked evidence/source verified; host software results separately recorded | Board Linux compile/offlinefiles only. No D096 upload/reset/MCU sensor/motor operation; old D091 recorder image remains. No physical accuracy/clock/loadedRAM/full800us or human gate. |
+
+## D097 passive fault access,2026-09-23
+
+| ID | Question | Observed answer | Source | Confidence | Hardware-checked |
+|---|---|---|---|---|---|
+| F-120 | Does passive setup-fault retrieval remove the unintended legacy runtime dependency? | Yes: exact570ef35f threeELFs omit268B read and484B acquireMotion, retain56B getter; net696B saving.82sources exact;188imports/loader/startup unchanged. Fullnormal/san1418main+173Gate and separate685111assertion review pass. Actual compile stillexit1 at275760B/13616Bexcess. | analysis/P2_imu_fault_access_contract.md,validation.md,raw; reviews/P2_imu_fault_access_review.md/raw | HOST-TESTED/dependency reduction verified; fullapp TARGET-BLOCKED | Board Linux compile/offlinefiles only. No upload/reset/MCU/pin operation, measured loadedRAM/full800us, human gate or motor authority. |

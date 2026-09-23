@@ -1,0 +1,7 @@
+Reviewer-only harness failure before writing startup_comparison.json.
+Command: python state/reviews/P2_imu_fault_access_review_raw/check_startup.py
+Exit: 1; AssertionError: main at function symbol lookup (line 12).
+The helper initially admitted only nm types t/T; the established installed main is W.
+Observed D096 symbol: 000163ac 0000002c W main.
+Correction admits w/W as well as t/T without changing any equality assertion.
+No production/established-test/target data changed.

@@ -1,0 +1,7 @@
+Reviewer-only harness failure before manifest_refresh_verified.json was written.
+Command: python state/reviews/P2_imu_fault_access_review_raw/verify_manifest.py
+Exit: 1; FileNotFoundError for ROOT/src/adc_capture.h.
+All seven aggregate hashes already matched; bench-local src files need the bench root.
+Correction maps only shared src/core,src/hal,src/app,src/config.h to repository root;
+all other staged names are checked beneath their recorded bench key.
+No manifest/source bytes or hash expectations changed.

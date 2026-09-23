@@ -1,0 +1,371 @@
+{
+  "scope": "Same startup words and relocation targets after adjusting symbol start addresses",
+  "startup": {
+    "setup": {
+      "size": 40,
+      "machine_words": [
+        "b51f",
+        "220d",
+        "2100",
+        "4668",
+        "4b04",
+        "4798",
+        "4669",
+        "4b04",
+        "4804",
+        "4798",
+        "b005",
+        "f85d fb04",
+        "bf00",
+        "00000008"
+      ],
+      "relocations": [
+        [
+          28,
+          "R_ARM_ABS32",
+          "memset"
+        ],
+        [
+          32,
+          "R_ARM_ABS32",
+          "_ZN3app7Runtime5beginERKNS_11SetupGrantsE"
+        ],
+        [
+          36,
+          "R_ARM_ABS32",
+          ".bss"
+        ]
+      ]
+    },
+    "loop": {
+      "size": 16,
+      "machine_words": [
+        "4801",
+        "4b02",
+        "4718",
+        "bf00",
+        "00000008",
+        "00000000"
+      ],
+      "relocations": [
+        [
+          8,
+          "R_ARM_ABS32",
+          ".bss"
+        ],
+        [
+          12,
+          "R_ARM_ABS32",
+          "_ZN3app7Runtime4stepEv"
+        ]
+      ]
+    },
+    "main": {
+      "size": 44,
+      "machine_words": [
+        "b538",
+        "4b05",
+        "4798",
+        "4b05",
+        "4798",
+        "4b05",
+        "4798",
+        "4d05",
+        "4c05",
+        "47a8",
+        "47a0",
+        "e7fc"
+      ],
+      "relocations": [
+        [
+          24,
+          "R_ARM_ABS32",
+          "initVariant"
+        ],
+        [
+          28,
+          "R_ARM_ABS32",
+          "_Z20start_static_threadsv"
+        ],
+        [
+          32,
+          "R_ARM_ABS32",
+          "setup"
+        ],
+        [
+          36,
+          "R_ARM_ABS32",
+          "loop"
+        ],
+        [
+          40,
+          "R_ARM_ABS32",
+          "_Z10__loopHookv"
+        ]
+      ]
+    },
+    "__loopHook()": {
+      "size": 2,
+      "machine_words": [
+        "4770"
+      ],
+      "relocations": []
+    },
+    "_GLOBAL__sub_I_setup": {
+      "size": 420,
+      "machine_words": [
+        "b5f0",
+        "4a5d",
+        "b0a1",
+        "6813",
+        "1c59",
+        "6011",
+        "b933",
+        "4a5b",
+        "495b",
+        "e9c2 3307",
+        "6011",
+        "7613",
+        "6253",
+        "2400",
+        "4859",
+        "4d59",
+        "4621",
+        "22b4",
+        "f800 4b08",
+        "47a8",
+        "4b55",
+        "2601",
+        "461f",
+        "f103 00d8",
+        "4621",
+        "2210",
+        "e9c3 4430",
+        "e9c3 4432",
+        "e9c3 4434",
+        "725e",
+        "f883 40bc",
+        "f883 40bd",
+        "f883 40be",
+        "f883 40bf",
+        "47a8",
+        "f107 00e8",
+        "4621",
+        "2210",
+        "47a8",
+        "f107 00f8",
+        "4621",
+        "2210",
+        "47a8",
+        "2200",
+        "2300",
+        "e9c7 2344",
+        "2309",
+        "f8c7 4108",
+        "f887 410c",
+        "f8a7 4118",
+        "f887 611a",
+        "f8a7 4128",
+        "f887 412a",
+        "f8c7 413c",
+        "e9c7 4448",
+        "e9c7 334b",
+        "e9c7 444d",
+        "f507 77a0",
+        "4621",
+        "22e8",
+        "4638",
+        "47a8",
+        "f5a7 72a0",
+        "4613",
+        "4621",
+        "f503 70d0",
+        "223c",
+        "f887 6028",
+        "47a8",
+        "4621",
+        "2223",
+        "f107 009d",
+        "f887 6064",
+        "47a8",
+        "f5a7 73a0",
+        "f887 609c",
+        "f887 60c1",
+        "f8c7 70e8",
+        "461f",
+        "4621",
+        "f503 700b",
+        "2218",
+        "47a8",
+        "f887 622e",
+        "f8c7 4244",
+        "f887 4248",
+        "f507 7013",
+        "2703",
+        "4621",
+        "2268",
+        "47a8",
+        "4b20",
+        "226c",
+        "4621",
+        "f503 7032",
+        "e9c3 44ae",
+        "f883 7250",
+        "f883 6294",
+        "f883 42b4",
+        "f883 42b5",
+        "f883 42b6",
+        "f8c3 42c0",
+        "f883 42c4",
+        "47a8",
+        "4b15",
+        "a805",
+        "e9c3 44cd",
+        "e9c3 44cf",
+        "f883 72d0",
+        "f883 6314",
+        "f883 4344",
+        "f883 4345",
+        "f883 4346",
+        "f8c3 4348",
+        "490e",
+        "4b0e",
+        "4798",
+        "4668",
+        "490a",
+        "4b0d",
+        "4798",
+        "a810",
+        "4908",
+        "4b0c",
+        "4798",
+        "4c0c",
+        "466a",
+        "ab10",
+        "a905",
+        "480b",
+        "47a0",
+        "b021",
+        "bdf0",
+        "000293e8",
+        "00000000",
+        "000293c0",
+        "00000008"
+      ],
+      "relocations": [
+        [
+          376,
+          "R_ARM_ABS32",
+          "_ZGVN12RouterBridge3HCIE"
+        ],
+        [
+          380,
+          "R_ARM_ABS32",
+          "_ZN12RouterBridge3HCIE"
+        ],
+        [
+          384,
+          "R_ARM_ABS32",
+          "Bridge"
+        ],
+        [
+          388,
+          "R_ARM_ABS32",
+          ".bss"
+        ],
+        [
+          392,
+          "R_ARM_ABS32",
+          "memset"
+        ],
+        [
+          396,
+          "R_ARM_ABS32",
+          ".bss"
+        ],
+        [
+          400,
+          "R_ARM_ABS32",
+          "_ZN6motors8UnoQPort4portEv"
+        ],
+        [
+          404,
+          "R_ARM_ABS32",
+          "_ZN3app13NativeSources7adcPortEv"
+        ],
+        [
+          408,
+          "R_ARM_ABS32",
+          "_ZN3app13NativeSources4portEv"
+        ],
+        [
+          412,
+          "R_ARM_ABS32",
+          "_ZN3app7RuntimeC1ERKN6motors4PortERKN5power9InputPortERKNS_10SourcePortE"
+        ],
+        [
+          416,
+          "R_ARM_ABS32",
+          ".bss"
+        ]
+      ]
+    }
+  },
+  "getter": {
+    "size": 56,
+    "machine_words": [
+      "b510",
+      "f891 30ec",
+      "4604",
+      "2b03",
+      "f04f 0268",
+      "d105",
+      "4b07",
+      "f501 7186",
+      "4798",
+      "4620",
+      "bd10",
+      "4b05",
+      "2100",
+      "4798",
+      "2303",
+      "7123",
+      "2301",
+      "f884 3048",
+      "e7f4",
+      "bf00"
+    ],
+    "relocations": [
+      [
+        48,
+        "R_ARM_ABS32",
+        "memcpy"
+      ],
+      [
+        52,
+        "R_ARM_ABS32",
+        "memset"
+      ]
+    ]
+  },
+  "callback": {
+    "size": 20,
+    "machine_words": [
+      "b510",
+      "4604",
+      "4b02",
+      "f501 71a0",
+      "4798",
+      "4620",
+      "bd10",
+      "00000000"
+    ],
+    "relocations": [
+      [
+        16,
+        "R_ARM_ABS32",
+        "_ZNK3imu8Acquirer12setupFailureEv"
+      ]
+    ]
+  }
+}

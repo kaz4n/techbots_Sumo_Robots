@@ -1,0 +1,28 @@
+[doctest] doctest version is "2.4.12"
+[doctest] run with "--help" for options
+===============================================================================
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_imu_setup_failure.cpp:159:
+TEST CASE:  B3 D097 passive retrieval leaves mixed-API pending cancellation to legacy read
+
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_imu_setup_failure.cpp:165: ERROR: CHECK( fault.bus_status == imu::BusStatus::CANCELLED ) is NOT correct!
+  values: CHECK( 1 == 16 )
+
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_imu_setup_failure.cpp:166: ERROR: CHECK( fault.cleanup == imu::BusCleanup::DISABLED ) is NOT correct!
+  values: CHECK( 0 == 1 )
+
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_imu_setup_failure.cpp:166: ERROR: CHECK( fault.error_flags == 0x100U ) is NOT correct!
+  values: CHECK( 0 == 256 )
+
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_imu_setup_failure.cpp:167: ERROR: CHECK( fake::script.cancels == 1U ) is NOT correct!
+  values: CHECK( 0 == 1 )
+
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_imu_setup_failure.cpp:167: ERROR: CHECK( imu_acq_fake::script.calls == 0U ) is NOT correct!
+  values: CHECK( 1 == 0 )
+
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_imu_setup_failure.cpp:169: ERROR: CHECK( fake::script.cancels == 1U ) is NOT correct!
+  values: CHECK( 0 == 1 )
+
+===============================================================================
+[doctest] test cases:     7 |     6 passed | 1 failed | 0 skipped
+[doctest] assertions: 31467 | 31461 passed | 6 failed |
+[doctest] Status: FAILURE!

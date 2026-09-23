@@ -713,3 +713,12 @@ investigation. No task or gate falsely closed; fullP0-P7 ACTIVE/incomplete.
 Freeze passive setup-fault accessor semantics and exact native callback replacement.
 No implementation yet; tests and same-app target comparison next. Full RAM blocker
 remains14312B; no capacity/startup/physical/gate change. | contract=this commit
+
+2026-09-23T19:58:00+04:00 | P2 D097 getter/dependency correction | IMPLEMENTED/
+HOST-TESTED; fullnormal/san1418main25218819+173Gate4536382 PASS. Author7cases31474
+plus nativecallback1/178 eachmode PASS; freshreview3/685111PASS, no new software
+finding. Actual570ef35f compileexit1:275760memory/13616excess, real696B saving.
+82sources3cacheELFs exact;188imports/loader/startup unchanged;7inertkeys matched.
+Originalfixture/REQUIRE errors retained; no oldtests/config/pins/startup edits.
+No upload/reset/MCU; D098 control/candidate experiment separate, productionflags
+unchanged. Evidence P2_imu_fault_access_validation.md/raw/review. | this commit

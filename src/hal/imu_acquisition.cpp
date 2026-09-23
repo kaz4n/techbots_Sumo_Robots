@@ -52,6 +52,11 @@ Sample Acquirer::fail(SampleFault fault, std::uint32_t observed_us) {
     return result_;
 }
 
+Sample Acquirer::setupFailure() const {
+    // Retrieval must not retain or enter the legacy synchronous acquisition path.
+    return setup_.report().state == SetupState::FAULT ? result_ : Sample{};
+}
+
 SetupReport Acquirer::start(std::uint32_t now_us, bool power_confirmed) {
     const auto report = setup_.start(now_us, power_confirmed);
     if (faulted_) return report;

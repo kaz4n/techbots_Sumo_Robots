@@ -1,0 +1,12 @@
+Reviewer-only harness failure, before target_comparison.json was written.
+Command: python state/reviews/P2_imu_fault_access_review_raw/review_target.py state/analysis/P2_imu_fault_access_raw/target_570ef35f_bench-default.json
+Exit: 1
+All source, symbol, section, import and startup assertions had passed; receipt path formatting failed.
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\state\reviews\P2_imu_fault_access_review_raw\review_target.py", line 78, in <module>
+    inputs={str(p.relative_to(ROOT)):hashlib.sha256(p.read_bytes()).hexdigest() for p in (before_path, after_path)},
+  File "C:\Users\narut\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py", line 385, in relative_to
+    raise ValueError(f"{str(self)!r} is not in the subpath of {str(other)!r}")
+ValueError: 'state\\analysis\\P2_imu_fault_access_raw\\target_570ef35f_bench-default.json' is not in the subpath of 'C:\\Users\\narut\\OneDrive\\Desktop\\Project\\techbots_Sumo_Robots'
+Correction: resolve the supplied local receipt path before formatting it relative to ROOT.
+No production/test/target data or assertion changed.

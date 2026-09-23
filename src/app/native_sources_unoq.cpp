@@ -42,8 +42,8 @@ imu::SampleProgress NativeSources::advanceImu(void* p, std::uint32_t t) {
 imu::SampleProgress NativeSources::cancelImu(void* p, std::uint32_t t) {
     return self(p).imu_.cancelRead(t);
 }
-imu::Sample NativeSources::imuSetupFailure(void* p, std::uint32_t t) {
-    return self(p).imu_.read(t);
+imu::Sample NativeSources::imuSetupFailure(void* p, std::uint32_t) {
+    return self(p).imu_.setupFailure();
 }
 ui::MatrixStatus NativeSources::beginMatrix(void* p, ui::MatrixGrant grant) {
     return self(p).matrix_.begin(grant);

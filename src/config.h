@@ -28,6 +28,7 @@ inline constexpr std::uint32_t MOTOR_PWM_SETTLE_MAX_POLLS = 4096U; // count-name
 // D078 native ADC development bounds and unchanged HARDWARE2/3 proposal.
 // Nominal scaling is not measured divider/reference calibration or PINMAP OK.
 inline constexpr std::uint32_t VBAT_INPUT_PIN = 14U; // A0 / PA4 / ADC1 channel9
+inline constexpr std::uint32_t BUTTON_INPUT_PIN = 15U; // A1 / PA5 / ADC1 channel10; D086, proposal only
 inline constexpr float VBAT_ADC_REFERENCE_V = 3.3F; // nominal V
 inline constexpr float VBAT_DIVIDER_RATIO = 122.0F / 22.0F; // dimensionless exception
 inline constexpr std::uint32_t VBAT_ADC_REGULATOR_US = 100U;

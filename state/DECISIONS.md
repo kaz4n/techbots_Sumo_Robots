@@ -1057,3 +1057,18 @@ Consequence: these software choices do not prove physical cadence, pad handoff,
 QTR color separation, SC-AJ/F091, full-tick800us or any human gate. Native driver,
 adapter and actual Robot evidence routing need independent tests/target/review.
 Original B16 timing/threshold defaults and every established locked test remain.
+
+
+## D-086 (2026-09-23, selected under D-051/D-075) Optional fixed A1 acquisition
+Context: B6 needs raw A1 evidence; D078 already owns ADC1 for A0. Primary-source
+P2_adc_pair_audit verifies PA5/channel10 and legal enabled-idle rank changes.
+Decision: adopt P2_adc_pair_contract.md. Preserve battery-only begin/read and
+append explicit beginWithButtons/readButtons with typed raw/time/sequence data.
+One boot-lifetime owner, fixed profile, per-channel exact rank history, independent
+PA5/DAC2 guards and shared reset-only faults prevent stale cross-channel output.
+Use existing100us conversion/shutdown bounds; BUTTON_INPUT_PIN15 records the
+unchanged proposal. No second owner, generic router, decoder or added timing value.
+Consequence: actual native implementation plus independent regressions, inert
+compile-only/source/ELF checks and fresh separate review are required. SC-A,
+settling/accuracy/full-tick timing, SC-AJ/F091 and all physical gates remain open.
+No wiring claim, upload key, B16 value or established locked assertion changes.

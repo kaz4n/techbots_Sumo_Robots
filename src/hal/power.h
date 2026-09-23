@@ -8,7 +8,7 @@ namespace power {
 enum class Status : std::uint8_t {
     OK, NOT_INITIALIZED, ALREADY_STARTED, INVALID_CONFIG, OWNERSHIP,
     REGULATOR_TIMEOUT, CALIBRATION_TIMEOUT, ENABLE_TIMEOUT, CONVERSION_TIMEOUT,
-    POLL_LIMIT, READBACK, OVERRUN, INVALID_DATA, FAULT_LATCHED
+    POLL_LIMIT, READBACK, OVERRUN, INVALID_DATA, FAULT_LATCHED, NOT_ENABLED
 };
 enum class Shutdown : std::uint8_t { NOT_ATTEMPTED, DISABLED, UNCONFIRMED };
 struct InitResult {
@@ -25,6 +25,16 @@ struct Sample {
     float voltage_v = 0.0F;
     bool valid = false;
 };
+// Fixed A1/channel10 raw evidence; never a battery voltage or logical button.
+struct ButtonSample {
+    Status status = Status::NOT_INITIALIZED;
+    Shutdown shutdown = Shutdown::NOT_ATTEMPTED;
+    std::uint16_t raw = 0U;
+    std::uint32_t started_us = 0U;
+    std::uint32_t completed_us = 0U;
+    std::uint32_t sequence = 0U;
+    bool valid = false;
+};
 class Reader {
 public:
     Reader() = default;
@@ -32,8 +42,12 @@ public:
     Reader& operator=(const Reader&) = delete;
     // Setup only. One attempt per instance/boot; no I/O in construction.
     InitResult begin();
+    // Setup-only opt-in to the fixed A0/A1 pair; first begin fixes the profile.
+    InitResult beginWithButtons();
     // Bounded native conversion; no last-value cache or second voltage filter.
     Sample read();
+    // Fresh A1 conversion from the same owner; shared reset-only fault latch.
+    ButtonSample readButtons();
 private:
     bool controlsOwned() const;
     Status initialize();

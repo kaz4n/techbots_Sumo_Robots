@@ -1,0 +1,14 @@
+{
+  "command": [
+    "wsl",
+    "-d",
+    "Ubuntu",
+    "--",
+    "bash",
+    "-c",
+    "cd /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots && g++ -std=c++17 -Wall -Wextra -Wpedantic -Werror -fno-exceptions -fno-rtti -DMOTORS_ALLOWED=0 -DMATCH=0 -Isrc -Istate/analysis/P2_recorder_transport_raw/implementer/syntax_stage -x c++ -fsyntax-only state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/recorder.ino"
+  ],
+  "exit_code": 1,
+  "limitation": "Declaration-only Arduino.h micros shim; exact bench header/config copy, no link/native proof.",
+  "production_executed": false
+}

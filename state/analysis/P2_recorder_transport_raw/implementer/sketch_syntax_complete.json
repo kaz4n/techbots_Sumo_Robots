@@ -1,0 +1,15 @@
+{
+  "command": [
+    "wsl",
+    "-d",
+    "Ubuntu",
+    "--",
+    "bash",
+    "-c",
+    "cd /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots && g++ -std=c++17 -Wall -Wextra -Wpedantic -Werror -fno-exceptions -fno-rtti -DMOTORS_ALLOWED=0 -DMATCH=0 -Istate/analysis/P2_recorder_transport_raw/implementer/syntax_stage_complete/src -Istate/analysis/P2_recorder_transport_raw/implementer/syntax_stage_complete -x c++ -fsyntax-only state/analysis/P2_recorder_transport_raw/implementer/syntax_stage_complete/recorder.ino"
+  ],
+  "exit_code": 0,
+  "limitation": "Declaration-only Arduino.h micros shim; native source not compiled or linked.",
+  "prior_failure": "Original isolated header copy mixed copied config.h with original core relative config.h; pragma-once could not deduplicate distinct files. Full header tree fixes syntax harness only; production unchanged.",
+  "production_executed": false
+}

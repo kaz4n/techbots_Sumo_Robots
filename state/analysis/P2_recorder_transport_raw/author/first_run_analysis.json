@@ -1,0 +1,201 @@
+{
+  "initial_python_result": {
+    "tests_run": 11,
+    "failures": 3,
+    "errors": 0,
+    "skipped": 0,
+    "success": false,
+    "findings": [
+      {
+        "test": "test_invalid_copied_config_profiles_never_initialize (tests.tooling.test_recorder_transport.RecorderTransportTests.test_invalid_copied_config_profiles_never_initialize) (key='BTN_DEBOUNCE_MS', value=0)",
+        "last_line": "/dev/shm/d116-config-v1owgqb9/src/core/countdown.cpp:351:39: note: the comparison reduces to \u2018(0 > 0)\u2019"
+      },
+      {
+        "test": "test_invalid_copied_config_profiles_never_initialize (tests.tooling.test_recorder_transport.RecorderTransportTests.test_invalid_copied_config_profiles_never_initialize) (key='BTN_LONG_MS', value=0)",
+        "last_line": "/dev/shm/d116-config-v1owgqb9/src/core/countdown.cpp:354:67: note: the comparison reduces to \u2018(600 <= 0)\u2019"
+      },
+      {
+        "test": "test_invalid_copied_config_profiles_never_initialize (tests.tooling.test_recorder_transport.RecorderTransportTests.test_invalid_copied_config_profiles_never_initialize) (key='BTN_LONG_MS', value=24)",
+        "last_line": "/dev/shm/d116-config-v1owgqb9/src/core/countdown.cpp:354:67: note: the comparison reduces to \u2018(600 <= 24)\u2019"
+      }
+    ]
+  },
+  "first_run_commands": 25,
+  "observed_doctest_counts": [
+    {
+      "argv": [
+        "/dev/shm/d116-pipeline-wa6gnxe8/normal",
+        "--no-colors",
+        "--order-by=file"
+      ],
+      "returncode": 0,
+      "counts": [
+        "[doctest] test cases:      22 |      22 passed | 0 failed | 0 skipped",
+        "[doctest] assertions: 4202902 | 4202902 passed | 0 failed |"
+      ]
+    },
+    {
+      "argv": [
+        "/dev/shm/d116-pipeline-wa6gnxe8/asan_ubsan",
+        "--no-colors",
+        "--order-by=file"
+      ],
+      "returncode": 0,
+      "counts": [
+        "[doctest] test cases:      22 |      22 passed | 0 failed | 0 skipped",
+        "[doctest] assertions: 4202902 | 4202902 passed | 0 failed |"
+      ]
+    },
+    {
+      "argv": [
+        "/dev/shm/d116-config-v1owgqb9/TICK_US0",
+        "--no-colors"
+      ],
+      "returncode": 0,
+      "counts": [
+        "[doctest] test cases:   1 |   1 passed | 0 failed | 0 skipped",
+        "[doctest] assertions: 224 | 224 passed | 0 failed |"
+      ]
+    },
+    {
+      "argv": [
+        "/dev/shm/d116-config-v1owgqb9/APP_CLOCK_STALL_MAX_POLLS0",
+        "--no-colors"
+      ],
+      "returncode": 0,
+      "counts": [
+        "[doctest] test cases:   1 |   1 passed | 0 failed | 0 skipped",
+        "[doctest] assertions: 224 | 224 passed | 0 failed |"
+      ]
+    },
+    {
+      "argv": [
+        "/dev/shm/d116-config-v1owgqb9/LOG_FRAME_WINDOW_MS5099",
+        "--no-colors"
+      ],
+      "returncode": 0,
+      "counts": [
+        "[doctest] test cases:   1 |   1 passed | 0 failed | 0 skipped",
+        "[doctest] assertions: 224 | 224 passed | 0 failed |"
+      ]
+    },
+    {
+      "argv": [
+        "/dev/shm/d116-config-v1owgqb9/DUMP_TOTAL_MS2000000",
+        "--no-colors"
+      ],
+      "returncode": 0,
+      "counts": [
+        "[doctest] test cases:   1 |   1 passed | 0 failed | 0 skipped",
+        "[doctest] assertions: 224 | 224 passed | 0 failed |"
+      ]
+    }
+  ],
+  "payload": {
+    "bytes": 532562,
+    "sha256": "420b4657c0a13d813ca66e29d6217c406de4d13befd8f7584b625724e9dfdfef",
+    "wire_lines": 5015,
+    "longest_line_without_LF": 564,
+    "write_calls": 10027,
+    "retained_frames": 5001,
+    "retained_events": 8,
+    "crc32": 1022767091,
+    "summary": [
+      1,
+      69,
+      200069,
+      69000,
+      1,
+      3,
+      200002,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      194901,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      5001,
+      0,
+      0,
+      0,
+      0,
+      8,
+      0,
+      0,
+      0
+    ],
+    "frame_status_codes": {
+      "0": 5001
+    }
+  },
+  "slow": {
+    "bytes": 300000,
+    "sha256": "550e327d7cf35053946a6b4ba9463cff75e878a6ed3c3786907c5235cadd06e4",
+    "exact_positive_prefix": true,
+    "metadata": {
+      "summary": [
+        1,
+        69,
+        200069,
+        69000,
+        1,
+        3,
+        200002,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        194901,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        5001,
+        0,
+        0,
+        0,
+        0,
+        8,
+        0,
+        0,
+        0
+      ],
+      "bytes": 300000,
+      "write_calls": 300000,
+      "largest_offer": 64,
+      "phase": 4,
+      "reason": 11,
+      "session": 202472,
+      "epoch": 69,
+      "frames": 2831,
+      "events": 0,
+      "crc": 1788636665
+    }
+  },
+  "fixture_findings_only": "Existing countdown static compilation guards blocked three intended runtime profiles. No failing D116 production behavioral assertion. Root/reviewer approved scoped classification/coherent profile repair."
+}

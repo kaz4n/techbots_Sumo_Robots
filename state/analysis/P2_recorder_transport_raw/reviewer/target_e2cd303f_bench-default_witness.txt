@@ -1,0 +1,1285 @@
+
+00000034 <_GLOBAL__sub_I_setup>:
+      34:	2300      	movs	r3, #0
+      36:	b500      	push	{lr}
+      38:	b089      	sub	sp, #36	@ 0x24
+      3a:	9300      	str	r3, [sp, #0]
+      3c:	4b06      	ldr	r3, [pc, #24]	@ (58 <_GLOBAL__sub_I_setup+0x24>)
+      3e:	a802      	add	r0, sp, #8
+      40:	9301      	str	r3, [sp, #4]
+      42:	4906      	ldr	r1, [pc, #24]	@ (5c <_GLOBAL__sub_I_setup+0x28>)
+      44:	4b06      	ldr	r3, [pc, #24]	@ (60 <_GLOBAL__sub_I_setup+0x2c>)
+      46:	4798      	blx	r3
+      48:	4669      	mov	r1, sp
+      4a:	4b06      	ldr	r3, [pc, #24]	@ (64 <_GLOBAL__sub_I_setup+0x30>)
+      4c:	aa02      	add	r2, sp, #8
+      4e:	4806      	ldr	r0, [pc, #24]	@ (68 <_GLOBAL__sub_I_setup+0x34>)
+      50:	4798      	blx	r3
+      52:	b009      	add	sp, #36	@ 0x24
+      54:	f85d fb04 	ldr.w	pc, [sp], #4
+      58:	00000000 	.word	0x00000000
+			58: R_ARM_ABS32	_ZN12_GLOBAL__N_17clockUsEPv
+      5c:	00028150 	.word	0x00028150
+			5c: R_ARM_ABS32	.bss
+	...
+			60: R_ARM_ABS32	_ZN3app12unoQDumpPortERN8recorder4dump12UnoQDumpPortE
+			64: R_ARM_ABS32	_ZN18recorder_transport6RunnerC1ERKNS_9ClockPortERKN3app8DumpPortE
+			68: R_ARM_ABS32	.bss
+
+00000008 <setup>:
+       8:	b507      	push	{r0, r1, r2, lr}
+       a:	2100      	movs	r1, #0
+       c:	4b03      	ldr	r3, [pc, #12]	@ (1c <setup+0x14>)
+       e:	aa01      	add	r2, sp, #4
+      10:	4803      	ldr	r0, [pc, #12]	@ (20 <setup+0x18>)
+      12:	9101      	str	r1, [sp, #4]
+      14:	4798      	blx	r3
+      16:	b003      	add	sp, #12
+      18:	f85d fb04 	ldr.w	pc, [sp], #4
+	...
+			1c: R_ARM_ABS32	_ZN18recorder_transport6Runner5beginEbRKN8recorder4dump10SetupGrantE
+			20: R_ARM_ABS32	.bss
+
+0000be20 <_ZN18recorder_transport6Runner5beginEbRKN8recorder4dump10SetupGrantE>:
+    be20:	b573      	push	{r0, r1, r4, r5, r6, lr}
+    be22:	f500 3620 	add.w	r6, r0, #163840	@ 0x28000
+    be26:	f896 3141 	ldrb.w	r3, [r6, #321]	@ 0x141
+    be2a:	4604      	mov	r4, r0
+    be2c:	4615      	mov	r5, r2
+    be2e:	b943      	cbnz	r3, be42 <_ZN18recorder_transport6Runner5beginEbRKN8recorder4dump10SetupGrantE+0x22>
+    be30:	4b29      	ldr	r3, [pc, #164]	@ (bed8 <_ZN18recorder_transport6Runner5beginEbRKN8recorder4dump10SetupGrantE+0xb8>)
+    be32:	4798      	blx	r3
+    be34:	b928      	cbnz	r0, be42 <_ZN18recorder_transport6Runner5beginEbRKN8recorder4dump10SetupGrantE+0x22>
+    be36:	2301      	movs	r3, #1
+    be38:	f886 3141 	strb.w	r3, [r6, #321]	@ 0x141
+    be3c:	b921      	cbnz	r1, be48 <_ZN18recorder_transport6Runner5beginEbRKN8recorder4dump10SetupGrantE+0x28>
+    be3e:	f884 3020 	strb.w	r3, [r4, #32]
+    be42:	2000      	movs	r0, #0
+    be44:	b002      	add	sp, #8
+    be46:	bd70      	pop	{r4, r5, r6, pc}
+    be48:	6863      	ldr	r3, [r4, #4]
+    be4a:	b13b      	cbz	r3, be5c <_ZN18recorder_transport6Runner5beginEbRKN8recorder4dump10SetupGrantE+0x3c>
+    be4c:	68e3      	ldr	r3, [r4, #12]
+    be4e:	b12b      	cbz	r3, be5c <_ZN18recorder_transport6Runner5beginEbRKN8recorder4dump10SetupGrantE+0x3c>
+    be50:	6923      	ldr	r3, [r4, #16]
+    be52:	b11b      	cbz	r3, be5c <_ZN18recorder_transport6Runner5beginEbRKN8recorder4dump10SetupGrantE+0x3c>
+    be54:	69a3      	ldr	r3, [r4, #24]
+    be56:	b10b      	cbz	r3, be5c <_ZN18recorder_transport6Runner5beginEbRKN8recorder4dump10SetupGrantE+0x3c>
+    be58:	69e3      	ldr	r3, [r4, #28]
+    be5a:	b923      	cbnz	r3, be66 <_ZN18recorder_transport6Runner5beginEbRKN8recorder4dump10SetupGrantE+0x46>
+    be5c:	2102      	movs	r1, #2
+    be5e:	4620      	mov	r0, r4
+    be60:	4b1e      	ldr	r3, [pc, #120]	@ (bedc <_ZN18recorder_transport6Runner5beginEbRKN8recorder4dump10SetupGrantE+0xbc>)
+    be62:	4798      	blx	r3
+    be64:	e7ed      	b.n	be42 <_ZN18recorder_transport6Runner5beginEbRKN8recorder4dump10SetupGrantE+0x22>
+    be66:	7813      	ldrb	r3, [r2, #0]
+    be68:	b12b      	cbz	r3, be76 <_ZN18recorder_transport6Runner5beginEbRKN8recorder4dump10SetupGrantE+0x56>
+    be6a:	7853      	ldrb	r3, [r2, #1]
+    be6c:	b11b      	cbz	r3, be76 <_ZN18recorder_transport6Runner5beginEbRKN8recorder4dump10SetupGrantE+0x56>
+    be6e:	7893      	ldrb	r3, [r2, #2]
+    be70:	b10b      	cbz	r3, be76 <_ZN18recorder_transport6Runner5beginEbRKN8recorder4dump10SetupGrantE+0x56>
+    be72:	78d3      	ldrb	r3, [r2, #3]
+    be74:	b90b      	cbnz	r3, be7a <_ZN18recorder_transport6Runner5beginEbRKN8recorder4dump10SetupGrantE+0x5a>
+    be76:	2103      	movs	r1, #3
+    be78:	e7f1      	b.n	be5e <_ZN18recorder_transport6Runner5beginEbRKN8recorder4dump10SetupGrantE+0x3e>
+    be7a:	2301      	movs	r3, #1
+    be7c:	f104 0098 	add.w	r0, r4, #152	@ 0x98
+    be80:	f886 3142 	strb.w	r3, [r6, #322]	@ 0x142
+    be84:	4b16      	ldr	r3, [pc, #88]	@ (bee0 <_ZN18recorder_transport6Runner5beginEbRKN8recorder4dump10SetupGrantE+0xc0>)
+    be86:	4798      	blx	r3
+    be88:	4b16      	ldr	r3, [pc, #88]	@ (bee4 <_ZN18recorder_transport6Runner5beginEbRKN8recorder4dump10SetupGrantE+0xc4>)
+    be8a:	4601      	mov	r1, r0
+    be8c:	4620      	mov	r0, r4
+    be8e:	4798      	blx	r3
+    be90:	2800      	cmp	r0, #0
+    be92:	d0d6      	beq.n	be42 <_ZN18recorder_transport6Runner5beginEbRKN8recorder4dump10SetupGrantE+0x22>
+    be94:	4629      	mov	r1, r5
+    be96:	68e3      	ldr	r3, [r4, #12]
+    be98:	68a0      	ldr	r0, [r4, #8]
+    be9a:	4798      	blx	r3
+    be9c:	2801      	cmp	r0, #1
+    be9e:	4605      	mov	r5, r0
+    bea0:	f884 0022 	strb.w	r0, [r4, #34]	@ 0x22
+    bea4:	d001      	beq.n	beaa <_ZN18recorder_transport6Runner5beginEbRKN8recorder4dump10SetupGrantE+0x8a>
+    bea6:	210c      	movs	r1, #12
+    bea8:	e7d9      	b.n	be5e <_ZN18recorder_transport6Runner5beginEbRKN8recorder4dump10SetupGrantE+0x3e>
+    beaa:	2300      	movs	r3, #0
+    beac:	4620      	mov	r0, r4
+    beae:	9301      	str	r3, [sp, #4]
+    beb0:	a901      	add	r1, sp, #4
+    beb2:	4b0d      	ldr	r3, [pc, #52]	@ (bee8 <_ZN18recorder_transport6Runner5beginEbRKN8recorder4dump10SetupGrantE+0xc8>)
+    beb4:	4798      	blx	r3
+    beb6:	b908      	cbnz	r0, bebc <_ZN18recorder_transport6Runner5beginEbRKN8recorder4dump10SetupGrantE+0x9c>
+    beb8:	2105      	movs	r1, #5
+    beba:	e7d0      	b.n	be5e <_ZN18recorder_transport6Runner5beginEbRKN8recorder4dump10SetupGrantE+0x3e>
+    bebc:	9b01      	ldr	r3, [sp, #4]
+    bebe:	f884 5023 	strb.w	r5, [r4, #35]	@ 0x23
+    bec2:	f8c6 3124 	str.w	r3, [r6, #292]	@ 0x124
+    bec6:	62e3      	str	r3, [r4, #44]	@ 0x2c
+    bec8:	f503 737a 	add.w	r3, r3, #1000	@ 0x3e8
+    becc:	6363      	str	r3, [r4, #52]	@ 0x34
+    bece:	2302      	movs	r3, #2
+    bed0:	f884 3020 	strb.w	r3, [r4, #32]
+    bed4:	e7b6      	b.n	be44 <_ZN18recorder_transport6Runner5beginEbRKN8recorder4dump10SetupGrantE+0x24>
+    bed6:	bf00      	nop
+	...
+			bed8: R_ARM_ABS32	_ZNK18recorder_transport6Runner8terminalEv
+			bedc: R_ARM_ABS32	_ZN18recorder_transport6Runner4failENS_7FailureE
+			bee0: R_ARM_ABS32	_ZN3app11Transaction10initializeEv
+			bee4: R_ARM_ABS32	_ZN18recorder_transport6Runner11ownerResultEb
+			bee8: R_ARM_ABS32	_ZN18recorder_transport6Runner6sampleERj
+
+0000c064 <_ZN18recorder_transport6Runner4pollEv>:
+    c064:	b573      	push	{r0, r1, r4, r5, r6, lr}
+    c066:	4b2c      	ldr	r3, [pc, #176]	@ (c118 <_ZN18recorder_transport6Runner4pollEv+0xb4>)
+    c068:	4604      	mov	r4, r0
+    c06a:	4798      	blx	r3
+    c06c:	4606      	mov	r6, r0
+    c06e:	2800      	cmp	r0, #0
+    c070:	d14f      	bne.n	c112 <_ZN18recorder_transport6Runner4pollEv+0xae>
+    c072:	f504 3520 	add.w	r5, r4, #163840	@ 0x28000
+    c076:	f895 3141 	ldrb.w	r3, [r5, #321]	@ 0x141
+    c07a:	b933      	cbnz	r3, c08a <_ZN18recorder_transport6Runner4pollEv+0x26>
+    c07c:	2101      	movs	r1, #1
+    c07e:	4620      	mov	r0, r4
+    c080:	4b26      	ldr	r3, [pc, #152]	@ (c11c <_ZN18recorder_transport6Runner4pollEv+0xb8>)
+    c082:	b002      	add	sp, #8
+    c084:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
+    c088:	4718      	bx	r3
+    c08a:	9001      	str	r0, [sp, #4]
+    c08c:	4b24      	ldr	r3, [pc, #144]	@ (c120 <_ZN18recorder_transport6Runner4pollEv+0xbc>)
+    c08e:	4620      	mov	r0, r4
+    c090:	a901      	add	r1, sp, #4
+    c092:	4798      	blx	r3
+    c094:	9a01      	ldr	r2, [sp, #4]
+    c096:	6322      	str	r2, [r4, #48]	@ 0x30
+    c098:	b908      	cbnz	r0, c09e <_ZN18recorder_transport6Runner4pollEv+0x3a>
+    c09a:	2105      	movs	r1, #5
+    c09c:	e7ef      	b.n	c07e <_ZN18recorder_transport6Runner4pollEv+0x1a>
+    c09e:	f8d5 3124 	ldr.w	r3, [r5, #292]	@ 0x124
+    c0a2:	429a      	cmp	r2, r3
+    c0a4:	d113      	bne.n	c0ce <_ZN18recorder_transport6Runner4pollEv+0x6a>
+    c0a6:	f8d5 3128 	ldr.w	r3, [r5, #296]	@ 0x128
+    c0aa:	1c59      	adds	r1, r3, #1
+    c0ac:	d0f5      	beq.n	c09a <_ZN18recorder_transport6Runner4pollEv+0x36>
+    c0ae:	3301      	adds	r3, #1
+    c0b0:	f5b3 3f80 	cmp.w	r3, #65536	@ 0x10000
+    c0b4:	f8c5 3128 	str.w	r3, [r5, #296]	@ 0x128
+    c0b8:	d2ef      	bcs.n	c09a <_ZN18recorder_transport6Runner4pollEv+0x36>
+    c0ba:	e9d5 3144 	ldrd	r3, r1, [r5, #272]	@ 0x110
+    c0be:	4819      	ldr	r0, [pc, #100]	@ (c124 <_ZN18recorder_transport6Runner4pollEv+0xc0>)
+    c0c0:	4298      	cmp	r0, r3
+    c0c2:	f04f 0300 	mov.w	r3, #0
+    c0c6:	418b      	sbcs	r3, r1
+    c0c8:	d204      	bcs.n	c0d4 <_ZN18recorder_transport6Runner4pollEv+0x70>
+    c0ca:	2106      	movs	r1, #6
+    c0cc:	e7d7      	b.n	c07e <_ZN18recorder_transport6Runner4pollEv+0x1a>
+    c0ce:	e9c5 2649 	strd	r2, r6, [r5, #292]	@ 0x124
+    c0d2:	e7f2      	b.n	c0ba <_ZN18recorder_transport6Runner4pollEv+0x56>
+    c0d4:	6b63      	ldr	r3, [r4, #52]	@ 0x34
+    c0d6:	1ad2      	subs	r2, r2, r3
+    c0d8:	d41b      	bmi.n	c112 <_ZN18recorder_transport6Runner4pollEv+0xae>
+    c0da:	6c21      	ldr	r1, [r4, #64]	@ 0x40
+    c0dc:	4291      	cmp	r1, r2
+    c0de:	bf38      	it	cc
+    c0e0:	6422      	strcc	r2, [r4, #64]	@ 0x40
+    c0e2:	f5b2 7f7a 	cmp.w	r2, #1000	@ 0x3e8
+    c0e6:	d30b      	bcc.n	c100 <_ZN18recorder_transport6Runner4pollEv+0x9c>
+    c0e8:	f44f 737a 	mov.w	r3, #1000	@ 0x3e8
+    c0ec:	f104 013c 	add.w	r1, r4, #60	@ 0x3c
+    c0f0:	fbb2 f2f3 	udiv	r2, r2, r3
+    c0f4:	4620      	mov	r0, r4
+    c0f6:	2300      	movs	r3, #0
+    c0f8:	4d0b      	ldr	r5, [pc, #44]	@ (c128 <_ZN18recorder_transport6Runner4pollEv+0xc4>)
+    c0fa:	47a8      	blx	r5
+    c0fc:	2107      	movs	r1, #7
+    c0fe:	e7be      	b.n	c07e <_ZN18recorder_transport6Runner4pollEv+0x1a>
+    c100:	4620      	mov	r0, r4
+    c102:	f503 737a 	add.w	r3, r3, #1000	@ 0x3e8
+    c106:	6363      	str	r3, [r4, #52]	@ 0x34
+    c108:	4b08      	ldr	r3, [pc, #32]	@ (c12c <_ZN18recorder_transport6Runner4pollEv+0xc8>)
+    c10a:	b002      	add	sp, #8
+    c10c:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
+    c110:	4718      	bx	r3
+    c112:	b002      	add	sp, #8
+    c114:	bd70      	pop	{r4, r5, r6, pc}
+    c116:	bf00      	nop
+	...
+			c118: R_ARM_ABS32	_ZNK18recorder_transport6Runner8terminalEv
+			c11c: R_ARM_ABS32	_ZN18recorder_transport6Runner4failENS_7FailureE
+			c120: R_ARM_ABS32	_ZN18recorder_transport6Runner6sampleERj
+    c124:	1df59227 	.word	0x1df59227
+	...
+			c128: R_ARM_ABS32	_ZN18recorder_transport6Runner3addERjy
+			c12c: R_ARM_ABS32	_ZN18recorder_transport6Runner5epochEv
+
+0000bd28 <_ZNK18recorder_transport6Runner8terminalEv>:
+    bd28:	f890 0020 	ldrb.w	r0, [r0, #32]
+    bd2c:	2801      	cmp	r0, #1
+    bd2e:	d004      	beq.n	bd3a <_ZNK18recorder_transport6Runner8terminalEv+0x12>
+    bd30:	3808      	subs	r0, #8
+    bd32:	2801      	cmp	r0, #1
+    bd34:	bf8c      	ite	hi
+    bd36:	2000      	movhi	r0, #0
+    bd38:	2001      	movls	r0, #1
+    bd3a:	4770      	bx	lr
+
+0000007c <_ZN3app12unoQDumpPortERN8recorder4dump12UnoQDumpPortE>:
+      7c:	b510      	push	{r4, lr}
+      7e:	4604      	mov	r4, r0
+      80:	4b05      	ldr	r3, [pc, #20]	@ (98 <_ZN3app12unoQDumpPortERN8recorder4dump12UnoQDumpPortE+0x1c>)
+      82:	6001      	str	r1, [r0, #0]
+      84:	6043      	str	r3, [r0, #4]
+      86:	4b05      	ldr	r3, [pc, #20]	@ (9c <_ZN3app12unoQDumpPortERN8recorder4dump12UnoQDumpPortE+0x20>)
+      88:	300c      	adds	r0, #12
+      8a:	f840 3c04 	str.w	r3, [r0, #-4]
+      8e:	4b04      	ldr	r3, [pc, #16]	@ (a0 <_ZN3app12unoQDumpPortERN8recorder4dump12UnoQDumpPortE+0x24>)
+      90:	4798      	blx	r3
+      92:	4620      	mov	r0, r4
+      94:	bd10      	pop	{r4, pc}
+      96:	bf00      	nop
+	...
+			98: R_ARM_ABS32	_ZN3app12_GLOBAL__N_15beginEPvRKN8recorder4dump10SetupGrantE
+			9c: R_ARM_ABS32	_ZN3app12_GLOBAL__N_15readyEPv
+			a0: R_ARM_ABS32	_ZN8recorder4dump12UnoQDumpPort4portEv
+
+00009774 <_ZN8recorder4dump12UnoQDumpPort4portEv>:
+    9774:	4a02      	ldr	r2, [pc, #8]	@ (9780 <_ZN8recorder4dump12UnoQDumpPort4portEv+0xc>)
+    9776:	6001      	str	r1, [r0, #0]
+    9778:	6042      	str	r2, [r0, #4]
+    977a:	4a02      	ldr	r2, [pc, #8]	@ (9784 <_ZN8recorder4dump12UnoQDumpPort4portEv+0x10>)
+    977c:	6082      	str	r2, [r0, #8]
+    977e:	4770      	bx	lr
+	...
+			9780: R_ARM_ABS32	_ZN8recorder4dump12UnoQDumpPort5writeEPvPKcj
+			9784: R_ARM_ABS32	_ZN8recorder4dump12UnoQDumpPort6cancelEPv
+
+0000c214 <_ZN18recorder_transport6Runner9motorPortEPS0_>:
+    c214:	4a09      	ldr	r2, [pc, #36]	@ (c23c <_ZN18recorder_transport6Runner9motorPortEPS0_+0x28>)
+    c216:	6001      	str	r1, [r0, #0]
+    c218:	6042      	str	r2, [r0, #4]
+    c21a:	4a09      	ldr	r2, [pc, #36]	@ (c240 <_ZN18recorder_transport6Runner9motorPortEPS0_+0x2c>)
+    c21c:	6082      	str	r2, [r0, #8]
+    c21e:	4a09      	ldr	r2, [pc, #36]	@ (c244 <_ZN18recorder_transport6Runner9motorPortEPS0_+0x30>)
+    c220:	60c2      	str	r2, [r0, #12]
+    c222:	4a09      	ldr	r2, [pc, #36]	@ (c248 <_ZN18recorder_transport6Runner9motorPortEPS0_+0x34>)
+    c224:	6102      	str	r2, [r0, #16]
+    c226:	4a09      	ldr	r2, [pc, #36]	@ (c24c <_ZN18recorder_transport6Runner9motorPortEPS0_+0x38>)
+    c228:	6142      	str	r2, [r0, #20]
+    c22a:	4a09      	ldr	r2, [pc, #36]	@ (c250 <_ZN18recorder_transport6Runner9motorPortEPS0_+0x3c>)
+    c22c:	6182      	str	r2, [r0, #24]
+    c22e:	2201      	movs	r2, #1
+    c230:	e9c0 2207 	strd	r2, r2, [r0, #28]
+    c234:	e9c0 2209 	strd	r2, r2, [r0, #36]	@ 0x24
+    c238:	4770      	bx	lr
+    c23a:	bf00      	nop
+	...
+			c23c: R_ARM_ABS32	_ZN18recorder_transport6Runner15configureEnableEPv
+			c240: R_ARM_ABS32	_ZN18recorder_transport6Runner12configurePwmEPvN6motors7ChannelE
+			c244: R_ARM_ABS32	_ZN18recorder_transport6Runner11writeEnableEPvb
+			c248: R_ARM_ABS32	_ZN18recorder_transport6Runner8writePwmEPvN6motors7ChannelEjj
+			c24c: R_ARM_ABS32	_ZN18recorder_transport6Runner6settleEPv
+			c250: R_ARM_ABS32	_ZN18recorder_transport6Runner10ownerClockEPv
+
+0000bb40 <_ZN18recorder_transport6RunnerC1ERKNS_9ClockPortERKN3app8DumpPortE>:
+    bb40:	e92d 43f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, lr}
+    bb44:	4606      	mov	r6, r0
+    bb46:	c903      	ldmia	r1, {r0, r1}
+    bb48:	4615      	mov	r5, r2
+    bb4a:	f106 0408 	add.w	r4, r6, #8
+    bb4e:	b08d      	sub	sp, #52	@ 0x34
+    bb50:	4617      	mov	r7, r2
+    bb52:	e886 0003 	stmia.w	r6, {r0, r1}
+    bb56:	cd0f      	ldmia	r5!, {r0, r1, r2, r3}
+    bb58:	c40f      	stmia	r4!, {r0, r1, r2, r3}
+    bb5a:	e895 0003 	ldmia.w	r5, {r0, r1}
+    bb5e:	f04f 0800 	mov.w	r8, #0
+    bb62:	f04f 0900 	mov.w	r9, #0
+    bb66:	e884 0003 	stmia.w	r4, {r0, r1}
+    bb6a:	2400      	movs	r4, #0
+    bb6c:	4631      	mov	r1, r6
+    bb6e:	a801      	add	r0, sp, #4
+    bb70:	e9c6 4408 	strd	r4, r4, [r6, #32]
+    bb74:	e9c6 440b 	strd	r4, r4, [r6, #44]	@ 0x2c
+    bb78:	e9c6 440d 	strd	r4, r4, [r6, #52]	@ 0x34
+    bb7c:	e9c6 440f 	strd	r4, r4, [r6, #60]	@ 0x3c
+    bb80:	e9c6 4411 	strd	r4, r4, [r6, #68]	@ 0x44
+    bb84:	e9c6 4413 	strd	r4, r4, [r6, #76]	@ 0x4c
+    bb88:	4b57      	ldr	r3, [pc, #348]	@ (bce8 <_ZN18recorder_transport6RunnerC1ERKNS_9ClockPortERKN3app8DumpPortE+0x1a8>)
+    bb8a:	f886 4028 	strb.w	r4, [r6, #40]	@ 0x28
+    bb8e:	6574      	str	r4, [r6, #84]	@ 0x54
+    bb90:	e9c6 8916 	strd	r8, r9, [r6, #88]	@ 0x58
+    bb94:	e9c6 8918 	strd	r8, r9, [r6, #96]	@ 0x60
+    bb98:	e9c6 891a 	strd	r8, r9, [r6, #104]	@ 0x68
+    bb9c:	e9c6 891c 	strd	r8, r9, [r6, #112]	@ 0x70
+    bba0:	e9c6 441e 	strd	r4, r4, [r6, #120]	@ 0x78
+    bba4:	e9c6 4420 	strd	r4, r4, [r6, #128]	@ 0x80
+    bba8:	e9c6 4422 	strd	r4, r4, [r6, #136]	@ 0x88
+    bbac:	e9c6 4424 	strd	r4, r4, [r6, #144]	@ 0x90
+    bbb0:	f506 351c 	add.w	r5, r6, #159744	@ 0x27000
+    bbb4:	4798      	blx	r3
+    bbb6:	a901      	add	r1, sp, #4
+    bbb8:	4b4c      	ldr	r3, [pc, #304]	@ (bcec <_ZN18recorder_transport6RunnerC1ERKNS_9ClockPortERKN3app8DumpPortE+0x1ac>)
+    bbba:	f106 0098 	add.w	r0, r6, #152	@ 0x98
+    bbbe:	4798      	blx	r3
+    bbc0:	f605 3388 	addw	r3, r5, #2952	@ 0xb88
+    bbc4:	f107 020c 	add.w	r2, r7, #12
+    bbc8:	ca07      	ldmia	r2, {r0, r1, r2}
+    bbca:	e883 0007 	stmia.w	r3, {r0, r1, r2}
+    bbce:	f505 633a 	add.w	r3, r5, #2976	@ 0xba0
+    bbd2:	f8a5 4b98 	strh.w	r4, [r5, #2968]	@ 0xb98
+    bbd6:	e9c3 8900 	strd	r8, r9, [r3]
+    bbda:	e9c3 8902 	strd	r8, r9, [r3, #8]
+    bbde:	f505 633c 	add.w	r3, r5, #3008	@ 0xbc0
+    bbe2:	f8c5 4bb0 	str.w	r4, [r5, #2992]	@ 0xbb0
+    bbe6:	f8c5 4bb4 	str.w	r4, [r5, #2996]	@ 0xbb4
+    bbea:	f8c5 4bb8 	str.w	r4, [r5, #3000]	@ 0xbb8
+    bbee:	f8c5 4bbc 	str.w	r4, [r5, #3004]	@ 0xbbc
+    bbf2:	e9c3 8900 	strd	r8, r9, [r3]
+    bbf6:	e9c3 8902 	strd	r8, r9, [r3, #8]
+    bbfa:	2301      	movs	r3, #1
+    bbfc:	f885 3bd4 	strb.w	r3, [r5, #3028]	@ 0xbd4
+    bc00:	f506 331f 	add.w	r3, r6, #162816	@ 0x27c00
+    bc04:	f8c5 4bd0 	str.w	r4, [r5, #3024]	@ 0xbd0
+    bc08:	f8c5 4bd8 	str.w	r4, [r5, #3032]	@ 0xbd8
+    bc0c:	f8c5 4bdc 	str.w	r4, [r5, #3036]	@ 0xbdc
+    bc10:	f8c5 4be0 	str.w	r4, [r5, #3040]	@ 0xbe0
+    bc14:	f8c5 4be4 	str.w	r4, [r5, #3044]	@ 0xbe4
+    bc18:	f8c5 4be8 	str.w	r4, [r5, #3048]	@ 0xbe8
+    bc1c:	f8c5 4bec 	str.w	r4, [r5, #3052]	@ 0xbec
+    bc20:	f8c5 4bf0 	str.w	r4, [r5, #3056]	@ 0xbf0
+    bc24:	f8c5 4bf4 	str.w	r4, [r5, #3060]	@ 0xbf4
+    bc28:	f8c5 4bf8 	str.w	r4, [r5, #3064]	@ 0xbf8
+    bc2c:	f8c5 4bfc 	str.w	r4, [r5, #3068]	@ 0xbfc
+    bc30:	f44f 6290 	mov.w	r2, #1152	@ 0x480
+    bc34:	e9c3 8900 	strd	r8, r9, [r3]
+    bc38:	e9c3 8902 	strd	r8, r9, [r3, #8]
+    bc3c:	4621      	mov	r1, r4
+    bc3e:	f8c5 4c10 	str.w	r4, [r5, #3088]	@ 0xc10
+    bc42:	f885 4c14 	strb.w	r4, [r5, #3092]	@ 0xc14
+    bc46:	f8c5 4c18 	str.w	r4, [r5, #3096]	@ 0xc18
+    bc4a:	4b29      	ldr	r3, [pc, #164]	@ (bcf0 <_ZN18recorder_transport6RunnerC1ERKNS_9ClockPortERKN3app8DumpPortE+0x1b0>)
+    bc4c:	f8a5 4c1c 	strh.w	r4, [r5, #3100]	@ 0xc1c
+    bc50:	f605 404c 	addw	r0, r5, #3148	@ 0xc4c
+    bc54:	f885 4c1e 	strb.w	r4, [r5, #3102]	@ 0xc1e
+    bc58:	f885 4c20 	strb.w	r4, [r5, #3104]	@ 0xc20
+    bc5c:	f8c5 4c24 	str.w	r4, [r5, #3108]	@ 0xc24
+    bc60:	f8c5 4c28 	str.w	r4, [r5, #3112]	@ 0xc28
+    bc64:	f8c5 4c2c 	str.w	r4, [r5, #3116]	@ 0xc2c
+    bc68:	f8c5 4c30 	str.w	r4, [r5, #3120]	@ 0xc30
+    bc6c:	f8c5 4c34 	str.w	r4, [r5, #3124]	@ 0xc34
+    bc70:	f8c5 4c38 	str.w	r4, [r5, #3128]	@ 0xc38
+    bc74:	f885 4c3c 	strb.w	r4, [r5, #3132]	@ 0xc3c
+    bc78:	f8c5 4c40 	str.w	r4, [r5, #3136]	@ 0xc40
+    bc7c:	f885 4c44 	strb.w	r4, [r5, #3140]	@ 0xc44
+    bc80:	f8c5 4c48 	str.w	r4, [r5, #3144]	@ 0xc48
+    bc84:	4798      	blx	r3
+    bc86:	f04f 32ff 	mov.w	r2, #4294967295	@ 0xffffffff
+    bc8a:	4630      	mov	r0, r6
+    bc8c:	f506 3320 	add.w	r3, r6, #163840	@ 0x28000
+    bc90:	f505 5587 	add.w	r5, r5, #4320	@ 0x10e0
+    bc94:	e9c3 4433 	strd	r4, r4, [r3, #204]	@ 0xcc
+    bc98:	f8a3 40d4 	strh.w	r4, [r3, #212]	@ 0xd4
+    bc9c:	e945 8902 	strd	r8, r9, [r5, #-8]
+    bca0:	e9c5 8900 	strd	r8, r9, [r5]
+    bca4:	e9c3 443a 	strd	r4, r4, [r3, #232]	@ 0xe8
+    bca8:	e9c3 443c 	strd	r4, r4, [r3, #240]	@ 0xf0
+    bcac:	e9c3 8944 	strd	r8, r9, [r3, #272]	@ 0x110
+    bcb0:	e9c3 8946 	strd	r8, r9, [r3, #280]	@ 0x118
+    bcb4:	e9c3 4448 	strd	r4, r4, [r3, #288]	@ 0x120
+    bcb8:	e9c3 444a 	strd	r4, r4, [r3, #296]	@ 0x128
+    bcbc:	e9c3 444c 	strd	r4, r4, [r3, #304]	@ 0x130
+    bcc0:	e9c3 444e 	strd	r4, r4, [r3, #312]	@ 0x138
+    bcc4:	e9c3 4450 	strd	r4, r4, [r3, #320]	@ 0x140
+    bcc8:	f8c3 40f8 	str.w	r4, [r3, #248]	@ 0xf8
+    bccc:	f8c3 20fc 	str.w	r2, [r3, #252]	@ 0xfc
+    bcd0:	f883 4100 	strb.w	r4, [r3, #256]	@ 0x100
+    bcd4:	f8a3 4108 	strh.w	r4, [r3, #264]	@ 0x108
+    bcd8:	f8c3 4148 	str.w	r4, [r3, #328]	@ 0x148
+    bcdc:	f8a3 414c 	strh.w	r4, [r3, #332]	@ 0x14c
+    bce0:	b00d      	add	sp, #52	@ 0x34
+    bce2:	e8bd 83f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, pc}
+    bce6:	bf00      	nop
+	...
+			bce8: R_ARM_ABS32	_ZN18recorder_transport6Runner9motorPortEPS0_
+			bcec: R_ARM_ABS32	_ZN3app11TransactionC1ERKN6motors4PortE
+			bcf0: R_ARM_ABS32	memset
+
+000007c0 <_ZN3app11TransactionC1ERKN6motors4PortE>:
+     7c0:	e92d 43f8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
+     7c4:	4604      	mov	r4, r0
+     7c6:	460d      	mov	r5, r1
+     7c8:	4606      	mov	r6, r0
+     7ca:	460f      	mov	r7, r1
+     7cc:	cd0f      	ldmia	r5!, {r0, r1, r2, r3}
+     7ce:	c40f      	stmia	r4!, {r0, r1, r2, r3}
+     7d0:	cd0f      	ldmia	r5!, {r0, r1, r2, r3}
+     7d2:	c40f      	stmia	r4!, {r0, r1, r2, r3}
+     7d4:	e895 0007 	ldmia.w	r5, {r0, r1, r2}
+     7d8:	e884 0007 	stmia.w	r4, {r0, r1, r2}
+     7dc:	2400      	movs	r4, #0
+     7de:	f04f 0800 	mov.w	r8, #0
+     7e2:	f04f 0900 	mov.w	r9, #0
+     7e6:	4639      	mov	r1, r7
+     7e8:	4b5c      	ldr	r3, [pc, #368]	@ (95c <_ZN3app11TransactionC1ERKN6motors4PortE+0x19c>)
+     7ea:	f106 0030 	add.w	r0, r6, #48	@ 0x30
+     7ee:	4798      	blx	r3
+     7f0:	4b5b      	ldr	r3, [pc, #364]	@ (960 <_ZN3app11TransactionC1ERKN6motors4PortE+0x1a0>)
+     7f2:	f106 0088 	add.w	r0, r6, #136	@ 0x88
+     7f6:	f506 35f8 	add.w	r5, r6, #126976	@ 0x1f000
+     7fa:	4798      	blx	r3
+     7fc:	4f59      	ldr	r7, [pc, #356]	@ (964 <_ZN3app11TransactionC1ERKN6motors4PortE+0x1a4>)
+     7fe:	2100      	movs	r1, #0
+     800:	4a59      	ldr	r2, [pc, #356]	@ (968 <_ZN3app11TransactionC1ERKN6motors4PortE+0x1a8>)
+     802:	f606 20d8 	addw	r0, r6, #2776	@ 0xad8
+     806:	47b8      	blx	r7
+     808:	f240 42e3 	movw	r2, #1251	@ 0x4e3
+     80c:	2100      	movs	r1, #0
+     80e:	f205 3039 	addw	r0, r5, #825	@ 0x339
+     812:	47b8      	blx	r7
+     814:	f44f 4200 	mov.w	r2, #32768	@ 0x8000
+     818:	4621      	mov	r1, r4
+     81a:	f8c5 481c 	str.w	r4, [r5, #2076]	@ 0x81c
+     81e:	f8c5 4820 	str.w	r4, [r5, #2080]	@ 0x820
+     822:	f8c5 4824 	str.w	r4, [r5, #2084]	@ 0x824
+     826:	f8c5 4828 	str.w	r4, [r5, #2088]	@ 0x828
+     82a:	f8c5 482c 	str.w	r4, [r5, #2092]	@ 0x82c
+     82e:	f8c5 4830 	str.w	r4, [r5, #2096]	@ 0x830
+     832:	f605 0034 	addw	r0, r5, #2100	@ 0x834
+     836:	f506 351c 	add.w	r5, r6, #159744	@ 0x27000
+     83a:	47b8      	blx	r7
+     83c:	f505 6304 	add.w	r3, r5, #2112	@ 0x840
+     840:	f8c5 4834 	str.w	r4, [r5, #2100]	@ 0x834
+     844:	f8c5 4838 	str.w	r4, [r5, #2104]	@ 0x838
+     848:	f885 483c 	strb.w	r4, [r5, #2108]	@ 0x83c
+     84c:	e9c3 8900 	strd	r8, r9, [r3]
+     850:	e9c3 8902 	strd	r8, r9, [r3, #8]
+     854:	2301      	movs	r3, #1
+     856:	f885 3854 	strb.w	r3, [r5, #2132]	@ 0x854
+     85a:	f505 6308 	add.w	r3, r5, #2176	@ 0x880
+     85e:	f8c5 4850 	str.w	r4, [r5, #2128]	@ 0x850
+     862:	f8c5 4858 	str.w	r4, [r5, #2136]	@ 0x858
+     866:	f8c5 485c 	str.w	r4, [r5, #2140]	@ 0x85c
+     86a:	f8c5 4860 	str.w	r4, [r5, #2144]	@ 0x860
+     86e:	f8c5 4864 	str.w	r4, [r5, #2148]	@ 0x864
+     872:	f8c5 4868 	str.w	r4, [r5, #2152]	@ 0x868
+     876:	f8c5 486c 	str.w	r4, [r5, #2156]	@ 0x86c
+     87a:	f8c5 4870 	str.w	r4, [r5, #2160]	@ 0x870
+     87e:	f8c5 4874 	str.w	r4, [r5, #2164]	@ 0x874
+     882:	f8c5 4878 	str.w	r4, [r5, #2168]	@ 0x878
+     886:	f8c5 487c 	str.w	r4, [r5, #2172]	@ 0x87c
+     88a:	e9c3 8900 	strd	r8, r9, [r3]
+     88e:	e9c3 8902 	strd	r8, r9, [r3, #8]
+     892:	f506 331d 	add.w	r3, r6, #160768	@ 0x27400
+     896:	f503 7338 	add.w	r3, r3, #736	@ 0x2e0
+     89a:	f506 301e 	add.w	r0, r6, #161792	@ 0x27800
+     89e:	f8c5 4890 	str.w	r4, [r5, #2192]	@ 0x890
+     8a2:	f885 4894 	strb.w	r4, [r5, #2196]	@ 0x894
+     8a6:	f8c5 4898 	str.w	r4, [r5, #2200]	@ 0x898
+     8aa:	f8a5 489c 	strh.w	r4, [r5, #2204]	@ 0x89c
+     8ae:	f885 489e 	strb.w	r4, [r5, #2206]	@ 0x89e
+     8b2:	30d0      	adds	r0, #208	@ 0xd0
+     8b4:	e9c3 8970 	strd	r8, r9, [r3, #448]	@ 0x1c0
+     8b8:	e9c3 8972 	strd	r8, r9, [r3, #456]	@ 0x1c8
+     8bc:	4b2b      	ldr	r3, [pc, #172]	@ (96c <_ZN3app11TransactionC1ERKN6motors4PortE+0x1ac>)
+     8be:	f8a5 48b0 	strh.w	r4, [r5, #2224]	@ 0x8b0
+     8c2:	f885 48b2 	strb.w	r4, [r5, #2226]	@ 0x8b2
+     8c6:	f8c5 48b8 	str.w	r4, [r5, #2232]	@ 0x8b8
+     8ca:	f885 48bc 	strb.w	r4, [r5, #2236]	@ 0x8bc
+     8ce:	f8c5 48c0 	str.w	r4, [r5, #2240]	@ 0x8c0
+     8d2:	f8c5 48c4 	str.w	r4, [r5, #2244]	@ 0x8c4
+     8d6:	f8c5 48c8 	str.w	r4, [r5, #2248]	@ 0x8c8
+     8da:	f8c5 48cc 	str.w	r4, [r5, #2252]	@ 0x8cc
+     8de:	4798      	blx	r3
+     8e0:	2300      	movs	r3, #0
+     8e2:	f505 6226 	add.w	r2, r5, #2656	@ 0xa60
+     8e6:	f885 4a60 	strb.w	r4, [r5, #2656]	@ 0xa60
+     8ea:	e9c2 8902 	strd	r8, r9, [r2, #8]
+     8ee:	f8c5 4a70 	str.w	r4, [r5, #2672]	@ 0xa70
+     8f2:	f885 4a74 	strb.w	r4, [r5, #2676]	@ 0xa74
+     8f6:	6193      	str	r3, [r2, #24]
+     8f8:	61d3      	str	r3, [r2, #28]
+     8fa:	2202      	movs	r2, #2
+     8fc:	f885 2aa8 	strb.w	r2, [r5, #2728]	@ 0xaa8
+     900:	f505 622b 	add.w	r2, r5, #2736	@ 0xab0
+     904:	f885 4a80 	strb.w	r4, [r5, #2688]	@ 0xa80
+     908:	f8c5 4a84 	str.w	r4, [r5, #2692]	@ 0xa84
+     90c:	f8c5 4a88 	str.w	r4, [r5, #2696]	@ 0xa88
+     910:	f8a5 4a90 	strh.w	r4, [r5, #2704]	@ 0xa90
+     914:	f8c5 4a98 	str.w	r4, [r5, #2712]	@ 0xa98
+     918:	f8c5 4a9c 	str.w	r4, [r5, #2716]	@ 0xa9c
+     91c:	f8c5 4aa0 	str.w	r4, [r5, #2720]	@ 0xaa0
+     920:	f885 4aa4 	strb.w	r4, [r5, #2724]	@ 0xaa4
+     924:	f885 4ab0 	strb.w	r4, [r5, #2736]	@ 0xab0
+     928:	e9c2 8902 	strd	r8, r9, [r2, #8]
+     92c:	f8c5 4ac0 	str.w	r4, [r5, #2752]	@ 0xac0
+     930:	f885 4ac4 	strb.w	r4, [r5, #2756]	@ 0xac4
+     934:	6193      	str	r3, [r2, #24]
+     936:	61d3      	str	r3, [r2, #28]
+     938:	f885 4ad0 	strb.w	r4, [r5, #2768]	@ 0xad0
+     93c:	f8c5 4ad4 	str.w	r4, [r5, #2772]	@ 0xad4
+     940:	f8c5 4ad8 	str.w	r4, [r5, #2776]	@ 0xad8
+     944:	f8c5 4ae0 	str.w	r4, [r5, #2784]	@ 0xae0
+     948:	f885 4ae4 	strb.w	r4, [r5, #2788]	@ 0xae4
+     94c:	f8c5 4ae8 	str.w	r4, [r5, #2792]	@ 0xae8
+     950:	f8c5 4aec 	str.w	r4, [r5, #2796]	@ 0xaec
+     954:	4630      	mov	r0, r6
+     956:	e8bd 83f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
+     95a:	bf00      	nop
+	...
+			95c: R_ARM_ABS32	_ZN6motors9MotorGateC1ERKNS_4PortE
+			960: R_ARM_ABS32	_ZN3fsm5RobotC1Ev
+			964: R_ARM_ABS32	memset
+     968:	0001e861 	.word	0x0001e861
+     96c:	00000000 	.word	0x00000000
+			96c: R_ARM_ABS32	_ZN3fsm11RobotResultC1Ev
+
+00009c9e <_ZN6motors9MotorGateC1ERKNS_4PortE>:
+    9c9e:	b570      	push	{r4, r5, r6, lr}
+    9ca0:	4605      	mov	r5, r0
+    9ca2:	460c      	mov	r4, r1
+    9ca4:	4606      	mov	r6, r0
+    9ca6:	cc0f      	ldmia	r4!, {r0, r1, r2, r3}
+    9ca8:	c50f      	stmia	r5!, {r0, r1, r2, r3}
+    9caa:	cc0f      	ldmia	r4!, {r0, r1, r2, r3}
+    9cac:	c50f      	stmia	r5!, {r0, r1, r2, r3}
+    9cae:	e894 0007 	ldmia.w	r4, {r0, r1, r2}
+    9cb2:	2300      	movs	r3, #0
+    9cb4:	e885 0007 	stmia.w	r5, {r0, r1, r2}
+    9cb8:	2000      	movs	r0, #0
+    9cba:	2100      	movs	r1, #0
+    9cbc:	e9c6 3311 	strd	r3, r3, [r6, #68]	@ 0x44
+    9cc0:	e9c6 010e 	strd	r0, r1, [r6, #56]	@ 0x38
+    9cc4:	62f3      	str	r3, [r6, #44]	@ 0x2c
+    9cc6:	f886 3030 	strb.w	r3, [r6, #48]	@ 0x30
+    9cca:	6373      	str	r3, [r6, #52]	@ 0x34
+    9ccc:	f886 3040 	strb.w	r3, [r6, #64]	@ 0x40
+    9cd0:	64f3      	str	r3, [r6, #76]	@ 0x4c
+    9cd2:	4630      	mov	r0, r6
+    9cd4:	f886 3050 	strb.w	r3, [r6, #80]	@ 0x50
+    9cd8:	bd70      	pop	{r4, r5, r6, pc}
+
+00000220 <_ZN3fsm5RobotC1Ev>:
+     220:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+     224:	f04f 1301 	mov.w	r3, #65537	@ 0x10001
+     228:	2500      	movs	r5, #0
+     22a:	ed2d 8b06 	vpush	{d8-d10}
+     22e:	ed9f 8aee 	vldr	s16, [pc, #952]	@ 5e8 <_ZN3fsm5RobotC1Ev+0x3c8>
+     232:	ed9f 9be9 	vldr	d9, [pc, #932]	@ 5d8 <_ZN3fsm5RobotC1Ev+0x3b8>
+     236:	ed9f abea 	vldr	d10, [pc, #936]	@ 5e0 <_ZN3fsm5RobotC1Ev+0x3c0>
+     23a:	4604      	mov	r4, r0
+     23c:	2701      	movs	r7, #1
+     23e:	f44f 7880 	mov.w	r8, #256	@ 0x100
+     242:	f44f 3b80 	mov.w	fp, #65536	@ 0x10000
+     246:	b083      	sub	sp, #12
+     248:	ed80 8a0e 	vstr	s16, [r0, #56]	@ 0x38
+     24c:	ed80 9b14 	vstr	d9, [r0, #80]	@ 0x50
+     250:	ed80 ab16 	vstr	d10, [r0, #88]	@ 0x58
+     254:	ed80 ab18 	vstr	d10, [r0, #96]	@ 0x60
+     258:	ed80 ab1a 	vstr	d10, [r0, #104]	@ 0x68
+     25c:	ed80 8a1f 	vstr	s16, [r0, #124]	@ 0x7c
+     260:	6145      	str	r5, [r0, #20]
+     262:	8305      	strh	r5, [r0, #24]
+     264:	7685      	strb	r5, [r0, #26]
+     266:	7705      	strb	r5, [r0, #28]
+     268:	6205      	str	r5, [r0, #32]
+     26a:	8485      	strh	r5, [r0, #36]	@ 0x24
+     26c:	f880 5030 	strb.w	r5, [r0, #48]	@ 0x30
+     270:	f8a0 5044 	strh.w	r5, [r0, #68]	@ 0x44
+     274:	6485      	str	r5, [r0, #72]	@ 0x48
+     276:	6785      	str	r5, [r0, #120]	@ 0x78
+     278:	e9c0 5501 	strd	r5, r5, [r0, #4]
+     27c:	e9c0 550a 	strd	r5, r5, [r0, #40]	@ 0x28
+     280:	e9c0 550f 	strd	r5, r5, [r0, #60]	@ 0x3c
+     284:	e9c0 551c 	strd	r5, r5, [r0, #112]	@ 0x70
+     288:	7005      	strb	r5, [r0, #0]
+     28a:	7305      	strb	r5, [r0, #12]
+     28c:	8205      	strh	r5, [r0, #16]
+     28e:	f8a0 5080 	strh.w	r5, [r0, #128]	@ 0x80
+     292:	e9c0 3522 	strd	r3, r5, [r0, #136]	@ 0x88
+     296:	33ff      	adds	r3, #255	@ 0xff
+     298:	4ed4      	ldr	r6, [pc, #848]	@ (5ec <_ZN3fsm5RobotC1Ev+0x3cc>)
+     29a:	4629      	mov	r1, r5
+     29c:	f8c0 30ac 	str.w	r3, [r0, #172]	@ 0xac
+     2a0:	2210      	movs	r2, #16
+     2a2:	ed80 8a34 	vstr	s16, [r0, #208]	@ 0xd0
+     2a6:	ed80 ab3c 	vstr	d10, [r0, #240]	@ 0xf0
+     2aa:	ed80 8a3e 	vstr	s16, [r0, #248]	@ 0xf8
+     2ae:	e9c0 5526 	strd	r5, r5, [r0, #152]	@ 0x98
+     2b2:	e9c0 552d 	strd	r5, r5, [r0, #180]	@ 0xb4
+     2b6:	e9c0 552f 	strd	r5, r5, [r0, #188]	@ 0xbc
+     2ba:	e9c0 5531 	strd	r5, r5, [r0, #196]	@ 0xc4
+     2be:	e9c0 5537 	strd	r5, r5, [r0, #220]	@ 0xdc
+     2c2:	e9c0 553f 	strd	r5, r5, [r0, #252]	@ 0xfc
+     2c6:	f8c0 5090 	str.w	r5, [r0, #144]	@ 0x90
+     2ca:	f8a0 5094 	strh.w	r5, [r0, #148]	@ 0x94
+     2ce:	f8a0 50a0 	strh.w	r5, [r0, #160]	@ 0xa0
+     2d2:	f8c0 50a4 	str.w	r5, [r0, #164]	@ 0xa4
+     2d6:	f8a0 50a8 	strh.w	r5, [r0, #168]	@ 0xa8
+     2da:	f880 50aa 	strb.w	r5, [r0, #170]	@ 0xaa
+     2de:	f8a0 50b0 	strh.w	r5, [r0, #176]	@ 0xb0
+     2e2:	f880 50cc 	strb.w	r5, [r0, #204]	@ 0xcc
+     2e6:	f8c0 50d4 	str.w	r5, [r0, #212]	@ 0xd4
+     2ea:	f880 50d8 	strb.w	r5, [r0, #216]	@ 0xd8
+     2ee:	f8c0 50e4 	str.w	r5, [r0, #228]	@ 0xe4
+     2f2:	f880 50e8 	strb.w	r5, [r0, #232]	@ 0xe8
+     2f6:	f8c0 5104 	str.w	r5, [r0, #260]	@ 0x104
+     2fa:	f8a0 5108 	strh.w	r5, [r0, #264]	@ 0x108
+     2fe:	f500 7088 	add.w	r0, r0, #272	@ 0x110
+     302:	47b0      	blx	r6
+     304:	f8df a2f4 	ldr.w	sl, [pc, #756]	@ 5fc <_ZN3fsm5RobotC1Ev+0x3dc>
+     308:	f884 7122 	strb.w	r7, [r4, #290]	@ 0x122
+     30c:	ed84 9b50 	vstr	d9, [r4, #320]	@ 0x140
+     310:	ed84 9b52 	vstr	d9, [r4, #328]	@ 0x148
+     314:	ed84 9b5c 	vstr	d9, [r4, #368]	@ 0x170
+     318:	e9c4 5549 	strd	r5, r5, [r4, #292]	@ 0x124
+     31c:	e9c4 5554 	strd	r5, r5, [r4, #336]	@ 0x150
+     320:	f8a4 8120 	strh.w	r8, [r4, #288]	@ 0x120
+     324:	f8c4 512c 	str.w	r5, [r4, #300]	@ 0x12c
+     328:	f8a4 5130 	strh.w	r5, [r4, #304]	@ 0x130
+     32c:	f8c4 5134 	str.w	r5, [r4, #308]	@ 0x134
+     330:	f8a4 5138 	strh.w	r5, [r4, #312]	@ 0x138
+     334:	f884 513a 	strb.w	r5, [r4, #314]	@ 0x13a
+     338:	f8c4 513c 	str.w	r5, [r4, #316]	@ 0x13c
+     33c:	f8c4 5158 	str.w	r5, [r4, #344]	@ 0x158
+     340:	f8a4 515c 	strh.w	r5, [r4, #348]	@ 0x15c
+     344:	f884 515e 	strb.w	r5, [r4, #350]	@ 0x15e
+     348:	f884 5160 	strb.w	r5, [r4, #352]	@ 0x160
+     34c:	f884 5161 	strb.w	r5, [r4, #353]	@ 0x161
+     350:	f8c4 5168 	str.w	r5, [r4, #360]	@ 0x168
+     354:	f504 70bc 	add.w	r0, r4, #376	@ 0x178
+     358:	47d0      	blx	sl
+     35a:	f8df 92a4 	ldr.w	r9, [pc, #676]	@ 600 <_ZN3fsm5RobotC1Ev+0x3e0>
+     35e:	f504 70dc 	add.w	r0, r4, #440	@ 0x1b8
+     362:	47c8      	blx	r9
+     364:	4ba2      	ldr	r3, [pc, #648]	@ (5f0 <_ZN3fsm5RobotC1Ev+0x3d0>)
+     366:	4629      	mov	r1, r5
+     368:	f8c4 3214 	str.w	r3, [r4, #532]	@ 0x214
+     36c:	f8a4 71f4 	strh.w	r7, [r4, #500]	@ 0x1f4
+     370:	ed84 9b78 	vstr	d9, [r4, #480]	@ 0x1e0
+     374:	ed84 8a7b 	vstr	s16, [r4, #492]	@ 0x1ec
+     378:	ed84 8a7c 	vstr	s16, [r4, #496]	@ 0x1f0
+     37c:	ed84 8a7f 	vstr	s16, [r4, #508]	@ 0x1fc
+     380:	ed84 8a80 	vstr	s16, [r4, #512]	@ 0x200
+     384:	ed84 8a82 	vstr	s16, [r4, #520]	@ 0x208
+     388:	ed84 8a83 	vstr	s16, [r4, #524]	@ 0x20c
+     38c:	ed84 8a88 	vstr	s16, [r4, #544]	@ 0x220
+     390:	221c      	movs	r2, #28
+     392:	f8c4 51d8 	str.w	r5, [r4, #472]	@ 0x1d8
+     396:	f8c4 51e8 	str.w	r5, [r4, #488]	@ 0x1e8
+     39a:	f884 51f8 	strb.w	r5, [r4, #504]	@ 0x1f8
+     39e:	f8c4 5204 	str.w	r5, [r4, #516]	@ 0x204
+     3a2:	f8a4 5210 	strh.w	r5, [r4, #528]	@ 0x210
+     3a6:	f884 5218 	strb.w	r5, [r4, #536]	@ 0x218
+     3aa:	f884 521c 	strb.w	r5, [r4, #540]	@ 0x21c
+     3ae:	f8c4 5224 	str.w	r5, [r4, #548]	@ 0x224
+     3b2:	f8c4 b228 	str.w	fp, [r4, #552]	@ 0x228
+     3b6:	f884 522c 	strb.w	r5, [r4, #556]	@ 0x22c
+     3ba:	f504 700c 	add.w	r0, r4, #560	@ 0x230
+     3be:	47b0      	blx	r6
+     3c0:	4629      	mov	r1, r5
+     3c2:	221c      	movs	r2, #28
+     3c4:	f504 7013 	add.w	r0, r4, #588	@ 0x24c
+     3c8:	47b0      	blx	r6
+     3ca:	4629      	mov	r1, r5
+     3cc:	2270      	movs	r2, #112	@ 0x70
+     3ce:	f8a4 5268 	strh.w	r5, [r4, #616]	@ 0x268
+     3d2:	f504 701b 	add.w	r0, r4, #620	@ 0x26c
+     3d6:	47b0      	blx	r6
+     3d8:	4a86      	ldr	r2, [pc, #536]	@ (5f4 <_ZN3fsm5RobotC1Ev+0x3d4>)
+     3da:	ed84 9bbe 	vstr	d9, [r4, #760]	@ 0x2f8
+     3de:	ed84 9bc0 	vstr	d9, [r4, #768]	@ 0x300
+     3e2:	ed84 8ac2 	vstr	s16, [r4, #776]	@ 0x308
+     3e6:	ed84 8ac7 	vstr	s16, [r4, #796]	@ 0x31c
+     3ea:	ed84 8ac8 	vstr	s16, [r4, #800]	@ 0x320
+     3ee:	e9c4 55b9 	strd	r5, r5, [r4, #740]	@ 0x2e4
+     3f2:	e9c4 55c3 	strd	r5, r5, [r4, #780]	@ 0x30c
+     3f6:	e9c4 55cb 	strd	r5, r5, [r4, #812]	@ 0x32c
+     3fa:	f8c4 52dc 	str.w	r5, [r4, #732]	@ 0x2dc
+     3fe:	f8a4 52e0 	strh.w	r5, [r4, #736]	@ 0x2e0
+     402:	f884 52ec 	strb.w	r5, [r4, #748]	@ 0x2ec
+     406:	f8c4 52f0 	str.w	r5, [r4, #752]	@ 0x2f0
+     40a:	f884 5314 	strb.w	r5, [r4, #788]	@ 0x314
+     40e:	f8a4 5318 	strh.w	r5, [r4, #792]	@ 0x318
+     412:	f8c4 5324 	str.w	r5, [r4, #804]	@ 0x324
+     416:	f8a4 5328 	strh.w	r5, [r4, #808]	@ 0x328
+     41a:	f884 532a 	strb.w	r5, [r4, #810]	@ 0x32a
+     41e:	f8c4 5334 	str.w	r5, [r4, #820]	@ 0x334
+     422:	f884 5338 	strb.w	r5, [r4, #824]	@ 0x338
+     426:	f504 704f 	add.w	r0, r4, #828	@ 0x33c
+     42a:	4790      	blx	r2
+     42c:	f884 7378 	strb.w	r7, [r4, #888]	@ 0x378
+     430:	f8c4 5368 	str.w	r5, [r4, #872]	@ 0x368
+     434:	f8a4 536c 	strh.w	r5, [r4, #876]	@ 0x36c
+     438:	f8c4 5370 	str.w	r5, [r4, #880]	@ 0x370
+     43c:	f884 5374 	strb.w	r5, [r4, #884]	@ 0x374
+     440:	f504 7060 	add.w	r0, r4, #896	@ 0x380
+     444:	47d0      	blx	sl
+     446:	f504 7070 	add.w	r0, r4, #960	@ 0x3c0
+     44a:	47c8      	blx	r9
+     44c:	f504 6180 	add.w	r1, r4, #1024	@ 0x400
+     450:	f884 73f2 	strb.w	r7, [r4, #1010]	@ 0x3f2
+     454:	ed84 9bfa 	vstr	d9, [r4, #1000]	@ 0x3e8
+     458:	ed84 8aff 	vstr	s16, [r4, #1020]	@ 0x3fc
+     45c:	e9c4 55fd 	strd	r5, r5, [r4, #1012]	@ 0x3f4
+     460:	f8c4 53e0 	str.w	r5, [r4, #992]	@ 0x3e0
+     464:	f8a4 53f0 	strh.w	r5, [r4, #1008]	@ 0x3f0
+     468:	ed81 8a00 	vstr	s16, [r1]
+     46c:	f204 4104 	addw	r1, r4, #1028	@ 0x404
+     470:	ed81 8a00 	vstr	s16, [r1]
+     474:	f504 6182 	add.w	r1, r4, #1040	@ 0x410
+     478:	ed01 ab02 	vstr	d10, [r1, #-8]
+     47c:	ed81 ab00 	vstr	d10, [r1]
+     480:	f504 6084 	add.w	r0, r4, #1056	@ 0x420
+     484:	f884 5418 	strb.w	r5, [r4, #1048]	@ 0x418
+     488:	47d0      	blx	sl
+     48a:	f504 618c 	add.w	r1, r4, #1120	@ 0x460
+     48e:	f8c4 5460 	str.w	r5, [r4, #1120]	@ 0x460
+     492:	ed81 9b02 	vstr	d9, [r1, #8]
+     496:	f504 618f 	add.w	r1, r4, #1144	@ 0x478
+     49a:	4608      	mov	r0, r1
+     49c:	f8a4 5470 	strh.w	r5, [r4, #1136]	@ 0x470
+     4a0:	f884 5472 	strb.w	r5, [r4, #1138]	@ 0x472
+     4a4:	9101      	str	r1, [sp, #4]
+     4a6:	47c8      	blx	r9
+     4a8:	f504 6093 	add.w	r0, r4, #1176	@ 0x498
+     4ac:	47d0      	blx	sl
+     4ae:	9901      	ldr	r1, [sp, #4]
+     4b0:	f504 609c 	add.w	r0, r4, #1248	@ 0x4e0
+     4b4:	f8c4 54d8 	str.w	r5, [r4, #1240]	@ 0x4d8
+     4b8:	ed80 9b00 	vstr	d9, [r0]
+     4bc:	f504 609b 	add.w	r0, r4, #1240	@ 0x4d8
+     4c0:	f8c4 54e8 	str.w	r5, [r4, #1256]	@ 0x4e8
+     4c4:	ed80 8a05 	vstr	s16, [r0, #20]
+     4c8:	ed80 8a06 	vstr	s16, [r0, #24]
+     4cc:	f8a4 74f4 	strh.w	r7, [r4, #1268]	@ 0x4f4
+     4d0:	f8a4 84f8 	strh.w	r8, [r4, #1272]	@ 0x4f8
+     4d4:	f504 60a0 	add.w	r0, r4, #1280	@ 0x500
+     4d8:	ed81 8a21 	vstr	s16, [r1, #132]	@ 0x84
+     4dc:	47c8      	blx	r9
+     4de:	f8df a124 	ldr.w	sl, [pc, #292]	@ 604 <_ZN3fsm5RobotC1Ev+0x3e4>
+     4e2:	f8a4 5520 	strh.w	r5, [r4, #1312]	@ 0x520
+     4e6:	f884 5522 	strb.w	r5, [r4, #1314]	@ 0x522
+     4ea:	f504 60a5 	add.w	r0, r4, #1320	@ 0x528
+     4ee:	47d0      	blx	sl
+     4f0:	f504 69b8 	add.w	r9, r4, #1472	@ 0x5c0
+     4f4:	f504 61ba 	add.w	r1, r4, #1488	@ 0x5d0
+     4f8:	f8c4 55c0 	str.w	r5, [r4, #1472]	@ 0x5c0
+     4fc:	f504 60bc 	add.w	r0, r4, #1504	@ 0x5e0
+     500:	ed89 9b02 	vstr	d9, [r9, #8]
+     504:	f8c4 55d0 	str.w	r5, [r4, #1488]	@ 0x5d0
+     508:	ed81 9b02 	vstr	d9, [r1, #8]
+     50c:	47d0      	blx	sl
+     50e:	f504 61cf 	add.w	r1, r4, #1656	@ 0x678
+     512:	ed81 8a01 	vstr	s16, [r1, #4]
+     516:	ed81 8a00 	vstr	s16, [r1]
+     51a:	2102      	movs	r1, #2
+     51c:	f8c4 1684 	str.w	r1, [r4, #1668]	@ 0x684
+     520:	f504 61d3 	add.w	r1, r4, #1688	@ 0x698
+     524:	f8a4 5680 	strh.w	r5, [r4, #1664]	@ 0x680
+     528:	f8a4 5688 	strh.w	r5, [r4, #1672]	@ 0x688
+     52c:	f884 568a 	strb.w	r5, [r4, #1674]	@ 0x68a
+     530:	f884 568c 	strb.w	r5, [r4, #1676]	@ 0x68c
+     534:	ed89 8a34 	vstr	s16, [r9, #208]	@ 0xd0
+     538:	f8a4 5694 	strh.w	r5, [r4, #1684]	@ 0x694
+     53c:	f8c4 5698 	str.w	r5, [r4, #1688]	@ 0x698
+     540:	f8c4 569c 	str.w	r5, [r4, #1692]	@ 0x69c
+     544:	ed81 8a02 	vstr	s16, [r1, #8]
+     548:	f504 61d8 	add.w	r1, r4, #1728	@ 0x6c0
+     54c:	f8c4 56a4 	str.w	r5, [r4, #1700]	@ 0x6a4
+     550:	f8c4 56a8 	str.w	r5, [r4, #1704]	@ 0x6a8
+     554:	f8c4 56ac 	str.w	r5, [r4, #1708]	@ 0x6ac
+     558:	f8c4 56b0 	str.w	r5, [r4, #1712]	@ 0x6b0
+     55c:	f8c4 56b4 	str.w	r5, [r4, #1716]	@ 0x6b4
+     560:	f8c4 56b8 	str.w	r5, [r4, #1720]	@ 0x6b8
+     564:	f8a4 56bc 	strh.w	r5, [r4, #1724]	@ 0x6bc
+     568:	f8c4 56c0 	str.w	r5, [r4, #1728]	@ 0x6c0
+     56c:	f504 60db 	add.w	r0, r4, #1752	@ 0x6d8
+     570:	ed81 8a01 	vstr	s16, [r1, #4]
+     574:	ed81 8a02 	vstr	s16, [r1, #8]
+     578:	ed81 8a03 	vstr	s16, [r1, #12]
+     57c:	491e      	ldr	r1, [pc, #120]	@ (5f8 <_ZN3fsm5RobotC1Ev+0x3d8>)
+     57e:	f8a4 56d0 	strh.w	r5, [r4, #1744]	@ 0x6d0
+     582:	4788      	blx	r1
+     584:	f604 0168 	addw	r1, r4, #2152	@ 0x868
+     588:	ed81 8a00 	vstr	s16, [r1]
+     58c:	ed81 8a01 	vstr	s16, [r1, #4]
+     590:	f604 0174 	addw	r1, r4, #2164	@ 0x874
+     594:	f8a4 5870 	strh.w	r5, [r4, #2160]	@ 0x870
+     598:	f8c4 5874 	str.w	r5, [r4, #2164]	@ 0x874
+     59c:	f8c4 8878 	str.w	r8, [r4, #2168]	@ 0x878
+     5a0:	ed81 8a02 	vstr	s16, [r1, #8]
+     5a4:	ed81 8a03 	vstr	s16, [r1, #12]
+     5a8:	ed81 8a04 	vstr	s16, [r1, #16]
+     5ac:	ed81 8a05 	vstr	s16, [r1, #20]
+     5b0:	ed81 8a06 	vstr	s16, [r1, #24]
+     5b4:	ed81 8a07 	vstr	s16, [r1, #28]
+     5b8:	ed81 8a08 	vstr	s16, [r1, #32]
+     5bc:	f504 6107 	add.w	r1, r4, #2160	@ 0x870
+     5c0:	f884 5898 	strb.w	r5, [r4, #2200]	@ 0x898
+     5c4:	f8c4 589c 	str.w	r5, [r4, #2204]	@ 0x89c
+     5c8:	f884 58a0 	strb.w	r5, [r4, #2208]	@ 0x8a0
+     5cc:	4a09      	ldr	r2, [pc, #36]	@ (5f4 <_ZN3fsm5RobotC1Ev+0x3d4>)
+     5ce:	ed81 9b0e 	vstr	d9, [r1, #56]	@ 0x38
+     5d2:	e019      	b.n	608 <_ZN3fsm5RobotC1Ev+0x3e8>
+     5d4:	f3af 8000 	nop.w
+	...
+			5ec: R_ARM_ABS32	memset
+     5f0:	00010004 	.word	0x00010004
+	...
+			5f4: R_ARM_ABS32	_ZN10opp_fusion17FusionObservationC1Ev
+			5f8: R_ARM_ABS32	_ZN3fsm11RobotResultC1Ev
+			5fc: R_ARM_ABS32	_ZN6motion4TurnC1Ev
+			600: R_ARM_ABS32	_ZN6motion8StraightC1Ev
+			604: R_ARM_ABS32	_ZN7openers5FlankC1Ev
+     608:	f604 00c4 	addw	r0, r4, #2244	@ 0x8c4
+     60c:	f8c4 58b0 	str.w	r5, [r4, #2224]	@ 0x8b0
+     610:	f8c4 58b4 	str.w	r5, [r4, #2228]	@ 0x8b4
+     614:	f8c4 58b8 	str.w	r5, [r4, #2232]	@ 0x8b8
+     618:	f884 58bc 	strb.w	r5, [r4, #2236]	@ 0x8bc
+     61c:	f8a4 58c0 	strh.w	r5, [r4, #2240]	@ 0x8c0
+     620:	4790      	blx	r2
+     622:	4b65      	ldr	r3, [pc, #404]	@ (7b8 <_ZN3fsm5RobotC1Ev+0x598>)
+     624:	f604 02f8 	addw	r2, r4, #2296	@ 0x8f8
+     628:	f884 58f0 	strb.w	r5, [r4, #2288]	@ 0x8f0
+     62c:	f884 58f1 	strb.w	r5, [r4, #2289]	@ 0x8f1
+     630:	f884 58f2 	strb.w	r5, [r4, #2290]	@ 0x8f2
+     634:	f884 58f3 	strb.w	r5, [r4, #2291]	@ 0x8f3
+     638:	f884 58f4 	strb.w	r5, [r4, #2292]	@ 0x8f4
+     63c:	f884 58f5 	strb.w	r5, [r4, #2293]	@ 0x8f5
+     640:	ed82 8a00 	vstr	s16, [r2]
+     644:	ed82 8a01 	vstr	s16, [r2, #4]
+     648:	f8c4 3904 	str.w	r3, [r4, #2308]	@ 0x904
+     64c:	f504 6312 	add.w	r3, r4, #2336	@ 0x920
+     650:	f8a4 5900 	strh.w	r5, [r4, #2304]	@ 0x900
+     654:	f884 5908 	strb.w	r5, [r4, #2312]	@ 0x908
+     658:	f8c4 b90c 	str.w	fp, [r4, #2316]	@ 0x90c
+     65c:	f8a4 5910 	strh.w	r5, [r4, #2320]	@ 0x910
+     660:	f8c4 5914 	str.w	r5, [r4, #2324]	@ 0x914
+     664:	f8c4 b918 	str.w	fp, [r4, #2328]	@ 0x918
+     668:	ed82 8a09 	vstr	s16, [r2, #36]	@ 0x24
+     66c:	ed83 8a00 	vstr	s16, [r3]
+     670:	ed83 8a01 	vstr	s16, [r3, #4]
+     674:	ed83 8a02 	vstr	s16, [r3, #8]
+     678:	f04f 7380 	mov.w	r3, #16777216	@ 0x1000000
+     67c:	2001      	movs	r0, #1
+     67e:	2100      	movs	r1, #0
+     680:	f8c4 392c 	str.w	r3, [r4, #2348]	@ 0x92c
+     684:	f884 5930 	strb.w	r5, [r4, #2352]	@ 0x930
+     688:	f8a4 5934 	strh.w	r5, [r4, #2356]	@ 0x934
+     68c:	f884 5936 	strb.w	r5, [r4, #2358]	@ 0x936
+     690:	f8c4 5938 	str.w	r5, [r4, #2360]	@ 0x938
+     694:	f8c4 593c 	str.w	r5, [r4, #2364]	@ 0x93c
+     698:	f8c4 5940 	str.w	r5, [r4, #2368]	@ 0x940
+     69c:	f8c4 5944 	str.w	r5, [r4, #2372]	@ 0x944
+     6a0:	f8c4 5948 	str.w	r5, [r4, #2376]	@ 0x948
+     6a4:	f8c4 594c 	str.w	r5, [r4, #2380]	@ 0x94c
+     6a8:	f8c4 5950 	str.w	r5, [r4, #2384]	@ 0x950
+     6ac:	f8c4 5954 	str.w	r5, [r4, #2388]	@ 0x954
+     6b0:	f8c4 5958 	str.w	r5, [r4, #2392]	@ 0x958
+     6b4:	f8c4 595c 	str.w	r5, [r4, #2396]	@ 0x95c
+     6b8:	f8c4 7964 	str.w	r7, [r4, #2404]	@ 0x964
+     6bc:	4f3f      	ldr	r7, [pc, #252]	@ (7bc <_ZN3fsm5RobotC1Ev+0x59c>)
+     6be:	f604 1374 	addw	r3, r4, #2420	@ 0x974
+     6c2:	f504 690c 	add.w	r9, r4, #2240	@ 0x8c0
+     6c6:	f8c4 5960 	str.w	r5, [r4, #2400]	@ 0x960
+     6ca:	ed89 8a2a 	vstr	s16, [r9, #168]	@ 0xa8
+     6ce:	ed89 8a2b 	vstr	s16, [r9, #172]	@ 0xac
+     6d2:	f8c4 5970 	str.w	r5, [r4, #2416]	@ 0x970
+     6d6:	f8c4 7974 	str.w	r7, [r4, #2420]	@ 0x974
+     6da:	f884 5978 	strb.w	r5, [r4, #2424]	@ 0x978
+     6de:	f884 5979 	strb.w	r5, [r4, #2425]	@ 0x979
+     6e2:	f8c4 597c 	str.w	r5, [r4, #2428]	@ 0x97c
+     6e6:	f8c4 5980 	str.w	r5, [r4, #2432]	@ 0x980
+     6ea:	f8c4 5984 	str.w	r5, [r4, #2436]	@ 0x984
+     6ee:	ed83 8a05 	vstr	s16, [r3, #20]
+     6f2:	ed83 8a06 	vstr	s16, [r3, #24]
+     6f6:	ed83 8a07 	vstr	s16, [r3, #28]
+     6fa:	ed83 8a08 	vstr	s16, [r3, #32]
+     6fe:	f504 631b 	add.w	r3, r4, #2480	@ 0x9b0
+     702:	f884 5998 	strb.w	r5, [r4, #2456]	@ 0x998
+     706:	f8a4 599c 	strh.w	r5, [r4, #2460]	@ 0x99c
+     70a:	f884 599e 	strb.w	r5, [r4, #2462]	@ 0x99e
+     70e:	f8c4 59a0 	str.w	r5, [r4, #2464]	@ 0x9a0
+     712:	f8c4 59a4 	str.w	r5, [r4, #2468]	@ 0x9a4
+     716:	ed03 9b02 	vstr	d9, [r3, #-8]
+     71a:	ed83 9b00 	vstr	d9, [r3]
+     71e:	f504 631d 	add.w	r3, r4, #2512	@ 0x9d0
+     722:	f8c4 59b8 	str.w	r5, [r4, #2488]	@ 0x9b8
+     726:	f884 59bc 	strb.w	r5, [r4, #2492]	@ 0x9bc
+     72a:	f8a4 89c0 	strh.w	r8, [r4, #2496]	@ 0x9c0
+     72e:	e943 0102 	strd	r0, r1, [r3, #-8]
+     732:	f504 601e 	add.w	r0, r4, #2528	@ 0x9e0
+     736:	ed83 9b00 	vstr	d9, [r3]
+     73a:	4629      	mov	r1, r5
+     73c:	ed00 9b02 	vstr	d9, [r0, #-8]
+     740:	2210      	movs	r2, #16
+     742:	47b0      	blx	r6
+     744:	2210      	movs	r2, #16
+     746:	4629      	mov	r1, r5
+     748:	f8c4 59f0 	str.w	r5, [r4, #2544]	@ 0x9f0
+     74c:	f8c4 59f4 	str.w	r5, [r4, #2548]	@ 0x9f4
+     750:	f8c4 59f8 	str.w	r5, [r4, #2552]	@ 0x9f8
+     754:	f604 10fc 	addw	r0, r4, #2556	@ 0x9fc
+     758:	47b0      	blx	r6
+     75a:	4620      	mov	r0, r4
+     75c:	f604 2328 	addw	r3, r4, #2600	@ 0xa28
+     760:	f8c4 5a0c 	str.w	r5, [r4, #2572]	@ 0xa0c
+     764:	f8c4 5a10 	str.w	r5, [r4, #2576]	@ 0xa10
+     768:	f8c4 5a14 	str.w	r5, [r4, #2580]	@ 0xa14
+     76c:	f8c4 5a18 	str.w	r5, [r4, #2584]	@ 0xa18
+     770:	f8c4 5a1c 	str.w	r5, [r4, #2588]	@ 0xa1c
+     774:	f8c4 5a20 	str.w	r5, [r4, #2592]	@ 0xa20
+     778:	f884 5a24 	strb.w	r5, [r4, #2596]	@ 0xa24
+     77c:	ed83 8a00 	vstr	s16, [r3]
+     780:	f8c4 7a2c 	str.w	r7, [r4, #2604]	@ 0xa2c
+     784:	f8c4 5a30 	str.w	r5, [r4, #2608]	@ 0xa30
+     788:	f8c4 5a34 	str.w	r5, [r4, #2612]	@ 0xa34
+     78c:	f8c4 5a38 	str.w	r5, [r4, #2616]	@ 0xa38
+     790:	f8c4 5a3c 	str.w	r5, [r4, #2620]	@ 0xa3c
+     794:	f8c4 5a40 	str.w	r5, [r4, #2624]	@ 0xa40
+     798:	f884 5a44 	strb.w	r5, [r4, #2628]	@ 0xa44
+     79c:	f884 5a45 	strb.w	r5, [r4, #2629]	@ 0xa45
+     7a0:	f8a4 5a46 	strh.w	r5, [r4, #2630]	@ 0xa46
+     7a4:	f8a4 5a48 	strh.w	r5, [r4, #2632]	@ 0xa48
+     7a8:	f884 5a4a 	strb.w	r5, [r4, #2634]	@ 0xa4a
+     7ac:	b003      	add	sp, #12
+     7ae:	ecbd 8b06 	vpop	{d8-d10}
+     7b2:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+     7b6:	bf00      	nop
+     7b8:	00010004 	.word	0x00010004
+     7bc:	01010100 	.word	0x01010100
+
+000000ec <_ZN10opp_fusion17FusionObservationC1Ev>:
+      ec:	2200      	movs	r2, #0
+      ee:	2100      	movs	r1, #0
+      f0:	e9c0 2204 	strd	r2, r2, [r0, #16]
+      f4:	6002      	str	r2, [r0, #0]
+      f6:	8082      	strh	r2, [r0, #4]
+      f8:	7182      	strb	r2, [r0, #6]
+      fa:	8102      	strh	r2, [r0, #8]
+      fc:	7282      	strb	r2, [r0, #10]
+      fe:	60c1      	str	r1, [r0, #12]
+     100:	8302      	strh	r2, [r0, #24]
+     102:	7682      	strb	r2, [r0, #26]
+     104:	61c1      	str	r1, [r0, #28]
+     106:	6201      	str	r1, [r0, #32]
+     108:	6242      	str	r2, [r0, #36]	@ 0x24
+     10a:	f880 2028 	strb.w	r2, [r0, #40]	@ 0x28
+     10e:	4770      	bx	lr
+
+00000160 <_ZN3fsm11RobotResultC1Ev>:
+     160:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+     164:	2300      	movs	r3, #0
+     166:	2500      	movs	r5, #0
+     168:	2600      	movs	r6, #0
+     16a:	2700      	movs	r7, #0
+     16c:	4604      	mov	r4, r0
+     16e:	4a29      	ldr	r2, [pc, #164]	@ (214 <_ZN3fsm11RobotResultC1Ev+0xb4>)
+     170:	60c3      	str	r3, [r0, #12]
+     172:	e9c0 2506 	strd	r2, r5, [r0, #24]
+     176:	6103      	str	r3, [r0, #16]
+     178:	6283      	str	r3, [r0, #40]	@ 0x28
+     17a:	63c3      	str	r3, [r0, #60]	@ 0x3c
+     17c:	6643      	str	r3, [r0, #100]	@ 0x64
+     17e:	4629      	mov	r1, r5
+     180:	e9c0 6700 	strd	r6, r7, [r0]
+     184:	e9c0 5508 	strd	r5, r5, [r0, #32]
+     188:	e9c0 550b 	strd	r5, r5, [r0, #44]	@ 0x2c
+     18c:	e9c0 5512 	strd	r5, r5, [r0, #72]	@ 0x48
+     190:	e9c0 5516 	strd	r5, r5, [r0, #88]	@ 0x58
+     194:	f8df 8080 	ldr.w	r8, [pc, #128]	@ 218 <_ZN3fsm11RobotResultC1Ev+0xb8>
+     198:	7205      	strb	r5, [r0, #8]
+     19a:	8285      	strh	r5, [r0, #20]
+     19c:	8685      	strh	r5, [r0, #52]	@ 0x34
+     19e:	8705      	strh	r5, [r0, #56]	@ 0x38
+     1a0:	6405      	str	r5, [r0, #64]	@ 0x40
+     1a2:	f880 5044 	strb.w	r5, [r0, #68]	@ 0x44
+     1a6:	6505      	str	r5, [r0, #80]	@ 0x50
+     1a8:	f880 5054 	strb.w	r5, [r0, #84]	@ 0x54
+     1ac:	f8a0 5060 	strh.w	r5, [r0, #96]	@ 0x60
+     1b0:	f880 5062 	strb.w	r5, [r0, #98]	@ 0x62
+     1b4:	22a8      	movs	r2, #168	@ 0xa8
+     1b6:	3068      	adds	r0, #104	@ 0x68
+     1b8:	47c0      	blx	r8
+     1ba:	2219      	movs	r2, #25
+     1bc:	4629      	mov	r1, r5
+     1be:	e9c4 5545 	strd	r5, r5, [r4, #276]	@ 0x114
+     1c2:	f8a4 5110 	strh.w	r5, [r4, #272]	@ 0x110
+     1c6:	f884 511c 	strb.w	r5, [r4, #284]	@ 0x11c
+     1ca:	f204 101d 	addw	r0, r4, #285	@ 0x11d
+     1ce:	47c0      	blx	r8
+     1d0:	e9c4 674e 	strd	r6, r7, [r4, #312]	@ 0x138
+     1d4:	e9c4 6752 	strd	r6, r7, [r4, #328]	@ 0x148
+     1d8:	e9c4 6754 	strd	r6, r7, [r4, #336]	@ 0x150
+     1dc:	e9c4 5558 	strd	r5, r5, [r4, #352]	@ 0x160
+     1e0:	e9c4 555a 	strd	r5, r5, [r4, #360]	@ 0x168
+     1e4:	e9c4 5560 	strd	r5, r5, [r4, #384]	@ 0x180
+     1e8:	f884 5136 	strb.w	r5, [r4, #310]	@ 0x136
+     1ec:	f8c4 5140 	str.w	r5, [r4, #320]	@ 0x140
+     1f0:	f8c4 5158 	str.w	r5, [r4, #344]	@ 0x158
+     1f4:	f884 515c 	strb.w	r5, [r4, #348]	@ 0x15c
+     1f8:	f8c4 5170 	str.w	r5, [r4, #368]	@ 0x170
+     1fc:	f884 5174 	strb.w	r5, [r4, #372]	@ 0x174
+     200:	f8c4 5178 	str.w	r5, [r4, #376]	@ 0x178
+     204:	f8a4 517c 	strh.w	r5, [r4, #380]	@ 0x17c
+     208:	f8c4 5188 	str.w	r5, [r4, #392]	@ 0x188
+     20c:	4620      	mov	r0, r4
+     20e:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+     212:	bf00      	nop
+     214:	01000101 	.word	0x01000101
+	...
+			218: R_ARM_ABS32	memset
+
+000000a4 <_ZN6motion4TurnC1Ev>:
+      a4:	b530      	push	{r4, r5, lr}
+      a6:	2400      	movs	r4, #0
+      a8:	2500      	movs	r5, #0
+      aa:	2200      	movs	r2, #0
+      ac:	2100      	movs	r1, #0
+      ae:	e9c0 4502 	strd	r4, r5, [r0, #8]
+      b2:	e9c0 4504 	strd	r4, r5, [r0, #16]
+      b6:	2400      	movs	r4, #0
+      b8:	2500      	movs	r5, #0
+      ba:	6002      	str	r2, [r0, #0]
+      bc:	e9c0 4506 	strd	r4, r5, [r0, #24]
+      c0:	e9c0 450a 	strd	r4, r5, [r0, #40]	@ 0x28
+      c4:	6201      	str	r1, [r0, #32]
+      c6:	6301      	str	r1, [r0, #48]	@ 0x30
+      c8:	8682      	strh	r2, [r0, #52]	@ 0x34
+      ca:	6381      	str	r1, [r0, #56]	@ 0x38
+      cc:	f880 203c 	strb.w	r2, [r0, #60]	@ 0x3c
+      d0:	bd30      	pop	{r4, r5, pc}
+
+000000d2 <_ZN6motion8StraightC1Ev>:
+      d2:	b530      	push	{r4, r5, lr}
+      d4:	2200      	movs	r2, #0
+      d6:	2100      	movs	r1, #0
+      d8:	2400      	movs	r4, #0
+      da:	2500      	movs	r5, #0
+      dc:	6002      	str	r2, [r0, #0]
+      de:	e9c0 4502 	strd	r4, r5, [r0, #8]
+      e2:	6102      	str	r2, [r0, #16]
+      e4:	6141      	str	r1, [r0, #20]
+      e6:	6181      	str	r1, [r0, #24]
+      e8:	7702      	strb	r2, [r0, #28]
+      ea:	bd30      	pop	{r4, r5, pc}
+
+00000110 <_ZN7openers5FlankC1Ev>:
+     110:	b510      	push	{r4, lr}
+     112:	4604      	mov	r4, r0
+     114:	4b10      	ldr	r3, [pc, #64]	@ (158 <_ZN7openers5FlankC1Ev+0x48>)
+     116:	4798      	blx	r3
+     118:	4b10      	ldr	r3, [pc, #64]	@ (15c <_ZN7openers5FlankC1Ev+0x4c>)
+     11a:	f104 0040 	add.w	r0, r4, #64	@ 0x40
+     11e:	4798      	blx	r3
+     120:	2200      	movs	r2, #0
+     122:	2000      	movs	r0, #0
+     124:	2100      	movs	r1, #0
+     126:	2300      	movs	r3, #0
+     128:	e9c4 011a 	strd	r0, r1, [r4, #104]	@ 0x68
+     12c:	6622      	str	r2, [r4, #96]	@ 0x60
+     12e:	2101      	movs	r1, #1
+     130:	6722      	str	r2, [r4, #112]	@ 0x70
+     132:	f8a4 2088 	strh.w	r2, [r4, #136]	@ 0x88
+     136:	f884 208a 	strb.w	r2, [r4, #138]	@ 0x8a
+     13a:	f04f 527e 	mov.w	r2, #1065353216	@ 0x3f800000
+     13e:	6763      	str	r3, [r4, #116]	@ 0x74
+     140:	67a3      	str	r3, [r4, #120]	@ 0x78
+     142:	67e3      	str	r3, [r4, #124]	@ 0x7c
+     144:	f8c4 3080 	str.w	r3, [r4, #128]	@ 0x80
+     148:	f8a4 1084 	strh.w	r1, [r4, #132]	@ 0x84
+     14c:	f8c4 208c 	str.w	r2, [r4, #140]	@ 0x8c
+     150:	f8c4 3090 	str.w	r3, [r4, #144]	@ 0x90
+     154:	4620      	mov	r0, r4
+     156:	bd10      	pop	{r4, pc}
+	...
+			158: R_ARM_ABS32	_ZN6motion4TurnC1Ev
+			15c: R_ARM_ABS32	_ZN6motion8StraightC1Ev
+
+0000cbd0 <main>:
+    cbd0:	b538      	push	{r3, r4, r5, lr}
+    cbd2:	4b05      	ldr	r3, [pc, #20]	@ (cbe8 <main+0x18>)
+    cbd4:	4798      	blx	r3
+    cbd6:	4b05      	ldr	r3, [pc, #20]	@ (cbec <main+0x1c>)
+    cbd8:	4798      	blx	r3
+    cbda:	4b05      	ldr	r3, [pc, #20]	@ (cbf0 <main+0x20>)
+    cbdc:	4798      	blx	r3
+    cbde:	4d05      	ldr	r5, [pc, #20]	@ (cbf4 <main+0x24>)
+    cbe0:	4c05      	ldr	r4, [pc, #20]	@ (cbf8 <main+0x28>)
+    cbe2:	47a8      	blx	r5
+    cbe4:	47a0      	blx	r4
+    cbe6:	e7fc      	b.n	cbe2 <main+0x12>
+	...
+			cbe8: R_ARM_ABS32	initVariant
+			cbec: R_ARM_ABS32	_Z20start_static_threadsv
+			cbf0: R_ARM_ABS32	setup
+			cbf4: R_ARM_ABS32	loop
+			cbf8: R_ARM_ABS32	_Z10__loopHookv
+
+0000cbfc <_Z20start_static_threadsv>:
+    cbfc:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+    cc00:	4c15      	ldr	r4, [pc, #84]	@ (cc58 <_Z20start_static_threadsv+0x5c>)
+    cc02:	4e16      	ldr	r6, [pc, #88]	@ (cc5c <_Z20start_static_threadsv+0x60>)
+    cc04:	4f16      	ldr	r7, [pc, #88]	@ (cc60 <_Z20start_static_threadsv+0x64>)
+    cc06:	f8df 805c 	ldr.w	r8, [pc, #92]	@ cc64 <_Z20start_static_threadsv+0x68>
+    cc0a:	b089      	sub	sp, #36	@ 0x24
+    cc0c:	4625      	mov	r5, r4
+    cc0e:	42b5      	cmp	r5, r6
+    cc10:	f104 0430 	add.w	r4, r4, #48	@ 0x30
+    cc14:	d302      	bcc.n	cc1c <_Z20start_static_threadsv+0x20>
+    cc16:	b009      	add	sp, #36	@ 0x24
+    cc18:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+    cc1c:	ed14 7b02 	vldr	d7, [r4, #-8]
+    cc20:	e954 010c 	ldrd	r0, r1, [r4, #-48]	@ 0x30
+    cc24:	e954 230a 	ldrd	r2, r3, [r4, #-40]	@ 0x28
+    cc28:	e954 ce08 	ldrd	ip, lr, [r4, #-32]
+    cc2c:	e954 9a06 	ldrd	r9, sl, [r4, #-24]
+    cc30:	f854 bc10 	ldr.w	fp, [r4, #-16]
+    cc34:	ed8d 7b06 	vstr	d7, [sp, #24]
+    cc38:	e9cd ab03 	strd	sl, fp, [sp, #12]
+    cc3c:	e9cd e901 	strd	lr, r9, [sp, #4]
+    cc40:	f8cd c000 	str.w	ip, [sp]
+    cc44:	47b8      	blx	r7
+    cc46:	f854 0c30 	ldr.w	r0, [r4, #-48]
+    cc4a:	f854 1c0c 	ldr.w	r1, [r4, #-12]
+    cc4e:	47c0      	blx	r8
+    cc50:	f854 3c30 	ldr.w	r3, [r4, #-48]
+    cc54:	655d      	str	r5, [r3, #84]	@ 0x54
+    cc56:	e7d9      	b.n	cc0c <_Z20start_static_threadsv+0x10>
+	...
+			cc58: R_ARM_ABS32	__static_thread_data_list_start
+			cc5c: R_ARM_ABS32	__static_thread_data_list_end
+			cc60: R_ARM_ABS32	z_impl_k_thread_create
+			cc64: R_ARM_ABS32	z_impl_k_thread_name_set
+
+0000cae8 <__cxa_allocate_exception>:
+    cae8:	b508      	push	{r3, lr}
+    caea:	4b01      	ldr	r3, [pc, #4]	@ (caf0 <__cxa_allocate_exception+0x8>)
+    caec:	4798      	blx	r3
+    caee:	bf00      	nop
+    caf0:	00000000 	.word	0x00000000
+			caf0: R_ARM_ABS32	abort
+
+0000c130 <_ZN18recorder_transport6Runner15configureEnableEPv>:
+    c130:	b510      	push	{r4, lr}
+    c132:	f100 0178 	add.w	r1, r0, #120	@ 0x78
+    c136:	2201      	movs	r2, #1
+    c138:	2300      	movs	r3, #0
+    c13a:	4c02      	ldr	r4, [pc, #8]	@ (c144 <_ZN18recorder_transport6Runner15configureEnableEPv+0x14>)
+    c13c:	47a0      	blx	r4
+    c13e:	2001      	movs	r0, #1
+    c140:	bd10      	pop	{r4, pc}
+    c142:	bf00      	nop
+    c144:	00000000 	.word	0x00000000
+			c144: R_ARM_ABS32	_ZN18recorder_transport6Runner3addERjy
+
+0000c1e4 <_ZN18recorder_transport6Runner12configurePwmEPvN6motors7ChannelE>:
+    c1e4:	b570      	push	{r4, r5, r6, lr}
+    c1e6:	460d      	mov	r5, r1
+    c1e8:	2201      	movs	r2, #1
+    c1ea:	2300      	movs	r3, #0
+    c1ec:	4e08      	ldr	r6, [pc, #32]	@ (c210 <_ZN18recorder_transport6Runner12configurePwmEPvN6motors7ChannelE+0x2c>)
+    c1ee:	f100 017c 	add.w	r1, r0, #124	@ 0x7c
+    c1f2:	4604      	mov	r4, r0
+    c1f4:	47b0      	blx	r6
+    c1f6:	2d03      	cmp	r5, #3
+    c1f8:	bf94      	ite	ls
+    c1fa:	2501      	movls	r5, #1
+    c1fc:	2500      	movhi	r5, #0
+    c1fe:	d905      	bls.n	c20c <_ZN18recorder_transport6Runner12configurePwmEPvN6motors7ChannelE+0x28>
+    c200:	2201      	movs	r2, #1
+    c202:	2300      	movs	r3, #0
+    c204:	4620      	mov	r0, r4
+    c206:	f104 0194 	add.w	r1, r4, #148	@ 0x94
+    c20a:	47b0      	blx	r6
+    c20c:	4628      	mov	r0, r5
+    c20e:	bd70      	pop	{r4, r5, r6, pc}
+    c210:	00000000 	.word	0x00000000
+			c210: R_ARM_ABS32	_ZN18recorder_transport6Runner3addERjy
+
+0000c148 <_ZN18recorder_transport6Runner11writeEnableEPvb>:
+    c148:	b570      	push	{r4, r5, r6, lr}
+    c14a:	460d      	mov	r5, r1
+    c14c:	2201      	movs	r2, #1
+    c14e:	2300      	movs	r3, #0
+    c150:	4e0a      	ldr	r6, [pc, #40]	@ (c17c <_ZN18recorder_transport6Runner11writeEnableEPvb+0x34>)
+    c152:	f100 0180 	add.w	r1, r0, #128	@ 0x80
+    c156:	4604      	mov	r4, r0
+    c158:	47b0      	blx	r6
+    c15a:	b15d      	cbz	r5, c174 <_ZN18recorder_transport6Runner11writeEnableEPvb+0x2c>
+    c15c:	2201      	movs	r2, #1
+    c15e:	2300      	movs	r3, #0
+    c160:	4620      	mov	r0, r4
+    c162:	f104 018c 	add.w	r1, r4, #140	@ 0x8c
+    c166:	47b0      	blx	r6
+    c168:	2201      	movs	r2, #1
+    c16a:	2300      	movs	r3, #0
+    c16c:	4620      	mov	r0, r4
+    c16e:	f104 0194 	add.w	r1, r4, #148	@ 0x94
+    c172:	47b0      	blx	r6
+    c174:	f085 0001 	eor.w	r0, r5, #1
+    c178:	bd70      	pop	{r4, r5, r6, pc}
+    c17a:	bf00      	nop
+    c17c:	00000000 	.word	0x00000000
+			c17c: R_ARM_ABS32	_ZN18recorder_transport6Runner3addERjy
+
+0000c180 <_ZN18recorder_transport6Runner8writePwmEPvN6motors7ChannelEjj>:
+    c180:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+    c184:	461f      	mov	r7, r3
+    c186:	4688      	mov	r8, r1
+    c188:	4614      	mov	r4, r2
+    c18a:	2300      	movs	r3, #0
+    c18c:	2201      	movs	r2, #1
+    c18e:	4e0e      	ldr	r6, [pc, #56]	@ (c1c8 <_ZN18recorder_transport6Runner8writePwmEPvN6motors7ChannelEjj+0x48>)
+    c190:	f100 0184 	add.w	r1, r0, #132	@ 0x84
+    c194:	4605      	mov	r5, r0
+    c196:	47b0      	blx	r6
+    c198:	b12f      	cbz	r7, c1a6 <_ZN18recorder_transport6Runner8writePwmEPvN6motors7ChannelEjj+0x26>
+    c19a:	2201      	movs	r2, #1
+    c19c:	2300      	movs	r3, #0
+    c19e:	4628      	mov	r0, r5
+    c1a0:	f105 0190 	add.w	r1, r5, #144	@ 0x90
+    c1a4:	47b0      	blx	r6
+    c1a6:	f1b8 0f03 	cmp.w	r8, #3
+    c1aa:	d802      	bhi.n	c1b2 <_ZN18recorder_transport6Runner8writePwmEPvN6motors7ChannelEjj+0x32>
+    c1ac:	2c01      	cmp	r4, #1
+    c1ae:	d100      	bne.n	c1b2 <_ZN18recorder_transport6Runner8writePwmEPvN6motors7ChannelEjj+0x32>
+    c1b0:	b147      	cbz	r7, c1c4 <_ZN18recorder_transport6Runner8writePwmEPvN6motors7ChannelEjj+0x44>
+    c1b2:	4628      	mov	r0, r5
+    c1b4:	2201      	movs	r2, #1
+    c1b6:	2300      	movs	r3, #0
+    c1b8:	f105 0194 	add.w	r1, r5, #148	@ 0x94
+    c1bc:	47b0      	blx	r6
+    c1be:	2000      	movs	r0, #0
+    c1c0:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+    c1c4:	4620      	mov	r0, r4
+    c1c6:	e7fb      	b.n	c1c0 <_ZN18recorder_transport6Runner8writePwmEPvN6motors7ChannelEjj+0x40>
+    c1c8:	00000000 	.word	0x00000000
+			c1c8: R_ARM_ABS32	_ZN18recorder_transport6Runner3addERjy
+
+0000c1cc <_ZN18recorder_transport6Runner6settleEPv>:
+    c1cc:	b510      	push	{r4, lr}
+    c1ce:	f100 0188 	add.w	r1, r0, #136	@ 0x88
+    c1d2:	2201      	movs	r2, #1
+    c1d4:	2300      	movs	r3, #0
+    c1d6:	4c02      	ldr	r4, [pc, #8]	@ (c1e0 <_ZN18recorder_transport6Runner6settleEPv+0x14>)
+    c1d8:	47a0      	blx	r4
+    c1da:	2001      	movs	r0, #1
+    c1dc:	bd10      	pop	{r4, pc}
+    c1de:	bf00      	nop
+    c1e0:	00000000 	.word	0x00000000
+			c1e0: R_ARM_ABS32	_ZN18recorder_transport6Runner3addERjy
+
+0000bdd4 <_ZN18recorder_transport6Runner10ownerClockEPv>:
+    bdd4:	2300      	movs	r3, #0
+    bdd6:	b507      	push	{r0, r1, r2, lr}
+    bdd8:	9301      	str	r3, [sp, #4]
+    bdda:	a901      	add	r1, sp, #4
+    bddc:	4b02      	ldr	r3, [pc, #8]	@ (bde8 <_ZN18recorder_transport6Runner10ownerClockEPv+0x14>)
+    bdde:	4798      	blx	r3
+    bde0:	9801      	ldr	r0, [sp, #4]
+    bde2:	b003      	add	sp, #12
+    bde4:	f85d fb04 	ldr.w	pc, [sp], #4
+    bde8:	00000000 	.word	0x00000000
+			bde8: R_ARM_ABS32	_ZN18recorder_transport6Runner6sampleERj

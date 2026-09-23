@@ -1,0 +1,233 @@
+{
+  "public_header_prefix_unchanged": true,
+  "functions": [
+    {
+      "path": "bench/recorder/src/recorder_transport.cpp",
+      "signature": "const Report& Runner::report() const { return report_; }",
+      "line": 11,
+      "lines": 1
+    },
+    {
+      "path": "bench/recorder/src/recorder_transport.cpp",
+      "signature": "const app::Transaction& Runner::transaction() const { return transaction_; }",
+      "line": 12,
+      "lines": 1
+    },
+    {
+      "path": "bench/recorder/src/recorder_transport.cpp",
+      "signature": "const recorder::AttemptRecorder& Runner::source() const { return transaction_.recording(); }",
+      "line": 13,
+      "lines": 1
+    },
+    {
+      "path": "bench/recorder/src/recorder_transport.cpp",
+      "signature": "const recorder::dump::Report& Runner::dump() const { return transfer_.report(); }",
+      "line": 14,
+      "lines": 1
+    },
+    {
+      "path": "bench/recorder/src/recorder_transport.cpp",
+      "signature": "void Runner::add(std::uint32_t& counter, std::uint64_t amount) {",
+      "line": 16,
+      "lines": 5
+    },
+    {
+      "path": "bench/recorder/src/recorder_transport.cpp",
+      "signature": "bool Runner::terminal() const {",
+      "line": 22,
+      "lines": 4
+    },
+    {
+      "path": "bench/recorder/src/recorder_transport.cpp",
+      "signature": "void Runner::fail(Failure failure) {",
+      "line": 27,
+      "lines": 9
+    },
+    {
+      "path": "bench/recorder/src/recorder_transport.cpp",
+      "signature": "bool Runner::validConfig() const {",
+      "line": 37,
+      "lines": 6
+    },
+    {
+      "path": "bench/recorder/src/recorder_transport.cpp",
+      "signature": "bool Runner::begin(bool enabled, const recorder::dump::SetupGrant& grants) {",
+      "line": 44,
+      "lines": 27
+    },
+    {
+      "path": "bench/recorder/src/recorder_transport.cpp",
+      "signature": "bool Runner::sample(std::uint32_t& now) {",
+      "line": 72,
+      "lines": 12
+    },
+    {
+      "path": "bench/recorder/src/recorder_transport.cpp",
+      "signature": "std::uint32_t Runner::ownerClock(void* context) {",
+      "line": 85,
+      "lines": 6
+    },
+    {
+      "path": "bench/recorder/src/recorder_transport.cpp",
+      "signature": "bool Runner::ownerResult(bool success) {",
+      "line": 92,
+      "lines": 8
+    },
+    {
+      "path": "bench/recorder/src/recorder_transport.cpp",
+      "signature": "void Runner::poll() {",
+      "line": 101,
+      "lines": 26
+    },
+    {
+      "path": "bench/recorder/src/recorder_transport.cpp",
+      "signature": "void Runner::epoch() {",
+      "line": 128,
+      "lines": 18
+    },
+    {
+      "path": "bench/recorder/src/recorder_transport.cpp",
+      "signature": "void Runner::closeEpoch() {",
+      "line": 147,
+      "lines": 16
+    },
+    {
+      "path": "bench/recorder/src/recorder_transport_io.cpp",
+      "signature": "motors::Port Runner::motorPort(Runner* owner) {",
+      "line": 7,
+      "lines": 4
+    },
+    {
+      "path": "bench/recorder/src/recorder_transport_io.cpp",
+      "signature": "bool Runner::configureEnable(void* context) {",
+      "line": 12,
+      "lines": 5
+    },
+    {
+      "path": "bench/recorder/src/recorder_transport_io.cpp",
+      "signature": "bool Runner::configurePwm(void* context, motors::Channel channel) {",
+      "line": 18,
+      "lines": 7
+    },
+    {
+      "path": "bench/recorder/src/recorder_transport_io.cpp",
+      "signature": "bool Runner::writeEnable(void* context, bool enabled) {",
+      "line": 26,
+      "lines": 9
+    },
+    {
+      "path": "bench/recorder/src/recorder_transport_io.cpp",
+      "signature": "bool Runner::writePwm(void* context, motors::Channel channel,",
+      "line": 36,
+      "lines": 9
+    },
+    {
+      "path": "bench/recorder/src/recorder_transport_io.cpp",
+      "signature": "bool Runner::settle(void* context) {",
+      "line": 46,
+      "lines": 5
+    },
+    {
+      "path": "bench/recorder/src/recorder_transport_io.cpp",
+      "signature": "bool Runner::receiptValid() const {",
+      "line": 52,
+      "lines": 11
+    },
+    {
+      "path": "bench/recorder/src/recorder_transport_io.cpp",
+      "signature": "bool Runner::inhibitedIdle(std::uint32_t now) const {",
+      "line": 64,
+      "lines": 10
+    },
+    {
+      "path": "bench/recorder/src/recorder_transport_io.cpp",
+      "signature": "bool Runner::transfer(std::uint32_t& after) {",
+      "line": 75,
+      "lines": 19
+    },
+    {
+      "path": "bench/recorder/src/recorder_transport_scenario.cpp",
+      "signature": "void Runner::enterStage(Stage stage, std::uint32_t now) {",
+      "line": 7,
+      "lines": 5
+    },
+    {
+      "path": "bench/recorder/src/recorder_transport_scenario.cpp",
+      "signature": "std::uint64_t Runner::stageDuration() const {",
+      "line": 13,
+      "lines": 7
+    },
+    {
+      "path": "bench/recorder/src/recorder_transport_scenario.cpp",
+      "signature": "void Runner::advanceStage(std::uint32_t now) {",
+      "line": 21,
+      "lines": 31
+    },
+    {
+      "path": "bench/recorder/src/recorder_transport_scenario.cpp",
+      "signature": "core::ButtonLevel Runner::stageButton() const {",
+      "line": 53,
+      "lines": 8
+    },
+    {
+      "path": "bench/recorder/src/recorder_transport_scenario.cpp",
+      "signature": "fsm::RobotInput Runner::project(void* context, std::uint32_t decision) {",
+      "line": 62,
+      "lines": 3
+    },
+    {
+      "path": "bench/recorder/src/recorder_transport_scenario.cpp",
+      "signature": "bool Runner::projectionClockAccepted(void* context) {",
+      "line": 66,
+      "lines": 3
+    },
+    {
+      "path": "bench/recorder/src/recorder_transport_scenario.cpp",
+      "signature": "fsm::RobotInput Runner::input(std::uint32_t now) {",
+      "line": 70,
+      "lines": 33
+    },
+    {
+      "path": "bench/recorder/src/recorder_transport_scenario.cpp",
+      "signature": "bool Runner::observeDecision() {",
+      "line": 104,
+      "lines": 19
+    },
+    {
+      "path": "bench/recorder/src/recorder_transport_scenario.cpp",
+      "signature": "bool Runner::observeRecording() {",
+      "line": 124,
+      "lines": 29
+    },
+    {
+      "path": "bench/recorder/src/recorder_transport_scenario.cpp",
+      "signature": "bool Runner::sealed() const {",
+      "line": 154,
+      "lines": 7
+    },
+    {
+      "path": "bench/recorder/src/recorder_transport_scenario.cpp",
+      "signature": "void Runner::observeResetGesture() {",
+      "line": 162,
+      "lines": 19
+    },
+    {
+      "path": "bench/recorder/src/recorder_transport_scenario.cpp",
+      "signature": "bool Runner::applyReset() {",
+      "line": 182,
+      "lines": 22
+    },
+    {
+      "path": "bench/recorder/src/recorder_transport_scenario.cpp",
+      "signature": "bool Runner::observeService() {",
+      "line": 205,
+      "lines": 30
+    }
+  ],
+  "maximum_function_lines": 33,
+  "source_unchanged_from_first_freeze": {
+    "bench/recorder/src/recorder_transport.cpp": true,
+    "bench/recorder/src/recorder_transport_io.cpp": true,
+    "bench/recorder/src/recorder_transport_scenario.cpp": true
+  }
+}

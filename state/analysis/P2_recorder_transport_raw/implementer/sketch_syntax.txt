@@ -1,0 +1,1129 @@
+In file included from src/app/../hal/../core/countdown.h:6,
+                 from src/app/../hal/../core/fsm.h:8,
+                 from src/app/../hal/motors.h:5,
+                 from src/app/transaction.h:5,
+                 from state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/recorder_transport.h:5,
+                 from state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/recorder.ino:5:
+src/app/../hal/../core/../config.h:20:32: error: redefinition of ‘constexpr const uint32_t config::OPP_INPUT_PINS [7]’
+   20 | inline constexpr std::uint32_t OPP_INPUT_PINS[7] = {11U, 12U, 13U, 16U, 17U, 18U, 19U};
+      |                                ^~~~~~~~~~~~~~
+In file included from state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/recorder.ino:4:
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:20:32: note: ‘constexpr const uint32_t config::OPP_INPUT_PINS [7]’ previously defined here
+   20 | inline constexpr std::uint32_t OPP_INPUT_PINS[7] = {11U, 12U, 13U, 16U, 17U, 18U, 19U};
+      |                                ^~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:22:32: error: redefinition of ‘constexpr const uint32_t config::MOTOR_PWM_PINS [4]’
+   22 | inline constexpr std::uint32_t MOTOR_PWM_PINS[4] = {3U, 5U, 6U, 9U};
+      |                                ^~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:22:32: note: ‘constexpr const uint32_t config::MOTOR_PWM_PINS [4]’ previously defined here
+   22 | inline constexpr std::uint32_t MOTOR_PWM_PINS[4] = {3U, 5U, 6U, 9U};
+      |                                ^~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:23:32: error: redefinition of ‘constexpr const uint32_t config::MOTOR_ENABLE_PIN’
+   23 | inline constexpr std::uint32_t MOTOR_ENABLE_PIN = 10U;
+      |                                ^~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:23:32: note: ‘constexpr const uint32_t config::MOTOR_ENABLE_PIN’ previously defined here
+   23 | inline constexpr std::uint32_t MOTOR_ENABLE_PIN = 10U;
+      |                                ^~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:25:32: error: redefinition of ‘constexpr const uint32_t config::MOTOR_PWM_HZ’
+   25 | inline constexpr std::uint32_t MOTOR_PWM_HZ = 10000U; // Hz
+      |                                ^~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:25:32: note: ‘constexpr const uint32_t config::MOTOR_PWM_HZ’ previously defined here
+   25 | inline constexpr std::uint32_t MOTOR_PWM_HZ = 10000U; // Hz
+      |                                ^~~~~~~~~~~~
+src/app/../hal/../core/../config.h:26:32: error: redefinition of ‘constexpr const uint32_t config::MOTOR_PWM_SETTLE_US’
+   26 | inline constexpr std::uint32_t MOTOR_PWM_SETTLE_US = 150U; // us, whole settle pass
+      |                                ^~~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:26:32: note: ‘constexpr const uint32_t config::MOTOR_PWM_SETTLE_US’ previously defined here
+   26 | inline constexpr std::uint32_t MOTOR_PWM_SETTLE_US = 150U; // us, whole settle pass
+      |                                ^~~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:27:32: error: redefinition of ‘constexpr const uint32_t config::MOTOR_PWM_SETTLE_MAX_POLLS’
+   27 | inline constexpr std::uint32_t MOTOR_PWM_SETTLE_MAX_POLLS = 4096U; // count-name exception
+      |                                ^~~~~~~~~~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:27:32: note: ‘constexpr const uint32_t config::MOTOR_PWM_SETTLE_MAX_POLLS’ previously defined here
+   27 | inline constexpr std::uint32_t MOTOR_PWM_SETTLE_MAX_POLLS = 4096U; // count-name exception
+      |                                ^~~~~~~~~~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:30:32: error: redefinition of ‘constexpr const uint32_t config::VBAT_INPUT_PIN’
+   30 | inline constexpr std::uint32_t VBAT_INPUT_PIN = 14U; // A0 / PA4 / ADC1 channel9
+      |                                ^~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:30:32: note: ‘constexpr const uint32_t config::VBAT_INPUT_PIN’ previously defined here
+   30 | inline constexpr std::uint32_t VBAT_INPUT_PIN = 14U; // A0 / PA4 / ADC1 channel9
+      |                                ^~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:31:32: error: redefinition of ‘constexpr const uint32_t config::BUTTON_INPUT_PIN’
+   31 | inline constexpr std::uint32_t BUTTON_INPUT_PIN = 15U; // A1 / PA5 / ADC1 channel10; D086, proposal only
+      |                                ^~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:31:32: note: ‘constexpr const uint32_t config::BUTTON_INPUT_PIN’ previously defined here
+   31 | inline constexpr std::uint32_t BUTTON_INPUT_PIN = 15U; // A1 / PA5 / ADC1 channel10; D086, proposal only
+      |                                ^~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:34:32: error: redefinition of ‘constexpr const uint32_t config::BUTTON_WINDOWS_CONFIGURED’
+   34 | inline constexpr std::uint32_t BUTTON_WINDOWS_CONFIGURED = 0U;
+      |                                ^~~~~~~~~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:34:32: note: ‘constexpr const uint32_t config::BUTTON_WINDOWS_CONFIGURED’ previously defined here
+   34 | inline constexpr std::uint32_t BUTTON_WINDOWS_CONFIGURED = 0U;
+      |                                ^~~~~~~~~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:35:32: error: redefinition of ‘constexpr const uint32_t config::BUTTON_LOW_RAW [4]’
+   35 | inline constexpr std::uint32_t BUTTON_LOW_RAW[4] = {0U, 0U, 0U, 0U};
+      |                                ^~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:35:32: note: ‘constexpr const uint32_t config::BUTTON_LOW_RAW [4]’ previously defined here
+   35 | inline constexpr std::uint32_t BUTTON_LOW_RAW[4] = {0U, 0U, 0U, 0U};
+      |                                ^~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:36:32: error: redefinition of ‘constexpr const uint32_t config::BUTTON_HIGH_RAW [4]’
+   36 | inline constexpr std::uint32_t BUTTON_HIGH_RAW[4] = {0U, 0U, 0U, 0U};
+      |                                ^~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:36:32: note: ‘constexpr const uint32_t config::BUTTON_HIGH_RAW [4]’ previously defined here
+   36 | inline constexpr std::uint32_t BUTTON_HIGH_RAW[4] = {0U, 0U, 0U, 0U};
+      |                                ^~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:37:32: error: redefinition of ‘constexpr const uint32_t config::BUTTON_SAMPLE_MAX_AGE_US’
+   37 | inline constexpr std::uint32_t BUTTON_SAMPLE_MAX_AGE_US = 5000U; // D087 development continuity/age limit
+      |                                ^~~~~~~~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:37:32: note: ‘constexpr const uint32_t config::BUTTON_SAMPLE_MAX_AGE_US’ previously defined here
+   37 | inline constexpr std::uint32_t BUTTON_SAMPLE_MAX_AGE_US = 5000U; // D087 development continuity/age limit
+      |                                ^~~~~~~~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:38:32: error: redefinition of ‘constexpr const uint32_t config::UI_BENCH_SAMPLES’
+   38 | inline constexpr std::uint32_t UI_BENCH_SAMPLES = 128U; // D112 finite raw/decoder capture; count exception
+      |                                ^~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:38:32: note: ‘constexpr const uint32_t config::UI_BENCH_SAMPLES’ previously defined here
+   38 | inline constexpr std::uint32_t UI_BENCH_SAMPLES = 128U; // D112 finite raw/decoder capture; count exception
+      |                                ^~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:39:24: error: redefinition of ‘constexpr const float config::VBAT_ADC_REFERENCE_V’
+   39 | inline constexpr float VBAT_ADC_REFERENCE_V = 3.3F; // nominal V
+      |                        ^~~~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:39:24: note: ‘constexpr const float config::VBAT_ADC_REFERENCE_V’ previously defined here
+   39 | inline constexpr float VBAT_ADC_REFERENCE_V = 3.3F; // nominal V
+      |                        ^~~~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:40:24: error: redefinition of ‘constexpr const float config::VBAT_DIVIDER_RATIO’
+   40 | inline constexpr float VBAT_DIVIDER_RATIO = 122.0F / 22.0F; // dimensionless exception
+      |                        ^~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:40:24: note: ‘constexpr const float config::VBAT_DIVIDER_RATIO’ previously defined here
+   40 | inline constexpr float VBAT_DIVIDER_RATIO = 122.0F / 22.0F; // dimensionless exception
+      |                        ^~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:41:32: error: redefinition of ‘constexpr const uint32_t config::VBAT_ADC_REGULATOR_US’
+   41 | inline constexpr std::uint32_t VBAT_ADC_REGULATOR_US = 100U;
+      |                                ^~~~~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:41:32: note: ‘constexpr const uint32_t config::VBAT_ADC_REGULATOR_US’ previously defined here
+   41 | inline constexpr std::uint32_t VBAT_ADC_REGULATOR_US = 100U;
+      |                                ^~~~~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:42:32: error: redefinition of ‘constexpr const uint32_t config::VBAT_ADC_CALIBRATION_US’
+   42 | inline constexpr std::uint32_t VBAT_ADC_CALIBRATION_US = 5000U;
+      |                                ^~~~~~~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:42:32: note: ‘constexpr const uint32_t config::VBAT_ADC_CALIBRATION_US’ previously defined here
+   42 | inline constexpr std::uint32_t VBAT_ADC_CALIBRATION_US = 5000U;
+      |                                ^~~~~~~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:43:32: error: redefinition of ‘constexpr const uint32_t config::VBAT_ADC_POST_CAL_US’
+   43 | inline constexpr std::uint32_t VBAT_ADC_POST_CAL_US = 2U;
+      |                                ^~~~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:43:32: note: ‘constexpr const uint32_t config::VBAT_ADC_POST_CAL_US’ previously defined here
+   43 | inline constexpr std::uint32_t VBAT_ADC_POST_CAL_US = 2U;
+      |                                ^~~~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:44:32: error: redefinition of ‘constexpr const uint32_t config::VBAT_ADC_ENABLE_US’
+   44 | inline constexpr std::uint32_t VBAT_ADC_ENABLE_US = 100U;
+      |                                ^~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:44:32: note: ‘constexpr const uint32_t config::VBAT_ADC_ENABLE_US’ previously defined here
+   44 | inline constexpr std::uint32_t VBAT_ADC_ENABLE_US = 100U;
+      |                                ^~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:45:32: error: redefinition of ‘constexpr const uint32_t config::VBAT_ADC_CONVERSION_US’
+   45 | inline constexpr std::uint32_t VBAT_ADC_CONVERSION_US = 100U;
+      |                                ^~~~~~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:45:32: note: ‘constexpr const uint32_t config::VBAT_ADC_CONVERSION_US’ previously defined here
+   45 | inline constexpr std::uint32_t VBAT_ADC_CONVERSION_US = 100U;
+      |                                ^~~~~~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:46:32: error: redefinition of ‘constexpr const uint32_t config::VBAT_ADC_SHUTDOWN_US’
+   46 | inline constexpr std::uint32_t VBAT_ADC_SHUTDOWN_US = 100U;
+      |                                ^~~~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:46:32: note: ‘constexpr const uint32_t config::VBAT_ADC_SHUTDOWN_US’ previously defined here
+   46 | inline constexpr std::uint32_t VBAT_ADC_SHUTDOWN_US = 100U;
+      |                                ^~~~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:48:32: error: redefinition of ‘constexpr const uint32_t config::VBAT_SAMPLE_PERIOD_US’
+   48 | inline constexpr std::uint32_t VBAT_SAMPLE_PERIOD_US = 10000U;
+      |                                ^~~~~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:48:32: note: ‘constexpr const uint32_t config::VBAT_SAMPLE_PERIOD_US’ previously defined here
+   48 | inline constexpr std::uint32_t VBAT_SAMPLE_PERIOD_US = 10000U;
+      |                                ^~~~~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:49:32: error: redefinition of ‘constexpr const uint32_t config::VBAT_BENCH_SAMPLES’
+   49 | inline constexpr std::uint32_t VBAT_BENCH_SAMPLES = 128U; // D110 finite capture; count exception
+      |                                ^~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:49:32: note: ‘constexpr const uint32_t config::VBAT_BENCH_SAMPLES’ previously defined here
+   49 | inline constexpr std::uint32_t VBAT_BENCH_SAMPLES = 128U; // D110 finite capture; count exception
+      |                                ^~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:50:32: error: redefinition of ‘constexpr const uint32_t config::VBAT_SAMPLE_MAX_AGE_US’
+   50 | inline constexpr std::uint32_t VBAT_SAMPLE_MAX_AGE_US = 20000U;
+      |                                ^~~~~~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:50:32: note: ‘constexpr const uint32_t config::VBAT_SAMPLE_MAX_AGE_US’ previously defined here
+   50 | inline constexpr std::uint32_t VBAT_SAMPLE_MAX_AGE_US = 20000U;
+      |                                ^~~~~~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:51:32: error: redefinition of ‘constexpr const uint32_t config::VBAT_ADC_SETUP_MAX_POLLS’
+   51 | inline constexpr std::uint32_t VBAT_ADC_SETUP_MAX_POLLS = 65536U; // count exception
+      |                                ^~~~~~~~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:51:32: note: ‘constexpr const uint32_t config::VBAT_ADC_SETUP_MAX_POLLS’ previously defined here
+   51 | inline constexpr std::uint32_t VBAT_ADC_SETUP_MAX_POLLS = 65536U; // count exception
+      |                                ^~~~~~~~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:52:32: error: redefinition of ‘constexpr const uint32_t config::VBAT_ADC_READ_MAX_POLLS’
+   52 | inline constexpr std::uint32_t VBAT_ADC_READ_MAX_POLLS = 4096U; // count exception
+      |                                ^~~~~~~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:52:32: note: ‘constexpr const uint32_t config::VBAT_ADC_READ_MAX_POLLS’ previously defined here
+   52 | inline constexpr std::uint32_t VBAT_ADC_READ_MAX_POLLS = 4096U; // count exception
+      |                                ^~~~~~~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:55:32: error: redefinition of ‘constexpr const uint32_t config::IMU_I2C_ADDRESS’
+   55 | inline constexpr std::uint32_t IMU_I2C_ADDRESS = 0x68U; // 7-bit address exception
+      |                                ^~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:55:32: note: ‘constexpr const uint32_t config::IMU_I2C_ADDRESS’ previously defined here
+   55 | inline constexpr std::uint32_t IMU_I2C_ADDRESS = 0x68U; // 7-bit address exception
+      |                                ^~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:56:32: error: redefinition of ‘constexpr const uint32_t config::IMU_I2C_GPIO_PORT’
+   56 | inline constexpr std::uint32_t IMU_I2C_GPIO_PORT = 3U; // port D, zero-based exception
+      |                                ^~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:56:32: note: ‘constexpr const uint32_t config::IMU_I2C_GPIO_PORT’ previously defined here
+   56 | inline constexpr std::uint32_t IMU_I2C_GPIO_PORT = 3U; // port D, zero-based exception
+      |                                ^~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:57:32: error: redefinition of ‘constexpr const uint32_t config::IMU_I2C_SCL_PIN’
+   57 | inline constexpr std::uint32_t IMU_I2C_SCL_PIN = 12U; // installed PD12
+      |                                ^~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:57:32: note: ‘constexpr const uint32_t config::IMU_I2C_SCL_PIN’ previously defined here
+   57 | inline constexpr std::uint32_t IMU_I2C_SCL_PIN = 12U; // installed PD12
+      |                                ^~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:58:32: error: redefinition of ‘constexpr const uint32_t config::IMU_I2C_SDA_PIN’
+   58 | inline constexpr std::uint32_t IMU_I2C_SDA_PIN = 13U; // installed PD13
+      |                                ^~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:58:32: note: ‘constexpr const uint32_t config::IMU_I2C_SDA_PIN’ previously defined here
+   58 | inline constexpr std::uint32_t IMU_I2C_SDA_PIN = 13U; // installed PD13
+      |                                ^~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:59:32: error: redefinition of ‘constexpr const uint32_t config::IMU_I2C_AF’
+   59 | inline constexpr std::uint32_t IMU_I2C_AF = 4U; // installed alternate-function exception
+      |                                ^~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:59:32: note: ‘constexpr const uint32_t config::IMU_I2C_AF’ previously defined here
+   59 | inline constexpr std::uint32_t IMU_I2C_AF = 4U; // installed alternate-function exception
+      |                                ^~~~~~~~~~
+src/app/../hal/../core/../config.h:60:32: error: redefinition of ‘constexpr const uint32_t config::IMU_I2C_TIMINGR’
+   60 | inline constexpr std::uint32_t IMU_I2C_TIMINGR = 0x40EB202CU; // register-value exception
+      |                                ^~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:60:32: note: ‘constexpr const uint32_t config::IMU_I2C_TIMINGR’ previously defined here
+   60 | inline constexpr std::uint32_t IMU_I2C_TIMINGR = 0x40EB202CU; // register-value exception
+      |                                ^~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:61:32: error: redefinition of ‘constexpr const uint32_t config::IMU_I2C_SETUP_US’
+   61 | inline constexpr std::uint32_t IMU_I2C_SETUP_US = 100U;
+      |                                ^~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:61:32: note: ‘constexpr const uint32_t config::IMU_I2C_SETUP_US’ previously defined here
+   61 | inline constexpr std::uint32_t IMU_I2C_SETUP_US = 100U;
+      |                                ^~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:62:32: error: redefinition of ‘constexpr const uint32_t config::IMU_I2C_TRANSFER_US’
+   62 | inline constexpr std::uint32_t IMU_I2C_TRANSFER_US = 600U;
+      |                                ^~~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:62:32: note: ‘constexpr const uint32_t config::IMU_I2C_TRANSFER_US’ previously defined here
+   62 | inline constexpr std::uint32_t IMU_I2C_TRANSFER_US = 600U;
+      |                                ^~~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:63:32: error: redefinition of ‘constexpr const uint32_t config::IMU_I2C_CLEANUP_US’
+   63 | inline constexpr std::uint32_t IMU_I2C_CLEANUP_US = 50U;
+      |                                ^~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:63:32: note: ‘constexpr const uint32_t config::IMU_I2C_CLEANUP_US’ previously defined here
+   63 | inline constexpr std::uint32_t IMU_I2C_CLEANUP_US = 50U;
+      |                                ^~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:64:32: error: redefinition of ‘constexpr const uint32_t config::IMU_I2C_MAX_POLLS’
+   64 | inline constexpr std::uint32_t IMU_I2C_MAX_POLLS = 8192U; // count exception
+      |                                ^~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:64:32: note: ‘constexpr const uint32_t config::IMU_I2C_MAX_POLLS’ previously defined here
+   64 | inline constexpr std::uint32_t IMU_I2C_MAX_POLLS = 8192U; // count exception
+      |                                ^~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:66:32: error: redefinition of ‘constexpr const uint32_t config::IMU_GYRO_RANGE_DPS’
+   66 | inline constexpr std::uint32_t IMU_GYRO_RANGE_DPS = 1000U;
+      |                                ^~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:66:32: note: ‘constexpr const uint32_t config::IMU_GYRO_RANGE_DPS’ previously defined here
+   66 | inline constexpr std::uint32_t IMU_GYRO_RANGE_DPS = 1000U;
+      |                                ^~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:67:32: error: redefinition of ‘constexpr const uint32_t config::IMU_ACCEL_RANGE_G’
+   67 | inline constexpr std::uint32_t IMU_ACCEL_RANGE_G = 8U;
+      |                                ^~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:67:32: note: ‘constexpr const uint32_t config::IMU_ACCEL_RANGE_G’ previously defined here
+   67 | inline constexpr std::uint32_t IMU_ACCEL_RANGE_G = 8U;
+      |                                ^~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:68:32: error: redefinition of ‘constexpr const uint32_t config::IMU_DLPF_CFG’
+   68 | inline constexpr std::uint32_t IMU_DLPF_CFG = 1U; // register-field exception
+      |                                ^~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:68:32: note: ‘constexpr const uint32_t config::IMU_DLPF_CFG’ previously defined here
+   68 | inline constexpr std::uint32_t IMU_DLPF_CFG = 1U; // register-field exception
+      |                                ^~~~~~~~~~~~
+src/app/../hal/../core/../config.h:69:32: error: redefinition of ‘constexpr const uint32_t config::IMU_SAMPLE_DIVIDER’
+   69 | inline constexpr std::uint32_t IMU_SAMPLE_DIVIDER = 0U; // register-field exception
+      |                                ^~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:69:32: note: ‘constexpr const uint32_t config::IMU_SAMPLE_DIVIDER’ previously defined here
+   69 | inline constexpr std::uint32_t IMU_SAMPLE_DIVIDER = 0U; // register-field exception
+      |                                ^~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:70:32: error: redefinition of ‘constexpr const uint32_t config::IMU_POWER_WAIT_US’
+   70 | inline constexpr std::uint32_t IMU_POWER_WAIT_US = 110000U;
+      |                                ^~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:70:32: note: ‘constexpr const uint32_t config::IMU_POWER_WAIT_US’ previously defined here
+   70 | inline constexpr std::uint32_t IMU_POWER_WAIT_US = 110000U;
+      |                                ^~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:71:32: error: redefinition of ‘constexpr const uint32_t config::IMU_RESET_WAIT_US’
+   71 | inline constexpr std::uint32_t IMU_RESET_WAIT_US = 110000U;
+      |                                ^~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:71:32: note: ‘constexpr const uint32_t config::IMU_RESET_WAIT_US’ previously defined here
+   71 | inline constexpr std::uint32_t IMU_RESET_WAIT_US = 110000U;
+      |                                ^~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:72:32: error: redefinition of ‘constexpr const uint32_t config::IMU_GYRO_WAIT_US’
+   72 | inline constexpr std::uint32_t IMU_GYRO_WAIT_US = 50000U;
+      |                                ^~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:72:32: note: ‘constexpr const uint32_t config::IMU_GYRO_WAIT_US’ previously defined here
+   72 | inline constexpr std::uint32_t IMU_GYRO_WAIT_US = 50000U;
+      |                                ^~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:73:32: error: redefinition of ‘constexpr const uint32_t config::IMU_PLL_WAIT_US’
+   73 | inline constexpr std::uint32_t IMU_PLL_WAIT_US = 20000U;
+      |                                ^~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:73:32: note: ‘constexpr const uint32_t config::IMU_PLL_WAIT_US’ previously defined here
+   73 | inline constexpr std::uint32_t IMU_PLL_WAIT_US = 20000U;
+      |                                ^~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:74:32: error: redefinition of ‘constexpr const uint32_t config::IMU_FILTER_WAIT_US’
+   74 | inline constexpr std::uint32_t IMU_FILTER_WAIT_US = 20000U;
+      |                                ^~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:74:32: note: ‘constexpr const uint32_t config::IMU_FILTER_WAIT_US’ previously defined here
+   74 | inline constexpr std::uint32_t IMU_FILTER_WAIT_US = 20000U;
+      |                                ^~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:75:32: error: redefinition of ‘constexpr const uint32_t config::IMU_SETUP_DEADLINE_US’
+   75 | inline constexpr std::uint32_t IMU_SETUP_DEADLINE_US = 1000000U;
+      |                                ^~~~~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:75:32: note: ‘constexpr const uint32_t config::IMU_SETUP_DEADLINE_US’ previously defined here
+   75 | inline constexpr std::uint32_t IMU_SETUP_DEADLINE_US = 1000000U;
+      |                                ^~~~~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:76:32: error: redefinition of ‘constexpr const uint32_t config::IMU_SETUP_MAX_ADVANCES’
+   76 | inline constexpr std::uint32_t IMU_SETUP_MAX_ADVANCES = 1024U; // count exception
+      |                                ^~~~~~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:76:32: note: ‘constexpr const uint32_t config::IMU_SETUP_MAX_ADVANCES’ previously defined here
+   76 | inline constexpr std::uint32_t IMU_SETUP_MAX_ADVANCES = 1024U; // count exception
+      |                                ^~~~~~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:77:32: error: redefinition of ‘constexpr const uint32_t config::IMU_SETUP_MAX_REQUESTS’
+   77 | inline constexpr std::uint32_t IMU_SETUP_MAX_REQUESTS = 64U; // count exception
+      |                                ^~~~~~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:77:32: note: ‘constexpr const uint32_t config::IMU_SETUP_MAX_REQUESTS’ previously defined here
+   77 | inline constexpr std::uint32_t IMU_SETUP_MAX_REQUESTS = 64U; // count exception
+      |                                ^~~~~~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:79:32: error: redefinition of ‘constexpr const uint32_t config::IMU_BENCH_TRIAL_US’
+   79 | inline constexpr std::uint32_t IMU_BENCH_TRIAL_US = 60000000U;
+      |                                ^~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:79:32: note: ‘constexpr const uint32_t config::IMU_BENCH_TRIAL_US’ previously defined here
+   79 | inline constexpr std::uint32_t IMU_BENCH_TRIAL_US = 60000000U;
+      |                                ^~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:80:32: error: redefinition of ‘constexpr const uint32_t config::IMU_BENCH_CHECKPOINT_US’
+   80 | inline constexpr std::uint32_t IMU_BENCH_CHECKPOINT_US = 1000000U;
+      |                                ^~~~~~~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:80:32: note: ‘constexpr const uint32_t config::IMU_BENCH_CHECKPOINT_US’ previously defined here
+   80 | inline constexpr std::uint32_t IMU_BENCH_CHECKPOINT_US = 1000000U;
+      |                                ^~~~~~~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:81:32: error: redefinition of ‘constexpr const uint32_t config::IMU_BENCH_CHECKPOINTS’
+   81 | inline constexpr std::uint32_t IMU_BENCH_CHECKPOINTS = 61U;
+      |                                ^~~~~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:81:32: note: ‘constexpr const uint32_t config::IMU_BENCH_CHECKPOINTS’ previously defined here
+   81 | inline constexpr std::uint32_t IMU_BENCH_CHECKPOINTS = 61U;
+      |                                ^~~~~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:82:32: error: redefinition of ‘constexpr const uint32_t config::IMU_BENCH_DEADLINE_US’
+   82 | inline constexpr std::uint32_t IMU_BENCH_DEADLINE_US = 70000000U;
+      |                                ^~~~~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:82:32: note: ‘constexpr const uint32_t config::IMU_BENCH_DEADLINE_US’ previously defined here
+   82 | inline constexpr std::uint32_t IMU_BENCH_DEADLINE_US = 70000000U;
+      |                                ^~~~~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:83:32: error: redefinition of ‘constexpr const uint32_t config::IMU_BENCH_MAX_POLLS’
+   83 | inline constexpr std::uint32_t IMU_BENCH_MAX_POLLS = 100000000U;
+      |                                ^~~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:83:32: note: ‘constexpr const uint32_t config::IMU_BENCH_MAX_POLLS’ previously defined here
+   83 | inline constexpr std::uint32_t IMU_BENCH_MAX_POLLS = 100000000U;
+      |                                ^~~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:84:32: error: redefinition of ‘constexpr const uint32_t config::IMU_SILENCE_US’
+   84 | inline constexpr std::uint32_t IMU_SILENCE_US = 20000U; // B14; D081 observed-data deadline
+      |                                ^~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:84:32: note: ‘constexpr const uint32_t config::IMU_SILENCE_US’ previously defined here
+   84 | inline constexpr std::uint32_t IMU_SILENCE_US = 20000U; // B14; D081 observed-data deadline
+      |                                ^~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:85:32: error: redefinition of ‘constexpr const uint32_t config::IMU_HEADING_MAX_GAP_US’
+   85 | inline constexpr std::uint32_t IMU_HEADING_MAX_GAP_US = 2000U; // D082 development continuity limit
+      |                                ^~~~~~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:85:32: note: ‘constexpr const uint32_t config::IMU_HEADING_MAX_GAP_US’ previously defined here
+   85 | inline constexpr std::uint32_t IMU_HEADING_MAX_GAP_US = 2000U; // D082 development continuity limit
+      |                                ^~~~~~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:88:32: error: redefinition of ‘constexpr const uint32_t config::QTR_INPUT_PINS [4]’
+   88 | inline constexpr std::uint32_t QTR_INPUT_PINS[4] = {2U, 4U, 7U, 8U};
+      |                                ^~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:88:32: note: ‘constexpr const uint32_t config::QTR_INPUT_PINS [4]’ previously defined here
+   88 | inline constexpr std::uint32_t QTR_INPUT_PINS[4] = {2U, 4U, 7U, 8U};
+      |                                ^~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:89:32: error: redefinition of ‘constexpr const uint32_t config::QTR_QUANTIZATION_US’
+   89 | inline constexpr std::uint32_t QTR_QUANTIZATION_US = 1U;
+      |                                ^~~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:89:32: note: ‘constexpr const uint32_t config::QTR_QUANTIZATION_US’ previously defined here
+   89 | inline constexpr std::uint32_t QTR_QUANTIZATION_US = 1U;
+      |                                ^~~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:90:32: error: redefinition of ‘constexpr const uint32_t config::QTR_START_PERIOD_US’
+   90 | inline constexpr std::uint32_t QTR_START_PERIOD_US = 2000U;
+      |                                ^~~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:90:32: note: ‘constexpr const uint32_t config::QTR_START_PERIOD_US’ previously defined here
+   90 | inline constexpr std::uint32_t QTR_START_PERIOD_US = 2000U;
+      |                                ^~~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:91:32: error: redefinition of ‘constexpr const uint32_t config::QTR_FRAME_MAX_US’
+   91 | inline constexpr std::uint32_t QTR_FRAME_MAX_US = 2500U;
+      |                                ^~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:91:32: note: ‘constexpr const uint32_t config::QTR_FRAME_MAX_US’ previously defined here
+   91 | inline constexpr std::uint32_t QTR_FRAME_MAX_US = 2500U;
+      |                                ^~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:92:32: error: redefinition of ‘constexpr const uint32_t config::QTR_CALL_MAX_US’
+   92 | inline constexpr std::uint32_t QTR_CALL_MAX_US = 100U;
+      |                                ^~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:92:32: note: ‘constexpr const uint32_t config::QTR_CALL_MAX_US’ previously defined here
+   92 | inline constexpr std::uint32_t QTR_CALL_MAX_US = 100U;
+      |                                ^~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:93:32: error: redefinition of ‘constexpr const uint32_t config::QTR_CLEANUP_MAX_US’
+   93 | inline constexpr std::uint32_t QTR_CLEANUP_MAX_US = 100U;
+      |                                ^~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:93:32: note: ‘constexpr const uint32_t config::QTR_CLEANUP_MAX_US’ previously defined here
+   93 | inline constexpr std::uint32_t QTR_CLEANUP_MAX_US = 100U;
+      |                                ^~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:94:32: error: redefinition of ‘constexpr const uint32_t config::QTR_CHARGE_MAX_US’
+   94 | inline constexpr std::uint32_t QTR_CHARGE_MAX_US = 100U;
+      |                                ^~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:94:32: note: ‘constexpr const uint32_t config::QTR_CHARGE_MAX_US’ previously defined here
+   94 | inline constexpr std::uint32_t QTR_CHARGE_MAX_US = 100U;
+      |                                ^~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:95:32: error: redefinition of ‘constexpr const uint32_t config::QTR_MAX_ADVANCES’
+   95 | inline constexpr std::uint32_t QTR_MAX_ADVANCES = 8192U; // count exception
+      |                                ^~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:95:32: note: ‘constexpr const uint32_t config::QTR_MAX_ADVANCES’ previously defined here
+   95 | inline constexpr std::uint32_t QTR_MAX_ADVANCES = 8192U; // count exception
+      |                                ^~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:96:32: error: redefinition of ‘constexpr const uint32_t config::QTR_SAMPLE_MAX_AGE_US’
+   96 | inline constexpr std::uint32_t QTR_SAMPLE_MAX_AGE_US = 6000U;
+      |                                ^~~~~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:96:32: note: ‘constexpr const uint32_t config::QTR_SAMPLE_MAX_AGE_US’ previously defined here
+   96 | inline constexpr std::uint32_t QTR_SAMPLE_MAX_AGE_US = 6000U;
+      |                                ^~~~~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:97:32: error: redefinition of ‘constexpr const uint32_t config::QTR_BENCH_FRAMES’
+   97 | inline constexpr std::uint32_t QTR_BENCH_FRAMES = 128U; // D109 finite bench capture; count exception
+      |                                ^~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:97:32: note: ‘constexpr const uint32_t config::QTR_BENCH_FRAMES’ previously defined here
+   97 | inline constexpr std::uint32_t QTR_BENCH_FRAMES = 128U; // D109 finite bench capture; count exception
+      |                                ^~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:98:32: error: redefinition of ‘constexpr const uint32_t config::COUNTDOWN_MS’
+   98 | inline constexpr std::uint32_t COUNTDOWN_MS = 5000U; // ms
+      |                                ^~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:98:32: note: ‘constexpr const uint32_t config::COUNTDOWN_MS’ previously defined here
+   98 | inline constexpr std::uint32_t COUNTDOWN_MS = 5000U; // ms
+      |                                ^~~~~~~~~~~~
+src/app/../hal/../core/../config.h:99:32: error: redefinition of ‘constexpr const uint32_t config::COUNTDOWN_MARGIN_MS’
+   99 | inline constexpr std::uint32_t COUNTDOWN_MARGIN_MS = 100U; // ms
+      |                                ^~~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:99:32: note: ‘constexpr const uint32_t config::COUNTDOWN_MARGIN_MS’ previously defined here
+   99 | inline constexpr std::uint32_t COUNTDOWN_MARGIN_MS = 100U; // ms
+      |                                ^~~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:100:32: error: redefinition of ‘constexpr const uint32_t config::TICK_US’
+  100 | inline constexpr std::uint32_t TICK_US = 1000U; // us
+      |                                ^~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:100:32: note: ‘constexpr const uint32_t config::TICK_US’ previously defined here
+  100 | inline constexpr std::uint32_t TICK_US = 1000U; // us
+      |                                ^~~~~~~
+src/app/../hal/../core/../config.h:102:32: error: redefinition of ‘constexpr const uint32_t config::APP_QTR_SERVICE_US’
+  102 | inline constexpr std::uint32_t APP_QTR_SERVICE_US = 600U;
+      |                                ^~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:102:32: note: ‘constexpr const uint32_t config::APP_QTR_SERVICE_US’ previously defined here
+  102 | inline constexpr std::uint32_t APP_QTR_SERVICE_US = 600U;
+      |                                ^~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:103:32: error: redefinition of ‘constexpr const uint32_t config::APP_SERVICE_MAX_PASSES’
+  103 | inline constexpr std::uint32_t APP_SERVICE_MAX_PASSES = 8192U; // count exception
+      |                                ^~~~~~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:103:32: note: ‘constexpr const uint32_t config::APP_SERVICE_MAX_PASSES’ previously defined here
+  103 | inline constexpr std::uint32_t APP_SERVICE_MAX_PASSES = 8192U; // count exception
+      |                                ^~~~~~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:104:32: error: redefinition of ‘constexpr const uint32_t config::APP_CLOCK_STALL_MAX_POLLS’
+  104 | inline constexpr std::uint32_t APP_CLOCK_STALL_MAX_POLLS = 65536U; // count exception
+      |                                ^~~~~~~~~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:104:32: note: ‘constexpr const uint32_t config::APP_CLOCK_STALL_MAX_POLLS’ previously defined here
+  104 | inline constexpr std::uint32_t APP_CLOCK_STALL_MAX_POLLS = 65536U; // count exception
+      |                                ^~~~~~~~~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:105:32: error: redefinition of ‘constexpr const uint32_t config::QTR_CHARGE_US’
+  105 | inline constexpr std::uint32_t QTR_CHARGE_US = 10U; // us
+      |                                ^~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:105:32: note: ‘constexpr const uint32_t config::QTR_CHARGE_US’ previously defined here
+  105 | inline constexpr std::uint32_t QTR_CHARGE_US = 10U; // us
+      |                                ^~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:106:32: error: redefinition of ‘constexpr const uint32_t config::QTR_TIMEOUT_US’
+  106 | inline constexpr std::uint32_t QTR_TIMEOUT_US = 1500U; // us
+      |                                ^~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:106:32: note: ‘constexpr const uint32_t config::QTR_TIMEOUT_US’ previously defined here
+  106 | inline constexpr std::uint32_t QTR_TIMEOUT_US = 1500U; // us
+      |                                ^~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:107:32: error: redefinition of ‘constexpr const uint32_t config::QTR_WHITE_US [4]’
+  107 | inline constexpr std::uint32_t QTR_WHITE_US[4] = {300U, 300U, 300U, 300U};
+      |                                ^~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:107:32: note: ‘constexpr const uint32_t config::QTR_WHITE_US [4]’ previously defined here
+  107 | inline constexpr std::uint32_t QTR_WHITE_US[4] = {300U, 300U, 300U, 300U};
+      |                                ^~~~~~~~~~~~
+src/app/../hal/../core/../config.h:108:32: error: redefinition of ‘constexpr const uint32_t config::QTR_CONFIRM_TICKS’
+  108 | inline constexpr std::uint32_t QTR_CONFIRM_TICKS = 1U; // ticks
+      |                                ^~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:108:32: note: ‘constexpr const uint32_t config::QTR_CONFIRM_TICKS’ previously defined here
+  108 | inline constexpr std::uint32_t QTR_CONFIRM_TICKS = 1U; // ticks
+      |                                ^~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:109:32: error: redefinition of ‘constexpr const uint32_t config::QTR_STUCK_MS’
+  109 | inline constexpr std::uint32_t QTR_STUCK_MS = 1500U; // ms
+      |                                ^~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:109:32: note: ‘constexpr const uint32_t config::QTR_STUCK_MS’ previously defined here
+  109 | inline constexpr std::uint32_t QTR_STUCK_MS = 1500U; // ms
+      |                                ^~~~~~~~~~~~
+src/app/../hal/../core/../config.h:110:32: error: redefinition of ‘constexpr const uint32_t config::OPP_ACTIVE_LOW_MASK’
+  110 | inline constexpr std::uint32_t OPP_ACTIVE_LOW_MASK = 0x78U; // bits
+      |                                ^~~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:110:32: note: ‘constexpr const uint32_t config::OPP_ACTIVE_LOW_MASK’ previously defined here
+  110 | inline constexpr std::uint32_t OPP_ACTIVE_LOW_MASK = 0x78U; // bits
+      |                                ^~~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:111:32: error: redefinition of ‘constexpr const uint32_t config::OPP_SET_TICKS’
+  111 | inline constexpr std::uint32_t OPP_SET_TICKS = 2U; // ticks
+      |                                ^~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:111:32: note: ‘constexpr const uint32_t config::OPP_SET_TICKS’ previously defined here
+  111 | inline constexpr std::uint32_t OPP_SET_TICKS = 2U; // ticks
+      |                                ^~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:112:32: error: redefinition of ‘constexpr const uint32_t config::OPP_CLEAR_MS’
+  112 | inline constexpr std::uint32_t OPP_CLEAR_MS = 30U; // ms
+      |                                ^~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:112:32: note: ‘constexpr const uint32_t config::OPP_CLEAR_MS’ previously defined here
+  112 | inline constexpr std::uint32_t OPP_CLEAR_MS = 30U; // ms
+      |                                ^~~~~~~~~~~~
+src/app/../hal/../core/../config.h:113:32: error: redefinition of ‘constexpr const uint32_t config::OPP_STUCK_MS’
+  113 | inline constexpr std::uint32_t OPP_STUCK_MS = 5000U; // ms
+      |                                ^~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:113:32: note: ‘constexpr const uint32_t config::OPP_STUCK_MS’ previously defined here
+  113 | inline constexpr std::uint32_t OPP_STUCK_MS = 5000U; // ms
+      |                                ^~~~~~~~~~~~
+src/app/../hal/../core/../config.h:114:24: error: redefinition of ‘constexpr const float config::CAL_MAX_SPREAD_DPS’
+  114 | inline constexpr float CAL_MAX_SPREAD_DPS = 2.0F; // dps
+      |                        ^~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:114:24: note: ‘constexpr const float config::CAL_MAX_SPREAD_DPS’ previously defined here
+  114 | inline constexpr float CAL_MAX_SPREAD_DPS = 2.0F; // dps
+      |                        ^~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:115:24: error: redefinition of ‘constexpr const float config::SEARCH_DUTY_MAX’
+  115 | inline constexpr float SEARCH_DUTY_MAX = 0.30F; // duty
+      |                        ^~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:115:24: note: ‘constexpr const float config::SEARCH_DUTY_MAX’ previously defined here
+  115 | inline constexpr float SEARCH_DUTY_MAX = 0.30F; // duty
+      |                        ^~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:116:24: error: redefinition of ‘constexpr const float config::SCAN_DUTY’
+  116 | inline constexpr float SCAN_DUTY = 0.45F; // duty
+      |                        ^~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:116:24: note: ‘constexpr const float config::SCAN_DUTY’ previously defined here
+  116 | inline constexpr float SCAN_DUTY = 0.45F; // duty
+      |                        ^~~~~~~~~
+src/app/../hal/../core/../config.h:117:24: error: redefinition of ‘constexpr const float config::TURN_DUTY’
+  117 | inline constexpr float TURN_DUTY = 0.80F; // duty
+      |                        ^~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:117:24: note: ‘constexpr const float config::TURN_DUTY’ previously defined here
+  117 | inline constexpr float TURN_DUTY = 0.80F; // duty
+      |                        ^~~~~~~~~
+src/app/../hal/../core/../config.h:118:24: error: redefinition of ‘constexpr const float config::TURN_MIN_DUTY’
+  118 | inline constexpr float TURN_MIN_DUTY = 0.25F; // duty
+      |                        ^~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:118:24: note: ‘constexpr const float config::TURN_MIN_DUTY’ previously defined here
+  118 | inline constexpr float TURN_MIN_DUTY = 0.25F; // duty
+      |                        ^~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:119:24: error: redefinition of ‘constexpr const float config::K_TURN_PER_DEG’
+  119 | inline constexpr float K_TURN_PER_DEG = 0.02F; // duty/deg
+      |                        ^~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:119:24: note: ‘constexpr const float config::K_TURN_PER_DEG’ previously defined here
+  119 | inline constexpr float K_TURN_PER_DEG = 0.02F; // duty/deg
+      |                        ^~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:120:32: error: redefinition of ‘constexpr const uint32_t config::HEADING_TOL_DEG’
+  120 | inline constexpr std::uint32_t HEADING_TOL_DEG = 5U; // deg
+      |                                ^~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:120:32: note: ‘constexpr const uint32_t config::HEADING_TOL_DEG’ previously defined here
+  120 | inline constexpr std::uint32_t HEADING_TOL_DEG = 5U; // deg
+      |                                ^~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:121:32: error: redefinition of ‘constexpr const uint32_t config::TURN_TIMEOUT_MS’
+  121 | inline constexpr std::uint32_t TURN_TIMEOUT_MS = 700U; // ms
+      |                                ^~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:121:32: note: ‘constexpr const uint32_t config::TURN_TIMEOUT_MS’ previously defined here
+  121 | inline constexpr std::uint32_t TURN_TIMEOUT_MS = 700U; // ms
+      |                                ^~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:122:24: error: redefinition of ‘constexpr const float config::TURN_MS_PER_DEG’
+  122 | inline constexpr float TURN_MS_PER_DEG = 2.0F; // ms/deg
+      |                        ^~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:122:24: note: ‘constexpr const float config::TURN_MS_PER_DEG’ previously defined here
+  122 | inline constexpr float TURN_MS_PER_DEG = 2.0F; // ms/deg
+      |                        ^~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:123:32: error: redefinition of ‘constexpr const uint32_t config::SEARCH_MEMORY_MS’
+  123 | inline constexpr std::uint32_t SEARCH_MEMORY_MS = 3000U; // ms
+      |                                ^~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:123:32: note: ‘constexpr const uint32_t config::SEARCH_MEMORY_MS’ previously defined here
+  123 | inline constexpr std::uint32_t SEARCH_MEMORY_MS = 3000U; // ms
+      |                                ^~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:124:32: error: redefinition of ‘constexpr const uint32_t config::SEARCH_ADVANCE_MS’
+  124 | inline constexpr std::uint32_t SEARCH_ADVANCE_MS = 300U; // ms
+      |                                ^~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:124:32: note: ‘constexpr const uint32_t config::SEARCH_ADVANCE_MS’ previously defined here
+  124 | inline constexpr std::uint32_t SEARCH_ADVANCE_MS = 300U; // ms
+      |                                ^~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:125:24: error: redefinition of ‘constexpr const float config::TRACK_DUTY’
+  125 | inline constexpr float TRACK_DUTY = 0.45F; // duty
+      |                        ^~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:125:24: note: ‘constexpr const float config::TRACK_DUTY’ previously defined here
+  125 | inline constexpr float TRACK_DUTY = 0.45F; // duty
+      |                        ^~~~~~~~~~
+src/app/../hal/../core/../config.h:126:24: error: redefinition of ‘constexpr const float config::K_TRACK_PER_DEG’
+  126 | inline constexpr float K_TRACK_PER_DEG = 0.02F; // duty/deg
+      |                        ^~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:126:24: note: ‘constexpr const float config::K_TRACK_PER_DEG’ previously defined here
+  126 | inline constexpr float K_TRACK_PER_DEG = 0.02F; // duty/deg
+      |                        ^~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:127:32: error: redefinition of ‘constexpr const uint32_t config::ATTACK_ENTER_TICKS’
+  127 | inline constexpr std::uint32_t ATTACK_ENTER_TICKS = 3U; // ticks
+      |                                ^~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:127:32: note: ‘constexpr const uint32_t config::ATTACK_ENTER_TICKS’ previously defined here
+  127 | inline constexpr std::uint32_t ATTACK_ENTER_TICKS = 3U; // ticks
+      |                                ^~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:128:24: error: redefinition of ‘constexpr const float config::ATTACK_APPROACH_DUTY’
+  128 | inline constexpr float ATTACK_APPROACH_DUTY = 0.60F; // duty
+      |                        ^~~~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:128:24: note: ‘constexpr const float config::ATTACK_APPROACH_DUTY’ previously defined here
+  128 | inline constexpr float ATTACK_APPROACH_DUTY = 0.60F; // duty
+      |                        ^~~~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:129:24: error: redefinition of ‘constexpr const float config::ATTACK_DUTY’
+  129 | inline constexpr float ATTACK_DUTY = 1.00F; // duty
+      |                        ^~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:129:24: note: ‘constexpr const float config::ATTACK_DUTY’ previously defined here
+  129 | inline constexpr float ATTACK_DUTY = 1.00F; // duty
+      |                        ^~~~~~~~~~~
+src/app/../hal/../core/../config.h:130:32: error: redefinition of ‘constexpr const uint32_t config::CONTACT_TICKS’
+  130 | inline constexpr std::uint32_t CONTACT_TICKS = 20U; // ticks
+      |                                ^~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:130:32: note: ‘constexpr const uint32_t config::CONTACT_TICKS’ previously defined here
+  130 | inline constexpr std::uint32_t CONTACT_TICKS = 20U; // ticks
+      |                                ^~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:131:24: error: redefinition of ‘constexpr const float config::IMPACT_G’
+  131 | inline constexpr float IMPACT_G = 1.5F; // g
+      |                        ^~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:131:24: note: ‘constexpr const float config::IMPACT_G’ previously defined here
+  131 | inline constexpr float IMPACT_G = 1.5F; // g
+      |                        ^~~~~~~~
+src/app/../hal/../core/../config.h:132:24: error: redefinition of ‘constexpr const float config::SLEW_DUTY_PER_MS’
+  132 | inline constexpr float SLEW_DUTY_PER_MS = 0.02F; // duty/ms
+      |                        ^~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:132:24: note: ‘constexpr const float config::SLEW_DUTY_PER_MS’ previously defined here
+  132 | inline constexpr float SLEW_DUTY_PER_MS = 0.02F; // duty/ms
+      |                        ^~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:133:24: error: redefinition of ‘constexpr const float config::V_NOM_V’
+  133 | inline constexpr float V_NOM_V = 11.1F; // V
+      |                        ^~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:133:24: note: ‘constexpr const float config::V_NOM_V’ previously defined here
+  133 | inline constexpr float V_NOM_V = 11.1F; // V
+      |                        ^~~~~~~
+src/app/../hal/../core/../config.h:134:24: error: redefinition of ‘constexpr const float config::VBAT_MIN_COMP_V’
+  134 | inline constexpr float VBAT_MIN_COMP_V = 9.0F; // V
+      |                        ^~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:134:24: note: ‘constexpr const float config::VBAT_MIN_COMP_V’ previously defined here
+  134 | inline constexpr float VBAT_MIN_COMP_V = 9.0F; // V
+      |                        ^~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:135:24: error: redefinition of ‘constexpr const float config::VBAT_WARN_V’
+  135 | inline constexpr float VBAT_WARN_V = 10.8F; // V
+      |                        ^~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:135:24: note: ‘constexpr const float config::VBAT_WARN_V’ previously defined here
+  135 | inline constexpr float VBAT_WARN_V = 10.8F; // V
+      |                        ^~~~~~~~~~~
+src/app/../hal/../core/../config.h:136:24: error: redefinition of ‘constexpr const float config::EDGE_BACK_DUTY’
+  136 | inline constexpr float EDGE_BACK_DUTY = 0.80F; // duty
+      |                        ^~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:136:24: note: ‘constexpr const float config::EDGE_BACK_DUTY’ previously defined here
+  136 | inline constexpr float EDGE_BACK_DUTY = 0.80F; // duty
+      |                        ^~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:137:32: error: redefinition of ‘constexpr const uint32_t config::EDGE_BACK_MS’
+  137 | inline constexpr std::uint32_t EDGE_BACK_MS = 120U; // ms
+      |                                ^~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:137:32: note: ‘constexpr const uint32_t config::EDGE_BACK_MS’ previously defined here
+  137 | inline constexpr std::uint32_t EDGE_BACK_MS = 120U; // ms
+      |                                ^~~~~~~~~~~~
+src/app/../hal/../core/../config.h:138:32: error: redefinition of ‘constexpr const uint32_t config::EDGE_BACK_LONG_MS’
+  138 | inline constexpr std::uint32_t EDGE_BACK_LONG_MS = 180U; // ms
+      |                                ^~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:138:32: note: ‘constexpr const uint32_t config::EDGE_BACK_LONG_MS’ previously defined here
+  138 | inline constexpr std::uint32_t EDGE_BACK_LONG_MS = 180U; // ms
+      |                                ^~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:139:32: error: redefinition of ‘constexpr const uint32_t config::EDGE_TURN_DEG’
+  139 | inline constexpr std::uint32_t EDGE_TURN_DEG = 120U; // deg
+      |                                ^~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:139:32: note: ‘constexpr const uint32_t config::EDGE_TURN_DEG’ previously defined here
+  139 | inline constexpr std::uint32_t EDGE_TURN_DEG = 120U; // deg
+      |                                ^~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:140:32: error: redefinition of ‘constexpr const uint32_t config::EDGE_TURN_FULL_DEG’
+  140 | inline constexpr std::uint32_t EDGE_TURN_FULL_DEG = 160U; // deg
+      |                                ^~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:140:32: note: ‘constexpr const uint32_t config::EDGE_TURN_FULL_DEG’ previously defined here
+  140 | inline constexpr std::uint32_t EDGE_TURN_FULL_DEG = 160U; // deg
+      |                                ^~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:141:32: error: redefinition of ‘constexpr const uint32_t config::EDGE_FWD_MS’
+  141 | inline constexpr std::uint32_t EDGE_FWD_MS = 200U; // ms
+      |                                ^~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:141:32: note: ‘constexpr const uint32_t config::EDGE_FWD_MS’ previously defined here
+  141 | inline constexpr std::uint32_t EDGE_FWD_MS = 200U; // ms
+      |                                ^~~~~~~~~~~
+src/app/../hal/../core/../config.h:142:32: error: redefinition of ‘constexpr const uint32_t config::EDGE_MAX_REPLANS’
+  142 | inline constexpr std::uint32_t EDGE_MAX_REPLANS = 3U; // count
+      |                                ^~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:142:32: note: ‘constexpr const uint32_t config::EDGE_MAX_REPLANS’ previously defined here
+  142 | inline constexpr std::uint32_t EDGE_MAX_REPLANS = 3U; // count
+      |                                ^~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:143:32: error: redefinition of ‘constexpr const uint32_t config::EDGE_PUSH_THROUGH_MS’
+  143 | inline constexpr std::uint32_t EDGE_PUSH_THROUGH_MS = 0U; // ms
+      |                                ^~~~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:143:32: note: ‘constexpr const uint32_t config::EDGE_PUSH_THROUGH_MS’ previously defined here
+  143 | inline constexpr std::uint32_t EDGE_PUSH_THROUGH_MS = 0U; // ms
+      |                                ^~~~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:144:32: error: redefinition of ‘constexpr const uint32_t config::PHANTOM_WINDOW_MS’
+  144 | inline constexpr std::uint32_t PHANTOM_WINDOW_MS = 1500U; // ms
+      |                                ^~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:144:32: note: ‘constexpr const uint32_t config::PHANTOM_WINDOW_MS’ previously defined here
+  144 | inline constexpr std::uint32_t PHANTOM_WINDOW_MS = 1500U; // ms
+      |                                ^~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:145:32: error: redefinition of ‘constexpr const uint32_t config::PHANTOM_MS’
+  145 | inline constexpr std::uint32_t PHANTOM_MS = 3000U; // ms
+      |                                ^~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:145:32: note: ‘constexpr const uint32_t config::PHANTOM_MS’ previously defined here
+  145 | inline constexpr std::uint32_t PHANTOM_MS = 3000U; // ms
+      |                                ^~~~~~~~~~
+src/app/../hal/../core/../config.h:146:32: error: redefinition of ‘constexpr const uint32_t config::PHANTOM_MASK_DEG’
+  146 | inline constexpr std::uint32_t PHANTOM_MASK_DEG = 25U; // deg
+      |                                ^~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:146:32: note: ‘constexpr const uint32_t config::PHANTOM_MASK_DEG’ previously defined here
+  146 | inline constexpr std::uint32_t PHANTOM_MASK_DEG = 25U; // deg
+      |                                ^~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:147:32: error: redefinition of ‘constexpr const uint32_t config::STALL_MS’
+  147 | inline constexpr std::uint32_t STALL_MS = 1000U; // ms
+      |                                ^~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:147:32: note: ‘constexpr const uint32_t config::STALL_MS’ previously defined here
+  147 | inline constexpr std::uint32_t STALL_MS = 1000U; // ms
+      |                                ^~~~~~~~
+src/app/../hal/../core/../config.h:148:24: error: redefinition of ‘constexpr const float config::STALL_MIN_DUTY’
+  148 | inline constexpr float STALL_MIN_DUTY = 0.80F; // duty
+      |                        ^~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:148:24: note: ‘constexpr const float config::STALL_MIN_DUTY’ previously defined here
+  148 | inline constexpr float STALL_MIN_DUTY = 0.80F; // duty
+      |                        ^~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:149:32: error: redefinition of ‘constexpr const uint32_t config::STALL_DEFLECT_DEG’
+  149 | inline constexpr std::uint32_t STALL_DEFLECT_DEG = 25U; // deg
+      |                                ^~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:149:32: note: ‘constexpr const uint32_t config::STALL_DEFLECT_DEG’ previously defined here
+  149 | inline constexpr std::uint32_t STALL_DEFLECT_DEG = 25U; // deg
+      |                                ^~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:150:32: error: redefinition of ‘constexpr const uint32_t config::STALL_USE_IMU’
+  150 | inline constexpr std::uint32_t STALL_USE_IMU = 0U; // flag
+      |                                ^~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:150:32: note: ‘constexpr const uint32_t config::STALL_USE_IMU’ previously defined here
+  150 | inline constexpr std::uint32_t STALL_USE_IMU = 0U; // flag
+      |                                ^~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:151:24: error: redefinition of ‘constexpr const float config::STALL_MIN_DISP_M’
+  151 | inline constexpr float STALL_MIN_DISP_M = 0.10F; // m
+      |                        ^~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:151:24: note: ‘constexpr const float config::STALL_MIN_DISP_M’ previously defined here
+  151 | inline constexpr float STALL_MIN_DISP_M = 0.10F; // m
+      |                        ^~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:152:32: error: redefinition of ‘constexpr const uint32_t config::REFLANK_BACK_MS’
+  152 | inline constexpr std::uint32_t REFLANK_BACK_MS = 150U; // ms
+      |                                ^~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:152:32: note: ‘constexpr const uint32_t config::REFLANK_BACK_MS’ previously defined here
+  152 | inline constexpr std::uint32_t REFLANK_BACK_MS = 150U; // ms
+      |                                ^~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:153:24: error: redefinition of ‘constexpr const float config::REFLANK_BACK_DUTY’
+  153 | inline constexpr float REFLANK_BACK_DUTY = 0.80F; // duty
+      |                        ^~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:153:24: note: ‘constexpr const float config::REFLANK_BACK_DUTY’ previously defined here
+  153 | inline constexpr float REFLANK_BACK_DUTY = 0.80F; // duty
+      |                        ^~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:154:32: error: redefinition of ‘constexpr const uint32_t config::REFLANK_PIVOT_DEG’
+  154 | inline constexpr std::uint32_t REFLANK_PIVOT_DEG = 60U; // deg
+      |                                ^~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:154:32: note: ‘constexpr const uint32_t config::REFLANK_PIVOT_DEG’ previously defined here
+  154 | inline constexpr std::uint32_t REFLANK_PIVOT_DEG = 60U; // deg
+      |                                ^~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:155:32: error: redefinition of ‘constexpr const uint32_t config::REFLANK_ARC_MS’
+  155 | inline constexpr std::uint32_t REFLANK_ARC_MS = 400U; // ms
+      |                                ^~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:155:32: note: ‘constexpr const uint32_t config::REFLANK_ARC_MS’ previously defined here
+  155 | inline constexpr std::uint32_t REFLANK_ARC_MS = 400U; // ms
+      |                                ^~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:156:24: error: redefinition of ‘constexpr const float config::REFLANK_ARC_RATIO’
+  156 | inline constexpr float REFLANK_ARC_RATIO = 0.40F; // ratio
+      |                        ^~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:156:24: note: ‘constexpr const float config::REFLANK_ARC_RATIO’ previously defined here
+  156 | inline constexpr float REFLANK_ARC_RATIO = 0.40F; // ratio
+      |                        ^~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:157:32: error: redefinition of ‘constexpr const uint32_t config::REFLANK_MAX_PER_10S’
+  157 | inline constexpr std::uint32_t REFLANK_MAX_PER_10S = 2U; // count
+      |                                ^~~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:157:32: note: ‘constexpr const uint32_t config::REFLANK_MAX_PER_10S’ previously defined here
+  157 | inline constexpr std::uint32_t REFLANK_MAX_PER_10S = 2U; // count
+      |                                ^~~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:158:32: error: redefinition of ‘constexpr const uint32_t config::ALL_IN_MS’
+  158 | inline constexpr std::uint32_t ALL_IN_MS = 1500U; // ms
+      |                                ^~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:158:32: note: ‘constexpr const uint32_t config::ALL_IN_MS’ previously defined here
+  158 | inline constexpr std::uint32_t ALL_IN_MS = 1500U; // ms
+      |                                ^~~~~~~~~
+src/app/../hal/../core/../config.h:159:32: error: redefinition of ‘constexpr const uint32_t config::DEFEND_TIMEOUT_MS’
+  159 | inline constexpr std::uint32_t DEFEND_TIMEOUT_MS = 800U; // ms
+      |                                ^~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:159:32: note: ‘constexpr const uint32_t config::DEFEND_TIMEOUT_MS’ previously defined here
+  159 | inline constexpr std::uint32_t DEFEND_TIMEOUT_MS = 800U; // ms
+      |                                ^~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:160:32: error: redefinition of ‘constexpr const uint32_t config::DEFEND_EVADE_FIRST’
+  160 | inline constexpr std::uint32_t DEFEND_EVADE_FIRST = 0U; // flag
+      |                                ^~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:160:32: note: ‘constexpr const uint32_t config::DEFEND_EVADE_FIRST’ previously defined here
+  160 | inline constexpr std::uint32_t DEFEND_EVADE_FIRST = 0U; // flag
+      |                                ^~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:161:32: error: redefinition of ‘constexpr const uint32_t config::EVADE_MS’
+  161 | inline constexpr std::uint32_t EVADE_MS = 200U; // ms
+      |                                ^~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:161:32: note: ‘constexpr const uint32_t config::EVADE_MS’ previously defined here
+  161 | inline constexpr std::uint32_t EVADE_MS = 200U; // ms
+      |                                ^~~~~~~~
+src/app/../hal/../core/../config.h:162:24: error: redefinition of ‘constexpr const float config::OPENER_DUTY_MAX’
+  162 | inline constexpr float OPENER_DUTY_MAX = 0.85F; // duty
+      |                        ^~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:162:24: note: ‘constexpr const float config::OPENER_DUTY_MAX’ previously defined here
+  162 | inline constexpr float OPENER_DUTY_MAX = 0.85F; // duty
+      |                        ^~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:163:32: error: redefinition of ‘constexpr const uint32_t config::SS_PIVOT_DEG’
+  163 | inline constexpr std::uint32_t SS_PIVOT_DEG = 50U; // deg
+      |                                ^~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:163:32: note: ‘constexpr const uint32_t config::SS_PIVOT_DEG’ previously defined here
+  163 | inline constexpr std::uint32_t SS_PIVOT_DEG = 50U; // deg
+      |                                ^~~~~~~~~~~~
+src/app/../hal/../core/../config.h:164:32: error: redefinition of ‘constexpr const uint32_t config::SS_DRIVE_MS’
+  164 | inline constexpr std::uint32_t SS_DRIVE_MS = 250U; // ms
+      |                                ^~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:164:32: note: ‘constexpr const uint32_t config::SS_DRIVE_MS’ previously defined here
+  164 | inline constexpr std::uint32_t SS_DRIVE_MS = 250U; // ms
+      |                                ^~~~~~~~~~~
+src/app/../hal/../core/../config.h:165:32: error: redefinition of ‘constexpr const uint32_t config::SS_TURNIN_DEG’
+  165 | inline constexpr std::uint32_t SS_TURNIN_DEG = 110U; // deg
+      |                                ^~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:165:32: note: ‘constexpr const uint32_t config::SS_TURNIN_DEG’ previously defined here
+  165 | inline constexpr std::uint32_t SS_TURNIN_DEG = 110U; // deg
+      |                                ^~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:166:32: error: redefinition of ‘constexpr const uint32_t config::DIRECT_MS’
+  166 | inline constexpr std::uint32_t DIRECT_MS = 400U; // ms
+      |                                ^~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:166:32: note: ‘constexpr const uint32_t config::DIRECT_MS’ previously defined here
+  166 | inline constexpr std::uint32_t DIRECT_MS = 400U; // ms
+      |                                ^~~~~~~~~
+src/app/../hal/../core/../config.h:167:32: error: redefinition of ‘constexpr const uint32_t config::ARC_PIVOT_DEG’
+  167 | inline constexpr std::uint32_t ARC_PIVOT_DEG = 80U; // deg
+      |                                ^~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:167:32: note: ‘constexpr const uint32_t config::ARC_PIVOT_DEG’ previously defined here
+  167 | inline constexpr std::uint32_t ARC_PIVOT_DEG = 80U; // deg
+      |                                ^~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:168:24: error: redefinition of ‘constexpr const float config::ARC_RATIO’
+  168 | inline constexpr float ARC_RATIO = 0.45F; // ratio
+      |                        ^~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:168:24: note: ‘constexpr const float config::ARC_RATIO’ previously defined here
+  168 | inline constexpr float ARC_RATIO = 0.45F; // ratio
+      |                        ^~~~~~~~~
+src/app/../hal/../core/../config.h:169:24: error: redefinition of ‘constexpr const float config::ARC_DUTY’
+  169 | inline constexpr float ARC_DUTY = 0.70F; // duty
+      |                        ^~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:169:24: note: ‘constexpr const float config::ARC_DUTY’ previously defined here
+  169 | inline constexpr float ARC_DUTY = 0.70F; // duty
+      |                        ^~~~~~~~
+src/app/../hal/../core/../config.h:170:32: error: redefinition of ‘constexpr const uint32_t config::ARC_SWEEP_DEG’
+  170 | inline constexpr std::uint32_t ARC_SWEEP_DEG = 200U; // deg
+      |                                ^~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:170:32: note: ‘constexpr const uint32_t config::ARC_SWEEP_DEG’ previously defined here
+  170 | inline constexpr std::uint32_t ARC_SWEEP_DEG = 200U; // deg
+      |                                ^~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:171:32: error: redefinition of ‘constexpr const uint32_t config::ARC_MAX_MS’
+  171 | inline constexpr std::uint32_t ARC_MAX_MS = 1500U; // ms
+      |                                ^~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:171:32: note: ‘constexpr const uint32_t config::ARC_MAX_MS’ previously defined here
+  171 | inline constexpr std::uint32_t ARC_MAX_MS = 1500U; // ms
+      |                                ^~~~~~~~~~
+src/app/../hal/../core/../config.h:172:32: error: redefinition of ‘constexpr const uint32_t config::WAIT_MAX_MS’
+  172 | inline constexpr std::uint32_t WAIT_MAX_MS = 2000U; // ms
+      |                                ^~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:172:32: note: ‘constexpr const uint32_t config::WAIT_MAX_MS’ previously defined here
+  172 | inline constexpr std::uint32_t WAIT_MAX_MS = 2000U; // ms
+      |                                ^~~~~~~~~~~
+src/app/../hal/../core/../config.h:173:32: error: redefinition of ‘constexpr const uint32_t config::APPROACH_WINDOW_MS’
+  173 | inline constexpr std::uint32_t APPROACH_WINDOW_MS = 300U; // ms
+      |                                ^~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:173:32: note: ‘constexpr const uint32_t config::APPROACH_WINDOW_MS’ previously defined here
+  173 | inline constexpr std::uint32_t APPROACH_WINDOW_MS = 300U; // ms
+      |                                ^~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:174:32: error: redefinition of ‘constexpr const uint32_t config::LOG_HZ’
+  174 | inline constexpr std::uint32_t LOG_HZ = 25U; // Hz; D-072 B15 low-memory fallback
+      |                                ^~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:174:32: note: ‘constexpr const uint32_t config::LOG_HZ’ previously defined here
+  174 | inline constexpr std::uint32_t LOG_HZ = 25U; // Hz; D-072 B15 low-memory fallback
+      |                                ^~~~~~
+src/app/../hal/../core/../config.h:175:32: error: redefinition of ‘constexpr const uint32_t config::BTN_DEBOUNCE_MS’
+  175 | inline constexpr std::uint32_t BTN_DEBOUNCE_MS = 20U; // ms
+      |                                ^~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:175:32: note: ‘constexpr const uint32_t config::BTN_DEBOUNCE_MS’ previously defined here
+  175 | inline constexpr std::uint32_t BTN_DEBOUNCE_MS = 20U; // ms
+      |                                ^~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:177:32: error: redefinition of ‘constexpr const uint32_t config::UI_FRAME_PERIOD_US’
+  177 | inline constexpr std::uint32_t UI_FRAME_PERIOD_US = 40000U;
+      |                                ^~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:177:32: note: ‘constexpr const uint32_t config::UI_FRAME_PERIOD_US’ previously defined here
+  177 | inline constexpr std::uint32_t UI_FRAME_PERIOD_US = 40000U;
+      |                                ^~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:178:32: error: redefinition of ‘constexpr const uint32_t config::UI_FAULT_PAGE_MS’
+  178 | inline constexpr std::uint32_t UI_FAULT_PAGE_MS = 500U;
+      |                                ^~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:178:32: note: ‘constexpr const uint32_t config::UI_FAULT_PAGE_MS’ previously defined here
+  178 | inline constexpr std::uint32_t UI_FAULT_PAGE_MS = 500U;
+      |                                ^~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:179:24: error: redefinition of ‘constexpr const float config::UI_BATTERY_EMPTY_V’
+  179 | inline constexpr float UI_BATTERY_EMPTY_V = 9.5F;
+      |                        ^~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:179:24: note: ‘constexpr const float config::UI_BATTERY_EMPTY_V’ previously defined here
+  179 | inline constexpr float UI_BATTERY_EMPTY_V = 9.5F;
+      |                        ^~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:180:24: error: redefinition of ‘constexpr const float config::UI_BATTERY_FULL_V’
+  180 | inline constexpr float UI_BATTERY_FULL_V = 12.6F;
+      |                        ^~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:180:24: note: ‘constexpr const float config::UI_BATTERY_FULL_V’ previously defined here
+  180 | inline constexpr float UI_BATTERY_FULL_V = 12.6F;
+      |                        ^~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:181:32: error: redefinition of ‘constexpr const uint32_t config::UI_BENCH_SCENE_MS’
+  181 | inline constexpr std::uint32_t UI_BENCH_SCENE_MS = 2000U;
+      |                                ^~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:181:32: note: ‘constexpr const uint32_t config::UI_BENCH_SCENE_MS’ previously defined here
+  181 | inline constexpr std::uint32_t UI_BENCH_SCENE_MS = 2000U;
+      |                                ^~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:183:32: error: redefinition of ‘constexpr const uint32_t config::QTR_CAL_SAMPLES’
+  183 | inline constexpr std::uint32_t QTR_CAL_SAMPLES = 16U; // count exception
+      |                                ^~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:183:32: note: ‘constexpr const uint32_t config::QTR_CAL_SAMPLES’ previously defined here
+  183 | inline constexpr std::uint32_t QTR_CAL_SAMPLES = 16U; // count exception
+      |                                ^~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:184:32: error: redefinition of ‘constexpr const uint32_t config::QTR_CAL_CAPTURE_MS’
+  184 | inline constexpr std::uint32_t QTR_CAL_CAPTURE_MS = 1000U;
+      |                                ^~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:184:32: note: ‘constexpr const uint32_t config::QTR_CAL_CAPTURE_MS’ previously defined here
+  184 | inline constexpr std::uint32_t QTR_CAL_CAPTURE_MS = 1000U;
+      |                                ^~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:186:32: error: redefinition of ‘constexpr const uint32_t config::DUMP_PAYLOAD_BYTES’
+  186 | inline constexpr std::uint32_t DUMP_PAYLOAD_BYTES = 64U;
+      |                                ^~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:186:32: note: ‘constexpr const uint32_t config::DUMP_PAYLOAD_BYTES’ previously defined here
+  186 | inline constexpr std::uint32_t DUMP_PAYLOAD_BYTES = 64U;
+      |                                ^~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:187:32: error: redefinition of ‘constexpr const uint32_t config::DUMP_STALL_MS’
+  187 | inline constexpr std::uint32_t DUMP_STALL_MS = 2000U;
+      |                                ^~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:187:32: note: ‘constexpr const uint32_t config::DUMP_STALL_MS’ previously defined here
+  187 | inline constexpr std::uint32_t DUMP_STALL_MS = 2000U;
+      |                                ^~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:188:32: error: redefinition of ‘constexpr const uint32_t config::DUMP_TOTAL_MS’
+  188 | inline constexpr std::uint32_t DUMP_TOTAL_MS = 300000U;
+      |                                ^~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:188:32: note: ‘constexpr const uint32_t config::DUMP_TOTAL_MS’ previously defined here
+  188 | inline constexpr std::uint32_t DUMP_TOTAL_MS = 300000U;
+      |                                ^~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:189:32: error: redefinition of ‘constexpr const uint32_t config::DUMP_UART_STEP_BYTES’
+  189 | inline constexpr std::uint32_t DUMP_UART_STEP_BYTES = 8U;
+      |                                ^~~~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:189:32: note: ‘constexpr const uint32_t config::DUMP_UART_STEP_BYTES’ previously defined here
+  189 | inline constexpr std::uint32_t DUMP_UART_STEP_BYTES = 8U;
+      |                                ^~~~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:190:32: error: redefinition of ‘constexpr const uint32_t config::DUMP_UART_STEP_US’
+  190 | inline constexpr std::uint32_t DUMP_UART_STEP_US = 80U;
+      |                                ^~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:190:32: note: ‘constexpr const uint32_t config::DUMP_UART_STEP_US’ previously defined here
+  190 | inline constexpr std::uint32_t DUMP_UART_STEP_US = 80U;
+      |                                ^~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:191:32: error: redefinition of ‘constexpr const uint32_t config::DUMP_UART_PACKET_MS’
+  191 | inline constexpr std::uint32_t DUMP_UART_PACKET_MS = 100U;
+      |                                ^~~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:191:32: note: ‘constexpr const uint32_t config::DUMP_UART_PACKET_MS’ previously defined here
+  191 | inline constexpr std::uint32_t DUMP_UART_PACKET_MS = 100U;
+      |                                ^~~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:192:32: error: redefinition of ‘constexpr const uint32_t config::BTN_LONG_MS’
+  192 | inline constexpr std::uint32_t BTN_LONG_MS = 1000U; // ms
+      |                                ^~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:192:32: note: ‘constexpr const uint32_t config::BTN_LONG_MS’ previously defined here
+  192 | inline constexpr std::uint32_t BTN_LONG_MS = 1000U; // ms
+      |                                ^~~~~~~~~~~
+src/app/../hal/../core/../config.h:193:32: error: redefinition of ‘constexpr const uint32_t config::MODE_SHORT_MS’
+  193 | inline constexpr std::uint32_t MODE_SHORT_MS = 600U; // ms; existing B13 strict short-press bound
+      |                                ^~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:193:32: note: ‘constexpr const uint32_t config::MODE_SHORT_MS’ previously defined here
+  193 | inline constexpr std::uint32_t MODE_SHORT_MS = 600U; // ms; existing B13 strict short-press bound
+      |                                ^~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:194:32: error: redefinition of ‘constexpr const uint32_t config::MODE_DEFAULT’
+  194 | inline constexpr std::uint32_t MODE_DEFAULT = 1U; // mode
+      |                                ^~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:194:32: note: ‘constexpr const uint32_t config::MODE_DEFAULT’ previously defined here
+  194 | inline constexpr std::uint32_t MODE_DEFAULT = 1U; // mode
+      |                                ^~~~~~~~~~~~
+src/app/../hal/../core/../config.h:196:32: error: redefinition of ‘constexpr const uint32_t config::VBAT_FILTER_MS’
+  196 | inline constexpr std::uint32_t VBAT_FILTER_MS = 1000U; // ms, B6
+      |                                ^~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:196:32: note: ‘constexpr const uint32_t config::VBAT_FILTER_MS’ previously defined here
+  196 | inline constexpr std::uint32_t VBAT_FILTER_MS = 1000U; // ms, B6
+      |                                ^~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:197:32: error: redefinition of ‘constexpr const uint32_t config::REFLANK_WINDOW_MS’
+  197 | inline constexpr std::uint32_t REFLANK_WINDOW_MS = 10000U; // ms, B11.3 rolling window
+      |                                ^~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:197:32: note: ‘constexpr const uint32_t config::REFLANK_WINDOW_MS’ previously defined here
+  197 | inline constexpr std::uint32_t REFLANK_WINDOW_MS = 10000U; // ms, B11.3 rolling window
+      |                                ^~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:198:32: error: redefinition of ‘constexpr const uint32_t config::LOG_EVENT_CAPACITY’
+  198 | inline constexpr std::uint32_t LOG_EVENT_CAPACITY = 4096U; // events, B15/D-028
+      |                                ^~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:198:32: note: ‘constexpr const uint32_t config::LOG_EVENT_CAPACITY’ previously defined here
+  198 | inline constexpr std::uint32_t LOG_EVENT_CAPACITY = 4096U; // events, B15/D-028
+      |                                ^~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:199:32: error: redefinition of ‘constexpr const uint32_t config::LOG_FRAME_WINDOW_MS’
+  199 | inline constexpr std::uint32_t LOG_FRAME_WINDOW_MS = 200000U; // ms, B15 minimum window
+      |                                ^~~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:199:32: note: ‘constexpr const uint32_t config::LOG_FRAME_WINDOW_MS’ previously defined here
+  199 | inline constexpr std::uint32_t LOG_FRAME_WINDOW_MS = 200000U; // ms, B15 minimum window
+      |                                ^~~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:201:32: error: redefinition of ‘constexpr const uint64_t config::LOG_FRAME_CAPACITY’
+  201 | inline constexpr std::uint64_t LOG_FRAME_CAPACITY =
+      |                                ^~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:201:32: note: ‘constexpr const uint64_t config::LOG_FRAME_CAPACITY’ previously defined here
+  201 | inline constexpr std::uint64_t LOG_FRAME_CAPACITY =
+      |                                ^~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:203:24: error: redefinition of ‘constexpr const float config::EDGE_FWD_INNER_RATIO’
+  203 | inline constexpr float EDGE_FWD_INNER_RATIO = 0.70F; // ratio, B4.2/D-021
+      |                        ^~~~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:203:24: note: ‘constexpr const float config::EDGE_FWD_INNER_RATIO’ previously defined here
+  203 | inline constexpr float EDGE_FWD_INNER_RATIO = 0.70F; // ratio, B4.2/D-021
+      |                        ^~~~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:204:32: error: redefinition of ‘constexpr const uint32_t config::EDGE_SIDE_TURN_DEG’
+  204 | inline constexpr std::uint32_t EDGE_SIDE_TURN_DEG = 45U; // deg, B4.2 side row/B4.3
+      |                                ^~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:204:32: note: ‘constexpr const uint32_t config::EDGE_SIDE_TURN_DEG’ previously defined here
+  204 | inline constexpr std::uint32_t EDGE_SIDE_TURN_DEG = 45U; // deg, B4.2 side row/B4.3
+      |                                ^~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:205:32: error: redefinition of ‘constexpr const uint32_t config::TICK_OVERRUN_PERCENT’
+  205 | inline constexpr std::uint32_t TICK_OVERRUN_PERCENT = 1U; // percent, B14 warning threshold
+      |                                ^~~~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:205:32: note: ‘constexpr const uint32_t config::TICK_OVERRUN_PERCENT’ previously defined here
+  205 | inline constexpr std::uint32_t TICK_OVERRUN_PERCENT = 1U; // percent, B14 warning threshold
+      |                                ^~~~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:206:32: error: redefinition of ‘constexpr const uint32_t config::RECENT_EDGE_MS’
+  206 | inline constexpr std::uint32_t RECENT_EDGE_MS = 5000U; // ms, B8/B11 inward/side history
+      |                                ^~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:206:32: note: ‘constexpr const uint32_t config::RECENT_EDGE_MS’ previously defined here
+  206 | inline constexpr std::uint32_t RECENT_EDGE_MS = 5000U; // ms, B8/B11 inward/side history
+      |                                ^~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:207:32: error: redefinition of ‘constexpr const uint32_t config::SEARCH_SCAN_DEG’
+  207 | inline constexpr std::uint32_t SEARCH_SCAN_DEG = 360U; // deg, B8 full directed sweep
+      |                                ^~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:207:32: note: ‘constexpr const uint32_t config::SEARCH_SCAN_DEG’ previously defined here
+  207 | inline constexpr std::uint32_t SEARCH_SCAN_DEG = 360U; // deg, B8 full directed sweep
+      |                                ^~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:209:32: error: redefinition of ‘constexpr const uint32_t config::CAL_START_MS’
+  209 | inline constexpr std::uint32_t CAL_START_MS = 1500U; // ms after qualified release
+      |                                ^~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:209:32: note: ‘constexpr const uint32_t config::CAL_START_MS’ previously defined here
+  209 | inline constexpr std::uint32_t CAL_START_MS = 1500U; // ms after qualified release
+      |                                ^~~~~~~~~~~~
+src/app/../hal/../core/../config.h:210:32: error: redefinition of ‘constexpr const uint32_t config::CAL_END_MS’
+  210 | inline constexpr std::uint32_t CAL_END_MS = 4500U; // ms, exclusive sample endpoint
+      |                                ^~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:210:32: note: ‘constexpr const uint32_t config::CAL_END_MS’ previously defined here
+  210 | inline constexpr std::uint32_t CAL_END_MS = 4500U; // ms, exclusive sample endpoint
+      |                                ^~~~~~~~~~
+src/app/../hal/../core/../config.h:211:32: error: redefinition of ‘constexpr const uint32_t config::CAL_MIN_SAMPLES’
+  211 | inline constexpr std::uint32_t CAL_MIN_SAMPLES = 2U; // samples, D-024
+      |                                ^~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:211:32: note: ‘constexpr const uint32_t config::CAL_MIN_SAMPLES’ previously defined here
+  211 | inline constexpr std::uint32_t CAL_MIN_SAMPLES = 2U; // samples, D-024
+      |                                ^~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:212:32: error: redefinition of ‘constexpr const uint32_t config::COUNTDOWN_LINE_WARN_MS’
+  212 | inline constexpr std::uint32_t COUNTDOWN_LINE_WARN_MS = 1000U; // ms before GO
+      |                                ^~~~~~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:212:32: note: ‘constexpr const uint32_t config::COUNTDOWN_LINE_WARN_MS’ previously defined here
+  212 | inline constexpr std::uint32_t COUNTDOWN_LINE_WARN_MS = 1000U; // ms before GO
+      |                                ^~~~~~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:213:32: error: redefinition of ‘constexpr const uint32_t config::COUNTDOWN_SNAPSHOT_MS’
+  213 | inline constexpr std::uint32_t COUNTDOWN_SNAPSHOT_MS = 300U; // ms before GO
+      |                                ^~~~~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:213:32: note: ‘constexpr const uint32_t config::COUNTDOWN_SNAPSHOT_MS’ previously defined here
+  213 | inline constexpr std::uint32_t COUNTDOWN_SNAPSHOT_MS = 300U; // ms before GO
+      |                                ^~~~~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:215:32: error: redefinition of ‘constexpr const uint32_t config::P0_SCROLL_MS’
+  215 | inline constexpr std::uint32_t P0_SCROLL_MS = 100U;
+      |                                ^~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:215:32: note: ‘constexpr const uint32_t config::P0_SCROLL_MS’ previously defined here
+  215 | inline constexpr std::uint32_t P0_SCROLL_MS = 100U;
+      |                                ^~~~~~~~~~~~
+src/app/../hal/../core/../config.h:216:32: error: redefinition of ‘constexpr const uint32_t config::P0_COUNTER_MS’
+  216 | inline constexpr std::uint32_t P0_COUNTER_MS = 1000U;
+      |                                ^~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:216:32: note: ‘constexpr const uint32_t config::P0_COUNTER_MS’ previously defined here
+  216 | inline constexpr std::uint32_t P0_COUNTER_MS = 1000U;
+      |                                ^~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:217:32: error: redefinition of ‘constexpr const uint32_t config::P0_MONITOR_TIMEOUT_US’
+  217 | inline constexpr std::uint32_t P0_MONITOR_TIMEOUT_US = 100000U; // D-062 diagnostic only
+      |                                ^~~~~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:217:32: note: ‘constexpr const uint32_t config::P0_MONITOR_TIMEOUT_US’ previously defined here
+  217 | inline constexpr std::uint32_t P0_MONITOR_TIMEOUT_US = 100000U; // D-062 diagnostic only
+      |                                ^~~~~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:218:32: error: redefinition of ‘constexpr const uint32_t config::P0_MONITOR_BAUD_BPS’
+  218 | inline constexpr std::uint32_t P0_MONITOR_BAUD_BPS = 115200U; // validate installed link, never reconfigure
+      |                                ^~~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:218:32: note: ‘constexpr const uint32_t config::P0_MONITOR_BAUD_BPS’ previously defined here
+  218 | inline constexpr std::uint32_t P0_MONITOR_BAUD_BPS = 115200U; // validate installed link, never reconfigure
+      |                                ^~~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:219:32: error: redefinition of ‘constexpr const uint32_t config::P0_JITTER_SAMPLES’
+  219 | inline constexpr std::uint32_t P0_JITTER_SAMPLES = 60000U;
+      |                                ^~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:219:32: note: ‘constexpr const uint32_t config::P0_JITTER_SAMPLES’ previously defined here
+  219 | inline constexpr std::uint32_t P0_JITTER_SAMPLES = 60000U;
+      |                                ^~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:220:32: error: redefinition of ‘constexpr const uint32_t config::P0_JITTER_HISTOGRAM_US’
+  220 | inline constexpr std::uint32_t P0_JITTER_HISTOGRAM_US = 1000U;
+      |                                ^~~~~~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:220:32: note: ‘constexpr const uint32_t config::P0_JITTER_HISTOGRAM_US’ previously defined here
+  220 | inline constexpr std::uint32_t P0_JITTER_HISTOGRAM_US = 1000U;
+      |                                ^~~~~~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:221:32: error: redefinition of ‘constexpr const uint32_t config::P0_ADC_SAMPLES’
+  221 | inline constexpr std::uint32_t P0_ADC_SAMPLES = 1000U; // D-063 startup-only calls
+      |                                ^~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:221:32: note: ‘constexpr const uint32_t config::P0_ADC_SAMPLES’ previously defined here
+  221 | inline constexpr std::uint32_t P0_ADC_SAMPLES = 1000U; // D-063 startup-only calls
+      |                                ^~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:222:32: error: redefinition of ‘constexpr const uint32_t config::P0_ADC_PIN’
+  222 | inline constexpr std::uint32_t P0_ADC_PIN = 14U; // installed A0; diagnostic only, not PINMAP OK
+      |                                ^~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:222:32: note: ‘constexpr const uint32_t config::P0_ADC_PIN’ previously defined here
+  222 | inline constexpr std::uint32_t P0_ADC_PIN = 14U; // installed A0; diagnostic only, not PINMAP OK
+      |                                ^~~~~~~~~~
+src/app/../hal/../core/../config.h:223:32: error: redefinition of ‘constexpr const uint32_t config::P0_GPIO_SAMPLES’
+  223 | inline constexpr std::uint32_t P0_GPIO_SAMPLES = 400U; // D-064 fixed RAM diagnostic
+      |                                ^~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:223:32: note: ‘constexpr const uint32_t config::P0_GPIO_SAMPLES’ previously defined here
+  223 | inline constexpr std::uint32_t P0_GPIO_SAMPLES = 400U; // D-064 fixed RAM diagnostic
+      |                                ^~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:224:32: error: redefinition of ‘constexpr const uint32_t config::P0_GPIO_PIN’
+  224 | inline constexpr std::uint32_t P0_GPIO_PIN = 50U; // installed LED_BUILTIN/LED3_R, not D13
+      |                                ^~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:224:32: note: ‘constexpr const uint32_t config::P0_GPIO_PIN’ previously defined here
+  224 | inline constexpr std::uint32_t P0_GPIO_PIN = 50U; // installed LED_BUILTIN/LED3_R, not D13
+      |                                ^~~~~~~~~~~
+src/app/../hal/../core/../config.h:225:32: error: redefinition of ‘constexpr const uint32_t config::P0_QTR_SAMPLES_PER_MODE’
+  225 | inline constexpr std::uint32_t P0_QTR_SAMPLES_PER_MODE = 100U; // D-065 diagnostic datasets
+      |                                ^~~~~~~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:225:32: note: ‘constexpr const uint32_t config::P0_QTR_SAMPLES_PER_MODE’ previously defined here
+  225 | inline constexpr std::uint32_t P0_QTR_SAMPLES_PER_MODE = 100U; // D-065 diagnostic datasets
+      |                                ^~~~~~~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:226:32: error: redefinition of ‘constexpr const uint32_t config::P0_QTR_GUARD_POLLS’
+  226 | inline constexpr std::uint32_t P0_QTR_GUARD_POLLS = 4096U; // finite charge/observation guard
+      |                                ^~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:226:32: note: ‘constexpr const uint32_t config::P0_QTR_GUARD_POLLS’ previously defined here
+  226 | inline constexpr std::uint32_t P0_QTR_GUARD_POLLS = 4096U; // finite charge/observation guard
+      |                                ^~~~~~~~~~~~~~~~~~
+src/app/../hal/../core/../config.h:227:32: error: redefinition of ‘constexpr const uint32_t config::P0_QTR_PINS [4]’
+  227 | inline constexpr std::uint32_t P0_QTR_PINS[4] = {2U, 4U, 7U, 8U}; // installed D2/D4/D7/D8; no PINMAP approval
+      |                                ^~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:227:32: note: ‘constexpr const uint32_t config::P0_QTR_PINS [4]’ previously defined here
+  227 | inline constexpr std::uint32_t P0_QTR_PINS[4] = {2U, 4U, 7U, 8U}; // installed D2/D4/D7/D8; no PINMAP approval
+      |                                ^~~~~~~~~~~
+src/app/../hal/../core/../config.h:228:32: error: redefinition of ‘constexpr const uint32_t config::P0_QTR_QUANTIZATION_US’
+  228 | inline constexpr std::uint32_t P0_QTR_QUANTIZATION_US = 1U; // additional clock tick after requested charge
+      |                                ^~~~~~~~~~~~~~~~~~~~~~
+state/analysis/P2_recorder_transport_raw/implementer/syntax_stage/src/config.h:228:32: note: ‘constexpr const uint32_t config::P0_QTR_QUANTIZATION_US’ previously defined here
+  228 | inline constexpr std::uint32_t P0_QTR_QUANTIZATION_US = 1U; // additional clock tick after requested charge
+      |                                ^~~~~~~~~~~~~~~~~~~~~~

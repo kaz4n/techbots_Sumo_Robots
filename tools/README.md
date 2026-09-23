@@ -347,3 +347,18 @@ profiles and uploads are refused. An actual run needs the separately reviewed
 exact target/readout and identified run record described in
 state/analysis/P2_ui_adc_probe_contract.md. Floating A1 codes have no expected
 voltage or logical button meaning; SC-A and SC-AJ remain open.
+
+## Full synthetic recorder transport bench (D116)
+
+`python tools/board_tool.py flash bench/recorder --compile-only` selects the
+checked default-startup, MATCH0/MOTORS_ALLOWED0 build. The sketch is disabled by
+default and performs no native setup or transmission. MATCH, Immediate, sketch
+profiles and every upload are refused. This is separate from the previously
+reviewed terminal `recorder_inert` image.
+
+The enabled software scenario records a full 200-second synthetic attempt,
+completes the real STOP tail and inhibited service reset, then requests the
+existing IDLE log dump through actual menu gestures. Host reception and native
+UART success are separate checks. Read `state/analysis/P2_recorder_transport_contract.md`
+and its validation status before use; UART ownership, clean framing, throughput
+and an identified native run remain explicit prerequisites.

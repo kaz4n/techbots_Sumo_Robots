@@ -1,3 +1,36 @@
+## Active checkpoint - 2026-09-24T03:24:52.542645+04:00
+
+P2 software active. D116 software/test/target review complete: full200s synthetic
+Transaction/Transfer recorder bench,5001 frames; no native UART run or phase gate.
+See F144, P2_recorder_transport_validation.md and final scoped review. Independent
+and private normal/sanitizer22cases; full1478main+187Gate eachprofile;183policies.
+Exact sourcee2cd303f/default ELF538a7c81 conditionalpeak220280; first source unchanged.
+Reviewed config-fixture and target-audit harness corrections retain originals.
+No MCU action; D114 completed396bcc45 remains last image, its run is consumed.
+Next: adopt D117 explicit FIFO8 mode after public/source preflights, then frozen
+independent tests/fourfile implementation/target fit. Native FIFO-off capacity is
+insufficient; unrestricted raw-width model170 controls the proposed acceptance.
+App default has only456 bytes modeled span before that change; no assumed fit.
+Ownership/framing/service-rate, fullapp800us, physical acceptance and human gates
+remain pending. Do not repeat old ADC run, change grants or add upload authority.
+
+## Active checkpoint - 2026-09-24T03:08:14.838203+04:00
+
+P2 software is active. Previous turn made progress: D115 committed08e1d596;
+D114 actual bare ADC remains the last MCU image. D116 adopted in99555b80:
+full200s synthetic bench/recorder using actual Transaction/Transfer, guarded
+service reset and real menu intent. Implementation and independent tests are
+currently being authored in separate contexts; no D116 test or board execution
+has occurred. Root literal compile-only routing is prepared and syntax-checked.
+Read P2_recorder_transport_contract.md (including prefreeze clarifications),
+P2_native_dump_probe_oracle_preflight.md and P2_native_dump_preparation_audit.md.
+New source review finds the existing FIFO-disabled1kHz UART cadence insufficient
+for a full log within300s; native throughput remains a concrete open dependency,
+not permission to shorten recording or extend timeout. Final audit pending.
+Next: freeze independent tests, inspect first implementation, run actual host
+normal/sanitizer/receiver/policy checks, repair failures, review and commit.
+Hardware/gates remain pending; no new upload or MCU action is authorized here.
+
 ## Active checkpoint - 2026-09-24T02:51:44.704000+04:00
 
 P2softwarecheckpoint: D114 actualADC evidence e4f1ee2b is MEASURED/REVIEW-PASS (128validrawsamples,0misses,allUNCONFIGURED). MCU remains completed396bcc45; no furtherupload/reset. D115 inhibition-only motor_stand preparation is IMPLEMENTED/HOST-TESTED/TARGET-COMPILED/SCOPED-REVIEW-PASS, exactbb3b462a/default, ELF7a9c5cb5, modeledpeak6312. Fullnormal+san each1457main/45,984,586asserts plus187Gate/4,536,952;175policy methodsPASS. See F142/P2_motor_stand_inhibit_validation.md and finalreview. No existing HAL/core/config/locked-test change. Read P2_after_D115_checkpoint.md for open dependencies: directionalB4 authority/B7-R6 conflict, actualA1circuit/windows, nativeUART cleanframing, fullapp/assembledrobot measurements and allhuman gates. No extra hardware requested. Nextsafe candidate is native-dump ownership/framing contract preparation under existingD051/D075; not a newapprovedgrant or reason to repeat the consumedADCrun. Nothing is running in background.

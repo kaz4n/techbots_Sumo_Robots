@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "wsl",
+    "-d",
+    "Ubuntu",
+    "--",
+    "bash",
+    "-c",
+    "cmake -S host -B build/host-sanitize && cmake --build build/host-sanitize --parallel 2 && ctest --test-dir build/host-sanitize --output-on-failure"
+  ],
+  "returncode": 0,
+  "start_utc": "2026-09-23T23:17:50.965085+00:00",
+  "end_utc": "2026-09-23T23:20:25.931933+00:00"
+}

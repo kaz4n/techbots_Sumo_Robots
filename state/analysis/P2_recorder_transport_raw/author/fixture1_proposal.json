@@ -1,0 +1,11 @@
+{
+  "original_sha256": "9be99d2c99ace81dbc11d2a15e319dcdc2ce80ffbfddc01a2a9888143d687ede",
+  "proposed_sha256": "0fab202af4559143335489b1ade502d94925031d5a32a7a85e2eb78aec3a121e",
+  "changed_methods": [
+    "test_invalid_copied_config_profiles_never_initialize"
+  ],
+  "cause": "Existing countdown positivity static_asserts make zero debounce/long unbuildable. MODE_SHORT_MS600 <= BTN_LONG_MS makes the original long24 fixture unbuildable; earlier message incorrectly called this BOTH_STOP_MS, corrected here.",
+  "repair": "Two zero profiles are explicit reason-specific upstream compile refusals; runtime G==long uses debounce596+4*TICK1=600ms and long600, retaining MODE_SHORT_MS600. config.cc and every runtime CONFIG/no-clock/no-callback assertion unchanged. All other test bytes/methods unchanged.",
+  "upstream_unreachable_limit": "Runner zero-debounce/zero-long runtime branches remain source-review-only under actual established countdown guards.",
+  "review": "Reviewer approved this classification and coherent copied values; exact proposal awaits coordinator review before application."
+}

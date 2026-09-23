@@ -1,0 +1,43 @@
+--- tests\tooling\test_recorder_transport.py
++++ proposed/test_recorder_transport.py
+@@ -174,20 +174,28 @@
+         self.assertIn('partial',children[0].name)
+ 
+     def test_invalid_copied_config_profiles_never_initialize(self):
+-        profiles=(('TICK_US',0),('BTN_DEBOUNCE_MS',0),('BTN_LONG_MS',0),
+-                  ('APP_CLOCK_STALL_MAX_POLLS',0),('BTN_LONG_MS',24),
+-                  ('LOG_FRAME_WINDOW_MS',5099),('DUMP_TOTAL_MS',2000000))
++        profiles=(({'TICK_US':0},None),({'BTN_DEBOUNCE_MS':0},'(0 > 0)'),
++                  ({'BTN_LONG_MS':0},'(0 > 0)'),({'APP_CLOCK_STALL_MAX_POLLS':0},None),
++                  ({'BTN_DEBOUNCE_MS':596,'BTN_LONG_MS':600},None),
++                  ({'LOG_FRAME_WINDOW_MS':5099},None),({'DUMP_TOTAL_MS':2000000},None))
+         with tempfile.TemporaryDirectory(prefix='d116-config-',dir='/dev/shm') as temporary:
+             stage=Path(temporary);self.copy_inputs(stage);original=(stage/'src/config.h').read_bytes()
+-            for key,value in profiles:
+-                with self.subTest(key=key,value=value):
+-                    pattern=rb'(inline constexpr std::uint32_t '+key.encode()+rb' = )\d+U;'
+-                    altered,count=re.subn(pattern,lambda m:m[1]+str(value).encode()+b'U;',original)
+-                    self.assertEqual(count,1);(stage/'src/config.h').write_bytes(altered)
+-                    binary=stage/(key+str(value))
+-                    self.command([*self.common(stage),*self.owners(stage),
+-                                  stage/'tests/fixtures/recorder_transport/config.cc',stage/'main.cc','-o',binary])
+-                    self.command([binary,'--no-colors'])
++            for values,upstream_refusal in profiles:
++                with self.subTest(values=values):
++                    altered=original
++                    for key,value in values.items():
++                        pattern=rb'(inline constexpr std::uint32_t '+key.encode()+rb' = )\d+U;'
++                        altered,count=re.subn(pattern,lambda m:m[1]+str(value).encode()+b'U;',altered)
++                        self.assertEqual(count,1)
++                    (stage/'src/config.h').write_bytes(altered)
++                    binary=stage/('_'.join(key+str(value) for key,value in values.items()))
++                    result=self.command([*self.common(stage),*self.owners(stage),
++                        stage/'tests/fixtures/recorder_transport/config.cc',stage/'main.cc','-o',binary],
++                        refusal=bool(upstream_refusal))
++                    if upstream_refusal:
++                        self.assertIn('src/core/countdown.cpp:',result.stderr)
++                        self.assertIn(upstream_refusal,result.stderr)
++                    else:self.command([binary,'--no-colors'])
+ 
+     def test_actual_factory_and_default_sketch_remain_passive(self):
+         with tempfile.TemporaryDirectory(prefix='d116-native-',dir='/dev/shm') as temporary:

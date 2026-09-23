@@ -1,0 +1,26 @@
+{
+  "verdict": "ACCEPT_CONFIG_FIXTURE_ONLY",
+  "original_sha256": "9be99d2c99ace81dbc11d2a15e319dcdc2ce80ffbfddc01a2a9888143d687ede",
+  "amended_sha256": "0fab202af4559143335489b1ade502d94925031d5a32a7a85e2eb78aec3a121e",
+  "unchanged_methods": [
+    "command",
+    "common",
+    "compare_complete",
+    "compare_slow",
+    "copy_inputs",
+    "expected_csv",
+    "owners",
+    "sanitizers",
+    "test_actual_factory_and_default_sketch_remain_passive",
+    "test_full_actual_pipeline_normal_and_sanitized_strict_receiver"
+  ],
+  "unchanged_frozen_inputs": {
+    "tests/test_recorder_transport.cpp": "7ecd1cdd58d516826508a85318fe6c90bb2483ae1a68e30b56a6e4991dbda792",
+    "tests/tooling/test_recorder_transport_policy.py": "f933345e18cbf4eebe78eee4cbf288c11321a1ad9d1f481dfa64584406491557",
+    "state/analysis/P2_recorder_transport_raw/author/run_tests.py": "e0b642db31a4b70d792739dfc33f720437f6c2ee22899384de9443cefc73d1f8",
+    "tests/fixtures/recorder_transport/config.cc": "19122bd156d6a2eba0abebf39601b4831955af43a4d3b4abfabd0200a8c2f3eb",
+    "tests/fixtures/recorder_transport/fixture.h": "c565deb1e5bbef2a7cdda0eba7c88bd65d69163d4624a810b79450cbb180e147",
+    "tests/fixtures/recorder_transport/native.cc": "c5fde8c2830bd1578da2e42f5503442f4d2f649ee608bfd9676d55616295f225"
+  },
+  "reason": "Zero debounce/long statically refused by unchanged countdown; coherent debounce596/long600 exercises existing Runner G==LONG runtime CONFIG/no-callback assertions. Original failures preserved."
+}

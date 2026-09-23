@@ -1,3 +1,19 @@
+## Active checkpoint - 2026-09-24T03:24:52.542645+04:00
+
+P2 software active. D116 software/test/target review complete: full200s synthetic
+Transaction/Transfer recorder bench,5001 frames; no native UART run or phase gate.
+See F144, P2_recorder_transport_validation.md and final scoped review. Independent
+and private normal/sanitizer22cases; full1478main+187Gate eachprofile;183policies.
+Exact sourcee2cd303f/default ELF538a7c81 conditionalpeak220280; first source unchanged.
+Reviewed config-fixture and target-audit harness corrections retain originals.
+No MCU action; D114 completed396bcc45 remains last image, its run is consumed.
+Next: adopt D117 explicit FIFO8 mode after public/source preflights, then frozen
+independent tests/fourfile implementation/target fit. Native FIFO-off capacity is
+insufficient; unrestricted raw-width model170 controls the proposed acceptance.
+App default has only456 bytes modeled span before that change; no assumed fit.
+Ownership/framing/service-rate, fullapp800us, physical acceptance and human gates
+remain pending. Do not repeat old ADC run, change grants or add upload authority.
+
 ## Current execution checklist - 2026-09-24T02:51:44.704000+04:00
 
 | Existing phase task | Current status / evidence | Next dependency |

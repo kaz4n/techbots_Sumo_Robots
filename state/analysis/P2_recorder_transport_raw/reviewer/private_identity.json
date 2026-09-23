@@ -1,0 +1,60 @@
+{
+  "verdict": "PASS_EXACT_FINAL_PRIVATE_INPUTS",
+  "source_freeze": {
+    "recorded_utc": "2026-09-23T23:11:53.710642+00:00",
+    "scope": "First implementation frozen before syntax checks or execution; public header unchanged above private section.",
+    "files": {
+      "bench/recorder/recorder.ino": {
+        "sha256": "19302674b85d23dca315e5d735774c7cbe21aad39ca6126019cc4a4ee8b1bf71",
+        "bytes": 672
+      },
+      "bench/recorder/src/recorder_transport.h": {
+        "sha256": "3f03e1823d731d8139b95428d77a81b8022fde0034a98cbef8aabf1f60efddd8",
+        "bytes": 6587
+      },
+      "bench/recorder/src/recorder_transport.cpp": {
+        "sha256": "8ffb2795c0d14116043a7e37bb67314a4637ea08c00d0877a694367f7bfa4957",
+        "bytes": 6602
+      },
+      "bench/recorder/src/recorder_transport_io.cpp": {
+        "sha256": "55ef764bd94e2584f538b435f8cbb17d1ad050a18629540e5c466aeeecd31440",
+        "bytes": 4042
+      },
+      "bench/recorder/src/recorder_transport_scenario.cpp": {
+        "sha256": "2d732c91462264021b7b8f14346c6b38c08ba6ed9af837606dfd0c2a07d46c89",
+        "bytes": 9853
+      }
+    },
+    "contract": {
+      "path": "state/analysis/P2_recorder_transport_contract.md",
+      "sha256": "056c69c8cc3246e24932b4e8c0e2e9855aac2051e28a57bf0bc448b955d8466d"
+    },
+    "git_head": "99555b801a225503899000c14dac05f2d4d89cd6"
+  },
+  "tool_freeze": {
+    "scope": "D116 literal checked compile-only routing and ordinary host sources; no execution yet",
+    "files": {
+      "tools/board_tool.py": {
+        "sha256": "8d89429a9add900ae6234bf9f1b663771d5cc50e9e0715b4017acc32a915fa4c",
+        "bytes": 22919
+      },
+      "tools/app_build_policy.py": {
+        "sha256": "658d68842fcd44eea284e00ca33672d1feaef8140ea127f3accf815e645ff469",
+        "bytes": 11451
+      },
+      "host/CMakeLists.txt": {
+        "sha256": "bcddc1525299f6a62382a529604231a07334c7d611ebb06ef1d46da846217136",
+        "bytes": 4779
+      }
+    }
+  },
+  "final_tests": {
+    "tests/test_recorder_transport.cpp": "7ecd1cdd58d516826508a85318fe6c90bb2483ae1a68e30b56a6e4991dbda792",
+    "tests/tooling/test_recorder_transport.py": "0fab202af4559143335489b1ade502d94925031d5a32a7a85e2eb78aec3a121e",
+    "tests/tooling/test_recorder_transport_policy.py": "f933345e18cbf4eebe78eee4cbf288c11321a1ad9d1f481dfa64584406491557",
+    "tests/fixtures/recorder_transport/config.cc": "19122bd156d6a2eba0abebf39601b4831955af43a4d3b4abfabd0200a8c2f3eb",
+    "tests/fixtures/recorder_transport/fixture.h": "c565deb1e5bbef2a7cdda0eba7c88bd65d69163d4624a810b79450cbb180e147",
+    "tests/fixtures/recorder_transport/native.cc": "c5fde8c2830bd1578da2e42f5503442f4d2f649ee608bfd9676d55616295f225"
+  },
+  "contract_sha256": "056c69c8cc3246e24932b4e8c0e2e9855aac2051e28a57bf0bc448b955d8466d"
+}

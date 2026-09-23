@@ -1,0 +1,29 @@
+{
+  "argv": [
+    "g++",
+    "-std=c++17",
+    "-O1",
+    "-Wall",
+    "-Wextra",
+    "-Wpedantic",
+    "-Werror",
+    "-fno-exceptions",
+    "-fno-rtti",
+    "-DDOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS",
+    "-I",
+    "/dev/shm/d116-pipeline-wa6gnxe8/src",
+    "-I",
+    "/dev/shm/d116-pipeline-wa6gnxe8",
+    "-I",
+    "/dev/shm/d116-pipeline-wa6gnxe8/bench/recorder/src",
+    "-isystem",
+    "/dev/shm/d116-author-nw9es5ji/host/third_party",
+    "-DMATCH=0",
+    "-DMOTORS_ALLOWED=1",
+    "-fsyntax-only",
+    "/dev/shm/d116-pipeline-wa6gnxe8/bench/recorder/src/recorder_transport.cpp"
+  ],
+  "returncode": 1,
+  "stdout": "",
+  "stderr": "In file included from /dev/shm/d116-pipeline-wa6gnxe8/bench/recorder/src/recorder_transport.cpp:4:\n/dev/shm/d116-pipeline-wa6gnxe8/bench/recorder/src/recorder_transport.h:9:44: error: static assertion failed: D116 requires an inert bench build\n    9 | static_assert(MATCH == 0 && MOTORS_ALLOWED == 0, \"D116 requires an inert bench build\");\n/dev/shm/d116-pipeline-wa6gnxe8/bench/recorder/src/recorder_transport.h:9:44: note: the comparison reduces to \u2018(1 == 0)\u2019\n"
+}

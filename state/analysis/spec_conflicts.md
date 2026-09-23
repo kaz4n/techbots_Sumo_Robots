@@ -679,3 +679,13 @@ B0/HARDWARE3/D076/core frontView define indices0/1/2 as FL15/FC/FR15; D088 matri
 2026-09-23 D105/D106 SC-AL follow-up: calibration delivery host-reviewed; exactd72bff70 default/Immediate/MATCH loader peaks261688/261688/260056 fit262144 after immutable native-table deduplication. D105-R2 closed within model scope; full-app loadedRAM and complete800us remain physically unmeasured.
 
 2026-09-24 D108 OPP-VIEW-1 disposition: CLOSED in software under contract9ff7405. Only two renderer coordinates and corresponding unlocked oracle positions changed. Fullnormal/san1446main+187Gate PASS; exact618d3a96 default/MATCH target and separate review PASS. FinalELFs change only two read-only bytes; control/pins unchanged. See P2_display_channel_validation.md and review/raw. Optical orientation remains unmeasured; no gate.
+
+
+## DUMP-RATE-1: full recorder exceeds legacy UART cadence (2026-09-24, OPEN)
+Issue: D090 FIFO-disabled native TX, one Transfer step per1kHz epoch and the unchanged300s total limit cannot deliver all5001 frames. Sources: src/hal/dump_uart_unoq.cpp:267-293, src/hal/recorder_dump.cpp:298-331, config.h DUMP_*; full derivation in P2_native_dump_throughput_audit.md.
+Consequence: frames alone require at least614013 wire bytes; at most2 bytes per nominal<80us call allows at most600000 bytes in300s. Fast host sinks do not establish native acceptance.
+Options: A) explicit setup-only FIFO mode in the existing native owner, preserving legacy default, ownership/readiness/cancel checks and all byte/time budgets; B) leave native delivery blocked. Recommend A under D051/D075. No shorter recording or extended timeout is selected.
+Decision needed: a separate D117 interface/setup/ownership contract and independent tests before changing native source. This is an engineering choice, not evidence that UART ownership/framing or measured service rate is qualified.
+Regression/acceptance: unchanged legacy tests; serial-time8-entry FIFO reference model with full5001-frame/4096-event worst-width stream, no overflow, actual TC, deadlines and poison; exact target/startup/import/loader checks. Full-capacity source model fits212658 1kHz calls at8 stores,283574 at6; actual<80us/store service and hardware delivery remain unmeasured. Root arithmetic receipt: P2_recorder_transport_raw/coordinator/cadence_arithmetic.json.
+
+DUMP-RATE-1 bound correction before D117 adoption: use unrestricted raw FR170 rather than semantically valid166. Corrected full-capacity217659 calls at8/288575 at6 still fit the300s model;5-store331091 exceeds it. No production budget changed. Original arithmetic retained; see F143 correction and P2_dump_fifo_test_preflight.md.

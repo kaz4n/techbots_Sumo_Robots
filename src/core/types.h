@@ -14,6 +14,17 @@ enum class Mode : std::uint8_t {
 };
 // Semantic input only: this does NOT assert that the A1 circuit can decode BOTH.
 enum class ButtonLevel : std::uint8_t { NONE, START, MODE, BOTH };
+enum class ButtonPresence : std::uint8_t { ABSENT = 1, VALID = 2, INVALID = 3 };
+struct ButtonEvidence {
+    bool explicit_values = false;
+    bool contract_valid = true;
+    ButtonPresence presence = ButtonPresence::ABSENT;
+    ButtonLevel level = ButtonLevel::NONE;
+    std::uint16_t raw = 0U;
+    std::uint32_t sequence = 0U;
+    std::uint32_t started_us = 0U;
+    std::uint32_t completed_us = 0U;
+};
 enum class Event : std::uint8_t {
     START_RELEASE, GO, FIRST_NONZERO_DUTY, STATE_CHANGE, EDGE, CONTACT,
     STALL, REFLANK_PHASE, PHANTOM_SET, FAULT

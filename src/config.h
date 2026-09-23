@@ -29,6 +29,12 @@ inline constexpr std::uint32_t MOTOR_PWM_SETTLE_MAX_POLLS = 4096U; // count-name
 // Nominal scaling is not measured divider/reference calibration or PINMAP OK.
 inline constexpr std::uint32_t VBAT_INPUT_PIN = 14U; // A0 / PA4 / ADC1 channel9
 inline constexpr std::uint32_t BUTTON_INPUT_PIN = 15U; // A1 / PA5 / ADC1 channel10; D086, proposal only
+// D087 raw-count windows remain unconfigured until a supported electrical profile.
+// Order: NONE, START, MODE, BOTH. RAW/count names are explicit unit exceptions.
+inline constexpr std::uint32_t BUTTON_WINDOWS_CONFIGURED = 0U;
+inline constexpr std::uint32_t BUTTON_LOW_RAW[4] = {0U, 0U, 0U, 0U};
+inline constexpr std::uint32_t BUTTON_HIGH_RAW[4] = {0U, 0U, 0U, 0U};
+inline constexpr std::uint32_t BUTTON_SAMPLE_MAX_AGE_US = 5000U; // D087 development continuity/age limit
 inline constexpr float VBAT_ADC_REFERENCE_V = 3.3F; // nominal V
 inline constexpr float VBAT_DIVIDER_RATIO = 122.0F / 22.0F; // dimensionless exception
 inline constexpr std::uint32_t VBAT_ADC_REGULATOR_US = 100U;

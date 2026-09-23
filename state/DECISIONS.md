@@ -1072,3 +1072,20 @@ Consequence: actual native implementation plus independent regressions, inert
 compile-only/source/ELF checks and fresh separate review are required. SC-A,
 settling/accuracy/full-tick timing, SC-AJ/F091 and all physical gates remain open.
 No wiring claim, upload key, B16 value or established locked assertion changes.
+
+
+## D-087 (2026-09-23, selected under D-051/D-075) Button evidence and fresh gesture routing
+Context: D086 supplies raw A1 data; mapping failure to NONE or replaying a cached
+level could manufacture a release/hold. Existing LINE_CONTRACT256 is also rejected
+by the legacy B15 detail7 range, whose established tests must remain unchanged.
+Decision: adopt P2_button_routing_contract.md. Use explicit raw windows with no
+configured physical defaults, distinguish absent/invalid/ambiguous data, and select
+5000us bounded continuity/age with reset-only BUTTON_CONTRACT512. Source timestamps
+qualify fresh sampled gestures; actual decision ticks anchor full START/STOP/menu
+holds. Gate/services continue on no-new ticks. Require fresh neutral qualification
+before START after boot; preserve legacy APIs and all existing tests. Append B15
+extended contract detail11 for known high fault bits, preserving detail7 semantics.
+Consequence: actual decoder/Robot/gesture/event implementation, independent tests,
+real MotorGate boundary checks, target compile-only and fresh review are required.
+No unique START/BOTH electrical distinction, wiring change, physical acceptance,
+full-tick timing, app integration, human gate or motor permission is inferred.

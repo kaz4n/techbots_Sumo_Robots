@@ -543,6 +543,12 @@ This changes logging cadence only: keep200s of frames,4096exact-tick events and
 the1kHz control loop. Actual loading/free RAM, full HAL growth,200s/no-gap dump
 and worst-case timing remain unverified; no phase or hardware gate follows.
 
+D-087 (delegated D-051/D-075, 2026-09-23) extends contract-fault metadata with
+FAULT detail11 for known mask bits0..9, requiring bit8 or bit9. Original detail7
+retains its1..255 contract;8-byte events and21-event tick capacity are unchanged.
+This makes LINE_CONTRACT256 and BUTTON_CONTRACT512 recordable without weakening
+legacy validation. See state/analysis/P2_button_routing_contract.md.
+
 ## B16. Tunables (src/config.h)
 
 Defaults are starting points. "Tuned in" names the phase that sets the final value from evidence.

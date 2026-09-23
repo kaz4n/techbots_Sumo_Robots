@@ -47,6 +47,9 @@ NATIVE_POWER_DEFAULTS = {
 }
 # D-086 unchanged A1 proposal, explicit opt-in raw acquisition.
 ADC_PAIR_DEFAULTS = {'BUTTON_INPUT_PIN': 15}
+# D087 development policy; no measured electrical windows.
+BUTTON_ROUTING_DEFAULTS = {'BUTTON_WINDOWS_CONFIGURED': 0, 'BUTTON_SAMPLE_MAX_AGE_US': 5000}
+BUTTON_ROUTING_ARRAYS = {'BUTTON_LOW_RAW[4]': (0, 0, 0, 0), 'BUTTON_HIGH_RAW[4]': (0, 0, 0, 0)}
 NATIVE_POWER_FLOAT_NAMES = {'VBAT_ADC_REFERENCE_V', 'VBAT_DIVIDER_RATIO'}
 # D-079 narrow native MPU6050 transport; conditional software defaults only.
 NATIVE_IMU_BUS_DEFAULTS = {
@@ -163,7 +166,8 @@ class P0ConfigTests(unittest.TestCase):
                     NATIVE_POWER_FLOAT_NAMES | set(NATIVE_IMU_BUS_DEFAULTS) |
                     set(IMU_SETUP_DEFAULTS) | set(IMU_ACQUISITION_DEFAULTS) |
                     set(IMU_HEADING_DEFAULTS) | set(QTR_ACQUISITION_DEFAULTS) |
-                    set(QTR_PROPOSED_ARRAY_DEFAULTS) | set(ADC_PAIR_DEFAULTS))
+                    set(QTR_PROPOSED_ARRAY_DEFAULTS) | set(ADC_PAIR_DEFAULTS) |
+                    set(BUTTON_ROUTING_DEFAULTS) | set(BUTTON_ROUTING_ARRAYS))
         self.assertEqual(expected, set(config_declarations()))
 
     def test_d076_proposed_opponent_pin_type_values_and_extent_match_hardware3(self):
@@ -258,6 +262,16 @@ class P0ConfigTests(unittest.TestCase):
         for name, expected in ADC_PAIR_DEFAULTS.items():
             self.assertEqual('std::uint32_t', declarations[name][0])
             self.assertEqual(expected, number(declarations[name][1]))
+
+    def test_d087_windows_are_unconfigured_and_age_policy_is_explicit(self):
+        declarations = config_declarations()
+        for name, expected in BUTTON_ROUTING_DEFAULTS.items():
+            self.assertEqual('std::uint32_t', declarations[name][0])
+            self.assertEqual(expected, number(declarations[name][1]))
+        for name, expected in BUTTON_ROUTING_ARRAYS.items():
+            kind, initializer = declarations[name]
+            self.assertEqual('std::uint32_t', kind)
+            self.assertEqual(expected, tuple(number(value) for value in initializer[1:-1].split(',')))
 
     def test_p0_diagnostic_defaults_are_explicit_and_unchanged(self):
         declarations = config_declarations()

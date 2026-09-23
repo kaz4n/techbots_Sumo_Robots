@@ -1,0 +1,69 @@
+{
+  "initial_reviewer_harness_failure": "First draft incorrectly caught SystemExit; fail() uses ValueError. Upload was correctly rejected at board_tool.py:194 before target(). Fixed only reviewer harness exception handling, no production or test change.",
+  "results": [
+    {
+      "transport": "adb",
+      "match": false,
+      "startup": null,
+      "exception": "ValueError",
+      "message": "P0 uploads allow only reviewed inert p0_matrix, p0_timing, p0_adc, p0_gpio and p0_qtr sketches",
+      "board_calls": 0
+    },
+    {
+      "transport": "adb",
+      "match": false,
+      "startup": "immediate",
+      "exception": "ValueError",
+      "message": "P0 uploads allow only reviewed inert p0_matrix, p0_timing, p0_adc, p0_gpio and p0_qtr sketches",
+      "board_calls": 0
+    },
+    {
+      "transport": "adb",
+      "match": true,
+      "startup": null,
+      "exception": "ValueError",
+      "message": "motor-capable uploads disabled in P0; --match is not STAND OK/RING OK",
+      "board_calls": 0
+    },
+    {
+      "transport": "adb",
+      "match": true,
+      "startup": "immediate",
+      "exception": "ValueError",
+      "message": "motor-capable uploads disabled in P0; --match is not STAND OK/RING OK",
+      "board_calls": 0
+    },
+    {
+      "transport": "ssh",
+      "match": false,
+      "startup": null,
+      "exception": "ValueError",
+      "message": "P0 uploads allow only reviewed inert p0_matrix, p0_timing, p0_adc, p0_gpio and p0_qtr sketches",
+      "board_calls": 0
+    },
+    {
+      "transport": "ssh",
+      "match": false,
+      "startup": "immediate",
+      "exception": "ValueError",
+      "message": "P0 uploads allow only reviewed inert p0_matrix, p0_timing, p0_adc, p0_gpio and p0_qtr sketches",
+      "board_calls": 0
+    },
+    {
+      "transport": "ssh",
+      "match": true,
+      "startup": null,
+      "exception": "ValueError",
+      "message": "motor-capable uploads disabled in P0; --match is not STAND OK/RING OK",
+      "board_calls": 0
+    },
+    {
+      "transport": "ssh",
+      "match": true,
+      "startup": "immediate",
+      "exception": "ValueError",
+      "message": "motor-capable uploads disabled in P0; --match is not STAND OK/RING OK",
+      "board_calls": 0
+    }
+  ]
+}

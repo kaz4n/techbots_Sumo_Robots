@@ -1,0 +1,32 @@
+{
+  "scope": "installed Linux header read only",
+  "argv": [
+    "python3",
+    "-c",
+    "import json,hashlib\nfrom pathlib import Path\np=Path('/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/zephyr/drivers/gpio.h')\nb=p.read_bytes()\nprint(json.dumps({'path':str(p),'sha256':hashlib.sha256(b).hexdigest(),'lines':[[n,s] for n,s in enumerate(b.decode().splitlines(),1) if 'typedef' in s and any(t in s for t in ('gpio_pin_t','gpio_dt_flags_t','gpio_flags_t','gpio_port_pins_t'))]}))\n"
+  ],
+  "returncode": 0,
+  "stdout": {
+    "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/zephyr/drivers/gpio.h",
+    "sha256": "aab7888876f29b6ad98217d8099aac677f5238249b95599511038cc35d982316",
+    "lines": [
+      [
+        241,
+        "typedef uint32_t gpio_port_pins_t;"
+      ],
+      [
+        262,
+        "typedef uint8_t gpio_pin_t;"
+      ],
+      [
+        274,
+        "typedef uint16_t gpio_dt_flags_t;"
+      ],
+      [
+        282,
+        "typedef uint32_t gpio_flags_t;"
+      ]
+    ]
+  },
+  "stderr": ""
+}

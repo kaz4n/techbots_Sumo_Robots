@@ -224,3 +224,11 @@ Evidence: P2_rate_adoption_validation.md/raw, F-092 and fresh same-model review.
 This is an evidence-backed development default, not ring tuning or measured
 free RAM. Load/fullHAL/200s/no-gap dump/WCET and original human gates remain.
 No core/HAL body, locked test, motion/sensor parameter, upload or MCU action.
+
+
+2026-09-23 - D076 software pin naming only
+Added config::OPP_INPUT_PINS[7]={11,12,13,16,17,18,19} from the unchanged
+HARDWARE3 proposals. All76B16 values retained; no tuning, wire change or physical
+measurement. Installed mapping is source-verified in F094/P2_opp_gpio_audit.md;
+actual native driver host/target evidence in P2_opponent_validation.md. PINMAP
+approval, electrical readings and B1 range/false-hit acceptance remain pending.

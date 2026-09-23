@@ -1,3 +1,35 @@
+# D076 checkpoint - ACTIVE software development, 2026-09-23 Asia/Dubai
+
+Latest completed task: native opponent-input driver588ceb9 (contracts98adcda/
+3c39bc4). Bounded checked GPIO and explicit invalid snapshots, core owns polarity.
+All76B16 values retained; unchanged HARDWARE3 proposals now named in config.
+18 independent native methods and9config checks pass; full400toolsPASS272.556s.
+Normalhost2/2 and ASanUBSan1030/20982541 plus37/3796846 pass. Actual UNO Q Linux
+compile-only sourceef44ace3:76308B program/31032B compiler memory, exit0. Separate
+fresh same-model reviewerPASS; imports/startup/exactfiveinertguards reviewed.
+Evidence: P2_opponent_validation.md, P2_opponent_raw/, P2_opp_gpio_audit.md and
+reviews/P2_opponent_codex.md. Original fixture failures/retries preserved.
+
+No upload/reset/GPIO execution or motor action. Existinglocked/core/app unchanged;
+app inert, last-known MCU image remainsQTR61d7a2d0. F094 is source/compiler evidence,
+not physical sensor range/polarity/PINMAP/B1 acceptance. Invalid snapshot policy
+must precede app integration; exclude competing SPI2/Wire2/same-pad ownership.
+F091 inherited Bridge hook remains runtime-unqualified.
+
+D075 still authorizes P2 software before human P0/P1 gates; fullgoalACTIVE and
+incomplete. Do not restore the obsolete blocked scheduling checkpoint. Next task:
+actual checked native MotorGate backend, contract before independent implementation
+and tests. P2_next_driver_audit.md evaluates fresh timer-update observation with
+EN LOW; no successful-latch stub, guessed clock or physical acceptance. Existing
+MotorGate boundary/lockedtests stay authoritative. Fresh STAND/RING permission
+still required for any motor-capable upload/run; none has been granted here.
+
+Current board Linux CLI1.5.1/core1.0.0/USB2629958581. Disk query9:43 about11.5GB free;
+normal/sanitized durable builds available. No further D076 validation is required
+unless code changes. Original scope cuts/freeze and all physical gates remain.
+
+--- Earlier handoff preserved below ---
+
 # D075 checkpoint - ACTIVE software development, 2026-09-23 09:26 Asia/Dubai
 
 Latest user explicitly prioritizes software progress while acknowledging untested

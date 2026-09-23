@@ -1,0 +1,48 @@
+Observed unified-exec tool transcript, reconstructed from chunks b447b9, 8879b3 and a12ea9.
+The tool combined stdout/stderr; this receipt does not claim separate streams.
+Command: wsl bash -lc 'cd /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots && TMPDIR=/dev/shm PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests/tooling -p test_opp_sensors.py -v'
+Session: 76186
+Exit: 1
+15 native behavior methods passed; two probe staging methods failed.
+No production assertion failure was observed. The correction stages the actual config.h at the probe's requested src/config.h path.
+
+Final tool output (chunk a12ea9):
+ok
+test_b1_probe_global_constructor_setup_and_10000_loops_never_call_native_io (test_opp_sensors.OpponentNativeContract.test_b1_probe_global_constructor_setup_and_10000_loops_never_call_native_io) ... FAIL
+test_b1_probe_motor_enabled_build_is_rejected (test_opp_sensors.OpponentNativeContract.test_b1_probe_motor_enabled_build_is_rejected) ... FAIL
+test_b1_read_failures_at_every_slot_clear_stale_bits_and_recover_without_begin (test_opp_sensors.OpponentNativeContract.test_b1_read_failures_at_every_slot_clear_stale_bits_and_recover_without_begin) ... ok
+test_b1_signed_config_failures_at_every_slot_invalidate_previous_success (test_opp_sensors.OpponentNativeContract.test_b1_signed_config_failures_at_every_slot_invalidate_previous_success) ... ok
+test_b1_ten_thousand_reads_are_bounded_and_allocate_nothing (test_opp_sensors.OpponentNativeContract.test_b1_ten_thousand_reads_are_bounded_and_allocate_nothing) ... ok
+test_b5_all_128_masks_have_exactly_one_polarity_conversion_in_real_debouncer (test_opp_sensors.OpponentNativeContract.test_b5_all_128_masks_have_exactly_one_polarity_conversion_in_real_debouncer) ... ok
+
+======================================================================
+FAIL: test_b1_probe_global_constructor_setup_and_10000_loops_never_call_native_io (test_opp_sensors.OpponentNativeContract.test_b1_probe_global_constructor_setup_and_10000_loops_never_call_native_io)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_opp_sensors.py", line 143, in test_b1_probe_global_constructor_setup_and_10000_loops_never_call_native_io
+    self.run_case('probe', executable=self.build_variant(probe=True))
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_opp_sensors.py", line 69, in build_variant
+    result = cls.checked_build([*command, '-o', str(target)], not motors)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_opp_sensors.py", line 50, in checked_build
+    raise AssertionError('Opaque native source build failed:\n' + result.stdout + result.stderr)
+AssertionError: Opaque native source build failed:
+/dev/shm/sumo-opponent-native-40dv4ict/probe.cpp:4:10: fatal error: src/config.h: No such file or directory
+    4 | #include "src/config.h"
+      |          ^~~~~~~~~~~~~~
+compilation terminated.
+
+
+======================================================================
+FAIL: test_b1_probe_motor_enabled_build_is_rejected (test_opp_sensors.OpponentNativeContract.test_b1_probe_motor_enabled_build_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_opp_sensors.py", line 148, in test_b1_probe_motor_enabled_build_is_rejected
+    self.assertIn('static assertion failed', result.stderr)
+AssertionError: 'static assertion failed' not found in '/dev/shm/sumo-opponent-native-40dv4ict/probe.cpp:4:10: fatal error: src/config.h: No such file or directory\n    4 | #include "src/config.h"\n      |          ^~~~~~~~~~~~~~\ncompilation terminated.\n'
+
+----------------------------------------------------------------------
+Ran 17 tests in 29.366s
+
+FAILED (failures=2)

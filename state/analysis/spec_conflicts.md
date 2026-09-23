@@ -515,3 +515,15 @@ Required regressions: every native API failure, shared-timer/channel routing,
 latched compare timing on reversal/brake, zero/full-cycle quantization, EN boot/
 reset/fault waveforms and complete fault-path tick WCET. Existing MotorGate
 37-case locked tests cover the software write boundary only.
+
+D077/F096 SC-AI follow-up (2026-09-23): native software backend IMPLEMENTED,
+HOST-TESTED, TARGET-COMPILED and independently REVIEWED. Installed clock/mode
+proof and retrieved U585 manual/errata support the bounded fresh-UIF method;
+actual callbacks enforce checked EN LOW, four writes, three fresh timer events
+and strict deadline before HIGH. The original Gate/core/locked tests remain
+unchanged. Final source c35726f4 and P2_motor_native_validation.md preserve tests,
+compiled MMIO paths, all failure receipts and source-only inert guard review.
+SC-AI physical/runtime acceptance remains OPEN: source/host/register simulation
+cannot prove EN voltage, active waveform, real reversal/brake, pin ownership,
+frequency or whole-tick worst-case timing. App integration and motor execution
+remain unperformed; no physical or human phase gate is inferred.

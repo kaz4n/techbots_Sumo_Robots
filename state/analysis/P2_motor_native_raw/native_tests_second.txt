@@ -1,0 +1,60 @@
+Provenance: observed tool output from write_stdin session53310/chunk0a385d.
+Copied from the tool transcript; not separately captured original subprocess bytes.
+FF
+======================================================================
+FAIL: test_b3_b6_b7_actual_native_default_disabled_contract (tests.tooling.test_motor_port_unoq.NativeMotorPortTests.test_b3_b6_b7_actual_native_default_disabled_contract)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_motor_port_unoq.py", line 78, in test_b3_b6_b7_actual_native_default_disabled_contract
+    self.run_binary(self.binaries[0])
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_motor_port_unoq.py", line 73, in run_binary
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+AssertionError: -6 != 0 : [doctest] doctest version is "2.4.12"
+[doctest] run with "--help" for options
+===============================================================================
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/cases.cc:121:
+TEST CASE:  B3 D077 repeated writes and LOW invalidate previous settle receipts
+
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/cases.cc:122: ERROR: CHECK( ok ) is NOT correct!
+  values: CHECK( false )
+  logged: n.settle()
+
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/cases.cc:121: FATAL ERROR: test case CRASHED: SIGABRT - Abort (abnormal termination) signal
+
+===============================================================================
+[doctest] test cases:  17 |  16 passed | 1 failed | 16 skipped
+[doctest] assertions: 838 | 837 passed | 1 failed |
+[doctest] Status: FAILURE!
+
+
+======================================================================
+FAIL: test_b3_b6_b7_actual_native_host_only_enabled_contract (tests.tooling.test_motor_port_unoq.NativeMotorPortTests.test_b3_b6_b7_actual_native_host_only_enabled_contract)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_motor_port_unoq.py", line 81, in test_b3_b6_b7_actual_native_host_only_enabled_contract
+    self.run_binary(self.binaries[1])
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_motor_port_unoq.py", line 73, in run_binary
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+AssertionError: -6 != 0 : [doctest] doctest version is "2.4.12"
+[doctest] run with "--help" for options
+===============================================================================
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/cases.cc:121:
+TEST CASE:  B3 D077 repeated writes and LOW invalidate previous settle receipts
+
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/cases.cc:122: ERROR: CHECK( ok ) is NOT correct!
+  values: CHECK( false )
+  logged: n.settle()
+
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/cases.cc:121: FATAL ERROR: test case CRASHED: SIGABRT - Abort (abnormal termination) signal
+
+===============================================================================
+[doctest] test cases:  17 |  16 passed | 1 failed | 16 skipped
+[doctest] assertions: 838 | 837 passed | 1 failed |
+[doctest] Status: FAILURE!
+
+
+----------------------------------------------------------------------
+Ran 2 tests in 21.232s
+
+FAILED (failures=2)
+

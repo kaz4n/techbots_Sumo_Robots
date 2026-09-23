@@ -1,0 +1,356 @@
+// Supplies checked GPIO/PWM operations to the existing MotorGate on UNO Q.
+// Requires acknowledged EN LOW and fresh timer updates before any activation.
+// Independent native-header tests and inert target builds check this exact source.
+#include "motor_port_unoq.h"
+
+#if defined(ARDUINO_ARCH_ZEPHYR)
+#include "../config.h"
+#include <Arduino.h>
+#include <wiring_private.h>
+#include <zephyrPinctrl.h>
+#include <zephyr/drivers/gpio.h>
+#include <zephyr/drivers/pwm.h>
+#include <zephyr/drivers/clock_control/stm32_clock_control.h>
+#include <stm32u5xx_ll_gpio.h>
+#include <stm32u5xx_ll_tim.h>
+#include <cstddef>
+
+namespace motors {
+namespace {
+constexpr std::uint8_t ALL_CHANNELS = 0x0FU;
+constexpr std::uint8_t ALL_TIMERS = 0x07U;
+constexpr std::size_t PIN_COUNT = sizeof(zephyr::arduino::arduino_pins) /
+                                  sizeof(zephyr::arduino::arduino_pins[0]);
+#define MOTOR_PWM_SPEC(n, p, i) PWM_DT_SPEC_GET_BY_IDX(n, i),
+constexpr pwm_dt_spec PWM_SPECS[] = {
+    DT_FOREACH_PROP_ELEM(DT_PATH(zephyr_user), pwms, MOTOR_PWM_SPEC)
+};
+#undef MOTOR_PWM_SPEC
+constexpr gpio_dt_spec PWM_PADS[] = {
+    DT_FOREACH_PROP_ELEM_SEP(DT_PATH(zephyr_user), pwm_pin_gpios,
+                            GPIO_DT_SPEC_GET_BY_IDX, (,))
+};
+constexpr std::size_t PWM_COUNT = sizeof(PWM_SPECS) / sizeof(PWM_SPECS[0]);
+constexpr std::size_t PAD_COUNT = sizeof(PWM_PADS) / sizeof(PWM_PADS[0]);
+constexpr std::uint32_t CHANNEL_TIMERS[4] = {1U, 0U, 1U, 2U};
+constexpr std::uint32_t NATIVE_CHANNELS[4] = {3U, 4U, 4U, 3U};
+constexpr std::uint32_t PRESCALERS[3] = {
+    DT_PROP(DT_PARENT(DT_NODELABEL(pwm1)), st_prescaler),
+    DT_PROP(DT_PARENT(DT_NODELABEL(pwm3)), st_prescaler),
+    DT_PROP(DT_PARENT(DT_NODELABEL(pwm4)), st_prescaler)
+};
+constexpr std::uint32_t DOMAINS[3] = {
+    DT_CLOCKS_CELL_BY_IDX(DT_PARENT(DT_NODELABEL(pwm1)), 1, bus),
+    DT_CLOCKS_CELL_BY_IDX(DT_PARENT(DT_NODELABEL(pwm3)), 1, bus),
+    DT_CLOCKS_CELL_BY_IDX(DT_PARENT(DT_NODELABEL(pwm4)), 1, bus)
+};
+constexpr std::uint32_t SELECTORS[3] = {
+    DT_CLOCKS_CELL_BY_IDX(DT_PARENT(DT_NODELABEL(pwm1)), 1, bits),
+    DT_CLOCKS_CELL_BY_IDX(DT_PARENT(DT_NODELABEL(pwm3)), 1, bits),
+    DT_CLOCKS_CELL_BY_IDX(DT_PARENT(DT_NODELABEL(pwm4)), 1, bits)
+};
+
+const device* timerDevice(std::uint32_t timer) {
+    const device* const devices[3] = {DEVICE_DT_GET(DT_NODELABEL(pwm1)),
+        DEVICE_DT_GET(DT_NODELABEL(pwm3)), DEVICE_DT_GET(DT_NODELABEL(pwm4))};
+    return timer < 3U ? devices[timer] : nullptr;
+}
+
+TIM_TypeDef* timerRegisters(std::uint32_t timer) {
+    const std::uintptr_t addresses[3] = {
+        DT_REG_ADDR(DT_PARENT(DT_NODELABEL(pwm1))),
+        DT_REG_ADDR(DT_PARENT(DT_NODELABEL(pwm3))),
+        DT_REG_ADDR(DT_PARENT(DT_NODELABEL(pwm4)))
+    };
+    return timer < 3U ? reinterpret_cast<TIM_TypeDef*>(addresses[timer]) : nullptr;
+}
+
+std::uint64_t candidateRate(std::uint32_t timer) {
+    if (timer >= 3U || PRESCALERS[timer] > 65535U) return 0U;
+    const std::uint32_t domain = timer == 0U ? STM32_SRC_TIMPCLK2 : STM32_SRC_TIMPCLK1;
+    // A nonzero encoded divisor or selector would require a different clock proof.
+    if (DOMAINS[timer] != domain || SELECTORS[timer] != 255U) return 0U;
+    const std::uint64_t hclk = DT_PROP(DT_NODELABEL(rcc), clock_frequency);
+    const std::uint32_t ahb = DT_PROP(DT_NODELABEL(rcc), ahb_prescaler);
+    const std::uint32_t apb = timer == 0U
+        ? DT_PROP(DT_NODELABEL(rcc), apb2_prescaler)
+        : DT_PROP(DT_NODELABEL(rcc), apb1_prescaler);
+    if (hclk == 0U || ahb == 0U || apb == 0U || apb > 16U ||
+        (apb & (apb - 1U)) != 0U || hclk % apb != 0U) return 0U;
+    // RCC clock_frequency is already HCLK; dividing it by AHB again is wrong.
+    const std::uint64_t kernel = apb <= 2U ? hclk : (hclk / apb) * 2U;
+    const std::uint64_t divider = static_cast<std::uint64_t>(PRESCALERS[timer]) + 1U;
+    return kernel % divider == 0U ? kernel / divider : 0U;
+}
+
+std::uint32_t candidatePeriod(std::uint32_t timer) {
+    const auto rate = candidateRate(timer);
+    const std::uint32_t carrier = config::MOTOR_PWM_HZ;
+    if (carrier == 0U || rate == 0U || rate % carrier != 0U) return 0U;
+    const auto cycles = rate / carrier;
+    return cycles > 0U && cycles <= 65536U ? static_cast<std::uint32_t>(cycles) : 0U;
+}
+
+bool validPad(const gpio_dt_spec& pad) {
+    if (pad.port == nullptr || pad.port->config == nullptr ||
+        pad.dt_flags != 0U || pad.pin >= 16U) return false;
+    const auto* config = static_cast<const gpio_driver_config*>(pad.port->config);
+    return (config->port_pin_mask & (gpio_port_pins_t{1} << pad.pin)) != 0U;
+}
+
+bool samePad(const gpio_dt_spec& first, const gpio_dt_spec& second) {
+    return first.port == second.port && first.pin == second.pin;
+}
+
+bool validInputSeparation(const gpio_dt_spec& pad) {
+    for (const auto pin : config::OPP_INPUT_PINS) {
+        if (pin >= PIN_COUNT || !validPad(zephyr::arduino::arduino_pins[pin]) ||
+            samePad(pad, zephyr::arduino::arduino_pins[pin])) return false;
+    }
+    for (const auto pin : config::P0_QTR_PINS) {
+        if (pin >= PIN_COUNT || !validPad(zephyr::arduino::arduino_pins[pin]) ||
+            samePad(pad, zephyr::arduino::arduino_pins[pin])) return false;
+    }
+    return true;
+}
+
+bool mapChannel(std::uint32_t channel, std::uint32_t& index) {
+    if (channel >= 4U || PWM_COUNT != PAD_COUNT ||
+        config::MOTOR_PWM_PINS[channel] >= PIN_COUNT) return false;
+    const auto& pad = zephyr::arduino::arduino_pins[config::MOTOR_PWM_PINS[channel]];
+    if (!validPad(pad) || !validInputSeparation(pad)) return false;
+    std::uint32_t matches = 0U;
+    for (std::size_t i = 0U; i < PWM_COUNT; ++i) {
+        if (samePad(pad, PWM_PADS[i])) { index = i; ++matches; }
+    }
+    if (matches != 1U || !validPad(PWM_PADS[index])) return false;
+    const auto& spec = PWM_SPECS[index];
+    const auto state_index = zephyr::arduino::state_pin_index_from_spec_index(PWM_SPECS, index);
+    // These are the source-audited device-state positions, never global PWM indices.
+    if (state_index != (channel == 2U ? 1U : 0U)) return false;
+    return spec.dev == timerDevice(CHANNEL_TIMERS[channel]) && spec.dev != nullptr &&
+           spec.dev->config != nullptr && spec.channel == NATIVE_CHANNELS[channel] &&
+           spec.flags == 0U && candidatePeriod(CHANNEL_TIMERS[channel]) != 0U;
+}
+
+bool mapBank(std::uint32_t (&indices)[4]) {
+    if (config::MOTOR_ENABLE_PIN >= PIN_COUNT) return false;
+    const auto& enable = zephyr::arduino::arduino_pins[config::MOTOR_ENABLE_PIN];
+    if (!validPad(enable) || !validInputSeparation(enable) ||
+        enable.port != DEVICE_DT_GET(DT_NODELABEL(gpiob))) return false;
+    for (std::uint32_t channel = 0U; channel < 4U; ++channel) {
+        if (!mapChannel(channel, indices[channel])) return false;
+        const auto& pad = PWM_PADS[indices[channel]];
+        if (samePad(pad, enable)) return false;
+        for (std::uint32_t previous = 0U; previous < channel; ++previous)
+            if (samePad(pad, PWM_PADS[indices[previous]])) return false;
+    }
+    return true;
+}
+
+bool liveRateValid(std::uint32_t timer) {
+    const auto* dev = timerDevice(timer);
+    if (dev == nullptr || dev->config == nullptr || !device_is_ready(dev)) return false;
+    std::uint64_t rate = 0U;
+    const auto channel = timer == 0U ? 4U : 3U;
+    return pwm_get_cycles_per_sec(dev, channel, &rate) == 0 &&
+           rate != 0U && rate == candidateRate(timer);
+}
+
+bool registerModesValid(TIM_TypeDef* regs, bool active,
+                        std::uint32_t mode, std::uint32_t enables) {
+    const auto cr1 = TIM_CR1_CEN | (active ? TIM_CR1_ARPE : 0U);
+    // Exact expected register values also exclude extended modes and every unowned bit.
+    return regs->CR1 == cr1 && regs->CR2 == 0U && regs->SMCR == 0U &&
+           regs->DIER == 0U && regs->CCMR1 == 0U && regs->CCMR2 == mode &&
+           regs->CCER == enables;
+}
+} // namespace
+
+Port UnoQPort::port() {
+    Port result;
+    result.context = this;
+    result.configureEnableLow = configureEnableLow;
+    result.configurePwm = configurePwm;
+    result.writeEnable = writeEnable;
+    result.writePwm = writePwm;
+    result.settle = settle;
+    result.clockUs = clockUs;
+    bool supported = true;
+    for (std::uint32_t channel = 0U; channel < 4U; ++channel) {
+        result.period_cycles[channel] = candidatePeriod(CHANNEL_TIMERS[channel]);
+        supported = supported && result.period_cycles[channel] != 0U;
+    }
+    if (!supported) for (auto& period : result.period_cycles) period = 0U;
+    return result;
+}
+
+bool UnoQPort::enableOwned() const {
+    if (!enable_configured_ || config::MOTOR_ENABLE_PIN >= PIN_COUNT) return false;
+    const auto& enable = zephyr::arduino::arduino_pins[config::MOTOR_ENABLE_PIN];
+    if (!validPad(enable) || enable.port != DEVICE_DT_GET(DT_NODELABEL(gpiob)) ||
+        !device_is_ready(enable.port)) return false;
+    const auto mask = std::uint32_t{1} << enable.pin;
+    const auto* regs = reinterpret_cast<GPIO_TypeDef*>(DT_REG_ADDR(DT_NODELABEL(gpiob)));
+    return LL_GPIO_GetPinMode(regs, mask) == LL_GPIO_MODE_OUTPUT &&
+           LL_GPIO_GetPinOutputType(regs, mask) == LL_GPIO_OUTPUT_PUSHPULL &&
+           LL_GPIO_GetPinPull(regs, mask) == LL_GPIO_PULL_NO;
+}
+
+bool UnoQPort::enableLow() const {
+    if (!enable_low_ || !enableOwned()) return false;
+    const auto& enable = zephyr::arduino::arduino_pins[config::MOTOR_ENABLE_PIN];
+    return gpio_pin_get_raw(enable.port, enable.pin) == 0;
+}
+
+bool UnoQPort::timerValid(std::uint32_t timer) const {
+    if (timer >= 3U || (initialized_timers_ & (1U << timer)) == 0U ||
+        !liveRateValid(timer)) return false;
+    const auto period = candidatePeriod(timer);
+    auto* regs = timerRegisters(timer);
+    std::uint32_t mode = 0U;
+    std::uint32_t enables = 0U;
+    for (std::uint32_t channel = 0U; channel < 4U; ++channel) {
+        if (CHANNEL_TIMERS[channel] != timer ||
+            (active_channels_ & (1U << channel)) == 0U) continue;
+        if (NATIVE_CHANNELS[channel] == 3U) {
+            mode |= TIM_CCMR2_OC3M_2 | TIM_CCMR2_OC3M_1 | TIM_CCMR2_OC3PE;
+            enables |= TIM_CCER_CC3E;
+            if (regs->CCR3 != pulses_[channel]) return false;
+        } else {
+            mode |= TIM_CCMR2_OC4M_2 | TIM_CCMR2_OC4M_1 | TIM_CCMR2_OC4PE;
+            enables |= TIM_CCER_CC4E;
+            if (regs->CCR4 != pulses_[channel]) return false;
+        }
+        if (pulses_[channel] > period) return false;
+    }
+    if (period == 0U || regs->PSC != PRESCALERS[timer] ||
+        regs->ARR != (enables != 0U ? period - 1U : 0U) ||
+        !registerModesValid(regs, enables != 0U, mode, enables)) return false;
+    // RCR/BDTR are advanced-timer registers: never read their reserved TIM3/4 slots.
+    return timer != 0U || (regs->RCR == 0U && regs->BDTR == TIM_BDTR_MOE);
+}
+
+bool UnoQPort::bankValid() const {
+    if (configured_mask_ != ALL_CHANNELS || initialized_timers_ != ALL_TIMERS ||
+        active_channels_ != ALL_CHANNELS || !enableLow()) return false;
+    for (std::uint32_t timer = 0U; timer < 3U; ++timer)
+        if (!timerValid(timer)) return false;
+    return true;
+}
+
+bool UnoQPort::configureEnableLow(void* context) {
+    if (context == nullptr) return false;
+    auto& self = *static_cast<UnoQPort*>(context);
+    self.enable_low_ = false;
+    self.settled_ = false;
+    self.written_mask_ = 0U;
+    if (self.enable_configured_ || !mapBank(self.pwm_indices_)) return false;
+    const auto& enable = zephyr::arduino::arduino_pins[config::MOTOR_ENABLE_PIN];
+    if (!device_is_ready(enable.port) ||
+        gpio_pin_configure_dt(&enable, GPIO_OUTPUT_LOW) != 0) return false;
+    self.enable_configured_ = true;
+    self.enable_low_ = self.enableOwned() && gpio_pin_get_raw(enable.port, enable.pin) == 0;
+    if (!self.enable_low_) self.enable_configured_ = false;
+    return self.enable_low_;
+}
+
+bool UnoQPort::configurePwm(void* context, Channel channel) {
+    if (context == nullptr) return false;
+    auto& self = *static_cast<UnoQPort*>(context);
+    const auto index = static_cast<std::uint32_t>(channel);
+    if (index >= 4U || (self.configured_mask_ & (1U << index)) != 0U ||
+        !self.enableLow()) return false;
+    std::uint32_t mapped = 0U;
+    if (!mapChannel(index, mapped) || mapped != self.pwm_indices_[index]) return false;
+    const auto& spec = PWM_SPECS[mapped];
+    const auto timer = CHANNEL_TIMERS[index];
+    const auto timer_bit = static_cast<std::uint8_t>(1U << timer);
+    const bool owned = (self.initialized_timers_ & timer_bit) != 0U;
+    // A ready device without this instance's claim may belong to another writer.
+    if (owned ? !self.timerValid(timer) : device_is_ready(spec.dev)) return false;
+    const auto state_index = zephyr::arduino::state_pin_index_from_spec_index(PWM_SPECS, mapped);
+    if (zephyr::arduino::init_dev_apply_channel_pinctrl(spec.dev, state_index) != 0)
+        return false;
+    self.initialized_timers_ |= timer_bit;
+    if (!self.enableLow() || !self.timerValid(timer)) {
+        if (!owned) self.initialized_timers_ &= static_cast<std::uint8_t>(~timer_bit);
+        return false;
+    }
+    self.configured_mask_ |= static_cast<std::uint8_t>(1U << index);
+    return true;
+}
+
+bool UnoQPort::writeEnable(void* context, bool high) {
+    if (context == nullptr) return false;
+    auto& self = *static_cast<UnoQPort*>(context);
+    const bool admitted = high && MOTORS_ALLOWED != 0 && self.settled_ &&
+                          self.written_mask_ == ALL_CHANNELS && self.bankValid();
+    self.settled_ = false;
+    if (!high) self.written_mask_ = 0U;
+    self.enable_low_ = false;
+    if ((high && !admitted) || !self.enableOwned()) return false;
+    const auto& enable = zephyr::arduino::arduino_pins[config::MOTOR_ENABLE_PIN];
+    const int level = high ? 1 : 0;
+    if (gpio_pin_set_raw(enable.port, enable.pin, level) != 0 ||
+        !self.enableOwned() || gpio_pin_get_raw(enable.port, enable.pin) != level) return false;
+    self.enable_low_ = !high;
+    return true;
+}
+
+bool UnoQPort::writePwm(void* context, Channel channel, std::uint32_t period,
+                        std::uint32_t pulse) {
+    if (context == nullptr) return false;
+    auto& self = *static_cast<UnoQPort*>(context);
+    self.settled_ = false;
+    const auto index = static_cast<std::uint32_t>(channel);
+    if (index >= 4U) return false;
+    const auto bit = static_cast<std::uint8_t>(1U << index);
+    self.written_mask_ &= static_cast<std::uint8_t>(~bit);
+    if ((self.configured_mask_ & bit) == 0U || !self.enableLow() ||
+        period != candidatePeriod(CHANNEL_TIMERS[index]) || pulse > period ||
+        (MOTORS_ALLOWED == 0 && pulse != 0U)) return false;
+    std::uint32_t mapped = 0U;
+    if (!mapChannel(index, mapped) || mapped != self.pwm_indices_[index] ||
+        !self.timerValid(CHANNEL_TIMERS[index])) return false;
+    const auto& spec = PWM_SPECS[mapped];
+    if (pwm_set_cycles(spec.dev, spec.channel, period, pulse, spec.flags) != 0) return false;
+    self.pulses_[index] = pulse;
+    self.active_channels_ |= bit;
+    if (!self.enableLow() || !self.timerValid(CHANNEL_TIMERS[index])) return false;
+    self.written_mask_ |= bit;
+    return true;
+}
+
+bool UnoQPort::settle(void* context) {
+    if (context == nullptr) return false;
+    auto& self = *static_cast<UnoQPort*>(context);
+    self.settled_ = false;
+    if (self.configured_mask_ != ALL_CHANNELS || self.written_mask_ != ALL_CHANNELS ||
+        !self.enableLow()) return false;
+    const auto started_us = static_cast<std::uint32_t>(micros());
+    if (!self.bankValid()) return false;
+    for (std::uint32_t timer = 0U; timer < 3U; ++timer)
+        LL_TIM_ClearFlag_UPDATE(timerRegisters(timer));
+    std::uint8_t fresh = 0U;
+    for (std::uint32_t poll = 0U; poll < config::MOTOR_PWM_SETTLE_MAX_POLLS; ++poll) {
+        if (static_cast<std::uint32_t>(micros() - started_us) >= config::MOTOR_PWM_SETTLE_US)
+            return false;
+        for (std::uint32_t timer = 0U; timer < 3U; ++timer)
+            if (LL_TIM_IsActiveFlag_UPDATE(timerRegisters(timer)) != 0U)
+                fresh |= static_cast<std::uint8_t>(1U << timer);
+        if (!self.bankValid()) return false;
+        if (fresh == ALL_TIMERS) {
+            self.settled_ = static_cast<std::uint32_t>(micros() - started_us) <
+                            config::MOTOR_PWM_SETTLE_US;
+            return self.settled_;
+        }
+    }
+    return false;
+}
+
+std::uint32_t UnoQPort::clockUs(void*) {
+    return static_cast<std::uint32_t>(micros());
+}
+} // namespace motors
+#endif

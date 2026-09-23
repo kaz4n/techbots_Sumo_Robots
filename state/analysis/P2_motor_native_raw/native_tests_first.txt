@@ -1,0 +1,36 @@
+Provenance: observed tool output from write_stdin session18151/chunkd403dc.
+Copied from the tool transcript; not separately captured original subprocess bytes.
+E
+======================================================================
+ERROR: setUpClass (tests.tooling.test_motor_port_unoq.NativeMotorPortTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_motor_port_unoq.py", line 38, in setUpClass
+    cls.binaries = {allowed: cls.variant(allowed=allowed) for allowed in (0, 1)}
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_motor_port_unoq.py", line 67, in variant
+    cls.build([*command, '-o', str(target)])
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_motor_port_unoq.py", line 44, in build
+    raise AssertionError('Opaque native build failed:\n' + result.stdout + result.stderr)
+AssertionError: Opaque native build failed:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/cases.cc: In function ‘void DOCTEST_ANON_FUNC_31()’:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/cases.cc:49:5: error: this ‘for’ clause does not guard... [-Werror=misleading-indentation]
+   49 |     for(auto i:hw.timer_init)CHECK(i==1);noHigh();
+      |     ^~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/cases.cc:49:42: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘for’
+   49 |     for(auto i:hw.timer_init)CHECK(i==1);noHigh();
+      |                                          ^~~~~~
+cc1plus: all warnings being treated as errors
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_port_unoq.cpp: In function ‘uint64_t motors::{anonymous}::candidateRate(uint32_t)’:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_port_unoq.cpp:72:24: error: comparison of integer expressions of different signedness: ‘const uint32_t’ {aka ‘const unsigned int’} and ‘const int’ [-Werror=sign-compare]
+   72 |     if (DOMAINS[timer] != domain || SELECTORS[timer] != 255U) return 0U;
+      |         ~~~~~~~~~~~~~~~^~~~~~~~~
+cc1plus: all warnings being treated as errors
+
+
+
+----------------------------------------------------------------------
+Ran 0 tests in 13.263s
+
+FAILED (errors=1)
+

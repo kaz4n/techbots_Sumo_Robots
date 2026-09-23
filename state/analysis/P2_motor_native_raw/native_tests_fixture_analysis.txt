@@ -1,0 +1,72 @@
+Independent test-author fixture analysis, 2026-09-23
+
+Production/core implementation cpp files were not read. The full public
+P1_robot_contract.md, public fsm/countdown/types headers, BEHAVIOR B3 and existing
+locked test harness surface were consulted. Compilation/linking stayed opaque.
+
+First compiler draft failed before executing cases: cases.cc had a misleading-
+indentation warning, repaired by braces; production inferred a signed clock-domain
+constant, reported to its owner for an explicit uint32_t choice. The original
+observed tool transcript is native_tests_first.txt, with its limited provenance.
+
+Two repeated-transaction drafts then failed because the new test tried another
+settle/write after an intentionally rejected HIGH. D077 explicitly invalidates
+local acknowledged-low/settled state on rejection. Preserve the negative HIGH
+assertion and require a fresh acknowledged LOW plus new transaction before the
+next positive settle. Both failed executable outputs are retained; the second
+is in timestamped JSON receipts. No production behavior repair was requested.
+
+The real Robot composition fixture initially used START from tick1 to tick29
+and failed its positive seen-release/GO assertions. A first attempted fixture
+correction moved START to ticks30..59, allowing an explicit initial stable NONE
+interval, but still failed those same assertions. That timing explanation was
+an initial hypothesis, not an established production defect or sufficient repair.
+
+The actual precondition omitted from both drafts was vbat_valid=true together
+with a finite positive battery voltage. P1_robot_contract.md Input and transaction
+explicitly requires this after initialization and selects STOPPED when absent.
+The default fsm::RobotInput battery is invalid/zero. The fixture had inadvertently
+asked a stopped Robot to begin a match. The correction supplies synthetic valid
+V_NOM_V while keeping genuinely-fresh flags, four black synthetic QTR readings,
+raw inactive opponent polarity, 1ms timestamps and exact prior Gate feedback.
+Missing IMU is explicitly permitted and remains intentional. No fabricated
+whole-tick duration or physical measurement is supplied.
+
+Keep every positive seen-release, GO and valid-receipt assertion, all hold-time
+zero/LOW checks, and both default-disabled/host-only-enabled configurations.
+The final correction must pass a subsequent run before it counts as evidence.
+No established locked assertion or production implementation is changed.
+
+Exploratory full run session33492 was intentionally terminated after its source
+changed from bc56720 to 73e95df during coordinator-owned guarded-mask repair.
+It is incomplete exploratory evidence, not a final full-suite pass. Exact
+completed compile/executable text receipts remain as native_tests_<time>.json.
+The run reported both known invalid-battery fixture failures and one malformed
+EN pin32 compile-time shift warning (native_tests_1790144074484034176.json).
+The latter was repaired by the source owner; the previous cpp is retained by
+root. Verified own WSL Python PID777 was sent SIGTERM, then session33492 ended
+with tool exit1/Terminated. No board process was touched.
+
+A common doctest main now compiles once per test class, reducing metadata-variant
+build cost without changing any assertion. Added reviewer-requested semantic
+HIGH-postwrite raw-readback corruption, plus every observed setup/transaction
+raw-read slot, composing actual Gate cleanup. This is independent black-box
+native-call tracing, without reading the implementation.
+
+Scoped run session6303 passed both native behavioral executables on production
+73e95df: default38cases/108417assertions and active38/108603, zero fails/skips.
+The first probe build failed because the runner copied config.h into staging
+while public HAL headers included the original pragma-once config.h. Different
+file identities caused duplicate declarations. Both full compiler error outputs
+are retained in timestamped JSON. The fixture staging correction symlinks the
+actual source directory, preserving a single header identity; no probe or
+production source is altered and constructor/setup/loop assertions remain.
+
+Final scoped probe/metadata/upload retry session25518 passed4Python methods in
+65.570s exit0: both inert probe startup configurations (1case/6assertions each),
+all6null-config/paired-table variants, all8unsupportedclock variants and all8
+transport/MATCH/startup upload refusals. Native38case executables already pass
+on the frozen source revision with the exact counts above. Config extension
+passes10methods. Final test hashes are native_tests_snapshot.json. Complete
+final native replay is delegated to root/fresh reviewer; no partial-run claim
+is promoted to a full pass. Test files are frozen pending that read-only replay.

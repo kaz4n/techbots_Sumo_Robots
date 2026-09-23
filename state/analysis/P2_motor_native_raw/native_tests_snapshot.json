@@ -1,0 +1,57 @@
+{
+  "status": "test source frozen for fresh independent full replay",
+  "production_sha256": "73e95df12de6ca020fac3df6490bf98dd3623868f577b28a9d8137d04dd0914f",
+  "files": {
+    "tests/tooling/test_motor_port_unoq.py": "73fe0889a153544a172a2f90bb3a7445b48fe1585557b6215c507ed1ab8d7157",
+    "tests/tooling/test_p0_config.py": "223a3af80399c3c40c01d72fa39c9966657155d4b0d4fcb38fe630644e9bb005",
+    "tests/locked/native_motor_port/Arduino.h": "15e697c1fc030df2f4a0a4b83412e0c3ae017ae8bb5bbba4f8632e38798c9e14",
+    "tests/locked/native_motor_port/cases.cc": "7d01821ab2ccc042140e9433bb3207b943331868726e41f644d45ca2006de312",
+    "tests/locked/native_motor_port/installed_tim_bits.h": "bcff4119b6a4458e750bf793654de316fa1a1b1e9213cf74d8b5c3b3ec31fa56",
+    "tests/locked/native_motor_port/mapping.h": "2a091472935328cc96c80ca50b0aac7485d036319ed63967df7e5cb743f614d9",
+    "tests/locked/native_motor_port/metadata_cases.cc": "278d733f2d2ff226fdd08a8e6f4d9ab2579b48ada2c9304c966dc74f16d0ae58",
+    "tests/locked/native_motor_port/native_fixture.cc": "8119661047e90a5d1aff4b946986385591f6a5b5fdcee92a4f2f302a1e3d2aa2",
+    "tests/locked/native_motor_port/native_fixture.h": "2dad212ae2eb1d116e79f450345f6d171a8da15d1a5408ff34fc10921510cae5",
+    "tests/locked/native_motor_port/probe_cases.cc": "2ea1dc4df62bbfb03563857ac3f4142703d2074712b021ac04bba24b3222084d",
+    "tests/locked/native_motor_port/stm32_ll_gpio.h": "284e0a6136097a252e55b4ce766c8985ba856770009afe424c5e393afbfb82c2",
+    "tests/locked/native_motor_port/stm32u5xx_ll_gpio.h": "5d6f325082b382e6929892c5bb08d69fed38a8cd2a51967c5568184a4fcd444c",
+    "tests/locked/native_motor_port/stm32u5xx_ll_tim.h": "cb25f2a713753e7ac4c361e1ea7962a6feec25d6701d32cf97faa57a69dba388",
+    "tests/locked/native_motor_port/test_main.cc": "b0277646bed186fb2567028ff5a58f57f0f0b0ecf014bb1d7879a889dce27640",
+    "tests/locked/native_motor_port/wiring_private.h": "ccb299f460b3132a5b8016789158255aebc8b5860d3ae0dca329318558336391",
+    "tests/locked/native_motor_port/zephyr/device.h": "dd3d0eb520f810ce7a2bb6159e6c52f0835a93e98027e4dee38e39bdcf88fb51",
+    "tests/locked/native_motor_port/zephyr/devicetree.h": "04780c7a52eee68278b2f03e36a3063c25ac1dfd29490345acf1782e06cd705c",
+    "tests/locked/native_motor_port/zephyr/drivers/clock_control/stm32_clock_control.h": "8983398006cfe0bcdf3504807f405df4c3da8dcd8c99f0ece20087373c4d077d",
+    "tests/locked/native_motor_port/zephyr/drivers/gpio.h": "3318427099a7d0d48b9bc4f5b8d353e7a43903eed43569ec6f8b4c066f171524",
+    "tests/locked/native_motor_port/zephyr/drivers/pwm.h": "15d2d808364c7a1cd988f99d502a53f569ccc58f6a688ab5f3f1c32d5e5dd2af",
+    "tests/locked/native_motor_port/zephyrPinctrl.h": "7d2ab5bf595539610eca1f988ed822d68283bf004891af71a5a70e1629e18472"
+  },
+  "verified_scoped_results": {
+    "native_default": {
+      "cases": 38,
+      "assertions": 108417,
+      "failures": 0,
+      "skipped": 0
+    },
+    "native_host_only_enabled": {
+      "cases": 38,
+      "assertions": 108603,
+      "failures": 0,
+      "skipped": 0
+    },
+    "scoped_probe_metadata_upload_python": {
+      "methods": 4,
+      "seconds": 65.57,
+      "exit": 0
+    },
+    "config": {
+      "methods": 10,
+      "exit": 0
+    }
+  },
+  "full_native_python_methods": 9,
+  "full_metadata_variants": 74,
+  "limitations": [
+    "No complete final native suite yet; root/reviewer owns full replay.",
+    "Earlier exploratory run intentionally stopped after source changed; retained failure receipts are not final passes.",
+    "Host shims are not physical waveform, GPIO voltage, latency, loader or motor-run evidence."
+  ]
+}

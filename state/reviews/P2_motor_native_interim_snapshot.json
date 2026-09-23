@@ -1,0 +1,57 @@
+{
+  "captured_at": "2026-09-23T10:07:26.509502+04:00",
+  "review_context": "Reused primary-source fact-auditor context; implementation-only interim review, not fresh phase-gate review.",
+  "head": "8d252f021608d416e5768537d20acf596c71df80",
+  "files": [
+    {
+      "path": "src/hal/motor_port_unoq.cpp",
+      "bytes": 16473,
+      "sha256": "dd1792b590896bc011b1f2b7ceaf83bbae93803f47a98a5dd57f1b4f00cf421f"
+    },
+    {
+      "path": "src/hal/motor_port_unoq.h",
+      "bytes": 1427,
+      "sha256": "7f09a544a032b35207de7c5f074f3f1fd3de9e74c3b482579f819eaa39020ef5"
+    },
+    {
+      "path": "src/hal/motors.cpp",
+      "bytes": 8777,
+      "sha256": "72edea8ec9896c4914c188a86d7eeb20d18b88be705528ee7fb7893929cb58a2"
+    },
+    {
+      "path": "src/hal/motors.h",
+      "bytes": 1822,
+      "sha256": "02b906db1e08208e5d954d126b803cc1bfdba4519142a195d46be9b614defb92"
+    },
+    {
+      "path": "src/config.h",
+      "bytes": 8738,
+      "sha256": "8d09491d49c826a73052abeb2e7c59ed16627c55c99666f509e4928c02730b83"
+    },
+    {
+      "path": "state/analysis/P2_motor_native_contract.md",
+      "bytes": 10698,
+      "sha256": "61fb5b38424b98bdbf6df3f04ab820d3656f1c89dd6fedfdaa5f30f5ffe5da80"
+    },
+    {
+      "path": "state/analysis/P2_motor_clock_audit.md",
+      "bytes": 17353,
+      "sha256": "defb2d744e8e1248ea4ba40ea2c1f0a92a4ca0c47ff730d3240d5492227b6937"
+    },
+    {
+      "path": "state/analysis/P2_motor_update_audit.md",
+      "bytes": 8802,
+      "sha256": "87fbf63011127719fb8826df5a9757ab8c200f1c9cabf126fed76be61f46426b"
+    }
+  ],
+  "method": "Direct source/control-flow review against finalized D077 contract, existing actual MotorGate, installed clock/register audit and previously retrieved RM0456/ES0499. No test execution, target compile or board access by this reviewer.",
+  "findings": [],
+  "not_validated": [
+    "Independent tests currently owned by separate author",
+    "Current target compile and retained ELF/MMIO ordering",
+    "All transitive platform runtime paths/WCET",
+    "Physical waveform, EN voltage, pinmap, silicon revision",
+    "Fresh-context independent phase-gate review"
+  ],
+  "result": "No source-level findings in reviewed snapshot; interim-only."
+}

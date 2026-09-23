@@ -1,0 +1,728 @@
+// Defines B8 search, B9 front requests and B10/B11 scripts for the future Robot.
+// Keeps state deadlines and target exits separate from motor permission and I/O.
+// Independent host tests cover capture, target priority, both deadlines and wrap.
+#pragma once
+#include "motion.h"
+#include "governor.h"
+#include "types.h"
+#include "countdown.h"
+#include "edge.h"
+#include "opp_fusion.h"
+#include "openers.h"
+#include "stall.h"
+#include "logframe.h"
+#include <cstdint>
+
+namespace fsm {
+enum class HeadingOrigin : std::uint8_t {
+    NONE, CURRENT_GO, LAST_KNOWN, NOMINAL_PENDING, FIRST_RECOVERY
+};
+struct HeadingResult {
+    float heading_deg = 0.0F; // Finite match coordinate, never a synthetic measurement.
+    bool imu_ok = false; // Current healthy measured MATCH coordinate only.
+    bool match_started = false;
+    bool origin_changed = false; // One-call pulse, including nominal GO establishment.
+    bool fault = false; // Reset-only invalid coordinate or repeated GO.
+    HeadingOrigin origin = HeadingOrigin::NONE;
+    std::uint32_t origin_t_us = 0; // Actual source sample; nominal pending uses GO time.
+    std::uint32_t observation_us = 0;
+    std::uint32_t heading_age_us = 0;
+    bool heading_updated = false; // Fresh usable match-coordinate pulse only.
+};
+struct HeadingSample {
+    std::uint32_t t_us = 0;
+    float raw_heading_deg = 0.0F;
+    bool available = false;
+    bool updated = false;
+    std::uint32_t observation_us = 0;
+};
+struct HeadingProjection {
+    float heading_deg = 0.0F;
+    bool valid = false;
+};
+class HeadingReference {
+public:
+    // B0/B3/B14/D-059. Caller supplies continuous unreset raw integrated yaw
+    // for the entire Robot lifetime; Fusion always keeps that raw domain.
+    // Before GO, retain healthy finite history but expose match heading0/imu=false.
+    // Actual GO (after cancel/STOP arbitration) captures current healthy yaw,
+    // else last healthy yaw, else nominal0 with pending origin. In all cases
+    // local heading0; absence preserves B14 timed fallback, never healthy evidence.
+    // First healthy recovery resolves only a pending origin to current raw yaw;
+    // local0 and existing references/deadlines remain unchanged. Later healthy
+    // coordinates are double(raw)-origin, checked before narrowing to float.
+    // Unavailable payload is ignored; retain last local coordinate/imu=false.
+    // Healthy nonfinite yaw (even pre-GO), unrepresentable match difference or
+    // a second GO latches fault until reset. Preserve finite last coordinate,
+    // publish imu=false, inhibit projections; future Robot must inhibit motors.
+    // Immediate duplicate time ignores changed input/GO and clears only pulses;
+    // successive distinct calls must be less than one uint32 time wrap apart.
+    // A real reset clears history/origin/fault. Never reset Fusion on GO, reset
+    // the provider yaw, or use this helper as motor permission or physical proof.
+    HeadingResult step(std::uint32_t t_us, float raw_heading_deg, bool imu_ok,
+                       bool go = false);
+    // D084: bounded retained heading remains usable, without refreshing history.
+    // Fresh source time must advance; retained input must match known raw history.
+    // Actual source ages/GO origins survive delayed delivery; see integration contract.
+    HeadingResult step(const HeadingSample& sample, bool go = false);
+    // Read-only directional views in (-180,180], exact +/-180 -> +180. A negative
+    // non-tie that narrows to excluded -180 uses the nearest interior negative
+    // float, preserving LEFT rather than becoming the exact RIGHT tie. Invalid
+    // projections are finite0/valid=false, do not mutate/latch faults or freshness.
+    // worldBearing requires this tick's healthy match yaw and relative bearing
+    // in (-180,180]; reduce checked double(raw-origin) BEFORE adding the small
+    // relative bearing or narrowing. Published float yaw may already be rounded.
+    HeadingProjection worldBearing(float relative_deg) const;
+    // Retained raw world input must be in (-180,180], rejecting -180/nonfinite/
+    // out-of-range values. Computed +/-180 ties become +180. Caller retains
+    // its original validity/time/age. Requires a resolved origin, not current IMU.
+    HeadingProjection projectWorld(float raw_world_deg) const;
+    // Retained actual raw continuous evidence (e.g. inward exit), without wrapping.
+    // Requires a resolved origin and a finite, float-representable difference.
+    // Never promote cached/nominal fallback yaw to a new inward measurement.
+    HeadingProjection projectHeading(float raw_heading_deg) const;
+    void reset();
+private:
+    void captureOrigin(const HeadingSample& sample);
+    HeadingResult advance(const HeadingSample& sample, bool go, bool explicit_source);
+    bool acceptSource(const HeadingSample& sample);
+    bool resolved() const;
+    HeadingResult result_;
+    double origin_deg_ = 0.0;
+    float last_raw_deg_ = 0.0F;
+    std::uint32_t last_raw_us_ = 0;
+    std::uint32_t raw_age_us_ = 0;
+    std::uint32_t last_us_ = 0;
+    bool has_raw_ = false;
+    bool sampled_ = false;
+};
+
+struct FrontQualificationResult {
+    bool front_detected = false;
+    bool centered = false;
+    bool attack_eligible = false;
+};
+class FrontQualification {
+public:
+    // B9.1: each call is one NEW confirmed effective opponent observation in
+    // normal perception. Use Fusion's phantom.filtered_mask; ignore high bits.
+    // Count centered front observations consecutively; absent/off-center front
+    // resets the count. Saturate at ATTACK_ENTER_TICKS; the threshold observation
+    // is eligible. Side/rear bits cannot displace a current front (B2/B5).
+    // Caller must not pass repeated/stale observations and must reset on leaving
+    // normal perception/preemption. This counter does not decide which tick
+    // enters TRACK, select a Robot state, or bypass D-034/D-038 reacquisition.
+    // Eligibility alone never grants contact or motor permission. Caller selects
+    // state, commits Fusion contact once, then applies frontDemand/governor/gates.
+    FrontQualificationResult observe(std::uint8_t effective_mask);
+    void reset();
+private:
+    std::uint32_t centered_ticks_ = 0;
+};
+
+struct NormalResult {
+    core::State state = core::State::SEARCH;
+    bool brake = false; // D-046: overrides all new-state motion on this tick.
+    bool front_detected = false;
+    bool centered = false;
+};
+class NormalPerception {
+public:
+    // B2/B9/D-034/D-038/D-045/D-046 normal routing only. Each call consumes
+    // exactly one NEW effective confirmed mask from Fusion; high bit ignored.
+    // Front priority: TRACK until ATTACK_ENTER_TICKS consecutive centered
+    // observations, then ATTACK. Off-center front selects TRACK and resets the
+    // count. No front: DEFEND_TURN if current side/rear exists, otherwise SEARCH.
+    // On entry from a script/preemption, reset BEFORE calling step once with
+    // this tick's observation; it counts as the first eligible sample (D-045).
+    // Any front loss after this helper selected TRACK/ATTACK sets brake=true
+    // for that one observation and resets qualification. Caller must apply it
+    // immediately through Governor; new-state motion begins no earlier than
+    // the next tick. Side/rear disappearance alone is not a front-loss brake.
+    // Caller handles gate/edge/script arbitration first, resets on preemption,
+    // commits Fusion contact once against the returned state, then obtains
+    // frontDemand or the selected script's demand. TRACK uses SEARCH_FORWARD,
+    // ATTACK uses its current contact/centering cap; no stale ATTACK latch.
+    // No state persistence outside normal routing, duties, clock, allocation,
+    // permission or I/O. Do not count repeated/stale observations as fresh.
+    NormalResult step(std::uint8_t effective_mask);
+    void reset();
+private:
+    FrontQualification qualification_;
+    bool front_active_ = false;
+};
+
+struct FrontDemand {
+    float duty_l = 0.0F;
+    float duty_r = 0.0F;
+    governor::Profile profile = governor::Profile::SEARCH_FORWARD;
+    bool valid = false;
+};
+// B9/D-036 request math only: current B5 front table determines bearing.
+// TRACK base TRACK_DUTY, gain K_TRACK_PER_DEG plus signed TURN_MIN_DUTY
+// for the +/-15-degree rows; SEARCH_FORWARD profile. ATTACK requires a current
+// centered row, uses approach/contact base and gain limited to min(base,
+// TURN_MIN_DUTY), ATTACK profile. Clamp each wheel to [-1,1]. High bits ignored.
+// Missing front, off-center ATTACK or any other state -> invalid/zero. TRACK
+// may consume centered rows while qualification is pending. Contact is the
+// current D-027 latch, never a stale cue. Does not count centered observations,
+// select state, brake the governor, or authorize motors; Robot owns those tasks.
+FrontDemand frontDemand(core::State state, std::uint8_t effective_mask, bool contact);
+
+enum class Intent : std::uint8_t { NONE, PERCEPTION, SEARCH, INVALID };
+
+class SearchSide {
+public:
+    // D-041: current selected relative bearing in (-180,180], finite and valid.
+    // Positive -> RIGHT, negative -> LEFT. Zero or invalid/unavailable observations
+    // retain the previous side. Reset/default is RIGHT. Caller supplies the current
+    // B5 selected bearing, not an unselected sensor or expired memory as a new cue.
+    void observe(float relative_bearing_deg, bool valid);
+    motion::Direction direction() const;
+    void reset();
+private:
+    motion::Direction direction_ = motion::Direction::RIGHT;
+};
+
+struct SearchContext {
+    motion::Direction last_side = motion::Direction::RIGHT; // From SearchSide.
+    bool world_valid = false;
+    float world_bearing_deg = 0.0F; // (-180,180], captured B5 world memory.
+    std::uint64_t world_age_us = 0; // Truthful age, never a raw wrapped timestamp.
+    bool scan_hint_valid = false; // SIDESTEP hint, consumed by first actual scan.
+    motion::Direction scan_hint = motion::Direction::RIGHT;
+    bool inward_valid = false; // Only a real completed escape supplies this.
+    float inward_heading_deg = 0.0F;
+    std::uint64_t inward_age_us = 0;
+};
+enum class SearchPhase : std::uint8_t { IDLE, MEMORY_TURN, SCAN, ADVANCE, FINISHED, INVALID };
+struct SearchResult {
+    motion::Result motion;
+    governor::Profile profile = governor::Profile::PIVOT;
+    Intent intent = Intent::NONE;
+    SearchPhase phase = SearchPhase::IDLE;
+    motion::Direction scan_direction = motion::Direction::RIGHT;
+    bool phase_changed = false; // Changes made by step; start establishes first phase.
+    bool turn_timed_out = false; // One-call pulse for the memory B7 turn only.
+};
+class Search {
+public:
+    // B8: finite initial/last-known heading; validate last_side always and the
+    // scan_hint enum only when scan_hint_valid. Ignore an unused hint enum.
+    // Recent valid world memory (age<SEARCH_MEMORY_MS) captures one B7 turn at
+    // TURN_DUTY. Otherwise start SCAN. Memory age is tested only at entry; never
+    // retarget/restart that turn if its memory expires during the command.
+    // First-scan direction: explicit hint, else nonzero captured shortest memory
+    // turn sign, else last_side. Existing B7 +180 tie is RIGHT; zero uses last_side.
+    // Only recent valid headings are consumed/validated; unused expired/invalid
+    // context values are ignored. A consumed nonfinite heading or world bearing
+    // outside (-180,180] is INVALID/zero; never turn toward an invalid target.
+    bool start(std::uint32_t t_us, float heading_deg, bool imu_ok,
+               const SearchContext& context);
+    // Any low-seven-bit current effective target exits PERCEPTION/zero before
+    // motion/heading checks. High bit ignored. Caller owns edge/STOP preemption.
+    // MEMORY_TURN done/timeout -> SCAN -> ADVANCE -> opposite SCAN, indefinitely.
+    // SCAN requests (+SCAN_DUTY,-SCAN_DUTY) for RIGHT, mirrored for LEFT; complete
+    // when directed continuous yaw from scan entry >=SEARCH_SCAN_DEG. No shortest
+    // angle wrapping or inherited TURN_TIMEOUT_MS applies to a full scan.
+    // D-042: on first IMU loss, latch the last known remaining sweep clamped to
+    // [0,SEARCH_SCAN_DEG]*TURN_MS_PER_DEG from that observation. Initially missing
+    // IMU times the entire sweep. Recovery never restarts/changes that fallback.
+    // Healthy nonfinite yaw invalidates an active command; unavailable yaw is
+    // ignored. Keep the last finite healthy yaw for subsequent primitive entry.
+    // ADVANCE: SEARCH_ADVANCE_MS at SEARCH_DUTY_MAX with B7 heading hold. Use the
+    // captured inward heading only while its internally aged age<RECENT_EDGE_MS;
+    // otherwise use current/last-known yaw. Expired inward evidence never revives.
+    // MEMORY_TURN/SCAN profile PIVOT; ADVANCE SEARCH_FORWARD. Terminals are zero
+    // (DONE for PERCEPTION, INVALID for invalid, IDLE before start), fallback=false.
+    // Each new segment begins at the observed transition tick, never backdated;
+    // at most three phases per step. Timeout pulse survives same-tick transitions.
+    // No state assignment, motor permission, clock, I/O or allocation. Consecutive
+    // calls must be <one uint32 micros wrap. Terminal until reset/start.
+    SearchResult step(std::uint32_t t_us, float heading_deg, bool imu_ok,
+                      std::uint8_t effective_mask);
+    void reset();
+private:
+    bool beginScan(std::uint32_t t_us, bool imu_ok);
+    bool beginAdvance(std::uint32_t t_us);
+    motion::Result runScan(std::uint32_t t_us, float heading_deg, bool imu_ok);
+    motion::Result runMotion(std::uint32_t t_us, float heading_deg, bool imu_ok);
+    bool advancePhase(std::uint32_t t_us, bool imu_ok);
+    SearchResult result(const motion::Result& motion) const;
+    motion::Turn turn_;
+    motion::Straight straight_;
+    motion::Interval scan_clock_;
+    SearchPhase phase_ = SearchPhase::IDLE;
+    Intent intent_ = Intent::NONE;
+    motion::Direction scan_direction_ = motion::Direction::RIGHT;
+    std::uint32_t last_us_ = 0;
+    std::uint32_t inward_remaining_us_ = 0;
+    float inward_heading_deg_ = 0.0F;
+    float last_heading_deg_ = 0.0F;
+    float scan_start_deg_ = 0.0F;
+    double remaining_deg_ = 0.0;
+    double fallback_us_ = 0.0;
+    bool scan_fallback_ = false;
+};
+
+struct SwingContext {
+    bool edge_side_valid = false; // Genuine known side of a completed escape.
+    motion::Direction edge_side = motion::Direction::RIGHT;
+    std::uint64_t edge_age_us = 0; // Truthful ages, never raw wrapped timestamps.
+    bool front_left_seen = false;
+    bool front_right_seen = false;
+    std::uint64_t front_left_age_us = 0;
+    std::uint64_t front_right_age_us = 0;
+    bool previous_swing_valid = false;
+    motion::Direction previous_swing = motion::Direction::RIGHT;
+};
+struct SwingChoice {
+    motion::Direction direction = motion::Direction::RIGHT;
+    bool valid = false;
+};
+// B11/D-037/D-043: known edge age<RECENT_EDGE_MS -> away from that side;
+// otherwise unseen front is older than seen, or larger age wins among two seen.
+// Both unseen/equal age -> opposite previous actual swing, or RIGHT initially.
+// Validate direction enums only if consumed; invalid consumed enum -> !valid.
+// Caller preserves actual swing history across executor reset/start. Unknown or
+// bilateral edge metadata must not invent a side; set edge_side_valid=false.
+SwingChoice chooseSwing(const SwingContext& context);
+
+enum class ReflankPhase : std::uint8_t { IDLE, BACK, SWING, TURN_IN, FINISHED, INVALID };
+struct ReflankResult {
+    motion::Result motion;
+    governor::Profile profile = governor::Profile::REFLANK_TURN;
+    Intent intent = Intent::NONE;
+    ReflankPhase phase = ReflankPhase::IDLE;
+    motion::Direction direction = motion::Direction::RIGHT;
+    // One-call B15 entry notifications, decoded SWING then TURN_IN if both true.
+    // BACK is recorded by the caller immediately on successful start, not later.
+    bool entered_swing = false;
+    bool entered_turn_in = false;
+    bool turn_timed_out = false; // B7 timeout pulse, retained across transitions.
+};
+class Reflank {
+public:
+    // B11: finite initial/last-known heading, valid selected swing direction.
+    // Enter BACK at this exact tick; caller records BACK and limiter admission.
+    // Capture heading-held reverse at -REFLANK_BACK_DUTY for REFLANK_BACK_MS.
+    // Failed start latches INVALID/zero. No motor permission is granted.
+    bool start(std::uint32_t t_us, float heading_deg, bool imu_ok,
+               motion::Direction direction);
+    // Low seven effective bits only. BACK front + current contact cue skips
+    // to SWING immediately; front alone is ignored in BACK/SWING. SWING pivots
+    // REFLANK_PIVOT_DEG toward direction at TURN_DUTY, then arcs oppositely at
+    // TURN_DUTY/REFLANK_ARC_RATIO for REFLANK_ARC_MS (time only, D-037).
+    // Inner SL/RL for RIGHT, SR/RR for LEFT wins either SWING segment, including
+    // its completion/timeout tick. Capture current valid finite relative bearing
+    // in (-180,180] as one B7 TURN_IN target. Ignore unconsumed bearing payload;
+    // invalid required bearing latches INVALID/zero (API defense, not fault policy).
+    // D-040: TURN_IN retains captured turn despite lost/changed side readings;
+    // current front or turn completion/timeout exits zero/PERCEPTION. Natural
+    // arc completion also exits PERCEPTION. Caller applies D-038/D-045 centering.
+    // TURN_IN front exits before checking yaw/deadlines. Otherwise healthy
+    // nonfinite yaw invalidates active motion; unavailable yaw is ignored, with
+    // last finite healthy yaw used for later entries and B7 fallback retained.
+    // BACK profile REFLANK_BACK; all other phases REFLANK_TURN. Terminals are
+    // zero/DONE, INVALID or IDLE and fallback=false, latched until start/reset.
+    // At most four private-stage visits per call; new segments start at the
+    // observed transition tick, never backdated. Entry/timeout flags never replay.
+    // Caller owns edge/STOP preemption, limiter, events, governor and MotorGate.
+    // No state assignment, clock, I/O or allocation; call gaps <one uint32 wrap.
+    ReflankResult step(std::uint32_t t_us, float heading_deg, bool imu_ok,
+                       std::uint8_t effective_mask, bool contact_cue,
+                       float bearing_deg, bool bearing_valid);
+    void reset();
+private:
+    enum class Stage : std::uint8_t { IDLE, BACK, PIVOT, ARC, TURN_IN, FINISHED, INVALID };
+    bool beginSwing(std::uint32_t t_us, bool imu_ok);
+    bool beginTurnIn(std::uint32_t t_us, bool imu_ok, float bearing_deg, bool valid);
+    bool advanceStage(std::uint32_t t_us, bool imu_ok);
+    motion::Result runMotion(std::uint32_t t_us, float heading_deg, bool imu_ok);
+    ReflankResult result(const motion::Result& motion) const;
+    motion::Straight back_;
+    motion::Turn turn_;
+    motion::TimedArc arc_;
+    Stage stage_ = Stage::IDLE;
+    motion::Direction direction_ = motion::Direction::RIGHT;
+    float last_heading_deg_ = 0.0F;
+};
+
+struct DefendResult {
+    motion::Result motion;
+    Intent intent = Intent::NONE;
+    bool turn_timed_out = false; // One-call pulse from the B7 primitive.
+    bool defend_timed_out = false; // One-call pulse at B10's state deadline.
+};
+class DefendTurn {
+public:
+    // Capture finite last-known heading plus a valid finite B5 relative bearing
+    // in (-180,180] once; no target retarget/restart during this command. Turn at
+    // TURN_DUTY using B7, and start the separate DEFEND_TIMEOUT_MS interval.
+    // Invalid capture latches INVALID/zero. DEFEND_EVADE_FIRST remains disabled.
+    bool start(std::uint32_t t_us, float heading_deg, float bearing_deg,
+               bool bearing_valid, bool imu_ok);
+    // Current confirmed front -> PERCEPTION, no current target -> SEARCH (B2).
+    // Otherwise retain the captured turn for side/rear readings; high bit ignored.
+    // Target exits take precedence at deadlines. Normal turn completion/700ms
+    // timeout gives zero demand while waiting for a front/clear observation or
+    // the separate800ms state deadline. Never restart the turn to fill that gap.
+    // At DEFEND_TIMEOUT_MS -> SEARCH with zero; timeout pulses occur once, and
+    // terminal intent stays latched until reset/start. Preserve B7 IMU fallback.
+    // Caller must apply governor PIVOT and edge/STOP/gates; no motor authorization.
+    // Successive calls <one uint32 micros wrap; all elapsed time is caller supplied.
+    DefendResult step(std::uint32_t t_us, float heading_deg, bool imu_ok,
+                      std::uint8_t confirmed_mask);
+    void reset();
+private:
+    DefendResult finish(Intent intent);
+    motion::Turn turn_;
+    motion::Interval interval_;
+    Intent intent_ = Intent::NONE;
+    bool active_ = false;
+    bool turn_timeout_reported_ = false;
+};
+enum class ResetCause : std::uint8_t { UNKNOWN, WATCHDOG };
+enum RobotFault : std::uint16_t {
+    INVALID_CONTEXT = 1U, SCRIPT_START = 2U, SCRIPT_RESULT = 4U,
+    GOVERNOR_CONTRACT = 8U, APPLICATION_CONTRACT = 16U, STALE_SENSORS = 32U,
+    HEADING_CONTRACT = 64U, TOKEN_EXHAUSTED = 128U, LINE_CONTRACT = 256U,
+    BUTTON_CONTRACT = 512U
+};
+struct PreviousTick {
+    bool applied_valid = false;
+    std::uint64_t token = 0;
+    std::uint32_t applied_us = 0;
+    bool motors_enabled = false;
+    float duty_l = 0.0F;
+    float duty_r = 0.0F;
+    bool duration_valid = false;
+    std::uint32_t completed_us = 0;
+    std::uint32_t execution_us = 0; // From selected tick start, never start-to-start interval.
+};
+struct TickTiming {
+    bool explicit_start = false; // Fixed on first admitted tick until Robot reset.
+    bool start_valid = false;
+    std::uint32_t started_us = 0; // Actual acquisition start; t_us stays decision time.
+};
+struct RobotInput {
+    std::uint32_t t_us = 0;
+    bool initialization_complete = false;
+    bool observations_fresh = false; // Legacy: NEW complete QTR/opponent sample.
+    std::uint32_t line_raw_us[4] = {}; // Legacy only; explicit mode uses qualified line.
+    std::uint8_t opp_raw_mask = 0; // Electrical polarity, D-059 continuous raw yaw.
+    float raw_heading_deg = 0.0F;
+    float raw_gyro_z_dps = 0.0F; // Before bias subtraction, for D-024.
+    float ax_g = 0.0F;
+    float ay_g = 0.0F;
+    bool imu_ok = false; // Missing-at-boot is allowed; never an init-complete prerequisite.
+    float previous_bias_dps = 0.0F; // Consumed only on accepted match release.
+    float vbat_v = 0.0F;
+    bool vbat_valid = false;
+    core::ButtonLevel button = core::ButtonLevel::NONE;
+    bool stop_requested = false; // Local qualified safety stop, no remote command path.
+    ResetCause reset_cause = ResetCause::UNKNOWN; // First boot observation only.
+    PreviousTick previous;
+    core::ImuEvidence imu;
+    core::LineEvidence line;
+    bool opponent_fresh = false; // Explicit line mode only; independent of QTR frames.
+    core::ButtonEvidence buttons;
+    TickTiming timing; // D092 opt-in complete-tick accounting; legacy default unchanged.
+};
+struct RobotResult {
+    std::uint64_t token = 0;
+    bool fresh = false;
+    core::Outputs outputs; // Governed request/permission; never application evidence.
+    core::Mode running_mode = static_cast<core::Mode>(config::MODE_DEFAULT);
+    countdown::MenuResult menu;
+    countdown::LifecycleResult lifecycle;
+    HeadingResult heading;
+    std::uint16_t contract_faults = 0;
+    edge::EscapeFault escape_fault = edge::EscapeFault::NONE;
+    std::uint8_t line_mask = 0;
+    std::uint8_t opponent_mask = 0; // Effective filtered perception.
+    std::uint8_t opponent_fault_mask = 0;
+    std::uint8_t qtr_warning_mask = 0;
+    bool low_battery = false;
+    bool all_in = false;
+    bool contact = false; // Only the one valid final-state commitment.
+    bool bias_update_requested = false;
+    float accepted_bias_dps = 0.0F;
+    logframe::EventBatch events;
+    bool frame_ready = false;
+    logframe::FrameBytes frame;
+    logframe::PackStatus frame_status = logframe::PackStatus::OK;
+    std::uint64_t frame_token = 0; // Prior completed observation, not current token.
+    std::uint32_t skipped_frames = 0; // Per attempt; saturating missed/lost candidates.
+    logframe::TickStatistics ticks;
+    bool timing_incomplete = false;
+    bool recording_incomplete = false; // Lost/invalid frame or event evidence.
+    bool line_available = false;
+    bool line_updated = false;
+    std::uint32_t line_source_us = 0U;
+    std::uint32_t line_age_us = 0U;
+    std::uint32_t line_sequence = 0U;
+    bool button_available = false;
+    bool imu_available = false; // D088 validated raw availability, including pre-GO.
+    bool line_raw_mode = false; // D089 current admitted raw-only BOOT/IDLE request.
+    bool line_calibration_hold = false; // Latched until later classified acquisition.
+    bool line_start_rearming = false; // Fresh neutral needed after handover.
+    std::uint32_t line_threshold_version = 0U;
+    bool button_updated = false;
+    core::ButtonLevel button_level = core::ButtonLevel::NONE;
+    std::uint32_t button_source_us = 0U; // Earliest conversion age.
+    std::uint32_t button_age_us = 0U;
+    std::uint32_t button_sequence = 0U;
+};
+class Robot {
+public:
+    // Production B0..B15/D-060 transaction; exact contract in
+    // state/analysis/P1_robot_contract.md. No clock/I/O/allocation/remote control.
+    // Every distinct timestamp is one admitted tick, with nonzero monotonic token.
+    // Immediate duplicates ignore changed input/receipt and return cached values
+    // with fresh=false and all action/event/frame pulses cleared; never reapply.
+    // Successive distinct ticks must be <one uint32 wrap apart. Actual new sensor
+    // acquisition is the caller's obligation; stale data after setup faults to
+    // disabled STOPPED while button/STOP processing remains live. BOOT may wait.
+    // First init-complete call goes BOOT->IDLE (or STOP/fault); no BOOT-entry START.
+    // Require one identity/time-matched actual applied receipt after every fresh
+    // result. Disabled reports zero; enabled duty must keep request sign and
+    // magnitude<=request (downward PWM quantization). No invented applied output.
+    // Missing duration marks timing incomplete only; missing/invalid application
+    // latches inhibition. Application/completion lie between prior and current
+    // decision timestamps, in order. Feedback measures settings, not wheel motion.
+    // D092 explicit timing saves acquisition start per token and requires ordered
+    // start/decision/application/completion/next-start/next-decision within one
+    // unsigned half-range. Timing-only errors mark evidence incomplete, not motion.
+    // Exact contract: state/analysis/P2_tick_timing_contract.md.
+    // Gate/services -> D-059 coordinates -> edge -> script/normal/stall routing ->
+    // one final Fusion commit -> one Governor call. Validate rejection inputs
+    // before commit. No preview may grant permission or emit CONTACT. Final STOP
+    // or contract fault inhibits immediately; Escape faults retain EDGE_ESCAPE
+    // with inhibition unless explicit STOP/independent contract fault wins.
+    // Match mode snapshots only on accepted match release; services are intents,
+    // DRIVE_TEST unavailable. Preserve original full hold, edge and contact rules.
+    // Events retain decision order and prior receipt extensions first; <=21 under
+    // the adopted source bound, with explicit independent loss counters. Frames
+    // start at accepted START, at most one per tick, finalized only using its
+    // matched actual receipt. Skips/invalid metadata/codec status stay explicit.
+    // D-061: valid unknown-bearing DEFEND entry waits at zero up to the existing
+    // timeout; a later valid capture cannot extend that pending interval.
+    RobotResult step(const RobotInput& input);
+    // Clears runtime state/faults/pending evidence while preserving next token,
+    // so stale pre-reset feedback cannot attach to a new result. Recorder storage
+    // remains caller-owned; reset alone does not erase the last match's evidence.
+    void reset();
+private:
+    struct ImuHistory {
+        core::ImuEvidence evidence;
+        float heading_deg = 0.0F;
+        float gyro_dps = 0.0F;
+        float ax_g = 0.0F;
+        float ay_g = 0.0F;
+        bool valid = false;
+    };
+    struct Pending {
+        core::Outputs requested;
+        logframe::FrameInput frame;
+        std::uint64_t token = 0;
+        std::uint32_t t_us = 0;
+        std::uint32_t timing_start_us = 0;
+        bool timing_valid = false;
+        bool valid = false;
+        bool after_go = false;
+        bool match_tick = false;
+        bool frame_due = false;
+    };
+    struct Tick {
+        core::State entry = core::State::BOOT;
+        core::State selected = core::State::BOOT;
+        opp_fusion::FusionObservation observation;
+        opp_fusion::ContactCommit contact;
+        edge::EscapeResult escape;
+        governor::Request request;
+        stall::LimitResult limit;
+        stall::Detection stall;
+        std::uint32_t t_us = 0;
+        std::uint32_t delta_us = 0;
+        std::uint16_t fault_events = 0;
+        std::uint16_t fault_values[12] = {};
+        std::uint8_t new_white = 0;
+        std::uint8_t reflank_entries = 0;
+        motion::Direction reflank_direction = motion::Direction::RIGHT;
+        bool sampled = false;
+        bool permission = false;
+        bool applied_enabled = false;
+        float applied_l = 0.0F;
+        float applied_r = 0.0F;
+        bool stall_selected = false;
+        bool forced_brake = false;
+        bool frame_immediate = false;
+        bool line_start_inhibited = false;
+    };
+    void admit(const RobotInput& input);
+    void receive(const RobotInput& input);
+    void receiveTiming(const RobotInput& input, bool identity_time_valid);
+    bool validTimingStart(const RobotInput& input) const;
+    bool validTimingReceipt(const RobotInput& input) const;
+    void receiveFrame(const PreviousTick& receipt, bool applied_valid);
+    void markFault(logframe::FaultCode code, std::uint16_t value = 0);
+    void emit(std::uint32_t t_us, core::Event type, std::uint8_t detail,
+              std::uint16_t value = 0);
+    void prepareInputs(const RobotInput& input);
+    void prepareButtons(RobotInput& input);
+    bool admitButtons(const RobotInput& input);
+    void qualifyNeutral();
+    void prepareImu(RobotInput& input);
+    bool admitImu(RobotInput& input);
+    bool admitImuHeading(RobotInput& input);
+    bool sameImuPayload(const RobotInput& input) const;
+    void rememberImu(const RobotInput& input);
+    void invalidateImu(RobotInput& input);
+    void prepareLine(const RobotInput& input);
+    bool admitLine(const RobotInput& input);
+    void publishLine(std::uint8_t white_candidates);
+    void resetLineReadiness();
+    void advanceLineHistories();
+    void prepareCalibrationLine(const RobotInput& input);
+    bool admitCalibrationLine(const RobotInput& input, bool& distinct);
+    void qualifyCalibrationLine(const RobotInput& input, bool distinct);
+    void prepareLineStart(const RobotInput& input);
+    void sampleSensors(const RobotInput& input);
+    void advanceHistories();
+    void rememberObservation();
+    void updateWarnings(const RobotInput& input);
+    void updateQtrWarnings();
+    void runLifecycle(const RobotInput& input);
+    void beginAttempt();
+    void runEscape(const RobotInput& input);
+    void rememberEscape(const RobotInput& input);
+    void cancelMotion();
+    void routeMotion(const RobotInput& input);
+    void startOpener();
+    void runOpener(const RobotInput& input);
+    void acceptFlank(const openers::FlankResult& result, bool brake);
+    void runReflank();
+    void routeNormal(bool reset, bool defer = false);
+    void runNormalExecutor();
+    void runDefend();
+    void finishDefend();
+    void runSearch();
+    SearchContext searchContext() const;
+    SwingContext swingContext() const;
+    openers::Sample openerSample() const;
+    void acceptMotion(const motion::Result& result, governor::Profile profile,
+                      bool brake = false);
+    void checkStall();
+    void prepareFinalRequest();
+    void commitAndGovern(const RobotInput& input);
+    void publishEvents();
+    void publishEdge();
+    void publishPhantom();
+    void prepareFrame(const RobotInput& input);
+    void savePending(const RobotInput& input);
+    void finish(const RobotInput& input);
+    RobotResult exhaust(const RobotInput& input);
+    countdown::Lifecycle lifecycle_;
+    countdown::Menu menu_;
+    countdown::ButtonTiming button_timing_;
+    core::ButtonEvidence button_history_;
+    std::uint32_t button_age_us_ = 0U;
+    std::uint32_t neutral_since_us_ = 0U;
+    bool button_mode_chosen_ = false;
+    bool explicit_button_mode_ = false;
+    bool button_seen_ = false;
+    bool neutral_pending_ = false;
+    bool neutral_armed_ = false;
+    HeadingReference heading_;
+    edge::Classifier classifier_;
+    core::LineEvidence line_history_;
+    bool line_mode_chosen_ = false;
+    bool explicit_line_mode_ = false;
+    bool line_seen_ = false;
+    std::uint32_t line_age_us_ = 0U;
+    std::uint64_t line_raw_boundary_age_us_ = 0U;
+    std::uint64_t line_rearm_age_us_ = 0U;
+    std::uint32_t line_threshold_version_ = 0U;
+    std::uint32_t line_qualified_frames_ = 0U;
+    std::uint32_t line_neutral_since_us_ = 0U;
+    bool line_calibration_hold_ = false;
+    bool line_start_rearming_ = false;
+    bool line_neutral_pending_ = false;
+    edge::Escape escape_;
+    opp_fusion::Fusion fusion_;
+    NormalPerception normal_;
+    SearchSide side_;
+    Search search_;
+    DefendTurn defend_;
+    Reflank reflank_;
+    openers::Direct direct_;
+    openers::Flank flank_;
+    openers::Wait wait_;
+    stall::Detector detector_;
+    stall::ReflankLimiter limiter_;
+    governor::Governor governor_;
+    RobotResult result_;
+    Pending pending_;
+    Tick tick_;
+    ImuHistory imu_history_;
+    bool imu_mode_chosen_ = false;
+    bool explicit_imu_mode_ = false;
+    bool imu_checked_ = false;
+    std::uint32_t last_imu_checked_us_ = 0;
+    std::uint32_t imu_history_age_us_ = 0;
+    logframe::TickStatistics statistics_;
+    core::State state_ = core::State::BOOT;
+    core::Mode running_mode_ = static_cast<core::Mode>(config::MODE_DEFAULT);
+    std::uint64_t next_token_ = 1;
+    std::uint64_t record_elapsed_us_ = 0;
+    std::uint64_t frame_age_us_ = 0;
+    std::uint64_t front_age_us_[2] = {};
+    std::uint32_t world_age_us_ = 0;
+    std::uint32_t inward_age_us_ = 0;
+    std::uint32_t edge_age_us_ = 0;
+    std::uint32_t qtr_age_us_[4] = {};
+    std::uint32_t last_us_ = 0;
+    std::uint32_t skipped_frames_ = 0;
+    std::uint32_t defend_pending_age_us_ = 0;
+    std::uint32_t defend_pending_last_us_ = 0;
+    std::uint16_t faults_ = 0;
+    std::uint16_t reported_faults_ = 0;
+    std::uint8_t previous_line_ = 0;
+    std::uint8_t previous_front_ = 0;
+    std::uint8_t qtr_active_ = 0;
+    std::uint8_t qtr_warning_ = 0;
+    std::uint8_t escape_sides_ = 0;
+    float inward_raw_deg_ = 0.0F;
+    edge::EscapeFault reported_escape_fault_ = edge::EscapeFault::NONE;
+    motion::Direction edge_side_ = motion::Direction::RIGHT;
+    motion::Direction previous_swing_ = motion::Direction::RIGHT;
+    motion::Direction scan_hint_ = motion::Direction::RIGHT;
+    bool observed_ = false;
+    bool explicit_tick_timing_ = false;
+    bool initialized_ = false;
+    bool opener_active_ = false;
+    bool reflank_active_ = false;
+    bool search_active_ = false;
+    bool defend_active_ = false;
+    bool defend_pending_ = false;
+    bool normal_active_ = false;
+    bool world_seen_ = false;
+    bool front_seen_[2] = {};
+    bool inward_valid_ = false;
+    bool edge_side_valid_ = false;
+    bool previous_swing_valid_ = false;
+    bool scan_hint_valid_ = false;
+    bool imu_reported_ = false;
+    bool imu_available_ = false;
+    bool low_battery_ = false;
+    bool calibration_reported_ = false;
+    bool bias_reported_ = false;
+    bool recording_ = false;
+    bool timing_active_ = false;
+    bool attempt_go_ = false;
+    bool first_nonzero_ = false;
+    bool timing_incomplete_ = false;
+    bool recording_incomplete_ = false;
+};
+} // namespace fsm

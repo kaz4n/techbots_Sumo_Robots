@@ -1,0 +1,36 @@
+{
+  "verdict": "PASS_SOURCE_AND_HOST_TESTS_TARGET_BLOCKED",
+  "source_sha256": "c05916c656285c7731476caed3cb7f15f8ba8c4b1e6730e5e0c88557f00ed81d",
+  "source_files": 89,
+  "parser_sha256": "cf09e26903417ba8f15a05cf1acf221eb2fd42239c24d0129eea209600c07562",
+  "reviewed_target_elf_sha256": "d953266f6c160f237685db17fbec257c6bb346212e4f3ff0788f9e7c061d553b",
+  "target_compiler_payload": 258324,
+  "target_ordered_peak": 263112,
+  "target_pool_bytes": 262144,
+  "target_deficit_bytes": 968,
+  "open_findings": [
+    {
+      "id": "D105-R2",
+      "severity": "BLOCKER",
+      "issue": "Final D105 default target exceeds conditional loader pool; replacement fit evidence required"
+    }
+  ],
+  "closed_findings": [
+    "D105-R1 motor halt before transport cancellation"
+  ],
+  "tests": {
+    "full_host": "Both CTest targets PASS",
+    "non_match_motors_0": "27 cases / 8478 assertions normal and ASan/UBSan PASS",
+    "non_match_motors_1": "27 cases / 8478 assertions normal and ASan/UBSan PASS",
+    "match": "Independent author 3 cases /342 assertions normal and ASan/UBSan PASS",
+    "total_deadline": "Independent author isolated20ms stall/40ms total sanitizer profile 1 case/47 assertions PASS",
+    "parser": "10 independent methods PASS in reviewer isolated Linux run"
+  },
+  "evidence_sha256": {
+    "host_1790191657172002417.json": "6858e2142fe3b79ecb03e23f03edd3b55164dce9ef308b3b1070c74cbf5bbf86",
+    "host_1790191733715685660.json": "6da2c5d302ac4a29a3d8770ef571456f2bddb5bccb8dc6cf3ebdc0a3d6d33099",
+    "host_1790191368160591863.json": "70cc5b69434c41d073dae6dfffa6558f35a282464e1f1362134e1f32529e7cae",
+    "target_c05916c6_bench-default.json": "a942a272cc0be076bb8b80d095cc6d9f89e6ae8983607d5b72c1e6b6f46088e9"
+  },
+  "scope": "Source review and host evidence only; target default is compiled but fails loader fit. No upload, hardware qualification, phase gate, or unknown future artifact approved."
+}

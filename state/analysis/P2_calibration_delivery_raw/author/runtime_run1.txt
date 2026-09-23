@@ -1,0 +1,100 @@
+test_actual_runtime_grants_calibration_transport_and_parser_roundtrip (tests.tooling.test_app_calibration_output.AppCalibrationOutputTests.test_actual_runtime_grants_calibration_transport_and_parser_roundtrip) ... FAIL
+
+======================================================================
+FAIL: test_actual_runtime_grants_calibration_transport_and_parser_roundtrip (tests.tooling.test_app_calibration_output.AppCalibrationOutputTests.test_actual_runtime_grants_calibration_transport_and_parser_roundtrip)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tests\tooling\test_app_calibration_output.py", line 70, in test_actual_runtime_grants_calibration_transport_and_parser_roundtrip
+    self.command(["wsl.exe", "--exec", "python3", "-m", "unittest",
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                  "tests.tooling.test_app_calibration_output", "-v"], timeout=600)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tests\tooling\test_app_calibration_output.py", line 50, in command
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : match1-normal: [doctest] test cases:   3 |   3 passed | 0 failed | 0 skipped | [doctest] assertions: 342 | 342 passed | 0 failed |
+match1-san: [doctest] test cases:   3 |   3 passed | 0 failed | 0 skipped | [doctest] assertions: 342 | 342 passed | 0 failed |
+test_actual_runtime_grants_calibration_transport_and_parser_roundtrip (tests.tooling.test_app_calibration_output.AppCalibrationOutputTests.test_actual_runtime_grants_calibration_transport_and_parser_roundtrip) ... 
+  test_actual_runtime_grants_calibration_transport_and_parser_roundtrip (tests.tooling.test_app_calibration_output.AppCalibrationOutputTests.test_actual_runtime_grants_calibration_transport_and_parser_roundtrip) (profile='match0-normal') ... FAIL
+  test_actual_runtime_grants_calibration_transport_and_parser_roundtrip (tests.tooling.test_app_calibration_output.AppCalibrationOutputTests.test_actual_runtime_grants_calibration_transport_and_parser_roundtrip) (profile='match0-san') ... FAIL
+
+======================================================================
+FAIL: test_actual_runtime_grants_calibration_transport_and_parser_roundtrip (tests.tooling.test_app_calibration_output.AppCalibrationOutputTests.test_actual_runtime_grants_calibration_transport_and_parser_roundtrip) (profile='match0-normal')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_app_calibration_output.py", line 101, in test_actual_runtime_grants_calibration_transport_and_parser_roundtrip
+    result = self.command([binary, "--no-colors"], env=env)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_app_calibration_output.py", line 50, in command
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+AssertionError: 1 != 0 : [doctest] doctest version is "2.4.12"
+[doctest] run with "--help" for options
+===============================================================================
+/dev/shm/sumo-d105-author-i_jnncya/cases.cc:359:
+TEST CASE:  B13 D105 actual invalid sources preempt bytes with receipt then context then source precedence
+
+/dev/shm/sumo-d105-author-i_jnncya/cases.cc:376: ERROR: CHECK( rig.sink.writes == writes ) is NOT correct!
+  values: CHECK( 2 == 1 )
+
+===============================================================================
+/dev/shm/sumo-d105-author-i_jnncya/cases.cc:480:
+TEST CASE:  B13 B15 D105 cancelled recorder poisons port before later real calibration commit
+
+/dev/shm/sumo-d105-author-i_jnncya/cases.cc:486: ERROR: CHECK( rig.robot().menu.selection.service == countdown::Service::QTR_CAL ) is NOT correct!
+  values: CHECK( 1 == 2 )
+
+/dev/shm/sumo-d105-author-i_jnncya/cases.cc:488: ERROR: CHECK( passed ) is NOT correct!
+  values: CHECK( false )
+  logged: rig.calibrate() runtime=1/0 cal=0/0 out=0/0
+
+===============================================================================
+[doctest] test cases:   26 |   24 passed | 2 failed | 0 skipped
+[doctest] assertions: 7703 | 7700 passed | 3 failed |
+[doctest] Status: FAILURE!
+
+
+======================================================================
+FAIL: test_actual_runtime_grants_calibration_transport_and_parser_roundtrip (tests.tooling.test_app_calibration_output.AppCalibrationOutputTests.test_actual_runtime_grants_calibration_transport_and_parser_roundtrip) (profile='match0-san')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_app_calibration_output.py", line 101, in test_actual_runtime_grants_calibration_transport_and_parser_roundtrip
+    result = self.command([binary, "--no-colors"], env=env)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_app_calibration_output.py", line 50, in command
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+AssertionError: 1 != 0 : [doctest] doctest version is "2.4.12"
+[doctest] run with "--help" for options
+===============================================================================
+/dev/shm/sumo-d105-author-i_jnncya/cases.cc:359:
+TEST CASE:  B13 D105 actual invalid sources preempt bytes with receipt then context then source precedence
+
+/dev/shm/sumo-d105-author-i_jnncya/cases.cc:376: ERROR: CHECK( rig.sink.writes == writes ) is NOT correct!
+  values: CHECK( 2 == 1 )
+
+===============================================================================
+/dev/shm/sumo-d105-author-i_jnncya/cases.cc:480:
+TEST CASE:  B13 B15 D105 cancelled recorder poisons port before later real calibration commit
+
+/dev/shm/sumo-d105-author-i_jnncya/cases.cc:486: ERROR: CHECK( rig.robot().menu.selection.service == countdown::Service::QTR_CAL ) is NOT correct!
+  values: CHECK( 1 == 2 )
+
+/dev/shm/sumo-d105-author-i_jnncya/cases.cc:488: ERROR: CHECK( passed ) is NOT correct!
+  values: CHECK( false )
+  logged: rig.calibrate() runtime=1/0 cal=0/0 out=0/0
+
+===============================================================================
+[doctest] test cases:   26 |   24 passed | 2 failed | 0 skipped
+[doctest] assertions: 7703 | 7700 passed | 3 failed |
+[doctest] Status: FAILURE!
+
+
+----------------------------------------------------------------------
+Ran 1 test in 131.478s
+
+FAILED (failures=2)
+
+
+----------------------------------------------------------------------
+Ran 1 test in 144.209s
+
+FAILED (failures=1)

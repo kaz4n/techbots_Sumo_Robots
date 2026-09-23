@@ -19,9 +19,9 @@ RAW = ROOT / "state/analysis/P2_runtime_inert_raw/author"
 CASES = ROOT / "tests/tooling/runtime_bench_cases.cc"
 HAL = ("motors.cpp", "recorder.cpp", "recorder_frames.cpp", "recorder_csv.cpp",
        "recorder_dump.cpp", "power_inputs.cpp", "ui.cpp", "imu_heading.cpp",
-       "imu_adapter.cpp", "line_qtr_adapter.cpp", "qtr_cal.cpp", "ui_display.cpp")
+       "imu_adapter.cpp", "line_qtr_adapter.cpp", "qtr_cal.cpp", "qtr_cal_format.cpp", "ui_display.cpp")
 APP = ("transaction.cpp", "runtime.cpp", "runtime_inputs.cpp", "runtime_dump.cpp",
-       "runtime_service.cpp", "transaction_service.cpp")
+       "runtime_service.cpp", "transaction_service.cpp", "runtime_calibration.cpp")
 
 
 def receipt(kind, record):

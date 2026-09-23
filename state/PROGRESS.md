@@ -809,3 +809,5 @@ physical/loadedRAM/gate claim. | contract=this commit
 | 2026-09-23 23:13 +04 | P2 D105 | Adopted bounded nonMATCH calibration-output contract and public report/grant/accessor/capacity interfaces. Independent tests before implementation; no claimed target fit or hardware action. | D105 contract commit |
 
 2026-09-23 23:26 +04 | P2 D105 strict calibration receiver | IMPLEMENTED/HOST-TESTED/REVIEWED: ten frozen tests pass Windows and Linux, separate same-model source review PASS; no config mutation or physical claim; runtime fit remains blocked | commit this entry
+
+| 2026-09-23 23:33 +04 | P2 D105 | Actual Runtime calibration delivery IMPLEMENTED/HOST-TESTED/source review PASS; normal+san1443main/187Gate, independent26cases plus reviewer motors-enabled profile PASS. Exact89-filec05916c6 compiles but modeled loader peak263112 has968B deficit; D106 addresses it. No upload or physical gate. | this implementation commit |

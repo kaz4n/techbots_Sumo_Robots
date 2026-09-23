@@ -24,7 +24,7 @@ NATIVE = ROOT / 'tests/native_app_runtime'
 HAL = ('motors.cpp', 'recorder.cpp', 'recorder_frames.cpp',
        'recorder_csv.cpp', 'recorder_dump.cpp', 'power_inputs.cpp',
        'ui.cpp', 'imu_heading.cpp', 'imu_adapter.cpp',
-       'line_qtr_adapter.cpp', 'qtr_cal.cpp', 'ui_display.cpp')
+       'line_qtr_adapter.cpp', 'qtr_cal.cpp', 'qtr_cal_format.cpp', 'ui_display.cpp')
 
 
 class AppRuntimeTests(unittest.TestCase):
@@ -110,6 +110,7 @@ class AppRuntimeTests(unittest.TestCase):
         sources += [source / 'hal' / name for name in HAL]
         sources += [source / 'app/transaction.cpp', source / 'app/runtime.cpp', source / 'app/runtime_inputs.cpp',
                     source / 'app/runtime_dump.cpp', source / 'app/runtime_service.cpp',
+                    source / 'app/runtime_calibration.cpp',
                     source / 'app/transaction_service.cpp',
                     ROOT / 'tests/test_app_runtime.cpp', ROOT / 'tests/test_app_projection.cpp',
                     NATIVE / 'allocation_probe.cc']

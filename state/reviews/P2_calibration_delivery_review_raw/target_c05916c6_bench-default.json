@@ -1,0 +1,892 @@
+{
+  "verdict": "BLOCKER_TARGET_LOADER_FIT",
+  "source_sha256": "c05916c656285c7731476caed3cb7f15f8ba8c4b1e6730e5e0c88557f00ed81d",
+  "source_files": 89,
+  "objects": 78,
+  "artifacts": [
+    {
+      "file": "app.ino.elf",
+      "sha256": "d953266f6c160f237685db17fbec257c6bb346212e4f3ff0788f9e7c061d553b",
+      "bytes": 177928,
+      "compiler_payload": 258324,
+      "conditional_peak": 263112,
+      "free_span": -968,
+      "largest_free_payload": -972,
+      "ordered_allocations": [
+        {
+          "purpose": "extension",
+          "chunk": 200,
+          "available_before": 262056,
+          "fits": true
+        },
+        {
+          "purpose": "section_map",
+          "chunk": 128,
+          "available_before": 261856,
+          "fits": true
+        },
+        {
+          "purpose": ".text",
+          "chunk": 87040,
+          "available_before": 261728,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata",
+          "chunk": 3808,
+          "available_before": 174688,
+          "fits": true
+        },
+        {
+          "purpose": ".bss",
+          "chunk": 167488,
+          "available_before": 170880,
+          "fits": true
+        },
+        {
+          "purpose": ".exported_sym",
+          "chunk": 16,
+          "available_before": 3392,
+          "fits": true
+        },
+        {
+          "purpose": ".init_array",
+          "chunk": 8,
+          "available_before": 3376,
+          "fits": true
+        },
+        {
+          "purpose": "symbols",
+          "chunk": 4320,
+          "available_before": 3368,
+          "fits": false
+        },
+        {
+          "purpose": "export_copy",
+          "chunk": 16,
+          "available_before": -952,
+          "fits": false
+        }
+      ],
+      "calibration_symbols": [
+        {
+          "name": "_ZN7qtr_cal12formatConfigERKNS_6ReportEPcjRj",
+          "section": ".text",
+          "size": 368
+        },
+        {
+          "name": "_ZNK3app7Runtime13inhibitedIdleEj",
+          "section": ".text",
+          "size": 146
+        },
+        {
+          "name": "_ZNK3app7Runtime22calibrationOutputIssueEj",
+          "section": ".text",
+          "size": 212
+        },
+        {
+          "name": "_ZNK3app7Runtime22calibrationOutputOrderEj",
+          "section": ".text",
+          "size": 252
+        },
+        {
+          "name": "_ZN3app7Runtime22writeCalibrationOutputEj",
+          "section": ".text",
+          "size": 344
+        },
+        {
+          "name": "_ZN3app7Runtime20endCalibrationOutputENS_23CalibrationOutputReasonE",
+          "section": ".text",
+          "size": 96
+        },
+        {
+          "name": "_ZN3app7Runtime24serviceCalibrationOutputEv",
+          "section": ".text",
+          "size": 224
+        },
+        {
+          "name": "_ZN3app7Runtime24prepareCalibrationOutputEb",
+          "section": ".text",
+          "size": 220
+        }
+      ],
+      "allocation_scope": "Deployment section order"
+    },
+    {
+      "file": "app.ino_debug.elf",
+      "sha256": "2a2a5bab041633476441da6660c97f4c0e7248b113839f5c401e0a0f1158ca71",
+      "bytes": 2978996,
+      "compiler_payload": 258324,
+      "conditional_peak": 263224,
+      "free_span": -1080,
+      "largest_free_payload": -1084,
+      "ordered_allocations": [
+        {
+          "purpose": "extension",
+          "chunk": 200,
+          "available_before": 262056,
+          "fits": true
+        },
+        {
+          "purpose": "section_map",
+          "chunk": 240,
+          "available_before": 261856,
+          "fits": true
+        },
+        {
+          "purpose": ".text",
+          "chunk": 87040,
+          "available_before": 261616,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata",
+          "chunk": 3808,
+          "available_before": 174576,
+          "fits": true
+        },
+        {
+          "purpose": ".bss",
+          "chunk": 167488,
+          "available_before": 170768,
+          "fits": true
+        },
+        {
+          "purpose": ".exported_sym",
+          "chunk": 16,
+          "available_before": 3280,
+          "fits": true
+        },
+        {
+          "purpose": ".init_array",
+          "chunk": 8,
+          "available_before": 3264,
+          "fits": true
+        },
+        {
+          "purpose": "symbols",
+          "chunk": 4320,
+          "available_before": 3256,
+          "fits": false
+        },
+        {
+          "purpose": "export_copy",
+          "chunk": 16,
+          "available_before": -1064,
+          "fits": false
+        }
+      ],
+      "calibration_symbols": [
+        {
+          "name": "_ZN7qtr_cal12formatConfigERKNS_6ReportEPcjRj",
+          "section": ".text",
+          "size": 368
+        },
+        {
+          "name": "_ZNK3app7Runtime13inhibitedIdleEj",
+          "section": ".text",
+          "size": 146
+        },
+        {
+          "name": "_ZNK3app7Runtime22calibrationOutputIssueEj",
+          "section": ".text",
+          "size": 212
+        },
+        {
+          "name": "_ZNK3app7Runtime22calibrationOutputOrderEj",
+          "section": ".text",
+          "size": 252
+        },
+        {
+          "name": "_ZN3app7Runtime22writeCalibrationOutputEj",
+          "section": ".text",
+          "size": 344
+        },
+        {
+          "name": "_ZN3app7Runtime20endCalibrationOutputENS_23CalibrationOutputReasonE",
+          "section": ".text",
+          "size": 96
+        },
+        {
+          "name": "_ZN3app7Runtime24serviceCalibrationOutputEv",
+          "section": ".text",
+          "size": 224
+        },
+        {
+          "name": "_ZN3app7Runtime24prepareCalibrationOutputEb",
+          "section": ".text",
+          "size": 220
+        }
+      ],
+      "allocation_scope": "Deployment section order"
+    },
+    {
+      "file": "app.ino_temp.elf",
+      "sha256": "43cdf9fecd31e1807a49dd09d8e00cd420602f6d4c3e911a1e651cdcc61ad081",
+      "bytes": 2992836,
+      "compiler_payload": 260639,
+      "conditional_peak": 267448,
+      "free_span": -5304,
+      "largest_free_payload": -5308,
+      "ordered_allocations": [
+        {
+          "purpose": "extension",
+          "chunk": 200,
+          "available_before": 262056,
+          "fits": true
+        },
+        {
+          "purpose": "section_map",
+          "chunk": 1384,
+          "available_before": 261856,
+          "fits": true
+        },
+        {
+          "purpose": ".text",
+          "chunk": 87040,
+          "available_before": 260472,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata",
+          "chunk": 648,
+          "available_before": 173432,
+          "fits": true
+        },
+        {
+          "purpose": ".bss",
+          "chunk": 167488,
+          "available_before": 172784,
+          "fits": true
+        },
+        {
+          "purpose": ".exported_sym",
+          "chunk": 16,
+          "available_before": 5296,
+          "fits": true
+        },
+        {
+          "purpose": ".init_array",
+          "chunk": 8,
+          "available_before": 5280,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZZNK7openers5Flank10definitionEvE11definitions",
+          "chunk": 48,
+          "available_before": 5272,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN8recorder4dump12UnoQDumpPort7prepareEPKcj.str1.1",
+          "chunk": 24,
+          "available_before": 5224,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN3imu12_GLOBAL__N_1L5STEPSE",
+          "chunk": 584,
+          "available_before": 5200,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN8line_qtr12_GLOBAL__N_1L8PAD_IRQSE",
+          "chunk": 8,
+          "available_before": 4616,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN8line_qtr12_GLOBAL__N_1L11PIN_INDICESE",
+          "chunk": 24,
+          "available_before": 4608,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN8line_qtr12_GLOBAL__N_1L8PAD_BITSE",
+          "chunk": 24,
+          "available_before": 4584,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN6zephyr7arduinoL12arduino_pinsE",
+          "chunk": 2248,
+          "available_before": 4560,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN6config14QTR_INPUT_PINSE",
+          "chunk": 24,
+          "available_before": 2312,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN6config14MOTOR_PWM_PINSE",
+          "chunk": 24,
+          "available_before": 2288,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN6config14OPP_INPUT_PINSE",
+          "chunk": 32,
+          "available_before": 2264,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN6motors12_GLOBAL__N_1L9SELECTORSE",
+          "chunk": 16,
+          "available_before": 2232,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN6motors12_GLOBAL__N_1L7DOMAINSE",
+          "chunk": 16,
+          "available_before": 2216,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN6motors12_GLOBAL__N_1L10PRESCALERSE",
+          "chunk": 16,
+          "available_before": 2200,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN6motors12_GLOBAL__N_1L15NATIVE_CHANNELSE",
+          "chunk": 24,
+          "available_before": 2184,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN6motors12_GLOBAL__N_1L14CHANNEL_TIMERSE",
+          "chunk": 24,
+          "available_before": 2160,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN6motors12_GLOBAL__N_1L8PWM_PADSE",
+          "chunk": 136,
+          "available_before": 2136,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN6motors12_GLOBAL__N_1L9PWM_SPECSE",
+          "chunk": 264,
+          "available_before": 2000,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN6config11P0_QTR_PINSE",
+          "chunk": 24,
+          "available_before": 1736,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN7qtr_cal12formatConfigERKNS_6ReportEPcjRj.str1.1",
+          "chunk": 40,
+          "available_before": 1712,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN8recorder3csv12_GLOBAL__N_14Line6rawHexEPKhj.str1.1",
+          "chunk": 24,
+          "available_before": 1672,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN8recorder3csv12_GLOBAL__N_1L14SUMMARY_HEADERE",
+          "chunk": 560,
+          "available_before": 1648,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN8recorder3csv12_GLOBAL__N_1L12EVENT_HEADERE",
+          "chunk": 64,
+          "available_before": 1088,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN8recorder3csv12_GLOBAL__N_1L12FRAME_HEADERE",
+          "chunk": 176,
+          "available_before": 1024,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN8recorder4dump8Transfer15prepareEnvelopeEv.str1.1",
+          "chunk": 32,
+          "available_before": 848,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata.str1.1",
+          "chunk": 112,
+          "available_before": 816,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata.CSWTCH.50",
+          "chunk": 32,
+          "available_before": 704,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN2ui6renderERKNS_13DisplaySampleERNS_5FrameE.str1.1",
+          "chunk": 24,
+          "available_before": 672,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN2ui12_GLOBAL__N_1L4DOWNE",
+          "chunk": 16,
+          "available_before": 648,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN2ui12_GLOBAL__N_1L7CHECKERE",
+          "chunk": 16,
+          "available_before": 632,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN2ui12_GLOBAL__N_1L5CROSSE",
+          "chunk": 16,
+          "available_before": 616,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN2ui12_GLOBAL__N_1L9HOURGLASSE",
+          "chunk": 16,
+          "available_before": 600,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN2ui12_GLOBAL__N_1L5PAUSEE",
+          "chunk": 16,
+          "available_before": 584,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN2ui12_GLOBAL__N_1L3ARCE",
+          "chunk": 16,
+          "available_before": 568,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN2ui12_GLOBAL__N_1L2UPE",
+          "chunk": 16,
+          "available_before": 552,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN2ui12_GLOBAL__N_1L5RIGHTE",
+          "chunk": 16,
+          "available_before": 536,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN2ui12_GLOBAL__N_1L6FAULTSE",
+          "chunk": 40,
+          "available_before": 520,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN2ui12_GLOBAL__N_1L1LE",
+          "chunk": 16,
+          "available_before": 480,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN2ui12_GLOBAL__N_1L1CE",
+          "chunk": 16,
+          "available_before": 464,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN2ui12_GLOBAL__N_1L1DE",
+          "chunk": 16,
+          "available_before": 448,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN2ui12_GLOBAL__N_1L1EE",
+          "chunk": 16,
+          "available_before": 432,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN2ui12_GLOBAL__N_1L1SE",
+          "chunk": 16,
+          "available_before": 416,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN2ui12_GLOBAL__N_1L1BE",
+          "chunk": 16,
+          "available_before": 400,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN2ui12_GLOBAL__N_1L6DIGITSE",
+          "chunk": 56,
+          "available_before": 384,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN6zephyr7arduinoL11pinctrl_mapE",
+          "chunk": 144,
+          "available_before": 328,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN6zephyr7arduinoL39__pinctrl_dev_config__device_dts_ord_61E",
+          "chunk": 16,
+          "available_before": 184,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN6zephyr7arduinoL35__pinctrl_states__device_dts_ord_61E",
+          "chunk": 16,
+          "available_before": 168,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN6zephyr7arduinoL41__pinctrl_state_pins_0__device_dts_ord_61E",
+          "chunk": 24,
+          "available_before": 152,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN6zephyr7arduinoL39__pinctrl_dev_config__device_dts_ord_17E",
+          "chunk": 16,
+          "available_before": 128,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN6zephyr7arduinoL35__pinctrl_states__device_dts_ord_17E",
+          "chunk": 32,
+          "available_before": 112,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN6zephyr7arduinoL41__pinctrl_state_pins_2__device_dts_ord_17E",
+          "chunk": 56,
+          "available_before": 80,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN6zephyr7arduinoL40__pinctrl_dev_config__device_dts_ord_123E",
+          "chunk": 16,
+          "available_before": 24,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN6zephyr7arduinoL36__pinctrl_states__device_dts_ord_123E",
+          "chunk": 32,
+          "available_before": 8,
+          "fits": false
+        },
+        {
+          "purpose": ".rodata._ZN6zephyr7arduinoL42__pinctrl_state_pins_2__device_dts_ord_123E",
+          "chunk": 16,
+          "available_before": -24,
+          "fits": false
+        },
+        {
+          "purpose": ".rodata._ZN6zephyr7arduinoL40__pinctrl_dev_config__device_dts_ord_114E",
+          "chunk": 16,
+          "available_before": -40,
+          "fits": false
+        },
+        {
+          "purpose": ".rodata._ZN6zephyr7arduinoL36__pinctrl_states__device_dts_ord_114E",
+          "chunk": 32,
+          "available_before": -56,
+          "fits": false
+        },
+        {
+          "purpose": ".rodata._ZN6zephyr7arduinoL42__pinctrl_state_pins_2__device_dts_ord_114E",
+          "chunk": 32,
+          "available_before": -88,
+          "fits": false
+        },
+        {
+          "purpose": ".rodata._ZN6zephyr7arduinoL40__pinctrl_dev_config__device_dts_ord_109E",
+          "chunk": 16,
+          "available_before": -120,
+          "fits": false
+        },
+        {
+          "purpose": ".rodata._ZN6zephyr7arduinoL36__pinctrl_states__device_dts_ord_109E",
+          "chunk": 32,
+          "available_before": -136,
+          "fits": false
+        },
+        {
+          "purpose": ".rodata._ZN6zephyr7arduinoL42__pinctrl_state_pins_2__device_dts_ord_109E",
+          "chunk": 24,
+          "available_before": -168,
+          "fits": false
+        },
+        {
+          "purpose": ".rodata._ZN6zephyr7arduinoL40__pinctrl_dev_config__device_dts_ord_105E",
+          "chunk": 16,
+          "available_before": -192,
+          "fits": false
+        },
+        {
+          "purpose": ".rodata._ZN6zephyr7arduinoL36__pinctrl_states__device_dts_ord_105E",
+          "chunk": 32,
+          "available_before": -208,
+          "fits": false
+        },
+        {
+          "purpose": ".rodata._ZN6zephyr7arduinoL42__pinctrl_state_pins_2__device_dts_ord_105E",
+          "chunk": 32,
+          "available_before": -240,
+          "fits": false
+        },
+        {
+          "purpose": ".rodata._ZN6zephyr7arduinoL40__pinctrl_dev_config__device_dts_ord_100E",
+          "chunk": 16,
+          "available_before": -272,
+          "fits": false
+        },
+        {
+          "purpose": ".rodata._ZN6zephyr7arduinoL36__pinctrl_states__device_dts_ord_100E",
+          "chunk": 32,
+          "available_before": -288,
+          "fits": false
+        },
+        {
+          "purpose": ".rodata._ZN6zephyr7arduinoL42__pinctrl_state_pins_2__device_dts_ord_100E",
+          "chunk": 32,
+          "available_before": -320,
+          "fits": false
+        },
+        {
+          "purpose": ".rodata._ZN6zephyr7arduinoL40__pinctrl_dev_config__device_dts_ord_120E",
+          "chunk": 16,
+          "available_before": -352,
+          "fits": false
+        },
+        {
+          "purpose": ".rodata._ZN6zephyr7arduinoL36__pinctrl_states__device_dts_ord_120E",
+          "chunk": 32,
+          "available_before": -368,
+          "fits": false
+        },
+        {
+          "purpose": ".rodata._ZN6zephyr7arduinoL42__pinctrl_state_pins_2__device_dts_ord_120E",
+          "chunk": 40,
+          "available_before": -400,
+          "fits": false
+        },
+        {
+          "purpose": ".rodata._ZN6zephyr7arduinoL39__pinctrl_dev_config__device_dts_ord_40E",
+          "chunk": 16,
+          "available_before": -440,
+          "fits": false
+        },
+        {
+          "purpose": ".rodata._ZN6zephyr7arduinoL35__pinctrl_states__device_dts_ord_40E",
+          "chunk": 24,
+          "available_before": -456,
+          "fits": false
+        },
+        {
+          "purpose": ".rodata._ZN6zephyr7arduinoL41__pinctrl_state_pins_1__device_dts_ord_40E",
+          "chunk": 24,
+          "available_before": -480,
+          "fits": false
+        },
+        {
+          "purpose": ".rodata._ZN6zephyr7arduinoL41__pinctrl_state_pins_0__device_dts_ord_40E",
+          "chunk": 24,
+          "available_before": -504,
+          "fits": false
+        },
+        {
+          "purpose": ".rodata._ZN6zephyr7arduinoL39__pinctrl_dev_config__device_dts_ord_34E",
+          "chunk": 16,
+          "available_before": -528,
+          "fits": false
+        },
+        {
+          "purpose": ".rodata._ZN6zephyr7arduinoL35__pinctrl_states__device_dts_ord_34E",
+          "chunk": 16,
+          "available_before": -544,
+          "fits": false
+        },
+        {
+          "purpose": ".rodata._ZN6zephyr7arduinoL41__pinctrl_state_pins_0__device_dts_ord_34E",
+          "chunk": 24,
+          "available_before": -560,
+          "fits": false
+        },
+        {
+          "purpose": ".rodata._ZN6zephyr7arduinoL39__pinctrl_dev_config__device_dts_ord_30E",
+          "chunk": 16,
+          "available_before": -584,
+          "fits": false
+        },
+        {
+          "purpose": ".rodata._ZN6zephyr7arduinoL35__pinctrl_states__device_dts_ord_30E",
+          "chunk": 16,
+          "available_before": -600,
+          "fits": false
+        },
+        {
+          "purpose": ".rodata._ZN6zephyr7arduinoL41__pinctrl_state_pins_0__device_dts_ord_30E",
+          "chunk": 24,
+          "available_before": -616,
+          "fits": false
+        },
+        {
+          "purpose": ".rodata._ZN6zephyr7arduinoL39__pinctrl_dev_config__device_dts_ord_88E",
+          "chunk": 16,
+          "available_before": -640,
+          "fits": false
+        },
+        {
+          "purpose": ".rodata._ZN6zephyr7arduinoL35__pinctrl_states__device_dts_ord_88E",
+          "chunk": 16,
+          "available_before": -656,
+          "fits": false
+        },
+        {
+          "purpose": ".rodata._ZN6zephyr7arduinoL41__pinctrl_state_pins_0__device_dts_ord_88E",
+          "chunk": 40,
+          "available_before": -672,
+          "fits": false
+        },
+        {
+          "purpose": ".rodata._ZN6zephyr7arduinoL39__pinctrl_dev_config__device_dts_ord_83E",
+          "chunk": 16,
+          "available_before": -712,
+          "fits": false
+        },
+        {
+          "purpose": ".rodata._ZN6zephyr7arduinoL35__pinctrl_states__device_dts_ord_83E",
+          "chunk": 16,
+          "available_before": -728,
+          "fits": false
+        },
+        {
+          "purpose": ".rodata._ZN6zephyr7arduinoL41__pinctrl_state_pins_0__device_dts_ord_83E",
+          "chunk": 40,
+          "available_before": -744,
+          "fits": false
+        },
+        {
+          "purpose": ".rodata._ZN6zephyr7arduinoL39__pinctrl_dev_config__device_dts_ord_78E",
+          "chunk": 16,
+          "available_before": -784,
+          "fits": false
+        },
+        {
+          "purpose": ".rodata._ZN6zephyr7arduinoL35__pinctrl_states__device_dts_ord_78E",
+          "chunk": 16,
+          "available_before": -800,
+          "fits": false
+        },
+        {
+          "purpose": ".rodata._ZN6zephyr7arduinoL41__pinctrl_state_pins_0__device_dts_ord_78E",
+          "chunk": 40,
+          "available_before": -816,
+          "fits": false
+        },
+        {
+          "purpose": ".rodata._ZN6zephyr7arduinoL39__pinctrl_dev_config__device_dts_ord_70E",
+          "chunk": 16,
+          "available_before": -856,
+          "fits": false
+        },
+        {
+          "purpose": ".rodata._ZN6zephyr7arduinoL35__pinctrl_states__device_dts_ord_70E",
+          "chunk": 16,
+          "available_before": -872,
+          "fits": false
+        },
+        {
+          "purpose": ".rodata._ZN6zephyr7arduinoL41__pinctrl_state_pins_0__device_dts_ord_70E",
+          "chunk": 24,
+          "available_before": -888,
+          "fits": false
+        },
+        {
+          "purpose": ".rodata._ZN6zephyr7arduinoL39__pinctrl_dev_config__device_dts_ord_73E",
+          "chunk": 16,
+          "available_before": -912,
+          "fits": false
+        },
+        {
+          "purpose": ".rodata._ZN6zephyr7arduinoL35__pinctrl_states__device_dts_ord_73E",
+          "chunk": 16,
+          "available_before": -928,
+          "fits": false
+        },
+        {
+          "purpose": ".rodata._ZN6zephyr7arduinoL41__pinctrl_state_pins_0__device_dts_ord_73E",
+          "chunk": 24,
+          "available_before": -944,
+          "fits": false
+        },
+        {
+          "purpose": "symbols",
+          "chunk": 4320,
+          "available_before": -968,
+          "fits": false
+        },
+        {
+          "purpose": "export_copy",
+          "chunk": 16,
+          "available_before": -5288,
+          "fits": false
+        }
+      ],
+      "calibration_symbols": [
+        {
+          "name": "_ZN7qtr_cal12formatConfigERKNS_6ReportEPcjRj",
+          "section": ".text",
+          "size": 368
+        },
+        {
+          "name": "_ZNK3app7Runtime13inhibitedIdleEj",
+          "section": ".text",
+          "size": 146
+        },
+        {
+          "name": "_ZNK3app7Runtime22calibrationOutputIssueEj",
+          "section": ".text",
+          "size": 212
+        },
+        {
+          "name": "_ZNK3app7Runtime22calibrationOutputOrderEj",
+          "section": ".text",
+          "size": 252
+        },
+        {
+          "name": "_ZN3app7Runtime22writeCalibrationOutputEj",
+          "section": ".text",
+          "size": 344
+        },
+        {
+          "name": "_ZN3app7Runtime20endCalibrationOutputENS_23CalibrationOutputReasonE",
+          "section": ".text",
+          "size": 96
+        },
+        {
+          "name": "_ZN3app7Runtime24serviceCalibrationOutputEv",
+          "section": ".text",
+          "size": 224
+        },
+        {
+          "name": "_ZN3app7Runtime24prepareCalibrationOutputEb",
+          "section": ".text",
+          "size": 220
+        }
+      ],
+      "allocation_scope": "Intermediate section sum only"
+    }
+  ],
+  "zsk_sha256": "a38a99c0ff52ee297443667ee26418f9169887b26f717453b81359cd31567e1f",
+  "limitation": "Exact artifact model only; not upload authorization, loaded RAM, WCET or physical evidence"
+}

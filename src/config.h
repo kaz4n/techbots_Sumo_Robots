@@ -18,6 +18,13 @@ namespace config {
 // Pin assignments await P0 source verification and human PINMAP OK.
 // D076 copies HARDWARE3 proposals for compile-only HAL development, not approval.
 inline constexpr std::uint32_t OPP_INPUT_PINS[7] = {11U, 12U, 13U, 16U, 17U, 18U, 19U};
+// D077 names unchanged HARDWARE3 proposals; no PINMAP or waveform approval.
+inline constexpr std::uint32_t MOTOR_PWM_PINS[4] = {3U, 5U, 6U, 9U};
+inline constexpr std::uint32_t MOTOR_ENABLE_PIN = 10U;
+// New D077 development carrier/settle limits, not measured timing or B16 tuning.
+inline constexpr std::uint32_t MOTOR_PWM_HZ = 10000U; // Hz
+inline constexpr std::uint32_t MOTOR_PWM_SETTLE_US = 150U; // us, whole settle pass
+inline constexpr std::uint32_t MOTOR_PWM_SETTLE_MAX_POLLS = 4096U; // count-name exception
 inline constexpr std::uint32_t COUNTDOWN_MS = 5000U; // ms
 inline constexpr std::uint32_t COUNTDOWN_MARGIN_MS = 100U; // ms
 inline constexpr std::uint32_t TICK_US = 1000U; // us

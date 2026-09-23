@@ -232,3 +232,13 @@ HARDWARE3 proposals. All76B16 values retained; no tuning, wire change or physica
 measurement. Installed mapping is source-verified in F094/P2_opp_gpio_audit.md;
 actual native driver host/target evidence in P2_opponent_validation.md. PINMAP
 approval, electrical readings and B1 range/false-hit acceptance remain pending.
+
+
+2026-09-23 - D077 native motor development defaults
+Names unchanged HARDWARE3 proposals MOTOR_PWM_PINS={3,5,6,9}, MOTOR_ENABLE_PIN10.
+New MOTOR_PWM_HZ10000, MOTOR_PWM_SETTLE_US150, MOTOR_PWM_SETTLE_MAX_POLLS4096
+selected under D051/D075/D077. No B16 value changed and no measurement/tuning
+claim: source-derived carrier periods3200/250/3200/3200 still need setup rate
+validation; complete tick/WCET/physicalwaveforms remain pending. Primary manual/
+errata and installedclock evidence in P2_motor_update_audit.md/P2_motor_clock_audit.md.
+No wiring approval, upload, motor run or human gate.

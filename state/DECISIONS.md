@@ -863,3 +863,21 @@ Consequence: actual native driver can be host-tested through API substitutes and
 target-compiled without executing it. This is not PINMAP approval or a new wire
 assignment. No fake success, double debounce/polarity, upload, physical B1 result
 or human gate. Preserve original tests and review five inert source guards.
+
+## D-077 (2026-09-23, selected under D-051/D-075) Native MotorGate backend
+Context: checked Gate exists but lacks native callbacks; installed PWM writes
+update preloads, so successful setters alone do not authorize EN HIGH. Retrieved
+RM0456 and current ES0499 plus installed clock/register audits support a bounded
+fresh-update check for the specified TIM1/3/4 modes and exclusive ownership.
+Decision: adopt P2_motor_native_contract.md and motor_port_unoq.h. Name unchanged
+proposed D3/D5/D6/D9 and D10 pins in config. Select development10kHz carrier,
+150us whole-settle deadline and4096-pass guard (explicit count-name exception),
+all new constants, no B16 change. Clarify only D075's construction prerequisite:
+source-derived immutable period candidates may be copied before begin, then
+validated by native setup after EN LOW and before any admitted duty write. Do not
+mutate periods or describe cached cycle metadata as measured physical frequency.
+Consequence: only MotorGate invokes the bounded checked backend; native setup
+failures/ownership mismatch or missing fresh updates fail closed. Preserve old
+locked tests; add independently authored native safety tests, real target builds
+and separate fresh review. No app integration, upload/run, wiring change, physical
+waveform/WCET/PINMAP or human gate follows. All candidate timing needs later proof.

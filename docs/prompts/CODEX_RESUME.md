@@ -3,27 +3,26 @@
 User explicitly resumed; P2 software active under D051/D075. Read AGENTS fully,
 CODEX_HANDOFF, PROGRESS, DECISIONS, FACTS, TUNING_LOG, CODEX_EXECUTION, activeP2
 prompt and current reviews/conflicts. Check Git/currentDubai date and deadlines;
-preserve work. Latest dated disposition supersedes historical checkpoint status.
+preserve work. Latest dated disposition supersedes historical checkpoints.
 
-D101 Runtime dump attachment plus D102 lossless frame/status packing are tested
-and reviewed. Read P2_frame_packing_validation.md,target_audit.md/raw and review.
-Final source3bf0da00 MATCH compiles254156B; conditional loaderpeak258768B fits
-with3372B largest remaining payload. D101-R1's modeled-capacity blocker is closed.
-Actual loadedRAM/stack/full800us and physicalUART/sensor/motor evidence remain open.
-Fullnormal/san1434main+178Gate PASS; exact dump bytes unchanged. No need to repeat
-completed checks absent a source change. The same7inertkeys are reviewed/refreshed.
+D103 optional post-STOP service-only reset is implemented/tested/reviewed.
+Read P2_service_reset_validation.md,contract,target_audit/raw and review. Source
+1fbd7238 default/MATCH compile256332/256716B, conditional loader261056/261448B;
+remaining spans1088/696B. Actual load/stack/full800us are unmeasured. Fullnormal+
+san1443main+187Gate PASS;34 independent configured cases and4 strict actualRuntime
+host roundtrips PASS. Same7inertkeys refreshed after exact reviewed maps. Do not
+repeat completed checks absent a change. Original failures are retained.
 
-Next task: freeze and implement optional local post-STOP service-only reset with
-retained recorder and GateSTOPPED latch. Read P2_service_reset_options.md and
-P2_remaining_integration_20260923.md; proposals are not yet adopted decisions.
-Keep all callbacks inside truthful epochs, preserve token/clock/source history,
-and use actual fresh ADC/opponent evidence. No QTR/IMU reconstruction or fake
-freshness; raw absent-QTR projection only after an actual logical BOOT reset.
-Independently author tests from the frozen public contract before implementation.
+Next: user-authorized bare UNOQ inert Runtime probe/load/capture. Read
+P2_runtime_inert_options.md; freeze a narrow no-pin probe contract and obtain
+independent tests/review before upload. Existing app configures motor pins even
+MOTORS_ALLOWED0, so it is not a no-pin probe. No extra hardware requested. Keep
+all source grants absent and actual Runtime with checked inert callbacks; label
+synthetic/unavailable sources accurately. Do not treat probe load as full app or
+full800us/physical acceptance. Last MCU remains D0911502e948 until new evidence.
 Then calibration-snippet delivery and remaining P2 physical-bench software.
 
-No app upload. Last MCU D0911502e948 is an old inert synthetic recorder. All
-physical PINMAP/EXPLAINED/human gates and laterP3-P7 remain pending. D051 permits
+All physical/PINMAP/EXPLAINED/human gates and P3-P7 remain pending. D051 permits
 engineering choices, not invented measurements/gates/motor authority. Recheck
-connection only before a new dependent action. No push/tag/history rewrite.
-Commit promptly with exact evidence; preserve failures and next-task checkpoint.
+connection before dependent actions. No push/tag/history rewrite. Commit promptly
+with exact evidence; preserve failures and next-task checkpoint.

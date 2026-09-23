@@ -1,0 +1,43 @@
+
+/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf:     file format elf32-littlearm
+
+
+Disassembly of section rom_start:
+
+Disassembly of section text:
+
+08008358 <llext_bootstrap>:
+ 8008358:	b5f0      	push	{r4, r5, r6, r7, lr}
+ 800835a:	b085      	sub	sp, #20
+ 800835c:	4605      	mov	r5, r0
+ 800835e:	460e      	mov	r6, r1
+ 8008360:	4617      	mov	r7, r2
+ 8008362:	f00f fe43 	bl	8017fec <llext_bringup>
+ 8008366:	4604      	mov	r4, r0
+ 8008368:	b160      	cbz	r0, 8008384 <llext_bootstrap+0x2c>
+ 800836a:	4b0d      	ldr	r3, [pc, #52]	@ (80083a0 <llext_bootstrap+0x48>)
+ 800836c:	9003      	str	r0, [sp, #12]
+ 800836e:	9302      	str	r3, [sp, #8]
+ 8008370:	2300      	movs	r3, #0
+ 8008372:	e9cd 3300 	strd	r3, r3, [sp]
+ 8008376:	2201      	movs	r2, #1
+ 8008378:	4618      	mov	r0, r3
+ 800837a:	490a      	ldr	r1, [pc, #40]	@ (80083a4 <llext_bootstrap+0x4c>)
+ 800837c:	f00f fe26 	bl	8017fcc <z_log_msg_runtime_create.constprop.0>
+ 8008380:	b005      	add	sp, #20
+ 8008382:	bdf0      	pop	{r4, r5, r6, r7, pc}
+ 8008384:	4638      	mov	r0, r7
+ 8008386:	47b0      	blx	r6
+ 8008388:	4628      	mov	r0, r5
+ 800838a:	f00f fe32 	bl	8017ff2 <llext_teardown>
+ 800838e:	2800      	cmp	r0, #0
+ 8008390:	d0f6      	beq.n	8008380 <llext_bootstrap+0x28>
+ 8008392:	4b05      	ldr	r3, [pc, #20]	@ (80083a8 <llext_bootstrap+0x50>)
+ 8008394:	9003      	str	r0, [sp, #12]
+ 8008396:	e9cd 4301 	strd	r4, r3, [sp, #4]
+ 800839a:	9400      	str	r4, [sp, #0]
+ 800839c:	4623      	mov	r3, r4
+ 800839e:	e7ea      	b.n	8008376 <llext_bootstrap+0x1e>
+ 80083a0:	08020804 	.word	0x08020804
+ 80083a4:	0801c864 	.word	0x0801c864
+ 80083a8:	08020826 	.word	0x08020826

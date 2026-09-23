@@ -33,11 +33,15 @@ Fullnormal/san1434main+178Gate PASS; actualRuntime dump bytes unchanged. Source
 3bf0da00 MATCH254156B, conditional loaderpeak258768B/largest3372B: D101-R1 modeled
 capacity blocker CLOSED. All5001frames/4096events/25Hz retained. Same7inertkeys
 reviewed/refreshed. Read P2_frame_packing_validation.md/targetaudit/review.
-Next: optional post-STOP local service-only reset/source lifetime; then calibration
-snippet delivery and remaining P2 physical-bench software. No physical gate passed.
+D103 optional local service-only reset tested/reviewed: fullnormal/san1443main+
+187Gate,34 independent configured cases and4 strict Runtime dump roundtrips PASS.
+Final1fbd7238 default/MATCH modeledpeaks261056/261448 fit with1088/696B remaining.
+Next: user-authorized bare-board inert Runtime probe/load, no external-pin I/O;
+then calibration snippet delivery and remaining P2 physical-bench software.
+No physical gate passed. Read P2_service_reset_validation.md and next probe scope.
 
 Lastknown MCU remains D0911502e948 synthetic recorder, seveninertkeys unchanged.
 Physical acceptance, loadedRAM/full800us, SC-A circuit, SC-AJ clock, nativeUART/
-localreset/calibration-snippet integration and human gates remain outstanding.
+physical localreset/calibration-snippet integration and human gates remain outstanding.
 No extra hardware requested or motor authority; no push/tag. Commit promptly
 without artificial spacing. Continue eligible software with actual evidence; never assume target success.

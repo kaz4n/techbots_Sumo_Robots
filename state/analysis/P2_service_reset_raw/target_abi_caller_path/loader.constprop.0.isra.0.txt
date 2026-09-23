@@ -1,0 +1,202 @@
+
+/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf:     file format elf32-littlearm
+
+
+Disassembly of section rom_start:
+
+Disassembly of section text:
+
+0800571c <loader.constprop.0.isra.0>:
+ 800571c:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+ 8005720:	f5ad 7d1b 	sub.w	sp, sp, #620	@ 0x26c
+ 8005724:	ad01      	add	r5, sp, #4
+ 8005726:	4629      	mov	r1, r5
+ 8005728:	2003      	movs	r0, #3
+ 800572a:	f001 fb4d 	bl	8006dc8 <flash_area_open>
+ 800572e:	4601      	mov	r1, r0
+ 8005730:	b130      	cbz	r0, 8005740 <loader.constprop.0.isra.0+0x24>
+ 8005732:	486d      	ldr	r0, [pc, #436]	@ (80058e8 <loader.constprop.0.isra.0+0x1cc>)
+ 8005734:	f011 fe4e 	bl	80173d4 <printk>
+ 8005738:	f50d 7d1b 	add.w	sp, sp, #620	@ 0x26c
+ 800573c:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+ 8005740:	ac07      	add	r4, sp, #28
+ 8005742:	2310      	movs	r3, #16
+ 8005744:	4622      	mov	r2, r4
+ 8005746:	6828      	ldr	r0, [r5, #0]
+ 8005748:	f012 faad 	bl	8017ca6 <flash_area_read>
+ 800574c:	4601      	mov	r1, r0
+ 800574e:	b108      	cbz	r0, 8005754 <loader.constprop.0.isra.0+0x38>
+ 8005750:	4866      	ldr	r0, [pc, #408]	@ (80058ec <loader.constprop.0.isra.0+0x1d0>)
+ 8005752:	e7ef      	b.n	8005734 <loader.constprop.0.isra.0+0x18>
+ 8005754:	79e3      	ldrb	r3, [r4, #7]
+ 8005756:	2b01      	cmp	r3, #1
+ 8005758:	d104      	bne.n	8005764 <loader.constprop.0.isra.0+0x48>
+ 800575a:	f242 3241 	movw	r2, #9025	@ 0x2341
+ 800575e:	89a1      	ldrh	r1, [r4, #12]
+ 8005760:	4291      	cmp	r1, r2
+ 8005762:	d003      	beq.n	800576c <loader.constprop.0.isra.0+0x50>
+ 8005764:	4862      	ldr	r0, [pc, #392]	@ (80058f0 <loader.constprop.0.isra.0+0x1d4>)
+ 8005766:	f011 fe35 	bl	80173d4 <printk>
+ 800576a:	2300      	movs	r3, #0
+ 800576c:	2200      	movs	r2, #0
+ 800576e:	4f61      	ldr	r7, [pc, #388]	@ (80058f4 <loader.constprop.0.isra.0+0x1d8>)
+ 8005770:	603a      	str	r2, [r7, #0]
+ 8005772:	4a61      	ldr	r2, [pc, #388]	@ (80058f8 <loader.constprop.0.isra.0+0x1dc>)
+ 8005774:	6811      	ldr	r1, [r2, #0]
+ 8005776:	29ba      	cmp	r1, #186	@ 0xba
+ 8005778:	bf07      	ittee	eq
+ 800577a:	4d60      	ldreq	r5, [pc, #384]	@ (80058fc <loader.constprop.0.isra.0+0x1e0>)
+ 800577c:	e9d2 6901 	ldrdeq	r6, r9, [r2, #4]
+ 8005780:	f24a 3950 	movwne	r9, #41808	@ 0xa350
+ 8005784:	f648 6698 	movwne	r6, #36504	@ 0x8e98
+ 8005788:	bf1a      	itte	ne
+ 800578a:	f8df 81a8 	ldrne.w	r8, [pc, #424]	@ 8005934 <loader.constprop.0.isra.0+0x218>
+ 800578e:	4d5c      	ldrne	r5, [pc, #368]	@ (8005900 <loader.constprop.0.isra.0+0x1e4>)
+ 8005790:	eb06 0805 	addeq.w	r8, r6, r5
+ 8005794:	b113      	cbz	r3, 800579c <loader.constprop.0.isra.0+0x80>
+ 8005796:	7ba3      	ldrb	r3, [r4, #14]
+ 8005798:	075a      	lsls	r2, r3, #29
+ 800579a:	d453      	bmi.n	8005844 <loader.constprop.0.isra.0+0x128>
+ 800579c:	230d      	movs	r3, #13
+ 800579e:	f04f 0a00 	mov.w	sl, #0
+ 80057a2:	f8df b194 	ldr.w	fp, [pc, #404]	@ 8005938 <loader.constprop.0.isra.0+0x21c>
+ 80057a6:	4957      	ldr	r1, [pc, #348]	@ (8005904 <loader.constprop.0.isra.0+0x1e8>)
+ 80057a8:	a802      	add	r0, sp, #8
+ 80057aa:	f88d 300c 	strb.w	r3, [sp, #12]
+ 80057ae:	f8cd b008 	str.w	fp, [sp, #8]
+ 80057b2:	f8ad a00e 	strh.w	sl, [sp, #14]
+ 80057b6:	f7ff ff9f 	bl	80056f8 <gpio_pin_configure_dt.constprop.0.isra.0>
+ 80057ba:	230f      	movs	r3, #15
+ 80057bc:	4952      	ldr	r1, [pc, #328]	@ (8005908 <loader.constprop.0.isra.0+0x1ec>)
+ 80057be:	a804      	add	r0, sp, #16
+ 80057c0:	f88d 3014 	strb.w	r3, [sp, #20]
+ 80057c4:	f8cd b010 	str.w	fp, [sp, #16]
+ 80057c8:	f8ad a016 	strh.w	sl, [sp, #22]
+ 80057cc:	f7ff ff94 	bl	80056f8 <gpio_pin_configure_dt.constprop.0.isra.0>
+ 80057d0:	f44f 607a 	mov.w	r0, #4000	@ 0xfa0
+ 80057d4:	2100      	movs	r1, #0
+ 80057d6:	f011 fa7e 	bl	8016cd6 <k_sleep.isra.0>
+ 80057da:	a804      	add	r0, sp, #16
+ 80057dc:	f7ff ff76 	bl	80056cc <gpio_pin_get_dt.constprop.0>
+ 80057e0:	b970      	cbnz	r0, 8005800 <loader.constprop.0.isra.0+0xe4>
+ 80057e2:	f7ff ff21 	bl	8005628 <matrixBegin>
+ 80057e6:	2008      	movs	r0, #8
+ 80057e8:	f7ff ff18 	bl	800561c <matrixSetGrayscaleBits>
+ 80057ec:	f247 2190 	movw	r1, #29328	@ 0x7290
+ 80057f0:	4846      	ldr	r0, [pc, #280]	@ (800590c <loader.constprop.0.isra.0+0x1f0>)
+ 80057f2:	f011 fa53 	bl	8016c9c <matrixPlay>
+ 80057f6:	2064      	movs	r0, #100	@ 0x64
+ 80057f8:	2100      	movs	r1, #0
+ 80057fa:	f011 fa6c 	bl	8016cd6 <k_sleep.isra.0>
+ 80057fe:	e7f5      	b.n	80057ec <loader.constprop.0.isra.0+0xd0>
+ 8005800:	a802      	add	r0, sp, #8
+ 8005802:	f7ff ff63 	bl	80056cc <gpio_pin_get_dt.constprop.0>
+ 8005806:	b9d0      	cbnz	r0, 800583e <loader.constprop.0.isra.0+0x122>
+ 8005808:	f7ff ff0e 	bl	8005628 <matrixBegin>
+ 800580c:	2008      	movs	r0, #8
+ 800580e:	f7ff ff05 	bl	800561c <matrixSetGrayscaleBits>
+ 8005812:	a802      	add	r0, sp, #8
+ 8005814:	f7ff ff5a 	bl	80056cc <gpio_pin_get_dt.constprop.0>
+ 8005818:	b318      	cbz	r0, 8005862 <loader.constprop.0.isra.0+0x146>
+ 800581a:	4649      	mov	r1, r9
+ 800581c:	4640      	mov	r0, r8
+ 800581e:	f011 fa3d 	bl	8016c9c <matrixPlay>
+ 8005822:	2268      	movs	r2, #104	@ 0x68
+ 8005824:	2100      	movs	r1, #0
+ 8005826:	a80b      	add	r0, sp, #44	@ 0x2c
+ 8005828:	f015 fd79 	bl	801b31e <memset>
+ 800582c:	a80b      	add	r0, sp, #44	@ 0x2c
+ 800582e:	f7ff fee7 	bl	8005600 <matrixGrayscaleWrite>
+ 8005832:	2064      	movs	r0, #100	@ 0x64
+ 8005834:	2100      	movs	r1, #0
+ 8005836:	f011 fa4e 	bl	8016cd6 <k_sleep.isra.0>
+ 800583a:	f7ff ff2b 	bl	8005694 <matrixEnd>
+ 800583e:	7ba3      	ldrb	r3, [r4, #14]
+ 8005840:	071b      	lsls	r3, r3, #28
+ 8005842:	d418      	bmi.n	8005876 <loader.constprop.0.isra.0+0x15a>
+ 8005844:	7ba5      	ldrb	r5, [r4, #14]
+ 8005846:	f015 0502 	ands.w	r5, r5, #2
+ 800584a:	d018      	beq.n	800587e <loader.constprop.0.isra.0+0x162>
+ 800584c:	4830      	ldr	r0, [pc, #192]	@ (8005910 <loader.constprop.0.isra.0+0x1f4>)
+ 800584e:	4b31      	ldr	r3, [pc, #196]	@ (8005914 <loader.constprop.0.isra.0+0x1f8>)
+ 8005850:	6881      	ldr	r1, [r0, #8]
+ 8005852:	4798      	blx	r3
+ 8005854:	f04f 30ff 	mov.w	r0, #4294967295	@ 0xffffffff
+ 8005858:	f04f 31ff 	mov.w	r1, #4294967295	@ 0xffffffff
+ 800585c:	f011 fa3b 	bl	8016cd6 <k_sleep.isra.0>
+ 8005860:	e7f8      	b.n	8005854 <loader.constprop.0.isra.0+0x138>
+ 8005862:	4631      	mov	r1, r6
+ 8005864:	4628      	mov	r0, r5
+ 8005866:	f011 fa19 	bl	8016c9c <matrixPlay>
+ 800586a:	e7d2      	b.n	8005812 <loader.constprop.0.isra.0+0xf6>
+ 800586c:	f44f 707a 	mov.w	r0, #1000	@ 0x3e8
+ 8005870:	2100      	movs	r1, #0
+ 8005872:	f011 fa30 	bl	8016cd6 <k_sleep.isra.0>
+ 8005876:	683b      	ldr	r3, [r7, #0]
+ 8005878:	2b00      	cmp	r3, #0
+ 800587a:	d0f7      	beq.n	800586c <loader.constprop.0.isra.0+0x150>
+ 800587c:	e7e2      	b.n	8005844 <loader.constprop.0.isra.0+0x128>
+ 800587e:	68a6      	ldr	r6, [r4, #8]
+ 8005880:	ac0b      	add	r4, sp, #44	@ 0x2c
+ 8005882:	4629      	mov	r1, r5
+ 8005884:	f44f 720f 	mov.w	r2, #572	@ 0x23c
+ 8005888:	4620      	mov	r0, r4
+ 800588a:	f015 fd48 	bl	801b31e <memset>
+ 800588e:	4b22      	ldr	r3, [pc, #136]	@ (8005918 <loader.constprop.0.isra.0+0x1fc>)
+ 8005890:	2201      	movs	r2, #1
+ 8005892:	930c      	str	r3, [sp, #48]	@ 0x30
+ 8005894:	4b21      	ldr	r3, [pc, #132]	@ (800591c <loader.constprop.0.isra.0+0x200>)
+ 8005896:	4620      	mov	r0, r4
+ 8005898:	930d      	str	r3, [sp, #52]	@ 0x34
+ 800589a:	4b21      	ldr	r3, [pc, #132]	@ (8005920 <loader.constprop.0.isra.0+0x204>)
+ 800589c:	f88d 2040 	strb.w	r2, [sp, #64]	@ 0x40
+ 80058a0:	930e      	str	r3, [sp, #56]	@ 0x38
+ 80058a2:	f04f 6301 	mov.w	r3, #135266304	@ 0x8100000
+ 80058a6:	e9cd 3697 	strd	r3, r6, [sp, #604]	@ 0x25c
+ 80058aa:	ab04      	add	r3, sp, #16
+ 80058ac:	e9c3 5500 	strd	r5, r5, [r3]
+ 80058b0:	609d      	str	r5, [r3, #8]
+ 80058b2:	ad02      	add	r5, sp, #8
+ 80058b4:	701a      	strb	r2, [r3, #0]
+ 80058b6:	491b      	ldr	r1, [pc, #108]	@ (8005924 <loader.constprop.0.isra.0+0x208>)
+ 80058b8:	462a      	mov	r2, r5
+ 80058ba:	f002 fceb 	bl	8008294 <llext_load>
+ 80058be:	4604      	mov	r4, r0
+ 80058c0:	b110      	cbz	r0, 80058c8 <loader.constprop.0.isra.0+0x1ac>
+ 80058c2:	4601      	mov	r1, r0
+ 80058c4:	4818      	ldr	r0, [pc, #96]	@ (8005928 <loader.constprop.0.isra.0+0x20c>)
+ 80058c6:	e735      	b.n	8005734 <loader.constprop.0.isra.0+0x18>
+ 80058c8:	6828      	ldr	r0, [r5, #0]
+ 80058ca:	4918      	ldr	r1, [pc, #96]	@ (800592c <loader.constprop.0.isra.0+0x210>)
+ 80058cc:	308c      	adds	r0, #140	@ 0x8c
+ 80058ce:	f002 fcb3 	bl	8008238 <llext_find_sym>
+ 80058d2:	4601      	mov	r1, r0
+ 80058d4:	b918      	cbnz	r0, 80058de <loader.constprop.0.isra.0+0x1c2>
+ 80058d6:	4816      	ldr	r0, [pc, #88]	@ (8005930 <loader.constprop.0.isra.0+0x214>)
+ 80058d8:	f011 fd7c 	bl	80173d4 <printk>
+ 80058dc:	e72c      	b.n	8005738 <loader.constprop.0.isra.0+0x1c>
+ 80058de:	4622      	mov	r2, r4
+ 80058e0:	6828      	ldr	r0, [r5, #0]
+ 80058e2:	f002 fd39 	bl	8008358 <llext_bootstrap>
+ 80058e6:	e727      	b.n	8005738 <loader.constprop.0.isra.0+0x1c>
+ 80058e8:	0801fd07 	.word	0x0801fd07
+ 80058ec:	0801fd29 	.word	0x0801fd29
+ 80058f0:	0801fd47 	.word	0x0801fd47
+ 80058f4:	40036400 	.word	0x40036400
+ 80058f8:	080d0000 	.word	0x080d0000
+ 80058fc:	080d0010 	.word	0x080d0010
+ 8005900:	08036528 	.word	0x08036528
+ 8005904:	00010020 	.word	0x00010020
+ 8005908:	00010010 	.word	0x00010010
+ 800590c:	08024f48 	.word	0x08024f48
+ 8005910:	2000112c 	.word	0x2000112c
+ 8005914:	08100011 	.word	0x08100011
+ 8005918:	0801813f 	.word	0x0801813f
+ 800591c:	08018169 	.word	0x08018169
+ 8005920:	0801817d 	.word	0x0801817d
+ 8005924:	0801f84e 	.word	0x0801f84e
+ 8005928:	0801fd5e 	.word	0x0801fd5e
+ 800592c:	080200e7 	.word	0x080200e7
+ 8005930:	0801fd7c 	.word	0x0801fd7c
+ 8005934:	0802c1d8 	.word	0x0802c1d8
+ 8005938:	0801bf8c 	.word	0x0801bf8c

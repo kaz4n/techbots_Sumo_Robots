@@ -109,7 +109,8 @@ class AppRuntimeTests(unittest.TestCase):
         sources = sorted((source / 'core').glob('*.cpp'))
         sources += [source / 'hal' / name for name in HAL]
         sources += [source / 'app/transaction.cpp', source / 'app/runtime.cpp', source / 'app/runtime_inputs.cpp',
-                    source / 'app/runtime_dump.cpp',
+                    source / 'app/runtime_dump.cpp', source / 'app/runtime_service.cpp',
+                    source / 'app/transaction_service.cpp',
                     ROOT / 'tests/test_app_runtime.cpp', ROOT / 'tests/test_app_projection.cpp',
                     NATIVE / 'allocation_probe.cc']
         args = [*self.base, '-I', source, f'-DMOTORS_ALLOWED={allowed}', f'-DMATCH={allowed}',

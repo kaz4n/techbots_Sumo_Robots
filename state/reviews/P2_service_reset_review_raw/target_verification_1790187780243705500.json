@@ -1,0 +1,347 @@
+{
+  "scope": "Independent local offline exact-source/ELF audit; no target operation",
+  "source_sha256": "1fbd72385c9a729be869bebaaabcc28b5614aa8ff23616843d7b2809a187301f",
+  "modes": {
+    "bench-default": {
+      "source_files": 87,
+      "elfs": [
+        {
+          "name": "app.ino.elf",
+          "sha256": "52e2c18e9cc5cb83ead5b2faf8356cb987daf613c55a81187bb74598d95f1b5b",
+          "imports": 176
+        },
+        {
+          "name": "app.ino_debug.elf",
+          "sha256": "5df5cfb98964a1b9a0b066c49fddd893d1df1d9020af64a2d0d84ab70efc9050",
+          "imports": 176
+        },
+        {
+          "name": "app.ino_temp.elf",
+          "sha256": "954c687ec6f11604eee3dd8744bf9b06f5d98a9300c13eca1388952f1c19db9c",
+          "imports": 176
+        }
+      ],
+      "objects": 77,
+      "metadata_files": 129,
+      "owners": {
+        "_ZN12_GLOBAL__N_17runtimeE": 166304,
+        "_ZN12_GLOBAL__N_19dump_portE": 204,
+        "_ZN12_GLOBAL__N_17sourcesE": 848
+      },
+      "initializer_refs": [
+        "",
+        "memset",
+        "",
+        "_ZN6motors8UnoQPort4portEv",
+        "_ZN3app13NativeSources7adcPortEv",
+        "_ZN3app13NativeSources4portEv",
+        "",
+        "_ZN3app12unoQDumpPortERN8recorder4dump12UnoQDumpPortE",
+        "_ZN3app7RuntimeC1ERKN6motors4PortERKN5power9InputPortERKNS_10SourcePortERKNS_8DumpPortE",
+        ""
+      ],
+      "compiler_payload": 256332,
+      "conditional_loader_peak": 261056,
+      "conditional_free_span": 1088,
+      "conditional_largest_payload": 1084,
+      "ordered_allocations": [
+        {
+          "name": "extension",
+          "chunk": 200,
+          "free_span_before": 262056
+        },
+        {
+          "name": "section_map",
+          "chunk": 128,
+          "free_span_before": 261856
+        },
+        {
+          "name": ".text",
+          "chunk": 85120,
+          "free_span_before": 261728
+        },
+        {
+          "name": ".rodata",
+          "chunk": 3808,
+          "free_span_before": 176608
+        },
+        {
+          "name": ".bss",
+          "chunk": 167416,
+          "free_span_before": 172800
+        },
+        {
+          "name": ".exported_sym",
+          "chunk": 16,
+          "free_span_before": 5384
+        },
+        {
+          "name": ".init_array",
+          "chunk": 8,
+          "free_span_before": 5368
+        },
+        {
+          "name": "global_symbols",
+          "chunk": 4256,
+          "free_span_before": 5360
+        },
+        {
+          "name": "export_copy",
+          "chunk": 16,
+          "free_span_before": 1104
+        }
+      ],
+      "source_object_changes": {
+        "added": [
+          "sketch/src/app/runtime_service.cpp.o",
+          "sketch/src/app/transaction_service.cpp.o"
+        ],
+        "removed": [],
+        "changed": {
+          "sketch/src/app/transaction.cpp.o": [
+            ".text._ZN3app11Transaction13applyDecisionEN3fsm10RobotInputEj",
+            ".text._ZN3app11Transaction13beginDecisionERj",
+            ".text._ZN3app11Transaction7observeERj",
+            ".text._ZN3app11Transaction8completeEbj",
+            ".text._ZN3app11TransactionC2ERKN6motors4PortE"
+          ],
+          "sketch/src/app/runtime.cpp.o": [
+            ".text._ZN3app7Runtime10consumeImuERKN3imu14SampleProgressE",
+            ".text._ZN3app7Runtime10publishImuERKN3imu6SampleE",
+            ".text._ZN3app7Runtime10serviceImuEv",
+            ".text._ZN3app7Runtime11acceptClockEj",
+            ".text._ZN3app7Runtime11servicePassEv",
+            ".text._ZN3app7Runtime13cancelSourcesEv",
+            ".text._ZN3app7Runtime13completeEpochEv",
+            ".text._ZN3app7Runtime13releaseChargeEv",
+            ".text._ZN3app7Runtime13rememberLinesERKN8line_qtr8SnapshotE",
+            ".text._ZN3app7Runtime13setupImuFaultEj",
+            ".text._ZN3app7Runtime17initializeSourcesEv",
+            ".text._ZN3app7Runtime4failENS_12RuntimeFaultE",
+            ".text._ZN3app7Runtime4pumpEv",
+            ".text._ZN3app7Runtime4stepEv",
+            ".text._ZN3app7Runtime5beginERKNS_11SetupGrantsE",
+            ".text._ZN3app7Runtime7acquireEv",
+            ".text._ZN3app7Runtime9countPassEv",
+            ".text._ZN3app7RuntimeC2ERKN6motors4PortERKN5power9InputPortERKNS_10SourcePortERKNS_8DumpPortE",
+            ".text._ZNK3app7Runtime11linesActiveEv",
+            ".text._ZNK3app7Runtime11linesUsefulEj"
+          ],
+          "sketch/src/hal/ui_display.cpp.o": [
+            ".text._ZN2ui13displaySampleERKN3fsm10RobotInputERKNS0_11RobotResultE",
+            ".text._ZN2ui6renderERKNS_13DisplaySampleERNS_5FrameE"
+          ],
+          "sketch/src/app/runtime_inputs.cpp.o": [
+            ".text._ZN3app7Runtime10projectImuEjj",
+            ".text._ZN3app7Runtime12postDecisionEv",
+            ".text._ZN3app7Runtime12projectLinesEjj",
+            ".text._ZN3app7Runtime14selectLineModeEv",
+            ".text._ZN3app7Runtime18clockAcceptedThunkEPv",
+            ".text._ZN3app7Runtime7displayEv",
+            ".text._ZN3app7Runtime7projectEj",
+            ".text._ZNK3app7Runtime14opponentsFreshEj"
+          ],
+          "sketch/app.ino.cpp.o": [
+            ".bss._ZN12_GLOBAL__N_17runtimeE",
+            ".text.setup"
+          ]
+        }
+      },
+      "package_sha256": "f3669eb1a24f4a93b8878fe41b7809166bcd10fffbf0b92a6c3e146419fd26ce",
+      "package_header_7_through_15": "01bcab020041230000",
+      "package_elf_payload_from_16_identical": true
+    },
+    "match-immediate": {
+      "source_files": 87,
+      "elfs": [
+        {
+          "name": "app.ino.elf",
+          "sha256": "e3d539a21a54c481ba8e8a6f91ff3551082f4f2313deaf53c12114b7c3c88bc3",
+          "imports": 176
+        },
+        {
+          "name": "app.ino_debug.elf",
+          "sha256": "1adcb08b4ef01c37d321fe9eddb772c7318d04f0799729e09a567bb23b351593",
+          "imports": 176
+        },
+        {
+          "name": "app.ino_temp.elf",
+          "sha256": "0b8e580930fc973fc8f1f830676f0963a4f1213f5cfc2538cde96d9d4cc51770",
+          "imports": 176
+        }
+      ],
+      "objects": 77,
+      "metadata_files": 129,
+      "owners": {
+        "_ZN12_GLOBAL__N_17runtimeE": 166304,
+        "_ZN12_GLOBAL__N_19dump_portE": 204,
+        "_ZN12_GLOBAL__N_17sourcesE": 848
+      },
+      "initializer_refs": [
+        "",
+        "memset",
+        "",
+        "_ZN6motors8UnoQPort4portEv",
+        "_ZN3app13NativeSources7adcPortEv",
+        "_ZN3app13NativeSources4portEv",
+        "",
+        "_ZN3app12unoQDumpPortERN8recorder4dump12UnoQDumpPortE",
+        "_ZN3app7RuntimeC1ERKN6motors4PortERKN5power9InputPortERKNS_10SourcePortERKNS_8DumpPortE",
+        ""
+      ],
+      "compiler_payload": 256716,
+      "conditional_loader_peak": 261448,
+      "conditional_free_span": 696,
+      "conditional_largest_payload": 692,
+      "ordered_allocations": [
+        {
+          "name": "extension",
+          "chunk": 200,
+          "free_span_before": 262056
+        },
+        {
+          "name": "section_map",
+          "chunk": 128,
+          "free_span_before": 261856
+        },
+        {
+          "name": ".text",
+          "chunk": 85504,
+          "free_span_before": 261728
+        },
+        {
+          "name": ".rodata",
+          "chunk": 3808,
+          "free_span_before": 176224
+        },
+        {
+          "name": ".bss",
+          "chunk": 167416,
+          "free_span_before": 172416
+        },
+        {
+          "name": ".exported_sym",
+          "chunk": 16,
+          "free_span_before": 5000
+        },
+        {
+          "name": ".init_array",
+          "chunk": 8,
+          "free_span_before": 4984
+        },
+        {
+          "name": "global_symbols",
+          "chunk": 4264,
+          "free_span_before": 4976
+        },
+        {
+          "name": "export_copy",
+          "chunk": 16,
+          "free_span_before": 712
+        }
+      ],
+      "source_object_changes": {
+        "added": [
+          "sketch/src/app/runtime_service.cpp.o",
+          "sketch/src/app/transaction_service.cpp.o"
+        ],
+        "removed": [],
+        "changed": {
+          "sketch/src/app/transaction.cpp.o": [
+            ".text._ZN3app11Transaction13applyDecisionEN3fsm10RobotInputEj",
+            ".text._ZN3app11Transaction13beginDecisionERj",
+            ".text._ZN3app11Transaction7observeERj",
+            ".text._ZN3app11Transaction8completeEbj",
+            ".text._ZN3app11TransactionC2ERKN6motors4PortE"
+          ],
+          "sketch/src/app/runtime.cpp.o": [
+            ".text._ZN3app7Runtime10consumeImuERKN3imu14SampleProgressE",
+            ".text._ZN3app7Runtime10publishImuERKN3imu6SampleE",
+            ".text._ZN3app7Runtime10serviceImuEv",
+            ".text._ZN3app7Runtime11acceptClockEj",
+            ".text._ZN3app7Runtime11servicePassEv",
+            ".text._ZN3app7Runtime13cancelSourcesEv",
+            ".text._ZN3app7Runtime13completeEpochEv",
+            ".text._ZN3app7Runtime13releaseChargeEv",
+            ".text._ZN3app7Runtime13rememberLinesERKN8line_qtr8SnapshotE",
+            ".text._ZN3app7Runtime13setupImuFaultEj",
+            ".text._ZN3app7Runtime17initializeSourcesEv",
+            ".text._ZN3app7Runtime4failENS_12RuntimeFaultE",
+            ".text._ZN3app7Runtime4pumpEv",
+            ".text._ZN3app7Runtime4stepEv",
+            ".text._ZN3app7Runtime5beginERKNS_11SetupGrantsE",
+            ".text._ZN3app7Runtime7acquireEv",
+            ".text._ZN3app7Runtime9countPassEv",
+            ".text._ZN3app7RuntimeC2ERKN6motors4PortERKN5power9InputPortERKNS_10SourcePortERKNS_8DumpPortE",
+            ".text._ZNK3app7Runtime11linesActiveEv",
+            ".text._ZNK3app7Runtime11linesUsefulEj"
+          ],
+          "sketch/src/hal/ui_display.cpp.o": [
+            ".text._ZN2ui13displaySampleERKN3fsm10RobotInputERKNS0_11RobotResultE",
+            ".text._ZN2ui6renderERKNS_13DisplaySampleERNS_5FrameE"
+          ],
+          "sketch/src/app/runtime_inputs.cpp.o": [
+            ".text._ZN3app7Runtime10projectImuEjj",
+            ".text._ZN3app7Runtime12postDecisionEv",
+            ".text._ZN3app7Runtime12projectLinesEjj",
+            ".text._ZN3app7Runtime14selectLineModeEv",
+            ".text._ZN3app7Runtime18clockAcceptedThunkEPv",
+            ".text._ZN3app7Runtime7displayEv",
+            ".text._ZN3app7Runtime7projectEj",
+            ".text._ZNK3app7Runtime14opponentsFreshEj"
+          ],
+          "sketch/app.ino.cpp.o": [
+            ".bss._ZN12_GLOBAL__N_17runtimeE",
+            ".text.setup"
+          ]
+        }
+      },
+      "package_sha256": "6672a0645b5e22210c6006133d5007b52eb69f810330c58d5ba2ce78bd047fd0",
+      "package_header_7_through_15": "019cad020041230400",
+      "package_elf_payload_from_16_identical": true
+    }
+  },
+  "stack": {
+    "bench-default": {
+      "disassembly": {
+        "fsm::Robot::reset()": "00008a98 <fsm::Robot::reset()>:\n    8a98:\te92d 4ff0 \tstmdb\tsp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}\n    8a9c:\tf6ad 2d54 \tsubw\tsp, sp, #2644\t@ 0xa54\n    8aa0:\t4e40      \tldr\tr6, [pc, #256]\t@ (8ba4 <fsm::Robot::reset()+0x10c>)\n    8aa2:\tf500 681d \tadd.w\tr8, r0, #2512\t@ 0x9d0\n    8aa6:\t4607      \tmov\tr7, r0\n    8aa8:\te958 ab02 \tldrd\tsl, fp, [r8, #-8]\n    8aac:\tf44f 6225 \tmov.w\tr2, #2640\t@ 0xa50\n    8ab0:\t2100      \tmovs\tr1, #0\n    8ab2:\t4668      \tmov\tr0, sp\n    8ab4:\t47b0      \tblx\tr6\n    8ab6:\tf04f 1301 \tmov.w\tr3, #65537\t@ 0x10001\n    8aba:\t2401      \tmovs\tr4, #1\n    8abc:\tf8df 90f0 \tldr.w\tr9, [pc, #240]\t@ 8bb0 <fsm::Robot::reset()+0x118>\n    8ac0:\t9322      \tstr\tr3, [sp, #136]\t@ 0x88\n    8ac2:\t221c      \tmovs\tr2, #28\n    8ac4:\t33ff      \tadds\tr3, #255\t@ 0xff\n    8ac6:\t2100      \tmovs\tr1, #0\n    8ac8:\ta893      \tadd\tr0, sp, #588\t@ 0x24c\n    8aca:\t932b      \tstr\tr3, [sp, #172]\t@ 0xac\n    8acc:\t9348      \tstr\tr3, [sp, #288]\t@ 0x120\n    8ace:\tf8cd 9214 \tstr.w\tr9, [sp, #532]\t@ 0x214\n    8ad2:\tf88d 41f4 \tstrb.w\tr4, [sp, #500]\t@ 0x1f4\n    8ad6:\tf88d 422a \tstrb.w\tr4, [sp, #554]\t@ 0x22a\n    8ada:\t47b0      \tblx\tr6\n    8adc:\t2270      \tmovs\tr2, #112\t@ 0x70\n    8ade:\t2100      \tmovs\tr1, #0\n    8ae0:\ta89b      \tadd\tr0, sp, #620\t@ 0x26c\n    8ae2:\t47b0      \tblx\tr6\n    8ae4:\tf04f 537e \tmov.w\tr3, #1065353216\t@ 0x3f800000\n    8ae8:\tf20d 52b4 \taddw\tr2, sp, #1460\t@ 0x5b4\n    8aec:\t6013      \tstr\tr3, [r2, #0]\n    8aee:\tf20d 626c \taddw\tr2, sp, #1644\t@ 0x66c\n    8af2:\t6013      \tstr\tr3, [r2, #0]\n    8af4:\t2302      \tmovs\tr3, #2\n    8af6:\t2500      \tmovs\tr5, #0\n    8af8:\tf88d 3684 \tstrb.w\tr3, [sp, #1668]\t@ 0x684\n    8afc:\t4b2a      \tldr\tr3, [pc, #168]\t@ (8ba8 <fsm::Robot::reset()+0x110>)\n    8afe:\t4629      \tmov\tr1, r5\n    8b00:\t22a8      \tmovs\tr2, #168\t@ 0xa8\n    8b02:\tf50d 60e8 \tadd.w\tr0, sp, #1856\t@ 0x740\n    8b06:\tf8cd 36f0 \tstr.w\tr3, [sp, #1776]\t@ 0x6f0\n    8b0a:\tf88d 4378 \tstrb.w\tr4, [sp, #888]\t@ 0x378\n    8b0e:\tf88d 43f2 \tstrb.w\tr4, [sp, #1010]\t@ 0x3f2\n    8b12:\tf88d 44f4 \tstrb.w\tr4, [sp, #1268]\t@ 0x4f4\n    8b16:\tf88d 44f9 \tstrb.w\tr4, [sp, #1273]\t@ 0x4f9\n    8b1a:\tf88d 45ac \tstrb.w\tr4, [sp, #1452]\t@ 0x5ac\n    8b1e:\tf88d 4664 \tstrb.w\tr4, [sp, #1636]\t@ 0x664\n    8b22:\tf8cd 56a8 \tstr.w\tr5, [sp, #1704]\t@ 0x6a8\n    8b26:\tf8cd 56ac \tstr.w\tr5, [sp, #1708]\t@ 0x6ac\n    8b2a:\t47b0      \tblx\tr6\n    8b2c:\t4629      \tmov\tr1, r5\n    8b2e:\t2219      \tmovs\tr2, #25\n    8b30:\tf20d 70f5 \taddw\tr0, sp, #2037\t@ 0x7f5\n    8b34:\t47b0      \tblx\tr6\n    8b36:\t4629      \tmov\tr1, r5\n    8b38:\t2218      \tmovs\tr2, #24\n    8b3a:\tf60d 104a \taddw\tr0, sp, #2378\t@ 0x94a\n    8b3e:\tf8cd 9904 \tstr.w\tr9, [sp, #2308]\t@ 0x904\n    8b42:\tf88d 4879 \tstrb.w\tr4, [sp, #2169]\t@ 0x879\n    8b46:\tf88d 490e \tstrb.w\tr4, [sp, #2318]\t@ 0x90e\n    8b4a:\tf88d 491a \tstrb.w\tr4, [sp, #2330]\t@ 0x91a\n    8b4e:\tf88d 492f \tstrb.w\tr4, [sp, #2351]\t@ 0x92f\n    8b52:\t47b0      \tblx\tr6\n    8b54:\t2300      \tmovs\tr3, #0\n    8b56:\t2201      \tmovs\tr2, #1\n    8b58:\tf8df 9058 \tldr.w\tr9, [pc, #88]\t@ 8bb4 <fsm::Robot::reset()+0x11c>\n    8b5c:\tf60d 11c8 \taddw\tr1, sp, #2504\t@ 0x9c8\n    8b60:\te9c1 2300 \tstrd\tr2, r3, [r1]\n    8b64:\tf50d 601e \tadd.w\tr0, sp, #2528\t@ 0x9e0\n    8b68:\t4629      \tmov\tr1, r5\n    8b6a:\t2210      \tmovs\tr2, #16\n    8b6c:\tf88d 4964 \tstrb.w\tr4, [sp, #2404]\t@ 0x964\n    8b70:\tf8cd 9974 \tstr.w\tr9, [sp, #2420]\t@ 0x974\n    8b74:\tf88d 49c1 \tstrb.w\tr4, [sp, #2497]\t@ 0x9c1\n    8b78:\t47b0      \tblx\tr6\n    8b7a:\t4629      \tmov\tr1, r5\n    8b7c:\t2210      \tmovs\tr2, #16\n    8b7e:\tf60d 10fc \taddw\tr0, sp, #2556\t@ 0x9fc\n    8b82:\t47b0      \tblx\tr6\n    8b84:\tf640 224b \tmovw\tr2, #2635\t@ 0xa4b\n    8b88:\t4669      \tmov\tr1, sp\n    8b8a:\t4638      \tmov\tr0, r7\n    8b8c:\t4b07      \tldr\tr3, [pc, #28]\t@ (8bac <fsm::Robot::reset()+0x114>)\n    8b8e:\tf8cd 9a2c \tstr.w\tr9, [sp, #2604]\t@ 0xa2c\n    8b92:\tf8ad 5a3a \tstrh.w\tr5, [sp, #2618]\t@ 0xa3a\n    8b96:\t4798      \tblx\tr3\n    8b98:\te948 ab02 \tstrd\tsl, fp, [r8, #-8]\n    8b9c:\tf60d 2d54 \taddw\tsp, sp, #2644\t@ 0xa54\n    8ba0:\te8bd 8ff0 \tldmia.w\tsp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}\n    8ba4:\t00000000 \t.word\t0x00000000\n    8ba8:\t01000101 \t.word\t0x01000101\n    8bac:\t00000000 \t.word\t0x00000000\n    8bb0:\t00010004 \t.word\t0x00010004\n    8bb4:\t01010100 \t.word\t0x01010100\n\n",
+        "app::Runtime::applyServiceReset()": "000020f8 <app::Runtime::applyServiceReset()>:\n    20f8:\te92d 41f3 \tstmdb\tsp!, {r0, r1, r4, r5, r6, r7, r8, lr}\n    20fc:\tf500 3420 \tadd.w\tr4, r0, #163840\t@ 0x28000\n    2100:\tf894 3561 \tldrb.w\tr3, [r4, #1377]\t@ 0x561\n    2104:\t4607      \tmov\tr7, r0\n    2106:\tb923      \tcbnz\tr3, 2112 <app::Runtime::applyServiceReset()+0x1a>\n    2108:\t2501      \tmovs\tr5, #1\n    210a:\t4628      \tmov\tr0, r5\n    210c:\tb002      \tadd\tsp, #8\n    210e:\te8bd 81f0 \tldmia.w\tsp!, {r4, r5, r6, r7, r8, pc}\n    2112:\tf04f 0800 \tmov.w\tr8, #0\n    2116:\tf241 3188 \tmovw\tr1, #5000\t@ 0x1388\n    211a:\tf884 8561 \tstrb.w\tr8, [r4, #1377]\t@ 0x561\n    211e:\tf884 8958 \tstrb.w\tr8, [r4, #2392]\t@ 0x958\n    2122:\tf500 351c \tadd.w\tr5, r0, #159744\t@ 0x27000\n    2126:\tf8d5 3958 \tldr.w\tr3, [r5, #2392]\t@ 0x958\n    212a:\tf8d4 2960 \tldr.w\tr2, [r4, #2400]\t@ 0x960\n    212e:\t1a9a      \tsubs\tr2, r3, r2\n    2130:\t428a      \tcmp\tr2, r1\n    2132:\td8e9      \tbhi.n\t2108 <app::Runtime::applyServiceReset()+0x10>\n    2134:\tf8d4 296c \tldr.w\tr2, [r4, #2412]\t@ 0x96c\n    2138:\t1a9b      \tsubs\tr3, r3, r2\n    213a:\t4543      \tcmp\tr3, r8\n    213c:\tdbe4      \tblt.n\t2108 <app::Runtime::applyServiceReset()+0x10>\n    213e:\tf500 301e \tadd.w\tr0, r0, #161792\t@ 0x27800\n    2142:\t4b21      \tldr\tr3, [pc, #132]\t@ (21c8 <app::Runtime::applyServiceReset()+0xd0>)\n    2144:\tf500 7062 \tadd.w\tr0, r0, #904\t@ 0x388\n    2148:\tf504 66a7 \tadd.w\tr6, r4, #1336\t@ 0x538\n    214c:\tf605 3598 \taddw\tr5, r5, #2968\t@ 0xb98\n    2150:\t4798      \tblx\tr3\n    2152:\tcd0f      \tldmia\tr5!, {r0, r1, r2, r3}\n    2154:\tc60f      \tstmia\tr6!, {r0, r1, r2, r3}\n    2156:\tcd0f      \tldmia\tr5!, {r0, r1, r2, r3}\n    2158:\tc60f      \tstmia\tr6!, {r0, r1, r2, r3}\n    215a:\t4b1c      \tldr\tr3, [pc, #112]\t@ (21cc <app::Runtime::applyServiceReset()+0xd4>)\n    215c:\te895 0003 \tldmia.w\tr5, {r0, r1}\n    2160:\te886 0003 \tstmia.w\tr6, {r0, r1}\n    2164:\tf107 0098 \tadd.w\tr0, r7, #152\t@ 0x98\n    2168:\t4798      \tblx\tr3\n    216a:\t4605      \tmov\tr5, r0\n    216c:\tb920      \tcbnz\tr0, 2178 <app::Runtime::applyServiceReset()+0x80>\n    216e:\t2104      \tmovs\tr1, #4\n    2170:\t4638      \tmov\tr0, r7\n    2172:\t4b17      \tldr\tr3, [pc, #92]\t@ (21d0 <app::Runtime::applyServiceReset()+0xd8>)\n    2174:\t4798      \tblx\tr3\n    2176:\te7c8      \tb.n\t210a <app::Runtime::applyServiceReset()+0x12>\n    2178:\t2301      \tmovs\tr3, #1\n    217a:\tf507 3221 \tadd.w\tr2, r7, #164864\t@ 0x28400\n    217e:\tf884 3560 \tstrb.w\tr3, [r4, #1376]\t@ 0x560\n    2182:\tf884 3562 \tstrb.w\tr3, [r4, #1378]\t@ 0x562\n    2186:\tf507 3122 \tadd.w\tr1, r7, #165888\t@ 0x28800\n    218a:\te9d1 015c \tldrd\tr0, r1, [r1, #368]\t@ 0x170\n    218e:\te9c2 015a \tstrd\tr0, r1, [r2, #360]\t@ 0x168\n    2192:\tf8b4 2978 \tldrh.w\tr2, [r4, #2424]\t@ 0x978\n    2196:\tf884 3338 \tstrb.w\tr3, [r4, #824]\t@ 0x338\n    219a:\tf8a4 2570 \tstrh.w\tr2, [r4, #1392]\t@ 0x570\n    219e:\tf894 297a \tldrb.w\tr2, [r4, #2426]\t@ 0x97a\n    21a2:\tf884 397b \tstrb.w\tr3, [r4, #2427]\t@ 0x97b\n    21a6:\t4638      \tmov\tr0, r7\n    21a8:\t4b0a      \tldr\tr3, [pc, #40]\t@ (21d4 <app::Runtime::applyServiceReset()+0xdc>)\n    21aa:\tf884 2572 \tstrb.w\tr2, [r4, #1394]\t@ 0x572\n    21ae:\tf884 833b \tstrb.w\tr8, [r4, #827]\t@ 0x33b\n    21b2:\tf8a4 8948 \tstrh.w\tr8, [r4, #2376]\t@ 0x948\n    21b6:\tf884 8956 \tstrb.w\tr8, [r4, #2390]\t@ 0x956\n    21ba:\ta901      \tadd\tr1, sp, #4\n    21bc:\tf8cd 8004 \tstr.w\tr8, [sp, #4]\n    21c0:\t4798      \tblx\tr3\n    21c2:\t4605      \tmov\tr5, r0\n    21c4:\te7a1      \tb.n\t210a <app::Runtime::applyServiceReset()+0x12>\n    21c6:\tbf00      \tnop\n\t...\n\n",
+        "app::Transaction::resetStoppedRobotForService()": "00003088 <app::Transaction::resetStoppedRobotForService()>:\n    3088:\tb5f8      \tpush\t{r3, r4, r5, r6, r7, lr}\n    308a:\t4605      \tmov\tr5, r0\n    308c:\tf600 27d8 \taddw\tr7, r0, #2776\t@ 0xad8\n    3090:\t4b1b      \tldr\tr3, [pc, #108]\t@ (3100 <app::Transaction::resetStoppedRobotForService()+0x78>)\n    3092:\t4638      \tmov\tr0, r7\n    3094:\t4798      \tblx\tr3\n    3096:\tf505 341c \tadd.w\tr4, r5, #159744\t@ 0x27000\n    309a:\tf894 38b8 \tldrb.w\tr3, [r4, #2232]\t@ 0x8b8\n    309e:\t4606      \tmov\tr6, r0\n    30a0:\t2b02      \tcmp\tr3, #2\n    30a2:\td001      \tbeq.n\t30a8 <app::Transaction::resetStoppedRobotForService()+0x20>\n    30a4:\t2000      \tmovs\tr0, #0\n    30a6:\tbdf8      \tpop\t{r3, r4, r5, r6, r7, pc}\n    30a8:\tf894 3ae3 \tldrb.w\tr3, [r4, #2787]\t@ 0xae3\n    30ac:\t2b00      \tcmp\tr3, #0\n    30ae:\td1f9      \tbne.n\t30a4 <app::Transaction::resetStoppedRobotForService()+0x1c>\n    30b0:\tf894 3ae4 \tldrb.w\tr3, [r4, #2788]\t@ 0xae4\n    30b4:\t2b01      \tcmp\tr3, #1\n    30b6:\td9f5      \tbls.n\t30a4 <app::Transaction::resetStoppedRobotForService()+0x1c>\n    30b8:\t4b12      \tldr\tr3, [pc, #72]\t@ (3104 <app::Transaction::resetStoppedRobotForService()+0x7c>)\n    30ba:\tf105 0030 \tadd.w\tr0, r5, #48\t@ 0x30\n    30be:\t4798      \tblx\tr3\n    30c0:\t2806      \tcmp\tr0, #6\n    30c2:\td1ef      \tbne.n\t30a4 <app::Transaction::resetStoppedRobotForService()+0x1c>\n    30c4:\t4b10      \tldr\tr3, [pc, #64]\t@ (3108 <app::Transaction::resetStoppedRobotForService()+0x80>)\n    30c6:\t4638      \tmov\tr0, r7\n    30c8:\t4798      \tblx\tr3\n    30ca:\tf890 305e \tldrb.w\tr3, [r0, #94]\t@ 0x5e\n    30ce:\t2b00      \tcmp\tr3, #0\n    30d0:\td1e8      \tbne.n\t30a4 <app::Transaction::resetStoppedRobotForService()+0x1c>\n    30d2:\tb10e      \tcbz\tr6, 30d8 <app::Transaction::resetStoppedRobotForService()+0x50>\n    30d4:\t2e03      \tcmp\tr6, #3\n    30d6:\td1e5      \tbne.n\t30a4 <app::Transaction::resetStoppedRobotForService()+0x1c>\n    30d8:\t4638      \tmov\tr0, r7\n    30da:\t4b0c      \tldr\tr3, [pc, #48]\t@ (310c <app::Transaction::resetStoppedRobotForService()+0x84>)\n    30dc:\t4798      \tblx\tr3\n    30de:\t4b0c      \tldr\tr3, [pc, #48]\t@ (3110 <app::Transaction::resetStoppedRobotForService()+0x88>)\n    30e0:\tf105 0088 \tadd.w\tr0, r5, #136\t@ 0x88\n    30e4:\t4798      \tblx\tr3\n    30e6:\t4b0b      \tldr\tr3, [pc, #44]\t@ (3114 <app::Transaction::resetStoppedRobotForService()+0x8c>)\n    30e8:\t222c      \tmovs\tr2, #44\t@ 0x2c\n    30ea:\t2100      \tmovs\tr1, #0\n    30ec:\tf504 602b \tadd.w\tr0, r4, #2736\t@ 0xab0\n    30f0:\t4798      \tblx\tr3\n    30f2:\t2001      \tmovs\tr0, #1\n    30f4:\t2300      \tmovs\tr3, #0\n    30f6:\tf884 0ae3 \tstrb.w\tr0, [r4, #2787]\t@ 0xae3\n    30fa:\tf884 3ae4 \tstrb.w\tr3, [r4, #2788]\t@ 0xae4\n    30fe:\te7d2      \tb.n\t30a6 <app::Transaction::resetStoppedRobotForService()+0x1e>\n\t...\n\n",
+        "app::Runtime::step()": "00001324 <app::Runtime::step()>:\n    1324:\tb57f      \tpush\t{r0, r1, r2, r3, r4, r5, r6, lr}\n    1326:\t2300      \tmovs\tr3, #0\n    1328:\tf500 3520 \tadd.w\tr5, r0, #163840\t@ 0x28000\n    132c:\tf885 333a \tstrb.w\tr3, [r5, #826]\t@ 0x33a\n    1330:\tf885 3562 \tstrb.w\tr3, [r5, #1378]\t@ 0x562\n    1334:\tf885 3578 \tstrb.w\tr3, [r5, #1400]\t@ 0x578\n    1338:\tf895 3338 \tldrb.w\tr3, [r5, #824]\t@ 0x338\n    133c:\t4604      \tmov\tr4, r0\n    133e:\t2b01      \tcmp\tr3, #1\n    1340:\td001      \tbeq.n\t1346 <app::Runtime::step()+0x22>\n    1342:\t2b04      \tcmp\tr3, #4\n    1344:\td118      \tbne.n\t1378 <app::Runtime::step()+0x54>\n    1346:\t4669      \tmov\tr1, sp\n    1348:\t4620      \tmov\tr0, r4\n    134a:\t4b38      \tldr\tr3, [pc, #224]\t@ (142c <app::Runtime::step()+0x108>)\n    134c:\t4798      \tblx\tr3\n    134e:\tb198      \tcbz\tr0, 1378 <app::Runtime::step()+0x54>\n    1350:\tf8d5 1340 \tldr.w\tr1, [r5, #832]\t@ 0x340\n    1354:\t9b00      \tldr\tr3, [sp, #0]\n    1356:\t1a5b      \tsubs\tr3, r3, r1\n    1358:\td511      \tbpl.n\t137e <app::Runtime::step()+0x5a>\n    135a:\tf895 394c \tldrb.w\tr3, [r5, #2380]\t@ 0x94c\n    135e:\tb15b      \tcbz\tr3, 1378 <app::Runtime::step()+0x54>\n    1360:\tf8d5 3988 \tldr.w\tr3, [r5, #2440]\t@ 0x988\n    1364:\t3301      \tadds\tr3, #1\n    1366:\tf5b3 3f80 \tcmp.w\tr3, #65536\t@ 0x10000\n    136a:\tf8c5 3988 \tstr.w\tr3, [r5, #2440]\t@ 0x988\n    136e:\td303      \tbcc.n\t1378 <app::Runtime::step()+0x54>\n    1370:\t2102      \tmovs\tr1, #2\n    1372:\t4620      \tmov\tr0, r4\n    1374:\t4b2e      \tldr\tr3, [pc, #184]\t@ (1430 <app::Runtime::step()+0x10c>)\n    1376:\t4798      \tblx\tr3\n    1378:\t2000      \tmovs\tr0, #0\n    137a:\tb004      \tadd\tsp, #16\n    137c:\tbd70      \tpop\t{r4, r5, r6, pc}\n    137e:\tf44f 727a \tmov.w\tr2, #1000\t@ 0x3e8\n    1382:\tfbb3 f3f2 \tudiv\tr3, r3, r2\n    1386:\tf8d5 2344 \tldr.w\tr2, [r5, #836]\t@ 0x344\n    138a:\tf104 0698 \tadd.w\tr6, r4, #152\t@ 0x98\n    138e:\t18d2      \tadds\tr2, r2, r3\n    1390:\tbf28      \tit\tcs\n    1392:\tf04f 32ff \tmovcs.w\tr2, #4294967295\t@ 0xffffffff\n    1396:\tf8c5 2344 \tstr.w\tr2, [r5, #836]\t@ 0x344\n    139a:\tf44f 727a \tmov.w\tr2, #1000\t@ 0x3e8\n    139e:\tfb03 2202 \tmla\tr2, r3, r2, r2\n    13a2:\t440a      \tadd\tr2, r1\n    13a4:\t4630      \tmov\tr0, r6\n    13a6:\t4b23      \tldr\tr3, [pc, #140]\t@ (1434 <app::Runtime::step()+0x110>)\n    13a8:\tf8c5 2340 \tstr.w\tr2, [r5, #832]\t@ 0x340\n    13ac:\t4798      \tblx\tr3\n    13ae:\tb908      \tcbnz\tr0, 13b4 <app::Runtime::step()+0x90>\n    13b0:\t2104      \tmovs\tr1, #4\n    13b2:\te7de      \tb.n\t1372 <app::Runtime::step()+0x4e>\n    13b4:\tf504 331c \tadd.w\tr3, r4, #159744\t@ 0x27000\n    13b8:\tf8d3 1958 \tldr.w\tr1, [r3, #2392]\t@ 0x958\n    13bc:\t4620      \tmov\tr0, r4\n    13be:\t4b1e      \tldr\tr3, [pc, #120]\t@ (1438 <app::Runtime::step()+0x114>)\n    13c0:\t4798      \tblx\tr3\n    13c2:\t2800      \tcmp\tr0, #0\n    13c4:\td0d4      \tbeq.n\t1370 <app::Runtime::step()+0x4c>\n    13c6:\t4620      \tmov\tr0, r4\n    13c8:\t4b1c      \tldr\tr3, [pc, #112]\t@ (143c <app::Runtime::step()+0x118>)\n    13ca:\t4798      \tblx\tr3\n    13cc:\t2800      \tcmp\tr0, #0\n    13ce:\td0d3      \tbeq.n\t1378 <app::Runtime::step()+0x54>\n    13d0:\t2300      \tmovs\tr3, #0\n    13d2:\t4620      \tmov\tr0, r4\n    13d4:\tf8c5 398c \tstr.w\tr3, [r5, #2444]\t@ 0x98c\n    13d8:\t4b19      \tldr\tr3, [pc, #100]\t@ (1440 <app::Runtime::step()+0x11c>)\n    13da:\t4798      \tblx\tr3\n    13dc:\t4620      \tmov\tr0, r4\n    13de:\t4b19      \tldr\tr3, [pc, #100]\t@ (1444 <app::Runtime::step()+0x120>)\n    13e0:\t4798      \tblx\tr3\n    13e2:\t2800      \tcmp\tr0, #0\n    13e4:\td0c8      \tbeq.n\t1378 <app::Runtime::step()+0x54>\n    13e6:\t4b18      \tldr\tr3, [pc, #96]\t@ (1448 <app::Runtime::step()+0x124>)\n    13e8:\t4630      \tmov\tr0, r6\n    13ea:\t9302      \tstr\tr3, [sp, #8]\n    13ec:\t4b17      \tldr\tr3, [pc, #92]\t@ (144c <app::Runtime::step()+0x128>)\n    13ee:\ta901      \tadd\tr1, sp, #4\n    13f0:\t9303      \tstr\tr3, [sp, #12]\n    13f2:\t4b17      \tldr\tr3, [pc, #92]\t@ (1450 <app::Runtime::step()+0x12c>)\n    13f4:\t9401      \tstr\tr4, [sp, #4]\n    13f6:\t4798      \tblx\tr3\n    13f8:\tf895 394e \tldrb.w\tr3, [r5, #2382]\t@ 0x94e\n    13fc:\tb920      \tcbnz\tr0, 1408 <app::Runtime::step()+0xe4>\n    13fe:\t2b00      \tcmp\tr3, #0\n    1400:\tbf0c      \tite\teq\n    1402:\t2104      \tmoveq\tr1, #4\n    1404:\t2102      \tmovne\tr1, #2\n    1406:\te7b4      \tb.n\t1372 <app::Runtime::step()+0x4e>\n    1408:\tb10b      \tcbz\tr3, 140e <app::Runtime::step()+0xea>\n    140a:\t2105      \tmovs\tr1, #5\n    140c:\te7b1      \tb.n\t1372 <app::Runtime::step()+0x4e>\n    140e:\t4620      \tmov\tr0, r4\n    1410:\t4b10      \tldr\tr3, [pc, #64]\t@ (1454 <app::Runtime::step()+0x130>)\n    1412:\t4798      \tblx\tr3\n    1414:\t2800      \tcmp\tr0, #0\n    1416:\td0af      \tbeq.n\t1378 <app::Runtime::step()+0x54>\n    1418:\t4620      \tmov\tr0, r4\n    141a:\t4b0f      \tldr\tr3, [pc, #60]\t@ (1458 <app::Runtime::step()+0x134>)\n    141c:\t4798      \tblx\tr3\n    141e:\t2800      \tcmp\tr0, #0\n    1420:\td0aa      \tbeq.n\t1378 <app::Runtime::step()+0x54>\n    1422:\t4620      \tmov\tr0, r4\n    1424:\t4b0d      \tldr\tr3, [pc, #52]\t@ (145c <app::Runtime::step()+0x138>)\n    1426:\t4798      \tblx\tr3\n    1428:\te7a7      \tb.n\t137a <app::Runtime::step()+0x56>\n    142a:\tbf00      \tnop\n\t...\n\n"
+      },
+      "robot_reset_local_frame_bytes": 2680,
+      "scope": "Local compiler frame only; caller/callee/interrupt headroom unmeasured"
+    },
+    "match-immediate": {
+      "disassembly": {
+        "fsm::Robot::reset()": "00008a98 <fsm::Robot::reset()>:\n    8a98:\te92d 4ff0 \tstmdb\tsp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}\n    8a9c:\tf6ad 2d54 \tsubw\tsp, sp, #2644\t@ 0xa54\n    8aa0:\t4e40      \tldr\tr6, [pc, #256]\t@ (8ba4 <fsm::Robot::reset()+0x10c>)\n    8aa2:\tf500 681d \tadd.w\tr8, r0, #2512\t@ 0x9d0\n    8aa6:\t4607      \tmov\tr7, r0\n    8aa8:\te958 ab02 \tldrd\tsl, fp, [r8, #-8]\n    8aac:\tf44f 6225 \tmov.w\tr2, #2640\t@ 0xa50\n    8ab0:\t2100      \tmovs\tr1, #0\n    8ab2:\t4668      \tmov\tr0, sp\n    8ab4:\t47b0      \tblx\tr6\n    8ab6:\tf04f 1301 \tmov.w\tr3, #65537\t@ 0x10001\n    8aba:\t2401      \tmovs\tr4, #1\n    8abc:\tf8df 90f0 \tldr.w\tr9, [pc, #240]\t@ 8bb0 <fsm::Robot::reset()+0x118>\n    8ac0:\t9322      \tstr\tr3, [sp, #136]\t@ 0x88\n    8ac2:\t221c      \tmovs\tr2, #28\n    8ac4:\t33ff      \tadds\tr3, #255\t@ 0xff\n    8ac6:\t2100      \tmovs\tr1, #0\n    8ac8:\ta893      \tadd\tr0, sp, #588\t@ 0x24c\n    8aca:\t932b      \tstr\tr3, [sp, #172]\t@ 0xac\n    8acc:\t9348      \tstr\tr3, [sp, #288]\t@ 0x120\n    8ace:\tf8cd 9214 \tstr.w\tr9, [sp, #532]\t@ 0x214\n    8ad2:\tf88d 41f4 \tstrb.w\tr4, [sp, #500]\t@ 0x1f4\n    8ad6:\tf88d 422a \tstrb.w\tr4, [sp, #554]\t@ 0x22a\n    8ada:\t47b0      \tblx\tr6\n    8adc:\t2270      \tmovs\tr2, #112\t@ 0x70\n    8ade:\t2100      \tmovs\tr1, #0\n    8ae0:\ta89b      \tadd\tr0, sp, #620\t@ 0x26c\n    8ae2:\t47b0      \tblx\tr6\n    8ae4:\tf04f 537e \tmov.w\tr3, #1065353216\t@ 0x3f800000\n    8ae8:\tf20d 52b4 \taddw\tr2, sp, #1460\t@ 0x5b4\n    8aec:\t6013      \tstr\tr3, [r2, #0]\n    8aee:\tf20d 626c \taddw\tr2, sp, #1644\t@ 0x66c\n    8af2:\t6013      \tstr\tr3, [r2, #0]\n    8af4:\t2302      \tmovs\tr3, #2\n    8af6:\t2500      \tmovs\tr5, #0\n    8af8:\tf88d 3684 \tstrb.w\tr3, [sp, #1668]\t@ 0x684\n    8afc:\t4b2a      \tldr\tr3, [pc, #168]\t@ (8ba8 <fsm::Robot::reset()+0x110>)\n    8afe:\t4629      \tmov\tr1, r5\n    8b00:\t22a8      \tmovs\tr2, #168\t@ 0xa8\n    8b02:\tf50d 60e8 \tadd.w\tr0, sp, #1856\t@ 0x740\n    8b06:\tf8cd 36f0 \tstr.w\tr3, [sp, #1776]\t@ 0x6f0\n    8b0a:\tf88d 4378 \tstrb.w\tr4, [sp, #888]\t@ 0x378\n    8b0e:\tf88d 43f2 \tstrb.w\tr4, [sp, #1010]\t@ 0x3f2\n    8b12:\tf88d 44f4 \tstrb.w\tr4, [sp, #1268]\t@ 0x4f4\n    8b16:\tf88d 44f9 \tstrb.w\tr4, [sp, #1273]\t@ 0x4f9\n    8b1a:\tf88d 45ac \tstrb.w\tr4, [sp, #1452]\t@ 0x5ac\n    8b1e:\tf88d 4664 \tstrb.w\tr4, [sp, #1636]\t@ 0x664\n    8b22:\tf8cd 56a8 \tstr.w\tr5, [sp, #1704]\t@ 0x6a8\n    8b26:\tf8cd 56ac \tstr.w\tr5, [sp, #1708]\t@ 0x6ac\n    8b2a:\t47b0      \tblx\tr6\n    8b2c:\t4629      \tmov\tr1, r5\n    8b2e:\t2219      \tmovs\tr2, #25\n    8b30:\tf20d 70f5 \taddw\tr0, sp, #2037\t@ 0x7f5\n    8b34:\t47b0      \tblx\tr6\n    8b36:\t4629      \tmov\tr1, r5\n    8b38:\t2218      \tmovs\tr2, #24\n    8b3a:\tf60d 104a \taddw\tr0, sp, #2378\t@ 0x94a\n    8b3e:\tf8cd 9904 \tstr.w\tr9, [sp, #2308]\t@ 0x904\n    8b42:\tf88d 4879 \tstrb.w\tr4, [sp, #2169]\t@ 0x879\n    8b46:\tf88d 490e \tstrb.w\tr4, [sp, #2318]\t@ 0x90e\n    8b4a:\tf88d 491a \tstrb.w\tr4, [sp, #2330]\t@ 0x91a\n    8b4e:\tf88d 492f \tstrb.w\tr4, [sp, #2351]\t@ 0x92f\n    8b52:\t47b0      \tblx\tr6\n    8b54:\t2300      \tmovs\tr3, #0\n    8b56:\t2201      \tmovs\tr2, #1\n    8b58:\tf8df 9058 \tldr.w\tr9, [pc, #88]\t@ 8bb4 <fsm::Robot::reset()+0x11c>\n    8b5c:\tf60d 11c8 \taddw\tr1, sp, #2504\t@ 0x9c8\n    8b60:\te9c1 2300 \tstrd\tr2, r3, [r1]\n    8b64:\tf50d 601e \tadd.w\tr0, sp, #2528\t@ 0x9e0\n    8b68:\t4629      \tmov\tr1, r5\n    8b6a:\t2210      \tmovs\tr2, #16\n    8b6c:\tf88d 4964 \tstrb.w\tr4, [sp, #2404]\t@ 0x964\n    8b70:\tf8cd 9974 \tstr.w\tr9, [sp, #2420]\t@ 0x974\n    8b74:\tf88d 49c1 \tstrb.w\tr4, [sp, #2497]\t@ 0x9c1\n    8b78:\t47b0      \tblx\tr6\n    8b7a:\t4629      \tmov\tr1, r5\n    8b7c:\t2210      \tmovs\tr2, #16\n    8b7e:\tf60d 10fc \taddw\tr0, sp, #2556\t@ 0x9fc\n    8b82:\t47b0      \tblx\tr6\n    8b84:\tf640 224b \tmovw\tr2, #2635\t@ 0xa4b\n    8b88:\t4669      \tmov\tr1, sp\n    8b8a:\t4638      \tmov\tr0, r7\n    8b8c:\t4b07      \tldr\tr3, [pc, #28]\t@ (8bac <fsm::Robot::reset()+0x114>)\n    8b8e:\tf8cd 9a2c \tstr.w\tr9, [sp, #2604]\t@ 0xa2c\n    8b92:\tf8ad 5a3a \tstrh.w\tr5, [sp, #2618]\t@ 0xa3a\n    8b96:\t4798      \tblx\tr3\n    8b98:\te948 ab02 \tstrd\tsl, fp, [r8, #-8]\n    8b9c:\tf60d 2d54 \taddw\tsp, sp, #2644\t@ 0xa54\n    8ba0:\te8bd 8ff0 \tldmia.w\tsp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}\n    8ba4:\t00000000 \t.word\t0x00000000\n    8ba8:\t01000101 \t.word\t0x01000101\n    8bac:\t00000000 \t.word\t0x00000000\n    8bb0:\t00010004 \t.word\t0x00010004\n    8bb4:\t01010100 \t.word\t0x01010100\n\n",
+        "app::Runtime::applyServiceReset()": "000020f8 <app::Runtime::applyServiceReset()>:\n    20f8:\te92d 41f3 \tstmdb\tsp!, {r0, r1, r4, r5, r6, r7, r8, lr}\n    20fc:\tf500 3420 \tadd.w\tr4, r0, #163840\t@ 0x28000\n    2100:\tf894 3561 \tldrb.w\tr3, [r4, #1377]\t@ 0x561\n    2104:\t4607      \tmov\tr7, r0\n    2106:\tb923      \tcbnz\tr3, 2112 <app::Runtime::applyServiceReset()+0x1a>\n    2108:\t2501      \tmovs\tr5, #1\n    210a:\t4628      \tmov\tr0, r5\n    210c:\tb002      \tadd\tsp, #8\n    210e:\te8bd 81f0 \tldmia.w\tsp!, {r4, r5, r6, r7, r8, pc}\n    2112:\tf04f 0800 \tmov.w\tr8, #0\n    2116:\tf241 3188 \tmovw\tr1, #5000\t@ 0x1388\n    211a:\tf884 8561 \tstrb.w\tr8, [r4, #1377]\t@ 0x561\n    211e:\tf884 8958 \tstrb.w\tr8, [r4, #2392]\t@ 0x958\n    2122:\tf500 351c \tadd.w\tr5, r0, #159744\t@ 0x27000\n    2126:\tf8d5 3958 \tldr.w\tr3, [r5, #2392]\t@ 0x958\n    212a:\tf8d4 2960 \tldr.w\tr2, [r4, #2400]\t@ 0x960\n    212e:\t1a9a      \tsubs\tr2, r3, r2\n    2130:\t428a      \tcmp\tr2, r1\n    2132:\td8e9      \tbhi.n\t2108 <app::Runtime::applyServiceReset()+0x10>\n    2134:\tf8d4 296c \tldr.w\tr2, [r4, #2412]\t@ 0x96c\n    2138:\t1a9b      \tsubs\tr3, r3, r2\n    213a:\t4543      \tcmp\tr3, r8\n    213c:\tdbe4      \tblt.n\t2108 <app::Runtime::applyServiceReset()+0x10>\n    213e:\tf500 301e \tadd.w\tr0, r0, #161792\t@ 0x27800\n    2142:\t4b21      \tldr\tr3, [pc, #132]\t@ (21c8 <app::Runtime::applyServiceReset()+0xd0>)\n    2144:\tf500 7062 \tadd.w\tr0, r0, #904\t@ 0x388\n    2148:\tf504 66a7 \tadd.w\tr6, r4, #1336\t@ 0x538\n    214c:\tf605 3598 \taddw\tr5, r5, #2968\t@ 0xb98\n    2150:\t4798      \tblx\tr3\n    2152:\tcd0f      \tldmia\tr5!, {r0, r1, r2, r3}\n    2154:\tc60f      \tstmia\tr6!, {r0, r1, r2, r3}\n    2156:\tcd0f      \tldmia\tr5!, {r0, r1, r2, r3}\n    2158:\tc60f      \tstmia\tr6!, {r0, r1, r2, r3}\n    215a:\t4b1c      \tldr\tr3, [pc, #112]\t@ (21cc <app::Runtime::applyServiceReset()+0xd4>)\n    215c:\te895 0003 \tldmia.w\tr5, {r0, r1}\n    2160:\te886 0003 \tstmia.w\tr6, {r0, r1}\n    2164:\tf107 0098 \tadd.w\tr0, r7, #152\t@ 0x98\n    2168:\t4798      \tblx\tr3\n    216a:\t4605      \tmov\tr5, r0\n    216c:\tb920      \tcbnz\tr0, 2178 <app::Runtime::applyServiceReset()+0x80>\n    216e:\t2104      \tmovs\tr1, #4\n    2170:\t4638      \tmov\tr0, r7\n    2172:\t4b17      \tldr\tr3, [pc, #92]\t@ (21d0 <app::Runtime::applyServiceReset()+0xd8>)\n    2174:\t4798      \tblx\tr3\n    2176:\te7c8      \tb.n\t210a <app::Runtime::applyServiceReset()+0x12>\n    2178:\t2301      \tmovs\tr3, #1\n    217a:\tf507 3221 \tadd.w\tr2, r7, #164864\t@ 0x28400\n    217e:\tf884 3560 \tstrb.w\tr3, [r4, #1376]\t@ 0x560\n    2182:\tf884 3562 \tstrb.w\tr3, [r4, #1378]\t@ 0x562\n    2186:\tf507 3122 \tadd.w\tr1, r7, #165888\t@ 0x28800\n    218a:\te9d1 015c \tldrd\tr0, r1, [r1, #368]\t@ 0x170\n    218e:\te9c2 015a \tstrd\tr0, r1, [r2, #360]\t@ 0x168\n    2192:\tf8b4 2978 \tldrh.w\tr2, [r4, #2424]\t@ 0x978\n    2196:\tf884 3338 \tstrb.w\tr3, [r4, #824]\t@ 0x338\n    219a:\tf8a4 2570 \tstrh.w\tr2, [r4, #1392]\t@ 0x570\n    219e:\tf894 297a \tldrb.w\tr2, [r4, #2426]\t@ 0x97a\n    21a2:\tf884 397b \tstrb.w\tr3, [r4, #2427]\t@ 0x97b\n    21a6:\t4638      \tmov\tr0, r7\n    21a8:\t4b0a      \tldr\tr3, [pc, #40]\t@ (21d4 <app::Runtime::applyServiceReset()+0xdc>)\n    21aa:\tf884 2572 \tstrb.w\tr2, [r4, #1394]\t@ 0x572\n    21ae:\tf884 833b \tstrb.w\tr8, [r4, #827]\t@ 0x33b\n    21b2:\tf8a4 8948 \tstrh.w\tr8, [r4, #2376]\t@ 0x948\n    21b6:\tf884 8956 \tstrb.w\tr8, [r4, #2390]\t@ 0x956\n    21ba:\ta901      \tadd\tr1, sp, #4\n    21bc:\tf8cd 8004 \tstr.w\tr8, [sp, #4]\n    21c0:\t4798      \tblx\tr3\n    21c2:\t4605      \tmov\tr5, r0\n    21c4:\te7a1      \tb.n\t210a <app::Runtime::applyServiceReset()+0x12>\n    21c6:\tbf00      \tnop\n\t...\n\n",
+        "app::Transaction::resetStoppedRobotForService()": "00003088 <app::Transaction::resetStoppedRobotForService()>:\n    3088:\tb5f8      \tpush\t{r3, r4, r5, r6, r7, lr}\n    308a:\t4605      \tmov\tr5, r0\n    308c:\tf600 27d8 \taddw\tr7, r0, #2776\t@ 0xad8\n    3090:\t4b1b      \tldr\tr3, [pc, #108]\t@ (3100 <app::Transaction::resetStoppedRobotForService()+0x78>)\n    3092:\t4638      \tmov\tr0, r7\n    3094:\t4798      \tblx\tr3\n    3096:\tf505 341c \tadd.w\tr4, r5, #159744\t@ 0x27000\n    309a:\tf894 38b8 \tldrb.w\tr3, [r4, #2232]\t@ 0x8b8\n    309e:\t4606      \tmov\tr6, r0\n    30a0:\t2b02      \tcmp\tr3, #2\n    30a2:\td001      \tbeq.n\t30a8 <app::Transaction::resetStoppedRobotForService()+0x20>\n    30a4:\t2000      \tmovs\tr0, #0\n    30a6:\tbdf8      \tpop\t{r3, r4, r5, r6, r7, pc}\n    30a8:\tf894 3ae3 \tldrb.w\tr3, [r4, #2787]\t@ 0xae3\n    30ac:\t2b00      \tcmp\tr3, #0\n    30ae:\td1f9      \tbne.n\t30a4 <app::Transaction::resetStoppedRobotForService()+0x1c>\n    30b0:\tf894 3ae4 \tldrb.w\tr3, [r4, #2788]\t@ 0xae4\n    30b4:\t2b01      \tcmp\tr3, #1\n    30b6:\td9f5      \tbls.n\t30a4 <app::Transaction::resetStoppedRobotForService()+0x1c>\n    30b8:\t4b12      \tldr\tr3, [pc, #72]\t@ (3104 <app::Transaction::resetStoppedRobotForService()+0x7c>)\n    30ba:\tf105 0030 \tadd.w\tr0, r5, #48\t@ 0x30\n    30be:\t4798      \tblx\tr3\n    30c0:\t2806      \tcmp\tr0, #6\n    30c2:\td1ef      \tbne.n\t30a4 <app::Transaction::resetStoppedRobotForService()+0x1c>\n    30c4:\t4b10      \tldr\tr3, [pc, #64]\t@ (3108 <app::Transaction::resetStoppedRobotForService()+0x80>)\n    30c6:\t4638      \tmov\tr0, r7\n    30c8:\t4798      \tblx\tr3\n    30ca:\tf890 305e \tldrb.w\tr3, [r0, #94]\t@ 0x5e\n    30ce:\t2b00      \tcmp\tr3, #0\n    30d0:\td1e8      \tbne.n\t30a4 <app::Transaction::resetStoppedRobotForService()+0x1c>\n    30d2:\tb10e      \tcbz\tr6, 30d8 <app::Transaction::resetStoppedRobotForService()+0x50>\n    30d4:\t2e03      \tcmp\tr6, #3\n    30d6:\td1e5      \tbne.n\t30a4 <app::Transaction::resetStoppedRobotForService()+0x1c>\n    30d8:\t4638      \tmov\tr0, r7\n    30da:\t4b0c      \tldr\tr3, [pc, #48]\t@ (310c <app::Transaction::resetStoppedRobotForService()+0x84>)\n    30dc:\t4798      \tblx\tr3\n    30de:\t4b0c      \tldr\tr3, [pc, #48]\t@ (3110 <app::Transaction::resetStoppedRobotForService()+0x88>)\n    30e0:\tf105 0088 \tadd.w\tr0, r5, #136\t@ 0x88\n    30e4:\t4798      \tblx\tr3\n    30e6:\t4b0b      \tldr\tr3, [pc, #44]\t@ (3114 <app::Transaction::resetStoppedRobotForService()+0x8c>)\n    30e8:\t222c      \tmovs\tr2, #44\t@ 0x2c\n    30ea:\t2100      \tmovs\tr1, #0\n    30ec:\tf504 602b \tadd.w\tr0, r4, #2736\t@ 0xab0\n    30f0:\t4798      \tblx\tr3\n    30f2:\t2001      \tmovs\tr0, #1\n    30f4:\t2300      \tmovs\tr3, #0\n    30f6:\tf884 0ae3 \tstrb.w\tr0, [r4, #2787]\t@ 0xae3\n    30fa:\tf884 3ae4 \tstrb.w\tr3, [r4, #2788]\t@ 0xae4\n    30fe:\te7d2      \tb.n\t30a6 <app::Transaction::resetStoppedRobotForService()+0x1e>\n\t...\n\n",
+        "app::Runtime::step()": "00001324 <app::Runtime::step()>:\n    1324:\tb57f      \tpush\t{r0, r1, r2, r3, r4, r5, r6, lr}\n    1326:\t2300      \tmovs\tr3, #0\n    1328:\tf500 3520 \tadd.w\tr5, r0, #163840\t@ 0x28000\n    132c:\tf885 333a \tstrb.w\tr3, [r5, #826]\t@ 0x33a\n    1330:\tf885 3562 \tstrb.w\tr3, [r5, #1378]\t@ 0x562\n    1334:\tf885 3578 \tstrb.w\tr3, [r5, #1400]\t@ 0x578\n    1338:\tf895 3338 \tldrb.w\tr3, [r5, #824]\t@ 0x338\n    133c:\t4604      \tmov\tr4, r0\n    133e:\t2b01      \tcmp\tr3, #1\n    1340:\td001      \tbeq.n\t1346 <app::Runtime::step()+0x22>\n    1342:\t2b04      \tcmp\tr3, #4\n    1344:\td118      \tbne.n\t1378 <app::Runtime::step()+0x54>\n    1346:\t4669      \tmov\tr1, sp\n    1348:\t4620      \tmov\tr0, r4\n    134a:\t4b38      \tldr\tr3, [pc, #224]\t@ (142c <app::Runtime::step()+0x108>)\n    134c:\t4798      \tblx\tr3\n    134e:\tb198      \tcbz\tr0, 1378 <app::Runtime::step()+0x54>\n    1350:\tf8d5 1340 \tldr.w\tr1, [r5, #832]\t@ 0x340\n    1354:\t9b00      \tldr\tr3, [sp, #0]\n    1356:\t1a5b      \tsubs\tr3, r3, r1\n    1358:\td511      \tbpl.n\t137e <app::Runtime::step()+0x5a>\n    135a:\tf895 394c \tldrb.w\tr3, [r5, #2380]\t@ 0x94c\n    135e:\tb15b      \tcbz\tr3, 1378 <app::Runtime::step()+0x54>\n    1360:\tf8d5 3988 \tldr.w\tr3, [r5, #2440]\t@ 0x988\n    1364:\t3301      \tadds\tr3, #1\n    1366:\tf5b3 3f80 \tcmp.w\tr3, #65536\t@ 0x10000\n    136a:\tf8c5 3988 \tstr.w\tr3, [r5, #2440]\t@ 0x988\n    136e:\td303      \tbcc.n\t1378 <app::Runtime::step()+0x54>\n    1370:\t2102      \tmovs\tr1, #2\n    1372:\t4620      \tmov\tr0, r4\n    1374:\t4b2e      \tldr\tr3, [pc, #184]\t@ (1430 <app::Runtime::step()+0x10c>)\n    1376:\t4798      \tblx\tr3\n    1378:\t2000      \tmovs\tr0, #0\n    137a:\tb004      \tadd\tsp, #16\n    137c:\tbd70      \tpop\t{r4, r5, r6, pc}\n    137e:\tf44f 727a \tmov.w\tr2, #1000\t@ 0x3e8\n    1382:\tfbb3 f3f2 \tudiv\tr3, r3, r2\n    1386:\tf8d5 2344 \tldr.w\tr2, [r5, #836]\t@ 0x344\n    138a:\tf104 0698 \tadd.w\tr6, r4, #152\t@ 0x98\n    138e:\t18d2      \tadds\tr2, r2, r3\n    1390:\tbf28      \tit\tcs\n    1392:\tf04f 32ff \tmovcs.w\tr2, #4294967295\t@ 0xffffffff\n    1396:\tf8c5 2344 \tstr.w\tr2, [r5, #836]\t@ 0x344\n    139a:\tf44f 727a \tmov.w\tr2, #1000\t@ 0x3e8\n    139e:\tfb03 2202 \tmla\tr2, r3, r2, r2\n    13a2:\t440a      \tadd\tr2, r1\n    13a4:\t4630      \tmov\tr0, r6\n    13a6:\t4b23      \tldr\tr3, [pc, #140]\t@ (1434 <app::Runtime::step()+0x110>)\n    13a8:\tf8c5 2340 \tstr.w\tr2, [r5, #832]\t@ 0x340\n    13ac:\t4798      \tblx\tr3\n    13ae:\tb908      \tcbnz\tr0, 13b4 <app::Runtime::step()+0x90>\n    13b0:\t2104      \tmovs\tr1, #4\n    13b2:\te7de      \tb.n\t1372 <app::Runtime::step()+0x4e>\n    13b4:\tf504 331c \tadd.w\tr3, r4, #159744\t@ 0x27000\n    13b8:\tf8d3 1958 \tldr.w\tr1, [r3, #2392]\t@ 0x958\n    13bc:\t4620      \tmov\tr0, r4\n    13be:\t4b1e      \tldr\tr3, [pc, #120]\t@ (1438 <app::Runtime::step()+0x114>)\n    13c0:\t4798      \tblx\tr3\n    13c2:\t2800      \tcmp\tr0, #0\n    13c4:\td0d4      \tbeq.n\t1370 <app::Runtime::step()+0x4c>\n    13c6:\t4620      \tmov\tr0, r4\n    13c8:\t4b1c      \tldr\tr3, [pc, #112]\t@ (143c <app::Runtime::step()+0x118>)\n    13ca:\t4798      \tblx\tr3\n    13cc:\t2800      \tcmp\tr0, #0\n    13ce:\td0d3      \tbeq.n\t1378 <app::Runtime::step()+0x54>\n    13d0:\t2300      \tmovs\tr3, #0\n    13d2:\t4620      \tmov\tr0, r4\n    13d4:\tf8c5 398c \tstr.w\tr3, [r5, #2444]\t@ 0x98c\n    13d8:\t4b19      \tldr\tr3, [pc, #100]\t@ (1440 <app::Runtime::step()+0x11c>)\n    13da:\t4798      \tblx\tr3\n    13dc:\t4620      \tmov\tr0, r4\n    13de:\t4b19      \tldr\tr3, [pc, #100]\t@ (1444 <app::Runtime::step()+0x120>)\n    13e0:\t4798      \tblx\tr3\n    13e2:\t2800      \tcmp\tr0, #0\n    13e4:\td0c8      \tbeq.n\t1378 <app::Runtime::step()+0x54>\n    13e6:\t4b18      \tldr\tr3, [pc, #96]\t@ (1448 <app::Runtime::step()+0x124>)\n    13e8:\t4630      \tmov\tr0, r6\n    13ea:\t9302      \tstr\tr3, [sp, #8]\n    13ec:\t4b17      \tldr\tr3, [pc, #92]\t@ (144c <app::Runtime::step()+0x128>)\n    13ee:\ta901      \tadd\tr1, sp, #4\n    13f0:\t9303      \tstr\tr3, [sp, #12]\n    13f2:\t4b17      \tldr\tr3, [pc, #92]\t@ (1450 <app::Runtime::step()+0x12c>)\n    13f4:\t9401      \tstr\tr4, [sp, #4]\n    13f6:\t4798      \tblx\tr3\n    13f8:\tf895 394e \tldrb.w\tr3, [r5, #2382]\t@ 0x94e\n    13fc:\tb920      \tcbnz\tr0, 1408 <app::Runtime::step()+0xe4>\n    13fe:\t2b00      \tcmp\tr3, #0\n    1400:\tbf0c      \tite\teq\n    1402:\t2104      \tmoveq\tr1, #4\n    1404:\t2102      \tmovne\tr1, #2\n    1406:\te7b4      \tb.n\t1372 <app::Runtime::step()+0x4e>\n    1408:\tb10b      \tcbz\tr3, 140e <app::Runtime::step()+0xea>\n    140a:\t2105      \tmovs\tr1, #5\n    140c:\te7b1      \tb.n\t1372 <app::Runtime::step()+0x4e>\n    140e:\t4620      \tmov\tr0, r4\n    1410:\t4b10      \tldr\tr3, [pc, #64]\t@ (1454 <app::Runtime::step()+0x130>)\n    1412:\t4798      \tblx\tr3\n    1414:\t2800      \tcmp\tr0, #0\n    1416:\td0af      \tbeq.n\t1378 <app::Runtime::step()+0x54>\n    1418:\t4620      \tmov\tr0, r4\n    141a:\t4b0f      \tldr\tr3, [pc, #60]\t@ (1458 <app::Runtime::step()+0x134>)\n    141c:\t4798      \tblx\tr3\n    141e:\t2800      \tcmp\tr0, #0\n    1420:\td0aa      \tbeq.n\t1378 <app::Runtime::step()+0x54>\n    1422:\t4620      \tmov\tr0, r4\n    1424:\t4b0d      \tldr\tr3, [pc, #52]\t@ (145c <app::Runtime::step()+0x138>)\n    1426:\t4798      \tblx\tr3\n    1428:\te7a7      \tb.n\t137a <app::Runtime::step()+0x56>\n    142a:\tbf00      \tnop\n\t...\n\n"
+      },
+      "robot_reset_local_frame_bytes": 2680,
+      "scope": "Local compiler frame only; caller/callee/interrupt headroom unmeasured"
+    }
+  },
+  "mode_object_changes": {
+    "added": [],
+    "removed": [],
+    "changed": {
+      "sketch/src/hal/motors.cpp.o": [
+        ".text._ZN6motors9MotorGate8transactERKN4core7OutputsERN3fsm12PreviousTickE"
+      ],
+      "sketch/src/hal/motor_port_unoq.cpp.o": [
+        ".text._ZN6motors8UnoQPort11writeEnableEPvb",
+        ".text._ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj"
+      ]
+    }
+  },
+  "same_seven_keys_preserved": true,
+  "refreshed_keys_match_review": false,
+  "loader_primary_hashes": {
+    "state/analysis/P2_memory_validation_raw/llext.h": "5d15bc00eb1deb62d20bd034d5b2b69d012e66df1b3af86ac9c4020d287ee7e8",
+    "state/analysis/P2_memory_validation_raw/llext_mem.c": "97c24d9430bee01bf2125d73be0ab51477973345315c20df14b61794b528c894",
+    "state/analysis/P2_memory_validation_raw/llext_load.c": "68c999737ed275a4bb81801d571fc044a2db0ef760d21214d9a34b4f7b388413"
+  },
+  "limits": "No measured loadedRAM, total stack, WCET, UART/physical/gate/upload authority"
+}

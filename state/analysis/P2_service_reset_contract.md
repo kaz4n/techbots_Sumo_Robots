@@ -157,3 +157,27 @@ Physical A1/grants/UART, loadedRAM/stack/full800us and all human gates remain
 pending. Physical reset/restart for a later match is separate from this inhibited
 service lifetime. Calibration-snippet delivery and bench software remain next;
 this task does not claim the full project or physical B8 is finished.
+
+## Source-continuity clarification, before independent test freeze
+
+Retain the qualified release's actual A1 evidence across Robot.reset. The first
+post-reset acquisition must preserve the existing forward source completion and
+sequence checks, and its source-start gap from that release must be no greater
+than BUTTON_SAMPLE_MAX_AGE_US. Resetting Robot must not erase this continuity
+requirement. An eligible pending S at 5000us may perform the real reset, yet a
+subsequent delayed first acquisition can still fail the source-gap check. In that
+case retain the actual source payload and reset-fresh pulse, perform the real
+inhibited Robot/Gate step, then terminally fail Runtime without fabricating C.
+Pending-intent admission and successful first-source admission are separate.
+The inherited D087 decision-to-decision delta must also remain <=5000us across
+this reset, independently of source-start continuity. See
+P2_button_routing_contract.md, Robot admission and continuity, lines49-59.
+An accepted next S cannot erase either existing history bound; equality permits
+that bound, while one microsecond beyond it fails the post-reset admission.
+
+The MODE hold is observed complete only when actual MODE source completion is
+on/after qualified MODE decision plus BTN_LONG_MS; a later decision alone cannot
+qualify an earlier sample. Release first observed at the deadline cancels.
+Unexpected service core faults are terminal, except the expected retained
+LINE_CONTRACT from genuine CONTROL+ABSENT during the second STOP/tail. That tail
+still completes once and then becomes passive; its diagnostic is never cleared.

@@ -1,0 +1,117 @@
+
+/home/arduino/sumox26_codex_build/_app_builds/native-app-v1/1fbd72385c9a729be869bebaaabcc28b5614aa8ff23616843d7b2809a187301f/bench-default/147ff7c62e974466a115cc42e75a5637/build/app.ino.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00001324 <_ZN3app7Runtime4stepEv>:
+    1324:	b57f      	push	{r0, r1, r2, r3, r4, r5, r6, lr}
+    1326:	2300      	movs	r3, #0
+    1328:	f500 3520 	add.w	r5, r0, #163840	@ 0x28000
+    132c:	f885 333a 	strb.w	r3, [r5, #826]	@ 0x33a
+    1330:	f885 3562 	strb.w	r3, [r5, #1378]	@ 0x562
+    1334:	f885 3578 	strb.w	r3, [r5, #1400]	@ 0x578
+    1338:	f895 3338 	ldrb.w	r3, [r5, #824]	@ 0x338
+    133c:	4604      	mov	r4, r0
+    133e:	2b01      	cmp	r3, #1
+    1340:	d001      	beq.n	1346 <_ZN3app7Runtime4stepEv+0x22>
+    1342:	2b04      	cmp	r3, #4
+    1344:	d118      	bne.n	1378 <_ZN3app7Runtime4stepEv+0x54>
+    1346:	4669      	mov	r1, sp
+    1348:	4620      	mov	r0, r4
+    134a:	4b38      	ldr	r3, [pc, #224]	@ (142c <_ZN3app7Runtime4stepEv+0x108>)
+    134c:	4798      	blx	r3
+    134e:	b198      	cbz	r0, 1378 <_ZN3app7Runtime4stepEv+0x54>
+    1350:	f8d5 1340 	ldr.w	r1, [r5, #832]	@ 0x340
+    1354:	9b00      	ldr	r3, [sp, #0]
+    1356:	1a5b      	subs	r3, r3, r1
+    1358:	d511      	bpl.n	137e <_ZN3app7Runtime4stepEv+0x5a>
+    135a:	f895 394c 	ldrb.w	r3, [r5, #2380]	@ 0x94c
+    135e:	b15b      	cbz	r3, 1378 <_ZN3app7Runtime4stepEv+0x54>
+    1360:	f8d5 3988 	ldr.w	r3, [r5, #2440]	@ 0x988
+    1364:	3301      	adds	r3, #1
+    1366:	f5b3 3f80 	cmp.w	r3, #65536	@ 0x10000
+    136a:	f8c5 3988 	str.w	r3, [r5, #2440]	@ 0x988
+    136e:	d303      	bcc.n	1378 <_ZN3app7Runtime4stepEv+0x54>
+    1370:	2102      	movs	r1, #2
+    1372:	4620      	mov	r0, r4
+    1374:	4b2e      	ldr	r3, [pc, #184]	@ (1430 <_ZN3app7Runtime4stepEv+0x10c>)
+    1376:	4798      	blx	r3
+    1378:	2000      	movs	r0, #0
+    137a:	b004      	add	sp, #16
+    137c:	bd70      	pop	{r4, r5, r6, pc}
+    137e:	f44f 727a 	mov.w	r2, #1000	@ 0x3e8
+    1382:	fbb3 f3f2 	udiv	r3, r3, r2
+    1386:	f8d5 2344 	ldr.w	r2, [r5, #836]	@ 0x344
+    138a:	f104 0698 	add.w	r6, r4, #152	@ 0x98
+    138e:	18d2      	adds	r2, r2, r3
+    1390:	bf28      	it	cs
+    1392:	f04f 32ff 	movcs.w	r2, #4294967295	@ 0xffffffff
+    1396:	f8c5 2344 	str.w	r2, [r5, #836]	@ 0x344
+    139a:	f44f 727a 	mov.w	r2, #1000	@ 0x3e8
+    139e:	fb03 2202 	mla	r2, r3, r2, r2
+    13a2:	440a      	add	r2, r1
+    13a4:	4630      	mov	r0, r6
+    13a6:	4b23      	ldr	r3, [pc, #140]	@ (1434 <_ZN3app7Runtime4stepEv+0x110>)
+    13a8:	f8c5 2340 	str.w	r2, [r5, #832]	@ 0x340
+    13ac:	4798      	blx	r3
+    13ae:	b908      	cbnz	r0, 13b4 <_ZN3app7Runtime4stepEv+0x90>
+    13b0:	2104      	movs	r1, #4
+    13b2:	e7de      	b.n	1372 <_ZN3app7Runtime4stepEv+0x4e>
+    13b4:	f504 331c 	add.w	r3, r4, #159744	@ 0x27000
+    13b8:	f8d3 1958 	ldr.w	r1, [r3, #2392]	@ 0x958
+    13bc:	4620      	mov	r0, r4
+    13be:	4b1e      	ldr	r3, [pc, #120]	@ (1438 <_ZN3app7Runtime4stepEv+0x114>)
+    13c0:	4798      	blx	r3
+    13c2:	2800      	cmp	r0, #0
+    13c4:	d0d4      	beq.n	1370 <_ZN3app7Runtime4stepEv+0x4c>
+    13c6:	4620      	mov	r0, r4
+    13c8:	4b1c      	ldr	r3, [pc, #112]	@ (143c <_ZN3app7Runtime4stepEv+0x118>)
+    13ca:	4798      	blx	r3
+    13cc:	2800      	cmp	r0, #0
+    13ce:	d0d3      	beq.n	1378 <_ZN3app7Runtime4stepEv+0x54>
+    13d0:	2300      	movs	r3, #0
+    13d2:	4620      	mov	r0, r4
+    13d4:	f8c5 398c 	str.w	r3, [r5, #2444]	@ 0x98c
+    13d8:	4b19      	ldr	r3, [pc, #100]	@ (1440 <_ZN3app7Runtime4stepEv+0x11c>)
+    13da:	4798      	blx	r3
+    13dc:	4620      	mov	r0, r4
+    13de:	4b19      	ldr	r3, [pc, #100]	@ (1444 <_ZN3app7Runtime4stepEv+0x120>)
+    13e0:	4798      	blx	r3
+    13e2:	2800      	cmp	r0, #0
+    13e4:	d0c8      	beq.n	1378 <_ZN3app7Runtime4stepEv+0x54>
+    13e6:	4b18      	ldr	r3, [pc, #96]	@ (1448 <_ZN3app7Runtime4stepEv+0x124>)
+    13e8:	4630      	mov	r0, r6
+    13ea:	9302      	str	r3, [sp, #8]
+    13ec:	4b17      	ldr	r3, [pc, #92]	@ (144c <_ZN3app7Runtime4stepEv+0x128>)
+    13ee:	a901      	add	r1, sp, #4
+    13f0:	9303      	str	r3, [sp, #12]
+    13f2:	4b17      	ldr	r3, [pc, #92]	@ (1450 <_ZN3app7Runtime4stepEv+0x12c>)
+    13f4:	9401      	str	r4, [sp, #4]
+    13f6:	4798      	blx	r3
+    13f8:	f895 394e 	ldrb.w	r3, [r5, #2382]	@ 0x94e
+    13fc:	b920      	cbnz	r0, 1408 <_ZN3app7Runtime4stepEv+0xe4>
+    13fe:	2b00      	cmp	r3, #0
+    1400:	bf0c      	ite	eq
+    1402:	2104      	moveq	r1, #4
+    1404:	2102      	movne	r1, #2
+    1406:	e7b4      	b.n	1372 <_ZN3app7Runtime4stepEv+0x4e>
+    1408:	b10b      	cbz	r3, 140e <_ZN3app7Runtime4stepEv+0xea>
+    140a:	2105      	movs	r1, #5
+    140c:	e7b1      	b.n	1372 <_ZN3app7Runtime4stepEv+0x4e>
+    140e:	4620      	mov	r0, r4
+    1410:	4b10      	ldr	r3, [pc, #64]	@ (1454 <_ZN3app7Runtime4stepEv+0x130>)
+    1412:	4798      	blx	r3
+    1414:	2800      	cmp	r0, #0
+    1416:	d0af      	beq.n	1378 <_ZN3app7Runtime4stepEv+0x54>
+    1418:	4620      	mov	r0, r4
+    141a:	4b0f      	ldr	r3, [pc, #60]	@ (1458 <_ZN3app7Runtime4stepEv+0x134>)
+    141c:	4798      	blx	r3
+    141e:	2800      	cmp	r0, #0
+    1420:	d0aa      	beq.n	1378 <_ZN3app7Runtime4stepEv+0x54>
+    1422:	4620      	mov	r0, r4
+    1424:	4b0d      	ldr	r3, [pc, #52]	@ (145c <_ZN3app7Runtime4stepEv+0x138>)
+    1426:	4798      	blx	r3
+    1428:	e7a7      	b.n	137a <_ZN3app7Runtime4stepEv+0x56>
+    142a:	bf00      	nop
+	...

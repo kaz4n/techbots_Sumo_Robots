@@ -470,3 +470,9 @@ F112 final software disposition 2026-09-23T16:49:58+04:00: fresh separate same-m
 | ID | Question | Observed answer | Source | Confidence | Hardware-checked |
 |---|---|---|---|---|---|
 | F-126 | Does lossless status packing resolve D101's modeled loader deficit? | Yes for exact85-file3bf0da00: default253772/MATCH254156B compilerpayload; modeledpeaks258376/258768 fit262144. ActualDWARF FrameBuffer126300/align4,3752B smaller; MATCHnetloader saves3632B. Fullnormal/san1434main+178Gate and freshreview PASS; serializedRuntime dump bytes unchanged. | analysis/P2_frame_packing_validation.md,target_audit.md,raw; reviews/P2_frame_packing_review.md/raw | TARGET-COMPILED/ABI-VERIFIED/INDEPENDENT-REVIEW-PASS; D101-R1 model scope CLOSED | Board Linux compile/offlineELF only. No actual load/freeRAM/WCET/MCU/physical/human gate. |
+
+## D103 inhibited local service reset,2026-09-23
+
+| ID | Question | Observed answer | Source | Confidence | Hardware-checked |
+|---|---|---|---|---|---|
+| F-127 | Does the optional actual STOP-to-service lifetime preserve inhibition and retained evidence, and fit the target? | Fullnormal/san1443main+187Gate, independent34 configured cases,4 strict real-Runtime host roundtrips and freshreview PASS.87-file1fbd7238 default/MATCH compile256332/256716B; conditional peaks261056/261448 fit262144 with1088/696B remaining spans. TargetRuntime166304B/Robot2640B; reset ownstack2680B, reserved mainstack32768B. | analysis/P2_service_reset_validation.md,contract.md,target_audit.md,raw; reviews/P2_service_reset_review.md/raw | IMPLEMENTED/HOST-TESTED/TARGET-COMPILED/INDEPENDENT-REVIEW-PASS within scope | Board Linux compile/offlineELF only; no actual load/availableRAM/stackhighwater/full800us/nativeUART/source recovery/motor/physical/human gate. |

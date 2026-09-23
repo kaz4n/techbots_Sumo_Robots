@@ -68,7 +68,7 @@ class AppTransactionTests(unittest.TestCase):
     def build(self, label, allowed, probe=False):
         sources = sorted((self.source / 'core').glob('*.cpp'))
         sources += [self.source / 'hal' / p for p in ('motors.cpp', 'recorder.cpp', 'recorder_frames.cpp')]
-        sources += [self.source / 'app/transaction.cpp']
+        sources += [self.source / 'app/transaction.cpp', self.source / 'app/transaction_service.cpp']
         args = [*self.base, f'-DMOTORS_ALLOWED={allowed}', f'-DMATCH={allowed}']
         if probe:
             folder = self.stage / label

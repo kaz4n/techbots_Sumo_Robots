@@ -1,0 +1,18 @@
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_app_service_reset.cpp:264:83: error: macro "CAPTURE" passed 12 arguments, but takes just 1
+  264 |             rig.robot().contract_faults, int(rig.owner.adcInputs().report().fault));
+      |                                                                                   ^
+In file included from /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_app_service_reset.cpp:4:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/host/third_party/doctest.h:2954: note: macro "CAPTURE" defined here
+ 2954 | #define CAPTURE(x) DOCTEST_CAPTURE(x)
+      | 
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_app_service_reset.cpp: In function ‘void DOCTEST_ANON_FUNC_242()’:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_app_service_reset.cpp:260:9: error: ‘CAPTURE’ was not declared in this scope
+  260 |         CAPTURE(source, old_decision, old_completion, actual_source_gap,
+      |         ^~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_app_service_reset.cpp:256:20: error: unused variable ‘old_decision’ [-Werror=unused-variable]
+  256 |         const auto old_decision = rig.owner.transaction().report().decision_us;
+      |                    ^~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_app_service_reset.cpp:257:20: error: unused variable ‘old_completion’ [-Werror=unused-variable]
+  257 |         const auto old_completion = rig.owner.transaction().report().completed_us;
+      |                    ^~~~~~~~~~~~~~
+cc1plus: all warnings being treated as errors

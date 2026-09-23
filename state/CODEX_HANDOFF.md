@@ -1,3 +1,28 @@
+## Active checkpoint - 2026-09-23T22:27:00+04:00
+
+D103 optional local post-STOP service-only reset is implemented, host-tested,
+target-compiled and separately reviewed. Read analysis/P2_service_reset_validation.md,
+contract, target_audit/raw and reviews/P2_service_reset_review.md/raw. All default
+app grants remain false; one opt-in Robot-only reset preserves GateSTOPPED,
+recording, clocks and native source suspension. No motion rearm.
+
+Finalsource1fbd7238 default/MATCH static256332/256716B, conditional loaderpeaks
+261056/261448B fit262144 narrowly (remaining1088/696B). Actual load/stack/full800us
+remain unmeasured. Fullnormal/san1443main+187Gate PASS;34 independent configured
+cases and4 actual-Runtime strict host dump roundtrips PASS. Same7 inertkeys
+reviewed/refreshed, no addedkey or app upload. Original failed attempts retained.
+
+User newly confirmed UNOQ alone and authorized testing; ADB2629958581 observed.
+Next eligible task: narrow no-pin Runtime inert probe/load/capture, per incoming
+P2_runtime_inert_options.md. Existing app MotorGate configures external pins even
+MOTORS_ALLOWED0, so do not upload it as a no-pin probe. Freeze new probe contract,
+independent tests and exact source/capture review before any upload. Last MCU
+still D0911502e948. Then calibration-snippet and remaining physical-bench software.
+All physical/PINMAP/EXPLAINED/human gates and P3-P7 remain open. No push/tag or
+motor-run authority. User resumed; continue eligible work promptly.
+
+--- Earlier checkpoints below are historical ---
+
 ## Active checkpoint - 2026-09-23T21:58:00+04:00
 
 D102 lossless frame/status packing implemented, host-tested, target-compiled

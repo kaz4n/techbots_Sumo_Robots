@@ -1,0 +1,77 @@
+
+/home/arduino/sumox26_codex_build/_app_builds/native-app-v1/1fbd72385c9a729be869bebaaabcc28b5614aa8ff23616843d7b2809a187301f/bench-default/147ff7c62e974466a115cc42e75a5637/build/app.ino.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+000020f8 <_ZN3app7Runtime17applyServiceResetEv>:
+    20f8:	e92d 41f3 	stmdb	sp!, {r0, r1, r4, r5, r6, r7, r8, lr}
+    20fc:	f500 3420 	add.w	r4, r0, #163840	@ 0x28000
+    2100:	f894 3561 	ldrb.w	r3, [r4, #1377]	@ 0x561
+    2104:	4607      	mov	r7, r0
+    2106:	b923      	cbnz	r3, 2112 <_ZN3app7Runtime17applyServiceResetEv+0x1a>
+    2108:	2501      	movs	r5, #1
+    210a:	4628      	mov	r0, r5
+    210c:	b002      	add	sp, #8
+    210e:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+    2112:	f04f 0800 	mov.w	r8, #0
+    2116:	f241 3188 	movw	r1, #5000	@ 0x1388
+    211a:	f884 8561 	strb.w	r8, [r4, #1377]	@ 0x561
+    211e:	f884 8958 	strb.w	r8, [r4, #2392]	@ 0x958
+    2122:	f500 351c 	add.w	r5, r0, #159744	@ 0x27000
+    2126:	f8d5 3958 	ldr.w	r3, [r5, #2392]	@ 0x958
+    212a:	f8d4 2960 	ldr.w	r2, [r4, #2400]	@ 0x960
+    212e:	1a9a      	subs	r2, r3, r2
+    2130:	428a      	cmp	r2, r1
+    2132:	d8e9      	bhi.n	2108 <_ZN3app7Runtime17applyServiceResetEv+0x10>
+    2134:	f8d4 296c 	ldr.w	r2, [r4, #2412]	@ 0x96c
+    2138:	1a9b      	subs	r3, r3, r2
+    213a:	4543      	cmp	r3, r8
+    213c:	dbe4      	blt.n	2108 <_ZN3app7Runtime17applyServiceResetEv+0x10>
+    213e:	f500 301e 	add.w	r0, r0, #161792	@ 0x27800
+    2142:	4b21      	ldr	r3, [pc, #132]	@ (21c8 <_ZN3app7Runtime17applyServiceResetEv+0xd0>)
+    2144:	f500 7062 	add.w	r0, r0, #904	@ 0x388
+    2148:	f504 66a7 	add.w	r6, r4, #1336	@ 0x538
+    214c:	f605 3598 	addw	r5, r5, #2968	@ 0xb98
+    2150:	4798      	blx	r3
+    2152:	cd0f      	ldmia	r5!, {r0, r1, r2, r3}
+    2154:	c60f      	stmia	r6!, {r0, r1, r2, r3}
+    2156:	cd0f      	ldmia	r5!, {r0, r1, r2, r3}
+    2158:	c60f      	stmia	r6!, {r0, r1, r2, r3}
+    215a:	4b1c      	ldr	r3, [pc, #112]	@ (21cc <_ZN3app7Runtime17applyServiceResetEv+0xd4>)
+    215c:	e895 0003 	ldmia.w	r5, {r0, r1}
+    2160:	e886 0003 	stmia.w	r6, {r0, r1}
+    2164:	f107 0098 	add.w	r0, r7, #152	@ 0x98
+    2168:	4798      	blx	r3
+    216a:	4605      	mov	r5, r0
+    216c:	b920      	cbnz	r0, 2178 <_ZN3app7Runtime17applyServiceResetEv+0x80>
+    216e:	2104      	movs	r1, #4
+    2170:	4638      	mov	r0, r7
+    2172:	4b17      	ldr	r3, [pc, #92]	@ (21d0 <_ZN3app7Runtime17applyServiceResetEv+0xd8>)
+    2174:	4798      	blx	r3
+    2176:	e7c8      	b.n	210a <_ZN3app7Runtime17applyServiceResetEv+0x12>
+    2178:	2301      	movs	r3, #1
+    217a:	f507 3221 	add.w	r2, r7, #164864	@ 0x28400
+    217e:	f884 3560 	strb.w	r3, [r4, #1376]	@ 0x560
+    2182:	f884 3562 	strb.w	r3, [r4, #1378]	@ 0x562
+    2186:	f507 3122 	add.w	r1, r7, #165888	@ 0x28800
+    218a:	e9d1 015c 	ldrd	r0, r1, [r1, #368]	@ 0x170
+    218e:	e9c2 015a 	strd	r0, r1, [r2, #360]	@ 0x168
+    2192:	f8b4 2978 	ldrh.w	r2, [r4, #2424]	@ 0x978
+    2196:	f884 3338 	strb.w	r3, [r4, #824]	@ 0x338
+    219a:	f8a4 2570 	strh.w	r2, [r4, #1392]	@ 0x570
+    219e:	f894 297a 	ldrb.w	r2, [r4, #2426]	@ 0x97a
+    21a2:	f884 397b 	strb.w	r3, [r4, #2427]	@ 0x97b
+    21a6:	4638      	mov	r0, r7
+    21a8:	4b0a      	ldr	r3, [pc, #40]	@ (21d4 <_ZN3app7Runtime17applyServiceResetEv+0xdc>)
+    21aa:	f884 2572 	strb.w	r2, [r4, #1394]	@ 0x572
+    21ae:	f884 833b 	strb.w	r8, [r4, #827]	@ 0x33b
+    21b2:	f8a4 8948 	strh.w	r8, [r4, #2376]	@ 0x948
+    21b6:	f884 8956 	strb.w	r8, [r4, #2390]	@ 0x956
+    21ba:	a901      	add	r1, sp, #4
+    21bc:	f8cd 8004 	str.w	r8, [sp, #4]
+    21c0:	4798      	blx	r3
+    21c2:	4605      	mov	r5, r0
+    21c4:	e7a1      	b.n	210a <_ZN3app7Runtime17applyServiceResetEv+0x12>
+    21c6:	bf00      	nop
+	...

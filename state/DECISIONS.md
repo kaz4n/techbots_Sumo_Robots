@@ -1351,3 +1351,10 @@ app/display fields. A second STOP tails then becomes permanently passive.
 Consequence: explicitly extends D096 terminal passivity only for opt-in; unchanged
 core STOP/default-off tests and no native rearm. Independent tests/target memory/
 review required. No physical fact/gate, wiring, upload or motor authority follows.
+
+D-103 clarification (2026-09-23, before independent test freeze): preserve first
+post-reset A1 source continuity across Robot.reset, separately from pending-S
+admission. A real reset followed by stale first acquisition remains an actual
+reset pulse plus terminal Runtime fault, never a fabricated successful epoch.
+Use actual MODE source completion for the hold deadline. Preserve the expected
+absent-line fault on the second real STOP tail. See the contract addendum.

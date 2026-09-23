@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "status": "CLARIFICATIONS_RECOMMENDED_BEFORE_ADOPTION",
+  "created_utc": "2026-09-23T21:32:46.3480707Z",
+  "draft_sha256": "e24b276b89e84032f5df0edf24f564c0624abe26fe359fcc89ab67b86588cb8f",
+  "report_sha256": "2c4d39abbf85ea69ce7e96695adfabf219d9326024f216a8515a5374bb8c1044",
+  "implementation_bodies_read": false,
+  "executable_tests_authored": false,
+  "hardware_access": false,
+  "independent_context": "Reused independent author; not fresh repository or cross-model",
+  "public_sources": [
+    "state/analysis/P2_dump_receiver_arm_contract_draft.md",
+    "state/analysis/P2_dump_contract.md",
+    "tests/tooling/test_dump_match.py"
+  ],
+  "recommended_clarifications": [
+    "Literal strict record/result/error schemas",
+    "Live process/socket identity loss versus invalid stored identity",
+    "Incomplete claim publication and final success/failure evidence",
+    "Public exact END-observation predicate"
+  ],
+  "coordinator_selected_edges": [
+    "Bounded proc snapshot 1MiB/4096rows",
+    "Before/after live and directory identity comparison",
+    "Post-recv deadline equality with all returned bytes retained",
+    "Deferred metadata failure preserves existing transport primary"
+  ]
+}

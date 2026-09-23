@@ -1,0 +1,26 @@
+{
+  "utc": "2026-09-23T21:36:12.628477+00:00",
+  "candidate_sha256": "524c030033cf845c65256b357ce104b3a16020f9eed2d5158a6fec4ad7c44194",
+  "closed": [
+    "C1 exact schemas, atomic no-replace/no-follow file admission, representable metadata-error envelope",
+    "C2 bounded namespace snapshot, exact claimed-row filtering, before/after process/fd/directory identity",
+    "C3 opt-in post-recv timeout priority, prefix emission, final query-before-yield and deferred error"
+  ],
+  "open": [
+    {
+      "id": "F1",
+      "severity": "MAJOR",
+      "reference": "contract:351-353; tools/validate_csv_bundle.py:300; tools/dump_match.py:181",
+      "issue": "New target255 bound admits identities rejected by unchanged128 capture/manifest bounds",
+      "minimal_fix": "Choose128 for new path; do not widen existing interfaces."
+    },
+    {
+      "id": "F2",
+      "severity": "MAJOR",
+      "reference": "contract:391",
+      "issue": "All monotonic times<=observed includes future deadline, forbidding live PENDING/CONNECTED",
+      "minimal_fix": "Enumerate observed event times started/claimed/connected/closed only; deadline retains separate derivation/range/state checks."
+    }
+  ],
+  "scope": "Read-only candidate/source/API preflight only; no implementation or execution approval."
+}

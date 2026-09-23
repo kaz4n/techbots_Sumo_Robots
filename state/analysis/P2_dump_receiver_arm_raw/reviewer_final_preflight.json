@@ -1,0 +1,45 @@
+{
+  "verdict": "PASS_SCOPED_D113_CONTRACT_PREFLIGHT",
+  "utc": "2026-09-23T21:36:53.312588+00:00",
+  "contract_sha256": "09d67ef3b64b9ec9e20f6068a6877dd111aa132bdc59bf41cd6b82e9f48c573f",
+  "source_sha256": {
+    "tools/dump_match.py": "e1fd5f02c6c7ca9a1542cdfade2af3f51d8a490a1301ca6af59a38b22975b168",
+    "tools/board_tool.py": "91716ebeadeb1bcbb466342cf01f28ec56c384442e8d9ed553d9d3234d1885e9",
+    "tools/validate_csv_bundle.py": "1c4781fdd0f77a610998644db610bf6adf5a2373d4f32f3ec7ca486185ff52f2",
+    "tests/tooling/test_dump_match.py": "06c5bf9997d627d85eeb7c2eff9a4448f1267a7e67cf6cea068333491c21a67a",
+    "state/analysis/P2_dump_raw/native/router/internal/monitorapi/monitor-api.go": "23ed289c4a4e2ffe3d09ec88b0b9ef10bca390a6b5534dd2a9a95af56ba67663"
+  },
+  "closed_findings": [
+    {
+      "id": "C1",
+      "disposition": "Exact claim/connected/terminal/public/error schemas, numeric/time bounds, strict validation, atomic exclusive publication through stable no-follow handles and distinct metadata diagnostic branch are defined."
+    },
+    {
+      "id": "C2",
+      "disposition": "Single claimed-process read: stat64KiB, IPv4 namespace TCP table1MiB/4096rows, filter exact inode/endpoints, no unrelated rows retained; before/after PID/fd/directory identities and explicit UNKNOWN on loss/unavailable/oversized."
+    },
+    {
+      "id": "C3",
+      "disposition": "Opt-in post-recv TIMEOUT precedence over END, exact chunk emission and byte/line limits, close/terminal failures, final query before yielding with deferred error and receive/parser priority preserve prefix and actual diagnostics."
+    },
+    {
+      "id": "F1",
+      "disposition": "New target bound narrowed to128 to preserve existing capture/CSV schema; no validator change."
+    },
+    {
+      "id": "F2",
+      "disposition": "Observed event timestamps only must precede observation; future deadline explicitly excluded and separately validated."
+    }
+  ],
+  "open_findings": [],
+  "exact_final_delta": "524c0300 ->09d67ef3 changes only target255 to128 and future-deadline exception; previous snapshot and findings retained.",
+  "need_minimality": "Two receive/observe modes retain existing blocking transport; no reservation, Popen supervisor, router RPC, application send or new background manager. Claim remains sampled TCP-established only.",
+  "implementation_checks": [
+    "Do not equate mon/connected or TCP handshake with exact router registration.",
+    "Parse strict metadata and body output independently; preserve both receive outcome and final query evidence.",
+    "If buffered receive already failed, preserve that primary error even if Parser also fails while consuming prefix.",
+    "Retain the unchanged legacy/offline path and tests; new profile/input validation occurs before transport.",
+    "Exact runtime byte/timeout/identity behavior and exception paths require implementation tests before approval."
+  ],
+  "limits": "Read-only local source/API contract preflight, reused same-model reviewer. No production/test edits, board/socket/process/service action, implementation approval, upload, MCU authority, UART framing proof or human gate. No new tests executed for a contract-only review."
+}

@@ -1,0 +1,22 @@
+--- 524c0300
++++ 09d67ef3
+@@ -349,7 +349,7 @@
+ 
+ This appendix resolves C1-C3 and supersedes any less-specific draft prose above.
+ Invalid public ticket is ValueError before I/O. Opt-in target must match the
+-existing transport's target syntax and be at most255 ASCII characters; timeout
++existing transport's target syntax and be at most128 ASCII characters; timeout
+ is an integer (not bool)1..3600. These bounds apply only to the new path. With no
+ ticket, all existing APIs/argv/behavior remain unchanged.
+ 
+@@ -388,7 +388,9 @@
+ transport/target/timeout are explicit validated command arguments. Current boot
+ and UID must match before accepting a claim. Inability to read boot/UID safely is
+ CONNECTION_METADATA. Each query samples observed monotonic/UTC at its conclusion;
+-all retained record monotonic times must be <=observed. /proc stat data reads
++retained started/claimed/connected/closed event times must be <=observed.
++The deadline is excluded from that event-time rule: its exact derivation/range
++and state-selection checks still apply, including a future live deadline. /proc stat data reads
+ are capped at64KiB each; process-start parsing accounts for spaces/parentheses in
+ comm. Live checking is limited to the one claimed PID, its recorded fd and one
+ IPv4 /proc/<pid>/net/tcp snapshot capped at1MiB/4096data rows. A missing/denied/

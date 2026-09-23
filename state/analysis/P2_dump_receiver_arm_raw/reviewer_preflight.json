@@ -1,0 +1,45 @@
+{
+  "verdict": "HOLD_DRAFT_FREEZE_PENDING_LITERAL_CLARIFICATIONS",
+  "utc": "2026-09-23T21:31:33.463156+00:00",
+  "source_sha256": {
+    "state/analysis/P2_dump_receiver_arm_contract_draft.md": "e24b276b89e84032f5df0edf24f564c0624abe26fe359fcc89ab67b86588cb8f",
+    "tools/dump_match.py": "e1fd5f02c6c7ca9a1542cdfade2af3f51d8a490a1301ca6af59a38b22975b168",
+    "tools/board_tool.py": "91716ebeadeb1bcbb466342cf01f28ec56c384442e8d9ed553d9d3234d1885e9",
+    "tests/tooling/test_dump_match.py": "06c5bf9997d627d85eeb7c2eff9a4448f1267a7e67cf6cea068333491c21a67a",
+    "state/analysis/P2_dump_raw/native/router/internal/monitorapi/monitor-api.go": "23ed289c4a4e2ffe3d09ec88b0b9ef10bca390a6b5534dd2a9a95af56ba67663",
+    "state/analysis/P2_dump_raw/native/router_sources_receipt.json": "f3fe017e5ab117b0309f78fcbaf39216a11107cee8adaddcfcca46db13752c2b",
+    "state/analysis/P2_native_dump_bare_feasibility.md": "2ab9cfcb878ad8effc1143128792488155e823e662ca13302b318f682cb02767"
+  },
+  "findings": [
+    {
+      "id": "C1",
+      "severity": "MAJOR",
+      "reference": "draft:56-94,124-153",
+      "issue": "Strict immutable schemas, types, bounds and observer result are not literally defined; independent tests cannot freeze the same interface.",
+      "resolution": "Add exact claim/connected/terminal/result key sets, nested identity equality, number units/ranges including bool/NaN refusal, nullable records, state/error precedence, and directory/file metadata admission. Define atomic no-replace publication through verified directory handles."
+    },
+    {
+      "id": "C2",
+      "severity": "MAJOR",
+      "reference": "draft:115-120,128-130",
+      "issue": "Exact ESTABLISHED fd/inode verification usually reads a namespace-wide /proc/<pid>/net/tcp table, conflicting with the unrelated-sockets prohibition and lacking a bounded parse.",
+      "resolution": "Permit only a capped IPv4 table read filtered to claimed inode and recorded endpoints; expose no unrelated rows, send no netlink/RPC probes. For example cap at1MiB and4096 rows, UNKNOWN on overflow/unavailable. Pin directory/file handles with no-follow reads; bracket PID start/state, claimed fd link and path device/inode checks so replacement/reuse cannot silently rebind the ticket. No broad fd scan."
+    },
+    {
+      "id": "C3",
+      "severity": "MAJOR",
+      "reference": "draft:80-87,109-111,147-163",
+      "issue": "Overall deadline is stated but late recv return/END precedence is not explicit, and metadata failure ordering must preserve already received payload before generator failure.",
+      "resolution": "For opt-in only, specify post-recv monotonic budget check and TIMEOUT at/after deadline even with END; retain actual bounded payload prefix. Receipt close/terminal bookkeeping may follow expiry without extending receive eligibility. Final retrieval failure is recorded then raised only after available complete base64 fragments have been yielded/persisted; never replace an earlier receive/parser failure or publish a valid END after failed transport. Keep legacy no-ticket path unchanged."
+    }
+  ],
+  "need_minimality": "Two modes suffice for sampled TCP connection evidence with existing blocking board.remote. A printed marker cannot be observed early through subprocess.run. No reservation lifecycle or streaming/background transport framework is necessary. This does not close exact router registration or UART framing prerequisites.",
+  "verified": [
+    "Pinned monitor source accepts then inserts the connection; connect completion does not acknowledge insertion.",
+    "mon/connected is only len(sockets)>0 and cannot distinguish the existing socat client.",
+    "All four Monitor methods are unsuitable as a new exact receiver registration acknowledgement; no RPC is needed here.",
+    "Receive-only socket plus immutable Linux receipts adds no intentional MCU payload/reset/service action.",
+    "Fresh UUID remains caller obligation; current boot/PID/fd evidence is sampled, not an atomic lease or authenticated MCU identity."
+  ],
+  "limits": "Draft/API/source preflight only, reused same-model reviewer. No implementation/tests executed; no board, socket, process control, upload, service or ledger changes. Cached source/package relationship is not a reproducible binary proof."
+}

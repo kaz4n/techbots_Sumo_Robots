@@ -1,3 +1,17 @@
+## Active checkpoint - 2026-09-24T01:37:57.185244+04:00
+
+D112 finite A1 bench committedd8a5bf5 with full scoped software review PASS;
+remaining bare ADC/motor-stand prerequisites committed191046f.
+D113 receive-only TCP connection evidence contract adopted after both preflights.
+Next separate tests/implementation in tools/dump_match.py, unchanged legacy tests,
+then independent source/host review. Root owns docs/ledgers and any later smoke
+scope. Receipt proves sampled TCP only, never router registration/clean framing.
+Read P2_dump_receiver_arm_contract.md and raw/adoption.json.
+
+A separately reviewed bare ADC diagnostic is eligible in principle; no D114/run
+adopted yet. Full B7 conflicts with retained R6. Current MCU remains D1042bd817c4;
+no new upload/reset/run or physical/human gates. P2 software remains active.
+
 ## Active checkpoint - 2026-09-24T01:28:12.831153+04:00
 
 D112 finite A1 raw/decoder bench is complete in software.30 executable profiles,

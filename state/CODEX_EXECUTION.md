@@ -89,3 +89,7 @@ D112 A1 raw/decoder bench: IMPLEMENTED/HOST-TESTED/TARGET-COMPILED/REVIEW-PASS.
 conditionalpeak17128; F136/validation/final scoped review. No physical B6 claim.
 Next D113 minimal TCP-attachment receipt draft/preflight, not adopted; no router
 registration/clean-framing grant follows. Remaining stand-bench software follows.
+
+D113 adopted: minimal receive-only TCP connection ticket/observer in existing dump tool.
+Next independent frozen tests/implementation/source review. D112d8a5bf5 complete;
+ADC/stand feasibility191046f. No actual new board/MCU action. See handoff/contracts.

@@ -1392,3 +1392,12 @@ D-105 before-test-freeze clarification: preserve D101 invalid-receipt Transfer
 step suppression and failed-epoch/public-abort cleanup without fabricated C.
 Freeze refusal/cancel/failure phase mapping and unavailable-port disposition
 in the contract; no change to existing D101/D103 safety or timing rules.
+
+D-105 test-author clarification before Runtime test freeze: a chronologically
+forward but expired now-D>=TICK_US is CONTEXT, matching stale admission; reverse/
+half-range clocks are TIME_ORDER. Preserve literal phase mapping above.
+
+## D-106 (2026-09-23, selected under D051/D075) One installed native pin table
+Context: D105 default modeled loader peak263112 exceeds262144 by968 bytes. Four native consumers retain identical560-byte installed tables.
+Decision: adopt P2_pin_table_contract.md; one lifetime-stable const table/count definition derived from installed wiring_private.h, with unchanged native bounds, metadata, grants, operation order and errors.
+Consequence: require independent cross-unit tests, unchanged native suites, exact table/relocation/import/startup and ordered loader audits. No pin/config/core-installation change, hardware approval, upload or relaxed assertion. Gross1680-byte removal is not a measured net-fit result.

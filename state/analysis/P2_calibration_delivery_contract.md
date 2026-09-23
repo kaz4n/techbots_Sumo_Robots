@@ -61,7 +61,10 @@ source/receipt/context failure or bank change cancels an ACTIVE export once.
 A refusal that never became ACTIVE must not cancel/poison the shared port.
 
 Time comes only from actual clock observations inside S..C. Fresh context age
-now-D must be<TICK_US; real D/application/now/C ordering remains inherited.
+now-D must be<TICK_US; a forward but expired age>=TICK_US is CONTEXT
+(REFUSED before ACTIVE, CANCELLED during ACTIVE), not a chronology failure.
+Backward/half-range observations remain TIME_ORDER/global Runtime clock faults.
+Real D/application/now/C ordering remains inherited.
 During ACTIVE, tokens must advance exactly1 and decision timestamps strictly
 forward below half-range; global clock regression remains Runtime's fault.
 An identical repeated token/time must never offer more bytes. Invalid context

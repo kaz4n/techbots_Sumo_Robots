@@ -1358,3 +1358,16 @@ admission. A real reset followed by stale first acquisition remains an actual
 reset pulse plus terminal Runtime fault, never a fabricated successful epoch.
 Use actual MODE source completion for the hold deadline. Preserve the expected
 absent-line fault on the second real STOP tail. See the contract addendum.
+
+## D-104 (2026-09-23, selected under D051/D075) Bare-board Runtime load probe
+Context: D1031b1d77d passes software/target review; actual loaded Runtime remains
+unmeasured. The user freshly confirms UNOQ alone and authorizes testing. Normal
+app configures proposed motor pins even with output inhibited, so it is unsuitable
+for a no-pin probe without physical wiring approval.
+Decision: adopt P2_runtime_inert_contract.md and public pure probe ABI. Use actual
+Runtime with absent grants and checked inert callbacks,200s real MCU-clock window,
+stable truthful terminal evidence and exact separate capture. Extend checked build
+policy only to the named probe; no upload key until independent exact review.
+Consequence: a new reviewed inert run may establish only that image's BOOT/load,
+allocator and sampled-stack facts. Full-app/native/motor/WCET/physical gates remain
+open; no new pin/source grant, synthetic START or changed production tunable.

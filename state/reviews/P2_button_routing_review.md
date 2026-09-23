@@ -128,4 +128,3 @@ Windows remain deliberately unconfigured. SC-A START/BOTH electrical ambiguity,
 physical A1 readings, sample cadence, full-tick 800 us, SC-AJ/F091 RAM/loader and
 inherited Bridge runtime questions remain open. App scheduling/integration,
 hardware acceptance, motor-run authorization and phase gates are outside scope.
-

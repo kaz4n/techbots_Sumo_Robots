@@ -1,0 +1,77 @@
+--- reviewed draft
++++ adopted contract
+@@ -1,7 +1,7 @@
+-# D112 draft: finite A1 raw and decoder evidence bench
+-
+-Draft for coordinator/independent preflight; not adopted or implemented. Prepared
+-2026-09-24 under the existing D051/D075 software scope. This is the smallest
++# D112: finite A1 raw and decoder evidence bench
++
++Adopted2026-09-24 under D051/D075 after separate author and source/API preflight.
++Implementation and independent execution follow the frozen public contract. This is the smallest
+ remaining B6 acquisition bench, not a claim that all of B6 is implemented or
+ physically accepted. References: `docs/prompts/P2_hal_bench.md:16`,
+ `P2_adc_pair_contract.md`, `P2_button_routing_contract.md:9`,
+@@ -9,9 +9,9 @@
+ 
+ ## Fixed scope and declarations
+ 
+-Proposed eventual files are `bench/ui/ui.ino` and
++Files are `bench/ui/ui.ino` and
+ `bench/ui/src/{ui_bench.h,ui_bench.cpp,ui_bench_native.h,ui_bench_native.cpp}`.
+-Declaration drafts accompany this document in `P2_ui_bench_headers/`.
++Public declarations are in `bench/ui/src/`; original reviewed drafts remain in `P2_ui_bench_headers/`.
+ Use exactly one existing power::Reader, beginWithButtons() once and readButtons()
+ only thereafter, plus the existing pure ui::decodeButtons(). Native owns that
+ Reader directly and forwards clock/begin/read callbacks. No InputOwner, second
+@@ -20,10 +20,10 @@
+ port creation and accessors are passive. No decoder reimplementation or logical
+ gesture/debounce copy. Including the public ui.h does not instantiate a Robot.
+ 
+-The proposed sole new config value is uint32 UI_BENCH_SAMPLES=128. Cadence uses
++The adopted sole new config value is uint32 UI_BENCH_SAMPLES=128. Cadence uses
+ existing TICK_US; no pin, ADC guard, decoder window, age or voltage default changes.
+-The eventual sketch requires MATCH=0/MOTORS_ALLOWED=0 and uses Grants{} with
+-exclusive_adc=false. This API expresses a prerequisite; the draft supplies no
++The sketch requires MATCH=0/MOTORS_ALLOWED=0 and uses Grants{} with
++exclusive_adc=false. This API expresses a prerequisite; the contract supplies no
+ physical permission. No upload key is added.
+ 
+ Store the first configured count of admitted raw-source Capture records in
+@@ -34,7 +34,7 @@
+ records remain unchanged for the Runner lifetime, including after failure.
+ A zero-capacity profile may use one inaccessible array placeholder for valid
+ C++ syntax only; its effective capacity remains zero. Private storage/helpers
+-are deferred until adoption; this draft does not freeze implementation layout.
++are assigned to the implementer; this contract permits only private fixed storage/helpers to be added during implementation.
+ 
+ ## Begin and admission prerequisites
+ 
+@@ -183,7 +183,7 @@
+ 
+ ## Acceptance before any implementation/physical claim
+ 
+-After adoption, independent tests freeze from these public rules before first
++Independent tests freeze from these public rules before first
+ execution, without implementation reads. Check passive grant/repeat/default
+ sketch, callback/config precedence, zero/one/default capacity, zero/half-range
+ period, all enum/shape/native-failure cases, first/equal/early/late cadence and
+@@ -209,8 +209,8 @@
+ config registration, normal/sanitizer/target checks and the checked ui.ino inert
+ default/Immediate compile route. MATCH/upload/profile including symlink refusal
+ must occur before transport. Exact staged source/ELF/startup/import/conditional
+-loader evidence is required; compile exit0 alone is insufficient. This draft
+-does not authorize any of those changes or a physical run.
++loader evidence is required; compile exit0 alone is insufficient. This contract
++authorizes the described software changes under D051/D075, with no physical run or pin grant.
+ 
+ B6 still needs verified electrical windows/settling/START-versus-BOTH resolution,
+ actual local-button gesture behavior, mode cycling/service-menu/countdown matrix
+@@ -221,3 +221,7 @@
+ Later physical trials/readout need verified deployed identity, pad/ADC permission,
+ actual stimulus labels and separately reviewed capture retrieval. No physical
+ accuracy, timing, whole-loop800us, gate or wiring claim follows here.
++
++Adoption: UI_BENCH_SAMPLES128 and the exact raw/decoder evidence rules above.
++The coordinator adds one literal registry expectation, preserving every old byte.
++No existing production behavior, hardware window, motor permission or locked test changes.

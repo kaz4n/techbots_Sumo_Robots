@@ -1,0 +1,223 @@
+{
+  "scope": "Source review of every top-level function in the three owned TUs",
+  "function_count": 30,
+  "maximum_lines": 23,
+  "all_under_60": true,
+  "functions": [
+    {
+      "file": "bench/ui/src/ui_bench.cpp",
+      "signature": "bool configValid()",
+      "first_line": 10,
+      "last_line": 13,
+      "lines": 4
+    },
+    {
+      "file": "bench/ui/src/ui_bench.cpp",
+      "signature": "bool known(power::Status status, power::Shutdown shutdown)",
+      "first_line": 14,
+      "last_line": 17,
+      "lines": 4
+    },
+    {
+      "file": "bench/ui/src/ui_bench.cpp",
+      "signature": "std::uint32_t missedAt(std::uint32_t age_us)",
+      "first_line": 18,
+      "last_line": 22,
+      "lines": 5
+    },
+    {
+      "file": "bench/ui/src/ui_bench.cpp",
+      "signature": "Runner::Runner(const Port& port) : port_(port)",
+      "first_line": 25,
+      "last_line": 25,
+      "lines": 1
+    },
+    {
+      "file": "bench/ui/src/ui_bench.cpp",
+      "signature": "const Report& Runner::report() const",
+      "first_line": 26,
+      "last_line": 26,
+      "lines": 1
+    },
+    {
+      "file": "bench/ui/src/ui_bench.cpp",
+      "signature": "std::uint32_t Runner::captureCapacity() const",
+      "first_line": 27,
+      "last_line": 27,
+      "lines": 1
+    },
+    {
+      "file": "bench/ui/src/ui_bench.cpp",
+      "signature": "std::uint32_t Runner::captureCount() const",
+      "first_line": 28,
+      "last_line": 28,
+      "lines": 1
+    },
+    {
+      "file": "bench/ui/src/ui_bench.cpp",
+      "signature": "const Capture* Runner::capture(std::uint32_t index) const",
+      "first_line": 29,
+      "last_line": 31,
+      "lines": 3
+    },
+    {
+      "file": "bench/ui/src/ui_bench.cpp",
+      "signature": "bool Runner::portsValid() const",
+      "first_line": 32,
+      "last_line": 34,
+      "lines": 3
+    },
+    {
+      "file": "bench/ui/src/ui_bench.cpp",
+      "signature": "void Runner::fail(Fault fault)",
+      "first_line": 35,
+      "last_line": 39,
+      "lines": 5
+    },
+    {
+      "file": "bench/ui/src/ui_bench.cpp",
+      "signature": "void Runner::add(std::uint32_t& counter, std::uint32_t amount)",
+      "first_line": 40,
+      "last_line": 46,
+      "lines": 7
+    },
+    {
+      "file": "bench/ui/src/ui_bench.cpp",
+      "signature": "void Runner::attempt(Timing& timing)",
+      "first_line": 47,
+      "last_line": 50,
+      "lines": 4
+    },
+    {
+      "file": "bench/ui/src/ui_bench.cpp",
+      "signature": "void Runner::measure(Timing& timing, std::uint32_t elapsed_us)",
+      "first_line": 51,
+      "last_line": 56,
+      "lines": 6
+    },
+    {
+      "file": "bench/ui/src/ui_bench.cpp",
+      "signature": "bool Runner::admitClock(std::uint32_t now_us)",
+      "first_line": 57,
+      "last_line": 71,
+      "lines": 15
+    },
+    {
+      "file": "bench/ui/src/ui_bench.cpp",
+      "signature": "bool Runner::clock(std::uint32_t& now_us)",
+      "first_line": 72,
+      "last_line": 76,
+      "lines": 5
+    },
+    {
+      "file": "bench/ui/src/ui_bench.cpp",
+      "signature": "bool Runner::close(std::uint32_t started_us, Timing& timing, std::uint32_t& closed_us)",
+      "first_line": 77,
+      "last_line": 82,
+      "lines": 6
+    },
+    {
+      "file": "bench/ui/src/ui_bench.cpp",
+      "signature": "void Runner::examineSetup()",
+      "first_line": 83,
+      "last_line": 89,
+      "lines": 7
+    },
+    {
+      "file": "bench/ui/src/ui_bench.cpp",
+      "signature": "void Runner::examineSample()",
+      "first_line": 90,
+      "last_line": 100,
+      "lines": 11
+    },
+    {
+      "file": "bench/ui/src/ui_bench.cpp",
+      "signature": "void Runner::examineSource(std::uint32_t started_us, std::uint32_t returned_us)",
+      "first_line": 101,
+      "last_line": 109,
+      "lines": 9
+    },
+    {
+      "file": "bench/ui/src/ui_bench.cpp",
+      "signature": "bool Runner::begin(const Grants& grants)",
+      "first_line": 110,
+      "last_line": 128,
+      "lines": 19
+    },
+    {
+      "file": "bench/ui/src/ui_bench.cpp",
+      "signature": "void Runner::stage(std::uint32_t started_us, std::uint32_t returned_us, std::uint32_t missed)",
+      "first_line": 129,
+      "last_line": 138,
+      "lines": 10
+    },
+    {
+      "file": "bench/ui/src/ui_bench.cpp",
+      "signature": "void Runner::publish(std::uint32_t closed_us)",
+      "first_line": 139,
+      "last_line": 149,
+      "lines": 11
+    },
+    {
+      "file": "bench/ui/src/ui_bench.cpp",
+      "signature": "bool Runner::read(std::uint32_t started_us, std::uint32_t missed)",
+      "first_line": 150,
+      "last_line": 172,
+      "lines": 23
+    },
+    {
+      "file": "bench/ui/src/ui_bench.cpp",
+      "signature": "bool Runner::poll()",
+      "first_line": 173,
+      "last_line": 185,
+      "lines": 13
+    },
+    {
+      "file": "bench/ui/src/ui_bench_native.cpp",
+      "signature": "Port Native::port()",
+      "first_line": 8,
+      "last_line": 8,
+      "lines": 1
+    },
+    {
+      "file": "bench/ui/src/ui_bench_native.cpp",
+      "signature": "std::uint32_t Native::clockUs(void*)",
+      "first_line": 9,
+      "last_line": 9,
+      "lines": 1
+    },
+    {
+      "file": "bench/ui/src/ui_bench_native.cpp",
+      "signature": "power::InitResult Native::beginButtons(void* context)",
+      "first_line": 10,
+      "last_line": 12,
+      "lines": 3
+    },
+    {
+      "file": "bench/ui/src/ui_bench_native.cpp",
+      "signature": "power::ButtonSample Native::readButtons(void* context)",
+      "first_line": 13,
+      "last_line": 15,
+      "lines": 3
+    },
+    {
+      "file": "bench/ui/ui.ino",
+      "signature": "void setup()",
+      "first_line": 12,
+      "last_line": 12,
+      "lines": 1
+    },
+    {
+      "file": "bench/ui/ui.ino",
+      "signature": "void loop()",
+      "first_line": 13,
+      "last_line": 13,
+      "lines": 1
+    }
+  ],
+  "source_hashes": {
+    "bench/ui/src/ui_bench.cpp": "9c0382c9693ffd8d256d41035c0fdcd4193985da6e54a2a518ebb2e877569050",
+    "bench/ui/src/ui_bench_native.cpp": "a9bd1c4d71cb167a94953194435857c88823ffd755db89d80ed9dccb6a2381d0",
+    "bench/ui/ui.ino": "be6dd812eac69d4d1df49a4bbc04378d799604a065ef27abdf22212b03a09139"
+  }
+}

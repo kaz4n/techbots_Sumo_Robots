@@ -1,0 +1,557 @@
+
+00000030 <_GLOBAL__sub_I_setup>:
+      30:	b51f      	push	{r0, r1, r2, r3, r4, lr}
+      32:	4905      	ldr	r1, [pc, #20]	@ (48 <_GLOBAL__sub_I_setup+0x18>)
+      34:	4668      	mov	r0, sp
+      36:	4b05      	ldr	r3, [pc, #20]	@ (4c <_GLOBAL__sub_I_setup+0x1c>)
+      38:	4798      	blx	r3
+      3a:	4669      	mov	r1, sp
+      3c:	4b04      	ldr	r3, [pc, #16]	@ (50 <_GLOBAL__sub_I_setup+0x20>)
+      3e:	4805      	ldr	r0, [pc, #20]	@ (54 <_GLOBAL__sub_I_setup+0x24>)
+      40:	4798      	blx	r3
+      42:	b005      	add	sp, #20
+      44:	f85d fb04 	ldr.w	pc, [sp], #4
+	...
+			48: R_ARM_ABS32	.data
+			4c: R_ARM_ABS32	_ZN8ui_bench6Native4portEv
+			50: R_ARM_ABS32	_ZN8ui_bench6RunnerC1ERKNS_4PortE
+			54: R_ARM_ABS32	.bss
+
+00000000 <setup>:
+       0:	2300      	movs	r3, #0
+       2:	b507      	push	{r0, r1, r2, lr}
+       4:	4804      	ldr	r0, [pc, #16]	@ (18 <setup+0x18>)
+       6:	f88d 3004 	strb.w	r3, [sp, #4]
+       a:	a901      	add	r1, sp, #4
+       c:	4b03      	ldr	r3, [pc, #12]	@ (1c <setup+0x1c>)
+       e:	4798      	blx	r3
+      10:	b003      	add	sp, #12
+      12:	f85d fb04 	ldr.w	pc, [sp], #4
+      16:	bf00      	nop
+	...
+			18: R_ARM_ABS32	.bss
+			1c: R_ARM_ABS32	_ZN8ui_bench6Runner5beginERKNS_6GrantsE
+
+00001270 <_ZN8ui_bench6Runner5beginERKNS_6GrantsE>:
+    1270:	b5f7      	push	{r0, r1, r2, r4, r5, r6, r7, lr}
+    1272:	f500 5500 	add.w	r5, r0, #8192	@ 0x2000
+    1276:	f895 6694 	ldrb.w	r6, [r5, #1684]	@ 0x694
+    127a:	4604      	mov	r4, r0
+    127c:	b976      	cbnz	r6, 129c <_ZN8ui_bench6Runner5beginERKNS_6GrantsE+0x2c>
+    127e:	2701      	movs	r7, #1
+    1280:	f885 7694 	strb.w	r7, [r5, #1684]	@ 0x694
+    1284:	780b      	ldrb	r3, [r1, #0]
+    1286:	b913      	cbnz	r3, 128e <_ZN8ui_bench6Runner5beginERKNS_6GrantsE+0x1e>
+    1288:	7407      	strb	r7, [r0, #16]
+    128a:	2001      	movs	r0, #1
+    128c:	e007      	b.n	129e <_ZN8ui_bench6Runner5beginERKNS_6GrantsE+0x2e>
+    128e:	4b1e      	ldr	r3, [pc, #120]	@ (1308 <_ZN8ui_bench6Runner5beginERKNS_6GrantsE+0x98>)
+    1290:	4798      	blx	r3
+    1292:	b930      	cbnz	r0, 12a2 <_ZN8ui_bench6Runner5beginERKNS_6GrantsE+0x32>
+    1294:	4639      	mov	r1, r7
+    1296:	4620      	mov	r0, r4
+    1298:	4b1c      	ldr	r3, [pc, #112]	@ (130c <_ZN8ui_bench6Runner5beginERKNS_6GrantsE+0x9c>)
+    129a:	4798      	blx	r3
+    129c:	2000      	movs	r0, #0
+    129e:	b003      	add	sp, #12
+    12a0:	bdf0      	pop	{r4, r5, r6, r7, pc}
+    12a2:	4669      	mov	r1, sp
+    12a4:	4620      	mov	r0, r4
+    12a6:	4b1a      	ldr	r3, [pc, #104]	@ (1310 <_ZN8ui_bench6Runner5beginERKNS_6GrantsE+0xa0>)
+    12a8:	e9cd 6600 	strd	r6, r6, [sp]
+    12ac:	4798      	blx	r3
+    12ae:	2800      	cmp	r0, #0
+    12b0:	d0f4      	beq.n	129c <_ZN8ui_bench6Runner5beginERKNS_6GrantsE+0x2c>
+    12b2:	f8c5 669c 	str.w	r6, [r5, #1692]	@ 0x69c
+    12b6:	f104 0658 	add.w	r6, r4, #88	@ 0x58
+    12ba:	4631      	mov	r1, r6
+    12bc:	4620      	mov	r0, r4
+    12be:	4b15      	ldr	r3, [pc, #84]	@ (1314 <_ZN8ui_bench6Runner5beginERKNS_6GrantsE+0xa4>)
+    12c0:	f885 7696 	strb.w	r7, [r5, #1686]	@ 0x696
+    12c4:	4798      	blx	r3
+    12c6:	68a3      	ldr	r3, [r4, #8]
+    12c8:	6820      	ldr	r0, [r4, #0]
+    12ca:	4798      	blx	r3
+    12cc:	f3c0 2307 	ubfx	r3, r0, #8, #8
+    12d0:	7620      	strb	r0, [r4, #24]
+    12d2:	f3c0 4007 	ubfx	r0, r0, #16, #8
+    12d6:	7663      	strb	r3, [r4, #25]
+    12d8:	76a0      	strb	r0, [r4, #26]
+    12da:	e9d4 0300 	ldrd	r0, r3, [r4]
+    12de:	4798      	blx	r3
+    12e0:	4605      	mov	r5, r0
+    12e2:	4b0d      	ldr	r3, [pc, #52]	@ (1318 <_ZN8ui_bench6Runner5beginERKNS_6GrantsE+0xa8>)
+    12e4:	4620      	mov	r0, r4
+    12e6:	4798      	blx	r3
+    12e8:	4629      	mov	r1, r5
+    12ea:	4b0c      	ldr	r3, [pc, #48]	@ (131c <_ZN8ui_bench6Runner5beginERKNS_6GrantsE+0xac>)
+    12ec:	4620      	mov	r0, r4
+    12ee:	4798      	blx	r3
+    12f0:	4d0b      	ldr	r5, [pc, #44]	@ (1320 <_ZN8ui_bench6Runner5beginERKNS_6GrantsE+0xb0>)
+    12f2:	4632      	mov	r2, r6
+    12f4:	4620      	mov	r0, r4
+    12f6:	9900      	ldr	r1, [sp, #0]
+    12f8:	ab01      	add	r3, sp, #4
+    12fa:	47a8      	blx	r5
+    12fc:	2800      	cmp	r0, #0
+    12fe:	d0cd      	beq.n	129c <_ZN8ui_bench6Runner5beginERKNS_6GrantsE+0x2c>
+    1300:	2302      	movs	r3, #2
+    1302:	7423      	strb	r3, [r4, #16]
+    1304:	e7c1      	b.n	128a <_ZN8ui_bench6Runner5beginERKNS_6GrantsE+0x1a>
+    1306:	bf00      	nop
+	...
+			1308: R_ARM_ABS32	_ZNK8ui_bench6Runner10portsValidEv
+			130c: R_ARM_ABS32	_ZN8ui_bench6Runner4failENS_5FaultE
+			1310: R_ARM_ABS32	_ZN8ui_bench6Runner5clockERj
+			1314: R_ARM_ABS32	_ZN8ui_bench6Runner7attemptERNS_6TimingE
+			1318: R_ARM_ABS32	_ZN8ui_bench6Runner12examineSetupEv
+			131c: R_ARM_ABS32	_ZN8ui_bench6Runner10admitClockEj
+			1320: R_ARM_ABS32	_ZN8ui_bench6Runner5closeEjRNS_6TimingERj
+
+000014dc <_ZN8ui_bench6Runner4pollEv>:
+    14dc:	b537      	push	{r0, r1, r2, r4, r5, lr}
+    14de:	2500      	movs	r5, #0
+    14e0:	7c03      	ldrb	r3, [r0, #16]
+    14e2:	4604      	mov	r4, r0
+    14e4:	2b02      	cmp	r3, #2
+    14e6:	7485      	strb	r5, [r0, #18]
+    14e8:	d118      	bne.n	151c <_ZN8ui_bench6Runner4pollEv+0x40>
+    14ea:	4b14      	ldr	r3, [pc, #80]	@ (153c <_ZN8ui_bench6Runner4pollEv+0x60>)
+    14ec:	f100 0180 	add.w	r1, r0, #128	@ 0x80
+    14f0:	4798      	blx	r3
+    14f2:	4b13      	ldr	r3, [pc, #76]	@ (1540 <_ZN8ui_bench6Runner4pollEv+0x64>)
+    14f4:	a901      	add	r1, sp, #4
+    14f6:	9501      	str	r5, [sp, #4]
+    14f8:	4798      	blx	r3
+    14fa:	b178      	cbz	r0, 151c <_ZN8ui_bench6Runner4pollEv+0x40>
+    14fc:	f504 5300 	add.w	r3, r4, #8192	@ 0x2000
+    1500:	f893 2697 	ldrb.w	r2, [r3, #1687]	@ 0x697
+    1504:	b192      	cbz	r2, 152c <_ZN8ui_bench6Runner4pollEv+0x50>
+    1506:	f8d3 26a0 	ldr.w	r2, [r3, #1696]	@ 0x6a0
+    150a:	f5b2 7f7a 	cmp.w	r2, #1000	@ 0x3e8
+    150e:	d208      	bcs.n	1522 <_ZN8ui_bench6Runner4pollEv+0x46>
+    1510:	2201      	movs	r2, #1
+    1512:	4620      	mov	r0, r4
+    1514:	4b0b      	ldr	r3, [pc, #44]	@ (1544 <_ZN8ui_bench6Runner4pollEv+0x68>)
+    1516:	f104 0150 	add.w	r1, r4, #80	@ 0x50
+    151a:	4798      	blx	r3
+    151c:	2000      	movs	r0, #0
+    151e:	b003      	add	sp, #12
+    1520:	bd30      	pop	{r4, r5, pc}
+    1522:	f44f 737a 	mov.w	r3, #1000	@ 0x3e8
+    1526:	fbb2 f2f3 	udiv	r2, r2, r3
+    152a:	3a01      	subs	r2, #1
+    152c:	4620      	mov	r0, r4
+    152e:	9901      	ldr	r1, [sp, #4]
+    1530:	4b05      	ldr	r3, [pc, #20]	@ (1548 <_ZN8ui_bench6Runner4pollEv+0x6c>)
+    1532:	b003      	add	sp, #12
+    1534:	e8bd 4030 	ldmia.w	sp!, {r4, r5, lr}
+    1538:	4718      	bx	r3
+    153a:	bf00      	nop
+	...
+			153c: R_ARM_ABS32	_ZN8ui_bench6Runner7attemptERNS_6TimingE
+			1540: R_ARM_ABS32	_ZN8ui_bench6Runner5clockERj
+			1544: R_ARM_ABS32	_ZN8ui_bench6Runner3addERjj
+			1548: R_ARM_ABS32	_ZN8ui_bench6Runner4readEjj
+
+00001570 <_ZN8ui_bench6Native4portEv>:
+    1570:	4a03      	ldr	r2, [pc, #12]	@ (1580 <_ZN8ui_bench6Native4portEv+0x10>)
+    1572:	6001      	str	r1, [r0, #0]
+    1574:	6042      	str	r2, [r0, #4]
+    1576:	4a03      	ldr	r2, [pc, #12]	@ (1584 <_ZN8ui_bench6Native4portEv+0x14>)
+    1578:	6082      	str	r2, [r0, #8]
+    157a:	4a03      	ldr	r2, [pc, #12]	@ (1588 <_ZN8ui_bench6Native4portEv+0x18>)
+    157c:	60c2      	str	r2, [r0, #12]
+    157e:	4770      	bx	lr
+	...
+			1580: R_ARM_ABS32	_ZN8ui_bench6Native7clockUsEPv
+			1584: R_ARM_ABS32	_ZN8ui_bench6Native12beginButtonsEPv
+			1588: R_ARM_ABS32	_ZN8ui_bench6Native11readButtonsEPv
+
+00000fb4 <_ZN8ui_bench6RunnerC1ERKNS_4PortE>:
+     fb4:	b538      	push	{r3, r4, r5, lr}
+     fb6:	4604      	mov	r4, r0
+     fb8:	c90f      	ldmia	r1, {r0, r1, r2, r3}
+     fba:	2501      	movs	r5, #1
+     fbc:	e884 000f 	stmia.w	r4, {r0, r1, r2, r3}
+     fc0:	2100      	movs	r1, #0
+     fc2:	4b24      	ldr	r3, [pc, #144]	@ (1054 <_ZN8ui_bench6RunnerC1ERKNS_4PortE+0xa0>)
+     fc4:	f44f 5218 	mov.w	r2, #9728	@ 0x2600
+     fc8:	e9c4 1104 	strd	r1, r1, [r4, #16]
+     fcc:	e9c4 5107 	strd	r5, r1, [r4, #28]
+     fd0:	e9c4 1109 	strd	r1, r1, [r4, #36]	@ 0x24
+     fd4:	e9c4 110f 	strd	r1, r1, [r4, #60]	@ 0x3c
+     fd8:	e9c4 1113 	strd	r1, r1, [r4, #76]	@ 0x4c
+     fdc:	e9c4 1115 	strd	r1, r1, [r4, #84]	@ 0x54
+     fe0:	e9c4 1117 	strd	r1, r1, [r4, #92]	@ 0x5c
+     fe4:	76a1      	strb	r1, [r4, #26]
+     fe6:	f884 102c 	strb.w	r1, [r4, #44]	@ 0x2c
+     fea:	f884 1030 	strb.w	r1, [r4, #48]	@ 0x30
+     fee:	6363      	str	r3, [r4, #52]	@ 0x34
+     ff0:	8721      	strh	r1, [r4, #56]	@ 0x38
+     ff2:	4b19      	ldr	r3, [pc, #100]	@ (1058 <_ZN8ui_bench6RunnerC1ERKNS_4PortE+0xa4>)
+     ff4:	6461      	str	r1, [r4, #68]	@ 0x44
+     ff6:	f884 1048 	strb.w	r1, [r4, #72]	@ 0x48
+     ffa:	8325      	strh	r5, [r4, #24]
+     ffc:	f104 0094 	add.w	r0, r4, #148	@ 0x94
+    1000:	6661      	str	r1, [r4, #100]	@ 0x64
+    1002:	e9c4 111b 	strd	r1, r1, [r4, #108]	@ 0x6c
+    1006:	e9c4 111d 	strd	r1, r1, [r4, #116]	@ 0x74
+    100a:	e9c4 1120 	strd	r1, r1, [r4, #128]	@ 0x80
+    100e:	e9c4 1122 	strd	r1, r1, [r4, #136]	@ 0x88
+    1012:	f884 1068 	strb.w	r1, [r4, #104]	@ 0x68
+    1016:	f884 107c 	strb.w	r1, [r4, #124]	@ 0x7c
+    101a:	f884 1090 	strb.w	r1, [r4, #144]	@ 0x90
+    101e:	4798      	blx	r3
+    1020:	4623      	mov	r3, r4
+    1022:	f504 5218 	add.w	r2, r4, #9728	@ 0x2600
+    1026:	f883 5094 	strb.w	r5, [r3, #148]	@ 0x94
+    102a:	f883 50ad 	strb.w	r5, [r3, #173]	@ 0xad
+    102e:	f883 50ae 	strb.w	r5, [r3, #174]	@ 0xae
+    1032:	334c      	adds	r3, #76	@ 0x4c
+    1034:	4293      	cmp	r3, r2
+    1036:	d1f6      	bne.n	1026 <_ZN8ui_bench6RunnerC1ERKNS_4PortE+0x72>
+    1038:	2200      	movs	r2, #0
+    103a:	f504 5300 	add.w	r3, r4, #8192	@ 0x2000
+    103e:	f8c3 2694 	str.w	r2, [r3, #1684]	@ 0x694
+    1042:	f8c3 2698 	str.w	r2, [r3, #1688]	@ 0x698
+    1046:	f8c3 269c 	str.w	r2, [r3, #1692]	@ 0x69c
+    104a:	f8c3 26a0 	str.w	r2, [r3, #1696]	@ 0x6a0
+    104e:	4620      	mov	r0, r4
+    1050:	bd38      	pop	{r3, r4, r5, pc}
+    1052:	bf00      	nop
+    1054:	00010100 	.word	0x00010100
+    1058:	00000000 	.word	0x00000000
+			1058: R_ARM_ABS32	memset
+
+000015bc <main>:
+    15bc:	b538      	push	{r3, r4, r5, lr}
+    15be:	4b05      	ldr	r3, [pc, #20]	@ (15d4 <main+0x18>)
+    15c0:	4798      	blx	r3
+    15c2:	4b05      	ldr	r3, [pc, #20]	@ (15d8 <main+0x1c>)
+    15c4:	4798      	blx	r3
+    15c6:	4b05      	ldr	r3, [pc, #20]	@ (15dc <main+0x20>)
+    15c8:	4798      	blx	r3
+    15ca:	4d05      	ldr	r5, [pc, #20]	@ (15e0 <main+0x24>)
+    15cc:	4c05      	ldr	r4, [pc, #20]	@ (15e4 <main+0x28>)
+    15ce:	47a8      	blx	r5
+    15d0:	47a0      	blx	r4
+    15d2:	e7fc      	b.n	15ce <main+0x12>
+	...
+			15d4: R_ARM_ABS32	initVariant
+			15d8: R_ARM_ABS32	_Z20start_static_threadsv
+			15dc: R_ARM_ABS32	setup
+			15e0: R_ARM_ABS32	loop
+			15e4: R_ARM_ABS32	_Z10__loopHookv
+
+000015e8 <_Z20start_static_threadsv>:
+    15e8:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+    15ec:	4c15      	ldr	r4, [pc, #84]	@ (1644 <_Z20start_static_threadsv+0x5c>)
+    15ee:	4e16      	ldr	r6, [pc, #88]	@ (1648 <_Z20start_static_threadsv+0x60>)
+    15f0:	4f16      	ldr	r7, [pc, #88]	@ (164c <_Z20start_static_threadsv+0x64>)
+    15f2:	f8df 805c 	ldr.w	r8, [pc, #92]	@ 1650 <_Z20start_static_threadsv+0x68>
+    15f6:	b089      	sub	sp, #36	@ 0x24
+    15f8:	4625      	mov	r5, r4
+    15fa:	42b5      	cmp	r5, r6
+    15fc:	f104 0430 	add.w	r4, r4, #48	@ 0x30
+    1600:	d302      	bcc.n	1608 <_Z20start_static_threadsv+0x20>
+    1602:	b009      	add	sp, #36	@ 0x24
+    1604:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+    1608:	ed14 7b02 	vldr	d7, [r4, #-8]
+    160c:	e954 010c 	ldrd	r0, r1, [r4, #-48]	@ 0x30
+    1610:	e954 230a 	ldrd	r2, r3, [r4, #-40]	@ 0x28
+    1614:	e954 ce08 	ldrd	ip, lr, [r4, #-32]
+    1618:	e954 9a06 	ldrd	r9, sl, [r4, #-24]
+    161c:	f854 bc10 	ldr.w	fp, [r4, #-16]
+    1620:	ed8d 7b06 	vstr	d7, [sp, #24]
+    1624:	e9cd ab03 	strd	sl, fp, [sp, #12]
+    1628:	e9cd e901 	strd	lr, r9, [sp, #4]
+    162c:	f8cd c000 	str.w	ip, [sp]
+    1630:	47b8      	blx	r7
+    1632:	f854 0c30 	ldr.w	r0, [r4, #-48]
+    1636:	f854 1c0c 	ldr.w	r1, [r4, #-12]
+    163a:	47c0      	blx	r8
+    163c:	f854 3c30 	ldr.w	r3, [r4, #-48]
+    1640:	655d      	str	r5, [r3, #84]	@ 0x54
+    1642:	e7d9      	b.n	15f8 <_Z20start_static_threadsv+0x10>
+	...
+			1644: R_ARM_ABS32	__static_thread_data_list_start
+			1648: R_ARM_ABS32	__static_thread_data_list_end
+			164c: R_ARM_ABS32	z_impl_k_thread_create
+			1650: R_ARM_ABS32	z_impl_k_thread_name_set
+
+0000158c <__cxa_allocate_exception>:
+    158c:	b508      	push	{r3, lr}
+    158e:	4b01      	ldr	r3, [pc, #4]	@ (1594 <__cxa_allocate_exception+0x8>)
+    1590:	4798      	blx	r3
+    1592:	bf00      	nop
+    1594:	00000000 	.word	0x00000000
+			1594: R_ARM_ABS32	abort
+
+00000bf0 <_ZN5power6Reader16beginWithButtonsEv>:
+     bf0:	2101      	movs	r1, #1
+     bf2:	4b02      	ldr	r3, [pc, #8]	@ (bfc <_ZN5power6Reader16beginWithButtonsEv+0xc>)
+     bf4:	b082      	sub	sp, #8
+     bf6:	b002      	add	sp, #8
+     bf8:	4718      	bx	r3
+     bfa:	bf00      	nop
+     bfc:	00000000 	.word	0x00000000
+			bfc: R_ARM_ABS32	_ZN5power6Reader12beginProfileEb
+
+00000ec0 <_ZN5power6Reader11readButtonsEv>:
+     ec0:	2301      	movs	r3, #1
+     ec2:	b570      	push	{r4, r5, r6, lr}
+     ec4:	b086      	sub	sp, #24
+     ec6:	7003      	strb	r3, [r0, #0]
+     ec8:	2300      	movs	r3, #0
+     eca:	e9c0 3301 	strd	r3, r3, [r0, #4]
+     ece:	8043      	strh	r3, [r0, #2]
+     ed0:	60c3      	str	r3, [r0, #12]
+     ed2:	7403      	strb	r3, [r0, #16]
+     ed4:	790b      	ldrb	r3, [r1, #4]
+     ed6:	4604      	mov	r4, r0
+     ed8:	7043      	strb	r3, [r0, #1]
+     eda:	780b      	ldrb	r3, [r1, #0]
+     edc:	460d      	mov	r5, r1
+     ede:	b11b      	cbz	r3, ee8 <_ZN5power6Reader11readButtonsEv+0x28>
+     ee0:	78cb      	ldrb	r3, [r1, #3]
+     ee2:	b123      	cbz	r3, eee <_ZN5power6Reader11readButtonsEv+0x2e>
+     ee4:	230d      	movs	r3, #13
+     ee6:	7023      	strb	r3, [r4, #0]
+     ee8:	4620      	mov	r0, r4
+     eea:	b006      	add	sp, #24
+     eec:	bd70      	pop	{r4, r5, r6, pc}
+     eee:	798a      	ldrb	r2, [r1, #6]
+     ef0:	b90a      	cbnz	r2, ef6 <_ZN5power6Reader11readButtonsEv+0x36>
+     ef2:	230e      	movs	r3, #14
+     ef4:	e7f7      	b.n	ee6 <_ZN5power6Reader11readButtonsEv+0x26>
+     ef6:	220a      	movs	r2, #10
+     ef8:	4e09      	ldr	r6, [pc, #36]	@ (f20 <_ZN5power6Reader11readButtonsEv+0x60>)
+     efa:	a801      	add	r0, sp, #4
+     efc:	47b0      	blx	r6
+     efe:	9b01      	ldr	r3, [sp, #4]
+     f00:	6023      	str	r3, [r4, #0]
+     f02:	9b02      	ldr	r3, [sp, #8]
+     f04:	6063      	str	r3, [r4, #4]
+     f06:	9b03      	ldr	r3, [sp, #12]
+     f08:	60a3      	str	r3, [r4, #8]
+     f0a:	f89d 3014 	ldrb.w	r3, [sp, #20]
+     f0e:	7423      	strb	r3, [r4, #16]
+     f10:	2b00      	cmp	r3, #0
+     f12:	d0e9      	beq.n	ee8 <_ZN5power6Reader11readButtonsEv+0x28>
+     f14:	696b      	ldr	r3, [r5, #20]
+     f16:	3301      	adds	r3, #1
+     f18:	616b      	str	r3, [r5, #20]
+     f1a:	60e3      	str	r3, [r4, #12]
+     f1c:	e7e4      	b.n	ee8 <_ZN5power6Reader11readButtonsEv+0x28>
+     f1e:	bf00      	nop
+     f20:	00000000 	.word	0x00000000
+			f20: R_ARM_ABS32	_ZN5power6Reader7acquireEjb
+
+000013c4 <_ZN8ui_bench6Runner4readEjj>:
+    13c4:	e92d 47f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
+    13c8:	2500      	movs	r5, #0
+    13ca:	460e      	mov	r6, r1
+    13cc:	2101      	movs	r1, #1
+    13ce:	f500 5300 	add.w	r3, r0, #8192	@ 0x2000
+    13d2:	b088      	sub	sp, #32
+    13d4:	f100 096c 	add.w	r9, r0, #108	@ 0x6c
+    13d8:	f883 1696 	strb.w	r1, [r3, #1686]	@ 0x696
+    13dc:	f8c3 569c 	str.w	r5, [r3, #1692]	@ 0x69c
+    13e0:	f100 0154 	add.w	r1, r0, #84	@ 0x54
+    13e4:	4b33      	ldr	r3, [pc, #204]	@ (14b4 <_ZN8ui_bench6Runner4readEjj+0xf0>)
+    13e6:	4798      	blx	r3
+    13e8:	4649      	mov	r1, r9
+    13ea:	4b33      	ldr	r3, [pc, #204]	@ (14b8 <_ZN8ui_bench6Runner4readEjj+0xf4>)
+    13ec:	4690      	mov	r8, r2
+    13ee:	4798      	blx	r3
+    13f0:	82c5      	strh	r5, [r0, #22]
+    13f2:	4605      	mov	r5, r0
+    13f4:	f855 1b1c 	ldr.w	r1, [r5], #28
+    13f8:	68c3      	ldr	r3, [r0, #12]
+    13fa:	46aa      	mov	sl, r5
+    13fc:	4604      	mov	r4, r0
+    13fe:	a801      	add	r0, sp, #4
+    1400:	4798      	blx	r3
+    1402:	ab01      	add	r3, sp, #4
+    1404:	aa05      	add	r2, sp, #20
+    1406:	461f      	mov	r7, r3
+    1408:	cf03      	ldmia	r7!, {r0, r1}
+    140a:	4297      	cmp	r7, r2
+    140c:	6028      	str	r0, [r5, #0]
+    140e:	6069      	str	r1, [r5, #4]
+    1410:	463b      	mov	r3, r7
+    1412:	f105 0508 	add.w	r5, r5, #8
+    1416:	d1f6      	bne.n	1406 <_ZN8ui_bench6Runner4readEjj+0x42>
+    1418:	783b      	ldrb	r3, [r7, #0]
+    141a:	702b      	strb	r3, [r5, #0]
+    141c:	2301      	movs	r3, #1
+    141e:	7563      	strb	r3, [r4, #21]
+    1420:	e9d4 0300 	ldrd	r0, r3, [r4]
+    1424:	4798      	blx	r3
+    1426:	4605      	mov	r5, r0
+    1428:	4b24      	ldr	r3, [pc, #144]	@ (14bc <_ZN8ui_bench6Runner4readEjj+0xf8>)
+    142a:	4620      	mov	r0, r4
+    142c:	4798      	blx	r3
+    142e:	4629      	mov	r1, r5
+    1430:	4620      	mov	r0, r4
+    1432:	4b23      	ldr	r3, [pc, #140]	@ (14c0 <_ZN8ui_bench6Runner4readEjj+0xfc>)
+    1434:	4798      	blx	r3
+    1436:	b310      	cbz	r0, 147e <_ZN8ui_bench6Runner4readEjj+0xba>
+    1438:	1baa      	subs	r2, r5, r6
+    143a:	4649      	mov	r1, r9
+    143c:	4620      	mov	r0, r4
+    143e:	4b21      	ldr	r3, [pc, #132]	@ (14c4 <_ZN8ui_bench6Runner4readEjj+0x100>)
+    1440:	4798      	blx	r3
+    1442:	4b21      	ldr	r3, [pc, #132]	@ (14c8 <_ZN8ui_bench6Runner4readEjj+0x104>)
+    1444:	4651      	mov	r1, sl
+    1446:	a801      	add	r0, sp, #4
+    1448:	4798      	blx	r3
+    144a:	f104 0730 	add.w	r7, r4, #48	@ 0x30
+    144e:	ab01      	add	r3, sp, #4
+    1450:	aa07      	add	r2, sp, #28
+    1452:	469c      	mov	ip, r3
+    1454:	e8bc 0003 	ldmia.w	ip!, {r0, r1}
+    1458:	4594      	cmp	ip, r2
+    145a:	6038      	str	r0, [r7, #0]
+    145c:	6079      	str	r1, [r7, #4]
+    145e:	4663      	mov	r3, ip
+    1460:	f107 0708 	add.w	r7, r7, #8
+    1464:	d1f5      	bne.n	1452 <_ZN8ui_bench6Runner4readEjj+0x8e>
+    1466:	f89c 3000 	ldrb.w	r3, [ip]
+    146a:	703b      	strb	r3, [r7, #0]
+    146c:	2301      	movs	r3, #1
+    146e:	75e3      	strb	r3, [r4, #23]
+    1470:	7c63      	ldrb	r3, [r4, #17]
+    1472:	b963      	cbnz	r3, 148e <_ZN8ui_bench6Runner4readEjj+0xca>
+    1474:	462a      	mov	r2, r5
+    1476:	4631      	mov	r1, r6
+    1478:	4620      	mov	r0, r4
+    147a:	4b14      	ldr	r3, [pc, #80]	@ (14cc <_ZN8ui_bench6Runner4readEjj+0x108>)
+    147c:	4798      	blx	r3
+    147e:	7c63      	ldrb	r3, [r4, #17]
+    1480:	b92b      	cbnz	r3, 148e <_ZN8ui_bench6Runner4readEjj+0xca>
+    1482:	462a      	mov	r2, r5
+    1484:	4643      	mov	r3, r8
+    1486:	4631      	mov	r1, r6
+    1488:	4620      	mov	r0, r4
+    148a:	4d11      	ldr	r5, [pc, #68]	@ (14d0 <_ZN8ui_bench6Runner4readEjj+0x10c>)
+    148c:	47a8      	blx	r5
+    148e:	2300      	movs	r3, #0
+    1490:	4d10      	ldr	r5, [pc, #64]	@ (14d4 <_ZN8ui_bench6Runner4readEjj+0x110>)
+    1492:	9301      	str	r3, [sp, #4]
+    1494:	4631      	mov	r1, r6
+    1496:	4620      	mov	r0, r4
+    1498:	ab01      	add	r3, sp, #4
+    149a:	f104 0280 	add.w	r2, r4, #128	@ 0x80
+    149e:	47a8      	blx	r5
+    14a0:	4605      	mov	r5, r0
+    14a2:	b118      	cbz	r0, 14ac <_ZN8ui_bench6Runner4readEjj+0xe8>
+    14a4:	4620      	mov	r0, r4
+    14a6:	9901      	ldr	r1, [sp, #4]
+    14a8:	4b0b      	ldr	r3, [pc, #44]	@ (14d8 <_ZN8ui_bench6Runner4readEjj+0x114>)
+    14aa:	4798      	blx	r3
+    14ac:	4628      	mov	r0, r5
+    14ae:	b008      	add	sp, #32
+    14b0:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
+	...
+			14b4: R_ARM_ABS32	_ZN8ui_bench6Runner3addERjj
+			14b8: R_ARM_ABS32	_ZN8ui_bench6Runner7attemptERNS_6TimingE
+			14bc: R_ARM_ABS32	_ZN8ui_bench6Runner13examineSampleEv
+			14c0: R_ARM_ABS32	_ZN8ui_bench6Runner10admitClockEj
+			14c4: R_ARM_ABS32	_ZN8ui_bench6Runner7measureERNS_6TimingEj
+			14c8: R_ARM_ABS32	_ZN2ui13decodeButtonsERKN5power12ButtonSampleE
+			14cc: R_ARM_ABS32	_ZN8ui_bench6Runner13examineSourceEjj
+			14d0: R_ARM_ABS32	_ZN8ui_bench6Runner5stageEjjj
+			14d4: R_ARM_ABS32	_ZN8ui_bench6Runner5closeEjRNS_6TimingERj
+			14d8: R_ARM_ABS32	_ZN8ui_bench6Runner7publishEj
+
+00000f24 <_ZN2ui13decodeButtonsERKN5power12ButtonSampleE>:
+     f24:	b5f0      	push	{r4, r5, r6, r7, lr}
+     f26:	4606      	mov	r6, r0
+     f28:	4f21      	ldr	r7, [pc, #132]	@ (fb0 <_ZN2ui13decodeButtonsERKN5power12ButtonSampleE+0x8c>)
+     f2a:	460d      	mov	r5, r1
+     f2c:	4604      	mov	r4, r0
+     f2e:	cf0f      	ldmia	r7!, {r0, r1, r2, r3}
+     f30:	c60f      	stmia	r6!, {r0, r1, r2, r3}
+     f32:	e897 0007 	ldmia.w	r7, {r0, r1, r2}
+     f36:	2301      	movs	r3, #1
+     f38:	7123      	strb	r3, [r4, #4]
+     f3a:	882b      	ldrh	r3, [r5, #0]
+     f3c:	e886 0007 	stmia.w	r6, {r0, r1, r2}
+     f40:	2b01      	cmp	r3, #1
+     f42:	f105 0004 	add.w	r0, r5, #4
+     f46:	886e      	ldrh	r6, [r5, #2]
+     f48:	c883      	ldmia	r0, {r0, r1, r7}
+     f4a:	d106      	bne.n	f5a <_ZN2ui13decodeButtonsERKN5power12ButtonSampleE+0x36>
+     f4c:	7c2b      	ldrb	r3, [r5, #16]
+     f4e:	b923      	cbnz	r3, f5a <_ZN2ui13decodeButtonsERKN5power12ButtonSampleE+0x36>
+     f50:	b91e      	cbnz	r6, f5a <_ZN2ui13decodeButtonsERKN5power12ButtonSampleE+0x36>
+     f52:	ea47 0300 	orr.w	r3, r7, r0
+     f56:	430b      	orrs	r3, r1
+     f58:	d024      	beq.n	fa4 <_ZN2ui13decodeButtonsERKN5power12ButtonSampleE+0x80>
+     f5a:	2305      	movs	r3, #5
+     f5c:	7023      	strb	r3, [r4, #0]
+     f5e:	2303      	movs	r3, #3
+     f60:	782a      	ldrb	r2, [r5, #0]
+     f62:	71a3      	strb	r3, [r4, #6]
+     f64:	2a0e      	cmp	r2, #14
+     f66:	d821      	bhi.n	fac <_ZN2ui13decodeButtonsERKN5power12ButtonSampleE+0x88>
+     f68:	786b      	ldrb	r3, [r5, #1]
+     f6a:	2b02      	cmp	r3, #2
+     f6c:	d81e      	bhi.n	fac <_ZN2ui13decodeButtonsERKN5power12ButtonSampleE+0x88>
+     f6e:	fab2 f282 	clz	r2, r2
+     f72:	f895 c010 	ldrb.w	ip, [r5, #16]
+     f76:	0952      	lsrs	r2, r2, #5
+     f78:	4562      	cmp	r2, ip
+     f7a:	d117      	bne.n	fac <_ZN2ui13decodeButtonsERKN5power12ButtonSampleE+0x88>
+     f7c:	b1a2      	cbz	r2, fa8 <_ZN2ui13decodeButtonsERKN5power12ButtonSampleE+0x84>
+     f7e:	b9ab      	cbnz	r3, fac <_ZN2ui13decodeButtonsERKN5power12ButtonSampleE+0x88>
+     f80:	f5b6 4f80 	cmp.w	r6, #16384	@ 0x4000
+     f84:	d204      	bcs.n	f90 <_ZN2ui13decodeButtonsERKN5power12ButtonSampleE+0x6c>
+     f86:	1a0b      	subs	r3, r1, r0
+     f88:	2b63      	cmp	r3, #99	@ 0x63
+     f8a:	bf8c      	ite	hi
+     f8c:	2300      	movhi	r3, #0
+     f8e:	2301      	movls	r3, #1
+     f90:	e9c4 7003 	strd	r7, r0, [r4, #12]
+     f94:	7163      	strb	r3, [r4, #5]
+     f96:	8126      	strh	r6, [r4, #8]
+     f98:	6161      	str	r1, [r4, #20]
+     f9a:	b11b      	cbz	r3, fa4 <_ZN2ui13decodeButtonsERKN5power12ButtonSampleE+0x80>
+     f9c:	7c2b      	ldrb	r3, [r5, #16]
+     f9e:	b10b      	cbz	r3, fa4 <_ZN2ui13decodeButtonsERKN5power12ButtonSampleE+0x80>
+     fa0:	2302      	movs	r3, #2
+     fa2:	7023      	strb	r3, [r4, #0]
+     fa4:	4620      	mov	r0, r4
+     fa6:	bdf0      	pop	{r4, r5, r6, r7, pc}
+     fa8:	2301      	movs	r3, #1
+     faa:	e7f1      	b.n	f90 <_ZN2ui13decodeButtonsERKN5power12ButtonSampleE+0x6c>
+     fac:	2300      	movs	r3, #0
+     fae:	e7ef      	b.n	f90 <_ZN2ui13decodeButtonsERKN5power12ButtonSampleE+0x6c>
+     fb0:	00000020 	.word	0x00000020
+			fb0: R_ARM_ABS32	.llext.rodata.noreloc
+
+0000154c <_ZN8ui_bench6Native7clockUsEPv>:
+    154c:	4b00      	ldr	r3, [pc, #0]	@ (1550 <_ZN8ui_bench6Native7clockUsEPv+0x4>)
+    154e:	4718      	bx	r3
+    1550:	00000000 	.word	0x00000000
+			1550: R_ARM_ABS32	micros
+
+00001554 <_ZN8ui_bench6Native12beginButtonsEPv>:
+    1554:	4b01      	ldr	r3, [pc, #4]	@ (155c <_ZN8ui_bench6Native12beginButtonsEPv+0x8>)
+    1556:	b082      	sub	sp, #8
+    1558:	b002      	add	sp, #8
+    155a:	4718      	bx	r3
+    155c:	00000000 	.word	0x00000000
+			155c: R_ARM_ABS32	_ZN5power6Reader16beginWithButtonsEv
+
+00001560 <_ZN8ui_bench6Native11readButtonsEPv>:
+    1560:	b510      	push	{r4, lr}
+    1562:	4604      	mov	r4, r0
+    1564:	4b01      	ldr	r3, [pc, #4]	@ (156c <_ZN8ui_bench6Native11readButtonsEPv+0xc>)
+    1566:	4798      	blx	r3
+    1568:	4620      	mov	r0, r4
+    156a:	bd10      	pop	{r4, pc}
+    156c:	00000000 	.word	0x00000000
+			156c: R_ARM_ABS32	_ZN5power6Reader11readButtonsEv

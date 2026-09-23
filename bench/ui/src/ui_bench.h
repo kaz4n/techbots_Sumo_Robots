@@ -2,6 +2,7 @@
 // Keeps ADC permission explicit and distinguishes recorded evidence from logical validity.
 // D112 contract: independent contract, chronology and native-binding checks follow adoption.
 #pragma once
+#include "config.h"
 #include "hal/power.h"
 #include "hal/ui.h"
 #include <cstdint>
@@ -67,6 +68,29 @@ public:
     std::uint32_t captureCount() const;
     const Capture* capture(std::uint32_t index) const;
 private:
-    // Implementation helpers and fixed storage are assigned to the implementation worker.
+    bool portsValid() const;
+    void fail(Fault fault);
+    void add(std::uint32_t& counter, std::uint32_t amount = 1U);
+    void attempt(Timing& timing);
+    void measure(Timing& timing, std::uint32_t elapsed_us);
+    bool admitClock(std::uint32_t now_us);
+    bool clock(std::uint32_t& now_us);
+    bool close(std::uint32_t started_us, Timing& timing, std::uint32_t& closed_us);
+    void examineSetup();
+    void examineSample();
+    void examineSource(std::uint32_t started_us, std::uint32_t returned_us);
+    bool read(std::uint32_t started_us, std::uint32_t missed);
+    void stage(std::uint32_t started_us, std::uint32_t returned_us, std::uint32_t missed);
+    void publish(std::uint32_t closed_us);
+    Port port_;
+    Report report_;
+    Capture captures_[config::UI_BENCH_SAMPLES > 0U ? config::UI_BENCH_SAMPLES : 1U]{};
+    bool attempted_ = false;
+    bool clock_seen_ = false;
+    bool interval_active_ = false;
+    bool source_seen_ = false;
+    std::uint32_t last_clock_us_ = 0U;
+    std::uint32_t interval_elapsed_us_ = 0U;
+    std::uint32_t source_age_us_ = 0U;
 };
 } // namespace ui_bench

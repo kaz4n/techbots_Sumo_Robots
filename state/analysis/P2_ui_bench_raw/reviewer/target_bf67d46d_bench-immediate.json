@@ -1,0 +1,542 @@
+{
+  "verdict": "PASS_EXACT_CHECKED_UI_TARGET_AND_CONDITIONAL_FIT",
+  "source_sha256": "bf67d46da629cd4a59e14be62721b766070feac1c95d28b7a797f47d3a8172f6",
+  "source_files": 96,
+  "shared_source_delta_from_D111": [
+    "src/config.h: exact additive UI_BENCH_SAMPLES=128 only"
+  ],
+  "mode": "bench-immediate",
+  "artifacts": [
+    {
+      "file": "ui.ino.elf",
+      "sha256": "4fa8171d133eca1e60a2329a380af6a8a7553ec29534796152f7b61c31dc419a",
+      "bytes": 19840,
+      "payload": 16245,
+      "conditional_peak": 17128,
+      "free_span": 245016,
+      "largest_free_payload": 245012,
+      "allocations": [
+        {
+          "purpose": "extension",
+          "chunk": 200,
+          "available_before": 262056,
+          "fits": true
+        },
+        {
+          "purpose": "section_map",
+          "chunk": 136,
+          "available_before": 261856,
+          "fits": true
+        },
+        {
+          "purpose": ".text",
+          "chunk": 5752,
+          "available_before": 261720,
+          "fits": true
+        },
+        {
+          "purpose": ".data",
+          "chunk": 40,
+          "available_before": 255968,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata",
+          "chunk": 568,
+          "available_before": 255928,
+          "fits": true
+        },
+        {
+          "purpose": ".bss",
+          "chunk": 9904,
+          "available_before": 255360,
+          "fits": true
+        },
+        {
+          "purpose": ".exported_sym",
+          "chunk": 16,
+          "available_before": 245456,
+          "fits": true
+        },
+        {
+          "purpose": ".init_array",
+          "chunk": 8,
+          "available_before": 245440,
+          "fits": true
+        },
+        {
+          "purpose": "global_symbols",
+          "chunk": 400,
+          "available_before": 245432,
+          "fits": true
+        },
+        {
+          "purpose": "export_copy",
+          "chunk": 16,
+          "available_before": 245032,
+          "fits": true
+        }
+      ],
+      "init_refs": [
+        "_ZN8ui_bench6Native4portEv",
+        "_ZN8ui_bench6RunnerC1ERKNS_4PortE"
+      ],
+      "used_imports": [
+        "__device_dts_ord_17",
+        "__device_dts_ord_54",
+        "__device_dts_ord_64",
+        "__device_dts_ord_65",
+        "__device_dts_ord_66",
+        "__device_dts_ord_89",
+        "__device_dts_ord_9",
+        "__device_dts_ord_90",
+        "__device_dts_ord_91",
+        "__device_dts_ord_92",
+        "__device_dts_ord_93",
+        "__device_dts_ord_94",
+        "__device_dts_ord_95",
+        "__real___aeabi_uldivmod",
+        "__real_abort",
+        "__real_memset",
+        "sys_clock_cycle_get_64",
+        "z_impl_device_is_ready",
+        "z_impl_k_thread_create",
+        "z_impl_k_thread_name_set"
+      ],
+      "native_bindings": {
+        "_ZN8ui_bench6Native7clockUsEPv": [
+          "micros"
+        ],
+        "_ZN8ui_bench6Native12beginButtonsEPv": [
+          "_ZN5power6Reader16beginWithButtonsEv"
+        ],
+        "_ZN8ui_bench6Native11readButtonsEPv": [
+          "_ZN5power6Reader11readButtonsEv"
+        ]
+      },
+      "sole_native": {
+        "name": "_ZN12_GLOBAL__N_16nativeE",
+        "value": 0,
+        "size": 32,
+        "bind": 0,
+        "type": 1,
+        "other": 0,
+        "section_index": 7,
+        "section": ".data"
+      },
+      "runner": {
+        "name": "_ZN12_GLOBAL__N_16runnerE",
+        "value": 0,
+        "size": 9892,
+        "bind": 0,
+        "type": 1,
+        "other": 0,
+        "section_index": 8,
+        "section": ".bss"
+      },
+      "pin_table_bytes_sha256": "b75a23b6fc4cef5eefa1445026facb73c466a2aa4819a8f48a0b5114bd41a49b",
+      "thread_bounds": [
+        {
+          "name": "__static_thread_data_list_end",
+          "value": 0,
+          "size": 0,
+          "bind": 1,
+          "type": 0,
+          "other": 0,
+          "section_index": 6,
+          "section": ".static_thread_data_area"
+        },
+        {
+          "name": "__static_thread_data_list_start",
+          "value": 0,
+          "size": 0,
+          "bind": 1,
+          "type": 0,
+          "other": 0,
+          "section_index": 6,
+          "section": ".static_thread_data_area"
+        }
+      ],
+      "compiled_constants": {
+        "begin_buttons": true,
+        "read_rank": 10,
+        "read_voltage": false,
+        "sketch_grant": false
+      }
+    },
+    {
+      "file": "ui.ino_debug.elf",
+      "sha256": "909ea3609c573af7e430cea11ff517e25642104040fa37070f118612b71e6517",
+      "bytes": 557168,
+      "payload": 16245,
+      "conditional_peak": 17240,
+      "free_span": 244904,
+      "largest_free_payload": 244900,
+      "allocations": [
+        {
+          "purpose": "extension",
+          "chunk": 200,
+          "available_before": 262056,
+          "fits": true
+        },
+        {
+          "purpose": "section_map",
+          "chunk": 248,
+          "available_before": 261856,
+          "fits": true
+        },
+        {
+          "purpose": ".text",
+          "chunk": 5752,
+          "available_before": 261608,
+          "fits": true
+        },
+        {
+          "purpose": ".data",
+          "chunk": 40,
+          "available_before": 255856,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata",
+          "chunk": 568,
+          "available_before": 255816,
+          "fits": true
+        },
+        {
+          "purpose": ".bss",
+          "chunk": 9904,
+          "available_before": 255248,
+          "fits": true
+        },
+        {
+          "purpose": ".exported_sym",
+          "chunk": 16,
+          "available_before": 245344,
+          "fits": true
+        },
+        {
+          "purpose": ".init_array",
+          "chunk": 8,
+          "available_before": 245328,
+          "fits": true
+        },
+        {
+          "purpose": "global_symbols",
+          "chunk": 400,
+          "available_before": 245320,
+          "fits": true
+        },
+        {
+          "purpose": "export_copy",
+          "chunk": 16,
+          "available_before": 244920,
+          "fits": true
+        }
+      ],
+      "init_refs": [
+        "_ZN8ui_bench6Native4portEv",
+        "_ZN8ui_bench6RunnerC1ERKNS_4PortE"
+      ],
+      "used_imports": [
+        "__device_dts_ord_17",
+        "__device_dts_ord_54",
+        "__device_dts_ord_64",
+        "__device_dts_ord_65",
+        "__device_dts_ord_66",
+        "__device_dts_ord_89",
+        "__device_dts_ord_9",
+        "__device_dts_ord_90",
+        "__device_dts_ord_91",
+        "__device_dts_ord_92",
+        "__device_dts_ord_93",
+        "__device_dts_ord_94",
+        "__device_dts_ord_95",
+        "__real___aeabi_uldivmod",
+        "__real_abort",
+        "__real_memset",
+        "sys_clock_cycle_get_64",
+        "z_impl_device_is_ready",
+        "z_impl_k_thread_create",
+        "z_impl_k_thread_name_set"
+      ],
+      "native_bindings": {
+        "_ZN8ui_bench6Native7clockUsEPv": [
+          "micros"
+        ],
+        "_ZN8ui_bench6Native12beginButtonsEPv": [
+          "_ZN5power6Reader16beginWithButtonsEv"
+        ],
+        "_ZN8ui_bench6Native11readButtonsEPv": [
+          "_ZN5power6Reader11readButtonsEv"
+        ]
+      },
+      "sole_native": {
+        "name": "_ZN12_GLOBAL__N_16nativeE",
+        "value": 0,
+        "size": 32,
+        "bind": 0,
+        "type": 1,
+        "other": 0,
+        "section_index": 7,
+        "section": ".data"
+      },
+      "runner": {
+        "name": "_ZN12_GLOBAL__N_16runnerE",
+        "value": 0,
+        "size": 9892,
+        "bind": 0,
+        "type": 1,
+        "other": 0,
+        "section_index": 8,
+        "section": ".bss"
+      },
+      "pin_table_bytes_sha256": "b75a23b6fc4cef5eefa1445026facb73c466a2aa4819a8f48a0b5114bd41a49b",
+      "thread_bounds": [
+        {
+          "name": "__static_thread_data_list_end",
+          "value": 0,
+          "size": 0,
+          "bind": 1,
+          "type": 0,
+          "other": 0,
+          "section_index": 6,
+          "section": ".static_thread_data_area"
+        },
+        {
+          "name": "__static_thread_data_list_start",
+          "value": 0,
+          "size": 0,
+          "bind": 1,
+          "type": 0,
+          "other": 0,
+          "section_index": 6,
+          "section": ".static_thread_data_area"
+        }
+      ],
+      "compiled_constants": {
+        "begin_buttons": true,
+        "read_rank": 10,
+        "read_voltage": false,
+        "sketch_grant": false
+      }
+    },
+    {
+      "file": "ui.ino_temp.elf",
+      "sha256": "f82225d67fac6b683870b5329795566c7bbdf3d94aaeb6a4a85a869843f1788b",
+      "bytes": 557844,
+      "payload": 16466,
+      "conditional_peak": 17576,
+      "free_span": 244568,
+      "largest_free_payload": 244564,
+      "allocations": [
+        {
+          "purpose": "extension",
+          "chunk": 200,
+          "available_before": 262056,
+          "fits": true
+        },
+        {
+          "purpose": "section_map",
+          "chunk": 312,
+          "available_before": 261856,
+          "fits": true
+        },
+        {
+          "purpose": ".text",
+          "chunk": 5752,
+          "available_before": 261544,
+          "fits": true
+        },
+        {
+          "purpose": ".data",
+          "chunk": 40,
+          "available_before": 255792,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata",
+          "chunk": 64,
+          "available_before": 255752,
+          "fits": true
+        },
+        {
+          "purpose": ".bss",
+          "chunk": 9904,
+          "available_before": 255688,
+          "fits": true
+        },
+        {
+          "purpose": ".exported_sym",
+          "chunk": 16,
+          "available_before": 245784,
+          "fits": true
+        },
+        {
+          "purpose": ".init_array",
+          "chunk": 8,
+          "available_before": 245768,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN6config14QTR_INPUT_PINSE",
+          "chunk": 24,
+          "available_before": 245760,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN6config14MOTOR_PWM_PINSE",
+          "chunk": 24,
+          "available_before": 245736,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN6config14OPP_INPUT_PINSE",
+          "chunk": 32,
+          "available_before": 245712,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN6config11P0_QTR_PINSE",
+          "chunk": 24,
+          "available_before": 245680,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN11native_pins5COUNTE",
+          "chunk": 8,
+          "available_before": 245656,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN11native_pins5TABLEE",
+          "chunk": 8,
+          "available_before": 245648,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata._ZN6zephyr7arduinoL12arduino_pinsE",
+          "chunk": 568,
+          "available_before": 245640,
+          "fits": true
+        },
+        {
+          "purpose": ".rodata.str1.1",
+          "chunk": 88,
+          "available_before": 245072,
+          "fits": true
+        },
+        {
+          "purpose": "global_symbols",
+          "chunk": 400,
+          "available_before": 244984,
+          "fits": true
+        },
+        {
+          "purpose": "export_copy",
+          "chunk": 16,
+          "available_before": 244584,
+          "fits": true
+        }
+      ],
+      "init_refs": [
+        "_ZN8ui_bench6Native4portEv",
+        "_ZN8ui_bench6RunnerC1ERKNS_4PortE"
+      ],
+      "used_imports": [
+        "__device_dts_ord_17",
+        "__device_dts_ord_54",
+        "__device_dts_ord_64",
+        "__device_dts_ord_65",
+        "__device_dts_ord_66",
+        "__device_dts_ord_89",
+        "__device_dts_ord_9",
+        "__device_dts_ord_90",
+        "__device_dts_ord_91",
+        "__device_dts_ord_92",
+        "__device_dts_ord_93",
+        "__device_dts_ord_94",
+        "__device_dts_ord_95",
+        "__real___aeabi_uldivmod",
+        "__real_abort",
+        "__real_memset",
+        "sys_clock_cycle_get_64",
+        "z_impl_device_is_ready",
+        "z_impl_k_thread_create",
+        "z_impl_k_thread_name_set"
+      ],
+      "native_bindings": {
+        "_ZN8ui_bench6Native7clockUsEPv": [
+          "micros"
+        ],
+        "_ZN8ui_bench6Native12beginButtonsEPv": [
+          "_ZN5power6Reader16beginWithButtonsEv"
+        ],
+        "_ZN8ui_bench6Native11readButtonsEPv": [
+          "_ZN5power6Reader11readButtonsEv"
+        ]
+      },
+      "sole_native": {
+        "name": "_ZN12_GLOBAL__N_16nativeE",
+        "value": 0,
+        "size": 32,
+        "bind": 0,
+        "type": 1,
+        "other": 0,
+        "section_index": 4,
+        "section": ".data"
+      },
+      "runner": {
+        "name": "_ZN12_GLOBAL__N_16runnerE",
+        "value": 0,
+        "size": 9892,
+        "bind": 0,
+        "type": 1,
+        "other": 0,
+        "section_index": 5,
+        "section": ".bss"
+      },
+      "pin_table_bytes_sha256": "b75a23b6fc4cef5eefa1445026facb73c466a2aa4819a8f48a0b5114bd41a49b",
+      "thread_bounds": [
+        {
+          "name": "__static_thread_data_list_end",
+          "value": 0,
+          "size": 0,
+          "bind": 1,
+          "type": 0,
+          "other": 0,
+          "section_index": 3,
+          "section": ".static_thread_data_area"
+        },
+        {
+          "name": "__static_thread_data_list_start",
+          "value": 0,
+          "size": 0,
+          "bind": 1,
+          "type": 0,
+          "other": 0,
+          "section_index": 3,
+          "section": ".static_thread_data_area"
+        }
+      ],
+      "compiled_constants": {
+        "begin_buttons": true,
+        "read_rank": 10,
+        "read_voltage": false,
+        "sketch_grant": false
+      }
+    }
+  ],
+  "abi": {
+    "Runner": 9892,
+    "Native": 32,
+    "Sample": 20,
+    "Capture": 76,
+    "Decode": 28,
+    "capture_offset": 148,
+    "capture_count": 128,
+    "capture_bytes": 9728
+  },
+  "zsk_sha256": "c5a7787a275b53d9915ca6dd41da3ab06484fb60d6c87a64cd6e09e38c814185",
+  "limits": "Core thread starter has empty bounds; exception allocation stub aborts. Device descriptors and retained ADC code are not execution. Pristine-pool model only, no target upload/readout/physical/WCET evidence."
+}

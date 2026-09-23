@@ -82,3 +82,10 @@ clean-framing/receiver readiness investigation is a separate eligible bare task.
 D111c1f48d4 complete; registry compatibility769727a reviewed/tested.
 D112 finite A1 raw/decoder contract adopted after both preflights; implementation
 and independent tests next. Native dump prerequisites note2b14b37 is read-only.
+
+D112 A1 raw/decoder bench: IMPLEMENTED/HOST-TESTED/TARGET-COMPILED/REVIEW-PASS.
+30profiles; normal/san35/21759 each; exhaustive16384-code decoder variants;
+90registrychecks;128policy methods. Exactbf67d46d default/Immediate ELF4fa8171d,
+conditionalpeak17128; F136/validation/final scoped review. No physical B6 claim.
+Next D113 minimal TCP-attachment receipt draft/preflight, not adopted; no router
+registration/clean-framing grant follows. Remaining stand-bench software follows.

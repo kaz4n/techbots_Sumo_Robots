@@ -1,0 +1,390 @@
+{
+  "verdict": "PASS_SCOPED_D112_SOURCE_TESTS_CHECKED_TARGETS",
+  "utc": "2026-09-23T21:27:32.633016+00:00",
+  "independence": "Reused separate same-model read-only reviewer; contract-only same-model independent author reused earlier context. Coordinator-authored policy cases separately executed. No human gate claim.",
+  "source_sha256": {
+    "bench/ui/ui.ino": "be6dd812eac69d4d1df49a4bbc04378d799604a065ef27abdf22212b03a09139",
+    "bench/ui/src/ui_bench.h": "881eceb27b8eb54654777529b50c8df49597a2303352f11f9b34695310e7094e",
+    "bench/ui/src/ui_bench.cpp": "bc2def36d611f534112288dfca538ab36d51aff58d73c7e5e09eb1f0d9a7e70d",
+    "bench/ui/src/ui_bench_native.h": "74d66c0ff294ce09ff1a1eaa387c686b3726557cac19e2027e1f6e1c1144fee4",
+    "bench/ui/src/ui_bench_native.cpp": "a9bd1c4d71cb167a94953194435857c88823ffd755db89d80ed9dccb6a2381d0"
+  },
+  "contract_sha256": "2adfd43546f2deba17ff852352d1c6b5c1c3f98bb32e7e75042bea0227bc00a2",
+  "target_source_sha256": "bf67d46da629cd4a59e14be62721b766070feac1c95d28b7a797f47d3a8172f6",
+  "elf_sha256": "4fa8171d133eca1e60a2329a380af6a8a7553ec29534796152f7b61c31dc419a",
+  "targets": [
+    {
+      "mode": "bench-default",
+      "zsk_sha256": "a7a5f300e1f0b644cc7e06e5c99af1447a569ea31bdf2570b9481d4e0e4b5835",
+      "abi": {
+        "Runner": 9892,
+        "Native": 32,
+        "Sample": 20,
+        "Capture": 76,
+        "Decode": 28,
+        "capture_offset": 148,
+        "capture_count": 128,
+        "capture_bytes": 9728
+      },
+      "final": {
+        "file": "ui.ino.elf",
+        "sha256": "4fa8171d133eca1e60a2329a380af6a8a7553ec29534796152f7b61c31dc419a",
+        "bytes": 19840,
+        "payload": 16245,
+        "conditional_peak": 17128,
+        "free_span": 245016,
+        "largest_free_payload": 245012,
+        "allocations": [
+          {
+            "purpose": "extension",
+            "chunk": 200,
+            "available_before": 262056,
+            "fits": true
+          },
+          {
+            "purpose": "section_map",
+            "chunk": 136,
+            "available_before": 261856,
+            "fits": true
+          },
+          {
+            "purpose": ".text",
+            "chunk": 5752,
+            "available_before": 261720,
+            "fits": true
+          },
+          {
+            "purpose": ".data",
+            "chunk": 40,
+            "available_before": 255968,
+            "fits": true
+          },
+          {
+            "purpose": ".rodata",
+            "chunk": 568,
+            "available_before": 255928,
+            "fits": true
+          },
+          {
+            "purpose": ".bss",
+            "chunk": 9904,
+            "available_before": 255360,
+            "fits": true
+          },
+          {
+            "purpose": ".exported_sym",
+            "chunk": 16,
+            "available_before": 245456,
+            "fits": true
+          },
+          {
+            "purpose": ".init_array",
+            "chunk": 8,
+            "available_before": 245440,
+            "fits": true
+          },
+          {
+            "purpose": "global_symbols",
+            "chunk": 400,
+            "available_before": 245432,
+            "fits": true
+          },
+          {
+            "purpose": "export_copy",
+            "chunk": 16,
+            "available_before": 245032,
+            "fits": true
+          }
+        ],
+        "init_refs": [
+          "_ZN8ui_bench6Native4portEv",
+          "_ZN8ui_bench6RunnerC1ERKNS_4PortE"
+        ],
+        "used_imports": [
+          "__device_dts_ord_17",
+          "__device_dts_ord_54",
+          "__device_dts_ord_64",
+          "__device_dts_ord_65",
+          "__device_dts_ord_66",
+          "__device_dts_ord_89",
+          "__device_dts_ord_9",
+          "__device_dts_ord_90",
+          "__device_dts_ord_91",
+          "__device_dts_ord_92",
+          "__device_dts_ord_93",
+          "__device_dts_ord_94",
+          "__device_dts_ord_95",
+          "__real___aeabi_uldivmod",
+          "__real_abort",
+          "__real_memset",
+          "sys_clock_cycle_get_64",
+          "z_impl_device_is_ready",
+          "z_impl_k_thread_create",
+          "z_impl_k_thread_name_set"
+        ],
+        "native_bindings": {
+          "_ZN8ui_bench6Native7clockUsEPv": [
+            "micros"
+          ],
+          "_ZN8ui_bench6Native12beginButtonsEPv": [
+            "_ZN5power6Reader16beginWithButtonsEv"
+          ],
+          "_ZN8ui_bench6Native11readButtonsEPv": [
+            "_ZN5power6Reader11readButtonsEv"
+          ]
+        },
+        "sole_native": {
+          "name": "_ZN12_GLOBAL__N_16nativeE",
+          "value": 0,
+          "size": 32,
+          "bind": 0,
+          "type": 1,
+          "other": 0,
+          "section_index": 7,
+          "section": ".data"
+        },
+        "runner": {
+          "name": "_ZN12_GLOBAL__N_16runnerE",
+          "value": 0,
+          "size": 9892,
+          "bind": 0,
+          "type": 1,
+          "other": 0,
+          "section_index": 8,
+          "section": ".bss"
+        },
+        "pin_table_bytes_sha256": "b75a23b6fc4cef5eefa1445026facb73c466a2aa4819a8f48a0b5114bd41a49b",
+        "thread_bounds": [
+          {
+            "name": "__static_thread_data_list_end",
+            "value": 0,
+            "size": 0,
+            "bind": 1,
+            "type": 0,
+            "other": 0,
+            "section_index": 6,
+            "section": ".static_thread_data_area"
+          },
+          {
+            "name": "__static_thread_data_list_start",
+            "value": 0,
+            "size": 0,
+            "bind": 1,
+            "type": 0,
+            "other": 0,
+            "section_index": 6,
+            "section": ".static_thread_data_area"
+          }
+        ],
+        "compiled_constants": {
+          "begin_buttons": true,
+          "read_rank": 10,
+          "read_voltage": false,
+          "sketch_grant": false
+        }
+      }
+    },
+    {
+      "mode": "bench-immediate",
+      "zsk_sha256": "c5a7787a275b53d9915ca6dd41da3ab06484fb60d6c87a64cd6e09e38c814185",
+      "abi": {
+        "Runner": 9892,
+        "Native": 32,
+        "Sample": 20,
+        "Capture": 76,
+        "Decode": 28,
+        "capture_offset": 148,
+        "capture_count": 128,
+        "capture_bytes": 9728
+      },
+      "final": {
+        "file": "ui.ino.elf",
+        "sha256": "4fa8171d133eca1e60a2329a380af6a8a7553ec29534796152f7b61c31dc419a",
+        "bytes": 19840,
+        "payload": 16245,
+        "conditional_peak": 17128,
+        "free_span": 245016,
+        "largest_free_payload": 245012,
+        "allocations": [
+          {
+            "purpose": "extension",
+            "chunk": 200,
+            "available_before": 262056,
+            "fits": true
+          },
+          {
+            "purpose": "section_map",
+            "chunk": 136,
+            "available_before": 261856,
+            "fits": true
+          },
+          {
+            "purpose": ".text",
+            "chunk": 5752,
+            "available_before": 261720,
+            "fits": true
+          },
+          {
+            "purpose": ".data",
+            "chunk": 40,
+            "available_before": 255968,
+            "fits": true
+          },
+          {
+            "purpose": ".rodata",
+            "chunk": 568,
+            "available_before": 255928,
+            "fits": true
+          },
+          {
+            "purpose": ".bss",
+            "chunk": 9904,
+            "available_before": 255360,
+            "fits": true
+          },
+          {
+            "purpose": ".exported_sym",
+            "chunk": 16,
+            "available_before": 245456,
+            "fits": true
+          },
+          {
+            "purpose": ".init_array",
+            "chunk": 8,
+            "available_before": 245440,
+            "fits": true
+          },
+          {
+            "purpose": "global_symbols",
+            "chunk": 400,
+            "available_before": 245432,
+            "fits": true
+          },
+          {
+            "purpose": "export_copy",
+            "chunk": 16,
+            "available_before": 245032,
+            "fits": true
+          }
+        ],
+        "init_refs": [
+          "_ZN8ui_bench6Native4portEv",
+          "_ZN8ui_bench6RunnerC1ERKNS_4PortE"
+        ],
+        "used_imports": [
+          "__device_dts_ord_17",
+          "__device_dts_ord_54",
+          "__device_dts_ord_64",
+          "__device_dts_ord_65",
+          "__device_dts_ord_66",
+          "__device_dts_ord_89",
+          "__device_dts_ord_9",
+          "__device_dts_ord_90",
+          "__device_dts_ord_91",
+          "__device_dts_ord_92",
+          "__device_dts_ord_93",
+          "__device_dts_ord_94",
+          "__device_dts_ord_95",
+          "__real___aeabi_uldivmod",
+          "__real_abort",
+          "__real_memset",
+          "sys_clock_cycle_get_64",
+          "z_impl_device_is_ready",
+          "z_impl_k_thread_create",
+          "z_impl_k_thread_name_set"
+        ],
+        "native_bindings": {
+          "_ZN8ui_bench6Native7clockUsEPv": [
+            "micros"
+          ],
+          "_ZN8ui_bench6Native12beginButtonsEPv": [
+            "_ZN5power6Reader16beginWithButtonsEv"
+          ],
+          "_ZN8ui_bench6Native11readButtonsEPv": [
+            "_ZN5power6Reader11readButtonsEv"
+          ]
+        },
+        "sole_native": {
+          "name": "_ZN12_GLOBAL__N_16nativeE",
+          "value": 0,
+          "size": 32,
+          "bind": 0,
+          "type": 1,
+          "other": 0,
+          "section_index": 7,
+          "section": ".data"
+        },
+        "runner": {
+          "name": "_ZN12_GLOBAL__N_16runnerE",
+          "value": 0,
+          "size": 9892,
+          "bind": 0,
+          "type": 1,
+          "other": 0,
+          "section_index": 8,
+          "section": ".bss"
+        },
+        "pin_table_bytes_sha256": "b75a23b6fc4cef5eefa1445026facb73c466a2aa4819a8f48a0b5114bd41a49b",
+        "thread_bounds": [
+          {
+            "name": "__static_thread_data_list_end",
+            "value": 0,
+            "size": 0,
+            "bind": 1,
+            "type": 0,
+            "other": 0,
+            "section_index": 6,
+            "section": ".static_thread_data_area"
+          },
+          {
+            "name": "__static_thread_data_list_start",
+            "value": 0,
+            "size": 0,
+            "bind": 1,
+            "type": 0,
+            "other": 0,
+            "section_index": 6,
+            "section": ".static_thread_data_area"
+          }
+        ],
+        "compiled_constants": {
+          "begin_buttons": true,
+          "read_rank": 10,
+          "read_voltage": false,
+          "sketch_grant": false
+        }
+      }
+    }
+  ],
+  "evidence_sha256": {
+    "source_review.json": "f0fc4ce695ad7d717da8c80618357e8064a5859315361bf918e9834b97279f9a",
+    "firmware_review.json": "9b2e5df9da9ff9eac2e646738ee42cc4fee9f7a4c7e60c881d67cfa5da2ea093",
+    "policy_source_review.json": "d9f4f7a36c36451efb2baba94cbd090f10fd8cf4575db28aa46d6762db1be0d9",
+    "firmware_1790198614083708719.json": "d29cdead815ab56722bd5bf548ec323320f60526cc392766c50076ad6daeab3d",
+    "policy_1790198274646835890.json": "a9fea657e6c3f838f56009e4b7414587a084423573dd1e36e0ad03f113ab6fa1",
+    "target_bf67d46d_bench-default.json": "2e1294255008be610f786d5aa952fed601504adf1d84ad99b872a4be9625fe0b",
+    "target_bf67d46d_bench-immediate.json": "e75c4bb40e509348d4d53e8317ecf2bd1c57717a9579140e859fd47fce5146aa"
+  },
+  "superseded_disposition_sha256": "6b390b8545d59d4bde6d0af0b852890a9b559351d1f2cc1a9a48b345b3c5086b",
+  "closed_findings": [
+    {
+      "severity": "MINOR",
+      "issue": "sample_seen visibility at A callback",
+      "disposition": "Literal clarified contract and exact two-line reorder before executable freeze; first target preserved superseded."
+    },
+    {
+      "severity": "MINOR",
+      "issue": "Second freeze predates saved clarified contract",
+      "disposition": "Original retained; later binding addendum verifies unchanged exact sources against clarified contract."
+    }
+  ],
+  "reviewer_harness_failure": "Initial source-verifier CRLF assumption failed; LF-aware exact-byte comparison corrected, first script and failure preserved. No product failure/test change.",
+  "open_findings": [],
+  "limits": [
+    "No MCU upload, reset, readout, active ADC run, wiring approval, loaded-RAM or WCET measurement.",
+    "Default and Immediate artifact grants false; no new upload key. Native counted-host substitution is not register behavior.",
+    "Synthetic decoder windows do not establish electrical START/BOTH distinction; no long-gesture/matrix/full B6 or phase gate.",
+    "Unobserved whole clock wraps and unreachable giant counters remain outside dynamic evidence.",
+    "Conditional pristine262144-byte loader model only; historical D109 full-host CTest 2/2 is not a new D112 full-host run."
+  ]
+}

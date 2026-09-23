@@ -30,8 +30,11 @@ D111 finite IMU bench is complete in software:28profiles,normal/san31cases/
 methods; exact9520e473 default/Immediate ELFe55565ff,conditionalpeak28224.
 Separate finalreview PASS/no findings; read its validation/raw/F135.
 D111 implementationc1f48d4; historical registry compatibility769727a.
-D112 UI raw/decoder contract/config/publicheaders adopted after both preflights.
-Next independent tests/implementation, checked ui.ino route and exact targets.
+D112 UI raw/decoder bench complete in software:30profiles,normal/san35cases/21759assertions,
+90registrychecks and128policy methods PASS; exactbf67d46d default/Immediate
+ELF4fa8171d,conditionalpeak17128; final scoped review PASS/no findings. Read
+its validation/raw/F136. Next: D113 minimal native-dump attachment-receipt draft
+and preflight; not adopted. Receipt cannot prove router registration/clean framing.
 Read P2_remaining_software_after_D111.md and native_dump_bare_feasibility; no
 new dump run policy or clean-framing grant is established.
 

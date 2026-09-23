@@ -1,0 +1,12 @@
+--- first/bench/ui/src/ui_bench.cpp
++++ second/bench/ui/src/ui_bench.cpp
+@@ -155,8 +155,8 @@
+     report_.last_read_accepted = false;
+     report_.decode_matches_sample = false;
+     report_.sample = port_.readButtons(port_.context);
++    report_.sample_seen = true;
+     const auto returned = port_.clockUs(port_.context);
+-    report_.sample_seen = true;
+     examineSample();
+     if (admitClock(returned)) {
+         measure(report_.read_timing, returned - started_us);

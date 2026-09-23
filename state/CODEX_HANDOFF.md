@@ -1,3 +1,18 @@
+## Active checkpoint - 2026-09-24T01:28:12.831153+04:00
+
+D112 finite A1 raw/decoder bench is complete in software.30 executable profiles,
+normal/san35cases/21759assertions each, exhaustive16384-code decoder profiles,
+90registrychecks and128policy methods PASS. Exact96-sourcebf67d46d default/
+Immediate share ELF4fa8171d; conditional peak17128. Separate final scoped review
+PASS/no findings; read its validation/raw/F136. Pre-test ordering correction and
+superseded firstsource/target retained. No new MCU upload/reset/run or human gate.
+
+Next: minimal native dump TCP-attachment receipt draft/preflight, then remaining
+stand-bench software. D113 is not adopted yet. Receipt must not claim router
+registration, clean framing or physical permission. Current MCU remains frozen
+D1042bd817c4; P2 software active under D051/D075; full P0-P7 remains incomplete.
+Historical checkpoints below remain provenance.
+
 ## Active checkpoint - 2026-09-24T01:14:36+04:00
 
 D111 completedc1f48d4; historical registry proofs repaired769727a with live

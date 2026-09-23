@@ -69,3 +69,10 @@ Update only the five existing inert guards after independent additions/config-
 proposal review. Existing sketches never instantiate Sensors. Fresh separate
 read-only review checks code, mocks, target retention and guarded upload behavior.
 Physical B1 matrix display/ranges/60s empty-ring false hits remain pending.
+
+Probe public interface: bench/p2_opp_compile/src/opponent_probe.h defines Result
+{initialization,sample}, Probe=Result(*)(), sensors, volatile address and exercise.
+exercise invokes real begin/read but is never called. setup assigns address to
+exercise; loop empty. MOTORS_ALLOWED1 compile is explicitly rejected by static
+assert. Default compile-only checks native code; all attempted uploads reject
+before transport. Host tests may link/execute startup only with counted APIs.

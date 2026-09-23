@@ -1,3 +1,7 @@
+## Active checkpoint - 2026-09-24T02:37:40.596486+04:00
+
+D114 actual bare ADC run is MEASURED/SCOPED-REVIEW-PASS: one checked396bcc45 upload, frozen128valid samples,0misses, source54..60/read59..65/poll63..70 MCUus; setup957us; allUNCONFIGURED. Exact63-file originals and independent210-check review retained. See F141, P2_ui_adc_probe_actual_validation.md and actual_analysis/review. MCU now remains this completed396bcc45 ADC probe (supersedes historical D104-last-image notes); no further upload/reset/retry. D11524c1a498 inhibition-only bench contract adopted, fivefiles frozen/syntax/source-preflightPASS; independent hosttests, checkeddefaultcompile and finalreview next. P2softwareactive, physical SC-A/SC-AJ/fullapp/assembledrobot/human gates stillopen. No extra hardware requested.
+
 ## Active checkpoint - 2026-09-24T02:23:09.648935+04:00
 
 D114 readout/guard software complete: capturef4b3 passes independent/private42; guard1aa passes22; boardd1f retains145 prior policies; manifest-only narrow39 PASS. See P2_ui_adc_readout_validation.md and separate reviews. MCU still D104; no new upload/reset. Exact run01 plan and Linux tool staging precede final bound review, then one identified inert upload/passive capture. SC-A/SC-AJ/physical/human gates remain pending.

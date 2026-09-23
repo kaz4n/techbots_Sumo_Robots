@@ -1,0 +1,115 @@
+{
+  "verdict": "PASS_SCOPED_OUTER_CAPTURE_FIXES",
+  "script_sha256": "46a1fe34ef2e6ab88c1843cae0201781b6e659e474992c77bd16a8b91e61fa6b",
+  "checks": [
+    {
+      "case": "pull success",
+      "retained": {
+        "argv": [
+          "fixture-adb",
+          "-s",
+          "2629958581",
+          "pull",
+          "/home/arduino/sumox26-capture/ui-adc-d114-run01",
+          "C:\\Users\\narut\\AppData\\Local\\Temp\\d114-pull-review-ylo8u938\\local"
+        ],
+        "started_utc": "2026-09-23T22:26:17.726733+00:00",
+        "returncode": 0,
+        "stdout": "pulled",
+        "stderr": "",
+        "finished_utc": "2026-09-23T22:26:17.727232+00:00"
+      }
+    },
+    {
+      "case": "pull TimeoutExpired",
+      "retained": {
+        "argv": [
+          "fixture-adb",
+          "-s",
+          "2629958581",
+          "pull",
+          "/home/arduino/sumox26-capture/ui-adc-d114-run01",
+          "C:\\Users\\narut\\AppData\\Local\\Temp\\d114-pull-review-3u42ubpr\\local"
+        ],
+        "started_utc": "2026-09-23T22:26:17.733820+00:00",
+        "returncode": null,
+        "error": "Command '['fixture']' timed out after 90 seconds",
+        "stdout": "part\ufffd",
+        "stderr": "bad\ufffd",
+        "finished_utc": "2026-09-23T22:26:17.734351+00:00"
+      }
+    },
+    {
+      "case": "pull OSError",
+      "retained": {
+        "argv": [
+          "fixture-adb",
+          "-s",
+          "2629958581",
+          "pull",
+          "/home/arduino/sumox26-capture/ui-adc-d114-run01",
+          "C:\\Users\\narut\\AppData\\Local\\Temp\\d114-pull-review-lvt0q8vy\\local"
+        ],
+        "started_utc": "2026-09-23T22:26:17.741043+00:00",
+        "returncode": null,
+        "error": "missing",
+        "stdout": "",
+        "stderr": "",
+        "finished_utc": "2026-09-23T22:26:17.741528+00:00"
+      }
+    },
+    {
+      "case": "hash success",
+      "retained": {
+        "argv": [
+          "sha256sum",
+          "--",
+          "fixture"
+        ],
+        "started_utc": "2026-09-23T22:26:17.748129+00:00",
+        "returncode": 0,
+        "stdout": "hashes",
+        "stderr": "",
+        "finished_utc": "2026-09-23T22:26:17.748169+00:00"
+      }
+    },
+    {
+      "case": "hash timeout",
+      "retained": {
+        "argv": [
+          "sha256sum",
+          "--",
+          "fixture"
+        ],
+        "started_utc": "2026-09-23T22:26:17.754035+00:00",
+        "returncode": null,
+        "error": "Command '['fixture']' timed out after 30 seconds",
+        "stdout": "part",
+        "stderr": "err",
+        "finished_utc": "2026-09-23T22:26:17.754084+00:00"
+      }
+    },
+    {
+      "case": "101st entry stops enumeration",
+      "pass": true,
+      "visited": 101
+    },
+    {
+      "case": "bounded healthy file",
+      "pass": true,
+      "visited": 1
+    },
+    {
+      "case": "growing file refuses after size plus one",
+      "pass": true,
+      "visited": 1
+    },
+    {
+      "case": "oversize file refuses before read",
+      "pass": true,
+      "visited": 1
+    }
+  ],
+  "independence": "Review-authored after source inspection; not an independently frozen contract suite",
+  "board_actions": false
+}

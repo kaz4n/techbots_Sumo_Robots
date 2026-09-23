@@ -343,3 +343,6 @@ This is not an observed surface, cadence or electrical measurement.
 - 2026-09-24T01:14:36.044238+04:00 D112 software bound only: UI_BENCH_SAMPLES128 for finite raw/decoder evidence; no measured tuning, no change to TICK_US, ADC guards, pin/window/voltage values, no hardware run.
 
 - 2026-09-24T02:02:24.859985+04:00 | D113 bare UNO Q Linux receiver observation | No config change. Ticket01aac4fffa214aa2b332b261734de7e9;12s deadline,actual close12013.388427ms after start,0bytes,CONNECTED thenTIMEOUT. Linuxmonotonic clock only; expected capturefailure retained; no MCU/sensor/motor/physical claim. Evidence analysis/P2_dump_receiver_arm_raw/reviewer/smoke_runs/01aac4fffa214aa2b332b261734de7e9.
+
+## 2026-09-24T02:37:40.596486+04:00 - D114 bare ADC observation, no tuning change
+One inert upload/readout d114-ui-adc-01 on reported bare UNOQ2629958581.128samples,0misses,raw2061..3984; setup957,source54..60,callback59..65,duepoll63..70 MCU-clock us. Source396bcc45, software9bb947b, exactPAIR3d33a0ed. AllUNCONFIGURED; floatingraw values have no expectedvoltage/button interpretation. IndependentactualreviewPASS with210checks;63 originalfiles and128rowCSV retained. Evidence analysis/P2_ui_adc_probe_actual_validation.md and linkedraw/analysis/review. No config value changed, calibratedtime/WCET/physicalgate claim or motor action.

@@ -1,0 +1,41 @@
+{
+  "status": "PREPARED_WAITING_SOFTWARE_COMMIT_AND_TOOL_DEPLOYMENT",
+  "run_id": "d114-ui-adc-01",
+  "target": "2629958581",
+  "transport": "adb",
+  "file_sha256": {
+    "tools/board_tool.py": "d1fda9649a30679ed9282d3b03e7a244f8c21ea51b3ded2ad6f7a83c4fb9fcc7",
+    "tools/app_build_policy.py": "744d7d411e9ed68fb724d3ac2fc4081ea35ebca7c8e5414be54ee7feb1a1e161",
+    "tools/app_build_pins.json": "55720e65b03f6cd28964c675ceeec76619824cd11525549fbac0503b8efa972b",
+    "tools/app_build_commands.json": "63f6c41e34bae9fce1d945c3271b3fe86343f27544affe25ae14788438d62e1d",
+    "tools/ui_adc_run.py": "1aa109a2ed068ed4d21dc442aa9195b516f8df264c5a04a0b71a75949cb5d8e8",
+    "tools/ui_adc_capture.py": "f4b3db265bdf2d5a5fdada19ed9f51a44304d9ba5da8be78e598365afa2c4444",
+    "tools/p0_capture.py": "885c4e4206aea4ac9e03c4e92e48258db2a0ae302ff83a86430e6913afeeb57c",
+    "tools/p0_mem_read.cfg": "89d16a28a1489c23ec743be55ade39824f9ca5213b02b20ef4785079122e4339",
+    "tools/p0_inert_sources.json": "a1587931afa5f817bf8b93054f384918dc8cd36d4fb71c8f7b083d76e6128802",
+    "state/analysis/P2_ui_adc_capture_contract.md": "0e8ead402ac3ddd247a986790d793d4126141d7d283e38665e6fce411c51b689",
+    "state/analysis/P2_ui_adc_run_contract.md": "b37fb854e72c02ec4b8d88cfffd67943d2a377633ccae9d9d954420f7d817c7a"
+  },
+  "source_sha256": "396bcc45fbaf30d38b170bf0c0063c555d5e88cdad512829b86a52ffede18642",
+  "manifest": "Exactly one key added; original eight values unchanged",
+  "evidence_sha256": {
+    "state/reviews/P2_ui_adc_probe_review.md": "a4e4e20bba8aed7e0f9f94eb93b81a8042055b347e7612f71cb10b2aa99b3c7e",
+    "state/reviews/P2_ui_adc_capture_review.md": "e329cc532f141cd21f26bb61a235af1291e9ddddcd55d89133d30110a1034bcd",
+    "state/reviews/P2_ui_adc_run_review.md": "5d0b88713fec0b3d3829a501b2485769b2450f2692c254a965dfaac9b417f93c",
+    "state/analysis/P2_ui_adc_probe_run01_plan.md": "c5e501023c1e97a939a1afe07d758c2b109ff4ea721bf4fa8c3232336cd8bcbf",
+    "state/analysis/P2_ui_adc_probe_raw/artifact_preparation.json": "dd61873c277a59fd1d95ba7080aaecdc1308792a40f15a2d98e7cf49322428c9",
+    "state/analysis/P2_ui_adc_probe_raw/reviewer/final_review.json": "91704a8a99559e9dad6cd47cf92473ff739805d82261801e0a3d1aae77223925",
+    "state/analysis/P2_ui_adc_probe_raw/capture_reviewer/final_review.json": "9491fae19e9afc798c58336491649e666da7c1f65a87af83149703f39b556752",
+    "state/analysis/P2_ui_adc_probe_raw/guard_reviewer/prior145_binding.json": "0c2e8e5ad7f254421ba170454c21819d051ddbe5169c934584c761a73c408f06",
+    "state/analysis/P2_app_build_raw/ui_adc_manifest39.json": "7572ef6d9171a7834b254e7eef5a88a38a983db70ab9ef7dde1d28ebe1060dc0",
+    "state/analysis/P2_app_build_raw/ui_adc_manifest39.txt": "00bdc931cc06211bd43c2d7f19755b3faef1360b516409cd940a5b0062bc7b21"
+  },
+  "absent_at_preflight": [
+    "state/analysis/P2_ui_adc_probe_run01.json",
+    "state/analysis/P2_ui_adc_probe_raw/reviewer/run01_approval.json",
+    "state/analysis/P2_ui_adc_probe_raw/run01_upload_attempt.json",
+    "state/analysis/P2_ui_adc_probe_raw/run01_upload_outcome.json"
+  ],
+  "approval_created": false,
+  "limits": "One explicit reviewed default inert upload plus one separately bounded passive capture; no physical/human gate or cross-model claim"
+}

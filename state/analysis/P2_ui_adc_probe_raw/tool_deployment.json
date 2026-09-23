@@ -1,0 +1,256 @@
+{
+  "status": "VERIFIED_STAGED_NOT_EXECUTED",
+  "started_utc": "2026-09-23T22:24:22.535696+00:00",
+  "serial": "2629958581",
+  "destination": "/home/arduino/sumox26-capture-tools/ui_adc_d114_run01",
+  "scope": "Linux file transfer and hashing only; capture scripts not executed; no MCU action",
+  "commands": [
+    {
+      "argv": [
+        "C:\\Users\\narut\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\adb\\32.0.0\\adb.exe",
+        "-s",
+        "2629958581",
+        "get-state"
+      ],
+      "started_utc": "2026-09-23T22:24:22.547351+00:00",
+      "status": "FINISHED",
+      "returncode": 0,
+      "stdout": "device\r\n",
+      "stderr": "",
+      "ended_utc": "2026-09-23T22:24:22.571822+00:00"
+    },
+    {
+      "argv": [
+        "C:\\Users\\narut\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\adb\\32.0.0\\adb.exe",
+        "-s",
+        "2629958581",
+        "shell",
+        "python3",
+        "-c",
+        "'import os,stat,hashlib,json\ntarget=\"/home/arduino/sumox26-capture-tools/ui_adc_d114_run01\"\nflags=os.O_RDONLY|os.O_DIRECTORY|os.O_NOFOLLOW\ndef open_chain(path):\n    fd=os.open('\"'\"'/'\"'\"',flags)\n    observed=[]\n    prefix='\"'\"''\"'\"'\n    for part in path.strip('\"'\"'/'\"'\"').split('\"'\"'/'\"'\"'):\n        prefix+='\"'\"'/'\"'\"'+part\n        before=os.stat(part,dir_fd=fd,follow_symlinks=False)\n        if not stat.S_ISDIR(before.st_mode): raise ValueError('\"'\"'Nondirectory ancestry'\"'\"')\n        nextfd=os.open(part,flags,dir_fd=fd)\n        after=os.fstat(nextfd)\n        if (before.st_dev,before.st_ino)!=(after.st_dev,after.st_ino):\n            raise ValueError('\"'\"'Ancestry identity changed'\"'\"')\n        observed.append(dict(path=prefix,device=after.st_dev,inode=after.st_ino,\n                             mode=stat.S_IMODE(after.st_mode),uid=after.st_uid))\n        os.close(fd)\n        fd=nextfd\n    return fd,observed\n\nparent,name=target.rsplit('\"'\"'/'\"'\"',1)\nrootfd,unused=open_chain('\"'\"'/home/arduino'\"'\"')\nparent_created=False\ntry:\n    os.stat('\"'\"'sumox26-capture-tools'\"'\"',dir_fd=rootfd,follow_symlinks=False)\nexcept FileNotFoundError:\n    os.mkdir('\"'\"'sumox26-capture-tools'\"'\"',0o700,dir_fd=rootfd)\n    parent_created=True\nos.close(rootfd)\nfd,ancestry=open_chain(parent)\ntry:\n    os.mkdir(name,0o700,dir_fd=fd)\n    child=os.open(name,flags,dir_fd=fd)\n    os.fchmod(child,0o700)\n    result=os.fstat(child)\n    if not stat.S_ISDIR(result.st_mode) or stat.S_IMODE(result.st_mode)!=0o700:\n        raise ValueError('\"'\"'Private directory creation failed'\"'\"')\n    if os.listdir(child): raise ValueError('\"'\"'New directory is not empty'\"'\"')\n    ancestry.append(dict(path=target,device=result.st_dev,inode=result.st_ino,\n                         mode=stat.S_IMODE(result.st_mode),uid=result.st_uid))\n    print(json.dumps(dict(destination=target,parent_created=parent_created,ancestry=ancestry,files=[])))\nfinally:\n    os.close(fd)\n'"
+      ],
+      "started_utc": "2026-09-23T22:24:22.572310+00:00",
+      "status": "FINISHED",
+      "returncode": 0,
+      "stdout": "{\"destination\": \"/home/arduino/sumox26-capture-tools/ui_adc_d114_run01\", \"parent_created\": false, \"ancestry\": [{\"path\": \"/home\", \"device\": 66340, \"inode\": 130049, \"mode\": 493, \"uid\": 0}, {\"path\": \"/home/arduino\", \"device\": 66341, \"inode\": 2, \"mode\": 493, \"uid\": 1000}, {\"path\": \"/home/arduino/sumox26-capture-tools\", \"device\": 66341, \"inode\": 956419, \"mode\": 509, \"uid\": 1000}, {\"path\": \"/home/arduino/sumox26-capture-tools/ui_adc_d114_run01\", \"device\": 66341, \"inode\": 956463, \"mode\": 448, \"uid\": 1000}], \"files\": []}\r\n",
+      "stderr": "",
+      "ended_utc": "2026-09-23T22:24:22.765210+00:00"
+    },
+    {
+      "argv": [
+        "C:\\Users\\narut\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\adb\\32.0.0\\adb.exe",
+        "-s",
+        "2629958581",
+        "push",
+        "C:\\Users\\narut\\OneDrive\\Desktop\\Project\\techbots_Sumo_Robots\\tools\\ui_adc_capture.py",
+        "/home/arduino/sumox26-capture-tools/ui_adc_d114_run01/ui_adc_capture.py"
+      ],
+      "started_utc": "2026-09-23T22:24:22.766796+00:00",
+      "status": "FINISHED",
+      "returncode": 0,
+      "stdout": "C:\\Users\\narut\\OneDrive\\Desktop\\Project\\techbots_Sumo_Robots\\tools\\ui_adc_capture.py: 1 file pushed, 0 skipped. 88.8 MB/s (35160 bytes in 0.000s)\r\n",
+      "stderr": "",
+      "ended_utc": "2026-09-23T22:24:22.797497+00:00"
+    },
+    {
+      "argv": [
+        "C:\\Users\\narut\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\adb\\32.0.0\\adb.exe",
+        "-s",
+        "2629958581",
+        "shell",
+        "python3",
+        "-c",
+        "'import os,stat,hashlib,json\ntarget=\"/home/arduino/sumox26-capture-tools/ui_adc_d114_run01\"\nflags=os.O_RDONLY|os.O_DIRECTORY|os.O_NOFOLLOW\ndef open_chain(path):\n    fd=os.open('\"'\"'/'\"'\"',flags)\n    observed=[]\n    prefix='\"'\"''\"'\"'\n    for part in path.strip('\"'\"'/'\"'\"').split('\"'\"'/'\"'\"'):\n        prefix+='\"'\"'/'\"'\"'+part\n        before=os.stat(part,dir_fd=fd,follow_symlinks=False)\n        if not stat.S_ISDIR(before.st_mode): raise ValueError('\"'\"'Nondirectory ancestry'\"'\"')\n        nextfd=os.open(part,flags,dir_fd=fd)\n        after=os.fstat(nextfd)\n        if (before.st_dev,before.st_ino)!=(after.st_dev,after.st_ino):\n            raise ValueError('\"'\"'Ancestry identity changed'\"'\"')\n        observed.append(dict(path=prefix,device=after.st_dev,inode=after.st_ino,\n                             mode=stat.S_IMODE(after.st_mode),uid=after.st_uid))\n        os.close(fd)\n        fd=nextfd\n    return fd,observed\n\nexpected={'\"'\"'ui_adc_capture.py'\"'\"': {'\"'\"'bytes'\"'\"': 35160, '\"'\"'sha256'\"'\"': '\"'\"'f4b3db265bdf2d5a5fdada19ed9f51a44304d9ba5da8be78e598365afa2c4444'\"'\"'}}\nprior=[{'\"'\"'path'\"'\"': '\"'\"'/home'\"'\"', '\"'\"'device'\"'\"': 66340, '\"'\"'inode'\"'\"': 130049, '\"'\"'mode'\"'\"': 493, '\"'\"'uid'\"'\"': 0}, {'\"'\"'path'\"'\"': '\"'\"'/home/arduino'\"'\"', '\"'\"'device'\"'\"': 66341, '\"'\"'inode'\"'\"': 2, '\"'\"'mode'\"'\"': 493, '\"'\"'uid'\"'\"': 1000}, {'\"'\"'path'\"'\"': '\"'\"'/home/arduino/sumox26-capture-tools'\"'\"', '\"'\"'device'\"'\"': 66341, '\"'\"'inode'\"'\"': 956419, '\"'\"'mode'\"'\"': 509, '\"'\"'uid'\"'\"': 1000}, {'\"'\"'path'\"'\"': '\"'\"'/home/arduino/sumox26-capture-tools/ui_adc_d114_run01'\"'\"', '\"'\"'device'\"'\"': 66341, '\"'\"'inode'\"'\"': 956463, '\"'\"'mode'\"'\"': 448, '\"'\"'uid'\"'\"': 1000}]\nfd,ancestry=open_chain(target)\nif ancestry!=prior: raise ValueError('\"'\"'Destination ancestry identity changed'\"'\"')\nif set(os.listdir(fd))!=set(expected): raise ValueError('\"'\"'Unexpected file set'\"'\"')\nfiles={}\nfor name,wanted in expected.items():\n    handle=os.open(name,os.O_RDONLY|os.O_NOFOLLOW,dir_fd=fd)\n    try:\n        before=os.fstat(handle)\n        if not stat.S_ISREG(before.st_mode) or before.st_nlink!=1:\n            raise ValueError('\"'\"'Not a single regular file'\"'\"')\n        if before.st_size!=wanted['\"'\"'bytes'\"'\"']: raise ValueError('\"'\"'Unexpected file extent'\"'\"')\n        os.fchmod(handle,0o600)\n        digest=hashlib.sha256()\n        remaining=wanted['\"'\"'bytes'\"'\"']\n        while remaining:\n            data=os.read(handle,min(65536,remaining))\n            if not data: raise ValueError('\"'\"'Truncated staged file'\"'\"')\n            digest.update(data)\n            remaining-=len(data)\n        after=os.fstat(handle)\n        named=os.stat(name,dir_fd=fd,follow_symlinks=False)\n        identity=lambda s:(s.st_dev,s.st_ino,s.st_size,s.st_mtime_ns,s.st_ctime_ns)\n        if identity(after)!=identity(named): raise ValueError('\"'\"'File replaced while hashing'\"'\"')\n        if (before.st_size,before.st_mtime_ns)!=(after.st_size,after.st_mtime_ns):\n            raise ValueError('\"'\"'File changed while hashing'\"'\"')\n        if (after.st_size,digest.hexdigest())!=(wanted['\"'\"'bytes'\"'\"'],wanted['\"'\"'sha256'\"'\"']):\n            raise ValueError('\"'\"'Pinned byte identity mismatch'\"'\"')\n        if stat.S_IMODE(after.st_mode)!=0o600: raise ValueError('\"'\"'Wrong file permissions'\"'\"')\n        files[name]=dict(bytes=after.st_size,sha256=digest.hexdigest(),mode=stat.S_IMODE(after.st_mode),\n                         device=after.st_dev,inode=after.st_ino,uid=after.st_uid)\n    finally:\n        os.close(handle)\nos.close(fd)\nprint(json.dumps(dict(destination=target,ancestry=ancestry,files=files)))\n'"
+      ],
+      "started_utc": "2026-09-23T22:24:22.798114+00:00",
+      "status": "FINISHED",
+      "returncode": 0,
+      "stdout": "{\"destination\": \"/home/arduino/sumox26-capture-tools/ui_adc_d114_run01\", \"ancestry\": [{\"path\": \"/home\", \"device\": 66340, \"inode\": 130049, \"mode\": 493, \"uid\": 0}, {\"path\": \"/home/arduino\", \"device\": 66341, \"inode\": 2, \"mode\": 493, \"uid\": 1000}, {\"path\": \"/home/arduino/sumox26-capture-tools\", \"device\": 66341, \"inode\": 956419, \"mode\": 509, \"uid\": 1000}, {\"path\": \"/home/arduino/sumox26-capture-tools/ui_adc_d114_run01\", \"device\": 66341, \"inode\": 956463, \"mode\": 448, \"uid\": 1000}], \"files\": {\"ui_adc_capture.py\": {\"bytes\": 35160, \"sha256\": \"f4b3db265bdf2d5a5fdada19ed9f51a44304d9ba5da8be78e598365afa2c4444\", \"mode\": 384, \"device\": 66341, \"inode\": 956464, \"uid\": 1000}}}\r\n",
+      "stderr": "",
+      "ended_utc": "2026-09-23T22:24:22.991653+00:00"
+    },
+    {
+      "argv": [
+        "C:\\Users\\narut\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\adb\\32.0.0\\adb.exe",
+        "-s",
+        "2629958581",
+        "push",
+        "C:\\Users\\narut\\OneDrive\\Desktop\\Project\\techbots_Sumo_Robots\\tools\\p0_capture.py",
+        "/home/arduino/sumox26-capture-tools/ui_adc_d114_run01/p0_capture.py"
+      ],
+      "started_utc": "2026-09-23T22:24:22.993354+00:00",
+      "status": "FINISHED",
+      "returncode": 0,
+      "stdout": "C:\\Users\\narut\\OneDrive\\Desktop\\Project\\techbots_Sumo_Robots\\tools\\p0_capture.py: 1 file pushed, 0 skipped. 48.0 MB/s (18880 bytes in 0.000s)\r\n",
+      "stderr": "",
+      "ended_utc": "2026-09-23T22:24:23.021303+00:00"
+    },
+    {
+      "argv": [
+        "C:\\Users\\narut\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\adb\\32.0.0\\adb.exe",
+        "-s",
+        "2629958581",
+        "shell",
+        "python3",
+        "-c",
+        "'import os,stat,hashlib,json\ntarget=\"/home/arduino/sumox26-capture-tools/ui_adc_d114_run01\"\nflags=os.O_RDONLY|os.O_DIRECTORY|os.O_NOFOLLOW\ndef open_chain(path):\n    fd=os.open('\"'\"'/'\"'\"',flags)\n    observed=[]\n    prefix='\"'\"''\"'\"'\n    for part in path.strip('\"'\"'/'\"'\"').split('\"'\"'/'\"'\"'):\n        prefix+='\"'\"'/'\"'\"'+part\n        before=os.stat(part,dir_fd=fd,follow_symlinks=False)\n        if not stat.S_ISDIR(before.st_mode): raise ValueError('\"'\"'Nondirectory ancestry'\"'\"')\n        nextfd=os.open(part,flags,dir_fd=fd)\n        after=os.fstat(nextfd)\n        if (before.st_dev,before.st_ino)!=(after.st_dev,after.st_ino):\n            raise ValueError('\"'\"'Ancestry identity changed'\"'\"')\n        observed.append(dict(path=prefix,device=after.st_dev,inode=after.st_ino,\n                             mode=stat.S_IMODE(after.st_mode),uid=after.st_uid))\n        os.close(fd)\n        fd=nextfd\n    return fd,observed\n\nexpected={'\"'\"'ui_adc_capture.py'\"'\"': {'\"'\"'bytes'\"'\"': 35160, '\"'\"'sha256'\"'\"': '\"'\"'f4b3db265bdf2d5a5fdada19ed9f51a44304d9ba5da8be78e598365afa2c4444'\"'\"'}, '\"'\"'p0_capture.py'\"'\"': {'\"'\"'bytes'\"'\"': 18880, '\"'\"'sha256'\"'\"': '\"'\"'885c4e4206aea4ac9e03c4e92e48258db2a0ae302ff83a86430e6913afeeb57c'\"'\"'}}\nprior=[{'\"'\"'path'\"'\"': '\"'\"'/home'\"'\"', '\"'\"'device'\"'\"': 66340, '\"'\"'inode'\"'\"': 130049, '\"'\"'mode'\"'\"': 493, '\"'\"'uid'\"'\"': 0}, {'\"'\"'path'\"'\"': '\"'\"'/home/arduino'\"'\"', '\"'\"'device'\"'\"': 66341, '\"'\"'inode'\"'\"': 2, '\"'\"'mode'\"'\"': 493, '\"'\"'uid'\"'\"': 1000}, {'\"'\"'path'\"'\"': '\"'\"'/home/arduino/sumox26-capture-tools'\"'\"', '\"'\"'device'\"'\"': 66341, '\"'\"'inode'\"'\"': 956419, '\"'\"'mode'\"'\"': 509, '\"'\"'uid'\"'\"': 1000}, {'\"'\"'path'\"'\"': '\"'\"'/home/arduino/sumox26-capture-tools/ui_adc_d114_run01'\"'\"', '\"'\"'device'\"'\"': 66341, '\"'\"'inode'\"'\"': 956463, '\"'\"'mode'\"'\"': 448, '\"'\"'uid'\"'\"': 1000}]\nfd,ancestry=open_chain(target)\nif ancestry!=prior: raise ValueError('\"'\"'Destination ancestry identity changed'\"'\"')\nif set(os.listdir(fd))!=set(expected): raise ValueError('\"'\"'Unexpected file set'\"'\"')\nfiles={}\nfor name,wanted in expected.items():\n    handle=os.open(name,os.O_RDONLY|os.O_NOFOLLOW,dir_fd=fd)\n    try:\n        before=os.fstat(handle)\n        if not stat.S_ISREG(before.st_mode) or before.st_nlink!=1:\n            raise ValueError('\"'\"'Not a single regular file'\"'\"')\n        if before.st_size!=wanted['\"'\"'bytes'\"'\"']: raise ValueError('\"'\"'Unexpected file extent'\"'\"')\n        os.fchmod(handle,0o600)\n        digest=hashlib.sha256()\n        remaining=wanted['\"'\"'bytes'\"'\"']\n        while remaining:\n            data=os.read(handle,min(65536,remaining))\n            if not data: raise ValueError('\"'\"'Truncated staged file'\"'\"')\n            digest.update(data)\n            remaining-=len(data)\n        after=os.fstat(handle)\n        named=os.stat(name,dir_fd=fd,follow_symlinks=False)\n        identity=lambda s:(s.st_dev,s.st_ino,s.st_size,s.st_mtime_ns,s.st_ctime_ns)\n        if identity(after)!=identity(named): raise ValueError('\"'\"'File replaced while hashing'\"'\"')\n        if (before.st_size,before.st_mtime_ns)!=(after.st_size,after.st_mtime_ns):\n            raise ValueError('\"'\"'File changed while hashing'\"'\"')\n        if (after.st_size,digest.hexdigest())!=(wanted['\"'\"'bytes'\"'\"'],wanted['\"'\"'sha256'\"'\"']):\n            raise ValueError('\"'\"'Pinned byte identity mismatch'\"'\"')\n        if stat.S_IMODE(after.st_mode)!=0o600: raise ValueError('\"'\"'Wrong file permissions'\"'\"')\n        files[name]=dict(bytes=after.st_size,sha256=digest.hexdigest(),mode=stat.S_IMODE(after.st_mode),\n                         device=after.st_dev,inode=after.st_ino,uid=after.st_uid)\n    finally:\n        os.close(handle)\nos.close(fd)\nprint(json.dumps(dict(destination=target,ancestry=ancestry,files=files)))\n'"
+      ],
+      "started_utc": "2026-09-23T22:24:23.021821+00:00",
+      "status": "FINISHED",
+      "returncode": 0,
+      "stdout": "{\"destination\": \"/home/arduino/sumox26-capture-tools/ui_adc_d114_run01\", \"ancestry\": [{\"path\": \"/home\", \"device\": 66340, \"inode\": 130049, \"mode\": 493, \"uid\": 0}, {\"path\": \"/home/arduino\", \"device\": 66341, \"inode\": 2, \"mode\": 493, \"uid\": 1000}, {\"path\": \"/home/arduino/sumox26-capture-tools\", \"device\": 66341, \"inode\": 956419, \"mode\": 509, \"uid\": 1000}, {\"path\": \"/home/arduino/sumox26-capture-tools/ui_adc_d114_run01\", \"device\": 66341, \"inode\": 956463, \"mode\": 448, \"uid\": 1000}], \"files\": {\"ui_adc_capture.py\": {\"bytes\": 35160, \"sha256\": \"f4b3db265bdf2d5a5fdada19ed9f51a44304d9ba5da8be78e598365afa2c4444\", \"mode\": 384, \"device\": 66341, \"inode\": 956464, \"uid\": 1000}, \"p0_capture.py\": {\"bytes\": 18880, \"sha256\": \"885c4e4206aea4ac9e03c4e92e48258db2a0ae302ff83a86430e6913afeeb57c\", \"mode\": 384, \"device\": 66341, \"inode\": 956465, \"uid\": 1000}}}\r\n",
+      "stderr": "",
+      "ended_utc": "2026-09-23T22:24:23.213081+00:00"
+    },
+    {
+      "argv": [
+        "C:\\Users\\narut\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\adb\\32.0.0\\adb.exe",
+        "-s",
+        "2629958581",
+        "push",
+        "C:\\Users\\narut\\OneDrive\\Desktop\\Project\\techbots_Sumo_Robots\\tools\\p0_mem_read.cfg",
+        "/home/arduino/sumox26-capture-tools/ui_adc_d114_run01/p0_mem_read.cfg"
+      ],
+      "started_utc": "2026-09-23T22:24:23.215253+00:00",
+      "status": "FINISHED",
+      "returncode": 0,
+      "stdout": "C:\\Users\\narut\\OneDrive\\Desktop\\Project\\techbots_Sumo_Robots\\tools\\p0_mem_read.cfg: 1 file pushed, 0 skipped. 2.7 MB/s (694 bytes in 0.000s)\r\n",
+      "stderr": "",
+      "ended_utc": "2026-09-23T22:24:23.244339+00:00"
+    },
+    {
+      "argv": [
+        "C:\\Users\\narut\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\adb\\32.0.0\\adb.exe",
+        "-s",
+        "2629958581",
+        "shell",
+        "python3",
+        "-c",
+        "'import os,stat,hashlib,json\ntarget=\"/home/arduino/sumox26-capture-tools/ui_adc_d114_run01\"\nflags=os.O_RDONLY|os.O_DIRECTORY|os.O_NOFOLLOW\ndef open_chain(path):\n    fd=os.open('\"'\"'/'\"'\"',flags)\n    observed=[]\n    prefix='\"'\"''\"'\"'\n    for part in path.strip('\"'\"'/'\"'\"').split('\"'\"'/'\"'\"'):\n        prefix+='\"'\"'/'\"'\"'+part\n        before=os.stat(part,dir_fd=fd,follow_symlinks=False)\n        if not stat.S_ISDIR(before.st_mode): raise ValueError('\"'\"'Nondirectory ancestry'\"'\"')\n        nextfd=os.open(part,flags,dir_fd=fd)\n        after=os.fstat(nextfd)\n        if (before.st_dev,before.st_ino)!=(after.st_dev,after.st_ino):\n            raise ValueError('\"'\"'Ancestry identity changed'\"'\"')\n        observed.append(dict(path=prefix,device=after.st_dev,inode=after.st_ino,\n                             mode=stat.S_IMODE(after.st_mode),uid=after.st_uid))\n        os.close(fd)\n        fd=nextfd\n    return fd,observed\n\nexpected={'\"'\"'ui_adc_capture.py'\"'\"': {'\"'\"'bytes'\"'\"': 35160, '\"'\"'sha256'\"'\"': '\"'\"'f4b3db265bdf2d5a5fdada19ed9f51a44304d9ba5da8be78e598365afa2c4444'\"'\"'}, '\"'\"'p0_capture.py'\"'\"': {'\"'\"'bytes'\"'\"': 18880, '\"'\"'sha256'\"'\"': '\"'\"'885c4e4206aea4ac9e03c4e92e48258db2a0ae302ff83a86430e6913afeeb57c'\"'\"'}, '\"'\"'p0_mem_read.cfg'\"'\"': {'\"'\"'bytes'\"'\"': 694, '\"'\"'sha256'\"'\"': '\"'\"'89d16a28a1489c23ec743be55ade39824f9ca5213b02b20ef4785079122e4339'\"'\"'}}\nprior=[{'\"'\"'path'\"'\"': '\"'\"'/home'\"'\"', '\"'\"'device'\"'\"': 66340, '\"'\"'inode'\"'\"': 130049, '\"'\"'mode'\"'\"': 493, '\"'\"'uid'\"'\"': 0}, {'\"'\"'path'\"'\"': '\"'\"'/home/arduino'\"'\"', '\"'\"'device'\"'\"': 66341, '\"'\"'inode'\"'\"': 2, '\"'\"'mode'\"'\"': 493, '\"'\"'uid'\"'\"': 1000}, {'\"'\"'path'\"'\"': '\"'\"'/home/arduino/sumox26-capture-tools'\"'\"', '\"'\"'device'\"'\"': 66341, '\"'\"'inode'\"'\"': 956419, '\"'\"'mode'\"'\"': 509, '\"'\"'uid'\"'\"': 1000}, {'\"'\"'path'\"'\"': '\"'\"'/home/arduino/sumox26-capture-tools/ui_adc_d114_run01'\"'\"', '\"'\"'device'\"'\"': 66341, '\"'\"'inode'\"'\"': 956463, '\"'\"'mode'\"'\"': 448, '\"'\"'uid'\"'\"': 1000}]\nfd,ancestry=open_chain(target)\nif ancestry!=prior: raise ValueError('\"'\"'Destination ancestry identity changed'\"'\"')\nif set(os.listdir(fd))!=set(expected): raise ValueError('\"'\"'Unexpected file set'\"'\"')\nfiles={}\nfor name,wanted in expected.items():\n    handle=os.open(name,os.O_RDONLY|os.O_NOFOLLOW,dir_fd=fd)\n    try:\n        before=os.fstat(handle)\n        if not stat.S_ISREG(before.st_mode) or before.st_nlink!=1:\n            raise ValueError('\"'\"'Not a single regular file'\"'\"')\n        if before.st_size!=wanted['\"'\"'bytes'\"'\"']: raise ValueError('\"'\"'Unexpected file extent'\"'\"')\n        os.fchmod(handle,0o600)\n        digest=hashlib.sha256()\n        remaining=wanted['\"'\"'bytes'\"'\"']\n        while remaining:\n            data=os.read(handle,min(65536,remaining))\n            if not data: raise ValueError('\"'\"'Truncated staged file'\"'\"')\n            digest.update(data)\n            remaining-=len(data)\n        after=os.fstat(handle)\n        named=os.stat(name,dir_fd=fd,follow_symlinks=False)\n        identity=lambda s:(s.st_dev,s.st_ino,s.st_size,s.st_mtime_ns,s.st_ctime_ns)\n        if identity(after)!=identity(named): raise ValueError('\"'\"'File replaced while hashing'\"'\"')\n        if (before.st_size,before.st_mtime_ns)!=(after.st_size,after.st_mtime_ns):\n            raise ValueError('\"'\"'File changed while hashing'\"'\"')\n        if (after.st_size,digest.hexdigest())!=(wanted['\"'\"'bytes'\"'\"'],wanted['\"'\"'sha256'\"'\"']):\n            raise ValueError('\"'\"'Pinned byte identity mismatch'\"'\"')\n        if stat.S_IMODE(after.st_mode)!=0o600: raise ValueError('\"'\"'Wrong file permissions'\"'\"')\n        files[name]=dict(bytes=after.st_size,sha256=digest.hexdigest(),mode=stat.S_IMODE(after.st_mode),\n                         device=after.st_dev,inode=after.st_ino,uid=after.st_uid)\n    finally:\n        os.close(handle)\nos.close(fd)\nprint(json.dumps(dict(destination=target,ancestry=ancestry,files=files)))\n'"
+      ],
+      "started_utc": "2026-09-23T22:24:23.245101+00:00",
+      "status": "FINISHED",
+      "returncode": 0,
+      "stdout": "{\"destination\": \"/home/arduino/sumox26-capture-tools/ui_adc_d114_run01\", \"ancestry\": [{\"path\": \"/home\", \"device\": 66340, \"inode\": 130049, \"mode\": 493, \"uid\": 0}, {\"path\": \"/home/arduino\", \"device\": 66341, \"inode\": 2, \"mode\": 493, \"uid\": 1000}, {\"path\": \"/home/arduino/sumox26-capture-tools\", \"device\": 66341, \"inode\": 956419, \"mode\": 509, \"uid\": 1000}, {\"path\": \"/home/arduino/sumox26-capture-tools/ui_adc_d114_run01\", \"device\": 66341, \"inode\": 956463, \"mode\": 448, \"uid\": 1000}], \"files\": {\"ui_adc_capture.py\": {\"bytes\": 35160, \"sha256\": \"f4b3db265bdf2d5a5fdada19ed9f51a44304d9ba5da8be78e598365afa2c4444\", \"mode\": 384, \"device\": 66341, \"inode\": 956464, \"uid\": 1000}, \"p0_capture.py\": {\"bytes\": 18880, \"sha256\": \"885c4e4206aea4ac9e03c4e92e48258db2a0ae302ff83a86430e6913afeeb57c\", \"mode\": 384, \"device\": 66341, \"inode\": 956465, \"uid\": 1000}, \"p0_mem_read.cfg\": {\"bytes\": 694, \"sha256\": \"89d16a28a1489c23ec743be55ade39824f9ca5213b02b20ef4785079122e4339\", \"mode\": 384, \"device\": 66341, \"inode\": 956466, \"uid\": 1000}}}\r\n",
+      "stderr": "",
+      "ended_utc": "2026-09-23T22:24:23.440808+00:00"
+    }
+  ],
+  "local": {
+    "ui_adc_capture.py": {
+      "path": "C:\\Users\\narut\\OneDrive\\Desktop\\Project\\techbots_Sumo_Robots\\tools\\ui_adc_capture.py",
+      "bytes": 35160,
+      "sha256": "f4b3db265bdf2d5a5fdada19ed9f51a44304d9ba5da8be78e598365afa2c4444"
+    },
+    "p0_capture.py": {
+      "path": "C:\\Users\\narut\\OneDrive\\Desktop\\Project\\techbots_Sumo_Robots\\tools\\p0_capture.py",
+      "bytes": 18880,
+      "sha256": "885c4e4206aea4ac9e03c4e92e48258db2a0ae302ff83a86430e6913afeeb57c"
+    },
+    "p0_mem_read.cfg": {
+      "path": "C:\\Users\\narut\\OneDrive\\Desktop\\Project\\techbots_Sumo_Robots\\tools\\p0_mem_read.cfg",
+      "bytes": 694,
+      "sha256": "89d16a28a1489c23ec743be55ade39824f9ca5213b02b20ef4785079122e4339"
+    }
+  },
+  "remote": {
+    "destination": "/home/arduino/sumox26-capture-tools/ui_adc_d114_run01",
+    "ancestry": [
+      {
+        "path": "/home",
+        "device": 66340,
+        "inode": 130049,
+        "mode": 493,
+        "uid": 0
+      },
+      {
+        "path": "/home/arduino",
+        "device": 66341,
+        "inode": 2,
+        "mode": 493,
+        "uid": 1000
+      },
+      {
+        "path": "/home/arduino/sumox26-capture-tools",
+        "device": 66341,
+        "inode": 956419,
+        "mode": 509,
+        "uid": 1000
+      },
+      {
+        "path": "/home/arduino/sumox26-capture-tools/ui_adc_d114_run01",
+        "device": 66341,
+        "inode": 956463,
+        "mode": 448,
+        "uid": 1000
+      }
+    ],
+    "files": {
+      "ui_adc_capture.py": {
+        "bytes": 35160,
+        "sha256": "f4b3db265bdf2d5a5fdada19ed9f51a44304d9ba5da8be78e598365afa2c4444",
+        "mode": 384,
+        "device": 66341,
+        "inode": 956464,
+        "uid": 1000
+      },
+      "p0_capture.py": {
+        "bytes": 18880,
+        "sha256": "885c4e4206aea4ac9e03c4e92e48258db2a0ae302ff83a86430e6913afeeb57c",
+        "mode": 384,
+        "device": 66341,
+        "inode": 956465,
+        "uid": 1000
+      },
+      "p0_mem_read.cfg": {
+        "bytes": 694,
+        "sha256": "89d16a28a1489c23ec743be55ade39824f9ca5213b02b20ef4785079122e4339",
+        "mode": 384,
+        "device": 66341,
+        "inode": 956466,
+        "uid": 1000
+      }
+    }
+  },
+  "adb": {
+    "path": "C:\\Users\\narut\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\adb\\32.0.0\\adb.exe",
+    "sha256": "e79dc8fc3c6385192bdccd7ff7eabe3d5c1ec292475a06b04d82759f07655982"
+  },
+  "stager_sha256": "2dfbfcca3dd79ee72262929c28f33a6beb8f83a681c65597770fa45606650831",
+  "created": {
+    "destination": "/home/arduino/sumox26-capture-tools/ui_adc_d114_run01",
+    "parent_created": false,
+    "ancestry": [
+      {
+        "path": "/home",
+        "device": 66340,
+        "inode": 130049,
+        "mode": 493,
+        "uid": 0
+      },
+      {
+        "path": "/home/arduino",
+        "device": 66341,
+        "inode": 2,
+        "mode": 493,
+        "uid": 1000
+      },
+      {
+        "path": "/home/arduino/sumox26-capture-tools",
+        "device": 66341,
+        "inode": 956419,
+        "mode": 509,
+        "uid": 1000
+      },
+      {
+        "path": "/home/arduino/sumox26-capture-tools/ui_adc_d114_run01",
+        "device": 66341,
+        "inode": 956463,
+        "mode": 448,
+        "uid": 1000
+      }
+    ],
+    "files": []
+  },
+  "ended_utc": "2026-09-23T22:24:23.441748+00:00"
+}

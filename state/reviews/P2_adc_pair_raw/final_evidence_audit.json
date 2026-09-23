@@ -1,0 +1,84 @@
+{
+  "scope": "Final software evidence only; no board/MCU execution by reviewer",
+  "final_native_methods": 15,
+  "unchanged_frozen_files": 353,
+  "only_excluded_drift": "tools/p0_inert_sources.json; exact reviewed five-key map adopted",
+  "native_command_statuses": {
+    "0": 208,
+    "1": 2
+  },
+  "successful_native_executables": 103,
+  "positive_native_cases": 150,
+  "parent_assertions": 1329,
+  "counting_note": "Parent doctest assertions exclude child-local assertions; no inferred child total",
+  "intentional_negative_executions": 2,
+  "new_probe_upload_refusals": 8,
+  "target_source": "5f2c2329d566b6940d41a3574141773f3e80378358104b3c96fb9a6e7bcb0eb0",
+  "root_success_receipts": {
+    "host_final": {
+      "start_utc": "2026-09-23T10:38:24.910739+00:00",
+      "end_utc": "2026-09-23T10:38:31.188340+00:00",
+      "argv": [
+        "ctest",
+        "--test-dir",
+        "build/host",
+        "--output-on-failure",
+        "-V"
+      ],
+      "returncode": 0
+    },
+    "sanitizer_final": {
+      "start_utc": "2026-09-23T10:38:49.713327+00:00",
+      "end_utc": "2026-09-23T10:39:13.125269+00:00",
+      "argv": [
+        "ctest",
+        "--test-dir",
+        "build/host-sanitize",
+        "--output-on-failure",
+        "-V"
+      ],
+      "returncode": 0
+    },
+    "tooling_final": {
+      "start_utc": "2026-09-23T10:45:15.525843+00:00",
+      "end_utc": "2026-09-23T10:45:45.970520+00:00",
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "tests.tooling.test_tools"
+      ],
+      "returncode": 0
+    },
+    "staging_discovery_final": {
+      "start_utc": "2026-09-23T10:46:17.976077+00:00",
+      "end_utc": "2026-09-23T10:46:21.967125+00:00",
+      "argv": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/tooling",
+        "-p",
+        "test_staged_core.py",
+        "-v"
+      ],
+      "returncode": 0
+    },
+    "target_final": {
+      "start_utc": "2026-09-23T10:43:36.727524+00:00",
+      "end_utc": "2026-09-23T10:45:35.732153+00:00",
+      "argv": [
+        "python",
+        "tools/board_tool.py",
+        "flash",
+        "bench/p2_adc_pair_compile",
+        "--compile-only"
+      ],
+      "returncode": 0
+    }
+  },
+  "reviewed_startup": "setup retains exercise address; loop returns; added translation units only inherited HCI/Bridge memory initialization, no calls",
+  "verdict": "PASS_WITHIN_D086_SOFTWARE_SCOPE_NO_OPEN_FINDING"
+}

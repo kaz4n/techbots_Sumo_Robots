@@ -12,20 +12,20 @@ D051/D075 permit P2 software while physical acceptance remains pending.
 | P2 B5 | Actual ADCe6b7060; tests/target/review PASS | Divider/reference/0.05V accuracy, integration |
 | P2 B3 | Acquisition7b46598/estimatorc1188b1/calibration5516bef/full Robot2c16023; tests/target/review PASS | Physical mounting/B3, app scheduler |
 | P2 B2 | Native QTR/adapter/Robotfreshness47f4d9a; host/san/target/review PASS | Physical color/cadence, pad ownership, full WCET |
-| P2 B6 | Core logical UI; exact ADCpair source audit | Actual optional A1 owner/decoder/display; SC-A |
+| P2 B6 | Core logical UI; optional A1 owner327c5db tested/target/review | Decoder/evidence routing/display; SC-A |
 | P2 B8 | Offline storage/CSV25Hz implemented/reviewed | Bounded IDLE transport, full RAM/200s/no-gap evidence |
 | Integration/B7/P3-P7 | Unfinished | SC-AJ/F091, scheduler/HAL/WCET, physical acceptance |
 
-D085 evidence: P2_qtr_native_validation.md/raw, F107, fresh separate review.
-Fullhost2/2PASS7.35s/fullsan2/2PASS34.54s;1173main+37enabledGate cases.
-Independent22purecases26881assertions normal/san;11native/16config methodsPASS.
-Actualcompile-only57f4b001145012/71092B exit0;56sources/3ELFs/native/math/startup
-checked. Exact5inert keys reviewed/adopted;25existingtools+2stagingPASS.54distinct
-scoped methods, not all-tooling. No upload/MCU operation, oldlockedtest/B16change.
+D086 evidence: P2_adc_pair_validation.md/raw, F108, fresh separate review PASS.
+Fullhost/san2/2PASS1173main+37Gate; independent native15methods150positivecases/
+1329parentassertions PASS,17config/25tools/2stagingPASS59distinctmethods.
+Finaltarget5f2c232983912/34700B exit0;56sources/3ELFs/36native42AEABI checked.
+Exactly5existing inert keys approved/adopted; no new upload entry. Failures and
+source-time correction retained. No locked test/B16value or physical claim.
 
-Next: actual B6 optional A1 acquisition using the existing single ADC1 owner.
-Read P2_qtr_native_raw/next_ui_task.md and P2_adc_pair_audit.md/source; freeze
-backward-compatible contract, then driver/spec-derivedtests/target/review.
-No second owner or fabricated BOTH electrical input. App timing still must solve
-serialized600us IMU+150us motor+100us ADC and QTR precision. Physical/human gates,
-SC-A/SC-AJ/F091 remain pending. Do not ask for more connected hardware now.
+Next: actual B6 button decoder/evidence adapter and existing service routing,
+per P2_adc_pair_raw/next_button_task.md. Freeze ambiguity/source identity/age/
+absence/expiry semantics before implementation and independent tests. SC-A
+START/BOTH identity remains; failed input must not imply NONE. App scheduling
+must budget IMU600+motor150+twoADC100 and other work. SC-AJ/F091, physical/human
+gates and original schedule remain. No additional hardware request now.

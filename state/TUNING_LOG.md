@@ -267,3 +267,5 @@ measurements, divider calibration, wiring approval or runtime/WCET acceptance.
 
 
 2026-09-23T14:06:07+04:00 | D085 SOFTWARE DEVELOPMENT DEFAULTS, NOT MEASURED TUNING | QTR_INPUT_PINS copies2/4/7/8 proposals; new quantization1us/startperiod2000us/frame2500us/call100us/cleanup100us/chargemax100us/advances8192/sampleage6000us selected underD051/D075. Existing10/1500/thresholds and all other B16 values unchanged. Source evidence P2_qtr_native_audit.md; independent tests pending. No physical pin or timing approval.
+
+2026-09-23T14:37:12+04:00 | D086 software configuration | Add BUTTON_INPUT_PIN=15 for the existing HARDWARE5.6 A1 proposal (installed PA5/ADC1channel10). No existing timing/scaling/B16 value changed, no physical test/tuning/approval claimed. Sources: P2_adc_pair_audit.md/contract.md; verification config_initial17methodsPASS. | f194579

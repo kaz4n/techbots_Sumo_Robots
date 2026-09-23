@@ -1,0 +1,42 @@
+{
+  "provenance": "Reconstructed from the implementer conversation's tool results. These are historical summaries, not original redirected process logs. No missing output is invented.",
+  "cwd": "C:\\Users\\narut\\OneDrive\\Desktop\\Project\\techbots_Sumo_Robots",
+  "runs": [
+    {
+      "name": "initial strict native compilation",
+      "command": "wsl bash -lc 'cd /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots && g++ -std=c++17 -Wall -Wextra -Werror -pedantic -DARDUINO_ARCH_ZEPHYR -I tests/native_power -c src/hal/power.cpp -o /tmp/adc_pair_impl.o'",
+      "tool_chunk_id": "85d336",
+      "exit_code": 0,
+      "observed_combined_output": "",
+      "source_identity_limit": "Initial implementation, before added actual-QTR pair alias coverage and ADRDY persistence guard. No contemporaneous source hash was captured. A fresh final-source compilation is separately preserved."
+    },
+    {
+      "name": "full original battery tooling",
+      "command": "wsl python3 -m unittest tests.tooling.test_power_unoq -v",
+      "session_id": 13125,
+      "final_tool_chunk_id": "805698",
+      "exit_code": 0,
+      "test_groups": 9,
+      "reported_duration_seconds": 115.935,
+      "result": "OK",
+      "observed_output_excerpt": "full_battery_observed_excerpt.txt",
+      "source_identity_limit": "Ran during implementation before final post-ADRDY regression. Intermediate edits were made while the runner was active; this historical suite is not asserted to be bound to one source hash."
+    },
+    {
+      "name": "post-ADRDY native contract, ownership and deadlines",
+      "command": "wsl python3 -m unittest tests.tooling.test_power_unoq.NativePowerTests.test_b5_native_contract tests.tooling.test_power_unoq.NativePowerTests.test_b5_all_ownership_guards tests.tooling.test_power_unoq.NativePowerTests.test_b5_exact_deadlines_and_clock_transition_guards -v",
+      "session_id": 6671,
+      "final_tool_chunk_id": "f202e1",
+      "exit_code": 0,
+      "test_groups": 3,
+      "native_cases": 28,
+      "native_assertions": 280,
+      "reported_duration_seconds": 13.442,
+      "result": "OK",
+      "power_cpp_sha256": "ee5022da57eabeacee174ceae5f299d5955604abc4d2196edf42a4c62adc3f87",
+      "power_h_sha256": "22dfc8aad43c164fbd1f078b2aa3f3e5377e8a314aede60ce19172b7f51fb94d",
+      "observed_output_copy": "post_adrdy_observed_output.txt",
+      "source_identity_limit": "Source hash recorded immediately following execution; production was unchanged during this targeted run. Output copied from the combined tool result, not an original stdout/stderr capture."
+    }
+  ]
+}

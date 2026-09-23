@@ -341,3 +341,10 @@ inert identities adopted;25existingtools+2stagingPASS,54distinct scoped methods.
 All initial failures remain documented. No physical/runtime or human gate follows.
 
 F107 final disposition: fresh separate same-model review completed 2026-09-23T14:30:40+04:00; PASS withinD085software scope with no open BLOCKER/MAJOR/MINOR. Final rootLinux tooling25/25PASS resolves the documented invocation-only failure. No physical acceptance or phase pass.
+
+
+## D086 fixed A0/A1 software acquisition,2026-09-23
+
+| ID | Question | Observed answer | Source | Confidence | Hardware-checked |
+|---|---|---|---|---|---|
+| F-108 | Does one native ADC1 owner acquire separate A0/A1 evidence while preserving battery-only behavior? | Implementation327c5db/contractf194579. Source audit binds A1/PA5/channel10/DTchannel_a and legal idle rank switching. Independent reviewer15methods/150positivecases/1329parentassertions PASS; rootfullhost/san2/2PASS1173main+37Gate. Finaltarget5f2c2329 compiles83912/34700B exit0;56files/3ELFs/36native42AEABI and inert startup inspected; exact5existing registry keys approved/adopted. | analysis/P2_adc_pair_audit.md/contract.md/validation.md/raw; reviews/P2_adc_pair_review.md/raw; cached official RM0456Rev6 and pinned installed overlay | PRIMARY-SOURCE/HOST-TESTED/TARGET-COMPILED; separate same-model software review | Linuxcompile/files only. No MCU/upload/ADC/pad/sensor/motor action, physical voltage/settling/carryover/START-BOTH or WCET acceptance. Decoder/app and SC-A/SC-AJ/F091 remain pending |

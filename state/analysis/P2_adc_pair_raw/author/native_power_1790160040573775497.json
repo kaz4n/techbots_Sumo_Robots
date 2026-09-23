@@ -1,0 +1,43 @@
+{
+  "staged_source_manifest": {
+    "production": "d41b3961d72e3bd0968b4de63516bffc72d81778bcb5b1d60dae604977948bc9",
+    "header": "22dfc8aad43c164fbd1f078b2aa3f3e5377e8a314aede60ce19172b7f51fb94d",
+    "config": "bcd1a3ace18f82b3ab19947b2e75cf180aba2625e382c3c03f43383dca37dd99"
+  },
+  "argv": [
+    "/usr/bin/g++",
+    "-std=c++17",
+    "-O1",
+    "-Wall",
+    "-Wextra",
+    "-Wpedantic",
+    "-Werror",
+    "-fno-exceptions",
+    "-fno-rtti",
+    "-fsanitize=undefined",
+    "-fno-sanitize-recover=all",
+    "-DARDUINO_ARCH_ZEPHYR",
+    "-DDOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS",
+    "-I",
+    "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/native_power",
+    "-isystem",
+    "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/host/third_party",
+    "-I",
+    "/tmp/sumo-native-power-cvr7zwf8/variant-2/src",
+    "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/native_power/pair_timing.cc",
+    "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/native_power/native_fixture.cc",
+    "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/native_power/isolation.cc",
+    "/tmp/sumo-native-power-cvr7zwf8/variant-2/src/hal/power.cpp",
+    "/tmp/sumo-native-power-cvr7zwf8/main.o",
+    "-Wl,--wrap=malloc,--wrap=calloc,--wrap=realloc,--wrap=free",
+    "-o",
+    "/tmp/sumo-native-power-cvr7zwf8/variant-2/native-power"
+  ],
+  "returncode": 1,
+  "stdout": "",
+  "stderr": "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/native_power/pair_timing.cc: In function \u2018void DOCTEST_ANON_FUNC_8()\u2019:\n/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/native_power/pair_timing.cc:29:89: error: unable to deduce \u2018std::initializer_list<auto>&&\u2019 from \u2018{0, (1 << 2), (1 << 3), (((1 << 2) | (1 << 3)) | (1 << 4))}\u2019\n   29 |  for(std::uint32_t flags:{0U,ADC_ISR_EOC,ADC_ISR_EOS,ADC_ISR_EOC|ADC_ISR_EOS|ADC_ISR_OVR})isolated([=]{reset();power::Reader r;REQUIRE(r.beginWithButtons().ready);hw.completion_flags=flags;const auto s=r.readButtons();zero(s,(flags&ADC_ISR_OVR)?Status::OVERRUN:Status::CONVERSION_TIMEOUT);CHECK(hw.data_reads==0);CHECK(hw.start_count==1);sharedLatch(r,s.shutdown);});\n      |                                                                                         ^\n/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/native_power/pair_timing.cc:29:89: note:   deduced conflicting types for parameter \u2018auto\u2019 (\u2018unsigned int\u2019 and \u2018long unsigned int\u2019)\n",
+  "capture": "subprocess text=True; newline normalized",
+  "production_sha256": "d41b3961d72e3bd0968b4de63516bffc72d81778bcb5b1d60dae604977948bc9",
+  "public_header_sha256": "22dfc8aad43c164fbd1f078b2aa3f3e5377e8a314aede60ce19172b7f51fb94d",
+  "config_sha256": "bcd1a3ace18f82b3ab19947b2e75cf180aba2625e382c3c03f43383dca37dd99"
+}

@@ -1,3 +1,42 @@
+# D086 checkpoint - active P2 software development,2026-09-23 Asia/Dubai
+
+Implemented actual optional A1 ADC owner327c5db, contractf194579. Read D086/F108,
+P2_adc_pair_contract/audit/validation and final fresh separate same-model review.
+Battery-only begin/read preserved; pair adds fixed channel10 raw/time/sequence,
+exact rank history, PA5/DAC2 guards and shared reset-only faults. No decoder.
+Rootfullhost/san2/2PASS1173main+37Gate. Author/reviewer15native methodsPASS;
+review150positivecases/1329parentassertions (child totals not inferred).
+17config/25existingtools/2stagingPASS:59distinct scoped methods. Finaltarget
+5f2c2329 compile-only83912program/34700compiler globals,56files/3ELFs/36native42AEABI
+and inert startup inspected. ReviewPASS/no openfinding. Exactly5existing inert
+keys approved/reproduced/adopted; no new upload key. All worker jobs complete.
+
+Preserve failures: initial target76174658 predates ADRDY guard strengthening;
+active QTR bank alias exclusion added. Three author draft fixture/expectation
+errors, root staging-module/import failures, checkpoint default-encoding failure
+and kickoff-time correction are documented. No established/locked test or B16
+value changed. Worker historical summaries are labelled reconstructed; final
+strict compile and independent native runs carry direct receipts.
+
+Next actual task: B6 button decoder/evidence adapter and integration with existing
+countdown/menu/STOP services. Read P2_adc_pair_raw/next_button_task.md, HARDWARE5.6,
+BEHAVIOR B3/B13, power.h, countdown and Robot routing. Freeze source identity,
+ambiguity/absence/age/expiry/recovery policy before independent tests; implement
+actual routing in the same task. Failed input must never synthesize NONE/release;
+cached voltage cannot qualify fresh continuous input. Preserve debounce/hold.
+SC-A remains: documented START/BOTH are identical0V. No fabricated fourth level,
+measured windows or wiring approval. D051/D075 permit conservative software
+choices without new questions, not invented physical facts or motor authority.
+
+Full P0-P7 goal ACTIVE/incomplete; physical/human gates pending. No upload/reset/
+MCU/pad/sensor/motor action; board Linux compilation/offline ELF inspection only.
+Last-known MCU image inertQTR61d7a2d0; no fresh runtime claim. SC-AJ/F091 and app
+scheduler remain open. IMU600+motor150+twoADC100 ceilings total950us before other
+work, so no800us claim. Matrix output, recorder transport and original P2-P7 work
+remain unfinished. Original schedule unchanged; local commits only, no push/tag.
+
+--- Earlier handoff preserved below ---
+
 # D085 checkpoint - active P2 software development, 2026-09-23 Asia/Dubai
 
 Completed actual native QTR Reader -> interval adapter -> Robot/escape/countdown

@@ -8,6 +8,7 @@ enum class NativeStatus : std::uint8_t {
  NOT_INITIALIZED, OK, CONTEXT, OWNERSHIP, DEVICE, READY_LOW, READY_ERROR,
  REGISTER, POISONED, TIMEOUT, INVALID_ARGUMENT
 };
+enum class Buffering : std::uint8_t { LEGACY_SINGLE = 0U, FIFO8 = 1U };
 struct SetupGrant {
  bool setup_phase = false;
  bool exclusive_uart = false;
@@ -16,6 +17,8 @@ struct SetupGrant {
 };
 class UnoQDumpPort {
 public:
+ constexpr UnoQDumpPort() = default;
+ explicit constexpr UnoQDumpPort(Buffering buffering) : buffering_(buffering) {}
  // Setup-only device_init contains verified unbounded TEACK/REACK waits. Never
  // call it lazily in loop. Grants are actual caller obligations, not observations.
  NativeStatus begin(const SetupGrant&);
@@ -23,6 +26,7 @@ public:
  Port port();
  NativeStatus status() const { return status_; }
 private:
+ const Buffering buffering_ = Buffering::LEGACY_SINGLE;
  static WriteResult write(void*, const char*, std::size_t);
  static void cancel(void*);
  WriteResult advance(const char*, std::size_t);

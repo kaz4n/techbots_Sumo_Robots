@@ -49,13 +49,18 @@ public:
     // Fresh A1 conversion from the same owner; shared reset-only fault latch.
     ButtonSample readButtons();
 private:
+    InitResult beginProfile(bool buttons);
     bool controlsOwned() const;
     Status initialize();
+    Status configureModes();
+    void writeSetupMode();
+    Status selectRank(std::uint32_t rank, std::uint32_t started);
+    Sample acquire(std::uint32_t rank, bool voltage);
     Status waitFlag(bool control, std::uint32_t mask, bool set,
                     std::uint32_t started, std::uint32_t budget, Status timeout);
     Status waitCalibrationGap();
     Status sampleStatus(std::uint32_t started) const;
-    Status finishSample(Sample& sample);
+    Status finishSample(Sample& sample, bool voltage);
     void fail(Status status);
     Shutdown stopOwned();
     bool attempted_ = false;
@@ -64,8 +69,14 @@ private:
     bool faulted_ = false;
     Shutdown shutdown_ = Shutdown::NOT_ATTEMPTED;
     bool divider_set_ = false;
-    bool configured_ = false;
+    bool buttons_enabled_ = false;
+    bool setup_pending_ = false;
+    bool rank_pending_ = false;
     bool regulator_ready_ = false;
+    std::uint8_t mode_stage_ = 0U;
+    std::uint32_t selected_rank_ = 9U;
+    std::uint32_t requested_rank_ = 9U;
+    std::uint32_t button_sequence_ = 0U;
     std::uint32_t cr_base_ = 0U;
     std::uint32_t cr_allowed_ = 0U;
 };

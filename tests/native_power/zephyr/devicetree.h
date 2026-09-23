@@ -33,6 +33,8 @@
 #define DEVICE_DT_IMPL(n) FIX_DEVICE_##n
 #define FIX_DEVICE_adc1 (&fixture_devices[0])
 #define FIX_DEVICE_gpioa (&fixture_devices[1])
+#define FIX_DEVICE_gpiob (&fixture_other_ports[0])
+#define FIX_DEVICE_gpioc (&fixture_other_ports[1])
 #define FIX_DEVICE_rcc (&fixture_devices[2])
 #define FIX_DEVICE_adc4 (&fixture_devices[3])
 #define FIX_DEVICE_dac1 (&fixture_devices[4])
@@ -40,6 +42,10 @@
 #define DT_CHILD(n,c) DT_CHILD_IMPL(n,c)
 #define DT_CHILD_IMPL(n,c) n##_##c
 #define FIX_REG_adc1_channel_9 9U
+#ifndef NATIVE_BUTTON_CHANNEL
+#define NATIVE_BUTTON_CHANNEL 10U
+#endif
+#define FIX_REG_adc1_channel_a NATIVE_BUTTON_CHANNEL
 #define FIX_PROP_adc1_deferred_init 1
 
 #define FIX_PROP_adc1_zephyr_deferred_init 1

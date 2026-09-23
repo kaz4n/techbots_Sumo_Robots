@@ -9,7 +9,7 @@
 #include <array>
 #include <cstdint>
 namespace fixture {
-enum class Point { ACCESS, LDO_READY, CAL_DONE, ENABLE_READY, START, DATA, EOS_CLEAR, STOP, DISABLE, CLOCK, REGULATOR_START, CAL_START, ENABLE_START };
+enum class Point { ACCESS, LDO_READY, CAL_DONE, ENABLE_READY, START, DATA, EOS_CLEAR, STOP, DISABLE, CLOCK, REGULATOR_START, CAL_START, ENABLE_START, RANK_BEFORE, RANK_AFTER };
 struct Write { std::uintptr_t address; std::uint32_t value,time; };
 struct Hardware {
     std::uint32_t now=0, tick=1, sample=8192, elapsed_start=0;
@@ -29,6 +29,11 @@ struct Hardware {
     bool irq_enable[2]={false,true},irq_pending[2]={false,false},irq_active[2]={false,false};
     bool ldo_pending=false,cal_pending=false,enable_pending=false,conversion_pending=false;
     bool stop_pending=false,disable_pending=false;
+    // D086 opt-in injection; defaults preserve every battery-only fixture behavior.
+    bool samples_by_rank=false,rank_write_effect=true;
+    std::uint32_t battery_sample=8192,button_sample=4096,active_rank=9;
+    std::uint32_t rank_write_xor=0,rank_write_us=0;
+    unsigned rank_writes=0;
     void (*hook)(Point, std::uintptr_t)=nullptr;
     std::array<Write,1000> trace{};
 };

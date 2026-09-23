@@ -1,5 +1,5 @@
-// Acquires fresh, bounded ADC1 battery samples on the installed UNO Q core.
-// Exclusive native ownership and reset-only faults prevent stale valid voltages.
+// Acquires fresh, bounded ADC1 battery and opt-in A1 samples on the UNO Q core.
+// One native owner and reset-only faults prevent stale or misidentified samples.
 // Independent native-header tests and an inert compile probe check this source.
 #include "power.h"
 
@@ -26,6 +26,7 @@ constexpr std::uint32_t BUSY_COMMANDS = ADC_CR_ADCAL | ADC_CR_ADDIS |
     ADC_CR_ADSTART | ADC_CR_ADSTP | ADC_CR_JADSTART | ADC_CR_JADSTP;
 constexpr std::uint32_t RAW_MAX = 16383U;
 constexpr std::uint32_t PAD_MASK = 1U << 4U;
+constexpr std::uint32_t BUTTON_PAD_MASK = 1U << 5U;
 // Serialized setup owns this boot-lifetime latch even when the first write fails.
 bool adc_claimed = false;
 
@@ -53,24 +54,40 @@ bool validPad(const gpio_dt_spec& pad) {
     return (driver->port_pin_mask & (1U << pad.pin)) != 0U;
 }
 
-bool separatePin(std::uint32_t index, const gpio_dt_spec& battery) {
+bool separatePin(std::uint32_t index, const gpio_dt_spec& battery, bool named = false) {
     if (index >= PIN_COUNT) return false;
     const auto& pad = zephyr::arduino::arduino_pins[index];
-    return validPad(pad) && (pad.port != battery.port || pad.pin != battery.pin);
+    if (!validPad(pad)) return false;
+    if (named && pad.port != DEVICE_DT_GET(DT_NODELABEL(gpioa)) &&
+        pad.port != DEVICE_DT_GET(DT_NODELABEL(gpiob)) &&
+        pad.port != DEVICE_DT_GET(DT_NODELABEL(gpioc))) return false;
+    return pad.port != battery.port || pad.pin != battery.pin;
 }
 
-bool padMetadataValid() {
+bool padMetadataValid(bool buttons) {
     if (config::VBAT_INPUT_PIN != 14U || config::VBAT_INPUT_PIN >= PIN_COUNT) return false;
     const auto& pad = zephyr::arduino::arduino_pins[config::VBAT_INPUT_PIN];
     if (!validPad(pad) || pad.pin != 4U ||
         pad.port != DEVICE_DT_GET(DT_NODELABEL(gpioa))) return false;
-    for (const auto pin : config::MOTOR_PWM_PINS) if (!separatePin(pin, pad)) return false;
-    for (const auto pin : config::OPP_INPUT_PINS) if (!separatePin(pin, pad)) return false;
-    for (const auto pin : config::P0_QTR_PINS) if (!separatePin(pin, pad)) return false;
-    return separatePin(config::MOTOR_ENABLE_PIN, pad);
+    for (const auto pin : config::MOTOR_PWM_PINS) if (!separatePin(pin, pad, buttons)) return false;
+    for (const auto pin : config::OPP_INPUT_PINS) if (!separatePin(pin, pad, buttons)) return false;
+    for (const auto pin : config::P0_QTR_PINS) if (!separatePin(pin, pad, buttons)) return false;
+    if (!separatePin(config::MOTOR_ENABLE_PIN, pad, buttons)) return false;
+    if (!buttons) return true;
+    for (const auto pin : config::QTR_INPUT_PINS) if (!separatePin(pin, pad, true)) return false;
+    if (config::BUTTON_INPUT_PIN != 15U || config::BUTTON_INPUT_PIN >= PIN_COUNT) return false;
+    const auto& button = zephyr::arduino::arduino_pins[config::BUTTON_INPUT_PIN];
+    if (!validPad(button) || button.pin != 5U ||
+        button.port != DEVICE_DT_GET(DT_NODELABEL(gpioa)) ||
+        !separatePin(config::VBAT_INPUT_PIN, button, true)) return false;
+    for (const auto pin : config::MOTOR_PWM_PINS) if (!separatePin(pin, button, true)) return false;
+    for (const auto pin : config::OPP_INPUT_PINS) if (!separatePin(pin, button, true)) return false;
+    for (const auto pin : config::P0_QTR_PINS) if (!separatePin(pin, button, true)) return false;
+    for (const auto pin : config::QTR_INPUT_PINS) if (!separatePin(pin, button, true)) return false;
+    return separatePin(config::MOTOR_ENABLE_PIN, button, true);
 }
 
-bool nativeMetadataValid() {
+bool nativeMetadataValid(bool buttons) {
     return DT_REG_ADDR(DT_NODELABEL(adc1)) == reinterpret_cast<std::uintptr_t>(ADC1_NS) &&
         DT_REG_ADDR(DT_NODELABEL(gpioa)) == reinterpret_cast<std::uintptr_t>(GPIOA_NS) &&
         reinterpret_cast<std::uintptr_t>(ADC12_COMMON_NS) ==
@@ -80,6 +97,7 @@ bool nativeMetadataValid() {
         DT_PROP(DT_NODELABEL(adc1), zephyr_deferred_init) == 1 &&
         DT_PROP(DT_NODELABEL(adc1), st_adc_prescaler) == 4 &&
         DT_REG_ADDR(DT_CHILD(DT_NODELABEL(adc1), channel_9)) == 9U &&
+        (!buttons || DT_REG_ADDR(DT_CHILD(DT_NODELABEL(adc1), channel_a)) == 10U) &&
         DT_CLOCKS_CELL_BY_IDX(DT_NODELABEL(adc1), 0, bus) == 0x8CU &&
         DT_CLOCKS_CELL_BY_IDX(DT_NODELABEL(adc1), 0, bits) == RCC_AHB2ENR1_ADC12EN &&
         DT_CLOCKS_CELL_BY_IDX(DT_NODELABEL(adc1), 1, bus) == STM32_SRC_HCLK &&
@@ -99,7 +117,7 @@ bool devicesAvailable() {
         device_is_ready(DEVICE_DT_GET(DT_NODELABEL(dac1)));
 }
 
-bool peersIdle() {
+bool peersIdle(bool buttons) {
     const auto adc4_busy = ADC_CR_ADEN | ADC_CR_ADDIS | ADC_CR_ADSTART |
                            ADC_CR_ADSTP | ADC_CR_ADCAL;
     const auto adc4_mode = ADC_CFGR1_EXTEN | ADC_CFGR1_CONT |
@@ -110,23 +128,30 @@ bool peersIdle() {
         NVIC_GetActive(ADC1_IRQn) == 0U && NVIC_GetPendingIRQ(ADC4_IRQn) == 0U &&
         NVIC_GetActive(ADC4_IRQn) == 0U && (ADC4_NS->CR & adc4_busy) == 0U &&
         ADC4_NS->IER == 0U && (ADC4_NS->CFGR1 & adc4_mode) == 0U &&
-        (DAC1_NS->CR & dac1_mode) == 0U;
+        (DAC1_NS->CR & dac1_mode) == 0U &&
+        (!buttons || ((DAC1_NS->CR & (DAC_CR_EN2 | DAC_CR_CEN2 | DAC_CR_TEN2 |
+            DAC_CR_DMAEN2 | DAC_CR_WAVE2 | DAC_CR_DMAUDRIE2)) == 0U &&
+            (DAC1_NS->MCR & DAC_MCR_MODE2) == 0U));
 }
 
-bool padOwned() {
+bool padOwned(bool buttons) {
     return (RCC_NS->AHB2ENR1 & RCC_AHB2ENR1_GPIOAEN) != 0U &&
         LL_GPIO_IsPinLocked(GPIOA_NS, PAD_MASK) == 0U &&
         LL_GPIO_GetPinMode(GPIOA_NS, PAD_MASK) == LL_GPIO_MODE_ANALOG &&
-        LL_GPIO_GetPinPull(GPIOA_NS, PAD_MASK) == LL_GPIO_PULL_NO;
+        LL_GPIO_GetPinPull(GPIOA_NS, PAD_MASK) == LL_GPIO_PULL_NO &&
+        (!buttons || (LL_GPIO_IsPinLocked(GPIOA_NS, BUTTON_PAD_MASK) == 0U &&
+            LL_GPIO_GetPinMode(GPIOA_NS, BUTTON_PAD_MASK) == LL_GPIO_MODE_ANALOG &&
+            LL_GPIO_GetPinPull(GPIOA_NS, BUTTON_PAD_MASK) == LL_GPIO_PULL_NO));
 }
 
-bool fixedModes(bool configured) {
+bool fixedModes(std::uint8_t stage, bool buttons, std::uint32_t rank) {
     const auto* adc = ADC1_NS;
     return adc->IER == 0U && adc->CFGR1 == CFGR1_RESET &&
-        adc->CFGR2 == (configured ? ADC_CFGR2_LFTRIG : 0U) &&
-        adc->SMPR1 == (configured ? ADC_SMPR1_SMP9 : 0U) && adc->SMPR2 == 0U &&
-        adc->PCSEL == (configured ? (1U << 9U) : 0U) &&
-        adc->SQR1 == (configured ? (9U << ADC_SQR1_SQ1_Pos) : 0U) &&
+        adc->CFGR2 == (stage >= 1U ? ADC_CFGR2_LFTRIG : 0U) &&
+        adc->SMPR1 == (stage >= 2U ? ADC_SMPR1_SMP9 : 0U) &&
+        adc->SMPR2 == (stage >= 3U && buttons ? ADC_SMPR2_SMP10 : 0U) &&
+        adc->PCSEL == (stage >= 4U ? (buttons ? 0x600U : 0x200U) : 0U) &&
+        adc->SQR1 == (stage >= 5U ? (rank << ADC_SQR1_SQ1_Pos) : 0U) &&
         adc->SQR2 == 0U && adc->SQR3 == 0U && adc->SQR4 == 0U && adc->JSQR == 0U &&
         adc->OFR1 == 0U && adc->OFR2 == 0U && adc->OFR3 == 0U && adc->OFR4 == 0U &&
         adc->GCOMP == 0U && adc->AWD2CR == 0U && adc->AWD3CR == 0U && adc->DIFSEL == 0U &&
@@ -134,7 +159,7 @@ bool fixedModes(bool configured) {
 }
 
 bool pristineAdc() {
-    return fixedModes(false) && ADC1_NS->CR == ADC_CR_DEEPPWD &&
+    return fixedModes(0U, false, 9U) && ADC1_NS->CR == ADC_CR_DEEPPWD &&
         ADC12_COMMON_NS->CCR == 0U;
 }
 
@@ -166,8 +191,9 @@ bool suppliesValid() {
         (SYSCFG_NS->CFGR1 & (SYSCFG_CFGR1_BOOSTEN | SYSCFG_CFGR1_ANASWVDD)) == 0U;
 }
 
-bool environmentOwned() {
-    return devicesAvailable() && suppliesValid() && clocksValid() && padOwned() && peersIdle();
+bool environmentOwned(bool buttons) {
+    return devicesAvailable() && suppliesValid() && clocksValid() &&
+        padOwned(buttons) && peersIdle(buttons);
 }
 
 bool enableClock() {
@@ -184,10 +210,14 @@ bool enableClock() {
 } // namespace
 
 bool Reader::controlsOwned() const {
-    if (!owned_ || !environmentOwned() ||
+    if (!owned_ || !environmentOwned(buttons_enabled_) ||
         (RCC_NS->AHB2ENR1 & RCC_AHB2ENR1_ADC12EN) == 0U) return false;
+    const bool modes = fixedModes(mode_stage_, buttons_enabled_, selected_rank_) ||
+        (setup_pending_ && fixedModes(mode_stage_ + 1U, buttons_enabled_, selected_rank_)) ||
+        (rank_pending_ && fixedModes(mode_stage_, buttons_enabled_, requested_rank_));
     return (!regulator_ready_ || (ADC1_NS->ISR & ADC_ISR_LDORDY) != 0U) &&
-        fixedModes(configured_) &&
+        ((cr_base_ & ADC_CR_ADEN) == 0U || (ADC1_NS->ISR & ADC_ISR_ADRDY) != 0U) &&
+        modes &&
         ADC12_COMMON_NS->CCR == (divider_set_ ? LL_ADC_CLOCK_ASYNC_DIV4 : 0U) &&
         (ADC1_NS->CR & ~cr_allowed_) == cr_base_;
 }
@@ -262,30 +292,56 @@ Status Reader::initialize() {
     cr_base_ |= ADC_CR_ADEN;
     cr_allowed_ = 0U;
     if (!controlsOwned()) return Status::OWNERSHIP;
-    SET_BIT(ADC1_NS->CFGR2, ADC_CFGR2_LFTRIG);
-    MODIFY_REG(ADC1_NS->SMPR1, ADC_SMPR1_SMP9, ADC_SMPR1_SMP9);
-    SET_BIT(ADC1_NS->PCSEL, 1U << 9U);
-    MODIFY_REG(ADC1_NS->SQR1, ADC_SQR1_SQ1, 9U << ADC_SQR1_SQ1_Pos);
-    configured_ = true;
-    return controlsOwned() ? Status::OK : Status::READBACK;
+    return configureModes();
 }
 
-InitResult Reader::begin() {
+void Reader::writeSetupMode() {
+    switch (mode_stage_) {
+    case 0U: SET_BIT(ADC1_NS->CFGR2, ADC_CFGR2_LFTRIG); break;
+    case 1U: MODIFY_REG(ADC1_NS->SMPR1, ADC_SMPR1_SMP9, ADC_SMPR1_SMP9); break;
+    case 2U:
+        if (buttons_enabled_) MODIFY_REG(ADC1_NS->SMPR2, ADC_SMPR2_SMP10, ADC_SMPR2_SMP10);
+        break;
+    case 3U: SET_BIT(ADC1_NS->PCSEL, buttons_enabled_ ? 0x600U : 0x200U); break;
+    case 4U: MODIFY_REG(ADC1_NS->SQR1, ADC_SQR1_SQ1, 9U << ADC_SQR1_SQ1_Pos); break;
+    default: break;
+    }
+}
+
+Status Reader::configureModes() {
+    for (; mode_stage_ < 5U; ++mode_stage_) {
+        if (!controlsOwned()) return Status::OWNERSHIP;
+        // Only this exact old/new register state is eligible for fault cleanup.
+        setup_pending_ = true;
+        writeSetupMode();
+        if (!fixedModes(mode_stage_ + 1U, buttons_enabled_, selected_rank_)) return Status::READBACK;
+        if (!controlsOwned()) return Status::OWNERSHIP;
+        setup_pending_ = false;
+    }
+    return controlsOwned() ? Status::OK : Status::OWNERSHIP;
+}
+
+InitResult Reader::begin() { return beginProfile(false); }
+
+InitResult Reader::beginWithButtons() { return beginProfile(true); }
+
+InitResult Reader::beginProfile(bool buttons) {
     if (attempted_) return {Status::ALREADY_STARTED, shutdown_, ready_};
     attempted_ = true;
+    buttons_enabled_ = buttons;
     if (adc_claimed) {
         fail(Status::OWNERSHIP);
         return {Status::OWNERSHIP, shutdown_, false};
     }
     Status status = Status::INVALID_CONFIG;
-    if (configValid() && padMetadataValid() && nativeMetadataValid()) {
+    if (configValid() && padMetadataValid(buttons) && nativeMetadataValid(buttons)) {
         status = Status::OWNERSHIP;
-        if (environmentOwned()) {
+        if (environmentOwned(buttons)) {
             status = Status::READBACK;
             // The gated ADC registers are inspected only after their clock is available.
             if (enableClock()) {
                 status = Status::OWNERSHIP;
-                if (environmentOwned() && pristineAdc()) {
+                if (environmentOwned(buttons) && pristineAdc()) {
                     adc_claimed = true;
                     owned_ = true;
                     cr_base_ = ADC_CR_DEEPPWD;
@@ -346,7 +402,26 @@ Status Reader::sampleStatus(std::uint32_t started) const {
                ? Status::CONVERSION_TIMEOUT : Status::OK;
 }
 
-Status Reader::finishSample(Sample& sample) {
+Status Reader::selectRank(std::uint32_t rank, std::uint32_t started) {
+    if (!controlsOwned() || !ready_ || (ADC1_NS->CR & ADC_CR_ADEN) == 0U ||
+        (ADC1_NS->CR & BUSY_COMMANDS) != 0U || (ADC1_NS->ISR & ADC_ISR_ADRDY) == 0U)
+        return Status::OWNERSHIP;
+    if (clockUs() - started >= config::VBAT_ADC_CONVERSION_US) return Status::CONVERSION_TIMEOUT;
+    if (selected_rank_ != rank) {
+        requested_rank_ = rank;
+        rank_pending_ = true;
+        MODIFY_REG(ADC1_NS->SQR1, ADC_SQR1_SQ1, rank << ADC_SQR1_SQ1_Pos);
+        if (ADC1_NS->SQR1 != (rank << ADC_SQR1_SQ1_Pos)) return Status::READBACK;
+        if (!controlsOwned()) return Status::OWNERSHIP;
+        selected_rank_ = rank;
+        rank_pending_ = false;
+    }
+    if (!controlsOwned()) return Status::OWNERSHIP;
+    return clockUs() - started >= config::VBAT_ADC_CONVERSION_US
+        ? Status::CONVERSION_TIMEOUT : Status::OK;
+}
+
+Status Reader::finishSample(Sample& sample, bool voltage) {
     const std::uint32_t raw = LL_ADC_REG_ReadConversionData32(ADC1_NS);
     if (raw > RAW_MAX) return Status::INVALID_DATA;
     auto status = sampleStatus(sample.started_us);
@@ -354,9 +429,9 @@ Status Reader::finishSample(Sample& sample) {
     if ((ADC1_NS->CR & BUSY_COMMANDS) != 0U ||
         (ADC1_NS->ISR & (ADC_ISR_EOC | ADC_ISR_EOS)) != ADC_ISR_EOS) return Status::READBACK;
     WRITE_REG(ADC1_NS->ISR, ADC_ISR_EOS);
-    const auto voltage = static_cast<float>(raw) / static_cast<float>(RAW_MAX) *
-                         config::VBAT_ADC_REFERENCE_V * config::VBAT_DIVIDER_RATIO;
-    if (!std::isfinite(voltage)) return Status::INVALID_DATA;
+    const auto scaled = voltage ? static_cast<float>(raw) / static_cast<float>(RAW_MAX) *
+        config::VBAT_ADC_REFERENCE_V * config::VBAT_DIVIDER_RATIO : 0.0F;
+    if (!std::isfinite(scaled)) return Status::INVALID_DATA;
     status = sampleStatus(sample.started_us);
     if (status != Status::OK) return status;
     if ((ADC1_NS->ISR & (ADC_ISR_EOC | ADC_ISR_EOS)) != 0U ||
@@ -365,19 +440,19 @@ Status Reader::finishSample(Sample& sample) {
     if (completed - sample.started_us >= config::VBAT_ADC_CONVERSION_US)
         return Status::CONVERSION_TIMEOUT;
     sample.raw = static_cast<std::uint16_t>(raw);
-    sample.voltage_v = voltage;
+    sample.voltage_v = scaled;
     sample.completed_us = completed;
     sample.valid = true;
     return Status::OK;
 }
 
-Sample Reader::read() {
+Sample Reader::acquire(std::uint32_t rank, bool voltage) {
     Sample sample{};
     sample.shutdown = shutdown_;
     if (!attempted_) return sample;
     if (faulted_) { sample.status = Status::FAULT_LATCHED; return sample; }
     sample.started_us = clockUs();
-    auto status = controlsOwned() && ready_ ? Status::OK : Status::OWNERSHIP;
+    auto status = selectRank(rank, sample.started_us);
     if (status == Status::OK) {
         // Exactly one W1C clear identifies the next conversion, including raw zero.
         WRITE_REG(ADC1_NS->ISR, SAMPLE_FLAGS);
@@ -394,7 +469,7 @@ Sample Reader::read() {
             const auto flags = ADC1_NS->ISR;
             if ((flags & (ADC_ISR_EOC | ADC_ISR_EOS)) == (ADC_ISR_EOC | ADC_ISR_EOS) &&
                 (ADC1_NS->CR & ADC_CR_ADSTART) == 0U) {
-                status = finishSample(sample);
+                status = finishSample(sample, voltage);
                 break;
             }
         }
@@ -404,6 +479,25 @@ Sample Reader::read() {
     sample.status = status;
     sample.shutdown = shutdown_;
     return sample;
+}
+
+Sample Reader::read() { return acquire(9U, true); }
+
+ButtonSample Reader::readButtons() {
+    ButtonSample result{};
+    result.shutdown = shutdown_;
+    if (!attempted_) return result;
+    if (faulted_) { result.status = Status::FAULT_LATCHED; return result; }
+    if (!buttons_enabled_) { result.status = Status::NOT_ENABLED; return result; }
+    const auto sample = acquire(10U, false);
+    result.status = sample.status;
+    result.shutdown = sample.shutdown;
+    result.raw = sample.raw;
+    result.started_us = sample.started_us;
+    result.completed_us = sample.completed_us;
+    result.valid = sample.valid;
+    if (sample.valid) result.sequence = ++button_sequence_;
+    return result;
 }
 
 } // namespace power

@@ -24,7 +24,8 @@ static void acknowledgement(const volatile Reg* r) {
             ADC1->ISR.value|=ADC_ISR_ADRDY;hw.enable_pending=false;event(Point::ENABLE_READY);
         }
         if(hw.conversion_pending&&hw.conversion_after>=0&&++hw.conversion_polls>=unsigned(hw.conversion_after)) {
-            ADC1->ISR.value|=hw.completion_flags;ADC1->DR.value=hw.sample;
+            ADC1->ISR.value|=hw.completion_flags;
+            ADC1->DR.value=hw.samples_by_rank?(hw.active_rank==9?hw.battery_sample:hw.button_sample):hw.sample;
             ADC1->CR.value&=~ADC_CR_ADSTART;hw.conversion_pending=false;
         }
     }
@@ -60,7 +61,11 @@ void Reg::operator=(std::uint32_t v) volatile {
     auto& h=fixture::hw;auto a=reinterpret_cast<std::uintptr_t>(this);
     if(h.writes<h.trace.size())h.trace[h.writes]={a,v,h.now};
     ++h.writes;++h.accesses;
-    if(this==&ADC1->ISR) {
+    if(this==&ADC1->SQR1) {
+        ++h.rank_writes;fixture::event(fixture::Point::RANK_BEFORE,a);
+        if(h.rank_write_effect)value=v^h.rank_write_xor;
+        h.now+=h.rank_write_us;fixture::event(fixture::Point::RANK_AFTER,a);
+    } else if(this==&ADC1->ISR) {
         if(!h.freeze_stale)value&=~v;
         if(v==ADC_ISR_EOS)fixture::event(fixture::Point::EOS_CLEAR);
     } else if(this==&ADC1->CR) {
@@ -80,6 +85,7 @@ void Reg::operator=(std::uint32_t v) volatile {
                (ADC1->ISR.value&ADC_ISR_ADRDY))++h.command_errors;
         }
         if(commands&ADC_CR_ADSTART) {
+            h.active_rank=(ADC1->SQR1.value>>ADC_SQR1_SQ1_Pos)&31U;
             ++h.start_count;h.conversion_pending=true;h.conversion_polls=0;h.elapsed_start=h.now;
             if(!(old&ADC_CR_ADEN)||(old&(ADC_CR_ADCAL|ADC_CR_ADDIS|ADC_CR_ADSTP|ADC_CR_JADSTART|ADC_CR_JADSTP)))++h.command_errors;
             fixture::event(fixture::Point::START);
@@ -113,6 +119,7 @@ const clock_control_driver_api clock_api={clockOn,nullptr,nullptr,clockRate,null
 device fixture_devices[5]={{nullptr,nullptr,&states[0],0},{&fixture::gpio_config,nullptr,&states[1],1},
     {nullptr,&clock_api,&states[2],2},{nullptr,nullptr,&states[3],3},{nullptr,nullptr,&states[4],4}};
 device fixture_other_ports[2]={{&fixture::gpio_config,nullptr,&states[5],5},{&fixture::gpio_config,nullptr,&states[6],6}};
+device fixture_foreign_port={&fixture::gpio_config,nullptr,&states[5],5};
 bool device_is_ready(const device* d){++fixture::hw.ready_reads;return d&&d->index<5&&fixture::hw.ready[d->index];}
 int clock_control_on(const device* d,clock_control_subsys_t s){return clockOn(d,s);}
 int clock_control_get_rate(const device* d,clock_control_subsys_t s,std::uint32_t* r){return clockRate(d,s,r);}

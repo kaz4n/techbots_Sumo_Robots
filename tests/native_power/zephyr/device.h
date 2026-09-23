@@ -7,3 +7,5 @@ struct device_state { std::uint8_t init_res; bool initialized : 1; };
 struct device { const void* config; const void* api; device_state* state; unsigned index; };
 bool device_is_ready(const device*);
 extern device fixture_devices[5];
+extern device fixture_other_ports[2];
+extern device fixture_foreign_port;

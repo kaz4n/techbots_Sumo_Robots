@@ -12,8 +12,21 @@
 #ifndef NATIVE_ALIAS_INDEX
 #define NATIVE_ALIAS_INDEX 2
 #endif
+#ifndef NATIVE_PAIR_BAD_MAP
+#define NATIVE_PAIR_BAD_MAP 0
+#endif
 extern device fixture_other_ports[2];
 constexpr gpio_dt_spec fixturePad(unsigned index) {
+    if(NATIVE_PAIR_BAD_MAP==6 && index==NATIVE_ALIAS_INDEX)return {&fixture_devices[1],5,0};
+    if(NATIVE_PAIR_BAD_MAP==7 && index==NATIVE_ALIAS_INDEX)return {&fixture_foreign_port,6,0};
+    if(index==15) {
+        if(NATIVE_PAIR_BAD_MAP==1)return {nullptr,5,0};
+        if(NATIVE_PAIR_BAD_MAP==2)return {&fixture_devices[1],16,0};
+        if(NATIVE_PAIR_BAD_MAP==3)return {&fixture_devices[1],5,1};
+        if(NATIVE_PAIR_BAD_MAP==4)return {&fixture_other_ports[0],5,0};
+        if(NATIVE_PAIR_BAD_MAP==5)return {&fixture_devices[1],4,0};
+        return {&fixture_devices[1],5,0};
+    }
     if (NATIVE_BAD_MAP==5 && index==NATIVE_ALIAS_INDEX) return {&fixture_devices[1],4,0};
     if(index==14) {
         if(NATIVE_BAD_MAP==1)return {nullptr,4,0};

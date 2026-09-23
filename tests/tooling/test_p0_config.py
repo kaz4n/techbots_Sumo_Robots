@@ -45,6 +45,8 @@ NATIVE_POWER_DEFAULTS = {
     'VBAT_ADC_SETUP_MAX_POLLS': 65536,
     'VBAT_ADC_READ_MAX_POLLS': 4096,
 }
+# D-086 unchanged A1 proposal, explicit opt-in raw acquisition.
+ADC_PAIR_DEFAULTS = {'BUTTON_INPUT_PIN': 15}
 NATIVE_POWER_FLOAT_NAMES = {'VBAT_ADC_REFERENCE_V', 'VBAT_DIVIDER_RATIO'}
 # D-079 narrow native MPU6050 transport; conditional software defaults only.
 NATIVE_IMU_BUS_DEFAULTS = {
@@ -161,7 +163,7 @@ class P0ConfigTests(unittest.TestCase):
                     NATIVE_POWER_FLOAT_NAMES | set(NATIVE_IMU_BUS_DEFAULTS) |
                     set(IMU_SETUP_DEFAULTS) | set(IMU_ACQUISITION_DEFAULTS) |
                     set(IMU_HEADING_DEFAULTS) | set(QTR_ACQUISITION_DEFAULTS) |
-                    set(QTR_PROPOSED_ARRAY_DEFAULTS))
+                    set(QTR_PROPOSED_ARRAY_DEFAULTS) | set(ADC_PAIR_DEFAULTS))
         self.assertEqual(expected, set(config_declarations()))
 
     def test_d076_proposed_opponent_pin_type_values_and_extent_match_hardware3(self):
@@ -250,6 +252,12 @@ class P0ConfigTests(unittest.TestCase):
             self.assertEqual('std::uint32_t', kind)
             self.assertTrue(initializer.startswith('{') and initializer.endswith('}'))
             self.assertEqual(expected, tuple(number(value) for value in initializer[1:-1].split(',')))
+
+    def test_d086_button_pin_is_the_unchanged_explicit_a1_proposal(self):
+        declarations = config_declarations()
+        for name, expected in ADC_PAIR_DEFAULTS.items():
+            self.assertEqual('std::uint32_t', declarations[name][0])
+            self.assertEqual(expected, number(declarations[name][1]))
 
     def test_p0_diagnostic_defaults_are_explicit_and_unchanged(self):
         declarations = config_declarations()

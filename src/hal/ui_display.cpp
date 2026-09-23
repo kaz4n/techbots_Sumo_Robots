@@ -75,6 +75,9 @@ bool valid(const DisplaySample& sample) {
         mode >= 1U && mode <= 6U && service <= 4U &&
         (!sample.service_menu || service != 0U) && sample.opponent_mask <= 0x7FU &&
         sample.line_mask <= 0x0FU && sample.faults <= 0x7FU &&
+        static_cast<unsigned>(sample.calibration_screen) <=
+            static_cast<unsigned>(CalibrationScreen::CANCELLED) &&
+        sample.calibration_stage <= 7U && sample.calibration_samples <= config::QTR_CAL_SAMPLES &&
         (!sample.battery_available || (std::isfinite(sample.battery_v) && sample.battery_v >= 0.0F));
 }
 
@@ -115,11 +118,35 @@ void mode(Frame& frame, core::Mode selected) {
     }
 }
 
+void calibration(Frame& frame, const DisplaySample& sample) {
+    const auto screen = sample.calibration_screen;
+    constexpr std::uint8_t WHITE[5] = {31,31,31,31,31};
+    constexpr std::uint8_t BLACK[5] = {31,17,17,17,31};
+    constexpr std::uint8_t CHECK[5] = {0,1,18,12,0};
+    if (screen == CalibrationScreen::SELECTION) {
+        glyph(frame, 0U, C, 3U); glyph(frame, 4U, CHECKER, 5U);
+    } else if (screen == CalibrationScreen::WAITING || screen == CalibrationScreen::COLLECTING) {
+        glyph(frame, 0U, DIGITS[sample.calibration_stage / 2U + 1U], 3U);
+        glyph(frame, 4U, sample.calibration_stage % 2U == 0U ? WHITE : BLACK, 5U);
+        const unsigned count = config::QTR_CAL_SAMPLES > 0U ?
+            sample.calibration_samples * FRAME_COLS / config::QTR_CAL_SAMPLES : 0U;
+        for (unsigned col = 0U; col < FRAME_COLS; ++col)
+            frame.pixels[6U * FRAME_COLS + col] =
+                (screen == CalibrationScreen::WAITING ? col == 6U : col < count) ? 7U : 0U;
+    } else {
+        glyph(frame, 0U, screen == CalibrationScreen::REJECTED ? E : C, 3U);
+        glyph(frame, 4U, screen == CalibrationScreen::SUCCESS ? CHECK : CROSS, 5U);
+        if (screen == CalibrationScreen::SUCCESS)
+            for (unsigned col = 0U; col < FRAME_COLS; ++col)
+                frame.pixels[6U * FRAME_COLS + col] = 7U;
+    }
+}
+
 void service(Frame& frame, const DisplaySample& sample) {
     switch (sample.service) {
     case countdown::Service::SENSOR_VIEW: sensors(frame, sample); break;
     case countdown::Service::QTR_CAL:
-        glyph(frame, 0U, C, 3U); glyph(frame, 4U, CHECKER, 5U); break;
+        calibration(frame, sample); break;
     case countdown::Service::DRIVE_TEST:
         glyph(frame, 0U, D, 3U); glyph(frame, 4U, CROSS, 5U); break;
     case countdown::Service::LOG_DUMP:
@@ -179,5 +206,18 @@ DisplaySample displaySample(const fsm::RobotInput& input, const fsm::RobotResult
     if (!result.fresh || result.contract_faults != 0U || result.escape_fault != edge::EscapeFault::NONE)
         sample.faults |= CONTRACT_FAULT;
     return sample;
+}
+void applyCalibration(DisplaySample& sample, const qtr_cal::Report& report) {
+    switch (report.phase) {
+    case qtr_cal::Phase::INACTIVE: sample.calibration_screen = CalibrationScreen::SELECTION; break;
+    case qtr_cal::Phase::WAITING: sample.calibration_screen = CalibrationScreen::WAITING; break;
+    case qtr_cal::Phase::COLLECTING: sample.calibration_screen = CalibrationScreen::COLLECTING; break;
+    case qtr_cal::Phase::SUCCESS: sample.calibration_screen = CalibrationScreen::SUCCESS; break;
+    case qtr_cal::Phase::REJECTED: sample.calibration_screen = CalibrationScreen::REJECTED; break;
+    case qtr_cal::Phase::CANCELLED: sample.calibration_screen = CalibrationScreen::CANCELLED; break;
+    default: sample.calibration_screen = static_cast<CalibrationScreen>(255U); break;
+    }
+    sample.calibration_stage = report.stage;
+    sample.calibration_samples = report.samples;
 }
 } // namespace ui

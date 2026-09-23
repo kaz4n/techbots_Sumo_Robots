@@ -1103,3 +1103,24 @@ UNO Q with recorded target/source/artifacts; no external acquisition or motor pa
 Consequence: independent tests, actual target/disassembly and separate review
 precede deployment. Runtime counters are not optical acceptance or full800us WCET.
 No existing locked test, wiring, gate, motor-run or physical fact changes.
+
+
+## D-089 (2026-09-23, selected under D-051/D-075) Actual QTR calibration and handover
+Context: B13 needs raw white/black calibration; current threshold ambiguity faults
+Robot before service intent, and cached reclassification could fabricate freshness.
+Decision: adopt P2_qtr_cal_contract.md. Explicit raw-only BOOT/IDLE preparation
+inhibits match/motors while preserving native faults, STOP and actual menu gestures.
+Eight genuine service requests collect16distinct frames per stage with1000ms
+deadlines; conservative interval extrema define an atomic versioned RAM bank.
+Later-source classified frames and fresh neutral/START restore readiness without
+clearing faults or weakening existing tests. Share raw validation and export an
+exact bounded printable config snippet; no new MATCH Bridge traffic.
+Consequence: actual owner/adapter/Robot/MotorGate pipeline needs independent tests,
+target compilation and fresh separate review. No physical colors, wiring, pinmap,
+clock/WCET, human gate or motor permission inferred. Existing defaults unchanged.
+
+D-089 review disposition (2026-09-23): fresh review proved unseen old-frame
+era alias after full wrap. Adopt the contract source-era addendum: indefinite
+absence stays inhibited, but valid source presentation at accumulated half-range
+requires reset; below it, tie source deltas to accumulated decision age. Robot
+LINE_CONTRACT/owner SOURCE_ORDER preserve banks and faults; add regression tests.

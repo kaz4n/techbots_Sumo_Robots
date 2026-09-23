@@ -458,6 +458,10 @@ struct RobotResult {
     std::uint32_t line_sequence = 0U;
     bool button_available = false;
     bool imu_available = false; // D088 validated raw availability, including pre-GO.
+    bool line_raw_mode = false; // D089 current admitted raw-only BOOT/IDLE request.
+    bool line_calibration_hold = false; // Latched until later classified acquisition.
+    bool line_start_rearming = false; // Fresh neutral needed after handover.
+    std::uint32_t line_threshold_version = 0U;
     bool button_updated = false;
     core::ButtonLevel button_level = core::ButtonLevel::NONE;
     std::uint32_t button_source_us = 0U; // Earliest conversion age.
@@ -542,6 +546,7 @@ private:
         bool stall_selected = false;
         bool forced_brake = false;
         bool frame_immediate = false;
+        bool line_start_inhibited = false;
     };
     void admit(const RobotInput& input);
     void receive(const RobotInput& input);
@@ -563,6 +568,12 @@ private:
     void prepareLine(const RobotInput& input);
     bool admitLine(const RobotInput& input);
     void publishLine(std::uint8_t white_candidates);
+    void resetLineReadiness();
+    void advanceLineHistories();
+    void prepareCalibrationLine(const RobotInput& input);
+    bool admitCalibrationLine(const RobotInput& input, bool& distinct);
+    void qualifyCalibrationLine(const RobotInput& input, bool distinct);
+    void prepareLineStart(const RobotInput& input);
     void sampleSensors(const RobotInput& input);
     void advanceHistories();
     void rememberObservation();
@@ -616,6 +627,14 @@ private:
     bool explicit_line_mode_ = false;
     bool line_seen_ = false;
     std::uint32_t line_age_us_ = 0U;
+    std::uint64_t line_raw_boundary_age_us_ = 0U;
+    std::uint64_t line_rearm_age_us_ = 0U;
+    std::uint32_t line_threshold_version_ = 0U;
+    std::uint32_t line_qualified_frames_ = 0U;
+    std::uint32_t line_neutral_since_us_ = 0U;
+    bool line_calibration_hold_ = false;
+    bool line_start_rearming_ = false;
+    bool line_neutral_pending_ = false;
     edge::Escape escape_;
     opp_fusion::Fusion fusion_;
     NormalPerception normal_;

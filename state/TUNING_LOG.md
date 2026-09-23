@@ -289,3 +289,5 @@ max_call_us37 is observed accumulated renderer+submit MCUclock diagnostic only:
 not calibrated timing,masked-copy duration,800us WCET or optical acceptance.
 No new config change or externalhardware/motor test. EvidenceP2_matrix_raw/
 runtime_report.json/runtime_run1; independent review follows receipt.
+
+2026-09-23T16:10:03+04:00 | D089 SOFTWARE DEFAULTS ONLY | Added QTR_CAL_SAMPLES=16 count and QTR_CAL_CAPTURE_MS=1000ms for bounded per-stage raw acquisition, selected underD051/D075. No B16 QTR_WHITE_US or confirmation value changed; candidate RAM thresholds come only from valid complete calibration. Tests use synthetic intervals; no physical tuning/measurement. Evidence analysis/P2_qtr_cal_contract.md, validation.md, raw.

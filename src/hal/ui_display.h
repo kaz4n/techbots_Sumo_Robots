@@ -3,6 +3,7 @@
 // Independent literal pixels, boundaries and Robot mapping tests cover D088.
 #pragma once
 #include "../core/fsm.h"
+#include "qtr_cal.h"
 #include <cstdint>
 
 namespace ui {
@@ -13,6 +14,9 @@ struct Frame { std::uint8_t pixels[FRAME_BYTES] = {}; };
 enum DisplayFault : std::uint8_t {
     IMU_UNAVAILABLE = 1U, OPP_STUCK = 2U, QTR_STUCK = 4U, LOW_BATTERY = 8U,
     CAL_REJECTED = 16U, LINE_WARNING = 32U, CONTRACT_FAULT = 64U
+};
+enum class CalibrationScreen : std::uint8_t {
+    SELECTION, WAITING, COLLECTING, SUCCESS, REJECTED, CANCELLED
 };
 struct DisplaySample {
     std::uint32_t t_us = 0U;
@@ -28,6 +32,9 @@ struct DisplaySample {
     std::uint8_t opponent_mask = 0U;
     std::uint8_t line_mask = 0U;
     std::uint8_t faults = 0U;
+    CalibrationScreen calibration_screen = CalibrationScreen::SELECTION;
+    std::uint8_t calibration_stage = 0U;
+    std::uint32_t calibration_samples = 0U;
 };
 enum class RenderStatus : std::uint8_t { OK, INVALID };
 // Pure, complete overwrite; exact glyphs/layout in P2_matrix_contract.md.
@@ -35,4 +42,5 @@ RenderStatus render(const DisplaySample& sample, Frame& frame);
 // Caller pairs the actual current input with its Robot result. No cached-result
 // refresh: !result.fresh produces unavailable sensors/battery and CONTRACT_FAULT.
 DisplaySample displaySample(const fsm::RobotInput& input, const fsm::RobotResult& result);
+void applyCalibration(DisplaySample& sample, const qtr_cal::Report& report);
 } // namespace ui

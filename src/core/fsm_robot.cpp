@@ -88,6 +88,7 @@ RobotResult Robot::step(const RobotInput& input) {
     prepareImu(resolved);
     prepareLine(resolved);
     prepareButtons(resolved);
+    prepareLineStart(resolved);
     prepareInputs(resolved);
     sampleSensors(resolved);
     runLifecycle(resolved);
@@ -274,7 +275,7 @@ void Robot::beginAttempt() {
 
 void Robot::runLifecycle(const RobotInput& input) {
     const bool allow_start = tick_.entry == core::State::IDLE && initialized_ &&
-        faults_ == 0U && !menu_.selection().service_menu;
+        faults_ == 0U && !menu_.selection().service_menu && !tick_.line_start_inhibited;
     countdown::ServiceSample sample{input.t_us, input.raw_gyro_z_dps, input.imu_ok,
         result_.line_mask, tick_.sampled ? tick_.observation.confirmed_mask : std::uint8_t{0}};
     sample.explicit_line = input.line.explicit_values;
@@ -311,7 +312,8 @@ void Robot::runLifecycle(const RobotInput& input) {
         attempt_go_ = true;
         timing_active_ = true;
     }
-    tick_.permission = initialized_ && result_.lifecycle.gate.motion_permitted && faults_ == 0U;
+    tick_.permission = initialized_ && result_.lifecycle.gate.motion_permitted &&
+        faults_ == 0U && !tick_.line_start_inhibited;
     if (faults_ != 0U || result_.lifecycle.gate.phase == countdown::Phase::STOPPED)
         tick_.selected = core::State::STOPPED;
     else if (!initialized_) tick_.selected = core::State::BOOT;

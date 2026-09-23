@@ -9,7 +9,8 @@ namespace {
 constexpr std::uint32_t HALF_RANGE = 0x80000000U;
 bool sameFrame(const core::LineEvidence& a, const core::LineEvidence& b) {
     return a.sequence == b.sequence && a.started_us == b.started_us &&
-           a.completed_us == b.completed_us && a.white_candidates == b.white_candidates;
+           a.completed_us == b.completed_us && a.white_candidates == b.white_candidates &&
+           a.threshold_version == b.threshold_version && a.use == b.use;
 }
 } // namespace
 
@@ -42,19 +43,38 @@ bool Robot::admitLine(const RobotInput& input) {
     return true;
 }
 
-void Robot::prepareLine(const RobotInput& input) {
+void Robot::advanceLineHistories() {
     const auto maximum = std::numeric_limits<std::uint32_t>::max();
     line_age_us_ = maximum - line_age_us_ < tick_.delta_us ? maximum :
                    line_age_us_ + tick_.delta_us;
+    const auto long_maximum = std::numeric_limits<std::uint64_t>::max();
+    line_raw_boundary_age_us_ = long_maximum - line_raw_boundary_age_us_ < tick_.delta_us ?
+        long_maximum : line_raw_boundary_age_us_ + tick_.delta_us;
+    line_rearm_age_us_ = long_maximum - line_rearm_age_us_ < tick_.delta_us ?
+        long_maximum : line_rearm_age_us_ + tick_.delta_us;
+}
+
+void Robot::prepareLine(const RobotInput& input) {
+    advanceLineHistories();
+    tick_.line_start_inhibited = line_calibration_hold_ || line_start_rearming_;
     if (!line_mode_chosen_) {
         line_mode_chosen_ = true;
         explicit_line_mode_ = input.line.explicit_values;
     }
-    if (!input.line.contract_valid || input.line.explicit_values != explicit_line_mode_) {
+    if (!input.line.contract_valid || input.line.explicit_values != explicit_line_mode_ ||
+        (input.line.use != core::LineUse::CONTROL && input.line.use != core::LineUse::CALIBRATION) ||
+        (!explicit_line_mode_ && input.line.use != core::LineUse::CONTROL)) {
         faults_ |= LINE_CONTRACT;
         result_.line_available = false;
+        result_.line_raw_mode = false;
         return;
     }
+    if (input.line.use == core::LineUse::CALIBRATION || line_calibration_hold_) {
+        prepareCalibrationLine(input);
+        return;
+    }
+    result_.line_raw_mode = false;
+    if (input.line.threshold_version != line_threshold_version_) faults_ |= LINE_CONTRACT;
     if (!explicit_line_mode_) {
         result_.line_available = input.observations_fresh;
         if (!input.observations_fresh) return;
@@ -67,10 +87,7 @@ void Robot::prepareLine(const RobotInput& input) {
         return;
     }
     if (line_seen_ && line_age_us_ >= config::QTR_SAMPLE_MAX_AGE_US) {
-        classifier_.reset();
-        previous_line_ = 0U;
-        qtr_active_ = qtr_warning_ = 0U;
-        for (auto& age : qtr_age_us_) age = 0U;
+        resetLineReadiness();
     }
     const bool admitted = admitLine(input);
     if (!admitted) faults_ |= LINE_CONTRACT;

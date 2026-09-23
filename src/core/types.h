@@ -43,6 +43,7 @@ struct ImuEvidence {
     std::uint32_t sequence = 0;
 };
 enum class LinePresence : std::uint8_t { ABSENT = 1, VALID = 2, INVALID = 3 };
+enum class LineUse : std::uint8_t { CONTROL, CALIBRATION };
 struct LineEvidence {
     bool explicit_values = false; // Legacy uses observations_fresh plus raw times.
     bool contract_valid = true;
@@ -51,6 +52,8 @@ struct LineEvidence {
     std::uint32_t started_us = 0U; // Earliest frame age, never delivery/cleanup time.
     std::uint32_t completed_us = 0U;
     std::uint8_t white_candidates = 0U; // Qualified intervals, before confirmation.
+    LineUse use = LineUse::CONTROL; // Explicit raw-only BOOT/IDLE preparation.
+    std::uint32_t threshold_version = 0U; // CONTROL bank identity; RAW requires0.
 };
 struct Inputs {
     std::uint32_t t_us = 0;

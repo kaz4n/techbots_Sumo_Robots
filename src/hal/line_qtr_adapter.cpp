@@ -110,45 +110,93 @@ bool pending(const Snapshot& s) {
 bool fault(const Snapshot& s) {
     return !s.valid && s.status >= Status::INVALID_CONFIG && s.status <= Status::CANCELLED;
 }
-Qualification classify(const Snapshot& s, std::uint8_t& candidates) {
+Qualification classify(const Snapshot& s, const std::uint32_t* thresholds,
+                       std::uint8_t& candidates) {
     candidates = 0U;
     for (unsigned i = 0U; i < 4U; ++i) {
         const auto bit = static_cast<std::uint8_t>(1U << i);
-        if ((s.low_mask & bit) != 0U && s.pad[i].upper_us <= config::QTR_WHITE_US[i])
+        if ((s.low_mask & bit) != 0U && s.pad[i].upper_us <= thresholds[i])
             candidates |= bit;
-        else if (s.pad[i].lower_us < config::QTR_WHITE_US[i]) return Qualification::AMBIGUOUS;
+        else if (s.pad[i].lower_us < thresholds[i]) return Qualification::AMBIGUOUS;
     }
     return Qualification::VALID;
 }
 } // namespace
 
-Qualification applySnapshot(fsm::RobotInput& input, const Snapshot& snapshot) {
+RawQualification validateRaw(const Snapshot& snapshot) {
+    switch (snapshot.phase) {
+    case Phase::NOT_STARTED: case Phase::IDLE: case Phase::CHARGING: case Phase::DISCHARGING:
+        return pending(snapshot) ? RawQualification::ABSENT : RawQualification::INVALID;
+    case Phase::FAULT:
+        return fault(snapshot) ? RawQualification::PROVIDER_FAULT : RawQualification::INVALID;
+    case Phase::COMPLETE:
+        return complete(snapshot) ? RawQualification::VALID : RawQualification::INVALID;
+    default: return RawQualification::INVALID;
+    }
+}
+
+bool validThresholds(const Thresholds& thresholds) {
+    for (const auto value : thresholds.white_us)
+        if (value == 0U || value > config::QTR_TIMEOUT_US) return false;
+    return true;
+}
+
+namespace {
+void identity(core::LineEvidence& line, const Snapshot& snapshot) {
+    line.sequence = snapshot.sequence;
+    line.started_us = snapshot.started_us;
+    line.completed_us = snapshot.completed_us;
+}
+Qualification applyControl(fsm::RobotInput& input, const Snapshot& snapshot,
+                           const std::uint32_t* thresholds, std::uint32_t version) {
     input.line = {};
     input.line.explicit_values = true;
     input.line.presence = core::LinePresence::INVALID;
-    switch (snapshot.phase) {
-    case Phase::NOT_STARTED: case Phase::IDLE: case Phase::CHARGING: case Phase::DISCHARGING:
-        input.line.contract_valid = pending(snapshot);
-        if (!input.line.contract_valid) return Qualification::INVALID;
+    input.line.threshold_version = version;
+    const auto raw = validateRaw(snapshot);
+    input.line.contract_valid = raw != RawQualification::INVALID;
+    if (raw == RawQualification::ABSENT) {
         input.line.presence = core::LinePresence::ABSENT;
         return Qualification::ABSENT;
-    case Phase::FAULT:
-        input.line.contract_valid = fault(snapshot);
-        return Qualification::INVALID;
-    case Phase::COMPLETE:
-        input.line.contract_valid = complete(snapshot);
-        break;
-    default: input.line.contract_valid = false; break;
     }
-    if (!input.line.contract_valid) return Qualification::INVALID;
+    if (raw != RawQualification::VALID) return Qualification::INVALID;
     std::uint8_t candidates = 0U;
-    const auto qualified = classify(snapshot, candidates);
+    const auto qualified = classify(snapshot, thresholds, candidates);
     if (qualified != Qualification::VALID) return qualified;
     input.line.presence = core::LinePresence::VALID;
-    input.line.sequence = snapshot.sequence;
-    input.line.started_us = snapshot.started_us;
-    input.line.completed_us = snapshot.completed_us;
+    identity(input.line, snapshot);
     input.line.white_candidates = candidates;
     return qualified;
+}
+} // namespace
+
+Qualification applySnapshot(fsm::RobotInput& input, const Snapshot& snapshot) {
+    return applyControl(input, snapshot, config::QTR_WHITE_US, 0U);
+}
+Qualification applySnapshot(fsm::RobotInput& input, const Snapshot& snapshot,
+                            const Thresholds& thresholds) {
+    if (!validThresholds(thresholds)) {
+        input.line = {};
+        input.line.explicit_values = true;
+        input.line.contract_valid = false;
+        input.line.presence = core::LinePresence::INVALID;
+        input.line.threshold_version = thresholds.version;
+        return Qualification::INVALID;
+    }
+    return applyControl(input, snapshot, thresholds.white_us, thresholds.version);
+}
+RawQualification applyRawSnapshot(fsm::RobotInput& input, const Snapshot& snapshot) {
+    input.line = {};
+    input.line.explicit_values = true;
+    input.line.use = core::LineUse::CALIBRATION;
+    input.line.presence = core::LinePresence::INVALID;
+    const auto raw = validateRaw(snapshot);
+    input.line.contract_valid = raw != RawQualification::INVALID;
+    if (raw == RawQualification::ABSENT) input.line.presence = core::LinePresence::ABSENT;
+    if (raw == RawQualification::VALID) {
+        input.line.presence = core::LinePresence::VALID;
+        identity(input.line, snapshot);
+    }
+    return raw;
 }
 } // namespace line_qtr

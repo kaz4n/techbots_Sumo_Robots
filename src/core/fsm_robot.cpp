@@ -873,6 +873,8 @@ void Robot::finish(const RobotInput& input) {
     result_.menu = menu_.stepObserved({input.t_us, input.button, tick_.entry,
         faults_ != 0U || state_ == core::State::STOPPED || result_.escape_fault != edge::EscapeFault::NONE,
         lifecycle_.buttonEvents().start_release}, button_timing_);
+    result_.imu_available = initialized_ && input.imu_ok && !result_.heading.fault &&
+        (faults_ & HEADING_CONTRACT) == 0U;
     result_.running_mode = running_mode_;
     result_.contract_faults = faults_;
     result_.qtr_warning_mask = qtr_warning_;

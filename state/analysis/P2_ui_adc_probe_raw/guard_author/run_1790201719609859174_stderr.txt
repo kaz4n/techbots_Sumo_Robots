@@ -1,0 +1,43 @@
+test_absent_request_and_exact_valid_request (tests.tooling.test_ui_adc_run.GuardTests.test_absent_request_and_exact_valid_request) ... ok
+test_approval_schema_verdict_identities_and_exact_file_key_set (tests.tooling.test_ui_adc_run.GuardTests.test_approval_schema_verdict_identities_and_exact_file_key_set) ... ok
+test_attempt_race_or_fsync_failure_cannot_launch (tests.tooling.test_ui_adc_run.GuardTests.test_attempt_race_or_fsync_failure_cannot_launch) ... ok
+test_cli_parses_exact_option_without_executing_flash (tests.tooling.test_ui_adc_run.GuardTests.test_cli_parses_exact_option_without_executing_flash) ... ok
+test_each_actual_file_hash_and_unset_hash_is_checked (tests.tooling.test_ui_adc_run.GuardTests.test_each_actual_file_hash_and_unset_hash_is_checked) ... ok
+test_each_binary_mismatch_or_hash_command_failure_prevents_attempt (tests.tooling.test_ui_adc_run.GuardTests.test_each_binary_mismatch_or_hash_command_failure_prevents_attempt) ... ok
+test_each_wrong_identifier_sketch_profile_and_compile_only_refuses (tests.tooling.test_ui_adc_run.GuardTests.test_each_wrong_identifier_sketch_profile_and_compile_only_refuses) ... ok
+test_exact_scope_shape_and_original_bytes_are_bound (tests.tooling.test_ui_adc_run.GuardTests.test_exact_scope_shape_and_original_bytes_are_bound) ... ok
+test_existing_attempt_and_outcome_never_allow_launch (tests.tooling.test_ui_adc_run.GuardTests.test_existing_attempt_and_outcome_never_allow_launch) ... ok
+test_flash_refuses_bad_requests_and_generic_upload_before_target (tests.tooling.test_ui_adc_run.GuardTests.test_flash_refuses_bad_requests_and_generic_upload_before_target) ... ok
+test_flash_success_uses_checked_return_and_never_falls_back_after_failure (tests.tooling.test_ui_adc_run.GuardTests.test_flash_success_uses_checked_return_and_never_falls_back_after_failure) ... 
+  test_flash_success_uses_checked_return_and_never_falls_back_after_failure (tests.tooling.test_ui_adc_run.GuardTests.test_flash_success_uses_checked_return_and_never_falls_back_after_failure) (failure=None) ... FAIL
+test_import_and_request_validation_are_passive (tests.tooling.test_ui_adc_run.GuardTests.test_import_and_request_validation_are_passive) ... ok
+test_json_duplicate_nonfinite_malformed_and_size_are_refused (tests.tooling.test_ui_adc_run.GuardTests.test_json_duplicate_nonfinite_malformed_and_size_are_refused) ... ok
+test_json_exact_65536_byte_boundary_is_accepted (tests.tooling.test_ui_adc_run.GuardTests.test_json_exact_65536_byte_boundary_is_accepted) ... ok
+test_manifest_old_eight_values_and_only_exact_optional_new_key (tests.tooling.test_ui_adc_run.GuardTests.test_manifest_old_eight_values_and_only_exact_optional_new_key) ... ok
+test_missing_directory_symlink_ancestry_and_nonregular_files_refuse (tests.tooling.test_ui_adc_run.GuardTests.test_missing_directory_symlink_ancestry_and_nonregular_files_refuse) ... ok
+test_nonzero_oserror_timeout_and_unknown_launch_consume_attempt (tests.tooling.test_ui_adc_run.GuardTests.test_nonzero_oserror_timeout_and_unknown_launch_consume_attempt) ... ok
+test_outcome_collision_during_upload_retains_attempt_and_does_not_retry (tests.tooling.test_ui_adc_run.GuardTests.test_outcome_collision_during_upload_retains_attempt_and_does_not_retry) ... ok
+test_revalidation_rejects_changed_scope_before_and_after_hashes (tests.tooling.test_ui_adc_run.GuardTests.test_revalidation_rejects_changed_scope_before_and_after_hashes) ... ok
+test_success_checks_sibling_elf_and_zsk_before_one_durable_attempt (tests.tooling.test_ui_adc_run.GuardTests.test_success_checks_sibling_elf_and_zsk_before_one_durable_attempt) ... ok
+test_target_transport_and_each_record_identity_are_exact (tests.tooling.test_ui_adc_run.GuardTests.test_target_transport_and_each_record_identity_are_exact) ... ok
+test_wrong_artifact_paths_board_folder_or_target_refuse_before_remote (tests.tooling.test_ui_adc_run.GuardTests.test_wrong_artifact_paths_board_folder_or_target_refuse_before_remote) ... ok
+
+======================================================================
+FAIL: test_flash_success_uses_checked_return_and_never_falls_back_after_failure (tests.tooling.test_ui_adc_run.GuardTests.test_flash_success_uses_checked_return_and_never_falls_back_after_failure) (failure=None)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/d114-run-guard-_0cx1kvz/tests/tooling/test_ui_adc_run.py", line 430, in test_flash_success_uses_checked_return_and_never_falls_back_after_failure
+    calls['compile_app'].assert_called_once_with(TARGET,SOURCE,BOARD_FOLDER,REMOTE_ROOT,
+  File "/usr/lib/python3.12/unittest/mock.py", line 956, in assert_called_once_with
+    return self.assert_called_with(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 944, in assert_called_with
+    raise AssertionError(_error_message()) from cause
+AssertionError: expected call not found.
+Expected: compile_app('2629958581', '396bcc45fbaf30d38b170bf0c0063c555d5e88cdad512829b86a52ffede18642', '/fixture/root/396bcc45fbaf30d38b170bf0c0063c555d5e88cdad512829b86a52ffede18642/ui_adc_probe', '/fixture/root', 'arduino:zephyr:unoq', '-DMATCH=0 -DMOTORS_ALLOWED=0', 'default', project='ui_adc_probe.ino')
+  Actual: compile_app('2629958581', '396bcc45fbaf30d38b170bf0c0063c555d5e88cdad512829b86a52ffede18642', '/fixture/root/396bcc45fbaf30d38b170bf0c0063c555d5e88cdad512829b86a52ffede18642/stage', '/fixture/root', 'arduino:zephyr:unoq', '-DMATCH=0 -DMOTORS_ALLOWED=0', 'default', project='ui_adc_probe.ino')
+
+----------------------------------------------------------------------
+Ran 22 tests in 0.636s
+
+FAILED (failures=1)

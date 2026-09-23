@@ -1,0 +1,25 @@
+{
+  "run": "run2",
+  "source_sha256": "f4b3db265bdf2d5a5fdada19ed9f51a44304d9ba5da8be78e598365afa2c4444",
+  "test_sha256": "f7685d92929c079093dc48e62973f2bd6eb75fbb6dec5cbc0625f148bfbe579d",
+  "tests": 42,
+  "failures": 1,
+  "errors": 1,
+  "pure_decoder_methods_passed": 21,
+  "findings": [
+    {
+      "scope": "artifact ELF symlink",
+      "classification": "Potential product contract gap pending independent source review",
+      "stimulus": "Path.is_symlink reports true for the exact pinned artifact ELF; all byte hashes/other files are valid.",
+      "actual": "Collection completed rather than refusing before commands. ZSK counterpart refuses."
+    },
+    {
+      "scope": "64-command public probe",
+      "classification": "Frozen fixture assumed repeatable metadata argv; actual ordered-metadata refusal is consistent with stricter finite sequence. Pending root review.",
+      "stimulus": "After public check_identities consumes2 version commands, repeat OpenOCD --version",
+      "actual": "ValueError: command is outside the ordered metadata checks",
+      "proposed_resolution": "Retain finite sequence/duplicate suppression checks and exercise remaining600s deadline via next legitimate read_layout metadata command; disclose64cap cannot be reached without violating fixed admission."
+    }
+  ],
+  "edits_after_run": false
+}

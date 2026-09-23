@@ -290,8 +290,12 @@ def compile_app(board, checksum, board_folder, remote_root, fqbn, flags, startup
     return artifacts
 
 
-def flash(args):
+def flash_profile(args):
     startup = build_startup(args)
+    identified = False
+    if getattr(args, 'run_ui_adc_probe', None) is not None:
+        import ui_adc_run
+        identified = ui_adc_run.validate_request(args, startup)
     probe = args.sketch == 'bench/runtime_inert'
     sensor_bench = args.sketch in ('bench/opp_view', 'bench/qtr_raw', 'bench/vbat', 'bench/imu_heading', 'bench/ui', 'bench/ui_adc_probe')
     if (probe or args.sketch == 'bench/ui_adc_probe') and (args.match or startup != 'default'):
@@ -311,11 +315,20 @@ def flash(args):
     # P0 has no motor-run receipt workflow; reject motor uploads before any I/O.
     if args.match and not args.compile_only:
         fail('motor-capable uploads disabled in P0; --match is not STAND OK/RING OK')
-    if not args.compile_only and args.sketch not in ['bench/p0_matrix', 'bench/p0_timing',
+    if not args.compile_only and not identified and args.sketch not in ['bench/p0_matrix', 'bench/p0_timing',
                                                    'bench/p0_adc', 'bench/p0_gpio', 'bench/p0_qtr',
                                                    'bench/ui_matrix', 'bench/recorder_inert', 'bench/runtime_inert']:
         fail('Uploads allow only the explicitly reviewed inert diagnostic sketches')
+    return startup, probe, sensor_bench, identified
+
+
+def flash(args):
+    startup, probe, sensor_bench, identified = flash_profile(args)
     board = target()
+    scope = None
+    if identified:
+        import ui_adc_run
+        scope = ui_adc_run.load_scope(ROOT, board, transport())
     remote_root = setting('SUMO_REMOTE_ROOT', r'/[A-Za-z0-9_/-]+')
     if '..' in remote_root.split('/') or not remote_root.strip('/'):
         fail('SUMO_REMOTE_ROOT must be a dedicated absolute directory')
@@ -349,10 +362,13 @@ def flash(args):
     print(f'COMPILE command completed: {args.sketch}; source SHA256={checksum}; '
           f'MATCH={int(args.match)} MOTORS_ALLOWED={int(args.match)} STARTUP={startup}')
     if not args.compile_only:
-        if probe:
+        if identified:
+            ui_adc_run.upload_once(sys.modules[__name__], board, artifact_folder, board_folder, scope)
+        elif probe:
             verify_runtime_artifacts(board, artifact_folder)
-        remote(board, ['arduino-cli', 'upload', '--fqbn', fqbn,
-                       '--input-dir', artifact_folder, board_folder])
+        if not identified:
+            remote(board, ['arduino-cli', 'upload', '--fqbn', fqbn,
+                           '--input-dir', artifact_folder, board_folder])
         print('UPLOAD command completed; physical operation still requires observation')
     else:
         print('Compile-only: no upload requested')
@@ -430,6 +446,7 @@ def main():
     build.add_argument('--match', action='store_true')
     build.add_argument('--compile-only', action='store_true')
     build.add_argument('--startup', choices=('default', 'immediate'))
+    build.add_argument('--run-ui-adc-probe', help='Exact reviewed single bare ADC run identifier')
     commands.add_parser('logs')
     commands.add_parser('preflight', description='Read-only installed-board inventory')
     args = parser.parse_args()
@@ -440,7 +457,7 @@ def main():
             logs()
         else:
             return preflight()
-    except (ValueError, OSError, subprocess.CalledProcessError) as error:
+    except (ValueError, OSError, subprocess.SubprocessError) as error:
         print(f'ERROR: {error}', file=sys.stderr)
         return error.returncode if isinstance(error, subprocess.CalledProcessError) else 2
     return 0

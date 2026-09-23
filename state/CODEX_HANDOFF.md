@@ -1,3 +1,7 @@
+## Active checkpoint - 2026-09-24T02:23:09.648935+04:00
+
+D114 readout/guard software complete: capturef4b3 passes independent/private42; guard1aa passes22; boardd1f retains145 prior policies; manifest-only narrow39 PASS. See P2_ui_adc_readout_validation.md and separate reviews. MCU still D104; no new upload/reset. Exact run01 plan and Linux tool staging precede final bound review, then one identified inert upload/passive capture. SC-A/SC-AJ/physical/human gates remain pending.
+
 ## Active checkpoint - 2026-09-24T02:08:19.070107+04:00
 
 D113 software38df60c plus actual Linux-only timeoutsmoke e202c86 complete; F138

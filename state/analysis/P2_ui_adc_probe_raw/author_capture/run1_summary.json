@@ -1,0 +1,229 @@
+{
+  "tests_run": 42,
+  "failures": 8,
+  "errors": 47,
+  "skipped": 0,
+  "success": false,
+  "findings": [
+    {
+      "test": "test_expiry_between_commands_stops_collection_without_retry (tests.tooling.test_ui_adc_capture.UiAdcCollectorTests.test_expiry_between_commands_stops_collection_without_retry)",
+      "last_line": "AssertionError: 0 != 1"
+    },
+    {
+      "test": "test_main_writes_failure_or_success_json_and_separates_fault_from_acquisition (tests.tooling.test_ui_adc_capture.UiAdcCollectorTests.test_main_writes_failure_or_success_json_and_separates_fault_from_acquisition) (kind='COMPLETE_128')",
+      "last_line": "AssertionError: '/home/arduino/sumox26-capture-input/ui_a[69 chars]8642' != PosixPath('/home/arduino/sumox26-capture-[80 chars]642')"
+    },
+    {
+      "test": "test_main_writes_failure_or_success_json_and_separates_fault_from_acquisition (tests.tooling.test_ui_adc_capture.UiAdcCollectorTests.test_main_writes_failure_or_success_json_and_separates_fault_from_acquisition) (kind='FAULT')",
+      "last_line": "AssertionError: '/home/arduino/sumox26-capture-input/ui_a[69 chars]8642' != PosixPath('/home/arduino/sumox26-capture-[80 chars]642')"
+    },
+    {
+      "test": "test_main_writes_failure_or_success_json_and_separates_fault_from_acquisition (tests.tooling.test_ui_adc_capture.UiAdcCollectorTests.test_main_writes_failure_or_success_json_and_separates_fault_from_acquisition) (kind='NONTERMINAL')",
+      "last_line": "AssertionError: '/home/arduino/sumox26-capture-input/ui_a[69 chars]8642' != PosixPath('/home/arduino/sumox26-capture-[80 chars]642')"
+    },
+    {
+      "test": "test_main_writes_failure_or_success_json_and_separates_fault_from_acquisition (tests.tooling.test_ui_adc_capture.UiAdcCollectorTests.test_main_writes_failure_or_success_json_and_separates_fault_from_acquisition) (kind='UNAVAILABLE')",
+      "last_line": "AssertionError: '/home/arduino/sumox26-capture-input/ui_a[69 chars]8642' != PosixPath('/home/arduino/sumox26-capture-[80 chars]642')"
+    },
+    {
+      "test": "test_main_writes_failure_or_success_json_and_separates_fault_from_acquisition (tests.tooling.test_ui_adc_capture.UiAdcCollectorTests.test_main_writes_failure_or_success_json_and_separates_fault_from_acquisition) (kind='error')",
+      "last_line": "AssertionError: '/home/arduino/sumox26-capture-input/ui_a[69 chars]8642' != PosixPath('/home/arduino/sumox26-capture-[80 chars]642')"
+    },
+    {
+      "test": "test_phase_fault_count_and_clock_relationships_are_checked (tests.tooling.test_ui_adc_capture.UiAdcDecoderTests.test_phase_fault_count_and_clock_relationships_are_checked) (phase=0, fault=0, count=1, clock=0)",
+      "last_line": "AssertionError: False is not true : [{'code': 'COUNT', 'path': 'report.captured_samples'}]"
+    },
+    {
+      "test": "test_phase_fault_count_and_clock_relationships_are_checked (tests.tooling.test_ui_adc_capture.UiAdcDecoderTests.test_phase_fault_count_and_clock_relationships_are_checked) (phase=1, fault=0, count=1, clock=0)",
+      "last_line": "AssertionError: False is not true : [{'code': 'COUNT', 'path': 'report.captured_samples'}]"
+    },
+    {
+      "test": "test_collection_integrity_is_separate_from_frozen_acquisition_result (tests.tooling.test_ui_adc_capture.UiAdcCollectorTests.test_collection_integrity_is_separate_from_frozen_acquisition_result) (kind='FAULT')",
+      "last_line": "ValueError: reference changed after identity check: /home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf"
+    },
+    {
+      "test": "test_collection_integrity_is_separate_from_frozen_acquisition_result (tests.tooling.test_ui_adc_capture.UiAdcCollectorTests.test_collection_integrity_is_separate_from_frozen_acquisition_result) (kind='NONTERMINAL')",
+      "last_line": "ValueError: reference changed after identity check: /home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf"
+    },
+    {
+      "test": "test_collection_integrity_is_separate_from_frozen_acquisition_result (tests.tooling.test_ui_adc_capture.UiAdcCollectorTests.test_collection_integrity_is_separate_from_frozen_acquisition_result) (kind='UNAVAILABLE')",
+      "last_line": "ValueError: reference changed after identity check: /home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf"
+    },
+    {
+      "test": "test_every_flash_chunk_first_and_last_byte_is_verified_both_passes (tests.tooling.test_ui_adc_capture.UiAdcCollectorTests.test_every_flash_chunk_first_and_last_byte_is_verified_both_passes) (label='loader-before-00', byte=0)",
+      "last_line": "IndexError: list index out of range"
+    },
+    {
+      "test": "test_every_flash_chunk_first_and_last_byte_is_verified_both_passes (tests.tooling.test_ui_adc_capture.UiAdcCollectorTests.test_every_flash_chunk_first_and_last_byte_is_verified_both_passes) (label='loader-before-00', byte=65535)",
+      "last_line": "IndexError: list index out of range"
+    },
+    {
+      "test": "test_every_flash_chunk_first_and_last_byte_is_verified_both_passes (tests.tooling.test_ui_adc_capture.UiAdcCollectorTests.test_every_flash_chunk_first_and_last_byte_is_verified_both_passes) (label='loader-before-01', byte=0)",
+      "last_line": "IndexError: list index out of range"
+    },
+    {
+      "test": "test_every_flash_chunk_first_and_last_byte_is_verified_both_passes (tests.tooling.test_ui_adc_capture.UiAdcCollectorTests.test_every_flash_chunk_first_and_last_byte_is_verified_both_passes) (label='loader-before-01', byte=65535)",
+      "last_line": "IndexError: list index out of range"
+    },
+    {
+      "test": "test_every_flash_chunk_first_and_last_byte_is_verified_both_passes (tests.tooling.test_ui_adc_capture.UiAdcCollectorTests.test_every_flash_chunk_first_and_last_byte_is_verified_both_passes) (label='loader-before-02', byte=0)",
+      "last_line": "IndexError: list index out of range"
+    },
+    {
+      "test": "test_every_flash_chunk_first_and_last_byte_is_verified_both_passes (tests.tooling.test_ui_adc_capture.UiAdcCollectorTests.test_every_flash_chunk_first_and_last_byte_is_verified_both_passes) (label='loader-before-02', byte=65535)",
+      "last_line": "IndexError: list index out of range"
+    },
+    {
+      "test": "test_every_flash_chunk_first_and_last_byte_is_verified_both_passes (tests.tooling.test_ui_adc_capture.UiAdcCollectorTests.test_every_flash_chunk_first_and_last_byte_is_verified_both_passes) (label='loader-before-03', byte=0)",
+      "last_line": "IndexError: list index out of range"
+    },
+    {
+      "test": "test_every_flash_chunk_first_and_last_byte_is_verified_both_passes (tests.tooling.test_ui_adc_capture.UiAdcCollectorTests.test_every_flash_chunk_first_and_last_byte_is_verified_both_passes) (label='loader-before-03', byte=65535)",
+      "last_line": "IndexError: list index out of range"
+    },
+    {
+      "test": "test_every_flash_chunk_first_and_last_byte_is_verified_both_passes (tests.tooling.test_ui_adc_capture.UiAdcCollectorTests.test_every_flash_chunk_first_and_last_byte_is_verified_both_passes) (label='loader-before-04', byte=0)",
+      "last_line": "IndexError: list index out of range"
+    },
+    {
+      "test": "test_every_flash_chunk_first_and_last_byte_is_verified_both_passes (tests.tooling.test_ui_adc_capture.UiAdcCollectorTests.test_every_flash_chunk_first_and_last_byte_is_verified_both_passes) (label='loader-before-04', byte=1535)",
+      "last_line": "IndexError: list index out of range"
+    },
+    {
+      "test": "test_every_flash_chunk_first_and_last_byte_is_verified_both_passes (tests.tooling.test_ui_adc_capture.UiAdcCollectorTests.test_every_flash_chunk_first_and_last_byte_is_verified_both_passes) (label='sketch-before-00', byte=0)",
+      "last_line": "IndexError: list index out of range"
+    },
+    {
+      "test": "test_every_flash_chunk_first_and_last_byte_is_verified_both_passes (tests.tooling.test_ui_adc_capture.UiAdcCollectorTests.test_every_flash_chunk_first_and_last_byte_is_verified_both_passes) (label='sketch-before-00', byte=19839)",
+      "last_line": "IndexError: list index out of range"
+    },
+    {
+      "test": "test_every_flash_chunk_first_and_last_byte_is_verified_both_passes (tests.tooling.test_ui_adc_capture.UiAdcCollectorTests.test_every_flash_chunk_first_and_last_byte_is_verified_both_passes) (label='loader-after-00', byte=0)",
+      "last_line": "IndexError: list index out of range"
+    },
+    {
+      "test": "test_every_flash_chunk_first_and_last_byte_is_verified_both_passes (tests.tooling.test_ui_adc_capture.UiAdcCollectorTests.test_every_flash_chunk_first_and_last_byte_is_verified_both_passes) (label='loader-after-00', byte=65535)",
+      "last_line": "IndexError: list index out of range"
+    },
+    {
+      "test": "test_every_flash_chunk_first_and_last_byte_is_verified_both_passes (tests.tooling.test_ui_adc_capture.UiAdcCollectorTests.test_every_flash_chunk_first_and_last_byte_is_verified_both_passes) (label='loader-after-01', byte=0)",
+      "last_line": "IndexError: list index out of range"
+    },
+    {
+      "test": "test_every_flash_chunk_first_and_last_byte_is_verified_both_passes (tests.tooling.test_ui_adc_capture.UiAdcCollectorTests.test_every_flash_chunk_first_and_last_byte_is_verified_both_passes) (label='loader-after-01', byte=65535)",
+      "last_line": "IndexError: list index out of range"
+    },
+    {
+      "test": "test_every_flash_chunk_first_and_last_byte_is_verified_both_passes (tests.tooling.test_ui_adc_capture.UiAdcCollectorTests.test_every_flash_chunk_first_and_last_byte_is_verified_both_passes) (label='loader-after-02', byte=0)",
+      "last_line": "IndexError: list index out of range"
+    },
+    {
+      "test": "test_every_flash_chunk_first_and_last_byte_is_verified_both_passes (tests.tooling.test_ui_adc_capture.UiAdcCollectorTests.test_every_flash_chunk_first_and_last_byte_is_verified_both_passes) (label='loader-after-02', byte=65535)",
+      "last_line": "IndexError: list index out of range"
+    },
+    {
+      "test": "test_every_flash_chunk_first_and_last_byte_is_verified_both_passes (tests.tooling.test_ui_adc_capture.UiAdcCollectorTests.test_every_flash_chunk_first_and_last_byte_is_verified_both_passes) (label='loader-after-03', byte=0)",
+      "last_line": "IndexError: list index out of range"
+    },
+    {
+      "test": "test_every_flash_chunk_first_and_last_byte_is_verified_both_passes (tests.tooling.test_ui_adc_capture.UiAdcCollectorTests.test_every_flash_chunk_first_and_last_byte_is_verified_both_passes) (label='loader-after-03', byte=65535)",
+      "last_line": "IndexError: list index out of range"
+    },
+    {
+      "test": "test_every_flash_chunk_first_and_last_byte_is_verified_both_passes (tests.tooling.test_ui_adc_capture.UiAdcCollectorTests.test_every_flash_chunk_first_and_last_byte_is_verified_both_passes) (label='loader-after-04', byte=0)",
+      "last_line": "IndexError: list index out of range"
+    },
+    {
+      "test": "test_every_flash_chunk_first_and_last_byte_is_verified_both_passes (tests.tooling.test_ui_adc_capture.UiAdcCollectorTests.test_every_flash_chunk_first_and_last_byte_is_verified_both_passes) (label='loader-after-04', byte=1535)",
+      "last_line": "IndexError: list index out of range"
+    },
+    {
+      "test": "test_every_flash_chunk_first_and_last_byte_is_verified_both_passes (tests.tooling.test_ui_adc_capture.UiAdcCollectorTests.test_every_flash_chunk_first_and_last_byte_is_verified_both_passes) (label='sketch-after-00', byte=0)",
+      "last_line": "IndexError: list index out of range"
+    },
+    {
+      "test": "test_every_flash_chunk_first_and_last_byte_is_verified_both_passes (tests.tooling.test_ui_adc_capture.UiAdcCollectorTests.test_every_flash_chunk_first_and_last_byte_is_verified_both_passes) (label='sketch-after-00', byte=19839)",
+      "last_line": "IndexError: list index out of range"
+    },
+    {
+      "test": "test_exact_one_and_three_node_full_identity_bracket_read_sequence (tests.tooling.test_ui_adc_capture.UiAdcCollectorTests.test_exact_one_and_three_node_full_identity_bracket_read_sequence) (nodes=1)",
+      "last_line": "ValueError: reference changed after identity check: /home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf"
+    },
+    {
+      "test": "test_exact_one_and_three_node_full_identity_bracket_read_sequence (tests.tooling.test_ui_adc_capture.UiAdcCollectorTests.test_exact_one_and_three_node_full_identity_bracket_read_sequence) (nodes=3)",
+      "last_line": "ValueError: reference changed after identity check: /home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf"
+    },
+    {
+      "test": "test_post_runner_list_and_every_node_byte_change_prevents_verified_result (tests.tooling.test_ui_adc_capture.UiAdcCollectorTests.test_post_runner_list_and_every_node_byte_change_prevents_verified_result) (label='llext-list-after')",
+      "last_line": "IndexError: list index out of range"
+    },
+    {
+      "test": "test_post_runner_list_and_every_node_byte_change_prevents_verified_result (tests.tooling.test_ui_adc_capture.UiAdcCollectorTests.test_post_runner_list_and_every_node_byte_change_prevents_verified_result) (label='node-after-1')",
+      "last_line": "IndexError: list index out of range"
+    },
+    {
+      "test": "test_post_runner_list_and_every_node_byte_change_prevents_verified_result (tests.tooling.test_ui_adc_capture.UiAdcCollectorTests.test_post_runner_list_and_every_node_byte_change_prevents_verified_result) (label='node-after-2')",
+      "last_line": "IndexError: list index out of range"
+    },
+    {
+      "test": "test_post_runner_list_and_every_node_byte_change_prevents_verified_result (tests.tooling.test_ui_adc_capture.UiAdcCollectorTests.test_post_runner_list_and_every_node_byte_change_prevents_verified_result) (label='node-after-3')",
+      "last_line": "IndexError: list index out of range"
+    },
+    {
+      "test": "test_public_command_limit_and_remaining_deadline_without_private_mutation (tests.tooling.test_ui_adc_capture.UiAdcCollectorTests.test_public_command_limit_and_remaining_deadline_without_private_mutation)",
+      "last_line": "ValueError: local identity or prior failure blocks commands"
+    },
+    {
+      "test": "test_short_or_failed_read_preserves_partial_file_and_consumes_purpose (tests.tooling.test_ui_adc_capture.UiAdcCollectorTests.test_short_or_failed_read_preserves_partial_file_and_consumes_purpose) (label='loader-before-00', error=False)",
+      "last_line": "IndexError: list index out of range"
+    },
+    {
+      "test": "test_short_or_failed_read_preserves_partial_file_and_consumes_purpose (tests.tooling.test_ui_adc_capture.UiAdcCollectorTests.test_short_or_failed_read_preserves_partial_file_and_consumes_purpose) (label='loader-before-00', error=True)",
+      "last_line": "IndexError: list index out of range"
+    },
+    {
+      "test": "test_short_or_failed_read_preserves_partial_file_and_consumes_purpose (tests.tooling.test_ui_adc_capture.UiAdcCollectorTests.test_short_or_failed_read_preserves_partial_file_and_consumes_purpose) (label='llext-list-before', error=False)",
+      "last_line": "IndexError: list index out of range"
+    },
+    {
+      "test": "test_short_or_failed_read_preserves_partial_file_and_consumes_purpose (tests.tooling.test_ui_adc_capture.UiAdcCollectorTests.test_short_or_failed_read_preserves_partial_file_and_consumes_purpose) (label='llext-list-before', error=True)",
+      "last_line": "IndexError: list index out of range"
+    },
+    {
+      "test": "test_short_or_failed_read_preserves_partial_file_and_consumes_purpose (tests.tooling.test_ui_adc_capture.UiAdcCollectorTests.test_short_or_failed_read_preserves_partial_file_and_consumes_purpose) (label='node-before-1', error=False)",
+      "last_line": "IndexError: list index out of range"
+    },
+    {
+      "test": "test_short_or_failed_read_preserves_partial_file_and_consumes_purpose (tests.tooling.test_ui_adc_capture.UiAdcCollectorTests.test_short_or_failed_read_preserves_partial_file_and_consumes_purpose) (label='node-before-1', error=True)",
+      "last_line": "IndexError: list index out of range"
+    },
+    {
+      "test": "test_short_or_failed_read_preserves_partial_file_and_consumes_purpose (tests.tooling.test_ui_adc_capture.UiAdcCollectorTests.test_short_or_failed_read_preserves_partial_file_and_consumes_purpose) (label='runner-first', error=False)",
+      "last_line": "IndexError: list index out of range"
+    },
+    {
+      "test": "test_short_or_failed_read_preserves_partial_file_and_consumes_purpose (tests.tooling.test_ui_adc_capture.UiAdcCollectorTests.test_short_or_failed_read_preserves_partial_file_and_consumes_purpose) (label='runner-first', error=True)",
+      "last_line": "IndexError: list index out of range"
+    },
+    {
+      "test": "test_short_or_failed_read_preserves_partial_file_and_consumes_purpose (tests.tooling.test_ui_adc_capture.UiAdcCollectorTests.test_short_or_failed_read_preserves_partial_file_and_consumes_purpose) (label='runner-second', error=False)",
+      "last_line": "IndexError: list index out of range"
+    },
+    {
+      "test": "test_short_or_failed_read_preserves_partial_file_and_consumes_purpose (tests.tooling.test_ui_adc_capture.UiAdcCollectorTests.test_short_or_failed_read_preserves_partial_file_and_consumes_purpose) (label='runner-second', error=True)",
+      "last_line": "IndexError: list index out of range"
+    },
+    {
+      "test": "test_short_or_failed_read_preserves_partial_file_and_consumes_purpose (tests.tooling.test_ui_adc_capture.UiAdcCollectorTests.test_short_or_failed_read_preserves_partial_file_and_consumes_purpose) (label='loader-after-00', error=False)",
+      "last_line": "IndexError: list index out of range"
+    },
+    {
+      "test": "test_short_or_failed_read_preserves_partial_file_and_consumes_purpose (tests.tooling.test_ui_adc_capture.UiAdcCollectorTests.test_short_or_failed_read_preserves_partial_file_and_consumes_purpose) (label='loader-after-00', error=True)",
+      "last_line": "IndexError: list index out of range"
+    },
+    {
+      "test": "test_wrong_range_region_label_and_replay_stay_closed_during_collection (tests.tooling.test_ui_adc_capture.UiAdcCollectorTests.test_wrong_range_region_label_and_replay_stay_closed_during_collection)",
+      "last_line": "ValueError: reference changed after identity check: /home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf"
+    }
+  ]
+}

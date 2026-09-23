@@ -1,0 +1,19 @@
+--- original-harness
++++ fixture-input-copy
+@@ -18,9 +18,15 @@
+ (stage/target).mkdir(parents=True)
+ for name in ('ui_adc_probe.ino.elf','ui_adc_probe.ino.elf-zsk.bin'):
+     shutil.copyfile(ROOT/target/name,stage/target/name)
++inputs=Path('state/analysis/P2_ui_adc_probe_raw/root_capture_inputs')
++(stage/inputs).mkdir(parents=True)
++for suffix in ('.elf','.bin'):
++    name='zephyr-arduino_uno_q_stm32u585xx'+suffix
++    shutil.copyfile(ROOT/inputs/name,stage/inputs/name)
+ paths=['tools/ui_adc_capture.py','tools/p0_capture.py','tools/p0_mem_read.cfg',
+        'tests/tooling/test_ui_adc_capture.py',str(target/'ui_adc_probe.ino.elf'),
+-       str(target/'ui_adc_probe.ino.elf-zsk.bin')]
++       str(target/'ui_adc_probe.ino.elf-zsk.bin'),
++       str(inputs/'zephyr-arduino_uno_q_stm32u585xx.elf'),str(inputs/'zephyr-arduino_uno_q_stm32u585xx.bin')]
+ hashes={name:hashlib.sha256((stage/name).read_bytes()).hexdigest() for name in paths}
+ (RAW/(label+'_source_copy.json')).write_text(json.dumps({'stage':str(stage),'sha256':hashes},indent=2)+'\n')
+ runner=stage/'run_cases.py'

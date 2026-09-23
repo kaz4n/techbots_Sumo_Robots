@@ -1,0 +1,56 @@
+--- amended-f768
++++ fixture-fix2-proposal
+@@ -499,6 +499,8 @@
+         self.on_command=None
+ 
+     def file_hash(self,path):
++        self.module.p0.no_symlinks(Path(path))
++        if not Path(path).is_file(): raise ValueError('Fixture hash path is not a regular file')
+         self.hash_queries.append(str(path))
+         if str(path) not in self.hashes: raise AssertionError('Unpinned hash path: '+str(path))
+         return self.hashes[str(path)]
+@@ -792,20 +794,35 @@
+             self.assertEqual(len(fixture.reads),1)
+             self.assertEqual(len(fixture.commands),5)
+ 
+-    def test_public_command_limit_and_remaining_deadline_without_private_mutation(self):
++    def test_ordered_metadata_and_remaining_deadline_without_private_mutation(self):
++        expected=[[OPENOCD,'--version'],[READELF,'--version'],
++                  [READELF,'-hSW',str(ARTIFACT/'ui_adc_probe.ino.elf')],
++                  [READELF,'-sW',str(ARTIFACT/'ui_adc_probe.ino.elf')]]
+         with tempfile.TemporaryDirectory() as folder,CollectorFixture(self.module,folder) as fixture:
+-            self.module.check_identities(fixture.capture,ARTIFACT)
+-            for unused in range(62): fixture.capture.run([OPENOCD,'--version'])
+-            with self.assertRaises(ValueError): fixture.capture.run([OPENOCD,'--version'])
+-            self.assertEqual(len(fixture.commands),64)
++            elf,binary=self.module.check_identities(fixture.capture,ARTIFACT)
++            del binary
++            self.module.read_layout(fixture.capture,elf)
++            self.assertEqual(fixture.commands,expected)
++            for argv in expected:
++                with self.assertRaises(ValueError): fixture.capture.run(argv)
++            self.assertEqual(len(fixture.commands),4)
+         with tempfile.TemporaryDirectory() as folder,CollectorFixture(self.module,folder) as fixture:
+-            self.module.check_identities(fixture.capture,ARTIFACT)
++            elf,binary=self.module.check_identities(fixture.capture,ARTIFACT)
++            del binary
+             fixture.now=699.75
+-            fixture.capture.run([OPENOCD,'--version'])
++            def expire(argv,options):
++                del argv,options
++                fixture.now=700
++            fixture.on_command=expire
++            with self.assertRaises(ValueError): self.module.read_layout(fixture.capture,elf)
+             self.assertLessEqual(fixture.timeouts[-1],0.25)
++            self.assertEqual(fixture.commands,expected[:3])
++        with tempfile.TemporaryDirectory() as folder,CollectorFixture(self.module,folder) as fixture:
++            elf,binary=self.module.check_identities(fixture.capture,ARTIFACT)
++            del binary
+             fixture.now=700
+-            with self.assertRaises(ValueError): fixture.capture.run([OPENOCD,'--version'])
+-            self.assertEqual(len(fixture.commands),3)
++            with self.assertRaises(ValueError): self.module.read_layout(fixture.capture,elf)
++            self.assertEqual(fixture.commands,expected[:2])
+ 
+     def test_inconsistent_or_overbudget_loader_image_fails_before_memory(self):
+         for size in (263679,263681,2097152):

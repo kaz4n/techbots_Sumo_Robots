@@ -1,0 +1,41 @@
+--- frozen1723
++++ proposal-incomplete
+@@ -313,7 +313,7 @@
+                 blob,report,records=complete_fixture(count)
+                 report.update(phase=phase,fault=fault,clock_fault=clock)
+                 encode_report(blob,report)
+-                self.invalid(blob,'PHASE')
++                self.invalid(blob,'COUNT' if phase in (0,1) and count else 'PHASE')
+ 
+     def test_timing_domains_and_unmeasured_history_are_checked(self):
+         invalids=[timing(1,2),timing(2,1,5,4,1),timing(1,1,HALF,HALF,1),
+@@ -766,16 +766,18 @@
+ 
+     def test_public_command_limit_and_remaining_deadline_without_private_mutation(self):
+         with tempfile.TemporaryDirectory() as folder,CollectorFixture(self.module,folder) as fixture:
+-            for unused in range(64): fixture.capture.run([OPENOCD,'--version'])
++            self.module.check_identities(fixture.capture,ARTIFACT)
++            for unused in range(62): fixture.capture.run([OPENOCD,'--version'])
+             with self.assertRaises(ValueError): fixture.capture.run([OPENOCD,'--version'])
+             self.assertEqual(len(fixture.commands),64)
+         with tempfile.TemporaryDirectory() as folder,CollectorFixture(self.module,folder) as fixture:
++            self.module.check_identities(fixture.capture,ARTIFACT)
+             fixture.now=699.75
+             fixture.capture.run([OPENOCD,'--version'])
+             self.assertLessEqual(fixture.timeouts[-1],0.25)
+             fixture.now=700
+             with self.assertRaises(ValueError): fixture.capture.run([OPENOCD,'--version'])
+-            self.assertEqual(len(fixture.commands),1)
++            self.assertEqual(len(fixture.commands),3)
+ 
+     def test_inconsistent_or_overbudget_loader_image_fails_before_memory(self):
+         for size in (263679,263681,2097152):
+@@ -803,7 +805,7 @@
+                     return original_constructor(path,report)
+                 def collected(capture,artifact):
+                     del capture
+-                    self.assertEqual(artifact,ARTIFACT)
++                    self.assertEqual(Path(artifact),ARTIFACT)
+                     report=captured['report']
+                     report.update(collection_integrity='FAILED' if kind=='error' else 'VERIFIED',
+                                   physical_acceptance=False,diagnostic=None)

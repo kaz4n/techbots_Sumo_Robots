@@ -1,0 +1,37 @@
+{
+  "verdict": "PASS_SCOPED_D114_PINNED_CAPTURE_SOURCE_AND_TESTS",
+  "pins": {
+    "tools/ui_adc_capture.py": "f4b3db265bdf2d5a5fdada19ed9f51a44304d9ba5da8be78e598365afa2c4444",
+    "tools/p0_capture.py": "885c4e4206aea4ac9e03c4e92e48258db2a0ae302ff83a86430e6913afeeb57c",
+    "tools/p0_mem_read.cfg": "89d16a28a1489c23ec743be55ade39824f9ca5213b02b20ef4785079122e4339",
+    "tests/tooling/test_ui_adc_capture.py": "02b14721b6cf7805a3b854759bbf49c39b761031a22a20de0fbfad59e720b17d",
+    "state/analysis/P2_ui_adc_capture_contract.md": "0e8ead402ac3ddd247a986790d793d4126141d7d283e38665e6fce411c51b689"
+  },
+  "reviewer": "Reused separate same-model context; did not author capture source or test oracles",
+  "source_sha256": "396bcc45fbaf30d38b170bf0c0063c555d5e88cdad512829b86a52ffede18642",
+  "elf_sha256": "76e23fe03631d5cc2144578d35ca78b9bafd44158e0d18b2ab026922e4c9d05b",
+  "zsk_sha256": "567fb90da6965cf74efc5ac2221e543d6d2150e3bf70ddae3e2346e6646c7fb9",
+  "artifact_dir": "/home/arduino/sumox26-capture-input/ui_adc_probe_396bcc45fbaf30d38b170bf0c0063c555d5e88cdad512829b86a52ffede18642",
+  "maximum_read_plan": {
+    "reads": 22,
+    "bytes": 588016,
+    "commands": 26,
+    "extension_nodes": 3
+  },
+  "private_tests": {
+    "methods": 42,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0,
+    "receipt": "private_1790201890768352679.json",
+    "sha256": "41187400aef0c6ebea6cbb632b2900a46a7704d78468f98931eb4c9ac99d6f8e"
+  },
+  "source_findings": [],
+  "fixture_corrections": "Reviewed exact amendments; original frozen tests and failed runs preserved; no capture production edits",
+  "limits": [
+    "No actual board/MCU/readout operation by reviewer",
+    "Separate upload guard/run record/final bound approval remain required",
+    "Measured collection and native admission are unproved until actual guarded run",
+    "No physical acceptance, calibrated time, SC-AJ closure or human phase-gate claim"
+  ]
+}

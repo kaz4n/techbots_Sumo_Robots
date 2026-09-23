@@ -1464,3 +1464,5 @@ fault/nonterminal/invalid snapshots stay distinct from COMPLETE128. Independent
 literal fixtures precede execution; unchanged p0 helpers and fixed public seams.
 Original incorrect nm interpretation preserved/corrected before implementation.
 No capture execution, artifact placement, upload key or identified MCU run yet.
+
+D-114 readout/guard acceptance 2026-09-24T02:23:09.648935+04:00: final contract0e8ead40 retains fullBSS range and once-only ordered metadata clarification. Run contractb37fb854 adopts exact default M0 run01 guard; independent capture/guard reviews and tests pass. Add only the exact396bcc45 probe manifest key, preserving all eight old values. This does not approve another run or assert physical success; run01 must bind the completed software, final review and actual tool staging before launch.

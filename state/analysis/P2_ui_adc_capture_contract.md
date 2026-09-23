@@ -371,3 +371,20 @@ Independent author may freeze the pure decoder suite separately after schema
 adoption and the collector suite after these public seams/pins are adopted.
 Each suite must freeze before its first execution against implementation; neither
 uses implementation-derived fixture values. No split freeze authorizes a board run.
+
+## Collector boundary clarification before collector test freeze
+
+Require the entire declared BSS extent, as well as the Runner extent, to fit
+within SRAM without overflow. Its size need not be divisible by4; its base is
+4-byte aligned. A fitting Runner does not excuse an out-of-range trailing BSS
+byte. Public collect/Capture substitutes may isolate main CLI reporting tests;
+actual collector/read validation is exercised separately without private seeds.
+
+## Finite metadata order clarification
+
+The four metadata commands execute once in the listed order (two versions,
+ELF headers, ELF symbols), then only admitted reads. Replaying a version is not
+a required public path. The fixed26-command plan cannot reach the64-command
+ceiling through valid calls; source review covers that redundant ceiling.
+Substituting public p0.file_hash in fixtures must preserve its documented
+no-symlink/regular-file guards, which are part of delegated identity checking.

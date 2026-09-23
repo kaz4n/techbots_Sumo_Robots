@@ -1,0 +1,11 @@
+--- frozen_test
++++ proposed_fixture
+@@ -414,7 +414,7 @@
+             with self.subTest(failure=failure),Fixture() as f,ExitStack() as stack:
+                 board=self.board; scope=self.load(f)
+                 stack.enter_context(mock.patch.object(board,'ROOT',f.root))
+-                values={'target':TARGET,'transport':'adb','setting':REMOTE_ROOT,'stage':f.root/'stage',
++                values={'target':TARGET,'transport':'adb','setting':REMOTE_ROOT,'stage':f.root/'ui_adc_probe',
+                         'source_hash':SOURCE,'compile_app':ARTIFACTS}
+                 calls={name:stack.enter_context(mock.patch.object(board,name,return_value=value)) for name,value in values.items()}
+                 for name in ('require_transport','verify_core','sync_sources','remote','verify_inert_source'):

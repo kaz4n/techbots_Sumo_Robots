@@ -1,0 +1,25 @@
+{
+  "argv": [
+    "python3",
+    "-c",
+    "import pathlib,hashlib,base64,json; root=pathlib.Path('/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares'); result=[]\nfor suffix in ['.elf','.bin']:\n p=root/('zephyr-arduino_uno_q_stm32u585xx'+suffix); assert p.is_file() and not p.is_symlink() and p.stat().st_size<16777216; data=p.read_bytes(); result.append(dict(name=p.name,path=str(p),sha256=hashlib.sha256(data).hexdigest(),bytes=len(data),base64=base64.b64encode(data).decode()))\nprint(json.dumps(result))"
+  ],
+  "target": "2629958581",
+  "returncode": 0,
+  "stderr": "",
+  "files": [
+    {
+      "name": "zephyr-arduino_uno_q_stm32u585xx.elf",
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf",
+      "sha256": "39d4a4fd47241663323f6e04f94dd8f5a9f9ad6582cf1df37f9709b74026adcd",
+      "bytes": 2303728
+    },
+    {
+      "name": "zephyr-arduino_uno_q_stm32u585xx.bin",
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.bin",
+      "sha256": "6b2ffd3a24aa77ca40bac1a8c61460c5cdd3292a2ff38cb377b938a6ac939713",
+      "bytes": 263680
+    }
+  ],
+  "scope": "Installed Linux file reads only; no MCU operation"
+}

@@ -1,0 +1,34 @@
+{
+  "run": "run1",
+  "source": "f4b3db265bdf2d5a5fdada19ed9f51a44304d9ba5da8be78e598365afa2c4444",
+  "tests": 42,
+  "failures": 8,
+  "errors": 47,
+  "classification": "First preserved execution; no production defect concluded from these fixture/precondition findings.",
+  "findings": [
+    {
+      "scope": "pure phase/count diagnostic",
+      "actual": "COUNT at report.captured_samples for NOT_STARTED/DISABLED count1",
+      "frozen_expectation": "PHASE",
+      "proposal": "Accept the literal COUNT contract for these two cases; preserve all rejection/state/raw assertions."
+    },
+    {
+      "scope": "collector positive fixture",
+      "actual": "reference changed after identity check for installed loader ELF",
+      "cause": "Approved file_hash substitute returned literal pin for synthetic placeholder bytes; collector directly rehashes reference bytes independently.",
+      "proposal": "Use exact pinned installed ELF/package bytes supplied opaquely, no production relaxation."
+    },
+    {
+      "scope": "CLI fixture",
+      "actual": "string artifact argument versus Path equality assertion",
+      "proposal": "Normalize fixture argument to Path before exact literal comparison."
+    },
+    {
+      "scope": "command cap fixture",
+      "actual": "local identity or prior failure blocks commands before check_identities",
+      "proposal": "Establish local identities through public check_identities before repeated versions; retain total64 cap and 600s deadline."
+    }
+  ],
+  "oracle_changes_applied": false,
+  "implementation_bodies_read": false
+}

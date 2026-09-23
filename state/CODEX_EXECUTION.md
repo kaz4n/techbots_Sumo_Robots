@@ -48,6 +48,15 @@ physical localreset/calibration-snippet integration and human gates remain outst
 No extra hardware requested or motor authority; no push/tag. Commit promptly
 without artificial spacing. Continue eligible software with actual evidence; never assume target success.
 
-Next contract inputs: P2_next_software_inventory.md, calibration_delivery_draft
-and independent preflight. D105 is not yet adopted/implemented. Preserve UART
-poison, actual receipt/commit identity, strict receiver and app memory limits.
+D105 actual calibration delivery2eb97cc and strict receiver36ae9bc are complete
+in software: independent normal/sanitizer/active-Gate tests and source review PASS.
+D106 deduplicates the installed native pin table; exactd72bff70 three-profile
+compile/loader/import/startup review PASS closes D105-R2, with default/Immediate
+remaining span456B and MATCH2088B. Native27+26methods PASS; unchanged old registry
+assertions pass through the new additive D096 wrapper. No upload or physical claim.
+Read P2_pin_table_validation.md and its final review for precise limitations.
+
+D107contract/interfaces cd5d784 active: implement/test/review/compile the named
+opponent-view bench, all hardware grants false. Author and worker own separate
+files. Existing production geometric display discrepancy OPP-VIEW-1 in
+P2_opp_view_design.md needs a separate correction; bench uses literal channel order.

@@ -37,3 +37,5 @@ Do not accept D105 as target-ready until complete ordered loader fit, independen
 review and unchanged meaningful host/sanitizer tests pass. Further optimization
 requires a measured bounded change. Current MCU remains the already verified,
 frozen D104 inert probe; these board operations only compile/read Linux files.
+
+2026-09-23 D106 closure: exactd72bff70 three-profile independent review PASS; default/Immediate peak261688 and MATCH260056 fit262144. D105-R2 closed only for these replacements. Read P2_pin_table_validation.md; original failing sources remain unchanged.

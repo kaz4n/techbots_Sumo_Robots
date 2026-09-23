@@ -49,7 +49,7 @@ class NativeAdcPairTests(_battery.NativePowerTests):
             return super().variant(definitions, case, edits, probe)
         slot = cls.stage/f'pair-probe-{len(list(cls.stage.glob("pair-probe-*")))}'
         source = slot/'src'; (source/'hal').mkdir(parents=True)
-        for name in ('power.cpp', 'power.h'):
+        for name in ('power.cpp', 'power.h', 'native_pins.cpp', 'native_pins.h'):
             shutil.copyfile(ROOT/'src/hal'/name, source/'hal'/name)
         shutil.copyfile(ROOT/'src/config.h', source/'config.h')
         shutil.copytree(ROOT/'bench/p2_adc_pair_compile', slot/'probe')
@@ -59,7 +59,8 @@ class NativeAdcPairTests(_battery.NativePowerTests):
         cls.command([*cls.base, *definitions, '-I', str(source), '-I', str(slot/'probe'),
                      '-I', str(slot/'probe/src'), str(FIXTURE/case),
                      str(FIXTURE/'native_fixture.cc'), str(FIXTURE/'isolation.cc'),
-                     str(source/'hal/power.cpp'), str(slot/'probe/src/adc_pair_probe.cpp'),
+                     str(source/'hal/power.cpp'), str(source/'hal/native_pins.cpp'),
+                     str(slot/'probe/src/adc_pair_probe.cpp'),
                      str(sketch), str(cls.main),
                      '-Wl,--wrap=malloc,--wrap=calloc,--wrap=realloc,--wrap=free', '-o', str(binary)])
         cls.binary_manifests[str(binary)] = {str(p): hashlib.sha256(p.read_bytes()).hexdigest()

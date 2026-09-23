@@ -76,7 +76,7 @@ class NativePowerTests(unittest.TestCase):
         slot.mkdir()
         source = slot / 'src'
         (source / 'hal').mkdir(parents=True)
-        for name in ('power.cpp', 'power.h'):
+        for name in ('power.cpp', 'power.h', 'native_pins.cpp', 'native_pins.h'):
             shutil.copyfile(ROOT / 'src/hal' / name, source / 'hal' / name)
         shutil.copyfile(ROOT / 'src/config.h', source / 'config.h')
         if edits:
@@ -88,7 +88,8 @@ class NativePowerTests(unittest.TestCase):
             (source / 'config.h').write_text(config)
         binary = slot / 'native-power'
         argv = [*cls.base, '-I', str(source), *definitions, str(FIXTURE / case),
-                str(FIXTURE / 'native_fixture.cc'), str(FIXTURE / 'isolation.cc'), str(source / 'hal/power.cpp'), str(cls.main),
+                str(FIXTURE / 'native_fixture.cc'), str(FIXTURE / 'isolation.cc'), str(source / 'hal/power.cpp'),
+                str(source / 'hal/native_pins.cpp'), str(cls.main),
                 '-Wl,--wrap=malloc,--wrap=calloc,--wrap=realloc,--wrap=free']
         if probe:
             sketch = slot / 'power_sketch.cpp'

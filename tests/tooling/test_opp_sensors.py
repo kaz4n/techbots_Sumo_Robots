@@ -55,7 +55,7 @@ class OpponentNativeContract(unittest.TestCase):
         target = cls.stage / f'opp-{kind}-{slot}-{count}-{probe}-{motors}'
         command = [*cls.base, f'-DOPP_MAP_KIND={kind}', f'-DOPP_BAD_SLOT={slot}',
                    f'-DOPP_TABLE_SIZE={count}', str(FIXTURES / 'cases.cc'),
-                   str(ROOT / 'src/hal/opp_sensors.cpp'), str(cls.core),
+                   str(ROOT / 'src/hal/opp_sensors.cpp'), str(ROOT / 'src/hal/native_pins.cpp'), str(cls.core),
                    '-Wl,--wrap=malloc,--wrap=calloc,--wrap=realloc,--wrap=free']
         if probe:
             # Stage exactly the public bench shape; no implementation is read.

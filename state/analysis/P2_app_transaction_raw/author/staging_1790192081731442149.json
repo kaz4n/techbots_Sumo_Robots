@@ -1,0 +1,254 @@
+{
+  "args": [
+    "app",
+    "--compile-only"
+  ],
+  "kwargs": {
+    "changes": {
+      "FAKE_FAIL": "compile"
+    }
+  },
+  "returncode": 43,
+  "stdout": "",
+  "stderr": "App compile failed; raw output: /tmp/sumo-tools-4m70g1tk/build/app-receipts/a3b720f548184c27bdfcf841db39149a\nERROR: Command '['ssh', '-o', 'BatchMode=yes', '-o', 'StrictHostKeyChecking=yes', '-o', 'ConnectTimeout=10', 'fixture@board.invalid', \"arduino-cli compile --json --fqbn arduino:zephyr:unoq --build-path /tmp/sumo-tools-4m70g1tk/remote/_app_builds/native-app-v1/c139c1e00a074b856e73157b4941680a91fc67b01b86f054e1d84ee09276988d/bench-default/a3b720f548184c27bdfcf841db39149a/build --output-dir /tmp/sumo-tools-4m70g1tk/remote/_app_builds/native-app-v1/c139c1e00a074b856e73157b4941680a91fc67b01b86f054e1d84ee09276988d/bench-default/a3b720f548184c27bdfcf841db39149a/artifacts --build-property 'compiler.cpp.extra_flags=-DMATCH=0 -DMOTORS_ALLOWED=0' --build-property 'compiler.c.extra_flags=-DMATCH=0 -DMOTORS_ALLOWED=0' --build-property build.library_discovery_phase_flag=-DARDUINO_LIBRARY_DISCOVERY_PHASE=0 /tmp/sumo-tools-4m70g1tk/remote/c139c1e00a074b856e73157b4941680a91fc67b01b86f054e1d84ee09276988d/app\"]' returned non-zero exit status 43.\n",
+  "events": [
+    {
+      "kind": "ssh",
+      "args": [
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "StrictHostKeyChecking=yes",
+        "-o",
+        "ConnectTimeout=10",
+        "fixture@board.invalid",
+        "arduino-cli core list"
+      ]
+    },
+    {
+      "kind": "arduino",
+      "args": [
+        "core",
+        "list"
+      ]
+    },
+    {
+      "kind": "ssh",
+      "args": [
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "StrictHostKeyChecking=yes",
+        "-o",
+        "ConnectTimeout=10",
+        "fixture@board.invalid",
+        "mkdir -p /tmp/sumo-tools-4m70g1tk/remote/c139c1e00a074b856e73157b4941680a91fc67b01b86f054e1d84ee09276988d/app"
+      ]
+    },
+    {
+      "kind": "rsync",
+      "args": [
+        "-rlt",
+        "--safe-links",
+        "-e",
+        "ssh -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10",
+        "/tmp/sumo-tools-4m70g1tk/build/stage/app/",
+        "fixture@board.invalid:/tmp/sumo-tools-4m70g1tk/remote/c139c1e00a074b856e73157b4941680a91fc67b01b86f054e1d84ee09276988d/app/"
+      ]
+    },
+    {
+      "kind": "ssh",
+      "args": [
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "StrictHostKeyChecking=yes",
+        "-o",
+        "ConnectTimeout=10",
+        "fixture@board.invalid",
+        "arduino-cli version"
+      ]
+    },
+    {
+      "kind": "arduino",
+      "args": [
+        "version"
+      ]
+    },
+    {
+      "kind": "ssh",
+      "args": [
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "StrictHostKeyChecking=yes",
+        "-o",
+        "ConnectTimeout=10",
+        "fixture@board.invalid",
+        "arduino-cli config get directories.data --json"
+      ]
+    },
+    {
+      "kind": "arduino",
+      "args": [
+        "config",
+        "get",
+        "directories.data",
+        "--json"
+      ]
+    },
+    {
+      "kind": "ssh",
+      "args": [
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "StrictHostKeyChecking=yes",
+        "-o",
+        "ConnectTimeout=10",
+        "fixture@board.invalid",
+        "arduino-cli config get directories.user --json"
+      ]
+    },
+    {
+      "kind": "arduino",
+      "args": [
+        "config",
+        "get",
+        "directories.user",
+        "--json"
+      ]
+    },
+    {
+      "kind": "ssh",
+      "args": [
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "StrictHostKeyChecking=yes",
+        "-o",
+        "ConnectTimeout=10",
+        "fixture@board.invalid",
+        "sh -c 'for path do if test -e \"$path\" || test -L \"$path\"; then printf '\"'\"'Unreviewed app override: %s\\n'\"'\"' \"$path\" >&2; exit 1; fi; done' sumo-app-override-check /fixture/.arduino15/packages/platform.txt /fixture/Arduino/hardware/platform.txt /fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/platform.local.txt /fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/boards.local.txt /tmp/sumo-tools-4m70g1tk/remote/c139c1e00a074b856e73157b4941680a91fc67b01b86f054e1d84ee09276988d/app/sketch.yaml /tmp/sumo-tools-4m70g1tk/remote/c139c1e00a074b856e73157b4941680a91fc67b01b86f054e1d84ee09276988d/app/sketch.yml"
+      ]
+    },
+    {
+      "kind": "override_check",
+      "args": [
+        "-c",
+        "for path do if test -e \"$path\" || test -L \"$path\"; then printf 'Unreviewed app override: %s\\n' \"$path\" >&2; exit 1; fi; done",
+        "sumo-app-override-check",
+        "/fixture/.arduino15/packages/platform.txt",
+        "/fixture/Arduino/hardware/platform.txt",
+        "/fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/platform.local.txt",
+        "/fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/boards.local.txt",
+        "/tmp/sumo-tools-4m70g1tk/remote/c139c1e00a074b856e73157b4941680a91fc67b01b86f054e1d84ee09276988d/app/sketch.yaml",
+        "/tmp/sumo-tools-4m70g1tk/remote/c139c1e00a074b856e73157b4941680a91fc67b01b86f054e1d84ee09276988d/app/sketch.yml"
+      ]
+    },
+    {
+      "kind": "ssh",
+      "args": [
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "StrictHostKeyChecking=yes",
+        "-o",
+        "ConnectTimeout=10",
+        "fixture@board.invalid",
+        "sha256sum -- /fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/platform.txt /fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/boards.txt /fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/cores/arduino/Arduino.h /fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/cores/arduino/main.cpp /fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/postvariant.h /fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/variant.h /fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/includes.txt /fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/machine_flags.txt /fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/cflags.txt /fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/cxxflags.txt /fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/generated/zephyr/autoconf.h /fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf /fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/_ldscripts/build-dynamic.ld /fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/_ldscripts/memory-check.ld /fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/_ldscripts/build-static.ld /fixture/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-gcc /fixture/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-g++ /fixture/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-ld"
+      ]
+    },
+    {
+      "kind": "sha256sum",
+      "args": [
+        "--",
+        "/fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/platform.txt",
+        "/fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/boards.txt",
+        "/fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/cores/arduino/Arduino.h",
+        "/fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/cores/arduino/main.cpp",
+        "/fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/postvariant.h",
+        "/fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/variant.h",
+        "/fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/includes.txt",
+        "/fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/machine_flags.txt",
+        "/fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/cflags.txt",
+        "/fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/cxxflags.txt",
+        "/fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/generated/zephyr/autoconf.h",
+        "/fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf",
+        "/fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/_ldscripts/build-dynamic.ld",
+        "/fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/_ldscripts/memory-check.ld",
+        "/fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/_ldscripts/build-static.ld",
+        "/fixture/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-gcc",
+        "/fixture/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-g++",
+        "/fixture/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-ld"
+      ]
+    },
+    {
+      "kind": "ssh",
+      "args": [
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "StrictHostKeyChecking=yes",
+        "-o",
+        "ConnectTimeout=10",
+        "fixture@board.invalid",
+        "arduino-cli compile --json --fqbn arduino:zephyr:unoq --build-path /tmp/sumo-tools-4m70g1tk/remote/_app_builds/native-app-v1/c139c1e00a074b856e73157b4941680a91fc67b01b86f054e1d84ee09276988d/bench-default/a3b720f548184c27bdfcf841db39149a/build --output-dir /tmp/sumo-tools-4m70g1tk/remote/_app_builds/native-app-v1/c139c1e00a074b856e73157b4941680a91fc67b01b86f054e1d84ee09276988d/bench-default/a3b720f548184c27bdfcf841db39149a/artifacts --build-property 'compiler.cpp.extra_flags=-DMATCH=0 -DMOTORS_ALLOWED=0' --build-property 'compiler.c.extra_flags=-DMATCH=0 -DMOTORS_ALLOWED=0' --build-property build.library_discovery_phase_flag=-DARDUINO_LIBRARY_DISCOVERY_PHASE=0 --show-properties=expanded /tmp/sumo-tools-4m70g1tk/remote/c139c1e00a074b856e73157b4941680a91fc67b01b86f054e1d84ee09276988d/app"
+      ]
+    },
+    {
+      "kind": "properties_query",
+      "args": [
+        "compile",
+        "--json",
+        "--fqbn",
+        "arduino:zephyr:unoq",
+        "--build-path",
+        "/tmp/sumo-tools-4m70g1tk/remote/_app_builds/native-app-v1/c139c1e00a074b856e73157b4941680a91fc67b01b86f054e1d84ee09276988d/bench-default/a3b720f548184c27bdfcf841db39149a/build",
+        "--output-dir",
+        "/tmp/sumo-tools-4m70g1tk/remote/_app_builds/native-app-v1/c139c1e00a074b856e73157b4941680a91fc67b01b86f054e1d84ee09276988d/bench-default/a3b720f548184c27bdfcf841db39149a/artifacts",
+        "--build-property",
+        "compiler.cpp.extra_flags=-DMATCH=0 -DMOTORS_ALLOWED=0",
+        "--build-property",
+        "compiler.c.extra_flags=-DMATCH=0 -DMOTORS_ALLOWED=0",
+        "--build-property",
+        "build.library_discovery_phase_flag=-DARDUINO_LIBRARY_DISCOVERY_PHASE=0",
+        "--show-properties=expanded",
+        "/tmp/sumo-tools-4m70g1tk/remote/c139c1e00a074b856e73157b4941680a91fc67b01b86f054e1d84ee09276988d/app"
+      ]
+    },
+    {
+      "kind": "ssh",
+      "args": [
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "StrictHostKeyChecking=yes",
+        "-o",
+        "ConnectTimeout=10",
+        "fixture@board.invalid",
+        "arduino-cli compile --json --fqbn arduino:zephyr:unoq --build-path /tmp/sumo-tools-4m70g1tk/remote/_app_builds/native-app-v1/c139c1e00a074b856e73157b4941680a91fc67b01b86f054e1d84ee09276988d/bench-default/a3b720f548184c27bdfcf841db39149a/build --output-dir /tmp/sumo-tools-4m70g1tk/remote/_app_builds/native-app-v1/c139c1e00a074b856e73157b4941680a91fc67b01b86f054e1d84ee09276988d/bench-default/a3b720f548184c27bdfcf841db39149a/artifacts --build-property 'compiler.cpp.extra_flags=-DMATCH=0 -DMOTORS_ALLOWED=0' --build-property 'compiler.c.extra_flags=-DMATCH=0 -DMOTORS_ALLOWED=0' --build-property build.library_discovery_phase_flag=-DARDUINO_LIBRARY_DISCOVERY_PHASE=0 /tmp/sumo-tools-4m70g1tk/remote/c139c1e00a074b856e73157b4941680a91fc67b01b86f054e1d84ee09276988d/app"
+      ]
+    },
+    {
+      "kind": "arduino",
+      "args": [
+        "compile",
+        "--json",
+        "--fqbn",
+        "arduino:zephyr:unoq",
+        "--build-path",
+        "/tmp/sumo-tools-4m70g1tk/remote/_app_builds/native-app-v1/c139c1e00a074b856e73157b4941680a91fc67b01b86f054e1d84ee09276988d/bench-default/a3b720f548184c27bdfcf841db39149a/build",
+        "--output-dir",
+        "/tmp/sumo-tools-4m70g1tk/remote/_app_builds/native-app-v1/c139c1e00a074b856e73157b4941680a91fc67b01b86f054e1d84ee09276988d/bench-default/a3b720f548184c27bdfcf841db39149a/artifacts",
+        "--build-property",
+        "compiler.cpp.extra_flags=-DMATCH=0 -DMOTORS_ALLOWED=0",
+        "--build-property",
+        "compiler.c.extra_flags=-DMATCH=0 -DMOTORS_ALLOWED=0",
+        "--build-property",
+        "build.library_discovery_phase_flag=-DARDUINO_LIBRARY_DISCOVERY_PHASE=0",
+        "/tmp/sumo-tools-4m70g1tk/remote/c139c1e00a074b856e73157b4941680a91fc67b01b86f054e1d84ee09276988d/app"
+      ]
+    }
+  ]
+}

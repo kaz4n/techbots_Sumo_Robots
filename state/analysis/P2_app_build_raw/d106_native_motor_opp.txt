@@ -1,0 +1,415 @@
+setUpClass (tests.tooling.test_motor_port_unoq.NativeMotorPortTests) ... ERROR
+test_b1_all_128_electrical_masks_are_uncorrected_and_independent (tests.tooling.test_opp_sensors.OpponentNativeContract.test_b1_all_128_electrical_masks_are_uncorrected_and_independent) ... ok
+test_b1_all_probe_upload_modes_refuse_before_transport_lookup (tests.tooling.test_opp_sensors.OpponentNativeContract.test_b1_all_probe_upload_modes_refuse_before_transport_lookup) ... ok
+test_b1_clock_brackets_each_native_pass_with_unsigned_wrap (tests.tooling.test_opp_sensors.OpponentNativeContract.test_b1_clock_brackets_each_native_pass_with_unsigned_wrap) ... ok
+test_b1_constructor_and_uninitialized_read_are_inert_and_instances_are_independent (tests.tooling.test_opp_sensors.OpponentNativeContract.test_b1_constructor_and_uninitialized_read_are_inert_and_instances_are_independent) ... ok
+test_b1_each_arduino_index_must_be_inside_the_native_table (tests.tooling.test_opp_sensors.OpponentNativeContract.test_b1_each_arduino_index_must_be_inside_the_native_table) ... ok
+test_b1_each_physical_pin_must_be_in_the_device_mask (tests.tooling.test_opp_sensors.OpponentNativeContract.test_b1_each_physical_pin_must_be_in_the_device_mask) ... ok
+test_b1_equal_pin_numbers_on_different_ports_are_not_duplicates (tests.tooling.test_opp_sensors.OpponentNativeContract.test_b1_equal_pin_numbers_on_different_ports_are_not_duplicates) ... ok
+test_b1_highest_representable_gpio_bit_is_valid_without_signed_shift (tests.tooling.test_opp_sensors.OpponentNativeContract.test_b1_highest_representable_gpio_bit_is_valid_without_signed_shift) ... ok
+test_b1_initialization_readiness_at_every_slot_and_explicit_retry (tests.tooling.test_opp_sensors.OpponentNativeContract.test_b1_initialization_readiness_at_every_slot_and_explicit_retry) ... ok
+test_b1_lost_readiness_at_every_slot_skips_only_that_read (tests.tooling.test_opp_sensors.OpponentNativeContract.test_b1_lost_readiness_at_every_slot_skips_only_that_read) ... ok
+test_b1_mixed_failures_and_complete_unavailability_retain_all_statuses (tests.tooling.test_opp_sensors.OpponentNativeContract.test_b1_mixed_failures_and_complete_unavailability_retain_all_statuses) ... ok
+test_b1_null_invalid_pin_nonzero_flags_and_duplicate_maps_reject_entire_bank (tests.tooling.test_opp_sensors.OpponentNativeContract.test_b1_null_invalid_pin_nonzero_flags_and_duplicate_maps_reject_entire_bank) ... ok
+test_b1_probe_global_constructor_setup_and_10000_loops_never_call_native_io (tests.tooling.test_opp_sensors.OpponentNativeContract.test_b1_probe_global_constructor_setup_and_10000_loops_never_call_native_io) ... ok
+test_b1_probe_motor_enabled_build_is_rejected (tests.tooling.test_opp_sensors.OpponentNativeContract.test_b1_probe_motor_enabled_build_is_rejected) ... ok
+test_b1_read_failures_at_every_slot_clear_stale_bits_and_recover_without_begin (tests.tooling.test_opp_sensors.OpponentNativeContract.test_b1_read_failures_at_every_slot_clear_stale_bits_and_recover_without_begin) ... ok
+test_b1_signed_config_failures_at_every_slot_invalidate_previous_success (tests.tooling.test_opp_sensors.OpponentNativeContract.test_b1_signed_config_failures_at_every_slot_invalidate_previous_success) ... ok
+test_b1_ten_thousand_reads_are_bounded_and_allocate_nothing (tests.tooling.test_opp_sensors.OpponentNativeContract.test_b1_ten_thousand_reads_are_bounded_and_allocate_nothing) ... ok
+test_b5_all_128_masks_have_exactly_one_polarity_conversion_in_real_debouncer (tests.tooling.test_opp_sensors.OpponentNativeContract.test_b5_all_128_masks_have_exactly_one_polarity_conversion_in_real_debouncer) ... ok
+
+======================================================================
+ERROR: setUpClass (tests.tooling.test_motor_port_unoq.NativeMotorPortTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_motor_port_unoq.py", line 44, in setUpClass
+    cls.binaries = {allowed: cls.variant(allowed=allowed) for allowed in (0, 1)}
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_motor_port_unoq.py", line 87, in variant
+    cls.build([*command, '-o', str(target)])
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_motor_port_unoq.py", line 64, in build
+    raise AssertionError('Opaque native build failed:\n' + result.stdout + result.stderr)
+AssertionError: Opaque native build failed:
+In file included from /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/drivers/gpio.h:7,
+                 from /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_port_unoq.cpp:11:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:59:37: error: ‘pwmSpec’ was not declared in this scope
+   59 | #define PWM_DT_SPEC_GET_BY_IDX(n,i) pwmSpec(i)
+      |                                     ^~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_port_unoq.cpp:22:33: note: in expansion of macro ‘PWM_DT_SPEC_GET_BY_IDX’
+   22 | #define MOTOR_PWM_SPEC(n, p, i) PWM_DT_SPEC_GET_BY_IDX(n, i),
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:65:37: note: in expansion of macro ‘MOTOR_PWM_SPEC’
+   65 | #define DT_FOREACH_PROP_ELEM(n,p,f) f(n,p,0) f(n,p,1) f(n,p,2) f(n,p,3) f(n,p,4) f(n,p,5) f(n,p,6) f(n,p,7) f(n,p,8) f(n,p,9) f(n,p,10) f(n,p,11) f(n,p,12) f(n,p,13) f(n,p,14) f(n,p,15)
+      |                                     ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_port_unoq.cpp:24:5: note: in expansion of macro ‘DT_FOREACH_PROP_ELEM’
+   24 |     DT_FOREACH_PROP_ELEM(DT_PATH(zephyr_user), pwms, MOTOR_PWM_SPEC)
+      |     ^~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:59:37: error: ‘pwmSpec’ was not declared in this scope
+   59 | #define PWM_DT_SPEC_GET_BY_IDX(n,i) pwmSpec(i)
+      |                                     ^~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_port_unoq.cpp:22:33: note: in expansion of macro ‘PWM_DT_SPEC_GET_BY_IDX’
+   22 | #define MOTOR_PWM_SPEC(n, p, i) PWM_DT_SPEC_GET_BY_IDX(n, i),
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:65:46: note: in expansion of macro ‘MOTOR_PWM_SPEC’
+   65 | #define DT_FOREACH_PROP_ELEM(n,p,f) f(n,p,0) f(n,p,1) f(n,p,2) f(n,p,3) f(n,p,4) f(n,p,5) f(n,p,6) f(n,p,7) f(n,p,8) f(n,p,9) f(n,p,10) f(n,p,11) f(n,p,12) f(n,p,13) f(n,p,14) f(n,p,15)
+      |                                              ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_port_unoq.cpp:24:5: note: in expansion of macro ‘DT_FOREACH_PROP_ELEM’
+   24 |     DT_FOREACH_PROP_ELEM(DT_PATH(zephyr_user), pwms, MOTOR_PWM_SPEC)
+      |     ^~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:59:37: error: ‘pwmSpec’ was not declared in this scope
+   59 | #define PWM_DT_SPEC_GET_BY_IDX(n,i) pwmSpec(i)
+      |                                     ^~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_port_unoq.cpp:22:33: note: in expansion of macro ‘PWM_DT_SPEC_GET_BY_IDX’
+   22 | #define MOTOR_PWM_SPEC(n, p, i) PWM_DT_SPEC_GET_BY_IDX(n, i),
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:65:55: note: in expansion of macro ‘MOTOR_PWM_SPEC’
+   65 | #define DT_FOREACH_PROP_ELEM(n,p,f) f(n,p,0) f(n,p,1) f(n,p,2) f(n,p,3) f(n,p,4) f(n,p,5) f(n,p,6) f(n,p,7) f(n,p,8) f(n,p,9) f(n,p,10) f(n,p,11) f(n,p,12) f(n,p,13) f(n,p,14) f(n,p,15)
+      |                                                       ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_port_unoq.cpp:24:5: note: in expansion of macro ‘DT_FOREACH_PROP_ELEM’
+   24 |     DT_FOREACH_PROP_ELEM(DT_PATH(zephyr_user), pwms, MOTOR_PWM_SPEC)
+      |     ^~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:59:37: error: ‘pwmSpec’ was not declared in this scope
+   59 | #define PWM_DT_SPEC_GET_BY_IDX(n,i) pwmSpec(i)
+      |                                     ^~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_port_unoq.cpp:22:33: note: in expansion of macro ‘PWM_DT_SPEC_GET_BY_IDX’
+   22 | #define MOTOR_PWM_SPEC(n, p, i) PWM_DT_SPEC_GET_BY_IDX(n, i),
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:65:64: note: in expansion of macro ‘MOTOR_PWM_SPEC’
+   65 | #define DT_FOREACH_PROP_ELEM(n,p,f) f(n,p,0) f(n,p,1) f(n,p,2) f(n,p,3) f(n,p,4) f(n,p,5) f(n,p,6) f(n,p,7) f(n,p,8) f(n,p,9) f(n,p,10) f(n,p,11) f(n,p,12) f(n,p,13) f(n,p,14) f(n,p,15)
+      |                                                                ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_port_unoq.cpp:24:5: note: in expansion of macro ‘DT_FOREACH_PROP_ELEM’
+   24 |     DT_FOREACH_PROP_ELEM(DT_PATH(zephyr_user), pwms, MOTOR_PWM_SPEC)
+      |     ^~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:59:37: error: ‘pwmSpec’ was not declared in this scope
+   59 | #define PWM_DT_SPEC_GET_BY_IDX(n,i) pwmSpec(i)
+      |                                     ^~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_port_unoq.cpp:22:33: note: in expansion of macro ‘PWM_DT_SPEC_GET_BY_IDX’
+   22 | #define MOTOR_PWM_SPEC(n, p, i) PWM_DT_SPEC_GET_BY_IDX(n, i),
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:65:73: note: in expansion of macro ‘MOTOR_PWM_SPEC’
+   65 | #define DT_FOREACH_PROP_ELEM(n,p,f) f(n,p,0) f(n,p,1) f(n,p,2) f(n,p,3) f(n,p,4) f(n,p,5) f(n,p,6) f(n,p,7) f(n,p,8) f(n,p,9) f(n,p,10) f(n,p,11) f(n,p,12) f(n,p,13) f(n,p,14) f(n,p,15)
+      |                                                                         ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_port_unoq.cpp:24:5: note: in expansion of macro ‘DT_FOREACH_PROP_ELEM’
+   24 |     DT_FOREACH_PROP_ELEM(DT_PATH(zephyr_user), pwms, MOTOR_PWM_SPEC)
+      |     ^~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:59:37: error: ‘pwmSpec’ was not declared in this scope
+   59 | #define PWM_DT_SPEC_GET_BY_IDX(n,i) pwmSpec(i)
+      |                                     ^~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_port_unoq.cpp:22:33: note: in expansion of macro ‘PWM_DT_SPEC_GET_BY_IDX’
+   22 | #define MOTOR_PWM_SPEC(n, p, i) PWM_DT_SPEC_GET_BY_IDX(n, i),
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:65:82: note: in expansion of macro ‘MOTOR_PWM_SPEC’
+   65 | #define DT_FOREACH_PROP_ELEM(n,p,f) f(n,p,0) f(n,p,1) f(n,p,2) f(n,p,3) f(n,p,4) f(n,p,5) f(n,p,6) f(n,p,7) f(n,p,8) f(n,p,9) f(n,p,10) f(n,p,11) f(n,p,12) f(n,p,13) f(n,p,14) f(n,p,15)
+      |                                                                                  ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_port_unoq.cpp:24:5: note: in expansion of macro ‘DT_FOREACH_PROP_ELEM’
+   24 |     DT_FOREACH_PROP_ELEM(DT_PATH(zephyr_user), pwms, MOTOR_PWM_SPEC)
+      |     ^~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:59:37: error: ‘pwmSpec’ was not declared in this scope
+   59 | #define PWM_DT_SPEC_GET_BY_IDX(n,i) pwmSpec(i)
+      |                                     ^~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_port_unoq.cpp:22:33: note: in expansion of macro ‘PWM_DT_SPEC_GET_BY_IDX’
+   22 | #define MOTOR_PWM_SPEC(n, p, i) PWM_DT_SPEC_GET_BY_IDX(n, i),
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:65:91: note: in expansion of macro ‘MOTOR_PWM_SPEC’
+   65 | #define DT_FOREACH_PROP_ELEM(n,p,f) f(n,p,0) f(n,p,1) f(n,p,2) f(n,p,3) f(n,p,4) f(n,p,5) f(n,p,6) f(n,p,7) f(n,p,8) f(n,p,9) f(n,p,10) f(n,p,11) f(n,p,12) f(n,p,13) f(n,p,14) f(n,p,15)
+      |                                                                                           ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_port_unoq.cpp:24:5: note: in expansion of macro ‘DT_FOREACH_PROP_ELEM’
+   24 |     DT_FOREACH_PROP_ELEM(DT_PATH(zephyr_user), pwms, MOTOR_PWM_SPEC)
+      |     ^~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:59:37: error: ‘pwmSpec’ was not declared in this scope
+   59 | #define PWM_DT_SPEC_GET_BY_IDX(n,i) pwmSpec(i)
+      |                                     ^~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_port_unoq.cpp:22:33: note: in expansion of macro ‘PWM_DT_SPEC_GET_BY_IDX’
+   22 | #define MOTOR_PWM_SPEC(n, p, i) PWM_DT_SPEC_GET_BY_IDX(n, i),
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:65:100: note: in expansion of macro ‘MOTOR_PWM_SPEC’
+   65 | #define DT_FOREACH_PROP_ELEM(n,p,f) f(n,p,0) f(n,p,1) f(n,p,2) f(n,p,3) f(n,p,4) f(n,p,5) f(n,p,6) f(n,p,7) f(n,p,8) f(n,p,9) f(n,p,10) f(n,p,11) f(n,p,12) f(n,p,13) f(n,p,14) f(n,p,15)
+      |                                                                                                    ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_port_unoq.cpp:24:5: note: in expansion of macro ‘DT_FOREACH_PROP_ELEM’
+   24 |     DT_FOREACH_PROP_ELEM(DT_PATH(zephyr_user), pwms, MOTOR_PWM_SPEC)
+      |     ^~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:59:37: error: ‘pwmSpec’ was not declared in this scope
+   59 | #define PWM_DT_SPEC_GET_BY_IDX(n,i) pwmSpec(i)
+      |                                     ^~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_port_unoq.cpp:22:33: note: in expansion of macro ‘PWM_DT_SPEC_GET_BY_IDX’
+   22 | #define MOTOR_PWM_SPEC(n, p, i) PWM_DT_SPEC_GET_BY_IDX(n, i),
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:65:109: note: in expansion of macro ‘MOTOR_PWM_SPEC’
+   65 | #define DT_FOREACH_PROP_ELEM(n,p,f) f(n,p,0) f(n,p,1) f(n,p,2) f(n,p,3) f(n,p,4) f(n,p,5) f(n,p,6) f(n,p,7) f(n,p,8) f(n,p,9) f(n,p,10) f(n,p,11) f(n,p,12) f(n,p,13) f(n,p,14) f(n,p,15)
+      |                                                                                                             ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_port_unoq.cpp:24:5: note: in expansion of macro ‘DT_FOREACH_PROP_ELEM’
+   24 |     DT_FOREACH_PROP_ELEM(DT_PATH(zephyr_user), pwms, MOTOR_PWM_SPEC)
+      |     ^~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:59:37: error: ‘pwmSpec’ was not declared in this scope
+   59 | #define PWM_DT_SPEC_GET_BY_IDX(n,i) pwmSpec(i)
+      |                                     ^~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_port_unoq.cpp:22:33: note: in expansion of macro ‘PWM_DT_SPEC_GET_BY_IDX’
+   22 | #define MOTOR_PWM_SPEC(n, p, i) PWM_DT_SPEC_GET_BY_IDX(n, i),
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:65:118: note: in expansion of macro ‘MOTOR_PWM_SPEC’
+   65 | #define DT_FOREACH_PROP_ELEM(n,p,f) f(n,p,0) f(n,p,1) f(n,p,2) f(n,p,3) f(n,p,4) f(n,p,5) f(n,p,6) f(n,p,7) f(n,p,8) f(n,p,9) f(n,p,10) f(n,p,11) f(n,p,12) f(n,p,13) f(n,p,14) f(n,p,15)
+      |                                                                                                                      ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_port_unoq.cpp:24:5: note: in expansion of macro ‘DT_FOREACH_PROP_ELEM’
+   24 |     DT_FOREACH_PROP_ELEM(DT_PATH(zephyr_user), pwms, MOTOR_PWM_SPEC)
+      |     ^~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:59:37: error: ‘pwmSpec’ was not declared in this scope
+   59 | #define PWM_DT_SPEC_GET_BY_IDX(n,i) pwmSpec(i)
+      |                                     ^~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_port_unoq.cpp:22:33: note: in expansion of macro ‘PWM_DT_SPEC_GET_BY_IDX’
+   22 | #define MOTOR_PWM_SPEC(n, p, i) PWM_DT_SPEC_GET_BY_IDX(n, i),
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:65:127: note: in expansion of macro ‘MOTOR_PWM_SPEC’
+   65 | #define DT_FOREACH_PROP_ELEM(n,p,f) f(n,p,0) f(n,p,1) f(n,p,2) f(n,p,3) f(n,p,4) f(n,p,5) f(n,p,6) f(n,p,7) f(n,p,8) f(n,p,9) f(n,p,10) f(n,p,11) f(n,p,12) f(n,p,13) f(n,p,14) f(n,p,15)
+      |                                                                                                                               ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_port_unoq.cpp:24:5: note: in expansion of macro ‘DT_FOREACH_PROP_ELEM’
+   24 |     DT_FOREACH_PROP_ELEM(DT_PATH(zephyr_user), pwms, MOTOR_PWM_SPEC)
+      |     ^~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:59:37: error: ‘pwmSpec’ was not declared in this scope
+   59 | #define PWM_DT_SPEC_GET_BY_IDX(n,i) pwmSpec(i)
+      |                                     ^~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_port_unoq.cpp:22:33: note: in expansion of macro ‘PWM_DT_SPEC_GET_BY_IDX’
+   22 | #define MOTOR_PWM_SPEC(n, p, i) PWM_DT_SPEC_GET_BY_IDX(n, i),
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:65:137: note: in expansion of macro ‘MOTOR_PWM_SPEC’
+   65 | #define DT_FOREACH_PROP_ELEM(n,p,f) f(n,p,0) f(n,p,1) f(n,p,2) f(n,p,3) f(n,p,4) f(n,p,5) f(n,p,6) f(n,p,7) f(n,p,8) f(n,p,9) f(n,p,10) f(n,p,11) f(n,p,12) f(n,p,13) f(n,p,14) f(n,p,15)
+      |                                                                                                                                         ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_port_unoq.cpp:24:5: note: in expansion of macro ‘DT_FOREACH_PROP_ELEM’
+   24 |     DT_FOREACH_PROP_ELEM(DT_PATH(zephyr_user), pwms, MOTOR_PWM_SPEC)
+      |     ^~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:59:37: error: ‘pwmSpec’ was not declared in this scope
+   59 | #define PWM_DT_SPEC_GET_BY_IDX(n,i) pwmSpec(i)
+      |                                     ^~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_port_unoq.cpp:22:33: note: in expansion of macro ‘PWM_DT_SPEC_GET_BY_IDX’
+   22 | #define MOTOR_PWM_SPEC(n, p, i) PWM_DT_SPEC_GET_BY_IDX(n, i),
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:65:147: note: in expansion of macro ‘MOTOR_PWM_SPEC’
+   65 | #define DT_FOREACH_PROP_ELEM(n,p,f) f(n,p,0) f(n,p,1) f(n,p,2) f(n,p,3) f(n,p,4) f(n,p,5) f(n,p,6) f(n,p,7) f(n,p,8) f(n,p,9) f(n,p,10) f(n,p,11) f(n,p,12) f(n,p,13) f(n,p,14) f(n,p,15)
+      |                                                                                                                                                   ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_port_unoq.cpp:24:5: note: in expansion of macro ‘DT_FOREACH_PROP_ELEM’
+   24 |     DT_FOREACH_PROP_ELEM(DT_PATH(zephyr_user), pwms, MOTOR_PWM_SPEC)
+      |     ^~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:59:37: error: ‘pwmSpec’ was not declared in this scope
+   59 | #define PWM_DT_SPEC_GET_BY_IDX(n,i) pwmSpec(i)
+      |                                     ^~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_port_unoq.cpp:22:33: note: in expansion of macro ‘PWM_DT_SPEC_GET_BY_IDX’
+   22 | #define MOTOR_PWM_SPEC(n, p, i) PWM_DT_SPEC_GET_BY_IDX(n, i),
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:65:157: note: in expansion of macro ‘MOTOR_PWM_SPEC’
+   65 | #define DT_FOREACH_PROP_ELEM(n,p,f) f(n,p,0) f(n,p,1) f(n,p,2) f(n,p,3) f(n,p,4) f(n,p,5) f(n,p,6) f(n,p,7) f(n,p,8) f(n,p,9) f(n,p,10) f(n,p,11) f(n,p,12) f(n,p,13) f(n,p,14) f(n,p,15)
+      |                                                                                                                                                             ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_port_unoq.cpp:24:5: note: in expansion of macro ‘DT_FOREACH_PROP_ELEM’
+   24 |     DT_FOREACH_PROP_ELEM(DT_PATH(zephyr_user), pwms, MOTOR_PWM_SPEC)
+      |     ^~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:59:37: error: ‘pwmSpec’ was not declared in this scope
+   59 | #define PWM_DT_SPEC_GET_BY_IDX(n,i) pwmSpec(i)
+      |                                     ^~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_port_unoq.cpp:22:33: note: in expansion of macro ‘PWM_DT_SPEC_GET_BY_IDX’
+   22 | #define MOTOR_PWM_SPEC(n, p, i) PWM_DT_SPEC_GET_BY_IDX(n, i),
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:65:167: note: in expansion of macro ‘MOTOR_PWM_SPEC’
+   65 | #define DT_FOREACH_PROP_ELEM(n,p,f) f(n,p,0) f(n,p,1) f(n,p,2) f(n,p,3) f(n,p,4) f(n,p,5) f(n,p,6) f(n,p,7) f(n,p,8) f(n,p,9) f(n,p,10) f(n,p,11) f(n,p,12) f(n,p,13) f(n,p,14) f(n,p,15)
+      |                                                                                                                                                                       ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_port_unoq.cpp:24:5: note: in expansion of macro ‘DT_FOREACH_PROP_ELEM’
+   24 |     DT_FOREACH_PROP_ELEM(DT_PATH(zephyr_user), pwms, MOTOR_PWM_SPEC)
+      |     ^~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:59:37: error: ‘pwmSpec’ was not declared in this scope
+   59 | #define PWM_DT_SPEC_GET_BY_IDX(n,i) pwmSpec(i)
+      |                                     ^~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_port_unoq.cpp:22:33: note: in expansion of macro ‘PWM_DT_SPEC_GET_BY_IDX’
+   22 | #define MOTOR_PWM_SPEC(n, p, i) PWM_DT_SPEC_GET_BY_IDX(n, i),
+      |                                 ^~~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:65:177: note: in expansion of macro ‘MOTOR_PWM_SPEC’
+   65 | #define DT_FOREACH_PROP_ELEM(n,p,f) f(n,p,0) f(n,p,1) f(n,p,2) f(n,p,3) f(n,p,4) f(n,p,5) f(n,p,6) f(n,p,7) f(n,p,8) f(n,p,9) f(n,p,10) f(n,p,11) f(n,p,12) f(n,p,13) f(n,p,14) f(n,p,15)
+      |                                                                                                                                                                                 ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_port_unoq.cpp:24:5: note: in expansion of macro ‘DT_FOREACH_PROP_ELEM’
+   24 |     DT_FOREACH_PROP_ELEM(DT_PATH(zephyr_user), pwms, MOTOR_PWM_SPEC)
+      |     ^~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:60:40: error: ‘pwmPad’ was not declared in this scope
+   60 | #define GPIO_DT_SPEC_GET_BY_IDX(n,p,i) pwmPad(i)
+      |                                        ^~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:70:43: note: in expansion of macro ‘GPIO_DT_SPEC_GET_BY_IDX’
+   70 | #define DT_FOREACH_PROP_ELEM_SEP(n,p,f,s) f(n,p,0), f(n,p,1), f(n,p,2), f(n,p,3), f(n,p,4), f(n,p,5), f(n,p,6), f(n,p,7), f(n,p,8), f(n,p,9), f(n,p,10), f(n,p,11), f(n,p,12), f(n,p,13), f(n,p,14), f(n,p,15)
+      |                                           ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_port_unoq.cpp:28:5: note: in expansion of macro ‘DT_FOREACH_PROP_ELEM_SEP’
+   28 |     DT_FOREACH_PROP_ELEM_SEP(DT_PATH(zephyr_user), pwm_pin_gpios,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:60:40: error: ‘pwmPad’ was not declared in this scope
+   60 | #define GPIO_DT_SPEC_GET_BY_IDX(n,p,i) pwmPad(i)
+      |                                        ^~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:70:53: note: in expansion of macro ‘GPIO_DT_SPEC_GET_BY_IDX’
+   70 | #define DT_FOREACH_PROP_ELEM_SEP(n,p,f,s) f(n,p,0), f(n,p,1), f(n,p,2), f(n,p,3), f(n,p,4), f(n,p,5), f(n,p,6), f(n,p,7), f(n,p,8), f(n,p,9), f(n,p,10), f(n,p,11), f(n,p,12), f(n,p,13), f(n,p,14), f(n,p,15)
+      |                                                     ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_port_unoq.cpp:28:5: note: in expansion of macro ‘DT_FOREACH_PROP_ELEM_SEP’
+   28 |     DT_FOREACH_PROP_ELEM_SEP(DT_PATH(zephyr_user), pwm_pin_gpios,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:60:40: error: ‘pwmPad’ was not declared in this scope
+   60 | #define GPIO_DT_SPEC_GET_BY_IDX(n,p,i) pwmPad(i)
+      |                                        ^~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:70:63: note: in expansion of macro ‘GPIO_DT_SPEC_GET_BY_IDX’
+   70 | #define DT_FOREACH_PROP_ELEM_SEP(n,p,f,s) f(n,p,0), f(n,p,1), f(n,p,2), f(n,p,3), f(n,p,4), f(n,p,5), f(n,p,6), f(n,p,7), f(n,p,8), f(n,p,9), f(n,p,10), f(n,p,11), f(n,p,12), f(n,p,13), f(n,p,14), f(n,p,15)
+      |                                                               ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_port_unoq.cpp:28:5: note: in expansion of macro ‘DT_FOREACH_PROP_ELEM_SEP’
+   28 |     DT_FOREACH_PROP_ELEM_SEP(DT_PATH(zephyr_user), pwm_pin_gpios,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:60:40: error: ‘pwmPad’ was not declared in this scope
+   60 | #define GPIO_DT_SPEC_GET_BY_IDX(n,p,i) pwmPad(i)
+      |                                        ^~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:70:73: note: in expansion of macro ‘GPIO_DT_SPEC_GET_BY_IDX’
+   70 | #define DT_FOREACH_PROP_ELEM_SEP(n,p,f,s) f(n,p,0), f(n,p,1), f(n,p,2), f(n,p,3), f(n,p,4), f(n,p,5), f(n,p,6), f(n,p,7), f(n,p,8), f(n,p,9), f(n,p,10), f(n,p,11), f(n,p,12), f(n,p,13), f(n,p,14), f(n,p,15)
+      |                                                                         ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_port_unoq.cpp:28:5: note: in expansion of macro ‘DT_FOREACH_PROP_ELEM_SEP’
+   28 |     DT_FOREACH_PROP_ELEM_SEP(DT_PATH(zephyr_user), pwm_pin_gpios,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:60:40: error: ‘pwmPad’ was not declared in this scope
+   60 | #define GPIO_DT_SPEC_GET_BY_IDX(n,p,i) pwmPad(i)
+      |                                        ^~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:70:83: note: in expansion of macro ‘GPIO_DT_SPEC_GET_BY_IDX’
+   70 | #define DT_FOREACH_PROP_ELEM_SEP(n,p,f,s) f(n,p,0), f(n,p,1), f(n,p,2), f(n,p,3), f(n,p,4), f(n,p,5), f(n,p,6), f(n,p,7), f(n,p,8), f(n,p,9), f(n,p,10), f(n,p,11), f(n,p,12), f(n,p,13), f(n,p,14), f(n,p,15)
+      |                                                                                   ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_port_unoq.cpp:28:5: note: in expansion of macro ‘DT_FOREACH_PROP_ELEM_SEP’
+   28 |     DT_FOREACH_PROP_ELEM_SEP(DT_PATH(zephyr_user), pwm_pin_gpios,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:60:40: error: ‘pwmPad’ was not declared in this scope
+   60 | #define GPIO_DT_SPEC_GET_BY_IDX(n,p,i) pwmPad(i)
+      |                                        ^~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:70:93: note: in expansion of macro ‘GPIO_DT_SPEC_GET_BY_IDX’
+   70 | #define DT_FOREACH_PROP_ELEM_SEP(n,p,f,s) f(n,p,0), f(n,p,1), f(n,p,2), f(n,p,3), f(n,p,4), f(n,p,5), f(n,p,6), f(n,p,7), f(n,p,8), f(n,p,9), f(n,p,10), f(n,p,11), f(n,p,12), f(n,p,13), f(n,p,14), f(n,p,15)
+      |                                                                                             ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_port_unoq.cpp:28:5: note: in expansion of macro ‘DT_FOREACH_PROP_ELEM_SEP’
+   28 |     DT_FOREACH_PROP_ELEM_SEP(DT_PATH(zephyr_user), pwm_pin_gpios,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:60:40: error: ‘pwmPad’ was not declared in this scope
+   60 | #define GPIO_DT_SPEC_GET_BY_IDX(n,p,i) pwmPad(i)
+      |                                        ^~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:70:103: note: in expansion of macro ‘GPIO_DT_SPEC_GET_BY_IDX’
+   70 | #define DT_FOREACH_PROP_ELEM_SEP(n,p,f,s) f(n,p,0), f(n,p,1), f(n,p,2), f(n,p,3), f(n,p,4), f(n,p,5), f(n,p,6), f(n,p,7), f(n,p,8), f(n,p,9), f(n,p,10), f(n,p,11), f(n,p,12), f(n,p,13), f(n,p,14), f(n,p,15)
+      |                                                                                                       ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_port_unoq.cpp:28:5: note: in expansion of macro ‘DT_FOREACH_PROP_ELEM_SEP’
+   28 |     DT_FOREACH_PROP_ELEM_SEP(DT_PATH(zephyr_user), pwm_pin_gpios,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:60:40: error: ‘pwmPad’ was not declared in this scope
+   60 | #define GPIO_DT_SPEC_GET_BY_IDX(n,p,i) pwmPad(i)
+      |                                        ^~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:70:113: note: in expansion of macro ‘GPIO_DT_SPEC_GET_BY_IDX’
+   70 | #define DT_FOREACH_PROP_ELEM_SEP(n,p,f,s) f(n,p,0), f(n,p,1), f(n,p,2), f(n,p,3), f(n,p,4), f(n,p,5), f(n,p,6), f(n,p,7), f(n,p,8), f(n,p,9), f(n,p,10), f(n,p,11), f(n,p,12), f(n,p,13), f(n,p,14), f(n,p,15)
+      |                                                                                                                 ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_port_unoq.cpp:28:5: note: in expansion of macro ‘DT_FOREACH_PROP_ELEM_SEP’
+   28 |     DT_FOREACH_PROP_ELEM_SEP(DT_PATH(zephyr_user), pwm_pin_gpios,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:60:40: error: ‘pwmPad’ was not declared in this scope
+   60 | #define GPIO_DT_SPEC_GET_BY_IDX(n,p,i) pwmPad(i)
+      |                                        ^~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:70:123: note: in expansion of macro ‘GPIO_DT_SPEC_GET_BY_IDX’
+   70 | #define DT_FOREACH_PROP_ELEM_SEP(n,p,f,s) f(n,p,0), f(n,p,1), f(n,p,2), f(n,p,3), f(n,p,4), f(n,p,5), f(n,p,6), f(n,p,7), f(n,p,8), f(n,p,9), f(n,p,10), f(n,p,11), f(n,p,12), f(n,p,13), f(n,p,14), f(n,p,15)
+      |                                                                                                                           ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_port_unoq.cpp:28:5: note: in expansion of macro ‘DT_FOREACH_PROP_ELEM_SEP’
+   28 |     DT_FOREACH_PROP_ELEM_SEP(DT_PATH(zephyr_user), pwm_pin_gpios,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:60:40: error: ‘pwmPad’ was not declared in this scope
+   60 | #define GPIO_DT_SPEC_GET_BY_IDX(n,p,i) pwmPad(i)
+      |                                        ^~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:70:133: note: in expansion of macro ‘GPIO_DT_SPEC_GET_BY_IDX’
+   70 | #define DT_FOREACH_PROP_ELEM_SEP(n,p,f,s) f(n,p,0), f(n,p,1), f(n,p,2), f(n,p,3), f(n,p,4), f(n,p,5), f(n,p,6), f(n,p,7), f(n,p,8), f(n,p,9), f(n,p,10), f(n,p,11), f(n,p,12), f(n,p,13), f(n,p,14), f(n,p,15)
+      |                                                                                                                                     ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_port_unoq.cpp:28:5: note: in expansion of macro ‘DT_FOREACH_PROP_ELEM_SEP’
+   28 |     DT_FOREACH_PROP_ELEM_SEP(DT_PATH(zephyr_user), pwm_pin_gpios,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:60:40: error: ‘pwmPad’ was not declared in this scope
+   60 | #define GPIO_DT_SPEC_GET_BY_IDX(n,p,i) pwmPad(i)
+      |                                        ^~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:70:143: note: in expansion of macro ‘GPIO_DT_SPEC_GET_BY_IDX’
+   70 | #define DT_FOREACH_PROP_ELEM_SEP(n,p,f,s) f(n,p,0), f(n,p,1), f(n,p,2), f(n,p,3), f(n,p,4), f(n,p,5), f(n,p,6), f(n,p,7), f(n,p,8), f(n,p,9), f(n,p,10), f(n,p,11), f(n,p,12), f(n,p,13), f(n,p,14), f(n,p,15)
+      |                                                                                                                                               ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_port_unoq.cpp:28:5: note: in expansion of macro ‘DT_FOREACH_PROP_ELEM_SEP’
+   28 |     DT_FOREACH_PROP_ELEM_SEP(DT_PATH(zephyr_user), pwm_pin_gpios,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:60:40: error: ‘pwmPad’ was not declared in this scope
+   60 | #define GPIO_DT_SPEC_GET_BY_IDX(n,p,i) pwmPad(i)
+      |                                        ^~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:70:154: note: in expansion of macro ‘GPIO_DT_SPEC_GET_BY_IDX’
+   70 | #define DT_FOREACH_PROP_ELEM_SEP(n,p,f,s) f(n,p,0), f(n,p,1), f(n,p,2), f(n,p,3), f(n,p,4), f(n,p,5), f(n,p,6), f(n,p,7), f(n,p,8), f(n,p,9), f(n,p,10), f(n,p,11), f(n,p,12), f(n,p,13), f(n,p,14), f(n,p,15)
+      |                                                                                                                                                          ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_port_unoq.cpp:28:5: note: in expansion of macro ‘DT_FOREACH_PROP_ELEM_SEP’
+   28 |     DT_FOREACH_PROP_ELEM_SEP(DT_PATH(zephyr_user), pwm_pin_gpios,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:60:40: error: ‘pwmPad’ was not declared in this scope
+   60 | #define GPIO_DT_SPEC_GET_BY_IDX(n,p,i) pwmPad(i)
+      |                                        ^~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:70:165: note: in expansion of macro ‘GPIO_DT_SPEC_GET_BY_IDX’
+   70 | #define DT_FOREACH_PROP_ELEM_SEP(n,p,f,s) f(n,p,0), f(n,p,1), f(n,p,2), f(n,p,3), f(n,p,4), f(n,p,5), f(n,p,6), f(n,p,7), f(n,p,8), f(n,p,9), f(n,p,10), f(n,p,11), f(n,p,12), f(n,p,13), f(n,p,14), f(n,p,15)
+      |                                                                                                                                                                     ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_port_unoq.cpp:28:5: note: in expansion of macro ‘DT_FOREACH_PROP_ELEM_SEP’
+   28 |     DT_FOREACH_PROP_ELEM_SEP(DT_PATH(zephyr_user), pwm_pin_gpios,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:60:40: error: ‘pwmPad’ was not declared in this scope
+   60 | #define GPIO_DT_SPEC_GET_BY_IDX(n,p,i) pwmPad(i)
+      |                                        ^~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:70:176: note: in expansion of macro ‘GPIO_DT_SPEC_GET_BY_IDX’
+   70 | #define DT_FOREACH_PROP_ELEM_SEP(n,p,f,s) f(n,p,0), f(n,p,1), f(n,p,2), f(n,p,3), f(n,p,4), f(n,p,5), f(n,p,6), f(n,p,7), f(n,p,8), f(n,p,9), f(n,p,10), f(n,p,11), f(n,p,12), f(n,p,13), f(n,p,14), f(n,p,15)
+      |                                                                                                                                                                                ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_port_unoq.cpp:28:5: note: in expansion of macro ‘DT_FOREACH_PROP_ELEM_SEP’
+   28 |     DT_FOREACH_PROP_ELEM_SEP(DT_PATH(zephyr_user), pwm_pin_gpios,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:60:40: error: ‘pwmPad’ was not declared in this scope
+   60 | #define GPIO_DT_SPEC_GET_BY_IDX(n,p,i) pwmPad(i)
+      |                                        ^~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:70:187: note: in expansion of macro ‘GPIO_DT_SPEC_GET_BY_IDX’
+   70 | #define DT_FOREACH_PROP_ELEM_SEP(n,p,f,s) f(n,p,0), f(n,p,1), f(n,p,2), f(n,p,3), f(n,p,4), f(n,p,5), f(n,p,6), f(n,p,7), f(n,p,8), f(n,p,9), f(n,p,10), f(n,p,11), f(n,p,12), f(n,p,13), f(n,p,14), f(n,p,15)
+      |                                                                                                                                                                                           ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_port_unoq.cpp:28:5: note: in expansion of macro ‘DT_FOREACH_PROP_ELEM_SEP’
+   28 |     DT_FOREACH_PROP_ELEM_SEP(DT_PATH(zephyr_user), pwm_pin_gpios,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:60:40: error: ‘pwmPad’ was not declared in this scope
+   60 | #define GPIO_DT_SPEC_GET_BY_IDX(n,p,i) pwmPad(i)
+      |                                        ^~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:70:198: note: in expansion of macro ‘GPIO_DT_SPEC_GET_BY_IDX’
+   70 | #define DT_FOREACH_PROP_ELEM_SEP(n,p,f,s) f(n,p,0), f(n,p,1), f(n,p,2), f(n,p,3), f(n,p,4), f(n,p,5), f(n,p,6), f(n,p,7), f(n,p,8), f(n,p,9), f(n,p,10), f(n,p,11), f(n,p,12), f(n,p,13), f(n,p,14), f(n,p,15)
+      |                                                                                                                                                                                                      ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_port_unoq.cpp:28:5: note: in expansion of macro ‘DT_FOREACH_PROP_ELEM_SEP’
+   28 |     DT_FOREACH_PROP_ELEM_SEP(DT_PATH(zephyr_user), pwm_pin_gpios,
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_port_unoq.cpp: In function ‘const device* motors::{anonymous}::timerDevice(uint32_t)’:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:55:31: error: ‘fixture_pwm_devices’ was not declared in this scope
+   55 | #define FIXTURE_DEVICE_pwm1 (&fixture_pwm_devices[0])
+      |                               ^~~~~~~~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:54:27: note: in expansion of macro ‘FIXTURE_DEVICE_pwm1’
+   54 | #define DEVICE_DT_IMPL(n) FIXTURE_DEVICE_##n
+      |                           ^~~~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:53:26: note: in expansion of macro ‘DEVICE_DT_IMPL’
+   53 | #define DEVICE_DT_GET(n) DEVICE_DT_IMPL(n)
+      |                          ^~~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_port_unoq.cpp:52:39: note: in expansion of macro ‘DEVICE_DT_GET’
+   52 |     const device* const devices[3] = {DEVICE_DT_GET(DT_NODELABEL(pwm1)),
+      |                                       ^~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_port_unoq.cpp: In function ‘bool motors::{anonymous}::mapBank(uint32_t (&)[4])’:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:58:32: error: ‘fixture_gpio_ports’ was not declared in this scope
+   58 | #define FIXTURE_DEVICE_gpiob (&fixture_gpio_ports[1])
+      |                                ^~~~~~~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:54:27: note: in expansion of macro ‘FIXTURE_DEVICE_gpiob’
+   54 | #define DEVICE_DT_IMPL(n) FIXTURE_DEVICE_##n
+      |                           ^~~~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:53:26: note: in expansion of macro ‘DEVICE_DT_IMPL’
+   53 | #define DEVICE_DT_GET(n) DEVICE_DT_IMPL(n)
+      |                          ^~~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_port_unoq.cpp:143:24: note: in expansion of macro ‘DEVICE_DT_GET’
+  143 |         enable.port != DEVICE_DT_GET(DT_NODELABEL(gpiob))) return false;
+      |                        ^~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_port_unoq.cpp: In member function ‘bool motors::UnoQPort::enableOwned() const’:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:58:32: error: ‘fixture_gpio_ports’ was not declared in this scope
+   58 | #define FIXTURE_DEVICE_gpiob (&fixture_gpio_ports[1])
+      |                                ^~~~~~~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:54:27: note: in expansion of macro ‘FIXTURE_DEVICE_gpiob’
+   54 | #define DEVICE_DT_IMPL(n) FIXTURE_DEVICE_##n
+      |                           ^~~~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port/zephyr/devicetree.h:53:26: note: in expansion of macro ‘DEVICE_DT_IMPL’
+   53 | #define DEVICE_DT_GET(n) DEVICE_DT_IMPL(n)
+      |                          ^~~~~~~~~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_port_unoq.cpp:194:45: note: in expansion of macro ‘DEVICE_DT_GET’
+  194 |     if (!validPad(enable) || enable.port != DEVICE_DT_GET(DT_NODELABEL(gpiob)) ||
+      |                                             ^~~~~~~~~~~~~
+
+
+----------------------------------------------------------------------
+Ran 18 tests in 55.960s
+
+FAILED (errors=1)

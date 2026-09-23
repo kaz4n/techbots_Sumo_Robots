@@ -1,0 +1,11 @@
+{
+  "argv": [
+    "python3",
+    "-c",
+    "\nimport hashlib,json,pathlib\ncore=pathlib.Path('/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0')\nnames=['cores/arduino/wiring_private.h','variants/arduino_uno_q_stm32u585xx/pins_arduino.h']\nfiles=[]\nfor name in names:\n p=core/name;raw=p.read_bytes()\n files.append(dict(path=str(p),sha256=hashlib.sha256(raw).hexdigest(),bytes=len(raw),text=raw.decode()))\nprint(json.dumps(dict(files=files),indent=2))\n"
+  ],
+  "started_utc": "2026-09-23T19:29:04.535090+00:00",
+  "scope": "Read-only installed board Linux headers; no compile/upload/reset/MCU",
+  "returncode": 1,
+  "ended_utc": "2026-09-23T19:29:04.820062+00:00"
+}

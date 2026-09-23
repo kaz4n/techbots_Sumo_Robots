@@ -268,7 +268,7 @@ class ButtonDecoderTests(unittest.TestCase):
                           '-I', str(slot/'src'), '-I', str(slot/'probe'), '-I', str(slot/'probe/src'),
                           '-I', str(fixture), '-isystem', str(ROOT/'host/third_party'),
                           str(case), str(fixture/'native_fixture.cc'), str(fixture/'test_main.cc'),
-                          str(slot/'src/hal/power.cpp'), str(slot/'src/hal/ui.cpp'),
+                          str(slot/'src/hal/power.cpp'), str(slot/'src/hal/native_pins.cpp'), str(slot/'src/hal/ui.cpp'),
                           *map(str, (slot/'src/core').glob('*.cpp')),
                           str(slot/'probe/src/button_probe.cpp'), str(slot/'sketch.cpp'),
                           '-Wl,--wrap=malloc,--wrap=calloc,--wrap=realloc,--wrap=free',

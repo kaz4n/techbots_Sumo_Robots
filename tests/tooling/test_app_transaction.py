@@ -77,7 +77,7 @@ class AppTransactionTests(unittest.TestCase):
             shutil.copyfile(folder / 'p2_app_transaction_compile.ino', sketch)
             args += ['-DARDUINO_ARCH_ZEPHYR', '-I', NATIVE, '-I', folder / 'src', '-I', folder,
                      '-Wl,--wrap=malloc,--wrap=calloc,--wrap=realloc,--wrap=free']
-            sources += [self.source / 'hal/motor_port_unoq.cpp', NATIVE / 'native_fixture.cc',
+            sources += [self.source / 'hal/motor_port_unoq.cpp', self.source / 'hal/native_pins.cpp', NATIVE / 'native_fixture.cc',
                         ROOT / 'tests/native_motors/app_transaction_probe.cc', sketch,
                         folder / 'src/app_transaction_probe.cpp']
         else:

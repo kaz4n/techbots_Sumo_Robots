@@ -1,0 +1,186 @@
+test_cross_translation_unit_identity_count_metadata_constness_and_passivity (tests.tooling.test_native_pins.NativePinsTests.test_cross_translation_unit_identity_count_metadata_constness_and_passivity) ... FAIL
+
+======================================================================
+FAIL: test_cross_translation_unit_identity_count_metadata_constness_and_passivity (tests.tooling.test_native_pins.NativePinsTests.test_cross_translation_unit_identity_count_metadata_constness_and_passivity)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tests\tooling\test_native_pins.py", line 131, in test_cross_translation_unit_identity_count_metadata_constness_and_passivity
+    self.command(["wsl.exe", "--exec", "python3", "-m", "unittest",
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                  "tests.tooling.test_native_pins", "-v"])
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tests\tooling\test_native_pins.py", line 121, in command
+    if success: self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+                ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : test_cross_translation_unit_identity_count_metadata_constness_and_passivity (tests.tooling.test_native_pins.NativePinsTests.test_cross_translation_unit_identity_count_metadata_constness_and_passivity) ... 
+  test_cross_translation_unit_identity_count_metadata_constness_and_passivity (tests.tooling.test_native_pins.NativePinsTests.test_cross_translation_unit_identity_count_metadata_constness_and_passivity) (count=1, sanitizer=False) ... FAIL
+  test_cross_translation_unit_identity_count_metadata_constness_and_passivity (tests.tooling.test_native_pins.NativePinsTests.test_cross_translation_unit_identity_count_metadata_constness_and_passivity) (count=1, sanitizer=True) ... FAIL
+  test_cross_translation_unit_identity_count_metadata_constness_and_passivity (tests.tooling.test_native_pins.NativePinsTests.test_cross_translation_unit_identity_count_metadata_constness_and_passivity) (count=3, sanitizer=False) ... FAIL
+  test_cross_translation_unit_identity_count_metadata_constness_and_passivity (tests.tooling.test_native_pins.NativePinsTests.test_cross_translation_unit_identity_count_metadata_constness_and_passivity) (count=3, sanitizer=True) ... FAIL
+  test_cross_translation_unit_identity_count_metadata_constness_and_passivity (tests.tooling.test_native_pins.NativePinsTests.test_cross_translation_unit_identity_count_metadata_constness_and_passivity) (count=17, sanitizer=False) ... FAIL
+  test_cross_translation_unit_identity_count_metadata_constness_and_passivity (tests.tooling.test_native_pins.NativePinsTests.test_cross_translation_unit_identity_count_metadata_constness_and_passivity) (count=17, sanitizer=True) ... FAIL
+  test_cross_translation_unit_identity_count_metadata_constness_and_passivity (tests.tooling.test_native_pins.NativePinsTests.test_cross_translation_unit_identity_count_metadata_constness_and_passivity) (count=70, sanitizer=False) ... FAIL
+  test_cross_translation_unit_identity_count_metadata_constness_and_passivity (tests.tooling.test_native_pins.NativePinsTests.test_cross_translation_unit_identity_count_metadata_constness_and_passivity) (count=70, sanitizer=True) ... FAIL
+  test_cross_translation_unit_identity_count_metadata_constness_and_passivity (tests.tooling.test_native_pins.NativePinsTests.test_cross_translation_unit_identity_count_metadata_constness_and_passivity) (count=71, sanitizer=False) ... FAIL
+  test_cross_translation_unit_identity_count_metadata_constness_and_passivity (tests.tooling.test_native_pins.NativePinsTests.test_cross_translation_unit_identity_count_metadata_constness_and_passivity) (count=71, sanitizer=True) ... FAIL
+
+======================================================================
+FAIL: test_cross_translation_unit_identity_count_metadata_constness_and_passivity (tests.tooling.test_native_pins.NativePinsTests.test_cross_translation_unit_identity_count_metadata_constness_and_passivity) (count=1, sanitizer=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_native_pins.py", line 163, in test_cross_translation_unit_identity_count_metadata_constness_and_passivity
+    self.command([*common, *flags, "-c", source / "native_pins.cpp", "-o", native])
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_native_pins.py", line 121, in command
+    if success: self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : /dev/shm/sumo-d106-author-gwksymlb/src/hal/native_pins.cpp:7:10: fatal error: Arduino.h: No such file or directory
+    7 | #include <Arduino.h>
+      |          ^~~~~~~~~~~
+compilation terminated.
+
+
+======================================================================
+FAIL: test_cross_translation_unit_identity_count_metadata_constness_and_passivity (tests.tooling.test_native_pins.NativePinsTests.test_cross_translation_unit_identity_count_metadata_constness_and_passivity) (count=1, sanitizer=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_native_pins.py", line 163, in test_cross_translation_unit_identity_count_metadata_constness_and_passivity
+    self.command([*common, *flags, "-c", source / "native_pins.cpp", "-o", native])
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_native_pins.py", line 121, in command
+    if success: self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : /dev/shm/sumo-d106-author-gwksymlb/src/hal/native_pins.cpp:7:10: fatal error: Arduino.h: No such file or directory
+    7 | #include <Arduino.h>
+      |          ^~~~~~~~~~~
+compilation terminated.
+
+
+======================================================================
+FAIL: test_cross_translation_unit_identity_count_metadata_constness_and_passivity (tests.tooling.test_native_pins.NativePinsTests.test_cross_translation_unit_identity_count_metadata_constness_and_passivity) (count=3, sanitizer=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_native_pins.py", line 163, in test_cross_translation_unit_identity_count_metadata_constness_and_passivity
+    self.command([*common, *flags, "-c", source / "native_pins.cpp", "-o", native])
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_native_pins.py", line 121, in command
+    if success: self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : /dev/shm/sumo-d106-author-gwksymlb/src/hal/native_pins.cpp:7:10: fatal error: Arduino.h: No such file or directory
+    7 | #include <Arduino.h>
+      |          ^~~~~~~~~~~
+compilation terminated.
+
+
+======================================================================
+FAIL: test_cross_translation_unit_identity_count_metadata_constness_and_passivity (tests.tooling.test_native_pins.NativePinsTests.test_cross_translation_unit_identity_count_metadata_constness_and_passivity) (count=3, sanitizer=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_native_pins.py", line 163, in test_cross_translation_unit_identity_count_metadata_constness_and_passivity
+    self.command([*common, *flags, "-c", source / "native_pins.cpp", "-o", native])
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_native_pins.py", line 121, in command
+    if success: self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : /dev/shm/sumo-d106-author-gwksymlb/src/hal/native_pins.cpp:7:10: fatal error: Arduino.h: No such file or directory
+    7 | #include <Arduino.h>
+      |          ^~~~~~~~~~~
+compilation terminated.
+
+
+======================================================================
+FAIL: test_cross_translation_unit_identity_count_metadata_constness_and_passivity (tests.tooling.test_native_pins.NativePinsTests.test_cross_translation_unit_identity_count_metadata_constness_and_passivity) (count=17, sanitizer=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_native_pins.py", line 163, in test_cross_translation_unit_identity_count_metadata_constness_and_passivity
+    self.command([*common, *flags, "-c", source / "native_pins.cpp", "-o", native])
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_native_pins.py", line 121, in command
+    if success: self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : /dev/shm/sumo-d106-author-gwksymlb/src/hal/native_pins.cpp:7:10: fatal error: Arduino.h: No such file or directory
+    7 | #include <Arduino.h>
+      |          ^~~~~~~~~~~
+compilation terminated.
+
+
+======================================================================
+FAIL: test_cross_translation_unit_identity_count_metadata_constness_and_passivity (tests.tooling.test_native_pins.NativePinsTests.test_cross_translation_unit_identity_count_metadata_constness_and_passivity) (count=17, sanitizer=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_native_pins.py", line 163, in test_cross_translation_unit_identity_count_metadata_constness_and_passivity
+    self.command([*common, *flags, "-c", source / "native_pins.cpp", "-o", native])
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_native_pins.py", line 121, in command
+    if success: self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : /dev/shm/sumo-d106-author-gwksymlb/src/hal/native_pins.cpp:7:10: fatal error: Arduino.h: No such file or directory
+    7 | #include <Arduino.h>
+      |          ^~~~~~~~~~~
+compilation terminated.
+
+
+======================================================================
+FAIL: test_cross_translation_unit_identity_count_metadata_constness_and_passivity (tests.tooling.test_native_pins.NativePinsTests.test_cross_translation_unit_identity_count_metadata_constness_and_passivity) (count=70, sanitizer=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_native_pins.py", line 163, in test_cross_translation_unit_identity_count_metadata_constness_and_passivity
+    self.command([*common, *flags, "-c", source / "native_pins.cpp", "-o", native])
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_native_pins.py", line 121, in command
+    if success: self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : /dev/shm/sumo-d106-author-gwksymlb/src/hal/native_pins.cpp:7:10: fatal error: Arduino.h: No such file or directory
+    7 | #include <Arduino.h>
+      |          ^~~~~~~~~~~
+compilation terminated.
+
+
+======================================================================
+FAIL: test_cross_translation_unit_identity_count_metadata_constness_and_passivity (tests.tooling.test_native_pins.NativePinsTests.test_cross_translation_unit_identity_count_metadata_constness_and_passivity) (count=70, sanitizer=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_native_pins.py", line 163, in test_cross_translation_unit_identity_count_metadata_constness_and_passivity
+    self.command([*common, *flags, "-c", source / "native_pins.cpp", "-o", native])
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_native_pins.py", line 121, in command
+    if success: self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : /dev/shm/sumo-d106-author-gwksymlb/src/hal/native_pins.cpp:7:10: fatal error: Arduino.h: No such file or directory
+    7 | #include <Arduino.h>
+      |          ^~~~~~~~~~~
+compilation terminated.
+
+
+======================================================================
+FAIL: test_cross_translation_unit_identity_count_metadata_constness_and_passivity (tests.tooling.test_native_pins.NativePinsTests.test_cross_translation_unit_identity_count_metadata_constness_and_passivity) (count=71, sanitizer=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_native_pins.py", line 163, in test_cross_translation_unit_identity_count_metadata_constness_and_passivity
+    self.command([*common, *flags, "-c", source / "native_pins.cpp", "-o", native])
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_native_pins.py", line 121, in command
+    if success: self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : /dev/shm/sumo-d106-author-gwksymlb/src/hal/native_pins.cpp:7:10: fatal error: Arduino.h: No such file or directory
+    7 | #include <Arduino.h>
+      |          ^~~~~~~~~~~
+compilation terminated.
+
+
+======================================================================
+FAIL: test_cross_translation_unit_identity_count_metadata_constness_and_passivity (tests.tooling.test_native_pins.NativePinsTests.test_cross_translation_unit_identity_count_metadata_constness_and_passivity) (count=71, sanitizer=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_native_pins.py", line 163, in test_cross_translation_unit_identity_count_metadata_constness_and_passivity
+    self.command([*common, *flags, "-c", source / "native_pins.cpp", "-o", native])
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_native_pins.py", line 121, in command
+    if success: self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : /dev/shm/sumo-d106-author-gwksymlb/src/hal/native_pins.cpp:7:10: fatal error: Arduino.h: No such file or directory
+    7 | #include <Arduino.h>
+      |          ^~~~~~~~~~~
+compilation terminated.
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.263s
+
+FAILED (failures=10)
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.446s
+
+FAILED (failures=1)

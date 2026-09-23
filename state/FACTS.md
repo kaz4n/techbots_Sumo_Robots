@@ -482,3 +482,10 @@ F112 final software disposition 2026-09-23T16:49:58+04:00: fresh separate same-m
 | ID | Question | Observed answer | Source | Confidence | Hardware-checked |
 |---|---|---|---|---|---|
 | F-128 | Does the exact no-pin actual Runtime probe load and sustain its200s zero-miss observation? | Source2bd817c4/software1fa2a01 deployed identities verified;200001epochs/0misses,actualS..Cmax269us,Runnermax285us,alloutputrequests inhibited. Currentpoolfree28668B/largest25172B; sampledPSPheadroom30952B. Stable diagnostics/pools; decoderacceptancePASS. | analysis/P2_runtime_inert_validation.md,raw/runtime_summary.json,runtime_run1; reviews/P2_runtime_inert_review.md/raw | ACTUAL-BARE-BOARD-MEASURED within exactprobe scope | BareUNOQ2629958581 only. No sensors/nativeUART/motors/full-app800us/clockcalibration, stackwatermark or human gate. |
+
+## D105/D106 software and conditional target fit,2026-09-23
+
+| ID | Question | Observed answer | Source | Confidence | Hardware-checked |
+|---|---|---|---|---|---|
+| F-129 | Does actual Runtime deliver a newly committed calibration bank through the bounded owner? | D1052eb97cc and receiver36ae9bc pass independent normal/sanitizer, active-Gate, MATCH exclusion and strict host roundtrip checks. No retained-success retry or config mutation. | analysis/P2_calibration_delivery_validation.md/raw; reviews/P2_calibration_delivery_review.md | IMPLEMENTED/HOST-TESTED/REVIEWED; synthetic source fixtures | Native UART and physical calibration pending; no upload/gate. |
+| F-130 | Does one unchanged installed native pin table recover D105 target capacity? | Exact91-filed72bff70 retains one560B/70-entry table with exact descriptor relocations. Default/Immediate peak261688/span456; MATCH260056/span2088 in262144 pool. Native27+26methods, independent cross-unit variants and scoped review PASS; D105-R2 conditional fit closed. | analysis/P2_pin_table_validation.md/raw; reviews/P2_pin_table_review.md/raw | TARGET-COMPILED/OFFLINE-ABI-VERIFIED/REVIEW-PASS; conditional loader model | Linux compile/offline files only. No full-app load/freeRAM/WCET, physical pin verification or gate. |

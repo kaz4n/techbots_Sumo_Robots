@@ -65,7 +65,7 @@ class PowerInputsTests(unittest.TestCase):
             sources += sorted((source / 'core').glob('*.cpp'))
             sources += [source / 'hal' / name for name in ('motors.cpp', 'recorder.cpp', 'recorder_frames.cpp')]
         if native:
-            sources += [source / 'hal/power.cpp', source / 'hal/power_inputs_unoq.cpp',
+            sources += [source / 'hal/power.cpp', source / 'hal/native_pins.cpp', source / 'hal/power_inputs_unoq.cpp',
                         NATIVE / 'native_fixture.cc', NATIVE / 'isolation.cc']
         command = [*self.base, '-I', source, *definitions]
         if native:

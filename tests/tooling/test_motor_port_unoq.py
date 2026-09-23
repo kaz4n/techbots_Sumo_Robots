@@ -70,7 +70,7 @@ class NativeMotorPortTests(unittest.TestCase):
         case = 'metadata_cases.cc' if metadata else 'probe_cases.cc' if probe else 'cases.cc'
         command = [*cls.base, f'-DMOTORS_ALLOWED={allowed}', f'-DMATCH={allowed}',
                    *definitions, str(FIXTURE / case), str(FIXTURE / 'native_fixture.cc'),
-                   str(ROOT / 'src/hal/motor_port_unoq.cpp'),
+                   str(ROOT / 'src/hal/motor_port_unoq.cpp'), str(ROOT / 'src/hal/native_pins.cpp'),
                    str(ROOT / 'src/hal/motors.cpp'), *cls.core, str(cls.main),
                    '-Wl,--wrap=malloc,--wrap=calloc,--wrap=realloc,--wrap=free']
         if probe:

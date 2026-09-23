@@ -811,3 +811,7 @@ physical/loadedRAM/gate claim. | contract=this commit
 2026-09-23 23:26 +04 | P2 D105 strict calibration receiver | IMPLEMENTED/HOST-TESTED/REVIEWED: ten frozen tests pass Windows and Linux, separate same-model source review PASS; no config mutation or physical claim; runtime fit remains blocked | commit this entry
 
 | 2026-09-23 23:33 +04 | P2 D105 | Actual Runtime calibration delivery IMPLEMENTED/HOST-TESTED/source review PASS; normal+san1443main/187Gate, independent26cases plus reviewer motors-enabled profile PASS. Exact89-filec05916c6 compiles but modeled loader peak263112 has968B deficit; D106 addresses it. No upload or physical gate. | this implementation commit |
+
+| 2026-09-23 23:44 +04 | P2 D106/D107 | D106 exactd72bff70 all three target profiles compile and fit conditional loader model; full/native/cross-unit tests checked, final review pending. D107 motor-free bench contract/interfaces cd5d784 adopted and implementation/tests active. No upload/human gate. | pending D106 evidence commit |
+
+| 2026-09-23 23:45 +04 | P2 D106 | Final separate source/three-profile target review PASS; exactd72bff70 conditional capacity closes D105-R2. All native/cross-unit checks accounted; original failed invocation evidence retained. No upload or human gate. D107bench implementation/tests active. | this task commit |

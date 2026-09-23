@@ -672,3 +672,8 @@ fits allorderedallocations. Freshindependentreview and fullnormal/san PASS;
 P2_frame_packing_validation.md and targetaudit/review are current evidence.
 Historical D101 report remains its original failing checkpoint. SC-AL stillopen
 for measured loadedRAM/stack/complete800us and future finalimage qualification.
+
+## OPP-VIEW-1: geometric front-channel display ordering (2026-09-23, OPEN)
+B0/HARDWARE3/D076/core frontView define indices0/1/2 as FL15/FC/FR15; D088 matrix contract and ui_display.cpp index0/1 positions as center/left. Consequence: sensor-view geometry can misidentify two channels. Exact references and evidence: P2_opp_view_design.md. Options: A) presentation-only corrected index geometry with explicit decision and literal single-bit regressions; B) defer the geometric view claim. Recommendation A under delegated D051, preserving pin/perception order. Decision needed: scoped correction of D088 presentation and affected unlocked expectations; no wiring or core behavior change. D107 uses an explicitly labeled index strip and does not resolve the production discrepancy.
+
+2026-09-23 D105/D106 SC-AL follow-up: calibration delivery host-reviewed; exactd72bff70 default/Immediate/MATCH loader peaks261688/261688/260056 fit262144 after immutable native-table deduplication. D105-R2 closed within model scope; full-app loadedRAM and complete800us remain physically unmeasured.

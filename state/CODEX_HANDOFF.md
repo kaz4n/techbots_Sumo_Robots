@@ -1,3 +1,27 @@
+## Active checkpoint - 2026-09-23T23:44:00+04:00
+
+P2 software active under D051/D075. D105 actual calibration delivery2eb97cc and
+receiver36ae9bc are host-tested/source-reviewed; original target deficit retained.
+D106 native table deduplication4778ced contract is implemented in working tree;
+exactd72bff70 default/Immediate/MATCH compiled, peaks261688/261688/260056 fit
+262144. Native27+26 methods pass; stale registry invocation22/23 resolved by
+new additive wrapper retaining18old assertions and3negativeprofiles. Finish
+the evidence commit; independent final review PASS closes D105-R2 for these
+exact three profiles. Read
+P2_pin_table_validation.md/review/raw; preserve all failed evidence. No upload.
+
+D107contract/publicinterfaces cd5d784 adopted; worker implements bench/opp_view
+and author owns new independent tests. Read P2_opp_view_contract.md including
+pre-test clarifications. All grants false, no motor owner, upload stillrefused.
+Production geometric UI discrepancy OPP-VIEW-1 is recorded in its design; it
+needs a separate resolution. Next: D107 tests,
+review and compile-only target evidence. No new hardware is needed now.
+
+MCU remains frozen exactD1042bd817c4, verified200001epochs/0misses/269us inner
+maximum. Do not repeat upload or infer full-app/sensors/motors qualification.
+All P0/P1/P2 physical/PINMAP/EXPLAINED/human gates and P3-P7 remain open.
+No push/tag/motor authority. Prior checkpoints below are historical.
+
 ## Active checkpoint - 2026-09-23T23:08:00+04:00
 
 P2 software remains active under D051/D075, user resumed. D103 service reset

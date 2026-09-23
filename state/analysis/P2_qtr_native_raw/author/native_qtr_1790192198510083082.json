@@ -1,0 +1,21 @@
+{
+  "staged_source_manifest": {
+    "/tmp/sumo-native-qtr-9rdllc7l/variant-34/src/config.h": "db11bbeea16d8bd68c9c2cb2db50eef3a61b80bd98c1e1483393620afb570c8e",
+    "/tmp/sumo-native-qtr-9rdllc7l/variant-34/src/hal/line_qtr.h": "a5127bb26470c1a842ed417be6e953706cacbe47a9c64f01f45e1a1da7d52e24",
+    "/tmp/sumo-native-qtr-9rdllc7l/variant-34/src/hal/line_qtr.cpp": "7fc768d4ca050ee19c6a09c7808347240bfb57550cebce3a7d966845cc70a58a",
+    "/tmp/sumo-native-qtr-9rdllc7l/variant-34/src/hal/native_pins.h": "34b4fb42e33ec2232f4574c997d4a701ec5a75efcbb12f37d5040e266c13022c",
+    "/tmp/sumo-native-qtr-9rdllc7l/variant-34/src/hal/native_pins.cpp": "222a95a33995065596ec4a08bc1a4fe925b7743aa2bb7b27c24195230376b008"
+  },
+  "argv": [
+    "/tmp/sumo-native-qtr-9rdllc7l/variant-34/native-qtr",
+    "--no-colors",
+    "--test-case=*signal*"
+  ],
+  "returncode": 1,
+  "stdout": "[doctest] doctest version is \"2.4.12\"\n[doctest] run with \"--help\" for options\n===============================================================================\n/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/native_qtr/isolation_selftest.cc:10:\nTEST CASE:  B2 isolation child signal failure sentinel\n\n/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/native_qtr/isolation.h:22: ERROR: CHECK( (((status) & 0x7f) == 0) ) is NOT correct!\n  values: CHECK( false )\n\n/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/native_qtr/isolation.h:22: ERROR: CHECK( ((((status) & 0x7f) == 0)?(((status) & 0xff00) >> 8):-1)==0 ) is NOT correct!\n  values: CHECK( -1 == 0 )\n\n/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/native_qtr/isolation.h:23: ERROR: CHECK( received==sizeof(observed) ) is NOT correct!\n  values: CHECK( 0 == 8 )\n\nNative isolated child assertions: 0\n===============================================================================\n[doctest] test cases: 1 | 0 passed | 1 failed | 1 skipped\n[doctest] assertions: 6 | 3 passed | 3 failed |\n[doctest] Status: FAILURE!\n",
+  "stderr": "",
+  "capture": "subprocess text=True; newline normalized",
+  "production_sha256": "7fc768d4ca050ee19c6a09c7808347240bfb57550cebce3a7d966845cc70a58a",
+  "public_header_sha256": "a5127bb26470c1a842ed417be6e953706cacbe47a9c64f01f45e1a1da7d52e24",
+  "config_sha256": "db11bbeea16d8bd68c9c2cb2db50eef3a61b80bd98c1e1483393620afb570c8e"
+}

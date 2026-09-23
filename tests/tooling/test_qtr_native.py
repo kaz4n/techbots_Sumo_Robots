@@ -83,7 +83,7 @@ class NativeQtrTests(unittest.TestCase):
         slot.mkdir()
         source = slot / 'src'
         (source / 'hal').mkdir(parents=True)
-        for name in ('line_qtr.cpp', 'line_qtr.h'):
+        for name in ('line_qtr.cpp', 'line_qtr.h', 'native_pins.cpp', 'native_pins.h'):
             shutil.copyfile(ROOT / 'src/hal' / name, source / 'hal' / name)
         shutil.copyfile(ROOT / 'src/config.h', source / 'config.h')
         if edits:
@@ -95,7 +95,8 @@ class NativeQtrTests(unittest.TestCase):
             (source / 'config.h').write_text(config)
         binary = slot / 'native-qtr'
         argv = [*cls.base, '-I', str(source), *definitions, str(FIXTURE / case),
-                str(FIXTURE / 'native_fixture.cc'), str(FIXTURE / 'isolation.cc'), str(source / 'hal/line_qtr.cpp'), str(cls.main),
+                str(FIXTURE / 'native_fixture.cc'), str(FIXTURE / 'isolation.cc'), str(source / 'hal/line_qtr.cpp'),
+                str(source / 'hal/native_pins.cpp'), str(cls.main),
                 '-Wl,--wrap=malloc,--wrap=calloc,--wrap=realloc,--wrap=free']
         if probe:
             shutil.copytree(ROOT / 'src/core', source / 'core')

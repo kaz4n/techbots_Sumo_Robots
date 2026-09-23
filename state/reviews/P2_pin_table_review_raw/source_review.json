@@ -1,0 +1,87 @@
+{
+  "verdict": "PASS_MECHANICAL_SOURCE_AND_TEST_SCOPE",
+  "consumers": [
+    {
+      "path": "src/hal/motor_port_unoq.cpp",
+      "old_sha256": "73e95df12de6ca020fac3df6490bf98dd3623868f577b28a9d8137d04dd0914f",
+      "new_sha256": "04803c88dc51e62dee4c1be15f4c1c8392df01d84893155bc10644cf7afd694a",
+      "mechanical_only": true
+    },
+    {
+      "path": "src/hal/line_qtr.cpp",
+      "old_sha256": "ba6e5a3a2ca02049117f2a8f47896ea43989f2f15cafc37b5bdbcae4d90b10aa",
+      "new_sha256": "7fc768d4ca050ee19c6a09c7808347240bfb57550cebce3a7d966845cc70a58a",
+      "mechanical_only": true
+    },
+    {
+      "path": "src/hal/opp_sensors.cpp",
+      "old_sha256": "68ce44dad67ec3264fba927d8ccf0eebc7d3199ceed2e9b0ace81ad840b53bc1",
+      "new_sha256": "c68f13bf8d3aa41e52f94d7a1af2e8e47216df2e9ec0e5c15d45605d8f033509",
+      "mechanical_only": true
+    },
+    {
+      "path": "src/hal/power.cpp",
+      "old_sha256": "ee5022da57eabeacee174ceae5f299d5955604abc4d2196edf42a4c62adc3f87",
+      "new_sha256": "eae110a771708f9f9f8a7890d943693427c60cc6f0cb083f23a129c516937599",
+      "mechanical_only": true
+    }
+  ],
+  "unchanged_source_files": 84,
+  "new_files": {
+    "src/hal/native_pins.h": "34b4fb42e33ec2232f4574c997d4a701ec5a75efcbb12f37d5040e266c13022c",
+    "src/hal/native_pins.cpp": "222a95a33995065596ec4a08bc1a4fe925b7743aa2bb7b27c24195230376b008",
+    "tests/tooling/test_native_pins.py": "59ef17f29c2bed6deb5bd1da15012fbd5a9101780bb1c19549b1e4e8de4c5e5c"
+  },
+  "legacy_test_modules": [
+    {
+      "path": "tests/tooling/test_motor_port_unoq.py",
+      "before_sha256": "862d3ab0ccf2ae5decfb132dd84e074381aad463939dd9bc1a032e282b2a2fa5",
+      "after_sha256": "71b25cce8042dfcb2cd49b1fe35f0c6f548185fff836f987fa42faba416cd152",
+      "equivalent": true
+    },
+    {
+      "path": "tests/tooling/test_opp_sensors.py",
+      "before_sha256": "c8857b97fcfcb908fb0372dc5fa98754ec4e2fcdc5a6e35ef616024304c9e21b",
+      "after_sha256": "f2a3f932a4e4d8973b555e1c67d36a8a26058a5d647e14bd4d73456d82d0f062",
+      "equivalent": true
+    },
+    {
+      "path": "tests/tooling/test_qtr_native.py",
+      "before_sha256": "bde7c717825ea6f00cab04b85837657785384030a73fba651dee6da91fab5b23",
+      "after_sha256": "30aad8a2d7d8427940ea577337a3c2aab45443176047a58f9022493f3d0438d8",
+      "equivalent": true
+    },
+    {
+      "path": "tests/tooling/test_power_unoq.py",
+      "before_sha256": "9b95243e2acad982f21d6a752ee2a2f2bc6bfaf2dd45feb6c908cffafe81c39a",
+      "after_sha256": "e9834b61871a42f51f4895ffbbbc26e6dc0506b8c361023be3077b4ecb57feb4",
+      "equivalent": true
+    },
+    {
+      "path": "tests/tooling/test_adc_pair_unoq.py",
+      "before_sha256": "02d76c8c64dd411de299890fdfbb973925d76ebea05b9c1dd74e74f7e5124bfe",
+      "after_sha256": "fd75939f277fe47110f7dd0f6b2f6d3e529636963fe81c3f39546205dfeb8ced",
+      "equivalent": true
+    },
+    {
+      "path": "tests/tooling/test_button_decoder.py",
+      "before_sha256": "ed15e7e3e9d0a788959de8d9da972325645a74acb5c17c8316f6f18263aed231",
+      "after_sha256": "40a8f9a81cb6242fbcf2c3d80a57cce07c03070f1c77b1d4643d6a9cfc876aeb",
+      "equivalent": true
+    },
+    {
+      "path": "tests/tooling/test_app_transaction.py",
+      "before_sha256": "daf30e5767afcb38b3749a432dc087baba973c77b4e013ffbe941c41b28d0f58",
+      "after_sha256": "fe104bac99478295663b2ba44997b98b7274eaee6124b24fc8fbea65d3be2dea",
+      "equivalent": true
+    },
+    {
+      "path": "tests/tooling/test_power_inputs.py",
+      "before_sha256": "c2d184aae33ffd4ba1668074b5d6e46d6dcd3445f066e736cd7b2af529642609",
+      "after_sha256": "5d5b787674883b51f3618095f628da5a8404179159ba8e159b1897e95c93f771",
+      "equivalent": true
+    }
+  ],
+  "protected_config_core_locked_tests_unchanged": true,
+  "new_test_correction": "Only missing Arduino.h fixture; all stimuli/assertions unchanged"
+}

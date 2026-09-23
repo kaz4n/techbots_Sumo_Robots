@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "python3",
+    "-c",
+    "\nimport hashlib,json,pathlib,subprocess,sys\ndebug,final=sys.argv[1:]\nprefix='/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-'\nrecords=[]\ndef run(args):\n r=subprocess.run(args,capture_output=True,text=True,timeout=30)\n records.append(dict(argv=args,returncode=r.returncode,stdout=r.stdout,stderr=r.stderr))\nargs=[prefix+'gdb','-nx','-nh','-batch',debug,'-ex','set language c++']\nfor query in ['p sizeof(app::Runtime)','p alignof(app::Runtime)',\n 'p sizeof(app::CalibrationOutputReport)','p sizeof(line_qtr::Thresholds)',\n 'p sizeof(app::SetupGrants)','ptype /o app::Runtime','ptype /o app::CalibrationOutputReport']:\n args+=['-ex',query]\nrun(args)\nfor name in ['_ZN3app7Runtime22writeCalibrationOutputEj',\n '_ZN7qtr_cal12formatConfigERKNS_6ReportEPcjRj',\n '_ZN3app7Runtime24serviceCalibrationOutputEv','_ZN3app7Runtime12postDecisionEv']:\n run([prefix+'objdump','-dr','--disassemble='+name,final])\npaths=[debug,final,prefix+'gdb',prefix+'objdump']\nprint(json.dumps(dict(commands=records,file_sha256={p:hashlib.sha256(pathlib.Path(p).read_bytes()).hexdigest() for p in paths}),indent=2))\n",
+    "/home/arduino/sumox26_codex_build/_app_builds/native-app-v1/d72bff70aa420aab50d4591efe3b267e2581b19623bf829e38d0819462f403a2/bench-default/d63c11aab30e4df7b321419b25749ec9/build/app.ino_debug.elf",
+    "/home/arduino/sumox26_codex_build/_app_builds/native-app-v1/d72bff70aa420aab50d4591efe3b267e2581b19623bf829e38d0819462f403a2/bench-default/d63c11aab30e4df7b321419b25749ec9/build/app.ino.elf"
+  ],
+  "source_sha256": "d72bff70aa420aab50d4591efe3b267e2581b19623bf829e38d0819462f403a2",
+  "start_utc": "2026-09-23T19:35:38.952540+00:00",
+  "scope": "Board Linux files/offline tools only; no MCU/compile/upload/reset",
+  "returncode": 0,
+  "end_utc": "2026-09-23T19:35:39.457070+00:00"
+}

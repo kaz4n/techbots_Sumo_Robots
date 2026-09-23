@@ -1,31 +1,32 @@
 # Resume SumoX-26 with Codex
 
-User resumed; P2software active underD051/D075. Read AGENTS fully, handoff,
-PROGRESS, DECISIONS, FACTS, TUNING_LOG, execution checklist, activeP2 prompt and
-current reviews/conflicts. Verify Git/currentDubai date/schedule; preserve work.
-Latest checkpoint supersedes historical ones; never author a human gate.
+Read AGENTS fully, state/CODEX_HANDOFF.md, PROGRESS, DECISIONS, FACTS,
+TUNING_LOG, CODEX_EXECUTION, open findings/reviews and the active P2 prompt.
+Verify Git, current Asia/Dubai date and schedule; preserve all work. Latest
+checkpoint supersedes historical ones. Never author a human gate.
 
-D103 optional post-STOP service-only reset1b1d77d is implemented/tested/reviewed.
-Fullapp1fbd7238 default/MATCH conditional loader margins1088/696B are narrow.
-Read service_reset validation/contract/targetaudit/review before changing its life.
+P2 software is active under D051/D075. D105 calibration delivery2eb97cc and
+receiver36ae9bc pass independent host/source review. D106 native pin-table
+deduplication resolves its loader deficit: exact91-filed72bff70 default/Immediate/
+MATCH profiles compile and pass separate final review; modeled peaks261688/
+261688/260056 in262144. Read P2_pin_table_validation.md/review/raw; actual loaded
+full-app RAM/WCET remains unmeasured and original failed-fit evidence remains.
 
-D104 no-pin actualRuntime probe1fa2a01 was uploaded once under the user's bare
-board authorization. Exact2bd817c4 achieved200001epochs/0misses over200s;
-maxRuntime269us/maxRunner285us/allinhibited,stablecapturedpoolfree28668B/
-largest25172B/sampledstack30952B. Read runtime_inert validation,run,rawsummary,
-source/target/capture/actualreview. Those are exactprobe observations, not fullapp
-load, fullsensorWCET, historicalstackwatermark or calibratedclock. Board remains
-frozen in D1042bd817c4; no need to reupload or repeat the completed experiment.
+Next active task D107: contract/public interfaces cd5d784 for bench/opp_view.
+Reload P2_opp_view_contract.md (including pre-test clarifications), design,
+worker/test-author state and actual files before resuming first unfinished task.
+No motor owner, all hardware grants false, upload policy remains refused.
+Finish independent tests, real binding/default setup checks, source review and
+exact compile-only target evidence. OPP-VIEW-1 production geometric display
+discrepancy is a separate open finding; do not silently modify its old tests.
+Then continue the remaining named P2 bench software as dependencies permit.
 
-Nexteligible: calibration snippet delivery then namedP2bench software. Read
-analysis/P2_next_software_inventory.md, P2_calibration_delivery_draft.md and
-reviews/P2_calibration_delivery_preflight.md. Draft is not an adopted contract.
-Freeze D105 delegated software choices/public interfaces before independent
-spec-derived tests and implementation. Preserve dualgrants/defaultoff/nonMATCH,
-oneUART/poison/arbitration,actualcommit/receipt identity,strictreceiver and exact
-memory/timing evidence. No config/locked test weakening or invented measurements.
+MCU remains frozen D1042bd817c4 after one reviewed inert run:200001epochs,
+zero misses, maxRuntime269us, all outputs inhibited. This is not full-app or
+sensor/motor qualification. No reason to repeat that upload. Read its exact
+runtime_inert validation/run/actual review if relying on the observation.
 
-P0/P1/P2physical/PINMAP/EXPLAINED/human gates and P3-P7 remainpending. User says
-onlyUNOQconnected; request no extra hardware now. D051 delegates engineering
-choices, not motor authority or physical facts. Commit promptly with evidence;
-no push/tag/history rewrite. Continue first eligible unfinished software task.
+P0/P1/P2 physical/PINMAP/EXPLAINED/human gates and P3-P7 remain pending. User
+has connected only the UNO Q and requests no extra hardware now. D051 delegates
+engineering decisions, not motor permission or physical facts. Commit completed
+tasks promptly; never push/tag, weaken tests or invent measurements/approvals.

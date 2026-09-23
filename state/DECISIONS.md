@@ -1274,3 +1274,15 @@ Consequence: property is CLI-supported but not an official Bridge opt-out; accep
 no speculative saving or fabricated compile. Separate review and explicit future
 build contract/tests required before adoption. No installed edits, capacity change,
 new upload key, MCU operation, physical gate or motor authority.
+
+## D-099 (2026-09-23, selected under D051/D075) Checked app-only dependency policy
+Context: D098 control/candidate evidence1447ec8 proves27452B real saving with
+unchanged app/native/startup paths. Ordinary app build remains RAM-blocked.
+Decision: adopt P2_app_build_contract.md: fixed app-only native-app-v1 compile
+policy, pinned identities, strict successful CLI JSON/properties/zero-library
+checks, fresh policy/mode paths and hashed actual artifacts. Preserve bench
+commands and every upload/motor guard. Test independent expectations first.
+Consequence: bypass is not an official Bridge-disable API; reject drift or any
+external library. Validate all adopted modes on board Linux only, with exact
+source/ELF/startup/import evidence and separate review. No firmware/config change,
+loadedRAM/WCET/physical/gate claim or upload follows.

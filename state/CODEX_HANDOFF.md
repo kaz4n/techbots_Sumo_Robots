@@ -2,38 +2,56 @@
 
 ## Current resume point - 2026-09-23 Asia/Dubai
 
-Goal status: BLOCKED after three unchanged eligibility checks. Original P0/P1
-physical/human acceptance still prevents further phase work under D-016. Latest
-substantive implementation is660eb08; evidence/handoff94504c5. No job is running.
-On resume, reload actual eligibility/evidence; preserve the full unfinished goal.
+Original full-project goal is ACTIVE after user resume. No human phase gate has
+passed. D-068 under D-051 selects narrow offline B8 RAM storage preparation;
+it supersedes only D-016's scheduling exclusion for that track. P0/P1 physical/
+human acceptance and P2 integration gates remain pending. No job is running.
 
-P0 G2 compile-only work is complete: D-067 contractc8e8f55, installed PWM/IRQ
-audits5ad262d, raw-byte preservation54dd976, implementation660eb08. Source
-6578e07a first target compile exit0 at03:22:01+04,80248B/34048B globals. Eight
-independent scoped host tests pass0.573s; fresh separate same-model reviewer
-reproduced8/8 in0.601s and verified all26 source files, retained API bodies,
-ELFs/imports and five init-array entries. PASS/no findings. Read
-analysis/P0_pwm_irq_compile_validation.md and reviews/P0_pwm_irq_compile_codex.md.
-No upload/reset/PWM/IRQ execution or physical claim; current MCU remains inert
-QTR61d7a2d0/default from03:00:13.327+04. No config/locked/board-tool/allowlist change.
-Facts F-086/F-087/F-088 preserve wrapper fallback, timer routing/sharing, hidden
-IRQ errors/detach lifecycle and compile-only limits. Inherited Bridge hook has
-K_FOREVER; this new image is not approved for runtime or upload.
+Completed this continuation: D-069 contract7f446a9/frame storagef733c4e; D-070
+contractd38c0eb/attempt owner193bd33. Fixed latest-frame ring preserves status
+and loss; owner validates START before clearing, preserves last attempt across
+reset, handles one delayed final receipt, duplicates/gaps and token exhaustion.
+No generic clear, invented actual-duty frame, hardware instance or motion effect.
 
-No further required autonomous P0 task was found within the current bare-board
-scope after review. Do not repeat completed source audits, compile probes or
-microbenchmarks to fill time. Exact next acceptance work, when physical checks
-resume, is optical matrix observation and actual cold-start measurement protocol
-in analysis/P0_MEASUREMENTS_TEMPLATE.md: default and Immediate must be genuinely
-cold and identified; preserve the Immediate-matrix restriction. Electrical/pin-map
-verification/PINMAP OK and original fresh gate review/human GATE P0 PASS remain.
-P1 software895 checkpoint is unchanged; EXPLAINED OK/GATE P1 PASS remain human.
-D-016 supplies no P2 HAL authority. No new hardware request, invented measurement,
-phase-gate pass, motor permission or background work. Original P7 is unfinished.
+Actual final HOST-TESTED:969cases/17459867assertions pass normal3.43s and
+ASanUBSan17.31s,0fail/skip. SCRIPT-TESTED:317 controlledchecks pass124.657s.
+25frame and49owner new tests were independently spec/header-derived, no .cpp
+reads; both components have separate fresh same-model PASS reviews and scoped
+runtime reproduction. Initial D-069 fixture compile/config allowlist failures
+were repaired once/preserved; D-070 first source/tests pass. Evidence:
+analysis/P2_frame_buffer_validation.md and P2_attempt_recorder_validation.md,
+raw receipt directories and reviews/P2_*recorder_codex.md/P2_frame_buffer_codex.md.
 
-Full306 tool checks plus prior3 IMU and new8 focused checks are separate runs,
-not a new combined317 suite. Date23September: no schedule cut yet; preserve
-Sep28 scope cut, Sep30 P6 eligibility and Oct1 21:00Dubai freeze.
+SC-AH remains: unchanged50Hz payload292794B exceeds installed262144B LLEXT
+pool before app/metadata. Actual host owner sizeof292968B is not MCU fit. F-089
+and P2_memory_budget_followup_20260923.md establish that Arduino's dynamic
+globals figure includes RAM-loaded text: do not add upload-file bytes again.
+Hypothetical25Hz payload162794B leaves38346B versus prior61004B app estimate
+before new code/metadata/HAL/loader overhead. This is not headroom measurement.
+Reviewer caught one failed readelf receipt; corrected forward-path retry exits0,
+original exit1 remains. No LOG_HZ or other B16 value changed.
+
+Exact next eligible task: resolve SC-AH with a bounded candidate memory design
+contract and isolated compile-only budget evidence before selecting25Hz or
+other representation/placement. Preserve default config until that explicit
+decision; no app runtime integration/transport or loader change is authorized
+by a planning sum. Review source/ELF and actual complete allocation budget;
+physical free-RAM/200s/no-gap/WCET acceptance stays deferred. Do not redo solved
+frame/owner code or earlier P0 measurements. Dump transport/schema/caller and
+other HAL remain unfinished. No source/test worker is still running.
+
+Five existing inert source guards were reviewed/refreshed in193bd33 only:
+matrixd67b1ef7,timing3e83fe67,ADC0efb26c7,GPIOa5fd40d5,QTRa04a716c. Full
+file/hash maps in P2_attempt_inert_manifest_proposal.json. No new upload entry,
+startup exception, actual board command/upload/reset or hardware request. Last
+known uploaded image is earlier inert QTR61d7a2d0/default from03:00:13.327+04.
+
+P0 G2/G6 and bare ADC/GPIO/QTR work remain completed within their limits.
+Original optical/cold-start/electrical acceptance and PINMAP OK remain absent.
+P1 core895 software/actual inert target compile/fresh review remains valid;
+EXPLAINED OK/GATE P1 PASS remain human. Full P2-P7 project is unfinished. No
+STAND OK/RING OK, push, release tag or claimed background work. Date23September:
+no cut due; retain Sep28 cut, Sep30 P6 condition andOct1 21:00Dubai freeze.
 
 ## Prior QTR/G6 resume point — 2026-09-23 Asia/Dubai
 

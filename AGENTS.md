@@ -204,3 +204,6 @@ A1 decoding remains separately unresolved and is not proved by logical tests.
 D-051 delegates remaining engineering choices to Codex without further questions;
 record material choices and tests in DECISIONS.md. This does not manufacture
 physical evidence, human phase gates or specific motor-run authorization.
+D-068 selects narrow offline B8 RAM storage/host-test preparation under D-051;
+D-070 defines its attempt owner. This does not authorize app integration,
+transport, hardware acceptance or a phase pass; retain the explicit RAM blocker.

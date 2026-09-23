@@ -1,35 +1,38 @@
-# D082 checkpoint - active P2 software development, 2026-09-23 Asia/Dubai
+# D083 checkpoint - active P2 software development, 2026-09-23 Asia/Dubai
 
-Actual body-coordinate/continuous-yaw estimator implemented in c1188b1; contract
-00f0cc2. Read P2_imu_heading_contract.md, validation/raw, F104 and the fresh separate
-same-model review P2_imu_heading_review.md. Confirmed proper signed map required;
-no physical map selected. New gyro/accel presence, retained bounded-age heading,
-trapezoidal double integration and future-only bias updates are concrete code.
+Completed actual countdown gyro admission5516bef, contract/interface3c356ec,
+following D082 estimatorc1188b1/evidence06e7d0d. Read P2_calibration_presence_contract
+and validation.md/raw, F105 and the fresh separate same-model review. Explicit
+ABSENT/VALID/INVALID, source times/identity, replay rejection and window admission
+are implemented; LEGACY defaults and old locked assertions are preserved.
 
-Independent author/reviewer22cases/64370assertions pass; six new methods,15config,
-normal/sanitizer focused and inert probe checks pass. Root fullhost2/2 PASS8.01s;
-fullsanitizer2/2 PASS22.61s:1093/22645776 plus37/3796846. Affected existing287tooling
-PASS186.964s;293distinct methods across selected existing/new runs, not a complete
-new all-tooling run. Actual targeta746b27b compiles79060/32208B exit0;48files/3ELFs,
-36native/42math exports and startup checked. Exact5existing inert hashes adopted.
-All jobs finished. Failure/collector repairs and test coverage limits preserved.
+Independent author31cases/2283assertions normal/sanitizer and5tooling methods pass.
+Fresh reviewer94combined new/locked cases/3507334assertions pass both modes, plus
+5new methods and15strictconfig. Root fullhost2/2PASS12.51s; fullsanitizer2/2PASS24.57s,
+1124/22648059 plus37/3796846. Selected existing27tooling plusnew5 pass:32distinct
+scoped checks, not a complete new all-tooling run. Actual compile-only9a7c6432
+79248/31916B exit0;46files/3ELFs/36native+42math exports/startup verified. Exactly5
+existing inert identities reviewed/adopted. All318review snapshot files and6output
+hashes match. Failures/repairs remain in raw evidence. All validation jobs complete.
 
-Next actual B3 work: explicit observation presence and source-time routing using
-P2_imu_heading_raw/next_adapter_audit.md. Start with countdown calibration admission,
-then HeadingReference/Fusion/Robot and recording. Preserve D024 averaging/windows,
-D059 continuous provider yaw/logical GO origin, and legacy public callers/locked
-assertions. NO_NEW must not duplicate gyro or acceleration, reset motion fallback,
-refresh heading history, or skip countdown/button/line/opponent services. Source
-measurement times travel beside event/tick times. Resolve recording presence
-explicitly before integration; zero placeholders must not masquerade as readings.
+Next actual B3 task: extend HeadingReference with explicit heading availability,
+update status and source observation time. Read D059 and
+P2_imu_heading_raw/next_adapter_audit.md; freeze source-time/GO/retained-history
+eligibility before separate code/tests. Preserve old overload/default behavior,
+continuous unreset provider yaw and all locked assertions. Retained usable heading
+must not renew origin/history timestamps or become a new measurement. Then route
+separate gyro/accel/heading evidence through Fusion, Robot and B15 recording before
+app integration. D083 Services alone does not fix those consumers; Robot still
+uses LEGACY and the combined imu_ok field. No cached acceleration impact cues,
+fabricated calibration readings or skipped countdown services.
 
-D051/D075 permit actual P2 software before physical P0/P1 acceptance. No upload,
-reset, MCU/pad/sensor/motor action; last-known image inertQTR61d7a2d0. No PINMAP,
-EXPLAINED, human gate, mounting or physical B3/WCET acceptance. SC-B runtime QTR
-cadence and SC-AJ/F091 global deployment blockers remain. Full P0-P7 goal ACTIVE
-and incomplete. No new hardware questions now. Original Sep28/Sep30/Oct1 schedule
-unchanged. Known boardCLI1.5.1/core1.0.0/USB2629958581; WSLGCC13.3/CMake3.28.3,
-WindowsPython3.13.11/Git2.52.0 observed. Recheck tools as needed, never push/tag.
+D051/D075 permit P2 software before physical acceptance. No upload/reset/MCU/pad/
+sensor/motor action. Last-known image inertQTR61d7a2d0. No physical map, B3/WCET,
+PINMAP/EXPLAINED/human gate or per-run motor permission. SC-B QTR acquisition and
+SC-AJ/F091 global deployment blockers stay open. Full P0-P7 goal ACTIVE/incomplete;
+no more hardware requests now. Original Sep28/Sep30/Oct1 deadlines stand.
+Known boardCLI1.5.1/core1.0.0/USB2629958581, WSLGCC13.3/CMake3.28.3; recheck tools
+as needed. Preserve provenance, make local task commits, never push/tag/rewrite.
 
 --- Earlier handoff preserved below ---
 

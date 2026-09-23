@@ -1,0 +1,1 @@
+python3 tests/tooling/test_calibration_presence.py

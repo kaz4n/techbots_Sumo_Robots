@@ -310,3 +310,10 @@ F103 final regression addendum: existing443tooling PASS678.339s exit0;450distinc
 | ID | Question | Observed answer | Source | Confidence | Hardware-checked |
 |---|---|---|---|---|---|
 | F-104 | Does the concrete axis/yaw estimator distinguish new samples from retained heading? | Implementationc1188b1/contract00f0cc2; independent22cases/64370assertions and6new tooling methods pass. Fullhost/sanitizer2/2 pass,1093main+37enabledGate cases. Selected287existing methods pass;293distinct across scoped runs. Actual sourcea746b27b compile79060/32208B exit0;48files/3ELFs/36native+42math exports/startup checked. | analysis/P2_imu_heading_validation.md/raw; reviews/P2_imu_heading_review.md/raw | HOST-TESTED/TARGET-COMPILED; fresh separate same-model reviewer PASS/no open findings | No upload/MCU/pad/sensor action; map unconfigured, completion-time approximation, no loader/runtime/accuracy/WCET or physical acceptance. SC-AJ/F091 and human gates pending |
+
+
+## D083 explicit countdown gyro admission, 2026-09-23
+
+| ID | Question | Observed answer | Source | Confidence | Hardware-checked |
+|---|---|---|---|---|---|
+| F-105 | Does Services distinguish absence and distinct source observations without changing hold/STOP? | Implementation5516bef,contract3c356ec; new31cases/2283assertions pass normal/sanitizer. Fresh reviewer94new+locked cases/3507334assertions pass both modes. Fullhost2/2PASS12.51s; sanitizer2/2PASS24.57s,1124main+37enabledGate. Selected27existing+5new methods pass. Actual target9a7c6432 compile79248/31916B exit0;46sources/3ELFs/36native+42math exports/startup checked. | analysis/P2_calibration_presence_validation.md/raw; reviews/P2_calibration_presence_review.md/raw | HOST-TESTED/TARGET-COMPILED; fresh separate same-model review PASS/no open findings | No upload/MCU/pad/sensor/motor operation, physical calibration or gate. Services interface implemented; remaining HeadingReference/Fusion/Robot/B15/app integration andSC-AJ/F091 remain pending |

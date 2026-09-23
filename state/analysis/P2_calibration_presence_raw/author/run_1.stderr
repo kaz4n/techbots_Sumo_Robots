@@ -1,0 +1,176 @@
+test_b3_d083_actual_probe_inert_constructors_setup_and10000loops (__main__.CalibrationPresenceTests.test_b3_d083_actual_probe_inert_constructors_setup_and10000loops) ... ok
+test_b3_d083_actual_runtime10000attempts_have_no_allocation_or_clock (__main__.CalibrationPresenceTests.test_b3_d083_actual_runtime10000attempts_have_no_allocation_or_clock) ... ok
+test_b3_d083_all_eight_upload_modes_refuse_before_board_or_transport (__main__.CalibrationPresenceTests.test_b3_d083_all_eight_upload_modes_refuse_before_board_or_transport) ... ok
+test_b3_d083_spec_derived_focused_address_undefined_sanitizers (__main__.CalibrationPresenceTests.test_b3_d083_spec_derived_focused_address_undefined_sanitizers) ... FAIL
+test_b3_d083_spec_derived_focused_host (__main__.CalibrationPresenceTests.test_b3_d083_spec_derived_focused_host) ... FAIL
+
+======================================================================
+FAIL: test_b3_d083_spec_derived_focused_address_undefined_sanitizers (__main__.CalibrationPresenceTests.test_b3_d083_spec_derived_focused_address_undefined_sanitizers)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_calibration_presence.py", line 198, in test_b3_d083_spec_derived_focused_address_undefined_sanitizers
+    self.focused(True)
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_calibration_presence.py", line 188, in focused
+    self.command([*self.base, *flags, '-DDOCTEST_CONFIG_NO_EXCEPTIONS',
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_calibration_presence.py", line 167, in command
+    self.assertEqual(result.returncode, 0, (result.stdout+result.stderr)[:8000])
+AssertionError: 1 != 0 : In file included from /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp:4:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp: In lambda function:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp:44:9: error: static assertion failed: Exceptions are disabled! Use DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS if you want to compile with exceptions disabled.
+   44 |         REQUIRE(services.start(base, OLD_BIAS));
+      |         ^~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp: In constructor ‘{anonymous}::Attempt::Attempt(uint32_t)’:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp:44:9: error: expression cannot be used as a function
+   44 |         REQUIRE(services.start(base, OLD_BIAS));
+      |         ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp: In lambda function:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp:94:5: error: static assertion failed: Exceptions are disabled! Use DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS if you want to compile with exceptions disabled.
+   94 |     REQUIRE(result.gate.start_release);
+      |     ^~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp: In function ‘uint32_t {anonymous}::startLifecycle(countdown::Lifecycle&, uint32_t)’:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp:94:5: error: expression cannot be used as a function
+   94 |     REQUIRE(result.gate.start_release);
+      |     ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp: In function ‘void DOCTEST_ANON_FUNC_4()’:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp:122:68: error: deducing from brace-enclosed initializer list requires ‘#include <initializer_list>’
+    6 | #include <cmath>
+  +++ |+#include <initializer_list>
+    7 | #include <cstdint>
+......
+  122 |                             -std::numeric_limits<float>::infinity()}) {
+      |                                                                    ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp: In function ‘void DOCTEST_ANON_FUNC_17()’:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp:185:42: error: deducing from brace-enclosed initializer list requires ‘#include <initializer_list>’
+  185 |     for (const bool legacy : {false, true}) {
+      |                                          ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp: In function ‘void DOCTEST_ANON_FUNC_19()’:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp:201:51: error: deducing from brace-enclosed initializer list requires ‘#include <initializer_list>’
+  201 |                              GyroPresence::INVALID}) {
+      |                                                   ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp: In function ‘void DOCTEST_ANON_FUNC_21()’:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp:215:51: error: deducing from brace-enclosed initializer list requires ‘#include <initializer_list>’
+  215 |                              GyroPresence::INVALID}) {
+      |                                                   ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp: In function ‘void DOCTEST_ANON_FUNC_33()’:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp:281:71: error: deducing from brace-enclosed initializer list requires ‘#include <initializer_list>’
+  281 |     for (const auto age : {0U, AGE, AGE + 1U, 0xffffffffU, 0x80000000U}) {
+      |                                                                       ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp: In function ‘void DOCTEST_ANON_FUNC_47()’:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp:328:81: error: deducing from brace-enclosed initializer list requires ‘#include <initializer_list>’
+  328 |     for (const auto delta : {1U, 1000000U, 0x7fffffffU, 0x80000000U, 0xffffffffU}) {
+      |                                                                                 ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp: In function ‘void DOCTEST_ANON_FUNC_54()’:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp:348:61: error: deducing from brace-enclosed initializer list requires ‘#include <initializer_list>’
+  348 |     for (const auto source_delta : {0x80000000U, 0x80000001U}) {
+      |                                                             ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp: In function ‘void DOCTEST_ANON_FUNC_58()’:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp:367:67: error: deducing from brace-enclosed initializer list requires ‘#include <initializer_list>’
+  367 |                            -std::numeric_limits<float>::infinity()}) {
+      |                                                                   ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp: In function ‘void DOCTEST_ANON_FUNC_60()’:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp:377:43: error: deducing from brace-enclosed initializer list requires ‘#include <initializer_list>’
+  377 |     for (const bool exceeds : {false, true}) {
+      |                                           ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp: In lambda function:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp:451:9: error: static assertion failed: Exceptions are disabled! Use DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS if you want to compile with exceptions disabled.
+  451 |         REQUIRE(attempt.services.start(0U, OLD_BIAS));
+      |         ^~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp: In function ‘void DOCTEST_ANON_FUNC_66()’:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp:451:9: error: expression cannot be used as a function
+  451 |         REQUIRE(attempt.services.start(0U, OLD_BIAS));
+      |         ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp: In lambda function:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp:455:9: error: static assertion failed: Exceptions are disabled! Use DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS if you want to compile with exceptions disabled.
+  455 |         REQUIRE(attempt.services.start(0U, OLD_BIAS));
+      |         ^~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp: In function ‘void DOCTEST_ANON_FUNC_66()’:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp:455:9: error: expression cannot be used as a function
+  455 |         REQUIRE(attempt.services.start(0U, OL
+
+======================================================================
+FAIL: test_b3_d083_spec_derived_focused_host (__main__.CalibrationPresenceTests.test_b3_d083_spec_derived_focused_host)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_calibration_presence.py", line 195, in test_b3_d083_spec_derived_focused_host
+    self.focused(False)
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_calibration_presence.py", line 188, in focused
+    self.command([*self.base, *flags, '-DDOCTEST_CONFIG_NO_EXCEPTIONS',
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_calibration_presence.py", line 167, in command
+    self.assertEqual(result.returncode, 0, (result.stdout+result.stderr)[:8000])
+AssertionError: 1 != 0 : In file included from /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp:4:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp: In lambda function:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp:44:9: error: static assertion failed: Exceptions are disabled! Use DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS if you want to compile with exceptions disabled.
+   44 |         REQUIRE(services.start(base, OLD_BIAS));
+      |         ^~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp: In constructor ‘{anonymous}::Attempt::Attempt(uint32_t)’:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp:44:9: error: expression cannot be used as a function
+   44 |         REQUIRE(services.start(base, OLD_BIAS));
+      |         ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp: In lambda function:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp:94:5: error: static assertion failed: Exceptions are disabled! Use DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS if you want to compile with exceptions disabled.
+   94 |     REQUIRE(result.gate.start_release);
+      |     ^~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp: In function ‘uint32_t {anonymous}::startLifecycle(countdown::Lifecycle&, uint32_t)’:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp:94:5: error: expression cannot be used as a function
+   94 |     REQUIRE(result.gate.start_release);
+      |     ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp: In function ‘void DOCTEST_ANON_FUNC_4()’:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp:122:68: error: deducing from brace-enclosed initializer list requires ‘#include <initializer_list>’
+    6 | #include <cmath>
+  +++ |+#include <initializer_list>
+    7 | #include <cstdint>
+......
+  122 |                             -std::numeric_limits<float>::infinity()}) {
+      |                                                                    ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp: In function ‘void DOCTEST_ANON_FUNC_17()’:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp:185:42: error: deducing from brace-enclosed initializer list requires ‘#include <initializer_list>’
+  185 |     for (const bool legacy : {false, true}) {
+      |                                          ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp: In function ‘void DOCTEST_ANON_FUNC_19()’:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp:201:51: error: deducing from brace-enclosed initializer list requires ‘#include <initializer_list>’
+  201 |                              GyroPresence::INVALID}) {
+      |                                                   ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp: In function ‘void DOCTEST_ANON_FUNC_21()’:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp:215:51: error: deducing from brace-enclosed initializer list requires ‘#include <initializer_list>’
+  215 |                              GyroPresence::INVALID}) {
+      |                                                   ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp: In function ‘void DOCTEST_ANON_FUNC_33()’:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp:281:71: error: deducing from brace-enclosed initializer list requires ‘#include <initializer_list>’
+  281 |     for (const auto age : {0U, AGE, AGE + 1U, 0xffffffffU, 0x80000000U}) {
+      |                                                                       ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp: In function ‘void DOCTEST_ANON_FUNC_47()’:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp:328:81: error: deducing from brace-enclosed initializer list requires ‘#include <initializer_list>’
+  328 |     for (const auto delta : {1U, 1000000U, 0x7fffffffU, 0x80000000U, 0xffffffffU}) {
+      |                                                                                 ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp: In function ‘void DOCTEST_ANON_FUNC_54()’:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp:348:61: error: deducing from brace-enclosed initializer list requires ‘#include <initializer_list>’
+  348 |     for (const auto source_delta : {0x80000000U, 0x80000001U}) {
+      |                                                             ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp: In function ‘void DOCTEST_ANON_FUNC_58()’:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp:367:67: error: deducing from brace-enclosed initializer list requires ‘#include <initializer_list>’
+  367 |                            -std::numeric_limits<float>::infinity()}) {
+      |                                                                   ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp: In function ‘void DOCTEST_ANON_FUNC_60()’:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp:377:43: error: deducing from brace-enclosed initializer list requires ‘#include <initializer_list>’
+  377 |     for (const bool exceeds : {false, true}) {
+      |                                           ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp: In lambda function:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp:451:9: error: static assertion failed: Exceptions are disabled! Use DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS if you want to compile with exceptions disabled.
+  451 |         REQUIRE(attempt.services.start(0U, OLD_BIAS));
+      |         ^~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp: In function ‘void DOCTEST_ANON_FUNC_66()’:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp:451:9: error: expression cannot be used as a function
+  451 |         REQUIRE(attempt.services.start(0U, OLD_BIAS));
+      |         ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp: In lambda function:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp:455:9: error: static assertion failed: Exceptions are disabled! Use DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS if you want to compile with exceptions disabled.
+  455 |         REQUIRE(attempt.services.start(0U, OLD_BIAS));
+      |         ^~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp: In function ‘void DOCTEST_ANON_FUNC_66()’:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp:455:9: error: expression cannot be used as a function
+  455 |         REQUIRE(attempt.services.start(0U, OL
+
+----------------------------------------------------------------------
+Ran 5 tests in 12.632s
+
+FAILED (failures=2)

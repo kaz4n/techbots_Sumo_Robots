@@ -1,0 +1,1266 @@
+/home/arduino/sumox26_codex_build/9a7c64323e59555b327395c27227d1fa53ca7955a1a08c5a152932335a91ffe1/p2_calibration_compile/artifacts/bench-default/p2_calibration_compile.ino.elf
+00000010 <calibration_probe::exercise()>:
+      10:	b530      	push	{r4, r5, lr}
+      12:	4a0f      	ldr	r2, [pc, #60]	@ (50 <calibration_probe::exercise()+0x40>)
+      14:	b08b      	sub	sp, #44	@ 0x2c
+      16:	6813      	ldr	r3, [r2, #0]
+      18:	a803      	add	r0, sp, #12
+      1a:	3301      	adds	r3, #1
+      1c:	6013      	str	r3, [r2, #0]
+      1e:	2301      	movs	r3, #1
+      20:	9301      	str	r3, [sp, #4]
+      22:	4b0c      	ldr	r3, [pc, #48]	@ (54 <calibration_probe::exercise()+0x44>)
+      24:	4a0c      	ldr	r2, [pc, #48]	@ (58 <calibration_probe::exercise()+0x48>)
+      26:	781b      	ldrb	r3, [r3, #0]
+      28:	490c      	ldr	r1, [pc, #48]	@ (5c <calibration_probe::exercise()+0x4c>)
+      2a:	9300      	str	r3, [sp, #0]
+      2c:	4b0c      	ldr	r3, [pc, #48]	@ (60 <calibration_probe::exercise()+0x50>)
+      2e:	4c0d      	ldr	r4, [pc, #52]	@ (64 <calibration_probe::exercise()+0x54>)
+      30:	ed93 0a00 	vldr	s0, [r3]
+      34:	4b0c      	ldr	r3, [pc, #48]	@ (68 <calibration_probe::exercise()+0x58>)
+      36:	4d0d      	ldr	r5, [pc, #52]	@ (6c <calibration_probe::exercise()+0x5c>)
+      38:	781b      	ldrb	r3, [r3, #0]
+      3a:	47a0      	blx	r4
+      3c:	ac03      	add	r4, sp, #12
+      3e:	cc0f      	ldmia	r4!, {r0, r1, r2, r3}
+      40:	c50f      	stmia	r5!, {r0, r1, r2, r3}
+      42:	e894 0007 	ldmia.w	r4, {r0, r1, r2}
+      46:	c503      	stmia	r5!, {r0, r1}
+      48:	802a      	strh	r2, [r5, #0]
+      4a:	b00b      	add	sp, #44	@ 0x2c
+      4c:	bd30      	pop	{r4, r5, pc}
+      4e:	bf00      	nop
+	...
+
+000000cc <setup>:
+      cc:	4b01      	ldr	r3, [pc, #4]	@ (d4 <setup+0x8>)
+      ce:	4a02      	ldr	r2, [pc, #8]	@ (d8 <setup+0xc>)
+      d0:	601a      	str	r2, [r3, #0]
+      d2:	4770      	bx	lr
+	...
+
+000000dc <loop>:
+      dc:	4770      	bx	lr
+	...
+
+000024ac <__loopHook()>:
+    24ac:	b538      	push	{r3, r4, r5, lr}
+    24ae:	4b0a      	ldr	r3, [pc, #40]	@ (24d8 <__loopHook()+0x2c>)
+    24b0:	4798      	blx	r3
+    24b2:	4c0a      	ldr	r4, [pc, #40]	@ (24dc <__loopHook()+0x30>)
+    24b4:	f04f 33ff 	mov.w	r3, #4294967295	@ 0xffffffff
+    24b8:	f04f 32ff 	mov.w	r2, #4294967295	@ 0xffffffff
+    24bc:	4808      	ldr	r0, [pc, #32]	@ (24e0 <__loopHook()+0x34>)
+    24be:	4909      	ldr	r1, [pc, #36]	@ (24e4 <__loopHook()+0x38>)
+    24c0:	4788      	blx	r1
+    24c2:	f894 5158 	ldrb.w	r5, [r4, #344]	@ 0x158
+    24c6:	4b08      	ldr	r3, [pc, #32]	@ (24e8 <__loopHook()+0x3c>)
+    24c8:	f104 0038 	add.w	r0, r4, #56	@ 0x38
+    24cc:	4798      	blx	r3
+    24ce:	b115      	cbz	r5, 24d6 <__loopHook()+0x2a>
+    24d0:	4620      	mov	r0, r4
+    24d2:	4b06      	ldr	r3, [pc, #24]	@ (24ec <__loopHook()+0x40>)
+    24d4:	4798      	blx	r3
+    24d6:	bd38      	pop	{r3, r4, r5, pc}
+	...
+    24e0:	00000038 	.word	0x00000038
+	...
+
+000024f0 <_GLOBAL__sub_I__ZN17calibration_probe9lifecycleE>:
+    24f0:	4a06      	ldr	r2, [pc, #24]	@ (250c <_GLOBAL__sub_I__ZN17calibration_probe9lifecycleE+0x1c>)
+    24f2:	6813      	ldr	r3, [r2, #0]
+    24f4:	1c59      	adds	r1, r3, #1
+    24f6:	6011      	str	r1, [r2, #0]
+    24f8:	b933      	cbnz	r3, 2508 <_GLOBAL__sub_I__ZN17calibration_probe9lifecycleE+0x18>
+    24fa:	4a05      	ldr	r2, [pc, #20]	@ (2510 <_GLOBAL__sub_I__ZN17calibration_probe9lifecycleE+0x20>)
+    24fc:	4905      	ldr	r1, [pc, #20]	@ (2514 <_GLOBAL__sub_I__ZN17calibration_probe9lifecycleE+0x24>)
+    24fe:	e9c2 3307 	strd	r3, r3, [r2, #28]
+    2502:	6011      	str	r1, [r2, #0]
+    2504:	7613      	strb	r3, [r2, #24]
+    2506:	6253      	str	r3, [r2, #36]	@ 0x24
+    2508:	4770      	bx	lr
+    250a:	bf00      	nop
+	...
+
+00002538 <countdown::Gate::step(unsigned int, countdown::Commands)>:
+    2538:	b537      	push	{r0, r1, r2, r4, r5, lr}
+    253a:	2500      	movs	r5, #0
+    253c:	f413 0f7f 	tst.w	r3, #16711680	@ 0xff0000
+    2540:	e9c0 5500 	strd	r5, r5, [r0]
+    2544:	9301      	str	r3, [sp, #4]
+    2546:	f3c3 2407 	ubfx	r4, r3, #8, #8
+    254a:	f3c3 4507 	ubfx	r5, r3, #16, #8
+    254e:	d00b      	beq.n	2568 <countdown::Gate::step(unsigned int, countdown::Commands)+0x30>
+    2550:	2303      	movs	r3, #3
+    2552:	700b      	strb	r3, [r1, #0]
+    2554:	780b      	ldrb	r3, [r1, #0]
+    2556:	684a      	ldr	r2, [r1, #4]
+    2558:	7003      	strb	r3, [r0, #0]
+    255a:	6042      	str	r2, [r0, #4]
+    255c:	1e9a      	subs	r2, r3, #2
+    255e:	4253      	negs	r3, r2
+    2560:	4153      	adcs	r3, r2
+    2562:	7043      	strb	r3, [r0, #1]
+    2564:	b003      	add	sp, #12
+    2566:	bd30      	pop	{r4, r5, pc}
+    2568:	780b      	ldrb	r3, [r1, #0]
+    256a:	2b01      	cmp	r3, #1
+    256c:	d102      	bne.n	2574 <countdown::Gate::step(unsigned int, countdown::Commands)+0x3c>
+    256e:	b174      	cbz	r4, 258e <countdown::Gate::step(unsigned int, countdown::Commands)+0x56>
+    2570:	700d      	strb	r5, [r1, #0]
+    2572:	e7ef      	b.n	2554 <countdown::Gate::step(unsigned int, countdown::Commands)+0x1c>
+    2574:	2b00      	cmp	r3, #0
+    2576:	d1ed      	bne.n	2554 <countdown::Gate::step(unsigned int, countdown::Commands)+0x1c>
+    2578:	f89d 3004 	ldrb.w	r3, [sp, #4]
+    257c:	2b00      	cmp	r3, #0
+    257e:	d0e9      	beq.n	2554 <countdown::Gate::step(unsigned int, countdown::Commands)+0x1c>
+    2580:	2c00      	cmp	r4, #0
+    2582:	d1e7      	bne.n	2554 <countdown::Gate::step(unsigned int, countdown::Commands)+0x1c>
+    2584:	2301      	movs	r3, #1
+    2586:	604a      	str	r2, [r1, #4]
+    2588:	700b      	strb	r3, [r1, #0]
+    258a:	7083      	strb	r3, [r0, #2]
+    258c:	e7e2      	b.n	2554 <countdown::Gate::step(unsigned int, countdown::Commands)+0x1c>
+    258e:	684c      	ldr	r4, [r1, #4]
+    2590:	1b12      	subs	r2, r2, r4
+    2592:	4c03      	ldr	r4, [pc, #12]	@ (25a0 <countdown::Gate::step(unsigned int, countdown::Commands)+0x68>)
+    2594:	42a2      	cmp	r2, r4
+    2596:	d9dd      	bls.n	2554 <countdown::Gate::step(unsigned int, countdown::Commands)+0x1c>
+    2598:	2202      	movs	r2, #2
+    259a:	70c3      	strb	r3, [r0, #3]
+    259c:	700a      	strb	r2, [r1, #0]
+    259e:	e7d9      	b.n	2554 <countdown::Gate::step(unsigned int, countdown::Commands)+0x1c>
+    25a0:	004dd1df 	.word	0x004dd1df
+
+000025a4 <countdown::Buttons::step(unsigned int, core::ButtonLevel)>:
+    25a4:	b5f0      	push	{r4, r5, r6, r7, lr}
+    25a6:	2400      	movs	r4, #0
+    25a8:	e9c0 4400 	strd	r4, r4, [r0]
+    25ac:	6084      	str	r4, [r0, #8]
+    25ae:	7a0c      	ldrb	r4, [r1, #8]
+    25b0:	b94c      	cbnz	r4, 25c6 <countdown::Buttons::step(unsigned int, core::ButtonLevel)+0x22>
+    25b2:	2401      	movs	r4, #1
+    25b4:	704b      	strb	r3, [r1, #1]
+    25b6:	700b      	strb	r3, [r1, #0]
+    25b8:	fab3 f383 	clz	r3, r3
+    25bc:	720c      	strb	r4, [r1, #8]
+    25be:	604a      	str	r2, [r1, #4]
+    25c0:	095b      	lsrs	r3, r3, #5
+    25c2:	724b      	strb	r3, [r1, #9]
+    25c4:	bdf0      	pop	{r4, r5, r6, r7, pc}
+    25c6:	780c      	ldrb	r4, [r1, #0]
+    25c8:	429c      	cmp	r4, r3
+    25ca:	784c      	ldrb	r4, [r1, #1]
+    25cc:	bf1c      	itt	ne
+    25ce:	700b      	strbne	r3, [r1, #0]
+    25d0:	604a      	strne	r2, [r1, #4]
+    25d2:	429c      	cmp	r4, r3
+    25d4:	d0f6      	beq.n	25c4 <countdown::Buttons::step(unsigned int, core::ButtonLevel)+0x20>
+    25d6:	f644 661f 	movw	r6, #19999	@ 0x4e1f
+    25da:	684d      	ldr	r5, [r1, #4]
+    25dc:	1b57      	subs	r7, r2, r5
+    25de:	42b7      	cmp	r7, r6
+    25e0:	d9f0      	bls.n	25c4 <countdown::Buttons::step(unsigned int, core::ButtonLevel)+0x20>
+    25e2:	e9c0 5201 	strd	r5, r2, [r0, #4]
+    25e6:	704b      	strb	r3, [r1, #1]
+    25e8:	b923      	cbnz	r3, 25f4 <countdown::Buttons::step(unsigned int, core::ButtonLevel)+0x50>
+    25ea:	7a8a      	ldrb	r2, [r1, #10]
+    25ec:	728b      	strb	r3, [r1, #10]
+    25ee:	7002      	strb	r2, [r0, #0]
+    25f0:	2301      	movs	r3, #1
+    25f2:	e7e6      	b.n	25c2 <countdown::Buttons::step(unsigned int, core::ButtonLevel)+0x1e>
+    25f4:	2b01      	cmp	r3, #1
+    25f6:	d103      	bne.n	2600 <countdown::Buttons::step(unsigned int, core::ButtonLevel)+0x5c>
+    25f8:	7a4b      	ldrb	r3, [r1, #9]
+    25fa:	728b      	strb	r3, [r1, #10]
+    25fc:	2300      	movs	r3, #0
+    25fe:	e7e0      	b.n	25c2 <countdown::Buttons::step(unsigned int, core::ButtonLevel)+0x1e>
+    2600:	3c02      	subs	r4, #2
+    2602:	2c01      	cmp	r4, #1
+    2604:	bf94      	ite	ls
+    2606:	2400      	movls	r4, #0
+    2608:	2401      	movhi	r4, #1
+    260a:	2300      	movs	r3, #0
+    260c:	7044      	strb	r4, [r0, #1]
+    260e:	728b      	strb	r3, [r1, #10]
+    2610:	e7d7      	b.n	25c2 <countdown::Buttons::step(unsigned int, core::ButtonLevel)+0x1e>
+	...
+
+00002614 <countdown::StopHold::step(unsigned int, core::ButtonLevel)>:
+    2614:	b570      	push	{r4, r5, r6, lr}
+    2616:	7804      	ldrb	r4, [r0, #0]
+    2618:	6843      	ldr	r3, [r0, #4]
+    261a:	2c03      	cmp	r4, #3
+    261c:	6041      	str	r1, [r0, #4]
+    261e:	d022      	beq.n	2666 <countdown::StopHold::step(unsigned int, core::ButtonLevel)+0x52>
+    2620:	2a03      	cmp	r2, #3
+    2622:	d003      	beq.n	262c <countdown::StopHold::step(unsigned int, core::ButtonLevel)+0x18>
+    2624:	2300      	movs	r3, #0
+    2626:	7003      	strb	r3, [r0, #0]
+    2628:	6083      	str	r3, [r0, #8]
+    262a:	e003      	b.n	2634 <countdown::StopHold::step(unsigned int, core::ButtonLevel)+0x20>
+    262c:	b924      	cbnz	r4, 2638 <countdown::StopHold::step(unsigned int, core::ButtonLevel)+0x24>
+    262e:	2301      	movs	r3, #1
+    2630:	6084      	str	r4, [r0, #8]
+    2632:	7003      	strb	r3, [r0, #0]
+    2634:	2000      	movs	r0, #0
+    2636:	bd70      	pop	{r4, r5, r6, pc}
+    2638:	f644 6620 	movw	r6, #20000	@ 0x4e20
+    263c:	4d0b      	ldr	r5, [pc, #44]	@ (266c <countdown::StopHold::step(unsigned int, core::ButtonLevel)+0x58>)
+    263e:	1ac9      	subs	r1, r1, r3
+    2640:	2c01      	cmp	r4, #1
+    2642:	bf18      	it	ne
+    2644:	462e      	movne	r6, r5
+    2646:	2500      	movs	r5, #0
+    2648:	6883      	ldr	r3, [r0, #8]
+    264a:	185b      	adds	r3, r3, r1
+    264c:	eb45 0105 	adc.w	r1, r5, r5
+    2650:	42b3      	cmp	r3, r6
+    2652:	f171 0100 	sbcs.w	r1, r1, #0
+    2656:	d3e7      	bcc.n	2628 <countdown::StopHold::step(unsigned int, core::ButtonLevel)+0x14>
+    2658:	2c01      	cmp	r4, #1
+    265a:	6085      	str	r5, [r0, #8]
+    265c:	d102      	bne.n	2664 <countdown::StopHold::step(unsigned int, core::ButtonLevel)+0x50>
+    265e:	2302      	movs	r3, #2
+    2660:	7003      	strb	r3, [r0, #0]
+    2662:	e7e7      	b.n	2634 <countdown::StopHold::step(unsigned int, core::ButtonLevel)+0x20>
+    2664:	7002      	strb	r2, [r0, #0]
+    2666:	2001      	movs	r0, #1
+    2668:	e7e5      	b.n	2636 <countdown::StopHold::step(unsigned int, core::ButtonLevel)+0x22>
+    266a:	bf00      	nop
+    266c:	000f4240 	.word	0x000f4240
+
+00002670 <countdown::Controller::step(core::Inputs const&, bool, bool)>:
+    2670:	e92d 43f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, lr}
+    2674:	460c      	mov	r4, r1
+    2676:	4615      	mov	r5, r2
+    2678:	b087      	sub	sp, #28
+    267a:	310c      	adds	r1, #12
+    267c:	4606      	mov	r6, r0
+    267e:	461f      	mov	r7, r3
+    2680:	4668      	mov	r0, sp
+    2682:	f892 3034 	ldrb.w	r3, [r2, #52]	@ 0x34
+    2686:	f8df 905c 	ldr.w	r9, [pc, #92]	@ 26e4 <countdown::Controller::step(core::Inputs const&, bool, bool)+0x74>
+    268a:	6812      	ldr	r2, [r2, #0]
+    268c:	f89d 8038 	ldrb.w	r8, [sp, #56]	@ 0x38
+    2690:	47c8      	blx	r9
+    2692:	e89d 0007 	ldmia.w	sp, {r0, r1, r2}
+    2696:	f104 0320 	add.w	r3, r4, #32
+    269a:	e883 0007 	stmia.w	r3, {r0, r1, r2}
+    269e:	4620      	mov	r0, r4
+    26a0:	f895 2034 	ldrb.w	r2, [r5, #52]	@ 0x34
+    26a4:	6829      	ldr	r1, [r5, #0]
+    26a6:	4b0d      	ldr	r3, [pc, #52]	@ (26dc <countdown::Controller::step(core::Inputs const&, bool, bool)+0x6c>)
+    26a8:	4798      	blx	r3
+    26aa:	682a      	ldr	r2, [r5, #0]
+    26ac:	f104 0118 	add.w	r1, r4, #24
+    26b0:	f1b8 0f00 	cmp.w	r8, #0
+    26b4:	d001      	beq.n	26ba <countdown::Controller::step(core::Inputs const&, bool, bool)+0x4a>
+    26b6:	f894 8020 	ldrb.w	r8, [r4, #32]
+    26ba:	f894 3021 	ldrb.w	r3, [r4, #33]	@ 0x21
+    26be:	f88d 8014 	strb.w	r8, [sp, #20]
+    26c2:	f88d 3015 	strb.w	r3, [sp, #21]
+    26c6:	ea40 0307 	orr.w	r3, r0, r7
+    26ca:	f88d 3016 	strb.w	r3, [sp, #22]
+    26ce:	4630      	mov	r0, r6
+    26d0:	9b05      	ldr	r3, [sp, #20]
+    26d2:	4c03      	ldr	r4, [pc, #12]	@ (26e0 <countdown::Controller::step(core::Inputs const&, bool, bool)+0x70>)
+    26d4:	47a0      	blx	r4
+    26d6:	b007      	add	sp, #28
+    26d8:	e8bd 83f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, pc}
+	...
+
+000026e8 <countdown::Services::admitExplicitGyro(countdown::ServiceSample const&)>:
+    26e8:	b570      	push	{r4, r5, r6, lr}
+    26ea:	edd1 7a01 	vldr	s15, [r1, #4]
+    26ee:	ed9f 7a24 	vldr	s14, [pc, #144]	@ 2780 <countdown::Services::admitExplicitGyro(countdown::ServiceSample const&)+0x98>
+    26f2:	eef0 6ae7 	vabs.f32	s13, s15
+    26f6:	eef4 6a47 	vcmp.f32	s13, s14
+    26fa:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+    26fe:	d835      	bhi.n	276c <countdown::Services::admitExplicitGyro(countdown::ServiceSample const&)+0x84>
+    2700:	68cb      	ldr	r3, [r1, #12]
+    2702:	680c      	ldr	r4, [r1, #0]
+    2704:	1ae4      	subs	r4, r4, r3
+    2706:	f5b4 6ffa 	cmp.w	r4, #2000	@ 0x7d0
+    270a:	d82f      	bhi.n	276c <countdown::Services::admitExplicitGyro(countdown::ServiceSample const&)+0x84>
+    270c:	f890 203b 	ldrb.w	r2, [r0, #59]	@ 0x3b
+    2710:	b9ea      	cbnz	r2, 274e <countdown::Services::admitExplicitGyro(countdown::ServiceSample const&)+0x66>
+    2712:	2301      	movs	r3, #1
+    2714:	f880 303b 	strb.w	r3, [r0, #59]	@ 0x3b
+    2718:	68cb      	ldr	r3, [r1, #12]
+    271a:	63c3      	str	r3, [r0, #60]	@ 0x3c
+    271c:	690b      	ldr	r3, [r1, #16]
+    271e:	6403      	str	r3, [r0, #64]	@ 0x40
+    2720:	684b      	ldr	r3, [r1, #4]
+    2722:	6443      	str	r3, [r0, #68]	@ 0x44
+    2724:	e9d0 3206 	ldrd	r3, r2, [r0, #24]
+    2728:	42a3      	cmp	r3, r4
+    272a:	f172 0100 	sbcs.w	r1, r2, #0
+    272e:	d320      	bcc.n	2772 <countdown::Services::admitExplicitGyro(countdown::ServiceSample const&)+0x8a>
+    2730:	4914      	ldr	r1, [pc, #80]	@ (2784 <countdown::Services::admitExplicitGyro(countdown::ServiceSample const&)+0x9c>)
+    2732:	185b      	adds	r3, r3, r1
+    2734:	4914      	ldr	r1, [pc, #80]	@ (2788 <countdown::Services::admitExplicitGyro(countdown::ServiceSample const&)+0xa0>)
+    2736:	f162 0200 	sbc.w	r2, r2, #0
+    273a:	1b1b      	subs	r3, r3, r4
+    273c:	f162 0200 	sbc.w	r2, r2, #0
+    2740:	428b      	cmp	r3, r1
+    2742:	f172 0200 	sbcs.w	r2, r2, #0
+    2746:	bf34      	ite	cc
+    2748:	2001      	movcc	r0, #1
+    274a:	2000      	movcs	r0, #0
+    274c:	e012      	b.n	2774 <countdown::Services::admitExplicitGyro(countdown::ServiceSample const&)+0x8c>
+    274e:	6bc5      	ldr	r5, [r0, #60]	@ 0x3c
+    2750:	690a      	ldr	r2, [r1, #16]
+    2752:	6c06      	ldr	r6, [r0, #64]	@ 0x40
+    2754:	1b5b      	subs	r3, r3, r5
+    2756:	eba2 0206 	sub.w	r2, r2, r6
+    275a:	d10c      	bne.n	2776 <countdown::Services::admitExplicitGyro(countdown::ServiceSample const&)+0x8e>
+    275c:	b932      	cbnz	r2, 276c <countdown::Services::admitExplicitGyro(countdown::ServiceSample const&)+0x84>
+    275e:	ed90 7a11 	vldr	s14, [r0, #68]	@ 0x44
+    2762:	eef4 7a47 	vcmp.f32	s15, s14
+    2766:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+    276a:	d002      	beq.n	2772 <countdown::Services::admitExplicitGyro(countdown::ServiceSample const&)+0x8a>
+    276c:	2301      	movs	r3, #1
+    276e:	f880 3038 	strb.w	r3, [r0, #56]	@ 0x38
+    2772:	2000      	movs	r0, #0
+    2774:	bd70      	pop	{r4, r5, r6, pc}
+    2776:	2a00      	cmp	r2, #0
+    2778:	ddf8      	ble.n	276c <countdown::Services::admitExplicitGyro(countdown::ServiceSample const&)+0x84>
+    277a:	2b00      	cmp	r3, #0
+    277c:	dac9      	bge.n	2712 <countdown::Services::admitExplicitGyro(countdown::ServiceSample const&)+0x2a>
+    277e:	e7f5      	b.n	276c <countdown::Services::admitExplicitGyro(countdown::ServiceSample const&)+0x84>
+    2780:	7f7fffff 	.word	0x7f7fffff
+    2784:	ffe91ca0 	.word	0xffe91ca0
+    2788:	002dc6c0 	.word	0x002dc6c0
+
+0000278c <countdown::Services::admitGyro(countdown::ServiceSample const&)>:
+    278c:	7acb      	ldrb	r3, [r1, #11]
+    278e:	b14b      	cbz	r3, 27a4 <countdown::Services::admitGyro(countdown::ServiceSample const&)+0x18>
+    2790:	3b01      	subs	r3, #1
+    2792:	2b02      	cmp	r3, #2
+    2794:	f04f 0301 	mov.w	r3, #1
+    2798:	d904      	bls.n	27a4 <countdown::Services::admitGyro(countdown::ServiceSample const&)+0x18>
+    279a:	f880 3038 	strb.w	r3, [r0, #56]	@ 0x38
+    279e:	2300      	movs	r3, #0
+    27a0:	4618      	mov	r0, r3
+    27a2:	4770      	bx	lr
+    27a4:	f890 2039 	ldrb.w	r2, [r0, #57]	@ 0x39
+    27a8:	b12a      	cbz	r2, 27b6 <countdown::Services::admitGyro(countdown::ServiceSample const&)+0x2a>
+    27aa:	f890 203a 	ldrb.w	r2, [r0, #58]	@ 0x3a
+    27ae:	429a      	cmp	r2, r3
+    27b0:	d001      	beq.n	27b6 <countdown::Services::admitGyro(countdown::ServiceSample const&)+0x2a>
+    27b2:	2301      	movs	r3, #1
+    27b4:	e7f1      	b.n	279a <countdown::Services::admitGyro(countdown::ServiceSample const&)+0xe>
+    27b6:	2201      	movs	r2, #1
+    27b8:	f880 303a 	strb.w	r3, [r0, #58]	@ 0x3a
+    27bc:	f880 2039 	strb.w	r2, [r0, #57]	@ 0x39
+    27c0:	b973      	cbnz	r3, 27e0 <countdown::Services::admitGyro(countdown::ServiceSample const&)+0x54>
+    27c2:	7a0b      	ldrb	r3, [r1, #8]
+    27c4:	2b00      	cmp	r3, #0
+    27c6:	d0f4      	beq.n	27b2 <countdown::Services::admitGyro(countdown::ServiceSample const&)+0x26>
+    27c8:	edd1 7a01 	vldr	s15, [r1, #4]
+    27cc:	ed9f 7a08 	vldr	s14, [pc, #32]	@ 27f0 <countdown::Services::admitGyro(countdown::ServiceSample const&)+0x64>
+    27d0:	eef0 7ae7 	vabs.f32	s15, s15
+    27d4:	eef4 7a47 	vcmp.f32	s15, s14
+    27d8:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+    27dc:	d8e9      	bhi.n	27b2 <countdown::Services::admitGyro(countdown::ServiceSample const&)+0x26>
+    27de:	e7df      	b.n	27a0 <countdown::Services::admitGyro(countdown::ServiceSample const&)+0x14>
+    27e0:	7acb      	ldrb	r3, [r1, #11]
+    27e2:	2b01      	cmp	r3, #1
+    27e4:	d0db      	beq.n	279e <countdown::Services::admitGyro(countdown::ServiceSample const&)+0x12>
+    27e6:	2b03      	cmp	r3, #3
+    27e8:	d0e3      	beq.n	27b2 <countdown::Services::admitGyro(countdown::ServiceSample const&)+0x26>
+    27ea:	4b02      	ldr	r3, [pc, #8]	@ (27f4 <countdown::Services::admitGyro(countdown::ServiceSample const&)+0x68>)
+    27ec:	4718      	bx	r3
+    27ee:	bf00      	nop
+    27f0:	7f7fffff 	.word	0x7f7fffff
+    27f4:	00000000 	.word	0x00000000
+
+000027f8 <countdown::Services::observeCalibration(countdown::ServiceSample const&)>:
+    27f8:	e92d 47f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
+    27fc:	4b1b      	ldr	r3, [pc, #108]	@ (286c <countdown::Services::observeCalibration(countdown::ServiceSample const&)+0x74>)
+    27fe:	4604      	mov	r4, r0
+    2800:	460d      	mov	r5, r1
+    2802:	4798      	blx	r3
+    2804:	b1a0      	cbz	r0, 2830 <countdown::Services::observeCalibration(countdown::ServiceSample const&)+0x38>
+    2806:	6868      	ldr	r0, [r5, #4]
+    2808:	4b19      	ldr	r3, [pc, #100]	@ (2870 <countdown::Services::observeCalibration(countdown::ServiceSample const&)+0x78>)
+    280a:	4798      	blx	r3
+    280c:	6865      	ldr	r5, [r4, #4]
+    280e:	4606      	mov	r6, r0
+    2810:	460f      	mov	r7, r1
+    2812:	b97d      	cbnz	r5, 2834 <countdown::Services::observeCalibration(countdown::ServiceSample const&)+0x3c>
+    2814:	e9c4 670c 	strd	r6, r7, [r4, #48]	@ 0x30
+    2818:	e9c4 670a 	strd	r6, r7, [r4, #40]	@ 0x28
+    281c:	e9d4 0108 	ldrd	r0, r1, [r4, #32]
+    2820:	4632      	mov	r2, r6
+    2822:	463b      	mov	r3, r7
+    2824:	4e13      	ldr	r6, [pc, #76]	@ (2874 <countdown::Services::observeCalibration(countdown::ServiceSample const&)+0x7c>)
+    2826:	47b0      	blx	r6
+    2828:	e9c4 0108 	strd	r0, r1, [r4, #32]
+    282c:	3501      	adds	r5, #1
+    282e:	6065      	str	r5, [r4, #4]
+    2830:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
+    2834:	e9d4 890a 	ldrd	r8, r9, [r4, #40]	@ 0x28
+    2838:	f8df a03c 	ldr.w	sl, [pc, #60]	@ 2878 <countdown::Services::observeCalibration(countdown::ServiceSample const&)+0x80>
+    283c:	4642      	mov	r2, r8
+    283e:	464b      	mov	r3, r9
+    2840:	47d0      	blx	sl
+    2842:	b108      	cbz	r0, 2848 <countdown::Services::observeCalibration(countdown::ServiceSample const&)+0x50>
+    2844:	46b0      	mov	r8, r6
+    2846:	46b9      	mov	r9, r7
+    2848:	e9c4 890a 	strd	r8, r9, [r4, #40]	@ 0x28
+    284c:	e9d4 890c 	ldrd	r8, r9, [r4, #48]	@ 0x30
+    2850:	4630      	mov	r0, r6
+    2852:	4642      	mov	r2, r8
+    2854:	464b      	mov	r3, r9
+    2856:	4639      	mov	r1, r7
+    2858:	f8df a020 	ldr.w	sl, [pc, #32]	@ 287c <countdown::Services::observeCalibration(countdown::ServiceSample const&)+0x84>
+    285c:	47d0      	blx	sl
+    285e:	b108      	cbz	r0, 2864 <countdown::Services::observeCalibration(countdown::ServiceSample const&)+0x6c>
+    2860:	46b0      	mov	r8, r6
+    2862:	46b9      	mov	r9, r7
+    2864:	e9c4 890c 	strd	r8, r9, [r4, #48]	@ 0x30
+    2868:	e7d8      	b.n	281c <countdown::Services::observeCalibration(countdown::ServiceSample const&)+0x24>
+    286a:	bf00      	nop
+	...
+
+00002880 <countdown::Services::finishCalibration()>:
+    2880:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+    2882:	f890 5038 	ldrb.w	r5, [r0, #56]	@ 0x38
+    2886:	4604      	mov	r4, r0
+    2888:	bb05      	cbnz	r5, 28cc <countdown::Services::finishCalibration()+0x4c>
+    288a:	6846      	ldr	r6, [r0, #4]
+    288c:	2e01      	cmp	r6, #1
+    288e:	d918      	bls.n	28c2 <countdown::Services::finishCalibration()+0x42>
+    2890:	e9d0 230a 	ldrd	r2, r3, [r0, #40]	@ 0x28
+    2894:	e9d0 010c 	ldrd	r0, r1, [r0, #48]	@ 0x30
+    2898:	4f0d      	ldr	r7, [pc, #52]	@ (28d0 <countdown::Services::finishCalibration()+0x50>)
+    289a:	47b8      	blx	r7
+    289c:	2200      	movs	r2, #0
+    289e:	f04f 4380 	mov.w	r3, #1073741824	@ 0x40000000
+    28a2:	4f0c      	ldr	r7, [pc, #48]	@ (28d4 <countdown::Services::finishCalibration()+0x54>)
+    28a4:	47b8      	blx	r7
+    28a6:	b160      	cbz	r0, 28c2 <countdown::Services::finishCalibration()+0x42>
+    28a8:	4b0b      	ldr	r3, [pc, #44]	@ (28d8 <countdown::Services::finishCalibration()+0x58>)
+    28aa:	4630      	mov	r0, r6
+    28ac:	4798      	blx	r3
+    28ae:	4d0b      	ldr	r5, [pc, #44]	@ (28dc <countdown::Services::finishCalibration()+0x5c>)
+    28b0:	4602      	mov	r2, r0
+    28b2:	460b      	mov	r3, r1
+    28b4:	e9d4 0108 	ldrd	r0, r1, [r4, #32]
+    28b8:	47a8      	blx	r5
+    28ba:	4b09      	ldr	r3, [pc, #36]	@ (28e0 <countdown::Services::finishCalibration()+0x60>)
+    28bc:	4798      	blx	r3
+    28be:	2501      	movs	r5, #1
+    28c0:	6020      	str	r0, [r4, #0]
+    28c2:	2301      	movs	r3, #1
+    28c4:	405d      	eors	r5, r3
+    28c6:	7223      	strb	r3, [r4, #8]
+    28c8:	7265      	strb	r5, [r4, #9]
+    28ca:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+    28cc:	2500      	movs	r5, #0
+    28ce:	e7f8      	b.n	28c2 <countdown::Services::finishCalibration()+0x42>
+	...
+
+000028e4 <countdown::Services::step(countdown::ServiceSample const&)>:
+    28e4:	e92d 43f8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
+    28e8:	7b0b      	ldrb	r3, [r1, #12]
+    28ea:	4607      	mov	r7, r0
+    28ec:	460c      	mov	r4, r1
+    28ee:	4691      	mov	r9, r2
+    28f0:	2b00      	cmp	r3, #0
+    28f2:	d04a      	beq.n	298a <countdown::Services::step(countdown::ServiceSample const&)+0xa6>
+    28f4:	6813      	ldr	r3, [r2, #0]
+    28f6:	690d      	ldr	r5, [r1, #16]
+    28f8:	1b5d      	subs	r5, r3, r5
+    28fa:	d046      	beq.n	298a <countdown::Services::step(countdown::ServiceSample const&)+0xa6>
+    28fc:	610b      	str	r3, [r1, #16]
+    28fe:	f891 8008 	ldrb.w	r8, [r1, #8]
+    2902:	e9d1 3606 	ldrd	r3, r6, [r1, #24]
+    2906:	18ed      	adds	r5, r5, r3
+    2908:	f146 0600 	adc.w	r6, r6, #0
+    290c:	e9c1 5606 	strd	r5, r6, [r1, #24]
+    2910:	f1b8 0f00 	cmp.w	r8, #0
+    2914:	d130      	bne.n	2978 <countdown::Services::step(countdown::ServiceSample const&)+0x94>
+    2916:	4b20      	ldr	r3, [pc, #128]	@ (2998 <countdown::Services::step(countdown::ServiceSample const&)+0xb4>)
+    2918:	42ab      	cmp	r3, r5
+    291a:	eb78 0306 	sbcs.w	r3, r8, r6
+    291e:	d21b      	bcs.n	2958 <countdown::Services::step(countdown::ServiceSample const&)+0x74>
+    2920:	4b1e      	ldr	r3, [pc, #120]	@ (299c <countdown::Services::step(countdown::ServiceSample const&)+0xb8>)
+    2922:	4608      	mov	r0, r1
+    2924:	4798      	blx	r3
+    2926:	4b1e      	ldr	r3, [pc, #120]	@ (29a0 <countdown::Services::step(countdown::ServiceSample const&)+0xbc>)
+    2928:	42ab      	cmp	r3, r5
+    292a:	eb78 0806 	sbcs.w	r8, r8, r6
+    292e:	d329      	bcc.n	2984 <countdown::Services::step(countdown::ServiceSample const&)+0xa0>
+    2930:	7aa3      	ldrb	r3, [r4, #10]
+    2932:	b92b      	cbnz	r3, 2940 <countdown::Services::step(countdown::ServiceSample const&)+0x5c>
+    2934:	f899 3009 	ldrb.w	r3, [r9, #9]
+    2938:	f013 030f 	ands.w	r3, r3, #15
+    293c:	bf18      	it	ne
+    293e:	2301      	movne	r3, #1
+    2940:	72a3      	strb	r3, [r4, #10]
+    2942:	4b18      	ldr	r3, [pc, #96]	@ (29a4 <countdown::Services::step(countdown::ServiceSample const&)+0xc0>)
+    2944:	429d      	cmp	r5, r3
+    2946:	f176 0600 	sbcs.w	r6, r6, #0
+    294a:	bf22      	ittt	cs
+    294c:	f899 300a 	ldrbcs.w	r3, [r9, #10]
+    2950:	f003 037f 	andcs.w	r3, r3, #127	@ 0x7f
+    2954:	72e3      	strbcs	r3, [r4, #11]
+    2956:	e018      	b.n	298a <countdown::Services::step(countdown::ServiceSample const&)+0xa6>
+    2958:	4b13      	ldr	r3, [pc, #76]	@ (29a8 <countdown::Services::step(countdown::ServiceSample const&)+0xc4>)
+    295a:	42ab      	cmp	r3, r5
+    295c:	eb78 0806 	sbcs.w	r8, r8, r6
+    2960:	d213      	bcs.n	298a <countdown::Services::step(countdown::ServiceSample const&)+0xa6>
+    2962:	4611      	mov	r1, r2
+    2964:	4620      	mov	r0, r4
+    2966:	4b11      	ldr	r3, [pc, #68]	@ (29ac <countdown::Services::step(countdown::ServiceSample const&)+0xc8>)
+    2968:	4798      	blx	r3
+    296a:	4b11      	ldr	r3, [pc, #68]	@ (29b0 <countdown::Services::step(countdown::ServiceSample const&)+0xcc>)
+    296c:	42ab      	cmp	r3, r5
+    296e:	f04f 0300 	mov.w	r3, #0
+    2972:	41b3      	sbcs	r3, r6
+    2974:	d3dc      	bcc.n	2930 <countdown::Services::step(countdown::ServiceSample const&)+0x4c>
+    2976:	e008      	b.n	298a <countdown::Services::step(countdown::ServiceSample const&)+0xa6>
+    2978:	4b09      	ldr	r3, [pc, #36]	@ (29a0 <countdown::Services::step(countdown::ServiceSample const&)+0xbc>)
+    297a:	42ab      	cmp	r3, r5
+    297c:	f04f 0300 	mov.w	r3, #0
+    2980:	41b3      	sbcs	r3, r6
+    2982:	d2f2      	bcs.n	296a <countdown::Services::step(countdown::ServiceSample const&)+0x86>
+    2984:	f44f 7380 	mov.w	r3, #256	@ 0x100
+    2988:	81a3      	strh	r3, [r4, #12]
+    298a:	e894 000f 	ldmia.w	r4, {r0, r1, r2, r3}
+    298e:	e887 000f 	stmia.w	r7, {r0, r1, r2, r3}
+    2992:	4638      	mov	r0, r7
+    2994:	e8bd 83f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
+    2998:	0044aa1f 	.word	0x0044aa1f
+    299c:	00000000 	.word	0x00000000
+    29a0:	004dd1df 	.word	0x004dd1df
+    29a4:	00493e00 	.word	0x00493e00
+    29a8:	0016e35f 	.word	0x0016e35f
+    29ac:	00000000 	.word	0x00000000
+    29b0:	003e8f9f 	.word	0x003e8f9f
+
+000029b4 <countdown::Services::reset()>:
+    29b4:	b508      	push	{r3, lr}
+    29b6:	2248      	movs	r2, #72	@ 0x48
+    29b8:	2100      	movs	r1, #0
+    29ba:	4b01      	ldr	r3, [pc, #4]	@ (29c0 <countdown::Services::reset()+0xc>)
+    29bc:	4798      	blx	r3
+    29be:	bd08      	pop	{r3, pc}
+    29c0:	00000000 	.word	0x00000000
+
+000029c4 <countdown::Services::start(unsigned int, float)>:
+    29c4:	b538      	push	{r3, r4, r5, lr}
+    29c6:	ed2d 8b02 	vpush	{d8}
+    29ca:	eeb0 8a40 	vmov.f32	s16, s0
+    29ce:	4b0c      	ldr	r3, [pc, #48]	@ (2a00 <countdown::Services::start(unsigned int, float)+0x3c>)
+    29d0:	4604      	mov	r4, r0
+    29d2:	460d      	mov	r5, r1
+    29d4:	4798      	blx	r3
+    29d6:	eeb0 7ac8 	vabs.f32	s14, s16
+    29da:	eddf 7a0a 	vldr	s15, [pc, #40]	@ 2a04 <countdown::Services::start(unsigned int, float)+0x40>
+    29de:	eeb4 7a67 	vcmp.f32	s14, s15
+    29e2:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+    29e6:	f04f 0001 	mov.w	r0, #1
+    29ea:	bf97      	itett	ls
+    29ec:	ed84 8a00 	vstrls	s16, [r4]
+    29f0:	7260      	strbhi	r0, [r4, #9]
+    29f2:	6125      	strls	r5, [r4, #16]
+    29f4:	7320      	strbls	r0, [r4, #12]
+    29f6:	bf88      	it	hi
+    29f8:	2000      	movhi	r0, #0
+    29fa:	ecbd 8b02 	vpop	{d8}
+    29fe:	bd38      	pop	{r3, r4, r5, pc}
+    2a00:	00000000 	.word	0x00000000
+    2a04:	7f7fffff 	.word	0x7f7fffff
+
+00002a08 <countdown::Services::cancel()>:
+    2a08:	b538      	push	{r3, r4, r5, lr}
+    2a0a:	4604      	mov	r4, r0
+    2a0c:	6805      	ldr	r5, [r0, #0]
+    2a0e:	4b02      	ldr	r3, [pc, #8]	@ (2a18 <countdown::Services::cancel()+0x10>)
+    2a10:	4798      	blx	r3
+    2a12:	6025      	str	r5, [r4, #0]
+    2a14:	bd38      	pop	{r3, r4, r5, pc}
+    2a16:	bf00      	nop
+    2a18:	00000000 	.word	0x00000000
+
+00002a1c <countdown::Lifecycle::step(countdown::ServiceSample const&, core::ButtonLevel, float, bool, bool)>:
+    2a1c:	e92d 43f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, lr}
+    2a20:	ed2d 8b02 	vpush	{d8}
+    2a24:	4604      	mov	r4, r0
+    2a26:	461e      	mov	r6, r3
+    2a28:	4690      	mov	r8, r2
+    2a2a:	460d      	mov	r5, r1
+    2a2c:	b095      	sub	sp, #84	@ 0x54
+    2a2e:	4f2a      	ldr	r7, [pc, #168]	@ (2ad8 <countdown::Lifecycle::step(countdown::ServiceSample const&, core::ButtonLevel, float, bool, bool)+0xbc>)
+    2a30:	2234      	movs	r2, #52	@ 0x34
+    2a32:	2100      	movs	r1, #0
+    2a34:	a807      	add	r0, sp, #28
+    2a36:	eeb0 8a40 	vmov.f32	s16, s0
+    2a3a:	47b8      	blx	r7
+    2a3c:	f8d8 3000 	ldr.w	r3, [r8]
+    2a40:	f88d 604c 	strb.w	r6, [sp, #76]	@ 0x4c
+    2a44:	f104 0608 	add.w	r6, r4, #8
+    2a48:	2214      	movs	r2, #20
+    2a4a:	2100      	movs	r1, #0
+    2a4c:	4630      	mov	r0, r6
+    2a4e:	9306      	str	r3, [sp, #24]
+    2a50:	47b8      	blx	r7
+    2a52:	f89d 307c 	ldrb.w	r3, [sp, #124]	@ 0x7c
+    2a56:	4629      	mov	r1, r5
+    2a58:	9300      	str	r3, [sp, #0]
+    2a5a:	4620      	mov	r0, r4
+    2a5c:	f89d 3078 	ldrb.w	r3, [sp, #120]	@ 0x78
+    2a60:	4f1e      	ldr	r7, [pc, #120]	@ (2adc <countdown::Lifecycle::step(countdown::ServiceSample const&, core::ButtonLevel, float, bool, bool)+0xc0>)
+    2a62:	aa06      	add	r2, sp, #24
+    2a64:	47b8      	blx	r7
+    2a66:	78a3      	ldrb	r3, [r4, #2]
+    2a68:	f105 0930 	add.w	r9, r5, #48	@ 0x30
+    2a6c:	b1bb      	cbz	r3, 2a9e <countdown::Lifecycle::step(countdown::ServiceSample const&, core::ButtonLevel, float, bool, bool)+0x82>
+    2a6e:	4b1c      	ldr	r3, [pc, #112]	@ (2ae0 <countdown::Lifecycle::step(countdown::ServiceSample const&, core::ButtonLevel, float, bool, bool)+0xc4>)
+    2a70:	eeb0 0a48 	vmov.f32	s0, s16
+    2a74:	4648      	mov	r0, r9
+    2a76:	6861      	ldr	r1, [r4, #4]
+    2a78:	4798      	blx	r3
+    2a7a:	2301      	movs	r3, #1
+    2a7c:	f080 0001 	eor.w	r0, r0, #1
+    2a80:	f885 0079 	strb.w	r0, [r5, #121]	@ 0x79
+    2a84:	f885 3078 	strb.w	r3, [r5, #120]	@ 0x78
+    2a88:	7823      	ldrb	r3, [r4, #0]
+    2a8a:	b10b      	cbz	r3, 2a90 <countdown::Lifecycle::step(countdown::ServiceSample const&, core::ButtonLevel, float, bool, bool)+0x74>
+    2a8c:	2b03      	cmp	r3, #3
+    2a8e:	d10a      	bne.n	2aa6 <countdown::Lifecycle::step(countdown::ServiceSample const&, core::ButtonLevel, float, bool, bool)+0x8a>
+    2a90:	4b14      	ldr	r3, [pc, #80]	@ (2ae4 <countdown::Lifecycle::step(countdown::ServiceSample const&, core::ButtonLevel, float, bool, bool)+0xc8>)
+    2a92:	4648      	mov	r0, r9
+    2a94:	4798      	blx	r3
+    2a96:	2300      	movs	r3, #0
+    2a98:	f8a5 3078 	strh.w	r3, [r5, #120]	@ 0x78
+    2a9c:	e003      	b.n	2aa6 <countdown::Lifecycle::step(countdown::ServiceSample const&, core::ButtonLevel, float, bool, bool)+0x8a>
+    2a9e:	f895 3078 	ldrb.w	r3, [r5, #120]	@ 0x78
+    2aa2:	2b00      	cmp	r3, #0
+    2aa4:	d1f0      	bne.n	2a88 <countdown::Lifecycle::step(countdown::ServiceSample const&, core::ButtonLevel, float, bool, bool)+0x6c>
+    2aa6:	af02      	add	r7, sp, #8
+    2aa8:	4642      	mov	r2, r8
+    2aaa:	4649      	mov	r1, r9
+    2aac:	4638      	mov	r0, r7
+    2aae:	4b0e      	ldr	r3, [pc, #56]	@ (2ae8 <countdown::Lifecycle::step(countdown::ServiceSample const&, core::ButtonLevel, float, bool, bool)+0xcc>)
+    2ab0:	4798      	blx	r3
+    2ab2:	e897 000f 	ldmia.w	r7, {r0, r1, r2, r3}
+    2ab6:	c607      	stmia	r6!, {r0, r1, r2}
+    2ab8:	8033      	strh	r3, [r6, #0]
+    2aba:	78e3      	ldrb	r3, [r4, #3]
+    2abc:	b113      	cbz	r3, 2ac4 <countdown::Lifecycle::step(countdown::ServiceSample const&, core::ButtonLevel, float, bool, bool)+0xa8>
+    2abe:	2200      	movs	r2, #0
+    2ac0:	f885 2078 	strb.w	r2, [r5, #120]	@ 0x78
+    2ac4:	4620      	mov	r0, r4
+    2ac6:	f895 2079 	ldrb.w	r2, [r5, #121]	@ 0x79
+    2aca:	7663      	strb	r3, [r4, #25]
+    2acc:	7622      	strb	r2, [r4, #24]
+    2ace:	b015      	add	sp, #84	@ 0x54
+    2ad0:	ecbd 8b02 	vpop	{d8}
+    2ad4:	e8bd 83f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, pc}
+	...
+
+00002aec <_GLOBAL__sub_I__ZN3imu3Bus13controlsOwnedEb>:
+    2aec:	4a06      	ldr	r2, [pc, #24]	@ (2b08 <_GLOBAL__sub_I__ZN3imu3Bus13controlsOwnedEb+0x1c>)
+    2aee:	6813      	ldr	r3, [r2, #0]
+    2af0:	1c59      	adds	r1, r3, #1
+    2af2:	6011      	str	r1, [r2, #0]
+    2af4:	b933      	cbnz	r3, 2b04 <_GLOBAL__sub_I__ZN3imu3Bus13controlsOwnedEb+0x18>
+    2af6:	4a05      	ldr	r2, [pc, #20]	@ (2b0c <_GLOBAL__sub_I__ZN3imu3Bus13controlsOwnedEb+0x20>)
+    2af8:	4905      	ldr	r1, [pc, #20]	@ (2b10 <_GLOBAL__sub_I__ZN3imu3Bus13controlsOwnedEb+0x24>)
+    2afa:	e9c2 3307 	strd	r3, r3, [r2, #28]
+    2afe:	6011      	str	r1, [r2, #0]
+    2b00:	7613      	strb	r3, [r2, #24]
+    2b02:	6253      	str	r3, [r2, #36]	@ 0x24
+    2b04:	4770      	bx	lr
+    2b06:	bf00      	nop
+	...
+
+00002b34 <_GLOBAL__sub_I__ZN6motors8UnoQPort4portEv>:
+    2b34:	4a06      	ldr	r2, [pc, #24]	@ (2b50 <_GLOBAL__sub_I__ZN6motors8UnoQPort4portEv+0x1c>)
+    2b36:	6813      	ldr	r3, [r2, #0]
+    2b38:	1c59      	adds	r1, r3, #1
+    2b3a:	6011      	str	r1, [r2, #0]
+    2b3c:	b933      	cbnz	r3, 2b4c <_GLOBAL__sub_I__ZN6motors8UnoQPort4portEv+0x18>
+    2b3e:	4a05      	ldr	r2, [pc, #20]	@ (2b54 <_GLOBAL__sub_I__ZN6motors8UnoQPort4portEv+0x20>)
+    2b40:	4905      	ldr	r1, [pc, #20]	@ (2b58 <_GLOBAL__sub_I__ZN6motors8UnoQPort4portEv+0x24>)
+    2b42:	e9c2 3307 	strd	r3, r3, [r2, #28]
+    2b46:	6011      	str	r1, [r2, #0]
+    2b48:	7613      	strb	r3, [r2, #24]
+    2b4a:	6253      	str	r3, [r2, #36]	@ 0x24
+    2b4c:	4770      	bx	lr
+    2b4e:	bf00      	nop
+	...
+
+00002b7c <_GLOBAL__sub_I__ZN11opp_sensors7Sensors5beginEv>:
+    2b7c:	4a06      	ldr	r2, [pc, #24]	@ (2b98 <_GLOBAL__sub_I__ZN11opp_sensors7Sensors5beginEv+0x1c>)
+    2b7e:	6813      	ldr	r3, [r2, #0]
+    2b80:	1c59      	adds	r1, r3, #1
+    2b82:	6011      	str	r1, [r2, #0]
+    2b84:	b933      	cbnz	r3, 2b94 <_GLOBAL__sub_I__ZN11opp_sensors7Sensors5beginEv+0x18>
+    2b86:	4a05      	ldr	r2, [pc, #20]	@ (2b9c <_GLOBAL__sub_I__ZN11opp_sensors7Sensors5beginEv+0x20>)
+    2b88:	4905      	ldr	r1, [pc, #20]	@ (2ba0 <_GLOBAL__sub_I__ZN11opp_sensors7Sensors5beginEv+0x24>)
+    2b8a:	e9c2 3307 	strd	r3, r3, [r2, #28]
+    2b8e:	6011      	str	r1, [r2, #0]
+    2b90:	7613      	strb	r3, [r2, #24]
+    2b92:	6253      	str	r3, [r2, #36]	@ 0x24
+    2b94:	4770      	bx	lr
+    2b96:	bf00      	nop
+	...
+
+00002bc4 <_GLOBAL__sub_I__ZNK5power6Reader13controlsOwnedEv>:
+    2bc4:	4a06      	ldr	r2, [pc, #24]	@ (2be0 <_GLOBAL__sub_I__ZNK5power6Reader13controlsOwnedEv+0x1c>)
+    2bc6:	6813      	ldr	r3, [r2, #0]
+    2bc8:	1c59      	adds	r1, r3, #1
+    2bca:	6011      	str	r1, [r2, #0]
+    2bcc:	b933      	cbnz	r3, 2bdc <_GLOBAL__sub_I__ZNK5power6Reader13controlsOwnedEv+0x18>
+    2bce:	4a05      	ldr	r2, [pc, #20]	@ (2be4 <_GLOBAL__sub_I__ZNK5power6Reader13controlsOwnedEv+0x20>)
+    2bd0:	4905      	ldr	r1, [pc, #20]	@ (2be8 <_GLOBAL__sub_I__ZNK5power6Reader13controlsOwnedEv+0x24>)
+    2bd2:	e9c2 3307 	strd	r3, r3, [r2, #28]
+    2bd6:	6011      	str	r1, [r2, #0]
+    2bd8:	7613      	strb	r3, [r2, #24]
+    2bda:	6253      	str	r3, [r2, #36]	@ 0x24
+    2bdc:	4770      	bx	lr
+    2bde:	bf00      	nop
+	...
+
+00004850 <_GLOBAL__sub_I_Bridge>:
+    4850:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+    4854:	4a22      	ldr	r2, [pc, #136]	@ (48e0 <_GLOBAL__sub_I_Bridge+0x90>)
+    4856:	4e23      	ldr	r6, [pc, #140]	@ (48e4 <_GLOBAL__sub_I_Bridge+0x94>)
+    4858:	6813      	ldr	r3, [r2, #0]
+    485a:	1c59      	adds	r1, r3, #1
+    485c:	6011      	str	r1, [r2, #0]
+    485e:	b92b      	cbnz	r3, 486c <_GLOBAL__sub_I_Bridge+0x1c>
+    4860:	4a21      	ldr	r2, [pc, #132]	@ (48e8 <_GLOBAL__sub_I_Bridge+0x98>)
+    4862:	e9c2 3307 	strd	r3, r3, [r2, #28]
+    4866:	6016      	str	r6, [r2, #0]
+    4868:	7613      	strb	r3, [r2, #24]
+    486a:	6253      	str	r3, [r2, #36]	@ 0x24
+    486c:	2400      	movs	r4, #0
+    486e:	f44f 7880 	mov.w	r8, #256	@ 0x100
+    4872:	4f1e      	ldr	r7, [pc, #120]	@ (48ec <_GLOBAL__sub_I_Bridge+0x9c>)
+    4874:	2214      	movs	r2, #20
+    4876:	4621      	mov	r1, r4
+    4878:	481d      	ldr	r0, [pc, #116]	@ (48f0 <_GLOBAL__sub_I_Bridge+0xa0>)
+    487a:	e9c6 4400 	strd	r4, r4, [r6]
+    487e:	60f4      	str	r4, [r6, #12]
+    4880:	47b8      	blx	r7
+    4882:	2214      	movs	r2, #20
+    4884:	4621      	mov	r1, r4
+    4886:	481b      	ldr	r0, [pc, #108]	@ (48f4 <_GLOBAL__sub_I_Bridge+0xa4>)
+    4888:	47b8      	blx	r7
+    488a:	2214      	movs	r2, #20
+    488c:	4621      	mov	r1, r4
+    488e:	481a      	ldr	r0, [pc, #104]	@ (48f8 <_GLOBAL__sub_I_Bridge+0xa8>)
+    4890:	47b8      	blx	r7
+    4892:	4642      	mov	r2, r8
+    4894:	4621      	mov	r1, r4
+    4896:	4819      	ldr	r0, [pc, #100]	@ (48fc <_GLOBAL__sub_I_Bridge+0xac>)
+    4898:	e9c6 4413 	strd	r4, r4, [r6, #76]	@ 0x4c
+    489c:	47b8      	blx	r7
+    489e:	4b18      	ldr	r3, [pc, #96]	@ (4900 <_GLOBAL__sub_I_Bridge+0xb0>)
+    48a0:	4d18      	ldr	r5, [pc, #96]	@ (4904 <_GLOBAL__sub_I_Bridge+0xb4>)
+    48a2:	60b3      	str	r3, [r6, #8]
+    48a4:	f44f 737a 	mov.w	r3, #1000	@ 0x3e8
+    48a8:	60ab      	str	r3, [r5, #8]
+    48aa:	4b17      	ldr	r3, [pc, #92]	@ (4908 <_GLOBAL__sub_I_Bridge+0xb8>)
+    48ac:	f44f 7200 	mov.w	r2, #512	@ 0x200
+    48b0:	4621      	mov	r1, r4
+    48b2:	f105 0014 	add.w	r0, r5, #20
+    48b6:	602b      	str	r3, [r5, #0]
+    48b8:	f886 4158 	strb.w	r4, [r6, #344]	@ 0x158
+    48bc:	606c      	str	r4, [r5, #4]
+    48be:	612e      	str	r6, [r5, #16]
+    48c0:	47b8      	blx	r7
+    48c2:	2214      	movs	r2, #20
+    48c4:	4621      	mov	r1, r4
+    48c6:	f505 7008 	add.w	r0, r5, #544	@ 0x220
+    48ca:	f8c5 4214 	str.w	r4, [r5, #532]	@ 0x214
+    48ce:	f8c5 4218 	str.w	r4, [r5, #536]	@ 0x218
+    48d2:	f8c5 421c 	str.w	r4, [r5, #540]	@ 0x21c
+    48d6:	47b8      	blx	r7
+    48d8:	f8a5 8234 	strh.w	r8, [r5, #564]	@ 0x234
+    48dc:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+	...
+    48f0:	00000010 	.word	0x00000010
+    48f4:	00000024 	.word	0x00000024
+    48f8:	00000038 	.word	0x00000038
+    48fc:	00000058 	.word	0x00000058
+	...
+    4908:	00000008 	.word	0x00000008
+
+00004964 <__aeabi_unwind_cpp_pr0>:
+    4964:	b508      	push	{r3, lr}
+    4966:	4b01      	ldr	r3, [pc, #4]	@ (496c <__aeabi_unwind_cpp_pr0+0x8>)
+    4968:	4798      	blx	r3
+    496a:	bf00      	nop
+    496c:	00000000 	.word	0x00000000
+
+00004970 <__aeabi_unwind_cpp_pr1>:
+    4970:	b508      	push	{r3, lr}
+    4972:	4b01      	ldr	r3, [pc, #4]	@ (4978 <__aeabi_unwind_cpp_pr1+0x8>)
+    4974:	4798      	blx	r3
+    4976:	bf00      	nop
+    4978:	00000000 	.word	0x00000000
+
+00004c38 <__aeabi_dadd>:
+    4c38:	f240 0c00 	movw	ip, #0
+    4c3c:	f2c0 0c00 	movt	ip, #0
+    4c40:	4760      	bx	ip
+
+00004c42 <__aeabi_dsub>:
+    4c42:	f240 0c00 	movw	ip, #0
+    4c46:	f2c0 0c00 	movt	ip, #0
+    4c4a:	4760      	bx	ip
+
+00004c4c <__aeabi_ddiv>:
+    4c4c:	f240 0c00 	movw	ip, #0
+    4c50:	f2c0 0c00 	movt	ip, #0
+    4c54:	4760      	bx	ip
+
+00004c56 <__aeabi_dcmplt>:
+    4c56:	f240 0c00 	movw	ip, #0
+    4c5a:	f2c0 0c00 	movt	ip, #0
+    4c5e:	4760      	bx	ip
+
+00004c60 <__aeabi_dcmple>:
+    4c60:	f240 0c00 	movw	ip, #0
+    4c64:	f2c0 0c00 	movt	ip, #0
+    4c68:	4760      	bx	ip
+
+00004c6a <__aeabi_dcmpgt>:
+    4c6a:	f240 0c00 	movw	ip, #0
+    4c6e:	f2c0 0c00 	movt	ip, #0
+    4c72:	4760      	bx	ip
+
+00004c74 <__aeabi_i2d>:
+    4c74:	f240 0c00 	movw	ip, #0
+    4c78:	f2c0 0c00 	movt	ip, #0
+    4c7c:	4760      	bx	ip
+
+00004c7e <__aeabi_ui2d>:
+    4c7e:	f240 0c00 	movw	ip, #0
+    4c82:	f2c0 0c00 	movt	ip, #0
+    4c86:	4760      	bx	ip
+
+00004c88 <__aeabi_l2d>:
+    4c88:	f240 0c00 	movw	ip, #0
+    4c8c:	f2c0 0c00 	movt	ip, #0
+    4c90:	4760      	bx	ip
+
+00004c92 <__aeabi_ul2d>:
+    4c92:	f240 0c00 	movw	ip, #0
+    4c96:	f2c0 0c00 	movt	ip, #0
+    4c9a:	4760      	bx	ip
+
+00004c9c <__aeabi_d2f>:
+    4c9c:	f240 0c00 	movw	ip, #0
+    4ca0:	f2c0 0c00 	movt	ip, #0
+    4ca4:	4760      	bx	ip
+
+00004ca6 <__aeabi_f2d>:
+    4ca6:	f240 0c00 	movw	ip, #0
+    4caa:	f2c0 0c00 	movt	ip, #0
+    4cae:	4760      	bx	ip
+
+00004cb0 <__aeabi_l2f>:
+    4cb0:	f240 0c00 	movw	ip, #0
+    4cb4:	f2c0 0c00 	movt	ip, #0
+    4cb8:	4760      	bx	ip
+
+00004cba <__aeabi_ul2f>:
+    4cba:	f240 0c00 	movw	ip, #0
+    4cbe:	f2c0 0c00 	movt	ip, #0
+    4cc2:	4760      	bx	ip
+
+00004cd8 <initVariant>:
+    4cd8:	4770      	bx	lr
+	...
+
+00005254 <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt>:
+    5254:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+    5258:	f04f 0800 	mov.w	r8, #0
+    525c:	f44f 777a 	mov.w	r7, #1000	@ 0x3e8
+    5260:	4d13      	ldr	r5, [pc, #76]	@ (52b0 <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt+0x5c>)
+    5262:	4e14      	ldr	r6, [pc, #80]	@ (52b4 <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt+0x60>)
+    5264:	4b14      	ldr	r3, [pc, #80]	@ (52b8 <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt+0x64>)
+    5266:	4c15      	ldr	r4, [pc, #84]	@ (52bc <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt+0x68>)
+    5268:	f105 0014 	add.w	r0, r5, #20
+    526c:	612b      	str	r3, [r5, #16]
+    526e:	e9c5 8701 	strd	r8, r7, [r5, #4]
+    5272:	602e      	str	r6, [r5, #0]
+    5274:	47a0      	blx	r4
+    5276:	f505 6088 	add.w	r0, r5, #1088	@ 0x440
+    527a:	4d11      	ldr	r5, [pc, #68]	@ (52c0 <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt+0x6c>)
+    527c:	47a0      	blx	r4
+    527e:	4b11      	ldr	r3, [pc, #68]	@ (52c4 <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt+0x70>)
+    5280:	f105 0014 	add.w	r0, r5, #20
+    5284:	612b      	str	r3, [r5, #16]
+    5286:	e9c5 8701 	strd	r8, r7, [r5, #4]
+    528a:	602e      	str	r6, [r5, #0]
+    528c:	47a0      	blx	r4
+    528e:	f505 6088 	add.w	r0, r5, #1088	@ 0x440
+    5292:	4d0d      	ldr	r5, [pc, #52]	@ (52c8 <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt+0x74>)
+    5294:	47a0      	blx	r4
+    5296:	4b0d      	ldr	r3, [pc, #52]	@ (52cc <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt+0x78>)
+    5298:	f105 0014 	add.w	r0, r5, #20
+    529c:	e9c5 8701 	strd	r8, r7, [r5, #4]
+    52a0:	602e      	str	r6, [r5, #0]
+    52a2:	612b      	str	r3, [r5, #16]
+    52a4:	47a0      	blx	r4
+    52a6:	f505 6088 	add.w	r0, r5, #1088	@ 0x440
+    52aa:	47a0      	blx	r4
+    52ac:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+    52b0:	00000000 	.word	0x00000000
+    52b4:	00000008 	.word	0x00000008
+	...
+
+00005954 <_GLOBAL__sub_I__ZSt20__throw_system_errori>:
+    5954:	4a06      	ldr	r2, [pc, #24]	@ (5970 <_GLOBAL__sub_I__ZSt20__throw_system_errori+0x1c>)
+    5956:	4907      	ldr	r1, [pc, #28]	@ (5974 <_GLOBAL__sub_I__ZSt20__throw_system_errori+0x20>)
+    5958:	4807      	ldr	r0, [pc, #28]	@ (5978 <_GLOBAL__sub_I__ZSt20__throw_system_errori+0x24>)
+    595a:	b508      	push	{r3, lr}
+    595c:	f7ff fffe 	bl	5984 <__aeabi_atexit>
+    5960:	4a03      	ldr	r2, [pc, #12]	@ (5970 <_GLOBAL__sub_I__ZSt20__throw_system_errori+0x1c>)
+    5962:	4906      	ldr	r1, [pc, #24]	@ (597c <_GLOBAL__sub_I__ZSt20__throw_system_errori+0x28>)
+    5964:	4806      	ldr	r0, [pc, #24]	@ (5980 <_GLOBAL__sub_I__ZSt20__throw_system_errori+0x2c>)
+    5966:	e8bd 4008 	ldmia.w	sp!, {r3, lr}
+    596a:	f7ff bffe 	b.w	5984 <__aeabi_atexit>
+    596e:	bf00      	nop
+	...
+    5978:	00000008 	.word	0x00000008
+    597c:	00000000 	.word	0x00000000
+    5980:	00000004 	.word	0x00000004
+
+00005984 <__aeabi_atexit>:
+    5984:	460b      	mov	r3, r1
+    5986:	4601      	mov	r1, r0
+    5988:	4618      	mov	r0, r3
+    598a:	f7ff bffe 	b.w	492c <__cxa_atexit>
+
+00000050  0003d002 R_ARM_ABS32            00000000   __device_dts_ord_105
+00000054  00000102 R_ARM_ABS32            00000000   .rodata
+00000058  00044d02 R_ARM_ABS32            00000000   __device_dts_ord_109
+0000005c  00000102 R_ARM_ABS32            00000000   .rodata
+00000060  0004ba02 R_ARM_ABS32            00000000   __device_dts_ord_114
+00000064  00000102 R_ARM_ABS32            00000000   .rodata
+00000068  00051002 R_ARM_ABS32            00000000   __device_dts_ord_123
+0000006c  00000102 R_ARM_ABS32            00000000   .rodata
+000000d8  00000202 R_ARM_ABS32            00000000   .llext.rodata.noreloc
+00000050  0004e102 R_ARM_ABS32            00000008   _ZN17calibration_probe14exercise_callsE
+00000054  00041702 R_ARM_ABS32            0000000c   _ZN17calibration_probe14stop_requestedE
+00000058  0004f502 R_ARM_ABS32            00000034   _ZN17calibration_probe6sampleE
+0000005c  00044102 R_ARM_ABS32            00000048   _ZN17calibration_probe9lifecycleE
+00000060  00047d02 R_ARM_ABS32            00000010   _ZN17calibration_probe17previous_bias_dpsE
+00000064  00051902 R_ARM_ABS32            00002a1d   _ZN9countdown9Lifecycle4stepERKNS_13ServiceSampleEN4core11ButtonLevelEfbb
+00000068  0004bd02 R_ARM_ABS32            00000014   _ZN17calibration_probe6buttonE
+0000006c  0004f702 R_ARM_ABS32            00000018   _ZN17calibration_probe6resultE
+000000d4  0004dc02 R_ARM_ABS32            00000004   _ZN17calibration_probe5entryE
+000000d8  0003ef02 R_ARM_ABS32            00000011   _ZN17calibration_probe8exerciseEv
+000024d8  0003ec02 R_ARM_ABS32            00000000   z_impl_k_yield
+000024dc  0004d702 R_ARM_ABS32            00000390   Bridge
+000024e0  0004d702 R_ARM_ABS32            00000390   Bridge
+000024e4  00041402 R_ARM_ABS32            00000000   z_impl_k_mutex_lock
+000024e8  00018c02 R_ARM_ABS32            00000091   k_mutex_unlock.isra.0
+000024ec  00040402 R_ARM_ABS32            00002391   _ZN11BridgeClass11update_safeEv
+0000250c  0003d702 R_ARM_ABS32            00000000   _ZGVN12RouterBridge3HCIE
+00002510  0004d402 R_ARM_ABS32            000000c8   _ZN12RouterBridge3HCIE
+00002514  0004d702 R_ARM_ABS32            00000390   Bridge
+000026dc  00048502 R_ARM_ABS32            00002615   _ZN9countdown8StopHold4stepEjN4core11ButtonLevelE
+000026e0  0004e402 R_ARM_ABS32            00002539   _ZN9countdown4Gate4stepEjNS_8CommandsE
+000026e4  0004ee02 R_ARM_ABS32            000025a5   _ZN9countdown7Buttons4stepEjN4core11ButtonLevelE
+000027f4  0003d402 R_ARM_ABS32            000026e9   _ZN9countdown8Services17admitExplicitGyroERKNS_13ServiceSampleE
+0000286c  00047a02 R_ARM_ABS32            0000278d   _ZN9countdown8Services9admitGyroERKNS_13ServiceSampleE
+00002870  00051f02 R_ARM_ABS32            00004ca7   __aeabi_f2d
+00002874  00045602 R_ARM_ABS32            00004c39   __aeabi_dadd
+00002878  00042602 R_ARM_ABS32            00004c57   __aeabi_dcmplt
+0000287c  00046702 R_ARM_ABS32            00004c6b   __aeabi_dcmpgt
+000028d0  00047302 R_ARM_ABS32            00004c43   __aeabi_dsub
+000028d4  0003c102 R_ARM_ABS32            00004c61   __aeabi_dcmple
+000028d8  00041c02 R_ARM_ABS32            00004c7f   __aeabi_ui2d
+000028dc  00042c02 R_ARM_ABS32            00004c4d   __aeabi_ddiv
+000028e0  00044402 R_ARM_ABS32            00004c9d   __aeabi_d2f
+0000299c  00044202 R_ARM_ABS32            00002881   _ZN9countdown8Services17finishCalibrationEv
+000029ac  00044502 R_ARM_ABS32            000027f9   _ZN9countdown8Services18observeCalibrationERKNS_13ServiceSampleE
+000029c0  0004b202 R_ARM_ABS32            00004c11   memset
+00002a00  00041f02 R_ARM_ABS32            000029b5   _ZN9countdown8Services5resetEv
+00002a18  00041f02 R_ARM_ABS32            000029b5   _ZN9countdown8Services5resetEv
+00002ad8  0004b202 R_ARM_ABS32            00004c11   memset
+00002adc  00051e02 R_ARM_ABS32            00002671   _ZN9countdown10Controller4stepERKN4core6InputsEbb
+00002ae0  00051a02 R_ARM_ABS32            000029c5   _ZN9countdown8Services5startEjf
+00002ae4  0003d902 R_ARM_ABS32            00002a09   _ZN9countdown8Services6cancelEv
+00002ae8  00052d02 R_ARM_ABS32            000028e5   _ZN9countdown8Services4stepERKNS_13ServiceSampleE
+00002b08  0003d702 R_ARM_ABS32            00000000   _ZGVN12RouterBridge3HCIE
+00002b0c  0004d402 R_ARM_ABS32            000000c8   _ZN12RouterBridge3HCIE
+00002b10  0004d702 R_ARM_ABS32            00000390   Bridge
+00002b50  0003d702 R_ARM_ABS32            00000000   _ZGVN12RouterBridge3HCIE
+00002b54  0004d402 R_ARM_ABS32            000000c8   _ZN12RouterBridge3HCIE
+00002b58  0004d702 R_ARM_ABS32            00000390   Bridge
+00002b98  0003d702 R_ARM_ABS32            00000000   _ZGVN12RouterBridge3HCIE
+00002b9c  0004d402 R_ARM_ABS32            000000c8   _ZN12RouterBridge3HCIE
+00002ba0  0004d702 R_ARM_ABS32            00000390   Bridge
+00002be0  0003d702 R_ARM_ABS32            00000000   _ZGVN12RouterBridge3HCIE
+00002be4  0004d402 R_ARM_ABS32            000000c8   _ZN12RouterBridge3HCIE
+00002be8  0004d702 R_ARM_ABS32            00000390   Bridge
+000048e0  0003d702 R_ARM_ABS32            00000000   _ZGVN12RouterBridge3HCIE
+000048e4  0004d702 R_ARM_ABS32            00000390   Bridge
+000048e8  0004d402 R_ARM_ABS32            000000c8   _ZN12RouterBridge3HCIE
+000048ec  0004b202 R_ARM_ABS32            00004c11   memset
+000048f0  0004d702 R_ARM_ABS32            00000390   Bridge
+000048f4  0004d702 R_ARM_ABS32            00000390   Bridge
+000048f8  0004d702 R_ARM_ABS32            00000390   Bridge
+000048fc  0004d702 R_ARM_ABS32            00000390   Bridge
+00004900  00053a02 R_ARM_ABS32            00000d5c   Serial2
+00004904  00047502 R_ARM_ABS32            00000154   Monitor
+00004908  00053302 R_ARM_ABS32            0000026c   _ZTV13BridgeMonitorILj512EE
+0000496c  00043d02 R_ARM_ABS32            00004ccd   abort
+00004978  00043d02 R_ARM_ABS32            00004ccd   abort
+00004c38  00050a2f R_ARM_THM_MOVW_ABS_NC  00000000   __real___aeabi_dadd
+00004c3c  00050a30 R_ARM_THM_MOVT_ABS     00000000   __real___aeabi_dadd
+00004c42  0004722f R_ARM_THM_MOVW_ABS_NC  00000000   __real___aeabi_dsub
+00004c46  00047230 R_ARM_THM_MOVT_ABS     00000000   __real___aeabi_dsub
+00004c4c  0004102f R_ARM_THM_MOVW_ABS_NC  00000000   __real___aeabi_ddiv
+00004c50  00041030 R_ARM_THM_MOVT_ABS     00000000   __real___aeabi_ddiv
+00004c56  0003e42f R_ARM_THM_MOVW_ABS_NC  00000000   __real___aeabi_dcmplt
+00004c5a  0003e430 R_ARM_THM_MOVT_ABS     00000000   __real___aeabi_dcmplt
+00004c60  0004982f R_ARM_THM_MOVW_ABS_NC  00000000   __real___aeabi_dcmple
+00004c64  00049830 R_ARM_THM_MOVT_ABS     00000000   __real___aeabi_dcmple
+00004c6a  0003c22f R_ARM_THM_MOVW_ABS_NC  00000000   __real___aeabi_dcmpgt
+00004c6e  0003c230 R_ARM_THM_MOVT_ABS     00000000   __real___aeabi_dcmpgt
+00004c74  0004512f R_ARM_THM_MOVW_ABS_NC  00000000   __real___aeabi_i2d
+00004c78  00045130 R_ARM_THM_MOVT_ABS     00000000   __real___aeabi_i2d
+00004c7e  0004572f R_ARM_THM_MOVW_ABS_NC  00000000   __real___aeabi_ui2d
+00004c82  00045730 R_ARM_THM_MOVT_ABS     00000000   __real___aeabi_ui2d
+00004c88  0004212f R_ARM_THM_MOVW_ABS_NC  00000000   __real___aeabi_l2d
+00004c8c  00042130 R_ARM_THM_MOVT_ABS     00000000   __real___aeabi_l2d
+00004c92  0004ec2f R_ARM_THM_MOVW_ABS_NC  00000000   __real___aeabi_ul2d
+00004c96  0004ec30 R_ARM_THM_MOVT_ABS     00000000   __real___aeabi_ul2d
+00004c9c  00051c2f R_ARM_THM_MOVW_ABS_NC  00000000   __real___aeabi_d2f
+00004ca0  00051c30 R_ARM_THM_MOVT_ABS     00000000   __real___aeabi_d2f
+00004ca6  0005112f R_ARM_THM_MOVW_ABS_NC  00000000   __real___aeabi_f2d
+00004caa  00051130 R_ARM_THM_MOVT_ABS     00000000   __real___aeabi_f2d
+00004cb0  0003f62f R_ARM_THM_MOVW_ABS_NC  00000000   __real___aeabi_l2f
+00004cb4  0003f630 R_ARM_THM_MOVT_ABS     00000000   __real___aeabi_l2f
+00004cba  0004e32f R_ARM_THM_MOVW_ABS_NC  00000000   __real___aeabi_ul2f
+00004cbe  0004e330 R_ARM_THM_MOVT_ABS     00000000   __real___aeabi_ul2f
+000052b0  0003ed02 R_ARM_ABS32            000015c8   Serial1
+000052b4  00042a02 R_ARM_ABS32            00000338   _ZTVN7arduino12ZephyrSerialE
+000052b8  00043c02 R_ARM_ABS32            00000000   __device_dts_ord_73
+000052bc  0004ca02 R_ARM_ABS32            00005229   _ZN7arduino12ZephyrSerial18ZephyrSerialBufferILi1024EEC1Ev
+000052c0  00053a02 R_ARM_ABS32            00000d5c   Serial2
+000052c4  00052b02 R_ARM_ABS32            00000000   __device_dts_ord_78
+000052c8  00044702 R_ARM_ABS32            000004f0   Serial3
+000052cc  0003bd02 R_ARM_ABS32            00000000   __device_dts_ord_70
+00005970  00041b02 R_ARM_ABS32            00000000   __dso_handle
+00005974  0000a302 R_ARM_ABS32            00005821   _ZN12_GLOBAL__N_113constant_initINS_22generic_error_categoryEED1Ev
+00005978  00000302 R_ARM_ABS32            00000000   .data
+0000597c  0000a602 R_ARM_ABS32            00005823   _ZN12_GLOBAL__N_113constant_initINS_21system_error_categoryEED1Ev
+00005980  00000302 R_ARM_ABS32            00000000   .data
+Relocation section '.rel.init_array' at offset 0x13184 contains 8 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000000  00022b02 R_ARM_ABS32            000024f1   _GLOBAL__sub_I__ZN17calibration_probe9lifecycleE
+00000004  00029102 R_ARM_ABS32            00002aed   _GLOBAL__sub_I__ZN3imu3Bus13controlsOwnedEb
+00000008  00029c02 R_ARM_ABS32            00002b35   _GLOBAL__sub_I__ZN6motors8UnoQPort4portEv
+0000000c  0002a702 R_ARM_ABS32            00002b7d   _GLOBAL__sub_I__ZN11opp_sensors7Sensors5beginEv
+00000010  0002b202 R_ARM_ABS32            00002bc5   _GLOBAL__sub_I__ZNK5power6Reader13controlsOwnedEv
+00000014  00014902 R_ARM_ABS32            00004851   _GLOBAL__sub_I_Bridge
+00000018  00017c02 R_ARM_ABS32            00005255   _GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt
+0000001c  0000b402 R_ARM_ABS32            00005955   _GLOBAL__sub_I__ZSt20__throw_system_errori
+
+
+Hex dump of section '.init_array':
+ NOTE: This section has relocations against it, but these have NOT been applied to this dump.
+  0x000078cc 00000000 00000000 00000000 00000000 ................
+  0x000078dc 00000000 00000000 00000000 00000000 ................
+
+
+UNDEFINED
+         U analog_reference
+         U __device_dts_ord_100
+         U __device_dts_ord_105
+         U __device_dts_ord_109
+         U __device_dts_ord_114
+         U __device_dts_ord_120
+         U __device_dts_ord_123
+         U __device_dts_ord_17
+         w __device_dts_ord_30
+         w __device_dts_ord_34
+         U __device_dts_ord_40
+         U __device_dts_ord_54
+         w __device_dts_ord_61
+         U __device_dts_ord_64
+         U __device_dts_ord_65
+         U __device_dts_ord_66
+         U __device_dts_ord_70
+         U __device_dts_ord_73
+         U __device_dts_ord_78
+         w __device_dts_ord_83
+         w __device_dts_ord_88
+         U __device_dts_ord_89
+         U __device_dts_ord_9
+         U __device_dts_ord_90
+         U __device_dts_ord_91
+         U __device_dts_ord_92
+         U __device_dts_ord_93
+         U __device_dts_ord_94
+         U __device_dts_ord_95
+         U _device_list_end
+         U _device_list_start
+         U _ebss
+         U _edata
+         U __heap_end
+         U __heap_start
+         U kheap_llext_heap
+         U kheap_llext_heap_size
+         U pinctrl_configure_pins
+         U pinctrl_lookup_state
+         U _printf_float
+         U printk
+         U __real_abort
+         U __real_acos
+         U __real_acosf
+         U __real___aeabi_d2f
+         U __real___aeabi_d2iz
+         U __real___aeabi_d2lz
+         U __real___aeabi_d2uiz
+         U __real___aeabi_dadd
+         U __real___aeabi_dcmpeq
+         U __real___aeabi_dcmpge
+         U __real___aeabi_dcmpgt
+         U __real___aeabi_dcmple
+         U __real___aeabi_dcmplt
+         U __real___aeabi_dcmpun
+         U __real___aeabi_ddiv
+         U __real___aeabi_dmul
+         U __real___aeabi_dsub
+         U __real___aeabi_f2d
+         U __real___aeabi_f2iz
+         U __real___aeabi_f2uiz
+         U __real___aeabi_fadd
+         U __real___aeabi_fcmpeq
+         U __real___aeabi_fcmpge
+         U __real___aeabi_fcmpgt
+         U __real___aeabi_fcmple
+         U __real___aeabi_fcmplt
+         U __real___aeabi_fcmpun
+         U __real___aeabi_fdiv
+         U __real___aeabi_fmul
+         U __real___aeabi_fsub
+         U __real___aeabi_i2d
+         U __real___aeabi_i2f
+         U __real___aeabi_idiv
+         U __real___aeabi_idivmod
+         U __real___aeabi_l2d
+         U __real___aeabi_l2f
+         U __real___aeabi_ldivmod
+         U __real___aeabi_read_tp
+         U __real___aeabi_ui2d
+         U __real___aeabi_ui2f
+         U __real___aeabi_uidiv
+         U __real___aeabi_uidivmod
+         U __real___aeabi_ul2d
+         U __real___aeabi_ul2f
+         U __real___aeabi_uldivmod
+         U __real_asin
+         U __real_asinf
+         U __real_atan
+         U __real_atan2
+         U __real_atan2f
+         U __real_atanf
+         U __real_atexit
+         U __real_atof
+         U __real_atoi
+         U __real_atol
+         U __real_calloc
+         U __real_cos
+         U __real_cosf
+         U __real__exit
+         U __real_exit
+         U __real_exp
+         U __real_exp2
+         U __real_fmod
+         U __real_free
+         U __real_gettimeofday
+         U __real_isalnum
+         U __real_isalpha
+         U __real_iscntrl
+         U __real_isdigit
+         U __real_isgraph
+         U __real_islower
+         U __real_isprint
+         U __real_isspace
+         U __real_isupper
+         U __real_isxdigit
+         U __real_ldexp
+         U __real_log
+         U __real_log10
+         U __real_log2
+         U __real_logf
+         U __real_malloc
+         U __real_memchr
+         U __real_memcmp
+         U __real_memcpy
+         U __real_memmem
+         U __real_memmove
+         U __real_memset
+         U __real_pow
+         U __real_putchar
+         U __real_puts
+         U __real_rand
+         U __real_realloc
+         U __real_sin
+         U __real_sinf
+         U __real_sqrt
+         U __real_sqrtf
+         U __real_srand
+         U __real_strcasecmp
+         U __real_strcat
+         U __real_strchr
+         U __real_strcmp
+         U __real_strcpy
+         U __real_strdup
+         U __real_strlen
+         U __real_strncmp
+         U __real_strncpy
+         U __real_strnlen
+         U __real_strrchr
+         U __real_strstr
+         U __real_strtod
+         U __real_strtok
+         U __real_strtol
+         U __real_strtoul
+         U __real_tan
+         U __real_tanf
+         U __real_tolower
+         U __real_toupper
+         U __real_vprintf
+         U __real_vsnprintf
+         U __real_vsprintf
+         U __real_vsscanf
+         U __real___xpg_strerror_r
+         U ring_buf_get
+         U ring_buf_peek
+         U ring_buf_put
+         U _sbss
+         U _sdata
+         U _sidata
+         U sys_clock_cycle_get_64
+         U z_impl_device_deinit
+         U z_impl_device_init
+         U z_impl_device_is_ready
+         U z_impl_k_mutex_init
+         U z_impl_k_mutex_lock
+         U z_impl_k_mutex_unlock
+         U z_impl_k_sem_give
+         U z_impl_k_sem_init
+         U z_impl_k_sem_take
+         U z_impl_k_sleep
+         U z_impl_k_thread_create
+         U z_impl_k_thread_name_set
+         U z_impl_k_uptime_ticks
+         U z_impl_k_yield

@@ -341,3 +341,5 @@ This is not an observed surface, cadence or electrical measurement.
 - 2026-09-24 D111 SOFTWARE-BOUNDS: IMU_BENCH_TRIAL_US60000000, CHECKPOINT_US1000000, CHECKPOINTS61, DEADLINE_US70000000, MAX_POLLS100000000. Finite bench evidence, not measured physical timing/capacity or changed native/calibration defaults. Contract P2_imu_heading_bench_contract.md; target fit/tests pending.
 
 - 2026-09-24T01:14:36.044238+04:00 D112 software bound only: UI_BENCH_SAMPLES128 for finite raw/decoder evidence; no measured tuning, no change to TICK_US, ADC guards, pin/window/voltage values, no hardware run.
+
+- 2026-09-24T02:02:24.859985+04:00 | D113 bare UNO Q Linux receiver observation | No config change. Ticket01aac4fffa214aa2b332b261734de7e9;12s deadline,actual close12013.388427ms after start,0bytes,CONNECTED thenTIMEOUT. Linuxmonotonic clock only; expected capturefailure retained; no MCU/sensor/motor/physical claim. Evidence analysis/P2_dump_receiver_arm_raw/reviewer/smoke_runs/01aac4fffa214aa2b332b261734de7e9.

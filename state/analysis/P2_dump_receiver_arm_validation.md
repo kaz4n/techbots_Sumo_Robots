@@ -39,3 +39,13 @@ This proves software behavior under controlled substitutes. It proves no actual
 router registration, clean framing, native UART dump, MCU action, physical
 acceptance or human gate. A bounded bare-board Linux smoke is the next separate
 observation; firmware remains the earlier D104 inert probe.
+
+## Subsequent bare Linux smoke
+
+The reviewed single ticket01aac4fffa214aa2b332b261734de7e9 passed on USB target
+2629958581: CONNECTED then TERMINAL/TIMEOUT, zero received bytes, capture exit1
+as expected, no successful bundle. Linux closed the socket12013.388427ms after
+its12s deadline start. Before/after boot, service and existing socket identities
+were unchanged. Original commands, partial output and14-file manifest remain
+under raw/reviewer/smoke_runs/. Root rehashed every retained file. F138 records
+this Linux-only observation; no MCU action or native UART transmission occurred.

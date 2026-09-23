@@ -591,3 +591,8 @@ Validate forward/wrap/half-range ordering, boundaries, duplicate/reset, GO/STOP,
 realGate receipts and recorder propagation. Malformed timing alone retains the
 existing incomplete-evidence semantics. No physical timing/clock acceptance.
 See analysis/P2_app_integration_map.md for exactnextscope and API responsibilities.
+
+D092 SC-AK software contract selected under D051/D075: explicit fixed-lifetime
+acquisition start and full ordered duration, preserving legacy defaults and
+decision-based sensor age. See P2_tick_timing_contract.md; implementation/tests/
+review are pending. This resolves the specification choice, not physical timing.

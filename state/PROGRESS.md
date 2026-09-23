@@ -558,3 +558,9 @@ e50c6da3,normalstartup,MOTORS_ALLOWED0,serial2629958581. Upload/capture next.
 - 2026-09-23 17:25 +04 | P2 B8 D091 | TARGET-COMPILED/INERT-UPLOADED: exact1502e948/eff3e050 reviewed74files uploaded13:17:26UTC tobareUNOQ2629958581; no sensor/motor/UARTsetup. Capture1 FAILED30s wholeloaderread,94208B partial/noRAMinterpretation. Chunkedidentityfix keepsalloriginalguards; additive tests/reviewpending before retry. RuntimeoutcomeUNOBSERVED; evidence P2_recorder_bench_run.md/P2_recorder_capture_timeout.md; uncommitted atop19f6f7e.
 
 2026-09-23T17:39:58+04:00 | P2 B8 D091 runtime checkpoint | Software17bb38a HOST-TESTED/TARGET-COMPILED/INERT-UPLOADED; actual synthetic bareUNOQ source1502e948 PASS. MCUrelease-toSTOP200000998us/hold5100000us;5001frames8events/independentCRC900325728; no recorderloss/miss/overrun/activewrite. Expected absentIMU calibration-rejection event retained. Loaded LLEXTfreepayload25116B/largest21604B; sampledstackheadroom31208B; runnermax203us is not fullHAL/WCET. Firstcapturetimeout preserved; reviewedchunkedretry47reads934892B51commands281.633s succeeds within unchanged guards, no second upload/reset. Fresh separate same-model runtime reviewPASS/noopenfindings,155artifacts and74sourcecommitblobs verified. Board left frozen inert1502e948. Evidence analysis/P2_recorder_bench_validation.md/raw/runtime_retry1 and reviews/P2_recorder_bench_review.md. FullgoalACTIVE/incomplete; physical/UART/fullapp/humangates pending; next SC-AK timingcontract per P2_app_integration_map.md. | software17bb38a; evidencecommit=this commit
+
+2026-09-23 P2 integration D092 contract/public header: SC-AK explicit acquisition
+start distinguished from post-acquisition decision, fixed mode/reset and full
+half-range chronology specified under D051/D075. Legacy behavior/locked tests
+preserved. Prior turn PROGRESS evidenced by a57d3b7. Implementation/test/review
+pending; no hardware action or phase gate. Contract commit=this commit.

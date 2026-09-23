@@ -493,7 +493,7 @@ D-058 (selected under D-051,2026-09-23) defines logical MODE gestures. In IDLE,
 qualify NONE then exclusive MODE for BTN_DEBOUNCE_MS; the actual MODE qualification
 starts its duration. First observed NONE freezes that duration and wins a tied
 long deadline. After NONE qualifies, a duration strictly below600ms advances the
-item;600–999ms is a no-op. Continuously observed MODE reaching BTN_LONG_MS toggles
+item;600â€“999ms is a no-op. Continuously observed MODE reaching BTN_LONG_MS toggles
 services once, with no release action. Boot-held MODE, interrupted releases,
 START/BOTH/invalid input and leaving IDLE require a fresh qualified NONE before
 another gesture. A countdown-canceling MODE cannot also change an IDLE selection.
@@ -523,6 +523,13 @@ Matrix bottom row: battery bar. Fault icons: IMU, stuck sensor, low battery, gyr
 | Low battery | vbat under VBAT_WARN_V in IDLE | Icon; no behavior change during a match |
 | Tick overrun | Tick over 1000 us | Count and log max; flag if more than 1 % of ticks in a match |
 | Watchdog reset | Reset cause at boot | Boot to IDLE with motors off; log the cause if available |
+
+D-092 (delegated D051/D075) separates actual acquisition start from the current
+decision timestamp. Production whole-tick timing includes acquisition through
+completion, with explicit ordered receipt metadata; legacy defaults remain.
+Malformed timing is incomplete evidence only, without changing valid motor
+application or source-age admission. See state/analysis/P2_tick_timing_contract.md.
+The strict1000us overrun threshold and separate800us physical acceptance remain.
 
 ---
 

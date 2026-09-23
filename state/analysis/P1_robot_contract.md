@@ -150,3 +150,10 @@ No pins, B16 values, established locked tests, physical acceptance or human gate
 are changed. Complete app, real MotorGate/feedback, acquisition and WCET remain
 separate requirements. The implementation and actual Robot scenario tests must
 now prove this contract; a proposal or component test is not that proof.
+
+## D092 timing amendment (2026-09-23)
+
+The earlier decision-as-whole-tick-start equation remains the legacy API only.
+D084 requires post-acquisition decision timestamps; production integration uses
+explicit acquisition-start metadata under P2_tick_timing_contract.md. This includes
+acquisition in duration without backdating sensors or moving countdown/GO.

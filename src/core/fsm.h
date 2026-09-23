@@ -400,6 +400,11 @@ struct PreviousTick {
     std::uint32_t completed_us = 0;
     std::uint32_t execution_us = 0; // Measured whole tick, not start-to-start interval.
 };
+struct TickTiming {
+    bool explicit_start = false; // Fixed on first admitted tick until Robot reset.
+    bool start_valid = false;
+    std::uint32_t started_us = 0; // Actual acquisition start; t_us stays decision time.
+};
 struct RobotInput {
     std::uint32_t t_us = 0;
     bool initialization_complete = false;
@@ -422,6 +427,7 @@ struct RobotInput {
     core::LineEvidence line;
     bool opponent_fresh = false; // Explicit line mode only; independent of QTR frames.
     core::ButtonEvidence buttons;
+    TickTiming timing; // D092 opt-in complete-tick accounting; legacy default unchanged.
 };
 struct RobotResult {
     std::uint64_t token = 0;
@@ -485,6 +491,10 @@ public:
     // Missing duration marks timing incomplete only; missing/invalid application
     // latches inhibition. Application/completion lie between prior and current
     // decision timestamps, in order. Feedback measures settings, not wheel motion.
+    // D092 explicit timing saves acquisition start per token and requires ordered
+    // start/decision/application/completion/next-start/next-decision within one
+    // unsigned half-range. Timing-only errors mark evidence incomplete, not motion.
+    // Exact contract: state/analysis/P2_tick_timing_contract.md.
     // Gate/services -> D-059 coordinates -> edge -> script/normal/stall routing ->
     // one final Fusion commit -> one Governor call. Validate rejection inputs
     // before commit. No preview may grant permission or emit CONTACT. Final STOP
@@ -517,6 +527,8 @@ private:
         logframe::FrameInput frame;
         std::uint64_t token = 0;
         std::uint32_t t_us = 0;
+        std::uint32_t timing_start_us = 0;
+        bool timing_valid = false;
         bool valid = false;
         bool after_go = false;
         bool match_tick = false;
@@ -551,6 +563,8 @@ private:
     void admit(const RobotInput& input);
     void receive(const RobotInput& input);
     void receiveTiming(const RobotInput& input, bool identity_time_valid);
+    bool validTimingStart(const RobotInput& input) const;
+    bool validTimingReceipt(const RobotInput& input) const;
     void receiveFrame(const PreviousTick& receipt, bool applied_valid);
     void markFault(logframe::FaultCode code, std::uint16_t value = 0);
     void emit(std::uint32_t t_us, core::Event type, std::uint8_t detail,
@@ -685,6 +699,7 @@ private:
     motion::Direction previous_swing_ = motion::Direction::RIGHT;
     motion::Direction scan_hint_ = motion::Direction::RIGHT;
     bool observed_ = false;
+    bool explicit_tick_timing_ = false;
     bool initialized_ = false;
     bool opener_active_ = false;
     bool reflank_active_ = false;

@@ -63,7 +63,8 @@ void invalid(const ui::DisplaySample& sample) {
 }
 ui::Frame sensors(unsigned opponents, unsigned lines, bool opp_valid, bool line_valid) {
     ui::Frame expected;
-    constexpr unsigned OPP[] = {17,15,19,39,47,67,71};
+    // D108 corrects FL15/FC positions; all other D088 pixels and assertions stay.
+    constexpr unsigned OPP[] = {15,17,19,39,47,67,71};
     constexpr unsigned LINE[] = {13,21,65,73};
     for (unsigned bit = 0U; bit < 7U; ++bit)
         expected.pixels[OPP[bit]] = opp_valid ? ((opponents & (1U << bit)) ? 7U : 0U) : 3U;

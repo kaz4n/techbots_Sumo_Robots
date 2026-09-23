@@ -819,3 +819,5 @@ physical/loadedRAM/gate claim. | contract=this commit
 | 2026-09-24 00:00 +04 | P2 D107/D108 | D107 independent runner/native/config tests and15 new/85 existing policy methods PASS. Generic target rejected for inherited Bridge startup; checked replacement compiling. D108 presentation-only fix9e9d5d9a passes targeted normal/sanitizer18 cases and full normal1446main/187Gate; full sanitizer/review/target pending. MCU remains frozen D104; no upload/gate. | D1066471204; D108contract9ff7405; implementation pending |
 
 | 2026-09-24 00:05 +04 | P2 D107 | Opponent-view IMPLEMENTED/HOST-TESTED/TARGET-COMPILED, separate scoped review PASS. Exact332787f0 default/Immediate ELF2a20fbc1 conditional peak4496;15new+85old policy methods PASS. Both generic artifacts remain rejected. No upload or hardware/gate claim. | this task commit |
+
+| 2026-09-24 00:09 +04 | P2 D108 | Front display identity corrected; independent red/green and fullnormal/san1446main+187Gate PASS. Exact618d3a96 default/MATCH target and separate review PASS; only two read-only bytes differ from D106. OPP-VIEW-1 CLOSED in software. No upload/physical/gate. | this task commit |

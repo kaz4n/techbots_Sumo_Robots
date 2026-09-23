@@ -17,10 +17,10 @@ policy and exact332787f0 checked default/Immediate review PASS. Generic builds
 remain rejected for inherited Bridge startup; retain both histories. Read its
 contract/validation/review. All grants false; upload policy remains refused.
 
-Next unfinished task D108: contract9ff7405 front-display coordinate correction,
-fullnormal/san1446main+187Gate PASS. Finish actual app default/MATCH artifact
-collection/review and commit its one-line implementation plus independent
-unlocked test amendment/evidence. Then review/adopt D109 qtr_raw draft/headers
+D108 contract9ff7405 front-display coordinate correction is complete in software:
+fullnormal/san1446main+187Gate and exact618d3a96 app default/MATCH review PASS.
+FinalELFs change only two read-only bytes vsD106. Read its validation/review.
+Next: review/adopt D109 qtr_raw draft/headers
 and add its config count serially before independent tests and implementation.
 Continue remaining named P2 benches; no new hardware is needed for this work.
 

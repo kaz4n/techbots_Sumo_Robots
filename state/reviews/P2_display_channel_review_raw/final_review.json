@@ -1,0 +1,238 @@
+{
+  "verdict": "PASS_SCOPED_SOURCE_HOST_AND_EXACT_TARGET",
+  "open_findings": [],
+  "profiles": {
+    "bench-default": {
+      "review_sha256": "06e9468724416eeb32d098baee3c1c52f97fc97da6a6c0b5fb911d7935e3348e",
+      "source_sha256": "618d3a96a33f2a74c5141ba8770620302135f398a04a43611af36b4535aed363",
+      "artifacts": [
+        {
+          "file": "app.ino.elf",
+          "sha256": "765b1b027f8b5081363cf2ace66efab712a1cb3aa8140564458899c5bd8631ed",
+          "bytes": 174924,
+          "prior_sha256": "0d9e9ed897ee962b720e4cafa9075be58c54466bb3bd584bac050d828663ad97",
+          "changed_readonly_table": [
+            {
+              "section": ".rodata",
+              "table_offset": 552,
+              "differences": [
+                {
+                  "offset": 552,
+                  "before": 4,
+                  "after": 2
+                },
+                {
+                  "offset": 560,
+                  "before": 2,
+                  "after": 4
+                }
+              ]
+            }
+          ],
+          "complete_final_byte_delta": [
+            {
+              "offset": 608,
+              "before": 4,
+              "after": 2
+            },
+            {
+              "offset": 616,
+              "before": 2,
+              "after": 4
+            }
+          ],
+          "payload": 256880,
+          "conditional_peak": 261688,
+          "free_span": 456,
+          "largest_free_payload": 452,
+          "all_function_bytes_equal": true,
+          "all_final_symbols_sections_relocations_equal": true
+        },
+        {
+          "file": "app.ino_debug.elf",
+          "sha256": "3a21ae8e56718e52115113df013c1c61bebc7dcffd9b532b20717ba93a4ef0a2",
+          "bytes": 2999976,
+          "prior_sha256": "65a6285ecdd509f08710feb26b3c090a193d2d0fbe76cd2515850cbd352cc557",
+          "changed_readonly_table": [
+            {
+              "section": ".rodata",
+              "table_offset": 552,
+              "differences": [
+                {
+                  "offset": 552,
+                  "before": 4,
+                  "after": 2
+                },
+                {
+                  "offset": 560,
+                  "before": 2,
+                  "after": 4
+                }
+              ]
+            }
+          ],
+          "complete_final_byte_delta": null,
+          "payload": 256880,
+          "conditional_peak": 261800,
+          "free_span": 344,
+          "largest_free_payload": 340,
+          "all_function_bytes_equal": true,
+          "all_final_symbols_sections_relocations_equal": false
+        },
+        {
+          "file": "app.ino_temp.elf",
+          "sha256": "8efa188cfd45af5661a59bb4b2ae431c3a902fc197805a46c35cabdba6b3247b",
+          "bytes": 3014036,
+          "prior_sha256": "c121dd8eae0f85ac317c4c03cd20e8e9546d947ec42636afcd3bb2af52cf4b85",
+          "changed_readonly_table": [
+            {
+              "section": ".rodata",
+              "table_offset": 552,
+              "differences": [
+                {
+                  "offset": 552,
+                  "before": 4,
+                  "after": 2
+                },
+                {
+                  "offset": 560,
+                  "before": 2,
+                  "after": 4
+                }
+              ]
+            }
+          ],
+          "complete_final_byte_delta": null,
+          "payload": 259199,
+          "conditional_peak": 266056,
+          "free_span": -3912,
+          "largest_free_payload": -3916,
+          "all_function_bytes_equal": true,
+          "all_final_symbols_sections_relocations_equal": false
+        }
+      ],
+      "zsk_sha256": "3d1f62e643312c3353d5b78767466007110214521698ae00b92fe2eb4185c3e1"
+    },
+    "match-immediate": {
+      "review_sha256": "db53d7196c5d37821aa8a70135b7a94e6b79f7e39f95d184cc9027b901709d63",
+      "source_sha256": "618d3a96a33f2a74c5141ba8770620302135f398a04a43611af36b4535aed363",
+      "artifacts": [
+        {
+          "file": "app.ino.elf",
+          "sha256": "4650058d4d3c784db24a819aec9be6c4ae07fe316d5f3096ecdbe95d12aa5ba4",
+          "bytes": 172612,
+          "prior_sha256": "938bb719a63938b308ebe7902366bc7ca037752a67237642273973ea222d17b5",
+          "changed_readonly_table": [
+            {
+              "section": ".rodata",
+              "table_offset": 552,
+              "differences": [
+                {
+                  "offset": 552,
+                  "before": 4,
+                  "after": 2
+                },
+                {
+                  "offset": 560,
+                  "before": 2,
+                  "after": 4
+                }
+              ]
+            }
+          ],
+          "complete_final_byte_delta": [
+            {
+              "offset": 608,
+              "before": 4,
+              "after": 2
+            },
+            {
+              "offset": 616,
+              "before": 2,
+              "after": 4
+            }
+          ],
+          "payload": 255296,
+          "conditional_peak": 260056,
+          "free_span": 2088,
+          "largest_free_payload": 2084,
+          "all_function_bytes_equal": true,
+          "all_final_symbols_sections_relocations_equal": true
+        },
+        {
+          "file": "app.ino_debug.elf",
+          "sha256": "7572c5c78e05e46b83497beddbaee1ec5b77afbd0351126137ae94b88b04239b",
+          "bytes": 2869420,
+          "prior_sha256": "bd493b271690271c635c13d2e580203d65adc0ec04b672b6aecc1179a0f2845f",
+          "changed_readonly_table": [
+            {
+              "section": ".rodata",
+              "table_offset": 552,
+              "differences": [
+                {
+                  "offset": 552,
+                  "before": 4,
+                  "after": 2
+                },
+                {
+                  "offset": 560,
+                  "before": 2,
+                  "after": 4
+                }
+              ]
+            }
+          ],
+          "complete_final_byte_delta": null,
+          "payload": 255296,
+          "conditional_peak": 260168,
+          "free_span": 1976,
+          "largest_free_payload": 1972,
+          "all_function_bytes_equal": true,
+          "all_final_symbols_sections_relocations_equal": false
+        },
+        {
+          "file": "app.ino_temp.elf",
+          "sha256": "2ebe35c1094f3f0d070ab99bad12ce37817fe95f7d6634eda15589417458b359",
+          "bytes": 2883364,
+          "prior_sha256": "2be43e3439ea20db3ed4ec270cbfba3a8ffd3c103d913783bf9c1609e7451c27",
+          "changed_readonly_table": [
+            {
+              "section": ".rodata",
+              "table_offset": 552,
+              "differences": [
+                {
+                  "offset": 552,
+                  "before": 4,
+                  "after": 2
+                },
+                {
+                  "offset": 560,
+                  "before": 2,
+                  "after": 4
+                }
+              ]
+            }
+          ],
+          "complete_final_byte_delta": null,
+          "payload": 257585,
+          "conditional_peak": 264376,
+          "free_span": -2232,
+          "largest_free_payload": -2236,
+          "all_function_bytes_equal": true,
+          "all_final_symbols_sections_relocations_equal": false
+        }
+      ],
+      "zsk_sha256": "6924477b4a49d07396c5e1e901bd4bec1102eeed9a81f124f2d6197dbfedfb01"
+    }
+  },
+  "files_sha256": {
+    "src/hal/ui_display.cpp": "9e9d5d9a44d8b0d637f2301d042f7021df890a270995e1806d4d4456dd58c535",
+    "tests/test_ui_display.cpp": "5fe13c6623daa7ed2164d8afbb1203bb50629f9c22dd180c9547c1325270cd43",
+    "tests/test_display_channels.cpp": "07059bff87dee2bff6a47687aa496fc3407fed3c9abfa1b4cf6dd5dd0a43d719",
+    "state/analysis/P2_display_channel_contract.md": "f4294624171b200c387b10125fcd68e7c9ba7450879d533e94500074bc6e4d16",
+    "state/reviews/P2_display_channel_review.md": "2fead4f960a9780248d2d5f4642099ee2c3ae67a6a2c16e0135aaaf57d66b798"
+  },
+  "reviewer_host_receipt": "host_1790193934160159736.json",
+  "source_receipt_sha256": "57bdb55601fabe8c065606be4bbd38c28479ede2becacafb6c7767a858569752",
+  "limits": "Read-only reused-context same-model review; no board/network/MCU, upload, optical/electrical qualification, actual free RAM/WCET or gate."
+}

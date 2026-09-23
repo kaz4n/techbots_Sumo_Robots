@@ -1,0 +1,121 @@
+{
+  "verdict": "PASS_EXACT_TWO_BYTE_DISPLAY_CHANGE_AND_UNCHANGED_CONDITIONAL_FIT",
+  "source_sha256": "618d3a96a33f2a74c5141ba8770620302135f398a04a43611af36b4535aed363",
+  "source_files": 91,
+  "objects": 79,
+  "source_delta": {
+    "src/hal/ui_display.cpp": {
+      "before": "4b03f677e27f839ae7a0a77ed0a88635f7a2d33c759c3c80c26ea6cb2e55728b",
+      "after": "9e9d5d9a44d8b0d637f2301d042f7021df890a270995e1806d4d4456dd58c535"
+    }
+  },
+  "mode": "match-immediate",
+  "artifacts": [
+    {
+      "file": "app.ino.elf",
+      "sha256": "4650058d4d3c784db24a819aec9be6c4ae07fe316d5f3096ecdbe95d12aa5ba4",
+      "bytes": 172612,
+      "prior_sha256": "938bb719a63938b308ebe7902366bc7ca037752a67237642273973ea222d17b5",
+      "changed_readonly_table": [
+        {
+          "section": ".rodata",
+          "table_offset": 552,
+          "differences": [
+            {
+              "offset": 552,
+              "before": 4,
+              "after": 2
+            },
+            {
+              "offset": 560,
+              "before": 2,
+              "after": 4
+            }
+          ]
+        }
+      ],
+      "complete_final_byte_delta": [
+        {
+          "offset": 608,
+          "before": 4,
+          "after": 2
+        },
+        {
+          "offset": 616,
+          "before": 2,
+          "after": 4
+        }
+      ],
+      "payload": 255296,
+      "conditional_peak": 260056,
+      "free_span": 2088,
+      "largest_free_payload": 2084,
+      "all_function_bytes_equal": true,
+      "all_final_symbols_sections_relocations_equal": true
+    },
+    {
+      "file": "app.ino_debug.elf",
+      "sha256": "7572c5c78e05e46b83497beddbaee1ec5b77afbd0351126137ae94b88b04239b",
+      "bytes": 2869420,
+      "prior_sha256": "bd493b271690271c635c13d2e580203d65adc0ec04b672b6aecc1179a0f2845f",
+      "changed_readonly_table": [
+        {
+          "section": ".rodata",
+          "table_offset": 552,
+          "differences": [
+            {
+              "offset": 552,
+              "before": 4,
+              "after": 2
+            },
+            {
+              "offset": 560,
+              "before": 2,
+              "after": 4
+            }
+          ]
+        }
+      ],
+      "complete_final_byte_delta": null,
+      "payload": 255296,
+      "conditional_peak": 260168,
+      "free_span": 1976,
+      "largest_free_payload": 1972,
+      "all_function_bytes_equal": true,
+      "all_final_symbols_sections_relocations_equal": false
+    },
+    {
+      "file": "app.ino_temp.elf",
+      "sha256": "2ebe35c1094f3f0d070ab99bad12ce37817fe95f7d6634eda15589417458b359",
+      "bytes": 2883364,
+      "prior_sha256": "2be43e3439ea20db3ed4ec270cbfba3a8ffd3c103d913783bf9c1609e7451c27",
+      "changed_readonly_table": [
+        {
+          "section": ".rodata",
+          "table_offset": 552,
+          "differences": [
+            {
+              "offset": 552,
+              "before": 4,
+              "after": 2
+            },
+            {
+              "offset": 560,
+              "before": 2,
+              "after": 4
+            }
+          ]
+        }
+      ],
+      "complete_final_byte_delta": null,
+      "payload": 257585,
+      "conditional_peak": 264376,
+      "free_span": -2232,
+      "largest_free_payload": -2236,
+      "all_function_bytes_equal": true,
+      "all_final_symbols_sections_relocations_equal": false
+    }
+  ],
+  "zsk_sha256": "6924477b4a49d07396c5e1e901bd4bec1102eeed9a81f124f2d6197dbfedfb01",
+  "limitation": "Inherits exact D106 startup/import/loader audit, proven unchanged apart from two read-only coordinate bytes. No upload, optical evidence, actual free RAM or WCET."
+}

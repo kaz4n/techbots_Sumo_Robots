@@ -1,0 +1,18 @@
+[
+  "arduino-cli",
+  "compile",
+  "--json",
+  "--fqbn",
+  "arduino:zephyr:unoq:wait_linux_boot=no",
+  "--build-path",
+  "/home/arduino/sumox26_codex_build/_app_builds/native-app-v1/618d3a96a33f2a74c5141ba8770620302135f398a04a43611af36b4535aed363/match-immediate/47128726fdb14c20acea7e194fcacefb/build",
+  "--output-dir",
+  "/home/arduino/sumox26_codex_build/_app_builds/native-app-v1/618d3a96a33f2a74c5141ba8770620302135f398a04a43611af36b4535aed363/match-immediate/47128726fdb14c20acea7e194fcacefb/artifacts",
+  "--build-property",
+  "compiler.cpp.extra_flags=-DMATCH=1 -DMOTORS_ALLOWED=1",
+  "--build-property",
+  "compiler.c.extra_flags=-DMATCH=1 -DMOTORS_ALLOWED=1",
+  "--build-property",
+  "build.library_discovery_phase_flag=-DARDUINO_LIBRARY_DISCOVERY_PHASE=0",
+  "/home/arduino/sumox26_codex_build/618d3a96a33f2a74c5141ba8770620302135f398a04a43611af36b4535aed363/app"
+]

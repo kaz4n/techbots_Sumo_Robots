@@ -59,6 +59,6 @@ Read P2_pin_table_validation.md and its final review for precise limitations.
 D107 named opponent bench is implemented/host-tested/target-reviewed. Checked
 332787f0 default/Immediate peak4496; generic artifacts rejected and retained.
 All hardware grants false; no upload allowlist addition. D108 corrects geometric
-front display ordering: fullnormal/san1446main+187Gate PASS, app target/review
-pending. D109 qtr_raw contract/header draft is under preparation, not yet adopted;
+front display ordering: fullnormal/san1446main+187Gate and exact618d3a96 app
+default/MATCH target/review PASS. D109 qtr_raw contract/header draft is prepared, not yet adopted;
 next software task is one-Reader bounded raw capture. No extra hardware requested.

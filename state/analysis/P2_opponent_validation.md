@@ -89,3 +89,15 @@ F091 inherited platform constructors/Bridge loop hook remain unqualified; this
 inert source audit does not establish bounded full runtime, Linux independence or
 the800us worst-case tick. No human EXPLAINED/PINMAP/GATE or run authority follows.
 Continue real P2 software under D075, preserving these explicit limits.
+
+## Receipt byte preservation
+
+After implementation588ceb9, evidence commit1977367 retained normalized LF blobs
+for13 CRLF receipts despite newly applied byte-preserving attributes. A coordinator
+byte check detected this; the surrounding PowerShell command still committed
+after the failed check. No source/test/result content changed. Initial exact
+disk/commit sizes, hashes and newline counts are retained in receipt_bytes_initial.
+The correction explicitly re-stages these task-owned files with --renormalize
+under scoped binary attributes, then verifies every staged blob against its
+captured bytes using git cat-file before committing. This preserves the published
+raw audit SHA and both successful and failed output, without rewriting history.

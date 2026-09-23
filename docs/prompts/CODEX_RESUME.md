@@ -2,48 +2,49 @@
 
 Read AGENTS fully, CODEX_HANDOFF, PROGRESS, DECISIONS, FACTS, TUNING_LOG,
 CODEX_EXECUTION and open conflicts/reviews. Inspect Git and actual Dubai date;
-preserve original deadlines, human gates, evidence and unrelated work. Reload
-active P2 prompt and relevant HARDWARE/BEHAVIOR/public contracts before edits.
-D051/D075 permit active P2 software despite physical gates pending. Full P0-P7
-ACTIVE/incomplete; no human gate/PINMAP/EXPLAINED or motor authority.
+preserve deadlines, human gates, evidence and unrelated work. Reload active P2
+prompt and relevant HARDWARE/BEHAVIOR/public contracts before edits. D051/D075
+permit P2 software despite physical gates pending. Full P0-P7 ACTIVE/incomplete;
+no human gate/PINMAP/EXPLAINED or motor authority.
 
-Latest D093 contractd248782/implementationa15cffd: fixed exclusive ADC owner,
-10ms A0 period/strict<20ms retained source age/shared A0/A1 fault latch. Native
-Reader remains fresh-only; original B16/governor/old tests unchanged. Read
-P2_power_inputs_contract.md/validation.md and reviews/P2_power_inputs_review.md.
-Fullnormal/san1327main+111Gate PASS, independent24/2421eachmode plus native,
-config/probe/limits/registry/refusals PASS,61tools PASS, freshreview6/20059 PASS.
-Actualtarget4d5e21cc76sourcefiles/3ELFs/indexexact;321652program/241524globals with
-lowRAMwarning. Sevenexistinginertkeys reviewed/refreshed, no newkey/upload/reset.
-Newharness failures are preserved/corrected; final source/test hashes are frozen.
+Latest D094 contracte507c42/implementationfab551f: actual resumable native Bus and
+Acquirer, oneaction/advance, same600us/8192 across caller work, empty pending and
+terminal-once sources. Read P2_imu_resume_contract.md/validation.md/failures.md and
+reviews/P2_imu_resume_review.md. Established tests/config/core unchanged. One
+MAJOR fixed; freshsame-model review no open findings. Fullnormal/san1349main+111Gate,
+independent22pureeachmode/21native/44legacy/probe/refusals/61tools PASS. Exact
+commands/counts/sourcehashes and original failures preserved; do not repeat them.
 
-Last MCU upload remains D091 source1502e948/ELFeff3e050/ZSK0448e3ac, frozen inert
-recorder. Its actual200s synthetic5001frames/8events/CRC900325728 and loaded-memory
-samples describe onlythat oldrun, not new ADC-owner runtime or fullHAL/WCET.
-No extra hardware requested now; recheck connection for future board actions.
+Actualtargetb495f08578compiledsource/indexfiles/3ELFs exact;108rawfiles indexexact.
+330844program247564globals14580nominalremaining withlowRAMwarning.188imports/
+loader unchanged,40native42AEABI exports. Sevenexistinginertkeys reviewed/refreshed,
+no newkey or upload/reset/MCU operation. LastknownMCUupload remains D0911502e948
+frozen inert recorder; its synthetic200s measurements apply onlyto that priorrun.
 
-First unfinished task: SC-AL bounded resumable runtime IMU source audit/contract.
-Read P2_app_schedule_dependencies.md plus D079-D084 native/setup/acquisition/
-heading/integration sources and installed-source receipts. Acquirer::read and
-Bus::acquireMotion are synchronous; no existing API yields for QTR charge release
-or discharge intervals. Failure may add a second MotorGate settle; IMU operation
-completion excludes cleanup. Do not infer full800us from component guards.
+First unfinished task: freeze fixed app transaction/resource-admission contract
+before implementation. Read P2_app_schedule_dependencies.md including D094 map;
+D084 IMU projection/replay, D092 complete-tick timing, D093 ADC owner, D094 runtime
+progress and current QTR/opponent/Gate/recorder/display/dump public interfaces.
+src/app/app.ino remains inert. Do not create another bus router or strategy layer.
 
-Audit primary/installed TXIS/TC/RXNE/STOP/clock-stretching states before changing
-Bus/Acquirer. Freeze bounded advances with one existing600us wall-clock deadline,
-poll budget, cleanup, partial-data privacy and terminal fault lifecycle. Pending
-must remain distinct from genuine NO_NEW/new source; preserve estimator gap,
-sequence, bias and Robot age semantics. D094/new API/timing allowance is NOT yet
-selected. Independent public-spec tests first, implementation, fullchecks, target
-compile-only and fresh separate review; preserve all established tests.
+Define truthful setup and readiness without assumed sensor power/mounting/pad or
+button-window confirmation. Preserve QTR release ending[11,100)us and useful
+observed discharge intervals, actual1kHz opponent/decision rate, same600us IMU
+budget including ADC/QTR work, and one Gate transaction per fresh Robot result.
+Every service/cleanup/output/recorder action belongs inside an actual D092 S..C
+interval; define overrun and deferred final receipt instead of hiding work.
 
-Then actual app transaction owner/resource scheduling. app.ino is still inert.
-Every executed QTR/IMU/ADC/Gate/recorder/output/cleanup call needs an explicit
-D092 complete-tick owner; do not hide service outside measured intervals. Native
-UART clean framing, local reset and QTR_CAL print still require app ownership.
-Physical SC-A buttons, SC-AJ clock, sensors/motors, RAM/WCET/B8 and human gates
-remain pending. No passing mock/compile/source audit makes them measured.
+Pending never goes to Estimator or becomes NO_NEW. Existing exact bounded report
+replay is available; heading presented beyond2000us faults Robot, so freeze
+truthful retention/expiry-to-unavailable semantics without refreshed source time.
+Preserve actual observationgap/calibration/sequence/bias; apply accepted bias to
+future increments only. Include possible second Gate settle and actual IMU/ADC
+cleanup. No D095 or new timing/scheduling policy has yet been selected.
 
-Append ledgers, make task-owned local commits only and save exact nexttask at
-boundaries. Never push, tag, rewrite history, manufacture measurements or author
-human gates. Keep progressing through eligible software without redoing D093.
+Use independent spec tests, scoped implementation, relevant fullchecks, actual
+compile-only and fresh separate review. NativeUART framing/local reset/QTR_CAL
+printing still need app ownership. SC-AL schedule, SC-A physical circuit, SC-AJ
+clock, sensors/motors, loadedRAM/full800us/nativeUART and every human gate remain
+pending. No additional hardware requested now. Never manufacture measurements,
+phase approval or motor permission. Small local commits only; no push/tag/history
+rewrite. Save exact nexttask and continue eligible software autonomously.

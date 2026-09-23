@@ -10,35 +10,33 @@ D051/D075 permit active P2 software while physical acceptance remains pending.
 | P2 B1 | Native opponent588ceb9; tests/target/review PASS | Live polarity/ranges/60s, app integration |
 | P2 B4 | Gate1c45f72/native99f8668; tests/target/review PASS | Physical EN/PWM/reversal/B4/B7/WCET |
 | P2 B5 | Native ADCe6b7060 +D093ownera15cffd tested/target/review PASS | Divider/reference/0.05V accuracy, app scheduler |
-| P2 B3 | Acquisition7b46598/estimatorc1188b1/calibration5516bef/Robot2c16023 | Resumable runtime service, physical mounting/B3, app scheduler |
+| P2 B3 | Acquisition7b46598/estimatorc1188b1/calibration5516bef/Robot2c16023 | D094fab551f resume tested/target/review; physical mounting/B3, app scheduler |
 | P2 B2 | QTR/adapter/Robot47f4d9a tested/target/review | Physical color/cadence, pad ownership, full WCET |
 | P2 B6 | A1327c5db/gesturesb69fa12/matrix385c46c/D093fixedowner tested/target/review | Physical buttons/SC-A, optical acceptance, service consumers |
 | P2 2.4 | QTR calibration311bf40 tested/target/review | Actual threshold printing/app/physical calibration |
 | P2 B8 | Storage/D090dump febde53 tested/target/review; D09117bb38a actual200s synthetic MCU recorder PASS | Native UART, app lifetime/local reset UI, physical B8 |
-| Integration/B7/P3-P7 | D092timing2081ca1/D093a15cffd tested/target/review; strong hook verified | SC-AL resumable IMU, app transaction/resource schedule, full800us, physical acceptance |
+| Integration/B7/P3-P7 | D092timing2081ca1/D093a15cffd tested/target/review; strong hook verified | SC-AL app transaction/resource schedule, full800us, physical acceptance |
 
-D093 contractd248782/implementationa15cffd: one A0/A1 owner,10ms battery period,
-strict<20ms retained source age, shared reset-only faults. Native fresh-only API,
-original B16 values/governor and established tests unchanged. Fullnormal/san each
-1327main/24484165assertions +111Gate/3850460 PASS. Independent24/2421eachmode,
-actualnative/config/probe/limits/registry/refusal PASS;61existingtools PASS; fresh
-review6/20059normal+san PASS/no findings. Evidence P2_power_inputs_validation.md
-and reviews/P2_power_inputs_review.md. Newharnessfailures preserved/corrected.
+D094 contracte507c42/implementationfab551f: bounded native Bus/Acquirer progress,
+original600us/8192 across caller work, separate pending and terminal-once. D093
+ADC owner remains a15cffd. Fullnormal/san1349main/24501424+111Gate/3850460 PASS;
+independent22/17259eachmode,21native/728parent,44legacy/932parent,probe/refusals and
+61tools PASS. Freshsame-model review4/48native +2/156Acquirer PASS/no open findings;
+one MAJOR fixed. All failures and new-test clarification preserved. Evidence:
+P2_imu_resume_validation.md/raw and reviews/P2_imu_resume_review.md/raw.
 
-Actualtarget4d5e21cc76current/staged/target/indexfiles and3ELFs exact,40native42AEABI
-exports/loader/188imports unchanged. Compiler321652program/241524globals,20620
-nominalremaining/lowRAMwarning.56rawblobs indexverified. Sevenexistinginertkeys
-reviewed/refreshed, no newkey or upload. Last deployed D0911502e948 remainsfrozen;
-its5001frames/8events/CRC900325728,200000998us and25116Bfreepayload apply onlyto
-that prior synthetic MCUrun. No D093MCU/sensor/motor/UART action or physicalgate.
+Targetb495f085:78current/staged/target/indexsources/3ELFs;108rawfiles indexexact.
+330844program247564globals14580nominalremaining/lowRAMwarning.188imports/loader
+unchanged;40native42AEABI nonzero.13init-array entries/passive startup inspected.
+Sevenexisting inertkeys reviewed/refreshed; no newkey/upload/reset/MCU operation.
+LastknownD0911502e948 remains the old frozen synthetic recorder image only.
 
-Next: SC-AL audit bounded resumable native IMU and freeze public contract under
-D051 before app scheduler. P2_app_schedule_dependencies.md records synchronous
-read, QTR sub-tick service, extra MotorGate settle on failure and IMU cleanup
-outside source timestamp. Preserve600us aggregate deadline/polls, cleanup and
-freshness across all advances; no pending-as-new sample. No D094/new API/timing
-allowance selected yet. Count every executed service inside D092 complete timing.
+Next: fixed app transaction/resource-admission public contract under D051; read
+P2_app_schedule_dependencies.md D094 map. Then independent tests/implementation.
+Own truthful setup, QTR sub-tick service, IMU progress, ADC grants, bounded retained/
+expired evidence, one Gate application/recorder and all fault cleanup inside D092
+complete intervals. No D095/scheduler policy/timing allowance selected yet.
 
-SC-A circuit/windows, SC-AJ clock, physicalsensor/motor, loadedRAM/full800us,
-physical B8/nativeUART and human gates remain OPEN. No more hardware requested
-now; no motor authority/PINMAP/EXPLAINED, push/tag or phase approval.
+SC-AL schedule, SC-A circuit/windows, SC-AJ clock, physicalsensor/motor, nativeUART,
+loadedRAM/full800us and human gates remain OPEN. No more hardware requested now;
+no motor authority/PINMAP/EXPLAINED, push/tag or phase approval.

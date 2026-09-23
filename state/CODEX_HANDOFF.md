@@ -1,3 +1,50 @@
+## Latest checkpoint - 2026-09-23T18:47:22+04:00
+
+Active P2 software under D051/D075; full P0-P7 ACTIVE/incomplete. D094 contract
+e507c42 and implementation fab551f complete resumable native IMU acquisition.
+Read analysis/P2_imu_resume_contract.md, validation.md, failures.md and
+reviews/P2_imu_resume_review.md. One protocol action per advance, original600us
+wall-clock and8192-observation budget across caller work;8192ndpass allowed, next
+rejected. Pending stays empty; completion publishes once. Unknown/IDLE responses
+cancel; true terminal transport faults keep precedence. No new config/oldtest/core.
+
+Full normal/ASan/UBSan each1349main/24501424assertions +111Gate/3850460 PASS.
+Independent22pure/17259eachmotor mode,21native/728parent and44legacy/932parent,
+probe1/13eachmode,8refusals and61tools PASS. Fresh separate same-model reviewer
+4native/48parent +2Acquirer/156 PASS. One MAJOR fixed; no open findings. Original
+failures and clarified contradictory new expectations retained; no established
+or locked test changed. Final78compiledsources and108rawfiles index-exact.
+
+Actual board-Linux compile-only sourceb495f085 (full hash in validation) retains
+nativeBus/Acquirer/Estimator/Robot/Gate/recorder in3ELFs.188imports/loader unchanged,
+40native42AEABI exports nonzero;13init-array entries/passive startup inspected.
+330844program247564globals leaves14580nominalbytes, lowRAMwarning. Sevenexisting
+inertkeys reviewed/refreshed; no newkey, upload/reset/MCU I2C/sensor/motor operation.
+Lastknown deployed MCU remains D0911502e948 frozen inert recorder; its old200s
+synthetic measurements do not qualify this newsource, loadedRAM or fullHAL timing.
+
+First eligible unfinished task: freeze the fixed app transaction/resource-admission
+contract, then independent public-spec tests and implementation. Read appended
+D094 integration map in analysis/P2_app_schedule_dependencies.md and D084/D092/
+D093/D094 contracts. src/app/app.ino remains inert. Own setup truth, QTR sub-tick
+charge/discharge, IMU progress, ADC grants, source expiry, one Gate application,
+recorder/final receipt and cleanup inside actual S..C. Do not infer800us from
+component guards or move work outside receipts. Preserve600us across other jobs.
+
+Pending is not NO_NEW. Exact bounded estimator report replay is possible under
+D084; stale available heading >2000us is a Robot contract fault, so freeze honest
+unavailability/retention policy without changing source time or counting a new
+sample. Apply accepted bias only to future increments. Gate failure can require
+secondsettle; IMU cleanup lies outside source completion. No D095/app scheduler
+policy or new timing allowance selected yet.
+
+SC-AL actualschedule, SC-A circuit/windows, SC-AJ clock, sensors/motors, nativeUART,
+loadedRAM/full800us and all human gates remain pending. No additional hardware
+requested now; no motor authority/PINMAP/EXPLAINED, push/tag/history rewrite.
+Original Dubai deadlines remain. Continue next useful task without repeating D094.
+
+--- Earlier handoff preserved below ---
+
 ## Latest checkpoint - 2026-09-23T18:20:19+04:00
 
 Active P2 software under D051/D075; full P0-P7 ACTIVE/incomplete. D093 contract

@@ -2,6 +2,43 @@
 
 ## Current resume point - 2026-09-23 Asia/Dubai
 
+D073 contractc32b47c/implementationea2d6b0 completes bounded offline B8 CSV.
+18independent cases added; full993cases/16989315assertions pass normal5.574s
+andASanUBSan21.952s,0fail/skip;340tools pass183.058s. Fresh same-model reviewer
+PASS/no findings, independently reproduced18/1321502 and exactfiveguardmaps.
+All43previous source/config/lockedfiles unchanged; raw status/bytes and every
+lossfield exported. No live dump/app/transport/cursor or MCU action. Evidence:
+P2_csv_validation.md/raw, P2_csv_failure_analysis.md and reviews/P2_csv_codex.md.
+One doctest predicate syntax failure repaired with parentheses only; retained.
+
+D072 rate adoption9acc0cc also completed this continuation:25Hz/5001frames,
+sole B16 value change, current-at-that-revision probe226584B targetcompile.
+That target result is NOT a targetbuild of the subsequent CSV source.
+Original goal ACTIVE/incomplete; no human phase gate passed. P0/P1 acceptance
+remains pending, with only selected offline B8 preparation eligible.
+No jobs/workers are continuing in the background at this checkpoint.
+
+Exact next task: read P2_csv_next_task_audit.md and select a narrow contract
+for a host-only validator of local CSV evidence files under D051. Distinguish
+file integrity, known loss, lifecycle completion and provenance/closure unknown.
+Do not infer common session from row ordinals/epoch_token, firmware/rate from
+current config, or retained status totals from overwritten lifetime counters.
+Record the new scope decision before implementing one local-file tool with
+independent fixtures. No transport framework/dump_match.sh/live owner integration.
+
+Hardware remains deferred: fullHAL/load/freeRAM/200s/no-gap/WCET, F091 inherited
+Bridge waits/initializers and resetstack unresolved. Last known uploaded MCU is
+inertQTR61d7a2d0/default at03:00:13.327+04. No STAND/RING/PINMAP/EXPLAINED or
+human gate, push or tag. SC-A/B/I/AG and SC-AH deployment remain pending.
+Disk C: approximately29MiB after builds; check space before further builds.
+Only old generated sanitizer executable was removed then rebuilt, documented
+with SHA/path/bytes; no source/evidence/target artifact was deleted.
+Retain Sep28 cut,Sep30 P6 condition,Oct1 21:00Dubai freeze andOct2/3 schedule.
+
+## Historical D-072 checkpoint
+
+## Current resume point - 2026-09-23 Asia/Dubai
+
 D-072 contract1dd1050/implementation9acc0cc complete within scope. Adopted25Hz
 B15 fallback: sole B16 value change,5001frame endpoints/40ms; other75defaults
 and all locked/core/HAL body files unchanged.975cases/15667813assertions pass

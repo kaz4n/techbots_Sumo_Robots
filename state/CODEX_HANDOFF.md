@@ -1,3 +1,49 @@
+## Latest checkpoint - 2026-09-23T19:09:28+04:00
+
+Active P2 software under D051/D075; full P0-P7 ACTIVE/incomplete. D095 public
+contractc17f6d6 and implementation390005c complete actual app::Transaction and
+terminal non-token MotorGate.halt. Read analysis/P2_app_transaction_contract.md,
+validation.md and reviews/P2_app_transaction_review.md. Real S/D/A/C, one actual
+Robot/Gate/recorder decision, next-real-tick receipt and genuine final tail are
+owned. Invalid order/clock/identity inhibits once and interrupts evidence without
+fabricated acknowledgement or reset. B14 overruns remain count/log only.
+
+Fullnormal/ASan/UBSan each1377main/25118683assertions+139Gate/4467720 PASS.
+Independent28newcases617259/617260eachmotor setting; nativeprobe2/9eachmode,
+8newtools/61oldtools PASS. Fresh separate same-model reviewer47703checks eachmode
+PASS/no open findings. New test oracle/fixture corrections and originalfailures
+preserved; no establishedtests/core/config changed. Nine new locked halt tests
+are now established. All80compiledsourcefiles and113rawfiles indexexact.
+
+Actual board-Linux compile-only source9d6c0005 (fullhash in validation),80files/
+3ELFs,188imports/loader unchanged,40native42AEABI exports,13init-array entries and
+passive startup inspected including additive main receipt.149120program238628
+globals23516nominalremaining/lowRAMwarning. This probe excludes some native sensor
+owners, so its compiler numbers do not predict full-app memory. Sevenexisting
+inertkeys independently reviewed/refreshed; no newkey/upload/reset/MCU operation.
+LastknownMCUimage remains D0911502e948 frozen synthetic recorder only.
+
+First eligible unfinished task: native source/resource scheduler public contract,
+then independent tests and actual implementation using Transaction. Read current
+P2_app_schedule_dependencies.md and D084/D092/D093/D094/D095 contracts. app.ino
+remains inert; Transaction is implemented but not wired to native source runtime.
+Own truthful setup/readiness, QTR sub-tick charge/discharge, resumableIMU600us
+lifetime across all jobs, ADC admission, source expiry and cleanup inside S..C.
+Raw-only QTR calibration in BOOT/IDLE must not deadlock on classification readiness;
+explicit absent IMU remains allowed. Pending never becomes a new source/NO_NEW;
+expired heading must become honestly unavailable without restamping. Apply bias
+to future increments. Include both Gate settle paths and all output/cancellation.
+Define actual release/missed-release behavior; do not manufacture catch-up ticks.
+No native scheduler/new grants or timing allowances selected by D095.
+
+SC-AL schedule, SC-A physical circuit/windows, SC-AJ clock, sensors/motors,
+nativeUART/local reset UI, loadedRAM/full800us and every human gate remain pending.
+No extra hardware requested now, motor authority/PINMAP/EXPLAINED, push/tag or
+history rewrite. Original Dubai deadlines remain. Commit completed validated
+changes promptly; no artificial spacing. Continue eligible software autonomously.
+
+--- Earlier handoff preserved below ---
+
 ## Latest checkpoint - 2026-09-23T18:47:22+04:00
 
 Active P2 software under D051/D075; full P0-P7 ACTIVE/incomplete. D094 contract

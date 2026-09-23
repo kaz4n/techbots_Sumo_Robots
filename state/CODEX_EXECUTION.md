@@ -15,28 +15,30 @@ D051/D075 permit active P2 software while physical acceptance remains pending.
 | P2 B6 | A1327c5db/gesturesb69fa12/matrix385c46c/D093fixedowner tested/target/review | Physical buttons/SC-A, optical acceptance, service consumers |
 | P2 2.4 | QTR calibration311bf40 tested/target/review | Actual threshold printing/app/physical calibration |
 | P2 B8 | Storage/D090dump febde53 tested/target/review; D09117bb38a actual200s synthetic MCU recorder PASS | Native UART, app lifetime/local reset UI, physical B8 |
-| Integration/B7/P3-P7 | D092timing2081ca1/D093a15cffd tested/target/review; strong hook verified | SC-AL app transaction/resource schedule, full800us, physical acceptance |
+| Integration/B7/P3-P7 | D092timing2081ca1/D093a15cffd/D095390005c transaction tested/target/review | SC-AL app transaction/resource schedule, full800us, physical acceptance |
 
-D094 contracte507c42/implementationfab551f: bounded native Bus/Acquirer progress,
-original600us/8192 across caller work, separate pending and terminal-once. D093
-ADC owner remains a15cffd. Fullnormal/san1349main/24501424+111Gate/3850460 PASS;
-independent22/17259eachmode,21native/728parent,44legacy/932parent,probe/refusals and
-61tools PASS. Freshsame-model review4/48native +2/156Acquirer PASS/no open findings;
-one MAJOR fixed. All failures and new-test clarification preserved. Evidence:
-P2_imu_resume_validation.md/raw and reviews/P2_imu_resume_review.md/raw.
+D095 contractc17f6d6/implementation390005c: actual fixed Transaction, real S/D/A/C
+and one Robot/Gate/recorder; terminal halt invalidates ordinary receipt, preserves
+evidence, no fabricated tick/reset. FinalSTOP needs real tail. B14overrunlogonly.
+Fullnormal/san1377main/25118683+139Gate/4467720 PASS; author28newcases617259/617260,
+probe2/9eachmode,8newtools61oldtools; freshreview47703checks eachmode PASS/noopen.
+Original new-test/worker/harness failures preserved; no establishedtests/core/config
+change. New9lockedhaltcases established.80compiledsources113rawfiles indexexact.
+Evidence: P2_app_transaction_validation.md/raw, reviews/P2_app_transaction_review.md.
 
-Targetb495f085:78current/staged/target/indexsources/3ELFs;108rawfiles indexexact.
-330844program247564globals14580nominalremaining/lowRAMwarning.188imports/loader
-unchanged;40native42AEABI nonzero.13init-array entries/passive startup inspected.
-Sevenexisting inertkeys reviewed/refreshed; no newkey/upload/reset/MCU operation.
-LastknownD0911502e948 remains the old frozen synthetic recorder image only.
+Target9d6c0005:80files3ELFs;188imports/loader unchanged;40native42AEABI exports,
+13initentries/passive startup including actualmain inspected.149120program238628
+globals23516nominalremaining/lowRAMwarning; not fullapp/loadedRAM. Sevenexisting
+inertkeys independentlyreviewed/refreshed; no newkey/upload/reset/MCU action.
+LastknownMCUimage remains old D0911502e948 frozen synthetic recorder only.
 
-Next: fixed app transaction/resource-admission public contract under D051; read
-P2_app_schedule_dependencies.md D094 map. Then independent tests/implementation.
-Own truthful setup, QTR sub-tick service, IMU progress, ADC grants, bounded retained/
-expired evidence, one Gate application/recorder and all fault cleanup inside D092
-complete intervals. No D095/scheduler policy/timing allowance selected yet.
+Next: native source/resource scheduling contract then independent tests and actual
+implementation using Transaction. Read P2_app_schedule_dependencies.md and D084/
+D092/D093/D094/D095 contracts. Own actual setup, QTR sub-tick service, IMU600us
+across callerwork, ADC grants, honest expiry, one decision and output/faultcleanup
+inside S..C. app.ino remains inert. No scheduler/grants/new timing allowances yet.
 
-SC-AL schedule, SC-A circuit/windows, SC-AJ clock, physicalsensor/motor, nativeUART,
-loadedRAM/full800us and human gates remain OPEN. No more hardware requested now;
-no motor authority/PINMAP/EXPLAINED, push/tag or phase approval.
+SC-AL, SC-A circuit/windows, SC-AJ physicalclock, sensor/motor acceptance,
+nativeUART/localreset, loadedRAM/full800us and human gates OPEN. No more hardware
+requested; no motor authority/PINMAP/EXPLAINED/push/tag. Commit promptly after
+validation; no artificial spacing. FullP0-P7 remains ACTIVE/incomplete.

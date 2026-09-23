@@ -5,46 +5,45 @@ CODEX_EXECUTION and open conflicts/reviews. Inspect Git and actual Dubai date;
 preserve deadlines, human gates, evidence and unrelated work. Reload active P2
 prompt and relevant HARDWARE/BEHAVIOR/public contracts before edits. D051/D075
 permit P2 software despite physical gates pending. Full P0-P7 ACTIVE/incomplete;
-no human gate/PINMAP/EXPLAINED or motor authority.
+no human gate/PINMAP/EXPLAINED or motor authority. Do not re-ask delegated routine
+engineering decisions. Commit completed validated tasks without artificial delay.
 
-Latest D094 contracte507c42/implementationfab551f: actual resumable native Bus and
-Acquirer, oneaction/advance, same600us/8192 across caller work, empty pending and
-terminal-once sources. Read P2_imu_resume_contract.md/validation.md/failures.md and
-reviews/P2_imu_resume_review.md. Established tests/config/core unchanged. One
-MAJOR fixed; freshsame-model review no open findings. Fullnormal/san1349main+111Gate,
-independent22pureeachmode/21native/44legacy/probe/refusals/61tools PASS. Exact
-commands/counts/sourcehashes and original failures preserved; do not repeat them.
+Latest D095 contractc17f6d6/implementation390005c: fixed app::Transaction owns actual
+Robot/Gate/recorder, real S/D/A/C, next-real-tick receipt and genuine final tail.
+MotorGate.halt inhibits once without token/reset; terminal app failures invalidate
+ordinary receipt and interrupt active recording. B14 overrun remains count/log.
+Read app_transaction_contract.md/validation.md and its fresh same-model review.
+No open findings; established tests/core/config unchanged; nine new locked halt
+cases now established. Fullnormal/san1377main+139Gate, author28newcases eachmode,
+probe/refusals/8newtools/61oldtools and reviewer47703checks eachmode PASS.
 
-Actualtargetb495f08578compiledsource/indexfiles/3ELFs exact;108rawfiles indexexact.
-330844program247564globals14580nominalremaining withlowRAMwarning.188imports/
-loader unchanged,40native42AEABI exports. Sevenexistinginertkeys reviewed/refreshed,
-no newkey or upload/reset/MCU operation. LastknownMCUupload remains D0911502e948
-frozen inert recorder; its synthetic200s measurements apply onlyto that priorrun.
+Target9d6c0005:80sources/3ELFs/113rawfiles indexexact,188imports/loader unchanged,
+40native42AEABI exports,13initentries/passive startup.149120program238628globals
+23516nominalremaining/lowRAMwarning; not full-app/loadedRAM. Seven existing inert
+keys reviewed/refreshed, no newkey/upload/reset/MCU operation. Lastknown MCU image
+remains D0911502e948 synthetic recorder; earlier measured200s applies onlyto it.
 
-First unfinished task: freeze fixed app transaction/resource-admission contract
-before implementation. Read P2_app_schedule_dependencies.md including D094 map;
-D084 IMU projection/replay, D092 complete-tick timing, D093 ADC owner, D094 runtime
-progress and current QTR/opponent/Gate/recorder/display/dump public interfaces.
-src/app/app.ino remains inert. Do not create another bus router or strategy layer.
+First unfinished: native source/resource scheduler public contract, then independent
+tests and actual implementation using Transaction. Read P2_app_schedule_dependencies
+and D084 IMU projection, D092 complete timing, D093 ADC owner, D094 resumable source,
+D095 transaction, QTR/opponent/calibration/output public interfaces. app.ino remains
+inert; do not claim it is wired. No new scheduler/grants/timing allowance selected.
 
-Define truthful setup and readiness without assumed sensor power/mounting/pad or
-button-window confirmation. Preserve QTR release ending[11,100)us and useful
-observed discharge intervals, actual1kHz opponent/decision rate, same600us IMU
-budget including ADC/QTR work, and one Gate transaction per fresh Robot result.
-Every service/cleanup/output/recorder action belongs inside an actual D092 S..C
-interval; define overrun and deferred final receipt instead of hiding work.
+Own truthful setup/readiness (explicit absent IMU allowed, raw-only QTR calibration
+must remain possible before classified readiness), QTR release[11,100)us and useful
+discharge service, IMU same600us lifetime including otherjobs, ADC grants, real1kHz
+release/missed-release behavior and no fabricated catch-up. Everything executed,
+including output/cancellation/possible secondGate settle, belongs inside actualS..C.
+Ordinary800/1000us overruns remain specified logging, not a new emergency stop.
 
-Pending never goes to Estimator or becomes NO_NEW. Existing exact bounded report
-replay is available; heading presented beyond2000us faults Robot, so freeze
-truthful retention/expiry-to-unavailable semantics without refreshed source time.
-Preserve actual observationgap/calibration/sequence/bias; apply accepted bias to
-future increments only. Include possible second Gate settle and actual IMU/ADC
-cleanup. No D095 or new timing/scheduling policy has yet been selected.
+Pending is not NO_NEW or a fresh source. Exact bounded replay keeps original time;
+heading presented beyond2000us faults Robot, so select truthful expiry-to-unavailable
+without hiding gaps/calibration/sequence. Apply accepted bias to future increments.
+NativeUART framing/localreset/QTR_CAL printing still need actual app ownership.
 
-Use independent spec tests, scoped implementation, relevant fullchecks, actual
-compile-only and fresh separate review. NativeUART framing/local reset/QTR_CAL
-printing still need app ownership. SC-AL schedule, SC-A physical circuit, SC-AJ
-clock, sensors/motors, loadedRAM/full800us/nativeUART and every human gate remain
-pending. No additional hardware requested now. Never manufacture measurements,
+Independent spec tests, scoped implementation, relevant host/target verification,
+and fresh separate review precede closure. SC-AL schedule, SC-A physical circuit,
+SC-AJ clock, sensors/motors, loadedRAM/full800us/nativeUART and all human gates remain
+pending. No additional hardware requested now. Never manufacture measurement,
 phase approval or motor permission. Small local commits only; no push/tag/history
-rewrite. Save exact nexttask and continue eligible software autonomously.
+rewrite. Save exact checkpoint and continue eligible software autonomously.

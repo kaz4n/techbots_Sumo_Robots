@@ -809,3 +809,16 @@ Consequence: one evidenced B16 value changes; other75 remain. No app/transport
 integration, runtime/loader workaround, physical tuning, upload authority or gate.
 Independent tests/review and exact source-guard review precede completion claims;
 SC-AH deployment and SC-I platform/runtime issues remain explicit.
+
+
+## D-073 (2026-09-23, selected under D-051) Offline B8 CSV evidence formatting
+Context: verified RAM owners expose exact bytes and loss metadata but B8 has no
+serializer; dump_match.sh/transport remain absent. An independent read-only audit
+identifies pure formatting as eligible software preparation, not integration.
+Decision: adopt P2_csv_contract.md and recorder_csv.h before independent code/tests.
+Extend D-068 only to bounded stateless offline CSV headers/rows/metadata snapshot;
+preserve raw bytes, signed scaled wire integers, statuses and every loss field.
+Consequence: no transport/cursor/app integration or live dump authorization.
+SEALED does not prove IDLE and incomplete=false does not prove completion.
+No config/locked/behavior value changes, upload, physical claim or human gate.
+Independent tests/fresh review and exact existing inert-guard review required.

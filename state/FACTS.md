@@ -293,3 +293,13 @@ default matrix/counter fromF-076. Prior timing measurements use a different imag
 | F-102 | Does the concrete MPU6050 setup/decoder pass software validation and target compilation? | Implementation63c7eaa CPPf38f0f21. Independent author and reviewer pass26cases/1562374assertions,44config variants plus2inert probe builds/eight upload refusals;13strictconfig checks. Root fullhost andsanitizer2/2 pass. Actual targetsourcec45ffd3d compiles84132Bprogram/34748Bcompiler memory,exit0;44filemap/3ELFs/startup verified. | analysis/P2_imu_setup_validation.md/raw; reviews/P2_imu_setup_review.md/raw | HOST-TESTED/TARGET-COMPILED, fresh same-model review PASS/no open findings | No MCU/I2C/pad/upload operation. Observed configuration/coherent bytes do not prove physical settling, freshness, axes, bias, yaw or full-tick WCET. SC-AJ/F091 and human gates remain pending |
 
 F102 final regression addendum: existing432tooling methods PASS630.788s exit0;442distinct methods across separate existing/new setup runs. NativeBus102new subprocess receipts preserve100exit0 plus2required failure sentinels. Exact aggregate command/output and relocation provenance are in P2_imu_setup_raw. This adds software regression evidence only.
+
+
+## D081 actual qualified MPU6050 acquisition, 2026-09-23
+
+| ID | Question | Observed answer | Source | Confidence | Hardware-checked |
+|---|---|---|---|---|---|
+| F-103 | Does compound acquisition preserve one budget and explicit observation/silence semantics? | Implementation7b46598:one600us/8192 Operation across status/STOP/15byte burst; owned Acquirer validates setup, phases, timestamps and20ms silence. Independent author/reviewer15Acquirer cases36491assertions and14native cases pass;9variants,2inert probes/eight upload refusals,14config pass. Cleanhost2/2 and sanitizer2/2 pass. Actual target147e08b1 compiles86236Bprogram/36172Bcompiler globals,exit0;46files/3ELFs/36exports/startup and exact5existing inert identities reviewed. | analysis/P2_imu_acquisition_validation.md/raw; reviews/P2_imu_acquisition_review.md/raw | HOST-TESTED/TARGET-COMPILED; separate same-model review PASS/no open findings | Linuxcompile/files only,no MCU/I2C/pad/upload. Conditional shadow inference is not physical synchronization/sample rate; timestamps are observation times. Bias/axes/yaw/full-tick WCET remain pending. SC-AJ/F091 and human gates remain open |
+
+
+F103 final regression addendum: existing443tooling PASS678.339s exit0;450distinct methods across separate existing/new runs. Shared native receipts contain369exit0 plus4required negative-sentinel exits1, and prior setup variants92exit0. All D081 jobs complete. These remain software checks, not physical acceptance.

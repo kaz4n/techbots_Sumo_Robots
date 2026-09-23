@@ -1,0 +1,315 @@
+// Tests D081 sensor observations against the frozen B3/B14 acquisition contract.
+// Links the real Acquirer and Setup to independent concrete Bus substitutes.
+// No production implementation source was read to derive these expectations.
+#include "doctest.h"
+#include "hal/imu_acquisition.h"
+#include "support/imu_acquisition_fake.h"
+#include "config.h"
+#include <cstdlib>
+#include <type_traits>
+
+namespace {
+using imu::Sample;
+using imu::SampleFault;
+using imu::SampleState;
+void must(bool condition) { CHECK(condition); if (!condition) std::abort(); }
+void emptyMotion(const imu::CoherentMotion& motion) {
+    CHECK_FALSE(motion.coherent);
+    CHECK(motion.started_us == 0U); CHECK(motion.completed_us == 0U);
+    CHECK(motion.interrupt_status == 0U); CHECK(motion.rail_mask == 0U);
+    CHECK(motion.temperature_raw == 0);
+    for (unsigned i = 0U; i < 3U; ++i) {
+        CHECK(motion.accel_raw[i] == 0); CHECK(motion.gyro_raw[i] == 0);
+        CHECK(motion.accel_g[i] == 0.0F); CHECK(motion.gyro_dps[i] == 0.0F);
+    }
+}
+void emptyFault(const Sample& sample, SampleFault fault, std::uint32_t sequence = 0U) {
+    CHECK(sample.state == SampleState::FAULT); CHECK(sample.fault == fault);
+    CHECK(sample.sequence == sequence); emptyMotion(sample.motion);
+    CHECK(sample.readiness_completed_us == 0U); CHECK(sample.motion_started_us == 0U);
+    CHECK(sample.observation_gap_us == 0U); CHECK_FALSE(sample.had_previous_observation);
+}
+void sameSample(const Sample& a, const Sample& b) {
+    CHECK(a.state == b.state); CHECK(a.fault == b.fault);
+    CHECK(a.bus_status == b.bus_status); CHECK(a.cleanup == b.cleanup);
+    CHECK(a.error_flags == b.error_flags); CHECK(a.sequence == b.sequence);
+    CHECK(a.checked_us == b.checked_us);
+    CHECK(a.readiness_completed_us == b.readiness_completed_us);
+    CHECK(a.motion_started_us == b.motion_started_us);
+    CHECK(a.observation_gap_us == b.observation_gap_us);
+    CHECK(a.had_previous_observation == b.had_previous_observation);
+    CHECK(a.motion.status == b.motion.status); emptyMotion(a.motion); emptyMotion(b.motion);
+}
+void latched(imu::Acquirer& acquirer, const Sample& fault) {
+    const auto runtime_calls = imu_acq_fake::script.calls;
+    const auto setup_calls = imu_fake::script.count;
+    acquirer.start(0U, true); acquirer.advanceSetup(0x80000000U);
+    for (auto now : {0U, fault.checked_us, 0x80000000U, 0xffffffffU})
+        sameSample(acquirer.read(now), fault);
+    CHECK(imu_acq_fake::script.calls == runtime_calls);
+    CHECK(imu_fake::script.count == setup_calls);
+}
+std::uint32_t ready(imu::Acquirer& acquirer, std::uint32_t start = 123U) {
+    imu_acq_fake::reset(); imu_acq_fake::seedSetup();
+    must(acquirer.start(start, true).state == imu::SetupState::IN_PROGRESS);
+    std::uint32_t now = start;
+    for (unsigned index = 0U; index < 48U; ++index) {
+        now = imu_acq_fake::setupTime(index, start, now);
+        imu_fake::script.now_us = now;
+        const auto report = acquirer.advanceSetup(now);
+        must(report.state == (index == 47U ? imu::SetupState::PROFILE_READY :
+                             imu::SetupState::IN_PROGRESS));
+        CHECK(report.requests == index + 1U);
+        if (index != 47U) CHECK(acquirer.read(now).state == SampleState::NOT_READY);
+        CHECK(imu_acq_fake::script.calls == 0U);
+    }
+    return acquirer.setupReport().observed_us;
+}
+Sample publish(imu::Acquirer& acquirer, std::uint32_t now, bool observation = true,
+               std::uint32_t duration = 100U) {
+    imu_acq_fake::script.reply = observation ? imu_acq_fake::observation(now, duration) :
+                                            imu_acq_fake::noNew(now, duration);
+    return acquirer.read(now);
+}
+} // namespace
+
+TEST_CASE("B3 D081 constructors destruction and all pre-ready reads are inert") {
+    imu_acq_fake::reset(); { imu::Acquirer temporary; }
+    imu::Acquirer acquirer;
+    CHECK_FALSE(std::is_copy_constructible<imu::Acquirer>::value);
+    CHECK_FALSE(std::is_copy_assignable<imu::Acquirer>::value);
+    CHECK(acquirer.advanceSetup(0U).state == imu::SetupState::NOT_STARTED);
+    for (auto time : {0U, 0xffffffffU, 0x80000000U}) {
+        const auto sample = acquirer.read(time);
+        CHECK(sample.state == SampleState::NOT_READY); CHECK(sample.fault == SampleFault::NONE);
+        CHECK(sample.checked_us == 0U); CHECK(sample.sequence == 0U); emptyMotion(sample.motion);
+    }
+    CHECK(imu_fake::script.count == 0U); CHECK(imu_acq_fake::script.calls == 0U);
+}
+
+TEST_CASE("B3 D081 concrete setup wrapper retains guarded profile and terminal diagnostics") {
+    for (unsigned kind = 0U; kind < 3U; ++kind) {
+        imu_acq_fake::reset(); imu_acq_fake::seedSetup(); imu::Acquirer acquirer;
+        auto report = acquirer.start(9U, kind != 0U);
+        if (kind != 0U) {
+            if (kind == 1U) imu_fake::script.replies[0].init =
+                {imu::BusStatus::OWNERSHIP, imu::BusCleanup::NOT_ATTEMPTED, false};
+            report = acquirer.advanceSetup(9U + config::IMU_POWER_WAIT_US);
+            if (kind == 2U) {
+                auto& transfer = imu_fake::script.replies[1].transfer;
+                transfer.status = imu::BusStatus::NACK; transfer.error_flags = 0x10U;
+                transfer.cleanup = imu::BusCleanup::DISABLED;
+                imu_fake::script.now_us = report.observed_us;
+                report = acquirer.advanceSetup(report.observed_us);
+            }
+        }
+        CHECK(report.state == imu::SetupState::FAULT);
+        const auto sample = acquirer.read(report.observed_us);
+        emptyFault(sample, SampleFault::SETUP);
+        CHECK(sample.bus_status == report.bus_status); CHECK(sample.cleanup == report.cleanup);
+        CHECK(sample.error_flags == report.error_flags); CHECK(imu_acq_fake::script.calls == 0U);
+        latched(acquirer, sample);
+    }
+}
+
+TEST_CASE("B3 D081 setup arming occurs once and setup discard never becomes runtime data") {
+    imu::Acquirer acquirer; const auto anchor = ready(acquirer);
+    auto sample = publish(acquirer, anchor, false);
+    CHECK(sample.state == SampleState::NO_NEW); CHECK(sample.sequence == 0U);
+    emptyMotion(sample.motion); CHECK(imu_fake::script.count == 48U);
+    acquirer.start(anchor + 19999U, true); acquirer.advanceSetup(anchor + 19999U);
+    const auto calls = imu_acq_fake::script.calls;
+    sample = acquirer.read(anchor + 20000U);
+    emptyFault(sample, SampleFault::SILENCE); CHECK(sample.checked_us == anchor + 20000U);
+    CHECK(imu_acq_fake::script.calls == calls); latched(acquirer, sample);
+}
+
+TEST_CASE("B3 D081 equal payloads and both second status bits each grant only one observation") {
+    imu::Acquirer acquirer; auto now = ready(acquirer);
+    std::uint32_t last = 0U;
+    for (unsigned index = 0U; index < 8U; ++index) {
+        imu_acq_fake::script.reply = imu_acq_fake::observation(now);
+        auto& reply = imu_acq_fake::script.reply;
+        reply.motion_status = static_cast<std::uint8_t>(index % 2U);
+        reply.transfer.bytes[0] = reply.motion_status;
+        const auto result = acquirer.read(now);
+        CHECK(result.state == SampleState::OBSERVATION); CHECK(result.fault == SampleFault::NONE);
+        CHECK(result.sequence == index + 1U); CHECK(result.motion.coherent);
+        CHECK(result.motion.accel_raw[0] == 0x0d1a); CHECK(result.motion.gyro_raw[2] == -22090);
+        CHECK(result.motion.accel_g[0] == doctest::Approx(3354.0F / 4096.0F));
+        CHECK(result.motion.gyro_dps[2] == doctest::Approx(-22090.0F / 32.8F));
+        CHECK(result.motion.interrupt_status == index % 2U);
+        CHECK(result.motion.started_us == now); CHECK(result.motion.completed_us == now + 100U);
+        CHECK(result.checked_us == now + 100U); CHECK(result.readiness_completed_us == now + 33U);
+        CHECK(result.motion_started_us == now + 50U);
+        CHECK(result.had_previous_observation == (index != 0U));
+        CHECK(result.observation_gap_us == (index ? now + 100U - last : 0U));
+        last = result.checked_us; now = last + 900U;
+    }
+    CHECK(imu_acq_fake::script.calls == 8U); CHECK(imu_fake::script.count == 48U);
+}
+
+TEST_CASE("B3 B14 D081 NO_NEW clears prior payload and does not refresh observation gap") {
+    imu::Acquirer acquirer; const auto anchor = ready(acquirer);
+    const auto first = publish(acquirer, anchor);
+    for (unsigned index = 1U; index <= 3U; ++index) {
+        const auto now = first.checked_us + index * 1000U;
+        const auto sample = publish(acquirer, now, false, 20U);
+        CHECK(sample.state == SampleState::NO_NEW); CHECK(sample.fault == SampleFault::NONE);
+        CHECK(sample.sequence == 1U); CHECK(sample.checked_us == now + 20U);
+        CHECK(sample.readiness_completed_us == now + 20U); CHECK(sample.motion_started_us == 0U);
+        CHECK_FALSE(sample.had_previous_observation); CHECK(sample.observation_gap_us == 0U);
+        emptyMotion(sample.motion);
+    }
+    const auto second = publish(acquirer, first.checked_us + 4000U);
+    CHECK(second.sequence == 2U); CHECK(second.observation_gap_us == 4100U);
+    CHECK(second.had_previous_observation);
+}
+
+TEST_CASE("B14 D081 caller silence boundary rejects equality before any runtime request") {
+    for (bool previous : {false, true}) for (unsigned late : {0U, 1U}) {
+        imu::Acquirer acquirer; auto anchor = ready(acquirer);
+        if (previous) anchor = publish(acquirer, anchor).checked_us;
+        const auto before = imu_acq_fake::script.calls;
+        const auto now = anchor + 19999U + late;
+        const auto result = publish(acquirer, now, false, 0U);
+        if (late) { emptyFault(result, SampleFault::SILENCE, previous ? 1U : 0U);
+            CHECK(imu_acq_fake::script.calls == before); latched(acquirer, result); }
+        else { CHECK(result.state == SampleState::NO_NEW);
+            CHECK(imu_acq_fake::script.calls == before + 1U); }
+        CHECK(result.checked_us == now);
+    }
+}
+
+TEST_CASE("B14 D081 completion silence boundary rejects new and no-new equality") {
+    for (bool observation : {false, true}) for (unsigned late : {0U, 1U}) {
+        imu::Acquirer acquirer; const auto anchor = ready(acquirer);
+        const auto result = publish(acquirer, anchor + 19900U, observation, 99U + late);
+        CHECK(imu_acq_fake::script.calls == 1U);
+        CHECK(result.checked_us == anchor + 19999U + late);
+        if (late) { emptyFault(result, SampleFault::SILENCE); latched(acquirer, result); }
+        else CHECK(result.state == (observation ? SampleState::OBSERVATION : SampleState::NO_NEW));
+    }
+}
+
+TEST_CASE("B3 B14 D081 setup and runtime observations wrap uint32 without losing silence anchor") {
+    imu::Acquirer acquirer; const auto anchor = ready(acquirer, 0xfffb4000U);
+    const auto first = publish(acquirer, anchor, true, 100U);
+    CHECK(first.state == SampleState::OBSERVATION);
+    const auto second = publish(acquirer, first.checked_us + 19000U, true, 100U);
+    CHECK(second.state == SampleState::OBSERVATION); CHECK(second.sequence == 2U);
+    CHECK(second.observation_gap_us == 19100U);
+    const auto fault = acquirer.read(second.checked_us + 20000U);
+    emptyFault(fault, SampleFault::SILENCE, 2U); latched(acquirer, fault);
+}
+
+TEST_CASE("B3 D081 reversed and ambiguous caller time preserves the previous checked observation") {
+    for (auto delta : {0xffffffffU, 0x80000000U, 0x80000001U}) {
+        imu::Acquirer acquirer; const auto anchor = ready(acquirer);
+        const auto first = publish(acquirer, anchor);
+        const auto result = acquirer.read(first.checked_us + delta);
+        emptyFault(result, SampleFault::TIME_ORDER, 1U);
+        CHECK(result.checked_us == first.checked_us); CHECK(imu_acq_fake::script.calls == 1U);
+        latched(acquirer, result);
+    }
+}
+
+TEST_CASE("B3 D081 successful response rejects every malformed shape and phase") {
+    for (bool observation : {false, true}) for (unsigned defect = 0U; defect < 16U; ++defect) {
+        imu::Acquirer acquirer; const auto now = ready(acquirer);
+        auto response = observation ? imu_acq_fake::observation(now) : imu_acq_fake::noNew(now);
+        switch (defect) {
+        case 0: response.state = imu::AcquisitionState::FAULT; break;
+        case 1: response.state = static_cast<imu::AcquisitionState>(255U); break;
+        case 2: response.transfer.complete = false; break;
+        case 3: response.transfer.count = 14U; break;
+        case 4: response.transfer.error_flags = 1U; break;
+        case 5: response.transfer.cleanup = imu::BusCleanup::DISABLED; break;
+        case 6: response.readiness_observed = false; break;
+        case 7: response.readiness_status = observation ? 0U : 1U; break;
+        case 8: response.readiness_completed_us = now - 1U; break;
+        case 9: response.readiness_completed_us = response.transfer.completed_us + 1U; break;
+        case 10: response.motion_attempted = !observation; break;
+        case 11: response.motion_started_us = observation ? now : 1U; break;
+        case 12: response.motion_status_observed = !observation; break;
+        case 13: response.motion_status = 1U; break;
+        case 14: response.transfer.bytes[14] ^= 1U;
+            if (observation) response.motion_started_us = response.transfer.completed_us + 1U;
+            break;
+        case 15: response.readiness_completed_us = observation ? response.motion_started_us + 1U : now;
+            break;
+        }
+        imu_acq_fake::script.reply = response;
+        const auto sample = acquirer.read(now);
+        emptyFault(sample, SampleFault::RESPONSE); CHECK(sample.checked_us == now);
+        CHECK(sample.bus_status == response.transfer.status);
+        CHECK(sample.cleanup == response.transfer.cleanup);
+        CHECK(sample.error_flags == response.transfer.error_flags); latched(acquirer, sample);
+    }
+}
+
+TEST_CASE("B3 D081 native nonOK dominates malformed response and all data stay zero") {
+    for (unsigned status = 1U; status <= static_cast<unsigned>(imu::BusStatus::FAULT_LATCHED); ++status) {
+        imu::Acquirer acquirer; const auto anchor = ready(acquirer);
+        const auto accepted = publish(acquirer, anchor);
+        auto response = imu_acq_fake::observation(accepted.checked_us);
+        response.transfer.status = static_cast<imu::BusStatus>(status);
+        response.transfer.cleanup = imu::BusCleanup::UNCONFIRMED;
+        response.transfer.error_flags = 0x123400U + status;
+        response.state = static_cast<imu::AcquisitionState>(255U);
+        response.transfer.completed_us = response.transfer.started_us - 1U;
+        imu_acq_fake::script.reply = response;
+        const auto sample = acquirer.read(accepted.checked_us);
+        emptyFault(sample, SampleFault::TRANSPORT, 1U);
+        CHECK(sample.bus_status == response.transfer.status);
+        CHECK(sample.cleanup == imu::BusCleanup::UNCONFIRMED);
+        CHECK(sample.error_flags == response.transfer.error_flags);
+        CHECK(sample.checked_us == accepted.checked_us); latched(acquirer, sample);
+    }
+}
+
+TEST_CASE("B3 D081 native timestamp order and aggregate 600us acceptance are independent") {
+    for (unsigned defect = 0U; defect < 5U; ++defect) {
+        imu::Acquirer acquirer; const auto anchor = ready(acquirer);
+        auto reply = imu_acq_fake::observation(anchor + 10U, 599U);
+        if (defect == 1U) reply.transfer.started_us = anchor - 1U;
+        if (defect == 2U) reply.transfer.completed_us = reply.transfer.started_us - 1U;
+        if (defect == 3U) reply.transfer.completed_us = reply.transfer.started_us + 0x80000000U;
+        if (defect == 4U) reply.transfer.completed_us = reply.transfer.started_us + 600U;
+        imu_acq_fake::script.reply = reply;
+        const auto sample = acquirer.read(anchor);
+        if (defect == 0U) {
+            CHECK(sample.state == SampleState::OBSERVATION); CHECK(sample.checked_us == anchor + 609U);
+        } else {
+            emptyFault(sample, defect == 4U ? SampleFault::RESPONSE : SampleFault::TIME_ORDER);
+            CHECK(sample.checked_us == anchor); latched(acquirer, sample);
+        }
+    }
+}
+
+TEST_CASE("B3 D081 unexpected burst status fails decoder after valid completion time") {
+    for (unsigned bit = 1U; bit < 8U; ++bit) {
+        imu::Acquirer acquirer; const auto anchor = ready(acquirer);
+        auto response = imu_acq_fake::observation(anchor);
+        response.motion_status = static_cast<std::uint8_t>(1U << bit);
+        response.transfer.bytes[0] = response.motion_status;
+        imu_acq_fake::script.reply = response;
+        const auto sample = acquirer.read(anchor);
+        emptyFault(sample, SampleFault::RESPONSE); CHECK(sample.checked_us == anchor + 100U);
+        latched(acquirer, sample);
+    }
+}
+
+TEST_CASE("B3 D081 wholly zero motion is a new observation and zero-duration ordered phases are valid") {
+    imu::Acquirer acquirer; const auto now = ready(acquirer);
+    auto response = imu_acq_fake::observation(now, 0U);
+    for (auto& byte : response.transfer.bytes) byte = 0U;
+    imu_acq_fake::script.reply = response;
+    const auto sample = acquirer.read(now);
+    CHECK(sample.state == SampleState::OBSERVATION); CHECK(sample.sequence == 1U);
+    CHECK(sample.motion.coherent); CHECK(sample.motion.rail_mask == 0U);
+    for (unsigned i = 0U; i < 3U; ++i) {
+        CHECK(sample.motion.accel_raw[i] == 0); CHECK(sample.motion.gyro_raw[i] == 0);
+    }
+    CHECK(sample.checked_us == now); CHECK(sample.motion_started_us == now);
+}

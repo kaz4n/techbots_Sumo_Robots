@@ -1,0 +1,76 @@
+{
+  "native": {
+    "subprocess_receipts": 102,
+    "returncode_counts": {
+      "0": 100,
+      "1": 2
+    },
+    "positive_case_executions": 83,
+    "positive_doctest_assertions": 992,
+    "variant_assertions": 0
+  },
+  "acquisition": {
+    "subprocess_receipts": 27,
+    "returncode_counts": {
+      "0": 27
+    },
+    "positive_case_executions": 29,
+    "positive_doctest_assertions": 36751,
+    "variant_assertions": 299
+  },
+  "normal_and_sanitized": {
+    "normal_build": 0,
+    "normal_run": 0,
+    "sanitized_build": 0,
+    "sanitized_run": 0
+  },
+  "top_level": {
+    "native": {
+      "argv": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "tests.tooling.test_imu_bus_unoq",
+        "-v"
+      ],
+      "cwd": "/dev/shm/d081-independent-review-5h7v87q5",
+      "returncode": 0,
+      "started_utc": "2026-09-23T08:39:07.540812+00:00",
+      "ended_utc": "2026-09-23T08:40:00.984932+00:00",
+      "output_sha256": "e92399fb9f1b02c6d6774bb68e1c3bf99b65e58597e16cbb110780e9c63219cb",
+      "capture": "text=True; newline normalized"
+    },
+    "acquisition_tooling": {
+      "argv": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "tests.tooling.test_imu_acquisition",
+        "-v"
+      ],
+      "cwd": "/dev/shm/d081-independent-review-5h7v87q5",
+      "returncode": 0,
+      "started_utc": "2026-09-23T08:40:00.998534+00:00",
+      "ended_utc": "2026-09-23T08:40:23.381684+00:00",
+      "output_sha256": "a82432250630607bac624567cac01a5fa23c5895e6710a56d727097ef3c2b891",
+      "capture": "text=True; newline normalized"
+    },
+    "config": {
+      "argv": [
+        "/usr/bin/python3",
+        "-m",
+        "unittest",
+        "tests.tooling.test_p0_config",
+        "-v"
+      ],
+      "cwd": "/dev/shm/d081-independent-review-5h7v87q5",
+      "returncode": 0,
+      "started_utc": "2026-09-23T08:40:23.394319+00:00",
+      "ended_utc": "2026-09-23T08:40:23.482400+00:00",
+      "output_sha256": "d4cf9f6d18eeb2da2add102e3ad4b38ccaace8a0d6e8cb42090f6d009d83f785",
+      "capture": "text=True; newline normalized"
+    }
+  },
+  "source_changes_during_run": {},
+  "snapshot_manifest_sha256": "a645700ef57f508aaec6647cc7726584aab90eafa4da19c77c7372f592e35825"
+}

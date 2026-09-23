@@ -1,0 +1,39 @@
+/dev/shm/d081-independent-review-z2ti_q3i/tests/test_imu_acquisition.cpp: In function ‘void {anonymous}::latched(imu::Acquirer&, const imu::Sample&)’:
+/dev/shm/d081-independent-review-z2ti_q3i/tests/test_imu_acquisition.cpp:47:68: error: deducing from brace-enclosed initializer list requires ‘#include <initializer_list>’
+    9 | #include <type_traits>
+  +++ |+#include <initializer_list>
+   10 | 
+......
+   47 |     for (auto now : {0U, fault.checked_us, 0x80000000U, 0xffffffffU})
+      |                                                                    ^
+/dev/shm/d081-independent-review-z2ti_q3i/tests/test_imu_acquisition.cpp: In function ‘void DOCTEST_ANON_FUNC_2()’:
+/dev/shm/d081-independent-review-z2ti_q3i/tests/test_imu_acquisition.cpp:82:51: error: deducing from brace-enclosed initializer list requires ‘#include <initializer_list>’
+   82 |     for (auto time : {0U, 0xffffffffU, 0x80000000U}) {
+      |                                                   ^
+/dev/shm/d081-independent-review-z2ti_q3i/tests/test_imu_acquisition.cpp: In function ‘void DOCTEST_ANON_FUNC_12()’:
+/dev/shm/d081-independent-review-z2ti_q3i/tests/test_imu_acquisition.cpp:170:38: error: deducing from brace-enclosed initializer list requires ‘#include <initializer_list>’
+  170 |     for (bool previous : {false, true}) for (unsigned late : {0U, 1U}) {
+      |                                      ^
+/dev/shm/d081-independent-review-z2ti_q3i/tests/test_imu_acquisition.cpp:170:69: error: deducing from brace-enclosed initializer list requires ‘#include <initializer_list>’
+  170 |     for (bool previous : {false, true}) for (unsigned late : {0U, 1U}) {
+      |                                                                     ^
+/dev/shm/d081-independent-review-z2ti_q3i/tests/test_imu_acquisition.cpp: In function ‘void DOCTEST_ANON_FUNC_14()’:
+/dev/shm/d081-independent-review-z2ti_q3i/tests/test_imu_acquisition.cpp:185:41: error: deducing from brace-enclosed initializer list requires ‘#include <initializer_list>’
+  185 |     for (bool observation : {false, true}) for (unsigned late : {0U, 1U}) {
+      |                                         ^
+/dev/shm/d081-independent-review-z2ti_q3i/tests/test_imu_acquisition.cpp:185:72: error: deducing from brace-enclosed initializer list requires ‘#include <initializer_list>’
+  185 |     for (bool observation : {false, true}) for (unsigned late : {0U, 1U}) {
+      |                                                                        ^
+/dev/shm/d081-independent-review-z2ti_q3i/tests/test_imu_acquisition.cpp: In function ‘void DOCTEST_ANON_FUNC_18()’:
+/dev/shm/d081-independent-review-z2ti_q3i/tests/test_imu_acquisition.cpp:207:61: error: deducing from brace-enclosed initializer list requires ‘#include <initializer_list>’
+  207 |     for (auto delta : {0xffffffffU, 0x80000000U, 0x80000001U}) {
+      |                                                             ^
+/dev/shm/d081-independent-review-z2ti_q3i/tests/test_imu_acquisition.cpp: In function ‘void DOCTEST_ANON_FUNC_20()’:
+/dev/shm/d081-independent-review-z2ti_q3i/tests/test_imu_acquisition.cpp:218:41: error: deducing from brace-enclosed initializer list requires ‘#include <initializer_list>’
+  218 |     for (bool observation : {false, true}) for (unsigned defect = 0U; defect < 16U; ++defect) {
+      |                                         ^
+/dev/shm/d081-independent-review-z2ti_q3i/tests/test_imu_acquisition.cpp: At global scope:
+/dev/shm/d081-independent-review-z2ti_q3i/tests/test_imu_acquisition.cpp:32:6: error: ‘void {anonymous}::sameSample(const imu::Sample&, const imu::Sample&)’ defined but not used [-Werror=unused-function]
+   32 | void sameSample(const Sample& a, const Sample& b) {
+      |      ^~~~~~~~~~
+cc1plus: all warnings being treated as errors

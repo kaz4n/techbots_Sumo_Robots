@@ -1,0 +1,2642 @@
+/home/arduino/sumox26_codex_build/147e08b1c639e43094fce8c78094e5350d2e5852a8f8531df67948237ef9900f/p2_imu_acquisition_compile/artifacts/bench-default/p2_imu_acquisition_compile.ino.elf
+0000006c <setup>:
+      6c:	4b01      	ldr	r3, [pc, #4]	@ (74 <setup+0x8>)
+      6e:	4a02      	ldr	r2, [pc, #8]	@ (78 <setup+0xc>)
+      70:	601a      	str	r2, [r3, #0]
+      72:	4770      	bx	lr
+	...
+
+0000007c <loop>:
+      7c:	4770      	bx	lr
+	...
+
+0000244c <__loopHook()>:
+    244c:	b538      	push	{r3, r4, r5, lr}
+    244e:	4b0a      	ldr	r3, [pc, #40]	@ (2478 <__loopHook()+0x2c>)
+    2450:	4798      	blx	r3
+    2452:	4c0a      	ldr	r4, [pc, #40]	@ (247c <__loopHook()+0x30>)
+    2454:	f04f 33ff 	mov.w	r3, #4294967295	@ 0xffffffff
+    2458:	f04f 32ff 	mov.w	r2, #4294967295	@ 0xffffffff
+    245c:	4808      	ldr	r0, [pc, #32]	@ (2480 <__loopHook()+0x34>)
+    245e:	4909      	ldr	r1, [pc, #36]	@ (2484 <__loopHook()+0x38>)
+    2460:	4788      	blx	r1
+    2462:	f894 5158 	ldrb.w	r5, [r4, #344]	@ 0x158
+    2466:	4b08      	ldr	r3, [pc, #32]	@ (2488 <__loopHook()+0x3c>)
+    2468:	f104 0038 	add.w	r0, r4, #56	@ 0x38
+    246c:	4798      	blx	r3
+    246e:	b115      	cbz	r5, 2476 <__loopHook()+0x2a>
+    2470:	4620      	mov	r0, r4
+    2472:	4b06      	ldr	r3, [pc, #24]	@ (248c <__loopHook()+0x40>)
+    2474:	4798      	blx	r3
+    2476:	bd38      	pop	{r3, r4, r5, pc}
+	...
+    2480:	00000038 	.word	0x00000038
+	...
+
+00002490 <_GLOBAL__sub_I__ZN21imu_acquisition_probe8acquirerE>:
+    2490:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+    2492:	4a1a      	ldr	r2, [pc, #104]	@ (24fc <_GLOBAL__sub_I__ZN21imu_acquisition_probe8acquirerE+0x6c>)
+    2494:	6813      	ldr	r3, [r2, #0]
+    2496:	1c59      	adds	r1, r3, #1
+    2498:	6011      	str	r1, [r2, #0]
+    249a:	b933      	cbnz	r3, 24aa <_GLOBAL__sub_I__ZN21imu_acquisition_probe8acquirerE+0x1a>
+    249c:	4a18      	ldr	r2, [pc, #96]	@ (2500 <_GLOBAL__sub_I__ZN21imu_acquisition_probe8acquirerE+0x70>)
+    249e:	4919      	ldr	r1, [pc, #100]	@ (2504 <_GLOBAL__sub_I__ZN21imu_acquisition_probe8acquirerE+0x74>)
+    24a0:	e9c2 3307 	strd	r3, r3, [r2, #28]
+    24a4:	6011      	str	r1, [r2, #0]
+    24a6:	7613      	strb	r3, [r2, #24]
+    24a8:	6253      	str	r3, [r2, #36]	@ 0x24
+    24aa:	2500      	movs	r5, #0
+    24ac:	2701      	movs	r7, #1
+    24ae:	4c16      	ldr	r4, [pc, #88]	@ (2508 <_GLOBAL__sub_I__ZN21imu_acquisition_probe8acquirerE+0x78>)
+    24b0:	4e16      	ldr	r6, [pc, #88]	@ (250c <_GLOBAL__sub_I__ZN21imu_acquisition_probe8acquirerE+0x7c>)
+    24b2:	2224      	movs	r2, #36	@ 0x24
+    24b4:	2100      	movs	r1, #0
+    24b6:	4620      	mov	r0, r4
+    24b8:	47b0      	blx	r6
+    24ba:	2218      	movs	r2, #24
+    24bc:	2100      	movs	r1, #0
+    24be:	f104 0028 	add.w	r0, r4, #40	@ 0x28
+    24c2:	6264      	str	r4, [r4, #36]	@ 0x24
+    24c4:	47b0      	blx	r6
+    24c6:	2268      	movs	r2, #104	@ 0x68
+    24c8:	4629      	mov	r1, r5
+    24ca:	f104 0048 	add.w	r0, r4, #72	@ 0x48
+    24ce:	f884 702a 	strb.w	r7, [r4, #42]	@ 0x2a
+    24d2:	6425      	str	r5, [r4, #64]	@ 0x40
+    24d4:	f884 5044 	strb.w	r5, [r4, #68]	@ 0x44
+    24d8:	47b0      	blx	r6
+    24da:	2303      	movs	r3, #3
+    24dc:	e9c4 552d 	strd	r5, r5, [r4, #180]	@ 0xb4
+    24e0:	f884 304c 	strb.w	r3, [r4, #76]	@ 0x4c
+    24e4:	f884 7090 	strb.w	r7, [r4, #144]	@ 0x90
+    24e8:	f884 50b0 	strb.w	r5, [r4, #176]	@ 0xb0
+    24ec:	f884 50b1 	strb.w	r5, [r4, #177]	@ 0xb1
+    24f0:	f884 50b2 	strb.w	r5, [r4, #178]	@ 0xb2
+    24f4:	f8c4 50bc 	str.w	r5, [r4, #188]	@ 0xbc
+    24f8:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+    24fa:	bf00      	nop
+	...
+
+00002530 <imu::(anonymous namespace)::signedWord(unsigned char const*)>:
+    2530:	8803      	ldrh	r3, [r0, #0]
+    2532:	ba5b      	rev16	r3, r3
+    2534:	b298      	uxth	r0, r3
+    2536:	f413 4f00 	tst.w	r3, #32768	@ 0x8000
+    253a:	bf18      	it	ne
+    253c:	f5a0 3080 	subne.w	r0, r0, #65536	@ 0x10000
+    2540:	4770      	bx	lr
+	...
+
+00002544 <imu::Setup::start(unsigned int, bool)>:
+    2544:	b5f0      	push	{r4, r5, r6, r7, lr}
+    2546:	460c      	mov	r4, r1
+    2548:	7909      	ldrb	r1, [r1, #4]
+    254a:	4607      	mov	r7, r0
+    254c:	b087      	sub	sp, #28
+    254e:	b9a1      	cbnz	r1, 257a <imu::Setup::start(unsigned int, bool)+0x36>
+    2550:	2101      	movs	r1, #1
+    2552:	e9c4 2203 	strd	r2, r2, [r4, #12]
+    2556:	7121      	strb	r1, [r4, #4]
+    2558:	61e2      	str	r2, [r4, #28]
+    255a:	b91b      	cbnz	r3, 2564 <imu::Setup::start(unsigned int, bool)+0x20>
+    255c:	f240 1303 	movw	r3, #259	@ 0x103
+    2560:	80a3      	strh	r3, [r4, #4]
+    2562:	e00a      	b.n	257a <imu::Setup::start(unsigned int, bool)+0x36>
+    2564:	4e0e      	ldr	r6, [pc, #56]	@ (25a0 <imu::Setup::start(unsigned int, bool)+0x5c>)
+    2566:	ad01      	add	r5, sp, #4
+    2568:	ce0f      	ldmia	r6!, {r0, r1, r2, r3}
+    256a:	c50f      	stmia	r5!, {r0, r1, r2, r3}
+    256c:	6833      	ldr	r3, [r6, #0]
+    256e:	480d      	ldr	r0, [pc, #52]	@ (25a4 <imu::Setup::start(unsigned int, bool)+0x60>)
+    2570:	602b      	str	r3, [r5, #0]
+    2572:	2306      	movs	r3, #6
+    2574:	a901      	add	r1, sp, #4
+    2576:	3b01      	subs	r3, #1
+    2578:	d10a      	bne.n	2590 <imu::Setup::start(unsigned int, bool)+0x4c>
+    257a:	463d      	mov	r5, r7
+    257c:	3404      	adds	r4, #4
+    257e:	cc0f      	ldmia	r4!, {r0, r1, r2, r3}
+    2580:	c50f      	stmia	r5!, {r0, r1, r2, r3}
+    2582:	e894 0003 	ldmia.w	r4, {r0, r1}
+    2586:	e885 0003 	stmia.w	r5, {r0, r1}
+    258a:	4638      	mov	r0, r7
+    258c:	b007      	add	sp, #28
+    258e:	bdf0      	pop	{r4, r5, r6, r7, pc}
+    2590:	f851 2b04 	ldr.w	r2, [r1], #4
+    2594:	3a01      	subs	r2, #1
+    2596:	4282      	cmp	r2, r0
+    2598:	d9ed      	bls.n	2576 <imu::Setup::start(unsigned int, bool)+0x32>
+    259a:	f240 2303 	movw	r3, #515	@ 0x203
+    259e:	e7df      	b.n	2560 <imu::Setup::start(unsigned int, bool)+0x1c>
+    25a0:	00000000 	.word	0x00000000
+    25a4:	000f423e 	.word	0x000f423e
+
+000025a8 <imu::Setup::acceptTime(unsigned int)>:
+    25a8:	6903      	ldr	r3, [r0, #16]
+    25aa:	1acb      	subs	r3, r1, r3
+    25ac:	2b00      	cmp	r3, #0
+    25ae:	da04      	bge.n	25ba <imu::Setup::acceptTime(unsigned int)+0x12>
+    25b0:	f240 3303 	movw	r3, #771	@ 0x303
+    25b4:	8083      	strh	r3, [r0, #4]
+    25b6:	2000      	movs	r0, #0
+    25b8:	4770      	bx	lr
+    25ba:	68c3      	ldr	r3, [r0, #12]
+    25bc:	6101      	str	r1, [r0, #16]
+    25be:	1ac9      	subs	r1, r1, r3
+    25c0:	4b03      	ldr	r3, [pc, #12]	@ (25d0 <imu::Setup::acceptTime(unsigned int)+0x28>)
+    25c2:	4299      	cmp	r1, r3
+    25c4:	d902      	bls.n	25cc <imu::Setup::acceptTime(unsigned int)+0x24>
+    25c6:	f240 4303 	movw	r3, #1027	@ 0x403
+    25ca:	e7f3      	b.n	25b4 <imu::Setup::acceptTime(unsigned int)+0xc>
+    25cc:	2001      	movs	r0, #1
+    25ce:	4770      	bx	lr
+    25d0:	000f423f 	.word	0x000f423f
+
+000025d4 <imu::Setup::acceptTransfer(imu::BusTransfer const&, unsigned char, unsigned int)>:
+    25d4:	b470      	push	{r4, r5, r6}
+    25d6:	780d      	ldrb	r5, [r1, #0]
+    25d8:	4604      	mov	r4, r0
+    25da:	7185      	strb	r5, [r0, #6]
+    25dc:	784d      	ldrb	r5, [r1, #1]
+    25de:	71c5      	strb	r5, [r0, #7]
+    25e0:	69cd      	ldr	r5, [r1, #28]
+    25e2:	6085      	str	r5, [r0, #8]
+    25e4:	780e      	ldrb	r6, [r1, #0]
+    25e6:	b12e      	cbz	r6, 25f4 <imu::Setup::acceptTransfer(imu::BusTransfer const&, unsigned char, unsigned int)+0x20>
+    25e8:	f240 7303 	movw	r3, #1795	@ 0x703
+    25ec:	80a3      	strh	r3, [r4, #4]
+    25ee:	2000      	movs	r0, #0
+    25f0:	bc70      	pop	{r4, r5, r6}
+    25f2:	4770      	bx	lr
+    25f4:	f891 6020 	ldrb.w	r6, [r1, #32]
+    25f8:	b166      	cbz	r6, 2614 <imu::Setup::acceptTransfer(imu::BusTransfer const&, unsigned char, unsigned int)+0x40>
+    25fa:	7c4e      	ldrb	r6, [r1, #17]
+    25fc:	4296      	cmp	r6, r2
+    25fe:	d109      	bne.n	2614 <imu::Setup::acceptTransfer(imu::BusTransfer const&, unsigned char, unsigned int)+0x40>
+    2600:	b945      	cbnz	r5, 2614 <imu::Setup::acceptTransfer(imu::BusTransfer const&, unsigned char, unsigned int)+0x40>
+    2602:	784a      	ldrb	r2, [r1, #1]
+    2604:	b932      	cbnz	r2, 2614 <imu::Setup::acceptTransfer(imu::BusTransfer const&, unsigned char, unsigned int)+0x40>
+    2606:	694a      	ldr	r2, [r1, #20]
+    2608:	1ad3      	subs	r3, r2, r3
+    260a:	2b00      	cmp	r3, #0
+    260c:	da05      	bge.n	261a <imu::Setup::acceptTransfer(imu::BusTransfer const&, unsigned char, unsigned int)+0x46>
+    260e:	f240 3303 	movw	r3, #771	@ 0x303
+    2612:	e7eb      	b.n	25ec <imu::Setup::acceptTransfer(imu::BusTransfer const&, unsigned char, unsigned int)+0x18>
+    2614:	f640 0303 	movw	r3, #2051	@ 0x803
+    2618:	e7e8      	b.n	25ec <imu::Setup::acceptTransfer(imu::BusTransfer const&, unsigned char, unsigned int)+0x18>
+    261a:	6989      	ldr	r1, [r1, #24]
+    261c:	1a8a      	subs	r2, r1, r2
+    261e:	d4f6      	bmi.n	260e <imu::Setup::acceptTransfer(imu::BusTransfer const&, unsigned char, unsigned int)+0x3a>
+    2620:	f5b2 7f16 	cmp.w	r2, #600	@ 0x258
+    2624:	d2f6      	bcs.n	2614 <imu::Setup::acceptTransfer(imu::BusTransfer const&, unsigned char, unsigned int)+0x40>
+    2626:	bc70      	pop	{r4, r5, r6}
+    2628:	4b00      	ldr	r3, [pc, #0]	@ (262c <imu::Setup::acceptTransfer(imu::BusTransfer const&, unsigned char, unsigned int)+0x58>)
+    262a:	4718      	bx	r3
+    262c:	00000000 	.word	0x00000000
+
+00002630 <imu::Setup::advance(unsigned int)>:
+    2630:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+    2634:	460c      	mov	r4, r1
+    2636:	f814 3f04 	ldrb.w	r3, [r4, #4]!
+    263a:	4606      	mov	r6, r0
+    263c:	2b01      	cmp	r3, #1
+    263e:	460d      	mov	r5, r1
+    2640:	4692      	mov	sl, r2
+    2642:	b08b      	sub	sp, #44	@ 0x2c
+    2644:	d00a      	beq.n	265c <imu::Setup::advance(unsigned int)+0x2c>
+    2646:	cc0f      	ldmia	r4!, {r0, r1, r2, r3}
+    2648:	4635      	mov	r5, r6
+    264a:	c50f      	stmia	r5!, {r0, r1, r2, r3}
+    264c:	e894 0003 	ldmia.w	r4, {r0, r1}
+    2650:	e885 0003 	stmia.w	r5, {r0, r1}
+    2654:	4630      	mov	r0, r6
+    2656:	b00b      	add	sp, #44	@ 0x2c
+    2658:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+    265c:	694b      	ldr	r3, [r1, #20]
+    265e:	f5b3 6f80 	cmp.w	r3, #1024	@ 0x400
+    2662:	d303      	bcc.n	266c <imu::Setup::advance(unsigned int)+0x3c>
+    2664:	f240 5303 	movw	r3, #1283	@ 0x503
+    2668:	80ab      	strh	r3, [r5, #4]
+    266a:	e7ec      	b.n	2646 <imu::Setup::advance(unsigned int)+0x16>
+    266c:	3301      	adds	r3, #1
+    266e:	614b      	str	r3, [r1, #20]
+    2670:	4628      	mov	r0, r5
+    2672:	4611      	mov	r1, r2
+    2674:	4b46      	ldr	r3, [pc, #280]	@ (2790 <imu::Setup::advance(unsigned int)+0x160>)
+    2676:	4798      	blx	r3
+    2678:	2800      	cmp	r0, #0
+    267a:	d0e4      	beq.n	2646 <imu::Setup::advance(unsigned int)+0x16>
+    267c:	69eb      	ldr	r3, [r5, #28]
+    267e:	f895 b020 	ldrb.w	fp, [r5, #32]
+    2682:	1ad1      	subs	r1, r2, r3
+    2684:	230c      	movs	r3, #12
+    2686:	fb03 f30b 	mul.w	r3, r3, fp
+    268a:	f8df 8114 	ldr.w	r8, [pc, #276]	@ 27a0 <imu::Setup::advance(unsigned int)+0x170>
+    268e:	eb08 0203 	add.w	r2, r8, r3
+    2692:	6850      	ldr	r0, [r2, #4]
+    2694:	4281      	cmp	r1, r0
+    2696:	d3d6      	bcc.n	2646 <imu::Setup::advance(unsigned int)+0x16>
+    2698:	69a9      	ldr	r1, [r5, #24]
+    269a:	293f      	cmp	r1, #63	@ 0x3f
+    269c:	d902      	bls.n	26a4 <imu::Setup::advance(unsigned int)+0x74>
+    269e:	f240 6303 	movw	r3, #1539	@ 0x603
+    26a2:	e7e1      	b.n	2668 <imu::Setup::advance(unsigned int)+0x38>
+    26a4:	f818 7003 	ldrb.w	r7, [r8, r3]
+    26a8:	3101      	adds	r1, #1
+    26aa:	61a9      	str	r1, [r5, #24]
+    26ac:	6829      	ldr	r1, [r5, #0]
+    26ae:	b9e7      	cbnz	r7, 26ea <imu::Setup::advance(unsigned int)+0xba>
+    26b0:	4b38      	ldr	r3, [pc, #224]	@ (2794 <imu::Setup::advance(unsigned int)+0x164>)
+    26b2:	4608      	mov	r0, r1
+    26b4:	4798      	blx	r3
+    26b6:	f3c0 4307 	ubfx	r3, r0, #16, #8
+    26ba:	f88d 3006 	strb.w	r3, [sp, #6]
+    26be:	b2c3      	uxtb	r3, r0
+    26c0:	f3c0 2007 	ubfx	r0, r0, #8, #8
+    26c4:	71ab      	strb	r3, [r5, #6]
+    26c6:	71e8      	strb	r0, [r5, #7]
+    26c8:	b113      	cbz	r3, 26d0 <imu::Setup::advance(unsigned int)+0xa0>
+    26ca:	f240 7303 	movw	r3, #1795	@ 0x703
+    26ce:	e7cb      	b.n	2668 <imu::Setup::advance(unsigned int)+0x38>
+    26d0:	f89d 3006 	ldrb.w	r3, [sp, #6]
+    26d4:	b103      	cbz	r3, 26d8 <imu::Setup::advance(unsigned int)+0xa8>
+    26d6:	b110      	cbz	r0, 26de <imu::Setup::advance(unsigned int)+0xae>
+    26d8:	f640 0303 	movw	r3, #2051	@ 0x803
+    26dc:	e7c4      	b.n	2668 <imu::Setup::advance(unsigned int)+0x38>
+    26de:	f895 3020 	ldrb.w	r3, [r5, #32]
+    26e2:	3301      	adds	r3, #1
+    26e4:	f885 3020 	strb.w	r3, [r5, #32]
+    26e8:	e7ad      	b.n	2646 <imu::Setup::advance(unsigned int)+0x16>
+    26ea:	2f01      	cmp	r7, #1
+    26ec:	d121      	bne.n	2732 <imu::Setup::advance(unsigned int)+0x102>
+    26ee:	7852      	ldrb	r2, [r2, #1]
+    26f0:	4b29      	ldr	r3, [pc, #164]	@ (2798 <imu::Setup::advance(unsigned int)+0x168>)
+    26f2:	a801      	add	r0, sp, #4
+    26f4:	4798      	blx	r3
+    26f6:	463a      	mov	r2, r7
+    26f8:	f89d 9006 	ldrb.w	r9, [sp, #6]
+    26fc:	4653      	mov	r3, sl
+    26fe:	4628      	mov	r0, r5
+    2700:	f8df a0a0 	ldr.w	sl, [pc, #160]	@ 27a4 <imu::Setup::advance(unsigned int)+0x174>
+    2704:	f88d 9006 	strb.w	r9, [sp, #6]
+    2708:	a901      	add	r1, sp, #4
+    270a:	47d0      	blx	sl
+    270c:	2800      	cmp	r0, #0
+    270e:	d09a      	beq.n	2646 <imu::Setup::advance(unsigned int)+0x16>
+    2710:	2f01      	cmp	r7, #1
+    2712:	d121      	bne.n	2758 <imu::Setup::advance(unsigned int)+0x128>
+    2714:	230c      	movs	r3, #12
+    2716:	fb03 830b 	mla	r3, r3, fp, r8
+    271a:	789a      	ldrb	r2, [r3, #2]
+    271c:	454a      	cmp	r2, r9
+    271e:	d023      	beq.n	2768 <imu::Setup::advance(unsigned int)+0x138>
+    2720:	785b      	ldrb	r3, [r3, #1]
+    2722:	2203      	movs	r2, #3
+    2724:	2b75      	cmp	r3, #117	@ 0x75
+    2726:	bf14      	ite	ne
+    2728:	230a      	movne	r3, #10
+    272a:	2309      	moveq	r3, #9
+    272c:	712a      	strb	r2, [r5, #4]
+    272e:	716b      	strb	r3, [r5, #5]
+    2730:	e789      	b.n	2646 <imu::Setup::advance(unsigned int)+0x16>
+    2732:	2f02      	cmp	r7, #2
+    2734:	d109      	bne.n	274a <imu::Setup::advance(unsigned int)+0x11a>
+    2736:	7893      	ldrb	r3, [r2, #2]
+    2738:	f8df 906c 	ldr.w	r9, [pc, #108]	@ 27a8 <imu::Setup::advance(unsigned int)+0x178>
+    273c:	7852      	ldrb	r2, [r2, #1]
+    273e:	a801      	add	r0, sp, #4
+    2740:	47c8      	blx	r9
+    2742:	2200      	movs	r2, #0
+    2744:	f89d 9006 	ldrb.w	r9, [sp, #6]
+    2748:	e7d8      	b.n	26fc <imu::Setup::advance(unsigned int)+0xcc>
+    274a:	4b14      	ldr	r3, [pc, #80]	@ (279c <imu::Setup::advance(unsigned int)+0x16c>)
+    274c:	a801      	add	r0, sp, #4
+    274e:	4798      	blx	r3
+    2750:	220f      	movs	r2, #15
+    2752:	f89d 9006 	ldrb.w	r9, [sp, #6]
+    2756:	e7d1      	b.n	26fc <imu::Setup::advance(unsigned int)+0xcc>
+    2758:	2f03      	cmp	r7, #3
+    275a:	d105      	bne.n	2768 <imu::Setup::advance(unsigned int)+0x138>
+    275c:	f1b9 0f01 	cmp.w	r9, #1
+    2760:	d902      	bls.n	2768 <imu::Setup::advance(unsigned int)+0x138>
+    2762:	f640 3303 	movw	r3, #2819	@ 0xb03
+    2766:	e77f      	b.n	2668 <imu::Setup::advance(unsigned int)+0x38>
+    2768:	230c      	movs	r3, #12
+    276a:	fb03 880b 	mla	r8, r3, fp, r8
+    276e:	f898 3008 	ldrb.w	r3, [r8, #8]
+    2772:	b10b      	cbz	r3, 2778 <imu::Setup::advance(unsigned int)+0x148>
+    2774:	9b07      	ldr	r3, [sp, #28]
+    2776:	61eb      	str	r3, [r5, #28]
+    2778:	f895 3020 	ldrb.w	r3, [r5, #32]
+    277c:	2f03      	cmp	r7, #3
+    277e:	f103 0301 	add.w	r3, r3, #1
+    2782:	f885 3020 	strb.w	r3, [r5, #32]
+    2786:	f47f af5e 	bne.w	2646 <imu::Setup::advance(unsigned int)+0x16>
+    278a:	2302      	movs	r3, #2
+    278c:	712b      	strb	r3, [r5, #4]
+    278e:	e75a      	b.n	2646 <imu::Setup::advance(unsigned int)+0x16>
+	...
+    27a0:	0000011c 	.word	0x0000011c
+	...
+
+000027ac <imu::decodeMotion(imu::BusTransfer const&)>:
+    27ac:	e92d 4ff7 	stmdb	sp!, {r0, r1, r2, r4, r5, r6, r7, r8, r9, sl, fp, lr}
+    27b0:	4b46      	ldr	r3, [pc, #280]	@ (28cc <imu::decodeMotion(imu::BusTransfer const&)+0x120>)
+    27b2:	460d      	mov	r5, r1
+    27b4:	2244      	movs	r2, #68	@ 0x44
+    27b6:	2100      	movs	r1, #0
+    27b8:	4604      	mov	r4, r0
+    27ba:	4798      	blx	r3
+    27bc:	2303      	movs	r3, #3
+    27be:	7023      	strb	r3, [r4, #0]
+    27c0:	782b      	ldrb	r3, [r5, #0]
+    27c2:	b12b      	cbz	r3, 27d0 <imu::decodeMotion(imu::BusTransfer const&)+0x24>
+    27c4:	2302      	movs	r3, #2
+    27c6:	7023      	strb	r3, [r4, #0]
+    27c8:	4620      	mov	r0, r4
+    27ca:	b003      	add	sp, #12
+    27cc:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+    27d0:	f895 3020 	ldrb.w	r3, [r5, #32]
+    27d4:	2b00      	cmp	r3, #0
+    27d6:	d0f7      	beq.n	27c8 <imu::decodeMotion(imu::BusTransfer const&)+0x1c>
+    27d8:	7c6b      	ldrb	r3, [r5, #17]
+    27da:	2b0f      	cmp	r3, #15
+    27dc:	d1f4      	bne.n	27c8 <imu::decodeMotion(imu::BusTransfer const&)+0x1c>
+    27de:	69ea      	ldr	r2, [r5, #28]
+    27e0:	2a00      	cmp	r2, #0
+    27e2:	d1f1      	bne.n	27c8 <imu::decodeMotion(imu::BusTransfer const&)+0x1c>
+    27e4:	786b      	ldrb	r3, [r5, #1]
+    27e6:	2b00      	cmp	r3, #0
+    27e8:	d1ee      	bne.n	27c8 <imu::decodeMotion(imu::BusTransfer const&)+0x1c>
+    27ea:	69ab      	ldr	r3, [r5, #24]
+    27ec:	f8d5 a014 	ldr.w	sl, [r5, #20]
+    27f0:	9301      	str	r3, [sp, #4]
+    27f2:	eba3 030a 	sub.w	r3, r3, sl
+    27f6:	f5b3 7f16 	cmp.w	r3, #600	@ 0x258
+    27fa:	d2e5      	bcs.n	27c8 <imu::decodeMotion(imu::BusTransfer const&)+0x1c>
+    27fc:	f895 9002 	ldrb.w	r9, [r5, #2]
+    2800:	f1b9 0f01 	cmp.w	r9, #1
+    2804:	d901      	bls.n	280a <imu::decodeMotion(imu::BusTransfer const&)+0x5e>
+    2806:	2304      	movs	r3, #4
+    2808:	e7dd      	b.n	27c6 <imu::decodeMotion(imu::BusTransfer const&)+0x1a>
+    280a:	4626      	mov	r6, r4
+    280c:	ed9f 7a30 	vldr	s14, [pc, #192]	@ 28d0 <imu::decodeMotion(imu::BusTransfer const&)+0x124>
+    2810:	eddf 6a30 	vldr	s13, [pc, #192]	@ 28d4 <imu::decodeMotion(imu::BusTransfer const&)+0x128>
+    2814:	f04f 0b01 	mov.w	fp, #1
+    2818:	f8df 80bc 	ldr.w	r8, [pc, #188]	@ 28d8 <imu::decodeMotion(imu::BusTransfer const&)+0x12c>
+    281c:	1cef      	adds	r7, r5, #3
+    281e:	4638      	mov	r0, r7
+    2820:	47c0      	blx	r8
+    2822:	4601      	mov	r1, r0
+    2824:	ee07 1a90 	vmov	s15, r1
+    2828:	eef8 7ae7 	vcvt.f32.s32	s15, s15
+    282c:	f846 0f04 	str.w	r0, [r6, #4]!
+    2830:	f107 0008 	add.w	r0, r7, #8
+    2834:	47c0      	blx	r8
+    2836:	ee67 7a87 	vmul.f32	s15, s15, s14
+    283a:	edc6 7a07 	vstr	s15, [r6, #28]
+    283e:	ee07 0a90 	vmov	s15, r0
+    2842:	eeb8 6ae7 	vcvt.f32.s32	s12, s15
+    2846:	eec6 7a26 	vdiv.f32	s15, s12, s13
+    284a:	f511 4f00 	cmn.w	r1, #32768	@ 0x8000
+    284e:	edc6 7a0a 	vstr	s15, [r6, #40]	@ 0x28
+    2852:	f647 73ff 	movw	r3, #32767	@ 0x7fff
+    2856:	60f0      	str	r0, [r6, #12]
+    2858:	d001      	beq.n	285e <imu::decodeMotion(imu::BusTransfer const&)+0xb2>
+    285a:	4299      	cmp	r1, r3
+    285c:	d107      	bne.n	286e <imu::decodeMotion(imu::BusTransfer const&)+0xc2>
+    285e:	f894 1041 	ldrb.w	r1, [r4, #65]	@ 0x41
+    2862:	fa0b fc02 	lsl.w	ip, fp, r2
+    2866:	ea41 010c 	orr.w	r1, r1, ip
+    286a:	f884 1041 	strb.w	r1, [r4, #65]	@ 0x41
+    286e:	f510 4f00 	cmn.w	r0, #32768	@ 0x8000
+    2872:	d001      	beq.n	2878 <imu::decodeMotion(imu::BusTransfer const&)+0xcc>
+    2874:	4298      	cmp	r0, r3
+    2876:	d107      	bne.n	2888 <imu::decodeMotion(imu::BusTransfer const&)+0xdc>
+    2878:	f894 0041 	ldrb.w	r0, [r4, #65]	@ 0x41
+    287c:	1d11      	adds	r1, r2, #4
+    287e:	fa0b f101 	lsl.w	r1, fp, r1
+    2882:	4301      	orrs	r1, r0
+    2884:	f884 1041 	strb.w	r1, [r4, #65]	@ 0x41
+    2888:	3201      	adds	r2, #1
+    288a:	2a03      	cmp	r2, #3
+    288c:	f107 0702 	add.w	r7, r7, #2
+    2890:	d1c5      	bne.n	281e <imu::decodeMotion(imu::BusTransfer const&)+0x72>
+    2892:	f105 0009 	add.w	r0, r5, #9
+    2896:	47c0      	blx	r8
+    2898:	f510 4f00 	cmn.w	r0, #32768	@ 0x8000
+    289c:	61e0      	str	r0, [r4, #28]
+    289e:	d003      	beq.n	28a8 <imu::decodeMotion(imu::BusTransfer const&)+0xfc>
+    28a0:	f647 73ff 	movw	r3, #32767	@ 0x7fff
+    28a4:	4298      	cmp	r0, r3
+    28a6:	d105      	bne.n	28b4 <imu::decodeMotion(imu::BusTransfer const&)+0x108>
+    28a8:	f894 3041 	ldrb.w	r3, [r4, #65]	@ 0x41
+    28ac:	f043 0308 	orr.w	r3, r3, #8
+    28b0:	f884 3041 	strb.w	r3, [r4, #65]	@ 0x41
+    28b4:	9b01      	ldr	r3, [sp, #4]
+    28b6:	f8c4 a038 	str.w	sl, [r4, #56]	@ 0x38
+    28ba:	63e3      	str	r3, [r4, #60]	@ 0x3c
+    28bc:	2300      	movs	r3, #0
+    28be:	7023      	strb	r3, [r4, #0]
+    28c0:	2301      	movs	r3, #1
+    28c2:	f884 9040 	strb.w	r9, [r4, #64]	@ 0x40
+    28c6:	f884 3042 	strb.w	r3, [r4, #66]	@ 0x42
+    28ca:	e77d      	b.n	27c8 <imu::decodeMotion(imu::BusTransfer const&)+0x1c>
+    28cc:	00000000 	.word	0x00000000
+    28d0:	39800000 	.word	0x39800000
+    28d4:	42033333 	.word	0x42033333
+    28d8:	00000000 	.word	0x00000000
+
+000028dc <imu::Acquirer::fail(imu::SampleFault, unsigned int)>:
+    28dc:	b5f0      	push	{r4, r5, r6, r7, lr}
+    28de:	b09b      	sub	sp, #108	@ 0x6c
+    28e0:	460c      	mov	r4, r1
+    28e2:	4605      	mov	r5, r0
+    28e4:	4617      	mov	r7, r2
+    28e6:	461e      	mov	r6, r3
+    28e8:	2266      	movs	r2, #102	@ 0x66
+    28ea:	2100      	movs	r1, #0
+    28ec:	4b13      	ldr	r3, [pc, #76]	@ (293c <imu::Acquirer::fail(imu::SampleFault, unsigned int)+0x60>)
+    28ee:	f10d 0002 	add.w	r0, sp, #2
+    28f2:	4798      	blx	r3
+    28f4:	2303      	movs	r3, #3
+    28f6:	f8b4 0090 	ldrh.w	r0, [r4, #144]	@ 0x90
+    28fa:	f8d4 1094 	ldr.w	r1, [r4, #148]	@ 0x94
+    28fe:	f8d4 20bc 	ldr.w	r2, [r4, #188]	@ 0xbc
+    2902:	f88d 3000 	strb.w	r3, [sp]
+    2906:	f88d 3004 	strb.w	r3, [sp, #4]
+    290a:	f104 0348 	add.w	r3, r4, #72	@ 0x48
+    290e:	e9cd 1213 	strd	r1, r2, [sp, #76]	@ 0x4c
+    2912:	f8ad 0048 	strh.w	r0, [sp, #72]	@ 0x48
+    2916:	4669      	mov	r1, sp
+    2918:	4618      	mov	r0, r3
+    291a:	9615      	str	r6, [sp, #84]	@ 0x54
+    291c:	2265      	movs	r2, #101	@ 0x65
+    291e:	4e08      	ldr	r6, [pc, #32]	@ (2940 <imu::Acquirer::fail(imu::SampleFault, unsigned int)+0x64>)
+    2920:	f88d 7001 	strb.w	r7, [sp, #1]
+    2924:	47b0      	blx	r6
+    2926:	2201      	movs	r2, #1
+    2928:	4601      	mov	r1, r0
+    292a:	f884 20b1 	strb.w	r2, [r4, #177]	@ 0xb1
+    292e:	4628      	mov	r0, r5
+    2930:	2268      	movs	r2, #104	@ 0x68
+    2932:	47b0      	blx	r6
+    2934:	4628      	mov	r0, r5
+    2936:	b01b      	add	sp, #108	@ 0x6c
+    2938:	bdf0      	pop	{r4, r5, r6, r7, pc}
+    293a:	bf00      	nop
+	...
+
+00002944 <imu::Acquirer::start(unsigned int, bool)>:
+    2944:	b570      	push	{r4, r5, r6, lr}
+    2946:	460c      	mov	r4, r1
+    2948:	4e13      	ldr	r6, [pc, #76]	@ (2998 <imu::Acquirer::start(unsigned int, bool)+0x54>)
+    294a:	b09a      	sub	sp, #104	@ 0x68
+    294c:	3124      	adds	r1, #36	@ 0x24
+    294e:	4605      	mov	r5, r0
+    2950:	47b0      	blx	r6
+    2952:	f894 30b1 	ldrb.w	r3, [r4, #177]	@ 0xb1
+    2956:	b973      	cbnz	r3, 2976 <imu::Acquirer::start(unsigned int, bool)+0x32>
+    2958:	782b      	ldrb	r3, [r5, #0]
+    295a:	2b03      	cmp	r3, #3
+    295c:	d10e      	bne.n	297c <imu::Acquirer::start(unsigned int, bool)+0x38>
+    295e:	886b      	ldrh	r3, [r5, #2]
+    2960:	4621      	mov	r1, r4
+    2962:	f8a4 3090 	strh.w	r3, [r4, #144]	@ 0x90
+    2966:	686b      	ldr	r3, [r5, #4]
+    2968:	2201      	movs	r2, #1
+    296a:	f8c4 3094 	str.w	r3, [r4, #148]	@ 0x94
+    296e:	4668      	mov	r0, sp
+    2970:	68eb      	ldr	r3, [r5, #12]
+    2972:	4c0a      	ldr	r4, [pc, #40]	@ (299c <imu::Acquirer::start(unsigned int, bool)+0x58>)
+    2974:	47a0      	blx	r4
+    2976:	4628      	mov	r0, r5
+    2978:	b01a      	add	sp, #104	@ 0x68
+    297a:	bd70      	pop	{r4, r5, r6, pc}
+    297c:	f894 20b0 	ldrb.w	r2, [r4, #176]	@ 0xb0
+    2980:	2a00      	cmp	r2, #0
+    2982:	d1f8      	bne.n	2976 <imu::Acquirer::start(unsigned int, bool)+0x32>
+    2984:	2b02      	cmp	r3, #2
+    2986:	bf01      	itttt	eq
+    2988:	2301      	moveq	r3, #1
+    298a:	f884 30b0 	strbeq.w	r3, [r4, #176]	@ 0xb0
+    298e:	68eb      	ldreq	r3, [r5, #12]
+    2990:	e9c4 332d 	strdeq	r3, r3, [r4, #180]	@ 0xb4
+    2994:	e7ef      	b.n	2976 <imu::Acquirer::start(unsigned int, bool)+0x32>
+    2996:	bf00      	nop
+	...
+
+000029a0 <imu::Acquirer::advanceSetup(unsigned int)>:
+    29a0:	b530      	push	{r4, r5, lr}
+    29a2:	460c      	mov	r4, r1
+    29a4:	4b13      	ldr	r3, [pc, #76]	@ (29f4 <imu::Acquirer::advanceSetup(unsigned int)+0x54>)
+    29a6:	b09b      	sub	sp, #108	@ 0x6c
+    29a8:	3124      	adds	r1, #36	@ 0x24
+    29aa:	4605      	mov	r5, r0
+    29ac:	4798      	blx	r3
+    29ae:	f894 30b1 	ldrb.w	r3, [r4, #177]	@ 0xb1
+    29b2:	b973      	cbnz	r3, 29d2 <imu::Acquirer::advanceSetup(unsigned int)+0x32>
+    29b4:	782b      	ldrb	r3, [r5, #0]
+    29b6:	2b03      	cmp	r3, #3
+    29b8:	d10e      	bne.n	29d8 <imu::Acquirer::advanceSetup(unsigned int)+0x38>
+    29ba:	886b      	ldrh	r3, [r5, #2]
+    29bc:	4621      	mov	r1, r4
+    29be:	f8a4 3090 	strh.w	r3, [r4, #144]	@ 0x90
+    29c2:	686b      	ldr	r3, [r5, #4]
+    29c4:	2201      	movs	r2, #1
+    29c6:	f8c4 3094 	str.w	r3, [r4, #148]	@ 0x94
+    29ca:	4668      	mov	r0, sp
+    29cc:	68eb      	ldr	r3, [r5, #12]
+    29ce:	4c0a      	ldr	r4, [pc, #40]	@ (29f8 <imu::Acquirer::advanceSetup(unsigned int)+0x58>)
+    29d0:	47a0      	blx	r4
+    29d2:	4628      	mov	r0, r5
+    29d4:	b01b      	add	sp, #108	@ 0x6c
+    29d6:	bd30      	pop	{r4, r5, pc}
+    29d8:	f894 20b0 	ldrb.w	r2, [r4, #176]	@ 0xb0
+    29dc:	2a00      	cmp	r2, #0
+    29de:	d1f8      	bne.n	29d2 <imu::Acquirer::advanceSetup(unsigned int)+0x32>
+    29e0:	2b02      	cmp	r3, #2
+    29e2:	bf01      	itttt	eq
+    29e4:	2301      	moveq	r3, #1
+    29e6:	f884 30b0 	strbeq.w	r3, [r4, #176]	@ 0xb0
+    29ea:	68eb      	ldreq	r3, [r5, #12]
+    29ec:	e9c4 332d 	strdeq	r3, r3, [r4, #180]	@ 0xb4
+    29f0:	e7ef      	b.n	29d2 <imu::Acquirer::advanceSetup(unsigned int)+0x32>
+    29f2:	bf00      	nop
+	...
+
+000029fc <imu::Acquirer::acceptTime(unsigned int)>:
+    29fc:	b510      	push	{r4, lr}
+    29fe:	f8d0 30b4 	ldr.w	r3, [r0, #180]	@ 0xb4
+    2a02:	b09a      	sub	sp, #104	@ 0x68
+    2a04:	1aca      	subs	r2, r1, r3
+    2a06:	2a00      	cmp	r2, #0
+    2a08:	da07      	bge.n	2a1a <imu::Acquirer::acceptTime(unsigned int)+0x1e>
+    2a0a:	2203      	movs	r2, #3
+    2a0c:	4601      	mov	r1, r0
+    2a0e:	4c0b      	ldr	r4, [pc, #44]	@ (2a3c <imu::Acquirer::acceptTime(unsigned int)+0x40>)
+    2a10:	4668      	mov	r0, sp
+    2a12:	47a0      	blx	r4
+    2a14:	2000      	movs	r0, #0
+    2a16:	b01a      	add	sp, #104	@ 0x68
+    2a18:	bd10      	pop	{r4, pc}
+    2a1a:	f644 621f 	movw	r2, #19999	@ 0x4e1f
+    2a1e:	f8d0 30b8 	ldr.w	r3, [r0, #184]	@ 0xb8
+    2a22:	f8c0 10b4 	str.w	r1, [r0, #180]	@ 0xb4
+    2a26:	1acb      	subs	r3, r1, r3
+    2a28:	4293      	cmp	r3, r2
+    2a2a:	f8c0 109c 	str.w	r1, [r0, #156]	@ 0x9c
+    2a2e:	d902      	bls.n	2a36 <imu::Acquirer::acceptTime(unsigned int)+0x3a>
+    2a30:	460b      	mov	r3, r1
+    2a32:	2206      	movs	r2, #6
+    2a34:	e7ea      	b.n	2a0c <imu::Acquirer::acceptTime(unsigned int)+0x10>
+    2a36:	2001      	movs	r0, #1
+    2a38:	e7ed      	b.n	2a16 <imu::Acquirer::acceptTime(unsigned int)+0x1a>
+    2a3a:	bf00      	nop
+    2a3c:	00000000 	.word	0x00000000
+
+00002a40 <imu::Acquirer::acceptAcquisition(imu::BusAcquisition const&, unsigned int)>:
+    2a40:	460b      	mov	r3, r1
+    2a42:	b5f0      	push	{r4, r5, r6, r7, lr}
+    2a44:	7909      	ldrb	r1, [r1, #4]
+    2a46:	b09b      	sub	sp, #108	@ 0x6c
+    2a48:	f880 1090 	strb.w	r1, [r0, #144]	@ 0x90
+    2a4c:	7959      	ldrb	r1, [r3, #5]
+    2a4e:	f880 1091 	strb.w	r1, [r0, #145]	@ 0x91
+    2a52:	6a19      	ldr	r1, [r3, #32]
+    2a54:	f8c0 1094 	str.w	r1, [r0, #148]	@ 0x94
+    2a58:	791c      	ldrb	r4, [r3, #4]
+    2a5a:	b14c      	cbz	r4, 2a70 <imu::Acquirer::acceptAcquisition(imu::BusAcquisition const&, unsigned int)+0x30>
+    2a5c:	2204      	movs	r2, #4
+    2a5e:	f8d0 30b4 	ldr.w	r3, [r0, #180]	@ 0xb4
+    2a62:	4601      	mov	r1, r0
+    2a64:	4c36      	ldr	r4, [pc, #216]	@ (2b40 <imu::Acquirer::acceptAcquisition(imu::BusAcquisition const&, unsigned int)+0x100>)
+    2a66:	4668      	mov	r0, sp
+    2a68:	47a0      	blx	r4
+    2a6a:	2000      	movs	r0, #0
+    2a6c:	b01b      	add	sp, #108	@ 0x6c
+    2a6e:	bdf0      	pop	{r4, r5, r6, r7, pc}
+    2a70:	781d      	ldrb	r5, [r3, #0]
+    2a72:	1e6c      	subs	r4, r5, #1
+    2a74:	2c01      	cmp	r4, #1
+    2a76:	d81d      	bhi.n	2ab4 <imu::Acquirer::acceptAcquisition(imu::BusAcquisition const&, unsigned int)+0x74>
+    2a78:	f893 4024 	ldrb.w	r4, [r3, #36]	@ 0x24
+    2a7c:	b1d4      	cbz	r4, 2ab4 <imu::Acquirer::acceptAcquisition(imu::BusAcquisition const&, unsigned int)+0x74>
+    2a7e:	b9c9      	cbnz	r1, 2ab4 <imu::Acquirer::acceptAcquisition(imu::BusAcquisition const&, unsigned int)+0x74>
+    2a80:	7959      	ldrb	r1, [r3, #5]
+    2a82:	b9b9      	cbnz	r1, 2ab4 <imu::Acquirer::acceptAcquisition(imu::BusAcquisition const&, unsigned int)+0x74>
+    2a84:	2d01      	cmp	r5, #1
+    2a86:	7d59      	ldrb	r1, [r3, #21]
+    2a88:	d157      	bne.n	2b3a <imu::Acquirer::acceptAcquisition(imu::BusAcquisition const&, unsigned int)+0xfa>
+    2a8a:	b999      	cbnz	r1, 2ab4 <imu::Acquirer::acceptAcquisition(imu::BusAcquisition const&, unsigned int)+0x74>
+    2a8c:	1d59      	adds	r1, r3, #5
+    2a8e:	f103 0414 	add.w	r4, r3, #20
+    2a92:	42a1      	cmp	r1, r4
+    2a94:	d10a      	bne.n	2aac <imu::Acquirer::acceptAcquisition(imu::BusAcquisition const&, unsigned int)+0x6c>
+    2a96:	699c      	ldr	r4, [r3, #24]
+    2a98:	1aa2      	subs	r2, r4, r2
+    2a9a:	2a00      	cmp	r2, #0
+    2a9c:	db02      	blt.n	2aa4 <imu::Acquirer::acceptAcquisition(imu::BusAcquisition const&, unsigned int)+0x64>
+    2a9e:	69d9      	ldr	r1, [r3, #28]
+    2aa0:	1b0e      	subs	r6, r1, r4
+    2aa2:	d50b      	bpl.n	2abc <imu::Acquirer::acceptAcquisition(imu::BusAcquisition const&, unsigned int)+0x7c>
+    2aa4:	2203      	movs	r2, #3
+    2aa6:	f8d0 30b4 	ldr.w	r3, [r0, #180]	@ 0xb4
+    2aaa:	e7da      	b.n	2a62 <imu::Acquirer::acceptAcquisition(imu::BusAcquisition const&, unsigned int)+0x22>
+    2aac:	f811 6f01 	ldrb.w	r6, [r1, #1]!
+    2ab0:	2e00      	cmp	r6, #0
+    2ab2:	d0ee      	beq.n	2a92 <imu::Acquirer::acceptAcquisition(imu::BusAcquisition const&, unsigned int)+0x52>
+    2ab4:	2205      	movs	r2, #5
+    2ab6:	f8d0 30b4 	ldr.w	r3, [r0, #180]	@ 0xb4
+    2aba:	e7d2      	b.n	2a62 <imu::Acquirer::acceptAcquisition(imu::BusAcquisition const&, unsigned int)+0x22>
+    2abc:	f5b6 7f16 	cmp.w	r6, #600	@ 0x258
+    2ac0:	d2f8      	bcs.n	2ab4 <imu::Acquirer::acceptAcquisition(imu::BusAcquisition const&, unsigned int)+0x74>
+    2ac2:	f893 2029 	ldrb.w	r2, [r3, #41]	@ 0x29
+    2ac6:	2a00      	cmp	r2, #0
+    2ac8:	d0f4      	beq.n	2ab4 <imu::Acquirer::acceptAcquisition(imu::BusAcquisition const&, unsigned int)+0x74>
+    2aca:	f8d3 c02c 	ldr.w	ip, [r3, #44]	@ 0x2c
+    2ace:	ebac 0704 	sub.w	r7, ip, r4
+    2ad2:	42be      	cmp	r6, r7
+    2ad4:	d3ee      	bcc.n	2ab4 <imu::Acquirer::acceptAcquisition(imu::BusAcquisition const&, unsigned int)+0x74>
+    2ad6:	2d01      	cmp	r5, #1
+    2ad8:	f893 2028 	ldrb.w	r2, [r3, #40]	@ 0x28
+    2adc:	d117      	bne.n	2b0e <imu::Acquirer::acceptAcquisition(imu::BusAcquisition const&, unsigned int)+0xce>
+    2ade:	2a00      	cmp	r2, #0
+    2ae0:	d1e8      	bne.n	2ab4 <imu::Acquirer::acceptAcquisition(imu::BusAcquisition const&, unsigned int)+0x74>
+    2ae2:	4561      	cmp	r1, ip
+    2ae4:	d1e6      	bne.n	2ab4 <imu::Acquirer::acceptAcquisition(imu::BusAcquisition const&, unsigned int)+0x74>
+    2ae6:	f893 2030 	ldrb.w	r2, [r3, #48]	@ 0x30
+    2aea:	2a00      	cmp	r2, #0
+    2aec:	d1e2      	bne.n	2ab4 <imu::Acquirer::acceptAcquisition(imu::BusAcquisition const&, unsigned int)+0x74>
+    2aee:	6b5a      	ldr	r2, [r3, #52]	@ 0x34
+    2af0:	2a00      	cmp	r2, #0
+    2af2:	d1df      	bne.n	2ab4 <imu::Acquirer::acceptAcquisition(imu::BusAcquisition const&, unsigned int)+0x74>
+    2af4:	f893 2038 	ldrb.w	r2, [r3, #56]	@ 0x38
+    2af8:	2a00      	cmp	r2, #0
+    2afa:	d1db      	bne.n	2ab4 <imu::Acquirer::acceptAcquisition(imu::BusAcquisition const&, unsigned int)+0x74>
+    2afc:	f893 3039 	ldrb.w	r3, [r3, #57]	@ 0x39
+    2b00:	2b00      	cmp	r3, #0
+    2b02:	d1d7      	bne.n	2ab4 <imu::Acquirer::acceptAcquisition(imu::BusAcquisition const&, unsigned int)+0x74>
+    2b04:	4b0f      	ldr	r3, [pc, #60]	@ (2b44 <imu::Acquirer::acceptAcquisition(imu::BusAcquisition const&, unsigned int)+0x104>)
+    2b06:	b01b      	add	sp, #108	@ 0x6c
+    2b08:	e8bd 40f0 	ldmia.w	sp!, {r4, r5, r6, r7, lr}
+    2b0c:	4718      	bx	r3
+    2b0e:	2a01      	cmp	r2, #1
+    2b10:	d1d0      	bne.n	2ab4 <imu::Acquirer::acceptAcquisition(imu::BusAcquisition const&, unsigned int)+0x74>
+    2b12:	f893 2030 	ldrb.w	r2, [r3, #48]	@ 0x30
+    2b16:	2a00      	cmp	r2, #0
+    2b18:	d0cc      	beq.n	2ab4 <imu::Acquirer::acceptAcquisition(imu::BusAcquisition const&, unsigned int)+0x74>
+    2b1a:	6b5a      	ldr	r2, [r3, #52]	@ 0x34
+    2b1c:	1b12      	subs	r2, r2, r4
+    2b1e:	4297      	cmp	r7, r2
+    2b20:	d8c8      	bhi.n	2ab4 <imu::Acquirer::acceptAcquisition(imu::BusAcquisition const&, unsigned int)+0x74>
+    2b22:	4296      	cmp	r6, r2
+    2b24:	d3c6      	bcc.n	2ab4 <imu::Acquirer::acceptAcquisition(imu::BusAcquisition const&, unsigned int)+0x74>
+    2b26:	f893 2038 	ldrb.w	r2, [r3, #56]	@ 0x38
+    2b2a:	2a00      	cmp	r2, #0
+    2b2c:	d0c2      	beq.n	2ab4 <imu::Acquirer::acceptAcquisition(imu::BusAcquisition const&, unsigned int)+0x74>
+    2b2e:	f893 2039 	ldrb.w	r2, [r3, #57]	@ 0x39
+    2b32:	799b      	ldrb	r3, [r3, #6]
+    2b34:	429a      	cmp	r2, r3
+    2b36:	d1bd      	bne.n	2ab4 <imu::Acquirer::acceptAcquisition(imu::BusAcquisition const&, unsigned int)+0x74>
+    2b38:	e7e4      	b.n	2b04 <imu::Acquirer::acceptAcquisition(imu::BusAcquisition const&, unsigned int)+0xc4>
+    2b3a:	290f      	cmp	r1, #15
+    2b3c:	d0ab      	beq.n	2a96 <imu::Acquirer::acceptAcquisition(imu::BusAcquisition const&, unsigned int)+0x56>
+    2b3e:	e7b9      	b.n	2ab4 <imu::Acquirer::acceptAcquisition(imu::BusAcquisition const&, unsigned int)+0x74>
+	...
+
+00002b48 <imu::Acquirer::read(unsigned int)>:
+    2b48:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+    2b4c:	460c      	mov	r4, r1
+    2b4e:	f891 10b1 	ldrb.w	r1, [r1, #177]	@ 0xb1
+    2b52:	4605      	mov	r5, r0
+    2b54:	4690      	mov	r8, r2
+    2b56:	b0aa      	sub	sp, #168	@ 0xa8
+    2b58:	b149      	cbz	r1, 2b6e <imu::Acquirer::read(unsigned int)+0x26>
+    2b5a:	2268      	movs	r2, #104	@ 0x68
+    2b5c:	4628      	mov	r0, r5
+    2b5e:	4b42      	ldr	r3, [pc, #264]	@ (2c68 <imu::Acquirer::read(unsigned int)+0x120>)
+    2b60:	f104 0148 	add.w	r1, r4, #72	@ 0x48
+    2b64:	4798      	blx	r3
+    2b66:	4628      	mov	r0, r5
+    2b68:	b02a      	add	sp, #168	@ 0xa8
+    2b6a:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+    2b6e:	f894 60b0 	ldrb.w	r6, [r4, #176]	@ 0xb0
+    2b72:	2268      	movs	r2, #104	@ 0x68
+    2b74:	4b3d      	ldr	r3, [pc, #244]	@ (2c6c <imu::Acquirer::read(unsigned int)+0x124>)
+    2b76:	b93e      	cbnz	r6, 2b88 <imu::Acquirer::read(unsigned int)+0x40>
+    2b78:	4631      	mov	r1, r6
+    2b7a:	4798      	blx	r3
+    2b7c:	2303      	movs	r3, #3
+    2b7e:	712b      	strb	r3, [r5, #4]
+    2b80:	2301      	movs	r3, #1
+    2b82:	f885 3048 	strb.w	r3, [r5, #72]	@ 0x48
+    2b86:	e7ee      	b.n	2b66 <imu::Acquirer::read(unsigned int)+0x1e>
+    2b88:	a810      	add	r0, sp, #64	@ 0x40
+    2b8a:	4798      	blx	r3
+    2b8c:	2303      	movs	r3, #3
+    2b8e:	f88d 3044 	strb.w	r3, [sp, #68]	@ 0x44
+    2b92:	2301      	movs	r3, #1
+    2b94:	f104 0748 	add.w	r7, r4, #72	@ 0x48
+    2b98:	f88d 3088 	strb.w	r3, [sp, #136]	@ 0x88
+    2b9c:	a910      	add	r1, sp, #64	@ 0x40
+    2b9e:	2265      	movs	r2, #101	@ 0x65
+    2ba0:	4638      	mov	r0, r7
+    2ba2:	4e31      	ldr	r6, [pc, #196]	@ (2c68 <imu::Acquirer::read(unsigned int)+0x120>)
+    2ba4:	47b0      	blx	r6
+    2ba6:	f8d4 30bc 	ldr.w	r3, [r4, #188]	@ 0xbc
+    2baa:	4641      	mov	r1, r8
+    2bac:	f8c4 3098 	str.w	r3, [r4, #152]	@ 0x98
+    2bb0:	f8d4 30b4 	ldr.w	r3, [r4, #180]	@ 0xb4
+    2bb4:	4620      	mov	r0, r4
+    2bb6:	f8c4 309c 	str.w	r3, [r4, #156]	@ 0x9c
+    2bba:	4b2d      	ldr	r3, [pc, #180]	@ (2c70 <imu::Acquirer::read(unsigned int)+0x128>)
+    2bbc:	4798      	blx	r3
+    2bbe:	2800      	cmp	r0, #0
+    2bc0:	d0cb      	beq.n	2b5a <imu::Acquirer::read(unsigned int)+0x12>
+    2bc2:	4621      	mov	r1, r4
+    2bc4:	4b2b      	ldr	r3, [pc, #172]	@ (2c74 <imu::Acquirer::read(unsigned int)+0x12c>)
+    2bc6:	a801      	add	r0, sp, #4
+    2bc8:	4798      	blx	r3
+    2bca:	4642      	mov	r2, r8
+    2bcc:	4620      	mov	r0, r4
+    2bce:	4b2a      	ldr	r3, [pc, #168]	@ (2c78 <imu::Acquirer::read(unsigned int)+0x130>)
+    2bd0:	a901      	add	r1, sp, #4
+    2bd2:	4798      	blx	r3
+    2bd4:	2800      	cmp	r0, #0
+    2bd6:	d0c0      	beq.n	2b5a <imu::Acquirer::read(unsigned int)+0x12>
+    2bd8:	f89d 3004 	ldrb.w	r3, [sp, #4]
+    2bdc:	2b01      	cmp	r3, #1
+    2bde:	d109      	bne.n	2bf4 <imu::Acquirer::read(unsigned int)+0xac>
+    2be0:	f884 3048 	strb.w	r3, [r4, #72]	@ 0x48
+    2be4:	9b0c      	ldr	r3, [sp, #48]	@ 0x30
+    2be6:	f8c4 30a0 	str.w	r3, [r4, #160]	@ 0xa0
+    2bea:	2268      	movs	r2, #104	@ 0x68
+    2bec:	4639      	mov	r1, r7
+    2bee:	4628      	mov	r0, r5
+    2bf0:	47b0      	blx	r6
+    2bf2:	e7b8      	b.n	2b66 <imu::Acquirer::read(unsigned int)+0x1e>
+    2bf4:	4b21      	ldr	r3, [pc, #132]	@ (2c7c <imu::Acquirer::read(unsigned int)+0x134>)
+    2bf6:	a902      	add	r1, sp, #8
+    2bf8:	a810      	add	r0, sp, #64	@ 0x40
+    2bfa:	4798      	blx	r3
+    2bfc:	f89d 3040 	ldrb.w	r3, [sp, #64]	@ 0x40
+    2c00:	f8d4 80b4 	ldr.w	r8, [r4, #180]	@ 0xb4
+    2c04:	b913      	cbnz	r3, 2c0c <imu::Acquirer::read(unsigned int)+0xc4>
+    2c06:	f89d 3082 	ldrb.w	r3, [sp, #130]	@ 0x82
+    2c0a:	b933      	cbnz	r3, 2c1a <imu::Acquirer::read(unsigned int)+0xd2>
+    2c0c:	4621      	mov	r1, r4
+    2c0e:	4643      	mov	r3, r8
+    2c10:	2205      	movs	r2, #5
+    2c12:	4628      	mov	r0, r5
+    2c14:	4c1a      	ldr	r4, [pc, #104]	@ (2c80 <imu::Acquirer::read(unsigned int)+0x138>)
+    2c16:	47a0      	blx	r4
+    2c18:	e7a5      	b.n	2b66 <imu::Acquirer::read(unsigned int)+0x1e>
+    2c1a:	2302      	movs	r3, #2
+    2c1c:	2243      	movs	r2, #67	@ 0x43
+    2c1e:	f884 3048 	strb.w	r3, [r4, #72]	@ 0x48
+    2c22:	a910      	add	r1, sp, #64	@ 0x40
+    2c24:	f104 004c 	add.w	r0, r4, #76	@ 0x4c
+    2c28:	47b0      	blx	r6
+    2c2a:	f8d4 20bc 	ldr.w	r2, [r4, #188]	@ 0xbc
+    2c2e:	9b0c      	ldr	r3, [sp, #48]	@ 0x30
+    2c30:	3201      	adds	r2, #1
+    2c32:	f8c4 20bc 	str.w	r2, [r4, #188]	@ 0xbc
+    2c36:	f8c4 2098 	str.w	r2, [r4, #152]	@ 0x98
+    2c3a:	f8c4 30a0 	str.w	r3, [r4, #160]	@ 0xa0
+    2c3e:	f894 20b2 	ldrb.w	r2, [r4, #178]	@ 0xb2
+    2c42:	9b0e      	ldr	r3, [sp, #56]	@ 0x38
+    2c44:	f884 20ac 	strb.w	r2, [r4, #172]	@ 0xac
+    2c48:	f8c4 30a4 	str.w	r3, [r4, #164]	@ 0xa4
+    2c4c:	b11a      	cbz	r2, 2c56 <imu::Acquirer::read(unsigned int)+0x10e>
+    2c4e:	f8d4 20b8 	ldr.w	r2, [r4, #184]	@ 0xb8
+    2c52:	eba8 0202 	sub.w	r2, r8, r2
+    2c56:	2301      	movs	r3, #1
+    2c58:	f8c4 20a8 	str.w	r2, [r4, #168]	@ 0xa8
+    2c5c:	f8c4 80b8 	str.w	r8, [r4, #184]	@ 0xb8
+    2c60:	f884 30b2 	strb.w	r3, [r4, #178]	@ 0xb2
+    2c64:	e7c1      	b.n	2bea <imu::Acquirer::read(unsigned int)+0xa2>
+    2c66:	bf00      	nop
+	...
+
+00002c84 <imu::(anonymous namespace)::registerAllowed(imu::Register, bool)>:
+    2c84:	283a      	cmp	r0, #58	@ 0x3a
+    2c86:	d015      	beq.n	2cb4 <imu::(anonymous namespace)::registerAllowed(imu::Register, bool)+0x30>
+    2c88:	d80b      	bhi.n	2ca2 <imu::(anonymous namespace)::registerAllowed(imu::Register, bool)+0x1e>
+    2c8a:	2823      	cmp	r0, #35	@ 0x23
+    2c8c:	d015      	beq.n	2cba <imu::(anonymous namespace)::registerAllowed(imu::Register, bool)+0x36>
+    2c8e:	d805      	bhi.n	2c9c <imu::(anonymous namespace)::registerAllowed(imu::Register, bool)+0x18>
+    2c90:	3819      	subs	r0, #25
+    2c92:	2803      	cmp	r0, #3
+    2c94:	bf8c      	ite	hi
+    2c96:	2000      	movhi	r0, #0
+    2c98:	2001      	movls	r0, #1
+    2c9a:	4770      	bx	lr
+    2c9c:	3837      	subs	r0, #55	@ 0x37
+    2c9e:	2801      	cmp	r0, #1
+    2ca0:	e7f8      	b.n	2c94 <imu::(anonymous namespace)::registerAllowed(imu::Register, bool)+0x10>
+    2ca2:	286c      	cmp	r0, #108	@ 0x6c
+    2ca4:	d804      	bhi.n	2cb0 <imu::(anonymous namespace)::registerAllowed(imu::Register, bool)+0x2c>
+    2ca6:	2869      	cmp	r0, #105	@ 0x69
+    2ca8:	bf94      	ite	ls
+    2caa:	2000      	movls	r0, #0
+    2cac:	2001      	movhi	r0, #1
+    2cae:	4770      	bx	lr
+    2cb0:	2875      	cmp	r0, #117	@ 0x75
+    2cb2:	d104      	bne.n	2cbe <imu::(anonymous namespace)::registerAllowed(imu::Register, bool)+0x3a>
+    2cb4:	f081 0001 	eor.w	r0, r1, #1
+    2cb8:	4770      	bx	lr
+    2cba:	2001      	movs	r0, #1
+    2cbc:	4770      	bx	lr
+    2cbe:	2000      	movs	r0, #0
+    2cc0:	4770      	bx	lr
+	...
+
+00002cc4 <imu::(anonymous namespace)::padsPristine()>:
+    2cc4:	4a07      	ldr	r2, [pc, #28]	@ (2ce4 <imu::(anonymous namespace)::padsPristine()+0x20>)
+    2cc6:	6813      	ldr	r3, [r2, #0]
+    2cc8:	f003 6370 	and.w	r3, r3, #251658240	@ 0xf000000
+    2ccc:	f1b3 6f70 	cmp.w	r3, #251658240	@ 0xf000000
+    2cd0:	bf01      	itttt	eq
+    2cd2:	68d0      	ldreq	r0, [r2, #12]
+    2cd4:	f000 6070 	andeq.w	r0, r0, #251658240	@ 0xf000000
+    2cd8:	fab0 f080 	clzeq	r0, r0
+    2cdc:	0940      	lsreq	r0, r0, #5
+    2cde:	bf18      	it	ne
+    2ce0:	2000      	movne	r0, #0
+    2ce2:	4770      	bx	lr
+    2ce4:	42020c00 	.word	0x42020c00
+
+00002ce8 <imu::(anonymous namespace)::errorStatus(unsigned int)>:
+    2ce8:	0583      	lsls	r3, r0, #22
+    2cea:	d40b      	bmi.n	2d04 <imu::(anonymous namespace)::errorStatus(unsigned int)+0x1c>
+    2cec:	05c1      	lsls	r1, r0, #23
+    2cee:	d40b      	bmi.n	2d08 <imu::(anonymous namespace)::errorStatus(unsigned int)+0x20>
+    2cf0:	06c2      	lsls	r2, r0, #27
+    2cf2:	d40b      	bmi.n	2d0c <imu::(anonymous namespace)::errorStatus(unsigned int)+0x24>
+    2cf4:	0543      	lsls	r3, r0, #21
+    2cf6:	d40b      	bmi.n	2d10 <imu::(anonymous namespace)::errorStatus(unsigned int)+0x28>
+    2cf8:	f410 5f60 	tst.w	r0, #14336	@ 0x3800
+    2cfc:	bf0c      	ite	eq
+    2cfe:	2000      	moveq	r0, #0
+    2d00:	200c      	movne	r0, #12
+    2d02:	4770      	bx	lr
+    2d04:	2009      	movs	r0, #9
+    2d06:	4770      	bx	lr
+    2d08:	200a      	movs	r0, #10
+    2d0a:	4770      	bx	lr
+    2d0c:	2008      	movs	r0, #8
+    2d0e:	4770      	bx	lr
+    2d10:	200b      	movs	r0, #11
+    2d12:	4770      	bx	lr
+
+00002d14 <imu::(anonymous namespace)::environmentValid()>:
+    2d14:	4b54      	ldr	r3, [pc, #336]	@ (2e68 <imu::(anonymous namespace)::environmentValid()+0x154>)
+    2d16:	b513      	push	{r0, r1, r4, lr}
+    2d18:	68db      	ldr	r3, [r3, #12]
+    2d1a:	b913      	cbnz	r3, 2d22 <imu::(anonymous namespace)::environmentValid()+0xe>
+    2d1c:	2000      	movs	r0, #0
+    2d1e:	b002      	add	sp, #8
+    2d20:	bd10      	pop	{r4, pc}
+    2d22:	785a      	ldrb	r2, [r3, #1]
+    2d24:	07d4      	lsls	r4, r2, #31
+    2d26:	d4f9      	bmi.n	2d1c <imu::(anonymous namespace)::environmentValid()+0x8>
+    2d28:	781b      	ldrb	r3, [r3, #0]
+    2d2a:	2b00      	cmp	r3, #0
+    2d2c:	d1f6      	bne.n	2d1c <imu::(anonymous namespace)::environmentValid()+0x8>
+    2d2e:	484f      	ldr	r0, [pc, #316]	@ (2e6c <imu::(anonymous namespace)::environmentValid()+0x158>)
+    2d30:	6883      	ldr	r3, [r0, #8]
+    2d32:	2b00      	cmp	r3, #0
+    2d34:	d0f2      	beq.n	2d1c <imu::(anonymous namespace)::environmentValid()+0x8>
+    2d36:	4c4e      	ldr	r4, [pc, #312]	@ (2e70 <imu::(anonymous namespace)::environmentValid()+0x15c>)
+    2d38:	47a0      	blx	r4
+    2d3a:	2800      	cmp	r0, #0
+    2d3c:	d0ee      	beq.n	2d1c <imu::(anonymous namespace)::environmentValid()+0x8>
+    2d3e:	484d      	ldr	r0, [pc, #308]	@ (2e74 <imu::(anonymous namespace)::environmentValid()+0x160>)
+    2d40:	47a0      	blx	r4
+    2d42:	2800      	cmp	r0, #0
+    2d44:	d0ea      	beq.n	2d1c <imu::(anonymous namespace)::environmentValid()+0x8>
+    2d46:	f246 5364 	movw	r3, #25956	@ 0x6564
+    2d4a:	2103      	movs	r1, #3
+    2d4c:	f8ad 3004 	strh.w	r3, [sp, #4]
+    2d50:	ac01      	add	r4, sp, #4
+    2d52:	3901      	subs	r1, #1
+    2d54:	d169      	bne.n	2e2a <imu::(anonymous namespace)::environmentValid()+0x116>
+    2d56:	4b48      	ldr	r3, [pc, #288]	@ (2e78 <imu::(anonymous namespace)::environmentValid()+0x164>)
+    2d58:	f8d3 2094 	ldr.w	r2, [r3, #148]	@ 0x94
+    2d5c:	0752      	lsls	r2, r2, #29
+    2d5e:	d5dd      	bpl.n	2d1c <imu::(anonymous namespace)::environmentValid()+0x8>
+    2d60:	4a46      	ldr	r2, [pc, #280]	@ (2e7c <imu::(anonymous namespace)::environmentValid()+0x168>)
+    2d62:	6911      	ldr	r1, [r2, #16]
+    2d64:	004c      	lsls	r4, r1, #1
+    2d66:	d5d9      	bpl.n	2d1c <imu::(anonymous namespace)::environmentValid()+0x8>
+    2d68:	68d1      	ldr	r1, [r2, #12]
+    2d6a:	f401 21f8 	and.w	r1, r1, #507904	@ 0x7c000
+    2d6e:	f5b1 2ff8 	cmp.w	r1, #507904	@ 0x7c000
+    2d72:	d1d3      	bne.n	2d1c <imu::(anonymous namespace)::environmentValid()+0x8>
+    2d74:	6bd2      	ldr	r2, [r2, #60]	@ 0x3c
+    2d76:	f402 3260 	and.w	r2, r2, #229376	@ 0x38000
+    2d7a:	f5b2 3f60 	cmp.w	r2, #229376	@ 0x38000
+    2d7e:	d1cd      	bne.n	2d1c <imu::(anonymous namespace)::environmentValid()+0x8>
+    2d80:	69da      	ldr	r2, [r3, #28]
+    2d82:	f002 020c 	and.w	r2, r2, #12
+    2d86:	2a0c      	cmp	r2, #12
+    2d88:	d1c8      	bne.n	2d1c <imu::(anonymous namespace)::environmentValid()+0x8>
+    2d8a:	6a1a      	ldr	r2, [r3, #32]
+    2d8c:	0710      	lsls	r0, r2, #28
+    2d8e:	d1c5      	bne.n	2d1c <imu::(anonymous namespace)::environmentValid()+0x8>
+    2d90:	6a1a      	ldr	r2, [r3, #32]
+    2d92:	f012 0f70 	tst.w	r2, #112	@ 0x70
+    2d96:	d1c1      	bne.n	2d1c <imu::(anonymous namespace)::environmentValid()+0x8>
+    2d98:	6a9a      	ldr	r2, [r3, #40]	@ 0x28
+    2d9a:	f002 0203 	and.w	r2, r2, #3
+    2d9e:	2a01      	cmp	r2, #1
+    2da0:	d1bc      	bne.n	2d1c <imu::(anonymous namespace)::environmentValid()+0x8>
+    2da2:	6a9b      	ldr	r3, [r3, #40]	@ 0x28
+    2da4:	f413 6f70 	tst.w	r3, #3840	@ 0xf00
+    2da8:	d1b8      	bne.n	2d1c <imu::(anonymous namespace)::environmentValid()+0x8>
+    2daa:	4b33      	ldr	r3, [pc, #204]	@ (2e78 <imu::(anonymous namespace)::environmentValid()+0x164>)
+    2dac:	6b5a      	ldr	r2, [r3, #52]	@ 0x34
+    2dae:	f3c2 0208 	ubfx	r2, r2, #0, #9
+    2db2:	2a4f      	cmp	r2, #79	@ 0x4f
+    2db4:	d1b2      	bne.n	2d1c <imu::(anonymous namespace)::environmentValid()+0x8>
+    2db6:	6b5a      	ldr	r2, [r3, #52]	@ 0x34
+    2db8:	f002 42fe 	and.w	r2, r2, #2130706432	@ 0x7f000000
+    2dbc:	f1b2 7f80 	cmp.w	r2, #16777216	@ 0x1000000
+    2dc0:	d1ac      	bne.n	2d1c <imu::(anonymous namespace)::environmentValid()+0x8>
+    2dc2:	681a      	ldr	r2, [r3, #0]
+    2dc4:	0191      	lsls	r1, r2, #6
+    2dc6:	d5a9      	bpl.n	2d1c <imu::(anonymous namespace)::environmentValid()+0x8>
+    2dc8:	6a9a      	ldr	r2, [r3, #40]	@ 0x28
+    2dca:	0352      	lsls	r2, r2, #13
+    2dcc:	d5a6      	bpl.n	2d1c <imu::(anonymous namespace)::environmentValid()+0x8>
+    2dce:	6a9a      	ldr	r2, [r3, #40]	@ 0x28
+    2dd0:	06d4      	lsls	r4, r2, #27
+    2dd2:	d4a3      	bmi.n	2d1c <imu::(anonymous namespace)::environmentValid()+0x8>
+    2dd4:	689a      	ldr	r2, [r3, #8]
+    2dd6:	0210      	lsls	r0, r2, #8
+    2dd8:	d5a0      	bpl.n	2d1c <imu::(anonymous namespace)::environmentValid()+0x8>
+    2dda:	689a      	ldr	r2, [r3, #8]
+    2ddc:	f002 4270 	and.w	r2, r2, #4026531840	@ 0xf0000000
+    2de0:	f1b2 4f80 	cmp.w	r2, #1073741824	@ 0x40000000
+    2de4:	d19a      	bne.n	2d1c <imu::(anonymous namespace)::environmentValid()+0x8>
+    2de6:	681a      	ldr	r2, [r3, #0]
+    2de8:	0751      	lsls	r1, r2, #29
+    2dea:	d597      	bpl.n	2d1c <imu::(anonymous namespace)::environmentValid()+0x8>
+    2dec:	681a      	ldr	r2, [r3, #0]
+    2dee:	0712      	lsls	r2, r2, #28
+    2df0:	d594      	bpl.n	2d1c <imu::(anonymous namespace)::environmentValid()+0x8>
+    2df2:	681b      	ldr	r3, [r3, #0]
+    2df4:	065c      	lsls	r4, r3, #25
+    2df6:	d591      	bpl.n	2d1c <imu::(anonymous namespace)::environmentValid()+0x8>
+    2df8:	4b1f      	ldr	r3, [pc, #124]	@ (2e78 <imu::(anonymous namespace)::environmentValid()+0x164>)
+    2dfa:	6a9a      	ldr	r2, [r3, #40]	@ 0x28
+    2dfc:	f412 4f70 	tst.w	r2, #61440	@ 0xf000
+    2e00:	d18c      	bne.n	2d1c <imu::(anonymous namespace)::environmentValid()+0x8>
+    2e02:	f8d3 20e0 	ldr.w	r2, [r3, #224]	@ 0xe0
+    2e06:	f412 4f40 	tst.w	r2, #49152	@ 0xc000
+    2e0a:	d187      	bne.n	2d1c <imu::(anonymous namespace)::environmentValid()+0x8>
+    2e0c:	f8d3 308c 	ldr.w	r3, [r3, #140]	@ 0x8c
+    2e10:	0718      	lsls	r0, r3, #28
+    2e12:	d583      	bpl.n	2d1c <imu::(anonymous namespace)::environmentValid()+0x8>
+    2e14:	4b1a      	ldr	r3, [pc, #104]	@ (2e80 <imu::(anonymous namespace)::environmentValid()+0x16c>)
+    2e16:	69da      	ldr	r2, [r3, #28]
+    2e18:	04d1      	lsls	r1, r2, #19
+    2e1a:	f53f af7f 	bmi.w	2d1c <imu::(anonymous namespace)::environmentValid()+0x8>
+    2e1e:	69d8      	ldr	r0, [r3, #28]
+    2e20:	f480 5000 	eor.w	r0, r0, #8192	@ 0x2000
+    2e24:	f3c0 3040 	ubfx	r0, r0, #13, #1
+    2e28:	e779      	b.n	2d1e <imu::(anonymous namespace)::environmentValid()+0xa>
+    2e2a:	f914 2b01 	ldrsb.w	r2, [r4], #1
+    2e2e:	2a00      	cmp	r2, #0
+    2e30:	db8f      	blt.n	2d52 <imu::(anonymous namespace)::environmentValid()+0x3e>
+    2e32:	0953      	lsrs	r3, r2, #5
+    2e34:	009b      	lsls	r3, r3, #2
+    2e36:	f103 4360 	add.w	r3, r3, #3758096384	@ 0xe0000000
+    2e3a:	f503 4361 	add.w	r3, r3, #57600	@ 0xe100
+    2e3e:	6818      	ldr	r0, [r3, #0]
+    2e40:	f002 021f 	and.w	r2, r2, #31
+    2e44:	40d0      	lsrs	r0, r2
+    2e46:	07c0      	lsls	r0, r0, #31
+    2e48:	f53f af68 	bmi.w	2d1c <imu::(anonymous namespace)::environmentValid()+0x8>
+    2e4c:	f8d3 0100 	ldr.w	r0, [r3, #256]	@ 0x100
+    2e50:	40d0      	lsrs	r0, r2
+    2e52:	07c0      	lsls	r0, r0, #31
+    2e54:	f53f af62 	bmi.w	2d1c <imu::(anonymous namespace)::environmentValid()+0x8>
+    2e58:	f8d3 3200 	ldr.w	r3, [r3, #512]	@ 0x200
+    2e5c:	40d3      	lsrs	r3, r2
+    2e5e:	07db      	lsls	r3, r3, #31
+    2e60:	f53f af5c 	bmi.w	2d1c <imu::(anonymous namespace)::environmentValid()+0x8>
+    2e64:	e775      	b.n	2d52 <imu::(anonymous namespace)::environmentValid()+0x3e>
+    2e66:	bf00      	nop
+	...
+    2e78:	46020c00 	.word	0x46020c00
+    2e7c:	46020800 	.word	0x46020800
+    2e80:	42020c00 	.word	0x42020c00
+
+00002e84 <imu::Bus::controlsOwned(bool)>:
+    2e84:	b530      	push	{r4, r5, lr}
+    2e86:	7983      	ldrb	r3, [r0, #6]
+    2e88:	2b00      	cmp	r3, #0
+    2e8a:	d13f      	bne.n	2f0c <imu::Bus::controlsOwned(bool)+0x88>
+    2e8c:	4b21      	ldr	r3, [pc, #132]	@ (2f14 <imu::Bus::controlsOwned(bool)+0x90>)
+    2e8e:	6885      	ldr	r5, [r0, #8]
+    2e90:	681c      	ldr	r4, [r3, #0]
+    2e92:	4b21      	ldr	r3, [pc, #132]	@ (2f18 <imu::Bus::controlsOwned(bool)+0x94>)
+    2e94:	681a      	ldr	r2, [r3, #0]
+    2e96:	f002 6270 	and.w	r2, r2, #251658240	@ 0xf000000
+    2e9a:	42aa      	cmp	r2, r5
+    2e9c:	d134      	bne.n	2f08 <imu::Bus::controlsOwned(bool)+0x84>
+    2e9e:	68da      	ldr	r2, [r3, #12]
+    2ea0:	68c5      	ldr	r5, [r0, #12]
+    2ea2:	f002 6270 	and.w	r2, r2, #251658240	@ 0xf000000
+    2ea6:	42aa      	cmp	r2, r5
+    2ea8:	d12e      	bne.n	2f08 <imu::Bus::controlsOwned(bool)+0x84>
+    2eaa:	685a      	ldr	r2, [r3, #4]
+    2eac:	6905      	ldr	r5, [r0, #16]
+    2eae:	f402 5240 	and.w	r2, r2, #12288	@ 0x3000
+    2eb2:	42aa      	cmp	r2, r5
+    2eb4:	d128      	bne.n	2f08 <imu::Bus::controlsOwned(bool)+0x84>
+    2eb6:	689a      	ldr	r2, [r3, #8]
+    2eb8:	6945      	ldr	r5, [r0, #20]
+    2eba:	f002 6270 	and.w	r2, r2, #251658240	@ 0xf000000
+    2ebe:	42aa      	cmp	r2, r5
+    2ec0:	d122      	bne.n	2f08 <imu::Bus::controlsOwned(bool)+0x84>
+    2ec2:	6a5b      	ldr	r3, [r3, #36]	@ 0x24
+    2ec4:	6982      	ldr	r2, [r0, #24]
+    2ec6:	f403 037f 	and.w	r3, r3, #16711680	@ 0xff0000
+    2eca:	4293      	cmp	r3, r2
+    2ecc:	d11c      	bne.n	2f08 <imu::Bus::controlsOwned(bool)+0x84>
+    2ece:	2c01      	cmp	r4, #1
+    2ed0:	d81a      	bhi.n	2f08 <imu::Bus::controlsOwned(bool)+0x84>
+    2ed2:	b911      	cbnz	r1, 2eda <imu::Bus::controlsOwned(bool)+0x56>
+    2ed4:	7943      	ldrb	r3, [r0, #5]
+    2ed6:	429c      	cmp	r4, r3
+    2ed8:	d116      	bne.n	2f08 <imu::Bus::controlsOwned(bool)+0x84>
+    2eda:	4b0e      	ldr	r3, [pc, #56]	@ (2f14 <imu::Bus::controlsOwned(bool)+0x90>)
+    2edc:	689a      	ldr	r2, [r3, #8]
+    2ede:	b99a      	cbnz	r2, 2f08 <imu::Bus::controlsOwned(bool)+0x84>
+    2ee0:	68da      	ldr	r2, [r3, #12]
+    2ee2:	b98a      	cbnz	r2, 2f08 <imu::Bus::controlsOwned(bool)+0x84>
+    2ee4:	695a      	ldr	r2, [r3, #20]
+    2ee6:	b97a      	cbnz	r2, 2f08 <imu::Bus::controlsOwned(bool)+0x84>
+    2ee8:	6ada      	ldr	r2, [r3, #44]	@ 0x2c
+    2eea:	b96a      	cbnz	r2, 2f08 <imu::Bus::controlsOwned(bool)+0x84>
+    2eec:	7905      	ldrb	r5, [r0, #4]
+    2eee:	4c0b      	ldr	r4, [pc, #44]	@ (2f1c <imu::Bus::controlsOwned(bool)+0x98>)
+    2ef0:	6919      	ldr	r1, [r3, #16]
+    2ef2:	2d00      	cmp	r5, #0
+    2ef4:	bf18      	it	ne
+    2ef6:	4622      	movne	r2, r4
+    2ef8:	4291      	cmp	r1, r2
+    2efa:	d105      	bne.n	2f08 <imu::Bus::controlsOwned(bool)+0x84>
+    2efc:	685b      	ldr	r3, [r3, #4]
+    2efe:	69c2      	ldr	r2, [r0, #28]
+    2f00:	f423 5300 	bic.w	r3, r3, #8192	@ 0x2000
+    2f04:	4293      	cmp	r3, r2
+    2f06:	d003      	beq.n	2f10 <imu::Bus::controlsOwned(bool)+0x8c>
+    2f08:	2301      	movs	r3, #1
+    2f0a:	7183      	strb	r3, [r0, #6]
+    2f0c:	2000      	movs	r0, #0
+    2f0e:	bd30      	pop	{r4, r5, pc}
+    2f10:	2001      	movs	r0, #1
+    2f12:	e7fc      	b.n	2f0e <imu::Bus::controlsOwned(bool)+0x8a>
+    2f14:	40008400 	.word	0x40008400
+    2f18:	42020c00 	.word	0x42020c00
+    2f1c:	40eb202c 	.word	0x40eb202c
+
+00002f20 <imu::Bus::ownershipValid(bool)>:
+    2f20:	b570      	push	{r4, r5, r6, lr}
+    2f22:	7983      	ldrb	r3, [r0, #6]
+    2f24:	4604      	mov	r4, r0
+    2f26:	460d      	mov	r5, r1
+    2f28:	b97b      	cbnz	r3, 2f4a <imu::Bus::ownershipValid(bool)+0x2a>
+    2f2a:	4b09      	ldr	r3, [pc, #36]	@ (2f50 <imu::Bus::ownershipValid(bool)+0x30>)
+    2f2c:	4798      	blx	r3
+    2f2e:	b150      	cbz	r0, 2f46 <imu::Bus::ownershipValid(bool)+0x26>
+    2f30:	4b08      	ldr	r3, [pc, #32]	@ (2f54 <imu::Bus::ownershipValid(bool)+0x34>)
+    2f32:	f8d3 30a0 	ldr.w	r3, [r3, #160]	@ 0xa0
+    2f36:	079b      	lsls	r3, r3, #30
+    2f38:	d505      	bpl.n	2f46 <imu::Bus::ownershipValid(bool)+0x26>
+    2f3a:	4629      	mov	r1, r5
+    2f3c:	4620      	mov	r0, r4
+    2f3e:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
+    2f42:	4b05      	ldr	r3, [pc, #20]	@ (2f58 <imu::Bus::ownershipValid(bool)+0x38>)
+    2f44:	4718      	bx	r3
+    2f46:	2301      	movs	r3, #1
+    2f48:	71a3      	strb	r3, [r4, #6]
+    2f4a:	2000      	movs	r0, #0
+    2f4c:	bd70      	pop	{r4, r5, r6, pc}
+    2f4e:	bf00      	nop
+    2f50:	00000000 	.word	0x00000000
+    2f54:	46020c00 	.word	0x46020c00
+    2f58:	00000000 	.word	0x00000000
+
+00002f5c <imu::Bus::setupCheckpoint(imu::Bus::Operation&)>:
+    2f5c:	b570      	push	{r4, r5, r6, lr}
+    2f5e:	688b      	ldr	r3, [r1, #8]
+    2f60:	4605      	mov	r5, r0
+    2f62:	f5b3 5f00 	cmp.w	r3, #8192	@ 0x2000
+    2f66:	460c      	mov	r4, r1
+    2f68:	d212      	bcs.n	2f90 <imu::Bus::setupCheckpoint(imu::Bus::Operation&)+0x34>
+    2f6a:	3301      	adds	r3, #1
+    2f6c:	608b      	str	r3, [r1, #8]
+    2f6e:	4e0a      	ldr	r6, [pc, #40]	@ (2f98 <imu::Bus::setupCheckpoint(imu::Bus::Operation&)+0x3c>)
+    2f70:	47b0      	blx	r6
+    2f72:	2100      	movs	r1, #0
+    2f74:	6060      	str	r0, [r4, #4]
+    2f76:	4b09      	ldr	r3, [pc, #36]	@ (2f9c <imu::Bus::setupCheckpoint(imu::Bus::Operation&)+0x40>)
+    2f78:	4628      	mov	r0, r5
+    2f7a:	4798      	blx	r3
+    2f7c:	b150      	cbz	r0, 2f94 <imu::Bus::setupCheckpoint(imu::Bus::Operation&)+0x38>
+    2f7e:	47b0      	blx	r6
+    2f80:	6823      	ldr	r3, [r4, #0]
+    2f82:	6060      	str	r0, [r4, #4]
+    2f84:	1ac0      	subs	r0, r0, r3
+    2f86:	2864      	cmp	r0, #100	@ 0x64
+    2f88:	bf34      	ite	cc
+    2f8a:	2000      	movcc	r0, #0
+    2f8c:	200d      	movcs	r0, #13
+    2f8e:	bd70      	pop	{r4, r5, r6, pc}
+    2f90:	200e      	movs	r0, #14
+    2f92:	e7fc      	b.n	2f8e <imu::Bus::setupCheckpoint(imu::Bus::Operation&)+0x32>
+    2f94:	2005      	movs	r0, #5
+    2f96:	e7fa      	b.n	2f8e <imu::Bus::setupCheckpoint(imu::Bus::Operation&)+0x32>
+	...
+
+00002fa0 <imu::Bus::configurePad(unsigned int, imu::Bus::Operation&)>:
+    2fa0:	e92d 4ff8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, sl, fp, lr}
+    2fa4:	460d      	mov	r5, r1
+    2fa6:	f8df 818c 	ldr.w	r8, [pc, #396]	@ 3134 <imu::Bus::configurePad(unsigned int, imu::Bus::Operation&)+0x194>
+    2faa:	4611      	mov	r1, r2
+    2fac:	4683      	mov	fp, r0
+    2fae:	4616      	mov	r6, r2
+    2fb0:	47c0      	blx	r8
+    2fb2:	bb78      	cbnz	r0, 3014 <imu::Bus::configurePad(unsigned int, imu::Bus::Operation&)+0x74>
+    2fb4:	2401      	movs	r4, #1
+    2fb6:	4a5e      	ldr	r2, [pc, #376]	@ (3130 <imu::Bus::configurePad(unsigned int, imu::Bus::Operation&)+0x190>)
+    2fb8:	40ac      	lsls	r4, r5
+    2fba:	6a57      	ldr	r7, [r2, #36]	@ 0x24
+    2fbc:	0a22      	lsrs	r2, r4, #8
+    2fbe:	fa92 f1a2 	rbit	r1, r2
+    2fc2:	fab1 f181 	clz	r1, r1
+    2fc6:	fa92 f2a2 	rbit	r2, r2
+    2fca:	200f      	movs	r0, #15
+    2fcc:	fab2 f282 	clz	r2, r2
+    2fd0:	0089      	lsls	r1, r1, #2
+    2fd2:	fa00 f101 	lsl.w	r1, r0, r1
+    2fd6:	2004      	movs	r0, #4
+    2fd8:	f04f 0c0f 	mov.w	ip, #15
+    2fdc:	0092      	lsls	r2, r2, #2
+    2fde:	ea27 0701 	bic.w	r7, r7, r1
+    2fe2:	fa00 f202 	lsl.w	r2, r0, r2
+    2fe6:	433a      	orrs	r2, r7
+    2fe8:	4f51      	ldr	r7, [pc, #324]	@ (3130 <imu::Bus::configurePad(unsigned int, imu::Bus::Operation&)+0x190>)
+    2fea:	f1a5 0108 	sub.w	r1, r5, #8
+    2fee:	627a      	str	r2, [r7, #36]	@ 0x24
+    2ff0:	0089      	lsls	r1, r1, #2
+    2ff2:	f8db 2018 	ldr.w	r2, [fp, #24]
+    2ff6:	fa0c fc01 	lsl.w	ip, ip, r1
+    2ffa:	4088      	lsls	r0, r1
+    2ffc:	ea22 020c 	bic.w	r2, r2, ip
+    3000:	4302      	orrs	r2, r0
+    3002:	2100      	movs	r1, #0
+    3004:	4658      	mov	r0, fp
+    3006:	f8df 9130 	ldr.w	r9, [pc, #304]	@ 3138 <imu::Bus::configurePad(unsigned int, imu::Bus::Operation&)+0x198>
+    300a:	f8cb 2018 	str.w	r2, [fp, #24]
+    300e:	47c8      	blx	r9
+    3010:	b910      	cbnz	r0, 3018 <imu::Bus::configurePad(unsigned int, imu::Bus::Operation&)+0x78>
+    3012:	2006      	movs	r0, #6
+    3014:	e8bd 8ff8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, sl, fp, pc}
+    3018:	4631      	mov	r1, r6
+    301a:	4658      	mov	r0, fp
+    301c:	47c0      	blx	r8
+    301e:	2800      	cmp	r0, #0
+    3020:	d1f8      	bne.n	3014 <imu::Bus::configurePad(unsigned int, imu::Bus::Operation&)+0x74>
+    3022:	687a      	ldr	r2, [r7, #4]
+    3024:	4601      	mov	r1, r0
+    3026:	4322      	orrs	r2, r4
+    3028:	607a      	str	r2, [r7, #4]
+    302a:	f8db 2010 	ldr.w	r2, [fp, #16]
+    302e:	4658      	mov	r0, fp
+    3030:	4322      	orrs	r2, r4
+    3032:	f8cb 2010 	str.w	r2, [fp, #16]
+    3036:	47c8      	blx	r9
+    3038:	2800      	cmp	r0, #0
+    303a:	d0ea      	beq.n	3012 <imu::Bus::configurePad(unsigned int, imu::Bus::Operation&)+0x72>
+    303c:	4631      	mov	r1, r6
+    303e:	4658      	mov	r0, fp
+    3040:	47c0      	blx	r8
+    3042:	2800      	cmp	r0, #0
+    3044:	d1e6      	bne.n	3014 <imu::Bus::configurePad(unsigned int, imu::Bus::Operation&)+0x74>
+    3046:	fa94 f2a4 	rbit	r2, r4
+    304a:	fab2 f282 	clz	r2, r2
+    304e:	2103      	movs	r1, #3
+    3050:	68b8      	ldr	r0, [r7, #8]
+    3052:	0052      	lsls	r2, r2, #1
+    3054:	fa01 f202 	lsl.w	r2, r1, r2
+    3058:	f8df a0d4 	ldr.w	sl, [pc, #212]	@ 3130 <imu::Bus::configurePad(unsigned int, imu::Bus::Operation&)+0x190>
+    305c:	ea20 0202 	bic.w	r2, r0, r2
+    3060:	f8ca 2008 	str.w	r2, [sl, #8]
+    3064:	006d      	lsls	r5, r5, #1
+    3066:	fa01 f205 	lsl.w	r2, r1, r5
+    306a:	f8db 1014 	ldr.w	r1, [fp, #20]
+    306e:	4658      	mov	r0, fp
+    3070:	ea21 0102 	bic.w	r1, r1, r2
+    3074:	f8cb 1014 	str.w	r1, [fp, #20]
+    3078:	2100      	movs	r1, #0
+    307a:	43d7      	mvns	r7, r2
+    307c:	47c8      	blx	r9
+    307e:	2800      	cmp	r0, #0
+    3080:	d0c7      	beq.n	3012 <imu::Bus::configurePad(unsigned int, imu::Bus::Operation&)+0x72>
+    3082:	4631      	mov	r1, r6
+    3084:	4658      	mov	r0, fp
+    3086:	47c0      	blx	r8
+    3088:	2800      	cmp	r0, #0
+    308a:	d1c3      	bne.n	3014 <imu::Bus::configurePad(unsigned int, imu::Bus::Operation&)+0x74>
+    308c:	fa94 f2a4 	rbit	r2, r4
+    3090:	fab2 f282 	clz	r2, r2
+    3094:	2103      	movs	r1, #3
+    3096:	f8da 000c 	ldr.w	r0, [sl, #12]
+    309a:	0052      	lsls	r2, r2, #1
+    309c:	fa01 f202 	lsl.w	r2, r1, r2
+    30a0:	ea20 0002 	bic.w	r0, r0, r2
+    30a4:	fa94 f2a4 	rbit	r2, r4
+    30a8:	fab2 f282 	clz	r2, r2
+    30ac:	2101      	movs	r1, #1
+    30ae:	0052      	lsls	r2, r2, #1
+    30b0:	fa01 f202 	lsl.w	r2, r1, r2
+    30b4:	4302      	orrs	r2, r0
+    30b6:	f8ca 200c 	str.w	r2, [sl, #12]
+    30ba:	f8db 200c 	ldr.w	r2, [fp, #12]
+    30be:	40a9      	lsls	r1, r5
+    30c0:	403a      	ands	r2, r7
+    30c2:	430a      	orrs	r2, r1
+    30c4:	4658      	mov	r0, fp
+    30c6:	2100      	movs	r1, #0
+    30c8:	f8cb 200c 	str.w	r2, [fp, #12]
+    30cc:	47c8      	blx	r9
+    30ce:	2800      	cmp	r0, #0
+    30d0:	d09f      	beq.n	3012 <imu::Bus::configurePad(unsigned int, imu::Bus::Operation&)+0x72>
+    30d2:	4631      	mov	r1, r6
+    30d4:	4658      	mov	r0, fp
+    30d6:	47c0      	blx	r8
+    30d8:	2800      	cmp	r0, #0
+    30da:	d19b      	bne.n	3014 <imu::Bus::configurePad(unsigned int, imu::Bus::Operation&)+0x74>
+    30dc:	fa94 f2a4 	rbit	r2, r4
+    30e0:	fab2 f282 	clz	r2, r2
+    30e4:	2103      	movs	r1, #3
+    30e6:	f8da 0000 	ldr.w	r0, [sl]
+    30ea:	0052      	lsls	r2, r2, #1
+    30ec:	fa01 f202 	lsl.w	r2, r1, r2
+    30f0:	ea20 0002 	bic.w	r0, r0, r2
+    30f4:	fa94 f2a4 	rbit	r2, r4
+    30f8:	fab2 f282 	clz	r2, r2
+    30fc:	2102      	movs	r1, #2
+    30fe:	0052      	lsls	r2, r2, #1
+    3100:	fa01 f202 	lsl.w	r2, r1, r2
+    3104:	4302      	orrs	r2, r0
+    3106:	f8ca 2000 	str.w	r2, [sl]
+    310a:	f8db 2008 	ldr.w	r2, [fp, #8]
+    310e:	40a9      	lsls	r1, r5
+    3110:	4017      	ands	r7, r2
+    3112:	430f      	orrs	r7, r1
+    3114:	4658      	mov	r0, fp
+    3116:	2100      	movs	r1, #0
+    3118:	f8cb 7008 	str.w	r7, [fp, #8]
+    311c:	47c8      	blx	r9
+    311e:	2800      	cmp	r0, #0
+    3120:	f43f af77 	beq.w	3012 <imu::Bus::configurePad(unsigned int, imu::Bus::Operation&)+0x72>
+    3124:	4631      	mov	r1, r6
+    3126:	4658      	mov	r0, fp
+    3128:	e8bd 4ff8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, sl, fp, lr}
+    312c:	f7ff bffe 	b.w	2f5c <imu::Bus::setupCheckpoint(imu::Bus::Operation&)>
+    3130:	42020c00 	.word	0x42020c00
+	...
+
+0000313c <imu::Bus::initialize(imu::Bus::Operation&)>:
+    313c:	e92d 47f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
+    3140:	4b2a      	ldr	r3, [pc, #168]	@ (31ec <imu::Bus::initialize(imu::Bus::Operation&)+0xb0>)
+    3142:	460d      	mov	r5, r1
+    3144:	681a      	ldr	r2, [r3, #0]
+    3146:	4e2a      	ldr	r6, [pc, #168]	@ (31f0 <imu::Bus::initialize(imu::Bus::Operation&)+0xb4>)
+    3148:	f002 6270 	and.w	r2, r2, #251658240	@ 0xf000000
+    314c:	6082      	str	r2, [r0, #8]
+    314e:	68da      	ldr	r2, [r3, #12]
+    3150:	4604      	mov	r4, r0
+    3152:	f002 6270 	and.w	r2, r2, #251658240	@ 0xf000000
+    3156:	60c2      	str	r2, [r0, #12]
+    3158:	685a      	ldr	r2, [r3, #4]
+    315a:	f402 5240 	and.w	r2, r2, #12288	@ 0x3000
+    315e:	6102      	str	r2, [r0, #16]
+    3160:	689a      	ldr	r2, [r3, #8]
+    3162:	f002 6270 	and.w	r2, r2, #251658240	@ 0xf000000
+    3166:	6142      	str	r2, [r0, #20]
+    3168:	6a5b      	ldr	r3, [r3, #36]	@ 0x24
+    316a:	460a      	mov	r2, r1
+    316c:	f403 037f 	and.w	r3, r3, #16711680	@ 0xff0000
+    3170:	210c      	movs	r1, #12
+    3172:	6183      	str	r3, [r0, #24]
+    3174:	47b0      	blx	r6
+    3176:	b9b8      	cbnz	r0, 31a8 <imu::Bus::initialize(imu::Bus::Operation&)+0x6c>
+    3178:	462a      	mov	r2, r5
+    317a:	210d      	movs	r1, #13
+    317c:	4620      	mov	r0, r4
+    317e:	47b0      	blx	r6
+    3180:	b990      	cbnz	r0, 31a8 <imu::Bus::initialize(imu::Bus::Operation&)+0x6c>
+    3182:	4629      	mov	r1, r5
+    3184:	4620      	mov	r0, r4
+    3186:	4e1b      	ldr	r6, [pc, #108]	@ (31f4 <imu::Bus::initialize(imu::Bus::Operation&)+0xb8>)
+    3188:	47b0      	blx	r6
+    318a:	b968      	cbnz	r0, 31a8 <imu::Bus::initialize(imu::Bus::Operation&)+0x6c>
+    318c:	f04f 0901 	mov.w	r9, #1
+    3190:	4f19      	ldr	r7, [pc, #100]	@ (31f8 <imu::Bus::initialize(imu::Bus::Operation&)+0xbc>)
+    3192:	4b1a      	ldr	r3, [pc, #104]	@ (31fc <imu::Bus::initialize(imu::Bus::Operation&)+0xc0>)
+    3194:	4601      	mov	r1, r0
+    3196:	613b      	str	r3, [r7, #16]
+    3198:	4620      	mov	r0, r4
+    319a:	f8df 8064 	ldr.w	r8, [pc, #100]	@ 3200 <imu::Bus::initialize(imu::Bus::Operation&)+0xc4>
+    319e:	f884 9004 	strb.w	r9, [r4, #4]
+    31a2:	47c0      	blx	r8
+    31a4:	b910      	cbnz	r0, 31ac <imu::Bus::initialize(imu::Bus::Operation&)+0x70>
+    31a6:	2006      	movs	r0, #6
+    31a8:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
+    31ac:	4629      	mov	r1, r5
+    31ae:	4620      	mov	r0, r4
+    31b0:	47b0      	blx	r6
+    31b2:	2800      	cmp	r0, #0
+    31b4:	d1f8      	bne.n	31a8 <imu::Bus::initialize(imu::Bus::Operation&)+0x6c>
+    31b6:	683b      	ldr	r3, [r7, #0]
+    31b8:	4601      	mov	r1, r0
+    31ba:	f043 0301 	orr.w	r3, r3, #1
+    31be:	603b      	str	r3, [r7, #0]
+    31c0:	4620      	mov	r0, r4
+    31c2:	f884 9005 	strb.w	r9, [r4, #5]
+    31c6:	47c0      	blx	r8
+    31c8:	2800      	cmp	r0, #0
+    31ca:	d0ec      	beq.n	31a6 <imu::Bus::initialize(imu::Bus::Operation&)+0x6a>
+    31cc:	4629      	mov	r1, r5
+    31ce:	4620      	mov	r0, r4
+    31d0:	47b0      	blx	r6
+    31d2:	2800      	cmp	r0, #0
+    31d4:	d1e8      	bne.n	31a8 <imu::Bus::initialize(imu::Bus::Operation&)+0x6c>
+    31d6:	69bb      	ldr	r3, [r7, #24]
+    31d8:	2b01      	cmp	r3, #1
+    31da:	d105      	bne.n	31e8 <imu::Bus::initialize(imu::Bus::Operation&)+0xac>
+    31dc:	4629      	mov	r1, r5
+    31de:	4620      	mov	r0, r4
+    31e0:	4633      	mov	r3, r6
+    31e2:	e8bd 47f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
+    31e6:	4718      	bx	r3
+    31e8:	2007      	movs	r0, #7
+    31ea:	e7dd      	b.n	31a8 <imu::Bus::initialize(imu::Bus::Operation&)+0x6c>
+    31ec:	42020c00 	.word	0x42020c00
+	...
+    31f8:	40008400 	.word	0x40008400
+    31fc:	40eb202c 	.word	0x40eb202c
+    3200:	00000000 	.word	0x00000000
+
+00003204 <imu::Bus::disableOwned()>:
+    3204:	e92d 47f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
+    3208:	7883      	ldrb	r3, [r0, #2]
+    320a:	4604      	mov	r4, r0
+    320c:	2b00      	cmp	r3, #0
+    320e:	d044      	beq.n	329a <imu::Bus::disableOwned()+0x96>
+    3210:	7986      	ldrb	r6, [r0, #6]
+    3212:	2e00      	cmp	r6, #0
+    3214:	d141      	bne.n	329a <imu::Bus::disableOwned()+0x96>
+    3216:	4f22      	ldr	r7, [pc, #136]	@ (32a0 <imu::Bus::disableOwned()+0x9c>)
+    3218:	47b8      	blx	r7
+    321a:	f8df 808c 	ldr.w	r8, [pc, #140]	@ 32a8 <imu::Bus::disableOwned()+0xa4>
+    321e:	4605      	mov	r5, r0
+    3220:	4631      	mov	r1, r6
+    3222:	4620      	mov	r0, r4
+    3224:	47c0      	blx	r8
+    3226:	2800      	cmp	r0, #0
+    3228:	d037      	beq.n	329a <imu::Bus::disableOwned()+0x96>
+    322a:	f44f 5900 	mov.w	r9, #8192	@ 0x2000
+    322e:	4b1d      	ldr	r3, [pc, #116]	@ (32a4 <imu::Bus::disableOwned()+0xa0>)
+    3230:	f8df a070 	ldr.w	sl, [pc, #112]	@ 32a4 <imu::Bus::disableOwned()+0xa0>
+    3234:	681a      	ldr	r2, [r3, #0]
+    3236:	07d2      	lsls	r2, r2, #31
+    3238:	bf42      	ittt	mi
+    323a:	681a      	ldrmi	r2, [r3, #0]
+    323c:	f022 0201 	bicmi.w	r2, r2, #1
+    3240:	601a      	strmi	r2, [r3, #0]
+    3242:	47b8      	blx	r7
+    3244:	2101      	movs	r1, #1
+    3246:	4606      	mov	r6, r0
+    3248:	4620      	mov	r0, r4
+    324a:	47c0      	blx	r8
+    324c:	b328      	cbz	r0, 329a <imu::Bus::disableOwned()+0x96>
+    324e:	1b76      	subs	r6, r6, r5
+    3250:	2e31      	cmp	r6, #49	@ 0x31
+    3252:	d902      	bls.n	325a <imu::Bus::disableOwned()+0x56>
+    3254:	2002      	movs	r0, #2
+    3256:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
+    325a:	f8da 3000 	ldr.w	r3, [sl]
+    325e:	07db      	lsls	r3, r3, #31
+    3260:	d417      	bmi.n	3292 <imu::Bus::disableOwned()+0x8e>
+    3262:	2101      	movs	r1, #1
+    3264:	4620      	mov	r0, r4
+    3266:	47c0      	blx	r8
+    3268:	b1b8      	cbz	r0, 329a <imu::Bus::disableOwned()+0x96>
+    326a:	47b8      	blx	r7
+    326c:	1b40      	subs	r0, r0, r5
+    326e:	2831      	cmp	r0, #49	@ 0x31
+    3270:	d8f0      	bhi.n	3254 <imu::Bus::disableOwned()+0x50>
+    3272:	2101      	movs	r1, #1
+    3274:	4620      	mov	r0, r4
+    3276:	47c0      	blx	r8
+    3278:	b178      	cbz	r0, 329a <imu::Bus::disableOwned()+0x96>
+    327a:	f8da 6000 	ldr.w	r6, [sl]
+    327e:	f016 0601 	ands.w	r6, r6, #1
+    3282:	d106      	bne.n	3292 <imu::Bus::disableOwned()+0x8e>
+    3284:	47b8      	blx	r7
+    3286:	1b40      	subs	r0, r0, r5
+    3288:	2831      	cmp	r0, #49	@ 0x31
+    328a:	d8e3      	bhi.n	3254 <imu::Bus::disableOwned()+0x50>
+    328c:	2001      	movs	r0, #1
+    328e:	7166      	strb	r6, [r4, #5]
+    3290:	e7e1      	b.n	3256 <imu::Bus::disableOwned()+0x52>
+    3292:	f1b9 0901 	subs.w	r9, r9, #1
+    3296:	d1d4      	bne.n	3242 <imu::Bus::disableOwned()+0x3e>
+    3298:	e7dc      	b.n	3254 <imu::Bus::disableOwned()+0x50>
+    329a:	2000      	movs	r0, #0
+    329c:	e7db      	b.n	3256 <imu::Bus::disableOwned()+0x52>
+    329e:	bf00      	nop
+    32a0:	00000000 	.word	0x00000000
+    32a4:	40008400 	.word	0x40008400
+    32a8:	00000000 	.word	0x00000000
+
+000032ac <imu::Bus::begin()>:
+    32ac:	e92d 43f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, lr}
+    32b0:	7802      	ldrb	r2, [r0, #0]
+    32b2:	4604      	mov	r4, r0
+    32b4:	b087      	sub	sp, #28
+    32b6:	b18a      	cbz	r2, 32dc <imu::Bus::begin()+0x30>
+    32b8:	2302      	movs	r3, #2
+    32ba:	2500      	movs	r5, #0
+    32bc:	f88d 3000 	strb.w	r3, [sp]
+    32c0:	f894 3020 	ldrb.w	r3, [r4, #32]
+    32c4:	2000      	movs	r0, #0
+    32c6:	f89d 2000 	ldrb.w	r2, [sp]
+    32ca:	f362 0007 	bfi	r0, r2, #0, #8
+    32ce:	f363 200f 	bfi	r0, r3, #8, #8
+    32d2:	f365 4017 	bfi	r0, r5, #16, #8
+    32d6:	b007      	add	sp, #28
+    32d8:	e8bd 83f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, pc}
+    32dc:	2301      	movs	r3, #1
+    32de:	f8df 8108 	ldr.w	r8, [pc, #264]	@ 33e8 <imu::Bus::begin()+0x13c>
+    32e2:	7003      	strb	r3, [r0, #0]
+    32e4:	f898 5000 	ldrb.w	r5, [r8]
+    32e8:	b115      	cbz	r5, 32f0 <imu::Bus::begin()+0x44>
+    32ea:	70c3      	strb	r3, [r0, #3]
+    32ec:	2305      	movs	r3, #5
+    32ee:	e7e4      	b.n	32ba <imu::Bus::begin()+0xe>
+    32f0:	4b36      	ldr	r3, [pc, #216]	@ (33cc <imu::Bus::begin()+0x120>)
+    32f2:	e9cd 5503 	strd	r5, r5, [sp, #12]
+    32f6:	9505      	str	r5, [sp, #20]
+    32f8:	4798      	blx	r3
+    32fa:	f8df 90f0 	ldr.w	r9, [pc, #240]	@ 33ec <imu::Bus::begin()+0x140>
+    32fe:	9002      	str	r0, [sp, #8]
+    3300:	47c8      	blx	r9
+    3302:	b918      	cbnz	r0, 330c <imu::Bus::begin()+0x60>
+    3304:	2301      	movs	r3, #1
+    3306:	70e3      	strb	r3, [r4, #3]
+    3308:	2305      	movs	r3, #5
+    330a:	e00a      	b.n	3322 <imu::Bus::begin()+0x76>
+    330c:	4f30      	ldr	r7, [pc, #192]	@ (33d0 <imu::Bus::begin()+0x124>)
+    330e:	47b8      	blx	r7
+    3310:	2800      	cmp	r0, #0
+    3312:	d0f7      	beq.n	3304 <imu::Bus::begin()+0x58>
+    3314:	482f      	ldr	r0, [pc, #188]	@ (33d4 <imu::Bus::begin()+0x128>)
+    3316:	6883      	ldr	r3, [r0, #8]
+    3318:	681a      	ldr	r2, [r3, #0]
+    331a:	b93a      	cbnz	r2, 332c <imu::Bus::begin()+0x80>
+    331c:	2301      	movs	r3, #1
+    331e:	70e3      	strb	r3, [r4, #3]
+    3320:	2306      	movs	r3, #6
+    3322:	f88d 3000 	strb.w	r3, [sp]
+    3326:	f894 3020 	ldrb.w	r3, [r4, #32]
+    332a:	e7cb      	b.n	32c4 <imu::Bus::begin()+0x18>
+    332c:	21a0      	movs	r1, #160	@ 0xa0
+    332e:	2202      	movs	r2, #2
+    3330:	e9cd 1200 	strd	r1, r2, [sp]
+    3334:	4669      	mov	r1, sp
+    3336:	681b      	ldr	r3, [r3, #0]
+    3338:	4798      	blx	r3
+    333a:	2800      	cmp	r0, #0
+    333c:	d1ee      	bne.n	331c <imu::Bus::begin()+0x70>
+    333e:	4b26      	ldr	r3, [pc, #152]	@ (33d8 <imu::Bus::begin()+0x12c>)
+    3340:	f8d3 30a0 	ldr.w	r3, [r3, #160]	@ 0xa0
+    3344:	079b      	lsls	r3, r3, #30
+    3346:	d5e9      	bpl.n	331c <imu::Bus::begin()+0x70>
+    3348:	47c8      	blx	r9
+    334a:	2800      	cmp	r0, #0
+    334c:	d0da      	beq.n	3304 <imu::Bus::begin()+0x58>
+    334e:	47b8      	blx	r7
+    3350:	2800      	cmp	r0, #0
+    3352:	d0d7      	beq.n	3304 <imu::Bus::begin()+0x58>
+    3354:	4b21      	ldr	r3, [pc, #132]	@ (33dc <imu::Bus::begin()+0x130>)
+    3356:	681a      	ldr	r2, [r3, #0]
+    3358:	2a00      	cmp	r2, #0
+    335a:	d1d3      	bne.n	3304 <imu::Bus::begin()+0x58>
+    335c:	685a      	ldr	r2, [r3, #4]
+    335e:	2a00      	cmp	r2, #0
+    3360:	d1d0      	bne.n	3304 <imu::Bus::begin()+0x58>
+    3362:	689a      	ldr	r2, [r3, #8]
+    3364:	2a00      	cmp	r2, #0
+    3366:	d1cd      	bne.n	3304 <imu::Bus::begin()+0x58>
+    3368:	68da      	ldr	r2, [r3, #12]
+    336a:	2a00      	cmp	r2, #0
+    336c:	d1ca      	bne.n	3304 <imu::Bus::begin()+0x58>
+    336e:	691a      	ldr	r2, [r3, #16]
+    3370:	2a00      	cmp	r2, #0
+    3372:	d1c7      	bne.n	3304 <imu::Bus::begin()+0x58>
+    3374:	695a      	ldr	r2, [r3, #20]
+    3376:	2a00      	cmp	r2, #0
+    3378:	d1c4      	bne.n	3304 <imu::Bus::begin()+0x58>
+    337a:	6ada      	ldr	r2, [r3, #44]	@ 0x2c
+    337c:	2a00      	cmp	r2, #0
+    337e:	d1c1      	bne.n	3304 <imu::Bus::begin()+0x58>
+    3380:	699e      	ldr	r6, [r3, #24]
+    3382:	2e01      	cmp	r6, #1
+    3384:	d1be      	bne.n	3304 <imu::Bus::begin()+0x58>
+    3386:	47c8      	blx	r9
+    3388:	2800      	cmp	r0, #0
+    338a:	d0bb      	beq.n	3304 <imu::Bus::begin()+0x58>
+    338c:	47b8      	blx	r7
+    338e:	4607      	mov	r7, r0
+    3390:	2800      	cmp	r0, #0
+    3392:	d0b7      	beq.n	3304 <imu::Bus::begin()+0x58>
+    3394:	4620      	mov	r0, r4
+    3396:	4b12      	ldr	r3, [pc, #72]	@ (33e0 <imu::Bus::begin()+0x134>)
+    3398:	70a6      	strb	r6, [r4, #2]
+    339a:	a902      	add	r1, sp, #8
+    339c:	f888 6000 	strb.w	r6, [r8]
+    33a0:	4798      	blx	r3
+    33a2:	4680      	mov	r8, r0
+    33a4:	b148      	cbz	r0, 33ba <imu::Bus::begin()+0x10e>
+    33a6:	4b0f      	ldr	r3, [pc, #60]	@ (33e4 <imu::Bus::begin()+0x138>)
+    33a8:	4620      	mov	r0, r4
+    33aa:	70e6      	strb	r6, [r4, #3]
+    33ac:	4798      	blx	r3
+    33ae:	f88d 8000 	strb.w	r8, [sp]
+    33b2:	4603      	mov	r3, r0
+    33b4:	f884 0020 	strb.w	r0, [r4, #32]
+    33b8:	e784      	b.n	32c4 <imu::Bus::begin()+0x18>
+    33ba:	2300      	movs	r3, #0
+    33bc:	463d      	mov	r5, r7
+    33be:	f88d 3000 	strb.w	r3, [sp]
+    33c2:	7066      	strb	r6, [r4, #1]
+    33c4:	f894 3020 	ldrb.w	r3, [r4, #32]
+    33c8:	e77c      	b.n	32c4 <imu::Bus::begin()+0x18>
+    33ca:	bf00      	nop
+	...
+    33d8:	46020c00 	.word	0x46020c00
+    33dc:	40008400 	.word	0x40008400
+	...
+    33e8:	0000014a 	.word	0x0000014a
+    33ec:	00000000 	.word	0x00000000
+
+000033f0 <imu::Bus::failed(imu::BusStatus, imu::Bus::Operation&)>:
+    33f0:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+    33f4:	460c      	mov	r4, r1
+    33f6:	461f      	mov	r7, r3
+    33f8:	2301      	movs	r3, #1
+    33fa:	2100      	movs	r1, #0
+    33fc:	70e3      	strb	r3, [r4, #3]
+    33fe:	78a3      	ldrb	r3, [r4, #2]
+    3400:	4606      	mov	r6, r0
+    3402:	4690      	mov	r8, r2
+    3404:	7061      	strb	r1, [r4, #1]
+    3406:	b163      	cbz	r3, 3422 <imu::Bus::failed(imu::BusStatus, imu::Bus::Operation&)+0x32>
+    3408:	4620      	mov	r0, r4
+    340a:	4b13      	ldr	r3, [pc, #76]	@ (3458 <imu::Bus::failed(imu::BusStatus, imu::Bus::Operation&)+0x68>)
+    340c:	4798      	blx	r3
+    340e:	b140      	cbz	r0, 3422 <imu::Bus::failed(imu::BusStatus, imu::Bus::Operation&)+0x32>
+    3410:	4b12      	ldr	r3, [pc, #72]	@ (345c <imu::Bus::failed(imu::BusStatus, imu::Bus::Operation&)+0x6c>)
+    3412:	699a      	ldr	r2, [r3, #24]
+    3414:	68fb      	ldr	r3, [r7, #12]
+    3416:	f022 02ef 	bic.w	r2, r2, #239	@ 0xef
+    341a:	0492      	lsls	r2, r2, #18
+    341c:	0c92      	lsrs	r2, r2, #18
+    341e:	4313      	orrs	r3, r2
+    3420:	60fb      	str	r3, [r7, #12]
+    3422:	4620      	mov	r0, r4
+    3424:	4b0e      	ldr	r3, [pc, #56]	@ (3460 <imu::Bus::failed(imu::BusStatus, imu::Bus::Operation&)+0x70>)
+    3426:	4798      	blx	r3
+    3428:	f884 0020 	strb.w	r0, [r4, #32]
+    342c:	4634      	mov	r4, r6
+    342e:	4684      	mov	ip, r0
+    3430:	4d0c      	ldr	r5, [pc, #48]	@ (3464 <imu::Bus::failed(imu::BusStatus, imu::Bus::Operation&)+0x74>)
+    3432:	cd0f      	ldmia	r5!, {r0, r1, r2, r3}
+    3434:	c40f      	stmia	r4!, {r0, r1, r2, r3}
+    3436:	cd0f      	ldmia	r5!, {r0, r1, r2, r3}
+    3438:	c40f      	stmia	r4!, {r0, r1, r2, r3}
+    343a:	682b      	ldr	r3, [r5, #0]
+    343c:	f886 8000 	strb.w	r8, [r6]
+    3440:	6023      	str	r3, [r4, #0]
+    3442:	683b      	ldr	r3, [r7, #0]
+    3444:	f886 c001 	strb.w	ip, [r6, #1]
+    3448:	6173      	str	r3, [r6, #20]
+    344a:	687b      	ldr	r3, [r7, #4]
+    344c:	4630      	mov	r0, r6
+    344e:	61b3      	str	r3, [r6, #24]
+    3450:	68fb      	ldr	r3, [r7, #12]
+    3452:	61f3      	str	r3, [r6, #28]
+    3454:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+    3458:	00000000 	.word	0x00000000
+    345c:	40008400 	.word	0x40008400
+    3460:	00000000 	.word	0x00000000
+    3464:	00000014 	.word	0x00000014
+
+00003468 <imu::Bus::checkFlags(imu::Bus::Operation&, unsigned int, unsigned int)>:
+    3468:	43d2      	mvns	r2, r2
+    346a:	b538      	push	{r3, r4, r5, lr}
+    346c:	461d      	mov	r5, r3
+    346e:	4b09      	ldr	r3, [pc, #36]	@ (3494 <imu::Bus::checkFlags(imu::Bus::Operation&, unsigned int, unsigned int)+0x2c>)
+    3470:	f002 04ee 	and.w	r4, r2, #238	@ 0xee
+    3474:	4323      	orrs	r3, r4
+    3476:	68ca      	ldr	r2, [r1, #12]
+    3478:	402b      	ands	r3, r5
+    347a:	431a      	orrs	r2, r3
+    347c:	4628      	mov	r0, r5
+    347e:	4b06      	ldr	r3, [pc, #24]	@ (3498 <imu::Bus::checkFlags(imu::Bus::Operation&, unsigned int, unsigned int)+0x30>)
+    3480:	60ca      	str	r2, [r1, #12]
+    3482:	4798      	blx	r3
+    3484:	b920      	cbnz	r0, 3490 <imu::Bus::checkFlags(imu::Bus::Operation&, unsigned int, unsigned int)+0x28>
+    3486:	f444 047f 	orr.w	r4, r4, #16711680	@ 0xff0000
+    348a:	422c      	tst	r4, r5
+    348c:	bf18      	it	ne
+    348e:	200c      	movne	r0, #12
+    3490:	bd38      	pop	{r3, r4, r5, pc}
+    3492:	bf00      	nop
+    3494:	00ff3f10 	.word	0x00ff3f10
+    3498:	00000000 	.word	0x00000000
+
+0000349c <imu::Bus::observe(imu::Bus::Operation&, unsigned int, unsigned int&)>:
+    349c:	e92d 4ff8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, sl, fp, lr}
+    34a0:	461f      	mov	r7, r3
+    34a2:	688b      	ldr	r3, [r1, #8]
+    34a4:	4605      	mov	r5, r0
+    34a6:	f5b3 5f00 	cmp.w	r3, #8192	@ 0x2000
+    34aa:	460c      	mov	r4, r1
+    34ac:	4691      	mov	r9, r2
+    34ae:	d23e      	bcs.n	352e <imu::Bus::observe(imu::Bus::Operation&, unsigned int, unsigned int&)+0x92>
+    34b0:	3301      	adds	r3, #1
+    34b2:	608b      	str	r3, [r1, #8]
+    34b4:	f8df 8080 	ldr.w	r8, [pc, #128]	@ 3538 <imu::Bus::observe(imu::Bus::Operation&, unsigned int, unsigned int&)+0x9c>
+    34b8:	47c0      	blx	r8
+    34ba:	f8df b080 	ldr.w	fp, [pc, #128]	@ 353c <imu::Bus::observe(imu::Bus::Operation&, unsigned int, unsigned int&)+0xa0>
+    34be:	6060      	str	r0, [r4, #4]
+    34c0:	2100      	movs	r1, #0
+    34c2:	4628      	mov	r0, r5
+    34c4:	47d8      	blx	fp
+    34c6:	b918      	cbnz	r0, 34d0 <imu::Bus::observe(imu::Bus::Operation&, unsigned int, unsigned int&)+0x34>
+    34c8:	2605      	movs	r6, #5
+    34ca:	4630      	mov	r0, r6
+    34cc:	e8bd 8ff8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, sl, fp, pc}
+    34d0:	f8df a06c 	ldr.w	sl, [pc, #108]	@ 3540 <imu::Bus::observe(imu::Bus::Operation&, unsigned int, unsigned int&)+0xa4>
+    34d4:	4e17      	ldr	r6, [pc, #92]	@ (3534 <imu::Bus::observe(imu::Bus::Operation&, unsigned int, unsigned int&)+0x98>)
+    34d6:	f8da 3018 	ldr.w	r3, [sl, #24]
+    34da:	464a      	mov	r2, r9
+    34dc:	4621      	mov	r1, r4
+    34de:	4628      	mov	r0, r5
+    34e0:	603b      	str	r3, [r7, #0]
+    34e2:	47b0      	blx	r6
+    34e4:	4606      	mov	r6, r0
+    34e6:	2800      	cmp	r0, #0
+    34e8:	d1ef      	bne.n	34ca <imu::Bus::observe(imu::Bus::Operation&, unsigned int, unsigned int&)+0x2e>
+    34ea:	e9d4 2300 	ldrd	r2, r3, [r4]
+    34ee:	1a9b      	subs	r3, r3, r2
+    34f0:	f5b3 7f16 	cmp.w	r3, #600	@ 0x258
+    34f4:	d301      	bcc.n	34fa <imu::Bus::observe(imu::Bus::Operation&, unsigned int, unsigned int&)+0x5e>
+    34f6:	260d      	movs	r6, #13
+    34f8:	e7e7      	b.n	34ca <imu::Bus::observe(imu::Bus::Operation&, unsigned int, unsigned int&)+0x2e>
+    34fa:	47c0      	blx	r8
+    34fc:	4631      	mov	r1, r6
+    34fe:	6060      	str	r0, [r4, #4]
+    3500:	4628      	mov	r0, r5
+    3502:	47d8      	blx	fp
+    3504:	2800      	cmp	r0, #0
+    3506:	d0df      	beq.n	34c8 <imu::Bus::observe(imu::Bus::Operation&, unsigned int, unsigned int&)+0x2c>
+    3508:	f8da 3018 	ldr.w	r3, [sl, #24]
+    350c:	4628      	mov	r0, r5
+    350e:	464a      	mov	r2, r9
+    3510:	4621      	mov	r1, r4
+    3512:	4d08      	ldr	r5, [pc, #32]	@ (3534 <imu::Bus::observe(imu::Bus::Operation&, unsigned int, unsigned int&)+0x98>)
+    3514:	603b      	str	r3, [r7, #0]
+    3516:	47a8      	blx	r5
+    3518:	4606      	mov	r6, r0
+    351a:	2800      	cmp	r0, #0
+    351c:	d1d5      	bne.n	34ca <imu::Bus::observe(imu::Bus::Operation&, unsigned int, unsigned int&)+0x2e>
+    351e:	47c0      	blx	r8
+    3520:	6823      	ldr	r3, [r4, #0]
+    3522:	6060      	str	r0, [r4, #4]
+    3524:	1ac0      	subs	r0, r0, r3
+    3526:	f5b0 7f16 	cmp.w	r0, #600	@ 0x258
+    352a:	d3ce      	bcc.n	34ca <imu::Bus::observe(imu::Bus::Operation&, unsigned int, unsigned int&)+0x2e>
+    352c:	e7e3      	b.n	34f6 <imu::Bus::observe(imu::Bus::Operation&, unsigned int, unsigned int&)+0x5a>
+    352e:	260e      	movs	r6, #14
+    3530:	e7cb      	b.n	34ca <imu::Bus::observe(imu::Bus::Operation&, unsigned int, unsigned int&)+0x2e>
+    3532:	bf00      	nop
+	...
+    3540:	40008400 	.word	0x40008400
+
+00003544 <imu::Bus::waitFor(imu::Bus::Operation&, unsigned int, unsigned int)>:
+    3544:	e92d 47f3 	stmdb	sp!, {r0, r1, r4, r5, r6, r7, r8, r9, sl, lr}
+    3548:	4605      	mov	r5, r0
+    354a:	468a      	mov	sl, r1
+    354c:	4614      	mov	r4, r2
+    354e:	461e      	mov	r6, r3
+    3550:	f44f 5700 	mov.w	r7, #8192	@ 0x2000
+    3554:	f8df 8074 	ldr.w	r8, [pc, #116]	@ 35cc <imu::Bus::waitFor(imu::Bus::Operation&, unsigned int, unsigned int)+0x88>
+    3558:	f8df 9074 	ldr.w	r9, [pc, #116]	@ 35d0 <imu::Bus::waitFor(imu::Bus::Operation&, unsigned int, unsigned int)+0x8c>
+    355c:	2300      	movs	r3, #0
+    355e:	4632      	mov	r2, r6
+    3560:	9301      	str	r3, [sp, #4]
+    3562:	4651      	mov	r1, sl
+    3564:	4628      	mov	r0, r5
+    3566:	ab01      	add	r3, sp, #4
+    3568:	47c0      	blx	r8
+    356a:	bb60      	cbnz	r0, 35c6 <imu::Bus::waitFor(imu::Bus::Operation&, unsigned int, unsigned int)+0x82>
+    356c:	9b01      	ldr	r3, [sp, #4]
+    356e:	0699      	lsls	r1, r3, #26
+    3570:	d50b      	bpl.n	358a <imu::Bus::waitFor(imu::Bus::Operation&, unsigned int, unsigned int)+0x46>
+    3572:	2c04      	cmp	r4, #4
+    3574:	d109      	bne.n	358a <imu::Bus::waitFor(imu::Bus::Operation&, unsigned int, unsigned int)+0x46>
+    3576:	075a      	lsls	r2, r3, #29
+    3578:	d409      	bmi.n	358e <imu::Bus::waitFor(imu::Bus::Operation&, unsigned int, unsigned int)+0x4a>
+    357a:	f8da 300c 	ldr.w	r3, [sl, #12]
+    357e:	f043 0320 	orr.w	r3, r3, #32
+    3582:	f8ca 300c 	str.w	r3, [sl, #12]
+    3586:	200c      	movs	r0, #12
+    3588:	e01d      	b.n	35c6 <imu::Bus::waitFor(imu::Bus::Operation&, unsigned int, unsigned int)+0x82>
+    358a:	4223      	tst	r3, r4
+    358c:	d018      	beq.n	35c0 <imu::Bus::waitFor(imu::Bus::Operation&, unsigned int, unsigned int)+0x7c>
+    358e:	f8d9 2004 	ldr.w	r2, [r9, #4]
+    3592:	0490      	lsls	r0, r2, #18
+    3594:	d4f7      	bmi.n	3586 <imu::Bus::waitFor(imu::Bus::Operation&, unsigned int, unsigned int)+0x42>
+    3596:	2c20      	cmp	r4, #32
+    3598:	d101      	bne.n	359e <imu::Bus::waitFor(imu::Bus::Operation&, unsigned int, unsigned int)+0x5a>
+    359a:	0419      	lsls	r1, r3, #16
+    359c:	d410      	bmi.n	35c0 <imu::Bus::waitFor(imu::Bus::Operation&, unsigned int, unsigned int)+0x7c>
+    359e:	4632      	mov	r2, r6
+    35a0:	4651      	mov	r1, sl
+    35a2:	4628      	mov	r0, r5
+    35a4:	ab01      	add	r3, sp, #4
+    35a6:	47c0      	blx	r8
+    35a8:	b968      	cbnz	r0, 35c6 <imu::Bus::waitFor(imu::Bus::Operation&, unsigned int, unsigned int)+0x82>
+    35aa:	9b01      	ldr	r3, [sp, #4]
+    35ac:	4223      	tst	r3, r4
+    35ae:	d007      	beq.n	35c0 <imu::Bus::waitFor(imu::Bus::Operation&, unsigned int, unsigned int)+0x7c>
+    35b0:	f8d9 2004 	ldr.w	r2, [r9, #4]
+    35b4:	0492      	lsls	r2, r2, #18
+    35b6:	d4e6      	bmi.n	3586 <imu::Bus::waitFor(imu::Bus::Operation&, unsigned int, unsigned int)+0x42>
+    35b8:	2c20      	cmp	r4, #32
+    35ba:	d104      	bne.n	35c6 <imu::Bus::waitFor(imu::Bus::Operation&, unsigned int, unsigned int)+0x82>
+    35bc:	041b      	lsls	r3, r3, #16
+    35be:	d502      	bpl.n	35c6 <imu::Bus::waitFor(imu::Bus::Operation&, unsigned int, unsigned int)+0x82>
+    35c0:	3f01      	subs	r7, #1
+    35c2:	d1cb      	bne.n	355c <imu::Bus::waitFor(imu::Bus::Operation&, unsigned int, unsigned int)+0x18>
+    35c4:	200e      	movs	r0, #14
+    35c6:	b002      	add	sp, #8
+    35c8:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
+    35cc:	00000000 	.word	0x00000000
+    35d0:	40008400 	.word	0x40008400
+
+000035d4 <imu::Bus::launch(imu::Bus::Operation&, unsigned char, bool, bool)>:
+    35d4:	e92d 41f3 	stmdb	sp!, {r0, r1, r4, r5, r6, r7, r8, lr}
+    35d8:	461e      	mov	r6, r3
+    35da:	2300      	movs	r3, #0
+    35dc:	4c1e      	ldr	r4, [pc, #120]	@ (3658 <imu::Bus::launch(imu::Bus::Operation&, unsigned char, bool, bool)+0x84>)
+    35de:	9301      	str	r3, [sp, #4]
+    35e0:	4617      	mov	r7, r2
+    35e2:	ab01      	add	r3, sp, #4
+    35e4:	01b2      	lsls	r2, r6, #6
+    35e6:	4605      	mov	r5, r0
+    35e8:	f89d 8020 	ldrb.w	r8, [sp, #32]
+    35ec:	47a0      	blx	r4
+    35ee:	4604      	mov	r4, r0
+    35f0:	bb58      	cbnz	r0, 364a <imu::Bus::launch(imu::Bus::Operation&, unsigned char, bool, bool)+0x76>
+    35f2:	4a1a      	ldr	r2, [pc, #104]	@ (365c <imu::Bus::launch(imu::Bus::Operation&, unsigned char, bool, bool)+0x88>)
+    35f4:	6853      	ldr	r3, [r2, #4]
+    35f6:	049b      	lsls	r3, r3, #18
+    35f8:	d42b      	bmi.n	3652 <imu::Bus::launch(imu::Bus::Operation&, unsigned char, bool, bool)+0x7e>
+    35fa:	02b1      	lsls	r1, r6, #10
+    35fc:	ea41 6148 	orr.w	r1, r1, r8, lsl #25
+    3600:	ea41 4107 	orr.w	r1, r1, r7, lsl #16
+    3604:	f041 01d0 	orr.w	r1, r1, #208	@ 0xd0
+    3608:	61e9      	str	r1, [r5, #28]
+    360a:	4815      	ldr	r0, [pc, #84]	@ (3660 <imu::Bus::launch(imu::Bus::Operation&, unsigned char, bool, bool)+0x8c>)
+    360c:	4915      	ldr	r1, [pc, #84]	@ (3664 <imu::Bus::launch(imu::Bus::Operation&, unsigned char, bool, bool)+0x90>)
+    360e:	ea4f 6348 	mov.w	r3, r8, lsl #25
+    3612:	2e00      	cmp	r6, #0
+    3614:	bf08      	it	eq
+    3616:	4608      	moveq	r0, r1
+    3618:	6851      	ldr	r1, [r2, #4]
+    361a:	ea43 4307 	orr.w	r3, r3, r7, lsl #16
+    361e:	f021 717f 	bic.w	r1, r1, #66846720	@ 0x3fc0000
+    3622:	f421 315f 	bic.w	r1, r1, #228352	@ 0x37c00
+    3626:	4303      	orrs	r3, r0
+    3628:	f421 717f 	bic.w	r1, r1, #1020	@ 0x3fc
+    362c:	f021 0103 	bic.w	r1, r1, #3
+    3630:	f023 4300 	bic.w	r3, r3, #2147483648	@ 0x80000000
+    3634:	430b      	orrs	r3, r1
+    3636:	f043 03d0 	orr.w	r3, r3, #208	@ 0xd0
+    363a:	4621      	mov	r1, r4
+    363c:	6053      	str	r3, [r2, #4]
+    363e:	4628      	mov	r0, r5
+    3640:	4b09      	ldr	r3, [pc, #36]	@ (3668 <imu::Bus::launch(imu::Bus::Operation&, unsigned char, bool, bool)+0x94>)
+    3642:	4798      	blx	r3
+    3644:	2800      	cmp	r0, #0
+    3646:	bf08      	it	eq
+    3648:	2406      	moveq	r4, #6
+    364a:	4620      	mov	r0, r4
+    364c:	b002      	add	sp, #8
+    364e:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+    3652:	240c      	movs	r4, #12
+    3654:	e7f9      	b.n	364a <imu::Bus::launch(imu::Bus::Operation&, unsigned char, bool, bool)+0x76>
+    3656:	bf00      	nop
+    3658:	00000000 	.word	0x00000000
+    365c:	40008400 	.word	0x40008400
+    3660:	80002400 	.word	0x80002400
+    3664:	80002000 	.word	0x80002000
+    3668:	00000000 	.word	0x00000000
+
+0000366c <imu::Bus::sendByte(imu::Bus::Operation&, unsigned char)>:
+    366c:	b538      	push	{r3, r4, r5, lr}
+    366e:	2302      	movs	r3, #2
+    3670:	4614      	mov	r4, r2
+    3672:	4d03      	ldr	r5, [pc, #12]	@ (3680 <imu::Bus::sendByte(imu::Bus::Operation&, unsigned char)+0x14>)
+    3674:	461a      	mov	r2, r3
+    3676:	47a8      	blx	r5
+    3678:	b908      	cbnz	r0, 367e <imu::Bus::sendByte(imu::Bus::Operation&, unsigned char)+0x12>
+    367a:	4b02      	ldr	r3, [pc, #8]	@ (3684 <imu::Bus::sendByte(imu::Bus::Operation&, unsigned char)+0x18>)
+    367c:	629c      	str	r4, [r3, #40]	@ 0x28
+    367e:	bd38      	pop	{r3, r4, r5, pc}
+    3680:	00000000 	.word	0x00000000
+    3684:	40008400 	.word	0x40008400
+
+00003688 <imu::Bus::receive(imu::Bus::Operation&, imu::BusTransfer&, unsigned char)>:
+    3688:	e92d 4ff8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, sl, fp, lr}
+    368c:	4606      	mov	r6, r0
+    368e:	468b      	mov	fp, r1
+    3690:	4617      	mov	r7, r2
+    3692:	461d      	mov	r5, r3
+    3694:	2401      	movs	r4, #1
+    3696:	f8df 9034 	ldr.w	r9, [pc, #52]	@ 36cc <imu::Bus::receive(imu::Bus::Operation&, imu::BusTransfer&, unsigned char)+0x44>
+    369a:	f8df a034 	ldr.w	sl, [pc, #52]	@ 36d0 <imu::Bus::receive(imu::Bus::Operation&, imu::BusTransfer&, unsigned char)+0x48>
+    369e:	f103 0801 	add.w	r8, r3, #1
+    36a2:	4544      	cmp	r4, r8
+    36a4:	d102      	bne.n	36ac <imu::Bus::receive(imu::Bus::Operation&, imu::BusTransfer&, unsigned char)+0x24>
+    36a6:	2000      	movs	r0, #0
+    36a8:	e8bd 8ff8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, sl, fp, pc}
+    36ac:	b2e3      	uxtb	r3, r4
+    36ae:	429d      	cmp	r5, r3
+    36b0:	bf14      	ite	ne
+    36b2:	2304      	movne	r3, #4
+    36b4:	2324      	moveq	r3, #36	@ 0x24
+    36b6:	2204      	movs	r2, #4
+    36b8:	4659      	mov	r1, fp
+    36ba:	4630      	mov	r0, r6
+    36bc:	47c8      	blx	r9
+    36be:	3401      	adds	r4, #1
+    36c0:	2800      	cmp	r0, #0
+    36c2:	d1f1      	bne.n	36a8 <imu::Bus::receive(imu::Bus::Operation&, imu::BusTransfer&, unsigned char)+0x20>
+    36c4:	f8da 3024 	ldr.w	r3, [sl, #36]	@ 0x24
+    36c8:	553b      	strb	r3, [r7, r4]
+    36ca:	e7ea      	b.n	36a2 <imu::Bus::receive(imu::Bus::Operation&, imu::BusTransfer&, unsigned char)+0x1a>
+    36cc:	00000000 	.word	0x00000000
+    36d0:	40008400 	.word	0x40008400
+
+000036d4 <imu::Bus::finish(imu::Bus::Operation&)>:
+    36d4:	2320      	movs	r3, #32
+    36d6:	e92d 41f3 	stmdb	sp!, {r0, r1, r4, r5, r6, r7, r8, lr}
+    36da:	461a      	mov	r2, r3
+    36dc:	4c1e      	ldr	r4, [pc, #120]	@ (3758 <imu::Bus::finish(imu::Bus::Operation&)+0x84>)
+    36de:	4606      	mov	r6, r0
+    36e0:	460d      	mov	r5, r1
+    36e2:	47a0      	blx	r4
+    36e4:	4604      	mov	r4, r0
+    36e6:	b988      	cbnz	r0, 370c <imu::Bus::finish(imu::Bus::Operation&)+0x38>
+    36e8:	4f1c      	ldr	r7, [pc, #112]	@ (375c <imu::Bus::finish(imu::Bus::Operation&)+0x88>)
+    36ea:	4602      	mov	r2, r0
+    36ec:	69fb      	ldr	r3, [r7, #28]
+    36ee:	4c1c      	ldr	r4, [pc, #112]	@ (3760 <imu::Bus::finish(imu::Bus::Operation&)+0x8c>)
+    36f0:	f043 0320 	orr.w	r3, r3, #32
+    36f4:	61fb      	str	r3, [r7, #28]
+    36f6:	4629      	mov	r1, r5
+    36f8:	9001      	str	r0, [sp, #4]
+    36fa:	ab01      	add	r3, sp, #4
+    36fc:	4630      	mov	r0, r6
+    36fe:	47a0      	blx	r4
+    3700:	4604      	mov	r4, r0
+    3702:	b918      	cbnz	r0, 370c <imu::Bus::finish(imu::Bus::Operation&)+0x38>
+    3704:	9b01      	ldr	r3, [sp, #4]
+    3706:	041a      	lsls	r2, r3, #16
+    3708:	d504      	bpl.n	3714 <imu::Bus::finish(imu::Bus::Operation&)+0x40>
+    370a:	240c      	movs	r4, #12
+    370c:	4620      	mov	r0, r4
+    370e:	b002      	add	sp, #8
+    3710:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+    3714:	f8df 8054 	ldr.w	r8, [pc, #84]	@ 376c <imu::Bus::finish(imu::Bus::Operation&)+0x98>
+    3718:	47c0      	blx	r8
+    371a:	4621      	mov	r1, r4
+    371c:	6068      	str	r0, [r5, #4]
+    371e:	4b11      	ldr	r3, [pc, #68]	@ (3764 <imu::Bus::finish(imu::Bus::Operation&)+0x90>)
+    3720:	4630      	mov	r0, r6
+    3722:	4798      	blx	r3
+    3724:	b1a8      	cbz	r0, 3752 <imu::Bus::finish(imu::Bus::Operation&)+0x7e>
+    3726:	69bf      	ldr	r7, [r7, #24]
+    3728:	4622      	mov	r2, r4
+    372a:	463b      	mov	r3, r7
+    372c:	4c0e      	ldr	r4, [pc, #56]	@ (3768 <imu::Bus::finish(imu::Bus::Operation&)+0x94>)
+    372e:	4629      	mov	r1, r5
+    3730:	4630      	mov	r0, r6
+    3732:	9701      	str	r7, [sp, #4]
+    3734:	47a0      	blx	r4
+    3736:	4604      	mov	r4, r0
+    3738:	2800      	cmp	r0, #0
+    373a:	d1e7      	bne.n	370c <imu::Bus::finish(imu::Bus::Operation&)+0x38>
+    373c:	043b      	lsls	r3, r7, #16
+    373e:	d4e4      	bmi.n	370a <imu::Bus::finish(imu::Bus::Operation&)+0x36>
+    3740:	47c0      	blx	r8
+    3742:	682b      	ldr	r3, [r5, #0]
+    3744:	6068      	str	r0, [r5, #4]
+    3746:	1ac0      	subs	r0, r0, r3
+    3748:	f5b0 7f16 	cmp.w	r0, #600	@ 0x258
+    374c:	bf28      	it	cs
+    374e:	240d      	movcs	r4, #13
+    3750:	e7dc      	b.n	370c <imu::Bus::finish(imu::Bus::Operation&)+0x38>
+    3752:	2405      	movs	r4, #5
+    3754:	e7da      	b.n	370c <imu::Bus::finish(imu::Bus::Operation&)+0x38>
+    3756:	bf00      	nop
+    3758:	00000000 	.word	0x00000000
+    375c:	40008400 	.word	0x40008400
+	...
+
+00003770 <imu::Bus::admitRequest(imu::Bus::Operation&)>:
+    3770:	b5f7      	push	{r0, r1, r2, r4, r5, r6, r7, lr}
+    3772:	4b15      	ldr	r3, [pc, #84]	@ (37c8 <imu::Bus::admitRequest(imu::Bus::Operation&)+0x58>)
+    3774:	460c      	mov	r4, r1
+    3776:	2100      	movs	r1, #0
+    3778:	4605      	mov	r5, r0
+    377a:	4798      	blx	r3
+    377c:	b1f8      	cbz	r0, 37be <imu::Bus::admitRequest(imu::Bus::Operation&)+0x4e>
+    377e:	4f13      	ldr	r7, [pc, #76]	@ (37cc <imu::Bus::admitRequest(imu::Bus::Operation&)+0x5c>)
+    3780:	4a13      	ldr	r2, [pc, #76]	@ (37d0 <imu::Bus::admitRequest(imu::Bus::Operation&)+0x60>)
+    3782:	69be      	ldr	r6, [r7, #24]
+    3784:	68e3      	ldr	r3, [r4, #12]
+    3786:	4032      	ands	r2, r6
+    3788:	4313      	orrs	r3, r2
+    378a:	60e3      	str	r3, [r4, #12]
+    378c:	4630      	mov	r0, r6
+    378e:	4b11      	ldr	r3, [pc, #68]	@ (37d4 <imu::Bus::admitRequest(imu::Bus::Operation&)+0x64>)
+    3790:	4798      	blx	r3
+    3792:	b990      	cbnz	r0, 37ba <imu::Bus::admitRequest(imu::Bus::Operation&)+0x4a>
+    3794:	4b10      	ldr	r3, [pc, #64]	@ (37d8 <imu::Bus::admitRequest(imu::Bus::Operation&)+0x68>)
+    3796:	4033      	ands	r3, r6
+    3798:	b99b      	cbnz	r3, 37c2 <imu::Bus::admitRequest(imu::Bus::Operation&)+0x52>
+    379a:	687b      	ldr	r3, [r7, #4]
+    379c:	049b      	lsls	r3, r3, #18
+    379e:	d410      	bmi.n	37c2 <imu::Bus::admitRequest(imu::Bus::Operation&)+0x52>
+    37a0:	4b0e      	ldr	r3, [pc, #56]	@ (37dc <imu::Bus::admitRequest(imu::Bus::Operation&)+0x6c>)
+    37a2:	691b      	ldr	r3, [r3, #16]
+    37a4:	f403 5340 	and.w	r3, r3, #12288	@ 0x3000
+    37a8:	f5b3 5f40 	cmp.w	r3, #12288	@ 0x3000
+    37ac:	d109      	bne.n	37c2 <imu::Bus::admitRequest(imu::Bus::Operation&)+0x52>
+    37ae:	4602      	mov	r2, r0
+    37b0:	4621      	mov	r1, r4
+    37b2:	4628      	mov	r0, r5
+    37b4:	4c0a      	ldr	r4, [pc, #40]	@ (37e0 <imu::Bus::admitRequest(imu::Bus::Operation&)+0x70>)
+    37b6:	ab01      	add	r3, sp, #4
+    37b8:	47a0      	blx	r4
+    37ba:	b003      	add	sp, #12
+    37bc:	bdf0      	pop	{r4, r5, r6, r7, pc}
+    37be:	2005      	movs	r0, #5
+    37c0:	e7fb      	b.n	37ba <imu::Bus::admitRequest(imu::Bus::Operation&)+0x4a>
+    37c2:	2007      	movs	r0, #7
+    37c4:	e7f9      	b.n	37ba <imu::Bus::admitRequest(imu::Bus::Operation&)+0x4a>
+    37c6:	bf00      	nop
+    37c8:	00000000 	.word	0x00000000
+    37cc:	40008400 	.word	0x40008400
+    37d0:	00ff3ffe 	.word	0x00ff3ffe
+    37d4:	00000000 	.word	0x00000000
+    37d8:	00ff80ee 	.word	0x00ff80ee
+    37dc:	42020c00 	.word	0x42020c00
+    37e0:	00000000 	.word	0x00000000
+
+000037e4 <imu::Bus::transfer(imu::Bus::Operation&, imu::Register, unsigned char, unsigned char, bool)>:
+    37e4:	e92d 47f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
+    37e8:	460d      	mov	r5, r1
+    37ea:	4614      	mov	r4, r2
+    37ec:	b08c      	sub	sp, #48	@ 0x30
+    37ee:	f8df e0fc 	ldr.w	lr, [pc, #252]	@ 38ec <imu::Bus::transfer(imu::Bus::Operation&, imu::Register, unsigned char, unsigned char, bool)+0x108>
+    37f2:	f10d 0c0c 	add.w	ip, sp, #12
+    37f6:	4606      	mov	r6, r0
+    37f8:	469a      	mov	sl, r3
+    37fa:	e8be 000f 	ldmia.w	lr!, {r0, r1, r2, r3}
+    37fe:	e8ac 000f 	stmia.w	ip!, {r0, r1, r2, r3}
+    3802:	e8be 000f 	ldmia.w	lr!, {r0, r1, r2, r3}
+    3806:	e8ac 000f 	stmia.w	ip!, {r0, r1, r2, r3}
+    380a:	f8de 3000 	ldr.w	r3, [lr]
+    380e:	4621      	mov	r1, r4
+    3810:	f8cc 3000 	str.w	r3, [ip]
+    3814:	4628      	mov	r0, r5
+    3816:	4b32      	ldr	r3, [pc, #200]	@ (38e0 <imu::Bus::transfer(imu::Bus::Operation&, imu::Register, unsigned char, unsigned char, bool)+0xfc>)
+    3818:	f89d 7054 	ldrb.w	r7, [sp, #84]	@ 0x54
+    381c:	f89d 8058 	ldrb.w	r8, [sp, #88]	@ 0x58
+    3820:	4798      	blx	r3
+    3822:	b9d8      	cbnz	r0, 385c <imu::Bus::transfer(imu::Bus::Operation&, imu::Register, unsigned char, unsigned char, bool)+0x78>
+    3824:	f108 0201 	add.w	r2, r8, #1
+    3828:	4603      	mov	r3, r0
+    382a:	4621      	mov	r1, r4
+    382c:	4628      	mov	r0, r5
+    382e:	f8df 90c0 	ldr.w	r9, [pc, #192]	@ 38f0 <imu::Bus::transfer(imu::Bus::Operation&, imu::Register, unsigned char, unsigned char, bool)+0x10c>
+    3832:	f8cd 8000 	str.w	r8, [sp]
+    3836:	b2d2      	uxtb	r2, r2
+    3838:	47c8      	blx	r9
+    383a:	b978      	cbnz	r0, 385c <imu::Bus::transfer(imu::Bus::Operation&, imu::Register, unsigned char, unsigned char, bool)+0x78>
+    383c:	4652      	mov	r2, sl
+    383e:	4621      	mov	r1, r4
+    3840:	4628      	mov	r0, r5
+    3842:	f8df a0b0 	ldr.w	sl, [pc, #176]	@ 38f4 <imu::Bus::transfer(imu::Bus::Operation&, imu::Register, unsigned char, unsigned char, bool)+0x110>
+    3846:	47d0      	blx	sl
+    3848:	b940      	cbnz	r0, 385c <imu::Bus::transfer(imu::Bus::Operation&, imu::Register, unsigned char, unsigned char, bool)+0x78>
+    384a:	f1b8 0f00 	cmp.w	r8, #0
+    384e:	d00f      	beq.n	3870 <imu::Bus::transfer(imu::Bus::Operation&, imu::Register, unsigned char, unsigned char, bool)+0x8c>
+    3850:	4621      	mov	r1, r4
+    3852:	4628      	mov	r0, r5
+    3854:	f89d 2050 	ldrb.w	r2, [sp, #80]	@ 0x50
+    3858:	47d0      	blx	sl
+    385a:	b310      	cbz	r0, 38a2 <imu::Bus::transfer(imu::Bus::Operation&, imu::Register, unsigned char, unsigned char, bool)+0xbe>
+    385c:	4623      	mov	r3, r4
+    385e:	4602      	mov	r2, r0
+    3860:	4629      	mov	r1, r5
+    3862:	4630      	mov	r0, r6
+    3864:	4c1f      	ldr	r4, [pc, #124]	@ (38e4 <imu::Bus::transfer(imu::Bus::Operation&, imu::Register, unsigned char, unsigned char, bool)+0x100>)
+    3866:	47a0      	blx	r4
+    3868:	4630      	mov	r0, r6
+    386a:	b00c      	add	sp, #48	@ 0x30
+    386c:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
+    3870:	2340      	movs	r3, #64	@ 0x40
+    3872:	4621      	mov	r1, r4
+    3874:	461a      	mov	r2, r3
+    3876:	4628      	mov	r0, r5
+    3878:	f8df a07c 	ldr.w	sl, [pc, #124]	@ 38f8 <imu::Bus::transfer(imu::Bus::Operation&, imu::Register, unsigned char, unsigned char, bool)+0x114>
+    387c:	47d0      	blx	sl
+    387e:	2800      	cmp	r0, #0
+    3880:	d1ec      	bne.n	385c <imu::Bus::transfer(imu::Bus::Operation&, imu::Register, unsigned char, unsigned char, bool)+0x78>
+    3882:	2301      	movs	r3, #1
+    3884:	463a      	mov	r2, r7
+    3886:	4621      	mov	r1, r4
+    3888:	4628      	mov	r0, r5
+    388a:	9300      	str	r3, [sp, #0]
+    388c:	47c8      	blx	r9
+    388e:	2800      	cmp	r0, #0
+    3890:	d1e4      	bne.n	385c <imu::Bus::transfer(imu::Bus::Operation&, imu::Register, unsigned char, unsigned char, bool)+0x78>
+    3892:	463b      	mov	r3, r7
+    3894:	4621      	mov	r1, r4
+    3896:	4628      	mov	r0, r5
+    3898:	f8df 9060 	ldr.w	r9, [pc, #96]	@ 38fc <imu::Bus::transfer(imu::Bus::Operation&, imu::Register, unsigned char, unsigned char, bool)+0x118>
+    389c:	aa03      	add	r2, sp, #12
+    389e:	47c8      	blx	r9
+    38a0:	e7db      	b.n	385a <imu::Bus::transfer(imu::Bus::Operation&, imu::Register, unsigned char, unsigned char, bool)+0x76>
+    38a2:	4621      	mov	r1, r4
+    38a4:	4628      	mov	r0, r5
+    38a6:	4b10      	ldr	r3, [pc, #64]	@ (38e8 <imu::Bus::transfer(imu::Bus::Operation&, imu::Register, unsigned char, unsigned char, bool)+0x104>)
+    38a8:	4798      	blx	r3
+    38aa:	2800      	cmp	r0, #0
+    38ac:	d1d6      	bne.n	385c <imu::Bus::transfer(imu::Bus::Operation&, imu::Register, unsigned char, unsigned char, bool)+0x78>
+    38ae:	6823      	ldr	r3, [r4, #0]
+    38b0:	4635      	mov	r5, r6
+    38b2:	9308      	str	r3, [sp, #32]
+    38b4:	6863      	ldr	r3, [r4, #4]
+    38b6:	f1b8 0f00 	cmp.w	r8, #0
+    38ba:	9309      	str	r3, [sp, #36]	@ 0x24
+    38bc:	f04f 0301 	mov.w	r3, #1
+    38c0:	bf18      	it	ne
+    38c2:	2700      	movne	r7, #0
+    38c4:	f88d 000c 	strb.w	r0, [sp, #12]
+    38c8:	ac03      	add	r4, sp, #12
+    38ca:	f88d 302c 	strb.w	r3, [sp, #44]	@ 0x2c
+    38ce:	cc0f      	ldmia	r4!, {r0, r1, r2, r3}
+    38d0:	c50f      	stmia	r5!, {r0, r1, r2, r3}
+    38d2:	f88d 701d 	strb.w	r7, [sp, #29]
+    38d6:	cc0f      	ldmia	r4!, {r0, r1, r2, r3}
+    38d8:	c50f      	stmia	r5!, {r0, r1, r2, r3}
+    38da:	6823      	ldr	r3, [r4, #0]
+    38dc:	602b      	str	r3, [r5, #0]
+    38de:	e7c3      	b.n	3868 <imu::Bus::transfer(imu::Bus::Operation&, imu::Register, unsigned char, unsigned char, bool)+0x84>
+	...
+    38ec:	00000014 	.word	0x00000014
+	...
+
+00003900 <imu::Bus::request(imu::Register, unsigned char, unsigned char, bool)>:
+    3900:	e92d 43f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, lr}
+    3904:	460e      	mov	r6, r1
+    3906:	b093      	sub	sp, #76	@ 0x4c
+    3908:	4d20      	ldr	r5, [pc, #128]	@ (398c <imu::Bus::request(imu::Register, unsigned char, unsigned char, bool)+0x8c>)
+    390a:	ac09      	add	r4, sp, #36	@ 0x24
+    390c:	4607      	mov	r7, r0
+    390e:	4690      	mov	r8, r2
+    3910:	4699      	mov	r9, r3
+    3912:	cd0f      	ldmia	r5!, {r0, r1, r2, r3}
+    3914:	c40f      	stmia	r4!, {r0, r1, r2, r3}
+    3916:	cd0f      	ldmia	r5!, {r0, r1, r2, r3}
+    3918:	c40f      	stmia	r4!, {r0, r1, r2, r3}
+    391a:	682b      	ldr	r3, [r5, #0]
+    391c:	6023      	str	r3, [r4, #0]
+    391e:	7833      	ldrb	r3, [r6, #0]
+    3920:	b95b      	cbnz	r3, 393a <imu::Bus::request(imu::Register, unsigned char, unsigned char, bool)+0x3a>
+    3922:	463c      	mov	r4, r7
+    3924:	ad09      	add	r5, sp, #36	@ 0x24
+    3926:	cd0f      	ldmia	r5!, {r0, r1, r2, r3}
+    3928:	c40f      	stmia	r4!, {r0, r1, r2, r3}
+    392a:	cd0f      	ldmia	r5!, {r0, r1, r2, r3}
+    392c:	c40f      	stmia	r4!, {r0, r1, r2, r3}
+    392e:	682b      	ldr	r3, [r5, #0]
+    3930:	6023      	str	r3, [r4, #0]
+    3932:	4638      	mov	r0, r7
+    3934:	b013      	add	sp, #76	@ 0x4c
+    3936:	e8bd 83f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, pc}
+    393a:	78f1      	ldrb	r1, [r6, #3]
+    393c:	b909      	cbnz	r1, 3942 <imu::Bus::request(imu::Register, unsigned char, unsigned char, bool)+0x42>
+    393e:	7873      	ldrb	r3, [r6, #1]
+    3940:	b97b      	cbnz	r3, 3962 <imu::Bus::request(imu::Register, unsigned char, unsigned char, bool)+0x62>
+    3942:	220f      	movs	r2, #15
+    3944:	463d      	mov	r5, r7
+    3946:	f896 3020 	ldrb.w	r3, [r6, #32]
+    394a:	f88d 2024 	strb.w	r2, [sp, #36]	@ 0x24
+    394e:	f88d 3025 	strb.w	r3, [sp, #37]	@ 0x25
+    3952:	ac09      	add	r4, sp, #36	@ 0x24
+    3954:	cc0f      	ldmia	r4!, {r0, r1, r2, r3}
+    3956:	c50f      	stmia	r5!, {r0, r1, r2, r3}
+    3958:	cc0f      	ldmia	r4!, {r0, r1, r2, r3}
+    395a:	c50f      	stmia	r5!, {r0, r1, r2, r3}
+    395c:	6823      	ldr	r3, [r4, #0]
+    395e:	602b      	str	r3, [r5, #0]
+    3960:	e7e7      	b.n	3932 <imu::Bus::request(imu::Register, unsigned char, unsigned char, bool)+0x32>
+    3962:	4b0b      	ldr	r3, [pc, #44]	@ (3990 <imu::Bus::request(imu::Register, unsigned char, unsigned char, bool)+0x90>)
+    3964:	e9cd 1106 	strd	r1, r1, [sp, #24]
+    3968:	9108      	str	r1, [sp, #32]
+    396a:	4798      	blx	r3
+    396c:	f89d 306c 	ldrb.w	r3, [sp, #108]	@ 0x6c
+    3970:	9005      	str	r0, [sp, #20]
+    3972:	9302      	str	r3, [sp, #8]
+    3974:	f89d 3068 	ldrb.w	r3, [sp, #104]	@ 0x68
+    3978:	4631      	mov	r1, r6
+    397a:	e9cd 9300 	strd	r9, r3, [sp]
+    397e:	4638      	mov	r0, r7
+    3980:	4643      	mov	r3, r8
+    3982:	4c04      	ldr	r4, [pc, #16]	@ (3994 <imu::Bus::request(imu::Register, unsigned char, unsigned char, bool)+0x94>)
+    3984:	aa05      	add	r2, sp, #20
+    3986:	47a0      	blx	r4
+    3988:	e7d3      	b.n	3932 <imu::Bus::request(imu::Register, unsigned char, unsigned char, bool)+0x32>
+    398a:	bf00      	nop
+    398c:	00000014 	.word	0x00000014
+	...
+
+00003998 <imu::Bus::acquireMotion()>:
+    3998:	e92d 47f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
+    399c:	4688      	mov	r8, r1
+    399e:	4607      	mov	r7, r0
+    39a0:	f04f 0901 	mov.w	r9, #1
+    39a4:	4b3a      	ldr	r3, [pc, #232]	@ (3a90 <imu::Bus::acquireMotion()+0xf8>)
+    39a6:	223c      	movs	r2, #60	@ 0x3c
+    39a8:	2100      	movs	r1, #0
+    39aa:	b092      	sub	sp, #72	@ 0x48
+    39ac:	4798      	blx	r3
+    39ae:	f898 3000 	ldrb.w	r3, [r8]
+    39b2:	f887 9004 	strb.w	r9, [r7, #4]
+    39b6:	b153      	cbz	r3, 39ce <imu::Bus::acquireMotion()+0x36>
+    39b8:	f898 4003 	ldrb.w	r4, [r8, #3]
+    39bc:	b914      	cbnz	r4, 39c4 <imu::Bus::acquireMotion()+0x2c>
+    39be:	f898 3001 	ldrb.w	r3, [r8, #1]
+    39c2:	b943      	cbnz	r3, 39d6 <imu::Bus::acquireMotion()+0x3e>
+    39c4:	230f      	movs	r3, #15
+    39c6:	713b      	strb	r3, [r7, #4]
+    39c8:	f898 3020 	ldrb.w	r3, [r8, #32]
+    39cc:	717b      	strb	r3, [r7, #5]
+    39ce:	4638      	mov	r0, r7
+    39d0:	b012      	add	sp, #72	@ 0x48
+    39d2:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
+    39d6:	4e2f      	ldr	r6, [pc, #188]	@ (3a94 <imu::Bus::acquireMotion()+0xfc>)
+    39d8:	e9cd 4406 	strd	r4, r4, [sp, #24]
+    39dc:	9408      	str	r4, [sp, #32]
+    39de:	47b0      	blx	r6
+    39e0:	f8df a0b8 	ldr.w	sl, [pc, #184]	@ 3a9c <imu::Bus::acquireMotion()+0x104>
+    39e4:	233a      	movs	r3, #58	@ 0x3a
+    39e6:	4641      	mov	r1, r8
+    39e8:	e9cd 9401 	strd	r9, r4, [sp, #4]
+    39ec:	9005      	str	r0, [sp, #20]
+    39ee:	9400      	str	r4, [sp, #0]
+    39f0:	aa05      	add	r2, sp, #20
+    39f2:	a809      	add	r0, sp, #36	@ 0x24
+    39f4:	1d3c      	adds	r4, r7, #4
+    39f6:	ad09      	add	r5, sp, #36	@ 0x24
+    39f8:	47d0      	blx	sl
+    39fa:	cd0f      	ldmia	r5!, {r0, r1, r2, r3}
+    39fc:	c40f      	stmia	r4!, {r0, r1, r2, r3}
+    39fe:	cd0f      	ldmia	r5!, {r0, r1, r2, r3}
+    3a00:	c40f      	stmia	r4!, {r0, r1, r2, r3}
+    3a02:	682b      	ldr	r3, [r5, #0]
+    3a04:	463d      	mov	r5, r7
+    3a06:	7023      	strb	r3, [r4, #0]
+    3a08:	f815 4f04 	ldrb.w	r4, [r5, #4]!
+    3a0c:	2c00      	cmp	r4, #0
+    3a0e:	d1de      	bne.n	39ce <imu::Bus::acquireMotion()+0x36>
+    3a10:	79bb      	ldrb	r3, [r7, #6]
+    3a12:	69fa      	ldr	r2, [r7, #28]
+    3a14:	2b01      	cmp	r3, #1
+    3a16:	f887 9029 	strb.w	r9, [r7, #41]	@ 0x29
+    3a1a:	f887 3028 	strb.w	r3, [r7, #40]	@ 0x28
+    3a1e:	62fa      	str	r2, [r7, #44]	@ 0x2c
+    3a20:	d90d      	bls.n	3a3e <imu::Bus::acquireMotion()+0xa6>
+    3a22:	220c      	movs	r2, #12
+    3a24:	4641      	mov	r1, r8
+    3a26:	4c1c      	ldr	r4, [pc, #112]	@ (3a98 <imu::Bus::acquireMotion()+0x100>)
+    3a28:	ab05      	add	r3, sp, #20
+    3a2a:	a809      	add	r0, sp, #36	@ 0x24
+    3a2c:	47a0      	blx	r4
+    3a2e:	ac09      	add	r4, sp, #36	@ 0x24
+    3a30:	cc0f      	ldmia	r4!, {r0, r1, r2, r3}
+    3a32:	c50f      	stmia	r5!, {r0, r1, r2, r3}
+    3a34:	cc0f      	ldmia	r4!, {r0, r1, r2, r3}
+    3a36:	c50f      	stmia	r5!, {r0, r1, r2, r3}
+    3a38:	6823      	ldr	r3, [r4, #0]
+    3a3a:	702b      	strb	r3, [r5, #0]
+    3a3c:	e7c7      	b.n	39ce <imu::Bus::acquireMotion()+0x36>
+    3a3e:	b923      	cbnz	r3, 3a4a <imu::Bus::acquireMotion()+0xb2>
+    3a40:	f887 9000 	strb.w	r9, [r7]
+    3a44:	71bb      	strb	r3, [r7, #6]
+    3a46:	757b      	strb	r3, [r7, #21]
+    3a48:	e7c1      	b.n	39ce <imu::Bus::acquireMotion()+0x36>
+    3a4a:	f887 9030 	strb.w	r9, [r7, #48]	@ 0x30
+    3a4e:	47b0      	blx	r6
+    3a50:	230f      	movs	r3, #15
+    3a52:	6378      	str	r0, [r7, #52]	@ 0x34
+    3a54:	e9cd 4300 	strd	r4, r3, [sp]
+    3a58:	9402      	str	r4, [sp, #8]
+    3a5a:	462c      	mov	r4, r5
+    3a5c:	233a      	movs	r3, #58	@ 0x3a
+    3a5e:	4641      	mov	r1, r8
+    3a60:	aa05      	add	r2, sp, #20
+    3a62:	a809      	add	r0, sp, #36	@ 0x24
+    3a64:	ae09      	add	r6, sp, #36	@ 0x24
+    3a66:	47d0      	blx	sl
+    3a68:	ce0f      	ldmia	r6!, {r0, r1, r2, r3}
+    3a6a:	c40f      	stmia	r4!, {r0, r1, r2, r3}
+    3a6c:	ce0f      	ldmia	r6!, {r0, r1, r2, r3}
+    3a6e:	c40f      	stmia	r4!, {r0, r1, r2, r3}
+    3a70:	6833      	ldr	r3, [r6, #0]
+    3a72:	7023      	strb	r3, [r4, #0]
+    3a74:	793b      	ldrb	r3, [r7, #4]
+    3a76:	2b00      	cmp	r3, #0
+    3a78:	d1a9      	bne.n	39ce <imu::Bus::acquireMotion()+0x36>
+    3a7a:	79bb      	ldrb	r3, [r7, #6]
+    3a7c:	f887 9038 	strb.w	r9, [r7, #56]	@ 0x38
+    3a80:	2b01      	cmp	r3, #1
+    3a82:	f887 3039 	strb.w	r3, [r7, #57]	@ 0x39
+    3a86:	d8cc      	bhi.n	3a22 <imu::Bus::acquireMotion()+0x8a>
+    3a88:	2302      	movs	r3, #2
+    3a8a:	703b      	strb	r3, [r7, #0]
+    3a8c:	e79f      	b.n	39ce <imu::Bus::acquireMotion()+0x36>
+    3a8e:	bf00      	nop
+	...
+
+00003aa0 <imu::Bus::readRegister(imu::Register)>:
+    3aa0:	b573      	push	{r0, r1, r4, r5, r6, lr}
+    3aa2:	4b0e      	ldr	r3, [pc, #56]	@ (3adc <imu::Bus::readRegister(imu::Register)+0x3c>)
+    3aa4:	4606      	mov	r6, r0
+    3aa6:	460c      	mov	r4, r1
+    3aa8:	4610      	mov	r0, r2
+    3aaa:	2100      	movs	r1, #0
+    3aac:	4798      	blx	r3
+    3aae:	b960      	cbnz	r0, 3aca <imu::Bus::readRegister(imu::Register)+0x2a>
+    3ab0:	4634      	mov	r4, r6
+    3ab2:	4d0b      	ldr	r5, [pc, #44]	@ (3ae0 <imu::Bus::readRegister(imu::Register)+0x40>)
+    3ab4:	cd0f      	ldmia	r5!, {r0, r1, r2, r3}
+    3ab6:	c40f      	stmia	r4!, {r0, r1, r2, r3}
+    3ab8:	cd0f      	ldmia	r5!, {r0, r1, r2, r3}
+    3aba:	c40f      	stmia	r4!, {r0, r1, r2, r3}
+    3abc:	682b      	ldr	r3, [r5, #0]
+    3abe:	6023      	str	r3, [r4, #0]
+    3ac0:	2304      	movs	r3, #4
+    3ac2:	7033      	strb	r3, [r6, #0]
+    3ac4:	4630      	mov	r0, r6
+    3ac6:	b002      	add	sp, #8
+    3ac8:	bd70      	pop	{r4, r5, r6, pc}
+    3aca:	460b      	mov	r3, r1
+    3acc:	9101      	str	r1, [sp, #4]
+    3ace:	2101      	movs	r1, #1
+    3ad0:	4630      	mov	r0, r6
+    3ad2:	9100      	str	r1, [sp, #0]
+    3ad4:	4621      	mov	r1, r4
+    3ad6:	4c03      	ldr	r4, [pc, #12]	@ (3ae4 <imu::Bus::readRegister(imu::Register)+0x44>)
+    3ad8:	47a0      	blx	r4
+    3ada:	e7f3      	b.n	3ac4 <imu::Bus::readRegister(imu::Register)+0x24>
+    3adc:	00000000 	.word	0x00000000
+    3ae0:	00000014 	.word	0x00000014
+    3ae4:	00000000 	.word	0x00000000
+
+00003ae8 <imu::Bus::writeRegister(imu::Register, unsigned char)>:
+    3ae8:	b573      	push	{r0, r1, r4, r5, r6, lr}
+    3aea:	4606      	mov	r6, r0
+    3aec:	460c      	mov	r4, r1
+    3aee:	4610      	mov	r0, r2
+    3af0:	2101      	movs	r1, #1
+    3af2:	4d0c      	ldr	r5, [pc, #48]	@ (3b24 <imu::Bus::writeRegister(imu::Register, unsigned char)+0x3c>)
+    3af4:	47a8      	blx	r5
+    3af6:	b960      	cbnz	r0, 3b12 <imu::Bus::writeRegister(imu::Register, unsigned char)+0x2a>
+    3af8:	4634      	mov	r4, r6
+    3afa:	4d0b      	ldr	r5, [pc, #44]	@ (3b28 <imu::Bus::writeRegister(imu::Register, unsigned char)+0x40>)
+    3afc:	cd0f      	ldmia	r5!, {r0, r1, r2, r3}
+    3afe:	c40f      	stmia	r4!, {r0, r1, r2, r3}
+    3b00:	cd0f      	ldmia	r5!, {r0, r1, r2, r3}
+    3b02:	c40f      	stmia	r4!, {r0, r1, r2, r3}
+    3b04:	682b      	ldr	r3, [r5, #0]
+    3b06:	6023      	str	r3, [r4, #0]
+    3b08:	2304      	movs	r3, #4
+    3b0a:	7033      	strb	r3, [r6, #0]
+    3b0c:	4630      	mov	r0, r6
+    3b0e:	b002      	add	sp, #8
+    3b10:	bd70      	pop	{r4, r5, r6, pc}
+    3b12:	9101      	str	r1, [sp, #4]
+    3b14:	2100      	movs	r1, #0
+    3b16:	4630      	mov	r0, r6
+    3b18:	9100      	str	r1, [sp, #0]
+    3b1a:	4621      	mov	r1, r4
+    3b1c:	4c03      	ldr	r4, [pc, #12]	@ (3b2c <imu::Bus::writeRegister(imu::Register, unsigned char)+0x44>)
+    3b1e:	47a0      	blx	r4
+    3b20:	e7f4      	b.n	3b0c <imu::Bus::writeRegister(imu::Register, unsigned char)+0x24>
+    3b22:	bf00      	nop
+    3b24:	00000000 	.word	0x00000000
+    3b28:	00000014 	.word	0x00000014
+    3b2c:	00000000 	.word	0x00000000
+
+00003b30 <imu::Bus::readMotion()>:
+    3b30:	b537      	push	{r0, r1, r2, r4, r5, lr}
+    3b32:	2300      	movs	r3, #0
+    3b34:	220f      	movs	r2, #15
+    3b36:	4604      	mov	r4, r0
+    3b38:	e9cd 2300 	strd	r2, r3, [sp]
+    3b3c:	4d02      	ldr	r5, [pc, #8]	@ (3b48 <imu::Bus::readMotion()+0x18>)
+    3b3e:	223a      	movs	r2, #58	@ 0x3a
+    3b40:	47a8      	blx	r5
+    3b42:	4620      	mov	r0, r4
+    3b44:	b003      	add	sp, #12
+    3b46:	bd30      	pop	{r4, r5, pc}
+    3b48:	00000000 	.word	0x00000000
+
+00003b4c <_GLOBAL__sub_I__ZN3imu3Bus13controlsOwnedEb>:
+    3b4c:	4a06      	ldr	r2, [pc, #24]	@ (3b68 <_GLOBAL__sub_I__ZN3imu3Bus13controlsOwnedEb+0x1c>)
+    3b4e:	6813      	ldr	r3, [r2, #0]
+    3b50:	1c59      	adds	r1, r3, #1
+    3b52:	6011      	str	r1, [r2, #0]
+    3b54:	b933      	cbnz	r3, 3b64 <_GLOBAL__sub_I__ZN3imu3Bus13controlsOwnedEb+0x18>
+    3b56:	4a05      	ldr	r2, [pc, #20]	@ (3b6c <_GLOBAL__sub_I__ZN3imu3Bus13controlsOwnedEb+0x20>)
+    3b58:	4905      	ldr	r1, [pc, #20]	@ (3b70 <_GLOBAL__sub_I__ZN3imu3Bus13controlsOwnedEb+0x24>)
+    3b5a:	e9c2 3307 	strd	r3, r3, [r2, #28]
+    3b5e:	6011      	str	r1, [r2, #0]
+    3b60:	7613      	strb	r3, [r2, #24]
+    3b62:	6253      	str	r3, [r2, #36]	@ 0x24
+    3b64:	4770      	bx	lr
+    3b66:	bf00      	nop
+	...
+
+00003b94 <_GLOBAL__sub_I__ZN6motors8UnoQPort4portEv>:
+    3b94:	4a06      	ldr	r2, [pc, #24]	@ (3bb0 <_GLOBAL__sub_I__ZN6motors8UnoQPort4portEv+0x1c>)
+    3b96:	6813      	ldr	r3, [r2, #0]
+    3b98:	1c59      	adds	r1, r3, #1
+    3b9a:	6011      	str	r1, [r2, #0]
+    3b9c:	b933      	cbnz	r3, 3bac <_GLOBAL__sub_I__ZN6motors8UnoQPort4portEv+0x18>
+    3b9e:	4a05      	ldr	r2, [pc, #20]	@ (3bb4 <_GLOBAL__sub_I__ZN6motors8UnoQPort4portEv+0x20>)
+    3ba0:	4905      	ldr	r1, [pc, #20]	@ (3bb8 <_GLOBAL__sub_I__ZN6motors8UnoQPort4portEv+0x24>)
+    3ba2:	e9c2 3307 	strd	r3, r3, [r2, #28]
+    3ba6:	6011      	str	r1, [r2, #0]
+    3ba8:	7613      	strb	r3, [r2, #24]
+    3baa:	6253      	str	r3, [r2, #36]	@ 0x24
+    3bac:	4770      	bx	lr
+    3bae:	bf00      	nop
+	...
+
+00003bdc <_GLOBAL__sub_I__ZN11opp_sensors7Sensors5beginEv>:
+    3bdc:	4a06      	ldr	r2, [pc, #24]	@ (3bf8 <_GLOBAL__sub_I__ZN11opp_sensors7Sensors5beginEv+0x1c>)
+    3bde:	6813      	ldr	r3, [r2, #0]
+    3be0:	1c59      	adds	r1, r3, #1
+    3be2:	6011      	str	r1, [r2, #0]
+    3be4:	b933      	cbnz	r3, 3bf4 <_GLOBAL__sub_I__ZN11opp_sensors7Sensors5beginEv+0x18>
+    3be6:	4a05      	ldr	r2, [pc, #20]	@ (3bfc <_GLOBAL__sub_I__ZN11opp_sensors7Sensors5beginEv+0x20>)
+    3be8:	4905      	ldr	r1, [pc, #20]	@ (3c00 <_GLOBAL__sub_I__ZN11opp_sensors7Sensors5beginEv+0x24>)
+    3bea:	e9c2 3307 	strd	r3, r3, [r2, #28]
+    3bee:	6011      	str	r1, [r2, #0]
+    3bf0:	7613      	strb	r3, [r2, #24]
+    3bf2:	6253      	str	r3, [r2, #36]	@ 0x24
+    3bf4:	4770      	bx	lr
+    3bf6:	bf00      	nop
+	...
+
+00003c24 <_GLOBAL__sub_I__ZNK5power6Reader13controlsOwnedEv>:
+    3c24:	4a06      	ldr	r2, [pc, #24]	@ (3c40 <_GLOBAL__sub_I__ZNK5power6Reader13controlsOwnedEv+0x1c>)
+    3c26:	6813      	ldr	r3, [r2, #0]
+    3c28:	1c59      	adds	r1, r3, #1
+    3c2a:	6011      	str	r1, [r2, #0]
+    3c2c:	b933      	cbnz	r3, 3c3c <_GLOBAL__sub_I__ZNK5power6Reader13controlsOwnedEv+0x18>
+    3c2e:	4a05      	ldr	r2, [pc, #20]	@ (3c44 <_GLOBAL__sub_I__ZNK5power6Reader13controlsOwnedEv+0x20>)
+    3c30:	4905      	ldr	r1, [pc, #20]	@ (3c48 <_GLOBAL__sub_I__ZNK5power6Reader13controlsOwnedEv+0x24>)
+    3c32:	e9c2 3307 	strd	r3, r3, [r2, #28]
+    3c36:	6011      	str	r1, [r2, #0]
+    3c38:	7613      	strb	r3, [r2, #24]
+    3c3a:	6253      	str	r3, [r2, #36]	@ 0x24
+    3c3c:	4770      	bx	lr
+    3c3e:	bf00      	nop
+	...
+
+00003c6c <imu_acquisition_probe::exercise()>:
+    3c6c:	b570      	push	{r4, r5, r6, lr}
+    3c6e:	2500      	movs	r5, #0
+    3c70:	4604      	mov	r4, r0
+    3c72:	b09a      	sub	sp, #104	@ 0x68
+    3c74:	462a      	mov	r2, r5
+    3c76:	2301      	movs	r3, #1
+    3c78:	490c      	ldr	r1, [pc, #48]	@ (3cac <imu_acquisition_probe::exercise()+0x40>)
+    3c7a:	4e0d      	ldr	r6, [pc, #52]	@ (3cb0 <imu_acquisition_probe::exercise()+0x44>)
+    3c7c:	f8c0 5094 	str.w	r5, [r0, #148]	@ 0x94
+    3c80:	47b0      	blx	r6
+    3c82:	462a      	mov	r2, r5
+    3c84:	f104 0018 	add.w	r0, r4, #24
+    3c88:	4908      	ldr	r1, [pc, #32]	@ (3cac <imu_acquisition_probe::exercise()+0x40>)
+    3c8a:	4b0a      	ldr	r3, [pc, #40]	@ (3cb4 <imu_acquisition_probe::exercise()+0x48>)
+    3c8c:	4798      	blx	r3
+    3c8e:	462a      	mov	r2, r5
+    3c90:	4668      	mov	r0, sp
+    3c92:	4906      	ldr	r1, [pc, #24]	@ (3cac <imu_acquisition_probe::exercise()+0x40>)
+    3c94:	4b08      	ldr	r3, [pc, #32]	@ (3cb8 <imu_acquisition_probe::exercise()+0x4c>)
+    3c96:	4798      	blx	r3
+    3c98:	2265      	movs	r2, #101	@ 0x65
+    3c9a:	4669      	mov	r1, sp
+    3c9c:	4b07      	ldr	r3, [pc, #28]	@ (3cbc <imu_acquisition_probe::exercise()+0x50>)
+    3c9e:	f104 0030 	add.w	r0, r4, #48	@ 0x30
+    3ca2:	4798      	blx	r3
+    3ca4:	4620      	mov	r0, r4
+    3ca6:	b01a      	add	sp, #104	@ 0x68
+    3ca8:	bd70      	pop	{r4, r5, r6, pc}
+    3caa:	bf00      	nop
+	...
+
+00005904 <_GLOBAL__sub_I_Bridge>:
+    5904:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+    5908:	4a22      	ldr	r2, [pc, #136]	@ (5994 <_GLOBAL__sub_I_Bridge+0x90>)
+    590a:	4e23      	ldr	r6, [pc, #140]	@ (5998 <_GLOBAL__sub_I_Bridge+0x94>)
+    590c:	6813      	ldr	r3, [r2, #0]
+    590e:	1c59      	adds	r1, r3, #1
+    5910:	6011      	str	r1, [r2, #0]
+    5912:	b92b      	cbnz	r3, 5920 <_GLOBAL__sub_I_Bridge+0x1c>
+    5914:	4a21      	ldr	r2, [pc, #132]	@ (599c <_GLOBAL__sub_I_Bridge+0x98>)
+    5916:	e9c2 3307 	strd	r3, r3, [r2, #28]
+    591a:	6016      	str	r6, [r2, #0]
+    591c:	7613      	strb	r3, [r2, #24]
+    591e:	6253      	str	r3, [r2, #36]	@ 0x24
+    5920:	2400      	movs	r4, #0
+    5922:	f44f 7880 	mov.w	r8, #256	@ 0x100
+    5926:	4f1e      	ldr	r7, [pc, #120]	@ (59a0 <_GLOBAL__sub_I_Bridge+0x9c>)
+    5928:	2214      	movs	r2, #20
+    592a:	4621      	mov	r1, r4
+    592c:	481d      	ldr	r0, [pc, #116]	@ (59a4 <_GLOBAL__sub_I_Bridge+0xa0>)
+    592e:	e9c6 4400 	strd	r4, r4, [r6]
+    5932:	60f4      	str	r4, [r6, #12]
+    5934:	47b8      	blx	r7
+    5936:	2214      	movs	r2, #20
+    5938:	4621      	mov	r1, r4
+    593a:	481b      	ldr	r0, [pc, #108]	@ (59a8 <_GLOBAL__sub_I_Bridge+0xa4>)
+    593c:	47b8      	blx	r7
+    593e:	2214      	movs	r2, #20
+    5940:	4621      	mov	r1, r4
+    5942:	481a      	ldr	r0, [pc, #104]	@ (59ac <_GLOBAL__sub_I_Bridge+0xa8>)
+    5944:	47b8      	blx	r7
+    5946:	4642      	mov	r2, r8
+    5948:	4621      	mov	r1, r4
+    594a:	4819      	ldr	r0, [pc, #100]	@ (59b0 <_GLOBAL__sub_I_Bridge+0xac>)
+    594c:	e9c6 4413 	strd	r4, r4, [r6, #76]	@ 0x4c
+    5950:	47b8      	blx	r7
+    5952:	4b18      	ldr	r3, [pc, #96]	@ (59b4 <_GLOBAL__sub_I_Bridge+0xb0>)
+    5954:	4d18      	ldr	r5, [pc, #96]	@ (59b8 <_GLOBAL__sub_I_Bridge+0xb4>)
+    5956:	60b3      	str	r3, [r6, #8]
+    5958:	f44f 737a 	mov.w	r3, #1000	@ 0x3e8
+    595c:	60ab      	str	r3, [r5, #8]
+    595e:	4b17      	ldr	r3, [pc, #92]	@ (59bc <_GLOBAL__sub_I_Bridge+0xb8>)
+    5960:	f44f 7200 	mov.w	r2, #512	@ 0x200
+    5964:	4621      	mov	r1, r4
+    5966:	f105 0014 	add.w	r0, r5, #20
+    596a:	602b      	str	r3, [r5, #0]
+    596c:	f886 4158 	strb.w	r4, [r6, #344]	@ 0x158
+    5970:	606c      	str	r4, [r5, #4]
+    5972:	612e      	str	r6, [r5, #16]
+    5974:	47b8      	blx	r7
+    5976:	2214      	movs	r2, #20
+    5978:	4621      	mov	r1, r4
+    597a:	f505 7008 	add.w	r0, r5, #544	@ 0x220
+    597e:	f8c5 4214 	str.w	r4, [r5, #532]	@ 0x214
+    5982:	f8c5 4218 	str.w	r4, [r5, #536]	@ 0x218
+    5986:	f8c5 421c 	str.w	r4, [r5, #540]	@ 0x21c
+    598a:	47b8      	blx	r7
+    598c:	f8a5 8234 	strh.w	r8, [r5, #564]	@ 0x234
+    5990:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+	...
+    59a4:	00000010 	.word	0x00000010
+    59a8:	00000024 	.word	0x00000024
+    59ac:	00000038 	.word	0x00000038
+    59b0:	00000058 	.word	0x00000058
+	...
+    59bc:	00000008 	.word	0x00000008
+
+00005d5c <initVariant>:
+    5d5c:	4770      	bx	lr
+	...
+
+000062f4 <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt>:
+    62f4:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+    62f8:	f04f 0800 	mov.w	r8, #0
+    62fc:	f44f 777a 	mov.w	r7, #1000	@ 0x3e8
+    6300:	4d13      	ldr	r5, [pc, #76]	@ (6350 <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt+0x5c>)
+    6302:	4e14      	ldr	r6, [pc, #80]	@ (6354 <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt+0x60>)
+    6304:	4b14      	ldr	r3, [pc, #80]	@ (6358 <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt+0x64>)
+    6306:	4c15      	ldr	r4, [pc, #84]	@ (635c <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt+0x68>)
+    6308:	f105 0014 	add.w	r0, r5, #20
+    630c:	612b      	str	r3, [r5, #16]
+    630e:	e9c5 8701 	strd	r8, r7, [r5, #4]
+    6312:	602e      	str	r6, [r5, #0]
+    6314:	47a0      	blx	r4
+    6316:	f505 6088 	add.w	r0, r5, #1088	@ 0x440
+    631a:	4d11      	ldr	r5, [pc, #68]	@ (6360 <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt+0x6c>)
+    631c:	47a0      	blx	r4
+    631e:	4b11      	ldr	r3, [pc, #68]	@ (6364 <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt+0x70>)
+    6320:	f105 0014 	add.w	r0, r5, #20
+    6324:	612b      	str	r3, [r5, #16]
+    6326:	e9c5 8701 	strd	r8, r7, [r5, #4]
+    632a:	602e      	str	r6, [r5, #0]
+    632c:	47a0      	blx	r4
+    632e:	f505 6088 	add.w	r0, r5, #1088	@ 0x440
+    6332:	4d0d      	ldr	r5, [pc, #52]	@ (6368 <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt+0x74>)
+    6334:	47a0      	blx	r4
+    6336:	4b0d      	ldr	r3, [pc, #52]	@ (636c <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt+0x78>)
+    6338:	f105 0014 	add.w	r0, r5, #20
+    633c:	e9c5 8701 	strd	r8, r7, [r5, #4]
+    6340:	602e      	str	r6, [r5, #0]
+    6342:	612b      	str	r3, [r5, #16]
+    6344:	47a0      	blx	r4
+    6346:	f505 6088 	add.w	r0, r5, #1088	@ 0x440
+    634a:	47a0      	blx	r4
+    634c:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+    6350:	00000000 	.word	0x00000000
+    6354:	00000008 	.word	0x00000008
+	...
+
+000069f4 <_GLOBAL__sub_I__ZSt20__throw_system_errori>:
+    69f4:	4a06      	ldr	r2, [pc, #24]	@ (6a10 <_GLOBAL__sub_I__ZSt20__throw_system_errori+0x1c>)
+    69f6:	4907      	ldr	r1, [pc, #28]	@ (6a14 <_GLOBAL__sub_I__ZSt20__throw_system_errori+0x20>)
+    69f8:	4807      	ldr	r0, [pc, #28]	@ (6a18 <_GLOBAL__sub_I__ZSt20__throw_system_errori+0x24>)
+    69fa:	b508      	push	{r3, lr}
+    69fc:	f7ff fffe 	bl	6a24 <__aeabi_atexit>
+    6a00:	4a03      	ldr	r2, [pc, #12]	@ (6a10 <_GLOBAL__sub_I__ZSt20__throw_system_errori+0x1c>)
+    6a02:	4906      	ldr	r1, [pc, #24]	@ (6a1c <_GLOBAL__sub_I__ZSt20__throw_system_errori+0x28>)
+    6a04:	4806      	ldr	r0, [pc, #24]	@ (6a20 <_GLOBAL__sub_I__ZSt20__throw_system_errori+0x2c>)
+    6a06:	e8bd 4008 	ldmia.w	sp!, {r3, lr}
+    6a0a:	f7ff bffe 	b.w	6a24 <__aeabi_atexit>
+    6a0e:	bf00      	nop
+	...
+    6a18:	00000008 	.word	0x00000008
+    6a1c:	00000000 	.word	0x00000000
+    6a20:	00000004 	.word	0x00000004
+
+00000074  00000102 R_ARM_ABS32            00000000   .rodata
+00000078  0004c002 R_ARM_ABS32            00000000   __device_dts_ord_61
+00000074  00051002 R_ARM_ABS32            00000004   _ZN21imu_acquisition_probe5entryE
+00000078  0003f602 R_ARM_ABS32            00003c6d   _ZN21imu_acquisition_probe8exerciseEv
+000024fc  00040b02 R_ARM_ABS32            00000000   _ZGVN12RouterBridge3HCIE
+00002500  00050f02 R_ARM_ABS32            000000c8   _ZN12RouterBridge3HCIE
+00002504  00051302 R_ARM_ABS32            00000390   Bridge
+00002508  00047102 R_ARM_ABS32            00000008   _ZN21imu_acquisition_probe8acquirerE
+0000250c  0004ea02 R_ARM_ABS32            00005cc5   memset
+Relocation section '.rel.init_array' at offset 0x14cd0 contains 8 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000000  00027d02 R_ARM_ABS32            00002491   _GLOBAL__sub_I__ZN21imu_acquisition_probe8acquirerE
+00000004  0001cb02 R_ARM_ABS32            00003b4d   _GLOBAL__sub_I__ZN3imu3Bus13controlsOwnedEb
+00000008  0002d002 R_ARM_ABS32            00003b95   _GLOBAL__sub_I__ZN6motors8UnoQPort4portEv
+0000000c  0002db02 R_ARM_ABS32            00003bdd   _GLOBAL__sub_I__ZN11opp_sensors7Sensors5beginEv
+00000010  0002e602 R_ARM_ABS32            00003c25   _GLOBAL__sub_I__ZNK5power6Reader13controlsOwnedEv
+00000014  00014a02 R_ARM_ABS32            00005905   _GLOBAL__sub_I_Bridge
+00000018  00017d02 R_ARM_ABS32            000062f5   _GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt
+0000001c  0000b502 R_ARM_ABS32            000069f5   _GLOBAL__sub_I__ZSt20__throw_system_errori
+
+
+Hex dump of section '.init_array':
+ NOTE: This section has relocations against it, but these have NOT been applied to this dump.
+  0x0000896c 00000000 00000000 00000000 00000000 ................
+  0x0000897c 00000000 00000000 00000000 00000000 ................
+

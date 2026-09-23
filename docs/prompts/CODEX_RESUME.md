@@ -8,27 +8,29 @@ D051/D075 permit actual P2 software despite untested hardware. Full P0-P7 goal
 remains ACTIVE/incomplete. No PINMAP/EXPLAINED/GATE or motor-run authority follows.
 Do not restore obsolete blocked scheduling or ask for additional hardware now.
 
-D080 checked MPU6050 setup/decoder63c7eaa follows native bus a749816. Read
-P2_imu_setup_contract.md, validation, F101/F102 and separate fresh review. Author/
-reviewer26cases/1562374assertions,44variants+2probe executions and13config pass.
-Fullhost2/2 and sanitizer2/2 pass; actual targetc45ffd3d compile-only84132/34748B,
-44files/3ELFs/startup reviewed. Existing432tooling methods PASS630.788s,exit0;
-442distinct methods across separate existing/new runs. All jobs completed.
+D081 implementation7b46598 follows D08063c7eaa. Read the acquisition contract,
+validation/raw, F103 and separate same-model review. Actual owned setup and
+status/STOP/15byte acquisition share one600us/8192budget and publish explicit
+NO_NEW/OBSERVATION/FAULT with20ms observed silence. Author/reviewer focused,
+full cleanhost/sanitizer and actual target compile-only147e08b1 pass. Exact5inert
+identities reviewed/adopted. Existing443tooling PASS678.339s,exit0;450distinct methods across separate runs.
+All D081 jobs finished; preserve the final receipts rather than rerunning
+completed checks without a new change or unresolved concern.
 
-Next: bounded MPU6050 runtime acquisition/freshness. Load P2_hal_bench.md,
-P2_mpu6050_sample_audit.md and D079/D080 contracts. Do not repeat broad discovery.
-Adopt the documented status/STOP/motion inference explicitly, freeze contract/
-header before independent code/tests. Reuse one native Operation's600us/8192
-budget across both transactions; consumed status must never be retried after
-failure. NO_NEW publishes no cached payload; burst status gives no second sample.
-198clocks may exceed the bound at the slow mathematical corner; no physical
-success/sample-rate/full-loop timing claim. Later bias/calibration observation
-presence, sensor mounting and unreset continuous-yaw gap policy remain unfinished.
+Then implement actual B3 estimator/presence integration. Load P2_hal_bench.md,
+D024/D059/D079-D081 and P2_imu_acquisition_raw/next_b3_audit.md. Freeze a bounded
+contract/header before independent implementation/tests. Unknown physical axes
+must remain unconfirmed. Explicitly select observed-completion integration,
+finite gap/continuity, future-increment bias updates and rail handling. A simple
+calibration presence flag alone is insufficient: current imu_ok also controls
+fallback and fresh heading/acceleration evidence. NO_NEW must neither duplicate
+measurements nor stop countdown/button/line/opponent services. Preserve continuous
+unreset yaw, logical GO origin, exact calibration windows and old locked tests.
+No physical sample-generation/rate/full-loop WCET claim follows from a model.
 
-SC-B still lacks runtime QTR cadence and matching Robot freshness semantics.
-SC-AJ clock and F091 inherited runtime paths remain global deployment blockers.
-Last-known actual MCU image is inert QTR61d7a2d0; no new upload/MCU/pin actions.
-Human P0/P1 and physical B1-B8 acceptance remain pending. Known boardCLI1.5.1/
-core1.0.0/USB2629958581, WSL tools; recheck as needed. Preserve raw failures,
-stage task-owned files, make small local commits. Never push/tag/rewrite history,
-reuse motor permission or mark P7 complete early.
+SC-B lacks runtime QTR cadence/matching Robot freshness semantics; SC-AJ clock and
+F091 inherited runtime paths remain global deployment blockers. Last-known MCU
+image is inertQTR61d7a2d0; no new upload/MCU/pin action. Physical P0/B1-B8 and human
+P0/P1 gates remain pending. KnownCLI1.5.1/core1.0.0/USB2629958581 and WSL tools;
+recheck as needed. Preserve raw failures, stage task-owned files, make small local
+commits. Never push/tag/rewrite history, reuse motor permission or mark P7 complete.

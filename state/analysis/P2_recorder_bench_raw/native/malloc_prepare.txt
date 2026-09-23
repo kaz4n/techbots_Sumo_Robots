@@ -1,0 +1,21 @@
+
+/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf:     file format elf32-littlearm
+
+
+Disassembly of section rom_start:
+
+Disassembly of section text:
+
+08007fc8 <malloc_prepare>:
+ 8007fc8:	b508      	push	{r3, lr}
+ 8007fca:	4906      	ldr	r1, [pc, #24]	@ (8007fe4 <malloc_prepare+0x1c>)
+ 8007fcc:	4806      	ldr	r0, [pc, #24]	@ (8007fe8 <malloc_prepare+0x20>)
+ 8007fce:	f021 0107 	bic.w	r1, r1, #7
+ 8007fd2:	f1c1 5200 	rsb	r2, r1, #536870912	@ 0x20000000
+ 8007fd6:	f502 2240 	add.w	r2, r2, #786432	@ 0xc0000
+ 8007fda:	f00f f902 	bl	80171e2 <sys_heap_init>
+ 8007fde:	2000      	movs	r0, #0
+ 8007fe0:	bd08      	pop	{r3, pc}
+ 8007fe2:	bf00      	nop
+ 8007fe4:	20053897 	.word	0x20053897
+ 8007fe8:	200017b0 	.word	0x200017b0

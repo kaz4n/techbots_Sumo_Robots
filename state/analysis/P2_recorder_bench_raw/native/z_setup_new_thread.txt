@@ -1,0 +1,81 @@
+
+/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf:     file format elf32-littlearm
+
+
+Disassembly of section rom_start:
+
+Disassembly of section text:
+
+080113ac <z_setup_new_thread>:
+ 80113ac:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+ 80113b0:	4698      	mov	r8, r3
+ 80113b2:	b085      	sub	sp, #20
+ 80113b4:	f100 0358 	add.w	r3, r0, #88	@ 0x58
+ 80113b8:	e9c0 3316 	strd	r3, r3, [r0, #88]	@ 0x58
+ 80113bc:	9b12      	ldr	r3, [sp, #72]	@ 0x48
+ 80113be:	2500      	movs	r5, #0
+ 80113c0:	8183      	strh	r3, [r0, #12]
+ 80113c2:	2304      	movs	r3, #4
+ 80113c4:	1dd6      	adds	r6, r2, #7
+ 80113c6:	f026 0607 	bic.w	r6, r6, #7
+ 80113ca:	7403      	strb	r3, [r0, #16]
+ 80113cc:	9b11      	ldr	r3, [sp, #68]	@ 0x44
+ 80113ce:	eb01 0a06 	add.w	sl, r1, r6
+ 80113d2:	460f      	mov	r7, r1
+ 80113d4:	e9c0 5506 	strd	r5, r5, [r0, #24]
+ 80113d8:	4651      	mov	r1, sl
+ 80113da:	6085      	str	r5, [r0, #8]
+ 80113dc:	7383      	strb	r3, [r0, #14]
+ 80113de:	73c5      	strb	r5, [r0, #15]
+ 80113e0:	4604      	mov	r4, r0
+ 80113e2:	f8dd b038 	ldr.w	fp, [sp, #56]	@ 0x38
+ 80113e6:	f8dd 904c 	ldr.w	r9, [sp, #76]	@ 0x4c
+ 80113ea:	f7f5 ff01 	bl	80071f0 <arch_tls_stack_setup>
+ 80113ee:	9b10      	ldr	r3, [sp, #64]	@ 0x40
+ 80113f0:	3007      	adds	r0, #7
+ 80113f2:	f020 0007 	bic.w	r0, r0, #7
+ 80113f6:	e9c4 7628 	strd	r7, r6, [r4, #160]	@ 0xa0
+ 80113fa:	f8c4 00a8 	str.w	r0, [r4, #168]	@ 0xa8
+ 80113fe:	9302      	str	r3, [sp, #8]
+ 8011400:	9b0f      	ldr	r3, [sp, #60]	@ 0x3c
+ 8011402:	ebaa 0600 	sub.w	r6, sl, r0
+ 8011406:	e9cd b300 	strd	fp, r3, [sp]
+ 801140a:	4632      	mov	r2, r6
+ 801140c:	4643      	mov	r3, r8
+ 801140e:	4639      	mov	r1, r7
+ 8011410:	4620      	mov	r0, r4
+ 8011412:	f7f6 fc8d 	bl	8007d30 <arch_new_thread>
+ 8011416:	9b0f      	ldr	r3, [sp, #60]	@ 0x3c
+ 8011418:	e9c4 8b1b 	strd	r8, fp, [r4, #108]	@ 0x6c
+ 801141c:	6763      	str	r3, [r4, #116]	@ 0x74
+ 801141e:	9b10      	ldr	r3, [sp, #64]	@ 0x40
+ 8011420:	6565      	str	r5, [r4, #84]	@ 0x54
+ 8011422:	67a3      	str	r3, [r4, #120]	@ 0x78
+ 8011424:	f3ef 8311 	mrs	r3, BASEPRI
+ 8011428:	2210      	movs	r2, #16
+ 801142a:	f382 8812 	msr	BASEPRI_MAX, r2
+ 801142e:	f3bf 8f6f 	isb	sy
+ 8011432:	4f10      	ldr	r7, [pc, #64]	@ (8011474 <z_setup_new_thread+0xc8>)
+ 8011434:	6a7a      	ldr	r2, [r7, #36]	@ 0x24
+ 8011436:	627c      	str	r4, [r7, #36]	@ 0x24
+ 8011438:	67e2      	str	r2, [r4, #124]	@ 0x7c
+ 801143a:	f383 8811 	msr	BASEPRI, r3
+ 801143e:	f3bf 8f6f 	isb	sy
+ 8011442:	f1b9 0f00 	cmp.w	r9, #0
+ 8011446:	d011      	beq.n	801146c <z_setup_new_thread+0xc0>
+ 8011448:	221f      	movs	r2, #31
+ 801144a:	4649      	mov	r1, r9
+ 801144c:	f104 0080 	add.w	r0, r4, #128	@ 0x80
+ 8011450:	f00a f871 	bl	801b536 <strncpy>
+ 8011454:	f884 509f 	strb.w	r5, [r4, #159]	@ 0x9f
+ 8011458:	68bb      	ldr	r3, [r7, #8]
+ 801145a:	b10b      	cbz	r3, 8011460 <z_setup_new_thread+0xb4>
+ 801145c:	f8d3 30ac 	ldr.w	r3, [r3, #172]	@ 0xac
+ 8011460:	4630      	mov	r0, r6
+ 8011462:	f8c4 30ac 	str.w	r3, [r4, #172]	@ 0xac
+ 8011466:	b005      	add	sp, #20
+ 8011468:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+ 801146c:	f884 9080 	strb.w	r9, [r4, #128]	@ 0x80
+ 8011470:	e7f2      	b.n	8011458 <z_setup_new_thread+0xac>
+ 8011472:	bf00      	nop
+ 8011474:	20001d40 	.word	0x20001d40

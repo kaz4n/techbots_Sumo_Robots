@@ -1,3 +1,40 @@
+# D090 checkpoint - active P2 software,2026-09-23 Asia/Dubai
+
+Implemented bounded IDLE recorder transfer/native UART/strong loop hook and
+receive-only CSV capture in febde53. Read analysis/P2_dump_contract.md,
+native_contract.md/native_audit.md/validation.md and reviews/P2_dump_review.md.
+Fresh separate same-model reviewer PASS/no open findings; independent testauthor
+read no implementation bodies. No existing/locked tests changed.
+
+Full normal/sanitizer1281main+65enabledMotorGate PASS (24481257/3847552assertions).
+26newowner cases4052assertions;33receiver methods including18legacy config checks;
+11native methods154normal/san scenarios4870assertions PASS.56existingcontrolled
+SSH/ADB/upload/staging checks and4Windows publication/outcome methods PASS.
+Finalsourceb8bb9366 compiled on UNOQ Linux:315332program/238596compiler RAM bytes,
+low-memory warning/23548nominalremaining.72source/current/Git-index bytes and194
+rawGit blobs exact;3ELFs strongemptyhook, actualmain/11initializers,40native42AEABI
+plus fmod/sqrt bindings inspected. Sixexistinginertkeys refreshed; no newkey.
+No MCU/upload/reset/peripheral action. Last-known MCU remains D088 ui_matrixe50c6da3.
+
+Next eligible work: actual inert bare-board recorder runtime probe, then app
+integration. Read analysis/P2_recorder_bench_native_audit.md and its pinnedraw.
+Installed heap stats/stack painting disabled; exported stack-space API is address0
+and must NEVER be called. Use bounded real recorder diagnostics and sampled SP
+metadata; freeLLEXT allocator capacity needs reviewed read-only snapshots/parser.
+Do not silently relax old p0_capture16-read guard. First isolate actual200s
+recording/retention from UART. Transport run later requires explicit clean decoder
+preparation: router restart hasMCUreset hooks, serial close/open doesnotpurgeRX.
+No source policy or runtime result is approved merely by this audit recommendation.
+
+User explicitly authorizes bare UNOQ inert tests and requests no extra hardware.
+No motor-run authority/PINMAP/EXPLAINED/human phasegate; fullP0-P7 remainsACTIVE.
+D051/D075 permit software choices, not inventedphysicalevidence. Setupdevice_init
+unboundedACKwait, SC-A/SC-AJ/fullRAM/800us/assembledsensor/motor/B8 remainpending.
+Persist nextcontract, independenttests, actualtarget/review and exactinert runscope
+before newupload. Neverpush/tag/rewritehistory. OriginalDubai deadlines unchanged.
+
+--- Earlier handoff preserved below ---
+
 # D089 checkpoint - active P2 software,2026-09-23 Asia/Dubai
 
 Implemented actual QTR_CAL software in311bf40: raw adapter, inhibited Robot menu

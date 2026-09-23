@@ -13,22 +13,20 @@ D051/D075 permit P2 software while physical acceptance remains pending.
 | P2 B3 | Acquisition7b46598/estimatorc1188b1/calibration5516bef/full Robot2c16023 | Physical mounting/B3, app scheduler |
 | P2 B2 | QTR/adapter/Robot47f4d9a tested/target/review | Physical color/cadence, pad ownership, full WCET |
 | P2 B6 | A1 owner327c5db; decoder/gestureb69fa12; matrix385c46c tested/target/review/inert-board-run | Physical buttons/SC-A, optical acceptance, service consumers |
-| P2 B8 | Offline storage/CSV25Hz implemented/reviewed | Bounded IDLE transport, full RAM/200s/no-gap evidence |
-| Integration/B7/P3-P7 | Unfinished | SC-AJ/F091, scheduler/HAL/WCET, physical acceptance |
+| P2 B8 | Storage/CSV25Hz and D090 bounded IDLE dump febde53 reviewed/tested/target-compiled | Actual loaded RAM/200s/no-gap/transport, app lifetime and local reset UI |
+| Integration/B7/P3-P7 | Unfinished; D090 strong hook verified in target | SC-AJ, full scheduler/HAL/WCET/runtime, physical acceptance |
 
-D089 implementation311bf40: actual QTR_CAL owner/adapter/Robot handover,
-atomic RAM bank/export and matrix progress IMPLEMENTED/HOST-TESTED/TARGET-COMPILED.
-Full normal/san1255main+39GatePASS;31newcases1915assertions.4scoped tooling methods
-(including18legacy config cases), alternate confirmation/batch profiles and
-25existing scripts+5matrixupload+2staging PASS. Fresh same-model reviewPASS after
-source-era MAJOR fixed. Finalcc4819aa67sources/3ELFs/40native42AEABI exact; six
-existing inert hashes refreshed. No upload or physical calibration this turn.
+D090 febde53:1281main+65enabledGate normal/sanitizer PASS;26owner cases,
+33receiver methods/18legacyconfig,11native methods/154normal+san scenarios,
+56existingtools and4Windows publication/outcome PASS. Fresh separate same-model
+review PASS. Actualb8bb9366target72exactsourcefiles/3ELFs;315332program/
+238596compilerRAM(lowmemorywarning),40native42AEABI+fmod/sqrt, strongemptyhook
+and actual main/startup inspected.6existinginertkeys reapproved. No upload.
 
-Last-known MCU: D088 inert ui_matrixe50c6da3, prior measured counter+77/failures0.
-All optical/independentclock/full800us/physical/button/human gates remain pending.
-QTR_CAL still needs actual app lifetime/acquisition selection and print transport.
-
-Next: P2 B8/B13/B15 actual bounded IDLE log-dump owner/transport. Read
-P2_service_next_task.md, resolve STOPPED-to-IDLE RAM lifetime and native Bridge
-boundedness before implementation. SC-A production windows stay unconfigured;
-SC-AJ/F091/full RAM/tick budget and physical/human gates stay explicit.
+D089 calibration311bf40 remains tested/reviewed; D088 last-known runtimeimage is
+ui_matrixe50c6da3, prior counter+77/failures0. No currentruntimechange followsD090.
+Next: review/freeze inert recorderbench contract using P2_recorder_bench_native_audit.
+First prove actual elapsed200s synthetic recording/retention and bounded memory
+facts; later native transport requires knownclean decoder. Nevercall zero stack
+watermark export, inventheapstats, or silentlyrelax p0_capture16-read guard.
+All SC-A buttonwindows/physical/humangates, SC-AJ/fullRAM/800us and fullapp remain.

@@ -1,0 +1,110 @@
+{
+  "elf": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf",
+  "elf_sha256": "39d4a4fd47241663323f6e04f94dd8f5a9f9ad6582cf1df37f9709b74026adcd",
+  "commands": [
+    {
+      "name": "offline_gdb",
+      "argv": [
+        "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-gdb",
+        "-nx",
+        "-nh",
+        "-batch",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf",
+        "-ex",
+        "p __llext_sym_z_impl_k_thread_stack_space_get",
+        "-ex",
+        "p llext_heap",
+        "-ex",
+        "p _system_heap",
+        "-ex",
+        "p z_malloc_heap",
+        "-ex",
+        "p sizeof(struct k_heap)",
+        "-ex",
+        "p sizeof(struct z_heap)",
+        "-ex",
+        "p sizeof(struct k_thread)",
+        "-ex",
+        "p (unsigned int)&((struct k_thread*)0)->stack_info",
+        "-ex",
+        "p (unsigned int)&((struct k_thread*)0)->callee_saved",
+        "-ex",
+        "p z_main_thread",
+        "-ex",
+        "p sizeof(z_main_stack)",
+        "-ex",
+        "p sizeof(kheap_llext_heap)",
+        "-ex",
+        "p sizeof(kheap__system_heap)",
+        "-ex",
+        "p &_end",
+        "-ex",
+        "p &__kernel_ram_end",
+        "-ex",
+        "p &__heap_start",
+        "-ex",
+        "p &__heap_end",
+        "-ex",
+        "p __llext_sym_k_malloc"
+      ],
+      "returncode": 0,
+      "stdout": "$1 = {{name = 0x80218f1 \"z_impl_k_thread_stack_space_get\", slid = 134355185}, addr = 0x0}\n$2 = {heap = {heap = 0x0, init_mem = 0x20013890 <kheap_llext_heap>, init_bytes = 262144}, wait_q = {waitq = {{head = 0x0, next = 0x0}, {tail = 0x0, prev = 0x0}}}, lock = {dummy = 0 '\\000'}}\n$3 = {heap = {heap = 0x0, init_mem = 0x2000af90 <kheap.system_heap>, init_bytes = 32852}, wait_q = {waitq = {{head = 0x0, next = 0x0}, {tail = 0x0, prev = 0x0}}}, lock = {dummy = 0 '\\000'}}\n$4 = {heap = 0x0, init_mem = 0x0, init_bytes = 0}\n$5 = 24\n$6 = 16\n$7 = 256\n$8 = 160\n$9 = 48\n$10 = {base = {{qnode_dlist = {{head = 0x0, next = 0x0}, {tail = 0x0, prev = 0x0}}, qnode_rb = {children = {0x0, 0x0}}}, pended_on = 0x0, user_options = 0, {{prio = 0 '\\000', sched_locked = 0 '\\000'}, preempt = 0}, thread_state = 0 '\\000', swap_data = 0x0, timeout = {node = {{head = 0x0, next = 0x0}, {tail = 0x0, prev = 0x0}}, fn = 0x0, dticks = 0}}, callee_saved = {v1 = 0, v2 = 0, v3 = 0, v4 = 0, v5 = 0, v6 = 0, v7 = 0, v8 = 0, psp = 0}, init_data = 0x0, join_queue = {waitq = {{head = 0x0, next = 0x0}, {tail = 0x0, prev = 0x0}}}, poller = {is_polling = false, mode = 0 '\\000'}, events = 0, event_options = 0, entry = {pEntry = 0x0, parameter1 = 0x0, parameter2 = 0x0, parameter3 = 0x0}, next_thread = 0x0, name = '\\000' <repeats 31 times>, stack_info = {start = 0, size = 0, delta = 0}, resource_pool = 0x0, tls = 0, arch = {basepri = 0, swap_return_value = 0, preempt_float = {s16 = 0, s17 = 0, s18 = 0, s19 = 0, s20 = 0, s21 = 0, s22 = 0, s23 = 0, s24 = 0, s25 = 0, s26 = 0, s27 = 0, s28 = 0, s29 = 0, s30 = 0, s31 = 0}, {mode = 0, {mode_bits = 0 '\\000', mode_exc_return = 0 '\\000', mode_reserved2 = 0}}}}\n$11 = 32768\n$12 = 262144\n$13 = 32852\n$14 = (char (*)[]) 0x20053890\n$15 = (<variable (not text or data), no debug info> *) 0x200c0000\n$16 = {{name = 0x801f8f0 \"k_malloc\", slid = 134346992}, addr = 0x8012585 <k_malloc>}\n",
+      "stderr": "No symbol \"__heap_start\" in current context.\nNo symbol \"__heap_end\" in current context.\n"
+    },
+    {
+      "name": "llext_bootstrap",
+      "argv": [
+        "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-objdump",
+        "-d",
+        "--disassemble=llext_bootstrap",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf"
+      ],
+      "returncode": 0,
+      "stdout": "\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf:     file format elf32-littlearm\n\n\nDisassembly of section rom_start:\n\nDisassembly of section text:\n\n08008358 <llext_bootstrap>:\n 8008358:\tb5f0      \tpush\t{r4, r5, r6, r7, lr}\n 800835a:\tb085      \tsub\tsp, #20\n 800835c:\t4605      \tmov\tr5, r0\n 800835e:\t460e      \tmov\tr6, r1\n 8008360:\t4617      \tmov\tr7, r2\n 8008362:\tf00f fe43 \tbl\t8017fec <llext_bringup>\n 8008366:\t4604      \tmov\tr4, r0\n 8008368:\tb160      \tcbz\tr0, 8008384 <llext_bootstrap+0x2c>\n 800836a:\t4b0d      \tldr\tr3, [pc, #52]\t@ (80083a0 <llext_bootstrap+0x48>)\n 800836c:\t9003      \tstr\tr0, [sp, #12]\n 800836e:\t9302      \tstr\tr3, [sp, #8]\n 8008370:\t2300      \tmovs\tr3, #0\n 8008372:\te9cd 3300 \tstrd\tr3, r3, [sp]\n 8008376:\t2201      \tmovs\tr2, #1\n 8008378:\t4618      \tmov\tr0, r3\n 800837a:\t490a      \tldr\tr1, [pc, #40]\t@ (80083a4 <llext_bootstrap+0x4c>)\n 800837c:\tf00f fe26 \tbl\t8017fcc <z_log_msg_runtime_create.constprop.0>\n 8008380:\tb005      \tadd\tsp, #20\n 8008382:\tbdf0      \tpop\t{r4, r5, r6, r7, pc}\n 8008384:\t4638      \tmov\tr0, r7\n 8008386:\t47b0      \tblx\tr6\n 8008388:\t4628      \tmov\tr0, r5\n 800838a:\tf00f fe32 \tbl\t8017ff2 <llext_teardown>\n 800838e:\t2800      \tcmp\tr0, #0\n 8008390:\td0f6      \tbeq.n\t8008380 <llext_bootstrap+0x28>\n 8008392:\t4b05      \tldr\tr3, [pc, #20]\t@ (80083a8 <llext_bootstrap+0x50>)\n 8008394:\t9003      \tstr\tr0, [sp, #12]\n 8008396:\te9cd 4301 \tstrd\tr4, r3, [sp, #4]\n 800839a:\t9400      \tstr\tr4, [sp, #0]\n 800839c:\t4623      \tmov\tr3, r4\n 800839e:\te7ea      \tb.n\t8008376 <llext_bootstrap+0x1e>\n 80083a0:\t08020804 \t.word\t0x08020804\n 80083a4:\t0801c864 \t.word\t0x0801c864\n 80083a8:\t08020826 \t.word\t0x08020826\n",
+      "stderr": ""
+    },
+    {
+      "name": "malloc_prepare",
+      "argv": [
+        "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-objdump",
+        "-d",
+        "--disassemble=malloc_prepare",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf"
+      ],
+      "returncode": 0,
+      "stdout": "\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf:     file format elf32-littlearm\n\n\nDisassembly of section rom_start:\n\nDisassembly of section text:\n\n08007fc8 <malloc_prepare>:\n 8007fc8:\tb508      \tpush\t{r3, lr}\n 8007fca:\t4906      \tldr\tr1, [pc, #24]\t@ (8007fe4 <malloc_prepare+0x1c>)\n 8007fcc:\t4806      \tldr\tr0, [pc, #24]\t@ (8007fe8 <malloc_prepare+0x20>)\n 8007fce:\tf021 0107 \tbic.w\tr1, r1, #7\n 8007fd2:\tf1c1 5200 \trsb\tr2, r1, #536870912\t@ 0x20000000\n 8007fd6:\tf502 2240 \tadd.w\tr2, r2, #786432\t@ 0xc0000\n 8007fda:\tf00f f902 \tbl\t80171e2 <sys_heap_init>\n 8007fde:\t2000      \tmovs\tr0, #0\n 8007fe0:\tbd08      \tpop\t{r3, pc}\n 8007fe2:\tbf00      \tnop\n 8007fe4:\t20053897 \t.word\t0x20053897\n 8007fe8:\t200017b0 \t.word\t0x200017b0\n",
+      "stderr": ""
+    },
+    {
+      "name": "z_setup_new_thread",
+      "argv": [
+        "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-objdump",
+        "-d",
+        "--disassemble=z_setup_new_thread",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf"
+      ],
+      "returncode": 0,
+      "stdout": "\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf:     file format elf32-littlearm\n\n\nDisassembly of section rom_start:\n\nDisassembly of section text:\n\n080113ac <z_setup_new_thread>:\n 80113ac:\te92d 4ff0 \tstmdb\tsp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}\n 80113b0:\t4698      \tmov\tr8, r3\n 80113b2:\tb085      \tsub\tsp, #20\n 80113b4:\tf100 0358 \tadd.w\tr3, r0, #88\t@ 0x58\n 80113b8:\te9c0 3316 \tstrd\tr3, r3, [r0, #88]\t@ 0x58\n 80113bc:\t9b12      \tldr\tr3, [sp, #72]\t@ 0x48\n 80113be:\t2500      \tmovs\tr5, #0\n 80113c0:\t8183      \tstrh\tr3, [r0, #12]\n 80113c2:\t2304      \tmovs\tr3, #4\n 80113c4:\t1dd6      \tadds\tr6, r2, #7\n 80113c6:\tf026 0607 \tbic.w\tr6, r6, #7\n 80113ca:\t7403      \tstrb\tr3, [r0, #16]\n 80113cc:\t9b11      \tldr\tr3, [sp, #68]\t@ 0x44\n 80113ce:\teb01 0a06 \tadd.w\tsl, r1, r6\n 80113d2:\t460f      \tmov\tr7, r1\n 80113d4:\te9c0 5506 \tstrd\tr5, r5, [r0, #24]\n 80113d8:\t4651      \tmov\tr1, sl\n 80113da:\t6085      \tstr\tr5, [r0, #8]\n 80113dc:\t7383      \tstrb\tr3, [r0, #14]\n 80113de:\t73c5      \tstrb\tr5, [r0, #15]\n 80113e0:\t4604      \tmov\tr4, r0\n 80113e2:\tf8dd b038 \tldr.w\tfp, [sp, #56]\t@ 0x38\n 80113e6:\tf8dd 904c \tldr.w\tr9, [sp, #76]\t@ 0x4c\n 80113ea:\tf7f5 ff01 \tbl\t80071f0 <arch_tls_stack_setup>\n 80113ee:\t9b10      \tldr\tr3, [sp, #64]\t@ 0x40\n 80113f0:\t3007      \tadds\tr0, #7\n 80113f2:\tf020 0007 \tbic.w\tr0, r0, #7\n 80113f6:\te9c4 7628 \tstrd\tr7, r6, [r4, #160]\t@ 0xa0\n 80113fa:\tf8c4 00a8 \tstr.w\tr0, [r4, #168]\t@ 0xa8\n 80113fe:\t9302      \tstr\tr3, [sp, #8]\n 8011400:\t9b0f      \tldr\tr3, [sp, #60]\t@ 0x3c\n 8011402:\tebaa 0600 \tsub.w\tr6, sl, r0\n 8011406:\te9cd b300 \tstrd\tfp, r3, [sp]\n 801140a:\t4632      \tmov\tr2, r6\n 801140c:\t4643      \tmov\tr3, r8\n 801140e:\t4639      \tmov\tr1, r7\n 8011410:\t4620      \tmov\tr0, r4\n 8011412:\tf7f6 fc8d \tbl\t8007d30 <arch_new_thread>\n 8011416:\t9b0f      \tldr\tr3, [sp, #60]\t@ 0x3c\n 8011418:\te9c4 8b1b \tstrd\tr8, fp, [r4, #108]\t@ 0x6c\n 801141c:\t6763      \tstr\tr3, [r4, #116]\t@ 0x74\n 801141e:\t9b10      \tldr\tr3, [sp, #64]\t@ 0x40\n 8011420:\t6565      \tstr\tr5, [r4, #84]\t@ 0x54\n 8011422:\t67a3      \tstr\tr3, [r4, #120]\t@ 0x78\n 8011424:\tf3ef 8311 \tmrs\tr3, BASEPRI\n 8011428:\t2210      \tmovs\tr2, #16\n 801142a:\tf382 8812 \tmsr\tBASEPRI_MAX, r2\n 801142e:\tf3bf 8f6f \tisb\tsy\n 8011432:\t4f10      \tldr\tr7, [pc, #64]\t@ (8011474 <z_setup_new_thread+0xc8>)\n 8011434:\t6a7a      \tldr\tr2, [r7, #36]\t@ 0x24\n 8011436:\t627c      \tstr\tr4, [r7, #36]\t@ 0x24\n 8011438:\t67e2      \tstr\tr2, [r4, #124]\t@ 0x7c\n 801143a:\tf383 8811 \tmsr\tBASEPRI, r3\n 801143e:\tf3bf 8f6f \tisb\tsy\n 8011442:\tf1b9 0f00 \tcmp.w\tr9, #0\n 8011446:\td011      \tbeq.n\t801146c <z_setup_new_thread+0xc0>\n 8011448:\t221f      \tmovs\tr2, #31\n 801144a:\t4649      \tmov\tr1, r9\n 801144c:\tf104 0080 \tadd.w\tr0, r4, #128\t@ 0x80\n 8011450:\tf00a f871 \tbl\t801b536 <strncpy>\n 8011454:\tf884 509f \tstrb.w\tr5, [r4, #159]\t@ 0x9f\n 8011458:\t68bb      \tldr\tr3, [r7, #8]\n 801145a:\tb10b      \tcbz\tr3, 8011460 <z_setup_new_thread+0xb4>\n 801145c:\tf8d3 30ac \tldr.w\tr3, [r3, #172]\t@ 0xac\n 8011460:\t4630      \tmov\tr0, r6\n 8011462:\tf8c4 30ac \tstr.w\tr3, [r4, #172]\t@ 0xac\n 8011466:\tb005      \tadd\tsp, #20\n 8011468:\te8bd 8ff0 \tldmia.w\tsp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}\n 801146c:\tf884 9080 \tstrb.w\tr9, [r4, #128]\t@ 0x80\n 8011470:\te7f2      \tb.n\t8011458 <z_setup_new_thread+0xac>\n 8011472:\tbf00      \tnop\n 8011474:\t20001d40 \t.word\t0x20001d40\n",
+      "stderr": ""
+    },
+    {
+      "name": "z_impl_k_sched_current_thread_query",
+      "argv": [
+        "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-objdump",
+        "-d",
+        "--disassemble=z_impl_k_sched_current_thread_query",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf"
+      ],
+      "returncode": 0,
+      "stdout": "\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf:     file format elf32-littlearm\n\n\nDisassembly of section rom_start:\n\nDisassembly of section text:\n\n08011ae0 <z_impl_k_sched_current_thread_query>:\n 8011ae0:\t4b01      \tldr\tr3, [pc, #4]\t@ (8011ae8 <z_impl_k_sched_current_thread_query+0x8>)\n 8011ae2:\t6898      \tldr\tr0, [r3, #8]\n 8011ae4:\t4770      \tbx\tlr\n 8011ae6:\tbf00      \tnop\n 8011ae8:\t20001d40 \t.word\t0x20001d40\n",
+      "stderr": ""
+    }
+  ],
+  "argv": [
+    "python3",
+    "-c",
+    "from pathlib import Path\nimport subprocess,json,hashlib\nc=Path('/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0');p='/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-';elf=str(c/'firmwares/zephyr-arduino_uno_q_stm32u585xx.elf');out=[]\nexprs=['p __llext_sym_z_impl_k_thread_stack_space_get','p llext_heap','p _system_heap','p z_malloc_heap','p sizeof(struct k_heap)','p sizeof(struct z_heap)','p sizeof(struct k_thread)','p (unsigned int)&((struct k_thread*)0)->stack_info','p (unsigned int)&((struct k_thread*)0)->callee_saved','p z_main_thread','p sizeof(z_main_stack)','p sizeof(kheap_llext_heap)','p sizeof(kheap__system_heap)','p &_end','p &__kernel_ram_end','p &__heap_start','p &__heap_end','p __llext_sym_k_malloc']\ncmd=[p+'gdb','-nx','-nh','-batch',elf]\nfor e in exprs:cmd+=['-ex',e]\nr=subprocess.run(cmd,text=True,capture_output=True);out.append(dict(name='offline_gdb',argv=cmd,returncode=r.returncode,stdout=r.stdout,stderr=r.stderr))\nfor fn in ['llext_bootstrap','malloc_prepare','z_setup_new_thread','z_impl_k_sched_current_thread_query']:\n cmd=[p+'objdump','-d','--disassemble='+fn,elf];r=subprocess.run(cmd,text=True,capture_output=True);out.append(dict(name=fn,argv=cmd,returncode=r.returncode,stdout=r.stdout,stderr=r.stderr))\nprint(json.dumps(dict(elf=elf,elf_sha256=hashlib.sha256(Path(elf).read_bytes()).hexdigest(),commands=out)))\n"
+  ],
+  "exit_status": 0,
+  "stderr": ""
+}

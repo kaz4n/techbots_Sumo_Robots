@@ -549,3 +549,6 @@ e50c6da3,normalstartup,MOTORS_ALLOWED0,serial2629958581. Upload/capture next.
 
 
 2026-09-23T16:49:58+04:00 | P2 D090 software review complete | Fresh separate same-model reviewerPASS/no openfindings;56existingcontrolledmethodsPASS79.241s,4Windows publication/outcome checksPASS. ThreeELFs strongemptyhook+main/startup/imports verified; exact72current/target sources, sixexistingregistrykeys approved/refreshed. D090 remains no-upload; runtime/RAM/200s/app/physical/human gates pending. | implementationcommit=this commit; checkpoint follows
+
+
+2026-09-23T16:54:09+04:00 | P2 D090 checkpoint | Implementedfebde53; freshreviewPASS and allspecifiedhost/tooling/target checks passed; no currentMCUaction. InitialGit-index audit Windowsseparator/cache issues corrected;72target/current/index and194rawblobs exact. Read-only nextbench audit proves runtimeheapstats/stackpainting absent and stackspaceexportNULL; actual200s/freeRAM/synthetictransport stillpending. FullgoalACTIVE; nextfreezeinert recorderbenchcontract, independenttests and identifiedrun. | checkpointcommit follows

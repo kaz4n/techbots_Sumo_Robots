@@ -382,3 +382,10 @@ F109 final disposition 2026-09-23T15:18:47+04:00: separate reused same-model rev
 
 
 F112 final software disposition 2026-09-23T16:49:58+04:00: fresh separate same-model review PASS/no openfindings. All72target/current files exact; strongemptyhook in3ELFs andactualmain/startup/imports inspected. Final56existingcontrolledchecks and4Windows publication/outcome methods PASS. No upload/runtime/humangate follows; software source approval applies onlysixexistinginertkeys.
+
+
+## Recorder runtime instrumentation prerequisites,2026-09-23
+
+| ID | Question | Observed answer | Source | Confidence | Hardware-checked |
+|---|---|---|---|---|---|
+| F-113 | Does the installed loader provide safe free-heap/stack-watermark queries? | CONFIG_SYS_HEAP_RUNTIME_STATS and CONFIG_INIT_STACKS absent. Actual packaged z_impl_k_thread_stack_space_get export address0; NEVER invoke it. Thread stack-region metadata exists; current-thread-query export nonzero. LLEXT256KiB/system32KiB/libc remaining-arena are distinct pools, not measuredfreebytes. Proposed private allocator snapshot uses exactpinned header/chain validation and a new bounded capture wrapper; serialclose/open resetsparser but hasnoexplicitRXpurge, routerrestart pulsesMCUreset. | analysis/P2_recorder_bench_native_audit.md; P2_recorder_bench_raw/native/manifest.json, installedheaders/exports/offlineELF and primaryZephyr1743741760ee sources | PRIMARY/INSTALLED-SOURCE-VERIFIED; proposed probe architecture only | Read-only boardLinux files/offlineELF; no MCUread/write/attach/reset/upload/daemon or actualfreeRAM/stack/runtime measurement. |

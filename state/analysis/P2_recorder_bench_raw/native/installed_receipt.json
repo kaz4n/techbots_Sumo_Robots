@@ -1,0 +1,65 @@
+{
+  "argv": [
+    "python3",
+    "-c",
+    "from pathlib import Path\nimport json,hashlib,base64,subprocess\nc=Path('/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0');v=c/'variants/arduino_uno_q_stm32u585xx';edk=v/'llext-edk/include';files=[v/'syms-dynamic.ld',v/'includes.txt']+[edk/p for p in ['zephyr/include/zephyr/sys/sys_heap.h','zephyr/include/zephyr/sys/mem_stats.h','zephyr/include/zephyr/kernel.h','zephyr/include/zephyr/kernel/thread.h','zephyr/include/zephyr/kernel/thread_stack.h','zephyr/include/generated/zephyr/autoconf.h','zephyr/include/generated/zephyr/version.h']];out=[]\nfor p in files:\n if p.exists():\n  raw=p.read_bytes();out.append(dict(path=str(p),bytes=len(raw),sha256=hashlib.sha256(raw).hexdigest(),base64=base64.b64encode(raw).decode()))\n else:out.append(dict(path=str(p),missing=True))\nprint(json.dumps(out))\n"
+  ],
+  "exit_status": 0,
+  "stderr": "",
+  "files": [
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/syms-dynamic.ld",
+      "bytes": 21521,
+      "sha256": "946c78583eed20806317836e543dd6155970f70990a98c3e11b9c76c4dd8ebfd",
+      "local": "state/analysis/P2_recorder_bench_raw/native/installed/syms-dynamic.ld"
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/includes.txt",
+      "bytes": 1163,
+      "sha256": "7189bd9a00755c1292194716cabac68d5f08ef8fcefa22f01ae4b8810f480575",
+      "local": "state/analysis/P2_recorder_bench_raw/native/installed/includes.txt"
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/zephyr/sys/sys_heap.h",
+      "bytes": 12166,
+      "sha256": "1a86c8839aa0becf4e13b5a70ff6464979c78135ae3cdfa219e7d9c68b382eac",
+      "local": "state/analysis/P2_recorder_bench_raw/native/installed/zephyr/include/zephyr/sys/sys_heap.h"
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/zephyr/sys/mem_stats.h",
+      "bytes": 535,
+      "sha256": "bbcbb163d429d5b49be9b6e59a0a01c0eb3562f596fbcfac9fb7d01ad636f8da",
+      "local": "state/analysis/P2_recorder_bench_raw/native/installed/zephyr/include/zephyr/sys/mem_stats.h"
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/zephyr/kernel.h",
+      "bytes": 221111,
+      "sha256": "e21b66c8acad2d63de058f316d54637c1b16f95f891e19653c0c58904e4d14a9",
+      "local": "state/analysis/P2_recorder_bench_raw/native/installed/zephyr/include/zephyr/kernel.h"
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/zephyr/kernel/thread.h",
+      "bytes": 10423,
+      "sha256": "a462ea67f5fe45453fe2c3dbb02d3f96c520d2be424e235b9a52d5c4e8df8c3d",
+      "local": "state/analysis/P2_recorder_bench_raw/native/installed/zephyr/include/zephyr/kernel/thread.h"
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/zephyr/kernel/thread_stack.h",
+      "bytes": 28483,
+      "sha256": "6b596e7d69be53f59e62264ca273581439f7bffa2d87aa0c4c399b105d46a67c",
+      "local": "state/analysis/P2_recorder_bench_raw/native/installed/zephyr/include/zephyr/kernel/thread_stack.h"
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/generated/zephyr/autoconf.h",
+      "bytes": 22526,
+      "sha256": "52178f5eefcf276720b859bdd60fc87ca4207b0130ac1fd5ba099af74b877a0c",
+      "local": "state/analysis/P2_recorder_bench_raw/native/installed/zephyr/include/generated/zephyr/autoconf.h"
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/generated/zephyr/version.h",
+      "bytes": 878,
+      "sha256": "edc930eb795ececf06480cea0a0365392ecb9d1e47a5d038f8d708e7dad6ecf8",
+      "local": "state/analysis/P2_recorder_bench_raw/native/installed/zephyr/include/generated/zephyr/version.h"
+    }
+  ]
+}

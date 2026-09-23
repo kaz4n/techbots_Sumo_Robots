@@ -2,32 +2,31 @@
 
 Read AGENTS fully, CODEX_HANDOFF, PROGRESS, DECISIONS, FACTS, TUNING_LOG,
 CODEX_EXECUTION and open conflicts/reviews. Inspect Git and actual Dubai date;
-preserve original deadlines, human gates, historical evidence and unrelated work.
+preserve original deadlines, human gates, evidence and unrelated work.
 D051/D075 permit active P2 software despite untested physical acceptance. Full
-P0-P7 remains ACTIVE/incomplete; no human gate/PINMAP/EXPLAINED or motor authority.
+P0-P7 ACTIVE/incomplete; no human gate/PINMAP/EXPLAINED or motor authority.
 
-D089 implementation311bf40 is host-tested/target-compiled/reviewed. Read
-P2_qtr_cal_contract/validation/review.md and raw. Full normal/san1255main+39Gate
-PASS;31newcases1915assertions;4scoped tooling methods, alternate profiles and
-18strict-config checks pass;25existing scripts+5matrixupload+2staging pass.
-Fresh separate same-model reviewerPASS; testauthor reused separate context and
-read no D089 CPP. No old/locked test changes. Preserve source-era failure proofs.
+D090 implementationfebde53 is host-tested/target-compiled/fresh-reviewed.
+Read analysis/P2_dump_contract/native_contract/native_audit/validation.md,
+reviews/P2_dump_review.md and raw. Full normal/san1281main+65enabledGate PASS,
+26owner cases/33receiver methods/11native methods,56existingtoolchecks and
+4Windows publication/outcome PASS.72target/current/Git sources and194rawblobs
+exact; finalb8bb9366target3ELFs/strongemptyhook andactualmain/startup verified.
+Sixexistinginertkeys refreshed; no newuploadkey. No MCU/upload/reset this task;
+last-known MCU D088 ui_matrixe50c6da3. Recheck connection before any board action.
 
-Final targetcc4819aa,67exactsourcefiles/3ELFs,40native42AEABI,145824/72004compiler
-bytes. Six existing inert keys reapproved, new calibration probe compile-only.
-Current last-known MCU image remains inert D088 ui_matrixe50c6da3; this session
-made no MCU/upload/reset action. Previous matrix runtime counter proof remains
-separate. Recheck target connection/state before any new board work. No sensors
-needed for next software work; do not ask to connect them now.
+First unfinished task: new inert bare-board recorder runtime probe for P2 B8.
+Read P2_recorder_bench_native_audit.md and exactpinnedraw beforeinstrumentation.
+Heapstatistics/stackpainting absent; stack-space export resolveszero and isunsafe.
+Use real elapsed1kHz/200s synthetic recorder diagnostics, bounded publication,
+validated sampledSP metadata and separately reviewed read-only allocator snapshots.
+Do not fast-forwardtime or silentlyrelax existing p0_capture guards. First isolate
+recording/load/retention; later UARTtest needs explicitclean decoderpreparation.
+Routerstop/restart pulsesMCUreset; serialclose/open alone doesnotpurgeRX.
+Freeze narrowcontract/independenttests/review/identifiedinert runscope beforeupload.
+User authorizes bareUNOQ inerttests; do not ask for sensors now or use motorfirmware.
 
-First unfinished task: actual bounded IDLE log-dump owner/transport, P2 B8/B13/B15.
-Read P2_service_next_task.md, recorder/CSV/public interfaces, B13/B15, D070/D073/
-D074 and installed source facts. Reconcile STOPPED-to-IDLE RAM retention and
-Bridge's native boundedness; freeze delegated software policy, independent tests,
-then implement real transport path. Do not merely add another formatter or claim
-sealed storage is current IDLE. No network/serial/Bridge motion command permitted.
-
-App scheduler, acquisition/threshold selection, physical calibration, fullRAM,
-SC-A identicalSTART/BOTH, SC-AJ/F091 and800us complete tick remain unresolved.
-Append ledgers as bytes; task-owned commits only, never publish. At boundary save
-files/commits, exact validation, limitations and next eligible task.
+Continue actualapp integration aftereligiblebenchwork. LocalresetUI, QTR_CAL
+printing/ownership, SC-A windows, SC-AJ/fullRAM/complete800us and allphysical/human
+gates remainpending. Appendledgers asbytes; task-owned localcommits only. Atboundary
+record exactfiles/commits/commands/results/limits and firsteligibleunfinishedtask.

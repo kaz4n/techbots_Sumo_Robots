@@ -303,3 +303,10 @@ F102 final regression addendum: existing432tooling methods PASS630.788s exit0;44
 
 
 F103 final regression addendum: existing443tooling PASS678.339s exit0;450distinct methods across separate existing/new runs. Shared native receipts contain369exit0 plus4required negative-sentinel exits1, and prior setup variants92exit0. All D081 jobs complete. These remain software checks, not physical acceptance.
+
+
+## D082 actual body-coordinate IMU estimator, 2026-09-23
+
+| ID | Question | Observed answer | Source | Confidence | Hardware-checked |
+|---|---|---|---|---|---|
+| F-104 | Does the concrete axis/yaw estimator distinguish new samples from retained heading? | Implementationc1188b1/contract00f0cc2; independent22cases/64370assertions and6new tooling methods pass. Fullhost/sanitizer2/2 pass,1093main+37enabledGate cases. Selected287existing methods pass;293distinct across scoped runs. Actual sourcea746b27b compile79060/32208B exit0;48files/3ELFs/36native+42math exports/startup checked. | analysis/P2_imu_heading_validation.md/raw; reviews/P2_imu_heading_review.md/raw | HOST-TESTED/TARGET-COMPILED; fresh separate same-model reviewer PASS/no open findings | No upload/MCU/pad/sensor action; map unconfigured, completion-time approximation, no loader/runtime/accuracy/WCET or physical acceptance. SC-AJ/F091 and human gates pending |

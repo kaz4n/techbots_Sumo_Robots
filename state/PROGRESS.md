@@ -470,3 +470,6 @@ Session checkpoint: implementation9de8cd1 is current inert ADC firmwaref5f637b2/
 
 
 2026-09-23T12:58:11+04:00 | P2 B3 D082 | Previous goal turn classified PROGRESS: actual D081 acquisition implemented/reviewed/validated in7b46598/2ab0f6e;450tooling checks and full host/sanitizer/actual target compile-only pass. Clean current baseline verified. Freeze explicit mounting/continuous-yaw/bias/gap contract and header before separate implementation/tests. Fresh-context same-model reviewer finds no material contract conflict. No physical map or human gate assumed. | prerequisites commit follows
+
+
+2026-09-23T13:14:28+04:00 | P2 B3 D082 | Concrete body-coordinate/continuous-yaw estimatorc1188b1, contract00f0cc2, independent22cases/64370assertions and fresh same-model reviewer PASS. Fullhost2/2PASS8.01s; sanitizer2/2PASS22.61s (1093/22645776 plus37/3796846). Selected287existing toolingPASS186.964s plusnew6;293distinct scoped methods, not a complete new tooling run. Actual compile-onlya746b27b79060/32208B exit0;48files/3ELFs/36native+42math exports/startup verified. All jobs done, no upload/reset/MCU/sensor/motor/physical or human gate. F104/validation/raw retain failures and limits. Next explicit core presence/time routing starting countdown; fullgoalACTIVE/incomplete. | evidence commit follows

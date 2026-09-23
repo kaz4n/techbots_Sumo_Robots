@@ -1,0 +1,1348 @@
+/home/arduino/sumox26_codex_build/a746b27b7628deaca5b809d0ecdf333b27d98b7c7d50d0a26e299ea5942779af/p2_imu_heading_compile/artifacts/bench-default/p2_imu_heading_compile.ino.elf
+0000006c <setup>:
+      6c:	4b01      	ldr	r3, [pc, #4]	@ (74 <setup+0x8>)
+      6e:	4a02      	ldr	r2, [pc, #8]	@ (78 <setup+0xc>)
+      70:	601a      	str	r2, [r3, #0]
+      72:	4770      	bx	lr
+	...
+
+0000007c <loop>:
+      7c:	4770      	bx	lr
+	...
+
+0000244c <__loopHook()>:
+    244c:	b538      	push	{r3, r4, r5, lr}
+    244e:	4b0a      	ldr	r3, [pc, #40]	@ (2478 <__loopHook()+0x2c>)
+    2450:	4798      	blx	r3
+    2452:	4c0a      	ldr	r4, [pc, #40]	@ (247c <__loopHook()+0x30>)
+    2454:	f04f 33ff 	mov.w	r3, #4294967295	@ 0xffffffff
+    2458:	f04f 32ff 	mov.w	r2, #4294967295	@ 0xffffffff
+    245c:	4808      	ldr	r0, [pc, #32]	@ (2480 <__loopHook()+0x34>)
+    245e:	4909      	ldr	r1, [pc, #36]	@ (2484 <__loopHook()+0x38>)
+    2460:	4788      	blx	r1
+    2462:	f894 5158 	ldrb.w	r5, [r4, #344]	@ 0x158
+    2466:	4b08      	ldr	r3, [pc, #32]	@ (2488 <__loopHook()+0x3c>)
+    2468:	f104 0038 	add.w	r0, r4, #56	@ 0x38
+    246c:	4798      	blx	r3
+    246e:	b115      	cbz	r5, 2476 <__loopHook()+0x2a>
+    2470:	4620      	mov	r0, r4
+    2472:	4b06      	ldr	r3, [pc, #24]	@ (248c <__loopHook()+0x40>)
+    2474:	4798      	blx	r3
+    2476:	bd38      	pop	{r3, r4, r5, pc}
+	...
+    2480:	00000038 	.word	0x00000038
+	...
+
+00002490 <_GLOBAL__sub_I__ZN17imu_heading_probe9estimatorE>:
+    2490:	4a06      	ldr	r2, [pc, #24]	@ (24ac <_GLOBAL__sub_I__ZN17imu_heading_probe9estimatorE+0x1c>)
+    2492:	6813      	ldr	r3, [r2, #0]
+    2494:	1c59      	adds	r1, r3, #1
+    2496:	6011      	str	r1, [r2, #0]
+    2498:	b933      	cbnz	r3, 24a8 <_GLOBAL__sub_I__ZN17imu_heading_probe9estimatorE+0x18>
+    249a:	4a05      	ldr	r2, [pc, #20]	@ (24b0 <_GLOBAL__sub_I__ZN17imu_heading_probe9estimatorE+0x20>)
+    249c:	4905      	ldr	r1, [pc, #20]	@ (24b4 <_GLOBAL__sub_I__ZN17imu_heading_probe9estimatorE+0x24>)
+    249e:	e9c2 3307 	strd	r3, r3, [r2, #28]
+    24a2:	6011      	str	r1, [r2, #0]
+    24a4:	7613      	strb	r3, [r2, #24]
+    24a6:	6253      	str	r3, [r2, #36]	@ 0x24
+    24a8:	4770      	bx	lr
+    24aa:	bf00      	nop
+	...
+
+000024d8 <_GLOBAL__sub_I__ZN3imu3Bus13controlsOwnedEb>:
+    24d8:	4a06      	ldr	r2, [pc, #24]	@ (24f4 <_GLOBAL__sub_I__ZN3imu3Bus13controlsOwnedEb+0x1c>)
+    24da:	6813      	ldr	r3, [r2, #0]
+    24dc:	1c59      	adds	r1, r3, #1
+    24de:	6011      	str	r1, [r2, #0]
+    24e0:	b933      	cbnz	r3, 24f0 <_GLOBAL__sub_I__ZN3imu3Bus13controlsOwnedEb+0x18>
+    24e2:	4a05      	ldr	r2, [pc, #20]	@ (24f8 <_GLOBAL__sub_I__ZN3imu3Bus13controlsOwnedEb+0x20>)
+    24e4:	4905      	ldr	r1, [pc, #20]	@ (24fc <_GLOBAL__sub_I__ZN3imu3Bus13controlsOwnedEb+0x24>)
+    24e6:	e9c2 3307 	strd	r3, r3, [r2, #28]
+    24ea:	6011      	str	r1, [r2, #0]
+    24ec:	7613      	strb	r3, [r2, #24]
+    24ee:	6253      	str	r3, [r2, #36]	@ 0x24
+    24f0:	4770      	bx	lr
+    24f2:	bf00      	nop
+	...
+
+00002520 <imu::(anonymous namespace)::mapped(float const*, signed char)>:
+    2520:	ea81 73e1 	eor.w	r3, r1, r1, asr #31
+    2524:	eba3 73e1 	sub.w	r3, r3, r1, asr #31
+    2528:	b2db      	uxtb	r3, r3
+    252a:	eb00 0083 	add.w	r0, r0, r3, lsl #2
+    252e:	ed10 0a01 	vldr	s0, [r0, #-4]
+    2532:	2900      	cmp	r1, #0
+    2534:	bfb8      	it	lt
+    2536:	eeb1 0a40 	vneglt.f32	s0, s0
+    253a:	4770      	bx	lr
+
+0000253c <imu::Estimator::clear(imu::HeadingState)>:
+    253c:	b538      	push	{r3, r4, r5, lr}
+    253e:	4604      	mov	r4, r0
+    2540:	460d      	mov	r5, r1
+    2542:	4b06      	ldr	r3, [pc, #24]	@ (255c <imu::Estimator::clear(imu::HeadingState)+0x20>)
+    2544:	2230      	movs	r2, #48	@ 0x30
+    2546:	2100      	movs	r1, #0
+    2548:	3004      	adds	r0, #4
+    254a:	4798      	blx	r3
+    254c:	6d63      	ldr	r3, [r4, #84]	@ 0x54
+    254e:	7125      	strb	r5, [r4, #4]
+    2550:	6223      	str	r3, [r4, #32]
+    2552:	6c23      	ldr	r3, [r4, #64]	@ 0x40
+    2554:	62e3      	str	r3, [r4, #44]	@ 0x2c
+    2556:	6ba3      	ldr	r3, [r4, #56]	@ 0x38
+    2558:	6263      	str	r3, [r4, #36]	@ 0x24
+    255a:	bd38      	pop	{r3, r4, r5, pc}
+    255c:	00000000 	.word	0x00000000
+
+00002560 <imu::Estimator::fail(imu::HeadingFault, imu::SampleFault)>:
+    2560:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+    2562:	460c      	mov	r4, r1
+    2564:	4606      	mov	r6, r0
+    2566:	461d      	mov	r5, r3
+    2568:	4620      	mov	r0, r4
+    256a:	2103      	movs	r1, #3
+    256c:	4b09      	ldr	r3, [pc, #36]	@ (2594 <imu::Estimator::fail(imu::HeadingFault, imu::SampleFault)+0x34>)
+    256e:	4617      	mov	r7, r2
+    2570:	4798      	blx	r3
+    2572:	2302      	movs	r3, #2
+    2574:	71a5      	strb	r5, [r4, #6]
+    2576:	4635      	mov	r5, r6
+    2578:	7167      	strb	r7, [r4, #5]
+    257a:	71e3      	strb	r3, [r4, #7]
+    257c:	7223      	strb	r3, [r4, #8]
+    257e:	3404      	adds	r4, #4
+    2580:	cc0f      	ldmia	r4!, {r0, r1, r2, r3}
+    2582:	c50f      	stmia	r5!, {r0, r1, r2, r3}
+    2584:	cc0f      	ldmia	r4!, {r0, r1, r2, r3}
+    2586:	c50f      	stmia	r5!, {r0, r1, r2, r3}
+    2588:	e894 000f 	ldmia.w	r4, {r0, r1, r2, r3}
+    258c:	e885 000f 	stmia.w	r5, {r0, r1, r2, r3}
+    2590:	4630      	mov	r0, r6
+    2592:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+    2594:	00000000 	.word	0x00000000
+
+00002598 <imu::Estimator::begin(imu::Mounting const&, float)>:
+    2598:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+    259c:	f890 2034 	ldrb.w	r2, [r0, #52]	@ 0x34
+    25a0:	4604      	mov	r4, r0
+    25a2:	460b      	mov	r3, r1
+    25a4:	b090      	sub	sp, #64	@ 0x40
+    25a6:	b13a      	cbz	r2, 25b8 <imu::Estimator::begin(imu::Mounting const&, float)+0x20>
+    25a8:	7905      	ldrb	r5, [r0, #4]
+    25aa:	3d03      	subs	r5, #3
+    25ac:	bf18      	it	ne
+    25ae:	2501      	movne	r5, #1
+    25b0:	4628      	mov	r0, r5
+    25b2:	b010      	add	sp, #64	@ 0x40
+    25b4:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+    25b8:	2101      	movs	r1, #1
+    25ba:	f880 1034 	strb.w	r1, [r0, #52]	@ 0x34
+    25be:	78dd      	ldrb	r5, [r3, #3]
+    25c0:	b93d      	cbnz	r5, 25d2 <imu::Estimator::begin(imu::Mounting const&, float)+0x3a>
+    25c2:	462b      	mov	r3, r5
+    25c4:	2202      	movs	r2, #2
+    25c6:	4621      	mov	r1, r4
+    25c8:	4668      	mov	r0, sp
+    25ca:	4c2d      	ldr	r4, [pc, #180]	@ (2680 <imu::Estimator::begin(imu::Mounting const&, float)+0xe8>)
+    25cc:	47a0      	blx	r4
+    25ce:	2500      	movs	r5, #0
+    25d0:	e7ee      	b.n	25b0 <imu::Estimator::begin(imu::Mounting const&, float)+0x18>
+    25d2:	a80d      	add	r0, sp, #52	@ 0x34
+    25d4:	4680      	mov	r8, r0
+    25d6:	4607      	mov	r7, r0
+    25d8:	e9c0 2201 	strd	r2, r2, [r0, #4]
+    25dc:	920d      	str	r2, [sp, #52]	@ 0x34
+    25de:	1e5e      	subs	r6, r3, #1
+    25e0:	f103 0e02 	add.w	lr, r3, #2
+    25e4:	f916 cf01 	ldrsb.w	ip, [r6, #1]!
+    25e8:	ea8c 72ec 	eor.w	r2, ip, ip, asr #31
+    25ec:	eba2 72ec 	sub.w	r2, r2, ip, asr #31
+    25f0:	b2d2      	uxtb	r2, r2
+    25f2:	f847 2b04 	str.w	r2, [r7], #4
+    25f6:	3a01      	subs	r2, #1
+    25f8:	2a02      	cmp	r2, #2
+    25fa:	d817      	bhi.n	262c <imu::Estimator::begin(imu::Mounting const&, float)+0x94>
+    25fc:	f1bc 0f00 	cmp.w	ip, #0
+    2600:	bfb8      	it	lt
+    2602:	4249      	neglt	r1, r1
+    2604:	4576      	cmp	r6, lr
+    2606:	d1ed      	bne.n	25e4 <imu::Estimator::begin(imu::Mounting const&, float)+0x4c>
+    2608:	2200      	movs	r2, #0
+    260a:	4694      	mov	ip, r2
+    260c:	f10c 0c01 	add.w	ip, ip, #1
+    2610:	46e6      	mov	lr, ip
+    2612:	f1be 0f03 	cmp.w	lr, #3
+    2616:	d10c      	bne.n	2632 <imu::Estimator::begin(imu::Mounting const&, float)+0x9a>
+    2618:	f1bc 0f03 	cmp.w	ip, #3
+    261c:	f108 0804 	add.w	r8, r8, #4
+    2620:	d1f4      	bne.n	260c <imu::Estimator::begin(imu::Mounting const&, float)+0x74>
+    2622:	07d2      	lsls	r2, r2, #31
+    2624:	bf48      	it	mi
+    2626:	4249      	negmi	r1, r1
+    2628:	2901      	cmp	r1, #1
+    262a:	d00d      	beq.n	2648 <imu::Estimator::begin(imu::Mounting const&, float)+0xb0>
+    262c:	2300      	movs	r3, #0
+    262e:	2203      	movs	r2, #3
+    2630:	e7c9      	b.n	25c6 <imu::Estimator::begin(imu::Mounting const&, float)+0x2e>
+    2632:	f8d8 7000 	ldr.w	r7, [r8]
+    2636:	f850 602e 	ldr.w	r6, [r0, lr, lsl #2]
+    263a:	42b7      	cmp	r7, r6
+    263c:	d0f6      	beq.n	262c <imu::Estimator::begin(imu::Mounting const&, float)+0x94>
+    263e:	bfc8      	it	gt
+    2640:	3201      	addgt	r2, #1
+    2642:	f10e 0e01 	add.w	lr, lr, #1
+    2646:	e7e4      	b.n	2612 <imu::Estimator::begin(imu::Mounting const&, float)+0x7a>
+    2648:	eef0 7ac0 	vabs.f32	s15, s0
+    264c:	ed9f 7a0d 	vldr	s14, [pc, #52]	@ 2684 <imu::Estimator::begin(imu::Mounting const&, float)+0xec>
+    2650:	eef4 7a47 	vcmp.f32	s15, s14
+    2654:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+    2658:	d80e      	bhi.n	2678 <imu::Estimator::begin(imu::Mounting const&, float)+0xe0>
+    265a:	ed9f 7a0b 	vldr	s14, [pc, #44]	@ 2688 <imu::Estimator::begin(imu::Mounting const&, float)+0xf0>
+    265e:	eef4 7ac7 	vcmpe.f32	s15, s14
+    2662:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+    2666:	d807      	bhi.n	2678 <imu::Estimator::begin(imu::Mounting const&, float)+0xe0>
+    2668:	6818      	ldr	r0, [r3, #0]
+    266a:	ed84 0a15 	vstr	s0, [r4, #84]	@ 0x54
+    266e:	6020      	str	r0, [r4, #0]
+    2670:	4b06      	ldr	r3, [pc, #24]	@ (268c <imu::Estimator::begin(imu::Mounting const&, float)+0xf4>)
+    2672:	4620      	mov	r0, r4
+    2674:	4798      	blx	r3
+    2676:	e79b      	b.n	25b0 <imu::Estimator::begin(imu::Mounting const&, float)+0x18>
+    2678:	2300      	movs	r3, #0
+    267a:	2204      	movs	r2, #4
+    267c:	e7a3      	b.n	25c6 <imu::Estimator::begin(imu::Mounting const&, float)+0x2e>
+    267e:	bf00      	nop
+    2680:	00000000 	.word	0x00000000
+    2684:	7f7fffff 	.word	0x7f7fffff
+    2688:	447a0000 	.word	0x447a0000
+    268c:	00000000 	.word	0x00000000
+
+00002690 <imu::Estimator::acceptTime(unsigned int)>:
+    2690:	b510      	push	{r4, lr}
+    2692:	f890 3036 	ldrb.w	r3, [r0, #54]	@ 0x36
+    2696:	4604      	mov	r4, r0
+    2698:	b08c      	sub	sp, #48	@ 0x30
+    269a:	b163      	cbz	r3, 26b6 <imu::Estimator::acceptTime(unsigned int)+0x26>
+    269c:	6b83      	ldr	r3, [r0, #56]	@ 0x38
+    269e:	1acb      	subs	r3, r1, r3
+    26a0:	2b00      	cmp	r3, #0
+    26a2:	da08      	bge.n	26b6 <imu::Estimator::acceptTime(unsigned int)+0x26>
+    26a4:	2300      	movs	r3, #0
+    26a6:	2207      	movs	r2, #7
+    26a8:	4621      	mov	r1, r4
+    26aa:	4668      	mov	r0, sp
+    26ac:	4c0b      	ldr	r4, [pc, #44]	@ (26dc <imu::Estimator::acceptTime(unsigned int)+0x4c>)
+    26ae:	47a0      	blx	r4
+    26b0:	2000      	movs	r0, #0
+    26b2:	b00c      	add	sp, #48	@ 0x30
+    26b4:	bd10      	pop	{r4, pc}
+    26b6:	2301      	movs	r3, #1
+    26b8:	f894 0037 	ldrb.w	r0, [r4, #55]	@ 0x37
+    26bc:	63a1      	str	r1, [r4, #56]	@ 0x38
+    26be:	f884 3036 	strb.w	r3, [r4, #54]	@ 0x36
+    26c2:	6261      	str	r1, [r4, #36]	@ 0x24
+    26c4:	b138      	cbz	r0, 26d6 <imu::Estimator::acceptTime(unsigned int)+0x46>
+    26c6:	6be3      	ldr	r3, [r4, #60]	@ 0x3c
+    26c8:	1ac9      	subs	r1, r1, r3
+    26ca:	f5b1 6ffa 	cmp.w	r1, #2000	@ 0x7d0
+    26ce:	d9f0      	bls.n	26b2 <imu::Estimator::acceptTime(unsigned int)+0x22>
+    26d0:	2300      	movs	r3, #0
+    26d2:	2209      	movs	r2, #9
+    26d4:	e7e8      	b.n	26a8 <imu::Estimator::acceptTime(unsigned int)+0x18>
+    26d6:	4618      	mov	r0, r3
+    26d8:	e7eb      	b.n	26b2 <imu::Estimator::acceptTime(unsigned int)+0x22>
+    26da:	bf00      	nop
+    26dc:	00000000 	.word	0x00000000
+
+000026e0 <imu::Estimator::validateObservation(imu::Sample const&)>:
+    26e0:	b530      	push	{r4, r5, lr}
+    26e2:	f890 2037 	ldrb.w	r2, [r0, #55]	@ 0x37
+    26e6:	4604      	mov	r4, r0
+    26e8:	b08d      	sub	sp, #52	@ 0x34
+    26ea:	b1ba      	cbz	r2, 271c <imu::Estimator::validateObservation(imu::Sample const&)+0x3c>
+    26ec:	e9d0 300e 	ldrd	r3, r0, [r0, #56]	@ 0x38
+    26f0:	1a1b      	subs	r3, r3, r0
+    26f2:	6c20      	ldr	r0, [r4, #64]	@ 0x40
+    26f4:	6d0d      	ldr	r5, [r1, #80]	@ 0x50
+    26f6:	3001      	adds	r0, #1
+    26f8:	4285      	cmp	r5, r0
+    26fa:	d106      	bne.n	270a <imu::Estimator::validateObservation(imu::Sample const&)+0x2a>
+    26fc:	f891 0064 	ldrb.w	r0, [r1, #100]	@ 0x64
+    2700:	4290      	cmp	r0, r2
+    2702:	d102      	bne.n	270a <imu::Estimator::validateObservation(imu::Sample const&)+0x2a>
+    2704:	6e08      	ldr	r0, [r1, #96]	@ 0x60
+    2706:	4298      	cmp	r0, r3
+    2708:	d00a      	beq.n	2720 <imu::Estimator::validateObservation(imu::Sample const&)+0x40>
+    270a:	2300      	movs	r3, #0
+    270c:	2208      	movs	r2, #8
+    270e:	4621      	mov	r1, r4
+    2710:	4668      	mov	r0, sp
+    2712:	4c30      	ldr	r4, [pc, #192]	@ (27d4 <imu::Estimator::validateObservation(imu::Sample const&)+0xf4>)
+    2714:	47a0      	blx	r4
+    2716:	2000      	movs	r0, #0
+    2718:	b00d      	add	sp, #52	@ 0x34
+    271a:	bd30      	pop	{r4, r5, pc}
+    271c:	4613      	mov	r3, r2
+    271e:	e7e8      	b.n	26f2 <imu::Estimator::validateObservation(imu::Sample const&)+0x12>
+    2720:	b112      	cbz	r2, 2728 <imu::Estimator::validateObservation(imu::Sample const&)+0x48>
+    2722:	b90b      	cbnz	r3, 2728 <imu::Estimator::validateObservation(imu::Sample const&)+0x48>
+    2724:	2207      	movs	r2, #7
+    2726:	e7f2      	b.n	270e <imu::Estimator::validateObservation(imu::Sample const&)+0x2e>
+    2728:	f891 0046 	ldrb.w	r0, [r1, #70]	@ 0x46
+    272c:	2800      	cmp	r0, #0
+    272e:	d04e      	beq.n	27ce <imu::Estimator::validateObservation(imu::Sample const&)+0xee>
+    2730:	790b      	ldrb	r3, [r1, #4]
+    2732:	2b00      	cmp	r3, #0
+    2734:	d14b      	bne.n	27ce <imu::Estimator::validateObservation(imu::Sample const&)+0xee>
+    2736:	6c0b      	ldr	r3, [r1, #64]	@ 0x40
+    2738:	6d4a      	ldr	r2, [r1, #84]	@ 0x54
+    273a:	4293      	cmp	r3, r2
+    273c:	d147      	bne.n	27ce <imu::Estimator::validateObservation(imu::Sample const&)+0xee>
+    273e:	6bca      	ldr	r2, [r1, #60]	@ 0x3c
+    2740:	1a9b      	subs	r3, r3, r2
+    2742:	f5b3 7f16 	cmp.w	r3, #600	@ 0x258
+    2746:	d242      	bcs.n	27ce <imu::Estimator::validateObservation(imu::Sample const&)+0xee>
+    2748:	f891 3044 	ldrb.w	r3, [r1, #68]	@ 0x44
+    274c:	2b01      	cmp	r3, #1
+    274e:	d83e      	bhi.n	27ce <imu::Estimator::validateObservation(imu::Sample const&)+0xee>
+    2750:	f991 3045 	ldrsb.w	r3, [r1, #69]	@ 0x45
+    2754:	f891 5045 	ldrb.w	r5, [r1, #69]	@ 0x45
+    2758:	2b00      	cmp	r3, #0
+    275a:	db38      	blt.n	27ce <imu::Estimator::validateObservation(imu::Sample const&)+0xee>
+    275c:	eddf 6a1e 	vldr	s13, [pc, #120]	@ 27d8 <imu::Estimator::validateObservation(imu::Sample const&)+0xf8>
+    2760:	ed9f 6a1e 	vldr	s12, [pc, #120]	@ 27dc <imu::Estimator::validateObservation(imu::Sample const&)+0xfc>
+    2764:	eef2 5a00 	vmov.f32	s11, #32	@ 0x41000000  8.0
+    2768:	f101 0324 	add.w	r3, r1, #36	@ 0x24
+    276c:	3130      	adds	r1, #48	@ 0x30
+    276e:	ed93 7a03 	vldr	s14, [r3, #12]
+    2772:	eeb0 7ac7 	vabs.f32	s14, s14
+    2776:	eeb4 7a66 	vcmp.f32	s14, s13
+    277a:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+    277e:	461a      	mov	r2, r3
+    2780:	d825      	bhi.n	27ce <imu::Estimator::validateObservation(imu::Sample const&)+0xee>
+    2782:	edd2 7a00 	vldr	s15, [r2]
+    2786:	eef0 7ae7 	vabs.f32	s15, s15
+    278a:	eef4 7a66 	vcmp.f32	s15, s13
+    278e:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+    2792:	f103 0304 	add.w	r3, r3, #4
+    2796:	d81a      	bhi.n	27ce <imu::Estimator::validateObservation(imu::Sample const&)+0xee>
+    2798:	eeb4 7ac6 	vcmpe.f32	s14, s12
+    279c:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+    27a0:	dc15      	bgt.n	27ce <imu::Estimator::validateObservation(imu::Sample const&)+0xee>
+    27a2:	eef4 7ae5 	vcmpe.f32	s15, s11
+    27a6:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+    27aa:	dc10      	bgt.n	27ce <imu::Estimator::validateObservation(imu::Sample const&)+0xee>
+    27ac:	428b      	cmp	r3, r1
+    27ae:	d1de      	bne.n	276e <imu::Estimator::validateObservation(imu::Sample const&)+0x8e>
+    27b0:	2201      	movs	r2, #1
+    27b2:	f994 3002 	ldrsb.w	r3, [r4, #2]
+    27b6:	2b00      	cmp	r3, #0
+    27b8:	bfb8      	it	lt
+    27ba:	425b      	neglt	r3, r3
+    27bc:	3303      	adds	r3, #3
+    27be:	b2db      	uxtb	r3, r3
+    27c0:	fa02 f303 	lsl.w	r3, r2, r3
+    27c4:	422b      	tst	r3, r5
+    27c6:	d0a7      	beq.n	2718 <imu::Estimator::validateObservation(imu::Sample const&)+0x38>
+    27c8:	2300      	movs	r3, #0
+    27ca:	220a      	movs	r2, #10
+    27cc:	e79f      	b.n	270e <imu::Estimator::validateObservation(imu::Sample const&)+0x2e>
+    27ce:	2300      	movs	r3, #0
+    27d0:	2206      	movs	r2, #6
+    27d2:	e79c      	b.n	270e <imu::Estimator::validateObservation(imu::Sample const&)+0x2e>
+    27d4:	00000000 	.word	0x00000000
+    27d8:	7f7fffff 	.word	0x7f7fffff
+    27dc:	447a0000 	.word	0x447a0000
+
+000027e0 <imu::Estimator::publish(imu::Sample const&)>:
+    27e0:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+    27e4:	b089      	sub	sp, #36	@ 0x24
+    27e6:	4b8c      	ldr	r3, [pc, #560]	@ (2a18 <imu::Estimator::publish(imu::Sample const&)+0x238>)
+    27e8:	460c      	mov	r4, r1
+    27ea:	9003      	str	r0, [sp, #12]
+    27ec:	f991 1002 	ldrsb.w	r1, [r1, #2]
+    27f0:	f102 0030 	add.w	r0, r2, #48	@ 0x30
+    27f4:	4798      	blx	r3
+    27f6:	ee10 ba10 	vmov	fp, s0
+    27fa:	4e88      	ldr	r6, [pc, #544]	@ (2a1c <imu::Estimator::publish(imu::Sample const&)+0x23c>)
+    27fc:	4658      	mov	r0, fp
+    27fe:	4615      	mov	r5, r2
+    2800:	47b0      	blx	r6
+    2802:	e9cd 0104 	strd	r0, r1, [sp, #16]
+    2806:	6d60      	ldr	r0, [r4, #84]	@ 0x54
+    2808:	47b0      	blx	r6
+    280a:	f894 3037 	ldrb.w	r3, [r4, #55]	@ 0x37
+    280e:	e9cd 0106 	strd	r0, r1, [sp, #24]
+    2812:	2b00      	cmp	r3, #0
+    2814:	f000 80e4 	beq.w	29e0 <imu::Estimator::publish(imu::Sample const&)+0x200>
+    2818:	6d20      	ldr	r0, [r4, #80]	@ 0x50
+    281a:	47b0      	blx	r6
+    281c:	e9dd 2304 	ldrd	r2, r3, [sp, #16]
+    2820:	f8df a21c 	ldr.w	sl, [pc, #540]	@ 2a40 <imu::Estimator::publish(imu::Sample const&)+0x260>
+    2824:	47d0      	blx	sl
+    2826:	f8df 821c 	ldr.w	r8, [pc, #540]	@ 2a44 <imu::Estimator::publish(imu::Sample const&)+0x264>
+    282a:	2200      	movs	r2, #0
+    282c:	4b7c      	ldr	r3, [pc, #496]	@ (2a20 <imu::Estimator::publish(imu::Sample const&)+0x240>)
+    282e:	47c0      	blx	r8
+    2830:	e9dd 2306 	ldrd	r2, r3, [sp, #24]
+    2834:	4e7b      	ldr	r6, [pc, #492]	@ (2a24 <imu::Estimator::publish(imu::Sample const&)+0x244>)
+    2836:	47b0      	blx	r6
+    2838:	4606      	mov	r6, r0
+    283a:	e9d4 030e 	ldrd	r0, r3, [r4, #56]	@ 0x38
+    283e:	1ac0      	subs	r0, r0, r3
+    2840:	4b79      	ldr	r3, [pc, #484]	@ (2a28 <imu::Estimator::publish(imu::Sample const&)+0x248>)
+    2842:	460f      	mov	r7, r1
+    2844:	4798      	blx	r3
+    2846:	4602      	mov	r2, r0
+    2848:	460b      	mov	r3, r1
+    284a:	4630      	mov	r0, r6
+    284c:	4639      	mov	r1, r7
+    284e:	47c0      	blx	r8
+    2850:	a36d      	add	r3, pc, #436	@ (adr r3, 2a08 <imu::Estimator::publish(imu::Sample const&)+0x228>)
+    2852:	e9d3 2300 	ldrd	r2, r3, [r3]
+    2856:	4e75      	ldr	r6, [pc, #468]	@ (2a2c <imu::Estimator::publish(imu::Sample const&)+0x24c>)
+    2858:	47b0      	blx	r6
+    285a:	e9cd 0100 	strd	r0, r1, [sp]
+    285e:	e9dd 6300 	ldrd	r6, r3, [sp]
+    2862:	f023 4700 	bic.w	r7, r3, #2147483648	@ 0x80000000
+    2866:	f04f 32ff 	mov.w	r2, #4294967295	@ 0xffffffff
+    286a:	4630      	mov	r0, r6
+    286c:	4639      	mov	r1, r7
+    286e:	f8df 91d8 	ldr.w	r9, [pc, #472]	@ 2a48 <imu::Estimator::publish(imu::Sample const&)+0x268>
+    2872:	4b6f      	ldr	r3, [pc, #444]	@ (2a30 <imu::Estimator::publish(imu::Sample const&)+0x250>)
+    2874:	47c8      	blx	r9
+    2876:	2800      	cmp	r0, #0
+    2878:	f040 80b7 	bne.w	29ea <imu::Estimator::publish(imu::Sample const&)+0x20a>
+    287c:	f04f 32ff 	mov.w	r2, #4294967295	@ 0xffffffff
+    2880:	4630      	mov	r0, r6
+    2882:	4639      	mov	r1, r7
+    2884:	f8df 81c4 	ldr.w	r8, [pc, #452]	@ 2a4c <imu::Estimator::publish(imu::Sample const&)+0x26c>
+    2888:	4b69      	ldr	r3, [pc, #420]	@ (2a30 <imu::Estimator::publish(imu::Sample const&)+0x250>)
+    288a:	47c0      	blx	r8
+    288c:	2800      	cmp	r0, #0
+    288e:	f040 80ac 	bne.w	29ea <imu::Estimator::publish(imu::Sample const&)+0x20a>
+    2892:	e9d4 2312 	ldrd	r2, r3, [r4, #72]	@ 0x48
+    2896:	e9dd 0100 	ldrd	r0, r1, [sp]
+    289a:	47d0      	blx	sl
+    289c:	e9cd 0100 	strd	r0, r1, [sp]
+    28a0:	e9dd 6300 	ldrd	r6, r3, [sp]
+    28a4:	f023 4700 	bic.w	r7, r3, #2147483648	@ 0x80000000
+    28a8:	f04f 32ff 	mov.w	r2, #4294967295	@ 0xffffffff
+    28ac:	4630      	mov	r0, r6
+    28ae:	4639      	mov	r1, r7
+    28b0:	4b5f      	ldr	r3, [pc, #380]	@ (2a30 <imu::Estimator::publish(imu::Sample const&)+0x250>)
+    28b2:	47c8      	blx	r9
+    28b4:	2800      	cmp	r0, #0
+    28b6:	f040 8098 	bne.w	29ea <imu::Estimator::publish(imu::Sample const&)+0x20a>
+    28ba:	f04f 32ff 	mov.w	r2, #4294967295	@ 0xffffffff
+    28be:	4630      	mov	r0, r6
+    28c0:	4639      	mov	r1, r7
+    28c2:	4b5b      	ldr	r3, [pc, #364]	@ (2a30 <imu::Estimator::publish(imu::Sample const&)+0x250>)
+    28c4:	47c0      	blx	r8
+    28c6:	2800      	cmp	r0, #0
+    28c8:	f040 808f 	bne.w	29ea <imu::Estimator::publish(imu::Sample const&)+0x20a>
+    28cc:	4630      	mov	r0, r6
+    28ce:	f04f 4260 	mov.w	r2, #3758096384	@ 0xe0000000
+    28d2:	4639      	mov	r1, r7
+    28d4:	4b57      	ldr	r3, [pc, #348]	@ (2a34 <imu::Estimator::publish(imu::Sample const&)+0x254>)
+    28d6:	4e58      	ldr	r6, [pc, #352]	@ (2a38 <imu::Estimator::publish(imu::Sample const&)+0x258>)
+    28d8:	47b0      	blx	r6
+    28da:	2800      	cmp	r0, #0
+    28dc:	f000 8085 	beq.w	29ea <imu::Estimator::publish(imu::Sample const&)+0x20a>
+    28e0:	e9dd 2306 	ldrd	r2, r3, [sp, #24]
+    28e4:	4e4f      	ldr	r6, [pc, #316]	@ (2a24 <imu::Estimator::publish(imu::Sample const&)+0x244>)
+    28e6:	e9dd 0104 	ldrd	r0, r1, [sp, #16]
+    28ea:	47b0      	blx	r6
+    28ec:	f021 4900 	bic.w	r9, r1, #2147483648	@ 0x80000000
+    28f0:	460f      	mov	r7, r1
+    28f2:	f04f 32ff 	mov.w	r2, #4294967295	@ 0xffffffff
+    28f6:	4649      	mov	r1, r9
+    28f8:	4b4d      	ldr	r3, [pc, #308]	@ (2a30 <imu::Estimator::publish(imu::Sample const&)+0x250>)
+    28fa:	f8df a14c 	ldr.w	sl, [pc, #332]	@ 2a48 <imu::Estimator::publish(imu::Sample const&)+0x268>
+    28fe:	4606      	mov	r6, r0
+    2900:	47d0      	blx	sl
+    2902:	2800      	cmp	r0, #0
+    2904:	d171      	bne.n	29ea <imu::Estimator::publish(imu::Sample const&)+0x20a>
+    2906:	f04f 32ff 	mov.w	r2, #4294967295	@ 0xffffffff
+    290a:	4630      	mov	r0, r6
+    290c:	4649      	mov	r1, r9
+    290e:	4b48      	ldr	r3, [pc, #288]	@ (2a30 <imu::Estimator::publish(imu::Sample const&)+0x250>)
+    2910:	f8df a138 	ldr.w	sl, [pc, #312]	@ 2a4c <imu::Estimator::publish(imu::Sample const&)+0x26c>
+    2914:	47d0      	blx	sl
+    2916:	2800      	cmp	r0, #0
+    2918:	d167      	bne.n	29ea <imu::Estimator::publish(imu::Sample const&)+0x20a>
+    291a:	f04f 4260 	mov.w	r2, #3758096384	@ 0xe0000000
+    291e:	4630      	mov	r0, r6
+    2920:	4649      	mov	r1, r9
+    2922:	4b44      	ldr	r3, [pc, #272]	@ (2a34 <imu::Estimator::publish(imu::Sample const&)+0x254>)
+    2924:	f8df 8110 	ldr.w	r8, [pc, #272]	@ 2a38 <imu::Estimator::publish(imu::Sample const&)+0x258>
+    2928:	47c0      	blx	r8
+    292a:	2800      	cmp	r0, #0
+    292c:	d05d      	beq.n	29ea <imu::Estimator::publish(imu::Sample const&)+0x20a>
+    292e:	e9dd 0100 	ldrd	r0, r1, [sp]
+    2932:	f04f 0801 	mov.w	r8, #1
+    2936:	f04f 0902 	mov.w	r9, #2
+    293a:	f8df a114 	ldr.w	sl, [pc, #276]	@ 2a50 <imu::Estimator::publish(imu::Sample const&)+0x270>
+    293e:	f884 9004 	strb.w	r9, [r4, #4]
+    2942:	f884 8007 	strb.w	r8, [r4, #7]
+    2946:	f884 8009 	strb.w	r8, [r4, #9]
+    294a:	f884 800a 	strb.w	r8, [r4, #10]
+    294e:	47d0      	blx	sl
+    2950:	4639      	mov	r1, r7
+    2952:	60e0      	str	r0, [r4, #12]
+    2954:	f8c4 b010 	str.w	fp, [r4, #16]
+    2958:	4630      	mov	r0, r6
+    295a:	47d0      	blx	sl
+    295c:	f994 1000 	ldrsb.w	r1, [r4]
+    2960:	f994 2001 	ldrsb.w	r2, [r4, #1]
+    2964:	6160      	str	r0, [r4, #20]
+    2966:	ea81 73e1 	eor.w	r3, r1, r1, asr #31
+    296a:	ea82 70e2 	eor.w	r0, r2, r2, asr #31
+    296e:	eba3 73e1 	sub.w	r3, r3, r1, asr #31
+    2972:	eba0 70e2 	sub.w	r0, r0, r2, asr #31
+    2976:	b2db      	uxtb	r3, r3
+    2978:	b2c0      	uxtb	r0, r0
+    297a:	3b01      	subs	r3, #1
+    297c:	3801      	subs	r0, #1
+    297e:	fa08 f000 	lsl.w	r0, r8, r0
+    2982:	fa08 f303 	lsl.w	r3, r8, r3
+    2986:	4303      	orrs	r3, r0
+    2988:	f895 0045 	ldrb.w	r0, [r5, #69]	@ 0x45
+    298c:	4203      	tst	r3, r0
+    298e:	d136      	bne.n	29fe <imu::Estimator::publish(imu::Sample const&)+0x21e>
+    2990:	f105 0624 	add.w	r6, r5, #36	@ 0x24
+    2994:	4630      	mov	r0, r6
+    2996:	4f20      	ldr	r7, [pc, #128]	@ (2a18 <imu::Estimator::publish(imu::Sample const&)+0x238>)
+    2998:	f884 8008 	strb.w	r8, [r4, #8]
+    299c:	47b8      	blx	r7
+    299e:	4611      	mov	r1, r2
+    29a0:	ed84 0a06 	vstr	s0, [r4, #24]
+    29a4:	4630      	mov	r0, r6
+    29a6:	47b8      	blx	r7
+    29a8:	ed84 0a07 	vstr	s0, [r4, #28]
+    29ac:	ed9d 7b00 	vldr	d7, [sp]
+    29b0:	2101      	movs	r1, #1
+    29b2:	6d2a      	ldr	r2, [r5, #80]	@ 0x50
+    29b4:	6ba3      	ldr	r3, [r4, #56]	@ 0x38
+    29b6:	9d03      	ldr	r5, [sp, #12]
+    29b8:	ed84 7b12 	vstr	d7, [r4, #72]	@ 0x48
+    29bc:	e9c4 320a 	strd	r3, r2, [r4, #40]	@ 0x28
+    29c0:	6422      	str	r2, [r4, #64]	@ 0x40
+    29c2:	63e3      	str	r3, [r4, #60]	@ 0x3c
+    29c4:	f8c4 b050 	str.w	fp, [r4, #80]	@ 0x50
+    29c8:	f884 1037 	strb.w	r1, [r4, #55]	@ 0x37
+    29cc:	3404      	adds	r4, #4
+    29ce:	cc0f      	ldmia	r4!, {r0, r1, r2, r3}
+    29d0:	c50f      	stmia	r5!, {r0, r1, r2, r3}
+    29d2:	cc0f      	ldmia	r4!, {r0, r1, r2, r3}
+    29d4:	c50f      	stmia	r5!, {r0, r1, r2, r3}
+    29d6:	e894 000f 	ldmia.w	r4, {r0, r1, r2, r3}
+    29da:	e885 000f 	stmia.w	r5, {r0, r1, r2, r3}
+    29de:	e00a      	b.n	29f6 <imu::Estimator::publish(imu::Sample const&)+0x216>
+    29e0:	ed9f 7b0b 	vldr	d7, [pc, #44]	@ 2a10 <imu::Estimator::publish(imu::Sample const&)+0x230>
+    29e4:	ed8d 7b00 	vstr	d7, [sp]
+    29e8:	e77a      	b.n	28e0 <imu::Estimator::publish(imu::Sample const&)+0x100>
+    29ea:	4621      	mov	r1, r4
+    29ec:	2300      	movs	r3, #0
+    29ee:	220b      	movs	r2, #11
+    29f0:	9803      	ldr	r0, [sp, #12]
+    29f2:	4c12      	ldr	r4, [pc, #72]	@ (2a3c <imu::Estimator::publish(imu::Sample const&)+0x25c>)
+    29f4:	47a0      	blx	r4
+    29f6:	9803      	ldr	r0, [sp, #12]
+    29f8:	b009      	add	sp, #36	@ 0x24
+    29fa:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+    29fe:	f884 9008 	strb.w	r9, [r4, #8]
+    2a02:	e7d3      	b.n	29ac <imu::Estimator::publish(imu::Sample const&)+0x1cc>
+    2a04:	f3af 8000 	nop.w
+    2a08:	00000000 	.word	0x00000000
+    2a0c:	412e8480 	.word	0x412e8480
+	...
+    2a20:	3fe00000 	.word	0x3fe00000
+	...
+    2a30:	7fefffff 	.word	0x7fefffff
+    2a34:	47efffff 	.word	0x47efffff
+	...
+
+00002a54 <imu::Estimator::observe(imu::Sample const&)>:
+    2a54:	b570      	push	{r4, r5, r6, lr}
+    2a56:	f891 3034 	ldrb.w	r3, [r1, #52]	@ 0x34
+    2a5a:	4606      	mov	r6, r0
+    2a5c:	460c      	mov	r4, r1
+    2a5e:	4615      	mov	r5, r2
+    2a60:	b113      	cbz	r3, 2a68 <imu::Estimator::observe(imu::Sample const&)+0x14>
+    2a62:	790b      	ldrb	r3, [r1, #4]
+    2a64:	2b03      	cmp	r3, #3
+    2a66:	d10b      	bne.n	2a80 <imu::Estimator::observe(imu::Sample const&)+0x2c>
+    2a68:	4635      	mov	r5, r6
+    2a6a:	3404      	adds	r4, #4
+    2a6c:	cc0f      	ldmia	r4!, {r0, r1, r2, r3}
+    2a6e:	c50f      	stmia	r5!, {r0, r1, r2, r3}
+    2a70:	cc0f      	ldmia	r4!, {r0, r1, r2, r3}
+    2a72:	c50f      	stmia	r5!, {r0, r1, r2, r3}
+    2a74:	e894 000f 	ldmia.w	r4, {r0, r1, r2, r3}
+    2a78:	e885 000f 	stmia.w	r5, {r0, r1, r2, r3}
+    2a7c:	4630      	mov	r0, r6
+    2a7e:	bd70      	pop	{r4, r5, r6, pc}
+    2a80:	4b31      	ldr	r3, [pc, #196]	@ (2b48 <imu::Estimator::observe(imu::Sample const&)+0xf4>)
+    2a82:	2101      	movs	r1, #1
+    2a84:	4620      	mov	r0, r4
+    2a86:	4798      	blx	r3
+    2a88:	782b      	ldrb	r3, [r5, #0]
+    2a8a:	b953      	cbnz	r3, 2aa2 <imu::Estimator::observe(imu::Sample const&)+0x4e>
+    2a8c:	f894 3035 	ldrb.w	r3, [r4, #53]	@ 0x35
+    2a90:	2b00      	cmp	r3, #0
+    2a92:	d0e9      	beq.n	2a68 <imu::Estimator::observe(imu::Sample const&)+0x14>
+    2a94:	2300      	movs	r3, #0
+    2a96:	2206      	movs	r2, #6
+    2a98:	4621      	mov	r1, r4
+    2a9a:	4630      	mov	r0, r6
+    2a9c:	4c2b      	ldr	r4, [pc, #172]	@ (2b4c <imu::Estimator::observe(imu::Sample const&)+0xf8>)
+    2a9e:	47a0      	blx	r4
+    2aa0:	e7ec      	b.n	2a7c <imu::Estimator::observe(imu::Sample const&)+0x28>
+    2aa2:	2b03      	cmp	r3, #3
+    2aa4:	d105      	bne.n	2ab2 <imu::Estimator::observe(imu::Sample const&)+0x5e>
+    2aa6:	786b      	ldrb	r3, [r5, #1]
+    2aa8:	1e5a      	subs	r2, r3, #1
+    2aaa:	2a05      	cmp	r2, #5
+    2aac:	d8f2      	bhi.n	2a94 <imu::Estimator::observe(imu::Sample const&)+0x40>
+    2aae:	2205      	movs	r2, #5
+    2ab0:	e7f2      	b.n	2a98 <imu::Estimator::observe(imu::Sample const&)+0x44>
+    2ab2:	3b01      	subs	r3, #1
+    2ab4:	2b01      	cmp	r3, #1
+    2ab6:	d8ed      	bhi.n	2a94 <imu::Estimator::observe(imu::Sample const&)+0x40>
+    2ab8:	786b      	ldrb	r3, [r5, #1]
+    2aba:	2b00      	cmp	r3, #0
+    2abc:	d1ea      	bne.n	2a94 <imu::Estimator::observe(imu::Sample const&)+0x40>
+    2abe:	f8b5 3048 	ldrh.w	r3, [r5, #72]	@ 0x48
+    2ac2:	2b00      	cmp	r3, #0
+    2ac4:	d1e6      	bne.n	2a94 <imu::Estimator::observe(imu::Sample const&)+0x40>
+    2ac6:	6ceb      	ldr	r3, [r5, #76]	@ 0x4c
+    2ac8:	2b00      	cmp	r3, #0
+    2aca:	d1e3      	bne.n	2a94 <imu::Estimator::observe(imu::Sample const&)+0x40>
+    2acc:	2301      	movs	r3, #1
+    2ace:	f884 3035 	strb.w	r3, [r4, #53]	@ 0x35
+    2ad2:	4620      	mov	r0, r4
+    2ad4:	6d69      	ldr	r1, [r5, #84]	@ 0x54
+    2ad6:	4b1e      	ldr	r3, [pc, #120]	@ (2b50 <imu::Estimator::observe(imu::Sample const&)+0xfc>)
+    2ad8:	4798      	blx	r3
+    2ada:	2800      	cmp	r0, #0
+    2adc:	d0c4      	beq.n	2a68 <imu::Estimator::observe(imu::Sample const&)+0x14>
+    2ade:	782b      	ldrb	r3, [r5, #0]
+    2ae0:	2b01      	cmp	r3, #1
+    2ae2:	d124      	bne.n	2b2e <imu::Estimator::observe(imu::Sample const&)+0xda>
+    2ae4:	6d2a      	ldr	r2, [r5, #80]	@ 0x50
+    2ae6:	6c23      	ldr	r3, [r4, #64]	@ 0x40
+    2ae8:	429a      	cmp	r2, r3
+    2aea:	d002      	beq.n	2af2 <imu::Estimator::observe(imu::Sample const&)+0x9e>
+    2aec:	2300      	movs	r3, #0
+    2aee:	2208      	movs	r2, #8
+    2af0:	e7d2      	b.n	2a98 <imu::Estimator::observe(imu::Sample const&)+0x44>
+    2af2:	f895 3046 	ldrb.w	r3, [r5, #70]	@ 0x46
+    2af6:	2b00      	cmp	r3, #0
+    2af8:	d1cc      	bne.n	2a94 <imu::Estimator::observe(imu::Sample const&)+0x40>
+    2afa:	f895 3064 	ldrb.w	r3, [r5, #100]	@ 0x64
+    2afe:	2b00      	cmp	r3, #0
+    2b00:	d1c8      	bne.n	2a94 <imu::Estimator::observe(imu::Sample const&)+0x40>
+    2b02:	6e2b      	ldr	r3, [r5, #96]	@ 0x60
+    2b04:	2b00      	cmp	r3, #0
+    2b06:	d1c5      	bne.n	2a94 <imu::Estimator::observe(imu::Sample const&)+0x40>
+    2b08:	f894 3037 	ldrb.w	r3, [r4, #55]	@ 0x37
+    2b0c:	2b00      	cmp	r3, #0
+    2b0e:	d0ab      	beq.n	2a68 <imu::Estimator::observe(imu::Sample const&)+0x14>
+    2b10:	e9d4 0112 	ldrd	r0, r1, [r4, #72]	@ 0x48
+    2b14:	2302      	movs	r3, #2
+    2b16:	7123      	strb	r3, [r4, #4]
+    2b18:	4b0e      	ldr	r3, [pc, #56]	@ (2b54 <imu::Estimator::observe(imu::Sample const&)+0x100>)
+    2b1a:	4798      	blx	r3
+    2b1c:	6be2      	ldr	r2, [r4, #60]	@ 0x3c
+    2b1e:	6ba3      	ldr	r3, [r4, #56]	@ 0x38
+    2b20:	60e0      	str	r0, [r4, #12]
+    2b22:	1a9b      	subs	r3, r3, r2
+    2b24:	6323      	str	r3, [r4, #48]	@ 0x30
+    2b26:	2301      	movs	r3, #1
+    2b28:	62a2      	str	r2, [r4, #40]	@ 0x28
+    2b2a:	7263      	strb	r3, [r4, #9]
+    2b2c:	e79c      	b.n	2a68 <imu::Estimator::observe(imu::Sample const&)+0x14>
+    2b2e:	4629      	mov	r1, r5
+    2b30:	4620      	mov	r0, r4
+    2b32:	4b09      	ldr	r3, [pc, #36]	@ (2b58 <imu::Estimator::observe(imu::Sample const&)+0x104>)
+    2b34:	4798      	blx	r3
+    2b36:	2800      	cmp	r0, #0
+    2b38:	d096      	beq.n	2a68 <imu::Estimator::observe(imu::Sample const&)+0x14>
+    2b3a:	462a      	mov	r2, r5
+    2b3c:	4621      	mov	r1, r4
+    2b3e:	4630      	mov	r0, r6
+    2b40:	4b06      	ldr	r3, [pc, #24]	@ (2b5c <imu::Estimator::observe(imu::Sample const&)+0x108>)
+    2b42:	4798      	blx	r3
+    2b44:	e79a      	b.n	2a7c <imu::Estimator::observe(imu::Sample const&)+0x28>
+    2b46:	bf00      	nop
+	...
+
+00002b60 <imu::Estimator::applyBias(float)>:
+    2b60:	b510      	push	{r4, lr}
+    2b62:	4601      	mov	r1, r0
+    2b64:	f890 0034 	ldrb.w	r0, [r0, #52]	@ 0x34
+    2b68:	b08c      	sub	sp, #48	@ 0x30
+    2b6a:	b1e8      	cbz	r0, 2ba8 <imu::Estimator::applyBias(float)+0x48>
+    2b6c:	790b      	ldrb	r3, [r1, #4]
+    2b6e:	2b03      	cmp	r3, #3
+    2b70:	d01a      	beq.n	2ba8 <imu::Estimator::applyBias(float)+0x48>
+    2b72:	eef0 7ac0 	vabs.f32	s15, s0
+    2b76:	ed9f 7a0d 	vldr	s14, [pc, #52]	@ 2bac <imu::Estimator::applyBias(float)+0x4c>
+    2b7a:	eef4 7a47 	vcmp.f32	s15, s14
+    2b7e:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+    2b82:	d80c      	bhi.n	2b9e <imu::Estimator::applyBias(float)+0x3e>
+    2b84:	ed9f 7a0a 	vldr	s14, [pc, #40]	@ 2bb0 <imu::Estimator::applyBias(float)+0x50>
+    2b88:	eef4 7ac7 	vcmpe.f32	s15, s14
+    2b8c:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+    2b90:	d805      	bhi.n	2b9e <imu::Estimator::applyBias(float)+0x3e>
+    2b92:	ed81 0a15 	vstr	s0, [r1, #84]	@ 0x54
+    2b96:	ed81 0a08 	vstr	s0, [r1, #32]
+    2b9a:	b00c      	add	sp, #48	@ 0x30
+    2b9c:	bd10      	pop	{r4, pc}
+    2b9e:	2300      	movs	r3, #0
+    2ba0:	2204      	movs	r2, #4
+    2ba2:	4668      	mov	r0, sp
+    2ba4:	4c03      	ldr	r4, [pc, #12]	@ (2bb4 <imu::Estimator::applyBias(float)+0x54>)
+    2ba6:	47a0      	blx	r4
+    2ba8:	2000      	movs	r0, #0
+    2baa:	e7f6      	b.n	2b9a <imu::Estimator::applyBias(float)+0x3a>
+    2bac:	7f7fffff 	.word	0x7f7fffff
+    2bb0:	447a0000 	.word	0x447a0000
+    2bb4:	00000000 	.word	0x00000000
+
+00002bb8 <_GLOBAL__sub_I__ZN6motors8UnoQPort4portEv>:
+    2bb8:	4a06      	ldr	r2, [pc, #24]	@ (2bd4 <_GLOBAL__sub_I__ZN6motors8UnoQPort4portEv+0x1c>)
+    2bba:	6813      	ldr	r3, [r2, #0]
+    2bbc:	1c59      	adds	r1, r3, #1
+    2bbe:	6011      	str	r1, [r2, #0]
+    2bc0:	b933      	cbnz	r3, 2bd0 <_GLOBAL__sub_I__ZN6motors8UnoQPort4portEv+0x18>
+    2bc2:	4a05      	ldr	r2, [pc, #20]	@ (2bd8 <_GLOBAL__sub_I__ZN6motors8UnoQPort4portEv+0x20>)
+    2bc4:	4905      	ldr	r1, [pc, #20]	@ (2bdc <_GLOBAL__sub_I__ZN6motors8UnoQPort4portEv+0x24>)
+    2bc6:	e9c2 3307 	strd	r3, r3, [r2, #28]
+    2bca:	6011      	str	r1, [r2, #0]
+    2bcc:	7613      	strb	r3, [r2, #24]
+    2bce:	6253      	str	r3, [r2, #36]	@ 0x24
+    2bd0:	4770      	bx	lr
+    2bd2:	bf00      	nop
+	...
+
+00002c00 <_GLOBAL__sub_I__ZN11opp_sensors7Sensors5beginEv>:
+    2c00:	4a06      	ldr	r2, [pc, #24]	@ (2c1c <_GLOBAL__sub_I__ZN11opp_sensors7Sensors5beginEv+0x1c>)
+    2c02:	6813      	ldr	r3, [r2, #0]
+    2c04:	1c59      	adds	r1, r3, #1
+    2c06:	6011      	str	r1, [r2, #0]
+    2c08:	b933      	cbnz	r3, 2c18 <_GLOBAL__sub_I__ZN11opp_sensors7Sensors5beginEv+0x18>
+    2c0a:	4a05      	ldr	r2, [pc, #20]	@ (2c20 <_GLOBAL__sub_I__ZN11opp_sensors7Sensors5beginEv+0x20>)
+    2c0c:	4905      	ldr	r1, [pc, #20]	@ (2c24 <_GLOBAL__sub_I__ZN11opp_sensors7Sensors5beginEv+0x24>)
+    2c0e:	e9c2 3307 	strd	r3, r3, [r2, #28]
+    2c12:	6011      	str	r1, [r2, #0]
+    2c14:	7613      	strb	r3, [r2, #24]
+    2c16:	6253      	str	r3, [r2, #36]	@ 0x24
+    2c18:	4770      	bx	lr
+    2c1a:	bf00      	nop
+	...
+
+00002c48 <_GLOBAL__sub_I__ZNK5power6Reader13controlsOwnedEv>:
+    2c48:	4a06      	ldr	r2, [pc, #24]	@ (2c64 <_GLOBAL__sub_I__ZNK5power6Reader13controlsOwnedEv+0x1c>)
+    2c4a:	6813      	ldr	r3, [r2, #0]
+    2c4c:	1c59      	adds	r1, r3, #1
+    2c4e:	6011      	str	r1, [r2, #0]
+    2c50:	b933      	cbnz	r3, 2c60 <_GLOBAL__sub_I__ZNK5power6Reader13controlsOwnedEv+0x18>
+    2c52:	4a05      	ldr	r2, [pc, #20]	@ (2c68 <_GLOBAL__sub_I__ZNK5power6Reader13controlsOwnedEv+0x20>)
+    2c54:	4905      	ldr	r1, [pc, #20]	@ (2c6c <_GLOBAL__sub_I__ZNK5power6Reader13controlsOwnedEv+0x24>)
+    2c56:	e9c2 3307 	strd	r3, r3, [r2, #28]
+    2c5a:	6011      	str	r1, [r2, #0]
+    2c5c:	7613      	strb	r3, [r2, #24]
+    2c5e:	6253      	str	r3, [r2, #36]	@ 0x24
+    2c60:	4770      	bx	lr
+    2c62:	bf00      	nop
+	...
+
+00002c90 <imu_heading_probe::exercise()>:
+    2c90:	b570      	push	{r4, r5, r6, lr}
+    2c92:	4606      	mov	r6, r0
+    2c94:	4c19      	ldr	r4, [pc, #100]	@ (2cfc <imu_heading_probe::exercise()+0x6c>)
+    2c96:	b08c      	sub	sp, #48	@ 0x30
+    2c98:	2238      	movs	r2, #56	@ 0x38
+    2c9a:	2100      	movs	r1, #0
+    2c9c:	4b18      	ldr	r3, [pc, #96]	@ (2d00 <imu_heading_probe::exercise()+0x70>)
+    2c9e:	4798      	blx	r3
+    2ca0:	ed94 0a00 	vldr	s0, [r4]
+    2ca4:	4917      	ldr	r1, [pc, #92]	@ (2d04 <imu_heading_probe::exercise()+0x74>)
+    2ca6:	4b18      	ldr	r3, [pc, #96]	@ (2d08 <imu_heading_probe::exercise()+0x78>)
+    2ca8:	4818      	ldr	r0, [pc, #96]	@ (2d0c <imu_heading_probe::exercise()+0x7c>)
+    2caa:	4798      	blx	r3
+    2cac:	4633      	mov	r3, r6
+    2cae:	f803 0b04 	strb.w	r0, [r3], #4
+    2cb2:	4618      	mov	r0, r3
+    2cb4:	4a16      	ldr	r2, [pc, #88]	@ (2d10 <imu_heading_probe::exercise()+0x80>)
+    2cb6:	4915      	ldr	r1, [pc, #84]	@ (2d0c <imu_heading_probe::exercise()+0x7c>)
+    2cb8:	4b16      	ldr	r3, [pc, #88]	@ (2d14 <imu_heading_probe::exercise()+0x84>)
+    2cba:	4798      	blx	r3
+    2cbc:	ed94 0a00 	vldr	s0, [r4]
+    2cc0:	4b15      	ldr	r3, [pc, #84]	@ (2d18 <imu_heading_probe::exercise()+0x88>)
+    2cc2:	4812      	ldr	r0, [pc, #72]	@ (2d0c <imu_heading_probe::exercise()+0x7c>)
+    2cc4:	4798      	blx	r3
+    2cc6:	466d      	mov	r5, sp
+    2cc8:	4b10      	ldr	r3, [pc, #64]	@ (2d0c <imu_heading_probe::exercise()+0x7c>)
+    2cca:	f886 0034 	strb.w	r0, [r6, #52]	@ 0x34
+    2cce:	1d1c      	adds	r4, r3, #4
+    2cd0:	cc0f      	ldmia	r4!, {r0, r1, r2, r3}
+    2cd2:	c50f      	stmia	r5!, {r0, r1, r2, r3}
+    2cd4:	cc0f      	ldmia	r4!, {r0, r1, r2, r3}
+    2cd6:	c50f      	stmia	r5!, {r0, r1, r2, r3}
+    2cd8:	e894 000f 	ldmia.w	r4, {r0, r1, r2, r3}
+    2cdc:	e885 000f 	stmia.w	r5, {r0, r1, r2, r3}
+    2ce0:	466d      	mov	r5, sp
+    2ce2:	f106 0438 	add.w	r4, r6, #56	@ 0x38
+    2ce6:	cd0f      	ldmia	r5!, {r0, r1, r2, r3}
+    2ce8:	c40f      	stmia	r4!, {r0, r1, r2, r3}
+    2cea:	cd0f      	ldmia	r5!, {r0, r1, r2, r3}
+    2cec:	c40f      	stmia	r4!, {r0, r1, r2, r3}
+    2cee:	e895 000f 	ldmia.w	r5, {r0, r1, r2, r3}
+    2cf2:	e884 000f 	stmia.w	r4, {r0, r1, r2, r3}
+    2cf6:	4630      	mov	r0, r6
+    2cf8:	b00c      	add	sp, #48	@ 0x30
+    2cfa:	bd70      	pop	{r4, r5, r6, pc}
+	...
+
+00004960 <_GLOBAL__sub_I_Bridge>:
+    4960:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+    4964:	4a22      	ldr	r2, [pc, #136]	@ (49f0 <_GLOBAL__sub_I_Bridge+0x90>)
+    4966:	4e23      	ldr	r6, [pc, #140]	@ (49f4 <_GLOBAL__sub_I_Bridge+0x94>)
+    4968:	6813      	ldr	r3, [r2, #0]
+    496a:	1c59      	adds	r1, r3, #1
+    496c:	6011      	str	r1, [r2, #0]
+    496e:	b92b      	cbnz	r3, 497c <_GLOBAL__sub_I_Bridge+0x1c>
+    4970:	4a21      	ldr	r2, [pc, #132]	@ (49f8 <_GLOBAL__sub_I_Bridge+0x98>)
+    4972:	e9c2 3307 	strd	r3, r3, [r2, #28]
+    4976:	6016      	str	r6, [r2, #0]
+    4978:	7613      	strb	r3, [r2, #24]
+    497a:	6253      	str	r3, [r2, #36]	@ 0x24
+    497c:	2400      	movs	r4, #0
+    497e:	f44f 7880 	mov.w	r8, #256	@ 0x100
+    4982:	4f1e      	ldr	r7, [pc, #120]	@ (49fc <_GLOBAL__sub_I_Bridge+0x9c>)
+    4984:	2214      	movs	r2, #20
+    4986:	4621      	mov	r1, r4
+    4988:	481d      	ldr	r0, [pc, #116]	@ (4a00 <_GLOBAL__sub_I_Bridge+0xa0>)
+    498a:	e9c6 4400 	strd	r4, r4, [r6]
+    498e:	60f4      	str	r4, [r6, #12]
+    4990:	47b8      	blx	r7
+    4992:	2214      	movs	r2, #20
+    4994:	4621      	mov	r1, r4
+    4996:	481b      	ldr	r0, [pc, #108]	@ (4a04 <_GLOBAL__sub_I_Bridge+0xa4>)
+    4998:	47b8      	blx	r7
+    499a:	2214      	movs	r2, #20
+    499c:	4621      	mov	r1, r4
+    499e:	481a      	ldr	r0, [pc, #104]	@ (4a08 <_GLOBAL__sub_I_Bridge+0xa8>)
+    49a0:	47b8      	blx	r7
+    49a2:	4642      	mov	r2, r8
+    49a4:	4621      	mov	r1, r4
+    49a6:	4819      	ldr	r0, [pc, #100]	@ (4a0c <_GLOBAL__sub_I_Bridge+0xac>)
+    49a8:	e9c6 4413 	strd	r4, r4, [r6, #76]	@ 0x4c
+    49ac:	47b8      	blx	r7
+    49ae:	4b18      	ldr	r3, [pc, #96]	@ (4a10 <_GLOBAL__sub_I_Bridge+0xb0>)
+    49b0:	4d18      	ldr	r5, [pc, #96]	@ (4a14 <_GLOBAL__sub_I_Bridge+0xb4>)
+    49b2:	60b3      	str	r3, [r6, #8]
+    49b4:	f44f 737a 	mov.w	r3, #1000	@ 0x3e8
+    49b8:	60ab      	str	r3, [r5, #8]
+    49ba:	4b17      	ldr	r3, [pc, #92]	@ (4a18 <_GLOBAL__sub_I_Bridge+0xb8>)
+    49bc:	f44f 7200 	mov.w	r2, #512	@ 0x200
+    49c0:	4621      	mov	r1, r4
+    49c2:	f105 0014 	add.w	r0, r5, #20
+    49c6:	602b      	str	r3, [r5, #0]
+    49c8:	f886 4158 	strb.w	r4, [r6, #344]	@ 0x158
+    49cc:	606c      	str	r4, [r5, #4]
+    49ce:	612e      	str	r6, [r5, #16]
+    49d0:	47b8      	blx	r7
+    49d2:	2214      	movs	r2, #20
+    49d4:	4621      	mov	r1, r4
+    49d6:	f505 7008 	add.w	r0, r5, #544	@ 0x220
+    49da:	f8c5 4214 	str.w	r4, [r5, #532]	@ 0x214
+    49de:	f8c5 4218 	str.w	r4, [r5, #536]	@ 0x218
+    49e2:	f8c5 421c 	str.w	r4, [r5, #540]	@ 0x21c
+    49e6:	47b8      	blx	r7
+    49e8:	f8a5 8234 	strh.w	r8, [r5, #564]	@ 0x234
+    49ec:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+	...
+    4a00:	00000010 	.word	0x00000010
+    4a04:	00000024 	.word	0x00000024
+    4a08:	00000038 	.word	0x00000038
+    4a0c:	00000058 	.word	0x00000058
+	...
+    4a18:	00000008 	.word	0x00000008
+
+00004a74 <__aeabi_unwind_cpp_pr0>:
+    4a74:	b508      	push	{r3, lr}
+    4a76:	4b01      	ldr	r3, [pc, #4]	@ (4a7c <__aeabi_unwind_cpp_pr0+0x8>)
+    4a78:	4798      	blx	r3
+    4a7a:	bf00      	nop
+    4a7c:	00000000 	.word	0x00000000
+
+00004a80 <__aeabi_unwind_cpp_pr1>:
+    4a80:	b508      	push	{r3, lr}
+    4a82:	4b01      	ldr	r3, [pc, #4]	@ (4a88 <__aeabi_unwind_cpp_pr1+0x8>)
+    4a84:	4798      	blx	r3
+    4a86:	bf00      	nop
+    4a88:	00000000 	.word	0x00000000
+
+00004d48 <__aeabi_dadd>:
+    4d48:	f240 0c00 	movw	ip, #0
+    4d4c:	f2c0 0c00 	movt	ip, #0
+    4d50:	4760      	bx	ip
+
+00004d52 <__aeabi_dsub>:
+    4d52:	f240 0c00 	movw	ip, #0
+    4d56:	f2c0 0c00 	movt	ip, #0
+    4d5a:	4760      	bx	ip
+
+00004d5c <__aeabi_dmul>:
+    4d5c:	f240 0c00 	movw	ip, #0
+    4d60:	f2c0 0c00 	movt	ip, #0
+    4d64:	4760      	bx	ip
+
+00004d66 <__aeabi_ddiv>:
+    4d66:	f240 0c00 	movw	ip, #0
+    4d6a:	f2c0 0c00 	movt	ip, #0
+    4d6e:	4760      	bx	ip
+
+00004d70 <__aeabi_dcmple>:
+    4d70:	f240 0c00 	movw	ip, #0
+    4d74:	f2c0 0c00 	movt	ip, #0
+    4d78:	4760      	bx	ip
+
+00004d7a <__aeabi_dcmpgt>:
+    4d7a:	f240 0c00 	movw	ip, #0
+    4d7e:	f2c0 0c00 	movt	ip, #0
+    4d82:	4760      	bx	ip
+
+00004d84 <__aeabi_dcmpun>:
+    4d84:	f240 0c00 	movw	ip, #0
+    4d88:	f2c0 0c00 	movt	ip, #0
+    4d8c:	4760      	bx	ip
+
+00004d8e <__aeabi_i2d>:
+    4d8e:	f240 0c00 	movw	ip, #0
+    4d92:	f2c0 0c00 	movt	ip, #0
+    4d96:	4760      	bx	ip
+
+00004d98 <__aeabi_ui2d>:
+    4d98:	f240 0c00 	movw	ip, #0
+    4d9c:	f2c0 0c00 	movt	ip, #0
+    4da0:	4760      	bx	ip
+
+00004da2 <__aeabi_l2d>:
+    4da2:	f240 0c00 	movw	ip, #0
+    4da6:	f2c0 0c00 	movt	ip, #0
+    4daa:	4760      	bx	ip
+
+00004dac <__aeabi_ul2d>:
+    4dac:	f240 0c00 	movw	ip, #0
+    4db0:	f2c0 0c00 	movt	ip, #0
+    4db4:	4760      	bx	ip
+
+00004db6 <__aeabi_d2f>:
+    4db6:	f240 0c00 	movw	ip, #0
+    4dba:	f2c0 0c00 	movt	ip, #0
+    4dbe:	4760      	bx	ip
+
+00004dc0 <__aeabi_f2d>:
+    4dc0:	f240 0c00 	movw	ip, #0
+    4dc4:	f2c0 0c00 	movt	ip, #0
+    4dc8:	4760      	bx	ip
+
+00004dca <__aeabi_l2f>:
+    4dca:	f240 0c00 	movw	ip, #0
+    4dce:	f2c0 0c00 	movt	ip, #0
+    4dd2:	4760      	bx	ip
+
+00004dd4 <__aeabi_ul2f>:
+    4dd4:	f240 0c00 	movw	ip, #0
+    4dd8:	f2c0 0c00 	movt	ip, #0
+    4ddc:	4760      	bx	ip
+	...
+
+00004df4 <initVariant>:
+    4df4:	4770      	bx	lr
+	...
+
+00005370 <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt>:
+    5370:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+    5374:	f04f 0800 	mov.w	r8, #0
+    5378:	f44f 777a 	mov.w	r7, #1000	@ 0x3e8
+    537c:	4d13      	ldr	r5, [pc, #76]	@ (53cc <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt+0x5c>)
+    537e:	4e14      	ldr	r6, [pc, #80]	@ (53d0 <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt+0x60>)
+    5380:	4b14      	ldr	r3, [pc, #80]	@ (53d4 <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt+0x64>)
+    5382:	4c15      	ldr	r4, [pc, #84]	@ (53d8 <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt+0x68>)
+    5384:	f105 0014 	add.w	r0, r5, #20
+    5388:	612b      	str	r3, [r5, #16]
+    538a:	e9c5 8701 	strd	r8, r7, [r5, #4]
+    538e:	602e      	str	r6, [r5, #0]
+    5390:	47a0      	blx	r4
+    5392:	f505 6088 	add.w	r0, r5, #1088	@ 0x440
+    5396:	4d11      	ldr	r5, [pc, #68]	@ (53dc <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt+0x6c>)
+    5398:	47a0      	blx	r4
+    539a:	4b11      	ldr	r3, [pc, #68]	@ (53e0 <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt+0x70>)
+    539c:	f105 0014 	add.w	r0, r5, #20
+    53a0:	612b      	str	r3, [r5, #16]
+    53a2:	e9c5 8701 	strd	r8, r7, [r5, #4]
+    53a6:	602e      	str	r6, [r5, #0]
+    53a8:	47a0      	blx	r4
+    53aa:	f505 6088 	add.w	r0, r5, #1088	@ 0x440
+    53ae:	4d0d      	ldr	r5, [pc, #52]	@ (53e4 <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt+0x74>)
+    53b0:	47a0      	blx	r4
+    53b2:	4b0d      	ldr	r3, [pc, #52]	@ (53e8 <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt+0x78>)
+    53b4:	f105 0014 	add.w	r0, r5, #20
+    53b8:	e9c5 8701 	strd	r8, r7, [r5, #4]
+    53bc:	602e      	str	r6, [r5, #0]
+    53be:	612b      	str	r3, [r5, #16]
+    53c0:	47a0      	blx	r4
+    53c2:	f505 6088 	add.w	r0, r5, #1088	@ 0x440
+    53c6:	47a0      	blx	r4
+    53c8:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+    53cc:	00000000 	.word	0x00000000
+    53d0:	00000008 	.word	0x00000008
+	...
+
+00005a70 <_GLOBAL__sub_I__ZSt20__throw_system_errori>:
+    5a70:	4a06      	ldr	r2, [pc, #24]	@ (5a8c <_GLOBAL__sub_I__ZSt20__throw_system_errori+0x1c>)
+    5a72:	4907      	ldr	r1, [pc, #28]	@ (5a90 <_GLOBAL__sub_I__ZSt20__throw_system_errori+0x20>)
+    5a74:	4807      	ldr	r0, [pc, #28]	@ (5a94 <_GLOBAL__sub_I__ZSt20__throw_system_errori+0x24>)
+    5a76:	b508      	push	{r3, lr}
+    5a78:	f7ff fffe 	bl	5aa0 <__aeabi_atexit>
+    5a7c:	4a03      	ldr	r2, [pc, #12]	@ (5a8c <_GLOBAL__sub_I__ZSt20__throw_system_errori+0x1c>)
+    5a7e:	4906      	ldr	r1, [pc, #24]	@ (5a98 <_GLOBAL__sub_I__ZSt20__throw_system_errori+0x28>)
+    5a80:	4806      	ldr	r0, [pc, #24]	@ (5a9c <_GLOBAL__sub_I__ZSt20__throw_system_errori+0x2c>)
+    5a82:	e8bd 4008 	ldmia.w	sp!, {r3, lr}
+    5a86:	f7ff bffe 	b.w	5aa0 <__aeabi_atexit>
+    5a8a:	bf00      	nop
+	...
+    5a94:	00000070 	.word	0x00000070
+    5a98:	00000000 	.word	0x00000000
+    5a9c:	0000006c 	.word	0x0000006c
+
+00005aa0 <__aeabi_atexit>:
+    5aa0:	460b      	mov	r3, r1
+    5aa2:	4601      	mov	r1, r0
+    5aa4:	4618      	mov	r0, r3
+    5aa6:	f7ff bffe 	b.w	4a3c <__cxa_atexit>
+
+00000074  00000102 R_ARM_ABS32            00000000   .rodata
+00000078  00047d02 R_ARM_ABS32            00000000   __device_dts_ord_61
+00000074  0004ff02 R_ARM_ABS32            00000004   _ZN17imu_heading_probe5entryE
+00000078  00040402 R_ARM_ABS32            00002c91   _ZN17imu_heading_probe8exerciseEv
+00002478  0003e202 R_ARM_ABS32            00000000   z_impl_k_yield
+0000247c  0004cd02 R_ARM_ABS32            00000330   Bridge
+00002480  0004cd02 R_ARM_ABS32            00000330   Bridge
+00002484  00040a02 R_ARM_ABS32            00000000   z_impl_k_mutex_lock
+00002488  00018a02 R_ARM_ABS32            00000031   k_mutex_unlock.isra.0
+0000248c  0003f902 R_ARM_ABS32            00002331   _ZN11BridgeClass11update_safeEv
+000024ac  0003cd02 R_ARM_ABS32            00000000   _ZGVN12RouterBridge3HCIE
+000024b0  0004ca02 R_ARM_ABS32            00000068   _ZN12RouterBridge3HCIE
+000024b4  0004cd02 R_ARM_ABS32            00000330   Bridge
+000024f4  0003cd02 R_ARM_ABS32            00000000   _ZGVN12RouterBridge3HCIE
+000024f8  0004ca02 R_ARM_ABS32            00000068   _ZN12RouterBridge3HCIE
+000024fc  0004cd02 R_ARM_ABS32            00000330   Bridge
+0000255c  0004a602 R_ARM_ABS32            00004d21   memset
+00002594  0004ed02 R_ARM_ABS32            0000253d   _ZN3imu9Estimator5clearENS_12HeadingStateE
+00002680  0003d402 R_ARM_ABS32            00002561   _ZN3imu9Estimator4failENS_12HeadingFaultENS_11SampleFaultE
+0000268c  0004ed02 R_ARM_ABS32            0000253d   _ZN3imu9Estimator5clearENS_12HeadingStateE
+000026dc  0003d402 R_ARM_ABS32            00002561   _ZN3imu9Estimator4failENS_12HeadingFaultENS_11SampleFaultE
+000027d4  0003d402 R_ARM_ABS32            00002561   _ZN3imu9Estimator4failENS_12HeadingFaultENS_11SampleFaultE
+00002a18  00027e02 R_ARM_ABS32            00002521   _ZN3imu12_GLOBAL__N_16mappedEPKfa
+00002a1c  00051002 R_ARM_ABS32            00004dc1   __aeabi_f2d
+00002a24  00046902 R_ARM_ABS32            00004d53   __aeabi_dsub
+00002a28  00041202 R_ARM_ABS32            00004d99   __aeabi_ui2d
+00002a2c  00042002 R_ARM_ABS32            00004d67   __aeabi_ddiv
+00002a38  0003b802 R_ARM_ABS32            00004d71   __aeabi_dcmple
+00002a3c  0003d402 R_ARM_ABS32            00002561   _ZN3imu9Estimator4failENS_12HeadingFaultENS_11SampleFaultE
+00002a40  00044b02 R_ARM_ABS32            00004d49   __aeabi_dadd
+00002a44  00042602 R_ARM_ABS32            00004d5d   __aeabi_dmul
+00002a48  0003b702 R_ARM_ABS32            00004d85   __aeabi_dcmpun
+00002a4c  00045d02 R_ARM_ABS32            00004d7b   __aeabi_dcmpgt
+00002a50  00043802 R_ARM_ABS32            00004db7   __aeabi_d2f
+00002b48  0004ed02 R_ARM_ABS32            0000253d   _ZN3imu9Estimator5clearENS_12HeadingStateE
+00002b4c  0003d402 R_ARM_ABS32            00002561   _ZN3imu9Estimator4failENS_12HeadingFaultENS_11SampleFaultE
+00002b50  0004ba02 R_ARM_ABS32            00002691   _ZN3imu9Estimator10acceptTimeEj
+00002b54  00043802 R_ARM_ABS32            00004db7   __aeabi_d2f
+00002b58  00043b02 R_ARM_ABS32            000026e1   _ZN3imu9Estimator19validateObservationERKNS_6SampleE
+00002b5c  00050f02 R_ARM_ABS32            000027e1   _ZN3imu9Estimator7publishERKNS_6SampleE
+00002bb4  0003d402 R_ARM_ABS32            00002561   _ZN3imu9Estimator4failENS_12HeadingFaultENS_11SampleFaultE
+00002bd4  0003cd02 R_ARM_ABS32            00000000   _ZGVN12RouterBridge3HCIE
+00002bd8  0004ca02 R_ARM_ABS32            00000068   _ZN12RouterBridge3HCIE
+00002bdc  0004cd02 R_ARM_ABS32            00000330   Bridge
+00002c1c  0003cd02 R_ARM_ABS32            00000000   _ZGVN12RouterBridge3HCIE
+00002c20  0004ca02 R_ARM_ABS32            00000068   _ZN12RouterBridge3HCIE
+00002c24  0004cd02 R_ARM_ABS32            00000330   Bridge
+00002c64  0003cd02 R_ARM_ABS32            00000000   _ZGVN12RouterBridge3HCIE
+00002c68  0004ca02 R_ARM_ABS32            00000068   _ZN12RouterBridge3HCIE
+00002c6c  0004cd02 R_ARM_ABS32            00000330   Bridge
+00002cfc  00040d02 R_ARM_ABS32            00000008   _ZN17imu_heading_probe18candidate_bias_dpsE
+00002d00  0004a602 R_ARM_ABS32            00004d21   memset
+00002d04  0004c102 R_ARM_ABS32            0000000c   _ZN17imu_heading_probe18candidate_mountingE
+00002d08  00043602 R_ARM_ABS32            00002599   _ZN3imu9Estimator5beginERKNS_8MountingEf
+00002d0c  00045002 R_ARM_ABS32            00000010   _ZN17imu_heading_probe9estimatorE
+00002d10  00044702 R_ARM_ABS32            00000000   _ZN17imu_heading_probe16candidate_sampleE
+00002d14  0004a502 R_ARM_ABS32            00002a55   _ZN3imu9Estimator7observeERKNS_6SampleE
+00002d18  0004ef02 R_ARM_ABS32            00002b61   _ZN3imu9Estimator9applyBiasEf
+000049f0  0003cd02 R_ARM_ABS32            00000000   _ZGVN12RouterBridge3HCIE
+000049f4  0004cd02 R_ARM_ABS32            00000330   Bridge
+000049f8  0004ca02 R_ARM_ABS32            00000068   _ZN12RouterBridge3HCIE
+000049fc  0004a602 R_ARM_ABS32            00004d21   memset
+00004a00  0004cd02 R_ARM_ABS32            00000330   Bridge
+00004a04  0004cd02 R_ARM_ABS32            00000330   Bridge
+00004a08  0004cd02 R_ARM_ABS32            00000330   Bridge
+00004a0c  0004cd02 R_ARM_ABS32            00000330   Bridge
+00004a10  00052a02 R_ARM_ABS32            00000cfc   Serial2
+00004a14  00046b02 R_ARM_ABS32            000000f4   Monitor
+00004a18  00052302 R_ARM_ABS32            0000026c   _ZTV13BridgeMonitorILj512EE
+00004a7c  00043202 R_ARM_ABS32            00004de9   abort
+00004a88  00043202 R_ARM_ABS32            00004de9   abort
+00004d48  0004fc2f R_ARM_THM_MOVW_ABS_NC  00000000   __real___aeabi_dadd
+00004d4c  0004fc30 R_ARM_THM_MOVT_ABS     00000000   __real___aeabi_dadd
+00004d52  0004682f R_ARM_THM_MOVW_ABS_NC  00000000   __real___aeabi_dsub
+00004d56  00046830 R_ARM_THM_MOVT_ABS     00000000   __real___aeabi_dsub
+00004d5c  0004b82f R_ARM_THM_MOVW_ABS_NC  00000000   __real___aeabi_dmul
+00004d60  0004b830 R_ARM_THM_MOVT_ABS     00000000   __real___aeabi_dmul
+00004d66  0004062f R_ARM_THM_MOVW_ABS_NC  00000000   __real___aeabi_ddiv
+00004d6a  00040630 R_ARM_THM_MOVT_ABS     00000000   __real___aeabi_ddiv
+00004d70  00048b2f R_ARM_THM_MOVW_ABS_NC  00000000   __real___aeabi_dcmple
+00004d74  00048b30 R_ARM_THM_MOVT_ABS     00000000   __real___aeabi_dcmple
+00004d7a  0003b92f R_ARM_THM_MOVW_ABS_NC  00000000   __real___aeabi_dcmpgt
+00004d7e  0003b930 R_ARM_THM_MOVT_ABS     00000000   __real___aeabi_dcmpgt
+00004d84  0003d52f R_ARM_THM_MOVW_ABS_NC  00000000   __real___aeabi_dcmpun
+00004d88  0003d530 R_ARM_THM_MOVT_ABS     00000000   __real___aeabi_dcmpun
+00004d8e  0004452f R_ARM_THM_MOVW_ABS_NC  00000000   __real___aeabi_i2d
+00004d92  00044530 R_ARM_THM_MOVT_ABS     00000000   __real___aeabi_i2d
+00004d98  00044c2f R_ARM_THM_MOVW_ABS_NC  00000000   __real___aeabi_ui2d
+00004d9c  00044c30 R_ARM_THM_MOVT_ABS     00000000   __real___aeabi_ui2d
+00004da2  0004162f R_ARM_THM_MOVW_ABS_NC  00000000   __real___aeabi_l2d
+00004da6  00041630 R_ARM_THM_MOVT_ABS     00000000   __real___aeabi_l2d
+00004dac  0004df2f R_ARM_THM_MOVW_ABS_NC  00000000   __real___aeabi_ul2d
+00004db0  0004df30 R_ARM_THM_MOVT_ABS     00000000   __real___aeabi_ul2d
+00004db6  00050d2f R_ARM_THM_MOVW_ABS_NC  00000000   __real___aeabi_d2f
+00004dba  00050d30 R_ARM_THM_MOVT_ABS     00000000   __real___aeabi_d2f
+00004dc0  0005042f R_ARM_THM_MOVW_ABS_NC  00000000   __real___aeabi_f2d
+00004dc4  00050430 R_ARM_THM_MOVT_ABS     00000000   __real___aeabi_f2d
+00004dca  0003eb2f R_ARM_THM_MOVW_ABS_NC  00000000   __real___aeabi_l2f
+00004dce  0003eb30 R_ARM_THM_MOVT_ABS     00000000   __real___aeabi_l2f
+00004dd4  0004d72f R_ARM_THM_MOVW_ABS_NC  00000000   __real___aeabi_ul2f
+00004dd8  0004d730 R_ARM_THM_MOVT_ABS     00000000   __real___aeabi_ul2f
+000053cc  0003e302 R_ARM_ABS32            00001568   Serial1
+000053d0  00041e02 R_ARM_ABS32            00000338   _ZTVN7arduino12ZephyrSerialE
+000053d4  00043102 R_ARM_ABS32            00000000   __device_dts_ord_73
+000053d8  0004bf02 R_ARM_ABS32            00005345   _ZN7arduino12ZephyrSerial18ZephyrSerialBufferILi1024EEC1Ev
+000053dc  00052a02 R_ARM_ABS32            00000cfc   Serial2
+000053e0  00051c02 R_ARM_ABS32            00000000   __device_dts_ord_78
+000053e4  00043a02 R_ARM_ABS32            00000490   Serial3
+000053e8  0003b302 R_ARM_ABS32            00000000   __device_dts_ord_70
+00005a8c  00041102 R_ARM_ABS32            00000068   __dso_handle
+00005a90  0000a302 R_ARM_ABS32            0000593d   _ZN12_GLOBAL__N_113constant_initINS_22generic_error_categoryEED1Ev
+00005a94  00000302 R_ARM_ABS32            00000000   .data
+00005a98  0000a602 R_ARM_ABS32            0000593f   _ZN12_GLOBAL__N_113constant_initINS_21system_error_categoryEED1Ev
+00005a9c  00000302 R_ARM_ABS32            00000000   .data
+Relocation section '.rel.init_array' at offset 0x130c8 contains 8 entries:
+ Offset     Info    Type                Sym. Value  Symbol's Name
+00000000  00022902 R_ARM_ABS32            00002491   _GLOBAL__sub_I__ZN17imu_heading_probe9estimatorE
+00000004  00027302 R_ARM_ABS32            000024d9   _GLOBAL__sub_I__ZN3imu3Bus13controlsOwnedEb
+00000008  00029002 R_ARM_ABS32            00002bb9   _GLOBAL__sub_I__ZN6motors8UnoQPort4portEv
+0000000c  00029b02 R_ARM_ABS32            00002c01   _GLOBAL__sub_I__ZN11opp_sensors7Sensors5beginEv
+00000010  0002a602 R_ARM_ABS32            00002c49   _GLOBAL__sub_I__ZNK5power6Reader13controlsOwnedEv
+00000014  00014902 R_ARM_ABS32            00004961   _GLOBAL__sub_I_Bridge
+00000018  00017c02 R_ARM_ABS32            00005371   _GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt
+0000001c  0000b402 R_ARM_ABS32            00005a71   _GLOBAL__sub_I__ZSt20__throw_system_errori
+
+
+Hex dump of section '.init_array':
+ NOTE: This section has relocations against it, but these have NOT been applied to this dump.
+  0x000079f4 00000000 00000000 00000000 00000000 ................
+  0x00007a04 00000000 00000000 00000000 00000000 ................
+
+
+UNDEFINED
+         U analog_reference
+         U __device_dts_ord_100
+         U __device_dts_ord_105
+         U __device_dts_ord_109
+         U __device_dts_ord_114
+         U __device_dts_ord_120
+         U __device_dts_ord_123
+         U __device_dts_ord_17
+         w __device_dts_ord_30
+         w __device_dts_ord_34
+         U __device_dts_ord_40
+         U __device_dts_ord_54
+         w __device_dts_ord_61
+         U __device_dts_ord_64
+         U __device_dts_ord_65
+         U __device_dts_ord_66
+         U __device_dts_ord_70
+         U __device_dts_ord_73
+         U __device_dts_ord_78
+         w __device_dts_ord_83
+         w __device_dts_ord_88
+         U __device_dts_ord_89
+         U __device_dts_ord_9
+         U __device_dts_ord_90
+         U __device_dts_ord_91
+         U __device_dts_ord_92
+         U __device_dts_ord_93
+         U __device_dts_ord_94
+         U __device_dts_ord_95
+         U _device_list_end
+         U _device_list_start
+         U _ebss
+         U _edata
+         U __heap_end
+         U __heap_start
+         U kheap_llext_heap
+         U kheap_llext_heap_size
+         U pinctrl_configure_pins
+         U pinctrl_lookup_state
+         U _printf_float
+         U printk
+         U __real_abort
+         U __real_acos
+         U __real_acosf
+         U __real___aeabi_d2f
+         U __real___aeabi_d2iz
+         U __real___aeabi_d2lz
+         U __real___aeabi_d2uiz
+         U __real___aeabi_dadd
+         U __real___aeabi_dcmpeq
+         U __real___aeabi_dcmpge
+         U __real___aeabi_dcmpgt
+         U __real___aeabi_dcmple
+         U __real___aeabi_dcmplt
+         U __real___aeabi_dcmpun
+         U __real___aeabi_ddiv
+         U __real___aeabi_dmul
+         U __real___aeabi_dsub
+         U __real___aeabi_f2d
+         U __real___aeabi_f2iz
+         U __real___aeabi_f2uiz
+         U __real___aeabi_fadd
+         U __real___aeabi_fcmpeq
+         U __real___aeabi_fcmpge
+         U __real___aeabi_fcmpgt
+         U __real___aeabi_fcmple
+         U __real___aeabi_fcmplt
+         U __real___aeabi_fcmpun
+         U __real___aeabi_fdiv
+         U __real___aeabi_fmul
+         U __real___aeabi_fsub
+         U __real___aeabi_i2d
+         U __real___aeabi_i2f
+         U __real___aeabi_idiv
+         U __real___aeabi_idivmod
+         U __real___aeabi_l2d
+         U __real___aeabi_l2f
+         U __real___aeabi_ldivmod
+         U __real___aeabi_read_tp
+         U __real___aeabi_ui2d
+         U __real___aeabi_ui2f
+         U __real___aeabi_uidiv
+         U __real___aeabi_uidivmod
+         U __real___aeabi_ul2d
+         U __real___aeabi_ul2f
+         U __real___aeabi_uldivmod
+         U __real_asin
+         U __real_asinf
+         U __real_atan
+         U __real_atan2
+         U __real_atan2f
+         U __real_atanf
+         U __real_atexit
+         U __real_atof
+         U __real_atoi
+         U __real_atol
+         U __real_calloc
+         U __real_cos
+         U __real_cosf
+         U __real__exit
+         U __real_exit
+         U __real_exp
+         U __real_exp2
+         U __real_fmod
+         U __real_free
+         U __real_gettimeofday
+         U __real_isalnum
+         U __real_isalpha
+         U __real_iscntrl
+         U __real_isdigit
+         U __real_isgraph
+         U __real_islower
+         U __real_isprint
+         U __real_isspace
+         U __real_isupper
+         U __real_isxdigit
+         U __real_ldexp
+         U __real_log
+         U __real_log10
+         U __real_log2
+         U __real_logf
+         U __real_malloc
+         U __real_memchr
+         U __real_memcmp
+         U __real_memcpy
+         U __real_memmem
+         U __real_memmove
+         U __real_memset
+         U __real_pow
+         U __real_putchar
+         U __real_puts
+         U __real_rand
+         U __real_realloc
+         U __real_sin
+         U __real_sinf
+         U __real_sqrt
+         U __real_sqrtf
+         U __real_srand
+         U __real_strcasecmp
+         U __real_strcat
+         U __real_strchr
+         U __real_strcmp
+         U __real_strcpy
+         U __real_strdup
+         U __real_strlen
+         U __real_strncmp
+         U __real_strncpy
+         U __real_strnlen
+         U __real_strrchr
+         U __real_strstr
+         U __real_strtod
+         U __real_strtok
+         U __real_strtol
+         U __real_strtoul
+         U __real_tan
+         U __real_tanf
+         U __real_tolower
+         U __real_toupper
+         U __real_vprintf
+         U __real_vsnprintf
+         U __real_vsprintf
+         U __real_vsscanf
+         U __real___xpg_strerror_r
+         U ring_buf_get
+         U ring_buf_peek
+         U ring_buf_put
+         U _sbss
+         U _sdata
+         U _sidata
+         U sys_clock_cycle_get_64
+         U z_impl_device_deinit
+         U z_impl_device_init
+         U z_impl_device_is_ready
+         U z_impl_k_mutex_init
+         U z_impl_k_mutex_lock
+         U z_impl_k_mutex_unlock
+         U z_impl_k_sem_give
+         U z_impl_k_sem_init
+         U z_impl_k_sem_take
+         U z_impl_k_sleep
+         U z_impl_k_thread_create
+         U z_impl_k_thread_name_set
+         U z_impl_k_uptime_ticks
+         U z_impl_k_yield

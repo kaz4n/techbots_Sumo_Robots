@@ -24,6 +24,8 @@ DIAGNOSTIC_DEFAULTS = {
     'P0_QTR_QUANTIZATION_US': 1,  # D-065 diagnostic charge margin only.
 }
 DIAGNOSTIC_ARRAY_DEFAULTS = {'P0_QTR_PINS[4]': (2, 4, 7, 8)}  # D-065, not PINMAP OK.
+# D-076 copies HARDWARE section 3 proposals; these are not P0 diagnostics or PINMAP OK.
+PROPOSED_PIN_ARRAY_DEFAULTS = {'OPP_INPUT_PINS[7]': (11, 12, 13, 16, 17, 18, 19)}
 BEHAVIOR_EXTRA_DEFAULTS = {
     'VBAT_FILTER_MS': 1000,  # B6 one-second time constant.
     'REFLANK_WINDOW_MS': 10000,  # B11.3 existing ten-second rolling window.
@@ -92,11 +94,24 @@ class P0ConfigTests(unittest.TestCase):
         self.assertEqual('5000', defaults['COUNTDOWN_MS'])
         self.assertEqual('1', defaults['MODE_DEFAULT'])
 
-    def test_only_b16_and_explicit_spec_diagnostic_defaults_are_declared(self):
+    def test_only_b16_and_explicit_spec_diagnostic_proposed_pin_defaults_are_declared(self):
         expected = (set(b16_defaults()) | set(DIAGNOSTIC_DEFAULTS) | set(DIAGNOSTIC_ARRAY_DEFAULTS) |
                     set(BEHAVIOR_EXTRA_DEFAULTS) | set(BEHAVIOR_EXTRA_FLOAT_DEFAULTS) |
-                    set(BEHAVIOR_DERIVED_TYPES) | set(COUNTDOWN_SERVICE_DEFAULTS))
+                    set(BEHAVIOR_DERIVED_TYPES) | set(COUNTDOWN_SERVICE_DEFAULTS) |
+                    set(PROPOSED_PIN_ARRAY_DEFAULTS))
         self.assertEqual(expected, set(config_declarations()))
+
+    def test_d076_proposed_opponent_pin_type_values_and_extent_match_hardware3(self):
+        declarations = config_declarations()
+        for name, expected in PROPOSED_PIN_ARRAY_DEFAULTS.items():
+            with self.subTest(proposed_pin_array=name):
+                self.assertIn(name, declarations)
+                kind, initializer = declarations[name]
+                self.assertEqual('std::uint32_t', kind)
+                self.assertTrue(initializer.startswith('{') and initializer.endswith('}'))
+                values = tuple(number(value) for value in initializer[1:-1].split(','))
+                self.assertEqual(7, len(values))
+                self.assertEqual(expected, values)
 
     def test_b16_literal_categories_and_array_extent_are_preserved(self):
         declarations = config_declarations()

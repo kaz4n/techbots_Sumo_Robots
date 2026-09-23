@@ -1,3 +1,54 @@
+## Latest checkpoint - 2026-09-23T18:20:19+04:00
+
+Active P2 software under D051/D075; full P0-P7 ACTIVE/incomplete. D093 contract
+commitd248782 and implementationa15cffd complete the fixed ADC input owner.
+Read analysis/P2_power_inputs_contract.md, validation.md and
+reviews/P2_power_inputs_review.md. Reader->InputOwner performs all A0/A1 calls,
+retains actual battery source age <20ms with10ms period, and invalidates both
+channels on the first shared fault. These are development limits, not measurements.
+Native Reader, core governor, motor backend and all established tests unchanged.
+
+Full normal/ASan/UBSan each1327main/24484165assertions +111enabledGate/3850460
+PASS. Independent author24cases2421assertions eachmotor setting, actualnative,
+config/probe/seeded/18legacy registry/8upload-refusal cases PASS.61existing tool
+methods PASS. Fresh separate same-model review6cases20059assertions PASS; no open
+finding. Harness include/ternary failures and reviewer harness mistakes preserved,
+without production changes or weakened assertions. WSL generated-Makefile skew
+warning resolved by a later no-rebuild/no-warning settled check; final hashes and
+CTest counts match current source. Target/current/Git-index76files/56rawblobs exact.
+
+Actual on-board compile-only4d5e21cc418a6089b593fe95c020b129787c63786a7e44511b183bef9e7d65da
+retains Reader/owner/Robot/Gate/recorder in3ELFs.40native/42AEABI exports/loader and
+188imports unchangedD092; strongemptyhook and passive startup inspected. Compiler
+321652program/241524globals leaves20620nominalbytes, lowRAMwarning. Seven existing
+inert keys independently reviewed/refreshed; no newkey. No D093 upload/reset/MCU
+sensor/motor/UART operation. Current MCU last deployed D0911502e948 remains the
+frozen inert recorder image; its5001frames/8events/200s apply onlyto that oldrun.
+
+First eligible unfinished task: SC-AL bounded resumable native IMU source audit
+and public contract, then implementation/tests and actual app resource scheduling.
+Read analysis/P2_app_schedule_dependencies.md and old D079-D084 contracts/installed
+source receipts. Current Acquirer::read/Bus::acquireMotion is synchronous; it
+cannot yield for QTR charge release[11,100)us or fine discharge intervals. MotorGate
+failure can invoke a second settle pass; IMU source completion excludes cleanup.
+Complete D092 timing must include all executed work. No existing deadline sum
+proves800us, and no resumable API/D094/new timing allowance is selected yet.
+
+Audit primary/installed I2C TXIS/TC/RXNE/STOP states before changing Bus/Acquirer.
+Preserve one600us wall-clock acquisition deadline, poll budget, one cleanup and
+actual freshness/sequence/age contracts across resumed work. Pending is not NO_NEW
+or a new measurement. Freeze the narrow contract first under D051; independent
+spec tests precede implementation, fresh separate review precedes closure.
+
+app.ino remains an inert scaffold. SC-A physical button circuit/windows, SC-AJ
+clock qualification, allsensor/motor physical acceptance, nativeUART and loadedRAM/
+complete800us remain pending; every human gate/PINMAP/EXPLAINED remains human-owned.
+No additional hardware requested now; bareboard authorization is not a motor run.
+Use small local commits only; no push/tag/history rewrite. Original Dubai schedule
+remains. Next task is useful host/source work, not another repetition of D093 tests.
+
+--- Earlier handoff preserved below ---
+
 ## Latest checkpoint - 2026-09-23 17:52:55 +04
 
 Active phase P2 software under D051/D075. D092 implemented in2081ca1 after public

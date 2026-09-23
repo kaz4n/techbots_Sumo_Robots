@@ -608,3 +608,12 @@ Actualcompile-only4d5e21cc:76exactsources/3ELFs/40native42AEABI;321652program/
 or MCU/upload/reset/motor/physicalgate. Newharnessfailures preserved/fixed without
 weakening expectations. SC-AL actualschedule remainsopen; next bounded resumable
 IMU sourceaudit/contract. FullgoalACTIVE/incomplete. | implementationcommit=this commit
+
+2026-09-23T18:20:19+04:00 | P2 D093 checkpoint | Contractd248782/implementationa15cffd.
+Fullnormal/san1327main+111Gate, independentauthor/native/config/probe,61tools,
+freshreview and actualcompile-only4d5e21cc PASS;76sourcefiles/3ELFs/index and56raw
+blobs exact. No establishedtest/core/native change or D093upload/MCUaction.
+Last D0911502e948 remains frozen inert. FullgoalACTIVE/incomplete. Firstnexttask
+SC-AL resumable nativeIMU primary/installed-source audit+publiccontract; no D094
+selected. Actual app/full800us/SC-A/SC-AJ/physical and human gates pending.
+Handoff/execution/resume refreshed; no push/tag/motor authority. | checkpoint=this commit

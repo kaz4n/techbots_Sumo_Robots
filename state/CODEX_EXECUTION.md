@@ -1,49 +1,44 @@
 # Execution checklist - 2026-09-23 Asia/Dubai
 
-PROGRESS is authoritative. Full P0-P7 goal ACTIVE/incomplete; no human gate passed.
+PROGRESS is authoritative. Full P0-P7 ACTIVE/incomplete; no human gate passed.
 D051/D075 permit active P2 software while physical acceptance remains pending.
 
 | Existing task | Software/evidence | Remaining |
 |---|---|---|
 | P0 | Toolchain/source audits and inert diagnostics | Physical/pin/electrical acceptance and human gate |
-| P1 | Reviewed core, full host validation passes | EXPLAINED OK and human GATE P1 PASS |
+| P1 | Reviewed core; full host suites PASS | EXPLAINED OK and human GATE P1 PASS |
 | P2 B1 | Native opponent588ceb9; tests/target/review PASS | Live polarity/ranges/60s, app integration |
 | P2 B4 | Gate1c45f72/native99f8668; tests/target/review PASS | Physical EN/PWM/reversal/B4/B7/WCET |
-| P2 B5 | Actual ADCe6b7060; tests/target/review PASS | Divider/reference/0.05V accuracy, integration |
-| P2 B3 | Acquisition7b46598/estimatorc1188b1/calibration5516bef/Robot2c16023 | Physical mounting/B3, app scheduler |
+| P2 B5 | Native ADCe6b7060 +D093ownera15cffd tested/target/review PASS | Divider/reference/0.05V accuracy, app scheduler |
+| P2 B3 | Acquisition7b46598/estimatorc1188b1/calibration5516bef/Robot2c16023 | Resumable runtime service, physical mounting/B3, app scheduler |
 | P2 B2 | QTR/adapter/Robot47f4d9a tested/target/review | Physical color/cadence, pad ownership, full WCET |
-| P2 B6 | A1 owner327c5db; gesturesb69fa12; matrix385c46c tested/target/review/inert run | Physical buttons/SC-A, optical acceptance, service consumers |
-| P2 2.4 | QTR calibration311bf40 tested/target/review | Actual threshold printing/app integration/physical calibration |
-| P2 B8 | Storage and D090 bounded IDLE dump febde53 reviewed/tested/target-compiled; D09117bb38a synthetic200s actual MCU recorder PASS | Native UART transfer, app lifetime/local reset UI, physical B8 |
-| Integration/B7/P3-P7 | D092 complete timing2081ca1 tested/target/review; strong hook verified | Battery age/app owner, scheduler/HAL/full800us/runtime, SC-AJ, physical acceptance |
+| P2 B6 | A1327c5db/gesturesb69fa12/matrix385c46c/D093fixedowner tested/target/review | Physical buttons/SC-A, optical acceptance, service consumers |
+| P2 2.4 | QTR calibration311bf40 tested/target/review | Actual threshold printing/app/physical calibration |
+| P2 B8 | Storage/D090dump febde53 tested/target/review; D09117bb38a actual200s synthetic MCU recorder PASS | Native UART, app lifetime/local reset UI, physical B8 |
+| Integration/B7/P3-P7 | D092timing2081ca1/D093a15cffd tested/target/review; strong hook verified | SC-AL resumable IMU, app transaction/resource schedule, full800us, physical acceptance |
 
-D090 fullnormal/sanitizer1281main+65enabledGate PASS;26owner/33receiver/11native
-methods,56existingtooling and4Windows checks PASS. Actualb8bb9366target verified;
-no D090 upload. D091 software17bb38a adds11Runner cases normal+san,28heap methods,
-51capture methods and5controlled upload methods PASS;56existingtools PASS.
+D093 contractd248782/implementationa15cffd: one A0/A1 owner,10ms battery period,
+strict<20ms retained source age, shared reset-only faults. Native fresh-only API,
+original B16 values/governor and established tests unchanged. Fullnormal/san each
+1327main/24484165assertions +111Gate/3850460 PASS. Independent24/2421eachmode,
+actualnative/config/probe/limits/registry/refusal PASS;61existingtools PASS; fresh
+review6/20059normal+san PASS/no findings. Evidence P2_power_inputs_validation.md
+and reviews/P2_power_inputs_review.md. Newharnessfailures preserved/corrected.
 
-D091 exactsource1502e948/ELFeff3e050/ZSK0448e3ac uploaded once, source/artifacts
-reviewed. Real MCU-clock200000998us from release toSTOP; full5100000us hold;
-5001frames/8events/CRC900325728 independently extracted. No recorder loss or
-active motor callbacks; absent-IMU calibration rejection is explicitly logged.
-Runner maximum203us excludes fullHAL/wrapper. Loaded LLEXT free payload25116B,
-largest21604B; sampled stack headroom31208B. Point-in-time/sampled limits apply.
+Actualtarget4d5e21cc76current/staged/target/indexfiles and3ELFs exact,40native42AEABI
+exports/loader/188imports unchanged. Compiler321652program/241524globals,20620
+nominalremaining/lowRAMwarning.56rawblobs indexverified. Sevenexistinginertkeys
+reviewed/refreshed, no newkey or upload. Last deployed D0911502e948 remainsfrozen;
+its5001frames/8events/CRC900325728,200000998us and25116Bfreepayload apply onlyto
+that prior synthetic MCUrun. No D093MCU/sensor/motor/UART action or physicalgate.
 
-Capture1 timeout preserved; smaller flash reads succeed with original ceilings:
-47reads/934892B/51commands/281.633s. Firmware unchanged during readback. Board left
-frozen in inert recorder1502e948. Evidence/review: P2_recorder_bench_validation.md,
-P2_recorder_bench_review.md and raw runtime_retry1/. MEM-AP extraction, not UART.
+Next: SC-AL audit bounded resumable native IMU and freeze public contract under
+D051 before app scheduler. P2_app_schedule_dependencies.md records synchronous
+read, QTR sub-tick service, extra MotorGate settle on failure and IMU cleanup
+outside source timestamp. Preserve600us aggregate deadline/polls, cleanup and
+freshness across all advances; no pending-as-new sample. No D094/new API/timing
+allowance selected yet. Count every executed service inside D092 complete timing.
 
-D0922081ca1 after contract33e6cba resolves SC-AK in software: explicit acquisition
-start separate from sensor decision time, full ordered timing receipts. Full
-normal/san1303main+87enabledGate PASS, independent22cases and reviewer24cases PASS,
-61tool methods PASS. Actual5451e99d target72exactsources/3ELFs, no upload. Fresh
-separate same-model review clear. Established tests/config unchanged. Evidence:
-P2_tick_timing_validation.md and P2_tick_timing_review.md; compiler lowRAM persists.
-
-Next: freeze narrow battery-age/app acquisition contract from P2_app_battery_audit.
-No D093 or proposed10/20ms values selected yet. Amend D078 explicitly before bounded
-retention; preserve shared ADC faults, truthful source age and unchanged governor.
-Then actual app transaction owner/native scheduling. No extra hardware needed now.
-SC-A physical circuit, SC-AJ clock, fullRAM history/800us, physical B8/native UART
-and human gates remain open. No motor-run authority, push/tag or phase approval.
+SC-A circuit/windows, SC-AJ clock, physicalsensor/motor, loadedRAM/full800us,
+physical B8/nativeUART and human gates remain OPEN. No more hardware requested
+now; no motor authority/PINMAP/EXPLAINED, push/tag or phase approval.

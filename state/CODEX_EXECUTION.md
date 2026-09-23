@@ -10,20 +10,22 @@ D051/D075 permit P2 software while physical acceptance remains pending.
 | P2 B1 | Native opponent588ceb9; tests/target/review PASS | Live polarity/ranges/60s, app integration |
 | P2 B4 | Gate1c45f72/native99f8668; tests/target/review PASS | Physical EN/PWM/reversal/B4/B7/WCET |
 | P2 B5 | Actual ADCe6b7060; tests/target/review PASS | Divider/reference/0.05V accuracy, integration |
-| P2 B3 | Acquisition7b46598/estimatorc1188b1/calibration5516bef/full Robot evidence2c16023; tests/target/review PASS | Physical mounting/B3, app scheduler |
-| P2 B2/B6 | GPIO/ADC constraints established | Actual QTR/UI and freshness semantics |
+| P2 B3 | Acquisition7b46598/estimatorc1188b1/calibration5516bef/full Robot2c16023; tests/target/review PASS | Physical mounting/B3, app scheduler |
+| P2 B2 | Native QTR/adapter/Robotfreshness47f4d9a; host/san/target/review PASS | Physical color/cadence, pad ownership, full WCET |
+| P2 B6 | Core logical UI; exact ADCpair source audit | Actual optional A1 owner/decoder/display; SC-A |
 | P2 B8 | Offline storage/CSV25Hz implemented/reviewed | Bounded IDLE transport, full RAM/200s/no-gap evidence |
 | Integration/B7/P3-P7 | Unfinished | SC-AJ/F091, scheduler/HAL/WCET, physical acceptance |
 
-D084: P2_imu_integration_validation.md/raw, F106, fresh separate review PASS.
-All jobs complete. Fullhost2/2PASS6.39s/fullsan2/2PASS31.38s;
-1151main+37enabledGate cases. Actual compile-onlyf3bc1f7f135536/66352B exit0.
-51sources/3ELFs/native/math/startup checked. Selected27existing+5new tooling PASS.
-No upload/MCU operation, old locked test or config value change.
+D085 evidence: P2_qtr_native_validation.md/raw, F107, fresh separate review.
+Fullhost2/2PASS7.35s/fullsan2/2PASS34.54s;1173main+37enabledGate cases.
+Independent22purecases26881assertions normal/san;11native/16config methodsPASS.
+Actualcompile-only57f4b001145012/71092B exit0;56sources/3ELFs/native/math/startup
+checked. Exact5inert keys reviewed/adopted;25existingtools+2stagingPASS.54distinct
+scoped methods, not all-tooling. No upload/MCU operation, oldlockedtest/B16change.
 
-Next: B2 native QTR acquisition contract/driver and explicit freshness policy.
-Read P2_imu_integration_raw/next_hal_task.md and existing QTR/IRQ evidence. Preserve
-10us/1500us; model release/read uncertainty and service gaps. A nonblocking driver
-alone does not solve SC-B/Robot sample admission or600us IMU contention. No stale
-line data as fresh; no app integration assumption. SC-AJ/F091, physical/human gates
-remain pending. Do not ask for more connected hardware now.
+Next: actual B6 optional A1 acquisition using the existing single ADC1 owner.
+Read P2_qtr_native_raw/next_ui_task.md and P2_adc_pair_audit.md/source; freeze
+backward-compatible contract, then driver/spec-derivedtests/target/review.
+No second owner or fabricated BOTH electrical input. App timing still must solve
+serialized600us IMU+150us motor+100us ADC and QTR precision. Physical/human gates,
+SC-A/SC-AJ/F091 remain pending. Do not ask for more connected hardware now.

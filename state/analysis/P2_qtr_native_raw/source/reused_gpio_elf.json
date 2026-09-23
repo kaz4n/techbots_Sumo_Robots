@@ -1,0 +1,2920 @@
+{
+  "source_receipt": "state/analysis/P2_opp_gpio_audit_raw.json",
+  "receipt_sha256": "cfc9e52a8d1a7ed7e56180c4bad8d469224d3001e0f5229cbff5cbe1618cbca1",
+  "elf": {
+    "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf",
+    "sha256": "39d4a4fd47241663323f6e04f94dd8f5a9f9ad6582cf1df37f9709b74026adcd",
+    "size": 2303728
+  },
+  "commands": [
+    {
+      "command": [
+        "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-nm",
+        "-n",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf"
+      ],
+      "exit_code": 0,
+      "stdout": "00000000 V z_impl_gpio_get_pending_int\n00000000 V z_impl_gpio_pin_configure\n00000000 V z_impl_gpio_pin_get_config\n00000000 V z_impl_gpio_pin_interrupt_configure\n00000000 V z_impl_gpio_port_clear_bits_raw\n00000000 V z_impl_gpio_port_get_direction\n00000000 V z_impl_gpio_port_get_raw\n00000000 V z_impl_gpio_port_set_bits_raw\n00000000 V z_impl_gpio_port_set_masked_raw\n00000000 V z_impl_gpio_port_toggle_bits\n080056cc t gpio_pin_get_dt.constprop.0\n080056f8 t gpio_pin_configure_dt.constprop.0.isra.0\n08006540 t stm32_gpioport_init\n08006570 T stm32_gpioport_get\n08009610 t stm32_intc_gpio_isr\n08009668 T stm32_gpio_intc_enable_line\n08009698 T stm32_gpio_intc_disable_line\n080096ac T stm32_gpio_intc_select_line_trigger\n080096fc T stm32_gpio_intc_set_irq_callback\n0800973c T stm32_gpio_intc_remove_irq_callback\n0800d72c t gpio_stm32_pin_interrupt_configure\n08016c6e t gpio_pin_set_dt.isra.0\n080178bc T stm32_gpioport_configure_pin\n080181ae t stm32_exti_gpio_intc_init\n080182d4 T stm32_gpio_intc_get_pin_irq_line\n080190bc t gpio_stm32_port_get_raw\n080190c8 t gpio_stm32_port_set_masked_raw\n080190da t gpio_stm32_port_set_bits_raw\n080190e4 t gpio_stm32_port_clear_bits_raw\n080190ee t gpio_stm32_port_toggle_bits\n080190fc t gpio_stm32_manage_callback\n08019150 t gpio_stm32_config\n08019222 t gpio_stm32_isr\n08019e6e T z_impl_device_is_ready\n0801bdfc r __init_stm32_exti_gpio_intc_init\n0801c6e0 R _gpio_driver_api_list_start\n0801c6e0 R gpio_stm32_driver\n0801c708 R _gpio_driver_api_list_end\n0801c788 R _tgpio_driver_api_list_end\n0801c788 R _tgpio_driver_api_list_start\n0801d340 r __llext_sym_z_impl_device_is_ready\n0801d3c8 r __llext_sym_z_impl_gpio_get_pending_int\n0801d3d0 r __llext_sym_z_impl_gpio_pin_configure\n0801d3d8 r __llext_sym_z_impl_gpio_pin_get_config\n0801d3e0 r __llext_sym_z_impl_gpio_pin_interrupt_configure\n0801d3e8 r __llext_sym_z_impl_gpio_port_clear_bits_raw\n0801d3f0 r __llext_sym_z_impl_gpio_port_get_direction\n0801d3f8 r __llext_sym_z_impl_gpio_port_get_raw\n0801d400 r __llext_sym_z_impl_gpio_port_set_bits_raw\n0801d408 r __llext_sym_z_impl_gpio_port_set_masked_raw\n0801d410 r __llext_sym_z_impl_gpio_port_toggle_bits\n0801dd6c r gpio_stm32_cfg_i\n0801dd80 r gpio_stm32_cfg_h\n0801dd94 r gpio_stm32_cfg_g\n0801dda8 r gpio_stm32_cfg_f\n0801ddbc r gpio_stm32_cfg_e\n0801ddd0 r gpio_stm32_cfg_d\n0801dde4 r gpio_stm32_cfg_c\n0801ddf8 r gpio_stm32_cfg_b\n0801de0c r gpio_stm32_cfg_a\n0801de20 r gpio_ports\n200016c0 b gpio_stm32_data_i\n200016d0 b gpio_stm32_data_h\n200016e0 b gpio_stm32_data_g\n200016f0 b gpio_stm32_data_f\n20001700 b gpio_stm32_data_e\n20001710 b gpio_stm32_data_d\n20001720 b gpio_stm32_data_c\n20001730 b gpio_stm32_data_b\n20001740 b gpio_stm32_data_a\n200017c4 b intc_gpio_data",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-gdb",
+        "-nx",
+        "-nh",
+        "-batch",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf",
+        "-ex",
+        "p __device_dts_ord_90",
+        "-ex",
+        "p __device_dts_ord_91",
+        "-ex",
+        "p __llext_sym___device_dts_ord_90",
+        "-ex",
+        "p __llext_sym___device_dts_ord_91",
+        "-ex",
+        "p gpio_stm32_driver",
+        "-ex",
+        "p gpio_stm32_cfg_b",
+        "-ex",
+        "p gpio_stm32_cfg_c",
+        "-ex",
+        "p __llext_sym_z_impl_device_is_ready"
+      ],
+      "exit_code": 0,
+      "stdout": "$1 = {name = 0x802007f \"gpio@42020400\", config = 0x801ddf8 <gpio_stm32_cfg_b>, api = 0x801c6e0 <gpio_stm32_driver>, state = 0x200010d4 <__devstate_dts_ord_90>, data = 0x20001730 <gpio_stm32_data_b>, ops = {init = 0x8006541 <stm32_gpioport_init>, deinit = 0x0}, flags = 0 '\\000', deps = 0x801c548 <__devicedeps_dts_ord_90>}\n$2 = {name = 0x802005d \"gpio@42020800\", config = 0x801dde4 <gpio_stm32_cfg_c>, api = 0x801c6e0 <gpio_stm32_driver>, state = 0x200010d2 <__devstate_dts_ord_91>, data = 0x20001720 <gpio_stm32_data_c>, ops = {init = 0x8006541 <stm32_gpioport_init>, deinit = 0x0}, flags = 0 '\\000', deps = 0x801c550 <__devicedeps_dts_ord_91>}\n$3 = {{name = 0x802006b \"__device_dts_ord_90\", slid = 134348907}, addr = 0x801c040 <__device_dts_ord_90>}\n$4 = {{name = 0x8020049 \"__device_dts_ord_91\", slid = 134348873}, addr = 0x801c01c <__device_dts_ord_91>}\n$5 = {pin_configure = 0x8019151 <gpio_stm32_config>, port_get_raw = 0x80190bd <gpio_stm32_port_get_raw>, port_set_masked_raw = 0x80190c9 <gpio_stm32_port_set_masked_raw>, port_set_bits_raw = 0x80190db <gpio_stm32_port_set_bits_raw>, port_clear_bits_raw = 0x80190e5 <gpio_stm32_port_clear_bits_raw>, port_toggle_bits = 0x80190ef <gpio_stm32_port_toggle_bits>, pin_interrupt_configure = 0x800d72d <gpio_stm32_pin_interrupt_configure>, manage_callback = 0x80190fd <gpio_stm32_manage_callback>, get_pending_int = 0x0, port_get_direction = 0x0}\n$6 = {common = {port_pin_mask = 65535}, base = 0x42020400, port = 1, pclken = {bus = 140, div = 0, enr = 2}}\n$7 = {common = {port_pin_mask = 65535}, base = 0x42020800, port = 2, pclken = {bus = 140, div = 0, enr = 4}}\n$8 = {{name = 0x8022460 \"z_impl_device_is_ready\", slid = 134358112}, addr = 0x8019e6f <z_impl_device_is_ready>}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-objdump",
+        "-d",
+        "--disassemble=gpio_stm32_config",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf"
+      ],
+      "exit_code": 0,
+      "stdout": "\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf:     file format elf32-littlearm\n\n\nDisassembly of section rom_start:\n\nDisassembly of section text:\n\n08019150 <gpio_stm32_config>:\n 8019150:\tf412 3c00 \tands.w\tip, r2, #131072\t@ 0x20000\n 8019154:\tb5f8      \tpush\t{r3, r4, r5, r6, r7, lr}\n 8019156:\t460c      \tmov\tr4, r1\n 8019158:\t4613      \tmov\tr3, r2\n 801915a:\td041      \tbeq.n\t80191e0 <gpio_stm32_config+0x90>\n 801915c:\t0796      \tlsls\tr6, r2, #30\n 801915e:\td538      \tbpl.n\t80191d2 <gpio_stm32_config+0x82>\n 8019160:\t0755      \tlsls\tr5, r2, #29\n 8019162:\td55b      \tbpl.n\t801921c <gpio_stm32_config+0xcc>\n 8019164:\t2250      \tmovs\tr2, #80\t@ 0x50\n 8019166:\t06d9      \tlsls\tr1, r3, #27\n 8019168:\td535      \tbpl.n\t80191d6 <gpio_stm32_config+0x86>\n 801916a:\tf442 7200 \torr.w\tr2, r2, #512\t@ 0x200\n 801916e:\tf403 61c0 \tand.w\tr1, r3, #1536\t@ 0x600\n 8019172:\tf5b1 6f80 \tcmp.w\tr1, #1024\t@ 0x400\n 8019176:\td043      \tbeq.n\t8019200 <gpio_stm32_config+0xb0>\n 8019178:\tf5b1 6fc0 \tcmp.w\tr1, #1536\t@ 0x600\n 801917c:\td03d      \tbeq.n\t80191fa <gpio_stm32_config+0xaa>\n 801917e:\tf5b1 7f00 \tcmp.w\tr1, #512\t@ 0x200\n 8019182:\td040      \tbeq.n\t8019206 <gpio_stm32_config+0xb6>\n 8019184:\tf413 3640 \tands.w\tr6, r3, #196608\t@ 0x30000\n 8019188:\t6905      \tldr\tr5, [r0, #16]\n 801918a:\td012      \tbeq.n\t80191b2 <gpio_stm32_config+0x62>\n 801918c:\t686f      \tldr\tr7, [r5, #4]\n 801918e:\tfa27 f104 \tlsr.w\tr1, r7, r4\n 8019192:\t07c9      \tlsls\tr1, r1, #31\n 8019194:\tbf5f      \titttt\tpl\n 8019196:\t2101      \tmovpl\tr1, #1\n 8019198:\t40a1      \tlslpl\tr1, r4\n 801919a:\t4339      \torrpl\tr1, r7\n 801919c:\t6069      \tstrpl\tr1, [r5, #4]\n 801919e:\tf1bc 0f00 \tcmp.w\tip, #0\n 80191a2:\td006      \tbeq.n\t80191b2 <gpio_stm32_config+0x62>\n 80191a4:\t031f      \tlsls\tr7, r3, #12\n 80191a6:\td531      \tbpl.n\t801920c <gpio_stm32_config+0xbc>\n 80191a8:\t2301      \tmovs\tr3, #1\n 80191aa:\t6841      \tldr\tr1, [r0, #4]\n 80191ac:\t40a3      \tlsls\tr3, r4\n 80191ae:\t6849      \tldr\tr1, [r1, #4]\n 80191b0:\t618b      \tstr\tr3, [r1, #24]\n 80191b2:\t2300      \tmovs\tr3, #0\n 80191b4:\t4621      \tmov\tr1, r4\n 80191b6:\tf7fe fb81 \tbl\t80178bc <stm32_gpioport_configure_pin>\n 80191ba:\tb946      \tcbnz\tr6, 80191ce <gpio_stm32_config+0x7e>\n 80191bc:\t686b      \tldr\tr3, [r5, #4]\n 80191be:\tfa23 f204 \tlsr.w\tr2, r3, r4\n 80191c2:\t07d2      \tlsls\tr2, r2, #31\n 80191c4:\tbf41      \titttt\tmi\n 80191c6:\t2201      \tmovmi\tr2, #1\n 80191c8:\t40a2      \tlslmi\tr2, r4\n 80191ca:\t4393      \tbicmi\tr3, r2\n 80191cc:\t606b      \tstrmi\tr3, [r5, #4]\n 80191ce:\t2000      \tmovs\tr0, #0\n 80191d0:\tbdf8      \tpop\t{r3, r4, r5, r6, r7, pc}\n 80191d2:\t2210      \tmovs\tr2, #16\n 80191d4:\te7c7      \tb.n\t8019166 <gpio_stm32_config+0x16>\n 80191d6:\t069f      \tlsls\tr7, r3, #26\n 80191d8:\td5c9      \tbpl.n\t801916e <gpio_stm32_config+0x1e>\n 80191da:\tf442 6280 \torr.w\tr2, r2, #1024\t@ 0x400\n 80191de:\te7c6      \tb.n\t801916e <gpio_stm32_config+0x1e>\n 80191e0:\t03d6      \tlsls\tr6, r2, #15\n 80191e2:\td505      \tbpl.n\t80191f0 <gpio_stm32_config+0xa0>\n 80191e4:\t06d5      \tlsls\tr5, r2, #27\n 80191e6:\td405      \tbmi.n\t80191f4 <gpio_stm32_config+0xa4>\n 80191e8:\tf3c2 1240 \tubfx\tr2, r2, #5, #1\n 80191ec:\t0292      \tlsls\tr2, r2, #10\n 80191ee:\te7be      \tb.n\t801916e <gpio_stm32_config+0x1e>\n 80191f0:\t2230      \tmovs\tr2, #48\t@ 0x30\n 80191f2:\te7bc      \tb.n\t801916e <gpio_stm32_config+0x1e>\n 80191f4:\tf44f 7200 \tmov.w\tr2, #512\t@ 0x200\n 80191f8:\te7b9      \tb.n\t801916e <gpio_stm32_config+0x1e>\n 80191fa:\tf442 72c0 \torr.w\tr2, r2, #384\t@ 0x180\n 80191fe:\te7c1      \tb.n\t8019184 <gpio_stm32_config+0x34>\n 8019200:\tf442 7280 \torr.w\tr2, r2, #256\t@ 0x100\n 8019204:\te7be      \tb.n\t8019184 <gpio_stm32_config+0x34>\n 8019206:\tf042 0280 \torr.w\tr2, r2, #128\t@ 0x80\n 801920a:\te7bb      \tb.n\t8019184 <gpio_stm32_config+0x34>\n 801920c:\t0359      \tlsls\tr1, r3, #13\n 801920e:\td5d0      \tbpl.n\t80191b2 <gpio_stm32_config+0x62>\n 8019210:\t2301      \tmovs\tr3, #1\n 8019212:\t6841      \tldr\tr1, [r0, #4]\n 8019214:\t40a3      \tlsls\tr3, r4\n 8019216:\t6849      \tldr\tr1, [r1, #4]\n 8019218:\t628b      \tstr\tr3, [r1, #40]\t@ 0x28\n 801921a:\te7ca      \tb.n\t80191b2 <gpio_stm32_config+0x62>\n 801921c:\tf06f 0085 \tmvn.w\tr0, #133\t@ 0x85\n 8019220:\te7d6      \tb.n\t80191d0 <gpio_stm32_config+0x80>\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-objdump",
+        "-d",
+        "--disassemble=gpio_stm32_port_get_raw",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf"
+      ],
+      "exit_code": 0,
+      "stdout": "\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf:     file format elf32-littlearm\n\n\nDisassembly of section rom_start:\n\nDisassembly of section text:\n\n080190bc <gpio_stm32_port_get_raw>:\n 80190bc:\t6843      \tldr\tr3, [r0, #4]\n 80190be:\t2000      \tmovs\tr0, #0\n 80190c0:\t685b      \tldr\tr3, [r3, #4]\n 80190c2:\t691b      \tldr\tr3, [r3, #16]\n 80190c4:\t600b      \tstr\tr3, [r1, #0]\n 80190c6:\t4770      \tbx\tlr\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-objdump",
+        "-d",
+        "--disassemble=stm32_gpioport_configure_pin",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf"
+      ],
+      "exit_code": 0,
+      "stdout": "\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf:     file format elf32-littlearm\n\n\nDisassembly of section rom_start:\n\nDisassembly of section text:\n\n080178bc <stm32_gpioport_configure_pin>:\n 80178bc:\tb5f0      \tpush\t{r4, r5, r6, r7, lr}\n 80178be:\t461e      \tmov\tr6, r3\n 80178c0:\t6843      \tldr\tr3, [r0, #4]\n 80178c2:\t2001      \tmovs\tr0, #1\n 80178c4:\t685c      \tldr\tr4, [r3, #4]\n 80178c6:\t4088      \tlsls\tr0, r1\n 80178c8:\t6867      \tldr\tr7, [r4, #4]\n 80178ca:\tf3c2 1380 \tubfx\tr3, r2, #6, #1\n 80178ce:\tea27 0700 \tbic.w\tr7, r7, r0\n 80178d2:\t408b      \tlsls\tr3, r1\n 80178d4:\t433b      \torrs\tr3, r7\n 80178d6:\tfa90 f7a0 \trbit\tr7, r0\n 80178da:\tfab7 f787 \tclz\tr7, r7\n 80178de:\tf04f 0e03 \tmov.w\tlr, #3\n 80178e2:\t6063      \tstr\tr3, [r4, #4]\n 80178e4:\tf8d4 c008 \tldr.w\tip, [r4, #8]\n 80178e8:\t007f      \tlsls\tr7, r7, #1\n 80178ea:\tfa0e f707 \tlsl.w\tr7, lr, r7\n 80178ee:\tea2c 0c07 \tbic.w\tip, ip, r7\n 80178f2:\tfa90 f7a0 \trbit\tr7, r0\n 80178f6:\tfab7 f787 \tclz\tr7, r7\n 80178fa:\tf3c2 13c1 \tubfx\tr3, r2, #7, #2\n 80178fe:\t007f      \tlsls\tr7, r7, #1\n 8017900:\t40bb      \tlsls\tr3, r7\n 8017902:\tea43 030c \torr.w\tr3, r3, ip\n 8017906:\t60a3      \tstr\tr3, [r4, #8]\n 8017908:\tfa90 f3a0 \trbit\tr3, r0\n 801790c:\tfab3 f383 \tclz\tr3, r3\n 8017910:\t68e7      \tldr\tr7, [r4, #12]\n 8017912:\t005b      \tlsls\tr3, r3, #1\n 8017914:\tfa0e f303 \tlsl.w\tr3, lr, r3\n 8017918:\tea27 0703 \tbic.w\tr7, r7, r3\n 801791c:\tfa90 f3a0 \trbit\tr3, r0\n 8017920:\tfab3 f383 \tclz\tr3, r3\n 8017924:\tf002 0530 \tand.w\tr5, r2, #48\t@ 0x30\n 8017928:\t005b      \tlsls\tr3, r3, #1\n 801792a:\tf3c2 2241 \tubfx\tr2, r2, #9, #2\n 801792e:\t409a      \tlsls\tr2, r3\n 8017930:\t433a      \torrs\tr2, r7\n 8017932:\t2d20      \tcmp\tr5, #32\n 8017934:\t60e2      \tstr\tr2, [r4, #12]\n 8017936:\td116      \tbne.n\t8017966 <stm32_gpioport_configure_pin+0xaa>\n 8017938:\t2907      \tcmp\tr1, #7\n 801793a:\td82c      \tbhi.n\t8017996 <stm32_gpioport_configure_pin+0xda>\n 801793c:\tfa90 f3a0 \trbit\tr3, r0\n 8017940:\t6a22      \tldr\tr2, [r4, #32]\n 8017942:\tb333      \tcbz\tr3, 8017992 <stm32_gpioport_configure_pin+0xd6>\n 8017944:\tfab3 f383 \tclz\tr3, r3\n 8017948:\t210f      \tmovs\tr1, #15\n 801794a:\t009b      \tlsls\tr3, r3, #2\n 801794c:\tfa01 f303 \tlsl.w\tr3, r1, r3\n 8017950:\tea22 0203 \tbic.w\tr2, r2, r3\n 8017954:\tfa90 f3a0 \trbit\tr3, r0\n 8017958:\tfab3 f383 \tclz\tr3, r3\n 801795c:\t009b      \tlsls\tr3, r3, #2\n 801795e:\tfa06 f303 \tlsl.w\tr3, r6, r3\n 8017962:\t4313      \torrs\tr3, r2\n 8017964:\t6223      \tstr\tr3, [r4, #32]\n 8017966:\tfa90 f3a0 \trbit\tr3, r0\n 801796a:\tfab3 f383 \tclz\tr3, r3\n 801796e:\tfa90 f0a0 \trbit\tr0, r0\n 8017972:\t2103      \tmovs\tr1, #3\n 8017974:\tfab0 f080 \tclz\tr0, r0\n 8017978:\t6822      \tldr\tr2, [r4, #0]\n 801797a:\t005b      \tlsls\tr3, r3, #1\n 801797c:\tfa01 f303 \tlsl.w\tr3, r1, r3\n 8017980:\t0040      \tlsls\tr0, r0, #1\n 8017982:\t092d      \tlsrs\tr5, r5, #4\n 8017984:\tea22 0303 \tbic.w\tr3, r2, r3\n 8017988:\t4085      \tlsls\tr5, r0\n 801798a:\t431d      \torrs\tr5, r3\n 801798c:\t6025      \tstr\tr5, [r4, #0]\n 801798e:\t2000      \tmovs\tr0, #0\n 8017990:\tbdf0      \tpop\t{r4, r5, r6, r7, pc}\n 8017992:\t462b      \tmov\tr3, r5\n 8017994:\te7d8      \tb.n\t8017948 <stm32_gpioport_configure_pin+0x8c>\n 8017996:\t0a03      \tlsrs\tr3, r0, #8\n 8017998:\t6a61      \tldr\tr1, [r4, #36]\t@ 0x24\n 801799a:\tfa93 f2a3 \trbit\tr2, r3\n 801799e:\tb182      \tcbz\tr2, 80179c2 <stm32_gpioport_configure_pin+0x106>\n 80179a0:\tfab2 f282 \tclz\tr2, r2\n 80179a4:\tfa93 f3a3 \trbit\tr3, r3\n 80179a8:\t270f      \tmovs\tr7, #15\n 80179aa:\tfab3 f383 \tclz\tr3, r3\n 80179ae:\t0092      \tlsls\tr2, r2, #2\n 80179b0:\tfa07 f202 \tlsl.w\tr2, r7, r2\n 80179b4:\t009b      \tlsls\tr3, r3, #2\n 80179b6:\tea21 0202 \tbic.w\tr2, r1, r2\n 80179ba:\t409e      \tlsls\tr6, r3\n 80179bc:\t4316      \torrs\tr6, r2\n 80179be:\t6266      \tstr\tr6, [r4, #36]\t@ 0x24\n 80179c0:\te7d1      \tb.n\t8017966 <stm32_gpioport_configure_pin+0xaa>\n 80179c2:\t462a      \tmov\tr2, r5\n 80179c4:\te7ee      \tb.n\t80179a4 <stm32_gpioport_configure_pin+0xe8>\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-objdump",
+        "-d",
+        "--disassemble=stm32_gpioport_init",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf"
+      ],
+      "exit_code": 0,
+      "stdout": "\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf:     file format elf32-littlearm\n\n\nDisassembly of section rom_start:\n\nDisassembly of section text:\n\n08006540 <stm32_gpioport_init>:\n 8006540:\tb508      \tpush\t{r3, lr}\n 8006542:\t4a09      \tldr\tr2, [pc, #36]\t@ (8006568 <stm32_gpioport_init+0x28>)\n 8006544:\t6913      \tldr\tr3, [r2, #16]\n 8006546:\tf043 5300 \torr.w\tr3, r3, #536870912\t@ 0x20000000\n 800654a:\t6113      \tstr\tr3, [r2, #16]\n 800654c:\t6841      \tldr\tr1, [r0, #4]\n 800654e:\t4807      \tldr\tr0, [pc, #28]\t@ (800656c <stm32_gpioport_init+0x2c>)\n 8006550:\t310c      \tadds\tr1, #12\n 8006552:\t6883      \tldr\tr3, [r0, #8]\n 8006554:\t681b      \tldr\tr3, [r3, #0]\n 8006556:\tb11b      \tcbz\tr3, 8006560 <stm32_gpioport_init+0x20>\n 8006558:\t4798      \tblx\tr3\n 800655a:\tea00 70e0 \tand.w\tr0, r0, r0, asr #31\n 800655e:\tbd08      \tpop\t{r3, pc}\n 8006560:\tf06f 0057 \tmvn.w\tr0, #87\t@ 0x57\n 8006564:\te7f9      \tb.n\t800655a <stm32_gpioport_init+0x1a>\n 8006566:\tbf00      \tnop\n 8006568:\t46020800 \t.word\t0x46020800\n 800656c:\t0801befc \t.word\t0x0801befc\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-objdump",
+        "-d",
+        "--disassemble=z_impl_device_is_ready",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf"
+      ],
+      "exit_code": 0,
+      "stdout": "\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf:     file format elf32-littlearm\n\n\nDisassembly of section rom_start:\n\nDisassembly of section text:\n\n08019e6e <z_impl_device_is_ready>:\n 8019e6e:\tb140      \tcbz\tr0, 8019e82 <z_impl_device_is_ready+0x14>\n 8019e70:\t68c3      \tldr\tr3, [r0, #12]\n 8019e72:\t7858      \tldrb\tr0, [r3, #1]\n 8019e74:\tf010 0001 \tands.w\tr0, r0, #1\n 8019e78:\tbf1e      \tittt\tne\n 8019e7a:\t7818      \tldrbne\tr0, [r3, #0]\n 8019e7c:\tfab0 f080 \tclzne\tr0, r0\n 8019e80:\t0940      \tlsrne\tr0, r0, #5\n 8019e82:\t4770      \tbx\tlr\n",
+      "stderr": ""
+    }
+  ],
+  "followup": {
+    "overlay_more": {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/arduino_uno_q_stm32u585xx.overlay",
+      "sha256": "bd4d01db1d55a641c0570044a55bc6ba375cf8a11ef9ca6aad6a7378ed5fb8c5",
+      "lines": [
+        [
+          100,
+          ""
+        ],
+        [
+          101,
+          ""
+        ],
+        [
+          102,
+          "/* Enable PWM timers */"
+        ],
+        [
+          103,
+          "&timers1 {"
+        ],
+        [
+          104,
+          "\tstatus = \"okay\";"
+        ],
+        [
+          105,
+          "\tst,prescaler = <63>;"
+        ],
+        [
+          106,
+          ""
+        ],
+        [
+          107,
+          "\tpwm1: pwm {"
+        ],
+        [
+          108,
+          "\t\tstatus = \"okay\";"
+        ],
+        [
+          109,
+          "\t\t/* tim1_etr_pa12 is not available for PWM */"
+        ],
+        [
+          110,
+          "\t\tzephyr,deferred-init;"
+        ],
+        [
+          111,
+          "\t\tpinctrl-0 = <>;"
+        ],
+        [
+          112,
+          "\t\tpinctrl-1 = <>;"
+        ],
+        [
+          113,
+          "\t\tpinctrl-2 = <&tim1_ch4_pa11 &tim1_ch3n_pb15 &tim1_ch1n_pb13 &tim1_ch2n_pb14>;"
+        ],
+        [
+          114,
+          "\t\tpinctrl-names = \"default\", \"sleep\", \"arduino\";"
+        ],
+        [
+          115,
+          "\t};"
+        ],
+        [
+          116,
+          "};"
+        ],
+        [
+          117,
+          ""
+        ],
+        [
+          118,
+          "/* Currently only the pins marked with ~ on the pin headers are enabled */"
+        ],
+        [
+          119,
+          "/* PB10 and PB11 conflict with I2C configuation */"
+        ],
+        [
+          120,
+          "&timers2 {"
+        ],
+        [
+          121,
+          "\tstatus = \"okay\";"
+        ],
+        [
+          122,
+          "\tst,prescaler = <4>;"
+        ],
+        [
+          123,
+          ""
+        ],
+        [
+          124,
+          "\tpwm2: pwm {"
+        ],
+        [
+          125,
+          "\t\tstatus = \"okay\";"
+        ],
+        [
+          126,
+          "\t\tzephyr,deferred-init;"
+        ],
+        [
+          127,
+          "\t\tpinctrl-0 = <>;"
+        ],
+        [
+          128,
+          "\t\tpinctrl-1 = <>;"
+        ],
+        [
+          129,
+          "\t\tpinctrl-2 = <&tim2_ch2_pb3 &tim2_ch3_pb10 &tim2_ch4_pb11>;"
+        ],
+        [
+          130,
+          "\t\tpinctrl-names = \"default\", \"sleep\", \"arduino\";"
+        ],
+        [
+          131,
+          "\t};"
+        ],
+        [
+          132,
+          "};"
+        ],
+        [
+          133,
+          ""
+        ],
+        [
+          134,
+          "&timers3 {"
+        ],
+        [
+          135,
+          "\tstatus = \"okay\";"
+        ],
+        [
+          136,
+          "\tst,prescaler = <4>;"
+        ],
+        [
+          137,
+          ""
+        ],
+        [
+          138,
+          "\tpwm3: pwm {"
+        ],
+        [
+          139,
+          "\t\tstatus = \"okay\";"
+        ],
+        [
+          140,
+          "\t\tzephyr,deferred-init;"
+        ],
+        [
+          141,
+          "\t\tpinctrl-0 = <>;"
+        ],
+        [
+          142,
+          "\t\tpinctrl-1 = <>;"
+        ],
+        [
+          143,
+          "\t\tpinctrl-2 = <&tim3_ch3_pb0 &tim3_ch4_pb1 &tim3_ch1_pb4>;"
+        ],
+        [
+          144,
+          "\t\tpinctrl-names = \"default\", \"sleep\", \"arduino\";"
+        ],
+        [
+          145,
+          "\t};"
+        ],
+        [
+          146,
+          "};"
+        ],
+        [
+          147,
+          ""
+        ],
+        [
+          148,
+          "&timers4 {"
+        ],
+        [
+          149,
+          "\tstatus = \"okay\";"
+        ],
+        [
+          150,
+          "\tst,prescaler = <4>;"
+        ],
+        [
+          151,
+          ""
+        ],
+        [
+          152,
+          "\tpwm4: pwm {"
+        ],
+        [
+          153,
+          "\t\tstatus = \"okay\";"
+        ],
+        [
+          154,
+          "\t\tzephyr,deferred-init;"
+        ],
+        [
+          155,
+          "\t\tpinctrl-0 = <>;"
+        ],
+        [
+          156,
+          "\t\tpinctrl-1 = <>;"
+        ],
+        [
+          157,
+          "\t\tpinctrl-2 = <&tim4_ch3_pb8 &tim4_ch4_pb9 /*&tim4_ch1_pb6 &tim4_ch2_pb7*/>;"
+        ],
+        [
+          158,
+          "\t\tpinctrl-names = \"default\", \"sleep\", \"arduino\";"
+        ],
+        [
+          159,
+          "\t};"
+        ],
+        [
+          160,
+          "};"
+        ],
+        [
+          161,
+          ""
+        ],
+        [
+          162,
+          "&timers5 {"
+        ],
+        [
+          163,
+          "    status = \"okay\";"
+        ],
+        [
+          164,
+          "\tst,prescaler = <4>;"
+        ],
+        [
+          165,
+          ""
+        ],
+        [
+          166,
+          "    pwm5: pwm {"
+        ],
+        [
+          167,
+          "        status = \"okay\";"
+        ],
+        [
+          168,
+          "        zephyr,deferred-init;"
+        ],
+        [
+          169,
+          "        pinctrl-0 = <>;"
+        ],
+        [
+          170,
+          "        pinctrl-1 = <>;"
+        ],
+        [
+          171,
+          "        pinctrl-2 = <&tim5_ch1_ph10 &tim5_ch2_ph11 &tim5_ch3_ph12>;"
+        ],
+        [
+          172,
+          "        pinctrl-names = \"default\", \"sleep\", \"arduino\";"
+        ],
+        [
+          173,
+          "    };"
+        ],
+        [
+          174,
+          "};"
+        ],
+        [
+          175,
+          ""
+        ],
+        [
+          176,
+          "&adc1 {"
+        ],
+        [
+          177,
+          "\tzephyr,deferred-init;"
+        ],
+        [
+          178,
+          "\tpinctrl-0 = <>;"
+        ],
+        [
+          179,
+          "\tpinctrl-1 = <>;"
+        ],
+        [
+          180,
+          "\tpinctrl-2 = <&adc1_in9_pa4 &adc1_in10_pa5 &adc1_in11_pa6 &adc1_in12_pa7 &adc1_in2_pc1 &adc1_in1_pc0>;"
+        ],
+        [
+          181,
+          "\tpinctrl-names = \"default\", \"sleep\", \"arduino\";"
+        ],
+        [
+          182,
+          "\tstatus = \"okay\";"
+        ],
+        [
+          183,
+          "};"
+        ],
+        [
+          184,
+          ""
+        ],
+        [
+          185,
+          "/* Currently only the pins marked with ~ on the pin headers are enabled */"
+        ],
+        [
+          186,
+          "&timers8 {"
+        ],
+        [
+          187,
+          "\tstatus = \"okay\";"
+        ],
+        [
+          188,
+          "\tst,prescaler = <63>;"
+        ],
+        [
+          189,
+          ""
+        ],
+        [
+          190,
+          "\tpwm8: pwm {"
+        ],
+        [
+          191,
+          "\t\tstatus = \"okay\";"
+        ],
+        [
+          192,
+          "\t\tzephyr,deferred-init;"
+        ],
+        [
+          193,
+          "\t\tpinctrl-0 = <>;"
+        ],
+        [
+          194,
+          "\t\tpinctrl-1 = <>;"
+        ],
+        [
+          195,
+          "\t\tpinctrl-2 = <&tim8_ch4n_pb2>;"
+        ],
+        [
+          196,
+          "\t\tpinctrl-names = \"default\", \"sleep\", \"arduino\";"
+        ],
+        [
+          197,
+          "\t};"
+        ],
+        [
+          198,
+          "};"
+        ],
+        [
+          199,
+          ""
+        ],
+        [
+          200,
+          "&timers16 {"
+        ],
+        [
+          201,
+          "\tstatus = \"okay\";"
+        ],
+        [
+          202,
+          "\tst,prescaler = <4>;"
+        ],
+        [
+          203,
+          ""
+        ],
+        [
+          204,
+          "\tcounter_servo: counter {"
+        ],
+        [
+          205,
+          "\t\tstatus = \"okay\";"
+        ],
+        [
+          206,
+          "\t\tlabel = \"SERVO_COUNTER\";"
+        ],
+        [
+          207,
+          "\t};"
+        ],
+        [
+          208,
+          "};"
+        ],
+        [
+          209,
+          ""
+        ],
+        [
+          210,
+          ""
+        ],
+        [
+          211,
+          "&timers17 {"
+        ],
+        [
+          212,
+          "\tstatus = \"okay\";"
+        ],
+        [
+          213,
+          "\tst,prescaler = <4>;"
+        ],
+        [
+          214,
+          ""
+        ],
+        [
+          215,
+          "\tcounter_matrix: counter {"
+        ],
+        [
+          216,
+          "\t\tstatus = \"okay\";"
+        ],
+        [
+          217,
+          "\t\tlabel = \"LED_MATRIX_COUNTER\";"
+        ],
+        [
+          218,
+          "\t};"
+        ],
+        [
+          219,
+          "};"
+        ],
+        [
+          220,
+          ""
+        ],
+        [
+          221,
+          "&spi3 {"
+        ],
+        [
+          222,
+          "\tzephyr,deferred-init;"
+        ],
+        [
+          223,
+          "\tdevice0: device@0 {"
+        ],
+        [
+          224,
+          "        compatible = \"zephyr,spi-slave\";"
+        ],
+        [
+          225,
+          "        reg = <0>;"
+        ],
+        [
+          226,
+          "\t};"
+        ],
+        [
+          227,
+          "};"
+        ],
+        [
+          228,
+          ""
+        ],
+        [
+          229,
+          "&rtc {"
+        ],
+        [
+          230,
+          "    status = \"okay\";"
+        ],
+        [
+          231,
+          "    clocks = <&rcc STM32_CLOCK(APB3, 21)>,"
+        ],
+        [
+          232,
+          "             <&rcc STM32_SRC_LSE RTC_SEL(1)>;"
+        ],
+        [
+          233,
+          "};"
+        ],
+        [
+          234,
+          ""
+        ],
+        [
+          235,
+          "&fdcan1 {"
+        ],
+        [
+          236,
+          "\tstatus = \"okay\";"
+        ],
+        [
+          237,
+          "\tzephyr,deferred-init;"
+        ],
+        [
+          238,
+          "\tpinctrl-0 = <&fdcan1_rx_pa11 &fdcan1_tx_pa12>;"
+        ],
+        [
+          239,
+          "\tpinctrl-names = \"default\";"
+        ],
+        [
+          240,
+          "\tclocks = <&rcc STM32_CLOCK_BUS_APB1_2 0x00000200>,"
+        ],
+        [
+          241,
+          "\t\t <&rcc STM32_SRC_PLL1_Q FDCAN1_SEL(1)>;"
+        ],
+        [
+          242,
+          "};"
+        ],
+        [
+          243,
+          ""
+        ],
+        [
+          244,
+          "&spi2 {"
+        ],
+        [
+          245,
+          "\tzephyr,deferred-init;"
+        ],
+        [
+          246,
+          "};"
+        ],
+        [
+          247,
+          ""
+        ],
+        [
+          248,
+          "&i2c2 {"
+        ],
+        [
+          249,
+          "\tzephyr,deferred-init;"
+        ]
+      ]
+    },
+    "Arduino": {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/cores/arduino/Arduino.h",
+      "sha256": "5f068c10a0aeb2f6d3cec1fa8b2a313b1f7374bcb77716f0b6cddba5bc198514",
+      "lines": [
+        [
+          12,
+          "#undef min"
+        ],
+        [
+          13,
+          "#undef max"
+        ],
+        [
+          14,
+          ""
+        ],
+        [
+          15,
+          "#include <zephyr/kernel.h>"
+        ],
+        [
+          16,
+          "#include <zephyr/drivers/gpio.h>"
+        ],
+        [
+          17,
+          "#include <zephyr/drivers/pwm.h>"
+        ],
+        [
+          18,
+          "#include <zephyr/drivers/adc.h>"
+        ],
+        [
+          19,
+          "#include <zephyr/drivers/dac.h>"
+        ],
+        [
+          20,
+          "#include <zephyr/drivers/i2c.h>"
+        ],
+        [
+          21,
+          "#include <math.h>"
+        ],
+        [
+          22,
+          ""
+        ],
+        [
+          23,
+          "#if DT_PROP_LEN(DT_PATH(zephyr_user), digital_pin_gpios) > 0"
+        ],
+        [
+          24,
+          "/* Note: DT_REG_ADDR needs an expanded argument or it will not work properly */"
+        ],
+        [
+          25,
+          "#define DIGITAL_PIN_MATCHES(dev_pha, pin, dev, num)                                                \\"
+        ],
+        [
+          26,
+          "\t(((dev == DT_REG_ADDR(dev_pha)) && (num == pin)) ? 1 : 0)"
+        ],
+        [
+          27,
+          "#define DIGITAL_PIN_EXISTS(n, p, i, dev, num)                                                      \\"
+        ],
+        [
+          28,
+          "\tDIGITAL_PIN_MATCHES(DT_PHANDLE_BY_IDX(n, p, i), DT_PHA_BY_IDX(n, p, i, pin), dev, num)"
+        ],
+        [
+          29,
+          ""
+        ],
+        [
+          30,
+          "/* Check all pins are defined only once */"
+        ],
+        [
+          31,
+          "#define DIGITAL_PIN_CHECK_UNIQUE(i, _)                                                             \\"
+        ],
+        [
+          32,
+          "\t((DT_FOREACH_PROP_ELEM_SEP_VARGS(                                                              \\"
+        ],
+        [
+          33,
+          "\t\t DT_PATH(zephyr_user), digital_pin_gpios, DIGITAL_PIN_EXISTS, (+),                         \\"
+        ],
+        [
+          34,
+          "\t\t DT_REG_ADDR(DT_PHANDLE_BY_IDX(DT_PATH(zephyr_user), digital_pin_gpios, i)),               \\"
+        ],
+        [
+          35,
+          "\t\t DT_PHA_BY_IDX(DT_PATH(zephyr_user), digital_pin_gpios, i, pin))) == 1)"
+        ],
+        [
+          36,
+          ""
+        ],
+        [
+          37,
+          "#if !LISTIFY(DT_PROP_LEN(DT_PATH(zephyr_user), digital_pin_gpios), DIGITAL_PIN_CHECK_UNIQUE, (&&))"
+        ],
+        [
+          38,
+          "#error \"digital_pin_gpios has duplicate definition\""
+        ],
+        [
+          39,
+          "#endif"
+        ],
+        [
+          40,
+          ""
+        ],
+        [
+          41,
+          "#undef DIGITAL_PIN_CHECK_UNIQUE"
+        ],
+        [
+          42,
+          "#endif"
+        ],
+        [
+          43,
+          ""
+        ],
+        [
+          44,
+          "// Helper macro to get Arduino pin number from device tree alias"
+        ],
+        [
+          45,
+          "#define DIGITAL_PIN_GPIOS_FIND_NODE(node)                                                          \\"
+        ],
+        [
+          46,
+          "\tDIGITAL_PIN_GPIOS_FIND_PIN(DT_REG_ADDR(DT_PHANDLE_BY_IDX(node, gpios, 0)),                     \\"
+        ],
+        [
+          47,
+          "\t\t\t\t\t\t\t   DT_PHA_BY_IDX(node, gpios, 0, pin))"
+        ],
+        [
+          48,
+          ""
+        ],
+        [
+          49,
+          "/* Return the index of it if matched, otherwise return 0 */"
+        ],
+        [
+          50,
+          "#define LED_BUILTIN_INDEX_BY_REG_AND_PINNUM(n, p, i, dev, num)                                     \\"
+        ],
+        [
+          51,
+          "\t(DIGITAL_PIN_EXISTS(n, p, i, dev, num) ? i : 0)"
+        ],
+        [
+          52,
+          ""
+        ],
+        [
+          53,
+          "/* Only matched pin returns non-zero value, so the sum is matched pin's index */"
+        ],
+        [
+          54,
+          "#define DIGITAL_PIN_GPIOS_FIND_PIN(dev, pin)                                                       \\"
+        ],
+        [
+          55,
+          "\tDT_FOREACH_PROP_ELEM_SEP_VARGS(DT_PATH(zephyr_user), digital_pin_gpios,                        \\"
+        ],
+        [
+          56,
+          "\t\t\t\t\t\t\t\t   LED_BUILTIN_INDEX_BY_REG_AND_PINNUM, (+), dev, pin)"
+        ],
+        [
+          57,
+          ""
+        ],
+        [
+          58,
+          "#if DT_NODE_HAS_PROP(DT_PATH(zephyr_user), builtin_led_gpios) &&                                   \\"
+        ],
+        [
+          59,
+          "\t(DT_PROP_LEN(DT_PATH(zephyr_user), builtin_led_gpios) > 0)"
+        ],
+        [
+          60,
+          ""
+        ],
+        [
+          61,
+          "#if !(DT_FOREACH_PROP_ELEM_SEP_VARGS(                                                              \\"
+        ],
+        [
+          62,
+          "\t\t  DT_PATH(zephyr_user), digital_pin_gpios, DIGITAL_PIN_EXISTS, (+),                        \\"
+        ],
+        [
+          63,
+          "\t\t  DT_REG_ADDR(DT_PHANDLE_BY_IDX(DT_PATH(zephyr_user), builtin_led_gpios, 0)),              \\"
+        ],
+        [
+          64,
+          "\t\t  DT_PHA_BY_IDX(DT_PATH(zephyr_user), builtin_led_gpios, 0, pin)) > 0)"
+        ],
+        [
+          65,
+          "#warning \"pin not found in digital_pin_gpios\""
+        ],
+        [
+          66,
+          "#else"
+        ],
+        [
+          67,
+          "#define ZARD_LED_BUILTIN                                                                           \\"
+        ],
+        [
+          68,
+          "\tDIGITAL_PIN_GPIOS_FIND_PIN(                                                                    \\"
+        ],
+        [
+          69,
+          "\t\tDT_REG_ADDR(DT_PHANDLE_BY_IDX(DT_PATH(zephyr_user), builtin_led_gpios, 0)),                \\"
+        ],
+        [
+          70,
+          "\t\tDT_PHA_BY_IDX(DT_PATH(zephyr_user), builtin_led_gpios, 0, pin))"
+        ],
+        [
+          71,
+          "#endif"
+        ],
+        [
+          72,
+          ""
+        ],
+        [
+          73,
+          "/* If digital-pin-gpios is not defined, tries to use the led0 alias */"
+        ],
+        [
+          74,
+          "#elif DT_NODE_EXISTS(DT_ALIAS(led0))"
+        ],
+        [
+          75,
+          ""
+        ],
+        [
+          76,
+          "#if !(DT_FOREACH_PROP_ELEM_SEP_VARGS(DT_PATH(zephyr_user), digital_pin_gpios, DIGITAL_PIN_EXISTS,  \\"
+        ],
+        [
+          77,
+          "\t\t\t\t\t\t\t\t\t (+),                                                          \\"
+        ],
+        [
+          78,
+          "\t\t\t\t\t\t\t\t\t DT_REG_ADDR(DT_PHANDLE_BY_IDX(DT_ALIAS(led0), gpios, 0)),     \\"
+        ],
+        [
+          79,
+          "\t\t\t\t\t\t\t\t\t DT_PHA_BY_IDX(DT_ALIAS(led0), gpios, 0, pin)) > 0)"
+        ],
+        [
+          80,
+          "#warning \"pin not found in digital_pin_gpios\""
+        ],
+        [
+          120,
+          "#undef DAC1"
+        ],
+        [
+          121,
+          "#undef DAC2"
+        ],
+        [
+          122,
+          "#undef DAC3"
+        ],
+        [
+          123,
+          "#define DAC_ENUMS(n, p, i) DAC##i = i,"
+        ],
+        [
+          124,
+          ""
+        ],
+        [
+          125,
+          "enum dacPins {"
+        ],
+        [
+          126,
+          "#if DT_PROP_LEN_OR(DT_PATH(zephyr_user), dac_channels, 0) > 0"
+        ],
+        [
+          127,
+          "\tDT_FOREACH_PROP_ELEM(DT_PATH(zephyr_user), dac_channels, DAC_ENUMS)"
+        ],
+        [
+          128,
+          "#endif"
+        ],
+        [
+          129,
+          "\tNUM_OF_DACS"
+        ],
+        [
+          130,
+          "};"
+        ],
+        [
+          131,
+          ""
+        ],
+        [
+          132,
+          "#endif"
+        ],
+        [
+          133,
+          ""
+        ],
+        [
+          134,
+          "void interrupts(void);"
+        ],
+        [
+          135,
+          "void noInterrupts(void);"
+        ],
+        [
+          136,
+          ""
+        ],
+        [
+          137,
+          "int digitalPinToInterrupt(pin_size_t pin);"
+        ],
+        [
+          138,
+          ""
+        ],
+        [
+          139,
+          "// These defines can be overridden by variant.h if implemented"
+        ],
+        [
+          140,
+          "#define digitalPinToPort(x)    (x)"
+        ],
+        [
+          141,
+          "#define digitalPinToBitMask(x) (x)"
+        ],
+        [
+          142,
+          "#define portOutputRegister(x)  (x)"
+        ],
+        [
+          143,
+          "#define portInputRegister(x)   (x)"
+        ],
+        [
+          144,
+          ""
+        ],
+        [
+          145,
+          "const struct device *digitalPinToPortDevice(pin_size_t pinNumber);"
+        ],
+        [
+          146,
+          "int digitalPinToPinIndex(pin_size_t pinNumber);"
+        ],
+        [
+          147,
+          ""
+        ],
+        [
+          148,
+          "#if defined(CONFIG_PWM) || defined(CONFIG_DAC)"
+        ],
+        [
+          149,
+          "void analogWriteResolution(int bits);"
+        ],
+        [
+          150,
+          "#endif"
+        ],
+        [
+          151,
+          ""
+        ],
+        [
+          152,
+          "#if defined(__arm__)"
+        ],
+        [
+          153,
+          "#define F_CPU (SystemCoreClock)"
+        ],
+        [
+          154,
+          "#endif"
+        ],
+        [
+          155,
+          ""
+        ],
+        [
+          156,
+          "#include <variant.h>"
+        ],
+        [
+          157,
+          ""
+        ],
+        [
+          158,
+          "#if !defined(LED_BUILTIN) && defined(ZARD_LED_BUILTIN)"
+        ],
+        [
+          159,
+          "#define LED_BUILTIN ZARD_LED_BUILTIN"
+        ],
+        [
+          160,
+          "#endif // LED_BUILTIN"
+        ],
+        [
+          161,
+          ""
+        ],
+        [
+          162,
+          "#include <inlines.h>"
+        ],
+        [
+          163,
+          ""
+        ],
+        [
+          164,
+          "#ifdef __cplusplus"
+        ],
+        [
+          165,
+          "#include <SerialUSB.h>"
+        ],
+        [
+          166,
+          "#include <zephyrSerial.h>"
+        ],
+        [
+          167,
+          "#include <strings.h>"
+        ],
+        [
+          168,
+          "#include <api/itoa.h>"
+        ],
+        [
+          169,
+          "#include <time_macros.h>"
+        ],
+        [
+          170,
+          "#include <overloads.h>"
+        ],
+        [
+          171,
+          ""
+        ],
+        [
+          172,
+          "// Allow namespace-less operations if Arduino.h is included"
+        ],
+        [
+          173,
+          "using namespace arduino;"
+        ],
+        [
+          174,
+          ""
+        ],
+        [
+          175,
+          "#if __has_include(\"postvariant.h\")"
+        ],
+        [
+          176,
+          "#include \"postvariant.h\""
+        ],
+        [
+          177,
+          "#endif"
+        ],
+        [
+          178,
+          ""
+        ],
+        [
+          179,
+          "#endif // __cplusplus"
+        ]
+      ]
+    },
+    "Wire": {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/libraries/Wire/Wire.cpp",
+      "sha256": "d70664c8bae877dded9c77d5db110af553816df32f1861be91a4ac27bf33ae5a",
+      "lines": [
+        [
+          1,
+          "/*"
+        ],
+        [
+          2,
+          " * Copyright (c) 2022 Dhruva Gole"
+        ],
+        [
+          3,
+          " *"
+        ],
+        [
+          4,
+          " * SPDX-License-Identifier: Apache-2.0"
+        ],
+        [
+          5,
+          " */"
+        ],
+        [
+          6,
+          ""
+        ],
+        [
+          7,
+          "#include <Wire.h>"
+        ],
+        [
+          8,
+          "#include <stddef.h>"
+        ],
+        [
+          9,
+          "#include <zephyr/sys/util_macro.h>"
+        ],
+        [
+          10,
+          ""
+        ],
+        [
+          11,
+          "// Helper function to get ZephyrI2C instance from config pointer."
+        ],
+        [
+          12,
+          "static arduino::ZephyrI2C *getInstance(struct i2c_target_config *config) {"
+        ],
+        [
+          13,
+          "#pragma GCC diagnostic push"
+        ],
+        [
+          14,
+          "#pragma GCC diagnostic ignored \"-Winvalid-offsetof\""
+        ],
+        [
+          15,
+          "\treturn reinterpret_cast<arduino::ZephyrI2C *>(reinterpret_cast<char *>(config) -"
+        ],
+        [
+          16,
+          "\t\t\t\t\t\t\t\t\t\t\t\t  offsetof(arduino::ZephyrI2C, i2c_cfg));"
+        ],
+        [
+          17,
+          "#pragma GCC diagnostic pop"
+        ],
+        [
+          18,
+          "}"
+        ],
+        [
+          19,
+          ""
+        ],
+        [
+          20,
+          "static int i2c_target_stop_cb(struct i2c_target_config *config) {"
+        ],
+        [
+          21,
+          "\tarduino::ZephyrI2C *instance = getInstance(config);"
+        ],
+        [
+          22,
+          "\treturn instance->stopCallback(config);"
+        ],
+        [
+          23,
+          "}"
+        ],
+        [
+          24,
+          ""
+        ],
+        [
+          25,
+          "static int i2c_target_write_requested_cb(struct i2c_target_config *config) {"
+        ],
+        [
+          26,
+          "\tarduino::ZephyrI2C *instance = getInstance(config);"
+        ],
+        [
+          27,
+          "\treturn instance->writeRequestedCallback(config);"
+        ],
+        [
+          28,
+          "}"
+        ],
+        [
+          29,
+          ""
+        ],
+        [
+          30,
+          "static int i2c_target_write_received_cb(struct i2c_target_config *config, uint8_t val) {"
+        ],
+        [
+          31,
+          "\tarduino::ZephyrI2C *instance = getInstance(config);"
+        ],
+        [
+          32,
+          "\treturn instance->writeReceivedCallback(config, val);"
+        ],
+        [
+          33,
+          "}"
+        ],
+        [
+          34,
+          ""
+        ],
+        [
+          35,
+          "static int i2c_target_read_requested_cb(struct i2c_target_config *config, uint8_t *val) {"
+        ],
+        [
+          36,
+          "\tarduino::ZephyrI2C *instance = getInstance(config);"
+        ],
+        [
+          37,
+          "\treturn instance->readRequestedCallback(config, val);"
+        ],
+        [
+          38,
+          "}"
+        ],
+        [
+          39,
+          ""
+        ],
+        [
+          40,
+          "static int i2c_target_read_processed_cb(struct i2c_target_config *config, uint8_t *val) {"
+        ],
+        [
+          41,
+          "\tarduino::ZephyrI2C *instance = getInstance(config);"
+        ],
+        [
+          42,
+          "\treturn instance->readProcessedCallback(config, val);"
+        ],
+        [
+          43,
+          "}"
+        ],
+        [
+          44,
+          ""
+        ],
+        [
+          45,
+          "// I2C target callback structure."
+        ],
+        [
+          46,
+          "static struct i2c_target_callbacks target_callbacks = {"
+        ],
+        [
+          47,
+          "\t.write_requested = i2c_target_write_requested_cb,"
+        ],
+        [
+          48,
+          "\t.read_requested = i2c_target_read_requested_cb,"
+        ],
+        [
+          49,
+          "\t.write_received = i2c_target_write_received_cb,"
+        ],
+        [
+          50,
+          "\t.read_processed = i2c_target_read_processed_cb,"
+        ],
+        [
+          51,
+          "\t.stop = i2c_target_stop_cb,"
+        ],
+        [
+          52,
+          "};"
+        ],
+        [
+          53,
+          ""
+        ],
+        [
+          54,
+          "arduino::ZephyrI2C::ZephyrI2C(const struct device *i2c) : i2c_cfg({0}), i2c_dev(i2c) {"
+        ],
+        [
+          55,
+          "\tring_buf_init(&txRingBuffer.rb, sizeof(txRingBuffer.buffer), txRingBuffer.buffer);"
+        ],
+        [
+          56,
+          "\tring_buf_init(&rxRingBuffer.rb, sizeof(rxRingBuffer.buffer), rxRingBuffer.buffer);"
+        ],
+        [
+          57,
+          "}"
+        ],
+        [
+          58,
+          ""
+        ],
+        [
+          59,
+          "void arduino::ZephyrI2C::begin() {"
+        ],
+        [
+          60,
+          ""
+        ],
+        [
+          61,
+          "\t/* Re-apply DEFAULT pinctrl state so shared pins"
+        ],
+        [
+          62,
+          "\t * are remuxed back to I2C after other peripherals have used them."
+        ],
+        [
+          63,
+          "\t */"
+        ],
+        [
+          64,
+          "\t(void)zephyr::arduino::init_dev_apply_pinctrl(i2c_dev);"
+        ],
+        [
+          65,
+          "}"
+        ],
+        [
+          66,
+          ""
+        ],
+        [
+          67,
+          "void arduino::ZephyrI2C::begin(uint8_t slaveAddr) {"
+        ],
+        [
+          68,
+          "\tbegin();"
+        ],
+        [
+          69,
+          "\ti2c_cfg.address = slaveAddr;"
+        ],
+        [
+          70,
+          "\ti2c_cfg.callbacks = &target_callbacks;"
+        ],
+        [
+          71,
+          ""
+        ],
+        [
+          72,
+          "\t// Register I2C target"
+        ],
+        [
+          73,
+          "\ti2c_target_register(i2c_dev, &i2c_cfg);"
+        ],
+        [
+          74,
+          "}"
+        ],
+        [
+          75,
+          ""
+        ],
+        [
+          76,
+          "void arduino::ZephyrI2C::end() {"
+        ],
+        [
+          77,
+          "\t// Unregister I2C target"
+        ],
+        [
+          78,
+          "\tif (i2c_cfg.address) {"
+        ],
+        [
+          79,
+          "\t\ti2c_target_unregister(i2c_dev, &i2c_cfg);"
+        ],
+        [
+          80,
+          "\t\tmemset(&i2c_cfg, 0, sizeof(i2c_cfg));"
+        ],
+        [
+          81,
+          "\t}"
+        ],
+        [
+          82,
+          "#ifdef CONFIG_DEVICE_DEINIT_SUPPORT"
+        ],
+        [
+          83,
+          "\t(void)device_deinit(i2c_dev);"
+        ],
+        [
+          84,
+          "#endif"
+        ],
+        [
+          85,
+          "}"
+        ],
+        [
+          86,
+          ""
+        ],
+        [
+          87,
+          "void arduino::ZephyrI2C::setClock(uint32_t freq) {"
+        ],
+        [
+          88,
+          "\tuint8_t speed;"
+        ],
+        [
+          89,
+          ""
+        ],
+        [
+          90,
+          "\tif (freq == 100000) {"
+        ]
+      ]
+    },
+    "SPI": {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/libraries/SPI/SPI.cpp",
+      "sha256": "070d0404a1bd54e485061280bac9185cad33d8736c302ab308372d5d643a598b",
+      "lines": [
+        [
+          1,
+          "/*"
+        ],
+        [
+          2,
+          " * Copyright (c) 2024 Ayush Singh <ayush@beagleboard.org>"
+        ],
+        [
+          3,
+          " *"
+        ],
+        [
+          4,
+          " * SPDX-License-Identifier: Apache-2.0"
+        ],
+        [
+          5,
+          " */"
+        ],
+        [
+          6,
+          ""
+        ],
+        [
+          7,
+          "#include \"SPI.h\""
+        ],
+        [
+          8,
+          "#include <zephyr/kernel.h>"
+        ],
+        [
+          9,
+          ""
+        ],
+        [
+          10,
+          "arduino::ZephyrSPI::ZephyrSPI(const struct device *spi) : spi_dev(spi) {"
+        ],
+        [
+          11,
+          "}"
+        ],
+        [
+          12,
+          ""
+        ],
+        [
+          13,
+          "uint8_t arduino::ZephyrSPI::transfer(uint8_t data) {"
+        ],
+        [
+          14,
+          "\tuint8_t rx = data;"
+        ],
+        [
+          15,
+          "\tif (transfer(&rx, sizeof(rx), &config) < 0) {"
+        ],
+        [
+          16,
+          "\t\treturn 0;"
+        ],
+        [
+          17,
+          "\t}"
+        ],
+        [
+          18,
+          "\treturn rx;"
+        ],
+        [
+          19,
+          "}"
+        ],
+        [
+          20,
+          ""
+        ],
+        [
+          21,
+          "uint16_t arduino::ZephyrSPI::transfer16(uint16_t data) {"
+        ],
+        [
+          22,
+          "\tuint16_t rx = data;"
+        ],
+        [
+          23,
+          "\tif (transfer(&rx, sizeof(rx), &config16) < 0) {"
+        ],
+        [
+          24,
+          "\t\treturn 0;"
+        ],
+        [
+          25,
+          "\t}"
+        ],
+        [
+          26,
+          "\treturn rx;"
+        ],
+        [
+          27,
+          "}"
+        ],
+        [
+          28,
+          ""
+        ],
+        [
+          29,
+          "void arduino::ZephyrSPI::transfer(void *buf, size_t count) {"
+        ],
+        [
+          30,
+          "\tint ret = transfer(buf, count, &config);"
+        ],
+        [
+          31,
+          "\t(void)ret;"
+        ],
+        [
+          32,
+          "}"
+        ],
+        [
+          33,
+          ""
+        ],
+        [
+          34,
+          "int arduino::ZephyrSPI::transfer(void *buf, size_t len, const struct spi_config *config) {"
+        ],
+        [
+          35,
+          "\tconst struct spi_buf tx_buf = {.buf = buf, .len = len};"
+        ],
+        [
+          36,
+          "\tconst struct spi_buf_set tx_buf_set = {"
+        ],
+        [
+          37,
+          "\t\t.buffers = &tx_buf,"
+        ],
+        [
+          38,
+          "\t\t.count = 1,"
+        ],
+        [
+          39,
+          "\t};"
+        ],
+        [
+          40,
+          ""
+        ],
+        [
+          41,
+          "\tconst struct spi_buf rx_buf = {.buf = buf, .len = len};"
+        ],
+        [
+          42,
+          "\tconst struct spi_buf_set rx_buf_set = {"
+        ],
+        [
+          43,
+          "\t\t.buffers = &rx_buf,"
+        ],
+        [
+          44,
+          "\t\t.count = 1,"
+        ],
+        [
+          45,
+          "\t};"
+        ],
+        [
+          46,
+          ""
+        ],
+        [
+          47,
+          "\treturn spi_transceive(spi_dev, config, &tx_buf_set, &rx_buf_set);"
+        ],
+        [
+          48,
+          "}"
+        ],
+        [
+          49,
+          ""
+        ],
+        [
+          50,
+          "void arduino::ZephyrSPI::usingInterrupt(int interruptNumber) {"
+        ],
+        [
+          51,
+          "\tARG_UNUSED(interruptNumber);"
+        ],
+        [
+          52,
+          "}"
+        ],
+        [
+          53,
+          ""
+        ],
+        [
+          54,
+          "void arduino::ZephyrSPI::notUsingInterrupt(int interruptNumber) {"
+        ],
+        [
+          55,
+          "\tARG_UNUSED(interruptNumber);"
+        ],
+        [
+          56,
+          "}"
+        ],
+        [
+          57,
+          ""
+        ],
+        [
+          58,
+          "void arduino::ZephyrSPI::beginTransaction(SPISettings settings) {"
+        ],
+        [
+          59,
+          "\tuint32_t mode = SPI_HOLD_ON_CS;"
+        ],
+        [
+          60,
+          ""
+        ],
+        [
+          61,
+          "\t// Set bus mode"
+        ],
+        [
+          62,
+          "\tswitch (settings.getBusMode()) {"
+        ],
+        [
+          63,
+          "\tcase SPI_CONTROLLER:"
+        ],
+        [
+          64,
+          "\t\tbreak;"
+        ],
+        [
+          65,
+          "\tcase SPI_PERIPHERAL:"
+        ],
+        [
+          66,
+          "\t\tmode |= SPI_OP_MODE_SLAVE;"
+        ],
+        [
+          67,
+          "\t\tbreak;"
+        ],
+        [
+          68,
+          "\t}"
+        ],
+        [
+          69,
+          ""
+        ],
+        [
+          70,
+          "\t// Set data format"
+        ],
+        [
+          71,
+          "\tswitch (settings.getBitOrder()) {"
+        ],
+        [
+          72,
+          "\tcase LSBFIRST:"
+        ],
+        [
+          73,
+          "\t\tmode |= SPI_TRANSFER_LSB;"
+        ],
+        [
+          74,
+          "\t\tbreak;"
+        ],
+        [
+          75,
+          "\tcase MSBFIRST:"
+        ],
+        [
+          76,
+          "\t\tmode |= SPI_TRANSFER_MSB;"
+        ],
+        [
+          77,
+          "\t\tbreak;"
+        ],
+        [
+          78,
+          "\t}"
+        ],
+        [
+          79,
+          ""
+        ],
+        [
+          80,
+          "\t// Set data mode"
+        ],
+        [
+          81,
+          "\tswitch (settings.getDataMode()) {"
+        ],
+        [
+          82,
+          "\tcase SPI_MODE0:"
+        ],
+        [
+          83,
+          "\t\tbreak;"
+        ],
+        [
+          84,
+          "\tcase SPI_MODE1:"
+        ],
+        [
+          85,
+          "\t\tmode |= SPI_MODE_CPHA;"
+        ],
+        [
+          86,
+          "\t\tbreak;"
+        ],
+        [
+          87,
+          "\tcase SPI_MODE2:"
+        ],
+        [
+          88,
+          "\t\tmode |= SPI_MODE_CPOL;"
+        ],
+        [
+          89,
+          "\t\tbreak;"
+        ],
+        [
+          90,
+          "\tcase SPI_MODE3:"
+        ]
+      ]
+    },
+    "gpio_more": {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/zephyr/drivers/gpio.h",
+      "sha256": "aab7888876f29b6ad98217d8099aac677f5238249b95599511038cc35d982316",
+      "lines": [
+        [
+          300,
+          "\tgpio_pin_t pin;"
+        ],
+        [
+          301,
+          "\t/** The pin's configuration flags as specified in devicetree */"
+        ],
+        [
+          302,
+          "\tgpio_dt_flags_t dt_flags;"
+        ],
+        [
+          303,
+          "};"
+        ],
+        [
+          304,
+          ""
+        ],
+        [
+          305,
+          "/**"
+        ],
+        [
+          306,
+          " * @brief Static initializer for a @p gpio_dt_spec"
+        ],
+        [
+          307,
+          " *"
+        ],
+        [
+          308,
+          " * This returns a static initializer for a @p gpio_dt_spec structure given a"
+        ],
+        [
+          309,
+          " * devicetree node identifier, a property specifying a GPIO and an index."
+        ],
+        [
+          310,
+          " *"
+        ],
+        [
+          311,
+          " * Example devicetree fragment:"
+        ],
+        [
+          312,
+          " *"
+        ],
+        [
+          313,
+          " *\tn: node {"
+        ],
+        [
+          314,
+          " *\t\tfoo-gpios = <&gpio0 1 GPIO_ACTIVE_LOW>,"
+        ],
+        [
+          315,
+          " *\t\t\t    <&gpio1 2 GPIO_ACTIVE_LOW>;"
+        ],
+        [
+          316,
+          " *\t}"
+        ],
+        [
+          317,
+          " *"
+        ],
+        [
+          318,
+          " * Example usage:"
+        ],
+        [
+          319,
+          " *"
+        ],
+        [
+          320,
+          " *\tconst struct gpio_dt_spec spec = GPIO_DT_SPEC_GET_BY_IDX(DT_NODELABEL(n),"
+        ],
+        [
+          321,
+          " *\t\t\t\t\t\t\t\t foo_gpios, 1);"
+        ],
+        [
+          322,
+          " *\t// Initializes 'spec' to:"
+        ],
+        [
+          323,
+          " *\t// {"
+        ],
+        [
+          324,
+          " *\t//         .port = DEVICE_DT_GET(DT_NODELABEL(gpio1)),"
+        ],
+        [
+          325,
+          " *\t//         .pin = 2,"
+        ],
+        [
+          326,
+          " *\t//         .dt_flags = GPIO_ACTIVE_LOW"
+        ],
+        [
+          327,
+          " *\t// }"
+        ],
+        [
+          328,
+          " *"
+        ],
+        [
+          329,
+          " * The 'gpio' field must still be checked for readiness, e.g. using"
+        ],
+        [
+          330,
+          " * device_is_ready(). It is an error to use this macro unless the node"
+        ],
+        [
+          331,
+          " * exists, has the given property, and that property specifies a GPIO"
+        ],
+        [
+          332,
+          " * controller, pin number, and flags as shown above."
+        ],
+        [
+          333,
+          " *"
+        ],
+        [
+          334,
+          " * @param node_id devicetree node identifier"
+        ],
+        [
+          335,
+          " * @param prop lowercase-and-underscores property name"
+        ],
+        [
+          850,
+          " *"
+        ],
+        [
+          851,
+          " * @retval true if the GPIO spec is ready for use."
+        ],
+        [
+          852,
+          " * @retval false if the GPIO spec is not ready for use."
+        ],
+        [
+          853,
+          " */"
+        ],
+        [
+          854,
+          "static inline bool gpio_is_ready_dt(const struct gpio_dt_spec *spec)"
+        ],
+        [
+          855,
+          "{"
+        ],
+        [
+          856,
+          "\t/* Validate port is ready */"
+        ],
+        [
+          857,
+          "\treturn device_is_ready(spec->port);"
+        ],
+        [
+          858,
+          "}"
+        ],
+        [
+          859,
+          ""
+        ],
+        [
+          860,
+          "/**"
+        ],
+        [
+          861,
+          " * @brief Configure pin interrupt."
+        ],
+        [
+          862,
+          " *"
+        ],
+        [
+          863,
+          " * @note This function can also be used to configure interrupts on pins"
+        ],
+        [
+          864,
+          " *       not controlled directly by the GPIO module. That is, pins which are"
+        ],
+        [
+          865,
+          " *       routed to other modules such as I2C, SPI, UART."
+        ],
+        [
+          866,
+          " *"
+        ],
+        [
+          867,
+          " * @isr_ok"
+        ],
+        [
+          868,
+          " *"
+        ],
+        [
+          869,
+          " * @param port Pointer to device structure for the driver instance."
+        ],
+        [
+          870,
+          " * @param pin Pin number."
+        ],
+        [
+          871,
+          " * @param flags Interrupt configuration flags as defined by GPIO_INT_*."
+        ],
+        [
+          872,
+          " *"
+        ],
+        [
+          873,
+          " * @retval 0 If successful."
+        ],
+        [
+          874,
+          " * @retval -ENOSYS If the operation is not implemented by the driver."
+        ],
+        [
+          875,
+          " * @retval -ENOTSUP If any of the configuration options is not supported"
+        ],
+        [
+          876,
+          " *                  (unless otherwise directed by flag documentation)."
+        ],
+        [
+          877,
+          " * @retval -EINVAL  Invalid argument."
+        ],
+        [
+          878,
+          " * @retval -EBUSY   Interrupt line required to configure pin interrupt is"
+        ],
+        [
+          879,
+          " *                  already in use."
+        ],
+        [
+          880,
+          " * @retval -EIO I/O error when accessing an external GPIO chip."
+        ],
+        [
+          1210,
+          " * @param pin Pin number which configuration is get."
+        ],
+        [
+          1211,
+          " * @param flags Pointer to variable in which the current configuration will"
+        ],
+        [
+          1212,
+          " *              be stored if function is successful."
+        ],
+        [
+          1213,
+          " *"
+        ],
+        [
+          1214,
+          " * @retval 0 If successful."
+        ],
+        [
+          1215,
+          " * @retval -ENOSYS if getting current pin configuration is not implemented"
+        ],
+        [
+          1216,
+          " *                  by the driver."
+        ],
+        [
+          1217,
+          " * @retval -EINVAL Invalid argument."
+        ],
+        [
+          1218,
+          " * @retval -EIO I/O error when accessing an external GPIO chip."
+        ],
+        [
+          1219,
+          " * @retval -EWOULDBLOCK if operation would block."
+        ],
+        [
+          1220,
+          " */"
+        ],
+        [
+          1221,
+          "__syscall int gpio_pin_get_config(const struct device *port, gpio_pin_t pin,"
+        ],
+        [
+          1222,
+          "\t\t\t\t  gpio_flags_t *flags);"
+        ],
+        [
+          1223,
+          ""
+        ],
+        [
+          1224,
+          "#ifdef CONFIG_GPIO_GET_CONFIG"
+        ],
+        [
+          1225,
+          "static inline int z_impl_gpio_pin_get_config(const struct device *port,"
+        ],
+        [
+          1226,
+          "\t\t\t\t\t     gpio_pin_t pin,"
+        ],
+        [
+          1227,
+          "\t\t\t\t\t     gpio_flags_t *flags)"
+        ],
+        [
+          1228,
+          "{"
+        ],
+        [
+          1229,
+          "\tconst struct gpio_driver_api *api ="
+        ],
+        [
+          1230,
+          "\t\t(const struct gpio_driver_api *)port->api;"
+        ],
+        [
+          1231,
+          "\tint ret;"
+        ],
+        [
+          1232,
+          ""
+        ],
+        [
+          1233,
+          "\tSYS_PORT_TRACING_FUNC_ENTER(gpio_pin, get_config, port, pin, *flags);"
+        ],
+        [
+          1234,
+          ""
+        ],
+        [
+          1235,
+          "\tif (api->pin_get_config == NULL) {"
+        ],
+        [
+          1236,
+          "\t\tSYS_PORT_TRACING_FUNC_EXIT(gpio_pin, get_config, port, pin, -ENOSYS);"
+        ],
+        [
+          1237,
+          "\t\treturn -ENOSYS;"
+        ],
+        [
+          1238,
+          "\t}"
+        ],
+        [
+          1239,
+          ""
+        ],
+        [
+          1240,
+          "\tret = api->pin_get_config(port, pin, flags);"
+        ],
+        [
+          1241,
+          "\tSYS_PORT_TRACING_FUNC_EXIT(gpio_pin, get_config, port, pin, ret);"
+        ],
+        [
+          1242,
+          "\treturn ret;"
+        ],
+        [
+          1243,
+          "}"
+        ],
+        [
+          1244,
+          "#endif"
+        ],
+        [
+          1245,
+          ""
+        ],
+        [
+          1246,
+          "/**"
+        ],
+        [
+          1247,
+          " * @brief Get a configuration of a single pin from a @p gpio_dt_spec."
+        ],
+        [
+          1248,
+          " *"
+        ],
+        [
+          1249,
+          " * This is equivalent to:"
+        ],
+        [
+          1250,
+          " *"
+        ],
+        [
+          1251,
+          " *     gpio_pin_get_config(spec->port, spec->pin, flags);"
+        ],
+        [
+          1252,
+          " *"
+        ],
+        [
+          1253,
+          " * @param spec GPIO specification from devicetree"
+        ],
+        [
+          1254,
+          " * @param flags Pointer to variable in which the current configuration will"
+        ],
+        [
+          1255,
+          " *              be stored if function is successful."
+        ],
+        [
+          1256,
+          " * @return a value from gpio_pin_configure()"
+        ],
+        [
+          1257,
+          " */"
+        ],
+        [
+          1258,
+          "static inline int gpio_pin_get_config_dt(const struct gpio_dt_spec *spec,"
+        ],
+        [
+          1259,
+          "\t\t\t\t\tgpio_flags_t *flags)"
+        ],
+        [
+          1260,
+          "{"
+        ],
+        [
+          1261,
+          "\treturn gpio_pin_get_config(spec->port, spec->pin, flags);"
+        ],
+        [
+          1262,
+          "}"
+        ],
+        [
+          1263,
+          ""
+        ],
+        [
+          1264,
+          "/**"
+        ],
+        [
+          1265,
+          " * @brief Get physical level of all input pins in a port."
+        ],
+        [
+          1266,
+          " *"
+        ],
+        [
+          1267,
+          " * A low physical level on the pin will be interpreted as value 0. A high"
+        ],
+        [
+          1268,
+          " * physical level will be interpreted as value 1. This function ignores"
+        ],
+        [
+          1269,
+          " * GPIO_ACTIVE_LOW flag."
+        ],
+        [
+          1270,
+          " *"
+        ],
+        [
+          1271,
+          " * Value of a pin with index n will be represented by bit n in the returned"
+        ],
+        [
+          1272,
+          " * port value."
+        ],
+        [
+          1273,
+          " *"
+        ],
+        [
+          1274,
+          " * @param port Pointer to the device structure for the driver instance."
+        ],
+        [
+          1275,
+          " * @param value Pointer to a variable where pin values will be stored."
+        ],
+        [
+          1276,
+          " *"
+        ],
+        [
+          1277,
+          " * @retval 0 If successful."
+        ],
+        [
+          1278,
+          " * @retval -EIO I/O error when accessing an external GPIO chip."
+        ],
+        [
+          1279,
+          " * @retval -EWOULDBLOCK if operation would block."
+        ],
+        [
+          1280,
+          " */"
+        ],
+        [
+          1281,
+          "__syscall int gpio_port_get_raw(const struct device *port,"
+        ],
+        [
+          1282,
+          "\t\t\t\tgpio_port_value_t *value);"
+        ],
+        [
+          1283,
+          ""
+        ],
+        [
+          1284,
+          "static inline int z_impl_gpio_port_get_raw(const struct device *port, gpio_port_value_t *value)"
+        ],
+        [
+          1285,
+          "{"
+        ],
+        [
+          1286,
+          "\tconst struct gpio_driver_api *api = (const struct gpio_driver_api *)port->api;"
+        ],
+        [
+          1287,
+          "\tint ret;"
+        ],
+        [
+          1288,
+          ""
+        ],
+        [
+          1289,
+          "\tSYS_PORT_TRACING_FUNC_ENTER(gpio_port, get_raw, port, value);"
+        ],
+        [
+          1290,
+          ""
+        ],
+        [
+          1291,
+          "\tret = api->port_get_raw(port, value);"
+        ],
+        [
+          1292,
+          "\tSYS_PORT_TRACING_FUNC_EXIT(gpio_port, get_raw, port, ret);"
+        ],
+        [
+          1293,
+          "\treturn ret;"
+        ],
+        [
+          1294,
+          "}"
+        ],
+        [
+          1295,
+          ""
+        ],
+        [
+          1296,
+          "/**"
+        ],
+        [
+          1297,
+          " * @brief Get logical level of all input pins in a port."
+        ],
+        [
+          1298,
+          " *"
+        ],
+        [
+          1299,
+          " * Get logical level of an input pin taking into account GPIO_ACTIVE_LOW flag."
+        ],
+        [
+          1300,
+          " * If pin is configured as Active High, a low physical level will be interpreted"
+        ]
+      ]
+    },
+    "device": {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/zephyr/device.h",
+      "sha256": "300420020155fc22a7e4e3a867f26fe30c6a79b9be3474caf990bacfecbd2d19",
+      "lines": [
+        [
+          850,
+          " */"
+        ],
+        [
+          851,
+          "size_t z_device_get_all_static(const struct device **devices);"
+        ],
+        [
+          852,
+          ""
+        ],
+        [
+          853,
+          "/**"
+        ],
+        [
+          854,
+          " * @brief Verify that a device is ready for use."
+        ],
+        [
+          855,
+          " *"
+        ],
+        [
+          856,
+          " * Indicates whether the provided device pointer is for a device known to be"
+        ],
+        [
+          857,
+          " * in a state where it can be used with its standard API."
+        ],
+        [
+          858,
+          " *"
+        ],
+        [
+          859,
+          " * This can be used with device pointers captured from DEVICE_DT_GET(), which"
+        ],
+        [
+          860,
+          " * does not include the readiness checks of device_get_binding(). At minimum"
+        ],
+        [
+          861,
+          " * this means that the device has been successfully initialized."
+        ],
+        [
+          862,
+          " *"
+        ],
+        [
+          863,
+          " * @param dev pointer to the device in question."
+        ],
+        [
+          864,
+          " *"
+        ],
+        [
+          865,
+          " * @retval true If the device is ready for use."
+        ],
+        [
+          866,
+          " * @retval false If the device is not ready for use or if a NULL device pointer"
+        ],
+        [
+          867,
+          " * is passed as argument."
+        ],
+        [
+          868,
+          " */"
+        ],
+        [
+          869,
+          "__syscall bool device_is_ready(const struct device *dev);"
+        ],
+        [
+          870,
+          ""
+        ],
+        [
+          871,
+          "/**"
+        ],
+        [
+          872,
+          " * @brief Writes a \"device not ready\" warning message to the log."
+        ],
+        [
+          873,
+          " *"
+        ],
+        [
+          874,
+          " * @details Writes a \"device not ready\" warning message to the log using the"
+        ],
+        [
+          875,
+          " * device name as reference, meant to be used in device_is_ready checks."
+        ],
+        [
+          876,
+          " *"
+        ],
+        [
+          877,
+          " * @param dev pointer to a struct device."
+        ],
+        [
+          878,
+          " */"
+        ],
+        [
+          879,
+          "#define LOG_WRN_DEVICE_NOT_READY(dev) \\"
+        ],
+        [
+          880,
+          "\tLOG_WRN(\"%s device not ready\", (dev) ? (dev)->name : \"(null)\")"
+        ]
+      ]
+    },
+    "device_syscalls": {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/generated/zephyr/syscalls/device.h",
+      "sha256": "3d4e26c69424baf08feeb4b61edd366e2c07d40077e798afd285bd5bb2eaa3b3",
+      "lines": [
+        [
+          40,
+          ""
+        ],
+        [
+          41,
+          "#define device_get_binding(name) ({ \tconst struct device * syscall__retval; \tsys_port_trace_syscall_enter(K_SYSCALL_DEVICE_GET_BINDING, device_get_binding, name); \tsyscall__retval = device_get_binding(name); \tsys_port_trace_syscall_exit(K_SYSCALL_DEVICE_GET_BINDING, device_get_binding, name, syscall__retval); \tsyscall__retval; })"
+        ],
+        [
+          42,
+          "#endif"
+        ],
+        [
+          43,
+          "#endif"
+        ],
+        [
+          44,
+          ""
+        ],
+        [
+          45,
+          ""
+        ],
+        [
+          46,
+          "extern bool z_impl_device_is_ready(const struct device * dev);"
+        ],
+        [
+          47,
+          ""
+        ],
+        [
+          48,
+          "__pinned_func"
+        ],
+        [
+          49,
+          "static inline bool device_is_ready(const struct device * dev)"
+        ],
+        [
+          50,
+          "{"
+        ],
+        [
+          51,
+          "#ifdef CONFIG_USERSPACE"
+        ],
+        [
+          52,
+          "\tif (z_syscall_trap()) {"
+        ],
+        [
+          53,
+          "\t\tunion { uintptr_t x; const struct device * val; } parm0 = { .val = dev };"
+        ],
+        [
+          54,
+          "\t\treturn (bool) arch_syscall_invoke1(parm0.x, K_SYSCALL_DEVICE_IS_READY);"
+        ],
+        [
+          55,
+          "\t}"
+        ],
+        [
+          56,
+          "#endif"
+        ],
+        [
+          57,
+          "\tcompiler_barrier();"
+        ],
+        [
+          58,
+          "\treturn z_impl_device_is_ready(dev);"
+        ],
+        [
+          59,
+          "}"
+        ],
+        [
+          60,
+          ""
+        ],
+        [
+          61,
+          "#if defined(CONFIG_TRACING_SYSCALL)"
+        ],
+        [
+          62,
+          "#ifndef DISABLE_SYSCALL_TRACING"
+        ],
+        [
+          63,
+          ""
+        ],
+        [
+          64,
+          "#define device_is_ready(dev) ({ \tbool syscall__retval; \tsys_port_trace_syscall_enter(K_SYSCALL_DEVICE_IS_READY, device_is_ready, dev); \tsyscall__retval = device_is_ready(dev); \tsys_port_trace_syscall_exit(K_SYSCALL_DEVICE_IS_READY, device_is_ready, dev, syscall__retval); \tsyscall__retval; })"
+        ],
+        [
+          65,
+          "#endif"
+        ]
+      ]
+    },
+    "dt_more": {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/generated/zephyr/devicetree_generated.h",
+      "sha256": "5b0e9b1d0f7d878415d53a5d724e976061aca52177967d90d7c76c3cb0b0fb80",
+      "lines": [
+        [
+          13609,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_gpio_42020000_ORD 89"
+        ],
+        [
+          13610,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_gpio_42020000_ORD_STR_SORTABLE 00089"
+        ],
+        [
+          13698,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_gpio_42020000_P_zephyr_deferred_init 0"
+        ],
+        [
+          13699,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_gpio_42020000_P_zephyr_deferred_init_EXISTS 1"
+        ],
+        [
+          13754,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_gpio_42020400_ORD 90"
+        ],
+        [
+          13755,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_gpio_42020400_ORD_STR_SORTABLE 00090"
+        ],
+        [
+          13842,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_gpio_42020400_P_zephyr_deferred_init 0"
+        ],
+        [
+          13843,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_gpio_42020400_P_zephyr_deferred_init_EXISTS 1"
+        ],
+        [
+          13898,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_gpio_42020800_ORD 91"
+        ],
+        [
+          13899,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_gpio_42020800_ORD_STR_SORTABLE 00091"
+        ],
+        [
+          13981,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_gpio_42020800_P_zephyr_deferred_init 0"
+        ],
+        [
+          13982,
+          "#define DT_N_S_soc_S_pin_controller_42020000_S_gpio_42020800_P_zephyr_deferred_init_EXISTS 1"
+        ]
+      ]
+    },
+    "command": {
+      "command": [
+        "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-gdb",
+        "-nx",
+        "-nh",
+        "-batch",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf",
+        "-ex",
+        "p __device_dts_ord_89",
+        "-ex",
+        "p gpio_stm32_cfg_a",
+        "-ex",
+        "p __llext_sym___device_dts_ord_89",
+        "-ex",
+        "p __llext_sym_z_impl_gpio_pin_configure",
+        "-ex",
+        "p __llext_sym_z_impl_gpio_port_get_raw"
+      ],
+      "exit_code": 0,
+      "stdout": "$1 = {name = 0x80200a1 \"gpio@42020000\", config = 0x801de0c <gpio_stm32_cfg_a>, api = 0x801c6e0 <gpio_stm32_driver>, state = 0x200010d6 <__devstate_dts_ord_89>, data = 0x20001740 <gpio_stm32_data_a>, ops = {init = 0x8006541 <stm32_gpioport_init>, deinit = 0x0}, flags = 0 '\\000', deps = 0x801c540 <__devicedeps_dts_ord_89>}\n$2 = {common = {port_pin_mask = 65535}, base = 0x42020000, port = 0, pclken = {bus = 140, div = 0, enr = 1}}\n$3 = {{name = 0x802008d \"__device_dts_ord_89\", slid = 134348941}, addr = 0x801c064 <__device_dts_ord_89>}\n$4 = {{name = 0x80222a4 \"z_impl_gpio_pin_configure\", slid = 134357668}, addr = 0x0}\n$5 = {{name = 0x802220d \"z_impl_gpio_port_get_raw\", slid = 134357517}, addr = 0x0}\n",
+      "stderr": ""
+    }
+  }
+}

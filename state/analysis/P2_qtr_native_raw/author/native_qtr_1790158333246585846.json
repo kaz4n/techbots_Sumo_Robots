@@ -1,0 +1,43 @@
+{
+  "staged_source_manifest": {
+    "production": "cf018f5abd16360129d8ffdb9de10d1badb8969767ca9c14cc6bfedab14f5760",
+    "header": "a5127bb26470c1a842ed417be6e953706cacbe47a9c64f01f45e1a1da7d52e24",
+    "config": "4fb8a3726e5f9c5947c7944182f763baeea3749da5c24af4c2d6c344bae33b2e"
+  },
+  "argv": [
+    "/usr/bin/g++",
+    "-std=c++17",
+    "-O1",
+    "-Wall",
+    "-Wextra",
+    "-Wpedantic",
+    "-Werror",
+    "-fno-exceptions",
+    "-fno-rtti",
+    "-fsanitize=undefined",
+    "-fno-sanitize-recover=all",
+    "-DARDUINO_ARCH_ZEPHYR",
+    "-DDOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS",
+    "-I",
+    "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/native_qtr",
+    "-isystem",
+    "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/host/third_party",
+    "-I",
+    "/tmp/sumo-native-qtr-316hlw06/variant-0/src",
+    "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/native_qtr/boundaries.cc",
+    "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/native_qtr/native_fixture.cc",
+    "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/native_qtr/isolation.cc",
+    "/tmp/sumo-native-qtr-316hlw06/variant-0/src/hal/line_qtr.cpp",
+    "/tmp/sumo-native-qtr-316hlw06/main.o",
+    "-Wl,--wrap=malloc,--wrap=calloc,--wrap=realloc,--wrap=free",
+    "-o",
+    "/tmp/sumo-native-qtr-316hlw06/variant-0/native-qtr"
+  ],
+  "returncode": 1,
+  "stdout": "",
+  "stderr": "In file included from /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/native_qtr/boundaries.cc:4:\n/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/host/third_party/doctest.h: In instantiation of \u2018doctest::detail::Expression_lhs<L>& doctest::detail::Expression_lhs<L>::operator&(const R&) [with R = unsigned int; L = const unsigned char&&]\u2019:\n/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/native_qtr/boundaries.cc:26:431:   required from here\n/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/host/third_party/doctest.h:1537:9: error: static assertion failed: Expression Too Complex Please Rewrite As Binary Comparison!\n 1537 |         DOCTEST_FORBIT_EXPRESSION(Expression_lhs, &)\n      |         ^~~~~~~~~~~~~~~~~~~~~~~~~\n/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/host/third_party/doctest.h:1537:9: note: \u2018doctest::detail::types::false_type::value\u2019 evaluates to false\n",
+  "capture": "subprocess text=True; newline normalized",
+  "production_sha256": "cf018f5abd16360129d8ffdb9de10d1badb8969767ca9c14cc6bfedab14f5760",
+  "public_header_sha256": "a5127bb26470c1a842ed417be6e953706cacbe47a9c64f01f45e1a1da7d52e24",
+  "config_sha256": "4fb8a3726e5f9c5947c7944182f763baeea3749da5c24af4c2d6c344bae33b2e"
+}

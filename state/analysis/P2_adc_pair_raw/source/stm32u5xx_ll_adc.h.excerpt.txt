@@ -1,0 +1,493 @@
+470: #define ADC_CFGR_AWD1SGL_BITOFFSET_POS (ADC_CFGR1_AWD1SGL_Pos)
+471: #define ADC_CFGR_AWD1EN_BITOFFSET_POS  (ADC_CFGR1_AWD1EN_Pos)
+472: #define ADC_CFGR_JAWD1EN_BITOFFSET_POS (ADC_CFGR1_JAWD1EN_Pos)
+473: 
+474: /* ADC instance differentiation between ADC1 and ADC4 oversampling ratio */
+475: #define ADC4_OVERSAMPLING_RATIO_PARAMETER        (0x80000000UL)
+476: #define ADC4_OVERSAMPLING_RATIO_PARAMETER_MASK   (ADC4_OVERSAMPLING_RATIO_PARAMETER)
+477: 
+478: /* ADC registers bits groups */
+479: #define ADC_CR_BITS_PROPERTY_RS     ( ADC_CR_ADCAL | ADC_CR_JADSTP | ADC_CR_ADSTP | ADC_CR_JADSTART | ADC_CR_ADSTART \
+480:                                       | ADC_CR_ADDIS | ADC_CR_ADEN) /* ADC register CR bits with HW property "rs":
+481:                                                                        Software can read as well as set this bit.
+482:                                                                        Writing '0' has no effect on the bit value. */
+483: 
+484: /* ADC internal channels related definitions */
+485: /* Internal voltage reference VrefInt */
+486: #define VREFINT_CAL_ADDR            ((const uint16_t*) (0x0BFA07A5UL)) /* Internal voltage reference, address of parameter
+487:                                                                     VREFINT_CAL: VrefInt ADC raw data acquired at
+488:                                                                     temperature 30 DegC (tolerance: +-5 DegC),
+489:                                                                     Vref+ = 3.0 V (tolerance: +-10 mV).              */
+490: #define VREFINT_CAL_VREF            (3000UL)                     /* Analog voltage reference (Vref+) value with which
+
+1160: #define LL_ADC_TRIGGER_FREQ_HIGH           (0x00000000UL)
+1161: #define LL_ADC_TRIGGER_FREQ_LOW            (ADC4_CFGR2_LFTRIG)
+1162: /**
+1163:   * @}
+1164:   */
+1165: 
+1166: /** @defgroup ADC_LL_EC_CHANNEL  ADC instance - Channel number
+1167:   * @{
+1168:   */
+1169: #define LL_ADC_CHANNEL_0                   (ADC_CHANNEL_0_NUMBER  | ADC_CHANNEL_0_SMP  | ADC_CHANNEL_0_BITFIELD )
+1170: #define LL_ADC_CHANNEL_1                   (ADC_CHANNEL_1_NUMBER  | ADC_CHANNEL_1_SMP  | ADC_CHANNEL_1_BITFIELD )
+1171: #define LL_ADC_CHANNEL_2                   (ADC_CHANNEL_2_NUMBER  | ADC_CHANNEL_2_SMP  | ADC_CHANNEL_2_BITFIELD )
+1172: #define LL_ADC_CHANNEL_3                   (ADC_CHANNEL_3_NUMBER  | ADC_CHANNEL_3_SMP  | ADC_CHANNEL_3_BITFIELD )
+1173: #define LL_ADC_CHANNEL_4                   (ADC_CHANNEL_4_NUMBER  | ADC_CHANNEL_4_SMP  | ADC_CHANNEL_4_BITFIELD )
+1174: #define LL_ADC_CHANNEL_5                   (ADC_CHANNEL_5_NUMBER  | ADC_CHANNEL_5_SMP  | ADC_CHANNEL_5_BITFIELD )
+1175: #define LL_ADC_CHANNEL_6                   (ADC_CHANNEL_6_NUMBER  | ADC_CHANNEL_6_SMP  | ADC_CHANNEL_6_BITFIELD )
+1176: #define LL_ADC_CHANNEL_7                   (ADC_CHANNEL_7_NUMBER  | ADC_CHANNEL_7_SMP  | ADC_CHANNEL_7_BITFIELD )
+1177: #define LL_ADC_CHANNEL_8                   (ADC_CHANNEL_8_NUMBER  | ADC_CHANNEL_8_SMP  | ADC_CHANNEL_8_BITFIELD )
+1178: #define LL_ADC_CHANNEL_9                   (ADC_CHANNEL_9_NUMBER  | ADC_CHANNEL_9_SMP  | ADC_CHANNEL_9_BITFIELD )
+1179: #define LL_ADC_CHANNEL_10                  (ADC_CHANNEL_10_NUMBER | ADC_CHANNEL_10_SMP | ADC_CHANNEL_10_BITFIELD)
+1180: #define LL_ADC_CHANNEL_11                  (ADC_CHANNEL_11_NUMBER | ADC_CHANNEL_11_SMP | ADC_CHANNEL_11_BITFIELD)
+1181: #define LL_ADC_CHANNEL_12                  (ADC_CHANNEL_12_NUMBER | ADC_CHANNEL_12_SMP | ADC_CHANNEL_12_BITFIELD)
+1182: #define LL_ADC_CHANNEL_13                  (ADC_CHANNEL_13_NUMBER | ADC_CHANNEL_13_SMP | ADC_CHANNEL_13_BITFIELD)
+1183: #define LL_ADC_CHANNEL_14                  (ADC_CHANNEL_14_NUMBER | ADC_CHANNEL_14_SMP | ADC_CHANNEL_14_BITFIELD)
+1184: #define LL_ADC_CHANNEL_15                  (ADC_CHANNEL_15_NUMBER | ADC_CHANNEL_15_SMP | ADC_CHANNEL_15_BITFIELD)
+1185: #define LL_ADC_CHANNEL_16                  (ADC_CHANNEL_16_NUMBER | ADC_CHANNEL_16_SMP | ADC_CHANNEL_16_BITFIELD)
+1186: #define LL_ADC_CHANNEL_17                  (ADC_CHANNEL_17_NUMBER | ADC_CHANNEL_17_SMP | ADC_CHANNEL_17_BITFIELD)
+1187: #define LL_ADC_CHANNEL_18                  (ADC_CHANNEL_18_NUMBER | ADC_CHANNEL_18_SMP | ADC_CHANNEL_18_BITFIELD)
+1188: #define LL_ADC_CHANNEL_19                  (ADC_CHANNEL_19_NUMBER | ADC_CHANNEL_19_SMP | ADC_CHANNEL_19_BITFIELD)
+1189: #define LL_ADC_CHANNEL_20                  (ADC_CHANNEL_20_NUMBER | ADC_CHANNEL_20_SMP | ADC_CHANNEL_20_BITFIELD)
+1190: #define LL_ADC_CHANNEL_21                  (ADC_CHANNEL_21_NUMBER | ADC_CHANNEL_21_SMP | ADC_CHANNEL_21_BITFIELD)
+
+4610: __STATIC_INLINE uint32_t LL_ADC_REG_GetSequencerDiscont(const ADC_TypeDef *ADCx)
+4611: {
+4612:   return (uint32_t)(READ_BIT(ADCx->CFGR1, ADC_CFGR1_DISCEN | ADC_CFGR1_DISCNUM));
+4613: }
+4614: 
+4615: /**
+4616:   * @brief  Set ADC group regular sequence: channel on the selected
+4617:   *         scan sequence rank.
+4618:   * @note   This function performs configuration of:
+4619:   *         - Channels ordering into each rank of scan sequence:
+4620:   *           whatever channel can be placed into whatever rank.
+4621:   * @note   On this STM32 series, ADC group regular sequencer is
+4622:   *         fully configurable: sequencer length and each rank
+4623:   *         affectation to a channel are configurable.
+4624:   *         Refer to description of function @ref LL_ADC_REG_SetSequencerLength().
+4625:   * @note   Depending on devices and packages, some channels may not be available.
+4626:   *         Refer to device datasheet for channels availability.
+4627:   * @note   On this STM32 series, to measure internal channels (VrefInt,
+4628:   *         TempSensor, ...), measurement paths to internal channels must be
+4629:   *         enabled separately.
+4630:   *         This can be done using function @ref LL_ADC_SetCommonPathInternalCh().
+4631:   * @note   On this STM32 series, setting of this feature is conditioned to
+4632:   *         ADC state:
+4633:   *         ADC must be disabled or enabled without conversion on going
+4634:   *         on group regular.
+4635:   * @rmtoll SQR1     SQ1            LL_ADC_REG_SetSequencerRanks\n
+4636:   *         SQR1     SQ2            LL_ADC_REG_SetSequencerRanks\n
+4637:   *         SQR1     SQ3            LL_ADC_REG_SetSequencerRanks\n
+4638:   *         SQR1     SQ4            LL_ADC_REG_SetSequencerRanks\n
+4639:   *         SQR2     SQ5            LL_ADC_REG_SetSequencerRanks\n
+4640:   *         SQR2     SQ6            LL_ADC_REG_SetSequencerRanks\n
+4641:   *         SQR2     SQ7            LL_ADC_REG_SetSequencerRanks\n
+4642:   *         SQR2     SQ8            LL_ADC_REG_SetSequencerRanks\n
+4643:   *         SQR2     SQ9            LL_ADC_REG_SetSequencerRanks\n
+4644:   *         SQR3     SQ10           LL_ADC_REG_SetSequencerRanks\n
+4645:   *         SQR3     SQ11           LL_ADC_REG_SetSequencerRanks\n
+4646:   *         SQR3     SQ12           LL_ADC_REG_SetSequencerRanks\n
+4647:   *         SQR3     SQ13           LL_ADC_REG_SetSequencerRanks\n
+4648:   *         SQR3     SQ14           LL_ADC_REG_SetSequencerRanks\n
+4649:   *         SQR4     SQ15           LL_ADC_REG_SetSequencerRanks\n
+4650:   *         SQR4     SQ16           LL_ADC_REG_SetSequencerRanks
+4651:   * @param  ADCx ADC instance
+4652:   * @param  Rank This parameter can be one of the following values:
+4653:   *         @arg @ref LL_ADC_REG_RANK_1
+4654:   *         @arg @ref LL_ADC_REG_RANK_2
+4655:   *         @arg @ref LL_ADC_REG_RANK_3
+4656:   *         @arg @ref LL_ADC_REG_RANK_4
+4657:   *         @arg @ref LL_ADC_REG_RANK_5
+4658:   *         @arg @ref LL_ADC_REG_RANK_6
+4659:   *         @arg @ref LL_ADC_REG_RANK_7
+4660:   *         @arg @ref LL_ADC_REG_RANK_8
+4661:   *         @arg @ref LL_ADC_REG_RANK_9
+4662:   *         @arg @ref LL_ADC_REG_RANK_10
+4663:   *         @arg @ref LL_ADC_REG_RANK_11
+4664:   *         @arg @ref LL_ADC_REG_RANK_12
+4665:   *         @arg @ref LL_ADC_REG_RANK_13
+4666:   *         @arg @ref LL_ADC_REG_RANK_14
+4667:   *         @arg @ref LL_ADC_REG_RANK_15
+4668:   *         @arg @ref LL_ADC_REG_RANK_16
+4669:   *         Note: Specific case for ADC4, use literals LL_ADC_REG_RANK_x_ADC4
+4670:   * @param  Channel This parameter can be one of the following values:
+4671:   *         @arg @ref LL_ADC_CHANNEL_0           (3)
+4672:   *         @arg @ref LL_ADC_CHANNEL_1           (3)
+4673:   *         @arg @ref LL_ADC_CHANNEL_2           (3)
+4674:   *         @arg @ref LL_ADC_CHANNEL_3           (3)
+4675:   *         @arg @ref LL_ADC_CHANNEL_4           (3)
+4676:   *         @arg @ref LL_ADC_CHANNEL_5           (3)
+4677:   *         @arg @ref LL_ADC_CHANNEL_6
+4678:   *         @arg @ref LL_ADC_CHANNEL_7
+4679:   *         @arg @ref LL_ADC_CHANNEL_8
+4680:   *         @arg @ref LL_ADC_CHANNEL_9
+4681:   *         @arg @ref LL_ADC_CHANNEL_10
+4682:   *         @arg @ref LL_ADC_CHANNEL_11
+4683:   *         @arg @ref LL_ADC_CHANNEL_12
+4684:   *         @arg @ref LL_ADC_CHANNEL_13
+4685:   *         @arg @ref LL_ADC_CHANNEL_14
+4686:   *         @arg @ref LL_ADC_CHANNEL_15
+4687:   *         @arg @ref LL_ADC_CHANNEL_16
+4688:   *         @arg @ref LL_ADC_CHANNEL_17
+4689:   *         @arg @ref LL_ADC_CHANNEL_18
+4690:   *         @arg @ref LL_ADC_CHANNEL_19
+4691:   *         @arg @ref LL_ADC_CHANNEL_VREFINT
+4692:   *         @arg @ref LL_ADC_CHANNEL_TEMPSENSOR   (1)
+4693:   *         @arg @ref LL_ADC_CHANNEL_VBAT         (1)
+4694:   *         @arg @ref LL_ADC_CHANNEL_DAC1CH1_ADC4 (2)
+4695:   *         @arg @ref LL_ADC_CHANNEL_DAC1CH2_ADC4 (2)
+4696:   *         @arg @ref LL_ADC_CHANNEL_TEMPSENSOR_ADC4  (2)
+4697:   *         @arg @ref LL_ADC_CHANNEL_VBAT_ADC4        (2)
+4698:   *
+4699:   *         (1) On STM32U5, parameter available only on ADC instance: ADC1, ADC2.
+4700:   *         (2) On STM32U5, parameter available only on ADC instance: ADC4.
+4701:   *         (3) On STM32U5, fast channel (0.125 us for 14-bit resolution (ADC conversion rate up to 8 Ms/s)).
+4702:   *             Other channels are slow channels (conversion rate: refer to reference manual).
+4703:   * @retval None
+4704:   */
+4705: __STATIC_INLINE void LL_ADC_REG_SetSequencerRanks(ADC_TypeDef *ADCx, uint32_t Rank, uint32_t Channel)
+4706: {
+4707:   /* Set bits with content of parameter "Channel" with bits position          */
+4708:   /* in register and register position depending on parameter "Rank".         */
+4709:   /* Parameters "Rank" and "Channel" are used with masks because containing   */
+4710:   /* other bits reserved for other purpose.                                   */
+4711:   if (ADCx != ADC4)
+4712:   {
+4713:     __IO uint32_t *preg = __ADC_PTR_REG_OFFSET(ADCx->SQR1, ((Rank & ADC_REG_SQRX_REGOFFSET_MASK)     \
+4714:                                                             >> ADC_SQRX_REGOFFSET_POS));
+4715: 
+4716:     MODIFY_REG(*preg,
+4717:                ADC_CHANNEL_ID_NUMBER_MASK_POSBIT0 << (Rank & ADC_REG_RANK_ID_SQRX_MASK),
+4718:                ((Channel & ADC_CHANNEL_ID_NUMBER_MASK) >> ADC_CHANNEL_ID_NUMBER_BITOFFSET_POS) \
+4719:                << (Rank & ADC_REG_RANK_ID_SQRX_MASK));
+4720:   }
+
+5200:           | (((channels_bitfield & ADC_CHSELR_CHSEL20) >> ADC4_CHSELR_CHSEL20_BITOFFSET_POS) * LL_ADC_CHANNEL_20)
+5201:           | (((channels_bitfield & ADC_CHSELR_CHSEL21) >> ADC4_CHSELR_CHSEL21_BITOFFSET_POS) * LL_ADC_CHANNEL_21)
+5202:           | (((channels_bitfield & ADC_CHSELR_CHSEL22) >> ADC4_CHSELR_CHSEL22_BITOFFSET_POS) * LL_ADC_CHANNEL_22)
+5203:           | (((channels_bitfield & ADC_CHSELR_CHSEL23) >> ADC4_CHSELR_CHSEL23_BITOFFSET_POS) * LL_ADC_CHANNEL_23)
+5204: 
+5205:          );
+5206: }
+5207: 
+5208: /**
+5209:   * @brief  Set ADC Channel Preselection to LL_ADC_CHANNEL_x, x = 0 to 19.
+5210:   * @note   This function set the the value for the channel preselection register
+5211:   *         corresponding to ADC channel to be selected.
+5212:   * @note   Caution: This is not valid for ADC4.
+5213:   * @rmtoll PCSEL   PCSEL0         LL_ADC_CHANNEL_0\n
+5214:   *         PCSEL   PCSEL1         LL_ADC_CHANNEL_1\n
+5215:   *         PCSEL   PCSEL2         LL_ADC_CHANNEL_2\n
+5216:   *         PCSEL   PCSEL3         LL_ADC_CHANNEL_3\n
+5217:   *         PCSEL   PCSEL4         LL_ADC_CHANNEL_4\n
+5218:   *         PCSEL   PCSEL5         LL_ADC_CHANNEL_5\n
+5219:   *         PCSEL   PCSEL6         LL_ADC_CHANNEL_6\n
+5220:   *         PCSEL   PCSEL7         LL_ADC_CHANNEL_7\n
+5221:   *         PCSEL   PCSEL8         LL_ADC_CHANNEL_8\n
+5222:   *         PCSEL   PCSEL9         LL_ADC_CHANNEL_9\n
+5223:   *         PCSEL   PCSEL10        LL_ADC_CHANNEL_10\n
+5224:   *         PCSEL   PCSEL11        LL_ADC_CHANNEL_11\n
+5225:   *         PCSEL   PCSEL12        LL_ADC_CHANNEL_12\n
+5226:   *         PCSEL   PCSEL13        LL_ADC_CHANNEL_13\n
+5227:   *         PCSEL   PCSEL14        LL_ADC_CHANNEL_14\n
+5228:   *         PCSEL   PCSEL15        LL_ADC_CHANNEL_15\n
+5229:   *         PCSEL   PCSEL16        LL_ADC_CHANNEL_16\n
+5230:   *         PCSEL   PCSEL17        LL_ADC_CHANNEL_17\n
+5231:   *         PCSEL   PCSEL18        LL_ADC_CHANNEL_18\n
+5232:   *         PCSEL   PCSEL19        LL_ADC_CHANNEL_19
+5233:   * @param  ADCx ADC instance.
+5234:   * @param  Channel This parameter can be one of the following values:
+5235:   *         @arg @ref LL_ADC_CHANNEL_0
+5236:   *         @arg @ref LL_ADC_CHANNEL_1
+5237:   *         @arg @ref LL_ADC_CHANNEL_2
+5238:   *         @arg @ref LL_ADC_CHANNEL_3
+5239:   *         @arg @ref LL_ADC_CHANNEL_4
+5240:   *         @arg @ref LL_ADC_CHANNEL_5
+5241:   *         @arg @ref LL_ADC_CHANNEL_6
+5242:   *         @arg @ref LL_ADC_CHANNEL_7
+5243:   *         @arg @ref LL_ADC_CHANNEL_8
+5244:   *         @arg @ref LL_ADC_CHANNEL_9
+5245:   *         @arg @ref LL_ADC_CHANNEL_10
+5246:   *         @arg @ref LL_ADC_CHANNEL_11
+5247:   *         @arg @ref LL_ADC_CHANNEL_12
+5248:   *         @arg @ref LL_ADC_CHANNEL_13
+5249:   *         @arg @ref LL_ADC_CHANNEL_14
+5250:   *         @arg @ref LL_ADC_CHANNEL_15
+5251:   *         @arg @ref LL_ADC_CHANNEL_16
+5252:   *         @arg @ref LL_ADC_CHANNEL_17
+5253:   *         @arg @ref LL_ADC_CHANNEL_18
+5254:   *         @arg @ref LL_ADC_CHANNEL_19
+5255:   *         @arg @ref LL_ADC_CHANNEL_VREFINT
+5256:   *         @arg @ref LL_ADC_CHANNEL_TEMPSENSOR
+5257:   *         @arg @ref LL_ADC_CHANNEL_VBAT
+5258:   *
+5259:   * @retval None
+5260:   */
+5261: __STATIC_INLINE void LL_ADC_SetChannelPreselection(ADC_TypeDef *ADCx, uint32_t Channel)
+5262: {
+5263:   __IO uint32_t channel_preselectione = READ_REG(ADCx->PCSEL);
+5264:   WRITE_REG(ADCx->PCSEL,
+5265:             channel_preselectione | (1UL << (__LL_ADC_CHANNEL_TO_DECIMAL_NB((uint32_t)Channel) & 0x1FUL)));
+5266: }
+5267: 
+5268: /**
+5269:   * @brief  Get ADC Channel Preselection register value.
+5270:   * @note   This function set the the value for the channel preselection register
+5271:   *         corresponding to ADC channel to be selected.
+5272:   * @note   Caution: This is not valid for ADC4.
+5273:   * @rmtoll PCSEL   PCSEL0         LL_ADC_CHANNEL_0\n
+5274:   *         PCSEL   PCSEL1         LL_ADC_CHANNEL_1\n
+5275:   *         PCSEL   PCSEL2         LL_ADC_CHANNEL_2\n
+
+6235:              SequencerNbRanks
+6236:             );
+6237: }
+6238: 
+6239: /**
+6240:   * @}
+6241:   */
+6242: 
+6243: /** @defgroup ADC_LL_EF_Configuration_Channels Configuration of ADC hierarchical scope: channels
+6244:   * @{
+6245:   */
+6246: 
+6247: /**
+6248:   * @brief  Set sampling time of the selected ADC channel
+6249:   *         Unit: ADC clock cycles.
+6250:   * @note   On this device, sampling time is on channel scope: independently
+6251:   *         of channel mapped on ADC group regular or injected.
+6252:   * @note   In case of internal channel (VrefInt, TempSensor, ...) to be
+6253:   *         converted:
+6254:   *         sampling time constraints must be respected (sampling time can be
+6255:   *         adjusted in function of ADC clock frequency and sampling time
+6256:   *         setting).
+6257:   *         Refer to device datasheet for timings values (parameters TS_vrefint,
+6258:   *         TS_temp, ...).
+6259:   * @note   Conversion time is the addition of sampling time and processing time.
+6260:   *         On this STM32 series, ADC processing time is:
+6261:   *         - 12.5 ADC clock cycles at ADC resolution 12 bits
+6262:   *         - 10.5 ADC clock cycles at ADC resolution 10 bits
+6263:   *         - 8.5 ADC clock cycles at ADC resolution 8 bits
+6264:   *         - 6.5 ADC clock cycles at ADC resolution 6 bits
+6265:   * @note   In case of ADC conversion of internal channel (VrefInt,
+6266:   *         temperature sensor, ...), a sampling time minimum value
+6267:   *         is required.
+6268:   *         Refer to device datasheet.
+6269:   * @note   On this STM32 series, setting of this feature is conditioned to
+6270:   *         ADC state:
+6271:   *         ADC must be disabled or enabled without conversion on going
+6272:   *         on either groups regular or injected.
+6273:   * @rmtoll SMPR1    SMP0           LL_ADC_SetChannelSamplingTime\n
+6274:   *         SMPR1    SMP1           LL_ADC_SetChannelSamplingTime\n
+6275:   *         SMPR1    SMP2           LL_ADC_SetChannelSamplingTime\n
+6276:   *         SMPR1    SMP3           LL_ADC_SetChannelSamplingTime\n
+6277:   *         SMPR1    SMP4           LL_ADC_SetChannelSamplingTime\n
+6278:   *         SMPR1    SMP5           LL_ADC_SetChannelSamplingTime\n
+6279:   *         SMPR1    SMP6           LL_ADC_SetChannelSamplingTime\n
+6280:   *         SMPR1    SMP7           LL_ADC_SetChannelSamplingTime\n
+6281:   *         SMPR1    SMP8           LL_ADC_SetChannelSamplingTime\n
+6282:   *         SMPR1    SMP9           LL_ADC_SetChannelSamplingTime\n
+6283:   *         SMPR2    SMP10          LL_ADC_SetChannelSamplingTime\n
+6284:   *         SMPR2    SMP11          LL_ADC_SetChannelSamplingTime\n
+6285:   *         SMPR2    SMP12          LL_ADC_SetChannelSamplingTime\n
+6286:   *         SMPR2    SMP13          LL_ADC_SetChannelSamplingTime\n
+6287:   *         SMPR2    SMP14          LL_ADC_SetChannelSamplingTime\n
+6288:   *         SMPR2    SMP15          LL_ADC_SetChannelSamplingTime\n
+6289:   *         SMPR2    SMP16          LL_ADC_SetChannelSamplingTime\n
+6290:   *         SMPR2    SMP17          LL_ADC_SetChannelSamplingTime\n
+6291:   *         SMPR2    SMP18          LL_ADC_SetChannelSamplingTime
+6292:   * @param  ADCx ADC instance
+6293:   * @param  Channel This parameter can be one of the following values:
+6294:   *         @arg @ref LL_ADC_CHANNEL_0           (3)
+6295:   *         @arg @ref LL_ADC_CHANNEL_1           (3)
+6296:   *         @arg @ref LL_ADC_CHANNEL_2           (3)
+6297:   *         @arg @ref LL_ADC_CHANNEL_3           (3)
+6298:   *         @arg @ref LL_ADC_CHANNEL_4           (3)
+6299:   *         @arg @ref LL_ADC_CHANNEL_5           (3)
+6300:   *         @arg @ref LL_ADC_CHANNEL_6
+6301:   *         @arg @ref LL_ADC_CHANNEL_7
+6302:   *         @arg @ref LL_ADC_CHANNEL_8
+6303:   *         @arg @ref LL_ADC_CHANNEL_9
+6304:   *         @arg @ref LL_ADC_CHANNEL_10
+6305:   *         @arg @ref LL_ADC_CHANNEL_11
+6306:   *         @arg @ref LL_ADC_CHANNEL_12
+6307:   *         @arg @ref LL_ADC_CHANNEL_13
+6308:   *         @arg @ref LL_ADC_CHANNEL_14
+6309:   *         @arg @ref LL_ADC_CHANNEL_15
+6310:   *         @arg @ref LL_ADC_CHANNEL_16
+6311:   *         @arg @ref LL_ADC_CHANNEL_17
+6312:   *         @arg @ref LL_ADC_CHANNEL_18
+6313:   *         @arg @ref LL_ADC_CHANNEL_19
+6314:   *         @arg @ref LL_ADC_CHANNEL_VREFINT
+6315:   *         @arg @ref LL_ADC_CHANNEL_TEMPSENSOR   (1)
+6316:   *         @arg @ref LL_ADC_CHANNEL_VBAT         (1)
+6317:   *         @arg @ref LL_ADC_CHANNEL_DAC1CH1_ADC4 (2)
+6318:   *         @arg @ref LL_ADC_CHANNEL_DAC1CH2_ADC4 (2)
+6319:   *         @arg @ref LL_ADC_CHANNEL_TEMPSENSOR_ADC4  (2)
+6320:   *         @arg @ref LL_ADC_CHANNEL_VBAT_ADC4        (2)
+6321:   *
+6322:   *         (1) On STM32U5, parameter available only on ADC instance: ADC1, ADC2.
+6323:   *         (2) On STM32U5, parameter available only on ADC instance: ADC4.
+6324:   *         (3) On STM32U5, fast channel (0.125 us for 14-bit resolution (ADC conversion rate up to 8 Ms/s)).
+6325:   *             Other channels are slow channels (conversion rate: refer to reference manual).
+6326:   * @param  SamplingTime This parameter can be one of the following values, In case of ADC1 instance:
+6327:   *         @arg @ref LL_ADC_SAMPLINGTIME_5CYCLES   (1)
+6328:   *         @arg @ref LL_ADC_SAMPLINGTIME_6CYCLES   (1)
+6329:   *         @arg @ref LL_ADC_SAMPLINGTIME_12CYCLES  (1)
+6330:   *         @arg @ref LL_ADC_SAMPLINGTIME_20CYCLES  (1)
+6331:   *         @arg @ref LL_ADC_SAMPLINGTIME_36CYCLES  (1)
+6332:   *         @arg @ref LL_ADC_SAMPLINGTIME_68CYCLES  (1)
+6333:   *         @arg @ref LL_ADC_SAMPLINGTIME_391CYCLES (1)
+6334:   *         @arg @ref LL_ADC_SAMPLINGTIME_814CYCLES (1)
+6335:   *         @arg @ref LL_ADC_SAMPLINGTIME_COMMON_1  (2)
+6336:   *         @arg @ref LL_ADC_SAMPLINGTIME_COMMON_2  (2)
+6337:   *
+6338:   *         (1) On STM32U5, parameter available only on ADC instance: ADC1, ADC2.
+6339:   *         (2) On STM32U5, parameter available only on ADC instance: ADC4.
+6340:   * @retval None
+6341:   */
+6342: __STATIC_INLINE void LL_ADC_SetChannelSamplingTime(ADC_TypeDef *ADCx, uint32_t Channel, uint32_t SamplingTime)
+6343: {
+6344:   if (ADCx != ADC4)
+6345:   {
+6346:     /* Set bits with content of parameter "SamplingTime" with bits position     */
+6347:     /* in register and register position depending on parameter "Channel".      */
+6348:     /* Parameter "Channel" is used with masks because containing                */
+6349:     /* other bits reserved for other purpose.                                   */
+6350:     uint32_t shift_value = ((__LL_ADC_CHANNEL_TO_DECIMAL_NB(Channel) - (10UL * ((Channel                             \
+6351:                                                                                  & ADC_CHANNEL_SMPRX_REGOFFSET_MASK) \
+6352:                                                                                 >> ADC_SMPRX_REGOFFSET_POS))) * 3UL);
+6353:     __IO uint32_t *preg = __ADC_PTR_REG_OFFSET(ADCx->SMPR1, ((Channel & ADC_CHANNEL_SMPRX_REGOFFSET_MASK)            \
+6354:                                                              >> ADC_SMPRX_REGOFFSET_POS));
+6355: 
+6356:     MODIFY_REG(*preg, ADC_SMPR1_SMP0 << shift_value, SamplingTime   << shift_value);
+6357: 
+6358:   }
+6359:   else
+6360:   {
+6361:     /* Parameter "Channel" is used with masks because containing                  */
+6362:     /* other bits reserved for other purpose. It needs to be converted to decimal */
+6363:     /* to select the bit position */
+6364:     MODIFY_REG(ADCx->SMPR1,
+6365:                ((Channel & ADC_CHANNEL_ID_BITFIELD_MASK) << ADC4_SMPR_SMPSEL0_BITOFFSET_POS),
+
+7850: 
+7851: /**
+7852:   * @brief  Enable the selected ADC instance.
+7853:   * @note   On this STM32 series, after ADC enable, a delay for
+7854:   *         ADC internal analog stabilization is required before performing a
+7855:   *         ADC conversion start.
+7856:   *         Refer to device datasheet, parameter tSTAB.
+7857:   * @note   On this STM32 series, flag LL_ADC_FLAG_ADRDY is raised when the ADC
+7858:   *         is enabled and when conversion clock is active.
+7859:   *         (not only core clock: this ADC has a dual clock domain)
+7860:   * @note   On this STM32 series, setting of this feature is conditioned to
+7861:   *         ADC state:
+7862:   *         ADC must be ADC disabled and ADC internal voltage regulator enabled.
+7863:   * @rmtoll CR       ADEN           LL_ADC_Enable
+7864:   * @param  ADCx ADC instance
+7865:   * @retval None
+7866:   */
+7867: __STATIC_INLINE void LL_ADC_Enable(ADC_TypeDef *ADCx)
+7868: {
+7869:   /* Note: Write register with some additional bits forced to state reset     */
+7870:   /*       instead of modifying only the selected bit for this function,      */
+7871:   /*       to not interfere with bits with HW property "rs".                  */
+7872:   MODIFY_REG(ADCx->CR, ADC_CR_BITS_PROPERTY_RS, ADC_CR_ADEN);
+7873: }
+7874: 
+7875: /**
+7876:   * @brief  Disable the selected ADC instance.
+7877:   * @note   On this STM32 series, setting of this feature is conditioned to
+7878:   *         ADC state:
+7879:   *         ADC must be not disabled. Must be enabled without conversion on going
+7880:   *         on either groups regular or injected.
+7881:   * @rmtoll CR       ADDIS          LL_ADC_Disable
+7882:   * @param  ADCx ADC instance
+7883:   * @retval None
+7884:   */
+7885: __STATIC_INLINE void LL_ADC_Disable(ADC_TypeDef *ADCx)
+7886: {
+7887:   /* Note: Write register with some additional bits forced to state reset     */
+7888:   /*       instead of modifying only the selected bit for this function,      */
+7889:   /*       to not interfere with bits with HW property "rs".                  */
+7890:   MODIFY_REG(ADCx->CR, ADC_CR_BITS_PROPERTY_RS, ADC_CR_ADDIS);
+7891: }
+7892: 
+7893: /**
+7894:   * @brief  Get the selected ADC instance enable state.
+7895:   * @note   On this STM32 series, flag LL_ADC_FLAG_ADRDY is raised when the ADC
+7896:   *         is enabled and when conversion clock is active.
+7897:   *         (not only core clock: this ADC has a dual clock domain)
+7898:   * @rmtoll CR       ADEN           LL_ADC_IsEnabled
+7899:   * @param  ADCx ADC instance
+7900:   * @retval 0: ADC is disabled, 1: ADC is enabled.
+7901:   */
+7902: __STATIC_INLINE uint32_t LL_ADC_IsEnabled(const ADC_TypeDef *ADCx)
+7903: {
+7904:   return ((READ_BIT(ADCx->CR, ADC_CR_ADEN) == (ADC_CR_ADEN)) ? 1UL : 0UL);
+7905: }
+7906: 
+7907: /**
+7908:   * @brief  Get the selected ADC instance disable state.
+7909:   * @rmtoll CR       ADDIS          LL_ADC_IsDisableOngoing
+7910:   * @param  ADCx ADC instance
+
+7980: /** @defgroup ADC_LL_EF_Operation_ADC_Group_Regular Operation on ADC hierarchical scope: group regular
+7981:   * @{
+7982:   */
+7983: 
+7984: /**
+7985:   * @brief  Start ADC group regular conversion.
+7986:   * @note   On this STM32 series, this function is relevant for both
+7987:   *         internal trigger (SW start) and external trigger:
+7988:   *         - If ADC trigger has been set to software start, ADC conversion
+7989:   *           starts immediately.
+7990:   *         - If ADC trigger has been set to external trigger, ADC conversion
+7991:   *           will start at next trigger event (on the selected trigger edge)
+7992:   *           following the ADC start conversion command.
+7993:   * @note   On this STM32 series, setting of this feature is conditioned to
+7994:   *         ADC state:
+7995:   *         ADC must be enabled without conversion on going on group regular,
+7996:   *         without conversion stop command on going on group regular,
+7997:   *         without ADC disable command on going.
+7998:   * @rmtoll CR       ADSTART        LL_ADC_REG_StartConversion
+7999:   * @param  ADCx ADC instance
+8000:   * @retval None
+8001:   */
+8002: __STATIC_INLINE void LL_ADC_REG_StartConversion(ADC_TypeDef *ADCx)
+8003: {
+8004:   /* Note: Write register with some additional bits forced to state reset     */
+8005:   /*       instead of modifying only the selected bit for this function,      */
+8006:   /*       to not interfere with bits with HW property "rs".                  */
+8007:   MODIFY_REG(ADCx->CR, ADC_CR_BITS_PROPERTY_RS, ADC_CR_ADSTART);
+8008: }
+8009: 
+8010: /**
+8011:   * @brief  Stop ADC group regular conversion.
+8012:   * @note   On this STM32 series, setting of this feature is conditioned to
+8013:   *         ADC state:
+8014:   *         ADC must be enabled with conversion on going on group regular,
+8015:   *         without ADC disable command on going.
+8016:   * @rmtoll CR       ADSTP          LL_ADC_REG_StopConversion
+8017:   * @param  ADCx ADC instance
+8018:   * @retval None
+8019:   */
+8020: __STATIC_INLINE void LL_ADC_REG_StopConversion(ADC_TypeDef *ADCx)
+8021: {
+8022:   /* Note: Write register with some additional bits forced to state reset     */
+8023:   /*       instead of modifying only the selected bit for this function,      */
+8024:   /*       to not interfere with bits with HW property "rs".                  */
+8025:   MODIFY_REG(ADCx->CR,
+8026:              ADC_CR_BITS_PROPERTY_RS,
+8027:              ADC_CR_ADSTP);
+8028: }
+8029: 
+8030: /**
+8031:   * @brief  Get ADC group regular conversion state.
+8032:   * @rmtoll CR       ADSTART        LL_ADC_REG_IsConversionOngoing
+8033:   * @param  ADCx ADC instance
+8034:   * @retval 0: no conversion is on going on ADC group regular.
+8035:   */

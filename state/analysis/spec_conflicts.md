@@ -548,3 +548,21 @@ silicon revision and clock qualification, tests for unlock before/during samples
 latched invalidity/recovery timing and effects on countdown/PWM/tick. ADC fixtures
 must not fabricate an unavailable lock predicate. No human question needed to
 continue the authorized software work; unresolved runtime issue stays visible.
+
+
+## SC-B software resolution under D085, 2026-09-23
+
+D051/D075 permit the explicit asynchronous acquisition decision before physical
+acceptance. D085/47f4d9a implement finite native calls, conservative RC bounds,
+2000us minimum starts/2500us complete-frame budget/6000us source-age expiry, and
+separate fresh-line/retained-line/opponent admission. The original10us charge,
+1500us timeout and1kHz control remain. Ambiguous timing inhibits; stale frames
+cannot confirm/replan/exit or renew age. BEHAVIOR B4.1 and P2B2 visibly preserve
+and supersede the incompatible synchronous-every-tick clause.
+
+Host/sanitizer, independent native and actual target compile evidence is in
+P2_qtr_native_validation.md/F107. Software semantics and implementation are now
+resolved; physical color separation/cadence/uncertainty, pad handoff and full
+5minute robot WCET remain pending. IMU600+motor150+ADC100 cannot be assumed to fit
+800us; future scheduler must solve resource/timing contention. SC-AJ/F091 and
+human gates remain unchanged. This is not physical SC-B acceptance.

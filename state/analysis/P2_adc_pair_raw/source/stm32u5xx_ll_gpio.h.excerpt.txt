@@ -1,0 +1,65 @@
+305:   *         @arg @ref LL_GPIO_PIN_9
+306:   *         @arg @ref LL_GPIO_PIN_10
+307:   *         @arg @ref LL_GPIO_PIN_11
+308:   *         @arg @ref LL_GPIO_PIN_12
+309:   *         @arg @ref LL_GPIO_PIN_13
+310:   *         @arg @ref LL_GPIO_PIN_14
+311:   *         @arg @ref LL_GPIO_PIN_15
+312:   * @retval Returned value can be one of the following values:
+313:   *         @arg @ref LL_GPIO_MODE_INPUT
+314:   *         @arg @ref LL_GPIO_MODE_OUTPUT
+315:   *         @arg @ref LL_GPIO_MODE_ALTERNATE
+316:   *         @arg @ref LL_GPIO_MODE_ANALOG
+317:   */
+318: __STATIC_INLINE uint32_t LL_GPIO_GetPinMode(const GPIO_TypeDef *GPIOx, uint32_t Pin)
+319: {
+320:   return (uint32_t)(READ_BIT(GPIOx->MODER, (GPIO_MODER_MODE0 << (POSITION_VAL(Pin) * GPIO_MODER_MODE1_Pos))) >>
+321:                     (POSITION_VAL(Pin) * GPIO_MODER_MODE1_Pos));
+322: }
+323: 
+324: /**
+325:   * @brief  Configure gpio output type for several pins on dedicated port.
+
+520:   *         @arg @ref LL_GPIO_PIN_12
+521:   *         @arg @ref LL_GPIO_PIN_13
+522:   *         @arg @ref LL_GPIO_PIN_14
+523:   *         @arg @ref LL_GPIO_PIN_15
+524:   * @retval Returned value can be one of the following values:
+525:   *         @arg @ref LL_GPIO_PULL_NO
+526:   *         @arg @ref LL_GPIO_PULL_UP
+527:   *         @arg @ref LL_GPIO_PULL_DOWN
+528:   */
+529: __STATIC_INLINE uint32_t LL_GPIO_GetPinPull(const GPIO_TypeDef *GPIOx, uint32_t Pin)
+530: {
+531:   return (uint32_t)(READ_BIT(GPIOx->PUPDR, (GPIO_PUPDR_PUPD0 << \
+532:                                             (POSITION_VAL(Pin) * GPIO_PUPDR_PUPD1_Pos))) >> \
+533:                     (POSITION_VAL(Pin) * GPIO_PUPDR_PUPD1_Pos));
+534: }
+535: 
+536: /**
+537:   * @brief  Configure gpio alternate function of a dedicated pin from 0 to 7 for a dedicated port.
+538:   * @note   Possible values are from AF0 to AF15 depending on target.
+539:   * @note   Warning: only one pin can be passed as parameter.
+540:   * @rmtoll AFRL         AFSELy        LL_GPIO_SetAFPin_0_7
+
+745:   *         @arg @ref LL_GPIO_PIN_9
+746:   *         @arg @ref LL_GPIO_PIN_10
+747:   *         @arg @ref LL_GPIO_PIN_11
+748:   *         @arg @ref LL_GPIO_PIN_12
+749:   *         @arg @ref LL_GPIO_PIN_13
+750:   *         @arg @ref LL_GPIO_PIN_14
+751:   *         @arg @ref LL_GPIO_PIN_15
+752:   *         @arg @ref LL_GPIO_PIN_ALL
+753:   * @retval State of bit (1 or 0).
+754:   */
+755: __STATIC_INLINE uint32_t LL_GPIO_IsPinLocked(const GPIO_TypeDef *GPIOx, uint32_t PinMask)
+756: {
+757:   return ((READ_BIT(GPIOx->LCKR, PinMask) == (PinMask)) ? 1UL : 0UL);
+758: }
+759: 
+760: /**
+761:   * @brief  Return 1 if one of the pin of a dedicated port is locked. else return 0.
+762:   * @rmtoll LCKR         LCKK          LL_GPIO_IsAnyPinLocked
+763:   * @param  GPIOx GPIO Port
+764:   * @retval State of bit (1 or 0).
+765:   */

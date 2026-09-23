@@ -324,3 +324,20 @@ F103 final regression addendum: existing443tooling PASS678.339s exit0;450distinc
 | ID | Question | Observed answer | Source | Confidence | Hardware-checked |
 |---|---|---|---|---|---|
 | F-106 | Does actual estimator evidence reach Robot consumers without stale measurement reuse? | Implementation2c16023/contractaef3be2. Independent27cases165477assertions and5tooling PASS; freshreview118cases1727511assertions normal/sanitizer,5tooling/15config PASS. Root fullhost2/2PASS6.39s/fullsan2/2PASS31.38s,1151main+37enabledGate. Actual sourcef3bc1f7f compiles135536program/66352compiler globals exit0;51sources/3ELFs/36native/42AEABI+fmod/sqrt/startup checked. | analysis/P2_imu_integration_validation.md/raw; reviews/P2_imu_integration_review.md/raw | IMPLEMENTED/HOST-TESTED/TARGET-COMPILED; fresh separate same-model review PASS, no open software finding | No upload/reset/MCU/pad/sensor/motor action; physical mounting, calibration/drift/accuracy/rate/WCET, SC-AJ/F091 and human gates remain pending. Actual controller path integrated; full QTR/UI/app scheduler remains unfinished |
+
+## D085 native QTR source and target evidence, 2026-09-23
+
+| ID | Question | Observed answer | Source | Confidence | Hardware-checked |
+|---|---|---|---|---|---|
+| F-107 | What supports checked asynchronous acquisition on the four proposed QTR pads? | Pinned/installed GPIO, CMSIS and LL sources bind D2/PB3,D4/PA12,D7/PB2,D8/PB4; checked native configuration preserves status, with direct clock/reset/lock/mode/EXTI/NVIC/trace guards. D085 selects conservative sampled RC intervals and explicit source-age admission. Final inert source57f4b001 compiles145012program/71092compiler globals, exit0; exact56source files/3ELFs/36native and42AEABI plus fmod/sqrt bindings checked. | analysis/P2_qtr_native_audit.md; analysis/P2_qtr_native_raw/source/manifest.json; target_final.json; target_57f4b001_bench-default.json; root_target_integrity.json | SOURCE-VERIFIED/TARGET-COMPILED; final host/review closure follows in validation report | Compile and offline files on board Linux only. No upload, MCU/pad/sensor/motor action or physical exclusivity/color/cadence/WCET proof. SC-AJ/F091 and human gates remain open |
+
+F107 software validation addendum: implementation47f4d9a/contractdcd4682;
+root fullhost2/2PASS7.35s/fullsan2/2PASS34.54s,1173main22840417assertions plus
+37enabledGate3796846. Independent22purecases26881assertions normal/san; native
+14contract/10boundary/3actualpipeline cases,11toolingmethods and16configchecksPASS.
+Fresh separate same-model fullhost/sanitizer/native/config review passes against
+364unchanged frozen files; final disposition in P2_qtr_native_review.md. Exact5
+inert identities adopted;25existingtools+2stagingPASS,54distinct scoped methods.
+All initial failures remain documented. No physical/runtime or human gate follows.
+
+F107 final disposition: fresh separate same-model review completed 2026-09-23T14:30:40+04:00; PASS withinD085software scope with no open BLOCKER/MAJOR/MINOR. Final rootLinux tooling25/25PASS resolves the documented invocation-only failure. No physical acceptance or phase pass.

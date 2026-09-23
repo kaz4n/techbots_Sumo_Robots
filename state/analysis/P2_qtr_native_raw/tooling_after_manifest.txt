@@ -1,0 +1,406 @@
+test_bench_startup_modes_keep_motors_disabled_and_artifacts_separate (test_tools.ToolContractTests.test_bench_startup_modes_keep_motors_disabled_and_artifacts_separate) ... 
+  test_bench_startup_modes_keep_motors_disabled_and_artifacts_separate (test_tools.ToolContractTests.test_bench_startup_modes_keep_motors_disabled_and_artifacts_separate) (args=('bench/p0_matrix', '--compile-only', '--startup', 'default')) ... FAIL
+  test_bench_startup_modes_keep_motors_disabled_and_artifacts_separate (test_tools.ToolContractTests.test_bench_startup_modes_keep_motors_disabled_and_artifacts_separate) (args=('--startup', 'default', '--compile-only', 'bench/p0_matrix')) ... FAIL
+  test_bench_startup_modes_keep_motors_disabled_and_artifacts_separate (test_tools.ToolContractTests.test_bench_startup_modes_keep_motors_disabled_and_artifacts_separate) (args=('bench/p0_matrix', '--compile-only', '--startup', 'immediate')) ... FAIL
+  test_bench_startup_modes_keep_motors_disabled_and_artifacts_separate (test_tools.ToolContractTests.test_bench_startup_modes_keep_motors_disabled_and_artifacts_separate) (args=('--startup', 'immediate', '--compile-only', 'bench/p0_matrix')) ... FAIL
+test_bench_startup_modes_keep_motors_disabled_and_artifacts_separate (test_tools.ToolContractTests.test_bench_startup_modes_keep_motors_disabled_and_artifacts_separate) ... ERROR
+test_compile_only_all_argument_orders_and_build_configurations (test_tools.ToolContractTests.test_compile_only_all_argument_orders_and_build_configurations) ... 
+  test_compile_only_all_argument_orders_and_build_configurations (test_tools.ToolContractTests.test_compile_only_all_argument_orders_and_build_configurations) (order=('app', '--compile-only')) ... FAIL
+  test_compile_only_all_argument_orders_and_build_configurations (test_tools.ToolContractTests.test_compile_only_all_argument_orders_and_build_configurations) (order=('--compile-only', 'app')) ... FAIL
+  test_compile_only_all_argument_orders_and_build_configurations (test_tools.ToolContractTests.test_compile_only_all_argument_orders_and_build_configurations) (order=('app', '--compile-only', '--match')) ... FAIL
+  test_compile_only_all_argument_orders_and_build_configurations (test_tools.ToolContractTests.test_compile_only_all_argument_orders_and_build_configurations) (order=('app', '--match', '--compile-only')) ... FAIL
+  test_compile_only_all_argument_orders_and_build_configurations (test_tools.ToolContractTests.test_compile_only_all_argument_orders_and_build_configurations) (order=('--compile-only', 'app', '--match')) ... FAIL
+  test_compile_only_all_argument_orders_and_build_configurations (test_tools.ToolContractTests.test_compile_only_all_argument_orders_and_build_configurations) (order=('--compile-only', '--match', 'app')) ... FAIL
+  test_compile_only_all_argument_orders_and_build_configurations (test_tools.ToolContractTests.test_compile_only_all_argument_orders_and_build_configurations) (order=('--match', 'app', '--compile-only')) ... FAIL
+  test_compile_only_all_argument_orders_and_build_configurations (test_tools.ToolContractTests.test_compile_only_all_argument_orders_and_build_configurations) (order=('--match', '--compile-only', 'app')) ... FAIL
+  test_compile_only_all_argument_orders_and_build_configurations (test_tools.ToolContractTests.test_compile_only_all_argument_orders_and_build_configurations) (order=('bench/p0_matrix', '--compile-only')) ... FAIL
+  test_compile_only_all_argument_orders_and_build_configurations (test_tools.ToolContractTests.test_compile_only_all_argument_orders_and_build_configurations) (order=('--compile-only', 'bench/p0_matrix')) ... FAIL
+  test_compile_only_all_argument_orders_and_build_configurations (test_tools.ToolContractTests.test_compile_only_all_argument_orders_and_build_configurations) (order=('bench/p0_matrix', '--compile-only', '--match')) ... FAIL
+  test_compile_only_all_argument_orders_and_build_configurations (test_tools.ToolContractTests.test_compile_only_all_argument_orders_and_build_configurations) (order=('bench/p0_matrix', '--match', '--compile-only')) ... FAIL
+  test_compile_only_all_argument_orders_and_build_configurations (test_tools.ToolContractTests.test_compile_only_all_argument_orders_and_build_configurations) (order=('--compile-only', 'bench/p0_matrix', '--match')) ... FAIL
+  test_compile_only_all_argument_orders_and_build_configurations (test_tools.ToolContractTests.test_compile_only_all_argument_orders_and_build_configurations) (order=('--compile-only', '--match', 'bench/p0_matrix')) ... FAIL
+  test_compile_only_all_argument_orders_and_build_configurations (test_tools.ToolContractTests.test_compile_only_all_argument_orders_and_build_configurations) (order=('--match', 'bench/p0_matrix', '--compile-only')) ... FAIL
+  test_compile_only_all_argument_orders_and_build_configurations (test_tools.ToolContractTests.test_compile_only_all_argument_orders_and_build_configurations) (order=('--match', '--compile-only', 'bench/p0_matrix')) ... FAIL
+test_failure_propagation_stops_later_stages (test_tools.ToolContractTests.test_failure_propagation_stops_later_stages) ... ok
+test_immediate_matrix_upload_waits_for_loader_ownership_verification (test_tools.ToolContractTests.test_immediate_matrix_upload_waits_for_loader_ownership_verification) ... FAIL
+test_invalid_arguments_and_unsafe_paths_fail_before_transport (test_tools.ToolContractTests.test_invalid_arguments_and_unsafe_paths_fail_before_transport) ... ok
+test_logs_execute_receive_only_request_and_report_disconnect (test_tools.ToolContractTests.test_logs_execute_receive_only_request_and_report_disconnect) ... FAIL
+test_logs_propagate_ssh_failure_and_reject_arguments (test_tools.ToolContractTests.test_logs_propagate_ssh_failure_and_reject_arguments) ... ok
+test_match_is_not_upload_permission_and_other_targets_stay_blocked (test_tools.ToolContractTests.test_match_is_not_upload_permission_and_other_targets_stay_blocked) ... ok
+test_missing_connection_configuration_fails_before_transport (test_tools.ToolContractTests.test_missing_connection_configuration_fails_before_transport) ... ok
+test_missing_or_wrong_core_prevents_compile_and_upload (test_tools.ToolContractTests.test_missing_or_wrong_core_prevents_compile_and_upload) ... ok
+test_missing_rsync_fails_before_transport (test_tools.ToolContractTests.test_missing_rsync_fails_before_transport) ... ERROR
+test_missing_source_or_config_fails_before_transport (test_tools.ToolContractTests.test_missing_source_or_config_fails_before_transport) ... ok
+test_only_allowlisted_inert_sketches_upload_after_compile_without_port (test_tools.ToolContractTests.test_only_allowlisted_inert_sketches_upload_after_compile_without_port) ... 
+  test_only_allowlisted_inert_sketches_upload_after_compile_without_port (test_tools.ToolContractTests.test_only_allowlisted_inert_sketches_upload_after_compile_without_port) (target='bench/p0_matrix') ... FAIL
+  test_only_allowlisted_inert_sketches_upload_after_compile_without_port (test_tools.ToolContractTests.test_only_allowlisted_inert_sketches_upload_after_compile_without_port) (target='bench/p0_timing') ... FAIL
+test_real_diagnostics_host_syntax_and_inert_guard (test_tools.ToolContractTests.test_real_diagnostics_host_syntax_and_inert_guard) ... FAIL
+test_reviewed_inert_immediate_upload_uses_same_artifact_and_zero_motor_macro (test_tools.ToolContractTests.test_reviewed_inert_immediate_upload_uses_same_artifact_and_zero_motor_macro) ... FAIL
+test_reviewed_snapshot_survives_lf_checkout (test_tools.ToolContractTests.test_reviewed_snapshot_survives_lf_checkout) ... 
+  test_reviewed_snapshot_survives_lf_checkout (test_tools.ToolContractTests.test_reviewed_snapshot_survives_lf_checkout) (sketch='bench/p0_matrix') ... FAIL
+  test_reviewed_snapshot_survives_lf_checkout (test_tools.ToolContractTests.test_reviewed_snapshot_survives_lf_checkout) (sketch='bench/p0_timing') ... FAIL
+test_sketch_local_project_collisions_fail_before_transport (test_tools.ToolContractTests.test_sketch_local_project_collisions_fail_before_transport) ... ok
+test_sketch_local_src_is_preserved_and_compiles (test_tools.ToolContractTests.test_sketch_local_src_is_preserved_and_compiles) ... FAIL
+test_source_ancestor_symlink_is_rejected_before_transport (test_tools.ToolContractTests.test_source_ancestor_symlink_is_rejected_before_transport) ... ERROR
+test_source_symlinks_are_rejected_before_transport (test_tools.ToolContractTests.test_source_symlinks_are_rejected_before_transport) ... ERROR
+test_staging_preserves_project_and_sketch_local_includes (test_tools.ToolContractTests.test_staging_preserves_project_and_sketch_local_includes) ... FAIL
+test_startup_selection_cannot_bypass_upload_or_configuration_guards (test_tools.ToolContractTests.test_startup_selection_cannot_bypass_upload_or_configuration_guards) ... ok
+test_transport_is_strict_and_content_addressed_without_deletion (test_tools.ToolContractTests.test_transport_is_strict_and_content_addressed_without_deletion) ... FAIL
+test_upload_rejects_changed_or_added_source_before_transport (test_tools.ToolContractTests.test_upload_rejects_changed_or_added_source_before_transport) ... ok
+test_upload_requires_readable_reviewed_snapshot (test_tools.ToolContractTests.test_upload_requires_readable_reviewed_snapshot) ... ok
+
+======================================================================
+ERROR: test_bench_startup_modes_keep_motors_disabled_and_artifacts_separate (test_tools.ToolContractTests.test_bench_startup_modes_keep_motors_disabled_and_artifacts_separate)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tests\tooling\test_tools.py", line 165, in test_bench_startup_modes_keep_motors_disabled_and_artifacts_separate
+    self.assertEqual(destinations[0], destinations[1])
+                     ~~~~~~~~~~~~^^^
+IndexError: list index out of range
+
+======================================================================
+ERROR: test_missing_rsync_fails_before_transport (test_tools.ToolContractTests.test_missing_rsync_fails_before_transport)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tests\tooling\test_tools.py", line 299, in test_missing_rsync_fails_before_transport
+    (self.bin / name).symlink_to(shutil.which(name))
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py", line 789, in symlink_to
+    os.symlink(target, self, target_is_directory)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [WinError 1314] A required privilege is not held by the client: 'C:\\Windows\\system32\\bash.EXE' -> 'C:\\Users\\narut\\AppData\\Local\\Temp\\sumo-tools-r2ec8fh9\\bin\\bash'
+
+======================================================================
+ERROR: test_source_ancestor_symlink_is_rejected_before_transport (test_tools.ToolContractTests.test_source_ancestor_symlink_is_rejected_before_transport)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tests\tooling\test_tools.py", line 320, in test_source_ancestor_symlink_is_rejected_before_transport
+    bench.symlink_to(moved, target_is_directory=True)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py", line 789, in symlink_to
+    os.symlink(target, self, target_is_directory)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [WinError 1314] A required privilege is not held by the client: 'C:\\Users\\narut\\AppData\\Local\\Temp\\sumo-tools-_y50at7g\\moved_bench' -> 'C:\\Users\\narut\\AppData\\Local\\Temp\\sumo-tools-_y50at7g\\bench'
+
+======================================================================
+ERROR: test_source_symlinks_are_rejected_before_transport (test_tools.ToolContractTests.test_source_symlinks_are_rejected_before_transport)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tests\tooling\test_tools.py", line 310, in test_source_symlinks_are_rejected_before_transport
+    link.symlink_to(outside)
+    ~~~~~~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py", line 789, in symlink_to
+    os.symlink(target, self, target_is_directory)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [WinError 1314] A required privilege is not held by the client: 'C:\\Users\\narut\\AppData\\Local\\Temp\\sumo-tools-t_sdf2tz\\outside.h' -> 'C:\\Users\\narut\\AppData\\Local\\Temp\\sumo-tools-t_sdf2tz\\bench\\p0_matrix\\linked.h'
+
+======================================================================
+FAIL: test_bench_startup_modes_keep_motors_disabled_and_artifacts_separate (test_tools.ToolContractTests.test_bench_startup_modes_keep_motors_disabled_and_artifacts_separate) (args=('bench/p0_matrix', '--compile-only', '--startup', 'default'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tests\tooling\test_tools.py", line 157, in test_bench_startup_modes_keep_motors_disabled_and_artifacts_separate
+    self.assertEqual(0, result.returncode, result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 127 : /bin/bash: C:UsersnarutAppDataLocalTempsumo-tools-_smosa53toolsflash.sh: No such file or directory
+
+
+======================================================================
+FAIL: test_bench_startup_modes_keep_motors_disabled_and_artifacts_separate (test_tools.ToolContractTests.test_bench_startup_modes_keep_motors_disabled_and_artifacts_separate) (args=('--startup', 'default', '--compile-only', 'bench/p0_matrix'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tests\tooling\test_tools.py", line 157, in test_bench_startup_modes_keep_motors_disabled_and_artifacts_separate
+    self.assertEqual(0, result.returncode, result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 127 : /bin/bash: C:UsersnarutAppDataLocalTempsumo-tools-_smosa53toolsflash.sh: No such file or directory
+
+
+======================================================================
+FAIL: test_bench_startup_modes_keep_motors_disabled_and_artifacts_separate (test_tools.ToolContractTests.test_bench_startup_modes_keep_motors_disabled_and_artifacts_separate) (args=('bench/p0_matrix', '--compile-only', '--startup', 'immediate'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tests\tooling\test_tools.py", line 157, in test_bench_startup_modes_keep_motors_disabled_and_artifacts_separate
+    self.assertEqual(0, result.returncode, result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 127 : /bin/bash: C:UsersnarutAppDataLocalTempsumo-tools-_smosa53toolsflash.sh: No such file or directory
+
+
+======================================================================
+FAIL: test_bench_startup_modes_keep_motors_disabled_and_artifacts_separate (test_tools.ToolContractTests.test_bench_startup_modes_keep_motors_disabled_and_artifacts_separate) (args=('--startup', 'immediate', '--compile-only', 'bench/p0_matrix'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tests\tooling\test_tools.py", line 157, in test_bench_startup_modes_keep_motors_disabled_and_artifacts_separate
+    self.assertEqual(0, result.returncode, result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 127 : /bin/bash: C:UsersnarutAppDataLocalTempsumo-tools-_smosa53toolsflash.sh: No such file or directory
+
+
+======================================================================
+FAIL: test_compile_only_all_argument_orders_and_build_configurations (test_tools.ToolContractTests.test_compile_only_all_argument_orders_and_build_configurations) (order=('app', '--compile-only'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tests\tooling\test_tools.py", line 121, in test_compile_only_all_argument_orders_and_build_configurations
+    self.assertEqual(0, result.returncode, result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 127 : /bin/bash: C:UsersnarutAppDataLocalTempsumo-tools-f3bu9ngitoolsflash.sh: No such file or directory
+
+
+======================================================================
+FAIL: test_compile_only_all_argument_orders_and_build_configurations (test_tools.ToolContractTests.test_compile_only_all_argument_orders_and_build_configurations) (order=('--compile-only', 'app'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tests\tooling\test_tools.py", line 121, in test_compile_only_all_argument_orders_and_build_configurations
+    self.assertEqual(0, result.returncode, result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 127 : /bin/bash: C:UsersnarutAppDataLocalTempsumo-tools-f3bu9ngitoolsflash.sh: No such file or directory
+
+
+======================================================================
+FAIL: test_compile_only_all_argument_orders_and_build_configurations (test_tools.ToolContractTests.test_compile_only_all_argument_orders_and_build_configurations) (order=('app', '--compile-only', '--match'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tests\tooling\test_tools.py", line 121, in test_compile_only_all_argument_orders_and_build_configurations
+    self.assertEqual(0, result.returncode, result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 127 : /bin/bash: C:UsersnarutAppDataLocalTempsumo-tools-f3bu9ngitoolsflash.sh: No such file or directory
+
+
+======================================================================
+FAIL: test_compile_only_all_argument_orders_and_build_configurations (test_tools.ToolContractTests.test_compile_only_all_argument_orders_and_build_configurations) (order=('app', '--match', '--compile-only'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tests\tooling\test_tools.py", line 121, in test_compile_only_all_argument_orders_and_build_configurations
+    self.assertEqual(0, result.returncode, result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 127 : /bin/bash: C:UsersnarutAppDataLocalTempsumo-tools-f3bu9ngitoolsflash.sh: No such file or directory
+
+
+======================================================================
+FAIL: test_compile_only_all_argument_orders_and_build_configurations (test_tools.ToolContractTests.test_compile_only_all_argument_orders_and_build_configurations) (order=('--compile-only', 'app', '--match'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tests\tooling\test_tools.py", line 121, in test_compile_only_all_argument_orders_and_build_configurations
+    self.assertEqual(0, result.returncode, result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 127 : /bin/bash: C:UsersnarutAppDataLocalTempsumo-tools-f3bu9ngitoolsflash.sh: No such file or directory
+
+
+======================================================================
+FAIL: test_compile_only_all_argument_orders_and_build_configurations (test_tools.ToolContractTests.test_compile_only_all_argument_orders_and_build_configurations) (order=('--compile-only', '--match', 'app'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tests\tooling\test_tools.py", line 121, in test_compile_only_all_argument_orders_and_build_configurations
+    self.assertEqual(0, result.returncode, result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 127 : /bin/bash: C:UsersnarutAppDataLocalTempsumo-tools-f3bu9ngitoolsflash.sh: No such file or directory
+
+
+======================================================================
+FAIL: test_compile_only_all_argument_orders_and_build_configurations (test_tools.ToolContractTests.test_compile_only_all_argument_orders_and_build_configurations) (order=('--match', 'app', '--compile-only'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tests\tooling\test_tools.py", line 121, in test_compile_only_all_argument_orders_and_build_configurations
+    self.assertEqual(0, result.returncode, result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 127 : /bin/bash: C:UsersnarutAppDataLocalTempsumo-tools-f3bu9ngitoolsflash.sh: No such file or directory
+
+
+======================================================================
+FAIL: test_compile_only_all_argument_orders_and_build_configurations (test_tools.ToolContractTests.test_compile_only_all_argument_orders_and_build_configurations) (order=('--match', '--compile-only', 'app'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tests\tooling\test_tools.py", line 121, in test_compile_only_all_argument_orders_and_build_configurations
+    self.assertEqual(0, result.returncode, result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 127 : /bin/bash: C:UsersnarutAppDataLocalTempsumo-tools-f3bu9ngitoolsflash.sh: No such file or directory
+
+
+======================================================================
+FAIL: test_compile_only_all_argument_orders_and_build_configurations (test_tools.ToolContractTests.test_compile_only_all_argument_orders_and_build_configurations) (order=('bench/p0_matrix', '--compile-only'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tests\tooling\test_tools.py", line 121, in test_compile_only_all_argument_orders_and_build_configurations
+    self.assertEqual(0, result.returncode, result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 127 : /bin/bash: C:UsersnarutAppDataLocalTempsumo-tools-f3bu9ngitoolsflash.sh: No such file or directory
+
+
+======================================================================
+FAIL: test_compile_only_all_argument_orders_and_build_configurations (test_tools.ToolContractTests.test_compile_only_all_argument_orders_and_build_configurations) (order=('--compile-only', 'bench/p0_matrix'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tests\tooling\test_tools.py", line 121, in test_compile_only_all_argument_orders_and_build_configurations
+    self.assertEqual(0, result.returncode, result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 127 : /bin/bash: C:UsersnarutAppDataLocalTempsumo-tools-f3bu9ngitoolsflash.sh: No such file or directory
+
+
+======================================================================
+FAIL: test_compile_only_all_argument_orders_and_build_configurations (test_tools.ToolContractTests.test_compile_only_all_argument_orders_and_build_configurations) (order=('bench/p0_matrix', '--compile-only', '--match'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tests\tooling\test_tools.py", line 121, in test_compile_only_all_argument_orders_and_build_configurations
+    self.assertEqual(0, result.returncode, result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 127 : /bin/bash: C:UsersnarutAppDataLocalTempsumo-tools-f3bu9ngitoolsflash.sh: No such file or directory
+
+
+======================================================================
+FAIL: test_compile_only_all_argument_orders_and_build_configurations (test_tools.ToolContractTests.test_compile_only_all_argument_orders_and_build_configurations) (order=('bench/p0_matrix', '--match', '--compile-only'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tests\tooling\test_tools.py", line 121, in test_compile_only_all_argument_orders_and_build_configurations
+    self.assertEqual(0, result.returncode, result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 127 : /bin/bash: C:UsersnarutAppDataLocalTempsumo-tools-f3bu9ngitoolsflash.sh: No such file or directory
+
+
+======================================================================
+FAIL: test_compile_only_all_argument_orders_and_build_configurations (test_tools.ToolContractTests.test_compile_only_all_argument_orders_and_build_configurations) (order=('--compile-only', 'bench/p0_matrix', '--match'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tests\tooling\test_tools.py", line 121, in test_compile_only_all_argument_orders_and_build_configurations
+    self.assertEqual(0, result.returncode, result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 127 : /bin/bash: C:UsersnarutAppDataLocalTempsumo-tools-f3bu9ngitoolsflash.sh: No such file or directory
+
+
+======================================================================
+FAIL: test_compile_only_all_argument_orders_and_build_configurations (test_tools.ToolContractTests.test_compile_only_all_argument_orders_and_build_configurations) (order=('--compile-only', '--match', 'bench/p0_matrix'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tests\tooling\test_tools.py", line 121, in test_compile_only_all_argument_orders_and_build_configurations
+    self.assertEqual(0, result.returncode, result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 127 : /bin/bash: C:UsersnarutAppDataLocalTempsumo-tools-f3bu9ngitoolsflash.sh: No such file or directory
+
+
+======================================================================
+FAIL: test_compile_only_all_argument_orders_and_build_configurations (test_tools.ToolContractTests.test_compile_only_all_argument_orders_and_build_configurations) (order=('--match', 'bench/p0_matrix', '--compile-only'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tests\tooling\test_tools.py", line 121, in test_compile_only_all_argument_orders_and_build_configurations
+    self.assertEqual(0, result.returncode, result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 127 : /bin/bash: C:UsersnarutAppDataLocalTempsumo-tools-f3bu9ngitoolsflash.sh: No such file or directory
+
+
+======================================================================
+FAIL: test_compile_only_all_argument_orders_and_build_configurations (test_tools.ToolContractTests.test_compile_only_all_argument_orders_and_build_configurations) (order=('--match', '--compile-only', 'bench/p0_matrix'))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tests\tooling\test_tools.py", line 121, in test_compile_only_all_argument_orders_and_build_configurations
+    self.assertEqual(0, result.returncode, result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 127 : /bin/bash: C:UsersnarutAppDataLocalTempsumo-tools-f3bu9ngitoolsflash.sh: No such file or directory
+
+
+======================================================================
+FAIL: test_immediate_matrix_upload_waits_for_loader_ownership_verification (test_tools.ToolContractTests.test_immediate_matrix_upload_waits_for_loader_ownership_verification)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tests\tooling\test_tools.py", line 187, in test_immediate_matrix_upload_waits_for_loader_ownership_verification
+    self.assertIn('matrix', result.stderr)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'matrix' not found in '/bin/bash: C:UsersnarutAppDataLocalTempsumo-tools-a0s4wz1jtoolsflash.sh: No such file or directory\n'
+
+======================================================================
+FAIL: test_logs_execute_receive_only_request_and_report_disconnect (test_tools.ToolContractTests.test_logs_execute_receive_only_request_and_report_disconnect)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tests\tooling\test_tools.py", line 388, in test_logs_execute_receive_only_request_and_report_disconnect
+    self.assertIn('fixture monitor counter=7', result.stdout)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'fixture monitor counter=7' not found in ''
+
+======================================================================
+FAIL: test_only_allowlisted_inert_sketches_upload_after_compile_without_port (test_tools.ToolContractTests.test_only_allowlisted_inert_sketches_upload_after_compile_without_port) (target='bench/p0_matrix')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tests\tooling\test_tools.py", line 226, in test_only_allowlisted_inert_sketches_upload_after_compile_without_port
+    self.assertEqual(0, result.returncode, result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 127 : /bin/bash: C:UsersnarutAppDataLocalTempsumo-tools-fg2c6olptoolsflash.sh: No such file or directory
+
+
+======================================================================
+FAIL: test_only_allowlisted_inert_sketches_upload_after_compile_without_port (test_tools.ToolContractTests.test_only_allowlisted_inert_sketches_upload_after_compile_without_port) (target='bench/p0_timing')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tests\tooling\test_tools.py", line 226, in test_only_allowlisted_inert_sketches_upload_after_compile_without_port
+    self.assertEqual(0, result.returncode, result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 127 : /bin/bash: C:UsersnarutAppDataLocalTempsumo-tools-fg2c6olptoolsflash.sh: No such file or directory
+
+
+======================================================================
+FAIL: test_real_diagnostics_host_syntax_and_inert_guard (test_tools.ToolContractTests.test_real_diagnostics_host_syntax_and_inert_guard)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tests\tooling\test_tools.py", line 416, in test_real_diagnostics_host_syntax_and_inert_guard
+    self.assertEqual(0, self.run_tool(f'bench/{name}', '--compile-only').returncode)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 127
+
+======================================================================
+FAIL: test_reviewed_inert_immediate_upload_uses_same_artifact_and_zero_motor_macro (test_tools.ToolContractTests.test_reviewed_inert_immediate_upload_uses_same_artifact_and_zero_motor_macro)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tests\tooling\test_tools.py", line 173, in test_reviewed_inert_immediate_upload_uses_same_artifact_and_zero_motor_macro
+    self.assertEqual(0, result.returncode, result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 127 : /bin/bash: C:UsersnarutAppDataLocalTempsumo-tools-_vprc3a1toolsflash.sh: No such file or directory
+
+
+======================================================================
+FAIL: test_reviewed_snapshot_survives_lf_checkout (test_tools.ToolContractTests.test_reviewed_snapshot_survives_lf_checkout) (sketch='bench/p0_matrix')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tests\tooling\test_tools.py", line 382, in test_reviewed_snapshot_survives_lf_checkout
+    self.assertEqual(0, result.returncode, result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 127 : /bin/bash: C:UsersnarutAppDataLocalTempsumo-tools-lzlrb0jdtoolsflash.sh: No such file or directory
+
+
+======================================================================
+FAIL: test_reviewed_snapshot_survives_lf_checkout (test_tools.ToolContractTests.test_reviewed_snapshot_survives_lf_checkout) (sketch='bench/p0_timing')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tests\tooling\test_tools.py", line 382, in test_reviewed_snapshot_survives_lf_checkout
+    self.assertEqual(0, result.returncode, result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 127 : /bin/bash: C:UsersnarutAppDataLocalTempsumo-tools-lzlrb0jdtoolsflash.sh: No such file or directory
+
+
+======================================================================
+FAIL: test_sketch_local_src_is_preserved_and_compiles (test_tools.ToolContractTests.test_sketch_local_src_is_preserved_and_compiles)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tests\tooling\test_tools.py", line 328, in test_sketch_local_src_is_preserved_and_compiles
+    self.assertEqual(0, self.run_tool('bench/p0_matrix', '--compile-only').returncode)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 127
+
+======================================================================
+FAIL: test_staging_preserves_project_and_sketch_local_includes (test_tools.ToolContractTests.test_staging_preserves_project_and_sketch_local_includes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tests\tooling\test_tools.py", line 133, in test_staging_preserves_project_and_sketch_local_includes
+    self.assertEqual(0, result.returncode, result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 127 : /bin/bash: C:UsersnarutAppDataLocalTempsumo-tools-zv4pom6ntoolsflash.sh: No such file or directory
+
+
+======================================================================
+FAIL: test_transport_is_strict_and_content_addressed_without_deletion (test_tools.ToolContractTests.test_transport_is_strict_and_content_addressed_without_deletion)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tests\tooling\test_tools.py", line 205, in test_transport_is_strict_and_content_addressed_without_deletion
+    self.assertEqual(0, result.returncode, result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 != 127 : /bin/bash: C:UsersnarutAppDataLocalTempsumo-tools-mzik_wvgtoolsflash.sh: No such file or directory
+
+
+----------------------------------------------------------------------
+Ran 25 tests in 24.574s
+
+FAILED (failures=31, errors=4)

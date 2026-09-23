@@ -1,0 +1,43 @@
+{
+  "staged_source_manifest": {
+    "production": "98f445e1b00fb5840427c3e63ac24c6dbbfd24d45d334837aacd9900e8e20bb8",
+    "header": "a5127bb26470c1a842ed417be6e953706cacbe47a9c64f01f45e1a1da7d52e24",
+    "config": "5f72579984e2e5d57e3365424b0e56d422e64983356904a4380f312c5cb6a622"
+  },
+  "argv": [
+    "/usr/bin/g++",
+    "-std=c++17",
+    "-O1",
+    "-Wall",
+    "-Wextra",
+    "-Wpedantic",
+    "-Werror",
+    "-fno-exceptions",
+    "-fno-rtti",
+    "-fsanitize=undefined",
+    "-fno-sanitize-recover=all",
+    "-DARDUINO_ARCH_ZEPHYR",
+    "-DDOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS",
+    "-I",
+    "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/native_qtr",
+    "-isystem",
+    "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/host/third_party",
+    "-I",
+    "/tmp/sumo-native-qtr-sefj7tbw/variant-25/src",
+    "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/native_qtr/metadata_cases.cc",
+    "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/native_qtr/native_fixture.cc",
+    "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/native_qtr/isolation.cc",
+    "/tmp/sumo-native-qtr-sefj7tbw/variant-25/src/hal/line_qtr.cpp",
+    "/tmp/sumo-native-qtr-sefj7tbw/main.o",
+    "-Wl,--wrap=malloc,--wrap=calloc,--wrap=realloc,--wrap=free",
+    "-o",
+    "/tmp/sumo-native-qtr-sefj7tbw/variant-25/native-qtr"
+  ],
+  "returncode": 1,
+  "stdout": "",
+  "stderr": "In file included from /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/native_qtr/zephyr/drivers/gpio.h:7,\n                 from /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/native_qtr/wiring_private.h:5,\n                 from /tmp/sumo-native-qtr-sefj7tbw/variant-25/src/hal/line_qtr.cpp:9:\n/tmp/sumo-native-qtr-sefj7tbw/variant-25/src/hal/line_qtr.cpp: In function \u2018bool line_qtr::{anonymous}::separatePin(uint32_t)\u2019:\n/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/native_qtr/zephyr/devicetree.h:16:27: error: \u2018FIX_DEVICE_gpioc\u2019 was not declared in this scope; did you mean \u2018FIX_DEVICE_gpioa\u2019?\n   16 | #define DEVICE_DT_IMPL(n) FIX_DEVICE_##n\n      |                           ^~~~~~~~~~~\n/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/native_qtr/zephyr/devicetree.h:15:26: note: in expansion of macro \u2018DEVICE_DT_IMPL\u2019\n   15 | #define DEVICE_DT_GET(n) DEVICE_DT_IMPL(n)\n      |                          ^~~~~~~~~~~~~~\n/tmp/sumo-native-qtr-sefj7tbw/variant-25/src/hal/line_qtr.cpp:55:23: note: in expansion of macro \u2018DEVICE_DT_GET\u2019\n   55 |         other.port != DEVICE_DT_GET(DT_NODELABEL(gpioc))) return false;\n      |                       ^~~~~~~~~~~~~\n",
+  "capture": "subprocess text=True; newline normalized",
+  "production_sha256": "98f445e1b00fb5840427c3e63ac24c6dbbfd24d45d334837aacd9900e8e20bb8",
+  "public_header_sha256": "a5127bb26470c1a842ed417be6e953706cacbe47a9c64f01f45e1a1da7d52e24",
+  "config_sha256": "4fb8a3726e5f9c5947c7944182f763baeea3749da5c24af4c2d6c344bae33b2e"
+}

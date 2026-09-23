@@ -1,0 +1,161 @@
+300: #define LL_DAC_TRIG_EXT_EXTI_LINE9         (DAC_CR_TSEL1_3 | DAC_CR_TSEL1_2                  | DAC_CR_TSEL1_0)
+301: 
+302: #define LL_DAC_TRIG_EXT_LPTIM1_OUT         LL_DAC_TRIG_EXT_LPTIM1_CH1
+303: #define LL_DAC_TRIG_EXT_LPTIM3_OUT         LL_DAC_TRIG_EXT_LPTIM3_CH1
+304: /**
+305:   * @}
+306:   */
+307: 
+308: /** @defgroup DAC_LL_EC_WAVE_AUTO_GENERATION_MODE DAC waveform automatic generation mode
+309:   * @{
+310:   */
+311: #define LL_DAC_WAVE_AUTO_GENERATION_NONE     0x00000000UL
+312: #define LL_DAC_WAVE_AUTO_GENERATION_NOISE    (               DAC_CR_WAVE1_0)
+313: #define LL_DAC_WAVE_AUTO_GENERATION_TRIANGLE (DAC_CR_WAVE1_1               )
+314: /**
+315:   * @}
+316:   */
+317: 
+318: /** @defgroup DAC_LL_EC_WAVE_NOISE_LFSR_UNMASK_BITS DAC wave generation - Noise LFSR unmask bits
+319:   * @{
+320:   */
+321: #define LL_DAC_NOISE_LFSR_UNMASK_BIT0      0x00000000UL
+322: #define LL_DAC_NOISE_LFSR_UNMASK_BITS1_0   (                                                   DAC_CR_MAMP1_0)
+323: #define LL_DAC_NOISE_LFSR_UNMASK_BITS2_0   (                                  DAC_CR_MAMP1_1                 )
+324: #define LL_DAC_NOISE_LFSR_UNMASK_BITS3_0   (                                  DAC_CR_MAMP1_1 | DAC_CR_MAMP1_0)
+325: #define LL_DAC_NOISE_LFSR_UNMASK_BITS4_0   (                 DAC_CR_MAMP1_2                                  )
+326: #define LL_DAC_NOISE_LFSR_UNMASK_BITS5_0   (                 DAC_CR_MAMP1_2                  | DAC_CR_MAMP1_0)
+327: #define LL_DAC_NOISE_LFSR_UNMASK_BITS6_0   (                 DAC_CR_MAMP1_2 | DAC_CR_MAMP1_1                 )
+328: #define LL_DAC_NOISE_LFSR_UNMASK_BITS7_0   (                 DAC_CR_MAMP1_2 | DAC_CR_MAMP1_1 | DAC_CR_MAMP1_0)
+329: #define LL_DAC_NOISE_LFSR_UNMASK_BITS8_0   (DAC_CR_MAMP1_3                                                   )
+330: #define LL_DAC_NOISE_LFSR_UNMASK_BITS9_0   (DAC_CR_MAMP1_3                                   | DAC_CR_MAMP1_0)
+331: #define LL_DAC_NOISE_LFSR_UNMASK_BITS10_0  (DAC_CR_MAMP1_3                  | DAC_CR_MAMP1_1                 )
+332: #define LL_DAC_NOISE_LFSR_UNMASK_BITS11_0  (DAC_CR_MAMP1_3                  | DAC_CR_MAMP1_1 | DAC_CR_MAMP1_0)
+333: /**
+334:   * @}
+335:   */
+336: 
+337: /** @defgroup DAC_LL_EC_WAVE_TRIANGLE_AMPLITUDE DAC wave generation - Triangle amplitude
+338:   * @{
+339:   */
+340: #define LL_DAC_TRIANGLE_AMPLITUDE_1        0x00000000UL
+341: #define LL_DAC_TRIANGLE_AMPLITUDE_3        (                                                   DAC_CR_MAMP1_0)
+342: #define LL_DAC_TRIANGLE_AMPLITUDE_7        (                                  DAC_CR_MAMP1_1                 )
+343: #define LL_DAC_TRIANGLE_AMPLITUDE_15       (                                  DAC_CR_MAMP1_1 | DAC_CR_MAMP1_0)
+344: #define LL_DAC_TRIANGLE_AMPLITUDE_31       (                 DAC_CR_MAMP1_2                                  )
+345: #define LL_DAC_TRIANGLE_AMPLITUDE_63       (                 DAC_CR_MAMP1_2                  | DAC_CR_MAMP1_0)
+346: #define LL_DAC_TRIANGLE_AMPLITUDE_127      (                 DAC_CR_MAMP1_2 | DAC_CR_MAMP1_1                 )
+347: #define LL_DAC_TRIANGLE_AMPLITUDE_255      (                 DAC_CR_MAMP1_2 | DAC_CR_MAMP1_1 | DAC_CR_MAMP1_0)
+348: #define LL_DAC_TRIANGLE_AMPLITUDE_511      (DAC_CR_MAMP1_3                                                   )
+349: #define LL_DAC_TRIANGLE_AMPLITUDE_1023     (DAC_CR_MAMP1_3                                   | DAC_CR_MAMP1_0)
+350: #define LL_DAC_TRIANGLE_AMPLITUDE_2047     (DAC_CR_MAMP1_3                  | DAC_CR_MAMP1_1                 )
+351: #define LL_DAC_TRIANGLE_AMPLITUDE_4095     (DAC_CR_MAMP1_3                  | DAC_CR_MAMP1_1 | DAC_CR_MAMP1_0)
+352: /**
+353:   * @}
+354:   */
+355: 
+356: /** @defgroup DAC_LL_EC_OUTPUT_MODE DAC channel output mode
+357:   * @{
+358:   */
+359: #define LL_DAC_OUTPUT_MODE_NORMAL          0x00000000UL
+360: #define LL_DAC_OUTPUT_MODE_SAMPLE_AND_HOLD (DAC_MCR_MODE1_2)
+361: /**
+362:   * @}
+363:   */
+364: 
+365: /** @defgroup DAC_LL_EC_OUTPUT_BUFFER DAC channel output buffer
+366:   * @{
+367:   */
+368: #define LL_DAC_OUTPUT_BUFFER_ENABLE        0x00000000UL
+369: #define LL_DAC_OUTPUT_BUFFER_DISABLE       (DAC_MCR_MODE1_1)
+370: /**
+371:   * @}
+372:   */
+373: 
+374: /** @defgroup DAC_LL_EC_OUTPUT_CONNECTION DAC channel output connection
+375:   * @{
+376:   */
+377: #define LL_DAC_OUTPUT_CONNECT_GPIO         0x00000000UL
+378: #define LL_DAC_OUTPUT_CONNECT_INTERNAL     (DAC_MCR_MODE1_0)
+379: /**
+380:   * @}
+381:   */
+382: 
+383: /** @defgroup DAC_LL_EC_SIGNED_FORMAT DAC channel signed format
+384:   * @{
+385:   */
+386: #define LL_DAC_SIGNED_FORMAT_DISABLE       0x00000000UL
+387: #define LL_DAC_SIGNED_FORMAT_ENABLE        (DAC_MCR_SINFORMAT1)
+388: /**
+389:   * @}
+390:   */
+391: 
+392: /** @defgroup DAC_LL_EC_RESOLUTION  DAC channel output resolution
+393:   * @{
+394:   */
+395: #define LL_DAC_RESOLUTION_12B              0x00000000UL
+396: #define LL_DAC_RESOLUTION_8B               0x00000002UL
+397: /**
+398:   * @}
+399:   */
+400: 
+401: /** @defgroup DAC_LL_EC_REGISTERS  DAC registers compliant with specific purpose
+402:   * @{
+403:   */
+404: /* List of DAC registers intended to be used (most commonly) with             */
+405: /* DMA transfer.                                                              */
+406: /* Refer to function @ref LL_DAC_DMA_GetRegAddr().                            */
+407: #define LL_DAC_DMA_REG_DATA_12BITS_RIGHT_ALIGNED  DAC_REG_DHR12RX_REGOFFSET_BITOFFSET_POS
+408: #define LL_DAC_DMA_REG_DATA_12BITS_LEFT_ALIGNED   DAC_REG_DHR12LX_REGOFFSET_BITOFFSET_POS
+409: #define LL_DAC_DMA_REG_DATA_8BITS_RIGHT_ALIGNED   DAC_REG_DHR8RX_REGOFFSET_BITOFFSET_POS
+410: /**
+411:   * @}
+412:   */
+413: 
+414: /** @defgroup DAC_LL_EC_HW_DELAYS  Definitions of DAC hardware constraints delays
+415:   * @note   Only DAC peripheral HW delays are defined in DAC LL driver driver,
+416:   *         not timeout values.
+417:   *         For details on delays values, refer to descriptions in source code
+418:   *         above each literal definition.
+419:   * @{
+420:   */
+421: 
+422: /* Delay for DAC channel voltage settling time from DAC channel startup       */
+423: /* (transition from disable to enable).                                       */
+424: /* Note: DAC channel startup time depends on board application environment:   */
+425: /*       impedance connected to DAC channel output.                           */
+426: /*       The delay below is specified under conditions:                       */
+427: /*        - voltage maximum transition (lowest to highest value)              */
+428: /*        - until voltage reaches final value +-1LSB                          */
+429: /*        - DAC channel output buffer enabled                                 */
+430: /*        - load impedance of 5kOhm (min), 50pF (max)                         */
+431: /* Literal set to maximum value (refer to device datasheet,                   */
+432: /* parameter "tWAKEUP").                                                      */
+433: /* Unit: us                                                                   */
+434: #define LL_DAC_DELAY_STARTUP_VOLTAGE_SETTLING_US             8UL
+435: 
+436: /* Delay for DAC channel voltage settling time.                               */
+437: /* Note: DAC channel startup time depends on board application environment:   */
+438: /*       impedance connected to DAC channel output.                           */
+439: /*       The delay below is specified under conditions:                       */
+440: /*        - voltage maximum transition (lowest to highest value)              */
+441: /*        - until voltage reaches final value +-1LSB                          */
+442: /*        - DAC channel output buffer enabled                                 */
+443: /*        - load impedance of 5kOhm min, 50pF max                             */
+444: /* Literal set to maximum value (refer to device datasheet,                   */
+445: /* parameter "tSETTLING").                                                    */
+446: /* Unit: us                                                                   */
+447: #define LL_DAC_DELAY_VOLTAGE_SETTLING_US                     3UL
+448: 
+449: /**
+450:   * @}
+451:   */
+452: 
+453: /**
+454:   * @}
+455:   */
+456: 
+457: /* Exported macro ------------------------------------------------------------*/
+458: /** @defgroup DAC_LL_Exported_Macros DAC Exported Macros
+459:   * @{
+460:   */

@@ -1,3 +1,51 @@
+# D085 checkpoint - active P2 software development, 2026-09-23 Asia/Dubai
+
+Completed actual native QTR Reader -> interval adapter -> Robot/escape/countdown
+freshness implementation47f4d9a, contractdcd4682. Read D085, F107,
+P2_qtr_native_contract/validation.md, native audit and fresh separate review.
+Frames are asynchronous with explicit source identity; pending/replayed data never
+counts as a new measurement. Ambiguous color, invalid shape and expired history
+inhibit. Retained white keeps edge priority; confirmation/replans/exits and warning
+qualification follow the distinct-frame/source-age rules. Original10/1500us and
+1kHz/B16 values remain. New2000/2500/6000us guards are development choices.
+
+Root fullhost2/2PASS7.35s/fullsan2/2PASS34.54s:1173main22840417assertions plus
+37enabledGate3796846. Independent22purecases26881assertions normal/san; native
+14contract/10boundary/3actualpipeline cases. Fresh separate same-model reviewer
+repeated fullhost/san,11native/16config methods;364frozenfiles unchanged. Exactly5
+existing inert identities approved/reproduced/adopted; no new upload key.
+25existingWSLtoolsPASS18.899s and2stagingPASS8.789s,54distinct scoped methods total.
+Actualcompile-only57f4b001145012program/71092compiler globals exit0;56sources/3ELFs,
+36native/42AEABI+fmod/sqrt/startup inspected. All jobs complete after final review.
+
+Preserve initial failures: native Arduino bit macro collision fixed as padBit;
+new fixture no-exceptions compatibility fixed without losing assertions; review
+found retained-entry baseline, final guard timing, unknown-device admission and
+expired confirmation/stuck gaps. Root wrongly invoked Linux tooling with Windows
+Python twice; unchanged WSL suite passed. The failure analysis corrects the first
+manifest diagnosis. No existing locked test or B16 value was changed.
+
+First eligible unfinished task: actual P2 B6 raw A1 acquisition through the single
+ADC1 owner. Read P2_qtr_native_raw/next_ui_task.md and P2_adc_pair_audit.md/source.
+Keep battery-only begin/read behavior; freeze an opt-in two-channel contract/API,
+then implement and independently test the real driver and inert compile probe.
+A1 is PA5/channel10, installed DT child channel_a. Legal idle one-rank switching,
+SMPR2 sampling, PCSEL9|10 and scoped DAC2/pad ownership require the exact source
+constraints in the audit. No second ADC owner, generic ADC framework, stock
+blocking analogRead or invented START/BOTH voltage distinction. SC-A remains.
+
+Full P0-P7 objective ACTIVE/incomplete. D051/D075 permit software work before
+physical acceptance; all human gates remain pending. No upload/reset/MCU/pad/
+sensor/motor operation occurred; last-known MCU image inertQTR61d7a2d0. SC-AJ/F091,
+physical color/cadence/pin/ADC/hold/WCET and eventual app scheduler remain open.
+IMU600+motor150+ADC100 already exceeds800us before remaining work; asynchronous
+QTR does not prove the complete tick budget. No new hardware requests now.
+Original Sep28/Sep30/Oct1 deadlines retained. Recorded CLI1.5.1/core1.0.0,
+USB2629958581, WSLGCC13.3/CMake3.28.3; recheck dependencies when relevant.
+Keep local task commits; never push/tag/rewrite or manufacture a phase pass.
+
+--- Earlier handoff preserved below ---
+
 # D084 checkpoint - active P2 software development, 2026-09-23 Asia/Dubai
 
 Completed actual Estimator -> applyEstimate -> Robot admission -> calibration,
@@ -466,7 +514,7 @@ EXPLAINED OK/GATE P1 PASS remain human. Full P2-P7 project is unfinished. No
 STAND OK/RING OK, push, release tag or claimed background work. Date23September:
 no cut due; retain Sep28 cut, Sep30 P6 condition andOct1 21:00Dubai freeze.
 
-## Prior QTR/G6 resume point � 2026-09-23 Asia/Dubai
+## Prior QTR/G6 resume point — 2026-09-23 Asia/Dubai
 
 P0 0.4 QTR-style diagnostic is measured and independently receipt-reviewed PASS.
 D-065 contractsaf4cc67/db8728b precede implementationdcca300. Current MCU:
@@ -504,7 +552,7 @@ electrical/PINMAP and human gate remain pending; P1 still needs EXPLAINED OK and
 human GATE P1 PASS. No P2 or motor authority follows. Date23September: no scope
 cut is due; keep original Sep28/Sep30/Oct1 deadlines. Complete P7 remains open.
 
-## Prior fixed-counter checkpoint — 2026-09-23
+## Prior fixed-counter checkpoint â€” 2026-09-23
 
 P0 fixed counter transport is implemented, reviewed and observed on the bare
 UNO Q. Source/contract commits8f94452,cab665c,3f9ea7f and clarification2f7e1b4
@@ -535,7 +583,7 @@ No additional hardware request now, no P2 gate bypass and no motor authority.
 Do not repeat the completed fixed-counter implementation or treat it as production
 Bridge/recorder transport. Preserve the checkpoint when no eligible work remains.
 
-## Prior P1 software checkpoint — 2026-09-23 Asia/Dubai
+## Prior P1 software checkpoint â€” 2026-09-23 Asia/Dubai
 
 Production P1 core is implemented and verified at the software level. D-060/D-061
 contracts preceded source and independent tests;59376fe implements event metadata,
@@ -577,10 +625,10 @@ No additional hardware connection request now. MPU6050 remains user-reported onl
 D-051 delegates engineering choices, not fabricated measurements or human gates.
 The date is23September; no schedule cut is due. Preserve Sep28/Sep30/Oct1 deadlines.
 The goal remains incomplete: whole app/HAL, physical MotorGate, acquisition/WCET,
-bench/ring validation and P2–P7 still require real work and their original gates.
+bench/ring validation and P2â€“P7 still require real work and their original gates.
 Older handoff sections below are historical and superseded by this resume point.
 
-## Prior bare-board checkpoint — 2026-09-22 Asia/Dubai
+## Prior bare-board checkpoint â€” 2026-09-22 Asia/Dubai
 
 User connected the bare UNO Q and authorized testing it with no other hardware.
 D-052 records this scope without any credential. P1 host work under D-016 and
@@ -621,7 +669,7 @@ Next task: resume saved Full Escape contract work under D-047..D-051: publish it
 public interface first, derive independent tests, implement, validate and review.
 Then WAIT/Robot integration. P0 acceptance and every human phase gate remain open.
 
-## Prior 22:07 resume checkpoint — superseded above
+## Prior 22:07 resume checkpoint â€” superseded above
 
 **RESUMED by the human on 2026-09-22 at22:07 Asia/Dubai.**
 Host implementation resumes; no hardware connection is assumed from this request.
@@ -720,7 +768,7 @@ All deadlines use Asia/Dubai: P3 scope cut after 28 September; P6 requires P4 by
 30 September; freeze 1 October at 21:00; rehearsal 2 October; competition 3 October.
 Current date is the plan's P0 day; no scope cut or freeze applies yet.
 
-## Recovered disconnected session — 2026-09-22
+## Recovered disconnected session â€” 2026-09-22
 
 P0 remains active, no gates passed. D-015 already recorded the requested role
 migration; it was retained without creating a duplicate ADR. Recovered edits
@@ -740,7 +788,7 @@ are preserved in reviews/P0_recovery_codex.md and analysis/P0_scaffold_audit.md.
 No locked tests were changed, behavior implemented, or core defaults tuned.
 
 The user now identifies the IMU as **MPU6050**, and says connection/setup details
-are not currently available. Research is updated in P0_G6 and FACTS F-056–F-060.
+are not currently available. Research is updated in P0_G6 and FACTS F-056â€“F-060.
 The model is human-reported; the breakout/electrical interface is still unknown.
 Candidate library read-error handling and I2C timeout paths need resolution
 before a safe driver can be adopted. No board packages were installed.
@@ -756,7 +804,7 @@ exit criteria. No further phase is eligible without the actual P0 gate. Resume
 from this checkpoint, not the earlier IN PROGRESS scaffold notes. Work is stopped
 at the saved hardware/decision boundary, not running in the background.
 
-## Manual-check preparation follow-up — 2026-09-22
+## Manual-check preparation follow-up â€” 2026-09-22
 
 User asked what must be checked manually and requested continued work. Commit
 `98d4524` adds `tools/preflight.sh`, which reads a fixed software inventory over
@@ -781,7 +829,7 @@ the first inventory/isolation/SSH/breakout reply, run read-only preflight when
 possible, then guide the specific approved physical measurements. P0 remains
 active and no gates or motor permissions have been supplied.
 
-## Offline implementation continuation — 2026-09-22 17:53 Asia/Dubai
+## Offline implementation continuation â€” 2026-09-22 17:53 Asia/Dubai
 
 The user's latest instruction explicitly requests commencing work with no hardware
 connected. D-016 records a narrow P1 host-development scheduling exception. Earlier
@@ -793,7 +841,7 @@ B3 countdown permission, B4.1 classification and B5.1 debounce; they do not
 implement ADC decoding, MotorGate, full B3 services, escape or the complete FSM.
 Remaining interfaces will be added with resolved semantics, not stubbed as working.
 
-## Reviewed P1 component checkpoint — 2026-09-22 18:10 Asia/Dubai
+## Reviewed P1 component checkpoint â€” 2026-09-22 18:10 Asia/Dubai
 
 User explicitly approved governor option A and tick-order option A. D-017/D-018
 and the visible B6/B2 amendments are in `01a61e6`; these decisions supersede the
@@ -836,7 +884,7 @@ acquisition, ALL_IN and recorder conflicts remain separate. Keep P0 manual work
 pending until the board is available. Active work remains P1 host-only under D-016;
 no phase has passed, no motor receipt exists, and nothing is published remotely.
 
-## D-019/D-020/D-021 continuation — 2026-09-22
+## D-019/D-020/D-021 continuation â€” 2026-09-22
 
 The user approved after-debounce anchoring, persistent/all-white inhibition, and
 reuse of 0.80 for forward escape. These are accepted in D-019/20/21 and visibly
@@ -937,7 +985,7 @@ An origin remote is now configured as https://github.com/kaz4n/techbots_Sumo_Rob
 Its creation was not part of this turn; preserve it. No fetch/push/publication
 was performed. Earlier no-remote statements describe the original recovery.
 
-## Continuation checkpoint — 2026-09-22 19:42 Asia/Dubai
+## Continuation checkpoint â€” 2026-09-22 19:42 Asia/Dubai
 
 P1 host-only under D-016 remains active; P0 hardware acceptance and every human
 gate remain pending. Role migration D-015 already exists; do not duplicate it.
@@ -947,7 +995,7 @@ No relevant memory hit. Source versions/toolchain unchanged from previous refres
 
 Completed this continuation:
 - Interfaces first:6e12422 (limiter),4acc9c1 (DIRECT),29779da (approved filters/
-  detector),b1a8266 (EventBuffer). New human approvals D-029–D-032 accepted in
+  detector),b1a8266 (EventBuffer). New human approvals D-029â€“D-032 accepted in
   their exact scopes and visibly appended to B5/B11. Never re-request them.
 - 7ef428f: DIRECT request/exit executor;0838c64: stall Detector/ReflankLimiter;
   a5fb36b: PhantomFilter/StuckFilter;36767f7: EventBuffer retains first4096.
@@ -984,7 +1032,7 @@ measurement, PINMAP OK, EXPLAINED OK, human gate, remote push or release tag.
 Human hardware testing remains deferred to project end under the active goal;
 its absence is never a pass. Full P7 completion is still outstanding.
 
-## Continuation checkpoint — 2026-09-22 Asia/Dubai
+## Continuation checkpoint â€” 2026-09-22 Asia/Dubai
 
 Supersedes the previous next-task/count statements. Implemented mirrored
 SIDESTEP/ARC2071d4f, logical STOP6a3dc29, defensive turn4768eb5. Interfaces were
@@ -1000,7 +1048,7 @@ pending. Next implement B9 steering/D-037 time-only arc, then B8 SEARCH and the
 remaining escape/WAIT/re-flank/Robot. Preserve original phase/gate dependencies.
 No board action or claimed physical result; P1 host development remains active.
 
-## Latest software checkpoint — 2026-09-22 Asia/Dubai
+## Latest software checkpoint â€” 2026-09-22 Asia/Dubai
 
 Added D-036 front steering3f29fae and D-037 duration-only arc6e91778, contracts
 d6bdff3 first. Normal+ASan/UBSan419 cases/10,226,416 assertions pass with no
@@ -1017,7 +1065,7 @@ contract recommendations in analysis/P1_search_reflank_contract_audit.md before
 their dependent implementations. Continue eligible P1 composition/integration;
 P0 hardware acceptance, every human gate and full P7 completion remain outstanding.
 
-## Boundary checkpoint — 2026-09-22 Asia/Dubai
+## Boundary checkpoint â€” 2026-09-22 Asia/Dubai
 
 Fusion contract30b16d5 and implementation/tests a54f177 complete this bounded
 task. It orders debounce/stuck/cue/phantom/effective bearing, then commits contact
@@ -1041,7 +1089,7 @@ policies. Full Escape/Robot integration remains pending. Await the four already
 presented SC-Y/Z/AA/AB decisions without re-asking or treating silence as approval.
 Search/re-flank contract audit is saved; no hardware setup is assumed verified.
 
-## Latest row checkpoint — 2026-09-22 Asia/Dubai
+## Latest row checkpoint â€” 2026-09-22 Asia/Dubai
 
 Contracts76e0360/c5e80b8 and implementation970e083 add nine specified B4.2 rows.
 34 new locked cases are established.478 cases/11,897,401 assertions pass normal
@@ -1055,7 +1103,7 @@ Next unblocked task: B9 centered qualification and immediate target-loss brake
 composition; audit actual loss destination before full Robot integration. Pending
 SC-Y/Z/AA/AB/AC and older protected choices remain unanswered, not approved.
 
-## Qualification checkpoint — 2026-09-22 Asia/Dubai
+## Qualification checkpoint â€” 2026-09-22 Asia/Dubai
 
 Contractc0b3ad6 and implementation1950635 add the B9 centered-observation counter.
 497cases/11,920,333assertions pass normal+ASan/UBSan,48/48 controlled scripts pass.

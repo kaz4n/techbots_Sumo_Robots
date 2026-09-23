@@ -1,0 +1,33 @@
+{
+  "sources": {
+    "src/core/edge.cpp": "eb86b5af1a5be3378840c0b84ce6eb32275b48fa1840cc68561a48972da2c42c",
+    "src/core/motion.cpp": "c8f4286e42d964275c269b97dca9e00b5d8d55524046a3ed63433ae0e9cb9656",
+    "src/core/governor.cpp": "249259d7230c5e0d033cf3fb3ff938b854a5a0629d22e83c81eee45b29ad2d68"
+  },
+  "compile": {
+    "argv": [
+      "g++",
+      "-std=c++17",
+      "-O1",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-pedantic",
+      "-DDOCTEST_CONFIG_NO_EXCEPTIONS",
+      "-I/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src",
+      "-isystem",
+      "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/host/third_party",
+      "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/native_qtr/test_main.cc",
+      "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/reviews/P2_qtr_native_raw/reviewer_regressions.cc",
+      "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/core/edge.cpp",
+      "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/core/motion.cpp",
+      "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/core/governor.cpp",
+      "-o",
+      "/dev/shm/d085-review-regression-0dbwjn8x/review"
+    ],
+    "exit": 1,
+    "out": "",
+    "err": "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/reviews/P2_qtr_native_raw/reviewer_regressions.cc: In function \u2018void DOCTEST_ANON_FUNC_2()\u2019:\n/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/reviews/P2_qtr_native_raw/reviewer_regressions.cc:8:57: error: deducing from brace-enclosed initializer list requires \u2018#include <initializer_list>\u2019\n    5 | #include \"core/edge.h\"\n  +++ |+#include <initializer_list>\n    6 | \n    7 | TEST_CASE(\"D085 retained white at GO does not invent a later same-white replan\") {\n    8 |     for (const unsigned white : {1U, 2U, 3U, 4U, 8U, 12U}) {\n      |                                                         ^\nIn file included from /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/reviews/P2_qtr_native_raw/reviewer_regressions.cc:4:\n/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/reviews/P2_qtr_native_raw/reviewer_regressions.cc: In lambda function:\n/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/reviews/P2_qtr_native_raw/reviewer_regressions.cc:17:9: error: static assertion failed: Exceptions are disabled! Use DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS if you want to compile with exceptions disabled.\n   17 |         REQUIRE(entered.entered);\n      |         ^~~~~~~\n/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/reviews/P2_qtr_native_raw/reviewer_regressions.cc: In function \u2018void DOCTEST_ANON_FUNC_2()\u2019:\n/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/reviews/P2_qtr_native_raw/reviewer_regressions.cc:17:9: error: expression cannot be used as a function\n   17 |         REQUIRE(entered.entered);\n      |         ^\n/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/reviews/P2_qtr_native_raw/reviewer_regressions.cc: In lambda function:\n/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/reviews/P2_qtr_native_raw/reviewer_regressions.cc:18:9: error: static assertion failed: Exceptions are disabled! Use DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS if you want to compile with exceptions disabled.\n   18 |         REQUIRE(entered.fault == edge::EscapeFault::NONE);\n      |         ^~~~~~~\n/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/reviews/P2_qtr_native_raw/reviewer_regressions.cc: In function \u2018void DOCTEST_ANON_FUNC_2()\u2019:\n/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/reviews/P2_qtr_native_raw/reviewer_regressions.cc:18:9: error: expression cannot be used as a function\n   18 |         REQUIRE(entered.fault == edge::EscapeFault::NONE);\n      |         ^\n/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/reviews/P2_qtr_native_raw/reviewer_regressions.cc: In lambda function:\n/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/reviews/P2_qtr_native_raw/reviewer_regressions.cc:19:9: error: static assertion failed: Exceptions are disabled! Use DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS if you want to compile with exceptions disabled.\n   19 |         REQUIRE(entered.replans == 0U);\n      |         ^~~~~~~\n/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/reviews/P2_qtr_native_raw/reviewer_regressions.cc: In function \u2018void DOCTEST_ANON_FUNC_2()\u2019:\n/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/reviews/P2_qtr_native_raw/reviewer_regressions.cc:19:9: error: expression cannot be used as a function\n   19 |         REQUIRE(entered.replans == 0U);\n      |         ^\n"
+  },
+  "run": null
+}

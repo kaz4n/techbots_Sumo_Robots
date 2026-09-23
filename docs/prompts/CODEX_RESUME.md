@@ -6,32 +6,36 @@ preserve original PLAN deadlines, unrelated edits and historical evidence.
 
 D051/D075 permit actual P2 software despite untested hardware. Full P0-P7 goal
 ACTIVE/incomplete. No PINMAP/EXPLAINED/GATE or motor-run authority follows.
-Do not restore obsolete blocked scheduling or ask for additional hardware now.
+Do not restore obsolete scheduling blocks or ask for additional hardware now.
 
-D084 actual Estimator -> applyEstimate -> Robot/consumers/recording2c16023,
-contractaef3be2, follows D082/D083. Read P2_imu_integration_contract/validation.md,
-F106 and fresh separate review. All independent/fullhost/sanitizer/scoped tooling,
-actualtargetf3bc1f7f and source/ELF checks pass. All jobs complete. Preserve original
-fixture/reviewer/receipt-name failures and final evidence; do not rerun unchanged
-checks. Legacy callers remain supported; explicit mode carries presence/source
-identity and bounded yaw age through actual controller consumers and recording.
-No cached acceleration impact/calibration reuse; no source-time refresh by replay.
+D085 QTR implementation47f4d9a/contractdcd4682 is complete for software scope:
+actual native acquisition -> interval adapter -> explicit Robot/escape/countdown
+freshness. Read P2_qtr_native_contract/validation.md, F107 and fresh separate
+same-model review. Fullhost/sanitizer/independentnative/target57f4b001/source/ELF
+checks pass;54distinct scoped tooling methods, exactly5existing inert identities
+approved/adopted. Preserve initial failures and final receipts, including the
+root Windows/Linux runner mistake. No established locked test or B16value changed.
+Do not rerun unchanged checks. Retained frames never become new measurements;
+expired/ambiguous data inhibits, and physical separation/cadence remains pending.
 
-First eligible unfinished task: B2 QTR acquisition/freshness contract and actual
-native driver. Read P2_hal_bench, HARDWARE, BEHAVIOR B4/B14/B16, SC-B and
-P2_imu_integration_raw/next_hal_task.md, which points to established P0 QTR/IRQ
-source evidence. Freeze charge/release/observe/cleanup, generation/rearm/fault,
-service-gap/clock bounds and HIGH/LOW uncertainty under D051 before code/tests.
-Preserve10us charge/1500us timeout and existing pins. No full-timeout blocking read
-inside a1ms tick; a cooperative driver alone cannot prove acceptable cadence or
-freshness. Account for600us IMU work and Robot's complete-fresh snapshot contract;
-never silently count pending/cached line values as fresh. UI A1 requires an actual
-single-ADC-owner design and electrical START/BOTH resolution. App stays inert until
-its independent scheduler/HAL/runtime contract and tests are complete.
+First eligible unfinished task: actual P2 B6 raw A1 acquisition via the existing
+single ADC1 owner. Read P2_hal_bench, HARDWARE5.6, current power driver/public API,
+D078, SC-A, P2_qtr_native_raw/next_ui_task.md and P2_adc_pair_audit.md/source.
+Freeze the smallest backward-compatible opt-in two-channel contract, then implement
+and independently test actual native code and an inert compile probe in the same
+task. Keep battery-only begin/read unchanged; use the exact PA5/channel10 binding
+with DT child channel_a, legal idle SQR1 changes, setup SMPR2/PCSEL and scoped
+DAC2/pad ownership checks. No second ADC owner or new generic framework.
 
-SC-AJ/F091 remain global deployment blockers. Last-known MCU image inertQTR61d7a2d0.
-No new upload/MCU/sensor/motor action. Physical P0/B1-B8 and all human gates pending.
-KnownCLI1.5.1/core1.0.0/USB2629958581 and WSL tools; recheck as needed. Preserve
+Raw A1 is not a battery voltage or a decoded BOTH state. The documented circuit
+still makes START and BOTH indistinguishable. Preserve explicit unknown/invalid/
+stale inputs; never invent NONE/release from a failed sample. UI/display and app
+scheduler are separate unfinished integration. IMU600+motor150+ADC100 cannot be
+claimed to fit800us before other work. Source audit is not a physical measurement.
+
+SC-AJ/F091 remain deployment blockers. Last-known MCU image inertQTR61d7a2d0;
+no new upload/MCU/sensor/motor action. Physical P0/B1-B8 and all human gates pending.
+RecordedCLI1.5.1/core1.0.0/USB2629958581 and WSLtools; recheck as needed. Preserve
 failures, stage task-owned files, small local commits. Never push/tag/rewrite,
-reuse motor permission or mark P7 complete. Stop only with an accurate checkpoint
-if no authorized software remains, not merely because physical tests are deferred.
+reuse motor permission or mark P7 complete. Continue the first eligible actual
+software task; checkpoint accurately if no authorized software remains.

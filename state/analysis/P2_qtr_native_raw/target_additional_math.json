@@ -1,0 +1,53 @@
+{
+  "argv": [
+    "python3",
+    "-c",
+    "\nimport hashlib,json,pathlib,subprocess,sys\nprefix='/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-'\nbase='/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf'\nelf=sys.argv[1]\ndef run(args):\n    result=subprocess.run(args,capture_output=True,text=True,timeout=30)\n    if result.returncode: raise RuntimeError(result.stderr)\n    return dict(argv=args,returncode=result.returncode,stdout=result.stdout,stderr=result.stderr)\nnames=('fmod','sqrt')\ngdb=[prefix+'gdb','-nx','-nh','-batch',base]\nfor name in names: gdb+=['-ex','p/x __llext_sym___real_'+name+'.addr']\nnm=run([prefix+'nm','-C',base])\nnm['stdout']='\\n'.join(l for l in nm['stdout'].splitlines() if l.split()[-1] in names or any('__llext_sym___real_'+n in l for n in names))\nassembly=run([prefix+'objdump','-d','-C',elf])\nselected=[]; keep=False\nfor line in assembly['stdout'].splitlines():\n    if line.endswith('>:'): keep=any('<'+n+'>' in line for n in names)\n    if keep: selected.append(line)\nassembly['stdout']='\\n'.join(selected)\nprint(json.dumps(dict(names=names,base_sha256=hashlib.sha256(pathlib.Path(base).read_bytes()).hexdigest(),\n    elf_sha256=hashlib.sha256(pathlib.Path(elf).read_bytes()).hexdigest(),base_nm=nm,\n    exports=run(gdb),wrappers=assembly),indent=2))\n",
+    "/home/arduino/sumox26_codex_build/57f4b00192c4b4aaf87c70c60244e9f392abf54908a22e3ded7d215499b1165c/p2_qtr_native_compile/artifacts/bench-default/p2_qtr_native_compile.ino.elf"
+  ],
+  "returncode": 0,
+  "scope": "Read-only board Linux files and offline ELF; no MCU action",
+  "names": [
+    "fmod",
+    "sqrt"
+  ],
+  "base_sha256": "39d4a4fd47241663323f6e04f94dd8f5a9f9ad6582cf1df37f9709b74026adcd",
+  "elf_sha256": "4529736c7a4ef135ae971434167ec6c2150d7e9e25bcd619fbd5d6ff1382509c",
+  "base_nm": {
+    "argv": [
+      "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-nm",
+      "-C",
+      "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf"
+    ],
+    "returncode": 0,
+    "stdout": "0801504c T fmod\n0801cc78 r __llext_sym___real_fmod\n0801cd70 r __llext_sym___real_sqrt\n0801cd78 r __llext_sym___real_sqrtf\n08014ed0 T sqrt",
+    "stderr": ""
+  },
+  "exports": {
+    "argv": [
+      "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-gdb",
+      "-nx",
+      "-nh",
+      "-batch",
+      "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf",
+      "-ex",
+      "p/x __llext_sym___real_fmod.addr",
+      "-ex",
+      "p/x __llext_sym___real_sqrt.addr"
+    ],
+    "returncode": 0,
+    "stdout": "$1 = 0x801504d\n$2 = 0x8014ed1\n",
+    "stderr": ""
+  },
+  "wrappers": {
+    "argv": [
+      "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-objdump",
+      "-d",
+      "-C",
+      "/home/arduino/sumox26_codex_build/57f4b00192c4b4aaf87c70c60244e9f392abf54908a22e3ded7d215499b1165c/p2_qtr_native_compile/artifacts/bench-default/p2_qtr_native_compile.ino.elf"
+    ],
+    "returncode": 0,
+    "stdout": "0000d40c <fmod>:\n    d40c:\t4b00      \tldr\tr3, [pc, #0]\t@ (d410 <fmod+0x4>)\n    d40e:\t4718      \tbx\tr3\n    d410:\t00000000 \t.word\t0x00000000\n\n0000d414 <sqrt>:\n    d414:\t4b00      \tldr\tr3, [pc, #0]\t@ (d418 <sqrt+0x4>)\n    d416:\t4718      \tbx\tr3\n    d418:\t00000000 \t.word\t0x00000000\n",
+    "stderr": ""
+  }
+}

@@ -257,3 +257,5 @@ measurements, divider calibration, wiring approval or runtime/WCET acceptance.
 
 
 2026-09-23T11:25:00.110119+04:00 - D079 development-only B3 transport settings, no bench/ring measurement: address0x68 (0x69supported; actualAD0pending), existing source routeportD/SCL12/SDA13/AF4, TIMINGR0x40EB202C(AFON/DNF0),setup100us/transfer600us/cleanup50us/poll8192. Evidence P2_i2c_native_audit.md/raw and P2_i2c_timing.md/raw; contractP2_imu_bus_contract.md. Conditional clock/electrical envelope, not physical frequency/WCET or successfulsensor result. No B16 tuning/pin change or phase acceptance; SC-AJ global runtime blocker staysopen.
+
+2026-09-23 | D080 DEVELOPMENT DEFAULTS, no physical tuning | Added MPU6050 fixed1000dps/8g/DLPF1/divider0 and setup110/110/50/20/20ms waits,1s/1024advance/64request caps. Source: analysis/P2_mpu6050_sample_audit.md and P2_imu_setup_contract.md. B16 values unchanged; settings/settling/rate/bias/clock remain unmeasured.

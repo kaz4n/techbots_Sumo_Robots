@@ -1,0 +1,55 @@
+ 
+MPU-6000/MPU-6050 Register Map and 
+Descriptions 
+Document Number: RM-MPU-6000A-00 
+Revision: 4.0 
+Release Date: 03/09/2012 
+ 
+CONFIDENTIAL & PROPRIETARY 
+           40 of 47  
+   
+When the reset bits (FIFO_RESET, I2C_MST_RESET, and SIG_COND_RESET) are set to 1, these 
+reset bits will trigger a reset and then clear to 0.  
+Bits 7 and 3 are reserved. 
+ 
+FIFO_EN 
+When set to 1, this bit enables FIFO operations. 
+Parameters: 
+ 
+When this bit is cleared to 0, the FIFO buffer is disabled. The FIFO buffer 
+cannot be written to or read from while disabled.  
+ 
+The FIFO buffer’s state does not change unless the MPU-60X0 is power 
+cycled. 
+I2C_MST_EN 
+When set to 1, this bit enables I2C Master Mode.  
+ 
+When this bit is cleared to 0, the auxiliary I2C bus lines (AUX_DA and 
+AUX_CL) are logically driven by the primary I2C bus (SDA and SCL).  
+I2C_IF_DIS 
+MPU-6000:
+ 
+ When set to 1, this bit disables the primary I2C interface and 
+enables the SPI interface instead. 
+MPU-6050
+FIFO_RESET 
+This bit resets the FIFO buffer when set to 1 while FIFO_EN equals 0. This 
+bit automatically clears to 0 after the reset has been triggered. 
+: Always write this bit as zero. 
+I2C_MST_RESET 
+This bit resets the I2C Master when set to 1 while I2C_MST_EN equals 0. 
+This bit automatically clears to 0 after the reset has been triggered. 
+ 
+ 
+SIG_COND_RESET 
+When set to 1, this bit resets the signal paths for all sensors (gyroscopes, 
+accelerometers, and temperature sensor). This operation will also clear the 
+sensor registers. This bit automatically clears to 0 after the reset has been 
+triggered.  
+ 
+When resetting only the signal path (and not the sensor registers), please 
+use Register 104, SIGNAL_PATH_RESET. 
+ 
+ 
+ 
+ 

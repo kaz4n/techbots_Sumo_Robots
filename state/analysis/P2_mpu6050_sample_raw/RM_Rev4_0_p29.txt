@@ -1,0 +1,70 @@
+ 
+MPU-6000/MPU-6050 Register Map and 
+Descriptions 
+Document Number: RM-MPU-6000A-00 
+Revision: 4.0 
+Release Date: 03/09/2012 
+ 
+CONFIDENTIAL & PROPRIETARY 
+           29 of 47  
+   
+4.17 Register 58 – Interrupt Status 
+INT_STATUS 
+ 
+Type: Read Only 
+Register 
+(Hex) 
+Register 
+(Decimal) 
+Bit7 
+Bit6 
+Bit5 
+Bit4 
+Bit3 
+Bit2 
+Bit1 
+Bit0 
+3A 
+58 
+- 
+MOT_INT 
+- 
+FIFO 
+_OFLOW 
+_INT 
+I2C_MST 
+_INT 
+- 
+- 
+DATA 
+_RDY_INT 
+ 
+This register shows the interrupt status of each interrupt generation source. Each bit will clear after 
+the register is read. 
+Description: 
+For information regarding the corresponding interrupt enable bits, please refer to Register 56. 
+For a list of I2C Master interrupts, please refer to Register 54.  
+Bits 2 and 1 are reserved. 
+ 
+MOT_INT 
+This bit automatically sets to 1 when a Motion Detection interrupt has been 
+generated. 
+Parameters: 
+ 
+The bit clears to 0 after the register has been read. 
+FIFO_OFLOW_INT 
+This bit automatically sets to 1 when a FIFO buffer overflow interrupt has 
+been generated. 
+ 
+The bit clears to 0 after the register has been read. 
+I2C_MST_INT 
+This bit automatically sets to 1 when an I2C Master interrupt has been 
+generated. For a list of I2C Master interrupts, please refer to Register 54. 
+ 
+The bit clears to 0 after the register has been read. 
+DATA_RDY_INT 
+This bit automatically sets to 1 when a Data Ready interrupt is generated.  
+ 
+The bit clears to 0 after the register has been read. 
+ 
+ 

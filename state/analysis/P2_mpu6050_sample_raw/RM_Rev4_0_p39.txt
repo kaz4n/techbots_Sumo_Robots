@@ -1,0 +1,97 @@
+ 
+MPU-6000/MPU-6050 Register Map and 
+Descriptions 
+Document Number: RM-MPU-6000A-00 
+Revision: 4.0 
+Release Date: 03/09/2012 
+ 
+CONFIDENTIAL & PROPRIETARY 
+           39 of 47  
+   
+4.28 Register 105 – Motion Detection Control 
+MOT_DETECT_CTRL 
+ 
+Type: Read/Write 
+Register 
+(Hex) 
+Register 
+(Decimal) 
+Bit7 
+Bit6 
+Bit5 
+Bit4 
+Bit3 
+Bit2 
+Bit1 
+Bit0 
+69 
+105 
+- 
+- 
+ACCEL_ON_DELAY[1:0] 
+- 
+- 
+ 
+This register is used to add delay to the accelerometer power on time. It is also used to configure the 
+Motion detection decrement rate.  
+Description: 
+The accelerometer data path provides samples to the sensor registers and Motion detection 
+detection modules. The signal path contains filters which must be flushed on wake-up with new 
+samples before the detection modules begin operations. The default wake-up delay, of 4ms can be 
+lengthened by up to 3ms. This additional delay is specified in ACCEL_ON_DELAY in units of 1 LSB 
+= 1 ms. The user may select any value above zero unless instructed otherwise by InvenSense. 
+Please refer to Section 8 of the MPU-6000/MPU-6050 Product Specification document for further 
+information regarding the detection modules. 
+Bits 7 and 6 are reserved. 
+ACCEL_ON_DELAY 
+2-bit unsigned value. Specifies the additional power-on delay applied to 
+accelerometer data path modules.  
+Parameters: 
+ 
+Unit of 1 LSB = 1 ms. 
+ 
+4.29 Register 106 – User Control 
+USER_CTRL 
+ 
+Type: Read/Write 
+Register 
+(Hex) 
+Register 
+(Decimal) 
+Bit7 
+Bit6 
+Bit5 
+Bit4 
+Bit3 
+Bit2 
+Bit1 
+Bit0 
+6A 
+106 
+- 
+FIFO_EN 
+I2C_MST 
+_EN 
+I2C_IF 
+_DIS 
+- 
+FIFO 
+_RESET 
+I2C_MST 
+_RESET 
+SIG_COND 
+_RESET 
+ 
+This register allows the user to enable and disable the FIFO buffer, I2C Master Mode, and primary 
+I2C interface. The FIFO buffer, I2C Master, sensor signal paths and sensor registers can also be 
+reset using this register. 
+Description: 
+When I2C_MST_EN is set to 1, I2C Master Mode is enabled. In this mode, the MPU-60X0 acts as 
+the I2C Master to the external sensor slave devices on the auxiliary I2C bus. When this bit is cleared 
+to 0, the auxiliary I2C bus lines (AUX_DA and AUX_CL) are logically driven by the primary I2C bus 
+(SDA and SCL). This is a precondition to enabling Bypass Mode. For further information regarding 
+Bypass Mode, please refer to Register 55. 
+MPU-6000:  The primary SPI interface will be enabled in place of the disabled primary I2C interface 
+ 
+when  I2C_IF_DIS is set to 1. 
+MPU-6050:  Always write 0 to I2C_IF_DIS.  

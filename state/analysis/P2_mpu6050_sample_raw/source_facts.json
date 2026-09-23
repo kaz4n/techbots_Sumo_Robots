@@ -1,0 +1,86 @@
+{
+  "date": "2026-09-23",
+  "scope": "Primary-document source audit; no MCU or sensor calls; proposals not adopted decisions",
+  "register_document": {
+    "title": "RM-MPU-6000A-00 Rev4.0, March9,2012",
+    "url": "https://cdn.sparkfun.com/datasheets/Sensors/Accelerometers/RM-MPU-6000A.pdf",
+    "provenance": "InvenSense manufacturer document hosted by SparkFun; complete47-page original downloaded",
+    "sha256": "ccaa6312b9d86a9da79e26e511101e1150dc85a48255600010a854369cf7c05d",
+    "pages": {
+      "8": "Reset defaults: PWR_MGMT_1=0x40, WHO_AM_I=0x68, other described registers0",
+      "12": "Sample rate derived from gyro output divided by1+SMPLRT_DIV; accel1kHz",
+      "13": "DLPF1 gives gyro1kHz/188Hz/1.9ms, accel184Hz/2.0ms; EXT_SYNC_SET0 disables injected FSYNC bit",
+      "14": "Gyro self-test controls and FS_SEL2=1000dps/3=2000dps",
+      "15": "Accel self-test controls and AFS_SEL0..3=2/4/8/16g",
+      "27-29": "INT_RD_CLEAR0 only clears on INT_STATUS read; DATA_RDY_EN enables event; status clears on read",
+      "30-32": "Sensor internal and user-facing shadows; idle duplicates internal data; burst sensor bytes coherent; signed16 data, scaling",
+      "39-40": "USER_CTRL bit7/3 reserved; FIFO/master off; MPU6050 I2C_IF_DIS always0; reset bits self-clear",
+      "41-43": "Power1 clock/wake/reset; reset bit self-clears without stated time bound; keep chosen reference gyro active",
+      "46": "WHO_AM_I exactly0x68; AD0 not reflected; bit7/0 hardcoded0"
+    },
+    "revision_limit": "Official Rev4.2 primary-domain indexed narrow fields/shadow description corroborated; complete current original not downloaded; overview omits Rev4.0 motion bit6, which proposed profile leaves disabled"
+  },
+  "product_rev34_indexed": {
+    "title": "PS-MPU-6000A-00 Rev3.4, August19,2013",
+    "urls": [
+      "https://invensense.tdk.com/wp-content/uploads/2015/02/MPU-6000-Datasheet1.pdf",
+      "https://invensense.tdk.com/wp-content/uploads/2015/02/MPU-6000-Datasheet.pdf",
+      "https://product.tdk.com/system/files/dam/doc/product/sensor/mortion-inertial/imu/data_sheet/mpu-6000-datasheet1.pdf"
+    ],
+    "retrieval": "Official-domain indexed extracts; direct product URL timed out and old URL redirected to search; no Rev3.4 PDF byte hash claimed",
+    "p17_section6_6": {
+      "PLL_CLKSEL123_typical_ms": 1,
+      "PLL_CLKSEL123_max_ms": 10,
+      "initial_clock_tolerance_at25C_percent": [-1,1],
+      "temperature_frequency_variation_typical_percent": [-1,1],
+      "gyro_DLPF1_div0_nominal_hz": 1000,
+      "accel_nominal_hz": 1000,
+      "conditions": "Typical operating circuit; VDD2.375..3.46V; VLOGIC1.8V+/-5% or VDD; TA25C"
+    },
+    "p30_section7_15": "Device starts on internal clock; manufacturer explains waiting for MEMS oscillators to stabilize before selecting them as reference",
+    "p12_caution": "Index exposes30ms ZRO/DLPF0/1dps criterion but column placement is not accepted as a verified Rev3.4 maximum; older complete Rev3.2 visually places30ms in typical column"
+  },
+  "older_product_layout_check": {
+    "title": "PS-MPU-6000A-00 Rev3.2, November16,2011",
+    "url": "https://www.cdiweb.com/datasheets/invensense/ps-mpu-6000a.pdf",
+    "sha256": "d7ec2ddece4b2b0d5ff5ae4bcb2940cd17ca39b8fff11c9b979e24653c7c88dd",
+    "p12_visually_verified": "Gyro ZRO settling30ms is typical, DLPF0, to within1dps of final",
+    "p14_visually_verified": "Register read/write startup20ms typical,100ms maximum",
+    "limitation": "Older revision; not asserted byte-identical or universally applicable to purchased unknown-revision silicon"
+  },
+  "retrieval_and_extraction_failures_preserved": [
+    "TDK product direct web fetch: timeout",
+    "TDK Datasheet1 direct web fetch: redirect to search, no PDF returned",
+    "Waveshare file-page fallback: restricted URL; no PDF retrieved and no fact adopted",
+    "First local RM page print failed Windows cp1252 encoding after page files/manifest were already written; UTF8 stored extraction remained intact",
+    "CDI PDF web find returned no-match errors despite initial PDF open; local PDF download and rendered pages supplied actual layout evidence"
+  ],
+  "freshness_inference": {
+    "single_burst": "Motion coherence yes; status-to-motion atomic generation binding not explicitly established",
+    "stronger_existing_API_option": "INT_STATUS single-register probe withbit0=1, completedSTOP/idle, then15-byte motion burst; ignore latter statusbit0 as additional generation",
+    "proof_scope": "Inference under documented idle-shadow/clear behavior and sole-owner/no-reset assumptions; model is not actual silicon qualification",
+    "wire_clocks": 198,
+    "conditional_clock_only_us": [502.5475247524753,659.34],
+    "counter_or_timestamp": false,
+    "lost_generations": "Possible and uncountable with this status-only profile"
+  },
+  "setup_proposal_not_adopted": {
+    "pre_access_ms": 110,
+    "post_reset_acceptance_wait_ms": 110,
+    "internal_clock_gyro_start_ms": 50,
+    "post_PLL_ms": 20,
+    "post_profile_discard_ms": 20,
+    "whole_setup_acceptance_ms": 1000,
+    "max_advance_calls": 1024,
+    "max_bus_requests": 64,
+    "bus_fault_policy": "Terminal, no retries, no stock reset loop, no bus recovery",
+    "settling_is_not_proved_by_waits": true
+  },
+  "core_header_findings": {
+    "countdown_classes": ["Controller","Lifecycle","Services"],
+    "heading_class": "fsm::HeadingReference",
+    "absence": "No separate NO_NEW/presence field in ServiceSample or RobotInput for gyro",
+    "adapter_recommendation": "Explicit observation presence; no-new skips gyro accumulation only while time/buttons/services still advance; invalid observed readings still reject D024",
+    "changes_made": "None"
+  }
+}

@@ -1,0 +1,61 @@
+ 
+MPU-6000/MPU-6050 Register Map and 
+Descriptions 
+Document Number: RM-MPU-6000A-00 
+Revision: 4.0 
+Release Date: 03/09/2012 
+ 
+CONFIDENTIAL & PROPRIETARY 
+           38 of 47  
+   
+ 
+4.27 Register 104 – Signal Path Reset 
+SIGNAL_PATH_RESET 
+ 
+Type: Write Only 
+Register 
+(Hex) 
+Register 
+(Decimal) 
+Bit7 
+Bit6 
+Bit5 
+Bit4 
+Bit3 
+Bit2 
+Bit1 
+Bit0 
+68 
+104 
+- 
+- 
+- 
+- 
+- 
+GYRO 
+_RESET 
+ACCEL 
+_RESET 
+TEMP 
+_RESET 
+ 
+This register is used to reset the analog and digital signal paths of the gyroscope, accelerometer, 
+and temperature sensors.  
+Description: 
+The reset will revert the signal path analog to digital converters and filters to their power up 
+configurations. 
+ Note:
+Bits 7 to 3 are reserved. 
+ This register does not clear the sensor registers. 
+GYRO_RESET 
+When set to 1, this bit resets the gyroscope analog and digital signal paths. 
+Parameters: 
+ACCEL_RESET 
+When set to 1, this bit resets the accelerometer analog and digital signal 
+paths. 
+TEMP_RESET 
+When set to 1, this bit resets the temperature sensor analog and digital signal 
+paths. 
+ 
+ 
+ 

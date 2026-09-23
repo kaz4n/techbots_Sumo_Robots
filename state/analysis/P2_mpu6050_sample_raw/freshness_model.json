@@ -1,0 +1,26 @@
+{
+  "scope": "Model counterexample, not measured or vendor-guaranteed silicon timing",
+  "assumptions": [
+    "Internal conversion can set DRDY while interface is busy; source does not explicitly exclude this ordering",
+    "Motion shadow copies internal generation when interface is idle",
+    "Reading INT_STATUS clears its event flag; no other owner/read/reset",
+    "Complete STOP creates an idle shadow-copy opportunity before next START"
+  ],
+  "single_burst_counterexample": {
+    "status": 1,
+    "motion_generation": 0,
+    "previous_motion_generation": 0,
+    "internal_generation": 1
+  },
+  "one_acquisition_cases": 13122,
+  "two_acquisition_cases": 65536,
+  "accepted_pairs_checked": 47616,
+  "result": "PASS: two-transaction inference strictly newer under stated model; single-burst status not sufficient",
+  "does_not_prove": [
+    "physical sample timestamp",
+    "number of skipped generations",
+    "actual silicon event ordering",
+    "whole-tick WCET",
+    "all-temperature settling"
+  ]
+}

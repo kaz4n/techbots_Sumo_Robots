@@ -277,3 +277,10 @@ default matrix/counter fromF-076. Prior timing measurements use a different imag
 | ID | Question | Observed answer | Source | Confidence | Hardware-checked |
 |---|---|---|---|---|---|
 | F-100 | Does the concrete native MPU6050 transport satisfy independent software tests and installed target compilation? | Implementation a749816, CPP940f4e2c. Author and fresh same-model reviewer each pass10methods/83positive native cases/992parent assertions; two required failure sentinels return1. Four reviewer final-boundary regressions pass after saved defects were repaired. Actual sourcef3e9b546 compiles on CLI1.5.1/core1.0.0:81992B program/33788B compiler memory,exit0;42files/3ELFs/36nativeexports and inert startup inspected. | analysis/P2_imu_bus_validation.md/raw; reviews/P2_imu_bus_review.md/raw | HOST-TESTED/TARGET-COMPILED; fresh independent software review PASS/no open findings | Linuxcompiler/files only,no MCU/I2C/pad operation or upload. Bus completion is not MPU identity/configuration/freshness/yaw; no address/electrical/waveform/WCET/phase acceptance. SC-AJ/F091 remain global runtime blockers |
+
+
+## MPU6050 setup/sample source boundaries, 2026-09-23
+
+| ID | Question | Observed answer | Source | Confidence | Hardware-checked |
+|---|---|---|---|---|---|
+| F-101 | What do the manufacturer sources establish for MPU6050 setup and data freshness? | Documented registers support checked reset/profile/readback and coherent14motion-byte decoding. Status-to-shadow atomic generation binding is not specified. A status/STOP/motion handshake is a labelled inference with198clock cost; it requires aggregate budgeting. Setup waits and8g selection are D080 engineering defaults, not guaranteed settling. | analysis/P2_mpu6050_sample_audit.md/raw, linked manufacturer RMRev4.0 and product tables with revision/download limits; analysis/P2_imu_setup_contract.md | PRIMARY-DOCUMENT REVIEW plus labelled temporal model; not physical proof | No sensor/bus operation. Actual identity/address/power/settling/rate/axes/yaw/WCET remain pending |

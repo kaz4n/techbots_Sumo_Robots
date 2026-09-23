@@ -946,3 +946,19 @@ unexpectedTXIS/RXNE/STOPF/TC/DIR/ADDCODE. Normal allowed progress is not an erro
 Independent tests exposed the initial ambiguity; choose retained causal evidence
 before PE0 rather than dropping protocol-fault evidence. No partial data or
 success assertion is weakened. Original failures stay in author receipts.
+
+
+## D-080 (2026-09-23, selected under D-051/D-075) Checked MPU6050 setup and decode
+Context: native transport D079 exists; coherent bytes alone do not prove settings,
+new samples or heading. Manufacturer source audit provides a finite fixed profile.
+Decision: adopt P2_imu_setup_contract.md and imu.h before independent code/tests.
+Select1000dps/8g/DLPF1/divider0, waits110/110/50/20/20ms, absolute1s setup deadline,
+1024advances/64Bus-call caps (count-name exceptions). Verify reset state, identity
+and full selected register bytes; unexpected reserved bits reject this profile.
+At most one bounded Bus call per advance; all waits return, faults latch. Decode
+coherent sensor coordinates explicitly, with raw rails and no freshness/yaw claim.
+Consequence: new development constants only, no old B16/pin/core/locked changes.
+Independent scripted-bus tests, target compile and separate review are required.
+Setup readiness means observed profile, not physical settling or accepted sensor
+freshness. Defer acquisition aggregate deadline, bias/axes/yaw to subsequent B3
+work; SC-AJ/F091, physical acceptance and human gates remain pending.

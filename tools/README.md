@@ -179,3 +179,31 @@ quantization and possible debug overlap remain explicit. The named red LED is
 PH10/index50, not D13; no external header pin is exercised. Default-only reviewed
 upload, no motor authority. Build-only: `python tools/board_tool.py flash
 bench/p0_gpio --compile-only`. See `state/analysis/P0_gpio_contract.md`.
+
+
+## Offline recorder CSV validation (D-074)
+
+Validate three existing D-073 CSV files locally:
+
+```sh
+python3 tools/validate_csv_bundle.py --frames logs/example_frames.csv --events logs/example_events.csv --summary logs/example_summary.csv
+```
+
+Add `--manifest logs/example_manifest.json` only when caller-declared metadata
+exists. Exact schema and optional manifest format are in
+`state/analysis/P2_csv_bundle_contract.md`. The validator uses the Python standard
+library and writes one JSON report to stdout; it never changes input files or
+contacts a board. It does not read today's config to infer historical settings.
+
+Exit0 means local format and cross-file consistency checks passed; exit1 reports
+a file/schema/consistency/manifest failure; exit2 is invalid CLI usage. A report
+with recorded loss or an unfinished attempt can still exit0 because those facts
+are valid evidence. Inspect `recording` separately. Missing provenance remains
+ABSENT; supplied values are declarations, not verified MCU/session identity.
+
+Validation accepts arbitrary ordinals, wrapped/equal timestamps, raw unknown
+codes, INVALID/CLAMPED frames and lifetime loss counters without rewriting the
+input files. Detailed evidence remains in those CSVs. Local byte hashes
+cannot prove a common attempt, transport completion, live IDLE, free RAM or
+physical200s/no-gap acceptance. `dump_match.sh` and live transport remain pending.
+Synthetic fixtures are test evidence only and must be labeled SYNTHETIC.

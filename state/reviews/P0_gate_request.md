@@ -51,3 +51,12 @@ F-086..088 and P0_pwm_irq_compile_validation.md retain installed runtime hazards
 none changes missing physical acceptance or human gate status. No further required
 autonomous P0 task remains eligible within the current bare-board scope. Preserve
 completed diagnostics and continue with genuine physical acceptance when available.
+
+
+2026-09-23 D072-D074 software update: LOG_HZ25 fallback adopted explicitly in
+D072, with scoped regression/review/target-probe evidence. D073 CSV formatting
+and D074 local validation are host-tested offline additions; final993 C++ tests
+normal+sanitizer and378controlledtool checks are recorded in their validation
+reports. Original target app result above belongs to its historical source, not
+the current CSV tree. Physical/EXPLAINED/PINMAP and human gate status unchanged.
+See P2_offline_scope_completion_audit.md; no runtime integration or gate inferred.

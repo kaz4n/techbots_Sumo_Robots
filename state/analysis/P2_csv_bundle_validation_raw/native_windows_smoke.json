@@ -1,0 +1,83 @@
+{
+  "commands": [
+    {
+      "label": "SYNTHETIC local native-Windows empty-owner fixture",
+      "name": "without_manifest",
+      "argv": [
+        "C:\\Users\\narut\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "tools/validate_csv_bundle.py",
+        "--frames",
+        "build\\csv_bundle_native_smoke\\frames.csv",
+        "--events",
+        "build\\csv_bundle_native_smoke\\events.csv",
+        "--summary",
+        "build\\csv_bundle_native_smoke\\summary.csv"
+      ],
+      "exit_status": 0,
+      "seconds": 0.11108609999064356,
+      "stdout": "{\"common_attempt_verified\": false, \"consistency\": \"PASS\", \"errors\": [], \"files\": {\"events\": {\"bytes\": 54, \"rows\": 0, \"sha256\": \"3d559b8bab9a11a577d7135c2521fa277dfff813ccea69e5d954fa5fb904cc7b\"}, \"frames\": {\"bytes\": 164, \"rows\": 0, \"sha256\": \"6bfe18d6ce198c83ba19d2eb4ca019fd7de4785ceaef0aa66bc7b94b5a124b4e\"}, \"summary\": {\"bytes\": 627, \"rows\": 1, \"sha256\": \"7f79c35e23f991266848309e02bb833df931b454e78ed31b980c606f49536555\"}}, \"format_integrity\": \"PASS\", \"hardware_acceptance\": false, \"provenance\": {\"closure\": \"UNKNOWN\", \"declared\": null, \"evidence_kind\": \"UNKNOWN\", \"status\": \"ABSENT\"}, \"recording\": {\"lifecycle\": \"EMPTY\", \"loss\": \"NONE_REPORTED\", \"phase_code\": 0}, \"schema_version\": 1, \"transport_verified\": false}\n",
+      "stderr": ""
+    },
+    {
+      "label": "SYNTHETIC local native-Windows empty-owner fixture",
+      "name": "with_partial_manifest",
+      "argv": [
+        "C:\\Users\\narut\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "tools/validate_csv_bundle.py",
+        "--frames",
+        "build\\csv_bundle_native_smoke\\frames.csv",
+        "--events",
+        "build\\csv_bundle_native_smoke\\events.csv",
+        "--summary",
+        "build\\csv_bundle_native_smoke\\summary.csv",
+        "--manifest",
+        "build\\csv_bundle_native_smoke\\manifest.json"
+      ],
+      "exit_status": 0,
+      "seconds": 0.11794280004687607,
+      "stdout": "{\"common_attempt_verified\": false, \"consistency\": \"PASS\", \"errors\": [], \"files\": {\"events\": {\"bytes\": 54, \"rows\": 0, \"sha256\": \"3d559b8bab9a11a577d7135c2521fa277dfff813ccea69e5d954fa5fb904cc7b\"}, \"frames\": {\"bytes\": 164, \"rows\": 0, \"sha256\": \"6bfe18d6ce198c83ba19d2eb4ca019fd7de4785ceaef0aa66bc7b94b5a124b4e\"}, \"summary\": {\"bytes\": 627, \"rows\": 1, \"sha256\": \"7f79c35e23f991266848309e02bb833df931b454e78ed31b980c606f49536555\"}}, \"format_integrity\": \"PASS\", \"hardware_acceptance\": false, \"provenance\": {\"closure\": \"DECLARED_CLOSED\", \"declared\": {\"closure\": \"closed\", \"config_sha256\": null, \"event_capacity\": null, \"files\": {\"events\": {\"rows\": 0, \"sha256\": \"3d559b8bab9a11a577d7135c2521fa277dfff813ccea69e5d954fa5fb904cc7b\"}, \"frames\": {\"rows\": 0, \"sha256\": \"6bfe18d6ce198c83ba19d2eb4ca019fd7de4785ceaef0aa66bc7b94b5a124b4e\"}, \"summary\": {\"rows\": 1, \"sha256\": \"7f79c35e23f991266848309e02bb833df931b454e78ed31b980c606f49536555\"}}, \"firmware_revision\": null, \"frame_capacity\": null, \"log_hz\": null, \"origin\": \"synthetic\", \"schema_version\": 1, \"session_id\": null, \"source_sha256\": null, \"target\": null}, \"evidence_kind\": \"SYNTHETIC\", \"status\": \"PARTIAL_DECLARATION\"}, \"recording\": {\"lifecycle\": \"EMPTY\", \"loss\": \"NONE_REPORTED\", \"phase_code\": 0}, \"schema_version\": 1, \"transport_verified\": false}\n",
+      "stderr": ""
+    }
+  ],
+  "unchanged_input_hashes": {
+    "frames": {
+      "sha256": "6bfe18d6ce198c83ba19d2eb4ca019fd7de4785ceaef0aa66bc7b94b5a124b4e",
+      "rows": 0
+    },
+    "events": {
+      "sha256": "3d559b8bab9a11a577d7135c2521fa277dfff813ccea69e5d954fa5fb904cc7b",
+      "rows": 0
+    },
+    "summary": {
+      "sha256": "7f79c35e23f991266848309e02bb833df931b454e78ed31b980c606f49536555",
+      "rows": 1
+    }
+  },
+  "synthetic_fixture_manifest": {
+    "schema_version": 1,
+    "session_id": null,
+    "origin": "synthetic",
+    "firmware_revision": null,
+    "source_sha256": null,
+    "config_sha256": null,
+    "log_hz": null,
+    "frame_capacity": null,
+    "event_capacity": null,
+    "target": null,
+    "closure": "closed",
+    "files": {
+      "frames": {
+        "sha256": "6bfe18d6ce198c83ba19d2eb4ca019fd7de4785ceaef0aa66bc7b94b5a124b4e",
+        "rows": 0
+      },
+      "events": {
+        "sha256": "3d559b8bab9a11a577d7135c2521fa277dfff813ccea69e5d954fa5fb904cc7b",
+        "rows": 0
+      },
+      "summary": {
+        "sha256": "7f79c35e23f991266848309e02bb833df931b454e78ed31b980c606f49536555",
+        "rows": 1
+      }
+    }
+  }
+}

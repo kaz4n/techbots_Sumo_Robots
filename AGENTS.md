@@ -217,3 +217,7 @@ D-073 extends offline B8 preparation to bounded CSV formatting only. Preserve ra
 bytes, statuses and every loss field. A sealed attempt does not establish IDLE;
 an incomplete=false flag does not establish a finished recording. Live dumping,
 transport and application integration remain separate pending work.
+
+D-074 permits read-only validation of local CSV evidence files. Keep format
+integrity separate from owner-summary consistency, loss, lifecycle and declared
+provenance. Local hashes never prove hardware origin or a common attempt.

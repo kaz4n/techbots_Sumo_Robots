@@ -51,3 +51,12 @@ WCET remain mandatory and cannot be replaced by this P1 review.
 No P0 gate follows from D-016. No P2 HAL work, motor upload/run, release tag or
 physical acceptance is authorized by this packet. Human gates remain pending;
 no additional hardware connection is requested now.
+
+
+2026-09-23 D072-D074 software update: LOG_HZ25 fallback adopted explicitly in
+D072, with scoped regression/review/target-probe evidence. D073 CSV formatting
+and D074 local validation are host-tested offline additions; final993 C++ tests
+normal+sanitizer and378controlledtool checks are recorded in their validation
+reports. Original target app result above belongs to its historical source, not
+the current CSV tree. Physical/EXPLAINED/PINMAP and human gate status unchanged.
+See P2_offline_scope_completion_audit.md; no runtime integration or gate inferred.

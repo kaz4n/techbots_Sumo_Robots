@@ -1,3 +1,12 @@
+## Active checkpoint - 2026-09-24T00:51:25+04:00
+
+D111 contract/config/public interfaces adopted in9299192 after two preflight reviews.
+P2 software active: independent author and implementation worker now own separate
+files; root owns checked build policy, README, target collector and shared ledgers.
+Read P2_imu_heading_bench_contract.md; next freeze/test the actual finite trial,
+compile default/Immediate with literal checked policy, then separate source review.
+D109/D110 completion evidence below remains valid. No MCU upload or physical gates.
+
 ## Active checkpoint - 2026-09-24T00:43:00+04:00
 
 P2 software active under D051/D075. D1096563aaa QTR raw bench and D110a0ee402

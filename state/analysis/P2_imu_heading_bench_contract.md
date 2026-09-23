@@ -133,7 +133,8 @@ Healthy setup reports retain original started, increment advances exactly1,
 increase requests by0or1 within native caps, and have faultNONE. IN_PROGRESS and
 PROFILE_READY are the only healthy states; observed lies in current S..A (a wait
 sets it to S). Preserve native FAULT diagnostics without success-only timestamp
-checks. Enum/counter/identity malformation is CONTRACT. Native fault takes priority
+checks. A healthy observed_us outside the current S..A bracket is SOURCE_ORDER
+(after accepted A). Enum/counter/identity malformation is CONTRACT. Native fault takes priority
 over counter/source checks; physical48-call profile verification remains native.
 
 Healthy setup has cleanupNOT_ATTEMPTED/flags0, with busNOT_INITIALIZED before any

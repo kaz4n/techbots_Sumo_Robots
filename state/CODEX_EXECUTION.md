@@ -70,3 +70,6 @@ Next: D111 named IMU heading bench draft and independent public-contract
 preflight. Not adopted or implemented. Resolve exact timing/calibration/cleanup
 oracles, then implement/test/target-review. MCU remains D104; no extra hardware
 request or upload authority. Continue remaining named P2 benches afterward.
+
+2026-09-24T00:51:25+04:00: D1119299192 adopted; IMU bench implementation and
+independent tests in progress. Next checked policy, exact targets and separate review.

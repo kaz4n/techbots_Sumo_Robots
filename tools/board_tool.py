@@ -279,7 +279,7 @@ def compile_app(board, checksum, board_folder, remote_root, fqbn, flags, startup
 def flash(args):
     startup = build_startup(args)
     probe = args.sketch == 'bench/runtime_inert'
-    sensor_bench = args.sketch in ('bench/opp_view', 'bench/qtr_raw', 'bench/vbat')
+    sensor_bench = args.sketch in ('bench/opp_view', 'bench/qtr_raw', 'bench/vbat', 'bench/imu_heading')
     if probe and (args.match or startup != 'default'):
         fail('Runtime inert probe requires default startup and MATCH=0 MOTORS_ALLOWED=0')
     if sensor_bench and args.match:
@@ -323,7 +323,7 @@ def flash(args):
     elif probe or sensor_bench:
         project = {'bench/runtime_inert': 'runtime_inert.ino',
                    'bench/opp_view': 'opp_view.ino', 'bench/qtr_raw': 'qtr_raw.ino',
-                   'bench/vbat': 'vbat.ino'}[args.sketch]
+                   'bench/vbat': 'vbat.ino', 'bench/imu_heading': 'imu_heading.ino'}[args.sketch]
         artifact_folder = compile_app(board, checksum, board_folder, remote_root, fqbn,
                                       flags, startup, project=project)
     else:

@@ -1,0 +1,73 @@
+FEF.FEF
+======================================================================
+ERROR: test_both_profiles_validate_result_preflight_and_selected_artifact_names (tests.tooling.test_imu_heading_bench_policy.ImuHeadingBenchPolicyTests.test_both_profiles_validate_result_preflight_and_selected_artifact_names)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_imu_heading_bench_policy.py", line 24, in test_both_profiles_validate_result_preflight_and_selected_artifact_names
+    props = self.validate(doc, immediate)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_imu_heading_bench_policy.py", line 18, in validate
+    return fixture.policy.validate_result(json.dumps(document), fqbn,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tools/app_build_policy.py", line 174, in validate_result
+    return validated_properties(builder, platform, fqbn, flags, build_path, project)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tools/app_build_policy.py", line 154, in validated_properties
+    for key, expected in expected_properties(fqbn, flags, platform, project).items():
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tools/app_build_policy.py", line 87, in expected_properties
+    project = selected_project(project, fqbn, flags)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tools/app_build_policy.py", line 76, in selected_project
+    raise ValueError('Unreviewed native project name')
+ValueError: Unreviewed native project name
+
+======================================================================
+ERROR: test_only_inert_flags_are_eligible_for_selected_project (tests.tooling.test_imu_heading_bench_policy.ImuHeadingBenchPolicyTests.test_only_inert_flags_are_eligible_for_selected_project)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_imu_heading_bench_policy.py", line 60, in test_only_inert_flags_are_eligible_for_selected_project
+    self.assertEqual(PROJECT, fixture.policy.selected_project(PROJECT,
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tools/app_build_policy.py", line 76, in selected_project
+    raise ValueError('Unreviewed native project name')
+ValueError: Unreviewed native project name
+
+======================================================================
+FAIL: test_both_compile_profiles_route_only_to_checked_build (tests.tooling.test_imu_heading_bench_policy.ImuHeadingBenchPolicyTests.test_both_compile_profiles_route_only_to_checked_build)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_imu_heading_bench_policy.py", line 70, in test_both_compile_profiles_route_only_to_checked_build
+    calls['compile_app'].assert_called_once_with('fixture-board', 'a' * 64,
+  File "/usr/lib/python3.12/unittest/mock.py", line 955, in assert_called_once_with
+    raise AssertionError(msg)
+AssertionError: Expected 'compile_app' to be called once. Called 0 times.
+
+======================================================================
+FAIL: test_checked_build_failure_propagates_without_generic_fallback_or_upload (tests.tooling.test_imu_heading_bench_policy.ImuHeadingBenchPolicyTests.test_checked_build_failure_propagates_without_generic_fallback_or_upload)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_imu_heading_bench_policy.py", line 104, in test_checked_build_failure_propagates_without_generic_fallback_or_upload
+    with self.assertRaises(type(failure)):
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_match_uploads_and_both_profiles_refuse_before_transport (tests.tooling.test_imu_heading_bench_policy.ImuHeadingBenchPolicyTests.test_match_uploads_and_both_profiles_refuse_before_transport)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_imu_heading_bench_policy.py", line 81, in test_match_uploads_and_both_profiles_refuse_before_transport
+    with self.assertRaises(ValueError):
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_regular_and_dangling_profile_files_refuse_before_transport (tests.tooling.test_imu_heading_bench_policy.ImuHeadingBenchPolicyTests.test_regular_and_dangling_profile_files_refuse_before_transport)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_imu_heading_bench_policy.py", line 95, in test_regular_and_dangling_profile_files_refuse_before_transport
+    with self.assertRaises(ValueError):
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.043s
+
+FAILED (failures=4, errors=2)

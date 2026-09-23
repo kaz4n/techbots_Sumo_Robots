@@ -317,3 +317,10 @@ F103 final regression addendum: existing443tooling PASS678.339s exit0;450distinc
 | ID | Question | Observed answer | Source | Confidence | Hardware-checked |
 |---|---|---|---|---|---|
 | F-105 | Does Services distinguish absence and distinct source observations without changing hold/STOP? | Implementation5516bef,contract3c356ec; new31cases/2283assertions pass normal/sanitizer. Fresh reviewer94new+locked cases/3507334assertions pass both modes. Fullhost2/2PASS12.51s; sanitizer2/2PASS24.57s,1124main+37enabledGate. Selected27existing+5new methods pass. Actual target9a7c6432 compile79248/31916B exit0;46sources/3ELFs/36native+42math exports/startup checked. | analysis/P2_calibration_presence_validation.md/raw; reviews/P2_calibration_presence_review.md/raw | HOST-TESTED/TARGET-COMPILED; fresh separate same-model review PASS/no open findings | No upload/MCU/pad/sensor/motor operation, physical calibration or gate. Services interface implemented; remaining HeadingReference/Fusion/Robot/B15/app integration andSC-AJ/F091 remain pending |
+
+
+## D084 complete estimator-to-Robot software, 2026-09-23
+
+| ID | Question | Observed answer | Source | Confidence | Hardware-checked |
+|---|---|---|---|---|---|
+| F-106 | Does actual estimator evidence reach Robot consumers without stale measurement reuse? | Implementation2c16023/contractaef3be2. Independent27cases165477assertions and5tooling PASS; freshreview118cases1727511assertions normal/sanitizer,5tooling/15config PASS. Root fullhost2/2PASS6.39s/fullsan2/2PASS31.38s,1151main+37enabledGate. Actual sourcef3bc1f7f compiles135536program/66352compiler globals exit0;51sources/3ELFs/36native/42AEABI+fmod/sqrt/startup checked. | analysis/P2_imu_integration_validation.md/raw; reviews/P2_imu_integration_review.md/raw | IMPLEMENTED/HOST-TESTED/TARGET-COMPILED; fresh separate same-model review PASS, no open software finding | No upload/reset/MCU/pad/sensor/motor action; physical mounting, calibration/drift/accuracy/rate/WCET, SC-AJ/F091 and human gates remain pending. Actual controller path integrated; full QTR/UI/app scheduler remains unfinished |

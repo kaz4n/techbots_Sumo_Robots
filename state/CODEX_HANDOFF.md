@@ -1,3 +1,40 @@
+# D084 checkpoint - active P2 software development, 2026-09-23 Asia/Dubai
+
+Completed actual Estimator -> applyEstimate -> Robot admission -> calibration,
+HeadingReference/Fusion/motion/stall/escape/recording integration2c16023; contract
+and interfacesaef3be2. Read P2_imu_integration_contract/validation.md, F106 and fresh
+separate same-model review. The old combined imu_ok path is now only the preserved
+legacy mode. Explicit inputs carry source time/identity and separate fresh data
+from retained bounded-age yaw; mode changes and malformed reports inhibit motion.
+
+Independent author27cases165477assertions/5tooling PASS; reviewer118cases1727511
+assertions normal/sanitizer,5tooling/15config PASS. Root fullhost2/2PASS6.39s and
+fullsan2/2PASS31.38s,1151main/22813536 plus37enabledGate/3796846. Actualcompile-only
+f3bc1f7f135536/66352B exit0,51sources/3ELFs/36native/42AEABI+fmod/sqrt/startup checked.
+Exactly5existing inert hashes independently approved/reproduced/adopted; no new
+upload key. Root staging2methods PASS2.722s and25tooling PASS14.709s;
+32distinct scoped methods including5new, not a complete all-tooling rerun. All initial fixture,
+review-parser and receipt-name failures remain recorded; old tests unchanged.
+
+Next concrete task: B2 QTR acquisition/freshness contract and native driver.
+Read P2_imu_integration_raw/next_hal_task.md and existing P0_qtr/IRQ audits before
+choosing acquisition/cleanup/service-gap semantics under D051/D075. Preserve
+charge/timeout defaults, actual per-pad release and HIGH/LOW time brackets and
+explicit generation/pending/fault states. No blocking1500us read in a1ms tick,
+no pending/cached snapshot marked fresh. A cooperative driver alone cannot prove
+SC-B resolved: cadence/uncertainty and Robot admission must account for600us IMU
+work. UI's A1 also needs a single ADC owner and START/BOTH electrical resolution.
+
+Full P0-P7 objective ACTIVE/incomplete; D051/D075 authorize this software work
+before physical acceptance. No upload/reset/MCU/pad/sensor/motor operation; last-
+known image inertQTR61d7a2d0. No physical map, B3/WCET, PINMAP/EXPLAINED/human gate
+or per-run motor permission. SC-AJ/F091 runtime limits stay open. No new hardware
+requests now. Original Sep28/Sep30/Oct1 deadlines remain. KnownCLI1.5.1/core1.0.0,
+USB2629958581, WSLGCC13.3/CMake3.28.3; recheck as needed. Keep local task commits;
+never push/tag/rewrite or present synthetic receipts as physical evidence.
+
+--- Earlier handoff preserved below ---
+
 # D083 checkpoint - active P2 software development, 2026-09-23 Asia/Dubai
 
 Completed actual countdown gyro admission5516bef, contract/interface3c356ec,

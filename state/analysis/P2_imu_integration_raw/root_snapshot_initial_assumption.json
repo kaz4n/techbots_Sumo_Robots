@@ -1,0 +1,16 @@
+{
+  "observed_at_utc": "2026-09-23T09:54:11.003308+00:00",
+  "returncode": 1,
+  "check": "Assert every reviewer snapshot file still identical after intentional resume/manifest updates",
+  "differences": {
+    "docs/prompts/CODEX_RESUME.md": {
+      "review_sha256": "c2ef8f59d15e91e369e1a143aa0a029c9545d68799ba454bf67abad9ae10b38e",
+      "current_sha256": "baf8d0ab67d07d4d5bd5cd1125e888149aea83af5f8c86aff8a20f1ebb5aa65d"
+    },
+    "tools/p0_inert_sources.json": {
+      "review_sha256": "efe9ccb488273a6b7c03baffebbf79617974d8ae67a3935f21dce39a033d6035",
+      "current_sha256": "a446f54c841d3004dcfef4ced9d1d83d56daea40bd6e021549868b53bf8cd649"
+    }
+  },
+  "disposition": "Check scope corrected; no production/test or approved manifest change needed"
+}

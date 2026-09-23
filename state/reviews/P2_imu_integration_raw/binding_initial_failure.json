@@ -1,0 +1,8 @@
+{
+  "script": "target_binding_review_initial.py",
+  "returncode": 1,
+  "capture": "Reviewer summary of observed tool output, not a raw subprocess receipt",
+  "assertion": "('__llext_sym___real___aeabi_d2lz', set())",
+  "cause": "The initial reviewer script incorrectly expected a retained MOVW/MOVT wrapper for every imported AEABI name. The installed wrapper infrastructure lists unused helper imports too; d2lz has no retained wrapper or call relocation in the upload ELF.",
+  "repair": "Continue checking all 42 base-export addresses; check wrapper relocation pairs only for the actually retained helper wrappers. No production or test edit."
+}

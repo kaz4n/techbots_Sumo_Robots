@@ -485,3 +485,12 @@ Session checkpoint: implementation9de8cd1 is current inert ADC firmwaref5f637b2/
 
 
 2026-09-23T13:36:45+04:00 | P2 D084 | Previous goalturnPROGRESS: D082/D083 implementation and actualhost/target/review evidence committed; cleanbaselinec72921c verified. Freeze coherent estimator-to-Robot routing contract/header underD051/D075, includingsource age, fresh/retained consumers and25Bpresenceencoding. Rootowns sharedinterfaces/integration; separate implementation/tests/review follow. Physical assumptions remain unverified. | contract commit follows
+
+
+2026-09-23T13:51:15+04:00 | P2 B3 D084 implementation | Complete Estimator->adapter->Robot/consumers/recording software committed2c16023 (contractaef3be2). Independent27cases165477assertions and5newmethods PASS; fullhost2/2PASS6.39s and fullsanitizer2/2PASS31.38s,1151main/22813536 +37enabledGate/3796846. Actual compile-onlyf3bc1f7f135536/66352B exit0;51sourcefiles/3ELFs and36native+42AEABI+2math bindings verified. Fresh review and manifest/tooling closure pending; no physical or human gate. | 2c16023
+
+
+2026-09-23T13:52:47+04:00 | P2 D084 review | Fresh separate same-model review PASS/no open finding;118focusedcases1727511assertions in both modes,5tooling/15config,329frozenfiles andactualtarget51sources/3ELFs/startup/imports checked. Exact5inert hashes adopted after independent root staging comparison; finaltools regression running. No physical gate. | 2c16023
+
+
+2026-09-23T13:53:34+04:00 | P2 D084 final checkpoint | IMPLEMENTED/HOST-TESTED/TARGET-COMPILED/fresh separate review PASS, no open finding. Source2c16023/contractaef3be2; fullhost2/2PASS6.39s/fullsan2/2PASS31.38s,1151main22813536assertions+37enabledGate3796846. Independent27cases165477assertions and review118cases1727511assertions each normal/san.5new+27existing tooling PASS;32distinctscopedmethods. Targetf3bc1f7f135536/66352B exit0;51sourcefiles/3ELFs/36native/42AEABI+fmod/sqrt/startup andexact5inert identities verified. Alljobscomplete, no oldtest/config change or upload/MCU/physical/human gate. ThisgoalturnPROGRESS;fullgoalACTIVE/incomplete. Next B2 QTR contract/native acquisition and explicitfreshness per next_hal_task.md; SC-B/SC-AJ/F091 remain open. | evidence commit follows

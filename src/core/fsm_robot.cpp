@@ -110,6 +110,7 @@ void Robot::admit(const RobotInput& input) {
     tick_.t_us = input.t_us;
     tick_.delta_us = observed_ ? input.t_us - last_us_ : 0U;
     tick_.request.brake = true;
+    if (!observed_) explicit_tick_timing_ = input.timing.explicit_start;
     if (!observed_ && input.reset_cause == ResetCause::WATCHDOG)
         markFault(logframe::FaultCode::RESET_CAUSE, 1U);
     last_us_ = input.t_us;
@@ -161,17 +162,40 @@ void Robot::receive(const RobotInput& input) {
     pending_.valid = false;
 }
 
+bool Robot::validTimingStart(const RobotInput& input) const {
+    if (input.timing.explicit_start != explicit_tick_timing_) return false;
+    return !explicit_tick_timing_ || (input.timing.start_valid &&
+        input.t_us - input.timing.started_us < (1U << 31U));
+}
+
+bool Robot::validTimingReceipt(const RobotInput& input) const {
+    if (!pending_.timing_valid || !validTimingStart(input)) return false;
+    const auto& receipt = input.previous;
+    if (!explicit_tick_timing_) {
+        const std::uint32_t applied_offset = receipt.applied_us - pending_.t_us;
+        const std::uint32_t completed_offset = receipt.completed_us - pending_.t_us;
+        return completed_offset >= applied_offset && completed_offset <= input.t_us - pending_.t_us &&
+            receipt.execution_us == completed_offset;
+    }
+    const auto start = pending_.timing_start_us;
+    const std::uint32_t decision = pending_.t_us - start;
+    const std::uint32_t applied = receipt.applied_us - start;
+    const std::uint32_t completed = receipt.completed_us - start;
+    const std::uint32_t next_start = input.timing.started_us - start;
+    const std::uint32_t next_decision = input.t_us - start;
+    // One common anchor avoids accepting individually plausible wrapped pairs.
+    return decision <= applied && applied <= completed && completed <= next_start &&
+        next_start <= next_decision && next_decision < (1U << 31U) &&
+        receipt.execution_us == completed;
+}
+
 void Robot::receiveTiming(const RobotInput& input, bool identity_time_valid) {
     if (!pending_.match_tick) return;
     const auto& receipt = input.previous;
     const bool before_rate = logframe::overrunRateExceeded(statistics_);
     const bool before_saturated = statistics_.saturated;
     const bool before_incomplete = timing_incomplete_;
-    const std::uint32_t applied_offset = receipt.applied_us - pending_.t_us;
-    const std::uint32_t completed_offset = receipt.completed_us - pending_.t_us;
-    const bool valid = identity_time_valid && receipt.duration_valid &&
-        completed_offset >= applied_offset && completed_offset <= input.t_us - pending_.t_us &&
-        receipt.execution_us == completed_offset;
+    const bool valid = identity_time_valid && receipt.duration_valid && validTimingReceipt(input);
     if (valid) logframe::observeTick(statistics_, receipt.execution_us);
     else timing_incomplete_ = true;
     const std::uint16_t flags = static_cast<std::uint16_t>(
@@ -864,6 +888,8 @@ void Robot::savePending(const RobotInput& input) {
     pending_.valid = true;
     pending_.token = result_.token;
     pending_.t_us = input.t_us;
+    pending_.timing_start_us = explicit_tick_timing_ ? input.timing.started_us : input.t_us;
+    pending_.timing_valid = validTimingStart(input);
     pending_.requested = result_.outputs;
     pending_.after_go = attempt_go_;
     pending_.match_tick = timing_active_;

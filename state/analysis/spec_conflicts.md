@@ -596,3 +596,9 @@ D092 SC-AK software contract selected under D051/D075: explicit fixed-lifetime
 acquisition start and full ordered duration, preserving legacy defaults and
 decision-based sensor age. See P2_tick_timing_contract.md; implementation/tests/
 review are pending. This resolves the specification choice, not physical timing.
+
+D092 SC-AK software closure (2026-09-23): explicit complete timing implemented,
+independently tested and fresh-reviewed PASS. Fullnormal/san1303main+87Gate cases
+and61controlledtooling methods PASS; actual5451e99d target72sourcefiles/3ELFs
+verified, no upload. See P2_tick_timing_validation.md. Physical complete800us and
+SC-AJ clock calibration remain separate OPEN requirements.

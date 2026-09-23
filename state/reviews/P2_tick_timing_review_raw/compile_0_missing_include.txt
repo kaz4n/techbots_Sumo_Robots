@@ -1,0 +1,8 @@
+state/reviews/P2_tick_timing_review_raw/adversarial.cpp: In function ‘void DOCTEST_ANON_FUNC_2()’:
+state/reviews/P2_tick_timing_review_raw/adversarial.cpp:7:46: error: deducing from brace-enclosed initializer list requires ‘#include <initializer_list>’
+    4 | #include "fixtures/tick_timing_fixture.h"
+  +++ |+#include <initializer_list>
+    5 | using namespace timing_test;
+    6 | TEST_CASE("B14 D092 reviewer neighboring chronology exhaustive and wrapped") {
+    7 |     for (const auto base : {0U, 0U - 5163002U}) {
+      |                                              ^

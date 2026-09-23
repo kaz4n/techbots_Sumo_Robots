@@ -1,0 +1,22 @@
+{
+  "start_utc": "2026-09-23T13:47:32.289633+00:00",
+  "end_utc": "2026-09-23T13:49:15.341394+00:00",
+  "argv": [
+    "wsl",
+    "-d",
+    "Ubuntu",
+    "--",
+    "env",
+    "PYTHONPATH=tests/tooling",
+    "python3",
+    "-m",
+    "unittest",
+    "test_tools",
+    "test_adb_transport",
+    "test_ui_matrix_upload",
+    "test_staged_core",
+    "test_recorder_upload",
+    "-v"
+  ],
+  "returncode": 0
+}

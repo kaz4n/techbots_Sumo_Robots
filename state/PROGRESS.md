@@ -564,3 +564,20 @@ start distinguished from post-acquisition decision, fixed mode/reset and full
 half-range chronology specified under D051/D075. Legacy behavior/locked tests
 preserved. Prior turn PROGRESS evidenced by a57d3b7. Implementation/test/review
 pending; no hardware action or phase gate. Contract commit=this commit.
+
+2026-09-23 P2 D092 IMPLEMENTED/TARGET-COMPILED: contract33e6cba, core timing helpers
+retain full acquisition duration separately from decision time. Independent22cases/
+487assertions pass both host motor configurations. Actual target5451e99d72sources/
+3ELFs exact,315764program/238812globals lowRAMwarning; no MCU/upload/reset. Seven
+existing inertkeys separately reviewed/refreshed. Full normal/sanitizer and fresh
+review still running; validation P2_tick_timing_validation.md. No gate.
+
+2026-09-23 P2 D092 IMPLEMENTED/HOST-TESTED/TARGET-COMPILED: fullnormal/san each
+1303main24481744assertions+87enabledGate3848039PASS, no fail/skip; independent
+22cases487assertions each setting and reviewer24cases16206assertions PASS.61
+controlledtool methods PASS. Fresh separate same-model review PASS/no findings.
+Actual5451e99d72sourcefiles/3ELFs exact andsevenexistinginertkeys reviewed/refreshed.
+Source/locked/config safety preserved; no MCU/upload/reset/runtime/gate. SC-AK
+software resolved. Next bounded battery-age contract/app ownership per audit.
+Evidence P2_tick_timing_validation.md/reviews/P2_tick_timing_review.md. Fullgoal
+ACTIVE/incomplete. Contract33e6cba; implementationcommit=this commit.

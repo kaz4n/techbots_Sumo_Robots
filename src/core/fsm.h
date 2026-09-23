@@ -398,7 +398,7 @@ struct PreviousTick {
     float duty_r = 0.0F;
     bool duration_valid = false;
     std::uint32_t completed_us = 0;
-    std::uint32_t execution_us = 0; // Measured whole tick, not start-to-start interval.
+    std::uint32_t execution_us = 0; // From selected tick start, never start-to-start interval.
 };
 struct TickTiming {
     bool explicit_start = false; // Fixed on first admitted tick until Robot reset.

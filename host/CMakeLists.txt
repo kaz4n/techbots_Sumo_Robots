@@ -43,6 +43,7 @@ add_executable(motor_gate_enabled_tests ${CORE_SOURCES}
   "${CMAKE_CURRENT_SOURCE_DIR}/../tests/test_button_motor_gate.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/../tests/test_qtr_cal_motor_gate.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/../tests/test_recorder_dump.cpp"
+  "${CMAKE_CURRENT_SOURCE_DIR}/../tests/test_tick_timing.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/../src/hal/recorder_frames.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/../src/hal/recorder.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/../src/hal/recorder_csv.cpp"

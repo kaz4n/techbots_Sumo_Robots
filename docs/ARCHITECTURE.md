@@ -160,8 +160,13 @@ The fixed21-entry event batch includes up to two prior receipt extensions and19
 current decision events. Invalid metadata and full-batch rejections have separate
 saturating counters. The separately owned4096-event buffer preserves the first
 entries, reports overflow/rejections and must not stop frame recording. No event
-or timing overflow can authorize motion. HAL storage must retain last-match data
-across Robot reset; storage/dump implementation remains a later phase task.
+or timing overflow can authorize motion. The offline D-069/D-070 RAM owner
+preserves last-match data across Robot reset. D-073 adds stateless CSV formatting
+of exact encoded integers, raw bytes, statuses and every loss counter. Its metadata
+snapshot copies no payload arrays. Callers must prevent concurrent mutation;
+this formatter grants no live dump permission. Runtime integration and transport
+remain pending: SEALED is not current IDLE, and absence of known loss is not proof
+that recording finished or a dump has no gaps.
 
 Per PLAN section7, the STM32U585 owns sensing/decisions/actuation without waiting
 for Linux. Linux builds/flashes and later stores/plots logs. No radio, Bridge or

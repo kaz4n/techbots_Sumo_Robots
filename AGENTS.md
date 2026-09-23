@@ -212,3 +212,8 @@ D-071 isolated memory probes support D-072's adoption of B15's25Hz low-memory
 fallback. LOG_HZ is the only changed B16 value; original50Hz evidence remains.
 Loader/free-RAM/WCET and inherited Bridge runtime paths remain unqualified.
 See state/analysis/P2_rate_adoption_validation.md; no app integration or gate follows.
+
+D-073 extends offline B8 preparation to bounded CSV formatting only. Preserve raw
+bytes, statuses and every loss field. A sealed attempt does not establish IDLE;
+an incomplete=false flag does not establish a finished recording. Live dumping,
+transport and application integration remain separate pending work.

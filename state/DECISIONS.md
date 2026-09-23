@@ -1406,3 +1406,13 @@ Consequence: require independent cross-unit tests, unchanged native suites, exac
 Context: P2 B1 has native driver and compile probe, but lacks its named live-view bench. OPP-VIEW-1 geometric UI discrepancy is recorded separately.
 Decision: adopt P2_opp_view_contract.md and public Runner/Native headers. Literal channel-index strip, current unknown/error indication, actual bounded source/callback timing, one sensor/matrix owner and all grants false. No motor owner or EN/PWM operation.
 Consequence: independent literal tests, compile-only target review and default startup silence precede software acceptance. Upload allowlist remains closed; no sensor electrical grant, physical ranges/false-hit result, optical claim or phase gate. Existing production geometric display remains separately tracked.
+
+## D-108 (2026-09-23, selected under D051/D075) Correct front display identity
+Context: OPP-VIEW-1 identifies a D088 presentation mismatch against B0/D076:
+FL15 bit0 is displayed at FC and FC bit1 at FL15.
+Decision: adopt P2_display_channel_contract.md; swap only those two geometric
+coordinates and the corresponding unlocked literal oracle positions, with new
+independent projection regressions. Preserve original D088 text as provenance.
+Consequence: no core/pin/polarity/config/native or locked-test change. Full host,
+target and separate review evidence precede acceptance; no physical/gate/upload
+authority follows from this delegated presentation correction.

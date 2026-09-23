@@ -1,5 +1,10 @@
 # D088 B3/B13/B14 display contract
 
+**D108 correction:** the historical SENSOR_VIEW order below incorrectly puts
+bit0 at FC and bit1 at FL. P2_display_channel_contract.md supersedes only that
+mapping: bit0 FL15 at (2,1), bit1 FC at (4,1). The original clause remains below
+as provenance; all other clauses remain in force.
+
 2026-09-23, selected under D051/D075. Pure renderer plus actual native submission;
 no service execution, sensor acquisition, motion permission or hardware acceptance.
 User explicitly permits testing the bare UNO Q with no external sensors. One

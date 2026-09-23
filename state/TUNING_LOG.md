@@ -335,3 +335,5 @@ QTR_BENCH_FRAMES128 is a new finite bench-only immutable raw capture bound.
 No existing charge/discharge/frame/threshold/pin value changed. Selection basis:
 P2_qtr_raw_contract.md,f786fa5; host capacity cases and exact target fit pending.
 This is not an observed surface, cadence or electrical measurement.
+
+- 2026-09-24 D110 SOFTWARE-CAPACITY: added VBAT_BENCH_SAMPLES128 for finite named battery bench storage. Existing ADC values/scaling/pins/cadence unchanged. Not a physical tuning measurement; target fit/test evidence pending. Contract P2_vbat_contract.md.

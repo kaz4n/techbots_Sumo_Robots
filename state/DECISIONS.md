@@ -1430,3 +1430,8 @@ author/implementer contexts may write in parallel from the frozen public contrac
 Freeze executable tests before their first run. Exact native checked target
 review follows; stable RAM capture is software preparation, not physical surface
 evidence or readout. No pad/pin/electrical/upload/motor grant or human gate follows.
+
+## D-110 (2026-09-24, selected under D051/D075) Finite battery bench evidence
+Context: native D078/D086 power acquisition exists but P2 B5 named bench/vbat is missing.
+Decision: adopt P2_vbat_contract.md and public Runner/Native headers after independent author preflight. One battery-only Reader, false grant, immutable first128 fresh samples at existing10ms cadence. Preserve actual sample/shutdown and source/call/closing times; no A1/stop/transport/other owner. Add only VBAT_BENCH_SAMPLES128 plus its unlocked literal assertion. Exact float boundaries and publicly reachable missed-release saturation profile are explicit.
+Consequence: independent expectations freeze before first execution while separate contexts author in parallel; exact checked compile-only target review follows. No native driver/pin/scaling/default-cadence or locked-test change, upload key, physical accuracy, electrical/motor permission or human gate.

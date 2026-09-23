@@ -767,3 +767,16 @@ values, notably LOG_HZ50. Required frame/event payload292794B exceeds installed
 not a claimed fit. No lifecycle integration, event-ring duplication, transport,
 physical measurement, hardware approval or phase gate. Independent boundary,
 wrap, reset, status, alias-source and oracle tests precede fresh review.
+
+
+## D-070 (2026-09-23, selected under D-051) Offline attempt evidence ownership
+Context: D-069 payload storage is verified, but a delayed prior receipt can share
+a result with a new START and core reset must preserve last-match evidence.
+Decision: adopt P2_attempt_recorder_contract.md/recorder.h for an offline fixed
+owner: accepted-START epoch validation, prefix/frame exclusion, bounded ingestion,
+one final flush, explicit reset interruption, monotonic tokens and explicit
+exhaustion envelope. Preserve distinct loss counters and core snapshots.
+Consequence: no generic erase, phantom final frame or silent loss; no new cadence,
+app/transport integration, hardware instance or gate. Keep SC-AH RAM deployment
+blocker/B16 defaults. Independent contract-derived tests and fresh review remain
+required before declaring this software component complete.

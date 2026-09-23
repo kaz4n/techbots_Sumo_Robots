@@ -14,12 +14,12 @@
 #define ADC_CALIB_FACTOR_LINEARITY_REGOFFSET (0x00000001UL)
 #define ADC_CALIB_FACTOR_REGOFFSET_MASK      (ADC_CALIB_FACTOR_OFFSET_REGOFFSET | ADC_CALIB_FACTOR_LINEARITY_REGOFFSET)
 #define ADC_CALIB_MODE_MASK                  (ADC_CR_ADCALLIN)
-#define ADC_CALIB_MODE_BINARY_MASK           (ADC_CALIB_FACTOR_REGOFFSET_MASK) 
+#define ADC_CALIB_MODE_BINARY_MASK           (ADC_CALIB_FACTOR_REGOFFSET_MASK)
 #define LL_ADC_AWD1_TR                      LL_ADC_AWD1
 #define LL_ADC_AWD2_TR                      LL_ADC_AWD2
 #define LL_ADC_AWD3_TR                      LL_ADC_AWD3
 #define ADC_CR_BITS_PROPERTY_RS     ( ADC_CR_ADCAL | ADC_CR_JADSTP | ADC_CR_ADSTP | ADC_CR_JADSTART | ADC_CR_ADSTART \
-                                      | ADC_CR_ADDIS | ADC_CR_ADEN) 
+                                      | ADC_CR_ADDIS | ADC_CR_ADEN)
 #define LL_ADC_FLAG_ADRDY            ADC_ISR_ADRDY
 #define LL_ADC_FLAG_EOC              ADC_ISR_EOC
 #define LL_ADC_FLAG_EOS              ADC_ISR_EOS
@@ -34,60 +34,60 @@
 #define LL_ADC_FLAG_LDORDY           ADC_ISR_LDORDY
 #define LL_ADC_FLAG_ADRDY_MST        ADC_CSR_ADRDY_MST
 #define LL_ADC_FLAG_ADRDY_SLV        ADC_CSR_ADRDY_SLV
-#define LL_ADC_FLAG_EOC_MST          ADC_CSR_EOC_MST    
-#define LL_ADC_FLAG_EOC_SLV          ADC_CSR_EOC_SLV    
-#define LL_ADC_FLAG_EOS_MST          ADC_CSR_EOS_MST    
-#define LL_ADC_FLAG_EOS_SLV          ADC_CSR_EOS_SLV    
+#define LL_ADC_FLAG_EOC_MST          ADC_CSR_EOC_MST
+#define LL_ADC_FLAG_EOC_SLV          ADC_CSR_EOC_SLV
+#define LL_ADC_FLAG_EOS_MST          ADC_CSR_EOS_MST
+#define LL_ADC_FLAG_EOS_SLV          ADC_CSR_EOS_SLV
 #define LL_ADC_FLAG_OVR_MST          ADC_CSR_OVR_MST
 #define LL_ADC_FLAG_OVR_SLV          ADC_CSR_OVR_SLV
-#define LL_ADC_FLAG_EOSMP_MST        ADC_CSR_EOSMP_MST  
-#define LL_ADC_FLAG_EOSMP_SLV        ADC_CSR_EOSMP_SLV  
-#define LL_ADC_FLAG_JEOC_MST         ADC_CSR_JEOC_MST   
-#define LL_ADC_FLAG_JEOC_SLV         ADC_CSR_JEOC_SLV   
-#define LL_ADC_FLAG_JEOS_MST         ADC_CSR_JEOS_MST   
-#define LL_ADC_FLAG_JEOS_SLV         ADC_CSR_JEOS_SLV   
-#define LL_ADC_FLAG_AWD1_MST         ADC_CSR_AWD1_MST   
-#define LL_ADC_FLAG_AWD1_SLV         ADC_CSR_AWD1_SLV   
-#define LL_ADC_FLAG_AWD2_MST         ADC_CSR_AWD2_MST   
-#define LL_ADC_FLAG_AWD2_SLV         ADC_CSR_AWD2_SLV   
-#define LL_ADC_FLAG_AWD3_MST         ADC_CSR_AWD3_MST   
-#define LL_ADC_FLAG_AWD3_SLV         ADC_CSR_AWD3_SLV   
+#define LL_ADC_FLAG_EOSMP_MST        ADC_CSR_EOSMP_MST
+#define LL_ADC_FLAG_EOSMP_SLV        ADC_CSR_EOSMP_SLV
+#define LL_ADC_FLAG_JEOC_MST         ADC_CSR_JEOC_MST
+#define LL_ADC_FLAG_JEOC_SLV         ADC_CSR_JEOC_SLV
+#define LL_ADC_FLAG_JEOS_MST         ADC_CSR_JEOS_MST
+#define LL_ADC_FLAG_JEOS_SLV         ADC_CSR_JEOS_SLV
+#define LL_ADC_FLAG_AWD1_MST         ADC_CSR_AWD1_MST
+#define LL_ADC_FLAG_AWD1_SLV         ADC_CSR_AWD1_SLV
+#define LL_ADC_FLAG_AWD2_MST         ADC_CSR_AWD2_MST
+#define LL_ADC_FLAG_AWD2_SLV         ADC_CSR_AWD2_SLV
+#define LL_ADC_FLAG_AWD3_MST         ADC_CSR_AWD3_MST
+#define LL_ADC_FLAG_AWD3_SLV         ADC_CSR_AWD3_SLV
 #define LL_ADC_IT_ADRDY                 ADC_IER_ADRDYIE
-#define LL_ADC_IT_EOC                   ADC_IER_EOCIE      
-#define LL_ADC_IT_EOS                   ADC_IER_EOSIE      
+#define LL_ADC_IT_EOC                   ADC_IER_EOCIE
+#define LL_ADC_IT_EOS                   ADC_IER_EOSIE
 #define LL_ADC_IT_OVR                   ADC_IER_OVRIE
-#define LL_ADC_IT_EOSMP                 ADC_IER_EOSMPIE    
-#define LL_ADC_IT_JEOC                  ADC_IER_JEOCIE     
-#define LL_ADC_IT_JEOS                  ADC_IER_JEOSIE     
+#define LL_ADC_IT_EOSMP                 ADC_IER_EOSMPIE
+#define LL_ADC_IT_JEOC                  ADC_IER_JEOCIE
+#define LL_ADC_IT_JEOS                  ADC_IER_JEOSIE
 #define LL_ADC_IT_AWD1                  ADC_IER_AWD1IE
 #define LL_ADC_IT_AWD2                  ADC_IER_AWD2IE
 #define LL_ADC_IT_AWD3                  ADC_IER_AWD3IE
 #define LL_ADC_IT_EOCAL                 ADC_IER_EOCALIE
 #define LL_ADC_IT_LDORDY                ADC_IER_LDORDYIE
-#define LL_ADC_DMA_REG_REGULAR_DATA       (0x00000000UL) 
-#define LL_ADC_DMA_REG_REGULAR_DATA_MULTI    (0x00000001UL) 
-#define LL_ADC_CLOCK_ASYNC_DIV1    (0x00000000UL)                                        
-#define LL_ADC_CLOCK_ASYNC_DIV2    (ADC_CCR_PRESC_0)                                     
-#define LL_ADC_CLOCK_ASYNC_DIV4    (ADC_CCR_PRESC_1)                                     
-#define LL_ADC_CLOCK_ASYNC_DIV6    (ADC_CCR_PRESC_1 | ADC_CCR_PRESC_0)                   
-#define LL_ADC_CLOCK_ASYNC_DIV8    (ADC_CCR_PRESC_2)                                     
-#define LL_ADC_CLOCK_ASYNC_DIV10   (ADC_CCR_PRESC_2 | ADC_CCR_PRESC_0)                   
-#define LL_ADC_CLOCK_ASYNC_DIV12   (ADC_CCR_PRESC_2 | ADC_CCR_PRESC_1)                   
-#define LL_ADC_CLOCK_ASYNC_DIV16   (ADC_CCR_PRESC_2 | ADC_CCR_PRESC_1 | ADC_CCR_PRESC_0) 
-#define LL_ADC_CLOCK_ASYNC_DIV32   (ADC_CCR_PRESC_3)                                     
-#define LL_ADC_CLOCK_ASYNC_DIV64   (ADC_CCR_PRESC_3 | ADC_CCR_PRESC_0)                   
-#define LL_ADC_CLOCK_ASYNC_DIV128  (ADC_CCR_PRESC_3 | ADC_CCR_PRESC_1)                   
-#define LL_ADC_CLOCK_ASYNC_DIV256  (ADC_CCR_PRESC_3 | ADC_CCR_PRESC_1 | ADC_CCR_PRESC_0) 
+#define LL_ADC_DMA_REG_REGULAR_DATA       (0x00000000UL)
+#define LL_ADC_DMA_REG_REGULAR_DATA_MULTI    (0x00000001UL)
+#define LL_ADC_CLOCK_ASYNC_DIV1    (0x00000000UL)
+#define LL_ADC_CLOCK_ASYNC_DIV2    (ADC_CCR_PRESC_0)
+#define LL_ADC_CLOCK_ASYNC_DIV4    (ADC_CCR_PRESC_1)
+#define LL_ADC_CLOCK_ASYNC_DIV6    (ADC_CCR_PRESC_1 | ADC_CCR_PRESC_0)
+#define LL_ADC_CLOCK_ASYNC_DIV8    (ADC_CCR_PRESC_2)
+#define LL_ADC_CLOCK_ASYNC_DIV10   (ADC_CCR_PRESC_2 | ADC_CCR_PRESC_0)
+#define LL_ADC_CLOCK_ASYNC_DIV12   (ADC_CCR_PRESC_2 | ADC_CCR_PRESC_1)
+#define LL_ADC_CLOCK_ASYNC_DIV16   (ADC_CCR_PRESC_2 | ADC_CCR_PRESC_1 | ADC_CCR_PRESC_0)
+#define LL_ADC_CLOCK_ASYNC_DIV32   (ADC_CCR_PRESC_3)
+#define LL_ADC_CLOCK_ASYNC_DIV64   (ADC_CCR_PRESC_3 | ADC_CCR_PRESC_0)
+#define LL_ADC_CLOCK_ASYNC_DIV128  (ADC_CCR_PRESC_3 | ADC_CCR_PRESC_1)
+#define LL_ADC_CLOCK_ASYNC_DIV256  (ADC_CCR_PRESC_3 | ADC_CCR_PRESC_1 | ADC_CCR_PRESC_0)
 #define LL_ADC_PATH_INTERNAL_NONE        (0x00000000UL)
 #define LL_ADC_PATH_INTERNAL_VREFINT     (ADC_CCR_VREFEN)
-#define LL_ADC_PATH_INTERNAL_TEMPSENSOR  (ADC_CCR_VSENSEEN) 
+#define LL_ADC_PATH_INTERNAL_TEMPSENSOR  (ADC_CCR_VSENSEEN)
 #define LL_ADC_PATH_INTERNAL_VBAT        (ADC_CCR_VBATEN)
 #define LL_ADC_PATH_INTERNAL_VCORE       (LL_ADC_PATH_INTERNAL_VREFINT \
-                                          | LL_ADC_CHANNEL_DIFFERENCIATION_VREFINT_VCORE)  
-#define LL_ADC_CALIB_OFFSET          (ADC_CALIB_FACTOR_OFFSET_REGOFFSET)   
+                                          | LL_ADC_CHANNEL_DIFFERENCIATION_VREFINT_VCORE)
+#define LL_ADC_CALIB_OFFSET          (ADC_CALIB_FACTOR_OFFSET_REGOFFSET)
 #define LL_ADC_CALIB_LINEARITY       (ADC_CALIB_FACTOR_LINEARITY_REGOFFSET)
 #define LL_ADC_CALIB_OFFSET_LINEARITY (ADC_CALIB_FACTOR_LINEARITY_REGOFFSET \
-                                       | ADC_CR_ADCALLIN)                  
+                                       | ADC_CR_ADCALLIN)
 #define LL_ADC_CALIB_OFFSET_INDEX        (0x00000000UL)
 #define LL_ADC_CALIB_LINEARITY_INDEX1    (ADC_CR_CALINDEX0)
 #define LL_ADC_CALIB_LINEARITY_INDEX2    (ADC_CR_CALINDEX1)
@@ -103,13 +103,13 @@
 #define LL_ADC_RESOLUTION_10B       (ADC_CFGR1_RES_1                  )
 #define LL_ADC_RESOLUTION_8B        (ADC_CFGR1_RES_1 | ADC_CFGR1_RES_0)
 #define LL_ADC_RESOLUTION_6B        (ADC_CFGR1_RES_1 \
-                                     << ADC_RESOLUTION_ADC4_PROCESSING) 
+                                     << ADC_RESOLUTION_ADC4_PROCESSING)
 #define LL_ADC_RESOLUTION_12B_ADC4  LL_ADC_RESOLUTION_12B
 #define LL_ADC_RESOLUTION_10B_ADC4  LL_ADC_RESOLUTION_10B
 #define LL_ADC_RESOLUTION_8B_ADC4   LL_ADC_RESOLUTION_8B
 #define LL_ADC_RESOLUTION_6B_ADC4   LL_ADC_RESOLUTION_6B
-#define LL_ADC_DATA_ALIGN_RIGHT            (0x00000000UL)         
-#define LL_ADC_DATA_ALIGN_LEFT             (ADC4_CFGR1_ALIGN)      
+#define LL_ADC_DATA_ALIGN_RIGHT            (0x00000000UL)
+#define LL_ADC_DATA_ALIGN_LEFT             (ADC4_CFGR1_ALIGN)
 #define LL_ADC_LEFT_BIT_SHIFT_NONE  (0x00000000UL)
 #define LL_ADC_LEFT_BIT_SHIFT_1     (ADC_CFGR2_LSHIFT_0)
 #define LL_ADC_LEFT_BIT_SHIFT_2     (ADC_CFGR2_LSHIFT_1)
@@ -329,7 +329,7 @@
 #define LL_ADC_INJ_TRIG_INDEPENDENT        (0x00000000UL)
 #define LL_ADC_INJ_TRIG_FROM_GRP_REGULAR   (ADC_CFGR1_JAUTO)
 #define LL_ADC_REG_SAMPLING_MODE_NORMAL             (0x00000000UL)
-#define LL_ADC_REG_SAMPLING_MODE_BULB               (ADC_CFGR2_BULB)   
+#define LL_ADC_REG_SAMPLING_MODE_BULB               (ADC_CFGR2_BULB)
 #define LL_ADC_REG_SAMPLING_MODE_TRIGGER_CONTROLED  (ADC_CFGR2_SMPTRIG)
 #define LL_ADC_INJ_SEQ_SCAN_DISABLE        (0x00000000UL)
 #define LL_ADC_INJ_SEQ_SCAN_ENABLE_2RANKS  (                ADC_JSQR_JL_0)
@@ -614,23 +614,23 @@
 #define LL_ADC_ReadReg(__INSTANCE__, __REG__) READ_REG(__INSTANCE__->__REG__)
 inline void LL_ADC_DisableDeepPowerDown(ADC_TypeDef *ADCx)
 {
-  
-  
-  
+
+
+
   CLEAR_BIT(ADCx->CR, (ADC_CR_DEEPPWD | ADC_CR_BITS_PROPERTY_RS));
 }
 inline void LL_ADC_EnableInternalRegulator(ADC_TypeDef *ADCx)
 {
-  
-  
-  
+
+
+
   MODIFY_REG(ADCx->CR, ADC_CR_BITS_PROPERTY_RS, ADC_CR_ADVREGEN);
 }
 inline void LL_ADC_StartCalibration(ADC_TypeDef *ADCx, uint32_t CalibrationMode)
 {
-  
-  
-  
+
+
+
   if (ADCx != ADC4)
   {
     MODIFY_REG(ADCx->CR,
@@ -644,32 +644,32 @@ inline void LL_ADC_StartCalibration(ADC_TypeDef *ADCx, uint32_t CalibrationMode)
 }
 inline void LL_ADC_Enable(ADC_TypeDef *ADCx)
 {
-  
-  
-  
+
+
+
   MODIFY_REG(ADCx->CR, ADC_CR_BITS_PROPERTY_RS, ADC_CR_ADEN);
 }
 inline void LL_ADC_REG_StartConversion(ADC_TypeDef *ADCx)
 {
-  
-  
-  
+
+
+
   MODIFY_REG(ADCx->CR, ADC_CR_BITS_PROPERTY_RS, ADC_CR_ADSTART);
 }
 inline void LL_ADC_REG_StopConversion(ADC_TypeDef *ADCx)
 {
-  
-  
-  
+
+
+
   MODIFY_REG(ADCx->CR,
              ADC_CR_BITS_PROPERTY_RS,
              ADC_CR_ADSTP);
 }
 inline void LL_ADC_Disable(ADC_TypeDef *ADCx)
 {
-  
-  
-  
+
+
+
   MODIFY_REG(ADCx->CR, ADC_CR_BITS_PROPERTY_RS, ADC_CR_ADDIS);
 }
 inline uint32_t LL_ADC_REG_ReadConversionData32(const ADC_TypeDef *ADCx)

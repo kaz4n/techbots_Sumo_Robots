@@ -43,4 +43,5 @@ for kind,names in selections.items():
         functions.append(text[start:end].replace('__STATIC_INLINE','inline'))
     (out/f'stm32u5xx_ll_{kind}.h').write_text(intro+'#include "native_cmsis.h"\n'+'\n'.join(defines)+'\n'+'\n'.join(functions)+'\n')
 print(len(macros),'installed bit constants; exact selected native LL bodies and layouts')
-
+for path in [out/'installed_bits.h', out/'installed_types.h', *[out/f'stm32u5xx_ll_{kind}.h' for kind in selections]]:
+    path.write_bytes(('\n'.join(line.rstrip(' \t') for line in path.read_text().splitlines()).rstrip('\n')+'\n').encode('utf-8'))

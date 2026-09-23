@@ -156,4 +156,3 @@ extern "C" void __wrap_free(void* p){if(fixture::hw.count_allocations)++fixture:
 void* operator new(std::size_t n){return __wrap_malloc(n);}void* operator new[](std::size_t n){return __wrap_malloc(n);}
 void operator delete(void* p) noexcept{__wrap_free(p);}void operator delete[](void* p) noexcept{__wrap_free(p);}
 void operator delete(void* p,std::size_t) noexcept{__wrap_free(p);}void operator delete[](void* p,std::size_t) noexcept{__wrap_free(p);}
-

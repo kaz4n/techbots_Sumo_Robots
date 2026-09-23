@@ -1,0 +1,28 @@
+[
+  {
+    "argv": [
+      "git",
+      "diff",
+      "--check",
+      "--",
+      "tests/native_power",
+      "tests/tooling/test_power_unoq.py"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "argv": [
+      "git",
+      "diff",
+      "--name-only",
+      "--",
+      "tests/native_power",
+      "tests/tooling/test_power_unoq.py"
+    ],
+    "returncode": 0,
+    "stdout": "tests/native_power/cases.cc\ntests/native_power/extract_bits.py\ntests/native_power/native_fixture.cc\ntests/native_power/ownership_cases.cc\ntests/native_power/stm32u5xx_ll_adc.h\n",
+    "stderr": ""
+  }
+]

@@ -42,7 +42,7 @@ TEST_CASE("B5 every finite live clock supply and peer guard excludes admission")
   CAPTURE(reinterpret_cast<std::uintptr_t>(c.reg));CAPTURE(c.bits);
   CHECK(b.status==Status::OWNERSHIP);CHECK_FALSE(b.ready);CHECK(b.shutdown==Shutdown::NOT_ATTEMPTED);
   CHECK(fixture::hw.writes==0);CHECK(fixture::hw.clock_on==0);
- 
+
 });}
 
 });}
@@ -50,7 +50,7 @@ TEST_CASE("B5 each shared owner clock and supply guard is repeated at runtime") 
  fixture::reset();const auto list=changes();
  for(const auto& c:list){fixture::isolated([&] {fixture::reset();power::Reader r;REQUIRE(r.begin().ready);apply(c);
   fixture::clearTrace();auto s=r.read();CAPTURE(reinterpret_cast<std::uintptr_t>(c.reg));CAPTURE(c.bits);badSample(s);
- 
+
 });}
 
 });}
@@ -70,14 +70,14 @@ TEST_CASE("B5 each owned ADC mode field and command state is validated before a 
  };
  for(const auto& c:list){fixture::isolated([&] {fixture::reset();power::Reader r;REQUIRE(r.begin().ready);apply(c);
   fixture::clearTrace();auto s=r.read();CAPTURE(reinterpret_cast<std::uintptr_t>(c.reg));CAPTURE(c.bits);badSample(s);
- 
+
 });}
 
 });}
 TEST_CASE("B5 ready peer devices ADC state and valid pad mask are mandatory") {fixture::isolated([&] {
  for(unsigned i=1;i<5;++i){fixture::isolated([&] {fixture::reset();fixture::hw.ready[i]=false;power::Reader r;
   CHECK(r.begin().status==Status::OWNERSHIP);CHECK(fixture::hw.writes==0);CHECK(fixture::hw.clock_on==0);
- 
+
 });}
  fixture::reset();fixture_devices[0].state->init_res=1;power::Reader r;
  CHECK(r.begin().status==Status::OWNERSHIP);CHECK(fixture::hw.writes==0);
@@ -89,7 +89,7 @@ TEST_CASE("B5 failed clock enable status and readback never touch ADC controls")
  for(unsigned k=0;k<2;++k){fixture::isolated([&] {fixture::reset();if(k==0)fixture::hw.clock_status=-5;else fixture::hw.enable_clock=false;
   power::Reader r;auto b=r.begin();CHECK_FALSE(b.ready);CHECK(b.shutdown==Shutdown::NOT_ATTEMPTED);
   CHECK(fixture::hw.writes==0);CHECK(fixture::hw.clock_on==1);CHECK_FALSE(r.read().valid);
- 
+
 });}
 }
 TEST_CASE("B5 dormant disabled fraction and DAC channel2 preserve valid stock ownership") {fixture::isolated([&] {

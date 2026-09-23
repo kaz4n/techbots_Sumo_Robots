@@ -85,7 +85,7 @@ TEST_CASE("B5 invalid 32-bit raw values never narrow to apparently healthy data"
     for(auto raw:{16384U,65536U,0xffffffffU}) {fixture::isolated([&] {
         fixture::reset();power::Reader r;ready(r);fixture::hw.sample=raw;
         auto s=r.read();invalid(s,Status::INVALID_DATA);CHECK(fixture::hw.data_reads==1);noMoreIo(r,s.shutdown);
-    
+
 });}
 }
 TEST_CASE("B5 second live owner cannot gain admission") {
@@ -121,13 +121,13 @@ TEST_CASE("B5 admission excludes each documented shared owner and incompatible s
         fixture::reset();x.word->value|=x.bit;power::Reader r;
         auto b=r.begin();CAPTURE(reinterpret_cast<std::uintptr_t>(x.word));CAPTURE(x.bit);
         CHECK(b.status==Status::OWNERSHIP);CHECK(b.shutdown==Shutdown::NOT_ATTEMPTED);CHECK(fixture::hw.writes==0);
-    
+
 });}
     for(unsigned irq=0;irq<5;++irq) {fixture::isolated([&] {
         fixture::reset();if(irq<2)fixture::hw.irq_pending[irq]=true;
         else if(irq<4)fixture::hw.irq_active[irq-2]=true;else fixture::hw.irq_enable[0]=true;
         power::Reader r;auto b=r.begin();CHECK(b.status==Status::OWNERSHIP);CHECK(fixture::hw.writes==0);
-    
+
 });}
     for(unsigned k=0;k<4;++k) {fixture::isolated([&] {
         fixture::reset();if(k==0)PWR->SVMCR.value&=~PWR_SVMCR_ASV;
@@ -135,7 +135,7 @@ TEST_CASE("B5 admission excludes each documented shared owner and incompatible s
         if(k==2)GPIOA->MODER.value&=~(3U<<8);
         if(k==3)RCC->AHB2ENR1.value&=~RCC_AHB2ENR1_GPIOAEN;
         power::Reader r;CHECK(r.begin().status==Status::OWNERSHIP);CHECK(fixture::hw.writes==0);
-    
+
 });}
 
 });}
@@ -146,7 +146,7 @@ TEST_CASE("B5 ADC nonreset register admission never steals or rewrites an owner"
     for(auto* reg:words) {fixture::isolated([&] {
         fixture::reset();reg->value=1U;power::Reader r;auto b=r.begin();CAPTURE(reinterpret_cast<std::uintptr_t>(reg));
         CHECK(b.status==Status::OWNERSHIP);CHECK(b.shutdown==Shutdown::NOT_ATTEMPTED);CHECK(fixture::hw.writes==0);
-    
+
 });}
 
 });}
@@ -159,7 +159,7 @@ TEST_CASE("B5 regulator calibration enable deadlines and frozen clocks fail clos
         power::Reader r;auto b=r.begin();CAPTURE(stage);CAPTURE(frozen);
         CHECK_FALSE(b.ready);CHECK(b.status==(frozen?Status::POLL_LIMIT:stage==0?Status::REGULATOR_TIMEOUT:stage==1?Status::CALIBRATION_TIMEOUT:Status::ENABLE_TIMEOUT));
         CHECK(fixture::hw.accesses<10000000U);CHECK(fixture::hw.command_errors==0);noMoreIo(r,b.shutdown);
-    
+
 });}
 }
 TEST_CASE("B5 runtime needs both fresh completion flags and rejects overrun") {
@@ -167,14 +167,14 @@ TEST_CASE("B5 runtime needs both fresh completion flags and rejects overrun") {
         fixture::reset();power::Reader r;ready(r);fixture::hw.completion_flags=flags;
         auto s=r.read();invalid(s,(flags&ADC_ISR_OVR)?Status::OVERRUN:Status::CONVERSION_TIMEOUT);
         CHECK(fixture::hw.data_reads==0);CHECK(fixture::hw.command_errors==0);noMoreIo(r,s.shutdown);
-    
+
 });}
 }
 TEST_CASE("B5 single runtime deadline includes data and EOS cleanup equality") {
     for(auto point:{fixture::Point::START,fixture::Point::DATA,fixture::Point::EOS_CLEAR}) {fixture::isolated([&] {
         fixture::reset();power::Reader r;ready(r);origin=fixture::hw.now;late_point=point;fixture::hw.hook=becomeLate;
         auto s=r.read();fixture::hw.hook=nullptr;invalid(s,Status::CONVERSION_TIMEOUT);noMoreIo(r,s.shutdown);
-    
+
 });}
 }
 TEST_CASE("B5 ownership lost at setup conversion or cleanup forbids blind shutdown writes") {
@@ -185,7 +185,7 @@ TEST_CASE("B5 ownership lost at setup conversion or cleanup forbids blind shutdo
             fixture::hw.hook=loseOwnership;auto b=r.begin();CHECK(b.status==Status::OWNERSHIP);CHECK(b.shutdown==Shutdown::UNCONFIRMED);
         } else {ready(r);fixture::hw.hook=loseOwnership;auto s=r.read();invalid(s,Status::OWNERSHIP);CHECK(s.shutdown==Shutdown::UNCONFIRMED);}
         fixture::hw.hook=nullptr;CHECK(injected);CHECK(fixture::hw.writes==writes_at_loss);noMoreIo(r,Shutdown::UNCONFIRMED);
-    
+
 });}
 }
 TEST_CASE("B5 abort and disable acknowledgements control shutdown result") {
@@ -196,7 +196,7 @@ TEST_CASE("B5 abort and disable acknowledgements control shutdown result") {
         auto s=r.read();invalid(s,Status::CONVERSION_TIMEOUT);CHECK(s.shutdown==(kind?Shutdown::UNCONFIRMED:Shutdown::DISABLED));
         CHECK(fixture::hw.stop_count==1);CHECK(fixture::hw.disable_count==(kind==1?0U:1U));
         CHECK(fixture::hw.command_errors==0);CHECK(fixture::hw.now-s.started_us<250U);noMoreIo(r,s.shutdown);
-    
+
 });}
 }
 TEST_CASE("B5 frozen runtime clock obeys finite poll guard and never reuses last voltage") {fixture::isolated([&] {

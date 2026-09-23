@@ -1185,3 +1185,12 @@ active caller time/silence and cancels active native work on semantic abort.
 Consequence: additive native/Acquirer implementation, independent tests and fresh
 review required before actual app scheduling. No config/old B16/locked change,
 rate relaxation, physical clock/stretch/WCET, gate or upload/run authority.
+
+D094 implementation clarification,2026-09-23: preserve D079's8192nd allowed
+observation and reject the next attempted pass; elapsed600us equality still
+rejects. IDLE/unknown progress cannot certify native termination, so RESPONSE
+cancels once regardless of transfer status. Only declared COMPLETE/FAULT keeps
+nonOK TRANSPORT precedence over remaining pulse/shape/time checks. Independent
+review found the missing state check; production was corrected. Two contradictory
+new authored expectations were reconciled with additive unknown+NACK coverage;
+no established/locked test changed. See P2_imu_resume_failures.md and contract.

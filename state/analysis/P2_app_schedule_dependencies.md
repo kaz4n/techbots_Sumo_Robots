@@ -164,3 +164,47 @@ record that result rather than silently weakening deadlines. A measured atomic
 schedule could be another future option, but no suitable combined hardware timing
 evidence exists in the inspected artifacts. This note authorizes no hardware
 run and proves neither schedulability, physical color separation nor full WCET.
+
+## D094 integration map, 2026-09-23
+
+The earlier paragraphs describe the pre-D094 boundary. D094 now supplies separate
+Bus/Acquirer runtime progress; its validation is recorded in
+P2_imu_resume_validation.md. It does not supply an application scheduler or a
+measured execution-time bound. A separate read-only explorer inspected the public
+integration surfaces and existing app while the D094 reviewer checked that change.
+
+The app remains inert (`src/app/app.ino:7`): one default BOOT step and empty loop,
+no HAL owner or setup/runtime service. Replace that initial default step only as
+part of a reviewed transaction owner using D092 explicit timing from its first tick.
+
+The next contract must assign one fixed owner to the existing Reader/InputOwner,
+Acquirer/Estimator, QTR, opponent inputs, native MotorGate and AttemptRecorder.
+Reuse their public boundaries; do not introduce another bus router or strategy.
+Five concrete obligations remain before implementation:
+
+1. Truthful setup and readiness, with Gate inhibition first. Power confirmation,
+   IMU mounting, pad/UART ownership and physical button windows cannot be inferred
+   from successful compilation or substituted by a global ready flag.
+2. Sub-tick admission: QTR charge release must finish in [11,100)us, and discharge
+   needs useful observed intervals. IMU advances share600us including ADC/QTR work.
+   Bounded calls alone do not prove that all reservations fit below800us.
+3. Pending evidence: `imu_adapter.cpp:72` copies source metadata without aging it.
+   Robot rejects available heading older than2000us (`fsm_imu.cpp:61`). Define
+   bounded retention and truthful unavailability after expiry; never send PENDING
+   to Estimator or invent NO_NEW/source times. Apply accepted Robot bias only to
+   future estimator increments, as already required by D084.
+4. Complete receipts: every acquisition, cancellation/cleanup, Robot/Gate call,
+   recorder action and admitted output service belongs inside a real S..C epoch.
+   Define1kHz release/overrun handling and deferred final STOP receipt without
+   duplicate Gate application or fabricated catch-up sensor observations.
+5. Cancellation and output priority: specify active IMU/QTR termination when
+   control stops or a deadline expires; budget Gate's possible second settle,
+   ADC shutdown and IMU cleanup. Display/log jobs cannot bypass control deadlines
+   or erase/reset recorder evidence before the final receipt is consumed.
+
+Public reuse points: `hal/power_inputs.h`, `hal/imu_acquisition.h`,
+`hal/imu_heading.h`, `hal/imu_adapter.h`, `hal/line_qtr.h`,
+`hal/line_qtr_adapter.h`, `hal/opp_sensors.h`, `hal/motor_port_unoq.h`,
+`hal/motors.h`, `hal/recorder.h`; timing/previous-application contracts in
+`core/fsm.h`. Optional matrix/UART/dump interfaces already exist. No app policy,
+new timing allowance, physical acceptance or next phase is approved by this map.

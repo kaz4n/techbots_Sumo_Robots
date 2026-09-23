@@ -53,6 +53,10 @@ private:
     Sample fail(SampleFault fault, std::uint32_t observed_us);
     bool acceptTime(std::uint32_t now_us);
     bool acceptAcquisition(const BusAcquisition& acquisition, std::uint32_t call_us);
+    Sample publishAcquisition(const BusAcquisition& acquisition);
+    SampleProgress finishRead();
+    SampleProgress abortRead(SampleFault fault);
+    bool acceptProgress(const BusProgress& progress, std::uint32_t call_us);
     Bus bus_{};
     Setup setup_{bus_};
     Sample result_{};
@@ -64,5 +68,9 @@ private:
     std::uint32_t sequence_ = 0U;
     bool async_active_ = false;
     SampleProgress async_report_{};
+    std::uint32_t async_call_us_ = 0U;
+    std::uint32_t async_started_us_ = 0U;
+    std::uint32_t async_observed_us_ = 0U;
+    std::uint32_t async_polls_ = 0U;
 };
 } // namespace imu

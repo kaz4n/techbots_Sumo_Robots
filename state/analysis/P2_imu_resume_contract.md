@@ -63,7 +63,9 @@ one existing bounded50us/8192-pass local-disable routine on terminal failure.
 
 Persist one Operation start/observed/polls/error_flags and private staging/index.
 The original elapsed<600us and cumulative8192-pass limits span all phases and
-caller interleaving; equality rejects. Never renew either at resume, phase change,
+caller interleaving. Elapsed equality rejects; the8192nd observation is allowed,
+but a request for another pass when the count is already8192 rejects, preserving
+D079's existing boundary. Never renew either at resume, phase change,
 first STOP, second transaction, pending return or repeated API call. Clock wraps
 retain existing unsigned deadline semantics. Frozen-clock progress still exhausts
 the shared pass budget. No more active writes after a guard rejects admission.
@@ -152,9 +154,13 @@ phase/pulse/payload/count/time progress fails RESPONSE (time reversal TIME_ORDER
 and cancels once. The first begin observation also passes D081 silence at its
 actual native observation; a delayed begin cannot push the silence anchor forward.
 
-Terminal native progress requires completed=true/started=false. A nonOK transfer
-status selects TRANSPORT before shape/chronology validation, retaining diagnostics;
-do not repeat native cleanup. Otherwise only COMPLETE with NO_NEW/OBSERVATION is
+Only COMPLETE/FAULT states can declare native termination. IDLE or an unknown
+state instead fails RESPONSE and cancels once regardless of transfer status; such
+a malformed envelope cannot establish that native cleanup has already happened.
+Within a declared terminal state, a nonOK transfer status selects TRANSPORT before
+remaining pulse/shape/chronology validation, retaining diagnostics; do not repeat
+native cleanup. Successful terminal progress requires completed=true/started=false.
+Otherwise only COMPLETE with NO_NEW/OBSERVATION is
 accepted. Require fixed original progress start, increasing bounded polls, final
 observed_us exactly transfer.completed_us, and all D081 shape/phase/interval checks.
 Validate source start against ORIGINAL caller begin, final time against all active

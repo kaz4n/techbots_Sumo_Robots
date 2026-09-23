@@ -1,0 +1,74 @@
+-- GLOB mismatch!
+-- Configuring done (0.9s)
+-- Generating done (1.2s)
+-- Build files have been written to: /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/build/host-sanitize
+[ 23%] Built target motor_gate_enabled_tests
+[ 23%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/support/imu_acquisition_fake.cpp.o
+[ 24%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/support/imu_bus_fake.cpp.o
+[ 25%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/support/imu_resume_fake.cpp.o
+[ 25%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_imu_acquisition.cpp.o
+[ 26%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_imu_adapter.cpp.o
+[ 27%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_imu_heading.cpp.o
+[ 27%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_imu_integration.cpp.o
+[ 28%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_imu_resume.cpp.o
+[ 29%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_imu_setup.cpp.o
+[ 30%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/imu.cpp.o
+[ 30%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/imu_acquisition.cpp.o
+[ 31%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/imu_acquisition_async.cpp.o
+[ 32%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/imu_heading.cpp.o
+[ 32%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/imu_adapter.cpp.o
+[ 33%] Linking CXX executable sumox26_tests
+[100%] Built target sumox26_tests
+Internal ctest changing into directory: /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/build/host-sanitize
+Test project /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/build/host-sanitize
+    Start 1: sumox26_host
+1/2 Test #1: sumox26_host .....................***Failed   24.20 sec
+[doctest] doctest version is "2.4.12"
+[doctest] run with "--help" for options
+===============================================================================
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_imu_resume.cpp:226:
+TEST CASE:  B3 D094 malformed initial progress fails before any sample is accepted
+
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_imu_resume.cpp:36: ERROR: CHECK( p.sample.fault == why ) is NOT correct!
+  values: CHECK( 4 == 5 )
+  logged: mutation := 0
+
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_imu_resume.cpp:248: ERROR: CHECK( fake::script.cancels == 1U ) is NOT correct!
+  values: CHECK( 0 == 1 )
+  logged: mutation := 0
+
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_imu_resume.cpp:36: ERROR: CHECK( p.sample.fault == why ) is NOT correct!
+  values: CHECK( 4 == 5 )
+  logged: mutation := 1
+
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_imu_resume.cpp:248: ERROR: CHECK( fake::script.cancels == 1U ) is NOT correct!
+  values: CHECK( 0 == 1 )
+  logged: mutation := 1
+
+===============================================================================
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_imu_resume.cpp:252:
+TEST CASE:  B3 D094 all pending payload fields and progress identities remain strict
+
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_imu_resume.cpp:36: ERROR: CHECK( p.sample.fault == why ) is NOT correct!
+  values: CHECK( 4 == 5 )
+  logged: mutation := 24
+
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_imu_resume.cpp:283: ERROR: CHECK( fake::script.cancels == 1U ) is NOT correct!
+  values: CHECK( 0 == 1 )
+  logged: mutation := 24
+
+===============================================================================
+[doctest] test cases:     1348 |     1346 passed | 2 failed | 0 skipped
+[doctest] assertions: 24500905 | 24500899 passed | 6 failed |
+[doctest] Status: FAILURE!
+
+    Start 2: motor_gate_enabled_host
+2/2 Test #2: motor_gate_enabled_host ..........   Passed    5.04 sec
+
+50% tests passed, 1 tests failed out of 2
+
+Total Test time (real) =  29.27 sec
+
+The following tests FAILED:
+	  1 - sumox26_host (Failed)
+Errors while running CTest

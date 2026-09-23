@@ -419,7 +419,13 @@ BusStatus Bus::finish(Operation& op) {
         BusStatus::TIMEOUT : BusStatus::OK;
 }
 
-BusStatus Bus::admitRequest(Operation& op) {
+BusStatus Bus::admitRequest(Operation& op, bool bounded_advance) {
+    // An async admission can fail before observe; it must still spend a pass.
+    if (bounded_advance) {
+        if (op.polls >= config::IMU_I2C_MAX_POLLS) return BusStatus::POLL_LIMIT;
+        ++op.polls;
+        op.observed_us = clockUs();
+    }
     if (!ownershipValid()) return BusStatus::OWNERSHIP;
     const auto flags = static_cast<std::uint32_t>(I2C4_NS->ISR);
     op.error_flags |= flags & (ERRORS | EVENTS | I2C_ISR_DIR | I2C_ISR_ADDCODE);
@@ -453,6 +459,7 @@ BusTransfer Bus::transfer(Operation& op, Register reg, std::uint8_t value,
 }
 
 BusTransfer Bus::request(Register reg, std::uint8_t value, std::uint8_t count, bool writing) {
+    if (async_active_) return cancelActiveMotion().acquisition.transfer;
     BusTransfer result{};
     if (!attempted_) return result;
     if (faulted_ || !ready_) { result.status = BusStatus::FAULT_LATCHED; result.cleanup = cleanup_; return result; }
@@ -462,6 +469,7 @@ BusTransfer Bus::request(Register reg, std::uint8_t value, std::uint8_t count, b
 }
 
 BusAcquisition Bus::acquireMotion() {
+    if (async_active_) return cancelActiveMotion().acquisition;
     BusAcquisition result{};
     if (!attempted_) return result;
     if (faulted_ || !ready_) {
@@ -512,5 +520,42 @@ BusTransfer Bus::writeRegister(Register reg, std::uint8_t value) {
 }
 
 BusTransfer Bus::readMotion() { return request(Register::INTERRUPT_STATUS, 0U, 15U, false); }
+
+BusProgress Bus::endMotion(BusStatus status) {
+    async_active_ = false;
+    if (status != BusStatus::OK) async_acquisition_.transfer = failed(status, async_operation_);
+    async_report_.state = status == BusStatus::OK ? AsyncState::COMPLETE : AsyncState::FAULT;
+    async_report_.started = false;
+    async_report_.completed = false;
+    async_report_.started_us = async_operation_.started_us;
+    async_report_.observed_us = async_operation_.observed_us;
+    async_report_.polls = async_operation_.polls;
+    async_report_.acquisition = async_acquisition_;
+    auto result = async_report_;
+    result.completed = true;
+    return result;
+}
+
+BusProgress Bus::cancelActiveMotion() {
+    // Keep this helper here so legal legacy builds need no async-only symbols.
+    async_operation_.observed_us = clockUs();
+    std::uint32_t allowed = 0U;
+    switch (async_phase_) {
+    case MotionPhase::POINTER: allowed = I2C_ISR_TXIS; break;
+    case MotionPhase::RESTART: allowed = I2C_ISR_TC; break;
+    case MotionPhase::RECEIVE:
+        allowed = I2C_ISR_RXNE | (async_index_ + 1U == async_count_ ? I2C_ISR_STOPF : 0U);
+        break;
+    case MotionPhase::STOP: allowed = I2C_ISR_STOPF; break;
+    case MotionPhase::ADMIT: case MotionPhase::FINISH: case MotionPhase::MOTION_START: break;
+    }
+    if (owned_ && ownershipValid()) {
+        const auto flags = static_cast<std::uint32_t>(I2C4_NS->ISR);
+        (void)checkFlags(async_operation_, allowed, flags);
+        if (async_phase_ == MotionPhase::RECEIVE && (flags & I2C_ISR_STOPF) != 0U &&
+            (flags & I2C_ISR_RXNE) == 0U) async_operation_.error_flags |= I2C_ISR_STOPF;
+    }
+    return endMotion(BusStatus::CANCELLED);
+}
 } // namespace imu
 #endif

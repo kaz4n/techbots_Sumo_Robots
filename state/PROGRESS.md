@@ -626,3 +626,22 @@ P2_imu_resume_contract and headers: oneaction/advance, unchanged aggregatebudget
 separatepending/terminal-once, terminalmixedAPIcancel, activeAcquirerchronology.
 No hardwarecommand/config/oldtest/phasegate. Implementation/tests follow.
 | contractcommit=this commit
+
+
+2026-09-23T18:45:59+04:00 | P2 D094 resumable IMU | IMPLEMENTED/HOST-TESTED/TARGET-COMPILED.
+Contracte507c42 plus explicit poll/terminal-state clarifications; actual native
+one-action progress and Acquirer preserve original budgets/source identity.
+One reviewer MAJOR fixed; all old/locked tests/config/core unchanged. Fullnormal
+and ASan/UBSan each1349main/24501424assertions +111Gate/3850460 PASS; independent
+22/17259eachmotor mode,21native/728parent,44legacy/932parent,probe1/13eachmode,
+8refusals and61tools PASS. Freshsame-model review4native/48parent +2Acquirer/156
+PASS/no open findings. Preserved initial failures: P2_imu_resume_failures.md/raw.
+ActualboardLinuxcompile-only b495f085,78exactcurrent/staged/targetfiles/3ELFs;
+330844program247564globals14580nominalremaining/lowRAMwarning;188imports/loader
+unchanged,40native42AEABI exports nonzero,13init-array entries/passive startup
+reviewed. Sevenexisting inertkeys reviewed/refreshed; no newkey/upload/reset/MCU
+operation. Lastknown D0911502e948 image unchanged by this work. F117; validation
+and separate review record limits. SC-AL app schedule, complete800us/loadedRAM,
+physical acceptance and all human gates remain pending. Next fixed app transaction/
+resource contract per appended P2_app_schedule_dependencies.md integration map.
+FullP0-P7 remains ACTIVE; no push/tag/motor authority. | implementation=this commit

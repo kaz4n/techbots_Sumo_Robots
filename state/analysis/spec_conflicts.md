@@ -627,3 +627,13 @@ Required regression evidence: interrupted protocol ordering/STOP, no partial
 publication, aggregate deadline/poll budget including interleaved work, cleanup
 exactly once, source-age/sequence continuity, QTR release service and complete
 D092 timing. Physical color/rate/clock and full800us acceptance remain separate.
+
+
+2026-09-23 D094 follow-up to SC-AL: bounded native Bus/Acquirer runtime implemented,
+independent tests and target compile-only b495f085 pass. Separate pending/source
+envelopes and original600us/8192 budgets retained; exact contract/validation in
+P2_imu_resume_contract.md and P2_imu_resume_validation.md. This closes the enabling
+API dependency only. SC-AL remains OPEN for actual app transaction/resource
+admission, QTR sub-tick intervals, complete fault cleanup accounting and measured
+full800us. P2_app_schedule_dependencies.md appended integration map/next contract.
+No new timing allowance, physical assumption or human gate follows.

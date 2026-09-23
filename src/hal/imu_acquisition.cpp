@@ -119,6 +119,19 @@ bool Acquirer::acceptAcquisition(const BusAcquisition& acquisition, std::uint32_
 }
 
 Sample Acquirer::read(std::uint32_t now_us) {
+    if (async_active_) {
+        // The existing Bus path owns collision cleanup, including legacy-only builds.
+        const auto acquisition = bus_.acquireMotion();
+        result_.bus_status = acquisition.transfer.status;
+        result_.cleanup = acquisition.transfer.cleanup;
+        result_.error_flags = acquisition.transfer.error_flags;
+        fail(SampleFault::TRANSPORT, latest_us_);
+        async_active_ = false;
+        async_report_ = SampleProgress{};
+        async_report_.state = AsyncState::FAULT;
+        async_report_.sample = result_;
+        return result_;
+    }
     if (faulted_) return result_;
     if (!armed_) return Sample{};
     result_ = Sample{};
@@ -129,6 +142,10 @@ Sample Acquirer::read(std::uint32_t now_us) {
     if (!acceptTime(now_us)) return result_;
     const auto acquisition = bus_.acquireMotion();
     if (!acceptAcquisition(acquisition, now_us)) return result_;
+    return publishAcquisition(acquisition);
+}
+
+Sample Acquirer::publishAcquisition(const BusAcquisition& acquisition) {
     if (acquisition.state == AcquisitionState::NO_NEW) {
         result_.state = SampleState::NO_NEW;
         result_.readiness_completed_us = acquisition.readiness_completed_us;

@@ -1,0 +1,26 @@
+{
+  "argv": [
+    "wsl",
+    "--exec",
+    "env",
+    "SUMO_IMU_ACQUISITION_RECEIPT_DIR=state/analysis/P2_imu_resume_raw/acquirer_worker/legacy",
+    "python3",
+    "-m",
+    "unittest",
+    "tests.tooling.test_imu_acquisition.ImuAcquisitionTests.test_b3_d081_actual_acquirer_and_setup_contract",
+    "tests.tooling.test_imu_acquisition.ImuAcquisitionTests.test_b3_d081_actual_probe_startup_and_10000_loops_are_inert_in_both_modes",
+    "tests.tooling.test_imu_acquisition.ImuAcquisitionTests.test_b14_d081_invalid_silence_bounds_fail_before_acquisition",
+    "tests.tooling.test_imu_acquisition.ImuAcquisitionTests.test_b14_d081_smallest_and_largest_forward_silence_bounds",
+    "-v"
+  ],
+  "cwd": "C:\\Users\\narut\\OneDrive\\Desktop\\Project\\techbots_Sumo_Robots",
+  "returncode": 0,
+  "stdout": "[doctest] doctest version is \"2.4.12\"\n[doctest] run with \"--help\" for options\n===============================================================================\n[doctest] test cases:    15 |    15 passed | 0 failed | 0 skipped\n[doctest] assertions: 36491 | 36491 passed | 0 failed |\n[doctest] Status: SUCCESS!\n\n",
+  "stderr": "test_b3_d081_actual_acquirer_and_setup_contract (tests.tooling.test_imu_acquisition.ImuAcquisitionTests.test_b3_d081_actual_acquirer_and_setup_contract) ... ok\ntest_b3_d081_actual_probe_startup_and_10000_loops_are_inert_in_both_modes (tests.tooling.test_imu_acquisition.ImuAcquisitionTests.test_b3_d081_actual_probe_startup_and_10000_loops_are_inert_in_both_modes) ... ok\ntest_b14_d081_invalid_silence_bounds_fail_before_acquisition (tests.tooling.test_imu_acquisition.ImuAcquisitionTests.test_b14_d081_invalid_silence_bounds_fail_before_acquisition) ... ok\ntest_b14_d081_smallest_and_largest_forward_silence_bounds (tests.tooling.test_imu_acquisition.ImuAcquisitionTests.test_b14_d081_smallest_and_largest_forward_silence_bounds) ... ok\n\n----------------------------------------------------------------------\nRan 4 tests in 9.063s\n\nOK\n",
+  "source_sha256": {
+    "src\\hal\\imu_acquisition.h": "b58e2a68115f6d5cf36ebe7bd902d96b4663bc4a39bcfced6a034996da70303e",
+    "src\\hal\\imu_acquisition.cpp": "f56275a592c0ffd7c109ee37a829b2f86c15b17a5380ac7f2947de6ea676d2a4",
+    "src\\hal\\imu_acquisition_async.cpp": "7ed3371268f2ae36253d9a77015290c4ba3ac9a84332dae6fd29812bf7acd4ad"
+  },
+  "capture": "subprocess text=True, newline-normalized"
+}

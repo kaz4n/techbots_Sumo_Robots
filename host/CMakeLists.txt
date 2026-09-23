@@ -18,6 +18,7 @@ add_executable(sumox26_tests ${CORE_SOURCES} ${TEST_SOURCES}
   "${CMAKE_CURRENT_SOURCE_DIR}/../src/hal/motors.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/../src/hal/imu.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/../src/hal/imu_acquisition.cpp"
+  "${CMAKE_CURRENT_SOURCE_DIR}/../src/hal/imu_acquisition_async.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/../src/hal/imu_heading.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/../src/hal/imu_adapter.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/../src/hal/line_qtr_adapter.cpp"

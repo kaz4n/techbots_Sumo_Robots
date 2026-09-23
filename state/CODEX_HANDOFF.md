@@ -1,3 +1,26 @@
+## Active checkpoint - 2026-09-23T21:58:00+04:00
+
+D102 lossless frame/status packing implemented, host-tested, target-compiled
+and independently reviewed. Read analysis/P2_frame_packing_validation.md,
+target_audit.md/raw and reviews/P2_frame_packing_review.md/raw. Actual source
+3bf0da00: MATCH254156B payload; conditional loaderpeak258768B/largest3372B.
+D101-R1 modeled-capacity blocker is closed for this exact source, not actual
+loadedRAM/stack/full800us. All5001frames/4096events/25Hz and serialized bytes
+remain unchanged. Fullnormal/san1434main+178Gate PASS; both actualRuntime
+synthetic dump streams remain byte-identical. Sevenexisting inertkeys reviewed
+and refreshed; no app upload/newkey or hardware grant.
+
+Next eligible P2 task: explicit optional local post-STOP service-only reset,
+retaining sealed recorder/GateSTOPPED/source lifetimes and genuine timing.
+Read P2_service_reset_options.md (proposal only) and remaining_integration report;
+freeze contract/public interfaces then independent tests before implementation.
+No native-owner reconstruction, full-control rearm or fabricated fresh sensors.
+Afterwards calibration-snippet delivery and remaining physical-bench software.
+User explicitly resumed. P0/P1/P2 physical/PINMAP/EXPLAINED/gates and P3-P7 remain
+pending. Last MCU D0911502e948; no upload/reset/MCU/motor/push/tag this checkpoint.
+
+--- Earlier checkpoints below are historical ---
+
 ## Active checkpoint - 2026-09-23T21:46:00+04:00
 
 P2 D101 actual post-Gate Runtime dump attachment implemented and host-tested.

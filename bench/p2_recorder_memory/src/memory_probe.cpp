@@ -33,7 +33,7 @@ recorder::ConsumeStatus probeConsume(recorder::AttemptRecorder& owner,
 __attribute__((noinline))
 void probeQuery(const recorder::AttemptRecorder& owner, std::size_t index,
                 View& view) {
-    view.frame = owner.frames().at(index);
+    view.frame_present = owner.frames().read(index, view.frame);
     view.event = owner.events().at(index);
     view.summary = owner.summary();
     view.frame_count = owner.frames().size();

@@ -1,0 +1,101 @@
+[
+  {
+    "file": "src/hal/recorder_frames.h",
+    "original_assertions": 0,
+    "current_assertions": 0,
+    "missing_after_explicit_API_mapping": [],
+    "added_after_explicit_API_mapping": []
+  },
+  {
+    "file": "src/hal/recorder_frames.cpp",
+    "original_assertions": 0,
+    "current_assertions": 0,
+    "missing_after_explicit_API_mapping": [],
+    "added_after_explicit_API_mapping": []
+  },
+  {
+    "file": "src/hal/recorder_dump.cpp",
+    "original_assertions": 0,
+    "current_assertions": 0,
+    "missing_after_explicit_API_mapping": [],
+    "added_after_explicit_API_mapping": []
+  },
+  {
+    "file": "bench/recorder_inert/src/recorder_bench.cpp",
+    "original_assertions": 0,
+    "current_assertions": 0,
+    "missing_after_explicit_API_mapping": [],
+    "added_after_explicit_API_mapping": []
+  },
+  {
+    "file": "bench/p2_recorder_memory/src/memory_probe.cpp",
+    "original_assertions": 0,
+    "current_assertions": 0,
+    "missing_after_explicit_API_mapping": [],
+    "added_after_explicit_API_mapping": []
+  },
+  {
+    "file": "tests/test_recorder_frames.cpp",
+    "original_assertions": 188,
+    "current_assertions": 188,
+    "missing_after_explicit_API_mapping": [],
+    "added_after_explicit_API_mapping": []
+  },
+  {
+    "file": "tests/test_attempt_recorder.cpp",
+    "original_assertions": 458,
+    "current_assertions": 458,
+    "missing_after_explicit_API_mapping": [],
+    "added_after_explicit_API_mapping": []
+  },
+  {
+    "file": "tests/test_recorder_csv.cpp",
+    "original_assertions": 106,
+    "current_assertions": 109,
+    "missing_after_explicit_API_mapping": [],
+    "added_after_explicit_API_mapping": [
+      "CHECK(retained_present)",
+      "CHECK(std::memcmp(retained.bytes.data,saved_frame.bytes.data,25U)==0)",
+      "CHECK(retained.status==saved_frame.status)"
+    ]
+  },
+  {
+    "file": "tests/test_recorder_rate.cpp",
+    "original_assertions": 53,
+    "current_assertions": 53,
+    "missing_after_explicit_API_mapping": [],
+    "added_after_explicit_API_mapping": []
+  },
+  {
+    "file": "tests/test_tick_timing.cpp",
+    "original_assertions": 97,
+    "current_assertions": 98,
+    "missing_after_explicit_API_mapping": [],
+    "added_after_explicit_API_mapping": [
+      "CHECK(stored_present)"
+    ]
+  },
+  {
+    "file": "tests/fixtures/app_dump/roundtrip.cc",
+    "original_assertions": 0,
+    "current_assertions": 0,
+    "missing_after_explicit_API_mapping": [],
+    "added_after_explicit_API_mapping": []
+  },
+  {
+    "file": "tests/tooling/recorder_bench_cases.cc",
+    "original_assertions": 119,
+    "current_assertions": 120,
+    "missing_after_explicit_API_mapping": [],
+    "added_after_explicit_API_mapping": [
+      "REQUIRE(source.frames().read(index,row))"
+    ]
+  },
+  {
+    "file": "tests/tooling/test_recorder_memory.py",
+    "original_assertions": 0,
+    "current_assertions": 0,
+    "missing_after_explicit_API_mapping": [],
+    "added_after_explicit_API_mapping": []
+  }
+]

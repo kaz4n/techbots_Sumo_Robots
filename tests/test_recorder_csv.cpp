@@ -507,7 +507,8 @@ TEST_CASE("B15 D073 capture retains distinguishable empty recording draining sea
     CHECK(sealed.phase == recorder::AttemptPhase::SEALED);
     CHECK(sealed.frame_count == 1U); CHECK(sealed.frame_clamped == 1U);
     CHECK(sealed.attempt.last_frame_token == 11U); CHECK(sealed.incomplete);
-    const auto* stored = owner.frames().at(0U);
+    recorder::StoredFrame storage;
+    const auto* stored = owner.frames().read(0U, storage) ? &storage : nullptr;
     CHECK(stored != nullptr);
     if (stored) CHECK(std::memcmp(stored->bytes.data, tail.frame.data, 25U) == 0);
     startOwner(owner, 20U); owner.onRobotReset(); checkCapture(owner);
@@ -532,7 +533,9 @@ TEST_CASE("B15 D073 capture copies real frame and event loss counters without cl
     CHECK(summary.frame_clamped == 1667U); CHECK(summary.frame_invalid == 1668U);
     CHECK(summary.event_count == 4096U); CHECK(summary.event_overflow);
     CHECK(summary.event_rejected == 908U); CHECK(summary.incomplete);
-    const auto* first_frame = owner.frames().at(0U); const auto* first_event = owner.events().at(0U);
+    recorder::StoredFrame storage;
+    const auto* first_frame = owner.frames().read(0U, storage) ? &storage : nullptr;
+    const auto* first_event = owner.events().at(0U);
     CHECK(first_frame != nullptr); CHECK(first_event != nullptr);
     if (!first_frame || !first_event) return;
     const auto saved_frame = *first_frame; const auto saved_event = *first_event;
@@ -540,6 +543,12 @@ TEST_CASE("B15 D073 capture copies real frame and event loss counters without cl
     CHECK(std::memcmp(first_frame->bytes.data, saved_frame.bytes.data, 25U) == 0);
     CHECK(first_frame->status == saved_frame.status);
     CHECK(std::memcmp(first_event->data, saved_event.data, 8U) == 0);
+    recorder::StoredFrame retained;
+    const bool retained_present = owner.frames().read(0U, retained);
+    CHECK(retained_present);
+    if (!retained_present) return;
+    CHECK(std::memcmp(retained.bytes.data, saved_frame.bytes.data, 25U) == 0);
+    CHECK(retained.status == saved_frame.status);
 }
 
 TEST_CASE("B15 D073 fixed seed arbitrary frame and event bytes round trip through scalar CSV parsing") {

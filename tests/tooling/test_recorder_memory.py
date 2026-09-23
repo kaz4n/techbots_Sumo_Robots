@@ -429,7 +429,7 @@ const logframe::EventBuffer& AttemptRecorder::events() const { forbidden(); }
 const AttemptSummary& AttemptRecorder::summary() const { forbidden(); }
 bool AttemptRecorder::incomplete() const { forbidden(); }
 std::size_t FrameBuffer::size() const { forbidden(); }
-const StoredFrame* FrameBuffer::at(std::size_t) const { forbidden(); }
+bool FrameBuffer::read(std::size_t, StoredFrame&) const { forbidden(); }
 }
 namespace logframe {
 std::size_t EventBuffer::size() const { forbidden(); }

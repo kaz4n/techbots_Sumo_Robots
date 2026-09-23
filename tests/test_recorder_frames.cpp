@@ -16,6 +16,11 @@ namespace {
 constexpr std::size_t APPROVED_CAPACITY = 5001U;
 using logframe::PackStatus;
 
+const recorder::StoredFrame* readFrame(const recorder::FrameBuffer& buffer,
+                                      std::size_t index, recorder::StoredFrame& storage) {
+    return buffer.read(index, storage) ? &storage : nullptr;
+}
+
 logframe::FrameBytes ordinalBytes(std::uint32_t ordinal) {
     logframe::FrameBytes bytes;
     for (std::size_t index = 0U; index < 25U; ++index) {
@@ -30,7 +35,8 @@ logframe::FrameBytes ordinalBytes(std::uint32_t ordinal) {
 void checkRecord(const recorder::FrameBuffer& buffer, std::size_t index,
                  const logframe::FrameBytes& expected, PackStatus status) {
     CAPTURE(index);
-    const auto* record = buffer.at(index);
+    recorder::StoredFrame storage;
+    const auto* record = readFrame(buffer, index, storage);
     CHECK(record != nullptr);
     if (record == nullptr) return;
     CHECK(std::memcmp(record->bytes.data, expected.data, 25U) == 0);
@@ -39,7 +45,8 @@ void checkRecord(const recorder::FrameBuffer& buffer, std::size_t index,
 
 void checkLiteral(const recorder::FrameBuffer& buffer, std::size_t index,
                   const std::uint8_t (&expected)[26]) {
-    const auto* record = buffer.at(index);
+    recorder::StoredFrame storage;
+    const auto* record = readFrame(buffer, index, storage);
     CHECK(record != nullptr);
     if (record == nullptr) return;
     for (std::size_t byte = 0U; byte < 25U; ++byte) {
@@ -71,7 +78,8 @@ void checkClean(const recorder::FrameBuffer& buffer) {
 std::vector<recorder::StoredFrame> snapshot(const recorder::FrameBuffer& buffer) {
     std::vector<recorder::StoredFrame> records;
     for (std::size_t index = 0U; index < buffer.size(); ++index) {
-        const auto* record = buffer.at(index);
+        recorder::StoredFrame storage;
+        const auto* record = readFrame(buffer, index, storage);
         CHECK(record != nullptr);
         if (record == nullptr) return records;
         records.push_back(*record);
@@ -114,6 +122,7 @@ bool remember(ExpectedFrames& expected, const logframe::FrameBytes& bytes,
 }
 
 void checkCounts(const recorder::FrameBuffer& buffer, const ExpectedFrames& expected) {
+    recorder::StoredFrame storage;
     CHECK(buffer.size() == expected.records.size());
     CHECK(buffer.overwrittenCount() == expected.overwritten);
     CHECK(buffer.rejectedStatusCount() == expected.rejected);
@@ -122,8 +131,8 @@ void checkCounts(const recorder::FrameBuffer& buffer, const ExpectedFrames& expe
     const bool incomplete = expected.overwritten != 0U || expected.rejected != 0U ||
                             expected.clamped != 0U || expected.invalid != 0U;
     CHECK(buffer.incomplete() == incomplete);
-    CHECK(buffer.at(expected.records.size()) == nullptr);
-    CHECK(buffer.at(std::numeric_limits<std::size_t>::max()) == nullptr);
+    CHECK(readFrame(buffer, expected.records.size(), storage) == nullptr);
+    CHECK(readFrame(buffer, std::numeric_limits<std::size_t>::max(), storage) == nullptr);
 }
 
 void checkOracle(const recorder::FrameBuffer& buffer, const ExpectedFrames& expected) {
@@ -148,7 +157,7 @@ logframe::FrameBytes randomBytes(std::uint32_t& seed) {
 }
 } // namespace
 
-TEST_CASE("B15 D069 literal capacity includes 200 second endpoints and 26 byte records") {
+TEST_CASE("B15 D069 literal capacity includes 200 second endpoints and expanded 26 byte records") {
     CHECK(config::LOG_HZ == 25U);
     CHECK(config::LOG_FRAME_WINDOW_MS == 200000U);
     CHECK(config::LOG_FRAME_CAPACITY == APPROVED_CAPACITY);
@@ -163,12 +172,13 @@ TEST_CASE("B15 D069 literal capacity includes 200 second endpoints and 26 byte r
 
 TEST_CASE("B15 D069 empty frame storage has no visible entries or incomplete evidence") {
     recorder::FrameBuffer buffer;
+    recorder::StoredFrame storage;
     CHECK(buffer.size() == 0U);
     checkClean(buffer);
-    CHECK(buffer.at(0U) == nullptr);
-    CHECK(buffer.at(APPROVED_CAPACITY - 1U) == nullptr);
-    CHECK(buffer.at(APPROVED_CAPACITY) == nullptr);
-    CHECK(buffer.at(std::numeric_limits<std::size_t>::max()) == nullptr);
+    CHECK(readFrame(buffer, 0U, storage) == nullptr);
+    CHECK(readFrame(buffer, APPROVED_CAPACITY - 1U, storage) == nullptr);
+    CHECK(readFrame(buffer, APPROVED_CAPACITY, storage) == nullptr);
+    CHECK(readFrame(buffer, std::numeric_limits<std::size_t>::max(), storage) == nullptr);
 }
 
 TEST_CASE("B15 D069 literal OK CLAMPED and INVALID records retain all supplied bytes") {
@@ -226,13 +236,14 @@ TEST_CASE("B15 D069 append owns an exact value copy beyond caller mutation and l
 
 TEST_CASE("B15 D069 capacity minus one exact capacity and plus one evict only oldest") {
     recorder::FrameBuffer buffer;
+    recorder::StoredFrame storage;
     fillFrames(buffer, APPROVED_CAPACITY - 1U);
     CHECK(buffer.size() == 5000U);
-    CHECK(buffer.at(5000U) == nullptr);
+    CHECK(readFrame(buffer, 5000U, storage) == nullptr);
     checkClean(buffer);
     CHECK(buffer.append(ordinalBytes(5000U), PackStatus::OK));
     CHECK(buffer.size() == 5001U);
-    CHECK(buffer.at(5001U) == nullptr);
+    CHECK(readFrame(buffer, 5001U, storage) == nullptr);
     checkClean(buffer);
     checkRecord(buffer, 0U, ordinalBytes(0U), PackStatus::OK);
     checkRecord(buffer, 5000U, ordinalBytes(5000U), PackStatus::OK);
@@ -282,6 +293,7 @@ TEST_CASE("B15 D069 final off cadence sample fits after all preceding 25 Hz samp
 
 TEST_CASE("B15 D069 multiple complete wraps preserve every byte in chronological order") {
     recorder::FrameBuffer buffer;
+    recorder::StoredFrame storage;
     constexpr std::size_t total = APPROVED_CAPACITY * 4U + 37U;
     fillFrames(buffer, total);
     CHECK(buffer.size() == APPROVED_CAPACITY);
@@ -291,8 +303,8 @@ TEST_CASE("B15 D069 multiple complete wraps preserve every byte in chronological
         const auto ordinal = static_cast<std::uint32_t>(total - APPROVED_CAPACITY + index);
         checkRecord(buffer, index, ordinalBytes(ordinal), PackStatus::OK);
     }
-    CHECK(buffer.at(APPROVED_CAPACITY) == nullptr);
-    CHECK(buffer.at(std::numeric_limits<std::size_t>::max()) == nullptr);
+    CHECK(readFrame(buffer, APPROVED_CAPACITY, storage) == nullptr);
+    CHECK(readFrame(buffer, std::numeric_limits<std::size_t>::max(), storage) == nullptr);
 }
 
 TEST_CASE("B15 D069 timestamps remain opaque through equal descending and wrapped values") {
@@ -316,19 +328,21 @@ TEST_CASE("B15 D069 timestamps remain opaque through equal descending and wrappe
 
 TEST_CASE("B15 D069 const lookup rejects size capacity and SIZE_MAX without mutation") {
     recorder::FrameBuffer buffer;
+    recorder::StoredFrame storage;
     fillFrames(buffer, 7U);
     const recorder::FrameBuffer& view = buffer;
     const auto expected = snapshot(buffer);
-    CHECK(view.at(7U) == nullptr);
-    CHECK(view.at(APPROVED_CAPACITY - 1U) == nullptr);
-    CHECK(view.at(APPROVED_CAPACITY) == nullptr);
-    CHECK(view.at(std::numeric_limits<std::size_t>::max()) == nullptr);
+    CHECK(readFrame(view, 7U, storage) == nullptr);
+    CHECK(readFrame(view, APPROVED_CAPACITY - 1U, storage) == nullptr);
+    CHECK(readFrame(view, APPROVED_CAPACITY, storage) == nullptr);
+    CHECK(readFrame(view, std::numeric_limits<std::size_t>::max(), storage) == nullptr);
     checkSnapshot(buffer, expected);
     checkClean(buffer);
 }
 
 TEST_CASE("B15 D069 every unknown status is rejected while empty and only rejection counts") {
     recorder::FrameBuffer buffer;
+    recorder::StoredFrame storage;
     for (unsigned code = 3U; code <= 255U; ++code) {
         CAPTURE(code);
         CHECK_FALSE(buffer.append(ordinalBytes(code), static_cast<PackStatus>(code)));
@@ -338,7 +352,7 @@ TEST_CASE("B15 D069 every unknown status is rejected while empty and only reject
         CHECK(buffer.clampedCount() == 0U);
         CHECK(buffer.invalidCount() == 0U);
         CHECK(buffer.incomplete());
-        CHECK(buffer.at(0U) == nullptr);
+        CHECK(readFrame(buffer, 0U, storage) == nullptr);
     }
     CHECK(buffer.append(ordinalBytes(77U), PackStatus::OK));
     checkRecord(buffer, 0U, ordinalBytes(77U), PackStatus::OK);
@@ -410,11 +424,11 @@ TEST_CASE("B15 D069 rejection after mixed status wraps preserves all other count
 TEST_CASE("B15 D069 a retained partial buffer source can append with an independent status") {
     recorder::FrameBuffer buffer;
     fillFrames(buffer, 8U);
-    const auto* source = buffer.at(3U);
+    const auto* source = buffer.bytesAt(3U);
     CHECK(source != nullptr);
     if (source == nullptr) return;
-    const auto expected = source->bytes;
-    CHECK(buffer.append(source->bytes, PackStatus::INVALID));
+    const auto expected = *source;
+    CHECK(buffer.append(*source, PackStatus::INVALID));
     checkRecord(buffer, 3U, expected, PackStatus::OK);
     checkRecord(buffer, 8U, expected, PackStatus::INVALID);
     CHECK(buffer.size() == 9U);
@@ -425,11 +439,11 @@ TEST_CASE("B15 D069 a retained partial buffer source can append with an independ
 TEST_CASE("B15 D069 full oldest source survives replacement of its own destination") {
     recorder::FrameBuffer buffer;
     fillFrames(buffer, APPROVED_CAPACITY);
-    const auto* source = buffer.at(0U);
+    const auto* source = buffer.bytesAt(0U);
     CHECK(source != nullptr);
     if (source == nullptr) return;
-    const auto expected = source->bytes;
-    CHECK(buffer.append(source->bytes, PackStatus::CLAMPED));
+    const auto expected = *source;
+    CHECK(buffer.append(*source, PackStatus::CLAMPED));
     CHECK(buffer.overwrittenCount() == 1U);
     CHECK(buffer.clampedCount() == 1U);
     checkRecord(buffer, 0U, ordinalBytes(1U), PackStatus::OK);
@@ -440,17 +454,17 @@ TEST_CASE("B15 D069 full oldest source survives replacement of its own destinati
 TEST_CASE("B15 D069 wrapped interior and newest borrowed sources preserve bytes and ordering") {
     recorder::FrameBuffer buffer;
     fillFrames(buffer, APPROVED_CAPACITY + 17U);
-    const auto* middle = buffer.at(2500U);
+    const auto* middle = buffer.bytesAt(2500U);
     CHECK(middle != nullptr);
     if (middle == nullptr) return;
-    const auto expected = middle->bytes;
-    CHECK(buffer.append(middle->bytes, PackStatus::INVALID));
+    const auto expected = *middle;
+    CHECK(buffer.append(*middle, PackStatus::INVALID));
     checkRecord(buffer, 2499U, expected, PackStatus::OK);
     checkRecord(buffer, 5000U, expected, PackStatus::INVALID);
-    const auto* newest = buffer.at(5000U);
+    const auto* newest = buffer.bytesAt(5000U);
     CHECK(newest != nullptr);
     if (newest == nullptr) return;
-    CHECK(buffer.append(newest->bytes, PackStatus::CLAMPED));
+    CHECK(buffer.append(*newest, PackStatus::CLAMPED));
     checkRecord(buffer, 4999U, expected, PackStatus::INVALID);
     checkRecord(buffer, 5000U, expected, PackStatus::CLAMPED);
     checkRecord(buffer, 0U, ordinalBytes(19U), PackStatus::OK);
@@ -463,10 +477,10 @@ TEST_CASE("B15 D069 rejecting a borrowed source leaves its record and order inta
     recorder::FrameBuffer buffer;
     fillFrames(buffer, APPROVED_CAPACITY + 5U);
     const auto expected = snapshot(buffer);
-    const auto* source = buffer.at(0U);
+    const auto* source = buffer.bytesAt(0U);
     CHECK(source != nullptr);
     if (source == nullptr) return;
-    CHECK_FALSE(buffer.append(source->bytes, static_cast<PackStatus>(255U)));
+    CHECK_FALSE(buffer.append(*source, static_cast<PackStatus>(255U)));
     checkSnapshot(buffer, expected);
     CHECK(buffer.overwrittenCount() == 5U);
     CHECK(buffer.rejectedStatusCount() == 1U);
@@ -476,6 +490,7 @@ TEST_CASE("B15 D069 rejecting a borrowed source leaves its record and order inta
 
 TEST_CASE("B15 D069 reset hides every old entry and clears all four lifetime counters") {
     recorder::FrameBuffer buffer;
+    recorder::StoredFrame storage;
     fillFrames(buffer, APPROVED_CAPACITY + 9U);
     CHECK(buffer.append(ordinalBytes(22U), PackStatus::CLAMPED));
     CHECK(buffer.append(ordinalBytes(23U), PackStatus::INVALID));
@@ -484,12 +499,12 @@ TEST_CASE("B15 D069 reset hides every old entry and clears all four lifetime cou
     CHECK(buffer.size() == 0U);
     checkClean(buffer);
     for (std::size_t index = 0U; index <= APPROVED_CAPACITY; ++index) {
-        CHECK(buffer.at(index) == nullptr);
+        CHECK(readFrame(buffer, index, storage) == nullptr);
     }
-    CHECK(buffer.at(std::numeric_limits<std::size_t>::max()) == nullptr);
+    CHECK(readFrame(buffer, std::numeric_limits<std::size_t>::max(), storage) == nullptr);
     CHECK(buffer.append(ordinalBytes(91U), PackStatus::OK));
     checkRecord(buffer, 0U, ordinalBytes(91U), PackStatus::OK);
-    CHECK(buffer.at(1U) == nullptr);
+    CHECK(readFrame(buffer, 1U, storage) == nullptr);
     checkClean(buffer);
 }
 
@@ -599,10 +614,10 @@ TEST_CASE("B15 D069 fixed seed deque oracle checks mixed statuses aliasing wraps
             if (!expected.records.empty() && choice % 11U == 0U) {
                 const std::size_t index = (choice >> 8U) % expected.records.size();
                 bytes = expected.records[index].bytes;
-                const auto* borrowed = buffer.at(index);
+                const auto* borrowed = buffer.bytesAt(index);
                 CHECK(borrowed != nullptr);
                 if (borrowed == nullptr) return;
-                accepted = buffer.append(borrowed->bytes, status);
+                accepted = buffer.append(*borrowed, status);
             } else {
                 accepted = buffer.append(bytes, status);
             }

@@ -15,7 +15,8 @@ logframe::FrameBytes timestamp(std::uint32_t ms) {
     return frame;
 }
 void checkTime(const recorder::FrameBuffer& frames, std::size_t index, std::uint32_t ms) {
-    const auto* frame = frames.at(index);
+    recorder::StoredFrame storage;
+    const auto* frame = frames.read(index, storage) ? &storage : nullptr;
     CHECK(frame != nullptr);
     if (!frame) return;
     CHECK(frame->status == logframe::PackStatus::OK);
@@ -39,7 +40,8 @@ TEST_CASE("D072 B15 adopted rate retains every40ms endpoint0through200000 withou
     CHECK(frames.overwrittenCount() == 0U);
     CHECK_FALSE(frames.incomplete());
     for (std::uint32_t i = 0U; i <= 5000U; ++i) checkTime(frames, i, i * 40U);
-    CHECK(frames.at(5001U) == nullptr);
+    recorder::StoredFrame storage;
+    CHECK((frames.read(5001U, storage) ? &storage : nullptr) == nullptr);
     CHECK(frames.append(timestamp(200040U), logframe::PackStatus::OK));
     CHECK(frames.size() == 5001U);
     CHECK(frames.overwrittenCount() == 1U);

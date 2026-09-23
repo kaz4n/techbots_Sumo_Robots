@@ -1,0 +1,14 @@
+Initial reviewer migration_audit.py run exited 1 at before_cases == after_cases
+for tests/test_recorder_frames.cpp. Manual complete diff inspection identified
+only the D102-required clarification "expanded 26 byte records" in one name.
+The script now normalizes precisely that label, with no predicate normalization
+or production/test edit. This was an overly strict reviewer audit assumption,
+not a test failure or a finding against the implementation.
+
+The next run exited 1 on the raw-byte protected comparison for
+tests/locked/native_motor_port/Arduino.h: the unchanged worktree contains five
+CRLF lines whereas its Git blob has LF. Direct comparison confirmed 267 versus
+272 bytes, with equality after CRLF normalization and no Git diff. The audit now
+compares normalized text plus an empty Git diff for all protected files and
+records which protected files have worktree CRLF differences. This does not
+change source or tests and is not treated as a firmware or locked-test finding.

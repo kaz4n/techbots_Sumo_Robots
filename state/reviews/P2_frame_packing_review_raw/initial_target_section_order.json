@@ -1,0 +1,502 @@
+{
+  "scope": "Independent offline review, exact staged identity and conditional pinned allocator only",
+  "source_sha256": "3bf0da005d3268adfca52bb86f96ab40921c4bb4f2c2d10ea1cd90a8cf2a0f38",
+  "modes": {
+    "bench-default": {
+      "exact_source_files": 85,
+      "elfs": [
+        {
+          "name": "app.ino.elf",
+          "sha256": "d4b8e4bdbc9b4669e3ad67e7e153c5b5ee5ffe959cf410f8276c8e8ecf26d5c3",
+          "imports": 176
+        },
+        {
+          "name": "app.ino_debug.elf",
+          "sha256": "e6c0614a6c93928335bae3a120c8a4ca1135661d2b2db79ec706ed776d78e32e",
+          "imports": 176
+        },
+        {
+          "name": "app.ino_temp.elf",
+          "sha256": "e9cb8fc8a9549f09a56eae6a46399bcd787b7d1e0bf337b4cacd3d741ec66282",
+          "imports": 176
+        }
+      ],
+      "objects": 75,
+      "metadata": 125,
+      "compile_commands": 75,
+      "owners": {
+        "_ZN12_GLOBAL__N_17runtimeE": 166216,
+        "_ZN12_GLOBAL__N_19dump_portE": 204,
+        "_ZN12_GLOBAL__N_17sourcesE": 848
+      },
+      "initializer_refs": [
+        "",
+        "memset",
+        "",
+        "_ZN6motors8UnoQPort4portEv",
+        "_ZN3app13NativeSources7adcPortEv",
+        "_ZN3app13NativeSources4portEv",
+        "",
+        "_ZN3app12unoQDumpPortERN8recorder4dump12UnoQDumpPortE",
+        "_ZN3app7RuntimeC1ERKN6motors4PortERKN5power9InputPortERKNS_10SourcePortERKNS_8DumpPortE",
+        ""
+      ],
+      "compiler_payload": 253772,
+      "copied_regions": [
+        {
+          "name": ".rodata",
+          "payload": 3800,
+          "alignment": 8,
+          "prepad": 0,
+          "retained_chunk": 3808
+        },
+        {
+          "name": ".text",
+          "payload": 82640,
+          "alignment": 8,
+          "prepad": 0,
+          "retained_chunk": 82648
+        },
+        {
+          "name": ".bss",
+          "payload": 167320,
+          "alignment": 8,
+          "prepad": 0,
+          "retained_chunk": 167328
+        },
+        {
+          "name": ".exported_sym",
+          "payload": 8,
+          "alignment": 4,
+          "prepad": 0,
+          "retained_chunk": 16
+        },
+        {
+          "name": ".init_array",
+          "payload": 4,
+          "alignment": 4,
+          "prepad": 0,
+          "retained_chunk": 8
+        }
+      ],
+      "metadata_chunks": {
+        "extension": 200,
+        "section_map": 128,
+        "global_symbols": 4136,
+        "export_copy": 16,
+        "initial_bookkeeping": 88
+      },
+      "conditional_loader_peak": 258376,
+      "conditional_free_span": 3768,
+      "conditional_largest_payload": 3764,
+      "ordered_allocations": [
+        {
+          "name": "extension",
+          "chunk": 200,
+          "free_span_before": 262056,
+          "largest_payload_before": 262052
+        },
+        {
+          "name": "section_map",
+          "chunk": 128,
+          "free_span_before": 261856,
+          "largest_payload_before": 261852
+        },
+        {
+          "name": ".rodata",
+          "chunk": 3808,
+          "free_span_before": 261728,
+          "largest_payload_before": 261724
+        },
+        {
+          "name": ".text",
+          "chunk": 82648,
+          "free_span_before": 257920,
+          "largest_payload_before": 257916
+        },
+        {
+          "name": ".bss",
+          "chunk": 167328,
+          "free_span_before": 175272,
+          "largest_payload_before": 175268
+        },
+        {
+          "name": ".exported_sym",
+          "chunk": 16,
+          "free_span_before": 7944,
+          "largest_payload_before": 7940
+        },
+        {
+          "name": ".init_array",
+          "chunk": 8,
+          "free_span_before": 7928,
+          "largest_payload_before": 7924
+        },
+        {
+          "name": "global_symbols",
+          "chunk": 4136,
+          "free_span_before": 7920,
+          "largest_payload_before": 7916
+        },
+        {
+          "name": "export_copy",
+          "chunk": 16,
+          "free_span_before": 3784,
+          "largest_payload_before": 3780
+        }
+      ],
+      "changes_from_d101_match": {
+        "sketch/app.ino.cpp.o": [
+          ".bss._ZN12_GLOBAL__N_17runtimeE"
+        ],
+        "sketch/src/app/runtime.cpp.o": [
+          ".text._ZN3app7Runtime10consumeImuERKN3imu14SampleProgressE",
+          ".text._ZN3app7Runtime10publishImuERKN3imu6SampleE",
+          ".text._ZN3app7Runtime10serviceImuEv",
+          ".text._ZN3app7Runtime10skipBeforeEj",
+          ".text._ZN3app7Runtime11acceptClockEj",
+          ".text._ZN3app7Runtime11servicePassEv",
+          ".text._ZN3app7Runtime13cancelSourcesEv",
+          ".text._ZN3app7Runtime13completeEpochEv",
+          ".text._ZN3app7Runtime13releaseChargeEv",
+          ".text._ZN3app7Runtime13rememberLinesERKN8line_qtr8SnapshotE",
+          ".text._ZN3app7Runtime13setupImuFaultEj",
+          ".text._ZN3app7Runtime17initializeSourcesEv",
+          ".text._ZN3app7Runtime4failENS_12RuntimeFaultE",
+          ".text._ZN3app7Runtime4pumpEv",
+          ".text._ZN3app7Runtime4stepEv",
+          ".text._ZN3app7Runtime5beginERKNS_11SetupGrantsE",
+          ".text._ZN3app7Runtime7acquireEv",
+          ".text._ZN3app7Runtime9countPassEv",
+          ".text._ZN3app7RuntimeC2ERKN6motors4PortERKN5power9InputPortERKNS_10SourcePortERKNS_8DumpPortE",
+          ".text._ZNK3app7Runtime10validPortsEv",
+          ".text._ZNK3app7Runtime11linesActiveEv",
+          ".text._ZNK3app7Runtime11linesUsefulEj"
+        ],
+        "sketch/src/app/runtime_dump.cpp.o": [
+          ".text._ZN3app7Runtime11serviceDumpEv",
+          ".text._ZN3app7Runtime14initializeDumpEv",
+          ".text._ZNK3app7Runtime16dumpReadyContextEj",
+          ".text._ZNK3app7Runtime16dumpReceiptValidEv"
+        ],
+        "sketch/src/app/runtime_inputs.cpp.o": [
+          ".text._ZN3app7Runtime10projectImuEjj",
+          ".text._ZN3app7Runtime12postDecisionEv",
+          ".text._ZN3app7Runtime12projectLinesEjj",
+          ".text._ZN3app7Runtime14selectLineModeEv",
+          ".text._ZN3app7Runtime18clockAcceptedThunkEPv",
+          ".text._ZN3app7Runtime7displayEv",
+          ".text._ZN3app7Runtime7projectEj",
+          ".text._ZNK3app7Runtime14opponentsFreshEj",
+          ".text._ZNK3app7Runtime14opponentsReadyEv"
+        ],
+        "sketch/src/app/transaction.cpp.o": [
+          ".text._ZN3app11Transaction10decideFromERKNS_14DecisionSourceE",
+          ".text._ZN3app11Transaction10initializeEv",
+          ".text._ZN3app11Transaction13applyDecisionEN3fsm10RobotInputEj",
+          ".text._ZN3app11Transaction13beginDecisionERj",
+          ".text._ZN3app11Transaction4failENS_5FaultE",
+          ".text._ZN3app11Transaction4openEv",
+          ".text._ZN3app11Transaction7observeERj",
+          ".text._ZN3app11Transaction8completeEbj",
+          ".text._ZN3app11TransactionC2ERKN6motors4PortE"
+        ],
+        "sketch/src/hal/motor_port_unoq.cpp.o": [
+          ".text._ZN6motors8UnoQPort11writeEnableEPvb",
+          ".text._ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj"
+        ],
+        "sketch/src/hal/motors.cpp.o": [
+          ".text._ZN6motors9MotorGate8transactERKN4core7OutputsERN3fsm12PreviousTickE"
+        ],
+        "sketch/src/hal/recorder.cpp.o": [
+          ".text._ZN8recorder15AttemptRecorder11appendFrameERKN3fsm11RobotResultEy",
+          ".text._ZN8recorder15AttemptRecorder12appendEventsERKN8logframe10EventBatchEj",
+          ".text._ZN8recorder15AttemptRecorder12onRobotResetEv",
+          ".text._ZN8recorder15AttemptRecorder14observeSummaryERKN3fsm11RobotResultE",
+          ".text._ZN8recorder15AttemptRecorder5beginERKN3fsm11RobotResultE",
+          ".text._ZN8recorder15AttemptRecorder6rejectEv",
+          ".text._ZN8recorder15AttemptRecorder7consumeERKN3fsm11RobotResultE",
+          ".text._ZN8recorder15AttemptRecorder8terminalERKN3fsm11RobotResultE",
+          ".text._ZNK8recorder15AttemptRecorder10incompleteEv",
+          ".text._ZNK8recorder15AttemptRecorder5phaseEv",
+          ".text._ZNK8recorder15AttemptRecorder6activeEv",
+          ".text._ZNK8recorder15AttemptRecorder6eventsEv",
+          ".text._ZNK8recorder15AttemptRecorder7summaryEv"
+        ],
+        "sketch/src/hal/recorder_dump.cpp.o": [
+          ".rodata",
+          ".text._ZN8recorder4dump8Transfer14preparePayloadEPcj"
+        ],
+        "sketch/src/hal/recorder_frames.cpp.o": [
+          ".text._ZN8recorder11FrameBuffer5resetEv",
+          ".text._ZN8recorder11FrameBuffer6appendERKN8logframe10FrameBytesENS1_10PackStatusE",
+          ".text._ZNK8recorder11FrameBuffer10incompleteEv",
+          ".text._ZNK8recorder11FrameBuffer12clampedCountEv",
+          ".text._ZNK8recorder11FrameBuffer12invalidCountEv",
+          ".text._ZNK8recorder11FrameBuffer16overwrittenCountEv",
+          ".text._ZNK8recorder11FrameBuffer19rejectedStatusCountEv",
+          ".text._ZNK8recorder11FrameBuffer2atEj",
+          ".text._ZNK8recorder11FrameBuffer4readEjRNS_11StoredFrameE",
+          ".text._ZNK8recorder11FrameBuffer4sizeEv",
+          ".text._ZNK8recorder11FrameBuffer7bytesAtEj"
+        ]
+      }
+    },
+    "match-immediate": {
+      "exact_source_files": 85,
+      "elfs": [
+        {
+          "name": "app.ino.elf",
+          "sha256": "0499a9b5a2491adc790b405ac248caa27015c053bcf0421edffe91e36988bea0",
+          "imports": 176
+        },
+        {
+          "name": "app.ino_debug.elf",
+          "sha256": "12073b09c0bbc4a9481db744ee53de3eb7410513280f4e05a2577bda641b32e6",
+          "imports": 176
+        },
+        {
+          "name": "app.ino_temp.elf",
+          "sha256": "531b1034595d9966c4383948247668764ac5b0886b845400d679b849b67cce6a",
+          "imports": 176
+        }
+      ],
+      "objects": 75,
+      "metadata": 125,
+      "compile_commands": 75,
+      "owners": {
+        "_ZN12_GLOBAL__N_17runtimeE": 166216,
+        "_ZN12_GLOBAL__N_19dump_portE": 204,
+        "_ZN12_GLOBAL__N_17sourcesE": 848
+      },
+      "initializer_refs": [
+        "",
+        "memset",
+        "",
+        "_ZN6motors8UnoQPort4portEv",
+        "_ZN3app13NativeSources7adcPortEv",
+        "_ZN3app13NativeSources4portEv",
+        "",
+        "_ZN3app12unoQDumpPortERN8recorder4dump12UnoQDumpPortE",
+        "_ZN3app7RuntimeC1ERKN6motors4PortERKN5power9InputPortERKNS_10SourcePortERKNS_8DumpPortE",
+        ""
+      ],
+      "compiler_payload": 254156,
+      "copied_regions": [
+        {
+          "name": ".rodata",
+          "payload": 3800,
+          "alignment": 8,
+          "prepad": 0,
+          "retained_chunk": 3808
+        },
+        {
+          "name": ".text",
+          "payload": 83024,
+          "alignment": 8,
+          "prepad": 0,
+          "retained_chunk": 83032
+        },
+        {
+          "name": ".bss",
+          "payload": 167320,
+          "alignment": 8,
+          "prepad": 0,
+          "retained_chunk": 167328
+        },
+        {
+          "name": ".exported_sym",
+          "payload": 8,
+          "alignment": 4,
+          "prepad": 0,
+          "retained_chunk": 16
+        },
+        {
+          "name": ".init_array",
+          "payload": 4,
+          "alignment": 4,
+          "prepad": 0,
+          "retained_chunk": 8
+        }
+      ],
+      "metadata_chunks": {
+        "extension": 200,
+        "section_map": 128,
+        "global_symbols": 4144,
+        "export_copy": 16,
+        "initial_bookkeeping": 88
+      },
+      "conditional_loader_peak": 258768,
+      "conditional_free_span": 3376,
+      "conditional_largest_payload": 3372,
+      "ordered_allocations": [
+        {
+          "name": "extension",
+          "chunk": 200,
+          "free_span_before": 262056,
+          "largest_payload_before": 262052
+        },
+        {
+          "name": "section_map",
+          "chunk": 128,
+          "free_span_before": 261856,
+          "largest_payload_before": 261852
+        },
+        {
+          "name": ".rodata",
+          "chunk": 3808,
+          "free_span_before": 261728,
+          "largest_payload_before": 261724
+        },
+        {
+          "name": ".text",
+          "chunk": 83032,
+          "free_span_before": 257920,
+          "largest_payload_before": 257916
+        },
+        {
+          "name": ".bss",
+          "chunk": 167328,
+          "free_span_before": 174888,
+          "largest_payload_before": 174884
+        },
+        {
+          "name": ".exported_sym",
+          "chunk": 16,
+          "free_span_before": 7560,
+          "largest_payload_before": 7556
+        },
+        {
+          "name": ".init_array",
+          "chunk": 8,
+          "free_span_before": 7544,
+          "largest_payload_before": 7540
+        },
+        {
+          "name": "global_symbols",
+          "chunk": 4144,
+          "free_span_before": 7536,
+          "largest_payload_before": 7532
+        },
+        {
+          "name": "export_copy",
+          "chunk": 16,
+          "free_span_before": 3392,
+          "largest_payload_before": 3388
+        }
+      ],
+      "changes_from_d101_match": {
+        "sketch/app.ino.cpp.o": [
+          ".bss._ZN12_GLOBAL__N_17runtimeE"
+        ],
+        "sketch/src/app/runtime.cpp.o": [
+          ".text._ZN3app7Runtime10consumeImuERKN3imu14SampleProgressE",
+          ".text._ZN3app7Runtime10publishImuERKN3imu6SampleE",
+          ".text._ZN3app7Runtime10serviceImuEv",
+          ".text._ZN3app7Runtime10skipBeforeEj",
+          ".text._ZN3app7Runtime11acceptClockEj",
+          ".text._ZN3app7Runtime11servicePassEv",
+          ".text._ZN3app7Runtime13cancelSourcesEv",
+          ".text._ZN3app7Runtime13completeEpochEv",
+          ".text._ZN3app7Runtime13releaseChargeEv",
+          ".text._ZN3app7Runtime13rememberLinesERKN8line_qtr8SnapshotE",
+          ".text._ZN3app7Runtime13setupImuFaultEj",
+          ".text._ZN3app7Runtime17initializeSourcesEv",
+          ".text._ZN3app7Runtime4failENS_12RuntimeFaultE",
+          ".text._ZN3app7Runtime4pumpEv",
+          ".text._ZN3app7Runtime4stepEv",
+          ".text._ZN3app7Runtime5beginERKNS_11SetupGrantsE",
+          ".text._ZN3app7Runtime7acquireEv",
+          ".text._ZN3app7Runtime9countPassEv",
+          ".text._ZN3app7RuntimeC2ERKN6motors4PortERKN5power9InputPortERKNS_10SourcePortERKNS_8DumpPortE",
+          ".text._ZNK3app7Runtime10validPortsEv",
+          ".text._ZNK3app7Runtime11linesActiveEv",
+          ".text._ZNK3app7Runtime11linesUsefulEj"
+        ],
+        "sketch/src/app/runtime_dump.cpp.o": [
+          ".text._ZN3app7Runtime11serviceDumpEv",
+          ".text._ZN3app7Runtime14initializeDumpEv",
+          ".text._ZNK3app7Runtime16dumpReadyContextEj",
+          ".text._ZNK3app7Runtime16dumpReceiptValidEv"
+        ],
+        "sketch/src/app/runtime_inputs.cpp.o": [
+          ".text._ZN3app7Runtime10projectImuEjj",
+          ".text._ZN3app7Runtime12postDecisionEv",
+          ".text._ZN3app7Runtime12projectLinesEjj",
+          ".text._ZN3app7Runtime14selectLineModeEv",
+          ".text._ZN3app7Runtime18clockAcceptedThunkEPv",
+          ".text._ZN3app7Runtime7displayEv",
+          ".text._ZN3app7Runtime7projectEj",
+          ".text._ZNK3app7Runtime14opponentsFreshEj",
+          ".text._ZNK3app7Runtime14opponentsReadyEv"
+        ],
+        "sketch/src/app/transaction.cpp.o": [
+          ".text._ZN3app11Transaction10decideFromERKNS_14DecisionSourceE",
+          ".text._ZN3app11Transaction10initializeEv",
+          ".text._ZN3app11Transaction13applyDecisionEN3fsm10RobotInputEj",
+          ".text._ZN3app11Transaction13beginDecisionERj",
+          ".text._ZN3app11Transaction4failENS_5FaultE",
+          ".text._ZN3app11Transaction4openEv",
+          ".text._ZN3app11Transaction7observeERj",
+          ".text._ZN3app11Transaction8completeEbj",
+          ".text._ZN3app11TransactionC2ERKN6motors4PortE"
+        ],
+        "sketch/src/hal/recorder.cpp.o": [
+          ".text._ZN8recorder15AttemptRecorder11appendFrameERKN3fsm11RobotResultEy",
+          ".text._ZN8recorder15AttemptRecorder12appendEventsERKN8logframe10EventBatchEj",
+          ".text._ZN8recorder15AttemptRecorder12onRobotResetEv",
+          ".text._ZN8recorder15AttemptRecorder14observeSummaryERKN3fsm11RobotResultE",
+          ".text._ZN8recorder15AttemptRecorder5beginERKN3fsm11RobotResultE",
+          ".text._ZN8recorder15AttemptRecorder6rejectEv",
+          ".text._ZN8recorder15AttemptRecorder7consumeERKN3fsm11RobotResultE",
+          ".text._ZN8recorder15AttemptRecorder8terminalERKN3fsm11RobotResultE",
+          ".text._ZNK8recorder15AttemptRecorder10incompleteEv",
+          ".text._ZNK8recorder15AttemptRecorder5phaseEv",
+          ".text._ZNK8recorder15AttemptRecorder6activeEv",
+          ".text._ZNK8recorder15AttemptRecorder6eventsEv",
+          ".text._ZNK8recorder15AttemptRecorder7summaryEv"
+        ],
+        "sketch/src/hal/recorder_dump.cpp.o": [
+          ".rodata",
+          ".text._ZN8recorder4dump8Transfer14preparePayloadEPcj"
+        ],
+        "sketch/src/hal/recorder_frames.cpp.o": [
+          ".text._ZN8recorder11FrameBuffer5resetEv",
+          ".text._ZN8recorder11FrameBuffer6appendERKN8logframe10FrameBytesENS1_10PackStatusE",
+          ".text._ZNK8recorder11FrameBuffer10incompleteEv",
+          ".text._ZNK8recorder11FrameBuffer12clampedCountEv",
+          ".text._ZNK8recorder11FrameBuffer12invalidCountEv",
+          ".text._ZNK8recorder11FrameBuffer16overwrittenCountEv",
+          ".text._ZNK8recorder11FrameBuffer19rejectedStatusCountEv",
+          ".text._ZNK8recorder11FrameBuffer2atEj",
+          ".text._ZNK8recorder11FrameBuffer4readEjRNS_11StoredFrameE",
+          ".text._ZNK8recorder11FrameBuffer4sizeEv",
+          ".text._ZNK8recorder11FrameBuffer7bytesAtEj"
+        ]
+      }
+    }
+  },
+  "target_abi_values": [
+    126300,
+    4,
+    26,
+    1,
+    159200,
+    8,
+    166216,
+    8
+  ],
+  "mode_object_changes": {
+    "sketch/src/hal/motor_port_unoq.cpp.o": [
+      ".text._ZN6motors8UnoQPort11writeEnableEPvb",
+      ".text._ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj"
+    ],
+    "sketch/src/hal/motors.cpp.o": [
+      ".text._ZN6motors9MotorGate8transactERKN4core7OutputsERN3fsm12PreviousTickE"
+    ]
+  },
+  "same_seven_refreshed_keys_match_review": true,
+  "d101_match_loader_peak": 262400,
+  "d102_match_loader_saving": 3632,
+  "limit": "No measured load/freeRAM/stack/WCET, physical acceptance, gate or upload authority"
+}

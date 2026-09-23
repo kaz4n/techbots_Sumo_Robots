@@ -15,8 +15,8 @@ bool writeExpected(const std::string& base, const recorder::AttemptRecorder& sou
     std::ofstream frames(base + "/expected_frames.csv", std::ios::binary);
     result = recorder::csv::frameHeader(line, sizeof(line)); frames.write(line, result.size);
     for (std::uint32_t i = 0U; i < source.frames().size(); ++i) {
-        const auto* frame = source.frames().at(i); if (frame == nullptr) return false;
-        result = recorder::csv::frameRow(*frame, i, line, sizeof(line)); frames.write(line, result.size);
+        recorder::StoredFrame frame; if (!source.frames().read(i, frame)) return false;
+        result = recorder::csv::frameRow(frame, i, line, sizeof(line)); frames.write(line, result.size);
     }
     std::ofstream events(base + "/expected_events.csv", std::ios::binary);
     result = recorder::csv::eventHeader(line, sizeof(line)); events.write(line, result.size);

@@ -28,12 +28,13 @@ rejection and fresh same-model review PASS.46new+78established tooling tests
 previously passed unchanged; no unnecessary rerun. Original control failure saved.
 Read P2_app_build_validation.md and acceptance_review.md.
 
-D101 actual Runtime dump attachment implemented/host-tested; fullnormal/san
-1423main+178Gate PASS. Source83600858 MATCH257784B compiles, but262400B
-conditional loaderpeak exceeds pool256B (D101-R1 BLOCKER). Read validation/review.
-Next: lossless frame/status packing with explicit read-API migration, independent
-tests and final target/loader audits. Then post-STOP local service/source lifetime
-and calibration snippet delivery. Seven inertkeys await final reviewed refresh.
+D101 actual Runtime dump + D102 lossless frame/status packing tested/reviewed.
+Fullnormal/san1434main+178Gate PASS; actualRuntime dump bytes unchanged. Source
+3bf0da00 MATCH254156B, conditional loaderpeak258768B/largest3372B: D101-R1 modeled
+capacity blocker CLOSED. All5001frames/4096events/25Hz retained. Same7inertkeys
+reviewed/refreshed. Read P2_frame_packing_validation.md/targetaudit/review.
+Next: optional post-STOP local service-only reset/source lifetime; then calibration
+snippet delivery and remaining P2 physical-bench software. No physical gate passed.
 
 Lastknown MCU remains D0911502e948 synthetic recorder, seveninertkeys unchanged.
 Physical acceptance, loadedRAM/full800us, SC-A circuit, SC-AJ clock, nativeUART/

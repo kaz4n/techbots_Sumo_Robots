@@ -304,10 +304,10 @@ void Runner::checksumBytes(const std::uint8_t* bytes, std::size_t size) {
 void Runner::checksum() {
     if (source_.phase() != recorder::AttemptPhase::SEALED) { fail(Failure::CHECKSUM); return; }
     if (checksum_index_ < source_.frames().size()) {
-        const auto* row = source_.frames().at(checksum_index_);
-        if (row == nullptr) { fail(Failure::CHECKSUM); return; }
-        checksumBytes(row->bytes.data, logframe::FRAME_BYTES);
-        const auto status = static_cast<std::uint8_t>(row->status);
+        recorder::StoredFrame row;
+        if (!source_.frames().read(checksum_index_, row)) { fail(Failure::CHECKSUM); return; }
+        checksumBytes(row.bytes.data, logframe::FRAME_BYTES);
+        const auto status = static_cast<std::uint8_t>(row.status);
         checksumBytes(&status, 1U);
     } else if (checksum_index_ < source_.frames().size() + source_.events().size()) {
         const auto* row = source_.events().at(checksum_index_ - source_.frames().size());

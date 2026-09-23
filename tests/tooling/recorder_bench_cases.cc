@@ -50,9 +50,10 @@ void byteCrc(std::uint32_t& crc, std::uint8_t byte) {
 std::uint32_t sourceCrc(const recorder::AttemptRecorder& source) {
     std::uint32_t crc = 0xFFFFFFFFU;
     for (std::size_t index = 0U; index < source.frames().size(); ++index) {
-        const auto* row = source.frames().at(index);
-        for (auto value : row->bytes.data) byteCrc(crc, value);
-        byteCrc(crc, static_cast<std::uint8_t>(row->status));
+        recorder::StoredFrame row;
+        REQUIRE(source.frames().read(index, row));
+        for (auto value : row.bytes.data) byteCrc(crc, value);
+        byteCrc(crc, static_cast<std::uint8_t>(row.status));
     }
     for (std::size_t index = 0U; index < source.events().size(); ++index) {
         for (auto value : source.events().at(index)->data) byteCrc(crc, value);
@@ -257,7 +258,8 @@ TEST_CASE("D091 B15 real pipeline retains exact 200-second host fixture then bou
     CHECK(runner.report().frame_overwritten == 0U);
     CHECK(runner.report().incomplete == 0U);
     for (std::size_t index = 0; index < runner.source().frames().size(); ++index) {
-        const auto* frame = runner.source().frames().at(index);
+        recorder::StoredFrame storage;
+        const auto* frame = runner.source().frames().read(index, storage) ? &storage : nullptr;
         REQUIRE(frame != nullptr);
         CHECK(frame->status == logframe::PackStatus::OK);
         CHECK(frame->bytes.data[18] == 0U);

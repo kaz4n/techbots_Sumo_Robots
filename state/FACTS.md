@@ -464,3 +464,9 @@ F112 final software disposition 2026-09-23T16:49:58+04:00: fresh separate same-m
 | ID | Question | Observed answer | Source | Confidence | Hardware-checked |
 |---|---|---|---|---|---|
 | F-125 | Does actual Runtime now attach the recorder dump, and does its target fit? | Post-Gate attachment/abort tests pass, fullnormal/san1423main+178Gate and separate review tests pass. Initial source exceeds modeled loaderpool432B default/816B MATCH. Finalcache83600858 MATCH compiles257784B; modeled262400B peak remains256B over. | analysis/P2_app_dump_validation.md,target_audit.md,raw; reviews/P2_app_dump_review.md/raw | HOST-TESTED/TARGET-COMPILED; loader-capacity BLOCKER | No upload/load/MCU/reset, actual UART/freeRAM/WCET, physical or human gate. |
+
+## D102 lossless frame packing,2026-09-23
+
+| ID | Question | Observed answer | Source | Confidence | Hardware-checked |
+|---|---|---|---|---|---|
+| F-126 | Does lossless status packing resolve D101's modeled loader deficit? | Yes for exact85-file3bf0da00: default253772/MATCH254156B compilerpayload; modeledpeaks258376/258768 fit262144. ActualDWARF FrameBuffer126300/align4,3752B smaller; MATCHnetloader saves3632B. Fullnormal/san1434main+178Gate and freshreview PASS; serializedRuntime dump bytes unchanged. | analysis/P2_frame_packing_validation.md,target_audit.md,raw; reviews/P2_frame_packing_review.md/raw | TARGET-COMPILED/ABI-VERIFIED/INDEPENDENT-REVIEW-PASS; D101-R1 model scope CLOSED | Board Linux compile/offlineELF only. No actual load/freeRAM/WCET/MCU/physical/human gate. |

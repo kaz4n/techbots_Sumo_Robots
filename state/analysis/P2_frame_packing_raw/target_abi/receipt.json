@@ -1,0 +1,43 @@
+{
+  "argv": [
+    "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-gdb",
+    "-nx",
+    "-nh",
+    "-batch",
+    "/home/arduino/sumox26_codex_build/_app_builds/native-app-v1/3bf0da005d3268adfca52bb86f96ab40921c4bb4f2c2d10ea1cd90a8cf2a0f38/bench-default/39fedf763646445b8a7db864916e1121/build/app.ino_debug.elf",
+    "-ex",
+    "set language c++",
+    "-ex",
+    "p sizeof(recorder::FrameBuffer)",
+    "-ex",
+    "p alignof(recorder::FrameBuffer)",
+    "-ex",
+    "p sizeof(recorder::StoredFrame)",
+    "-ex",
+    "p alignof(recorder::StoredFrame)",
+    "-ex",
+    "p sizeof(recorder::AttemptRecorder)",
+    "-ex",
+    "p alignof(recorder::AttemptRecorder)",
+    "-ex",
+    "p sizeof(app::Runtime)",
+    "-ex",
+    "p alignof(app::Runtime)",
+    "-ex",
+    "ptype /o recorder::FrameBuffer"
+  ],
+  "start_utc": "2026-09-23T17:55:15.935297+00:00",
+  "source_sha256": "3bf0da005d3268adfca52bb86f96ab40921c4bb4f2c2d10ea1cd90a8cf2a0f38",
+  "expected_debug_elf_sha256": "e6c0614a6c93928335bae3a120c8a4ca1135661d2b2db79ec706ed776d78e32e",
+  "scope": "Read-only existing DWARF/type expressions; no inferior/target/MCU or new compilation",
+  "hash_argv": [
+    "sha256sum",
+    "--",
+    "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-gdb",
+    "/home/arduino/sumox26_codex_build/_app_builds/native-app-v1/3bf0da005d3268adfca52bb86f96ab40921c4bb4f2c2d10ea1cd90a8cf2a0f38/bench-default/39fedf763646445b8a7db864916e1121/build/app.ino_debug.elf"
+  ],
+  "hash_stdout": "8e709e322c50351a932d1bdf4103caf238eaf226a4984e56e6f353e64bc4b778  /home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-gdb\ne6c0614a6c93928335bae3a120c8a4ca1135661d2b2db79ec706ed776d78e32e  /home/arduino/sumox26_codex_build/_app_builds/native-app-v1/3bf0da005d3268adfca52bb86f96ab40921c4bb4f2c2d10ea1cd90a8cf2a0f38/bench-default/39fedf763646445b8a7db864916e1121/build/app.ino_debug.elf\n",
+  "hash_stderr": "",
+  "returncode": 1,
+  "end_utc": "2026-09-23T17:55:16.202592+00:00"
+}

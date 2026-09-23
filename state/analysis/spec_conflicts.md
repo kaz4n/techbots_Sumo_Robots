@@ -664,3 +664,11 @@ exceeds262144 by256B. D101-R1 remains BLOCKER; compiler success is insufficient.
 P2_app_dump_target_audit.md records allocation order and exact identities. Next
 consider lossless frame/status packing with explicit copied-read API, preserving
 all5001frames/4096events/25Hz and raw bytes; no physical/load evidence fabricated.
+
+2026-09-23 D102 disposition: D101-R1 conditional loader capacity CLOSED for
+exact3bf0da00 source: lossless packed statuses preserve5001frames/4096events/25Hz
+and raw evidence, actualtargetFrameBuffer3752B smaller; MATCHpeak258768/262144
+fits allorderedallocations. Freshindependentreview and fullnormal/san PASS;
+P2_frame_packing_validation.md and targetaudit/review are current evidence.
+Historical D101 report remains its original failing checkpoint. SC-AL stillopen
+for measured loadedRAM/stack/complete800us and future finalimage qualification.

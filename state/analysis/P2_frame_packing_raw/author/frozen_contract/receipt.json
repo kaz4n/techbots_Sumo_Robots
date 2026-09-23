@@ -1,0 +1,112 @@
+{
+  "utc": "2026-09-23T17:51:05.508562+00:00",
+  "revision": "f6f65fc",
+  "root": "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots",
+  "work": "/dev/shm/d102-author-q1x_68ga",
+  "source_sha256": {
+    "tests/test_frame_packing.cpp": "ac9b85c95d83445c5fe08365a378eed88b824dfd244656ce01f2df853b13a13f",
+    "src/hal/recorder_frames.cpp": "8e7050123a89a48d6a0a039fc9b21849a0a8ef60da4687f3391984a9438abee1",
+    "src/hal/recorder_frames.h": "fa7007c9acf43c49acb9714024f602d3652779adfe17bbc25851a1630fa0b24a",
+    "src/core/logframe.h": "702e310bd71999a031cbfd46dfcbfc06ae68ecbaae6b83adc389a4bb7dd72118",
+    "src/core/types.h": "3f0f1111aae23107c0ae575e5f066eb8ef73eed109696c796953ef79cc092d37",
+    "src/config.h": "db11bbeea16d8bd68c9c2cb2db50eef3a61b80bd98c1e1483393620afb570c8e",
+    "host/third_party/doctest.h": "94029a7d32da24a56249658147dbd2b33ff0b9ed665295cbbaf19aafff5b0ced"
+  },
+  "sanitizer_environment": {
+    "ASAN_OPTIONS": "detect_leaks=1:abort_on_error=1",
+    "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1"
+  },
+  "commands": [
+    {
+      "name": "compiler",
+      "command": [
+        "g++",
+        "--version"
+      ],
+      "cwd": "/dev/shm/d102-author-q1x_68ga",
+      "exit": 0
+    },
+    {
+      "name": "abi_compile",
+      "command": [
+        "g++",
+        "-std=c++17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Werror",
+        "-fno-exceptions",
+        "-fno-rtti",
+        "-DDOCTEST_CONFIG_NO_EXCEPTIONS",
+        "-Isrc",
+        "-Ihost/third_party",
+        "abi.cpp",
+        "-o",
+        "abi"
+      ],
+      "cwd": "/dev/shm/d102-author-q1x_68ga",
+      "exit": 0
+    },
+    {
+      "name": "abi",
+      "command": [
+        "/dev/shm/d102-author-q1x_68ga/abi"
+      ],
+      "cwd": "/dev/shm/d102-author-q1x_68ga",
+      "exit": 0
+    },
+    {
+      "name": "normal_compile",
+      "command": [
+        "g++",
+        "-std=c++17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Werror",
+        "-fno-exceptions",
+        "-fno-rtti",
+        "-DDOCTEST_CONFIG_NO_EXCEPTIONS",
+        "-Isrc",
+        "-Ihost/third_party",
+        "-O2",
+        "tests/test_frame_packing.cpp",
+        "src/hal/recorder_frames.cpp",
+        "main.cpp",
+        "-o",
+        "normal"
+      ],
+      "cwd": "/dev/shm/d102-author-q1x_68ga",
+      "exit": 1
+    },
+    {
+      "name": "sanitizer_compile",
+      "command": [
+        "g++",
+        "-std=c++17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Werror",
+        "-fno-exceptions",
+        "-fno-rtti",
+        "-DDOCTEST_CONFIG_NO_EXCEPTIONS",
+        "-Isrc",
+        "-Ihost/third_party",
+        "-O1",
+        "-g",
+        "-fno-omit-frame-pointer",
+        "-fno-pie",
+        "-no-pie",
+        "-fsanitize=address,undefined",
+        "tests/test_frame_packing.cpp",
+        "src/hal/recorder_frames.cpp",
+        "main.cpp",
+        "-o",
+        "sanitizer"
+      ],
+      "cwd": "/dev/shm/d102-author-q1x_68ga",
+      "exit": 1
+    }
+  ]
+}

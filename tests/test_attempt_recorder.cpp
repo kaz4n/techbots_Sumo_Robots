@@ -88,7 +88,8 @@ void checkEvent(const recorder::AttemptRecorder& owner, std::size_t index,
 void checkFrame(const recorder::AttemptRecorder& owner, std::size_t index,
                 const logframe::FrameBytes& expected, PackStatus status = PackStatus::OK) {
     CAPTURE(index);
-    const auto* frame = owner.frames().at(index);
+    recorder::StoredFrame storage;
+    const auto* frame = owner.frames().read(index, storage) ? &storage : nullptr;
     CHECK(frame != nullptr);
     if (frame == nullptr) return;
     CHECK(std::memcmp(frame->bytes.data, expected.data, 25U) == 0);
@@ -150,7 +151,8 @@ SavedAttempt saveAttempt(const recorder::AttemptRecorder& owner) {
     saved.event_rejected = owner.events().rejectedCount();
     saved.event_overflow = owner.events().overflowed();
     for (std::size_t index = 0U; index < owner.frames().size(); ++index) {
-        const auto* frame = owner.frames().at(index);
+        recorder::StoredFrame storage;
+        const auto* frame = owner.frames().read(index, storage) ? &storage : nullptr;
         CHECK(frame != nullptr);
         if (frame == nullptr) return saved;
         saved.frames.push_back(*frame);

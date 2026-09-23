@@ -338,7 +338,11 @@ TEST_CASE("B14 B15 D092 real MotorGate receipt and final STOP duration reach sea
     CHECK_FALSE(rig.source.summary().final_frame_missing);
     CHECK_FALSE(rig.source.summary().timing_incomplete);
     CHECK(rig.source.summary().identity_rejected == 0U);
-    CHECK(rig.source.frames().at(rig.source.frames().size() - 1U)->bytes.data[4] == 10U);
+    recorder::StoredFrame stored;
+    const bool stored_present = rig.source.frames().read(rig.source.frames().size() - 1U, stored);
+    CHECK(stored_present);
+    if (!stored_present) return;
+    CHECK(stored.bytes.data[4] == 10U);
     const auto more = rig.step(d + 5000U);
     CHECK(more.ticks.ticks == 3U);
     CHECK_FALSE(more.frame_ready);

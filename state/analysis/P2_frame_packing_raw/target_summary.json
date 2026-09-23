@@ -1,0 +1,3561 @@
+{
+  "scope": "Frozen source/ELF/target ABI and conditional loader fit only; not actual load/RAM/WCET",
+  "reused_analyzer_sha256": "31c1a0a133e3c7863aa922b1dc102f2b8595a9a6b8bfde179efb7e29702e7168",
+  "pinned_source_receipts": [
+    {
+      "url": "https://raw.githubusercontent.com/zephyrproject-rtos/zephyr/1743741760ee5d2d58da50d504855d43f9f8e826/subsys/llext/llext_mem.c",
+      "path": "state/analysis/P2_memory_validation_raw/llext_mem.c",
+      "sha256": "97c24d9430bee01bf2125d73be0ab51477973345315c20df14b61794b528c894",
+      "bytes": 11310
+    },
+    {
+      "url": "https://raw.githubusercontent.com/zephyrproject-rtos/zephyr/1743741760ee5d2d58da50d504855d43f9f8e826/subsys/llext/llext_load.c",
+      "path": "state/analysis/P2_memory_validation_raw/llext_load.c",
+      "sha256": "68c999737ed275a4bb81801d571fc044a2db0ef760d21214d9a34b4f7b388413",
+      "bytes": 26275
+    },
+    {
+      "url": "https://raw.githubusercontent.com/zephyrproject-rtos/zephyr/1743741760ee5d2d58da50d504855d43f9f8e826/subsys/llext/llext_mem.h",
+      "path": "state/analysis/P2_memory_validation_raw/llext_mem.h",
+      "sha256": "929df84d788fb5e610675e94852c2a5727c641954ab1051137d43d8d05da4485",
+      "bytes": 438
+    },
+    {
+      "url": "https://raw.githubusercontent.com/zephyrproject-rtos/zephyr/1743741760ee5d2d58da50d504855d43f9f8e826/include/zephyr/llext/llext.h",
+      "path": "state/analysis/P2_memory_validation_raw/llext.h",
+      "sha256": "5d15bc00eb1deb62d20bd034d5b2b69d012e66df1b3af86ac9c4020d287ee7e8",
+      "bytes": 18117
+    }
+  ],
+  "target_abi": {
+    "FrameBuffer": {
+      "size": 126300,
+      "alignment": 4
+    },
+    "StoredFrame": {
+      "size": 26,
+      "alignment": 1
+    },
+    "AttemptRecorder": {
+      "size": 159200,
+      "alignment": 8
+    },
+    "Runtime": {
+      "size": 166216,
+      "alignment": 8
+    },
+    "evidence": "Actual completed-target debug ELF, offline GDB type expressions; no new compilation",
+    "receipt_sha256": "6e592ae69f76441c3d87c2c39ad4f9c21a7f59dcbdede54f77b00dd9929682e8"
+  },
+  "builds": {
+    "target_3bf0da00_bench-default": {
+      "source_sha256": "3bf0da005d3268adfca52bb86f96ab40921c4bb4f2c2d10ea1cd90a8cf2a0f38",
+      "mode": "bench-default",
+      "files": 85,
+      "current_source_at_collection": true,
+      "verified_elfs": [
+        {
+          "name": "app.ino.elf",
+          "sha256": "d4b8e4bdbc9b4669e3ad67e7e153c5b5ee5ffe959cf410f8276c8e8ecf26d5c3",
+          "imports": 176
+        },
+        {
+          "name": "app.ino_debug.elf",
+          "sha256": "e6c0614a6c93928335bae3a120c8a4ca1135661d2b2db79ec706ed776d78e32e",
+          "imports": 176
+        },
+        {
+          "name": "app.ino_temp.elf",
+          "sha256": "e9cb8fc8a9549f09a56eae6a46399bcd787b7d1e0bf337b4cacd3d741ec66282",
+          "imports": 176
+        }
+      ],
+      "objects": {
+        "objects": 75,
+        "common_alloc_sections": 1436,
+        "added_objects": [
+          "sketch/src/app/dump_port_unoq.cpp.o",
+          "sketch/src/app/runtime_dump.cpp.o"
+        ],
+        "changes": [
+          {
+            "path": "sketch/app.ino.cpp.o",
+            "changed": [
+              ".bss._ZN12_GLOBAL__N_17runtimeE",
+              ".text._GLOBAL__sub_I_setup",
+              ".text.setup"
+            ],
+            "added": [
+              ".bss._ZN12_GLOBAL__N_19dump_portE"
+            ],
+            "removed": []
+          },
+          {
+            "path": "sketch/src/app/runtime.cpp.o",
+            "changed": [
+              ".text._ZN3app7Runtime10consumeImuERKN3imu14SampleProgressE",
+              ".text._ZN3app7Runtime10publishImuERKN3imu6SampleE",
+              ".text._ZN3app7Runtime10serviceImuEv",
+              ".text._ZN3app7Runtime10skipBeforeEj",
+              ".text._ZN3app7Runtime11acceptClockEj",
+              ".text._ZN3app7Runtime11servicePassEv",
+              ".text._ZN3app7Runtime13cancelSourcesEv",
+              ".text._ZN3app7Runtime13completeEpochEv",
+              ".text._ZN3app7Runtime13releaseChargeEv",
+              ".text._ZN3app7Runtime13rememberLinesERKN8line_qtr8SnapshotE",
+              ".text._ZN3app7Runtime13setupImuFaultEj",
+              ".text._ZN3app7Runtime17initializeSourcesEv",
+              ".text._ZN3app7Runtime4failENS_12RuntimeFaultE",
+              ".text._ZN3app7Runtime4pumpEv",
+              ".text._ZN3app7Runtime4stepEv",
+              ".text._ZN3app7Runtime5beginERKNS_11SetupGrantsE",
+              ".text._ZN3app7Runtime7acquireEv",
+              ".text._ZN3app7Runtime9countPassEv",
+              ".text._ZNK3app7Runtime10validPortsEv",
+              ".text._ZNK3app7Runtime11linesActiveEv",
+              ".text._ZNK3app7Runtime11linesUsefulEj"
+            ],
+            "added": [
+              ".text._ZN3app7RuntimeC2ERKN6motors4PortERKN5power9InputPortERKNS_10SourcePortERKNS_8DumpPortE"
+            ],
+            "removed": [
+              ".text._ZN3app7RuntimeC2ERKN6motors4PortERKN5power9InputPortERKNS_10SourcePortE"
+            ]
+          },
+          {
+            "path": "sketch/src/app/runtime_inputs.cpp.o",
+            "changed": [
+              ".text._ZN3app7Runtime10projectImuEjj",
+              ".text._ZN3app7Runtime12postDecisionEv",
+              ".text._ZN3app7Runtime12projectLinesEjj",
+              ".text._ZN3app7Runtime14selectLineModeEv",
+              ".text._ZN3app7Runtime18clockAcceptedThunkEPv",
+              ".text._ZN3app7Runtime7displayEv",
+              ".text._ZN3app7Runtime7projectEj",
+              ".text._ZNK3app7Runtime14opponentsFreshEj",
+              ".text._ZNK3app7Runtime14opponentsReadyEv"
+            ],
+            "added": [],
+            "removed": []
+          },
+          {
+            "path": "sketch/src/app/transaction.cpp.o",
+            "changed": [
+              ".text._ZN3app11Transaction10decideFromERKNS_14DecisionSourceE",
+              ".text._ZN3app11Transaction10initializeEv",
+              ".text._ZN3app11Transaction13applyDecisionEN3fsm10RobotInputEj",
+              ".text._ZN3app11Transaction13beginDecisionERj",
+              ".text._ZN3app11Transaction4failENS_5FaultE",
+              ".text._ZN3app11Transaction4openEv",
+              ".text._ZN3app11Transaction7observeERj",
+              ".text._ZN3app11Transaction8completeEbj",
+              ".text._ZN3app11TransactionC2ERKN6motors4PortE"
+            ],
+            "added": [],
+            "removed": []
+          },
+          {
+            "path": "sketch/src/hal/recorder.cpp.o",
+            "changed": [
+              ".text._ZN8recorder15AttemptRecorder11appendFrameERKN3fsm11RobotResultEy",
+              ".text._ZN8recorder15AttemptRecorder12appendEventsERKN8logframe10EventBatchEj",
+              ".text._ZN8recorder15AttemptRecorder12onRobotResetEv",
+              ".text._ZN8recorder15AttemptRecorder14observeSummaryERKN3fsm11RobotResultE",
+              ".text._ZN8recorder15AttemptRecorder5beginERKN3fsm11RobotResultE",
+              ".text._ZN8recorder15AttemptRecorder6rejectEv",
+              ".text._ZN8recorder15AttemptRecorder7consumeERKN3fsm11RobotResultE",
+              ".text._ZN8recorder15AttemptRecorder8terminalERKN3fsm11RobotResultE",
+              ".text._ZNK8recorder15AttemptRecorder10incompleteEv",
+              ".text._ZNK8recorder15AttemptRecorder5phaseEv",
+              ".text._ZNK8recorder15AttemptRecorder6activeEv",
+              ".text._ZNK8recorder15AttemptRecorder6eventsEv",
+              ".text._ZNK8recorder15AttemptRecorder7summaryEv"
+            ],
+            "added": [],
+            "removed": []
+          },
+          {
+            "path": "sketch/src/hal/recorder_dump.cpp.o",
+            "changed": [
+              ".text._ZN8recorder4dump8Transfer14preparePayloadEPcj"
+            ],
+            "added": [
+              ".rodata",
+              ".text._ZN8recorder4dump8Transfer5abortEv"
+            ],
+            "removed": []
+          },
+          {
+            "path": "sketch/src/hal/recorder_frames.cpp.o",
+            "changed": [
+              ".text._ZN8recorder11FrameBuffer5resetEv",
+              ".text._ZN8recorder11FrameBuffer6appendERKN8logframe10FrameBytesENS1_10PackStatusE",
+              ".text._ZNK8recorder11FrameBuffer10incompleteEv",
+              ".text._ZNK8recorder11FrameBuffer12clampedCountEv",
+              ".text._ZNK8recorder11FrameBuffer12invalidCountEv",
+              ".text._ZNK8recorder11FrameBuffer16overwrittenCountEv",
+              ".text._ZNK8recorder11FrameBuffer19rejectedStatusCountEv",
+              ".text._ZNK8recorder11FrameBuffer4sizeEv"
+            ],
+            "added": [
+              ".text._ZNK8recorder11FrameBuffer4readEjRNS_11StoredFrameE",
+              ".text._ZNK8recorder11FrameBuffer7bytesAtEj"
+            ],
+            "removed": [
+              ".text._ZNK8recorder11FrameBuffer2atEj"
+            ]
+          }
+        ],
+        "native_uart_and_csv_alloc_sections_unchanged": true
+      },
+      "startup": {
+        "main": {
+          "symbol": {
+            "name": "main",
+            "value": 82177,
+            "size": 44,
+            "bind": 2,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "38b5054b9847054b9847054b9847054d054ca847a047fce70000000000000000000000000000000000000000",
+          "normalized_bytes_hex": "38b5054b9847054b9847054b9847054d054ca847a047fce70000000000000000000000000000000000000000",
+          "relocations": [
+            {
+              "offset": 24,
+              "type": 2,
+              "name": "initVariant",
+              "section": ".text"
+            },
+            {
+              "offset": 28,
+              "type": 2,
+              "name": "_Z20start_static_threadsv",
+              "section": ".text"
+            },
+            {
+              "offset": 32,
+              "type": 2,
+              "name": "setup",
+              "section": ".text"
+            },
+            {
+              "offset": 36,
+              "type": 2,
+              "name": "loop",
+              "section": ".text"
+            },
+            {
+              "offset": 40,
+              "type": 2,
+              "name": "_Z10__loopHookv",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        },
+        "setup": {
+          "symbol": {
+            "name": "setup",
+            "value": 1,
+            "size": 40,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "7fb513220021054b01a89847044b01a90448984707b05df804fb00bf000000000000000000000000",
+          "normalized_bytes_hex": "7fb513220021054b01a89847044b01a90448984707b05df804fb00bf000000000000000000000000",
+          "relocations": [
+            {
+              "offset": 28,
+              "type": 2,
+              "name": "memset",
+              "section": ".text"
+            },
+            {
+              "offset": 32,
+              "type": 2,
+              "name": "_ZN3app7Runtime5beginERKNS_11SetupGrantsE",
+              "section": ".text"
+            },
+            {
+              "offset": 36,
+              "type": 2,
+              "name": "",
+              "section": ".bss"
+            }
+          ],
+          "bss_targets": [
+            {
+              "offset": 36,
+              "section_addend": 0,
+              "targets": [
+                "_ZN12_GLOBAL__N_17runtimeE"
+              ]
+            }
+          ]
+        },
+        "loop": {
+          "symbol": {
+            "name": "loop",
+            "value": 41,
+            "size": 16,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "0148024b184700bf0000000000000000",
+          "normalized_bytes_hex": "0148024b184700bf0000000000000000",
+          "relocations": [
+            {
+              "offset": 8,
+              "type": 2,
+              "name": "",
+              "section": ".bss"
+            },
+            {
+              "offset": 12,
+              "type": 2,
+              "name": "_ZN3app7Runtime4stepEv",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": [
+            {
+              "offset": 8,
+              "section_addend": 0,
+              "targets": [
+                "_ZN12_GLOBAL__N_17runtimeE"
+              ]
+            }
+          ]
+        },
+        "initVariant": {
+          "symbol": {
+            "name": "initVariant",
+            "value": 82173,
+            "size": 2,
+            "bind": 2,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "7047",
+          "normalized_bytes_hex": "7047",
+          "relocations": [],
+          "bss_targets": []
+        },
+        "_Z10__loopHookv": {
+          "symbol": {
+            "name": "_Z10__loopHookv",
+            "value": 62341,
+            "size": 2,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "7047",
+          "normalized_bytes_hex": "7047",
+          "relocations": [],
+          "bss_targets": []
+        },
+        "_Z20start_static_threadsv": {
+          "symbol": {
+            "name": "_Z20start_static_threadsv",
+            "value": 82221,
+            "size": 108,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "2de9f04f154c164e164fdff85c8089b02546b54204f1300402d309b0bde8f08f14ed027b54e90c0154e90a2354e908ce54e9069a54f810bc8ded067bcde903abcde901e9cdf800c0b84754f8300c54f80c1cc04754f8303c5d65d9e700000000000000000000000000000000",
+          "normalized_bytes_hex": "2de9f04f154c164e164fdff85c8089b02546b54204f1300402d309b0bde8f08f14ed027b54e90c0154e90a2354e908ce54e9069a54f810bc8ded067bcde903abcde901e9cdf800c0b84754f8300c54f80c1cc04754f8303c5d65d9e700000000000000000000000000000000",
+          "relocations": [
+            {
+              "offset": 92,
+              "type": 2,
+              "name": "__static_thread_data_list_start",
+              "section": ".static_thread_data_area"
+            },
+            {
+              "offset": 96,
+              "type": 2,
+              "name": "__static_thread_data_list_end",
+              "section": ".static_thread_data_area"
+            },
+            {
+              "offset": 100,
+              "type": 2,
+              "name": "z_impl_k_thread_create",
+              "section": ""
+            },
+            {
+              "offset": 104,
+              "type": 2,
+              "name": "z_impl_k_thread_name_set",
+              "section": ""
+            }
+          ],
+          "bss_targets": []
+        },
+        "_GLOBAL__sub_I_setup": {
+          "symbol": {
+            "name": "_GLOBAL__sub_I_setup",
+            "value": 57,
+            "size": 404,
+            "bind": 0,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "f0b500245948a9b0594d2146b42200f8084ba847554b01261f4603f1d80021461022c3e93044c3e93244c3e934445e7283f8bc4083f8bd4083f8be4083f8bf40a84707f1e80021461022a84707f1f80021461022a84700220023c7e944230923c7f8084187f80c41a7f8184187f81a61a7f8284187f82a41c7f83c41c7e94844c7e94b33c7e94d4407f5a0772146e8223846a847a7f5a0721346214603f5d0703c2287f82860a8472146232207f19d0087f86460a847a7f5a07387f89c6087f8c160c7f8e8701f46214603f50b701822a84787f82e62c7f8444287f8484207f51370032721466822a847204b6c22214603f53270c3e9ae4483f8507283f8946283f8b44283f8b54283f8b642c3f8c04283f8c442a847154b0da8c3e9cd44c3e9cf4483f8d07283f8146383f8444383f8454383f84643c3f848430e490e4b984702a80a490d4b984707ac18a807490c4b984720460b490c4b9847009418ab0b4c02aa0da90a48a04729b0f0bd408a020000000000148a020000000000000000000000000048890200000000000000000000000000",
+          "normalized_bytes_hex": "f0b500245948a9b0594d2146b42200f8084ba847554b01261f4603f1d80021461022c3e93044c3e93244c3e934445e7283f8bc4083f8bd4083f8be4083f8bf40a84707f1e80021461022a84707f1f80021461022a84700220023c7e944230923c7f8084187f80c41a7f8184187f81a61a7f8284187f82a41c7f83c41c7e94844c7e94b33c7e94d4407f5a0772146e8223846a847a7f5a0721346214603f5d0703c2287f82860a8472146232207f19d0087f86460a847a7f5a07387f89c6087f8c160c7f8e8701f46214603f50b701822a84787f82e62c7f8444287f8484207f51370032721466822a847204b6c22214603f53270c3e9ae4483f8507283f8946283f8b44283f8b54283f8b642c3f8c04283f8c442a847154b0da8c3e9cd44c3e9cf4483f8d07283f8146383f8444383f8454383f84643c3f848430e490e4b984702a80a490d4b984707ac18a807490c4b984720460b490c4b9847009418ab0b4c02aa0da90a48a04729b0f0bd00000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "relocations": [
+            {
+              "offset": 364,
+              "type": 2,
+              "name": "",
+              "section": ".bss"
+            },
+            {
+              "offset": 368,
+              "type": 2,
+              "name": "memset",
+              "section": ".text"
+            },
+            {
+              "offset": 372,
+              "type": 2,
+              "name": "",
+              "section": ".bss"
+            },
+            {
+              "offset": 376,
+              "type": 2,
+              "name": "_ZN6motors8UnoQPort4portEv",
+              "section": ".text"
+            },
+            {
+              "offset": 380,
+              "type": 2,
+              "name": "_ZN3app13NativeSources7adcPortEv",
+              "section": ".text"
+            },
+            {
+              "offset": 384,
+              "type": 2,
+              "name": "_ZN3app13NativeSources4portEv",
+              "section": ".text"
+            },
+            {
+              "offset": 388,
+              "type": 2,
+              "name": "",
+              "section": ".bss"
+            },
+            {
+              "offset": 392,
+              "type": 2,
+              "name": "_ZN3app12unoQDumpPortERN8recorder4dump12UnoQDumpPortE",
+              "section": ".text"
+            },
+            {
+              "offset": 396,
+              "type": 2,
+              "name": "_ZN3app7RuntimeC1ERKN6motors4PortERKN5power9InputPortERKNS_10SourcePortERKNS_8DumpPortE",
+              "section": ".text"
+            },
+            {
+              "offset": 400,
+              "type": 2,
+              "name": "",
+              "section": ".bss"
+            }
+          ],
+          "bss_targets": [
+            {
+              "offset": 364,
+              "section_addend": 166464,
+              "targets": [
+                "_ZN12_GLOBAL__N_17sourcesE"
+              ]
+            },
+            {
+              "offset": 372,
+              "section_addend": 166420,
+              "targets": [
+                "_ZN12_GLOBAL__N_110motor_portE"
+              ]
+            },
+            {
+              "offset": 388,
+              "section_addend": 166216,
+              "targets": [
+                "_ZN12_GLOBAL__N_19dump_portE"
+              ]
+            },
+            {
+              "offset": 400,
+              "section_addend": 0,
+              "targets": [
+                "_ZN12_GLOBAL__N_17runtimeE"
+              ]
+            }
+          ]
+        },
+        "micros": {
+          "symbol": {
+            "name": "micros",
+            "value": 82329,
+            "size": 28,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "10b5044ca047a047a0220023024ca04710bd00bf0000000000000000",
+          "normalized_bytes_hex": "10b5044ca047a047a0220023024ca04710bd00bf0000000000000000",
+          "relocations": [
+            {
+              "offset": 20,
+              "type": 2,
+              "name": "sys_clock_cycle_get_64",
+              "section": ""
+            },
+            {
+              "offset": 24,
+              "type": 2,
+              "name": "__aeabi_uldivmod",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        }
+      },
+      "metadata": {
+        "commands": 75,
+        "metadata": 125,
+        "dependencies": 121
+      },
+      "required_retained_functions": {
+        "_ZN3app7Runtime14initializeDumpEv": {
+          "symbol": {
+            "name": "_ZN3app7Runtime14initializeDumpEv",
+            "value": 5113,
+            "size": 60,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "10b500f5203494f82d3373b1d0f8843043b1d0f888202ab1d0f8902012b1d0f894201ab9022384f8343510bdd0f8800004f22e31984784f83405f6e7",
+          "normalized_bytes_hex": "10b500f5203494f82d3373b1d0f8843043b1d0f888202ab1d0f8902012b1d0f894201ab9022384f8343510bdd0f8800004f22e31984784f83405f6e7",
+          "relocations": [],
+          "bss_targets": []
+        },
+        "_ZN3app7Runtime11serviceDumpEv": {
+          "symbol": {
+            "name": "_ZN3app7Runtime11serviceDumpEv",
+            "value": 5449,
+            "size": 180,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "f0b500f5203494f82d33064691b013b9012011b0f0bd0023224f0ca90c93b84708b90020f5e730461f4b98470028efd030460c991d4b9847054628b1d6f88830d6f880009847054630460ca9b8470028e7d00c9b06f51e310d9306f51c33d3f85c398df83c500e9394f832330daa8df83d3006f53763009302a801f5b4730c4d01f56271a84704f5a76402ad0fcd0fc40fcd0fc495e8030084e8030030460ca9b847b6e700000000000000000000000000000000",
+          "normalized_bytes_hex": "f0b500f5203494f82d33064691b013b9012011b0f0bd0023224f0ca90c93b84708b90020f5e730461f4b98470028efd030460c991d4b9847054628b1d6f88830d6f880009847054630460ca9b8470028e7d00c9b06f51e310d9306f51c33d3f85c398df83c500e9394f832330daa8df83d3006f53763009302a801f5b4730c4d01f56271a84704f5a76402ad0fcd0fc40fcd0fc495e8030084e8030030460ca9b847b6e700000000000000000000000000000000",
+          "relocations": [
+            {
+              "offset": 164,
+              "type": 2,
+              "name": "_ZN3app7Runtime5clockERj",
+              "section": ".text"
+            },
+            {
+              "offset": 168,
+              "type": 2,
+              "name": "_ZNK3app7Runtime16dumpReceiptValidEv",
+              "section": ".text"
+            },
+            {
+              "offset": 172,
+              "type": 2,
+              "name": "_ZNK3app7Runtime16dumpReadyContextEj",
+              "section": ".text"
+            },
+            {
+              "offset": 176,
+              "type": 2,
+              "name": "_ZN8recorder4dump8Transfer4stepERKNS0_7ContextERKN3fsm11RobotResultERKNS_15AttemptRecorderE",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        },
+        "_ZNK3app7Runtime16dumpReceiptValidEv": {
+          "symbol": {
+            "name": "_ZNK3app7Runtime16dumpReceiptValidEv",
+            "value": 5173,
+            "size": 92,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "10b500f51c3393f85029032a24d193f8520900b393f8290be8b193f8f80ad0b1d3f8004bd3f8041bd3f86809d3f86c29914208bf84420fd1d3f8082bd3f85c19521a002a08db93f8280b002818bf06280cbf0120002010bd0020fce7",
+          "normalized_bytes_hex": "10b500f51c3393f85029032a24d193f8520900b393f8290be8b193f8f80ad0b1d3f8004bd3f8041bd3f86809d3f86c29914208bf84420fd1d3f8082bd3f85c19521a002a08db93f8280b002818bf06280cbf0120002010bd0020fce7",
+          "relocations": [],
+          "bss_targets": []
+        },
+        "_ZNK3app7Runtime16dumpReadyContextEj": {
+          "symbol": {
+            "name": "_ZNK3app7Runtime16dumpReadyContextEj",
+            "value": 5265,
+            "size": 184,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "38b500f5203393f834350546012b0c464ed1284b9847002849d005f51c3393f87009002843d0d3f86829d3f86c190a433ed0d3f85c29a41ab4f57a7f38d293f87d29012a34d193f888298abb93f88a0970bb93f88b2952bb93f8892942bb93f87c0928bb03f66812d2ed037af5ee407af1ee10fa1bd1d2ed047af5ee407af1ee10fa14d193f80c2b8ab903f6f823d3ed067af5ee407af1ee10fa08d1d3ed077af5ee407af1ee10fa0cbf0120002038bd0020fce700000000",
+          "normalized_bytes_hex": "38b500f5203393f834350546012b0c464ed1284b9847002849d005f51c3393f87009002843d0d3f86829d3f86c190a433ed0d3f85c29a41ab4f57a7f38d293f87d29012a34d193f888298abb93f88a0970bb93f88b2952bb93f8892942bb93f87c0928bb03f66812d2ed037af5ee407af1ee10fa1bd1d2ed047af5ee407af1ee10fa14d193f80c2b8ab903f6f823d3ed067af5ee407af1ee10fa08d1d3ed077af5ee407af1ee10fa0cbf0120002038bd0020fce700000000",
+          "relocations": [
+            {
+              "offset": 180,
+              "type": 2,
+              "name": "_ZNK3app7Runtime16dumpReceiptValidEv",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        },
+        "_ZN8recorder4dump8Transfer5abortEv": {
+          "symbol": {
+            "name": "_ZN8recorder4dump8Transfer5abortEv",
+            "value": 79213,
+            "size": 20,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "027c012a02d10321014b1847704700bf00000000",
+          "normalized_bytes_hex": "027c012a02d10321014b1847704700bf00000000",
+          "relocations": [
+            {
+              "offset": 16,
+              "type": 2,
+              "name": "_ZN8recorder4dump8Transfer4failENS0_5PhaseENS0_6ReasonE",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        },
+        "_ZN8recorder4dump8Transfer4stepERKNS0_7ContextERKN3fsm11RobotResultERKNS_15AttemptRecorderE": {
+          "symbol": {
+            "name": "_ZN8recorder4dump8Transfer4stepERKNS0_7ContextERKN3fsm11RobotResultERKNS_15AttemptRecorderE",
+            "value": 79001,
+            "size": 212,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "2de9f3471d469b7f0646042b0c461746ddf8289032d1d5e90010d4f85c250192d4f858258a42019a824127d24ff00108c4f85815c4f85c0543462a4639462046dff88ca0d04718b3237c012b0bd0b8f1000f1dd04b462a4639462046174da847237c012b14d149462046154b984740b9072203212046134b984709e04ff00008dae7d4f844358bb1494620460e4b9847354610340fcc0fc50fcc0fc594e8030085e80300304602b0bde8f0872046074b98470028e8d108220421dbe7000000000000000000000000000000000000000000000000",
+          "normalized_bytes_hex": "2de9f3471d469b7f0646042b0c461746ddf8289032d1d5e90010d4f85c250192d4f858258a42019a824127d24ff00108c4f85815c4f85c0543462a4639462046dff88ca0d04718b3237c012b0bd0b8f1000f1dd04b462a4639462046174da847237c012b14d149462046154b984740b9072203212046134b984709e04ff00008dae7d4f844358bb1494620460e4b9847354610340fcc0fc50fcc0fc594e8030085e80300304602b0bde8f0872046074b98470028e8d108220421dbe7000000000000000000000000000000000000000000000000",
+          "relocations": [
+            {
+              "offset": 188,
+              "type": 2,
+              "name": "_ZN8recorder4dump8Transfer5startERKNS0_7ContextERKN3fsm11RobotResultERKNS_15AttemptRecorderE",
+              "section": ".text"
+            },
+            {
+              "offset": 192,
+              "type": 2,
+              "name": "_ZNK8recorder4dump8Transfer9unchangedERKNS_15AttemptRecorderE",
+              "section": ".text"
+            },
+            {
+              "offset": 196,
+              "type": 2,
+              "name": "_ZN8recorder4dump8Transfer4failENS0_5PhaseENS0_6ReasonE",
+              "section": ".text"
+            },
+            {
+              "offset": 200,
+              "type": 2,
+              "name": "_ZN8recorder4dump8Transfer12writePendingERKNS_15AttemptRecorderE",
+              "section": ".text"
+            },
+            {
+              "offset": 204,
+              "type": 2,
+              "name": "_ZN8recorder4dump8Transfer7prepareEv",
+              "section": ".text"
+            },
+            {
+              "offset": 208,
+              "type": 2,
+              "name": "_ZN8recorder4dump8Transfer5admitERKNS0_7ContextERKN3fsm11RobotResultEb",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        },
+        "_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE": {
+          "symbol": {
+            "name": "_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE",
+            "value": 45453,
+            "size": 472,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "2de9f74390f8c630054613b990f8c8303bb128465d4b98472c78204603b0bde8f083012380f8c6300b782bb14b781bb18b780bb1cb7813b903242c70ede7dff89081c04708b90224f7e7dff88891d9f80030002bf0d14e4fb84708b90424ece74c484d4ca0470028f8d04c48a0470028f4d04b4ef3685a78d007ddd41b78002bdad1484b98470028d6d0c9f800504148016982680b6823f400530b6013680d21414a984708b10624c7e7404b304698470028d3d13046a0470028cfd0eff31083019372b6c04700284bd0b847002848d0374b9847002844d0364b9847002840d0354ad2f8083259073bd4d2f808315b0737d4324b19680d2945d15968002942d1996800293fd1d96a00293cd1dc682c48844238d10420c2f88800bff34f8fbff36f8fc2f8880109221a60bff35f8f2c46db68244e44f8a03f0846b0470131082944f8040ff8d10123284685f8c5301e4b98470446012c287028460ad00b4b984700e003242c70bff35f8f019b83f3108853e7164b984706280646f3d12846034b98473446eee70724ece700bf000000000000000000000000000000000000000000000000000000002000010000000000000000000000000000e100e000240046e46c050000000000000000000000000000000000908d0200",
+          "normalized_bytes_hex": "2de9f74390f8c630054613b990f8c8303bb128465d4b98472c78204603b0bde8f083012380f8c6300b782bb14b781bb18b780bb1cb7813b903242c70ede7dff89081c04708b90224f7e7dff88891d9f80030002bf0d14e4fb84708b90424ece74c484d4ca0470028f8d04c48a0470028f4d04b4ef3685a78d007ddd41b78002bdad1484b98470028d6d0c9f800504148016982680b6823f400530b6013680d21414a984708b10624c7e7404b304698470028d3d13046a0470028cfd0eff31083019372b6c04700284bd0b847002848d0374b9847002844d0364b9847002840d0354ad2f8083259073bd4d2f808315b0737d4324b19680d2945d15968002942d1996800293fd1d96a00293cd1dc682c48844238d10420c2f88800bff34f8fbff36f8fc2f8880109221a60bff35f8f2c46db68244e44f8a03f0846b0470131082944f8040ff8d10123284685f8c5301e4b98470446012c287028460ad00b4b984700e003242c70bff35f8f019b83f3108853e7164b984706280646f3d12846034b98473446eee70724ece700bf000000000000000000000000000000000000000000000000000000002000010000000000000000000000000000e100e000240046e46c05000000000000000000000000000000000000000000",
+          "relocations": [
+            {
+              "offset": 396,
+              "type": 2,
+              "name": "_ZN8recorder4dump12UnoQDumpPort5abortEv",
+              "section": ".text"
+            },
+            {
+              "offset": 400,
+              "type": 2,
+              "name": "_ZN8recorder4dump12_GLOBAL__N_18metadataEv",
+              "section": ".text"
+            },
+            {
+              "offset": 404,
+              "type": 2,
+              "name": "__device_dts_ord_94",
+              "section": ""
+            },
+            {
+              "offset": 408,
+              "type": 2,
+              "name": "z_impl_device_is_ready",
+              "section": ""
+            },
+            {
+              "offset": 412,
+              "type": 2,
+              "name": "__device_dts_ord_9",
+              "section": ""
+            },
+            {
+              "offset": 416,
+              "type": 2,
+              "name": "__device_dts_ord_78",
+              "section": ""
+            },
+            {
+              "offset": 420,
+              "type": 2,
+              "name": "_ZN8recorder4dump12_GLOBAL__N_17irqIdleEv",
+              "section": ".text"
+            },
+            {
+              "offset": 428,
+              "type": 2,
+              "name": "z_impl_device_init",
+              "section": ""
+            },
+            {
+              "offset": 432,
+              "type": 2,
+              "name": "_ZN8recorder4dump12_GLOBAL__N_115clocksAvailableEv",
+              "section": ".text"
+            },
+            {
+              "offset": 436,
+              "type": 2,
+              "name": "_ZN8recorder4dump12_GLOBAL__N_112nominalClockEv",
+              "section": ".text"
+            },
+            {
+              "offset": 452,
+              "type": 2,
+              "name": "_ZN8recorder4dump12_GLOBAL__N_113clockRegisterEj",
+              "section": ".text"
+            },
+            {
+              "offset": 456,
+              "type": 2,
+              "name": "_ZNK8recorder4dump12UnoQDumpPort9ownershipEv",
+              "section": ".text"
+            },
+            {
+              "offset": 460,
+              "type": 2,
+              "name": "_ZNK8recorder4dump12UnoQDumpPort11sampleReadyEv",
+              "section": ".text"
+            },
+            {
+              "offset": 464,
+              "type": 2,
+              "name": "_ZN8recorder4dump12_GLOBAL__N_113threadContextEv",
+              "section": ".text"
+            },
+            {
+              "offset": 468,
+              "type": 2,
+              "name": "",
+              "section": ".bss"
+            }
+          ],
+          "bss_targets": [
+            {
+              "offset": 468,
+              "section_addend": 167312,
+              "targets": [
+                "_ZN8recorder4dump12_GLOBAL__N_110uart_ownerE"
+              ]
+            }
+          ]
+        },
+        "_ZN8recorder4dump12UnoQDumpPort5readyEv": {
+          "symbol": {
+            "name": "_ZN8recorder4dump12UnoQDumpPort5readyEv",
+            "value": 45021,
+            "size": 88,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "13b590f8c830044623b108230020237002b010bd0d4b984708b90223f6e7eff31083019372b60a4b204698470128207003d12046074b98472070431e58425841bff35f8f019b83f31088e1e7000000000000000000000000",
+          "normalized_bytes_hex": "13b590f8c830044623b108230020237002b010bd0d4b984708b90223f6e7eff31083019372b60a4b204698470128207003d12046074b98472070431e58425841bff35f8f019b83f31088e1e7000000000000000000000000",
+          "relocations": [
+            {
+              "offset": 76,
+              "type": 2,
+              "name": "_ZN8recorder4dump12_GLOBAL__N_113threadContextEv",
+              "section": ".text"
+            },
+            {
+              "offset": 80,
+              "type": 2,
+              "name": "_ZNK8recorder4dump12UnoQDumpPort9ownershipEv",
+              "section": ".text"
+            },
+            {
+              "offset": 84,
+              "type": 2,
+              "name": "_ZNK8recorder4dump12UnoQDumpPort11sampleReadyEv",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        },
+        "_ZN8recorder4dump12UnoQDumpPort7advanceEPKcj": {
+          "symbol": {
+            "name": "_ZN8recorder4dump12UnoQDumpPort7advanceEPKcj",
+            "value": 46205,
+            "size": 196,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "2de9f34791f8c8a005460c4690469946baf1000f0cd0254b084698470823237002232b7000236b60284602b0bde8f0871f4b9847064638b91c4b0846984702236e6023702b70efe71a4b98470746eff31083019372b6184b20469847012806460dd0124b20469847022326702b70c5f804a0bff35f8f019b83f31088d4e74a46414620460d4b9847064640b9074b204698470a23237002236e602b70e9e73a4621462846064b9847e3e700bf000000000000000000000000000000000000000000000000",
+          "normalized_bytes_hex": "2de9f34791f8c8a005460c4690469946baf1000f0cd0254b084698470823237002232b7000236b60284602b0bde8f0871f4b9847064638b91c4b0846984702236e6023702b70efe71a4b98470746eff31083019372b6184b20469847012806460dd0124b20469847022326702b70c5f804a0bff35f8f019b83f31088d4e74a46414620460d4b9847064640b9074b204698470a23237002236e602b70e9e73a4621462846064b9847e3e700bf000000000000000000000000000000000000000000000000",
+          "relocations": [
+            {
+              "offset": 172,
+              "type": 2,
+              "name": "_ZN8recorder4dump12UnoQDumpPort5abortEv",
+              "section": ".text"
+            },
+            {
+              "offset": 176,
+              "type": 2,
+              "name": "_ZN8recorder4dump12_GLOBAL__N_113threadContextEv",
+              "section": ".text"
+            },
+            {
+              "offset": 180,
+              "type": 2,
+              "name": "micros",
+              "section": ".text"
+            },
+            {
+              "offset": 184,
+              "type": 2,
+              "name": "_ZNK8recorder4dump12UnoQDumpPort9ownershipEv",
+              "section": ".text"
+            },
+            {
+              "offset": 188,
+              "type": 2,
+              "name": "_ZN8recorder4dump12UnoQDumpPort7prepareEPKcj",
+              "section": ".text"
+            },
+            {
+              "offset": 192,
+              "type": 2,
+              "name": "_ZN8recorder4dump12UnoQDumpPort8transmitEj",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        },
+        "_ZN8recorder4dump12UnoQDumpPort5abortEv": {
+          "symbol": {
+            "name": "_ZN8recorder4dump12UnoQDumpPort5abortEv",
+            "value": 45349,
+            "size": 104,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "37b590f8c8500446d5b9144b9847b8b1eff31083019372b6114b20469847012809d1104b1d60bff35f8f1b68b3fa83f35b0984f8c430bff35f8f019b83f310880023c4e9253384f8c730c4f89030012384f8c8300823237003b030bd000000000000000000240046",
+          "normalized_bytes_hex": "37b590f8c8500446d5b9144b9847b8b1eff31083019372b6114b20469847012809d1104b1d60bff35f8f1b68b3fa83f35b0984f8c430bff35f8f019b83f310880023c4e9253384f8c730c4f89030012384f8c8300823237003b030bd000000000000000000240046",
+          "relocations": [
+            {
+              "offset": 92,
+              "type": 2,
+              "name": "_ZN8recorder4dump12_GLOBAL__N_113threadContextEv",
+              "section": ".text"
+            },
+            {
+              "offset": 96,
+              "type": 2,
+              "name": "_ZNK8recorder4dump12UnoQDumpPort9ownershipEv",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        },
+        "_ZN8recorder3csv13summaryHeaderEPcj": {
+          "symbol": {
+            "name": "_ZN8recorder3csv13summaryHeaderEPcj",
+            "value": 76153,
+            "size": 28,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "13b50b460092034940f22b22024ca04702b010bd0d06000000000000",
+          "normalized_bytes_hex": "13b50b460092034940f22b22024ca04702b010bd0d06000000000000",
+          "relocations": [
+            {
+              "offset": 20,
+              "type": 2,
+              "name": "",
+              "section": ".llext.rodata.noreloc"
+            },
+            {
+              "offset": 24,
+              "type": 2,
+              "name": "_ZN8recorder3csv12_GLOBAL__N_17publishEPKcjPcj",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        },
+        "_ZN8recorder3csv11frameHeaderEPcj": {
+          "symbol": {
+            "name": "_ZN8recorder3csv11frameHeaderEPcj",
+            "value": 75605,
+            "size": 28,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "13b50b4600920349a422034ca04702b010bd00bf6805000000000000",
+          "normalized_bytes_hex": "13b50b4600920349a422034ca04702b010bd00bf6805000000000000",
+          "relocations": [
+            {
+              "offset": 20,
+              "type": 2,
+              "name": "",
+              "section": ".llext.rodata.noreloc"
+            },
+            {
+              "offset": 24,
+              "type": 2,
+              "name": "_ZN8recorder3csv12_GLOBAL__N_17publishEPKcjPcj",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        },
+        "_ZN8recorder3csv11eventHeaderEPcj": {
+          "symbol": {
+            "name": "_ZN8recorder3csv11eventHeaderEPcj",
+            "value": 75989,
+            "size": 28,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "13b50b46009203493622034ca04702b010bd00bf3105000000000000",
+          "normalized_bytes_hex": "13b50b46009203493622034ca04702b010bd00bf3105000000000000",
+          "relocations": [
+            {
+              "offset": 20,
+              "type": 2,
+              "name": "",
+              "section": ".llext.rodata.noreloc"
+            },
+            {
+              "offset": 24,
+              "type": 2,
+              "name": "_ZN8recorder3csv12_GLOBAL__N_17publishEPKcjPcj",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        },
+        "_ZN3app12unoQDumpPortERN8recorder4dump12UnoQDumpPortE": {
+          "symbol": {
+            "name": "_ZN3app12unoQDumpPortERN8recorder4dump12UnoQDumpPortE",
+            "value": 477,
+            "size": 40,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "10b50446054b01604360054b0c3040f8043c044b9847204610bd00bf000000000000000000000000",
+          "normalized_bytes_hex": "10b50446054b01604360054b0c3040f8043c044b9847204610bd00bf000000000000000000000000",
+          "relocations": [
+            {
+              "offset": 28,
+              "type": 2,
+              "name": "_ZN3app12_GLOBAL__N_15beginEPvRKN8recorder4dump10SetupGrantE",
+              "section": ".text"
+            },
+            {
+              "offset": 32,
+              "type": 2,
+              "name": "_ZN3app12_GLOBAL__N_15readyEPv",
+              "section": ".text"
+            },
+            {
+              "offset": 36,
+              "type": 2,
+              "name": "_ZN8recorder4dump12UnoQDumpPort4portEv",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        }
+      },
+      "owners": {
+        "_ZN12_GLOBAL__N_17runtimeE": 166216,
+        "_ZN12_GLOBAL__N_17sourcesE": 848,
+        "_ZN12_GLOBAL__N_19dump_portE": 204
+      },
+      "memory": {
+        "account": {
+          "path": "C:\\Users\\narut\\OneDrive\\Desktop\\Project\\techbots_Sumo_Robots\\state\\analysis\\P2_frame_packing_raw\\target_3bf0da00_bench-default\\app.ino.elf",
+          "sha256": "d4b8e4bdbc9b4669e3ad67e7e153c5b5ee5ffe959cf410f8276c8e8ecf26d5c3",
+          "bytes": 171028,
+          "sections": [
+            {
+              "name_offset": 0,
+              "type": 0,
+              "flags": 0,
+              "address": 0,
+              "offset": 0,
+              "size": 0,
+              "link": 0,
+              "info": 0,
+              "alignment": 0,
+              "entry_size": 0,
+              "index": 0,
+              "name": ""
+            },
+            {
+              "name_offset": 31,
+              "type": 1,
+              "flags": 2,
+              "address": 0,
+              "offset": 56,
+              "size": 3800,
+              "link": 0,
+              "info": 0,
+              "alignment": 8,
+              "entry_size": 0,
+              "index": 1,
+              "name": ".rodata"
+            },
+            {
+              "name_offset": 27,
+              "type": 9,
+              "flags": 64,
+              "address": 0,
+              "offset": 155308,
+              "size": 3200,
+              "link": 12,
+              "info": 1,
+              "alignment": 4,
+              "entry_size": 8,
+              "index": 2,
+              "name": ".rel.rodata"
+            },
+            {
+              "name_offset": 39,
+              "type": 1,
+              "flags": 2,
+              "address": 3800,
+              "offset": 3856,
+              "size": 2289,
+              "link": 0,
+              "info": 0,
+              "alignment": 4,
+              "entry_size": 0,
+              "index": 3,
+              "name": ".llext.rodata.noreloc"
+            },
+            {
+              "name_offset": 65,
+              "type": 1,
+              "flags": 6,
+              "address": 0,
+              "offset": 6152,
+              "size": 82640,
+              "link": 0,
+              "info": 0,
+              "alignment": 8,
+              "entry_size": 0,
+              "index": 4,
+              "name": ".text"
+            },
+            {
+              "name_offset": 61,
+              "type": 9,
+              "flags": 64,
+              "address": 0,
+              "offset": 158508,
+              "size": 11760,
+              "link": 12,
+              "info": 4,
+              "alignment": 4,
+              "entry_size": 8,
+              "index": 5,
+              "name": ".rel.text"
+            },
+            {
+              "name_offset": 71,
+              "type": 1,
+              "flags": 1,
+              "address": 82640,
+              "offset": 88792,
+              "size": 0,
+              "link": 0,
+              "info": 0,
+              "alignment": 1,
+              "entry_size": 0,
+              "index": 6,
+              "name": ".static_thread_data_area"
+            },
+            {
+              "name_offset": 96,
+              "type": 8,
+              "flags": 3,
+              "address": 82640,
+              "offset": 88792,
+              "size": 167320,
+              "link": 0,
+              "info": 0,
+              "alignment": 8,
+              "entry_size": 0,
+              "index": 7,
+              "name": ".bss"
+            },
+            {
+              "name_offset": 105,
+              "type": 1,
+              "flags": 2,
+              "address": 249960,
+              "offset": 88792,
+              "size": 8,
+              "link": 0,
+              "info": 0,
+              "alignment": 4,
+              "entry_size": 0,
+              "index": 8,
+              "name": ".exported_sym"
+            },
+            {
+              "name_offset": 101,
+              "type": 9,
+              "flags": 64,
+              "address": 0,
+              "offset": 170268,
+              "size": 16,
+              "link": 12,
+              "info": 8,
+              "alignment": 4,
+              "entry_size": 8,
+              "index": 9,
+              "name": ".rel.exported_sym"
+            },
+            {
+              "name_offset": 123,
+              "type": 14,
+              "flags": 3,
+              "address": 249968,
+              "offset": 88800,
+              "size": 4,
+              "link": 0,
+              "info": 0,
+              "alignment": 4,
+              "entry_size": 4,
+              "index": 10,
+              "name": ".init_array"
+            },
+            {
+              "name_offset": 119,
+              "type": 9,
+              "flags": 64,
+              "address": 0,
+              "offset": 170284,
+              "size": 8,
+              "link": 12,
+              "info": 10,
+              "alignment": 4,
+              "entry_size": 8,
+              "index": 11,
+              "name": ".rel.init_array"
+            },
+            {
+              "name_offset": 1,
+              "type": 2,
+              "flags": 0,
+              "address": 0,
+              "offset": 88804,
+              "size": 34400,
+              "link": 13,
+              "info": 1426,
+              "alignment": 4,
+              "entry_size": 16,
+              "index": 12,
+              "name": ".symtab"
+            },
+            {
+              "name_offset": 9,
+              "type": 3,
+              "flags": 0,
+              "address": 0,
+              "offset": 123204,
+              "size": 32102,
+              "link": 0,
+              "info": 0,
+              "alignment": 1,
+              "entry_size": 0,
+              "index": 13,
+              "name": ".strtab"
+            },
+            {
+              "name_offset": 17,
+              "type": 3,
+              "flags": 0,
+              "address": 0,
+              "offset": 170292,
+              "size": 135,
+              "link": 0,
+              "info": 0,
+              "alignment": 1,
+              "entry_size": 0,
+              "index": 14,
+              "name": ".shstrtab"
+            }
+          ],
+          "section_header_offset": 170428,
+          "compiler_payload": 253772,
+          "nominal_compiler_remaining": 8372,
+          "global_func_object_count": 516,
+          "undefined": [
+            "__device_dts_ord_100",
+            "__device_dts_ord_105",
+            "__device_dts_ord_109",
+            "__device_dts_ord_114",
+            "__device_dts_ord_120",
+            "__device_dts_ord_123",
+            "__device_dts_ord_17",
+            "__device_dts_ord_233",
+            "__device_dts_ord_30",
+            "__device_dts_ord_34",
+            "__device_dts_ord_40",
+            "__device_dts_ord_54",
+            "__device_dts_ord_61",
+            "__device_dts_ord_64",
+            "__device_dts_ord_65",
+            "__device_dts_ord_66",
+            "__device_dts_ord_70",
+            "__device_dts_ord_73",
+            "__device_dts_ord_78",
+            "__device_dts_ord_83",
+            "__device_dts_ord_88",
+            "__device_dts_ord_89",
+            "__device_dts_ord_9",
+            "__device_dts_ord_90",
+            "__device_dts_ord_91",
+            "__device_dts_ord_92",
+            "__device_dts_ord_93",
+            "__device_dts_ord_94",
+            "__device_dts_ord_95",
+            "__heap_end",
+            "__heap_start",
+            "__real___aeabi_d2f",
+            "__real___aeabi_d2iz",
+            "__real___aeabi_d2lz",
+            "__real___aeabi_d2uiz",
+            "__real___aeabi_dadd",
+            "__real___aeabi_dcmpeq",
+            "__real___aeabi_dcmpge",
+            "__real___aeabi_dcmpgt",
+            "__real___aeabi_dcmple",
+            "__real___aeabi_dcmplt",
+            "__real___aeabi_dcmpun",
+            "__real___aeabi_ddiv",
+            "__real___aeabi_dmul",
+            "__real___aeabi_dsub",
+            "__real___aeabi_f2d",
+            "__real___aeabi_f2iz",
+            "__real___aeabi_f2uiz",
+            "__real___aeabi_fadd",
+            "__real___aeabi_fcmpeq",
+            "__real___aeabi_fcmpge",
+            "__real___aeabi_fcmpgt",
+            "__real___aeabi_fcmple",
+            "__real___aeabi_fcmplt",
+            "__real___aeabi_fcmpun",
+            "__real___aeabi_fdiv",
+            "__real___aeabi_fmul",
+            "__real___aeabi_fsub",
+            "__real___aeabi_i2d",
+            "__real___aeabi_i2f",
+            "__real___aeabi_idiv",
+            "__real___aeabi_idivmod",
+            "__real___aeabi_l2d",
+            "__real___aeabi_l2f",
+            "__real___aeabi_ldivmod",
+            "__real___aeabi_read_tp",
+            "__real___aeabi_ui2d",
+            "__real___aeabi_ui2f",
+            "__real___aeabi_uidiv",
+            "__real___aeabi_uidivmod",
+            "__real___aeabi_ul2d",
+            "__real___aeabi_ul2f",
+            "__real___aeabi_uldivmod",
+            "__real___xpg_strerror_r",
+            "__real__exit",
+            "__real_abort",
+            "__real_acos",
+            "__real_acosf",
+            "__real_asin",
+            "__real_asinf",
+            "__real_atan",
+            "__real_atan2",
+            "__real_atan2f",
+            "__real_atanf",
+            "__real_atexit",
+            "__real_atof",
+            "__real_atoi",
+            "__real_atol",
+            "__real_calloc",
+            "__real_cos",
+            "__real_cosf",
+            "__real_exit",
+            "__real_exp",
+            "__real_exp2",
+            "__real_fmod",
+            "__real_free",
+            "__real_gettimeofday",
+            "__real_isalnum",
+            "__real_isalpha",
+            "__real_iscntrl",
+            "__real_isdigit",
+            "__real_isgraph",
+            "__real_islower",
+            "__real_isprint",
+            "__real_isspace",
+            "__real_isupper",
+            "__real_isxdigit",
+            "__real_ldexp",
+            "__real_log",
+            "__real_log10",
+            "__real_log2",
+            "__real_logf",
+            "__real_malloc",
+            "__real_memchr",
+            "__real_memcmp",
+            "__real_memcpy",
+            "__real_memmem",
+            "__real_memmove",
+            "__real_memset",
+            "__real_pow",
+            "__real_putchar",
+            "__real_puts",
+            "__real_rand",
+            "__real_realloc",
+            "__real_sin",
+            "__real_sinf",
+            "__real_sqrt",
+            "__real_sqrtf",
+            "__real_srand",
+            "__real_strcasecmp",
+            "__real_strcat",
+            "__real_strchr",
+            "__real_strcmp",
+            "__real_strcpy",
+            "__real_strdup",
+            "__real_strlen",
+            "__real_strncmp",
+            "__real_strncpy",
+            "__real_strnlen",
+            "__real_strrchr",
+            "__real_strstr",
+            "__real_strtod",
+            "__real_strtok",
+            "__real_strtol",
+            "__real_strtoul",
+            "__real_tan",
+            "__real_tanf",
+            "__real_tolower",
+            "__real_toupper",
+            "__real_vprintf",
+            "__real_vsnprintf",
+            "__real_vsprintf",
+            "__real_vsscanf",
+            "_device_list_end",
+            "_device_list_start",
+            "_ebss",
+            "_edata",
+            "_sbss",
+            "_sdata",
+            "_sidata",
+            "analog_reference",
+            "kheap_llext_heap",
+            "kheap_llext_heap_size",
+            "matrixBegin",
+            "matrixGrayscaleWrite",
+            "matrixSetGrayscaleBits",
+            "pinctrl_configure_pins",
+            "pinctrl_lookup_state",
+            "printk",
+            "sys_clock_cycle_get_64",
+            "z_impl_device_init",
+            "z_impl_device_is_ready",
+            "z_impl_k_thread_create",
+            "z_impl_k_thread_name_set",
+            "z_impl_k_uptime_ticks",
+            "z_impl_k_yield"
+          ],
+          "init": [
+            {
+              "section": ".init_array",
+              "offset": 0,
+              "type": 2,
+              "name": "_GLOBAL__sub_I_setup",
+              "symbol_section": ".text",
+              "symbol_type": 2,
+              "symbol_value": 57
+            }
+          ],
+          "fini": [],
+          "copied_regions": [
+            {
+              "name": ".rodata",
+              "payload": 3800,
+              "alignment": 8,
+              "prepad": 0,
+              "retained_chunk": 3808
+            },
+            {
+              "name": ".text",
+              "payload": 82640,
+              "alignment": 8,
+              "prepad": 0,
+              "retained_chunk": 82648
+            },
+            {
+              "name": ".bss",
+              "payload": 167320,
+              "alignment": 8,
+              "prepad": 0,
+              "retained_chunk": 167328
+            },
+            {
+              "name": ".exported_sym",
+              "payload": 8,
+              "alignment": 4,
+              "prepad": 0,
+              "retained_chunk": 16
+            },
+            {
+              "name": ".init_array",
+              "payload": 4,
+              "alignment": 4,
+              "prepad": 0,
+              "retained_chunk": 8
+            }
+          ],
+          "metadata_chunks": {
+            "extension": 200,
+            "section_map": 128,
+            "global_symbols": 4136,
+            "export_copy": 16,
+            "initial_bookkeeping": 88
+          },
+          "conditional_pristine_peak_consumption": 258376,
+          "conditional_pristine_peak_free_span": 3768,
+          "conditional_largest_payload": 3764,
+          "limitation": "Conditional pristine-pool source model, not actual load/free-memory/WCET evidence"
+        },
+        "aligned_peeks": [
+          {
+            "name": ".llext.rodata.noreloc",
+            "offset": 3856,
+            "alignment": 4,
+            "bytes": 2289
+          },
+          {
+            "name": ".symtab",
+            "offset": 88804,
+            "alignment": 4,
+            "bytes": 34400
+          },
+          {
+            "name": ".strtab",
+            "offset": 123204,
+            "alignment": 1,
+            "bytes": 32102
+          },
+          {
+            "name": ".shstrtab",
+            "offset": 170292,
+            "alignment": 1,
+            "bytes": 135
+          }
+        ],
+        "copied_region_chunks": 253808,
+        "before_temporary_symbols": 254224,
+        "before_symbols_free_span": 7920,
+        "before_symbols_largest_payload": 7916,
+        "temporary_symbols_request": 4128,
+        "temporary_symbols_chunk": 4136,
+        "temporary_symbols_fit": true,
+        "temporary_symbols_chunk_deficit": 0,
+        "complete_peak_deficit": 0,
+        "conditional_largest_after_peak": 3764,
+        "interpretation": "Pinned pristine-pool/persistent-peek model only; no load/freeRAM/WCET measured"
+      },
+      "native_exports": 39,
+      "aeabi_exports": 42,
+      "retained_frame_read": {
+        "symbol": {
+          "name": "_ZNK8recorder11FrameBuffer4readEjRNS_11StoredFrameE",
+          "value": 79513,
+          "size": 104,
+          "bind": 1,
+          "type": 2,
+          "other": 0,
+          "section_index": 4,
+          "section": ".text"
+        },
+        "bytes_hex": "70b500f5f0331546d3f8482d04468a4226d9d3f8440d41f28932084400230021104eb0471923294603fb024303f1180053f8046b834241f8046bf9d101201b7804eb92040b7004f5f43494f8611002f003035b0041fa03f303f003036b7670bd0020fce700000000",
+        "normalized_bytes_hex": "70b500f5f0331546d3f8482d04468a4226d9d3f8440d41f28932084400230021104eb0471923294603fb024303f1180053f8046b834241f8046bf9d101201b7804eb92040b7004f5f43494f8611002f003035b0041fa03f303f003036b7670bd0020fce700000000",
+        "relocations": [
+          {
+            "offset": 100,
+            "type": 2,
+            "name": "__aeabi_uldivmod",
+            "section": ".text"
+          }
+        ],
+        "bss_targets": []
+      },
+      "d102": {
+        "changed_sources_from_d101": [
+          "src/hal/recorder_dump.cpp",
+          "src/hal/recorder_frames.cpp",
+          "src/hal/recorder_frames.h"
+        ],
+        "actual_framebuffer_bytes": 126300,
+        "actual_framebuffer_alignment": 4
+      },
+      "allocation_order": [
+        {
+          "name": "heap bookkeeping",
+          "chunk": 88,
+          "preceding_free_span": 262144,
+          "remaining_free_span": 262056
+        },
+        {
+          "name": "extension",
+          "chunk": 200,
+          "preceding_free_span": 262056,
+          "remaining_free_span": 261856
+        },
+        {
+          "name": "section map",
+          "chunk": 128,
+          "preceding_free_span": 261856,
+          "remaining_free_span": 261728
+        },
+        {
+          "name": ".text",
+          "chunk": 82648,
+          "preceding_free_span": 261728,
+          "remaining_free_span": 179080
+        },
+        {
+          "name": ".rodata",
+          "chunk": 3808,
+          "preceding_free_span": 179080,
+          "remaining_free_span": 175272
+        },
+        {
+          "name": ".bss",
+          "chunk": 167328,
+          "preceding_free_span": 175272,
+          "remaining_free_span": 7944
+        },
+        {
+          "name": ".exported_sym",
+          "chunk": 16,
+          "preceding_free_span": 7944,
+          "remaining_free_span": 7928
+        },
+        {
+          "name": ".init_array",
+          "chunk": 8,
+          "preceding_free_span": 7928,
+          "remaining_free_span": 7920
+        },
+        {
+          "name": "temporary symbols",
+          "chunk": 4136,
+          "preceding_free_span": 7920,
+          "remaining_free_span": 3784
+        },
+        {
+          "name": "export copy",
+          "chunk": 16,
+          "preceding_free_span": 3784,
+          "remaining_free_span": 3768
+        }
+      ]
+    },
+    "target_3bf0da00_match-immediate": {
+      "source_sha256": "3bf0da005d3268adfca52bb86f96ab40921c4bb4f2c2d10ea1cd90a8cf2a0f38",
+      "mode": "match-immediate",
+      "files": 85,
+      "current_source_at_collection": true,
+      "verified_elfs": [
+        {
+          "name": "app.ino.elf",
+          "sha256": "0499a9b5a2491adc790b405ac248caa27015c053bcf0421edffe91e36988bea0",
+          "imports": 176
+        },
+        {
+          "name": "app.ino_debug.elf",
+          "sha256": "12073b09c0bbc4a9481db744ee53de3eb7410513280f4e05a2577bda641b32e6",
+          "imports": 176
+        },
+        {
+          "name": "app.ino_temp.elf",
+          "sha256": "531b1034595d9966c4383948247668764ac5b0886b845400d679b849b67cce6a",
+          "imports": 176
+        }
+      ],
+      "objects": {
+        "objects": 75,
+        "common_alloc_sections": 1436,
+        "added_objects": [
+          "sketch/src/app/dump_port_unoq.cpp.o",
+          "sketch/src/app/runtime_dump.cpp.o"
+        ],
+        "changes": [
+          {
+            "path": "sketch/app.ino.cpp.o",
+            "changed": [
+              ".bss._ZN12_GLOBAL__N_17runtimeE",
+              ".text._GLOBAL__sub_I_setup",
+              ".text.setup"
+            ],
+            "added": [
+              ".bss._ZN12_GLOBAL__N_19dump_portE"
+            ],
+            "removed": []
+          },
+          {
+            "path": "sketch/src/app/runtime.cpp.o",
+            "changed": [
+              ".text._ZN3app7Runtime10consumeImuERKN3imu14SampleProgressE",
+              ".text._ZN3app7Runtime10publishImuERKN3imu6SampleE",
+              ".text._ZN3app7Runtime10serviceImuEv",
+              ".text._ZN3app7Runtime10skipBeforeEj",
+              ".text._ZN3app7Runtime11acceptClockEj",
+              ".text._ZN3app7Runtime11servicePassEv",
+              ".text._ZN3app7Runtime13cancelSourcesEv",
+              ".text._ZN3app7Runtime13completeEpochEv",
+              ".text._ZN3app7Runtime13releaseChargeEv",
+              ".text._ZN3app7Runtime13rememberLinesERKN8line_qtr8SnapshotE",
+              ".text._ZN3app7Runtime13setupImuFaultEj",
+              ".text._ZN3app7Runtime17initializeSourcesEv",
+              ".text._ZN3app7Runtime4failENS_12RuntimeFaultE",
+              ".text._ZN3app7Runtime4pumpEv",
+              ".text._ZN3app7Runtime4stepEv",
+              ".text._ZN3app7Runtime5beginERKNS_11SetupGrantsE",
+              ".text._ZN3app7Runtime7acquireEv",
+              ".text._ZN3app7Runtime9countPassEv",
+              ".text._ZNK3app7Runtime10validPortsEv",
+              ".text._ZNK3app7Runtime11linesActiveEv",
+              ".text._ZNK3app7Runtime11linesUsefulEj"
+            ],
+            "added": [
+              ".text._ZN3app7RuntimeC2ERKN6motors4PortERKN5power9InputPortERKNS_10SourcePortERKNS_8DumpPortE"
+            ],
+            "removed": [
+              ".text._ZN3app7RuntimeC2ERKN6motors4PortERKN5power9InputPortERKNS_10SourcePortE"
+            ]
+          },
+          {
+            "path": "sketch/src/app/runtime_inputs.cpp.o",
+            "changed": [
+              ".text._ZN3app7Runtime10projectImuEjj",
+              ".text._ZN3app7Runtime12postDecisionEv",
+              ".text._ZN3app7Runtime12projectLinesEjj",
+              ".text._ZN3app7Runtime14selectLineModeEv",
+              ".text._ZN3app7Runtime18clockAcceptedThunkEPv",
+              ".text._ZN3app7Runtime7displayEv",
+              ".text._ZN3app7Runtime7projectEj",
+              ".text._ZNK3app7Runtime14opponentsFreshEj",
+              ".text._ZNK3app7Runtime14opponentsReadyEv"
+            ],
+            "added": [],
+            "removed": []
+          },
+          {
+            "path": "sketch/src/app/transaction.cpp.o",
+            "changed": [
+              ".text._ZN3app11Transaction10decideFromERKNS_14DecisionSourceE",
+              ".text._ZN3app11Transaction10initializeEv",
+              ".text._ZN3app11Transaction13applyDecisionEN3fsm10RobotInputEj",
+              ".text._ZN3app11Transaction13beginDecisionERj",
+              ".text._ZN3app11Transaction4failENS_5FaultE",
+              ".text._ZN3app11Transaction4openEv",
+              ".text._ZN3app11Transaction7observeERj",
+              ".text._ZN3app11Transaction8completeEbj",
+              ".text._ZN3app11TransactionC2ERKN6motors4PortE"
+            ],
+            "added": [],
+            "removed": []
+          },
+          {
+            "path": "sketch/src/hal/motor_port_unoq.cpp.o",
+            "changed": [
+              ".text._ZN6motors8UnoQPort11writeEnableEPvb",
+              ".text._ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj"
+            ],
+            "added": [],
+            "removed": []
+          },
+          {
+            "path": "sketch/src/hal/motors.cpp.o",
+            "changed": [
+              ".text._ZN6motors9MotorGate8transactERKN4core7OutputsERN3fsm12PreviousTickE"
+            ],
+            "added": [],
+            "removed": []
+          },
+          {
+            "path": "sketch/src/hal/recorder.cpp.o",
+            "changed": [
+              ".text._ZN8recorder15AttemptRecorder11appendFrameERKN3fsm11RobotResultEy",
+              ".text._ZN8recorder15AttemptRecorder12appendEventsERKN8logframe10EventBatchEj",
+              ".text._ZN8recorder15AttemptRecorder12onRobotResetEv",
+              ".text._ZN8recorder15AttemptRecorder14observeSummaryERKN3fsm11RobotResultE",
+              ".text._ZN8recorder15AttemptRecorder5beginERKN3fsm11RobotResultE",
+              ".text._ZN8recorder15AttemptRecorder6rejectEv",
+              ".text._ZN8recorder15AttemptRecorder7consumeERKN3fsm11RobotResultE",
+              ".text._ZN8recorder15AttemptRecorder8terminalERKN3fsm11RobotResultE",
+              ".text._ZNK8recorder15AttemptRecorder10incompleteEv",
+              ".text._ZNK8recorder15AttemptRecorder5phaseEv",
+              ".text._ZNK8recorder15AttemptRecorder6activeEv",
+              ".text._ZNK8recorder15AttemptRecorder6eventsEv",
+              ".text._ZNK8recorder15AttemptRecorder7summaryEv"
+            ],
+            "added": [],
+            "removed": []
+          },
+          {
+            "path": "sketch/src/hal/recorder_dump.cpp.o",
+            "changed": [
+              ".text._ZN8recorder4dump8Transfer14preparePayloadEPcj"
+            ],
+            "added": [
+              ".rodata",
+              ".text._ZN8recorder4dump8Transfer5abortEv"
+            ],
+            "removed": []
+          },
+          {
+            "path": "sketch/src/hal/recorder_frames.cpp.o",
+            "changed": [
+              ".text._ZN8recorder11FrameBuffer5resetEv",
+              ".text._ZN8recorder11FrameBuffer6appendERKN8logframe10FrameBytesENS1_10PackStatusE",
+              ".text._ZNK8recorder11FrameBuffer10incompleteEv",
+              ".text._ZNK8recorder11FrameBuffer12clampedCountEv",
+              ".text._ZNK8recorder11FrameBuffer12invalidCountEv",
+              ".text._ZNK8recorder11FrameBuffer16overwrittenCountEv",
+              ".text._ZNK8recorder11FrameBuffer19rejectedStatusCountEv",
+              ".text._ZNK8recorder11FrameBuffer4sizeEv"
+            ],
+            "added": [
+              ".text._ZNK8recorder11FrameBuffer4readEjRNS_11StoredFrameE",
+              ".text._ZNK8recorder11FrameBuffer7bytesAtEj"
+            ],
+            "removed": [
+              ".text._ZNK8recorder11FrameBuffer2atEj"
+            ]
+          }
+        ],
+        "native_uart_and_csv_alloc_sections_unchanged": true
+      },
+      "startup": {
+        "main": {
+          "symbol": {
+            "name": "main",
+            "value": 82561,
+            "size": 44,
+            "bind": 2,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "38b5054b9847054b9847054b9847054d054ca847a047fce70000000000000000000000000000000000000000",
+          "normalized_bytes_hex": "38b5054b9847054b9847054b9847054d054ca847a047fce70000000000000000000000000000000000000000",
+          "relocations": [
+            {
+              "offset": 24,
+              "type": 2,
+              "name": "initVariant",
+              "section": ".text"
+            },
+            {
+              "offset": 28,
+              "type": 2,
+              "name": "_Z20start_static_threadsv",
+              "section": ".text"
+            },
+            {
+              "offset": 32,
+              "type": 2,
+              "name": "setup",
+              "section": ".text"
+            },
+            {
+              "offset": 36,
+              "type": 2,
+              "name": "loop",
+              "section": ".text"
+            },
+            {
+              "offset": 40,
+              "type": 2,
+              "name": "_Z10__loopHookv",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        },
+        "setup": {
+          "symbol": {
+            "name": "setup",
+            "value": 1,
+            "size": 40,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "7fb513220021054b01a89847044b01a90448984707b05df804fb00bf000000000000000000000000",
+          "normalized_bytes_hex": "7fb513220021054b01a89847044b01a90448984707b05df804fb00bf000000000000000000000000",
+          "relocations": [
+            {
+              "offset": 28,
+              "type": 2,
+              "name": "memset",
+              "section": ".text"
+            },
+            {
+              "offset": 32,
+              "type": 2,
+              "name": "_ZN3app7Runtime5beginERKNS_11SetupGrantsE",
+              "section": ".text"
+            },
+            {
+              "offset": 36,
+              "type": 2,
+              "name": "",
+              "section": ".bss"
+            }
+          ],
+          "bss_targets": [
+            {
+              "offset": 36,
+              "section_addend": 0,
+              "targets": [
+                "_ZN12_GLOBAL__N_17runtimeE"
+              ]
+            }
+          ]
+        },
+        "loop": {
+          "symbol": {
+            "name": "loop",
+            "value": 41,
+            "size": 16,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "0148024b184700bf0000000000000000",
+          "normalized_bytes_hex": "0148024b184700bf0000000000000000",
+          "relocations": [
+            {
+              "offset": 8,
+              "type": 2,
+              "name": "",
+              "section": ".bss"
+            },
+            {
+              "offset": 12,
+              "type": 2,
+              "name": "_ZN3app7Runtime4stepEv",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": [
+            {
+              "offset": 8,
+              "section_addend": 0,
+              "targets": [
+                "_ZN12_GLOBAL__N_17runtimeE"
+              ]
+            }
+          ]
+        },
+        "initVariant": {
+          "symbol": {
+            "name": "initVariant",
+            "value": 82557,
+            "size": 2,
+            "bind": 2,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "7047",
+          "normalized_bytes_hex": "7047",
+          "relocations": [],
+          "bss_targets": []
+        },
+        "_Z10__loopHookv": {
+          "symbol": {
+            "name": "_Z10__loopHookv",
+            "value": 62341,
+            "size": 2,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "7047",
+          "normalized_bytes_hex": "7047",
+          "relocations": [],
+          "bss_targets": []
+        },
+        "_Z20start_static_threadsv": {
+          "symbol": {
+            "name": "_Z20start_static_threadsv",
+            "value": 82605,
+            "size": 108,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "2de9f04f154c164e164fdff85c8089b02546b54204f1300402d309b0bde8f08f14ed027b54e90c0154e90a2354e908ce54e9069a54f810bc8ded067bcde903abcde901e9cdf800c0b84754f8300c54f80c1cc04754f8303c5d65d9e700000000000000000000000000000000",
+          "normalized_bytes_hex": "2de9f04f154c164e164fdff85c8089b02546b54204f1300402d309b0bde8f08f14ed027b54e90c0154e90a2354e908ce54e9069a54f810bc8ded067bcde903abcde901e9cdf800c0b84754f8300c54f80c1cc04754f8303c5d65d9e700000000000000000000000000000000",
+          "relocations": [
+            {
+              "offset": 92,
+              "type": 2,
+              "name": "__static_thread_data_list_start",
+              "section": ".static_thread_data_area"
+            },
+            {
+              "offset": 96,
+              "type": 2,
+              "name": "__static_thread_data_list_end",
+              "section": ".static_thread_data_area"
+            },
+            {
+              "offset": 100,
+              "type": 2,
+              "name": "z_impl_k_thread_create",
+              "section": ""
+            },
+            {
+              "offset": 104,
+              "type": 2,
+              "name": "z_impl_k_thread_name_set",
+              "section": ""
+            }
+          ],
+          "bss_targets": []
+        },
+        "_GLOBAL__sub_I_setup": {
+          "symbol": {
+            "name": "_GLOBAL__sub_I_setup",
+            "value": 57,
+            "size": 404,
+            "bind": 0,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "f0b500245948a9b0594d2146b42200f8084ba847554b01261f4603f1d80021461022c3e93044c3e93244c3e934445e7283f8bc4083f8bd4083f8be4083f8bf40a84707f1e80021461022a84707f1f80021461022a84700220023c7e944230923c7f8084187f80c41a7f8184187f81a61a7f8284187f82a41c7f83c41c7e94844c7e94b33c7e94d4407f5a0772146e8223846a847a7f5a0721346214603f5d0703c2287f82860a8472146232207f19d0087f86460a847a7f5a07387f89c6087f8c160c7f8e8701f46214603f50b701822a84787f82e62c7f8444287f8484207f51370032721466822a847204b6c22214603f53270c3e9ae4483f8507283f8946283f8b44283f8b54283f8b642c3f8c04283f8c442a847154b0da8c3e9cd44c3e9cf4483f8d07283f8146383f8444383f8454383f84643c3f848430e490e4b984702a80a490d4b984707ac18a807490c4b984720460b490c4b9847009418ab0b4c02aa0da90a48a04729b0f0bd408a020000000000148a020000000000000000000000000048890200000000000000000000000000",
+          "normalized_bytes_hex": "f0b500245948a9b0594d2146b42200f8084ba847554b01261f4603f1d80021461022c3e93044c3e93244c3e934445e7283f8bc4083f8bd4083f8be4083f8bf40a84707f1e80021461022a84707f1f80021461022a84700220023c7e944230923c7f8084187f80c41a7f8184187f81a61a7f8284187f82a41c7f83c41c7e94844c7e94b33c7e94d4407f5a0772146e8223846a847a7f5a0721346214603f5d0703c2287f82860a8472146232207f19d0087f86460a847a7f5a07387f89c6087f8c160c7f8e8701f46214603f50b701822a84787f82e62c7f8444287f8484207f51370032721466822a847204b6c22214603f53270c3e9ae4483f8507283f8946283f8b44283f8b54283f8b642c3f8c04283f8c442a847154b0da8c3e9cd44c3e9cf4483f8d07283f8146383f8444383f8454383f84643c3f848430e490e4b984702a80a490d4b984707ac18a807490c4b984720460b490c4b9847009418ab0b4c02aa0da90a48a04729b0f0bd00000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "relocations": [
+            {
+              "offset": 364,
+              "type": 2,
+              "name": "",
+              "section": ".bss"
+            },
+            {
+              "offset": 368,
+              "type": 2,
+              "name": "memset",
+              "section": ".text"
+            },
+            {
+              "offset": 372,
+              "type": 2,
+              "name": "",
+              "section": ".bss"
+            },
+            {
+              "offset": 376,
+              "type": 2,
+              "name": "_ZN6motors8UnoQPort4portEv",
+              "section": ".text"
+            },
+            {
+              "offset": 380,
+              "type": 2,
+              "name": "_ZN3app13NativeSources7adcPortEv",
+              "section": ".text"
+            },
+            {
+              "offset": 384,
+              "type": 2,
+              "name": "_ZN3app13NativeSources4portEv",
+              "section": ".text"
+            },
+            {
+              "offset": 388,
+              "type": 2,
+              "name": "",
+              "section": ".bss"
+            },
+            {
+              "offset": 392,
+              "type": 2,
+              "name": "_ZN3app12unoQDumpPortERN8recorder4dump12UnoQDumpPortE",
+              "section": ".text"
+            },
+            {
+              "offset": 396,
+              "type": 2,
+              "name": "_ZN3app7RuntimeC1ERKN6motors4PortERKN5power9InputPortERKNS_10SourcePortERKNS_8DumpPortE",
+              "section": ".text"
+            },
+            {
+              "offset": 400,
+              "type": 2,
+              "name": "",
+              "section": ".bss"
+            }
+          ],
+          "bss_targets": [
+            {
+              "offset": 364,
+              "section_addend": 166464,
+              "targets": [
+                "_ZN12_GLOBAL__N_17sourcesE"
+              ]
+            },
+            {
+              "offset": 372,
+              "section_addend": 166420,
+              "targets": [
+                "_ZN12_GLOBAL__N_110motor_portE"
+              ]
+            },
+            {
+              "offset": 388,
+              "section_addend": 166216,
+              "targets": [
+                "_ZN12_GLOBAL__N_19dump_portE"
+              ]
+            },
+            {
+              "offset": 400,
+              "section_addend": 0,
+              "targets": [
+                "_ZN12_GLOBAL__N_17runtimeE"
+              ]
+            }
+          ]
+        },
+        "micros": {
+          "symbol": {
+            "name": "micros",
+            "value": 82713,
+            "size": 28,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "10b5044ca047a047a0220023024ca04710bd00bf0000000000000000",
+          "normalized_bytes_hex": "10b5044ca047a047a0220023024ca04710bd00bf0000000000000000",
+          "relocations": [
+            {
+              "offset": 20,
+              "type": 2,
+              "name": "sys_clock_cycle_get_64",
+              "section": ""
+            },
+            {
+              "offset": 24,
+              "type": 2,
+              "name": "__aeabi_uldivmod",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        }
+      },
+      "metadata": {
+        "commands": 75,
+        "metadata": 125,
+        "dependencies": 121
+      },
+      "required_retained_functions": {
+        "_ZN3app7Runtime14initializeDumpEv": {
+          "symbol": {
+            "name": "_ZN3app7Runtime14initializeDumpEv",
+            "value": 5113,
+            "size": 60,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "10b500f5203494f82d3373b1d0f8843043b1d0f888202ab1d0f8902012b1d0f894201ab9022384f8343510bdd0f8800004f22e31984784f83405f6e7",
+          "normalized_bytes_hex": "10b500f5203494f82d3373b1d0f8843043b1d0f888202ab1d0f8902012b1d0f894201ab9022384f8343510bdd0f8800004f22e31984784f83405f6e7",
+          "relocations": [],
+          "bss_targets": []
+        },
+        "_ZN3app7Runtime11serviceDumpEv": {
+          "symbol": {
+            "name": "_ZN3app7Runtime11serviceDumpEv",
+            "value": 5449,
+            "size": 180,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "f0b500f5203494f82d33064691b013b9012011b0f0bd0023224f0ca90c93b84708b90020f5e730461f4b98470028efd030460c991d4b9847054628b1d6f88830d6f880009847054630460ca9b8470028e7d00c9b06f51e310d9306f51c33d3f85c398df83c500e9394f832330daa8df83d3006f53763009302a801f5b4730c4d01f56271a84704f5a76402ad0fcd0fc40fcd0fc495e8030084e8030030460ca9b847b6e700000000000000000000000000000000",
+          "normalized_bytes_hex": "f0b500f5203494f82d33064691b013b9012011b0f0bd0023224f0ca90c93b84708b90020f5e730461f4b98470028efd030460c991d4b9847054628b1d6f88830d6f880009847054630460ca9b8470028e7d00c9b06f51e310d9306f51c33d3f85c398df83c500e9394f832330daa8df83d3006f53763009302a801f5b4730c4d01f56271a84704f5a76402ad0fcd0fc40fcd0fc495e8030084e8030030460ca9b847b6e700000000000000000000000000000000",
+          "relocations": [
+            {
+              "offset": 164,
+              "type": 2,
+              "name": "_ZN3app7Runtime5clockERj",
+              "section": ".text"
+            },
+            {
+              "offset": 168,
+              "type": 2,
+              "name": "_ZNK3app7Runtime16dumpReceiptValidEv",
+              "section": ".text"
+            },
+            {
+              "offset": 172,
+              "type": 2,
+              "name": "_ZNK3app7Runtime16dumpReadyContextEj",
+              "section": ".text"
+            },
+            {
+              "offset": 176,
+              "type": 2,
+              "name": "_ZN8recorder4dump8Transfer4stepERKNS0_7ContextERKN3fsm11RobotResultERKNS_15AttemptRecorderE",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        },
+        "_ZNK3app7Runtime16dumpReceiptValidEv": {
+          "symbol": {
+            "name": "_ZNK3app7Runtime16dumpReceiptValidEv",
+            "value": 5173,
+            "size": 92,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "10b500f51c3393f85029032a24d193f8520900b393f8290be8b193f8f80ad0b1d3f8004bd3f8041bd3f86809d3f86c29914208bf84420fd1d3f8082bd3f85c19521a002a08db93f8280b002818bf06280cbf0120002010bd0020fce7",
+          "normalized_bytes_hex": "10b500f51c3393f85029032a24d193f8520900b393f8290be8b193f8f80ad0b1d3f8004bd3f8041bd3f86809d3f86c29914208bf84420fd1d3f8082bd3f85c19521a002a08db93f8280b002818bf06280cbf0120002010bd0020fce7",
+          "relocations": [],
+          "bss_targets": []
+        },
+        "_ZNK3app7Runtime16dumpReadyContextEj": {
+          "symbol": {
+            "name": "_ZNK3app7Runtime16dumpReadyContextEj",
+            "value": 5265,
+            "size": 184,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "38b500f5203393f834350546012b0c464ed1284b9847002849d005f51c3393f87009002843d0d3f86829d3f86c190a433ed0d3f85c29a41ab4f57a7f38d293f87d29012a34d193f888298abb93f88a0970bb93f88b2952bb93f8892942bb93f87c0928bb03f66812d2ed037af5ee407af1ee10fa1bd1d2ed047af5ee407af1ee10fa14d193f80c2b8ab903f6f823d3ed067af5ee407af1ee10fa08d1d3ed077af5ee407af1ee10fa0cbf0120002038bd0020fce700000000",
+          "normalized_bytes_hex": "38b500f5203393f834350546012b0c464ed1284b9847002849d005f51c3393f87009002843d0d3f86829d3f86c190a433ed0d3f85c29a41ab4f57a7f38d293f87d29012a34d193f888298abb93f88a0970bb93f88b2952bb93f8892942bb93f87c0928bb03f66812d2ed037af5ee407af1ee10fa1bd1d2ed047af5ee407af1ee10fa14d193f80c2b8ab903f6f823d3ed067af5ee407af1ee10fa08d1d3ed077af5ee407af1ee10fa0cbf0120002038bd0020fce700000000",
+          "relocations": [
+            {
+              "offset": 180,
+              "type": 2,
+              "name": "_ZNK3app7Runtime16dumpReceiptValidEv",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        },
+        "_ZN8recorder4dump8Transfer5abortEv": {
+          "symbol": {
+            "name": "_ZN8recorder4dump8Transfer5abortEv",
+            "value": 79585,
+            "size": 20,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "027c012a02d10321014b1847704700bf00000000",
+          "normalized_bytes_hex": "027c012a02d10321014b1847704700bf00000000",
+          "relocations": [
+            {
+              "offset": 16,
+              "type": 2,
+              "name": "_ZN8recorder4dump8Transfer4failENS0_5PhaseENS0_6ReasonE",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        },
+        "_ZN8recorder4dump8Transfer4stepERKNS0_7ContextERKN3fsm11RobotResultERKNS_15AttemptRecorderE": {
+          "symbol": {
+            "name": "_ZN8recorder4dump8Transfer4stepERKNS0_7ContextERKN3fsm11RobotResultERKNS_15AttemptRecorderE",
+            "value": 79373,
+            "size": 212,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "2de9f3471d469b7f0646042b0c461746ddf8289032d1d5e90010d4f85c250192d4f858258a42019a824127d24ff00108c4f85815c4f85c0543462a4639462046dff88ca0d04718b3237c012b0bd0b8f1000f1dd04b462a4639462046174da847237c012b14d149462046154b984740b9072203212046134b984709e04ff00008dae7d4f844358bb1494620460e4b9847354610340fcc0fc50fcc0fc594e8030085e80300304602b0bde8f0872046074b98470028e8d108220421dbe7000000000000000000000000000000000000000000000000",
+          "normalized_bytes_hex": "2de9f3471d469b7f0646042b0c461746ddf8289032d1d5e90010d4f85c250192d4f858258a42019a824127d24ff00108c4f85815c4f85c0543462a4639462046dff88ca0d04718b3237c012b0bd0b8f1000f1dd04b462a4639462046174da847237c012b14d149462046154b984740b9072203212046134b984709e04ff00008dae7d4f844358bb1494620460e4b9847354610340fcc0fc50fcc0fc594e8030085e80300304602b0bde8f0872046074b98470028e8d108220421dbe7000000000000000000000000000000000000000000000000",
+          "relocations": [
+            {
+              "offset": 188,
+              "type": 2,
+              "name": "_ZN8recorder4dump8Transfer5startERKNS0_7ContextERKN3fsm11RobotResultERKNS_15AttemptRecorderE",
+              "section": ".text"
+            },
+            {
+              "offset": 192,
+              "type": 2,
+              "name": "_ZNK8recorder4dump8Transfer9unchangedERKNS_15AttemptRecorderE",
+              "section": ".text"
+            },
+            {
+              "offset": 196,
+              "type": 2,
+              "name": "_ZN8recorder4dump8Transfer4failENS0_5PhaseENS0_6ReasonE",
+              "section": ".text"
+            },
+            {
+              "offset": 200,
+              "type": 2,
+              "name": "_ZN8recorder4dump8Transfer12writePendingERKNS_15AttemptRecorderE",
+              "section": ".text"
+            },
+            {
+              "offset": 204,
+              "type": 2,
+              "name": "_ZN8recorder4dump8Transfer7prepareEv",
+              "section": ".text"
+            },
+            {
+              "offset": 208,
+              "type": 2,
+              "name": "_ZN8recorder4dump8Transfer5admitERKNS0_7ContextERKN3fsm11RobotResultEb",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        },
+        "_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE": {
+          "symbol": {
+            "name": "_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE",
+            "value": 45453,
+            "size": 472,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "2de9f74390f8c630054613b990f8c8303bb128465d4b98472c78204603b0bde8f083012380f8c6300b782bb14b781bb18b780bb1cb7813b903242c70ede7dff89081c04708b90224f7e7dff88891d9f80030002bf0d14e4fb84708b90424ece74c484d4ca0470028f8d04c48a0470028f4d04b4ef3685a78d007ddd41b78002bdad1484b98470028d6d0c9f800504148016982680b6823f400530b6013680d21414a984708b10624c7e7404b304698470028d3d13046a0470028cfd0eff31083019372b6c04700284bd0b847002848d0374b9847002844d0364b9847002840d0354ad2f8083259073bd4d2f808315b0737d4324b19680d2945d15968002942d1996800293fd1d96a00293cd1dc682c48844238d10420c2f88800bff34f8fbff36f8fc2f8880109221a60bff35f8f2c46db68244e44f8a03f0846b0470131082944f8040ff8d10123284685f8c5301e4b98470446012c287028460ad00b4b984700e003242c70bff35f8f019b83f3108853e7164b984706280646f3d12846034b98473446eee70724ece700bf000000000000000000000000000000000000000000000000000000002000010000000000000000000000000000e100e000240046e46c050000000000000000000000000000000000908d0200",
+          "normalized_bytes_hex": "2de9f74390f8c630054613b990f8c8303bb128465d4b98472c78204603b0bde8f083012380f8c6300b782bb14b781bb18b780bb1cb7813b903242c70ede7dff89081c04708b90224f7e7dff88891d9f80030002bf0d14e4fb84708b90424ece74c484d4ca0470028f8d04c48a0470028f4d04b4ef3685a78d007ddd41b78002bdad1484b98470028d6d0c9f800504148016982680b6823f400530b6013680d21414a984708b10624c7e7404b304698470028d3d13046a0470028cfd0eff31083019372b6c04700284bd0b847002848d0374b9847002844d0364b9847002840d0354ad2f8083259073bd4d2f808315b0737d4324b19680d2945d15968002942d1996800293fd1d96a00293cd1dc682c48844238d10420c2f88800bff34f8fbff36f8fc2f8880109221a60bff35f8f2c46db68244e44f8a03f0846b0470131082944f8040ff8d10123284685f8c5301e4b98470446012c287028460ad00b4b984700e003242c70bff35f8f019b83f3108853e7164b984706280646f3d12846034b98473446eee70724ece700bf000000000000000000000000000000000000000000000000000000002000010000000000000000000000000000e100e000240046e46c05000000000000000000000000000000000000000000",
+          "relocations": [
+            {
+              "offset": 396,
+              "type": 2,
+              "name": "_ZN8recorder4dump12UnoQDumpPort5abortEv",
+              "section": ".text"
+            },
+            {
+              "offset": 400,
+              "type": 2,
+              "name": "_ZN8recorder4dump12_GLOBAL__N_18metadataEv",
+              "section": ".text"
+            },
+            {
+              "offset": 404,
+              "type": 2,
+              "name": "__device_dts_ord_94",
+              "section": ""
+            },
+            {
+              "offset": 408,
+              "type": 2,
+              "name": "z_impl_device_is_ready",
+              "section": ""
+            },
+            {
+              "offset": 412,
+              "type": 2,
+              "name": "__device_dts_ord_9",
+              "section": ""
+            },
+            {
+              "offset": 416,
+              "type": 2,
+              "name": "__device_dts_ord_78",
+              "section": ""
+            },
+            {
+              "offset": 420,
+              "type": 2,
+              "name": "_ZN8recorder4dump12_GLOBAL__N_17irqIdleEv",
+              "section": ".text"
+            },
+            {
+              "offset": 428,
+              "type": 2,
+              "name": "z_impl_device_init",
+              "section": ""
+            },
+            {
+              "offset": 432,
+              "type": 2,
+              "name": "_ZN8recorder4dump12_GLOBAL__N_115clocksAvailableEv",
+              "section": ".text"
+            },
+            {
+              "offset": 436,
+              "type": 2,
+              "name": "_ZN8recorder4dump12_GLOBAL__N_112nominalClockEv",
+              "section": ".text"
+            },
+            {
+              "offset": 452,
+              "type": 2,
+              "name": "_ZN8recorder4dump12_GLOBAL__N_113clockRegisterEj",
+              "section": ".text"
+            },
+            {
+              "offset": 456,
+              "type": 2,
+              "name": "_ZNK8recorder4dump12UnoQDumpPort9ownershipEv",
+              "section": ".text"
+            },
+            {
+              "offset": 460,
+              "type": 2,
+              "name": "_ZNK8recorder4dump12UnoQDumpPort11sampleReadyEv",
+              "section": ".text"
+            },
+            {
+              "offset": 464,
+              "type": 2,
+              "name": "_ZN8recorder4dump12_GLOBAL__N_113threadContextEv",
+              "section": ".text"
+            },
+            {
+              "offset": 468,
+              "type": 2,
+              "name": "",
+              "section": ".bss"
+            }
+          ],
+          "bss_targets": [
+            {
+              "offset": 468,
+              "section_addend": 167312,
+              "targets": [
+                "_ZN8recorder4dump12_GLOBAL__N_110uart_ownerE"
+              ]
+            }
+          ]
+        },
+        "_ZN8recorder4dump12UnoQDumpPort5readyEv": {
+          "symbol": {
+            "name": "_ZN8recorder4dump12UnoQDumpPort5readyEv",
+            "value": 45021,
+            "size": 88,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "13b590f8c830044623b108230020237002b010bd0d4b984708b90223f6e7eff31083019372b60a4b204698470128207003d12046074b98472070431e58425841bff35f8f019b83f31088e1e7000000000000000000000000",
+          "normalized_bytes_hex": "13b590f8c830044623b108230020237002b010bd0d4b984708b90223f6e7eff31083019372b60a4b204698470128207003d12046074b98472070431e58425841bff35f8f019b83f31088e1e7000000000000000000000000",
+          "relocations": [
+            {
+              "offset": 76,
+              "type": 2,
+              "name": "_ZN8recorder4dump12_GLOBAL__N_113threadContextEv",
+              "section": ".text"
+            },
+            {
+              "offset": 80,
+              "type": 2,
+              "name": "_ZNK8recorder4dump12UnoQDumpPort9ownershipEv",
+              "section": ".text"
+            },
+            {
+              "offset": 84,
+              "type": 2,
+              "name": "_ZNK8recorder4dump12UnoQDumpPort11sampleReadyEv",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        },
+        "_ZN8recorder4dump12UnoQDumpPort7advanceEPKcj": {
+          "symbol": {
+            "name": "_ZN8recorder4dump12UnoQDumpPort7advanceEPKcj",
+            "value": 46205,
+            "size": 196,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "2de9f34791f8c8a005460c4690469946baf1000f0cd0254b084698470823237002232b7000236b60284602b0bde8f0871f4b9847064638b91c4b0846984702236e6023702b70efe71a4b98470746eff31083019372b6184b20469847012806460dd0124b20469847022326702b70c5f804a0bff35f8f019b83f31088d4e74a46414620460d4b9847064640b9074b204698470a23237002236e602b70e9e73a4621462846064b9847e3e700bf000000000000000000000000000000000000000000000000",
+          "normalized_bytes_hex": "2de9f34791f8c8a005460c4690469946baf1000f0cd0254b084698470823237002232b7000236b60284602b0bde8f0871f4b9847064638b91c4b0846984702236e6023702b70efe71a4b98470746eff31083019372b6184b20469847012806460dd0124b20469847022326702b70c5f804a0bff35f8f019b83f31088d4e74a46414620460d4b9847064640b9074b204698470a23237002236e602b70e9e73a4621462846064b9847e3e700bf000000000000000000000000000000000000000000000000",
+          "relocations": [
+            {
+              "offset": 172,
+              "type": 2,
+              "name": "_ZN8recorder4dump12UnoQDumpPort5abortEv",
+              "section": ".text"
+            },
+            {
+              "offset": 176,
+              "type": 2,
+              "name": "_ZN8recorder4dump12_GLOBAL__N_113threadContextEv",
+              "section": ".text"
+            },
+            {
+              "offset": 180,
+              "type": 2,
+              "name": "micros",
+              "section": ".text"
+            },
+            {
+              "offset": 184,
+              "type": 2,
+              "name": "_ZNK8recorder4dump12UnoQDumpPort9ownershipEv",
+              "section": ".text"
+            },
+            {
+              "offset": 188,
+              "type": 2,
+              "name": "_ZN8recorder4dump12UnoQDumpPort7prepareEPKcj",
+              "section": ".text"
+            },
+            {
+              "offset": 192,
+              "type": 2,
+              "name": "_ZN8recorder4dump12UnoQDumpPort8transmitEj",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        },
+        "_ZN8recorder4dump12UnoQDumpPort5abortEv": {
+          "symbol": {
+            "name": "_ZN8recorder4dump12UnoQDumpPort5abortEv",
+            "value": 45349,
+            "size": 104,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "37b590f8c8500446d5b9144b9847b8b1eff31083019372b6114b20469847012809d1104b1d60bff35f8f1b68b3fa83f35b0984f8c430bff35f8f019b83f310880023c4e9253384f8c730c4f89030012384f8c8300823237003b030bd000000000000000000240046",
+          "normalized_bytes_hex": "37b590f8c8500446d5b9144b9847b8b1eff31083019372b6114b20469847012809d1104b1d60bff35f8f1b68b3fa83f35b0984f8c430bff35f8f019b83f310880023c4e9253384f8c730c4f89030012384f8c8300823237003b030bd000000000000000000240046",
+          "relocations": [
+            {
+              "offset": 92,
+              "type": 2,
+              "name": "_ZN8recorder4dump12_GLOBAL__N_113threadContextEv",
+              "section": ".text"
+            },
+            {
+              "offset": 96,
+              "type": 2,
+              "name": "_ZNK8recorder4dump12UnoQDumpPort9ownershipEv",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        },
+        "_ZN8recorder3csv13summaryHeaderEPcj": {
+          "symbol": {
+            "name": "_ZN8recorder3csv13summaryHeaderEPcj",
+            "value": 76525,
+            "size": 28,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "13b50b460092034940f22b22024ca04702b010bd0d06000000000000",
+          "normalized_bytes_hex": "13b50b460092034940f22b22024ca04702b010bd0d06000000000000",
+          "relocations": [
+            {
+              "offset": 20,
+              "type": 2,
+              "name": "",
+              "section": ".llext.rodata.noreloc"
+            },
+            {
+              "offset": 24,
+              "type": 2,
+              "name": "_ZN8recorder3csv12_GLOBAL__N_17publishEPKcjPcj",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        },
+        "_ZN8recorder3csv11frameHeaderEPcj": {
+          "symbol": {
+            "name": "_ZN8recorder3csv11frameHeaderEPcj",
+            "value": 75977,
+            "size": 28,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "13b50b4600920349a422034ca04702b010bd00bf6805000000000000",
+          "normalized_bytes_hex": "13b50b4600920349a422034ca04702b010bd00bf6805000000000000",
+          "relocations": [
+            {
+              "offset": 20,
+              "type": 2,
+              "name": "",
+              "section": ".llext.rodata.noreloc"
+            },
+            {
+              "offset": 24,
+              "type": 2,
+              "name": "_ZN8recorder3csv12_GLOBAL__N_17publishEPKcjPcj",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        },
+        "_ZN8recorder3csv11eventHeaderEPcj": {
+          "symbol": {
+            "name": "_ZN8recorder3csv11eventHeaderEPcj",
+            "value": 76361,
+            "size": 28,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "13b50b46009203493622034ca04702b010bd00bf3105000000000000",
+          "normalized_bytes_hex": "13b50b46009203493622034ca04702b010bd00bf3105000000000000",
+          "relocations": [
+            {
+              "offset": 20,
+              "type": 2,
+              "name": "",
+              "section": ".llext.rodata.noreloc"
+            },
+            {
+              "offset": 24,
+              "type": 2,
+              "name": "_ZN8recorder3csv12_GLOBAL__N_17publishEPKcjPcj",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        },
+        "_ZN3app12unoQDumpPortERN8recorder4dump12UnoQDumpPortE": {
+          "symbol": {
+            "name": "_ZN3app12unoQDumpPortERN8recorder4dump12UnoQDumpPortE",
+            "value": 477,
+            "size": 40,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "10b50446054b01604360054b0c3040f8043c044b9847204610bd00bf000000000000000000000000",
+          "normalized_bytes_hex": "10b50446054b01604360054b0c3040f8043c044b9847204610bd00bf000000000000000000000000",
+          "relocations": [
+            {
+              "offset": 28,
+              "type": 2,
+              "name": "_ZN3app12_GLOBAL__N_15beginEPvRKN8recorder4dump10SetupGrantE",
+              "section": ".text"
+            },
+            {
+              "offset": 32,
+              "type": 2,
+              "name": "_ZN3app12_GLOBAL__N_15readyEPv",
+              "section": ".text"
+            },
+            {
+              "offset": 36,
+              "type": 2,
+              "name": "_ZN8recorder4dump12UnoQDumpPort4portEv",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        }
+      },
+      "owners": {
+        "_ZN12_GLOBAL__N_17runtimeE": 166216,
+        "_ZN12_GLOBAL__N_17sourcesE": 848,
+        "_ZN12_GLOBAL__N_19dump_portE": 204
+      },
+      "memory": {
+        "account": {
+          "path": "C:\\Users\\narut\\OneDrive\\Desktop\\Project\\techbots_Sumo_Robots\\state\\analysis\\P2_frame_packing_raw\\target_3bf0da00_match-immediate\\app.ino.elf",
+          "sha256": "0499a9b5a2491adc790b405ac248caa27015c053bcf0421edffe91e36988bea0",
+          "bytes": 171508,
+          "sections": [
+            {
+              "name_offset": 0,
+              "type": 0,
+              "flags": 0,
+              "address": 0,
+              "offset": 0,
+              "size": 0,
+              "link": 0,
+              "info": 0,
+              "alignment": 0,
+              "entry_size": 0,
+              "index": 0,
+              "name": ""
+            },
+            {
+              "name_offset": 31,
+              "type": 1,
+              "flags": 2,
+              "address": 0,
+              "offset": 56,
+              "size": 3800,
+              "link": 0,
+              "info": 0,
+              "alignment": 8,
+              "entry_size": 0,
+              "index": 1,
+              "name": ".rodata"
+            },
+            {
+              "name_offset": 27,
+              "type": 9,
+              "flags": 64,
+              "address": 0,
+              "offset": 155724,
+              "size": 3200,
+              "link": 12,
+              "info": 1,
+              "alignment": 4,
+              "entry_size": 8,
+              "index": 2,
+              "name": ".rel.rodata"
+            },
+            {
+              "name_offset": 39,
+              "type": 1,
+              "flags": 2,
+              "address": 3800,
+              "offset": 3856,
+              "size": 2289,
+              "link": 0,
+              "info": 0,
+              "alignment": 4,
+              "entry_size": 0,
+              "index": 3,
+              "name": ".llext.rodata.noreloc"
+            },
+            {
+              "name_offset": 65,
+              "type": 1,
+              "flags": 6,
+              "address": 0,
+              "offset": 6152,
+              "size": 83024,
+              "link": 0,
+              "info": 0,
+              "alignment": 8,
+              "entry_size": 0,
+              "index": 4,
+              "name": ".text"
+            },
+            {
+              "name_offset": 61,
+              "type": 9,
+              "flags": 64,
+              "address": 0,
+              "offset": 158924,
+              "size": 11824,
+              "link": 12,
+              "info": 4,
+              "alignment": 4,
+              "entry_size": 8,
+              "index": 5,
+              "name": ".rel.text"
+            },
+            {
+              "name_offset": 71,
+              "type": 1,
+              "flags": 1,
+              "address": 83024,
+              "offset": 89176,
+              "size": 0,
+              "link": 0,
+              "info": 0,
+              "alignment": 1,
+              "entry_size": 0,
+              "index": 6,
+              "name": ".static_thread_data_area"
+            },
+            {
+              "name_offset": 96,
+              "type": 8,
+              "flags": 3,
+              "address": 83024,
+              "offset": 89176,
+              "size": 167320,
+              "link": 0,
+              "info": 0,
+              "alignment": 8,
+              "entry_size": 0,
+              "index": 7,
+              "name": ".bss"
+            },
+            {
+              "name_offset": 105,
+              "type": 1,
+              "flags": 2,
+              "address": 250344,
+              "offset": 89176,
+              "size": 8,
+              "link": 0,
+              "info": 0,
+              "alignment": 4,
+              "entry_size": 0,
+              "index": 8,
+              "name": ".exported_sym"
+            },
+            {
+              "name_offset": 101,
+              "type": 9,
+              "flags": 64,
+              "address": 0,
+              "offset": 170748,
+              "size": 16,
+              "link": 12,
+              "info": 8,
+              "alignment": 4,
+              "entry_size": 8,
+              "index": 9,
+              "name": ".rel.exported_sym"
+            },
+            {
+              "name_offset": 123,
+              "type": 14,
+              "flags": 3,
+              "address": 250352,
+              "offset": 89184,
+              "size": 4,
+              "link": 0,
+              "info": 0,
+              "alignment": 4,
+              "entry_size": 4,
+              "index": 10,
+              "name": ".init_array"
+            },
+            {
+              "name_offset": 119,
+              "type": 9,
+              "flags": 64,
+              "address": 0,
+              "offset": 170764,
+              "size": 8,
+              "link": 12,
+              "info": 10,
+              "alignment": 4,
+              "entry_size": 8,
+              "index": 11,
+              "name": ".rel.init_array"
+            },
+            {
+              "name_offset": 1,
+              "type": 2,
+              "flags": 0,
+              "address": 0,
+              "offset": 89188,
+              "size": 34432,
+              "link": 13,
+              "info": 1427,
+              "alignment": 4,
+              "entry_size": 16,
+              "index": 12,
+              "name": ".symtab"
+            },
+            {
+              "name_offset": 9,
+              "type": 3,
+              "flags": 0,
+              "address": 0,
+              "offset": 123620,
+              "size": 32102,
+              "link": 0,
+              "info": 0,
+              "alignment": 1,
+              "entry_size": 0,
+              "index": 13,
+              "name": ".strtab"
+            },
+            {
+              "name_offset": 17,
+              "type": 3,
+              "flags": 0,
+              "address": 0,
+              "offset": 170772,
+              "size": 135,
+              "link": 0,
+              "info": 0,
+              "alignment": 1,
+              "entry_size": 0,
+              "index": 14,
+              "name": ".shstrtab"
+            }
+          ],
+          "section_header_offset": 170908,
+          "compiler_payload": 254156,
+          "nominal_compiler_remaining": 7988,
+          "global_func_object_count": 517,
+          "undefined": [
+            "__device_dts_ord_100",
+            "__device_dts_ord_105",
+            "__device_dts_ord_109",
+            "__device_dts_ord_114",
+            "__device_dts_ord_120",
+            "__device_dts_ord_123",
+            "__device_dts_ord_17",
+            "__device_dts_ord_233",
+            "__device_dts_ord_30",
+            "__device_dts_ord_34",
+            "__device_dts_ord_40",
+            "__device_dts_ord_54",
+            "__device_dts_ord_61",
+            "__device_dts_ord_64",
+            "__device_dts_ord_65",
+            "__device_dts_ord_66",
+            "__device_dts_ord_70",
+            "__device_dts_ord_73",
+            "__device_dts_ord_78",
+            "__device_dts_ord_83",
+            "__device_dts_ord_88",
+            "__device_dts_ord_89",
+            "__device_dts_ord_9",
+            "__device_dts_ord_90",
+            "__device_dts_ord_91",
+            "__device_dts_ord_92",
+            "__device_dts_ord_93",
+            "__device_dts_ord_94",
+            "__device_dts_ord_95",
+            "__heap_end",
+            "__heap_start",
+            "__real___aeabi_d2f",
+            "__real___aeabi_d2iz",
+            "__real___aeabi_d2lz",
+            "__real___aeabi_d2uiz",
+            "__real___aeabi_dadd",
+            "__real___aeabi_dcmpeq",
+            "__real___aeabi_dcmpge",
+            "__real___aeabi_dcmpgt",
+            "__real___aeabi_dcmple",
+            "__real___aeabi_dcmplt",
+            "__real___aeabi_dcmpun",
+            "__real___aeabi_ddiv",
+            "__real___aeabi_dmul",
+            "__real___aeabi_dsub",
+            "__real___aeabi_f2d",
+            "__real___aeabi_f2iz",
+            "__real___aeabi_f2uiz",
+            "__real___aeabi_fadd",
+            "__real___aeabi_fcmpeq",
+            "__real___aeabi_fcmpge",
+            "__real___aeabi_fcmpgt",
+            "__real___aeabi_fcmple",
+            "__real___aeabi_fcmplt",
+            "__real___aeabi_fcmpun",
+            "__real___aeabi_fdiv",
+            "__real___aeabi_fmul",
+            "__real___aeabi_fsub",
+            "__real___aeabi_i2d",
+            "__real___aeabi_i2f",
+            "__real___aeabi_idiv",
+            "__real___aeabi_idivmod",
+            "__real___aeabi_l2d",
+            "__real___aeabi_l2f",
+            "__real___aeabi_ldivmod",
+            "__real___aeabi_read_tp",
+            "__real___aeabi_ui2d",
+            "__real___aeabi_ui2f",
+            "__real___aeabi_uidiv",
+            "__real___aeabi_uidivmod",
+            "__real___aeabi_ul2d",
+            "__real___aeabi_ul2f",
+            "__real___aeabi_uldivmod",
+            "__real___xpg_strerror_r",
+            "__real__exit",
+            "__real_abort",
+            "__real_acos",
+            "__real_acosf",
+            "__real_asin",
+            "__real_asinf",
+            "__real_atan",
+            "__real_atan2",
+            "__real_atan2f",
+            "__real_atanf",
+            "__real_atexit",
+            "__real_atof",
+            "__real_atoi",
+            "__real_atol",
+            "__real_calloc",
+            "__real_cos",
+            "__real_cosf",
+            "__real_exit",
+            "__real_exp",
+            "__real_exp2",
+            "__real_fmod",
+            "__real_free",
+            "__real_gettimeofday",
+            "__real_isalnum",
+            "__real_isalpha",
+            "__real_iscntrl",
+            "__real_isdigit",
+            "__real_isgraph",
+            "__real_islower",
+            "__real_isprint",
+            "__real_isspace",
+            "__real_isupper",
+            "__real_isxdigit",
+            "__real_ldexp",
+            "__real_log",
+            "__real_log10",
+            "__real_log2",
+            "__real_logf",
+            "__real_malloc",
+            "__real_memchr",
+            "__real_memcmp",
+            "__real_memcpy",
+            "__real_memmem",
+            "__real_memmove",
+            "__real_memset",
+            "__real_pow",
+            "__real_putchar",
+            "__real_puts",
+            "__real_rand",
+            "__real_realloc",
+            "__real_sin",
+            "__real_sinf",
+            "__real_sqrt",
+            "__real_sqrtf",
+            "__real_srand",
+            "__real_strcasecmp",
+            "__real_strcat",
+            "__real_strchr",
+            "__real_strcmp",
+            "__real_strcpy",
+            "__real_strdup",
+            "__real_strlen",
+            "__real_strncmp",
+            "__real_strncpy",
+            "__real_strnlen",
+            "__real_strrchr",
+            "__real_strstr",
+            "__real_strtod",
+            "__real_strtok",
+            "__real_strtol",
+            "__real_strtoul",
+            "__real_tan",
+            "__real_tanf",
+            "__real_tolower",
+            "__real_toupper",
+            "__real_vprintf",
+            "__real_vsnprintf",
+            "__real_vsprintf",
+            "__real_vsscanf",
+            "_device_list_end",
+            "_device_list_start",
+            "_ebss",
+            "_edata",
+            "_sbss",
+            "_sdata",
+            "_sidata",
+            "analog_reference",
+            "kheap_llext_heap",
+            "kheap_llext_heap_size",
+            "matrixBegin",
+            "matrixGrayscaleWrite",
+            "matrixSetGrayscaleBits",
+            "pinctrl_configure_pins",
+            "pinctrl_lookup_state",
+            "printk",
+            "sys_clock_cycle_get_64",
+            "z_impl_device_init",
+            "z_impl_device_is_ready",
+            "z_impl_k_thread_create",
+            "z_impl_k_thread_name_set",
+            "z_impl_k_uptime_ticks",
+            "z_impl_k_yield"
+          ],
+          "init": [
+            {
+              "section": ".init_array",
+              "offset": 0,
+              "type": 2,
+              "name": "_GLOBAL__sub_I_setup",
+              "symbol_section": ".text",
+              "symbol_type": 2,
+              "symbol_value": 57
+            }
+          ],
+          "fini": [],
+          "copied_regions": [
+            {
+              "name": ".rodata",
+              "payload": 3800,
+              "alignment": 8,
+              "prepad": 0,
+              "retained_chunk": 3808
+            },
+            {
+              "name": ".text",
+              "payload": 83024,
+              "alignment": 8,
+              "prepad": 0,
+              "retained_chunk": 83032
+            },
+            {
+              "name": ".bss",
+              "payload": 167320,
+              "alignment": 8,
+              "prepad": 0,
+              "retained_chunk": 167328
+            },
+            {
+              "name": ".exported_sym",
+              "payload": 8,
+              "alignment": 4,
+              "prepad": 0,
+              "retained_chunk": 16
+            },
+            {
+              "name": ".init_array",
+              "payload": 4,
+              "alignment": 4,
+              "prepad": 0,
+              "retained_chunk": 8
+            }
+          ],
+          "metadata_chunks": {
+            "extension": 200,
+            "section_map": 128,
+            "global_symbols": 4144,
+            "export_copy": 16,
+            "initial_bookkeeping": 88
+          },
+          "conditional_pristine_peak_consumption": 258768,
+          "conditional_pristine_peak_free_span": 3376,
+          "conditional_largest_payload": 3372,
+          "limitation": "Conditional pristine-pool source model, not actual load/free-memory/WCET evidence"
+        },
+        "aligned_peeks": [
+          {
+            "name": ".llext.rodata.noreloc",
+            "offset": 3856,
+            "alignment": 4,
+            "bytes": 2289
+          },
+          {
+            "name": ".symtab",
+            "offset": 89188,
+            "alignment": 4,
+            "bytes": 34432
+          },
+          {
+            "name": ".strtab",
+            "offset": 123620,
+            "alignment": 1,
+            "bytes": 32102
+          },
+          {
+            "name": ".shstrtab",
+            "offset": 170772,
+            "alignment": 1,
+            "bytes": 135
+          }
+        ],
+        "copied_region_chunks": 254192,
+        "before_temporary_symbols": 254608,
+        "before_symbols_free_span": 7536,
+        "before_symbols_largest_payload": 7532,
+        "temporary_symbols_request": 4136,
+        "temporary_symbols_chunk": 4144,
+        "temporary_symbols_fit": true,
+        "temporary_symbols_chunk_deficit": 0,
+        "complete_peak_deficit": 0,
+        "conditional_largest_after_peak": 3372,
+        "interpretation": "Pinned pristine-pool/persistent-peek model only; no load/freeRAM/WCET measured"
+      },
+      "native_exports": 39,
+      "aeabi_exports": 42,
+      "retained_frame_read": {
+        "symbol": {
+          "name": "_ZNK8recorder11FrameBuffer4readEjRNS_11StoredFrameE",
+          "value": 79885,
+          "size": 104,
+          "bind": 1,
+          "type": 2,
+          "other": 0,
+          "section_index": 4,
+          "section": ".text"
+        },
+        "bytes_hex": "70b500f5f0331546d3f8482d04468a4226d9d3f8440d41f28932084400230021104eb0471923294603fb024303f1180053f8046b834241f8046bf9d101201b7804eb92040b7004f5f43494f8611002f003035b0041fa03f303f003036b7670bd0020fce700000000",
+        "normalized_bytes_hex": "70b500f5f0331546d3f8482d04468a4226d9d3f8440d41f28932084400230021104eb0471923294603fb024303f1180053f8046b834241f8046bf9d101201b7804eb92040b7004f5f43494f8611002f003035b0041fa03f303f003036b7670bd0020fce700000000",
+        "relocations": [
+          {
+            "offset": 100,
+            "type": 2,
+            "name": "__aeabi_uldivmod",
+            "section": ".text"
+          }
+        ],
+        "bss_targets": []
+      },
+      "d102": {
+        "changed_sources_from_d101": [
+          "src/hal/recorder_dump.cpp",
+          "src/hal/recorder_frames.cpp",
+          "src/hal/recorder_frames.h"
+        ],
+        "actual_framebuffer_bytes": 126300,
+        "actual_framebuffer_alignment": 4
+      },
+      "allocation_order": [
+        {
+          "name": "heap bookkeeping",
+          "chunk": 88,
+          "preceding_free_span": 262144,
+          "remaining_free_span": 262056
+        },
+        {
+          "name": "extension",
+          "chunk": 200,
+          "preceding_free_span": 262056,
+          "remaining_free_span": 261856
+        },
+        {
+          "name": "section map",
+          "chunk": 128,
+          "preceding_free_span": 261856,
+          "remaining_free_span": 261728
+        },
+        {
+          "name": ".text",
+          "chunk": 83032,
+          "preceding_free_span": 261728,
+          "remaining_free_span": 178696
+        },
+        {
+          "name": ".rodata",
+          "chunk": 3808,
+          "preceding_free_span": 178696,
+          "remaining_free_span": 174888
+        },
+        {
+          "name": ".bss",
+          "chunk": 167328,
+          "preceding_free_span": 174888,
+          "remaining_free_span": 7560
+        },
+        {
+          "name": ".exported_sym",
+          "chunk": 16,
+          "preceding_free_span": 7560,
+          "remaining_free_span": 7544
+        },
+        {
+          "name": ".init_array",
+          "chunk": 8,
+          "preceding_free_span": 7544,
+          "remaining_free_span": 7536
+        },
+        {
+          "name": "temporary symbols",
+          "chunk": 4144,
+          "preceding_free_span": 7536,
+          "remaining_free_span": 3392
+        },
+        {
+          "name": "export copy",
+          "chunk": 16,
+          "preceding_free_span": 3392,
+          "remaining_free_span": 3376
+        }
+      ],
+      "d101_comparison": {
+        "source": "836008588522b81c0f94435725a9b93cbd3cf826b871caf960285797b17b9db0",
+        "previous_elf_sha256": "89fb7b39499aeb650908a28d62a87ef29dd873c87e11377bb28ecc9fd193f3e0",
+        "compiler_payload_saved": 3628,
+        "conditional_peak_saved": 3632,
+        "previous_regions": [
+          {
+            "name": ".rodata",
+            "payload": 3772,
+            "alignment": 8,
+            "prepad": 0,
+            "retained_chunk": 3784
+          },
+          {
+            "name": ".text",
+            "payload": 82928,
+            "alignment": 8,
+            "prepad": 0,
+            "retained_chunk": 82936
+          },
+          {
+            "name": ".bss",
+            "payload": 171072,
+            "alignment": 8,
+            "prepad": 0,
+            "retained_chunk": 171080
+          },
+          {
+            "name": ".exported_sym",
+            "payload": 8,
+            "alignment": 4,
+            "prepad": 0,
+            "retained_chunk": 16
+          },
+          {
+            "name": ".init_array",
+            "payload": 4,
+            "alignment": 4,
+            "prepad": 0,
+            "retained_chunk": 8
+          }
+        ],
+        "current_regions": [
+          {
+            "name": ".rodata",
+            "payload": 3800,
+            "alignment": 8,
+            "prepad": 0,
+            "retained_chunk": 3808
+          },
+          {
+            "name": ".text",
+            "payload": 83024,
+            "alignment": 8,
+            "prepad": 0,
+            "retained_chunk": 83032
+          },
+          {
+            "name": ".bss",
+            "payload": 167320,
+            "alignment": 8,
+            "prepad": 0,
+            "retained_chunk": 167328
+          },
+          {
+            "name": ".exported_sym",
+            "payload": 8,
+            "alignment": 4,
+            "prepad": 0,
+            "retained_chunk": 16
+          },
+          {
+            "name": ".init_array",
+            "payload": 4,
+            "alignment": 4,
+            "prepad": 0,
+            "retained_chunk": 8
+          }
+        ],
+        "previous_metadata": {
+          "extension": 200,
+          "section_map": 128,
+          "global_symbols": 4144,
+          "export_copy": 16,
+          "initial_bookkeeping": 88
+        },
+        "current_metadata": {
+          "extension": 200,
+          "section_map": 128,
+          "global_symbols": 4144,
+          "export_copy": 16,
+          "initial_bookkeeping": 88
+        }
+      },
+      "d101_same_mode_objects": {
+        "objects": 75,
+        "common_alloc_sections": 1452,
+        "added_objects": [],
+        "changes": [
+          {
+            "path": "sketch/app.ino.cpp.o",
+            "changed": [
+              ".bss._ZN12_GLOBAL__N_17runtimeE"
+            ],
+            "added": [],
+            "removed": []
+          },
+          {
+            "path": "sketch/src/app/runtime.cpp.o",
+            "changed": [
+              ".text._ZN3app7Runtime10consumeImuERKN3imu14SampleProgressE",
+              ".text._ZN3app7Runtime10publishImuERKN3imu6SampleE",
+              ".text._ZN3app7Runtime10serviceImuEv",
+              ".text._ZN3app7Runtime10skipBeforeEj",
+              ".text._ZN3app7Runtime11acceptClockEj",
+              ".text._ZN3app7Runtime11servicePassEv",
+              ".text._ZN3app7Runtime13cancelSourcesEv",
+              ".text._ZN3app7Runtime13completeEpochEv",
+              ".text._ZN3app7Runtime13releaseChargeEv",
+              ".text._ZN3app7Runtime13rememberLinesERKN8line_qtr8SnapshotE",
+              ".text._ZN3app7Runtime13setupImuFaultEj",
+              ".text._ZN3app7Runtime17initializeSourcesEv",
+              ".text._ZN3app7Runtime4failENS_12RuntimeFaultE",
+              ".text._ZN3app7Runtime4pumpEv",
+              ".text._ZN3app7Runtime4stepEv",
+              ".text._ZN3app7Runtime5beginERKNS_11SetupGrantsE",
+              ".text._ZN3app7Runtime7acquireEv",
+              ".text._ZN3app7Runtime9countPassEv",
+              ".text._ZN3app7RuntimeC2ERKN6motors4PortERKN5power9InputPortERKNS_10SourcePortERKNS_8DumpPortE",
+              ".text._ZNK3app7Runtime10validPortsEv",
+              ".text._ZNK3app7Runtime11linesActiveEv",
+              ".text._ZNK3app7Runtime11linesUsefulEj"
+            ],
+            "added": [],
+            "removed": []
+          },
+          {
+            "path": "sketch/src/app/runtime_dump.cpp.o",
+            "changed": [
+              ".text._ZN3app7Runtime11serviceDumpEv",
+              ".text._ZN3app7Runtime14initializeDumpEv",
+              ".text._ZNK3app7Runtime16dumpReadyContextEj",
+              ".text._ZNK3app7Runtime16dumpReceiptValidEv"
+            ],
+            "added": [],
+            "removed": []
+          },
+          {
+            "path": "sketch/src/app/runtime_inputs.cpp.o",
+            "changed": [
+              ".text._ZN3app7Runtime10projectImuEjj",
+              ".text._ZN3app7Runtime12postDecisionEv",
+              ".text._ZN3app7Runtime12projectLinesEjj",
+              ".text._ZN3app7Runtime14selectLineModeEv",
+              ".text._ZN3app7Runtime18clockAcceptedThunkEPv",
+              ".text._ZN3app7Runtime7displayEv",
+              ".text._ZN3app7Runtime7projectEj",
+              ".text._ZNK3app7Runtime14opponentsFreshEj",
+              ".text._ZNK3app7Runtime14opponentsReadyEv"
+            ],
+            "added": [],
+            "removed": []
+          },
+          {
+            "path": "sketch/src/app/transaction.cpp.o",
+            "changed": [
+              ".text._ZN3app11Transaction10decideFromERKNS_14DecisionSourceE",
+              ".text._ZN3app11Transaction10initializeEv",
+              ".text._ZN3app11Transaction13applyDecisionEN3fsm10RobotInputEj",
+              ".text._ZN3app11Transaction13beginDecisionERj",
+              ".text._ZN3app11Transaction4failENS_5FaultE",
+              ".text._ZN3app11Transaction4openEv",
+              ".text._ZN3app11Transaction7observeERj",
+              ".text._ZN3app11Transaction8completeEbj",
+              ".text._ZN3app11TransactionC2ERKN6motors4PortE"
+            ],
+            "added": [],
+            "removed": []
+          },
+          {
+            "path": "sketch/src/hal/recorder.cpp.o",
+            "changed": [
+              ".text._ZN8recorder15AttemptRecorder11appendFrameERKN3fsm11RobotResultEy",
+              ".text._ZN8recorder15AttemptRecorder12appendEventsERKN8logframe10EventBatchEj",
+              ".text._ZN8recorder15AttemptRecorder12onRobotResetEv",
+              ".text._ZN8recorder15AttemptRecorder14observeSummaryERKN3fsm11RobotResultE",
+              ".text._ZN8recorder15AttemptRecorder5beginERKN3fsm11RobotResultE",
+              ".text._ZN8recorder15AttemptRecorder6rejectEv",
+              ".text._ZN8recorder15AttemptRecorder7consumeERKN3fsm11RobotResultE",
+              ".text._ZN8recorder15AttemptRecorder8terminalERKN3fsm11RobotResultE",
+              ".text._ZNK8recorder15AttemptRecorder10incompleteEv",
+              ".text._ZNK8recorder15AttemptRecorder5phaseEv",
+              ".text._ZNK8recorder15AttemptRecorder6activeEv",
+              ".text._ZNK8recorder15AttemptRecorder6eventsEv",
+              ".text._ZNK8recorder15AttemptRecorder7summaryEv"
+            ],
+            "added": [],
+            "removed": []
+          },
+          {
+            "path": "sketch/src/hal/recorder_dump.cpp.o",
+            "changed": [
+              ".text._ZN8recorder4dump8Transfer14preparePayloadEPcj"
+            ],
+            "added": [
+              ".rodata"
+            ],
+            "removed": []
+          },
+          {
+            "path": "sketch/src/hal/recorder_frames.cpp.o",
+            "changed": [
+              ".text._ZN8recorder11FrameBuffer5resetEv",
+              ".text._ZN8recorder11FrameBuffer6appendERKN8logframe10FrameBytesENS1_10PackStatusE",
+              ".text._ZNK8recorder11FrameBuffer10incompleteEv",
+              ".text._ZNK8recorder11FrameBuffer12clampedCountEv",
+              ".text._ZNK8recorder11FrameBuffer12invalidCountEv",
+              ".text._ZNK8recorder11FrameBuffer16overwrittenCountEv",
+              ".text._ZNK8recorder11FrameBuffer19rejectedStatusCountEv",
+              ".text._ZNK8recorder11FrameBuffer4sizeEv"
+            ],
+            "added": [
+              ".text._ZNK8recorder11FrameBuffer4readEjRNS_11StoredFrameE",
+              ".text._ZNK8recorder11FrameBuffer7bytesAtEj"
+            ],
+            "removed": [
+              ".text._ZNK8recorder11FrameBuffer2atEj"
+            ]
+          }
+        ],
+        "native_uart_and_csv_alloc_sections_unchanged": true
+      }
+    }
+  }
+}

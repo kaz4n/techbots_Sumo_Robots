@@ -1,0 +1,179 @@
+0000ec34 <motors::UnoQPort::writeEnable(void*, bool)>:
+    ec34:	b538      	push	{r3, r4, r5, lr}
+    ec36:	4604      	mov	r4, r0
+    ec38:	b118      	cbz	r0, ec42 <motors::UnoQPort::writeEnable(void*, bool)+0xe>
+    ec3a:	2300      	movs	r3, #0
+    ec3c:	7483      	strb	r3, [r0, #18]
+    ec3e:	b119      	cbz	r1, ec48 <motors::UnoQPort::writeEnable(void*, bool)+0x14>
+    ec40:	7443      	strb	r3, [r0, #17]
+    ec42:	2500      	movs	r5, #0
+    ec44:	4628      	mov	r0, r5
+    ec46:	bd38      	pop	{r3, r4, r5, pc}
+    ec48:	4d0c      	ldr	r5, [pc, #48]	@ (ec7c <motors::UnoQPort::writeEnable(void*, bool)+0x48>)
+    ec4a:	7501      	strb	r1, [r0, #20]
+    ec4c:	7441      	strb	r1, [r0, #17]
+    ec4e:	47a8      	blx	r5
+    ec50:	2800      	cmp	r0, #0
+    ec52:	d0f6      	beq.n	ec42 <motors::UnoQPort::writeEnable(void*, bool)+0xe>
+    ec54:	480a      	ldr	r0, [pc, #40]	@ (ec80 <motors::UnoQPort::writeEnable(void*, bool)+0x4c>)
+    ec56:	f44f 7100 	mov.w	r1, #512	@ 0x200
+    ec5a:	6883      	ldr	r3, [r0, #8]
+    ec5c:	691b      	ldr	r3, [r3, #16]
+    ec5e:	4798      	blx	r3
+    ec60:	2800      	cmp	r0, #0
+    ec62:	d1ee      	bne.n	ec42 <motors::UnoQPort::writeEnable(void*, bool)+0xe>
+    ec64:	4620      	mov	r0, r4
+    ec66:	47a8      	blx	r5
+    ec68:	4605      	mov	r5, r0
+    ec6a:	2800      	cmp	r0, #0
+    ec6c:	d0e9      	beq.n	ec42 <motors::UnoQPort::writeEnable(void*, bool)+0xe>
+    ec6e:	4b05      	ldr	r3, [pc, #20]	@ (ec84 <motors::UnoQPort::writeEnable(void*, bool)+0x50>)
+    ec70:	4798      	blx	r3
+    ec72:	2800      	cmp	r0, #0
+    ec74:	d1e5      	bne.n	ec42 <motors::UnoQPort::writeEnable(void*, bool)+0xe>
+    ec76:	2301      	movs	r3, #1
+    ec78:	7463      	strb	r3, [r4, #17]
+    ec7a:	e7e3      	b.n	ec44 <motors::UnoQPort::writeEnable(void*, bool)+0x10>
+	...
+
+
+0000ef0c <motors::UnoQPort::writePwm(void*, motors::Channel, unsigned int, unsigned int)>:
+    ef0c:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+    ef10:	4689      	mov	r9, r1
+    ef12:	4693      	mov	fp, r2
+    ef14:	461e      	mov	r6, r3
+    ef16:	4604      	mov	r4, r0
+    ef18:	b087      	sub	sp, #28
+    ef1a:	b918      	cbnz	r0, ef24 <motors::UnoQPort::writePwm(void*, motors::Channel, unsigned int, unsigned int)+0x18>
+    ef1c:	2000      	movs	r0, #0
+    ef1e:	b007      	add	sp, #28
+    ef20:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+    ef24:	2300      	movs	r3, #0
+    ef26:	2903      	cmp	r1, #3
+    ef28:	7483      	strb	r3, [r0, #18]
+    ef2a:	d8f7      	bhi.n	ef1c <motors::UnoQPort::writePwm(void*, motors::Channel, unsigned int, unsigned int)+0x10>
+    ef2c:	2501      	movs	r5, #1
+    ef2e:	7d03      	ldrb	r3, [r0, #20]
+    ef30:	408d      	lsls	r5, r1
+    ef32:	b2ed      	uxtb	r5, r5
+    ef34:	ea23 0305 	bic.w	r3, r3, r5
+    ef38:	7503      	strb	r3, [r0, #20]
+    ef3a:	7cc3      	ldrb	r3, [r0, #19]
+    ef3c:	421d      	tst	r5, r3
+    ef3e:	d0ed      	beq.n	ef1c <motors::UnoQPort::writePwm(void*, motors::Channel, unsigned int, unsigned int)+0x10>
+    ef40:	f8df a0a4 	ldr.w	sl, [pc, #164]	@ efe8 <motors::UnoQPort::writePwm(void*, motors::Channel, unsigned int, unsigned int)+0xdc>
+    ef44:	47d0      	blx	sl
+    ef46:	2800      	cmp	r0, #0
+    ef48:	d0e8      	beq.n	ef1c <motors::UnoQPort::writePwm(void*, motors::Channel, unsigned int, unsigned int)+0x10>
+    ef4a:	4b23      	ldr	r3, [pc, #140]	@ (efd8 <motors::UnoQPort::writePwm(void*, motors::Channel, unsigned int, unsigned int)+0xcc>)
+    ef4c:	f853 8029 	ldr.w	r8, [r3, r9, lsl #2]
+    ef50:	4b22      	ldr	r3, [pc, #136]	@ (efdc <motors::UnoQPort::writePwm(void*, motors::Channel, unsigned int, unsigned int)+0xd0>)
+    ef52:	4640      	mov	r0, r8
+    ef54:	4798      	blx	r3
+    ef56:	4558      	cmp	r0, fp
+    ef58:	4607      	mov	r7, r0
+    ef5a:	d1df      	bne.n	ef1c <motors::UnoQPort::writePwm(void*, motors::Channel, unsigned int, unsigned int)+0x10>
+    ef5c:	2e00      	cmp	r6, #0
+    ef5e:	d1dd      	bne.n	ef1c <motors::UnoQPort::writePwm(void*, motors::Channel, unsigned int, unsigned int)+0x10>
+    ef60:	4648      	mov	r0, r9
+    ef62:	4b1f      	ldr	r3, [pc, #124]	@ (efe0 <motors::UnoQPort::writePwm(void*, motors::Channel, unsigned int, unsigned int)+0xd4>)
+    ef64:	a905      	add	r1, sp, #20
+    ef66:	9605      	str	r6, [sp, #20]
+    ef68:	4798      	blx	r3
+    ef6a:	2800      	cmp	r0, #0
+    ef6c:	d0d6      	beq.n	ef1c <motors::UnoQPort::writePwm(void*, motors::Channel, unsigned int, unsigned int)+0x10>
+    ef6e:	eb04 0389 	add.w	r3, r4, r9, lsl #2
+    ef72:	f854 b029 	ldr.w	fp, [r4, r9, lsl #2]
+    ef76:	9303      	str	r3, [sp, #12]
+    ef78:	9b05      	ldr	r3, [sp, #20]
+    ef7a:	459b      	cmp	fp, r3
+    ef7c:	d1ce      	bne.n	ef1c <motors::UnoQPort::writePwm(void*, motors::Channel, unsigned int, unsigned int)+0x10>
+    ef7e:	4641      	mov	r1, r8
+    ef80:	4620      	mov	r0, r4
+    ef82:	f8df 9068 	ldr.w	r9, [pc, #104]	@ efec <motors::UnoQPort::writePwm(void*, motors::Channel, unsigned int, unsigned int)+0xe0>
+    ef86:	47c8      	blx	r9
+    ef88:	2800      	cmp	r0, #0
+    ef8a:	d0c7      	beq.n	ef1c <motors::UnoQPort::writePwm(void*, motors::Channel, unsigned int, unsigned int)+0x10>
+    ef8c:	4b15      	ldr	r3, [pc, #84]	@ (efe4 <motors::UnoQPort::writePwm(void*, motors::Channel, unsigned int, unsigned int)+0xd8>)
+    ef8e:	ea4f 120b 	mov.w	r2, fp, lsl #4
+    ef92:	eb03 1b0b 	add.w	fp, r3, fp, lsl #4
+    ef96:	5898      	ldr	r0, [r3, r2]
+    ef98:	f8db 1004 	ldr.w	r1, [fp, #4]
+    ef9c:	f8bb 200c 	ldrh.w	r2, [fp, #12]
+    efa0:	6883      	ldr	r3, [r0, #8]
+    efa2:	9200      	str	r2, [sp, #0]
+    efa4:	f8d3 b000 	ldr.w	fp, [r3]
+    efa8:	463a      	mov	r2, r7
+    efaa:	4633      	mov	r3, r6
+    efac:	47d8      	blx	fp
+    efae:	2800      	cmp	r0, #0
+    efb0:	d1b4      	bne.n	ef1c <motors::UnoQPort::writePwm(void*, motors::Channel, unsigned int, unsigned int)+0x10>
+    efb2:	2300      	movs	r3, #0
+    efb4:	9a03      	ldr	r2, [sp, #12]
+    efb6:	4620      	mov	r0, r4
+    efb8:	6193      	str	r3, [r2, #24]
+    efba:	7da3      	ldrb	r3, [r4, #22]
+    efbc:	432b      	orrs	r3, r5
+    efbe:	75a3      	strb	r3, [r4, #22]
+    efc0:	47d0      	blx	sl
+    efc2:	2800      	cmp	r0, #0
+    efc4:	d0aa      	beq.n	ef1c <motors::UnoQPort::writePwm(void*, motors::Channel, unsigned int, unsigned int)+0x10>
+    efc6:	4641      	mov	r1, r8
+    efc8:	4620      	mov	r0, r4
+    efca:	47c8      	blx	r9
+    efcc:	2800      	cmp	r0, #0
+    efce:	d0a5      	beq.n	ef1c <motors::UnoQPort::writePwm(void*, motors::Channel, unsigned int, unsigned int)+0x10>
+    efd0:	7d23      	ldrb	r3, [r4, #20]
+    efd2:	431d      	orrs	r5, r3
+    efd4:	7525      	strb	r5, [r4, #20]
+    efd6:	e7a2      	b.n	ef1e <motors::UnoQPort::writePwm(void*, motors::Channel, unsigned int, unsigned int)+0x12>
+    efd8:	00000344 	.word	0x00000344
+	...
+    efe4:	000002e4 	.word	0x000002e4
+	...
+
+
+0000f450 <motors::MotorGate::transact(core::Outputs const&, fsm::PreviousTick&)>:
+    f450:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+    f454:	4606      	mov	r6, r0
+    f456:	68c3      	ldr	r3, [r0, #12]
+    f458:	4604      	mov	r4, r0
+    f45a:	2100      	movs	r1, #0
+    f45c:	f856 0b18 	ldr.w	r0, [r6], #24
+    f460:	4615      	mov	r5, r2
+    f462:	f04f 0800 	mov.w	r8, #0
+    f466:	4798      	blx	r3
+    f468:	b940      	cbnz	r0, f47c <motors::MotorGate::transact(core::Outputs const&, fsm::PreviousTick&)+0x2c>
+    f46a:	2303      	movs	r3, #3
+    f46c:	4620      	mov	r0, r4
+    f46e:	f884 302c 	strb.w	r3, [r4, #44]	@ 0x2c
+    f472:	4b10      	ldr	r3, [pc, #64]	@ (f4b4 <motors::MotorGate::transact(core::Outputs const&, fsm::PreviousTick&)+0x64>)
+    f474:	4798      	blx	r3
+    f476:	2000      	movs	r0, #0
+    f478:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+    f47c:	fa5f f188 	uxtb.w	r1, r8
+    f480:	2300      	movs	r3, #0
+    f482:	6927      	ldr	r7, [r4, #16]
+    f484:	f856 2f04 	ldr.w	r2, [r6, #4]!
+    f488:	6820      	ldr	r0, [r4, #0]
+    f48a:	f108 0801 	add.w	r8, r8, #1
+    f48e:	47b8      	blx	r7
+    f490:	f1b8 0f04 	cmp.w	r8, #4
+    f494:	d1e8      	bne.n	f468 <motors::MotorGate::transact(core::Outputs const&, fsm::PreviousTick&)+0x18>
+    f496:	2800      	cmp	r0, #0
+    f498:	d0e7      	beq.n	f46a <motors::MotorGate::transact(core::Outputs const&, fsm::PreviousTick&)+0x1a>
+    f49a:	6963      	ldr	r3, [r4, #20]
+    f49c:	6820      	ldr	r0, [r4, #0]
+    f49e:	4798      	blx	r3
+    f4a0:	2800      	cmp	r0, #0
+    f4a2:	d0e2      	beq.n	f46a <motors::MotorGate::transact(core::Outputs const&, fsm::PreviousTick&)+0x1a>
+    f4a4:	2301      	movs	r3, #1
+    f4a6:	702b      	strb	r3, [r5, #0]
+    f4a8:	2300      	movs	r3, #0
+    f4aa:	752b      	strb	r3, [r5, #20]
+    f4ac:	2300      	movs	r3, #0
+    f4ae:	61ab      	str	r3, [r5, #24]
+    f4b0:	61eb      	str	r3, [r5, #28]
+    f4b2:	e7e1      	b.n	f478 <motors::MotorGate::transact(core::Outputs const&, fsm::PreviousTick&)+0x28>
+    f4b4:	00000000 	.word	0x00000000
+

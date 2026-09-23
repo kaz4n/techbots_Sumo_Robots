@@ -1,0 +1,6 @@
+[
+  "python3",
+  "-c",
+  "import hashlib,json,pathlib,sys\nbase=pathlib.Path(sys.argv[1]); result={}\nfor folder in (base/\"phase_probe\",base/\"libraries\"):\n for path in sorted(folder.rglob(\"*\")):\n  if path.is_symlink(): raise SystemExit(\"Unexpected fixture symlink\")\n  if path.is_file(): result[str(path)]=hashlib.sha256(path.read_bytes()).hexdigest()\nprint(json.dumps(result))\n",
+  "/home/arduino/sumox26_codex_build/_library_probes/e6e7e84e7b5a4eeda78c094829685d45"
+]

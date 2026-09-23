@@ -1,35 +1,26 @@
 # Resume SumoX-26 with Codex
 
-Work is PAUSED by the user's explicit request. Do not start until the user resumes.
-Then read AGENTS fully, CODEX_HANDOFF, PROGRESS, DECISIONS, FACTS, TUNING_LOG,
-CODEX_EXECUTION and open reviews/conflicts. Inspect Git and actual Dubai date;
-preserve original deadlines, human gates, evidence and unrelated work.
+User explicitly resumed; P2 software active under D051/D075. Read AGENTS fully,
+CODEX_HANDOFF, PROGRESS, DECISIONS, FACTS, TUNING_LOG, CODEX_EXECUTION and open
+reviews/conflicts. Check Git/current Dubai date; preserve work and deadlines.
 
-P2 software authority D051/D075 persists; full P0-P7 is incomplete. D0973d84958
-getter and D0981447ec8 dependency experiment are complete in their scoped limits.
-D100contractd338d1d now addresses D099-R1 locally:84 effective command properties,
-six override/profile paths,18 precompile pins and separate expanded-properties
-preflight.46new+78established host tooling cases PASS; all established assertions
-unchanged. Fresh same-model review PASS,19positive/3118negative probes and46-case
-rerun. Read analysis/P2_app_override_checkpoint.md, contract, source_audit/raw and
-reviews/P2_app_override_review.md/raw. Preserve original failures and evidence.
+D099/D100 build policy accepted: three actual compile-only modes pass, exact
+82sources/9ELFs/3packages/startup/imports audited, only3expected MATCH motor sections
+change. Fixed0 and stock-control explicit-library experiment/rejection PASS;
+initial forced1 control failure preserved. Fresh same-model review PASS. Read
+P2_app_build_validation.md, acceptance_audit.md/raw and acceptance_review.md/raw.
+No reason to repeat unchanged host tests/target builds merely on session restart.
 
-FIRST unfinished task: verify availability after resume, then corrected-wrapper
-actual default, inert Immediate and MATCH compile-only checks. Complete the
-explicit-library fixture experiment and source/object/ELF/startup/import audits,
-then final D099 adoption review. Earlier default248308B/finalELF matching D098 did
-not exercise D100 preflight. Fixture exists under tests/fixtures/app_build_policy;
-it has not been compiled on target. Do not rerun completed host tests without
-new cause. If disconnected, retain TARGET-PENDING and take only an eligible
-independent P2 task. Never fabricate successful target or physical evidence.
+Next: freeze and implement actual app post-Gate dump attachment and terminal
+cancellation using existing D090 Transfer/native adapter. Independently author
+actual Runtime/Robot/Gate/recorder tests before implementation. See
+P2_remaining_integration_20260923.md for APIs and separate missing post-STOP local
+service-reset/source-lifetime and calibration-snippet framing policies. Do not
+copy component reset fixtures and claim app integration; do not rearm native
+reset-only faults or erase retained evidence. D051 permits engineering decisions,
+not fabricated physical facts or human gates. All setup grants stay unconfirmed.
 
-No actualapp upload: it is not allowlisted and has no run authority. No D100
-firmware/config/locked-test change. Lastknown MCU D0911502e948 remains an older
-synthetic inert recorder; seven inert keys unchanged. A prior get-state query
-automatically restarted local ADB on protocol mismatch; original stderr and an
-explicit correction addendum are saved. No new board/network action for pause.
-
-LoadedRAM/full800us, SC-A circuit, SC-AJ clock, physical sensor/motor acceptance,
-nativeUART/localreset/calibration-snippet integration and human gates remain.
-Small local commits promptly; no push/tag/history rewrite or artificial spacing.
-Save precise checkpoint at session boundaries. No background work while paused.
+No app upload. Last MCU D0911502e948 is old inert synthetic recorder. Remaining:
+loadedRAM/stack/full800us, actual UART and physical sensor/motor acceptance,
+PINMAP/EXPLAINED/human gates and later P3-P7. Recheck connection only before a
+new dependent operation. No push/tag/history rewrite; commit promptly with evidence.

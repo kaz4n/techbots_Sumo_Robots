@@ -1,3 +1,33 @@
+## Active checkpoint - 2026-09-23T21:28:00+04:00
+
+D099/D100 corrected build-policy acceptance complete in scoped limits. Three
+actual compile-only modes PASS: inert248308B, MATCH248684B. Exact82sources,
+9ELFs/3packages/startup/imports and only3expected MATCH motor sections audited;
+fresh same-model review PASS. Explicit-library fixed0/stock-control compile and
+policy rejection PASS; initial forced1 control error preserved. Read
+analysis/P2_app_build_validation.md, acceptance_audit.md/raw, library_failure.md/
+raw and reviews/P2_app_acceptance_review.md/raw. No upload/MCU action.
+
+Next eligible P2 task: actual Runtime post-Gate dump attachment and terminal
+cancellation, using existing D090 Transfer/native port. Freeze its public contract
+and independently test actual Runtime/Robot/Gate/recorder integration. Read
+P2_remaining_integration_20260923.md: post-STOP local service reset/source lifetime
+and calibration-snippet framing are separate missing policies. Do not mistake
+component fixture reset for app integration. Preserve existing STOP passivity
+unless an explicit optional service contract changes it; no native-owner rearm.
+
+No firmware/config/locked/inertkey changed in build acceptance. Actual source
+remains570ef35f; last MCU image remainsD0911502e948. LoadedRAM, full800us, physical
+sensors/motors, all human gates and P0-P7 completion remain open. User explicitly
+resumed; continue eligible work, no push/tag or motor-run authority.
+
+## Active resume - 2026-09-23T21:15:16+04:00
+
+The user explicitly resumed from2ded06a. Prior pause is revoked. P2 software
+continues under D051/D075; no human physical gate or motor-run permission follows.
+Current task: corrected D099/D100 actual compile-only acceptance, then remaining
+eligible P2 integration. See latest PROGRESS and saved prior checkpoint below.
+
 ## User-requested pause checkpoint - 2026-09-23T21:11:19+04:00
 
 Work is PAUSED at the user's request. Resume only when the user says so. P2

@@ -1,0 +1,747 @@
+{
+  "scope": "Fresh-context same-model local independent review; no board/network/build/MCU action",
+  "new_decoder": true,
+  "modes": {
+    "bench-default": {
+      "source_files": 82,
+      "source_sha256": "570ef35fa0ed25601b5f04097d5e5361545c357d958530d62092c5c5c77c6d84",
+      "source_receipt": "17d1c3e6de3cc78f1ba95e19fb332b13608f33469b9e27336a8a8c37aa377f76",
+      "downloaded": [
+        {
+          "name": "app.ino.elf",
+          "sha256": "9808dc594d77be8f43865a17542a48b715b4d5ee4a1277d6f946d0a6ccb09e65",
+          "bytes": 153684
+        },
+        {
+          "name": "app.ino_debug.elf",
+          "sha256": "f3cf417758cb6220e43c2349d479e584dd14a9cfd2174ecac5a3a2c11f0debca",
+          "bytes": 2338568
+        },
+        {
+          "name": "app.ino_temp.elf",
+          "sha256": "69061fa5c276e7d8d7e89cf30210d304debc329a21268c342a68f97be4857b39",
+          "bytes": 2351488
+        },
+        {
+          "name": "app.ino.elf-zsk.bin",
+          "sha256": "aea3dfc5043cba49a4e7ec08787a2c079fe04852cc2122d69d2b6b14882ace7d",
+          "bytes": 153684
+        }
+      ],
+      "metadata": 121,
+      "compile_commands": 73,
+      "pins": 18,
+      "controlled_commands": 84,
+      "project_functions": 493,
+      "payload": 248308,
+      "nominal_remaining": 13836,
+      "imports": 176,
+      "conditional_pristine_peak": 252472,
+      "conditional_largest_payload": 9668,
+      "native_exports": 39,
+      "aeabi_exports": 42,
+      "startup": {
+        "main": {
+          "bytes": "38b5054b9847054b9847054b9847054d054ca847a047fce70000000000000000000000000000000000000000",
+          "targets": [
+            [
+              24,
+              2,
+              "initVariant",
+              4
+            ],
+            [
+              28,
+              2,
+              "_Z20start_static_threadsv",
+              4
+            ],
+            [
+              32,
+              2,
+              "setup",
+              4
+            ],
+            [
+              36,
+              2,
+              "loop",
+              4
+            ],
+            [
+              40,
+              2,
+              "_Z10__loopHookv",
+              4
+            ]
+          ],
+          "bind": 2,
+          "size": 44
+        },
+        "setup": {
+          "bytes": "1fb50d2200216846044b98476946044b0448984705b05df804fb00bf000000000000000000000000",
+          "targets": [
+            [
+              28,
+              2,
+              "memset",
+              4
+            ],
+            [
+              32,
+              2,
+              "_ZN3app7Runtime5beginERKNS_11SetupGrantsE",
+              4
+            ],
+            [
+              36,
+              2,
+              "_ZN12_GLOBAL__N_17runtimeE",
+              ".bss"
+            ]
+          ],
+          "bind": 1,
+          "size": 40
+        },
+        "loop": {
+          "bytes": "0148024b184700bf0000000000000000",
+          "targets": [
+            [
+              8,
+              2,
+              "_ZN12_GLOBAL__N_17runtimeE",
+              ".bss"
+            ],
+            [
+              12,
+              2,
+              "_ZN3app7Runtime4stepEv",
+              4
+            ]
+          ],
+          "bind": 1,
+          "size": 16
+        },
+        "initVariant": {
+          "bytes": "7047",
+          "targets": [],
+          "bind": 2,
+          "size": 2
+        },
+        "_Z10__loopHookv": {
+          "bytes": "7047",
+          "targets": [],
+          "bind": 1,
+          "size": 2
+        },
+        "_Z20start_static_threadsv": {
+          "bytes": "2de9f04f154c164e164fdff85c8089b02546b54204f1300402d309b0bde8f08f14ed027b54e90c0154e90a2354e908ce54e9069a54f810bc8ded067bcde903abcde901e9cdf800c0b84754f8300c54f80c1cc04754f8303c5d65d9e700000000000000000000000000000000",
+          "targets": [
+            [
+              92,
+              2,
+              "__static_thread_data_list_start",
+              6
+            ],
+            [
+              96,
+              2,
+              "__static_thread_data_list_end",
+              6
+            ],
+            [
+              100,
+              2,
+              "z_impl_k_thread_create",
+              0
+            ],
+            [
+              104,
+              2,
+              "z_impl_k_thread_name_set",
+              0
+            ]
+          ],
+          "bind": 1,
+          "size": 108
+        },
+        "_GLOBAL__sub_I_setup": {
+          "bytes": "f0b500245648a1b0564d2146b42200f8084ba847524b01261f4603f1d80021461022c3e93044c3e93244c3e934445e7283f8bc4083f8bd4083f8be4083f8bf40a84707f1e80021461022a84707f1f80021461022a84700220023c7e944230923c7f8084187f80c41a7f8184187f81a61a7f8284187f82a41c7f83c41c7e94844c7e94b33c7e94d4407f5a0772146e8223846a847a7f5a0721346214603f5d0703c2287f82860a8472146232207f19d0087f86460a847a7f5a07387f89c6087f8c160c7f8e8701f46214603f50b701822a84787f82e62c7f8444287f8484207f51370032721466822a8471d4b6c22214603f53270c3e9ae4483f8507283f8946283f8b44283f8b54283f8b642c3f8c04283f8c442a847124b05a8c3e9cd44c3e9cf4483f8d07283f8146383f8444383f8454383f84643c3f848430b490b4b9847684607490a4b984710a80549094b9847094c6a4610ab05a90848a04721b0f0bd0000000000000000000000000000000000000000000000000000000000000000",
+          "targets": [
+            [
+              352,
+              2,
+              "_ZN12_GLOBAL__N_17sourcesE",
+              ".bss"
+            ],
+            [
+              356,
+              2,
+              "memset",
+              4
+            ],
+            [
+              360,
+              2,
+              "_ZN12_GLOBAL__N_110motor_portE",
+              ".bss"
+            ],
+            [
+              364,
+              2,
+              "_ZN6motors8UnoQPort4portEv",
+              4
+            ],
+            [
+              368,
+              2,
+              "_ZN3app13NativeSources7adcPortEv",
+              4
+            ],
+            [
+              372,
+              2,
+              "_ZN3app13NativeSources4portEv",
+              4
+            ],
+            [
+              376,
+              2,
+              "_ZN3app7RuntimeC1ERKN6motors4PortERKN5power9InputPortERKNS_10SourcePortE",
+              4
+            ],
+            [
+              380,
+              2,
+              "_ZN12_GLOBAL__N_17runtimeE",
+              ".bss"
+            ]
+          ],
+          "bind": 0,
+          "size": 384
+        }
+      },
+      "init": [
+        "_GLOBAL__sub_I_setup"
+      ],
+      "object_comparison": {
+        "objects": 73,
+        "common_sections": 1438,
+        "relocations": 2912,
+        "changes": []
+      },
+      "build_path": "/home/arduino/sumox26_codex_build/_app_builds/native-app-v1/570ef35fa0ed25601b5f04097d5e5361545c357d958530d62092c5c5c77c6d84/bench-default/f72270527aed4318980008541345aa9a/build",
+      "receipt": "build\\app-receipts\\f72270527aed4318980008541345aa9a"
+    },
+    "bench-immediate": {
+      "source_files": 82,
+      "source_sha256": "570ef35fa0ed25601b5f04097d5e5361545c357d958530d62092c5c5c77c6d84",
+      "source_receipt": "b01ddab9b50146a8f677b046501fe4a0c6f3703800cb42cd66942ce95a8ca47c",
+      "downloaded": [
+        {
+          "name": "app.ino.elf",
+          "sha256": "9808dc594d77be8f43865a17542a48b715b4d5ee4a1277d6f946d0a6ccb09e65",
+          "bytes": 153684
+        },
+        {
+          "name": "app.ino_debug.elf",
+          "sha256": "e3b8eb98470cccc45bd222a5a4f65400c6be882491d0e1da46b83480c0caa050",
+          "bytes": 2338732
+        },
+        {
+          "name": "app.ino_temp.elf",
+          "sha256": "246cbc80f20eaad00b724650f07149b5731a18655793e499eab981e8a284f5ae",
+          "bytes": 2351652
+        },
+        {
+          "name": "app.ino.elf-zsk.bin",
+          "sha256": "96b4a7dfbfc926c2f982390ea9a7584dd9619d3979bb4582f7a539020e39f09e",
+          "bytes": 153684
+        }
+      ],
+      "metadata": 121,
+      "compile_commands": 73,
+      "pins": 18,
+      "controlled_commands": 84,
+      "project_functions": 493,
+      "payload": 248308,
+      "nominal_remaining": 13836,
+      "imports": 176,
+      "conditional_pristine_peak": 252472,
+      "conditional_largest_payload": 9668,
+      "native_exports": 39,
+      "aeabi_exports": 42,
+      "startup": {
+        "main": {
+          "bytes": "38b5054b9847054b9847054b9847054d054ca847a047fce70000000000000000000000000000000000000000",
+          "targets": [
+            [
+              24,
+              2,
+              "initVariant",
+              4
+            ],
+            [
+              28,
+              2,
+              "_Z20start_static_threadsv",
+              4
+            ],
+            [
+              32,
+              2,
+              "setup",
+              4
+            ],
+            [
+              36,
+              2,
+              "loop",
+              4
+            ],
+            [
+              40,
+              2,
+              "_Z10__loopHookv",
+              4
+            ]
+          ],
+          "bind": 2,
+          "size": 44
+        },
+        "setup": {
+          "bytes": "1fb50d2200216846044b98476946044b0448984705b05df804fb00bf000000000000000000000000",
+          "targets": [
+            [
+              28,
+              2,
+              "memset",
+              4
+            ],
+            [
+              32,
+              2,
+              "_ZN3app7Runtime5beginERKNS_11SetupGrantsE",
+              4
+            ],
+            [
+              36,
+              2,
+              "_ZN12_GLOBAL__N_17runtimeE",
+              ".bss"
+            ]
+          ],
+          "bind": 1,
+          "size": 40
+        },
+        "loop": {
+          "bytes": "0148024b184700bf0000000000000000",
+          "targets": [
+            [
+              8,
+              2,
+              "_ZN12_GLOBAL__N_17runtimeE",
+              ".bss"
+            ],
+            [
+              12,
+              2,
+              "_ZN3app7Runtime4stepEv",
+              4
+            ]
+          ],
+          "bind": 1,
+          "size": 16
+        },
+        "initVariant": {
+          "bytes": "7047",
+          "targets": [],
+          "bind": 2,
+          "size": 2
+        },
+        "_Z10__loopHookv": {
+          "bytes": "7047",
+          "targets": [],
+          "bind": 1,
+          "size": 2
+        },
+        "_Z20start_static_threadsv": {
+          "bytes": "2de9f04f154c164e164fdff85c8089b02546b54204f1300402d309b0bde8f08f14ed027b54e90c0154e90a2354e908ce54e9069a54f810bc8ded067bcde903abcde901e9cdf800c0b84754f8300c54f80c1cc04754f8303c5d65d9e700000000000000000000000000000000",
+          "targets": [
+            [
+              92,
+              2,
+              "__static_thread_data_list_start",
+              6
+            ],
+            [
+              96,
+              2,
+              "__static_thread_data_list_end",
+              6
+            ],
+            [
+              100,
+              2,
+              "z_impl_k_thread_create",
+              0
+            ],
+            [
+              104,
+              2,
+              "z_impl_k_thread_name_set",
+              0
+            ]
+          ],
+          "bind": 1,
+          "size": 108
+        },
+        "_GLOBAL__sub_I_setup": {
+          "bytes": "f0b500245648a1b0564d2146b42200f8084ba847524b01261f4603f1d80021461022c3e93044c3e93244c3e934445e7283f8bc4083f8bd4083f8be4083f8bf40a84707f1e80021461022a84707f1f80021461022a84700220023c7e944230923c7f8084187f80c41a7f8184187f81a61a7f8284187f82a41c7f83c41c7e94844c7e94b33c7e94d4407f5a0772146e8223846a847a7f5a0721346214603f5d0703c2287f82860a8472146232207f19d0087f86460a847a7f5a07387f89c6087f8c160c7f8e8701f46214603f50b701822a84787f82e62c7f8444287f8484207f51370032721466822a8471d4b6c22214603f53270c3e9ae4483f8507283f8946283f8b44283f8b54283f8b642c3f8c04283f8c442a847124b05a8c3e9cd44c3e9cf4483f8d07283f8146383f8444383f8454383f84643c3f848430b490b4b9847684607490a4b984710a80549094b9847094c6a4610ab05a90848a04721b0f0bd0000000000000000000000000000000000000000000000000000000000000000",
+          "targets": [
+            [
+              352,
+              2,
+              "_ZN12_GLOBAL__N_17sourcesE",
+              ".bss"
+            ],
+            [
+              356,
+              2,
+              "memset",
+              4
+            ],
+            [
+              360,
+              2,
+              "_ZN12_GLOBAL__N_110motor_portE",
+              ".bss"
+            ],
+            [
+              364,
+              2,
+              "_ZN6motors8UnoQPort4portEv",
+              4
+            ],
+            [
+              368,
+              2,
+              "_ZN3app13NativeSources7adcPortEv",
+              4
+            ],
+            [
+              372,
+              2,
+              "_ZN3app13NativeSources4portEv",
+              4
+            ],
+            [
+              376,
+              2,
+              "_ZN3app7RuntimeC1ERKN6motors4PortERKN5power9InputPortERKNS_10SourcePortE",
+              4
+            ],
+            [
+              380,
+              2,
+              "_ZN12_GLOBAL__N_17runtimeE",
+              ".bss"
+            ]
+          ],
+          "bind": 0,
+          "size": 384
+        }
+      },
+      "init": [
+        "_GLOBAL__sub_I_setup"
+      ],
+      "object_comparison": {
+        "objects": 73,
+        "common_sections": 1438,
+        "relocations": 2912,
+        "changes": []
+      },
+      "build_path": "/home/arduino/sumox26_codex_build/_app_builds/native-app-v1/570ef35fa0ed25601b5f04097d5e5361545c357d958530d62092c5c5c77c6d84/bench-immediate/28430a59f6c84c9e972d40aad7201b75/build",
+      "receipt": "build\\app-receipts\\28430a59f6c84c9e972d40aad7201b75"
+    },
+    "match-immediate": {
+      "source_files": 82,
+      "source_sha256": "570ef35fa0ed25601b5f04097d5e5361545c357d958530d62092c5c5c77c6d84",
+      "source_receipt": "d6fe535388d794b4089ed564224dd2e11cf377e8e397dcbc27a3686b8eaed752",
+      "downloaded": [
+        {
+          "name": "app.ino.elf",
+          "sha256": "523f8c12aad4a9f62ff82d8d923bd90dcdd47299b9c026df5c8c2c8ad8fc38b6",
+          "bytes": 154156
+        },
+        {
+          "name": "app.ino_debug.elf",
+          "sha256": "03412a759c9deded6526b6ad87fc074e3e3ed20676fb88fd6dabe72a02a5e67f",
+          "bytes": 2341672
+        },
+        {
+          "name": "app.ino_temp.elf",
+          "sha256": "310b18703294b94646c5432836a7579092e46baa010ac8289a363b069c4b5607",
+          "bytes": 2354592
+        },
+        {
+          "name": "app.ino.elf-zsk.bin",
+          "sha256": "42a84c6fcbf4ac581cc567e642752c88b7ef1ed028fc2aabda1e0c1608467d76",
+          "bytes": 154156
+        }
+      ],
+      "metadata": 121,
+      "compile_commands": 73,
+      "pins": 18,
+      "controlled_commands": 84,
+      "project_functions": 493,
+      "payload": 248684,
+      "nominal_remaining": 13460,
+      "imports": 176,
+      "conditional_pristine_peak": 252856,
+      "conditional_largest_payload": 9284,
+      "native_exports": 39,
+      "aeabi_exports": 42,
+      "startup": {
+        "main": {
+          "bytes": "38b5054b9847054b9847054b9847054d054ca847a047fce70000000000000000000000000000000000000000",
+          "targets": [
+            [
+              24,
+              2,
+              "initVariant",
+              4
+            ],
+            [
+              28,
+              2,
+              "_Z20start_static_threadsv",
+              4
+            ],
+            [
+              32,
+              2,
+              "setup",
+              4
+            ],
+            [
+              36,
+              2,
+              "loop",
+              4
+            ],
+            [
+              40,
+              2,
+              "_Z10__loopHookv",
+              4
+            ]
+          ],
+          "bind": 2,
+          "size": 44
+        },
+        "setup": {
+          "bytes": "1fb50d2200216846044b98476946044b0448984705b05df804fb00bf000000000000000000000000",
+          "targets": [
+            [
+              28,
+              2,
+              "memset",
+              4
+            ],
+            [
+              32,
+              2,
+              "_ZN3app7Runtime5beginERKNS_11SetupGrantsE",
+              4
+            ],
+            [
+              36,
+              2,
+              "_ZN12_GLOBAL__N_17runtimeE",
+              ".bss"
+            ]
+          ],
+          "bind": 1,
+          "size": 40
+        },
+        "loop": {
+          "bytes": "0148024b184700bf0000000000000000",
+          "targets": [
+            [
+              8,
+              2,
+              "_ZN12_GLOBAL__N_17runtimeE",
+              ".bss"
+            ],
+            [
+              12,
+              2,
+              "_ZN3app7Runtime4stepEv",
+              4
+            ]
+          ],
+          "bind": 1,
+          "size": 16
+        },
+        "initVariant": {
+          "bytes": "7047",
+          "targets": [],
+          "bind": 2,
+          "size": 2
+        },
+        "_Z10__loopHookv": {
+          "bytes": "7047",
+          "targets": [],
+          "bind": 1,
+          "size": 2
+        },
+        "_Z20start_static_threadsv": {
+          "bytes": "2de9f04f154c164e164fdff85c8089b02546b54204f1300402d309b0bde8f08f14ed027b54e90c0154e90a2354e908ce54e9069a54f810bc8ded067bcde903abcde901e9cdf800c0b84754f8300c54f80c1cc04754f8303c5d65d9e700000000000000000000000000000000",
+          "targets": [
+            [
+              92,
+              2,
+              "__static_thread_data_list_start",
+              6
+            ],
+            [
+              96,
+              2,
+              "__static_thread_data_list_end",
+              6
+            ],
+            [
+              100,
+              2,
+              "z_impl_k_thread_create",
+              0
+            ],
+            [
+              104,
+              2,
+              "z_impl_k_thread_name_set",
+              0
+            ]
+          ],
+          "bind": 1,
+          "size": 108
+        },
+        "_GLOBAL__sub_I_setup": {
+          "bytes": "f0b500245648a1b0564d2146b42200f8084ba847524b01261f4603f1d80021461022c3e93044c3e93244c3e934445e7283f8bc4083f8bd4083f8be4083f8bf40a84707f1e80021461022a84707f1f80021461022a84700220023c7e944230923c7f8084187f80c41a7f8184187f81a61a7f8284187f82a41c7f83c41c7e94844c7e94b33c7e94d4407f5a0772146e8223846a847a7f5a0721346214603f5d0703c2287f82860a8472146232207f19d0087f86460a847a7f5a07387f89c6087f8c160c7f8e8701f46214603f50b701822a84787f82e62c7f8444287f8484207f51370032721466822a8471d4b6c22214603f53270c3e9ae4483f8507283f8946283f8b44283f8b54283f8b642c3f8c04283f8c442a847124b05a8c3e9cd44c3e9cf4483f8d07283f8146383f8444383f8454383f84643c3f848430b490b4b9847684607490a4b984710a80549094b9847094c6a4610ab05a90848a04721b0f0bd0000000000000000000000000000000000000000000000000000000000000000",
+          "targets": [
+            [
+              352,
+              2,
+              "_ZN12_GLOBAL__N_17sourcesE",
+              ".bss"
+            ],
+            [
+              356,
+              2,
+              "memset",
+              4
+            ],
+            [
+              360,
+              2,
+              "_ZN12_GLOBAL__N_110motor_portE",
+              ".bss"
+            ],
+            [
+              364,
+              2,
+              "_ZN6motors8UnoQPort4portEv",
+              4
+            ],
+            [
+              368,
+              2,
+              "_ZN3app13NativeSources7adcPortEv",
+              4
+            ],
+            [
+              372,
+              2,
+              "_ZN3app13NativeSources4portEv",
+              4
+            ],
+            [
+              376,
+              2,
+              "_ZN3app7RuntimeC1ERKN6motors4PortERKN5power9InputPortERKNS_10SourcePortE",
+              4
+            ],
+            [
+              380,
+              2,
+              "_ZN12_GLOBAL__N_17runtimeE",
+              ".bss"
+            ]
+          ],
+          "bind": 0,
+          "size": 384
+        }
+      },
+      "init": [
+        "_GLOBAL__sub_I_setup"
+      ],
+      "object_comparison": {
+        "objects": 73,
+        "common_sections": 1438,
+        "relocations": 2918,
+        "changes": [
+          {
+            "path": "sketch/src/hal/motor_port_unoq.cpp.o",
+            "changed": [
+              ".text._ZN6motors8UnoQPort11writeEnableEPvb",
+              ".text._ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj"
+            ],
+            "relocated": [
+              ".text._ZN6motors8UnoQPort11writeEnableEPvb",
+              ".text._ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj"
+            ],
+            "added": [],
+            "removed": []
+          },
+          {
+            "path": "sketch/src/hal/motors.cpp.o",
+            "changed": [
+              ".text._ZN6motors9MotorGate8transactERKN4core7OutputsERN3fsm12PreviousTickE"
+            ],
+            "relocated": [
+              ".text._ZN6motors9MotorGate8transactERKN4core7OutputsERN3fsm12PreviousTickE"
+            ],
+            "added": [],
+            "removed": []
+          }
+        ]
+      },
+      "build_path": "/home/arduino/sumox26_codex_build/_app_builds/native-app-v1/570ef35fa0ed25601b5f04097d5e5361545c357d958530d62092c5c5c77c6d84/match-immediate/d70fc84c3c004c6590dd54abd550eb2a/build",
+      "receipt": "build\\app-receipts\\d70fc84c3c004c6590dd54abd550eb2a"
+    }
+  },
+  "all_modes_present": true,
+  "reviewed_files": {
+    "tools\\board_tool.py": "3aff3b7c9c519aa4186b0d89ee08fec3a98f78c1d258175fb75f5ba32fde79ba",
+    "tools\\app_build_policy.py": "c29e6d4aafc2296fbabff2a26ba31401abaca5978d477bf9afad29694ae8ca9b",
+    "tools\\app_build_commands.json": "63f6c41e34bae9fce1d945c3271b3fe86343f27544affe25ae14788438d62e1d",
+    "tools\\app_build_pins.json": "55720e65b03f6cd28964c675ceeec76619824cd11525549fbac0503b8efa972b",
+    "state\\analysis\\P2_app_build_contract.md": "79db41851124706ceb7065af4861dc347fe591fcfe082bdad5ddf47789b38d87",
+    "state\\analysis\\P2_app_override_contract.md": "e2bfb8609cb306e2ebd7855fac61bdc517006dbd8a4e94a804c065cb14c582c3",
+    "tools\\p0_inert_sources.json": "97669818a03a4762af67c8f418d8ba025f78b6deff1d62c23df40c2f25bfcf79"
+  },
+  "D100_locally_reviewed_source_identity": {
+    "tools/app_build_policy.py": "c29e6d4aafc2296fbabff2a26ba31401abaca5978d477bf9afad29694ae8ca9b",
+    "tools/app_build_commands.json": "63f6c41e34bae9fce1d945c3271b3fe86343f27544affe25ae14788438d62e1d",
+    "tools/board_tool.py": "3aff3b7c9c519aa4186b0d89ee08fec3a98f78c1d258175fb75f5ba32fde79ba",
+    "state/analysis/P2_app_override_contract.md": "e2bfb8609cb306e2ebd7855fac61bdc517006dbd8a4e94a804c065cb14c582c3"
+  },
+  "default_to_immediate_package_differences": [
+    [
+      14,
+      0,
+      4
+    ]
+  ]
+}

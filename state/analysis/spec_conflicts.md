@@ -649,3 +649,11 @@ app.ino remains inert; no complete scheduler or hardware acceptance is implied.
 
 
 2026-09-23 D096 SC-AL update: native Runtime/SourcePort composition now implemented; see P2_app_runtime_contract.md and validation.md for exact final host evidence. Explicit setup grants remain absent by default. Actual target final build4cb637f9 FAILS RAM276456>262144,14312B excess. Fresh review retains RAM BLOCKER; linked-source identity is not target acceptance. Next bounded memory dependency work follows P2_app_runtime_ram_audit.md; no recorder reduction, new hardware grant, full800us claim or human gate. NativeUART/localreset/calibration-snippet delivery remains pending.
+
+2026-09-23 D097-D100 SC-AL/static-memory follow-up: passive IMU accessor and
+reviewed app-only discovery policy make the actual frozen app compile at248308B
+inert/248684B MATCH. Three-mode source/ELF/startup/import audits and independent
+review PASS; see P2_app_build_validation.md. The former compile-capacity blocker
+is closed for this exact source/policy, without reducing recorder capacity/rate.
+SC-AL remains open for measured loadedRAM/stack and complete800us physical timing;
+future native dump/local reset/calibration integration needs a new final image audit.

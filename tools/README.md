@@ -1,27 +1,27 @@
 # P0 tooling contract
 
-## D099 app build checkpoint
+## D099/D100 checked app compilation
 
-Canonical `app --compile-only` now selects the fixed `native-app-v1` dependency
-policy: pinned CLI1.5.1/core1.0.0, a literal discovery-phase flag and a strict JSON
-result check that rejects every external library. Selected installed compiler,
-core, EDK and loader bytes plus four generated artifacts are hashed. Each build
-has a fresh policy/source/mode directory; raw compiler output is retained under
-`build/app-receipts/<run-id>/`. Existing bench commands and upload guards remain.
-No additional caller-supplied flags or library policy are accepted.
+Canonical `app --compile-only` selects the fixed `native-app-v1` policy with
+pinned CLI1.5.1/core1.0.0 and the reviewed discovery-phase override. It rejects
+sketch profiles and local/global overrides, checks18 installed hashes, validates
+84 effective command properties before compilation, then checks the real result,
+absence of external libraries and four generated artifact hashes. Every build
+uses fresh policy/source/mode paths. Raw preflight/compiler evidence is retained
+under `build/app-receipts/<run-id>/`. Failure stops the workflow explicitly.
 
-This implementation is a WIP checkpoint, not accepted adoption. Independent review
-found an open MAJOR: effective compile recipes/compiler/hook overrides are not yet
-fully checked, and an unreviewed platform.local.txt can leave the pinned platform
-hash unchanged. Fix that before relying on the policy's checked-build message.
-The actual default ELF matches the separately reviewed D098 candidate.
+Actual default, inert Immediate and MATCH compile-only builds passed on2026-09-23.
+Their82sources, nineELFs, startup/import/motor-branch differences and explicit
+library-discovery rejection experiment passed separate fresh same-model review.
+D099-R1 is addressed. Read `state/analysis/P2_app_build_validation.md` and
+`state/reviews/P2_app_acceptance_review.md` for exact evidence and limits.
 
-The default actual app compile has passed; Immediate/MATCH target checks, the
-explicit-library experiment and final adoption review remain pending at the
-user-requested pause. Host command tests do not substitute for those target checks.
-The discovery override is not an official Bridge-disable option. Read
-`state/analysis/P2_app_build_contract.md` and the current checkpoint before relying
-on an unqualified build mode. App uploads remain disabled in all modes.
+The override is not an official Bridge-disable option and rejects every external
+library. Stable CLI/configuration/files across commands remain an assumption;
+this is not a sandbox against a compromised build host. Property-only output does
+not prove compilation or library discovery. Compiler low-memory warnings remain;
+loadedRAM, stack, physical timing and all human gates require separate evidence.
+Bench commands/upload guards are retained; app uploads are disabled in all modes.
 
 D-075 MotorGate target checks use
 `python tools/board_tool.py flash bench/p2_motor_gate_compile --compile-only`
@@ -76,8 +76,9 @@ compilation. This pin is source-verified, not installed/hardware-verified.
 
 `--match` selects MATCH=1, MOTORS_ALLOWED=1 and source-verified core 1.0.0
 `arduino:zephyr:unoq:wait_linux_boot=no`. Default is MATCH=0, MOTORS_ALLOWED=0.
-Both flag orders are valid. `--compile-only` invokes only inventory, mkdir,
-rsync, compile; never upload, reset, start, or monitor. Missing target/config,
+Both flag orders are valid. `--compile-only` permits staging, inventory, app
+configuration/property/hash checks and compilation; never upload, reset, start
+or monitor. Missing target/config,
 missing source/tool/core, invalid arguments, SSH/sync/build failure are errors.
 
 For P0 startup comparisons, `--startup default` (wait for Linux) or
@@ -140,8 +141,9 @@ failures. A substitute returning zero is script-test evidence only.
 
 Set `SUMO_TRANSPORT=adb`, `SUMO_ADB_SERIAL` to the observed USB serial, and optionally
 `SUMO_ADB_EXECUTABLE` to the installed adb executable path (default: `adb`). The
-serial is mandatory even with one device. There is no automatic device selection,
-server restart, root escalation, package installation or network discovery.
+serial is mandatory even with one device. The wrapper does not request device selection, server restart, root escalation,
+package installation or network discovery. The ADB client can itself restart a
+local server on a protocol mismatch; preserve its diagnostic output.
 `SUMO_REMOTE_ROOT` remains a dedicated absolute directory on the UNO Q. The SSH
 transport remains the default and retains strict host-key verification.
 

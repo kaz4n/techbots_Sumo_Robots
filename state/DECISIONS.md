@@ -1305,3 +1305,11 @@ override/profile paths (regular files or dangling symlinks), and reject ambiguou
 or shell-active directory strings before properties/compilation. Ordinary spaces
 remain allowed. See the contract addendum and independent regression receipts;
 these tighten build-input checks without changing firmware or any human gate.
+
+D-099/D-100 acceptance (2026-09-23): corrected actual default, inert Immediate
+and MATCH compile-only builds pass, exact source/ELF/dependency/startup audits and
+fresh same-model review PASS. D099-R1 is addressed. Explicit fixture under fixed0
+and ordinary discovery is compiled then rejected for nonempty libraries. Initial
+forced1 control failure remains; stock-template correction is documented. Adopt
+only the scoped checked-build policy; no firmware/hardware/gate/run authority.
+Evidence P2_app_build_validation.md and P2_app_acceptance_review.md.

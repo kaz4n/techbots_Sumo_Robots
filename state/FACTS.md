@@ -452,3 +452,9 @@ F112 final software disposition 2026-09-23T16:49:58+04:00: fresh separate same-m
 | ID | Question | Observed answer | Source | Confidence | Hardware-checked |
 |---|---|---|---|---|---|
 | F-123 | Does the corrected wrapper close the demonstrated effective-command gap locally? |46 independent new+78 established cases PASS, old assertions unchanged. Fresh same-model review verifies84 templates,19 controls/3118 rejected mutations and reruns46 cases; no open local findings. D099-R1 addressed locally; target adoption pending. | analysis/P2_app_override_checkpoint.md/contract/source_audit/raw; reviews/P2_app_override_review.md/raw | IMPLEMENTED/HOST-TESTED/LOCAL-REVIEW-PASS; TARGET-PENDING | No corrected-wrapper target compile/upload/MCU run. Prior get-state reported device and auto-restarted local ADB on protocol mismatch; stderr/correction saved. Paused by user. |
+
+## D099/D100 actual build-policy acceptance,2026-09-23
+
+| ID | Question | Observed answer | Source | Confidence | Hardware-checked |
+|---|---|---|---|---|---|
+| F-124 | Does the corrected app-only build policy work on the pinned board toolchain? |All3mode builds exit0:248308B inert and248684B MATCH. Exact82sources/9ELFs/3packages audited; only3expected motor sections change in MATCH; startup/176imports preserved. Explicit-library fixed0/stock-control compile and reject as required. Fresh same-model review PASS; initial forced1 experiment failure retained. | analysis/P2_app_build_validation.md,acceptance_audit.md,acceptance_raw,library_raw; reviews/P2_app_acceptance_review.md/raw | TARGET-COMPILED/INDEPENDENT-REVIEW-PASS within build-policy scope | Board Linux compile/files only; no upload/MCU/run, measured loadedRAM/full800us or physical/human gate. |

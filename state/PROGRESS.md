@@ -763,3 +763,17 @@ verify availability then corrected-wrapper compile-only acceptance; no appupload
 Handoff/checklist/resume saved; fullP0-P7 incomplete. Stop until user resumes.
 Evidence P2_app_override_checkpoint.md/raw and P2_app_override_review.md/raw.
 | local correction and checkpoint=this commit
+
+2026-09-23T21:15:16+04:00 | P2 explicit human resume from2ded06a | Previous completed turn PROGRESS; local fix124tests/review saved. User now explicitly says continue through full project. Clean worktree recovered; board get-state exit0/device, no restart stderr. Corrected-wrapper default compile-only underway; no upload/physical/gate assumption. Root owns target acceptance; bounded explorer maps remaining P2 integration. | resume evidence=P2_app_build_raw/d100_resumed_connection.*
+
+2026-09-23T21:28:00+04:00 | P2 D099/D100 target acceptance | IMPLEMENTED/HOST-TESTED/
+TARGET-COMPILED/REVIEW-PASS. Actual default and Immediate248308B, MATCH248684B;
+82sources/9ELFs/3packages/73objects each audited, only3expected motor sections
+change. Fixed0 plus corrected ordinary library control compile and exactlibrary
+rejection pass; original forced1 control failure preserved. Fresh same-model
+review no open findings. D099-R1 addressed; adopt scoped build policy. No source/
+config/locked/inertkey/upload/MCU/gate change. Remaining native dump/local reset/
+calibration integration, loadedRAM/full800us and physical gates. Next freeze and
+implement actual app post-Gate dump attachment with independent tests; local
+post-STOP reset lifecycle remains distinct. Evidence P2_app_build_validation.md,
+acceptance_audit/raw and acceptance_review/raw. | this commit

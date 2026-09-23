@@ -1313,3 +1313,13 @@ and ordinary discovery is compiled then rejected for nonempty libraries. Initial
 forced1 control failure remains; stock-template correction is documented. Adopt
 only the scoped checked-build policy; no firmware/hardware/gate/run authority.
 Evidence P2_app_build_validation.md and P2_app_acceptance_review.md.
+
+## D-101 (2026-09-23, selected under D051/D075) Actual Runtime dump attachment
+Context: D090 bounded transfer/native port exists, but actual app never invokes it.
+Decision: adopt P2_app_dump_contract.md and public optional DumpPort/Runtime seam;
+Gate-first setup, actual post-Gate/recorder authority, full S..C service timing,
+explicit owner-abort cancellation, unchanged terminal behavior and absent grants.
+Consequence: independently test actual app pipeline, final target memory/dependency
+and fresh review. No new protocol/remote control/config/pins/permission. Post-STOP
+local service reset and calibration delivery remain explicit subsequent tasks;
+this does not claim physical B8 or a phase gate.

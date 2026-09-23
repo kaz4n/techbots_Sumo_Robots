@@ -34,6 +34,8 @@ public:
  explicit Transfer(const Port& port) : port_(port) {}
  Report step(const Context&, const fsm::RobotResult&, const AttemptRecorder&);
  void onRobotReset();
+ // Owner failure cancels an active transfer once without resetting its history.
+ void abort();
  const Report& report() const { return report_; }
 private:
  // Private implementation state may be extended by the assigned owner only.

@@ -3,6 +3,7 @@
 // Independent scripted source tests and native target compilation verify D096.
 #pragma once
 #include "transaction.h"
+#include "dump_port.h"
 #include "../hal/power_inputs.h"
 #include "../hal/opp_sensors.h"
 #include "../hal/imu_heading.h"
@@ -41,6 +42,9 @@ struct SetupGrants {
     bool default_line_thresholds_confirmed = false;
     bool matrix_enabled = false;
     ui::MatrixGrant matrix;
+    bool dump_enabled = false;
+    recorder::dump::SetupGrant dump;
+    recorder::dump::Origin dump_origin = recorder::dump::Origin::UNKNOWN;
 };
 enum class RuntimePhase : std::uint8_t { NOT_STARTED, RUNNING, STOPPED, FAULT };
 enum class RuntimeFault : std::uint8_t { NONE, PORT, CLOCK, SERVICE_LIMIT, TRANSACTION, PROJECTION };
@@ -64,11 +68,13 @@ struct RuntimeReport {
     qtr_cal::Report calibration;
     line_qtr::Snapshot line_shutdown;
     imu::SampleProgress imu_shutdown;
+    recorder::dump::NativeStatus dump_setup = recorder::dump::NativeStatus::NOT_INITIALIZED;
+    recorder::dump::Report dump;
 };
 class Runtime {
 public:
     Runtime(const motors::Port& motors, const power::InputPort& adc,
-            const SourcePort& sources);
+            const SourcePort& sources, const DumpPort& dump = {});
     Runtime(const Runtime&) = delete;
     Runtime& operator=(const Runtime&) = delete;
     // One setup attempt. Gate is first native operation; absent grants stay absent.

@@ -777,3 +777,9 @@ calibration integration, loadedRAM/full800us and physical gates. Next freeze and
 implement actual app post-Gate dump attachment with independent tests; local
 post-STOP reset lifecycle remains distinct. Evidence P2_app_build_validation.md,
 acceptance_audit/raw and acceptance_review/raw. | this commit
+
+2026-09-23T21:30:00+04:00 | P2 D101 public attachment contract | Build acceptance
+f5f8f34 complete; next actual Runtime dump boundary defined in contract and public
+headers before implementation. Optional fixed owner, real MotorGate receipt,
+existing Transfer semantics and complete timing; independent tests next. No
+physical/loadedRAM/gate claim. | contract=this commit

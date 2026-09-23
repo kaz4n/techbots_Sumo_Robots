@@ -1,3 +1,21 @@
+## Active checkpoint - 2026-09-23T21:46:00+04:00
+
+P2 D101 actual post-Gate Runtime dump attachment implemented and host-tested.
+Full normal/sanitizer1423main+178Gate PASS; independent configured author and
+final-source reviewer PASS. Read analysis/P2_app_dump_validation.md and
+reviews/P2_app_dump_review.md. Separate review retains D101-R1 BLOCKER:
+final cache-source83600858 MATCH compiles257784B but conditional loaderpeak
+262400B exceeds262144 by256B. No actual load, upload or MCU action.
+
+Next eligible task: lossless frame/status packing and explicit copied-read API,
+without reducing5001frames/4096events/25Hz or changing raw evidence. Read
+P2_frame_memory_options.md; freeze the bounded contract/tests, implement and
+repeat exact target/loader review. Seven inertkeys are deliberately unchanged
+and stale; refresh only after final shared-source review. Afterwards continue
+post-STOP local service/source lifetime, then calibration-snippet delivery.
+All physical/PINMAP/EXPLAINED/gates, loadedRAM/full800us and P3-P7 remain pending.
+User resumed; no motor-run/push/tag authority. Last MCU remains D0911502e948.
+
 ## Active checkpoint - 2026-09-23T21:28:00+04:00
 
 D099/D100 corrected build-policy acceptance complete in scoped limits. Three

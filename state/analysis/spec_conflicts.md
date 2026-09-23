@@ -657,3 +657,10 @@ review PASS; see P2_app_build_validation.md. The former compile-capacity blocker
 is closed for this exact source/policy, without reducing recorder capacity/rate.
 SC-AL remains open for measured loadedRAM/stack and complete800us physical timing;
 future native dump/local reset/calibration integration needs a new final image audit.
+
+2026-09-23 D101 SC-AL memory update: attaching actual dump paths makes final
+cache-source83600858 MATCH compile257784B but its conditional loaderpeak262400B
+exceeds262144 by256B. D101-R1 remains BLOCKER; compiler success is insufficient.
+P2_app_dump_target_audit.md records allocation order and exact identities. Next
+consider lossless frame/status packing with explicit copied-read API, preserving
+all5001frames/4096events/25Hz and raw bytes; no physical/load evidence fabricated.

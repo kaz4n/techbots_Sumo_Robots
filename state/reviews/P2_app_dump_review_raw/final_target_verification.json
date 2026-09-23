@@ -1,0 +1,49 @@
+{
+  "scope": "Independent reviewer offline source/ELF/relocation verification; no target connection",
+  "source_sha256": "836008588522b81c0f94435725a9b93cbd3cf826b871caf960285797b17b9db0",
+  "exact_source_files": 85,
+  "elfs": [
+    {
+      "path": "app.ino.elf",
+      "sha256": "89fb7b39499aeb650908a28d62a87ef29dd873c87e11377bb28ecc9fd193f3e0",
+      "imports": 176
+    },
+    {
+      "path": "app.ino_debug.elf",
+      "sha256": "42f6e9a9d330e49ba51f4613702a3ca354c7607dd77b85c5488ad300167148f2",
+      "imports": 176
+    },
+    {
+      "path": "app.ino_temp.elf",
+      "sha256": "45e012590a0e19697f28997f2565ea94b8aac2b617cd25573f5dabffe0819874",
+      "imports": 176
+    }
+  ],
+  "owners": {
+    "_ZN12_GLOBAL__N_17runtimeE": 169968,
+    "_ZN12_GLOBAL__N_19dump_portE": 204,
+    "_ZN12_GLOBAL__N_17sourcesE": 848
+  },
+  "factory_refs": [
+    "_ZN3app12_GLOBAL__N_15beginEPvRKN8recorder4dump10SetupGrantE",
+    "_ZN3app12_GLOBAL__N_15readyEPv",
+    "_ZN8recorder4dump12UnoQDumpPort4portEv"
+  ],
+  "static_initializer_refs": [
+    "",
+    "memset",
+    "",
+    "_ZN6motors8UnoQPort4portEv",
+    "_ZN3app13NativeSources7adcPortEv",
+    "_ZN3app13NativeSources4portEv",
+    "",
+    "_ZN3app12unoQDumpPortERN8recorder4dump12UnoQDumpPortE",
+    "_ZN3app7RuntimeC1ERKN6motors4PortERKN5power9InputPortERKNS_10SourcePortERKNS_8DumpPortE",
+    ""
+  ],
+  "compiler_payload": 257784,
+  "conditional_pristine_peak": 262400,
+  "conditional_pool_excess": 256,
+  "verdict": "TARGET_BLOCKED",
+  "limit": "Pinned pristine allocator/flash-peek model, not measured load/freeRAM/stack/WCET"
+}

@@ -1,0 +1,4496 @@
+{
+  "scope": "Frozen source/offline ELF audit; modeled loader blocker is not an actual load failure",
+  "pinned_source_receipts": [
+    {
+      "url": "https://raw.githubusercontent.com/zephyrproject-rtos/zephyr/1743741760ee5d2d58da50d504855d43f9f8e826/subsys/llext/llext_mem.c",
+      "path": "state/analysis/P2_memory_validation_raw/llext_mem.c",
+      "sha256": "97c24d9430bee01bf2125d73be0ab51477973345315c20df14b61794b528c894",
+      "bytes": 11310
+    },
+    {
+      "url": "https://raw.githubusercontent.com/zephyrproject-rtos/zephyr/1743741760ee5d2d58da50d504855d43f9f8e826/subsys/llext/llext_load.c",
+      "path": "state/analysis/P2_memory_validation_raw/llext_load.c",
+      "sha256": "68c999737ed275a4bb81801d571fc044a2db0ef760d21214d9a34b4f7b388413",
+      "bytes": 26275
+    },
+    {
+      "url": "https://raw.githubusercontent.com/zephyrproject-rtos/zephyr/1743741760ee5d2d58da50d504855d43f9f8e826/subsys/llext/llext_mem.h",
+      "path": "state/analysis/P2_memory_validation_raw/llext_mem.h",
+      "sha256": "929df84d788fb5e610675e94852c2a5727c641954ab1051137d43d8d05da4485",
+      "bytes": 438
+    },
+    {
+      "url": "https://raw.githubusercontent.com/zephyrproject-rtos/zephyr/1743741760ee5d2d58da50d504855d43f9f8e826/include/zephyr/llext/llext.h",
+      "path": "state/analysis/P2_memory_validation_raw/llext.h",
+      "sha256": "5d15bc00eb1deb62d20bd034d5b2b69d012e66df1b3af86ac9c4020d287ee7e8",
+      "bytes": 18117
+    }
+  ],
+  "builds": {
+    "target_83600858_match-immediate": {
+      "source_sha256": "836008588522b81c0f94435725a9b93cbd3cf826b871caf960285797b17b9db0",
+      "mode": "match-immediate",
+      "files": 85,
+      "current_source_at_collection": true,
+      "verified_elfs": [
+        {
+          "name": "app.ino.elf",
+          "sha256": "89fb7b39499aeb650908a28d62a87ef29dd873c87e11377bb28ecc9fd193f3e0",
+          "imports": 176
+        },
+        {
+          "name": "app.ino_debug.elf",
+          "sha256": "42f6e9a9d330e49ba51f4613702a3ca354c7607dd77b85c5488ad300167148f2",
+          "imports": 176
+        },
+        {
+          "name": "app.ino_temp.elf",
+          "sha256": "45e012590a0e19697f28997f2565ea94b8aac2b617cd25573f5dabffe0819874",
+          "imports": 176
+        }
+      ],
+      "objects": {
+        "objects": 75,
+        "common_alloc_sections": 1437,
+        "added_objects": [
+          "sketch/src/app/dump_port_unoq.cpp.o",
+          "sketch/src/app/runtime_dump.cpp.o"
+        ],
+        "changes": [
+          {
+            "path": "sketch/app.ino.cpp.o",
+            "changed": [
+              ".bss._ZN12_GLOBAL__N_17runtimeE",
+              ".text._GLOBAL__sub_I_setup",
+              ".text.setup"
+            ],
+            "added": [
+              ".bss._ZN12_GLOBAL__N_19dump_portE"
+            ],
+            "removed": []
+          },
+          {
+            "path": "sketch/src/app/runtime.cpp.o",
+            "changed": [
+              ".text._ZN3app7Runtime10consumeImuERKN3imu14SampleProgressE",
+              ".text._ZN3app7Runtime10publishImuERKN3imu6SampleE",
+              ".text._ZN3app7Runtime10serviceImuEv",
+              ".text._ZN3app7Runtime10skipBeforeEj",
+              ".text._ZN3app7Runtime11acceptClockEj",
+              ".text._ZN3app7Runtime11servicePassEv",
+              ".text._ZN3app7Runtime13cancelSourcesEv",
+              ".text._ZN3app7Runtime13completeEpochEv",
+              ".text._ZN3app7Runtime13releaseChargeEv",
+              ".text._ZN3app7Runtime13rememberLinesERKN8line_qtr8SnapshotE",
+              ".text._ZN3app7Runtime13setupImuFaultEj",
+              ".text._ZN3app7Runtime17initializeSourcesEv",
+              ".text._ZN3app7Runtime4failENS_12RuntimeFaultE",
+              ".text._ZN3app7Runtime4pumpEv",
+              ".text._ZN3app7Runtime4stepEv",
+              ".text._ZN3app7Runtime5beginERKNS_11SetupGrantsE",
+              ".text._ZN3app7Runtime7acquireEv",
+              ".text._ZN3app7Runtime9countPassEv",
+              ".text._ZNK3app7Runtime10validPortsEv",
+              ".text._ZNK3app7Runtime11linesActiveEv",
+              ".text._ZNK3app7Runtime11linesUsefulEj"
+            ],
+            "added": [
+              ".text._ZN3app7RuntimeC2ERKN6motors4PortERKN5power9InputPortERKNS_10SourcePortERKNS_8DumpPortE"
+            ],
+            "removed": [
+              ".text._ZN3app7RuntimeC2ERKN6motors4PortERKN5power9InputPortERKNS_10SourcePortE"
+            ]
+          },
+          {
+            "path": "sketch/src/app/runtime_inputs.cpp.o",
+            "changed": [
+              ".text._ZN3app7Runtime10projectImuEjj",
+              ".text._ZN3app7Runtime12postDecisionEv",
+              ".text._ZN3app7Runtime12projectLinesEjj",
+              ".text._ZN3app7Runtime14selectLineModeEv",
+              ".text._ZN3app7Runtime18clockAcceptedThunkEPv",
+              ".text._ZN3app7Runtime7displayEv",
+              ".text._ZN3app7Runtime7projectEj",
+              ".text._ZNK3app7Runtime14opponentsFreshEj",
+              ".text._ZNK3app7Runtime14opponentsReadyEv"
+            ],
+            "added": [],
+            "removed": []
+          },
+          {
+            "path": "sketch/src/hal/motor_port_unoq.cpp.o",
+            "changed": [
+              ".text._ZN6motors8UnoQPort11writeEnableEPvb",
+              ".text._ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj"
+            ],
+            "added": [],
+            "removed": []
+          },
+          {
+            "path": "sketch/src/hal/motors.cpp.o",
+            "changed": [
+              ".text._ZN6motors9MotorGate8transactERKN4core7OutputsERN3fsm12PreviousTickE"
+            ],
+            "added": [],
+            "removed": []
+          },
+          {
+            "path": "sketch/src/hal/recorder_dump.cpp.o",
+            "changed": [],
+            "added": [
+              ".text._ZN8recorder4dump8Transfer5abortEv"
+            ],
+            "removed": []
+          }
+        ],
+        "native_uart_and_csv_alloc_sections_unchanged": true
+      },
+      "startup": {
+        "main": {
+          "symbol": {
+            "name": "main",
+            "value": 82465,
+            "size": 44,
+            "bind": 2,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "38b5054b9847054b9847054b9847054d054ca847a047fce70000000000000000000000000000000000000000",
+          "normalized_bytes_hex": "38b5054b9847054b9847054b9847054d054ca847a047fce70000000000000000000000000000000000000000",
+          "relocations": [
+            {
+              "offset": 24,
+              "type": 2,
+              "name": "initVariant",
+              "section": ".text"
+            },
+            {
+              "offset": 28,
+              "type": 2,
+              "name": "_Z20start_static_threadsv",
+              "section": ".text"
+            },
+            {
+              "offset": 32,
+              "type": 2,
+              "name": "setup",
+              "section": ".text"
+            },
+            {
+              "offset": 36,
+              "type": 2,
+              "name": "loop",
+              "section": ".text"
+            },
+            {
+              "offset": 40,
+              "type": 2,
+              "name": "_Z10__loopHookv",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        },
+        "setup": {
+          "symbol": {
+            "name": "setup",
+            "value": 1,
+            "size": 40,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "7fb513220021054b01a89847044b01a90448984707b05df804fb00bf000000000000000000000000",
+          "normalized_bytes_hex": "7fb513220021054b01a89847044b01a90448984707b05df804fb00bf000000000000000000000000",
+          "relocations": [
+            {
+              "offset": 28,
+              "type": 2,
+              "name": "memset",
+              "section": ".text"
+            },
+            {
+              "offset": 32,
+              "type": 2,
+              "name": "_ZN3app7Runtime5beginERKNS_11SetupGrantsE",
+              "section": ".text"
+            },
+            {
+              "offset": 36,
+              "type": 2,
+              "name": "",
+              "section": ".bss"
+            }
+          ],
+          "bss_targets": [
+            {
+              "offset": 36,
+              "section_addend": 0,
+              "targets": [
+                "_ZN12_GLOBAL__N_17runtimeE"
+              ]
+            }
+          ]
+        },
+        "loop": {
+          "symbol": {
+            "name": "loop",
+            "value": 41,
+            "size": 16,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "0148024b184700bf0000000000000000",
+          "normalized_bytes_hex": "0148024b184700bf0000000000000000",
+          "relocations": [
+            {
+              "offset": 8,
+              "type": 2,
+              "name": "",
+              "section": ".bss"
+            },
+            {
+              "offset": 12,
+              "type": 2,
+              "name": "_ZN3app7Runtime4stepEv",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": [
+            {
+              "offset": 8,
+              "section_addend": 0,
+              "targets": [
+                "_ZN12_GLOBAL__N_17runtimeE"
+              ]
+            }
+          ]
+        },
+        "initVariant": {
+          "symbol": {
+            "name": "initVariant",
+            "value": 82461,
+            "size": 2,
+            "bind": 2,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "7047",
+          "normalized_bytes_hex": "7047",
+          "relocations": [],
+          "bss_targets": []
+        },
+        "_Z10__loopHookv": {
+          "symbol": {
+            "name": "_Z10__loopHookv",
+            "value": 62389,
+            "size": 2,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "7047",
+          "normalized_bytes_hex": "7047",
+          "relocations": [],
+          "bss_targets": []
+        },
+        "_Z20start_static_threadsv": {
+          "symbol": {
+            "name": "_Z20start_static_threadsv",
+            "value": 82509,
+            "size": 108,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "2de9f04f154c164e164fdff85c8089b02546b54204f1300402d309b0bde8f08f14ed027b54e90c0154e90a2354e908ce54e9069a54f810bc8ded067bcde903abcde901e9cdf800c0b84754f8300c54f80c1cc04754f8303c5d65d9e700000000000000000000000000000000",
+          "normalized_bytes_hex": "2de9f04f154c164e164fdff85c8089b02546b54204f1300402d309b0bde8f08f14ed027b54e90c0154e90a2354e908ce54e9069a54f810bc8ded067bcde903abcde901e9cdf800c0b84754f8300c54f80c1cc04754f8303c5d65d9e700000000000000000000000000000000",
+          "relocations": [
+            {
+              "offset": 92,
+              "type": 2,
+              "name": "__static_thread_data_list_start",
+              "section": ".static_thread_data_area"
+            },
+            {
+              "offset": 96,
+              "type": 2,
+              "name": "__static_thread_data_list_end",
+              "section": ".static_thread_data_area"
+            },
+            {
+              "offset": 100,
+              "type": 2,
+              "name": "z_impl_k_thread_create",
+              "section": ""
+            },
+            {
+              "offset": 104,
+              "type": 2,
+              "name": "z_impl_k_thread_name_set",
+              "section": ""
+            }
+          ],
+          "bss_targets": []
+        },
+        "_GLOBAL__sub_I_setup": {
+          "symbol": {
+            "name": "_GLOBAL__sub_I_setup",
+            "value": 57,
+            "size": 404,
+            "bind": 0,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "f0b500245948a9b0594d2146b42200f8084ba847554b01261f4603f1d80021461022c3e93044c3e93244c3e934445e7283f8bc4083f8bd4083f8be4083f8bf40a84707f1e80021461022a84707f1f80021461022a84700220023c7e944230923c7f8084187f80c41a7f8184187f81a61a7f8284187f82a41c7f83c41c7e94844c7e94b33c7e94d4407f5a0772146e8223846a847a7f5a0721346214603f5d0703c2287f82860a8472146232207f19d0087f86460a847a7f5a07387f89c6087f8c160c7f8e8701f46214603f50b701822a84787f82e62c7f8444287f8484207f51370032721466822a847204b6c22214603f53270c3e9ae4483f8507283f8946283f8b44283f8b54283f8b642c3f8c04283f8c442a847154b0da8c3e9cd44c3e9cf4483f8d07283f8146383f8444383f8454383f84643c3f848430e490e4b984702a80a490d4b984707ac18a807490c4b984720460b490c4b9847009418ab0b4c02aa0da90a48a04729b0f0bde898020000000000bc980200000000000000000000000000f0970200000000000000000000000000",
+          "normalized_bytes_hex": "f0b500245948a9b0594d2146b42200f8084ba847554b01261f4603f1d80021461022c3e93044c3e93244c3e934445e7283f8bc4083f8bd4083f8be4083f8bf40a84707f1e80021461022a84707f1f80021461022a84700220023c7e944230923c7f8084187f80c41a7f8184187f81a61a7f8284187f82a41c7f83c41c7e94844c7e94b33c7e94d4407f5a0772146e8223846a847a7f5a0721346214603f5d0703c2287f82860a8472146232207f19d0087f86460a847a7f5a07387f89c6087f8c160c7f8e8701f46214603f50b701822a84787f82e62c7f8444287f8484207f51370032721466822a847204b6c22214603f53270c3e9ae4483f8507283f8946283f8b44283f8b54283f8b642c3f8c04283f8c442a847154b0da8c3e9cd44c3e9cf4483f8d07283f8146383f8444383f8454383f84643c3f848430e490e4b984702a80a490d4b984707ac18a807490c4b984720460b490c4b9847009418ab0b4c02aa0da90a48a04729b0f0bd00000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "relocations": [
+            {
+              "offset": 364,
+              "type": 2,
+              "name": "",
+              "section": ".bss"
+            },
+            {
+              "offset": 368,
+              "type": 2,
+              "name": "memset",
+              "section": ".text"
+            },
+            {
+              "offset": 372,
+              "type": 2,
+              "name": "",
+              "section": ".bss"
+            },
+            {
+              "offset": 376,
+              "type": 2,
+              "name": "_ZN6motors8UnoQPort4portEv",
+              "section": ".text"
+            },
+            {
+              "offset": 380,
+              "type": 2,
+              "name": "_ZN3app13NativeSources7adcPortEv",
+              "section": ".text"
+            },
+            {
+              "offset": 384,
+              "type": 2,
+              "name": "_ZN3app13NativeSources4portEv",
+              "section": ".text"
+            },
+            {
+              "offset": 388,
+              "type": 2,
+              "name": "",
+              "section": ".bss"
+            },
+            {
+              "offset": 392,
+              "type": 2,
+              "name": "_ZN3app12unoQDumpPortERN8recorder4dump12UnoQDumpPortE",
+              "section": ".text"
+            },
+            {
+              "offset": 396,
+              "type": 2,
+              "name": "_ZN3app7RuntimeC1ERKN6motors4PortERKN5power9InputPortERKNS_10SourcePortERKNS_8DumpPortE",
+              "section": ".text"
+            },
+            {
+              "offset": 400,
+              "type": 2,
+              "name": "",
+              "section": ".bss"
+            }
+          ],
+          "bss_targets": [
+            {
+              "offset": 364,
+              "section_addend": 170216,
+              "targets": [
+                "_ZN12_GLOBAL__N_17sourcesE"
+              ]
+            },
+            {
+              "offset": 372,
+              "section_addend": 170172,
+              "targets": [
+                "_ZN12_GLOBAL__N_110motor_portE"
+              ]
+            },
+            {
+              "offset": 388,
+              "section_addend": 169968,
+              "targets": [
+                "_ZN12_GLOBAL__N_19dump_portE"
+              ]
+            },
+            {
+              "offset": 400,
+              "section_addend": 0,
+              "targets": [
+                "_ZN12_GLOBAL__N_17runtimeE"
+              ]
+            }
+          ]
+        },
+        "micros": {
+          "symbol": {
+            "name": "micros",
+            "value": 82617,
+            "size": 28,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "10b5044ca047a047a0220023024ca04710bd00bf0000000000000000",
+          "normalized_bytes_hex": "10b5044ca047a047a0220023024ca04710bd00bf0000000000000000",
+          "relocations": [
+            {
+              "offset": 20,
+              "type": 2,
+              "name": "sys_clock_cycle_get_64",
+              "section": ""
+            },
+            {
+              "offset": 24,
+              "type": 2,
+              "name": "__aeabi_uldivmod",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        }
+      },
+      "metadata": {
+        "commands": 75,
+        "metadata": 125,
+        "dependencies": 121
+      },
+      "required_retained_functions": {
+        "_ZN3app7Runtime14initializeDumpEv": {
+          "symbol": {
+            "name": "_ZN3app7Runtime14initializeDumpEv",
+            "value": 5145,
+            "size": 60,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "10b500f5243494f8d53173b1d0f8843043b1d0f888202ab1d0f8902012b1d0f894201ab9022384f8dc3310bdd0f8800004f5eb71984784f8dc03f6e7",
+          "normalized_bytes_hex": "10b500f5243494f8d53173b1d0f8843043b1d0f888202ab1d0f8902012b1d0f894201ab9022384f8dc3310bdd0f8800004f5eb71984784f8dc03f6e7",
+          "relocations": [],
+          "bss_targets": []
+        },
+        "_ZN3app7Runtime11serviceDumpEv": {
+          "symbol": {
+            "name": "_ZN3app7Runtime11serviceDumpEv",
+            "value": 5485,
+            "size": 184,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "f0b500f5243494f8d531064691b013b9012011b0f0bd0023234f0ca90c93b84708b90020f5e73046204b98470028efd030460c991e4b9847054628b1d6f88830d6f880009847054630460ca9b8470028e7d00c9b06f522310d9306f52033d3f804388df83c500e9394f8da310daa8df83d3006f53763009306f5223302a80d4d103301f50c71a84704f5787402ad0fcd0fc40fcd0fc495e8030084e8030030460ca9b847b5e700bf00000000000000000000000000000000",
+          "normalized_bytes_hex": "f0b500f5243494f8d531064691b013b9012011b0f0bd0023234f0ca90c93b84708b90020f5e73046204b98470028efd030460c991e4b9847054628b1d6f88830d6f880009847054630460ca9b8470028e7d00c9b06f522310d9306f52033d3f804388df83c500e9394f8da310daa8df83d3006f53763009306f5223302a80d4d103301f50c71a84704f5787402ad0fcd0fc40fcd0fc495e8030084e8030030460ca9b847b5e700bf00000000000000000000000000000000",
+          "relocations": [
+            {
+              "offset": 168,
+              "type": 2,
+              "name": "_ZN3app7Runtime5clockERj",
+              "section": ".text"
+            },
+            {
+              "offset": 172,
+              "type": 2,
+              "name": "_ZNK3app7Runtime16dumpReceiptValidEv",
+              "section": ".text"
+            },
+            {
+              "offset": 176,
+              "type": 2,
+              "name": "_ZNK3app7Runtime16dumpReadyContextEj",
+              "section": ".text"
+            },
+            {
+              "offset": 180,
+              "type": 2,
+              "name": "_ZN8recorder4dump8Transfer4stepERKNS0_7ContextERKN3fsm11RobotResultERKNS_15AttemptRecorderE",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        },
+        "_ZNK3app7Runtime16dumpReceiptValidEv": {
+          "symbol": {
+            "name": "_ZNK3app7Runtime16dumpReceiptValidEv",
+            "value": 5205,
+            "size": 94,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "10b500f5203393f8f8170246032924d193f8fa0700b393f8d109e8b193f8a009d0b1d3f8a849d3f8ac1902f52232d2e90402914208bf84420fd1d3f8b029d3f80418521a002a08db93f8d009002818bf06280cbf0120002010bd0020fce7",
+          "normalized_bytes_hex": "10b500f5203393f8f8170246032924d193f8fa0700b393f8d109e8b193f8a009d0b1d3f8a849d3f8ac1902f52232d2e90402914208bf84420fd1d3f8b029d3f80418521a002a08db93f8d009002818bf06280cbf0120002010bd0020fce7",
+          "relocations": [],
+          "bss_targets": []
+        },
+        "_ZNK3app7Runtime16dumpReadyContextEj": {
+          "symbol": {
+            "name": "_ZNK3app7Runtime16dumpReadyContextEj",
+            "value": 5301,
+            "size": 184,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "38b500f5243393f8dc330446012b0d464ed1284b9847002849d004f5203393f81808002843d0d3f81028d3f814180a433ed0d3f80428ad1ab5f57a7f38d293f82528012a34d193f830288abb93f8320870bb93f8332852bb93f8312842bb93f8240828bb03f50162d2ed037af5ee407af1ee10fa1bd1d2ed047af5ee407af1ee10fa14d193f8b4298ab903f51a63d3ed067af5ee407af1ee10fa08d1d3ed077af5ee407af1ee10fa0cbf0120002038bd0020fce700000000",
+          "normalized_bytes_hex": "38b500f5243393f8dc330446012b0d464ed1284b9847002849d004f5203393f81808002843d0d3f81028d3f814180a433ed0d3f80428ad1ab5f57a7f38d293f82528012a34d193f830288abb93f8320870bb93f8332852bb93f8312842bb93f8240828bb03f50162d2ed037af5ee407af1ee10fa1bd1d2ed047af5ee407af1ee10fa14d193f8b4298ab903f51a63d3ed067af5ee407af1ee10fa08d1d3ed077af5ee407af1ee10fa0cbf0120002038bd0020fce700000000",
+          "relocations": [
+            {
+              "offset": 180,
+              "type": 2,
+              "name": "_ZNK3app7Runtime16dumpReceiptValidEv",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        },
+        "_ZN8recorder4dump8Transfer5abortEv": {
+          "symbol": {
+            "name": "_ZN8recorder4dump8Transfer5abortEv",
+            "value": 79581,
+            "size": 20,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "027c012a02d10321014b1847704700bf00000000",
+          "normalized_bytes_hex": "027c012a02d10321014b1847704700bf00000000",
+          "relocations": [
+            {
+              "offset": 16,
+              "type": 2,
+              "name": "_ZN8recorder4dump8Transfer4failENS0_5PhaseENS0_6ReasonE",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        },
+        "_ZN8recorder4dump8Transfer4stepERKNS0_7ContextERKN3fsm11RobotResultERKNS_15AttemptRecorderE": {
+          "symbol": {
+            "name": "_ZN8recorder4dump8Transfer4stepERKNS0_7ContextERKN3fsm11RobotResultERKNS_15AttemptRecorderE",
+            "value": 79369,
+            "size": 212,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "2de9f3471d469b7f0646042b0c461746ddf8289032d1d5e90010d4f85c250192d4f858258a42019a824127d24ff00108c4f85815c4f85c0543462a4639462046dff88ca0d04718b3237c012b0bd0b8f1000f1dd04b462a4639462046174da847237c012b14d149462046154b984740b9072203212046134b984709e04ff00008dae7d4f844358bb1494620460e4b9847354610340fcc0fc50fcc0fc594e8030085e80300304602b0bde8f0872046074b98470028e8d108220421dbe7000000000000000000000000000000000000000000000000",
+          "normalized_bytes_hex": "2de9f3471d469b7f0646042b0c461746ddf8289032d1d5e90010d4f85c250192d4f858258a42019a824127d24ff00108c4f85815c4f85c0543462a4639462046dff88ca0d04718b3237c012b0bd0b8f1000f1dd04b462a4639462046174da847237c012b14d149462046154b984740b9072203212046134b984709e04ff00008dae7d4f844358bb1494620460e4b9847354610340fcc0fc50fcc0fc594e8030085e80300304602b0bde8f0872046074b98470028e8d108220421dbe7000000000000000000000000000000000000000000000000",
+          "relocations": [
+            {
+              "offset": 188,
+              "type": 2,
+              "name": "_ZN8recorder4dump8Transfer5startERKNS0_7ContextERKN3fsm11RobotResultERKNS_15AttemptRecorderE",
+              "section": ".text"
+            },
+            {
+              "offset": 192,
+              "type": 2,
+              "name": "_ZNK8recorder4dump8Transfer9unchangedERKNS_15AttemptRecorderE",
+              "section": ".text"
+            },
+            {
+              "offset": 196,
+              "type": 2,
+              "name": "_ZN8recorder4dump8Transfer4failENS0_5PhaseENS0_6ReasonE",
+              "section": ".text"
+            },
+            {
+              "offset": 200,
+              "type": 2,
+              "name": "_ZN8recorder4dump8Transfer12writePendingERKNS_15AttemptRecorderE",
+              "section": ".text"
+            },
+            {
+              "offset": 204,
+              "type": 2,
+              "name": "_ZN8recorder4dump8Transfer7prepareEv",
+              "section": ".text"
+            },
+            {
+              "offset": 208,
+              "type": 2,
+              "name": "_ZN8recorder4dump8Transfer5admitERKNS0_7ContextERKN3fsm11RobotResultEb",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        },
+        "_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE": {
+          "symbol": {
+            "name": "_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE",
+            "value": 45501,
+            "size": 472,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "2de9f74390f8c630054613b990f8c8303bb128465d4b98472c78204603b0bde8f083012380f8c6300b782bb14b781bb18b780bb1cb7813b903242c70ede7dff89081c04708b90224f7e7dff88891d9f80030002bf0d14e4fb84708b90424ece74c484d4ca0470028f8d04c48a0470028f4d04b4ef3685a78d007ddd41b78002bdad1484b98470028d6d0c9f800504148016982680b6823f400530b6013680d21414a984708b10624c7e7404b304698470028d3d13046a0470028cfd0eff31083019372b6c04700284bd0b847002848d0374b9847002844d0364b9847002840d0354ad2f8083259073bd4d2f808315b0737d4324b19680d2945d15968002942d1996800293fd1d96a00293cd1dc682c48844238d10420c2f88800bff34f8fbff36f8fc2f8880109221a60bff35f8f2c46db68244e44f8a03f0846b0470131082944f8040ff8d10123284685f8c5301e4b98470446012c287028460ad00b4b984700e003242c70bff35f8f019b83f3108853e7164b984706280646f3d12846034b98473446eee70724ece700bf000000000000000000000000000000000000000000000000000000002000010000000000000000000000000000e100e000240046e46c050000000000000000000000000000000000389c0200",
+          "normalized_bytes_hex": "2de9f74390f8c630054613b990f8c8303bb128465d4b98472c78204603b0bde8f083012380f8c6300b782bb14b781bb18b780bb1cb7813b903242c70ede7dff89081c04708b90224f7e7dff88891d9f80030002bf0d14e4fb84708b90424ece74c484d4ca0470028f8d04c48a0470028f4d04b4ef3685a78d007ddd41b78002bdad1484b98470028d6d0c9f800504148016982680b6823f400530b6013680d21414a984708b10624c7e7404b304698470028d3d13046a0470028cfd0eff31083019372b6c04700284bd0b847002848d0374b9847002844d0364b9847002840d0354ad2f8083259073bd4d2f808315b0737d4324b19680d2945d15968002942d1996800293fd1d96a00293cd1dc682c48844238d10420c2f88800bff34f8fbff36f8fc2f8880109221a60bff35f8f2c46db68244e44f8a03f0846b0470131082944f8040ff8d10123284685f8c5301e4b98470446012c287028460ad00b4b984700e003242c70bff35f8f019b83f3108853e7164b984706280646f3d12846034b98473446eee70724ece700bf000000000000000000000000000000000000000000000000000000002000010000000000000000000000000000e100e000240046e46c05000000000000000000000000000000000000000000",
+          "relocations": [
+            {
+              "offset": 396,
+              "type": 2,
+              "name": "_ZN8recorder4dump12UnoQDumpPort5abortEv",
+              "section": ".text"
+            },
+            {
+              "offset": 400,
+              "type": 2,
+              "name": "_ZN8recorder4dump12_GLOBAL__N_18metadataEv",
+              "section": ".text"
+            },
+            {
+              "offset": 404,
+              "type": 2,
+              "name": "__device_dts_ord_94",
+              "section": ""
+            },
+            {
+              "offset": 408,
+              "type": 2,
+              "name": "z_impl_device_is_ready",
+              "section": ""
+            },
+            {
+              "offset": 412,
+              "type": 2,
+              "name": "__device_dts_ord_9",
+              "section": ""
+            },
+            {
+              "offset": 416,
+              "type": 2,
+              "name": "__device_dts_ord_78",
+              "section": ""
+            },
+            {
+              "offset": 420,
+              "type": 2,
+              "name": "_ZN8recorder4dump12_GLOBAL__N_17irqIdleEv",
+              "section": ".text"
+            },
+            {
+              "offset": 428,
+              "type": 2,
+              "name": "z_impl_device_init",
+              "section": ""
+            },
+            {
+              "offset": 432,
+              "type": 2,
+              "name": "_ZN8recorder4dump12_GLOBAL__N_115clocksAvailableEv",
+              "section": ".text"
+            },
+            {
+              "offset": 436,
+              "type": 2,
+              "name": "_ZN8recorder4dump12_GLOBAL__N_112nominalClockEv",
+              "section": ".text"
+            },
+            {
+              "offset": 452,
+              "type": 2,
+              "name": "_ZN8recorder4dump12_GLOBAL__N_113clockRegisterEj",
+              "section": ".text"
+            },
+            {
+              "offset": 456,
+              "type": 2,
+              "name": "_ZNK8recorder4dump12UnoQDumpPort9ownershipEv",
+              "section": ".text"
+            },
+            {
+              "offset": 460,
+              "type": 2,
+              "name": "_ZNK8recorder4dump12UnoQDumpPort11sampleReadyEv",
+              "section": ".text"
+            },
+            {
+              "offset": 464,
+              "type": 2,
+              "name": "_ZN8recorder4dump12_GLOBAL__N_113threadContextEv",
+              "section": ".text"
+            },
+            {
+              "offset": 468,
+              "type": 2,
+              "name": "",
+              "section": ".bss"
+            }
+          ],
+          "bss_targets": [
+            {
+              "offset": 468,
+              "section_addend": 171064,
+              "targets": [
+                "_ZN8recorder4dump12_GLOBAL__N_110uart_ownerE"
+              ]
+            }
+          ]
+        },
+        "_ZN8recorder4dump12UnoQDumpPort5readyEv": {
+          "symbol": {
+            "name": "_ZN8recorder4dump12UnoQDumpPort5readyEv",
+            "value": 45069,
+            "size": 88,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "13b590f8c830044623b108230020237002b010bd0d4b984708b90223f6e7eff31083019372b60a4b204698470128207003d12046074b98472070431e58425841bff35f8f019b83f31088e1e7000000000000000000000000",
+          "normalized_bytes_hex": "13b590f8c830044623b108230020237002b010bd0d4b984708b90223f6e7eff31083019372b60a4b204698470128207003d12046074b98472070431e58425841bff35f8f019b83f31088e1e7000000000000000000000000",
+          "relocations": [
+            {
+              "offset": 76,
+              "type": 2,
+              "name": "_ZN8recorder4dump12_GLOBAL__N_113threadContextEv",
+              "section": ".text"
+            },
+            {
+              "offset": 80,
+              "type": 2,
+              "name": "_ZNK8recorder4dump12UnoQDumpPort9ownershipEv",
+              "section": ".text"
+            },
+            {
+              "offset": 84,
+              "type": 2,
+              "name": "_ZNK8recorder4dump12UnoQDumpPort11sampleReadyEv",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        },
+        "_ZN8recorder4dump12UnoQDumpPort7advanceEPKcj": {
+          "symbol": {
+            "name": "_ZN8recorder4dump12UnoQDumpPort7advanceEPKcj",
+            "value": 46253,
+            "size": 196,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "2de9f34791f8c8a005460c4690469946baf1000f0cd0254b084698470823237002232b7000236b60284602b0bde8f0871f4b9847064638b91c4b0846984702236e6023702b70efe71a4b98470746eff31083019372b6184b20469847012806460dd0124b20469847022326702b70c5f804a0bff35f8f019b83f31088d4e74a46414620460d4b9847064640b9074b204698470a23237002236e602b70e9e73a4621462846064b9847e3e700bf000000000000000000000000000000000000000000000000",
+          "normalized_bytes_hex": "2de9f34791f8c8a005460c4690469946baf1000f0cd0254b084698470823237002232b7000236b60284602b0bde8f0871f4b9847064638b91c4b0846984702236e6023702b70efe71a4b98470746eff31083019372b6184b20469847012806460dd0124b20469847022326702b70c5f804a0bff35f8f019b83f31088d4e74a46414620460d4b9847064640b9074b204698470a23237002236e602b70e9e73a4621462846064b9847e3e700bf000000000000000000000000000000000000000000000000",
+          "relocations": [
+            {
+              "offset": 172,
+              "type": 2,
+              "name": "_ZN8recorder4dump12UnoQDumpPort5abortEv",
+              "section": ".text"
+            },
+            {
+              "offset": 176,
+              "type": 2,
+              "name": "_ZN8recorder4dump12_GLOBAL__N_113threadContextEv",
+              "section": ".text"
+            },
+            {
+              "offset": 180,
+              "type": 2,
+              "name": "micros",
+              "section": ".text"
+            },
+            {
+              "offset": 184,
+              "type": 2,
+              "name": "_ZNK8recorder4dump12UnoQDumpPort9ownershipEv",
+              "section": ".text"
+            },
+            {
+              "offset": 188,
+              "type": 2,
+              "name": "_ZN8recorder4dump12UnoQDumpPort7prepareEPKcj",
+              "section": ".text"
+            },
+            {
+              "offset": 192,
+              "type": 2,
+              "name": "_ZN8recorder4dump12UnoQDumpPort8transmitEj",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        },
+        "_ZN8recorder4dump12UnoQDumpPort5abortEv": {
+          "symbol": {
+            "name": "_ZN8recorder4dump12UnoQDumpPort5abortEv",
+            "value": 45397,
+            "size": 104,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "37b590f8c8500446d5b9144b9847b8b1eff31083019372b6114b20469847012809d1104b1d60bff35f8f1b68b3fa83f35b0984f8c430bff35f8f019b83f310880023c4e9253384f8c730c4f89030012384f8c8300823237003b030bd000000000000000000240046",
+          "normalized_bytes_hex": "37b590f8c8500446d5b9144b9847b8b1eff31083019372b6114b20469847012809d1104b1d60bff35f8f1b68b3fa83f35b0984f8c430bff35f8f019b83f310880023c4e9253384f8c730c4f89030012384f8c8300823237003b030bd000000000000000000240046",
+          "relocations": [
+            {
+              "offset": 92,
+              "type": 2,
+              "name": "_ZN8recorder4dump12_GLOBAL__N_113threadContextEv",
+              "section": ".text"
+            },
+            {
+              "offset": 96,
+              "type": 2,
+              "name": "_ZNK8recorder4dump12UnoQDumpPort9ownershipEv",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        },
+        "_ZN8recorder3csv13summaryHeaderEPcj": {
+          "symbol": {
+            "name": "_ZN8recorder3csv13summaryHeaderEPcj",
+            "value": 76573,
+            "size": 28,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "13b50b460092034940f22b22024ca04702b010bd0d06000000000000",
+          "normalized_bytes_hex": "13b50b460092034940f22b22024ca04702b010bd0d06000000000000",
+          "relocations": [
+            {
+              "offset": 20,
+              "type": 2,
+              "name": "",
+              "section": ".llext.rodata.noreloc"
+            },
+            {
+              "offset": 24,
+              "type": 2,
+              "name": "_ZN8recorder3csv12_GLOBAL__N_17publishEPKcjPcj",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        },
+        "_ZN8recorder3csv11frameHeaderEPcj": {
+          "symbol": {
+            "name": "_ZN8recorder3csv11frameHeaderEPcj",
+            "value": 76025,
+            "size": 28,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "13b50b4600920349a422034ca04702b010bd00bf6805000000000000",
+          "normalized_bytes_hex": "13b50b4600920349a422034ca04702b010bd00bf6805000000000000",
+          "relocations": [
+            {
+              "offset": 20,
+              "type": 2,
+              "name": "",
+              "section": ".llext.rodata.noreloc"
+            },
+            {
+              "offset": 24,
+              "type": 2,
+              "name": "_ZN8recorder3csv12_GLOBAL__N_17publishEPKcjPcj",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        },
+        "_ZN8recorder3csv11eventHeaderEPcj": {
+          "symbol": {
+            "name": "_ZN8recorder3csv11eventHeaderEPcj",
+            "value": 76409,
+            "size": 28,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "13b50b46009203493622034ca04702b010bd00bf3105000000000000",
+          "normalized_bytes_hex": "13b50b46009203493622034ca04702b010bd00bf3105000000000000",
+          "relocations": [
+            {
+              "offset": 20,
+              "type": 2,
+              "name": "",
+              "section": ".llext.rodata.noreloc"
+            },
+            {
+              "offset": 24,
+              "type": 2,
+              "name": "_ZN8recorder3csv12_GLOBAL__N_17publishEPKcjPcj",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        },
+        "_ZN3app12unoQDumpPortERN8recorder4dump12UnoQDumpPortE": {
+          "symbol": {
+            "name": "_ZN3app12unoQDumpPortERN8recorder4dump12UnoQDumpPortE",
+            "value": 477,
+            "size": 40,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "10b50446054b01604360054b0c3040f8043c044b9847204610bd00bf000000000000000000000000",
+          "normalized_bytes_hex": "10b50446054b01604360054b0c3040f8043c044b9847204610bd00bf000000000000000000000000",
+          "relocations": [
+            {
+              "offset": 28,
+              "type": 2,
+              "name": "_ZN3app12_GLOBAL__N_15beginEPvRKN8recorder4dump10SetupGrantE",
+              "section": ".text"
+            },
+            {
+              "offset": 32,
+              "type": 2,
+              "name": "_ZN3app12_GLOBAL__N_15readyEPv",
+              "section": ".text"
+            },
+            {
+              "offset": 36,
+              "type": 2,
+              "name": "_ZN8recorder4dump12UnoQDumpPort4portEv",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        }
+      },
+      "owners": {
+        "_ZN12_GLOBAL__N_17runtimeE": 169968,
+        "_ZN12_GLOBAL__N_17sourcesE": 848,
+        "_ZN12_GLOBAL__N_19dump_portE": 204
+      },
+      "memory": {
+        "account": {
+          "path": "C:\\Users\\narut\\OneDrive\\Desktop\\Project\\techbots_Sumo_Robots\\state\\analysis\\P2_app_dump_raw\\target_83600858_match-immediate\\app.ino.elf",
+          "sha256": "89fb7b39499aeb650908a28d62a87ef29dd873c87e11377bb28ecc9fd193f3e0",
+          "bytes": 171336,
+          "sections": [
+            {
+              "name_offset": 0,
+              "type": 0,
+              "flags": 0,
+              "address": 0,
+              "offset": 0,
+              "size": 0,
+              "link": 0,
+              "info": 0,
+              "alignment": 0,
+              "entry_size": 0,
+              "index": 0,
+              "name": ""
+            },
+            {
+              "name_offset": 31,
+              "type": 1,
+              "flags": 2,
+              "address": 0,
+              "offset": 56,
+              "size": 3772,
+              "link": 0,
+              "info": 0,
+              "alignment": 8,
+              "entry_size": 0,
+              "index": 1,
+              "name": ".rodata"
+            },
+            {
+              "name_offset": 27,
+              "type": 9,
+              "flags": 64,
+              "address": 0,
+              "offset": 155560,
+              "size": 3200,
+              "link": 12,
+              "info": 1,
+              "alignment": 4,
+              "entry_size": 8,
+              "index": 2,
+              "name": ".rel.rodata"
+            },
+            {
+              "name_offset": 39,
+              "type": 1,
+              "flags": 2,
+              "address": 3772,
+              "offset": 3828,
+              "size": 2289,
+              "link": 0,
+              "info": 0,
+              "alignment": 4,
+              "entry_size": 0,
+              "index": 3,
+              "name": ".llext.rodata.noreloc"
+            },
+            {
+              "name_offset": 65,
+              "type": 1,
+              "flags": 6,
+              "address": 0,
+              "offset": 6120,
+              "size": 82928,
+              "link": 0,
+              "info": 0,
+              "alignment": 8,
+              "entry_size": 0,
+              "index": 4,
+              "name": ".text"
+            },
+            {
+              "name_offset": 61,
+              "type": 9,
+              "flags": 64,
+              "address": 0,
+              "offset": 158760,
+              "size": 11816,
+              "link": 12,
+              "info": 4,
+              "alignment": 4,
+              "entry_size": 8,
+              "index": 5,
+              "name": ".rel.text"
+            },
+            {
+              "name_offset": 71,
+              "type": 1,
+              "flags": 1,
+              "address": 82928,
+              "offset": 89048,
+              "size": 0,
+              "link": 0,
+              "info": 0,
+              "alignment": 1,
+              "entry_size": 0,
+              "index": 6,
+              "name": ".static_thread_data_area"
+            },
+            {
+              "name_offset": 96,
+              "type": 8,
+              "flags": 3,
+              "address": 82928,
+              "offset": 89048,
+              "size": 171072,
+              "link": 0,
+              "info": 0,
+              "alignment": 8,
+              "entry_size": 0,
+              "index": 7,
+              "name": ".bss"
+            },
+            {
+              "name_offset": 105,
+              "type": 1,
+              "flags": 2,
+              "address": 254000,
+              "offset": 89048,
+              "size": 8,
+              "link": 0,
+              "info": 0,
+              "alignment": 4,
+              "entry_size": 0,
+              "index": 8,
+              "name": ".exported_sym"
+            },
+            {
+              "name_offset": 101,
+              "type": 9,
+              "flags": 64,
+              "address": 0,
+              "offset": 170576,
+              "size": 16,
+              "link": 12,
+              "info": 8,
+              "alignment": 4,
+              "entry_size": 8,
+              "index": 9,
+              "name": ".rel.exported_sym"
+            },
+            {
+              "name_offset": 123,
+              "type": 14,
+              "flags": 3,
+              "address": 254008,
+              "offset": 89056,
+              "size": 4,
+              "link": 0,
+              "info": 0,
+              "alignment": 4,
+              "entry_size": 4,
+              "index": 10,
+              "name": ".init_array"
+            },
+            {
+              "name_offset": 119,
+              "type": 9,
+              "flags": 64,
+              "address": 0,
+              "offset": 170592,
+              "size": 8,
+              "link": 12,
+              "info": 10,
+              "alignment": 4,
+              "entry_size": 8,
+              "index": 11,
+              "name": ".rel.init_array"
+            },
+            {
+              "name_offset": 1,
+              "type": 2,
+              "flags": 0,
+              "address": 0,
+              "offset": 89060,
+              "size": 34416,
+              "link": 13,
+              "info": 1426,
+              "alignment": 4,
+              "entry_size": 16,
+              "index": 12,
+              "name": ".symtab"
+            },
+            {
+              "name_offset": 9,
+              "type": 3,
+              "flags": 0,
+              "address": 0,
+              "offset": 123476,
+              "size": 32082,
+              "link": 0,
+              "info": 0,
+              "alignment": 1,
+              "entry_size": 0,
+              "index": 13,
+              "name": ".strtab"
+            },
+            {
+              "name_offset": 17,
+              "type": 3,
+              "flags": 0,
+              "address": 0,
+              "offset": 170600,
+              "size": 135,
+              "link": 0,
+              "info": 0,
+              "alignment": 1,
+              "entry_size": 0,
+              "index": 14,
+              "name": ".shstrtab"
+            }
+          ],
+          "section_header_offset": 170736,
+          "compiler_payload": 257784,
+          "nominal_compiler_remaining": 4360,
+          "global_func_object_count": 517,
+          "undefined": [
+            "__device_dts_ord_100",
+            "__device_dts_ord_105",
+            "__device_dts_ord_109",
+            "__device_dts_ord_114",
+            "__device_dts_ord_120",
+            "__device_dts_ord_123",
+            "__device_dts_ord_17",
+            "__device_dts_ord_233",
+            "__device_dts_ord_30",
+            "__device_dts_ord_34",
+            "__device_dts_ord_40",
+            "__device_dts_ord_54",
+            "__device_dts_ord_61",
+            "__device_dts_ord_64",
+            "__device_dts_ord_65",
+            "__device_dts_ord_66",
+            "__device_dts_ord_70",
+            "__device_dts_ord_73",
+            "__device_dts_ord_78",
+            "__device_dts_ord_83",
+            "__device_dts_ord_88",
+            "__device_dts_ord_89",
+            "__device_dts_ord_9",
+            "__device_dts_ord_90",
+            "__device_dts_ord_91",
+            "__device_dts_ord_92",
+            "__device_dts_ord_93",
+            "__device_dts_ord_94",
+            "__device_dts_ord_95",
+            "__heap_end",
+            "__heap_start",
+            "__real___aeabi_d2f",
+            "__real___aeabi_d2iz",
+            "__real___aeabi_d2lz",
+            "__real___aeabi_d2uiz",
+            "__real___aeabi_dadd",
+            "__real___aeabi_dcmpeq",
+            "__real___aeabi_dcmpge",
+            "__real___aeabi_dcmpgt",
+            "__real___aeabi_dcmple",
+            "__real___aeabi_dcmplt",
+            "__real___aeabi_dcmpun",
+            "__real___aeabi_ddiv",
+            "__real___aeabi_dmul",
+            "__real___aeabi_dsub",
+            "__real___aeabi_f2d",
+            "__real___aeabi_f2iz",
+            "__real___aeabi_f2uiz",
+            "__real___aeabi_fadd",
+            "__real___aeabi_fcmpeq",
+            "__real___aeabi_fcmpge",
+            "__real___aeabi_fcmpgt",
+            "__real___aeabi_fcmple",
+            "__real___aeabi_fcmplt",
+            "__real___aeabi_fcmpun",
+            "__real___aeabi_fdiv",
+            "__real___aeabi_fmul",
+            "__real___aeabi_fsub",
+            "__real___aeabi_i2d",
+            "__real___aeabi_i2f",
+            "__real___aeabi_idiv",
+            "__real___aeabi_idivmod",
+            "__real___aeabi_l2d",
+            "__real___aeabi_l2f",
+            "__real___aeabi_ldivmod",
+            "__real___aeabi_read_tp",
+            "__real___aeabi_ui2d",
+            "__real___aeabi_ui2f",
+            "__real___aeabi_uidiv",
+            "__real___aeabi_uidivmod",
+            "__real___aeabi_ul2d",
+            "__real___aeabi_ul2f",
+            "__real___aeabi_uldivmod",
+            "__real___xpg_strerror_r",
+            "__real__exit",
+            "__real_abort",
+            "__real_acos",
+            "__real_acosf",
+            "__real_asin",
+            "__real_asinf",
+            "__real_atan",
+            "__real_atan2",
+            "__real_atan2f",
+            "__real_atanf",
+            "__real_atexit",
+            "__real_atof",
+            "__real_atoi",
+            "__real_atol",
+            "__real_calloc",
+            "__real_cos",
+            "__real_cosf",
+            "__real_exit",
+            "__real_exp",
+            "__real_exp2",
+            "__real_fmod",
+            "__real_free",
+            "__real_gettimeofday",
+            "__real_isalnum",
+            "__real_isalpha",
+            "__real_iscntrl",
+            "__real_isdigit",
+            "__real_isgraph",
+            "__real_islower",
+            "__real_isprint",
+            "__real_isspace",
+            "__real_isupper",
+            "__real_isxdigit",
+            "__real_ldexp",
+            "__real_log",
+            "__real_log10",
+            "__real_log2",
+            "__real_logf",
+            "__real_malloc",
+            "__real_memchr",
+            "__real_memcmp",
+            "__real_memcpy",
+            "__real_memmem",
+            "__real_memmove",
+            "__real_memset",
+            "__real_pow",
+            "__real_putchar",
+            "__real_puts",
+            "__real_rand",
+            "__real_realloc",
+            "__real_sin",
+            "__real_sinf",
+            "__real_sqrt",
+            "__real_sqrtf",
+            "__real_srand",
+            "__real_strcasecmp",
+            "__real_strcat",
+            "__real_strchr",
+            "__real_strcmp",
+            "__real_strcpy",
+            "__real_strdup",
+            "__real_strlen",
+            "__real_strncmp",
+            "__real_strncpy",
+            "__real_strnlen",
+            "__real_strrchr",
+            "__real_strstr",
+            "__real_strtod",
+            "__real_strtok",
+            "__real_strtol",
+            "__real_strtoul",
+            "__real_tan",
+            "__real_tanf",
+            "__real_tolower",
+            "__real_toupper",
+            "__real_vprintf",
+            "__real_vsnprintf",
+            "__real_vsprintf",
+            "__real_vsscanf",
+            "_device_list_end",
+            "_device_list_start",
+            "_ebss",
+            "_edata",
+            "_sbss",
+            "_sdata",
+            "_sidata",
+            "analog_reference",
+            "kheap_llext_heap",
+            "kheap_llext_heap_size",
+            "matrixBegin",
+            "matrixGrayscaleWrite",
+            "matrixSetGrayscaleBits",
+            "pinctrl_configure_pins",
+            "pinctrl_lookup_state",
+            "printk",
+            "sys_clock_cycle_get_64",
+            "z_impl_device_init",
+            "z_impl_device_is_ready",
+            "z_impl_k_thread_create",
+            "z_impl_k_thread_name_set",
+            "z_impl_k_uptime_ticks",
+            "z_impl_k_yield"
+          ],
+          "init": [
+            {
+              "section": ".init_array",
+              "offset": 0,
+              "type": 2,
+              "name": "_GLOBAL__sub_I_setup",
+              "symbol_section": ".text",
+              "symbol_type": 2,
+              "symbol_value": 57
+            }
+          ],
+          "fini": [],
+          "copied_regions": [
+            {
+              "name": ".rodata",
+              "payload": 3772,
+              "alignment": 8,
+              "prepad": 0,
+              "retained_chunk": 3784
+            },
+            {
+              "name": ".text",
+              "payload": 82928,
+              "alignment": 8,
+              "prepad": 0,
+              "retained_chunk": 82936
+            },
+            {
+              "name": ".bss",
+              "payload": 171072,
+              "alignment": 8,
+              "prepad": 0,
+              "retained_chunk": 171080
+            },
+            {
+              "name": ".exported_sym",
+              "payload": 8,
+              "alignment": 4,
+              "prepad": 0,
+              "retained_chunk": 16
+            },
+            {
+              "name": ".init_array",
+              "payload": 4,
+              "alignment": 4,
+              "prepad": 0,
+              "retained_chunk": 8
+            }
+          ],
+          "metadata_chunks": {
+            "extension": 200,
+            "section_map": 128,
+            "global_symbols": 4144,
+            "export_copy": 16,
+            "initial_bookkeeping": 88
+          },
+          "conditional_pristine_peak_consumption": 262400,
+          "conditional_pristine_peak_free_span": -256,
+          "conditional_largest_payload": -260,
+          "limitation": "Conditional pristine-pool source model, not actual load/free-memory/WCET evidence"
+        },
+        "aligned_peeks": [
+          {
+            "name": ".llext.rodata.noreloc",
+            "offset": 3828,
+            "alignment": 4,
+            "bytes": 2289
+          },
+          {
+            "name": ".symtab",
+            "offset": 89060,
+            "alignment": 4,
+            "bytes": 34416
+          },
+          {
+            "name": ".strtab",
+            "offset": 123476,
+            "alignment": 1,
+            "bytes": 32082
+          },
+          {
+            "name": ".shstrtab",
+            "offset": 170600,
+            "alignment": 1,
+            "bytes": 135
+          }
+        ],
+        "copied_region_chunks": 257824,
+        "before_temporary_symbols": 258240,
+        "before_symbols_free_span": 3904,
+        "before_symbols_largest_payload": 3900,
+        "temporary_symbols_request": 4136,
+        "temporary_symbols_chunk": 4144,
+        "temporary_symbols_fit": false,
+        "temporary_symbols_chunk_deficit": 240,
+        "complete_peak_deficit": 256,
+        "conditional_largest_after_peak": null,
+        "interpretation": "Pinned pristine-pool/persistent-peek model only; no load/freeRAM/WCET measured"
+      },
+      "native_exports": 39,
+      "aeabi_exports": 42
+    },
+    "target_96c80701_bench-default": {
+      "source_sha256": "96c80701b2149cbc080c0416e5beacfc17d2da8a21ab9831fa6c20d1ec58a8a7",
+      "mode": "bench-default",
+      "files": 85,
+      "current_source_at_collection": true,
+      "verified_elfs": [
+        {
+          "name": "app.ino.elf",
+          "sha256": "b811da2480eba83d7ee37732b9476d050351deb491681f1c4a01d22afee6ac95",
+          "imports": 176
+        },
+        {
+          "name": "app.ino_debug.elf",
+          "sha256": "43a990894d3da2b2339081c47400b6742f5dda08cb91cac15791c9b0d3c26fd5",
+          "imports": 176
+        },
+        {
+          "name": "app.ino_temp.elf",
+          "sha256": "92bc868ea1c6cbea3e143a8a17a613ef93260a522dd280b298a04ff947105fab",
+          "imports": 176
+        }
+      ],
+      "objects": {
+        "objects": 75,
+        "common_alloc_sections": 1437,
+        "added_objects": [
+          "sketch/src/app/dump_port_unoq.cpp.o",
+          "sketch/src/app/runtime_dump.cpp.o"
+        ],
+        "changes": [
+          {
+            "path": "sketch/app.ino.cpp.o",
+            "changed": [
+              ".bss._ZN12_GLOBAL__N_17runtimeE",
+              ".text._GLOBAL__sub_I_setup",
+              ".text.setup"
+            ],
+            "added": [
+              ".bss._ZN12_GLOBAL__N_19dump_portE"
+            ],
+            "removed": []
+          },
+          {
+            "path": "sketch/src/app/runtime.cpp.o",
+            "changed": [
+              ".text._ZN3app7Runtime10consumeImuERKN3imu14SampleProgressE",
+              ".text._ZN3app7Runtime10publishImuERKN3imu6SampleE",
+              ".text._ZN3app7Runtime10serviceImuEv",
+              ".text._ZN3app7Runtime10skipBeforeEj",
+              ".text._ZN3app7Runtime11acceptClockEj",
+              ".text._ZN3app7Runtime11servicePassEv",
+              ".text._ZN3app7Runtime13cancelSourcesEv",
+              ".text._ZN3app7Runtime13completeEpochEv",
+              ".text._ZN3app7Runtime13releaseChargeEv",
+              ".text._ZN3app7Runtime13rememberLinesERKN8line_qtr8SnapshotE",
+              ".text._ZN3app7Runtime13setupImuFaultEj",
+              ".text._ZN3app7Runtime17initializeSourcesEv",
+              ".text._ZN3app7Runtime4failENS_12RuntimeFaultE",
+              ".text._ZN3app7Runtime4pumpEv",
+              ".text._ZN3app7Runtime4stepEv",
+              ".text._ZN3app7Runtime5beginERKNS_11SetupGrantsE",
+              ".text._ZN3app7Runtime7acquireEv",
+              ".text._ZN3app7Runtime9countPassEv",
+              ".text._ZNK3app7Runtime10validPortsEv",
+              ".text._ZNK3app7Runtime11linesActiveEv",
+              ".text._ZNK3app7Runtime11linesUsefulEj"
+            ],
+            "added": [
+              ".text._ZN3app7RuntimeC2ERKN6motors4PortERKN5power9InputPortERKNS_10SourcePortERKNS_8DumpPortE"
+            ],
+            "removed": [
+              ".text._ZN3app7RuntimeC2ERKN6motors4PortERKN5power9InputPortERKNS_10SourcePortE"
+            ]
+          },
+          {
+            "path": "sketch/src/app/runtime_inputs.cpp.o",
+            "changed": [
+              ".text._ZN3app7Runtime10projectImuEjj",
+              ".text._ZN3app7Runtime12postDecisionEv",
+              ".text._ZN3app7Runtime12projectLinesEjj",
+              ".text._ZN3app7Runtime14selectLineModeEv",
+              ".text._ZN3app7Runtime18clockAcceptedThunkEPv",
+              ".text._ZN3app7Runtime7displayEv",
+              ".text._ZN3app7Runtime7projectEj",
+              ".text._ZNK3app7Runtime14opponentsFreshEj",
+              ".text._ZNK3app7Runtime14opponentsReadyEv"
+            ],
+            "added": [],
+            "removed": []
+          },
+          {
+            "path": "sketch/src/hal/recorder_dump.cpp.o",
+            "changed": [],
+            "added": [
+              ".text._ZN8recorder4dump8Transfer5abortEv"
+            ],
+            "removed": []
+          }
+        ],
+        "native_uart_and_csv_alloc_sections_unchanged": true
+      },
+      "startup": {
+        "main": {
+          "symbol": {
+            "name": "main",
+            "value": 82249,
+            "size": 44,
+            "bind": 2,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "38b5054b9847054b9847054b9847054d054ca847a047fce70000000000000000000000000000000000000000",
+          "normalized_bytes_hex": "38b5054b9847054b9847054b9847054d054ca847a047fce70000000000000000000000000000000000000000",
+          "relocations": [
+            {
+              "offset": 24,
+              "type": 2,
+              "name": "initVariant",
+              "section": ".text"
+            },
+            {
+              "offset": 28,
+              "type": 2,
+              "name": "_Z20start_static_threadsv",
+              "section": ".text"
+            },
+            {
+              "offset": 32,
+              "type": 2,
+              "name": "setup",
+              "section": ".text"
+            },
+            {
+              "offset": 36,
+              "type": 2,
+              "name": "loop",
+              "section": ".text"
+            },
+            {
+              "offset": 40,
+              "type": 2,
+              "name": "_Z10__loopHookv",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        },
+        "setup": {
+          "symbol": {
+            "name": "setup",
+            "value": 1,
+            "size": 40,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "7fb513220021054b01a89847044b01a90448984707b05df804fb00bf000000000000000000000000",
+          "normalized_bytes_hex": "7fb513220021054b01a89847044b01a90448984707b05df804fb00bf000000000000000000000000",
+          "relocations": [
+            {
+              "offset": 28,
+              "type": 2,
+              "name": "memset",
+              "section": ".text"
+            },
+            {
+              "offset": 32,
+              "type": 2,
+              "name": "_ZN3app7Runtime5beginERKNS_11SetupGrantsE",
+              "section": ".text"
+            },
+            {
+              "offset": 36,
+              "type": 2,
+              "name": "",
+              "section": ".bss"
+            }
+          ],
+          "bss_targets": [
+            {
+              "offset": 36,
+              "section_addend": 0,
+              "targets": [
+                "_ZN12_GLOBAL__N_17runtimeE"
+              ]
+            }
+          ]
+        },
+        "loop": {
+          "symbol": {
+            "name": "loop",
+            "value": 41,
+            "size": 16,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "0148024b184700bf0000000000000000",
+          "normalized_bytes_hex": "0148024b184700bf0000000000000000",
+          "relocations": [
+            {
+              "offset": 8,
+              "type": 2,
+              "name": "",
+              "section": ".bss"
+            },
+            {
+              "offset": 12,
+              "type": 2,
+              "name": "_ZN3app7Runtime4stepEv",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": [
+            {
+              "offset": 8,
+              "section_addend": 0,
+              "targets": [
+                "_ZN12_GLOBAL__N_17runtimeE"
+              ]
+            }
+          ]
+        },
+        "initVariant": {
+          "symbol": {
+            "name": "initVariant",
+            "value": 82245,
+            "size": 2,
+            "bind": 2,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "7047",
+          "normalized_bytes_hex": "7047",
+          "relocations": [],
+          "bss_targets": []
+        },
+        "_Z10__loopHookv": {
+          "symbol": {
+            "name": "_Z10__loopHookv",
+            "value": 62549,
+            "size": 2,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "7047",
+          "normalized_bytes_hex": "7047",
+          "relocations": [],
+          "bss_targets": []
+        },
+        "_Z20start_static_threadsv": {
+          "symbol": {
+            "name": "_Z20start_static_threadsv",
+            "value": 82293,
+            "size": 108,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "2de9f04f154c164e164fdff85c8089b02546b54204f1300402d309b0bde8f08f14ed027b54e90c0154e90a2354e908ce54e9069a54f810bc8ded067bcde903abcde901e9cdf800c0b84754f8300c54f80c1cc04754f8303c5d65d9e700000000000000000000000000000000",
+          "normalized_bytes_hex": "2de9f04f154c164e164fdff85c8089b02546b54204f1300402d309b0bde8f08f14ed027b54e90c0154e90a2354e908ce54e9069a54f810bc8ded067bcde903abcde901e9cdf800c0b84754f8300c54f80c1cc04754f8303c5d65d9e700000000000000000000000000000000",
+          "relocations": [
+            {
+              "offset": 92,
+              "type": 2,
+              "name": "__static_thread_data_list_start",
+              "section": ".static_thread_data_area"
+            },
+            {
+              "offset": 96,
+              "type": 2,
+              "name": "__static_thread_data_list_end",
+              "section": ".static_thread_data_area"
+            },
+            {
+              "offset": 100,
+              "type": 2,
+              "name": "z_impl_k_thread_create",
+              "section": ""
+            },
+            {
+              "offset": 104,
+              "type": 2,
+              "name": "z_impl_k_thread_name_set",
+              "section": ""
+            }
+          ],
+          "bss_targets": []
+        },
+        "_GLOBAL__sub_I_setup": {
+          "symbol": {
+            "name": "_GLOBAL__sub_I_setup",
+            "value": 57,
+            "size": 404,
+            "bind": 0,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "f0b500245948a9b0594d2146b42200f8084ba847554b01261f4603f1d80021461022c3e93044c3e93244c3e934445e7283f8bc4083f8bd4083f8be4083f8bf40a84707f1e80021461022a84707f1f80021461022a84700220023c7e944230923c7f8084187f80c41a7f8184187f81a61a7f8284187f82a41c7f83c41c7e94844c7e94b33c7e94d4407f5a0772146e8223846a847a7f5a0721346214603f5d0703c2287f82860a8472146232207f19d0087f86460a847a7f5a07387f89c6087f8c160c7f8e8701f46214603f50b701822a84787f82e62c7f8444287f8484207f51370032721466822a847204b6c22214603f53270c3e9ae4483f8507283f8946283f8b44283f8b54283f8b642c3f8c04283f8c442a847154b0da8c3e9cd44c3e9cf4483f8d07283f8146383f8444383f8454383f84643c3f848430e490e4b984702a80a490d4b984707ac18a807490c4b984720460b490c4b9847009418ab0b4c02aa0da90a48a04729b0f0bd789a0200000000004c9a020000000000000000000000000080990200000000000000000000000000",
+          "normalized_bytes_hex": "f0b500245948a9b0594d2146b42200f8084ba847554b01261f4603f1d80021461022c3e93044c3e93244c3e934445e7283f8bc4083f8bd4083f8be4083f8bf40a84707f1e80021461022a84707f1f80021461022a84700220023c7e944230923c7f8084187f80c41a7f8184187f81a61a7f8284187f82a41c7f83c41c7e94844c7e94b33c7e94d4407f5a0772146e8223846a847a7f5a0721346214603f5d0703c2287f82860a8472146232207f19d0087f86460a847a7f5a07387f89c6087f8c160c7f8e8701f46214603f50b701822a84787f82e62c7f8444287f8484207f51370032721466822a847204b6c22214603f53270c3e9ae4483f8507283f8946283f8b44283f8b54283f8b642c3f8c04283f8c442a847154b0da8c3e9cd44c3e9cf4483f8d07283f8146383f8444383f8454383f84643c3f848430e490e4b984702a80a490d4b984707ac18a807490c4b984720460b490c4b9847009418ab0b4c02aa0da90a48a04729b0f0bd00000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "relocations": [
+            {
+              "offset": 364,
+              "type": 2,
+              "name": "",
+              "section": ".bss"
+            },
+            {
+              "offset": 368,
+              "type": 2,
+              "name": "memset",
+              "section": ".text"
+            },
+            {
+              "offset": 372,
+              "type": 2,
+              "name": "",
+              "section": ".bss"
+            },
+            {
+              "offset": 376,
+              "type": 2,
+              "name": "_ZN6motors8UnoQPort4portEv",
+              "section": ".text"
+            },
+            {
+              "offset": 380,
+              "type": 2,
+              "name": "_ZN3app13NativeSources7adcPortEv",
+              "section": ".text"
+            },
+            {
+              "offset": 384,
+              "type": 2,
+              "name": "_ZN3app13NativeSources4portEv",
+              "section": ".text"
+            },
+            {
+              "offset": 388,
+              "type": 2,
+              "name": "",
+              "section": ".bss"
+            },
+            {
+              "offset": 392,
+              "type": 2,
+              "name": "_ZN3app12unoQDumpPortERN8recorder4dump12UnoQDumpPortE",
+              "section": ".text"
+            },
+            {
+              "offset": 396,
+              "type": 2,
+              "name": "_ZN3app7RuntimeC1ERKN6motors4PortERKN5power9InputPortERKNS_10SourcePortERKNS_8DumpPortE",
+              "section": ".text"
+            },
+            {
+              "offset": 400,
+              "type": 2,
+              "name": "",
+              "section": ".bss"
+            }
+          ],
+          "bss_targets": [
+            {
+              "offset": 364,
+              "section_addend": 170616,
+              "targets": [
+                "_ZN12_GLOBAL__N_17sourcesE"
+              ]
+            },
+            {
+              "offset": 372,
+              "section_addend": 170572,
+              "targets": [
+                "_ZN12_GLOBAL__N_110motor_portE"
+              ]
+            },
+            {
+              "offset": 388,
+              "section_addend": 170368,
+              "targets": [
+                "_ZN12_GLOBAL__N_19dump_portE"
+              ]
+            },
+            {
+              "offset": 400,
+              "section_addend": 0,
+              "targets": [
+                "_ZN12_GLOBAL__N_17runtimeE"
+              ]
+            }
+          ]
+        },
+        "micros": {
+          "symbol": {
+            "name": "micros",
+            "value": 82401,
+            "size": 28,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "10b5044ca047a047a0220023024ca04710bd00bf0000000000000000",
+          "normalized_bytes_hex": "10b5044ca047a047a0220023024ca04710bd00bf0000000000000000",
+          "relocations": [
+            {
+              "offset": 20,
+              "type": 2,
+              "name": "sys_clock_cycle_get_64",
+              "section": ""
+            },
+            {
+              "offset": 24,
+              "type": 2,
+              "name": "__aeabi_uldivmod",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        }
+      },
+      "metadata": {
+        "commands": 75,
+        "metadata": 125,
+        "dependencies": 121
+      },
+      "required_retained_functions": {
+        "_ZN3app7Runtime14initializeDumpEv": {
+          "symbol": {
+            "name": "_ZN3app7Runtime14initializeDumpEv",
+            "value": 5325,
+            "size": 60,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "10b500f5243494f8d53173b1d0f8843043b1d0f888202ab1d0f8902012b1d0f894201ab9022384f8dc3310bdd0f8800004f5eb71984784f8dc03f6e7",
+          "normalized_bytes_hex": "10b500f5243494f8d53173b1d0f8843043b1d0f888202ab1d0f8902012b1d0f894201ab9022384f8dc3310bdd0f8800004f5eb71984784f8dc03f6e7",
+          "relocations": [],
+          "bss_targets": []
+        },
+        "_ZN3app7Runtime11serviceDumpEv": {
+          "symbol": {
+            "name": "_ZN3app7Runtime11serviceDumpEv",
+            "value": 5665,
+            "size": 184,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "f0b500f5243494f8d531064691b013b9012011b0f0bd0023234f0ca90c93b84708b90020f5e73046204b98470028efd030460c991e4b9847054628b1d6f88830d6f880009847054630460ca9b8470028e7d00c9b06f522310d9306f52033d3f804388df83c500e9394f8da310daa8df83d3006f53763009306f5223302a80d4d103301f50c71a84704f5787402ad0fcd0fc40fcd0fc495e8030084e8030030460ca9b847b5e700bf00000000000000000000000000000000",
+          "normalized_bytes_hex": "f0b500f5243494f8d531064691b013b9012011b0f0bd0023234f0ca90c93b84708b90020f5e73046204b98470028efd030460c991e4b9847054628b1d6f88830d6f880009847054630460ca9b8470028e7d00c9b06f522310d9306f52033d3f804388df83c500e9394f8da310daa8df83d3006f53763009306f5223302a80d4d103301f50c71a84704f5787402ad0fcd0fc40fcd0fc495e8030084e8030030460ca9b847b5e700bf00000000000000000000000000000000",
+          "relocations": [
+            {
+              "offset": 168,
+              "type": 2,
+              "name": "_ZN3app7Runtime5clockERj",
+              "section": ".text"
+            },
+            {
+              "offset": 172,
+              "type": 2,
+              "name": "_ZNK3app7Runtime16dumpReceiptValidEv",
+              "section": ".text"
+            },
+            {
+              "offset": 176,
+              "type": 2,
+              "name": "_ZNK3app7Runtime16dumpReadyContextEj",
+              "section": ".text"
+            },
+            {
+              "offset": 180,
+              "type": 2,
+              "name": "_ZN8recorder4dump8Transfer4stepERKNS0_7ContextERKN3fsm11RobotResultERKNS_15AttemptRecorderE",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        },
+        "_ZNK3app7Runtime16dumpReceiptValidEv": {
+          "symbol": {
+            "name": "_ZNK3app7Runtime16dumpReceiptValidEv",
+            "value": 5385,
+            "size": 94,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "10b500f5203393f8f8170246032924d193f8fa0700b393f8d109e8b193f8a009d0b1d3f8a849d3f8ac1902f52232d2e90402914208bf84420fd1d3f8b029d3f80418521a002a08db93f8d009002818bf06280cbf0120002010bd0020fce7",
+          "normalized_bytes_hex": "10b500f5203393f8f8170246032924d193f8fa0700b393f8d109e8b193f8a009d0b1d3f8a849d3f8ac1902f52232d2e90402914208bf84420fd1d3f8b029d3f80418521a002a08db93f8d009002818bf06280cbf0120002010bd0020fce7",
+          "relocations": [],
+          "bss_targets": []
+        },
+        "_ZNK3app7Runtime16dumpReadyContextEj": {
+          "symbol": {
+            "name": "_ZNK3app7Runtime16dumpReadyContextEj",
+            "value": 5481,
+            "size": 184,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "38b500f5243393f8dc330446012b0d464ed1284b9847002849d004f5203393f81808002843d0d3f81028d3f814180a433ed0d3f80428ad1ab5f57a7f38d293f82528012a34d193f830288abb93f8320870bb93f8332852bb93f8312842bb93f8240828bb03f50162d2ed037af5ee407af1ee10fa1bd1d2ed047af5ee407af1ee10fa14d193f8b4298ab903f51a63d3ed067af5ee407af1ee10fa08d1d3ed077af5ee407af1ee10fa0cbf0120002038bd0020fce700000000",
+          "normalized_bytes_hex": "38b500f5243393f8dc330446012b0d464ed1284b9847002849d004f5203393f81808002843d0d3f81028d3f814180a433ed0d3f80428ad1ab5f57a7f38d293f82528012a34d193f830288abb93f8320870bb93f8332852bb93f8312842bb93f8240828bb03f50162d2ed037af5ee407af1ee10fa1bd1d2ed047af5ee407af1ee10fa14d193f8b4298ab903f51a63d3ed067af5ee407af1ee10fa08d1d3ed077af5ee407af1ee10fa0cbf0120002038bd0020fce700000000",
+          "relocations": [
+            {
+              "offset": 180,
+              "type": 2,
+              "name": "_ZNK3app7Runtime16dumpReceiptValidEv",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        },
+        "_ZN8recorder4dump8Transfer5abortEv": {
+          "symbol": {
+            "name": "_ZN8recorder4dump8Transfer5abortEv",
+            "value": 79369,
+            "size": 20,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "027c012a02d10321014b1847704700bf00000000",
+          "normalized_bytes_hex": "027c012a02d10321014b1847704700bf00000000",
+          "relocations": [
+            {
+              "offset": 16,
+              "type": 2,
+              "name": "_ZN8recorder4dump8Transfer4failENS0_5PhaseENS0_6ReasonE",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        },
+        "_ZN8recorder4dump8Transfer4stepERKNS0_7ContextERKN3fsm11RobotResultERKNS_15AttemptRecorderE": {
+          "symbol": {
+            "name": "_ZN8recorder4dump8Transfer4stepERKNS0_7ContextERKN3fsm11RobotResultERKNS_15AttemptRecorderE",
+            "value": 79157,
+            "size": 212,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "2de9f3471d469b7f0646042b0c461746ddf8289032d1d5e90010d4f85c250192d4f858258a42019a824127d24ff00108c4f85815c4f85c0543462a4639462046dff88ca0d04718b3237c012b0bd0b8f1000f1dd04b462a4639462046174da847237c012b14d149462046154b984740b9072203212046134b984709e04ff00008dae7d4f844358bb1494620460e4b9847354610340fcc0fc50fcc0fc594e8030085e80300304602b0bde8f0872046074b98470028e8d108220421dbe7000000000000000000000000000000000000000000000000",
+          "normalized_bytes_hex": "2de9f3471d469b7f0646042b0c461746ddf8289032d1d5e90010d4f85c250192d4f858258a42019a824127d24ff00108c4f85815c4f85c0543462a4639462046dff88ca0d04718b3237c012b0bd0b8f1000f1dd04b462a4639462046174da847237c012b14d149462046154b984740b9072203212046134b984709e04ff00008dae7d4f844358bb1494620460e4b9847354610340fcc0fc50fcc0fc594e8030085e80300304602b0bde8f0872046074b98470028e8d108220421dbe7000000000000000000000000000000000000000000000000",
+          "relocations": [
+            {
+              "offset": 188,
+              "type": 2,
+              "name": "_ZN8recorder4dump8Transfer5startERKNS0_7ContextERKN3fsm11RobotResultERKNS_15AttemptRecorderE",
+              "section": ".text"
+            },
+            {
+              "offset": 192,
+              "type": 2,
+              "name": "_ZNK8recorder4dump8Transfer9unchangedERKNS_15AttemptRecorderE",
+              "section": ".text"
+            },
+            {
+              "offset": 196,
+              "type": 2,
+              "name": "_ZN8recorder4dump8Transfer4failENS0_5PhaseENS0_6ReasonE",
+              "section": ".text"
+            },
+            {
+              "offset": 200,
+              "type": 2,
+              "name": "_ZN8recorder4dump8Transfer12writePendingERKNS_15AttemptRecorderE",
+              "section": ".text"
+            },
+            {
+              "offset": 204,
+              "type": 2,
+              "name": "_ZN8recorder4dump8Transfer7prepareEv",
+              "section": ".text"
+            },
+            {
+              "offset": 208,
+              "type": 2,
+              "name": "_ZN8recorder4dump8Transfer5admitERKNS0_7ContextERKN3fsm11RobotResultEb",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        },
+        "_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE": {
+          "symbol": {
+            "name": "_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE",
+            "value": 45661,
+            "size": 472,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "2de9f74390f8c630054613b990f8c8303bb128465d4b98472c78204603b0bde8f083012380f8c6300b782bb14b781bb18b780bb1cb7813b903242c70ede7dff89081c04708b90224f7e7dff88891d9f80030002bf0d14e4fb84708b90424ece74c484d4ca0470028f8d04c48a0470028f4d04b4ef3685a78d007ddd41b78002bdad1484b98470028d6d0c9f800504148016982680b6823f400530b6013680d21414a984708b10624c7e7404b304698470028d3d13046a0470028cfd0eff31083019372b6c04700284bd0b847002848d0374b9847002844d0364b9847002840d0354ad2f8083259073bd4d2f808315b0737d4324b19680d2945d15968002942d1996800293fd1d96a00293cd1dc682c48844238d10420c2f88800bff34f8fbff36f8fc2f8880109221a60bff35f8f2c46db68244e44f8a03f0846b0470131082944f8040ff8d10123284685f8c5301e4b98470446012c287028460ad00b4b984700e003242c70bff35f8f019b83f3108853e7164b984706280646f3d12846034b98473446eee70724ece700bf000000000000000000000000000000000000000000000000000000002000010000000000000000000000000000e100e000240046e46c050000000000000000000000000000000000c89d0200",
+          "normalized_bytes_hex": "2de9f74390f8c630054613b990f8c8303bb128465d4b98472c78204603b0bde8f083012380f8c6300b782bb14b781bb18b780bb1cb7813b903242c70ede7dff89081c04708b90224f7e7dff88891d9f80030002bf0d14e4fb84708b90424ece74c484d4ca0470028f8d04c48a0470028f4d04b4ef3685a78d007ddd41b78002bdad1484b98470028d6d0c9f800504148016982680b6823f400530b6013680d21414a984708b10624c7e7404b304698470028d3d13046a0470028cfd0eff31083019372b6c04700284bd0b847002848d0374b9847002844d0364b9847002840d0354ad2f8083259073bd4d2f808315b0737d4324b19680d2945d15968002942d1996800293fd1d96a00293cd1dc682c48844238d10420c2f88800bff34f8fbff36f8fc2f8880109221a60bff35f8f2c46db68244e44f8a03f0846b0470131082944f8040ff8d10123284685f8c5301e4b98470446012c287028460ad00b4b984700e003242c70bff35f8f019b83f3108853e7164b984706280646f3d12846034b98473446eee70724ece700bf000000000000000000000000000000000000000000000000000000002000010000000000000000000000000000e100e000240046e46c05000000000000000000000000000000000000000000",
+          "relocations": [
+            {
+              "offset": 396,
+              "type": 2,
+              "name": "_ZN8recorder4dump12UnoQDumpPort5abortEv",
+              "section": ".text"
+            },
+            {
+              "offset": 400,
+              "type": 2,
+              "name": "_ZN8recorder4dump12_GLOBAL__N_18metadataEv",
+              "section": ".text"
+            },
+            {
+              "offset": 404,
+              "type": 2,
+              "name": "__device_dts_ord_94",
+              "section": ""
+            },
+            {
+              "offset": 408,
+              "type": 2,
+              "name": "z_impl_device_is_ready",
+              "section": ""
+            },
+            {
+              "offset": 412,
+              "type": 2,
+              "name": "__device_dts_ord_9",
+              "section": ""
+            },
+            {
+              "offset": 416,
+              "type": 2,
+              "name": "__device_dts_ord_78",
+              "section": ""
+            },
+            {
+              "offset": 420,
+              "type": 2,
+              "name": "_ZN8recorder4dump12_GLOBAL__N_17irqIdleEv",
+              "section": ".text"
+            },
+            {
+              "offset": 428,
+              "type": 2,
+              "name": "z_impl_device_init",
+              "section": ""
+            },
+            {
+              "offset": 432,
+              "type": 2,
+              "name": "_ZN8recorder4dump12_GLOBAL__N_115clocksAvailableEv",
+              "section": ".text"
+            },
+            {
+              "offset": 436,
+              "type": 2,
+              "name": "_ZN8recorder4dump12_GLOBAL__N_112nominalClockEv",
+              "section": ".text"
+            },
+            {
+              "offset": 452,
+              "type": 2,
+              "name": "_ZN8recorder4dump12_GLOBAL__N_113clockRegisterEj",
+              "section": ".text"
+            },
+            {
+              "offset": 456,
+              "type": 2,
+              "name": "_ZNK8recorder4dump12UnoQDumpPort9ownershipEv",
+              "section": ".text"
+            },
+            {
+              "offset": 460,
+              "type": 2,
+              "name": "_ZNK8recorder4dump12UnoQDumpPort11sampleReadyEv",
+              "section": ".text"
+            },
+            {
+              "offset": 464,
+              "type": 2,
+              "name": "_ZN8recorder4dump12_GLOBAL__N_113threadContextEv",
+              "section": ".text"
+            },
+            {
+              "offset": 468,
+              "type": 2,
+              "name": "",
+              "section": ".bss"
+            }
+          ],
+          "bss_targets": [
+            {
+              "offset": 468,
+              "section_addend": 171464,
+              "targets": [
+                "_ZN8recorder4dump12_GLOBAL__N_110uart_ownerE"
+              ]
+            }
+          ]
+        },
+        "_ZN8recorder4dump12UnoQDumpPort5readyEv": {
+          "symbol": {
+            "name": "_ZN8recorder4dump12UnoQDumpPort5readyEv",
+            "value": 45229,
+            "size": 88,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "13b590f8c830044623b108230020237002b010bd0d4b984708b90223f6e7eff31083019372b60a4b204698470128207003d12046074b98472070431e58425841bff35f8f019b83f31088e1e7000000000000000000000000",
+          "normalized_bytes_hex": "13b590f8c830044623b108230020237002b010bd0d4b984708b90223f6e7eff31083019372b60a4b204698470128207003d12046074b98472070431e58425841bff35f8f019b83f31088e1e7000000000000000000000000",
+          "relocations": [
+            {
+              "offset": 76,
+              "type": 2,
+              "name": "_ZN8recorder4dump12_GLOBAL__N_113threadContextEv",
+              "section": ".text"
+            },
+            {
+              "offset": 80,
+              "type": 2,
+              "name": "_ZNK8recorder4dump12UnoQDumpPort9ownershipEv",
+              "section": ".text"
+            },
+            {
+              "offset": 84,
+              "type": 2,
+              "name": "_ZNK8recorder4dump12UnoQDumpPort11sampleReadyEv",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        },
+        "_ZN8recorder4dump12UnoQDumpPort7advanceEPKcj": {
+          "symbol": {
+            "name": "_ZN8recorder4dump12UnoQDumpPort7advanceEPKcj",
+            "value": 46413,
+            "size": 196,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "2de9f34791f8c8a005460c4690469946baf1000f0cd0254b084698470823237002232b7000236b60284602b0bde8f0871f4b9847064638b91c4b0846984702236e6023702b70efe71a4b98470746eff31083019372b6184b20469847012806460dd0124b20469847022326702b70c5f804a0bff35f8f019b83f31088d4e74a46414620460d4b9847064640b9074b204698470a23237002236e602b70e9e73a4621462846064b9847e3e700bf000000000000000000000000000000000000000000000000",
+          "normalized_bytes_hex": "2de9f34791f8c8a005460c4690469946baf1000f0cd0254b084698470823237002232b7000236b60284602b0bde8f0871f4b9847064638b91c4b0846984702236e6023702b70efe71a4b98470746eff31083019372b6184b20469847012806460dd0124b20469847022326702b70c5f804a0bff35f8f019b83f31088d4e74a46414620460d4b9847064640b9074b204698470a23237002236e602b70e9e73a4621462846064b9847e3e700bf000000000000000000000000000000000000000000000000",
+          "relocations": [
+            {
+              "offset": 172,
+              "type": 2,
+              "name": "_ZN8recorder4dump12UnoQDumpPort5abortEv",
+              "section": ".text"
+            },
+            {
+              "offset": 176,
+              "type": 2,
+              "name": "_ZN8recorder4dump12_GLOBAL__N_113threadContextEv",
+              "section": ".text"
+            },
+            {
+              "offset": 180,
+              "type": 2,
+              "name": "micros",
+              "section": ".text"
+            },
+            {
+              "offset": 184,
+              "type": 2,
+              "name": "_ZNK8recorder4dump12UnoQDumpPort9ownershipEv",
+              "section": ".text"
+            },
+            {
+              "offset": 188,
+              "type": 2,
+              "name": "_ZN8recorder4dump12UnoQDumpPort7prepareEPKcj",
+              "section": ".text"
+            },
+            {
+              "offset": 192,
+              "type": 2,
+              "name": "_ZN8recorder4dump12UnoQDumpPort8transmitEj",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        },
+        "_ZN8recorder4dump12UnoQDumpPort5abortEv": {
+          "symbol": {
+            "name": "_ZN8recorder4dump12UnoQDumpPort5abortEv",
+            "value": 45557,
+            "size": 104,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "37b590f8c8500446d5b9144b9847b8b1eff31083019372b6114b20469847012809d1104b1d60bff35f8f1b68b3fa83f35b0984f8c430bff35f8f019b83f310880023c4e9253384f8c730c4f89030012384f8c8300823237003b030bd000000000000000000240046",
+          "normalized_bytes_hex": "37b590f8c8500446d5b9144b9847b8b1eff31083019372b6114b20469847012809d1104b1d60bff35f8f1b68b3fa83f35b0984f8c430bff35f8f019b83f310880023c4e9253384f8c730c4f89030012384f8c8300823237003b030bd000000000000000000240046",
+          "relocations": [
+            {
+              "offset": 92,
+              "type": 2,
+              "name": "_ZN8recorder4dump12_GLOBAL__N_113threadContextEv",
+              "section": ".text"
+            },
+            {
+              "offset": 96,
+              "type": 2,
+              "name": "_ZNK8recorder4dump12UnoQDumpPort9ownershipEv",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        },
+        "_ZN8recorder3csv13summaryHeaderEPcj": {
+          "symbol": {
+            "name": "_ZN8recorder3csv13summaryHeaderEPcj",
+            "value": 76361,
+            "size": 28,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "13b50b460092034940f22b22024ca04702b010bd0d06000000000000",
+          "normalized_bytes_hex": "13b50b460092034940f22b22024ca04702b010bd0d06000000000000",
+          "relocations": [
+            {
+              "offset": 20,
+              "type": 2,
+              "name": "",
+              "section": ".llext.rodata.noreloc"
+            },
+            {
+              "offset": 24,
+              "type": 2,
+              "name": "_ZN8recorder3csv12_GLOBAL__N_17publishEPKcjPcj",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        },
+        "_ZN8recorder3csv11frameHeaderEPcj": {
+          "symbol": {
+            "name": "_ZN8recorder3csv11frameHeaderEPcj",
+            "value": 75813,
+            "size": 28,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "13b50b4600920349a422034ca04702b010bd00bf6805000000000000",
+          "normalized_bytes_hex": "13b50b4600920349a422034ca04702b010bd00bf6805000000000000",
+          "relocations": [
+            {
+              "offset": 20,
+              "type": 2,
+              "name": "",
+              "section": ".llext.rodata.noreloc"
+            },
+            {
+              "offset": 24,
+              "type": 2,
+              "name": "_ZN8recorder3csv12_GLOBAL__N_17publishEPKcjPcj",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        },
+        "_ZN8recorder3csv11eventHeaderEPcj": {
+          "symbol": {
+            "name": "_ZN8recorder3csv11eventHeaderEPcj",
+            "value": 76197,
+            "size": 28,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "13b50b46009203493622034ca04702b010bd00bf3105000000000000",
+          "normalized_bytes_hex": "13b50b46009203493622034ca04702b010bd00bf3105000000000000",
+          "relocations": [
+            {
+              "offset": 20,
+              "type": 2,
+              "name": "",
+              "section": ".llext.rodata.noreloc"
+            },
+            {
+              "offset": 24,
+              "type": 2,
+              "name": "_ZN8recorder3csv12_GLOBAL__N_17publishEPKcjPcj",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        },
+        "_ZN3app12unoQDumpPortERN8recorder4dump12UnoQDumpPortE": {
+          "symbol": {
+            "name": "_ZN3app12unoQDumpPortERN8recorder4dump12UnoQDumpPortE",
+            "value": 477,
+            "size": 40,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "10b50446054b01604360054b0c3040f8043c044b9847204610bd00bf000000000000000000000000",
+          "normalized_bytes_hex": "10b50446054b01604360054b0c3040f8043c044b9847204610bd00bf000000000000000000000000",
+          "relocations": [
+            {
+              "offset": 28,
+              "type": 2,
+              "name": "_ZN3app12_GLOBAL__N_15beginEPvRKN8recorder4dump10SetupGrantE",
+              "section": ".text"
+            },
+            {
+              "offset": 32,
+              "type": 2,
+              "name": "_ZN3app12_GLOBAL__N_15readyEPv",
+              "section": ".text"
+            },
+            {
+              "offset": 36,
+              "type": 2,
+              "name": "_ZN8recorder4dump12UnoQDumpPort4portEv",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        }
+      },
+      "owners": {
+        "_ZN12_GLOBAL__N_17runtimeE": 170368,
+        "_ZN12_GLOBAL__N_17sourcesE": 848,
+        "_ZN12_GLOBAL__N_19dump_portE": 204
+      },
+      "memory": {
+        "account": {
+          "path": "C:\\Users\\narut\\OneDrive\\Desktop\\Project\\techbots_Sumo_Robots\\state\\analysis\\P2_app_dump_raw\\target_96c80701_bench-default\\app.ino.elf",
+          "sha256": "b811da2480eba83d7ee37732b9476d050351deb491681f1c4a01d22afee6ac95",
+          "bytes": 171040,
+          "sections": [
+            {
+              "name_offset": 0,
+              "type": 0,
+              "flags": 0,
+              "address": 0,
+              "offset": 0,
+              "size": 0,
+              "link": 0,
+              "info": 0,
+              "alignment": 0,
+              "entry_size": 0,
+              "index": 0,
+              "name": ""
+            },
+            {
+              "name_offset": 31,
+              "type": 1,
+              "flags": 2,
+              "address": 0,
+              "offset": 56,
+              "size": 3772,
+              "link": 0,
+              "info": 0,
+              "alignment": 8,
+              "entry_size": 0,
+              "index": 1,
+              "name": ".rodata"
+            },
+            {
+              "name_offset": 27,
+              "type": 9,
+              "flags": 64,
+              "address": 0,
+              "offset": 155328,
+              "size": 3200,
+              "link": 12,
+              "info": 1,
+              "alignment": 4,
+              "entry_size": 8,
+              "index": 2,
+              "name": ".rel.rodata"
+            },
+            {
+              "name_offset": 39,
+              "type": 1,
+              "flags": 2,
+              "address": 3772,
+              "offset": 3828,
+              "size": 2289,
+              "link": 0,
+              "info": 0,
+              "alignment": 4,
+              "entry_size": 0,
+              "index": 3,
+              "name": ".llext.rodata.noreloc"
+            },
+            {
+              "name_offset": 65,
+              "type": 1,
+              "flags": 6,
+              "address": 0,
+              "offset": 6120,
+              "size": 82712,
+              "link": 0,
+              "info": 0,
+              "alignment": 8,
+              "entry_size": 0,
+              "index": 4,
+              "name": ".text"
+            },
+            {
+              "name_offset": 61,
+              "type": 9,
+              "flags": 64,
+              "address": 0,
+              "offset": 158528,
+              "size": 11752,
+              "link": 12,
+              "info": 4,
+              "alignment": 4,
+              "entry_size": 8,
+              "index": 5,
+              "name": ".rel.text"
+            },
+            {
+              "name_offset": 71,
+              "type": 1,
+              "flags": 1,
+              "address": 82712,
+              "offset": 88832,
+              "size": 0,
+              "link": 0,
+              "info": 0,
+              "alignment": 1,
+              "entry_size": 0,
+              "index": 6,
+              "name": ".static_thread_data_area"
+            },
+            {
+              "name_offset": 96,
+              "type": 8,
+              "flags": 3,
+              "address": 82712,
+              "offset": 88832,
+              "size": 171472,
+              "link": 0,
+              "info": 0,
+              "alignment": 8,
+              "entry_size": 0,
+              "index": 7,
+              "name": ".bss"
+            },
+            {
+              "name_offset": 105,
+              "type": 1,
+              "flags": 2,
+              "address": 254184,
+              "offset": 88832,
+              "size": 8,
+              "link": 0,
+              "info": 0,
+              "alignment": 4,
+              "entry_size": 0,
+              "index": 8,
+              "name": ".exported_sym"
+            },
+            {
+              "name_offset": 101,
+              "type": 9,
+              "flags": 64,
+              "address": 0,
+              "offset": 170280,
+              "size": 16,
+              "link": 12,
+              "info": 8,
+              "alignment": 4,
+              "entry_size": 8,
+              "index": 9,
+              "name": ".rel.exported_sym"
+            },
+            {
+              "name_offset": 123,
+              "type": 14,
+              "flags": 3,
+              "address": 254192,
+              "offset": 88840,
+              "size": 4,
+              "link": 0,
+              "info": 0,
+              "alignment": 4,
+              "entry_size": 4,
+              "index": 10,
+              "name": ".init_array"
+            },
+            {
+              "name_offset": 119,
+              "type": 9,
+              "flags": 64,
+              "address": 0,
+              "offset": 170296,
+              "size": 8,
+              "link": 12,
+              "info": 10,
+              "alignment": 4,
+              "entry_size": 8,
+              "index": 11,
+              "name": ".rel.init_array"
+            },
+            {
+              "name_offset": 1,
+              "type": 2,
+              "flags": 0,
+              "address": 0,
+              "offset": 88844,
+              "size": 34400,
+              "link": 13,
+              "info": 1426,
+              "alignment": 4,
+              "entry_size": 16,
+              "index": 12,
+              "name": ".symtab"
+            },
+            {
+              "name_offset": 9,
+              "type": 3,
+              "flags": 0,
+              "address": 0,
+              "offset": 123244,
+              "size": 32082,
+              "link": 0,
+              "info": 0,
+              "alignment": 1,
+              "entry_size": 0,
+              "index": 13,
+              "name": ".strtab"
+            },
+            {
+              "name_offset": 17,
+              "type": 3,
+              "flags": 0,
+              "address": 0,
+              "offset": 170304,
+              "size": 135,
+              "link": 0,
+              "info": 0,
+              "alignment": 1,
+              "entry_size": 0,
+              "index": 14,
+              "name": ".shstrtab"
+            }
+          ],
+          "section_header_offset": 170440,
+          "compiler_payload": 257968,
+          "nominal_compiler_remaining": 4176,
+          "global_func_object_count": 516,
+          "undefined": [
+            "__device_dts_ord_100",
+            "__device_dts_ord_105",
+            "__device_dts_ord_109",
+            "__device_dts_ord_114",
+            "__device_dts_ord_120",
+            "__device_dts_ord_123",
+            "__device_dts_ord_17",
+            "__device_dts_ord_233",
+            "__device_dts_ord_30",
+            "__device_dts_ord_34",
+            "__device_dts_ord_40",
+            "__device_dts_ord_54",
+            "__device_dts_ord_61",
+            "__device_dts_ord_64",
+            "__device_dts_ord_65",
+            "__device_dts_ord_66",
+            "__device_dts_ord_70",
+            "__device_dts_ord_73",
+            "__device_dts_ord_78",
+            "__device_dts_ord_83",
+            "__device_dts_ord_88",
+            "__device_dts_ord_89",
+            "__device_dts_ord_9",
+            "__device_dts_ord_90",
+            "__device_dts_ord_91",
+            "__device_dts_ord_92",
+            "__device_dts_ord_93",
+            "__device_dts_ord_94",
+            "__device_dts_ord_95",
+            "__heap_end",
+            "__heap_start",
+            "__real___aeabi_d2f",
+            "__real___aeabi_d2iz",
+            "__real___aeabi_d2lz",
+            "__real___aeabi_d2uiz",
+            "__real___aeabi_dadd",
+            "__real___aeabi_dcmpeq",
+            "__real___aeabi_dcmpge",
+            "__real___aeabi_dcmpgt",
+            "__real___aeabi_dcmple",
+            "__real___aeabi_dcmplt",
+            "__real___aeabi_dcmpun",
+            "__real___aeabi_ddiv",
+            "__real___aeabi_dmul",
+            "__real___aeabi_dsub",
+            "__real___aeabi_f2d",
+            "__real___aeabi_f2iz",
+            "__real___aeabi_f2uiz",
+            "__real___aeabi_fadd",
+            "__real___aeabi_fcmpeq",
+            "__real___aeabi_fcmpge",
+            "__real___aeabi_fcmpgt",
+            "__real___aeabi_fcmple",
+            "__real___aeabi_fcmplt",
+            "__real___aeabi_fcmpun",
+            "__real___aeabi_fdiv",
+            "__real___aeabi_fmul",
+            "__real___aeabi_fsub",
+            "__real___aeabi_i2d",
+            "__real___aeabi_i2f",
+            "__real___aeabi_idiv",
+            "__real___aeabi_idivmod",
+            "__real___aeabi_l2d",
+            "__real___aeabi_l2f",
+            "__real___aeabi_ldivmod",
+            "__real___aeabi_read_tp",
+            "__real___aeabi_ui2d",
+            "__real___aeabi_ui2f",
+            "__real___aeabi_uidiv",
+            "__real___aeabi_uidivmod",
+            "__real___aeabi_ul2d",
+            "__real___aeabi_ul2f",
+            "__real___aeabi_uldivmod",
+            "__real___xpg_strerror_r",
+            "__real__exit",
+            "__real_abort",
+            "__real_acos",
+            "__real_acosf",
+            "__real_asin",
+            "__real_asinf",
+            "__real_atan",
+            "__real_atan2",
+            "__real_atan2f",
+            "__real_atanf",
+            "__real_atexit",
+            "__real_atof",
+            "__real_atoi",
+            "__real_atol",
+            "__real_calloc",
+            "__real_cos",
+            "__real_cosf",
+            "__real_exit",
+            "__real_exp",
+            "__real_exp2",
+            "__real_fmod",
+            "__real_free",
+            "__real_gettimeofday",
+            "__real_isalnum",
+            "__real_isalpha",
+            "__real_iscntrl",
+            "__real_isdigit",
+            "__real_isgraph",
+            "__real_islower",
+            "__real_isprint",
+            "__real_isspace",
+            "__real_isupper",
+            "__real_isxdigit",
+            "__real_ldexp",
+            "__real_log",
+            "__real_log10",
+            "__real_log2",
+            "__real_logf",
+            "__real_malloc",
+            "__real_memchr",
+            "__real_memcmp",
+            "__real_memcpy",
+            "__real_memmem",
+            "__real_memmove",
+            "__real_memset",
+            "__real_pow",
+            "__real_putchar",
+            "__real_puts",
+            "__real_rand",
+            "__real_realloc",
+            "__real_sin",
+            "__real_sinf",
+            "__real_sqrt",
+            "__real_sqrtf",
+            "__real_srand",
+            "__real_strcasecmp",
+            "__real_strcat",
+            "__real_strchr",
+            "__real_strcmp",
+            "__real_strcpy",
+            "__real_strdup",
+            "__real_strlen",
+            "__real_strncmp",
+            "__real_strncpy",
+            "__real_strnlen",
+            "__real_strrchr",
+            "__real_strstr",
+            "__real_strtod",
+            "__real_strtok",
+            "__real_strtol",
+            "__real_strtoul",
+            "__real_tan",
+            "__real_tanf",
+            "__real_tolower",
+            "__real_toupper",
+            "__real_vprintf",
+            "__real_vsnprintf",
+            "__real_vsprintf",
+            "__real_vsscanf",
+            "_device_list_end",
+            "_device_list_start",
+            "_ebss",
+            "_edata",
+            "_sbss",
+            "_sdata",
+            "_sidata",
+            "analog_reference",
+            "kheap_llext_heap",
+            "kheap_llext_heap_size",
+            "matrixBegin",
+            "matrixGrayscaleWrite",
+            "matrixSetGrayscaleBits",
+            "pinctrl_configure_pins",
+            "pinctrl_lookup_state",
+            "printk",
+            "sys_clock_cycle_get_64",
+            "z_impl_device_init",
+            "z_impl_device_is_ready",
+            "z_impl_k_thread_create",
+            "z_impl_k_thread_name_set",
+            "z_impl_k_uptime_ticks",
+            "z_impl_k_yield"
+          ],
+          "init": [
+            {
+              "section": ".init_array",
+              "offset": 0,
+              "type": 2,
+              "name": "_GLOBAL__sub_I_setup",
+              "symbol_section": ".text",
+              "symbol_type": 2,
+              "symbol_value": 57
+            }
+          ],
+          "fini": [],
+          "copied_regions": [
+            {
+              "name": ".rodata",
+              "payload": 3772,
+              "alignment": 8,
+              "prepad": 0,
+              "retained_chunk": 3784
+            },
+            {
+              "name": ".text",
+              "payload": 82712,
+              "alignment": 8,
+              "prepad": 0,
+              "retained_chunk": 82720
+            },
+            {
+              "name": ".bss",
+              "payload": 171472,
+              "alignment": 8,
+              "prepad": 0,
+              "retained_chunk": 171480
+            },
+            {
+              "name": ".exported_sym",
+              "payload": 8,
+              "alignment": 4,
+              "prepad": 0,
+              "retained_chunk": 16
+            },
+            {
+              "name": ".init_array",
+              "payload": 4,
+              "alignment": 4,
+              "prepad": 0,
+              "retained_chunk": 8
+            }
+          ],
+          "metadata_chunks": {
+            "extension": 200,
+            "section_map": 128,
+            "global_symbols": 4136,
+            "export_copy": 16,
+            "initial_bookkeeping": 88
+          },
+          "conditional_pristine_peak_consumption": 262576,
+          "conditional_pristine_peak_free_span": -432,
+          "conditional_largest_payload": -436,
+          "limitation": "Conditional pristine-pool source model, not actual load/free-memory/WCET evidence"
+        },
+        "aligned_peeks": [
+          {
+            "name": ".llext.rodata.noreloc",
+            "offset": 3828,
+            "alignment": 4,
+            "bytes": 2289
+          },
+          {
+            "name": ".symtab",
+            "offset": 88844,
+            "alignment": 4,
+            "bytes": 34400
+          },
+          {
+            "name": ".strtab",
+            "offset": 123244,
+            "alignment": 1,
+            "bytes": 32082
+          },
+          {
+            "name": ".shstrtab",
+            "offset": 170304,
+            "alignment": 1,
+            "bytes": 135
+          }
+        ],
+        "copied_region_chunks": 258008,
+        "before_temporary_symbols": 258424,
+        "before_symbols_free_span": 3720,
+        "before_symbols_largest_payload": 3716,
+        "temporary_symbols_request": 4128,
+        "temporary_symbols_chunk": 4136,
+        "temporary_symbols_fit": false,
+        "temporary_symbols_chunk_deficit": 416,
+        "complete_peak_deficit": 432,
+        "conditional_largest_after_peak": null,
+        "interpretation": "Pinned pristine-pool/persistent-peek model only; no load/freeRAM/WCET measured"
+      },
+      "native_exports": 39,
+      "aeabi_exports": 42
+    },
+    "target_96c80701_match-immediate": {
+      "source_sha256": "96c80701b2149cbc080c0416e5beacfc17d2da8a21ab9831fa6c20d1ec58a8a7",
+      "mode": "match-immediate",
+      "files": 85,
+      "current_source_at_collection": false,
+      "verified_elfs": [
+        {
+          "name": "app.ino.elf",
+          "sha256": "c389bcbee429f817c7218a516538dc47c0e140bbf8d0f18f1ef95f23d5afee0d",
+          "imports": 176
+        },
+        {
+          "name": "app.ino_debug.elf",
+          "sha256": "2b531b2ccd8e15b0a66a70bfae86658dc3f6199aefdb136f62a9ac543704b912",
+          "imports": 176
+        },
+        {
+          "name": "app.ino_temp.elf",
+          "sha256": "f3b726bfbddb5cf4aca599b8a126ccbafd08a5a41d00309e815c044cf262384b",
+          "imports": 176
+        }
+      ],
+      "objects": {
+        "objects": 75,
+        "common_alloc_sections": 1437,
+        "added_objects": [
+          "sketch/src/app/dump_port_unoq.cpp.o",
+          "sketch/src/app/runtime_dump.cpp.o"
+        ],
+        "changes": [
+          {
+            "path": "sketch/app.ino.cpp.o",
+            "changed": [
+              ".bss._ZN12_GLOBAL__N_17runtimeE",
+              ".text._GLOBAL__sub_I_setup",
+              ".text.setup"
+            ],
+            "added": [
+              ".bss._ZN12_GLOBAL__N_19dump_portE"
+            ],
+            "removed": []
+          },
+          {
+            "path": "sketch/src/app/runtime.cpp.o",
+            "changed": [
+              ".text._ZN3app7Runtime10consumeImuERKN3imu14SampleProgressE",
+              ".text._ZN3app7Runtime10publishImuERKN3imu6SampleE",
+              ".text._ZN3app7Runtime10serviceImuEv",
+              ".text._ZN3app7Runtime10skipBeforeEj",
+              ".text._ZN3app7Runtime11acceptClockEj",
+              ".text._ZN3app7Runtime11servicePassEv",
+              ".text._ZN3app7Runtime13cancelSourcesEv",
+              ".text._ZN3app7Runtime13completeEpochEv",
+              ".text._ZN3app7Runtime13releaseChargeEv",
+              ".text._ZN3app7Runtime13rememberLinesERKN8line_qtr8SnapshotE",
+              ".text._ZN3app7Runtime13setupImuFaultEj",
+              ".text._ZN3app7Runtime17initializeSourcesEv",
+              ".text._ZN3app7Runtime4failENS_12RuntimeFaultE",
+              ".text._ZN3app7Runtime4pumpEv",
+              ".text._ZN3app7Runtime4stepEv",
+              ".text._ZN3app7Runtime5beginERKNS_11SetupGrantsE",
+              ".text._ZN3app7Runtime7acquireEv",
+              ".text._ZN3app7Runtime9countPassEv",
+              ".text._ZNK3app7Runtime10validPortsEv",
+              ".text._ZNK3app7Runtime11linesActiveEv",
+              ".text._ZNK3app7Runtime11linesUsefulEj"
+            ],
+            "added": [
+              ".text._ZN3app7RuntimeC2ERKN6motors4PortERKN5power9InputPortERKNS_10SourcePortERKNS_8DumpPortE"
+            ],
+            "removed": [
+              ".text._ZN3app7RuntimeC2ERKN6motors4PortERKN5power9InputPortERKNS_10SourcePortE"
+            ]
+          },
+          {
+            "path": "sketch/src/app/runtime_inputs.cpp.o",
+            "changed": [
+              ".text._ZN3app7Runtime10projectImuEjj",
+              ".text._ZN3app7Runtime12postDecisionEv",
+              ".text._ZN3app7Runtime12projectLinesEjj",
+              ".text._ZN3app7Runtime14selectLineModeEv",
+              ".text._ZN3app7Runtime18clockAcceptedThunkEPv",
+              ".text._ZN3app7Runtime7displayEv",
+              ".text._ZN3app7Runtime7projectEj",
+              ".text._ZNK3app7Runtime14opponentsFreshEj",
+              ".text._ZNK3app7Runtime14opponentsReadyEv"
+            ],
+            "added": [],
+            "removed": []
+          },
+          {
+            "path": "sketch/src/hal/motor_port_unoq.cpp.o",
+            "changed": [
+              ".text._ZN6motors8UnoQPort11writeEnableEPvb",
+              ".text._ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj"
+            ],
+            "added": [],
+            "removed": []
+          },
+          {
+            "path": "sketch/src/hal/motors.cpp.o",
+            "changed": [
+              ".text._ZN6motors9MotorGate8transactERKN4core7OutputsERN3fsm12PreviousTickE"
+            ],
+            "added": [],
+            "removed": []
+          },
+          {
+            "path": "sketch/src/hal/recorder_dump.cpp.o",
+            "changed": [],
+            "added": [
+              ".text._ZN8recorder4dump8Transfer5abortEv"
+            ],
+            "removed": []
+          }
+        ],
+        "native_uart_and_csv_alloc_sections_unchanged": true
+      },
+      "startup": {
+        "main": {
+          "symbol": {
+            "name": "main",
+            "value": 82625,
+            "size": 44,
+            "bind": 2,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "38b5054b9847054b9847054b9847054d054ca847a047fce70000000000000000000000000000000000000000",
+          "normalized_bytes_hex": "38b5054b9847054b9847054b9847054d054ca847a047fce70000000000000000000000000000000000000000",
+          "relocations": [
+            {
+              "offset": 24,
+              "type": 2,
+              "name": "initVariant",
+              "section": ".text"
+            },
+            {
+              "offset": 28,
+              "type": 2,
+              "name": "_Z20start_static_threadsv",
+              "section": ".text"
+            },
+            {
+              "offset": 32,
+              "type": 2,
+              "name": "setup",
+              "section": ".text"
+            },
+            {
+              "offset": 36,
+              "type": 2,
+              "name": "loop",
+              "section": ".text"
+            },
+            {
+              "offset": 40,
+              "type": 2,
+              "name": "_Z10__loopHookv",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        },
+        "setup": {
+          "symbol": {
+            "name": "setup",
+            "value": 1,
+            "size": 40,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "7fb513220021054b01a89847044b01a90448984707b05df804fb00bf000000000000000000000000",
+          "normalized_bytes_hex": "7fb513220021054b01a89847044b01a90448984707b05df804fb00bf000000000000000000000000",
+          "relocations": [
+            {
+              "offset": 28,
+              "type": 2,
+              "name": "memset",
+              "section": ".text"
+            },
+            {
+              "offset": 32,
+              "type": 2,
+              "name": "_ZN3app7Runtime5beginERKNS_11SetupGrantsE",
+              "section": ".text"
+            },
+            {
+              "offset": 36,
+              "type": 2,
+              "name": "",
+              "section": ".bss"
+            }
+          ],
+          "bss_targets": [
+            {
+              "offset": 36,
+              "section_addend": 0,
+              "targets": [
+                "_ZN12_GLOBAL__N_17runtimeE"
+              ]
+            }
+          ]
+        },
+        "loop": {
+          "symbol": {
+            "name": "loop",
+            "value": 41,
+            "size": 16,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "0148024b184700bf0000000000000000",
+          "normalized_bytes_hex": "0148024b184700bf0000000000000000",
+          "relocations": [
+            {
+              "offset": 8,
+              "type": 2,
+              "name": "",
+              "section": ".bss"
+            },
+            {
+              "offset": 12,
+              "type": 2,
+              "name": "_ZN3app7Runtime4stepEv",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": [
+            {
+              "offset": 8,
+              "section_addend": 0,
+              "targets": [
+                "_ZN12_GLOBAL__N_17runtimeE"
+              ]
+            }
+          ]
+        },
+        "initVariant": {
+          "symbol": {
+            "name": "initVariant",
+            "value": 82621,
+            "size": 2,
+            "bind": 2,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "7047",
+          "normalized_bytes_hex": "7047",
+          "relocations": [],
+          "bss_targets": []
+        },
+        "_Z10__loopHookv": {
+          "symbol": {
+            "name": "_Z10__loopHookv",
+            "value": 62549,
+            "size": 2,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "7047",
+          "normalized_bytes_hex": "7047",
+          "relocations": [],
+          "bss_targets": []
+        },
+        "_Z20start_static_threadsv": {
+          "symbol": {
+            "name": "_Z20start_static_threadsv",
+            "value": 82669,
+            "size": 108,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "2de9f04f154c164e164fdff85c8089b02546b54204f1300402d309b0bde8f08f14ed027b54e90c0154e90a2354e908ce54e9069a54f810bc8ded067bcde903abcde901e9cdf800c0b84754f8300c54f80c1cc04754f8303c5d65d9e700000000000000000000000000000000",
+          "normalized_bytes_hex": "2de9f04f154c164e164fdff85c8089b02546b54204f1300402d309b0bde8f08f14ed027b54e90c0154e90a2354e908ce54e9069a54f810bc8ded067bcde903abcde901e9cdf800c0b84754f8300c54f80c1cc04754f8303c5d65d9e700000000000000000000000000000000",
+          "relocations": [
+            {
+              "offset": 92,
+              "type": 2,
+              "name": "__static_thread_data_list_start",
+              "section": ".static_thread_data_area"
+            },
+            {
+              "offset": 96,
+              "type": 2,
+              "name": "__static_thread_data_list_end",
+              "section": ".static_thread_data_area"
+            },
+            {
+              "offset": 100,
+              "type": 2,
+              "name": "z_impl_k_thread_create",
+              "section": ""
+            },
+            {
+              "offset": 104,
+              "type": 2,
+              "name": "z_impl_k_thread_name_set",
+              "section": ""
+            }
+          ],
+          "bss_targets": []
+        },
+        "_GLOBAL__sub_I_setup": {
+          "symbol": {
+            "name": "_GLOBAL__sub_I_setup",
+            "value": 57,
+            "size": 404,
+            "bind": 0,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "f0b500245948a9b0594d2146b42200f8084ba847554b01261f4603f1d80021461022c3e93044c3e93244c3e934445e7283f8bc4083f8bd4083f8be4083f8bf40a84707f1e80021461022a84707f1f80021461022a84700220023c7e944230923c7f8084187f80c41a7f8184187f81a61a7f8284187f82a41c7f83c41c7e94844c7e94b33c7e94d4407f5a0772146e8223846a847a7f5a0721346214603f5d0703c2287f82860a8472146232207f19d0087f86460a847a7f5a07387f89c6087f8c160c7f8e8701f46214603f50b701822a84787f82e62c7f8444287f8484207f51370032721466822a847204b6c22214603f53270c3e9ae4483f8507283f8946283f8b44283f8b54283f8b642c3f8c04283f8c442a847154b0da8c3e9cd44c3e9cf4483f8d07283f8146383f8444383f8454383f84643c3f848430e490e4b984702a80a490d4b984707ac18a807490c4b984720460b490c4b9847009418ab0b4c02aa0da90a48a04729b0f0bd789a0200000000004c9a020000000000000000000000000080990200000000000000000000000000",
+          "normalized_bytes_hex": "f0b500245948a9b0594d2146b42200f8084ba847554b01261f4603f1d80021461022c3e93044c3e93244c3e934445e7283f8bc4083f8bd4083f8be4083f8bf40a84707f1e80021461022a84707f1f80021461022a84700220023c7e944230923c7f8084187f80c41a7f8184187f81a61a7f8284187f82a41c7f83c41c7e94844c7e94b33c7e94d4407f5a0772146e8223846a847a7f5a0721346214603f5d0703c2287f82860a8472146232207f19d0087f86460a847a7f5a07387f89c6087f8c160c7f8e8701f46214603f50b701822a84787f82e62c7f8444287f8484207f51370032721466822a847204b6c22214603f53270c3e9ae4483f8507283f8946283f8b44283f8b54283f8b642c3f8c04283f8c442a847154b0da8c3e9cd44c3e9cf4483f8d07283f8146383f8444383f8454383f84643c3f848430e490e4b984702a80a490d4b984707ac18a807490c4b984720460b490c4b9847009418ab0b4c02aa0da90a48a04729b0f0bd00000000000000000000000000000000000000000000000000000000000000000000000000000000",
+          "relocations": [
+            {
+              "offset": 364,
+              "type": 2,
+              "name": "",
+              "section": ".bss"
+            },
+            {
+              "offset": 368,
+              "type": 2,
+              "name": "memset",
+              "section": ".text"
+            },
+            {
+              "offset": 372,
+              "type": 2,
+              "name": "",
+              "section": ".bss"
+            },
+            {
+              "offset": 376,
+              "type": 2,
+              "name": "_ZN6motors8UnoQPort4portEv",
+              "section": ".text"
+            },
+            {
+              "offset": 380,
+              "type": 2,
+              "name": "_ZN3app13NativeSources7adcPortEv",
+              "section": ".text"
+            },
+            {
+              "offset": 384,
+              "type": 2,
+              "name": "_ZN3app13NativeSources4portEv",
+              "section": ".text"
+            },
+            {
+              "offset": 388,
+              "type": 2,
+              "name": "",
+              "section": ".bss"
+            },
+            {
+              "offset": 392,
+              "type": 2,
+              "name": "_ZN3app12unoQDumpPortERN8recorder4dump12UnoQDumpPortE",
+              "section": ".text"
+            },
+            {
+              "offset": 396,
+              "type": 2,
+              "name": "_ZN3app7RuntimeC1ERKN6motors4PortERKN5power9InputPortERKNS_10SourcePortERKNS_8DumpPortE",
+              "section": ".text"
+            },
+            {
+              "offset": 400,
+              "type": 2,
+              "name": "",
+              "section": ".bss"
+            }
+          ],
+          "bss_targets": [
+            {
+              "offset": 364,
+              "section_addend": 170616,
+              "targets": [
+                "_ZN12_GLOBAL__N_17sourcesE"
+              ]
+            },
+            {
+              "offset": 372,
+              "section_addend": 170572,
+              "targets": [
+                "_ZN12_GLOBAL__N_110motor_portE"
+              ]
+            },
+            {
+              "offset": 388,
+              "section_addend": 170368,
+              "targets": [
+                "_ZN12_GLOBAL__N_19dump_portE"
+              ]
+            },
+            {
+              "offset": 400,
+              "section_addend": 0,
+              "targets": [
+                "_ZN12_GLOBAL__N_17runtimeE"
+              ]
+            }
+          ]
+        },
+        "micros": {
+          "symbol": {
+            "name": "micros",
+            "value": 82777,
+            "size": 28,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "10b5044ca047a047a0220023024ca04710bd00bf0000000000000000",
+          "normalized_bytes_hex": "10b5044ca047a047a0220023024ca04710bd00bf0000000000000000",
+          "relocations": [
+            {
+              "offset": 20,
+              "type": 2,
+              "name": "sys_clock_cycle_get_64",
+              "section": ""
+            },
+            {
+              "offset": 24,
+              "type": 2,
+              "name": "__aeabi_uldivmod",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        }
+      },
+      "metadata": {
+        "commands": 75,
+        "metadata": 125,
+        "dependencies": 121
+      },
+      "required_retained_functions": {
+        "_ZN3app7Runtime14initializeDumpEv": {
+          "symbol": {
+            "name": "_ZN3app7Runtime14initializeDumpEv",
+            "value": 5325,
+            "size": 60,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "10b500f5243494f8d53173b1d0f8843043b1d0f888202ab1d0f8902012b1d0f894201ab9022384f8dc3310bdd0f8800004f5eb71984784f8dc03f6e7",
+          "normalized_bytes_hex": "10b500f5243494f8d53173b1d0f8843043b1d0f888202ab1d0f8902012b1d0f894201ab9022384f8dc3310bdd0f8800004f5eb71984784f8dc03f6e7",
+          "relocations": [],
+          "bss_targets": []
+        },
+        "_ZN3app7Runtime11serviceDumpEv": {
+          "symbol": {
+            "name": "_ZN3app7Runtime11serviceDumpEv",
+            "value": 5665,
+            "size": 184,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "f0b500f5243494f8d531064691b013b9012011b0f0bd0023234f0ca90c93b84708b90020f5e73046204b98470028efd030460c991e4b9847054628b1d6f88830d6f880009847054630460ca9b8470028e7d00c9b06f522310d9306f52033d3f804388df83c500e9394f8da310daa8df83d3006f53763009306f5223302a80d4d103301f50c71a84704f5787402ad0fcd0fc40fcd0fc495e8030084e8030030460ca9b847b5e700bf00000000000000000000000000000000",
+          "normalized_bytes_hex": "f0b500f5243494f8d531064691b013b9012011b0f0bd0023234f0ca90c93b84708b90020f5e73046204b98470028efd030460c991e4b9847054628b1d6f88830d6f880009847054630460ca9b8470028e7d00c9b06f522310d9306f52033d3f804388df83c500e9394f8da310daa8df83d3006f53763009306f5223302a80d4d103301f50c71a84704f5787402ad0fcd0fc40fcd0fc495e8030084e8030030460ca9b847b5e700bf00000000000000000000000000000000",
+          "relocations": [
+            {
+              "offset": 168,
+              "type": 2,
+              "name": "_ZN3app7Runtime5clockERj",
+              "section": ".text"
+            },
+            {
+              "offset": 172,
+              "type": 2,
+              "name": "_ZNK3app7Runtime16dumpReceiptValidEv",
+              "section": ".text"
+            },
+            {
+              "offset": 176,
+              "type": 2,
+              "name": "_ZNK3app7Runtime16dumpReadyContextEj",
+              "section": ".text"
+            },
+            {
+              "offset": 180,
+              "type": 2,
+              "name": "_ZN8recorder4dump8Transfer4stepERKNS0_7ContextERKN3fsm11RobotResultERKNS_15AttemptRecorderE",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        },
+        "_ZNK3app7Runtime16dumpReceiptValidEv": {
+          "symbol": {
+            "name": "_ZNK3app7Runtime16dumpReceiptValidEv",
+            "value": 5385,
+            "size": 94,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "10b500f5203393f8f8170246032924d193f8fa0700b393f8d109e8b193f8a009d0b1d3f8a849d3f8ac1902f52232d2e90402914208bf84420fd1d3f8b029d3f80418521a002a08db93f8d009002818bf06280cbf0120002010bd0020fce7",
+          "normalized_bytes_hex": "10b500f5203393f8f8170246032924d193f8fa0700b393f8d109e8b193f8a009d0b1d3f8a849d3f8ac1902f52232d2e90402914208bf84420fd1d3f8b029d3f80418521a002a08db93f8d009002818bf06280cbf0120002010bd0020fce7",
+          "relocations": [],
+          "bss_targets": []
+        },
+        "_ZNK3app7Runtime16dumpReadyContextEj": {
+          "symbol": {
+            "name": "_ZNK3app7Runtime16dumpReadyContextEj",
+            "value": 5481,
+            "size": 184,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "38b500f5243393f8dc330446012b0d464ed1284b9847002849d004f5203393f81808002843d0d3f81028d3f814180a433ed0d3f80428ad1ab5f57a7f38d293f82528012a34d193f830288abb93f8320870bb93f8332852bb93f8312842bb93f8240828bb03f50162d2ed037af5ee407af1ee10fa1bd1d2ed047af5ee407af1ee10fa14d193f8b4298ab903f51a63d3ed067af5ee407af1ee10fa08d1d3ed077af5ee407af1ee10fa0cbf0120002038bd0020fce700000000",
+          "normalized_bytes_hex": "38b500f5243393f8dc330446012b0d464ed1284b9847002849d004f5203393f81808002843d0d3f81028d3f814180a433ed0d3f80428ad1ab5f57a7f38d293f82528012a34d193f830288abb93f8320870bb93f8332852bb93f8312842bb93f8240828bb03f50162d2ed037af5ee407af1ee10fa1bd1d2ed047af5ee407af1ee10fa14d193f8b4298ab903f51a63d3ed067af5ee407af1ee10fa08d1d3ed077af5ee407af1ee10fa0cbf0120002038bd0020fce700000000",
+          "relocations": [
+            {
+              "offset": 180,
+              "type": 2,
+              "name": "_ZNK3app7Runtime16dumpReceiptValidEv",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        },
+        "_ZN8recorder4dump8Transfer5abortEv": {
+          "symbol": {
+            "name": "_ZN8recorder4dump8Transfer5abortEv",
+            "value": 79741,
+            "size": 20,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "027c012a02d10321014b1847704700bf00000000",
+          "normalized_bytes_hex": "027c012a02d10321014b1847704700bf00000000",
+          "relocations": [
+            {
+              "offset": 16,
+              "type": 2,
+              "name": "_ZN8recorder4dump8Transfer4failENS0_5PhaseENS0_6ReasonE",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        },
+        "_ZN8recorder4dump8Transfer4stepERKNS0_7ContextERKN3fsm11RobotResultERKNS_15AttemptRecorderE": {
+          "symbol": {
+            "name": "_ZN8recorder4dump8Transfer4stepERKNS0_7ContextERKN3fsm11RobotResultERKNS_15AttemptRecorderE",
+            "value": 79529,
+            "size": 212,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "2de9f3471d469b7f0646042b0c461746ddf8289032d1d5e90010d4f85c250192d4f858258a42019a824127d24ff00108c4f85815c4f85c0543462a4639462046dff88ca0d04718b3237c012b0bd0b8f1000f1dd04b462a4639462046174da847237c012b14d149462046154b984740b9072203212046134b984709e04ff00008dae7d4f844358bb1494620460e4b9847354610340fcc0fc50fcc0fc594e8030085e80300304602b0bde8f0872046074b98470028e8d108220421dbe7000000000000000000000000000000000000000000000000",
+          "normalized_bytes_hex": "2de9f3471d469b7f0646042b0c461746ddf8289032d1d5e90010d4f85c250192d4f858258a42019a824127d24ff00108c4f85815c4f85c0543462a4639462046dff88ca0d04718b3237c012b0bd0b8f1000f1dd04b462a4639462046174da847237c012b14d149462046154b984740b9072203212046134b984709e04ff00008dae7d4f844358bb1494620460e4b9847354610340fcc0fc50fcc0fc594e8030085e80300304602b0bde8f0872046074b98470028e8d108220421dbe7000000000000000000000000000000000000000000000000",
+          "relocations": [
+            {
+              "offset": 188,
+              "type": 2,
+              "name": "_ZN8recorder4dump8Transfer5startERKNS0_7ContextERKN3fsm11RobotResultERKNS_15AttemptRecorderE",
+              "section": ".text"
+            },
+            {
+              "offset": 192,
+              "type": 2,
+              "name": "_ZNK8recorder4dump8Transfer9unchangedERKNS_15AttemptRecorderE",
+              "section": ".text"
+            },
+            {
+              "offset": 196,
+              "type": 2,
+              "name": "_ZN8recorder4dump8Transfer4failENS0_5PhaseENS0_6ReasonE",
+              "section": ".text"
+            },
+            {
+              "offset": 200,
+              "type": 2,
+              "name": "_ZN8recorder4dump8Transfer12writePendingERKNS_15AttemptRecorderE",
+              "section": ".text"
+            },
+            {
+              "offset": 204,
+              "type": 2,
+              "name": "_ZN8recorder4dump8Transfer7prepareEv",
+              "section": ".text"
+            },
+            {
+              "offset": 208,
+              "type": 2,
+              "name": "_ZN8recorder4dump8Transfer5admitERKNS0_7ContextERKN3fsm11RobotResultEb",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        },
+        "_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE": {
+          "symbol": {
+            "name": "_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE",
+            "value": 45661,
+            "size": 472,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "2de9f74390f8c630054613b990f8c8303bb128465d4b98472c78204603b0bde8f083012380f8c6300b782bb14b781bb18b780bb1cb7813b903242c70ede7dff89081c04708b90224f7e7dff88891d9f80030002bf0d14e4fb84708b90424ece74c484d4ca0470028f8d04c48a0470028f4d04b4ef3685a78d007ddd41b78002bdad1484b98470028d6d0c9f800504148016982680b6823f400530b6013680d21414a984708b10624c7e7404b304698470028d3d13046a0470028cfd0eff31083019372b6c04700284bd0b847002848d0374b9847002844d0364b9847002840d0354ad2f8083259073bd4d2f808315b0737d4324b19680d2945d15968002942d1996800293fd1d96a00293cd1dc682c48844238d10420c2f88800bff34f8fbff36f8fc2f8880109221a60bff35f8f2c46db68244e44f8a03f0846b0470131082944f8040ff8d10123284685f8c5301e4b98470446012c287028460ad00b4b984700e003242c70bff35f8f019b83f3108853e7164b984706280646f3d12846034b98473446eee70724ece700bf000000000000000000000000000000000000000000000000000000002000010000000000000000000000000000e100e000240046e46c050000000000000000000000000000000000c89d0200",
+          "normalized_bytes_hex": "2de9f74390f8c630054613b990f8c8303bb128465d4b98472c78204603b0bde8f083012380f8c6300b782bb14b781bb18b780bb1cb7813b903242c70ede7dff89081c04708b90224f7e7dff88891d9f80030002bf0d14e4fb84708b90424ece74c484d4ca0470028f8d04c48a0470028f4d04b4ef3685a78d007ddd41b78002bdad1484b98470028d6d0c9f800504148016982680b6823f400530b6013680d21414a984708b10624c7e7404b304698470028d3d13046a0470028cfd0eff31083019372b6c04700284bd0b847002848d0374b9847002844d0364b9847002840d0354ad2f8083259073bd4d2f808315b0737d4324b19680d2945d15968002942d1996800293fd1d96a00293cd1dc682c48844238d10420c2f88800bff34f8fbff36f8fc2f8880109221a60bff35f8f2c46db68244e44f8a03f0846b0470131082944f8040ff8d10123284685f8c5301e4b98470446012c287028460ad00b4b984700e003242c70bff35f8f019b83f3108853e7164b984706280646f3d12846034b98473446eee70724ece700bf000000000000000000000000000000000000000000000000000000002000010000000000000000000000000000e100e000240046e46c05000000000000000000000000000000000000000000",
+          "relocations": [
+            {
+              "offset": 396,
+              "type": 2,
+              "name": "_ZN8recorder4dump12UnoQDumpPort5abortEv",
+              "section": ".text"
+            },
+            {
+              "offset": 400,
+              "type": 2,
+              "name": "_ZN8recorder4dump12_GLOBAL__N_18metadataEv",
+              "section": ".text"
+            },
+            {
+              "offset": 404,
+              "type": 2,
+              "name": "__device_dts_ord_94",
+              "section": ""
+            },
+            {
+              "offset": 408,
+              "type": 2,
+              "name": "z_impl_device_is_ready",
+              "section": ""
+            },
+            {
+              "offset": 412,
+              "type": 2,
+              "name": "__device_dts_ord_9",
+              "section": ""
+            },
+            {
+              "offset": 416,
+              "type": 2,
+              "name": "__device_dts_ord_78",
+              "section": ""
+            },
+            {
+              "offset": 420,
+              "type": 2,
+              "name": "_ZN8recorder4dump12_GLOBAL__N_17irqIdleEv",
+              "section": ".text"
+            },
+            {
+              "offset": 428,
+              "type": 2,
+              "name": "z_impl_device_init",
+              "section": ""
+            },
+            {
+              "offset": 432,
+              "type": 2,
+              "name": "_ZN8recorder4dump12_GLOBAL__N_115clocksAvailableEv",
+              "section": ".text"
+            },
+            {
+              "offset": 436,
+              "type": 2,
+              "name": "_ZN8recorder4dump12_GLOBAL__N_112nominalClockEv",
+              "section": ".text"
+            },
+            {
+              "offset": 452,
+              "type": 2,
+              "name": "_ZN8recorder4dump12_GLOBAL__N_113clockRegisterEj",
+              "section": ".text"
+            },
+            {
+              "offset": 456,
+              "type": 2,
+              "name": "_ZNK8recorder4dump12UnoQDumpPort9ownershipEv",
+              "section": ".text"
+            },
+            {
+              "offset": 460,
+              "type": 2,
+              "name": "_ZNK8recorder4dump12UnoQDumpPort11sampleReadyEv",
+              "section": ".text"
+            },
+            {
+              "offset": 464,
+              "type": 2,
+              "name": "_ZN8recorder4dump12_GLOBAL__N_113threadContextEv",
+              "section": ".text"
+            },
+            {
+              "offset": 468,
+              "type": 2,
+              "name": "",
+              "section": ".bss"
+            }
+          ],
+          "bss_targets": [
+            {
+              "offset": 468,
+              "section_addend": 171464,
+              "targets": [
+                "_ZN8recorder4dump12_GLOBAL__N_110uart_ownerE"
+              ]
+            }
+          ]
+        },
+        "_ZN8recorder4dump12UnoQDumpPort5readyEv": {
+          "symbol": {
+            "name": "_ZN8recorder4dump12UnoQDumpPort5readyEv",
+            "value": 45229,
+            "size": 88,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "13b590f8c830044623b108230020237002b010bd0d4b984708b90223f6e7eff31083019372b60a4b204698470128207003d12046074b98472070431e58425841bff35f8f019b83f31088e1e7000000000000000000000000",
+          "normalized_bytes_hex": "13b590f8c830044623b108230020237002b010bd0d4b984708b90223f6e7eff31083019372b60a4b204698470128207003d12046074b98472070431e58425841bff35f8f019b83f31088e1e7000000000000000000000000",
+          "relocations": [
+            {
+              "offset": 76,
+              "type": 2,
+              "name": "_ZN8recorder4dump12_GLOBAL__N_113threadContextEv",
+              "section": ".text"
+            },
+            {
+              "offset": 80,
+              "type": 2,
+              "name": "_ZNK8recorder4dump12UnoQDumpPort9ownershipEv",
+              "section": ".text"
+            },
+            {
+              "offset": 84,
+              "type": 2,
+              "name": "_ZNK8recorder4dump12UnoQDumpPort11sampleReadyEv",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        },
+        "_ZN8recorder4dump12UnoQDumpPort7advanceEPKcj": {
+          "symbol": {
+            "name": "_ZN8recorder4dump12UnoQDumpPort7advanceEPKcj",
+            "value": 46413,
+            "size": 196,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "2de9f34791f8c8a005460c4690469946baf1000f0cd0254b084698470823237002232b7000236b60284602b0bde8f0871f4b9847064638b91c4b0846984702236e6023702b70efe71a4b98470746eff31083019372b6184b20469847012806460dd0124b20469847022326702b70c5f804a0bff35f8f019b83f31088d4e74a46414620460d4b9847064640b9074b204698470a23237002236e602b70e9e73a4621462846064b9847e3e700bf000000000000000000000000000000000000000000000000",
+          "normalized_bytes_hex": "2de9f34791f8c8a005460c4690469946baf1000f0cd0254b084698470823237002232b7000236b60284602b0bde8f0871f4b9847064638b91c4b0846984702236e6023702b70efe71a4b98470746eff31083019372b6184b20469847012806460dd0124b20469847022326702b70c5f804a0bff35f8f019b83f31088d4e74a46414620460d4b9847064640b9074b204698470a23237002236e602b70e9e73a4621462846064b9847e3e700bf000000000000000000000000000000000000000000000000",
+          "relocations": [
+            {
+              "offset": 172,
+              "type": 2,
+              "name": "_ZN8recorder4dump12UnoQDumpPort5abortEv",
+              "section": ".text"
+            },
+            {
+              "offset": 176,
+              "type": 2,
+              "name": "_ZN8recorder4dump12_GLOBAL__N_113threadContextEv",
+              "section": ".text"
+            },
+            {
+              "offset": 180,
+              "type": 2,
+              "name": "micros",
+              "section": ".text"
+            },
+            {
+              "offset": 184,
+              "type": 2,
+              "name": "_ZNK8recorder4dump12UnoQDumpPort9ownershipEv",
+              "section": ".text"
+            },
+            {
+              "offset": 188,
+              "type": 2,
+              "name": "_ZN8recorder4dump12UnoQDumpPort7prepareEPKcj",
+              "section": ".text"
+            },
+            {
+              "offset": 192,
+              "type": 2,
+              "name": "_ZN8recorder4dump12UnoQDumpPort8transmitEj",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        },
+        "_ZN8recorder4dump12UnoQDumpPort5abortEv": {
+          "symbol": {
+            "name": "_ZN8recorder4dump12UnoQDumpPort5abortEv",
+            "value": 45557,
+            "size": 104,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "37b590f8c8500446d5b9144b9847b8b1eff31083019372b6114b20469847012809d1104b1d60bff35f8f1b68b3fa83f35b0984f8c430bff35f8f019b83f310880023c4e9253384f8c730c4f89030012384f8c8300823237003b030bd000000000000000000240046",
+          "normalized_bytes_hex": "37b590f8c8500446d5b9144b9847b8b1eff31083019372b6114b20469847012809d1104b1d60bff35f8f1b68b3fa83f35b0984f8c430bff35f8f019b83f310880023c4e9253384f8c730c4f89030012384f8c8300823237003b030bd000000000000000000240046",
+          "relocations": [
+            {
+              "offset": 92,
+              "type": 2,
+              "name": "_ZN8recorder4dump12_GLOBAL__N_113threadContextEv",
+              "section": ".text"
+            },
+            {
+              "offset": 96,
+              "type": 2,
+              "name": "_ZNK8recorder4dump12UnoQDumpPort9ownershipEv",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        },
+        "_ZN8recorder3csv13summaryHeaderEPcj": {
+          "symbol": {
+            "name": "_ZN8recorder3csv13summaryHeaderEPcj",
+            "value": 76733,
+            "size": 28,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "13b50b460092034940f22b22024ca04702b010bd0d06000000000000",
+          "normalized_bytes_hex": "13b50b460092034940f22b22024ca04702b010bd0d06000000000000",
+          "relocations": [
+            {
+              "offset": 20,
+              "type": 2,
+              "name": "",
+              "section": ".llext.rodata.noreloc"
+            },
+            {
+              "offset": 24,
+              "type": 2,
+              "name": "_ZN8recorder3csv12_GLOBAL__N_17publishEPKcjPcj",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        },
+        "_ZN8recorder3csv11frameHeaderEPcj": {
+          "symbol": {
+            "name": "_ZN8recorder3csv11frameHeaderEPcj",
+            "value": 76185,
+            "size": 28,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "13b50b4600920349a422034ca04702b010bd00bf6805000000000000",
+          "normalized_bytes_hex": "13b50b4600920349a422034ca04702b010bd00bf6805000000000000",
+          "relocations": [
+            {
+              "offset": 20,
+              "type": 2,
+              "name": "",
+              "section": ".llext.rodata.noreloc"
+            },
+            {
+              "offset": 24,
+              "type": 2,
+              "name": "_ZN8recorder3csv12_GLOBAL__N_17publishEPKcjPcj",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        },
+        "_ZN8recorder3csv11eventHeaderEPcj": {
+          "symbol": {
+            "name": "_ZN8recorder3csv11eventHeaderEPcj",
+            "value": 76569,
+            "size": 28,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "13b50b46009203493622034ca04702b010bd00bf3105000000000000",
+          "normalized_bytes_hex": "13b50b46009203493622034ca04702b010bd00bf3105000000000000",
+          "relocations": [
+            {
+              "offset": 20,
+              "type": 2,
+              "name": "",
+              "section": ".llext.rodata.noreloc"
+            },
+            {
+              "offset": 24,
+              "type": 2,
+              "name": "_ZN8recorder3csv12_GLOBAL__N_17publishEPKcjPcj",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        },
+        "_ZN3app12unoQDumpPortERN8recorder4dump12UnoQDumpPortE": {
+          "symbol": {
+            "name": "_ZN3app12unoQDumpPortERN8recorder4dump12UnoQDumpPortE",
+            "value": 477,
+            "size": 40,
+            "bind": 1,
+            "type": 2,
+            "other": 0,
+            "section_index": 4,
+            "section": ".text"
+          },
+          "bytes_hex": "10b50446054b01604360054b0c3040f8043c044b9847204610bd00bf000000000000000000000000",
+          "normalized_bytes_hex": "10b50446054b01604360054b0c3040f8043c044b9847204610bd00bf000000000000000000000000",
+          "relocations": [
+            {
+              "offset": 28,
+              "type": 2,
+              "name": "_ZN3app12_GLOBAL__N_15beginEPvRKN8recorder4dump10SetupGrantE",
+              "section": ".text"
+            },
+            {
+              "offset": 32,
+              "type": 2,
+              "name": "_ZN3app12_GLOBAL__N_15readyEPv",
+              "section": ".text"
+            },
+            {
+              "offset": 36,
+              "type": 2,
+              "name": "_ZN8recorder4dump12UnoQDumpPort4portEv",
+              "section": ".text"
+            }
+          ],
+          "bss_targets": []
+        }
+      },
+      "owners": {
+        "_ZN12_GLOBAL__N_17runtimeE": 170368,
+        "_ZN12_GLOBAL__N_17sourcesE": 848,
+        "_ZN12_GLOBAL__N_19dump_portE": 204
+      },
+      "memory": {
+        "account": {
+          "path": "C:\\Users\\narut\\OneDrive\\Desktop\\Project\\techbots_Sumo_Robots\\state\\analysis\\P2_app_dump_raw\\target_96c80701_match-immediate\\app.ino.elf",
+          "sha256": "c389bcbee429f817c7218a516538dc47c0e140bbf8d0f18f1ef95f23d5afee0d",
+          "bytes": 171512,
+          "sections": [
+            {
+              "name_offset": 0,
+              "type": 0,
+              "flags": 0,
+              "address": 0,
+              "offset": 0,
+              "size": 0,
+              "link": 0,
+              "info": 0,
+              "alignment": 0,
+              "entry_size": 0,
+              "index": 0,
+              "name": ""
+            },
+            {
+              "name_offset": 31,
+              "type": 1,
+              "flags": 2,
+              "address": 0,
+              "offset": 56,
+              "size": 3772,
+              "link": 0,
+              "info": 0,
+              "alignment": 8,
+              "entry_size": 0,
+              "index": 1,
+              "name": ".rodata"
+            },
+            {
+              "name_offset": 27,
+              "type": 9,
+              "flags": 64,
+              "address": 0,
+              "offset": 155736,
+              "size": 3200,
+              "link": 12,
+              "info": 1,
+              "alignment": 4,
+              "entry_size": 8,
+              "index": 2,
+              "name": ".rel.rodata"
+            },
+            {
+              "name_offset": 39,
+              "type": 1,
+              "flags": 2,
+              "address": 3772,
+              "offset": 3828,
+              "size": 2289,
+              "link": 0,
+              "info": 0,
+              "alignment": 4,
+              "entry_size": 0,
+              "index": 3,
+              "name": ".llext.rodata.noreloc"
+            },
+            {
+              "name_offset": 65,
+              "type": 1,
+              "flags": 6,
+              "address": 0,
+              "offset": 6120,
+              "size": 83088,
+              "link": 0,
+              "info": 0,
+              "alignment": 8,
+              "entry_size": 0,
+              "index": 4,
+              "name": ".text"
+            },
+            {
+              "name_offset": 61,
+              "type": 9,
+              "flags": 64,
+              "address": 0,
+              "offset": 158936,
+              "size": 11816,
+              "link": 12,
+              "info": 4,
+              "alignment": 4,
+              "entry_size": 8,
+              "index": 5,
+              "name": ".rel.text"
+            },
+            {
+              "name_offset": 71,
+              "type": 1,
+              "flags": 1,
+              "address": 83088,
+              "offset": 89208,
+              "size": 0,
+              "link": 0,
+              "info": 0,
+              "alignment": 1,
+              "entry_size": 0,
+              "index": 6,
+              "name": ".static_thread_data_area"
+            },
+            {
+              "name_offset": 96,
+              "type": 8,
+              "flags": 3,
+              "address": 83088,
+              "offset": 89208,
+              "size": 171472,
+              "link": 0,
+              "info": 0,
+              "alignment": 8,
+              "entry_size": 0,
+              "index": 7,
+              "name": ".bss"
+            },
+            {
+              "name_offset": 105,
+              "type": 1,
+              "flags": 2,
+              "address": 254560,
+              "offset": 89208,
+              "size": 8,
+              "link": 0,
+              "info": 0,
+              "alignment": 4,
+              "entry_size": 0,
+              "index": 8,
+              "name": ".exported_sym"
+            },
+            {
+              "name_offset": 101,
+              "type": 9,
+              "flags": 64,
+              "address": 0,
+              "offset": 170752,
+              "size": 16,
+              "link": 12,
+              "info": 8,
+              "alignment": 4,
+              "entry_size": 8,
+              "index": 9,
+              "name": ".rel.exported_sym"
+            },
+            {
+              "name_offset": 123,
+              "type": 14,
+              "flags": 3,
+              "address": 254568,
+              "offset": 89216,
+              "size": 4,
+              "link": 0,
+              "info": 0,
+              "alignment": 4,
+              "entry_size": 4,
+              "index": 10,
+              "name": ".init_array"
+            },
+            {
+              "name_offset": 119,
+              "type": 9,
+              "flags": 64,
+              "address": 0,
+              "offset": 170768,
+              "size": 8,
+              "link": 12,
+              "info": 10,
+              "alignment": 4,
+              "entry_size": 8,
+              "index": 11,
+              "name": ".rel.init_array"
+            },
+            {
+              "name_offset": 1,
+              "type": 2,
+              "flags": 0,
+              "address": 0,
+              "offset": 89220,
+              "size": 34432,
+              "link": 13,
+              "info": 1427,
+              "alignment": 4,
+              "entry_size": 16,
+              "index": 12,
+              "name": ".symtab"
+            },
+            {
+              "name_offset": 9,
+              "type": 3,
+              "flags": 0,
+              "address": 0,
+              "offset": 123652,
+              "size": 32082,
+              "link": 0,
+              "info": 0,
+              "alignment": 1,
+              "entry_size": 0,
+              "index": 13,
+              "name": ".strtab"
+            },
+            {
+              "name_offset": 17,
+              "type": 3,
+              "flags": 0,
+              "address": 0,
+              "offset": 170776,
+              "size": 135,
+              "link": 0,
+              "info": 0,
+              "alignment": 1,
+              "entry_size": 0,
+              "index": 14,
+              "name": ".shstrtab"
+            }
+          ],
+          "section_header_offset": 170912,
+          "compiler_payload": 258344,
+          "nominal_compiler_remaining": 3800,
+          "global_func_object_count": 517,
+          "undefined": [
+            "__device_dts_ord_100",
+            "__device_dts_ord_105",
+            "__device_dts_ord_109",
+            "__device_dts_ord_114",
+            "__device_dts_ord_120",
+            "__device_dts_ord_123",
+            "__device_dts_ord_17",
+            "__device_dts_ord_233",
+            "__device_dts_ord_30",
+            "__device_dts_ord_34",
+            "__device_dts_ord_40",
+            "__device_dts_ord_54",
+            "__device_dts_ord_61",
+            "__device_dts_ord_64",
+            "__device_dts_ord_65",
+            "__device_dts_ord_66",
+            "__device_dts_ord_70",
+            "__device_dts_ord_73",
+            "__device_dts_ord_78",
+            "__device_dts_ord_83",
+            "__device_dts_ord_88",
+            "__device_dts_ord_89",
+            "__device_dts_ord_9",
+            "__device_dts_ord_90",
+            "__device_dts_ord_91",
+            "__device_dts_ord_92",
+            "__device_dts_ord_93",
+            "__device_dts_ord_94",
+            "__device_dts_ord_95",
+            "__heap_end",
+            "__heap_start",
+            "__real___aeabi_d2f",
+            "__real___aeabi_d2iz",
+            "__real___aeabi_d2lz",
+            "__real___aeabi_d2uiz",
+            "__real___aeabi_dadd",
+            "__real___aeabi_dcmpeq",
+            "__real___aeabi_dcmpge",
+            "__real___aeabi_dcmpgt",
+            "__real___aeabi_dcmple",
+            "__real___aeabi_dcmplt",
+            "__real___aeabi_dcmpun",
+            "__real___aeabi_ddiv",
+            "__real___aeabi_dmul",
+            "__real___aeabi_dsub",
+            "__real___aeabi_f2d",
+            "__real___aeabi_f2iz",
+            "__real___aeabi_f2uiz",
+            "__real___aeabi_fadd",
+            "__real___aeabi_fcmpeq",
+            "__real___aeabi_fcmpge",
+            "__real___aeabi_fcmpgt",
+            "__real___aeabi_fcmple",
+            "__real___aeabi_fcmplt",
+            "__real___aeabi_fcmpun",
+            "__real___aeabi_fdiv",
+            "__real___aeabi_fmul",
+            "__real___aeabi_fsub",
+            "__real___aeabi_i2d",
+            "__real___aeabi_i2f",
+            "__real___aeabi_idiv",
+            "__real___aeabi_idivmod",
+            "__real___aeabi_l2d",
+            "__real___aeabi_l2f",
+            "__real___aeabi_ldivmod",
+            "__real___aeabi_read_tp",
+            "__real___aeabi_ui2d",
+            "__real___aeabi_ui2f",
+            "__real___aeabi_uidiv",
+            "__real___aeabi_uidivmod",
+            "__real___aeabi_ul2d",
+            "__real___aeabi_ul2f",
+            "__real___aeabi_uldivmod",
+            "__real___xpg_strerror_r",
+            "__real__exit",
+            "__real_abort",
+            "__real_acos",
+            "__real_acosf",
+            "__real_asin",
+            "__real_asinf",
+            "__real_atan",
+            "__real_atan2",
+            "__real_atan2f",
+            "__real_atanf",
+            "__real_atexit",
+            "__real_atof",
+            "__real_atoi",
+            "__real_atol",
+            "__real_calloc",
+            "__real_cos",
+            "__real_cosf",
+            "__real_exit",
+            "__real_exp",
+            "__real_exp2",
+            "__real_fmod",
+            "__real_free",
+            "__real_gettimeofday",
+            "__real_isalnum",
+            "__real_isalpha",
+            "__real_iscntrl",
+            "__real_isdigit",
+            "__real_isgraph",
+            "__real_islower",
+            "__real_isprint",
+            "__real_isspace",
+            "__real_isupper",
+            "__real_isxdigit",
+            "__real_ldexp",
+            "__real_log",
+            "__real_log10",
+            "__real_log2",
+            "__real_logf",
+            "__real_malloc",
+            "__real_memchr",
+            "__real_memcmp",
+            "__real_memcpy",
+            "__real_memmem",
+            "__real_memmove",
+            "__real_memset",
+            "__real_pow",
+            "__real_putchar",
+            "__real_puts",
+            "__real_rand",
+            "__real_realloc",
+            "__real_sin",
+            "__real_sinf",
+            "__real_sqrt",
+            "__real_sqrtf",
+            "__real_srand",
+            "__real_strcasecmp",
+            "__real_strcat",
+            "__real_strchr",
+            "__real_strcmp",
+            "__real_strcpy",
+            "__real_strdup",
+            "__real_strlen",
+            "__real_strncmp",
+            "__real_strncpy",
+            "__real_strnlen",
+            "__real_strrchr",
+            "__real_strstr",
+            "__real_strtod",
+            "__real_strtok",
+            "__real_strtol",
+            "__real_strtoul",
+            "__real_tan",
+            "__real_tanf",
+            "__real_tolower",
+            "__real_toupper",
+            "__real_vprintf",
+            "__real_vsnprintf",
+            "__real_vsprintf",
+            "__real_vsscanf",
+            "_device_list_end",
+            "_device_list_start",
+            "_ebss",
+            "_edata",
+            "_sbss",
+            "_sdata",
+            "_sidata",
+            "analog_reference",
+            "kheap_llext_heap",
+            "kheap_llext_heap_size",
+            "matrixBegin",
+            "matrixGrayscaleWrite",
+            "matrixSetGrayscaleBits",
+            "pinctrl_configure_pins",
+            "pinctrl_lookup_state",
+            "printk",
+            "sys_clock_cycle_get_64",
+            "z_impl_device_init",
+            "z_impl_device_is_ready",
+            "z_impl_k_thread_create",
+            "z_impl_k_thread_name_set",
+            "z_impl_k_uptime_ticks",
+            "z_impl_k_yield"
+          ],
+          "init": [
+            {
+              "section": ".init_array",
+              "offset": 0,
+              "type": 2,
+              "name": "_GLOBAL__sub_I_setup",
+              "symbol_section": ".text",
+              "symbol_type": 2,
+              "symbol_value": 57
+            }
+          ],
+          "fini": [],
+          "copied_regions": [
+            {
+              "name": ".rodata",
+              "payload": 3772,
+              "alignment": 8,
+              "prepad": 0,
+              "retained_chunk": 3784
+            },
+            {
+              "name": ".text",
+              "payload": 83088,
+              "alignment": 8,
+              "prepad": 0,
+              "retained_chunk": 83096
+            },
+            {
+              "name": ".bss",
+              "payload": 171472,
+              "alignment": 8,
+              "prepad": 0,
+              "retained_chunk": 171480
+            },
+            {
+              "name": ".exported_sym",
+              "payload": 8,
+              "alignment": 4,
+              "prepad": 0,
+              "retained_chunk": 16
+            },
+            {
+              "name": ".init_array",
+              "payload": 4,
+              "alignment": 4,
+              "prepad": 0,
+              "retained_chunk": 8
+            }
+          ],
+          "metadata_chunks": {
+            "extension": 200,
+            "section_map": 128,
+            "global_symbols": 4144,
+            "export_copy": 16,
+            "initial_bookkeeping": 88
+          },
+          "conditional_pristine_peak_consumption": 262960,
+          "conditional_pristine_peak_free_span": -816,
+          "conditional_largest_payload": -820,
+          "limitation": "Conditional pristine-pool source model, not actual load/free-memory/WCET evidence"
+        },
+        "aligned_peeks": [
+          {
+            "name": ".llext.rodata.noreloc",
+            "offset": 3828,
+            "alignment": 4,
+            "bytes": 2289
+          },
+          {
+            "name": ".symtab",
+            "offset": 89220,
+            "alignment": 4,
+            "bytes": 34432
+          },
+          {
+            "name": ".strtab",
+            "offset": 123652,
+            "alignment": 1,
+            "bytes": 32082
+          },
+          {
+            "name": ".shstrtab",
+            "offset": 170776,
+            "alignment": 1,
+            "bytes": 135
+          }
+        ],
+        "copied_region_chunks": 258384,
+        "before_temporary_symbols": 258800,
+        "before_symbols_free_span": 3344,
+        "before_symbols_largest_payload": 3340,
+        "temporary_symbols_request": 4136,
+        "temporary_symbols_chunk": 4144,
+        "temporary_symbols_fit": false,
+        "temporary_symbols_chunk_deficit": 800,
+        "complete_peak_deficit": 816,
+        "conditional_largest_after_peak": null,
+        "interpretation": "Pinned pristine-pool/persistent-peek model only; no load/freeRAM/WCET measured"
+      },
+      "native_exports": 39,
+      "aeabi_exports": 42
+    }
+  }
+}

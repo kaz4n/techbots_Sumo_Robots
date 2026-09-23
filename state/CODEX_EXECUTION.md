@@ -28,9 +28,12 @@ rejection and fresh same-model review PASS.46new+78established tooling tests
 previously passed unchanged; no unnecessary rerun. Original control failure saved.
 Read P2_app_build_validation.md and acceptance_review.md.
 
-Current next P2 task: actual app dump attachment/terminal cancellation with
-independent tests. Post-STOP local service reset/source lifecycle and calibration
-snippet delivery remain explicit subsequent dependencies. No physical gate passed.
+D101 actual Runtime dump attachment implemented/host-tested; fullnormal/san
+1423main+178Gate PASS. Source83600858 MATCH257784B compiles, but262400B
+conditional loaderpeak exceeds pool256B (D101-R1 BLOCKER). Read validation/review.
+Next: lossless frame/status packing with explicit read-API migration, independent
+tests and final target/loader audits. Then post-STOP local service/source lifetime
+and calibration snippet delivery. Seven inertkeys await final reviewed refresh.
 
 Lastknown MCU remains D0911502e948 synthetic recorder, seveninertkeys unchanged.
 Physical acceptance, loadedRAM/full800us, SC-A circuit, SC-AJ clock, nativeUART/

@@ -458,3 +458,9 @@ F112 final software disposition 2026-09-23T16:49:58+04:00: fresh separate same-m
 | ID | Question | Observed answer | Source | Confidence | Hardware-checked |
 |---|---|---|---|---|---|
 | F-124 | Does the corrected app-only build policy work on the pinned board toolchain? |All3mode builds exit0:248308B inert and248684B MATCH. Exact82sources/9ELFs/3packages audited; only3expected motor sections change in MATCH; startup/176imports preserved. Explicit-library fixed0/stock-control compile and reject as required. Fresh same-model review PASS; initial forced1 experiment failure retained. | analysis/P2_app_build_validation.md,acceptance_audit.md,acceptance_raw,library_raw; reviews/P2_app_acceptance_review.md/raw | TARGET-COMPILED/INDEPENDENT-REVIEW-PASS within build-policy scope | Board Linux compile/files only; no upload/MCU/run, measured loadedRAM/full800us or physical/human gate. |
+
+## D101 integrated dump checkpoint,2026-09-23
+
+| ID | Question | Observed answer | Source | Confidence | Hardware-checked |
+|---|---|---|---|---|---|
+| F-125 | Does actual Runtime now attach the recorder dump, and does its target fit? | Post-Gate attachment/abort tests pass, fullnormal/san1423main+178Gate and separate review tests pass. Initial source exceeds modeled loaderpool432B default/816B MATCH. Finalcache83600858 MATCH compiles257784B; modeled262400B peak remains256B over. | analysis/P2_app_dump_validation.md,target_audit.md,raw; reviews/P2_app_dump_review.md/raw | HOST-TESTED/TARGET-COMPILED; loader-capacity BLOCKER | No upload/load/MCU/reset, actual UART/freeRAM/WCET, physical or human gate. |

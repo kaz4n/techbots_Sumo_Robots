@@ -783,3 +783,5 @@ f5f8f34 complete; next actual Runtime dump boundary defined in contract and publ
 headers before implementation. Optional fixed owner, real MotorGate receipt,
 existing Transfer semantics and complete timing; independent tests next. No
 physical/loadedRAM/gate claim. | contract=this commit
+
+2026-09-23 P2 D101 actual Runtime dump attachment/abort IMPLEMENTED HOST-TESTED: fullnormal/san1423main+178Gate and independent review tests PASS; cache-only MATCH83600858 TARGET-COMPILED257784B but conditional loader262400B exceeds262144 by256B, D101-R1 BLOCKER open. Evidence P2_app_dump_validation.md/raw/review; no upload/gate. Next lossless frame packing; commit recorded in Git.

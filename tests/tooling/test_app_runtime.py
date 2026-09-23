@@ -21,7 +21,8 @@ from unittest import mock
 
 ROOT = Path(__file__).resolve().parents[2]
 NATIVE = ROOT / 'tests/native_app_runtime'
-HAL = ('motors.cpp', 'recorder.cpp', 'recorder_frames.cpp', 'power_inputs.cpp',
+HAL = ('motors.cpp', 'recorder.cpp', 'recorder_frames.cpp',
+       'recorder_csv.cpp', 'recorder_dump.cpp', 'power_inputs.cpp',
        'ui.cpp', 'imu_heading.cpp', 'imu_adapter.cpp',
        'line_qtr_adapter.cpp', 'qtr_cal.cpp', 'ui_display.cpp')
 
@@ -108,6 +109,7 @@ class AppRuntimeTests(unittest.TestCase):
         sources = sorted((source / 'core').glob('*.cpp'))
         sources += [source / 'hal' / name for name in HAL]
         sources += [source / 'app/transaction.cpp', source / 'app/runtime.cpp', source / 'app/runtime_inputs.cpp',
+                    source / 'app/runtime_dump.cpp',
                     ROOT / 'tests/test_app_runtime.cpp', ROOT / 'tests/test_app_projection.cpp',
                     NATIVE / 'allocation_probe.cc']
         args = [*self.base, '-I', source, f'-DMOTORS_ALLOWED={allowed}', f'-DMATCH={allowed}',

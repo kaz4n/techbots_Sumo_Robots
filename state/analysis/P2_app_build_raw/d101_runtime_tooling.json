@@ -1,0 +1,22 @@
+{
+  "argv": [
+    "wsl",
+    "-d",
+    "Ubuntu",
+    "--",
+    "env",
+    "SUMO_APP_RUNTIME_RECEIPT_DIR=state/analysis/P2_app_dump_raw/runtime_tooling",
+    "python3",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests/tooling",
+    "-p",
+    "test_app_runtime.py",
+    "-v"
+  ],
+  "returncode": 1,
+  "start_utc": "2026-09-23T17:38:49.442989+00:00",
+  "end_utc": "2026-09-23T17:39:59.870708+00:00"
+}

@@ -1,0 +1,38 @@
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_app_dump.cpp: In function ‘void DOCTEST_ANON_FUNC_186()’:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_app_dump.cpp:276:42: error: no matching function for call to ‘recorder::dump::Transfer::Transfer(app::DumpPort)’
+  276 |     dump::Transfer transfer(second.port()); const auto idle = transfer.report();
+      |                                          ^
+In file included from /dev/shm/sumo-d101-fb04eoo5/configured/src/app/../hal/dump_uart_unoq.h:5,
+                 from /dev/shm/sumo-d101-fb04eoo5/configured/src/app/dump_port.h:5,
+                 from /dev/shm/sumo-d101-fb04eoo5/configured/src/app/runtime.h:6,
+                 from /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/fixtures/app_dump/../app_runtime_fixture.h:5,
+                 from /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/fixtures/app_dump/fixture.h:5,
+                 from /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_app_dump.cpp:5:
+/dev/shm/sumo-d101-fb04eoo5/configured/src/app/../hal/recorder_dump.h:34:11: note: candidate: ‘recorder::dump::Transfer::Transfer(const recorder::dump::Port&)’
+   34 |  explicit Transfer(const Port& port) : port_(port) {}
+      |           ^~~~~~~~
+/dev/shm/sumo-d101-fb04eoo5/configured/src/app/../hal/recorder_dump.h:34:32: note:   no known conversion for argument 1 from ‘app::DumpPort’ to ‘const recorder::dump::Port&’
+   34 |  explicit Transfer(const Port& port) : port_(port) {}
+      |                    ~~~~~~~~~~~~^~~~
+/dev/shm/sumo-d101-fb04eoo5/configured/src/app/../hal/recorder_dump.h:32:7: note: candidate: ‘constexpr recorder::dump::Transfer::Transfer(const recorder::dump::Transfer&)’
+   32 | class Transfer {
+      |       ^~~~~~~~
+/dev/shm/sumo-d101-fb04eoo5/configured/src/app/../hal/recorder_dump.h:32:7: note:   no known conversion for argument 1 from ‘app::DumpPort’ to ‘const recorder::dump::Transfer&’
+/dev/shm/sumo-d101-fb04eoo5/configured/src/app/../hal/recorder_dump.h:32:7: note: candidate: ‘constexpr recorder::dump::Transfer::Transfer(recorder::dump::Transfer&&)’
+/dev/shm/sumo-d101-fb04eoo5/configured/src/app/../hal/recorder_dump.h:32:7: note:   no known conversion for argument 1 from ‘app::DumpPort’ to ‘recorder::dump::Transfer&&’
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_app_dump.cpp: In function ‘void DOCTEST_ANON_FUNC_194()’:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_app_dump.cpp:284:42: error: no matching function for call to ‘recorder::dump::Transfer::Transfer(app::DumpPort)’
+  284 |     dump::Transfer transfer(second.port()); const auto actual = rig.robot();
+      |                                          ^
+/dev/shm/sumo-d101-fb04eoo5/configured/src/app/../hal/recorder_dump.h:34:11: note: candidate: ‘recorder::dump::Transfer::Transfer(const recorder::dump::Port&)’
+   34 |  explicit Transfer(const Port& port) : port_(port) {}
+      |           ^~~~~~~~
+/dev/shm/sumo-d101-fb04eoo5/configured/src/app/../hal/recorder_dump.h:34:32: note:   no known conversion for argument 1 from ‘app::DumpPort’ to ‘const recorder::dump::Port&’
+   34 |  explicit Transfer(const Port& port) : port_(port) {}
+      |                    ~~~~~~~~~~~~^~~~
+/dev/shm/sumo-d101-fb04eoo5/configured/src/app/../hal/recorder_dump.h:32:7: note: candidate: ‘constexpr recorder::dump::Transfer::Transfer(const recorder::dump::Transfer&)’
+   32 | class Transfer {
+      |       ^~~~~~~~
+/dev/shm/sumo-d101-fb04eoo5/configured/src/app/../hal/recorder_dump.h:32:7: note:   no known conversion for argument 1 from ‘app::DumpPort’ to ‘const recorder::dump::Transfer&’
+/dev/shm/sumo-d101-fb04eoo5/configured/src/app/../hal/recorder_dump.h:32:7: note: candidate: ‘constexpr recorder::dump::Transfer::Transfer(recorder::dump::Transfer&&)’
+/dev/shm/sumo-d101-fb04eoo5/configured/src/app/../hal/recorder_dump.h:32:7: note:   no known conversion for argument 1 from ‘app::DumpPort’ to ‘recorder::dump::Transfer&&’

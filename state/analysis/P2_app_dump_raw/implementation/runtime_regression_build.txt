@@ -1,0 +1,16 @@
+/usr/bin/ld: /tmp/ccnSMIgZ.o: in function `imu::Setup::advance(unsigned int)':
+imu.cpp:(.text+0x69e): undefined reference to `imu::Bus::begin()'
+/usr/bin/ld: imu.cpp:(.text+0x77d): undefined reference to `imu::Bus::readRegister(imu::Register)'
+/usr/bin/ld: imu.cpp:(.text+0x7b0): undefined reference to `imu::Bus::writeRegister(imu::Register, unsigned char)'
+/usr/bin/ld: imu.cpp:(.text+0x7c8): undefined reference to `imu::Bus::readMotion()'
+/usr/bin/ld: /tmp/ccxdC6f9.o: in function `imu::Acquirer::read(unsigned int)':
+imu_acquisition.cpp:(.text+0xaf6): undefined reference to `imu::Bus::acquireMotion()'
+/usr/bin/ld: imu_acquisition.cpp:(.text+0x1023): undefined reference to `imu::Bus::acquireMotion()'
+/usr/bin/ld: /tmp/ccx9WOj7.o: in function `imu::Acquirer::abortRead(imu::SampleFault)':
+imu_acquisition_async.cpp:(.text+0x455): undefined reference to `imu::Bus::cancelMotion()'
+/usr/bin/ld: /tmp/ccx9WOj7.o: in function `imu::Acquirer::beginRead(unsigned int)':
+imu_acquisition_async.cpp:(.text+0x96e): undefined reference to `imu::Bus::beginMotion()'
+/usr/bin/ld: /tmp/ccx9WOj7.o: in function `imu::Acquirer::advanceRead(unsigned int)':
+imu_acquisition_async.cpp:(.text+0xe1c): undefined reference to `imu::Bus::advanceMotion()'
+collect2: error: ld returned 1 exit status
+exit_code=1

@@ -47,6 +47,11 @@ readiness; Transfer's fuller D090 eligibility checks still apply. A current fail
 motor receipt must cancel active transport immediately without sampling readiness
 or offering further bytes; no source read or forged next Robot tick is needed.
 Do not infer actual inhibition solely from core output intention.
+For that explicit bad-receipt exception, call Transfer::abort and skip its step
+for this result: preserve CANCELLED/CONTEXT when active, otherwise its passive
+report. Do not relabel the motor failure LINUX_UNAVAILABLE or replay that intent.
+Runtime's existing control/fault lifecycle stays unchanged; the next actual result
+is handled normally. D090 permits token gaps while no transfer is active.
 
 Transfer receives every actual result while dump is enabled, including START,
 COUNTDOWN, STOP and faults that invalidate IDLE authority. A genuine fresh LOG_DUMP
@@ -90,3 +95,9 @@ attempt can use existing countdown cancellation -> real tail -> IDLE. Local
 postmatch service reset/source lifetime is the next explicit task, followed by
 calibration snippet delivery under a separately defined transport contract.
 Do not claim full B8/physical UART, measured loadedRAM/800us or any human gate.
+
+Target-memory follow-up: replace Runtime's duplicate full prior RobotResult with
+only prior ui_state (initial BOOT) and calibration-context (initial false), at
+the existing postDecision copy point. Same-epoch readers use the Transaction
+result directly. This preserves the interface/lifecycle and recorder limits;
+its separately reviewed cache reduction does not by itself close D101-R1.

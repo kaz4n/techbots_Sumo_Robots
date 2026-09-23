@@ -1,0 +1,57 @@
+default-0: [doctest] test cases:    37 |    37 passed | 0 failed | 0 skipped | [doctest] assertions: 68688 | 68688 passed | 0 failed |
+default-1: [doctest] test cases:    37 |    37 passed | 0 failed | 0 skipped | [doctest] assertions: 68688 | 68688 passed | 0 failed |
+configured-0: [doctest] test cases:     43 |     43 passed | 0 failed | 0 skipped | [doctest] assertions: 105510 | 105510 passed | 0 failed |
+configured-1: [doctest] test cases:     43 |     43 passed | 0 failed | 0 skipped | [doctest] assertions: 105510 | 105510 passed | 0 failed |
+Tests.test_app_and_inert_bench_stage_shared_runtime_and_native_sources_with_local_includes) ... ERROR
+test_app_upload_modes_refuse_before_target_or_transport_lookup (test_app_runtime.AppRuntimeTests.test_app_upload_modes_refuse_before_target_or_transport_lookup) ... ok
+test_failed_app_match_compile_has_no_upload_or_success (test_app_runtime.AppRuntimeTests.test_failed_app_match_compile_has_no_upload_or_success) ... ERROR
+test_sketch_local_runtime_shadow_refuses_without_transport (test_app_runtime.AppRuntimeTests.test_sketch_local_runtime_shadow_refuses_without_transport) ... ERROR
+
+======================================================================
+ERROR: test_actual_runtime_and_native_public_headers_resolve_staged_without_root_include_flags (test_app_runtime.AppRuntimeTests.test_actual_runtime_and_native_public_headers_resolve_staged_without_root_include_flags)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_app_runtime.py", line 199, in test_actual_runtime_and_native_public_headers_resolve_staged_without_root_include_flags
+    fixture = self.fixture()
+              ^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_app_runtime.py", line 158, in fixture
+    from . import test_tools
+ImportError: attempted relative import with no known parent package
+
+======================================================================
+ERROR: test_app_and_inert_bench_stage_shared_runtime_and_native_sources_with_local_includes (test_app_runtime.AppRuntimeTests.test_app_and_inert_bench_stage_shared_runtime_and_native_sources_with_local_includes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_app_runtime.py", line 171, in test_app_and_inert_bench_stage_shared_runtime_and_native_sources_with_local_includes
+    fixture = self.fixture()
+              ^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_app_runtime.py", line 158, in fixture
+    from . import test_tools
+ImportError: attempted relative import with no known parent package
+
+======================================================================
+ERROR: test_failed_app_match_compile_has_no_upload_or_success (test_app_runtime.AppRuntimeTests.test_failed_app_match_compile_has_no_upload_or_success)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_app_runtime.py", line 226, in test_failed_app_match_compile_has_no_upload_or_success
+    fixture = self.fixture()
+              ^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_app_runtime.py", line 158, in fixture
+    from . import test_tools
+ImportError: attempted relative import with no known parent package
+
+======================================================================
+ERROR: test_sketch_local_runtime_shadow_refuses_without_transport (test_app_runtime.AppRuntimeTests.test_sketch_local_runtime_shadow_refuses_without_transport)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_app_runtime.py", line 217, in test_sketch_local_runtime_shadow_refuses_without_transport
+    fixture = self.fixture()
+              ^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_app_runtime.py", line 158, in fixture
+    from . import test_tools
+ImportError: attempted relative import with no known parent package
+
+----------------------------------------------------------------------
+Ran 6 tests in 65.075s
+
+FAILED (errors=4)

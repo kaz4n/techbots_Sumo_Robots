@@ -42,6 +42,7 @@ add_test(NAME sumox26_host COMMAND sumox26_tests)
 add_executable(motor_gate_enabled_tests ${CORE_SOURCES} ${APP_SOURCES}
   "${CMAKE_CURRENT_SOURCE_DIR}/../tests/test_app_projection.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/../tests/test_app_runtime.cpp"
+  "${CMAKE_CURRENT_SOURCE_DIR}/../tests/test_app_dump.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/../tests/locked/test_motor_halt.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/../tests/test_app_transaction.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/../src/hal/ui.cpp"

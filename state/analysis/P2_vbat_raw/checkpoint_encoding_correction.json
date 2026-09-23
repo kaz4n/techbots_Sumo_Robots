@@ -1,0 +1,5 @@
+{
+  "utc": "2026-09-23T20:33:17.525527+00:00",
+  "failure": "Initial checkpoint update used Windows default cp1252 read_text and raised UnicodeDecodeError before any checkpoint write. Following explicit Git commands still committed D110 contract c3ed3eb.",
+  "correction": "All three checkpoint updates now use ASCII byte anchors and preserve historical bytes. No decode replacement or ledger rewrite."
+}

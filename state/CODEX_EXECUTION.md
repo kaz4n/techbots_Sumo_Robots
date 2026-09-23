@@ -56,11 +56,14 @@ remaining span456B and MATCH2088B. Native27+26methods PASS; unchanged old regist
 assertions pass through the new additive D096 wrapper. No upload or physical claim.
 Read P2_pin_table_validation.md and its final review for precise limitations.
 
-D107 named opponent bench is implemented/host-tested/target-reviewed. Checked
-332787f0 default/Immediate peak4496; generic artifacts rejected and retained.
-All hardware grants false; no upload allowlist addition. D108 corrects geometric
-front display ordering: fullnormal/san1446main+187Gate and exact618d3a96 app
-default/MATCH target/review PASS (138e32e). D109contract/interfaces/config128
-adoptedf786fa5. Bounded one-Reader capture implementation and independent tests
-are in separate parallel contexts; exact policy7new+100old methods and separate
-review PASS. Firmware tests/target/review remain active. No extra hardware requested.
+D107ede85fd opponent bench and D108138e32e display correction are complete in
+software with separate host/target review PASS. D1096563aaa named QTR raw bench
+also passes: firstsource54b0a21b, normal/san32/20131, native/capacity/config/policy,
+exact5c468e20 default/Immediate conditionalpeak32920. See F133 and validation.
+All pad grants false; physical colors/cadence/readout and gates remain pending.
+
+D110c3ed3eb finite battery contract/interfaces/config128 adopted. Independent
+preflight supplies float boundary and public missed-counter saturation oracles.
+Worker currentb5fa7eea; independent tests/policy implementation/target review are
+active. Next: finish verified bench and commit, then remaining named P2 benches.
+MCU remains D104; no extra hardware request or new upload authority.

@@ -1,26 +1,22 @@
-## Active checkpoint - 2026-09-24T00:18:00+04:00
+## Active checkpoint - 2026-09-24T00:34:00+04:00
 
-P2 software active under D051/D075. D107ede85fd and D108138e32e are committed
-with scoped source/host/target reviews PASS. MCU remains frozen D1042bd817c4;
-all physical/PINMAP/EXPLAINED/human gates and full-app measured800us remain open.
+P2 software remains active under D051/D075. D109 committed6563aaa: first54b0a21b
+source, independent normal/san32cases/20131assertions, actualbinding/default,
+capacity profiles and policy107 methods PASS. Exact96-file5c468e20 default/
+Immediate targets share ELFe65ffd46 and conditionalpeak32920. Separate scoped
+review PASS; MINOR newline-evidence claim corrected while preserving original.
+Read P2_qtr_raw_validation.md/final review. Physical/gates remain pending.
 
-D109 contract/publicheaders/config128 adoptedf786fa5 with pre-test observable
-clarifications in P2_qtr_raw_contract.md. Separate contexts now write benchmark
-implementation and independent tests in parallel; test author never reads bodies
-and freezes executable oracles before first run. No hardware grants or upload.
-Checked literalqtr_raw route is implemented: root7new+100old policy methods PASS,
-separate reviewer reruns all107 PASS; finalboardtoolc3dc2e31/policy218cad95.
-Read P2_qtr_raw_preflight.md and current scoped tooling review (firmware/target
-still pending). Counter saturation is source-reviewed, not billions of fake polls.
+D110 contract/interfaces/config128 adoptedc3ed3eb after independent preflight.
+Worker sources frozen, currentb5fa7eea after a pre-execution source-order fix;
+author writes independent tests without body reads. Root owns tools/config/state.
+Next: execute frozen tests, repair findings, checked default/Immediate target
+compiles and exact source/startup/import/loader review; then commit. New policy
+fixtures are frozen and expected red before the literal route addition.
 
-Next: finish actual qtr_raw Runner/Native/sketch and frozen independent tests,
-repair actual findings, compile default/Immediate through checked policy, collect
-exact96-file source/artifacts, and independent source/ELF/loader review. Root
-collector P2_qtr_raw_target_collect.py is prepared, not yet exercised. Preserve
-all partial work and failures. Continue named P2 benches afterward; the vbat
-design inventory is separate read-only input, not another adopted requirement.
-Do not repeat an inert upload, request extra hardware now, fabricate a gate,
-push or tag. Prior checkpoints below are historical.
+MCU remains frozen D1042bd817c4. No upload/reset/run, extra hardware request,
+motor authority, human gate, push or tag. Preserve failures/snapshots and continue
+remaining named P2 benches after this software task. Historical checkpoints follow.
 
 ## Active checkpoint - 2026-09-24T00:04:00+04:00
 

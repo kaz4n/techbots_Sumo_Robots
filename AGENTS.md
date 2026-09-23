@@ -221,3 +221,7 @@ transport and application integration remain separate pending work.
 D-074 permits read-only validation of local CSV evidence files. Keep format
 integrity separate from owner-summary consistency, loss, lifecycle and declared
 provenance. Local hashes never prove hardware origin or a common attempt.
+
+D-075 records the explicit user request to advance P2 HAL software despite
+untested hardware. Host tests and compile-only checks may proceed before human
+acceptance; physical facts/gates and motor-run permission remain unprovided.

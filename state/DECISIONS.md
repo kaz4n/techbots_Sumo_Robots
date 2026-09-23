@@ -837,3 +837,17 @@ Consequence: no firmware/config/locked-test/transport/app change or fabricated
 physical/common-attempt/closure proof. Valid files are not B8 acceptance.
 Independent synthetic fixtures, actual host formatter roundtrip, full relevant
 tooling checks and fresh read-only review are required. No board action/gate.
+
+## D-075 (2026-09-23, user-directed) Resume P2 software before physical acceptance
+Context: user explicitly says hardware has not been checked, prioritizes software
+speed, requests development using working-hardware assumptions and reports board
+connected. This changes the previous no-eligible-work scheduling checkpoint.
+Decision: permit P2 HAL software preparation and host/compile-only verification
+before P0/P1 human acceptance, beginning B4 MotorGate per P2_motor_gate_contract.md.
+This supersedes D016/D068-D074 scheduling exclusions for this development, not
+their evidence limitations. Select conservative checked-port/fault policies under
+D051. Real integration/deployment must retain unresolved electrical/API blockers.
+Consequence: no invented EXPLAINED/PINMAP/GATE record, no physical success, wiring
+change, motor-capable upload/run or relaxed test. Existing gates remain pending.
+Implement actual bounded modules, independent tests and fresh read-only review;
+do not spend this authorization on further bookkeeping-only tasks.

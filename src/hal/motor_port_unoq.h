@@ -21,11 +21,18 @@ private:
                          std::uint32_t pulse);
     static bool settle(void* context);
     static std::uint32_t clockUs(void* context);
+    bool enableOwned() const;
+    bool enableLow() const;
+    bool timerValid(std::uint32_t timer) const;
+    bool bankValid() const;
+    std::uint32_t pwm_indices_[4] = {};
     bool enable_configured_ = false;
     bool enable_low_ = false;
     bool settled_ = false;
     std::uint8_t configured_mask_ = 0U;
     std::uint8_t written_mask_ = 0U;
+    std::uint8_t initialized_timers_ = 0U;
+    std::uint8_t active_channels_ = 0U;
     std::uint32_t pulses_[4] = {};
 };
 } // namespace motors

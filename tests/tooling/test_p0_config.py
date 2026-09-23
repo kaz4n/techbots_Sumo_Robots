@@ -26,6 +26,14 @@ DIAGNOSTIC_DEFAULTS = {
 DIAGNOSTIC_ARRAY_DEFAULTS = {'P0_QTR_PINS[4]': (2, 4, 7, 8)}  # D-065, not PINMAP OK.
 # D-076 copies HARDWARE section 3 proposals; these are not P0 diagnostics or PINMAP OK.
 PROPOSED_PIN_ARRAY_DEFAULTS = {'OPP_INPUT_PINS[7]': (11, 12, 13, 16, 17, 18, 19)}
+# D-077 copies unchanged proposals and selects bounded development defaults.
+NATIVE_MOTOR_DEFAULTS = {
+    'MOTOR_ENABLE_PIN': 10,
+    'MOTOR_PWM_HZ': 10000,
+    'MOTOR_PWM_SETTLE_US': 150,
+    'MOTOR_PWM_SETTLE_MAX_POLLS': 4096,  # Explicit count-name exception, not WCET.
+}
+NATIVE_MOTOR_ARRAY_DEFAULTS = {'MOTOR_PWM_PINS[4]': (3, 5, 6, 9)}
 BEHAVIOR_EXTRA_DEFAULTS = {
     'VBAT_FILTER_MS': 1000,  # B6 one-second time constant.
     'REFLANK_WINDOW_MS': 10000,  # B11.3 existing ten-second rolling window.
@@ -98,7 +106,8 @@ class P0ConfigTests(unittest.TestCase):
         expected = (set(b16_defaults()) | set(DIAGNOSTIC_DEFAULTS) | set(DIAGNOSTIC_ARRAY_DEFAULTS) |
                     set(BEHAVIOR_EXTRA_DEFAULTS) | set(BEHAVIOR_EXTRA_FLOAT_DEFAULTS) |
                     set(BEHAVIOR_DERIVED_TYPES) | set(COUNTDOWN_SERVICE_DEFAULTS) |
-                    set(PROPOSED_PIN_ARRAY_DEFAULTS))
+                    set(PROPOSED_PIN_ARRAY_DEFAULTS) | set(NATIVE_MOTOR_DEFAULTS) |
+                    set(NATIVE_MOTOR_ARRAY_DEFAULTS))
         self.assertEqual(expected, set(config_declarations()))
 
     def test_d076_proposed_opponent_pin_type_values_and_extent_match_hardware3(self):
@@ -112,6 +121,18 @@ class P0ConfigTests(unittest.TestCase):
                 values = tuple(number(value) for value in initializer[1:-1].split(','))
                 self.assertEqual(7, len(values))
                 self.assertEqual(expected, values)
+
+    def test_d077_motor_proposals_and_development_limits_are_explicit(self):
+        declarations = config_declarations()
+        for name, expected in NATIVE_MOTOR_DEFAULTS.items():
+            with self.subTest(native_motor=name):
+                self.assertEqual('std::uint32_t', declarations[name][0])
+                self.assertEqual(expected, number(declarations[name][1]))
+        for name, expected in NATIVE_MOTOR_ARRAY_DEFAULTS.items():
+            kind, initializer = declarations[name]
+            self.assertEqual('std::uint32_t', kind)
+            self.assertTrue(initializer.startswith('{') and initializer.endswith('}'))
+            self.assertEqual(expected, tuple(number(value) for value in initializer[1:-1].split(',')))
 
     def test_b16_literal_categories_and_array_extent_are_preserved(self):
         declarations = config_declarations()

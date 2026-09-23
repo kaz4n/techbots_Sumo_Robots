@@ -16,6 +16,13 @@ ADC state. Whole-application ownership excludes stock ADC1 initialization/APIs,
 ADC4 conversion producers, PA4/DAC1 channel1 users, clock/power changes and all
 concurrent writers. Guards cannot establish absence of an interrupt/thread owner.
 
+A zero-initialized process/boot-lifetime claim flag enforces the single native
+owner after pristine admission and before the first ADC/pad mutation. Never
+clear it on failure, destruction or repeat begin. This also rejects a second
+Reader after an ignored first register write left the peripheral pristine.
+Preownership admission failures do not consume the claim. Tests representing
+fresh boots must isolate production state by process, not add a reset backdoor.
+
 Name unchanged proposed A0/index14 in config, nominal3.3V reference and122/22
 divider ratio. These constants are provisional scaling, not calibration evidence.
 Use14-bit single-ended regular software-triggered, single-rank channel9,
@@ -36,6 +43,11 @@ Require ADC1 stock device never initialized (failed init is also inadmissible),
 ADC1 IRQ disabled/not pending/not active, compatible reset state, RCC/GPIOA ready,
 GPIOA clock and unlocked PA4. ADC1 kernel must remain HCLK160MHz with divider4,
 ASV enabled, stable VOSRange1 and the documented high-supply switch profile.
+At160MHz also require PWR_VOSR EPOD BOOSTEN1/BOOSTRDY1 and the installed
+PLL1MBOOST DIV1 field0 (MSIS4MHz). RM0456 Rev6 10.5.4 pp410–411 requires this
+above55MHz; installed clock_stm32_ll_u5.c496–538/603 supplies the boot setting.
+This EPOD booster is distinct from SYSCFG's analog-switch BOOSTEN, which remains0.
+Only read these controls; never enable a missing global booster from this HAL.
 Check shared selector rather than change it; do not initialize/reset RCC/ADC1 or
 steal ADC4/DAC. ADC4's boot-enabled IRQ113 is permitted, but active conversion,
 calibration/stop/disable or external/continuous conversion configuration is not.

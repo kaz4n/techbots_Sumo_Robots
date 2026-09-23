@@ -35,11 +35,24 @@ public:
     // Bounded native conversion; no last-value cache or second voltage filter.
     Sample read();
 private:
-    // Implementation may add private helpers/state without changing this API.
+    bool controlsOwned() const;
+    Status initialize();
+    Status waitFlag(bool control, std::uint32_t mask, bool set,
+                    std::uint32_t started, std::uint32_t budget, Status timeout);
+    Status waitCalibrationGap();
+    Status sampleStatus(std::uint32_t started) const;
+    Status finishSample(Sample& sample);
+    void fail(Status status);
+    Shutdown stopOwned();
     bool attempted_ = false;
     bool ready_ = false;
     bool owned_ = false;
     bool faulted_ = false;
     Shutdown shutdown_ = Shutdown::NOT_ATTEMPTED;
+    bool divider_set_ = false;
+    bool configured_ = false;
+    bool regulator_ready_ = false;
+    std::uint32_t cr_base_ = 0U;
+    std::uint32_t cr_allowed_ = 0U;
 };
 } // namespace power

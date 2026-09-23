@@ -901,3 +901,14 @@ blocker. Readiness/metadata is not a lock/frequency measurement. Do not turn off
 shared clocks, invent a lock predicate or claim this resolves deployed runtime.
 Physical B5 accuracy, supply/reference/pin verification, tick WCET and all human
 gates remain pending. Only software/compile-only work is authorized here.
+
+
+D078 source-review clarifications (2026-09-23): ADC clock enable is bounded
+admission preparation before meaningful register reads; it alone does not claim
+ownership or justify rollback. After pristine admission, a process/boot-lifetime
+claim latch prevents retry by a new Reader even if the first configuration write
+was ignored. No release/reset hook is introduced. Also require the documented
+EPOD BOOSTEN/BOOSTRDY and stock PLL1MBOOST DIV1 at160MHz (RM10.5.4 pp410–411),
+distinct from the analog-switch booster. These are read-only operating guards;
+no source/timing default or shared clock/power setting changes. Targeted tests
+preserve actual readiness-loss and ignored-write draft failures before repair.

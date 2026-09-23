@@ -19,7 +19,8 @@ add_executable(sumox26_tests ${CORE_SOURCES} ${TEST_SOURCES}
   "${CMAKE_CURRENT_SOURCE_DIR}/../src/hal/imu_acquisition.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/../src/hal/imu_heading.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/../src/hal/imu_adapter.cpp"
-  "${CMAKE_CURRENT_SOURCE_DIR}/../src/hal/line_qtr_adapter.cpp")
+  "${CMAKE_CURRENT_SOURCE_DIR}/../src/hal/line_qtr_adapter.cpp"
+  "${CMAKE_CURRENT_SOURCE_DIR}/../src/hal/ui.cpp")
 target_include_directories(sumox26_tests PRIVATE ../src)
 target_include_directories(sumox26_tests SYSTEM PRIVATE third_party)
 target_compile_definitions(sumox26_tests PRIVATE DOCTEST_CONFIG_NO_EXCEPTIONS)
@@ -32,8 +33,10 @@ add_test(NAME sumox26_host COMMAND sumox26_tests)
 
 # Host-only active-path test build: never staged, uploaded or used as firmware.
 add_executable(motor_gate_enabled_tests ${CORE_SOURCES}
+  "${CMAKE_CURRENT_SOURCE_DIR}/../src/hal/ui.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/../src/hal/motors.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/../tests/locked/test_motor_gate.cpp"
+  "${CMAKE_CURRENT_SOURCE_DIR}/../tests/test_button_motor_gate.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/motor_gate_main.cpp")
 target_include_directories(motor_gate_enabled_tests PRIVATE ../src)
 target_include_directories(motor_gate_enabled_tests SYSTEM PRIVATE third_party)

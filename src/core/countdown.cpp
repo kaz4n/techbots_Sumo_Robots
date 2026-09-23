@@ -37,27 +37,32 @@ void Gate::reset() {
 }
 
 ButtonEvents Buttons::step(std::uint32_t t_us, core::ButtonLevel level) {
+    return stepObserved(t_us, t_us, level);
+}
+
+ButtonEvents Buttons::stepObserved(std::uint32_t decision_us, std::uint32_t source_us,
+                                  core::ButtonLevel level) {
     ButtonEvents result;
     if (!initialized_) {
         initialized_ = true;
         candidate_ = stable_ = level;
-        candidate_since_us_ = t_us;
+        candidate_since_us_ = source_us;
         armed_ = level == core::ButtonLevel::NONE;
         return result;
     }
     if (level != candidate_) {
         candidate_ = level;
-        candidate_since_us_ = t_us;
+        candidate_since_us_ = source_us;
     }
     if (candidate_ == stable_ ||
-        t_us - candidate_since_us_ < config::BTN_DEBOUNCE_MS * 1000U) {
+        source_us - candidate_since_us_ < config::BTN_DEBOUNCE_MS * 1000U) {
         return result;
     }
     const bool was_mode = stable_ == core::ButtonLevel::MODE ||
                           stable_ == core::ButtonLevel::BOTH;
     stable_ = candidate_;
     result.edge_us = candidate_since_us_;
-    result.qualified_us = t_us;
+    result.qualified_us = decision_us;
     if (stable_ == core::ButtonLevel::NONE) {
         result.start_release = pressed_;
         pressed_ = false;
@@ -78,23 +83,32 @@ void Buttons::reset() {
 }
 
 bool StopHold::step(std::uint32_t t_us, core::ButtonLevel level) {
+    return stepObserved(t_us, t_us, level);
+}
+
+bool StopHold::stepObserved(std::uint32_t decision_us, std::uint32_t source_us,
+                            core::ButtonLevel level) {
     static_assert(config::BTN_DEBOUNCE_MS > 0U && config::BTN_LONG_MS > 0U);
     static_assert(config::BTN_DEBOUNCE_MS <= std::numeric_limits<std::uint32_t>::max() / 1000U);
     static_assert(config::BTN_LONG_MS <= std::numeric_limits<std::uint32_t>::max() / 1000U);
-    const std::uint32_t elapsed_us = t_us - last_us_;
-    last_us_ = t_us;
+    const std::uint32_t elapsed_us = source_us - last_us_;
     if (stage_ == Stage::STOPPED) return true;
     // An actual release takes priority over a deadline not yet observed.
     if (level != core::ButtonLevel::BOTH) {
         stage_ = Stage::IDLE;
         age_us_ = 0U;
+        source_before_anchor_ = false;
         return false;
     }
     if (stage_ == Stage::IDLE) {
         stage_ = Stage::DEBOUNCE;
         age_us_ = 0U;
+        last_us_ = source_us;
         return false;
     }
+    if (source_before_anchor_ && elapsed_us >= 0x80000000U) return false;
+    source_before_anchor_ = false;
+    last_us_ = source_us;
     const std::uint32_t required_us = (stage_ == Stage::DEBOUNCE ?
         config::BTN_DEBOUNCE_MS : config::BTN_LONG_MS) * 1000U;
     const auto age = static_cast<std::uint64_t>(age_us_) + elapsed_us;
@@ -105,6 +119,8 @@ bool StopHold::step(std::uint32_t t_us, core::ButtonLevel level) {
     age_us_ = 0U;
     if (stage_ == Stage::DEBOUNCE) {
         stage_ = Stage::HOLDING;
+        last_us_ = decision_us;
+        source_before_anchor_ = source_us != decision_us;
         return false;
     }
     stage_ = Stage::STOPPED;
@@ -113,15 +129,31 @@ bool StopHold::step(std::uint32_t t_us, core::ButtonLevel level) {
 
 void StopHold::reset() { *this = StopHold{}; }
 
+void StopHold::interrupt() {
+    if (stage_ != Stage::STOPPED) reset();
+}
+
 Result Controller::step(const core::Inputs& inputs, bool stop_requested,
                         bool allow_match_start) {
-    events_ = buttons_.step(inputs.t_us, inputs.button_level);
-    const bool logical_stop = stop_.step(inputs.t_us, inputs.button_level);
+    return stepObserved(inputs, {inputs.t_us, true, false, true},
+                        stop_requested, allow_match_start);
+}
+
+Result Controller::stepObserved(const core::Inputs& inputs, const ButtonTiming& timing,
+                                bool stop_requested, bool allow_match_start) {
+    events_ = {};
+    if (timing.restart) { buttons_.reset(); stop_.interrupt(); }
+    if (!timing.start_ready) buttons_.reset();
+    if (timing.fresh) {
+        if (timing.start_ready)
+            events_ = buttons_.stepObserved(inputs.t_us, timing.observation_us, inputs.button_level);
+        logical_stop_ = stop_.stepObserved(inputs.t_us, timing.observation_us, inputs.button_level);
+    }
     // A release pulse is generated at this qualifying tick. Using the same tick
     // for Gate prevents raw-edge backdating, including after delayed calls.
     return gate_.step(inputs.t_us,
                       {allow_match_start && events_.start_release,
-                       events_.mode_press, stop_requested || logical_stop});
+                       events_.mode_press, stop_requested || logical_stop_});
 }
 
 ButtonEvents Controller::buttonEvents() const { return events_; }
@@ -131,6 +163,7 @@ void Controller::reset() {
     buttons_.reset();
     gate_.reset();
     events_ = {};
+    logical_stop_ = false;
 }
 
 bool Services::start(std::uint32_t release_us, float previous_bias_dps) {
@@ -276,11 +309,18 @@ void Services::reset() { *this = Services{}; }
 LifecycleResult Lifecycle::step(const ServiceSample& sample, core::ButtonLevel button,
                                 float previous_bias_dps, bool stop_requested,
                                 bool allow_match_start) {
+    return stepObserved(sample, button, {sample.t_us, true, false, true},
+                        previous_bias_dps, stop_requested, allow_match_start);
+}
+
+LifecycleResult Lifecycle::stepObserved(const ServiceSample& sample, core::ButtonLevel button,
+    const ButtonTiming& timing, float previous_bias_dps, bool stop_requested,
+    bool allow_match_start) {
     core::Inputs inputs;
     inputs.t_us = sample.t_us;
     inputs.button_level = button;
     LifecycleResult result;
-    result.gate = controller_.step(inputs, stop_requested, allow_match_start);
+    result.gate = controller_.stepObserved(inputs, timing, stop_requested, allow_match_start);
     if (result.gate.start_release) {
         service_start_failed_ = !services_.start(result.gate.release_us, previous_bias_dps);
         pending_ = true;
@@ -391,16 +431,30 @@ void Menu::observeNone(std::uint32_t delta_us, MenuResult& result) {
 }
 
 MenuResult Menu::step(const MenuSample& sample) {
+    return stepObserved(sample, {sample.t_us, true, false, true});
+}
+
+MenuResult Menu::stepObserved(const MenuSample& sample, const ButtonTiming& timing) {
     MenuResult result;
     result.selection = selection_;
     if (observed_ && sample.t_us == last_us_) return result;
-    const std::uint32_t delta_us = observed_ ? sample.t_us - last_us_ : 0U;
     observed_ = true;
     last_us_ = sample.t_us;
+    if (timing.restart) { disarm(); source_observed_ = false; }
     if (sample.state_at_entry != core::State::IDLE || sample.inhibited_fault) {
         disarm();
         return result;
     }
+    if (!timing.fresh) return result;
+    auto delta_us = source_observed_ ? timing.observation_us - last_source_us_ : 0U;
+    source_observed_ = true;
+    last_source_us_ = timing.observation_us;
+    if (stage_ == Stage::HELD) {
+        delta_us = timing.observation_us - hold_source_us_;
+        if (source_before_anchor_ && delta_us >= 0x80000000U) delta_us = 0U;
+        else { source_before_anchor_ = false; hold_source_us_ = timing.observation_us; }
+    }
+    const auto entry = stage_;
     if (sample.button == core::ButtonLevel::NONE) {
         if (selection_.service_menu && sample.qualified_start_release) {
             result.request = selection_.service;
@@ -415,6 +469,10 @@ MenuResult Menu::step(const MenuSample& sample) {
         observeMode(delta_us, result);
     } else {
         disarm();
+    }
+    if (entry != Stage::HELD && stage_ == Stage::HELD) {
+        hold_source_us_ = sample.t_us;
+        source_before_anchor_ = timing.observation_us != sample.t_us;
     }
     result.selection = selection_;
     return result;

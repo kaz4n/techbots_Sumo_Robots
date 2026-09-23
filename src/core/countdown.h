@@ -37,6 +37,14 @@ struct ButtonEvents {
     std::uint32_t edge_us = 0; // First sample of the now-qualified transition.
     std::uint32_t qualified_us = 0;
 };
+// D087 admission result: source time advances gestures only on distinct samples.
+// restart discards pending qualification, never Gate STOP or menu selection.
+struct ButtonTiming {
+    std::uint32_t observation_us = 0U;
+    bool fresh = false;
+    bool restart = false;
+    bool start_ready = false; // Fresh NONE has spanned debounce after boot/restart.
+};
 class Buttons {
 public:
     // Qualifies stable logical levels for BTN_DEBOUNCE_MS. The first sample
@@ -45,6 +53,8 @@ public:
     // Both timestamps are exposed; Controller anchors Gate at qualified_us (D-019).
     // MODE includes BOTH. B13 both-held STOP and ADC decoding remain separate.
     ButtonEvents step(std::uint32_t t_us, core::ButtonLevel level);
+    ButtonEvents stepObserved(std::uint32_t decision_us, std::uint32_t source_us,
+                              core::ButtonLevel level);
     void reset();
 private:
     core::ButtonLevel candidate_ = core::ButtonLevel::NONE;
@@ -65,12 +75,16 @@ public:
     // Invalid button enums count as non-BOTH, never as an assumed press.
     // Successive calls must be <one uint32 micros wrap. No clock or hardware I/O.
     bool step(std::uint32_t t_us, core::ButtonLevel level);
+    bool stepObserved(std::uint32_t decision_us, std::uint32_t source_us,
+                      core::ButtonLevel level);
+    void interrupt(); // Discards an unfinished hold, preserves latched STOP.
     void reset();
 private:
     enum class Stage : std::uint8_t { IDLE, DEBOUNCE, HOLDING, STOPPED };
     Stage stage_ = Stage::IDLE;
     std::uint32_t last_us_ = 0;
     std::uint32_t age_us_ = 0;
+    bool source_before_anchor_ = false;
 };
 
 class Controller {
@@ -90,6 +104,8 @@ public:
     // when true returns. To start later requires a new qualified press/release.
     Result step(const core::Inputs& inputs, bool stop_requested = false,
                 bool allow_match_start = true);
+    Result stepObserved(const core::Inputs& inputs, const ButtonTiming& timing,
+                        bool stop_requested = false, bool allow_match_start = true);
     // Snapshot from the most recent step, including a suppressed qualified START
     // release. Read-only/repeated reads do not advance input or grant permission.
     // Result.start_release remains the Gate's ACCEPTED match-release pulse.
@@ -103,6 +119,7 @@ private:
     Buttons buttons_;
     Gate gate_;
     ButtonEvents events_;
+    bool logical_stop_ = false;
 };
 
 enum class GyroPresence : std::uint8_t { LEGACY, ABSENT, VALID, INVALID };
@@ -212,6 +229,9 @@ public:
     LifecycleResult step(const ServiceSample& sample, core::ButtonLevel button,
                          float previous_bias_dps, bool stop_requested = false,
                          bool allow_match_start = true);
+    LifecycleResult stepObserved(const ServiceSample& sample, core::ButtonLevel button,
+        const ButtonTiming& timing, float previous_bias_dps,
+        bool stop_requested = false, bool allow_match_start = true);
     // Same last-step snapshot as Controller, without sampling Buttons again.
     ButtonEvents buttonEvents() const;
     void reset();
@@ -278,6 +298,7 @@ public:
     // apart; bounded accumulated ages prevent long holds retriggering after wrap.
     // No duties, clocks, I/O, allocation, Gate mutation or actual service actions.
     MenuResult step(const MenuSample& sample);
+    MenuResult stepObserved(const MenuSample& sample, const ButtonTiming& timing);
     MenuSelection selection() const;
     // MODE_DEFAULT/match view/SENSOR_VIEW, no armed gesture or retained request.
     void reset();
@@ -295,5 +316,9 @@ private:
     std::uint32_t age_us_ = 0;
     bool observed_ = false;
     bool short_release_ = false;
+    std::uint32_t last_source_us_ = 0U;
+    std::uint32_t hold_source_us_ = 0U;
+    bool source_observed_ = false;
+    bool source_before_anchor_ = false;
 };
 } // namespace countdown

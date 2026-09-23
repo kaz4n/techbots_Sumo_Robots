@@ -70,7 +70,7 @@ inline constexpr std::size_t ROBOT_EVENT_CAPACITY = 21U;
 enum class FaultCode : std::uint8_t {
     IMU_UNAVAILABLE = 1, OPPONENT_STUCK, QTR_STUCK_WARNING, LOW_BATTERY,
     CALIBRATION, ESCAPE_FAULT, CORE_CONTRACT_FAULT, TURN_TIMEOUT,
-    TICK_STATISTICS, RESET_CAUSE
+    TICK_STATISTICS, RESET_CAUSE, EXTENDED_CORE_CONTRACT
 };
 enum EdgeDetail : std::uint8_t {
     NEW_WHITE = 1U, ENTERED = 2U, REPLANNED = 4U, EXITED = 8U, PUSHED_OUT = 16U
@@ -87,8 +87,10 @@ struct EventBatch {
 // D-060 metadata table in state/analysis/P1_robot_event_contract_audit.md, adopted
 // by D-060 with CORE_CONTRACT bits0..7 and TICK_STATISTICS bits0..2. Validate
 // types/codes/masks, canonical encoded angles, duty bytes and zero reserved bits.
+// D087 detail11 permits known bits0..9, requiring at least one of bits8/9.
+// Detail7 retains its original bits0..7 range; size/codes remain compatible.
 // Encoding alone still accepts caller-defined metadata (legacy packEvent unchanged).
-bool validEventMetadata(const EventInput& input);
+  bool validEventMetadata(const EventInput& input);
 // Fixed prefix retention. Invalid metadata increments only invalid_metadata;
 // otherwise full count latches overflow/rejected. Never recursively emit a fault,
 // overwrite prior entries or affect motion. Clear with EventBatch{} each result.

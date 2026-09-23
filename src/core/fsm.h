@@ -386,7 +386,8 @@ enum class ResetCause : std::uint8_t { UNKNOWN, WATCHDOG };
 enum RobotFault : std::uint16_t {
     INVALID_CONTEXT = 1U, SCRIPT_START = 2U, SCRIPT_RESULT = 4U,
     GOVERNOR_CONTRACT = 8U, APPLICATION_CONTRACT = 16U, STALE_SENSORS = 32U,
-    HEADING_CONTRACT = 64U, TOKEN_EXHAUSTED = 128U, LINE_CONTRACT = 256U
+    HEADING_CONTRACT = 64U, TOKEN_EXHAUSTED = 128U, LINE_CONTRACT = 256U,
+    BUTTON_CONTRACT = 512U
 };
 struct PreviousTick {
     bool applied_valid = false;
@@ -420,6 +421,7 @@ struct RobotInput {
     core::ImuEvidence imu;
     core::LineEvidence line;
     bool opponent_fresh = false; // Explicit line mode only; independent of QTR frames.
+    core::ButtonEvidence buttons;
 };
 struct RobotResult {
     std::uint64_t token = 0;
@@ -454,6 +456,12 @@ struct RobotResult {
     std::uint32_t line_source_us = 0U;
     std::uint32_t line_age_us = 0U;
     std::uint32_t line_sequence = 0U;
+    bool button_available = false;
+    bool button_updated = false;
+    core::ButtonLevel button_level = core::ButtonLevel::NONE;
+    std::uint32_t button_source_us = 0U; // Earliest conversion age.
+    std::uint32_t button_age_us = 0U;
+    std::uint32_t button_sequence = 0U;
 };
 class Robot {
 public:
@@ -521,7 +529,7 @@ private:
         std::uint32_t t_us = 0;
         std::uint32_t delta_us = 0;
         std::uint16_t fault_events = 0;
-        std::uint16_t fault_values[11] = {};
+        std::uint16_t fault_values[12] = {};
         std::uint8_t new_white = 0;
         std::uint8_t reflank_entries = 0;
         motion::Direction reflank_direction = motion::Direction::RIGHT;
@@ -542,6 +550,9 @@ private:
     void emit(std::uint32_t t_us, core::Event type, std::uint8_t detail,
               std::uint16_t value = 0);
     void prepareInputs(const RobotInput& input);
+    void prepareButtons(RobotInput& input);
+    bool admitButtons(const RobotInput& input);
+    void qualifyNeutral();
     void prepareImu(RobotInput& input);
     bool admitImu(RobotInput& input);
     bool admitImuHeading(RobotInput& input);
@@ -588,6 +599,15 @@ private:
     RobotResult exhaust(const RobotInput& input);
     countdown::Lifecycle lifecycle_;
     countdown::Menu menu_;
+    countdown::ButtonTiming button_timing_;
+    core::ButtonEvidence button_history_;
+    std::uint32_t button_age_us_ = 0U;
+    std::uint32_t neutral_since_us_ = 0U;
+    bool button_mode_chosen_ = false;
+    bool explicit_button_mode_ = false;
+    bool button_seen_ = false;
+    bool neutral_pending_ = false;
+    bool neutral_armed_ = false;
     HeadingReference heading_;
     edge::Classifier classifier_;
     core::LineEvidence line_history_;

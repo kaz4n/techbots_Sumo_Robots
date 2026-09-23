@@ -182,6 +182,8 @@ bool validFaultMetadata(std::uint8_t code, std::uint16_t value) {
     case FaultCode::CALIBRATION: return value > 0U && value <= 3U;
     case FaultCode::ESCAPE_FAULT: return value >= 1U && value <= 4U;
     case FaultCode::CORE_CONTRACT_FAULT: return value > 0U && value <= 0xFFU;
+    case FaultCode::EXTENDED_CORE_CONTRACT:
+        return (value & 0x300U) != 0U && (value & ~0x3FFU) == 0U;
     case FaultCode::TURN_TIMEOUT: return value > 0U && value <= 0x1FU;
     case FaultCode::TICK_STATISTICS: return value > 0U && value <= 7U;
     case FaultCode::RESET_CAUSE: return value == 1U;

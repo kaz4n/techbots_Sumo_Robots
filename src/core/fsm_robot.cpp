@@ -62,6 +62,7 @@ void clearActions(RobotResult& result) {
     result.heading.origin_changed = false;
     result.heading.heading_updated = false;
     result.line_updated = false;
+    result.button_updated = false;
     result.menu.selection_changed = false;
     result.menu.menu_toggled = false;
     result.menu.request = countdown::Service::NONE;
@@ -86,6 +87,7 @@ RobotResult Robot::step(const RobotInput& input) {
     advanceHistories();
     prepareImu(resolved);
     prepareLine(resolved);
+    prepareButtons(resolved);
     prepareInputs(resolved);
     sampleSensors(resolved);
     runLifecycle(resolved);
@@ -283,7 +285,7 @@ void Robot::runLifecycle(const RobotInput& input) {
         sample.gyro_observation_us = input.imu.observation_us;
         sample.gyro_sequence = input.imu.sequence;
     }
-    result_.lifecycle = lifecycle_.step(sample, input.button, input.previous_bias_dps,
+    result_.lifecycle = lifecycle_.stepObserved(sample, input.button, button_timing_, input.previous_bias_dps,
                                         input.stop_requested || faults_ != 0U, allow_start);
     if (result_.lifecycle.gate.start_release) beginAttempt();
     const auto& services = result_.lifecycle.services;
@@ -784,9 +786,11 @@ void Robot::publishEvents() {
     publishEdge();
     publishPhantom();
     const auto new_faults = static_cast<std::uint16_t>(faults_ & ~reported_faults_);
-    if (new_faults != 0U) markFault(logframe::FaultCode::CORE_CONTRACT_FAULT, new_faults);
+    if (new_faults != 0U) markFault((new_faults & 0x300U) != 0U ?
+        logframe::FaultCode::EXTENDED_CORE_CONTRACT : logframe::FaultCode::CORE_CONTRACT_FAULT,
+        new_faults);
     reported_faults_ |= faults_;
-    for (std::uint8_t code = 1U; code <= 10U; ++code) {
+    for (std::uint8_t code = 1U; code <= 11U; ++code) {
         if (code != 9U && (tick_.fault_events & (1U << code)) != 0U)
             emit(tick_.t_us, core::Event::FAULT, code, tick_.fault_values[code]);
     }
@@ -866,9 +870,9 @@ void Robot::savePending(const RobotInput& input) {
 
 void Robot::finish(const RobotInput& input) {
     state_ = tick_.selected;
-    result_.menu = menu_.step({input.t_us, input.button, tick_.entry,
+    result_.menu = menu_.stepObserved({input.t_us, input.button, tick_.entry,
         faults_ != 0U || state_ == core::State::STOPPED || result_.escape_fault != edge::EscapeFault::NONE,
-        lifecycle_.buttonEvents().start_release});
+        lifecycle_.buttonEvents().start_release}, button_timing_);
     result_.running_mode = running_mode_;
     result_.contract_faults = faults_;
     result_.qtr_warning_mask = qtr_warning_;

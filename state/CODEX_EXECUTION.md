@@ -78,3 +78,7 @@ D111 complete in software: firstsource6d3c6c5f,28profiles and121policy methods
 PASS; exact9520e473 both startup targets/review PASS. See F135/validation.
 Next D112 UI draft/preflight, then implement/test/target-review; native dump
 clean-framing/receiver readiness investigation is a separate eligible bare task.
+
+D111c1f48d4 complete; registry compatibility769727a reviewed/tested.
+D112 finite A1 raw/decoder contract adopted after both preflights; implementation
+and independent tests next. Native dump prerequisites note2b14b37 is read-only.

@@ -1,3 +1,13 @@
+## Active checkpoint - 2026-09-24T01:14:36+04:00
+
+D111 completedc1f48d4; historical registry proofs repaired769727a with live
+checks preserved. Read-only P2/native UART prerequisites saved2b14b37.
+D112 A1 raw/decoder contract/config/interfaces adopted after both preflights.
+Next: independent frozen tests and implementation in separate contexts; root
+owns checked ui.ino route, README, target collection and ledgers. No hardware
+window/pin/grant change. Native dump clean framing remains unproved; existing
+USB serial proxy is a Monitor client. No new MCU upload/reset/run.
+
 ## Active checkpoint - 2026-09-24T01:09:10.405862+04:00
 
 D111 finite IMU bench complete in software:28 executable profiles,normal/san

@@ -29,7 +29,9 @@ D111 finite IMU bench is complete in software:28profiles,normal/san31cases/
 1342660assertions each,additive Native3/38 each,108registrychecks and121policy
 methods; exact9520e473 default/Immediate ELFe55565ff,conditionalpeak28224.
 Separate finalreview PASS/no findings; read its validation/raw/F135.
-Next D112 UI raw/decoder bench: draft/headerpreflight then adoption/implementation.
+D111 implementationc1f48d4; historical registry compatibility769727a.
+D112 UI raw/decoder contract/config/publicheaders adopted after both preflights.
+Next independent tests/implementation, checked ui.ino route and exact targets.
 Read P2_remaining_software_after_D111.md and native_dump_bare_feasibility; no
 new dump run policy or clean-framing grant is established.
 

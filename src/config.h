@@ -35,6 +35,7 @@ inline constexpr std::uint32_t BUTTON_WINDOWS_CONFIGURED = 0U;
 inline constexpr std::uint32_t BUTTON_LOW_RAW[4] = {0U, 0U, 0U, 0U};
 inline constexpr std::uint32_t BUTTON_HIGH_RAW[4] = {0U, 0U, 0U, 0U};
 inline constexpr std::uint32_t BUTTON_SAMPLE_MAX_AGE_US = 5000U; // D087 development continuity/age limit
+inline constexpr std::uint32_t UI_BENCH_SAMPLES = 128U; // D112 finite raw/decoder capture; count exception
 inline constexpr float VBAT_ADC_REFERENCE_V = 3.3F; // nominal V
 inline constexpr float VBAT_DIVIDER_RATIO = 122.0F / 22.0F; // dimensionless exception
 inline constexpr std::uint32_t VBAT_ADC_REGULATOR_US = 100U;

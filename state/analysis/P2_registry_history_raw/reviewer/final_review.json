@@ -1,0 +1,58 @@
+{
+  "verdict": "PASS_EXACT_TWO_PATH_HISTORICAL_REGISTRY_FIX",
+  "open_findings": [],
+  "changes": [
+    {
+      "path": "tests/tooling/test_vbat.py",
+      "before_sha256": "34e3a8967cb7048f5d4e482416c4cc01847ac2c9607cfab431283ed0bcbf1283",
+      "after_sha256": "365318a6a0990dbf342ba6221a6034c706dc05463632ccae0537ff60eb747841",
+      "scope": "one historical snapshot input path; all assertions/live checks unchanged"
+    },
+    {
+      "path": "tests/tooling/test_imu_heading_bench.py",
+      "before_sha256": "bcc2b6da626d20e61603b9b91550ff4371f584f0bffce7679639b09d8be1407b",
+      "after_sha256": "cb9413f1f752420b8f281443b29c48484f9d413aaab0d8c24ee7dc6b891068e0",
+      "scope": "one historical snapshot input path; all assertions/live checks unchanged"
+    }
+  ],
+  "snapshot_sha256": {
+    "state/analysis/P2_vbat_raw/registry/test_p0_config_before.py": "c0156a8e50ee38bb317f531a17c3c1ac704ec2d28b4b5bd3324a25204bc0e248",
+    "state/analysis/P2_vbat_raw/registry/test_p0_config_after.py": "9252acfc639c9729fe47b03d1d5e5f7e21088ef90bcb0c65132620f00315ce5e",
+    "state/analysis/P2_vbat_raw/author/test_p0_config_before.py": "c0156a8e50ee38bb317f531a17c3c1ac704ec2d28b4b5bd3324a25204bc0e248",
+    "state/analysis/P2_imu_heading_bench_raw/registry/test_p0_config_before.py": "9252acfc639c9729fe47b03d1d5e5f7e21088ef90bcb0c65132620f00315ce5e",
+    "state/analysis/P2_imu_heading_bench_raw/registry/test_p0_config_after.py": "6c92b892222e9c1eeccd824693798015cdd9f2cffda0837a66540f6158b41065"
+  },
+  "evidence_sha256": {
+    "state/reviews/P2_registry_history_review.md": "c013c30b0d3d5f4a65761bf6ab6815f3c446d53469494f083120cd6269c69b85",
+    "state/analysis/P2_registry_history_raw/change.json": "b21da7fb87c6feda1990c05cec86d912862c405ca5c3fbc3edc7171443a64ae7",
+    "state/analysis/P2_registry_history_raw/test_vbat_before.py": "34e3a8967cb7048f5d4e482416c4cc01847ac2c9607cfab431283ed0bcbf1283",
+    "state/analysis/P2_registry_history_raw/test_imu_heading_bench_before.py": "bcc2b6da626d20e61603b9b91550ff4371f584f0bffce7679639b09d8be1407b",
+    "state/analysis/P2_app_build_raw/registry_history_vbat_red.json": "d99d20fa38d6b1fc4a7eadfa34772d742657dab4b4b6d9ba4931a0df79666790",
+    "state/analysis/P2_app_build_raw/registry_history_vbat_red.txt": "8791caddfbeb06196a05b2c44a66d222bddf0dcc63cd58abbd73c6f2813c4ea7",
+    "state/analysis/P2_registry_history_raw/reviewer/reviewed_diff.patch": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "state/analysis/P2_registry_history_raw/reviewer/review_and_run.py": "5cc8c891a28ef9f767a28c99656a5f2d97828fca5bd2b7238d6a30c39d89b7df",
+    "state/analysis/P2_registry_history_raw/reviewer/run_1790197999487220910.json": "d40eb43668630499d423224011156fb8125b339daa78088c6d1259b84067e22c",
+    "state/analysis/P2_registry_history_raw/reviewer/run_1790197999487220910_cases/P2_imu_heading_bench_raw/registry_delta_1790198001673903466.json": "2dfcda9f6a149b0bf418a43a61beea02e44a7dbae1e5b704d7d9098d61413a02",
+    "state/analysis/P2_registry_history_raw/reviewer/run_1790197999487220910_cases/P2_imu_heading_bench_raw/registry_delta_1790198001932489195.json": "246341899cb2e7130daa72d31ba606e583609a794d62f7aba9d43177d134c351",
+    "state/analysis/P2_registry_history_raw/reviewer/run_1790197999487220910_cases/P2_imu_heading_bench_raw/registry_delta_1790198002062851233.json": "8b3ca22788376cbe9c87009d14fd018781aec693f8d6c4e176749814e16a22a0",
+    "state/analysis/P2_registry_history_raw/reviewer/run_1790197999487220910_cases/P2_imu_heading_bench_raw/registry_delta_1790198002200053515.json": "06f6ee701f2b774ac0381ea7f083d278560e615497288cbdb9abcebf239f772f",
+    "state/analysis/P2_registry_history_raw/reviewer/run_1790197999487220910_cases/P2_imu_heading_bench_raw/registry_delta_1790198002303393198.json": "2aade669aaf42a8eab57ac774dc255b502574fbad212375070f3d935929391bd",
+    "state/analysis/P2_registry_history_raw/reviewer/run_1790197999487220910_cases/P2_imu_heading_bench_raw/registry_delta_1790198002404708083.json": "0b18e070666f788f4fade045c5c14d2e4677c53bcdbc8c543cc2919c5a476526",
+    "state/analysis/P2_registry_history_raw/reviewer/run_1790197999487220910_cases/P2_imu_heading_bench_raw/registry_delta_1790198002573724234.json": "eb817f87d076a25f629af6f395adf475230f7f50c960e7bfd0ae7259e9234efe",
+    "state/analysis/P2_registry_history_raw/reviewer/run_1790197999487220910_cases/P2_vbat_raw/registry_amendment_check_1790198001614297993.json": "43ca7bfd55eff5f30bd755db6a1ea5e792b085f77cbeb58c22ea56d85178bf48",
+    "state/analysis/P2_registry_history_raw/reviewer/run_1790197999487220910_cases/P2_vbat_raw/registry_amendment_check_1790198001802372485.json": "93951b17b2ace76e6dd7c14f6d84d9491c30e6b2d89a083db484e80fa1be6d6b",
+    "state/analysis/P2_registry_history_raw/reviewer/run_1790197999487220910_cases/P2_vbat_raw/registry_amendment_check_1790198002512811995.json": "d1adfb2ea56832c3a01edf53291e81424143dec7c0a57cd40dde90372d2280de",
+    "state/analysis/P2_registry_history_raw/reviewer/run_1790197999487220910_cases/P2_vbat_raw/test_p0_config_before.py": "c0156a8e50ee38bb317f531a17c3c1ac704ec2d28b4b5bd3324a25204bc0e248",
+    "state/analysis/P2_registry_history_raw/reviewer/run_1790197999487220910_cases/P2_vbat_raw/registry/registry_cases.jsonl": "4002534acc3ade8e433cec02929b6ffa55d9fdb9fddabd311249b183bffdf364",
+    "state/analysis/P2_registry_history_raw/reviewer/run_1790197999487220910_cases/P2_imu_heading_bench_raw/registry/registry_cases.jsonl": "0e4d31ce87d78f25130b21d0e5c87fb91b3c62064882997e88b7470a592d1024"
+  },
+  "private_commands": 11,
+  "checks": [
+    "Original D110 failure independently reproduced",
+    "Corrected two targeted methods pass with all existing live assertions and negative controls",
+    "Six wrong current values still refused by live18-check registry",
+    "Both corrupted historical snapshots refused",
+    "Synthetic future matching registry/config addition passes both historical+live checks"
+  ],
+  "limitations": "Only historical fixture selection changed; no firmware or locked-test edit. No claim that every old complete suite was rerun against current registry. Earlier D110/D111 reviews remain bound to original exact snapshots."
+}

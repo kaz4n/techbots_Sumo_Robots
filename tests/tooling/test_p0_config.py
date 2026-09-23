@@ -90,6 +90,7 @@ QTR_ACQUISITION_DEFAULTS = {
 }
 QTR_PROPOSED_ARRAY_DEFAULTS = {'QTR_INPUT_PINS[4]': (2, 4, 7, 8)}
 BEHAVIOR_EXTRA_DEFAULTS = {
+    'UI_BENCH_SAMPLES': 128,  # D112 finite A1 raw/decoder evidence count.
     'IMU_BENCH_TRIAL_US': 60000000,  # D111 finite heading bench bound.
     'IMU_BENCH_CHECKPOINT_US': 1000000,  # D111 finite heading bench bound.
     'IMU_BENCH_CHECKPOINTS': 61,  # D111 finite heading bench bound.

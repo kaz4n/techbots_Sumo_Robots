@@ -476,3 +476,9 @@ F112 final software disposition 2026-09-23T16:49:58+04:00: fresh separate same-m
 | ID | Question | Observed answer | Source | Confidence | Hardware-checked |
 |---|---|---|---|---|---|
 | F-127 | Does the optional actual STOP-to-service lifetime preserve inhibition and retained evidence, and fit the target? | Fullnormal/san1443main+187Gate, independent34 configured cases,4 strict real-Runtime host roundtrips and freshreview PASS.87-file1fbd7238 default/MATCH compile256332/256716B; conditional peaks261056/261448 fit262144 with1088/696B remaining spans. TargetRuntime166304B/Robot2640B; reset ownstack2680B, reserved mainstack32768B. | analysis/P2_service_reset_validation.md,contract.md,target_audit.md,raw; reviews/P2_service_reset_review.md/raw | IMPLEMENTED/HOST-TESTED/TARGET-COMPILED/INDEPENDENT-REVIEW-PASS within scope | Board Linux compile/offlineELF only; no actual load/availableRAM/stackhighwater/full800us/nativeUART/source recovery/motor/physical/human gate. |
+
+## D104 bare-board Runtime observation,2026-09-23
+
+| ID | Question | Observed answer | Source | Confidence | Hardware-checked |
+|---|---|---|---|---|---|
+| F-128 | Does the exact no-pin actual Runtime probe load and sustain its200s zero-miss observation? | Source2bd817c4/software1fa2a01 deployed identities verified;200001epochs/0misses,actualS..Cmax269us,Runnermax285us,alloutputrequests inhibited. Currentpoolfree28668B/largest25172B; sampledPSPheadroom30952B. Stable diagnostics/pools; decoderacceptancePASS. | analysis/P2_runtime_inert_validation.md,raw/runtime_summary.json,runtime_run1; reviews/P2_runtime_inert_review.md/raw | ACTUAL-BARE-BOARD-MEASURED within exactprobe scope | BareUNOQ2629958581 only. No sensors/nativeUART/motors/full-app800us/clockcalibration, stackwatermark or human gate. |

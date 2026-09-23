@@ -318,3 +318,14 @@ APP_QTR_SERVICE_US600 bounds the selected pump window; APP_SERVICE_MAX_PASSES819
 and APP_CLOCK_STALL_MAX_POLLS65536 bound work/frozen clocks. Original QTR charge/
 discharge, IMU600us and all existing B16 values unchanged. Actual complete800us
 and physical source/color/clock validation pending. ContractP2_app_runtime_contract.
+
+2026-09-23 D104 actualbareUNOQ2629958581,source2bd817c4/software1fa2a01:
+MATCH0/MOTORS_ALLOWED0/default,oneguardeduploadexit0. ActualRuntime with all
+sources absent:200001epochs in200000311usMCUclock,0misses,maxS..C269us,
+maxbracketedRunner285us,0enabled/nonzero/invalidrequests. Stablepoolfree28668B/
+largest25172B;sampledPSPheadroom30952B,notwatermark.46read-onlyMEMAPreads,
+913688bytes,275.400s;deployedloader/sketch/BSSidentitiesverified;twoidentical
+diagnostics/pools,acceptancePASS. No tunable/pin/sourcegrant changed. Full-app/
+live-sensor800us,calibratedtime,nativeUART,motors and all human gates remain
+pending. Evidence analysis/P2_runtime_inert_raw/runtime_summary.json/runtime_run1,
+P2_runtime_inert_validation.md and separate actualreview.

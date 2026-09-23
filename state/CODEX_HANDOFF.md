@@ -1,3 +1,33 @@
+## Active checkpoint - 2026-09-23T23:08:00+04:00
+
+P2 software remains active under D051/D075, user resumed. D103 service reset
+committed1b1d77d; D104 no-pin actual Runtime probe committed1fa2a01 and actually
+uploaded once to bareUNOQ2629958581. Exactsource2bd817c4:200001epochs over200s,
+zero missed releases, maxRuntimeS..C269us/maxRunner285us, all outputs inhibited.
+Read P2_runtime_inert_validation.md,run.md,raw/runtime_summary.json/runtime_run1,
+exacttargetaudit and separate source/capture/actual review. Bothdiagnostics/pools
+match; deployed bytes verified; currentfree28668B/largest25172B, sampledstack
+30952B (notwatermark). No full-app/native-source/full800us/physical/gate claim.
+
+Board now remains frozen in D1042bd817c4; do not reupload/run on resume. New exact
+probe inert key added after independentreview; old7keys unchanged. All app grants
+remain false. D103 full-app conditional margins1088/696B remain distinct from
+this smallerprobe. Keep all historical failed attempts and reviewed identities.
+
+Next eligible software task: calibration snippet delivery. Read
+P2_next_software_inventory.md (including memory seam), P2_calibration_delivery_draft.md,
+and reviews/P2_calibration_delivery_preflight.md. Draft is NOT D105approval or
+implementation. Freeze delegated choices/public interfaces/tests before edits:
+dual grants, non-MATCH exclusion, symmetric shared-port cancellation/poison,
+actualcommit/receipt/source authority, same-bank pendingbytes, strict receiver.
+Prefer small state + stack regeneration over a Transfer buffer loan; actual
+full-app target fit must be verified early. Then namedP2physical-bench software.
+
+All physical/PINMAP/EXPLAINED/human phase gates and P3-P7 remain open. No motor
+run/push/tag authority. No further hardware needed or requested for current work.
+
+--- Earlier checkpoints below are historical ---
+
 ## Active checkpoint - 2026-09-23T22:27:00+04:00
 
 D103 optional local post-STOP service-only reset is implemented, host-tested,

@@ -36,12 +36,18 @@ reviewed/refreshed. Read P2_frame_packing_validation.md/targetaudit/review.
 D103 optional local service-only reset tested/reviewed: fullnormal/san1443main+
 187Gate,34 independent configured cases and4 strict Runtime dump roundtrips PASS.
 Final1fbd7238 default/MATCH modeledpeaks261056/261448 fit with1088/696B remaining.
-Next: user-authorized bare-board inert Runtime probe/load, no external-pin I/O;
-then calibration snippet delivery and remaining P2 physical-bench software.
+D1041fa2a01 actualbareprobePASS:200001epochs/0misses/maxS..C269us,allinhibited;
+free28668B/largest25172B/sampledstack30952B. Exact2bd817c4 identities and stable
+capture verified. Next: calibration snippet delivery, then namedP2bench software.
 No physical gate passed. Read P2_service_reset_validation.md and next probe scope.
 
-Lastknown MCU remains D0911502e948 synthetic recorder, seveninertkeys unchanged.
-Physical acceptance, loadedRAM/full800us, SC-A circuit, SC-AJ clock, nativeUART/
+Lastknown MCU is frozen D1042bd817c4 actualRuntime absent-source probe.
+Old7keys unchanged; one reviewed exactprobe key added.
+Physical acceptance, full-app loadedRAM/full800us, SC-A circuit, SC-AJ clock, nativeUART/
 physical localreset/calibration-snippet integration and human gates remain outstanding.
 No extra hardware requested or motor authority; no push/tag. Commit promptly
 without artificial spacing. Continue eligible software with actual evidence; never assume target success.
+
+Next contract inputs: P2_next_software_inventory.md, calibration_delivery_draft
+and independent preflight. D105 is not yet adopted/implemented. Preserve UART
+poison, actual receipt/commit identity, strict receiver and app memory limits.

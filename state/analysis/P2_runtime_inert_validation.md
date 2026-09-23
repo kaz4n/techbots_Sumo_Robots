@@ -69,3 +69,34 @@ Final scoped review PASS:109independent policy/decoder +9capture guards;
 final_approval.json binds source/ELF/package/capture/boardguard/orchestrator/manifest.
 Identified run is approved within the user-authorized bare-board scope, pending
 commit and execution. No open D104 source/capture BLOCKER or MAJOR.
+
+## Actual identified board run and capture
+
+Software/runrecord1fa2a01 preceded the one upload. Fresh checkedcompile receipt
+49aaf6a759164599850e6407ad22092d reproduced both reviewed hashes. Uploadexit0
+at18:56:06UTC. Capture began after227seconds without reupload/reset, exited0.
+Deployed loader/sketch identities, relocatedBSS and all raw hashes verified.
+50commands/46MEM-APreads/913688bytes,275.400s; each command within its bound.
+
+Actual FROZEN/NONE, RuntimeRUNNING/RobotBOOT/recorderEMPTY:200001epochs,
+zero missedreleases, elapsed200000311us by MCUclock, maximum actualS..C269us,
+maximum bracketedRunner285us. Token200001 and all callback counts consistent.
+Zero enabled/nonzero/invalid requests; all31absence bits set and initialization
+false. These are checked inert callback values, not electrical waveforms.
+
+Both terminal diagnostics identical, sequence4; both full pool images also
+identical. Current pool free payload28668B, largest25172B, used233348B,
+overhead128B (total262144). This agrees with the model's largest remaining
+span; temporary loader allocation has been freed. SampledPSP headroom30952B
+within reserved32768B, delta64,35374939samples matching actual clock callbacks.
+This is sampled callback-site headroom, not historical stack watermark.
+
+Pure decoder acceptance PASS with no reasons. Actual evidence and coordinator
+recheck: raw/runtime_run1, capture_run1_manifest.json and runtime_summary.json.
+This succeeds only for the exact absent-source probe; it does not establish
+full app load, live sensor fault/timeout800us over5minutes, calibrated time,
+D103 reset, native UART, motors or physical/EXPLAINED/human phase gates.
+
+Independent actual-run review PASS:149rawmanifestfiles,91committedsources,
+exactdeployedbytes,232B literaldiagnostics,46fixedreads/50commands and independently
+walkedheapfreerings allverified. No open finding; see actual_run review receipt.

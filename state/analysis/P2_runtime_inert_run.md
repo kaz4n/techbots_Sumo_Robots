@@ -24,3 +24,13 @@ reviewed runtime_capture.py. No halt/reset/write in capture. Do not silently
 repeat upload or retry changed code. Keep raw failure if a guard or run fails;
 collection success and experiment acceptance remain distinct. No P0/P1/P2 or
 later human gate, full-app load, D103 reset, physical sensing or full800us claim.
+
+Software/runrecord committed before upload: 1fa2a019b26dc1e7ff74e9491cca94477ce7f681.
+
+Upload completed exit0 at2026-09-23T18:56:06.821827+00:00. Fresh checked
+receipt49aaf6a759164599850e6407ad22092d reproduced both reviewed loadable hashes.
+One MCU reset/upload only; observation window and separate capture follow.
+
+Capture exit0; reviewed exact bytes confirmed, FROZEN/NONE and acceptancePASS.
+200001epochs/zero misses; maxRuntime269us, maxRunner285us; no active outputs.
+Board now retains this frozen inert2bd817c4 image. No further reset/upload/run.

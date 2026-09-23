@@ -799,3 +799,9 @@ physical/loadedRAM/gate claim. | contract=this commit
 | 2026-09-23 22:52 +04 | P2 D104 | Actual Runtime no-pin probe implemented; corrected reviewer deadline finding; final91-file2bd817c4 target/ABI/model verified; 148 tooling tests PASS. Identified bare-board run prepared, upload/capture not yet executed; final review pending. | source baseline6d2ae96 + D104 software checkpoint |
 
 | 2026-09-23 22:54 +04 | P2 D104 | Independent final scoped source/target/capture/upload-guard review PASS; D104-R1 closed. 109policy/decoder+9capture guards and final21Runner normal/san cases pass; one identified bare-board run ready. No physical/human gate implied. | D104 software commit |
+
+| 2026-09-23 22:56 +04 | P2 D104 | Reviewed bare-board Runtime2bd817c4 uploaded once, exit0; fresh compile49aaf6a7 reproduced ELF/package pins. Observation/capture pending; no physical acceptance inferred. | 1fa2a01 |
+
+| 2026-09-23 23:08 +04 | P2 D104 | Actual bare-board Runtime probe PASS:200001epochs/0misses/maxS..C269us,allinhibited; fixedcaptureexit0,46reads913688B,twoidenticaldiagnostics/pools,free28668B/largest25172B,sampledstack30952B. No full-app/physical/human gate. Independent actualreview follows. | 1fa2a01 |
+
+| 2026-09-23 23:13 +04 | P2 D104 | Separate offline actual-run review PASS:149raw files/91committed sources/exact deployed identity, literaldiagnostics and independentheap walk verified. No open scoped findings; board remains frozen2bd817c4. All physical/human gates pending. | 1fa2a01 + evidence commit |

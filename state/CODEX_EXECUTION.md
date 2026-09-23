@@ -73,3 +73,8 @@ request or upload authority. Continue remaining named P2 benches afterward.
 
 2026-09-24T00:51:25+04:00: D1119299192 adopted; IMU bench implementation and
 independent tests in progress. Next checked policy, exact targets and separate review.
+
+D111 complete in software: firstsource6d3c6c5f,28profiles and121policy methods
+PASS; exact9520e473 both startup targets/review PASS. See F135/validation.
+Next D112 UI draft/preflight, then implement/test/target-review; native dump
+clean-framing/receiver readiness investigation is a separate eligible bare task.

@@ -86,10 +86,45 @@ public:
     std::uint32_t checkpointCount() const;
     const Checkpoint* checkpoint(std::uint32_t index) const;
 private:
-    // The adopted implementation may add only private fixed storage/helpers/state.
+    enum class Reply : std::uint8_t { INVALID, PENDING, COMPLETE, FAULT };
+    bool portsValid() const;
+    bool active() const;
+    void fail(Fault fault);
+    void add(std::uint32_t& counter, std::uint32_t amount = 1U);
+    void attempt(Timing& timing);
+    void measure(Timing& timing, std::uint32_t elapsed_us);
+    bool admitClock(std::uint32_t now_us);
+    bool clock(std::uint32_t& now_us);
+    bool cancelOnce(std::uint32_t historical_us);
+    bool finish(std::uint32_t started_us, bool poll_call, std::uint32_t& closed_us);
+    bool due(bool setup);
+    void release(bool setup);
+    bool setupShape(const imu::SetupReport& previous, std::uint32_t started_us, bool initial);
+    bool runSetup(std::uint32_t started_us, bool initial);
+    Reply progressShape(bool beginning);
+    bool sourceOrder(std::uint32_t started_us, std::uint32_t returned_us);
+    void consume(std::uint32_t returned_us);
+    void calibrate(std::uint32_t returned_us);
+    bool prepareMeasurement(Measurement& candidate, std::uint32_t returned_us);
+    void commitRead(Phase entered, const Measurement& candidate, bool checkpoint,
+                    std::uint32_t closed_us);
+    bool runRead(std::uint32_t started_us);
     Port port_;
     Report report_;
     imu::Estimator estimator_;
     countdown::Services calibration_;
+    Checkpoint checkpoints_[config::IMU_BENCH_CHECKPOINTS > 0U ? config::IMU_BENCH_CHECKPOINTS : 1U]{};
+    bool attempted_ = false;
+    bool clock_seen_ = false;
+    bool interval_active_ = false;
+    bool grid_active_ = false;
+    bool read_started_ = false;
+    bool possibly_pending_ = false;
+    bool calibration_open_ = false;
+    std::uint32_t last_clock_us_ = 0U;
+    std::uint32_t lifetime_us_ = 0U;
+    std::uint32_t interval_us_ = 0U;
+    std::uint32_t grid_age_us_ = 0U;
+    std::uint32_t operation_started_us_ = 0U;
 };
 } // namespace imu_heading_bench

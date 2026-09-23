@@ -25,11 +25,13 @@ P2_qtr_raw_contract.md/validation.md/final review: exact5c468e20 default/Immedia
 ELFe65ffd46, conditionalpeak32920; no physical evidence. D110a0ee402 battery bench is also complete in software:28 executable profiles,
 114policy methods and exact8e3efb92 default/Immediate targets/review PASS;
 conditionalpeak13200. Read P2_vbat_validation.md/review/raw and F134.
-D1119299192 adopted after independent preflight. Read its adopted contract and
-public bench headers; implementation and independent tests are in progress.
-Next freeze/execute, complete literal checked build policy, compile default and
-Immediate on board Linux, collect exact artifacts and obtain separate review.
-No MCU upload. Continue eligible named P2 bench software with exact evidence.
+D111 finite IMU bench is complete in software:28profiles,normal/san31cases/
+1342660assertions each,additive Native3/38 each,108registrychecks and121policy
+methods; exact9520e473 default/Immediate ELFe55565ff,conditionalpeak28224.
+Separate finalreview PASS/no findings; read its validation/raw/F135.
+Next D112 UI raw/decoder bench: draft/headerpreflight then adoption/implementation.
+Read P2_remaining_software_after_D111.md and native_dump_bare_feasibility; no
+new dump run policy or clean-framing grant is established.
 
 MCU remains frozen D1042bd817c4 after one reviewed inert run:200001epochs,
 zero misses, maxRuntime269us, all outputs inhibited. This is not full-app or

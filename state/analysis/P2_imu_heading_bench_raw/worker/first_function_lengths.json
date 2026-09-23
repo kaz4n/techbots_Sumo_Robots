@@ -1,0 +1,276 @@
+{
+  "functions": 45,
+  "maximum_lines": 34,
+  "details": [
+    {
+      "file": "bench/imu_heading/src/imu_heading_bench.cpp",
+      "function": "bool configValid()",
+      "first_line": 11,
+      "lines": 16
+    },
+    {
+      "file": "bench/imu_heading/src/imu_heading_bench.cpp",
+      "function": "bool knownBus(imu::BusStatus status, imu::BusCleanup cleanup)",
+      "first_line": 27,
+      "lines": 4
+    },
+    {
+      "file": "bench/imu_heading/src/imu_heading_bench.cpp",
+      "function": "bool emptyMotion(const imu::CoherentMotion& motion)",
+      "first_line": 31,
+      "lines": 9
+    },
+    {
+      "file": "bench/imu_heading/src/imu_heading_bench.cpp",
+      "function": "bool emptyPhase(const imu::Sample& sample)",
+      "first_line": 40,
+      "lines": 4
+    },
+    {
+      "file": "bench/imu_heading/src/imu_heading_bench.cpp",
+      "function": "bool emptySample(const imu::Sample& sample)",
+      "first_line": 44,
+      "lines": 7
+    },
+    {
+      "file": "bench/imu_heading/src/imu_heading_bench.cpp",
+      "function": "bool faultSample(const imu::Sample& sample)",
+      "first_line": 51,
+      "lines": 5
+    },
+    {
+      "file": "bench/imu_heading/src/imu_heading_bench.cpp",
+      "function": "bool completeSample(const imu::Sample& sample)",
+      "first_line": 56,
+      "lines": 9
+    },
+    {
+      "file": "bench/imu_heading/src/imu_heading_bench.cpp",
+      "function": "countdown::GyroPresence presence(imu::Presence observed)",
+      "first_line": 65,
+      "lines": 5
+    },
+    {
+      "file": "bench/imu_heading/src/imu_heading_bench.cpp",
+      "function": "Runner::Runner(const Port& port) : port_(port)",
+      "first_line": 72,
+      "lines": 1
+    },
+    {
+      "file": "bench/imu_heading/src/imu_heading_bench.cpp",
+      "function": "const Report& Runner::report() const",
+      "first_line": 73,
+      "lines": 1
+    },
+    {
+      "file": "bench/imu_heading/src/imu_heading_bench.cpp",
+      "function": "std::uint32_t Runner::checkpointCapacity() const",
+      "first_line": 74,
+      "lines": 1
+    },
+    {
+      "file": "bench/imu_heading/src/imu_heading_bench.cpp",
+      "function": "std::uint32_t Runner::checkpointCount() const",
+      "first_line": 75,
+      "lines": 1
+    },
+    {
+      "file": "bench/imu_heading/src/imu_heading_bench.cpp",
+      "function": "const Checkpoint* Runner::checkpoint(std::uint32_t index) const",
+      "first_line": 76,
+      "lines": 3
+    },
+    {
+      "file": "bench/imu_heading/src/imu_heading_bench.cpp",
+      "function": "bool Runner::portsValid() const",
+      "first_line": 79,
+      "lines": 4
+    },
+    {
+      "file": "bench/imu_heading/src/imu_heading_bench.cpp",
+      "function": "bool Runner::active() const",
+      "first_line": 83,
+      "lines": 4
+    },
+    {
+      "file": "bench/imu_heading/src/imu_heading_bench.cpp",
+      "function": "void Runner::fail(Fault fault)",
+      "first_line": 87,
+      "lines": 5
+    },
+    {
+      "file": "bench/imu_heading/src/imu_heading_bench.cpp",
+      "function": "void Runner::add(std::uint32_t& counter, std::uint32_t amount)",
+      "first_line": 92,
+      "lines": 7
+    },
+    {
+      "file": "bench/imu_heading/src/imu_heading_bench.cpp",
+      "function": "void Runner::attempt(Timing& timing)",
+      "first_line": 99,
+      "lines": 4
+    },
+    {
+      "file": "bench/imu_heading/src/imu_heading_bench.cpp",
+      "function": "void Runner::measure(Timing& timing, std::uint32_t elapsed_us)",
+      "first_line": 103,
+      "lines": 6
+    },
+    {
+      "file": "bench/imu_heading/src/imu_heading_bench.cpp",
+      "function": "bool Runner::admitClock(std::uint32_t now_us)",
+      "first_line": 109,
+      "lines": 17
+    },
+    {
+      "file": "bench/imu_heading/src/imu_heading_bench.cpp",
+      "function": "bool Runner::clock(std::uint32_t& now_us)",
+      "first_line": 126,
+      "lines": 5
+    },
+    {
+      "file": "bench/imu_heading/src/imu_heading_bench.cpp",
+      "function": "bool Runner::cancelOnce(std::uint32_t historical_us)",
+      "first_line": 131,
+      "lines": 8
+    },
+    {
+      "file": "bench/imu_heading/src/imu_heading_bench.cpp",
+      "function": "bool Runner::finish(std::uint32_t started_us, bool poll_call, std::uint32_t& closed_us)",
+      "first_line": 139,
+      "lines": 11
+    },
+    {
+      "file": "bench/imu_heading/src/imu_heading_bench.cpp",
+      "function": "bool Runner::due(bool setup)",
+      "first_line": 150,
+      "lines": 6
+    },
+    {
+      "file": "bench/imu_heading/src/imu_heading_bench.cpp",
+      "function": "void Runner::release(bool setup)",
+      "first_line": 156,
+      "lines": 12
+    },
+    {
+      "file": "bench/imu_heading/src/imu_heading_bench.cpp",
+      "function": "bool Runner::setupShape(const imu::SetupReport& previous, std::uint32_t started_us, bool initial)",
+      "first_line": 168,
+      "lines": 25
+    },
+    {
+      "file": "bench/imu_heading/src/imu_heading_bench.cpp",
+      "function": "bool Runner::runSetup(std::uint32_t started_us, bool initial)",
+      "first_line": 193,
+      "lines": 26
+    },
+    {
+      "file": "bench/imu_heading/src/imu_heading_bench.cpp",
+      "function": "Runner::Reply Runner::progressShape(bool beginning)",
+      "first_line": 219,
+      "lines": 21
+    },
+    {
+      "file": "bench/imu_heading/src/imu_heading_bench.cpp",
+      "function": "bool Runner::sourceOrder(std::uint32_t started_us, std::uint32_t returned_us)",
+      "first_line": 240,
+      "lines": 15
+    },
+    {
+      "file": "bench/imu_heading/src/imu_heading_bench.cpp",
+      "function": "void Runner::calibrate(std::uint32_t returned_us)",
+      "first_line": 255,
+      "lines": 18
+    },
+    {
+      "file": "bench/imu_heading/src/imu_heading_bench.cpp",
+      "function": "void Runner::consume(std::uint32_t returned_us)",
+      "first_line": 273,
+      "lines": 5
+    },
+    {
+      "file": "bench/imu_heading/src/imu_heading_bench.cpp",
+      "function": "bool Runner::prepareMeasurement(Measurement& candidate, std::uint32_t returned_us)",
+      "first_line": 278,
+      "lines": 34
+    },
+    {
+      "file": "bench/imu_heading/src/imu_heading_bench.cpp",
+      "function": "void Runner::commitRead(Phase entered, const Measurement& candidate, bool checkpoint,\n                        std::uint32_t closed_us)",
+      "first_line": 312,
+      "lines": 21
+    },
+    {
+      "file": "bench/imu_heading/src/imu_heading_bench.cpp",
+      "function": "bool Runner::runRead(std::uint32_t started_us)",
+      "first_line": 333,
+      "lines": 25
+    },
+    {
+      "file": "bench/imu_heading/src/imu_heading_bench.cpp",
+      "function": "bool Runner::begin(const Grants& grants)",
+      "first_line": 358,
+      "lines": 18
+    },
+    {
+      "file": "bench/imu_heading/src/imu_heading_bench.cpp",
+      "function": "bool Runner::poll()",
+      "first_line": 376,
+      "lines": 21
+    },
+    {
+      "file": "bench/imu_heading/src/imu_heading_bench_native.cpp",
+      "function": "Port Native::port()",
+      "first_line": 8,
+      "lines": 3
+    },
+    {
+      "file": "bench/imu_heading/src/imu_heading_bench_native.cpp",
+      "function": "std::uint32_t Native::clockUs(void*)",
+      "first_line": 11,
+      "lines": 1
+    },
+    {
+      "file": "bench/imu_heading/src/imu_heading_bench_native.cpp",
+      "function": "imu::SetupReport Native::startSetup(void* context, std::uint32_t now_us, bool power)",
+      "first_line": 12,
+      "lines": 3
+    },
+    {
+      "file": "bench/imu_heading/src/imu_heading_bench_native.cpp",
+      "function": "imu::SetupReport Native::advanceSetup(void* context, std::uint32_t now_us)",
+      "first_line": 15,
+      "lines": 3
+    },
+    {
+      "file": "bench/imu_heading/src/imu_heading_bench_native.cpp",
+      "function": "imu::SampleProgress Native::beginRead(void* context, std::uint32_t now_us)",
+      "first_line": 18,
+      "lines": 3
+    },
+    {
+      "file": "bench/imu_heading/src/imu_heading_bench_native.cpp",
+      "function": "imu::SampleProgress Native::advanceRead(void* context, std::uint32_t now_us)",
+      "first_line": 21,
+      "lines": 3
+    },
+    {
+      "file": "bench/imu_heading/src/imu_heading_bench_native.cpp",
+      "function": "imu::SampleProgress Native::cancelRead(void* context, std::uint32_t now_us)",
+      "first_line": 24,
+      "lines": 3
+    },
+    {
+      "file": "bench/imu_heading/imu_heading.ino",
+      "function": "void setup()",
+      "first_line": 12,
+      "lines": 1
+    },
+    {
+      "file": "bench/imu_heading/imu_heading.ino",
+      "function": "void loop()",
+      "first_line": 13,
+      "lines": 1
+    }
+  ]
+}

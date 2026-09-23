@@ -1,0 +1,547 @@
+
+00000030 <_GLOBAL__sub_I_setup>:
+      30:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+      34:	2601      	movs	r6, #1
+      36:	2500      	movs	r5, #0
+      38:	f04f 0803 	mov.w	r8, #3
+      3c:	4c29      	ldr	r4, [pc, #164]	@ (e4 <_GLOBAL__sub_I_setup+0xb4>)
+      3e:	b088      	sub	sp, #32
+      40:	4f29      	ldr	r7, [pc, #164]	@ (e8 <_GLOBAL__sub_I_setup+0xb8>)
+      42:	22e8      	movs	r2, #232	@ 0xe8
+      44:	2100      	movs	r1, #0
+      46:	4620      	mov	r0, r4
+      48:	47b8      	blx	r7
+      4a:	223c      	movs	r2, #60	@ 0x3c
+      4c:	2100      	movs	r1, #0
+      4e:	f104 0060 	add.w	r0, r4, #96	@ 0x60
+      52:	f884 6028 	strb.w	r6, [r4, #40]	@ 0x28
+      56:	47b8      	blx	r7
+      58:	2224      	movs	r2, #36	@ 0x24
+      5a:	2100      	movs	r1, #0
+      5c:	f104 009c 	add.w	r0, r4, #156	@ 0x9c
+      60:	f884 6064 	strb.w	r6, [r4, #100]	@ 0x64
+      64:	47b8      	blx	r7
+      66:	2218      	movs	r2, #24
+      68:	2100      	movs	r1, #0
+      6a:	f104 00ec 	add.w	r0, r4, #236	@ 0xec
+      6e:	f884 609c 	strb.w	r6, [r4, #156]	@ 0x9c
+      72:	f884 60c1 	strb.w	r6, [r4, #193]	@ 0xc1
+      76:	f8c4 40e8 	str.w	r4, [r4, #232]	@ 0xe8
+      7a:	47b8      	blx	r7
+      7c:	4629      	mov	r1, r5
+      7e:	2268      	movs	r2, #104	@ 0x68
+      80:	f504 7086 	add.w	r0, r4, #268	@ 0x10c
+      84:	f884 60ee 	strb.w	r6, [r4, #238]	@ 0xee
+      88:	f8c4 5104 	str.w	r5, [r4, #260]	@ 0x104
+      8c:	f884 5108 	strb.w	r5, [r4, #264]	@ 0x108
+      90:	47b8      	blx	r7
+      92:	226c      	movs	r2, #108	@ 0x6c
+      94:	4629      	mov	r1, r5
+      96:	f504 70c4 	add.w	r0, r4, #392	@ 0x188
+      9a:	e9c4 555e 	strd	r5, r5, [r4, #376]	@ 0x178
+      9e:	f884 8110 	strb.w	r8, [r4, #272]	@ 0x110
+      a2:	f884 6154 	strb.w	r6, [r4, #340]	@ 0x154
+      a6:	f884 5174 	strb.w	r5, [r4, #372]	@ 0x174
+      aa:	f884 5175 	strb.w	r5, [r4, #373]	@ 0x175
+      ae:	f884 5176 	strb.w	r5, [r4, #374]	@ 0x176
+      b2:	f8c4 5180 	str.w	r5, [r4, #384]	@ 0x180
+      b6:	f884 5184 	strb.w	r5, [r4, #388]	@ 0x184
+      ba:	47b8      	blx	r7
+      bc:	4621      	mov	r1, r4
+      be:	a801      	add	r0, sp, #4
+      c0:	4b0a      	ldr	r3, [pc, #40]	@ (ec <_GLOBAL__sub_I_setup+0xbc>)
+      c2:	e9c4 557d 	strd	r5, r5, [r4, #500]	@ 0x1f4
+      c6:	e9c4 557f 	strd	r5, r5, [r4, #508]	@ 0x1fc
+      ca:	f884 8190 	strb.w	r8, [r4, #400]	@ 0x190
+      ce:	f884 61d4 	strb.w	r6, [r4, #468]	@ 0x1d4
+      d2:	4798      	blx	r3
+      d4:	4b06      	ldr	r3, [pc, #24]	@ (f0 <_GLOBAL__sub_I_setup+0xc0>)
+      d6:	a901      	add	r1, sp, #4
+      d8:	4806      	ldr	r0, [pc, #24]	@ (f4 <_GLOBAL__sub_I_setup+0xc4>)
+      da:	4798      	blx	r3
+      dc:	b008      	add	sp, #32
+      de:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+      e2:	bf00      	nop
+      e4:	00002a20 	.word	0x00002a20
+			e4: R_ARM_ABS32	.bss
+	...
+			e8: R_ARM_ABS32	memset
+			ec: R_ARM_ABS32	_ZN17imu_heading_bench6Native4portEv
+			f0: R_ARM_ABS32	_ZN17imu_heading_bench6RunnerC1ERKNS_4PortE
+			f4: R_ARM_ABS32	.bss
+
+00000000 <setup>:
+       0:	b51f      	push	{r0, r1, r2, r3, r4, lr}
+       2:	2300      	movs	r3, #0
+       4:	a901      	add	r1, sp, #4
+       6:	e9cd 3301 	strd	r3, r3, [sp, #4]
+       a:	9303      	str	r3, [sp, #12]
+       c:	4802      	ldr	r0, [pc, #8]	@ (18 <setup+0x18>)
+       e:	4b03      	ldr	r3, [pc, #12]	@ (1c <setup+0x1c>)
+      10:	4798      	blx	r3
+      12:	b005      	add	sp, #20
+      14:	f85d fb04 	ldr.w	pc, [sp], #4
+	...
+			18: R_ARM_ABS32	.bss
+			1c: R_ARM_ABS32	_ZN17imu_heading_bench6Runner5beginERKNS_6GrantsE
+
+00003900 <_ZN17imu_heading_bench6Runner5beginERKNS_6GrantsE>:
+    3900:	e92d 47f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
+    3904:	f500 5900 	add.w	r9, r0, #8192	@ 0x2000
+    3908:	f899 aa04 	ldrb.w	sl, [r9, #2564]	@ 0xa04
+    390c:	4606      	mov	r6, r0
+    390e:	b08c      	sub	sp, #48	@ 0x30
+    3910:	f1ba 0f00 	cmp.w	sl, #0
+    3914:	d115      	bne.n	3942 <_ZN17imu_heading_bench6Runner5beginERKNS_6GrantsE+0x42>
+    3916:	f04f 0801 	mov.w	r8, #1
+    391a:	f889 8a04 	strb.w	r8, [r9, #2564]	@ 0xa04
+    391e:	780b      	ldrb	r3, [r1, #0]
+    3920:	b92b      	cbnz	r3, 392e <_ZN17imu_heading_bench6Runner5beginERKNS_6GrantsE+0x2e>
+    3922:	f880 8020 	strb.w	r8, [r0, #32]
+    3926:	4640      	mov	r0, r8
+    3928:	b00c      	add	sp, #48	@ 0x30
+    392a:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
+    392e:	784b      	ldrb	r3, [r1, #1]
+    3930:	b11b      	cbz	r3, 393a <_ZN17imu_heading_bench6Runner5beginERKNS_6GrantsE+0x3a>
+    3932:	788b      	ldrb	r3, [r1, #2]
+    3934:	b10b      	cbz	r3, 393a <_ZN17imu_heading_bench6Runner5beginERKNS_6GrantsE+0x3a>
+    3936:	78cb      	ldrb	r3, [r1, #3]
+    3938:	b92b      	cbnz	r3, 3946 <_ZN17imu_heading_bench6Runner5beginERKNS_6GrantsE+0x46>
+    393a:	2101      	movs	r1, #1
+    393c:	4630      	mov	r0, r6
+    393e:	4b22      	ldr	r3, [pc, #136]	@ (39c8 <_ZN17imu_heading_bench6Runner5beginERKNS_6GrantsE+0xc8>)
+    3940:	4798      	blx	r3
+    3942:	2000      	movs	r0, #0
+    3944:	e7f0      	b.n	3928 <_ZN17imu_heading_bench6Runner5beginERKNS_6GrantsE+0x28>
+    3946:	4b21      	ldr	r3, [pc, #132]	@ (39cc <_ZN17imu_heading_bench6Runner5beginERKNS_6GrantsE+0xcc>)
+    3948:	4798      	blx	r3
+    394a:	b908      	cbnz	r0, 3950 <_ZN17imu_heading_bench6Runner5beginERKNS_6GrantsE+0x50>
+    394c:	2102      	movs	r1, #2
+    394e:	e7f5      	b.n	393c <_ZN17imu_heading_bench6Runner5beginERKNS_6GrantsE+0x3c>
+    3950:	ed91 0a02 	vldr	s0, [r1, #8]
+    3954:	4b1e      	ldr	r3, [pc, #120]	@ (39d0 <_ZN17imu_heading_bench6Runner5beginERKNS_6GrantsE+0xd0>)
+    3956:	3104      	adds	r1, #4
+    3958:	f506 7014 	add.w	r0, r6, #592	@ 0x250
+    395c:	4798      	blx	r3
+    395e:	466c      	mov	r4, sp
+    3960:	466f      	mov	r7, sp
+    3962:	4684      	mov	ip, r0
+    3964:	f506 7515 	add.w	r5, r6, #596	@ 0x254
+    3968:	cd0f      	ldmia	r5!, {r0, r1, r2, r3}
+    396a:	c40f      	stmia	r4!, {r0, r1, r2, r3}
+    396c:	cd0f      	ldmia	r5!, {r0, r1, r2, r3}
+    396e:	c40f      	stmia	r4!, {r0, r1, r2, r3}
+    3970:	e895 000f 	ldmia.w	r5, {r0, r1, r2, r3}
+    3974:	e884 000f 	stmia.w	r4, {r0, r1, r2, r3}
+    3978:	f506 758c 	add.w	r5, r6, #280	@ 0x118
+    397c:	cf0f      	ldmia	r7!, {r0, r1, r2, r3}
+    397e:	c50f      	stmia	r5!, {r0, r1, r2, r3}
+    3980:	cf0f      	ldmia	r7!, {r0, r1, r2, r3}
+    3982:	c50f      	stmia	r5!, {r0, r1, r2, r3}
+    3984:	e894 000f 	ldmia.w	r4, {r0, r1, r2, r3}
+    3988:	e885 000f 	stmia.w	r5, {r0, r1, r2, r3}
+    398c:	f1bc 0f00 	cmp.w	ip, #0
+    3990:	d101      	bne.n	3996 <_ZN17imu_heading_bench6Runner5beginERKNS_6GrantsE+0x96>
+    3992:	2108      	movs	r1, #8
+    3994:	e7d2      	b.n	393c <_ZN17imu_heading_bench6Runner5beginERKNS_6GrantsE+0x3c>
+    3996:	4669      	mov	r1, sp
+    3998:	4630      	mov	r0, r6
+    399a:	4b0e      	ldr	r3, [pc, #56]	@ (39d4 <_ZN17imu_heading_bench6Runner5beginERKNS_6GrantsE+0xd4>)
+    399c:	f8cd a000 	str.w	sl, [sp]
+    39a0:	4798      	blx	r3
+    39a2:	2800      	cmp	r0, #0
+    39a4:	d0cd      	beq.n	3942 <_ZN17imu_heading_bench6Runner5beginERKNS_6GrantsE+0x42>
+    39a6:	f240 1301 	movw	r3, #257	@ 0x101
+    39aa:	4642      	mov	r2, r8
+    39ac:	4630      	mov	r0, r6
+    39ae:	f8a9 3a06 	strh.w	r3, [r9, #2566]	@ 0xa06
+    39b2:	9900      	ldr	r1, [sp, #0]
+    39b4:	4b08      	ldr	r3, [pc, #32]	@ (39d8 <_ZN17imu_heading_bench6Runner5beginERKNS_6GrantsE+0xd8>)
+    39b6:	f8c9 aa18 	str.w	sl, [r9, #2584]	@ 0xa18
+    39ba:	f8c9 aa14 	str.w	sl, [r9, #2580]	@ 0xa14
+    39be:	b00c      	add	sp, #48	@ 0x30
+    39c0:	e8bd 47f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
+    39c4:	4718      	bx	r3
+    39c6:	bf00      	nop
+	...
+			39c8: R_ARM_ABS32	_ZN17imu_heading_bench6Runner4failENS_5FaultE
+			39cc: R_ARM_ABS32	_ZNK17imu_heading_bench6Runner10portsValidEv
+			39d0: R_ARM_ABS32	_ZN3imu9Estimator5beginERKNS_8MountingEf
+			39d4: R_ARM_ABS32	_ZN17imu_heading_bench6Runner5clockERj
+			39d8: R_ARM_ABS32	_ZN17imu_heading_bench6Runner8runSetupEjb
+
+000039dc <_ZN17imu_heading_bench6Runner4pollEv>:
+    39dc:	b5f7      	push	{r0, r1, r2, r4, r5, r6, r7, lr}
+    39de:	2600      	movs	r6, #0
+    39e0:	f890 3020 	ldrb.w	r3, [r0, #32]
+    39e4:	4604      	mov	r4, r0
+    39e6:	3b02      	subs	r3, #2
+    39e8:	2b02      	cmp	r3, #2
+    39ea:	8446      	strh	r6, [r0, #34]	@ 0x22
+    39ec:	d811      	bhi.n	3a12 <_ZN17imu_heading_bench6Runner4pollEv+0x36>
+    39ee:	4b29      	ldr	r3, [pc, #164]	@ (3a94 <_ZN17imu_heading_bench6Runner4pollEv+0xb8>)
+    39f0:	f500 710f 	add.w	r1, r0, #572	@ 0x23c
+    39f4:	4798      	blx	r3
+    39f6:	f8d0 3160 	ldr.w	r3, [r0, #352]	@ 0x160
+    39fa:	4a27      	ldr	r2, [pc, #156]	@ (3a98 <_ZN17imu_heading_bench6Runner4pollEv+0xbc>)
+    39fc:	f500 5500 	add.w	r5, r0, #8192	@ 0x2000
+    3a00:	4293      	cmp	r3, r2
+    3a02:	d909      	bls.n	3a18 <_ZN17imu_heading_bench6Runner4pollEv+0x3c>
+    3a04:	210d      	movs	r1, #13
+    3a06:	4b25      	ldr	r3, [pc, #148]	@ (3a9c <_ZN17imu_heading_bench6Runner4pollEv+0xc0>)
+    3a08:	4798      	blx	r3
+    3a0a:	f8d5 1a0c 	ldr.w	r1, [r5, #2572]	@ 0xa0c
+    3a0e:	4b24      	ldr	r3, [pc, #144]	@ (3aa0 <_ZN17imu_heading_bench6Runner4pollEv+0xc4>)
+    3a10:	4798      	blx	r3
+    3a12:	2000      	movs	r0, #0
+    3a14:	b003      	add	sp, #12
+    3a16:	bdf0      	pop	{r4, r5, r6, r7, pc}
+    3a18:	3301      	adds	r3, #1
+    3a1a:	f8c0 3160 	str.w	r3, [r0, #352]	@ 0x160
+    3a1e:	4669      	mov	r1, sp
+    3a20:	4b20      	ldr	r3, [pc, #128]	@ (3aa4 <_ZN17imu_heading_bench6Runner4pollEv+0xc8>)
+    3a22:	e9cd 6600 	strd	r6, r6, [sp]
+    3a26:	4798      	blx	r3
+    3a28:	b918      	cbnz	r0, 3a32 <_ZN17imu_heading_bench6Runner4pollEv+0x56>
+    3a2a:	4620      	mov	r0, r4
+    3a2c:	f8d5 1a0c 	ldr.w	r1, [r5, #2572]	@ 0xa0c
+    3a30:	e7ed      	b.n	3a0e <_ZN17imu_heading_bench6Runner4pollEv+0x32>
+    3a32:	2201      	movs	r2, #1
+    3a34:	f8c5 6a14 	str.w	r6, [r5, #2580]	@ 0xa14
+    3a38:	f885 2a06 	strb.w	r2, [r5, #2566]	@ 0xa06
+    3a3c:	f894 3021 	ldrb.w	r3, [r4, #33]	@ 0x21
+    3a40:	b12b      	cbz	r3, 3a4e <_ZN17imu_heading_bench6Runner4pollEv+0x72>
+    3a42:	4620      	mov	r0, r4
+    3a44:	9900      	ldr	r1, [sp, #0]
+    3a46:	4c18      	ldr	r4, [pc, #96]	@ (3aa8 <_ZN17imu_heading_bench6Runner4pollEv+0xcc>)
+    3a48:	ab01      	add	r3, sp, #4
+    3a4a:	47a0      	blx	r4
+    3a4c:	e7e1      	b.n	3a12 <_ZN17imu_heading_bench6Runner4pollEv+0x36>
+    3a4e:	f895 3a09 	ldrb.w	r3, [r5, #2569]	@ 0xa09
+    3a52:	f894 6020 	ldrb.w	r6, [r4, #32]
+    3a56:	b973      	cbnz	r3, 3a76 <_ZN17imu_heading_bench6Runner4pollEv+0x9a>
+    3a58:	1eb3      	subs	r3, r6, #2
+    3a5a:	425f      	negs	r7, r3
+    3a5c:	415f      	adcs	r7, r3
+    3a5e:	4639      	mov	r1, r7
+    3a60:	4620      	mov	r0, r4
+    3a62:	4b12      	ldr	r3, [pc, #72]	@ (3aac <_ZN17imu_heading_bench6Runner4pollEv+0xd0>)
+    3a64:	4798      	blx	r3
+    3a66:	b910      	cbnz	r0, 3a6e <_ZN17imu_heading_bench6Runner4pollEv+0x92>
+    3a68:	f885 0a06 	strb.w	r0, [r5, #2566]	@ 0xa06
+    3a6c:	e7d1      	b.n	3a12 <_ZN17imu_heading_bench6Runner4pollEv+0x36>
+    3a6e:	4639      	mov	r1, r7
+    3a70:	4620      	mov	r0, r4
+    3a72:	4b0f      	ldr	r3, [pc, #60]	@ (3ab0 <_ZN17imu_heading_bench6Runner4pollEv+0xd4>)
+    3a74:	4798      	blx	r3
+    3a76:	2e02      	cmp	r6, #2
+    3a78:	9900      	ldr	r1, [sp, #0]
+    3a7a:	d104      	bne.n	3a86 <_ZN17imu_heading_bench6Runner4pollEv+0xaa>
+    3a7c:	2200      	movs	r2, #0
+    3a7e:	4620      	mov	r0, r4
+    3a80:	4b0c      	ldr	r3, [pc, #48]	@ (3ab4 <_ZN17imu_heading_bench6Runner4pollEv+0xd8>)
+    3a82:	4798      	blx	r3
+    3a84:	e7c5      	b.n	3a12 <_ZN17imu_heading_bench6Runner4pollEv+0x36>
+    3a86:	4620      	mov	r0, r4
+    3a88:	4b0b      	ldr	r3, [pc, #44]	@ (3ab8 <_ZN17imu_heading_bench6Runner4pollEv+0xdc>)
+    3a8a:	b003      	add	sp, #12
+    3a8c:	e8bd 40f0 	ldmia.w	sp!, {r4, r5, r6, r7, lr}
+    3a90:	4718      	bx	r3
+    3a92:	bf00      	nop
+    3a94:	00000000 	.word	0x00000000
+			3a94: R_ARM_ABS32	_ZN17imu_heading_bench6Runner7attemptERNS_6TimingE
+    3a98:	05f5e0ff 	.word	0x05f5e0ff
+	...
+			3a9c: R_ARM_ABS32	_ZN17imu_heading_bench6Runner4failENS_5FaultE
+			3aa0: R_ARM_ABS32	_ZN17imu_heading_bench6Runner10cancelOnceEj
+			3aa4: R_ARM_ABS32	_ZN17imu_heading_bench6Runner5clockERj
+			3aa8: R_ARM_ABS32	_ZN17imu_heading_bench6Runner6finishEjbRj
+			3aac: R_ARM_ABS32	_ZN17imu_heading_bench6Runner3dueEb
+			3ab0: R_ARM_ABS32	_ZN17imu_heading_bench6Runner7releaseEb
+			3ab4: R_ARM_ABS32	_ZN17imu_heading_bench6Runner8runSetupEjb
+			3ab8: R_ARM_ABS32	_ZN17imu_heading_bench6Runner7runReadEj
+
+00003b14 <_ZN17imu_heading_bench6Native4portEv>:
+    3b14:	4a06      	ldr	r2, [pc, #24]	@ (3b30 <_ZN17imu_heading_bench6Native4portEv+0x1c>)
+    3b16:	6001      	str	r1, [r0, #0]
+    3b18:	6042      	str	r2, [r0, #4]
+    3b1a:	4a06      	ldr	r2, [pc, #24]	@ (3b34 <_ZN17imu_heading_bench6Native4portEv+0x20>)
+    3b1c:	6082      	str	r2, [r0, #8]
+    3b1e:	4a06      	ldr	r2, [pc, #24]	@ (3b38 <_ZN17imu_heading_bench6Native4portEv+0x24>)
+    3b20:	60c2      	str	r2, [r0, #12]
+    3b22:	4a06      	ldr	r2, [pc, #24]	@ (3b3c <_ZN17imu_heading_bench6Native4portEv+0x28>)
+    3b24:	6102      	str	r2, [r0, #16]
+    3b26:	4a06      	ldr	r2, [pc, #24]	@ (3b40 <_ZN17imu_heading_bench6Native4portEv+0x2c>)
+    3b28:	6142      	str	r2, [r0, #20]
+    3b2a:	4a06      	ldr	r2, [pc, #24]	@ (3b44 <_ZN17imu_heading_bench6Native4portEv+0x30>)
+    3b2c:	6182      	str	r2, [r0, #24]
+    3b2e:	4770      	bx	lr
+	...
+			3b30: R_ARM_ABS32	_ZN17imu_heading_bench6Native7clockUsEPv
+			3b34: R_ARM_ABS32	_ZN17imu_heading_bench6Native10startSetupEPvjb
+			3b38: R_ARM_ABS32	_ZN17imu_heading_bench6Native12advanceSetupEPvj
+			3b3c: R_ARM_ABS32	_ZN17imu_heading_bench6Native9beginReadEPvj
+			3b40: R_ARM_ABS32	_ZN17imu_heading_bench6Native11advanceReadEPvj
+			3b44: R_ARM_ABS32	_ZN17imu_heading_bench6Native10cancelReadEPvj
+
+00002bfc <_ZN17imu_heading_bench6RunnerC1ERKNS_4PortE>:
+    2bfc:	e92d 4ff8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, sl, fp, lr}
+    2c00:	4606      	mov	r6, r0
+    2c02:	460d      	mov	r5, r1
+    2c04:	4604      	mov	r4, r0
+    2c06:	cd0f      	ldmia	r5!, {r0, r1, r2, r3}
+    2c08:	c60f      	stmia	r6!, {r0, r1, r2, r3}
+    2c0a:	e895 0007 	ldmia.w	r5, {r0, r1, r2}
+    2c0e:	f44f 3380 	mov.w	r3, #65536	@ 0x10000
+    2c12:	2500      	movs	r5, #0
+    2c14:	f04f 0a03 	mov.w	sl, #3
+    2c18:	2701      	movs	r7, #1
+    2c1a:	e886 0007 	stmia.w	r6, {r0, r1, r2}
+    2c1e:	f04f 0800 	mov.w	r8, #0
+    2c22:	2600      	movs	r6, #0
+    2c24:	f04f 0900 	mov.w	r9, #0
+    2c28:	e9c4 350a 	strd	r3, r5, [r4, #40]	@ 0x28
+    2c2c:	f8df b1bc 	ldr.w	fp, [pc, #444]	@ 2dec <_ZN17imu_heading_bench6RunnerC1ERKNS_4PortE+0x1f0>
+    2c30:	2268      	movs	r2, #104	@ 0x68
+    2c32:	4629      	mov	r1, r5
+    2c34:	e9c4 5508 	strd	r5, r5, [r4, #32]
+    2c38:	e9c4 550c 	strd	r5, r5, [r4, #48]	@ 0x30
+    2c3c:	e9c4 550e 	strd	r5, r5, [r4, #56]	@ 0x38
+    2c40:	f8a4 5040 	strh.w	r5, [r4, #64]	@ 0x40
+    2c44:	f884 5042 	strb.w	r5, [r4, #66]	@ 0x42
+    2c48:	f104 0044 	add.w	r0, r4, #68	@ 0x44
+    2c4c:	47d8      	blx	fp
+    2c4e:	2268      	movs	r2, #104	@ 0x68
+    2c50:	4629      	mov	r1, r5
+    2c52:	f884 a048 	strb.w	sl, [r4, #72]	@ 0x48
+    2c56:	f884 708c 	strb.w	r7, [r4, #140]	@ 0x8c
+    2c5a:	f884 50ac 	strb.w	r5, [r4, #172]	@ 0xac
+    2c5e:	f884 50ad 	strb.w	r5, [r4, #173]	@ 0xad
+    2c62:	f884 50ae 	strb.w	r5, [r4, #174]	@ 0xae
+    2c66:	f104 00b0 	add.w	r0, r4, #176	@ 0xb0
+    2c6a:	47d8      	blx	fp
+    2c6c:	2230      	movs	r2, #48	@ 0x30
+    2c6e:	4629      	mov	r1, r5
+    2c70:	e9c4 554e 	strd	r5, r5, [r4, #312]	@ 0x138
+    2c74:	e9c4 5550 	strd	r5, r5, [r4, #320]	@ 0x140
+    2c78:	e9c4 5553 	strd	r5, r5, [r4, #332]	@ 0x14c
+    2c7c:	e9c4 5558 	strd	r5, r5, [r4, #352]	@ 0x160
+    2c80:	e9c4 555a 	strd	r5, r5, [r4, #360]	@ 0x168
+    2c84:	e9c4 555c 	strd	r5, r5, [r4, #368]	@ 0x170
+    2c88:	f884 a0b4 	strb.w	sl, [r4, #180]	@ 0xb4
+    2c8c:	f884 70f8 	strb.w	r7, [r4, #248]	@ 0xf8
+    2c90:	f884 5118 	strb.w	r5, [r4, #280]	@ 0x118
+    2c94:	f884 5119 	strb.w	r5, [r4, #281]	@ 0x119
+    2c98:	f884 511a 	strb.w	r5, [r4, #282]	@ 0x11a
+    2c9c:	f884 511b 	strb.w	r5, [r4, #283]	@ 0x11b
+    2ca0:	f884 511c 	strb.w	r5, [r4, #284]	@ 0x11c
+    2ca4:	f884 511d 	strb.w	r5, [r4, #285]	@ 0x11d
+    2ca8:	f884 511e 	strb.w	r5, [r4, #286]	@ 0x11e
+    2cac:	f8c4 6120 	str.w	r6, [r4, #288]	@ 0x120
+    2cb0:	f8c4 6124 	str.w	r6, [r4, #292]	@ 0x124
+    2cb4:	f8c4 6128 	str.w	r6, [r4, #296]	@ 0x128
+    2cb8:	f8c4 612c 	str.w	r6, [r4, #300]	@ 0x12c
+    2cbc:	f8c4 6130 	str.w	r6, [r4, #304]	@ 0x130
+    2cc0:	f8c4 6134 	str.w	r6, [r4, #308]	@ 0x134
+    2cc4:	f8c4 6148 	str.w	r6, [r4, #328]	@ 0x148
+    2cc8:	f8a4 5154 	strh.w	r5, [r4, #340]	@ 0x154
+    2ccc:	f8c4 5158 	str.w	r5, [r4, #344]	@ 0x158
+    2cd0:	f8c4 615c 	str.w	r6, [r4, #348]	@ 0x15c
+    2cd4:	f504 7015 	add.w	r0, r4, #596	@ 0x254
+    2cd8:	e9c4 555e 	strd	r5, r5, [r4, #376]	@ 0x178
+    2cdc:	e9c4 5560 	strd	r5, r5, [r4, #384]	@ 0x180
+    2ce0:	e9c4 5565 	strd	r5, r5, [r4, #404]	@ 0x194
+    2ce4:	e9c4 5567 	strd	r5, r5, [r4, #412]	@ 0x19c
+    2ce8:	e9c4 5569 	strd	r5, r5, [r4, #420]	@ 0x1a4
+    2cec:	e9c4 896e 	strd	r8, r9, [r4, #440]	@ 0x1b8
+    2cf0:	e9c4 8970 	strd	r8, r9, [r4, #448]	@ 0x1c0
+    2cf4:	e9c4 8972 	strd	r8, r9, [r4, #456]	@ 0x1c8
+    2cf8:	e9c4 8974 	strd	r8, r9, [r4, #464]	@ 0x1d0
+    2cfc:	e9c4 5576 	strd	r5, r5, [r4, #472]	@ 0x1d8
+    2d00:	e9c4 5578 	strd	r5, r5, [r4, #480]	@ 0x1e0
+    2d04:	e9c4 557b 	strd	r5, r5, [r4, #492]	@ 0x1ec
+    2d08:	e9c4 557d 	strd	r5, r5, [r4, #500]	@ 0x1f4
+    2d0c:	e9c4 5580 	strd	r5, r5, [r4, #512]	@ 0x200
+    2d10:	e9c4 5582 	strd	r5, r5, [r4, #520]	@ 0x208
+    2d14:	f8c4 5188 	str.w	r5, [r4, #392]	@ 0x188
+    2d18:	f884 5190 	strb.w	r5, [r4, #400]	@ 0x190
+    2d1c:	f8c4 61ac 	str.w	r6, [r4, #428]	@ 0x1ac
+    2d20:	f8c4 61b0 	str.w	r6, [r4, #432]	@ 0x1b0
+    2d24:	f884 51e8 	strb.w	r5, [r4, #488]	@ 0x1e8
+    2d28:	f884 51fc 	strb.w	r5, [r4, #508]	@ 0x1fc
+    2d2c:	f884 5210 	strb.w	r5, [r4, #528]	@ 0x210
+    2d30:	e9c4 5585 	strd	r5, r5, [r4, #532]	@ 0x214
+    2d34:	e9c4 5587 	strd	r5, r5, [r4, #540]	@ 0x21c
+    2d38:	e9c4 558a 	strd	r5, r5, [r4, #552]	@ 0x228
+    2d3c:	e9c4 558c 	strd	r5, r5, [r4, #560]	@ 0x230
+    2d40:	e9c4 558f 	strd	r5, r5, [r4, #572]	@ 0x23c
+    2d44:	e9c4 5591 	strd	r5, r5, [r4, #580]	@ 0x244
+    2d48:	f884 5224 	strb.w	r5, [r4, #548]	@ 0x224
+    2d4c:	f884 5238 	strb.w	r5, [r4, #568]	@ 0x238
+    2d50:	f884 524c 	strb.w	r5, [r4, #588]	@ 0x24c
+    2d54:	f8c4 5250 	str.w	r5, [r4, #592]	@ 0x250
+    2d58:	47d8      	blx	fp
+    2d5a:	2300      	movs	r3, #0
+    2d5c:	2200      	movs	r2, #0
+    2d5e:	4629      	mov	r1, r5
+    2d60:	e9c4 23b0 	strd	r2, r3, [r4, #704]	@ 0x2c0
+    2d64:	e9c4 55a1 	strd	r5, r5, [r4, #644]	@ 0x284
+    2d68:	f242 7214 	movw	r2, #10004	@ 0x2714
+    2d6c:	e9c4 55a3 	strd	r5, r5, [r4, #652]	@ 0x28c
+    2d70:	e9c4 89a6 	strd	r8, r9, [r4, #664]	@ 0x298
+    2d74:	e9c4 55ab 	strd	r5, r5, [r4, #684]	@ 0x2ac
+    2d78:	e9c4 89b2 	strd	r8, r9, [r4, #712]	@ 0x2c8
+    2d7c:	e9c4 89b4 	strd	r8, r9, [r4, #720]	@ 0x2d0
+    2d80:	e9c4 89b6 	strd	r8, r9, [r4, #728]	@ 0x2d8
+    2d84:	e9c4 55b8 	strd	r5, r5, [r4, #736]	@ 0x2e0
+    2d88:	f8c4 62a0 	str.w	r6, [r4, #672]	@ 0x2a0
+    2d8c:	f8c4 62a4 	str.w	r6, [r4, #676]	@ 0x2a4
+    2d90:	f8c4 62a8 	str.w	r6, [r4, #680]	@ 0x2a8
+    2d94:	f8a4 52b4 	strh.w	r5, [r4, #692]	@ 0x2b4
+    2d98:	f8c4 52b8 	str.w	r5, [r4, #696]	@ 0x2b8
+    2d9c:	f8c4 52e8 	str.w	r5, [r4, #744]	@ 0x2e8
+    2da0:	f8c4 62ec 	str.w	r6, [r4, #748]	@ 0x2ec
+    2da4:	f504 703c 	add.w	r0, r4, #752	@ 0x2f0
+    2da8:	47d8      	blx	fp
+    2daa:	4623      	mov	r3, r4
+    2dac:	f504 521c 	add.w	r2, r4, #9984	@ 0x2700
+    2db0:	3214      	adds	r2, #20
+    2db2:	f883 a2f4 	strb.w	sl, [r3, #756]	@ 0x2f4
+    2db6:	f883 7338 	strb.w	r7, [r3, #824]	@ 0x338
+    2dba:	33a4      	adds	r3, #164	@ 0xa4
+    2dbc:	4293      	cmp	r3, r2
+    2dbe:	d1f8      	bne.n	2db2 <_ZN17imu_heading_bench6RunnerC1ERKNS_4PortE+0x1b6>
+    2dc0:	2200      	movs	r2, #0
+    2dc2:	f504 5300 	add.w	r3, r4, #8192	@ 0x2000
+    2dc6:	f8c3 2a04 	str.w	r2, [r3, #2564]	@ 0xa04
+    2dca:	f8a3 2a08 	strh.w	r2, [r3, #2568]	@ 0xa08
+    2dce:	f883 2a0a 	strb.w	r2, [r3, #2570]	@ 0xa0a
+    2dd2:	f8c3 2a0c 	str.w	r2, [r3, #2572]	@ 0xa0c
+    2dd6:	f8c3 2a10 	str.w	r2, [r3, #2576]	@ 0xa10
+    2dda:	f8c3 2a14 	str.w	r2, [r3, #2580]	@ 0xa14
+    2dde:	f8c3 2a18 	str.w	r2, [r3, #2584]	@ 0xa18
+    2de2:	f8c3 2a1c 	str.w	r2, [r3, #2588]	@ 0xa1c
+    2de6:	4620      	mov	r0, r4
+    2de8:	e8bd 8ff8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, sl, fp, pc}
+    2dec:	00000000 	.word	0x00000000
+			2dec: R_ARM_ABS32	memset
+
+00003bec <main>:
+    3bec:	b538      	push	{r3, r4, r5, lr}
+    3bee:	4b05      	ldr	r3, [pc, #20]	@ (3c04 <main+0x18>)
+    3bf0:	4798      	blx	r3
+    3bf2:	4b05      	ldr	r3, [pc, #20]	@ (3c08 <main+0x1c>)
+    3bf4:	4798      	blx	r3
+    3bf6:	4b05      	ldr	r3, [pc, #20]	@ (3c0c <main+0x20>)
+    3bf8:	4798      	blx	r3
+    3bfa:	4d05      	ldr	r5, [pc, #20]	@ (3c10 <main+0x24>)
+    3bfc:	4c05      	ldr	r4, [pc, #20]	@ (3c14 <main+0x28>)
+    3bfe:	47a8      	blx	r5
+    3c00:	47a0      	blx	r4
+    3c02:	e7fc      	b.n	3bfe <main+0x12>
+	...
+			3c04: R_ARM_ABS32	initVariant
+			3c08: R_ARM_ABS32	_Z20start_static_threadsv
+			3c0c: R_ARM_ABS32	setup
+			3c10: R_ARM_ABS32	loop
+			3c14: R_ARM_ABS32	_Z10__loopHookv
+
+00003c18 <_Z20start_static_threadsv>:
+    3c18:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+    3c1c:	4c15      	ldr	r4, [pc, #84]	@ (3c74 <_Z20start_static_threadsv+0x5c>)
+    3c1e:	4e16      	ldr	r6, [pc, #88]	@ (3c78 <_Z20start_static_threadsv+0x60>)
+    3c20:	4f16      	ldr	r7, [pc, #88]	@ (3c7c <_Z20start_static_threadsv+0x64>)
+    3c22:	f8df 805c 	ldr.w	r8, [pc, #92]	@ 3c80 <_Z20start_static_threadsv+0x68>
+    3c26:	b089      	sub	sp, #36	@ 0x24
+    3c28:	4625      	mov	r5, r4
+    3c2a:	42b5      	cmp	r5, r6
+    3c2c:	f104 0430 	add.w	r4, r4, #48	@ 0x30
+    3c30:	d302      	bcc.n	3c38 <_Z20start_static_threadsv+0x20>
+    3c32:	b009      	add	sp, #36	@ 0x24
+    3c34:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+    3c38:	ed14 7b02 	vldr	d7, [r4, #-8]
+    3c3c:	e954 010c 	ldrd	r0, r1, [r4, #-48]	@ 0x30
+    3c40:	e954 230a 	ldrd	r2, r3, [r4, #-40]	@ 0x28
+    3c44:	e954 ce08 	ldrd	ip, lr, [r4, #-32]
+    3c48:	e954 9a06 	ldrd	r9, sl, [r4, #-24]
+    3c4c:	f854 bc10 	ldr.w	fp, [r4, #-16]
+    3c50:	ed8d 7b06 	vstr	d7, [sp, #24]
+    3c54:	e9cd ab03 	strd	sl, fp, [sp, #12]
+    3c58:	e9cd e901 	strd	lr, r9, [sp, #4]
+    3c5c:	f8cd c000 	str.w	ip, [sp]
+    3c60:	47b8      	blx	r7
+    3c62:	f854 0c30 	ldr.w	r0, [r4, #-48]
+    3c66:	f854 1c0c 	ldr.w	r1, [r4, #-12]
+    3c6a:	47c0      	blx	r8
+    3c6c:	f854 3c30 	ldr.w	r3, [r4, #-48]
+    3c70:	655d      	str	r5, [r3, #84]	@ 0x54
+    3c72:	e7d9      	b.n	3c28 <_Z20start_static_threadsv+0x10>
+	...
+			3c74: R_ARM_ABS32	__static_thread_data_list_start
+			3c78: R_ARM_ABS32	__static_thread_data_list_end
+			3c7c: R_ARM_ABS32	z_impl_k_thread_create
+			3c80: R_ARM_ABS32	z_impl_k_thread_name_set
+
+00003b48 <__cxa_allocate_exception>:
+    3b48:	b508      	push	{r3, lr}
+    3b4a:	4b01      	ldr	r3, [pc, #4]	@ (3b50 <__cxa_allocate_exception+0x8>)
+    3b4c:	4798      	blx	r3
+    3b4e:	bf00      	nop
+    3b50:	00000000 	.word	0x00000000
+			3b50: R_ARM_ABS32	abort
+
+00003abc <_ZN17imu_heading_bench6Native7clockUsEPv>:
+    3abc:	4b00      	ldr	r3, [pc, #0]	@ (3ac0 <_ZN17imu_heading_bench6Native7clockUsEPv+0x4>)
+    3abe:	4718      	bx	r3
+    3ac0:	00000000 	.word	0x00000000
+			3ac0: R_ARM_ABS32	micros
+
+00003ac4 <_ZN17imu_heading_bench6Native10startSetupEPvjb>:
+    3ac4:	b538      	push	{r3, r4, r5, lr}
+    3ac6:	4604      	mov	r4, r0
+    3ac8:	4d01      	ldr	r5, [pc, #4]	@ (3ad0 <_ZN17imu_heading_bench6Native10startSetupEPvjb+0xc>)
+    3aca:	47a8      	blx	r5
+    3acc:	4620      	mov	r0, r4
+    3ace:	bd38      	pop	{r3, r4, r5, pc}
+    3ad0:	00000000 	.word	0x00000000
+			3ad0: R_ARM_ABS32	_ZN3imu8Acquirer5startEjb
+
+00003ad4 <_ZN17imu_heading_bench6Native12advanceSetupEPvj>:
+    3ad4:	b510      	push	{r4, lr}
+    3ad6:	4604      	mov	r4, r0
+    3ad8:	4b01      	ldr	r3, [pc, #4]	@ (3ae0 <_ZN17imu_heading_bench6Native12advanceSetupEPvj+0xc>)
+    3ada:	4798      	blx	r3
+    3adc:	4620      	mov	r0, r4
+    3ade:	bd10      	pop	{r4, pc}
+    3ae0:	00000000 	.word	0x00000000
+			3ae0: R_ARM_ABS32	_ZN3imu8Acquirer12advanceSetupEj
+
+00003ae4 <_ZN17imu_heading_bench6Native9beginReadEPvj>:
+    3ae4:	b510      	push	{r4, lr}
+    3ae6:	4604      	mov	r4, r0
+    3ae8:	4b01      	ldr	r3, [pc, #4]	@ (3af0 <_ZN17imu_heading_bench6Native9beginReadEPvj+0xc>)
+    3aea:	4798      	blx	r3
+    3aec:	4620      	mov	r0, r4
+    3aee:	bd10      	pop	{r4, pc}
+    3af0:	00000000 	.word	0x00000000
+			3af0: R_ARM_ABS32	_ZN3imu8Acquirer9beginReadEj
+
+00003af4 <_ZN17imu_heading_bench6Native11advanceReadEPvj>:
+    3af4:	b510      	push	{r4, lr}
+    3af6:	4604      	mov	r4, r0
+    3af8:	4b01      	ldr	r3, [pc, #4]	@ (3b00 <_ZN17imu_heading_bench6Native11advanceReadEPvj+0xc>)
+    3afa:	4798      	blx	r3
+    3afc:	4620      	mov	r0, r4
+    3afe:	bd10      	pop	{r4, pc}
+    3b00:	00000000 	.word	0x00000000
+			3b00: R_ARM_ABS32	_ZN3imu8Acquirer11advanceReadEj
+
+00003b04 <_ZN17imu_heading_bench6Native10cancelReadEPvj>:
+    3b04:	b510      	push	{r4, lr}
+    3b06:	4604      	mov	r4, r0
+    3b08:	4b01      	ldr	r3, [pc, #4]	@ (3b10 <_ZN17imu_heading_bench6Native10cancelReadEPvj+0xc>)
+    3b0a:	4798      	blx	r3
+    3b0c:	4620      	mov	r0, r4
+    3b0e:	bd10      	pop	{r4, pc}
+    3b10:	00000000 	.word	0x00000000
+			3b10: R_ARM_ABS32	_ZN3imu8Acquirer10cancelReadEj

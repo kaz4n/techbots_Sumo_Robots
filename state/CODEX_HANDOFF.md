@@ -1,3 +1,18 @@
+## Active checkpoint - 2026-09-24T01:09:10.405862+04:00
+
+D111 finite IMU bench complete in software:28 executable profiles,normal/san
+31cases/1342660assertions each,additive Native3/38 each,108registrychecks and
+121policy methods PASS. Exact9520e473 default/Immediate ELFe55565ff,conditional
+peak28224; separate scoped final review PASS/no findings. Read its validation,
+raw and F135. Source stayed firstfreeze6d3c6c5f. No MCU action/physical gate.
+
+Next D112: finite A1 raw/decoder evidence draft and public headers; separate
+reviewer preflight PASS7dc75a8e, author preflight underway. Adopt only after
+preflight, then independent tests/implementation/checked targets. Native dump
+feasibility note identifies clean serial framing and observable receiver attachment
+prerequisites; read-only refresh underway, no new run contract or grant yet.
+MCU remains frozen D1042bd817c4. Full P0-P7 and physical gates remain incomplete.
+
 ## Active checkpoint - 2026-09-24T00:51:25+04:00
 
 D111 contract/config/public interfaces adopted in9299192 after two preflight reviews.

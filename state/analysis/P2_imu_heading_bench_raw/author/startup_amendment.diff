@@ -1,0 +1,18 @@
+--- original frozen cases
++++ startup amended cases
+@@ -859,6 +859,15 @@
+     native_test::called(this, 4, now); return native_test::reply;
+ }
+ } // namespace imu
++TEST_CASE("D111 Native startup and scoped construction port destruction are passive") {
++    CHECK(native_test::clocks == 0);
++    for (unsigned i = 0; i < 5; ++i) CHECK(native_test::calls[i] == 0);
++    const auto heaps = allocations::calls;
++    { Guard guard; imu_heading_bench::Native local; const auto port = local.port(); (void)port; }
++    CHECK(native_test::clocks == 0);
++    for (unsigned i = 0; i < 5; ++i) CHECK(native_test::calls[i] == 0);
++    CHECK(allocations::calls == heaps);
++}
+ TEST_CASE("D111 Native direct callbacks preserve exact results arguments and single owner") {
+     static_assert(!std::is_copy_constructible_v<imu_heading_bench::Native>);
+     const auto heaps = allocations::calls; const auto before = native_test::clocks;

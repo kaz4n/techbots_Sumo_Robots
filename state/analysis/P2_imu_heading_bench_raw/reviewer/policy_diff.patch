@@ -1,0 +1,42 @@
+diff --git a/tools/app_build_policy.py b/tools/app_build_policy.py
+index 6972c72..c2b0632 100644
+--- a/tools/app_build_policy.py
++++ b/tools/app_build_policy.py
+@@ -72,13 +72,13 @@ def properties_from(builder):
+ 
+ def selected_project(project, fqbn=None, flags=None):
+     if not isinstance(project, str) or project not in (
+-            'app.ino', 'runtime_inert.ino', 'opp_view.ino', 'qtr_raw.ino', 'vbat.ino'):
++            'app.ino', 'runtime_inert.ino', 'opp_view.ino', 'qtr_raw.ino', 'vbat.ino', 'imu_heading.ino'):
+         raise ValueError('Unreviewed native project name')
+     if project == 'runtime_inert.ino' and (
+             (fqbn is not None and fqbn != BASE_FQBN) or
+             (flags is not None and flags != '-DMATCH=0 -DMOTORS_ALLOWED=0')):
+         raise ValueError('Runtime probe requires default startup and inert flags')
+-    if project in ('opp_view.ino', 'qtr_raw.ino', 'vbat.ino') and flags is not None and flags != '-DMATCH=0 -DMOTORS_ALLOWED=0':
++    if project in ('opp_view.ino', 'qtr_raw.ino', 'vbat.ino', 'imu_heading.ino') and flags is not None and flags != '-DMATCH=0 -DMOTORS_ALLOWED=0':
+         raise ValueError('Sensor bench requires inert flags')
+     return project
+ 
+diff --git a/tools/board_tool.py b/tools/board_tool.py
+index 8d46f83..79cd0b1 100644
+--- a/tools/board_tool.py
++++ b/tools/board_tool.py
+@@ -279,7 +279,7 @@ def compile_app(board, checksum, board_folder, remote_root, fqbn, flags, startup
+ def flash(args):
+     startup = build_startup(args)
+     probe = args.sketch == 'bench/runtime_inert'
+-    sensor_bench = args.sketch in ('bench/opp_view', 'bench/qtr_raw', 'bench/vbat')
++    sensor_bench = args.sketch in ('bench/opp_view', 'bench/qtr_raw', 'bench/vbat', 'bench/imu_heading')
+     if probe and (args.match or startup != 'default'):
+         fail('Runtime inert probe requires default startup and MATCH=0 MOTORS_ALLOWED=0')
+     if sensor_bench and args.match:
+@@ -323,7 +323,7 @@ def flash(args):
+     elif probe or sensor_bench:
+         project = {'bench/runtime_inert': 'runtime_inert.ino',
+                    'bench/opp_view': 'opp_view.ino', 'bench/qtr_raw': 'qtr_raw.ino',
+-                   'bench/vbat': 'vbat.ino'}[args.sketch]
++                   'bench/vbat': 'vbat.ino', 'bench/imu_heading': 'imu_heading.ino'}[args.sketch]
+         artifact_folder = compile_app(board, checksum, board_folder, remote_root, fqbn,
+                                       flags, startup, project=project)
+     else:

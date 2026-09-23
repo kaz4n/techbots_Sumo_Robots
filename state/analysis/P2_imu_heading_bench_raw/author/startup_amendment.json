@@ -1,0 +1,10 @@
+{
+  "utc": "2026-09-23T21:06:05.016616+00:00",
+  "reason": "Root and separate reviewer approved additive startup/passivity coverage after first full PASS. No prior case/assertion/stimulus changed.",
+  "before_sha256": "a9e9fce1b293a43c7b8631447da67cfa43c6b67c70fe877f058beb4cbc2f8e11",
+  "after_sha256": "ffc0a59640a5f82cb27fc09aff231aafc4c4fda46eca6f425019c6e3bcee1fed",
+  "only_one_inserted_case": true,
+  "removing_exact_added_bytes_restores_original": true,
+  "added_case": "TEST_CASE(\"D111 Native startup and scoped construction port destruction are passive\") {\n    CHECK(native_test::clocks == 0);\n    for (unsigned i = 0; i < 5; ++i) CHECK(native_test::calls[i] == 0);\n    const auto heaps = allocations::calls;\n    { Guard guard; imu_heading_bench::Native local; const auto port = local.port(); (void)port; }\n    CHECK(native_test::clocks == 0);\n    for (unsigned i = 0; i < 5; ++i) CHECK(native_test::calls[i] == 0);\n    CHECK(allocations::calls == heaps);\n}\n",
+  "harness_unchanged_sha256": "bcc2b6da626d20e61603b9b91550ff4371f584f0bffce7679639b09d8be1407b"
+}

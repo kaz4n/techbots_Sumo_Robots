@@ -1,0 +1,1630 @@
+{
+  "verdict": "PASS_SCOPED_SOURCE_TESTS_TOOLING_CHECKED_TARGET_AND_CONDITIONAL_FIT",
+  "date": "2026-09-24 Asia/Dubai",
+  "reviewer_context": "Reused same-model separate safety reviewer; read implementation. Not a human phase gate.",
+  "open_blockers": [],
+  "open_majors": [],
+  "open_minors": [],
+  "source_sha256": {
+    "bench/imu_heading/imu_heading.ino": "35829619175c459cda56e9bc1a6ffa6d6451d1d0c88b0ce77cdf28349aada80b",
+    "bench/imu_heading/src/imu_heading_bench.h": "bd63d529aa87ae907b00a6bcb62d502450ac577edd8e4651357ee9fea498d12a",
+    "bench/imu_heading/src/imu_heading_bench_native.h": "45605e1bf487dba4954a552101fd1a6fe44c7bc638677c1f69936cbd0a3a1232",
+    "bench/imu_heading/src/imu_heading_bench.cpp": "6d3c6c5f5234d995689cc265c65de7848e2bc2dd6b8fa0748e6b2f1cec8ce61f",
+    "bench/imu_heading/src/imu_heading_bench_native.cpp": "740054b0b81f75a6323c0c3a30a5e25f08908188788f1fbf1d482f2d1ae54a47",
+    "src/config.h": "2568bf751fd2e6f385e2d2261e8bdd64953136af1f851665934a5db21ac736aa"
+  },
+  "staged_source_sha256": "9520e47316b6edb7405bd5182f498453c4860f79fdd197a03ff34c14c7b69c05",
+  "tool_sha256": {
+    "tools/board_tool.py": "d9457474482a917068c324d3a894b081f89d97014f8c315c9389fcfb8fd39bb4",
+    "tools/app_build_policy.py": "fd70b189fb83b188caac1ae7047fd0ea400a3a4b7a5f22edbed8c963aa29b894",
+    "tests/tooling/test_imu_heading_bench_policy.py": "2968d48e6e15fb73cca1d8b067658a713c64ead0e06cfa471a420a908668a717"
+  },
+  "oracle_sha256": {
+    "tests/tooling/imu_heading_bench_cases.cc": "ffc0a59640a5f82cb27fc09aff231aafc4c4fda46eca6f425019c6e3bcee1fed",
+    "tests/tooling/test_imu_heading_bench.py": "bcc2b6da626d20e61603b9b91550ff4371f584f0bffce7679639b09d8be1407b"
+  },
+  "original_oracle_sha256": "a9e9fce1b293a43c7b8631447da67cfa43c6b67c70fe877f058beb4cbc2f8e11",
+  "evidence_sha256": {
+    "state/reviews/P2_imu_heading_bench_review.md": "dffadd6e7c57cca8db8d42fb99e6b547fb66e71c6b7ac53c3315890c13f2ce86",
+    "state/analysis/P2_imu_heading_bench_contract.md": "a8e74139dae1552c5e8998de59039cd01e676b6c8990cf332362d4d51d508d41",
+    "tests/tooling/test_p0_config.py": "6c92b892222e9c1eeccd824693798015cdd9f2cffda0837a66540f6158b41065",
+    "tools/p0_inert_sources.json": "d706c700b4d41df86d6480b3f16e54960e74c6d5cd8a9ce48647b82687cae65a",
+    "state/reviews/P2_qtr_raw_review_raw/firmware_1790195019448979762.json": "832f774ff4794afc9136e12d1c997cb95aed65ebeee7b5450e657e968c16981e",
+    "state/analysis/P2_imu_heading_bench_raw/worker/first_source_freeze.json": "666c16a0c63d6570f8b91e7c41da0ad2e88f9ce203d50631f8792aa1bc78c172",
+    "state/analysis/P2_imu_heading_bench_raw/author/freeze.json": "9eab954d0e859cb54ffa50ede1a343c8d4656d26f01da09515299e770af67dfc",
+    "state/analysis/P2_imu_heading_bench_raw/author/coverage.md": "8138630216f922eb48bad725931ba4dcea089adef3b28e7cef5217bf5339fbdb",
+    "state/analysis/P2_imu_heading_bench_raw/author/run1_summary.json": "9328c9631131d89a862babd6cbc2a08fca85b8b62bfa141307ba70a85f23bafc",
+    "state/analysis/P2_imu_heading_bench_raw/author/startup_amendment.json": "d60e05fe7a93e58b86662178591db64cfc1e0ae032a6af06c5af0fd199c2689c",
+    "state/analysis/P2_imu_heading_bench_raw/author/startup_summary.json": "e52d09a256cf3f8201d9092dfcc7f107da134f8d5c5500426bef96405d1a7971",
+    "state/analysis/P2_imu_heading_bench_raw/author/startup_source_identity.json": "0ea766e99dba1e1279e3eb985d42db851e6103154649298311ef0391d1fbdfee",
+    "state/analysis/P2_imu_heading_bench_raw/author/validation.md": "67408ee34dd54d4b3a25740c7b6def21dc8aa09fe70d23c9eef0b382498a8e07",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/d112_preflight.json": "4cd886799c741d471b5f88dc957c64facecf4d0fc4726e52f7845ddd8dc91dda",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/d112_preflight.md": "0a25a8917ec0ace87c450e971b0dcdcc285509fea1419876f1504e04382a4e3c",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/execution_review.json": "2d96954d243c47fc2785b568697b4850d364479304033953dd26771b08741f10",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/finalize_review.py": "fb6a1f1b423589d845d69d67ed115e70e307b25d5fa06709349df477c04ae29d",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414.json": "873aef7aedb2fe29539c9ec5b7e2092b394ef9af15962325cfec12035ff40de5",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/policy_1790196950043960280.json": "e951668b0e04058f4644c7d3b3ca54cab2f6101ef1c029f2ac601fe5cacc37ac",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/policy_diff.patch": "c740200428c85439410c73673271b1c59316ffb47839be5cb8e5385d305f4f70",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/policy_source_review.json": "83b55dfc49c9c855b2d6cd64b67f3b619b51658f747a703f71bec36bcb4bd339",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/review_execution.py": "6a6894b4eac0d6db976934da1da21d6ae138d3f15e52168088471426bb69cefc",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/review_policy.py": "5ed55e9d081907f2d9421c39f0056d4957410f3504926782f42eef942cb04134",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/review_policy_source.py": "df9131f3926722b56748b2b4dc4410f8e77866c27edb147e32f04a51520e6aef",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/review_source.py": "c61a1cd500003c330fd2c1b517023e5a981a16059374e87036d9e16a49683051",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/review_source_initial.py": "1c6fd531ebb1894170c8aa4085c1df915042db561f0222997fdb8b34404b0694",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/review_target.py": "a16a45858442dccaed2ca096f8812d10e34d5ab3311f9ed8b912eb5b03f023ed",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/run_firmware.py": "e9f5ddc5a811076dd919f9889f80346e36874e0105a38b0a47fe0eafaf019451",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/run_startup.py": "cca53c4ec87be5008c4ee0c7bb71295c0a1c60590f672b82e73872ccc162b201",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/source_review.json": "2c91b9f520b676ebfd7a0541bf9ef41bffc5da2d6fe2f22f6d9188c46c03e972",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/source_review_initial_failure.json": "8b1fab02bf6c2b7d98cc5f75a8db20e41a8b98d5daef62c2376c3b1295c7f694",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/source_review_second_failure.json": "9f67c135e13b8df5be7c25c536da58aaa360b1c5655e1fd64df8251836a8ff3a",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/source_review_third_failure.json": "9b1f6b4a1f60d145b40500d6ec4558e30135198662b5b818e5fbb27650451bad",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/startup_review.json": "98a2e888cc41cea944fefe3bc78b485cfebc43415dcbe61e0db9d27c680ecc51",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/target_9520e473_bench-default.json": "69f73dc812f67df06a1873dd73f28b3133fe2058c34018bb8029c7d33bc45abe",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/target_9520e473_bench-default_witness.txt": "069ac03763905e43be6a63af61cee9359deb3c3a06865db44be9e88ea4fd2e0e",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/target_9520e473_bench-immediate.json": "6ebaad85ba071a9cac029ad9a4d61580d2b01ba997723be66d3b6a46adf9d5ff",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/target_9520e473_bench-immediate_witness.txt": "069ac03763905e43be6a63af61cee9359deb3c3a06865db44be9e88ea4fd2e0e",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197450935653524.json": "6c0b0ae1db1a8fc465437eea6e109f0bd1e2b1dba3bb7d2f95f3451690396392",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197453058776035.json": "ef39472b5d51a9b1495855a9067042c6244d8d9a90254a5e38722188bd8354e1",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197453187073024.json": "72ba572acc050d0cf0cae46b20f6fd23ec929dbbc65316d41b5389d3aecbc9da",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197458452062458.json": "d42b89eebcdd2e75b9bfc2d5945f049752b146894f7ec0a320063af4583527b1",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197464099495713.json": "0ff0ca92e41d4de0a938eb97121dd9f7e7b60bfe1236d0e55526d7638946c109",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197464944549574.json": "5da4d4ece0ae7a050cba0713ba695259ed181e6b9775949a27cbe3c02b196d19",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197467306130074.json": "85754c447d6870450ad433ffd18e181a4b3749d748cb445f49426175d2596abb",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197467307851643.json": "dcf48b7f19bfe55a7f4d96da71b13ce83b5235f68b97d30ae8db2c267a5593f0",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197473563650567.json": "b39d3ba374d854d96dd66de4cb9012a540a983cc0fd492cdf1c019e737a373ca",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197473574651501.json": "62229cdb28446e11a0b40003d8b144bc1f01231808d59ff947e230c078dad9e5",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197475685357761.json": "cfa155d6e61e2c78bf7548f308998a6a8c97e07871821283dae6bc9ad1cb9a99",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197475693096584.json": "034d1f11ccacf53c3f816ff94efbd6e3fbbd273590937954e668a02eb42e8ab6",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197477847468653.json": "6571ffeceb956792b6921dc7e804babb0830bc188304c80321c90ddc1ca8d5b9",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197477856542949.json": "40f1aa6c42c16e2658ba21439b8acb278b14878dd10e7593893608d337c963b0",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197480109730770.json": "e9786b45f648e17d213d1bfcf7df0531bdfaafe785d29d603223d77001d9578e",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197480119085051.json": "fd1b450fb085eae858cb80cd56a00b4d81d96d42b86ad763265b61ef67537ffd",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197482176594488.json": "09a9147af6f9c07fb71b0e7fea275e11bed6e2c295481cd7b5ac66a0b184ddf3",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197482186783525.json": "5f3b861d784c26f1c559637fdac67d0a9c993152042f15e63aee637a7f64b97d",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197484325141047.json": "a186699dc87595f07447d282da39f30544e89b4fcd3e1b606ff3e1495afab4c0",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197484333857692.json": "59d1a1af408303331553142e7d75f73e7e2946f9fb48939159f3eddff75b14b8",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197486449564528.json": "0e8f1787cfa141f4110856623ea56f933b8464d8a4d0840d96ab45509c19c104",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197486458383552.json": "06849c60519e9be857e2436f193877b2c24117d091f7de4afacd278b6115e17c",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197488577812107.json": "f3ef7234879ded023deaff5cb86d4e6a6ff4975200932905505d2d8140a691e2",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197488590699210.json": "d75d9247f904e67549d6e7e9548b098e19c42ccde97ecf30acb33957eb7febe1",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197491012830820.json": "c7226a2d1d5461d435be46d1a686a48bbbf2925e8be1b57fc0b255f816b39453",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197491021359354.json": "5b5086dd901f65eb594b63f8efd6c9a06860a5bfa80cbde5c12f0fcb6d6c59ef",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197493209535071.json": "828a494a8a6f177e75bc195098c1bb0eeeebb0a3f1a759bac452c1f17c67094f",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197493217629150.json": "31f04ab6b5245582ee54a195ab124b12856b8947c98473aaced3e9d5f4dacf5d",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197495471716882.json": "eb2083be631e17c5ac33934294e4c5f10bbe254e688c341b0142e9be6c474ad9",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197495480493696.json": "da9690352fca143e8b97a3f15af3e92aec8690af584e4b16b9cd96e6832a2435",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197497564295507.json": "981888e788f05827772432ce7b654fcf358753f50d45ea9776b6c62cb2ddb6df",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197497573476526.json": "69707e0c60b2ce72418380f4a189e78ed26e9f65c40e9d4dd31394a123aa7cde",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197499672631654.json": "0ab1725da383acf856b351426629bb213baa3e22ce7e72b29d09416c46e4916c",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197499681661094.json": "a8fbb9f37eb92d3b9233de6ebccb8acc8933a8cc38b74f99461578bc5a80c3e5",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197501870785833.json": "183f20ca1098d9a46daa97e87c17c123bac9addb3eeadef2fcbe531662da2ab6",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197501880272037.json": "f01d1670233a1ddd5f524a498acb2c601961319e0d9138cd800a14dfdaac144a",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197503993897132.json": "e41b53961ff91629806635a70cb316b530746ccdfcd63d4e28c8d6fb69310dc3",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197504002843890.json": "8690cc4ce7d3b90d58b067c14d8dcaaa4634aad46303bf62e9163b20b75900a6",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197506462746959.json": "b5232f2426446cb712718d16fd387d0ea1b5e8a1cbdcc728e086ef61bb51307c",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197506473056063.json": "ecea59f93b90f7b5a6ec84a2d4a594aef713c24a1d034f3c418596fd6d20c007",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197508661802935.json": "5c3482e6ec2ad9cfbb26057fc8000c30d983f0e98c7bb39e691092910a87f53c",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197508671128243.json": "d210229c9334f0defba6a0f97ac960f8d3016b19af9ecde3007cae4c05d9ff5d",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197510919205309.json": "94e8f311ca957b16a7178c373c0d862459f087e45eea3d54a307bcd60d086568",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197510920682157.json": "bc8ef2f9c354246d7419330cc4b8305978db73268e480a65151e0af18c7cfbb1",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197517346578282.json": "55176d7d1fb5cd3dba423b37f996826b13829c2b9b0558c3ae1bf16db35e3e38",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197517357634884.json": "629c74e46c2611d5e8a4a1224495a38fb6751b9aad42b475cca27c6aa91a9f07",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197519529732844.json": "288784502a503ab44011e8ac7a0ed3f40b206c91f008a31cf1ed53cfabb63003",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197519531193133.json": "f26b91df9c58ae193dcf85661cb8c8e6ea27166274f0dec9b7c03ef5b00f186e",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197525554412058.json": "f3a826e70e1bc7d8d69dd46a0f1dea676dc013790786b2d653ae306ac23392c6",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197525565633867.json": "6c29f1667578b20a09b1e9a8bbd5f0e8a785fd6901620849b15691694ff38959",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197527939144582.json": "7ced1817020b43974b0aaf3dc69796612dba4b3ec3704089a84a74cb62c01391",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197527948677706.json": "ae1caf95a7114d48ff55dd7f80709928109ca10cb37768633b02621516e853c5",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197534049967089.json": "a71b589de2007e190bf02fb4272031b17b4d4e794aab46add28cde2ae52386c2",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197534098330128.json": "d4486175b6b77e09ef056c626c61b581cccf3d235358dc0c8a9fda8160636b40",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197539151664115.json": "6b1c5d84e92eeb2f5c3b8cd19d00cde22e17a6da0bfb101f97cdee4f8b0afd17",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197539160378474.json": "9c28e64fa1813ccfb8ca603883330d4186908c6b4673d1cda531b63ee398c2f3",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197544393796973.json": "e8525f1694d1e0005767b0f22d581d34eb195e819e82368f0cc243ba1ff24f83",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197544404672328.json": "787c3af02b72205a47df490108d67b9aa36ff769de32f5bc6e04b3614b500511",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197544417386925.json": "ade44110dd7643574c64c69b3f3a4d4c9e3e1dbb00b5e345438ab73eceff2deb",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197544430730805.json": "b64b85b7f92744537071a0c65be492c3304110846ab94521ea433b3d33241924",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/command_1790197544443289895.json": "88e1f3308d604146ffc273a01a48278f9866064b67ae68afa4cefc548ee3d0d4",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/config_profile_1790197473575436590.json": "af56f144be3bda17cecd80f3404b87676448cc3c1664005b57c2672a02f44e2c",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/config_profile_1790197475693602521.json": "d7baa7dbb90ee764d2c2185f57f300d19d65ef730875399c36e999236a3c88ef",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/config_profile_1790197477857273710.json": "c001d600f2fb696aaa3c016f225d9b1c55883cf037b28f92b4402d682335d874",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/config_profile_1790197480119704524.json": "8a418d7026a324fb8f28d8c7440bc80860a0c05a5b6d717ca6a6f30a5eed7636",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/config_profile_1790197482187505178.json": "b0ab894e8c531c732c0e8e4ad2eb28bc9085d0791c092a2fc76e67d2f7fceab3",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/config_profile_1790197484334417671.json": "b27dd0145ae308cdbd1ff793e1affccb93d10fc5e29dee771165fef1b4b40bdc",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/config_profile_1790197486459101346.json": "ce49b8e47f50c84ae330e70c1d50c788267e55dbaa41e43e7db508c8d3a719e7",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/config_profile_1790197488591700730.json": "8766ffbd49e210c2ab056740febe05d07171b97ebcb01b710bbbcb7980dc484f",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/config_profile_1790197491021979228.json": "5de590a72d902075b24c13a05bface8c4ec5c641da2ed67e90b42d093debba87",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/config_profile_1790197493218153347.json": "447be54cba8a54735487affd48d8486ca955f908fe8863cd81d1b771f4e8991f",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/config_profile_1790197495481170208.json": "05546146a708b1a2d7d54fac1f7a87d23acea754190a2a95a485bc4a7b6782f8",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/config_profile_1790197497574071601.json": "47049776479d19bde444668aeb037c6b6ea3ed3a1a8687126270b2758af5046d",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/config_profile_1790197499682337827.json": "1b1107dfd543b22ac9bd7913d801af76d88a80cfa1533129819cf6bf9c661e0c",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/config_profile_1790197501880950233.json": "08956c55d78ce30b23953beefb9538004fe58383d3c51de842dc57013084bc05",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/config_profile_1790197504003408280.json": "28088da811613ee31faadd127704e97092440c63657266fff3edd3a0b4e0d54c",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/config_profile_1790197506473957345.json": "7c79b1f9b22b52e56bdf4463c2ad8007e8181aca61387c957d29ce704bc080c8",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/config_profile_1790197508672163422.json": "2f132ee77a5043cd077d696ffba62680ebe032237df2c95f2ec9fb88d0439b6d",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/config_profile_1790197510921375264.json": "bea3f078a06e7c26750f5f18734809f671f0905847df0416089a696e80f920b0",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/config_profile_1790197517358451811.json": "f2865fb46a427b0c32389481ba5c829380cecddad3afbb67199b7ae864573ace",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/config_profile_1790197519531752056.json": "320bac9e8aeb0d658cc7d405f073fa5d72e110810fcb20e534a651d161102d1e",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/config_profile_1790197525566628427.json": "7e86b8a56a1251e1d1e2ccd3adc087d2f16f433c7a5f3bff9ace786ef2e6ed01",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/config_profile_1790197527949848884.json": "2d00ef658ab15a2ec248ab078394e573ca1205216f3dd10fc87ff1a36972761e",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/config_profile_1790197534098938563.json": "136849af2f2a53926cb66edb937d52758046680202431a5dd20205815a43c312",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/config_profile_1790197539161021061.json": "4115310d4554ea3c5444fa07fef6cde7cf96e1b49b506e7636564142a4064c27",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/opaque_source_copy_1790197448658373185.json": "cacbf7cd555fa1dd33345278280ac4b06d7991950e9d7ee98360470d9078e8e6",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/registry_delta_1790197544454215793.json": "c8cbb2b15892f1629a66d232c76665928ab2a82121d514d959bba11876dc715a",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/test_freeze_1790197448646938805.json": "3179c78abae9e024f9d84dc9b63c95746ac44f7c0eb75d40fe23eef42db871e9",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/startup_1790197613954285909/command_1790197616830511406.json": "2820554e290aa63ae54bc06ba42db6b06d0fde58e4855a0c02ff4105fc06f806",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/startup_1790197613954285909/command_1790197619222408830.json": "3b7a3093b1bcf471b3b094d3d0276f6f83e832b68175253242ce47bd9b5ca7e2",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/startup_1790197613954285909/command_1790197619232953655.json": "fed2f19862cd605707019b56a98b5d8c4fd0ecadd5e212802d0d9427856f31e2",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/startup_1790197613954285909/command_1790197625000835612.json": "7df8d4a30fc22c26c079688652f5b075d17a459b744f9b5431a4fdcc5adf9475",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/startup_1790197613954285909/command_1790197630355039983.json": "20cd43fe21e311dda11c2e5f3d3306e089f3a42920fc9d4780501d9f20d4fac1",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/startup_1790197613954285909/command_1790197630371237942.json": "32632244dcc4a88676b6a71ab4f1c8141fdd4534c52e0113af475664b31c5d95",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/startup_1790197613954285909/source.json": "1224dee8f139845e300a66fc4d7cc60605f3130ba583ec6021ad43b06e7677ea",
+    "state/analysis/P2_imu_heading_bench_raw/reviewer/firmware_1790197445705089414_cases/registry/registry_cases.jsonl": "3b649c7e2238b0dbd61ec6877052f44b208e218531a8b0988332cf2e9db601b1"
+  },
+  "tests": {
+    "verdict": "PASS_PRIVATE_FROZEN_D111_EXECUTION_AND_ADDITIVE_STARTUP",
+    "firmware_receipt": "firmware_1790197445705089414.json",
+    "firmware_receipt_sha256": "873aef7aedb2fe29539c9ec5b7e2092b394ef9af15962325cfec12035ff40de5",
+    "original_oracle_sha256": "a9e9fce1b293a43c7b8631447da67cfa43c6b67c70fe877f058beb4cbc2f8e11",
+    "amended_oracle_sha256": "ffc0a59640a5f82cb27fc09aff231aafc4c4fda46eca6f425019c6e3bcee1fed",
+    "harness_sha256": "bcc2b6da626d20e61603b9b91550ff4371f584f0bffce7679639b09d8be1407b",
+    "profiles": [
+      {
+        "name": "normal",
+        "cases": [
+          31,
+          31,
+          0,
+          0
+        ],
+        "assertions": [
+          1342660,
+          1342660,
+          0
+        ]
+      },
+      {
+        "name": "asan_ubsan",
+        "cases": [
+          31,
+          31,
+          0,
+          0
+        ],
+        "assertions": [
+          1342660,
+          1342660,
+          0
+        ]
+      },
+      {
+        "name": "native_normal",
+        "cases": [
+          2,
+          2,
+          0,
+          31
+        ],
+        "assertions": [
+          25,
+          25,
+          0
+        ]
+      },
+      {
+        "name": "native_san",
+        "cases": [
+          2,
+          2,
+          0,
+          31
+        ],
+        "assertions": [
+          25,
+          25,
+          0
+        ]
+      },
+      {
+        "name": "invalid-0",
+        "cases": [
+          3,
+          3,
+          0,
+          0
+        ],
+        "assertions": [
+          170,
+          170,
+          0
+        ]
+      },
+      {
+        "name": "invalid-1",
+        "cases": [
+          3,
+          3,
+          0,
+          0
+        ],
+        "assertions": [
+          170,
+          170,
+          0
+        ]
+      },
+      {
+        "name": "invalid-2",
+        "cases": [
+          3,
+          3,
+          0,
+          0
+        ],
+        "assertions": [
+          170,
+          170,
+          0
+        ]
+      },
+      {
+        "name": "invalid-3",
+        "cases": [
+          3,
+          3,
+          0,
+          0
+        ],
+        "assertions": [
+          170,
+          170,
+          0
+        ]
+      },
+      {
+        "name": "invalid-4",
+        "cases": [
+          3,
+          3,
+          0,
+          0
+        ],
+        "assertions": [
+          170,
+          170,
+          0
+        ]
+      },
+      {
+        "name": "invalid-5",
+        "cases": [
+          3,
+          3,
+          0,
+          0
+        ],
+        "assertions": [
+          170,
+          170,
+          0
+        ]
+      },
+      {
+        "name": "invalid-6",
+        "cases": [
+          3,
+          3,
+          0,
+          0
+        ],
+        "assertions": [
+          170,
+          170,
+          0
+        ]
+      },
+      {
+        "name": "invalid-7",
+        "cases": [
+          3,
+          3,
+          0,
+          0
+        ],
+        "assertions": [
+          170,
+          170,
+          0
+        ]
+      },
+      {
+        "name": "invalid-8",
+        "cases": [
+          3,
+          3,
+          0,
+          0
+        ],
+        "assertions": [
+          170,
+          170,
+          0
+        ]
+      },
+      {
+        "name": "invalid-9",
+        "cases": [
+          3,
+          3,
+          0,
+          0
+        ],
+        "assertions": [
+          170,
+          170,
+          0
+        ]
+      },
+      {
+        "name": "invalid-10",
+        "cases": [
+          3,
+          3,
+          0,
+          0
+        ],
+        "assertions": [
+          170,
+          170,
+          0
+        ]
+      },
+      {
+        "name": "invalid-11",
+        "cases": [
+          3,
+          3,
+          0,
+          0
+        ],
+        "assertions": [
+          170,
+          170,
+          0
+        ]
+      },
+      {
+        "name": "invalid-12",
+        "cases": [
+          3,
+          3,
+          0,
+          0
+        ],
+        "assertions": [
+          170,
+          170,
+          0
+        ]
+      },
+      {
+        "name": "invalid-13",
+        "cases": [
+          3,
+          3,
+          0,
+          0
+        ],
+        "assertions": [
+          170,
+          170,
+          0
+        ]
+      },
+      {
+        "name": "invalid-14",
+        "cases": [
+          3,
+          3,
+          0,
+          0
+        ],
+        "assertions": [
+          170,
+          170,
+          0
+        ]
+      },
+      {
+        "name": "estimator-config",
+        "cases": [
+          3,
+          3,
+          0,
+          0
+        ],
+        "assertions": [
+          158,
+          158,
+          0
+        ]
+      },
+      {
+        "name": "short-cal-normal",
+        "cases": [
+          1,
+          1,
+          0,
+          31
+        ],
+        "assertions": [
+          87,
+          87,
+          0
+        ]
+      },
+      {
+        "name": "short-cal-san",
+        "cases": [
+          1,
+          1,
+          0,
+          31
+        ],
+        "assertions": [
+          87,
+          87,
+          0
+        ]
+      },
+      {
+        "name": "poll-limit-normal",
+        "cases": [
+          1,
+          1,
+          0,
+          31
+        ],
+        "assertions": [
+          37,
+          37,
+          0
+        ]
+      },
+      {
+        "name": "poll-limit-san",
+        "cases": [
+          1,
+          1,
+          0,
+          31
+        ],
+        "assertions": [
+          37,
+          37,
+          0
+        ]
+      },
+      {
+        "name": "short-trial-normal",
+        "cases": [
+          3,
+          3,
+          0,
+          28
+        ],
+        "assertions": [
+          72228,
+          72228,
+          0
+        ]
+      },
+      {
+        "name": "short-trial-san",
+        "cases": [
+          3,
+          3,
+          0,
+          28
+        ],
+        "assertions": [
+          72228,
+          72228,
+          0
+        ]
+      },
+      {
+        "name": "deadline-min-plus-one",
+        "cases": [
+          1,
+          1,
+          0,
+          30
+        ],
+        "assertions": [
+          31,
+          31,
+          0
+        ]
+      },
+      {
+        "name": "tick-gap-equality",
+        "cases": [
+          1,
+          1,
+          0,
+          30
+        ],
+        "assertions": [
+          31,
+          31,
+          0
+        ]
+      }
+    ],
+    "amended_native_profiles": [
+      {
+        "name": "native_normal",
+        "cases": [
+          3,
+          3,
+          0,
+          31
+        ],
+        "assertions": [
+          38,
+          38,
+          0
+        ]
+      },
+      {
+        "name": "native_san",
+        "cases": [
+          3,
+          3,
+          0,
+          31
+        ],
+        "assertions": [
+          38,
+          38,
+          0
+        ]
+      }
+    ],
+    "unsafe_static_refusals": 3,
+    "registry_profiles": 6,
+    "registry_checks": 108,
+    "policy_methods": 121,
+    "policy_skips": 0,
+    "notes": [
+      "Original full suite passed before one additive startup case; removing insertion restores original bytes exactly.",
+      "Native/config/special selections intentionally exclude unrelated profiles; ordinary suites execute all31 with no skips.",
+      "No private state seeding or impossible counter/sequence/numeric/checkpoint-gap execution claim.",
+      "No unexpected original/amended private execution failure; three separate source-verifier input mistakes retained.",
+      "D109 private full-host CTest2/2 retained; existing core/HAL files unchanged and all334 old tests byte-identical except independently proved additive registry lines."
+    ]
+  },
+  "targets": [
+    {
+      "verdict": "PASS_EXACT_CHECKED_IMU_HEADING_TARGET_AND_CONDITIONAL_FIT",
+      "source_sha256": "9520e47316b6edb7405bd5182f498453c4860f79fdd197a03ff34c14c7b69c05",
+      "source_files": 96,
+      "shared_source_delta_from_D110": [
+        "src/config.h: exact five additive D111 constants and their comment only"
+      ],
+      "mode": "bench-default",
+      "artifacts": [
+        {
+          "file": "imu_heading.ino.elf",
+          "sha256": "e55565ff4afeff9f61701ac789501f84ae3f39744adfa42680bb34dc0d68ba9b",
+          "bytes": 35976,
+          "payload": 26833,
+          "conditional_peak": 28224,
+          "free_span": 233920,
+          "largest_free_payload": 233916,
+          "allocations": [
+            {
+              "purpose": "extension",
+              "chunk": 200,
+              "available_before": 262056,
+              "fits": true
+            },
+            {
+              "purpose": "section_map",
+              "chunk": 112,
+              "available_before": 261856,
+              "fits": true
+            },
+            {
+              "purpose": ".text",
+              "chunk": 15528,
+              "available_before": 261744,
+              "fits": true
+            },
+            {
+              "purpose": ".bss",
+              "chunk": 11312,
+              "available_before": 246216,
+              "fits": true
+            },
+            {
+              "purpose": ".exported_sym",
+              "chunk": 16,
+              "available_before": 234904,
+              "fits": true
+            },
+            {
+              "purpose": ".init_array",
+              "chunk": 8,
+              "available_before": 234888,
+              "fits": true
+            },
+            {
+              "purpose": "global_symbols",
+              "chunk": 944,
+              "available_before": 234880,
+              "fits": true
+            },
+            {
+              "purpose": "export_copy",
+              "chunk": 16,
+              "available_before": 233936,
+              "fits": true
+            }
+          ],
+          "init_refs": [
+            "memset",
+            "_ZN17imu_heading_bench6Native4portEv",
+            "_ZN17imu_heading_bench6RunnerC1ERKNS_4PortE"
+          ],
+          "used_imports": [
+            "__device_dts_ord_40",
+            "__device_dts_ord_9",
+            "__device_dts_ord_92",
+            "__real___aeabi_d2f",
+            "__real___aeabi_dadd",
+            "__real___aeabi_dcmpgt",
+            "__real___aeabi_dcmple",
+            "__real___aeabi_dcmplt",
+            "__real___aeabi_dcmpun",
+            "__real___aeabi_ddiv",
+            "__real___aeabi_dmul",
+            "__real___aeabi_dsub",
+            "__real___aeabi_f2d",
+            "__real___aeabi_ui2d",
+            "__real___aeabi_uldivmod",
+            "__real_abort",
+            "__real_memcpy",
+            "__real_memset",
+            "sys_clock_cycle_get_64",
+            "z_impl_device_is_ready",
+            "z_impl_k_thread_create",
+            "z_impl_k_thread_name_set"
+          ],
+          "native_bindings": {
+            "_ZN17imu_heading_bench6Native7clockUsEPv": [
+              "micros"
+            ],
+            "_ZN17imu_heading_bench6Native10startSetupEPvjb": [
+              "_ZN3imu8Acquirer5startEjb"
+            ],
+            "_ZN17imu_heading_bench6Native12advanceSetupEPvj": [
+              "_ZN3imu8Acquirer12advanceSetupEj"
+            ],
+            "_ZN17imu_heading_bench6Native9beginReadEPvj": [
+              "_ZN3imu8Acquirer9beginReadEj"
+            ],
+            "_ZN17imu_heading_bench6Native11advanceReadEPvj": [
+              "_ZN3imu8Acquirer11advanceReadEj"
+            ],
+            "_ZN17imu_heading_bench6Native10cancelReadEPvj": [
+              "_ZN3imu8Acquirer10cancelReadEj"
+            ]
+          },
+          "sole_native": {
+            "name": "_ZN12_GLOBAL__N_16nativeE",
+            "value": 10784,
+            "size": 516,
+            "bind": 0,
+            "type": 1,
+            "other": 0,
+            "section_index": 5,
+            "section": ".bss"
+          },
+          "runner": {
+            "name": "_ZN12_GLOBAL__N_16runnerE",
+            "value": 0,
+            "size": 10784,
+            "bind": 0,
+            "type": 1,
+            "other": 0,
+            "section_index": 5,
+            "section": ".bss"
+          },
+          "thread_bounds": [
+            {
+              "name": "__static_thread_data_list_end",
+              "value": 0,
+              "size": 0,
+              "bind": 1,
+              "type": 0,
+              "other": 0,
+              "section_index": 4,
+              "section": ".static_thread_data_area"
+            },
+            {
+              "name": "__static_thread_data_list_start",
+              "value": 0,
+              "size": 0,
+              "bind": 1,
+              "type": 0,
+              "other": 0,
+              "section_index": 4,
+              "section": ".static_thread_data_area"
+            }
+          ],
+          "compiled_constants": {
+            "all_grants": false,
+            "mounting_confirmed": false,
+            "initial_bias": 0
+          }
+        },
+        {
+          "file": "imu_heading.ino_debug.elf",
+          "sha256": "e5de662d12ecc476709a9259166efc26b685abe5ec2b7537720b827a0217a326",
+          "bytes": 622052,
+          "payload": 26833,
+          "conditional_peak": 28336,
+          "free_span": 233808,
+          "largest_free_payload": 233804,
+          "allocations": [
+            {
+              "purpose": "extension",
+              "chunk": 200,
+              "available_before": 262056,
+              "fits": true
+            },
+            {
+              "purpose": "section_map",
+              "chunk": 224,
+              "available_before": 261856,
+              "fits": true
+            },
+            {
+              "purpose": ".text",
+              "chunk": 15528,
+              "available_before": 261632,
+              "fits": true
+            },
+            {
+              "purpose": ".bss",
+              "chunk": 11312,
+              "available_before": 246104,
+              "fits": true
+            },
+            {
+              "purpose": ".exported_sym",
+              "chunk": 16,
+              "available_before": 234792,
+              "fits": true
+            },
+            {
+              "purpose": ".init_array",
+              "chunk": 8,
+              "available_before": 234776,
+              "fits": true
+            },
+            {
+              "purpose": "global_symbols",
+              "chunk": 944,
+              "available_before": 234768,
+              "fits": true
+            },
+            {
+              "purpose": "export_copy",
+              "chunk": 16,
+              "available_before": 233824,
+              "fits": true
+            }
+          ],
+          "init_refs": [
+            "memset",
+            "_ZN17imu_heading_bench6Native4portEv",
+            "_ZN17imu_heading_bench6RunnerC1ERKNS_4PortE"
+          ],
+          "used_imports": [
+            "__device_dts_ord_40",
+            "__device_dts_ord_9",
+            "__device_dts_ord_92",
+            "__real___aeabi_d2f",
+            "__real___aeabi_dadd",
+            "__real___aeabi_dcmpgt",
+            "__real___aeabi_dcmple",
+            "__real___aeabi_dcmplt",
+            "__real___aeabi_dcmpun",
+            "__real___aeabi_ddiv",
+            "__real___aeabi_dmul",
+            "__real___aeabi_dsub",
+            "__real___aeabi_f2d",
+            "__real___aeabi_ui2d",
+            "__real___aeabi_uldivmod",
+            "__real_abort",
+            "__real_memcpy",
+            "__real_memset",
+            "sys_clock_cycle_get_64",
+            "z_impl_device_is_ready",
+            "z_impl_k_thread_create",
+            "z_impl_k_thread_name_set"
+          ],
+          "native_bindings": {
+            "_ZN17imu_heading_bench6Native7clockUsEPv": [
+              "micros"
+            ],
+            "_ZN17imu_heading_bench6Native10startSetupEPvjb": [
+              "_ZN3imu8Acquirer5startEjb"
+            ],
+            "_ZN17imu_heading_bench6Native12advanceSetupEPvj": [
+              "_ZN3imu8Acquirer12advanceSetupEj"
+            ],
+            "_ZN17imu_heading_bench6Native9beginReadEPvj": [
+              "_ZN3imu8Acquirer9beginReadEj"
+            ],
+            "_ZN17imu_heading_bench6Native11advanceReadEPvj": [
+              "_ZN3imu8Acquirer11advanceReadEj"
+            ],
+            "_ZN17imu_heading_bench6Native10cancelReadEPvj": [
+              "_ZN3imu8Acquirer10cancelReadEj"
+            ]
+          },
+          "sole_native": {
+            "name": "_ZN12_GLOBAL__N_16nativeE",
+            "value": 10784,
+            "size": 516,
+            "bind": 0,
+            "type": 1,
+            "other": 0,
+            "section_index": 5,
+            "section": ".bss"
+          },
+          "runner": {
+            "name": "_ZN12_GLOBAL__N_16runnerE",
+            "value": 0,
+            "size": 10784,
+            "bind": 0,
+            "type": 1,
+            "other": 0,
+            "section_index": 5,
+            "section": ".bss"
+          },
+          "thread_bounds": [
+            {
+              "name": "__static_thread_data_list_end",
+              "value": 0,
+              "size": 0,
+              "bind": 1,
+              "type": 0,
+              "other": 0,
+              "section_index": 4,
+              "section": ".static_thread_data_area"
+            },
+            {
+              "name": "__static_thread_data_list_start",
+              "value": 0,
+              "size": 0,
+              "bind": 1,
+              "type": 0,
+              "other": 0,
+              "section_index": 4,
+              "section": ".static_thread_data_area"
+            }
+          ],
+          "compiled_constants": {
+            "all_grants": false,
+            "mounting_confirmed": false,
+            "initial_bias": 0
+          }
+        },
+        {
+          "file": "imu_heading.ino_temp.elf",
+          "sha256": "eaf71ef5503846f1633d2d6a23c2bf7c7c6c0bcfc6b71be6ab9a04219793c692",
+          "bytes": 622208,
+          "payload": 27546,
+          "conditional_peak": 29088,
+          "free_span": 233056,
+          "largest_free_payload": 233052,
+          "allocations": [
+            {
+              "purpose": "extension",
+              "chunk": 200,
+              "available_before": 262056,
+              "fits": true
+            },
+            {
+              "purpose": "section_map",
+              "chunk": 240,
+              "available_before": 261856,
+              "fits": true
+            },
+            {
+              "purpose": ".text",
+              "chunk": 15528,
+              "available_before": 261616,
+              "fits": true
+            },
+            {
+              "purpose": ".rodata",
+              "chunk": 64,
+              "available_before": 246088,
+              "fits": true
+            },
+            {
+              "purpose": ".bss",
+              "chunk": 11312,
+              "available_before": 246024,
+              "fits": true
+            },
+            {
+              "purpose": ".exported_sym",
+              "chunk": 16,
+              "available_before": 234712,
+              "fits": true
+            },
+            {
+              "purpose": ".init_array",
+              "chunk": 8,
+              "available_before": 234696,
+              "fits": true
+            },
+            {
+              "purpose": ".rodata._ZN3imu12_GLOBAL__N_1L5STEPSE",
+              "chunk": 584,
+              "available_before": 234688,
+              "fits": true
+            },
+            {
+              "purpose": ".rodata.str1.1",
+              "chunk": 88,
+              "available_before": 234104,
+              "fits": true
+            },
+            {
+              "purpose": "global_symbols",
+              "chunk": 944,
+              "available_before": 234016,
+              "fits": true
+            },
+            {
+              "purpose": "export_copy",
+              "chunk": 16,
+              "available_before": 233072,
+              "fits": true
+            }
+          ],
+          "init_refs": [
+            "memset",
+            "_ZN17imu_heading_bench6Native4portEv",
+            "_ZN17imu_heading_bench6RunnerC1ERKNS_4PortE"
+          ],
+          "used_imports": [
+            "__device_dts_ord_40",
+            "__device_dts_ord_9",
+            "__device_dts_ord_92",
+            "__real___aeabi_d2f",
+            "__real___aeabi_dadd",
+            "__real___aeabi_dcmpgt",
+            "__real___aeabi_dcmple",
+            "__real___aeabi_dcmplt",
+            "__real___aeabi_dcmpun",
+            "__real___aeabi_ddiv",
+            "__real___aeabi_dmul",
+            "__real___aeabi_dsub",
+            "__real___aeabi_f2d",
+            "__real___aeabi_ui2d",
+            "__real___aeabi_uldivmod",
+            "__real_abort",
+            "__real_memcpy",
+            "__real_memset",
+            "sys_clock_cycle_get_64",
+            "z_impl_device_is_ready",
+            "z_impl_k_thread_create",
+            "z_impl_k_thread_name_set"
+          ],
+          "native_bindings": {
+            "_ZN17imu_heading_bench6Native7clockUsEPv": [
+              "micros"
+            ],
+            "_ZN17imu_heading_bench6Native10startSetupEPvjb": [
+              "_ZN3imu8Acquirer5startEjb"
+            ],
+            "_ZN17imu_heading_bench6Native12advanceSetupEPvj": [
+              "_ZN3imu8Acquirer12advanceSetupEj"
+            ],
+            "_ZN17imu_heading_bench6Native9beginReadEPvj": [
+              "_ZN3imu8Acquirer9beginReadEj"
+            ],
+            "_ZN17imu_heading_bench6Native11advanceReadEPvj": [
+              "_ZN3imu8Acquirer11advanceReadEj"
+            ],
+            "_ZN17imu_heading_bench6Native10cancelReadEPvj": [
+              "_ZN3imu8Acquirer10cancelReadEj"
+            ]
+          },
+          "sole_native": {
+            "name": "_ZN12_GLOBAL__N_16nativeE",
+            "value": 10784,
+            "size": 516,
+            "bind": 0,
+            "type": 1,
+            "other": 0,
+            "section_index": 4,
+            "section": ".bss"
+          },
+          "runner": {
+            "name": "_ZN12_GLOBAL__N_16runnerE",
+            "value": 0,
+            "size": 10784,
+            "bind": 0,
+            "type": 1,
+            "other": 0,
+            "section_index": 4,
+            "section": ".bss"
+          },
+          "thread_bounds": [
+            {
+              "name": "__static_thread_data_list_end",
+              "value": 0,
+              "size": 0,
+              "bind": 1,
+              "type": 0,
+              "other": 0,
+              "section_index": 3,
+              "section": ".static_thread_data_area"
+            },
+            {
+              "name": "__static_thread_data_list_start",
+              "value": 0,
+              "size": 0,
+              "bind": 1,
+              "type": 0,
+              "other": 0,
+              "section_index": 3,
+              "section": ".static_thread_data_area"
+            }
+          ],
+          "compiled_constants": {
+            "all_grants": false,
+            "mounting_confirmed": false,
+            "initial_bias": 0
+          }
+        }
+      ],
+      "abi": {
+        "Runner": 10784,
+        "Native": 516,
+        "Sample": 104,
+        "Estimate": 48,
+        "Checkpoint": 164,
+        "checkpoint_offset": 752,
+        "checkpoint_count": 61,
+        "checkpoint_bytes": 10004
+      },
+      "zsk_sha256": "8ed201ed57e5cb2f2832369c7a540e01f79b40556a50a464ad9be3095c478c04",
+      "limits": "Sole existing native Acquirer/Bus/Setup is constructed passively; all default grants false before any callback. Core thread starter bounds empty; exception allocation stub aborts. Pristine-pool model only; no upload/load/readout/physical/WCET evidence."
+    },
+    {
+      "verdict": "PASS_EXACT_CHECKED_IMU_HEADING_TARGET_AND_CONDITIONAL_FIT",
+      "source_sha256": "9520e47316b6edb7405bd5182f498453c4860f79fdd197a03ff34c14c7b69c05",
+      "source_files": 96,
+      "shared_source_delta_from_D110": [
+        "src/config.h: exact five additive D111 constants and their comment only"
+      ],
+      "mode": "bench-immediate",
+      "artifacts": [
+        {
+          "file": "imu_heading.ino.elf",
+          "sha256": "e55565ff4afeff9f61701ac789501f84ae3f39744adfa42680bb34dc0d68ba9b",
+          "bytes": 35976,
+          "payload": 26833,
+          "conditional_peak": 28224,
+          "free_span": 233920,
+          "largest_free_payload": 233916,
+          "allocations": [
+            {
+              "purpose": "extension",
+              "chunk": 200,
+              "available_before": 262056,
+              "fits": true
+            },
+            {
+              "purpose": "section_map",
+              "chunk": 112,
+              "available_before": 261856,
+              "fits": true
+            },
+            {
+              "purpose": ".text",
+              "chunk": 15528,
+              "available_before": 261744,
+              "fits": true
+            },
+            {
+              "purpose": ".bss",
+              "chunk": 11312,
+              "available_before": 246216,
+              "fits": true
+            },
+            {
+              "purpose": ".exported_sym",
+              "chunk": 16,
+              "available_before": 234904,
+              "fits": true
+            },
+            {
+              "purpose": ".init_array",
+              "chunk": 8,
+              "available_before": 234888,
+              "fits": true
+            },
+            {
+              "purpose": "global_symbols",
+              "chunk": 944,
+              "available_before": 234880,
+              "fits": true
+            },
+            {
+              "purpose": "export_copy",
+              "chunk": 16,
+              "available_before": 233936,
+              "fits": true
+            }
+          ],
+          "init_refs": [
+            "memset",
+            "_ZN17imu_heading_bench6Native4portEv",
+            "_ZN17imu_heading_bench6RunnerC1ERKNS_4PortE"
+          ],
+          "used_imports": [
+            "__device_dts_ord_40",
+            "__device_dts_ord_9",
+            "__device_dts_ord_92",
+            "__real___aeabi_d2f",
+            "__real___aeabi_dadd",
+            "__real___aeabi_dcmpgt",
+            "__real___aeabi_dcmple",
+            "__real___aeabi_dcmplt",
+            "__real___aeabi_dcmpun",
+            "__real___aeabi_ddiv",
+            "__real___aeabi_dmul",
+            "__real___aeabi_dsub",
+            "__real___aeabi_f2d",
+            "__real___aeabi_ui2d",
+            "__real___aeabi_uldivmod",
+            "__real_abort",
+            "__real_memcpy",
+            "__real_memset",
+            "sys_clock_cycle_get_64",
+            "z_impl_device_is_ready",
+            "z_impl_k_thread_create",
+            "z_impl_k_thread_name_set"
+          ],
+          "native_bindings": {
+            "_ZN17imu_heading_bench6Native7clockUsEPv": [
+              "micros"
+            ],
+            "_ZN17imu_heading_bench6Native10startSetupEPvjb": [
+              "_ZN3imu8Acquirer5startEjb"
+            ],
+            "_ZN17imu_heading_bench6Native12advanceSetupEPvj": [
+              "_ZN3imu8Acquirer12advanceSetupEj"
+            ],
+            "_ZN17imu_heading_bench6Native9beginReadEPvj": [
+              "_ZN3imu8Acquirer9beginReadEj"
+            ],
+            "_ZN17imu_heading_bench6Native11advanceReadEPvj": [
+              "_ZN3imu8Acquirer11advanceReadEj"
+            ],
+            "_ZN17imu_heading_bench6Native10cancelReadEPvj": [
+              "_ZN3imu8Acquirer10cancelReadEj"
+            ]
+          },
+          "sole_native": {
+            "name": "_ZN12_GLOBAL__N_16nativeE",
+            "value": 10784,
+            "size": 516,
+            "bind": 0,
+            "type": 1,
+            "other": 0,
+            "section_index": 5,
+            "section": ".bss"
+          },
+          "runner": {
+            "name": "_ZN12_GLOBAL__N_16runnerE",
+            "value": 0,
+            "size": 10784,
+            "bind": 0,
+            "type": 1,
+            "other": 0,
+            "section_index": 5,
+            "section": ".bss"
+          },
+          "thread_bounds": [
+            {
+              "name": "__static_thread_data_list_end",
+              "value": 0,
+              "size": 0,
+              "bind": 1,
+              "type": 0,
+              "other": 0,
+              "section_index": 4,
+              "section": ".static_thread_data_area"
+            },
+            {
+              "name": "__static_thread_data_list_start",
+              "value": 0,
+              "size": 0,
+              "bind": 1,
+              "type": 0,
+              "other": 0,
+              "section_index": 4,
+              "section": ".static_thread_data_area"
+            }
+          ],
+          "compiled_constants": {
+            "all_grants": false,
+            "mounting_confirmed": false,
+            "initial_bias": 0
+          }
+        },
+        {
+          "file": "imu_heading.ino_debug.elf",
+          "sha256": "aac3cc4b624b195b350126d49bd69085dc2697fe838c2c51f24b056a9d07310c",
+          "bytes": 622096,
+          "payload": 26833,
+          "conditional_peak": 28336,
+          "free_span": 233808,
+          "largest_free_payload": 233804,
+          "allocations": [
+            {
+              "purpose": "extension",
+              "chunk": 200,
+              "available_before": 262056,
+              "fits": true
+            },
+            {
+              "purpose": "section_map",
+              "chunk": 224,
+              "available_before": 261856,
+              "fits": true
+            },
+            {
+              "purpose": ".text",
+              "chunk": 15528,
+              "available_before": 261632,
+              "fits": true
+            },
+            {
+              "purpose": ".bss",
+              "chunk": 11312,
+              "available_before": 246104,
+              "fits": true
+            },
+            {
+              "purpose": ".exported_sym",
+              "chunk": 16,
+              "available_before": 234792,
+              "fits": true
+            },
+            {
+              "purpose": ".init_array",
+              "chunk": 8,
+              "available_before": 234776,
+              "fits": true
+            },
+            {
+              "purpose": "global_symbols",
+              "chunk": 944,
+              "available_before": 234768,
+              "fits": true
+            },
+            {
+              "purpose": "export_copy",
+              "chunk": 16,
+              "available_before": 233824,
+              "fits": true
+            }
+          ],
+          "init_refs": [
+            "memset",
+            "_ZN17imu_heading_bench6Native4portEv",
+            "_ZN17imu_heading_bench6RunnerC1ERKNS_4PortE"
+          ],
+          "used_imports": [
+            "__device_dts_ord_40",
+            "__device_dts_ord_9",
+            "__device_dts_ord_92",
+            "__real___aeabi_d2f",
+            "__real___aeabi_dadd",
+            "__real___aeabi_dcmpgt",
+            "__real___aeabi_dcmple",
+            "__real___aeabi_dcmplt",
+            "__real___aeabi_dcmpun",
+            "__real___aeabi_ddiv",
+            "__real___aeabi_dmul",
+            "__real___aeabi_dsub",
+            "__real___aeabi_f2d",
+            "__real___aeabi_ui2d",
+            "__real___aeabi_uldivmod",
+            "__real_abort",
+            "__real_memcpy",
+            "__real_memset",
+            "sys_clock_cycle_get_64",
+            "z_impl_device_is_ready",
+            "z_impl_k_thread_create",
+            "z_impl_k_thread_name_set"
+          ],
+          "native_bindings": {
+            "_ZN17imu_heading_bench6Native7clockUsEPv": [
+              "micros"
+            ],
+            "_ZN17imu_heading_bench6Native10startSetupEPvjb": [
+              "_ZN3imu8Acquirer5startEjb"
+            ],
+            "_ZN17imu_heading_bench6Native12advanceSetupEPvj": [
+              "_ZN3imu8Acquirer12advanceSetupEj"
+            ],
+            "_ZN17imu_heading_bench6Native9beginReadEPvj": [
+              "_ZN3imu8Acquirer9beginReadEj"
+            ],
+            "_ZN17imu_heading_bench6Native11advanceReadEPvj": [
+              "_ZN3imu8Acquirer11advanceReadEj"
+            ],
+            "_ZN17imu_heading_bench6Native10cancelReadEPvj": [
+              "_ZN3imu8Acquirer10cancelReadEj"
+            ]
+          },
+          "sole_native": {
+            "name": "_ZN12_GLOBAL__N_16nativeE",
+            "value": 10784,
+            "size": 516,
+            "bind": 0,
+            "type": 1,
+            "other": 0,
+            "section_index": 5,
+            "section": ".bss"
+          },
+          "runner": {
+            "name": "_ZN12_GLOBAL__N_16runnerE",
+            "value": 0,
+            "size": 10784,
+            "bind": 0,
+            "type": 1,
+            "other": 0,
+            "section_index": 5,
+            "section": ".bss"
+          },
+          "thread_bounds": [
+            {
+              "name": "__static_thread_data_list_end",
+              "value": 0,
+              "size": 0,
+              "bind": 1,
+              "type": 0,
+              "other": 0,
+              "section_index": 4,
+              "section": ".static_thread_data_area"
+            },
+            {
+              "name": "__static_thread_data_list_start",
+              "value": 0,
+              "size": 0,
+              "bind": 1,
+              "type": 0,
+              "other": 0,
+              "section_index": 4,
+              "section": ".static_thread_data_area"
+            }
+          ],
+          "compiled_constants": {
+            "all_grants": false,
+            "mounting_confirmed": false,
+            "initial_bias": 0
+          }
+        },
+        {
+          "file": "imu_heading.ino_temp.elf",
+          "sha256": "1911a627f6f6dcee1eaccf430bcb749f3438cb7f9645f5874d2bd67930dc7c7b",
+          "bytes": 622252,
+          "payload": 27546,
+          "conditional_peak": 29088,
+          "free_span": 233056,
+          "largest_free_payload": 233052,
+          "allocations": [
+            {
+              "purpose": "extension",
+              "chunk": 200,
+              "available_before": 262056,
+              "fits": true
+            },
+            {
+              "purpose": "section_map",
+              "chunk": 240,
+              "available_before": 261856,
+              "fits": true
+            },
+            {
+              "purpose": ".text",
+              "chunk": 15528,
+              "available_before": 261616,
+              "fits": true
+            },
+            {
+              "purpose": ".rodata",
+              "chunk": 64,
+              "available_before": 246088,
+              "fits": true
+            },
+            {
+              "purpose": ".bss",
+              "chunk": 11312,
+              "available_before": 246024,
+              "fits": true
+            },
+            {
+              "purpose": ".exported_sym",
+              "chunk": 16,
+              "available_before": 234712,
+              "fits": true
+            },
+            {
+              "purpose": ".init_array",
+              "chunk": 8,
+              "available_before": 234696,
+              "fits": true
+            },
+            {
+              "purpose": ".rodata._ZN3imu12_GLOBAL__N_1L5STEPSE",
+              "chunk": 584,
+              "available_before": 234688,
+              "fits": true
+            },
+            {
+              "purpose": ".rodata.str1.1",
+              "chunk": 88,
+              "available_before": 234104,
+              "fits": true
+            },
+            {
+              "purpose": "global_symbols",
+              "chunk": 944,
+              "available_before": 234016,
+              "fits": true
+            },
+            {
+              "purpose": "export_copy",
+              "chunk": 16,
+              "available_before": 233072,
+              "fits": true
+            }
+          ],
+          "init_refs": [
+            "memset",
+            "_ZN17imu_heading_bench6Native4portEv",
+            "_ZN17imu_heading_bench6RunnerC1ERKNS_4PortE"
+          ],
+          "used_imports": [
+            "__device_dts_ord_40",
+            "__device_dts_ord_9",
+            "__device_dts_ord_92",
+            "__real___aeabi_d2f",
+            "__real___aeabi_dadd",
+            "__real___aeabi_dcmpgt",
+            "__real___aeabi_dcmple",
+            "__real___aeabi_dcmplt",
+            "__real___aeabi_dcmpun",
+            "__real___aeabi_ddiv",
+            "__real___aeabi_dmul",
+            "__real___aeabi_dsub",
+            "__real___aeabi_f2d",
+            "__real___aeabi_ui2d",
+            "__real___aeabi_uldivmod",
+            "__real_abort",
+            "__real_memcpy",
+            "__real_memset",
+            "sys_clock_cycle_get_64",
+            "z_impl_device_is_ready",
+            "z_impl_k_thread_create",
+            "z_impl_k_thread_name_set"
+          ],
+          "native_bindings": {
+            "_ZN17imu_heading_bench6Native7clockUsEPv": [
+              "micros"
+            ],
+            "_ZN17imu_heading_bench6Native10startSetupEPvjb": [
+              "_ZN3imu8Acquirer5startEjb"
+            ],
+            "_ZN17imu_heading_bench6Native12advanceSetupEPvj": [
+              "_ZN3imu8Acquirer12advanceSetupEj"
+            ],
+            "_ZN17imu_heading_bench6Native9beginReadEPvj": [
+              "_ZN3imu8Acquirer9beginReadEj"
+            ],
+            "_ZN17imu_heading_bench6Native11advanceReadEPvj": [
+              "_ZN3imu8Acquirer11advanceReadEj"
+            ],
+            "_ZN17imu_heading_bench6Native10cancelReadEPvj": [
+              "_ZN3imu8Acquirer10cancelReadEj"
+            ]
+          },
+          "sole_native": {
+            "name": "_ZN12_GLOBAL__N_16nativeE",
+            "value": 10784,
+            "size": 516,
+            "bind": 0,
+            "type": 1,
+            "other": 0,
+            "section_index": 4,
+            "section": ".bss"
+          },
+          "runner": {
+            "name": "_ZN12_GLOBAL__N_16runnerE",
+            "value": 0,
+            "size": 10784,
+            "bind": 0,
+            "type": 1,
+            "other": 0,
+            "section_index": 4,
+            "section": ".bss"
+          },
+          "thread_bounds": [
+            {
+              "name": "__static_thread_data_list_end",
+              "value": 0,
+              "size": 0,
+              "bind": 1,
+              "type": 0,
+              "other": 0,
+              "section_index": 3,
+              "section": ".static_thread_data_area"
+            },
+            {
+              "name": "__static_thread_data_list_start",
+              "value": 0,
+              "size": 0,
+              "bind": 1,
+              "type": 0,
+              "other": 0,
+              "section_index": 3,
+              "section": ".static_thread_data_area"
+            }
+          ],
+          "compiled_constants": {
+            "all_grants": false,
+            "mounting_confirmed": false,
+            "initial_bias": 0
+          }
+        }
+      ],
+      "abi": {
+        "Runner": 10784,
+        "Native": 516,
+        "Sample": 104,
+        "Estimate": 48,
+        "Checkpoint": 164,
+        "checkpoint_offset": 752,
+        "checkpoint_count": 61,
+        "checkpoint_bytes": 10004
+      },
+      "zsk_sha256": "7ff6cb0654886b8ad53349e42f094285dbb50be9e6a09cb3220d9941a2f759a1",
+      "limits": "Sole existing native Acquirer/Bus/Setup is constructed passively; all default grants false before any callback. Core thread starter bounds empty; exception allocation stub aborts. Pristine-pool model only; no upload/load/readout/physical/WCET evidence."
+    }
+  ],
+  "independence": "Firmware test author used separate reused context without production body reads; policy cases coordinator-authored before red; reviewer source-informed execution in private WSL.",
+  "retained_host_evidence": "D109 private tools/test_host.sh CTest2/2; exact protected HAL/core and prior tests remain unchanged, new shared config values are unused by existing code.",
+  "limitations": [
+    "No board/network/MCU operation or upload approval.",
+    "Conditional pristine-loader model, not actual load or free RAM.",
+    "No physical bus/mounting/stillness/clock/drift/rotation or deployed capture provenance.",
+    "No whole-app WCET or human phase gate.",
+    "Unreachable counter/sequence/numeric/checkpoint-gap defenses reviewed in source; no private seeding."
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "status": "APPROVED_EXACT_INERT_SOURCES",
+  "reviewed_at_utc": "2026-09-23T11:37:39.150840+00:00",
+  "baseline": "d899668",
+  "approved_sources": {
+    "bench/p0_adc": "be6068b337910c2dc436f1eabab382242ee2a9df11634e34837b672e6d4092dc",
+    "bench/p0_gpio": "a961b810da8e15733b1b13df3f2f3bb1b721a23bf9aceefde5b462f4abd3ad9e",
+    "bench/p0_matrix": "2b15ce8d935114d82586e3ae26ec84b8b30c52210f86dcac97163bd0cbd6de8e",
+    "bench/p0_qtr": "804b39fe894f2821d1e971550dca524faa273882e998bca03d865a79310a45f0",
+    "bench/p0_timing": "56336df9099fc518d82c012f2204cc4e3ad4750681cfb05f67ca65d573da03e7",
+    "bench/ui_matrix": "e50c6da38bba5131e426d8c076e7aa7c8aad5961f60a6eb1387b1f2412aab6af"
+  },
+  "new_key": "bench/ui_matrix",
+  "new_key_allowed_startup": "default",
+  "unchanged_baseline_paths": [
+    "tests/locked",
+    "tools/p0_capture.py",
+    "tools/p0_matrix_capture.py",
+    "tools/p0_mem_read.cfg"
+  ],
+  "reviewed_files": {
+    "tools\\board_tool.py": "679892b1feb3edec0ce9f23538853cb7deeadd1cbd2637b8f30eb5b6451eae26",
+    "tests\\test_ui_display.cpp": "47ee313803d1c16a73536f24b1c4739989db4d5edea85809d36a790c47043a6c",
+    "tests\\tooling\\test_ui_matrix_native.py": "7e1477df7bfff3e79b1665a1106cab0a6567be354157d0015cf2903ca639cb7b",
+    "tests\\tooling\\test_ui_matrix_upload.py": "6fb0193d7d9fe21a50f56d791da70e37d807debf495b146848b8d408a06f1e79",
+    "state\\analysis\\P2_matrix_runtime_capture.py": "e3697687b976f4d28b21986370ff7e7bf4a92f0dcca9854b5f88559eee62619d",
+    "state\\analysis\\P2_matrix_contract.md": "93d44849fbb524e6a3d1acb513619d189651409fae6810c88ca6fa303d56fae8",
+    "state\\analysis\\P2_matrix_native_audit.md": "0d7e6b11ace2e732ea5ace48304729a2f921bd3f08ea428d39d952899836949c",
+    "tests\\fixtures\\ui_matrix_native\\cmsis_core.h": "9f7154ae1cdb689778007f8b42cb7129bb2830181f21624bffed76401f58a4c1",
+    "tests\\fixtures\\ui_matrix_native\\native_cases.cc": "107d3cc0e3859f2757275388f69b44604fb9f9454bbf7d8a1b1469fcbce589f2",
+    "tests\\fixtures\\ui_matrix_native\\zephyr\\device.h": "99392e4fcc46b39d972695781a76693da89074714a0087ce128d9e5ac994a11d",
+    "tests\\fixtures\\ui_matrix_native\\zephyr\\devicetree.h": "bc5eeee41007275506c187e0e5508dc73c7dcc50427689d5feaf3b847a5e25f7"
+  },
+  "staged_maps_receipt": "staged_sources.json",
+  "target_receipt": "target_identity.json",
+  "tests": {
+    "full_normal_host": "2/2 PASS; established tests unchanged",
+    "final_display": "15 cases / 1521100 assertions PASS",
+    "native_and_capture": "23 methods PASS; 866 native processes across normal and ASan/UBSan"
+  },
+  "native_compile_source_sha256": "c42cd52a399d4177d9e28b7595349babf0ee8e9069328be2d272a2538b8af412",
+  "capture_wrapper_sha256": "e3697687b976f4d28b21986370ff7e7bf4a92f0dcca9854b5f88559eee62619d",
+  "scope": "Source and actual target review approve updating only these six exact inert registry keys. bench/ui_matrix requires MATCH=0 MOTORS_ALLOWED=0 normal startup. Its setup/loop do no external sensor or motor operation. Root must pass upload-tool regression before invoking the user-authorized bare-board upload/capture. No phase gate, optical acceptance, motor permission or full-tick timing qualification. Inherited Bridge loop hook remains unqualified."
+}

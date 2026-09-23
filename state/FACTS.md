@@ -358,3 +358,10 @@ F107 final disposition: fresh separate same-model review completed 2026-09-23T14
 
 
 F109 final disposition 2026-09-23T15:18:47+04:00: separate reused same-model reviewer PASS/no open BLOCKER/MAJOR/MINOR; final59source/ELF and5registry identity verified. Not newly fresh-context/cross-model or human gate. See reviews/P2_button_routing_review.md.
+
+
+## D088 actual matrix output,2026-09-23
+
+| ID | Question | Observed answer | Source | Confidence | Hardware-checked |
+|---|---|---|---|---|---|
+| F-110 | Does actual matrix rendering/native output compile and execute on the bare UNO Q? | Contract8fd11dd/source385c46c. Fullhost/san1224main+38Gate PASS; independent15renderer cases,23native/capture methods PASS;5newupload+27existing methods PASS. Exact61committed sources e50c6da3 compile80592program/32244compiler globals;40native42AEABI bindings and actual PRIMASK sequence inspected. Fresh separate same-model review PASS. Authorized normal-startup upload exit0; verified deployed loader/sketch bytes and runtime submission scalar3341->3418,zero reported failures. | analysis/P2_matrix_contract.md/native_audit.md/validation.md/review.md; P2_matrix_raw/source_integrity.json,runtime_report.json,runtime_run1/ | SOURCE/HOST/TARGET/ACTUAL INERT RUNTIME verified within stated scope | Bare UNO Q only,9read-only MEM-AP reads; initialized1 and SUBMITTED_UNCONFIRMED. No optical orientation/brightness/visibility, independent clock/WCET/IRQ interference, external sensor, physical button distinction, motor run or human gate proved. SC-A/SC-AJ/F091 remain |

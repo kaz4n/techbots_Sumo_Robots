@@ -1,3 +1,45 @@
+# D088 checkpoint - active P2 software,2026-09-23 Asia/Dubai
+
+Actual matrix renderer/native output implemented385c46c, contract8fd11dd,
+D088/F110. Read P2_matrix_contract/native_audit/validation/review.md and raw.
+Fresh separate same-model reviewer PASS; independent spec-derived author; not
+cross-model or human approval. Existing locked tests and behavior unchanged.
+
+Full frozen normal/san2/2PASS:1224main24475290assertions+38Gate3843482.
+15new renderer/actualRobot cases1521100assertions PASS;23native/capture methods
+including866native normal/san scenarios PASS.5newupload+27existingtools/staging
+PASS. Actual targete50c6da3,80592program/32244compiler globals,61exactcommitted
+sources/3ELFs/40native42AEABI bindings; retained actualPRIMASK sequence inspected.
+Sixexactinertkeys reviewed/adopted, only newkeybench/ui_matrix normalstartup.
+
+User explicitly permits bare-board testing without external sensors. Actual
+uploadrun1 exit0 toserial2629958581 withMOTORS_ALLOWED0/MATCH0. Read-onlycapture
+verifies deployedloader/sketch bytes, symbol/BSS and finalnodeidentity;9reads,
+106.208485s. Submissions3341->3418(+77),failures0,initialized1,status2/render0.
+Current known MCU image: inertui_matrix sourcee50c6da3,not priorQTR61d7a2d0.
+Status2 is SUBMITTED_UNCONFIRMED; no optical/clock/full-WCET acceptance.37us max
+call is MCU-clock benchmarkdiagnostic only; board/Windows UTC clocks differ.
+Future sessions must rediscover board connection/state. No motor permission.
+
+Initial newfixture syntax/invalidglyph/20ms-vs2000us failures retained; production
+was not changed to satisfy mistaken expectations. Oldtests intact. Reviewscript
+path error and LFnormalization evidence retained. Rawbytes verified separately.
+
+Next eligible software task: P2 2.4 QTR_CAL service consumer and explicit RAM
+threshold lifecycle; read P2_qtr_cal_next_task.md when present, B13 and D085.
+Freeze bounded collection/control/threshold semantics under D051 beforeindependent
+tests. Calibration must use valid raw interval evidence and cannot bypass
+reset-only LINE_CONTRACT or claim physical color data from this bare board.
+Do not request connecting sensors now. Bounded IDLE recorder transport and actual
+application scheduler remain unfinished; SC-AJ/F091/timing budget unresolved.
+
+Full P0-P7 goal ACTIVE/incomplete; P0/P1 physical/EXPLAINED/human gates remain
+pending. SC-A START/BOTH electrical identity unresolved, productionwindows remain
+unconfigured. No physical facts, purchases, pinmap or motor-run approval invented.
+Original Dubai schedule retained. Local commits only; no push/tag/historyrewrite.
+
+--- Earlier handoff preserved below ---
+
 # D087 checkpoint - active P2 software development,2026-09-23 Asia/Dubai
 
 Implemented real A1 decoder/adapter -> Robot admission -> START/STOP/menu routing

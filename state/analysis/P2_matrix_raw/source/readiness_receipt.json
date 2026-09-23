@@ -1,0 +1,1315 @@
+{
+  "files": [
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/zephyr/device.h",
+      "sha256": "300420020155fc22a7e4e3a867f26fe30c6a79b9be3474caf990bacfecbd2d19",
+      "bytes": 51752,
+      "lines": [
+        [
+          215,
+          " *"
+        ],
+        [
+          216,
+          " * The device is declared with extern visibility, so a pointer to a global"
+        ],
+        [
+          217,
+          " * device object can be obtained with `DEVICE_DT_GET(node_id)` from any source"
+        ],
+        [
+          218,
+          " * file that includes `<zephyr/device.h>` (even from extensions, when"
+        ],
+        [
+          219,
+          " * @kconfig{CONFIG_LLEXT_EXPORT_SYMBOL_GROUP_DEVICE} is enabled). Before using"
+        ],
+        [
+          220,
+          " * the pointer, the referenced object should be checked using device_is_ready()."
+        ],
+        [
+          221,
+          " *"
+        ],
+        [
+          222,
+          " * Note: deinit_fn will only be used if CONFIG_DEVICE_DEINIT_SUPPORT is enabled."
+        ],
+        [
+          223,
+          " *"
+        ],
+        [
+          224,
+          " * @param node_id The devicetree node identifier."
+        ],
+        [
+          225,
+          " * @param init_fn Pointer to the device's initialization function, which will be"
+        ],
+        [
+          226,
+          " * run by the kernel during system initialization. Can be `NULL`."
+        ],
+        [
+          227,
+          " * @param deinit_fn Pointer to the device's de-initialization function. Can be"
+        ],
+        [
+          228,
+          " * `NULL`. It must release any acquired resources (e.g. pins, bus, clock...) and"
+        ],
+        [
+          229,
+          " * leave the device in its reset state."
+        ],
+        [
+          230,
+          " * @param pm Pointer to the device's power management resources, a"
+        ],
+        [
+          231,
+          " * @ref pm_device, which will be stored in @ref device.pm. Use `NULL` if the"
+        ],
+        [
+          232,
+          " * device does not use PM."
+        ],
+        [
+          233,
+          " * @param data Pointer to the device's private mutable data, which will be"
+        ],
+        [
+          234,
+          " * stored in @ref device.data."
+        ],
+        [
+          235,
+          " * @param config Pointer to the device's private constant data, which will be"
+        ],
+        [
+          312,
+          " *"
+        ],
+        [
+          313,
+          " * @param node_id A devicetree node identifier"
+        ],
+        [
+          314,
+          " *"
+        ],
+        [
+          315,
+          " * @return A pointer to the device object created for that node"
+        ],
+        [
+          316,
+          " */"
+        ],
+        [
+          317,
+          "#define DEVICE_DT_GET(node_id) (&DEVICE_DT_NAME_GET(node_id))"
+        ],
+        [
+          318,
+          ""
+        ],
+        [
+          319,
+          "/**"
+        ],
+        [
+          320,
+          " * @brief Get a @ref device reference for an instance of a `DT_DRV_COMPAT`"
+        ],
+        [
+          321,
+          " * compatible."
+        ],
+        [
+          322,
+          " *"
+        ],
+        [
+          323,
+          " * This is equivalent to `DEVICE_DT_GET(DT_DRV_INST(inst))`."
+        ],
+        [
+          324,
+          " *"
+        ],
+        [
+          325,
+          " * @param inst `DT_DRV_COMPAT` instance number"
+        ],
+        [
+          326,
+          " * @return A pointer to the device object created for that instance"
+        ],
+        [
+          327,
+          " */"
+        ],
+        [
+          328,
+          "#define DEVICE_DT_INST_GET(inst) DEVICE_DT_GET(DT_DRV_INST(inst))"
+        ],
+        [
+          329,
+          ""
+        ],
+        [
+          330,
+          "/**"
+        ],
+        [
+          331,
+          " * @brief Get a @ref device reference from a devicetree compatible."
+        ],
+        [
+          332,
+          " *"
+        ],
+        [
+          336,
+          " * If there no such devices, this returns NULL."
+        ],
+        [
+          337,
+          " *"
+        ],
+        [
+          338,
+          " * If there are multiple, this returns an arbitrary one."
+        ],
+        [
+          339,
+          " *"
+        ],
+        [
+          340,
+          " * If this returns non-NULL, the device must be checked for readiness"
+        ],
+        [
+          341,
+          " * before use, e.g. with device_is_ready()."
+        ],
+        [
+          342,
+          " *"
+        ],
+        [
+          343,
+          " * @param compat lowercase-and-underscores devicetree compatible"
+        ],
+        [
+          344,
+          " * @return a pointer to a device, or NULL"
+        ],
+        [
+          345,
+          " */"
+        ],
+        [
+          346,
+          "#define DEVICE_DT_GET_ANY(compat)                                              \\"
+        ],
+        [
+          347,
+          "\tCOND_CODE_1(DT_HAS_COMPAT_STATUS_OKAY(compat),                         \\"
+        ],
+        [
+          348,
+          "\t\t    (DEVICE_DT_GET(DT_COMPAT_GET_ANY_STATUS_OKAY(compat))),    \\"
+        ],
+        [
+          349,
+          "\t\t    (NULL))"
+        ],
+        [
+          350,
+          ""
+        ],
+        [
+          351,
+          "/**"
+        ],
+        [
+          352,
+          " * @brief Get a @ref device reference from a devicetree compatible."
+        ],
+        [
+          353,
+          " *"
+        ],
+        [
+          354,
+          " * If an enabled devicetree node has the given compatible and a device object"
+        ],
+        [
+          355,
+          " * was created from it, this returns a pointer to that device."
+        ],
+        [
+          356,
+          " *"
+        ],
+        [
+          357,
+          " * If there are no such devices, this will fail at compile time."
+        ],
+        [
+          358,
+          " *"
+        ],
+        [
+          359,
+          " * If there are multiple, this returns an arbitrary one."
+        ],
+        [
+          360,
+          " *"
+        ],
+        [
+          361,
+          " * If this returns non-NULL, the device must be checked for readiness before"
+        ],
+        [
+          362,
+          " * use, e.g. with device_is_ready()."
+        ],
+        [
+          363,
+          " *"
+        ],
+        [
+          364,
+          " * @param compat lowercase-and-underscores devicetree compatible"
+        ],
+        [
+          365,
+          " * @return a pointer to a device"
+        ],
+        [
+          366,
+          " */"
+        ],
+        [
+          367,
+          "#define DEVICE_DT_GET_ONE(compat)                                              \\"
+        ],
+        [
+          368,
+          "\tCOND_CODE_1(DT_HAS_COMPAT_STATUS_OKAY(compat),                         \\"
+        ],
+        [
+          369,
+          "\t\t    (DEVICE_DT_GET(DT_COMPAT_GET_ANY_STATUS_OKAY(compat))),    \\"
+        ],
+        [
+          370,
+          "\t\t    (ZERO_OR_COMPILE_ERROR(0)))"
+        ],
+        [
+          371,
+          ""
+        ],
+        [
+          372,
+          "/**"
+        ],
+        [
+          373,
+          " * @brief Utility macro to obtain an optional reference to a device."
+        ],
+        [
+          374,
+          " *"
+        ],
+        [
+          375,
+          " * If the node identifier refers to a node with status `okay`, this returns"
+        ],
+        [
+          376,
+          " * `DEVICE_DT_GET(node_id)`. Otherwise, it returns `NULL`."
+        ],
+        [
+          377,
+          " *"
+        ],
+        [
+          378,
+          " * @param node_id devicetree node identifier"
+        ],
+        [
+          379,
+          " *"
+        ],
+        [
+          380,
+          " * @return a @ref device reference for the node identifier, which may be `NULL`."
+        ],
+        [
+          381,
+          " */"
+        ],
+        [
+          382,
+          "#define DEVICE_DT_GET_OR_NULL(node_id)                                         \\"
+        ],
+        [
+          383,
+          "\tCOND_CODE_1(DT_NODE_HAS_STATUS_OKAY(node_id),                          \\"
+        ],
+        [
+          384,
+          "\t\t    (DEVICE_DT_GET(node_id)), (NULL))"
+        ],
+        [
+          385,
+          ""
+        ],
+        [
+          386,
+          "/**"
+        ],
+        [
+          387,
+          " * @brief Get a @ref device reference from a devicetree phandles by idx."
+        ],
+        [
+          388,
+          " *"
+        ],
+        [
+          389,
+          " * Returns a pointer to a device object referenced by a phandles property, by idx."
+        ],
+        [
+          390,
+          " *"
+        ],
+        [
+          391,
+          " * @param node_id A devicetree node identifier"
+        ],
+        [
+          392,
+          " * @param prop lowercase-and-underscores property with type `phandle`,"
+        ],
+        [
+          393,
+          " *            `phandles`, or `phandle-array`"
+        ],
+        [
+          394,
+          " * @param idx logical index into @p phs, which must be zero if @p phs"
+        ],
+        [
+          395,
+          " *            has type `phandle`"
+        ],
+        [
+          396,
+          " *"
+        ],
+        [
+          397,
+          " * @return A pointer to the device object created for that node"
+        ],
+        [
+          398,
+          " */"
+        ],
+        [
+          399,
+          "#define DEVICE_DT_GET_BY_IDX(node_id, prop, idx) \\"
+        ],
+        [
+          400,
+          "\tDEVICE_DT_GET(DT_PHANDLE_BY_IDX(node_id, prop, idx))"
+        ],
+        [
+          401,
+          ""
+        ],
+        [
+          402,
+          "/**"
+        ],
+        [
+          403,
+          " * @brief Obtain a pointer to a device object by name"
+        ],
+        [
+          404,
+          " *"
+        ],
+        [
+          405,
+          " * @details Return the address of a device object created by"
+        ],
+        [
+          406,
+          " * DEVICE_DEFINE(), using the dev_id provided to DEVICE_DEFINE()."
+        ],
+        [
+          407,
+          " *"
+        ],
+        [
+          408,
+          " * @param dev_id Device identifier."
+        ],
+        [
+          409,
+          " *"
+        ],
+        [
+          410,
+          " * @return A pointer to the device object created by DEVICE_DEFINE()"
+        ],
+        [
+          411,
+          " */"
+        ],
+        [
+          412,
+          "#define DEVICE_GET(dev_id) (&DEVICE_NAME_GET(dev_id))"
+        ],
+        [
+          413,
+          ""
+        ],
+        [
+          414,
+          "/**"
+        ],
+        [
+          453,
+          " * Fields in this are expected to be default-initialized to zero. The"
+        ],
+        [
+          454,
+          " * kernel driver infrastructure and driver access functions are"
+        ],
+        [
+          455,
+          " * responsible for ensuring that any non-zero initialization is done"
+        ],
+        [
+          456,
+          " * before they are accessed."
+        ],
+        [
+          457,
+          " */"
+        ],
+        [
+          458,
+          "struct device_state {"
+        ],
+        [
+          459,
+          "\t/**"
+        ],
+        [
+          460,
+          "\t * Device initialization return code (positive errno value)."
+        ],
+        [
+          461,
+          "\t *"
+        ],
+        [
+          462,
+          "\t * Device initialization functions return a negative errno code if they"
+        ],
+        [
+          463,
+          "\t * fail. In Zephyr, errno values do not exceed 255, so we can store the"
+        ],
+        [
+          464,
+          "\t * positive result value in a uint8_t type."
+        ],
+        [
+          465,
+          "\t */"
+        ],
+        [
+          466,
+          "\tuint8_t init_res;"
+        ],
+        [
+          467,
+          ""
+        ],
+        [
+          468,
+          "\t/** Indicates the device initialization function has been"
+        ],
+        [
+          469,
+          "\t * invoked."
+        ],
+        [
+          470,
+          "\t */"
+        ],
+        [
+          471,
+          "\tbool initialized : 1;"
+        ],
+        [
+          472,
+          "};"
+        ],
+        [
+          473,
+          ""
+        ],
+        [
+          516,
+          "\t/** Address of device instance config information */"
+        ],
+        [
+          517,
+          "\tconst void *config;"
+        ],
+        [
+          518,
+          "\t/** Address of the API structure exposed by the device instance */"
+        ],
+        [
+          519,
+          "\tconst void *api;"
+        ],
+        [
+          520,
+          "\t/** Address of the common device state */"
+        ],
+        [
+          521,
+          "\tstruct device_state *state;"
+        ],
+        [
+          522,
+          "\t/** Address of the device instance private data */"
+        ],
+        [
+          523,
+          "\tvoid *data;"
+        ],
+        [
+          524,
+          "\t/** Device operations */"
+        ],
+        [
+          525,
+          "\tstruct device_ops ops;"
+        ],
+        [
+          526,
+          "\t/** Device flags */"
+        ],
+        [
+          527,
+          "\tdevice_flags_t flags;"
+        ],
+        [
+          528,
+          "#if defined(CONFIG_DEVICE_DEPS) || defined(__DOXYGEN__)"
+        ],
+        [
+          529,
+          "\t/**"
+        ],
+        [
+          530,
+          "\t * Optional pointer to dependencies associated with the device."
+        ],
+        [
+          531,
+          "\t *"
+        ],
+        [
+          532,
+          "\t * This encodes a sequence of sets of device handles that have some"
+        ],
+        [
+          533,
+          "\t * relationship to this node. The individual sets are extracted with"
+        ],
+        [
+          534,
+          "\t * dedicated API, such as device_required_handles_get(). Only available"
+        ],
+        [
+          535,
+          "\t * if @kconfig{CONFIG_DEVICE_DEPS} is enabled."
+        ],
+        [
+          536,
+          "\t */"
+        ],
+        [
+          864,
+          " *"
+        ],
+        [
+          865,
+          " * @retval true If the device is ready for use."
+        ],
+        [
+          866,
+          " * @retval false If the device is not ready for use or if a NULL device pointer"
+        ],
+        [
+          867,
+          " * is passed as argument."
+        ],
+        [
+          868,
+          " */"
+        ],
+        [
+          869,
+          "__syscall bool device_is_ready(const struct device *dev);"
+        ],
+        [
+          870,
+          ""
+        ],
+        [
+          871,
+          "/**"
+        ],
+        [
+          872,
+          " * @brief Writes a \"device not ready\" warning message to the log."
+        ],
+        [
+          873,
+          " *"
+        ],
+        [
+          874,
+          " * @details Writes a \"device not ready\" warning message to the log using the"
+        ],
+        [
+          875,
+          " * device name as reference, meant to be used in device_is_ready checks."
+        ],
+        [
+          876,
+          " *"
+        ],
+        [
+          877,
+          " * @param dev pointer to a struct device."
+        ],
+        [
+          878,
+          " */"
+        ],
+        [
+          879,
+          "#define LOG_WRN_DEVICE_NOT_READY(dev) \\"
+        ],
+        [
+          880,
+          "\tLOG_WRN(\"%s device not ready\", (dev) ? (dev)->name : \"(null)\")"
+        ],
+        [
+          881,
+          ""
+        ],
+        [
+          882,
+          "/**"
+        ],
+        [
+          883,
+          " * @brief Writes a \"device not ready\" error message to the log."
+        ],
+        [
+          884,
+          " *"
+        ],
+        [
+          885,
+          " * @details Writes a \"device not ready\" error message to the log using the"
+        ],
+        [
+          886,
+          " * device name as reference, meant to be used in device_is_ready checks."
+        ],
+        [
+          887,
+          " *"
+        ],
+        [
+          888,
+          " * @param dev pointer to a struct device."
+        ],
+        [
+          889,
+          " */"
+        ],
+        [
+          890,
+          "#define LOG_ERR_DEVICE_NOT_READY(dev) \\"
+        ],
+        [
+          891,
+          "\tLOG_ERR(\"%s device not ready\", (dev) ? (dev)->name : \"(null)\")"
+        ],
+        [
+          892,
+          ""
+        ],
+        [
+          893,
+          "/**"
+        ],
+        [
+          894,
+          " * @brief Initialize a device."
+        ],
+        [
+          895,
+          " *"
+        ],
+        [
+          896,
+          " * A device whose initialization was deferred (by marking it as"
+        ],
+        [
+          897,
+          " * ``zephyr,deferred-init`` on devicetree) needs to be initialized manually via"
+        ],
+        [
+          898,
+          " * this call. De-initialized devices can also be initialized again via this"
+        ],
+        [
+          899,
+          " * call."
+        ],
+        [
+          900,
+          " *"
+        ],
+        [
+          901,
+          " * @param dev device to be initialized."
+        ],
+        [
+          943,
+          " * @brief Utility macro to define and initialize the device state."
+        ],
+        [
+          944,
+          " *"
+        ],
+        [
+          945,
+          " * @param dev_id Device identifier."
+        ],
+        [
+          946,
+          " */"
+        ],
+        [
+          947,
+          "#define Z_DEVICE_STATE_DEFINE(dev_id)                                          \\"
+        ],
+        [
+          948,
+          "\tstatic Z_DECL_ALIGN(struct device_state) Z_DEVICE_STATE_NAME(dev_id)   \\"
+        ],
+        [
+          949,
+          "\t\t__attribute__((__section__(\".z_devstate\")))"
+        ],
+        [
+          950,
+          ""
+        ],
+        [
+          951,
+          "/**"
+        ],
+        [
+          952,
+          " * @brief Device flags obtained from DT."
+        ],
+        [
+          953,
+          " *"
+        ],
+        [
+          954,
+          " * @param node_id Devicetree node identifier."
+        ],
+        [
+          955,
+          " */"
+        ],
+        [
+          956,
+          "#define Z_DEVICE_DT_FLAGS(node_id)                                             \\"
+        ],
+        [
+          957,
+          "\t(DT_PROP_OR(node_id, zephyr_deferred_init, 0U) * DEVICE_FLAG_INIT_DEFERRED)"
+        ],
+        [
+          958,
+          ""
+        ],
+        [
+          959,
+          "#if defined(CONFIG_DEVICE_DEPS) || defined(__DOXYGEN__)"
+        ],
+        [
+          960,
+          ""
+        ],
+        [
+          961,
+          "/**"
+        ],
+        [
+          962,
+          " * @brief Synthesize the name of the object that holds device ordinal and"
+        ],
+        [
+          963,
+          " * dependency data."
+        ]
+      ]
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/zephyr/drivers/counter.h",
+      "sha256": "b4c688c02bac0144ff61ad2492b377e9e2e7fc3c8c4afb80ad3ad82e2351f729",
+      "bytes": 42158,
+      "lines": [
+        [
+          488,
+          " * @return Frequency of the counter in Hz, or zero if the counter does"
+        ],
+        [
+          489,
+          " * not have a fixed frequency, or UINT32_MAX if the counter frequency"
+        ],
+        [
+          490,
+          " * is higher or equal to UINT32_MAX, in which case it is recommended to"
+        ],
+        [
+          491,
+          " * use counter_get_frequency_64()."
+        ],
+        [
+          492,
+          " */"
+        ],
+        [
+          493,
+          "static inline uint32_t z_impl_counter_get_frequency(const struct device *dev)"
+        ],
+        [
+          494,
+          "{"
+        ],
+        [
+          495,
+          "\tconst struct counter_config_info *config = (const struct counter_config_info *)dev->config;"
+        ],
+        [
+          496,
+          "\tconst struct counter_driver_api *api = (struct counter_driver_api *)dev->api;"
+        ],
+        [
+          497,
+          ""
+        ],
+        [
+          498,
+          "\tif (api->get_freq) {"
+        ],
+        [
+          499,
+          "\t\treturn api->get_freq(dev);"
+        ],
+        [
+          500,
+          "\t} else {"
+        ],
+        [
+          501,
+          "\t\treturn config->freq > UINT32_MAX ? UINT32_MAX : (uint32_t)config->freq;"
+        ],
+        [
+          502,
+          "\t}"
+        ],
+        [
+          503,
+          "}"
+        ],
+        [
+          504,
+          ""
+        ],
+        [
+          505,
+          "#else"
+        ],
+        [
+          506,
+          ""
+        ],
+        [
+          507,
+          "/**"
+        ],
+        [
+          508,
+          " * @brief Function to get counter frequency."
+        ],
+        [
+          510,
+          " * @param[in]  dev    Pointer to the device structure for the driver instance."
+        ],
+        [
+          511,
+          " *"
+        ],
+        [
+          512,
+          " * @return Frequency of the counter in Hz, or zero if the counter does"
+        ],
+        [
+          513,
+          " * not have a fixed frequency."
+        ],
+        [
+          514,
+          " */"
+        ],
+        [
+          515,
+          "static inline uint32_t z_impl_counter_get_frequency(const struct device *dev)"
+        ],
+        [
+          516,
+          "{"
+        ],
+        [
+          517,
+          "\tconst struct counter_config_info *config = (const struct counter_config_info *)dev->config;"
+        ],
+        [
+          518,
+          "\tconst struct counter_driver_api *api = (struct counter_driver_api *)dev->api;"
+        ],
+        [
+          519,
+          ""
+        ],
+        [
+          520,
+          "\treturn api->get_freq ? api->get_freq(dev) : config->freq;"
+        ],
+        [
+          521,
+          "}"
+        ],
+        [
+          522,
+          "#endif"
+        ],
+        [
+          523,
+          ""
+        ],
+        [
+          524,
+          "/**"
+        ],
+        [
+          525,
+          " * @brief Function to get counter frequency in 64bits."
+        ],
+        [
+          526,
+          " *"
+        ],
+        [
+          527,
+          " * @param[in]  dev    Pointer to the device structure for the driver instance."
+        ],
+        [
+          528,
+          " *"
+        ],
+        [
+          529,
+          " * @return Frequency of the counter in Hz, or zero if the counter does"
+        ],
+        [
+          530,
+          " * not have a fixed frequency."
+        ],
+        [
+          743,
+          " * @retval 0 If successful."
+        ],
+        [
+          744,
+          " * @retval <0 Negative error code on failure getting the counter value"
+        ],
+        [
+          745,
+          " */"
+        ],
+        [
+          746,
+          "__syscall int counter_get_value(const struct device *dev, uint32_t *ticks);"
+        ],
+        [
+          747,
+          ""
+        ],
+        [
+          748,
+          "static inline int z_impl_counter_get_value(const struct device *dev, uint32_t *ticks)"
+        ],
+        [
+          749,
+          "{"
+        ],
+        [
+          750,
+          "\tconst struct counter_driver_api *api = (struct counter_driver_api *)dev->api;"
+        ],
+        [
+          751,
+          ""
+        ],
+        [
+          752,
+          "\treturn api->get_value(dev, ticks);"
+        ],
+        [
+          753,
+          "}"
+        ],
+        [
+          754,
+          ""
+        ],
+        [
+          755,
+          "/**"
+        ],
+        [
+          756,
+          " * @brief Reset the counter to the initial value."
+        ],
+        [
+          757,
+          " * @param dev Pointer to the device structure for the driver instance."
+        ],
+        [
+          758,
+          " *"
+        ],
+        [
+          759,
+          " * @retval 0 If successful."
+        ],
+        [
+          760,
+          " * @retval -errno Negative error code on failure resetting the counter value."
+        ],
+        [
+          761,
+          " */"
+        ],
+        [
+          762,
+          "__syscall int counter_reset(const struct device *dev);"
+        ],
+        [
+          763,
+          ""
+        ],
+        [
+          924,
+          " *"
+        ],
+        [
+          925,
+          " * @return Top value."
+        ],
+        [
+          926,
+          " */"
+        ],
+        [
+          927,
+          "__syscall uint32_t counter_get_top_value(const struct device *dev);"
+        ],
+        [
+          928,
+          ""
+        ],
+        [
+          929,
+          "static inline uint32_t z_impl_counter_get_top_value(const struct device *dev)"
+        ],
+        [
+          930,
+          "{"
+        ],
+        [
+          931,
+          "\tconst struct counter_driver_api *api = (struct counter_driver_api *)dev->api;"
+        ],
+        [
+          932,
+          ""
+        ],
+        [
+          933,
+          "\treturn api->get_top_value(dev);"
+        ],
+        [
+          934,
+          "}"
+        ],
+        [
+          935,
+          ""
+        ],
+        [
+          936,
+          "/**"
+        ],
+        [
+          937,
+          " * @brief Set guard period in counter ticks."
+        ],
+        [
+          938,
+          " *"
+        ],
+        [
+          939,
+          " * When setting an absolute alarm value close to the current counter value there"
+        ],
+        [
+          940,
+          " * is a risk that the counter will have counted past the given absolute value"
+        ],
+        [
+          941,
+          " * before the driver manages to activate the alarm. If this would go unnoticed"
+        ],
+        [
+          942,
+          " * then the alarm would only expire after the timer has wrapped and reached the"
+        ],
+        [
+          943,
+          " * given absolute value again after a full timer period. This could take a long"
+        ],
+        [
+          944,
+          " * time in case of a 32 bit timer. Setting a sufficiently large guard period will"
+        ]
+      ]
+    }
+  ],
+  "commands": [
+    {
+      "args": [
+        "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-objdump",
+        "-d",
+        "--disassemble=z_impl_device_is_ready",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf"
+      ],
+      "exit": 0,
+      "stdout": "\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf:     file format elf32-littlearm\n\n\nDisassembly of section rom_start:\n\nDisassembly of section text:\n\n08019e6e <z_impl_device_is_ready>:\n 8019e6e:\tb140      \tcbz\tr0, 8019e82 <z_impl_device_is_ready+0x14>\n 8019e70:\t68c3      \tldr\tr3, [r0, #12]\n 8019e72:\t7858      \tldrb\tr0, [r3, #1]\n 8019e74:\tf010 0001 \tands.w\tr0, r0, #1\n 8019e78:\tbf1e      \tittt\tne\n 8019e7a:\t7818      \tldrbne\tr0, [r3, #0]\n 8019e7c:\tfab0 f080 \tclzne\tr0, r0\n 8019e80:\t0940      \tlsrne\tr0, r0, #5\n 8019e82:\t4770      \tbx\tlr\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-objdump",
+        "-d",
+        "--disassemble=device_is_ready",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf"
+      ],
+      "exit": 0,
+      "stdout": "\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf:     file format elf32-littlearm\n\n\nDisassembly of section rom_start:\n\nDisassembly of section text:\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-objdump",
+        "-d",
+        "--disassemble=counter_stm32_get_value",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf"
+      ],
+      "exit": 0,
+      "stdout": "\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf:     file format elf32-littlearm\n\n\nDisassembly of section rom_start:\n\nDisassembly of section text:\n\n08018b48 <counter_stm32_get_value>:\n 8018b48:\t6843      \tldr\tr3, [r0, #4]\n 8018b4a:\t2000      \tmovs\tr0, #0\n 8018b4c:\t691b      \tldr\tr3, [r3, #16]\n 8018b4e:\t6a5b      \tldr\tr3, [r3, #36]\t@ 0x24\n 8018b50:\t600b      \tstr\tr3, [r1, #0]\n 8018b52:\t4770      \tbx\tlr\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-objdump",
+        "-d",
+        "--disassemble=counter_stm32_get_top_value",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf"
+      ],
+      "exit": 0,
+      "stdout": "\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf:     file format elf32-littlearm\n\n\nDisassembly of section rom_start:\n\nDisassembly of section text:\n\n08018b40 <counter_stm32_get_top_value>:\n 8018b40:\t6843      \tldr\tr3, [r0, #4]\n 8018b42:\t691b      \tldr\tr3, [r3, #16]\n 8018b44:\t6ad8      \tldr\tr0, [r3, #44]\t@ 0x2c\n 8018b46:\t4770      \tbx\tlr\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-objdump",
+        "-d",
+        "--disassemble=counter_stm32_get_freq",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf"
+      ],
+      "exit": 0,
+      "stdout": "\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf:     file format elf32-littlearm\n\n\nDisassembly of section rom_start:\n\nDisassembly of section text:\n\n08018be0 <counter_stm32_get_freq>:\n 8018be0:\t6903      \tldr\tr3, [r0, #16]\n 8018be2:\t6918      \tldr\tr0, [r3, #16]\n 8018be4:\t4770      \tbx\tlr\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-gdb",
+        "-nx",
+        "-nh",
+        "-batch",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf",
+        "-ex",
+        "p __llext_sym_device_is_ready",
+        "-ex",
+        "ptype struct device_state"
+      ],
+      "exit": 0,
+      "stdout": "type = struct device_state {\n    uint8_t init_res;\n    _Bool initialized : 1;\n}\n",
+      "stderr": "No symbol \"__llext_sym_device_is_ready\" in current context.\n"
+    }
+  ]
+}

@@ -1,35 +1,30 @@
 # Resume SumoX-26 with Codex
 
 Read AGENTS fully, CODEX_HANDOFF, PROGRESS, DECISIONS, FACTS, TUNING_LOG,
-CODEX_EXECUTION and open conflicts/reviews. Inspect Git and actual Dubai date;
-preserve PLAN deadlines, unrelated edits and historical evidence. D051/D075 permit
-actual P2 software despite untested hardware. Full P0-P7 goal ACTIVE/incomplete;
-no human gate/PINMAP/EXPLAINED or motor authority follows. Do not request more
-hardware now or restore obsolete scheduling blocks.
+CODEX_EXECUTION and openconflicts/reviews. Inspect Git and actual Dubai date;
+preserve original schedule, unrelated edits and historical evidence. D051/D075
+permit P2 software despite untested hardware. Full P0-P7 goalACTIVE/incomplete;
+no human gate/PINMAP/EXPLAINED or motor authority follows. No new sensor request.
 
-D087 actual button decoder/adapter/Robot gesture routing and event11 complete in
-b69fa12 (contract6c01bb4). Read P2_button_routing_contract/validation/failures.md,
-F109 and separate reviewer PASS report. The reviewer context was reused after
-fresh-spawn thread limit, independent same model, not newly fresh-context or
-cross-model. All gates remain pending. Fullhost/san1209main+38Gate PASS;
-independent36cases/8newmethods,18config25tools2staging PASS53scopedmethods.
-Actualfinalcompile-only557e0e5f/source/ELF/Gitidentity and5inertkeys verified.
-Preserve failed fixtures, root LF-checkout repair and review-script receipts.
-No old locked/behavioral assertion changed; do not rerun unchanged checks.
+D088 actual matrix renderer/nativeoutput complete385c46c,contract8fd11dd/F110.
+Read P2_matrix_contract/native_audit/validation/review.md. Fresh separate same-model
+reviewPASS (not cross-model/human). Fullhost/san1224main+38GatePASS;15newrenderer
+cases/23nativecapturemethods/5newupload+27existingtooling PASS.61sourcefiles match
+actuale50c6da3 target andGit;6exactinertkeys reviewed. All oldlockedtests unchanged.
 
-First unfinished task: actual P2 B6 fixed104-byte matrix renderer and bounded
-native output. Read state/analysis/P2_button_routing_raw/next_ui_task.md,
-BEHAVIOR B3/B13/B14, P2_hal_bench.md and installed matrix source/audit leads.
-Freeze exact pixel/layout/priority/countdown-margin/battery/fault-display semantics
-under delegated D051, then implement actual renderer/adapter with independent
-spec tests, inert target compile and separate review. Keep motion independent;
-no blocking scrolling/text, fabricated sensor data or unbounded refresh work.
-The inherited periodic ISR must enter later full-tick qualification.
+User now authorizes bare-board inert tests. Actual normalstartup ui_matrixupload
+run1 succeededMOTORS_ALLOWED0/MATCH0 onserial2629958581; read-onlycapture verified
+deployedloader/sketch/BSSidentity and3341->3418submissions withfailures0. See raw/
+runtime_report.json. No optical/independentclock/WCET or externalhardware gate.
+LastknownMCUimage inertui_matrixe50c6da3; recheck connection/state before new work.
+Do not reuse any motor-run authorization; noneexists. Preserve failedfixtures.
 
-SC-A remains: documented START/BOTH share0V; production windows stayunconfigured.
-Do not invent a fourth level/calibration/wiring acceptance. App scheduler, service
-consumers and bounded IDLE transport unfinished; IMU600+motor150+twoADC100 exceed
-800us beforeotherwork. SC-AJ/F091 deployment blockers persist. Last-known MCU
-image inertQTR61d7a2d0; no new MCU/upload/pad/motor action or physical/human gate.
-Append state without rewriting mixed-encoding historical bytes; commit task-owned
-files locally, no push/tag/rewrite. Resume eligible implementation, not a new plan.
+First unfinished eligible task: actual P2 2.4 QTR_CAL service consumer and RAM
+threshold lifecycle. Read P2_qtr_cal_next_task.md if present, B13, D085 and current
+line/menu/Robotpublicinterfaces. Freeze bounded rawcollection, control, separation
+and validity policies underD051; implementactualpath with independenttests/target/
+review. No fabricatedphysicalwhite/blackdata or bypass of reset-onlyLINE_CONTRACT.
+Then remaining service/IDLErecordertransport/application scheduler work inphase.
+SC-A remainsidenticalSTART/BOTH at0V; productionwindowsunconfigured. SC-AJ/F091,
+fullRAM/800us and physical/human acceptance pending. Appendledgers asbytes to
+preserve mixedencodinghistory; task-ownedlocalcommits only, no push/tag/rewrite.

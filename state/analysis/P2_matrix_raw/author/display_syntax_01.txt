@@ -1,0 +1,23 @@
+tests/test_ui_display.cpp:81:32: error: macro "CAPTURE" passed 2 arguments, but takes just 1
+   81 |             CAPTURE(state, mode); exact(sample, glyphFrame(DIGITS[mode], ICONS[mode-1U]));
+      |                                ^
+In file included from tests/test_ui_display.cpp:4:
+host/third_party/doctest.h:2954: note: macro "CAPTURE" defined here
+ 2954 | #define CAPTURE(x) DOCTEST_CAPTURE(x)
+      | 
+tests/test_ui_display.cpp: In function ‘void {anonymous}::exact(const ui::DisplaySample&, const ui::Frame&, ui::RenderStatus)’:
+tests/test_ui_display.cpp:46:16: error: ‘void* memset(void*, int, size_t)’ writing to an object of non-trivial type ‘struct {anonymous}::exact(const ui::DisplaySample&, const ui::Frame&, ui::RenderStatus)::Guard’; use assignment instead [-Werror=class-memaccess]
+   46 |     std::memset(&guard, 0xa5, sizeof guard);
+      |     ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+tests/test_ui_display.cpp:45:12: note: ‘struct {anonymous}::exact(const ui::DisplaySample&, const ui::Frame&, ui::RenderStatus)::Guard’ declared here
+   45 |     struct Guard { std::uint8_t before[17]; ui::Frame frame; std::uint8_t after[19]; } guard;
+      |            ^~~~~
+tests/test_ui_display.cpp: In function ‘void DOCTEST_ANON_FUNC_5()’:
+tests/test_ui_display.cpp:81:13: error: ‘CAPTURE’ was not declared in this scope
+   81 |             CAPTURE(state, mode); exact(sample, glyphFrame(DIGITS[mode], ICONS[mode-1U]));
+      |             ^~~~~~~
+tests/test_ui_display.cpp: In function ‘void DOCTEST_ANON_FUNC_21()’:
+tests/test_ui_display.cpp:206:42: error: enumerated and non-enumerated type in conditional expression [-Werror=extra]
+  206 |         result.contract_faults=(bits&16U)?fsm::STALE_SENSORS:0U;
+      |                                ~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~
+cc1plus: all warnings being treated as errors

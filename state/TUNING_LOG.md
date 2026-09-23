@@ -279,3 +279,13 @@ UI_FRAME_PERIOD_US40000, UI_FAULT_PAGE_MS500, UI_BATTERY_EMPTY_V9.5,
 UI_BATTERY_FULL_V12.6, UI_BENCH_SCENE_MS2000. Evidence/semantics in
 analysis/P2_matrix_contract.md; no B16 motor/sensor/hold value changed.
 Battery bar scale is not calibration or a power-control threshold.
+
+
+2026-09-23 D088 bare-board ui_matrix run1,sourcee50c6da3/385c46c,serial2629958581:
+normalstartup,MATCH0/MOTORS_ALLOWED0,uploadexit0. Exactdeployedloader/sketch and
+BSSidentity verified;submission3341->3418(+77),failures0,bothinitialized1/status2.
+Capturemonotonicbounds3.000409..3.145330s;9readshashverified,106.208485s total.
+max_call_us37 is observed accumulated renderer+submit MCUclock diagnostic only:
+not calibrated timing,masked-copy duration,800us WCET or optical acceptance.
+No new config change or externalhardware/motor test. EvidenceP2_matrix_raw/
+runtime_report.json/runtime_run1; independent review follows receipt.

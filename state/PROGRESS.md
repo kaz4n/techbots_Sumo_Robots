@@ -526,3 +526,12 @@ submitted-only native status and bounded saved-PRIMASK copy specified under D051
 User authorizes bare-board inert display runtime; no external hardware requested.
 Source/API evidence analysis/P2_matrix_native_audit.md/raw/source; public/config
 contract HOST-SYNTAX-CHECKED, implementation/runtime validation follows. Commit: this commit.
+
+2026-09-23 P2 B6 D088 IMPLEMENTED/HOST-TESTED/TARGET-COMPILED commit385c46c:
+1224main+38MotorGate cases and full sanitizer PASS;15newrenderer cases,23native/
+capturemethods,5newupload+27existingtooling checks PASS. Fresh same-model reviewer
+PASS/noopenfindings;61sourcefiles/40nativeexports/actualPRIMASK sequence verified.
+Bare-board ui_matrix run1 authorized per analysis/P2_matrix_run_scope.md; source
+e50c6da3,normalstartup,MOTORS_ALLOWED0,serial2629958581. Upload/capture next.
+
+2026-09-23T15:44:54+04:00 | P2 D088 final checkpoint | Contract8fd11dd/implementation385c46c; fullnormal/san1224main+38GatePASS, independent15renderer cases/23nativecapturemethods,5newupload+27existingmethodsPASS. Fresh separate same-model reviewPASS/noopenfindings. Actual61sourcefiles/3ELFs/native/math/6inertkeys exact. User-authorized bareUNOQ normalstartup uploadrun1 exit0; deployedloader/sketch identity verified,9read-only MEM-AP reads,submissions3341->3418,failures0,106.208s. No optical/full-WCET/externalhardware/humangate. FullgoalACTIVE/incomplete; next P2 2.4 actual QTR_CAL service/threshold lifecycle; read P2_qtr_cal_next_task.md recommendations, not approvals. No further board action needed for this task. | evidencecommit follows

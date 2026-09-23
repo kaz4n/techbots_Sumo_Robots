@@ -1,0 +1,624 @@
+{
+  "files": [
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/modules/hal/cmsis_6/CMSIS/Core/Include/cmsis_gcc.h",
+      "sha256": "2d24e713d46324c056edce30837bb45fe4d9011c60fa0bc75ee9b87e1090ab44",
+      "bytes": 29645,
+      "lines": [
+        [
+          195,
+          "__STATIC_FORCEINLINE void __DMB(void)"
+        ],
+        [
+          196,
+          "{"
+        ],
+        [
+          197,
+          "  __ASM volatile (\"dmb 0xF\":::\"memory\");"
+        ],
+        [
+          198,
+          "}"
+        ],
+        [
+          199,
+          ""
+        ],
+        [
+          200,
+          ""
+        ],
+        [
+          201,
+          "/**"
+        ],
+        [
+          202,
+          "  \\brief   Reverse byte order (32 bit)"
+        ],
+        [
+          203,
+          "  \\details Reverses the byte order in unsigned integer value. For example, 0x12345678 becomes 0x78563412."
+        ],
+        [
+          204,
+          "  \\param [in]    value  Value to reverse"
+        ],
+        [
+          205,
+          "  \\return               Reversed value"
+        ],
+        [
+          206,
+          " */"
+        ],
+        [
+          809,
+          "__STATIC_FORCEINLINE void __disable_irq(void)"
+        ],
+        [
+          810,
+          "{"
+        ],
+        [
+          811,
+          "  __ASM volatile (\"cpsid i\" : : : \"memory\");"
+        ],
+        [
+          812,
+          "}"
+        ],
+        [
+          813,
+          ""
+        ],
+        [
+          814,
+          "#if (__ARM_ARCH_ISA_THUMB >= 2)"
+        ],
+        [
+          815,
+          "  /**"
+        ],
+        [
+          816,
+          "    \\brief   Enable FIQ"
+        ],
+        [
+          817,
+          "  \\details Enables FIQ interrupts by clearing special-purpose register FAULTMASK."
+        ],
+        [
+          818,
+          "             Can only be executed in Privileged modes."
+        ],
+        [
+          819,
+          "   */"
+        ],
+        [
+          820,
+          "  __STATIC_FORCEINLINE void __enable_fault_irq(void)"
+        ]
+      ]
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/modules/hal/cmsis_6/CMSIS/Core/Include/r-profile/cmsis_gcc_r.h",
+      "sha256": "3502300039821e8f1b8ecbd7a5cc433c5ce90da41e4d71fccaec0bb1568404da",
+      "bytes": 4551,
+      "lines": []
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/modules/hal/cmsis_6/CMSIS/Core/Include/m-profile/cmsis_gcc_m.h",
+      "sha256": "56241ce5b4798048f84429e28c1949d30bb907155f0b8351cb36aaaa9cbbeabb",
+      "bytes": 20792,
+      "lines": [
+        [
+          131,
+          "__STATIC_FORCEINLINE uint32_t __get_CONTROL(void)"
+        ],
+        [
+          132,
+          "{"
+        ],
+        [
+          133,
+          "  uint32_t result;"
+        ],
+        [
+          134,
+          ""
+        ],
+        [
+          135,
+          "  __ASM volatile (\"MRS %0, control\" : \"=r\" (result) );"
+        ],
+        [
+          136,
+          "  return (result);"
+        ],
+        [
+          137,
+          "}"
+        ],
+        [
+          138,
+          ""
+        ],
+        [
+          139,
+          ""
+        ],
+        [
+          140,
+          "#if defined (__ARM_FEATURE_CMSE) && (__ARM_FEATURE_CMSE == 3)"
+        ],
+        [
+          141,
+          "/**"
+        ],
+        [
+          142,
+          "  \\brief   Get Control Register (non-secure)"
+        ],
+        [
+          187,
+          "__STATIC_FORCEINLINE uint32_t __get_IPSR(void)"
+        ],
+        [
+          188,
+          "{"
+        ],
+        [
+          189,
+          "  uint32_t result;"
+        ],
+        [
+          190,
+          ""
+        ],
+        [
+          191,
+          "  __ASM volatile (\"MRS %0, ipsr\" : \"=r\" (result) );"
+        ],
+        [
+          192,
+          "  return (result);"
+        ],
+        [
+          193,
+          "}"
+        ],
+        [
+          194,
+          ""
+        ],
+        [
+          195,
+          ""
+        ],
+        [
+          196,
+          "/**"
+        ],
+        [
+          197,
+          "  \\brief   Get APSR Register"
+        ],
+        [
+          198,
+          "  \\details Returns the content of the APSR Register."
+        ],
+        [
+          364,
+          "__STATIC_FORCEINLINE uint32_t __get_PRIMASK(void)"
+        ],
+        [
+          365,
+          "{"
+        ],
+        [
+          366,
+          "  uint32_t result;"
+        ],
+        [
+          367,
+          ""
+        ],
+        [
+          368,
+          "  __ASM volatile (\"MRS %0, primask\" : \"=r\" (result) );"
+        ],
+        [
+          369,
+          "  return (result);"
+        ],
+        [
+          370,
+          "}"
+        ],
+        [
+          371,
+          ""
+        ],
+        [
+          372,
+          ""
+        ],
+        [
+          373,
+          "#if defined (__ARM_FEATURE_CMSE) && (__ARM_FEATURE_CMSE == 3)"
+        ],
+        [
+          374,
+          "/**"
+        ],
+        [
+          375,
+          "  \\brief   Get Priority Mask (non-secure)"
+        ],
+        [
+          394,
+          "__STATIC_FORCEINLINE void __set_PRIMASK(uint32_t priMask)"
+        ],
+        [
+          395,
+          "{"
+        ],
+        [
+          396,
+          "  __ASM volatile (\"MSR primask, %0\" : : \"r\" (priMask) : \"memory\");"
+        ],
+        [
+          397,
+          "}"
+        ],
+        [
+          398,
+          ""
+        ],
+        [
+          399,
+          ""
+        ],
+        [
+          400,
+          "#if defined (__ARM_FEATURE_CMSE) && (__ARM_FEATURE_CMSE == 3)"
+        ],
+        [
+          401,
+          "/**"
+        ],
+        [
+          402,
+          "  \\brief   Set Priority Mask (non-secure)"
+        ],
+        [
+          403,
+          "  \\details Assigns the given value to the non-secure Priority Mask Register when in secure state."
+        ],
+        [
+          404,
+          "  \\param [in]    priMask  Priority Mask"
+        ],
+        [
+          405,
+          " */"
+        ]
+      ]
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/modules/hal/cmsis_6/CMSIS/Core/Include/a-profile/cmsis_gcc_a.h",
+      "sha256": "bdf9a2a49a012704b799951e66c6af13f7513349eef5f7291fd1d7ac0add0f0c",
+      "bytes": 6456,
+      "lines": []
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/generated/zephyr/devicetree_generated.h",
+      "sha256": "5b0e9b1d0f7d878415d53a5d724e976061aca52177967d90d7c76c3cb0b0fb80",
+      "bytes": 2601581,
+      "lines": [
+        [
+          37384,
+          "#define DT_N_S_soc_S_timers_40014800_REG_NUM 1"
+        ],
+        [
+          37385,
+          "#define DT_N_S_soc_S_timers_40014800_REG_IDX_0_EXISTS 1"
+        ],
+        [
+          37386,
+          "#define DT_N_S_soc_S_timers_40014800_REG_IDX_0_VAL_ADDRESS 1073825792"
+        ],
+        [
+          37387,
+          "#define DT_N_S_soc_S_timers_40014800_REG_IDX_0_VAL_SIZE 1024"
+        ],
+        [
+          37394,
+          "#define DT_N_S_soc_S_timers_40014800_IRQ_NUM 1"
+        ],
+        [
+          37395,
+          "#define DT_N_S_soc_S_timers_40014800_IRQ_IDX_0_EXISTS 1"
+        ],
+        [
+          37396,
+          "#define DT_N_S_soc_S_timers_40014800_IRQ_IDX_0_VAL_irq 71"
+        ],
+        [
+          37397,
+          "#define DT_N_S_soc_S_timers_40014800_IRQ_IDX_0_VAL_irq_EXISTS 1"
+        ],
+        [
+          37398,
+          "#define DT_N_S_soc_S_timers_40014800_IRQ_IDX_0_EXISTS 1"
+        ],
+        [
+          37399,
+          "#define DT_N_S_soc_S_timers_40014800_IRQ_IDX_0_VAL_priority 0"
+        ],
+        [
+          37400,
+          "#define DT_N_S_soc_S_timers_40014800_IRQ_IDX_0_VAL_priority_EXISTS 1"
+        ],
+        [
+          37401,
+          "#define DT_N_S_soc_S_timers_40014800_IRQ_IDX_0_CONTROLLER DT_N_S_soc_S_interrupt_controller_e000e100"
+        ],
+        [
+          37402,
+          "#define DT_N_S_soc_S_timers_40014800_IRQ_LEVEL 1"
+        ],
+        [
+          37403,
+          "#define DT_N_S_soc_S_timers_40014800_IRQ_NAME_global_VAL_irq DT_N_S_soc_S_timers_40014800_IRQ_IDX_0_VAL_irq"
+        ],
+        [
+          37404,
+          "#define DT_N_S_soc_S_timers_40014800_IRQ_NAME_global_VAL_irq_EXISTS 1"
+        ],
+        [
+          37405,
+          "#define DT_N_S_soc_S_timers_40014800_IRQ_NAME_global_VAL_priority DT_N_S_soc_S_timers_40014800_IRQ_IDX_0_VAL_priority"
+        ],
+        [
+          37406,
+          "#define DT_N_S_soc_S_timers_40014800_IRQ_NAME_global_VAL_priority_EXISTS 1"
+        ],
+        [
+          37407,
+          "#define DT_N_S_soc_S_timers_40014800_IRQ_NAME_global_CONTROLLER DT_N_S_soc_S_timers_40014800_IRQ_IDX_0_CONTROLLER"
+        ],
+        [
+          37470,
+          "#define DT_N_S_soc_S_timers_40014800_P_st_prescaler 4"
+        ],
+        [
+          37471,
+          "#define DT_N_S_soc_S_timers_40014800_P_st_prescaler_EXISTS 1"
+        ],
+        [
+          37592,
+          "#define DT_N_S_soc_S_timers_40014800_S_counter_ORD 233"
+        ],
+        [
+          37593,
+          "#define DT_N_S_soc_S_timers_40014800_S_counter_ORD_STR_SORTABLE 00233"
+        ],
+        [
+          37605,
+          "#define DT_N_NODELABEL_counter_matrix DT_N_S_soc_S_timers_40014800_S_counter"
+        ],
+        [
+          37628,
+          "#define DT_N_S_soc_S_timers_40014800_S_counter_P_status \"okay\""
+        ],
+        [
+          37629,
+          "#define DT_N_S_soc_S_timers_40014800_S_counter_P_status_STRING_UNQUOTED okay"
+        ],
+        [
+          37630,
+          "#define DT_N_S_soc_S_timers_40014800_S_counter_P_status_STRING_TOKEN okay"
+        ],
+        [
+          37631,
+          "#define DT_N_S_soc_S_timers_40014800_S_counter_P_status_STRING_UPPER_TOKEN OKAY"
+        ],
+        [
+          37632,
+          "#define DT_N_S_soc_S_timers_40014800_S_counter_P_status_IDX_0 \"okay\""
+        ],
+        [
+          37633,
+          "#define DT_N_S_soc_S_timers_40014800_S_counter_P_status_IDX_0_EXISTS 1"
+        ],
+        [
+          37634,
+          "#define DT_N_S_soc_S_timers_40014800_S_counter_P_status_IDX_0_ENUM_IDX 0"
+        ],
+        [
+          37635,
+          "#define DT_N_S_soc_S_timers_40014800_S_counter_P_status_IDX_0_ENUM_VAL_okay_EXISTS 1"
+        ],
+        [
+          37636,
+          "#define DT_N_S_soc_S_timers_40014800_S_counter_P_status_ENUM_VAL_okay_EXISTS 1"
+        ],
+        [
+          37637,
+          "#define DT_N_S_soc_S_timers_40014800_S_counter_P_status_FOREACH_PROP_ELEM(fn) fn(DT_N_S_soc_S_timers_40014800_S_counter, status, 0)"
+        ],
+        [
+          37638,
+          "#define DT_N_S_soc_S_timers_40014800_S_counter_P_status_FOREACH_PROP_ELEM_SEP(fn, sep) fn(DT_N_S_soc_S_timers_40014800_S_counter, status, 0)"
+        ],
+        [
+          37639,
+          "#define DT_N_S_soc_S_timers_40014800_S_counter_P_status_FOREACH_PROP_ELEM_VARGS(fn, ...) fn(DT_N_S_soc_S_timers_40014800_S_counter, status, 0, __VA_ARGS__)"
+        ],
+        [
+          37640,
+          "#define DT_N_S_soc_S_timers_40014800_S_counter_P_status_FOREACH_PROP_ELEM_SEP_VARGS(fn, sep, ...) fn(DT_N_S_soc_S_timers_40014800_S_counter, status, 0, __VA_ARGS__)"
+        ],
+        [
+          37641,
+          "#define DT_N_S_soc_S_timers_40014800_S_counter_P_status_LEN 1"
+        ],
+        [
+          37642,
+          "#define DT_N_S_soc_S_timers_40014800_S_counter_P_status_EXISTS 1"
+        ],
+        [
+          37667,
+          "#define DT_N_S_soc_S_timers_40014800_S_counter_P_zephyr_deferred_init 0"
+        ],
+        [
+          37668,
+          "#define DT_N_S_soc_S_timers_40014800_S_counter_P_zephyr_deferred_init_EXISTS 1"
+        ]
+      ]
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/generated/zephyr/autoconf.h",
+      "sha256": "52178f5eefcf276720b859bdd60fc87ca4207b0130ac1fd5ba099af74b877a0c",
+      "bytes": 22526,
+      "lines": [
+        [
+          82,
+          "#define CONFIG_COUNTER 1"
+        ],
+        [
+          94,
+          "#define CONFIG_NUM_METAIRQ_PRIORITIES 0"
+        ],
+        [
+          123,
+          "#define CONFIG_MULTITHREADING 1"
+        ],
+        [
+          188,
+          "#define CONFIG_CPU_CORTEX_M 1"
+        ],
+        [
+          198,
+          "#define CONFIG_CPU_CORTEX_M33 1"
+        ],
+        [
+          199,
+          "#define CONFIG_CPU_CORTEX_M_HAS_SYSTICK 1"
+        ],
+        [
+          200,
+          "#define CONFIG_CPU_CORTEX_M_HAS_DWT 1"
+        ],
+        [
+          201,
+          "#define CONFIG_CPU_CORTEX_M_HAS_BASEPRI 1"
+        ],
+        [
+          202,
+          "#define CONFIG_CPU_CORTEX_M_HAS_VTOR 1"
+        ],
+        [
+          203,
+          "#define CONFIG_CPU_CORTEX_M_HAS_SPLIM 1"
+        ],
+        [
+          204,
+          "#define CONFIG_CPU_CORTEX_M_HAS_PROGRAMMABLE_FAULT_PRIOS 1"
+        ],
+        [
+          205,
+          "#define CONFIG_CPU_CORTEX_M_HAS_CMSE 1"
+        ],
+        [
+          207,
+          "#define CONFIG_ARMV8_M_MAINLINE 1"
+        ],
+        [
+          208,
+          "#define CONFIG_ARMV8_M_SE 1"
+        ],
+        [
+          210,
+          "#define CONFIG_ARMV8_M_DSP 1"
+        ],
+        [
+          246,
+          "#define CONFIG_CPU_HAS_FPU 1"
+        ],
+        [
+          337,
+          "#define CONFIG_COUNTER_INIT_PRIORITY 60"
+        ],
+        [
+          338,
+          "#define CONFIG_COUNTER_LOG_LEVEL_DEFAULT 1"
+        ],
+        [
+          339,
+          "#define CONFIG_COUNTER_LOG_LEVEL 3"
+        ],
+        [
+          340,
+          "#define CONFIG_COUNTER_TIMER_STM32 1"
+        ]
+      ]
+    }
+  ],
+  "commands": [
+    {
+      "args": [
+        "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-gdb",
+        "-nx",
+        "-nh",
+        "-batch",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf",
+        "-ex",
+        "p __device_dts_ord_233",
+        "-ex",
+        "p counter_stm32_driver_api",
+        "-ex",
+        "p __llext_sym_matrixBegin",
+        "-ex",
+        "p __llext_sym_matrixEnd",
+        "-ex",
+        "p __llext_sym_matrixGrayscaleWrite",
+        "-ex",
+        "p __llext_sym_matrixSetGrayscaleBits",
+        "-ex",
+        "p __llext_sym___device_dts_ord_233",
+        "-ex",
+        "p *(struct counter_stm32_config *)__device_dts_ord_233.config"
+      ],
+      "exit": 0,
+      "stdout": "$1 = {name = 0x8023834 \"LED_MATRIX_COUNTER\", config = 0x801e208 <counter1_config>, api = 0x801c65c <counter_stm32_driver_api>, state = 0x200010e4 <__devstate_dts_ord_233>, data = 0x2000199c <counter1_data>, ops = {init = 0x800c001 <counter_stm32_init_timer>, deinit = 0x0}, flags = 0 '\\000', deps = 0x801c4f0 <__devicedeps_dts_ord_233>}\n$2 = {start = 0x8018b21 <counter_stm32_start>, stop = 0x8018b31 <counter_stm32_stop>, get_value = 0x8018b49 <counter_stm32_get_value>, reset = 0x8018b55 <counter_stm32_reset>, set_value = 0x8018be7 <counter_stm32_set_value>, set_alarm = 0x800be8d <counter_stm32_set_alarm>, cancel_alarm = 0x800be05 <counter_stm32_cancel_alarm>, set_top_value = 0x8018b5f <counter_stm32_set_top_value>, get_pending_int = 0x8018d07 <counter_stm32_get_pending_int>, get_top_value = 0x8018b41 <counter_stm32_get_top_value>, get_guard_period = 0x8018bd3 <counter_stm32_get_guard_period>, set_guard_period = 0x8018bd9 <counter_stm32_set_guard_period>, get_freq = 0x8018be1 <counter_stm32_get_freq>}\n$3 = {{name = 0x801f2da \"matrixBegin\", slid = 134345434}, addr = 0x8005629 <matrixBegin>}\n$4 = {{name = 0x801f28d \"matrixEnd\", slid = 134345357}, addr = 0x8005695 <matrixEnd>}\n$5 = {{name = 0x801f2ae \"matrixGrayscaleWrite\", slid = 134345390}, addr = 0x8005601 <matrixGrayscaleWrite>}\n$6 = {{name = 0x801f297 \"matrixSetGrayscaleBits\", slid = 134345367}, addr = 0x800561d <matrixSetGrayscaleBits>}\n$7 = {{name = 0x802381f \"__device_dts_ord_233\", slid = 134363167}, addr = 0x801c1a8 <__device_dts_ord_233>}\n$8 = {info = {freq = 0, max_top_value = 65535, flags = 1 '\\001', channels = 1 '\\001'}, ch_data = 0x2000197c <counter1_ch_data>, timer = 0x40014800, prescaler = 4, pclken = 0x801e23c <pclken_1>, pclk_len = 2, irq_config_func = 0x8018c07 <counter_1_stm32_irq_config>, irqn = 71, reset = {dev = 0x801bf20 <__device_dts_ord_69>, id = 3986}, log = 0x0}\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-objdump",
+        "-d",
+        "--disassemble=memcpy",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf"
+      ],
+      "exit": 0,
+      "stdout": "\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf:     file format elf32-littlearm\n\n\nDisassembly of section rom_start:\n\nDisassembly of section text:\n\n0801b2d2 <memcpy>:\n 801b2d2:\t440a      \tadd\tr2, r1\n 801b2d4:\t1e43      \tsubs\tr3, r0, #1\n 801b2d6:\t4291      \tcmp\tr1, r2\n 801b2d8:\td100      \tbne.n\t801b2dc <memcpy+0xa>\n 801b2da:\t4770      \tbx\tlr\n 801b2dc:\tb510      \tpush\t{r4, lr}\n 801b2de:\tf811 4b01 \tldrb.w\tr4, [r1], #1\n 801b2e2:\t4291      \tcmp\tr1, r2\n 801b2e4:\tf803 4f01 \tstrb.w\tr4, [r3, #1]!\n 801b2e8:\td1f9      \tbne.n\t801b2de <memcpy+0xc>\n 801b2ea:\tbd10      \tpop\t{r4, pc}\n",
+      "stderr": ""
+    },
+    {
+      "args": [
+        "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-objdump",
+        "-d",
+        "--disassemble=arch_irq_unlock_outlined",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf"
+      ],
+      "exit": 0,
+      "stdout": "\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf:     file format elf32-littlearm\n\n\nDisassembly of section rom_start:\n\nDisassembly of section text:\n\n08017f38 <arch_irq_unlock_outlined>:\n 8017f38:\tb661      \tcpsie\tf\n 8017f3a:\tb662      \tcpsie\ti\n 8017f3c:\tf380 8811 \tmsr\tBASEPRI, r0\n 8017f40:\tf3bf 8f6f \tisb\tsy\n 8017f44:\t4770      \tbx\tlr\n",
+      "stderr": ""
+    }
+  ]
+}

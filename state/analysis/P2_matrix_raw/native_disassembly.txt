@@ -1,0 +1,1008 @@
+000000d4 <setup>:
+      d4:	b513      	push	{r0, r1, r4, lr}
+      d6:	4b0a      	ldr	r3, [pc, #40]	@ (100 <setup+0x2c>)
+      d8:	4c0a      	ldr	r4, [pc, #40]	@ (104 <setup+0x30>)
+      da:	480b      	ldr	r0, [pc, #44]	@ (108 <setup+0x34>)
+      dc:	6023      	str	r3, [r4, #0]
+      de:	2301      	movs	r3, #1
+      e0:	6063      	str	r3, [r4, #4]
+      e2:	f240 1301 	movw	r3, #257	@ 0x101
+      e6:	f8ad 3004 	strh.w	r3, [sp, #4]
+      ea:	9901      	ldr	r1, [sp, #4]
+      ec:	4b07      	ldr	r3, [pc, #28]	@ (10c <setup+0x38>)
+      ee:	4798      	blx	r3
+      f0:	1e43      	subs	r3, r0, #1
+      f2:	61a0      	str	r0, [r4, #24]
+      f4:	4258      	negs	r0, r3
+      f6:	4158      	adcs	r0, r3
+      f8:	60a0      	str	r0, [r4, #8]
+      fa:	b002      	add	sp, #8
+      fc:	bd10      	pop	{r4, pc}
+      fe:	bf00      	nop
+     100:	55494d58 	.word	0x55494d58
+	...
+
+00000110 <loop>:
+     110:	b570      	push	{r4, r5, r6, lr}
+     112:	4e19      	ldr	r6, [pc, #100]	@ (178 <loop+0x68>)
+     114:	b088      	sub	sp, #32
+     116:	47b0      	blx	r6
+     118:	4918      	ldr	r1, [pc, #96]	@ (17c <loop+0x6c>)
+     11a:	4605      	mov	r5, r0
+     11c:	780b      	ldrb	r3, [r1, #0]
+     11e:	4a18      	ldr	r2, [pc, #96]	@ (180 <loop+0x70>)
+     120:	b92b      	cbnz	r3, 12e <loop+0x1e>
+     122:	6813      	ldr	r3, [r2, #0]
+     124:	1ac3      	subs	r3, r0, r3
+     126:	f649 403f 	movw	r0, #39999	@ 0x9c3f
+     12a:	4283      	cmp	r3, r0
+     12c:	d922      	bls.n	174 <loop+0x64>
+     12e:	2300      	movs	r3, #0
+     130:	a801      	add	r0, sp, #4
+     132:	700b      	strb	r3, [r1, #0]
+     134:	4629      	mov	r1, r5
+     136:	4b13      	ldr	r3, [pc, #76]	@ (184 <loop+0x74>)
+     138:	6015      	str	r5, [r2, #0]
+     13a:	4798      	blx	r3
+     13c:	4912      	ldr	r1, [pc, #72]	@ (188 <loop+0x78>)
+     13e:	4b13      	ldr	r3, [pc, #76]	@ (18c <loop+0x7c>)
+     140:	a801      	add	r0, sp, #4
+     142:	4798      	blx	r3
+     144:	4c12      	ldr	r4, [pc, #72]	@ (190 <loop+0x80>)
+     146:	4b13      	ldr	r3, [pc, #76]	@ (194 <loop+0x84>)
+     148:	4629      	mov	r1, r5
+     14a:	4a0f      	ldr	r2, [pc, #60]	@ (188 <loop+0x78>)
+     14c:	61e0      	str	r0, [r4, #28]
+     14e:	4812      	ldr	r0, [pc, #72]	@ (198 <loop+0x88>)
+     150:	4798      	blx	r3
+     152:	2802      	cmp	r0, #2
+     154:	61a0      	str	r0, [r4, #24]
+     156:	bf0b      	itete	eq
+     158:	68e3      	ldreq	r3, [r4, #12]
+     15a:	6923      	ldrne	r3, [r4, #16]
+     15c:	3301      	addeq	r3, #1
+     15e:	3301      	addne	r3, #1
+     160:	bf0c      	ite	eq
+     162:	60e3      	streq	r3, [r4, #12]
+     164:	6123      	strne	r3, [r4, #16]
+     166:	6225      	str	r5, [r4, #32]
+     168:	47b0      	blx	r6
+     16a:	6a63      	ldr	r3, [r4, #36]	@ 0x24
+     16c:	1b40      	subs	r0, r0, r5
+     16e:	4283      	cmp	r3, r0
+     170:	bf38      	it	cc
+     172:	6260      	strcc	r0, [r4, #36]	@ 0x24
+     174:	b008      	add	sp, #32
+     176:	bd70      	pop	{r4, r5, r6, pc}
+	...
+
+0000256c <__loopHook()>:
+    256c:	b538      	push	{r3, r4, r5, lr}
+    256e:	4b0a      	ldr	r3, [pc, #40]	@ (2598 <__loopHook()+0x2c>)
+    2570:	4798      	blx	r3
+    2572:	4c0a      	ldr	r4, [pc, #40]	@ (259c <__loopHook()+0x30>)
+    2574:	f04f 33ff 	mov.w	r3, #4294967295	@ 0xffffffff
+    2578:	f04f 32ff 	mov.w	r2, #4294967295	@ 0xffffffff
+    257c:	4808      	ldr	r0, [pc, #32]	@ (25a0 <__loopHook()+0x34>)
+    257e:	4909      	ldr	r1, [pc, #36]	@ (25a4 <__loopHook()+0x38>)
+    2580:	4788      	blx	r1
+    2582:	f894 5158 	ldrb.w	r5, [r4, #344]	@ 0x158
+    2586:	4b08      	ldr	r3, [pc, #32]	@ (25a8 <__loopHook()+0x3c>)
+    2588:	f104 0038 	add.w	r0, r4, #56	@ 0x38
+    258c:	4798      	blx	r3
+    258e:	b115      	cbz	r5, 2596 <__loopHook()+0x2a>
+    2590:	4620      	mov	r0, r4
+    2592:	4b06      	ldr	r3, [pc, #24]	@ (25ac <__loopHook()+0x40>)
+    2594:	4798      	blx	r3
+    2596:	bd38      	pop	{r3, r4, r5, pc}
+	...
+    25a0:	00000038 	.word	0x00000038
+	...
+
+000025b0 <_GLOBAL__sub_I_uiBench>:
+    25b0:	4a06      	ldr	r2, [pc, #24]	@ (25cc <_GLOBAL__sub_I_uiBench+0x1c>)
+    25b2:	6813      	ldr	r3, [r2, #0]
+    25b4:	1c59      	adds	r1, r3, #1
+    25b6:	6011      	str	r1, [r2, #0]
+    25b8:	b933      	cbnz	r3, 25c8 <_GLOBAL__sub_I_uiBench+0x18>
+    25ba:	4a05      	ldr	r2, [pc, #20]	@ (25d0 <_GLOBAL__sub_I_uiBench+0x20>)
+    25bc:	4905      	ldr	r1, [pc, #20]	@ (25d4 <_GLOBAL__sub_I_uiBench+0x24>)
+    25be:	e9c2 3307 	strd	r3, r3, [r2, #28]
+    25c2:	6011      	str	r1, [r2, #0]
+    25c4:	7613      	strb	r3, [r2, #24]
+    25c6:	6253      	str	r3, [r2, #36]	@ 0x24
+    25c8:	4770      	bx	lr
+    25ca:	bf00      	nop
+	...
+
+000025f8 <_GLOBAL__sub_I__ZN3imu3Bus13controlsOwnedEb>:
+    25f8:	4a06      	ldr	r2, [pc, #24]	@ (2614 <_GLOBAL__sub_I__ZN3imu3Bus13controlsOwnedEb+0x1c>)
+    25fa:	6813      	ldr	r3, [r2, #0]
+    25fc:	1c59      	adds	r1, r3, #1
+    25fe:	6011      	str	r1, [r2, #0]
+    2600:	b933      	cbnz	r3, 2610 <_GLOBAL__sub_I__ZN3imu3Bus13controlsOwnedEb+0x18>
+    2602:	4a05      	ldr	r2, [pc, #20]	@ (2618 <_GLOBAL__sub_I__ZN3imu3Bus13controlsOwnedEb+0x20>)
+    2604:	4905      	ldr	r1, [pc, #20]	@ (261c <_GLOBAL__sub_I__ZN3imu3Bus13controlsOwnedEb+0x24>)
+    2606:	e9c2 3307 	strd	r3, r3, [r2, #28]
+    260a:	6011      	str	r1, [r2, #0]
+    260c:	7613      	strb	r3, [r2, #24]
+    260e:	6253      	str	r3, [r2, #36]	@ 0x24
+    2610:	4770      	bx	lr
+    2612:	bf00      	nop
+	...
+
+00002640 <_GLOBAL__sub_I__ZNK8line_qtr6Reader11globalOwnedEv>:
+    2640:	4a06      	ldr	r2, [pc, #24]	@ (265c <_GLOBAL__sub_I__ZNK8line_qtr6Reader11globalOwnedEv+0x1c>)
+    2642:	6813      	ldr	r3, [r2, #0]
+    2644:	1c59      	adds	r1, r3, #1
+    2646:	6011      	str	r1, [r2, #0]
+    2648:	b933      	cbnz	r3, 2658 <_GLOBAL__sub_I__ZNK8line_qtr6Reader11globalOwnedEv+0x18>
+    264a:	4a05      	ldr	r2, [pc, #20]	@ (2660 <_GLOBAL__sub_I__ZNK8line_qtr6Reader11globalOwnedEv+0x20>)
+    264c:	4905      	ldr	r1, [pc, #20]	@ (2664 <_GLOBAL__sub_I__ZNK8line_qtr6Reader11globalOwnedEv+0x24>)
+    264e:	e9c2 3307 	strd	r3, r3, [r2, #28]
+    2652:	6011      	str	r1, [r2, #0]
+    2654:	7613      	strb	r3, [r2, #24]
+    2656:	6253      	str	r3, [r2, #36]	@ 0x24
+    2658:	4770      	bx	lr
+    265a:	bf00      	nop
+	...
+
+00002688 <_GLOBAL__sub_I__ZN6motors8UnoQPort4portEv>:
+    2688:	4a06      	ldr	r2, [pc, #24]	@ (26a4 <_GLOBAL__sub_I__ZN6motors8UnoQPort4portEv+0x1c>)
+    268a:	6813      	ldr	r3, [r2, #0]
+    268c:	1c59      	adds	r1, r3, #1
+    268e:	6011      	str	r1, [r2, #0]
+    2690:	b933      	cbnz	r3, 26a0 <_GLOBAL__sub_I__ZN6motors8UnoQPort4portEv+0x18>
+    2692:	4a05      	ldr	r2, [pc, #20]	@ (26a8 <_GLOBAL__sub_I__ZN6motors8UnoQPort4portEv+0x20>)
+    2694:	4905      	ldr	r1, [pc, #20]	@ (26ac <_GLOBAL__sub_I__ZN6motors8UnoQPort4portEv+0x24>)
+    2696:	e9c2 3307 	strd	r3, r3, [r2, #28]
+    269a:	6011      	str	r1, [r2, #0]
+    269c:	7613      	strb	r3, [r2, #24]
+    269e:	6253      	str	r3, [r2, #36]	@ 0x24
+    26a0:	4770      	bx	lr
+    26a2:	bf00      	nop
+	...
+
+000026d0 <_GLOBAL__sub_I__ZN11opp_sensors7Sensors5beginEv>:
+    26d0:	4a06      	ldr	r2, [pc, #24]	@ (26ec <_GLOBAL__sub_I__ZN11opp_sensors7Sensors5beginEv+0x1c>)
+    26d2:	6813      	ldr	r3, [r2, #0]
+    26d4:	1c59      	adds	r1, r3, #1
+    26d6:	6011      	str	r1, [r2, #0]
+    26d8:	b933      	cbnz	r3, 26e8 <_GLOBAL__sub_I__ZN11opp_sensors7Sensors5beginEv+0x18>
+    26da:	4a05      	ldr	r2, [pc, #20]	@ (26f0 <_GLOBAL__sub_I__ZN11opp_sensors7Sensors5beginEv+0x20>)
+    26dc:	4905      	ldr	r1, [pc, #20]	@ (26f4 <_GLOBAL__sub_I__ZN11opp_sensors7Sensors5beginEv+0x24>)
+    26de:	e9c2 3307 	strd	r3, r3, [r2, #28]
+    26e2:	6011      	str	r1, [r2, #0]
+    26e4:	7613      	strb	r3, [r2, #24]
+    26e6:	6253      	str	r3, [r2, #36]	@ 0x24
+    26e8:	4770      	bx	lr
+    26ea:	bf00      	nop
+	...
+
+00002718 <_GLOBAL__sub_I__ZNK5power6Reader13controlsOwnedEv>:
+    2718:	4a06      	ldr	r2, [pc, #24]	@ (2734 <_GLOBAL__sub_I__ZNK5power6Reader13controlsOwnedEv+0x1c>)
+    271a:	6813      	ldr	r3, [r2, #0]
+    271c:	1c59      	adds	r1, r3, #1
+    271e:	6011      	str	r1, [r2, #0]
+    2720:	b933      	cbnz	r3, 2730 <_GLOBAL__sub_I__ZNK5power6Reader13controlsOwnedEv+0x18>
+    2722:	4a05      	ldr	r2, [pc, #20]	@ (2738 <_GLOBAL__sub_I__ZNK5power6Reader13controlsOwnedEv+0x20>)
+    2724:	4905      	ldr	r1, [pc, #20]	@ (273c <_GLOBAL__sub_I__ZNK5power6Reader13controlsOwnedEv+0x24>)
+    2726:	e9c2 3307 	strd	r3, r3, [r2, #28]
+    272a:	6011      	str	r1, [r2, #0]
+    272c:	7613      	strb	r3, [r2, #24]
+    272e:	6253      	str	r3, [r2, #36]	@ 0x24
+    2730:	4770      	bx	lr
+    2732:	bf00      	nop
+	...
+
+00002760 <ui::(anonymous namespace)::glyph(ui::Frame&, unsigned int, unsigned char const*, unsigned int, bool)>:
+    2760:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+    2764:	f89d e018 	ldrb.w	lr, [sp, #24]
+    2768:	f101 050d 	add.w	r5, r1, #13
+    276c:	f103 38ff 	add.w	r8, r3, #4294967295	@ 0xffffffff
+    2770:	314e      	adds	r1, #78	@ 0x4e
+    2772:	2400      	movs	r4, #0
+    2774:	1947      	adds	r7, r0, r5
+    2776:	f1be 0f00 	cmp.w	lr, #0
+    277a:	d115      	bne.n	27a8 <ui::(anonymous namespace)::glyph(ui::Frame&, unsigned int, unsigned char const*, unsigned int, bool)+0x48>
+    277c:	eba8 0c04 	sub.w	ip, r8, r4
+    2780:	7816      	ldrb	r6, [r2, #0]
+    2782:	3401      	adds	r4, #1
+    2784:	fa26 f60c 	lsr.w	r6, r6, ip
+    2788:	f016 0f01 	tst.w	r6, #1
+    278c:	bf0c      	ite	eq
+    278e:	2600      	moveq	r6, #0
+    2790:	2607      	movne	r6, #7
+    2792:	42a3      	cmp	r3, r4
+    2794:	f807 6b01 	strb.w	r6, [r7], #1
+    2798:	d1ed      	bne.n	2776 <ui::(anonymous namespace)::glyph(ui::Frame&, unsigned int, unsigned char const*, unsigned int, bool)+0x16>
+    279a:	350d      	adds	r5, #13
+    279c:	428d      	cmp	r5, r1
+    279e:	f102 0201 	add.w	r2, r2, #1
+    27a2:	d1e6      	bne.n	2772 <ui::(anonymous namespace)::glyph(ui::Frame&, unsigned int, unsigned char const*, unsigned int, bool)+0x12>
+    27a4:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+    27a8:	46a4      	mov	ip, r4
+    27aa:	e7e9      	b.n	2780 <ui::(anonymous namespace)::glyph(ui::Frame&, unsigned int, unsigned char const*, unsigned int, bool)+0x20>
+
+000027ac <ui::(anonymous namespace)::invalid(ui::Frame&) [clone .isra.0]>:
+    27ac:	b537      	push	{r0, r1, r2, r4, r5, lr}
+    27ae:	2400      	movs	r4, #0
+    27b0:	4605      	mov	r5, r0
+    27b2:	2268      	movs	r2, #104	@ 0x68
+    27b4:	2100      	movs	r1, #0
+    27b6:	4b19      	ldr	r3, [pc, #100]	@ (281c <ui::(anonymous namespace)::invalid(ui::Frame&) [clone .isra.0]+0x70>)
+    27b8:	4798      	blx	r3
+    27ba:	4628      	mov	r0, r5
+    27bc:	4621      	mov	r1, r4
+    27be:	4d18      	ldr	r5, [pc, #96]	@ (2820 <ui::(anonymous namespace)::invalid(ui::Frame&) [clone .isra.0]+0x74>)
+    27c0:	2303      	movs	r3, #3
+    27c2:	4a18      	ldr	r2, [pc, #96]	@ (2824 <ui::(anonymous namespace)::invalid(ui::Frame&) [clone .isra.0]+0x78>)
+    27c4:	9400      	str	r4, [sp, #0]
+    27c6:	47a8      	blx	r5
+    27c8:	2305      	movs	r3, #5
+    27ca:	2104      	movs	r1, #4
+    27cc:	4a16      	ldr	r2, [pc, #88]	@ (2828 <ui::(anonymous namespace)::invalid(ui::Frame&) [clone .isra.0]+0x7c>)
+    27ce:	9400      	str	r4, [sp, #0]
+    27d0:	47a8      	blx	r5
+    27d2:	2307      	movs	r3, #7
+    27d4:	f880 405c 	strb.w	r4, [r0, #92]	@ 0x5c
+    27d8:	7003      	strb	r3, [r0, #0]
+    27da:	7083      	strb	r3, [r0, #2]
+    27dc:	7103      	strb	r3, [r0, #4]
+    27de:	7183      	strb	r3, [r0, #6]
+    27e0:	7203      	strb	r3, [r0, #8]
+    27e2:	7283      	strb	r3, [r0, #10]
+    27e4:	7303      	strb	r3, [r0, #12]
+    27e6:	f880 305b 	strb.w	r3, [r0, #91]	@ 0x5b
+    27ea:	f880 305d 	strb.w	r3, [r0, #93]	@ 0x5d
+    27ee:	f880 405e 	strb.w	r4, [r0, #94]	@ 0x5e
+    27f2:	f880 305f 	strb.w	r3, [r0, #95]	@ 0x5f
+    27f6:	f880 4060 	strb.w	r4, [r0, #96]	@ 0x60
+    27fa:	f880 3061 	strb.w	r3, [r0, #97]	@ 0x61
+    27fe:	f880 4062 	strb.w	r4, [r0, #98]	@ 0x62
+    2802:	f880 3063 	strb.w	r3, [r0, #99]	@ 0x63
+    2806:	f880 4064 	strb.w	r4, [r0, #100]	@ 0x64
+    280a:	f880 3065 	strb.w	r3, [r0, #101]	@ 0x65
+    280e:	f880 4066 	strb.w	r4, [r0, #102]	@ 0x66
+    2812:	f880 3067 	strb.w	r3, [r0, #103]	@ 0x67
+    2816:	b003      	add	sp, #12
+    2818:	bd30      	pop	{r4, r5, pc}
+    281a:	bf00      	nop
+	...
+    2824:	0000014b 	.word	0x0000014b
+    2828:	00000169 	.word	0x00000169
+    282c:	00000000 	.word	0x00000000
+
+00002830 <ui::render(ui::DisplaySample const&, ui::Frame&)>:
+    2830:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+    2834:	460c      	mov	r4, r1
+    2836:	4605      	mov	r5, r0
+    2838:	2268      	movs	r2, #104	@ 0x68
+    283a:	2100      	movs	r1, #0
+    283c:	4620      	mov	r0, r4
+    283e:	4b7a      	ldr	r3, [pc, #488]	@ (2a28 <ui::render(ui::DisplaySample const&, ui::Frame&)+0x1f8>)
+    2840:	b09f      	sub	sp, #124	@ 0x7c
+    2842:	4798      	blx	r3
+    2844:	792a      	ldrb	r2, [r5, #4]
+    2846:	2a0b      	cmp	r2, #11
+    2848:	d837      	bhi.n	28ba <ui::render(ui::DisplaySample const&, ui::Frame&)+0x8a>
+    284a:	796f      	ldrb	r7, [r5, #5]
+    284c:	1e7b      	subs	r3, r7, #1
+    284e:	2b05      	cmp	r3, #5
+    2850:	d833      	bhi.n	28ba <ui::render(ui::DisplaySample const&, ui::Frame&)+0x8a>
+    2852:	79eb      	ldrb	r3, [r5, #7]
+    2854:	2b04      	cmp	r3, #4
+    2856:	d830      	bhi.n	28ba <ui::render(ui::DisplaySample const&, ui::Frame&)+0x8a>
+    2858:	79a9      	ldrb	r1, [r5, #6]
+    285a:	b101      	cbz	r1, 285e <ui::render(ui::DisplaySample const&, ui::Frame&)+0x2e>
+    285c:	b36b      	cbz	r3, 28ba <ui::render(ui::DisplaySample const&, ui::Frame&)+0x8a>
+    285e:	f995 0016 	ldrsb.w	r0, [r5, #22]
+    2862:	2800      	cmp	r0, #0
+    2864:	db29      	blt.n	28ba <ui::render(ui::DisplaySample const&, ui::Frame&)+0x8a>
+    2866:	7de8      	ldrb	r0, [r5, #23]
+    2868:	280f      	cmp	r0, #15
+    286a:	d826      	bhi.n	28ba <ui::render(ui::DisplaySample const&, ui::Frame&)+0x8a>
+    286c:	f995 0018 	ldrsb.w	r0, [r5, #24]
+    2870:	2800      	cmp	r0, #0
+    2872:	db22      	blt.n	28ba <ui::render(ui::DisplaySample const&, ui::Frame&)+0x8a>
+    2874:	7b28      	ldrb	r0, [r5, #12]
+    2876:	b178      	cbz	r0, 2898 <ui::render(ui::DisplaySample const&, ui::Frame&)+0x68>
+    2878:	edd5 7a04 	vldr	s15, [r5, #16]
+    287c:	ed9f 7a6b 	vldr	s14, [pc, #428]	@ 2a2c <ui::render(ui::DisplaySample const&, ui::Frame&)+0x1fc>
+    2880:	eef0 6ae7 	vabs.f32	s13, s15
+    2884:	eef4 6a47 	vcmp.f32	s13, s14
+    2888:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+    288c:	d815      	bhi.n	28ba <ui::render(ui::DisplaySample const&, ui::Frame&)+0x8a>
+    288e:	eef5 7ac0 	vcmpe.f32	s15, #0.0
+    2892:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
+    2896:	db10      	blt.n	28ba <ui::render(ui::DisplaySample const&, ui::Frame&)+0x8a>
+    2898:	2a0b      	cmp	r2, #11
+    289a:	f200 816e 	bhi.w	2b7a <ui::render(ui::DisplaySample const&, ui::Frame&)+0x34a>
+    289e:	e8df f012 	tbh	[pc, r2, lsl #1]
+    28a2:	0013      	.short	0x0013
+    28a4:	009300b1 	.word	0x009300b1
+    28a8:	016c016c 	.word	0x016c016c
+    28ac:	016c016c 	.word	0x016c016c
+    28b0:	016c016c 	.word	0x016c016c
+    28b4:	001f016c 	.word	0x001f016c
+    28b8:	001f      	.short	0x001f
+    28ba:	4620      	mov	r0, r4
+    28bc:	4b5c      	ldr	r3, [pc, #368]	@ (2a30 <ui::render(ui::DisplaySample const&, ui::Frame&)+0x200>)
+    28be:	4798      	blx	r3
+    28c0:	2001      	movs	r0, #1
+    28c2:	b01f      	add	sp, #124	@ 0x7c
+    28c4:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+    28c8:	2600      	movs	r6, #0
+    28ca:	2303      	movs	r3, #3
+    28cc:	4a59      	ldr	r2, [pc, #356]	@ (2a34 <ui::render(ui::DisplaySample const&, ui::Frame&)+0x204>)
+    28ce:	9600      	str	r6, [sp, #0]
+    28d0:	4631      	mov	r1, r6
+    28d2:	4620      	mov	r0, r4
+    28d4:	4f58      	ldr	r7, [pc, #352]	@ (2a38 <ui::render(ui::DisplaySample const&, ui::Frame&)+0x208>)
+    28d6:	47b8      	blx	r7
+    28d8:	2305      	movs	r3, #5
+    28da:	4a58      	ldr	r2, [pc, #352]	@ (2a3c <ui::render(ui::DisplaySample const&, ui::Frame&)+0x20c>)
+    28dc:	9600      	str	r6, [sp, #0]
+    28de:	e00f      	b.n	2900 <ui::render(ui::DisplaySample const&, ui::Frame&)+0xd0>
+    28e0:	4957      	ldr	r1, [pc, #348]	@ (2a40 <ui::render(ui::DisplaySample const&, ui::Frame&)+0x210>)
+    28e2:	4858      	ldr	r0, [pc, #352]	@ (2a44 <ui::render(ui::DisplaySample const&, ui::Frame&)+0x214>)
+    28e4:	2600      	movs	r6, #0
+    28e6:	2a0a      	cmp	r2, #10
+    28e8:	bf08      	it	eq
+    28ea:	4608      	moveq	r0, r1
+    28ec:	2303      	movs	r3, #3
+    28ee:	4602      	mov	r2, r0
+    28f0:	4631      	mov	r1, r6
+    28f2:	9600      	str	r6, [sp, #0]
+    28f4:	4620      	mov	r0, r4
+    28f6:	4f50      	ldr	r7, [pc, #320]	@ (2a38 <ui::render(ui::DisplaySample const&, ui::Frame&)+0x208>)
+    28f8:	47b8      	blx	r7
+    28fa:	2305      	movs	r3, #5
+    28fc:	4a52      	ldr	r2, [pc, #328]	@ (2a48 <ui::render(ui::DisplaySample const&, ui::Frame&)+0x218>)
+    28fe:	9600      	str	r6, [sp, #0]
+    2900:	2104      	movs	r1, #4
+    2902:	47b8      	blx	r7
+    2904:	2600      	movs	r6, #0
+    2906:	f104 035a 	add.w	r3, r4, #90	@ 0x5a
+    290a:	f895 800c 	ldrb.w	r8, [r5, #12]
+    290e:	f8d5 9010 	ldr.w	r9, [r5, #16]
+    2912:	f8df a164 	ldr.w	sl, [pc, #356]	@ 2a78 <ui::render(ui::DisplaySample const&, ui::Frame&)+0x248>
+    2916:	f8df b164 	ldr.w	fp, [pc, #356]	@ 2a7c <ui::render(ui::DisplaySample const&, ui::Frame&)+0x24c>
+    291a:	9303      	str	r3, [sp, #12]
+    291c:	3601      	adds	r6, #1
+    291e:	f1b8 0f00 	cmp.w	r8, #0
+    2922:	f000 815c 	beq.w	2bde <ui::render(ui::DisplaySample const&, ui::Frame&)+0x3ae>
+    2926:	4b49      	ldr	r3, [pc, #292]	@ (2a4c <ui::render(ui::DisplaySample const&, ui::Frame&)+0x21c>)
+    2928:	4648      	mov	r0, r9
+    292a:	4798      	blx	r3
+    292c:	4b48      	ldr	r3, [pc, #288]	@ (2a50 <ui::render(ui::DisplaySample const&, ui::Frame&)+0x220>)
+    292e:	e9cd 0104 	strd	r0, r1, [sp, #16]
+    2932:	4630      	mov	r0, r6
+    2934:	4798      	blx	r3
+    2936:	a33a      	add	r3, pc, #232	@ (adr r3, 2a20 <ui::render(ui::DisplaySample const&, ui::Frame&)+0x1f0>)
+    2938:	e9d3 2300 	ldrd	r2, r3, [r3]
+    293c:	4f45      	ldr	r7, [pc, #276]	@ (2a54 <ui::render(ui::DisplaySample const&, ui::Frame&)+0x224>)
+    293e:	47b8      	blx	r7
+    2940:	2200      	movs	r2, #0
+    2942:	4b45      	ldr	r3, [pc, #276]	@ (2a58 <ui::render(ui::DisplaySample const&, ui::Frame&)+0x228>)
+    2944:	4f45      	ldr	r7, [pc, #276]	@ (2a5c <ui::render(ui::DisplaySample const&, ui::Frame&)+0x22c>)
+    2946:	47b8      	blx	r7
+    2948:	2200      	movs	r2, #0
+    294a:	4b45      	ldr	r3, [pc, #276]	@ (2a60 <ui::render(ui::DisplaySample const&, ui::Frame&)+0x230>)
+    294c:	47d0      	blx	sl
+    294e:	460b      	mov	r3, r1
+    2950:	4602      	mov	r2, r0
+    2952:	e9dd 0104 	ldrd	r0, r1, [sp, #16]
+    2956:	47d8      	blx	fp
+    2958:	2800      	cmp	r0, #0
+    295a:	bf14      	ite	ne
+    295c:	2307      	movne	r3, #7
+    295e:	2300      	moveq	r3, #0
+    2960:	9a03      	ldr	r2, [sp, #12]
+    2962:	2e0d      	cmp	r6, #13
+    2964:	f802 3f01 	strb.w	r3, [r2, #1]!
+    2968:	9203      	str	r2, [sp, #12]
+    296a:	d1d7      	bne.n	291c <ui::render(ui::DisplaySample const&, ui::Frame&)+0xec>
+    296c:	2200      	movs	r2, #0
+    296e:	7e28      	ldrb	r0, [r5, #24]
+    2970:	682b      	ldr	r3, [r5, #0]
+    2972:	4611      	mov	r1, r2
+    2974:	2507      	movs	r5, #7
+    2976:	fa20 f601 	lsr.w	r6, r0, r1
+    297a:	07f6      	lsls	r6, r6, #31
+    297c:	bf48      	it	mi
+    297e:	f804 5011 	strbmi.w	r5, [r4, r1, lsl #1]
+    2982:	f101 0101 	add.w	r1, r1, #1
+    2986:	bf48      	it	mi
+    2988:	3201      	addmi	r2, #1
+    298a:	2907      	cmp	r1, #7
+    298c:	d1f3      	bne.n	2976 <ui::render(ui::DisplaySample const&, ui::Frame&)+0x146>
+    298e:	b1ca      	cbz	r2, 29c4 <ui::render(ui::DisplaySample const&, ui::Frame&)+0x194>
+    2990:	4934      	ldr	r1, [pc, #208]	@ (2a64 <ui::render(ui::DisplaySample const&, ui::Frame&)+0x234>)
+    2992:	fbb3 f3f1 	udiv	r3, r3, r1
+    2996:	fbb3 f1f2 	udiv	r1, r3, r2
+    299a:	fb02 3311 	mls	r3, r2, r1, r3
+    299e:	2200      	movs	r2, #0
+    29a0:	fa20 f102 	lsr.w	r1, r0, r2
+    29a4:	07c9      	lsls	r1, r1, #31
+    29a6:	f140 8121 	bpl.w	2bec <ui::render(ui::DisplaySample const&, ui::Frame&)+0x3bc>
+    29aa:	2b00      	cmp	r3, #0
+    29ac:	f040 811d 	bne.w	2bea <ui::render(ui::DisplaySample const&, ui::Frame&)+0x3ba>
+    29b0:	492d      	ldr	r1, [pc, #180]	@ (2a68 <ui::render(ui::DisplaySample const&, ui::Frame&)+0x238>)
+    29b2:	eb02 0282 	add.w	r2, r2, r2, lsl #2
+    29b6:	4620      	mov	r0, r4
+    29b8:	9300      	str	r3, [sp, #0]
+    29ba:	440a      	add	r2, r1
+    29bc:	2303      	movs	r3, #3
+    29be:	210a      	movs	r1, #10
+    29c0:	4c1d      	ldr	r4, [pc, #116]	@ (2a38 <ui::render(ui::DisplaySample const&, ui::Frame&)+0x208>)
+    29c2:	47a0      	blx	r4
+    29c4:	2000      	movs	r0, #0
+    29c6:	e77c      	b.n	28c2 <ui::render(ui::DisplaySample const&, ui::Frame&)+0x92>
+    29c8:	682b      	ldr	r3, [r5, #0]
+    29ca:	68aa      	ldr	r2, [r5, #8]
+    29cc:	4827      	ldr	r0, [pc, #156]	@ (2a6c <ui::render(ui::DisplaySample const&, ui::Frame&)+0x23c>)
+    29ce:	1a99      	subs	r1, r3, r2
+    29d0:	4281      	cmp	r1, r0
+    29d2:	f63f af72 	bhi.w	28ba <ui::render(ui::DisplaySample const&, ui::Frame&)+0x8a>
+    29d6:	f5a0 30c3 	sub.w	r0, r0, #99840	@ 0x18600
+    29da:	38a0      	subs	r0, #160	@ 0xa0
+    29dc:	4281      	cmp	r1, r0
+    29de:	bf9f      	itttt	ls
+    29e0:	f502 02b7 	addls.w	r2, r2, #5996544	@ 0x5b8000
+    29e4:	f602 527f 	addwls	r2, r2, #3455	@ 0xd7f
+    29e8:	1ad2      	subls	r2, r2, r3
+    29ea:	4b21      	ldrls	r3, [pc, #132]	@ (2a70 <ui::render(ui::DisplaySample const&, ui::Frame&)+0x240>)
+    29ec:	bf8c      	ite	hi
+    29ee:	2201      	movhi	r2, #1
+    29f0:	fbb2 f2f3 	udivls	r2, r2, r3
+    29f4:	2600      	movs	r6, #0
+    29f6:	491f      	ldr	r1, [pc, #124]	@ (2a74 <ui::render(ui::DisplaySample const&, ui::Frame&)+0x244>)
+    29f8:	eb02 0282 	add.w	r2, r2, r2, lsl #2
+    29fc:	2303      	movs	r3, #3
+    29fe:	9600      	str	r6, [sp, #0]
+    2a00:	440a      	add	r2, r1
+    2a02:	e765      	b.n	28d0 <ui::render(ui::DisplaySample const&, ui::Frame&)+0xa0>
+    2a04:	2900      	cmp	r1, #0
+    2a06:	f000 80b8 	beq.w	2b7a <ui::render(ui::DisplaySample const&, ui::Frame&)+0x34a>
+    2a0a:	3b01      	subs	r3, #1
+    2a0c:	2600      	movs	r6, #0
+    2a0e:	2b03      	cmp	r3, #3
+    2a10:	f63f af78 	bhi.w	2904 <ui::render(ui::DisplaySample const&, ui::Frame&)+0xd4>
+    2a14:	e8df f003 	tbb	[pc, r3]
+    2a18:	a6a19634 	.word	0xa6a19634
+    2a1c:	f3af 8000 	nop.w
+    2a20:	00000000 	.word	0x00000000
+    2a24:	4008cccd 	.word	0x4008cccd
+    2a28:	00000000 	.word	0x00000000
+    2a2c:	7f7fffff 	.word	0x7f7fffff
+    2a30:	00000000 	.word	0x00000000
+    2a34:	0000013c 	.word	0x0000013c
+    2a38:	00000000 	.word	0x00000000
+    2a3c:	000001d2 	.word	0x000001d2
+    2a40:	00000155 	.word	0x00000155
+    2a44:	00000146 	.word	0x00000146
+    2a48:	00000169 	.word	0x00000169
+	...
+    2a58:	402a0000 	.word	0x402a0000
+    2a5c:	00000000 	.word	0x00000000
+    2a60:	40230000 	.word	0x40230000
+    2a64:	0007a120 	.word	0x0007a120
+    2a68:	000001aa 	.word	0x000001aa
+    2a6c:	004dd1df 	.word	0x004dd1df
+    2a70:	000f4240 	.word	0x000f4240
+    2a74:	00000178 	.word	0x00000178
+	...
+    2a80:	4e5d      	ldr	r6, [pc, #372]	@ (2bf8 <ui::render(ui::DisplaySample const&, ui::Frame&)+0x3c8>)
+    2a82:	af10      	add	r7, sp, #64	@ 0x40
+    2a84:	ce0f      	ldmia	r6!, {r0, r1, r2, r3}
+    2a86:	c70f      	stmia	r7!, {r0, r1, r2, r3}
+    2a88:	ce0f      	ldmia	r6!, {r0, r1, r2, r3}
+    2a8a:	c70f      	stmia	r7!, {r0, r1, r2, r3}
+    2a8c:	ce0f      	ldmia	r6!, {r0, r1, r2, r3}
+    2a8e:	c70f      	stmia	r7!, {r0, r1, r2, r3}
+    2a90:	e896 0003 	ldmia.w	r6, {r0, r1}
+    2a94:	3608      	adds	r6, #8
+    2a96:	e887 0003 	stmia.w	r7, {r0, r1}
+    2a9a:	ce0f      	ldmia	r6!, {r0, r1, r2, r3}
+    2a9c:	af08      	add	r7, sp, #32
+    2a9e:	c70f      	stmia	r7!, {r0, r1, r2, r3}
+    2aa0:	e896 000f 	ldmia.w	r6, {r0, r1, r2, r3}
+    2aa4:	e887 000f 	stmia.w	r7, {r0, r1, r2, r3}
+    2aa8:	2300      	movs	r3, #0
+    2aaa:	270d      	movs	r7, #13
+    2aac:	a910      	add	r1, sp, #64	@ 0x40
+    2aae:	7d2a      	ldrb	r2, [r5, #20]
+    2ab0:	2a00      	cmp	r2, #0
+    2ab2:	d043      	beq.n	2b3c <ui::render(ui::DisplaySample const&, ui::Frame&)+0x30c>
+    2ab4:	7daa      	ldrb	r2, [r5, #22]
+    2ab6:	40da      	lsrs	r2, r3
+    2ab8:	f012 0f01 	tst.w	r2, #1
+    2abc:	bf0c      	ite	eq
+    2abe:	2000      	moveq	r0, #0
+    2ac0:	2007      	movne	r0, #7
+    2ac2:	684a      	ldr	r2, [r1, #4]
+    2ac4:	3301      	adds	r3, #1
+    2ac6:	fb07 4202 	mla	r2, r7, r2, r4
+    2aca:	f851 6b08 	ldr.w	r6, [r1], #8
+    2ace:	2b07      	cmp	r3, #7
+    2ad0:	5590      	strb	r0, [r2, r6]
+    2ad2:	d1ec      	bne.n	2aae <ui::render(ui::DisplaySample const&, ui::Frame&)+0x27e>
+    2ad4:	2300      	movs	r3, #0
+    2ad6:	270d      	movs	r7, #13
+    2ad8:	a908      	add	r1, sp, #32
+    2ada:	7d6a      	ldrb	r2, [r5, #21]
+    2adc:	b382      	cbz	r2, 2b40 <ui::render(ui::DisplaySample const&, ui::Frame&)+0x310>
+    2ade:	7dea      	ldrb	r2, [r5, #23]
+    2ae0:	40da      	lsrs	r2, r3
+    2ae2:	f012 0f01 	tst.w	r2, #1
+    2ae6:	bf0c      	ite	eq
+    2ae8:	2000      	moveq	r0, #0
+    2aea:	2007      	movne	r0, #7
+    2aec:	684a      	ldr	r2, [r1, #4]
+    2aee:	3301      	adds	r3, #1
+    2af0:	fb07 4202 	mla	r2, r7, r2, r4
+    2af4:	f851 6b08 	ldr.w	r6, [r1], #8
+    2af8:	2b04      	cmp	r3, #4
+    2afa:	5590      	strb	r0, [r2, r6]
+    2afc:	d1ed      	bne.n	2ada <ui::render(ui::DisplaySample const&, ui::Frame&)+0x2aa>
+    2afe:	4b3f      	ldr	r3, [pc, #252]	@ (2bfc <ui::render(ui::DisplaySample const&, ui::Frame&)+0x3cc>)
+    2b00:	a907      	add	r1, sp, #28
+    2b02:	881a      	ldrh	r2, [r3, #0]
+    2b04:	789b      	ldrb	r3, [r3, #2]
+    2b06:	f8ad 201c 	strh.w	r2, [sp, #28]
+    2b0a:	4622      	mov	r2, r4
+    2b0c:	708b      	strb	r3, [r1, #2]
+    2b0e:	f104 0627 	add.w	r6, r4, #39	@ 0x27
+    2b12:	f811 3b01 	ldrb.w	r3, [r1], #1
+    2b16:	320d      	adds	r2, #13
+    2b18:	f013 0004 	ands.w	r0, r3, #4
+    2b1c:	bf18      	it	ne
+    2b1e:	2007      	movne	r0, #7
+    2b20:	7410      	strb	r0, [r2, #16]
+    2b22:	f013 0002 	ands.w	r0, r3, #2
+    2b26:	bf18      	it	ne
+    2b28:	2007      	movne	r0, #7
+    2b2a:	f013 0301 	ands.w	r3, r3, #1
+    2b2e:	bf18      	it	ne
+    2b30:	2307      	movne	r3, #7
+    2b32:	7450      	strb	r0, [r2, #17]
+    2b34:	7493      	strb	r3, [r2, #18]
+    2b36:	42b2      	cmp	r2, r6
+    2b38:	d1eb      	bne.n	2b12 <ui::render(ui::DisplaySample const&, ui::Frame&)+0x2e2>
+    2b3a:	e6e3      	b.n	2904 <ui::render(ui::DisplaySample const&, ui::Frame&)+0xd4>
+    2b3c:	2003      	movs	r0, #3
+    2b3e:	e7c0      	b.n	2ac2 <ui::render(ui::DisplaySample const&, ui::Frame&)+0x292>
+    2b40:	2003      	movs	r0, #3
+    2b42:	e7d3      	b.n	2aec <ui::render(ui::DisplaySample const&, ui::Frame&)+0x2bc>
+    2b44:	2303      	movs	r3, #3
+    2b46:	4a2e      	ldr	r2, [pc, #184]	@ (2c00 <ui::render(ui::DisplaySample const&, ui::Frame&)+0x3d0>)
+    2b48:	2100      	movs	r1, #0
+    2b4a:	4620      	mov	r0, r4
+    2b4c:	4f2d      	ldr	r7, [pc, #180]	@ (2c04 <ui::render(ui::DisplaySample const&, ui::Frame&)+0x3d4>)
+    2b4e:	9600      	str	r6, [sp, #0]
+    2b50:	47b8      	blx	r7
+    2b52:	2305      	movs	r3, #5
+    2b54:	4a2c      	ldr	r2, [pc, #176]	@ (2c08 <ui::render(ui::DisplaySample const&, ui::Frame&)+0x3d8>)
+    2b56:	9600      	str	r6, [sp, #0]
+    2b58:	e6d2      	b.n	2900 <ui::render(ui::DisplaySample const&, ui::Frame&)+0xd0>
+    2b5a:	2303      	movs	r3, #3
+    2b5c:	2100      	movs	r1, #0
+    2b5e:	4a2b      	ldr	r2, [pc, #172]	@ (2c0c <ui::render(ui::DisplaySample const&, ui::Frame&)+0x3dc>)
+    2b60:	9600      	str	r6, [sp, #0]
+    2b62:	e6c7      	b.n	28f4 <ui::render(ui::DisplaySample const&, ui::Frame&)+0xc4>
+    2b64:	2303      	movs	r3, #3
+    2b66:	4a2a      	ldr	r2, [pc, #168]	@ (2c10 <ui::render(ui::DisplaySample const&, ui::Frame&)+0x3e0>)
+    2b68:	2100      	movs	r1, #0
+    2b6a:	4620      	mov	r0, r4
+    2b6c:	4f25      	ldr	r7, [pc, #148]	@ (2c04 <ui::render(ui::DisplaySample const&, ui::Frame&)+0x3d4>)
+    2b6e:	9600      	str	r6, [sp, #0]
+    2b70:	47b8      	blx	r7
+    2b72:	2305      	movs	r3, #5
+    2b74:	4a27      	ldr	r2, [pc, #156]	@ (2c14 <ui::render(ui::DisplaySample const&, ui::Frame&)+0x3e4>)
+    2b76:	9600      	str	r6, [sp, #0]
+    2b78:	e6c2      	b.n	2900 <ui::render(ui::DisplaySample const&, ui::Frame&)+0xd0>
+    2b7a:	f04f 0800 	mov.w	r8, #0
+    2b7e:	4926      	ldr	r1, [pc, #152]	@ (2c18 <ui::render(ui::DisplaySample const&, ui::Frame&)+0x3e8>)
+    2b80:	eb07 0287 	add.w	r2, r7, r7, lsl #2
+    2b84:	440a      	add	r2, r1
+    2b86:	2303      	movs	r3, #3
+    2b88:	4641      	mov	r1, r8
+    2b8a:	4620      	mov	r0, r4
+    2b8c:	4e1d      	ldr	r6, [pc, #116]	@ (2c04 <ui::render(ui::DisplaySample const&, ui::Frame&)+0x3d4>)
+    2b8e:	f8cd 8000 	str.w	r8, [sp]
+    2b92:	3f02      	subs	r7, #2
+    2b94:	47b0      	blx	r6
+    2b96:	2f04      	cmp	r7, #4
+    2b98:	d804      	bhi.n	2ba4 <ui::render(ui::DisplaySample const&, ui::Frame&)+0x374>
+    2b9a:	e8df f007 	tbb	[pc, r7]
+    2b9e:	0e0b      	.short	0x0e0b
+    2ba0:	1813      	.short	0x1813
+    2ba2:	1b          	.byte	0x1b
+    2ba3:	00          	.byte	0x00
+    2ba4:	f8cd 8000 	str.w	r8, [sp]
+    2ba8:	2305      	movs	r3, #5
+    2baa:	4a1c      	ldr	r2, [pc, #112]	@ (2c1c <ui::render(ui::DisplaySample const&, ui::Frame&)+0x3ec>)
+    2bac:	2104      	movs	r1, #4
+    2bae:	4620      	mov	r0, r4
+    2bb0:	47b0      	blx	r6
+    2bb2:	e6a7      	b.n	2904 <ui::render(ui::DisplaySample const&, ui::Frame&)+0xd4>
+    2bb4:	2301      	movs	r3, #1
+    2bb6:	9300      	str	r3, [sp, #0]
+    2bb8:	e7f6      	b.n	2ba8 <ui::render(ui::DisplaySample const&, ui::Frame&)+0x378>
+    2bba:	2305      	movs	r3, #5
+    2bbc:	4a18      	ldr	r2, [pc, #96]	@ (2c20 <ui::render(ui::DisplaySample const&, ui::Frame&)+0x3f0>)
+    2bbe:	f8cd 8000 	str.w	r8, [sp]
+    2bc2:	e7f3      	b.n	2bac <ui::render(ui::DisplaySample const&, ui::Frame&)+0x37c>
+    2bc4:	f8cd 8000 	str.w	r8, [sp]
+    2bc8:	2305      	movs	r3, #5
+    2bca:	4a16      	ldr	r2, [pc, #88]	@ (2c24 <ui::render(ui::DisplaySample const&, ui::Frame&)+0x3f4>)
+    2bcc:	e7ee      	b.n	2bac <ui::render(ui::DisplaySample const&, ui::Frame&)+0x37c>
+    2bce:	2301      	movs	r3, #1
+    2bd0:	9300      	str	r3, [sp, #0]
+    2bd2:	e7f9      	b.n	2bc8 <ui::render(ui::DisplaySample const&, ui::Frame&)+0x398>
+    2bd4:	2305      	movs	r3, #5
+    2bd6:	4a14      	ldr	r2, [pc, #80]	@ (2c28 <ui::render(ui::DisplaySample const&, ui::Frame&)+0x3f8>)
+    2bd8:	f8cd 8000 	str.w	r8, [sp]
+    2bdc:	e7e6      	b.n	2bac <ui::render(ui::DisplaySample const&, ui::Frame&)+0x37c>
+    2bde:	f016 0f01 	tst.w	r6, #1
+    2be2:	bf14      	ite	ne
+    2be4:	2307      	movne	r3, #7
+    2be6:	2300      	moveq	r3, #0
+    2be8:	e6ba      	b.n	2960 <ui::render(ui::DisplaySample const&, ui::Frame&)+0x130>
+    2bea:	3b01      	subs	r3, #1
+    2bec:	3201      	adds	r2, #1
+    2bee:	2a07      	cmp	r2, #7
+    2bf0:	f47f aed6 	bne.w	29a0 <ui::render(ui::DisplaySample const&, ui::Frame&)+0x170>
+    2bf4:	e6e6      	b.n	29c4 <ui::render(ui::DisplaySample const&, ui::Frame&)+0x194>
+    2bf6:	bf00      	nop
+    2bf8:	00000000 	.word	0x00000000
+    2bfc:	000001d7 	.word	0x000001d7
+    2c00:	00000141 	.word	0x00000141
+    2c04:	00000000 	.word	0x00000000
+    2c08:	000001cd 	.word	0x000001cd
+    2c0c:	00000146 	.word	0x00000146
+    2c10:	00000150 	.word	0x00000150
+    2c14:	00000164 	.word	0x00000164
+    2c18:	00000178 	.word	0x00000178
+    2c1c:	00000173 	.word	0x00000173
+    2c20:	0000015a 	.word	0x0000015a
+    2c24:	0000015f 	.word	0x0000015f
+    2c28:	0000016e 	.word	0x0000016e
+
+00002c2c <ui::UnoQMatrix::begin(ui::MatrixGrant)>:
+    2c2c:	b5f0      	push	{r4, r5, r6, r7, lr}
+    2c2e:	7843      	ldrb	r3, [r0, #1]
+    2c30:	b09d      	sub	sp, #116	@ 0x74
+    2c32:	4605      	mov	r5, r0
+    2c34:	f8ad 1004 	strh.w	r1, [sp, #4]
+    2c38:	2b00      	cmp	r3, #0
+    2c3a:	d13c      	bne.n	2cb6 <ui::UnoQMatrix::begin(ui::MatrixGrant)+0x8a>
+    2c3c:	4f1f      	ldr	r7, [pc, #124]	@ (2cbc <ui::UnoQMatrix::begin(ui::MatrixGrant)+0x90>)
+    2c3e:	783b      	ldrb	r3, [r7, #0]
+    2c40:	b123      	cbz	r3, 2c4c <ui::UnoQMatrix::begin(ui::MatrixGrant)+0x20>
+    2c42:	2301      	movs	r3, #1
+    2c44:	7043      	strb	r3, [r0, #1]
+    2c46:	2008      	movs	r0, #8
+    2c48:	b01d      	add	sp, #116	@ 0x74
+    2c4a:	bdf0      	pop	{r4, r5, r6, r7, pc}
+    2c4c:	f89d 3004 	ldrb.w	r3, [sp, #4]
+    2c50:	b113      	cbz	r3, 2c58 <ui::UnoQMatrix::begin(ui::MatrixGrant)+0x2c>
+    2c52:	f89d 3005 	ldrb.w	r3, [sp, #5]
+    2c56:	b91b      	cbnz	r3, 2c60 <ui::UnoQMatrix::begin(ui::MatrixGrant)+0x34>
+    2c58:	2301      	movs	r3, #1
+    2c5a:	2004      	movs	r0, #4
+    2c5c:	706b      	strb	r3, [r5, #1]
+    2c5e:	e7f3      	b.n	2c48 <ui::UnoQMatrix::begin(ui::MatrixGrant)+0x1c>
+    2c60:	f3ef 8314 	mrs	r3, CONTROL
+    2c64:	07db      	lsls	r3, r3, #31
+    2c66:	d40a      	bmi.n	2c7e <ui::UnoQMatrix::begin(ui::MatrixGrant)+0x52>
+    2c68:	f3ef 8605 	mrs	r6, IPSR
+    2c6c:	b93e      	cbnz	r6, 2c7e <ui::UnoQMatrix::begin(ui::MatrixGrant)+0x52>
+    2c6e:	4814      	ldr	r0, [pc, #80]	@ (2cc0 <ui::UnoQMatrix::begin(ui::MatrixGrant)+0x94>)
+    2c70:	4b14      	ldr	r3, [pc, #80]	@ (2cc4 <ui::UnoQMatrix::begin(ui::MatrixGrant)+0x98>)
+    2c72:	4798      	blx	r3
+    2c74:	2401      	movs	r4, #1
+    2c76:	b930      	cbnz	r0, 2c86 <ui::UnoQMatrix::begin(ui::MatrixGrant)+0x5a>
+    2c78:	2006      	movs	r0, #6
+    2c7a:	706c      	strb	r4, [r5, #1]
+    2c7c:	e7e4      	b.n	2c48 <ui::UnoQMatrix::begin(ui::MatrixGrant)+0x1c>
+    2c7e:	2301      	movs	r3, #1
+    2c80:	2005      	movs	r0, #5
+    2c82:	706b      	strb	r3, [r5, #1]
+    2c84:	e7e0      	b.n	2c48 <ui::UnoQMatrix::begin(ui::MatrixGrant)+0x1c>
+    2c86:	2003      	movs	r0, #3
+    2c88:	4b0f      	ldr	r3, [pc, #60]	@ (2cc8 <ui::UnoQMatrix::begin(ui::MatrixGrant)+0x9c>)
+    2c8a:	703c      	strb	r4, [r7, #0]
+    2c8c:	4798      	blx	r3
+    2c8e:	2268      	movs	r2, #104	@ 0x68
+    2c90:	4631      	mov	r1, r6
+    2c92:	4b0e      	ldr	r3, [pc, #56]	@ (2ccc <ui::UnoQMatrix::begin(ui::MatrixGrant)+0xa0>)
+    2c94:	a802      	add	r0, sp, #8
+    2c96:	4798      	blx	r3
+    2c98:	f3ef 8610 	mrs	r6, PRIMASK
+    2c9c:	b672      	cpsid	i
+    2c9e:	4b0c      	ldr	r3, [pc, #48]	@ (2cd0 <ui::UnoQMatrix::begin(ui::MatrixGrant)+0xa4>)
+    2ca0:	a802      	add	r0, sp, #8
+    2ca2:	4798      	blx	r3
+    2ca4:	f3bf 8f5f 	dmb	sy
+    2ca8:	f386 8810 	msr	PRIMASK, r6
+    2cac:	4b09      	ldr	r3, [pc, #36]	@ (2cd4 <ui::UnoQMatrix::begin(ui::MatrixGrant)+0xa8>)
+    2cae:	4798      	blx	r3
+    2cb0:	4620      	mov	r0, r4
+    2cb2:	702c      	strb	r4, [r5, #0]
+    2cb4:	e7c8      	b.n	2c48 <ui::UnoQMatrix::begin(ui::MatrixGrant)+0x1c>
+    2cb6:	2009      	movs	r0, #9
+    2cb8:	e7c6      	b.n	2c48 <ui::UnoQMatrix::begin(ui::MatrixGrant)+0x1c>
+    2cba:	bf00      	nop
+    2cbc:	00000122 	.word	0x00000122
+	...
+
+00002cd8 <ui::UnoQMatrix::submit(unsigned int, ui::Frame const&)>:
+    2cd8:	b570      	push	{r4, r5, r6, lr}
+    2cda:	4604      	mov	r4, r0
+    2cdc:	7863      	ldrb	r3, [r4, #1]
+    2cde:	460d      	mov	r5, r1
+    2ce0:	4610      	mov	r0, r2
+    2ce2:	bb9b      	cbnz	r3, 2d4c <ui::UnoQMatrix::submit(unsigned int, ui::Frame const&)+0x74>
+    2ce4:	7823      	ldrb	r3, [r4, #0]
+    2ce6:	b39b      	cbz	r3, 2d50 <ui::UnoQMatrix::submit(unsigned int, ui::Frame const&)+0x78>
+    2ce8:	f3ef 8214 	mrs	r2, CONTROL
+    2cec:	07d2      	lsls	r2, r2, #31
+    2cee:	d402      	bmi.n	2cf6 <ui::UnoQMatrix::submit(unsigned int, ui::Frame const&)+0x1e>
+    2cf0:	f3ef 8205 	mrs	r2, IPSR
+    2cf4:	b11a      	cbz	r2, 2cfe <ui::UnoQMatrix::submit(unsigned int, ui::Frame const&)+0x26>
+    2cf6:	2301      	movs	r3, #1
+    2cf8:	2005      	movs	r0, #5
+    2cfa:	7063      	strb	r3, [r4, #1]
+    2cfc:	bd70      	pop	{r4, r5, r6, pc}
+    2cfe:	1e42      	subs	r2, r0, #1
+    2d00:	f100 0167 	add.w	r1, r0, #103	@ 0x67
+    2d04:	f812 6f01 	ldrb.w	r6, [r2, #1]!
+    2d08:	2e07      	cmp	r6, #7
+    2d0a:	bf8c      	ite	hi
+    2d0c:	2300      	movhi	r3, #0
+    2d0e:	f003 0301 	andls.w	r3, r3, #1
+    2d12:	428a      	cmp	r2, r1
+    2d14:	d1f6      	bne.n	2d04 <ui::UnoQMatrix::submit(unsigned int, ui::Frame const&)+0x2c>
+    2d16:	b91b      	cbnz	r3, 2d20 <ui::UnoQMatrix::submit(unsigned int, ui::Frame const&)+0x48>
+    2d18:	2301      	movs	r3, #1
+    2d1a:	2007      	movs	r0, #7
+    2d1c:	7063      	strb	r3, [r4, #1]
+    2d1e:	e7ed      	b.n	2cfc <ui::UnoQMatrix::submit(unsigned int, ui::Frame const&)+0x24>
+    2d20:	78a3      	ldrb	r3, [r4, #2]
+    2d22:	b12b      	cbz	r3, 2d30 <ui::UnoQMatrix::submit(unsigned int, ui::Frame const&)+0x58>
+    2d24:	f649 423f 	movw	r2, #39999	@ 0x9c3f
+    2d28:	6863      	ldr	r3, [r4, #4]
+    2d2a:	1aeb      	subs	r3, r5, r3
+    2d2c:	4293      	cmp	r3, r2
+    2d2e:	d911      	bls.n	2d54 <ui::UnoQMatrix::submit(unsigned int, ui::Frame const&)+0x7c>
+    2d30:	f3ef 8610 	mrs	r6, PRIMASK
+    2d34:	b672      	cpsid	i
+    2d36:	4b08      	ldr	r3, [pc, #32]	@ (2d58 <ui::UnoQMatrix::submit(unsigned int, ui::Frame const&)+0x80>)
+    2d38:	4798      	blx	r3
+    2d3a:	f3bf 8f5f 	dmb	sy
+    2d3e:	f386 8810 	msr	PRIMASK, r6
+    2d42:	2301      	movs	r3, #1
+    2d44:	2002      	movs	r0, #2
+    2d46:	6065      	str	r5, [r4, #4]
+    2d48:	70a3      	strb	r3, [r4, #2]
+    2d4a:	e7d7      	b.n	2cfc <ui::UnoQMatrix::submit(unsigned int, ui::Frame const&)+0x24>
+    2d4c:	2009      	movs	r0, #9
+    2d4e:	e7d5      	b.n	2cfc <ui::UnoQMatrix::submit(unsigned int, ui::Frame const&)+0x24>
+    2d50:	4618      	mov	r0, r3
+    2d52:	e7d3      	b.n	2cfc <ui::UnoQMatrix::submit(unsigned int, ui::Frame const&)+0x24>
+    2d54:	2003      	movs	r0, #3
+    2d56:	e7d1      	b.n	2cfc <ui::UnoQMatrix::submit(unsigned int, ui::Frame const&)+0x24>
+    2d58:	00000000 	.word	0x00000000
+
+000049a0 <_GLOBAL__sub_I_Bridge>:
+    49a0:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+    49a4:	4a22      	ldr	r2, [pc, #136]	@ (4a30 <_GLOBAL__sub_I_Bridge+0x90>)
+    49a6:	4e23      	ldr	r6, [pc, #140]	@ (4a34 <_GLOBAL__sub_I_Bridge+0x94>)
+    49a8:	6813      	ldr	r3, [r2, #0]
+    49aa:	1c59      	adds	r1, r3, #1
+    49ac:	6011      	str	r1, [r2, #0]
+    49ae:	b92b      	cbnz	r3, 49bc <_GLOBAL__sub_I_Bridge+0x1c>
+    49b0:	4a21      	ldr	r2, [pc, #132]	@ (4a38 <_GLOBAL__sub_I_Bridge+0x98>)
+    49b2:	e9c2 3307 	strd	r3, r3, [r2, #28]
+    49b6:	6016      	str	r6, [r2, #0]
+    49b8:	7613      	strb	r3, [r2, #24]
+    49ba:	6253      	str	r3, [r2, #36]	@ 0x24
+    49bc:	2400      	movs	r4, #0
+    49be:	f44f 7880 	mov.w	r8, #256	@ 0x100
+    49c2:	4f1e      	ldr	r7, [pc, #120]	@ (4a3c <_GLOBAL__sub_I_Bridge+0x9c>)
+    49c4:	2214      	movs	r2, #20
+    49c6:	4621      	mov	r1, r4
+    49c8:	481d      	ldr	r0, [pc, #116]	@ (4a40 <_GLOBAL__sub_I_Bridge+0xa0>)
+    49ca:	e9c6 4400 	strd	r4, r4, [r6]
+    49ce:	60f4      	str	r4, [r6, #12]
+    49d0:	47b8      	blx	r7
+    49d2:	2214      	movs	r2, #20
+    49d4:	4621      	mov	r1, r4
+    49d6:	481b      	ldr	r0, [pc, #108]	@ (4a44 <_GLOBAL__sub_I_Bridge+0xa4>)
+    49d8:	47b8      	blx	r7
+    49da:	2214      	movs	r2, #20
+    49dc:	4621      	mov	r1, r4
+    49de:	481a      	ldr	r0, [pc, #104]	@ (4a48 <_GLOBAL__sub_I_Bridge+0xa8>)
+    49e0:	47b8      	blx	r7
+    49e2:	4642      	mov	r2, r8
+    49e4:	4621      	mov	r1, r4
+    49e6:	4819      	ldr	r0, [pc, #100]	@ (4a4c <_GLOBAL__sub_I_Bridge+0xac>)
+    49e8:	e9c6 4413 	strd	r4, r4, [r6, #76]	@ 0x4c
+    49ec:	47b8      	blx	r7
+    49ee:	4b18      	ldr	r3, [pc, #96]	@ (4a50 <_GLOBAL__sub_I_Bridge+0xb0>)
+    49f0:	4d18      	ldr	r5, [pc, #96]	@ (4a54 <_GLOBAL__sub_I_Bridge+0xb4>)
+    49f2:	60b3      	str	r3, [r6, #8]
+    49f4:	f44f 737a 	mov.w	r3, #1000	@ 0x3e8
+    49f8:	60ab      	str	r3, [r5, #8]
+    49fa:	4b17      	ldr	r3, [pc, #92]	@ (4a58 <_GLOBAL__sub_I_Bridge+0xb8>)
+    49fc:	f44f 7200 	mov.w	r2, #512	@ 0x200
+    4a00:	4621      	mov	r1, r4
+    4a02:	f105 0014 	add.w	r0, r5, #20
+    4a06:	602b      	str	r3, [r5, #0]
+    4a08:	f886 4158 	strb.w	r4, [r6, #344]	@ 0x158
+    4a0c:	606c      	str	r4, [r5, #4]
+    4a0e:	612e      	str	r6, [r5, #16]
+    4a10:	47b8      	blx	r7
+    4a12:	2214      	movs	r2, #20
+    4a14:	4621      	mov	r1, r4
+    4a16:	f505 7008 	add.w	r0, r5, #544	@ 0x220
+    4a1a:	f8c5 4214 	str.w	r4, [r5, #532]	@ 0x214
+    4a1e:	f8c5 4218 	str.w	r4, [r5, #536]	@ 0x218
+    4a22:	f8c5 421c 	str.w	r4, [r5, #540]	@ 0x21c
+    4a26:	47b8      	blx	r7
+    4a28:	f8a5 8234 	strh.w	r8, [r5, #564]	@ 0x234
+    4a2c:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+	...
+    4a40:	00000010 	.word	0x00000010
+    4a44:	00000024 	.word	0x00000024
+    4a48:	00000038 	.word	0x00000038
+    4a4c:	00000058 	.word	0x00000058
+	...
+    4a58:	00000008 	.word	0x00000008
+
+00004ab4 <__aeabi_unwind_cpp_pr0>:
+    4ab4:	b508      	push	{r3, lr}
+    4ab6:	4b01      	ldr	r3, [pc, #4]	@ (4abc <__aeabi_unwind_cpp_pr0+0x8>)
+    4ab8:	4798      	blx	r3
+    4aba:	bf00      	nop
+    4abc:	00000000 	.word	0x00000000
+
+00004ac0 <__aeabi_unwind_cpp_pr1>:
+    4ac0:	b508      	push	{r3, lr}
+    4ac2:	4b01      	ldr	r3, [pc, #4]	@ (4ac8 <__aeabi_unwind_cpp_pr1+0x8>)
+    4ac4:	4798      	blx	r3
+    4ac6:	bf00      	nop
+    4ac8:	00000000 	.word	0x00000000
+
+00004d88 <__aeabi_dadd>:
+    4d88:	f240 0c00 	movw	ip, #0
+    4d8c:	f2c0 0c00 	movt	ip, #0
+    4d90:	4760      	bx	ip
+
+00004d92 <__aeabi_dmul>:
+    4d92:	f240 0c00 	movw	ip, #0
+    4d96:	f2c0 0c00 	movt	ip, #0
+    4d9a:	4760      	bx	ip
+
+00004d9c <__aeabi_ddiv>:
+    4d9c:	f240 0c00 	movw	ip, #0
+    4da0:	f2c0 0c00 	movt	ip, #0
+    4da4:	4760      	bx	ip
+
+00004da6 <__aeabi_dcmpge>:
+    4da6:	f240 0c00 	movw	ip, #0
+    4daa:	f2c0 0c00 	movt	ip, #0
+    4dae:	4760      	bx	ip
+
+00004db0 <__aeabi_i2d>:
+    4db0:	f240 0c00 	movw	ip, #0
+    4db4:	f2c0 0c00 	movt	ip, #0
+    4db8:	4760      	bx	ip
+
+00004dba <__aeabi_ui2d>:
+    4dba:	f240 0c00 	movw	ip, #0
+    4dbe:	f2c0 0c00 	movt	ip, #0
+    4dc2:	4760      	bx	ip
+
+00004dc4 <__aeabi_l2d>:
+    4dc4:	f240 0c00 	movw	ip, #0
+    4dc8:	f2c0 0c00 	movt	ip, #0
+    4dcc:	4760      	bx	ip
+
+00004dce <__aeabi_ul2d>:
+    4dce:	f240 0c00 	movw	ip, #0
+    4dd2:	f2c0 0c00 	movt	ip, #0
+    4dd6:	4760      	bx	ip
+
+00004dd8 <__aeabi_d2f>:
+    4dd8:	f240 0c00 	movw	ip, #0
+    4ddc:	f2c0 0c00 	movt	ip, #0
+    4de0:	4760      	bx	ip
+
+00004de2 <__aeabi_f2d>:
+    4de2:	f240 0c00 	movw	ip, #0
+    4de6:	f2c0 0c00 	movt	ip, #0
+    4dea:	4760      	bx	ip
+
+00004dec <__aeabi_l2f>:
+    4dec:	f240 0c00 	movw	ip, #0
+    4df0:	f2c0 0c00 	movt	ip, #0
+    4df4:	4760      	bx	ip
+
+00004df6 <__aeabi_ul2f>:
+    4df6:	f240 0c00 	movw	ip, #0
+    4dfa:	f2c0 0c00 	movt	ip, #0
+    4dfe:	4760      	bx	ip
+
+00004e00 <__aeabi_uldivmod>:
+    4e00:	f240 0c00 	movw	ip, #0
+    4e04:	f2c0 0c00 	movt	ip, #0
+    4e08:	4760      	bx	ip
+	...
+
+00004e20 <initVariant>:
+    4e20:	4770      	bx	lr
+	...
+
+000053b8 <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt>:
+    53b8:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+    53bc:	f04f 0800 	mov.w	r8, #0
+    53c0:	f44f 777a 	mov.w	r7, #1000	@ 0x3e8
+    53c4:	4d13      	ldr	r5, [pc, #76]	@ (5414 <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt+0x5c>)
+    53c6:	4e14      	ldr	r6, [pc, #80]	@ (5418 <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt+0x60>)
+    53c8:	4b14      	ldr	r3, [pc, #80]	@ (541c <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt+0x64>)
+    53ca:	4c15      	ldr	r4, [pc, #84]	@ (5420 <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt+0x68>)
+    53cc:	f105 0014 	add.w	r0, r5, #20
+    53d0:	612b      	str	r3, [r5, #16]
+    53d2:	e9c5 8701 	strd	r8, r7, [r5, #4]
+    53d6:	602e      	str	r6, [r5, #0]
+    53d8:	47a0      	blx	r4
+    53da:	f505 6088 	add.w	r0, r5, #1088	@ 0x440
+    53de:	4d11      	ldr	r5, [pc, #68]	@ (5424 <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt+0x6c>)
+    53e0:	47a0      	blx	r4
+    53e2:	4b11      	ldr	r3, [pc, #68]	@ (5428 <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt+0x70>)
+    53e4:	f105 0014 	add.w	r0, r5, #20
+    53e8:	612b      	str	r3, [r5, #16]
+    53ea:	e9c5 8701 	strd	r8, r7, [r5, #4]
+    53ee:	602e      	str	r6, [r5, #0]
+    53f0:	47a0      	blx	r4
+    53f2:	f505 6088 	add.w	r0, r5, #1088	@ 0x440
+    53f6:	4d0d      	ldr	r5, [pc, #52]	@ (542c <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt+0x74>)
+    53f8:	47a0      	blx	r4
+    53fa:	4b0d      	ldr	r3, [pc, #52]	@ (5430 <_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt+0x78>)
+    53fc:	f105 0014 	add.w	r0, r5, #20
+    5400:	e9c5 8701 	strd	r8, r7, [r5, #4]
+    5404:	602e      	str	r6, [r5, #0]
+    5406:	612b      	str	r3, [r5, #16]
+    5408:	47a0      	blx	r4
+    540a:	f505 6088 	add.w	r0, r5, #1088	@ 0x440
+    540e:	47a0      	blx	r4
+    5410:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+    5414:	00000000 	.word	0x00000000
+    5418:	00000008 	.word	0x00000008
+	...
+
+00005ab8 <_GLOBAL__sub_I__ZSt20__throw_system_errori>:
+    5ab8:	4a06      	ldr	r2, [pc, #24]	@ (5ad4 <_GLOBAL__sub_I__ZSt20__throw_system_errori+0x1c>)
+    5aba:	4907      	ldr	r1, [pc, #28]	@ (5ad8 <_GLOBAL__sub_I__ZSt20__throw_system_errori+0x20>)
+    5abc:	4807      	ldr	r0, [pc, #28]	@ (5adc <_GLOBAL__sub_I__ZSt20__throw_system_errori+0x24>)
+    5abe:	b508      	push	{r3, lr}
+    5ac0:	f7ff fffe 	bl	5ae8 <__aeabi_atexit>
+    5ac4:	4a03      	ldr	r2, [pc, #12]	@ (5ad4 <_GLOBAL__sub_I__ZSt20__throw_system_errori+0x1c>)
+    5ac6:	4906      	ldr	r1, [pc, #24]	@ (5ae0 <_GLOBAL__sub_I__ZSt20__throw_system_errori+0x28>)
+    5ac8:	4806      	ldr	r0, [pc, #24]	@ (5ae4 <_GLOBAL__sub_I__ZSt20__throw_system_errori+0x2c>)
+    5aca:	e8bd 4008 	ldmia.w	sp!, {r3, lr}
+    5ace:	f7ff bffe 	b.w	5ae8 <__aeabi_atexit>
+    5ad2:	bf00      	nop
+	...
+    5adc:	0000000c 	.word	0x0000000c
+    5ae0:	00000000 	.word	0x00000000
+    5ae4:	00000008 	.word	0x00000008
+
+00005ae8 <__aeabi_atexit>:
+    5ae8:	460b      	mov	r3, r1
+    5aea:	4601      	mov	r1, r0
+    5aec:	4618      	mov	r0, r3
+    5aee:	f7ff bffe 	b.w	4a7c <__cxa_atexit>

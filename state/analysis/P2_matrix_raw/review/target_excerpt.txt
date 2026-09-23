@@ -1,0 +1,230 @@
+setup
+      d4:	b513      	push	{r0, r1, r4, lr}
+      d6:	4b0a      	ldr	r3, [pc, #40]	@ (100 <setup+0x2c>)
+      d8:	4c0a      	ldr	r4, [pc, #40]	@ (104 <setup+0x30>)
+      da:	480b      	ldr	r0, [pc, #44]	@ (108 <setup+0x34>)
+      dc:	6023      	str	r3, [r4, #0]
+      de:	2301      	movs	r3, #1
+      e0:	6063      	str	r3, [r4, #4]
+      e2:	f240 1301 	movw	r3, #257	@ 0x101
+      e6:	f8ad 3004 	strh.w	r3, [sp, #4]
+      ea:	9901      	ldr	r1, [sp, #4]
+      ec:	4b07      	ldr	r3, [pc, #28]	@ (10c <setup+0x38>)
+      ee:	4798      	blx	r3
+      f0:	1e43      	subs	r3, r0, #1
+      f2:	61a0      	str	r0, [r4, #24]
+      f4:	4258      	negs	r0, r3
+      f6:	4158      	adcs	r0, r3
+      f8:	60a0      	str	r0, [r4, #8]
+      fa:	b002      	add	sp, #8
+      fc:	bd10      	pop	{r4, pc}
+      fe:	bf00      	nop
+     100:	55494d58 	.word	0x55494d58
+	...
+
+loop
+     110:	b570      	push	{r4, r5, r6, lr}
+     112:	4e19      	ldr	r6, [pc, #100]	@ (178 <loop+0x68>)
+     114:	b088      	sub	sp, #32
+     116:	47b0      	blx	r6
+     118:	4918      	ldr	r1, [pc, #96]	@ (17c <loop+0x6c>)
+     11a:	4605      	mov	r5, r0
+     11c:	780b      	ldrb	r3, [r1, #0]
+     11e:	4a18      	ldr	r2, [pc, #96]	@ (180 <loop+0x70>)
+     120:	b92b      	cbnz	r3, 12e <loop+0x1e>
+     122:	6813      	ldr	r3, [r2, #0]
+     124:	1ac3      	subs	r3, r0, r3
+     126:	f649 403f 	movw	r0, #39999	@ 0x9c3f
+     12a:	4283      	cmp	r3, r0
+     12c:	d922      	bls.n	174 <loop+0x64>
+     12e:	2300      	movs	r3, #0
+     130:	a801      	add	r0, sp, #4
+     132:	700b      	strb	r3, [r1, #0]
+     134:	4629      	mov	r1, r5
+     136:	4b13      	ldr	r3, [pc, #76]	@ (184 <loop+0x74>)
+     138:	6015      	str	r5, [r2, #0]
+     13a:	4798      	blx	r3
+     13c:	4912      	ldr	r1, [pc, #72]	@ (188 <loop+0x78>)
+     13e:	4b13      	ldr	r3, [pc, #76]	@ (18c <loop+0x7c>)
+     140:	a801      	add	r0, sp, #4
+     142:	4798      	blx	r3
+     144:	4c12      	ldr	r4, [pc, #72]	@ (190 <loop+0x80>)
+     146:	4b13      	ldr	r3, [pc, #76]	@ (194 <loop+0x84>)
+     148:	4629      	mov	r1, r5
+     14a:	4a0f      	ldr	r2, [pc, #60]	@ (188 <loop+0x78>)
+     14c:	61e0      	str	r0, [r4, #28]
+     14e:	4812      	ldr	r0, [pc, #72]	@ (198 <loop+0x88>)
+     150:	4798      	blx	r3
+     152:	2802      	cmp	r0, #2
+     154:	61a0      	str	r0, [r4, #24]
+     156:	bf0b      	itete	eq
+     158:	68e3      	ldreq	r3, [r4, #12]
+     15a:	6923      	ldrne	r3, [r4, #16]
+     15c:	3301      	addeq	r3, #1
+     15e:	3301      	addne	r3, #1
+     160:	bf0c      	ite	eq
+     162:	60e3      	streq	r3, [r4, #12]
+     164:	6123      	strne	r3, [r4, #16]
+     166:	6225      	str	r5, [r4, #32]
+     168:	47b0      	blx	r6
+     16a:	6a63      	ldr	r3, [r4, #36]	@ 0x24
+     16c:	1b40      	subs	r0, r0, r5
+     16e:	4283      	cmp	r3, r0
+     170:	bf38      	it	cc
+     172:	6260      	strcc	r0, [r4, #36]	@ 0x24
+     174:	b008      	add	sp, #32
+     176:	bd70      	pop	{r4, r5, r6, pc}
+	...
+
+ui::UnoQMatrix::begin(ui::MatrixGrant)
+    2c2c:	b5f0      	push	{r4, r5, r6, r7, lr}
+    2c2e:	7843      	ldrb	r3, [r0, #1]
+    2c30:	b09d      	sub	sp, #116	@ 0x74
+    2c32:	4605      	mov	r5, r0
+    2c34:	f8ad 1004 	strh.w	r1, [sp, #4]
+    2c38:	2b00      	cmp	r3, #0
+    2c3a:	d13c      	bne.n	2cb6 <ui::UnoQMatrix::begin(ui::MatrixGrant)+0x8a>
+    2c3c:	4f1f      	ldr	r7, [pc, #124]	@ (2cbc <ui::UnoQMatrix::begin(ui::MatrixGrant)+0x90>)
+    2c3e:	783b      	ldrb	r3, [r7, #0]
+    2c40:	b123      	cbz	r3, 2c4c <ui::UnoQMatrix::begin(ui::MatrixGrant)+0x20>
+    2c42:	2301      	movs	r3, #1
+    2c44:	7043      	strb	r3, [r0, #1]
+    2c46:	2008      	movs	r0, #8
+    2c48:	b01d      	add	sp, #116	@ 0x74
+    2c4a:	bdf0      	pop	{r4, r5, r6, r7, pc}
+    2c4c:	f89d 3004 	ldrb.w	r3, [sp, #4]
+    2c50:	b113      	cbz	r3, 2c58 <ui::UnoQMatrix::begin(ui::MatrixGrant)+0x2c>
+    2c52:	f89d 3005 	ldrb.w	r3, [sp, #5]
+    2c56:	b91b      	cbnz	r3, 2c60 <ui::UnoQMatrix::begin(ui::MatrixGrant)+0x34>
+    2c58:	2301      	movs	r3, #1
+    2c5a:	2004      	movs	r0, #4
+    2c5c:	706b      	strb	r3, [r5, #1]
+    2c5e:	e7f3      	b.n	2c48 <ui::UnoQMatrix::begin(ui::MatrixGrant)+0x1c>
+    2c60:	f3ef 8314 	mrs	r3, CONTROL
+    2c64:	07db      	lsls	r3, r3, #31
+    2c66:	d40a      	bmi.n	2c7e <ui::UnoQMatrix::begin(ui::MatrixGrant)+0x52>
+    2c68:	f3ef 8605 	mrs	r6, IPSR
+    2c6c:	b93e      	cbnz	r6, 2c7e <ui::UnoQMatrix::begin(ui::MatrixGrant)+0x52>
+    2c6e:	4814      	ldr	r0, [pc, #80]	@ (2cc0 <ui::UnoQMatrix::begin(ui::MatrixGrant)+0x94>)
+    2c70:	4b14      	ldr	r3, [pc, #80]	@ (2cc4 <ui::UnoQMatrix::begin(ui::MatrixGrant)+0x98>)
+    2c72:	4798      	blx	r3
+    2c74:	2401      	movs	r4, #1
+    2c76:	b930      	cbnz	r0, 2c86 <ui::UnoQMatrix::begin(ui::MatrixGrant)+0x5a>
+    2c78:	2006      	movs	r0, #6
+    2c7a:	706c      	strb	r4, [r5, #1]
+    2c7c:	e7e4      	b.n	2c48 <ui::UnoQMatrix::begin(ui::MatrixGrant)+0x1c>
+    2c7e:	2301      	movs	r3, #1
+    2c80:	2005      	movs	r0, #5
+    2c82:	706b      	strb	r3, [r5, #1]
+    2c84:	e7e0      	b.n	2c48 <ui::UnoQMatrix::begin(ui::MatrixGrant)+0x1c>
+    2c86:	2003      	movs	r0, #3
+    2c88:	4b0f      	ldr	r3, [pc, #60]	@ (2cc8 <ui::UnoQMatrix::begin(ui::MatrixGrant)+0x9c>)
+    2c8a:	703c      	strb	r4, [r7, #0]
+    2c8c:	4798      	blx	r3
+    2c8e:	2268      	movs	r2, #104	@ 0x68
+    2c90:	4631      	mov	r1, r6
+    2c92:	4b0e      	ldr	r3, [pc, #56]	@ (2ccc <ui::UnoQMatrix::begin(ui::MatrixGrant)+0xa0>)
+    2c94:	a802      	add	r0, sp, #8
+    2c96:	4798      	blx	r3
+    2c98:	f3ef 8610 	mrs	r6, PRIMASK
+    2c9c:	b672      	cpsid	i
+    2c9e:	4b0c      	ldr	r3, [pc, #48]	@ (2cd0 <ui::UnoQMatrix::begin(ui::MatrixGrant)+0xa4>)
+    2ca0:	a802      	add	r0, sp, #8
+    2ca2:	4798      	blx	r3
+    2ca4:	f3bf 8f5f 	dmb	sy
+    2ca8:	f386 8810 	msr	PRIMASK, r6
+    2cac:	4b09      	ldr	r3, [pc, #36]	@ (2cd4 <ui::UnoQMatrix::begin(ui::MatrixGrant)+0xa8>)
+    2cae:	4798      	blx	r3
+    2cb0:	4620      	mov	r0, r4
+    2cb2:	702c      	strb	r4, [r5, #0]
+    2cb4:	e7c8      	b.n	2c48 <ui::UnoQMatrix::begin(ui::MatrixGrant)+0x1c>
+    2cb6:	2009      	movs	r0, #9
+    2cb8:	e7c6      	b.n	2c48 <ui::UnoQMatrix::begin(ui::MatrixGrant)+0x1c>
+    2cba:	bf00      	nop
+    2cbc:	00000122 	.word	0x00000122
+	...
+
+ui::UnoQMatrix::submit(unsigned int, ui::Frame const&)
+    2cd8:	b570      	push	{r4, r5, r6, lr}
+    2cda:	4604      	mov	r4, r0
+    2cdc:	7863      	ldrb	r3, [r4, #1]
+    2cde:	460d      	mov	r5, r1
+    2ce0:	4610      	mov	r0, r2
+    2ce2:	bb9b      	cbnz	r3, 2d4c <ui::UnoQMatrix::submit(unsigned int, ui::Frame const&)+0x74>
+    2ce4:	7823      	ldrb	r3, [r4, #0]
+    2ce6:	b39b      	cbz	r3, 2d50 <ui::UnoQMatrix::submit(unsigned int, ui::Frame const&)+0x78>
+    2ce8:	f3ef 8214 	mrs	r2, CONTROL
+    2cec:	07d2      	lsls	r2, r2, #31
+    2cee:	d402      	bmi.n	2cf6 <ui::UnoQMatrix::submit(unsigned int, ui::Frame const&)+0x1e>
+    2cf0:	f3ef 8205 	mrs	r2, IPSR
+    2cf4:	b11a      	cbz	r2, 2cfe <ui::UnoQMatrix::submit(unsigned int, ui::Frame const&)+0x26>
+    2cf6:	2301      	movs	r3, #1
+    2cf8:	2005      	movs	r0, #5
+    2cfa:	7063      	strb	r3, [r4, #1]
+    2cfc:	bd70      	pop	{r4, r5, r6, pc}
+    2cfe:	1e42      	subs	r2, r0, #1
+    2d00:	f100 0167 	add.w	r1, r0, #103	@ 0x67
+    2d04:	f812 6f01 	ldrb.w	r6, [r2, #1]!
+    2d08:	2e07      	cmp	r6, #7
+    2d0a:	bf8c      	ite	hi
+    2d0c:	2300      	movhi	r3, #0
+    2d0e:	f003 0301 	andls.w	r3, r3, #1
+    2d12:	428a      	cmp	r2, r1
+    2d14:	d1f6      	bne.n	2d04 <ui::UnoQMatrix::submit(unsigned int, ui::Frame const&)+0x2c>
+    2d16:	b91b      	cbnz	r3, 2d20 <ui::UnoQMatrix::submit(unsigned int, ui::Frame const&)+0x48>
+    2d18:	2301      	movs	r3, #1
+    2d1a:	2007      	movs	r0, #7
+    2d1c:	7063      	strb	r3, [r4, #1]
+    2d1e:	e7ed      	b.n	2cfc <ui::UnoQMatrix::submit(unsigned int, ui::Frame const&)+0x24>
+    2d20:	78a3      	ldrb	r3, [r4, #2]
+    2d22:	b12b      	cbz	r3, 2d30 <ui::UnoQMatrix::submit(unsigned int, ui::Frame const&)+0x58>
+    2d24:	f649 423f 	movw	r2, #39999	@ 0x9c3f
+    2d28:	6863      	ldr	r3, [r4, #4]
+    2d2a:	1aeb      	subs	r3, r5, r3
+    2d2c:	4293      	cmp	r3, r2
+    2d2e:	d911      	bls.n	2d54 <ui::UnoQMatrix::submit(unsigned int, ui::Frame const&)+0x7c>
+    2d30:	f3ef 8610 	mrs	r6, PRIMASK
+    2d34:	b672      	cpsid	i
+    2d36:	4b08      	ldr	r3, [pc, #32]	@ (2d58 <ui::UnoQMatrix::submit(unsigned int, ui::Frame const&)+0x80>)
+    2d38:	4798      	blx	r3
+    2d3a:	f3bf 8f5f 	dmb	sy
+    2d3e:	f386 8810 	msr	PRIMASK, r6
+    2d42:	2301      	movs	r3, #1
+    2d44:	2002      	movs	r0, #2
+    2d46:	6065      	str	r5, [r4, #4]
+    2d48:	70a3      	strb	r3, [r4, #2]
+    2d4a:	e7d7      	b.n	2cfc <ui::UnoQMatrix::submit(unsigned int, ui::Frame const&)+0x24>
+    2d4c:	2009      	movs	r0, #9
+    2d4e:	e7d5      	b.n	2cfc <ui::UnoQMatrix::submit(unsigned int, ui::Frame const&)+0x24>
+    2d50:	4618      	mov	r0, r3
+    2d52:	e7d3      	b.n	2cfc <ui::UnoQMatrix::submit(unsigned int, ui::Frame const&)+0x24>
+    2d54:	2003      	movs	r0, #3
+    2d56:	e7d1      	b.n	2cfc <ui::UnoQMatrix::submit(unsigned int, ui::Frame const&)+0x24>
+    2d58:	00000000 	.word	0x00000000
+
+initVariant
+    4e20:	4770      	bx	lr
+	...
+
+__loopHook()
+    256c:	b538      	push	{r3, r4, r5, lr}
+    256e:	4b0a      	ldr	r3, [pc, #40]	@ (2598 <__loopHook()+0x2c>)
+    2570:	4798      	blx	r3
+    2572:	4c0a      	ldr	r4, [pc, #40]	@ (259c <__loopHook()+0x30>)
+    2574:	f04f 33ff 	mov.w	r3, #4294967295	@ 0xffffffff
+    2578:	f04f 32ff 	mov.w	r2, #4294967295	@ 0xffffffff
+    257c:	4808      	ldr	r0, [pc, #32]	@ (25a0 <__loopHook()+0x34>)
+    257e:	4909      	ldr	r1, [pc, #36]	@ (25a4 <__loopHook()+0x38>)
+    2580:	4788      	blx	r1
+    2582:	f894 5158 	ldrb.w	r5, [r4, #344]	@ 0x158
+    2586:	4b08      	ldr	r3, [pc, #32]	@ (25a8 <__loopHook()+0x3c>)
+    2588:	f104 0038 	add.w	r0, r4, #56	@ 0x38
+    258c:	4798      	blx	r3
+    258e:	b115      	cbz	r5, 2596 <__loopHook()+0x2a>
+    2590:	4620      	mov	r0, r4
+    2592:	4b06      	ldr	r3, [pc, #24]	@ (25ac <__loopHook()+0x40>)
+    2594:	4798      	blx	r3
+    2596:	bd38      	pop	{r3, r4, r5, pc}
+	...
+    25a0:	00000038 	.word	0x00000038
+	...

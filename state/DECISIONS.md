@@ -851,3 +851,15 @@ Consequence: no invented EXPLAINED/PINMAP/GATE record, no physical success, wiri
 change, motor-capable upload/run or relaxed test. Existing gates remain pending.
 Implement actual bounded modules, independent tests and fresh read-only review;
 do not spend this authorization on further bookkeeping-only tasks.
+
+## D-076 (2026-09-23, selected under D-051/D-075) Checked native opponent GPIO
+Context: P2 B1 lacks a HAL; installed digitalRead converts GPIO errors to LOW,
+which can masquerade as active-low detection. Physical sensors remain untested.
+Decision: adopt P2_opponent_contract.md and opp_sensors.h before independent code/
+tests. Use checked native configure/raw-read status, bounded seven-channel scans,
+explicit invalid snapshots and original raw polarity into core. Copy HARDWARE3's
+unchanged proposed indices into config::OPP_INPUT_PINS; no B16/default tuning.
+Consequence: actual native driver can be host-tested through API substitutes and
+target-compiled without executing it. This is not PINMAP approval or a new wire
+assignment. No fake success, double debounce/polarity, upload, physical B1 result
+or human gate. Preserve original tests and review five inert source guards.

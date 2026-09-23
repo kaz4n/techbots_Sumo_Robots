@@ -16,6 +16,8 @@ static_assert(MOTORS_ALLOWED == 0 || MOTORS_ALLOWED == 1, "MOTORS_ALLOWED must b
 namespace config {
 // Names follow B16 verbatim, including its count/ratio/gain naming exceptions.
 // Pin assignments await P0 source verification and human PINMAP OK.
+// D076 copies HARDWARE3 proposals for compile-only HAL development, not approval.
+inline constexpr std::uint32_t OPP_INPUT_PINS[7] = {11U, 12U, 13U, 16U, 17U, 18U, 19U};
 inline constexpr std::uint32_t COUNTDOWN_MS = 5000U; // ms
 inline constexpr std::uint32_t COUNTDOWN_MARGIN_MS = 100U; // ms
 inline constexpr std::uint32_t TICK_US = 1000U; // us

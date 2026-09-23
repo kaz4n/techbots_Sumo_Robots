@@ -1337,3 +1337,17 @@ unlocked fixtures/API callers; leave locked tests and historical evidence intact
 Consequence: independently test the contract and review lifetime/fixture changes,
 then verify actual source/ELF/loader savings before closing D101-R1. This is not
 loadedRAM/WCET/physical evidence, a gate, new wiring or upload/motor permission.
+
+## D-103 (2026-09-23, selected under D051/D075) Local inhibited service after STOP
+Context: D101 connects dump but Runtime becomes permanently passive after STOP;
+physical reset loses retained RAM. D1029a8797d restores conditional build capacity.
+Decision: adopt P2_service_reset_contract.md. Optional default-off local gesture
+qualifies after genuine STOP tail; one guarded Robot-only reset occurs inside
+next real S..C with EMPTY/SEALED evidence. Keep GateSTOPPED/nativeowners/clocks/
+tokens/recorder/thresholds; service-only RAW/absent sensors prohibit every match
+start. Continued stopped observations honestly retain expected QTR absence faults.
+Fresh ADC/opponent evidence is still mandatory; report unsupported actions in
+app/display fields. A second STOP tails then becomes permanently passive.
+Consequence: explicitly extends D096 terminal passivity only for opt-in; unchanged
+core STOP/default-off tests and no native rearm. Independent tests/target memory/
+review required. No physical fact/gate, wiring, upload or motor authority follows.

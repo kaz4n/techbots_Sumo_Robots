@@ -35,6 +35,7 @@ struct DisplaySample {
     CalibrationScreen calibration_screen = CalibrationScreen::SELECTION;
     std::uint8_t calibration_stage = 0U;
     std::uint32_t calibration_samples = 0U;
+    bool service_unavailable = false; // D103 display projection only, not a fault.
 };
 enum class RenderStatus : std::uint8_t { OK, INVALID };
 // Pure, complete overwrite; exact glyphs/layout in P2_matrix_contract.md.

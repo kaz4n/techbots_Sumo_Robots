@@ -50,6 +50,10 @@ public:
     bool finishAfter(std::uint32_t last_observed_us);
     // Local end-of-stream/invariant abort; terminal, no fake Robot tick or reset.
     void abort();
+    // D103: once only, after two real completed inhibited STOP epochs and open.
+    // Keeps Gate STOPPED/native owners/retained evidence; resets Robot in S..C.
+    // Wrong phase/history is passive false; no caller-supplied proof is accepted.
+    bool resetStoppedRobotForService();
     const TransactionReport& report() const { return report_; }
     const recorder::AttemptRecorder& recording() const { return recorder_; }
     const fsm::PreviousTick& previous() const { return previous_; }

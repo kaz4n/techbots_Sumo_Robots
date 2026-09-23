@@ -789,3 +789,5 @@ physical/loadedRAM/gate claim. | contract=this commit
 2026-09-23 P2 D101 checkpoint0b1013b saved with loader BLOCKER open. D102 lossless frame/status packing contract and public read/bytesAt interfaces frozen; independent tests then bounded implementation next. No capacity/cadence/evidence reduction or human gate.
 
 2026-09-23 P2 D102 lossless frame/status packing IMPLEMENTED HOST-TESTED TARGET-COMPILED REVIEW-PASS: fullnormal/san1434main+178Gate, memory23/bench11/tooling42, unchanged actualRuntime dump streams. Exact3bf0da00 MATCH254156B/conditional258768Bpeak fits; modeled D101-R1 CLOSED, physical loadedRAM/WCET still pending. Same7inertkeys reviewed/refreshed; no upload/gate. Evidence P2_frame_packing_validation.md/raw/review; next local service reset.
+
+2026-09-23 P2 D102 implementation/evidence committed9a8797d after receipt-only412f85f (Windows longpath correction preserved). D103 optional local service-only STOP reset contract/public interfaces frozen; independent tests then implementation. No physical gate/upload.

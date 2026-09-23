@@ -45,9 +45,17 @@ struct SetupGrants {
     bool dump_enabled = false;
     recorder::dump::SetupGrant dump;
     recorder::dump::Origin dump_origin = recorder::dump::Origin::UNKNOWN;
+    bool local_service_reset = false;
 };
-enum class RuntimePhase : std::uint8_t { NOT_STARTED, RUNNING, STOPPED, FAULT };
+enum class RuntimePhase : std::uint8_t { NOT_STARTED, RUNNING, STOPPED, FAULT, STOP_OBSERVING };
 enum class RuntimeFault : std::uint8_t { NONE, PORT, CLOCK, SERVICE_LIMIT, TRANSACTION, PROJECTION };
+enum class ServiceActionStatus : std::uint8_t { NONE, UNAVAILABLE };
+struct ServiceActionReport {
+    bool fresh = false;
+    countdown::Service service = countdown::Service::SENSOR_VIEW;
+    std::uint64_t request_token = 0U;
+    ServiceActionStatus status = ServiceActionStatus::NONE;
+};
 struct RuntimeReport {
     RuntimePhase phase = RuntimePhase::NOT_STARTED;
     RuntimeFault fault = RuntimeFault::NONE;
@@ -70,6 +78,13 @@ struct RuntimeReport {
     imu::SampleProgress imu_shutdown;
     recorder::dump::NativeStatus dump_setup = recorder::dump::NativeStatus::NOT_INITIALIZED;
     recorder::dump::Report dump;
+    bool service_only = false;
+    bool service_reset_pending = false;
+    bool service_reset_fresh = false;
+    std::uint64_t reset_from_token = 0U;
+    std::uint16_t pre_service_contract_faults = 0U;
+    edge::EscapeFault pre_service_escape_fault = edge::EscapeFault::NONE;
+    ServiceActionReport service_action;
 };
 class Runtime {
 public:

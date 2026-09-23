@@ -3,44 +3,42 @@
 Read AGENTS fully, CODEX_HANDOFF, PROGRESS, DECISIONS, FACTS, TUNING_LOG,
 CODEX_EXECUTION and open conflicts/reviews. Inspect Git and actual Dubai date;
 preserve original deadlines, human gates, evidence and unrelated work.
-D051/D075 permit active P2 software despite untested physical acceptance. Full
+D051/D075 permit active P2 software despite pending physical acceptance. Full
 P0-P7 ACTIVE/incomplete; no human gate/PINMAP/EXPLAINED or motor authority.
 
-Latest software: D09117bb38a, inert recorder200s bench and bounded readback tools.
-Read analysis/P2_recorder_bench_contract.md, native_audit.md, validation.md,
-run.md, raw/runtime_summary.json and reviews/P2_recorder_bench_review.md including
-runtime addendum. Exact74-file source1502e948/ELFeff3e050/ZSK0448e3ac uploaded
-once to bareUNOQ ADB2629958581, defaultstartup/MATCH0/MOTORS_ALLOWED0.
+Latest implementation2081ca1, public contract33e6cba: D092 complete acquisition
+start/decision/application/completion chronology. Read P2_tick_timing_contract.md,
+validation.md and reviews/P2_tick_timing_review.md. Full normal/san1303main+87Gate
+PASS, independent22case author and24case fresh reviewer PASS,61toolmethods PASS.
+Actual5451e99d target72source/3ELF/Git-index exact; only compile, no MCU/upload/reset.
+Seven existing inert hashes refreshed after exact independent source review.
+Established tests and config unchanged; lowRAM warning remains a deployment limit.
 
-Actual MCU run passed scoped synthetic recording: release-toSTOP200000998us,
-hold5100000us,5001frames/8events, independent CRC900325728, no recorder losses or
-active motor callbacks. Missing synthetic IMU gives one expected calibration
-rejection event. Max203us is runner timing, not fullHAL/WCET. Two matching loaded
-LLEXT pools show25116B free payload/largest21604B; sampled stack31208B headroom
-is not historical high-water. Native UART transfer and physical B8 remain pending.
+Current MCU last deployed source1502e948/ELFeff3e050/ZSK0448e3ac from D09117bb38a,
+frozen inert recorder; its actual200s synthetic run retained5001frames/8events with
+independent CRC900325728, zero losses/active motor callbacks. Missing synthetic IMU
+correctly logged calibration rejection. See D091 validation/run/runtime_summary and
+review. Those measurements do not establish D092 runtime or fullHAL/WCET. Recheck
+connection before future board work. No extra hardware requested now; no motors.
 
-First capture timeout preserved. Reviewed flash subdivision retry succeeded
-without reupload/reset,47reads/934892B/51commands/281.633s within original limits.
-Board left frozen inert1502e948; recheck connection before any future board work.
-No sensor/native motorGPIO/UART initialization. User authorizes bareUNOQ inert
-work; do not ask for more hardware now or flash/run motor-capable firmware.
+First unfinished task: actual app battery evidence/acquisition ownership. Read
+analysis/P2_app_battery_audit.md, original D078 no-stale policy, native ADC pair
+contract and public power/Robot/governor APIs. D093 has NOT been allocated and
+proposed10/20ms retention values are NOT selected/implemented. Under D051 freeze a
+narrow material decision/contract, publish interface, independent tests, implement
+and validate before using retained voltage. Preserve native fresh-only results,
+shared A0/A1 reset-only faults, real source timestamps and bounded accumulated age
+without full-wrap revival. A local accepted-call identity is not hardware generation.
+Keep the existing governor filter running per tick, final caps/slew and lockedtests.
 
-First unfinished software task: SC-AK acquisition-start versus decision time.
-Read analysis/P2_app_integration_map.md, spec_conflicts.md, P1_robot_contract.md
-and P2_imu_integration_contract.md before source changes. Under D051 record the
-narrow additive contract/decision, publish interfaces, obtain independent tests,
-implement bounded timing accounting, run meaningful checks and fresh review.
-Keep sensor decision timestamps after acquisition; include acquisition in whole
-execution duration without changing legacy receipts or established locked tests.
-No D092 or final timing contract has yet been allocated. Do not treat the map's
-recommendation as already implemented or fully specified.
+Then compose actual app transaction owner and native acquisition scheduling.
+app.ino is still a forced-inert link scaffold. QTR needs sub-tick service. Native
+UART needs explicit clean framing; local-only reset/QTR_CAL print ownership remain.
+Existing native deadlines and fault cleanup do not prove an800us complete tick;
+include service work in scheduler evidence rather than hiding it outside control.
+Physical SC-A buttons, SC-AJ clock, sensors/motors, B8/native UART and human gates
+remain pending. No cached value, source audit or passing host test proves them.
 
-After timing, compose the real app transaction owner then native scheduling.
-app.ino is still a forced-inert link scaffold. QTR sub-tick service, bounded battery
-age, native transport clean framing, local-only reset and QTR_CAL print ownership
-remain integration work. Existing600us IMU+150us motor+100us ADC ceilings do not
-prove an800us whole tick. Physical SC-A, SC-AJ and human phase gates stay pending.
-
-Append ledgers and make task-owned local commits only. At boundary record exact
-files/commits/commands/results/limits and the first eligible unfinished task.
-Never push, tag, rewrite history, manufacture measurements or author human gates.
+Append ledgers and make task-owned local commits only. At each boundary save exact
+files/commits/commands/results/limits and first eligible unfinished task. Never push,
+tag, rewrite history, manufacture measurements or author human gates.

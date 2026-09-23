@@ -1,3 +1,44 @@
+## Latest checkpoint - 2026-09-23 17:52:55 +04
+
+Active phase P2 software under D051/D075. D092 implemented in2081ca1 after public
+contract33e6cba: explicit acquisition-start timing now includes acquisition while
+sensor decisions retain their actual later timestamp. Read
+analysis/P2_tick_timing_contract.md, validation.md and reviews/P2_tick_timing_review.md.
+No new clock/I/O/motor writes/config values or established tests changed.
+
+Full normal and ASan/UBSan each pass1303main/24481744assertions plus87enabledGate/
+3848039assertions. Independent author22cases/487assertions and fresh separate
+same-model reviewer24cases/16206assertions pass both settings. No open finding.
+61controlled tool methods pass. Actual target compile-only5451e99d:72physical/
+staged/target/Git-index sources exact,3ELFs retain timing helpers/strong empty hook,
+unchanged loader/imports.315764program/238812compiler globals,lowRAMwarning.
+Seven existing inert hashes reviewed/refreshed; no new upload key or runtime action.
+Raw index verification covers37new captured files. Reviewer-only missing include
+failure preserved; no production or established-test failure was hidden.
+
+Current MCU remains the previous D091 source1502e948 frozen inert recorder image;
+D092 was never uploaded. Earlier5001frames/8events/200s measurements still describe
+that previous synthetic run only. Physical sensors/motors, SC-A circuit, SC-AJ
+clock calibration, native UART, complete800us WCET and every human gate remain
+pending. FullP0-P7 ACTIVE/incomplete; no motor-run authority/PINMAP/EXPLAINED.
+
+First eligible next task: actual app battery acquisition/age ownership, needed
+before scheduler composition. Read analysis/P2_app_battery_audit.md and D078's
+fresh-only policy. Under D051 freeze a narrow explicit amendment/contract before
+implementation; no D093 or10/20ms retention values have yet been selected. Do not
+silently pass cached voltage as fresh. Preserve shared A0/A1 reset-only faults,
+actual timestamps, wrap-safe nonreviving age, governor's existing per-tick filter,
+final caps and all old tests. Use independent public-contract tests and actual
+Robot/MotorGate composition; continue app owner/native scheduling afterward.
+
+The application remains an inert link scaffold. A battery owner alone cannot
+prove800us: existing native deadlines plus fault cleanup require an explicit
+resource schedule, including QTR sub-tick service. Avoid a generic new framework.
+No additional hardware requested now. Small local commits only; original Dubai
+schedule and gates remain, with no push/tag/history rewrite.
+
+--- Earlier handoff preserved below ---
+
 ## Latest checkpoint - 2026-09-23 17:38 +04
 
 Active phase: P2 software under D051/D075. D091 software commit17bb38a has now

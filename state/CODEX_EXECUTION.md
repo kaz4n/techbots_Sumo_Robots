@@ -15,7 +15,7 @@ D051/D075 permit active P2 software while physical acceptance remains pending.
 | P2 B6 | A1 owner327c5db; gesturesb69fa12; matrix385c46c tested/target/review/inert run | Physical buttons/SC-A, optical acceptance, service consumers |
 | P2 2.4 | QTR calibration311bf40 tested/target/review | Actual threshold printing/app integration/physical calibration |
 | P2 B8 | Storage and D090 bounded IDLE dump febde53 reviewed/tested/target-compiled; D09117bb38a synthetic200s actual MCU recorder PASS | Native UART transfer, app lifetime/local reset UI, physical B8 |
-| Integration/B7/P3-P7 | Mapping saved; D090 strong hook verified | SC-AK timing, scheduler/HAL/full800us/runtime, SC-AJ, physical acceptance |
+| Integration/B7/P3-P7 | D092 complete timing2081ca1 tested/target/review; strong hook verified | Battery age/app owner, scheduler/HAL/full800us/runtime, SC-AJ, physical acceptance |
 
 D090 fullnormal/sanitizer1281main+65enabledGate PASS;26owner/33receiver/11native
 methods,56existingtooling and4Windows checks PASS. Actualb8bb9366target verified;
@@ -34,8 +34,16 @@ Capture1 timeout preserved; smaller flash reads succeed with original ceilings:
 frozen in inert recorder1502e948. Evidence/review: P2_recorder_bench_validation.md,
 P2_recorder_bench_review.md and raw runtime_retry1/. MEM-AP extraction, not UART.
 
-Next: resolve SC-AK under D051 with additive public acquisition-start contract,
-independent tests and timing implementation; see P2_app_integration_map.md.
-Then app owner/native scheduling. No additional hardware requested now.
-SC-A physical button circuit, SC-AJ time, fullRAM history/800us and human gates
-remain open. No motor-run authority, push/tag, or phase approval inferred.
+D0922081ca1 after contract33e6cba resolves SC-AK in software: explicit acquisition
+start separate from sensor decision time, full ordered timing receipts. Full
+normal/san1303main+87enabledGate PASS, independent22cases and reviewer24cases PASS,
+61tool methods PASS. Actual5451e99d target72exactsources/3ELFs, no upload. Fresh
+separate same-model review clear. Established tests/config unchanged. Evidence:
+P2_tick_timing_validation.md and P2_tick_timing_review.md; compiler lowRAM persists.
+
+Next: freeze narrow battery-age/app acquisition contract from P2_app_battery_audit.
+No D093 or proposed10/20ms values selected yet. Amend D078 explicitly before bounded
+retention; preserve shared ADC faults, truthful source age and unchanged governor.
+Then actual app transaction owner/native scheduling. No extra hardware needed now.
+SC-A physical circuit, SC-AJ clock, fullRAM history/800us, physical B8/native UART
+and human gates remain open. No motor-run authority, push/tag or phase approval.

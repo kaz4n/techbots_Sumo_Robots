@@ -1,0 +1,25 @@
+{
+  "start_utc": "2026-09-23T21:08:51.893795+00:00",
+  "target": "2629958581",
+  "remote_argv": [
+    "dpkg-query",
+    "-W",
+    "-f=${Package} ${Version} ${Architecture}\\n",
+    "arduino-router"
+  ],
+  "transport_argv": [
+    "C:\\Users\\narut\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\adb\\32.0.0\\adb.exe",
+    "-s",
+    "2629958581",
+    "shell",
+    "-T",
+    "dpkg-query -W '-f=${Package} ${Version} ${Architecture}\\n' arduino-router"
+  ],
+  "timeout_seconds": 45,
+  "returncode": 0,
+  "stdout": "arduino-router 0.10.0 arm64\n",
+  "stderr": "",
+  "end_utc": "2026-09-23T21:08:51.978103+00:00",
+  "stdout_sha256": "ed90ed11d61a069901557076bcfdaba97cb59a87d341faf793d6cfcc6901602a",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

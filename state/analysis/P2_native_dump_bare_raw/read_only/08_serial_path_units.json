@@ -1,0 +1,33 @@
+{
+  "start_utc": "2026-09-23T21:09:28.894384+00:00",
+  "target": "2629958581",
+  "remote_argv": [
+    "systemctl",
+    "show",
+    "arduino-router-serial.path",
+    "arduino-router-serial.service",
+    "--property=Id",
+    "--property=ActiveState",
+    "--property=SubState",
+    "--property=FragmentPath",
+    "--property=ExecStart",
+    "--property=MainPID",
+    "--property=Triggers",
+    "--property=TriggeredBy"
+  ],
+  "transport_argv": [
+    "C:\\Users\\narut\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\adb\\32.0.0\\adb.exe",
+    "-s",
+    "2629958581",
+    "shell",
+    "-T",
+    "systemctl show arduino-router-serial.path arduino-router-serial.service --property=Id --property=ActiveState --property=SubState --property=FragmentPath --property=ExecStart --property=MainPID --property=Triggers --property=TriggeredBy"
+  ],
+  "timeout_seconds": 45,
+  "returncode": 0,
+  "stdout": "Id=arduino-router-serial.path\nTriggers=arduino-router-serial.service\nTriggeredBy=\nActiveState=active\nSubState=running\nFragmentPath=/etc/systemd/system/arduino-router-serial.path\n\nMainPID=627\nExecStart={ path=/usr/bin/socat ; argv[]=/usr/bin/socat file:/dev/ttyGS0,raw,echo=0,b9600,crtscts=0 tcp:127.0.0.1:7500 ; ignore_errors=no ; start_time=[Wed 2026-09-23 16:28:56 UTC] ; stop_time=[n/a] ; pid=627 ; code=(null) ; status=0/0 }\nId=arduino-router-serial.service\nTriggers=\nTriggeredBy=arduino-router-serial.path\nActiveState=active\nSubState=running\nFragmentPath=/etc/systemd/system/arduino-router-serial.service\n",
+  "stderr": "",
+  "end_utc": "2026-09-23T21:09:28.976003+00:00",
+  "stdout_sha256": "22ffb877009c70c5f5e675bd1dffee78a5e5c24db9915aa6cbb5bcf974c0e1a5",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

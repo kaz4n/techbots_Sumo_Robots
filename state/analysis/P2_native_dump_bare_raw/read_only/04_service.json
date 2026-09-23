@@ -1,0 +1,37 @@
+{
+  "start_utc": "2026-09-23T21:08:52.055052+00:00",
+  "target": "2629958581",
+  "remote_argv": [
+    "systemctl",
+    "show",
+    "arduino-router.service",
+    "--property=ActiveState",
+    "--property=SubState",
+    "--property=MainPID",
+    "--property=FragmentPath",
+    "--property=DropInPaths",
+    "--property=User",
+    "--property=Group",
+    "--property=ExecMainStartTimestamp",
+    "--property=ExecMainStartTimestampMonotonic",
+    "--property=NRestarts",
+    "--property=ExecStart",
+    "--property=ExecStartPre",
+    "--property=ExecStopPost"
+  ],
+  "transport_argv": [
+    "C:\\Users\\narut\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\adb\\32.0.0\\adb.exe",
+    "-s",
+    "2629958581",
+    "shell",
+    "-T",
+    "systemctl show arduino-router.service --property=ActiveState --property=SubState --property=MainPID --property=FragmentPath --property=DropInPaths --property=User --property=Group --property=ExecMainStartTimestamp --property=ExecMainStartTimestampMonotonic --property=NRestarts --property=ExecStart --property=ExecStartPre --property=ExecStopPost"
+  ],
+  "timeout_seconds": 45,
+  "returncode": 0,
+  "stdout": "MainPID=558\nNRestarts=0\nExecMainStartTimestamp=Wed 2026-09-23 16:28:55 UTC\nExecMainStartTimestampMonotonic=14564161\nExecStartPre={ path=/usr/bin/gpioset ; argv[]=/usr/bin/gpioset -c /dev/gpiochip1 -t0 37=0 ; ignore_errors=yes ; start_time=[Wed 2026-09-23 16:28:55 UTC] ; stop_time=[Wed 2026-09-23 16:28:55 UTC] ; pid=549 ; code=exited ; status=0 }\nExecStart={ path=/usr/bin/arduino-router ; argv[]=/usr/bin/arduino-router --unix-port /var/run/arduino-router.sock --serial-port /dev/ttyHS1 --serial-baudrate 115200 --after-ready /usr/bin/gpioset -c /dev/gpiochip1 -t0 70=1 ; ignore_errors=no ; start_time=[Wed 2026-09-23 16:28:55 UTC] ; stop_time=[n/a] ; pid=558 ; code=(null) ; status=0/0 }\nExecStopPost={ path=/usr/bin/gpioset ; argv[]=/usr/bin/gpioset -c /dev/gpiochip1 -t0 70=0 ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }\nExecStopPost={ path=/usr/bin/gpioset ; argv[]=/usr/bin/gpioset -c /dev/gpiochip1 -t0 38=0 ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }\nExecStopPost={ path=/usr/bin/gpioset ; argv[]=/usr/bin/gpioset -c /dev/gpiochip1 -t0 38=1 ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }\nUser=\nGroup=\nActiveState=active\nSubState=running\nFragmentPath=/etc/systemd/system/arduino-router.service\nDropInPaths=/run/systemd/generator/arduino-router.service.d/10-imola.conf\n",
+  "stderr": "",
+  "end_utc": "2026-09-23T21:08:52.147219+00:00",
+  "stdout_sha256": "dd2d5604c4ab02c3ff9aec739e4b8206c6635ed8bc13bffadda6f689cc59304e",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

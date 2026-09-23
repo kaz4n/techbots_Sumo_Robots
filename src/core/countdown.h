@@ -105,12 +105,17 @@ private:
     ButtonEvents events_;
 };
 
+enum class GyroPresence : std::uint8_t { LEGACY, ABSENT, VALID, INVALID };
 struct ServiceSample {
     std::uint32_t t_us = 0;
     float raw_gyro_z_dps = 0.0F; // Before bias subtraction; one new logical reading/tick.
     bool imu_ok = false;
     std::uint8_t line_mask = 0;
     std::uint8_t confirmed_opp_mask = 0;
+    // D083: append-only compatibility. LEGACY retains imu_ok/tick-time semantics.
+    GyroPresence gyro_presence = GyroPresence::LEGACY;
+    std::uint32_t gyro_observation_us = 0; // Actual completion, never delivery time.
+    std::uint32_t gyro_sequence = 0; // Source identity; zero is valid after wrap.
 };
 struct ServiceResult {
     float bias_dps = 0.0F;
@@ -138,6 +143,14 @@ public:
     // Final warning/snapshot windows are [hold-window,hold), excluding GO.
     // Warning latches; snapshot takes latest low seven bits (including zero).
     // At/after hold, freeze results, active=false/finished=true. No motor gate.
+    // D083 explicit mode: ABSENT skips only gyro aggregation; INVALID rejects.
+    // VALID ignores imu_ok, requires finite raw gyro, delivery age <= the D082
+    // heading gap, forward source time/sequence, and both source and decision
+    // inside the calibration window. An identical last observation is ignored;
+    // conflicting/reversed identity rejects. Delivery at CAL_END is too late.
+    // First in-window call selects legacy/explicit; mixing rejects the attempt.
+    // All other services and original hold/STOP/cancellation timing still advance.
+    // Full admission details: state/analysis/P2_calibration_presence_contract.md.
     ServiceResult step(const ServiceSample& sample);
     // Cancel clears attempt state but preserves its current bias; reset clears
     // all state to defaults. Neither enables motors or changes Controller.
@@ -146,6 +159,8 @@ public:
 private:
     void finishCalibration();
     void observeCalibration(const ServiceSample& sample);
+    bool admitGyro(const ServiceSample& sample);
+    bool admitExplicitGyro(const ServiceSample& sample);
     ServiceResult result_;
     std::uint32_t last_us_ = 0;
     std::uint64_t elapsed_us_ = 0;
@@ -153,6 +168,12 @@ private:
     double minimum_dps_ = 0.0;
     double maximum_dps_ = 0.0;
     bool invalid_sample_ = false;
+    bool gyro_mode_selected_ = false;
+    bool explicit_gyro_mode_ = false;
+    bool have_gyro_observation_ = false;
+    std::uint32_t last_gyro_observation_us_ = 0;
+    std::uint32_t last_gyro_sequence_ = 0;
+    float last_raw_gyro_dps_ = 0.0F;
 };
 
 struct LifecycleResult {

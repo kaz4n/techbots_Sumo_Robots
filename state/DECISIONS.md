@@ -1003,3 +1003,19 @@ is the concrete HAL estimator, not yet core/app wiring: the current combined
 imu_ok still needs separate availability/freshness routing. D024 averaging and
 D059 logical GO origin remain unchanged. New spec-derived tests, target compile
 and fresh separate review are required; no old locked assertion changes.
+
+
+## D-083 (2026-09-23, selected under D-051/D-075) Explicit countdown gyro admission
+Context: D082 NO_NEW is not an invalid gyro reading, and replayed sensor data
+must not bias D024 averaging. Existing Services has only imu_ok and tick time.
+Decision: adopt P2_calibration_presence_contract.md and append explicit gyro
+presence/source identity to ServiceSample, preserving LEGACY defaults. ABSENT
+skips only aggregation; INVALID rejects; VALID uses finite raw pre-bias data,
+source and decision calibration windows, forward sequence/time and at-most2000us
+delivery age using the existing D082 limit. Ignore identical replay, reject
+conflicting/reversed identity and mixed explicit/legacy mode. Calibration closes
+at its original decision deadline; late delivery cannot reopen it or delay GO.
+Consequence: unchanged averaging/spread/minimum/bias-on-rejection and all service/
+STOP/hold behavior. No old test edits or physical assumption. This implements
+Services/Lifecycle only; separate heading/Fusion/Robot/B15 routing remains required
+before app integration. Independent tests, target compilation and review required.

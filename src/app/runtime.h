@@ -4,6 +4,7 @@
 #pragma once
 #include "transaction.h"
 #include "dump_port.h"
+#include "calibration_output.h"
 #include "../hal/power_inputs.h"
 #include "../hal/opp_sensors.h"
 #include "../hal/imu_heading.h"
@@ -46,6 +47,7 @@ struct SetupGrants {
     recorder::dump::SetupGrant dump;
     recorder::dump::Origin dump_origin = recorder::dump::Origin::UNKNOWN;
     bool local_service_reset = false;
+    bool calibration_output_enabled = false;
 };
 enum class RuntimePhase : std::uint8_t { NOT_STARTED, RUNNING, STOPPED, FAULT, STOP_OBSERVING };
 enum class RuntimeFault : std::uint8_t { NONE, PORT, CLOCK, SERVICE_LIMIT, TRANSACTION, PROJECTION };
@@ -104,6 +106,7 @@ public:
     const line_qtr::Snapshot& lineEvidence() const { return decision_line_; }
     const imu::Estimate& imuEvidence() const { return imu_publication_; }
     const power::InputOwner& adcInputs() const { return adc_; }
+    const CalibrationOutputReport& calibrationOutput() const;
 private:
     // Implementation owner may extend private helpers/state only.
     bool validPorts() const;

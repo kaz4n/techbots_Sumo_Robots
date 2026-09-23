@@ -1371,3 +1371,24 @@ policy only to the named probe; no upload key until independent exact review.
 Consequence: a new reviewed inert run may establish only that image's BOOT/load,
 allocator and sampled-stack facts. Full-app/native/motor/WCET/physical gates remain
 open; no new pin/source grant, synthetic START or changed production tunable.
+
+## D-105 (2026-09-23, selected under D051/D075) Bounded bench calibration output
+Context: D089 commits a valid RAM bank and formats its config line, but no actual
+Runtime delivery exists. D1041fa2a01/c82460e measured the separate bare probe;
+full-app capacity remains narrow. User delegates routine engineering choices.
+Decision: adopt P2_calibration_delivery_contract.md and public output report.
+Require both existing dump and new default-off calibration grants, non-MATCH
+only, one native output owner, real commit/receipt authority and symmetric
+cancel-before-new-writer arbitration. Preserve poison, exact formatter payload,
+actual S..C, thresholds and recorder bytes. Regenerate bounded stack payload;
+compile out mutable exporter state/code in MATCH. Strict file-only receiver
+publishes unauthenticated evidence and never edits config.h.
+Consequence: implement/test/review and verify exact full-app target fit; no new
+wire, tunable, locked-test relaxation, native UART success or hardware/gate grant.
+Current inert source keys remain historical exact snapshots and must refuse
+changed source uploads until separately reviewed. MCU remains frozen D1042bd817c4.
+
+D-105 before-test-freeze clarification: preserve D101 invalid-receipt Transfer
+step suppression and failed-epoch/public-abort cleanup without fabricated C.
+Freeze refusal/cancel/failure phase mapping and unavailable-port disposition
+in the contract; no change to existing D101/D103 safety or timing rules.

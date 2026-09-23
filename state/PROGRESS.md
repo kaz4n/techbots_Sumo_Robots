@@ -805,3 +805,5 @@ physical/loadedRAM/gate claim. | contract=this commit
 | 2026-09-23 23:08 +04 | P2 D104 | Actual bare-board Runtime probe PASS:200001epochs/0misses/maxS..C269us,allinhibited; fixedcaptureexit0,46reads913688B,twoidenticaldiagnostics/pools,free28668B/largest25172B,sampledstack30952B. No full-app/physical/human gate. Independent actualreview follows. | 1fa2a01 |
 
 | 2026-09-23 23:13 +04 | P2 D104 | Separate offline actual-run review PASS:149raw files/91committed sources/exact deployed identity, literaldiagnostics and independentheap walk verified. No open scoped findings; board remains frozen2bd817c4. All physical/human gates pending. | 1fa2a01 + evidence commit |
+
+| 2026-09-23 23:13 +04 | P2 D105 | Adopted bounded nonMATCH calibration-output contract and public report/grant/accessor/capacity interfaces. Independent tests before implementation; no claimed target fit or hardware action. | D105 contract commit |

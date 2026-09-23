@@ -130,3 +130,154 @@ empty ring. Compile-only is eligible; actual pin setup/upload and physical
 range/false-hit qualification remain contingent on the relevant confirmed facts.
 No new native HAL, pinmap or configuration values should be needed just to
 prepare that bench. Human gates and all assembled-robot criteria remain open.
+
+## Storage and text feasibility addendum
+
+Further read-only assessment requested during D104 execution. **Recommend a
+small app-owned exporter that rerenders into bounded stack storage from an
+unchanged captured threshold bank.** Keep the existing recorder Transfer and
+native UART backend intact. This is a design recommendation for the coordinator's
+next frozen contract, not an adopted API or a claim that the final app fits.
+
+### Three storage choices
+
+| Choice | Incremental payload storage | Ownership/text consequence |
+|---|---|---|
+| Borrow Transfer's existing1,152-byte line buffer | Potentially0 bytes | Requires a new lease/lifetime protocol across pending writes, prevents Transfer::prepare/fail/advance from overwriting it, and couples calibration to recorder-private state. Saving is at most the alternative calibration payload buffer, not1,152 bytes: Transfer already owns that storage. |
+| Small app helper with persistent80-byte formatted line | 80 bytes plus identity/progress state | Straightforward stable byte lifetime and format-once work. Still needs arbitration, terminal cancellation and source identity. Reasonable fallback if repeated formatting cost proves unsuitable. |
+| Small app helper, rerender on each progress call | No persistent text; captured four thresholds+version contain20 bytes of fields, plus identity/progress state | Avoids buffer leasing and leaves recorder protocol/state untouched. Adds bounded repeated formatting and a larger call-stack contribution. Recommended first implementation to measure. |
+
+`Transfer::line_`, `size_` and `offset_` are private
+(`src/hal/recorder_dump.h:63-64`). Its prepare/advance/fail methods all mutate
+them; writePending depends on them until acknowledged progress
+(`src/hal/recorder_dump.cpp:247`, `:268`, `:71`, `:298`). There is no existing
+public workspace API. Exposing a mutable pointer is insufficient to establish a
+safe lease. Moving the buffer into Runtime and changing Transfer construction
+would also touch existing callers/tests and introduce a new lifetime invariant.
+Adding a calibration mode to Transfer would mix an unrelated bank lifetime with
+recorder summary/session/CRC state. None is the smallest maintainable seam here.
+Do not union/reconstruct Transfer with another owner: its consumed-request and
+token history must survive output selection and reset notification.
+
+### Why stable rerendering is supported, and its limits
+
+The native implementation copies each offered payload into its own64-byte array
+and packet on the first call. While active it checks both count and every byte
+on retries (`src/hal/dump_uart_unoq.cpp:225-245`); PENDING returns zero and only
+completed transmission reports progress (`:288-292`). It does not retain the
+caller's pointer. Therefore a fresh stack address is acceptable if every pending
+retry supplies the identical bytes/count. This is verified behavior of the
+current UnoQ backend, not an implied guarantee of every arbitrary Port callback.
+Freeze call-only pointer borrowing in the new helper/sink contract and test it.
+
+At commit, retain the four values/version, consumed request token if exposed,
+length/offset, phase/reason and bounded stall/total timing state. Reuse Runtime's
+actual clock/receipt authority and existing DumpPort by reference; do not copy a
+RobotResult, Calibration::Report, RuntimeReport, second Port callback table or
+second UART owner. These fields suggest only tens of persistent bytes, but the
+actual class/Runtime alignment and report placement need target ABI measurement.
+
+Before each formatting/write opportunity, require the current real calibration
+report still be SUCCESS with the same four values **and** version; then call the
+existing formatter on that report into local80-byte storage. On PENDING, retain
+offset and offer length unchanged. On valid PROGRESS advance only by the reported
+count; reject zero/oversize/error statuses. Support bounded partial-progress
+test sinks even though this native backend reports its whole payload at once.
+Never regenerate from a new bank halfway through a line.
+
+Version-only comparison is defensible inside the current private owner domain:
+`Calibration::finishStage` increments version and assigns all four values
+atomically, rejecting exhaustion; only genuine Calibration::reset restarts that
+domain (`src/hal/qtr_cal.cpp:161-188`, `:230`). Nevertheless, saving the four
+values costs16 bytes and gives the exporter a simple explicit invariant plus a
+direct adversarial changed-bank test. Prefer that over making the helper's proof
+depend on every future owner mutation preserving an undocumented version rule.
+No persisted pointer to a mutable public report is needed.
+
+Starting another calibration can change phase to COLLECTING while preserving
+the old bank. Cancel/refuse in that context; do not manufacture a SUCCESS report
+around the old values to keep printing. A new phase, reset/service-only entry,
+invalid receipt, readiness loss or source mismatch cannot silently resume an
+old transfer. The policy for an intent refused before the first write must be
+explicit; avoid an implicit retry queue requiring additional state.
+
+For the current QTR_TIMEOUT_US=1500, the exact formatter's maximum line is54
+bytes including LF, or55 including NUL. It fits one64-byte native payload. For
+four general uint32 decimal values the same format is78 bytes plus NUL. Keep the
+existing80-byte capacity rather than hard-coding the current four-digit domain
+or assuming one packet forever. The formatter already has its own local80-byte
+scratch (`src/hal/qtr_cal_format.cpp:31`): caller buffer plus formatter scratch
+means **160 bytes of simultaneous character arrays**, before decimal scratch,
+register saves and caller frames. Reformatting is bounded, but its repeat cost
+and actual stack use must be measured/inspected; D104's absent-source stack
+sample does not cover this path.
+
+### Minimal API/ownership seam
+
+Keep authorization in Runtime's actual post-application path. A small private
+app helper should handle only committed-bank identity, bounded formatting/byte
+progress and a const status view. Candidate operations are commit admission,
+one progress call supplied an already-admitted timestamp/current report/existing
+Port, and terminal cancellation. These are proposed responsibilities, not
+currently existing methods. Prefer a status accessor over copying a second
+full export report into RuntimeReport. If one shared80-byte bound needs to be
+public, expose the existing formatter capacity as a named structural constant;
+do not introduce another formatter or tunable timing value.
+
+Runtime must arbitrate **before either writer can emit bytes**:
+
+1. Revoke/cancel an active calibration writer that has lost current eligibility,
+   before allowing a new LOG_DUMP intent to reach Transfer.
+2. Let the existing Transfer observe its ordinary context/preemption and preserve
+   its own token/request history; never begin calibration while it remains ACTIVE.
+3. Only then permit the eligible writer's single bounded progress operation,
+   with real readiness and clock observations, before the actual final C.
+
+Simply calling serviceDump first and calibration second is unsafe when an old
+calibration packet is pending and the current menu has just selected LOG_DUMP.
+Both optional-output-disabled and MATCH paths should retain the old dump call
+order/behavior. Relevant cleanup seams are Runtime::admitApplication,
+Runtime::fail and applyServiceReset (`runtime_service.cpp:12`, `runtime.cpp:253`,
+`runtime_service.cpp:143`); actual C remains Runtime::completeEpoch (`:276`).
+
+`UnoQDumpPort::abort` **always sets permanent poison**, including cancellation
+between packets (`src/hal/dump_uart_unoq.cpp:301-318`). It is not a benign
+release-workspace operation. Normal successful completion must clear the app's
+writer selection without canceling the port. Refusal before any write need not
+pretend it has emitted data; once a pending/partial stream is revoked, cancel
+exactly once under the frozen contract and preserve poison. Never start the
+other writer immediately after such cancellation assuming a clean UART.
+
+### MATCH exclusion and measurable cost
+
+Use compile-time MATCH exclusion for the exporter body, retained payload/state
+and formatter call sites, rather than only checking an optional runtime grant.
+Keep any common public grant/status semantics explicit: a newly unconditional
+field or copied status can still enlarge MATCH structs even when methods are
+compiled out. A stable accessor can report unavailable in MATCH without a
+mutable exporter lifetime. Every translation unit must use the same macro value,
+as enforced by the checked build. Match tests must prove zero calibration
+readiness/write/cancel calls even if a caller attempts to grant the feature;
+ordinary IDLE recorder dumping remains unchanged.
+
+Concrete existing target evidence limits optimistic estimates: D103 default's
+final ELF has **no retained formatConfig symbol**. Its already-collected
+`sketch/src/hal/qtr_cal_format.cpp.o` contains368 bytes of formatConfig text and
+30 bytes of string data (`P2_service_reset_raw/target_1fbd7238_bench-default/audit.json`).
+Those are object-section sizes, not the final marginal loader charge: rodata
+splitting, alignment and loader symbol metadata still apply. New exporter,
+arbitration, status and cleanup text also consume the same llext pool as BSS.
+Thus saving80 persistent bytes alone does not establish fit within1,088 bytes.
+
+First keep wire format to the existing canonical line unless the frozen contract
+demonstrates a need for an envelope. A separate exclusive receive-only decoder
+can require one complete line and publish an external provenance receipt without
+changing recorder framing or adding on-target decimal/CRC/envelope machinery.
+It must not claim token/source/physical identity that the line itself lacks.
+
+Before acceptance, compile exact default/Immediate/MATCH sources and repeat the
+ordered loader/ABI/import/startup audit; verify formatter/exporter elimination
+in MATCH, unchanged recorder bytes/tests, new helper layout and target call-stack
+frames. If default does not fit, record the blocker and measure a narrow next
+change. Do not silently broaden Transfer ownership or weaken evidence to assert
+the feature fits. No production or test edits were made in this assessment.

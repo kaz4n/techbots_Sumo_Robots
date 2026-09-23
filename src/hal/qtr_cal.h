@@ -58,6 +58,7 @@ private:
     bool source_seen_ = false;
 };
 enum class FormatStatus : std::uint8_t { OK, UNAVAILABLE, INVALID, BUFFER_TOO_SMALL };
+inline constexpr std::size_t CONFIG_SNIPPET_CAPACITY = 80U;
 // On failure written=0 and output[0]=NUL when writable. Never emit a partial snippet.
 FormatStatus formatConfig(const Report& report, char* output, std::size_t capacity,
                           std::size_t& written);

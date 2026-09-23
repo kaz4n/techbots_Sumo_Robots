@@ -1,0 +1,288 @@
+# Compiles the actual D082 estimator against analytic specification-derived tests.
+# Isolated variants and startup/allocation counters need no Bus or board connection.
+# Each command, exit, output and opaque source hash is retained under D082 receipts.
+from contextlib import ExitStack, redirect_stderr
+import hashlib
+import importlib.util
+import io
+import json
+import os
+from pathlib import Path
+import re
+import shutil
+import subprocess
+import tempfile
+import time
+from types import SimpleNamespace
+import unittest
+from unittest import mock
+
+ROOT = Path(__file__).resolve().parents[2]
+HEADER_NAMES = ('imu_heading.h', 'imu_acquisition.h', 'imu.h', 'imu_bus_unoq.h')
+
+VARIANT = r'''
+// Checks gap/silence configuration through the real public D082 lifecycle.
+// Invalid configuration takes precedence over unconfirmed map and invalid bias.
+// Every variant uses an isolated copied config and actual opaque estimator source.
+#include "hal/imu_heading.h"
+#include "config.h"
+#include <cstdio>
+#include <cstdlib>
+#include <limits>
+unsigned assertions;
+#define VERIFY(x) do { if (!(x)) { std::fprintf(stderr,"FAIL %d: %s\n",__LINE__,#x); \
+    std::exit(1); } ++assertions; } while(false)
+int main() {
+    imu::Estimator estimator;
+#if D082_EXPECT_VALID
+    VERIFY(estimator.begin(imu::Mounting{{1,2,3},true},0.0F));
+    imu::Sample sample{}; sample.state=imu::SampleState::OBSERVATION;
+    sample.bus_status=imu::BusStatus::OK; sample.sequence=1U; sample.checked_us=10U;
+    sample.motion.status=imu::DecodeStatus::OK; sample.motion.coherent=true;
+    sample.motion.started_us=sample.motion.completed_us=10U;
+    VERIFY(estimator.observe(sample).state==imu::HeadingState::READY);
+    sample.state=imu::SampleState::NO_NEW; sample.motion.coherent=false;
+    sample.checked_us=10U+config::IMU_HEADING_MAX_GAP_US;
+    VERIFY(estimator.observe(sample).state==imu::HeadingState::READY);
+    sample.checked_us+=1U;
+    const auto result=estimator.observe(sample);
+    VERIFY(result.fault==imu::HeadingFault::GAP);
+    VERIFY(result.checked_us==sample.checked_us);
+#else
+    VERIFY(!estimator.begin(imu::Mounting{},std::numeric_limits<float>::quiet_NaN()));
+    const auto result=estimator.report();
+    VERIFY(result.state==imu::HeadingState::FAULT);
+    VERIFY(result.fault==imu::HeadingFault::INVALID_CONFIG);
+    VERIFY(result.sequence==0U && result.checked_us==0U && result.bias_dps==0.0F);
+    VERIFY(!estimator.begin(imu::Mounting{{1,2,3},true},0.0F));
+    VERIFY(!estimator.applyBias(0.0F));
+    VERIFY(estimator.observe(imu::Sample{}).fault==imu::HeadingFault::INVALID_CONFIG);
+#endif
+    std::printf("PASS %u assertions\n",assertions);
+}
+'''
+
+COUNTERS = r'''
+// Counts allocations and unexpected clock or Bus entry without resetting startup evidence.
+// Link wrapping observes C allocation and all ordinary C++ new/delete forms used here.
+// Guarding only the tested body excludes test-framework and process startup overhead.
+#include <cstddef>
+#include <cstdlib>
+#include <new>
+#include "hal/imu_bus_unoq.h"
+bool guard_allocations;
+unsigned allocations, io_calls;
+extern "C" void* __real_malloc(std::size_t);
+extern "C" void* __real_calloc(std::size_t,std::size_t);
+extern "C" void* __real_realloc(void*,std::size_t);
+extern "C" void __real_free(void*);
+extern "C" void* __wrap_malloc(std::size_t n) { if(guard_allocations) ++allocations; return __real_malloc(n); }
+extern "C" void* __wrap_calloc(std::size_t n,std::size_t size) { if(guard_allocations) ++allocations; return __real_calloc(n,size); }
+extern "C" void* __wrap_realloc(void* p,std::size_t n) { if(guard_allocations) ++allocations; return __real_realloc(p,n); }
+extern "C" void __wrap_free(void* p) { if(guard_allocations) ++allocations; __real_free(p); }
+void* operator new(std::size_t n) { auto p=__wrap_malloc(n); if(!p) std::abort(); return p; }
+void* operator new[](std::size_t n) { return operator new(n); }
+void operator delete(void* p) noexcept { __wrap_free(p); }
+void operator delete[](void* p) noexcept { __wrap_free(p); }
+void operator delete(void* p,std::size_t) noexcept { __wrap_free(p); }
+void operator delete[](void* p,std::size_t) noexcept { __wrap_free(p); }
+unsigned long micros() { ++io_calls; return 0U; }
+unsigned long millis() { ++io_calls; return 0U; }
+namespace imu {
+BusInit Bus::begin() { ++io_calls; return {}; }
+BusTransfer Bus::readRegister(Register) { ++io_calls; return {}; }
+BusTransfer Bus::writeRegister(Register,std::uint8_t) { ++io_calls; return {}; }
+BusTransfer Bus::readMotion() { ++io_calls; return {}; }
+BusAcquisition Bus::acquireMotion() { ++io_calls; return {}; }
+}
+'''
+
+ALLOCATION_CASE = r'''
+// Exercises actual D082 success, absence, bias and terminal fault without allocation.
+// The fresh observation count also verifies no sequence is silently dropped.
+// Counters run across construction and destruction as well as every method.
+#include "hal/imu_heading.h"
+#include <cstdio>
+#include <cstdlib>
+extern bool guard_allocations;
+extern unsigned allocations, io_calls;
+#define VERIFY(x) do { if(!(x)) { std::fprintf(stderr,"FAIL %d: %s\n",__LINE__,#x); std::exit(1); } } while(false)
+int main() {
+    guard_allocations=true;
+    {
+        imu::Estimator estimator;
+        VERIFY(estimator.report().state==imu::HeadingState::NOT_STARTED);
+        VERIFY(!estimator.applyBias(0.0F));
+        VERIFY(estimator.begin(imu::Mounting{{1,2,3},true},0.0F));
+        for(std::uint32_t sequence=1U;sequence<=10000U;++sequence) {
+            imu::Sample s{}; s.state=imu::SampleState::OBSERVATION;
+            s.bus_status=imu::BusStatus::OK; s.checked_us=sequence*1000U; s.sequence=sequence;
+            s.had_previous_observation=sequence!=1U; s.observation_gap_us=sequence==1U?0U:1000U;
+            s.motion.status=imu::DecodeStatus::OK; s.motion.coherent=true;
+            s.motion.started_us=s.motion.completed_us=s.checked_us; s.motion.gyro_dps[2]=10.0F;
+            VERIFY(estimator.observe(s).sequence==sequence);
+            VERIFY(estimator.report().state==imu::HeadingState::READY);
+            s.state=imu::SampleState::NO_NEW; s.motion.coherent=false;
+            s.had_previous_observation=false; s.observation_gap_us=0U;
+            VERIFY(!estimator.observe(s).heading_updated);
+            VERIFY(estimator.applyBias(1.0F));
+        }
+        imu::Sample bad{}; bad.state=imu::SampleState::FAULT; bad.fault=imu::SampleFault::SILENCE;
+        VERIFY(estimator.observe(bad).fault==imu::HeadingFault::SOURCE);
+        VERIFY(!estimator.begin(imu::Mounting{{1,2,3},true},0.0F));
+        VERIFY(!estimator.applyBias(0.0F));
+    }
+    guard_allocations=false;
+    VERIFY(allocations==0U); VERIFY(io_calls==0U);
+    std::puts("PASS no allocations or I/O across 10000 observations and terminal fault");
+}
+'''
+
+PROBE_CASE = r'''
+// Checks real inert D082 constructors, sketch setup and10000loops without exercise.
+// Report-state checks catch silent estimator configuration as well as I/O counters.
+// Default unconfirmed mapping is evidence that no physical mounting was selected.
+#include "src/imu_heading_probe.h"
+#include <cstdio>
+#include <cstdlib>
+extern bool guard_allocations;
+extern unsigned allocations, io_calls;
+void setup(); void loop();
+#define VERIFY(x) do { if(!(x)) { std::fprintf(stderr,"FAIL %d: %s\n",__LINE__,#x); std::exit(1); } } while(false)
+int main() {
+    VERIFY(io_calls==0U); VERIFY(imu_heading_probe::entry==nullptr);
+    VERIFY(imu_heading_probe::estimator.report().state==imu::HeadingState::NOT_STARTED);
+    VERIFY(!imu_heading_probe::candidate_mounting.confirmed);
+    for(auto axis:imu_heading_probe::candidate_mounting.body_axis) VERIFY(axis==0);
+    VERIFY(imu_heading_probe::candidate_sample.state==imu::SampleState::NOT_READY);
+    VERIFY(imu_heading_probe::candidate_bias_dps==0.0F);
+    guard_allocations=true;
+    setup(); VERIFY(imu_heading_probe::entry==&imu_heading_probe::exercise);
+    for(unsigned i=0U;i<10000U;++i) { loop(); VERIFY(io_calls==0U); }
+    guard_allocations=false;
+    VERIFY(allocations==0U); VERIFY(io_calls==0U);
+    VERIFY(imu_heading_probe::estimator.report().state==imu::HeadingState::NOT_STARTED);
+    VERIFY(imu_heading_probe::entry==&imu_heading_probe::exercise);
+    std::puts("PASS inert constructors setup and 10000 loops");
+}
+'''
+
+
+class ImuHeadingTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        compiler = shutil.which('g++')
+        if compiler is None:
+            raise RuntimeError('Use Linux/WSL g++ for D082 tests')
+        cls.temp = tempfile.TemporaryDirectory(prefix='sumo-d082-', dir='/dev/shm')
+        cls.addClassCleanup(cls.temp.cleanup)
+        cls.stage = Path(cls.temp.name)
+        cls.receipts = Path(os.environ.get('SUMO_IMU_HEADING_RECEIPT_DIR',
+                            ROOT/'state/analysis/P2_imu_heading_raw/author'))
+        cls.receipts.mkdir(parents=True, exist_ok=True)
+        cls.base = [compiler, '-std=c++17', '-O1', '-Wall', '-Wextra', '-Wpedantic',
+                    '-Werror', '-fno-exceptions', '-fno-rtti', '-fsanitize=undefined',
+                    '-fno-sanitize-recover=all']
+        cls.ordinal = 0
+
+    def command(self, argv, paths):
+        manifest = {str(p): hashlib.sha256(p.read_bytes()).hexdigest() for p in paths}
+        try:
+            result = subprocess.run(list(map(str, argv)), text=True, capture_output=True, timeout=120)
+        except subprocess.TimeoutExpired as error:
+            result = SimpleNamespace(returncode=124, stdout=str(error.stdout or ''),
+                                     stderr=str(error.stderr or '')+'\nTIMEOUT')
+        payload = {'argv': list(map(str, argv)), 'returncode': result.returncode,
+                   'stdout': result.stdout, 'stderr': result.stderr, 'sha256': manifest,
+                   'capture': 'subprocess text=True; newline normalized'}
+        (self.receipts/f'command_{time.time_ns()}.json').write_text(json.dumps(payload, indent=2)+'\n')
+        self.assertEqual(0, result.returncode, (result.stdout + result.stderr)[:6000])
+        return result
+
+    def stage_sources(self, edits=None):
+        self.__class__.ordinal += 1
+        slot = self.stage/f'case-{self.ordinal}'; (slot/'src/hal').mkdir(parents=True)
+        for name in (*HEADER_NAMES, 'imu_heading.cpp'):
+            shutil.copyfile(ROOT/'src/hal'/name, slot/'src/hal'/name)
+        config = (ROOT/'src/config.h').read_text()
+        for name, value in (edits or {}).items():
+            config, count = re.subn(r'(\b'+re.escape(name)+r'\s*=\s*)[^;]+;',
+                                   r'\g<1>'+str(value)+'U;', config)
+            self.assertEqual(count, 1, name)
+        (slot/'src/config.h').write_text(config)
+        return slot
+
+    def variant(self, edits, valid=False):
+        slot = self.stage_sources(edits); case = slot/'variant.cc'; case.write_text(VARIANT)
+        inputs = [p for p in slot.rglob('*') if p.is_file()]; binary = slot/'variant'
+        self.command([*self.base, '-I', slot/'src', f'-DD082_EXPECT_VALID={int(valid)}', case,
+                      slot/'src/hal/imu_heading.cpp', '-o', binary], inputs)
+        self.assertRegex(self.command([binary], inputs).stdout, r'^PASS [1-9][0-9]* assertions\n$')
+
+    def test_b3_d082_actual_analytic_mapping_and_lifecycle_contract(self):
+        slot = self.stage_sources(); binary = slot/'heading'
+        case = ROOT/'tests/test_imu_heading.cpp'; main = ROOT/'tests/native_imu_bus/test_main.cc'
+        inputs = [p for p in slot.rglob('*') if p.is_file()] + [case, main]
+        self.command([*self.base, '-DDOCTEST_CONFIG_NO_EXCEPTIONS', '-I', slot/'src',
+            '-isystem', ROOT/'host/third_party', case, main, slot/'src/hal/imu_heading.cpp',
+            '-o', binary], inputs)
+        result = self.command([binary, '--no-colors'], inputs)
+        self.assertIn('Status: SUCCESS!', result.stdout); print(result.stdout, flush=True)
+
+    def test_b3_d082_invalid_gap_and_silence_config_precede_mounting_and_bias(self):
+        for gap in (0, 20000, 20001, 0x80000000):
+            with self.subTest(gap=gap):
+                self.variant({'IMU_HEADING_MAX_GAP_US': gap})
+        for silence in (0, 2000, 0x80000000):
+            with self.subTest(silence=silence):
+                self.variant({'IMU_SILENCE_US': silence})
+
+    def test_b3_d082_smallest_and_largest_valid_gap_intervals(self):
+        for edits in ({'IMU_HEADING_MAX_GAP_US': 1}, {'IMU_HEADING_MAX_GAP_US': 19999},
+                      {'IMU_HEADING_MAX_GAP_US': 0x7ffffffe, 'IMU_SILENCE_US': 0x7fffffff}):
+            with self.subTest(edits=edits):
+                self.variant(edits, valid=True)
+
+    def test_b3_d082_allocation_and_io_counters_cover_every_runtime_method(self):
+        slot = self.stage_sources(); case = slot/'allocation.cc'; case.write_text(ALLOCATION_CASE)
+        counters = slot/'counters.cc'; counters.write_text(COUNTERS)
+        inputs = [p for p in slot.rglob('*') if p.is_file()]; binary = slot/'allocation'
+        self.command([*self.base, '-I', slot/'src', case, counters,
+            slot/'src/hal/imu_heading.cpp', '-Wl,--wrap=malloc,--wrap=calloc,--wrap=realloc,--wrap=free',
+            '-o', binary], inputs)
+        self.assertIn('PASS no allocations or I/O', self.command([binary], inputs).stdout)
+
+    def test_b3_d082_actual_probe_startup_and10000loops_are_inert_in_both_modes(self):
+        for enabled in (0, 1):
+            with self.subTest(enabled=enabled):
+                slot = self.stage_sources()
+                shutil.copytree(ROOT/'bench/p2_imu_heading_compile', slot, dirs_exist_ok=True)
+                case = slot/'probe.cc'; case.write_text(PROBE_CASE)
+                counters = slot/'counters.cc'; counters.write_text(COUNTERS)
+                inputs = [p for p in slot.rglob('*') if p.is_file()]; binary = slot/'probe'
+                self.command([*self.base, f'-DMATCH={enabled}', f'-DMOTORS_ALLOWED={enabled}',
+                    '-I', slot, '-I', slot/'src', '-x', 'c++', slot/'p2_imu_heading_compile.ino',
+                    slot/'src/imu_heading_probe.cpp', slot/'src/hal/imu_heading.cpp', case, counters,
+                    '-Wl,--wrap=malloc,--wrap=calloc,--wrap=realloc,--wrap=free', '-o', binary], inputs)
+                self.assertEqual('PASS inert constructors setup and 10000 loops\n',
+                                 self.command([binary], inputs).stdout)
+
+    def test_b3_d082_all_eight_upload_modes_refuse_before_board_or_transport(self):
+        spec = importlib.util.spec_from_file_location('d082_board_tool', ROOT/'tools/board_tool.py')
+        board = importlib.util.module_from_spec(spec); spec.loader.exec_module(board)
+        for transport in ('adb', 'ssh'):
+            for match in (False, True):
+                for startup in ('default', 'immediate'):
+                    with self.subTest(transport=transport, match=match, startup=startup), ExitStack() as stack:
+                        stack.enter_context(mock.patch.dict(os.environ, {'SUMO_TRANSPORT': transport}))
+                        target = stack.enter_context(mock.patch.object(board, 'target'))
+                        remote = stack.enter_context(mock.patch.object(board, 'remote'))
+                        require_transport = stack.enter_context(mock.patch.object(board, 'require_transport'))
+                        with redirect_stderr(io.StringIO()), self.assertRaises(ValueError):
+                            board.flash(SimpleNamespace(sketch='bench/p2_imu_heading_compile',
+                                match=match, startup=startup, compile_only=False))
+                        target.assert_not_called(); remote.assert_not_called(); require_transport.assert_not_called()
+
+
+if __name__ == '__main__':
+    unittest.main(verbosity=2)

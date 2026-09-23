@@ -1,0 +1,327 @@
+
+00000030 <_GLOBAL__sub_I_setup>:
+      30:	b51f      	push	{r0, r1, r2, r3, r4, lr}
+      32:	4905      	ldr	r1, [pc, #20]	@ (48 <_GLOBAL__sub_I_setup+0x18>)
+      34:	4668      	mov	r0, sp
+      36:	4b05      	ldr	r3, [pc, #20]	@ (4c <_GLOBAL__sub_I_setup+0x1c>)
+      38:	4798      	blx	r3
+      3a:	4669      	mov	r1, sp
+      3c:	4b04      	ldr	r3, [pc, #16]	@ (50 <_GLOBAL__sub_I_setup+0x20>)
+      3e:	4805      	ldr	r0, [pc, #20]	@ (54 <_GLOBAL__sub_I_setup+0x24>)
+      40:	4798      	blx	r3
+      42:	b005      	add	sp, #20
+      44:	f85d fb04 	ldr.w	pc, [sp], #4
+	...
+			48: R_ARM_ABS32	.data
+			4c: R_ARM_ABS32	_ZN4vbat6Native4portEv
+			50: R_ARM_ABS32	_ZN4vbat6RunnerC1ERKNS_4PortE
+			54: R_ARM_ABS32	.bss
+
+00000000 <setup>:
+       0:	2300      	movs	r3, #0
+       2:	b507      	push	{r0, r1, r2, lr}
+       4:	4804      	ldr	r0, [pc, #16]	@ (18 <setup+0x18>)
+       6:	f88d 3004 	strb.w	r3, [sp, #4]
+       a:	a901      	add	r1, sp, #4
+       c:	4b03      	ldr	r3, [pc, #12]	@ (1c <setup+0x1c>)
+       e:	4798      	blx	r3
+      10:	b003      	add	sp, #12
+      12:	f85d fb04 	ldr.w	pc, [sp], #4
+      16:	bf00      	nop
+	...
+			18: R_ARM_ABS32	.bss
+			1c: R_ARM_ABS32	_ZN4vbat6Runner5beginERKNS_6GrantsE
+
+00001194 <_ZN4vbat6Runner5beginERKNS_6GrantsE>:
+    1194:	b5f7      	push	{r0, r1, r2, r4, r5, r6, r7, lr}
+    1196:	f500 5580 	add.w	r5, r0, #4096	@ 0x1000
+    119a:	f895 6878 	ldrb.w	r6, [r5, #2168]	@ 0x878
+    119e:	4604      	mov	r4, r0
+    11a0:	b976      	cbnz	r6, 11c0 <_ZN4vbat6Runner5beginERKNS_6GrantsE+0x2c>
+    11a2:	2701      	movs	r7, #1
+    11a4:	f885 7878 	strb.w	r7, [r5, #2168]	@ 0x878
+    11a8:	780b      	ldrb	r3, [r1, #0]
+    11aa:	b913      	cbnz	r3, 11b2 <_ZN4vbat6Runner5beginERKNS_6GrantsE+0x1e>
+    11ac:	7407      	strb	r7, [r0, #16]
+    11ae:	2001      	movs	r0, #1
+    11b0:	e007      	b.n	11c2 <_ZN4vbat6Runner5beginERKNS_6GrantsE+0x2e>
+    11b2:	4b1e      	ldr	r3, [pc, #120]	@ (122c <_ZN4vbat6Runner5beginERKNS_6GrantsE+0x98>)
+    11b4:	4798      	blx	r3
+    11b6:	b930      	cbnz	r0, 11c6 <_ZN4vbat6Runner5beginERKNS_6GrantsE+0x32>
+    11b8:	4639      	mov	r1, r7
+    11ba:	4620      	mov	r0, r4
+    11bc:	4b1c      	ldr	r3, [pc, #112]	@ (1230 <_ZN4vbat6Runner5beginERKNS_6GrantsE+0x9c>)
+    11be:	4798      	blx	r3
+    11c0:	2000      	movs	r0, #0
+    11c2:	b003      	add	sp, #12
+    11c4:	bdf0      	pop	{r4, r5, r6, r7, pc}
+    11c6:	4669      	mov	r1, sp
+    11c8:	4620      	mov	r0, r4
+    11ca:	4b1a      	ldr	r3, [pc, #104]	@ (1234 <_ZN4vbat6Runner5beginERKNS_6GrantsE+0xa0>)
+    11cc:	e9cd 6600 	strd	r6, r6, [sp]
+    11d0:	4798      	blx	r3
+    11d2:	2800      	cmp	r0, #0
+    11d4:	d0f4      	beq.n	11c0 <_ZN4vbat6Runner5beginERKNS_6GrantsE+0x2c>
+    11d6:	f8c5 6880 	str.w	r6, [r5, #2176]	@ 0x880
+    11da:	f104 063c 	add.w	r6, r4, #60	@ 0x3c
+    11de:	4631      	mov	r1, r6
+    11e0:	4620      	mov	r0, r4
+    11e2:	4b15      	ldr	r3, [pc, #84]	@ (1238 <_ZN4vbat6Runner5beginERKNS_6GrantsE+0xa4>)
+    11e4:	f885 787a 	strb.w	r7, [r5, #2170]	@ 0x87a
+    11e8:	4798      	blx	r3
+    11ea:	68a3      	ldr	r3, [r4, #8]
+    11ec:	6820      	ldr	r0, [r4, #0]
+    11ee:	4798      	blx	r3
+    11f0:	f3c0 2307 	ubfx	r3, r0, #8, #8
+    11f4:	75e0      	strb	r0, [r4, #23]
+    11f6:	f3c0 4007 	ubfx	r0, r0, #16, #8
+    11fa:	7623      	strb	r3, [r4, #24]
+    11fc:	7660      	strb	r0, [r4, #25]
+    11fe:	e9d4 0300 	ldrd	r0, r3, [r4]
+    1202:	4798      	blx	r3
+    1204:	4605      	mov	r5, r0
+    1206:	4b0d      	ldr	r3, [pc, #52]	@ (123c <_ZN4vbat6Runner5beginERKNS_6GrantsE+0xa8>)
+    1208:	4620      	mov	r0, r4
+    120a:	4798      	blx	r3
+    120c:	4629      	mov	r1, r5
+    120e:	4b0c      	ldr	r3, [pc, #48]	@ (1240 <_ZN4vbat6Runner5beginERKNS_6GrantsE+0xac>)
+    1210:	4620      	mov	r0, r4
+    1212:	4798      	blx	r3
+    1214:	4d0b      	ldr	r5, [pc, #44]	@ (1244 <_ZN4vbat6Runner5beginERKNS_6GrantsE+0xb0>)
+    1216:	4632      	mov	r2, r6
+    1218:	4620      	mov	r0, r4
+    121a:	9900      	ldr	r1, [sp, #0]
+    121c:	ab01      	add	r3, sp, #4
+    121e:	47a8      	blx	r5
+    1220:	2800      	cmp	r0, #0
+    1222:	d0cd      	beq.n	11c0 <_ZN4vbat6Runner5beginERKNS_6GrantsE+0x2c>
+    1224:	2302      	movs	r3, #2
+    1226:	7423      	strb	r3, [r4, #16]
+    1228:	e7c1      	b.n	11ae <_ZN4vbat6Runner5beginERKNS_6GrantsE+0x1a>
+    122a:	bf00      	nop
+	...
+			122c: R_ARM_ABS32	_ZNK4vbat6Runner10portsValidEv
+			1230: R_ARM_ABS32	_ZN4vbat6Runner4failENS_5FaultE
+			1234: R_ARM_ABS32	_ZN4vbat6Runner5clockERj
+			1238: R_ARM_ABS32	_ZN4vbat6Runner7attemptERNS_6TimingE
+			123c: R_ARM_ABS32	_ZN4vbat6Runner12examineSetupEv
+			1240: R_ARM_ABS32	_ZN4vbat6Runner10admitClockEj
+			1244: R_ARM_ABS32	_ZN4vbat6Runner5closeEjRNS_6TimingERj
+
+000013b0 <_ZN4vbat6Runner4pollEv>:
+    13b0:	b537      	push	{r0, r1, r2, r4, r5, lr}
+    13b2:	2500      	movs	r5, #0
+    13b4:	7c03      	ldrb	r3, [r0, #16]
+    13b6:	4604      	mov	r4, r0
+    13b8:	2b02      	cmp	r3, #2
+    13ba:	7485      	strb	r5, [r0, #18]
+    13bc:	d119      	bne.n	13f2 <_ZN4vbat6Runner4pollEv+0x42>
+    13be:	4b14      	ldr	r3, [pc, #80]	@ (1410 <_ZN4vbat6Runner4pollEv+0x60>)
+    13c0:	f100 0164 	add.w	r1, r0, #100	@ 0x64
+    13c4:	4798      	blx	r3
+    13c6:	4b13      	ldr	r3, [pc, #76]	@ (1414 <_ZN4vbat6Runner4pollEv+0x64>)
+    13c8:	a901      	add	r1, sp, #4
+    13ca:	9501      	str	r5, [sp, #4]
+    13cc:	4798      	blx	r3
+    13ce:	b180      	cbz	r0, 13f2 <_ZN4vbat6Runner4pollEv+0x42>
+    13d0:	f504 5380 	add.w	r3, r4, #4096	@ 0x1000
+    13d4:	f893 287b 	ldrb.w	r2, [r3, #2171]	@ 0x87b
+    13d8:	b19a      	cbz	r2, 1402 <_ZN4vbat6Runner4pollEv+0x52>
+    13da:	f8d3 2884 	ldr.w	r2, [r3, #2180]	@ 0x884
+    13de:	f242 730f 	movw	r3, #9999	@ 0x270f
+    13e2:	429a      	cmp	r2, r3
+    13e4:	d808      	bhi.n	13f8 <_ZN4vbat6Runner4pollEv+0x48>
+    13e6:	2201      	movs	r2, #1
+    13e8:	4620      	mov	r0, r4
+    13ea:	4b0b      	ldr	r3, [pc, #44]	@ (1418 <_ZN4vbat6Runner4pollEv+0x68>)
+    13ec:	f104 0134 	add.w	r1, r4, #52	@ 0x34
+    13f0:	4798      	blx	r3
+    13f2:	2000      	movs	r0, #0
+    13f4:	b003      	add	sp, #12
+    13f6:	bd30      	pop	{r4, r5, pc}
+    13f8:	f242 7310 	movw	r3, #10000	@ 0x2710
+    13fc:	fbb2 f2f3 	udiv	r2, r2, r3
+    1400:	3a01      	subs	r2, #1
+    1402:	4620      	mov	r0, r4
+    1404:	9901      	ldr	r1, [sp, #4]
+    1406:	4b05      	ldr	r3, [pc, #20]	@ (141c <_ZN4vbat6Runner4pollEv+0x6c>)
+    1408:	b003      	add	sp, #12
+    140a:	e8bd 4030 	ldmia.w	sp!, {r4, r5, lr}
+    140e:	4718      	bx	r3
+	...
+			1410: R_ARM_ABS32	_ZN4vbat6Runner7attemptERNS_6TimingE
+			1414: R_ARM_ABS32	_ZN4vbat6Runner5clockERj
+			1418: R_ARM_ABS32	_ZN4vbat6Runner3addERjj
+			141c: R_ARM_ABS32	_ZN4vbat6Runner4readEjj
+
+00001444 <_ZN4vbat6Native4portEv>:
+    1444:	4a03      	ldr	r2, [pc, #12]	@ (1454 <_ZN4vbat6Native4portEv+0x10>)
+    1446:	6001      	str	r1, [r0, #0]
+    1448:	6042      	str	r2, [r0, #4]
+    144a:	4a03      	ldr	r2, [pc, #12]	@ (1458 <_ZN4vbat6Native4portEv+0x14>)
+    144c:	6082      	str	r2, [r0, #8]
+    144e:	4a03      	ldr	r2, [pc, #12]	@ (145c <_ZN4vbat6Native4portEv+0x18>)
+    1450:	60c2      	str	r2, [r0, #12]
+    1452:	4770      	bx	lr
+	...
+			1454: R_ARM_ABS32	_ZN4vbat6Native7clockUsEPv
+			1458: R_ARM_ABS32	_ZN4vbat6Native12beginBatteryEPv
+			145c: R_ARM_ABS32	_ZN4vbat6Native11readBatteryEPv
+
+00000ed4 <_ZN4vbat6RunnerC1ERKNS_4PortE>:
+     ed4:	b538      	push	{r3, r4, r5, lr}
+     ed6:	4604      	mov	r4, r0
+     ed8:	c90f      	ldmia	r1, {r0, r1, r2, r3}
+     eda:	e884 000f 	stmia.w	r4, {r0, r1, r2, r3}
+     ede:	2100      	movs	r1, #0
+     ee0:	f04f 7380 	mov.w	r3, #16777216	@ 0x1000000
+     ee4:	2501      	movs	r5, #1
+     ee6:	e9c4 1304 	strd	r1, r3, [r4, #16]
+     eea:	2300      	movs	r3, #0
+     eec:	f44f 52c0 	mov.w	r2, #6144	@ 0x1800
+     ef0:	e9c4 5107 	strd	r5, r1, [r4, #28]
+     ef4:	e9c4 110c 	strd	r1, r1, [r4, #48]	@ 0x30
+     ef8:	e9c4 110e 	strd	r1, r1, [r4, #56]	@ 0x38
+     efc:	e9c4 1110 	strd	r1, r1, [r4, #64]	@ 0x40
+     f00:	e9c4 1114 	strd	r1, r1, [r4, #80]	@ 0x50
+     f04:	e9c4 1116 	strd	r1, r1, [r4, #88]	@ 0x58
+     f08:	8321      	strh	r1, [r4, #24]
+     f0a:	6261      	str	r1, [r4, #36]	@ 0x24
+     f0c:	62a3      	str	r3, [r4, #40]	@ 0x28
+     f0e:	f884 102c 	strb.w	r1, [r4, #44]	@ 0x2c
+     f12:	4b12      	ldr	r3, [pc, #72]	@ (f5c <_ZN4vbat6RunnerC1ERKNS_4PortE+0x88>)
+     f14:	64a1      	str	r1, [r4, #72]	@ 0x48
+     f16:	f884 104c 	strb.w	r1, [r4, #76]	@ 0x4c
+     f1a:	f884 1060 	strb.w	r1, [r4, #96]	@ 0x60
+     f1e:	f104 0078 	add.w	r0, r4, #120	@ 0x78
+     f22:	e9c4 1119 	strd	r1, r1, [r4, #100]	@ 0x64
+     f26:	e9c4 111b 	strd	r1, r1, [r4, #108]	@ 0x6c
+     f2a:	f884 1074 	strb.w	r1, [r4, #116]	@ 0x74
+     f2e:	4798      	blx	r3
+     f30:	4623      	mov	r3, r4
+     f32:	f504 52c0 	add.w	r2, r4, #6144	@ 0x1800
+     f36:	f883 5078 	strb.w	r5, [r3, #120]	@ 0x78
+     f3a:	3330      	adds	r3, #48	@ 0x30
+     f3c:	4293      	cmp	r3, r2
+     f3e:	d1fa      	bne.n	f36 <_ZN4vbat6RunnerC1ERKNS_4PortE+0x62>
+     f40:	2200      	movs	r2, #0
+     f42:	f504 5380 	add.w	r3, r4, #4096	@ 0x1000
+     f46:	f8c3 2878 	str.w	r2, [r3, #2168]	@ 0x878
+     f4a:	f8c3 287c 	str.w	r2, [r3, #2172]	@ 0x87c
+     f4e:	f8c3 2880 	str.w	r2, [r3, #2176]	@ 0x880
+     f52:	f8c3 2884 	str.w	r2, [r3, #2180]	@ 0x884
+     f56:	4620      	mov	r0, r4
+     f58:	bd38      	pop	{r3, r4, r5, pc}
+     f5a:	bf00      	nop
+     f5c:	00000000 	.word	0x00000000
+			f5c: R_ARM_ABS32	memset
+
+00001490 <main>:
+    1490:	b538      	push	{r3, r4, r5, lr}
+    1492:	4b05      	ldr	r3, [pc, #20]	@ (14a8 <main+0x18>)
+    1494:	4798      	blx	r3
+    1496:	4b05      	ldr	r3, [pc, #20]	@ (14ac <main+0x1c>)
+    1498:	4798      	blx	r3
+    149a:	4b05      	ldr	r3, [pc, #20]	@ (14b0 <main+0x20>)
+    149c:	4798      	blx	r3
+    149e:	4d05      	ldr	r5, [pc, #20]	@ (14b4 <main+0x24>)
+    14a0:	4c05      	ldr	r4, [pc, #20]	@ (14b8 <main+0x28>)
+    14a2:	47a8      	blx	r5
+    14a4:	47a0      	blx	r4
+    14a6:	e7fc      	b.n	14a2 <main+0x12>
+	...
+			14a8: R_ARM_ABS32	initVariant
+			14ac: R_ARM_ABS32	_Z20start_static_threadsv
+			14b0: R_ARM_ABS32	setup
+			14b4: R_ARM_ABS32	loop
+			14b8: R_ARM_ABS32	_Z10__loopHookv
+
+000014bc <_Z20start_static_threadsv>:
+    14bc:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+    14c0:	4c15      	ldr	r4, [pc, #84]	@ (1518 <_Z20start_static_threadsv+0x5c>)
+    14c2:	4e16      	ldr	r6, [pc, #88]	@ (151c <_Z20start_static_threadsv+0x60>)
+    14c4:	4f16      	ldr	r7, [pc, #88]	@ (1520 <_Z20start_static_threadsv+0x64>)
+    14c6:	f8df 805c 	ldr.w	r8, [pc, #92]	@ 1524 <_Z20start_static_threadsv+0x68>
+    14ca:	b089      	sub	sp, #36	@ 0x24
+    14cc:	4625      	mov	r5, r4
+    14ce:	42b5      	cmp	r5, r6
+    14d0:	f104 0430 	add.w	r4, r4, #48	@ 0x30
+    14d4:	d302      	bcc.n	14dc <_Z20start_static_threadsv+0x20>
+    14d6:	b009      	add	sp, #36	@ 0x24
+    14d8:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+    14dc:	ed14 7b02 	vldr	d7, [r4, #-8]
+    14e0:	e954 010c 	ldrd	r0, r1, [r4, #-48]	@ 0x30
+    14e4:	e954 230a 	ldrd	r2, r3, [r4, #-40]	@ 0x28
+    14e8:	e954 ce08 	ldrd	ip, lr, [r4, #-32]
+    14ec:	e954 9a06 	ldrd	r9, sl, [r4, #-24]
+    14f0:	f854 bc10 	ldr.w	fp, [r4, #-16]
+    14f4:	ed8d 7b06 	vstr	d7, [sp, #24]
+    14f8:	e9cd ab03 	strd	sl, fp, [sp, #12]
+    14fc:	e9cd e901 	strd	lr, r9, [sp, #4]
+    1500:	f8cd c000 	str.w	ip, [sp]
+    1504:	47b8      	blx	r7
+    1506:	f854 0c30 	ldr.w	r0, [r4, #-48]
+    150a:	f854 1c0c 	ldr.w	r1, [r4, #-12]
+    150e:	47c0      	blx	r8
+    1510:	f854 3c30 	ldr.w	r3, [r4, #-48]
+    1514:	655d      	str	r5, [r3, #84]	@ 0x54
+    1516:	e7d9      	b.n	14cc <_Z20start_static_threadsv+0x10>
+	...
+			1518: R_ARM_ABS32	__static_thread_data_list_start
+			151c: R_ARM_ABS32	__static_thread_data_list_end
+			1520: R_ARM_ABS32	z_impl_k_thread_create
+			1524: R_ARM_ABS32	z_impl_k_thread_name_set
+
+00001460 <__cxa_allocate_exception>:
+    1460:	b508      	push	{r3, lr}
+    1462:	4b01      	ldr	r3, [pc, #4]	@ (1468 <__cxa_allocate_exception+0x8>)
+    1464:	4798      	blx	r3
+    1466:	bf00      	nop
+    1468:	00000000 	.word	0x00000000
+			1468: R_ARM_ABS32	abort
+
+00000bf0 <_ZN5power6Reader5beginEv>:
+     bf0:	2100      	movs	r1, #0
+     bf2:	4b02      	ldr	r3, [pc, #8]	@ (bfc <_ZN5power6Reader5beginEv+0xc>)
+     bf4:	b082      	sub	sp, #8
+     bf6:	b002      	add	sp, #8
+     bf8:	4718      	bx	r3
+     bfa:	bf00      	nop
+     bfc:	00000000 	.word	0x00000000
+			bfc: R_ARM_ABS32	_ZN5power6Reader12beginProfileEb
+
+00000ec0 <_ZN5power6Reader4readEv>:
+     ec0:	b538      	push	{r3, r4, r5, lr}
+     ec2:	4604      	mov	r4, r0
+     ec4:	2301      	movs	r3, #1
+     ec6:	2209      	movs	r2, #9
+     ec8:	4d01      	ldr	r5, [pc, #4]	@ (ed0 <_ZN5power6Reader4readEv+0x10>)
+     eca:	47a8      	blx	r5
+     ecc:	4620      	mov	r0, r4
+     ece:	bd38      	pop	{r3, r4, r5, pc}
+     ed0:	00000000 	.word	0x00000000
+			ed0: R_ARM_ABS32	_ZN5power6Reader7acquireEjb
+
+00001420 <_ZN4vbat6Native7clockUsEPv>:
+    1420:	4b00      	ldr	r3, [pc, #0]	@ (1424 <_ZN4vbat6Native7clockUsEPv+0x4>)
+    1422:	4718      	bx	r3
+    1424:	00000000 	.word	0x00000000
+			1424: R_ARM_ABS32	micros
+
+00001428 <_ZN4vbat6Native12beginBatteryEPv>:
+    1428:	4b01      	ldr	r3, [pc, #4]	@ (1430 <_ZN4vbat6Native12beginBatteryEPv+0x8>)
+    142a:	b082      	sub	sp, #8
+    142c:	b002      	add	sp, #8
+    142e:	4718      	bx	r3
+    1430:	00000000 	.word	0x00000000
+			1430: R_ARM_ABS32	_ZN5power6Reader5beginEv
+
+00001434 <_ZN4vbat6Native11readBatteryEPv>:
+    1434:	b510      	push	{r4, lr}
+    1436:	4604      	mov	r4, r0
+    1438:	4b01      	ldr	r3, [pc, #4]	@ (1440 <_ZN4vbat6Native11readBatteryEPv+0xc>)
+    143a:	4798      	blx	r3
+    143c:	4620      	mov	r0, r4
+    143e:	bd10      	pop	{r4, pc}
+    1440:	00000000 	.word	0x00000000
+			1440: R_ARM_ABS32	_ZN5power6Reader4readEv

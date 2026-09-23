@@ -1,0 +1,35 @@
+{
+  "profiles": 5,
+  "original_checks_per_profile": 18,
+  "original_check_executions": 90,
+  "positive_profiles": 1,
+  "deliberate_negative_profiles": 4,
+  "all_sources_unchanged": true,
+  "profiles_detail": [
+    {
+      "profile": "approved-D096-defaults",
+      "expected_failure": false,
+      "nested_success": true
+    },
+    {
+      "profile": "APP_QTR_SERVICE_US-wrong-value",
+      "expected_failure": true,
+      "nested_success": false
+    },
+    {
+      "profile": "APP_SERVICE_MAX_PASSES-wrong-value",
+      "expected_failure": true,
+      "nested_success": false
+    },
+    {
+      "profile": "APP_CLOCK_STALL_MAX_POLLS-wrong-value",
+      "expected_failure": true,
+      "nested_success": false
+    },
+    {
+      "profile": "D110-wrong-capacity-129",
+      "expected_failure": true,
+      "nested_success": false
+    }
+  ]
+}

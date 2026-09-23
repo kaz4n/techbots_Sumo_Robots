@@ -1,0 +1,1557 @@
+{
+  "verdict": "PASS_SCOPED_SOURCE_TESTS_TOOLING_CHECKED_TARGET_AND_CONDITIONAL_FIT",
+  "date": "2026-09-24 Asia/Dubai",
+  "reviewer_context": "Reused same-model separate safety reviewer; read implementation. Not a human phase gate.",
+  "open_blockers": [],
+  "open_majors": [],
+  "open_minors": [],
+  "source_sha256": {
+    "bench/vbat/vbat.ino": "d2027b30da15e79344d6111a8202adee511a347cd51a8760aee60e172ac4eca8",
+    "bench/vbat/src/vbat.h": "cb03249f54b2ebb26d52fc38d5bbe20fee6316b2af8378f329d8b842a0546dfa",
+    "bench/vbat/src/vbat_native.h": "b927393f74696184a848804bae40bfdf4b46effa73ba58f0449c43afff3bba66",
+    "bench/vbat/src/vbat.cpp": "b5fa7eea988e91a9b0fdb350b34fed982cef9893bde47e56c289e07a403c0475",
+    "bench/vbat/src/vbat_native.cpp": "223775f9977883a93200ee9bc68403630f33cb2f2aa16ca46ff8ec5507934e58",
+    "src/config.h": "329227cdec0bbb3e107ad7becf8c0e3e666ec58fa546b66474b2e9d5ed95cf6d"
+  },
+  "tool_sha256": {
+    "tools/board_tool.py": "870e0e42cb99b89a75d2118ba49084bb4acef4ecff8489ce951053b30d6b1084",
+    "tools/app_build_policy.py": "2bc153e564d9b78a40d3ed335ffd7d44c858b2e6be3c1560f2dbf371d91a2ab8"
+  },
+  "oracle_sha256": {
+    "tests/tooling/vbat_cases.cc": "196faa64a112c6a7b37d50524a84433e83b1fb7a21403781953dcf02f795e0f7",
+    "tests/tooling/test_vbat.py": "34e3a8967cb7048f5d4e482416c4cc01847ac2c9607cfab431283ed0bcbf1283"
+  },
+  "evidence_sha256": {
+    "state/reviews/P2_vbat_review.md": "b100cbf69aa4cef8e4cc5c4be0a554fda03f2817c5f94649baae8bca65e8577f",
+    "state/analysis/P2_vbat_contract.md": "9652c486243925e387d37361964f2e5f019a1904ed5de896086a21635a7cb11a",
+    "state/analysis/P2_vbat_test_preflight.md": "95cfed69fce737848a4a6f15022ddfd7dfdc8978ffb4b0d7c7af40f9107778f6",
+    "tests/tooling/test_vbat_policy.py": "7f76363e66d65d07004ea8d566fdff7c775ee11f47ee820a7e890f8e9219bbd9",
+    "tests/tooling/test_p0_config.py": "9252acfc639c9729fe47b03d1d5e5f7e21088ef90bcb0c65132620f00315ce5e",
+    "tools/p0_inert_sources.json": "d706c700b4d41df86d6480b3f16e54960e74c6d5cd8a9ce48647b82687cae65a",
+    "state/analysis/P2_vbat_raw/worker/second_source_freeze.json": "776ceaf6fad32ddca988b991d288f030beb6dc339a45e51ebe6f084df70447a5",
+    "state/analysis/P2_vbat_raw/author/freeze.json": "3bc1da65c2abe793051c3c73530bcbd08e0a9183d41ab0ea2b3b00aca6b7e307",
+    "state/analysis/P2_vbat_raw/author/run1_summary.json": "d447bc7f665d9d6af31944551d78c47ba433fa1ff4c687b4062626c54dbd2860",
+    "state/analysis/P2_vbat_raw/author/coverage.md": "2d8f15d5fc99c260c1c4c58e016197dc264b9d3345074009ec5e54a9e305ab30",
+    "state/analysis/P2_vbat_raw/author/validation.md": "8086da11b6a675cc19baf2dc18c7fff1781f8ea320653c310365f14d20458458",
+    "state/reviews/P2_vbat_review_raw/source_review.json": "63249f17fb40778494df0ab15973fe673c429fc628c091b5b1a40dc774803781",
+    "state/reviews/P2_vbat_review_raw/execution_review.json": "02d5cc53744ebd7b4eb910e78950dcbd1c7fe8fefe5be89f668d0876d2737e6d",
+    "state/reviews/P2_vbat_review_raw/harness_notes.md": "c1c26af274d6e68ec9c2b6cece945e1e03c62479ff50d73990727c859c0316f3",
+    "state/reviews/P2_vbat_review_raw/review_source.py": "766a8569bd48eb132f1a24be11c4e21af01177ef41962900e9dfe236c3b71adb",
+    "state/reviews/P2_vbat_review_raw/review_execution.py": "84adb8aab43cabd31c49b2df41d62b83320cfec8bc1a326abaea70225257acfc",
+    "state/reviews/P2_vbat_review_raw/review_target.py": "9904738496436d454777b7ddf651fac394f1dd826c19ff6ed9cc84f072f97ae6",
+    "state/reviews/P2_vbat_review_raw/review_policy.py": "702a4cf1c659de5d25cd4eec26c826512589e9dd62ef7a0030932321567130ab",
+    "state/reviews/P2_vbat_review_raw/run_firmware.py": "9e834e75a7cf3fba61d1fe637dc5ac431a8e76fdbf8427909ebdaa2fa3f5e419",
+    "state/reviews/P2_vbat_review_raw/firmware_1790195790876863861.json": "a00542547f5d2445e24d0a636ce87e3c11356119712fab6bdbf4d34196d8f70d",
+    "state/reviews/P2_vbat_review_raw/policy_1790195692330086332.json": "135ccb071707fad413dcae9916de6583363b73f32328cd6481e177142e49c672",
+    "state/reviews/P2_vbat_review_raw/target_8e3efb92_bench-default.json": "5ef534812c22c54043307a565bb08c14ef161e80e36bf59851ad7d4165f0e331",
+    "state/reviews/P2_vbat_review_raw/target_8e3efb92_bench-immediate.json": "8339db15bd08dc404eda4e5993189dd9348fd3bf81be92cdaafb12cbf177602d",
+    "state/reviews/P2_vbat_review_raw/target_8e3efb92_bench-default_witness.txt": "e71d2f8622f2492288de96fc1f7632399f3a1097cdc702c10a2a2c293d220f64",
+    "state/reviews/P2_vbat_review_raw/target_8e3efb92_bench-immediate_witness.txt": "e71d2f8622f2492288de96fc1f7632399f3a1097cdc702c10a2a2c293d220f64"
+  },
+  "tests": {
+    "verdict": "PASS_PRIVATE_FROZEN_D110_EXECUTION",
+    "firmware_receipt": "firmware_1790195790876863861.json",
+    "firmware_receipt_sha256": "a00542547f5d2445e24d0a636ce87e3c11356119712fab6bdbf4d34196d8f70d",
+    "oracle_sha256": {
+      "tests/tooling/vbat_cases.cc": "196faa64a112c6a7b37d50524a84433e83b1fb7a21403781953dcf02f795e0f7",
+      "tests/tooling/test_vbat.py": "34e3a8967cb7048f5d4e482416c4cc01847ac2c9607cfab431283ed0bcbf1283"
+    },
+    "profiles": [
+      {
+        "name": "normal",
+        "cases": [
+          31,
+          31,
+          0,
+          0
+        ],
+        "assertions": [
+          21066,
+          21066,
+          0
+        ]
+      },
+      {
+        "name": "asan_ubsan",
+        "cases": [
+          31,
+          31,
+          0,
+          0
+        ],
+        "assertions": [
+          21066,
+          21066,
+          0
+        ]
+      },
+      {
+        "name": "native_normal",
+        "cases": [
+          3,
+          3,
+          0,
+          30
+        ],
+        "assertions": [
+          911,
+          911,
+          0
+        ]
+      },
+      {
+        "name": "native_san",
+        "cases": [
+          3,
+          3,
+          0,
+          30
+        ],
+        "assertions": [
+          911,
+          911,
+          0
+        ]
+      },
+      {
+        "name": "capacity-1-normal",
+        "cases": [
+          22,
+          22,
+          0,
+          0
+        ],
+        "assertions": [
+          2864,
+          2864,
+          0
+        ]
+      },
+      {
+        "name": "capacity-1-san",
+        "cases": [
+          22,
+          22,
+          0,
+          0
+        ],
+        "assertions": [
+          2864,
+          2864,
+          0
+        ]
+      },
+      {
+        "name": "capacity-0-normal",
+        "cases": [
+          3,
+          3,
+          0,
+          19
+        ],
+        "assertions": [
+          60,
+          60,
+          0
+        ]
+      },
+      {
+        "name": "capacity-0-san",
+        "cases": [
+          3,
+          3,
+          0,
+          19
+        ],
+        "assertions": [
+          60,
+          60,
+          0
+        ]
+      },
+      {
+        "name": "invalid-0",
+        "cases": [
+          3,
+          3,
+          0,
+          28
+        ],
+        "assertions": [
+          60,
+          60,
+          0
+        ]
+      },
+      {
+        "name": "invalid-1",
+        "cases": [
+          3,
+          3,
+          0,
+          28
+        ],
+        "assertions": [
+          60,
+          60,
+          0
+        ]
+      },
+      {
+        "name": "invalid-2",
+        "cases": [
+          3,
+          3,
+          0,
+          28
+        ],
+        "assertions": [
+          60,
+          60,
+          0
+        ]
+      },
+      {
+        "name": "invalid-3",
+        "cases": [
+          3,
+          3,
+          0,
+          28
+        ],
+        "assertions": [
+          60,
+          60,
+          0
+        ]
+      },
+      {
+        "name": "invalid-4",
+        "cases": [
+          3,
+          3,
+          0,
+          28
+        ],
+        "assertions": [
+          60,
+          60,
+          0
+        ]
+      },
+      {
+        "name": "invalid-5",
+        "cases": [
+          3,
+          3,
+          0,
+          28
+        ],
+        "assertions": [
+          60,
+          60,
+          0
+        ]
+      },
+      {
+        "name": "invalid-6",
+        "cases": [
+          3,
+          3,
+          0,
+          28
+        ],
+        "assertions": [
+          60,
+          60,
+          0
+        ]
+      },
+      {
+        "name": "invalid-7",
+        "cases": [
+          3,
+          3,
+          0,
+          28
+        ],
+        "assertions": [
+          60,
+          60,
+          0
+        ]
+      },
+      {
+        "name": "invalid-8",
+        "cases": [
+          3,
+          3,
+          0,
+          28
+        ],
+        "assertions": [
+          60,
+          60,
+          0
+        ]
+      },
+      {
+        "name": "invalid-9",
+        "cases": [
+          3,
+          3,
+          0,
+          28
+        ],
+        "assertions": [
+          60,
+          60,
+          0
+        ]
+      },
+      {
+        "name": "invalid-10",
+        "cases": [
+          3,
+          3,
+          0,
+          28
+        ],
+        "assertions": [
+          60,
+          60,
+          0
+        ]
+      },
+      {
+        "name": "valid-0",
+        "cases": [
+          1,
+          1,
+          0,
+          30
+        ],
+        "assertions": [
+          10,
+          10,
+          0
+        ]
+      },
+      {
+        "name": "valid-1",
+        "cases": [
+          1,
+          1,
+          0,
+          30
+        ],
+        "assertions": [
+          10,
+          10,
+          0
+        ]
+      },
+      {
+        "name": "valid-2",
+        "cases": [
+          1,
+          1,
+          0,
+          30
+        ],
+        "assertions": [
+          10,
+          10,
+          0
+        ]
+      },
+      {
+        "name": "valid-3",
+        "cases": [
+          1,
+          1,
+          0,
+          30
+        ],
+        "assertions": [
+          10,
+          10,
+          0
+        ]
+      },
+      {
+        "name": "valid-4",
+        "cases": [
+          1,
+          1,
+          0,
+          30
+        ],
+        "assertions": [
+          10,
+          10,
+          0
+        ]
+      },
+      {
+        "name": "saturation-normal",
+        "cases": [
+          1,
+          1,
+          0,
+          30
+        ],
+        "assertions": [
+          38,
+          38,
+          0
+        ]
+      },
+      {
+        "name": "saturation-san",
+        "cases": [
+          1,
+          1,
+          0,
+          30
+        ],
+        "assertions": [
+          38,
+          38,
+          0
+        ]
+      },
+      {
+        "name": "long_period-normal",
+        "cases": [
+          1,
+          1,
+          0,
+          30
+        ],
+        "assertions": [
+          24,
+          24,
+          0
+        ]
+      },
+      {
+        "name": "long_period-san",
+        "cases": [
+          1,
+          1,
+          0,
+          30
+        ],
+        "assertions": [
+          24,
+          24,
+          0
+        ]
+      }
+    ],
+    "unsafe_static_refusals": 3,
+    "registry_observations": 90,
+    "unchanged_prior_test_files": 331,
+    "sole_prior_test_delta": "Exact permitted VBAT_BENCH_SAMPLES literal insertion proved in source_review.json",
+    "policy_methods": 114,
+    "policy_skips": 0,
+    "registry_profiles": 5,
+    "notes": [
+      "Native filter executes two binding/sketch cases plus native failure case due to case-insensitive matching.",
+      "Capacity/config/native filters intentional; ordinary31 includes conditional cases whose substantive checks execute in dedicated profiles.",
+      "Missed-release saturation executes via five public records, normal and ASan/UBSan, without seeding private state.",
+      "No firmware oracle amendments or unexpected private execution failures.",
+      "D109 private full host CTest2/2 retained; exact additive unused shared constant does not trigger a redundant full host run."
+    ]
+  },
+  "targets": [
+    {
+      "mode": "bench-default",
+      "checked_receipt": "f89f7f7cae7e4a37b98b50d45c1e0968",
+      "directory": "state/analysis/P2_vbat_raw/target_8e3efb92_bench-default_checked",
+      "source_sha256": "8e3efb92cc6fb2ea66fdb79c96184279fbee7040ad40d9356be9365b0757c1c8",
+      "source_files": 96,
+      "artifacts": [
+        {
+          "file": "vbat.ino.elf",
+          "sha256": "508bedeac11202f210df457324a9e9a1779b7f35ebd6159dfa5c090543ba07a4",
+          "bytes": 19276,
+          "payload": 12333,
+          "conditional_peak": 13200,
+          "free_span": 248944,
+          "largest_free_payload": 248940,
+          "allocations": [
+            {
+              "purpose": "extension",
+              "chunk": 200,
+              "available_before": 262056,
+              "fits": true
+            },
+            {
+              "purpose": "section_map",
+              "chunk": 136,
+              "available_before": 261856,
+              "fits": true
+            },
+            {
+              "purpose": ".text",
+              "chunk": 5448,
+              "available_before": 261720,
+              "fits": true
+            },
+            {
+              "purpose": ".data",
+              "chunk": 40,
+              "available_before": 256272,
+              "fits": true
+            },
+            {
+              "purpose": ".rodata",
+              "chunk": 568,
+              "available_before": 256232,
+              "fits": true
+            },
+            {
+              "purpose": ".bss",
+              "chunk": 6288,
+              "available_before": 255664,
+              "fits": true
+            },
+            {
+              "purpose": ".exported_sym",
+              "chunk": 16,
+              "available_before": 249376,
+              "fits": true
+            },
+            {
+              "purpose": ".init_array",
+              "chunk": 8,
+              "available_before": 249360,
+              "fits": true
+            },
+            {
+              "purpose": "global_symbols",
+              "chunk": 392,
+              "available_before": 249352,
+              "fits": true
+            },
+            {
+              "purpose": "export_copy",
+              "chunk": 16,
+              "available_before": 248960,
+              "fits": true
+            }
+          ],
+          "init_refs": [
+            "_ZN4vbat6Native4portEv",
+            "_ZN4vbat6RunnerC1ERKNS_4PortE"
+          ],
+          "used_imports": [
+            "__device_dts_ord_17",
+            "__device_dts_ord_54",
+            "__device_dts_ord_64",
+            "__device_dts_ord_65",
+            "__device_dts_ord_66",
+            "__device_dts_ord_89",
+            "__device_dts_ord_9",
+            "__device_dts_ord_90",
+            "__device_dts_ord_91",
+            "__device_dts_ord_92",
+            "__device_dts_ord_93",
+            "__device_dts_ord_94",
+            "__device_dts_ord_95",
+            "__real___aeabi_uldivmod",
+            "__real_abort",
+            "__real_memset",
+            "sys_clock_cycle_get_64",
+            "z_impl_device_is_ready",
+            "z_impl_k_thread_create",
+            "z_impl_k_thread_name_set"
+          ],
+          "native_bindings": {
+            "_ZN4vbat6Native7clockUsEPv": [
+              "micros"
+            ],
+            "_ZN4vbat6Native12beginBatteryEPv": [
+              "_ZN5power6Reader5beginEv"
+            ],
+            "_ZN4vbat6Native11readBatteryEPv": [
+              "_ZN5power6Reader4readEv"
+            ]
+          },
+          "sole_native": {
+            "name": "_ZN12_GLOBAL__N_16nativeE",
+            "value": 0,
+            "size": 32,
+            "bind": 0,
+            "type": 1,
+            "other": 0,
+            "section_index": 7,
+            "section": ".data"
+          },
+          "runner": {
+            "name": "_ZN12_GLOBAL__N_16runnerE",
+            "value": 0,
+            "size": 6280,
+            "bind": 0,
+            "type": 1,
+            "other": 0,
+            "section_index": 8,
+            "section": ".bss"
+          },
+          "pin_table_bytes_sha256": "b75a23b6fc4cef5eefa1445026facb73c466a2aa4819a8f48a0b5114bd41a49b",
+          "thread_bounds": [
+            {
+              "name": "__static_thread_data_list_end",
+              "value": 0,
+              "size": 0,
+              "bind": 1,
+              "type": 0,
+              "other": 0,
+              "section_index": 6,
+              "section": ".static_thread_data_area"
+            },
+            {
+              "name": "__static_thread_data_list_start",
+              "value": 0,
+              "size": 0,
+              "bind": 1,
+              "type": 0,
+              "other": 0,
+              "section_index": 6,
+              "section": ".static_thread_data_area"
+            }
+          ],
+          "compiled_constants": {
+            "begin_buttons": false,
+            "read_rank": 9,
+            "read_voltage": true,
+            "sketch_grant": false
+          }
+        },
+        {
+          "file": "vbat.ino_debug.elf",
+          "sha256": "c7c78ca3f6448e3ad902df577402ec60f8a41fd1277a11bd75e1a1447f76b519",
+          "bytes": 534832,
+          "payload": 12333,
+          "conditional_peak": 13312,
+          "free_span": 248832,
+          "largest_free_payload": 248828,
+          "allocations": [
+            {
+              "purpose": "extension",
+              "chunk": 200,
+              "available_before": 262056,
+              "fits": true
+            },
+            {
+              "purpose": "section_map",
+              "chunk": 248,
+              "available_before": 261856,
+              "fits": true
+            },
+            {
+              "purpose": ".text",
+              "chunk": 5448,
+              "available_before": 261608,
+              "fits": true
+            },
+            {
+              "purpose": ".data",
+              "chunk": 40,
+              "available_before": 256160,
+              "fits": true
+            },
+            {
+              "purpose": ".rodata",
+              "chunk": 568,
+              "available_before": 256120,
+              "fits": true
+            },
+            {
+              "purpose": ".bss",
+              "chunk": 6288,
+              "available_before": 255552,
+              "fits": true
+            },
+            {
+              "purpose": ".exported_sym",
+              "chunk": 16,
+              "available_before": 249264,
+              "fits": true
+            },
+            {
+              "purpose": ".init_array",
+              "chunk": 8,
+              "available_before": 249248,
+              "fits": true
+            },
+            {
+              "purpose": "global_symbols",
+              "chunk": 392,
+              "available_before": 249240,
+              "fits": true
+            },
+            {
+              "purpose": "export_copy",
+              "chunk": 16,
+              "available_before": 248848,
+              "fits": true
+            }
+          ],
+          "init_refs": [
+            "_ZN4vbat6Native4portEv",
+            "_ZN4vbat6RunnerC1ERKNS_4PortE"
+          ],
+          "used_imports": [
+            "__device_dts_ord_17",
+            "__device_dts_ord_54",
+            "__device_dts_ord_64",
+            "__device_dts_ord_65",
+            "__device_dts_ord_66",
+            "__device_dts_ord_89",
+            "__device_dts_ord_9",
+            "__device_dts_ord_90",
+            "__device_dts_ord_91",
+            "__device_dts_ord_92",
+            "__device_dts_ord_93",
+            "__device_dts_ord_94",
+            "__device_dts_ord_95",
+            "__real___aeabi_uldivmod",
+            "__real_abort",
+            "__real_memset",
+            "sys_clock_cycle_get_64",
+            "z_impl_device_is_ready",
+            "z_impl_k_thread_create",
+            "z_impl_k_thread_name_set"
+          ],
+          "native_bindings": {
+            "_ZN4vbat6Native7clockUsEPv": [
+              "micros"
+            ],
+            "_ZN4vbat6Native12beginBatteryEPv": [
+              "_ZN5power6Reader5beginEv"
+            ],
+            "_ZN4vbat6Native11readBatteryEPv": [
+              "_ZN5power6Reader4readEv"
+            ]
+          },
+          "sole_native": {
+            "name": "_ZN12_GLOBAL__N_16nativeE",
+            "value": 0,
+            "size": 32,
+            "bind": 0,
+            "type": 1,
+            "other": 0,
+            "section_index": 7,
+            "section": ".data"
+          },
+          "runner": {
+            "name": "_ZN12_GLOBAL__N_16runnerE",
+            "value": 0,
+            "size": 6280,
+            "bind": 0,
+            "type": 1,
+            "other": 0,
+            "section_index": 8,
+            "section": ".bss"
+          },
+          "pin_table_bytes_sha256": "b75a23b6fc4cef5eefa1445026facb73c466a2aa4819a8f48a0b5114bd41a49b",
+          "thread_bounds": [
+            {
+              "name": "__static_thread_data_list_end",
+              "value": 0,
+              "size": 0,
+              "bind": 1,
+              "type": 0,
+              "other": 0,
+              "section_index": 6,
+              "section": ".static_thread_data_area"
+            },
+            {
+              "name": "__static_thread_data_list_start",
+              "value": 0,
+              "size": 0,
+              "bind": 1,
+              "type": 0,
+              "other": 0,
+              "section_index": 6,
+              "section": ".static_thread_data_area"
+            }
+          ],
+          "compiled_constants": {
+            "begin_buttons": false,
+            "read_rank": 9,
+            "read_voltage": true,
+            "sketch_grant": false
+          }
+        },
+        {
+          "file": "vbat.ino_temp.elf",
+          "sha256": "74c7e789eb16e3caf34e549253c7a98df733a6561b55733769c5cab439a1282f",
+          "bytes": 535508,
+          "payload": 12526,
+          "conditional_peak": 13624,
+          "free_span": 248520,
+          "largest_free_payload": 248516,
+          "allocations": [
+            {
+              "purpose": "extension",
+              "chunk": 200,
+              "available_before": 262056,
+              "fits": true
+            },
+            {
+              "purpose": "section_map",
+              "chunk": 312,
+              "available_before": 261856,
+              "fits": true
+            },
+            {
+              "purpose": ".text",
+              "chunk": 5448,
+              "available_before": 261544,
+              "fits": true
+            },
+            {
+              "purpose": ".data",
+              "chunk": 40,
+              "available_before": 256096,
+              "fits": true
+            },
+            {
+              "purpose": ".rodata",
+              "chunk": 40,
+              "available_before": 256056,
+              "fits": true
+            },
+            {
+              "purpose": ".bss",
+              "chunk": 6288,
+              "available_before": 256016,
+              "fits": true
+            },
+            {
+              "purpose": ".exported_sym",
+              "chunk": 16,
+              "available_before": 249728,
+              "fits": true
+            },
+            {
+              "purpose": ".init_array",
+              "chunk": 8,
+              "available_before": 249712,
+              "fits": true
+            },
+            {
+              "purpose": ".rodata._ZN6config14QTR_INPUT_PINSE",
+              "chunk": 24,
+              "available_before": 249704,
+              "fits": true
+            },
+            {
+              "purpose": ".rodata._ZN6config14MOTOR_PWM_PINSE",
+              "chunk": 24,
+              "available_before": 249680,
+              "fits": true
+            },
+            {
+              "purpose": ".rodata._ZN6config14OPP_INPUT_PINSE",
+              "chunk": 32,
+              "available_before": 249656,
+              "fits": true
+            },
+            {
+              "purpose": ".rodata._ZN6config11P0_QTR_PINSE",
+              "chunk": 24,
+              "available_before": 249624,
+              "fits": true
+            },
+            {
+              "purpose": ".rodata._ZN11native_pins5COUNTE",
+              "chunk": 8,
+              "available_before": 249600,
+              "fits": true
+            },
+            {
+              "purpose": ".rodata._ZN11native_pins5TABLEE",
+              "chunk": 8,
+              "available_before": 249592,
+              "fits": true
+            },
+            {
+              "purpose": ".rodata._ZN6zephyr7arduinoL12arduino_pinsE",
+              "chunk": 568,
+              "available_before": 249584,
+              "fits": true
+            },
+            {
+              "purpose": ".rodata.str1.1",
+              "chunk": 88,
+              "available_before": 249016,
+              "fits": true
+            },
+            {
+              "purpose": "global_symbols",
+              "chunk": 392,
+              "available_before": 248928,
+              "fits": true
+            },
+            {
+              "purpose": "export_copy",
+              "chunk": 16,
+              "available_before": 248536,
+              "fits": true
+            }
+          ],
+          "init_refs": [
+            "_ZN4vbat6Native4portEv",
+            "_ZN4vbat6RunnerC1ERKNS_4PortE"
+          ],
+          "used_imports": [
+            "__device_dts_ord_17",
+            "__device_dts_ord_54",
+            "__device_dts_ord_64",
+            "__device_dts_ord_65",
+            "__device_dts_ord_66",
+            "__device_dts_ord_89",
+            "__device_dts_ord_9",
+            "__device_dts_ord_90",
+            "__device_dts_ord_91",
+            "__device_dts_ord_92",
+            "__device_dts_ord_93",
+            "__device_dts_ord_94",
+            "__device_dts_ord_95",
+            "__real___aeabi_uldivmod",
+            "__real_abort",
+            "__real_memset",
+            "sys_clock_cycle_get_64",
+            "z_impl_device_is_ready",
+            "z_impl_k_thread_create",
+            "z_impl_k_thread_name_set"
+          ],
+          "native_bindings": {
+            "_ZN4vbat6Native7clockUsEPv": [
+              "micros"
+            ],
+            "_ZN4vbat6Native12beginBatteryEPv": [
+              "_ZN5power6Reader5beginEv"
+            ],
+            "_ZN4vbat6Native11readBatteryEPv": [
+              "_ZN5power6Reader4readEv"
+            ]
+          },
+          "sole_native": {
+            "name": "_ZN12_GLOBAL__N_16nativeE",
+            "value": 0,
+            "size": 32,
+            "bind": 0,
+            "type": 1,
+            "other": 0,
+            "section_index": 4,
+            "section": ".data"
+          },
+          "runner": {
+            "name": "_ZN12_GLOBAL__N_16runnerE",
+            "value": 0,
+            "size": 6280,
+            "bind": 0,
+            "type": 1,
+            "other": 0,
+            "section_index": 5,
+            "section": ".bss"
+          },
+          "pin_table_bytes_sha256": "b75a23b6fc4cef5eefa1445026facb73c466a2aa4819a8f48a0b5114bd41a49b",
+          "thread_bounds": [
+            {
+              "name": "__static_thread_data_list_end",
+              "value": 0,
+              "size": 0,
+              "bind": 1,
+              "type": 0,
+              "other": 0,
+              "section_index": 3,
+              "section": ".static_thread_data_area"
+            },
+            {
+              "name": "__static_thread_data_list_start",
+              "value": 0,
+              "size": 0,
+              "bind": 1,
+              "type": 0,
+              "other": 0,
+              "section_index": 3,
+              "section": ".static_thread_data_area"
+            }
+          ],
+          "compiled_constants": {
+            "begin_buttons": false,
+            "read_rank": 9,
+            "read_voltage": true,
+            "sketch_grant": false
+          }
+        }
+      ],
+      "zsk_sha256": "0d4b30b74a07900078190ad64e8da528ddd9fcb58a797720d81ca3b5b68daf1d",
+      "abi": {
+        "Runner": 6280,
+        "Native": 32,
+        "Sample": 20,
+        "Capture": 48,
+        "capture_offset": 120,
+        "capture_count": 128,
+        "capture_bytes": 6144
+      }
+    },
+    {
+      "mode": "bench-immediate",
+      "checked_receipt": "9a49eb8337304454b61e59f4c6363a6f",
+      "directory": "state/analysis/P2_vbat_raw/target_8e3efb92_bench-immediate_checked",
+      "source_sha256": "8e3efb92cc6fb2ea66fdb79c96184279fbee7040ad40d9356be9365b0757c1c8",
+      "source_files": 96,
+      "artifacts": [
+        {
+          "file": "vbat.ino.elf",
+          "sha256": "508bedeac11202f210df457324a9e9a1779b7f35ebd6159dfa5c090543ba07a4",
+          "bytes": 19276,
+          "payload": 12333,
+          "conditional_peak": 13200,
+          "free_span": 248944,
+          "largest_free_payload": 248940,
+          "allocations": [
+            {
+              "purpose": "extension",
+              "chunk": 200,
+              "available_before": 262056,
+              "fits": true
+            },
+            {
+              "purpose": "section_map",
+              "chunk": 136,
+              "available_before": 261856,
+              "fits": true
+            },
+            {
+              "purpose": ".text",
+              "chunk": 5448,
+              "available_before": 261720,
+              "fits": true
+            },
+            {
+              "purpose": ".data",
+              "chunk": 40,
+              "available_before": 256272,
+              "fits": true
+            },
+            {
+              "purpose": ".rodata",
+              "chunk": 568,
+              "available_before": 256232,
+              "fits": true
+            },
+            {
+              "purpose": ".bss",
+              "chunk": 6288,
+              "available_before": 255664,
+              "fits": true
+            },
+            {
+              "purpose": ".exported_sym",
+              "chunk": 16,
+              "available_before": 249376,
+              "fits": true
+            },
+            {
+              "purpose": ".init_array",
+              "chunk": 8,
+              "available_before": 249360,
+              "fits": true
+            },
+            {
+              "purpose": "global_symbols",
+              "chunk": 392,
+              "available_before": 249352,
+              "fits": true
+            },
+            {
+              "purpose": "export_copy",
+              "chunk": 16,
+              "available_before": 248960,
+              "fits": true
+            }
+          ],
+          "init_refs": [
+            "_ZN4vbat6Native4portEv",
+            "_ZN4vbat6RunnerC1ERKNS_4PortE"
+          ],
+          "used_imports": [
+            "__device_dts_ord_17",
+            "__device_dts_ord_54",
+            "__device_dts_ord_64",
+            "__device_dts_ord_65",
+            "__device_dts_ord_66",
+            "__device_dts_ord_89",
+            "__device_dts_ord_9",
+            "__device_dts_ord_90",
+            "__device_dts_ord_91",
+            "__device_dts_ord_92",
+            "__device_dts_ord_93",
+            "__device_dts_ord_94",
+            "__device_dts_ord_95",
+            "__real___aeabi_uldivmod",
+            "__real_abort",
+            "__real_memset",
+            "sys_clock_cycle_get_64",
+            "z_impl_device_is_ready",
+            "z_impl_k_thread_create",
+            "z_impl_k_thread_name_set"
+          ],
+          "native_bindings": {
+            "_ZN4vbat6Native7clockUsEPv": [
+              "micros"
+            ],
+            "_ZN4vbat6Native12beginBatteryEPv": [
+              "_ZN5power6Reader5beginEv"
+            ],
+            "_ZN4vbat6Native11readBatteryEPv": [
+              "_ZN5power6Reader4readEv"
+            ]
+          },
+          "sole_native": {
+            "name": "_ZN12_GLOBAL__N_16nativeE",
+            "value": 0,
+            "size": 32,
+            "bind": 0,
+            "type": 1,
+            "other": 0,
+            "section_index": 7,
+            "section": ".data"
+          },
+          "runner": {
+            "name": "_ZN12_GLOBAL__N_16runnerE",
+            "value": 0,
+            "size": 6280,
+            "bind": 0,
+            "type": 1,
+            "other": 0,
+            "section_index": 8,
+            "section": ".bss"
+          },
+          "pin_table_bytes_sha256": "b75a23b6fc4cef5eefa1445026facb73c466a2aa4819a8f48a0b5114bd41a49b",
+          "thread_bounds": [
+            {
+              "name": "__static_thread_data_list_end",
+              "value": 0,
+              "size": 0,
+              "bind": 1,
+              "type": 0,
+              "other": 0,
+              "section_index": 6,
+              "section": ".static_thread_data_area"
+            },
+            {
+              "name": "__static_thread_data_list_start",
+              "value": 0,
+              "size": 0,
+              "bind": 1,
+              "type": 0,
+              "other": 0,
+              "section_index": 6,
+              "section": ".static_thread_data_area"
+            }
+          ],
+          "compiled_constants": {
+            "begin_buttons": false,
+            "read_rank": 9,
+            "read_voltage": true,
+            "sketch_grant": false
+          }
+        },
+        {
+          "file": "vbat.ino_debug.elf",
+          "sha256": "5a6653560448042fe98d5dffb1e12df009a249607cb3d9edabfac9c97fb789f8",
+          "bytes": 534864,
+          "payload": 12333,
+          "conditional_peak": 13312,
+          "free_span": 248832,
+          "largest_free_payload": 248828,
+          "allocations": [
+            {
+              "purpose": "extension",
+              "chunk": 200,
+              "available_before": 262056,
+              "fits": true
+            },
+            {
+              "purpose": "section_map",
+              "chunk": 248,
+              "available_before": 261856,
+              "fits": true
+            },
+            {
+              "purpose": ".text",
+              "chunk": 5448,
+              "available_before": 261608,
+              "fits": true
+            },
+            {
+              "purpose": ".data",
+              "chunk": 40,
+              "available_before": 256160,
+              "fits": true
+            },
+            {
+              "purpose": ".rodata",
+              "chunk": 568,
+              "available_before": 256120,
+              "fits": true
+            },
+            {
+              "purpose": ".bss",
+              "chunk": 6288,
+              "available_before": 255552,
+              "fits": true
+            },
+            {
+              "purpose": ".exported_sym",
+              "chunk": 16,
+              "available_before": 249264,
+              "fits": true
+            },
+            {
+              "purpose": ".init_array",
+              "chunk": 8,
+              "available_before": 249248,
+              "fits": true
+            },
+            {
+              "purpose": "global_symbols",
+              "chunk": 392,
+              "available_before": 249240,
+              "fits": true
+            },
+            {
+              "purpose": "export_copy",
+              "chunk": 16,
+              "available_before": 248848,
+              "fits": true
+            }
+          ],
+          "init_refs": [
+            "_ZN4vbat6Native4portEv",
+            "_ZN4vbat6RunnerC1ERKNS_4PortE"
+          ],
+          "used_imports": [
+            "__device_dts_ord_17",
+            "__device_dts_ord_54",
+            "__device_dts_ord_64",
+            "__device_dts_ord_65",
+            "__device_dts_ord_66",
+            "__device_dts_ord_89",
+            "__device_dts_ord_9",
+            "__device_dts_ord_90",
+            "__device_dts_ord_91",
+            "__device_dts_ord_92",
+            "__device_dts_ord_93",
+            "__device_dts_ord_94",
+            "__device_dts_ord_95",
+            "__real___aeabi_uldivmod",
+            "__real_abort",
+            "__real_memset",
+            "sys_clock_cycle_get_64",
+            "z_impl_device_is_ready",
+            "z_impl_k_thread_create",
+            "z_impl_k_thread_name_set"
+          ],
+          "native_bindings": {
+            "_ZN4vbat6Native7clockUsEPv": [
+              "micros"
+            ],
+            "_ZN4vbat6Native12beginBatteryEPv": [
+              "_ZN5power6Reader5beginEv"
+            ],
+            "_ZN4vbat6Native11readBatteryEPv": [
+              "_ZN5power6Reader4readEv"
+            ]
+          },
+          "sole_native": {
+            "name": "_ZN12_GLOBAL__N_16nativeE",
+            "value": 0,
+            "size": 32,
+            "bind": 0,
+            "type": 1,
+            "other": 0,
+            "section_index": 7,
+            "section": ".data"
+          },
+          "runner": {
+            "name": "_ZN12_GLOBAL__N_16runnerE",
+            "value": 0,
+            "size": 6280,
+            "bind": 0,
+            "type": 1,
+            "other": 0,
+            "section_index": 8,
+            "section": ".bss"
+          },
+          "pin_table_bytes_sha256": "b75a23b6fc4cef5eefa1445026facb73c466a2aa4819a8f48a0b5114bd41a49b",
+          "thread_bounds": [
+            {
+              "name": "__static_thread_data_list_end",
+              "value": 0,
+              "size": 0,
+              "bind": 1,
+              "type": 0,
+              "other": 0,
+              "section_index": 6,
+              "section": ".static_thread_data_area"
+            },
+            {
+              "name": "__static_thread_data_list_start",
+              "value": 0,
+              "size": 0,
+              "bind": 1,
+              "type": 0,
+              "other": 0,
+              "section_index": 6,
+              "section": ".static_thread_data_area"
+            }
+          ],
+          "compiled_constants": {
+            "begin_buttons": false,
+            "read_rank": 9,
+            "read_voltage": true,
+            "sketch_grant": false
+          }
+        },
+        {
+          "file": "vbat.ino_temp.elf",
+          "sha256": "14f02e5b5e41a73abd25a9c818edf86a0b218b8e3480ec6c2e93a723ea2602b0",
+          "bytes": 535540,
+          "payload": 12526,
+          "conditional_peak": 13624,
+          "free_span": 248520,
+          "largest_free_payload": 248516,
+          "allocations": [
+            {
+              "purpose": "extension",
+              "chunk": 200,
+              "available_before": 262056,
+              "fits": true
+            },
+            {
+              "purpose": "section_map",
+              "chunk": 312,
+              "available_before": 261856,
+              "fits": true
+            },
+            {
+              "purpose": ".text",
+              "chunk": 5448,
+              "available_before": 261544,
+              "fits": true
+            },
+            {
+              "purpose": ".data",
+              "chunk": 40,
+              "available_before": 256096,
+              "fits": true
+            },
+            {
+              "purpose": ".rodata",
+              "chunk": 40,
+              "available_before": 256056,
+              "fits": true
+            },
+            {
+              "purpose": ".bss",
+              "chunk": 6288,
+              "available_before": 256016,
+              "fits": true
+            },
+            {
+              "purpose": ".exported_sym",
+              "chunk": 16,
+              "available_before": 249728,
+              "fits": true
+            },
+            {
+              "purpose": ".init_array",
+              "chunk": 8,
+              "available_before": 249712,
+              "fits": true
+            },
+            {
+              "purpose": ".rodata._ZN6config14QTR_INPUT_PINSE",
+              "chunk": 24,
+              "available_before": 249704,
+              "fits": true
+            },
+            {
+              "purpose": ".rodata._ZN6config14MOTOR_PWM_PINSE",
+              "chunk": 24,
+              "available_before": 249680,
+              "fits": true
+            },
+            {
+              "purpose": ".rodata._ZN6config14OPP_INPUT_PINSE",
+              "chunk": 32,
+              "available_before": 249656,
+              "fits": true
+            },
+            {
+              "purpose": ".rodata._ZN6config11P0_QTR_PINSE",
+              "chunk": 24,
+              "available_before": 249624,
+              "fits": true
+            },
+            {
+              "purpose": ".rodata._ZN11native_pins5COUNTE",
+              "chunk": 8,
+              "available_before": 249600,
+              "fits": true
+            },
+            {
+              "purpose": ".rodata._ZN11native_pins5TABLEE",
+              "chunk": 8,
+              "available_before": 249592,
+              "fits": true
+            },
+            {
+              "purpose": ".rodata._ZN6zephyr7arduinoL12arduino_pinsE",
+              "chunk": 568,
+              "available_before": 249584,
+              "fits": true
+            },
+            {
+              "purpose": ".rodata.str1.1",
+              "chunk": 88,
+              "available_before": 249016,
+              "fits": true
+            },
+            {
+              "purpose": "global_symbols",
+              "chunk": 392,
+              "available_before": 248928,
+              "fits": true
+            },
+            {
+              "purpose": "export_copy",
+              "chunk": 16,
+              "available_before": 248536,
+              "fits": true
+            }
+          ],
+          "init_refs": [
+            "_ZN4vbat6Native4portEv",
+            "_ZN4vbat6RunnerC1ERKNS_4PortE"
+          ],
+          "used_imports": [
+            "__device_dts_ord_17",
+            "__device_dts_ord_54",
+            "__device_dts_ord_64",
+            "__device_dts_ord_65",
+            "__device_dts_ord_66",
+            "__device_dts_ord_89",
+            "__device_dts_ord_9",
+            "__device_dts_ord_90",
+            "__device_dts_ord_91",
+            "__device_dts_ord_92",
+            "__device_dts_ord_93",
+            "__device_dts_ord_94",
+            "__device_dts_ord_95",
+            "__real___aeabi_uldivmod",
+            "__real_abort",
+            "__real_memset",
+            "sys_clock_cycle_get_64",
+            "z_impl_device_is_ready",
+            "z_impl_k_thread_create",
+            "z_impl_k_thread_name_set"
+          ],
+          "native_bindings": {
+            "_ZN4vbat6Native7clockUsEPv": [
+              "micros"
+            ],
+            "_ZN4vbat6Native12beginBatteryEPv": [
+              "_ZN5power6Reader5beginEv"
+            ],
+            "_ZN4vbat6Native11readBatteryEPv": [
+              "_ZN5power6Reader4readEv"
+            ]
+          },
+          "sole_native": {
+            "name": "_ZN12_GLOBAL__N_16nativeE",
+            "value": 0,
+            "size": 32,
+            "bind": 0,
+            "type": 1,
+            "other": 0,
+            "section_index": 4,
+            "section": ".data"
+          },
+          "runner": {
+            "name": "_ZN12_GLOBAL__N_16runnerE",
+            "value": 0,
+            "size": 6280,
+            "bind": 0,
+            "type": 1,
+            "other": 0,
+            "section_index": 5,
+            "section": ".bss"
+          },
+          "pin_table_bytes_sha256": "b75a23b6fc4cef5eefa1445026facb73c466a2aa4819a8f48a0b5114bd41a49b",
+          "thread_bounds": [
+            {
+              "name": "__static_thread_data_list_end",
+              "value": 0,
+              "size": 0,
+              "bind": 1,
+              "type": 0,
+              "other": 0,
+              "section_index": 3,
+              "section": ".static_thread_data_area"
+            },
+            {
+              "name": "__static_thread_data_list_start",
+              "value": 0,
+              "size": 0,
+              "bind": 1,
+              "type": 0,
+              "other": 0,
+              "section_index": 3,
+              "section": ".static_thread_data_area"
+            }
+          ],
+          "compiled_constants": {
+            "begin_buttons": false,
+            "read_rank": 9,
+            "read_voltage": true,
+            "sketch_grant": false
+          }
+        }
+      ],
+      "zsk_sha256": "570bc447fcf06bb23c73ea99eadbbb78597329ba0de6b5a6aec9496178ef1fe5",
+      "abi": {
+        "Runner": 6280,
+        "Native": 32,
+        "Sample": 20,
+        "Capture": 48,
+        "capture_offset": 120,
+        "capture_count": 128,
+        "capture_bytes": 6144
+      }
+    }
+  ],
+  "independence": "Firmware author and implementer wrote in parallel from adopted contract/API; executable expectations froze before first execution, no implementation bodies read by author. New policy fixtures coordinator-authored, separately read and executed by reviewer.",
+  "retained_host_evidence": "D109 private full host CTest2/2; exact shared source delta is one unused count literal,331 prior test files unchanged, remaining prior test only authorized literal addition. No redundant full host rerun.",
+  "limits": [
+    "No reviewer board/network/upload/reset/MCU action.",
+    "Only frozen bytes approved; no future artifact or upload authorization.",
+    "Native substitutions and passive sketch tests are not ADC readout or physical acceptance.",
+    "Conditional pristine262144-byte pool model, no observed loaded RAM or native/app WCET.",
+    "Missed counter saturation executed through public records; other impractical saturation branches source reviewed.",
+    "No ADC shutdown synthesized; boot-lifetime native ownership persists.",
+    "No0.05V accuracy, wiring permission, motor permission or human phase gate."
+  ]
+}

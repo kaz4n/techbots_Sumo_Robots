@@ -1,0 +1,187 @@
+{
+  "functions": 30,
+  "maximum_lines": 20,
+  "scope": "Brace-count source audit of three owned definition files; all definitions are single-line signatures.",
+  "details": [
+    {
+      "file": "bench/vbat/src/vbat.cpp",
+      "function": "bool configValid()",
+      "first_line": 11,
+      "lines": 8
+    },
+    {
+      "file": "bench/vbat/src/vbat.cpp",
+      "function": "bool known(power::Status status, power::Shutdown shutdown)",
+      "first_line": 19,
+      "lines": 4
+    },
+    {
+      "file": "bench/vbat/src/vbat.cpp",
+      "function": "std::uint32_t missedAt(std::uint32_t age_us)",
+      "first_line": 23,
+      "lines": 6
+    },
+    {
+      "file": "bench/vbat/src/vbat.cpp",
+      "function": "Runner::Runner(const Port& port) : port_(port)",
+      "first_line": 31,
+      "lines": 1
+    },
+    {
+      "file": "bench/vbat/src/vbat.cpp",
+      "function": "const Report& Runner::report() const",
+      "first_line": 32,
+      "lines": 1
+    },
+    {
+      "file": "bench/vbat/src/vbat.cpp",
+      "function": "std::uint32_t Runner::captureCapacity() const",
+      "first_line": 33,
+      "lines": 1
+    },
+    {
+      "file": "bench/vbat/src/vbat.cpp",
+      "function": "std::uint32_t Runner::captureCount() const",
+      "first_line": 34,
+      "lines": 1
+    },
+    {
+      "file": "bench/vbat/src/vbat.cpp",
+      "function": "const Capture* Runner::capture(std::uint32_t index) const",
+      "first_line": 35,
+      "lines": 3
+    },
+    {
+      "file": "bench/vbat/src/vbat.cpp",
+      "function": "bool Runner::portsValid() const",
+      "first_line": 38,
+      "lines": 3
+    },
+    {
+      "file": "bench/vbat/src/vbat.cpp",
+      "function": "void Runner::fail(Fault fault)",
+      "first_line": 41,
+      "lines": 5
+    },
+    {
+      "file": "bench/vbat/src/vbat.cpp",
+      "function": "void Runner::add(std::uint32_t& counter, std::uint32_t amount)",
+      "first_line": 46,
+      "lines": 7
+    },
+    {
+      "file": "bench/vbat/src/vbat.cpp",
+      "function": "void Runner::attempt(Timing& timing)",
+      "first_line": 53,
+      "lines": 4
+    },
+    {
+      "file": "bench/vbat/src/vbat.cpp",
+      "function": "void Runner::measure(Timing& timing, std::uint32_t elapsed_us)",
+      "first_line": 57,
+      "lines": 6
+    },
+    {
+      "file": "bench/vbat/src/vbat.cpp",
+      "function": "bool Runner::admitClock(std::uint32_t now_us)",
+      "first_line": 63,
+      "lines": 15
+    },
+    {
+      "file": "bench/vbat/src/vbat.cpp",
+      "function": "bool Runner::clock(std::uint32_t& now_us)",
+      "first_line": 78,
+      "lines": 5
+    },
+    {
+      "file": "bench/vbat/src/vbat.cpp",
+      "function": "bool Runner::close(std::uint32_t started_us, Timing& timing, std::uint32_t& closed_us)",
+      "first_line": 83,
+      "lines": 6
+    },
+    {
+      "file": "bench/vbat/src/vbat.cpp",
+      "function": "void Runner::examineSetup()",
+      "first_line": 89,
+      "lines": 7
+    },
+    {
+      "file": "bench/vbat/src/vbat.cpp",
+      "function": "void Runner::examineSample()",
+      "first_line": 96,
+      "lines": 14
+    },
+    {
+      "file": "bench/vbat/src/vbat.cpp",
+      "function": "void Runner::examineSource(std::uint32_t started_us, std::uint32_t returned_us)",
+      "first_line": 110,
+      "lines": 8
+    },
+    {
+      "file": "bench/vbat/src/vbat.cpp",
+      "function": "bool Runner::begin(const Grants& grants)",
+      "first_line": 118,
+      "lines": 19
+    },
+    {
+      "file": "bench/vbat/src/vbat.cpp",
+      "function": "void Runner::stage(std::uint32_t started_us, std::uint32_t returned_us, std::uint32_t missed)",
+      "first_line": 137,
+      "lines": 9
+    },
+    {
+      "file": "bench/vbat/src/vbat.cpp",
+      "function": "void Runner::publish(std::uint32_t closed_us)",
+      "first_line": 146,
+      "lines": 11
+    },
+    {
+      "file": "bench/vbat/src/vbat.cpp",
+      "function": "bool Runner::read(std::uint32_t started_us, std::uint32_t missed)",
+      "first_line": 157,
+      "lines": 20
+    },
+    {
+      "file": "bench/vbat/src/vbat.cpp",
+      "function": "bool Runner::poll()",
+      "first_line": 177,
+      "lines": 13
+    },
+    {
+      "file": "bench/vbat/src/vbat_native.cpp",
+      "function": "Port Native::port()",
+      "first_line": 8,
+      "lines": 1
+    },
+    {
+      "file": "bench/vbat/src/vbat_native.cpp",
+      "function": "std::uint32_t Native::clockUs(void*)",
+      "first_line": 9,
+      "lines": 1
+    },
+    {
+      "file": "bench/vbat/src/vbat_native.cpp",
+      "function": "power::InitResult Native::beginBattery(void* context)",
+      "first_line": 10,
+      "lines": 3
+    },
+    {
+      "file": "bench/vbat/src/vbat_native.cpp",
+      "function": "power::Sample Native::readBattery(void* context)",
+      "first_line": 13,
+      "lines": 3
+    },
+    {
+      "file": "bench/vbat/vbat.ino",
+      "function": "void setup()",
+      "first_line": 12,
+      "lines": 1
+    },
+    {
+      "file": "bench/vbat/vbat.ino",
+      "function": "void loop()",
+      "first_line": 13,
+      "lines": 1
+    }
+  ]
+}

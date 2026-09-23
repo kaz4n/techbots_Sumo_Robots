@@ -829,3 +829,5 @@ physical/loadedRAM/gate claim. | contract=this commit
 - 2026-09-24T00:32+04:00 | P2 | D109 implementation/evidence committed6563aaa; final scoped PASS and F133 retained. D110 battery bench contract/public interfaces adopted after preflight; independent author and implementer active, no physical authority or gate.
 
 - 2026-09-24T00:38+04:00 | P2 D110 tooling | Literal battery bench checked compile route IMPLEMENTED/HOST-TESTED; root68+46 and separate reviewer114methods PASS. Original unsupported-route red and wrong-module invocation retained. Default exact8e3efb92 target compiled/collected; firmware and complete target review pending. Source b5fa7eea has independent31/21066 normal/san PASS; config variants still running. No upload.
+
+- 2026-09-24T00:42+04:00 | P2 B5 D110 | Battery-only finite bench IMPLEMENTED/HOST-TESTED/TARGET-COMPILED and separate review PASS, no findings.28 executable profiles,114 policy methods; exact8e3efb92 default/Immediate peak13200. Evidence P2_vbat_validation.md/review/raw and F134. Physical0.05V/readout/gates pending; MCU still D104. Local implementation commit recorded next checkpoint.

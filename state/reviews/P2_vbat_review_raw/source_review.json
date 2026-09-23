@@ -1,0 +1,46 @@
+{
+  "verdict": "PASS_SCOPED_SOURCE_AND_TOOLING_INSPECTION_PENDING_EXECUTION_TARGET",
+  "source_sha256": {
+    "bench/vbat/vbat.ino": "d2027b30da15e79344d6111a8202adee511a347cd51a8760aee60e172ac4eca8",
+    "bench/vbat/src/vbat.h": "cb03249f54b2ebb26d52fc38d5bbe20fee6316b2af8378f329d8b842a0546dfa",
+    "bench/vbat/src/vbat_native.h": "b927393f74696184a848804bae40bfdf4b46effa73ba58f0449c43afff3bba66",
+    "bench/vbat/src/vbat.cpp": "b5fa7eea988e91a9b0fdb350b34fed982cef9893bde47e56c289e07a403c0475",
+    "bench/vbat/src/vbat_native.cpp": "223775f9977883a93200ee9bc68403630f33cb2f2aa16ca46ff8ec5507934e58",
+    "src/config.h": "329227cdec0bbb3e107ad7becf8c0e3e666ec58fa546b66474b2e9d5ed95cf6d"
+  },
+  "contract_sha256": "9652c486243925e387d37361964f2e5f019a1904ed5de896086a21635a7cb11a",
+  "preflight_sha256": "95cfed69fce737848a4a6f15022ddfd7dfdc8978ffb4b0d7c7af40f9107778f6",
+  "tool_sha256": {
+    "tools/board_tool.py": "870e0e42cb99b89a75d2118ba49084bb4acef4ecff8489ce951053b30d6b1084",
+    "tools/app_build_policy.py": "2bc153e564d9b78a40d3ed335ffd7d44c858b2e6be3c1560f2dbf371d91a2ab8"
+  },
+  "unchanged_shared_sources": 91,
+  "shared_change": "Exact additive VBAT_BENCH_SAMPLES=128 line only",
+  "registry": {
+    "before_sha256": "c0156a8e50ee38bb317f531a17c3c1ac704ec2d28b4b5bd3324a25204bc0e248",
+    "after_sha256": "9252acfc639c9729fe47b03d1d5e5f7e21088ef90bcb0c65132620f00315ce5e",
+    "exact_added_bytes_only": true
+  },
+  "unchanged_old_policy_and_upload_files": {
+    "tests/tooling/test_opp_view_policy.py": "59155eebc8905f9b16ce00ccfa917ec8391237511557b31c8c96a643f220d59a",
+    "tests/tooling/test_app_build_policy.py": "e155f6d8d98b5817caa8701bad8290d2113e51d1cdef680ec1978be8520994a8",
+    "tests/tooling/test_runtime_inert_policy.py": "a7ad436b45e22a2a2238ae1a00336f305c4c7ba0000936533751107ada327522",
+    "tests/tooling/test_qtr_raw_policy.py": "062c0c03f29df6ddb8bfeeee7b1808f633b648db790109e094674940a73692a7",
+    "tests/tooling/test_app_build_overrides.py": "a8b9ca058271ad4a54f800f4bc362848514425bdcff941620dbdf1536e303753",
+    "tools/p0_inert_sources.json": "d706c700b4d41df86d6480b3f16e54960e74c6d5cd8a9ce48647b82687cae65a"
+  },
+  "reviewed_observables": [
+    "float endpoints and strict zero-period compile guard",
+    "passive grants and one-shot begin with ports before config",
+    "known enum and shape precedence before independent clock fault",
+    "S/A/C consecutive and accumulated operation/source-era chronology",
+    "old source era retained through C and reanchored to new actual start only on commit",
+    "local missed releases charged once before actual read",
+    "sample_seen before A; early no-read preserves acceptance history",
+    "tentative capture hidden until admitted C; immutable published records",
+    "terminal fresh clearing only; no stop or invented shutdown",
+    "only battery Reader begin/read, no A1 InputOwner",
+    "saturating counters with no private state seeding"
+  ],
+  "limits": "Reused same-model source review; independent author suites and exact targets pending. D109 private full host result retained; no redundant full host rerun without a finding. No MCU/board/network or implementation/test edits."
+}

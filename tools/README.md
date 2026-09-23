@@ -1,5 +1,13 @@
 # P0 tooling contract
 
+D-075 MotorGate target checks use
+`python tools/board_tool.py flash bench/p2_motor_gate_compile --compile-only`
+and the same command with `--match --compile-only`. Both only build on board
+Linux; the probe never enters an upload allowlist. Its setup stores a function
+address, with no motor backend or method execution. Active-branch compilation
+does not grant motor-run permission. Host CMake runs both the normal suite and
+a separate `motor_gate_enabled_tests` executable using simulated checked I/O.
+
 Use WSL Ubuntu (available on this machine), Bash, Python 3, CMake, g++, ssh and
 rsync. `wsl -d Ubuntu -- bash tools/test_host.sh` runs host checks from PowerShell.
 No board packages are installed by these scripts. doctest is vendored/pinned.

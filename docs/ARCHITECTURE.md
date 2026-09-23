@@ -181,6 +181,15 @@ results must be reported separately from uploads and physical tests.
 
 ## Sixty-second explanation
 
+D-075 adds `hal/motors` as the sole checked motor-write boundary in software.
+It observes the accepted release, independently holds inhibition for the full
+configured countdown, consumes each fresh Robot token once, and returns actual
+acknowledged PWM-cycle settings. Port failures latch inhibition and invalid
+receipts. Host tests exercise the real boundary with traced callbacks in both
+disabled and active configurations. There is no installed UNO Q pin backend:
+checked routing, timer-update settling, electrical acceptance and complete tick
+timing remain pending. The application entry above remains inert.
+
 "The microcontroller gets one fresh sensor snapshot and runs the same C++ Robot
 that we test on the laptop. START must be released and debounced before the full
 five-second hold begins. During that hold, motors remain disabled while we

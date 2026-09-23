@@ -91,7 +91,11 @@ at every callback position, cleanup and truthful receipts. Compose real Robot
 with Gate to check feedback on following ticks. No existing locked test changes.
 
 Compile/link an inert never-called MotorGate probe on the connected board; keep
-it outside upload allowlists. Host traces and compilation are not physical PWM,
+it outside upload allowlists. Compile BOTH default MOTORS_ALLOWED=0 and
+--match --compile-only MOTORS_ALLOWED=1 to retain and check active branches.
+Neither configuration is uploaded or executed; setup only stores a probe address,
+and the global Gate has a deliberately unusable null Port. A macro value is not
+permission to run. Host traces and compilation are not physical PWM,
 EN pull-down, driver truth table, settle timing, electrical approval or full-tick
 WCET evidence. Installed native PWM preload/shared timers (F086/F088) require a
 separately validated settle implementation. Stock analogWrite masks failures and

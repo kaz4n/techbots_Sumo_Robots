@@ -1,0 +1,4 @@
+Reviewer harness command exited 1 before running any binary:
+wsl.exe --exec python3 state/reviews/P2_button_routing_raw/run_focused.py
+AssertionError at line 21: ['tests/tooling/test_p0_config.py']
+The broad unchanged-tests check omitted the authorized additive D087 config declaration/default test already in contract commit6c01bb4. Reviewed full diff against c10f473: four allowed config declarations and one new default assertion method only; no previous values or protected behavior assertions changed. Runner now records this exact exception and preserves the full changed-file list. New execution uses final_focused_v2. This was not a production/test failure.

@@ -566,3 +566,15 @@ resolved; physical color separation/cadence/uncertainty, pad handoff and full
 5minute robot WCET remain pending. IMU600+motor150+ADC100 cannot be assumed to fit
 800us; future scheduler must solve resource/timing contention. SC-AJ/F091 and
 human gates remain unchanged. This is not physical SC-B acceptance.
+
+
+D087 SC-A follow-up (2026-09-23): explicit raw-window decoder and fresh gesture
+routing are being implemented under D051/D075. Defaults remain unconfigured;
+overlap/unknown/provider failure cannot become valid NONE or unique START/BOTH.
+The identical nominal START/BOTH circuit input remains OPEN and no wiring or
+physical window is approved. Software tests use explicitly synthetic profiles.
+See P2_button_routing_contract.md; implementation evidence will be in
+P2_button_routing_validation.md. No phase/hardware acceptance follows.
+
+
+D087 SC-A software follow-up: decoder/gesture routingb69fa12 is implemented, host/sanitizer tested, targetcompiled and independently reviewed. Raw windows remain unconfigured. This does not resolve or approve the physical circuit; SC-A remains OPEN. See P2_button_routing_validation.md.

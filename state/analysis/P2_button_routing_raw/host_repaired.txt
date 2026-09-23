@@ -1,0 +1,32 @@
+-- Configuring done (0.8s)
+-- Generating done (0.9s)
+-- Build files have been written to: /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/build/host
+[  1%] Building CXX object CMakeFiles/motor_gate_enabled_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/ui.cpp.o
+[  2%] Building CXX object CMakeFiles/motor_gate_enabled_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_button_motor_gate.cpp.o
+[  3%] Linking CXX executable motor_gate_enabled_tests
+[  4%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_button_events.cpp.o
+[  6%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_button_motor_gate.cpp.o
+[ 19%] Built target motor_gate_enabled_tests
+[ 20%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_button_observed.cpp.o
+[ 21%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_button_routing.cpp.o
+[ 22%] Building CXX object CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_calibration_presence.cpp.o
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_button_routing.cpp: In function ‘void DOCTEST_ANON_FUNC_6()’:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_button_routing.cpp:83:42: error: deducing from brace-enclosed initializer list requires ‘#include <initializer_list>’
+    4 | #include "robot_scenario.h"
+  +++ |+#include <initializer_list>
+    5 | #include <limits>
+......
+   83 |     for (const bool replay : {false, true}) {
+      |                                          ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_button_routing.cpp: In function ‘void DOCTEST_ANON_FUNC_26()’:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_button_routing.cpp:194:41: error: deducing from brace-enclosed initializer list requires ‘#include <initializer_list>’
+  194 |     for (const auto age : {AGE, AGE + 1U}) {
+      |                                         ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_button_routing.cpp: In function ‘void DOCTEST_ANON_FUNC_30()’:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_button_routing.cpp:222:67: error: deducing from brace-enclosed initializer list requires ‘#include <initializer_list>’
+  222 |     for (const auto delta : {0x80000000U, 0xffffffffU, 0x7fffffffU}) {
+      |                                                                   ^
+gmake[2]: *** [CMakeFiles/sumox26_tests.dir/build.make:538: CMakeFiles/sumox26_tests.dir/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_button_routing.cpp.o] Error 1
+gmake[2]: *** Waiting for unfinished jobs....
+gmake[1]: *** [CMakeFiles/Makefile2:85: CMakeFiles/sumox26_tests.dir/all] Error 2
+gmake: *** [Makefile:101: all] Error 2

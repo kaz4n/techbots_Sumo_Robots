@@ -1,0 +1,23 @@
+{
+  "cwd": "C:\\Users\\narut\\OneDrive\\Desktop\\Project\\techbots_Sumo_Robots",
+  "runs": [
+    {
+      "command": "wsl bash -lc 'cd /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots && cmake -S host -B /tmp/sumox_d087_impl -DCMAKE_BUILD_TYPE=Debug > state/analysis/P2_button_routing_raw/implementer/configure_initial.txt 2>&1 && cmake --build /tmp/sumox_d087_impl --parallel 2 > state/analysis/P2_button_routing_raw/implementer/build_initial.txt 2>&1 && ctest --test-dir /tmp/sumox_d087_impl --output-on-failure > state/analysis/P2_button_routing_raw/implementer/tests_initial.txt 2>&1'",
+      "exit_code": 1,
+      "raw_output": "configure_initial.txt",
+      "result": "Configuration failed because the independently authored tests/test_button_motor_gate.cpp was not yet present. Dependent build and ctest did not execute; their output files do not exist. Coordinator took over the full host build once the test source arrived."
+    },
+    {
+      "command": "wsl bash -lc 'cd /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots && g++ -std=c++17 -Wall -Wextra -Wpedantic -Werror -fno-exceptions -fno-rtti -I src -fsyntax-only src/core/countdown.cpp src/core/fsm_robot.cpp src/core/fsm_buttons.cpp src/core/logframe.cpp > state/analysis/P2_button_routing_raw/implementer/syntax_initial.txt 2>&1'",
+      "exit_code": 0,
+      "raw_output": "syntax_initial.txt",
+      "raw_exit_code": "syntax_initial.exit.txt",
+      "result": "Strict C++17 compilation of all four assigned implementation units passed with no diagnostics."
+    },
+    {
+      "command": "git diff --check -- src/core/countdown.cpp src/core/countdown.h src/core/fsm.h src/core/fsm_robot.cpp src/core/fsm_buttons.cpp src/core/logframe.cpp",
+      "exit_code": 0,
+      "result": "No diagnostics. This summary is copied from observed tool output; no separately redirected log was captured."
+    }
+  ]
+}

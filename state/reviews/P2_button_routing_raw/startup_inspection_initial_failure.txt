@@ -1,0 +1,4 @@
+2026-09-23 reviewer-only script failure, no production failure:
+python state/reviews/P2_button_routing_raw/inspect_startup.py
+Exit 1 at line 49: assert not any('fsm' in name or 'ui' in name for name in chosen if name.startswith('_GLOBAL__sub_I'))
+The substring 'ui' matched inherited 'arduino' constructor symbols. Changed only this review script to match mangled namespace prefixes _ZN[K]?(3fsm|2ui). All startup symbol evidence is retained; no production code or test assertions were edited.

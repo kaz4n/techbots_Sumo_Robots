@@ -1,0 +1,4 @@
+Reviewer-only closure script exited 1 before a final verdict:
+python state/reviews/P2_button_routing_raw/close_evidence.py
+AssertionError line18: initial_elfs == final_elfs.
+This was an unrequired assumption that all three artifacts would have byte-identical hashes across source-root/line-ending changes. The actual upload-format .ino.elf is identical (37d9acef...), while _debug.elf and _temp.elf hashes differ; the final target source and all three final receipts had already passed separate identity checks. Changed reviewer assertion and report to claim equality only for the proven upload-format ELF. Both initial/final hashes are explicitly retained, with no claim about the reason for debug/temp byte differences. No production or test file changed.

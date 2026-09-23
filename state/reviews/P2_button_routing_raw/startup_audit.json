@@ -1,0 +1,30 @@
+{
+  "scope": "Offline receipt review, not MCU startup execution",
+  "source": "a4a4b803c2843735fdeb775db22f8dc79dd4eb006af95a30f7fb306179879127",
+  "base_sha256": "39d4a4fd47241663323f6e04f94dd8f5a9f9ad6582cf1df37f9709b74026adcd",
+  "upload_elf_sha256": "37d9acef0bad1260abb3d9d6d219113b90f3507f260733d4023b74c3e1874c52",
+  "additional_math_bindings": {
+    "fmod": 134303821,
+    "sqrt": 134303441
+  },
+  "startup_functions": [
+    "setup",
+    "loop",
+    "initVariant",
+    "__loopHook()",
+    "_GLOBAL__sub_I__ZN12button_probe6readerE",
+    "_GLOBAL__sub_I__ZN3imu3Bus13controlsOwnedEb",
+    "_GLOBAL__sub_I__ZNK8line_qtr6Reader11globalOwnedEv",
+    "_GLOBAL__sub_I__ZN6motors8UnoQPort4portEv",
+    "_GLOBAL__sub_I__ZN11opp_sensors7Sensors5beginEv",
+    "_GLOBAL__sub_I__ZNK5power6Reader13controlsOwnedEv",
+    "_GLOBAL__sub_I_Bridge",
+    "_GLOBAL__sub_I__ZN7arduino12ZephyrSerial5beginEmt",
+    "_GLOBAL__sub_I__ZSt20__throw_system_errori"
+  ],
+  "init_array_entries": 9,
+  "no_calls_in_new_TU_initializer_setup_loop_and_initVariant": true,
+  "project_methods_retained": true,
+  "receipt_sha256": "6dd5e5d74df5bfca218aa553875d9330b0f88b8933d08ba2885cf8b14a224f30",
+  "limit": "Inherited Bridge/UART/libstdc++ startup and base static thread remain. No new project pin/native initialization; this is not a globally I/O-free runtime claim."
+}

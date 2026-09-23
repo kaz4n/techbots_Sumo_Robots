@@ -1,0 +1,1 @@
+for f in tests/test_button_*.cpp; do g++ -std=c++17 -Wall -Wextra -Wpedantic -Werror -fno-exceptions -fno-rtti -DDOCTEST_CONFIG_NO_EXCEPTIONS -I src -isystem host/third_party -fsyntax-only "$f" || exit; done

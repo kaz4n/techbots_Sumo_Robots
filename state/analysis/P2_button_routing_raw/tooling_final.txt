@@ -1,0 +1,50 @@
+test_bench_startup_modes_keep_motors_disabled_and_artifacts_separate (test_tools.ToolContractTests.test_bench_startup_modes_keep_motors_disabled_and_artifacts_separate) ... ok
+test_compile_only_all_argument_orders_and_build_configurations (test_tools.ToolContractTests.test_compile_only_all_argument_orders_and_build_configurations) ... ok
+test_failure_propagation_stops_later_stages (test_tools.ToolContractTests.test_failure_propagation_stops_later_stages) ... ok
+test_immediate_matrix_upload_waits_for_loader_ownership_verification (test_tools.ToolContractTests.test_immediate_matrix_upload_waits_for_loader_ownership_verification) ... ok
+test_invalid_arguments_and_unsafe_paths_fail_before_transport (test_tools.ToolContractTests.test_invalid_arguments_and_unsafe_paths_fail_before_transport) ... ok
+test_logs_execute_receive_only_request_and_report_disconnect (test_tools.ToolContractTests.test_logs_execute_receive_only_request_and_report_disconnect) ... ok
+test_logs_propagate_ssh_failure_and_reject_arguments (test_tools.ToolContractTests.test_logs_propagate_ssh_failure_and_reject_arguments) ... ok
+test_match_is_not_upload_permission_and_other_targets_stay_blocked (test_tools.ToolContractTests.test_match_is_not_upload_permission_and_other_targets_stay_blocked) ... ok
+test_missing_connection_configuration_fails_before_transport (test_tools.ToolContractTests.test_missing_connection_configuration_fails_before_transport) ... ok
+test_missing_or_wrong_core_prevents_compile_and_upload (test_tools.ToolContractTests.test_missing_or_wrong_core_prevents_compile_and_upload) ... ok
+test_missing_rsync_fails_before_transport (test_tools.ToolContractTests.test_missing_rsync_fails_before_transport) ... ok
+test_missing_source_or_config_fails_before_transport (test_tools.ToolContractTests.test_missing_source_or_config_fails_before_transport) ... ok
+test_only_allowlisted_inert_sketches_upload_after_compile_without_port (test_tools.ToolContractTests.test_only_allowlisted_inert_sketches_upload_after_compile_without_port) ... ok
+test_real_diagnostics_host_syntax_and_inert_guard (test_tools.ToolContractTests.test_real_diagnostics_host_syntax_and_inert_guard) ... ok
+test_reviewed_inert_immediate_upload_uses_same_artifact_and_zero_motor_macro (test_tools.ToolContractTests.test_reviewed_inert_immediate_upload_uses_same_artifact_and_zero_motor_macro) ... ok
+test_reviewed_snapshot_survives_lf_checkout (test_tools.ToolContractTests.test_reviewed_snapshot_survives_lf_checkout) ... 
+  test_reviewed_snapshot_survives_lf_checkout (test_tools.ToolContractTests.test_reviewed_snapshot_survives_lf_checkout) (sketch='bench/p0_matrix') ... FAIL
+  test_reviewed_snapshot_survives_lf_checkout (test_tools.ToolContractTests.test_reviewed_snapshot_survives_lf_checkout) (sketch='bench/p0_timing') ... FAIL
+test_sketch_local_project_collisions_fail_before_transport (test_tools.ToolContractTests.test_sketch_local_project_collisions_fail_before_transport) ... ok
+test_sketch_local_src_is_preserved_and_compiles (test_tools.ToolContractTests.test_sketch_local_src_is_preserved_and_compiles) ... ok
+test_source_ancestor_symlink_is_rejected_before_transport (test_tools.ToolContractTests.test_source_ancestor_symlink_is_rejected_before_transport) ... ok
+test_source_symlinks_are_rejected_before_transport (test_tools.ToolContractTests.test_source_symlinks_are_rejected_before_transport) ... ok
+test_staging_preserves_project_and_sketch_local_includes (test_tools.ToolContractTests.test_staging_preserves_project_and_sketch_local_includes) ... ok
+test_startup_selection_cannot_bypass_upload_or_configuration_guards (test_tools.ToolContractTests.test_startup_selection_cannot_bypass_upload_or_configuration_guards) ... ok
+test_transport_is_strict_and_content_addressed_without_deletion (test_tools.ToolContractTests.test_transport_is_strict_and_content_addressed_without_deletion) ... ok
+test_upload_rejects_changed_or_added_source_before_transport (test_tools.ToolContractTests.test_upload_rejects_changed_or_added_source_before_transport) ... ok
+test_upload_requires_readable_reviewed_snapshot (test_tools.ToolContractTests.test_upload_requires_readable_reviewed_snapshot) ... ok
+
+======================================================================
+FAIL: test_reviewed_snapshot_survives_lf_checkout (test_tools.ToolContractTests.test_reviewed_snapshot_survives_lf_checkout) (sketch='bench/p0_matrix')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_tools.py", line 382, in test_reviewed_snapshot_survives_lf_checkout
+    self.assertEqual(0, result.returncode, result.stderr)
+AssertionError: 0 != 2 : ERROR: inert upload source differs from reviewed P0 snapshot; use --compile-only and obtain a new source review
+
+
+======================================================================
+FAIL: test_reviewed_snapshot_survives_lf_checkout (test_tools.ToolContractTests.test_reviewed_snapshot_survives_lf_checkout) (sketch='bench/p0_timing')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_tools.py", line 382, in test_reviewed_snapshot_survives_lf_checkout
+    self.assertEqual(0, result.returncode, result.stderr)
+AssertionError: 0 != 2 : ERROR: inert upload source differs from reviewed P0 snapshot; use --compile-only and obtain a new source review
+
+
+----------------------------------------------------------------------
+Ran 25 tests in 36.612s
+
+FAILED (failures=2)

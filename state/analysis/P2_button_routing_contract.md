@@ -75,9 +75,10 @@ existing Buttons handles later contamination. No duplicate HAL debounce.
 ## Source time versus decision time
 
 stepObserved uses ButtonTiming observation_us=actual completion, fresh only on a
-new admitted observation, restart on initial explicit entry/fault, start_ready
+new admitted observation, restart on initial explicit entry/button-admission fault, start_ready
 only after neutral qualification. restart clears unfinished gestures; never a
-latched STOP, Gate timer, or menu selection. No-new calls do NOT cancel a gesture
+latched STOP, Gate timer, or menu selection. Unrelated final faults retain existing
+Gate STOP and Menu inhibition, including legacy snapshot precedence. No-new calls do NOT cancel a gesture
 within the accepted continuity limit, and do NOT sample or advance its qualifier.
 New equal levels qualify sampled stability across bounded source gaps; this is
 not proof of a physically continuous waveform. Missing beyond the limit faults.

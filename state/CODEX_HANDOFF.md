@@ -1,3 +1,49 @@
+# D087 checkpoint - active P2 software development,2026-09-23 Asia/Dubai
+
+Implemented real A1 decoder/adapter -> Robot admission -> START/STOP/menu routing
+and B15 extended fault11 in b69fa12; contract6c01bb4, D087/F109. Read
+P2_button_routing_contract/validation/failures.md and separate review PASS/no open
+finding. Reviewer context reused from D086 after new-spawn thread limit; independent
+of implementation/test author, same model, not newly fresh-context/cross-model.
+No human phase gate follows. Every established locked/behavioral test is intact.
+
+Fullhost2/2PASS20.51s/fullsan2/2PASS28.73s:1209main22954190assertions plus
+38enabledMotorGate3843482. Author/reviewer36newcases113773 and1enabledcase46636
+PASS; reviewer also ran sanitizer. Newdecoder/probe/CSV8methods,18config,
+25existingtools and2stagingPASS:53distinct scoped methods, not all-tooling.
+Finalcompile-only557e0e5f142288program/69864compiler globals,59sources/3ELFs,
+36native42AEABI+fmod/sqrt verified;59Git index blobs exactly equal compiled bytes.
+Exactly5existing inert keys approved/reproduced/adopted, no new upload key.
+
+Unconfigured production raw windows remain deliberate. A failed/ambiguous sample
+cannot become NONE; explicit replay never renews age/qualifies gestures. Fresh
+source spans qualify observations; actual decision ticks anchor full holds. Age/
+gap5000us is a development policy, not measured physical cadence. SC-A unchanged.
+Detail11 carries LINE256/BUTTON512; detail7 retains old1..255 semantics.
+
+Preserve early fixture include/status/contamination failures, premature root
+retries, reviewer script errors and root manifest-receipt filename collision.
+Existing LF-checkout tests found root CRLF header formatting; fixed only endings,
+then repeated target/identity/registry/tooling. Initial a4a4target and raw failures
+are retained. Root ledgers contain inherited mixed-encoding history: append new
+bytes without decoding/rewriting old history. No historical approvals altered.
+
+Next actual task: finish P2 B6 matrix rendering and bounded native display output.
+Read P2_button_routing_raw/next_ui_task.md, B3/B13/B14, P2_hal_bench and P0 matrix
+source/audit leads. Freeze pixel/priority/countdown/battery/fault display policy
+under D051, then implement actual104-byte renderer and source-verified bounded
+adapter with independent tests/inert target/review. Avoid blocking text/scroll
+routines; account for inherited periodic matrix ISR in future full-tick analysis.
+
+Full P0-P7 goal ACTIVE/incomplete. No human gate/PINMAP/EXPLAINED or motor-run
+permission fabricated; no new hardware request now. SC-A/SC-AJ/F091, physical
+windows/polarity/accuracy/cadence/pin/electrical/WCET and app scheduling remain.
+No upload/reset/MCU/pad/sensor/motor action; only board Linuxcompile/offlinefiles.
+Last-known MCU image inertQTR61d7a2d0, not freshly inspected. Original schedule
+retained. Local commits only; no push/tag/history rewrite. This turn PROGRESS.
+
+--- Earlier handoff preserved below ---
+
 # D086 checkpoint - active P2 software development,2026-09-23 Asia/Dubai
 
 Implemented actual optional A1 ADC owner327c5db, contractf194579. Read D086/F108,

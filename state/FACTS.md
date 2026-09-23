@@ -348,3 +348,13 @@ F107 final disposition: fresh separate same-model review completed 2026-09-23T14
 | ID | Question | Observed answer | Source | Confidence | Hardware-checked |
 |---|---|---|---|---|---|
 | F-108 | Does one native ADC1 owner acquire separate A0/A1 evidence while preserving battery-only behavior? | Implementation327c5db/contractf194579. Source audit binds A1/PA5/channel10/DTchannel_a and legal idle rank switching. Independent reviewer15methods/150positivecases/1329parentassertions PASS; rootfullhost/san2/2PASS1173main+37Gate. Finaltarget5f2c2329 compiles83912/34700B exit0;56files/3ELFs/36native42AEABI and inert startup inspected; exact5existing registry keys approved/adopted. | analysis/P2_adc_pair_audit.md/contract.md/validation.md/raw; reviews/P2_adc_pair_review.md/raw; cached official RM0456Rev6 and pinned installed overlay | PRIMARY-SOURCE/HOST-TESTED/TARGET-COMPILED; separate same-model software review | Linuxcompile/files only. No MCU/upload/ADC/pad/sensor/motor action, physical voltage/settling/carryover/START-BOTH or WCET acceptance. Decoder/app and SC-A/SC-AJ/F091 remain pending |
+
+
+## D087 explicit button software routing,2026-09-23
+
+| ID | Question | Observed answer | Source | Confidence | Hardware-checked |
+|---|---|---|---|---|---|
+| F-109 | Does raw A1 evidence reach logical gestures with explicit freshness and fail-closed outputs? | Implementationb69fa12/contract6c01bb4. Fullhost/san1209main+38Gate PASS; independent36cases/8tooling methods PASS. ActualMotorGate callback writes inhibit on invalid/expired/unconfigured decode. Finalcompile-only557e0e5f142288program/69864globals exit0;59exactGit/sourcefiles/3ELFs,36native42AEABI+fmod/sqrt verified;5existinginertkeys reapproved after LF repair. | analysis/P2_button_routing_contract.md/validation.md/raw; reviews/P2_button_routing_review.md/raw | HOST-TESTED/TARGET-COMPILED; separate same-model reused reviewer context | No physical voltage windows, unique START/BOTH distinction, ADC accuracy/cadence/WCET or hardware/human gate. Board Linuxcompile/offlinefiles only; no MCU/upload/pad/motor action |
+
+
+F109 final disposition 2026-09-23T15:18:47+04:00: separate reused same-model reviewer PASS/no open BLOCKER/MAJOR/MINOR; final59source/ELF and5registry identity verified. Not newly fresh-context/cross-model or human gate. See reviews/P2_button_routing_review.md.

@@ -145,11 +145,66 @@ bool Services::start(std::uint32_t release_us, float previous_bias_dps) {
     return true;
 }
 
-void Services::observeCalibration(const ServiceSample& sample) {
-    if (!sample.imu_ok || !std::isfinite(sample.raw_gyro_z_dps)) {
-        invalid_sample_ = true;
-        return;
+bool Services::admitGyro(const ServiceSample& sample) {
+    bool explicit_mode = false;
+    switch (sample.gyro_presence) {
+    case GyroPresence::LEGACY: break;
+    case GyroPresence::ABSENT:
+    case GyroPresence::VALID:
+    case GyroPresence::INVALID: explicit_mode = true; break;
+    default: invalid_sample_ = true; return false;
     }
+    if (gyro_mode_selected_ && explicit_gyro_mode_ != explicit_mode) {
+        invalid_sample_ = true;
+        return false;
+    }
+    gyro_mode_selected_ = true;
+    explicit_gyro_mode_ = explicit_mode;
+    if (!explicit_mode) {
+        const bool valid = sample.imu_ok && std::isfinite(sample.raw_gyro_z_dps);
+        if (!valid) invalid_sample_ = true;
+        return valid;
+    }
+    if (sample.gyro_presence == GyroPresence::ABSENT) return false;
+    if (sample.gyro_presence == GyroPresence::INVALID) {
+        invalid_sample_ = true;
+        return false;
+    }
+    return admitExplicitGyro(sample);
+}
+
+bool Services::admitExplicitGyro(const ServiceSample& sample) {
+    const std::uint32_t age_us = sample.t_us - sample.gyro_observation_us;
+    if (!std::isfinite(sample.raw_gyro_z_dps) || age_us > config::IMU_HEADING_MAX_GAP_US) {
+        invalid_sample_ = true;
+        return false;
+    }
+    if (have_gyro_observation_) {
+        const std::uint32_t time_delta = sample.gyro_observation_us - last_gyro_observation_us_;
+        const std::uint32_t sequence_delta = sample.gyro_sequence - last_gyro_sequence_;
+        if (time_delta == 0U && sequence_delta == 0U) {
+            if (sample.raw_gyro_z_dps != last_raw_gyro_dps_) invalid_sample_ = true;
+            return false;
+        }
+        if (time_delta == 0U || sequence_delta == 0U ||
+            time_delta >= 0x80000000U || sequence_delta >= 0x80000000U) {
+            invalid_sample_ = true;
+            return false;
+        }
+    }
+    // A fresh pre-window identity stays consumed even though it contributes no value.
+    have_gyro_observation_ = true;
+    last_gyro_observation_us_ = sample.gyro_observation_us;
+    last_gyro_sequence_ = sample.gyro_sequence;
+    last_raw_gyro_dps_ = sample.raw_gyro_z_dps;
+    if (elapsed_us_ < age_us) return false;
+    const std::uint64_t source_elapsed_us = elapsed_us_ - age_us;
+    return source_elapsed_us >= static_cast<std::uint64_t>(config::CAL_START_MS) * 1000U &&
+           source_elapsed_us < static_cast<std::uint64_t>(config::CAL_END_MS) * 1000U;
+}
+
+void Services::observeCalibration(const ServiceSample& sample) {
+    if (!admitGyro(sample)) return;
     const double value = sample.raw_gyro_z_dps;
     if (result_.calibration_samples == 0U) {
         minimum_dps_ = maximum_dps_ = value;

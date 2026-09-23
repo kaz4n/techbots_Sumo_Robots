@@ -617,3 +617,12 @@ Last D0911502e948 remains frozen inert. FullgoalACTIVE/incomplete. Firstnexttask
 SC-AL resumable nativeIMU primary/installed-source audit+publiccontract; no D094
 selected. Actual app/full800us/SC-A/SC-AJ/physical and human gates pending.
 Handoff/execution/resume refreshed; no push/tag/motor authority. | checkpoint=this commit
+
+
+2026-09-23T18:30:12+04:00 | P2 D094 source/public contract | Prior turnPROGRESS D093a15cffd/2f0981c.
+Independent primary-source and public-spec audits completed; F116 supports bounded
+native yields with retained flags/continuousburst, not physicaltiming. Adopted
+P2_imu_resume_contract and headers: oneaction/advance, unchanged aggregatebudgets,
+separatepending/terminal-once, terminalmixedAPIcancel, activeAcquirerchronology.
+No hardwarecommand/config/oldtest/phasegate. Implementation/tests follow.
+| contractcommit=this commit

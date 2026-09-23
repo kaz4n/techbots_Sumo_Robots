@@ -14,7 +14,7 @@ enum class Register : std::uint8_t {
 enum class BusStatus : std::uint8_t {
     OK, NOT_INITIALIZED, ALREADY_STARTED, INVALID_CONFIG, INVALID_REQUEST,
     OWNERSHIP, READBACK, BUS_NOT_IDLE, NACK, ARBITRATION_LOST, BUS_ERROR,
-    OVERRUN, PROTOCOL, TIMEOUT, POLL_LIMIT, FAULT_LATCHED
+    OVERRUN, PROTOCOL, TIMEOUT, POLL_LIMIT, FAULT_LATCHED, CANCELLED
 };
 // DISABLED acknowledges local PE=0, not a STOP or an electrically idle bus.
 enum class BusCleanup : std::uint8_t { NOT_ATTEMPTED, DISABLED, UNCONFIRMED };
@@ -45,6 +45,17 @@ struct BusAcquisition {
     bool motion_status_observed = false;
     std::uint8_t motion_status = 0U; // Diagnostic only, never a second generation.
 };
+// D094 progress is not an acquisition; pending payload remains default/empty.
+enum class AsyncState : std::uint8_t { IDLE, PENDING, COMPLETE, FAULT };
+struct BusProgress {
+    AsyncState state = AsyncState::IDLE;
+    bool started = false; // This invocation accepted a new runtime operation.
+    bool completed = false; // This invocation produced one terminal result.
+    std::uint32_t started_us = 0U;
+    std::uint32_t observed_us = 0U; // Service clock, never a sensor generation.
+    std::uint32_t polls = 0U;
+    BusAcquisition acquisition{}; // Only terminal reports expose acquisition data.
+};
 class Bus {
 public:
     Bus() = default;
@@ -61,7 +72,16 @@ public:
     // D081 profile/exclusive-owner precondition; status, STOP/idle, then15bytes.
     // Shares one deadline/poll budget; freshness relies on documented shadow behavior.
     BusAcquisition acquireMotion();
+    // One original deadline/poll budget across all advances and caller work.
+    // begin only anchors time; advance performs at most one guarded protocol action.
+    // Duplicate begin and passive reports do no I/O. Caller must finish/cancel.
+    BusProgress beginMotion();
+    BusProgress advanceMotion();
+    BusProgress cancelMotion();
+    BusProgress motionReport() const;
+    // Supported legacy transfers during PENDING cancel terminally, never interleave.
 private:
+    // Private state/helpers may be extended by the implementation owner only.
     struct Operation {
         std::uint32_t started_us = 0U;
         std::uint32_t observed_us = 0U;
@@ -86,6 +106,11 @@ private:
     BusTransfer transfer(Operation& op, Register reg, std::uint8_t value,
                          std::uint8_t count, bool writing);
     BusTransfer request(Register reg, std::uint8_t value, std::uint8_t count, bool writing);
+    BusProgress cancelActiveMotion();
+    BusProgress endMotion(BusStatus status);
+    bool async_active_ = false;
+    Operation async_operation_{};
+    BusProgress async_report_{};
     bool attempted_ = false;
     bool ready_ = false;
     bool owned_ = false;

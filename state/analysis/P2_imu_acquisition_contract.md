@@ -151,3 +151,12 @@ retained-method probe and startup counters in both host macro configurations,
 all upload refusals, actual UNO Q compile-only/ELF/source review, full relevant
 host/sanitizer/tooling checks and genuinely separate review. No MCU operation,
 physical phase gate, PINMAP or per-run motor authorization follows.
+
+
+## D094 additive runtime amendment,2026-09-23
+
+P2_imu_resume_contract.md adds a separate pending envelope and bounded advances
+on this same Acquirer/Bus. No pending value is a Sample, NO_NEW or source refresh.
+Every active advance checks caller time/silence; semantic abort cancels native work
+once. Legacy read while pending is terminal misuse with TRANSPORT/CANCELLED. Legal
+idle legacy read and D081 final source/sequence/phase semantics remain unchanged.

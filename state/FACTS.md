@@ -402,3 +402,10 @@ F112 final software disposition 2026-09-23T16:49:58+04:00: fresh separate same-m
 | ID | Question | Observed answer | Source | Confidence | Hardware-checked |
 |---|---|---|---|---|---|
 | F-115 | Does bounded retained battery evidence preserve shared native ADC faults and real source age? | Contractd248782; independent24cases2421assertions each motor mode plus native/config/probe cases PASS; fullnormal/san1327main+111Gate PASS; fresh review6adversarialcases20059assertions PASS. Actualcompile-only4d5e21cc retains Reader/owner/Robot/Gate/recorder,76exactsourcefiles/3ELFs/40native42AEABI exports. Compiler321652program/241524globals,20620residual and lowRAMwarning. | analysis/P2_power_inputs_contract.md,validation.md,raw; reviews/P2_power_inputs_review.md/raw | IMPLEMENTED/HOST-TESTED/TARGET-COMPILED; fresh separate same-model review PASS | Board Linux compile/offlinefiles only. No D093 upload/reset/MCU ADC/pad/motor operation, measured accuracy/settling/clock/loadedRAM/WCET or phase gate.10/20ms are development limits; actual app scheduling remains pending. |
+
+
+## Resumable I2C source prerequisites,2026-09-23
+
+| ID | Question | Observed answer | Source | Confidence | Hardware-checked |
+|---|---|---|---|---|---|
+| F-116 | May the current native I2C transaction yield without consuming progress or losing unread data? | RM0456Rev6 supports retained TXIS/TC/STOP flags; unread RXDR plus shift register triggers controller stretching before next ACK. ISR reads do not consume bytes. Keep continuous burst/ownership/config and reobserve before action. ES0499Rev12 adds no contrary selected-mode condition. No service-gap/WCET or autonomous600us line-release guarantee; D081 shadow inference remains conditional. | analysis/P2_imu_resume_source_audit.md and raw/source/receipt.json; cited official ST RM/ES and pinned installed LL | PRIMARY/INSTALLED-SOURCE VERIFIED, offline cached RM/PDF hashes plus fresh ES retrieval; fresh RM retrieval failed explicitly | No board operation/measurement, physical stretching/rate/clock or human gate. |

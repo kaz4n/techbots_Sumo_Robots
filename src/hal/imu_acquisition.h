@@ -24,6 +24,12 @@ struct Sample {
     std::uint32_t observation_gap_us = 0U; // Prior accepted completion to this completion.
     bool had_previous_observation = false;
 };
+struct SampleProgress {
+    AsyncState state = AsyncState::IDLE;
+    bool started = false;
+    bool completed = false; // Only one completion pulse per runtime operation.
+    Sample sample{}; // PENDING always carries default NOT_READY, never a measurement.
+};
 class Acquirer {
 public:
     Acquirer() = default;
@@ -35,7 +41,15 @@ public:
     // Caller time shares Bus micros() domain. No I/O before PROFILE_READY or after fault.
     // NO_NEW advances no sample sequence, calibration value or yaw integration.
     Sample read(std::uint32_t now_us);
+    // D094 runtime source; PENDING must never be forwarded as an IMU Sample.
+    // Every active advance checks caller time/silence before native progress.
+    SampleProgress beginRead(std::uint32_t now_us);
+    SampleProgress advanceRead(std::uint32_t now_us);
+    SampleProgress cancelRead(std::uint32_t now_us);
+    SampleProgress readProgress() const;
+    // Calling legacy read during PENDING terminally cancels with TRANSPORT/CANCELLED.
 private:
+    // Private state/helpers may be extended by the implementation owner only.
     Sample fail(SampleFault fault, std::uint32_t observed_us);
     bool acceptTime(std::uint32_t now_us);
     bool acceptAcquisition(const BusAcquisition& acquisition, std::uint32_t call_us);
@@ -48,5 +62,7 @@ private:
     std::uint32_t latest_us_ = 0U;
     std::uint32_t last_observation_us_ = 0U;
     std::uint32_t sequence_ = 0U;
+    bool async_active_ = false;
+    SampleProgress async_report_{};
 };
 } // namespace imu

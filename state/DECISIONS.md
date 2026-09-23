@@ -1169,3 +1169,19 @@ filter/caps, UI validity, Robot inhibition and locked tests remain unchanged.
 Consequence: independent host/native/pipeline tests, inert target compile and fresh
 review required. Limits are development choices, not measured margins or800us proof.
 No hardware/wiring/gate/motor-run permission or actual scheduler is implied.
+
+
+## D-094 (2026-09-23, selected under D051/D075) Resumable native IMU runtime
+Context: SC-AL atomic runtime I2C cannot yield for QTR service; existing component
+guards do not prove a complete800us schedule. RM0456/installed LL source supports
+retained progress flags and clock-stretched continuous bursts, with D081 freshness
+remaining conditional. Both prerequisite audits are saved independently.
+Decision: adopt P2_imu_resume_contract.md and frozen public progress APIs. One
+native protocol action per advance, original600us/8192poll budget through all
+yields, unchanged one50us cleanup. Pending is a separate envelope, never NO_NEW.
+Explicit cancel or supported legacy call during pending terminally cancels; invalid
+legacy requests still refuse without mutation. Actual Acquirer validates every
+active caller time/silence and cancels active native work on semantic abort.
+Consequence: additive native/Acquirer implementation, independent tests and fresh
+review required before actual app scheduling. No config/old B16/locked change,
+rate relaxation, physical clock/stretch/WCET, gate or upload/run authority.

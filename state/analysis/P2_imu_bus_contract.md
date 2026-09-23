@@ -192,3 +192,12 @@ fault timing and whole-loop WCET remain pending. Subsequent bounded MPU6050
 reset/config/readback, data-ready/age semantics, axis transform, gyro bias and
 heading integration are unfinished B3 work. No transport-complete bit may stand
 in for those requirements or a human phase pass.
+
+
+## D094 additive runtime amendment,2026-09-23
+
+P2_imu_resume_contract.md adds begin/advance/report/cancel on the same Bus. It
+supersedes the earlier no-resume API restriction only for this explicit path.
+Legacy supported transfers while pending terminally cancel, rather than interleave;
+malformed requests and repeated begin retain existing no-I/O precedence. All legal
+idle legacy behavior, original budgets, native ownership and physical limits remain.

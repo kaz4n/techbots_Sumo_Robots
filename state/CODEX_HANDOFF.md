@@ -1,3 +1,18 @@
+## Active checkpoint - 2026-09-24T03:54:44.174704+04:00
+
+D117 software committed ed5a9dea; F145 and final scopedreview PASS. Fullnormal/san
+1478main+187Gate, independent26methods/private12/factory193 and exact3targets pass.
+Defaultappsourcee820c0e1 has only8bytes conditional loader-model span; no load yet.
+Native dump prerequisite followup/F146 now has separate read-only review PASS:
+exactkernel/source/access receipts;19hashes verified; correctedPID wording retained.
+UART preparation remains blocked by incomplete holder visibility and unobserved
+cancel/reopen completion. No grants, UART action, upload/reset or human gate.
+CurrentMCU remains consumed D114396bcc45. Next eligible investigation is an exact
+MOTORS_ALLOWED0 app-default load/heap observation contract, after source audit.
+All-false grants still initialize existing motor pins/timers at zero; do not call
+that no-I/O, reuse old probe offsets, or infer physical acceptance. No run before
+its exact source/guard/readout plan and independent review are complete.
+
 ## Active checkpoint - 2026-09-24T03:48:55.910026+04:00
 
 P2 software active. D117 explicit FIFO transport completed in this implementation

@@ -1,0 +1,99 @@
+{
+  "created_utc": "2026-09-23T23:53:27.517298+00:00",
+  "scope": "READ_ONLY_LINUX_METADATA_AND_PRIMARY_SOURCE; no UART/socket/RPC/service/privilege/MCU operations",
+  "report": {
+    "path": "state/analysis/P2_native_dump_prerequisite_followup.md",
+    "bytes": 8287,
+    "sha256": "7189b597c44705242f2e997982170967157a9010f4810786b88f97f57ec8e3b9"
+  },
+  "files": {
+    "state/analysis/P2_native_dump_prerequisite_followup_raw/01_inventory.json": {
+      "bytes": 35001,
+      "sha256": "27983afb9b46448b5dbee20d13fbee0d6047f7d4f2c68050d68abfd466475167"
+    },
+    "state/analysis/P2_native_dump_prerequisite_followup_raw/collect.py": {
+      "bytes": 1604,
+      "sha256": "7110f88ff6b249b8b7e869abe734b57dc24d368828d4c991c6490ee4b8cb8712"
+    },
+    "state/analysis/P2_native_dump_prerequisite_followup_raw/first_artifact_index.json": {
+      "bytes": 3746,
+      "sha256": "ae2fb7e99074c8582429cc7476133d6362a87f004642e1fd6bb5d949a11fedfd"
+    },
+    "state/analysis/P2_native_dump_prerequisite_followup_raw/first_report.md": {
+      "bytes": 8205,
+      "sha256": "a8e573241e9f955acc8cde270fc2e95a020cb2083703113fa85a004de7bff3e4"
+    },
+    "state/analysis/P2_native_dump_prerequisite_followup_raw/kernel_commit.json": {
+      "bytes": 37705,
+      "sha256": "e6b4ff0b3425c4f6ebe421b1a4a0c987249e55385d5f7bb8266e613c1d41f655"
+    },
+    "state/analysis/P2_native_dump_prerequisite_followup_raw/kernel_source/drivers/tty/n_tty.c": {
+      "bytes": 65144,
+      "sha256": "1a10eca426409b7cb8fa2b5f8575383ad0cf93509c87b9e53a58c64857704eb9"
+    },
+    "state/analysis/P2_native_dump_prerequisite_followup_raw/kernel_source/drivers/tty/serial/qcom_geni_serial.c": {
+      "bytes": 51246,
+      "sha256": "5dd5075a38c2f54f3aa1960ae7d6b11532a26315a7ded1e5c4030a054fa314e7"
+    },
+    "state/analysis/P2_native_dump_prerequisite_followup_raw/kernel_source/drivers/tty/serial/serial_core.c": {
+      "bytes": 95031,
+      "sha256": "9852e68e6814bc8ec46757e6632f2483b0eab71220479b7eb4cc1f72b74f623e"
+    },
+    "state/analysis/P2_native_dump_prerequisite_followup_raw/kernel_source/drivers/tty/tty_buffer.c": {
+      "bytes": 16611,
+      "sha256": "b11d9862ae2ddf7166fa940ba8fbdb17fb8c0d8f1579f7b9ac1e825e18e24633"
+    },
+    "state/analysis/P2_native_dump_prerequisite_followup_raw/kernel_source/drivers/tty/tty_io.c": {
+      "bytes": 91412,
+      "sha256": "24a5992815a83f7699c65519cbbf54e4cb9061c6bd01117c156dd7046e17cc36"
+    },
+    "state/analysis/P2_native_dump_prerequisite_followup_raw/kernel_source/drivers/tty/tty_ioctl.c": {
+      "bytes": 26062,
+      "sha256": "36babfdd0401134cead2845f4ab578b81901f1e832edcc004833c42034369ca1"
+    },
+    "state/analysis/P2_native_dump_prerequisite_followup_raw/kernel_source/drivers/tty/tty_ldisc.c": {
+      "bytes": 20797,
+      "sha256": "b90e454ff9202bc17efd3181fa76f0d40cb790d64e6bad8939b978dd51f9d5bd"
+    },
+    "state/analysis/P2_native_dump_prerequisite_followup_raw/kernel_source/drivers/tty/tty_port.c": {
+      "bytes": 21341,
+      "sha256": "930338e8bf4d1965872e6c7592dfb2be56a87277256342f3b04b4b50b8bd16ea"
+    },
+    "state/analysis/P2_native_dump_prerequisite_followup_raw/kernel_source/include/linux/soc/qcom/geni-se.h": {
+      "bytes": 15995,
+      "sha256": "bc333bc0de0d77043bf6e5b276fb96a08b42004585d86a3bcc3cc612391c4092"
+    },
+    "state/analysis/P2_native_dump_prerequisite_followup_raw/remote_inventory.py": {
+      "bytes": 4500,
+      "sha256": "c9c37feb216115cb714eea7817689752926cb4be63345cfefc698d7455c26450"
+    },
+    "state/analysis/P2_native_dump_prerequisite_followup_raw/report_correction.json": {
+      "bytes": 625,
+      "sha256": "b73253babbb5da529ae665d8a8c3e874e462d0b2bd9ff1b93b652620bfa73f16"
+    },
+    "state/analysis/P2_native_dump_prerequisite_followup_raw/source_flush_chain_receipt.json": {
+      "bytes": 464,
+      "sha256": "e8fb891d8e0ebba898b9e80497e4ad2257d5a8c46c6c1f042b524f88b562defa"
+    },
+    "state/analysis/P2_native_dump_prerequisite_followup_raw/source_receipts.json": {
+      "bytes": 4862,
+      "sha256": "6eac1b1968bfa416f85793a2fdc9c29c593686a5704baf991c7eba46c717c555"
+    }
+  },
+  "result": "PREREQUISITE_BLOCKED: holder visibility incomplete; source matches release suffix but does not prove runtime driver completion or physical framing.",
+  "correction": {
+    "utc": "2026-09-23T23:53:27.502394+00:00",
+    "reason": "Reviewer MINOR: PID membership did not change. List order differs (lexicographic versus numeric); one vanished fd is the only observed disappearance.",
+    "original_report_sha256": "a8e573241e9f955acc8cde270fc2e95a020cb2083703113fa85a004de7bff3e4",
+    "new_report_sha256": "7189b597c44705242f2e997982170967157a9010f4810786b88f97f57ec8e3b9",
+    "evidence": {
+      "receipt": "01_inventory.json",
+      "before_count": 167,
+      "after_count": 167,
+      "pid_sets_equal": true,
+      "lists_equal": false,
+      "fd_vanished": 1
+    },
+    "new_board_action": false
+  }
+}

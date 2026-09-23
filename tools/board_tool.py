@@ -297,8 +297,8 @@ def flash_profile(args):
         import ui_adc_run
         identified = ui_adc_run.validate_request(args, startup)
     probe = args.sketch == 'bench/runtime_inert'
-    sensor_bench = args.sketch in ('bench/opp_view', 'bench/qtr_raw', 'bench/vbat', 'bench/imu_heading', 'bench/ui', 'bench/ui_adc_probe')
-    if (probe or args.sketch == 'bench/ui_adc_probe') and (args.match or startup != 'default'):
+    sensor_bench = args.sketch in ('bench/opp_view', 'bench/qtr_raw', 'bench/vbat', 'bench/imu_heading', 'bench/ui', 'bench/ui_adc_probe', 'bench/motor_stand')
+    if (probe or args.sketch in ('bench/ui_adc_probe', 'bench/motor_stand')) and (args.match or startup != 'default'):
         fail('Native probe requires default startup and MATCH=0 MOTORS_ALLOWED=0')
     if sensor_bench and args.match:
         fail('Sensor bench requires MATCH=0 MOTORS_ALLOWED=0')
@@ -351,7 +351,8 @@ def flash(args):
         project = {'bench/runtime_inert': 'runtime_inert.ino',
                    'bench/opp_view': 'opp_view.ino', 'bench/qtr_raw': 'qtr_raw.ino',
                    'bench/vbat': 'vbat.ino', 'bench/imu_heading': 'imu_heading.ino',
-                   'bench/ui': 'ui.ino', 'bench/ui_adc_probe': 'ui_adc_probe.ino'}[args.sketch]
+                   'bench/ui': 'ui.ino', 'bench/ui_adc_probe': 'ui_adc_probe.ino',
+                   'bench/motor_stand': 'motor_stand.ino'}[args.sketch]
         artifact_folder = compile_app(board, checksum, board_folder, remote_root, fqbn,
                                       flags, startup, project=project)
     else:

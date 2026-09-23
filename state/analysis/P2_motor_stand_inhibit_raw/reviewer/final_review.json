@@ -1,0 +1,107 @@
+{
+  "verdict": "PASS_SCOPED_SOURCE_TESTS_CHECKED_DEFAULT_TARGET",
+  "utc": "2026-09-23T22:50:36.388500+00:00",
+  "source_sha256": "bb3b462aef66f5a0a70ed24849b47e408ef93470d975071d64ad78d4a97260fe",
+  "elf_sha256": "7a9c5cb5a2497e5a879c9c124c159d2c70cb91f83b839ea9c4a49e7aa6e6989d",
+  "zsk_sha256": "682f3b65ff7c3548af03ee119f2d5bb6dec74c4f8b3aaf7211b29180dc231e18",
+  "checked_receipt": "a7b05d1e88d242d19bca7129e5cf8e46",
+  "production_files": {
+    "bench/motor_stand/motor_stand.ino": {
+      "sha256": "90e754860bc4a4baf54c8fb1b8014ebfe285c37dd85b8461d0013cf92b295e15",
+      "bytes": 576
+    },
+    "bench/motor_stand/src/motor_stand.h": {
+      "sha256": "f48a3354048d2b82e5de1d8d53661753e1f3ad91cf8566eaa936c4f73c76664c",
+      "bytes": 1186
+    },
+    "bench/motor_stand/src/motor_stand.cpp": {
+      "sha256": "7e1b99a433855741fa708c58bbec3f6304e6abc21ebce6700d2499135ff70eed",
+      "bytes": 1238
+    },
+    "bench/motor_stand/src/motor_stand_native.h": {
+      "sha256": "5dd6be92b6c4fa29eac16866232aeda326431acbcaa15823ddf0a1ac17f92238",
+      "bytes": 560
+    },
+    "bench/motor_stand/src/motor_stand_native.cpp": {
+      "sha256": "923bdd474386286a655c59632ba4dd0f475e854441e4b68c32717bfe3740e2d3",
+      "bytes": 374
+    }
+  },
+  "tooling_and_contract_sha256": {
+    "tools/board_tool.py": "e93ef30ca82264c350f376a67206c3f3cfb94ab5738879d58c230aafb4fa7565",
+    "tools/app_build_policy.py": "9b8f86392f6ec5d7144f6e15ebaaea560ffc795dea7b3460abd3a97f40ef578b",
+    "host/CMakeLists.txt": "5705b989b6b1dc7c330ff7e5cd921e0e4c727e6a2dca5d46e7d0bc4d3c241520",
+    "state/analysis/P2_motor_stand_inhibit_contract.md": "d8f5fd9691e00521af665687c730e274605934c48f30f160ebe26bae0ed84cb2"
+  },
+  "final_tests_sha256": {
+    "tests/test_motor_stand_inhibit.cpp": "199b699284bac79ba4f8d78c09e5cc46647e4f0c05edffbf29ed43e7fdf82bf1",
+    "tests/tooling/motor_stand_native_cases.cc": "2f8600e899d3d87277aa5a70726e3dad42f7b372c3631f96954b2cba20205d98",
+    "tests/tooling/test_motor_stand_inhibit.py": "14f4b464fa4afd379232dd7398350329f4d92128fad0c799d6d503a086e16c74",
+    "tests/tooling/test_motor_stand_inhibit_policy.py": "f379a3a290b8ae84d2bd77ee53015b2eaa8c3dcba570831a9c4b526d9afc505f"
+  },
+  "private_tests": {
+    "tests_run": 10,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "success": true,
+    "findings": []
+  },
+  "gate_cases_each_mode": 58,
+  "gate_assertions_each_mode": 4242601,
+  "native_binaries": 4,
+  "static_refusals": 6,
+  "new_policy_methods": 8,
+  "root_full_normal_and_sanitized": {
+    "ordinary_cases": 1457,
+    "ordinary_assertions": 45984586,
+    "active_gate_cases": 187,
+    "active_gate_assertions": 4536952,
+    "policy_methods": 175
+  },
+  "final_target_account": {
+    "bytes": 25524,
+    "payload": 5556,
+    "conditional_peak": 6312,
+    "free_span": 255832,
+    "largest_free_payload": 255828
+  },
+  "abi": {
+    "Runner": 120,
+    "Native": 40,
+    "MotorGate": 88,
+    "Report": 24,
+    "HaltResult": 16,
+    "Port": 44,
+    "report_offset": 88,
+    "attempted_offset": 112
+  },
+  "evidence_sha256": {
+    "state/analysis/P2_motor_stand_inhibit_raw/reviewer/private_final_source_copy.json": "7927fe09f060bdd9501c242d2136bf275c4ce796bac6998f94a0aab57d80bda2",
+    "state/analysis/P2_motor_stand_inhibit_raw/reviewer/private_final_summary.json": "a61ff850453577381ea56feb8035b71a0bcdd67124596075edae7c315887fe32",
+    "state/analysis/P2_motor_stand_inhibit_raw/reviewer/private_final_command.json": "c28f2e6ca6525b0472e44300dee8900a3a5d5de6f0449e892c728cf280d3e356",
+    "state/analysis/P2_motor_stand_inhibit_raw/reviewer/fixture1_review.json": "ffa760962924ffcf4b5950d91e39bdb896f2dfce4ccd8bb38eca8b1a49a6b1ee",
+    "state/analysis/P2_motor_stand_inhibit_raw/reviewer/target_bb3b462a_bench-default.json": "748bd592f56e0463bc17bdd09eb427b8121311309d021d27841f905069ec4985",
+    "state/analysis/P2_motor_stand_inhibit_raw/reviewer/target_bb3b462a_bench-default_witness.txt": "46fb4bea4fb96bb7e9c6d60bc54cb79f964eb94f08f247d4e6e73f387bec73e8",
+    "state/analysis/P2_motor_stand_inhibit_raw/reviewer/target_initial_static_failure.json": "e36611e6a4ba1972ec75ced6d9e306db814f6e2d89d48d2de00a9afcc93a5916",
+    "state/analysis/P2_motor_stand_inhibit_raw/reviewer/tooling_preflight.json": "e1815902a18607aba13fca0015320e8647dd93a8dab43560fa07652fec502a8c",
+    "state/analysis/P2_motor_stand_inhibit_raw/author/first_test_freeze.json": "0bb1ab6d0704483b07fbc224e7f89df3d0e72a88420484fac15252e9efc5a3d3",
+    "state/analysis/P2_motor_stand_inhibit_raw/author/fixture1_applied_freeze.json": "9691e00d6fdf04a26e811b9fa27eaa0257d995c6d31249d14712c376b286720a",
+    "state/analysis/P2_motor_stand_inhibit_raw/author/validation.json": "5060d0075be4f7663637e8c65029d1b609e69da187278bd54cf820218af96cca",
+    "state/reviews/P2_motor_stand_inhibit_review.md": "0b1c4c0070cd6033ecb7e8f06e3e9c3519728e40225733bcabfa21f5fff5f5df"
+  },
+  "findings": [],
+  "failure_dispositions": [
+    "Author Native fixture member-lookup linker error: exact callback-identifier rename only; original failure retained.",
+    "Reviewer static git-byte assertion: existing CRLF/LF distinction, exact D114 working manifest unchanged.",
+    "Reviewer temp ELF constant-section assertion: original per-constant sections are retained prior to final merge; exact temporary-only set and ABS32-normalized instruction comparison accepted; original failure retained."
+  ],
+  "independence": "Reused separate same-model source-aware reviewer, private isolated copied author suite; not cross-model or a human gate.",
+  "board_actions": false,
+  "limitations": [
+    "Default false-grant target compiled and audited only; no target execution/upload key.",
+    "True grants exercised only through synthetic host Ports.",
+    "Conditional pristine loader fit, not actual free RAM/stack/WCET.",
+    "No electrical inhibition/coast/powered kill, B4/B7, PINMAP OK, STAND OK or human gate acceptance."
+  ]
+}

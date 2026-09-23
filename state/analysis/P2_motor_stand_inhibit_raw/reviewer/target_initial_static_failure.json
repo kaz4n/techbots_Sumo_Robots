@@ -1,0 +1,6 @@
+{
+  "failure": "AssertionError at review_target.py:152",
+  "attempt": "First reviewer target audit",
+  "cause": "Reviewer initially assumed merged .llext.rodata.noreloc also in temporary ELF; retained temp has the three exact original PRESCALERS/DOMAINS/SELECTORS rodata sections. Final and debug passed that check.",
+  "disposition": "Source-aware review harness correction only: admit those exact temp constant sections and normalize only ABS32 relocation words when comparing temp instructions; preserve exact final/debug byte equality and callback target identities. No source/artifact/test changes."
+}

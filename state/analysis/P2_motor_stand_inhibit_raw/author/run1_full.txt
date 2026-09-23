@@ -1,0 +1,30 @@
+test_actual_gate_normal_sanitized_and_unchanged_locked_regressions (tests.tooling.test_motor_stand_inhibit.MotorStandInhibitTests.test_actual_gate_normal_sanitized_and_unchanged_locked_regressions) ... ok
+test_actual_native_binding_and_default_sketch_before_setup_and_loops (tests.tooling.test_motor_stand_inhibit.MotorStandInhibitTests.test_actual_native_binding_and_default_sketch_before_setup_and_loops) ... FAIL
+test_configuration_or_checked_compile_failure_propagates_without_fallback (tests.tooling.test_motor_stand_inhibit_policy.MotorStandInhibitPolicyTests.test_configuration_or_checked_compile_failure_propagates_without_fallback) ... ok
+test_default_compile_uses_existing_checked_route_exact_project (tests.tooling.test_motor_stand_inhibit_policy.MotorStandInhibitPolicyTests.test_default_compile_uses_existing_checked_route_exact_project) ... ok
+test_every_upload_match_immediate_or_foreign_run_option_fails_before_staging (tests.tooling.test_motor_stand_inhibit_policy.MotorStandInhibitPolicyTests.test_every_upload_match_immediate_or_foreign_run_option_fails_before_staging) ... ok
+test_exact_default_project_has_checked_preflight_and_result (tests.tooling.test_motor_stand_inhibit_policy.MotorStandInhibitPolicyTests.test_exact_default_project_has_checked_preflight_and_result) ... ok
+test_immediate_match_motor_and_unknown_macro_variants_refuse (tests.tooling.test_motor_stand_inhibit_policy.MotorStandInhibitPolicyTests.test_immediate_match_motor_and_unknown_macro_variants_refuse) ... ok
+test_mixed_project_effective_recipes_external_library_or_upload_claim_refuse (tests.tooling.test_motor_stand_inhibit_policy.MotorStandInhibitPolicyTests.test_mixed_project_effective_recipes_external_library_or_upload_claim_refuse) ... ok
+test_no_new_inert_upload_manifest_key_exists (tests.tooling.test_motor_stand_inhibit_policy.MotorStandInhibitPolicyTests.test_no_new_inert_upload_manifest_key_exists) ... ok
+test_profiles_including_dangling_symlinks_fail_before_target (tests.tooling.test_motor_stand_inhibit_policy.MotorStandInhibitPolicyTests.test_profiles_including_dangling_symlinks_fail_before_target) ... ok
+
+======================================================================
+FAIL: test_actual_native_binding_and_default_sketch_before_setup_and_loops (tests.tooling.test_motor_stand_inhibit.MotorStandInhibitTests.test_actual_native_binding_and_default_sketch_before_setup_and_loops)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/dev/shm/d115-author-dd11dveo/tests/tooling/test_motor_stand_inhibit.py", line 94, in test_actual_native_binding_and_default_sketch_before_setup_and_loops
+    self.run_command([*self.common(stage),*flags,f'-DTEST_BEGIN_RESULT={returned}',
+  File "/dev/shm/d115-author-dd11dveo/tests/tooling/test_motor_stand_inhibit.py", line 61, in run_command
+    else: self.assertEqual(result.returncode,0,result.stdout+result.stderr)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : /usr/bin/ld: /tmp/ccrQJZXr.o: in function `motors::UnoQPort::port()':
+motor_stand_native_cases.cc:(.text+0x1f2): undefined reference to `motors::UnoQPort::settle(void*)'
+/usr/bin/ld: motor_stand_native_cases.cc:(.text+0x1fd): undefined reference to `motors::UnoQPort::clockUs(void*)'
+collect2: error: ld returned 1 exit status
+
+
+----------------------------------------------------------------------
+Ran 10 tests in 27.184s
+
+FAILED (failures=1)

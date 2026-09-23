@@ -1,0 +1,326 @@
+{
+  "utc": "2026-09-23T22:43:55.209647+00:00",
+  "status": "PASS after one reviewed fixture identifier repair; original failure retained",
+  "runner_cases_new": 12,
+  "locked_cases_unchanged": 46,
+  "gate_total_cases_each": 58,
+  "gate_assertions_each": 4242601,
+  "gate_modes": [
+    "normal",
+    "ASan+UBSan"
+  ],
+  "native_binaries_passed": 4,
+  "native_profile_axes": {
+    "sanitizers": [
+      "none",
+      "ASan+UBSan"
+    ],
+    "substituted_begin_returns": [
+      false,
+      true
+    ]
+  },
+  "compile_flag_refusals": 6,
+  "policy_methods_passed": 8,
+  "first_run": {
+    "methods": 10,
+    "failures": 1,
+    "errors": 0,
+    "skips": 0,
+    "failure": "Native counted fixture link-name collision before native execution"
+  },
+  "targeted_rerun": {
+    "methods": 1,
+    "failures": 0,
+    "errors": 0,
+    "skips": 0
+  },
+  "only_changed_copied_input": {
+    "tests/tooling/motor_stand_native_cases.cc": [
+      "ed0dc84798fecfaf408a8d1426389ac4aa742c8778a4917c0a594680fbdc9208",
+      "2f8600e899d3d87277aa5a70726e3dad42f7b372c3631f96954b2cba20205d98"
+    ]
+  },
+  "native_commands": [
+    {
+      "receipt": "command_1790203422466495921.json",
+      "returncode": 0,
+      "refusal": false,
+      "argv": [
+        "g++",
+        "-std=c++17",
+        "-O1",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Werror",
+        "-fno-exceptions",
+        "-fno-rtti",
+        "-DDOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS",
+        "-DMATCH=0",
+        "-DMOTORS_ALLOWED=0",
+        "-I",
+        "/dev/shm/d115-native-6e6ax439/src",
+        "-I",
+        "/dev/shm/d115-native-6e6ax439/bench/motor_stand/src",
+        "-I",
+        "/dev/shm/d115-native-6e6ax439",
+        "-isystem",
+        "/dev/shm/d115-author-mct2wjzo/host/third_party",
+        "-DTEST_BEGIN_RESULT=0",
+        "-DARDUINO_ARCH_ZEPHYR",
+        "/dev/shm/d115-native-6e6ax439/tests/tooling/motor_stand_native_cases.cc",
+        "/dev/shm/d115-native-6e6ax439/bench/motor_stand/src/motor_stand_native.cpp",
+        "/dev/shm/d115-native-6e6ax439/bench/motor_stand/sketch.cpp",
+        "-o",
+        "/dev/shm/d115-native-6e6ax439/native_normal_0"
+      ]
+    },
+    {
+      "receipt": "command_1790203422467291475.json",
+      "returncode": 0,
+      "refusal": false,
+      "argv": [
+        "/dev/shm/d115-native-6e6ax439/native_normal_0"
+      ]
+    },
+    {
+      "receipt": "command_1790203422756049444.json",
+      "returncode": 0,
+      "refusal": false,
+      "argv": [
+        "g++",
+        "-std=c++17",
+        "-O1",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Werror",
+        "-fno-exceptions",
+        "-fno-rtti",
+        "-DDOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS",
+        "-DMATCH=0",
+        "-DMOTORS_ALLOWED=0",
+        "-I",
+        "/dev/shm/d115-native-6e6ax439/src",
+        "-I",
+        "/dev/shm/d115-native-6e6ax439/bench/motor_stand/src",
+        "-I",
+        "/dev/shm/d115-native-6e6ax439",
+        "-isystem",
+        "/dev/shm/d115-author-mct2wjzo/host/third_party",
+        "-fsanitize=address,undefined",
+        "-fno-sanitize-recover=all",
+        "-fno-omit-frame-pointer",
+        "-no-pie",
+        "-DTEST_BEGIN_RESULT=0",
+        "-DARDUINO_ARCH_ZEPHYR",
+        "/dev/shm/d115-native-6e6ax439/tests/tooling/motor_stand_native_cases.cc",
+        "/dev/shm/d115-native-6e6ax439/bench/motor_stand/src/motor_stand_native.cpp",
+        "/dev/shm/d115-native-6e6ax439/bench/motor_stand/sketch.cpp",
+        "-o",
+        "/dev/shm/d115-native-6e6ax439/native_asan_ubsan_0"
+      ]
+    },
+    {
+      "receipt": "command_1790203422761852198.json",
+      "returncode": 0,
+      "refusal": false,
+      "argv": [
+        "/dev/shm/d115-native-6e6ax439/native_asan_ubsan_0"
+      ]
+    },
+    {
+      "receipt": "command_1790203422997143603.json",
+      "returncode": 0,
+      "refusal": false,
+      "argv": [
+        "g++",
+        "-std=c++17",
+        "-O1",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Werror",
+        "-fno-exceptions",
+        "-fno-rtti",
+        "-DDOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS",
+        "-DMATCH=0",
+        "-DMOTORS_ALLOWED=0",
+        "-I",
+        "/dev/shm/d115-native-6e6ax439/src",
+        "-I",
+        "/dev/shm/d115-native-6e6ax439/bench/motor_stand/src",
+        "-I",
+        "/dev/shm/d115-native-6e6ax439",
+        "-isystem",
+        "/dev/shm/d115-author-mct2wjzo/host/third_party",
+        "-DTEST_BEGIN_RESULT=1",
+        "-DARDUINO_ARCH_ZEPHYR",
+        "/dev/shm/d115-native-6e6ax439/tests/tooling/motor_stand_native_cases.cc",
+        "/dev/shm/d115-native-6e6ax439/bench/motor_stand/src/motor_stand_native.cpp",
+        "/dev/shm/d115-native-6e6ax439/bench/motor_stand/sketch.cpp",
+        "-o",
+        "/dev/shm/d115-native-6e6ax439/native_normal_1"
+      ]
+    },
+    {
+      "receipt": "command_1790203422998000660.json",
+      "returncode": 0,
+      "refusal": false,
+      "argv": [
+        "/dev/shm/d115-native-6e6ax439/native_normal_1"
+      ]
+    },
+    {
+      "receipt": "command_1790203423273114872.json",
+      "returncode": 0,
+      "refusal": false,
+      "argv": [
+        "g++",
+        "-std=c++17",
+        "-O1",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Werror",
+        "-fno-exceptions",
+        "-fno-rtti",
+        "-DDOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS",
+        "-DMATCH=0",
+        "-DMOTORS_ALLOWED=0",
+        "-I",
+        "/dev/shm/d115-native-6e6ax439/src",
+        "-I",
+        "/dev/shm/d115-native-6e6ax439/bench/motor_stand/src",
+        "-I",
+        "/dev/shm/d115-native-6e6ax439",
+        "-isystem",
+        "/dev/shm/d115-author-mct2wjzo/host/third_party",
+        "-fsanitize=address,undefined",
+        "-fno-sanitize-recover=all",
+        "-fno-omit-frame-pointer",
+        "-no-pie",
+        "-DTEST_BEGIN_RESULT=1",
+        "-DARDUINO_ARCH_ZEPHYR",
+        "/dev/shm/d115-native-6e6ax439/tests/tooling/motor_stand_native_cases.cc",
+        "/dev/shm/d115-native-6e6ax439/bench/motor_stand/src/motor_stand_native.cpp",
+        "/dev/shm/d115-native-6e6ax439/bench/motor_stand/sketch.cpp",
+        "-o",
+        "/dev/shm/d115-native-6e6ax439/native_asan_ubsan_1"
+      ]
+    },
+    {
+      "receipt": "command_1790203423279045838.json",
+      "returncode": 0,
+      "refusal": false,
+      "argv": [
+        "/dev/shm/d115-native-6e6ax439/native_asan_ubsan_1"
+      ]
+    },
+    {
+      "receipt": "command_1790203423305757747.json",
+      "returncode": 1,
+      "refusal": true,
+      "argv": [
+        "g++",
+        "-std=c++17",
+        "-O1",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Werror",
+        "-fno-exceptions",
+        "-fno-rtti",
+        "-DDOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS",
+        "-I",
+        "/dev/shm/d115-native-6e6ax439/src",
+        "-I",
+        "/dev/shm/d115-native-6e6ax439/bench/motor_stand/src",
+        "-I",
+        "/dev/shm/d115-native-6e6ax439",
+        "-isystem",
+        "/dev/shm/d115-author-mct2wjzo/host/third_party",
+        "-DMATCH=0",
+        "-DMOTORS_ALLOWED=1",
+        "-DTEST_BEGIN_RESULT=1",
+        "-DARDUINO_ARCH_ZEPHYR",
+        "-fsyntax-only",
+        "/dev/shm/d115-native-6e6ax439/bench/motor_stand/sketch.cpp"
+      ]
+    },
+    {
+      "receipt": "command_1790203423333823388.json",
+      "returncode": 1,
+      "refusal": true,
+      "argv": [
+        "g++",
+        "-std=c++17",
+        "-O1",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Werror",
+        "-fno-exceptions",
+        "-fno-rtti",
+        "-DDOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS",
+        "-I",
+        "/dev/shm/d115-native-6e6ax439/src",
+        "-I",
+        "/dev/shm/d115-native-6e6ax439/bench/motor_stand/src",
+        "-I",
+        "/dev/shm/d115-native-6e6ax439",
+        "-isystem",
+        "/dev/shm/d115-author-mct2wjzo/host/third_party",
+        "-DMATCH=1",
+        "-DMOTORS_ALLOWED=0",
+        "-DTEST_BEGIN_RESULT=1",
+        "-DARDUINO_ARCH_ZEPHYR",
+        "-fsyntax-only",
+        "/dev/shm/d115-native-6e6ax439/bench/motor_stand/sketch.cpp"
+      ]
+    },
+    {
+      "receipt": "command_1790203423362575681.json",
+      "returncode": 1,
+      "refusal": true,
+      "argv": [
+        "g++",
+        "-std=c++17",
+        "-O1",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Werror",
+        "-fno-exceptions",
+        "-fno-rtti",
+        "-DDOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS",
+        "-I",
+        "/dev/shm/d115-native-6e6ax439/src",
+        "-I",
+        "/dev/shm/d115-native-6e6ax439/bench/motor_stand/src",
+        "-I",
+        "/dev/shm/d115-native-6e6ax439",
+        "-isystem",
+        "/dev/shm/d115-author-mct2wjzo/host/third_party",
+        "-DMATCH=1",
+        "-DMOTORS_ALLOWED=1",
+        "-DTEST_BEGIN_RESULT=1",
+        "-DARDUINO_ARCH_ZEPHYR",
+        "-fsyntax-only",
+        "/dev/shm/d115-native-6e6ax439/bench/motor_stand/sketch.cpp"
+      ]
+    }
+  ],
+  "production_changes_from_findings": 0,
+  "board_actions": 0,
+  "independence": "Separate reused author context, contract/public-header/established-test derived; no production implementation body inspection. Supplemental real-Gate comparison labeled delegation compatibility.",
+  "coverage_file": "coverage.json",
+  "frozen_test_files": {
+    "tests/test_motor_stand_inhibit.cpp": "199b699284bac79ba4f8d78c09e5cc46647e4f0c05edffbf29ed43e7fdf82bf1",
+    "tests/tooling/motor_stand_native_cases.cc": "2f8600e899d3d87277aa5a70726e3dad42f7b372c3631f96954b2cba20205d98",
+    "tests/tooling/test_motor_stand_inhibit.py": "14f4b464fa4afd379232dd7398350329f4d92128fad0c799d6d503a086e16c74",
+    "tests/tooling/test_motor_stand_inhibit_policy.py": "f379a3a290b8ae84d2bd77ee53015b2eaa8c3dcba570831a9c4b526d9afc505f",
+    "state/analysis/P2_motor_stand_inhibit_raw/author/run_native.py": "095bc86a47117b9c9a5fdf77378b80a3ad7a2469852d1575d3c3e64c4d147126"
+  }
+}

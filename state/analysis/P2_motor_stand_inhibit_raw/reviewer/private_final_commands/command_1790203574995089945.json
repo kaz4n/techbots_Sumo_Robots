@@ -1,0 +1,31 @@
+{
+  "argv": [
+    "g++",
+    "-std=c++17",
+    "-O1",
+    "-Wall",
+    "-Wextra",
+    "-Wpedantic",
+    "-Werror",
+    "-fno-exceptions",
+    "-fno-rtti",
+    "-DDOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS",
+    "-I",
+    "/dev/shm/d115-native-38cck712/src",
+    "-I",
+    "/dev/shm/d115-native-38cck712/bench/motor_stand/src",
+    "-I",
+    "/dev/shm/d115-native-38cck712",
+    "-isystem",
+    "/dev/shm/d115-author-2ae8tdeg/host/third_party",
+    "-DMATCH=0",
+    "-DMOTORS_ALLOWED=1",
+    "-DTEST_BEGIN_RESULT=1",
+    "-DARDUINO_ARCH_ZEPHYR",
+    "-fsyntax-only",
+    "/dev/shm/d115-native-38cck712/bench/motor_stand/sketch.cpp"
+  ],
+  "returncode": 1,
+  "stdout": "",
+  "stderr": "In file included from /dev/shm/d115-native-38cck712/bench/motor_stand/src/motor_stand_native.h:5,\n                 from /dev/shm/d115-native-38cck712/bench/motor_stand/sketch.cpp:5:\n/dev/shm/d115-native-38cck712/bench/motor_stand/src/motor_stand.h:5:41: error: static assertion failed: D115 inert flags required\n    5 | static_assert(MATCH==0 && MOTORS_ALLOWED==0,\"D115 inert flags required\");\n/dev/shm/d115-native-38cck712/bench/motor_stand/src/motor_stand.h:5:41: note: the comparison reduces to \u2018(1 == 0)\u2019\n/dev/shm/d115-native-38cck712/bench/motor_stand/sketch.cpp:7:44: error: static assertion failed: Motor inhibition bench requires inert flags\n    7 | static_assert(MATCH == 0 && MOTORS_ALLOWED == 0, \"Motor inhibition bench requires inert flags\");\n/dev/shm/d115-native-38cck712/bench/motor_stand/sketch.cpp:7:44: note: the comparison reduces to \u2018(1 == 0)\u2019\n"
+}

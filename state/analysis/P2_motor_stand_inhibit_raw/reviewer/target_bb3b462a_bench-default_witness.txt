@@ -1,0 +1,826 @@
+
+00000030 <_GLOBAL__sub_I_setup>:
+  30:	b500      	push	{lr}
+  32:	b08d      	sub	sp, #52	@ 0x34
+  34:	a801      	add	r0, sp, #4
+  36:	4905      	ldr	r1, [pc, #20]	@ (4c <_GLOBAL__sub_I_setup+0x1c>)
+  38:	4b05      	ldr	r3, [pc, #20]	@ (50 <_GLOBAL__sub_I_setup+0x20>)
+  3a:	4798      	blx	r3
+  3c:	4b05      	ldr	r3, [pc, #20]	@ (54 <_GLOBAL__sub_I_setup+0x24>)
+  3e:	a901      	add	r1, sp, #4
+  40:	4805      	ldr	r0, [pc, #20]	@ (58 <_GLOBAL__sub_I_setup+0x28>)
+  42:	4798      	blx	r3
+  44:	b00d      	add	sp, #52	@ 0x34
+  46:	f85d fb04 	ldr.w	pc, [sp], #4
+  4a:	bf00      	nop
+  4c:	00000078 	.word	0x00000078
+			4c: R_ARM_ABS32	.bss
+	...
+			50: R_ARM_ABS32	_ZN11motor_stand6Native4portEv
+			54: R_ARM_ABS32	_ZN11motor_stand6RunnerC1ERKN6motors4PortE
+			58: R_ARM_ABS32	.bss
+
+00000000 <setup>:
+   0:	2300      	movs	r3, #0
+   2:	b507      	push	{r0, r1, r2, lr}
+   4:	4804      	ldr	r0, [pc, #16]	@ (18 <setup+0x18>)
+   6:	f88d 3004 	strb.w	r3, [sp, #4]
+   a:	a901      	add	r1, sp, #4
+   c:	4b03      	ldr	r3, [pc, #12]	@ (1c <setup+0x1c>)
+   e:	4798      	blx	r3
+  10:	b003      	add	sp, #12
+  12:	f85d fb04 	ldr.w	pc, [sp], #4
+  16:	bf00      	nop
+	...
+			18: R_ARM_ABS32	.bss
+			1c: R_ARM_ABS32	_ZN11motor_stand6Runner5beginERKNS_6GrantsE
+
+00000d0c <_ZN11motor_stand6Runner5beginERKNS_6GrantsE>:
+ d0c:	b5f0      	push	{r4, r5, r6, r7, lr}
+ d0e:	f890 5070 	ldrb.w	r5, [r0, #112]	@ 0x70
+ d12:	4604      	mov	r4, r0
+ d14:	b085      	sub	sp, #20
+ d16:	2d00      	cmp	r5, #0
+ d18:	d14b      	bne.n	db2 <_ZN11motor_stand6Runner5beginERKNS_6GrantsE+0xa6>
+ d1a:	2601      	movs	r6, #1
+ d1c:	f880 6070 	strb.w	r6, [r0, #112]	@ 0x70
+ d20:	780b      	ldrb	r3, [r1, #0]
+ d22:	b92b      	cbnz	r3, d30 <_ZN11motor_stand6Runner5beginERKNS_6GrantsE+0x24>
+ d24:	4635      	mov	r5, r6
+ d26:	f880 6058 	strb.w	r6, [r0, #88]	@ 0x58
+ d2a:	4628      	mov	r0, r5
+ d2c:	b005      	add	sp, #20
+ d2e:	bdf0      	pop	{r4, r5, r6, r7, pc}
+ d30:	f44f 7381 	mov.w	r3, #258	@ 0x102
+ d34:	f8a0 3058 	strh.w	r3, [r0, #88]	@ 0x58
+ d38:	4b1f      	ldr	r3, [pc, #124]	@ (db8 <_ZN11motor_stand6Runner5beginERKNS_6GrantsE+0xac>)
+ d3a:	4798      	blx	r3
+ d3c:	4b1f      	ldr	r3, [pc, #124]	@ (dbc <_ZN11motor_stand6Runner5beginERKNS_6GrantsE+0xb0>)
+ d3e:	f884 005a 	strb.w	r0, [r4, #90]	@ 0x5a
+ d42:	4620      	mov	r0, r4
+ d44:	4798      	blx	r3
+ d46:	4b1e      	ldr	r3, [pc, #120]	@ (dc0 <_ZN11motor_stand6Runner5beginERKNS_6GrantsE+0xb4>)
+ d48:	f884 005b 	strb.w	r0, [r4, #91]	@ 0x5b
+ d4c:	4621      	mov	r1, r4
+ d4e:	4668      	mov	r0, sp
+ d50:	f884 605c 	strb.w	r6, [r4, #92]	@ 0x5c
+ d54:	4798      	blx	r3
+ d56:	466b      	mov	r3, sp
+ d58:	f104 0260 	add.w	r2, r4, #96	@ 0x60
+ d5c:	af02      	add	r7, sp, #8
+ d5e:	461e      	mov	r6, r3
+ d60:	ce03      	ldmia	r6!, {r0, r1}
+ d62:	42be      	cmp	r6, r7
+ d64:	6010      	str	r0, [r2, #0]
+ d66:	6051      	str	r1, [r2, #4]
+ d68:	4633      	mov	r3, r6
+ d6a:	f102 0208 	add.w	r2, r2, #8
+ d6e:	d1f6      	bne.n	d5e <_ZN11motor_stand6Runner5beginERKNS_6GrantsE+0x52>
+ d70:	6830      	ldr	r0, [r6, #0]
+ d72:	6010      	str	r0, [r2, #0]
+ d74:	7933      	ldrb	r3, [r6, #4]
+ d76:	7113      	strb	r3, [r2, #4]
+ d78:	f894 305a 	ldrb.w	r3, [r4, #90]	@ 0x5a
+ d7c:	b193      	cbz	r3, da4 <_ZN11motor_stand6Runner5beginERKNS_6GrantsE+0x98>
+ d7e:	f894 305b 	ldrb.w	r3, [r4, #91]	@ 0x5b
+ d82:	b97b      	cbnz	r3, da4 <_ZN11motor_stand6Runner5beginERKNS_6GrantsE+0x98>
+ d84:	f894 3060 	ldrb.w	r3, [r4, #96]	@ 0x60
+ d88:	b163      	cbz	r3, da4 <_ZN11motor_stand6Runner5beginERKNS_6GrantsE+0x98>
+ d8a:	f894 3061 	ldrb.w	r3, [r4, #97]	@ 0x61
+ d8e:	b14b      	cbz	r3, da4 <_ZN11motor_stand6Runner5beginERKNS_6GrantsE+0x98>
+ d90:	f894 3062 	ldrb.w	r3, [r4, #98]	@ 0x62
+ d94:	b133      	cbz	r3, da4 <_ZN11motor_stand6Runner5beginERKNS_6GrantsE+0x98>
+ d96:	f894 3063 	ldrb.w	r3, [r4, #99]	@ 0x63
+ d9a:	b11b      	cbz	r3, da4 <_ZN11motor_stand6Runner5beginERKNS_6GrantsE+0x98>
+ d9c:	f894 206c 	ldrb.w	r2, [r4, #108]	@ 0x6c
+ da0:	2a06      	cmp	r2, #6
+ da2:	d003      	beq.n	dac <_ZN11motor_stand6Runner5beginERKNS_6GrantsE+0xa0>
+ da4:	2304      	movs	r3, #4
+ da6:	f884 3058 	strb.w	r3, [r4, #88]	@ 0x58
+ daa:	e7be      	b.n	d2a <_ZN11motor_stand6Runner5beginERKNS_6GrantsE+0x1e>
+ dac:	461d      	mov	r5, r3
+ dae:	2303      	movs	r3, #3
+ db0:	e7f9      	b.n	da6 <_ZN11motor_stand6Runner5beginERKNS_6GrantsE+0x9a>
+ db2:	2500      	movs	r5, #0
+ db4:	e7b9      	b.n	d2a <_ZN11motor_stand6Runner5beginERKNS_6GrantsE+0x1e>
+ db6:	bf00      	nop
+	...
+			db8: R_ARM_ABS32	_ZN6motors9MotorGate5beginEv
+			dbc: R_ARM_ABS32	_ZNK6motors9MotorGate5faultEv
+			dc0: R_ARM_ABS32	_ZN6motors9MotorGate4haltEv
+
+00000dc4 <_ZN11motor_stand6Runner4pollEv>:
+ dc4:	4770      	bx	lr
+	...
+
+00000ce4 <_ZN11motor_stand6RunnerC1ERKN6motors4PortE>:
+ ce4:	b510      	push	{r4, lr}
+ ce6:	4b08      	ldr	r3, [pc, #32]	@ (d08 <_ZN11motor_stand6RunnerC1ERKN6motors4PortE+0x24>)
+ ce8:	4604      	mov	r4, r0
+ cea:	4798      	blx	r3
+ cec:	2300      	movs	r3, #0
+ cee:	e9c4 3318 	strd	r3, r3, [r4, #96]	@ 0x60
+ cf2:	65a3      	str	r3, [r4, #88]	@ 0x58
+ cf4:	f884 305c 	strb.w	r3, [r4, #92]	@ 0x5c
+ cf8:	66a3      	str	r3, [r4, #104]	@ 0x68
+ cfa:	f884 306c 	strb.w	r3, [r4, #108]	@ 0x6c
+ cfe:	f884 3070 	strb.w	r3, [r4, #112]	@ 0x70
+ d02:	4620      	mov	r0, r4
+ d04:	bd10      	pop	{r4, pc}
+ d06:	bf00      	nop
+ d08:	00000000 	.word	0x00000000
+			d08: R_ARM_ABS32	_ZN6motors9MotorGateC1ERKNS_4PortE
+
+00000a80 <_ZN6motors9MotorGateC1ERKNS_4PortE>:
+ a80:	b570      	push	{r4, r5, r6, lr}
+ a82:	4605      	mov	r5, r0
+ a84:	460c      	mov	r4, r1
+ a86:	4606      	mov	r6, r0
+ a88:	cc0f      	ldmia	r4!, {r0, r1, r2, r3}
+ a8a:	c50f      	stmia	r5!, {r0, r1, r2, r3}
+ a8c:	cc0f      	ldmia	r4!, {r0, r1, r2, r3}
+ a8e:	c50f      	stmia	r5!, {r0, r1, r2, r3}
+ a90:	e894 0007 	ldmia.w	r4, {r0, r1, r2}
+ a94:	2300      	movs	r3, #0
+ a96:	e885 0007 	stmia.w	r5, {r0, r1, r2}
+ a9a:	2000      	movs	r0, #0
+ a9c:	2100      	movs	r1, #0
+ a9e:	e9c6 3311 	strd	r3, r3, [r6, #68]	@ 0x44
+ aa2:	e9c6 010e 	strd	r0, r1, [r6, #56]	@ 0x38
+ aa6:	62f3      	str	r3, [r6, #44]	@ 0x2c
+ aa8:	f886 3030 	strb.w	r3, [r6, #48]	@ 0x30
+ aac:	6373      	str	r3, [r6, #52]	@ 0x34
+ aae:	f886 3040 	strb.w	r3, [r6, #64]	@ 0x40
+ ab2:	64f3      	str	r3, [r6, #76]	@ 0x4c
+ ab4:	4630      	mov	r0, r6
+ ab6:	f886 3050 	strb.w	r3, [r6, #80]	@ 0x50
+ aba:	bd70      	pop	{r4, r5, r6, pc}
+
+00000dc8 <_ZN11motor_stand6Native4portEv>:
+ dc8:	b510      	push	{r4, lr}
+ dca:	4604      	mov	r4, r0
+ dcc:	4b01      	ldr	r3, [pc, #4]	@ (dd4 <_ZN11motor_stand6Native4portEv+0xc>)
+ dce:	4798      	blx	r3
+ dd0:	4620      	mov	r0, r4
+ dd2:	bd10      	pop	{r4, pc}
+ dd4:	00000000 	.word	0x00000000
+			dd4: R_ARM_ABS32	_ZN6motors8UnoQPort4portEv
+
+00000338 <_ZN6motors8UnoQPort4portEv>:
+ 338:	e92d 43f8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
+ 33c:	4604      	mov	r4, r0
+ 33e:	460d      	mov	r5, r1
+ 340:	4b17      	ldr	r3, [pc, #92]	@ (3a0 <_ZN6motors8UnoQPort4portEv+0x68>)
+ 342:	2210      	movs	r2, #16
+ 344:	2100      	movs	r1, #0
+ 346:	4626      	mov	r6, r4
+ 348:	301c      	adds	r0, #28
+ 34a:	4798      	blx	r3
+ 34c:	2700      	movs	r7, #0
+ 34e:	6025      	str	r5, [r4, #0]
+ 350:	2501      	movs	r5, #1
+ 352:	4b14      	ldr	r3, [pc, #80]	@ (3a4 <_ZN6motors8UnoQPort4portEv+0x6c>)
+ 354:	f8df 8064 	ldr.w	r8, [pc, #100]	@ 3bc <_ZN6motors8UnoQPort4portEv+0x84>
+ 358:	6063      	str	r3, [r4, #4]
+ 35a:	4b13      	ldr	r3, [pc, #76]	@ (3a8 <_ZN6motors8UnoQPort4portEv+0x70>)
+ 35c:	f8df 9060 	ldr.w	r9, [pc, #96]	@ 3c0 <_ZN6motors8UnoQPort4portEv+0x88>
+ 360:	60a3      	str	r3, [r4, #8]
+ 362:	4b12      	ldr	r3, [pc, #72]	@ (3ac <_ZN6motors8UnoQPort4portEv+0x74>)
+ 364:	60e3      	str	r3, [r4, #12]
+ 366:	4b12      	ldr	r3, [pc, #72]	@ (3b0 <_ZN6motors8UnoQPort4portEv+0x78>)
+ 368:	6123      	str	r3, [r4, #16]
+ 36a:	4b12      	ldr	r3, [pc, #72]	@ (3b4 <_ZN6motors8UnoQPort4portEv+0x7c>)
+ 36c:	6163      	str	r3, [r4, #20]
+ 36e:	4b12      	ldr	r3, [pc, #72]	@ (3b8 <_ZN6motors8UnoQPort4portEv+0x80>)
+ 370:	f846 3f18 	str.w	r3, [r6, #24]!
+ 374:	f858 0b04 	ldr.w	r0, [r8], #4
+ 378:	47c8      	blx	r9
+ 37a:	3701      	adds	r7, #1
+ 37c:	2800      	cmp	r0, #0
+ 37e:	bf0c      	ite	eq
+ 380:	2500      	moveq	r5, #0
+ 382:	f005 0501 	andne.w	r5, r5, #1
+ 386:	2f04      	cmp	r7, #4
+ 388:	f846 0f04 	str.w	r0, [r6, #4]!
+ 38c:	d1f2      	bne.n	374 <_ZN6motors8UnoQPort4portEv+0x3c>
+ 38e:	b91d      	cbnz	r5, 398 <_ZN6motors8UnoQPort4portEv+0x60>
+ 390:	e9c4 5507 	strd	r5, r5, [r4, #28]
+ 394:	e9c4 5509 	strd	r5, r5, [r4, #36]	@ 0x24
+ 398:	4620      	mov	r0, r4
+ 39a:	e8bd 83f8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, pc}
+ 39e:	bf00      	nop
+	...
+			3a0: R_ARM_ABS32	memset
+			3a4: R_ARM_ABS32	_ZN6motors8UnoQPort18configureEnableLowEPv
+			3a8: R_ARM_ABS32	_ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE
+			3ac: R_ARM_ABS32	_ZN6motors8UnoQPort11writeEnableEPvb
+			3b0: R_ARM_ABS32	_ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj
+			3b4: R_ARM_ABS32	_ZN6motors8UnoQPort6settleEPv
+			3b8: R_ARM_ABS32	_ZN6motors8UnoQPort7clockUsEPv
+ 3bc:	0000004c 	.word	0x0000004c
+			3bc: R_ARM_ABS32	.llext.rodata.noreloc
+ 3c0:	00000000 	.word	0x00000000
+			3c0: R_ARM_ABS32	_ZN6motors12_GLOBAL__N_115candidatePeriodEj
+
+00000138 <_ZN6motors12_GLOBAL__N_115candidatePeriodEj>:
+ 138:	4b0b      	ldr	r3, [pc, #44]	@ (168 <_ZN6motors12_GLOBAL__N_115candidatePeriodEj+0x30>)
+ 13a:	b510      	push	{r4, lr}
+ 13c:	4798      	blx	r3
+ 13e:	ea50 0301 	orrs.w	r3, r0, r1
+ 142:	d00f      	beq.n	164 <_ZN6motors12_GLOBAL__N_115candidatePeriodEj+0x2c>
+ 144:	f242 7210 	movw	r2, #10000	@ 0x2710
+ 148:	2300      	movs	r3, #0
+ 14a:	4c08      	ldr	r4, [pc, #32]	@ (16c <_ZN6motors12_GLOBAL__N_115candidatePeriodEj+0x34>)
+ 14c:	47a0      	blx	r4
+ 14e:	431a      	orrs	r2, r3
+ 150:	d108      	bne.n	164 <_ZN6motors12_GLOBAL__N_115candidatePeriodEj+0x2c>
+ 152:	1e43      	subs	r3, r0, #1
+ 154:	f161 0100 	sbc.w	r1, r1, #0
+ 158:	f5b3 3f80 	cmp.w	r3, #65536	@ 0x10000
+ 15c:	f171 0100 	sbcs.w	r1, r1, #0
+ 160:	d200      	bcs.n	164 <_ZN6motors12_GLOBAL__N_115candidatePeriodEj+0x2c>
+ 162:	bd10      	pop	{r4, pc}
+ 164:	2000      	movs	r0, #0
+ 166:	e7fc      	b.n	162 <_ZN6motors12_GLOBAL__N_115candidatePeriodEj+0x2a>
+	...
+			168: R_ARM_ABS32	_ZN6motors12_GLOBAL__N_113candidateRateEj
+			16c: R_ARM_ABS32	__aeabi_uldivmod
+
+000000d0 <_ZN6motors12_GLOBAL__N_113candidateRateEj>:
+  d0:	2802      	cmp	r0, #2
+  d2:	b570      	push	{r4, r5, r6, lr}
+  d4:	d822      	bhi.n	11c <_ZN6motors12_GLOBAL__N_113candidateRateEj+0x4c>
+  d6:	4b13      	ldr	r3, [pc, #76]	@ (124 <_ZN6motors12_GLOBAL__N_113candidateRateEj+0x54>)
+  d8:	f853 4020 	ldr.w	r4, [r3, r0, lsl #2]
+  dc:	f5b4 3f80 	cmp.w	r4, #65536	@ 0x10000
+  e0:	d21c      	bcs.n	11c <_ZN6motors12_GLOBAL__N_113candidateRateEj+0x4c>
+  e2:	b148      	cbz	r0, f8 <_ZN6motors12_GLOBAL__N_113candidateRateEj+0x28>
+  e4:	4b10      	ldr	r3, [pc, #64]	@ (128 <_ZN6motors12_GLOBAL__N_113candidateRateEj+0x58>)
+  e6:	f853 3020 	ldr.w	r3, [r3, r0, lsl #2]
+  ea:	2b0d      	cmp	r3, #13
+  ec:	d116      	bne.n	11c <_ZN6motors12_GLOBAL__N_113candidateRateEj+0x4c>
+  ee:	4b0f      	ldr	r3, [pc, #60]	@ (12c <_ZN6motors12_GLOBAL__N_113candidateRateEj+0x5c>)
+  f0:	f853 3020 	ldr.w	r3, [r3, r0, lsl #2]
+  f4:	2bff      	cmp	r3, #255	@ 0xff
+  f6:	d111      	bne.n	11c <_ZN6motors12_GLOBAL__N_113candidateRateEj+0x4c>
+  f8:	3401      	adds	r4, #1
+  fa:	bf2c      	ite	cs
+  fc:	2601      	movcs	r6, #1
+  fe:	2600      	movcc	r6, #0
+ 100:	4622      	mov	r2, r4
+ 102:	4633      	mov	r3, r6
+ 104:	2100      	movs	r1, #0
+ 106:	4d0a      	ldr	r5, [pc, #40]	@ (130 <_ZN6motors12_GLOBAL__N_113candidateRateEj+0x60>)
+ 108:	480a      	ldr	r0, [pc, #40]	@ (134 <_ZN6motors12_GLOBAL__N_113candidateRateEj+0x64>)
+ 10a:	47a8      	blx	r5
+ 10c:	431a      	orrs	r2, r3
+ 10e:	d105      	bne.n	11c <_ZN6motors12_GLOBAL__N_113candidateRateEj+0x4c>
+ 110:	4622      	mov	r2, r4
+ 112:	4633      	mov	r3, r6
+ 114:	2100      	movs	r1, #0
+ 116:	4807      	ldr	r0, [pc, #28]	@ (134 <_ZN6motors12_GLOBAL__N_113candidateRateEj+0x64>)
+ 118:	47a8      	blx	r5
+ 11a:	bd70      	pop	{r4, r5, r6, pc}
+ 11c:	2000      	movs	r0, #0
+ 11e:	4601      	mov	r1, r0
+ 120:	e7fb      	b.n	11a <_ZN6motors12_GLOBAL__N_113candidateRateEj+0x4a>
+ 122:	bf00      	nop
+ 124:	00000040 	.word	0x00000040
+			124: R_ARM_ABS32	.llext.rodata.noreloc
+ 128:	0000006c 	.word	0x0000006c
+			128: R_ARM_ABS32	.llext.rodata.noreloc
+ 12c:	00000078 	.word	0x00000078
+			12c: R_ARM_ABS32	.llext.rodata.noreloc
+ 130:	00000000 	.word	0x00000000
+			130: R_ARM_ABS32	__aeabi_uldivmod
+ 134:	09896800 	.word	0x09896800
+
+00000e08 <main>:
+ e08:	b538      	push	{r3, r4, r5, lr}
+ e0a:	4b05      	ldr	r3, [pc, #20]	@ (e20 <main+0x18>)
+ e0c:	4798      	blx	r3
+ e0e:	4b05      	ldr	r3, [pc, #20]	@ (e24 <main+0x1c>)
+ e10:	4798      	blx	r3
+ e12:	4b05      	ldr	r3, [pc, #20]	@ (e28 <main+0x20>)
+ e14:	4798      	blx	r3
+ e16:	4d05      	ldr	r5, [pc, #20]	@ (e2c <main+0x24>)
+ e18:	4c05      	ldr	r4, [pc, #20]	@ (e30 <main+0x28>)
+ e1a:	47a8      	blx	r5
+ e1c:	47a0      	blx	r4
+ e1e:	e7fc      	b.n	e1a <main+0x12>
+	...
+			e20: R_ARM_ABS32	initVariant
+			e24: R_ARM_ABS32	_Z20start_static_threadsv
+			e28: R_ARM_ABS32	setup
+			e2c: R_ARM_ABS32	loop
+			e30: R_ARM_ABS32	_Z10__loopHookv
+
+00000e34 <_Z20start_static_threadsv>:
+ e34:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+ e38:	4c15      	ldr	r4, [pc, #84]	@ (e90 <_Z20start_static_threadsv+0x5c>)
+ e3a:	4e16      	ldr	r6, [pc, #88]	@ (e94 <_Z20start_static_threadsv+0x60>)
+ e3c:	4f16      	ldr	r7, [pc, #88]	@ (e98 <_Z20start_static_threadsv+0x64>)
+ e3e:	f8df 805c 	ldr.w	r8, [pc, #92]	@ e9c <_Z20start_static_threadsv+0x68>
+ e42:	b089      	sub	sp, #36	@ 0x24
+ e44:	4625      	mov	r5, r4
+ e46:	42b5      	cmp	r5, r6
+ e48:	f104 0430 	add.w	r4, r4, #48	@ 0x30
+ e4c:	d302      	bcc.n	e54 <_Z20start_static_threadsv+0x20>
+ e4e:	b009      	add	sp, #36	@ 0x24
+ e50:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+ e54:	ed14 7b02 	vldr	d7, [r4, #-8]
+ e58:	e954 010c 	ldrd	r0, r1, [r4, #-48]	@ 0x30
+ e5c:	e954 230a 	ldrd	r2, r3, [r4, #-40]	@ 0x28
+ e60:	e954 ce08 	ldrd	ip, lr, [r4, #-32]
+ e64:	e954 9a06 	ldrd	r9, sl, [r4, #-24]
+ e68:	f854 bc10 	ldr.w	fp, [r4, #-16]
+ e6c:	ed8d 7b06 	vstr	d7, [sp, #24]
+ e70:	e9cd ab03 	strd	sl, fp, [sp, #12]
+ e74:	e9cd e901 	strd	lr, r9, [sp, #4]
+ e78:	f8cd c000 	str.w	ip, [sp]
+ e7c:	47b8      	blx	r7
+ e7e:	f854 0c30 	ldr.w	r0, [r4, #-48]
+ e82:	f854 1c0c 	ldr.w	r1, [r4, #-12]
+ e86:	47c0      	blx	r8
+ e88:	f854 3c30 	ldr.w	r3, [r4, #-48]
+ e8c:	655d      	str	r5, [r3, #84]	@ 0x54
+ e8e:	e7d9      	b.n	e44 <_Z20start_static_threadsv+0x10>
+	...
+			e90: R_ARM_ABS32	__static_thread_data_list_start
+			e94: R_ARM_ABS32	__static_thread_data_list_end
+			e98: R_ARM_ABS32	z_impl_k_thread_create
+			e9c: R_ARM_ABS32	z_impl_k_thread_name_set
+
+00000dd8 <__cxa_allocate_exception>:
+ dd8:	b508      	push	{r3, lr}
+ dda:	4b01      	ldr	r3, [pc, #4]	@ (de0 <__cxa_allocate_exception+0x8>)
+ ddc:	4798      	blx	r3
+ dde:	bf00      	nop
+ de0:	00000000 	.word	0x00000000
+			de0: R_ARM_ABS32	abort
+
+00000470 <_ZN6motors8UnoQPort18configureEnableLowEPv>:
+ 470:	e92d 4ff8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, sl, fp, lr}
+ 474:	4604      	mov	r4, r0
+ 476:	b918      	cbnz	r0, 480 <_ZN6motors8UnoQPort18configureEnableLowEPv+0x10>
+ 478:	2600      	movs	r6, #0
+ 47a:	4630      	mov	r0, r6
+ 47c:	e8bd 8ff8 	ldmia.w	sp!, {r3, r4, r5, r6, r7, r8, r9, sl, fp, pc}
+ 480:	2300      	movs	r3, #0
+ 482:	7c06      	ldrb	r6, [r0, #16]
+ 484:	7443      	strb	r3, [r0, #17]
+ 486:	7483      	strb	r3, [r0, #18]
+ 488:	7503      	strb	r3, [r0, #20]
+ 48a:	2e00      	cmp	r6, #0
+ 48c:	d1f4      	bne.n	478 <_ZN6motors8UnoQPort18configureEnableLowEPv+0x8>
+ 48e:	4b3b      	ldr	r3, [pc, #236]	@ (57c <_ZN6motors8UnoQPort18configureEnableLowEPv+0x10c>)
+ 490:	681b      	ldr	r3, [r3, #0]
+ 492:	2b0a      	cmp	r3, #10
+ 494:	d9f0      	bls.n	478 <_ZN6motors8UnoQPort18configureEnableLowEPv+0x8>
+ 496:	4b3a      	ldr	r3, [pc, #232]	@ (580 <_ZN6motors8UnoQPort18configureEnableLowEPv+0x110>)
+ 498:	681d      	ldr	r5, [r3, #0]
+ 49a:	4b3a      	ldr	r3, [pc, #232]	@ (584 <_ZN6motors8UnoQPort18configureEnableLowEPv+0x114>)
+ 49c:	f105 0150 	add.w	r1, r5, #80	@ 0x50
+ 4a0:	4608      	mov	r0, r1
+ 4a2:	4798      	blx	r3
+ 4a4:	2800      	cmp	r0, #0
+ 4a6:	d0e7      	beq.n	478 <_ZN6motors8UnoQPort18configureEnableLowEPv+0x8>
+ 4a8:	4608      	mov	r0, r1
+ 4aa:	4b37      	ldr	r3, [pc, #220]	@ (588 <_ZN6motors8UnoQPort18configureEnableLowEPv+0x118>)
+ 4ac:	4798      	blx	r3
+ 4ae:	2800      	cmp	r0, #0
+ 4b0:	d0e2      	beq.n	478 <_ZN6motors8UnoQPort18configureEnableLowEPv+0x8>
+ 4b2:	6d2a      	ldr	r2, [r5, #80]	@ 0x50
+ 4b4:	4b35      	ldr	r3, [pc, #212]	@ (58c <_ZN6motors8UnoQPort18configureEnableLowEPv+0x11c>)
+ 4b6:	429a      	cmp	r2, r3
+ 4b8:	d1de      	bne.n	478 <_ZN6motors8UnoQPort18configureEnableLowEPv+0x8>
+ 4ba:	46a1      	mov	r9, r4
+ 4bc:	f8df 80e0 	ldr.w	r8, [pc, #224]	@ 5a0 <_ZN6motors8UnoQPort18configureEnableLowEPv+0x130>
+ 4c0:	4f33      	ldr	r7, [pc, #204]	@ (590 <_ZN6motors8UnoQPort18configureEnableLowEPv+0x120>)
+ 4c2:	4649      	mov	r1, r9
+ 4c4:	4630      	mov	r0, r6
+ 4c6:	47c0      	blx	r8
+ 4c8:	2800      	cmp	r0, #0
+ 4ca:	d0d5      	beq.n	478 <_ZN6motors8UnoQPort18configureEnableLowEPv+0x8>
+ 4cc:	f8d9 2000 	ldr.w	r2, [r9]
+ 4d0:	6d28      	ldr	r0, [r5, #80]	@ 0x50
+ 4d2:	f857 c032 	ldr.w	ip, [r7, r2, lsl #3]
+ 4d6:	4584      	cmp	ip, r0
+ 4d8:	d106      	bne.n	4e8 <_ZN6motors8UnoQPort18configureEnableLowEPv+0x78>
+ 4da:	eb07 03c2 	add.w	r3, r7, r2, lsl #3
+ 4de:	7919      	ldrb	r1, [r3, #4]
+ 4e0:	f895 3054 	ldrb.w	r3, [r5, #84]	@ 0x54
+ 4e4:	4299      	cmp	r1, r3
+ 4e6:	d0c7      	beq.n	478 <_ZN6motors8UnoQPort18configureEnableLowEPv+0x8>
+ 4e8:	4623      	mov	r3, r4
+ 4ea:	eb07 0bc2 	add.w	fp, r7, r2, lsl #3
+ 4ee:	e00d      	b.n	50c <_ZN6motors8UnoQPort18configureEnableLowEPv+0x9c>
+ 4f0:	681a      	ldr	r2, [r3, #0]
+ 4f2:	4673      	mov	r3, lr
+ 4f4:	f857 1032 	ldr.w	r1, [r7, r2, lsl #3]
+ 4f8:	458c      	cmp	ip, r1
+ 4fa:	d107      	bne.n	50c <_ZN6motors8UnoQPort18configureEnableLowEPv+0x9c>
+ 4fc:	eb07 02c2 	add.w	r2, r7, r2, lsl #3
+ 500:	f89b e004 	ldrb.w	lr, [fp, #4]
+ 504:	f892 a004 	ldrb.w	sl, [r2, #4]
+ 508:	45d6      	cmp	lr, sl
+ 50a:	d0b5      	beq.n	478 <_ZN6motors8UnoQPort18configureEnableLowEPv+0x8>
+ 50c:	454b      	cmp	r3, r9
+ 50e:	f103 0e04 	add.w	lr, r3, #4
+ 512:	d1ed      	bne.n	4f0 <_ZN6motors8UnoQPort18configureEnableLowEPv+0x80>
+ 514:	3601      	adds	r6, #1
+ 516:	2e04      	cmp	r6, #4
+ 518:	46f1      	mov	r9, lr
+ 51a:	d1d2      	bne.n	4c2 <_ZN6motors8UnoQPort18configureEnableLowEPv+0x52>
+ 51c:	4b1d      	ldr	r3, [pc, #116]	@ (594 <_ZN6motors8UnoQPort18configureEnableLowEPv+0x124>)
+ 51e:	4798      	blx	r3
+ 520:	2800      	cmp	r0, #0
+ 522:	d0a9      	beq.n	478 <_ZN6motors8UnoQPort18configureEnableLowEPv+0x8>
+ 524:	f8b5 c056 	ldrh.w	ip, [r5, #86]	@ 0x56
+ 528:	6d28      	ldr	r0, [r5, #80]	@ 0x50
+ 52a:	f895 1054 	ldrb.w	r1, [r5, #84]	@ 0x54
+ 52e:	f44c 22c0 	orr.w	r2, ip, #393216	@ 0x60000
+ 532:	2601      	movs	r6, #1
+ 534:	6907      	ldr	r7, [r0, #16]
+ 536:	f01c 0f01 	tst.w	ip, #1
+ 53a:	683b      	ldr	r3, [r7, #0]
+ 53c:	fa06 f601 	lsl.w	r6, r6, r1
+ 540:	bf14      	ite	ne
+ 542:	4333      	orrne	r3, r6
+ 544:	43b3      	biceq	r3, r6
+ 546:	f8d0 e008 	ldr.w	lr, [r0, #8]
+ 54a:	603b      	str	r3, [r7, #0]
+ 54c:	f8de 3000 	ldr.w	r3, [lr]
+ 550:	4798      	blx	r3
+ 552:	2800      	cmp	r0, #0
+ 554:	d190      	bne.n	478 <_ZN6motors8UnoQPort18configureEnableLowEPv+0x8>
+ 556:	2701      	movs	r7, #1
+ 558:	4620      	mov	r0, r4
+ 55a:	4b0f      	ldr	r3, [pc, #60]	@ (598 <_ZN6motors8UnoQPort18configureEnableLowEPv+0x128>)
+ 55c:	7427      	strb	r7, [r4, #16]
+ 55e:	4798      	blx	r3
+ 560:	4606      	mov	r6, r0
+ 562:	b128      	cbz	r0, 570 <_ZN6motors8UnoQPort18configureEnableLowEPv+0x100>
+ 564:	f895 1054 	ldrb.w	r1, [r5, #84]	@ 0x54
+ 568:	6d28      	ldr	r0, [r5, #80]	@ 0x50
+ 56a:	4b0c      	ldr	r3, [pc, #48]	@ (59c <_ZN6motors8UnoQPort18configureEnableLowEPv+0x12c>)
+ 56c:	4798      	blx	r3
+ 56e:	b110      	cbz	r0, 576 <_ZN6motors8UnoQPort18configureEnableLowEPv+0x106>
+ 570:	2300      	movs	r3, #0
+ 572:	8223      	strh	r3, [r4, #16]
+ 574:	e780      	b.n	478 <_ZN6motors8UnoQPort18configureEnableLowEPv+0x8>
+ 576:	7467      	strb	r7, [r4, #17]
+ 578:	e77f      	b.n	47a <_ZN6motors8UnoQPort18configureEnableLowEPv+0xa>
+ 57a:	bf00      	nop
+	...
+			57c: R_ARM_ABS32	_ZN11native_pins5COUNTE
+			580: R_ARM_ABS32	_ZN11native_pins5TABLEE
+			584: R_ARM_ABS32	_ZN6motors12_GLOBAL__N_18validPadERK12gpio_dt_spec
+			588: R_ARM_ABS32	_ZN6motors12_GLOBAL__N_120validInputSeparationERK12gpio_dt_spec
+			58c: R_ARM_ABS32	__device_dts_ord_90
+ 590:	0000001c 	.word	0x0000001c
+			590: R_ARM_ABS32	.rodata
+	...
+			594: R_ARM_ABS32	z_impl_device_is_ready
+			598: R_ARM_ABS32	_ZNK6motors8UnoQPort11enableOwnedEv
+			59c: R_ARM_ABS32	gpio_pin_get_raw
+			5a0: R_ARM_ABS32	_ZN6motors12_GLOBAL__N_110mapChannelEjRj
+
+000007ac <_ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE>:
+ 7ac:	e92d 4ff7 	stmdb	sp!, {r0, r1, r2, r4, r5, r6, r7, r8, r9, sl, fp, lr}
+ 7b0:	460e      	mov	r6, r1
+ 7b2:	4604      	mov	r4, r0
+ 7b4:	2800      	cmp	r0, #0
+ 7b6:	d05e      	beq.n	876 <_ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE+0xca>
+ 7b8:	2903      	cmp	r1, #3
+ 7ba:	d85c      	bhi.n	876 <_ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE+0xca>
+ 7bc:	7cc5      	ldrb	r5, [r0, #19]
+ 7be:	40cd      	lsrs	r5, r1
+ 7c0:	f015 0501 	ands.w	r5, r5, #1
+ 7c4:	d157      	bne.n	876 <_ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE+0xca>
+ 7c6:	f8df a0cc 	ldr.w	sl, [pc, #204]	@ 894 <_ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE+0xe8>
+ 7ca:	47d0      	blx	sl
+ 7cc:	2800      	cmp	r0, #0
+ 7ce:	d052      	beq.n	876 <_ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE+0xca>
+ 7d0:	4630      	mov	r0, r6
+ 7d2:	4b2a      	ldr	r3, [pc, #168]	@ (87c <_ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE+0xd0>)
+ 7d4:	a901      	add	r1, sp, #4
+ 7d6:	9501      	str	r5, [sp, #4]
+ 7d8:	4798      	blx	r3
+ 7da:	2800      	cmp	r0, #0
+ 7dc:	d04b      	beq.n	876 <_ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE+0xca>
+ 7de:	f8dd b004 	ldr.w	fp, [sp, #4]
+ 7e2:	f854 3026 	ldr.w	r3, [r4, r6, lsl #2]
+ 7e6:	455b      	cmp	r3, fp
+ 7e8:	d145      	bne.n	876 <_ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE+0xca>
+ 7ea:	2701      	movs	r7, #1
+ 7ec:	4b24      	ldr	r3, [pc, #144]	@ (880 <_ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE+0xd4>)
+ 7ee:	f853 8026 	ldr.w	r8, [r3, r6, lsl #2]
+ 7f2:	7d63      	ldrb	r3, [r4, #21]
+ 7f4:	fa07 f708 	lsl.w	r7, r7, r8
+ 7f8:	fa5f f987 	uxtb.w	r9, r7
+ 7fc:	401f      	ands	r7, r3
+ 7fe:	d026      	beq.n	84e <_ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE+0xa2>
+ 800:	4b20      	ldr	r3, [pc, #128]	@ (884 <_ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE+0xd8>)
+ 802:	4641      	mov	r1, r8
+ 804:	4620      	mov	r0, r4
+ 806:	4798      	blx	r3
+ 808:	f080 0301 	eor.w	r3, r0, #1
+ 80c:	b2db      	uxtb	r3, r3
+ 80e:	2b00      	cmp	r3, #0
+ 810:	d131      	bne.n	876 <_ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE+0xca>
+ 812:	4a1d      	ldr	r2, [pc, #116]	@ (888 <_ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE+0xdc>)
+ 814:	ea4f 110b 	mov.w	r1, fp, lsl #4
+ 818:	5850      	ldr	r0, [r2, r1]
+ 81a:	459b      	cmp	fp, r3
+ 81c:	d11f      	bne.n	85e <_ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE+0xb2>
+ 81e:	4629      	mov	r1, r5
+ 820:	4b1a      	ldr	r3, [pc, #104]	@ (88c <_ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE+0xe0>)
+ 822:	4798      	blx	r3
+ 824:	bb38      	cbnz	r0, 876 <_ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE+0xca>
+ 826:	7d63      	ldrb	r3, [r4, #21]
+ 828:	4620      	mov	r0, r4
+ 82a:	ea49 0303 	orr.w	r3, r9, r3
+ 82e:	7563      	strb	r3, [r4, #21]
+ 830:	47d0      	blx	sl
+ 832:	b1d8      	cbz	r0, 86c <_ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE+0xc0>
+ 834:	4641      	mov	r1, r8
+ 836:	4620      	mov	r0, r4
+ 838:	4b12      	ldr	r3, [pc, #72]	@ (884 <_ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE+0xd8>)
+ 83a:	4798      	blx	r3
+ 83c:	b1b0      	cbz	r0, 86c <_ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE+0xc0>
+ 83e:	2201      	movs	r2, #1
+ 840:	7ce3      	ldrb	r3, [r4, #19]
+ 842:	40b2      	lsls	r2, r6
+ 844:	4313      	orrs	r3, r2
+ 846:	74e3      	strb	r3, [r4, #19]
+ 848:	b003      	add	sp, #12
+ 84a:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+ 84e:	4a0e      	ldr	r2, [pc, #56]	@ (888 <_ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE+0xdc>)
+ 850:	ea4f 130b 	mov.w	r3, fp, lsl #4
+ 854:	58d0      	ldr	r0, [r2, r3]
+ 856:	4b0e      	ldr	r3, [pc, #56]	@ (890 <_ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE+0xe4>)
+ 858:	4798      	blx	r3
+ 85a:	4603      	mov	r3, r0
+ 85c:	e7d7      	b.n	80e <_ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE+0x62>
+ 85e:	0119      	lsls	r1, r3, #4
+ 860:	5851      	ldr	r1, [r2, r1]
+ 862:	3301      	adds	r3, #1
+ 864:	4288      	cmp	r0, r1
+ 866:	bf08      	it	eq
+ 868:	3501      	addeq	r5, #1
+ 86a:	e7d6      	b.n	81a <_ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE+0x6e>
+ 86c:	b91f      	cbnz	r7, 876 <_ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE+0xca>
+ 86e:	7d63      	ldrb	r3, [r4, #21]
+ 870:	ea23 0309 	bic.w	r3, r3, r9
+ 874:	7563      	strb	r3, [r4, #21]
+ 876:	2000      	movs	r0, #0
+ 878:	e7e6      	b.n	848 <_ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE+0x9c>
+ 87a:	bf00      	nop
+ 87c:	00000000 	.word	0x00000000
+			87c: R_ARM_ABS32	_ZN6motors12_GLOBAL__N_110mapChannelEjRj
+ 880:	0000004c 	.word	0x0000004c
+			880: R_ARM_ABS32	.llext.rodata.noreloc
+ 884:	00000000 	.word	0x00000000
+			884: R_ARM_ABS32	_ZNK6motors8UnoQPort10timerValidEj
+ 888:	0000009c 	.word	0x0000009c
+			888: R_ARM_ABS32	.rodata
+	...
+			88c: R_ARM_ABS32	_ZN6zephyr7arduino30init_dev_apply_channel_pinctrlEPK6devicej
+			890: R_ARM_ABS32	z_impl_device_is_ready
+			894: R_ARM_ABS32	_ZNK6motors8UnoQPort9enableLowEv
+
+000005a4 <_ZN6motors8UnoQPort11writeEnableEPvb>:
+ 5a4:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+ 5a6:	4604      	mov	r4, r0
+ 5a8:	b118      	cbz	r0, 5b2 <_ZN6motors8UnoQPort11writeEnableEPvb+0xe>
+ 5aa:	2300      	movs	r3, #0
+ 5ac:	7483      	strb	r3, [r0, #18]
+ 5ae:	b119      	cbz	r1, 5b8 <_ZN6motors8UnoQPort11writeEnableEPvb+0x14>
+ 5b0:	7443      	strb	r3, [r0, #17]
+ 5b2:	2500      	movs	r5, #0
+ 5b4:	4628      	mov	r0, r5
+ 5b6:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+ 5b8:	4d10      	ldr	r5, [pc, #64]	@ (5fc <_ZN6motors8UnoQPort11writeEnableEPvb+0x58>)
+ 5ba:	7501      	strb	r1, [r0, #20]
+ 5bc:	7441      	strb	r1, [r0, #17]
+ 5be:	47a8      	blx	r5
+ 5c0:	2800      	cmp	r0, #0
+ 5c2:	d0f6      	beq.n	5b2 <_ZN6motors8UnoQPort11writeEnableEPvb+0xe>
+ 5c4:	2701      	movs	r7, #1
+ 5c6:	4b0e      	ldr	r3, [pc, #56]	@ (600 <_ZN6motors8UnoQPort11writeEnableEPvb+0x5c>)
+ 5c8:	681e      	ldr	r6, [r3, #0]
+ 5ca:	f896 1054 	ldrb.w	r1, [r6, #84]	@ 0x54
+ 5ce:	6d30      	ldr	r0, [r6, #80]	@ 0x50
+ 5d0:	fa07 f101 	lsl.w	r1, r7, r1
+ 5d4:	6883      	ldr	r3, [r0, #8]
+ 5d6:	691b      	ldr	r3, [r3, #16]
+ 5d8:	4798      	blx	r3
+ 5da:	2800      	cmp	r0, #0
+ 5dc:	d1e9      	bne.n	5b2 <_ZN6motors8UnoQPort11writeEnableEPvb+0xe>
+ 5de:	4620      	mov	r0, r4
+ 5e0:	47a8      	blx	r5
+ 5e2:	4605      	mov	r5, r0
+ 5e4:	2800      	cmp	r0, #0
+ 5e6:	d0e4      	beq.n	5b2 <_ZN6motors8UnoQPort11writeEnableEPvb+0xe>
+ 5e8:	f896 1054 	ldrb.w	r1, [r6, #84]	@ 0x54
+ 5ec:	6d30      	ldr	r0, [r6, #80]	@ 0x50
+ 5ee:	4b05      	ldr	r3, [pc, #20]	@ (604 <_ZN6motors8UnoQPort11writeEnableEPvb+0x60>)
+ 5f0:	4798      	blx	r3
+ 5f2:	2800      	cmp	r0, #0
+ 5f4:	d1dd      	bne.n	5b2 <_ZN6motors8UnoQPort11writeEnableEPvb+0xe>
+ 5f6:	7467      	strb	r7, [r4, #17]
+ 5f8:	e7dc      	b.n	5b4 <_ZN6motors8UnoQPort11writeEnableEPvb+0x10>
+ 5fa:	bf00      	nop
+	...
+			5fc: R_ARM_ABS32	_ZNK6motors8UnoQPort11enableOwnedEv
+			600: R_ARM_ABS32	_ZN11native_pins5TABLEE
+			604: R_ARM_ABS32	gpio_pin_get_raw
+
+00000898 <_ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj>:
+ 898:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+ 89c:	4689      	mov	r9, r1
+ 89e:	4693      	mov	fp, r2
+ 8a0:	461e      	mov	r6, r3
+ 8a2:	4604      	mov	r4, r0
+ 8a4:	b087      	sub	sp, #28
+ 8a6:	b918      	cbnz	r0, 8b0 <_ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj+0x18>
+ 8a8:	2000      	movs	r0, #0
+ 8aa:	b007      	add	sp, #28
+ 8ac:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+ 8b0:	2300      	movs	r3, #0
+ 8b2:	2903      	cmp	r1, #3
+ 8b4:	7483      	strb	r3, [r0, #18]
+ 8b6:	d8f7      	bhi.n	8a8 <_ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj+0x10>
+ 8b8:	2501      	movs	r5, #1
+ 8ba:	7d03      	ldrb	r3, [r0, #20]
+ 8bc:	408d      	lsls	r5, r1
+ 8be:	b2ed      	uxtb	r5, r5
+ 8c0:	ea23 0305 	bic.w	r3, r3, r5
+ 8c4:	7503      	strb	r3, [r0, #20]
+ 8c6:	7cc3      	ldrb	r3, [r0, #19]
+ 8c8:	421d      	tst	r5, r3
+ 8ca:	d0ed      	beq.n	8a8 <_ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj+0x10>
+ 8cc:	f8df a0a4 	ldr.w	sl, [pc, #164]	@ 974 <_ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj+0xdc>
+ 8d0:	47d0      	blx	sl
+ 8d2:	2800      	cmp	r0, #0
+ 8d4:	d0e8      	beq.n	8a8 <_ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj+0x10>
+ 8d6:	4b23      	ldr	r3, [pc, #140]	@ (964 <_ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj+0xcc>)
+ 8d8:	f853 8029 	ldr.w	r8, [r3, r9, lsl #2]
+ 8dc:	4b22      	ldr	r3, [pc, #136]	@ (968 <_ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj+0xd0>)
+ 8de:	4640      	mov	r0, r8
+ 8e0:	4798      	blx	r3
+ 8e2:	4558      	cmp	r0, fp
+ 8e4:	4607      	mov	r7, r0
+ 8e6:	d1df      	bne.n	8a8 <_ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj+0x10>
+ 8e8:	2e00      	cmp	r6, #0
+ 8ea:	d1dd      	bne.n	8a8 <_ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj+0x10>
+ 8ec:	4648      	mov	r0, r9
+ 8ee:	4b1f      	ldr	r3, [pc, #124]	@ (96c <_ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj+0xd4>)
+ 8f0:	a905      	add	r1, sp, #20
+ 8f2:	9605      	str	r6, [sp, #20]
+ 8f4:	4798      	blx	r3
+ 8f6:	2800      	cmp	r0, #0
+ 8f8:	d0d6      	beq.n	8a8 <_ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj+0x10>
+ 8fa:	eb04 0389 	add.w	r3, r4, r9, lsl #2
+ 8fe:	f854 b029 	ldr.w	fp, [r4, r9, lsl #2]
+ 902:	9303      	str	r3, [sp, #12]
+ 904:	9b05      	ldr	r3, [sp, #20]
+ 906:	459b      	cmp	fp, r3
+ 908:	d1ce      	bne.n	8a8 <_ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj+0x10>
+ 90a:	4641      	mov	r1, r8
+ 90c:	4620      	mov	r0, r4
+ 90e:	f8df 9068 	ldr.w	r9, [pc, #104]	@ 978 <_ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj+0xe0>
+ 912:	47c8      	blx	r9
+ 914:	2800      	cmp	r0, #0
+ 916:	d0c7      	beq.n	8a8 <_ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj+0x10>
+ 918:	4b15      	ldr	r3, [pc, #84]	@ (970 <_ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj+0xd8>)
+ 91a:	ea4f 120b 	mov.w	r2, fp, lsl #4
+ 91e:	eb03 1b0b 	add.w	fp, r3, fp, lsl #4
+ 922:	5898      	ldr	r0, [r3, r2]
+ 924:	f8db 1004 	ldr.w	r1, [fp, #4]
+ 928:	f8bb 200c 	ldrh.w	r2, [fp, #12]
+ 92c:	6883      	ldr	r3, [r0, #8]
+ 92e:	9200      	str	r2, [sp, #0]
+ 930:	f8d3 b000 	ldr.w	fp, [r3]
+ 934:	463a      	mov	r2, r7
+ 936:	4633      	mov	r3, r6
+ 938:	47d8      	blx	fp
+ 93a:	2800      	cmp	r0, #0
+ 93c:	d1b4      	bne.n	8a8 <_ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj+0x10>
+ 93e:	2300      	movs	r3, #0
+ 940:	9a03      	ldr	r2, [sp, #12]
+ 942:	4620      	mov	r0, r4
+ 944:	6193      	str	r3, [r2, #24]
+ 946:	7da3      	ldrb	r3, [r4, #22]
+ 948:	432b      	orrs	r3, r5
+ 94a:	75a3      	strb	r3, [r4, #22]
+ 94c:	47d0      	blx	sl
+ 94e:	2800      	cmp	r0, #0
+ 950:	d0aa      	beq.n	8a8 <_ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj+0x10>
+ 952:	4641      	mov	r1, r8
+ 954:	4620      	mov	r0, r4
+ 956:	47c8      	blx	r9
+ 958:	2800      	cmp	r0, #0
+ 95a:	d0a5      	beq.n	8a8 <_ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj+0x10>
+ 95c:	7d23      	ldrb	r3, [r4, #20]
+ 95e:	431d      	orrs	r5, r3
+ 960:	7525      	strb	r5, [r4, #20]
+ 962:	e7a2      	b.n	8aa <_ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj+0x12>
+ 964:	0000004c 	.word	0x0000004c
+			964: R_ARM_ABS32	.llext.rodata.noreloc
+	...
+			968: R_ARM_ABS32	_ZN6motors12_GLOBAL__N_115candidatePeriodEj
+			96c: R_ARM_ABS32	_ZN6motors12_GLOBAL__N_110mapChannelEjRj
+ 970:	0000009c 	.word	0x0000009c
+			970: R_ARM_ABS32	.rodata
+	...
+			974: R_ARM_ABS32	_ZNK6motors8UnoQPort9enableLowEv
+			978: R_ARM_ABS32	_ZNK6motors8UnoQPort10timerValidEj
+
+000009c0 <_ZN6motors8UnoQPort6settleEPv>:
+ 9c0:	e92d 4ff7 	stmdb	sp!, {r0, r1, r2, r4, r5, r6, r7, r8, r9, sl, fp, lr}
+ 9c4:	4604      	mov	r4, r0
+ 9c6:	2800      	cmp	r0, #0
+ 9c8:	d050      	beq.n	a6c <_ZN6motors8UnoQPort6settleEPv+0xac>
+ 9ca:	2500      	movs	r5, #0
+ 9cc:	7cc3      	ldrb	r3, [r0, #19]
+ 9ce:	7485      	strb	r5, [r0, #18]
+ 9d0:	2b0f      	cmp	r3, #15
+ 9d2:	d14b      	bne.n	a6c <_ZN6motors8UnoQPort6settleEPv+0xac>
+ 9d4:	7d03      	ldrb	r3, [r0, #20]
+ 9d6:	2b0f      	cmp	r3, #15
+ 9d8:	d148      	bne.n	a6c <_ZN6motors8UnoQPort6settleEPv+0xac>
+ 9da:	4b25      	ldr	r3, [pc, #148]	@ (a70 <_ZN6motors8UnoQPort6settleEPv+0xb0>)
+ 9dc:	4798      	blx	r3
+ 9de:	2800      	cmp	r0, #0
+ 9e0:	d044      	beq.n	a6c <_ZN6motors8UnoQPort6settleEPv+0xac>
+ 9e2:	f8df 9094 	ldr.w	r9, [pc, #148]	@ a78 <_ZN6motors8UnoQPort6settleEPv+0xb8>
+ 9e6:	47c8      	blx	r9
+ 9e8:	f8df a090 	ldr.w	sl, [pc, #144]	@ a7c <_ZN6motors8UnoQPort6settleEPv+0xbc>
+ 9ec:	4606      	mov	r6, r0
+ 9ee:	4620      	mov	r0, r4
+ 9f0:	47d0      	blx	sl
+ 9f2:	2800      	cmp	r0, #0
+ 9f4:	d03a      	beq.n	a6c <_ZN6motors8UnoQPort6settleEPv+0xac>
+ 9f6:	4f1f      	ldr	r7, [pc, #124]	@ (a74 <_ZN6motors8UnoQPort6settleEPv+0xb4>)
+ 9f8:	4628      	mov	r0, r5
+ 9fa:	47b8      	blx	r7
+ 9fc:	f06f 0801 	mvn.w	r8, #1
+ a00:	f8c0 8010 	str.w	r8, [r0, #16]
+ a04:	2001      	movs	r0, #1
+ a06:	47b8      	blx	r7
+ a08:	f8c0 8010 	str.w	r8, [r0, #16]
+ a0c:	2002      	movs	r0, #2
+ a0e:	47b8      	blx	r7
+ a10:	f04f 0b01 	mov.w	fp, #1
+ a14:	f8c0 8010 	str.w	r8, [r0, #16]
+ a18:	f44f 5880 	mov.w	r8, #4096	@ 0x1000
+ a1c:	47c8      	blx	r9
+ a1e:	1b80      	subs	r0, r0, r6
+ a20:	2895      	cmp	r0, #149	@ 0x95
+ a22:	d823      	bhi.n	a6c <_ZN6motors8UnoQPort6settleEPv+0xac>
+ a24:	2300      	movs	r3, #0
+ a26:	4618      	mov	r0, r3
+ a28:	9301      	str	r3, [sp, #4]
+ a2a:	47b8      	blx	r7
+ a2c:	6902      	ldr	r2, [r0, #16]
+ a2e:	9b01      	ldr	r3, [sp, #4]
+ a30:	f012 0f01 	tst.w	r2, #1
+ a34:	bf1c      	itt	ne
+ a36:	fa0b f203 	lslne.w	r2, fp, r3
+ a3a:	432a      	orrne	r2, r5
+ a3c:	f103 0301 	add.w	r3, r3, #1
+ a40:	bf18      	it	ne
+ a42:	b2d5      	uxtbne	r5, r2
+ a44:	2b03      	cmp	r3, #3
+ a46:	d1ee      	bne.n	a26 <_ZN6motors8UnoQPort6settleEPv+0x66>
+ a48:	4620      	mov	r0, r4
+ a4a:	47d0      	blx	sl
+ a4c:	b170      	cbz	r0, a6c <_ZN6motors8UnoQPort6settleEPv+0xac>
+ a4e:	2d07      	cmp	r5, #7
+ a50:	d109      	bne.n	a66 <_ZN6motors8UnoQPort6settleEPv+0xa6>
+ a52:	47c8      	blx	r9
+ a54:	1b80      	subs	r0, r0, r6
+ a56:	2895      	cmp	r0, #149	@ 0x95
+ a58:	bf8c      	ite	hi
+ a5a:	2000      	movhi	r0, #0
+ a5c:	2001      	movls	r0, #1
+ a5e:	74a0      	strb	r0, [r4, #18]
+ a60:	b003      	add	sp, #12
+ a62:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+ a66:	f1b8 0801 	subs.w	r8, r8, #1
+ a6a:	d1d7      	bne.n	a1c <_ZN6motors8UnoQPort6settleEPv+0x5c>
+ a6c:	2000      	movs	r0, #0
+ a6e:	e7f7      	b.n	a60 <_ZN6motors8UnoQPort6settleEPv+0xa0>
+	...
+			a70: R_ARM_ABS32	_ZNK6motors8UnoQPort9enableLowEv
+			a74: R_ARM_ABS32	_ZN6motors12_GLOBAL__N_114timerRegistersEj
+			a78: R_ARM_ABS32	micros
+			a7c: R_ARM_ABS32	_ZNK6motors8UnoQPort9bankValidEv
+
+00000198 <_ZN6motors8UnoQPort7clockUsEPv>:
+ 198:	4b00      	ldr	r3, [pc, #0]	@ (19c <_ZN6motors8UnoQPort7clockUsEPv+0x4>)
+ 19a:	4718      	bx	r3
+ 19c:	00000000 	.word	0x00000000
+			19c: R_ARM_ABS32	micros

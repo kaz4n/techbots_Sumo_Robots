@@ -1,0 +1,29 @@
+{
+  "argv": [
+    "g++",
+    "-std=c++17",
+    "-O1",
+    "-Wall",
+    "-Wextra",
+    "-Wpedantic",
+    "-Werror",
+    "-fno-exceptions",
+    "-fno-rtti",
+    "-DDOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS",
+    "-I",
+    "/dev/shm/d115-gate-iv6ennvs/src",
+    "-I",
+    "/dev/shm/d115-gate-iv6ennvs/bench/motor_stand/src",
+    "-I",
+    "/dev/shm/d115-gate-iv6ennvs",
+    "-isystem",
+    "/dev/shm/d115-author-2ae8tdeg/host/third_party",
+    "-DMATCH=1",
+    "-DMOTORS_ALLOWED=1",
+    "-fsyntax-only",
+    "/dev/shm/d115-gate-iv6ennvs/bench/motor_stand/src/motor_stand.cpp"
+  ],
+  "returncode": 1,
+  "stdout": "",
+  "stderr": "In file included from /dev/shm/d115-gate-iv6ennvs/bench/motor_stand/src/motor_stand.cpp:4:\n/dev/shm/d115-gate-iv6ennvs/bench/motor_stand/src/motor_stand.h:9:21: error: static assertion failed: Motor inhibition bench requires inert flags\n    9 | static_assert(MATCH == 0 && MOTORS_ALLOWED == 0, \"Motor inhibition bench requires inert flags\");\n/dev/shm/d115-gate-iv6ennvs/bench/motor_stand/src/motor_stand.h:9:21: note: the comparison reduces to \u2018(1 == 0)\u2019\n"
+}

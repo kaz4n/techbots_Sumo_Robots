@@ -1,0 +1,26 @@
+--- tests\tooling\motor_stand_native_cases.cc
++++ fixture1_native_proposal.cc
+@@ -14,19 +14,19 @@
+ bool configPwm(void*,motors::Channel) { ++backend; return true; }
+ bool enable(void*,bool) { ++backend; return true; }
+ bool pwm(void*,motors::Channel,std::uint32_t,std::uint32_t) { ++backend; return true; }
+-bool settle(void*) { ++backend; return true; }
+-std::uint32_t clockUs(void*) { ++clocks; return 0; }
++bool countedSettle(void*) { ++backend; return true; }
++std::uint32_t countedClock(void*) { ++clocks; return 0; }
+ void require(bool value) { if(!value) std::abort(); }
+ void exact(const motors::Port& p,void* context) {
+     require(p.context==context && p.configureEnableLow==configEnable && p.configurePwm==configPwm);
+-    require(p.writeEnable==enable && p.writePwm==pwm && p.settle==settle && p.clockUs==clockUs);
++    require(p.writeEnable==enable && p.writePwm==pwm && p.settle==countedSettle && p.clockUs==countedClock);
+     const std::uint32_t periods[4]={1,997,65535,16777216};
+     for(unsigned i=0;i<4;++i) require(p.period_cycles[i]==periods[i]);
+ }
+ }
+ motors::Port motors::UnoQPort::port() {
+     require(ports<8);contexts[ports++]=this;
+-    return {this,configEnable,configPwm,enable,pwm,settle,clockUs,{1,997,65535,16777216}};
++    return {this,configEnable,configPwm,enable,pwm,countedSettle,countedClock,{1,997,65535,16777216}};
+ }
+ void* operator new(std::size_t) { std::abort(); }
+ void* operator new[](std::size_t) { std::abort(); }

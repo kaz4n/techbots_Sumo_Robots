@@ -1,0 +1,54 @@
+{
+  "verdict": "PASS_SCOPED_STATIC_D115_TOOLING_AND_HOST_LINK_REVIEW",
+  "utc": "2026-09-23T22:39:27.605762+00:00",
+  "baseline_commit": "e4f1ee2baf65c0c45d3da7ae0d2ac489ea8f55b7",
+  "files": {
+    "tools/board_tool.py": "e93ef30ca82264c350f376a67206c3f3cfb94ab5738879d58c230aafb4fa7565",
+    "tools/app_build_policy.py": "9b8f86392f6ec5d7144f6e15ebaaea560ffc795dea7b3460abd3a97f40ef578b",
+    "host/CMakeLists.txt": "5705b989b6b1dc7c330ff7e5cd921e0e4c727e6a2dca5d46e7d0bc4d3c241520",
+    "state/analysis/P2_motor_stand_inhibit_contract.md": "d8f5fd9691e00521af665687c730e274605934c48f30f160ebe26bae0ed84cb2"
+  },
+  "comparisons": {
+    "tools/board_tool.py": {
+      "exact_scoped_reversal_with_newlines_normalized": true,
+      "prior_sha256": "034bd93b1fe1517952b012ea6994d2a544a4986f68a1b790d3c6c7c260dfe630",
+      "current_sha256": "e93ef30ca82264c350f376a67206c3f3cfb94ab5738879d58c230aafb4fa7565",
+      "prior_crlf": 0,
+      "current_crlf": 400
+    },
+    "tools/app_build_policy.py": {
+      "exact_scoped_reversal_with_newlines_normalized": true,
+      "prior_sha256": "744d7d411e9ed68fb724d3ac2fc4081ea35ebca7c8e5414be54ee7feb1a1e161",
+      "current_sha256": "9b8f86392f6ec5d7144f6e15ebaaea560ffc795dea7b3460abd3a97f40ef578b",
+      "prior_crlf": 0,
+      "current_crlf": 0
+    },
+    "host/CMakeLists.txt": {
+      "exact_scoped_reversal_with_newlines_normalized": true,
+      "prior_sha256": "ea9614b8c36fb587e7c85bb2858e875499b150e96550591ce74f224a8c432fcd",
+      "current_sha256": "5705b989b6b1dc7c330ff7e5cd921e0e4c727e6a2dca5d46e7d0bc4d3c241520",
+      "prior_crlf": 0,
+      "current_crlf": 0
+    }
+  },
+  "manifest_sha256": "a1587931afa5f817bf8b93054f384918dc8cd36d4fb71c8f7b083d76e6128802",
+  "manifest_unchanged_from_reviewed_D114_bytes": true,
+  "manifest_git_comparison": "Parsed entries equal; committed LF and existing working CRLF are explicitly distinguished.",
+  "five_implementation_files_still_first_freeze": true,
+  "collector_sha256": "38494d2207e52ff9681ebda889c3f617960eed56eceebe7d46744a916e941e7d",
+  "collector_source_review": "Linux source/artifact reads and offline readelf/nm/objdump/GDB only; no upload/reset/MCU attachment. Exact95 source files and receipt binding; execution pending.",
+  "tests_executed": false,
+  "production_modules_imported": false,
+  "board_actions": false,
+  "findings": [],
+  "initial_static_harness_failure": {
+    "error": "AssertionError",
+    "check": "Working manifest raw bytes equal git HEAD bytes",
+    "cause": "Existing CRLF working manifest versus LF git blob; both parse identically. Current manifest is byte-identical to actual D114 approved a1587931.",
+    "disposition": "No production change. Final static proof uses exact previously reviewed byte hash plus original parsed entries."
+  },
+  "pending": [
+    "Independent executable test freeze and results",
+    "Exact default target retained-path/import/startup/ABI and ordered loader-fit audit"
+  ]
+}

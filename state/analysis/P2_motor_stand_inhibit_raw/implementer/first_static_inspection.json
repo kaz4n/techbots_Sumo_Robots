@@ -1,0 +1,27 @@
+{
+  "observed_utc": "2026-09-23T22:31:27.054199+00:00",
+  "source_unchanged_from_first_freeze": {
+    "bench/motor_stand/motor_stand.ino": true,
+    "bench/motor_stand/src/motor_stand.h": true,
+    "bench/motor_stand/src/motor_stand.cpp": true,
+    "bench/motor_stand/src/motor_stand_native.h": true,
+    "bench/motor_stand/src/motor_stand_native.cpp": true
+  },
+  "inspection": [
+    "One MotorGate member and one UnoQPort native member; Port forwarded unchanged.",
+    "Default-false branch sets DISABLED before any Gate method.",
+    "Attempt flag set before callbacks; repeated begin returns false without report mutation.",
+    "Actual begin bool and immediate fault saved before unconditional first halt.",
+    "Complete predicate includes every adopted begin/HaltResult condition.",
+    "poll and report add no clock/backend calls or state changes.",
+    "Owner header and sketch statically require both flags0; no new tunable.",
+    "No apply/reset/RobotResult/PreviousTick/motion/token/contact construction.",
+    "Every implementation function is below60 source lines."
+  ],
+  "scope": "Manual static inspection plus strict syntax only; no tests or target actions",
+  "git_diff_check": {
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+}

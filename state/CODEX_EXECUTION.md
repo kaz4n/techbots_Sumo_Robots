@@ -1,3 +1,17 @@
+## Current execution checklist - 2026-09-24T02:51:44.704000+04:00
+
+| Existing phase task | Current status / evidence | Next dependency |
+|---|---|---|
+| P2 B6 bare raw source | D114 actual COMPLETE128; e4f1ee2b; F141 | Actual circuit/windows/gestures, no logical button claim |
+| P2 B4 setup/inhibit preparation | D115 software+host+target+review PASS; F142 | Separate directional authority; B7/R6 policy stays unresolved |
+| P2 B1/B2/B3/B5 | Named driver benches host/target prepared | Real sensor/voltage measurements |
+| P2 B8/native dump | Recorder/runtime/receiver software exists | Ownership/framing facts and narrow native-dump scope before trial |
+| P2 integration and prior gates | Hardware/gates pending | Live-source timing/RAM, physical acceptance and human entries |
+
+P2softwarecheckpoint: D114 actualADC evidence e4f1ee2b is MEASURED/REVIEW-PASS (128validrawsamples,0misses,allUNCONFIGURED). MCU remains completed396bcc45; no furtherupload/reset. D115 inhibition-only motor_stand preparation is IMPLEMENTED/HOST-TESTED/TARGET-COMPILED/SCOPED-REVIEW-PASS, exactbb3b462a/default, ELF7a9c5cb5, modeledpeak6312. Fullnormal+san each1457main/45,984,586asserts plus187Gate/4,536,952;175policy methodsPASS. See F142/P2_motor_stand_inhibit_validation.md and finalreview. No existing HAL/core/config/locked-test change. Read P2_after_D115_checkpoint.md for open dependencies: directionalB4 authority/B7-R6 conflict, actualA1circuit/windows, nativeUART cleanframing, fullapp/assembledrobot measurements and allhuman gates. No extra hardware requested. Nextsafe candidate is native-dump ownership/framing contract preparation under existingD051/D075; not a newapprovedgrant or reason to repeat the consumedADCrun. Nothing is running in background.
+
+Historical task receipts follow; PROGRESS.md remains authoritative.
+
 # Execution checklist - 2026-09-23 Asia/Dubai
 
 PROGRESS is authoritative. Full P0-P7 incomplete; explicitly RESUMED; no human gate passed.

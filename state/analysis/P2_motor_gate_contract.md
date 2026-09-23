@@ -36,7 +36,8 @@ enables. reset before successful initialization cannot make it initialized.
 apply(decision_us, RobotResult) consumes fresh nonzero tokens strictly greater
 than the previous consumed token. fresh=false is an exact no-I/O/no-consumption
 operation, even if payload differs. Repeated/regressing/zero fresh tokens fault
-and inhibit. Every consumed result returns that token and post-transaction time;
+and inhibit without consumption. Increasing fresh tokens are consumed even on
+COMMAND/IO/STOPPED outcomes. Every consumed result returns that token and post-transaction time;
 whole-tick duration remains invalid for the later scheduler to measure.
 
 Observe accepted start_release only with HOLDING, current COUNTDOWN, no motion
@@ -70,6 +71,15 @@ attempt all cleanup callbacks even if one fails. Never retry HIGH automatically.
 Failure receipts have applied_valid=false (zeros are not proof of inhibition).
 Successful disabled receipts are valid with zero duties/motors_enabled=false.
 Faulted calls continue bounded inhibition only. No destructor I/O.
+
+Clarification before implementation/test establishment: preserve the first fault,
+except an actual callback failure upgrades it to IO. STOPPED is a normal safety
+condition: initial and subsequent STOPPED/disabled-zero commands with wholly
+successful inhibition return valid disabled receipts while STOPPED stays latched.
+An enabled/nonzero request after that latch is invalid. COMMAND/TOKEN/IO/PORT
+faults retain invalid receipts even when cleanup later succeeds. HOLDING/READY
+without the captured release anchor (or with changed identity) is COMMAND even
+for disabled output, except normal BOOT/IDLE/STOPPED inhibit paths.
 
 ## Validation and remaining target work
 

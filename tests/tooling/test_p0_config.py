@@ -76,6 +76,14 @@ IMU_SETUP_DEFAULTS = {
 }
 IMU_ACQUISITION_DEFAULTS = {'IMU_SILENCE_US': 20000}  # D-081 existing B14 deadline.
 IMU_HEADING_DEFAULTS = {'IMU_HEADING_MAX_GAP_US': 2000}  # D-082 continuity policy only.
+# D-085 asynchronous acquisition guards, not measured cadence or physical acceptance.
+QTR_ACQUISITION_DEFAULTS = {
+    'QTR_QUANTIZATION_US': 1, 'QTR_START_PERIOD_US': 2000,
+    'QTR_FRAME_MAX_US': 2500, 'QTR_CALL_MAX_US': 100,
+    'QTR_CLEANUP_MAX_US': 100, 'QTR_CHARGE_MAX_US': 100,
+    'QTR_MAX_ADVANCES': 8192, 'QTR_SAMPLE_MAX_AGE_US': 6000,
+}
+QTR_PROPOSED_ARRAY_DEFAULTS = {'QTR_INPUT_PINS[4]': (2, 4, 7, 8)}
 BEHAVIOR_EXTRA_DEFAULTS = {
     'VBAT_FILTER_MS': 1000,  # B6 one-second time constant.
     'REFLANK_WINDOW_MS': 10000,  # B11.3 existing ten-second rolling window.
@@ -152,7 +160,8 @@ class P0ConfigTests(unittest.TestCase):
                     set(NATIVE_MOTOR_ARRAY_DEFAULTS) | set(NATIVE_POWER_DEFAULTS) |
                     NATIVE_POWER_FLOAT_NAMES | set(NATIVE_IMU_BUS_DEFAULTS) |
                     set(IMU_SETUP_DEFAULTS) | set(IMU_ACQUISITION_DEFAULTS) |
-                    set(IMU_HEADING_DEFAULTS))
+                    set(IMU_HEADING_DEFAULTS) | set(QTR_ACQUISITION_DEFAULTS) |
+                    set(QTR_PROPOSED_ARRAY_DEFAULTS))
         self.assertEqual(expected, set(config_declarations()))
 
     def test_d076_proposed_opponent_pin_type_values_and_extent_match_hardware3(self):
@@ -229,6 +238,18 @@ class P0ConfigTests(unittest.TestCase):
         numerator, denominator = declarations['VBAT_DIVIDER_RATIO'][1].split('/')
         self.assertEqual(Decimal('122'), number(numerator))
         self.assertEqual(Decimal('22'), number(denominator))
+
+    def test_d085_qtr_guards_and_unchanged_pin_proposals_are_explicit(self):
+        declarations = config_declarations()
+        for name, expected in QTR_ACQUISITION_DEFAULTS.items():
+            with self.subTest(qtr_guard=name):
+                self.assertEqual('std::uint32_t', declarations[name][0])
+                self.assertEqual(expected, number(declarations[name][1]))
+        for name, expected in QTR_PROPOSED_ARRAY_DEFAULTS.items():
+            kind, initializer = declarations[name]
+            self.assertEqual('std::uint32_t', kind)
+            self.assertTrue(initializer.startswith('{') and initializer.endswith('}'))
+            self.assertEqual(expected, tuple(number(value) for value in initializer[1:-1].split(',')))
 
     def test_p0_diagnostic_defaults_are_explicit_and_unchanged(self):
         declarations = config_declarations()

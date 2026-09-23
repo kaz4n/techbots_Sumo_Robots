@@ -1038,3 +1038,22 @@ Consequence: no old test changes, config values, physical facts or gate inferred
 Complete software path plus independent spec tests, host/sanitizer, targetcompile
 and fresh review required. Physical mounting/accuracy/WCET, SC-AJ/F091 and full
 QTR/app integration remain pending; no motor-capable upload/run permission.
+
+
+## D-085 (2026-09-23, selected under D-051/D-075) Async QTR frames and explicit freshness
+Context:10us charge plus1500us discharge cannot complete every1000us tick. Actual
+IMU600us work also prevents assuming precise once-per-tick polling. Current Robot
+couples line/opponent freshness and Escape would replan repeatedly on cached white.
+Decision: adopt P2_qtr_native_contract.md, source audit and additive interfaces.
+Keep10/1500 thresholds and1kHz control. Select cooperative native timing brackets,
+minimum2000us starts,2500us whole-frame guard and6000us source-age expiry; explicit
+line identity/presence and split opponent freshness prevent stale confirmation,
+replans and exits. Ambiguous color is invalid/inhibited, never fabricated black.
+Use exact native GPIO guards and explicit exclusive-pad grant; no IRQ registration
+or automatic takeover. Selected call/cleanup/charge/count guards live in config.
+The original P2 B2 timeout+100us whole-call criterion is explicitly replaced for
+this asynchronous method by bounded calls/frames and measured color separation.
+Consequence: these software choices do not prove physical cadence, pad handoff,
+QTR color separation, SC-AJ/F091, full-tick800us or any human gate. Native driver,
+adapter and actual Robot evidence routing need independent tests/target/review.
+Original B16 timing/threshold defaults and every established locked test remain.

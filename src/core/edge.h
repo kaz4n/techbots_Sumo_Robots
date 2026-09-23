@@ -26,6 +26,8 @@ public:
     // must not be passed as fresh. This API does not implement or validate a HAL.
     // Returns confirmed white levels (not rising edges), so white persists.
     std::uint8_t observe(const std::uint32_t (&raw_us)[4]);
+    // D085: caller has qualified all four timing intervals; one distinct frame.
+    std::uint8_t observeMask(std::uint8_t white_candidates);
     void reset();
 private:
     std::uint32_t consecutive_[4] = {};
@@ -149,6 +151,7 @@ struct EscapeSample {
     float applied_duty_r = 0.0F;
     motion::Direction opponent_side = motion::Direction::RIGHT;
     bool heading_updated = true; // D084: retained coordinates cannot create inward evidence.
+    bool line_updated = true; // D085: retained levels cannot replan or authorize exit.
 };
 struct EscapeResult {
     RowResult row;
@@ -167,9 +170,9 @@ struct EscapeResult {
 };
 class Escape {
 public:
-    // B4/D-020/D-047..D-050/D-054 composition. Each call consumes ONE NEW,
-    // confirmed line observation (low four bits); caller must not repeat stale
-    // QTR data. This does not resolve physical acquisition timing/freshness.
+    // B4/D-020/D-047..D-050/D-054 composition. Legacy calls consume ONE NEW
+    // confirmed observation. D085 permits bounded retained levels only with
+    // line_updated=false; caller owns source validation/expiry. Timers still run.
     // Closed permission while inactive: zero/inhibited, no new line/context
     // fault. Revoking permission during an active episode latches PERMISSION_LOST;
     // neither repermission nor black clears it or resets its replan budget.
@@ -192,10 +195,10 @@ public:
     // Otherwise advance the row; DONE with persistent white also replans on this
     // observation. At most ONE replacement start/call. Allow EDGE_MAX_REPLANS
     // replacements; the next request latches REPLAN_LIMIT without starting motion.
-    // Update the mask baseline on every admitted sample, including clears; never
+    // Update the mask baseline on fresh samples and initial entry, including clears; never
     // reset it/budget merely on replacement. New rows/phases start at observed time.
     //
-    // Exit only all-black AND row DONE; emit exited once, zero row, reset budget.
+    // Exit only freshly observed all-black AND row DONE; zero row, reset budget.
     // Emit inward_valid/current supplied yaw only if that exit has healthy finite IMU;
     // otherwise false/zero. Caller owns retained history and its actual timestamp.
     // At initial row start heading must be finite even without IMU (last-known

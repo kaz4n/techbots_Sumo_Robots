@@ -116,6 +116,9 @@ struct ServiceSample {
     GyroPresence gyro_presence = GyroPresence::LEGACY;
     std::uint32_t gyro_observation_us = 0; // Actual completion, never delivery time.
     std::uint32_t gyro_sequence = 0; // Source identity; zero is valid after wrap.
+    bool explicit_line = false;
+    bool line_updated = false;
+    std::uint32_t line_source_us = 0U; // Both source/delivery must be in warning window.
 };
 struct ServiceResult {
     float bias_dps = 0.0F;

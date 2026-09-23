@@ -9,7 +9,7 @@
 | ID | Track | Files | Bench sketch | Pass criteria |
 |---|---|---|---|---|
 | B1 | Opponent sensors | hal/opp_sensors.* | bench/opp_view | LED matrix shows 7 live bits; polarity correct; each sensor detects the black test box at its set range (record ranges); 0 false hits in 60 s pointing across an empty ring |
-| B2 | QTR line | hal/line_qtr.* | bench/qtr_raw | Parallel read of 4 sensors within QTR_TIMEOUT_US + 100 us; raw times logged on black, white border, brown line; clear gap between white and black on every sensor; brown reads black |
+| B2 | QTR line | hal/line_qtr.* | bench/qtr_raw | D085 asynchronous frames: bounded calls and complete frame below QTR_FRAME_MAX_US; preserve10us charge/1500us discharge and source-time brackets. Raw evidence on black, white border, brown line must qualify every color; brown reads black. Original timeout+100us whole-call criterion is superseded for this method; full-tick800us remains separate |
 | B3 | IMU | hal/imu.* | bench/imu_heading | Bias calibration at rest; drift under 2 degrees in 60 s still; a hand-rotated 360 degrees reads 360 within 3; read time fits the tick budget |
 | B4 | Motors | hal/motors.* incl. MotorGate | bench/motor_stand | Requires STAND OK. Each side: forward, reverse, brake, coast; MOTOR_EN LOW kills output within 1 tick; both wheels on a side turn the same way; PWM frequency matches FACTS; no driver fault with the chosen IBT-2 logic supply |
 | B5 | Power | hal/power.* | bench/vbat | Within 0.05 V of a multimeter from 9.5 to 12.6 V (bench supply or packs at different charge) |

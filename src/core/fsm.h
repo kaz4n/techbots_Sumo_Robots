@@ -386,7 +386,7 @@ enum class ResetCause : std::uint8_t { UNKNOWN, WATCHDOG };
 enum RobotFault : std::uint16_t {
     INVALID_CONTEXT = 1U, SCRIPT_START = 2U, SCRIPT_RESULT = 4U,
     GOVERNOR_CONTRACT = 8U, APPLICATION_CONTRACT = 16U, STALE_SENSORS = 32U,
-    HEADING_CONTRACT = 64U, TOKEN_EXHAUSTED = 128U
+    HEADING_CONTRACT = 64U, TOKEN_EXHAUSTED = 128U, LINE_CONTRACT = 256U
 };
 struct PreviousTick {
     bool applied_valid = false;
@@ -402,8 +402,8 @@ struct PreviousTick {
 struct RobotInput {
     std::uint32_t t_us = 0;
     bool initialization_complete = false;
-    bool observations_fresh = false; // NEW complete four-QTR/seven-opponent sample.
-    std::uint32_t line_raw_us[4] = {}; // Sole authoritative line source; no line_mask.
+    bool observations_fresh = false; // Legacy: NEW complete QTR/opponent sample.
+    std::uint32_t line_raw_us[4] = {}; // Legacy only; explicit mode uses qualified line.
     std::uint8_t opp_raw_mask = 0; // Electrical polarity, D-059 continuous raw yaw.
     float raw_heading_deg = 0.0F;
     float raw_gyro_z_dps = 0.0F; // Before bias subtraction, for D-024.
@@ -418,6 +418,8 @@ struct RobotInput {
     ResetCause reset_cause = ResetCause::UNKNOWN; // First boot observation only.
     PreviousTick previous;
     core::ImuEvidence imu;
+    core::LineEvidence line;
+    bool opponent_fresh = false; // Explicit line mode only; independent of QTR frames.
 };
 struct RobotResult {
     std::uint64_t token = 0;
@@ -447,6 +449,11 @@ struct RobotResult {
     logframe::TickStatistics ticks;
     bool timing_incomplete = false;
     bool recording_incomplete = false; // Lost/invalid frame or event evidence.
+    bool line_available = false;
+    bool line_updated = false;
+    std::uint32_t line_source_us = 0U;
+    std::uint32_t line_age_us = 0U;
+    std::uint32_t line_sequence = 0U;
 };
 class Robot {
 public:
@@ -541,6 +548,9 @@ private:
     bool sameImuPayload(const RobotInput& input) const;
     void rememberImu(const RobotInput& input);
     void invalidateImu(RobotInput& input);
+    void prepareLine(const RobotInput& input);
+    bool admitLine(const RobotInput& input);
+    void publishLine(std::uint8_t white_candidates);
     void sampleSensors(const RobotInput& input);
     void advanceHistories();
     void rememberObservation();
@@ -580,6 +590,11 @@ private:
     countdown::Menu menu_;
     HeadingReference heading_;
     edge::Classifier classifier_;
+    core::LineEvidence line_history_;
+    bool line_mode_chosen_ = false;
+    bool explicit_line_mode_ = false;
+    bool line_seen_ = false;
+    std::uint32_t line_age_us_ = 0U;
     edge::Escape escape_;
     opp_fusion::Fusion fusion_;
     NormalPerception normal_;

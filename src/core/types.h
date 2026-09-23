@@ -31,6 +31,16 @@ struct ImuEvidence {
     std::uint32_t observation_us = 0;
     std::uint32_t sequence = 0;
 };
+enum class LinePresence : std::uint8_t { ABSENT = 1, VALID = 2, INVALID = 3 };
+struct LineEvidence {
+    bool explicit_values = false; // Legacy uses observations_fresh plus raw times.
+    bool contract_valid = true;
+    LinePresence presence = LinePresence::ABSENT;
+    std::uint32_t sequence = 0U;
+    std::uint32_t started_us = 0U; // Earliest frame age, never delivery/cleanup time.
+    std::uint32_t completed_us = 0U;
+    std::uint8_t white_candidates = 0U; // Qualified intervals, before confirmation.
+};
 struct Inputs {
     std::uint32_t t_us = 0;
     std::uint8_t line_mask = 0;

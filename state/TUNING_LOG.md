@@ -264,3 +264,6 @@ measurements, divider calibration, wiring approval or runtime/WCET acceptance.
 
 
 2026-09-23T12:58:11+04:00 | D082 software development constant | Add IMU_HEADING_MAX_GAP_US=2000 (two default control periods), allow equality and reject larger observed heading gaps. This is an explicit conservative continuity choice under D051, not physical tuning evidence or a measured sample-age guarantee. Existing B14 IMU_SILENCE_US20000 and all B16 defaults remain unchanged. Evidence/acceptance contract: analysis/P2_imu_heading_contract.md.
+
+
+2026-09-23T14:06:07+04:00 | D085 SOFTWARE DEVELOPMENT DEFAULTS, NOT MEASURED TUNING | QTR_INPUT_PINS copies2/4/7/8 proposals; new quantization1us/startperiod2000us/frame2500us/call100us/cleanup100us/chargemax100us/advances8192/sampleage6000us selected underD051/D075. Existing10/1500/thresholds and all other B16 values unchanged. Source evidence P2_qtr_native_audit.md; independent tests pending. No physical pin or timing approval.

@@ -65,6 +65,17 @@ inline constexpr std::uint32_t IMU_SETUP_MAX_ADVANCES = 1024U; // count exceptio
 inline constexpr std::uint32_t IMU_SETUP_MAX_REQUESTS = 64U; // count exception
 inline constexpr std::uint32_t IMU_SILENCE_US = 20000U; // B14; D081 observed-data deadline
 inline constexpr std::uint32_t IMU_HEADING_MAX_GAP_US = 2000U; // D082 development continuity limit
+// D085 asynchronous QTR development bounds and unchanged HARDWARE pin proposals.
+// Source/host guards are not physical acceptance, measured cadence or PINMAP OK.
+inline constexpr std::uint32_t QTR_INPUT_PINS[4] = {2U, 4U, 7U, 8U};
+inline constexpr std::uint32_t QTR_QUANTIZATION_US = 1U;
+inline constexpr std::uint32_t QTR_START_PERIOD_US = 2000U;
+inline constexpr std::uint32_t QTR_FRAME_MAX_US = 2500U;
+inline constexpr std::uint32_t QTR_CALL_MAX_US = 100U;
+inline constexpr std::uint32_t QTR_CLEANUP_MAX_US = 100U;
+inline constexpr std::uint32_t QTR_CHARGE_MAX_US = 100U;
+inline constexpr std::uint32_t QTR_MAX_ADVANCES = 8192U; // count exception
+inline constexpr std::uint32_t QTR_SAMPLE_MAX_AGE_US = 6000U;
 inline constexpr std::uint32_t COUNTDOWN_MS = 5000U; // ms
 inline constexpr std::uint32_t COUNTDOWN_MARGIN_MS = 100U; // ms
 inline constexpr std::uint32_t TICK_US = 1000U; // us

@@ -127,6 +127,17 @@ The contract also makes warning, history, frame and event boundaries explicit.
 
 ### B4.1 Reading
 - Parallel RC read of 4 QTRs every tick: drive all 4 lines HIGH for QTR_CHARGE_US, switch to input, time each discharge up to QTR_TIMEOUT_US.
+
+D-085 (delegated D-051/D-075,2026-09-23) supersedes the every-tick acquisition
+clause above: retain the10us charge/1500us timeout but acquire separate bounded
+asynchronous frames, minimum2000us start spacing,2500us whole-frame guard and
+6000us source-age expiry. Control remains1kHz. Actual sampled discharge brackets
+must qualify a color; ambiguity inhibits instead of becoming measured black.
+Only distinct frames advance QTR confirmation or escape replans/exits; bounded
+retained white still has priority and can enter escape at GO. See
+state/analysis/P2_qtr_native_contract.md for exact source-time and cleanup rules.
+Nominal cadence is an engineering selection, not physical evidence.
+
 - White if discharge time is below QTR_WHITE_US[i] (per sensor, calibrated in P2/P3 and with the QTR_CAL service mode on any ring).
 - Edge event: a bit is white for QTR_CONFIRM_TICKS consecutive ticks (default 1).
 - Brown start lines must read black (P3 test 3.6).

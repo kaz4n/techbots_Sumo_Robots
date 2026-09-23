@@ -494,3 +494,6 @@ Session checkpoint: implementation9de8cd1 is current inert ADC firmwaref5f637b2/
 
 
 2026-09-23T13:53:34+04:00 | P2 D084 final checkpoint | IMPLEMENTED/HOST-TESTED/TARGET-COMPILED/fresh separate review PASS, no open finding. Source2c16023/contractaef3be2; fullhost2/2PASS6.39s/fullsan2/2PASS31.38s,1151main22813536assertions+37enabledGate3796846. Independent27cases165477assertions and review118cases1727511assertions each normal/san.5new+27existing tooling PASS;32distinctscopedmethods. Targetf3bc1f7f135536/66352B exit0;51sourcefiles/3ELFs/36native/42AEABI+fmod/sqrt/startup andexact5inert identities verified. Alljobscomplete, no oldtest/config change or upload/MCU/physical/human gate. ThisgoalturnPROGRESS;fullgoalACTIVE/incomplete. Next B2 QTR contract/native acquisition and explicitfreshness per next_hal_task.md; SC-B/SC-AJ/F091 remain open. | evidence commit follows
+
+
+2026-09-23T14:06:07+04:00 | P2 D085 kickoff | PreviousgoalturnPROGRESS: D084source2c16023/evidence4ada2cd verifiedclean. Recovernext QTRtask; independent GPIO/freshness audits establish concrete native path and core coupling. Record explicitD085 timing/freshness decisions and publicdriver interface before code/spec-derivedtests. No physicalassumption or gate. | interfacecommit follows

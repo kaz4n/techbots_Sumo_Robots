@@ -415,3 +415,10 @@ F112 final software disposition 2026-09-23T16:49:58+04:00: fresh separate same-m
 | ID | Question | Observed answer | Source | Confidence | Hardware-checked |
 |---|---|---|---|---|---|
 | F-117 | Does the actual native runtime retain one acquisition across bounded advances? | Independent22pure cases/17259assertions eachmotor mode;21native/728parentassertions and44legacy/932 pass. Fullnormal/san1349main+111Gate pass. Actualcompile-only b495f085 has78exactcurrent/staged/targetfiles/3ELFs, unchanged188imports/loader and40native42AEABI exports. Compiler330844program/247564globals,14580nominalremaining/lowRAMwarning. | analysis/P2_imu_resume_contract.md,validation.md,failures.md,raw; reviews/P2_imu_resume_review.md | IMPLEMENTED/HOST-TESTED/TARGET-COMPILED; same-model independent review recorded separately | Board Linux compile/offlinefiles only; no D094 upload/reset/MCU I2C/sensor/motor operation, measured cadence/clock/stretching/loadedRAM/full800us or human gate. App schedule remains pending. |
+
+
+## D095 actual application transaction,2026-09-23
+
+| ID | Question | Observed answer | Source | Confidence | Hardware-checked |
+|---|---|---|---|---|---|
+| F-118 | Does the actual app owner preserve complete timing, once-only application and terminal inhibition? | Contractc17f6d6;28newcases617259/617260assertions eachmotor setting PASS; fullnormal/san1377main+139Gate PASS; freshreview47703checks eachsetting PASS. Target9d6c0005 has80exactsourcefiles/3ELFs/188unchangedimports/40native42AEABI exports. Compiler149120program238628globals23516nominalremaining/lowRAMwarning. | analysis/P2_app_transaction_contract.md,validation.md,raw; reviews/P2_app_transaction_review.md/raw | IMPLEMENTED/HOST-TESTED/TARGET-COMPILED; fresh same-model review PASS | Board Linux compile/offlinefiles only; no D095 upload/reset/MCU/motor operation or physical measurement. Native source scheduling, loadedRAM/full800us and all human gates remain pending. |

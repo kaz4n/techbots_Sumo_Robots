@@ -1,0 +1,9 @@
+{
+  "status": "PASS_ADDITIVE_STARTUP_REVIEW",
+  "receipt_sha256": "d9efc37e00ef254a52be6e046cf96c4040ebac92aeb507e52efe526a9fc867b1",
+  "source_sha256": "9d6c0005a3708df1df8f8d9dc885d1fbcd595aad97b90ad3826b20484116580a",
+  "main": "<main>:\n    e528:\tb538      \tpush\t{r3, r4, r5, lr}\n    e52a:\t4b05      \tldr\tr3, [pc, #20]\t@ (e540 <main+0x18>)\n    e52c:\t4798      \tblx\tr3\n    e52e:\t4b05      \tldr\tr3, [pc, #20]\t@ (e544 <main+0x1c>)\n    e530:\t4798      \tblx\tr3\n    e532:\t4b05      \tldr\tr3, [pc, #20]\t@ (e548 <main+0x20>)\n    e534:\t4798      \tblx\tr3\n    e536:\t4d05      \tldr\tr5, [pc, #20]\t@ (e54c <main+0x24>)\n    e538:\t4c05      \tldr\tr4, [pc, #20]\t@ (e550 <main+0x28>)\n    e53a:\t47a8      \tblx\tr5\n    e53c:\t47a0      \tblx\tr4\n    e53e:\te7fc      \tb.n\te53a <main+0x12>\n\t...\n\t\t\te540: R_ARM_ABS32\tinitVariant\n\t\t\te544: R_ARM_ABS32\tstart_static_threads()\n\t\t\te548: R_ARM_ABS32\tsetup\n\t\t\te54c: R_ARM_ABS32\tloop\n\t\t\te550: R_ARM_ABS32\t__loopHook()\n",
+  "initializers": 13,
+  "scope": "Local captured ELF evidence only; no runtime qualification",
+  "resolved": "Prior target_review_checks.json main-disassembly request is closed by this additive receipt"
+}

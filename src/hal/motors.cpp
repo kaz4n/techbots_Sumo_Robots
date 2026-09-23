@@ -197,11 +197,40 @@ Result MotorGate::apply(std::uint32_t decision_us, const fsm::RobotResult& comma
     return result;
 }
 
+HaltResult MotorGate::halt() {
+    if (halted_) {
+        HaltResult repeated = halt_result_;
+        repeated.fresh = false;
+        return repeated;
+    }
+    halted_ = true;
+    disarm();
+    halt_result_.fresh = true;
+    if (!began_) {
+        if (fault_ == Fault::NONE) fault_ = Fault::NOT_INITIALIZED;
+    } else {
+        if (fault_ == Fault::NONE) fault_ = Fault::STOPPED;
+        halt_result_.attempted = true;
+        const bool clock_present = port_.clockUs != nullptr;
+        if (clock_present) halt_result_.started_us = port_.clockUs(port_.context);
+        halt_result_.inhibition_confirmed = inhibit();
+        if (clock_present) halt_result_.completed_us = port_.clockUs(port_.context);
+        // Missing or backward clock evidence cannot suppress the inhibit pass.
+        halt_result_.timing_valid = clock_present &&
+            static_cast<std::uint32_t>(halt_result_.completed_us -
+                                       halt_result_.started_us) < 0x80000000U;
+    }
+    halt_result_.fault = fault_;
+    return halt_result_;
+}
+
 bool MotorGate::reset() {
     if (!inhibit()) return false;
     disarm();
     fault_ = Fault::NONE;
     began_ = initialized_;
+    halted_ = false;
+    halt_result_ = {};
     return true;
 }
 

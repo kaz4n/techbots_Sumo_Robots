@@ -637,3 +637,12 @@ API dependency only. SC-AL remains OPEN for actual app transaction/resource
 admission, QTR sub-tick intervals, complete fault cleanup accounting and measured
 full800us. P2_app_schedule_dependencies.md appended integration map/next contract.
 No new timing allowance, physical assumption or human gate follows.
+
+
+2026-09-23 D095 follow-up to SC-AL: actual fixed Transaction owner and terminal
+MotorGate.halt implemented, independently tested/reviewed and target-compiled
+9d6c0005. Complete real S/D/A/C receipts and real final recorder tail are owned;
+ordinary timing overrun remains B14 count/log only. See app_transaction contract/
+validation/review. SC-AL remains OPEN for actual native setup, source admission,
+QTR/IMU/ADC resource scheduling, expiry/output/cleanup and measured full800us.
+app.ino remains inert; no complete scheduler or hardware acceptance is implied.

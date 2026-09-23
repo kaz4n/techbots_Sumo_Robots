@@ -1,0 +1,7 @@
+{
+  "scope": "Reviewer audit harness failure; no production change",
+  "command": "python state/reviews/P2_app_transaction_review_raw/check_target_receipt.py",
+  "observed": "All 80 individual file hash comparisons passed, then aggregate source digest assertion failed at line 19.",
+  "cause": "Initial independent harness used case-sensitive string ordering; production source_hash uses native Path ordering on Windows. README.md and p2_app_transaction_compile.ino swapped order.",
+  "correction": "Use native Path ordering, while retaining exact bytes, filenames, and expected source digest. No source, established test or expected digest changed."
+}

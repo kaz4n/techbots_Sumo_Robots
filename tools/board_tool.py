@@ -114,7 +114,7 @@ def stage(sketch):
     for folder in [source.parent, ROOT / 'src']:
         check_source(folder)
     local_src = source.parent / 'src'
-    for reserved in ['config.h', 'core', 'hal']:
+    for reserved in ['config.h', 'core', 'hal', 'app']:
         if (local_src / reserved).exists():
             fail(f'sketch-local src/{reserved} conflicts with project source')
     base = ROOT / 'build/stage'
@@ -130,9 +130,11 @@ def stage(sketch):
     for item in source.parent.iterdir():
         if item.name == '.gitkeep':
             continue
+        if sketch == 'app' and item.suffix in ('.c', '.cc', '.cpp', '.h', '.hpp'):
+            continue  # Shared app support belongs under src/app, never beside the .ino.
         if item.is_file():
             shutil.copy2(item, destination / item.name)
-        elif item.name != 'src':
+        elif item.name != 'src' and sketch != 'app':
             shutil.copytree(item, destination / item.name)
     staged_src = destination / 'src'
     if local_src.exists():
@@ -142,6 +144,12 @@ def stage(sketch):
     shutil.copy2(ROOT / 'src/config.h', staged_src / 'config.h')
     for module in ['core', 'hal']:
         shutil.copytree(ROOT / 'src' / module, staged_src / module)
+    for item in (ROOT / 'src/app').rglob('*'):
+        relative = item.relative_to(ROOT / 'src/app')
+        if relative.parts[0] != 'src' and item.is_file() and item.suffix in ('.c', '.cc', '.cpp', '.h', '.hpp'):
+            target_file = staged_src / 'app' / relative
+            target_file.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(item, target_file)
     return destination
 
 

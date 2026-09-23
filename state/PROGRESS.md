@@ -660,3 +660,16 @@ Public-spec and native-scheduling audits identify actual transaction ownership a
 non-token terminal inhibition as concrete app prerequisites. D095 freezes halt and
 app::Transaction S/D/A/C lifecycle; B14 overrun remains count/log only. No physical
 schedule/motor/gate claim. Implement/test actual owner now. | contract=this commit
+
+
+2026-09-23T19:08:07+04:00 | P2 D095 implementation | Actual app::Transaction and non-token MotorGate.halt implemented.
+Fullnormal/san1377main/25118683assertions+139Gate/4467720 PASS. Independent28new
+cases617259/617260eachmode; nativeprobe2/9eachmode,8newtools and61oldtools PASS.
+Freshsame-model review47703checks eachmode PASS/no open findings. New author
+fixture/oracle corrections and originalfailures preserved; no establishedtests,
+core/config change. Targetcompile-only9d6c0005:80sources3ELFs exact;188imports/
+loader unchanged,40native42AEABI nonzero;13init entries/startup reviewed.149120
+program238628globals23516nominalremaining/lowRAMwarning. Sevenexistinginertkeys
+independently reviewed/refreshed; no newkey/upload/reset/MCU operation. F118 and
+P2_app_transaction_validation.md record limits. Native app schedule/physical800us/
+loadedRAM/gates remain pending; fullP0-P7 ACTIVE. | implementation=this commit

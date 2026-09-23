@@ -11,6 +11,7 @@ file(GLOB CORE_SOURCES CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/../src/cor
 file(GLOB_RECURSE TEST_SOURCES CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/../tests/*.cpp")
 # B8 storage/formatting and D075 MotorGate use host-safe code; pin backends stay out.
 add_executable(sumox26_tests ${CORE_SOURCES} ${TEST_SOURCES}
+  "${CMAKE_CURRENT_SOURCE_DIR}/../src/app/transaction.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/../src/hal/recorder_frames.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/../src/hal/recorder.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/../src/hal/recorder_csv.cpp"
@@ -39,6 +40,9 @@ add_test(NAME sumox26_host COMMAND sumox26_tests)
 
 # Host-only active-path test build: never staged, uploaded or used as firmware.
 add_executable(motor_gate_enabled_tests ${CORE_SOURCES}
+  "${CMAKE_CURRENT_SOURCE_DIR}/../src/app/transaction.cpp"
+  "${CMAKE_CURRENT_SOURCE_DIR}/../tests/locked/test_motor_halt.cpp"
+  "${CMAKE_CURRENT_SOURCE_DIR}/../tests/test_app_transaction.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/../src/hal/ui.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/../src/hal/power_inputs.cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/../src/hal/motors.cpp"

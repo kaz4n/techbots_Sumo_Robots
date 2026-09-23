@@ -1,0 +1,33 @@
+{
+  "argv": [
+    "/usr/bin/g++",
+    "-std=c++17",
+    "-O1",
+    "-Wall",
+    "-Wextra",
+    "-Wpedantic",
+    "-Werror",
+    "-fno-exceptions",
+    "-fno-rtti",
+    "-DDOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS",
+    "-DD109_TEST_SEPARATE_MAIN",
+    "-I",
+    "/dev/shm/sumo-d109-author-aijvpesf/src",
+    "-I",
+    "/dev/shm/sumo-d109-author-aijvpesf/bench/src",
+    "-I",
+    "/dev/shm/sumo-d109-author-aijvpesf",
+    "-isystem",
+    "/tmp/d109-review-3saxk1w5/host/third_party",
+    "-Wl,--wrap=malloc,--wrap=calloc,--wrap=realloc,--wrap=free",
+    "-DMOTORS_ALLOWED=1",
+    "-DMATCH=0",
+    "-DARDUINO_ARCH_ZEPHYR",
+    "-fsyntax-only",
+    "/dev/shm/sumo-d109-author-aijvpesf/bench/sketch.cpp"
+  ],
+  "returncode": 1,
+  "stdout": "",
+  "stderr": "/dev/shm/sumo-d109-author-aijvpesf/bench/sketch.cpp:7:44: error: static assertion failed: QTR raw bench requires inert flags\n    7 | static_assert(MATCH == 0 && MOTORS_ALLOWED == 0, \"QTR raw bench requires inert flags\");\n/dev/shm/sumo-d109-author-aijvpesf/bench/sketch.cpp:7:44: note: the comparison reduces to \u2018(1 == 0)\u2019\n",
+  "utc": "2026-09-23T20:24:44.541635+00:00"
+}

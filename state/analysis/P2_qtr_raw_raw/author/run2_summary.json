@@ -1,0 +1,278 @@
+{
+  "utc": "2026-09-23T20:23:27.093797+00:00",
+  "result": "PASS_AFTER_REVIEWED_FIXTURE_COMPILE_REPAIR",
+  "cases_sha256": "80fec60e0c9a8eb67ad853e9b082a177663363c238dbf3e00b574ae8c4a1a7ab",
+  "harness_sha256": "438ac88d3f769b32ba21794b37225de967824f6e37edf4d627e0ff61604773b2",
+  "production_manifest": "opaque_source_copy_1790194959553662842.json",
+  "profiles": [
+    {
+      "profile": "normal",
+      "cases": [
+        32,
+        32,
+        0
+      ],
+      "assertions": [
+        20131,
+        20131,
+        0
+      ],
+      "stderr_empty": true,
+      "returncode": 0,
+      "receipt": "command_1790194963961149275.json",
+      "argv": [
+        "/dev/shm/sumo-d109-author-e393fnub/normal",
+        "--no-colors",
+        "--order-by=file"
+      ]
+    },
+    {
+      "profile": "asan_ubsan",
+      "cases": [
+        32,
+        32,
+        0
+      ],
+      "assertions": [
+        20131,
+        20131,
+        0
+      ],
+      "stderr_empty": true,
+      "returncode": 0,
+      "receipt": "command_1790194972903982135.json",
+      "argv": [
+        "/dev/shm/sumo-d109-author-e393fnub/asan_ubsan",
+        "--no-colors",
+        "--order-by=file"
+      ]
+    },
+    {
+      "profile": "native_normal",
+      "cases": [
+        2,
+        2,
+        0
+      ],
+      "assertions": [
+        39,
+        39,
+        0
+      ],
+      "stderr_empty": true,
+      "returncode": 0,
+      "receipt": "command_1790194974565086839.json",
+      "argv": [
+        "/dev/shm/sumo-d109-author-e393fnub/native_normal",
+        "--no-colors",
+        "--order-by=file",
+        "--test-case=D109 default sketch*,D109 Native*"
+      ]
+    },
+    {
+      "profile": "native_san",
+      "cases": [
+        2,
+        2,
+        0
+      ],
+      "assertions": [
+        39,
+        39,
+        0
+      ],
+      "stderr_empty": true,
+      "returncode": 0,
+      "receipt": "command_1790194978727057474.json",
+      "argv": [
+        "/dev/shm/sumo-d109-author-e393fnub/native_san",
+        "--no-colors",
+        "--order-by=file",
+        "--test-case=D109 default sketch*,D109 Native*"
+      ]
+    },
+    {
+      "profile": "capacity-1-normal",
+      "cases": [
+        27,
+        27,
+        0
+      ],
+      "assertions": [
+        1630,
+        1630,
+        0
+      ],
+      "stderr_empty": true,
+      "returncode": 0,
+      "receipt": "command_1790194980206194506.json",
+      "argv": [
+        "/dev/shm/sumo-d109-author-e393fnub/capacity-1-normal",
+        "--no-colors",
+        "--order-by=file"
+      ]
+    },
+    {
+      "profile": "capacity-0-normal",
+      "cases": [
+        4,
+        4,
+        0
+      ],
+      "assertions": [
+        104,
+        104,
+        0
+      ],
+      "stderr_empty": true,
+      "returncode": 0,
+      "receipt": "command_1790194982753221758.json",
+      "argv": [
+        "/dev/shm/sumo-d109-author-e393fnub/capacity-0-normal",
+        "--no-colors",
+        "--order-by=file",
+        "--test-case=D109 fixture*,D109 passive*,D109 every missing*,D109 zero capacity*"
+      ]
+    },
+    {
+      "profile": "capacity-1-san",
+      "cases": [
+        27,
+        27,
+        0
+      ],
+      "assertions": [
+        1630,
+        1630,
+        0
+      ],
+      "stderr_empty": true,
+      "returncode": 0,
+      "receipt": "command_1790194983473759807.json",
+      "argv": [
+        "/dev/shm/sumo-d109-author-e393fnub/capacity-1-san",
+        "--no-colors",
+        "--order-by=file"
+      ]
+    },
+    {
+      "profile": "capacity-0-san",
+      "cases": [
+        4,
+        4,
+        0
+      ],
+      "assertions": [
+        104,
+        104,
+        0
+      ],
+      "stderr_empty": true,
+      "returncode": 0,
+      "receipt": "command_1790194988231500658.json",
+      "argv": [
+        "/dev/shm/sumo-d109-author-e393fnub/capacity-0-san",
+        "--no-colors",
+        "--order-by=file",
+        "--test-case=D109 fixture*,D109 passive*,D109 every missing*,D109 zero capacity*"
+      ]
+    }
+  ],
+  "compile_refusals": [
+    {
+      "argv": [
+        "/usr/bin/g++",
+        "-std=c++17",
+        "-O1",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Werror",
+        "-fno-exceptions",
+        "-fno-rtti",
+        "-DDOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS",
+        "-DD109_TEST_SEPARATE_MAIN",
+        "-I",
+        "/dev/shm/sumo-d109-author-e393fnub/src",
+        "-I",
+        "/dev/shm/sumo-d109-author-e393fnub/bench/src",
+        "-I",
+        "/dev/shm/sumo-d109-author-e393fnub",
+        "-isystem",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/host/third_party",
+        "-Wl,--wrap=malloc,--wrap=calloc,--wrap=realloc,--wrap=free",
+        "-DMOTORS_ALLOWED=1",
+        "-DMATCH=0",
+        "-DARDUINO_ARCH_ZEPHYR",
+        "-fsyntax-only",
+        "/dev/shm/sumo-d109-author-e393fnub/bench/sketch.cpp"
+      ],
+      "receipt": "command_1790194988314773587.json",
+      "expected_static_assertion": true
+    },
+    {
+      "argv": [
+        "/usr/bin/g++",
+        "-std=c++17",
+        "-O1",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Werror",
+        "-fno-exceptions",
+        "-fno-rtti",
+        "-DDOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS",
+        "-DD109_TEST_SEPARATE_MAIN",
+        "-I",
+        "/dev/shm/sumo-d109-author-e393fnub/src",
+        "-I",
+        "/dev/shm/sumo-d109-author-e393fnub/bench/src",
+        "-I",
+        "/dev/shm/sumo-d109-author-e393fnub",
+        "-isystem",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/host/third_party",
+        "-Wl,--wrap=malloc,--wrap=calloc,--wrap=realloc,--wrap=free",
+        "-DMOTORS_ALLOWED=0",
+        "-DMATCH=1",
+        "-DARDUINO_ARCH_ZEPHYR",
+        "-fsyntax-only",
+        "/dev/shm/sumo-d109-author-e393fnub/bench/sketch.cpp"
+      ],
+      "receipt": "command_1790194988397058546.json",
+      "expected_static_assertion": true
+    },
+    {
+      "argv": [
+        "/usr/bin/g++",
+        "-std=c++17",
+        "-O1",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Werror",
+        "-fno-exceptions",
+        "-fno-rtti",
+        "-DDOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS",
+        "-DD109_TEST_SEPARATE_MAIN",
+        "-I",
+        "/dev/shm/sumo-d109-author-e393fnub/src",
+        "-I",
+        "/dev/shm/sumo-d109-author-e393fnub/bench/src",
+        "-I",
+        "/dev/shm/sumo-d109-author-e393fnub",
+        "-isystem",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/host/third_party",
+        "-Wl,--wrap=malloc,--wrap=calloc,--wrap=realloc,--wrap=free",
+        "-DMOTORS_ALLOWED=1",
+        "-DMATCH=1",
+        "-DARDUINO_ARCH_ZEPHYR",
+        "-fsyntax-only",
+        "/dev/shm/sumo-d109-author-e393fnub/bench/sketch.cpp"
+      ],
+      "receipt": "command_1790194988475822051.json",
+      "expected_static_assertion": true
+    }
+  ],
+  "commands_in_isolated_profile_set": 21,
+  "unexpected_nonzero_commands": 0
+}

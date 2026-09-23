@@ -90,6 +90,7 @@ QTR_ACQUISITION_DEFAULTS = {
 }
 QTR_PROPOSED_ARRAY_DEFAULTS = {'QTR_INPUT_PINS[4]': (2, 4, 7, 8)}
 BEHAVIOR_EXTRA_DEFAULTS = {
+    'QTR_BENCH_FRAMES': 128,  # D109 finite raw bench capture, approved count.
     'VBAT_FILTER_MS': 1000,  # B6 one-second time constant.
     'REFLANK_WINDOW_MS': 10000,  # B11.3 existing ten-second rolling window.
     'LOG_EVENT_CAPACITY': 4096,  # B15/D-028 first-event retention capacity.

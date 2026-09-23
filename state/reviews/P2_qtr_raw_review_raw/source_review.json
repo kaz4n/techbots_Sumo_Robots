@@ -1,0 +1,143 @@
+{
+  "verdict": "PASS_FROZEN_D109_SOURCE_AND_PRIVATE_HOST_CASE_EVIDENCE",
+  "source_sha256": {
+    "bench/qtr_raw/qtr_raw.ino": "24c64a255ac9f2f6435f27552f40a3442a4e6ca85459941104746b65f52ee715",
+    "bench/qtr_raw/src/qtr_raw.h": "ca134b2b36aeff657b1ea52c17d4d6c01a64e28f23aa8cb56169c77b853a9d35",
+    "bench/qtr_raw/src/qtr_raw.cpp": "54b0a21b7b2867d9f816f476bec2b8cddf7b6ca7f902b7e682ccce2a9bceed33",
+    "bench/qtr_raw/src/qtr_raw_native.h": "0a4798d109a9e75740f83a3fbd0ca0e22f38b60c42968eea7bbcd0581f7a5939",
+    "bench/qtr_raw/src/qtr_raw_native.cpp": "775b8f4d4f410151c5daf090bf122e6b59ca86d307244fdd102b5cb405510393"
+  },
+  "contract_sha256": "e6587f581e66d79cca07e23371b2ee98ea1a75ea67b1a5a43107f942e40ecfdb",
+  "test_amendment": {
+    "before_sha256": "d93a7b56964feb3a286ed24cd14fda5b6776e0d11452dc11291a5edc81cb41a5",
+    "after_sha256": "80fec60e0c9a8eb67ad853e9b082a177663363c238dbf3e00b574ae8c4a1a7ab",
+    "negative_predicates": 4,
+    "positive_predicates": 1,
+    "runtime_bytes_unchanged": true
+  },
+  "registry_amendment": {
+    "before_sha256": "92b9c9d38fb2fb67c3d3d7e93b658c3fb9c0c196882a45c946123cf21a0ae3fd",
+    "after_sha256": "c0156a8e50ee38bb317f531a17c3c1ac704ec2d28b4b5bd3324a25204bc0e248",
+    "only_literal_addition_and_neighbor_newline": true,
+    "neighbor_line": "BEHAVIOR_EXTRA_DEFAULTS = {",
+    "neighbor_line_ending": "CRLF->LF",
+    "all_other_bytes_preserved": true
+  },
+  "public_observables_reviewed": [
+    "default silence and one attempt",
+    "first-fault and independent clock latch",
+    "whole-operation and source-era half-range admission",
+    "actual S/A/P/Q/C and no clocks after rejection",
+    "one command plus at most one needed cancellation",
+    "separate primary/cleanup records",
+    "tentative slot hidden until accepted C",
+    "128 immutable captures and terminal final pulse",
+    "no classifier/remap/transport/other owner",
+    "saturating counters source reviewed without private seeding"
+  ],
+  "executed_profiles": [
+    {
+      "argv": [
+        "/dev/shm/sumo-d109-author-aijvpesf/normal",
+        "--no-colors",
+        "--order-by=file"
+      ],
+      "returncode": 0,
+      "summaries": [
+        "[doctest] test cases:    32 |    32 passed | 0 failed | 0 skipped",
+        "[doctest] assertions: 20131 | 20131 passed | 0 failed |"
+      ]
+    },
+    {
+      "argv": [
+        "/dev/shm/sumo-d109-author-aijvpesf/asan_ubsan",
+        "--no-colors",
+        "--order-by=file"
+      ],
+      "returncode": 0,
+      "summaries": [
+        "[doctest] test cases:    32 |    32 passed | 0 failed | 0 skipped",
+        "[doctest] assertions: 20131 | 20131 passed | 0 failed |"
+      ]
+    },
+    {
+      "argv": [
+        "/dev/shm/sumo-d109-author-aijvpesf/native_normal",
+        "--no-colors",
+        "--order-by=file",
+        "--test-case=D109 default sketch*,D109 Native*"
+      ],
+      "returncode": 0,
+      "summaries": [
+        "[doctest] test cases:  2 |  2 passed | 0 failed | 32 skipped",
+        "[doctest] assertions: 39 | 39 passed | 0 failed |"
+      ]
+    },
+    {
+      "argv": [
+        "/dev/shm/sumo-d109-author-aijvpesf/native_san",
+        "--no-colors",
+        "--order-by=file",
+        "--test-case=D109 default sketch*,D109 Native*"
+      ],
+      "returncode": 0,
+      "summaries": [
+        "[doctest] test cases:  2 |  2 passed | 0 failed | 32 skipped",
+        "[doctest] assertions: 39 | 39 passed | 0 failed |"
+      ]
+    },
+    {
+      "argv": [
+        "/dev/shm/sumo-d109-author-aijvpesf/capacity-1-normal",
+        "--no-colors",
+        "--order-by=file"
+      ],
+      "returncode": 0,
+      "summaries": [
+        "[doctest] test cases:   27 |   27 passed | 0 failed | 0 skipped",
+        "[doctest] assertions: 1630 | 1630 passed | 0 failed |"
+      ]
+    },
+    {
+      "argv": [
+        "/dev/shm/sumo-d109-author-aijvpesf/capacity-1-san",
+        "--no-colors",
+        "--order-by=file"
+      ],
+      "returncode": 0,
+      "summaries": [
+        "[doctest] test cases:   27 |   27 passed | 0 failed | 0 skipped",
+        "[doctest] assertions: 1630 | 1630 passed | 0 failed |"
+      ]
+    },
+    {
+      "argv": [
+        "/dev/shm/sumo-d109-author-aijvpesf/capacity-0-normal",
+        "--no-colors",
+        "--order-by=file",
+        "--test-case=D109 fixture*,D109 passive*,D109 every missing*,D109 zero capacity*"
+      ],
+      "returncode": 0,
+      "summaries": [
+        "[doctest] test cases:   4 |   4 passed | 0 failed | 23 skipped",
+        "[doctest] assertions: 104 | 104 passed | 0 failed |"
+      ]
+    },
+    {
+      "argv": [
+        "/dev/shm/sumo-d109-author-aijvpesf/capacity-0-san",
+        "--no-colors",
+        "--order-by=file",
+        "--test-case=D109 fixture*,D109 passive*,D109 every missing*,D109 zero capacity*"
+      ],
+      "returncode": 0,
+      "summaries": [
+        "[doctest] test cases:   4 |   4 passed | 0 failed | 23 skipped",
+        "[doctest] assertions: 104 | 104 passed | 0 failed |"
+      ]
+    }
+  ],
+  "host_receipt": "firmware_1790195019448979762.json",
+  "registry_receipt": "firmware_1790195143197198498.json",
+  "limits": "Independent authoring from contracts in separate reused context; reviewer read implementation. Native substitutes are not GPIO evidence; saturation and sequence wrap not executed."
+}

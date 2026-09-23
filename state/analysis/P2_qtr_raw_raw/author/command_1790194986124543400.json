@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "wsl.exe",
+    "--exec",
+    "python3",
+    "-m",
+    "unittest",
+    "tests.tooling.test_qtr_raw.QtrRawTests.test_frozen_runner_native_capacity_and_forbidden_flags",
+    "-v"
+  ],
+  "returncode": 0,
+  "stdout": "normal: [doctest] test cases:    32 |    32 passed | 0 failed | 0 skipped | [doctest] assertions: 20131 | 20131 passed | 0 failed |\nasan_ubsan: [doctest] test cases:    32 |    32 passed | 0 failed | 0 skipped | [doctest] assertions: 20131 | 20131 passed | 0 failed |\nnative_normal: [doctest] test cases:  2 |  2 passed | 0 failed | 32 skipped | [doctest] assertions: 39 | 39 passed | 0 failed |\nnative_san: [doctest] test cases:  2 |  2 passed | 0 failed | 32 skipped | [doctest] assertions: 39 | 39 passed | 0 failed |\ncapacity-1-normal: [doctest] test cases:   27 |   27 passed | 0 failed | 0 skipped | [doctest] assertions: 1630 | 1630 passed | 0 failed |\ncapacity-1-san: [doctest] test cases:   27 |   27 passed | 0 failed | 0 skipped | [doctest] assertions: 1630 | 1630 passed | 0 failed |\ncapacity-0-normal: [doctest] test cases:   4 |   4 passed | 0 failed | 23 skipped | [doctest] assertions: 104 | 104 passed | 0 failed |\ncapacity-0-san: [doctest] test cases:   4 |   4 passed | 0 failed | 23 skipped | [doctest] assertions: 104 | 104 passed | 0 failed |\n",
+  "stderr": "test_frozen_runner_native_capacity_and_forbidden_flags (tests.tooling.test_qtr_raw.QtrRawTests.test_frozen_runner_native_capacity_and_forbidden_flags) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 29.703s\n\nOK\n",
+  "utc": "2026-09-23T20:23:06.124526+00:00"
+}

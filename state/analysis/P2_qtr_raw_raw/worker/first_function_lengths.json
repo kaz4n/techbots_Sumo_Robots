@@ -1,0 +1,254 @@
+[
+  {
+    "file": "bench/qtr_raw/src/qtr_raw.cpp",
+    "first_line": 11,
+    "lines": 3,
+    "signature": "bool active(line_qtr::Phase phase) {"
+  },
+  {
+    "file": "bench/qtr_raw/src/qtr_raw.cpp",
+    "first_line": 14,
+    "lines": 3,
+    "signature": "bool inside(std::uint32_t time, std::uint32_t before, std::uint32_t after) {"
+  },
+  {
+    "file": "bench/qtr_raw/src/qtr_raw.cpp",
+    "first_line": 17,
+    "lines": 4,
+    "signature": "bool sameIdentity(const line_qtr::Snapshot& a, const line_qtr::Snapshot& b) {"
+  },
+  {
+    "file": "bench/qtr_raw/src/qtr_raw.cpp",
+    "first_line": 21,
+    "lines": 5,
+    "signature": "bool samePad(const line_qtr::Pad& a, const line_qtr::Pad& b) {"
+  },
+  {
+    "file": "bench/qtr_raw/src/qtr_raw.cpp",
+    "first_line": 26,
+    "lines": 8,
+    "signature": "bool sameCleanup(const line_qtr::Cleanup& a, const line_qtr::Cleanup& b) {"
+  },
+  {
+    "file": "bench/qtr_raw/src/qtr_raw.cpp",
+    "first_line": 34,
+    "lines": 11,
+    "signature": "bool sameSnapshot(const line_qtr::Snapshot& a, const line_qtr::Snapshot& b) {"
+  },
+  {
+    "file": "bench/qtr_raw/src/qtr_raw.cpp",
+    "first_line": 45,
+    "lines": 7,
+    "signature": "bool cleanupSuccessful(const line_qtr::Cleanup& cleanup) {"
+  },
+  {
+    "file": "bench/qtr_raw/src/qtr_raw.cpp",
+    "first_line": 54,
+    "lines": 1,
+    "signature": "Runner::Runner(const Port& port) : port_(port) {}"
+  },
+  {
+    "file": "bench/qtr_raw/src/qtr_raw.cpp",
+    "first_line": 55,
+    "lines": 1,
+    "signature": "const Report& Runner::report() const { return report_; }"
+  },
+  {
+    "file": "bench/qtr_raw/src/qtr_raw.cpp",
+    "first_line": 56,
+    "lines": 1,
+    "signature": "std::uint32_t Runner::captureCapacity() const { return config::QTR_BENCH_FRAMES; }"
+  },
+  {
+    "file": "bench/qtr_raw/src/qtr_raw.cpp",
+    "first_line": 57,
+    "lines": 1,
+    "signature": "std::uint32_t Runner::captureCount() const { return report_.captured_frames; }"
+  },
+  {
+    "file": "bench/qtr_raw/src/qtr_raw.cpp",
+    "first_line": 58,
+    "lines": 3,
+    "signature": "const line_qtr::Snapshot* Runner::capture(std::uint32_t index) const {"
+  },
+  {
+    "file": "bench/qtr_raw/src/qtr_raw.cpp",
+    "first_line": 61,
+    "lines": 4,
+    "signature": "bool Runner::portsValid() const {"
+  },
+  {
+    "file": "bench/qtr_raw/src/qtr_raw.cpp",
+    "first_line": 65,
+    "lines": 5,
+    "signature": "void Runner::fail(Fault fault) {"
+  },
+  {
+    "file": "bench/qtr_raw/src/qtr_raw.cpp",
+    "first_line": 70,
+    "lines": 4,
+    "signature": "void Runner::add(std::uint32_t& counter) {"
+  },
+  {
+    "file": "bench/qtr_raw/src/qtr_raw.cpp",
+    "first_line": 74,
+    "lines": 4,
+    "signature": "void Runner::attempt(Timing& timing) {"
+  },
+  {
+    "file": "bench/qtr_raw/src/qtr_raw.cpp",
+    "first_line": 78,
+    "lines": 6,
+    "signature": "void Runner::measure(Timing& timing, std::uint32_t elapsed_us) {"
+  },
+  {
+    "file": "bench/qtr_raw/src/qtr_raw.cpp",
+    "first_line": 84,
+    "lines": 15,
+    "signature": "bool Runner::admitClock(std::uint32_t now_us) {"
+  },
+  {
+    "file": "bench/qtr_raw/src/qtr_raw.cpp",
+    "first_line": 99,
+    "lines": 5,
+    "signature": "bool Runner::clock(std::uint32_t& now_us) {"
+  },
+  {
+    "file": "bench/qtr_raw/src/qtr_raw.cpp",
+    "first_line": 104,
+    "lines": 6,
+    "signature": "bool Runner::open(std::uint32_t& started_us) {"
+  },
+  {
+    "file": "bench/qtr_raw/src/qtr_raw.cpp",
+    "first_line": 110,
+    "lines": 9,
+    "signature": "bool Runner::close(std::uint32_t started_us, Timing& timing) {"
+  },
+  {
+    "file": "bench/qtr_raw/src/qtr_raw.cpp",
+    "first_line": 120,
+    "lines": 16,
+    "signature": "void Runner::invoke(Command command) {"
+  },
+  {
+    "file": "bench/qtr_raw/src/qtr_raw.cpp",
+    "first_line": 136,
+    "lines": 16,
+    "signature": "void Runner::examineStart(const line_qtr::Snapshot& previous,"
+  },
+  {
+    "file": "bench/qtr_raw/src/qtr_raw.cpp",
+    "first_line": 152,
+    "lines": 9,
+    "signature": "void Runner::examineAdvance(const line_qtr::Snapshot& previous) {"
+  },
+  {
+    "file": "bench/qtr_raw/src/qtr_raw.cpp",
+    "first_line": 161,
+    "lines": 18,
+    "signature": "void Runner::examine(Command command, const line_qtr::Snapshot& previous,"
+  },
+  {
+    "file": "bench/qtr_raw/src/qtr_raw.cpp",
+    "first_line": 179,
+    "lines": 14,
+    "signature": "void Runner::startSource(const line_qtr::Snapshot& previous, std::uint32_t after_us) {"
+  },
+  {
+    "file": "bench/qtr_raw/src/qtr_raw.cpp",
+    "first_line": 193,
+    "lines": 27,
+    "signature": "void Runner::sourceBracket(Command command, const line_qtr::Snapshot& previous,"
+  },
+  {
+    "file": "bench/qtr_raw/src/qtr_raw.cpp",
+    "first_line": 221,
+    "lines": 11,
+    "signature": "void Runner::examineCancellation() {"
+  },
+  {
+    "file": "bench/qtr_raw/src/qtr_raw.cpp",
+    "first_line": 232,
+    "lines": 9,
+    "signature": "void Runner::cancellationBracket(std::uint32_t before_us, std::uint32_t after_us) {"
+  },
+  {
+    "file": "bench/qtr_raw/src/qtr_raw.cpp",
+    "first_line": 241,
+    "lines": 16,
+    "signature": "void Runner::cancelOnce(bool stopping) {"
+  },
+  {
+    "file": "bench/qtr_raw/src/qtr_raw.cpp",
+    "first_line": 258,
+    "lines": 18,
+    "signature": "bool Runner::begin(const Grants& grants) {"
+  },
+  {
+    "file": "bench/qtr_raw/src/qtr_raw.cpp",
+    "first_line": 276,
+    "lines": 27,
+    "signature": "bool Runner::poll() {"
+  },
+  {
+    "file": "bench/qtr_raw/src/qtr_raw.cpp",
+    "first_line": 303,
+    "lines": 6,
+    "signature": "void Runner::stop() {"
+  },
+  {
+    "file": "bench/qtr_raw/src/qtr_raw_native.cpp",
+    "first_line": 8,
+    "lines": 4,
+    "signature": "Port Native::port() {"
+  },
+  {
+    "file": "bench/qtr_raw/src/qtr_raw_native.cpp",
+    "first_line": 12,
+    "lines": 1,
+    "signature": "std::uint32_t Native::clockUs(void*) { return static_cast<std::uint32_t>(micros()); }"
+  },
+  {
+    "file": "bench/qtr_raw/src/qtr_raw_native.cpp",
+    "first_line": 13,
+    "lines": 3,
+    "signature": "line_qtr::Status Native::beginReader(void* context, bool exclusive_pads) {"
+  },
+  {
+    "file": "bench/qtr_raw/src/qtr_raw_native.cpp",
+    "first_line": 16,
+    "lines": 3,
+    "signature": "line_qtr::Status Native::startReader(void* context) {"
+  },
+  {
+    "file": "bench/qtr_raw/src/qtr_raw_native.cpp",
+    "first_line": 19,
+    "lines": 3,
+    "signature": "line_qtr::Snapshot Native::readerReport(void* context) {"
+  },
+  {
+    "file": "bench/qtr_raw/src/qtr_raw_native.cpp",
+    "first_line": 22,
+    "lines": 3,
+    "signature": "line_qtr::Snapshot Native::advanceReader(void* context) {"
+  },
+  {
+    "file": "bench/qtr_raw/src/qtr_raw_native.cpp",
+    "first_line": 25,
+    "lines": 3,
+    "signature": "line_qtr::Snapshot Native::cancelReader(void* context) {"
+  },
+  {
+    "file": "bench/qtr_raw/qtr_raw.ino",
+    "first_line": 12,
+    "lines": 1,
+    "signature": "void setup() { runner.begin(qtr_raw::Grants{}); }"
+  },
+  {
+    "file": "bench/qtr_raw/qtr_raw.ino",
+    "first_line": 13,
+    "lines": 1,
+    "signature": "void loop() { runner.poll(); }"
+  }
+]

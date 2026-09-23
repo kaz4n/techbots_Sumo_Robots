@@ -1,0 +1,212 @@
+test_additive_registry_keeps_original_18_assertions_and_rejects_129 (tests.tooling.test_qtr_raw.QtrRawTests.test_additive_registry_keeps_original_18_assertions_and_rejects_129) ... test_d096_additions_run_unchanged_d093_and_all_18_legacy_config_checks (tests.tooling.test_runtime_config_registry.RuntimeConfigRegistryTests.test_d096_additions_run_unchanged_d093_and_all_18_legacy_config_checks) ... ok
+test_each_wrong_value_is_rejected_by_unchanged_legacy_value_assertion (tests.tooling.test_runtime_config_registry.RuntimeConfigRegistryTests.test_each_wrong_value_is_rejected_by_unchanged_legacy_value_assertion) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.131s
+
+OK
+ok
+test_frozen_runner_native_capacity_and_forbidden_flags (tests.tooling.test_qtr_raw.QtrRawTests.test_frozen_runner_native_capacity_and_forbidden_flags) ... FAIL
+
+======================================================================
+FAIL: test_frozen_runner_native_capacity_and_forbidden_flags (tests.tooling.test_qtr_raw.QtrRawTests.test_frozen_runner_native_capacity_and_forbidden_flags)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tests\tooling\test_qtr_raw.py", line 68, in test_frozen_runner_native_capacity_and_forbidden_flags
+    self.command(["wsl.exe", "--exec", "python3", "-m", "unittest",
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                  "tests.tooling.test_qtr_raw.QtrRawTests.test_frozen_runner_native_capacity_and_forbidden_flags", "-v"])
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tests\tooling\test_qtr_raw.py", line 46, in command
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : test_frozen_runner_native_capacity_and_forbidden_flags (tests.tooling.test_qtr_raw.QtrRawTests.test_frozen_runner_native_capacity_and_forbidden_flags) ... 
+  test_frozen_runner_native_capacity_and_forbidden_flags (tests.tooling.test_qtr_raw.QtrRawTests.test_frozen_runner_native_capacity_and_forbidden_flags) (profile='normal') ... FAIL
+  test_frozen_runner_native_capacity_and_forbidden_flags (tests.tooling.test_qtr_raw.QtrRawTests.test_frozen_runner_native_capacity_and_forbidden_flags) (profile='asan_ubsan') ... FAIL
+  test_frozen_runner_native_capacity_and_forbidden_flags (tests.tooling.test_qtr_raw.QtrRawTests.test_frozen_runner_native_capacity_and_forbidden_flags) (profile='native_normal') ... FAIL
+  test_frozen_runner_native_capacity_and_forbidden_flags (tests.tooling.test_qtr_raw.QtrRawTests.test_frozen_runner_native_capacity_and_forbidden_flags) (profile='native_san') ... FAIL
+  test_frozen_runner_native_capacity_and_forbidden_flags (tests.tooling.test_qtr_raw.QtrRawTests.test_frozen_runner_native_capacity_and_forbidden_flags) (capacity=1, profile='normal') ... FAIL
+  test_frozen_runner_native_capacity_and_forbidden_flags (tests.tooling.test_qtr_raw.QtrRawTests.test_frozen_runner_native_capacity_and_forbidden_flags) (capacity=1, profile='san') ... FAIL
+  test_frozen_runner_native_capacity_and_forbidden_flags (tests.tooling.test_qtr_raw.QtrRawTests.test_frozen_runner_native_capacity_and_forbidden_flags) (capacity=0, profile='normal') ... FAIL
+  test_frozen_runner_native_capacity_and_forbidden_flags (tests.tooling.test_qtr_raw.QtrRawTests.test_frozen_runner_native_capacity_and_forbidden_flags) (capacity=0, profile='san') ... FAIL
+
+======================================================================
+FAIL: test_frozen_runner_native_capacity_and_forbidden_flags (tests.tooling.test_qtr_raw.QtrRawTests.test_frozen_runner_native_capacity_and_forbidden_flags) (profile='normal')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_qtr_raw.py", line 103, in runner_profiles
+    self.execute(common, flags, sources, stage / label)
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_qtr_raw.py", line 53, in execute
+    self.command([*common, *flags, *sources, main, "-o", binary])
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_qtr_raw.py", line 46, in command
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+AssertionError: 1 != 0 : /dev/shm/sumo-d109-author-4jsxetf7/cases.cc: In function ‘void DOCTEST_ANON_FUNC_4()’:
+/dev/shm/sumo-d109-author-4jsxetf7/cases.cc:252:5: error: ‘STATIC_REQUIRE_FALSE’ was not declared in this scope; did you mean ‘DOCTEST_REQUIRE_FALSE’?
+  252 |     STATIC_REQUIRE_FALSE(std::is_copy_constructible<Runner>::value);
+      |     ^~~~~~~~~~~~~~~~~~~~
+      |     DOCTEST_REQUIRE_FALSE
+/dev/shm/sumo-d109-author-4jsxetf7/cases.cc:254:5: error: ‘STATIC_REQUIRE’ was not declared in this scope
+  254 |     STATIC_REQUIRE(std::is_same<decltype(std::declval<const Runner&>().capture(0U)), const Snapshot*>::value);
+      |     ^~~~~~~~~~~~~~
+
+
+======================================================================
+FAIL: test_frozen_runner_native_capacity_and_forbidden_flags (tests.tooling.test_qtr_raw.QtrRawTests.test_frozen_runner_native_capacity_and_forbidden_flags) (profile='asan_ubsan')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_qtr_raw.py", line 103, in runner_profiles
+    self.execute(common, flags, sources, stage / label)
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_qtr_raw.py", line 53, in execute
+    self.command([*common, *flags, *sources, main, "-o", binary])
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_qtr_raw.py", line 46, in command
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+AssertionError: 1 != 0 : /dev/shm/sumo-d109-author-4jsxetf7/cases.cc: In function ‘void DOCTEST_ANON_FUNC_4()’:
+/dev/shm/sumo-d109-author-4jsxetf7/cases.cc:252:5: error: ‘STATIC_REQUIRE_FALSE’ was not declared in this scope; did you mean ‘DOCTEST_REQUIRE_FALSE’?
+  252 |     STATIC_REQUIRE_FALSE(std::is_copy_constructible<Runner>::value);
+      |     ^~~~~~~~~~~~~~~~~~~~
+      |     DOCTEST_REQUIRE_FALSE
+/dev/shm/sumo-d109-author-4jsxetf7/cases.cc:254:5: error: ‘STATIC_REQUIRE’ was not declared in this scope
+  254 |     STATIC_REQUIRE(std::is_same<decltype(std::declval<const Runner&>().capture(0U)), const Snapshot*>::value);
+      |     ^~~~~~~~~~~~~~
+
+
+======================================================================
+FAIL: test_frozen_runner_native_capacity_and_forbidden_flags (tests.tooling.test_qtr_raw.QtrRawTests.test_frozen_runner_native_capacity_and_forbidden_flags) (profile='native_normal')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_qtr_raw.py", line 106, in runner_profiles
+    self.execute(common, [*flags, "-DARDUINO_ARCH_ZEPHYR", "-DTEST_NATIVE_BINDING"],
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_qtr_raw.py", line 53, in execute
+    self.command([*common, *flags, *sources, main, "-o", binary])
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_qtr_raw.py", line 46, in command
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+AssertionError: 1 != 0 : /dev/shm/sumo-d109-author-4jsxetf7/cases.cc: In function ‘void DOCTEST_ANON_FUNC_4()’:
+/dev/shm/sumo-d109-author-4jsxetf7/cases.cc:252:5: error: ‘STATIC_REQUIRE_FALSE’ was not declared in this scope; did you mean ‘DOCTEST_REQUIRE_FALSE’?
+  252 |     STATIC_REQUIRE_FALSE(std::is_copy_constructible<Runner>::value);
+      |     ^~~~~~~~~~~~~~~~~~~~
+      |     DOCTEST_REQUIRE_FALSE
+/dev/shm/sumo-d109-author-4jsxetf7/cases.cc:254:5: error: ‘STATIC_REQUIRE’ was not declared in this scope
+  254 |     STATIC_REQUIRE(std::is_same<decltype(std::declval<const Runner&>().capture(0U)), const Snapshot*>::value);
+      |     ^~~~~~~~~~~~~~
+/dev/shm/sumo-d109-author-4jsxetf7/cases.cc: In function ‘void DOCTEST_ANON_FUNC_122()’:
+/dev/shm/sumo-d109-author-4jsxetf7/cases.cc:720:5: error: ‘STATIC_REQUIRE_FALSE’ was not declared in this scope; did you mean ‘DOCTEST_REQUIRE_FALSE’?
+  720 |     STATIC_REQUIRE_FALSE(std::is_copy_constructible<qtr_raw::Native>::value);
+      |     ^~~~~~~~~~~~~~~~~~~~
+      |     DOCTEST_REQUIRE_FALSE
+
+
+======================================================================
+FAIL: test_frozen_runner_native_capacity_and_forbidden_flags (tests.tooling.test_qtr_raw.QtrRawTests.test_frozen_runner_native_capacity_and_forbidden_flags) (profile='native_san')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_qtr_raw.py", line 106, in runner_profiles
+    self.execute(common, [*flags, "-DARDUINO_ARCH_ZEPHYR", "-DTEST_NATIVE_BINDING"],
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_qtr_raw.py", line 53, in execute
+    self.command([*common, *flags, *sources, main, "-o", binary])
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_qtr_raw.py", line 46, in command
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+AssertionError: 1 != 0 : /dev/shm/sumo-d109-author-4jsxetf7/cases.cc: In function ‘void DOCTEST_ANON_FUNC_4()’:
+/dev/shm/sumo-d109-author-4jsxetf7/cases.cc:252:5: error: ‘STATIC_REQUIRE_FALSE’ was not declared in this scope; did you mean ‘DOCTEST_REQUIRE_FALSE’?
+  252 |     STATIC_REQUIRE_FALSE(std::is_copy_constructible<Runner>::value);
+      |     ^~~~~~~~~~~~~~~~~~~~
+      |     DOCTEST_REQUIRE_FALSE
+/dev/shm/sumo-d109-author-4jsxetf7/cases.cc:254:5: error: ‘STATIC_REQUIRE’ was not declared in this scope
+  254 |     STATIC_REQUIRE(std::is_same<decltype(std::declval<const Runner&>().capture(0U)), const Snapshot*>::value);
+      |     ^~~~~~~~~~~~~~
+/dev/shm/sumo-d109-author-4jsxetf7/cases.cc: In function ‘void DOCTEST_ANON_FUNC_122()’:
+/dev/shm/sumo-d109-author-4jsxetf7/cases.cc:720:5: error: ‘STATIC_REQUIRE_FALSE’ was not declared in this scope; did you mean ‘DOCTEST_REQUIRE_FALSE’?
+  720 |     STATIC_REQUIRE_FALSE(std::is_copy_constructible<qtr_raw::Native>::value);
+      |     ^~~~~~~~~~~~~~~~~~~~
+      |     DOCTEST_REQUIRE_FALSE
+
+
+======================================================================
+FAIL: test_frozen_runner_native_capacity_and_forbidden_flags (tests.tooling.test_qtr_raw.QtrRawTests.test_frozen_runner_native_capacity_and_forbidden_flags) (capacity=1, profile='normal')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_qtr_raw.py", line 121, in runner_profiles
+    self.execute(common, [*flags, "-DTEST_CAPACITY_ONE"], sources,
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_qtr_raw.py", line 53, in execute
+    self.command([*common, *flags, *sources, main, "-o", binary])
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_qtr_raw.py", line 46, in command
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+AssertionError: 1 != 0 : /dev/shm/sumo-d109-author-4jsxetf7/cases.cc: In function ‘void DOCTEST_ANON_FUNC_4()’:
+/dev/shm/sumo-d109-author-4jsxetf7/cases.cc:252:5: error: ‘STATIC_REQUIRE_FALSE’ was not declared in this scope; did you mean ‘DOCTEST_REQUIRE_FALSE’?
+  252 |     STATIC_REQUIRE_FALSE(std::is_copy_constructible<Runner>::value);
+      |     ^~~~~~~~~~~~~~~~~~~~
+      |     DOCTEST_REQUIRE_FALSE
+/dev/shm/sumo-d109-author-4jsxetf7/cases.cc:254:5: error: ‘STATIC_REQUIRE’ was not declared in this scope
+  254 |     STATIC_REQUIRE(std::is_same<decltype(std::declval<const Runner&>().capture(0U)), const Snapshot*>::value);
+      |     ^~~~~~~~~~~~~~
+
+
+======================================================================
+FAIL: test_frozen_runner_native_capacity_and_forbidden_flags (tests.tooling.test_qtr_raw.QtrRawTests.test_frozen_runner_native_capacity_and_forbidden_flags) (capacity=1, profile='san')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_qtr_raw.py", line 121, in runner_profiles
+    self.execute(common, [*flags, "-DTEST_CAPACITY_ONE"], sources,
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_qtr_raw.py", line 53, in execute
+    self.command([*common, *flags, *sources, main, "-o", binary])
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_qtr_raw.py", line 46, in command
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+AssertionError: 1 != 0 : /dev/shm/sumo-d109-author-4jsxetf7/cases.cc: In function ‘void DOCTEST_ANON_FUNC_4()’:
+/dev/shm/sumo-d109-author-4jsxetf7/cases.cc:252:5: error: ‘STATIC_REQUIRE_FALSE’ was not declared in this scope; did you mean ‘DOCTEST_REQUIRE_FALSE’?
+  252 |     STATIC_REQUIRE_FALSE(std::is_copy_constructible<Runner>::value);
+      |     ^~~~~~~~~~~~~~~~~~~~
+      |     DOCTEST_REQUIRE_FALSE
+/dev/shm/sumo-d109-author-4jsxetf7/cases.cc:254:5: error: ‘STATIC_REQUIRE’ was not declared in this scope
+  254 |     STATIC_REQUIRE(std::is_same<decltype(std::declval<const Runner&>().capture(0U)), const Snapshot*>::value);
+      |     ^~~~~~~~~~~~~~
+
+
+======================================================================
+FAIL: test_frozen_runner_native_capacity_and_forbidden_flags (tests.tooling.test_qtr_raw.QtrRawTests.test_frozen_runner_native_capacity_and_forbidden_flags) (capacity=0, profile='normal')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_qtr_raw.py", line 121, in runner_profiles
+    self.execute(common, [*flags, "-DTEST_CAPACITY_ONE"], sources,
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_qtr_raw.py", line 53, in execute
+    self.command([*common, *flags, *sources, main, "-o", binary])
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_qtr_raw.py", line 46, in command
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+AssertionError: 1 != 0 : /dev/shm/sumo-d109-author-4jsxetf7/cases.cc: In function ‘void DOCTEST_ANON_FUNC_4()’:
+/dev/shm/sumo-d109-author-4jsxetf7/cases.cc:252:5: error: ‘STATIC_REQUIRE_FALSE’ was not declared in this scope; did you mean ‘DOCTEST_REQUIRE_FALSE’?
+  252 |     STATIC_REQUIRE_FALSE(std::is_copy_constructible<Runner>::value);
+      |     ^~~~~~~~~~~~~~~~~~~~
+      |     DOCTEST_REQUIRE_FALSE
+/dev/shm/sumo-d109-author-4jsxetf7/cases.cc:254:5: error: ‘STATIC_REQUIRE’ was not declared in this scope
+  254 |     STATIC_REQUIRE(std::is_same<decltype(std::declval<const Runner&>().capture(0U)), const Snapshot*>::value);
+      |     ^~~~~~~~~~~~~~
+
+
+======================================================================
+FAIL: test_frozen_runner_native_capacity_and_forbidden_flags (tests.tooling.test_qtr_raw.QtrRawTests.test_frozen_runner_native_capacity_and_forbidden_flags) (capacity=0, profile='san')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_qtr_raw.py", line 121, in runner_profiles
+    self.execute(common, [*flags, "-DTEST_CAPACITY_ONE"], sources,
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_qtr_raw.py", line 53, in execute
+    self.command([*common, *flags, *sources, main, "-o", binary])
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_qtr_raw.py", line 46, in command
+    self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+AssertionError: 1 != 0 : /dev/shm/sumo-d109-author-4jsxetf7/cases.cc: In function ‘void DOCTEST_ANON_FUNC_4()’:
+/dev/shm/sumo-d109-author-4jsxetf7/cases.cc:252:5: error: ‘STATIC_REQUIRE_FALSE’ was not declared in this scope; did you mean ‘DOCTEST_REQUIRE_FALSE’?
+  252 |     STATIC_REQUIRE_FALSE(std::is_copy_constructible<Runner>::value);
+      |     ^~~~~~~~~~~~~~~~~~~~
+      |     DOCTEST_REQUIRE_FALSE
+/dev/shm/sumo-d109-author-4jsxetf7/cases.cc:254:5: error: ‘STATIC_REQUIRE’ was not declared in this scope
+  254 |     STATIC_REQUIRE(std::is_same<decltype(std::declval<const Runner&>().capture(0U)), const Snapshot*>::value);
+      |     ^~~~~~~~~~~~~~
+
+
+----------------------------------------------------------------------
+Ran 1 test in 15.429s
+
+FAILED (failures=8)
+
+
+----------------------------------------------------------------------
+Ran 2 tests in 20.886s
+
+FAILED (failures=1)

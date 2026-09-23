@@ -1,5 +1,28 @@
 # Codex handoff
 
+## Current status - BLOCKED, 2026-09-23 Asia/Dubai
+
+The goal tool returned BLOCKED after three consecutive prerequisite audits with
+no implementation progress. Original full P0-P7 objective is unchanged/incomplete.
+D074implementation659abf0 and checkpoint1fe7f1d preserve completed work:378tool
+tests pass, previous993C++tests normal+ASanUBSan pass, freshscoped reviewsPASS.
+No liveworker/process or new code/board action. Worktree was clean before this
+status-only checkpoint; audit entries are not counted as implementation progress.
+
+Actual blocker: no P0physical/PINMAP/human acceptance or P1EXPLAINED OK/GATE P1
+PASS. P2prompt requires GATE P1 for integration. SelectedD068-D074offline scope
+is complete and excludes runtime/transport. MotorGate, runtime scheduler,
+bench/recorder and dump_match.sh remain unfinished. See existingP0/P1gatepackets
+and P2_offline_scope_completion_audit.md. Hardwaretesting remains user-deferred.
+
+Resume only from current repository/new human evidence or explicit scope change,
+without fabricating a gate or physical success. A userresume starts a fresh
+blocked-audit count. Original safety/motor/run/phase rules remain; preserve all
+source/tests/evidence. Do not create more metadata tools or rerun solved probes
+to avoid this real dependency. No additional hardware request has been issued.
+
+## Historical D074 and eligibility checkpoints
+
 Latest eligibility recheck: 2026-09-23 audit2/3, NO IMPLEMENTATION PROGRESS.
 No new human/physical gate records or eligible task; full goal remains active.
 Previous D074 progress is preserved below; see latest PROGRESS entry.

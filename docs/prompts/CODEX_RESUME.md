@@ -5,7 +5,7 @@ TUNING_LOG.md and CODEX_EXECUTION.md. Inspect Git status/diffs and open findings
 in state/analysis/spec_conflicts.md and reviews. Preserve unrelated work. Check
 actual UTC/Dubai time against original PLAN deadlines.
 
-Full goal ACTIVE/incomplete; no human gate passed. Latest completed taskD074:
+Full goal BLOCKED/incomplete after three consecutive prerequisite audits; no human gate passed. Latest completed taskD074:
 contract5e25917/implementation659abf0, read-only localCSV validation with exact
 format/raw checks and separate consistency/loss/lifecycle/declaredprovenance.
 38independent cases/full378tools PASS; actualhostC++roundtrip/nativeWindowsCLI
@@ -21,11 +21,10 @@ P1EXPLAINED/human gates remain absent. Return to existing prerequisite packets
 when actual evidence arrives. No more metadata tools or repeated solvedprobes
 merely to avoid a genuine block. Never infer gateapproval from a template.
 
-The D074turn wasPROGRESS, not a repeatedblockedturn. If continuation finds the
-same genuineimpasse with no meaningful eligiblework, record the consecutive
-blocked-audit count and follow goalstatus rules at threshold. No pauses or full
-completion claims without actual authority/evidence. User defers hardware; no
-new connectionrequest now. No liveworker or command remains.
+D074 made real progress, followed by three audited no-progress turns. Goaltool
+returned BLOCKED; no fullcompletion/paused claim. Userresume starts a fresh
+blocked-audit count. Revalidate new acceptance evidence/scope before any dependent
+work. No liveworker/job exists, and hardware testing remains user-deferred.
 
 Prior993C++cases normal+ASanUBSan remain valid because inputs unchanged; D074
 only addedPython/docs/tests. D072226584B targetprobe predates CSVsource; actual

@@ -148,6 +148,7 @@ struct EscapeSample {
     float applied_duty_l = 0.0F;
     float applied_duty_r = 0.0F;
     motion::Direction opponent_side = motion::Direction::RIGHT;
+    bool heading_updated = true; // D084: retained coordinates cannot create inward evidence.
 };
 struct EscapeResult {
     RowResult row;

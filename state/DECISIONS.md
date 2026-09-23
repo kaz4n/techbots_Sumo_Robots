@@ -1019,3 +1019,22 @@ Consequence: unchanged averaging/spread/minimum/bias-on-rejection and all servic
 STOP/hold behavior. No old test edits or physical assumption. This implements
 Services/Lifecycle only; separate heading/Fusion/Robot/B15 routing remains required
 before app integration. Independent tests, target compilation and review required.
+
+
+## D-084 (2026-09-23, selected under D-051/D-075) Complete IMU evidence routing
+Context: D082 separates fresh gyro/acceleration from retained yaw; D083 accepts
+explicit calibration data, but Robot/Fusion/heading/recording still conflate them.
+Decision: adopt P2_imu_integration_contract.md and additive pure interfaces. One
+Robot owner validates explicit report shape/time/identity and suppresses replay.
+Retained bounded yaw remains usable for motion without refreshing measurement
+history; fresh-only impact, phantom creation, inward capture and stall angle
+evidence remain separate from event timers. Stuck extrema use fresh samples while
+qualified opponent age advances; world evidence retains heading source time.
+Typed HeadingReference preserves actual GO/source times and prevents old retained
+data reviving after clock wrap. Thin applyEstimate connects the actual HAL report.
+B15 uses a self-identifying two-by-two-bit presence extension in the existing25B
+frame, with explicit encoder selector and unchanged legacy behavior/CSV schema.
+Consequence: no old test changes, config values, physical facts or gate inferred.
+Complete software path plus independent spec tests, host/sanitizer, targetcompile
+and fresh review required. Physical mounting/accuracy/WCET, SC-AJ/F091 and full
+QTR/app integration remain pending; no motor-capable upload/run permission.

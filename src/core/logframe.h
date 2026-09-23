@@ -52,6 +52,9 @@ struct FrameInput {
     float vbat_v = 0.0F;
     std::uint8_t flags = 0;
     std::uint32_t tick_max_us = 0;
+    // D084 wire extension: high two-bit groups encode gyro/accel presence1..3.
+    // Legacy false still rejects high flags; size/offsets/CSV schema remain unchanged.
+    bool explicit_imu = false;
 };
 struct FrameBytes { std::uint8_t data[FRAME_BYTES] = {}; };
 struct EventInput {

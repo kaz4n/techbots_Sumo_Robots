@@ -18,6 +18,19 @@ enum class Event : std::uint8_t {
     START_RELEASE, GO, FIRST_NONZERO_DUTY, STATE_CHANGE, EDGE, CONTACT,
     STALL, REFLANK_PHASE, PHANTOM_SET, FAULT
 };
+// D084 pure evidence metadata. Values1..3 also identify B15 presence extensions.
+enum class ImuPresence : std::uint8_t { ABSENT = 1, VALID = 2, INVALID = 3 };
+struct ImuEvidence {
+    bool explicit_values = false; // False preserves the existing imu_ok callers.
+    bool contract_valid = true;
+    ImuPresence gyro = ImuPresence::ABSENT;
+    ImuPresence accel = ImuPresence::ABSENT;
+    bool heading_available = false;
+    bool heading_updated = false;
+    std::uint32_t checked_us = 0;
+    std::uint32_t observation_us = 0;
+    std::uint32_t sequence = 0;
+};
 struct Inputs {
     std::uint32_t t_us = 0;
     std::uint8_t line_mask = 0;

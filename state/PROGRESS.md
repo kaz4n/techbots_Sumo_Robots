@@ -482,3 +482,6 @@ Session checkpoint: implementation9de8cd1 is current inert ADC firmwaref5f637b2/
 
 
 2026-09-23T13:28:17+04:00 | D083 evidence closure | Evidence398676d and implementation5516bef committed locally;92raw files verified byte-identical to index before evidence commit. Git raw whitespace diagnostics exposed -text versus binary attribute mismatch; corrected to established binary receipt policy without changing captured bytes. All tests/review remain as recorded; no source change/new physical claim. Next HeadingReference source-time/availability implementation. | metadata fix commit follows
+
+
+2026-09-23T13:36:45+04:00 | P2 D084 | Previous goalturnPROGRESS: D082/D083 implementation and actualhost/target/review evidence committed; cleanbaselinec72921c verified. Freeze coherent estimator-to-Robot routing contract/header underD051/D075, includingsource age, fresh/retained consumers and25Bpresenceencoding. Rootowns sharedinterfaces/integration; separate implementation/tests/review follow. Physical assumptions remain unverified. | contract commit follows

@@ -25,6 +25,16 @@ struct HeadingResult {
     bool fault = false; // Reset-only invalid coordinate or repeated GO.
     HeadingOrigin origin = HeadingOrigin::NONE;
     std::uint32_t origin_t_us = 0; // Actual source sample; nominal pending uses GO time.
+    std::uint32_t observation_us = 0;
+    std::uint32_t heading_age_us = 0;
+    bool heading_updated = false; // Fresh usable match-coordinate pulse only.
+};
+struct HeadingSample {
+    std::uint32_t t_us = 0;
+    float raw_heading_deg = 0.0F;
+    bool available = false;
+    bool updated = false;
+    std::uint32_t observation_us = 0;
 };
 struct HeadingProjection {
     float heading_deg = 0.0F;
@@ -51,6 +61,10 @@ public:
     // the provider yaw, or use this helper as motor permission or physical proof.
     HeadingResult step(std::uint32_t t_us, float raw_heading_deg, bool imu_ok,
                        bool go = false);
+    // D084: bounded retained heading remains usable, without refreshing history.
+    // Fresh source time must advance; retained input must match known raw history.
+    // Actual source ages/GO origins survive delayed delivery; see integration contract.
+    HeadingResult step(const HeadingSample& sample, bool go = false);
     // Read-only directional views in (-180,180], exact +/-180 -> +180. A negative
     // non-tie that narrows to excluded -180 uses the nearest interior negative
     // float, preserving LEFT rather than becoming the exact RIGHT tie. Invalid
@@ -69,12 +83,15 @@ public:
     HeadingProjection projectHeading(float raw_heading_deg) const;
     void reset();
 private:
-    void captureOrigin(std::uint32_t t_us, float raw_heading_deg, bool imu_ok);
+    void captureOrigin(const HeadingSample& sample);
+    HeadingResult advance(const HeadingSample& sample, bool go, bool explicit_source);
+    bool acceptSource(const HeadingSample& sample);
     bool resolved() const;
     HeadingResult result_;
     double origin_deg_ = 0.0;
     float last_raw_deg_ = 0.0F;
     std::uint32_t last_raw_us_ = 0;
+    std::uint32_t raw_age_us_ = 0;
     std::uint32_t last_us_ = 0;
     bool has_raw_ = false;
     bool sampled_ = false;
@@ -400,6 +417,7 @@ struct RobotInput {
     bool stop_requested = false; // Local qualified safety stop, no remote command path.
     ResetCause reset_cause = ResetCause::UNKNOWN; // First boot observation only.
     PreviousTick previous;
+    core::ImuEvidence imu;
 };
 struct RobotResult {
     std::uint64_t token = 0;
@@ -466,6 +484,14 @@ public:
     // remains caller-owned; reset alone does not erase the last match's evidence.
     void reset();
 private:
+    struct ImuHistory {
+        core::ImuEvidence evidence;
+        float heading_deg = 0.0F;
+        float gyro_dps = 0.0F;
+        float ax_g = 0.0F;
+        float ay_g = 0.0F;
+        bool valid = false;
+    };
     struct Pending {
         core::Outputs requested;
         logframe::FrameInput frame;
@@ -509,6 +535,12 @@ private:
     void emit(std::uint32_t t_us, core::Event type, std::uint8_t detail,
               std::uint16_t value = 0);
     void prepareInputs(const RobotInput& input);
+    void prepareImu(RobotInput& input);
+    bool admitImu(RobotInput& input);
+    bool admitImuHeading(RobotInput& input);
+    bool sameImuPayload(const RobotInput& input) const;
+    void rememberImu(const RobotInput& input);
+    void invalidateImu(RobotInput& input);
     void sampleSensors(const RobotInput& input);
     void advanceHistories();
     void rememberObservation();
@@ -564,6 +596,12 @@ private:
     RobotResult result_;
     Pending pending_;
     Tick tick_;
+    ImuHistory imu_history_;
+    bool imu_mode_chosen_ = false;
+    bool explicit_imu_mode_ = false;
+    bool imu_checked_ = false;
+    std::uint32_t last_imu_checked_us_ = 0;
+    std::uint32_t imu_history_age_us_ = 0;
     logframe::TickStatistics statistics_;
     core::State state_ = core::State::BOOT;
     core::Mode running_mode_ = static_cast<core::Mode>(config::MODE_DEFAULT);

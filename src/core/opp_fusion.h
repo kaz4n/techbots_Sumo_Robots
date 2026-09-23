@@ -43,6 +43,7 @@ struct BearingView {
     bool conflict = false;
     float relative_deg = 0.0F;
     float world_deg = 0.0F;
+    std::uint32_t heading_observation_us = 0;
 };
 struct Memory {
     bool valid = false;
@@ -55,6 +56,7 @@ struct Memory {
     bool right_seen = false;
     std::uint32_t left_seen_us = 0;
     std::uint32_t right_seen_us = 0;
+    std::uint32_t world_heading_us = 0;
 };
 class BearingMemory {
 public:
@@ -66,6 +68,8 @@ public:
     // Nonfinite heading keeps relative validity but sets world_valid=false/zero.
     // Valid selected bearing updates memory and last_seen at this exact tick.
     BearingView step(std::uint32_t t_us, std::uint8_t confirmed_mask, float heading_deg);
+    BearingView step(std::uint32_t t_us, std::uint8_t confirmed_mask,
+                     float heading_deg, std::uint32_t heading_observation_us);
     const Memory& memory() const;
     void reset();
 private:
@@ -129,12 +133,15 @@ struct PhantomSample {
     bool imu_ok = false;
     bool edge_event = false;
     bool contact_cue = false; // Current B5.4 cue, not only its ATTACK latch.
+    bool heading_updated = true; // D084 fresh-only marker creation; masking may retain.
+    std::uint32_t heading_observation_us = 0;
 };
 struct PhantomResult {
     std::uint8_t filtered_mask = 0;
     bool active = false;
     bool phantom_set = false; // One call per qualified edge/episode.
     float world_deg = 0.0F; // Valid only while active; normalized (-180,180].
+    std::uint32_t heading_observation_us = 0;
 };
 class PhantomFilter {
 public:
@@ -156,6 +163,7 @@ private:
     std::uint64_t episode_age_us_ = 0;
     std::uint64_t marker_age_us_ = 0;
     float marker_deg_ = 0.0F;
+    std::uint32_t marker_heading_us_ = 0;
     bool clock_started_ = false;
     bool episode_ = false;
     bool contacted_ = false;
@@ -177,7 +185,7 @@ public:
     // declared faults persist until reset. High bit ignored; bounded seven-bit
     // work. Successive call gaps must be less than one uint32 micros wrap.
     StuckResult step(std::uint32_t t_us, std::uint8_t confirmed_mask,
-                     float heading_deg, bool imu_ok);
+                     float heading_deg, bool imu_ok, bool heading_updated = true);
     void reset();
 private:
     struct Candidate {
@@ -201,6 +209,10 @@ struct FusionSample {
     float ay_g = 0.0F;
     bool imu_ok = false;
     bool edge_event = false;
+    bool explicit_imu = false;
+    bool heading_updated = false;
+    bool accel_valid = false;
+    std::uint32_t heading_observation_us = 0;
 };
 struct FusionObservation {
     std::uint8_t confirmed_mask = 0;

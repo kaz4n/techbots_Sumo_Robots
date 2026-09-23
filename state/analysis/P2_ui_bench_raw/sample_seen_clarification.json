@@ -1,0 +1,7 @@
+{
+  "reason": "Separate review found wording could imply sample_seen after A, while independent preflight explicitly required before A. Coordinator selects save+sample_seen then A, no prior decoder/validation; selected before independent executable freeze/execution.",
+  "before_contract_sha256": "d4db532b3f181f1777eb998863ffac732222105f7c33037a7c59a1aca225469d",
+  "after_contract_sha256": "2adfd43546f2deba17ff852352d1c6b5c1c3f98bb32e7e75042bea0227bc00a2",
+  "source_action": "two-line reorder; first source and first target compilation retained as superseded; no established oracle changed",
+  "initial_edit_attempt": "AssertionError before any write because CRLF bytes were compared with an LF pattern; corrected via explicit UTF8 text read."
+}

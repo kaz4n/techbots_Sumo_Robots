@@ -87,9 +87,9 @@ finite storage does not assert an independent wall-time watchdog.
 
 Immediately before the native read, increment read_timing.calls, clear its
 last_valid and set last_read_accepted=false/decode_matches_sample=false. Save the
-actual returned ButtonSample unchanged, then observe A immediately, before
-validation or decoder work. Set sample_seen=true for that actual return even if
-A fails. Apply the raw-result precedence below, then evaluate A chronology.
+actual returned ButtonSample unchanged and set sample_seen=true alongside that
+saved result, before observing A immediately. No validation or decoder work
+precedes A. This return remains sample_seen even if A fails. Apply the raw-result precedence below, then evaluate A chronology.
 Rejected A suppresses decoder delivery and every later clock/callback; retain
 the previous Report.decoded with decode_matches_sample=false. For admitted A,
 call actual ui::decodeButtons exactly once on the actual returned sample, even

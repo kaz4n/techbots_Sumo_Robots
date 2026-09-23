@@ -72,13 +72,13 @@ def properties_from(builder):
 
 def selected_project(project, fqbn=None, flags=None):
     if not isinstance(project, str) or project not in (
-            'app.ino', 'runtime_inert.ino', 'opp_view.ino', 'qtr_raw.ino', 'vbat.ino', 'imu_heading.ino'):
+            'app.ino', 'runtime_inert.ino', 'opp_view.ino', 'qtr_raw.ino', 'vbat.ino', 'imu_heading.ino', 'ui.ino'):
         raise ValueError('Unreviewed native project name')
     if project == 'runtime_inert.ino' and (
             (fqbn is not None and fqbn != BASE_FQBN) or
             (flags is not None and flags != '-DMATCH=0 -DMOTORS_ALLOWED=0')):
         raise ValueError('Runtime probe requires default startup and inert flags')
-    if project in ('opp_view.ino', 'qtr_raw.ino', 'vbat.ino', 'imu_heading.ino') and flags is not None and flags != '-DMATCH=0 -DMOTORS_ALLOWED=0':
+    if project in ('opp_view.ino', 'qtr_raw.ino', 'vbat.ino', 'imu_heading.ino', 'ui.ino') and flags is not None and flags != '-DMATCH=0 -DMOTORS_ALLOWED=0':
         raise ValueError('Sensor bench requires inert flags')
     return project
 

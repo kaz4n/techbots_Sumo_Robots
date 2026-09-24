@@ -1088,3 +1088,5 @@ physical/loadedRAM/gate claim. | contract=this commit
 2026-09-25T02:27:56.075972+04:00 | P7 D149 queried ABI complete | All16typepairs/82offsets match; file-onlyGDB plus4checks exit0, no source/file/postcheck drift. Separate actualreview3f4d20b7 PASS; no MCU/compiler/upload/reset. Full nativecallback coverage/runtime remains next | native ABI closure commit
 
 2026-09-25T02:30:41.957002+04:00 | P7 bounded native references audited | Six local commands0;168ABS/22veneers/62native values/119table entries match retained binary evidence, separate scopedreviewf738ef54 PASS. Complete driver/API dispatch remains pending; exact next step P7_static_native_dispatch_next.md. No board/compiler/upload/reset/source/test changes | native binding checkpoint commit
+
+2026-09-25T02:42:26.110850+04:00 | P7 D150 file-only native API read adopted | Source65cb7785/plan a795f5fe; separate reused-context review8fd3b0d4 PASS.50queries, no board execution yet; one bounded read scope only. Storage13d50c43 recovered8495104B transparently; exact111file deletion blocked/no retry | native API GO commit

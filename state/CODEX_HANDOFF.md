@@ -52,16 +52,30 @@ outside D142's explicit allowlist. Official Arduino generation is consistent wit
 inherited firmware TLS aliases, but exact installed assembly/object provenance
 and actual use remain unproved. Read analysis/P7_static_elf_diagnosis_validation.md
 and analysis/P7_static_tls_sources.md. D144 remains rejected; D145 read is consumed.
-Exact next task: scope a bounded read-only identity-bound inspection of installed
-tls-syms.S and existing D144 map/object evidence, before any admission proposal.
-No parser/contract/oracle/production-policy change or automatic rebuild. Full
-entry/native/ABI/runtime audit remains separate. No active board process remains.
+D146 completed that read in54f2f268/9ee2d559: checked assembly68bb1476 matches
+loader39d4a4fd; map15da1417 LOADs objectbf3b5c57, whose six constants match all
+ELF forms and allocate no storage. The map has no actual tdata/tbss inputs and
+discards the direct accessor wrapper. Read analysis/P7_static_tls_provenance_validation.md.
+D144 rejection remains, and no indirect/native TLS or runtime claim follows.
+D147 host-only extension is complete: adopted03383c2e, first sourcecd52a29a in
+2d39b8f9 unchanged, independent freeze3462c6f8/e1cd0763. All19new+51original
+methods pass; separate fresh-context code/receipt reviewdc7156b3 has no findings.
+Read analysis/P7_static_native_tls_validation.md and its exact focused receipts.
+The original private CLI usage error (missing --source-ref) is preserved; only
+that invocation was corrected. No source/oracle repair was needed.
+Exact next task: separately scope one read-only validation of D144's existing
+seven-artifact packet using the new pure interface, binding its sourcecd52a29a,
+old base/helper, installed TLS assembly/loader, old Claim/FileRecords and current
+source. No recompile or reused GO. The new report status is deliberately rejected
+by unchanged old consumers. Entry/constructors/native ABI/runtime audit remains
+separate even if structure later passes. No board process or fixture remains.
 
 Storage follow-up127c9566 recovered3436544 allocatedB by lossless compression of22
 historical files; independent hash/size/mtime/allocation verification passes.
 Deletion of119 newly identified old caches (1945273B) was blocked by automatic
 approval review before execution; no retry. These targets now join earlier denied
-sets. C: onlyabout100MiBfree; recheck before every material job and keep outputs
+sets. C: was about100MiBfree there and later about650MiB after independent system
+activity; recheck before every material job and keep outputs
 compact. See STORAGE_LOG.md. Do not delete unique evidence or alter system paging.
 
 D138 production remains first-source d19f8964 (interfaces36a96bd2). Normal20cases

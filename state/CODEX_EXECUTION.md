@@ -8,7 +8,9 @@ validation are complete. Production policy remains dynamic-only. D143 passes80
 host methods; D144's one static compile returned0 but the structural validator
 rejected unsupported symbol encoding. No upload/reset/run. The GO is consumed;
 D145 identified six absolute TLS type6 symbols after one checked read; exact
-installed TLS assembly/object provenance and use remain pending.
+installed TLS assembly/object provenance is verified by D146. Native/indirect
+use remains unqualified. D147 pure host extension passes19new+51old methods and
+separate fresh-context code/receipt review; actual new-interface validation pending.
 
 
 **Active: P7 software/release preparation.** PROGRESS.md is the append-only phase
@@ -57,13 +59,18 @@ All687 prior inputs and17 literal pins remain exact. D144 runf0220228 is termina
 analysis/P7_static_native_attempt_validation.md. D145 read/diagnosis complete:
 analysis/P7_static_elf_diagnosis_validation.md records2242symbols/sixrejectedTLS
 entries. Official source mechanism is recorded in P7_static_tls_sources.md.
-Next: separately scoped read-only installedtls-syms.S/map/object provenance and
-usage inspection. Preserve frozen rejection; no automatic rebuild or relaxation.
+D1469ee2d559 proves installedsource/object/map provenance; see its validation.
+D14703383c2e exactsixalias purehost extension is complete: firstsourcecd52a29a
+unchanged, freeze3462c6f8/e1cd0763;19new+51old PASS, reviewdc7156b3 nofindings.
+Read analysis/P7_static_native_tls_validation.md. Next separately scoped read-only
+actual seven-artifact validation with allsource/installed/filebindings. No rebuild
+or consumerintegration follows automatically; original rejection remains intact.
 
 Storage follow-up744f50c1 removed9,386,809 logical bytes of verified disposable
 caches; independent verification passed. Follow-up127c9566 recovered3436544B via
 22-file lossless compression. Another119-cache deletion was blocked beforeexecution.
-Latest free spaceabout100MiB; recheck before material jobs. Active npm/npx and denied
+Later free spaceabout650MiB (system fluctuations); recheck before material jobs.
+Active npm/npx and denied
 cleanup targets remain untouched. Exact receipt/history: STORAGE_LOG.md.
 
 D139's unchanged current default/M0 qualification is complete with a592B modeled

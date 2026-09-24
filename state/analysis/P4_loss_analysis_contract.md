@@ -18,6 +18,9 @@ events, summary, manifest; id unique ASCII[A-Za-z0-9_.-] length1..96. Paths
 nonempty strings <=4096chars; local absolute paths are accepted and relative
 paths resolve against the cohort directory (including ../); manifest maynull.
 UNC/network paths are rejected; no extra containment rule is invented.
+Reject UNC prefixes and URI-style network paths in the cohort argument or any
+declared path before file access; a declared path violation is a cohort schema
+error (input_status INVALID), not a per-attempt file-validation result.
 Reject duplicateJSONkeys, booleans/noninteger numbers, unknown keys, unsupported
 values, >10attempts, nonregular/symlink cohort. Bounded cohort256KiB. Bind its
 regular descriptor identity/size/mtime before/after bounded read.
@@ -63,6 +66,10 @@ INCOMPLETE (loss, unsealed/missing closure/M0 or missing GO for a candidate),
 then trace classification. trace_status describes grammar/time only, so a valid
 full M0 interval can have COMPLETE trace, INCOMPLETE qualification and diagnostic
 PASS/FAIL. Never promote EXCLUDED or incomplete traces to QUALIFIED.
+A closed, loss-free SEALED M1 HEADER-only record with positive epoch and
+go_seen0 is legitimately NOT_EXERCISED for both trace and qualification.
+Presence of GO and go_seen1 is required for a candidate, not this canceled-countdown
+case. Other incomplete-owner conditions (loss, M0, closure, phase) still apply.
 
 ## Exact D129 trace grammar
 
@@ -73,6 +80,9 @@ summary.release_us. Every non-header trace requires one START then GO before tha
 order; missing GO makes trace INCOMPLETE with no delay, not a reconstructed GO.
 A present GO after a non-header trace record is INVALID; HEADER normally
 precedes GO and does not trigger this ordering rejection.
+Whenever START and GO are both present, GO must follow START in ordinal order
+and its unsigned release-relative offset must be below2^31, even without TIMING
+or with HEADER only. This validates chronology, not the separate countdown hold.
 
 No TIMING records =>NOT_RECORDED. TIMING present without HEADER =>INVALID.
 Exactly one HEADER detail0 with value0x0101(M0) or0x0105(M1); it is immediately

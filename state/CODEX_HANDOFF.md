@@ -10,6 +10,14 @@ Do not treat an old snapshot, template or synthetic test as current approval.
 
 ## Current software checkpoint
 
+D130 is IMPLEMENTED/HOST-TESTED with fresh-context scoped review PASS. Source
+b2229370 and original41-method oracle are unchanged after first-run112public
+methods (41new+33countdown+38CSV) and13private methods pass. All648prior tracked
+inputs and40protected files remain exact. Read analysis/P4_loss_analysis_validation.md.
+Next P4 software task: bounded B9.4 push-through; read its options/source map,
+adopt explicit lifecycle/eligibility/memory contract, then independent tests and
+actual Robot/Escape integration. Default window remains0; no positive tuning yet.
+
 D129 is IMPLEMENTED/HOST-TESTED with separate scoped review PASS and no open
 scoped BLOCKER/MAJOR. Read analysis/P4_timing_evidence_validation.md and
 reviews/P4_timing_evidence_review.md. All14 normal host targets pass; timing30-case
@@ -24,9 +32,8 @@ inventory found no board. No upload, reset, MCU run, physical result or gate in
 this slice. Prior D128 reactive9ddaa2aa/ELF01e39e39 modeled free6512 and default
 43d16734 free16 are historical figures, not D129 or live memory/WCET proof.
 
-Next eligible task: adopt separately proposed analysis/P4_loss_analysis_contract.md,
-then independent tests, implementation and review of the read-only D130 interval
-analyzer. Existing CSV/countdown tools stay unchanged. Positive push-through is
+D130 adopted contract: analysis/P4_loss_analysis_contract.md. Existing CSV/countdown
+tools stay unchanged; new analyzer usage is in docs/target_loss_analysis.md. Positive push-through is
 another P4 software dependency: edge.cpp currently requires0; implement and
 verify original bounded B9.4/R5 semantics before positive tuning, retaining default0.
 Use analysis/P4_software_acceptance_packet.md for all deferred physical criteria.

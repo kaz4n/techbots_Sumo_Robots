@@ -362,3 +362,11 @@ existing IDLE log dump through actual menu gestures. Host reception and native
 UART success are separate checks. Read `state/analysis/P2_recorder_transport_contract.md`
 and its validation status before use; UART ownership, clean framing, throughput
 and an identified native run remain explicit prerequisites.
+
+## P4 target-loss interval analysis (D130)
+
+`python tools/analyze_target_loss.py logs/p4_loss/cohort.json` reads existing local
+CSV bundles and prints a JSON report. It checks ten qualified D129 intervals
+against the declared 35000us bound; incomplete, excluded or M0 evidence cannot
+satisfy the cohort. Exit0 means arithmetic PASS, not physical acceptance or a
+motor-run authorization. See [the schema and interpretation](../docs/target_loss_analysis.md).

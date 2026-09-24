@@ -1,6 +1,7 @@
 # Resume SumoX-26 with Codex
 
-Current phase: P4 software under D128. D129 trace is host-tested; target/native
+Current phase: P4 software under D128; D130 analyzer is complete; P4.4 is next.
+D129 trace is host-tested; target/native
 fit and physical acceptance are pending. Latest task evidence is
 state/analysis/P4_timing_evidence_validation.md and its separate review.
 
@@ -15,13 +16,15 @@ state/analysis/P4_timing_evidence_validation.md and its separate review.
    original reproducer/failure and unchanged successful reruns are retained.
    New locked e384e7fb is now protected. The new tooling draft's syntax assumption was independently corrected to
    actual valid/invalid compile checks. All39 prior locked files are unchanged.
-4. Next eligible task: adopt the separately proposed
-   state/analysis/P4_loss_analysis_contract.md under D051, then independent
-   spec-derived tests, implementation and review of the read-only D130 analyzer.
-   This file is a proposal, not implemented evidence. Preserve unchanged CSV
-   validator/countdown tools and every established locked oracle.
+4. D130 analyzer b2229370 passed112public methods on first execution, including
+   original41new and71unchanged CSV/countdown methods. Fresh reviewer13private
+   methods PASS; all648prior tracked inputs/40protected files exact. Read
+   state/analysis/P4_loss_analysis_validation.md and its fresh-context review.
+   No implementation/oracle repair was needed; preserve those accepted tests.
 5. P4.4 positive push-through remains unimplemented: edge.cpp enforces0.
-   After the analyzer, implement and independently verify the original bounded
+   Read state/analysis/P4_push_through_options.md and any completed source-map
+   evidence, adopt the explicit bounded lifecycle/eligibility/memory contract,
+   then implement and independently verify the original bounded
    B9.4/R5 exception before any positive tuning. Keep the shipped default0 and
    all real trial prerequisites. Read P4_software_acceptance_packet.md.
 6. Board inventory currently has no ADB device. D129 compile/account/source

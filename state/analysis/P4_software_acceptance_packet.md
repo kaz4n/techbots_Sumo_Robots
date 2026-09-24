@@ -31,12 +31,12 @@ requirements remain [P4_hunt_push.md](../../docs/prompts/P4_hunt_push.md).
   independently adjudicated unaccepted-oracle correction are retained.
   No D129 target compile/fit claim: the latest
   [board inventory](P4_timing_evidence_raw/resume_adb_inventory.json) found none.
-- **D130 analyzer is proposed only.**
-  [P4_loss_analysis_contract.md](P4_loss_analysis_contract.md) is a draft;
-  `tools/analyze_target_loss.py` does not exist at this snapshot. Existing
-  [validate_csv_bundle.py](../../tools/validate_csv_bundle.py) checks local bundle
-  structure, owner consistency and declared provenance, not P4 timing acceptance
-  or physical origin.
+- **D130 implemented, host-tested and fresh-context scoped review PASS.**
+  [Analyzer validation](P4_loss_analysis_validation.md) binds112 public methods
+  (41new+71existing),13 private methods, unchanged source/oracles and all prior
+  firmware/tools/protected tests. [Usage](../../docs/target_loss_analysis.md)
+  explains the exact cohort schema and interval verdict. Synthetic arithmetic
+  and caller-declared closure never establish physical origin or acceptance.
 
 ## Requirement-to-evidence map
 
@@ -47,7 +47,7 @@ regression execution evidence.
 | Requirement | Actual implementation and relevant tests | Remaining physical check / dependency |
 |---|---|---|
 | **4.1 Acquire and push** | [fsm_robot.cpp](../../src/core/fsm_robot.cpp) routes actual Search, normal perception, contact and Governor; [fsm.cpp](../../src/core/fsm.cpp) implements Search and steering. Existing `tests/test_search.cpp`, `test_normal_perception.cpp`, `test_opp_memory_contact.cpp`, `test_governor.cpp`; D128 profile tests cover all modes/masks and post-GO qualification. | Ten random box placements including sides/rear: at least 9/10 acquired within 3 s of GO, at least 8/10 pushed out with robot staying in. No acquisition or push result measured. |
-| **4.2 Lost target** | NormalPerception front-loss brake and immediate Governor zero exist. [fsm_timing.cpp](../../src/core/fsm_timing.cpp), actual Runtime source projection and [reactive_timing wrapper](../../bench/reactive_timing/README.md) add D129 trace without changing motion. `tests/test_normal_perception.cpp` and `test_governor.cpp` cover loss/brake semantics; D129 receipts above have limited current status. | Ten genuine ATTACK approaches, sideways string removal: 10/10 brake and stay in. At current `OPP_CLEAR_MS=30`, observed interval must meet 35000 us bound. D129 target qualification and proposed offline analysis remain dependencies. `ATTACK_APPROACH_DUTY=0.60` is an unchanged default, not a measured safe maximum. |
+| **4.2 Lost target** | NormalPerception front-loss brake and immediate Governor zero exist. [fsm_timing.cpp](../../src/core/fsm_timing.cpp), actual Runtime source projection and [reactive_timing wrapper](../../bench/reactive_timing/README.md) add D129 trace without changing motion. `tests/test_normal_perception.cpp` and `test_governor.cpp` cover loss/brake semantics; D129 receipts above have limited current status. | Ten genuine ATTACK approaches, sideways string removal: 10/10 brake and stay in. At current `OPP_CLEAR_MS=30`, observed interval must meet 35000 us bound. D129 target qualification and actual recorded trials remain dependencies. `ATTACK_APPROACH_DUTY=0.60` is an unchanged default, not a measured safe maximum. |
 | **4.3 Defend** | `DefendTurn` in `fsm.cpp`, `runDefend()` in `fsm_robot.cpp`; `tests/test_defend_turn.cpp` and `test_robot_ambiguous_defend.cpp` cover capture, target priority, fallback and bounded ambiguity. | Face targets at each side's 90 and 135 degrees within `DEFEND_TIMEOUT_MS=800`, 8/8. Host deadline checks do not establish physical facing accuracy. |
 | **4.4 Push-through** | [edge.cpp](../../src/core/edge.cpp) enforces `EDGE_PUSH_THROUGH_MS==0` by static assertion; `tests/locked/test_edge_guard.cpp` and other locked edge tests prove the existing immediate-escape behavior. | **Positive push-through is not implemented. Keep 0.** A bounded implementation and independent safety verification are required before the prompt's 20 ms tuning steps can even compile. Later physical tuning requires 4.1 still passing with zero self-exits; never exceed 100 ms. Do not remove the guard merely to tune. |
 | **4.5 Stall/re-flank** | [stall.cpp](../../src/core/stall.cpp), `checkStall()` using applied duties, `Reflank` and limiter in `fsm.cpp`; `tests/test_stall_detector.cpp`, `test_reflank.cpp`, `test_reflank_limiter.cpp`, plus D128 actual-owner scenarios. Contact/centering and edge safety remain prerequisites; ALL_IN suppresses stall only. | With tethered immovable box, start REFLANK within `STALL_MS+200=1200` ms, reach its side 8/10, never exceed `REFLANK_MAX_PER_10S=2`. Inspect 4.1 logs for false triggers. Stall remains an inference without encoders; `STALL_USE_IMU=0` unchanged. |

@@ -1,6 +1,6 @@
 # Current execution checklist - 2026-09-24 Asia/Dubai
 
-**Active: P4 software under D128; D129 host validation/review complete; native validation pending.**
+**Active: P4 software under D128; D130 complete; next P4.4 bounded push-through.**
 D051/D075/D122 permit software scheduling before physical acceptance. Assumptions
 are not measurements, human gates or run permissions. PROGRESS.md is the
 append-only phase/gate history; historical checkpoints remain in Git.
@@ -14,7 +14,7 @@ append-only phase/gate history; historical checkpoints remain in Git.
 | P2 B8/2.1-2.4 | Recorder/dump software, D118 actual inert app observation | Native transport ownership/framing, full-source WCET/live memory/stack and physical acceptance |
 | P2 2.5 | Software packet retained | Assembled size/weight, actual B1-B8 results and human gate |
 | P3 3.1-3.7 | D123 drive, D125 turn, D126 stop profiles; D127 countdown analyzer | Physical trials, evidence-backed tuning and GATE P3 PASS |
-| P4 4.1-4.7 | D128 reactive profile, D129 timing trace host-tested/reviewed | Offline loss analyzer; bounded positive push-through software; all real trials/gate |
+| P4 4.1-4.7 | D128 reactive profile, D129 timing trace host-tested/reviewed | Bounded positive push-through software; D129 native checks; all real trials/gate |
 | P5 | Existing core openers and tests | Eligible phase software review and physical opener evidence |
 | P6/P7 | Pending; original scope/schedule retained | P6 actual P4 gate by30Sep, freeze/rehearsal/match evidence; no inferred release tag |
 
@@ -39,9 +39,10 @@ No D129 upload/reset/motor action or physical result occurred.
 
 ## Next eligible tasks
 
-1. Adopt proposed analysis/P4_loss_analysis_contract.md, then independently author
-   and implement the read-only D130 interval analyzer. No fabricated trial data.
-2. Address P4.4 bounded push-through implementation before any positive tuning;
+1. D130 completed:112public methods (41new+71existing) PASS first execution;
+   fresh reviewer13private PASS;648prior inputs and40protected files exact. Read
+   analysis/P4_loss_analysis_validation.md. No source/oracle repair needed.
+2. Next: adopt P4.4 bounded push-through contract after source/memory mapping;
    current EDGE_PUSH_THROUGH_MS stays0. Use the original B9.4/R5 contract.
 3. Use analysis/P4_software_acceptance_packet.md for deferred physical4.1-4.7.
 

@@ -937,3 +937,5 @@ physical/loadedRAM/gate claim. | contract=this commit
 2026-09-24T10:35:07.882427+04:00 | P4 software | D129 timing evidence | IMPLEMENTED/HOST-TESTED/scoped review PASS;14normal,30san,32configured/san,149tooling+2registry; chronologyfix and one unaccepted tooling-oracle correction with originals retained;39oldlocked exact, newe384e7fb protected. TARGET/HARDWARE-PENDING; no MCU or human gate. Next D130 offline analyzer; then bounded push-through | completion commit this task
 
 2026-09-24T10:36:36.114838+04:00 | P4 software | D130 contract | ADOPTED; offline10-attempt target-loss interval analyzer, independent author/implementer/reviewer next. D129 committedf7397d0e. No firmware/physical/gate change | contract commit this task
+
+2026-09-24T10:49:00.951761+04:00 | P4 software | D130 offline target-loss analyzer | IMPLEMENTED/HOST-TESTED/fresh review PASS;112public first-run +13private;648prior inputs/40protected exact; no production/oracle repairs. Existing evidence only, no firmware/board/physical/gate. Next bounded B9.4 push-through, default0 | completion commit this task

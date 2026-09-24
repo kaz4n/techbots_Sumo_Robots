@@ -1,6 +1,6 @@
 <!-- Maps the original P5 tasks to software and outstanding physical evidence. -->
 <!-- Preserves mandatory opener priority and human gate ownership. -->
-<!-- Checked against P5_OPENERS.md and the linked source-bound validation records. -->
+<!-- Checked against P5_openers.md and the linked source-bound validation records. -->
 # P5 software acceptance packet
 
 2026-09-24 Asia/Dubai. P5 software work is active; **all physical P5 metrics
@@ -12,6 +12,9 @@ The six implementations already exist. D134 makes optional modes removable
 through reviewed config values while preserving stable IDs and mandatory modes;
 [validation](P5_mode_availability_validation.md) and its separate review pass.
 Current ARC/WAIT flags remain1. Software tests do not establish physical passes.
+Each physical opener block must pass before the next priority starts; no
+pre-angled variant is assumed. MODE_DEFAULT must select an enabled mode, and
+historical IDs1..6 remain readable even when an optional mode is removed.
 
 | Original task | Available software | Required real evidence |
 |---|---|---|
@@ -47,3 +50,6 @@ its actual supporting readings in TUNING_LOG; no parameters changed for this pac
 Optional openers must pass or be removed from the menu. The actual end28September
 P3 scope cut, P6 eligibility and1October21:00 freeze still apply. Final P5 closure
 requires independent review with no BLOCKER and the human's GATE P5 PASS.
+If the scope cut applies, record the decision and set both optional availability
+flags0, retaining mandatory openers and the recorder. This packet creates no
+release tag, rehearsal result or competition qualification.

@@ -304,6 +304,14 @@ def main():
             record['input_freeze_sha256'] = file_hash(FREEZE)
             record['frozen_inputs_verified_before'] = verify_freeze(freeze)
             expected = {name: sha for name, sha in freeze.items() if name.startswith('src/')}
+            # The compiler-input freeze omits these three tracked empty placeholders.
+            # Bind their exact empty bytes too; do not silently ignore other files.
+            placeholders = {f'src/{part}/.gitkeep': digest(b'')
+                            for part in ('app', 'core', 'hal')}
+            if set(expected) & set(placeholders):
+                raise ValueError('Placeholder unexpectedly present in compiler freeze')
+            expected.update(placeholders)
+            record['separately_bound_placeholders'] = placeholders
             record['current_sources_before'] = source_inventory(ROOT / 'src')
             record['current_sources_before_sha256'] = inventory_hash(record['current_sources_before'])
             if not expected or record['current_sources_before'] != expected:

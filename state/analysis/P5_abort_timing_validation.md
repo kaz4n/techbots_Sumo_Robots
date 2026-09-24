@@ -29,6 +29,9 @@ claim follows from held/debounced opponent bits or a synthetic host fixture.
 | ASan/UBSan normal/configured |40/42 perM0/M1 PASS, sanitizer_first/configured_sanitizer_first |
 | Independent private probes |13/13 perM0/M1 in every matrix above |
 | New profile tooling |18/18 methods PASS, tooling_first; controlled substitutes only |
+| Prior tooling |74 admission and296 regression methods PASS; admission_first/regression_first |
+| Legacy layouts |72 size/alignment pairs unchanged across six default/P4 profiles; layout_retry1 |
+| Isolated fault probes |8/8 copied-source cases PASS under ASan/UBSan; faults_first |
 | Native exact profile |Compile PASS, ELF9583f94d, conditional model free1328B; F149 |
 
 Host commands, statuses, hashes, logs and LastTest receipts live in
@@ -55,10 +58,15 @@ in every completed profile above. See the independent correction reviews.
 
 ## Remaining checks and limits
 
-Prior tooling, legacy header layouts and the eight isolated copied-source fault
-probes are running or pending; no result is inferred. The final separate reviewer
-must bind their results before accepting the new locked candidate. Fault probes
-are post-source-review robustness checks, not original independent test authorship.
+All planned host/tooling/layout/fault checks pass. The layout runner's first
+attempt stopped before compilation because its full inventory included three
+tracked empty .gitkeep files omitted by the compiler-extension freeze. The exact
+three empty files were separately bound; no source or layout oracle changed.
+Original failure and adjudication remain retained. The final separate reviewer
+must bind results before accepting the new locked candidate. Fault probes are
+post-source-review checks, not original independent test authorship; each runs
+one intended new case while filtering the13 previously passing private cases.
+The final_binding.json binds656 inputs,42 protected files and14 passing receipts.
 
 [Native report](P5_abort_native_compile.md) retains the exact source/ELF/ABI and
 44 checked artifacts. The full default app separately exceeds its pristine

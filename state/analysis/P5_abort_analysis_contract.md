@@ -117,9 +117,13 @@ of an atomic cross-file snapshot follows.
 Qualification requires a valid COMPLETE trace or explicit HANDOVER_FAILED
 observation, SEALED owner phase 3, positive epoch token, explicit GO and
 `go_seen=1`, no reported loss and aggregate `incomplete=0`, a valid manifest
-declaring `closed`, matching source binding, and M1. Null/missing/open closure,
+declaring `closed`, matching source binding, and M1. Absent manifest or valid
+`unknown`/`open` closure,
 unsealed ownership, any validator loss, M0, missing source declaration or
 missing GO makes qualification INCOMPLETE while valid diagnostic results remain.
+An invalid supplied manifest (including null or missing required closure) stays
+INVALID under the unchanged D074 validator. An aggregate incomplete flag with
+no supporting detailed loss likewise retains that validator's consistency result.
 No single loss field is waived, including upstream event overflow/invalid,
 malformed batches, rejected events, overwritten frames and missing final frame.
 A visible success suffix cannot repair loss earlier in the same attempt.

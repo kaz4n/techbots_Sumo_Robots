@@ -112,6 +112,7 @@ BEHAVIOR_EXTRA_DEFAULTS = {
 }
 BEHAVIOR_EXTRA_FLOAT_DEFAULTS = {'EDGE_FWD_INNER_RATIO': Decimal('0.70')}  # B4.2/D-021.
 BEHAVIOR_EXTRA_FLOAT_DEFAULTS['STAND_DUTY'] = Decimal('0.25')  # D119 nominal bench request.
+BEHAVIOR_EXTRA_FLOAT_DEFAULTS['TURN_TRIAL_DEG'] = Decimal('90.0')  # D125 one compiled trial.
 # D-069: independent C++ tests verify the derived capacity and retained endpoints.
 BEHAVIOR_DERIVED_TYPES = {'LOG_FRAME_CAPACITY': 'std::uint64_t'}
 COUNTDOWN_SERVICE_DEFAULTS = {  # B3 and human-approved D-024; not physical tuning.

@@ -16,6 +16,9 @@
 #ifndef SUMOX_P3_DRIVE_TEST
 #define SUMOX_P3_DRIVE_TEST 0
 #endif
+#ifndef SUMOX_P3_TURN_TRIAL
+#define SUMOX_P3_TURN_TRIAL 0
+#endif
 static_assert(MATCH == 0 || MATCH == 1, "MATCH must be 0 or 1");
 static_assert(MOTORS_ALLOWED == 0 || MOTORS_ALLOWED == 1, "MOTORS_ALLOWED must be 0 or 1");
 static_assert(SUMOX_B4_STAND == 0 || SUMOX_B4_STAND == 1, "SUMOX_B4_STAND must be 0 or 1");
@@ -24,6 +27,10 @@ static_assert(SUMOX_P3_DRIVE_TEST == 0 || SUMOX_P3_DRIVE_TEST == 1,
               "SUMOX_P3_DRIVE_TEST must be 0 or 1");
 static_assert(!SUMOX_P3_DRIVE_TEST || (!MATCH && !SUMOX_B4_STAND),
               "P3 drive profile is exclusive and not a MATCH build");
+static_assert(SUMOX_P3_TURN_TRIAL == 0 || SUMOX_P3_TURN_TRIAL == 1,
+              "SUMOX_P3_TURN_TRIAL must be 0 or 1");
+static_assert(!SUMOX_P3_TURN_TRIAL || (!MATCH && !SUMOX_B4_STAND && !SUMOX_P3_DRIVE_TEST),
+              "P3 turn trial is exclusive and not a MATCH build");
 
 namespace config {
 // Names follow B16 verbatim, including its count/ratio/gain naming exceptions.
@@ -42,6 +49,10 @@ inline constexpr std::uint32_t STAND_SEGMENT_MS = 500U; // ms per observed segme
 inline constexpr float STAND_DUTY = 0.25F; // nominal request, not electrical permission
 // D124 finite P3 turn-trial brake request; no measured settling-time claim.
 inline constexpr std::uint32_t TURN_TRIAL_BRAKE_MS = 500U; // ms after observed turn termination
+inline constexpr float TURN_TRIAL_DEG = 90.0F; // D125 one compiled rightward trial; unmeasured
+static_assert(TURN_TRIAL_DEG == -180.0F || TURN_TRIAL_DEG == -90.0F ||
+              TURN_TRIAL_DEG == 90.0F || TURN_TRIAL_DEG == 180.0F,
+              "Turn accuracy trial requires one of the four specified signed angles");
 // D078 native ADC development bounds and unchanged HARDWARE2/3 proposal.
 // Nominal scaling is not measured divider/reference calibration or PINMAP OK.
 inline constexpr std::uint32_t VBAT_INPUT_PIN = 14U; // A0 / PA4 / ADC1 channel9

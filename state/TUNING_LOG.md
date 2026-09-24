@@ -359,3 +359,5 @@ Added STAND_SEGMENT_MS=500 and STAND_DUTY=0.25 for the pure finite B4 request se
 
 
 - 2026-09-24T07:10:51.912453+04:00 | D124 unmeasured turn-trial preparation | Added TURN_TRIAL_BRAKE_MS500 for a finite observed zero-duty brake-request interval after primitive completion/timeout. Not a measured chassis settling time or approved tuning gain. B16 and prior values unchanged; tests and actual integration remain separate.
+
+2026-09-24T07:19:58.614899+04:00 | D125 development default TURN_TRIAL_DEG=+90 degrees; one immutable P3 3.4 trial request, not measured tuning. Other exact signed angles validated by synthetic overlays; physical angle/fallback calibration pending. No B16 change.

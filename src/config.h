@@ -25,6 +25,9 @@ inline constexpr std::uint32_t MOTOR_ENABLE_PIN = 10U;
 inline constexpr std::uint32_t MOTOR_PWM_HZ = 10000U; // Hz
 inline constexpr std::uint32_t MOTOR_PWM_SETTLE_US = 150U; // us, whole settle pass
 inline constexpr std::uint32_t MOTOR_PWM_SETTLE_MAX_POLLS = 4096U; // count-name exception
+// D119 pure B4 sequence development defaults; not physical motor qualification.
+inline constexpr std::uint32_t STAND_SEGMENT_MS = 500U; // ms per observed segment
+inline constexpr float STAND_DUTY = 0.25F; // nominal request, not electrical permission
 // D078 native ADC development bounds and unchanged HARDWARE2/3 proposal.
 // Nominal scaling is not measured divider/reference calibration or PINMAP OK.
 inline constexpr std::uint32_t VBAT_INPUT_PIN = 14U; // A0 / PA4 / ADC1 channel9

@@ -18,6 +18,12 @@
 | B8 | Recorder | hal/recorder.* | bench/recorder | 200 s at LOG_HZ fits in RAM (report the free RAM); tools/dump_match.sh yields frames and events CSV with no gaps |
 
 ## Then integrate
+D119 prepares a pure finite B4 request sequence in `src/core/stand_sequence.*`.
+Its requests have no motor authority; directional Robot/Runtime integration and
+powered acceptance remain separate unfinished tasks. See
+`state/analysis/P2_stand_sequence_contract.md`. The existing inhibition-only
+`bench/motor_stand` and P3 DRIVE_TEST policy remain unchanged.
+
 2.1 src/app/app.ino: setup (MotorGate LOW first, then UI, sensors, IMU), the 1 kHz scheduler, HAL reads, Robot::step, HAL writes, recorder, watchdog if FACTS.md says it is available.
 2.2 Tick measurement: worst case and p99 over 5 minutes with all sensors live. Target under 800 us. Log it in TUNING_LOG.md.
 2.3 MATCH flag: MATCH=1 disables all Bridge traffic except the log dump in IDLE.

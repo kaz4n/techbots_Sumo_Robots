@@ -90,6 +90,7 @@ QTR_ACQUISITION_DEFAULTS = {
 }
 QTR_PROPOSED_ARRAY_DEFAULTS = {'QTR_INPUT_PINS[4]': (2, 4, 7, 8)}
 BEHAVIOR_EXTRA_DEFAULTS = {
+    'STAND_SEGMENT_MS': 500,  # D119 pure B4 directional sequence development interval.
     'UI_BENCH_SAMPLES': 128,  # D112 finite A1 raw/decoder evidence count.
     'IMU_BENCH_TRIAL_US': 60000000,  # D111 finite heading bench bound.
     'IMU_BENCH_CHECKPOINT_US': 1000000,  # D111 finite heading bench bound.
@@ -109,6 +110,7 @@ BEHAVIOR_EXTRA_DEFAULTS = {
     'MODE_SHORT_MS': 600,  # Existing B13 strict short-press bound, centralized by D-058.
 }
 BEHAVIOR_EXTRA_FLOAT_DEFAULTS = {'EDGE_FWD_INNER_RATIO': Decimal('0.70')}  # B4.2/D-021.
+BEHAVIOR_EXTRA_FLOAT_DEFAULTS['STAND_DUTY'] = Decimal('0.25')  # D119 nominal bench request.
 # D-069: independent C++ tests verify the derived capacity and retained endpoints.
 BEHAVIOR_DERIVED_TYPES = {'LOG_FRAME_CAPACITY': 'std::uint64_t'}
 COUNTDOWN_SERVICE_DEFAULTS = {  # B3 and human-approved D-024; not physical tuning.

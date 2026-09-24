@@ -23,7 +23,8 @@ direct child `/home/arduino/sumox26_codex_build/static-startup-fcddbd8e-run01-up
 Require Python-B. All strings exact str; pin sizes exact positive int <=64MiB,
 SHA256 lowercase64hex, normalized absolute POSIX paths without dot/dotdot or
 empty components. Files has exactly the17 roles in the supplied binding. Each
-pin exactly path,bytes,sha256; paths unique. Directory map has exactly the three
+pin exactly path,bytes,sha256; paths unique and each role's path equals its
+fixed path in the supplied binding. Directory map has exactly the three
 paths in that binding, each list of unique safe component names (1..64 entries).
 Absence list exactly the14 fixed paths in that binding, no duplicates. Trusted
 source/bindings hashes establish native values; fixtures may replace file sizes
@@ -106,7 +107,8 @@ first_error,postcheck_errors. Schema static-upload-result-v1; status UPLOADED
 only for one known successful execution and clean checks, otherwise FAILED.
 attempts increments just before executor invocation (0 or1), not proof Popen
 actually started. subprocess None until outcome, then the original exact mapping;
-malformed returns fail without presenting a valid outcome. stdout/stderr None
+malformed returns fail with subprocess None. Every strictly typed three-key
+mapping is preserved even for nonzero, timed-out or unreaped outcomes. stdout/stderr None
 until observed, then text. first_error None or {type,message}; postcheck_errors
 list of {check,type,message}. Persist exclusive/fsynced upload_result.json and
 return that same report; persistence failure raises. No automatic capture.

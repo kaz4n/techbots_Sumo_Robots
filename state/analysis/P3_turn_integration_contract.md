@@ -27,8 +27,9 @@ starts Trial with current match heading, unchanged real imu_ok, and config angle
 The heading reference resets at GO as before. Later distinct eligible observations
 step the actual helper. State is DRIVE_TEST in TURN and BRAKE. Every request goes
 through existing PIVOT Governor (including final electrical cap/slew) and the real
-MotorGate. BRAKE requests zero immediately and may retain enable only while all
-existing permission checks succeed. Full duty is never requested or authorized.
+MotorGate. BRAKE requests zero immediately and retains requested enable while all
+existing permission checks succeed (physical M1 enable high, M0 enable low).
+COMPLETE removes that enable. Full duty is never requested or authorized.
 
 COMPLETE inhibits EN/PWM on its observation and sets turn_trial_stopping. The next
 distinct tick feeds STOP into the existing Lifecycle. No automatic repeat, SEARCH,

@@ -1,0 +1,49 @@
+{
+  "profile": "configured_sanitize",
+  "run_name": "configured_sanitize",
+  "focused": true,
+  "start_utc": "2026-09-24T03:28:22.840154+00:00",
+  "synthetic_config_overlay": true,
+  "angle": null,
+  "commands": [
+    {
+      "argv": [
+        "cmake",
+        "-S",
+        "/dev/shm/sumox_d125_configured_sanitize/fixture/host",
+        "-B",
+        "/dev/shm/sumox_d125_configured_sanitize/build",
+        "-DCMAKE_BUILD_TYPE=Debug",
+        "-DCMAKE_EXE_LINKER_FLAGS=-fsanitize=address,undefined -no-pie",
+        "-DCMAKE_CXX_FLAGS=-fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie -DAPP_TEST_CONFIGURED_BUTTONS=1"
+      ],
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "cmake",
+        "--build",
+        "/dev/shm/sumox_d125_configured_sanitize/build",
+        "--parallel",
+        "4",
+        "--target",
+        "turn_integration_m0_tests",
+        "turn_integration_m1_tests"
+      ],
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "ctest",
+        "--test-dir",
+        "/dev/shm/sumox_d125_configured_sanitize/build",
+        "--output-on-failure",
+        "-R",
+        "^turn_integration_"
+      ],
+      "returncode": 8
+    }
+  ],
+  "returncode": 8,
+  "end_utc": "2026-09-24T03:28:42.588966+00:00"
+}

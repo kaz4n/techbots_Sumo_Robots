@@ -1,0 +1,47 @@
+{
+  "profile": "left90",
+  "run_name": "left90",
+  "focused": true,
+  "start_utc": "2026-09-24T03:28:22.857371+00:00",
+  "synthetic_config_overlay": true,
+  "angle": "-90.0F",
+  "commands": [
+    {
+      "argv": [
+        "cmake",
+        "-S",
+        "/dev/shm/sumox_d125_left90/fixture/host",
+        "-B",
+        "/dev/shm/sumox_d125_left90/build",
+        "-DCMAKE_BUILD_TYPE=Debug"
+      ],
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "cmake",
+        "--build",
+        "/dev/shm/sumox_d125_left90/build",
+        "--parallel",
+        "4",
+        "--target",
+        "turn_integration_m0_tests",
+        "turn_integration_m1_tests"
+      ],
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "ctest",
+        "--test-dir",
+        "/dev/shm/sumox_d125_left90/build",
+        "--output-on-failure",
+        "-R",
+        "^turn_integration_"
+      ],
+      "returncode": 0
+    }
+  ],
+  "returncode": 0,
+  "end_utc": "2026-09-24T03:28:34.646630+00:00"
+}

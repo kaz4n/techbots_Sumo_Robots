@@ -23,7 +23,7 @@ bool validOutput(const core::Outputs& output) {
     case core::State::IDLE:
     case core::State::COUNTDOWN:
     case core::State::STOPPED:
-#if !SUMOX_P3_DRIVE_TEST
+#if !SUMOX_P3_DRIVE_TEST && !SUMOX_P3_TURN_TRIAL
     case core::State::DRIVE_TEST: return !output.motors_enabled;
 #else
         return !output.motors_enabled;

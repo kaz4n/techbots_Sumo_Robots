@@ -72,7 +72,7 @@ def properties_from(builder):
 
 def selected_project(project, fqbn=None, flags=None):
     if not isinstance(project, str) or project not in (
-            'app.ino', 'runtime_inert.ino', 'opp_view.ino', 'qtr_raw.ino', 'vbat.ino', 'imu_heading.ino', 'ui.ino', 'ui_adc_probe.ino', 'motor_stand.ino', 'recorder.ino', 'motor_direction.ino', 'drive_test.ino'):
+            'app.ino', 'runtime_inert.ino', 'opp_view.ino', 'qtr_raw.ino', 'vbat.ino', 'imu_heading.ino', 'ui.ino', 'ui_adc_probe.ino', 'motor_stand.ino', 'recorder.ino', 'motor_direction.ino', 'drive_test.ino', 'turn_accuracy.ino'):
         raise ValueError('Unreviewed native project name')
     if project in ('runtime_inert.ino', 'ui_adc_probe.ino', 'motor_stand.ino', 'recorder.ino') and (
             (fqbn is not None and fqbn != BASE_FQBN) or
@@ -88,6 +88,10 @@ def selected_project(project, fqbn=None, flags=None):
             (fqbn is not None and fqbn != BASE_FQBN) or
             (flags is not None and flags != '-DMATCH=0 -DMOTORS_ALLOWED=0 -DSUMOX_P3_DRIVE_TEST=1')):
         raise ValueError('Drive test requires default startup and exact inert P3 profile')
+    if project == 'turn_accuracy.ino' and (
+            (fqbn is not None and fqbn != BASE_FQBN) or
+            (flags is not None and flags != '-DMATCH=0 -DMOTORS_ALLOWED=0 -DSUMOX_P3_TURN_TRIAL=1')):
+        raise ValueError('Turn trial requires default startup and exact inert P3 turn profile')
     return project
 
 
@@ -98,6 +102,7 @@ def expected_properties(fqbn, flags, platform, project='app.ino'):
     allowed_flags = {
         'motor_direction.ino': ('-DMATCH=0 -DMOTORS_ALLOWED=0 -DSUMOX_B4_STAND=1',),
         'drive_test.ino': ('-DMATCH=0 -DMOTORS_ALLOWED=0 -DSUMOX_P3_DRIVE_TEST=1',),
+        'turn_accuracy.ino': ('-DMATCH=0 -DMOTORS_ALLOWED=0 -DSUMOX_P3_TURN_TRIAL=1',),
     }.get(project, ('-DMATCH=0 -DMOTORS_ALLOWED=0', '-DMATCH=1 -DMOTORS_ALLOWED=1'))
     if flags not in allowed_flags:
         raise ValueError('Unsupported app safety flags')

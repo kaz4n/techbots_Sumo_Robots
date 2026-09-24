@@ -122,3 +122,22 @@ foreach(motors 0 1)
   endif()
   add_test(NAME drive_test_m${motors}_host COMMAND ${p3_target})
 endforeach()
+
+# D125 one finite turn uses separate profile targets and separate safety oracles.
+foreach(motors 0 1)
+  set(turn_target turn_integration_m${motors}_tests)
+  add_executable(${turn_target} ${B4_HOST_SOURCES}
+    "${CMAKE_CURRENT_SOURCE_DIR}/../tests/test_turn_integration.cc"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../tests/locked/test_turn_integration_safety.cc")
+  target_include_directories(${turn_target} PRIVATE ../src)
+  target_include_directories(${turn_target} SYSTEM PRIVATE third_party)
+  target_compile_definitions(${turn_target} PRIVATE
+    DOCTEST_CONFIG_NO_EXCEPTIONS SUMOX_P3_TURN_TRIAL=1 MOTORS_ALLOWED=${motors})
+  if(MSVC)
+    target_compile_options(${turn_target} PRIVATE /W4 /GR-)
+  else()
+    target_compile_options(${turn_target} PRIVATE
+      -Wall -Wextra -Wpedantic -Werror -fno-exceptions -fno-rtti)
+  endif()
+  add_test(NAME turn_integration_m${motors}_host COMMAND ${turn_target})
+endforeach()

@@ -1,0 +1,48 @@
+{
+  "profile": "configured",
+  "run_name": "configured",
+  "focused": true,
+  "start_utc": "2026-09-24T03:31:16.052503+00:00",
+  "synthetic_config_overlay": true,
+  "angle": null,
+  "commands": [
+    {
+      "argv": [
+        "cmake",
+        "-S",
+        "/dev/shm/sumox_d125_configured/fixture/host",
+        "-B",
+        "/dev/shm/sumox_d125_configured/build",
+        "-DCMAKE_BUILD_TYPE=Debug",
+        "-DCMAKE_CXX_FLAGS=-DAPP_TEST_CONFIGURED_BUTTONS=1"
+      ],
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "cmake",
+        "--build",
+        "/dev/shm/sumox_d125_configured/build",
+        "--parallel",
+        "4",
+        "--target",
+        "turn_integration_m0_tests",
+        "turn_integration_m1_tests"
+      ],
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "ctest",
+        "--test-dir",
+        "/dev/shm/sumox_d125_configured/build",
+        "--output-on-failure",
+        "-R",
+        "^turn_integration_"
+      ],
+      "returncode": 0
+    }
+  ],
+  "returncode": 0,
+  "end_utc": "2026-09-24T03:31:27.409031+00:00"
+}

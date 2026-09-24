@@ -911,3 +911,5 @@ physical/loadedRAM/gate claim. | contract=this commit
 - 2026-09-24T07:10:51.912453+04:00 | P3 3.4 D124 finite turn-trial preparation | ADOPTED purehelper/publiccontract, explicit LEFT coordinate reflection and500ms development brake interval. Independent tests/implementation next; no target or physical claim. D123 completed feca04dc. | this contract commit
 
 2026-09-24 07:20 Asia/Dubai | P3 3.4 D124 | Finite reflected turn-trial helper implemented;23 focused normal/sanitizer cases, all6host targets(main1519),2registry checks and private properties pass;36oldlocked unchanged. Actual Runtime integration next; no MCU action/physical metric/gate. Evidence: analysis/P3_turn_trial_validation.md; task commit follows c228d59c.
+
+2026-09-24T07:33:25.330480+04:00 | P3 3.4 D125 | IMPLEMENTED/HOST-TESTED/TARGET-COMPILED isolated turn trial; fullhold/edge/realGate/finiteSTOP, all8normaltargets and dedicatedM0/M1sanitizer,4angles, correctedconfigured29cases,107tooling+2registry+privatechecksPASS. Defaultbinaryunchanged; no MCU run/physical acceptance. Evidence analysis/P3_turn_integration_validation.md; contract ebe34983; taskcommit follows. Next3.3finite stoppingprofile.

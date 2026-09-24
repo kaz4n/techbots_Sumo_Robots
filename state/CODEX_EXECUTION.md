@@ -84,3 +84,15 @@ Read state/analysis/P3_turn_trial_validation.md and its separate review.
 (main1519). All36 established locked files are unchanged. Next eligible task is
 actual turn-trial Robot/Runtime/Governor/MotorGate integration, not another helper
 rerun. No target build, MCU action or physical acceptance in this slice.
+
+
+## D125 current checkpoint - supersedes prior next-task notes
+
+- [x] Finite3.4trial actual Robot/Runtime/Governor/Gate implementation.
+- [x] Independent public28/29-case profiles, allsignedangles, normal/sanitizer, realGatewrites and permanentservice-only inhibition.
+- [x] All8normaltargets,107tooling+2registry,4privatecases perM0/M1;36oldlocked exact.
+- [x] Checked inerttarget compiled; defaultbinaryexactD123; no MCU action.
+- [ ] Next P3 3.3 finite stoppingprofile; SC-AN measurementreference policy before cap inference.
+
+See analysis/P3_turn_integration_validation.md and separate review for receipts,
+newacceptedlocked7d6c5193, retaineddraftfailure and actualremainingphysicalwork.

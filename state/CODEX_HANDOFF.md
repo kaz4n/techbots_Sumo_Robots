@@ -10,19 +10,20 @@ Do not treat an old snapshot, template or synthetic test as current approval.
 
 ## Current P3 software
 
-D123 DRIVE_TEST is implemented, host/sanitizer tested and target-compiled. Read
-[validation](analysis/P3_drive_test_validation.md) and its separate same-model
-review. New accepted locked oracle5bde7967 stays protected; all35priorlockedfiles
-are unchanged. Actual local service release/full hold reaches SEARCH/edge only
-through the real application/Gate. No motor or source grant is inferred.
-Next software task: finite P3 3.4 single-turn trial for±90/±180, preserving the
-existing Turn contract via explicit coordinate reflection for leftward trials.
-P3 3.3 stopping trials also remain unimplemented; final rest after reverse/escape
-is not forward stopping distance, and its datum must match measured R_room.
+D123 DRIVE_TEST and D124/D125 finite turn trials are implemented and reviewed.
+Read analysis/P3_drive_test_validation.md and analysis/P3_turn_integration_validation.md.
+All eight normal host targets pass; new turn M0/M1 sanitizer, all four signed
+angles and configured29-case Runtime normal/sanitizer checks pass. New accepted
+locked7d6c5193 is protected, alongside all36 previous files. Original draft
+fixture failure and independent readiness correction are preserved.
 
-D123 compiled default source090e2182/ELF21b28ee3 and P3sourcecc1ef324/ELFbf530d15.
-Conditional loader free spans16/10624bytes are not live RAM/WCET. The defaultimage
-is8bytes smaller than D120, not identical. No D123 upload or MCU operation occurred.
+Checked turn sourcefcf43381/ELFf41e2cb7 has11424-byte conditional free span.
+Default5c7df067 reproduces D123 ELF/ZSK/loader exactly, retaining16-byte modeled
+span. No D125 MCU operation; live stack/heap/WCET and physical metrics stay open.
+Next eligible task: finite P3 3.3 stopping trial, preserving actual full escape
+and final electrical trial caps. SC-AN records that final rest after reverse
+is not peak forward excursion; use common measured references before cap advice.
+No phase gate or physical measurement has been inferred from software checks.
 
 ## Historical board and P2 evidence
 

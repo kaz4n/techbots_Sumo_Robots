@@ -1,0 +1,13 @@
+.......F...................................................................................................
+======================================================================
+FAIL: test_native_wrapper_declares_empty_grants_and_exact_compile_guard (tests.tooling.test_turn_trial_profile.TurnTrialProfileTests.test_native_wrapper_declares_empty_grants_and_exact_compile_guard)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_turn_trial_profile.py", line 198, in test_native_wrapper_declares_empty_grants_and_exact_compile_guard
+    self.assertIn(literal, source)
+AssertionError: 'SUMOX_P3_TURN_TRIAL == 1 && MATCH == 0 && MOTORS_ALLOWED == 0' not found in '// Runs one D125 turn trial through real acquisition, Runtime and MotorGate.\n// Leaves every unconfirmed setup grant absent and electrical outputs inhibited.\n// Independent M0/M1 profile tests and checked compile-only builds verify the route.\n#pragma push_macro("EMPTY")\n#undef EMPTY\n#include "src/app/native_sources_unoq.h"\n#include "src/hal/motor_port_unoq.h"\n#pragma pop_macro("EMPTY")\n\nstatic_assert(SUMOX_P3_TURN_TRIAL == 1 && SUMOX_P3_DRIVE_TEST == 0 &&\n              SUMOX_B4_STAND == 0 && MATCH == 0 && MOTORS_ALLOWED == 0,\n              "Turn accuracy requires its exclusive compiler-wide inert P3 profile");\n\nnamespace {\napp::NativeSources sources;\nmotors::UnoQPort motor_port;\napp::Runtime runtime{motor_port.port(), sources.adcPort(), sources.port()};\n}\n\nvoid setup() { runtime.begin(app::SetupGrants{}); }\nvoid loop() { runtime.step(); }\n'
+
+----------------------------------------------------------------------
+Ran 107 tests in 22.251s
+
+FAILED (failures=1)

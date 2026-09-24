@@ -1,0 +1,65 @@
+Start testing: Sep 24 07:28 +04
+----------------------------------------------------------
+7/8 Testing: turn_integration_m0_host
+7/8 Test: turn_integration_m0_host
+Command: "/dev/shm/sumox_d125_configured_sanitize/build/turn_integration_m0_tests"
+Directory: /dev/shm/sumox_d125_configured_sanitize/build
+"turn_integration_m0_host" start time: Sep 24 07:28 +04
+Output:
+----------------------------------------------------------
+[doctest] doctest version is "2.4.12"
+[doctest] run with "--help" for options
+===============================================================================
+/dev/shm/sumox_d125_configured_sanitize/fixture/tests/locked/test_turn_integration_safety.cc:268:
+TEST CASE:  B3 B7 D103 D125 actual Runtime completes once then service-only reset cannot rearm
+
+/dev/shm/sumox_d125_configured_sanitize/fixture/tests/locked/test_turn_integration_safety.cc:270: ERROR: CHECK( passed ) is NOT correct!
+  values: CHECK( false )
+  logged: rig.request(countdown::Service::DRIVE_TEST)
+
+/dev/shm/sumox_d125_configured_sanitize/fixture/tests/locked/test_turn_integration_safety.cc:268: FATAL ERROR: test case CRASHED: SIGABRT - Abort (abnormal termination) signal
+
+===============================================================================
+[doctest] test cases:    17 |    16 passed | 1 failed | 12 skipped
+[doctest] assertions: 70620 | 70619 passed | 1 failed |
+[doctest] Status: FAILURE!
+<end of output>
+Test time =   0.42 sec
+----------------------------------------------------------
+Test Failed.
+"turn_integration_m0_host" end time: Sep 24 07:28 +04
+"turn_integration_m0_host" time elapsed: 00:00:00
+----------------------------------------------------------
+
+8/8 Testing: turn_integration_m1_host
+8/8 Test: turn_integration_m1_host
+Command: "/dev/shm/sumox_d125_configured_sanitize/build/turn_integration_m1_tests"
+Directory: /dev/shm/sumox_d125_configured_sanitize/build
+"turn_integration_m1_host" start time: Sep 24 07:28 +04
+Output:
+----------------------------------------------------------
+[doctest] doctest version is "2.4.12"
+[doctest] run with "--help" for options
+===============================================================================
+/dev/shm/sumox_d125_configured_sanitize/fixture/tests/locked/test_turn_integration_safety.cc:268:
+TEST CASE:  B3 B7 D103 D125 actual Runtime completes once then service-only reset cannot rearm
+
+/dev/shm/sumox_d125_configured_sanitize/fixture/tests/locked/test_turn_integration_safety.cc:270: ERROR: CHECK( passed ) is NOT correct!
+  values: CHECK( false )
+  logged: rig.request(countdown::Service::DRIVE_TEST)
+
+/dev/shm/sumox_d125_configured_sanitize/fixture/tests/locked/test_turn_integration_safety.cc:268: FATAL ERROR: test case CRASHED: SIGABRT - Abort (abnormal termination) signal
+
+===============================================================================
+[doctest] test cases:    17 |    16 passed | 1 failed | 12 skipped
+[doctest] assertions: 70624 | 70623 passed | 1 failed |
+[doctest] Status: FAILURE!
+<end of output>
+Test time =   0.40 sec
+----------------------------------------------------------
+Test Failed.
+"turn_integration_m1_host" end time: Sep 24 07:28 +04
+"turn_integration_m1_host" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Sep 24 07:28 +04

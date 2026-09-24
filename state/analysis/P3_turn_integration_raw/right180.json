@@ -1,0 +1,47 @@
+{
+  "profile": "right180",
+  "run_name": "right180",
+  "focused": true,
+  "start_utc": "2026-09-24T03:32:03.800618+00:00",
+  "synthetic_config_overlay": true,
+  "angle": "180.0F",
+  "commands": [
+    {
+      "argv": [
+        "cmake",
+        "-S",
+        "/dev/shm/sumox_d125_right180/fixture/host",
+        "-B",
+        "/dev/shm/sumox_d125_right180/build",
+        "-DCMAKE_BUILD_TYPE=Debug"
+      ],
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "cmake",
+        "--build",
+        "/dev/shm/sumox_d125_right180/build",
+        "--parallel",
+        "4",
+        "--target",
+        "turn_integration_m0_tests",
+        "turn_integration_m1_tests"
+      ],
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "ctest",
+        "--test-dir",
+        "/dev/shm/sumox_d125_right180/build",
+        "--output-on-failure",
+        "-R",
+        "^turn_integration_"
+      ],
+      "returncode": 0
+    }
+  ],
+  "returncode": 0,
+  "end_utc": "2026-09-24T03:32:15.267049+00:00"
+}

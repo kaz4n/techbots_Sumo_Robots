@@ -129,7 +129,7 @@ PackStatus packFrame(const FrameInput& input, FrameBytes& destination) {
 PackStatus packEvent(const EventInput& input, EventBytes& destination) {
     destination = {};
     const auto type = static_cast<std::uint8_t>(input.type);
-#if SUMOX_TIMING_EVIDENCE
+#if SUMOX_TIMING_EVIDENCE || SUMOX_P5_ABORT_TIMING
     const auto maximum = static_cast<std::uint8_t>(core::Event::TIMING);
 #else
     const auto maximum = static_cast<std::uint8_t>(core::Event::FAULT);
@@ -222,6 +222,47 @@ bool validEdgeMetadata(const EventInput& input) {
     if ((entered || replanned) && mask == 0U) return false;
     return (input.detail & PUSHED_OUT) == 0U || entered || replanned;
 }
+
+#if SUMOX_P5_ABORT_TIMING
+bool validOpenerCue(std::uint16_t value) {
+    // The independent wire table validates the observation, never runs an opener.
+    const unsigned mode = value & 7U;
+    const unsigned phase = (value >> 3U) & 7U;
+    const unsigned cause = (value >> 6U) & 3U;
+    const unsigned mask = (value >> 8U) & 0x7FU;
+    const bool snapshot = (value & 0x8000U) != 0U;
+    const bool front = (mask & 7U) != 0U;
+    if (mode == 3U && phase == 0U) {
+        return (cause == 1U && front) || (cause == 2U && !front &&
+            !snapshot && (mask & 0x78U) != 0U);
+    }
+    if (snapshot) return false;
+    if (mode == 6U && phase == 4U)
+        return cause == 2U && (mask & 0x78U) != 0U;
+    if (phase < 1U || phase > 3U) return false;
+    if (mode == 4U || mode == 5U)
+        return phase != 1U && cause == 1U && front;
+    if (mode != 1U && mode != 2U && mode != 6U) return false;
+    const unsigned outer = mode == 2U ? 0x28U : 0x50U;
+    return (cause == 1U && phase != 1U && front) ||
+        (cause == 2U && (mask & outer) != 0U && (phase == 1U || !front));
+}
+
+bool validOpenerTiming(const EventInput& input) {
+    switch (static_cast<OpenerTimingDetail>(input.detail)) {
+    case OpenerTimingDetail::HEADER: return input.value == 0x0201U || input.value == 0x0205U;
+    case OpenerTimingDetail::READ_START: case OpenerTimingDetail::READ_END:
+    case OpenerTimingDetail::APPLIED: case OpenerTimingDetail::INVALID_SOURCE:
+    case OpenerTimingDetail::INVALID_RECEIPT: return input.value == 1U;
+    case OpenerTimingDetail::QUALIFIED: return validOpenerCue(input.value);
+    case OpenerTimingDetail::HANDOVER: return input.value >= 5U && input.value <= 7U;
+    case OpenerTimingDetail::NOT_ABORT: case OpenerTimingDetail::INTERRUPTED:
+        return input.value == 1U || input.value == 2U;
+    case OpenerTimingDetail::HANDOVER_FAILED: return input.value <= 11U;
+    default: return false;
+    }
+}
+#endif
 } // namespace
 
 bool validEventMetadata(const EventInput& input) {
@@ -259,6 +300,8 @@ bool validEventMetadata(const EventInput& input) {
             return input.value == 0x0101U || input.value == 0x0105U;
         return input.detail <= static_cast<std::uint8_t>(TimingDetail::EXCLUDED_NO_APPROACH) &&
             input.value == 1U;
+#elif SUMOX_P5_ABORT_TIMING
+    case core::Event::TIMING: return validOpenerTiming(input);
 #endif
     default: return false;
     }

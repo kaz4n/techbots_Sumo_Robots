@@ -72,7 +72,7 @@ def properties_from(builder):
 
 def selected_project(project, fqbn=None, flags=None):
     if not isinstance(project, str) or project not in (
-            'app.ino', 'runtime_inert.ino', 'opp_view.ino', 'qtr_raw.ino', 'vbat.ino', 'imu_heading.ino', 'ui.ino', 'ui_adc_probe.ino', 'motor_stand.ino', 'recorder.ino', 'motor_direction.ino', 'drive_test.ino', 'turn_accuracy.ino', 'stopping_distance.ino', 'reactive_test.ino', 'reactive_timing.ino'):
+            'app.ino', 'runtime_inert.ino', 'opp_view.ino', 'qtr_raw.ino', 'vbat.ino', 'imu_heading.ino', 'ui.ino', 'ui_adc_probe.ino', 'motor_stand.ino', 'recorder.ino', 'motor_direction.ino', 'drive_test.ino', 'turn_accuracy.ino', 'stopping_distance.ino', 'reactive_test.ino', 'reactive_timing.ino', 'opener_timing.ino'):
         raise ValueError('Unreviewed native project name')
     if project in ('runtime_inert.ino', 'ui_adc_probe.ino', 'motor_stand.ino', 'recorder.ino') and (
             (fqbn is not None and fqbn != BASE_FQBN) or
@@ -104,6 +104,10 @@ def selected_project(project, fqbn=None, flags=None):
             (fqbn is not None and fqbn != BASE_FQBN) or
             (flags is not None and flags != '-DMATCH=0 -DMOTORS_ALLOWED=0 -DSUMOX_P4_REACTIVE=1 -DSUMOX_TIMING_EVIDENCE=1')):
         raise ValueError('Reactive timing requires default startup and exact inert P4 timing profile')
+    if project == 'opener_timing.ino' and (
+            (fqbn is not None and fqbn != BASE_FQBN) or
+            (flags is not None and flags != '-DMATCH=0 -DMOTORS_ALLOWED=0 -DSUMOX_P5_ABORT_TIMING=1')):
+        raise ValueError('Opener timing requires default startup and exact inert P5 timing profile')
     return project
 
 
@@ -118,6 +122,7 @@ def expected_properties(fqbn, flags, platform, project='app.ino'):
         'stopping_distance.ino': ('-DMATCH=0 -DMOTORS_ALLOWED=0 -DSUMOX_P3_STOP_TRIAL=1',),
         'reactive_test.ino': ('-DMATCH=0 -DMOTORS_ALLOWED=0 -DSUMOX_P4_REACTIVE=1',),
         'reactive_timing.ino': ('-DMATCH=0 -DMOTORS_ALLOWED=0 -DSUMOX_P4_REACTIVE=1 -DSUMOX_TIMING_EVIDENCE=1',),
+        'opener_timing.ino': ('-DMATCH=0 -DMOTORS_ALLOWED=0 -DSUMOX_P5_ABORT_TIMING=1',),
     }.get(project, ('-DMATCH=0 -DMOTORS_ALLOWED=0', '-DMATCH=1 -DMOTORS_ALLOWED=1'))
     if flags not in allowed_flags:
         raise ValueError('Unsupported app safety flags')

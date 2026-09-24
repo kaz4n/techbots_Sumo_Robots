@@ -128,7 +128,7 @@ fsm::RobotInput Runtime::project(std::uint32_t now_us) {
     projectLines(now_us, elapsed);
     decision_input_.opponent_fresh = opponentsFresh(now_us);
     if (decision_input_.opponent_fresh) decision_input_.opp_raw_mask = opponents_.raw_mask;
-#if SUMOX_TIMING_EVIDENCE
+#if SUMOX_TIMING_EVIDENCE || SUMOX_P5_ABORT_TIMING
     if (decision_input_.opponent_fresh) decision_input_.opponent_read =
         {true, opponents_.started_us, opponents_.completed_us};
 #endif

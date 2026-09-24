@@ -18,6 +18,17 @@ Result terminal(Exit exit) {
 std::uint8_t innerMask(float mirror) {
     return mirror > 0.0F ? 0x28U : 0x50U;
 }
+#if SUMOX_P5_ABORT_TIMING
+AbortEvidence abortEvidence(AbortPhase phase, AbortCause cause, std::uint8_t mask,
+                            bool snapshot_front = false) {
+    return {phase, cause, static_cast<std::uint8_t>(mask & 0x7FU), snapshot_front};
+}
+
+AbortPhase abortPhase(Phase phase) {
+    if (phase == Phase::PIVOT) return AbortPhase::PIVOT;
+    return phase == Phase::TRAVERSE ? AbortPhase::TRAVERSE : AbortPhase::TURN_IN;
+}
+#endif
 } // namespace
 
 bool Direct::start(std::uint32_t t_us, float heading_deg,
@@ -31,18 +42,39 @@ bool Direct::start(std::uint32_t t_us, float heading_deg,
 Result Direct::step(std::uint32_t t_us, float heading_deg, bool imu_ok,
                     std::uint8_t confirmed_opp_mask) {
     if (!active_) return terminal(exit_);
+#if SUMOX_P5_ABORT_TIMING
+    AbortEvidence abort;
+#endif
     if (((confirmed_opp_mask | snapshot_) & 0x07U) != 0U) {
+#if SUMOX_P5_ABORT_TIMING
+        abort = abortEvidence(AbortPhase::DIRECT, (confirmed_opp_mask & 0x07U) != 0U ?
+            AbortCause::CURRENT_FRONT : AbortCause::SNAPSHOT_ONLY,
+            confirmed_opp_mask, (snapshot_ & 0x07U) != 0U);
+#endif
         exit_ = Exit::FRONT_TARGET;
     } else if ((confirmed_opp_mask & 0x78U) != 0U) {
+#if SUMOX_P5_ABORT_TIMING
+        abort = abortEvidence(AbortPhase::DIRECT, AbortCause::CURRENT_SIDE_OR_REAR,
+                               confirmed_opp_mask);
+#endif
         exit_ = Exit::SIDE_OR_REAR_TARGET;
     }
     snapshot_ = 0U;
     if (exit_ != Exit::NONE) {
         active_ = false;
-        return terminal(exit_);
+        Result result = terminal(exit_);
+#if SUMOX_P5_ABORT_TIMING
+        result.abort = abort;
+#endif
+        return result;
     }
     Result result;
     result.motion = straight_.step(t_us, heading_deg, imu_ok);
+#if SUMOX_P5_ABORT_TIMING
+    if (result.motion.status == motion::Status::DONE)
+        result.abort = abortEvidence(AbortPhase::DIRECT, AbortCause::NATURAL_END,
+                                     confirmed_opp_mask);
+#endif
     if (result.motion.status == motion::Status::DONE) exit_ = Exit::SEARCH;
     if (result.motion.status == motion::Status::INVALID) exit_ = Exit::INVALID;
     result.exit = exit_;
@@ -173,19 +205,25 @@ FlankResult Flank::result() const {
 }
 
 FlankResult Flank::step(const Sample& sample) {
-    if (phase_ == Phase::IDLE || phase_ == Phase::FINISHED || phase_ == Phase::INVALID) {
+    if (phase_ == Phase::IDLE || phase_ == Phase::FINISHED || phase_ == Phase::INVALID)
         return result();
-    }
-    if (sample.imu_ok && std::isfinite(sample.heading_deg)) {
+    if (sample.imu_ok && std::isfinite(sample.heading_deg))
         last_heading_deg_ = sample.heading_deg;
-    }
     const Phase initial_phase = phase_;
     bool timed_out = false;
     motion::Result demand;
+#if SUMOX_P5_ABORT_TIMING
+    AbortEvidence abort;
+#endif
     // Monotonic phases permit at most PIVOT, TRAVERSE, TURN_IN in one call.
     for (std::uint32_t visit = 0U; visit < 3U; ++visit) {
         const Exit detected = detectExit(sample.confirmed_mask);
         if (detected != Exit::NONE) {
+#if SUMOX_P5_ABORT_TIMING
+            abort = abortEvidence(abortPhase(phase_), detected == Exit::FRONT_TARGET ?
+                AbortCause::CURRENT_FRONT : AbortCause::CURRENT_SIDE_OR_REAR,
+                sample.confirmed_mask);
+#endif
             finish(detected);
             break;
         }
@@ -205,10 +243,20 @@ FlankResult Flank::step(const Sample& sample) {
             break;
         }
         timed_out = timed_out || demand.status == motion::Status::TIMED_OUT;
+#if SUMOX_P5_ABORT_TIMING
+        const AbortPhase completed_phase = abortPhase(phase_);
+#endif
         if (!advancePhase(sample)) finish(Exit::INVALID);
+#if SUMOX_P5_ABORT_TIMING
+        if (phase_ == Phase::FINISHED)
+            abort = abortEvidence(completed_phase, AbortCause::NATURAL_END, sample.confirmed_mask);
+#endif
         if (phase_ == Phase::FINISHED || phase_ == Phase::INVALID) break;
     }
     FlankResult output = result();
+#if SUMOX_P5_ABORT_TIMING
+    output.abort = abort;
+#endif
     if (exit_ == Exit::NONE) output.motion = demand;
     output.phase_changed = phase_ != initial_phase;
     output.motion_timed_out = timed_out;
@@ -277,12 +325,19 @@ WaitResult Wait::step(const Sample& sample) {
     bool cue = false;
     current_.phase_changed = false;
     current_.motion_timed_out = false;
+#if SUMOX_P5_ABORT_TIMING
+    current_.abort = {};
+    AbortEvidence abort;
+#endif
     if (phase_ == WaitPhase::FLANK) {
         runFlank(sample);
     } else if (phase_ == WaitPhase::HOLD) {
         hold_interval_.advance(sample.t_us);
         const auto mask = static_cast<std::uint8_t>(sample.confirmed_mask & 0x7FU);
         if ((mask & 0x78U) != 0U) {
+#if SUMOX_P5_ABORT_TIMING
+            abort = abortEvidence(AbortPhase::WAIT_HOLD, AbortCause::CURRENT_SIDE_OR_REAR, mask);
+#endif
             finish(Exit::SIDE_OR_REAR_TARGET);
         } else if (sample.imu_ok && !std::isfinite(sample.heading_deg)) {
             finish(Exit::INVALID);
@@ -299,10 +354,16 @@ WaitResult Wait::step(const Sample& sample) {
                 }
             } else if (hold_interval_.elapsed_us >=
                        static_cast<std::uint64_t>(config::WAIT_MAX_MS) * 1000U) {
+#if SUMOX_P5_ABORT_TIMING
+                abort = abortEvidence(AbortPhase::WAIT_HOLD, AbortCause::NATURAL_END, mask);
+#endif
                 finish(Exit::SEARCH);
             }
         }
     }
+#if SUMOX_P5_ABORT_TIMING
+    if (abort.cause != AbortCause::NONE) current_.abort = abort;
+#endif
     WaitResult output = result();
     output.phase_changed = previous != phase_;
     output.approach_cue = cue;

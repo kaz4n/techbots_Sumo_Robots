@@ -441,8 +441,8 @@ def flash_profile(args):
         import ui_adc_run
         identified = ui_adc_run.validate_request(args, startup)
     probe = args.sketch == 'bench/runtime_inert'
-    sensor_bench = args.sketch in ('bench/opp_view', 'bench/qtr_raw', 'bench/vbat', 'bench/imu_heading', 'bench/ui', 'bench/ui_adc_probe', 'bench/motor_stand', 'bench/recorder', 'bench/motor_direction', 'bench/drive_test', 'bench/turn_accuracy', 'bench/stopping_distance', 'bench/reactive_test', 'bench/reactive_timing')
-    if (probe or args.sketch in ('bench/ui_adc_probe', 'bench/motor_stand', 'bench/recorder', 'bench/motor_direction', 'bench/drive_test', 'bench/turn_accuracy', 'bench/stopping_distance', 'bench/reactive_test', 'bench/reactive_timing')) and (args.match or startup != 'default'):
+    sensor_bench = args.sketch in ('bench/opp_view', 'bench/qtr_raw', 'bench/vbat', 'bench/imu_heading', 'bench/ui', 'bench/ui_adc_probe', 'bench/motor_stand', 'bench/recorder', 'bench/motor_direction', 'bench/drive_test', 'bench/turn_accuracy', 'bench/stopping_distance', 'bench/reactive_test', 'bench/reactive_timing', 'bench/opener_timing')
+    if (probe or args.sketch in ('bench/ui_adc_probe', 'bench/motor_stand', 'bench/recorder', 'bench/motor_direction', 'bench/drive_test', 'bench/turn_accuracy', 'bench/stopping_distance', 'bench/reactive_test', 'bench/reactive_timing', 'bench/opener_timing')) and (args.match or startup != 'default'):
         fail('Native probe requires default startup and MATCH=0 MOTORS_ALLOWED=0')
     if sensor_bench and args.match:
         fail('Sensor bench requires MATCH=0 MOTORS_ALLOWED=0')
@@ -480,6 +480,8 @@ def build_flags(args):
         flags += ' -DSUMOX_P4_REACTIVE=1'
     if args.sketch == 'bench/reactive_timing':
         flags += ' -DSUMOX_P4_REACTIVE=1 -DSUMOX_TIMING_EVIDENCE=1'
+    if args.sketch == 'bench/opener_timing':
+        flags += ' -DSUMOX_P5_ABORT_TIMING=1'
     return flags
 
 
@@ -519,7 +521,8 @@ def flash(args):
                    'bench/turn_accuracy': 'turn_accuracy.ino',
                    'bench/stopping_distance': 'stopping_distance.ino',
                    'bench/reactive_test': 'reactive_test.ino',
-                   'bench/reactive_timing': 'reactive_timing.ino'}[args.sketch]
+                   'bench/reactive_timing': 'reactive_timing.ino',
+                   'bench/opener_timing': 'opener_timing.ino'}[args.sketch]
         artifact_folder = compile_app(board, checksum, board_folder, remote_root, fqbn,
                                       flags, startup, project=project)
     else:

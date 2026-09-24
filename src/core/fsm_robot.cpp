@@ -160,7 +160,12 @@ void Robot::markFault(logframe::FaultCode code, std::uint16_t value) {
 }
 
 void Robot::receive(const RobotInput& input) {
-    if (!pending_.valid) return;
+    if (!pending_.valid) {
+#if SUMOX_P5_ABORT_TIMING
+        receiveOpenerTiming(input, false);
+#endif
+        return;
+    }
     const auto& receipt = input.previous;
     const std::uint32_t gap = input.t_us - pending_.t_us;
     const bool identity_time = receipt.applied_valid && receipt.token == pending_.token &&
@@ -186,6 +191,9 @@ void Robot::receive(const RobotInput& input) {
     }
 #if SUMOX_TIMING_EVIDENCE
     receiveTimingTrace(input, applied);
+#endif
+#if SUMOX_P5_ABORT_TIMING
+    receiveOpenerTiming(input, applied);
 #endif
     receiveTiming(input, identity_time);
     receiveFrame(receipt, applied);
@@ -311,6 +319,9 @@ void Robot::rememberObservation() {
 }
 
 void Robot::beginAttempt() {
+#if SUMOX_P5_ABORT_TIMING
+    abort_trace_phase_ = AbortTracePhase::WAITING;
+#endif
 #if SUMOX_TIMING_EVIDENCE
     timing_trace_ = {};
 #endif
@@ -565,6 +576,9 @@ openers::Sample Robot::openerSample() const {
 }
 
 void Robot::acceptFlank(const openers::FlankResult& result, bool brake) {
+#if SUMOX_P5_ABORT_TIMING
+    captureOpenerAbort(result.abort);
+#endif
     acceptMotion(result.motion, result.profile, brake);
     if (result.motion_timed_out) markFault(logframe::FaultCode::TURN_TIMEOUT, 16U);
     if (result.exit == openers::Exit::INVALID) faults_ |= SCRIPT_RESULT;
@@ -575,6 +589,9 @@ void Robot::acceptFlank(const openers::FlankResult& result, bool brake) {
         }
         opener_active_ = false;
         routeNormal(true);
+#if SUMOX_P5_ABORT_TIMING
+        markOpenerHandover();
+#endif
     }
 }
 
@@ -583,11 +600,17 @@ void Robot::runOpener(const RobotInput&) {
     if (running_mode_ == core::Mode::DIRECT) {
         const auto result = direct_.step(tick_.t_us, result_.heading.heading_deg,
                                           result_.heading.imu_ok, result_.opponent_mask);
+#if SUMOX_P5_ABORT_TIMING
+        captureOpenerAbort(result.abort);
+#endif
         acceptMotion(result.motion, governor::Profile::OPENER);
         if (result.exit == openers::Exit::INVALID) faults_ |= SCRIPT_RESULT;
         if (result.exit != openers::Exit::NONE && result.exit != openers::Exit::INVALID) {
             opener_active_ = false;
             routeNormal(true);
+#if SUMOX_P5_ABORT_TIMING
+            markOpenerHandover();
+#endif
         }
     } else if (running_mode_ == core::Mode::WAIT) {
         const auto result = wait_.step(openerSample());
@@ -925,6 +948,12 @@ void Robot::publishPhantom() {
 void Robot::publishEvents() {
     const auto mode = static_cast<std::uint8_t>(running_mode_);
     if (result_.lifecycle.gate.start_release) emit(tick_.t_us, core::Event::START_RELEASE, mode);
+#if SUMOX_P5_ABORT_TIMING
+    if (result_.lifecycle.gate.start_release)
+        emit(tick_.t_us, core::Event::TIMING,
+             static_cast<std::uint8_t>(logframe::OpenerTimingDetail::HEADER),
+             MOTORS_ALLOWED != 0 ? 0x0205U : 0x0201U);
+#endif
 #if SUMOX_TIMING_EVIDENCE
     if (result_.lifecycle.gate.start_release)
         emit(tick_.t_us, core::Event::TIMING,
@@ -1014,6 +1043,14 @@ void Robot::savePending(const RobotInput& input) {
     pending_.timing_start_us = explicit_tick_timing_ ? input.timing.started_us : input.t_us;
     pending_.timing_valid = validTimingStart(input);
     pending_.requested = result_.outputs;
+#if SUMOX_P5_ABORT_TIMING
+    if (abort_trace_phase_ == AbortTracePhase::RECEIPT) {
+        pending_.abort_handover = tick_.abort_token == pending_.token &&
+            tick_.abort_routed && validOpenerHandover();
+        if (!pending_.abort_handover)
+            closeOpenerTiming(logframe::OpenerTimingDetail::INVALID_RECEIPT);
+    }
+#endif
 #if SUMOX_TIMING_EVIDENCE
     pending_.contact = result_.contact;
 #endif
@@ -1047,6 +1084,9 @@ void Robot::finish(const RobotInput& input) {
 #if SUMOX_TIMING_EVIDENCE
     publishTimingTrace(input);
 #endif
+#if SUMOX_P5_ABORT_TIMING
+    publishOpenerTiming(input);
+#endif
     savePending(input);
     result_.skipped_frames = skipped_frames_;
     result_.ticks = statistics_;
@@ -1068,6 +1108,11 @@ RobotResult Robot::exhaust(const RobotInput& input) {
     result_.token = 0;
     result_.contract_faults = faults_;
     publishEvents();
+#if SUMOX_P5_ABORT_TIMING
+    if (attempt_go_ && (abort_trace_phase_ == AbortTracePhase::WAITING ||
+                       abort_trace_phase_ == AbortTracePhase::RECEIPT))
+        closeOpenerTiming(logframe::OpenerTimingDetail::INTERRUPTED, 2U);
+#endif
 #if SUMOX_TIMING_EVIDENCE
     if (timing_trace_.phase == TimingPhase::ARMED ||
         timing_trace_.phase == TimingPhase::OBSERVING ||

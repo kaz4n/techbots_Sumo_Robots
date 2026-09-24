@@ -239,3 +239,26 @@ foreach(motors 0 1)
   endif()
   add_test(NAME timing_evidence_m${motors}_host COMMAND ${timing_target})
 endforeach()
+
+# D135 normal openers report one actual qualified handover through the real Gate.
+foreach(motors 0 1)
+  set(abort_target opener_timing_m${motors}_tests)
+  add_executable(${abort_target} ${B4_HOST_SOURCES}
+    "${CMAKE_CURRENT_SOURCE_DIR}/../tests/test_abort_codec.cc"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../tests/test_abort_openers.cc"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../tests/test_abort_robot.cc"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../tests/test_abort_runtime.cc"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../tests/test_abort_recording.cc"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../tests/locked/test_abort_timing_safety.cc")
+  target_include_directories(${abort_target} PRIVATE ../src ../tests)
+  target_include_directories(${abort_target} SYSTEM PRIVATE third_party)
+  target_compile_definitions(${abort_target} PRIVATE
+    DOCTEST_CONFIG_NO_EXCEPTIONS SUMOX_P5_ABORT_TIMING=1 MOTORS_ALLOWED=${motors})
+  if(MSVC)
+    target_compile_options(${abort_target} PRIVATE /W4 /GR-)
+  else()
+    target_compile_options(${abort_target} PRIVATE
+      -Wall -Wextra -Wpedantic -Werror -fno-exceptions -fno-rtti)
+  endif()
+  add_test(NAME opener_timing_m${motors}_host COMMAND ${abort_target})
+endforeach()

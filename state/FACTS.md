@@ -639,3 +639,19 @@ D153source1aa602d0/bindingsc2c87df6/contract0371739e passes46 independent plus4 
 
 ## F164 - Existing native loader utility (2026-09-25T03:28:45.809989+04:00)
 Fresh Linux file-only observation finds p0_capture.py18880B/SHA885c4e4206aea4ac9e03c4e92e48258db2a0ae302ff83a86430e6913afeeb57c beside the existing checkedpassiveconfig (fullpathin analysis/P7_static_startup_raw/installed_loader_helper.json). Notimported/executed. Reusehash-checkedbytesforloader_image ratherthan anothercopy. Localfour-source inlinepayloadestimate22942UTF16units leaves7058below30000; finalbootstrapstillrequiresqualification. No compiler/upload/reset/MCUread.
+
+
+## F165 - Installed core and uploader selection files (2026-09-25T03:38:33.159664+04:00)
+Fresh Linux file-only observations: only zephyr1.0.0 and arduino remoteocd0.1.1
+versions were found; selected boards/platform bytes exactly match retained
+core sources. Both core local overrides, both global platform files and user
+hardware directory are absent. Installed metadata303397B/SHA985d3ba1 has
+wrapperversion2 and one matching platform; its toolsDependencies exactly match
+the indexed zephyr1.0.0 entry, including remoteocd0.1.1. CLI and uploader hashes
+match F160; /dev/null is character1/3. Selection is a source-derived inference
+from observed files, not a newly executed CLI resolution/upload. Board-details
+initialization can download/migrate dependencies, so it was deliberately not
+run. Original100KB content-bound rejection and empty root metadata projection
+remain, followed by observed-bound/nested corrections. See
+analysis/P7_static_cli_selection.md and its four original receipts. No compiler,
+MCU read/reset/upload, new tool installation or physical/gate evidence.

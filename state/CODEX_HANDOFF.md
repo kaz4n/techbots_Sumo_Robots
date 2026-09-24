@@ -173,3 +173,13 @@ identified cache removals were blocked before process creation; zero deleted,
 no retry. Exact new denied paths and source-preserving receipts are in
 analysis/storage_cleanup_20260925_new_caches_blocked.json and STORAGE_LOG.md.
 The P7 implementation resume task above is unchanged.
+
+P7 file-only selection follow-up 2026-09-25T03:38:33.159664+04:00: F165 observes unique zephyr1.0.0
+and remoteocd0.1.1, exact old boards/platform bytes, matching installed/indexed
+tool dependencies and five absent overrides. See analysis/P7_static_cli_selection.md.
+Do not describe board-details as unconditionally read-only: CLI initialization
+can download/migrate. The query was not invoked. Original inventory size-bound
+failure and metadata projection mistake remain beside corrected observations.
+Next still: implement/test/review the host coordinator and one-shot upload wrapper,
+using these explicit selection checks before a separately identified inert run.
+No native grant was consumed/created and no MCU operation occurred.

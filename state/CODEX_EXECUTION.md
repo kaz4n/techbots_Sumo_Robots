@@ -85,6 +85,8 @@ pending; D051/D075/D122/D137 permit scheduling, not fabricated measurements.
   37 independently frozen host methods first-runPASS and separate reviewcdae7896.
 - [x] D153 passive collector:46 independent+4 supplemental methods first-runPASS,
   revieweed7414d; exact reads/deadlines/claim/failure evidence, no native operation.
+- [x] F165 file-only core/tool version, metadata and override inventory; selected
+  boards/platform bytes unchanged. CLI initialization query intentionally not run.
 - [ ] Implement/test/review host coordinator and one-shot upload wrapper, then
   separately scope bare-board M0 startup qualification; reuse packet/collector,
   existing pinned loader helper and explicit CLI config; no binary/source copy.

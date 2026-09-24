@@ -243,3 +243,5 @@ C: free space varies independently; do not attribute its full change to cleanup.
 Separate read-only context rechecked all eight blocked candidates, four retained
 sources and the compressed CLI: every hash/size/mtime unchanged and allocation
 confirmed. Compact verification: analysis/storage_check_20260925_followup.json.
+
+2026-09-25T03:38:33.159664+04:00 | P7 selection retention | Four compact original read-only inventory/failure/correction receipts total46,882B plus one concise source/observation note. These bind actual dependency selection files and preserve original negatives. No downloaded package, source/binary copy, compiler tree, bytecode or temporary directory; all retained data has provenance/resume purpose. Cleanup commit a5cf1af0 saved20,187,648allocatedB; no blocked deletion retried.

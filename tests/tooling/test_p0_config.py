@@ -92,6 +92,8 @@ QTR_PROPOSED_ARRAY_DEFAULTS = {'QTR_INPUT_PINS[4]': (2, 4, 7, 8)}
 BEHAVIOR_EXTRA_DEFAULTS = {
     'STAND_SEGMENT_MS': 500,  # D119 pure B4 directional sequence development interval.
     'TURN_TRIAL_BRAKE_MS': 500,  # D124 P3 trial observation interval, not measured settling.
+    'STOP_TRIAL_APPROACH_MS': 1000,  # D126 finite request, not safe distance evidence.
+    'STOP_TRIAL_BRAKE_MS': 500,  # D126 observed brake interval, not measured settling.
     'UI_BENCH_SAMPLES': 128,  # D112 finite A1 raw/decoder evidence count.
     'IMU_BENCH_TRIAL_US': 60000000,  # D111 finite heading bench bound.
     'IMU_BENCH_CHECKPOINT_US': 1000000,  # D111 finite heading bench bound.
@@ -113,6 +115,7 @@ BEHAVIOR_EXTRA_DEFAULTS = {
 BEHAVIOR_EXTRA_FLOAT_DEFAULTS = {'EDGE_FWD_INNER_RATIO': Decimal('0.70')}  # B4.2/D-021.
 BEHAVIOR_EXTRA_FLOAT_DEFAULTS['STAND_DUTY'] = Decimal('0.25')  # D119 nominal bench request.
 BEHAVIOR_EXTRA_FLOAT_DEFAULTS['TURN_TRIAL_DEG'] = Decimal('90.0')  # D125 one compiled trial.
+BEHAVIOR_EXTRA_FLOAT_DEFAULTS['STOP_TRIAL_DUTY'] = Decimal('0.30')  # D126 isolated trial cap.
 # D-069: independent C++ tests verify the derived capacity and retained endpoints.
 BEHAVIOR_DERIVED_TYPES = {'LOG_FRAME_CAPACITY': 'std::uint64_t'}
 COUNTDOWN_SERVICE_DEFAULTS = {  # B3 and human-approved D-024; not physical tuning.

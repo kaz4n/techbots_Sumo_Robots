@@ -17,6 +17,9 @@
 #if SUMOX_P3_TURN_TRIAL
 #include "turn_trial.h"
 #endif
+#if SUMOX_P3_STOP_TRIAL
+#include "stop_trial.h"
+#endif
 #include <cstdint>
 
 namespace fsm {
@@ -439,6 +442,12 @@ struct RobotResult {
     static constexpr bool STAND_PROFILE = SUMOX_B4_STAND != 0;
     static constexpr bool DRIVE_TEST_PROFILE = SUMOX_P3_DRIVE_TEST != 0;
     static constexpr bool TURN_TRIAL_PROFILE = SUMOX_P3_TURN_TRIAL != 0;
+    static constexpr bool STOP_TRIAL_PROFILE = SUMOX_P3_STOP_TRIAL != 0;
+#if SUMOX_P3_STOP_TRIAL
+    stop_trial::Report stop_trial;
+    bool stop_trial_stopping = false;
+    bool stop_trial_edge_interrupted = false;
+#endif
 #if SUMOX_P3_TURN_TRIAL
     turn_trial::Report turn_trial;
     bool turn_trial_stopping = false;
@@ -627,6 +636,13 @@ private:
     void cancelTurnTrial(turn_trial::Reason reason);
     void publishTurnTrial();
 #endif
+#if SUMOX_P3_STOP_TRIAL
+    void routeStopTrial();
+    void runStopTrial();
+    void cancelStopTrial(stop_trial::Reason reason);
+    void faultStopTrial(bool start_failure);
+    void publishStopTrial();
+#endif
 #if SUMOX_B4_STAND
     void routeStand(const RobotInput& input);
     void cancelStand(stand_sequence::Reason reason);
@@ -695,6 +711,13 @@ private:
     stall::Detector detector_;
     stall::ReflankLimiter limiter_;
     governor::Governor governor_;
+#if SUMOX_P3_STOP_TRIAL
+    motion::Straight stop_approach_;
+    motion::Brake stop_brake_;
+    bool stop_trial_edge_interrupted_ = false;
+    bool stop_trial_stopping_ = false;
+    bool stop_trial_inhibited_ = false;
+#endif
 #if SUMOX_P3_TURN_TRIAL
     turn_trial::Trial turn_trial_;
     bool turn_trial_edge_interrupted_ = false;

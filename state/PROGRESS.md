@@ -913,3 +913,5 @@ physical/loadedRAM/gate claim. | contract=this commit
 2026-09-24 07:20 Asia/Dubai | P3 3.4 D124 | Finite reflected turn-trial helper implemented;23 focused normal/sanitizer cases, all6host targets(main1519),2registry checks and private properties pass;36oldlocked unchanged. Actual Runtime integration next; no MCU action/physical metric/gate. Evidence: analysis/P3_turn_trial_validation.md; task commit follows c228d59c.
 
 2026-09-24T07:33:25.330480+04:00 | P3 3.4 D125 | IMPLEMENTED/HOST-TESTED/TARGET-COMPILED isolated turn trial; fullhold/edge/realGate/finiteSTOP, all8normaltargets and dedicatedM0/M1sanitizer,4angles, correctedconfigured29cases,107tooling+2registry+privatechecksPASS. Defaultbinaryunchanged; no MCU run/physical acceptance. Evidence analysis/P3_turn_integration_validation.md; contract ebe34983; taskcommit follows. Next3.3finite stoppingprofile.
+
+2026-09-24T07:35:40.045964+04:00 | P3 | D125 committed f39c9929 with scopedreviewPASS; begin D126finite stoppingprofile/publiccontract underD051/D122. No phasegate/physicalmeasurement.

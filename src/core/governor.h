@@ -14,6 +14,9 @@ enum class Profile : std::uint8_t {
 #if SUMOX_B4_STAND
     , STAND
 #endif
+#if SUMOX_P3_STOP_TRIAL
+    , STOP_TRIAL_FORWARD
+#endif
 };
 struct Request {
     float duty_l = 0.0F;

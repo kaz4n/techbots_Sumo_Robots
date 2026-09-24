@@ -19,6 +19,9 @@
 #ifndef SUMOX_P3_TURN_TRIAL
 #define SUMOX_P3_TURN_TRIAL 0
 #endif
+#ifndef SUMOX_P3_STOP_TRIAL
+#define SUMOX_P3_STOP_TRIAL 0
+#endif
 static_assert(MATCH == 0 || MATCH == 1, "MATCH must be 0 or 1");
 static_assert(MOTORS_ALLOWED == 0 || MOTORS_ALLOWED == 1, "MOTORS_ALLOWED must be 0 or 1");
 static_assert(SUMOX_B4_STAND == 0 || SUMOX_B4_STAND == 1, "SUMOX_B4_STAND must be 0 or 1");
@@ -31,6 +34,11 @@ static_assert(SUMOX_P3_TURN_TRIAL == 0 || SUMOX_P3_TURN_TRIAL == 1,
               "SUMOX_P3_TURN_TRIAL must be 0 or 1");
 static_assert(!SUMOX_P3_TURN_TRIAL || (!MATCH && !SUMOX_B4_STAND && !SUMOX_P3_DRIVE_TEST),
               "P3 turn trial is exclusive and not a MATCH build");
+static_assert(SUMOX_P3_STOP_TRIAL == 0 || SUMOX_P3_STOP_TRIAL == 1,
+              "SUMOX_P3_STOP_TRIAL must be 0 or 1");
+static_assert(!SUMOX_P3_STOP_TRIAL || (!MATCH && !SUMOX_B4_STAND &&
+              !SUMOX_P3_DRIVE_TEST && !SUMOX_P3_TURN_TRIAL),
+              "P3 stopping trial is exclusive and not a MATCH build");
 
 namespace config {
 // Names follow B16 verbatim, including its count/ratio/gain naming exceptions.
@@ -53,6 +61,13 @@ inline constexpr float TURN_TRIAL_DEG = 90.0F; // D125 one compiled rightward tr
 static_assert(TURN_TRIAL_DEG == -180.0F || TURN_TRIAL_DEG == -90.0F ||
               TURN_TRIAL_DEG == 90.0F || TURN_TRIAL_DEG == 180.0F,
               "Turn accuracy trial requires one of the four specified signed angles");
+// D126 bounded stopping-trial requests, not measured safe motion/settling limits.
+inline constexpr float STOP_TRIAL_DUTY = 0.30F;
+inline constexpr std::uint32_t STOP_TRIAL_APPROACH_MS = 1000U;
+inline constexpr std::uint32_t STOP_TRIAL_BRAKE_MS = 500U;
+static_assert(STOP_TRIAL_DUTY == 0.30F || STOP_TRIAL_DUTY == 0.40F ||
+              STOP_TRIAL_DUTY == 0.50F || STOP_TRIAL_DUTY == 0.60F ||
+              STOP_TRIAL_DUTY == 0.70F, "Stopping trial requires one specified duty");
 // D078 native ADC development bounds and unchanged HARDWARE2/3 proposal.
 // Nominal scaling is not measured divider/reference calibration or PINMAP OK.
 inline constexpr std::uint32_t VBAT_INPUT_PIN = 14U; // A0 / PA4 / ADC1 channel9

@@ -1072,3 +1072,5 @@ physical/loadedRAM/gate claim. | contract=this commit
 2026-09-25T01:53:37.269853+04:00 | P7 D146 read-only collection GO | Previous turn progress verified; fresh-context review d07b37cf approves fixed collector2443cedc/remote48ca3cdf for one existing-file observation. No command executed yet; original rejection and production unchanged | TLS provenance scope commit
 
 2026-09-25T01:57:12.617230+04:00 | P7 D146 provenance complete | One read exit0; installed assembly/loader/map/object and three ELF forms establish six inherited TLS constants. Separate collection review and local analysis pass; original rejection unchanged. No compiler/upload/reset or source/test changes. Next reviewed narrow structural extension with independent tests | TLS provenance evidence commit
+
+2026-09-25T01:59:34.545921+04:00 | P7 D147 host scope adopted | Contract588e1ad8 plus separate reused-context design review PASS; new pure structural interface only, exact six inherited aliases and unchanged old checks. Independent test author preparing expectations; no implementation execution/native action | inherited TLS extension scope commit

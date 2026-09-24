@@ -5,7 +5,8 @@ The unchanged default/M0 image exceeds the modeled loader pool by592 bytes.
 Exact evidence is in analysis/P7_default_qualification_validation.md and its
 separate review. D140 source research and D141/D142 pure policy/artifact host
 validation are complete. Production policy remains dynamic-only; no static image
-has been built, uploaded or run. D143 runner/helper host validation is active.
+has been built, uploaded or run. D143 runner/helper host validation now passes80
+methods; native invocation review and source-bound GO are next.
 
 
 **Active: P7 software/release preparation.** PROGRESS.md is the append-only phase
@@ -45,11 +46,12 @@ pending; D051/D075/D122/D137 permit scheduling, not fabricated measurements.
 
 D143 host-only scope adopted in2da4979a; first runner/helper implementation
 preserved in cd5625e2. Frozen contracts and bootstrap are bound by literal hashes.
-Independent tests are frozen:22 runner,23 bootstrap and28 Linux descriptor methods.
-First executions are authorized sequentially with compact receipts; no board use.
-Current runner006fdb70/helper521773e5 include bounded pre-execution review repairs.
-Next inspect first results, preserve failures, repair code if needed, and obtain
-scoped review closure before a later source-bound native query/compiler GO.
+Independent tests are frozen and pass:22runner+2receipt failures,23bootstrap,
+28Linux descriptor+5admission methods. Originalfirstfailures are retained.
+Current runner983e86d7/helper8ba9b190 include reviewed bounded repairs; no existing
+production/locked test changed. Read analysis/P7_static_runner_validation.md.
+All687 prior inputs and17 literal pins remain exact. Next review the minimal
+native invocation, then record a source-bound GO; no board use occurred in D143.
 
 Storage follow-up744f50c1 removed9,386,809 logical bytes of verified disposable
 caches; independent verification passed. Latest free-space observations fluctuate

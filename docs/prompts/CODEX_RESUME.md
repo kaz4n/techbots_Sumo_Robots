@@ -1,9 +1,10 @@
 # Resume SumoX-26 with Codex
 
 **D141 policy and D142 structural artifact components are HOST-TESTED.**
-D143 runner/helper host implementation is adopted; independently frozen tests
-are now authorized for their first execution. Read their actual receipts and
-current handoff before continuing. Production admission is unchanged. No static
+D143 runner/helper host implementation passes80 independently frozen methods.
+Read P7_static_runner_validation.md and current handoff before continuing.
+Next review the bounded native invocation and record its source-bound GO.
+Production admission is unchanged. No static
 image has been built or run; the default dynamic deficit is still592 bytes.
 
 
@@ -11,7 +12,7 @@ Current phase: **P7 software/release preparation**. D138 readiness software has
 passing host/full/sanitizer and exact MATCH target checks. D139 now records the
 current default/M0 modeled592B deficit. D140 static-link source research is
 complete; D141/D142 pure components are host-tested and reviewed. D143 host
-validation is active, with native query/compiler still unapproved. Never reset toP0 or revive older
+validation is complete, with native query/compiler still unapproved. Never reset toP0 or revive older
 blanket no-host-work checkpoints. Physical/human gates remain pending.
 
 1. Read rootAGENTS fully, state/CODEX_HANDOFF.md/CODEX_EXECUTION.md, latest
@@ -28,11 +29,12 @@ blanket no-host-work checkpoints. Physical/human gates remain pending.
    P7_static_policy_validation.md and reviews/P7_static_policy_review.md. Preserve
    the original path defect and failure receipts. D142 passes45 public and6private
    methods; read its validation/review. D143 host scope is adopted in2da4979a,
-   first source cd5625e2, current runner006fdb70/helper521773e5. Read frozen
+   first source cd5625e2, current runner983e86d7/helper8ba9b190. Read frozen
    runner/remote contracts, implementation notes and independent test freezes.
-   Inspect first host receipts, preserve failures, repair only warranted code,
-   and close scoped review before any later source-bound native GO. No frozen
-   contract/oracle or production validator replacement is permitted.
+   Host totals22+2runner,28+5helper,23bootstrap pass with original failures
+   preserved. Review the minimal native invocation before a source-bound GO.
+   Do not rerun old matrices without cause, replace production validators or
+   silently change frozen contracts/oracles.
 
 4. D138 MATCHsourcefcddbd8e/ELFcb5fbb53 has only864Bconditional loader span,
   62resolvedimports,16ABI/72oldoffset matches. No upload/live RAM/stack/WCET or

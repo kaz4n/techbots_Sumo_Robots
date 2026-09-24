@@ -6,8 +6,8 @@ comparison gaps are closed with original source/failures preserved. See
 analysis/P7_static_artifact_validation.md and reviews/P7_static_artifact_code_review.md.
 Production admission is unchanged. No static image has been built or run; the
 default dynamic deficit is still592 bytes. D143 now adopts the one-shot runner
-and Linux helper for host implementation/testing only. Independent frozen tests
-are being executed; no target query/compiler is authorized by this scope.
+and Linux helper for host implementation/testing only. All80 independent host
+methods now pass; no target query/compiler is authorized by this scope.
 
 
 **Active phase: P7 software/release preparation.** D138 informational READY and
@@ -32,16 +32,21 @@ the helper binds descriptor-based file operations and bounded process scans.
 No upload/reset/cleanup path exists. An uncertain compile outcome stops all
 remote commands and preserves the first failure.
 
-Current source hashes: runner006fdb70, helper521773e5. Pre-execution inspection
+Current source hashes: runner983e86d7, helper8ba9b190. Pre-execution inspection
 repairs address living-PID missing records, partial claim evidence, malformed
 deep JSON and metadata-only file observations. The separate spec-derived
 oracles are frozen in P7_static_runner_test_draft/freeze_runner.json and
-P7_static_remote_test_draft/freeze_remote.json. First host-only executions
-are authorized with python-B, sequentially; Linux fixtures use actual nonroot
-ownership in /dev/shm. Read their compact receipts before further work.
-Exact next task: preserve and inspect those first results, repair implementation
-only where warranted, then finish separate review. A later source-bound native
-GO is still required; no board command has run in this D143 task.
+P7_static_remote_test_draft/freeze_remote.json, with separate supplemental freezes.
+Final22runner+2receipt-fault,28helper+5admission and23bootstrap methods pass.
+Original21/22 and27/28 failures remain: independent review permitted a new-oracle
+metadata correction, and source-race diagnostics were refined while keeping the
+helper oracle unchanged. Read analysis/P7_static_runner_validation.md and its
+linked receipts/reviews. All687 prior inputs,17runner pins and legacy progress
+prefix remain exact. Linux/Windows fixtures are transient; no compiler tree added.
+Exact next task: review the bounded native invocation plan, then record a
+source-bound coordinator GO for at most one query and one inert static compile.
+No board command has run in D143. Structural collection still requires the
+separate actual entry/constructor/native binding/ABI audit before any probe verdict.
 
 D138 production remains first-source d19f8964 (interfaces36a96bd2). Normal20cases
 perM0/M1, configured29public+2private perM, normal/configured ASan+UBSan and full22

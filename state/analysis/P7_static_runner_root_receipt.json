@@ -1,0 +1,70 @@
+{
+  "time": "2026-09-25T01:26:57.645290+04:00",
+  "status": "HOST_TESTED_SCOPED_REVIEW_PASS",
+  "methods": 80,
+  "executions": [
+    {
+      "receipt": "state/analysis/P7_static_runner_test_draft/retry1_runner_execution.json",
+      "sha256": "868da5a8069c198c0fb8a398a520337433b7ea797c5ec1dafe0adfa285b8dbb5",
+      "methods": 22,
+      "exit_code": 0,
+      "before_after_equal": true,
+      "stderr_sha256": "cc9e0f2213db4aa8a13575cee24e08a63d589608ae16daba7641873fee9db4d9"
+    },
+    {
+      "receipt": "state/analysis/P7_static_runner_test_draft/first_receipts_execution.json",
+      "sha256": "a2a92a9d763f59cfb965369b7d8700e36173bbb1b1944d51694c24afb7d5d694",
+      "methods": 2,
+      "exit_code": 0,
+      "before_after_equal": true,
+      "stderr_sha256": "7689de6b57b8f65e96a6737db0bb1efe7c991ac1c109200e5cd8d83e5cf9c142"
+    },
+    {
+      "receipt": "state/analysis/P7_static_remote_test_draft/retry1_remote_execution.json",
+      "sha256": "794be08e000261edcdf009adc646ba8cb8078d30eac21a37406019e92e1e6258",
+      "methods": 28,
+      "exit_code": 0,
+      "before_after_equal": true,
+      "stderr_sha256": "b3afe96cff148b05ac308c88591523680f31822658ac2ba9a9e15343e6e9a55f"
+    },
+    {
+      "receipt": "state/analysis/P7_static_remote_test_draft/first_admission_execution.json",
+      "sha256": "660871c7b7f7627635dc973f8596db2fade900a26a7d732daf31b8bec72ed49f",
+      "methods": 5,
+      "exit_code": 0,
+      "before_after_equal": true,
+      "stderr_sha256": "4a42bf6e1cf51e4d7aaeb3b896cf886519afcd325891e92e074babda937873df"
+    },
+    {
+      "receipt": "state/analysis/P7_static_remote_test_draft/first_bootstrap_execution.json",
+      "sha256": "6844aedfb32bc7ffbe1465b1eceb880a4ee4907f4d7c82a4740c05c9c09b9a2c",
+      "methods": 23,
+      "exit_code": 0,
+      "before_after_equal": true,
+      "stderr_sha256": "47025cc72e7651239284de6bf61a8ed88f8ade1f20952bb002b22d64bbb090ce"
+    }
+  ],
+  "implementations": {
+    "run_static_probe.py": {
+      "sha256": "983e86d7eb68f437c50b4b790e96ca4520e092abe53e4d29e8ffe1a97502b208",
+      "functions": 56,
+      "max_function_lines": 42
+    },
+    "static_remote.py": {
+      "sha256": "8ba9b190c38e728013a383348c60c287b0366607f65f703161cf7f2e142d36f8",
+      "functions": 61,
+      "max_function_lines": 37
+    }
+  },
+  "reviews_sha256": {
+    "P7_static_runner_code_review.md": "bc0bd6bf92d2b39e2e117af64472a0deb533ab11a5104f4acc0b066dd9ede260",
+    "P7_static_remote_code_review.md": "d65c48c004b7320c7192879fc04bee3a5491a43dd07f9dea357d1f4fb63e2296"
+  },
+  "root_checks_sha256": "650f1512688e320a1f6be8e81c8ae6828add6955d27f884934f526d10b17fee0",
+  "validation_sha256": "e1d4aa391b86173c444c481feb70daa888c8531033e687789b4fda6b530c25d6",
+  "validated_local_links": 9,
+  "retained_test_files": 32,
+  "retained_test_bytes": 165864,
+  "native_commands": 0,
+  "next_task": "Review exact native invocation then source-bound one-shot GO; no static target claim"
+}

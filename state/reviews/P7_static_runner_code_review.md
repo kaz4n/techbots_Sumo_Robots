@@ -174,3 +174,33 @@ the22 methods exercise planned-write failure but not that exact branch. A small
 independent regression for it was recommended to the coordinator before final
 full-tool host disposition. No native query/compiler, static target fit, ABI,
 runtime, motor or human-gate acceptance follows from these controlled tests.
+
+## Completion-write regression closure
+
+Reviewed the independently authored two-case supplement frozen in `9f71e716`:
+`test_static_runner_receipts.py` SHA256
+`b85fa86d61031647f5be48483e1edf3aaa34c75c5a79f554fe2cd364888dba73`,
+with `freeze_receipts.json`
+`49cc9d75f76b93b72d19170af8019a818094d1ef0e25e0bb43f085a9562bb2f9`.
+It injects failure at the actual io.open boundary only after command17 was
+dispatched. A known-zero completion preserves the receipt OSError, records
+FAILED and performs the exact three remote terminal checks (20 dispatches total)
+without collection. A timeout plus completion-write error preserves the original
+TimeoutExpired object and partial bytes, records UNKNOWN, observes both local
+pin/stage checks and stops at17 dispatches. Validators are not replaced.
+
+The retained `first_receipts_execution.json`
+`a2a92a9d763f59cfb965369b7d8700e36173bbb1b1944d51694c24afb7d5d694`
+and stderr `7689de6b57b8f65e96a6737db0bb1efe7c991ac1c109200e5cd8d83e5cf9c142`
+show **2/2 PASS in0.667s**, exit0; stdout is empty. All21 before/after input
+hashes and the four supplement-freeze inputs match current bytes. Runner
+`983e86d7eb68f437c50b4b790e96ca4520e092abe53e4d29e8ffe1a97502b208`
+and helper `8ba9b190c38e728013a383348c60c287b0366607f65f703161cf7f2e142d36f8`
+are unchanged from the22-method retry.
+
+The last runner coverage note is closed. **Final runner disposition: source
+review PASS and24 independent host methods PASS across the retained22+2 runs;
+no open runner finding or requested regression remains.** The reviewer read
+source/receipts and rehashed evidence only, without another execution. Separate
+helper review remains its own evidence; later native source-bound GO and all
+target/runtime/human boundaries are unchanged.

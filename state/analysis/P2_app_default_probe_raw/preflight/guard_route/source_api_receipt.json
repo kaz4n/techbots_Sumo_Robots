@@ -1,0 +1,47 @@
+{
+  "utc": "2026-09-24T00:08:40.557891+00:00",
+  "scope": "Local source/API/hash inspection only; no staging, compilation, implementation or board actions",
+  "local_git": {
+    "argv": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "returncode": 0,
+    "stdout": "1b1a13ba95733acfe758ef509336ac31688a1c4e\n",
+    "stderr": ""
+  },
+  "files": {
+    "tools/board_tool.py": "8d89429a9add900ae6234bf9f1b663771d5cc50e9e0715b4017acc32a915fa4c",
+    "tools/app_build_policy.py": "658d68842fcd44eea284e00ca33672d1feaef8140ea127f3accf815e645ff469",
+    "tools/app_build_pins.json": "55720e65b03f6cd28964c675ceeec76619824cd11525549fbac0503b8efa972b",
+    "tools/app_build_commands.json": "63f6c41e34bae9fce1d945c3271b3fe86343f27544affe25ae14788438d62e1d",
+    "tools/ui_adc_run.py": "1aa109a2ed068ed4d21dc442aa9195b516f8df264c5a04a0b71a75949cb5d8e8",
+    "tools/p0_inert_sources.json": "a1587931afa5f817bf8b93054f384918dc8cd36d4fb71c8f7b083d76e6128802",
+    "state/analysis/P2_ui_adc_run_contract.md": "b37fb854e72c02ec4b8d88cfffd67943d2a377633ccae9d9d954420f7d817c7a",
+    "state/analysis/P2_app_default_probe_contract.md": "06377731b7565116ed74c89823e3157e1e7e3ab135dec0e08a08d0c0fc4c338e"
+  },
+  "manifest_keys": [
+    "bench/p0_adc",
+    "bench/p0_gpio",
+    "bench/p0_matrix",
+    "bench/p0_qtr",
+    "bench/p0_timing",
+    "bench/recorder_inert",
+    "bench/runtime_inert",
+    "bench/ui_matrix",
+    "bench/ui_adc_probe"
+  ],
+  "source_count": 91,
+  "source_sha256": "e820c0e16c29cfd289889273f02721a995e5336b14397f64d6093cffd42b8b69",
+  "existing_api_lines": {
+    "stage": 106,
+    "source_hash": 172,
+    "verify_core": 180,
+    "sync_sources": 89,
+    "compile_app": 256,
+    "flash_app_ignores_return": 348,
+    "remote": 81
+  },
+  "limitation": "Unchanged preparation calls are finite in count but lack uniform wall-clock timeouts; only the proposed one upload is explicitly120s bounded."
+}

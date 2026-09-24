@@ -361,23 +361,3 @@ Node-name recognition compares raw bytes before the first NUL exactly to
 Unrelated nodes' BSS/header fields are opaque, never dereferenced or interpreted
 using the target sketch's layout. Their link/name/used-allocation checks and
 full196-byte before/after equality remain mandatory.
-
-### Output-folder lifecycle clarification before executable freeze
-
-Capture receives the desired not-yet-created output Path. At its sole collect
-entry it anchors lifetime, then always calls unchanged p0.fresh_directory for
-that Path. Main only selects/passes the desired path; there is no alternate
-already-created fixture-folder mode or private flag injected by main. Existing
-output directories refuse, including test fixtures. Record successful exclusive
-creation before the post-operation deadline check. Main writes capture.json only
-inside a folder this collection actually created; failed creation prints the
-failed report without modifying any existing/unowned folder. The existing
-fresh direct-child/no-symlink/exclusive0700 restrictions are preserved.
-
-Host fixtures retain literal file identity checks using exact opaque tool bytes
-and standard subprocess/clock/filesystem substitutions. The three additional
-pinned Linux tool files were copied read-only into raw/fixture_tools with exact
-hash/command receipts; they are fixture data, never executed on the host or
-substituted into an actual board installation. All pinned helper bytes and
-expected hash tables remain unchanged. No private-state seeding or filesystem
-validation bypass is admitted by providing those inputs.

@@ -1,0 +1,54 @@
+{
+  "scope": "READ_ONLY_LINUX_FILES_NO_TOOL_EXECUTION_NO_MCU",
+  "files": [
+    {
+      "argv": [
+        "python3",
+        "-c",
+        "from pathlib import Path\nimport hashlib,base64,json\np=Path('/opt/openocd/bin/openocd')\nexpected='04778a80c5c619ee4eef7505db91328f1d7e789107c496f2ddcf96d081f5b0ff'\nassert p.is_absolute() and p.is_file() and p.resolve()==p\nassert all(not q.is_symlink() for q in (p,*p.parents))\nassert 0<p.stat().st_size<=16777216\nb=p.read_bytes()\nassert hashlib.sha256(b).hexdigest()==expected\nprint(json.dumps({\"bytes\":len(b),\"sha256\":expected,\"data\":base64.b64encode(b).decode()}))"
+      ],
+      "timeout_seconds": 30,
+      "start_utc": "2026-09-24T00:12:20.412700+00:00",
+      "returncode": 0,
+      "stderr": "",
+      "stdout_sha256": "9a9d966058459b2cff478e70b2aa565a205b71216bef2e3c891d950756925a31",
+      "path": "state\\analysis\\P2_app_default_probe_raw\\fixture_tools\\openocd.bin",
+      "bytes": 14435552,
+      "sha256": "04778a80c5c619ee4eef7505db91328f1d7e789107c496f2ddcf96d081f5b0ff",
+      "end_utc": "2026-09-24T00:12:21.660385+00:00"
+    },
+    {
+      "argv": [
+        "python3",
+        "-c",
+        "from pathlib import Path\nimport hashlib,base64,json\np=Path('/opt/openocd/share/openocd/scripts/target/swj-dp.tcl')\nexpected='aad132008735bbafea3d18a304632c638f0fb99bfc19530c9f577eda2b10410a'\nassert p.is_absolute() and p.is_file() and p.resolve()==p\nassert all(not q.is_symlink() for q in (p,*p.parents))\nassert 0<p.stat().st_size<=16777216\nb=p.read_bytes()\nassert hashlib.sha256(b).hexdigest()==expected\nprint(json.dumps({\"bytes\":len(b),\"sha256\":expected,\"data\":base64.b64encode(b).decode()}))"
+      ],
+      "timeout_seconds": 30,
+      "start_utc": "2026-09-24T00:12:21.660401+00:00",
+      "returncode": 0,
+      "stderr": "",
+      "stdout_sha256": "a24cd4ee8a6d06d1ff02c4aff1a6e81d1595e5aff024617e99b5f2f35c700eae",
+      "path": "state\\analysis\\P2_app_default_probe_raw\\fixture_tools\\swj-dp.tcl",
+      "bytes": 1148,
+      "sha256": "aad132008735bbafea3d18a304632c638f0fb99bfc19530c9f577eda2b10410a",
+      "end_utc": "2026-09-24T00:12:21.886472+00:00"
+    },
+    {
+      "argv": [
+        "python3",
+        "-c",
+        "from pathlib import Path\nimport hashlib,base64,json\np=Path('/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-readelf')\nexpected='c37462dcd380ae1039eb8a0aab379a619415e1100472291ffea2eae34161092e'\nassert p.is_absolute() and p.is_file() and p.resolve()==p\nassert all(not q.is_symlink() for q in (p,*p.parents))\nassert 0<p.stat().st_size<=16777216\nb=p.read_bytes()\nassert hashlib.sha256(b).hexdigest()==expected\nprint(json.dumps({\"bytes\":len(b),\"sha256\":expected,\"data\":base64.b64encode(b).decode()}))"
+      ],
+      "timeout_seconds": 30,
+      "start_utc": "2026-09-24T00:12:21.886486+00:00",
+      "returncode": 0,
+      "stderr": "",
+      "stdout_sha256": "9adf380de20fa96d7c6b9d43545104587f5afec5438f79538566526dfae936c8",
+      "path": "state\\analysis\\P2_app_default_probe_raw\\fixture_tools\\readelf.bin",
+      "bytes": 1019400,
+      "sha256": "c37462dcd380ae1039eb8a0aab379a619415e1100472291ffea2eae34161092e",
+      "end_utc": "2026-09-24T00:12:22.172946+00:00"
+    }
+  ],
+  "status": "PASS_EXACT_OPAQUE_TOOL_FILES"
+}

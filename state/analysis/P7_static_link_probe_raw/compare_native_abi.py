@@ -79,6 +79,9 @@ def baseline(r, probe):
     r.require(len(argv) == 465 and all(type(x) is str for x in argv), 'Wrong query list')
     r.require(all(argv[i] == '-ex' for i in range(5, len(argv), 2)), 'Unexpected GDB option')
     argv[4] = probe.build + '/app.ino_debug.elf'
+    # -nx disables init files; independently disable object-associated scripts
+    # before GDB opens the ELF, while retaining every baseline query verbatim.
+    argv[4:4] = ['-iex', 'set auto-load no']
     expected = r.decode(raw['abi_comparison.json'])['current_default']
     r.require(set(expected) == {'types', 'member_offsets'} and len(expected['types']) == 16
               and len(expected['member_offsets']) == 82, 'Wrong baseline cardinality')

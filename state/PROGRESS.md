@@ -1082,3 +1082,5 @@ physical/loadedRAM/gate claim. | contract=this commit
 2026-09-25T02:19:12.339568+04:00 | P7 D148 existing native structure complete | Five read-only commands0; distinct native layout/package PASS, all source/file postchecks and separate actualreviewPASS. No rebuild/upload/reset; original D144 negative and production admission intact.167792BstaticRAMspan/94352Bregiontail, not liveRAM. Next localentry and nativebinding/ABI audit | native structure closure commit
 
 2026-09-25T02:22:35.566328+04:00 | P7 static entry/constructors file-audited | 34 local commands/32 functions; all103 source and6 artifact/input hashes unchanged. Separate scopedreview14e6d959 PASS; corrected a zero-literal elision description, raw92b72069/original6ecb8ab6 preserved. Early printk/native startup unmeasured; full nativebindings/ABI still next | static entry review closure commit
+
+2026-09-25T02:25:02.744813+04:00 | P7 D149 file-only ABI read adopted | Exactsource7c7fa476, separate reused-context reviewPASS; one GDB observation with230unchangedqueries and auto-loading disabled, all before/afterbindings. No compile/upload/reset | native ABI GO commit

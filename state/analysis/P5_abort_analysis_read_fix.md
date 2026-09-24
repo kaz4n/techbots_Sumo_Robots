@@ -53,3 +53,36 @@ against the exact corrected hash, retain first outcomes, then review source and
 receipts separately. This is the first correction for the newly reproduced
 ordinary-read/type-head cases. No compiler, board, network or MCU operation was
 performed; no target, hardware or phase acceptance follows.
+
+## Qualified-type follow-up
+
+The coordinator subsequently reported that the first corrected source passed
+91 public/declaration methods and 19 private methods. Separate source review
+identified trailing cv qualifiers, global `::` qualification and nested
+parenthesis/pointer/reference forms as further finite declarator cases. Source
+`65cba907d3a425e24706b6ca44a6e4a671971d9c75f5955f7bfe46342cf9d5f1`
+remained unchanged during independent preparation. The coordinator reported a
+new two-method, 156-subcase freeze `520413ab`, byte-exact test transfer and an
+exit-1 first run with 42 failing subcases, preserved in `c7003e6c`, before
+authorizing this follow-up. Those new test bodies were not read here.
+
+Only `_parenthesized_declarator` changes in this follow-up:
+
+- Replace standalone `const`/`volatile` tokens in its prefix with spaces, retaining
+  token separation while allowing cv qualifiers around the type and pointer or
+  reference tokens.
+- Recognize a final run beginning with `(` and containing only whitespace, `(`,
+  `*` and `&`; retain the count of opens and the existing exact closing/suffix
+  requirement. This covers `(* const NAME)`, `(*(NAME))` and `(&(NAME))` without
+  consuming another identifier.
+- Permit an optional leading global `::` on the existing single qualified-type
+  alternative. The remainder still must match exactly one qualified typename or
+  a finite builtin-keyword sequence, with its pointer/reference tail. An ordinary
+  variable identifier before an initializer remains outside that type-head match.
+
+No decoration logic, canonical extraction, report, other module or test changes
+are included. No parser framework or C++ compilation claim is introduced. First
+follow-up source hash, reported before any execution:
+`8e002c6f627e1cb39af94d244a3ba62b817967e9d0e8ceac7497f9f6eb52c4d2`.
+The implementation author performed source reads/diff/hash checks only; frozen
+test execution and final review remain with the coordinator and reviewer.

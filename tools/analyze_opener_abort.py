@@ -234,7 +234,9 @@ def _without_declaration_decorations(prefix, suffix):
 
 
 def _parenthesized_declarator(prefix, suffix):
-    opening = re.search(r'(?:\(\s*)+[\s*&]*$', prefix)
+    # CV tokens can surround the type and pointers without introducing another name.
+    prefix = re.sub(r'\b(?:const|volatile)\b', ' ', prefix)
+    opening = re.search(r'\([\s(*&]*$', prefix)
     if opening is None:
         return False
     count = opening.group().count('(')
@@ -243,7 +245,7 @@ def _parenthesized_declarator(prefix, suffix):
         return False
     head = prefix[:opening.start()].strip()
     storage = r'(?:(?:inline|constexpr|consteval|constinit|static|extern|const|volatile|register|thread_local)\s+)*'
-    qualified_type = r'(?:[A-Za-z_]\w*\s*::\s*)*[A-Za-z_]\w*'
+    qualified_type = r'(?:::\s*)?(?:[A-Za-z_]\w*\s*::\s*)*[A-Za-z_]\w*'
     builtin = r'(?:unsigned|signed|short|long|int|char|double|float|bool|wchar_t|char16_t|char32_t|void)'
     builtin_type = builtin + r'(?:\s+(?:' + builtin + r'|const|volatile))*'
     # A direct initializer has both a type and another variable name before '('.

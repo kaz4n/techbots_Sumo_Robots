@@ -37,11 +37,15 @@ kill-latency acceptance. No upload, MCU operation or UART action occurred in D12
 No motor-capable checked build/run route was enabled; original locked tests stay
 unchanged, and new D120 locked oracle4546df24 is now established.
 
-First unfinished dependency: reconcile B7 full-forward/full-reverse with R6 before
-dependent software or a powered trial; retain original failure/acceptance criteria
-unless explicitly superseded under the delegated engineering authority. Remaining
-physical/gate dependencies above are not assumed successful. Native UART work
-still needs its exact external prerequisites below.
+D120 software/evidence commit:1c2389c9. D121 preserves R6 and the original B7
+criterion, leaving B7 BLOCKED/NOT ACCEPTED; no low-duty substitute or new stress
+controller is selected. [P2 acceptance packet](analysis/P2_software_acceptance_packet.md)
+maps every original task to evidence and remaining acceptance, with a fresh
+separate readiness review: scoped PASS/no new software finding, full P2 FAIL
+with P2-ACCEPT-1..5 open. No further functional P2 software task is currently
+established by those requirements. First eligible next action is a supported
+review finding or new physical/native prerequisite, not a repeated build/probe.
+Physical/gate dependencies are not assumed successful; P3 remains ineligible.
 
 ## Board and blockers
 

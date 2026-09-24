@@ -12,10 +12,12 @@
    conditionally fits with13568byte loader free span. No new MCU action occurred.
    Do not repeat completed checks without a new reason. New locked oracle4546df24
    joins existing protected tests; default production/DRIVE_TEST remain unchanged.
-4. First remaining P2 dependency: explicitly reconcile B7 full reversal with R6
-   before dependent implementation. D051 permits engineering choices, not a claim
-   that a lower-duty test passed the original full-power physical criterion.
-   Continue only eligible P2 work; preserve all actual acceptance/gate blockers.
+4. D120 software/evidence is committed1c2389c9. Read the D121 consolidated packet
+   state/analysis/P2_software_acceptance_packet.md and its fresh readiness review.
+   B7 remains unaccepted under preserved R6/original full-power criterion; a lower
+   duty sequence is not a substitute. Resume only a supported review finding or
+   newly supplied physical/native prerequisite. No additional functional P2 task
+   is established; do not repeat solved checks or start P3 through missing gates.
 5. Last actual MCU run is D118 e820c0e1/defaultM0, committed fbfb0f2e. Both upload
    and capture are consumed. Do not rerun/reset/restore under that scope. Its
    4500-byte retained free heap and513 us stored maximum are restricted observations,

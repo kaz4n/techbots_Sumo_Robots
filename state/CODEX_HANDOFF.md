@@ -27,7 +27,15 @@ compiles with M0 and empty grants, conditional loader free span13568. No MCU act
 The full hold, sources, edge priority, final electrical cap/coast and receipts are
 retained; D103 service reset is unavailable in the stand profile. This software
 does not establish physical B4 acceptance. P3 DRIVE_TEST remains unavailable;
-full B7 reversal still conflicts with R6. Use the checklist for remaining P2 work.
+full B7 reversal still conflicts with R6. D120 is committed as1c2389c9 with scoped
+review PASS. D121 leaves B7 unaccepted and preserves the original criterion/R6.
+Use [the consolidated packet](analysis/P2_software_acceptance_packet.md) and its
+fresh readiness review for remaining physical/external acceptance. Do not repeat
+completed tests or invent another controller/helper when no eligible P2 task exists.
+The fresh D121 review passes the limited software/evidence characterization but
+fails full P2 acceptance with P2-ACCEPT-1..5. This session made implementation and
+checkpoint progress; the goal is not complete. Resume at a genuine new prerequisite
+or review finding; do not manufacture progress through repeated blocker audits.
 
 Native dump execution is blocked by UART-holder visibility and unproved clean
 cancel/reopen. Read [the exact follow-up](analysis/P2_native_dump_prerequisite_followup.md).

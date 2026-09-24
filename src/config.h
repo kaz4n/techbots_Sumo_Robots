@@ -10,8 +10,13 @@
 #ifndef MOTORS_ALLOWED
 #define MOTORS_ALLOWED 0
 #endif
+#ifndef SUMOX_B4_STAND
+#define SUMOX_B4_STAND 0
+#endif
 static_assert(MATCH == 0 || MATCH == 1, "MATCH must be 0 or 1");
 static_assert(MOTORS_ALLOWED == 0 || MOTORS_ALLOWED == 1, "MOTORS_ALLOWED must be 0 or 1");
+static_assert(SUMOX_B4_STAND == 0 || SUMOX_B4_STAND == 1, "SUMOX_B4_STAND must be 0 or 1");
+static_assert(!SUMOX_B4_STAND || !MATCH, "B4 stand profile is not a MATCH build");
 
 namespace config {
 // Names follow B16 verbatim, including its count/ratio/gain naming exceptions.

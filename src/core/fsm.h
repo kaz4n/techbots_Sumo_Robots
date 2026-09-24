@@ -11,6 +11,9 @@
 #include "openers.h"
 #include "stall.h"
 #include "logframe.h"
+#if SUMOX_B4_STAND
+#include "stand_sequence.h"
+#endif
 #include <cstdint>
 
 namespace fsm {
@@ -430,6 +433,11 @@ struct RobotInput {
     TickTiming timing; // D092 opt-in complete-tick accounting; legacy default unchanged.
 };
 struct RobotResult {
+    static constexpr bool STAND_PROFILE = SUMOX_B4_STAND != 0;
+#if SUMOX_B4_STAND
+    stand_sequence::Report stand;
+    bool stand_stopping = false;
+#endif
     std::uint64_t token = 0;
     bool fresh = false;
     core::Outputs outputs; // Governed request/permission; never application evidence.
@@ -599,6 +607,11 @@ private:
     void rememberEscape(const RobotInput& input);
     void cancelMotion();
     void routeMotion(const RobotInput& input);
+#if SUMOX_B4_STAND
+    void routeStand(const RobotInput& input);
+    void cancelStand(stand_sequence::Reason reason);
+    void publishStand();
+#endif
     void startOpener();
     void runOpener(const RobotInput& input);
     void acceptFlank(const openers::FlankResult& result, bool brake);
@@ -662,6 +675,12 @@ private:
     stall::Detector detector_;
     stall::ReflankLimiter limiter_;
     governor::Governor governor_;
+#if SUMOX_B4_STAND
+    stand_sequence::Sequence stand_;
+    bool stand_edge_interrupted_ = false;
+    bool stand_stopping_ = false;
+    bool stand_inhibited_ = false;
+#endif
     RobotResult result_;
     Pending pending_;
     Tick tick_;

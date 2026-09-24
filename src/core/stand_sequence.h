@@ -23,6 +23,9 @@ public:
     bool start(std::uint32_t t_us);
     // Exact priority/time/pulse rules: state/analysis/P2_stand_sequence_contract.md.
     Report step(std::uint32_t t_us, bool edge_required = false, bool stop_requested = false);
+    // D120 owner safety cancellation; STOP/EDGE only while active. No clock advance.
+    // Rejection is passive, including pulses; accepted cancellation is fresh.
+    bool interrupt(Reason reason);
     const Report& report() const { return report_; }
 private:
     void selectSegment();

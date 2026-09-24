@@ -2,6 +2,7 @@
 // Separates duty shaping from state arbitration and hardware MotorGate writes.
 // Independent host tests exercise low-voltage caps, slew, braking and finite values.
 #pragma once
+#include "../config.h"
 #include <cstdint>
 
 namespace governor {
@@ -10,6 +11,9 @@ namespace governor {
 enum class Profile : std::uint8_t {
     SEARCH_FORWARD, PIVOT, OPENER, ATTACK, EDGE_REVERSE, REFLANK_BACK, REFLANK_TURN,
     EDGE_FORWARD
+#if SUMOX_B4_STAND
+    , STAND
+#endif
 };
 struct Request {
     float duty_l = 0.0F;

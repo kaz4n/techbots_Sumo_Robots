@@ -1,100 +1,63 @@
 # Codex handoff - 2026-09-24 Asia/Dubai
 
-**RESUMED by user, 2026-09-24 21:49 Asia/Dubai**, from c4fadad0.
-P5 remains active. D136 public74/74 and prior112regression PASS; private18/19
-original failure and duplicate-declaration review finding are being adjudicated.
-MATCH compile-only already finished; loader/import checks are in progress.
-The preserved pause checkpoint is state/analysis/P5_pause_20260924_1610.md.
-Current results below are historical until the next completed-task update.
-
-Current phase is **P5 software under D134**. The user explicitly directed assumed
-physical acceptance and continued development. This advances software scheduling;
-unmeasured physical results and actual human gate records remain pending.
-Read [CODEX_EXECUTION.md](CODEX_EXECUTION.md) for the current compact checklist;
-[PROGRESS.md](PROGRESS.md) is the append-only phase/task history. This replaces
-accumulated historical resume snapshots, retained in Git at `fbfb0f2e` and earlier.
-Do not treat an old snapshot, template or synthetic test as current approval.
+**Current: P7 operator-document preparation under D137.** User resumed from
+c4fadad0 and requests commits as tasks finish. P5 software is complete; actual
+physical and human phase gates remain pending. The software-first scheduling
+assumption is not measured acceptance. See [checklist](CODEX_EXECUTION.md) and
+append-only [phase history](PROGRESS.md). Historical pending snapshots remain in
+Git; this checkpoint supersedes their next-task text, never original receipts.
 
 ## Current software checkpoint
 
-P5 is active under D134/D135/D136. D134 host closure is committed d6a8319e:
-all18 ordinary targets, four availability-pair M0/M1 sanitizer/private matrices,
-positive20 timing supplement and60+296 tooling PASS; separate scoped review PASS.
-Read analysis/P5_mode_availability_validation.md. Its new locked source is protected.
+- D134closed d6a8319e: mode availability and all host/configured/sanitizer/private
+  checks pass. See analysis/P5_mode_availability_validation.md.
+- D135closed70c964a7: real qualified opener-abort producer,20hosttargets,
+  public40/configured42 and13private perM0/M1 normal/sanitizer, tooling/layout/fault
+  checks pass. New safety coverage accepted;43protected source files total.
+  See analysis/P5_abort_timing_validation.md; retain original failed draft receipts.
+- D136closed0faf2e6d, source5277dec0/8e002c6f:93public including65536cuevalues,
+  19private and112unchanged-dependency regressions PASS;694prior inputs and
+  43protected unchanged. Separate reused-context same-model scoped review PASS.
+  See analysis/P5_abort_analysis_validation.md and reviews/P5_abort_analysis_review.md.
+  Finite source syntax validation does not prove general C++, firmware origin,
+  physical timing, common attempt, transport, producer semantics or a human gate.
+- MATCH/Immediate target compilation finished beforepause; resumed file/accounting
+  and import review completed418624cd/2dbae98b:1584Bconditional loader span and
+  62resolved imports. See analysis/P5_match_native_validation.md. No live
+  stack/RAM/WCET or upload claim follows. All jobs are terminal.
 
-D135 qualified opener-abort production is committed2d924f1f. The first public
-failures were independently traced to new draft assumptions; originals retained,
-reviewed corrections committed94a7bb5d. No42 established protected file changed.
-D135 is now closed70c964a7: full20targets, public40/configured42 plus13private
-perM0/M1 normal+ASan/UBSan,18new/74admission/296regression,72layoutpairs and8faults
-PASS. Separate fresh-context review PASS; newlocked e9fd accepted,43protected.
-All prior656 inputs and42protected exact; all completed host scratch released.
-Read analysis/P5_abort_timing_validation.md; preserve originals and do not rerun
-completed matrices without relevant changes.
+D134default app has32B modeled deficit. Two isolated candidates failed24/32B and
+remain UNADOPTED; no third candidate or candidatehosttests. UnmodifiedD135default
+has not been targetcompiled. D135inert wrapper conditional1328B omits the default
+native dump owner; neither wrapper nor MATCH qualifies the default build.
 
-D135 native compile/conditional fit PASS in4b1e701e (F149): exact2d924f1f source,
-ELF9583f94d, model1328B free. This wrapper omits default app dump transport.
-D134 default-app model deficit32B is observed. Two isolated source-equivalent
-candidates failedfit24/32B and remain UNADOPTED inbea923c8; no thirdoptimization
-compile or candidatehosttests. UnmodifiedD135default has not been targetcompiled.
-Separate unmodified production MATCH/Immediate compile-only session25141 is
-active or recently finished: inspect P5_match_native_raw terminal receipts.
-No upload/reset/MCU operation occurs in these compile checks.
+P7 now prepares original7.2/7.4 and blank7.3 records. The compile-only example in
+P7.1 is corrected. Next: finish operator docs and separate read-only review, then
+record deferred release/physical tasks. P6 is not active; no print, rehearsal,
+release tag or human gate is claimed. Read analysis/P7_software_acceptance_packet.md.
 
-D136 offline analyzer contract is adopted,74public/19private probes frozen before
-implementation; pure cue decoder tests all65536values. Publicfiles transferred
-unchanged to tests/tooling;694priorinputs bound. Worker owns new analyzer+notes;
-root owns execution/docs. No implementation execution until firstsourcehash is
-reported. Current privatefreeze includes the reviewed closure clarification.
-Read analysis/P5_abort_analysis_contract.md and its separate design review.
+## Historical board and acceptance evidence
 
-P3/P4 software evidence and deferred physical metrics remain in their acceptance
-packets. D131 bounded push is implemented/reviewed; shipped window remains0.
-Native transport ownership/framing, full-source WCET, live stack/RAM, actual
-sensor/button/pin/mechanical trials and human gates remain pending.
+Last actual MCU upload was consumed D118defaultM0 sourcee820c0e1, fbfb0f2e. F147
+and analysis/P2_app_default_actual_validation.md record sampled RUNNING/NONE and
+4500Bfree/4364Blargest heap. Stored513us is not full-source WCET. Do not infer
+current loaded state or reuse its run grants. Current resume only read Linux
+inventory/file identities; no new compile/upload/reset/MCU read or run occurred.
 
-User storage policy: preserve compact evidence, use owned /dev/shm scratch and
-one host compiler. Two automatic-review-denied cleanup batches (historical85.48MB
-and new1.70MB duplicate stage) remain; do not retry by another route. No checked
-ELF, source, unique evidence, user file or persistent virtual disk is disposable.
+D119/D120 finite B4 direction software is complete/reviewed; physical B4 remains
+pending. D121 preserves the full-reverse/R6 B7 conflict as BLOCKED. D122 permits
+subsequent software work, not fabricated acceptance. P2/P3/P4/P5 acceptance packets
+map original criteria to evidence and missing trials. Current empty SetupGrants,
+physical button windows/pin/electrical/sensor qualification, live stack/WCET,
+source-bound deployment and native dump transport remain unresolved dependencies.
+Read analysis/P2_native_dump_prerequisite_followup.md before transport work; no
+repeated ownership/framing/cancel/reopen guesses or sudo workaround.
 
-## Historical board and P2 evidence
-
-D118 completed one exact bare-board default/M0 app upload and passive observation
-in `fbfb0f2e`. See [actual validation](analysis/P2_app_default_actual_validation.md)
-and F147: source e820c0e1, sampled RUNNING/NONE, heap 4,500 free / 4,364 largest. Stored
-513 us is not full-source WCET. Initialization and optional grants remained false.
-The app remains loaded and may continue inhibited native ticks. Both run claims
-are consumed; no replay/reset/restore under that run. Last board observation is
-historical evidence, not an assertion that the present connection is unchanged.
-
-D119 (`1c387810`) implements the pure finite B4 sequence. D120 contract f4a300c5
-now integrates it through actual Robot/Runtime/Governor/MotorGate in a separate
-compiler-wide bench profile. See [validation](analysis/P2_stand_integration_validation.md):
-normal and ASan/UBSan all4targets pass; main1496, Gate187, new18cases eachM0/M1;
-configured synthetic-button overlay19cases eachM0/M1 normal/sanitizer. All54policy
-checks and9private profile probes pass. New locked safety oracle4546df24 stays fixed.
-Default sourceef1efc59 reproduces exact D118 ELF/ZSK/loader; motor_direction24fe6356
-compiles with M0 and empty grants, conditional loader free span13568. No MCU action.
-The full hold, sources, edge priority, final electrical cap/coast and receipts are
-retained; D103 service reset is unavailable in the stand profile. This software
-does not establish physical B4 acceptance. P3 DRIVE_TEST is the next software task;
-full B7 reversal still conflicts with R6. D120 is committed as1c2389c9 with scoped
-review PASS. D121 leaves B7 unaccepted and preserves the original criterion/R6.
-Use [the consolidated packet](analysis/P2_software_acceptance_packet.md) and its
-fresh readiness review for remaining physical/external acceptance. D122 supersedes
-the D121 stop on P3 scheduling; implement DRIVE_TEST without repeating completed P2 work.
-The fresh D121 review passes the limited software/evidence characterization but
-fails full P2 acceptance with P2-ACCEPT-1..5. This session made implementation and
-checkpoint progress; the goal is not complete. Resume P3_first_drive.md software
-under D122; do not manufacture measurements or repeat blocker audits.
-
-Native dump execution is blocked by UART-holder visibility and unproved clean
-cancel/reopen. Read [the exact follow-up](analysis/P2_native_dump_prerequisite_followup.md).
-An earlier passwordless sudo attempt already failed; don't repeat it or guess a
-password. No grants follow from TCP CONNECTED, GPIO ready, flush/open success or
-elapsed silence. Continue genuinely independent P2 software rather than adding
-another helper that fabricates readiness.
+Bare UNOQ is user-reported connected; no additional hardware is requested now.
+D131push-through window remains0; no tuning occurred during D136/P7. Preserve
+unique failures, reviewed oracle adjudications and actual versus synthetic labels.
+Use /dev/shm and one compiler. C:2.135GBfree at22:18Dubai; prior denied85.48MB and
+1.70MBcleanup batches remain, no retries. See STORAGE_LOG.md for retained artifacts.
 
 ## Authority and roles
 

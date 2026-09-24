@@ -1,77 +1,63 @@
 # Current execution checklist - 2026-09-24 Asia/Dubai
 
-**RESUMED by user, 2026-09-24 21:49 Asia/Dubai**, from c4fadad0.
-P5 remains active. D136 public74/74 and prior112regression PASS; private18/19
-original failure and duplicate-declaration review finding are being adjudicated.
-MATCH compile-only already finished; loader/import checks are in progress.
-The preserved pause checkpoint is state/analysis/P5_pause_20260924_1610.md.
-Current results below are historical until the next completed-task update.
+**Active: P7 operator-document preparation under D137.** P5 D134/D135/D136
+software is complete and scoped-reviewed. Actual physical acceptance and human
+phase gates remain pending. PROGRESS.md is the append-only authority; preserve
+its legacy bytes. User resumed from c4fadad0 and requests prompt task commits.
 
-**Active: P5 software.** D134 is host-complete/reviewed; D135 is implemented and
-complete and reviewed; D136 offline analysis is being implemented. Physical gates
-remain pending under D051/D075/D122 scheduling authority. PROGRESS.md is the
-append-only phase/gate history. Do not rewrite its legacy bytes.
-
-| Existing phase tasks | Software evidence | Remaining acceptance |
+| Existing phase tasks | Completed software/evidence | Remaining acceptance |
 |---|---|---|
 | P0 | Scripts, source/API checks, actual inert diagnostics | Electrical/pin verification and human gate |
 | P1 | Core, properties, locked safety and review | Human EXPLAINED OK/GATE P1 PASS |
-| P2 B1-B6/B8 | HAL, benches, actual Runtime and recorder; D118 inert app observed | Actual sensors/buttons/motors, PINMAP, dump transport, live stack/WCET |
-| P2 B7 | Inhibition/receipt checks | Full reverse/R6 conflict, actual reversal |
-| P3 3.1-3.7 | Drive/turn/stop profiles and countdown analyzer | Physical trials, tuning and gate |
-| P4 4.1-4.7 | Reactive/timing profiles, target-loss analysis, bounded push, literal admission | Physical trials, current full-app native fit and gate |
-| P5 5.1-5.5 | Six openers, D134 availability complete; D135 below | D136 analysis; actual opener/mirror/UI results and gate |
-| P6/P7 | Pending original scope/schedule | Actual P4 gate by30Sep forP6, freeze/rehearsal/release evidence |
+| P2 B1-B6/B8 | HAL, benches, actual Runtime/recorder; D118 inert app observation | Actual sensors/buttons/motors, PINMAP, dump transport, live stack/WCET |
+| P2 B7 | Inhibition/receipt checks | Full reverse/R6 conflict and real stress test |
+| P3 3.1-3.7 | Drive/turn/stop profiles and countdown analyzer | Physical trials, measured tuning and gate |
+| P4 4.1-4.7 | Reactive/timing profiles, target-loss analyzer, bounded push and admission | Physical trials, current full-app deployment qualification and gate |
+| P5 5.1-5.5 | Six openers, availability, abort producer/analyzer and scoped reviews | Real opener/mirror/UI/abort results and gate |
+| P6 | Deferred, not active | Actual P4 gate by30Sep and no stronger28Sep cut |
+| P7 7.2/7.4 | Operator documents in preparation | Separate document review, release-qualified procedures and printed copies |
+| P7 7.1/7.3 | Build example corrected to --match --compile-only | Validated release/tag at freeze and actual2Oct rehearsal |
 
-## Current D135 work
+## Completed checks: do not repeat without a relevant change
 
-- [x] Reviewed contract, interfaces and independent original public/private freezes.
-- [x] Production2d924f1f; new18 tooling methods PASS.
-- [x] Preserve first failures; reviewed draft-oracle correction94a7bb5d.
-      Production and42 established protected sources unchanged.
-- [x] Full20 host targets PASS; private13 cases perM0/M1 PASS (full_retry2).
-- [x] Configured42-case M0/M1 normal and private checks.
-- [x] Normal/configured M0/M1 ASan/UBSan and private checks.
-- [x]74admission/296regression,72legacy layoutpairs,8copied-source ASan/UBSan faults.
-- [x] Exact inert target compile and conditional model fit1328B (F149/4b1e701e).
-      Wrapper omits full app dump owner; it does not fix default-app32B deficit.
-- [x] Final separate review PASS and newlocked e9fd accepted in70c964a7 (43protected).
+- D134 closure d6a8319e:18ordinary targets, four availability-pair M0/M1
+  sanitizer/private matrices, positive timing supplement and60+296tooling PASS.
+- D135 closure70c964a7:20host targets; public40/configured42 plus13private per
+  M0/M1 normal/sanitizer;18new/74admission/296regression,72layouts,8faults PASS.
+  Inert native wrapper conditional loader span1328B;43protected code files.
+- D136 closure0faf2e6d; source5277dec0/8e002c6f:93public (65536cue words),
+  19private,112unchanged-dependency regressions PASS;694prior inputs and43protected
+  exact. Finite source admission, not arbitrary C++ validation. Original failures
+  and independent new-oracle corrections retained. Scoped review PASS.
+- MATCH/Immediate qualification418624cd/2dbae98b: target compile before pause,
+  resumed file-based ordered loader/import checks and independent review PASS.
+  Conditional span1584B,62imports. No upload/live stack/WCET/physical proof.
 
-D135 is closed in70c964a7; all host pipelines ended and owned scratch was
-released. Original failures and reviewed corrections remain. Do not rerun these
-matrices without relevant changes. Read P5_abort_timing_validation.md and review.
+D134 default image has32B modeled deficit. Two isolated candidates failed by
+24/32B and remain UNADOPTED; no third candidate or candidatehosttests. Unmodified
+D135default has not been compiled. MATCH fit does not close this default blocker.
 
-## Next eligible work
+## Current next tasks
 
-1. Complete D136 offline analyzer.74public methods/65536cue words and19private
-   probes frozen before implementation; five public files transferred unchanged
-   to tests/tooling.694prior inputs frozen under P5_abort_analysis_raw. Native
-   worker owns only tools/analyze_opener_abort.py and implementation notes; root
-   owns docs, runner and execution. Wait for firstsourcehash before tests; retain
-   first failures and do not modify established tests.
-2. Native fit experiments inbea923c8 are closed UNADOPTED: candidate1/2 model
-   deficits24/32B. Source-equivalence review passes but no hostcandidate checks;
-   optimization stopped aftertwo unsuccessful candidates. Do not run another
-   candidate or apply their four copied files. Original D134default deficit32B
-   is known; unmodified D135default has not been compiled.
-3. Separate unchanged production MATCH/Immediate compile-only runs in session
-   25141, P5_match_native_raw. It is target qualification, not another memory-fix
-   candidate. No upload/reset/run permitted. Inspect its terminal receipt/model.
-4. Finish D136 source-bound validation/review and update the P5 acceptance packet.
-   Actual P5/human gates remain pending; recover next eligible original task.
+1. Complete original P7 runbook/mode card/kit and blank rehearsal/scouting sheets.
+2. Separate read-only document review, local link/source checks, prompt commit.
+3. Close the software-document packet and save exact external prerequisites.
+   Do not invent work, physical evidence or gate passes to bypass those blockers.
 
-Read analysis/P5_mode_availability_validation.md for completedD134; its matrices
-and60+296 tooling checks need no rerun unless later changes affect them. Source
-identity, host success, target compile, loader model, actual upload and physical
-acceptance are distinct. Last MCU upload remains consumed D118defaultM0; no new
-upload/reset during this resume. BareUNOQ currently reported connected alone.
+Evidence entry points: analysis/P5_software_acceptance_packet.md,
+analysis/P5_abort_analysis_validation.md, analysis/P5_match_native_validation.md,
+and analysis/P7_software_acceptance_packet.md (new preparation packet).
 
-Storage: C: about2.49GB at last check. Use /dev/shm and one host compiler,
-archive compact receipts before releasing temporary builds. Keep checked ELFs,
-unique evidence/source/userdata. Historical85.48MB and new1.70MB deletion batches
-were rejected by automatic review; do not retry another route. STORAGE_LOG.md
-records cleanup history. No persistent virtual disk or system paging changes.
+All prior exec jobs are terminal. Last actual MCU upload is consumed D118defaultM0
+sourcee820c0e1; current loaded state is not freshly observed. User reports bare UNOQ
+connected. This resume has made only read-only board Linux artifact checks, no
+new compile/upload/reset/MCU run. Recheck transport for any new board task.
 
-Schedule: no actualP3 gate by end28Sep invokes reactive+SIDESTEP/DIRECT cut;
-P6 requires actualP4 by30Sep and no stronger cut. Freeze1Oct21:00 Dubai;
-rehearsal2Oct, competition3Oct. Never write a human gate or infer run permission.
+Storage: C:2.135GBfree at22:18Dubai. Prefer /dev/shm and one compiler; retain compact
+receipts before releasing owned scratch. Earlier85.48MB/1.70MB deletion denials
+remain; do not retry through another route. Preserve checked artifacts and unique
+failure/evidence/source/user files. Assess each new artifact's continuing purpose.
+
+No actualP3 gate by end28Sep invokes reactive+SIDESTEP/DIRECT cut; P6 needs actual
+P4 by30Sep and no stronger cut. Freeze1Oct21:00Dubai; rehearsal2Oct, competition3Oct.
+No release tag or human gate is created merely because its scheduled date arrives.

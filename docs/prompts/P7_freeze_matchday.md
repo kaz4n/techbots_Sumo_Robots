@@ -4,7 +4,7 @@
 **Load:** AGENTS.md, docs/PLAN.md sections 3, 5, 6.
 
 ## Tasks
-7.1 Tag v1.0 at the freeze. Build the match firmware (`tools/flash.sh app --match`) and record its commit hash in PROGRESS.md.
+7.1 At the freeze, build only with `tools/flash.sh app --match --compile-only` and record the source commit and checked artifact identity in PROGRESS.md. Tag v1.0 only after its required validation and release conditions are met; a date alone is not acceptance. Any upload is a separate action requiring a qualified deployment path and fresh, identified STAND OK or RING OK for that motor-capable run. `--match` selects a build configuration, not permission to upload or run.
 7.2 Write docs/RUNBOOK.md (print it):
 - **Night before:** charge both packs; weigh; footprint check; screws and threadlocker; clean tires.
 - **At the pit:** power on; confirm READY and battery at or above VBAT_WARN_V on the matrix; apply the radio policy from the organizer answer (default: Wi-Fi off for matches); SENSOR_VIEW check (hand in front of each of the 7 sensors, each QTR over a white card).

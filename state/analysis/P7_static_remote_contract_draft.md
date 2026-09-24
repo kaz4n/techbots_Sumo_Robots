@@ -13,11 +13,13 @@ reviewed UTF-8 source bytes are `H`. Every call uses the unchanged
 `board_tool.remote('2629958581', argv, capture=True, timeout=T)`:
 
 ```text
-python3 -I -B -c H ACTION RUN_ID [ACTION_ARGUMENTS]
+python3 -I -B -c BOOT HZ ACTION RUN_ID [ACTION_ARGUMENTS]
 ```
 
-`H` is one argv element read from the locally hash-pinned helper, not shell text
-assembled from inputs. Python's `-I -B` prevents local-module/environment imports
+`BOOT` is a fixed reviewed bootstrap that checks compressed HZ against the
+locally pinned raw H hash, then executes those exact UTF-8 source bytes. It is
+not caller shell text. Framing and command-size limits are defined below.
+Python's `-I -B` prevents local-module/environment imports
 and bytecode writes. No implicit/default action, stdin program, arbitrary path,
 command, profile, build flag, validator callback, or helper-side subprocess API.
 The helper never compiles, queries CLI properties, uploads, resets or deletes.
@@ -37,13 +39,13 @@ A = U/artifacts
 
 The helper pins the exact D139 stage manifest SHA
 `56ab12b990ebe664941677e29dfef783197bc98c3a9de1985b54d57bb30da56a`.
-The runner supplies its exact bytes as one canonical RFC4648 base64 argv element
+The runner supplies its exact bytes as one compressed canonical-base64 argv element
 `M`; the helper verifies that literal hash before JSON parsing. `M` is data, not
 an authority to accept another source. Its exact 102-file map and literal SOURCE
 must agree. The runner separately retains the unchanged D139 local verifier and
 its 103-source/102-stage checks and all local pins from the existing proposal.
 
-For `layout`, `V` is canonical base64 of the unchanged D142 module bytes, pinned
+For `layout`, `V` is compressed canonical base64 of unchanged D142 module bytes, pinned
 inside the helper to
 `d30372dd4b8fb8c2661d00affc4a215cc88e3f62511995ff6303827bed4b7368`.
 After checking those exact bytes, load them into a fresh module namespace and
@@ -54,6 +56,47 @@ one small source module, not encoded artifact contents. The D142 contract hash i
 The runner must add both D142 hashes and the newly reviewed helper's literal hash
 to its fixed local authority before any future execution. A helper hash is not
 available until implementation/review; this draft does not invent one.
+
+## Transport framing and controlled filesystem entry
+
+HZ, M and V each contain one RFC1950 zlib stream produced with compression level9,
+then standard RFC4648 base64 without whitespace. Reject noncanonical base64,
+truncated streams, concatenated streams, trailing bytes, or decompressed sizes
+above98,304/65,536/32,768 bytes respectively. Use bounded decompression to cap+1,
+require EOF with no unused data or unconsumed tail, and verify the literal raw-byte
+SHA before UTF-8 decoding, JSON parsing or code execution. Do not require identical
+compressed bytes from different zlib versions; the raw input hash is authoritative.
+Claim C remains uncompressed canonical JSON/base64: UTF-8, sort_keys=True,
+separators=(',', ':'), ensure_ascii=True, no NaN/Infinity.
+
+BOOT removes only HZ from sys.argv before executing H in a fresh namespace with
+__name__='__main__'. Freeze its exact source alongside implementation; the accepted
+H hash is a reviewed literal, never a caller flag. BOOT decode/hash failure exits
+nonzero without a helper success envelope and remains the original command failure.
+No remote file is installed.
+
+Before every transport call, compute exactly
+`subprocess.list2cmdline([ADB, '-s', '2629958581', 'shell', '-T', shlex.join(argv)])`.
+Its UTF-16-LE byte count divided by2, plus1 for NUL, must be<=30,000. Reject before
+dispatch if larger. This leaves margin below Windows' documented32,767-character
+limit; do not truncate, split or retry. Current unchanged D142 bytes encode to7,232
+compressed base64 characters instead of24,432 raw-base64 characters; the manifest
+encodes to6,296 rather than13,588. These are local RAM observations, not transport tests.
+
+The public host-test entry is
+`main(argv: list[str], *, fs_root: Path = Path('/')) -> int`, emitting the envelope
+to stdout. Open fs_root once and use real descriptor-relative, no-follow operations
+for all unchanged logical paths below it; receipts retain logical absolute names.
+The serialized production entry calls main(sys.argv[1:]) with default '/'; no CLI
+or environment root option exists. No validation function is replaceable.
+Positive tests use a temporary Linux tree and actual nonroot UID/GID/ownership;
+they may mock pwd name/home, uname architecture and statvfs observations at OS
+boundaries. If WSL starts as root, use an existing nonroot account. Individual OS
+operation wrappers may inject races/errors while performing real fixture operations.
+No chroot, installed service or filesystem abstraction is added.
+
+Primary references: [Windows command limit](https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-createprocessw),
+[Python bounded zlib decompression](https://docs.python.org/3/library/zlib.html#zlib.Decompress.decompress).
 
 ## Common response and path rules
 
@@ -94,7 +137,8 @@ Walk each path component from `/` with directory descriptors and no-follow opens
 use descriptor-relative operations for enumeration, mkdir and files. Reject
 symlinks, nondirectories, path escape and identity changes; do not rely on a
 single `resolve()` followed by pathname access. Files require no-follow open,
-regular-file fstat and stable FileId before/after reading; recheck that the
+O_NONBLOCK plus regular-file fstat before reading, and stable FileId before/after
+reading; recheck that the
 directory entry still names the same inode. Never follow an artifact/source
 symlink or read a FIFO/device. U/B/A and newly created parents belong to the
 effective user; creation mode is 0700. Existing fixed ancestry must be directories
@@ -125,8 +169,8 @@ Duplicate invocations do not gain permission for another query or compiler.
 `Identity` is exactly `{user,uid,gid,home,sysname,release,machine,boot_id,python}`:
 strings except uid/gid, and `python` is a three-integer version list. Require
 effective account `arduino`, home `/home/arduino`, nonroot uid, `sysname:"Linux"`,
-Python >=3.9 and a valid kernel boot UUID. Record release/machine instead of
-inventing new exact-version pins. The transport's selected serial is independently
+`machine:"aarch64"`, Python >=3.9 and a valid kernel boot UUID. Record release
+without an exact kernel-version pin. The transport's selected serial is independently
 bound by the launcher; this Linux report cannot prove USB identity on its own.
 
 `Resources` is exactly `{available_ram_bytes,root_available_bytes,tmp_available_bytes}`,
@@ -136,20 +180,28 @@ available blocks for R and `/tmp`. Proposed conservative preflight floors are
 for coordinator adoption, not measured compiler maxima or firmware capacities.
 Record post-run resources without applying a preflight floor to a completed run.
 
-Compiler detection scans `/proc/[0-9]+/{exe,cmdline,comm}` without running ps or
-searching arbitrary filesystem trees. Identify the executable basename from exe,
-removing only the kernel's terminal ` (deleted)` marker; check argv[0] too where
-available. A non-kernel process with neither readable identity fails inspection.
-A candidate is `arduino-cli` with first argument `compile`, or a basename
+Compiler detection scans `/proc/[0-9]+/{exe,cmdline,comm,status}` without running
+ps or searching unrelated trees. Read regular proc records with64KiB bounds and
+strict UTF-8; cmdline is NUL-delimited and must end in NUL when nonempty. Require
+one State and one Kthread field in status; only Kthread=1 or State=Z permits an
+empty cmdline. These excluded processes cannot run a compiler. For other processes,
+require nonempty argv[0] and readable comm. exe EACCES/EPERM is optional metadata
+when cmdline/comm are complete; any other unreadable identity fails inspection.
+Strip only terminal ` (deleted)` from exe and check its basename and argv[0].
+A candidate is `arduino-cli` with a `compile` argument, or either basename
 matching `(?:.*-)?(?:gcc|g\+\+|cc|c\+\+|cc1|cc1plus|collect2|as|ld|ld\.bfd|ld\.gold|lto1|clang|clang\+\+|rustc)`.
-Each candidate is `{pid:int,comm:str,argv0:str,reason:str}`; a nonempty list returns
-`COMPILER_PRESENT` with that list intact. Kernel threads with genuinely empty
-cmdline are excluded. A process vanishing with ENOENT is a normal race; other
-unreadable/incomplete process records fail. Bound inventory to4096 PIDs and64 KiB
+Each candidate is `{pid:int,comm:str,argv0:str,reason:str}`, ordered by PID, with
+reason exactly `arduino-cli compile` or `compiler executable` (the CLI reason has
+priority). Do not return the rest of cmdline. A nonempty list returns
+`COMPILER_PRESENT` with that list intact. A process vanishing with ENOENT/ESRCH is
+a normal race; other incomplete process records fail. Bound inventory to4096 PIDs and64 KiB
 per cmdline, rejecting overflow. This is a snapshot, not a machine-wide compiler
 lock; the coordinator still ensures serial execution. Never kill/wait out a
 candidate or change a service. The helper's own command contains source text, so
 matching text anywhere in command lines would be an incorrect detector.
+The [kernel proc documentation](https://docs.kernel.org/filesystems/proc.html)
+defines State and Kthread. Actual availability on the connected target is still
+an observation; missing fields never become an assumed empty compiler list.
 
 `SourceCheck` is exactly
 `{path:S,source_sha256:SOURCE,file_count:102,total_bytes:int,files:{relative_name:{bytes:int,sha256:str}}}`.
@@ -164,7 +216,8 @@ check; neither one substitutes for the other.
 
 `claim` requires R to exist. It may create only the missing fixed parents below
 R: `_app_builds`, `static-app-probe-v1`, SOURCE, `bench-default`; existing parents
-receive the same no-symlink checks. `mkdir(U)` is exclusive and atomic: existence
+receive the same no-symlink and effective-UID ownership checks. All existing
+intermediate directories below R must belong to that UID. `mkdir(U)` is exclusive and atomic: existence
 of any U entry is failure, including an empty directory or dangling link. Create
 B and A exclusively within the newly held U descriptor; return their identities.
 There is no transactional rollback: a partial failure retains created paths and
@@ -198,7 +251,8 @@ Nonregular/missing identities are null; empty/oversize retain regular-file fstat
 metadata without reading contents. Unstable retains the first observed metadata
 but no accepted hash. `artifacts` and `postcheck` enumerate all eight even after
 one fails, return `ARTIFACT_SET` for any nonregular state, and preserve observations.
-Their normal success also requires exported BIN-ZSK byte equality to its canonical
+For postcheck, `POSTCHECK_FAILED` is the outer aggregate code and `ARTIFACT_SET`
+is retained as the files subcheck's failure code. Their normal success also requires exported BIN-ZSK byte equality to its canonical
 build copy (size/hash followed by direct bounded byte comparison).
 
 `layout` performs its own complete eight-file checks and reads exactly the seven
@@ -212,7 +266,7 @@ unexpected layout with a relaxed parser. `report` is the complete D142 return
 object, including weak names, sections and its limited
 `STATIC_LAYOUT_PACKAGE_PASS` status; no stronger success status is introduced.
 
-`read` accepts NAME only from the seven build basenames, maps it internally to B,
+`read` accepts NAME only as the literal `app.ino.elf`, maps it internally to B,
 and requires the expected full-file hash from the accepted metadata receipt.
 OFFSET must be a multiple of262144; LENGTH must equal
 `min(262144,file_size-OFFSET)` and be positive. Reject negative/overflow/out-of-
@@ -221,8 +275,7 @@ check stable identity before/after returning that chunk. Canonical base64,
 decoded length and chunk hash must agree. The adopted runner should call `read`
 only for final `app.ino.elf`, in increasing offsets with exact coverage and final
 whole-file hash verification. Debug/temp/BIN/map remain remotely retained; this
-interface permits only bounded named reads for any separately approved later
-review, not their automatic collection. No binary contents appear in ordinary
+interface has no broader collection route. No binary contents appear in ordinary
 inventory, metadata or layout stdout.
 
 `postcheck` combines same-boot/claim verification, read-only inventory, source

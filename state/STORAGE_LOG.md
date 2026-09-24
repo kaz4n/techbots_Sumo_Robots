@@ -138,3 +138,5 @@ source, unique evidence and saved P7 drafts remain untouched. No pagefile,
 virtual disk, hardware or firmware change. C: free space fluctuates with other
 processes; the last deletion receipt records 865,792,000 bytes free after pip
 cleanup, not an exact allocation-recovery measurement.
+
+2026-09-25T00:59:16.694247+04:00 | Runner draft retention | Retained two small Markdown interface drafts, one scoped design review and one compact local-pin/link/size-check receipt for the next implementation. Initial drafts are in a57265f5. No source snapshot, test fixture, bytecode, build tree, board operation or download was created. Existing compact cache-deletion receipts remain needed; no further cleanup candidate was confirmed.

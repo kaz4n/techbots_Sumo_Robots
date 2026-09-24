@@ -31,9 +31,10 @@ Windows reparse point. The final directory must be absent and is created
 exclusively after local pins/stage checks. An existing empty directory also fails.
 Do not remove stale data, create arbitrary missing parent directories or retry.
 
-`parse_request` accepts only `--compile-only --run-id <id>`; both are required,
-unknown/duplicate options and abbreviations fail with SystemExit2. `--help`
-returns normal argparse help without I/O/transport. It is side-effect-free.
+`parse_request` accepts exactly the three tokens `--compile-only --run-id <id>`
+in that order. The sole-token `--help` or `-h` returns normal argparse help;
+all other token lists, duplicates, abbreviations and invalid IDs fail with
+SystemExit2. Parsing performs no filesystem I/O or transport.
 `main` parses first, then verifies exact existing environment:
 SUMO_TRANSPORT=adb, SUMO_ADB_SERIAL=2629958581 and SUMO_ADB_EXECUTABLE equal to
 `C:/Users/narut/AppData/Local/Arduino15/packages/arduino/tools/adb/32.0.0/adb.exe`
@@ -84,7 +85,8 @@ all103 source/102 stage files and current config, without any staging fallback.
 ## Exact transport sequence
 
 All calls use board literal2629958581, `capture=True`, and explicit timeout.
-Ordinary read/guard calls timeout60s, properties query300s, compile1800s.
+Helper actions use the companion's exact per-action timeout table. Other
+read/guard calls timeout60s, properties query300s, compile1800s.
 One actual compile process only, with --jobs1. A callback must return a genuine
 CompletedProcess with integer non-bool returncode and str stdout/stderr on normal
 return; other shapes fail. A nonzero normal result is converted to the equivalent
@@ -93,7 +95,7 @@ CalledProcessError only after its actual code/text are recorded.
 1. Check local pins/stage and claim local receipt directory.
 2. Run remote helper inventory: Linux user arduino, architecture aarch64, Python3
    at least3.9, memory/disk observations and no active compiler. Require at least
-   512MiB MemAvailable and512MiB free on the build-root filesystem before starting.
+   512MiB MemAvailable and1GiB free on each of the build-root and /tmp filesystems.
    These are conservative host resource floors, not measured compiler/WCET claims.
    Reject unknown inventory or active arduino-cli/cc1/cc1plus/lto1/arm-zephyr process;
    do not stop another job. Recheck resources immediately before actual compile.
@@ -109,7 +111,7 @@ CalledProcessError only after its actual code/text are recorded.
 5. Atomically claim new U/build and U/artifacts via reviewed helper. U is
    /home/arduino/sumox26_codex_build/_app_builds/static-app-probe-v1/<source>/bench-default/<run_id>.
    S is /home/arduino/sumox26_codex_build/<source>/app. Neither may be caller options.
-6. Issue the single properties query exactly as the earlier proposal's argv;
+6. Check all eight outputs absent, then issue the single properties query exactly as the earlier proposal's argv;
    validate through unchanged D141 validate_preflight with exact B/data paths.
 7. Recheck local source/pins, remote source/overrides/26pins, resources, run
    ownership/ancestry and absence of all eight fixed output destinations. Source
@@ -132,10 +134,15 @@ CalledProcessError only after its actual code/text are recorded.
     length/SHA to the bound remote records. Save it with exclusive creation.
     Include the exact D142 report only after verifying its seven identities and
     fixed status, entry and bounds schema; response JSON rejects duplicates and
-    all nonfinite numbers. No arbitrary callback can assert layout success.
+    all nonfinite numbers. A command substitute can simulate this report for host
+    tests; that never establishes target execution. Real use binds transmitted
+    helper/validator bytes and observed files, without a validator-replacement callback.
 
-The remote helper/wrapper's exact argv and result schemas are a separately
-reviewed companion, finalized before adoption. All paths/argument templates are
+The remote helper/wrapper's exact argv and result schemas are in the separately
+reviewed [companion](P7_static_remote_contract_draft.md), finalized before adoption.
+Use its bounded compressed-code bootstrap and reject any command exceeding
+30,000 UTF-16 code units including NUL after exact existing ADB/Windows quoting,
+before transport. All paths/argument templates are
 fixed and validated; no caller shell fragment or alternate sketch/build profile.
 
 ## Receipts, failures and storage

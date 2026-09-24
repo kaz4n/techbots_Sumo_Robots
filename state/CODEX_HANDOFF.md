@@ -20,6 +20,25 @@ storage conservation. Software-first scheduling never creates measured acceptanc
 
 ## Current checkpoint and exact next task
 
+25 September follow-up: cache cleanup is complete in744f50c1:92 pip HTTP
+cache files and10 ignored CPython files removed,9,386,809 logical bytes total;
+independent absence/source-hash verification passes. Active npm/npx caches,
+evidence and previously denied targets remain. See STORAGE_LOG.md.
+
+Initial runner/remote drafts are preserved in a57265f5. Current companion drafts
+address Windows command size with bounded zlib/base64 plus a30,000 UTF-16-unit
+outer-command guard, nonprivileged process inventory, descriptor-based filesystem
+tests, nonblocking special-file rejection and final-ELF-only reads. They remain
+UNADOPTED; no helper, target query, compiler, upload or reset was executed.
+Read analysis/P7_static_runner_contract.md,
+analysis/P7_static_remote_contract_draft.md and their scoped design review.
+The exact next task is to finish failure-data schemas, canonical dispatch/
+postcheck ordering and attempt-count anchors, host report/identity validation,
+and the exact bootstrap before review closure/adoption and independent oracle
+freeze. Do not start a board command from a draft. The11 prior pinned inputs,
+production/source/tests and legacy progress prefix are checked unchanged in
+analysis/P7_static_runner_draft_checks.json.
+
 D138 production remains first-source d19f8964 (interfaces36a96bd2). Normal20cases
 perM0/M1, configured29public+2private perM, normal/configured ASan+UBSan and full22
 host targets pass. Original new-draft failures and independently reviewed repairs

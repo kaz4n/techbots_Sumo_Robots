@@ -43,6 +43,19 @@ pending; D051/D075/D122/D137 permit scheduling, not fabricated measurements.
 
 ## Next original-scope task
 
+Current draft checkpoint: initial two-file interface proposal a57265f5 is preserved.
+Revisions close practical command-size/process-inspection issues; read the runner
+and remote companion drafts plus scoped design review. Still UNADOPTED: finalize
+failure-data schemas, exact dispatch/postcheck order/counts, host report/identity
+rules and bootstrap framing before adoption/independent tests/implementation.
+No helper or native command has run. Eleven prior pins and production paths remain
+exact; compact checks are in analysis/P7_static_runner_draft_checks.json.
+
+Storage follow-up744f50c1 removed9,386,809 logical bytes of verified disposable
+caches; independent verification passed. Latest free-space observations fluctuate
+around820MiB; recheck before large jobs. Active npm/npx caches and prior denied
+cleanup targets remain untouched. Exact receipt/history: STORAGE_LOG.md.
+
 D139's unchanged current default/M0 qualification is complete with a592B modeled
 deficit. Read analysis/P7_default_qualification_validation.md and its review;
 compiler success does not qualify this image. The two old failed candidates are

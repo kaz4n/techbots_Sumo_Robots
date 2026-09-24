@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "recorded_utc": "2026-09-24T17:52:48.2690902Z",
+  "status": "ADJUDICATED_BEFORE_CORRECTION_OR_EXECUTION",
+  "authority": "Coordinator resume instruction authorizes narrow correction to new private draft harness after documented proof",
+  "reviewer": "Separate same-model reused reviewer context; independent review of original oracle, not its author",
+  "implementation_sha256": "9891c3eaa8a283d918d1e253a691c55c3d7d8ad3b9574eefcc14452f1e8b7843",
+  "original_probe_sha256": "1dd589d4ef1ed10c678f0ef422e29e5d0479ed6496866c7730151e1a912fd984",
+  "original_active_freeze_sha256": "3657861889c9a4e9711a3382dc254333beb627071d2acd8e8e36bcb836df7282",
+  "first_private_log_sha256": "e647d1fc0172283405474e7c2d5222c246e51227998b8f503b3b70aa5fc7e260",
+  "first_result": "18/19 PASS; test16 exact call-count assertion expected 1, observed 0",
+  "classification": "NEW_PRIVATE_HARNESS_INJECTION_SEAM_MISMATCH",
+  "source_proof": [
+    "private_probes.py:30-36 imports conventional validate_csv_bundle module and binds CSV; test16 patches CSV.validate_bundle before loading subject.",
+    "analyze_opener_abort.py:16-19 creates a distinct validator module from the same file; :549 calls csv_validator.validate_bundle, not the conventional module.",
+    "The zero count is explained by module identity and call-site evidence, not accepted alone as evidence of a test defect. No fixture mutation occurred in the original callback.",
+    "Unchanged analyze_target_loss.py:16-19 uses the same file-loaded validator pattern; no new public API contract requires a conventional module import.",
+    "analyze_opener_abort.py:340-344 checks reopened byte count, SHA256 and rows against accepted validation; public first receipt reports passing event/summary restored-mtime mutation cases. These support but do not replace corrected private execution."
+  ],
+  "preservation": [
+    "private_probes_first.py preserves the original preimplementation 19-probe source byte-for-byte.",
+    "private_freeze_before_harness.json preserves the active contract-rebound freeze before correction.",
+    "Existing private_freeze_first.json remains the earlier original contract-dependency freeze; first receipts remain unchanged."
+  ],
+  "permitted_delta": [
+    "In test16 only, load subject once before interception and verify its csv_validator module resolves to the unchanged validator file.",
+    "Capture and patch the actual dependency method and call analyze_cohort on that same loaded subject.",
+    "Retain exact len(calls)==1, same-size edit, restored mtime stimulus, invalid_attempt cleared endpoints, and trace_status INVALID assertions."
+  ],
+  "remaining_tests": 18,
+  "test_method_count": 19,
+  "execution_performed": false,
+  "production_or_public_test_edits": false,
+  "next_step": "Apply only documented seam correction; update active probe hash and before/after receipt; coordinator alone executes later."
+}

@@ -457,11 +457,7 @@ class PrivateContract(unittest.TestCase):
         f = self.fixture()
         name = f.add()
         path = f.save()
-        subject = load_subject()
-        validator = subject.csv_validator
-        self.assertEqual(Path(validator.__file__).resolve(),
-                         (ROOT / 'tools/validate_csv_bundle.py').resolve())
-        original = validator.validate_bundle
+        original = CSV.validate_bundle
         calls = []
 
         def mutate_after_validation(*args, **kwargs):
@@ -476,8 +472,8 @@ class PrivateContract(unittest.TestCase):
             os.utime(events, ns=(old.st_atime_ns, old.st_mtime_ns))
             return accepted
 
-        with mock.patch.object(validator, 'validate_bundle', side_effect=mutate_after_validation):
-            r = subject.analyze_cohort(path)
+        with mock.patch.object(CSV, 'validate_bundle', side_effect=mutate_after_validation):
+            r = load_subject().analyze_cohort(path)
         self.assertEqual(len(calls), 1)
         self.invalid_attempt(r)
         self.assertEqual(r['attempts'][0]['trace_status'], 'INVALID')

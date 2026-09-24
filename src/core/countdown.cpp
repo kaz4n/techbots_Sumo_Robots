@@ -369,10 +369,17 @@ void Menu::cycle(MenuResult& result) {
         selection_.service = selection_.service == Service::LOG_DUMP ?
             Service::SENSOR_VIEW :
             static_cast<Service>(static_cast<std::uint8_t>(selection_.service) + 1U);
-    } else {
+    } else if constexpr (config::MODE_ARC_ENABLED == 1U && config::MODE_WAIT_ENABLED == 1U) {
         selection_.mode = selection_.mode == core::Mode::WAIT ?
             core::Mode::SIDESTEP_R :
             static_cast<core::Mode>(static_cast<std::uint8_t>(selection_.mode) + 1U);
+    } else {
+        for (std::uint8_t probe = 0U; probe < 6U; ++probe) {
+            selection_.mode = selection_.mode == core::Mode::WAIT ?
+                core::Mode::SIDESTEP_R :
+                static_cast<core::Mode>(static_cast<std::uint8_t>(selection_.mode) + 1U);
+            if (core::modeAvailable(selection_.mode)) break;
+        }
     }
     result.selection_changed = true;
 }

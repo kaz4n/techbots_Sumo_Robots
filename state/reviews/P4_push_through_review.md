@@ -26,3 +26,23 @@
 ## Verdict
 PASS within the reviewed D131 behavior, D132 raw-literal admission and D133 test-fixture software scope. No open BLOCKER, MAJOR or MINOR finding. This is fresh-context same-model review, not cross-model review or a human phase gate.
 Native image/loader fit, loaded/free RAM, full-source800us WCET, real sensors/motors/ring behavior and positive-duration tuning remain unmeasured; no target action or physical/gate approval follows.
+
+## Later correction: final ordinary host integration was not proved
+
+D134's retained `analysis/P5_mode_availability_raw/default11_full_retry1` failed
+ordinary compilation because CMake associated unchanged timing-only
+`test_push_through_timing.cc` with push targets whose timing profile is0. The
+earlier16-target PASS above predates that test addition; it is valid for its
+recorded source state, but does not establish the final P4 all-target build.
+My original final review missed this integration defect, so its unqualified
+no-open-finding conclusion is withdrawn for that build-system scope.
+
+MAJOR build integration finding: corrected source association now moves that
+unchanged file to existing timing_evidence M0/M1 targets, which require timing1.
+No production or existing test assertion changes are needed. Static repair is
+approved, but current ordinary full18-target execution remains pending at this
+entry. Preserve all original successful and failed receipts. Positive20 copied
+configured regression must run the entire push family with timing1 plus all five
+D131 cases in the timing family; original D129 cases remain wholly exercised at
+duration0. A successful default build alone would leave four positive-only D131
+timing bodies unexercised. See `analysis/P5_host_profile_integration_failure.md`.

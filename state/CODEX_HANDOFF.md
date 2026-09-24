@@ -149,4 +149,10 @@ D130 completion commit: cd22e7c7. D131 contract commit: ac49d422.
 Current working checkpoint: analysis/P4_push_through_checkpoint.md.
 P4 completion39791703; byte-preservation correction2483038a; P5 proposalcf35d0a8.
 PROGRESS.md contains legacy non-UTF8 separators: preserve its existing bytes and
-append without re-encoding historical content. D134 is the first unfinished task.
+append without re-encoding historical content. D134 is the first unfinished task;
+read analysis/P5_mode_availability_checkpoint.md for the current process/receipts,
+including the later CMake profile-association failure and reviewed fix. D135
+abort-evidence preparation is adopted in2aa0ac2e after design4dc72ac1; isolated
+test drafting may proceed, but production waits for D134 frozen validation.
+
+User pause2026-09-24 13:09Dubai: D134full18normal/private6perM nowPASS. Resume firstunexecuted sanitizer matrix thenpositive20supplement from analysis/P5_mode_availability_checkpoint.md. Session69267 endedexit0; no activecompiler/boardoperation. D135drafts remainisolated/unvalidated; newreviewer privateartifactsnotyetwritten. Preserve allfailedreceipts; finalD134review/acceptance stillpending.

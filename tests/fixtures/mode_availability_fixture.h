@@ -106,7 +106,7 @@ struct Rig {
     }
     void reset() {
         robot.reset(); APP_REQUIRE(gate.reset()); input = app_test::input();
-        sequence = 0U; sampled = false; port.clear(); last = {}; applied = {};
+        sequence = 0U; sampled = false; port.clear(); last = fsm::RobotResult{}; applied = {};
     }
 };
 inline void zero(const Rig& rig) {

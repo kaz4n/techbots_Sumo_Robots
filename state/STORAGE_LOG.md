@@ -28,3 +28,5 @@ disposable, logical size, actual operation/result and measured free space when
 useful. Verify retained evidence before removing a redundant copy. Use small
 receipts; do not create another full manifest just to delete known bytecode or
 reproducible objects. Do not retry a denied deletion through another mechanism.
+
+| 2026-09-24 13:09 | D134 pause: retained unique failure/success logs, original private oracle and compact hashes; saved four incomplete D135 draft files for resumption. | All completed D134 runners, including full18/private6perM PASS, report owned RAM scratch released. No byte count was measured. No newtargetbuild or permanentduplicate sourcearchive. C: free approximately2.6GB before pause; older blocked85MB deletion not retried. Remaining sanitizer/supplement runs were not started. |

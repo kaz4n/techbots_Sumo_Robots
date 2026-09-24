@@ -15,7 +15,22 @@ enum class Mode : std::uint8_t {
 };
 // D134 execution admission only; recorded IDs1..6 stay semantically valid.
 // Mandatory1..3, optional ARC pair/WAIT from config; all other values false.
-constexpr bool modeAvailable(Mode mode);
+constexpr bool modeAvailable(Mode mode) {
+    switch (mode) {
+    case Mode::SIDESTEP_R:
+    case Mode::SIDESTEP_L:
+    case Mode::DIRECT: return true;
+    case Mode::ARC_R:
+    case Mode::ARC_L: return config::MODE_ARC_ENABLED == 1U;
+    case Mode::WAIT: return config::MODE_WAIT_ENABLED == 1U;
+    default: return false;
+    }
+}
+static_assert(config::MODE_ARC_ENABLED <= 1U, "MODE_ARC_ENABLED must be 0 or 1");
+static_assert(config::MODE_WAIT_ENABLED <= 1U, "MODE_WAIT_ENABLED must be 0 or 1");
+static_assert(config::MODE_DEFAULT >= 1U && config::MODE_DEFAULT <= 6U &&
+              modeAvailable(static_cast<Mode>(config::MODE_DEFAULT)),
+              "MODE_DEFAULT must identify an available mode");
 // Semantic input only: this does NOT assert that the A1 circuit can decode BOTH.
 enum class ButtonLevel : std::uint8_t { NONE, START, MODE, BOTH };
 enum class ButtonPresence : std::uint8_t { ABSENT = 1, VALID = 2, INVALID = 3 };

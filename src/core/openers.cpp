@@ -66,6 +66,7 @@ bool Flank::start(std::uint32_t t_us, float heading_deg, bool imu_ok,
                    core::Mode mode) {
     reset();
     if (!std::isfinite(heading_deg) ||
+        (config::MODE_ARC_ENABLED == 0U && !core::modeAvailable(mode)) ||
         (mode != core::Mode::SIDESTEP_R && mode != core::Mode::SIDESTEP_L &&
          mode != core::Mode::ARC_R && mode != core::Mode::ARC_L)) {
         finish(Exit::INVALID);
@@ -218,7 +219,7 @@ void Flank::reset() { *this = Flank{}; }
 
 bool Wait::start(std::uint32_t t_us, float heading_deg) {
     reset();
-    if (!std::isfinite(heading_deg)) {
+    if (!core::modeAvailable(core::Mode::WAIT) || !std::isfinite(heading_deg)) {
         finish(Exit::INVALID);
         return false;
     }

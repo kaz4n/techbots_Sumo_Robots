@@ -1,0 +1,62 @@
+{
+  "label": "default11_focused_retry1",
+  "arc": 1,
+  "wait": 1,
+  "default": 1,
+  "flags": [
+    "review"
+  ],
+  "start_utc": "2026-09-24T08:49:27.343388+00:00",
+  "input_freeze_sha256": "c0ca46f5935bb28984d4972ac57af74fbcad5cb4d836958f9b8663bd72430b1d",
+  "commands": [
+    {
+      "argv": [
+        "cmake",
+        "-S",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/host",
+        "-B",
+        "/dev/shm/sumox_d134_bx3ltjvl/build",
+        "-DCMAKE_BUILD_TYPE=Debug"
+      ],
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "cmake",
+        "--build",
+        "/dev/shm/sumox_d134_bx3ltjvl/build",
+        "--parallel",
+        "1",
+        "--target",
+        "mode_availability_m0_tests",
+        "mode_availability_m1_tests"
+      ],
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "ctest",
+        "--test-dir",
+        "/dev/shm/sumox_d134_bx3ltjvl/build",
+        "--output-on-failure",
+        "-R",
+        "^mode_availability_"
+      ],
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "/usr/bin/python3",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/reviews/P5_mode_availability_review_raw/run_private.py",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots",
+        "/dev/shm/sumox_d134_bx3ltjvl/build",
+        "default11_focused_retry1"
+      ],
+      "returncode": 1
+    }
+  ],
+  "hardware_access": false,
+  "end_utc": "2026-09-24T08:50:18.603895+00:00",
+  "returncode": 1,
+  "scratch_released": true
+}

@@ -542,14 +542,16 @@ void Robot::acceptMotion(const motion::Result& result, governor::Profile profile
 void Robot::startOpener() {
     cancelMotion();
     bool started = false;
-    if (running_mode_ == core::Mode::DIRECT) {
-        started = direct_.start(tick_.t_us, result_.heading.heading_deg,
-                                 result_.lifecycle.services.opponent_snapshot);
-    } else if (running_mode_ == core::Mode::WAIT) {
-        started = wait_.start(tick_.t_us, result_.heading.heading_deg);
-    } else {
-        started = flank_.start(tick_.t_us, result_.heading.heading_deg,
-                                result_.heading.imu_ok, running_mode_);
+    if (core::modeAvailable(running_mode_)) {
+        if (running_mode_ == core::Mode::DIRECT) {
+            started = direct_.start(tick_.t_us, result_.heading.heading_deg,
+                                     result_.lifecycle.services.opponent_snapshot);
+        } else if (running_mode_ == core::Mode::WAIT) {
+            started = wait_.start(tick_.t_us, result_.heading.heading_deg);
+        } else {
+            started = flank_.start(tick_.t_us, result_.heading.heading_deg,
+                                    result_.heading.imu_ok, running_mode_);
+        }
     }
     if (!started) faults_ |= SCRIPT_START;
     opener_active_ = started;

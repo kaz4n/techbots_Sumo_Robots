@@ -68,7 +68,8 @@ literal1 values in the existing config registry.
   no EN/PWM/nonzero receipt before5100000us from accepted release, including the
  5000000us nominal-hold boundary and5099999us; GO at5100000us only.
 - R5 every15 nonblack masks, every available mode, both first-GO and later-opener
-  observations: same-observation EDGE_ESCAPE and initial zero physical PWM.
+  observations: same-observation EDGE_ESCAPE, B4 row-specific motion through B6,
+  zero brake/fault rows, physical MotorGate quantization and M0 inhibition.
 - Immediate STOP at a prospective GO/white/target tie; reset-only inhibition;
   separate genuine post-GO BOTH20ms qualification+1000ms hold with exact
   deadline-minus-one and deadline observations, retaining STOP over later white.
@@ -142,3 +143,35 @@ compile-only fit evidence are separate root/reviewer responsibilities.
 Current date24September precedes the28September scope-cut deadline. This is
 software preparation for the documented option, not a forced mode removal,
 hardware measurement, motor authorization or human phase gate.
+
+## Preserved first failures and authorized draft correction
+
+Original source freeze and initial compiler failure are retained in Git425c8a97.
+The fixture's bare `last = {};` assignment failed before test execution under
+g++13.3. Root authorized only the explicit `last = fsm::RobotResult{};` operand;
+member-default reset semantics and all assertions remained unchanged.
+
+The first focused behavioral execution retained in
+`P5_mode_availability_raw/default11_focused_LastTest.log` passed19/20 cases in
+each M0/M1 target. The sole failing new draft case had incorrectly required
+initial zero duty/PWM for every nonblack mask. This was an authoring error:
+BEHAVIOR B4.2/D021 and the public RowExecutor contract explicitly begin masks
+4/8/12 in forward motion and5/10 in an away-side pivot. D134 requires immediate
+edge arbitration, not a newly invented universal brake. Root and the independent
+reviewer adjudicated that correction before author changes; D134's12:45 decision
+authorizes correction only of this unaccepted new draft oracle. No established
+protected test or production code changed.
+
+The corrected case preserves every loop, first-observation EDGE_ESCAPE/mask/
+no-contact assertion and the exact zero requested/applied/PWM assertions for
+front/head-on/diagonal masks1/2/3/6/9 and fault masks7/11/13/14/15. Added checks
+require the correct NONE/WHITE_PATTERN fault and enabled/inhibited status.
+Moving-row nominal targets are independently literal:
+4=(+0.80,+0.56),5=(+0.80,-0.80),8=(+0.56,+0.80),10=(-0.80,+0.80),
+12=(+0.80,+0.80). First-observation signs/caps and0.02/ms B6 slew/reversal
+braking use the captured preceding governed output and actual elapsed time.
+An unchanged-white observation40000us later is before the200ms forward/700ms
+pivot deadlines and must reach the exact settled row vector. Both observations
+check actual M1 EN, single-direction floor-quantized PWM and matching signed
+application receipt; M0 requires LOW/allzero. No behavioral assertion is replaced
+by a state-only check. The author has not compiled or executed the correction.

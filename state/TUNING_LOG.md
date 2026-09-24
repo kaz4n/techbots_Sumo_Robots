@@ -363,3 +363,5 @@ Added STAND_SEGMENT_MS=500 and STAND_DUTY=0.25 for the pure finite B4 request se
 2026-09-24T07:19:58.614899+04:00 | D125 development default TURN_TRIAL_DEG=+90 degrees; one immutable P3 3.4 trial request, not measured tuning. Other exact signed angles validated by synthetic overlays; physical angle/fallback calibration pending. No B16 change.
 
 2026-09-24T07:35:40.045964+04:00 | D126 unmeasureddevelopment stoppingtrial base/finalcap0.30, approach1000ms, observedbrake500ms; isolatedprofile, productionB16SEARCH0.30 unchanged. Evidence-backed5duty table andphysicalgrants pending.
+
+2026-09-24T12:31:26.2179534+04:00 | D134 development availability defaults | Added MODE_ARC_ENABLED=1 and MODE_WAIT_ENABLED=1 (dimensionless0/1), preserving all six existing choices and every B16 value. Contract/public interfaces27bc075a and separate draft review supply design provenance; no physical tuning or qualification. Copied0/1 combinations will be synthetic validation only. Target fit, mode acceptance and physical gates remain pending.

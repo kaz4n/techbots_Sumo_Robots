@@ -103,7 +103,7 @@ def sync_sources(board, folder, board_folder):
                        check=True, stdin=subprocess.DEVNULL)
 
 
-def _push_config_code(text):
+def _push_config_code(text, name='EDGE_PUSH_THROUGH_MS'):
     # Preserve line boundaries while removing comments and literal contents.
     token = re.compile(r'//|/\*|(?:u8|[uUL])?R"|["\']')
     output, cursor = [], 0
@@ -116,25 +116,25 @@ def _push_config_code(text):
         elif kind == '/*':
             end = text.find('*/', match.end())
             if end < 0:
-                fail('EDGE_PUSH_THROUGH_MS: unterminated block comment')
+                fail(f'{name}: unterminated block comment')
             end += 2
         elif kind.endswith('R"'):
             opener = re.match(r'([^ ()\\\t\r\n]{0,16})\(', text[match.end():match.end() + 17])
             if not opener:
-                fail('EDGE_PUSH_THROUGH_MS: unsupported raw literal')
+                fail(f'{name}: unsupported raw literal')
             closing = ')' + opener.group(1) + '"'
             end = text.find(closing, match.end() + opener.end())
             if end < 0:
-                fail('EDGE_PUSH_THROUGH_MS: unterminated raw literal')
+                fail(f'{name}: unterminated raw literal')
             end += len(closing)
         else:
             end = match.end()
             while end < len(text) and text[end] != kind:
                 if text[end] in '\r\n':
-                    fail('EDGE_PUSH_THROUGH_MS: unterminated quoted literal')
+                    fail(f'{name}: unterminated quoted literal')
                 end += 2 if text[end] == '\\' else 1
             if end >= len(text):
-                fail('EDGE_PUSH_THROUGH_MS: unterminated quoted literal')
+                fail(f'{name}: unterminated quoted literal')
             end += 1
         output.append(re.sub(r'[^\n]', ' ', text[start:end]))
         cursor = end
@@ -142,14 +142,16 @@ def _push_config_code(text):
     return ''.join(output)
 
 
-def _push_config_directives(code):
+def _push_config_directives(code, names=('EDGE_PUSH_THROUGH_MS',),
+                            label='EDGE_PUSH_THROUGH_MS'):
     # Track nesting only; no condition or macro is evaluated.
     output, depth = [], 0
     for line in code.split('\n'):
         directive = re.match(r'^\s*#\s*([A-Za-z_][A-Za-z0-9_]*)', line)
         in_directive = directive is not None
-        if re.search(r'\bEDGE_PUSH_THROUGH_MS\b', line) and (depth or in_directive):
-            fail('EDGE_PUSH_THROUGH_MS: conditional or macro declaration unsupported')
+        for name in names:
+            if re.search(r'\b' + re.escape(name) + r'\b', line) and (depth or in_directive):
+                fail(f'{name}: conditional or macro declaration unsupported')
         if directive:
             kind = directive.group(1)
             if kind in ('if', 'ifdef', 'ifndef'):
@@ -157,12 +159,12 @@ def _push_config_directives(code):
             elif kind == 'endif':
                 depth -= 1
                 if depth < 0:
-                    fail('EDGE_PUSH_THROUGH_MS: unmatched conditional directive')
+                    fail(f'{label}: unmatched conditional directive')
             elif kind in ('else', 'elif') and depth == 0:
-                fail('EDGE_PUSH_THROUGH_MS: unmatched conditional directive')
+                fail(f'{label}: unmatched conditional directive')
         output.append(re.sub(r'[^\n]', ' ', line) if in_directive else line)
     if depth:
-        fail('EDGE_PUSH_THROUGH_MS: unterminated conditional directive')
+        fail(f'{label}: unterminated conditional directive')
     return '\n'.join(output)
 
 
@@ -193,6 +195,51 @@ def validate_push_through_config(path):
         fail('EDGE_PUSH_THROUGH_MS: require canonical decimal in 0..100')
     if int(digits) > 100:
         fail('EDGE_PUSH_THROUGH_MS: value must be in 0..100')
+
+
+def _mode_config_value(code, name, allowed):
+    if len(re.findall(r'\b' + re.escape(name) + r'\b', code)) != 1:
+        fail(f'{name}: require exactly one active declaration')
+    declaration = re.search(
+        r'\binline\s+constexpr\s+std\s*::\s*uint32_t\s+' + re.escape(name) +
+        r'\s*=\s*([0-9]+)[Uu]\s*;', code)
+    if not declaration:
+        fail(f'{name}: require canonical unsigned decimal declaration')
+    prefix = code[:declaration.start()]
+    boundary = max(prefix.rfind(';'), prefix.rfind('{'), prefix.rfind('}')) + 1
+    if prefix[boundary:].strip():
+        fail(f'{name}: unsupported declaration prefix')
+    digits = declaration.group(1)
+    if len(digits) != 1 or digits not in allowed:
+        fail(f'{name}: require one decimal digit from {allowed}')
+    return int(digits)
+
+
+def validate_mode_availability_config(path):
+    label = 'MODE_ARC_ENABLED/MODE_WAIT_ENABLED'
+    try:
+        text = Path(path).read_text(encoding='utf-8')
+    except (OSError, UnicodeError) as error:
+        fail(f'{label}: cannot read copied config: {error}')
+    if re.search(r'\\[ \t\v\f]*\r?\n', text):
+        fail(f'{label}: physical line splices are unsupported')
+    code = _push_config_code(text, label)
+    if re.search(r'(?m)^[ \t\v\f\r]*%:', code):
+        fail(f'{label}: digraph directives are unsupported')
+    names = ('MODE_ARC_ENABLED', 'MODE_WAIT_ENABLED')
+    counts = tuple(len(re.findall(r'\b' + name + r'\b', code)) for name in names)
+    checked = (*names, 'MODE_DEFAULT') if any(counts) else names
+    code = _push_config_directives(code, checked, label)
+    if not any(counts):
+        return  # Historical source has no feature symbols; new core requires both.
+    for name, count in zip(names, counts):
+        if count != 1:
+            fail(f'{name}: require exactly one active declaration')
+    arc = _mode_config_value(code, names[0], '01')
+    wait = _mode_config_value(code, names[1], '01')
+    default = _mode_config_value(code, 'MODE_DEFAULT', '123456')
+    if (default in (4, 5) and arc == 0) or (default == 6 and wait == 0):
+        fail('MODE_DEFAULT: selected mode is disabled')
 
 
 def stage(sketch):
@@ -241,6 +288,7 @@ def stage(sketch):
     except OSError as error:
         fail(f'EDGE_PUSH_THROUGH_MS: cannot copy config: {error}')
     validate_push_through_config(staged_src / 'config.h')
+    validate_mode_availability_config(staged_src / 'config.h')
     for module in ['core', 'hal']:
         shutil.copytree(ROOT / 'src' / module, staged_src / module)
     for item in (ROOT / 'src/app').rglob('*'):

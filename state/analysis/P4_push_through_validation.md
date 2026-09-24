@@ -82,6 +82,13 @@ review, not cross-model or human review.
 
 ## Remaining acceptance
 
+2026-09-24 follow-up correction: D134's full regression exposed a CMake source
+association defect added with the timing-only test file. The full ordinary pass
+above preceded that addition; it was not a final-source all-target pass. The
+recorded positive/configured timing runs remain valid. Preserve this limitation
+and see P5_host_profile_integration_failure.md for the exact failure and repair
+status. No historical receipt or test assertion is rewritten.
+
 No D131 board compilation, upload or motor run occurred. Target image/loader
 fit, loaded RAM/stack and complete worst-case tick below800us remain pending;
 host sizes or sanitizer success cannot establish them. Positive physical tuning

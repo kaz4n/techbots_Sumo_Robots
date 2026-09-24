@@ -104,6 +104,25 @@ foreach(motors 0 1)
   add_test(NAME stand_integration_m${motors}_host COMMAND ${b4_target})
 endforeach()
 
+# D134 copied configs select availability; every target keeps real Gate semantics.
+foreach(motors 0 1)
+  set(mode_target mode_availability_m${motors}_tests)
+  add_executable(${mode_target} ${B4_HOST_SOURCES}
+    "${CMAKE_CURRENT_SOURCE_DIR}/../tests/test_mode_availability.cc"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../tests/locked/test_mode_availability_safety.cc")
+  target_include_directories(${mode_target} PRIVATE ../src ../tests)
+  target_include_directories(${mode_target} SYSTEM PRIVATE third_party)
+  target_compile_definitions(${mode_target} PRIVATE
+    DOCTEST_CONFIG_NO_EXCEPTIONS MOTORS_ALLOWED=${motors})
+  if(MSVC)
+    target_compile_options(${mode_target} PRIVATE /W4 /GR-)
+  else()
+    target_compile_options(${mode_target} PRIVATE
+      -Wall -Wextra -Wpedantic -Werror -fno-exceptions -fno-rtti)
+  endif()
+  add_test(NAME mode_availability_m${motors}_host COMMAND ${mode_target})
+endforeach()
+
 # D131 uses copied-source positive duration fixtures; normal targets retain zero.
 get_target_property(PUSH_HOST_SOURCES motor_gate_enabled_tests SOURCES)
 list(FILTER PUSH_HOST_SOURCES EXCLUDE REGEX "/tests/")
@@ -111,7 +130,6 @@ foreach(motors 0 1)
   set(push_target push_through_m${motors}_tests)
   add_executable(${push_target} ${PUSH_HOST_SOURCES}
     "${CMAKE_CURRENT_SOURCE_DIR}/../tests/test_push_through.cc"
-    "${CMAKE_CURRENT_SOURCE_DIR}/../tests/test_push_through_timing.cc"
     "${CMAKE_CURRENT_SOURCE_DIR}/../tests/locked/test_push_through_safety.cc")
   target_include_directories(${push_target} PRIVATE ../src)
   target_include_directories(${push_target} SYSTEM PRIVATE third_party)
@@ -207,6 +225,7 @@ foreach(motors 0 1)
   set(timing_target timing_evidence_m${motors}_tests)
   add_executable(${timing_target} ${B4_HOST_SOURCES}
     "${CMAKE_CURRENT_SOURCE_DIR}/../tests/test_timing_evidence.cc"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../tests/test_push_through_timing.cc"
     "${CMAKE_CURRENT_SOURCE_DIR}/../tests/locked/test_timing_evidence_safety.cc")
   target_include_directories(${timing_target} PRIVATE ../src)
   target_include_directories(${timing_target} SYSTEM PRIVATE third_party)

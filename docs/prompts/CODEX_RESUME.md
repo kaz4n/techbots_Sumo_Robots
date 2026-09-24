@@ -2,8 +2,13 @@
 
 Current software phase: P5 under D134; D131-D133 completed at host scope with
 separate same-model review PASS. D134 optional-mode contract is adopted under
-the user's hardware-at-end direction, not a human gate. Config/public interface
-declarations exist; independent tests are being authored before implementation.
+the user's hardware-at-end direction, not a human gate. Implementation and
+independently derived tests exist. Resume the actual receipt and process in
+P5_mode_availability_checkpoint.md. USER PAUSED2026-09-24 13:09 Dubai: all18 default
+CTest targets and6private C++ perM0/M1 now pass;60+296tooling and8private Python
+also passed. First unfinished task is the four-pair sanitizer matrix, then the
+positive20 timing-profile supplement. No build/process remains active. Original
+fixture/oracle failures and the repaired CMake association defect are preserved.
 
 1. Read AGENTS.md fully, state/CODEX_HANDOFF.md, CODEX_EXECUTION.md, recent
    PROGRESS.md, DECISIONS.md, FACTS.md, TUNING_LOG.md and open findings. Load the
@@ -16,9 +21,12 @@ declarations exist; independent tests are being authored before implementation.
    tooling methods passed after exact historical-fixture repair. All344 prior
    adapter assertions and41 protected source files are unchanged. Keep original
    failures and successful hashes. Do not repeat matrices without a relevant change.
-4. Read state/analysis/P5_mode_availability_contract.md and the source map.
-   Preserve adopted D134; tests derive from specs/public headers, then
-   freeze, implement, validate and review. No physical gate follows from software
+4. Read state/analysis/P5_mode_availability_contract.md, its working checkpoint,
+   validation report and P5_host_profile_integration_failure.md. Finish actual
+   full/reduced/sanitizer checks and review before accepting its new locked test.
+   D135 abort-evidence contract is adopted in2aa0ac2e, following design4dc72ac1;
+   independent isolated test drafts may exist, but implementation waits until
+   D134 frozen-source validation closes. No physical gate follows from software
    scheduling. Shipped push duration remains0.
 5. D129/D131 target compilation/native fit are still pending. Prior D128 reactive
    source9ddaa2aa/ELF01e39e39 modeled free6512; default43d16734 modeled free16.

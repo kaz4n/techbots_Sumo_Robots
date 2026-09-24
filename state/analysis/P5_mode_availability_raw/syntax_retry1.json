@@ -1,0 +1,22 @@
+{
+  "argv": [
+    "g++",
+    "-std=c++17",
+    "-Wall",
+    "-Wextra",
+    "-Wpedantic",
+    "-Werror",
+    "-fno-exceptions",
+    "-fno-rtti",
+    "-DDOCTEST_CONFIG_NO_EXCEPTIONS",
+    "-DMOTORS_ALLOWED=0",
+    "-Isrc",
+    "-Itests",
+    "-isystem",
+    "host/third_party",
+    "-fsyntax-only",
+    "tests/test_mode_availability.cc",
+    "tests/locked/test_mode_availability_safety.cc"
+  ],
+  "returncode": 0
+}

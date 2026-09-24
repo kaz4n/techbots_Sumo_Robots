@@ -1104,3 +1104,5 @@ physical/loadedRAM/gate claim. | contract=this commit
 2026-09-25T03:10:12.888418+04:00 | P7 D152 host first run | 37 frozen independent methods PASSexit0/0.206s; sourceb7ab979d unchanged. Caller loader-reference defect independently corrected to ELF-derivede932; original saved6d45e3b5. No board/production/test changes; final review pending | capture host result commit
 
 2026-09-25T03:12:05.758851+04:00 | P7 D152 host capture complete | 37 frozenmethods first-runPASS; sourceb7ab979d/testbcb63005 unchanged, fresh-context reviewcdae7896PASS. Sourcefcddbd8e/17pins/103source102stage and originalhistory verified. Commits4ba1c84e,6d45e3b5,e7f88263,8fa01d1f; loader-reference correction explicit. No current-image upload/MCU sample. Next one-shot upload/capture guard | capture closure commit
+
+2026-09-25T03:19:15.414942+04:00 | P7 D153 passive collector adopted | Designreview7c7e8139PASS; contract0b2cb941/bindingsc2c87df6. New bounded collector and independent host tests underway; no implementation execution/nativeoperation. Next freeze/test/review then host upload/capture composition | collector contract commit

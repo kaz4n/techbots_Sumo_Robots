@@ -1,7 +1,8 @@
 # Resume SumoX-26 with Codex
 
-Current phase: **P7 software-document preparation under D137**. P5 software is
-closed; actual physical acceptance/human gates remain pending. Do not reset toP0
+Current phase: **P7 awaiting release prerequisites**. D137 document preparation
+is closed2700da11; P5 software is closed. Actual physical acceptance/human gates
+remain pending. Do not reset toP0
 or revive stale pending text in the preserved16:10pause checkpoint.
 
 1. Read AGENTS.md fully, state/CODEX_HANDOFF.md, CODEX_EXECUTION.md, recent
@@ -9,9 +10,13 @@ or revive stale pending text in the preserved16:10pause checkpoint.
    plus relevant PLAN sections. Inspect Git/nested instructions, preserve user
    work, determine actual Asia/Dubai time and disk space.
 2. Read analysis/P7_software_acceptance_packet.md and reviews/P7_gate_request.md.
-   Resume the first unfinished eligible documentation task; once documents and
-   scoped review are complete, remaining release/rehearsal work needs real
-   prerequisites. Do not turn templates into measured acceptance.
+   D137 docs and scoped review are complete in2700da11,52links/9fragments checked.
+   Resume the first prerequisite for which real evidence is newly available:
+   physical/controls/PINMAP qualification, or native dump's privileged read-only
+   holder receipt and reviewed quiescence/cancel/reopen plan. Then resolve SC-AP's
+   actual matrix readiness/battery and full rearm/capture workflow before release.
+   No extra hardware request now; do not repeat solved checks or fabricate work
+   when those dependencies remain unavailable. Templates are not acceptance.
 3. D134closed d6a8319e; D135closed70c964a7; D136closed0faf2e6d. D136finalsource
    5277dec0/8e002c6f passes93public/19private and112legacychecks. Original failures,
    reviewed corrections,694prior-input/43protected bindings remain retained.

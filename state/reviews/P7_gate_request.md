@@ -5,8 +5,9 @@ human approval**. Current work prepares documentation only; do not request a pha
 PASS from a reviewer before the missing release and real rehearsal evidence exists.
 
 - Phase: P7 freeze/runbook/dress rehearsal.
-- Documentation baseline:0faf2e6d. Final documentation commit and scoped review
-  will be recorded in [the packet](../analysis/P7_software_acceptance_packet.md).
+- Documentation baseline:0faf2e6d; completed documentation commit:2700da11.
+  The scoped reused-context preparation review passes; see
+  [the packet](../analysis/P7_software_acceptance_packet.md). It is not a phase verdict.
 - Final release commit/artifact/tag: PENDING, not assigned by this request.
 - Specifications: AGENTS R1-R11; PLAN3/5/6; P7_freeze_matchday7.1-7.4;
   relevant approved UI/start/STOP/mode decisions and retained physical packets.

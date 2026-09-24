@@ -1,6 +1,7 @@
 # Codex handoff - 2026-09-24 Asia/Dubai
 
-**Current: P7 operator-document preparation under D137.** User resumed from
+**Current: P7 awaiting release prerequisites; D137 documents closed2700da11.**
+User resumed from
 c4fadad0 and requests commits as tasks finish. P5 software is complete; actual
 physical and human phase gates remain pending. The software-first scheduling
 assumption is not measured acceptance. See [checklist](CODEX_EXECUTION.md) and
@@ -31,10 +32,19 @@ remain UNADOPTED; no third candidate or candidatehosttests. UnmodifiedD135defaul
 has not been targetcompiled. D135inert wrapper conditional1328B omits the default
 native dump owner; neither wrapper nor MATCH qualifies the default build.
 
-P7 now prepares original7.2/7.4 and blank7.3 records. The compile-only example in
-P7.1 is corrected. Next: finish operator docs and separate read-only review, then
-record deferred release/physical tasks. P6 is not active; no print, rehearsal,
-release tag or human gate is claimed. Read analysis/P7_software_acceptance_packet.md.
+P7 original7.2/7.4 and blank7.3 records are now written and scoped-reviewed in
+2700da11. The P7.1 build-only example is corrected.52links/9fragments and43protected
+hashes pass; production/tools/tests unchanged. P6 remains deferred. No print,
+rehearsal, release tag, operator-readiness or human gate is claimed. Read
+analysis/P7_software_acceptance_packet.md and reviews/P7_operator_docs_review.md.
+
+Next: act on newly supplied real P0-P5 qualification evidence or the exact native
+transport prerequisite receipt/plan; then resolve openSC-AP against that qualified
+release (matrix READY/battery criterion, full rearm and capture preservation).
+Do not enable hardware grants from assumptions, reuse a run grant, rerun completed
+matrices, retry denied cleanup or invent another helper to bypass missing evidence.
+Draft preparation is finished and no background job remains. Resume instructions
+and the pending gate request identify the actual external acceptance still needed.
 
 ## Historical board and acceptance evidence
 

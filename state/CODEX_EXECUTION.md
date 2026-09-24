@@ -1,7 +1,8 @@
 # Current execution checklist - 2026-09-24 Asia/Dubai
 
-**Active: P7 operator-document preparation under D137.** P5 D134/D135/D136
-software is complete and scoped-reviewed. Actual physical acceptance and human
+**Active phase: P7, awaiting release prerequisites.** D137 operator-document
+preparation is complete and scoped-reviewed in2700da11; P5 D134/D135/D136 software
+is also complete and scoped-reviewed. Actual physical acceptance and human
 phase gates remain pending. PROGRESS.md is the append-only authority; preserve
 its legacy bytes. User resumed from c4fadad0 and requests prompt task commits.
 
@@ -15,7 +16,7 @@ its legacy bytes. User resumed from c4fadad0 and requests prompt task commits.
 | P4 4.1-4.7 | Reactive/timing profiles, target-loss analyzer, bounded push and admission | Physical trials, current full-app deployment qualification and gate |
 | P5 5.1-5.5 | Six openers, availability, abort producer/analyzer and scoped reviews | Real opener/mirror/UI/abort results and gate |
 | P6 | Deferred, not active | Actual P4 gate by30Sep and no stronger28Sep cut |
-| P7 7.2/7.4 | Operator documents in preparation | Separate document review, release-qualified procedures and printed copies |
+| P7 7.2/7.4 | Runbook/mode card/kit/blank sheets complete and scoped-reviewed2700da11 | Release-qualified procedures, team review and printed copies |
 | P7 7.1/7.3 | Build example corrected to --match --compile-only | Validated release/tag at freeze and actual2Oct rehearsal |
 
 ## Completed checks: do not repeat without a relevant change
@@ -39,14 +40,27 @@ D135default has not been compiled. MATCH fit does not close this default blocker
 
 ## Current next tasks
 
-1. Complete original P7 runbook/mode card/kit and blank rehearsal/scouting sheets.
-2. Separate read-only document review, local link/source checks, prompt commit.
-3. Close the software-document packet and save exact external prerequisites.
-   Do not invent work, physical evidence or gate passes to bypass those blockers.
+D137 is closed for preparation only:52links/9fragments,43protected hashes and
+PROGRESSprefix verified; separate reused-context review PASS. All three documents
+remain not operator-ready. No new code, board job or generated build data.
+
+1. Resume the first prerequisite for which real evidence is supplied: P0-P5
+   physical/controls/PINMAP qualification, or native dump's privileged read-only
+   holder receipt plus reviewed quiescence/cancel/reopen plan. Do not repeat an
+   unprivileged scan or enable setup grants from assumptions.
+2. Resolve SC-AP against the actual release: original matrix READY/battery
+   acceptance, full rearm and evidence-preservation procedure. Any changed
+   semantics need a recorded decision and independent verification before use.
+3. Once qualified, fill release record, obtain actual team/print/rehearsal evidence
+   and fresh gate review. P6 still needs its actual gate condition. Do not invent
+   work, physical evidence, a tag or human PASS to bypass these dependencies.
+
+No additional hardware request is made now. Current eligible draft preparation
+is finished; no background work is running. See P7packet and pendinggate request.
 
 Evidence entry points: analysis/P5_software_acceptance_packet.md,
 analysis/P5_abort_analysis_validation.md, analysis/P5_match_native_validation.md,
-and analysis/P7_software_acceptance_packet.md (new preparation packet).
+and analysis/P7_software_acceptance_packet.md (completed preparation packet).
 
 All prior exec jobs are terminal. Last actual MCU upload is consumed D118defaultM0
 sourcee820c0e1; current loaded state is not freshly observed. User reports bare UNOQ

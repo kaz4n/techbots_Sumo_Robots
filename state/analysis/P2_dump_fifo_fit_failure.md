@@ -1,3 +1,5 @@
+Current disposition: the first-image deficit is CLOSED conditionally by D117 repair1 in ed5a9dea. The corrected default image has only8 bytes modeled span; actual loading remains unmeasured. Original failure and repair evidence follow unchanged.
+
 # D117 first default application exceeds modeled loader capacity
 
 2026-09-24. OPEN target acceptance blocker; no MCU run or upload occurred.

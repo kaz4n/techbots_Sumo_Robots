@@ -1,3 +1,17 @@
+## Active checkpoint - 2026-09-24T04:01:11.764812+04:00
+
+D117 implementation ed5a9dea and native UART prerequisite evidence bfd212bb are
+committed. Exact default/M0 app eligibility now has separate conditional review
+PASS: report72841817/review87d50e2e. Real EN LOW/zero PWM/timer initialization is
+in scope for a proposed bare-board observation; optional sources/UART stay absent.
+No new firmware or MCU action. Current image remains consumed D114396bcc45.
+Next: finish and independently preflight the new exact-app run/readout contract;
+proposed new64read/80command ceiling supports62reads/66commands with fullflash
+before/after, twoheaps, max3nodes and four small liveprefix reads. Earlier probe
+caps/ABIs/guards remain unchanged. No adoption, upload or coherent/terminal app
+claim follows from eligibility. Native UART grants and physical/human gates stay
+pending; defaultapp has8bytes conditional loader span, actualload unmeasured.
+
 ## Active checkpoint - 2026-09-24T03:54:44.174704+04:00
 
 D117 software committed ed5a9dea; F145 and final scopedreview PASS. Fullnormal/san

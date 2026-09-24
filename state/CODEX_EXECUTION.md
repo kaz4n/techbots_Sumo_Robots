@@ -57,7 +57,9 @@ pending; D051/D075/D122/D137 permit scheduling, not fabricated measurements.
 - [x] D148 actual seven-artifact validation:5 read-only commands exit0, all postchecks
   pass, query/compile0. Sourcefcddbd8e/finalELF5cc2dfde unchanged. See
   analysis/P7_static_native_actual_validation.md and linked review/raw receipts.
-- [ ] Finish local entry/constructor inspection of existing debugELF0f7f2825/map.
+- [x] Local entry/constructor inspection:34 commands/32 functions; source/ELF match,
+  separate review14e6d959 PASS. Original raw92b72069 retained; literal-elision
+  description corrected. Early native printk/startup behavior remains unmeasured.
 - [ ] Audit actual used native bindings and exact16-type/82-offset target ABI.
   Use current_default_abi query list only under a separately bound file-only read;
   never execute the historical collector unchanged or reuse consumed commands.

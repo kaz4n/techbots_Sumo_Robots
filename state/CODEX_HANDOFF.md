@@ -31,8 +31,11 @@ D141/D142/D143 contracts, original parsers/tests/consumers and production dynami
 admission remain unchanged. D139's dynamic default profile still has592B modeled
 deficit; the native structural pass is a distinct experimental result.
 
-Exact next task: finish local entry/constructor audit from retained debug ELF/map,
-then the missing native reference/ABI audit. The existing current_default_abi
+Local entry/constructor audit is complete (original6ecb8ab6):34 local commands,
+32 focused functions; separate review14e6d959 PASS. Read analysis/P7_static_entry_audit.md.
+One literal-elision description was corrected; raw receipt92b72069 is unchanged.
+Three native printk calls before initialization remain an untested startup dependency.
+Exact next task: finish the missing native reference/ABI audit. The existing current_default_abi
 receipt contains16 type size/alignment and82 member-offset queries. A later
 file-only GDB observation may reuse those exact queries against D144 debug ELF
 with source/tool/artifact binding; do not execute the historical hardwired collector.

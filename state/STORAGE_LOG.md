@@ -175,3 +175,13 @@ Current D148 sources/receipts and D145-D147 evidence are required and retained.
 No files were removed in this follow-up. C: free was677650432B at02:11Dubai;
 this is a current observation, not a cleanup-recovery claim. D148 reuses existing
 board artifacts in memory and returns compact reports instead of binary copies.
+
+
+## 2026-09-25T02:22:35.566328+04:00 native evidence retention
+
+D148 kept126085B of actual command/input/result/launcher receipts and a small
+closure index; no duplicate board binaries or staging/compiler tree. The focused
+local entry audit retained one101536B receipt plus its note/review. Two larger
+trial captures stayed in RAM and wrote no files. These compact artifacts remain
+necessary review/reproduction evidence. No cleanup candidate is introduced; all
+local Python used-B. C: free573599744B at02:21Dubai, a fluctuating system value.

@@ -13,8 +13,13 @@ arguments and zero statuses for all 34 commands. Tools are local WSL
 `/usr/bin/arm-none-eabi-objdump` and `/usr/bin/readelf`; their hashes agree before
 and after. Each disassembly uses the queried function's even Thumb start and
 symbol-size end, so same-address C1/C2 constructor aliases cannot silently yield
-an empty `--disassemble=name` result. Instruction and literal lines are complete;
-only blank lines and repeated file-format headers are omitted.
+an empty `--disassemble=name` result. Blank lines and repeated file-format headers
+are omitted. Objdump also elides two zero-filled literal spans: Runtime
+[0x08100908,0x08100910),8B, and Robot [0x08102f10,0x08102f24),20B.
+The separate reviewer checked all5194 rendered bytes against the ELF, verified
+these28 omitted bytes are zero and confirmed branches skip both literal spans.
+The original receipt's `stdout_format` field overstates literal completeness;
+this note corrects that description while preserving the original receipt bytes.
 
 Inputs are checked before and after against these retained identities:
 

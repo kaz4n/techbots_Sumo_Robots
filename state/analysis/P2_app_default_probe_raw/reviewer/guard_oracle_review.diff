@@ -1,0 +1,52 @@
+--- first20
++++ strengthened22
+@@ -316,8 +316,8 @@
+             b=Board(f)
+             synced=[]
+             real_fsync=os.fsync
+-            def fsync(fd): synced.append(fd); return real_fsync(fd)
+-            def launch_check(): self.assertTrue(synced)
++            def fsync(fd): synced.append(os.fstat(fd).st_ino); return real_fsync(fd)
++            def launch_check(): self.assertIn((f.root/ATTEMPT).stat().st_ino,synced)
+             b.hooks['upload']=launch_check
+             with mock.patch('os.fsync',side_effect=fsync): result=self.guard.run_once(b,request())
+             names=[name for name,args in b.calls]
+@@ -453,6 +453,38 @@
+                 self.assertIn(code,(1,2)); self.assertNotEqual(code,0)
+         self.assertEqual(self.git_calls,[])
+ 
++    def test_attempt_specific_fsync_failure_consumes_partial_claim(self):
++        with Fixture() as f:
++            b=Board(f); real_fsync=os.fsync; failed=[]
++            def fsync(fd):
++                claim=f.root/ATTEMPT
++                if claim.exists() and os.fstat(fd).st_ino==claim.stat().st_ino:
++                    failed.append(True)
++                    raise OSError('attempt fsync failed')
++                return real_fsync(fd)
++            with mock.patch('os.fsync',side_effect=fsync),self.assertRaises(OSError):
++                self.guard.run_once(b,request())
++            self.assertEqual(failed,[True]); self.assertTrue((f.root/ATTEMPT).exists())
++            self.assertFalse((f.root/OUTCOME).exists()); self.assertEqual(self.uploads(b),[])
++            with self.assertRaises(ValueError): self.guard.run_once(b,request())
++            self.assertEqual(self.uploads(b),[])
++
++    def test_claim_creation_collision_preserves_other_claim(self):
++        with Fixture() as f:
++            b=Board(f); original=Path.open; collided=[]
++            def open_path(path,mode='r',*args,**kwargs):
++                if path==f.root/ATTEMPT and ('x' in mode or 'w' in mode):
++                    with original(path,'wb') as stream: stream.write(b'other exclusive claim')
++                    collided.append(mode)
++                return original(path,mode,*args,**kwargs)
++            with mock.patch.object(Path,'open',open_path),self.assertRaises(OSError):
++                self.guard.run_once(b,request())
++            self.assertEqual(len(collided),1)
++            self.assertIn('x',collided[0]); self.assertEqual(self.uploads(b),[])
++            self.assertEqual((f.root/ATTEMPT).read_bytes(),b'other exclusive claim')
++            with self.assertRaises(ValueError): self.guard.run_once(b,request())
++            self.assertEqual(self.uploads(b),[])
++
+     def test_unchanged_manifest_exact_nine_keys(self):
+         data=(ROOT/'tools/p0_inert_sources.json').read_bytes()
+         self.assertEqual(digest(data),'a1587931afa5f817bf8b93054f384918dc8cd36d4fb71c8f7b083d76e6128802')

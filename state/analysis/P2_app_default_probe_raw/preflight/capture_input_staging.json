@@ -1,0 +1,30 @@
+{
+  "scope": "EXCLUSIVE_LINUX_FILE_COPY_NO_MCU_ACTION",
+  "start_utc": "2026-09-24T00:18:58.836570+00:00",
+  "target": "2629958581",
+  "argv": [
+    "python3",
+    "-c",
+    "from pathlib import Path\nimport hashlib,json,os,stat\ndef regular(path):\n    assert path.is_absolute() and path.resolve()==path\n    assert all(not p.is_symlink() for p in (path,*path.parents))\n    assert stat.S_ISREG(path.stat().st_mode)\nitems=[('/home/arduino/sumox26_codex_build/_app_builds/native-app-v1/e820c0e16c29cfd289889273f02721a995e5336b14397f64d6093cffd42b8b69/bench-default/d92f929c6cc84961bb86dfea3da2ad00/build/app.ino.elf', 'app.ino.elf', '8379f152554649fd1b96165f29fda1f165c2b5cfc51d8dca430a37e19f693257'), ('/home/arduino/sumox26_codex_build/_app_builds/native-app-v1/e820c0e16c29cfd289889273f02721a995e5336b14397f64d6093cffd42b8b69/bench-default/d92f929c6cc84961bb86dfea3da2ad00/artifacts/app.ino.elf-zsk.bin', 'app.ino.elf-zsk.bin', 'c60443cd8d90c26a85591153dfa38d5f9233bd686b413b2ab7daa3e1457f6df5')]\nout=Path('/home/arduino/sumox26-capture-input/app_default_e820c0e16c29cfd289889273f02721a995e5336b14397f64d6093cffd42b8b69')\nassert out.parent.is_dir() and out.parent.resolve()==out.parent\nassert all(not p.is_symlink() for p in (out.parent,*out.parent.parents))\nassert not os.path.lexists(out)\nblobs=[]\nfor source,name,expected in items:\n    p=Path(source); regular(p); assert p.stat().st_size==176048\n    data=p.read_bytes(); assert hashlib.sha256(data).hexdigest()==expected\n    blobs.append((name,expected,data))\nout.mkdir(mode=0o700)\nresult=[]\nfor name,expected,data in blobs:\n    p=out/name\n    with p.open(\"xb\") as stream:\n        stream.write(data); stream.flush(); os.fsync(stream.fileno())\n    regular(p); digest=hashlib.sha256(p.read_bytes()).hexdigest(); assert digest==expected\n    result.append(dict(path=str(p),bytes=p.stat().st_size,sha256=digest))\nassert sorted(p.name for p in out.iterdir())==sorted(x[0] for x in blobs)\nprint(json.dumps(dict(status=\"PREPARED_FILES_ONLY\",files=result)))"
+  ],
+  "timeout_seconds": 30,
+  "returncode": 0,
+  "stdout": "{\"status\": \"PREPARED_FILES_ONLY\", \"files\": [{\"path\": \"/home/arduino/sumox26-capture-input/app_default_e820c0e16c29cfd289889273f02721a995e5336b14397f64d6093cffd42b8b69/app.ino.elf\", \"bytes\": 176048, \"sha256\": \"8379f152554649fd1b96165f29fda1f165c2b5cfc51d8dca430a37e19f693257\"}, {\"path\": \"/home/arduino/sumox26-capture-input/app_default_e820c0e16c29cfd289889273f02721a995e5336b14397f64d6093cffd42b8b69/app.ino.elf-zsk.bin\", \"bytes\": 176048, \"sha256\": \"c60443cd8d90c26a85591153dfa38d5f9233bd686b413b2ab7daa3e1457f6df5\"}]}\n",
+  "stderr": "",
+  "result": {
+    "status": "PREPARED_FILES_ONLY",
+    "files": [
+      {
+        "path": "/home/arduino/sumox26-capture-input/app_default_e820c0e16c29cfd289889273f02721a995e5336b14397f64d6093cffd42b8b69/app.ino.elf",
+        "bytes": 176048,
+        "sha256": "8379f152554649fd1b96165f29fda1f165c2b5cfc51d8dca430a37e19f693257"
+      },
+      {
+        "path": "/home/arduino/sumox26-capture-input/app_default_e820c0e16c29cfd289889273f02721a995e5336b14397f64d6093cffd42b8b69/app.ino.elf-zsk.bin",
+        "bytes": 176048,
+        "sha256": "c60443cd8d90c26a85591153dfa38d5f9233bd686b413b2ab7daa3e1457f6df5"
+      }
+    ]
+  },
+  "finish_utc": "2026-09-24T00:18:59.081114+00:00"
+}

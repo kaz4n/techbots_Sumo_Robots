@@ -1,3 +1,16 @@
+## Active checkpoint - 2026-09-24T04:25:13.520525+04:00
+
+P2 D118 new capture/guard software and separate reviews pass. Read
+state/analysis/P2_app_default_probe_validation.md: capture68+private68, guard22+
+private22+6, old97. No firmware/grant/lockedtest/manifest change. Exact appdefault
+sourcee820c0e1 remains unchanged; passive input/tool files are deployed and hashed.
+CurrentMCU remains consumed D114396bcc45; no new upload/read/reset. Next bind the
+committed software HEAD to exact live run/review/approval and complete separate
+run review, then at most one guarded default/M0 upload and one passivecapture.
+Do not commit between final scope check and upload. Native ENLOW/PWMzero setup is
+explicit; no optional grants or motor/physical/gate acceptance. UARTframing/
+ownership, fullRAM/WCET and assembledrobot acceptance stay pending.
+
 ## Active checkpoint - 2026-09-24T04:09:29.021567+04:00
 
 P2 D118 capture software contract06377731 adopted after separate preflight PASS.

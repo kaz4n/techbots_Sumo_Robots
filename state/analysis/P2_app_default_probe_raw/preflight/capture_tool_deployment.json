@@ -1,0 +1,100 @@
+{
+  "scope": "REGULAR_FILE_DEPLOYMENT_NO_COLLECTOR_EXECUTION_NO_MCU",
+  "start_utc": "2026-09-24T00:23:48.340261+00:00",
+  "target": "2629958581",
+  "destination": "/home/arduino/sumox26-capture-tools/app-default-beeffff315b2e28a95a20dc1e26477fc924b2da26d1fdd8a8b36fb013ca110e1",
+  "files": {
+    "app_default_capture.py": "beeffff315b2e28a95a20dc1e26477fc924b2da26d1fdd8a8b36fb013ca110e1",
+    "p0_capture.py": "885c4e4206aea4ac9e03c4e92e48258db2a0ae302ff83a86430e6913afeeb57c",
+    "recorder_heap.py": "d661024975925a7d8a83f4b772199bbf59911adb5adb8ea69a2082b69eed4b92",
+    "p0_mem_read.cfg": "89d16a28a1489c23ec743be55ade39824f9ca5213b02b20ef4785079122e4339"
+  },
+  "commands": [
+    {
+      "argv": [
+        "python3",
+        "-c",
+        "from pathlib import Path\nimport os\np=Path('/home/arduino/sumox26-capture-tools/app-default-beeffff315b2e28a95a20dc1e26477fc924b2da26d1fdd8a8b36fb013ca110e1')\nassert p.parent.is_dir() and p.parent.resolve()==p.parent\nassert all(not a.is_symlink() for a in (p.parent,*p.parent.parents))\nassert not os.path.lexists(p)\np.mkdir(mode=0o700)\nprint(\"FRESH_EMPTY_TOOL_DIRECTORY\")"
+      ],
+      "timeout_seconds": 30,
+      "returncode": 0,
+      "stdout": "FRESH_EMPTY_TOOL_DIRECTORY\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "C:\\Users\\narut\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\adb\\32.0.0\\adb.exe",
+        "-s",
+        "2629958581",
+        "push",
+        "C:\\Users\\narut\\OneDrive\\Desktop\\Project\\techbots_Sumo_Robots\\tools\\app_default_capture.py",
+        "/home/arduino/sumox26-capture-tools/app-default-beeffff315b2e28a95a20dc1e26477fc924b2da26d1fdd8a8b36fb013ca110e1/app_default_capture.py"
+      ],
+      "timeout_seconds": 30,
+      "returncode": 0,
+      "stdout": "C:\\Users\\narut\\OneDrive\\Desktop\\Project\\techbots_Sumo_Robots\\tools\\app_default_capture.py: 1 file pushed, 0 skipped. 29.7 MB/s (31918 bytes in 0.001s)\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "C:\\Users\\narut\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\adb\\32.0.0\\adb.exe",
+        "-s",
+        "2629958581",
+        "push",
+        "C:\\Users\\narut\\OneDrive\\Desktop\\Project\\techbots_Sumo_Robots\\tools\\p0_capture.py",
+        "/home/arduino/sumox26-capture-tools/app-default-beeffff315b2e28a95a20dc1e26477fc924b2da26d1fdd8a8b36fb013ca110e1/p0_capture.py"
+      ],
+      "timeout_seconds": 30,
+      "returncode": 0,
+      "stdout": "C:\\Users\\narut\\OneDrive\\Desktop\\Project\\techbots_Sumo_Robots\\tools\\p0_capture.py: 1 file pushed, 0 skipped. 70.7 MB/s (18880 bytes in 0.000s)\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "C:\\Users\\narut\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\adb\\32.0.0\\adb.exe",
+        "-s",
+        "2629958581",
+        "push",
+        "C:\\Users\\narut\\OneDrive\\Desktop\\Project\\techbots_Sumo_Robots\\tools\\recorder_heap.py",
+        "/home/arduino/sumox26-capture-tools/app-default-beeffff315b2e28a95a20dc1e26477fc924b2da26d1fdd8a8b36fb013ca110e1/recorder_heap.py"
+      ],
+      "timeout_seconds": 30,
+      "returncode": 0,
+      "stdout": "C:\\Users\\narut\\OneDrive\\Desktop\\Project\\techbots_Sumo_Robots\\tools\\recorder_heap.py: 1 file pushed, 0 skipped. 53.9 MB/s (11002 bytes in 0.000s)\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "C:\\Users\\narut\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\adb\\32.0.0\\adb.exe",
+        "-s",
+        "2629958581",
+        "push",
+        "C:\\Users\\narut\\OneDrive\\Desktop\\Project\\techbots_Sumo_Robots\\tools\\p0_mem_read.cfg",
+        "/home/arduino/sumox26-capture-tools/app-default-beeffff315b2e28a95a20dc1e26477fc924b2da26d1fdd8a8b36fb013ca110e1/p0_mem_read.cfg"
+      ],
+      "timeout_seconds": 30,
+      "returncode": 0,
+      "stdout": "C:\\Users\\narut\\OneDrive\\Desktop\\Project\\techbots_Sumo_Robots\\tools\\p0_mem_read.cfg: 1 file pushed, 0 skipped. 3.4 MB/s (694 bytes in 0.000s)\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "python3",
+        "-c",
+        "from pathlib import Path\nimport hashlib,json,stat\np=Path('/home/arduino/sumox26-capture-tools/app-default-beeffff315b2e28a95a20dc1e26477fc924b2da26d1fdd8a8b36fb013ca110e1')\npins={'app_default_capture.py': 'beeffff315b2e28a95a20dc1e26477fc924b2da26d1fdd8a8b36fb013ca110e1', 'p0_capture.py': '885c4e4206aea4ac9e03c4e92e48258db2a0ae302ff83a86430e6913afeeb57c', 'recorder_heap.py': 'd661024975925a7d8a83f4b772199bbf59911adb5adb8ea69a2082b69eed4b92', 'p0_mem_read.cfg': '89d16a28a1489c23ec743be55ade39824f9ca5213b02b20ef4785079122e4339'}\nassert sorted(a.name for a in p.iterdir())==sorted(pins)\nactual={}\nfor name,expected in pins.items():\n    q=p/name; assert not q.is_symlink() and stat.S_ISREG(q.stat().st_mode)\n    value=hashlib.sha256(q.read_bytes()).hexdigest(); assert value==expected\n    actual[name]=value\nprint(json.dumps(actual))"
+      ],
+      "timeout_seconds": 30,
+      "returncode": 0,
+      "stdout": "{\"app_default_capture.py\": \"beeffff315b2e28a95a20dc1e26477fc924b2da26d1fdd8a8b36fb013ca110e1\", \"p0_capture.py\": \"885c4e4206aea4ac9e03c4e92e48258db2a0ae302ff83a86430e6913afeeb57c\", \"recorder_heap.py\": \"d661024975925a7d8a83f4b772199bbf59911adb5adb8ea69a2082b69eed4b92\", \"p0_mem_read.cfg\": \"89d16a28a1489c23ec743be55ade39824f9ca5213b02b20ef4785079122e4339\"}\n",
+      "stderr": ""
+    }
+  ],
+  "status": "DEPLOYED_BYTES_ONLY",
+  "actual_sha256": {
+    "app_default_capture.py": "beeffff315b2e28a95a20dc1e26477fc924b2da26d1fdd8a8b36fb013ca110e1",
+    "p0_capture.py": "885c4e4206aea4ac9e03c4e92e48258db2a0ae302ff83a86430e6913afeeb57c",
+    "recorder_heap.py": "d661024975925a7d8a83f4b772199bbf59911adb5adb8ea69a2082b69eed4b92",
+    "p0_mem_read.cfg": "89d16a28a1489c23ec743be55ade39824f9ca5213b02b20ef4785079122e4339"
+  },
+  "finish_utc": "2026-09-24T00:23:48.856113+00:00"
+}

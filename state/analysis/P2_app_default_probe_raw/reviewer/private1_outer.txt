@@ -1,0 +1,151 @@
+{
+  "argv": [
+    "/usr/bin/python3",
+    "-m",
+    "unittest",
+    "-v",
+    "tests.tooling.test_app_default_capture",
+    "tests.tooling.test_recorder_heap"
+  ],
+  "cwd": "/dev/shm/d118-author-65q5d2ni",
+  "returncode": 0,
+  "elapsed_seconds": 32.505364656448364,
+  "files": {
+    "tools/app_default_capture.py": {
+      "bytes": 31918,
+      "sha256": "beeffff315b2e28a95a20dc1e26477fc924b2da26d1fdd8a8b36fb013ca110e1"
+    },
+    "tools/p0_capture.py": {
+      "bytes": 18880,
+      "sha256": "885c4e4206aea4ac9e03c4e92e48258db2a0ae302ff83a86430e6913afeeb57c"
+    },
+    "tools/p0_mem_read.cfg": {
+      "bytes": 694,
+      "sha256": "89d16a28a1489c23ec743be55ade39824f9ca5213b02b20ef4785079122e4339"
+    },
+    "tools/recorder_heap.py": {
+      "bytes": 11002,
+      "sha256": "d661024975925a7d8a83f4b772199bbf59911adb5adb8ea69a2082b69eed4b92"
+    },
+    "tests/tooling/test_app_default_capture.py": {
+      "bytes": 62746,
+      "sha256": "0acddcc62b369f4ec725521b996a13622d6dcaf06fc1d89c592350d4aa0b4e15"
+    },
+    "tests/tooling/test_recorder_heap.py": {
+      "bytes": 11204,
+      "sha256": "868564affa32805874eda085b19829e00591541aac44d20e10f8fe157b50f2a2"
+    },
+    "tests/fixtures/recorder_heap_vectors.py": {
+      "bytes": 2438,
+      "sha256": "bbfa4edda07fd28319d7180112b302b4941f9a1a0305fbfe40a0d2c83e8998f4"
+    },
+    "state/analysis/P2_dump_fifo_raw/target_e820c0e1_bench-default/app.ino.elf": {
+      "bytes": 176048,
+      "sha256": "8379f152554649fd1b96165f29fda1f165c2b5cfc51d8dca430a37e19f693257"
+    },
+    "state/analysis/P2_dump_fifo_raw/target_e820c0e1_bench-default/app.ino.elf-zsk.bin": {
+      "bytes": 176048,
+      "sha256": "c60443cd8d90c26a85591153dfa38d5f9233bd686b413b2ab7daa3e1457f6df5"
+    },
+    "state/analysis/P2_ui_adc_probe_raw/root_capture_inputs/zephyr-arduino_uno_q_stm32u585xx.elf": {
+      "bytes": 2303728,
+      "sha256": "39d4a4fd47241663323f6e04f94dd8f5a9f9ad6582cf1df37f9709b74026adcd"
+    },
+    "state/analysis/P2_ui_adc_probe_raw/root_capture_inputs/zephyr-arduino_uno_q_stm32u585xx.bin": {
+      "bytes": 263680,
+      "sha256": "6b2ffd3a24aa77ca40bac1a8c61460c5cdd3292a2ff38cb377b938a6ac939713"
+    },
+    "state/analysis/P2_app_default_probe_raw/fixture_tools/openocd.bin": {
+      "bytes": 14435552,
+      "sha256": "04778a80c5c619ee4eef7505db91328f1d7e789107c496f2ddcf96d081f5b0ff"
+    },
+    "state/analysis/P2_app_default_probe_raw/fixture_tools/readelf.bin": {
+      "bytes": 1019400,
+      "sha256": "c37462dcd380ae1039eb8a0aab379a619415e1100472291ffea2eae34161092e"
+    },
+    "state/analysis/P2_app_default_probe_raw/fixture_tools/swj-dp.tcl": {
+      "bytes": 1148,
+      "sha256": "aad132008735bbafea3d18a304632c638f0fb99bfc19530c9f577eda2b10410a"
+    },
+    "state/analysis/P2_app_default_probe_contract.md": {
+      "bytes": 25040,
+      "sha256": "fbf34f25d99392bd75cbaaaf666c8ae88d112075f5a3ba16c5210b0ba68d0bff"
+    }
+  },
+  "output_sha256": "e91db2365f1abc77e8c67a317325edf0265fae0a57fe725d18fe4f747f18fd26",
+  "scope": "Host fixtures only; exact opaque tool bytes are never executed; no board or MCU."
+}
+test_active_arbitrary_out_of_order_replay_and_wrong_ram_request_poison_without_io (tests.tooling.test_app_default_capture.AppCollectorTests.test_active_arbitrary_out_of_order_replay_and_wrong_ram_request_poison_without_io) ... ok
+test_after_descriptor_metadata_and_full_node_list_changes_refuse (tests.tooling.test_app_default_capture.AppCollectorTests.test_after_descriptor_metadata_and_full_node_list_changes_refuse) ... ok
+test_all_actual_pinned_file_hashes_are_checked_before_commands (tests.tooling.test_app_default_capture.AppCollectorTests.test_all_actual_pinned_file_hashes_are_checked_before_commands) ... ok
+test_before_descriptor_and_heap_corruption_stop_before_list_or_node_reads (tests.tooling.test_app_default_capture.AppCollectorTests.test_before_descriptor_and_heap_corruption_stop_before_list_or_node_reads) ... ok
+test_bss_in_free_chunk_refuses_even_with_valid_nodes_elsewhere (tests.tooling.test_app_default_capture.AppCollectorTests.test_bss_in_free_chunk_refuses_even_with_valid_nodes_elsewhere) ... ok
+test_captured_fault_and_malformed_samples_do_not_become_transport_failures (tests.tooling.test_app_default_capture.AppCollectorTests.test_captured_fault_and_malformed_samples_do_not_become_transport_failures) ... ok
+test_cli_actual_collection_prints_persists_and_returns_honest_observation_status (tests.tooling.test_app_default_capture.AppCollectorTests.test_cli_actual_collection_prints_persists_and_returns_honest_observation_status) ... ok
+test_cli_bad_arguments_do_not_create_output_or_invoke_process (tests.tooling.test_app_default_capture.AppCollectorTests.test_cli_bad_arguments_do_not_create_output_or_invoke_process) ... ok
+test_cli_failed_creation_does_not_modify_existing_output (tests.tooling.test_app_default_capture.AppCollectorTests.test_cli_failed_creation_does_not_modify_existing_output) ... ok
+test_cli_report_write_failure_cannot_return_success (tests.tooling.test_app_default_capture.AppCollectorTests.test_cli_report_write_failure_cannot_return_success) ... ok
+test_correct_ram_purpose_wrong_address_size_region_refuses_at_its_admission (tests.tooling.test_app_default_capture.AppCollectorTests.test_correct_ram_purpose_wrong_address_size_region_refuses_at_its_admission) ... ok
+test_direct_commands_and_reads_without_collect_admission_are_passive_refusals (tests.tooling.test_app_default_capture.AppCollectorTests.test_direct_commands_and_reads_without_collect_admission_are_passive_refusals) ... ok
+test_each_before_after_flash_block_is_compared_in_full (tests.tooling.test_app_default_capture.AppCollectorTests.test_each_before_after_flash_block_is_compared_in_full) ... ok
+test_every_elf_and_symbol_constraint_and_duplicate_refuses_before_ram (tests.tooling.test_app_default_capture.AppCollectorTests.test_every_elf_and_symbol_constraint_and_duplicate_refuses_before_ram) ... ok
+test_full_bss_exact_used_allocation_right_boundary_and_alignment_slack (tests.tooling.test_app_default_capture.AppCollectorTests.test_full_bss_exact_used_allocation_right_boundary_and_alignment_slack) ... ok
+test_late_final_success_is_timeout_with_all_actual_bytes_retained (tests.tooling.test_app_default_capture.AppCollectorTests.test_late_final_success_is_timeout_with_all_actual_bytes_retained) ... ok
+test_launch_nonzero_timeout_short_and_partial_read_failures_return_same_report (tests.tooling.test_app_default_capture.AppCollectorTests.test_launch_nonzero_timeout_short_and_partial_read_failures_return_same_report) ... ok
+test_lifetime_starts_at_collect_includes_validation_and_exact_600_boundary (tests.tooling.test_app_default_capture.AppCollectorTests.test_lifetime_starts_at_collect_includes_validation_and_exact_600_boundary) ... ok
+test_live_payload_changes_are_distinct_from_allocator_metadata_changes (tests.tooling.test_app_default_capture.AppCollectorTests.test_live_payload_changes_are_distinct_from_allocator_metadata_changes) ... ok
+test_missing_nonregular_and_symlink_inputs_or_ancestry_refuse_without_commands (tests.tooling.test_app_default_capture.AppCollectorTests.test_missing_nonregular_and_symlink_inputs_or_ancestry_refuse_without_commands) ... ok
+test_name_termination_and_each_selected_sketch_field_are_checked (tests.tooling.test_app_default_capture.AppCollectorTests.test_name_termination_and_each_selected_sketch_field_are_checked) ... ok
+test_nodes_must_fit_aligned_used_allocation_before_any_private_read (tests.tooling.test_app_default_capture.AppCollectorTests.test_nodes_must_fit_aligned_used_allocation_before_any_private_read) ... ok
+test_null_head_tail_disagreement_cycle_duplicate_and_fourth_node_refuse (tests.tooling.test_app_default_capture.AppCollectorTests.test_null_head_tail_disagreement_cycle_duplicate_and_fourth_node_refuse) ... ok
+test_one_and_three_nodes_have_exact_read_trace_schema_and_real_heap_results (tests.tooling.test_app_default_capture.AppCollectorTests.test_one_and_three_nodes_have_exact_read_trace_schema_and_real_heap_results) ... ok
+test_output_is_exclusively_created_after_anchor_and_existing_path_refuses (tests.tooling.test_app_default_capture.AppCollectorTests.test_output_is_exclusively_created_after_anchor_and_existing_path_refuses) ... ok
+test_path_and_string_artifact_values_both_use_the_exact_public_identity (tests.tooling.test_app_default_capture.AppCollectorTests.test_path_and_string_artifact_values_both_use_the_exact_public_identity) ... ok
+test_raw_non_utf8_unrelated_names_and_bytes_after_first_nul_are_opaque (tests.tooling.test_app_default_capture.AppCollectorTests.test_raw_non_utf8_unrelated_names_and_bytes_after_first_nul_are_opaque) ... ok
+test_repeated_collection_preserves_original_report_and_has_no_action (tests.tooling.test_app_default_capture.AppCollectorTests.test_repeated_collection_preserves_original_report_and_has_no_action) ... ok
+test_wrong_artifact_extra_file_and_non_direct_output_refuse_before_commands (tests.tooling.test_app_default_capture.AppCollectorTests.test_wrong_artifact_extra_file_and_non_direct_output_refuse_before_commands) ... ok
+test_zero_and_three_unrelated_nodes_are_captured_absence_not_load_failure (tests.tooling.test_app_default_capture.AppCollectorTests.test_zero_and_three_unrelated_nodes_are_captured_absence_not_load_failure) ... ok
+test_all_boolean_combinations_are_observations_not_cross_state_rules (tests.tooling.test_app_default_capture.AppSamplesTests.test_all_boolean_combinations_are_observations_not_cross_state_rules) ... ok
+test_all_known_phase_fault_values_and_fault_priority (tests.tooling.test_app_default_capture.AppSamplesTests.test_all_known_phase_fault_values_and_fault_priority) ... ok
+test_both_runtime_samples_control_fault_and_progress (tests.tooling.test_app_default_capture.AppSamplesTests.test_both_runtime_samples_control_fault_and_progress) ... ok
+test_diagnostic_order_is_acquisition_then_phase_fault_boolean_offsets (tests.tooling.test_app_default_capture.AppSamplesTests.test_diagnostic_order_is_acquisition_then_phase_fault_boolean_offsets) ... ok
+test_every_argument_type_extent_and_null_slot (tests.tooling.test_app_default_capture.AppSamplesTests.test_every_argument_type_extent_and_null_slot) ... ok
+test_known_transaction_fault_wins_true_over_other_malformed_evidence (tests.tooling.test_app_default_capture.AppSamplesTests.test_known_transaction_fault_wins_true_over_other_malformed_evidence) ... ok
+test_literal_prefixes_preserve_every_field_and_live_inconsistency (tests.tooling.test_app_default_capture.AppSamplesTests.test_literal_prefixes_preserve_every_field_and_live_inconsistency) ... ok
+test_padding_and_all_u32_extremes_have_no_extra_semantic_validation (tests.tooling.test_app_default_capture.AppSamplesTests.test_padding_and_all_u32_extremes_have_no_extra_semantic_validation) ... ok
+test_pure_decode_and_capture_construction_are_passive (tests.tooling.test_app_default_capture.AppSamplesTests.test_pure_decode_and_capture_construction_are_passive) ... ok
+test_unknown_enums_and_invalid_bools_preserve_exact_raw_values (tests.tooling.test_app_default_capture.AppSamplesTests.test_unknown_enums_and_invalid_bools_preserve_exact_raw_values) ... ok
+test_absent_bucket_cannot_have_head (tests.tooling.test_recorder_heap.RecorderHeapTests.test_absent_bucket_cannot_have_head) ... ok
+test_adjacent_free_chunks_are_rejected (tests.tooling.test_recorder_heap.RecorderHeapTests.test_adjacent_free_chunks_are_rejected) ... ok
+test_all_fifteen_size_buckets (tests.tooling.test_recorder_heap.RecorderHeapTests.test_all_fifteen_size_buckets) ... ok
+test_all_used_literal (tests.tooling.test_recorder_heap.RecorderHeapTests.test_all_used_literal) ... ok
+test_available_mask_unknown_and_missing_bits (tests.tooling.test_recorder_heap.RecorderHeapTests.test_available_mask_unknown_and_missing_bits) ... ok
+test_bucket_head_must_name_a_free_chain_chunk (tests.tooling.test_recorder_heap.RecorderHeapTests.test_bucket_head_must_name_a_free_chain_chunk) ... ok
+test_changed_valid_allocator_layout_rejected (tests.tooling.test_recorder_heap.RecorderHeapTests.test_changed_valid_allocator_layout_rejected) ... ok
+test_comparison_validates_both_inputs (tests.tooling.test_recorder_heap.RecorderHeapTests.test_comparison_validates_both_inputs) ... ok
+test_each_normal_left_neighbor_is_validated (tests.tooling.test_recorder_heap.RecorderHeapTests.test_each_normal_left_neighbor_is_validated) ... ok
+test_fragmented_circular_bucket_accounting (tests.tooling.test_recorder_heap.RecorderHeapTests.test_fragmented_circular_bucket_accounting) ... ok
+test_free_links_cannot_name_metadata_end_used_or_interior (tests.tooling.test_recorder_heap.RecorderHeapTests.test_free_links_cannot_name_metadata_end_used_or_interior) ... ok
+test_fresh_free_heap_literal (tests.tooling.test_recorder_heap.RecorderHeapTests.test_fresh_free_heap_literal) ... ok
+test_maximum_bounded_free_list (tests.tooling.test_recorder_heap.RecorderHeapTests.test_maximum_bounded_free_list) ... ok
+test_maximum_forward_chain_all_used (tests.tooling.test_recorder_heap.RecorderHeapTests.test_maximum_forward_chain_all_used) ... ok
+test_metadata_chunk_left_size_used_and_size (tests.tooling.test_recorder_heap.RecorderHeapTests.test_metadata_chunk_left_size_used_and_size) ... ok
+test_minimum_used_chunk_and_split (tests.tooling.test_recorder_heap.RecorderHeapTests.test_minimum_used_chunk_and_split) ... ok
+test_payload_changes_do_not_change_allocator_metadata (tests.tooling.test_recorder_heap.RecorderHeapTests.test_payload_changes_do_not_change_allocator_metadata) ... ok
+test_reciprocal_links_and_head_missing_cycle (tests.tooling.test_recorder_heap.RecorderHeapTests.test_reciprocal_links_and_head_missing_cycle) ... ok
+test_reserved_small_header_and_alignment_padding_are_not_metadata (tests.tooling.test_recorder_heap.RecorderHeapTests.test_reserved_small_header_and_alignment_padding_are_not_metadata) ... ok
+test_same_pool_comparison (tests.tooling.test_recorder_heap.RecorderHeapTests.test_same_pool_comparison) ... ok
+test_snapshot_requires_exact_length (tests.tooling.test_recorder_heap.RecorderHeapTests.test_snapshot_requires_exact_length) ... ok
+test_snapshot_requires_exact_pinned_address (tests.tooling.test_recorder_heap.RecorderHeapTests.test_snapshot_requires_exact_pinned_address) ... ok
+test_terminal_used_size_and_left_neighbor (tests.tooling.test_recorder_heap.RecorderHeapTests.test_terminal_used_size_and_left_neighbor) ... ok
+test_unlisted_free_chunk_is_rejected (tests.tooling.test_recorder_heap.RecorderHeapTests.test_unlisted_free_chunk_is_rejected) ... ok
+test_unsupported_end_chunk_rejected_before_field_width_assumption (tests.tooling.test_recorder_heap.RecorderHeapTests.test_unsupported_end_chunk_rejected_before_field_width_assumption) ... ok
+test_valid_circular_head_rotation_changes_metadata (tests.tooling.test_recorder_heap.RecorderHeapTests.test_valid_circular_head_rotation_changes_metadata) ... ok
+test_wrong_size_bucket_and_duplicate_membership (tests.tooling.test_recorder_heap.RecorderHeapTests.test_wrong_size_bucket_and_duplicate_membership) ... ok
+test_zero_size_and_overrunning_normal_chunks (tests.tooling.test_recorder_heap.RecorderHeapTests.test_zero_size_and_overrunning_normal_chunks) ... ok
+
+----------------------------------------------------------------------
+Ran 68 tests in 32.404s
+
+OK
+

@@ -1,0 +1,24 @@
+{
+  "argv": [
+    "wsl.exe",
+    "--cd",
+    "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots",
+    "--exec",
+    "env",
+    "TMPDIR=/dev/shm",
+    "PYTHONDONTWRITEBYTECODE=1",
+    "PYTHONPATH=/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling",
+    "python3",
+    "-m",
+    "unittest",
+    "-v",
+    "test_ui_adc_run",
+    "test_app_build_policy",
+    "test_app_build_overrides"
+  ],
+  "start_utc": "2026-09-24T00:22:04.278343+00:00",
+  "scope": "UNCHANGED_HOST_TOOL_REGRESSIONS_NO_BOARD",
+  "correction": "First invocation lacked tests/tooling import path:19 setup ModuleNotFoundError failures preserved. No test/source edit.",
+  "returncode": 0,
+  "finish_utc": "2026-09-24T00:23:39.116483+00:00"
+}

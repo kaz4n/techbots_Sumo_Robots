@@ -1,0 +1,170 @@
+{
+  "utc": "2026-09-24T00:20:21.567134+00:00",
+  "source_sha256": "7fbeceb269912321b3b06c2b9ea9cace466c2faf4f06bebf6ec1d4ebf4d5da58",
+  "ast_parse": "PASS",
+  "compile_without_execution": "PASS",
+  "function_count": 29,
+  "max_function_lines": 38,
+  "functions": [
+    {
+      "name": "require",
+      "line": 54,
+      "lines": 3
+    },
+    {
+      "name": "utc_now",
+      "line": 59,
+      "lines": 2
+    },
+    {
+      "name": "output_text",
+      "line": 63,
+      "lines": 4
+    },
+    {
+      "name": "digest",
+      "line": 69,
+      "lines": 2
+    },
+    {
+      "name": "validate_request",
+      "line": 73,
+      "lines": 8
+    },
+    {
+      "name": "environment",
+      "line": 83,
+      "lines": 4
+    },
+    {
+      "name": "relative_parts",
+      "line": 89,
+      "lines": 6
+    },
+    {
+      "name": "safe_path",
+      "line": 97,
+      "lines": 13
+    },
+    {
+      "name": "file_hash",
+      "line": 112,
+      "lines": 2
+    },
+    {
+      "name": "bounded_blob",
+      "line": 116,
+      "lines": 6
+    },
+    {
+      "name": "record",
+      "line": 124,
+      "lines": 7
+    },
+    {
+      "name": "identity",
+      "line": 133,
+      "lines": 4
+    },
+    {
+      "name": "available_claim",
+      "line": 139,
+      "lines": 4
+    },
+    {
+      "name": "current_head",
+      "line": 145,
+      "lines": 24
+    },
+    {
+      "name": "validate_file_pins",
+      "line": 171,
+      "lines": 7
+    },
+    {
+      "name": "validate_source_pins",
+      "line": 180,
+      "lines": 14
+    },
+    {
+      "name": "validate_records",
+      "line": 196,
+      "lines": 13
+    },
+    {
+      "name": "load_scope",
+      "line": 211,
+      "lines": 15
+    },
+    {
+      "name": "revalidate",
+      "line": 228,
+      "lines": 5
+    },
+    {
+      "name": "validate_stage",
+      "line": 235,
+      "lines": 16
+    },
+    {
+      "name": "artifact_pins",
+      "line": 253,
+      "lines": 9
+    },
+    {
+      "name": "write_exclusive",
+      "line": 264,
+      "lines": 6
+    },
+    {
+      "name": "launch",
+      "line": 272,
+      "lines": 18
+    },
+    {
+      "name": "upload_once",
+      "line": 292,
+      "lines": 18
+    },
+    {
+      "name": "preparation_path",
+      "line": 312,
+      "lines": 7
+    },
+    {
+      "name": "prepare_local",
+      "line": 321,
+      "lines": 11
+    },
+    {
+      "name": "prepare_remote",
+      "line": 334,
+      "lines": 13
+    },
+    {
+      "name": "run_once",
+      "line": 349,
+      "lines": 38
+    },
+    {
+      "name": "main",
+      "line": 389,
+      "lines": 14
+    }
+  ],
+  "imports": [
+    "import argparse",
+    "from datetime import datetime, timezone",
+    "import hashlib",
+    "import json",
+    "import os",
+    "from pathlib import Path",
+    "import re",
+    "import stat",
+    "import subprocess",
+    "import sys",
+    "import uuid",
+    "import app_build_policy as policy"
+  ],
+  "limitations": "No imports of production module, executions, tests or board actions; independent tests pending coordinator release."
+}

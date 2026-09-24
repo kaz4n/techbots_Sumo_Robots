@@ -189,3 +189,10 @@ must remain nonzero; tests need not invent exception-message text or extra
 metadata schemas. No collector body was read or executed, no executable test was
 created or run, and no board action occurred. Adoption, executable freeze and
 any separately reviewed actual run remain subsequent coordinator decisions.
+
+Final wording-only binding: coordinator clarified extension.sketch as a null-or-
+object mapping in contract SHA256
+`06377731b7565116ed74c89823e3157e1e7e3ab135dec0e08a08d0c0fc4c338e`.
+This changes no oracle or PASS conclusion above. D118 adoption and independent
+executable authoring were subsequently assigned by the coordinator; no execution
+is implied by this hash binding.

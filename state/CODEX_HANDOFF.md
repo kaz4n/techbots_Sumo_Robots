@@ -1,5 +1,12 @@
 # Codex handoff - 2026-09-24 Asia/Dubai
 
+**PAUSED by user, 2026-09-24 16:10 Asia/Dubai.** Read
+`state/analysis/P5_pause_20260924_1610.md` (repository-relative) first.
+That checkpoint supersedes pending/running descriptions below: D136 first public
+74/74 PASS, private18/19 with injection adjudication pending; a duplicate-declaration
+source finding remains open. MATCH compile-only finished exit0; loader/import
+checks and analyzer regression remain NOT RUN. Resume only when user requests.
+
 Current phase is **P5 software under D134**. The user explicitly directed assumed
 physical acceptance and continued development. This advances software scheduling;
 unmeasured physical results and actual human gate records remain pending.

@@ -1,5 +1,12 @@
 # Resume SumoX-26 with Codex
 
+**PAUSED by user, 2026-09-24 16:10 Asia/Dubai.** Read
+`state/analysis/P5_pause_20260924_1610.md` (repository-relative) first.
+That checkpoint supersedes pending/running descriptions below: D136 first public
+74/74 PASS, private18/19 with injection adjudication pending; a duplicate-declaration
+source finding remains open. MATCH compile-only finished exit0; loader/import
+checks and analyzer regression remain NOT RUN. Resume only when user requests.
+
 Current phase: P5 software, physical acceptance deferred. Do not reset to P0.
 D134 host completion d6a8319e; D135 production2d924f1f and reviewed draft-oracle
 corrections94a7bb5d; native/D136 contract4b1e701e. No actual human phase gate

@@ -5,9 +5,9 @@ D142 passes45 independent methods and six private methods; two pre-execution
 comparison gaps are closed with original source/failures preserved. See
 analysis/P7_static_artifact_validation.md and reviews/P7_static_artifact_code_review.md.
 Production admission is unchanged. No static image has been built or run; the
-default dynamic deficit is still592 bytes. Next settle the remaining one-shot
-runner interfaces/command templates and tests, then obtain separate scoped
-adoption/review before any target query or compiler.
+default dynamic deficit is still592 bytes. D143 now adopts the one-shot runner
+and Linux helper for host implementation/testing only. Independent frozen tests
+are being executed; no target query/compiler is authorized by this scope.
 
 
 **Active phase: P7 software/release preparation.** D138 informational READY and
@@ -25,19 +25,23 @@ cache files and10 ignored CPython files removed,9,386,809 logical bytes total;
 independent absence/source-hash verification passes. Active npm/npx caches,
 evidence and previously denied targets remain. See STORAGE_LOG.md.
 
-Initial runner/remote drafts are preserved in a57265f5. Current companion drafts
-address Windows command size with bounded zlib/base64 plus a30,000 UTF-16-unit
-outer-command guard, nonprivileged process inventory, descriptor-based filesystem
-tests, nonblocking special-file rejection and final-ELF-only reads. They remain
-UNADOPTED; no helper, target query, compiler, upload or reset was executed.
-Read analysis/P7_static_runner_contract.md,
-analysis/P7_static_remote_contract_draft.md and their scoped design review.
-The exact next task is to finish failure-data schemas, canonical dispatch/
-postcheck ordering and attempt-count anchors, host report/identity validation,
-and the exact bootstrap before review closure/adoption and independent oracle
-freeze. Do not start a board command from a draft. The11 prior pinned inputs,
-production/source/tests and legacy progress prefix are checked unchanged in
-analysis/P7_static_runner_draft_checks.json.
+D143 host adoption is committed in2da4979a; first implementation is preserved
+in cd5625e2. Read the frozen runner/helper contracts, implementation notes and
+scoped code reviews. The runner reuses the exact source stage and transport;
+the helper binds descriptor-based file operations and bounded process scans.
+No upload/reset/cleanup path exists. An uncertain compile outcome stops all
+remote commands and preserves the first failure.
+
+Current source hashes: runner006fdb70, helper521773e5. Pre-execution inspection
+repairs address living-PID missing records, partial claim evidence, malformed
+deep JSON and metadata-only file observations. The separate spec-derived
+oracles are frozen in P7_static_runner_test_draft/freeze_runner.json and
+P7_static_remote_test_draft/freeze_remote.json. First host-only executions
+are authorized with python-B, sequentially; Linux fixtures use actual nonroot
+ownership in /dev/shm. Read their compact receipts before further work.
+Exact next task: preserve and inspect those first results, repair implementation
+only where warranted, then finish separate review. A later source-bound native
+GO is still required; no board command has run in this D143 task.
 
 D138 production remains first-source d19f8964 (interfaces36a96bd2). Normal20cases
 perM0/M1, configured29public+2private perM, normal/configured ASan+UBSan and full22
@@ -86,22 +90,11 @@ expectations, not observations of a static app. The module's maximum verdict is
 STATIC_LAYOUT_PACKAGE_PASS. Source/run freshness, entry/constructor/native
 binding/ABI audit and actual static fit remain unproved.
 
-Next settle the one-shot runner's exact command/public interfaces, immutable
-bindings and failure/stale-output fixtures using the retained proposal below.
-Preserve both frozen companion/parent contracts and all oracles. Full probe
-implementation/query/compiler authorization still needs its separate review and
-adoption. All commands are terminal; no active compiler, test, compression or
-background board operation remains.
-
-The separate worker's one-shot runner proposal is now retained at
-analysis/P7_static_runner_proposal.md (SHA25641496d8ee5dc5ffd26e8b9ac6000169e376b035f37a3b64e508159703dbacfc2).
-Root read it and checked all 11 input-hash literals against current bytes.
-It specifies reuse of the unchanged verified stage/transport, exclusive new
-outputs, one query and one jobs1 compile, seven artifacts and original failure
-receipts. It is not adopted or implemented; compose the reviewed D141/D142 pure
-components without replacing production validators. Freeze independent runner
-negative fixtures and review exact code before any target invocation.
-Storage follow-up is committed as f9714314; no source, test or board changes.
+The initial runner proposal/drafts remain as provenance. D143's frozen contracts
+supersede their pending interface details. Preserve all prior contracts/oracles
+and production policy. Full entry/native binding/constructor/ABI acceptance must
+follow a real static build; neither controlled commands nor structural success
+can establish it. Current work has no native compiler or background board task.
 
 D134 mode availability, D135 abort producer and D136 analyzer are closed for
 software (d6a8319e/70c964a7/0faf2e6d). Their validation packets retain actual scope,

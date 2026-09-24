@@ -5,7 +5,7 @@ The unchanged default/M0 image exceeds the modeled loader pool by592 bytes.
 Exact evidence is in analysis/P7_default_qualification_validation.md and its
 separate review. D140 source research and D141/D142 pure policy/artifact host
 validation are complete. Production policy remains dynamic-only; no static image
-has been built, uploaded or run. The remaining one-shot runner is next.
+has been built, uploaded or run. D143 runner/helper host validation is active.
 
 
 **Active: P7 software/release preparation.** PROGRESS.md is the append-only phase
@@ -43,13 +43,13 @@ pending; D051/D075/D122/D137 permit scheduling, not fabricated measurements.
 
 ## Next original-scope task
 
-Current draft checkpoint: initial two-file interface proposal a57265f5 is preserved.
-Revisions close practical command-size/process-inspection issues; read the runner
-and remote companion drafts plus scoped design review. Still UNADOPTED: finalize
-failure-data schemas, exact dispatch/postcheck order/counts, host report/identity
-rules and bootstrap framing before adoption/independent tests/implementation.
-No helper or native command has run. Eleven prior pins and production paths remain
-exact; compact checks are in analysis/P7_static_runner_draft_checks.json.
+D143 host-only scope adopted in2da4979a; first runner/helper implementation
+preserved in cd5625e2. Frozen contracts and bootstrap are bound by literal hashes.
+Independent tests are frozen:22 runner,23 bootstrap and28 Linux descriptor methods.
+First executions are authorized sequentially with compact receipts; no board use.
+Current runner006fdb70/helper521773e5 include bounded pre-execution review repairs.
+Next inspect first results, preserve failures, repair code if needed, and obtain
+scoped review closure before a later source-bound native query/compiler GO.
 
 Storage follow-up744f50c1 removed9,386,809 logical bytes of verified disposable
 caches; independent verification passed. Latest free-space observations fluctuate
@@ -73,14 +73,10 @@ failed private subcases are retained; no oracle weakened. Read
 analysis/P7_static_artifact_validation.md. This only proves synthetic structure
 and packaging checks, not a real static app, native bindings or source freshness.
 
-Next define/adopt the one-shot runner command interface and negative fixtures.
-The bounded runner design is saved in analysis/P7_static_runner_proposal.md;
-all 11 literal input hashes were checked against current files. It remains a
-proposal; compose the reviewed pure components with fixed input bindings and
-failure/stale-output tests. Do not edit either frozen contract or oracles.
-The full-probe draft remains
-unadopted; implementation/query/compiler needs the separate scoped review and
-adoption. Production remains dynamic-only, no static image has been built.
+Runner/helper artifacts and receipts live under analysis/P7_static_*.
+Do not edit frozen contracts/oracles or production admission. D143 host scope
+does not authorize board commands; structural collection will still leave actual
+entry/native binding/constructor/ABI review and runtime acceptance pending.
 
 Then resume only genuinely available required evidence: physical packets, native
 dump holder/quiescence/cancel/reopen prerequisites, and SC-AP release workflow.

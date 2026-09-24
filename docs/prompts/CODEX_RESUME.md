@@ -1,19 +1,17 @@
 # Resume SumoX-26 with Codex
 
-**D141 policy component is HOST-TESTED and separately reviewed.**
-The scoped validator passes 35 independent host methods and the reviewer's four
-regression cases. Its single path-substitution defect is fixed; original failures
-and source commit `92d9bb8b` remain preserved. Production admission is unchanged.
-No static image has been built or run; the default dynamic deficit is still 592
-bytes. Next define the remaining artifact/one-shot-runner interfaces and tests,
-then obtain separate scoped adoption/review before any target query or compiler.
+**D141 policy and D142 structural artifact components are HOST-TESTED.**
+D143 runner/helper host implementation is adopted; independently frozen tests
+are now authorized for their first execution. Read their actual receipts and
+current handoff before continuing. Production admission is unchanged. No static
+image has been built or run; the default dynamic deficit is still592 bytes.
 
 
 Current phase: **P7 software/release preparation**. D138 readiness software has
 passing host/full/sanitizer and exact MATCH target checks. D139 now records the
 current default/M0 modeled592B deficit. D140 static-link source research is
-complete; D141 pure policy work is host-tested and reviewed. The remaining
-artifact/runner component stays draft. Never reset toP0 or revive older
+complete; D141/D142 pure components are host-tested and reviewed. D143 host
+validation is active, with native query/compiler still unapproved. Never reset toP0 or revive older
 blanket no-host-work checkpoints. Physical/human gates remain pending.
 
 1. Read rootAGENTS fully, state/CODEX_HANDOFF.md/CODEX_EXECUTION.md, latest
@@ -28,10 +26,13 @@ blanket no-host-work checkpoints. Physical/human gates remain pending.
    is complete in 6e6fe21c. D141 pure policy now passes 35 independent methods
    and four private regression cases, with scoped review PASS: read
    P7_static_policy_validation.md and reviews/P7_static_policy_review.md. Preserve
-   the original path defect and failure receipts. Next define the remaining
-   artifact-validator/one-shot-runner interfaces and negative tests in a companion
-   scope. Do not silently edit its frozen policy contract/oracles. Full probe
-   adoption/review is still needed before implementation or target query/compiler.
+   the original path defect and failure receipts. D142 passes45 public and6private
+   methods; read its validation/review. D143 host scope is adopted in2da4979a,
+   first source cd5625e2, current runner006fdb70/helper521773e5. Read frozen
+   runner/remote contracts, implementation notes and independent test freezes.
+   Inspect first host receipts, preserve failures, repair only warranted code,
+   and close scoped review before any later source-bound native GO. No frozen
+   contract/oracle or production validator replacement is permitted.
 
 4. D138 MATCHsourcefcddbd8e/ELFcb5fbb53 has only864Bconditional loader span,
   62resolvedimports,16ABI/72oldoffset matches. No upload/live RAM/stack/WCET or

@@ -353,8 +353,16 @@ def scan_processes(root_fd):
                 if candidate is not None:
                     candidates.append(candidate)
             except OSError as error:
-                if error.errno not in (errno.ENOENT, errno.ESRCH):
-                    raise Rejected('PROCESS_INSPECTION', str(error)) from error
+                if error.errno == errno.ESRCH:
+                    continue
+                if error.errno == errno.ENOENT:
+                    try:
+                        os.stat(pid, dir_fd=fd, follow_symlinks=False)
+                    except FileNotFoundError:
+                        continue
+                    except OSError as lookup_error:
+                        raise Rejected('PROCESS_INSPECTION', str(lookup_error)) from lookup_error
+                raise Rejected('PROCESS_INSPECTION', str(error)) from error
             except (Rejected, UnicodeError) as error:
                 raise Rejected('PROCESS_INSPECTION', str(error)) from error
     return candidates
@@ -500,7 +508,7 @@ def claim_action(root_fd, request, data):
                 partial[key] = directory_id(os.fstat(child))
             require(boot_id(root_fd) == current_boot, 'PATH', 'Boot changed during claim')
             data['claim'] = {'run_id': run_id, 'boot_id': current_boot, 'directories': partial}
-    except (OSError, Rejected) as error:
+    except (OSError, Rejected, UnicodeError) as error:
         data['claim'] = None
         data['partial_directories'] = partial
         if isinstance(error, Rejected) and error.code == 'CLAIM_EXISTS':
@@ -538,10 +546,22 @@ def observe_file(fd, name, limit):
     if not stat.S_ISREG(first.st_mode):
         return file_record('nonregular'), None
     observed = file_id(first)
-    if first.st_size == 0:
-        return file_record('empty', observed), None
-    if first.st_size > limit:
-        return file_record('oversize', observed), None
+    if first.st_size == 0 or first.st_size > limit:
+        try:
+            child = os.open(name, os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK | os.O_CLOEXEC,
+                            dir_fd=fd)
+            try:
+                info = os.fstat(child)
+                require(stat.S_ISREG(info.st_mode) and file_id(info) == observed,
+                        'FILE_READ', 'Artifact changed while opening')
+                current = file_id(info)
+                require(file_id(os.stat(name, dir_fd=fd, follow_symlinks=False)) == current,
+                        'FILE_READ', 'Artifact entry changed')
+            finally:
+                os.close(child)
+        except (OSError, Rejected):
+            return file_record('unstable', observed), None
+        return file_record('empty' if current['bytes'] == 0 else 'oversize', current), None
     try:
         raw, current = read_file(fd, name, limit)
         if current != observed:
@@ -707,7 +727,7 @@ def main(argv, *, fs_root=Path('/')):
     try:
         try:
             request = parse_request(argv)
-        except (ValueError, UnicodeError, zlib.error) as error:
+        except (ValueError, UnicodeError, zlib.error, RecursionError) as error:
             raise Rejected('BAD_REQUEST', str(error)) from error
         admitted = True
         data = initial_data(action)

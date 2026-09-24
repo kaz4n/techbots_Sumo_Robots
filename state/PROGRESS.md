@@ -1076,3 +1076,5 @@ physical/loadedRAM/gate claim. | contract=this commit
 2026-09-25T01:59:34.545921+04:00 | P7 D147 host scope adopted | Contract588e1ad8 plus separate reused-context design review PASS; new pure structural interface only, exact six inherited aliases and unchanged old checks. Independent test author preparing expectations; no implementation execution/native action | inherited TLS extension scope commit
 
 2026-09-25T02:05:56.567390+04:00 | P7 D147 host extension complete | IMPLEMENTED/HOST-TESTED:19 new+51 original methods PASS; unchanged first sourcecd52a29a, frozen independent expectations3462c6f8, fresh-context code/receipt reviewPASS. Original CLI usage failure retained; no source/test repair. Old rejection/consumers unchanged. Next source-bound read-only actual packet validation; native/physical gates pending | native TLS host closure commit
+
+2026-09-25T02:16:39.990665+04:00 | P7 D148 read-only scope adopted | Exact hostfbde2926/remote c6099f6d; separate fresh-context review PASS after two receipt-only repairs; original8e3c4348 retained. One existing packet validation plus independent checks, no build/upload/reset | native actual validation GO commit

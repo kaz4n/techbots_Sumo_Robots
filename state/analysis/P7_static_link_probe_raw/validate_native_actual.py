@@ -143,17 +143,30 @@ def main():
     except Exception as error:
         probe.postcheck_errors.append(dict(check='scoped_sources', **r.error_record(error)))
         failure = failure or (error, 'scoped_sources')
+    finish(r, probe, failure, packet, out)
+
+
+def finish(r, probe, failure, packet, out):
+    if failure is None:
+        try:
+            r.require(probe.sequence == 5 and probe.query_attempts == probe.compile_attempts == 0,
+                      'Unexpected command counts')
+        except Exception as error:
+            failure = (error, 'command_counts')
     result = dict(status='NATIVE_STRUCTURE_FAILED' if failure else 'NATIVE_STRUCTURE_VALIDATED',
                   source_sha256=r.SOURCE, run_id=RUN, query_attempts=probe.query_attempts,
                   compile_attempts=probe.compile_attempts, read_commands=probe.sequence,
                   packet=packet, postcheck_errors=probe.postcheck_errors)
     if failure:
         result.update(phase=failure[1], error=r.error_record(failure[0]))
-    r.write_json(out / 'result.json', result, exclusive=True)
+    try:
+        r.write_json(out / 'result.json', result, exclusive=True)
+    except Exception:
+        if failure is not None:
+            raise failure[0]
+        raise
     if failure:
         raise failure[0]
-    r.require(probe.sequence == 5 and probe.query_attempts == probe.compile_attempts == 0,
-              'Unexpected command counts')
     print('NATIVE_STRUCTURE_VALIDATED; original D144 rejection and production policy unchanged')
 
 

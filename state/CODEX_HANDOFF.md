@@ -1,5 +1,12 @@
 # Codex handoff - 2026-09-24 Asia/Dubai
 
+**D139 ACTIVE:** D138 closed in e16e6a57. The native worker is preparing one
+unchanged default/M0 compile-only baseline; no compiler has started. Existing
+local stage cleanup was denied, so a read-only exact-byte reuse adapter must pass
+controlled tests and separate review before compilation. See D139 in DECISIONS.
+No source/config/test or run authority changes.
+
+
 **Active phase: P7 software/release preparation.** D138 informational READY and
 battery-threshold software is implemented, host-tested and target-compiled.
 Its separate fresh-context review passes with no open findings; see

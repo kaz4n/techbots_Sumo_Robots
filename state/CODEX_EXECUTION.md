@@ -1,5 +1,12 @@
 # Current execution checklist - 2026-09-24 Asia/Dubai
 
+**D139 ACTIVE:** D138 closed in e16e6a57. The native worker is preparing one
+unchanged default/M0 compile-only baseline; no compiler has started. Existing
+local stage cleanup was denied, so a read-only exact-byte reuse adapter must pass
+controlled tests and separate review before compilation. See D139 in DECISIONS.
+No source/config/test or run authority changes.
+
+
 **Active: P7 software/release preparation.** PROGRESS.md is the append-only phase
 authority; preserve its legacy bytes. User asks for prompt commits and continued
 software work with the bare UNOQ. Actual physical acceptance/human gates remain

@@ -75,6 +75,12 @@ never a new status or a claim that the firmware is invalid. Values: TICK_US
 and 200000 ms frame window, yielding the D135 fixed 5001 frames. The last three
 are profile identity checks, not permission to tune them.
 
+Uniqueness applies to the supported declarations, not every identifier use.
+Ordinary unconditional reads in other declarations are allowed: the current
+config derives frame count from LOG_FRAME_WINDOW_MS and LOG_HZ. Conditional or
+macro mentions remain unsupported. Do not reject that actual canonical config
+merely because its supported constants are used elsewhere.
+
 Mode availability uses that snapshot: 1..3 always available, 4/5 require ARC=1,
 6 requires WAIT=1. A requested disabled mode is unsupported configuration.
 Snapshot mode/threshold values appear in the report. No default taken from the
@@ -279,6 +285,12 @@ bound, valid bytes; otherwise null. Never infer it from cohort flags. A trusted
 decoded HEADER may remain available after a later owner/duplicate invalidation,
 but INVALID always sets logical/timing NOT_EVALUATED and clears endpoint times
 and elapsed. Source-invalid handling above takes precedence.
+
+For a valid completed grammar, terminal_detail/value retain the final pair:
+20/1 for COMPLETE,25/actual-state for HANDOVER_FAILED, and the diagnostic pair
+for EXCLUDED. Unfinished prefixes and no trace have null terminal fields.
+handover_state retains the observed state from either19 or25; it is not inferred
+from the cue. These fields describe observed metadata, not physical success.
 
 `qualified_attempts` counts qualification QUALIFIED. `passing_attempts` counts
 only QUALIFIED attempts with both logical_status PASS and timing_status PASS.

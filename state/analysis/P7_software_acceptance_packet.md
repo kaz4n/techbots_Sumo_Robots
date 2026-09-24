@@ -3,8 +3,9 @@
 <!-- Checked through separate document review and local source/link verification. -->
 # P7 operator-document preparation
 
-2026-09-24 Asia/Dubai. D137 advances only software-document preparation under the
-user's software-first direction. **P7 release acceptance is pending.** P6 remains
+2026-09-24 Asia/Dubai. D137 prepares operator documents; D138 adds the original
+P7.2 informational READY/battery software under the user's software-first
+direction. **P7 release acceptance is pending.** P6 remains
 deferred; actual P0-P5 criteria and human gates have not been replaced by assumptions.
 
 | Original task | Current deliverable | Required completion evidence |
@@ -23,14 +24,18 @@ strategy, not measured matchup performance.
 
 Current production enters `runtime.begin(app::SetupGrants{})`; physical input,
 matrix and dump grants default false and button windows are unconfigured. The
-display projection does not establish literal READY or a numeric battery reading.
+new D138 display uses a live blinking R and an exact threshold pixel; current
+validation and its boundaries are in the [readiness packet](P7_readiness_validation.md).
+It is not a numeric battery reading or physical acceptance. Native matrix
+startup/ownership, calibrated input and visibility still need qualification.
 Optional stopped-service reset does not rearm a match. Native recorder delivery
 and a log-preserving next-round workflow remain unqualified. Draft procedures
 must surface these gaps rather than instruct an operator to bypass them.
 The original READY/battery-on-matrix criterion remains open as
 [SC-AP](spec_conflicts.md#sc-ap-p7-operational-readiness-versus-current-displayrearmdump-open-d137).
 An external calibrated method in a draft field is not automatic acceptance of a
-replacement criterion; any changed semantics need their recorded decision first.
+replacement criterion. D138 explicitly selects the R/threshold-pixel meaning;
+it leaves actual matrix acceptance, rearming and log preservation open.
 
 Prior acceptance entry points:
 
@@ -54,8 +59,9 @@ loader/import checks only (1584Bspan,62imports). The default-build deficit remai
 separate; unmodifiedD135default is not compiled. None is a release deployment,
 full-source worst-case timing, physical trial or new motor authorization.
 
-No board build/upload/reset or firmware/config/test change is needed for this
-documentation task. `--match` is a build configuration. Any eventual motor-capable
+No board build/upload/reset or firmware/config/test change was needed for the
+completed D137 documentation task. D138 validation is recorded separately.
+`--match` is a build configuration. Any eventual motor-capable
 upload/run needs a qualified path and fresh identified STAND OK or RING OK; current
 generic tooling refuses that upload. Do not run the example merely to re-create
 already-retained compile evidence.
@@ -68,21 +74,23 @@ config values with tuning evidence; other code work needs an explicit human exce
 
 ## Completed software-document validation
 
-The three preparation drafts and safe build-only example are complete. The
+The initial D137 preparation drafts and safe build-only example are complete. The
 [separate scoped review](../reviews/P7_operator_docs_review.md) passes with no
 open findings; it is a reused same-model context, not the fresh phase-gate review.
-Its [receipt](../reviews/P7_operator_docs_review_receipt.json) freezes the reviewed
-documents and source references. Root independently checked52relative links and
+Its [receipt](../reviews/P7_operator_docs_review_receipt.json) freezes those
+historical documents and source references. D138 edits to the runbook/mode card
+have a separate [review](../reviews/P7_readiness_review.md). Root independently checked52relative links and
 9fragments, all43protected source hashes, the original PROGRESS byte prefix and
 no src/host/tests/tools changes from0faf2e6d; see
 [local receipt](P7_document_validation.json). `git diff --check` exited0.
 
-No firmware or tool tests were repeated for this prose-only change, and no new
+No firmware or tool tests were repeated for that D137 prose-only change, and no new
 target build, upload/reset, hardware measurement or tuning was performed. The
 root-identified session-authorization and date-only tag wording were corrected
 before final review. SC-AP and all actual release criteria remain open.
 
-Next eligible dependent work: obtain the real prerequisites in the linked
+Current software task: finish D138's source-bound host/target/review evidence in
+the readiness packet. Next dependent release work: obtain the real prerequisites in the linked
 acceptance packets and resolve SC-AP against that release, then validate the
 actual runbook workflow. Native dump work first needs the specified privileged
 read-only holder evidence and reviewed quiescence/cancel/reopen plan. Do not

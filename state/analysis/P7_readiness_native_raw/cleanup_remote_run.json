@@ -1,0 +1,17 @@
+{
+  "utc": "2026-09-24T19:01:25.242251+00:00",
+  "scope": "Only this new D138 run disposable object/dependency/archive files; no historical paths or checked artifacts",
+  "plan_sha256": "ba1df541382fea02c01c4497ac6b95a4a04b3e092b545bc5c7d83e01b019f21a",
+  "selection_sha256": "a000002c8eb21c6ee9d8b3410720c808e6823920caf2278c4b9d8f03ae2cc145",
+  "argv": [
+    "C:\\Users\\narut\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\adb\\32.0.0\\adb.exe",
+    "-s",
+    "2629958581",
+    "shell",
+    "-T",
+    "python3 -c 'import hashlib,json,pathlib,sys\nroot=pathlib.Path(sys.argv[1]); expected=sys.argv[1]\nassert root.resolve().as_posix()==expected and not root.is_symlink()\nitems=[]\nfor p in root.rglob('\"'\"'*'\"'\"'):\n if p.is_file() and p.suffix in ('\"'\"'.o'\"'\"','\"'\"'.d'\"'\"','\"'\"'.a'\"'\"'):\n  assert not p.is_symlink() and root in p.resolve().parents\n  items.append({'\"'\"'relative'\"'\"':p.relative_to(root).as_posix(),'\"'\"'bytes'\"'\"':p.stat().st_size})\nitems.sort(key=lambda x:x['\"'\"'relative'\"'\"'])\nassert hashlib.sha256(json.dumps(items,sort_keys=True,separators=('\"'\"','\"'\"','\"'\"':'\"'\"')).encode()).hexdigest()==sys.argv[2]\nremoved=[]\ntry:\n for item in items:\n  p=root/item['\"'\"'relative'\"'\"']\n  assert root in p.resolve().parents and not p.is_symlink() and p.suffix in ('\"'\"'.o'\"'\"','\"'\"'.d'\"'\"','\"'\"'.a'\"'\"')\n  p.unlink(); removed.append(item)\nfinally:\n print(json.dumps({'\"'\"'root'\"'\"':expected,'\"'\"'removed_files'\"'\"':len(removed),'\"'\"'removed_bytes'\"'\"':sum(x['\"'\"'bytes'\"'\"'] for x in removed),'\"'\"'checked_artifacts_untouched'\"'\"':True}))\n' /home/arduino/sumox26_codex_build/_app_builds/native-app-v1/fcddbd8ef5ba4c92a2080b03e9343ac78c2406b13d9514793aa147e02f0d1da2/match-immediate/04b266d5bf6740998eb692400fb6c77d/build a000002c8eb21c6ee9d8b3410720c808e6823920caf2278c4b9d8f03ae2cc145"
+  ],
+  "returncode": 0,
+  "stdout": "{\"root\": \"/home/arduino/sumox26_codex_build/_app_builds/native-app-v1/fcddbd8ef5ba4c92a2080b03e9343ac78c2406b13d9514793aa147e02f0d1da2/match-immediate/04b266d5bf6740998eb692400fb6c77d/build\", \"removed_files\": 233, \"removed_bytes\": 7355110, \"checked_artifacts_untouched\": true}\n",
+  "stderr": ""
+}

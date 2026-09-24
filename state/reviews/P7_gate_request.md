@@ -1,13 +1,17 @@
 # P7 gate review request - pending
 
-Prepared2026-09-24 under D137. This is a filled request, **not a review verdict or
-human approval**. Current work prepares documentation only; do not request a phase
+Prepared2026-09-24 under D137/D138. This is a filled request, **not a review verdict or
+human approval**. Current work prepares documentation and informational READY
+software; do not request a phase
 PASS from a reviewer before the missing release and real rehearsal evidence exists.
 
 - Phase: P7 freeze/runbook/dress rehearsal.
 - Documentation baseline:0faf2e6d; completed documentation commit:2700da11.
   The scoped reused-context preparation review passes; see
   [the packet](../analysis/P7_software_acceptance_packet.md). It is not a phase verdict.
+- D138 READY/battery software and subsequent runbook edits have separate
+  [validation](../analysis/P7_readiness_validation.md) and a fresh-context scoped
+  [source review](P7_readiness_review.md); neither is final phase acceptance.
 - Final release commit/artifact/tag: PENDING, not assigned by this request.
 - Specifications: AGENTS R1-R11; PLAN3/5/6; P7_freeze_matchday7.1-7.4;
   relevant approved UI/start/STOP/mode decisions and retained physical packets.

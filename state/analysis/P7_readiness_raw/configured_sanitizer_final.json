@@ -1,0 +1,71 @@
+{
+  "label": "configured_sanitizer_final",
+  "flags": [
+    "configured",
+    "private",
+    "sanitize"
+  ],
+  "start_utc": "2026-09-24T19:08:35.721317+00:00",
+  "input_freeze_sha256": "0fe188b7f8d6d179c85d7beff1a152245ab2455ba015baea9d2a4b82d38ce839",
+  "runner_sha256": "64ef067a8d68d41f8f990a1d9fa0aeed7a33eb4ec180a4ac5b0ead19a8b57c0f",
+  "commands": [
+    {
+      "argv": [
+        "cmake",
+        "-S",
+        "/dev/shm/sumox_d138_8jcvphf4/fixture/host",
+        "-B",
+        "/dev/shm/sumox_d138_8jcvphf4/build",
+        "-DCMAKE_BUILD_TYPE=Debug",
+        "-DCMAKE_EXE_LINKER_FLAGS=-fsanitize=address,undefined -no-pie",
+        "-DCMAKE_CXX_FLAGS=-fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie -DAPP_TEST_CONFIGURED_BUTTONS=1"
+      ],
+      "returncode": 0,
+      "start_utc": "2026-09-24T19:08:41.563640+00:00",
+      "end_utc": "2026-09-24T19:08:42.807340+00:00"
+    },
+    {
+      "argv": [
+        "cmake",
+        "--build",
+        "/dev/shm/sumox_d138_8jcvphf4/build",
+        "--parallel",
+        "1",
+        "--target",
+        "readiness_m0_tests",
+        "readiness_m1_tests"
+      ],
+      "returncode": 0,
+      "start_utc": "2026-09-24T19:08:42.807589+00:00",
+      "end_utc": "2026-09-24T19:09:11.113344+00:00"
+    },
+    {
+      "argv": [
+        "ctest",
+        "--test-dir",
+        "/dev/shm/sumox_d138_8jcvphf4/build",
+        "--output-on-failure",
+        "--no-tests=error",
+        "-R",
+        "^readiness_"
+      ],
+      "returncode": 0,
+      "start_utc": "2026-09-24T19:09:11.113699+00:00",
+      "end_utc": "2026-09-24T19:09:12.438227+00:00"
+    }
+  ],
+  "hardware_access": false,
+  "frozen_inputs": 687,
+  "synthetic_replacements": {
+    "BUTTON_WINDOWS_CONFIGURED = 0U": "BUTTON_WINDOWS_CONFIGURED = 1U",
+    "BUTTON_LOW_RAW[4] = {0U, 0U, 0U, 0U}": "BUTTON_LOW_RAW[4] = {0U, 900U, 1900U, 2900U}",
+    "BUTTON_HIGH_RAW[4] = {0U, 0U, 0U, 0U}": "BUTTON_HIGH_RAW[4] = {100U, 1100U, 2100U, 3100U}"
+  },
+  "fixture_config_sha256": "fd2dc02fe56bf4a2a0382c128637e9de0d5d7e5dd7a4eb9a409eac5138538b5d",
+  "private_probe_sha256": "9d835d130a686afd3698dba62461b4964ee7206c5b0b001e6d2649396a0b1138",
+  "returncode": 0,
+  "scratch_released": true,
+  "source_verified_after_run": true,
+  "end_utc": "2026-09-24T19:09:16.010072+00:00",
+  "log_sha256": "b9bcd08388dcd5531b20255990d1950962d662f2f36078c9fa2cbe43a7fa1ae7"
+}

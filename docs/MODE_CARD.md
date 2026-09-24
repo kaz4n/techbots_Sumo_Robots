@@ -3,7 +3,7 @@
 <!-- Review against config, types, countdown, UI renderer and P5 acceptance. -->
 # Mode card
 
-**D137 preparation draft — not operator-ready.** Use only with the verified
+**D137/D138 preparation draft — not operator-ready.** Use only with the verified
 [runbook](RUNBOOK.md). Release/config: ____________________
 Enabled modes: ____________________ Default: ____________________
 
@@ -55,12 +55,19 @@ No pre-angled placement is assumed without the organizer's answer.
   BOTH debounce and a complete 1 s hold; its electrical decoding remains unqualified
   in the current source. Use the runbook's verified physical stop procedure.
 
-**Display limits:** there is no literal READY screen. A mode glyph is not proof
-of readiness. Dim sensor markers mean unavailable, not detected. The bottom row
-is a 13-step battery bar (development scale 9.5–12.6 V); alternating pixels mean
-unknown. It does not prove the current 10.8 V threshold. The original P7 matrix
-READY/voltage criterion remains open under [SC-AP](../state/analysis/spec_conflicts.md);
-an external reading does not replace its acceptance.
+**READY display, after physical qualification:** release the buttons and observe
+the right-hand R blink on/off/on, nominally 500 ms per page. A frozen R or mode
+glyph alone is insufficient. The rightmost pixel just above the battery bar is
+bright at/above 10.8 V, dim below, off when unavailable in qualified IDLE. Require
+live R plus the bright marker. Neither is motor-run permission.
+
+Dim sensor markers mean unavailable, not detected. The bottom row remains a
+13-step battery bar (development scale 9.5–12.6 V); alternating pixels mean unknown.
+The R can be withheld by a fault even when control permits an IMU fallback.
+Native startup/ownership, calibrated voltage and visibility remain unqualified;
+see [D138 software evidence](../state/analysis/P7_readiness_validation.md) and
+[SC-AP](../state/analysis/spec_conflicts.md). A host image or external reading
+does not replace physical acceptance of the original matrix criterion.
 STOPPED remains inhibited; optional D103 evidence-service reset cannot rearm a match.
 
 Sources: [PLAN §6.4](PLAN.md#64-mode-selection-guide-print-this-card-for-match-day),

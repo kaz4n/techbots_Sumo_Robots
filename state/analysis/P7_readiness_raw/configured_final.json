@@ -1,0 +1,69 @@
+{
+  "label": "configured_final",
+  "flags": [
+    "configured",
+    "private"
+  ],
+  "start_utc": "2026-09-24T19:06:44.060528+00:00",
+  "input_freeze_sha256": "0fe188b7f8d6d179c85d7beff1a152245ab2455ba015baea9d2a4b82d38ce839",
+  "runner_sha256": "64ef067a8d68d41f8f990a1d9fa0aeed7a33eb4ec180a4ac5b0ead19a8b57c0f",
+  "commands": [
+    {
+      "argv": [
+        "cmake",
+        "-S",
+        "/dev/shm/sumox_d138_npvei4ui/fixture/host",
+        "-B",
+        "/dev/shm/sumox_d138_npvei4ui/build",
+        "-DCMAKE_BUILD_TYPE=Debug",
+        "-DCMAKE_CXX_FLAGS=-DAPP_TEST_CONFIGURED_BUTTONS=1"
+      ],
+      "returncode": 0,
+      "start_utc": "2026-09-24T19:06:47.680126+00:00",
+      "end_utc": "2026-09-24T19:06:49.033587+00:00"
+    },
+    {
+      "argv": [
+        "cmake",
+        "--build",
+        "/dev/shm/sumox_d138_npvei4ui/build",
+        "--parallel",
+        "1",
+        "--target",
+        "readiness_m0_tests",
+        "readiness_m1_tests"
+      ],
+      "returncode": 0,
+      "start_utc": "2026-09-24T19:06:49.034084+00:00",
+      "end_utc": "2026-09-24T19:07:08.420307+00:00"
+    },
+    {
+      "argv": [
+        "ctest",
+        "--test-dir",
+        "/dev/shm/sumox_d138_npvei4ui/build",
+        "--output-on-failure",
+        "--no-tests=error",
+        "-R",
+        "^readiness_"
+      ],
+      "returncode": 0,
+      "start_utc": "2026-09-24T19:07:08.420807+00:00",
+      "end_utc": "2026-09-24T19:07:08.699512+00:00"
+    }
+  ],
+  "hardware_access": false,
+  "frozen_inputs": 687,
+  "synthetic_replacements": {
+    "BUTTON_WINDOWS_CONFIGURED = 0U": "BUTTON_WINDOWS_CONFIGURED = 1U",
+    "BUTTON_LOW_RAW[4] = {0U, 0U, 0U, 0U}": "BUTTON_LOW_RAW[4] = {0U, 900U, 1900U, 2900U}",
+    "BUTTON_HIGH_RAW[4] = {0U, 0U, 0U, 0U}": "BUTTON_HIGH_RAW[4] = {100U, 1100U, 2100U, 3100U}"
+  },
+  "fixture_config_sha256": "fd2dc02fe56bf4a2a0382c128637e9de0d5d7e5dd7a4eb9a409eac5138538b5d",
+  "private_probe_sha256": "9d835d130a686afd3698dba62461b4964ee7206c5b0b001e6d2649396a0b1138",
+  "returncode": 0,
+  "scratch_released": true,
+  "source_verified_after_run": true,
+  "end_utc": "2026-09-24T19:07:10.299459+00:00",
+  "log_sha256": "c5cdbb8a778568e7ed4a8a29e0b5c770fd8d414bb556f7bc924367abac11716e"
+}

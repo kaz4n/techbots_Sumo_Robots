@@ -1,0 +1,69 @@
+{
+  "label": "configured_retry1",
+  "flags": [
+    "configured",
+    "private"
+  ],
+  "start_utc": "2026-09-24T18:59:49.988554+00:00",
+  "input_freeze_sha256": "1958dfcba1253a653468fc04bbd8d7ed5005cf68fbf501133330e2e536acdaa9",
+  "runner_sha256": "ad4558fceb768ec07aecf3ff3d032ea5c0c9af7832728f046fb8250f7fa95178",
+  "commands": [
+    {
+      "argv": [
+        "cmake",
+        "-S",
+        "/dev/shm/sumox_d138_3cuviald/fixture/host",
+        "-B",
+        "/dev/shm/sumox_d138_3cuviald/build",
+        "-DCMAKE_BUILD_TYPE=Debug",
+        "-DCMAKE_CXX_FLAGS=-DAPP_TEST_CONFIGURED_BUTTONS=1"
+      ],
+      "returncode": 0,
+      "start_utc": "2026-09-24T18:59:53.628912+00:00",
+      "end_utc": "2026-09-24T18:59:55.247546+00:00"
+    },
+    {
+      "argv": [
+        "cmake",
+        "--build",
+        "/dev/shm/sumox_d138_3cuviald/build",
+        "--parallel",
+        "1",
+        "--target",
+        "readiness_m0_tests",
+        "readiness_m1_tests"
+      ],
+      "returncode": 0,
+      "start_utc": "2026-09-24T18:59:55.247930+00:00",
+      "end_utc": "2026-09-24T19:00:10.447396+00:00"
+    },
+    {
+      "argv": [
+        "ctest",
+        "--test-dir",
+        "/dev/shm/sumox_d138_3cuviald/build",
+        "--output-on-failure",
+        "--no-tests=error",
+        "-R",
+        "^readiness_"
+      ],
+      "returncode": 8,
+      "start_utc": "2026-09-24T19:00:10.447722+00:00",
+      "end_utc": "2026-09-24T19:00:10.630638+00:00"
+    }
+  ],
+  "hardware_access": false,
+  "frozen_inputs": 683,
+  "synthetic_replacements": {
+    "BUTTON_WINDOWS_CONFIGURED = 0U": "BUTTON_WINDOWS_CONFIGURED = 1U",
+    "BUTTON_LOW_RAW[4] = {0U, 0U, 0U, 0U}": "BUTTON_LOW_RAW[4] = {0U, 900U, 1900U, 2900U}",
+    "BUTTON_HIGH_RAW[4] = {0U, 0U, 0U, 0U}": "BUTTON_HIGH_RAW[4] = {100U, 1100U, 2100U, 3100U}"
+  },
+  "fixture_config_sha256": "fd2dc02fe56bf4a2a0382c128637e9de0d5d7e5dd7a4eb9a409eac5138538b5d",
+  "private_probe_sha256": "9d835d130a686afd3698dba62461b4964ee7206c5b0b001e6d2649396a0b1138",
+  "returncode": 8,
+  "scratch_released": true,
+  "source_verified_after_run": true,
+  "end_utc": "2026-09-24T19:00:11.856782+00:00",
+  "log_sha256": "006517dac903b3a716178861afa7b0495fc6cac0b068acd1d3ad604fd95fd1fc"
+}

@@ -1,0 +1,57 @@
+{
+  "label": "full_first",
+  "flags": [
+    "full",
+    "private"
+  ],
+  "start_utc": "2026-09-24T19:01:02.473312+00:00",
+  "input_freeze_sha256": "1958dfcba1253a653468fc04bbd8d7ed5005cf68fbf501133330e2e536acdaa9",
+  "runner_sha256": "ad4558fceb768ec07aecf3ff3d032ea5c0c9af7832728f046fb8250f7fa95178",
+  "commands": [
+    {
+      "argv": [
+        "cmake",
+        "-S",
+        "/dev/shm/sumox_d138_3ji9dnp9/fixture/host",
+        "-B",
+        "/dev/shm/sumox_d138_3ji9dnp9/build",
+        "-DCMAKE_BUILD_TYPE=Debug"
+      ],
+      "returncode": 0,
+      "start_utc": "2026-09-24T19:01:05.692688+00:00",
+      "end_utc": "2026-09-24T19:01:07.228902+00:00"
+    },
+    {
+      "argv": [
+        "cmake",
+        "--build",
+        "/dev/shm/sumox_d138_3ji9dnp9/build",
+        "--parallel",
+        "1"
+      ],
+      "returncode": 0,
+      "start_utc": "2026-09-24T19:01:07.229397+00:00",
+      "end_utc": "2026-09-24T19:05:32.542430+00:00"
+    },
+    {
+      "argv": [
+        "ctest",
+        "--test-dir",
+        "/dev/shm/sumox_d138_3ji9dnp9/build",
+        "--output-on-failure",
+        "--no-tests=error"
+      ],
+      "returncode": 0,
+      "start_utc": "2026-09-24T19:05:32.542810+00:00",
+      "end_utc": "2026-09-24T19:05:59.549527+00:00"
+    }
+  ],
+  "hardware_access": false,
+  "frozen_inputs": 683,
+  "private_probe_sha256": "9d835d130a686afd3698dba62461b4964ee7206c5b0b001e6d2649396a0b1138",
+  "returncode": 0,
+  "scratch_released": true,
+  "source_verified_after_run": true,
+  "end_utc": "2026-09-24T19:06:01.381281+00:00",
+  "log_sha256": "ba04098bba3f05083b3f1986eb35fe4b1e00d90c9b9e5b37733e7adcfc702fb6"
+}

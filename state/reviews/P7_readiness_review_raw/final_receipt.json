@@ -1,0 +1,36 @@
+{
+  "utc": "2026-09-24T19:11:22.861758+00:00",
+  "final_binding_sha256": "2241442e3bef1cb159665f66cc313639d1d17c0bb72248bffcac8b46ddcc28a0",
+  "documentation": {
+    "docs/RUNBOOK.md": "efc83ab8df03bc2b610eb372d3150e344746cf42778dc63da848c99c0656f6be",
+    "docs/MODE_CARD.md": "35930ae3371b81ad67e38b723faa51c40c7a0631ccc17b7cd37149ad3e571437",
+    "docs/REHEARSAL_SCOUTING.md": "07a2da90d451a5e896119f516921e4bb6e23ea3cc9a56305a040a59702a44a4e",
+    "docs/prompts/P7_freeze_matchday.md": "d0fdd07c38eceeb3f6e4e86870b55b1bba558cc58b13eb55a14fa5308d397a04",
+    "state/analysis/P7_software_acceptance_packet.md": "07f89321c8c9ec83cd20c2e61c721d253aa9a8da964bb0e063830a26520673d4",
+    "state/analysis/P7_readiness_validation.md": "82b4d4578c8a4f4a9cd05b4f69e50203821de1ee1d29cb82020ddb04153faf9a",
+    "state/analysis/P7_remaining_scope_audit.md": "99e9065f0bde6aa6db3d3bda70ef641ab7f4f172b89ea02104fe44b9431373bc",
+    "state/reviews/P7_gate_request.md": "1be6991aaeae7ccb8d6df3b8840d630729e98767f14248a787c6a58547351d46"
+  },
+  "passing_receipts_rehashed": 5,
+  "changed_code_paths": [
+    "host/CMakeLists.txt",
+    "src/app/runtime.h",
+    "src/app/runtime_inputs.cpp",
+    "src/core/countdown.cpp",
+    "src/core/countdown.h",
+    "src/core/fsm.h",
+    "src/core/fsm_robot.cpp",
+    "src/hal/ui_display.cpp",
+    "src/hal/ui_display.h",
+    "tests/test_readiness.cc",
+    "tests/test_readiness_runtime.cc"
+  ],
+  "baseline_progress_normalized_prefix_preserved": true,
+  "legacy_progress_prefix_bytes": 140971,
+  "legacy_progress_prefix_sha256": "1dbbeb53c3dc046128494af3bef240b9a00353929d6121991900c90bb2838b77",
+  "first_audit_attempt": "Raw Git-blob prefix assertion failed on pre-D138 mixed CRLF at offset142413; normalized entire baseline prefix passes and actual saved legacy raw-prefix hash is verified separately; no source or ledger modified",
+  "native_review_receipt_sha256": "9cbc2969c033840d5ad28fc718210819fab8fc024d224b9e1df7f47727badd06",
+  "host_review_receipt_sha256": "b51180037d77e4e7b8bad9ed516cbcc0c5de3e773d5d1d74e6b9d9002d04bf3a",
+  "review_scope": "D138 informational source, tests, target file evidence and operator-document amendments only",
+  "verdict": "PASS_NO_OPEN_BLOCKER_MAJOR_MINOR"
+}

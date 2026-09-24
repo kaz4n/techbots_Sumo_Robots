@@ -3,7 +3,7 @@
 <!-- Review against P7, PLAN, current UI sources and linked acceptance packets. -->
 # Match-day runbook
 
-**D137 preparation draft, 24 September 2026. NOT OPERATOR-READY.** Print only
+**D137/D138 preparation draft, 24 September 2026. NOT OPERATOR-READY.** Print only
 after the release owner fills and verifies the release record below. Writing
 this runbook supplies no deployment, motor-run permission or human phase gate.
 
@@ -14,15 +14,17 @@ rehearsal is Friday 2 October. All times below are Asia/Dubai.
 ## Release prerequisites — currently open
 
 The checked-in app starts with empty hardware grants, and button windows remain
-unconfigured. It cannot provide this operator workflow as shipped. The matrix
-renderer has **no literal READY screen**; a mode number/arrow alone is not proof
-of IDLE or readiness. Its battery bar is not a calibrated numeric voltage display.
+unconfigured. It cannot provide this operator workflow as shipped. D138 defines
+a blinking **R** and an exact battery-threshold pixel for qualified IDLE samples;
+their software validation is recorded in the [readiness packet](../state/analysis/P7_readiness_validation.md).
+The native matrix's startup/ownership and physical visibility remain unqualified.
+A mode number/arrow alone is not readiness; the battery bar is not numeric voltage.
 
 | Required before using the workflow | Current boundary / evidence owner |
 |---|---|
 | Identified runnable release and deployment | Record the reviewed source/config/artifact and actual deployment. Current MATCH compilation and conditional loader fit are not a deployment or motor-run artifact. See [P5 packet](../state/analysis/P5_software_acceptance_packet.md) and [MATCH validation](../state/analysis/P5_match_native_validation.md). |
 | Hardware and usable controls | PINMAP/electrical qualification, calibrated battery reading, actual sensors, distinct button levels including BOTH, visible display and source setup remain required. [P2 packet](../state/analysis/P2_software_acceptance_packet.md) lists the missing evidence. |
-| Original P7 display criterion | Resolve and qualify READY and battery at/above VBAT_WARN_V on the matrix before release; see [open SC-AP](../state/analysis/spec_conflicts.md). Filling a calibrated-method field or using an external meter does not replace this original criterion. |
+| Original P7 display criterion | Qualify D138's live blinking R and battery-threshold pixel on the actual release matrix, including native startup/ownership, calibrated input, visibility and failure behavior; see [open SC-AP](../state/analysis/spec_conflicts.md). An external meter does not replace this criterion. |
 | Motion and opener acceptance | Resolve the real starts, stopping/edge, combat and opener criteria in the [P3](../state/analysis/P3_software_acceptance_packet.md), [P4](../state/analysis/P4_software_acceptance_packet.md) and [P5](../state/analysis/P5_software_acceptance_packet.md) packets. Each powered practice attempt needs fresh STAND OK or RING OK bound to that specific run, target, firmware and scope; never reuse it for another attempt. |
 | Safe stop, retrieval and next-round rearming | Verify a physical procedure for this release. D103's optional local service reset is disabled by default and retains motor inhibition; it **does not rearm a match**. Do not substitute it for a restart procedure. |
 | Log preservation and extraction | Verify native ownership, framing and the actual inhibited IDLE dump route. These remain [blocked prerequisites](../state/analysis/P2_native_dump_prerequisite_followup.md). A reboot, battery swap or later match is not a log-preservation procedure. |
@@ -77,11 +79,15 @@ WAIT and P6. P6 otherwise requires an actual P4 pass by 30 September.
 ### At the pit
 
 1. With motors inhibited, use the verified power-on procedure. Confirm the release
-   identity and the recorded readiness check. Do not wait for a nonexistent READY
-   word or interpret a boot logo/mode glyph as a readiness receipt.
-2. Measure battery voltage by the calibrated release method. Require at least the
-   release's VBAT_WARN_V (currently 10.8 V). An unknown value, an alternating
-   battery bar or absence of a low-battery icon does not establish this threshold.
+   identity and the recorded readiness check. Release the buttons and observe the
+   right-hand R alternate on/off and return on (nominally 500 ms per page).
+   A frozen R, boot logo or mode glyph alone is insufficient. R reports a current
+   inhibited, qualified start context; it does not authorize motor operation.
+2. Check the rightmost pixel of the row immediately above the battery bar:
+   bright means the accepted voltage is at/above VBAT_WARN_V (currently 10.8 V),
+   dim means below, and off means unavailable in the qualified IDLE display.
+   Require the bright marker and live R using the calibrated release input.
+   The coarse bar and absence of a low-battery icon do not establish the threshold.
 3. Apply the recorded organizer radio policy and verify the approved disable
    procedure. The plan's default is Wi-Fi off during matches; Bluetooth treatment
    and the organizer's answer still need recording. No radio controls robot motion.

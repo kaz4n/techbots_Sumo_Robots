@@ -1,0 +1,7 @@
+{
+  "scope": "Local read-only manifest preparation; no compiler/staging invoked",
+  "returncode": 1,
+  "error": "KeyError: tools/README.md",
+  "reason": "Tracked documentation is outside the executable freeze. No manifest or wrapper was written before failure.",
+  "resolution": "Bind frozen source/tool inputs to retry2; bind only the ancillary tools/README.md to HEAD bytes."
+}

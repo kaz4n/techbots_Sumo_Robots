@@ -1,90 +1,60 @@
 # Current execution checklist - 2026-09-24 Asia/Dubai
 
-**D138 ACTIVE (2026-09-24 22:42 Dubai):** a continuation source audit found a
-host-implementable P7.2 readiness/battery display gap. Adopted contract568bc277,
-designreviewPASS5bc6f928 and public interfaces committed36a96bd2. This supersedes
-the earlier no-further-host-task checkpoint below only for this concrete task.
-Fresh-context p7_ready_tests owns new state/analysis/P7_readiness_test_draft;
-p5_native_compile owns countdown.cpp/fsm_robot.cpp/runtime_inputs.cpp/ui_display.cpp
-implementation and its notes. Root owns interfaces/CMake/ledgers and execution.
-No new implementation tests/builds have run. First require independent test
-freeze and exact first implementation hashes, then run focused/default/configured
-M0/M1, sanitizer/fullhost, source-bound target/layout checks and separate review.
-Read analysis/P7_readiness_contract.md and P7_readiness_baseline.json. Do not
-claim native matrix/physical READY, change grants or reuse motor permission.
+**Active: P7 software/release preparation.** PROGRESS.md is the append-only phase
+authority; preserve its legacy bytes. User asks for prompt commits and continued
+software work with the bare UNOQ. Actual physical acceptance/human gates remain
+pending; D051/D075/D122/D137 permit scheduling, not fabricated measurements.
 
-**Active phase: P7, awaiting release prerequisites.** D137 operator-document
-preparation is complete and scoped-reviewed in2700da11; P5 D134/D135/D136 software
-is also complete and scoped-reviewed. Actual physical acceptance and human
-phase gates remain pending. PROGRESS.md is the append-only authority; preserve
-its legacy bytes. User resumed from c4fadad0 and requests prompt task commits.
-
-| Existing phase tasks | Completed software/evidence | Remaining acceptance |
+| Existing task | Software/evidence status | Remaining acceptance |
 |---|---|---|
-| P0 | Scripts, source/API checks, actual inert diagnostics | Electrical/pin verification and human gate |
-| P1 | Core, properties, locked safety and review | Human EXPLAINED OK/GATE P1 PASS |
-| P2 B1-B6/B8 | HAL, benches, actual Runtime/recorder; D118 inert app observation | Actual sensors/buttons/motors, PINMAP, dump transport, live stack/WCET |
-| P2 B7 | Inhibition/receipt checks | Full reverse/R6 conflict and real stress test |
-| P3 3.1-3.7 | Drive/turn/stop profiles and countdown analyzer | Physical trials, measured tuning and gate |
-| P4 4.1-4.7 | Reactive/timing profiles, target-loss analyzer, bounded push and admission | Physical trials, current full-app deployment qualification and gate |
-| P5 5.1-5.5 | Six openers, availability, abort producer/analyzer and scoped reviews | Real opener/mirror/UI/abort results and gate |
-| P6 | Deferred, not active | Actual P4 gate by30Sep and no stronger28Sep cut |
-| P7 7.2/7.4 | Runbook/mode card/kit/blank sheets complete and scoped-reviewed2700da11 | Release-qualified procedures, team review and printed copies |
-| P7 7.1/7.3 | Build example corrected to --match --compile-only | Validated release/tag at freeze and actual2Oct rehearsal |
+| P0 | Scripts/source checks and actual inert diagnostics | Electrical/PINMAP/human gate |
+| P1 | Core/properties/locked safety and review | Human EXPLAINED OK/GATE P1 PASS |
+| P2 B1-B6/B8 | HAL/Runtime/recorder; historical inert app observation | Actual sensors/buttons/motors, dump, live stack/WCET; current default app fit |
+| P2 B7 | Inhibition/receipt checks | Full-reverse/R6 conflict and actual stress trial |
+| P3 | Drive/turn/stop profiles and countdown analyzer | Measured trials/tuning/gate |
+| P4 | Reactive/timing, target-loss analyzer, bounded push/admission | Actual combat trials/deployment/gate |
+| P5 | Six openers, availability, abort producer/analyzer | Actual opener/mirror/UI/abort trials/gate |
+| P6 | Deferred | Actual P4 gate by30Sep and no stronger28Sep cut |
+| P7 7.2/7.4 | Runbook/mode card/kit/blank sheets; D138 R/threshold software | Native/physical readiness, qualified procedures, printing |
+| P7 7.1/7.3 | Safe compile-only example and source-bound MATCH checks | Qualified release/tag and actual2Oct rehearsal |
 
-## Completed checks: do not repeat without a relevant change
+## D138 software validation and scoped review PASS
 
-- D134 closure d6a8319e:18ordinary targets, four availability-pair M0/M1
-  sanitizer/private matrices, positive timing supplement and60+296tooling PASS.
-- D135 closure70c964a7:20host targets; public40/configured42 plus13private per
-  M0/M1 normal/sanitizer;18new/74admission/296regression,72layouts,8faults PASS.
-  Inert native wrapper conditional loader span1328B;43protected code files.
-- D136 closure0faf2e6d; source5277dec0/8e002c6f:93public (65536cue words),
-  19private,112unchanged-dependency regressions PASS;694prior inputs and43protected
-  exact. Finite source admission, not arbitrary C++ validation. Original failures
-  and independent new-oracle corrections retained. Scoped review PASS.
-- MATCH/Immediate qualification418624cd/2dbae98b: target compile before pause,
-  resumed file-based ordered loader/import checks and independent review PASS.
-  Conditional span1584B,62imports. No upload/live stack/WCET/physical proof.
+- Production first-source d19f8964; no production fix during testing.
+- 20ordinary cases perM0/M1;29public+2private configured cases perM; both normal
+ andASan/UBSan PASS. Full22targets PASS, including current profile suppression.
+- Three new-draft issues retained/adjudicated independently: typedGuard init,
+ doctest expression grouping, incorrect filtered-warning premise. No established
+ assertion/43protected source changed. Ordinary preprocessing identity preserves
+ fullrun relevance after configured-only correction.
+- Final687inputs0fe188b7 exact;82links/9fragments and legacyPROGRESSprefix verified.
+- Exact MATCH/Immediate sourcefcddbd8e/ELFcb5fbb53 compilePASS; conditional261280B
+ peak/864Bspan,62imports,16ABI sizes and72oldoffsets unchanged. No upload/reset.
+- Read analysis/P7_readiness_validation.md and reviews/P7_readiness_review.md for
+ final scoped disposition. D138 commands are terminal; owned RAM scratch released.
 
-D134 default image has32B modeled deficit. Two isolated candidates failed by
-24/32B and remain UNADOPTED; no third candidate or candidatehosttests. Unmodified
-D135default has not been compiled. MATCH fit does not close this default blocker.
+## Next original-scope task
 
-## Current next tasks
+Check unchanged current default/M0 app with one checked
+compile-only invocation and exact ordered loader/source/layout/import account.
+See analysis/P7_remaining_scope_audit.md. D134's historical32Bdeficit and two
+failed24/32Bcandidates remain unadopted; MATCH does not qualify default. Review
+those results before any newly scoped repair; no blind third candidate.
 
-D137 is closed for preparation only:52links/9fragments,43protected hashes and
-PROGRESSprefix verified; separate reused-context review PASS. All three documents
-remain not operator-ready. No new code, board job or generated build data.
+Then resume only genuinely available required evidence: physical packets, native
+dump holder/quiescence/cancel/reopen prerequisites, and SC-AP release workflow.
+No extra hardware request now. P6 remains gated; no release tag/human PASS inferred.
 
-1. Resume the first prerequisite for which real evidence is supplied: P0-P5
-   physical/controls/PINMAP qualification, or native dump's privileged read-only
-   holder receipt plus reviewed quiescence/cancel/reopen plan. Do not repeat an
-   unprivileged scan or enable setup grants from assumptions.
-2. Resolve SC-AP against the actual release: original matrix READY/battery
-   acceptance, full rearm and evidence-preservation procedure. Any changed
-   semantics need a recorded decision and independent verification before use.
-3. Once qualified, fill release record, obtain actual team/print/rehearsal evidence
-   and fresh gate review. P6 still needs its actual gate condition. Do not invent
-   work, physical evidence, a tag or human PASS to bypass these dependencies.
+D134/D135/D136 old closures d6a8319e/70c964a7/0faf2e6d retain their detailed
+validation packets. Do not repeat unrelated completed analyzers/tooling matrices.
+Last actual MCU upload remains consumed D118defaultM0 e820c0e1; recheck actual
+transport for a new task and never reuse its run approval.
 
-No additional hardware request is made now. Current eligible draft preparation
-is finished; no background work is running. See P7packet and pendinggate request.
+Storage: C:about654MBfree at latestcheck; use /dev/shm and one heavy compiler.
+Keep checked artifacts/unique failures; release owned completed scratch only.
+Local stage753087B cleanup was automatically denied; older85.48MB/1.70MB denials
+also remain. No retries through another mechanism. See STORAGE_LOG.md.
 
-Evidence entry points: analysis/P5_software_acceptance_packet.md,
-analysis/P5_abort_analysis_validation.md, analysis/P5_match_native_validation.md,
-and analysis/P7_software_acceptance_packet.md (completed preparation packet).
-
-All prior exec jobs are terminal. Last actual MCU upload is consumed D118defaultM0
-sourcee820c0e1; current loaded state is not freshly observed. User reports bare UNOQ
-connected. This resume has made only read-only board Linux artifact checks, no
-new compile/upload/reset/MCU run. Recheck transport for any new board task.
-
-Storage: C:2.135GBfree at22:18Dubai. Prefer /dev/shm and one compiler; retain compact
-receipts before releasing owned scratch. Earlier85.48MB/1.70MB deletion denials
-remain; do not retry through another route. Preserve checked artifacts and unique
-failure/evidence/source/user files. Assess each new artifact's continuing purpose.
-
-No actualP3 gate by end28Sep invokes reactive+SIDESTEP/DIRECT cut; P6 needs actual
-P4 by30Sep and no stronger cut. Freeze1Oct21:00Dubai; rehearsal2Oct, competition3Oct.
-No release tag or human gate is created merely because its scheduled date arrives.
+No actualP3 gate by end28Sep invokes reactive+SIDESTEP/DIRECT plus recorder cut.
+P6 needs actualP4 by30Sep and no stronger cut. Freeze1Oct21:00Dubai; rehearsal2Oct;
+competition3Oct. No scheduled date creates a validated release or human gate.

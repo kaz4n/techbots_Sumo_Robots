@@ -182,6 +182,26 @@ class Capture:
     def remember(self, error):
         if self.report['first_error'] is None:
             self.report['first_error'] = error_record(error)
+            self.first_exception = error
+
+    def context_error(self, name, error):
+        self.remember(error)
+        if error is not self.first_exception:
+            self.report['postcheck_errors'].append({'check': name, **error_record(error)})
+
+    def timestamp(self, target, prefix):
+        target[prefix + '_utc'] = utc()
+        try:
+            target[prefix + '_monotonic'] = self.now()
+        except Exception as error:
+            target[prefix + '_monotonic'] = getattr(self, 'latest', None)
+            self.remember(error)
+            record = {'check': prefix + '_clock', **error_record(error)}
+            self.report['postcheck_errors'].append(record)
+            if target is not self.report:
+                target['clock_errors'].append(record)
+            return error
+        return None
 
     def check_identity(self):
         observed = self.helper.identity(self.root_fd)
@@ -285,17 +305,37 @@ class Capture:
         if not evidence:
             self.check_directory()
 
-    def claim(self):
-        self.budget()
-        with self.helper.directory(self.root_fd, PARENT) as parent_fd:
-            self.parent_identity = self.helper.directory_id(os.fstat(parent_fd))
-            os.mkdir(OUTPUT_NAME, 0o700, dir_fd=parent_fd)
-            self.claimed = True
+    def create_directory(self, parent_fd):
+        self.parent_identity = self.helper.directory_id(os.fstat(parent_fd))
+        os.mkdir(OUTPUT_NAME, 0o700, dir_fd=parent_fd)
+        self.claimed = True
+        try:
             with self.helper.child_directory(parent_fd, OUTPUT_NAME,
                                              self.bindings['output']) as output_fd:
-                self.output_identity = self.helper.directory_id(os.fstat(output_fd))
-                self.output_fd = os.dup(output_fd)
-            os.fsync(parent_fd)
+                try:
+                    self.output_identity = self.helper.directory_id(os.fstat(output_fd))
+                    self.output_fd = os.dup(output_fd)
+                except Exception as error:
+                    self.remember(error)
+                    raise
+        except Exception as error:
+            self.context_error('claim_output_context', error)
+            raise
+        os.fsync(parent_fd)
+
+    def claim(self):
+        self.budget()
+        try:
+            with self.helper.directory(self.root_fd, PARENT) as parent_fd:
+                try:
+                    self.create_directory(parent_fd)
+                except Exception as error:
+                    self.remember(error)
+                    raise
+        except Exception as error:
+            if self.claimed:
+                self.context_error('claim_parent_context', error)
+            raise
         self.budget()
         self.write_record('capture_attempt.json',
                           {'schema': 'static-capture-attempt-v1',
@@ -308,6 +348,8 @@ class Capture:
         self.check_directory()
         with os.fdopen(self.open_exclusive(Path(stdout_path).name), 'wb') as stdout:
             with os.fdopen(self.open_exclusive(Path(stderr_path).name), 'wb') as stderr:
+                self.check_directory()
+                timeout = min(timeout, self.budget())
                 child = subprocess.Popen(argv, stdin=subprocess.DEVNULL, stdout=stdout,
                                          stderr=stderr, cwd='/home/arduino',
                                          env=dict(ENVIRONMENT), start_new_session=True,
@@ -342,7 +384,6 @@ class Capture:
             filename = basename if label == 'raw' else '{:02d}.{}'.format(index, label)
             limit = size if label == 'raw' else STREAM_LIMIT - 1
             try:
-                self.budget()
                 blob, unused = self.helper.read_file(self.output_fd, filename, limit)
                 if label == 'raw':
                     receipt['raw'] = {'bytes': len(blob), 'sha256': digest(blob)}
@@ -350,7 +391,6 @@ class Capture:
                     raw = blob
                 else:
                     receipt[label] = blob.decode('utf-8', errors='replace')
-                self.budget()
             except Exception as error:
                 failures.append(error)
                 receipt['output_errors'].append({'file': filename, **error_record(error)})
@@ -385,15 +425,23 @@ class Capture:
         basename, argv = self.command(index, item)
         self.check_directory()
         self.absent(basename)
-        self.write_record('{:02d}.command.json'.format(index),
-                          {'index': index, 'name': item[0], 'address': item[1],
-                           'bytes': item[2], 'argv': argv, 'planned_utc': utc()})
-        self.budget()
-        receipt = {'started_utc': utc(), 'started_monotonic': self.now(),
+        receipt = {'started_utc': utc(), 'started_monotonic': self.latest,
                    'finished_utc': None, 'finished_monotonic': None,
                    'subprocess': None, 'exception': None, 'stdout': None,
-                   'stderr': None, 'raw': None, 'output_errors': []}
-        failure = self.launch(index, argv, item[2], receipt)
+                   'stderr': None, 'raw': None, 'output_errors': [], 'clock_errors': []}
+        failure = None
+        try:
+            self.write_record('{:02d}.command.json'.format(index),
+                              {'index': index, 'name': item[0], 'address': item[1],
+                               'bytes': item[2], 'argv': argv, 'planned_utc': utc()})
+            failure = self.timestamp(receipt, 'started')
+            if failure is None:
+                self.budget()
+                failure = self.launch(index, argv, item[2], receipt)
+        except Exception as error:
+            failure = error
+        if failure is not None:
+            self.remember(failure)
         raw, failures = self.read_outputs(index, basename, item[2], receipt)
         if failure is None and failures:
             failure = failures[0]
@@ -405,7 +453,10 @@ class Capture:
         if failure is not None:
             receipt['exception'] = receipt['exception'] or error_record(failure)
             self.remember(failure)
-        receipt['finished_utc'], receipt['finished_monotonic'] = utc(), self.now()
+        clock_error = self.timestamp(receipt, 'finished')
+        failure = failure or clock_error
+        if failure is not None:
+            receipt['exception'] = receipt['exception'] or error_record(failure)
         self.write_record('{:02d}.result.json'.format(index), receipt, evidence=True)
         if failure is not None:
             raise failure
@@ -450,11 +501,11 @@ class Capture:
             self.postcheck(name, lambda name=name: self.check_file(name))
         self.postcheck('identity', self.check_identity)
         self.postcheck('directory', self.check_directory)
+        self.timestamp(self.report, 'finished')
         counts = self.report['counts']
         complete = counts == {'commands': 18, 'reads': 18, 'requested_bytes': 713656}
         if complete and self.report['analysis'] is not None and self.report['first_error'] is None:
             self.report['status'] = 'COLLECTED'
-        self.report['finished_utc'], self.report['finished_monotonic'] = utc(), self.now()
         self.write_record('capture_result.json', self.report, evidence=True)
         return self.report
 

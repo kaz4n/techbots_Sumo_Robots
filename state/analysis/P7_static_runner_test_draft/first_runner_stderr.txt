@@ -1,0 +1,39 @@
+test_cli_only_exact_three_tokens_and_help (test_static_runner.StaticRunnerContract.test_cli_only_exact_three_tokens_and_help) ... ok
+test_collection_identity_and_report_failures_still_run_final_postchecks (test_static_runner.StaticRunnerContract.test_collection_identity_and_report_failures_still_run_final_postchecks) ... ok
+test_compile_nonzero_transport_exceptions_and_malformed_status_are_unknown (test_static_runner.StaticRunnerContract.test_compile_nonzero_transport_exceptions_and_malformed_status_are_unknown) ... ok
+test_compile_success_first_postcheck_failure_becomes_primary (test_static_runner.StaticRunnerContract.test_compile_success_first_postcheck_failure_becomes_primary) ... ok
+test_core_required_row_unique_exact_version (test_static_runner.StaticRunnerContract.test_core_required_row_unique_exact_version) ... ok
+test_current_interpreter_common_policy_cache_blocks_before_or_after_import (test_static_runner.StaticRunnerContract.test_current_interpreter_common_policy_cache_blocks_before_or_after_import) ... ok
+test_duplicate_nonfinite_and_wrong_envelope_types_fail_closed (test_static_runner.StaticRunnerContract.test_duplicate_nonfinite_and_wrong_envelope_types_fail_closed) ... ok
+test_existing_missing_parent_and_symlink_receipt_paths_rejected (test_static_runner.StaticRunnerContract.test_existing_missing_parent_and_symlink_receipt_paths_rejected) ... ok
+test_final_postcheck_drift_blocks_saved_elf (test_static_runner.StaticRunnerContract.test_final_postcheck_drift_blocks_saved_elf) ... ok
+test_first_failure_survives_independent_remote_postcheck_failures (test_static_runner.StaticRunnerContract.test_first_failure_survives_independent_remote_postcheck_failures) ... ok
+test_inventory_identity_resources_and_extra_fields (test_static_runner.StaticRunnerContract.test_inventory_identity_resources_and_extra_fields) ... ok
+test_late_common_policy_read_drift_never_executes_unverified_bytes (test_static_runner.StaticRunnerContract.test_late_common_policy_read_drift_never_executes_unverified_bytes) ... ok
+test_local_pin_read_drift_rejects_without_editing_pinned_file (test_static_runner.StaticRunnerContract.test_local_pin_read_drift_rejects_without_editing_pinned_file) ... ok
+test_local_postcompile_pin_and_stage_read_failures_are_independent (test_static_runner.StaticRunnerContract.test_local_postcompile_pin_and_stage_read_failures_are_independent) ... ok
+test_main_configuration_failure_returns_one_without_transport (test_static_runner.StaticRunnerContract.test_main_configuration_failure_returns_one_without_transport) ... ok
+test_planned_receipt_write_failure_prevents_dispatch (test_static_runner.StaticRunnerContract.test_planned_receipt_write_failure_prevents_dispatch) ... ok
+test_precompile_failures_never_compile_or_run_terminal_postchecks (test_static_runner.StaticRunnerContract.test_precompile_failures_never_compile_or_run_terminal_postchecks) ... ok
+test_query_properties_drift_and_stale_after_query_stop_before_compile (test_static_runner.StaticRunnerContract.test_query_properties_drift_and_stale_after_query_stop_before_compile) ... ok
+test_request_admission_rejects_before_claim_or_transport (test_static_runner.StaticRunnerContract.test_request_admission_rejects_before_claim_or_transport) ... ok
+test_source_and_claim_response_binding (test_static_runner.StaticRunnerContract.test_source_and_claim_response_binding) ... ok
+test_success_exact_protocol_receipts_and_checked_final_only (test_static_runner.StaticRunnerContract.test_success_exact_protocol_receipts_and_checked_final_only) ... FAIL
+test_zero_exit_invalid_compile_policy_preserves_failure_and_runs_postchecks (test_static_runner.StaticRunnerContract.test_zero_exit_invalid_compile_policy_preserves_failure_and_runs_postchecks) ... ok
+
+======================================================================
+FAIL: test_success_exact_protocol_receipts_and_checked_final_only (test_static_runner.StaticRunnerContract.test_success_exact_protocol_receipts_and_checked_final_only)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\state\analysis\P7_static_runner_test_draft\test_static_runner.py", line 172, in test_success_exact_protocol_receipts_and_checked_final_only
+    self.assertEqual({path.name for path in self.receipt.iterdir()},
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     {'result.json','app.ino.elf',*[f'{i:04}.json' for i in range(1,27)]})
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Items in the first set but not the second:
+'inputs.json'
+
+----------------------------------------------------------------------
+Ran 22 tests in 13.135s
+
+FAILED (failures=1)

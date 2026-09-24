@@ -44,14 +44,25 @@ metadata correction, and source-race diagnostics were refined while keeping the
 helper oracle unchanged. Read analysis/P7_static_runner_validation.md and its
 linked receipts/reviews. All687 prior inputs,17runner pins and legacy progress
 prefix remain exact. Linux/Windows fixtures are transient; no compiler tree added.
-Exact next task: separately scope and review read-only collection/inspection of
-D144's already hashed remote ELF to identify the rejected symbol encoding.
-Runf0220228320c4b2aa20c3e5e8264c813 ended FAILED/phase layout:1query/1compile,
-25terminal commands, no postcheck errors. ELF170616B SHA5cc2dfde remains onLinux;
-the runner correctly stopped before local ELF transfer. Preserve frozen D142
-contract/parser/oracles and this negative outcome; do not retry compilation,
-guess the symbol type or weaken admission. Full entry/native/ABI audit remains
-separate. No active process or board command remains; session31974 is terminal.
+D145 performed the separately reviewed read-only ELF collection authorized in
+0e41849f: one read exit0, zero query/compile, no postcheck errors. The170616B
+ELF5cc2dfde now lives in analysis/P7_static_link_probe_raw/diagnosis-v1. Independent
+struct/readelf inspection identifies six absolute GLOBAL/default TLS type6 symbols
+outside D142's explicit allowlist. Official Arduino generation is consistent with
+inherited firmware TLS aliases, but exact installed assembly/object provenance
+and actual use remain unproved. Read analysis/P7_static_elf_diagnosis_validation.md
+and analysis/P7_static_tls_sources.md. D144 remains rejected; D145 read is consumed.
+Exact next task: scope a bounded read-only identity-bound inspection of installed
+tls-syms.S and existing D144 map/object evidence, before any admission proposal.
+No parser/contract/oracle/production-policy change or automatic rebuild. Full
+entry/native/ABI/runtime audit remains separate. No active board process remains.
+
+Storage follow-up127c9566 recovered3436544 allocatedB by lossless compression of22
+historical files; independent hash/size/mtime/allocation verification passes.
+Deletion of119 newly identified old caches (1945273B) was blocked by automatic
+approval review before execution; no retry. These targets now join earlier denied
+sets. C: onlyabout100MiBfree; recheck before every material job and keep outputs
+compact. See STORAGE_LOG.md. Do not delete unique evidence or alter system paging.
 
 D138 production remains first-source d19f8964 (interfaces36a96bd2). Normal20cases
 perM0/M1, configured29public+2private perM, normal/configured ASan+UBSan and full22
@@ -131,7 +142,7 @@ No additional hardware request now; no fresh STAND/RING authorization exists.
 Storage cleanup recovered 353,796,096 allocated bytes (337.4 MiB) by transparent
 LZX compression of 129 historical JSON/TXT evidence files; all before/after hashes
 match. No file was deleted. Receipts are in analysis/storage_compression_20260924_*
-and STORAGE_LOG.md. C: had approximately 900 MB free after the batch (about 850 MB at the latest check); recheck
+and STORAGE_LOG.md. C: had approximately 900 MB free after that earlier batch (later850MB); recheck
 before large work because system activity changes it. Keep compact evidence and
 one heavy compiler; do not change paging or persistent virtual disks.
 
@@ -145,7 +156,7 @@ It also recovered 50,286,592 allocated bytes by transparently compressing 61
 historical ELF evidence files, with all hashes/sizes/mtimes unchanged. Exact
 receipts and the independent check are in analysis/storage_*20260925*; see
 STORAGE_LOG.md. Both WSL crash dumps and every previously denied cleanup target
-remain. Latest C: observation was about 942 MB free; recheck before large work.
+remain. C: was about942MB free then; the current checkpoint above supersedes it.
 
 ## Authority and roles
 

@@ -1,0 +1,92 @@
+{
+  "scope": "Diagnostic only; frozen validator and negative result unchanged",
+  "elf_sha256": "5cc2dfdec597f1421d6250936569bc113542723c362786f23be62834b5ba0386",
+  "bytes": 170616,
+  "symbol_count": 2242,
+  "encodings": {
+    "bind=0,type=0,other=0": 1301,
+    "bind=0,type=1,other=0": 107,
+    "bind=0,type=2,other=0": 70,
+    "bind=0,type=3,other=0": 5,
+    "bind=1,type=2,other=0": 548,
+    "bind=1,type=0,other=0": 179,
+    "bind=2,type=1,other=0": 4,
+    "bind=2,type=2,other=0": 20,
+    "bind=1,type=6,other=0": 6,
+    "bind=1,type=1,other=0": 2
+  },
+  "rejected": [
+    {
+      "index": 1557,
+      "name": "_TLS_MODULE_BASE_",
+      "value": "0x8",
+      "size": 0,
+      "bind": 1,
+      "type": 6,
+      "other": 0,
+      "section": 65521
+    },
+    {
+      "index": 1598,
+      "name": "errno",
+      "value": "0x14",
+      "size": 0,
+      "bind": 1,
+      "type": 6,
+      "other": 0,
+      "section": 65521
+    },
+    {
+      "index": 1615,
+      "name": "_localtime_buf",
+      "value": "0x1c",
+      "size": 0,
+      "bind": 1,
+      "type": 6,
+      "other": 0,
+      "section": 65521
+    },
+    {
+      "index": 1872,
+      "name": "_strtok_last",
+      "value": "0x18",
+      "size": 0,
+      "bind": 1,
+      "type": 6,
+      "other": 0,
+      "section": 65521
+    },
+    {
+      "index": 1927,
+      "name": "z_tls_current",
+      "value": "0x10",
+      "size": 0,
+      "bind": 1,
+      "type": 6,
+      "other": 0,
+      "section": 65521
+    },
+    {
+      "index": 2071,
+      "name": "_rand_next",
+      "value": "0x8",
+      "size": 0,
+      "bind": 1,
+      "type": 6,
+      "other": 0,
+      "section": 65521
+    }
+  ],
+  "command": [
+    "wsl",
+    "-d",
+    "Ubuntu",
+    "--",
+    "readelf",
+    "-hSWlrs",
+    "state/analysis/P7_static_link_probe_raw/diagnosis-v1/app.ino.elf"
+  ],
+  "returncode": 0,
+  "stderr": "",
+  "tool_version": "GNU readelf (GNU Binutils for Ubuntu) 2.42"
+}

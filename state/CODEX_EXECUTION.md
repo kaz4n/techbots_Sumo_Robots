@@ -7,7 +7,8 @@ separate review. D140 source research and D141/D142 pure policy/artifact host
 validation are complete. Production policy remains dynamic-only. D143 passes80
 host methods; D144's one static compile returned0 but the structural validator
 rejected unsupported symbol encoding. No upload/reset/run. The GO is consumed;
-next is separately reviewed read-only inspection of the existing rejected ELF.
+D145 identified six absolute TLS type6 symbols after one checked read; exact
+installed TLS assembly/object provenance and use remain pending.
 
 
 **Active: P7 software/release preparation.** PROGRESS.md is the append-only phase
@@ -53,12 +54,16 @@ Current runner983e86d7/helper8ba9b190 include reviewed bounded repairs; no exist
 production/locked test changed. Read analysis/P7_static_runner_validation.md.
 All687 prior inputs and17 literal pins remain exact. D144 runf0220228 is terminal:
 1query/1compile, compileexit0, layout exit2, allpostcheckspass. See
-analysis/P7_static_native_attempt_validation.md. Scope read-only ELF diagnosis
-next; no automatic rebuild, parser relaxation or reuse of the consumed GO.
+analysis/P7_static_native_attempt_validation.md. D145 read/diagnosis complete:
+analysis/P7_static_elf_diagnosis_validation.md records2242symbols/sixrejectedTLS
+entries. Official source mechanism is recorded in P7_static_tls_sources.md.
+Next: separately scoped read-only installedtls-syms.S/map/object provenance and
+usage inspection. Preserve frozen rejection; no automatic rebuild or relaxation.
 
 Storage follow-up744f50c1 removed9,386,809 logical bytes of verified disposable
-caches; independent verification passed. Latest free-space observations fluctuate
-around820MiB; recheck before large jobs. Active npm/npx caches and prior denied
+caches; independent verification passed. Follow-up127c9566 recovered3436544B via
+22-file lossless compression. Another119-cache deletion was blocked beforeexecution.
+Latest free spaceabout100MiB; recheck before material jobs. Active npm/npx and denied
 cleanup targets remain untouched. Exact receipt/history: STORAGE_LOG.md.
 
 D139's unchanged current default/M0 qualification is complete with a592B modeled
@@ -92,10 +97,10 @@ validation packets. Do not repeat unrelated completed analyzers/tooling matrices
 Last actual MCU upload remains consumed D118defaultM0 e820c0e1; recheck actual
 transport for a new task and never reuse its run approval.
 
-Storage: prior text compression recovered353796096allocatedB; additional ELF
+Historical storage receipts: prior text compression recovered353796096allocatedB; additional ELF
 compression recovered50286592B with exact hashes. Four unused application dumps
-and one bytecode cache were removed; denied cleanup targets remain. C: about
-936MB free at latest check; recheck before large work. D142 uses only small source,
+and one bytecode cache were removed; denied cleanup targets remain. C: was about
+936MB free at that earlier check; current observation above supersedes it. D142 uses only small source,
 oracle and receipt files, with transient RAM fixtures and no compiler tree.
 Automatic approval rejected deletion of 154 Arduino download archives (4.26 GiB)
 with "blocked by policy". Earlier stage/host/snapshot denials remain unchanged.

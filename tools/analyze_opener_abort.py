@@ -212,6 +212,25 @@ def _config_directives(code):
     return '\n'.join(output)
 
 
+def _extra_declarator(prefix, suffix):
+    # A comma outside an expression can start another declarator in the same statement.
+    parentheses, brackets, comma = 0, 0, -1
+    for index, char in enumerate(prefix):
+        if char == '(':
+            parentheses += 1
+        elif char == ')':
+            parentheses -= 1
+        elif char == '[':
+            brackets += 1
+        elif char == ']':
+            brackets -= 1
+        elif char == ',' and parentheses == brackets == 0:
+            comma = index
+    separate = ('=' not in prefix and re.fullmatch(r'[\w:\s*&]+', prefix) is not None)
+    subsequent = comma >= 0 and re.fullmatch(r'[\s*&]*', prefix[comma + 1:]) is not None
+    return (separate or subsequent) and re.match(r'\s*(?:;|\[|\(|\{)', suffix) is not None
+
+
 def _config_value(code, name):
     pattern = (r'\binline\s+constexpr\s+std\s*::\s*uint32_t\s+' + name +
                r'\s*=\s*([0-9]+)[Uu]\s*;')
@@ -228,8 +247,7 @@ def _config_value(code, name):
         boundary = max(prefix.rfind(';'), prefix.rfind('{'), prefix.rfind('}')) + 1
         prefix, suffix = prefix[boundary:], code[use.end():]
         assigned = re.match(r'\s*=(?!=)', suffix) is not None
-        redeclared = ('=' not in prefix and re.fullmatch(r'[\w:\s*&]+', prefix) is not None
-                      and re.match(r'\s*(?:;|\[)', suffix) is not None)
+        redeclared = _extra_declarator(prefix, suffix)
         _configuration(not assigned and not redeclared, name + " has a duplicate or unsupported declaration.")
     digits = declaration.group(1)
     _configuration(len(digits) <= 10 and (len(digits) == 1 or digits[0] != '0'),

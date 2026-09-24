@@ -1,0 +1,27 @@
+{
+  "start_utc": "2026-09-24T17:55:25.950178+00:00",
+  "argv": [
+    "wsl",
+    "-d",
+    "Ubuntu",
+    "--",
+    "env",
+    "TMPDIR=/dev/shm",
+    "PYTHONDONTWRITEBYTECODE=1",
+    "python3",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests/tooling",
+    "-p",
+    "test_opener_abort_declarations.py",
+    "-v"
+  ],
+  "source_sha256": "02b2180a1014a7b78243101585730ab66849a3803b7336bbab407124d7e72ab4",
+  "transferred_test_sha256": "0787b64796bf96fcd4bb595db61fbaf83cd62683180f3fec0d55a5c192b62c0e",
+  "returncode": 0,
+  "end_utc": "2026-09-24T17:55:32.070888+00:00",
+  "log_sha256": "0001e3c1d5d87ed55bbb85d233e1e9d04c955d26144851239f4c57e9ebc82349"
+}

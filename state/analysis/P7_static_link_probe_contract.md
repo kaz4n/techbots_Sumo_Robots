@@ -22,7 +22,11 @@ default deficit of 592 bytes and both unadopted optimization candidates remain.
   new probe implementation, references and independent tests before execution;
   retain existing dynamic policy/reference files byte-identically.
 - A unique static-probe policy/run path separates all output from prior dynamic
-  receipts and binaries. No overwrite or cleanup of prior evidence or denied paths.
+  receipts and binaries. Claim its output/build directories exclusively; reject
+  preexisting directories, symlinks and artifact destinations before invoking the
+  compiler. Every fixed output must be newly produced by this invocation. Missing,
+  empty, stale or otherwise unbound outputs fail even if packaging exits zero.
+  No overwrite or cleanup of prior evidence or denied paths.
 
 ## Preserve policy checks; admit only the reviewed static recipe
 
@@ -72,8 +76,13 @@ exact source, tool pins, effective commands, FQBN and unique run. Retain one
 checked final ELF and compact extracted evidence locally; keep other needed
 checked files on Linux. Use an explicit fixed artifact list, never suffix guessing.
 
-- Parse the static ELF identity, entry and allocated sections/segments, including
-  holes, alignment, file-backed load addresses and NOLOAD regions. Confirm that
+- Require little-endian ARM ELF32 (`ELFCLASS32`, `ELFDATA2LSB`, `EM_ARM`) and
+  `ET_EXEC`; reject relocatable/shared images. Freeze the exact ARM/Thumb ABI
+  flags against the pinned toolchain before accepting an image. Reject any
+  relocation requiring runtime processing: the linked loader does not relocate
+  this payload. Retained non-ALLOC diagnostic relocations need explicit separate
+  classification. Parse entry and allocated sections/segments, including holes,
+  alignment, file-backed load addresses and NOLOAD regions. Confirm that
   the executable entry is the Thumb entry at flash payload start `0x08100010`
   (`e_entry`/function-pointer Thumb bit handled explicitly), with `.entry_point`
   actually first. Inspect the exact entry disassembly and constructor ranges.
@@ -81,8 +90,10 @@ checked files on Linux. Use an explicit fixed artifact list, never suffix guessi
   the pinned sketch partition `[0x08100000, 0x081c0000)`, with the 16-byte header
   accounted separately. Every RAM allocation, including final alignment padding,
   must stay within `[0x20013890, 0x20053890)`. Reject unexplained allocated orphan
-  sections or overlaps. Show actual end addresses and remaining spans; do not
-  infer fit from the package's writable-section sum alone.
+  sections or overlaps. Freeze permitted named sections and placement from the
+  pinned linker script; unexpected TLS, GOT or dynamic sections fail closed.
+  Show actual end addresses and remaining spans; do not infer fit from the
+  package's writable-section sum alone.
 - Verify `_sidata/_sdata/_edata/_sbss/_ebss`, copy/zero extents and constructor
   ordering against installed `entry_point`; `.noinit` is inside this script's
   BSS output region. Do not silently assume old log preservation semantics.
@@ -111,6 +122,9 @@ for profile/safety/startup drift, source/manifest drift, path/override/pin drift
 missing/extra effective properties, unexpected libraries/upload results, wrong
 entry/address/alignment/extent, out-of-bounds RAM or flash, malformed headers,
 wrong linked/startup flags, payload mismatch and failed subprocesses. Verify
+wrong ELF class/endianness/machine/type/ABI flags and runtime relocation fail.
+Include packaging exit zero with an otherwise-valid old BIN/ZSK pair: the runner
+must reject those stale destinations before compiling or validating them. Verify
 rejection occurs before the compiler/transport tripwire where applicable.
 Established dynamic tests and exact dynamic-reference bytes remain unchanged;
 ordinary dynamic validation must still reject static input. A separate reviewer

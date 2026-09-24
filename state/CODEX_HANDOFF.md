@@ -1,6 +1,6 @@
 # Codex handoff - 2026-09-24 Asia/Dubai
 
-Current phase is **P4 software under D128**. The user explicitly directed assumed
+Current phase is **P5 software under D134**. The user explicitly directed assumed
 physical acceptance and continued development. This advances software scheduling;
 unmeasured physical results and actual human gate records remain pending.
 Read [CODEX_EXECUTION.md](CODEX_EXECUTION.md) for the current compact checklist;
@@ -16,7 +16,9 @@ and14private cases pass perM0/M1; unchanged legacy30 pass perM0/M1. D13232 admis
 and12 private methods pass. D133 same296-method tooling rerun passes after exact
 historical fixture repair; all344 established assertions remain unchanged.
 Read analysis/P4_push_through_checkpoint.md and the two validation reports.
-Next software task is P5 optional-mode contract adoption; no gate follows.
+Current task is D134 optional-mode availability: contract adopted after design
+review, config/public declarations present, independent tests being authored
+before implementation. See analysis/P5_mode_availability_contract.md. No gate follows.
 The user's storage follow-up added the retention rule in AGENTS.md and the
 compact history in STORAGE_LOG.md. Additional deletion was blocked by tooling.
 
@@ -145,3 +147,6 @@ than inventing a phase pass or promising unattended completion through human gat
 
 D130 completion commit: cd22e7c7. D131 contract commit: ac49d422.
 Current working checkpoint: analysis/P4_push_through_checkpoint.md.
+P4 completion39791703; byte-preservation correction2483038a; P5 proposalcf35d0a8.
+PROGRESS.md contains legacy non-UTF8 separators: preserve its existing bytes and
+append without re-encoding historical content. D134 is the first unfinished task.

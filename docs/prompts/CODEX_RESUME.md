@@ -1,8 +1,9 @@
 # Resume SumoX-26 with Codex
 
-Current software phase: P4 under D128; D131-D133 completed at host scope with
-separate same-model review PASS. Next eligible task is P5 optional-mode contract
-review/adoption under the user's hardware-at-end direction, not a human gate.
+Current software phase: P5 under D134; D131-D133 completed at host scope with
+separate same-model review PASS. D134 optional-mode contract is adopted under
+the user's hardware-at-end direction, not a human gate. Config/public interface
+declarations exist; independent tests are being authored before implementation.
 
 1. Read AGENTS.md fully, state/CODEX_HANDOFF.md, CODEX_EXECUTION.md, recent
    PROGRESS.md, DECISIONS.md, FACTS.md, TUNING_LOG.md and open findings. Load the
@@ -15,8 +16,8 @@ review/adoption under the user's hardware-at-end direction, not a human gate.
    tooling methods passed after exact historical-fixture repair. All344 prior
    adapter assertions and41 protected source files are unchanged. Keep original
    failures and successful hashes. Do not repeat matrices without a relevant change.
-4. Review state/analysis/P5_software_map.md and optional-mode draft. Adopt a bounded
-   decision before implementation; tests derive from specs/public headers, then
+4. Read state/analysis/P5_mode_availability_contract.md and the source map.
+   Preserve adopted D134; tests derive from specs/public headers, then
    freeze, implement, validate and review. No physical gate follows from software
    scheduling. Shipped push duration remains0.
 5. D129/D131 target compilation/native fit are still pending. Prior D128 reactive
@@ -37,4 +38,6 @@ review/adoption under the user's hardware-at-end direction, not a human gate.
    freeze1Oct21:00 Dubai. Commit finished tasks promptly; never push or move tags.
 
 D130 completion cd22e7c7; D131 contract ac49d422; prior pause2bdc6eae.
+P4 software completion39791703, ledger-byte correction2483038a, P5 designcf35d0a8.
+PROGRESS.md has legacy non-UTF8 separators; append without re-encoding old bytes.
 Read latest PROGRESS entries for subsequent commits and the exact next task.

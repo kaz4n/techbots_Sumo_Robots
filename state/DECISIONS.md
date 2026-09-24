@@ -1610,3 +1610,8 @@ D-131/D-132/D-133 software validation 2026-09-24T12:20:21.6435372+04:00: D131 fi
 
 
 D-131/D-132/D-133 final software disposition 2026-09-24T12:21:47.1876091+04:00: separate-context same-model review PASS, no open scoped BLOCKER/MAJOR/MINOR. Retain native fit/WCET and physical gates as pending. Review state/reviews/P4_push_through_review.md; next P5 software contract proposal only.
+
+## D-134 (2026-09-24T12:23:25.0621783+04:00, selected under D051 and explicit hardware-at-end direction) P5 software and optional-mode availability
+Context: P4's identified software tasks are implemented/host-tested/reviewed in39791703; physical gates remain pending. P5 requires optional ARC/WAIT pass or removal, and the future scope cut needs a config-only removal mechanism. All six openers already exist.
+Decision: advance active software phase to P5 and adopt analysis/P5_mode_availability_contract.md after separate design review. Two canonical0/1 flags default1; mandatorySIDESTEP/DIRECT; bounded menu skip; direct-entry rejection; stable historical IDs; exact raw admission with explicit pre-feature compatibility. P5.3 follows approvedD034 same-tick normal perception, not an immediate ATTACK exemption. Names are explicit dimensionless availability exceptions to units suffix conventions.
+Consequence: preserve all B16 values,41establishedprotected sources, original assertions and run authority. Add only two literal registry expectations. Independent tests from contract/public headers precede execution; separate implementation/review and source-bound validation. No GATE P4/P5, physical measurement, native fit or motor permission; P6 dates unchanged.

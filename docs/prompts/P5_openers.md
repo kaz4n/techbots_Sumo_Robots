@@ -16,6 +16,12 @@ Setup for every run: robot behind its start line facing the center; box behind t
 5.1 **Static box:** 10 runs. Pass: 9/10 end in ATTACK on the box; 0 self-exits.
 5.2 **Charger proxy** (SIDESTEP and WAIT only): at GO, a human pulls the box hard toward our start line with the string. Film at 60 fps. Pass: 8/10 without a frontal hit on us, and the robot reaches the box side. (M9.)
 5.3 **Abort check:** box placed in the opener's path. Pass: 10/10 the opener hands over to ATTACK or DEFEND_TURN within 1 tick of the abort condition.
+
+D034/D134 clarification: the same observation hands over through normal current
+perception. Current front enters TRACK, with ATTACK still requiring the existing
+centered-observation count; side/rear enters DEFEND_TURN; none enters SEARCH.
+The original ATTACK wording above grants no qualification exception. Verify the
+phase-specific abort condition, same-tick routing and later qualified ATTACK.
 5.4 **Mirror check:** L and R versions produce mirrored heading traces in the recorder, within 10 degrees.
 5.5 **Mode UI:** the operator selects any mode in under 5 s, and the matrix confirmation is readable at arm's length.
 

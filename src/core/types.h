@@ -13,6 +13,9 @@ enum class State : std::uint8_t {
 enum class Mode : std::uint8_t {
     SIDESTEP_R = 1, SIDESTEP_L, DIRECT, ARC_R, ARC_L, WAIT
 };
+// D134 execution admission only; recorded IDs1..6 stay semantically valid.
+// Mandatory1..3, optional ARC pair/WAIT from config; all other values false.
+constexpr bool modeAvailable(Mode mode);
 // Semantic input only: this does NOT assert that the A1 circuit can decode BOTH.
 enum class ButtonLevel : std::uint8_t { NONE, START, MODE, BOTH };
 enum class ButtonPresence : std::uint8_t { ABSENT = 1, VALID = 2, INVALID = 3 };

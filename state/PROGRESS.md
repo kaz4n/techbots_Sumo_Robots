@@ -957,3 +957,5 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 2026-09-24T12:21:47.1876091+04:00 | P4 software | D131-D133 final scoped review | PASS no open findings; original failures and final bindings retained. No hardware or human gate. Next P5 optional-mode software proposal | completion commit this task
 2026-09-24T12:22:29.6133485+04:00 | State preservation | Restored exact pre-resume progress bytes | A text-encoding round trip in39791703 changed8 legacy separators; restored original140971-byte prefix from2bdc6eae exactly, SHA2561dbbeb53c3dc046128494af3bef240b9a00353929d6121991900c90bb2838b77, retaining all new append entries. No firmware/evidence result change; append bytes without re-encoding old history | correction commit this task
+
+2026-09-24T12:23:25.0621783+04:00 | P5 software | D134 contract adopted | P4 software39791703 reviewed; actual gates pending. Begin optional-mode availability under hardware-at-end direction, defaults unchanged; public interfaces and independent tests next. Proposal cf35d0a8 | contract commit this task

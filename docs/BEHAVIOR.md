@@ -488,6 +488,14 @@ braking, contact lifetime and edge priority remain in force.
 
 ## B13. Modes and UI
 
+D-134 (selected under delegated D-051, 2026-09-24): configuration switches
+MODE_ARC_ENABLED and MODE_WAIT_ENABLED each accept0 or1 and default1. The mode
+menu skips disabled optional modes; SIDESTEP_R/L and DIRECT remain mandatory.
+MODE_DEFAULT must select an enabled mode. Direct script entry also rejects a
+disabled opener with its existing invalid/zero result. IDs1..6 retain their
+display/log meaning, even in reduced builds; no remote or runtime selector is
+added. This supplies P5's removal mechanism without claiming physical acceptance.
+
 | Mode | Name | Matrix shows |
 |---|---|---|
 | 1 | SIDESTEP_R (default at boot, MODE_DEFAULT) | "1" and a right arrow |

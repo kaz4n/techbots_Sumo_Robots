@@ -263,6 +263,8 @@ struct MenuResult {
 };
 class Menu {
 public:
+    // D134: match cycling skips disabled ARC/WAIT with at most six probes.
+    // MODE_DEFAULT must be available; service order and captured mode are unchanged.
     // B13/D-058: only IDLE-at-entry and no final inhibited fault admit gestures
     // or service requests. Other/invalid states cancel the gesture and retain
     // selection. Caller includes final STOP in inhibited_fault; a countdown MODE

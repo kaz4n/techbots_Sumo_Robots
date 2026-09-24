@@ -63,6 +63,8 @@ struct FlankResult {
 };
 class Flank {
 public:
+    // D134: disabled ARC starts reset the old script and return false with
+    // latched INVALID/zero, as for an invalid mode. SIDESTEP remains available.
     // Only SIDESTEP_R/L and ARC_R/L are accepted. Capture finite initial heading.
     // Config-backed definitions share PIVOT -> TRAVERSE -> TURN_IN, mirrored once.
     // PIVOT uses relative +/-SS_PIVOT_DEG or +/-ARC_PIVOT_DEG at TURN_DUTY.
@@ -131,6 +133,8 @@ struct WaitResult {
 };
 class Wait {
 public:
+    // D134: disabled WAIT starts reset and return false; subsequent steps stay
+    // INVALID/zero/brake without cue or timeout pulses until reset/restart.
     // B12 O4/D-055: start HOLD at this time with a finite last-known heading.
     // Start/reset discard old cue/deadline/flank state. No snapshot input.
     bool start(std::uint32_t t_us, float heading_deg);

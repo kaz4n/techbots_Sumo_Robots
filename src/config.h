@@ -254,6 +254,9 @@ inline constexpr std::uint32_t DUMP_UART_PACKET_MS = 100U;
 inline constexpr std::uint32_t BTN_LONG_MS = 1000U; // ms
 inline constexpr std::uint32_t MODE_SHORT_MS = 600U; // ms; existing B13 strict short-press bound
 inline constexpr std::uint32_t MODE_DEFAULT = 1U; // mode
+// D134 dimensionless availability; historical mode IDs remain unchanged.
+inline constexpr std::uint32_t MODE_ARC_ENABLED = 1U; // availability: 0 or 1
+inline constexpr std::uint32_t MODE_WAIT_ENABLED = 1U; // availability: 0 or 1
 // B6 specifies a 1 s battery filter outside its B16 table; unchanged spec value.
 inline constexpr std::uint32_t VBAT_FILTER_MS = 1000U; // ms, B6
 inline constexpr std::uint32_t REFLANK_WINDOW_MS = 10000U; // ms, B11.3 rolling window

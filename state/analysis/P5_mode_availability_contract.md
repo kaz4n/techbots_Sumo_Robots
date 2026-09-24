@@ -1,8 +1,10 @@
-# Proposed P5 optional-mode availability contract
+# D134: P5 optional-mode availability contract
 
-PROPOSED FOR REVIEW, 2026-09-24. This is design preparation while P4 validation
-finishes, not adoption, implementation, a software-phase advance or a gate.
-Only this draft is changed. No test, build or hardware operation is requested.
+ADOPTED under D051 and the user's hardware-at-end scheduling direction,
+2026-09-24. P4 software review passed in39791703; actual P4 acceptance remains
+pending. Active software work advances to P5. This does not grant a human gate
+or hardware/motor permission. The independently reviewed proposal is retained
+in cf35d0a8 and P5_mode_availability_draft_review.md.
 
 ## Purpose and existing behavior
 
@@ -102,7 +104,9 @@ build/remote operations, alongside the unchanged D132 push-through validation.
 Reuse the small lexical rules where practical; do not build a preprocessor.
 Any shared-lexer adjustment must retain every adopted D132 acceptance/rejection.
 
-After comment/quoted-literal masking, count active occurrences of each switch
+Apply malformed-text, source-splice and digraph rejection before the legacy
+both-absent return, including direct validator calls. After comment/quoted-literal
+masking, count active occurrences of each switch
 identifier before removing directives. If neither identifier occurs, accept
 the config as pre-feature source. This is compatibility with historical source,
 not inferred fallback definitions: new core code unconditionally requires both
@@ -127,8 +131,11 @@ exceptions. Parsing checks raw source before any native integer narrowing.
 
 Keep canonical-config copying, local-shadow rejection, existing compiler flags,
 source hashing and upload guards unchanged. The two new defaults enter the
-explicit config registry through an additive approved-expectation adapter;
-retain the existing B16 count and assertions. Do not edit a locked test.
+existing `test_p0_config.BEHAVIOR_EXTRA_DEFAULTS` dictionary as literal1
+expectations under D134. Retain the B16 count76, D096_DEFAULTS, all existing
+assertion bodies and the current wrapper chain. Add independent copied-config
+rejection of each new shipped default drifting to0 or2; no extra wrapper.
+Do not edit a locked test.
 
 ## P5.3 clarification: adopted D034 already controls the outcome
 
@@ -141,7 +148,7 @@ ATTACK_ENTER_TICKS consecutive centered observations before ATTACK; current
 side/rear enters DEFEND_TURN, and no current target enters SEARCH. A countdown
 snapshot alone never authorizes ATTACK.
 
-Proposed P5.3 clarification: verify same-tick handover to that existing routing,
+Adopted P5.3 clarification: verify same-tick handover to that existing routing,
 then the required centered qualification before ATTACK. Test phase-specific
 abort conditions and existing precedence, including SIDESTEP/ARC PIVOT ignoring
 front where specified. Do not create an immediate-ATTACK exemption. This is
@@ -186,8 +193,9 @@ expected values before first implementation execution. Required coverage:
    freeze. Check target fit through the established compile-only path; do not
    infer target RAM/timing improvement from disabling entries or host results.
 
-This draft's likely implementation scope is config.h, core/types.h,
+The bounded implementation scope is config.h, core/types.h,
 core/countdown.{h,cpp}, core/openers.{h,cpp}, core/fsm_robot.cpp and
 tools/board_tool.py, with additive independent tests and matching B13/P5 wording.
 It does not request a second framework, strategy, physical run or phase gate.
-Root must review/adopt the contract and assign owners before implementation.
+Root serializes shared interfaces/config/build/state; implementation, independent
+spec/header-derived tests and read-only review have separate file owners.

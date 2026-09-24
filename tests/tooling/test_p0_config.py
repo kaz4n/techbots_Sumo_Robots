@@ -90,6 +90,8 @@ QTR_ACQUISITION_DEFAULTS = {
 }
 QTR_PROPOSED_ARRAY_DEFAULTS = {'QTR_INPUT_PINS[4]': (2, 4, 7, 8)}
 BEHAVIOR_EXTRA_DEFAULTS = {
+    'MODE_ARC_ENABLED': 1,
+    'MODE_WAIT_ENABLED': 1,
     'STAND_SEGMENT_MS': 500,  # D119 pure B4 directional sequence development interval.
     'TURN_TRIAL_BRAKE_MS': 500,  # D124 P3 trial observation interval, not measured settling.
     'STOP_TRIAL_APPROACH_MS': 1000,  # D126 finite request, not safe distance evidence.

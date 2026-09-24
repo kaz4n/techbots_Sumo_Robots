@@ -1,0 +1,39 @@
+{
+  "label": "default11",
+  "arc": 1,
+  "wait": 1,
+  "default": 1,
+  "flags": [
+    "full",
+    "review"
+  ],
+  "start_utc": "2026-09-24T08:34:21.365652+00:00",
+  "input_freeze_sha256": "c42f6ac9d809220783325ec3daba1b4f9554acb8fb257111872c671f561cec35",
+  "commands": [
+    {
+      "argv": [
+        "cmake",
+        "-S",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/host",
+        "-B",
+        "/dev/shm/sumox_d134_wdqbt8i3/build",
+        "-DCMAKE_BUILD_TYPE=Debug"
+      ],
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "cmake",
+        "--build",
+        "/dev/shm/sumox_d134_wdqbt8i3/build",
+        "--parallel",
+        "1"
+      ],
+      "returncode": 2
+    }
+  ],
+  "hardware_access": false,
+  "end_utc": "2026-09-24T08:38:29.760211+00:00",
+  "returncode": 2,
+  "scratch_released": true
+}

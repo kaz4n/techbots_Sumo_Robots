@@ -1,11 +1,11 @@
 # Current execution checklist - 2026-09-24 Asia/Dubai
 
-**PAUSED by user, 2026-09-24 16:10 Asia/Dubai.** Read
-`state/analysis/P5_pause_20260924_1610.md` (repository-relative) first.
-That checkpoint supersedes pending/running descriptions below: D136 first public
-74/74 PASS, private18/19 with injection adjudication pending; a duplicate-declaration
-source finding remains open. MATCH compile-only finished exit0; loader/import
-checks and analyzer regression remain NOT RUN. Resume only when user requests.
+**RESUMED by user, 2026-09-24 21:49 Asia/Dubai**, from c4fadad0.
+P5 remains active. D136 public74/74 and prior112regression PASS; private18/19
+original failure and duplicate-declaration review finding are being adjudicated.
+MATCH compile-only already finished; loader/import checks are in progress.
+The preserved pause checkpoint is state/analysis/P5_pause_20260924_1610.md.
+Current results below are historical until the next completed-task update.
 
 **Active: P5 software.** D134 is host-complete/reviewed; D135 is implemented and
 complete and reviewed; D136 offline analysis is being implemented. Physical gates

@@ -89,10 +89,19 @@ target build, upload/reset, hardware measurement or tuning was performed. The
 root-identified session-authorization and date-only tag wording were corrected
 before final review. SC-AP and all actual release criteria remain open.
 
-Current software task: finish D138's source-bound host/target/review evidence in
-the readiness packet. Next dependent release work: obtain the real prerequisites in the linked
-acceptance packets and resolve SC-AP against that release, then validate the
-actual runbook workflow. Native dump work first needs the specified privileged
+D138 software validation and its separate scoped review are complete; see the
+readiness packet. D139's single unchanged default/M0 compilation passed, but the
+ordered pristine-loader model has a 592-byte deficit. Its negative qualification
+evidence and separate review are complete, with one release-fit BLOCKER. Read
+[P7_default_qualification_validation.md](P7_default_qualification_validation.md)
+and [the scoped review](../reviews/P7_default_qualification_review.md). A bounded
+source inspection found no defensible single repair; read-only Static-link source
+research continues. No repair or further compile is authorized yet.
+The default image is not qualified for release or upload by this result.
+
+Other dependent release work remains: obtain the real prerequisites in the linked
+acceptance packets and resolve SC-AP against the qualified release, then validate
+the actual runbook workflow. Native dump work first needs the specified privileged
 read-only holder evidence and reviewed quiescence/cancel/reopen plan. Do not
 rerun unchanged host matrices, repeat denied cleanup, deploy the current draft,
 enable setup grants from assumptions, or fabricate P6 eligibility/release gates.

@@ -1,0 +1,94 @@
+{
+  "utc": "2026-09-24T19:31:22.659278+00:00",
+  "reviewer_scope": "local retained ELF model recomputation and receipt binding only; no board/build/helper execution",
+  "verdict": "FAIL_CONDITIONAL_PRISTINE_DEFAULT_FIT",
+  "actual_compiler_commands": 1,
+  "compiler_exit": 0,
+  "profile": "default MATCH0 MOTORS_ALLOWED0 --jobs1",
+  "source_sha256": "fcddbd8ef5ba4c92a2080b03e9343ac78c2406b13d9514793aa147e02f0d1da2",
+  "ELF_sha256": "72a8bfcd320e8bfff7e5bcc6ef8607a98f9033866f3fa3d2be2cb95433e42f1d",
+  "model_sha256": "1456224b9a6fa949fefb0abf6c80b7e461508ab6dc0d8063d3ff9e1235f21123",
+  "model_fields_recomputed": 17,
+  "compiler_payload": 257848,
+  "compiler_nominal_remaining": 4296,
+  "pool_bytes": 262144,
+  "ordered_peak_consumption": 262736,
+  "conditional_free_span": -592,
+  "first_failing_allocation": {
+    "purpose": "global_symbols",
+    "chunk": 4400,
+    "available_before": 3824,
+    "fits": false
+  },
+  "ordered_allocations": [
+    {
+      "purpose": "extension",
+      "chunk": 200,
+      "available_before": 262056,
+      "fits": true
+    },
+    {
+      "purpose": "section_map",
+      "chunk": 136,
+      "available_before": 261856,
+      "fits": true
+    },
+    {
+      "purpose": ".text",
+      "chunk": 88240,
+      "available_before": 261720,
+      "fits": true
+    },
+    {
+      "purpose": ".data",
+      "chunk": 216,
+      "available_before": 173480,
+      "fits": true
+    },
+    {
+      "purpose": ".rodata",
+      "chunk": 2136,
+      "available_before": 173264,
+      "fits": true
+    },
+    {
+      "purpose": ".bss",
+      "chunk": 167280,
+      "available_before": 171128,
+      "fits": true
+    },
+    {
+      "purpose": ".exported_sym",
+      "chunk": 16,
+      "available_before": 3848,
+      "fits": true
+    },
+    {
+      "purpose": ".init_array",
+      "chunk": 8,
+      "available_before": 3832,
+      "fits": true
+    },
+    {
+      "purpose": "global_symbols",
+      "chunk": 4400,
+      "available_before": 3824,
+      "fits": false
+    },
+    {
+      "purpose": "export_copy",
+      "chunk": 16,
+      "available_before": -576,
+      "fits": false
+    }
+  ],
+  "imports_and_layout": "worker receipts pending",
+  "files": {
+    "compile.json": "01983601b48d042e6a6f401167c5dbd4e9413ff91fd16a8be7aa19f4bb6eec2b",
+    "compile.txt": "65ec5e23df0629e817966ed3da2360bc464aa81060954fdd54727f58cbb1e857",
+    "actual_remote_commands.jsonl": "874f474586cd462751cb1a0004b5eaf48b464216175e99f3cfdfe3a004f0841f",
+    "app/receipt/verified.json": "901593fdb28a62a039061007b8d08be2111dd74e794b88635efc41d438f81a17",
+    "app/loader_account.json": "82e58f03a69fcea11ffda22370fba8ae8262e5c027b72a787c1d8975f3c32810",
+    "stage_reuse_receipt.json": "1f75432613c4d7f722f2c043fa1c5a341c1bd84da3beb7c223779a952d38b862"
+  }
+}

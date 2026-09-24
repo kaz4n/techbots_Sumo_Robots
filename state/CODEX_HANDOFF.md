@@ -1,10 +1,11 @@
 # Codex handoff - 2026-09-24 Asia/Dubai
 
-**D139 ACTIVE:** D138 closed in e16e6a57. The native worker is preparing one
-unchanged default/M0 compile-only baseline; no compiler has started. Existing
-local stage cleanup was denied, so a read-only exact-byte reuse adapter must pass
-controlled tests and separate review before compilation. See D139 in DECISIONS.
-No source/config/test or run authority changes.
+**D139 qualification complete: compiler PASS, conditional default fit FAIL.**
+The unchanged default/M0 image exceeds the modeled loader pool by592 bytes.
+Exact evidence is in analysis/P7_default_qualification_validation.md and its
+separate review. No repair, further compile, upload or reset followed. The next
+read-only investigation traces the pinned package's Static linking mode; current
+policy remains dynamic-only and no static probe or policy change is authorized.
 
 
 **Active phase: P7 software/release preparation.** D138 informational READY and
@@ -31,13 +32,20 @@ leaves864Bspan/860Blargest payload;62imports resolve,16target layouts and72legac
 offsets unchanged. This is not actual loading, live RAM/stack or WCET. Read
 analysis/P7_readiness_native_validation.md and its retained checked evidence.
 
-Next: qualify the unchanged
-current default/M0 full app with a checked compile-only build and ordered loader
-account. The [remaining-scope audit](analysis/P7_remaining_scope_audit.md) identifies
-this original software gap. Historical D134 deficit32B and two unadopted24/32B
-candidates do not establish D138 fit. Do not blindly continue that stopped loop;
-any new repair needs a bounded reviewed proposal and independent validation.
-D138 host/native commands have ended; no D139 compilation has started here.
+D139 now supplies the missing current default baseline: one checked default/M0
+compile passed, receipt52b4ba3a and ELF72a8bfcd. Ordered loader fit fails by592B;
+all61 imports resolve and16 types/79 old offsets match historical default.
+No source or test changed. The original negative validator exit1 is retained.
+See analysis/P7_default_qualification_validation.md and the separate review.
+
+A bounded source inspection found no justified single repair; old24/32B failed
+candidates remain unadopted. Current recipes already use -Os/gc-sections.
+The official pinned package exposes a distinct Static linking option, which the
+current checked policy does not admit. Next: finish primary-source tracing of
+its loader/placement/address contract and prepare a separately reviewed scope
+only if supported. Read analysis/P7_default_fit_options.md. Do not compile,
+change policy or deploy based only on this option's existence. All D139 compiler
+and board collection commands have ended; only read-only investigation remains.
 
 D134 mode availability, D135 abort producer and D136 analyzer are closed for
 software (d6a8319e/70c964a7/0faf2e6d). Their validation packets retain actual scope,

@@ -1,10 +1,11 @@
 # Current execution checklist - 2026-09-24 Asia/Dubai
 
-**D139 ACTIVE:** D138 closed in e16e6a57. The native worker is preparing one
-unchanged default/M0 compile-only baseline; no compiler has started. Existing
-local stage cleanup was denied, so a read-only exact-byte reuse adapter must pass
-controlled tests and separate review before compilation. See D139 in DECISIONS.
-No source/config/test or run authority changes.
+**D139 qualification complete: compiler PASS, conditional default fit FAIL.**
+The unchanged default/M0 image exceeds the modeled loader pool by592 bytes.
+Exact evidence is in analysis/P7_default_qualification_validation.md and its
+separate review. No repair, further compile, upload or reset followed. The next
+read-only investigation traces the pinned package's Static linking mode; current
+policy remains dynamic-only and no static probe or policy change is authorized.
 
 
 **Active: P7 software/release preparation.** PROGRESS.md is the append-only phase
@@ -16,7 +17,7 @@ pending; D051/D075/D122/D137 permit scheduling, not fabricated measurements.
 |---|---|---|
 | P0 | Scripts/source checks and actual inert diagnostics | Electrical/PINMAP/human gate |
 | P1 | Core/properties/locked safety and review | Human EXPLAINED OK/GATE P1 PASS |
-| P2 B1-B6/B8 | HAL/Runtime/recorder; historical inert app observation | Actual sensors/buttons/motors, dump, live stack/WCET; current default app fit |
+| P2 B1-B6/B8 | HAL/Runtime/recorder; historical inert app observation | Actual sensors/buttons/motors, dump, live stack/WCET; current default app modeled592B deficit |
 | P2 B7 | Inhibition/receipt checks | Full-reverse/R6 conflict and actual stress trial |
 | P3 | Drive/turn/stop profiles and countdown analyzer | Measured trials/tuning/gate |
 | P4 | Reactive/timing, target-loss analyzer, bounded push/admission | Actual combat trials/deployment/gate |
@@ -42,11 +43,14 @@ pending; D051/D075/D122/D137 permit scheduling, not fabricated measurements.
 
 ## Next original-scope task
 
-Check unchanged current default/M0 app with one checked
-compile-only invocation and exact ordered loader/source/layout/import account.
-See analysis/P7_remaining_scope_audit.md. D134's historical32Bdeficit and two
-failed24/32Bcandidates remain unadopted; MATCH does not qualify default. Review
-those results before any newly scoped repair; no blind third candidate.
+D139's unchanged current default/M0 qualification is complete with a592B modeled
+deficit. Read analysis/P7_default_qualification_validation.md and its review;
+compiler success does not qualify this image. The two old failed candidates are
+not adopted. A bounded source audit identified no credible single fit repair.
+Next investigate the pinned package's distinct Static linking option from primary
+sources, as recorded in analysis/P7_default_fit_options.md. Current checked policy
+admits dynamic only. Any feasibility probe or policy change requires its own
+bounded reviewed decision; no further compiler is currently authorized.
 
 Then resume only genuinely available required evidence: physical packets, native
 dump holder/quiescence/cancel/reopen prerequisites, and SC-AP release workflow.

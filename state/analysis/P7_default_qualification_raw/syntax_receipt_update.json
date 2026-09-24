@@ -1,0 +1,93 @@
+{
+  "utc": "2026-09-24T19:27:33.323304+00:00",
+  "scope": "Explains preparer AST-only receipt update after identity correction; no helper/wrapper edits or execution",
+  "committed_sha256": "91fb73468a7c16042ab0762444ec793f1e131ce4f8b90277cda9bcecfe0cbb97",
+  "current_sha256": "39147bf9b3f0427e31c9914d25b805752dec60a31bd2df54c024f212cfe10974",
+  "differences": {
+    "files": {
+      "committed": {
+        "account_target.py": {
+          "sha256": "be162aaf7d739548c2fd220666e120878090029a63be56dff277209fc0991a6b",
+          "function_lines": {}
+        },
+        "collect_abi.py": {
+          "sha256": "08cf862ccc608b05e71b7766b4c1e739905cc5872e2fb36492dc2025c4ad7712",
+          "function_lines": {}
+        },
+        "collect_imports.py": {
+          "sha256": "2a1575b94639ab1341547c1ceb364e28a24e43842b0335ddfa80596678d8642f",
+          "function_lines": {}
+        },
+        "collect_source_binding.py": {
+          "sha256": "3683367823effc891b3f0026fd2f691694700e788244fd2db24e3f7ab3cb66df",
+          "function_lines": {}
+        },
+        "compile_target.py": {
+          "sha256": "e5a6957ff82a0846510176c6c05f0f392d21de595dfb0d098bebc423d41573b4",
+          "function_lines": {}
+        },
+        "invoke_checked.py": {
+          "sha256": "b89283326aae6c2dc7ffa9c650b6e342debcb6420daf41468ce67ddf6af05576",
+          "function_lines": {
+            "checked_existing_stage": 7,
+            "serial_remote": 19
+          }
+        },
+        "reuse_stage.py": {
+          "sha256": "31eceb9864564f0caa4dcec35e464db98a660866fc1cd136e766db12fcf63053",
+          "function_lines": {
+            "verifiedStage": 46
+          }
+        },
+        "validate_account.py": {
+          "sha256": "9498ee674877a3ae19ba783e7626e0cb0d439f0670e1be8c609344508719286c",
+          "function_lines": {}
+        }
+      },
+      "current": {
+        "account_target.py": {
+          "sha256": "be162aaf7d739548c2fd220666e120878090029a63be56dff277209fc0991a6b",
+          "function_lines": {}
+        },
+        "collect_abi.py": {
+          "sha256": "08cf862ccc608b05e71b7766b4c1e739905cc5872e2fb36492dc2025c4ad7712",
+          "function_lines": {}
+        },
+        "collect_imports.py": {
+          "sha256": "2a1575b94639ab1341547c1ceb364e28a24e43842b0335ddfa80596678d8642f",
+          "function_lines": {}
+        },
+        "collect_source_binding.py": {
+          "sha256": "3683367823effc891b3f0026fd2f691694700e788244fd2db24e3f7ab3cb66df",
+          "function_lines": {}
+        },
+        "compile_target.py": {
+          "sha256": "e5a6957ff82a0846510176c6c05f0f392d21de595dfb0d098bebc423d41573b4",
+          "function_lines": {}
+        },
+        "invoke_checked.py": {
+          "sha256": "e23c2e5a0b6901cacc14bd3095540963d5e52dc7c26a5d3717f465f9b109f59e",
+          "function_lines": {
+            "checked_existing_stage": 13,
+            "serial_remote": 19
+          }
+        },
+        "reuse_stage.py": {
+          "sha256": "78e173296c1d4366e4866b947b017814d69be2055c739cf1d96d0980eb40900e",
+          "function_lines": {
+            "verifiedStage": 48
+          }
+        },
+        "validate_account.py": {
+          "sha256": "9498ee674877a3ae19ba783e7626e0cb0d439f0670e1be8c609344508719286c",
+          "function_lines": {}
+        }
+      }
+    },
+    "scope": {
+      "committed": "AST parsing only; no prepared script, adapter, compiler, test or board execution",
+      "current": "AST parsing only by preparer; no prepared script/adapter/compiler/probe/board execution by this worker"
+    }
+  },
+  "original_draft_receipt": "draft_01/syntax_inspection.json"
+}

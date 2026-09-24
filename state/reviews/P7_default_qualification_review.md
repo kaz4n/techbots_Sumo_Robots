@@ -10,10 +10,60 @@ This is not a cross-model review, human phase gate or physical acceptance.
 
 ## Current disposition
 
-**Precompile adapter, wrapper, plan and controlled-test review PASS. No open
-BLOCKER, MAJOR or MINOR.** The coordinator may proceed with the one unchanged
-default/M0 compile-only baseline described by D139. Target qualification remains
-pending; no source repair, optimization retry, upload or run follows this verdict.
+**Precompile adapter, wrapper, plan and controlled-test review PASS.** The one
+unchanged default/M0 compile-only baseline passed its compiler/policy checks.
+**Default target fit FAIL: one open release-fit BLOCKER.** The completed local
+ELF account, source/import/layout evidence and final packet have been independently
+checked. Evidence review is complete, with the negative fit result preserved.
+No other open finding was identified. No source repair, optimization retry,
+upload or run follows this verdict.
+
+## Target qualification blocker
+
+**BLOCKER:** `state/analysis/P7_default_qualification_raw/app/loader_account.json:476`
+records a conditional pristine-pool peak of 262736 bytes against a 262144-byte
+pool, a 592-byte deficit. Ordered reconstruction first fails at the global-symbol
+allocation: 4400 bytes required, only 3824 available. Compiler payload 257848 and
+nominal remainder 4296 exclude loader overhead and do not establish fit. The
+default/M0 profile cannot be marked target-fit-qualified from this baseline.
+This is a negative release prerequisite, not an adapter implementation defect.
+
+The independent [compile/account check](P7_default_qualification_review_raw/compile_account_check.json)
+rehashes the final ELF, verifies the one actual compiler command and receipt,
+and recomputes all 17 base model fields and ordered allocation arithmetic using
+the unchanged retained model. Bound final ELF SHA-256:
+`72a8bfcd320e8bfff7e5bcc6ef8607a98f9033866f3fa3d2be2cb95433e42f1d`.
+Model SHA-256:
+`1456224b9a6fa949fefb0abf6c80b7e461508ab6dc0d8063d3ff9e1235f21123`.
+The original failed fit must remain visible; no second compile or repair is
+authorized by D139. The account validator retained exit 1 and its original
+assertion after saving the complete ordered negative account. Its first failed
+allocation is 576 bytes short; the later 16-byte export copy brings the full
+modeled deficit to 592. No real load was attempted.
+
+The [target binding check](P7_default_qualification_review_raw/target_binding_check.json)
+independently rechecks all 103 current sources and 102 local/remote staged hashes,
+all 61 relocation-used imports against the hash-bound packaged loader, and the
+raw GDB type/member query outputs for three checked debug ELFs. All 16 queried
+size/alignment pairs and 79 legacy offsets equal historical D134 default. The
+three new D138 metadata offsets are captured. Default `app::Runtime` is 166376
+bytes versus 166304 in current MATCH, an expected profile-specific 72-byte
+difference; the default layout was not substituted with the MATCH layout.
+The packaged loader is unchanged at
+`39d4a4fd47241663323f6e04f94dd8f5a9f9ad6582cf1df37f9709b74026adcd`.
+
+The completed [validation report](../analysis/P7_default_qualification_validation.md),
+SHA-256 `fad325468155c26f9321ddf5d87066291cf4bbfc7f5bd63d2baaf5da170773b0`,
+accurately states compiler success and conditional-fit failure. The reviewer
+rehashed all 86 files (1708702 bytes) and seven external dependencies in the
+[final evidence index](../analysis/P7_default_qualification_raw/validation_index.json),
+SHA-256 `deab85d74ed1e46f77cc08e0fe9e59119c5d068c0e5d97d9251a77e94f33003a`.
+The [final review receipt](P7_default_qualification_review_raw/final_receipt.json)
+binds this inspection and the earlier independent review receipts. Alignment and
+baseline comparisons agree with the raw accounts. Cleanup receipts restrict
+removal to 233 disposable files (7369554 bytes) in this unique build; all four
+checked artifact hashes still match afterward. The local source stage remains
+unchanged. The reviewer executed no deletion or board command.
 
 ## Finding resolved before execution
 
@@ -84,7 +134,8 @@ binds the plan, freeze, tests and first raw execution receipt/log.
 ## Limits and next evidence
 
 The reviewer has performed no adapter, wrapper, compiler, board, upload, reset
-or motor execution. One checked default-profile compile, exact artifacts/imports/layouts and
-conditional memory accounting are still required. A target compile alone does
+or motor execution. The checked default-profile compile and local conditional
+memory account, source/import/layout checks and final packet review have
+completed. A target compile alone does
 not prove live memory, stack, WCET, native matrix behavior or physical acceptance.
 No optimization candidate or source repair is authorized by this review.

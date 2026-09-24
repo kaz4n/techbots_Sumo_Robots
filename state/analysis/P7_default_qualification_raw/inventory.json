@@ -1,0 +1,175 @@
+{
+  "start_utc": "2026-09-24T19:26:17.589500+00:00",
+  "scope": "Read-only Linux inventory and file hashes; no staging, compilation, upload, reset, MCU or runtime access.",
+  "adb_sha256": "e79dc8fc3c6385192bdccd7ff7eabe3d5c1ec292475a06b04d82759f07655982",
+  "prior_receipt_sha256": "b046aca656ff5850d7ae369fce663803cd8db6068b80b568926794595eaa802c",
+  "local_disk": {
+    "total": 511115784192,
+    "used": 510530949120,
+    "free": 584835072
+  },
+  "commands": [
+    {
+      "argv": [
+        "C:\\Users\\narut\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\adb\\32.0.0\\adb.exe",
+        "devices",
+        "-l"
+      ],
+      "returncode": 0,
+      "stdout": "List of devices attached\n2629958581             device transport_id:1\n\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "C:\\Users\\narut\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\adb\\32.0.0\\adb.exe",
+        "-s",
+        "2629958581",
+        "shell",
+        "-T",
+        "id -un"
+      ],
+      "returncode": 0,
+      "stdout": "arduino\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "C:\\Users\\narut\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\adb\\32.0.0\\adb.exe",
+        "-s",
+        "2629958581",
+        "shell",
+        "-T",
+        "uname -r"
+      ],
+      "returncode": 0,
+      "stdout": "6.16.7-g0dd6551ae96b\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "C:\\Users\\narut\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\adb\\32.0.0\\adb.exe",
+        "-s",
+        "2629958581",
+        "shell",
+        "-T",
+        "arduino-cli version"
+      ],
+      "returncode": 0,
+      "stdout": "arduino-cli  Version: 1.5.1 Commit: 01f3d4f2b Date: 2026-06-05T10:22:11Z\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "C:\\Users\\narut\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\adb\\32.0.0\\adb.exe",
+        "-s",
+        "2629958581",
+        "shell",
+        "-T",
+        "arduino-cli core list"
+      ],
+      "returncode": 0,
+      "stdout": "ID             Installed Latest Name\narduino:zephyr 1.0.0     1.0.0  Arduino Q Boards\n\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "C:\\Users\\narut\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\adb\\32.0.0\\adb.exe",
+        "-s",
+        "2629958581",
+        "shell",
+        "-T",
+        "df -B1 /home/arduino /tmp /dev/shm"
+      ],
+      "returncode": 0,
+      "stdout": "Filesystem        1B-blocks       Used   Available Use% Mounted on\n/dev/mmcblk0p69 19214528512 4267188224 14145449984  24% /home/arduino\ntmpfs            1924104192       8192  1924096000   1% /tmp\ntmpfs            1924104192       8192  1924096000   1% /dev/shm\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "C:\\Users\\narut\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\adb\\32.0.0\\adb.exe",
+        "-s",
+        "2629958581",
+        "shell",
+        "-T",
+        "free -b"
+      ],
+      "returncode": 0,
+      "stdout": "               total        used        free      shared  buff/cache   available\nMem:      3848208384   588365824  2605395968    40423424   864829440  3259842560\nSwap:     1924100096           0  1924100096\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "C:\\Users\\narut\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\adb\\32.0.0\\adb.exe",
+        "-s",
+        "2629958581",
+        "shell",
+        "-T",
+        "ps -eo pid,comm"
+      ],
+      "returncode": 0,
+      "stdout": "    PID COMMAND\n      1 systemd\n      2 kthreadd\n      3 pool_workqueue_release\n      4 kworker/R-rcu_gp\n      5 kworker/R-sync_wq\n      6 kworker/R-kvfree_rcu_reclaim\n      7 kworker/R-slub_flushwq\n      8 kworker/R-netns\n     13 kworker/R-mm_percpu_wq\n     14 ksoftirqd/0\n     15 rcu_preempt\n     16 rcu_exp_par_gp_kthread_worker/0\n     17 rcu_exp_gp_kthread_worker\n     18 migration/0\n     19 cpuhp/0\n     20 cpuhp/1\n     21 migration/1\n     22 ksoftirqd/1\n     23 kworker/1:0-events\n     25 cpuhp/2\n     26 migration/2\n     27 ksoftirqd/2\n     30 cpuhp/3\n     31 migration/3\n     32 ksoftirqd/3\n     35 kdevtmpfs\n     36 kworker/R-inet_frag_wq\n     37 rcu_tasks_kthread\n     38 rcu_tasks_trace_kthread\n     39 oom_reaper\n     40 kworker/R-writeback\n     41 kcompactd0\n     42 ksmd\n     43 khugepaged\n     44 kworker/R-kblockd\n     45 kworker/R-blkcg_punt_bio\n     46 kworker/R-kintegrityd\n     48 kworker/u16:2-adb\n     49 kworker/R-tpm_dev_wq\n     50 kworker/R-ata_sff\n     51 kworker/R-edac-poller\n     52 kworker/R-devfreq_wq\n     56 watchdogd\n     58 kworker/3:1H-kblockd\n     59 kworker/R-rpciod\n     60 kworker/R-xprtiod\n     61 kswapd0\n     62 ecryptfs-kthread\n     63 kworker/R-nfsiod\n     67 kworker/0:1H-kblockd\n     68 kworker/u17:0-hci0\n     69 kworker/R-vfio-irqfd-cleanup\n     70 irq/20-4411000.thermal-sensor\n     71 irq/21-4411000.thermal-sensor\n     75 irq/17-smp2p-adsp\n     76 irq/18-smp2p-mpss\n     77 irq/89-ss_phy_irq\n     84 kworker/2:7-mm_percpu_wq\n     89 irq/96-4744000.mmc\n     90 kworker/R-sdhci\n     91 irq/94-mmc0\n    116 kworker/R-mmc_complete\n    120 kworker/1:1H-kblockd\n    125 kworker/2:1H-kblockd\n    159 irq/99-1b8e300.pmu\n    162 irq/101-pm8941_pwrkey\n    163 spi0\n    164 kworker/u16:4-events_power_efficient\n    171 kworker/R-hdcp workqueue\n    172 kworker/R-anx7625_work\n    173 irq/121-anx7625-intp\n    176 gpu-worker\n    178 irq/112-arm-smmu-context-fault\n    179 kworker/R-ring0\n    182 disp_snapshot\n    183 atomic-worker-0\n    184 atomic-worker-1\n    185 atomic-worker-2\n    186 atomic-worker-3\n    187 atomic-worker-4\n    188 atomic-worker-5\n    189 atomic-worker-6\n    190 atomic-worker-7\n    195 crtc_event:47\n    196 card0-crtc0\n    200 jbd2/mmcblk0p68-8\n    201 kworker/R-ext4-rsv-conversion\n    214 kworker/R-mld\n    215 kworker/R-ipv6_addrconf\n    252 systemd-journal\n    292 kworker/3:3-events\n    293 systemd-timesyn\n    302 systemd-udevd\n    353 irq/126-dcvsh-irq-0\n    356 irq/127-q6v5 wdog\n    359 kworker/R-cfg80211\n    360 irq/133-q6v5 wdog\n    361 irq/138-venus\n    364 kworker/R-ath10k_wq\n    365 kworker/R-ath10k_aux_wq\n    366 kworker/R-ath10k_tx_complete_wq\n    369 kworker/R-qcom_apr_rx\n    370 kworker/R-pdr_notifier_wq\n    371 kworker/u17:2-hci0\n    374 irq/152-soundwire\n    375 irq/153-soundwire\n    376 irq/154-swr_wake_irq\n    400 jbd2/mmcblk0p69-8\n    401 kworker/R-ext4-rsv-conversion\n    439 accounts-daemon\n    442 avahi-daemon\n    444 bluetoothd\n    445 cron\n    446 dbus-daemon\n    450 polkitd\n    453 rmtfs\n    456 systemd-logind\n    457 tqftpserv\n    460 udisksd\n    476 avahi-daemon\n    509 NetworkManager\n    514 wpa_supplicant\n    516 krfcommd\n    536 ModemManager\n    559 arduino-router\n    573 containerd\n    578 sshd\n    589 agetty\n    592 lightdm\n    593 agetty\n    626 adbd\n    631 Xorg\n    633 socat\n    644 dockerd\n    649 irq/98-dwc3\n    743 lightdm\n    799 systemd\n    833 (sd-pam)\n    834 arduino-app-cli\n    846 napi/dummy#-0\n    878 dbus-daemon\n    879 pipewire\n    880 pipewire\n    881 wireplumber\n    882 pipewire-pulse\n    884 lightdm-gtk-gre\n    893 rtkit-daemon\n    909 at-spi-bus-laun\n    917 dbus-daemon\n    920 gvfsd\n    945 lightdm\n    947 at-spi2-registr\n    984 fwupd\n   1007 kworker/u16:0-events_power_efficient\n   1030 kworker/0:0-mm_percpu_wq\n   1066 kworker/1:1\n   1317 kworker/2:2H\n   1413 kworker/3:2H\n   1438 kworker/1:2H\n   1457 kworker/0:2H\n   1470 kworker/0:1-events\n   1704 kworker/3:1\n   1716 kworker/2:0\n   1740 ps\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "C:\\Users\\narut\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\adb\\32.0.0\\adb.exe",
+        "-s",
+        "2629958581",
+        "shell",
+        "-T",
+        "du -sk /home/arduino/sumox26_codex_build"
+      ],
+      "returncode": 0,
+      "stdout": "2039200\t/home/arduino/sumox26_codex_build\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "C:\\Users\\narut\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\adb\\32.0.0\\adb.exe",
+        "-s",
+        "2629958581",
+        "shell",
+        "-T",
+        "stat -c '%n %s %U %G' /home/arduino/sumox26_codex_build /home/arduino/sumox26_codex_build/_app_builds/native-app-v1/18cbf8bfd06168a5cef36af8c97d915c9df8d9c7578ea6e84522ea0b745f8e8d/match-immediate/e555c86831ce4f74a5e366c897fd856f/build/app.ino_debug.elf"
+      ],
+      "returncode": 0,
+      "stdout": "/home/arduino/sumox26_codex_build 12288 arduino arduino\n/home/arduino/sumox26_codex_build/_app_builds/native-app-v1/18cbf8bfd06168a5cef36af8c97d915c9df8d9c7578ea6e84522ea0b745f8e8d/match-immediate/e555c86831ce4f74a5e366c897fd856f/build/app.ino_debug.elf 2898496 arduino arduino\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "C:\\Users\\narut\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\adb\\32.0.0\\adb.exe",
+        "-s",
+        "2629958581",
+        "shell",
+        "-T",
+        "sha256sum -- /home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/platform.txt /home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/boards.txt /home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/cores/arduino/Arduino.h /home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/cores/arduino/main.cpp /home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/postvariant.h /home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/variant.h /home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/includes.txt /home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/machine_flags.txt /home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/cflags.txt /home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/cxxflags.txt /home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/generated/zephyr/autoconf.h /home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf /home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/_ldscripts/build-dynamic.ld /home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/_ldscripts/memory-check.ld /home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/_ldscripts/build-static.ld /home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-gcc /home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-g++ /home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-ld /home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-gdb"
+      ],
+      "returncode": 0,
+      "stdout": "d4c824fceb2f4cf0057da4df3235d3aee195bbbd71f59a48d344c818fcd5e638  /home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/platform.txt\nbd4f03904d8fe16bf845baf09d0435e79f5a46c6e6a4f445f3ee592994652b84  /home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/boards.txt\n5f068c10a0aeb2f6d3cec1fa8b2a313b1f7374bcb77716f0b6cddba5bc198514  /home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/cores/arduino/Arduino.h\nd31dc5f78acf0a3535b4650a63a8952908f8c6f4bf8164d639da4a02486b87ed  /home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/cores/arduino/main.cpp\n7a9789a1b9752a8da3f96ff5bc9c3f9c18ab37cb1eef2c6a871f4f3036589e79  /home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/postvariant.h\nb684000848b9100b6781185045688dcc6701184fa3d43b12696f73747623d678  /home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/variant.h\n7189bd9a00755c1292194716cabac68d5f08ef8fcefa22f01ae4b8810f480575  /home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/includes.txt\nd96fe3a98d1dc91164e2f06cffa5a0f8bc3ccd852f0265bf9ff2f8255adc8391  /home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/machine_flags.txt\n386c209ebcdc3d1c8a87f765bce744add5e87453035fd2606f17d964b0ed87a6  /home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/cflags.txt\nfd3d40463ce35184f52c7e41010cd96f4d4f1ae403cfd784472e3ea51b0ec800  /home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/cxxflags.txt\n52178f5eefcf276720b859bdd60fc87ca4207b0130ac1fd5ba099af74b877a0c  /home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/generated/zephyr/autoconf.h\n39d4a4fd47241663323f6e04f94dd8f5a9f9ad6582cf1df37f9709b74026adcd  /home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf\n2aba77a8dbb9edf4aeeb96cbd460844fe3fcff81c5ff330ca557ed1218dbf02c  /home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/_ldscripts/build-dynamic.ld\nac38a058c316733e3405b4472eb6cf15c7d34400a4096983d4e27fa0f7e886e8  /home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/_ldscripts/memory-check.ld\n04be061156ebb88fa43537c811e0a8fdc2b721d1bcc0a1a9ac5990018536123e  /home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/_ldscripts/build-static.ld\n7b8c9d4822a3ee452fc40fe005aaa98a8610a56cff2ac6fe6e2440574e9b6c19  /home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-gcc\ncaf36554e2d098d826a513724cfdab071b8a420a0f4f8c0a212a2acaafaed935  /home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-g++\nd5fb0310761ff863c583f4927452237341f54acd6026b77eff2e82a84e00fff7  /home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-ld\n8e709e322c50351a932d1bdf4103caf238eaf226a4984e56e6f353e64bc4b778  /home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-gdb\n",
+      "stderr": ""
+    }
+  ],
+  "installed_pin_comparison": {
+    "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/platform.txt": true,
+    "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/boards.txt": true,
+    "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/cores/arduino/Arduino.h": true,
+    "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/cores/arduino/main.cpp": true,
+    "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/postvariant.h": true,
+    "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/variant.h": true,
+    "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/includes.txt": true,
+    "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/machine_flags.txt": true,
+    "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/cflags.txt": true,
+    "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/cxxflags.txt": true,
+    "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/generated/zephyr/autoconf.h": true,
+    "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf": true,
+    "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/_ldscripts/build-dynamic.ld": true,
+    "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/_ldscripts/memory-check.ld": true,
+    "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/_ldscripts/build-static.ld": true,
+    "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-gcc": true,
+    "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-g++": true,
+    "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-ld": true
+  },
+  "gdb_sha256": "8e709e322c50351a932d1bdf4103caf238eaf226a4984e56e6f353e64bc4b778",
+  "end_utc": "2026-09-24T19:26:19.768220+00:00"
+}

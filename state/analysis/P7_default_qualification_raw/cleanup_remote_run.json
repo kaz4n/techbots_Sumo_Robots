@@ -1,0 +1,17 @@
+{
+  "utc": "2026-09-24T19:32:35.821081+00:00",
+  "scope": "Only new D139 run disposable .o/.d/.a; no local stage or historical cleanup",
+  "plan_sha256": "daaaaf28b67e342a5a53a4874e09447a8aab0110c1911977ce543b13105da824",
+  "selection_sha256": "b5bf1e457333f442afa4c620bc44925248c728154c0cd7afa245e9c91d833a39",
+  "argv": [
+    "C:\\Users\\narut\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\adb\\32.0.0\\adb.exe",
+    "-s",
+    "2629958581",
+    "shell",
+    "-T",
+    "python3 -c 'import hashlib,json,pathlib,sys\nroot=pathlib.Path(sys.argv[1]); expected=sys.argv[1]\nassert root.resolve().as_posix()==expected and not root.is_symlink()\nitems=[]\nfor p in root.rglob('\"'\"'*'\"'\"'):\n if p.is_file() and p.suffix in ('\"'\"'.o'\"'\"','\"'\"'.d'\"'\"','\"'\"'.a'\"'\"'):\n  assert not p.is_symlink() and root in p.resolve().parents\n  items.append({'\"'\"'relative'\"'\"':p.relative_to(root).as_posix(),'\"'\"'bytes'\"'\"':p.stat().st_size})\nitems.sort(key=lambda x:x['\"'\"'relative'\"'\"'])\nassert hashlib.sha256(json.dumps(items,sort_keys=True,separators=('\"'\"','\"'\"','\"'\"':'\"'\"')).encode()).hexdigest()==sys.argv[2]\nremoved=[]\ntry:\n for item in items:\n  p=root/item['\"'\"'relative'\"'\"']\n  assert root in p.resolve().parents and not p.is_symlink() and p.suffix in ('\"'\"'.o'\"'\"','\"'\"'.d'\"'\"','\"'\"'.a'\"'\"')\n  p.unlink(); removed.append(item)\nfinally:\n print(json.dumps({'\"'\"'root'\"'\"':expected,'\"'\"'removed_files'\"'\"':len(removed),'\"'\"'removed_bytes'\"'\"':sum(x['\"'\"'bytes'\"'\"'] for x in removed),'\"'\"'checked_artifacts_untouched'\"'\"':True}))\n' /home/arduino/sumox26_codex_build/_app_builds/native-app-v1/fcddbd8ef5ba4c92a2080b03e9343ac78c2406b13d9514793aa147e02f0d1da2/bench-default/52b4ba3a377b40efa3715c8f609ef0fb/build b5bf1e457333f442afa4c620bc44925248c728154c0cd7afa245e9c91d833a39"
+  ],
+  "returncode": 0,
+  "stdout": "{\"root\": \"/home/arduino/sumox26_codex_build/_app_builds/native-app-v1/fcddbd8ef5ba4c92a2080b03e9343ac78c2406b13d9514793aa147e02f0d1da2/bench-default/52b4ba3a377b40efa3715c8f609ef0fb/build\", \"removed_files\": 233, \"removed_bytes\": 7369554, \"checked_artifacts_untouched\": true}\n",
+  "stderr": ""
+}

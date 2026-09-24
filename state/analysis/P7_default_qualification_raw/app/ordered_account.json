@@ -1,0 +1,111 @@
+{
+  "validated_utc": "2026-09-24T19:31:27.940697+00:00",
+  "verdict": "FAIL_CONDITIONAL_PRISTINE_DEFAULT_FIT",
+  "source_sha256": "fcddbd8ef5ba4c92a2080b03e9343ac78c2406b13d9514793aa147e02f0d1da2",
+  "source_files_bound": 102,
+  "working_manifest_files": 103,
+  "ELF_sha256": "72a8bfcd320e8bfff7e5bcc6ef8607a98f9033866f3fa3d2be2cb95433e42f1d",
+  "compiler_payload": 257848,
+  "compiler_nominal_remaining": 4296,
+  "pool_bytes": 262144,
+  "ordered_peak_consumption": 262736,
+  "conditional_free_span": -592,
+  "conditional_largest_payload": null,
+  "first_failing_allocation": {
+    "purpose": "global_symbols",
+    "chunk": 4400,
+    "available_before": 3824,
+    "fits": false
+  },
+  "ordered_allocations": [
+    {
+      "purpose": "extension",
+      "chunk": 200,
+      "available_before": 262056,
+      "fits": true
+    },
+    {
+      "purpose": "section_map",
+      "chunk": 136,
+      "available_before": 261856,
+      "fits": true
+    },
+    {
+      "purpose": ".text",
+      "chunk": 88240,
+      "available_before": 261720,
+      "fits": true
+    },
+    {
+      "purpose": ".data",
+      "chunk": 216,
+      "available_before": 173480,
+      "fits": true
+    },
+    {
+      "purpose": ".rodata",
+      "chunk": 2136,
+      "available_before": 173264,
+      "fits": true
+    },
+    {
+      "purpose": ".bss",
+      "chunk": 167280,
+      "available_before": 171128,
+      "fits": true
+    },
+    {
+      "purpose": ".exported_sym",
+      "chunk": 16,
+      "available_before": 3848,
+      "fits": true
+    },
+    {
+      "purpose": ".init_array",
+      "chunk": 8,
+      "available_before": 3832,
+      "fits": true
+    },
+    {
+      "purpose": "global_symbols",
+      "chunk": 4400,
+      "available_before": 3824,
+      "fits": false
+    },
+    {
+      "purpose": "export_copy",
+      "chunk": 16,
+      "available_before": -576,
+      "fits": false
+    }
+  ],
+  "flash_peek_base": "0x08100010",
+  "aligned_peek_sections": [
+    {
+      "name": ".llext.rodata.noreloc",
+      "offset": 2180,
+      "alignment": 4
+    },
+    {
+      "name": ".symtab",
+      "offset": 92964,
+      "alignment": 4
+    },
+    {
+      "name": ".strtab",
+      "offset": 128836,
+      "alignment": 1
+    },
+    {
+      "name": ".shstrtab",
+      "offset": 176316,
+      "alignment": 1
+    }
+  ],
+  "section_headers_aligned": true,
+  "used_imports_verified": 61,
+  "loader_sha256": "39d4a4fd47241663323f6e04f94dd8f5a9f9ad6582cf1df37f9709b74026adcd",
+  "archived_compiler_commands": 1,
+  "new_compile_commands": 1,
+  "limitation": "Source-derived pristine-pool and aligned persistent-peek model; no actual load, live RAM, stack, WCET, physical acceptance or default-profile repair"
+}

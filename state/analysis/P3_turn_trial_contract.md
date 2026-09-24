@@ -27,8 +27,9 @@ Successive valid calls must be less than half a micros wrap apart. An ordinary
 forward delayed call advances the existing Turn once; it never skips a brake
 phase or invents historical completion time. All calls use bounded work.
 
-TURN uses the actual primitive. Healthy nonfinite yaw gives FAULT/INVALID_HEADING
-and zero. Invalid heading is ignored while unavailable exactly as Turn specifies.
+TURN uses the actual primitive. Its INVALID result for healthy nonfinite yaw gives
+FAULT/INVALID_HEADING and zero; unchanged primitive timeout wins at the deadline
+before inspecting yaw. Invalid heading is ignored while unavailable as Turn specifies.
 Mirror actual duties back for LEFT; preserve the primitive status and fallback
 flag. DONE or TIMED_OUT enters BRAKE at that actual observation, marks
 turn_finished=true and turn_finished_us, zero requests. TIMED_OUT is not success.
@@ -42,7 +43,7 @@ resume. An interruption/fault records finished time on that actual observation.
 Invalid initial start records its attempted time as finished, but no accepted
 angle/start fields or valid turn completion. All report duty/angle fields stay finite.
 
-`turn_finished` distinguishes an actual terminal primitive observation even at
+`turn_finished` distinguishes an actual DONE/TIMED_OUT primitive observation even at
 timestamp0; `finished` similarly distinguishes trial termination. Ordinary initial
 and active TURN have neither. BRAKE has only turn_finished. Fresh/phase_changed
 are action pulses, not motor permission. Pure helper BRAKE itself writes no EN.
@@ -55,3 +56,8 @@ recovery, timeout priority, full observed brake interval, clock wrap/order, STOP
 edge priority, duplicates, invalid starts, terminal passivity and finite bounds.
 Run focused normal/sanitizer tests, unchanged host regression and separate review.
 Target/actual Runtime integration and ring acceptance remain separate unfinished work.
+
+Report clarification before oracle freeze: INVALID_START leaves turn_status IDLE
+because the primitive never started. Interruptions/clock faults retain the last
+actual primitive status/fallback. INVALID_HEADING records primitive INVALID
+without turn_finished; finished still marks that fault observation.

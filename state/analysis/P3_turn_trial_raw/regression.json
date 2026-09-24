@@ -1,0 +1,37 @@
+{
+  "start_utc": "2026-09-24T03:15:47.298620+00:00",
+  "commands": [
+    {
+      "argv": [
+        "cmake",
+        "-S",
+        "host",
+        "-B",
+        "/dev/shm/sumox_d124_regression",
+        "-DCMAKE_BUILD_TYPE=Debug"
+      ],
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "cmake",
+        "--build",
+        "/dev/shm/sumox_d124_regression",
+        "--parallel",
+        "4"
+      ],
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "ctest",
+        "--test-dir",
+        "/dev/shm/sumox_d124_regression",
+        "--output-on-failure"
+      ],
+      "returncode": 0
+    }
+  ],
+  "returncode": 0,
+  "end_utc": "2026-09-24T03:16:45.351988+00:00"
+}

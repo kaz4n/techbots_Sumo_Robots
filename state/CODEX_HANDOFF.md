@@ -108,3 +108,11 @@ rehearsal2October; competition3October. No cut/freeze was due at this checkpoint
 Resume with docs/prompts/CODEX_RESUME.md. Commit bounded finished tasks promptly,
 record actual tests/failures/evidence, and stop at real external blockers rather
 than inventing a phase pass or promising unattended completion through human gates.
+
+
+D124 update: the pure finite P3 3.4 turn helper is implemented and host-tested.
+Read state/analysis/P3_turn_trial_validation.md and its separate review.
+23 focused cases pass normally and with sanitizers; all six host targets pass
+(main1519). All36 established locked files are unchanged. Next eligible task is
+actual turn-trial Robot/Runtime/Governor/MotorGate integration, not another helper
+rerun. No target build, MCU action or physical acceptance in this slice.

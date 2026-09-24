@@ -1,0 +1,41 @@
+{
+  "start_utc": "2026-09-24T03:15:35.048262+00:00",
+  "commands": [
+    {
+      "argv": [
+        "g++",
+        "-std=c++17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Werror",
+        "-fno-exceptions",
+        "-fno-rtti",
+        "-DDOCTEST_CONFIG_NO_EXCEPTIONS",
+        "-I",
+        "src",
+        "-isystem",
+        "host/third_party",
+        "host/motor_gate_main.cpp",
+        "src/core/motion.cpp",
+        "src/core/turn_trial.cpp",
+        "tests/test_turn_trial.cpp",
+        "-o",
+        "/dev/shm/sumox_d124_sanitize/turn_trial_tests",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-fno-pie",
+        "-no-pie"
+      ],
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "/dev/shm/sumox_d124_sanitize/turn_trial_tests"
+      ],
+      "returncode": 0
+    }
+  ],
+  "returncode": 0,
+  "end_utc": "2026-09-24T03:15:41.455015+00:00"
+}

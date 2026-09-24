@@ -76,3 +76,11 @@ Next: P3 3.4 finite single-turn trial preparation, exact±90/±180 using explicit
 coordinate reflection forLEFT; preserve existing Turn/defaulttie. 3.3 stopping
 measurement needs common origin and first maximum forward excursion, not final
 rest after reverse escape. No real physical results or gates have been invented.
+
+
+D124 update: the pure finite P3 3.4 turn helper is implemented and host-tested.
+Read state/analysis/P3_turn_trial_validation.md and its separate review.
+23 focused cases pass normally and with sanitizers; all six host targets pass
+(main1519). All36 established locked files are unchanged. Next eligible task is
+actual turn-trial Robot/Runtime/Governor/MotorGate integration, not another helper
+rerun. No target build, MCU action or physical acceptance in this slice.

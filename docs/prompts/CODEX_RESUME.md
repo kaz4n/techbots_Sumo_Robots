@@ -31,3 +31,11 @@
 
 Historical checkpoints remain in Git at fbfb0f2e and PROGRESS.md. Use the current
 compact checklist, not an older 'next task' or 'current image' statement.
+
+
+D124 update: the pure finite P3 3.4 turn helper is implemented and host-tested.
+Read state/analysis/P3_turn_trial_validation.md and its separate review.
+23 focused cases pass normally and with sanitizers; all six host targets pass
+(main1519). All36 established locked files are unchanged. Next eligible task is
+actual turn-trial Robot/Runtime/Governor/MotorGate integration, not another helper
+rerun. No target build, MCU action or physical acceptance in this slice.

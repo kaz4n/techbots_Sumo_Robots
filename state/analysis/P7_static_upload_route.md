@@ -105,3 +105,27 @@ waits100ms, writes `0xCAFFEEEE` to `0x40036400`, then shuts down. These are
 intrinsic upload/activation effects and must be inside the single new run scope;
 no separate reset is needed. Neither source inspection nor upload-command success
 proves successful static startup, live memory, WCET or physical acceptance.
+
+## Configuration isolation refinement, 25 September
+
+For the later reviewed command, prepend `--config-file /dev/null` after the
+absolute CLI executable and construct the child environment from literals:
+HOME=/home/arduino, USER=LOGNAME=arduino, PATH=/usr/bin:/bin, LANG=LC_ALL=C,
+ARDUINO_DIRECTORIES_DATA=/home/arduino/.arduino15,
+ARDUINO_DIRECTORIES_USER=/home/arduino/Arduino,
+ARDUINO_UPDATER_ENABLE_NOTIFICATION=false. Do not inherit ambient overrides.
+Require /dev/null to be an unlinked character device with major/minor1/3.
+
+The primary-source chain is recorded in the follow-on section of
+[D153 design review](../reviews/P7_static_startup_design_review.md). Explicit config
+selection reads /dev/null; the YAML parser accepts empty bytes; environment
+directory settings override defaults. This needs no new config file or download.
+
+Actual read-only receipts `P7_static_startup_raw/cli_isolated_config.json` and
+`cli_isolated_directories.json` confirm unchanged pinned CLI1.5.1/01f3d4f2b and
+both intended directories with update notification false. All three CLI queries
+returned0/empty stderr. The first config projection mistakenly looked for
+top-level directories and retained null; the corrected observation uses
+`data['config']['directories']` and preserves complete output. The original
+receipt remains unchanged. No upload, OpenOCD, compiler or MCU operation occurred.
+This refines the proposed argv/environment; it is not a native execution grant.

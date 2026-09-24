@@ -157,6 +157,11 @@ identity even when an earlier one fails. Their finite file checks are attempted
 after the collection deadline and cannot launch further MCU commands. A timeout
 may add at most5s of child-reaping effort; unknown/unreaped child status does not
 prove that all MCU activity has ended or that the target is quiescent.
+If an output pathname drifts, preserve failure/finalization receipts through the
+retained original directory descriptor after checking that descriptor's identity;
+never write through the replacement pathname. New commands/claim creation still
+require the complete path identity. A helper context-exit error is additional
+failure evidence, never permission to erase an earlier failure or return success.
 
 Independent spec-derived tests freeze before implementation execution. Test exact
 argv/order/extent, identity/pin/parent drift, existing output, durable claim before

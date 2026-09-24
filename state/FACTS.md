@@ -628,3 +628,7 @@ Verified file/source evidence only: three Linux read-only calls exited0/empty st
 
 ## F161 - Current static observation interpretation (2026-09-25T03:12:05.758851+04:00)
 Verified host/file evidence: D152 exact18requests/713656B pure parser passes37 frozen spec-derived methods; fresh-context reviewcdae7896PASS. Checked loaderELF39d4a4fd yields263680 physical bytes/SHAe9322826c422fb234ac8c2e79ea38a050d0dd8dc32b2a89f6930e0a0ff7ebab2 using pinned helper885c4e42; packagedBIN6b2ffd differs at offset260287 (ELF0/BIN255). Independent review53cb6ee7 also checks both historicalD118 brackets. Original contract assumption retained6d45e3b5, corrected8fa01d1f. Evidence analysis/P7_static_capture_validation.md. No current MCU state, runtime/stack/WCET/physical acceptance is inferred.
+
+
+## F162 - Explicit empty CLI config (2026-09-25T03:20:46.302183+04:00)
+Actual read-only pinnedCLI1.5.1/01f3d4f2b accepts --config-file /dev/null with fixedminimalenvironment; version and two configdump queries all exit0/empty stderr. Correct nested config reports data/home/arduino/.arduino15, user/home/arduino/Arduino and updaterfalse. Original top-level projectionnull retained; corrected fulloutput in P7_static_startup_raw/cli_isolated_directories.json. Source rationale and exactenvironment in P7_static_upload_route.md and P7_static_startup_design_review.md. No upload/reset/MCUread or compiler; futureexactargv/grant stillpending.

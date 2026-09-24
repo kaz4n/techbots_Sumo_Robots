@@ -1,9 +1,9 @@
 # Codex handoff - 2026-09-25 Asia/Dubai
 
-**D152 pure startup observation: HOST-TESTED, scoped review PASS.** All37 new
-independent methods passed on first execution; sourceb7ab979d unchanged. Original
-loader-reference prose was corrected with separate evidence/review; preserve
-6d45e3b5 and read analysis/P7_static_capture_validation.md. No new MCU operation.
+**D153 passive collector: HOST-TESTED, scoped review PASS.** All46 independent
+methods and4 reviewer supplemental cases passed on first execution. Source
+1aa602d0/contract0371739e/bindingsc2c87df6; revieweed7414d has no open findings.
+Read analysis/P7_static_capture_remote_validation.md. No new MCU operation.
 
 **Active phase: P7 software/release preparation.** D138 informational READY and
 battery-threshold software is implemented, host-tested and target-compiled.
@@ -41,12 +41,23 @@ The completed pure plan/parser and37 frozen tests are under P7_static_startup_ra
 first sourcee7f88263, result/reference correction8fa01d1f. Current loader reference
 is ELF-derived263680B/SHAe9322826, not packagedBIN6b2ffd (one-byte difference).
 
-Exact next task: implement/test/review the smallest source-bound one-shot upload
-and capture guard described in analysis/P7_static_startup_guard_options.md.
-This advisory note is not a run grant. Reuse existing packet and frozen helpers;
-do not rebuild or copy another source tree. Use separate consumed upload/capture
-claims, exact18-read/713656B plan, bounded process deadlines and no recovery
-reset/retry. Identify the concrete inert run/revision before upload. The user permits bare UNOQ testing and requests no additional
+D153's native collector implementation and50 controlled tests are complete in
+P7_static_startup_raw/capture_remote.py and linked validation. Original unexecuted
+draftd5c8d6d6 is preserved; repaired first-executed source5f85268f stayed unchanged.
+All fixtures were removed. CLI --config-file /dev/null with exact minimalenv
+has now been observed to select the intended data/user directories (F162); raw
+queries and original mistakenprojection are preserved. Existing board p0_capture.py
+is hash885c4e42/18880B, file-verified; reuse it to fit the Windows command budget.
+
+Exact next task: implement/test/review the host coordinator and one-shot upload
+wrapper; reuse the completed collector. Bind reviewed HEAD/source, D144 packet,
+installed dependencies, explicit CLI configuration and selected core/recipe.
+The advisory guard options are not a run grant. Do not rebuild or copy another
+source tree. Separate upload/capture claims, bounded process deadlines, independent
+postchecks and no recovery reset/retry remain required. Final capture bootstrap
+must be sized; the four-source estimate leaves7058units below30000 by reusing the
+installed loader utility. Identify the concrete inert run/revision before upload.
+The user permits bare UNOQ testing and requests no additional
 hardware now. No motor-capable run is authorized; STAND/RING remains absent.
 Native loading/startup, live stack/heap/WCET, full release workflow and all
 physical/human gates remain pending. Do not infer them from file inspection.
@@ -63,6 +74,8 @@ Recheck C: free space before material work; it fluctuates independently.
 No compiler tree, binary copy or Python cache was added. Use Python-B.
 Fresh03:08Dubai read-only cleanup check found zero new disposable repo or
 task-owned Temp remnants. C: free513421312B at03:11; recheck before material work.
+D153 fixtures left no temporary directories; retained code/oracles/compact
+receipts remain necessary. C: free449900544B at03:27Dubai, system-dependent.
 
 Historical detailed checkpoints and original failures remain in Git, PROGRESS
 and linked validation packets. PROGRESS is append-only with legacy nonUTF8 bytes;

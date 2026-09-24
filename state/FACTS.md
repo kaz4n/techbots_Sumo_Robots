@@ -632,3 +632,10 @@ Verified host/file evidence: D152 exact18requests/713656B pure parser passes37 f
 
 ## F162 - Explicit empty CLI config (2026-09-25T03:20:46.302183+04:00)
 Actual read-only pinnedCLI1.5.1/01f3d4f2b accepts --config-file /dev/null with fixedminimalenvironment; version and two configdump queries all exit0/empty stderr. Correct nested config reports data/home/arduino/.arduino15, user/home/arduino/Arduino and updaterfalse. Original top-level projectionnull retained; corrected fulloutput in P7_static_startup_raw/cli_isolated_directories.json. Source rationale and exactenvironment in P7_static_upload_route.md and P7_static_startup_design_review.md. No upload/reset/MCUread or compiler; futureexactargv/grant stillpending.
+
+
+## F163 - Finite passive collector host behavior (2026-09-25T03:28:45.809989+04:00)
+D153source1aa602d0/bindingsc2c87df6/contract0371739e passes46 independent plus4 reviewer supplemental host methods on firstexecution; scopedrevieweed7414dPASS. Exact18reads/713656B, durableclaim, deadline/timeout, mismatchedflashbeforeRAM and partial/fault/clock evidence are verified in controlledfixtures. No actualMCUcapture/sourceorigin/kernel-lock/quiescence/liveRAM/WCET/gate claim. Evidence analysis/P7_static_capture_remote_validation.md.
+
+## F164 - Existing native loader utility (2026-09-25T03:28:45.809989+04:00)
+Fresh Linux file-only observation finds p0_capture.py18880B/SHA885c4e4206aea4ac9e03c4e92e48258db2a0ae302ff83a86430e6913afeeb57c beside the existing checkedpassiveconfig (fullpathin analysis/P7_static_startup_raw/installed_loader_helper.json). Notimported/executed. Reusehash-checkedbytesforloader_image ratherthan anothercopy. Localfour-source inlinepayloadestimate22942UTF16units leaves7058below30000; finalbootstrapstillrequiresqualification. No compiler/upload/reset/MCUread.

@@ -1,5 +1,9 @@
 # Current execution checklist - 2026-09-25 Asia/Dubai
 
+**D153 passive collector:46 independent+4 reviewer methods PASS; revieweed7414dPASS.**
+Implementation1aa602d0/contract0371739e is host-only; no MCU operation. Next is the
+host coordinator/one-shot upload wrapper followed by a separately scoped run.
+
 **D152 pure startup interpretation:37 host methods PASS and scoped review PASS.**
 See analysis/P7_static_capture_validation.md. Loader reference is ELF-derived
 e9322826; original packaged-BIN reference defect is preserved and corrected.
@@ -79,8 +83,11 @@ pending; D051/D075/D122/D137 permit scheduling, not fabricated measurements.
   findings.836 retained app instruction/literal rows match the actual debug ELF.
 - [x] Verified upload dependency/filename route; D152 pure18-read plan/parser,
   37 independently frozen host methods first-runPASS and separate reviewcdae7896.
-- [ ] Implement/test/review one-shot upload/capture composition, then separately
-  scope bare-board M0 startup qualification; reuse packet, no new binary/source copy.
+- [x] D153 passive collector:46 independent+4 supplemental methods first-runPASS,
+  revieweed7414d; exact reads/deadlines/claim/failure evidence, no native operation.
+- [ ] Implement/test/review host coordinator and one-shot upload wrapper, then
+  separately scope bare-board M0 startup qualification; reuse packet/collector,
+  existing pinned loader helper and explicit CLI config; no binary/source copy.
 - [ ] Qualify native loading/startup, stack/heap/WCET and release workflow before
   adoption. Structural RAM tail94352B is not measured free memory.
 

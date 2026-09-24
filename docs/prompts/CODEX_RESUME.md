@@ -19,12 +19,19 @@ approval templates, assumptions or passing host tests as physical acceptance.
    P7_static_capture_contract.md and the three linked reviews. The caller must
    use ELF-derived loader263680B/SHAe9322826, not packagedBIN6b2ffd, which differs
    by one byte. Original prose/design assumption is saved6d45e3b5; correction8fa01d1f.
-4. Exact next task: implement/test/review the smallest bounded one-shot upload
-   and passive capture composition in P7_static_startup_guard_options.md. This
+4. D153 passive collector is now complete: source1aa602d0/contract0371739e,
+   46 independent+4 reviewer supplemental methods first-runPASS/revieweed7414d.
+   Read P7_static_capture_remote_validation.md; old draftd5c8d6d6 preserved.
+   Exact next task: implement/test/review the host coordinator and one-shot upload
+   wrapper, reusing this collector and P7_static_startup_guard_options.md. This
    note is advisory, not a native run grant. The verified upload route is in
    P7_static_upload_route.md and P7_static_startup_dependencies.md. Recheck
-   identities/absent shadows before use. CLI --input-file selects existing raw
-   build/app.ino.bin; static recipe resolves its checked flat sibling. Separate
+   identities/absent shadows and selected core/recipe before use. CLI --input-file selects existing raw
+   build/app.ino.bin; static recipe resolves its checked flat sibling. Explicit
+   --config-file /dev/null plus fixedenvironment now has read-only directory
+   evidence inF162. Reuse board p0_capture.py18880B/885c4e42, freshly file-checked;
+   four-source payload estimate has7058units left below30000, but final bootstrap
+   still needs actual sizing/review. Separate
    consumed upload/capture claims, durable first-failure evidence, independent
    postchecks and bounded board-child deadlines are required; no retry/reset
    recovery. Capture only exact18reads/713656B; no old dynamic heap model.

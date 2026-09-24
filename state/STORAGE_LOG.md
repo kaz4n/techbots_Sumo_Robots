@@ -55,3 +55,35 @@ reproducible objects. Do not retry a denied deletion through another mechanism.
 2026-09-24T23:38:12.327347+04:00 | D139 retention and cleanup | Retained86 compact raw files1708702B plus final index/report/review; one local final ELF and checked remote debug/temp ELF/ZSK are required negative-fit evidence. Removed only233 disposable .o/.d/.a files7369554B from new board run52b4ba3a after exact selection/path validation; exit0 and four retained artifacts rehashed unchanged. Independent synthetic staging tests released only their owned RAM fixtures. Local stage102files753087B remains exact; no deletion retry and older blocked batches untouched. C:599363584B free at check. No duplicate checkout or local native object tree.
 
 2026-09-24T23:47:08.429572+04:00 | D140 source retention | Retained66 compact installed-source/read-only command records168157B plus three official source files9932B and small manifests/review. These are required provenance for pending Static feasibility design. No binaries copied, package installed, image built/processed or cleanup performed. Original failed text transfer retained; no duplicate checkout, denied-cleanup retry or unrelated deletion.
+
+
+## 2026-09-25T00:00:01.834775+04:00 - Storage shortage: preserved evidence, recovered 337.4 MiB
+
+The user requested deletion of unused files. A separate read-only audit identified
+154 downloaded Arduino installation archives, totaling 4,571,947,977 bytes
+(4.26 GiB), outside installed packages. Automatic approval review rejected the
+exact-file deletion batch before process creation; its only stated reason was
+"blocked by policy". Zero files were deleted and no retry occurred. The manifest
+and retained CLI/ADB hashes are in analysis/storage_cleanup_20260924_archive_cache.json.
+Earlier denied host/snapshot/stage cleanup targets were not touched.
+
+The safe alternative was transparent per-file Windows LZX compression of retained
+historical JSON/JSONL/TXT evidence. The pilot recovered 6,885,376 allocated bytes;
+the subsequent 128-file batch recovered 346,910,720 bytes. Combined recovery is
+353,796,096 bytes (337.4 MiB), with no content or logical-size change. The main
+batch's physical allocation fell from 557,920,256 to 211,009,536 bytes. Source,
+binaries, tools, mutable ledgers and Git history were excluded. No archive copies
+or build outputs were created for this cleanup.
+
+A separate context rehashed every completed file and verified sizes, mtimes and
+physical allocation: zero mismatches. All 154 blocked cache archives and both
+installed tool hashes remain intact. Two representative compressed records were
+also read and SHA-256 checked through WSL, exit 0. C: had 899,932,160 bytes free at
+independent review; global free space can change independently of this task.
+
+Keep the compact pilot/batch/verification receipts under analysis/storage_compression_20260924_*.
+They are needed to explain reclaimed allocation, content identity and exclusions.
+Do not recompress based only on the Compressed attribute: successful LZX files
+may report Archive alone. Use these receipts to identify completed paths. No
+pending compression/compiler process remains; no denied action, system paging or
+persistent virtual disk was changed.

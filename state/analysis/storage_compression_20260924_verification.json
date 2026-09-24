@@ -1,0 +1,45 @@
+{
+  "dubai_time": "2026-09-25T00:00:01.834775+04:00",
+  "verdict": "VERIFIED_CONTENT_PRESERVING_COMPRESSION",
+  "total_files": 129,
+  "total_recovered_allocated_bytes": 353796096,
+  "deleted_files": 0,
+  "batch_before_allocated_bytes": 557920256,
+  "batch_after_allocated_bytes": 211009536,
+  "independent_review": {
+    "agent": "/root/storage_cache_audit",
+    "mode": "read-only separate context",
+    "method": "streaming SHA-256, size, mtime; GetCompressedFileSizeW allocation; cache existence/size and installed tool hashes",
+    "batch_files_verified": 128,
+    "mismatches": 0,
+    "pilot_verified": true,
+    "cache_archives_still_present": 154,
+    "cache_bytes_still_present": 4571947977,
+    "adb_and_cli_hashes_unchanged": true,
+    "free_bytes_observed": 899932160
+  },
+  "WSL_readability_check": {
+    "command": [
+      "wsl",
+      "-d",
+      "Ubuntu",
+      "--",
+      "sha256sum",
+      "--",
+      "state/analysis/P2_bridge_dependency_raw/target_570ef35f_control.json",
+      "state/analysis/P2_opp_view_raw/target_9fb6f9bf_bench-default/stdout.json"
+    ],
+    "exit_code": 0,
+    "verified_hashes": {
+      "state/analysis/P2_bridge_dependency_raw/target_570ef35f_control.json": "0c33e9145212700fdcb341019684e0675c8d8d548d812e155f2a192c982280eb",
+      "state/analysis/P2_opp_view_raw/target_9fb6f9bf_bench-default/stdout.json": "1f651e36a1554f2c93167f284d02a32a6f1815e867c9692dc8d21e4d86275e2f"
+    }
+  },
+  "free_bytes_now": 869273600,
+  "limits": "Allocation recovered is attributable to compression; free-space change also reflects unrelated system activity. Compression preserves content and is not deletion. Cache deletion was rejected before execution and not retried. No firmware build/upload/reset occurred.",
+  "receipt_hashes": {
+    "storage_cleanup_20260924_archive_cache.json": "aa9075cf148fc477c053fbc6136d32fd9151c5eb0109c1b02c0882ae5890e147",
+    "storage_compression_20260924_lzx_pilot.json": "2e77d89be3d3875d410447b75dbfe83ec1b3af88472d317a0850cf2b54a6ed2b",
+    "storage_compression_20260924_evidence.json": "98142473f3efd8977ae6aa42f5c4a4e33f97e9dc3ca38c0c9ca19facd2019e53"
+  }
+}

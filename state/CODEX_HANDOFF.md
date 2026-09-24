@@ -1,11 +1,11 @@
-# Codex handoff - 2026-09-24 Asia/Dubai
+# Codex handoff - 2026-09-25 Asia/Dubai
 
-**D139 qualification complete: compiler PASS, conditional default fit FAIL.**
-The unchanged default/M0 image exceeds the modeled loader pool by592 bytes.
-Exact evidence is in analysis/P7_default_qualification_validation.md and its
-separate review. No repair, further compile, upload or reset followed. The next
-read-only investigation traces the pinned package's Static linking mode; current
-policy remains dynamic-only and no static probe or policy change is authorized.
+**D140 source audit complete; D141 feasibility contract remains a draft.**
+Commit `6e6fe21c` preserves the reviewed installed-source and packaging evidence.
+The current default/M0 image still has a modeled 592-byte dynamic-loader deficit.
+No static image has been compiled or run. Production admission remains dynamic-only.
+Next finish the proposed static/M0 artifact probe's exact interfaces and literals,
+then independent tests and review before adopting or executing its bounded scope.
 
 
 **Active phase: P7 software/release preparation.** D138 informational READY and
@@ -38,14 +38,19 @@ all61 imports resolve and16 types/79 old offsets match historical default.
 No source or test changed. The original negative validator exit1 is retained.
 See analysis/P7_default_qualification_validation.md and the separate review.
 
-A bounded source inspection found no justified single repair; old24/32B failed
-candidates remain unadopted. Current recipes already use -Os/gc-sections.
-The official pinned package exposes a distinct Static linking option, which the
-current checked policy does not admit. Next: finish primary-source tracing of
-its loader/placement/address contract and prepare a separately reviewed scope
-only if supported. Read analysis/P7_default_fit_options.md. Do not compile,
-change policy or deploy based only on this option's existence. All D139 compiler
-and board collection commands have ended; only read-only investigation remains.
+D140 source qualification is complete: 66 compact installed/file-only records,
+six dependencies and three official tool sources are rehashed; all 687 D138
+frozen inputs remain exact. Separate scoped review found no source-packet defect.
+Read analysis/P7_static_link_research.md and its root receipt. The linked path
+uses a direct entry, fixed placement and packaged libc aliases; these are source
+findings, not artifact fit or runtime acceptance. Old failed candidates remain
+unadopted, and the current dynamic policy is unchanged.
+
+Next settle the public interfaces and complete expected command/ABI/section
+literals in analysis/P7_static_link_probe_contract.md. The revised draft review (e5c20fed) closed both initial findings. It preserves one
+fixed source, default/M0, no upload/reset, independent negative tests, exact
+artifact freshness and direct-entry validation. A reviewed draft does not itself
+authorize implementation or compilation. All compiler/board commands are terminal.
 
 D134 mode availability, D135 abort producer and D136 analyzer are closed for
 software (d6a8319e/70c964a7/0faf2e6d). Their validation packets retain actual scope,
@@ -69,12 +74,16 @@ or bypass a denied action. SC-AP remains open for native matrix startup/ownershi
 calibrated voltage/optics/failure display, full rearm and log preservation.
 No additional hardware request now; no fresh STAND/RING authorization exists.
 
-Storage: C:653561856Bfree at the latest check. Use owned /dev/shm, one heavy
-compiler, small receipts and checked artifacts. D138 host scratch was released;
-newboardrun233objects (7355110B) removed. Automaticapproval blocked local
-build/stage/app cleanup (102files753087B), which remains. Earlier85.48MB/1.70MB
-blocked batches also remain; no retry via another route. Storage growth outside
-this small task remains unconfirmed; never alter paging or delete user data.
+Storage cleanup recovered 353,796,096 allocated bytes (337.4 MiB) by transparent
+LZX compression of 129 historical JSON/TXT evidence files; all before/after hashes
+match. No file was deleted. Receipts are in analysis/storage_compression_20260924_*
+and STORAGE_LOG.md. C: had approximately 900 MB free after the batch; recheck
+before large work because system activity changes it. Keep compact evidence and
+one heavy compiler; do not change paging or persistent virtual disks.
+
+Automatic approval review blocked deletion of 154 unused Arduino download
+archives (4,571,947,977 bytes), with only "blocked by policy" stated. No deletion
+or retry occurred. Earlier denied stage/host/snapshot cleanups also remain intact.
 
 ## Authority and roles
 

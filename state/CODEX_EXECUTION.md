@@ -47,10 +47,12 @@ D139's unchanged current default/M0 qualification is complete with a592B modeled
 deficit. Read analysis/P7_default_qualification_validation.md and its review;
 compiler success does not qualify this image. The two old failed candidates are
 not adopted. A bounded source audit identified no credible single fit repair.
-Next investigate the pinned package's distinct Static linking option from primary
-sources, as recorded in analysis/P7_default_fit_options.md. Current checked policy
-admits dynamic only. Any feasibility probe or policy change requires its own
-bounded reviewed decision; no further compiler is currently authorized.
+D140 read-only source qualification is complete in `6e6fe21c`; see
+analysis/P7_static_link_research.md and its reviewed evidence. Next finalize the
+proposed D141 static/M0 probe interfaces and exact command/ABI/section literals,
+then freeze independent tests and obtain the separate scoped review before
+adoption/execution. The draft is analysis/P7_static_link_probe_contract.md.
+Current checked policy remains dynamic-only; no static compile is yet authorized.
 
 Then resume only genuinely available required evidence: physical packets, native
 dump holder/quiescence/cancel/reopen prerequisites, and SC-AP release workflow.
@@ -61,10 +63,11 @@ validation packets. Do not repeat unrelated completed analyzers/tooling matrices
 Last actual MCU upload remains consumed D118defaultM0 e820c0e1; recheck actual
 transport for a new task and never reuse its run approval.
 
-Storage: C:about654MBfree at latestcheck; use /dev/shm and one heavy compiler.
-Keep checked artifacts/unique failures; release owned completed scratch only.
-Local stage753087B cleanup was automatically denied; older85.48MB/1.70MB denials
-also remain. No retries through another mechanism. See STORAGE_LOG.md.
+Storage: compression recovered 353,796,096 allocated bytes across 129 old text
+captures, with unchanged hashes; no files deleted. C: about 900 MB free, recheck.
+Automatic approval rejected deletion of 154 Arduino download archives (4.26 GiB)
+with "blocked by policy". Earlier stage/host/snapshot denials remain unchanged.
+Do not retry denied actions through another mechanism. See STORAGE_LOG.md.
 
 No actualP3 gate by end28Sep invokes reactive+SIDESTEP/DIRECT plus recorder cut.
 P6 needs actualP4 by30Sep and no stronger cut. Freeze1Oct21:00Dubai; rehearsal2Oct;

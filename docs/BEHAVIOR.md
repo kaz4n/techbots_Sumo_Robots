@@ -348,6 +348,20 @@ min(TURN_MIN_DUTY,base), with the ATTACK governor. These quantify B9.1/B9.2 abov
 ### B9.4 Push-through window
 If only front QTR bits are white, the opponent is centered, and FC is on, stay in ATTACK for up to EDGE_PUSH_THROUGH_MS, then escape. When FC clears (the opponent has gone over), escape at once. Default 0 ms (disabled). P4 test 4.4 may raise it, never above 100 ms.
 
+D-131 (delegated D-051, 2026-09-24) requires previous ATTACK, current valid
+confirmed centered FC and normalized raw FC for eligibility. Start only on a
+new admitted front-white sample; retained available white can continue but never
+start or renew the fixed window. Expiry at the exact bound, raw FC/eligibility
+loss, rear white or faults restores ordinary edge priority immediately. Fresh
+black ends deferral without an escape-exit event. The allowance stays spent until
+an actual escape completes on fresh all-black, or reset; permission loss also
+consumes it. No mask is hidden from history or recording. Any later arbitration
+away from ATTACK, or qualified unsuppressed stall while deferring white, revokes
+the exception that tick before REFLANK/limiter side effects, even if the limiter
+would deny. Existing contact, governor, STOP and source-fault rules remain intact.
+The shipped duration remains0; positive physical tuning still requires P4.4's
+actual trial evidence. See state/analysis/P4_push_through_contract.md.
+
 ---
 
 ## B10. Defend turn

@@ -1,7 +1,7 @@
-# D131 proposed contract: bounded B9.4 push-through
+# D131 adopted contract: bounded B9.4 push-through
 
-PROPOSAL ONLY, prepared after D130 completion. Adopt under D051 before dependent
-edits; no positive tuning, physical result, gate or motor authorization follows.
+ADOPTED under delegated D051 after a separate fresh-context design review.
+No positive tuning, physical result, gate or motor authorization follows.
 Keep EDGE_PUSH_THROUGH_MS's shipped literal0, with supported range0..100ms.
 
 ## Public boundary and eligibility
@@ -20,6 +20,15 @@ confirmed FC, and currently normalized raw FC. FC is bit0x02 after XOR with
 OPP_ACTIVE_LOW_MASK; electrical high does not itself mean detection. FL+FR alone
 can be centered but cannot qualify without FC. Preserve ordinary permission,
 source freshness, fault and full-duty centered-contact requirements.
+
+Preserve row-context fault priority: deferral admission needs a finite initial
+heading coordinate even without IMU; mask3 consumes a valid opponent-side value.
+Other front masks do not consume side or rear-duty predicates. During deferral,
+save healthy finite coordinates and ignore unavailable current yaw (including
+nonfinite), using the retained coordinate for a closing row with unavailable
+IMU. Healthy nonfinite yaw or invalid consumed head-on side cancels to the
+ordinary INVALID_CONTEXT fault that observation. A retained coordinate is not
+new heading evidence.
 
 Escape can enter the exception only with no active escape/fault, a new admitted
 line observation, nonzero front-only mask1/2/3, permission and push_eligible.
@@ -59,7 +68,11 @@ runEscape in the current pipeline. If that evaluation would leave ATTACK while
 front white is still being deferred, revoke the allowance and enter ordinary
 Escape that same tick. In particular, a would-be stall must not start REFLANK,
 consume its limiter allowance or emit a false executed-stall transition first.
-Do not suppress detection forever or discard the real edge history.
+Any qualified unsuppressed stall result during deferral revokes before limiter
+admission, including when capacity would deny REFLANK. Do not suppress detection
+forever or discard the real edge history. New-white invalidates an existing
+contact's stall history; test later contact plus deflection, not a 1000ms timer
+crossing inside a 20..100ms window.
 
 A dedicated revoke path or one bounded second Escape call is acceptable only
 after the first call deferred and started no row. It must start at most one actual
@@ -74,12 +87,13 @@ budget. Existing D129 timing exclusion on line evidence remains unchanged.
 
 ## Storage, defaults and verification
 
-Prefer reusing Escape's mutually exclusive storage: a named union for the
+Reuse Escape's mutually exclusive storage: a named union for the
 push-start timestamp versus the existing uint32 replan counter, and a byte enum
 for IDLE/ESCAPING/DEFERRED/SPENT replacing active_. Use ESCAPING=1 to retain the
 old default boolean representation where possible. Never read the wrong union
-member or expose timestamps as a replan count; initialize counter0 on real entry.
-This is a proposed implementation choice, not proof of target fit. Adding fields
+member or expose timestamps as a replan count; initialize counter0 on every
+transition to ESCAPING, including immediate pattern/context faults before a row
+successfully starts. This implementation choice is not proof of target fit. Adding fields
 and relying on if-constexpr to remove their object storage is insufficient.
 
 The proposed input bool may occupy existing sample padding; verify actual host

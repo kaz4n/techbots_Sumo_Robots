@@ -1,0 +1,83 @@
+// Acquires one fresh battery sample through the privately owned native ADC1.
+// Reports conversion and shutdown failures instead of reusing stale voltage.
+// Independent native-header tests and an inert target probe verify this driver.
+#pragma once
+#include <cstdint>
+
+namespace power {
+enum class Status : std::uint8_t {
+    OK, NOT_INITIALIZED, ALREADY_STARTED, INVALID_CONFIG, OWNERSHIP,
+    REGULATOR_TIMEOUT, CALIBRATION_TIMEOUT, ENABLE_TIMEOUT, CONVERSION_TIMEOUT,
+    POLL_LIMIT, READBACK, OVERRUN, INVALID_DATA, FAULT_LATCHED, NOT_ENABLED
+};
+enum class Shutdown : std::uint8_t { NOT_ATTEMPTED, DISABLED, UNCONFIRMED };
+struct InitResult {
+    Status status = Status::NOT_INITIALIZED;
+    Shutdown shutdown = Shutdown::NOT_ATTEMPTED;
+    bool ready = false;
+};
+struct Sample {
+    Status status = Status::NOT_INITIALIZED;
+    Shutdown shutdown = Shutdown::NOT_ATTEMPTED;
+    std::uint16_t raw = 0U;
+    std::uint32_t started_us = 0U;
+    std::uint32_t completed_us = 0U;
+    float voltage_v = 0.0F;
+    bool valid = false;
+};
+// Fixed A1/channel10 raw evidence; never a battery voltage or logical button.
+struct ButtonSample {
+    Status status = Status::NOT_INITIALIZED;
+    Shutdown shutdown = Shutdown::NOT_ATTEMPTED;
+    std::uint16_t raw = 0U;
+    std::uint32_t started_us = 0U;
+    std::uint32_t completed_us = 0U;
+    std::uint32_t sequence = 0U;
+    bool valid = false;
+};
+class Reader {
+public:
+    Reader() = default;
+    Reader(const Reader&) = delete;
+    Reader& operator=(const Reader&) = delete;
+    // Setup only. One attempt per instance/boot; no I/O in construction.
+    InitResult begin();
+    // Setup-only opt-in to the fixed A0/A1 pair; first begin fixes the profile.
+    InitResult beginWithButtons();
+    // Bounded native conversion; no last-value cache or second voltage filter.
+    Sample read();
+    // Fresh A1 conversion from the same owner; shared reset-only fault latch.
+    ButtonSample readButtons();
+private:
+    InitResult beginProfile(bool buttons);
+    bool controlsOwned() const;
+    Status initialize();
+    Status configureModes();
+    void writeSetupMode();
+    Status selectRank(std::uint32_t rank, std::uint32_t started);
+    Sample acquire(std::uint32_t rank, bool voltage);
+    Status waitFlag(bool control, std::uint32_t mask, bool set,
+                    std::uint32_t started, std::uint32_t budget, Status timeout);
+    Status waitCalibrationGap();
+    Status sampleStatus(std::uint32_t started) const;
+    Status finishSample(Sample& sample, bool voltage);
+    void fail(Status status);
+    Shutdown stopOwned();
+    bool attempted_ = false;
+    bool ready_ = false;
+    bool owned_ = false;
+    bool faulted_ = false;
+    Shutdown shutdown_ = Shutdown::NOT_ATTEMPTED;
+    bool divider_set_ = false;
+    bool buttons_enabled_ = false;
+    bool setup_pending_ = false;
+    bool rank_pending_ = false;
+    bool regulator_ready_ = false;
+    std::uint8_t mode_stage_ = 0U;
+    std::uint32_t selected_rank_ = 9U;
+    std::uint32_t requested_rank_ = 9U;
+    std::uint32_t button_sequence_ = 0U;
+    std::uint32_t cr_base_ = 0U;
+    std::uint32_t cr_allowed_ = 0U;
+};
+} // namespace power

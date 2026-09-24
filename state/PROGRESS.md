@@ -941,3 +941,5 @@ physical/loadedRAM/gate claim. | contract=this commit
 2026-09-24T10:49:00.951761+04:00 | P4 software | D130 offline target-loss analyzer | IMPLEMENTED/HOST-TESTED/fresh review PASS;112public first-run +13private;648prior inputs/40protected exact; no production/oracle repairs. Existing evidence only, no firmware/board/physical/gate. Next bounded B9.4 push-through, default0 | completion commit this task
 
 2026-09-24T10:54:42.127598+04:00 | P4 software | D130 committedcd22e7c7; next-task source map | Read-only explorer identified actual Escape/Robot ordering, normalizedFC, same-tick stall and storage/config boundaries. Proposed D131 contract saved; not adopted or implemented, duration0 unchanged. Next adopt/review contract and public interfaces before independent tests | preparation commit this task
+
+2026-09-24T10:59:34.016882+04:00 | P4 software | D131 bounded push-through contract/interfaces | ADOPTED under D051 after fresh-context design review; implementation/independent oracles next; default0/40protected unchanged; target/hardware/gates pending | contract commit this task

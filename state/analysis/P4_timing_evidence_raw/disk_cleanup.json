@@ -1,0 +1,76 @@
+{
+  "utc": "2026-09-24T06:22:57.046317+00:00",
+  "authorization": "User requested deletion of unused temporary files after observing disk exhaustion.",
+  "scope": "Inspected closed temporary artifacts and reconstructible host compiler outputs only; lossless NTFS compression of project state evidence.",
+  "deleted": [
+    {
+      "path": "build/host-sanitize/sumox26_tests",
+      "kind": "generated executable"
+    },
+    {
+      "path": "build/host-sanitize/motor_gate_enabled_tests",
+      "kind": "generated executable"
+    },
+    {
+      "path": "build/host-sanitize/CMakeFiles/sumox26_tests.dir",
+      "kind": "generated compiler directory"
+    },
+    {
+      "path": "build/host-sanitize/CMakeFiles/motor_gate_enabled_tests.dir",
+      "kind": "generated compiler directory"
+    },
+    {
+      "path": "build/host/sumox26_tests",
+      "kind": "generated executable"
+    },
+    {
+      "path": "build/host/motor_gate_enabled_tests",
+      "kind": "generated executable"
+    },
+    {
+      "path": "build/host/CMakeFiles/sumox26_tests.dir",
+      "kind": "generated compiler directory"
+    },
+    {
+      "path": "build/host/CMakeFiles/motor_gate_enabled_tests.dir",
+      "kind": "generated compiler directory"
+    },
+    {
+      "path": "C:\\Users\\narut\\AppData\\Local\\Temp\\DiagOutputDir\\RdClientAutoTrace",
+      "kind": "286 closed old RDP trace files",
+      "bytes": 1335373824
+    },
+    {
+      "path": "C:\\Users\\narut\\AppData\\Local\\CrashDumps",
+      "kind": "only six Python Sep21 dumps listed in temp_inventory.json",
+      "bytes": 135489953
+    },
+    {
+      "path": "C:\\Users\\narut\\AppData\\Local\\Temp",
+      "kind": "only fourteen old codex_motor temporary artifacts listed in temp_inventory.json",
+      "bytes": 87954144
+    }
+  ],
+  "preserved": [
+    "all project source/tests",
+    "all 21145 preexisting state evidence files",
+    "Git history",
+    "canonical dependency cache",
+    "current WSL crash diagnostics",
+    "active Word diagnostics",
+    "persistent WSL and Docker virtual disks"
+  ],
+  "compression_command": [
+    "compact.exe",
+    "/C",
+    "/S:C:\\Users\\narut\\OneDrive\\Desktop\\Project\\techbots_Sumo_Robots\\state",
+    "/I",
+    "/Q"
+  ],
+  "compression_returncode": 0,
+  "hash_verification": "evidence_after_compression.json: 21145 exact byte/SHA256 matches, zero mismatches",
+  "free_before_bytes_approx": 94371840,
+  "free_after_bytes": 3639668736,
+  "limitations": "No pre-development disk inventory exists; this does not attribute the entire reported 9 GB decrease. Windows concurrent writes can change free-space measurements. WSL service crash is observed, not proven caused by disk pressure.",
+  "validation_prevention": "D129 host builds use /dev/shm and validation jobs are retried serially; no global WSL configuration changed."
+}

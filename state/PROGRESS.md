@@ -929,3 +929,7 @@ physical/loadedRAM/gate claim. | contract=this commit
 2026-09-24T08:14:23.047481+04:00 | P4 software | D129 public trace contract | ADOPTED under D051; independent tests/implementation next; physical and gates pending; D128 committed3985da16 | contract commit this task
 
 2026-09-24T08:19:12.690758+04:00 | P4 software | USER-PAUSE during D129 | Saved unvalidated trace/codec/Runtime/build drafts; independent tests not yet authored; no D129 build/test/MCU action;39locked unchanged; workers stopped. Exact resume analysis/P4_D129_PAUSE.md; contract ca076b46, last validated3985da16 | WIP checkpoint commit this task
+
+2026-09-24T10:04:23.773317+04:00 | P4 software | USER-RESUME D129 | Recovered clean1b47ee0c; independent test author/implementer/separate reviewer resumed; no D129 execution yet. Source-review chronology gap queued for frozen reproduction, then repair. Physical/gates unchanged. | current task
+
+2026-09-24T10:23:22.740433+04:00 | P4 software | User-requested disk cleanup | Removed inspected closed temps and rebuildable host outputs; lossless state compression; 21145 evidence hashes unchanged; free C: approx90MiB -> 3.33GiB. D129 interrupted by WSL service termination; retry serially. See analysis/DISK_CLEANUP_20260924.md | cleanup commit this task

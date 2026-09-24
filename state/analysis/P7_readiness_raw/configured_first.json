@@ -1,0 +1,55 @@
+{
+  "label": "configured_first",
+  "flags": [
+    "configured",
+    "private"
+  ],
+  "start_utc": "2026-09-24T18:52:47.282095+00:00",
+  "input_freeze_sha256": "312abddc5a72749c1b1537f9b22006da81e2cc57e39b3fcd9cba6ded90095658",
+  "runner_sha256": "013776b22bbae1e05a22c53760af42041ff3cf6ab6514929f7bb9cda68480370",
+  "commands": [
+    {
+      "argv": [
+        "cmake",
+        "-S",
+        "/dev/shm/sumox_d138_urykwj3z/fixture/host",
+        "-B",
+        "/dev/shm/sumox_d138_urykwj3z/build",
+        "-DCMAKE_BUILD_TYPE=Debug",
+        "-DCMAKE_CXX_FLAGS=-DAPP_TEST_CONFIGURED_BUTTONS=1"
+      ],
+      "returncode": 0,
+      "start_utc": "2026-09-24T18:52:50.056791+00:00",
+      "end_utc": "2026-09-24T18:52:51.063607+00:00"
+    },
+    {
+      "argv": [
+        "cmake",
+        "--build",
+        "/dev/shm/sumox_d138_urykwj3z/build",
+        "--parallel",
+        "1",
+        "--target",
+        "readiness_m0_tests",
+        "readiness_m1_tests"
+      ],
+      "returncode": 2,
+      "start_utc": "2026-09-24T18:52:51.064682+00:00",
+      "end_utc": "2026-09-24T18:52:57.858567+00:00"
+    }
+  ],
+  "hardware_access": false,
+  "frozen_inputs": 681,
+  "synthetic_replacements": {
+    "BUTTON_WINDOWS_CONFIGURED = 0U": "BUTTON_WINDOWS_CONFIGURED = 1U",
+    "BUTTON_LOW_RAW[4] = {0U, 0U, 0U, 0U}": "BUTTON_LOW_RAW[4] = {0U, 900U, 1900U, 2900U}",
+    "BUTTON_HIGH_RAW[4] = {0U, 0U, 0U, 0U}": "BUTTON_HIGH_RAW[4] = {100U, 1100U, 2100U, 3100U}"
+  },
+  "fixture_config_sha256": "fd2dc02fe56bf4a2a0382c128637e9de0d5d7e5dd7a4eb9a409eac5138538b5d",
+  "private_probe_sha256": "9d835d130a686afd3698dba62461b4964ee7206c5b0b001e6d2649396a0b1138",
+  "returncode": 2,
+  "scratch_released": true,
+  "source_verified_after_run": true,
+  "end_utc": "2026-09-24T18:52:58.895516+00:00",
+  "log_sha256": "53612c07b36261267dccc4d02895ff3f816868fc4d439181c1661a1f4080f69f"
+}

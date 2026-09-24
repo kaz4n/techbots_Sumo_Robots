@@ -1,0 +1,58 @@
+{
+  "label": "normal_retry1",
+  "flags": [],
+  "start_utc": "2026-09-24T18:51:47.648138+00:00",
+  "input_freeze_sha256": "312abddc5a72749c1b1537f9b22006da81e2cc57e39b3fcd9cba6ded90095658",
+  "runner_sha256": "013776b22bbae1e05a22c53760af42041ff3cf6ab6514929f7bb9cda68480370",
+  "commands": [
+    {
+      "argv": [
+        "cmake",
+        "-S",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/host",
+        "-B",
+        "/dev/shm/sumox_d138_95r77f2k/build",
+        "-DCMAKE_BUILD_TYPE=Debug"
+      ],
+      "returncode": 0,
+      "start_utc": "2026-09-24T18:51:47.654324+00:00",
+      "end_utc": "2026-09-24T18:51:50.430347+00:00"
+    },
+    {
+      "argv": [
+        "cmake",
+        "--build",
+        "/dev/shm/sumox_d138_95r77f2k/build",
+        "--parallel",
+        "1",
+        "--target",
+        "readiness_m0_tests",
+        "readiness_m1_tests"
+      ],
+      "returncode": 0,
+      "start_utc": "2026-09-24T18:51:50.430827+00:00",
+      "end_utc": "2026-09-24T18:52:33.215995+00:00"
+    },
+    {
+      "argv": [
+        "ctest",
+        "--test-dir",
+        "/dev/shm/sumox_d138_95r77f2k/build",
+        "--output-on-failure",
+        "--no-tests=error",
+        "-R",
+        "^readiness_"
+      ],
+      "returncode": 0,
+      "start_utc": "2026-09-24T18:52:33.216326+00:00",
+      "end_utc": "2026-09-24T18:52:33.277444+00:00"
+    }
+  ],
+  "hardware_access": false,
+  "frozen_inputs": 681,
+  "returncode": 0,
+  "scratch_released": true,
+  "source_verified_after_run": true,
+  "end_utc": "2026-09-24T18:52:34.516810+00:00",
+  "log_sha256": "5f2869505ab3b244f6b44042c73344b854c1879f8b89056270eb64f0d8c0a270"
+}

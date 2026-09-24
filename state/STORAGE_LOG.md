@@ -115,3 +115,5 @@ affects this number, so it is not a measurement of deleted file allocation.
 Earlier rejected Arduino cache/host/stage/snapshot removals were not retried.
 No pagefile, virtual disk, installed tool, firmware or source was changed.
 Retain these compact cleanup receipts; no duplicate checkout/build was created.
+
+2026-09-25T00:40:30.855361+04:00 | D142 retention | Retained14 scoped raw/oracle/source files totaling102756 logicalB, plus small contract/review/validation/root receipts. They bind independent expectations, actual passing tests and original negative evidence. Fixtures were transient RAM bytes, including one16MiB+1 boundary buffer; no compiler tree, binary fixture, downloaded package, duplicate checkout or bytecode created. No denied cleanup retried; current C: check remains required before large work.

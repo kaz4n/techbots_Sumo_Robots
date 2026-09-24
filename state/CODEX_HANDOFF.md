@@ -1,12 +1,13 @@
 # Codex handoff - 2026-09-25 Asia/Dubai
 
-**D141 policy component is HOST-TESTED and separately reviewed.**
-The scoped validator passes 35 independent host methods and the reviewer's four
-regression cases. Its single path-substitution defect is fixed; original failures
-and source commit `92d9bb8b` remain preserved. Production admission is unchanged.
-No static image has been built or run; the default dynamic deficit is still 592
-bytes. Next define the remaining artifact/one-shot-runner interfaces and tests,
-then obtain separate scoped adoption/review before any target query or compiler.
+**D141 policy and D142 artifact components are HOST-TESTED and separately reviewed.**
+D142 passes45 independent methods and six private methods; two pre-execution
+comparison gaps are closed with original source/failures preserved. See
+analysis/P7_static_artifact_validation.md and reviews/P7_static_artifact_code_review.md.
+Production admission is unchanged. No static image has been built or run; the
+default dynamic deficit is still592 bytes. Next settle the remaining one-shot
+runner interfaces/command templates and tests, then obtain separate scoped
+adoption/review before any target query or compiler.
 
 
 **Active phase: P7 software/release preparation.** D138 informational READY and
@@ -55,22 +56,32 @@ plus the unchanged four-case private reproducer. Separate same-model review
 pins were independently checked; none of the 18 production pins was replaced.
 No firmware/config/established-test/production-policy change or board action.
 
-Next settle the remaining artifact-validator and one-shot-runner interfaces,
-exact named-section/ABI acceptance, immutable input/command bindings and negative
-fixtures from the parent contract. Use a companion scope document: the current
-policy contract is now one of its eight frozen oracle inputs and must not be
-silently rewritten. Full probe implementation/query/compiler authorization is
-still pending its separate bounded review/adoption. Derived e_flags 0x05000400
-is a proposal, not an observed static image. All commands are terminal; there is
-no active compiler, compression process or background board operation.
+D142 source d30372dd is committed in9f79bf41, with the original50d06722 in
+a986ffdb and original39-method oracle in8d6eb7bb. First executed repaired source
+passes45 public methods; the unchanged six-method private probe reproduces18
+failed subcases in the initial source and passes on the fix. Separate reused
+same-model review305c87e2 has no open findings. All11 public frozen inputs exact;
+24functions/max31lines. Only synthetic structural/package acceptance is proved.
+The exact derived e_flags0x05000400 and named-layout rules are now D142 admission
+expectations, not observations of a static app. The module's maximum verdict is
+STATIC_LAYOUT_PACKAGE_PASS. Source/run freshness, entry/constructor/native
+binding/ABI audit and actual static fit remain unproved.
+
+Next settle the one-shot runner's exact command/public interfaces, immutable
+bindings and failure/stale-output fixtures using the retained proposal below.
+Preserve both frozen companion/parent contracts and all oracles. Full probe
+implementation/query/compiler authorization still needs its separate review and
+adoption. All commands are terminal; no active compiler, test, compression or
+background board operation remains.
 
 The separate worker's one-shot runner proposal is now retained at
 analysis/P7_static_runner_proposal.md (SHA25641496d8ee5dc5ffd26e8b9ac6000169e376b035f37a3b64e508159703dbacfc2).
 Root read it and checked all 11 input-hash literals against current bytes.
 It specifies reuse of the unchanged verified stage/transport, exclusive new
 outputs, one query and one jobs1 compile, seven artifacts and original failure
-receipts. It is not adopted or implemented; settle the companion artifact
-interface and independent negative fixtures before any target invocation.
+receipts. It is not adopted or implemented; compose the reviewed D141/D142 pure
+components without replacing production validators. Freeze independent runner
+negative fixtures and review exact code before any target invocation.
 Storage follow-up is committed as f9714314; no source, test or board changes.
 
 D134 mode availability, D135 abort producer and D136 analyzer are closed for

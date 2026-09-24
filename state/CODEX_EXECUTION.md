@@ -1,11 +1,11 @@
-# Current execution checklist - 2026-09-24 Asia/Dubai
+# Current execution checklist - 2026-09-25 Asia/Dubai
 
 **D139 qualification complete: compiler PASS, conditional default fit FAIL.**
 The unchanged default/M0 image exceeds the modeled loader pool by592 bytes.
 Exact evidence is in analysis/P7_default_qualification_validation.md and its
-separate review. D140 source research and D141 pure static-policy host validation
-are complete. Production policy remains dynamic-only; no static image has been
-built, uploaded or run. The remaining artifact validator and runner are next.
+separate review. D140 source research and D141/D142 pure policy/artifact host
+validation are complete. Production policy remains dynamic-only; no static image
+has been built, uploaded or run. The remaining one-shot runner is next.
 
 
 **Active: P7 software/release preparation.** PROGRESS.md is the append-only phase
@@ -53,12 +53,19 @@ separate review has no open findings. Read analysis/P7_static_policy_validation.
 The original literal-path defect/failures are preserved; no established test or
 production policy was changed. Exact reference has 84 keys; eight pins are additive.
 
-Next define the artifact validator and one-shot runner in a companion scope,
-including precise section/ABI/package/source/path checks and negative fixtures.
+D142 pure structural artifact component is complete in9f79bf41:45 independent
+public methods plus six private methods pass; reused same-model scopedreview
+305c87e2 closes both comparison gaps. Initialsource50d06722/a986ffdb and its18
+failed private subcases are retained; no oracle weakened. Read
+analysis/P7_static_artifact_validation.md. This only proves synthetic structure
+and packaging checks, not a real static app, native bindings or source freshness.
+
+Next define/adopt the one-shot runner command interface and negative fixtures.
 The bounded runner design is saved in analysis/P7_static_runner_proposal.md;
 all 11 literal input hashes were checked against current files. It remains a
-proposal, with artifact interfaces/tests/implementation still to be settled.
-Do not edit the frozen policy contract or oracles. Their full-probe draft remains
+proposal; compose the reviewed pure components with fixed input bindings and
+failure/stale-output tests. Do not edit either frozen contract or oracles.
+The full-probe draft remains
 unadopted; implementation/query/compiler needs the separate scoped review and
 adoption. Production remains dynamic-only, no static image has been built.
 
@@ -71,8 +78,11 @@ validation packets. Do not repeat unrelated completed analyzers/tooling matrices
 Last actual MCU upload remains consumed D118defaultM0 e820c0e1; recheck actual
 transport for a new task and never reuse its run approval.
 
-Storage: compression recovered 353,796,096 allocated bytes across 129 old text
-captures, with unchanged hashes; no files deleted. C: about 850 MB free at latest check, recheck.
+Storage: prior text compression recovered353796096allocatedB; additional ELF
+compression recovered50286592B with exact hashes. Four unused application dumps
+and one bytecode cache were removed; denied cleanup targets remain. C: about
+936MB free at latest check; recheck before large work. D142 uses only small source,
+oracle and receipt files, with transient RAM fixtures and no compiler tree.
 Automatic approval rejected deletion of 154 Arduino download archives (4.26 GiB)
 with "blocked by policy". Earlier stage/host/snapshot denials remain unchanged.
 Do not retry denied actions through another mechanism. See STORAGE_LOG.md.

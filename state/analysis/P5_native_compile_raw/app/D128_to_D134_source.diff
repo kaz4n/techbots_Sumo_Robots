@@ -1,0 +1,555 @@
+diff --git a/src/core/edge.cpp b/src/core/edge.cpp
+index 7d5d4832..1564b2a2 100644
+--- a/src/core/edge.cpp
++++ b/src/core/edge.cpp
+@@ -50,8 +50,8 @@ void Classifier::reset() {
+ 
+ GuardResult Guard::step(std::uint8_t line_mask, bool motion_permitted,
+                         bool script_finished) {
+-    static_assert(config::EDGE_PUSH_THROUGH_MS == 0U,
+-                  "Implement and test bounded push-through before enabling it");
++    static_assert(config::EDGE_PUSH_THROUGH_MS <= 100U,
++                  "Push-through must remain within the B9.4 100ms bound");
+     if (!motion_permitted) {
+         return {false, fault_latched_, true};
+     }
+@@ -266,10 +266,49 @@ void RowExecutor::reset() {
+     *this = RowExecutor{};
+ }
+ 
++bool Escape::deferEscape(const EscapeSample& sample) {
++    if constexpr (config::EDGE_PUSH_THROUGH_MS == 0U) return false;
++    if (episode_ == Episode::ESCAPING || fault_ != EscapeFault::NONE) return false;
++    const auto mask = static_cast<std::uint8_t>(sample.line_mask & 0x0FU);
++    const bool front_only = mask != 0U && (mask & 0x0CU) == 0U;
++    const bool context_valid = (episode_ == Episode::DEFERRED && !sample.imu_ok) ||
++        std::isfinite(sample.heading_deg);
++    const bool eligible = sample.motion_permitted && sample.push_eligible && front_only &&
++        context_valid && (mask != 0x03U || validDirection(sample.opponent_side));
++    if (episode_ == Episode::DEFERRED) {
++        if (!eligible || sample.t_us - episode_data_.push_start_us >=
++            config::EDGE_PUSH_THROUGH_MS * 1000U) {
++            episode_ = Episode::SPENT;
++            return false;
++        }
++        if (sample.imu_ok) last_heading_deg_ = sample.heading_deg;
++    } else {
++        if (episode_ != Episode::IDLE || !eligible || !sample.line_updated) return false;
++        episode_data_.push_start_us = sample.t_us;
++        episode_ = Episode::DEFERRED;
++        last_heading_deg_ = sample.heading_deg;
++        selected_mask_ = 0U;
++        pushed_out_ = false;
++    }
++    // No row or Guard entry occurs until this one nonrenewable allowance ends.
++    current_ = RowResult{};
++    if (sample.line_updated) previous_mask_ = mask;
++    return true;
++}
++
++bool Escape::pushThroughActive() const {
++    if constexpr (config::EDGE_PUSH_THROUGH_MS == 0U) return false;
++    return episode_ == Episode::DEFERRED;
++}
++
+ bool Escape::startRow(const EscapeSample& sample, bool replacement) {
+     const auto mask = static_cast<std::uint8_t>(sample.line_mask & 0x0FU);
+     const auto rear = static_cast<std::uint8_t>(mask & 0x0CU);
+     if (!replacement) {
++        if constexpr (config::EDGE_PUSH_THROUGH_MS > 0U) {
++            episode_data_.replans = 0U;
++            episode_ = Episode::ESCAPING;
++        }
+         if (!std::isfinite(sample.heading_deg)) {
+             latchFault(EscapeFault::INVALID_CONTEXT);
+             return false;
+@@ -312,8 +351,8 @@ bool Escape::startRow(const EscapeSample& sample, bool replacement) {
+     selected_mask_ = mask;
+     pushed_out_ = pushed;
+     pivot_direction_ = direction;
+-    active_ = true;
+-    if (replacement) ++replans_;
++    episode_ = Episode::ESCAPING;
++    if (replacement) ++episode_data_.replans;
+     return true;
+ }
+ 
+@@ -343,7 +382,7 @@ bool Escape::advanceRow(const EscapeSample& sample, std::uint8_t new_bits) {
+                       (sample.line_mask & 0x0FU) != 0U;
+     }
+     if (!replacement) return false;
+-    if (replans_ >= config::EDGE_MAX_REPLANS) {
++    if (episode_data_.replans >= config::EDGE_MAX_REPLANS) {
+         latchFault(EscapeFault::REPLAN_LIMIT);
+         return false;
+     }
+@@ -352,7 +391,9 @@ bool Escape::advanceRow(const EscapeSample& sample, std::uint8_t new_bits) {
+ 
+ void Escape::latchFault(EscapeFault fault) {
+     if (fault_ == EscapeFault::NONE) fault_ = fault;
+-    active_ = true;
++    if constexpr (config::EDGE_PUSH_THROUGH_MS > 0U)
++        if (episode_ != Episode::ESCAPING) episode_data_.replans = 0U;
++    episode_ = Episode::ESCAPING;
+     const bool timed_out = current_.turn_timed_out;
+     const bool changed = current_.phase != ScriptPhase::INVALID;
+     current_ = RowResult{};
+@@ -366,9 +407,11 @@ EscapeResult Escape::result(bool permitted) const {
+     EscapeResult out;
+     out.row = !permitted && fault_ == EscapeFault::NONE ? RowResult{} : current_;
+     out.fault = fault_;
+-    out.escape_required = permitted && active_;
++    out.escape_required = permitted && episode_ == Episode::ESCAPING;
+     out.inhibit_motion = !permitted || fault_ != EscapeFault::NONE;
+-    out.replans = replans_;
++    if constexpr (config::EDGE_PUSH_THROUGH_MS > 0U)
++        out.replans = episode_ == Episode::ESCAPING ? episode_data_.replans : 0U;
++    else out.replans = episode_data_.replans;
+     out.selected_mask = selected_mask_;
+     out.pushed_out = pushed_out_;
+     out.pivot_direction = pivot_direction_;
+@@ -379,20 +422,32 @@ EscapeResult Escape::step(const EscapeSample& sample) {
+     current_.phase_changed = false;
+     current_.turn_timed_out = false;
+     if (!sample.motion_permitted) {
+-        if (active_ && fault_ == EscapeFault::NONE) latchFault(EscapeFault::PERMISSION_LOST);
++        if (episode_ == Episode::ESCAPING && fault_ == EscapeFault::NONE)
++            latchFault(EscapeFault::PERMISSION_LOST);
++        if constexpr (config::EDGE_PUSH_THROUGH_MS > 0U)
++            if (episode_ == Episode::DEFERRED) episode_ = Episode::SPENT;
+         guard_.step(sample.line_mask, false, false);
+         return result(false);
+     }
+     if (fault_ != EscapeFault::NONE) return result(true);
++    bool was_deferred = false;
++    if constexpr (config::EDGE_PUSH_THROUGH_MS > 0U) {
++        was_deferred = pushThroughActive();
++        if (deferEscape(sample)) return result(true);
++    }
+     const auto mask = static_cast<std::uint8_t>(sample.line_mask & 0x0FU);
+     const auto new_bits = static_cast<std::uint8_t>(mask & ~previous_mask_);
+-    const bool entered = !active_ && mask != 0U;
++    const bool entered = episode_ != Episode::ESCAPING && mask != 0U;
+     bool replanned = false;
+     if (faultPattern(mask)) {
+         latchFault(EscapeFault::WHITE_PATTERN);
+-    } else if (!active_) {
++    } else if (episode_ != Episode::ESCAPING) {
+         current_ = RowResult{};
+-        if (mask != 0U) startRow(sample, false);
++        if constexpr (config::EDGE_PUSH_THROUGH_MS > 0U) {
++            EscapeSample selection = sample;
++            if (was_deferred && !sample.imu_ok) selection.heading_deg = last_heading_deg_;
++            if (mask != 0U) startRow(selection, false);
++        } else if (mask != 0U) startRow(sample, false);
+     } else {
+         replanned = advanceRow(sample, new_bits);
+     }
+@@ -400,10 +455,11 @@ EscapeResult Escape::step(const EscapeSample& sample) {
+     if (sample.line_updated || entered) previous_mask_ = mask;
+     const GuardResult guarded = guard_.step(mask, true,
+         sample.line_updated && current_.phase == ScriptPhase::DONE);
+-    const bool exited = active_ && fault_ == EscapeFault::NONE && !guarded.escape_required;
++    const bool exited = episode_ == Episode::ESCAPING && fault_ == EscapeFault::NONE &&
++        !guarded.escape_required;
+     if (exited) {
+-        active_ = false;
+-        replans_ = 0U;
++        episode_ = Episode::IDLE;
++        episode_data_.replans = 0U;
+     }
+     EscapeResult out = result(true);
+     out.entered = entered;
+diff --git a/src/core/edge.h b/src/core/edge.h
+index 676160c9..e1bab25b 100644
+--- a/src/core/edge.h
++++ b/src/core/edge.h
+@@ -41,8 +41,8 @@ struct GuardResult {
+ class Guard {
+ public:
+     // One confirmed fresh line mask per tick; only the low four bits are used.
+-    // This implements the default zero push-through window only; compilation
+-    // rejects a positive configured window until that bounded exception exists.
++    // This context-free guard never grants push-through. Escape owns the bounded
++    // B9.4 exception; direct Guard callers still escape on every white mask.
+     // Before motion permission, do not enter escape/latch a new line fault.
+     // Afterwards any persistent white requires escape. Once entered, all black
+     // AND script_finished are both required to leave. All-white latches a motion
+@@ -152,6 +152,7 @@ struct EscapeSample {
+     motion::Direction opponent_side = motion::Direction::RIGHT;
+     bool heading_updated = true; // D084: retained coordinates cannot create inward evidence.
+     bool line_updated = true; // D085: retained levels cannot replan or authorize exit.
++    bool push_eligible = false; // D131: prior ATTACK + fresh centered confirmed/raw FC.
+ };
+ struct EscapeResult {
+     RowResult row;
+@@ -180,7 +181,9 @@ public:
+     // is closed, otherwise true while active/faulted. Reset must track Robot reset.
+     //
+     // With permission: 3/4 white bits first latch WHITE_PATTERN/zero/inhibited.
+-    // Initial persistent white enters immediately with zero replacements used.
++    // Initial persistent white enters immediately with zero replacements used,
++    // except D131's eligible first fresh front-white bounded deferral. Deferral
++    // returns no escape/entry/replan pulse and an IDLE zero row, never motor duty.
+     // Row selection: rear bit + current centered_front + BOTH previously applied
+     // FINAL electrical duties >0 selects pushed-out. Single rear pivots away;
+     // both rear pivots opposite opponent_side. Otherwise mask3 selects head-on
+@@ -217,8 +220,18 @@ public:
+     // Timeout pulse is retained when an old row finishes and is replaced/exited.
+     // All motion requests still require governor + MotorGate; no I/O or allocation.
+     EscapeResult step(const EscapeSample& sample);
++    // D131: at most the configured 0..100ms, first fresh front-white anchor.
++    // Eligibility/permission loss, rear white, expiry or fresh black spends it.
++    // Rearm only on actual escape completion/reset; deferral emits no row pulses.
++    bool pushThroughActive() const;
+     void reset();
+ private:
++    enum class Episode : std::uint8_t { IDLE, ESCAPING, DEFERRED, SPENT };
++    union EpisodeData {
++        std::uint32_t replans = 0U;
++        std::uint32_t push_start_us;
++    };
++    bool deferEscape(const EscapeSample& sample);
+     bool startRow(const EscapeSample& sample, bool replacement);
+     bool advanceRow(const EscapeSample& sample, std::uint8_t new_bits);
+     bool needsReplan(std::uint8_t new_bits) const;
+@@ -229,11 +242,11 @@ private:
+     RowResult current_;
+     EscapeFault fault_ = EscapeFault::NONE;
+     float last_heading_deg_ = 0.0F;
+-    std::uint32_t replans_ = 0U;
++    EpisodeData episode_data_;
+     std::uint8_t previous_mask_ = 0U;
+     std::uint8_t selected_mask_ = 0U;
+     motion::Direction pivot_direction_ = motion::Direction::RIGHT;
+-    bool active_ = false;
++    Episode episode_ = Episode::IDLE;
+     bool pushed_out_ = false;
+ };
+ } // namespace edge
+diff --git a/src/core/fsm.h b/src/core/fsm.h
+index d6798975..ceabdc36 100644
+--- a/src/core/fsm.h
++++ b/src/core/fsm.h
+@@ -414,6 +414,14 @@ struct TickTiming {
+     bool start_valid = false;
+     std::uint32_t started_us = 0; // Actual acquisition start; t_us stays decision time.
+ };
++#if SUMOX_TIMING_EVIDENCE
++// D129 source evidence only; no change to debounce or motion permission.
++struct OpponentReadWindow {
++    bool valid = false;
++    std::uint32_t started_us = 0U;
++    std::uint32_t completed_us = 0U;
++};
++#endif
+ struct RobotInput {
+     std::uint32_t t_us = 0;
+     bool initialization_complete = false;
+@@ -437,6 +445,9 @@ struct RobotInput {
+     bool opponent_fresh = false; // Explicit line mode only; independent of QTR frames.
+     core::ButtonEvidence buttons;
+     TickTiming timing; // D092 opt-in complete-tick accounting; legacy default unchanged.
++#if SUMOX_TIMING_EVIDENCE
++    OpponentReadWindow opponent_read;
++#endif
+ };
+ struct RobotResult {
+     static constexpr bool STAND_PROFILE = SUMOX_B4_STAND != 0;
+@@ -445,6 +456,7 @@ struct RobotResult {
+     static constexpr bool STOP_TRIAL_PROFILE = SUMOX_P3_STOP_TRIAL != 0;
+     // D128: real local match start enters SEARCH; selected mode is metadata only.
+     static constexpr bool REACTIVE_PROFILE = SUMOX_P4_REACTIVE != 0;
++    static constexpr bool TIMING_EVIDENCE_PROFILE = SUMOX_TIMING_EVIDENCE != 0;
+ #if SUMOX_P3_STOP_TRIAL
+     stop_trial::Report stop_trial;
+     bool stop_trial_stopping = false;
+@@ -564,6 +576,9 @@ private:
+         bool after_go = false;
+         bool match_tick = false;
+         bool frame_due = false;
++#if SUMOX_TIMING_EVIDENCE
++        bool contact = false;
++#endif
+     };
+     struct Tick {
+         core::State entry = core::State::BOOT;
+@@ -590,7 +605,31 @@ private:
+         bool forced_brake = false;
+         bool frame_immediate = false;
+         bool line_start_inhibited = false;
++#if SUMOX_TIMING_EVIDENCE
++        bool timing_approach = false;
++        bool timing_loss_brake = false;
++        bool timing_epoch_valid = false;
++#endif
+     };
++#if SUMOX_TIMING_EVIDENCE
++    enum class TimingPhase : std::uint8_t { IDLE, ARMED, OBSERVING, RECEIPT, CLOSED };
++    struct TimingTrace {
++        std::uint64_t expected_token = 0;
++        std::uint32_t anchor_us = 0;
++        std::uint32_t read_end_us = 0;
++        std::uint32_t decision_us = 0;
++        TimingPhase phase = TimingPhase::IDLE;
++    };
++    void receiveTimingTrace(const RobotInput& input, bool applied_valid);
++    bool validTimingSource(const RobotInput& input) const;
++    bool timingFrontFiltered() const;
++    bool timingLossBrake() const;
++    bool excludeTimingTrace(const RobotInput& input);
++    void publishTimingTrace(const RobotInput& input);
++    void publishTimingCandidate(const RobotInput& input);
++    void closeTimingTrace(logframe::TimingDetail detail);
++    TimingTrace timing_trace_;
++#endif
+     void admit(const RobotInput& input);
+     void receive(const RobotInput& input);
+     void receiveTiming(const RobotInput& input, bool identity_time_valid);
+@@ -626,7 +665,8 @@ private:
+     void updateQtrWarnings();
+     void runLifecycle(const RobotInput& input);
+     void beginAttempt();
+-    void runEscape(const RobotInput& input);
++    void runEscape(const RobotInput& input, bool allow_push = true);
++    void revokePushThrough(const RobotInput& input);
+     void rememberEscape(const RobotInput& input);
+     void cancelMotion();
+     void routeMotion(const RobotInput& input);
+@@ -664,7 +704,7 @@ private:
+     openers::Sample openerSample() const;
+     void acceptMotion(const motion::Result& result, governor::Profile profile,
+                       bool brake = false);
+-    void checkStall();
++    void checkStall(const RobotInput& input);
+     void prepareFinalRequest();
+     void commitAndGovern(const RobotInput& input);
+     void publishEvents();
+diff --git a/src/core/fsm_robot.cpp b/src/core/fsm_robot.cpp
+index 8c948c2e..8ae4481d 100644
+--- a/src/core/fsm_robot.cpp
++++ b/src/core/fsm_robot.cpp
+@@ -116,8 +116,11 @@ RobotResult Robot::step(const RobotInput& input) {
+     runLifecycle(resolved);
+     runEscape(resolved);
+     routeMotion(resolved);
++    if constexpr (config::EDGE_PUSH_THROUGH_MS > 0U)
++        if (escape_.pushThroughActive() &&
++            (tick_.selected != core::State::ATTACK || faults_ != 0U)) revokePushThrough(resolved);
+ #if !SUMOX_B4_STAND && !SUMOX_P3_DRIVE_TEST && !SUMOX_P3_TURN_TRIAL && !SUMOX_P3_STOP_TRIAL
+-    checkStall();
++    checkStall(resolved);
+ #endif
+     prepareFinalRequest();
+     commitAndGovern(resolved);
+@@ -181,6 +184,9 @@ void Robot::receive(const RobotInput& input) {
+             first_nonzero_ = true;
+         }
+     }
++#if SUMOX_TIMING_EVIDENCE
++    receiveTimingTrace(input, applied);
++#endif
+     receiveTiming(input, identity_time);
+     receiveFrame(receipt, applied);
+     pending_.valid = false;
+@@ -305,6 +311,9 @@ void Robot::rememberObservation() {
+ }
+ 
+ void Robot::beginAttempt() {
++#if SUMOX_TIMING_EVIDENCE
++    timing_trace_ = {};
++#endif
+     running_mode_ = menu_.selection().mode;
+     statistics_ = {};
+     skipped_frames_ = 0;
+@@ -388,12 +397,21 @@ void Robot::runLifecycle(const RobotInput& input) {
+     tick_.limit = limiter_.step(input.t_us);
+ }
+ 
+-void Robot::runEscape(const RobotInput& input) {
+-    if (!tick_.sampled && !input.line.explicit_values) return;
+-    const edge::EscapeSample sample{input.t_us, result_.line_mask,
++void Robot::runEscape(const RobotInput& input, bool allow_push) {
++    if (!tick_.sampled && !input.line.explicit_values) {
++        if constexpr (config::EDGE_PUSH_THROUGH_MS == 0U) return;
++        else if (!escape_.pushThroughActive()) return;
++    }
++    edge::EscapeSample sample{input.t_us, result_.line_mask,
+         result_.heading.heading_deg, result_.heading.imu_ok, tick_.permission,
+         tick_.observation.bearing.centered, tick_.applied_l, tick_.applied_r, side_.direction(),
+         result_.heading.heading_updated, result_.line_updated};
++    if constexpr (config::EDGE_PUSH_THROUGH_MS > 0U) {
++        const auto& bearing = tick_.observation.bearing;
++        const bool raw_fc = ((input.opp_raw_mask ^ config::OPP_ACTIVE_LOW_MASK) & 0x02U) != 0U;
++        sample.push_eligible = allow_push && tick_.entry == core::State::ATTACK && tick_.sampled &&
++            bearing.bearing_valid && bearing.centered && (result_.opponent_mask & 0x02U) != 0U && raw_fc;
++    }
+     tick_.escape = escape_.step(sample);
+     result_.escape_fault = tick_.escape.fault;
+     if (tick_.escape.fault != edge::EscapeFault::NONE &&
+@@ -412,6 +430,15 @@ void Robot::runEscape(const RobotInput& input) {
+     rememberEscape(input);
+ }
+ 
++void Robot::revokePushThrough(const RobotInput& input) {
++    if constexpr (config::EDGE_PUSH_THROUGH_MS == 0U) return;
++    if (!escape_.pushThroughActive()) return;
++    if (faults_ != 0U || tick_.selected == core::State::STOPPED) tick_.permission = false;
++    // The first Escape call deferred without a row; this call can enter only once.
++    runEscape(input, false);
++    routeMotion(input);
++}
++
+ void Robot::rememberEscape(const RobotInput& input) {
+     if (tick_.escape.entered) escape_sides_ = 0;
+     if (tick_.escape.escape_required) {
+@@ -515,14 +542,16 @@ void Robot::acceptMotion(const motion::Result& result, governor::Profile profile
+ void Robot::startOpener() {
+     cancelMotion();
+     bool started = false;
+-    if (running_mode_ == core::Mode::DIRECT) {
+-        started = direct_.start(tick_.t_us, result_.heading.heading_deg,
+-                                 result_.lifecycle.services.opponent_snapshot);
+-    } else if (running_mode_ == core::Mode::WAIT) {
+-        started = wait_.start(tick_.t_us, result_.heading.heading_deg);
+-    } else {
+-        started = flank_.start(tick_.t_us, result_.heading.heading_deg,
+-                                result_.heading.imu_ok, running_mode_);
++    if (core::modeAvailable(running_mode_)) {
++        if (running_mode_ == core::Mode::DIRECT) {
++            started = direct_.start(tick_.t_us, result_.heading.heading_deg,
++                                     result_.lifecycle.services.opponent_snapshot);
++        } else if (running_mode_ == core::Mode::WAIT) {
++            started = wait_.start(tick_.t_us, result_.heading.heading_deg);
++        } else {
++            started = flank_.start(tick_.t_us, result_.heading.heading_deg,
++                                    result_.heading.imu_ok, running_mode_);
++        }
+     }
+     if (!started) faults_ |= SCRIPT_START;
+     opener_active_ = started;
+@@ -611,6 +640,9 @@ void Robot::routeNormal(bool reset, bool defer) {
+     }
+     normal_active_ = true;
+     const auto selected = normal_.step(result_.opponent_mask);
++#if SUMOX_TIMING_EVIDENCE
++    tick_.timing_loss_brake = selected.brake && !defer && !tick_.forced_brake;
++#endif
+     tick_.selected = selected.state;
+     if (tick_.selected == core::State::DEFEND_TURN && !defend_active_ &&
+         !tick_.observation.bearing.bearing_valid && !defend_pending_) {
+@@ -722,7 +754,7 @@ void Robot::runReflank() {
+     }
+ }
+ 
+-void Robot::checkStall() {
++void Robot::checkStall(const RobotInput& input) {
+     opp_fusion::ContactCommit preview;
+     if (tick_.sampled && tick_.selected == core::State::ATTACK && faults_ == 0U)
+         preview = fusion_.preview(core::State::ATTACK);
+@@ -740,6 +772,12 @@ void Robot::checkStall() {
+     sample.suppress = tick_.limit.all_in_active;
+     tick_.stall = detector_.step(sample);
+     if (!tick_.stall.stalled || !tick_.permission || faults_ != 0U) return;
++    if constexpr (config::EDGE_PUSH_THROUGH_MS > 0U) {
++        if (escape_.pushThroughActive()) {
++            revokePushThrough(input);
++            return;
++        }
++    }
+     tick_.stall_selected = true;
+     tick_.limit = limiter_.request(tick_.t_us);
+     if (!tick_.limit.allowed) return;
+@@ -887,6 +925,12 @@ void Robot::publishPhantom() {
+ void Robot::publishEvents() {
+     const auto mode = static_cast<std::uint8_t>(running_mode_);
+     if (result_.lifecycle.gate.start_release) emit(tick_.t_us, core::Event::START_RELEASE, mode);
++#if SUMOX_TIMING_EVIDENCE
++    if (result_.lifecycle.gate.start_release)
++        emit(tick_.t_us, core::Event::TIMING,
++             static_cast<std::uint8_t>(logframe::TimingDetail::HEADER),
++             MOTORS_ALLOWED != 0 ? 0x0105U : 0x0101U);
++#endif
+     if (result_.lifecycle.gate.go) emit(tick_.t_us, core::Event::GO, mode);
+     publishEdge();
+     publishPhantom();
+@@ -970,6 +1014,9 @@ void Robot::savePending(const RobotInput& input) {
+     pending_.timing_start_us = explicit_tick_timing_ ? input.timing.started_us : input.t_us;
+     pending_.timing_valid = validTimingStart(input);
+     pending_.requested = result_.outputs;
++#if SUMOX_TIMING_EVIDENCE
++    pending_.contact = result_.contact;
++#endif
+     pending_.after_go = attempt_go_;
+     pending_.match_tick = timing_active_;
+     prepareFrame(input);
+@@ -997,6 +1044,9 @@ void Robot::finish(const RobotInput& input) {
+     result_.low_battery = low_battery_;
+     result_.all_in = tick_.limit.all_in_active;
+     publishEvents();
++#if SUMOX_TIMING_EVIDENCE
++    publishTimingTrace(input);
++#endif
+     savePending(input);
+     result_.skipped_frames = skipped_frames_;
+     result_.ticks = statistics_;
+@@ -1018,6 +1068,12 @@ RobotResult Robot::exhaust(const RobotInput& input) {
+     result_.token = 0;
+     result_.contract_faults = faults_;
+     publishEvents();
++#if SUMOX_TIMING_EVIDENCE
++    if (timing_trace_.phase == TimingPhase::ARMED ||
++        timing_trace_.phase == TimingPhase::OBSERVING ||
++        timing_trace_.phase == TimingPhase::RECEIPT)
++        closeTimingTrace(logframe::TimingDetail::INTERRUPTED_STOP_FAULT);
++#endif
+ #if SUMOX_B4_STAND
+     publishStand();
+ #endif
+diff --git a/src/core/types.h b/src/core/types.h
+index 04eff149..9f64a24b 100644
+--- a/src/core/types.h
++++ b/src/core/types.h
+@@ -3,6 +3,7 @@
+ // Host specification tests check inert defaults; later HAL tests must check real writes.
+ #pragma once
+ #include <cstdint>
++#include "../config.h"
+ 
+ namespace core {
+ enum class State : std::uint8_t {
+@@ -12,6 +13,24 @@ enum class State : std::uint8_t {
+ enum class Mode : std::uint8_t {
+     SIDESTEP_R = 1, SIDESTEP_L, DIRECT, ARC_R, ARC_L, WAIT
+ };
++// D134 execution admission only; recorded IDs1..6 stay semantically valid.
++// Mandatory1..3, optional ARC pair/WAIT from config; all other values false.
++constexpr bool modeAvailable(Mode mode) {
++    switch (mode) {
++    case Mode::SIDESTEP_R:
++    case Mode::SIDESTEP_L:
++    case Mode::DIRECT: return true;
++    case Mode::ARC_R:
++    case Mode::ARC_L: return config::MODE_ARC_ENABLED == 1U;
++    case Mode::WAIT: return config::MODE_WAIT_ENABLED == 1U;
++    default: return false;
++    }
++}
++static_assert(config::MODE_ARC_ENABLED <= 1U, "MODE_ARC_ENABLED must be 0 or 1");
++static_assert(config::MODE_WAIT_ENABLED <= 1U, "MODE_WAIT_ENABLED must be 0 or 1");
++static_assert(config::MODE_DEFAULT >= 1U && config::MODE_DEFAULT <= 6U &&
++              modeAvailable(static_cast<Mode>(config::MODE_DEFAULT)),
++              "MODE_DEFAULT must identify an available mode");
+ // Semantic input only: this does NOT assert that the A1 circuit can decode BOTH.
+ enum class ButtonLevel : std::uint8_t { NONE, START, MODE, BOTH };
+ enum class ButtonPresence : std::uint8_t { ABSENT = 1, VALID = 2, INVALID = 3 };
+@@ -28,6 +47,9 @@ struct ButtonEvidence {
+ enum class Event : std::uint8_t {
+     START_RELEASE, GO, FIRST_NONZERO_DUTY, STATE_CHANGE, EDGE, CONTACT,
+     STALL, REFLANK_PHASE, PHANTOM_SET, FAULT
++#if SUMOX_TIMING_EVIDENCE
++    , TIMING = 10
++#endif
+ };
+ // D084 pure evidence metadata. Values1..3 also identify B15 presence extensions.
+ enum class ImuPresence : std::uint8_t { ABSENT = 1, VALID = 2, INVALID = 3 };

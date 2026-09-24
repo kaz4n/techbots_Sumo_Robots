@@ -1,5 +1,10 @@
 # Current execution checklist - 2026-09-25 Asia/Dubai
 
+**D152 pure startup interpretation:37 host methods PASS and scoped review PASS.**
+See analysis/P7_static_capture_validation.md. Loader reference is ELF-derived
+e9322826; original packaged-BIN reference defect is preserved and corrected.
+No current-image upload or MCU capture. Next implement/review the bounded guard.
+
 **D139 qualification complete: compiler PASS, conditional default fit FAIL.**
 The unchanged default/M0 image exceeds the modeled loader pool by592 bytes.
 Exact evidence is in analysis/P7_default_qualification_validation.md and its
@@ -72,8 +77,10 @@ pending; D051/D075/D122/D137 permit scheduling, not fabricated measurements.
   remain unchanged. See analysis/P7_static_native_dispatch_validation.md.
 - [x] Fresh-context same-model combined dispatch reviewe4eca064 PASS, no open
   findings.836 retained app instruction/literal rows match the actual debug ELF.
-- [ ] Prepare a reviewed bare-board M0 startup qualification using the current
-  checked packet and a verified upload/observation path; no new binary/source copy.
+- [x] Verified upload dependency/filename route; D152 pure18-read plan/parser,
+  37 independently frozen host methods first-runPASS and separate reviewcdae7896.
+- [ ] Implement/test/review one-shot upload/capture composition, then separately
+  scope bare-board M0 startup qualification; reuse packet, no new binary/source copy.
 - [ ] Qualify native loading/startup, stack/heap/WCET and release workflow before
   adoption. Structural RAM tail94352B is not measured free memory.
 

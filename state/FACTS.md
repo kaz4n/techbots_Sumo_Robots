@@ -624,3 +624,7 @@ only its missing wrapper edge. No runtime, physical or human-gate acceptance.
 
 ## F160 - Static upload dependency inventory (2026-09-25T03:06:32.969894+04:00)
 Verified file/source evidence only: three Linux read-only calls exited0/empty stderr; eleven installed tools/configs/loader identities, mem_helper include and seven higher-priority absent shadow paths were recorded. Pinned CLI version1.5.1 commit01f3d4f2b. Source-derived raw app.ino.bin selector resolves the checked static flat sibling; no actual upload is claimed. See analysis/P7_static_startup_dependencies.md and analysis/P7_static_upload_route.md. No MCU read/reset/compiler or physical result. Recheck identities/paths before a separately scoped run.
+
+
+## F161 - Current static observation interpretation (2026-09-25T03:12:05.758851+04:00)
+Verified host/file evidence: D152 exact18requests/713656B pure parser passes37 frozen spec-derived methods; fresh-context reviewcdae7896PASS. Checked loaderELF39d4a4fd yields263680 physical bytes/SHAe9322826c422fb234ac8c2e79ea38a050d0dd8dc32b2a89f6930e0a0ff7ebab2 using pinned helper885c4e42; packagedBIN6b2ffd differs at offset260287 (ELF0/BIN255). Independent review53cb6ee7 also checks both historicalD118 brackets. Original contract assumption retained6d45e3b5, corrected8fa01d1f. Evidence analysis/P7_static_capture_validation.md. No current MCU state, runtime/stack/WCET/physical acceptance is inferred.

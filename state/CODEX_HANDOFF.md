@@ -1,8 +1,9 @@
 # Codex handoff - 2026-09-25 Asia/Dubai
 
-**Selected direct native driver boundary: reviewed file-evidence PASS.** D150's
-partial read remains FAILED; D151 separately collected the missing init wrapper.
-No firmware upload, reset, compiler or source/config/test change occurred.
+**D152 pure startup observation: HOST-TESTED, scoped review PASS.** All37 new
+independent methods passed on first execution; sourceb7ab979d unchanged. Original
+loader-reference prose was corrected with separate evidence/review; preserve
+6d45e3b5 and read analysis/P7_static_capture_validation.md. No new MCU operation.
 
 **Active phase: P7 software/release preparation.** D138 informational READY and
 battery-threshold software is implemented, host-tested and target-compiled.
@@ -32,11 +33,20 @@ actual collection review e35ee292 and fresh-context combined review e4eca064
 PASS, with no open findings. Read state/reviews/P7_static_native_dispatch_review.md.
 All read scopes D144-D151 that performed board work are terminal and consumed.
 
-Exact next task: prepare the smallest source-bound bare-board
-M0 static startup qualification using the existing packet and a verified upload
-and observation path. Reuse retained evidence; do not rebuild or copy another
-source tree. Identify the precise allowed inert run and expected observations
-before any upload. The user permits bare UNOQ testing and requests no additional
+Three fresh Linux file-only receipts and CLI version confirm the upload tools
+and absent include shadows: dependency commit4ba1c84e. The exact CLI input-file
+must select raw build/app.ino.bin so the static recipe chooses its existing
+flat sibling, not append the suffix twice. See analysis/P7_static_upload_route.md.
+The completed pure plan/parser and37 frozen tests are under P7_static_startup_raw;
+first sourcee7f88263, result/reference correction8fa01d1f. Current loader reference
+is ELF-derived263680B/SHAe9322826, not packagedBIN6b2ffd (one-byte difference).
+
+Exact next task: implement/test/review the smallest source-bound one-shot upload
+and capture guard described in analysis/P7_static_startup_guard_options.md.
+This advisory note is not a run grant. Reuse existing packet and frozen helpers;
+do not rebuild or copy another source tree. Use separate consumed upload/capture
+claims, exact18-read/713656B plan, bounded process deadlines and no recovery
+reset/retry. Identify the concrete inert run/revision before upload. The user permits bare UNOQ testing and requests no additional
 hardware now. No motor-capable run is authorized; STAND/RING remains absent.
 Native loading/startup, live stack/heap/WCET, full release workflow and all
 physical/human gates remain pending. Do not infer them from file inspection.
@@ -51,6 +61,8 @@ cleanup targets and do not retry deletion. See STORAGE_LOG.md and compact
 storage_compression_20260925_matrix_objects.json/storage_repack_20260925.json.
 Recheck C: free space before material work; it fluctuates independently.
 No compiler tree, binary copy or Python cache was added. Use Python-B.
+Fresh03:08Dubai read-only cleanup check found zero new disposable repo or
+task-owned Temp remnants. C: free513421312B at03:11; recheck before material work.
 
 Historical detailed checkpoints and original failures remain in Git, PROGRESS
 and linked validation packets. PROGRESS is append-only with legacy nonUTF8 bytes;

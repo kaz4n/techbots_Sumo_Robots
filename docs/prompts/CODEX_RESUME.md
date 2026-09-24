@@ -1,63 +1,55 @@
 # Resume SumoX-26 with Codex
 
-**D141 policy and D142 structural artifact components are HOST-TESTED.**
-D143 runner/helper host implementation passes80 independently frozen methods.
-Read P7_static_runner_validation.md and current handoff before continuing.
-Production admission is unchanged. D144's single static compile passed, but
-structural validation rejected unsupported symbol encoding. Its GO is consumed;
-no upload/reset occurred. Next separately scope read-only inspection of that
-already hashed ELF. The default dynamic deficit is still592 bytes.
+Active phase: **P7 software/release preparation** under D051/D075/D122/D137.
+Physical/human gates remain pending. Do not reset to P0 or interpret historical
+approval templates, assumptions or passing host tests as physical acceptance.
 
+1. Read root AGENTS fully, current state/CODEX_HANDOFF.md and CODEX_EXECUTION.md,
+   latest PROGRESS/DECISIONS/FACTS/TUNING_LOG, and active P7 prompt/open findings.
+   Inspect Git/nested rules, Asia/Dubai time and free space; preserve user changes.
+   PROGRESS has legacy non-UTF8 bytes: append only, never re-encode its history.
+2. Current sourcefcddbd8e/static ELF5cc2dfde/debug0f7f2825/loader39d4a4fd remain
+   unchanged. D139 dynamic default fit fails by592B. D148 structure, D149 selected
+   layout and D151 selected native dispatch file evidence are reviewed; original
+   D144 structural rejection and D150 failed name query remain preserved.
+   All old native observation/compile scopes are consumed. Production admission
+   stays dynamic-only. Do not rerun old launchers, rebuild or copy another tree.
+3. D152 pure static startup parser is complete: sourceb7ab979d,37 frozen tests
+   bcb63005 first-runPASS, reviewcdae7896. Read P7_static_capture_validation.md,
+   P7_static_capture_contract.md and the three linked reviews. The caller must
+   use ELF-derived loader263680B/SHAe9322826, not packagedBIN6b2ffd, which differs
+   by one byte. Original prose/design assumption is saved6d45e3b5; correction8fa01d1f.
+4. Exact next task: implement/test/review the smallest bounded one-shot upload
+   and passive capture composition in P7_static_startup_guard_options.md. This
+   note is advisory, not a native run grant. The verified upload route is in
+   P7_static_upload_route.md and P7_static_startup_dependencies.md. Recheck
+   identities/absent shadows before use. CLI --input-file selects existing raw
+   build/app.ino.bin; static recipe resolves its checked flat sibling. Separate
+   consumed upload/capture claims, durable first-failure evidence, independent
+   postchecks and bounded board-child deadlines are required; no retry/reset
+   recovery. Capture only exact18reads/713656B; no old dynamic heap model.
+5. The user reports bare UNO Q connected and permits inert tests; no additional
+   hardware request now. No fresh STAND/RING for motor-capable firmware. Existing
+   source grants and button windows remain default-off/unqualified. Last actual
+   upload is consumedD118/sourcee820c0e1; its historical513us and4500Bfree are not
+   current-image, full-source WCET or stack/free-memory proof.
+6. Preserve original physical/human acceptance packets, D121 B7/R6 conflict,
+   native dump holder/quiescence/cancel/reopen requirements and SC-AP readiness,
+   native matrix/battery/rearm/log workflow. D051 engineering delegation does not
+   create PINMAP/EXPLAINED/gates or per-run motor permission. P6 remains conditional.
+7. Storage is constrained (about490MiB free at03:11Dubai25September; recheck).
+   Use Python-B, in-memory fixtures and one heavy compiler. Assess every generated
+   file; remove verified disposable data only when allowed, record compact results
+   in STORAGE_LOG. Recent compression/incremental Git packing saved49.9MiB with
+   hashes/refs/history intact; fresh cleanup found no new disposable remnants.
+   All previously denied deletion targets, including Arduino archives and P2
+   matrix host outputs, remain excluded. Never retry those deletions, erase unique
+   evidence/user data or alter paging/persistent virtual disks.
+8. If actual P3 has not passed by end28September, apply the documented scope cut.
+   P6 needs actual P4 by30September and no stronger cut. Freeze1October21:00Dubai;
+   rehearsal2October, competition3October. A date does not create acceptance.
+   Commit completed tasks promptly; never push/rewrite history/move release tags.
 
-Current phase: **P7 software/release preparation**. D138 readiness software has
-passing host/full/sanitizer and exact MATCH target checks. D139 now records the
-current default/M0 modeled592B deficit. D140 static-link source research is
-complete; D141/D142 pure components are host-tested and reviewed. D143 host
-validation is complete; D144 is a retained negative native experiment. Never reset toP0 or revive older
-blanket no-host-work checkpoints. Physical/human gates remain pending.
-
-1. Read rootAGENTS fully, state/CODEX_HANDOFF.md/CODEX_EXECUTION.md, latest
-   PROGRESS/DECISIONS/FACTS/TUNING_LOG and open findings. Inspect Git/nested rules,
-   actual Asia/Dubai time and free space. Preserve uncommitted/user work.
-2. Read P7_freeze_matchday.md, P7_readiness_validation.md/native_validation.md,
-   reviews/P7_readiness_review.md and P7_remaining_scope_audit.md. D138 final687
-   freeze0fe188b7,43protected,full22targets and configured31perM PASS. All commands
-   are terminal. Final review PASS has no open findings; commit finished work promptly.
-3. D139's unchanged default/M0 compile passed but modeled fit failed by 592
-   bytes. Do not repeat it or restart old failed candidates. D140 source research
-   is complete in 6e6fe21c. D141 pure policy now passes 35 independent methods
-   and four private regression cases, with scoped review PASS: read
-   P7_static_policy_validation.md and reviews/P7_static_policy_review.md. Preserve
-   the original path defect and failure receipts. D142 passes45 public and6private
-   methods; read its validation/review. D143 host scope is adopted in2da4979a,
-   first source cd5625e2, current runner983e86d7/helper8ba9b190. Read frozen
-   runner/remote contracts, implementation notes and independent test freezes.
-   Host totals22+2runner,28+5helper,23bootstrap pass with original failures
-   preserved. Read P7_static_native_attempt_validation.md: runf0220228 returned
-   FAILED/layout after compileexit0 and cleanpostchecks, no localELF transfer.
-   Scope read-only collection/inspection next; never repeat the consumed GO.
-   Do not rerun old matrices without cause, replace production validators or
-   silently change frozen contracts/oracles.
-
-4. D138 MATCHsourcefcddbd8e/ELFcb5fbb53 has only864Bconditional loader span,
-  62resolvedimports,16ABI/72oldoffset matches. No upload/live RAM/stack/WCET or
-   default qualification follows. Last actual MCU upload is consumedD118e820c0e1.
-5. Preserve default-off setup grants, unqualified physical button windows and
-   native dump holder/quiescence/cancel/reopen prerequisites. SC-AP still needs
-   native matrix startup/ownership, physical display/battery, fullrearm/log workflow.
-   No extra hardware request now; no reusable motor-run authorization exists.
-6. D051 delegates engineering decisions; D075/D122/D137 permit software scheduling,
-   not PINMAP, EXPLAINED, human gates or fresh STAND/RING permission. P6 still needs
-   actualP4gate. Complete actual P7 print/release/rehearsal only with evidence.
-7. Keep compact evidence and one heavy compiler. Text-evidence compression
-   recovered 337.4 MiB with every hash unchanged; C: about 850 MB free at latest check, recheck.
-   Automatic approval blocked deletion of 4.26 GiB Arduino download caches with
-   "blocked by policy"; no files deleted. Earlier stage/host/snapshot denials also
-   stand. Never retry denied cleanup or change paging/persistent virtual disks.
-
-8. Apply end28Sep scope cut ifP3notpassed, P4by30Sep P6 condition, freeze1Oct21:00
-   Dubai, rehearsal2Oct/competition3Oct. No push/historyrewrite/tagmovement.
-   Save exact nexttask, activeprocess IDs and evidence at every session boundary.
-
-PROGRESS.md contains legacy non-UTF8 bytes: append only, never re-encode history.
-Reviews are separate same-model contexts, not cross-model or human phase approval.
+Reviews are separate same-model contexts, not cross-model or human approval.
+Save completed files/commits, actual validation/failures, limitations, active
+process IDs and exact next eligible task at every session boundary.

@@ -166,3 +166,10 @@ than inventing a phase pass or promising unattended completion through human gat
 PROGRESS.md contains legacy non-UTF8 separators: append without re-encoding
 historical bytes. Historical checkpoints remain in Git; this current section
 supersedes their pending-task text, never their original receipts.
+
+Storage follow-up 2026-09-25T03:34:58.350778+04:00: idle local arduino-cli.exe compressed without
+content/size/mtime change, saving20,187,648 allocated bytes. Eight newly
+identified cache removals were blocked before process creation; zero deleted,
+no retry. Exact new denied paths and source-preserving receipts are in
+analysis/storage_cleanup_20260925_new_caches_blocked.json and STORAGE_LOG.md.
+The P7 implementation resume task above is unchanged.

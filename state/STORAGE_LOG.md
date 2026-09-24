@@ -215,3 +215,31 @@ C: free526831616B after this check; do not attribute system fluctuations to clea
 2026-09-25T03:12:05.758851+04:00 | D152 host retention and fresh disposable check | Retain66687B across9files in P7_static_startup_raw for original inventories, small pure code/frozen tests and actual host receipts; no binaries/source snapshots/compiler tree/bytecode. Independent read-only03:08check found zero new disposable repo/temp remnants since02:14; no deletion or denied-action retry. C: free513421312B at03:11Dubai. All new fixtures remained in memory.
 
 2026-09-25T03:28:45.809989+04:00 | D153 bounded host validation retention | Rawstartupdirectory now23files/160225logicalB total, comprising small source/oracles/bindings and compact originalread/test receipts. Public46/private4 fixture suites used /dev/shm; finalreviewercheck observed zero sumox_capture_contract_* remnants. No compiler tree, binary/source snapshot, pycache or payloadfile. Inline source-sizing trials stayedinRAM; reuseexisting18880B boardutility avoids anotherinstallation. Requiredsource/freeze/actualresults/review retained; prior denieddeletions untouched. C: free449900544B at03:27, system-dependent, notcleanupyield.
+
+
+## 2026-09-25T03:34:58.350778+04:00 - Requested storage follow-up
+
+Transparent LZX compression of the idle user-provided root arduino-cli.exe
+recovered **20,187,648 allocated bytes (19.25 MiB)**. Its SHA256
+ba1890afcfc08524f76191b5cc801b0779cb25e81a5e6693eb0e26b50a3f3538,
+37,865,984 logical bytes and modification time remain unchanged. The executable
+is retained in place; no replacement download or archive was created. Receipt:
+analysis/storage_compression_20260925_windows_cli.json.
+
+Separate read-only audit found eight additional disposable cache files totaling
+1,739,682 logical bytes: four inactive fwuploader package/firmware index files
+under %LOCALAPPDATA%/Temp/fwuploader, and four ignored Python caches with tracked
+sources retained. Native PowerShell exact-file removal was rejected before
+process creation by automatic approval review, stating only "blocked by policy".
+**Zero files were deleted; no retry occurred.** Exact paths are retained in
+analysis/storage_cleanup_20260925_new_caches_blocked.json. These join the prior
+denied targets. Preserve the historical inventory that mentions the bytecode.
+
+No new compiler tree, binary/source copy, download, hardware operation, paging
+change or virtual-disk change was made. Active npm/ADB tools and unknown temporary
+files remain untouched. Only compact required cleanup records were added. Global
+C: free space varies independently; do not attribute its full change to cleanup.
+
+Separate read-only context rechecked all eight blocked candidates, four retained
+sources and the compressed CLI: every hash/size/mtime unchanged and allocation
+confirmed. Compact verification: analysis/storage_check_20260925_followup.json.

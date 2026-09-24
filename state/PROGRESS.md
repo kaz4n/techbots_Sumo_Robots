@@ -1068,3 +1068,5 @@ physical/loadedRAM/gate claim. | contract=this commit
 2026-09-25T01:40:34.028033+04:00 | P7 D145 diagnostic read GO | Previousgoalturnprogress verified; cleanHEAD1e35b70e, currentDubai25Sep. Reviewedplan5f52f306/reviewf50620b5 authorizesone readonlyexistingELFretrieval withunchangedcheckedreader andpinnedrunidentity, no compiler. Actualresultpending | diagnosticread scopecommit
 
 2026-09-25T01:47:55.543075+04:00 | P7 D145 read-only diagnosis complete | DIAGNOSTIC_ELF_COLLECTED:1readexit0, exact170616B/5cc2dfde;2242symbols/sixTLS6outsidefrozenallowlist. Separatefresh-contextscopedreviewPASS; originalD144rejectionandallpinsunchanged. Noquery/compile/upload/reset. Next installedTLSassembly/map/object provenance/use; physicalgatespending. Storage127c9566 recovered3436544B;119cachedeletionblocked,no retry | D145 diagnosticclosure commit
+
+2026-09-25T01:53:37.269853+04:00 | P7 D146 read-only collection GO | Previous turn progress verified; fresh-context review d07b37cf approves fixed collector2443cedc/remote48ca3cdf for one existing-file observation. No command executed yet; original rejection and production unchanged | TLS provenance scope commit

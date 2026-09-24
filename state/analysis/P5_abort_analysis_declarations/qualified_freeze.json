@@ -1,0 +1,27 @@
+{
+  "start_utc": "2026-09-24T18:09:36.582865+00:00",
+  "argv": [
+    "wsl",
+    "-d",
+    "Ubuntu",
+    "--",
+    "env",
+    "TMPDIR=/dev/shm",
+    "PYTHONDONTWRITEBYTECODE=1",
+    "python3",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests/tooling",
+    "-p",
+    "test_opener_abort_qualified_type_heads.py",
+    "-v"
+  ],
+  "source_sha256": "65cba907d3a425e24706b6ca44a6e4a671971d9c75f5955f7bfe46342cf9d5f1",
+  "test_sha256": "520413ab1a683b044a0d9662a64b3542f48d8a34511f5e006d917093d0cb8968",
+  "methods": 2,
+  "subcases": 156,
+  "transfer": "byte-exact from independently frozen state source"
+}

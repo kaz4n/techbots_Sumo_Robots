@@ -927,3 +927,5 @@ physical/loadedRAM/gate claim. | contract=this commit
 2026-09-24T08:10:38.176472+04:00 | P4 software | D128 reactive profile | IMPLEMENTED/HOST-TESTED/TARGET-COMPILED;12normal/34san/35configured,135tooling+2registry,private5M0/M1PASS;38lockedunchanged; no MCU/physical/gate; nextSC-AO source-window/applied-receipt trace | commit this task
 
 2026-09-24T08:14:23.047481+04:00 | P4 software | D129 public trace contract | ADOPTED under D051; independent tests/implementation next; physical and gates pending; D128 committed3985da16 | contract commit this task
+
+2026-09-24T08:19:12.690758+04:00 | P4 software | USER-PAUSE during D129 | Saved unvalidated trace/codec/Runtime/build drafts; independent tests not yet authored; no D129 build/test/MCU action;39locked unchanged; workers stopped. Exact resume analysis/P4_D129_PAUSE.md; contract ca076b46, last validated3985da16 | WIP checkpoint commit this task

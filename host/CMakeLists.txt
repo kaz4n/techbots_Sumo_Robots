@@ -179,3 +179,22 @@ foreach(motors 0 1)
   endif()
   add_test(NAME reactive_profile_m${motors}_host COMMAND ${reactive_target})
 endforeach()
+
+# D129 conditional acquisition/application evidence keeps accepted profiles unchanged.
+foreach(motors 0 1)
+  set(timing_target timing_evidence_m${motors}_tests)
+  add_executable(${timing_target} ${B4_HOST_SOURCES}
+    "${CMAKE_CURRENT_SOURCE_DIR}/../tests/test_timing_evidence.cc"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../tests/locked/test_timing_evidence_safety.cc")
+  target_include_directories(${timing_target} PRIVATE ../src)
+  target_include_directories(${timing_target} SYSTEM PRIVATE third_party)
+  target_compile_definitions(${timing_target} PRIVATE
+    DOCTEST_CONFIG_NO_EXCEPTIONS SUMOX_P4_REACTIVE=1 SUMOX_TIMING_EVIDENCE=1 MOTORS_ALLOWED=${motors})
+  if(MSVC)
+    target_compile_options(${timing_target} PRIVATE /W4 /GR-)
+  else()
+    target_compile_options(${timing_target} PRIVATE
+      -Wall -Wextra -Wpedantic -Werror -fno-exceptions -fno-rtti)
+  endif()
+  add_test(NAME timing_evidence_m${motors}_host COMMAND ${timing_target})
+endforeach()

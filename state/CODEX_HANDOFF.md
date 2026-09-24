@@ -10,6 +10,13 @@ Do not treat an old snapshot, template or synthetic test as current approval.
 
 ## Current software checkpoint
 
+**USER-PAUSED during D129 on 2026-09-24T08:19:12.690758+04:00.** Resume only on explicit user
+direction, from [the exact pause checkpoint](analysis/P4_D129_PAUSE.md).
+D129 source/tooling drafts are saved but unvalidated; independent tests have
+not been authored and CMake currently references their future filenames.
+This pause checkpoint supersedes the older next-task paragraphs below.
+
+
 D128 reactive P4 profile is implemented and separately reviewed. Read
 analysis/P4_reactive_profile_validation.md. All12normal host targets pass;
 new34-case M0/M1 normal/sanitizer and configured35-case normal/sanitizer pass.

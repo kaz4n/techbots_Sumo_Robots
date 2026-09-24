@@ -129,7 +129,12 @@ PackStatus packFrame(const FrameInput& input, FrameBytes& destination) {
 PackStatus packEvent(const EventInput& input, EventBytes& destination) {
     destination = {};
     const auto type = static_cast<std::uint8_t>(input.type);
-    if (type > static_cast<std::uint8_t>(core::Event::FAULT)) {
+#if SUMOX_TIMING_EVIDENCE
+    const auto maximum = static_cast<std::uint8_t>(core::Event::TIMING);
+#else
+    const auto maximum = static_cast<std::uint8_t>(core::Event::FAULT);
+#endif
+    if (type > maximum) {
         return PackStatus::INVALID;
     }
     writeU32(destination.data, input.t_us);
@@ -248,6 +253,13 @@ bool validEventMetadata(const EventInput& input) {
         return input.detail == 0U && angle > -18000 && angle <= 18000;
     }
     case core::Event::FAULT: return validFaultMetadata(input.detail, input.value);
+#if SUMOX_TIMING_EVIDENCE
+    case core::Event::TIMING:
+        if (input.detail == static_cast<std::uint8_t>(TimingDetail::HEADER))
+            return input.value == 0x0101U || input.value == 0x0105U;
+        return input.detail <= static_cast<std::uint8_t>(TimingDetail::EXCLUDED_NO_APPROACH) &&
+            input.value == 1U;
+#endif
     default: return false;
     }
 }

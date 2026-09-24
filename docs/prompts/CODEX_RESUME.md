@@ -1,5 +1,11 @@
 # Resume SumoX-26 with Codex
 
+Latest checkpoint: **user-paused during D129, 2026-09-24**. Read
+`state/analysis/P4_D129_PAUSE.md` first after explicit resume. D129 is saved WIP,
+not validated; its new independent tests still need authoring before any build.
+That checkpoint supersedes older next-task notes below.
+
+
 1. Read AGENTS.md fully, state/CODEX_HANDOFF.md, CODEX_EXECUTION.md, recent
    PROGRESS.md, DECISIONS.md, FACTS.md, TUNING_LOG.md, open findings/reviews and
    docs/prompts/P4_hunt_push.md. Reload relevant HARDWARE/BEHAVIOR sections.

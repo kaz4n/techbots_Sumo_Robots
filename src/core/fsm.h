@@ -576,6 +576,9 @@ private:
         bool after_go = false;
         bool match_tick = false;
         bool frame_due = false;
+#if SUMOX_TIMING_EVIDENCE
+        bool contact = false;
+#endif
     };
     struct Tick {
         core::State entry = core::State::BOOT;
@@ -602,7 +605,30 @@ private:
         bool forced_brake = false;
         bool frame_immediate = false;
         bool line_start_inhibited = false;
+#if SUMOX_TIMING_EVIDENCE
+        bool timing_approach = false;
+        bool timing_loss_brake = false;
+#endif
     };
+#if SUMOX_TIMING_EVIDENCE
+    enum class TimingPhase : std::uint8_t { IDLE, ARMED, OBSERVING, RECEIPT, CLOSED };
+    struct TimingTrace {
+        std::uint64_t expected_token = 0;
+        std::uint32_t anchor_us = 0;
+        std::uint32_t read_end_us = 0;
+        std::uint32_t decision_us = 0;
+        TimingPhase phase = TimingPhase::IDLE;
+    };
+    void receiveTimingTrace(const RobotInput& input, bool applied_valid);
+    bool validTimingSource(const RobotInput& input) const;
+    bool timingFrontFiltered() const;
+    bool timingLossBrake() const;
+    bool excludeTimingTrace(const RobotInput& input);
+    void publishTimingTrace(const RobotInput& input);
+    void publishTimingCandidate(const RobotInput& input);
+    void closeTimingTrace(logframe::TimingDetail detail);
+    TimingTrace timing_trace_;
+#endif
     void admit(const RobotInput& input);
     void receive(const RobotInput& input);
     void receiveTiming(const RobotInput& input, bool identity_time_valid);

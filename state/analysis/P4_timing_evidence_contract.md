@@ -19,7 +19,11 @@ copies it only when opponentsFresh accepts the actual Snapshot. No new read,
 clock, sequence or fallback timestamp. Direct callers must provide it explicitly.
 Trace validation additionally requires explicit valid TickTiming and offsets
 0<=read_start<=read_end<=decision from that tick's start, all below half range.
-Legacy inputs remain motion-compatible but cannot qualify timing evidence.
+Legacy inputs without explicit source/tick timing remain motion-compatible but
+cannot qualify timing evidence. A direct caller using observations_fresh and
+legacy line data may qualify when it supplies explicit valid tick/source timing;
+explicit LineEvidence is not an additional trace requirement. Actual admitted
+sensor freshness remains required, not merely opponent_read.valid.
 
 `bench/reactive_timing` uses the same actual Runtime/NativeSources/UnoQPort,
 empty grants and checked inert M0 build route as reactive_test; exact flags add
@@ -77,6 +81,10 @@ tick's edge/STOP/reassertion; those cannot retroactively erase it. Missing tail,
 reset/Transaction abort may leave an open candidate: report incomplete offline,
 never synthesize a completion. Actual late valid zero remains a measured delay;
 no artificial35ms cutoff or retry.
+
+Token exhaustion processes a prior receipt first using the same checks; then
+an armed/open trace closes INTERRUPTED_STOP_FAULT in the terminal result without
+starting a new candidate. No terminal success may be retroactively canceled.
 
 ## Wire format and bounded cost
 

@@ -5,20 +5,17 @@
    docs/prompts/P3_first_drive.md. Reload relevant HARDWARE/BEHAVIOR sections.
 2. Inspect Git status/diffs, nested instructions, tools and actual Asia/Dubai time.
    Preserve user work, credentials and historical evidence; never author a gate.
-3. D119/D120 directional B4 software is implemented/host-tested/target-compiled.
-   Read state/analysis/P2_stand_integration_validation.md and its separate review.
-   Normal/sanitizer all4targets pass; configured19-case M0/M1 fixtures also pass.
-   Default/M0 loadables remain identical to D118; separate inert bench profile
-   conditionally fits with13568byte loader free span. No new MCU action occurred.
-   Do not repeat completed checks without a new reason. New locked oracle4546df24
-   joins existing protected tests; default production/DRIVE_TEST remain unchanged.
-4. D120 software/evidence is committed1c2389c9. Read the D121 consolidated packet
-   state/analysis/P2_software_acceptance_packet.md and its fresh readiness review.
-   B7 remains unaccepted under preserved R6/original full-power criterion; a lower
-   duty sequence is not a substitute. D122 records the user's newer instruction
-   to assume physical acceptance and continue software: P3 software is now active.
-   Implement DRIVE_TEST while preserving unmeasured hardware/gate status; do not
-   repeat solved P2 checks or treat scheduling authorization as motor permission.
+3. D123 DRIVE_TEST is implemented/host-tested/target-compiled; read
+   state/analysis/P3_drive_test_validation.md and state/reviews/P3_drive_test_review.md.
+   All6normal/sanitizer targets and configured28-case M0/M1 checks pass. No MCU
+   action occurred. New accepted locked oracle5bde7967 is protected; its original
+   unaccepted draft mistake/failure/correction is preserved. Defaultapp bytes
+   changed by8 and conditional loader span is16; P3 span10624 is not measured RAM.
+4. Resume the finite isolated P3 3.4 turn-trial software: exact±90/±180 via explicit
+   reflected coordinates for leftward trials, preserving the existing Turn tie/API.
+   Follow D051/D122 and actual independent-test/review workflow. P3 3.3 stopping
+   trials need common R_room/distance origin and forward excursion measurement;
+   completed reverse/escape rest cannot substitute. No physical gate is inferred.
 5. Last actual MCU run is D118 e820c0e1/defaultM0, committed fbfb0f2e. Both upload
    and capture are consumed. Do not rerun/reset/restore under that scope. Its
    4500-byte retained free heap and513 us stored maximum are restricted observations,

@@ -1,0 +1,46 @@
+{
+  "profile": "normal",
+  "run_name": "normal_amended",
+  "focused": true,
+  "start_utc": "2026-09-24T03:03:07.494057+00:00",
+  "synthetic_config_overlay": false,
+  "commands": [
+    {
+      "argv": [
+        "cmake",
+        "-S",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/host",
+        "-B",
+        "/dev/shm/sumox_d123_normal_amended/build",
+        "-DCMAKE_BUILD_TYPE=Debug"
+      ],
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "cmake",
+        "--build",
+        "/dev/shm/sumox_d123_normal_amended/build",
+        "--parallel",
+        "4",
+        "--target",
+        "drive_test_m0_tests",
+        "drive_test_m1_tests"
+      ],
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "ctest",
+        "--test-dir",
+        "/dev/shm/sumox_d123_normal_amended/build",
+        "--output-on-failure",
+        "-R",
+        "^drive_test_"
+      ],
+      "returncode": 0
+    }
+  ],
+  "returncode": 0,
+  "end_utc": "2026-09-24T03:03:27.660379+00:00"
+}

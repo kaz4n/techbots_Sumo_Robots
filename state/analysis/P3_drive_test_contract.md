@@ -22,6 +22,9 @@ remain unfinished; this profile does not claim to provide them.
 - Menu's DRIVE_TEST intent is available only in profile1; intent itself confers
   no authority. It accompanies the accepted release on that observation. Existing
   service-only post-STOP projection remains permanently inhibited and cannot rearm.
+- Profile1 UI shows D without the unavailable cross for selected/active DRIVE_TEST.
+  An explicit service_unavailable flag still shows D+cross in the service menu;
+  default profile0 presentation and all battery/fault overlays are unchanged.
 
 ## Motion and safety
 

@@ -17,7 +17,7 @@ Historical snapshots are preserved in Git (`fbfb0f2e`), not current instructions
 | P2 B8 / 2.3 / 2.4 | Recorder, app dump, calibration output, D116 full synthetic transport, D117 FIFO host/target checks | Native ownership/framing/delivery and actual physical acceptance |
 | P2 2.1 / 2.2 | Runtime integration; D118 actual default/M0 load, sampled progress and retained heap | Full live-source five-minute timing/stack/RAM; existing restricted run is not complete WCET |
 | P2 2.5 / gate | No physical acceptance claimed | Assembled weight/footprint, B1-B8 measured results, review and human GATE P2 PASS |
-| P3 | SOFTWARE-ACTIVE / ASSUMED-PHYSICAL prerequisite under D122 | Implement and independently verify DRIVE_TEST; original 3.1-3.7 measurements remain pending |
+| P3 | SOFTWARE-ACTIVE / ASSUMED-PHYSICAL prerequisite under D122 | D123 DRIVE_TEST implemented/host-tested/target-compiled; next finite 3.4 turn trial; original 3.1-3.7 measurements remain pending |
 | P4-P7 | Not passed; original schedule/scope intact | Later software scheduling and real physical evidence; do not simulate |
 
 ## D119/D120 - completed directional software
@@ -63,3 +63,16 @@ Current access cannot inventory privileged holders; last-close/cancel/reopen and
 clean framing remain unproved. Do not retry known failed sudo or set missing grants.
 User requests only the bare UNO Q for now. Sensors, PINMAP, motor runs, physical
 acceptance and human gates remain pending; no extra hardware request is made.
+
+## D123 — P3 DRIVE_TEST software completed
+
+[Validation](analysis/P3_drive_test_validation.md) records all six normal/sanitizer
+targets, configured28-case M0/M1,93tooling methods,20private profiles and4private
+Runtime cases perM0/M1. New accepted locked oracle5bde7967 is protected; original
+unaccepted draft/failure and exact correction retained. All35oldlockedfiles intact.
+Actual checked P3M0 compiles with10624byte conditional loader span; defaultM0
+compiles with16byte span and differs from prior image by8bytes. No upload/MCU action.
+Next: P3 3.4 finite single-turn trial preparation, exact±90/±180 using explicit
+coordinate reflection forLEFT; preserve existing Turn/defaulttie. 3.3 stopping
+measurement needs common origin and first maximum forward excursion, not final
+rest after reverse escape. No real physical results or gates have been invented.

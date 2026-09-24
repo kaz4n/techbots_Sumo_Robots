@@ -103,3 +103,22 @@ foreach(motors 0 1)
   endif()
   add_test(NAME stand_integration_m${motors}_host COMMAND ${b4_target})
 endforeach()
+
+# P3 is opt-in in every translation unit; legacy and B4 locked targets stay intact.
+foreach(motors 0 1)
+  set(p3_target drive_test_m${motors}_tests)
+  add_executable(${p3_target} ${B4_HOST_SOURCES}
+    "${CMAKE_CURRENT_SOURCE_DIR}/../tests/test_drive_test.cc"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../tests/locked/test_drive_test_safety.cc")
+  target_include_directories(${p3_target} PRIVATE ../src)
+  target_include_directories(${p3_target} SYSTEM PRIVATE third_party)
+  target_compile_definitions(${p3_target} PRIVATE
+    DOCTEST_CONFIG_NO_EXCEPTIONS SUMOX_P3_DRIVE_TEST=1 MOTORS_ALLOWED=${motors})
+  if(MSVC)
+    target_compile_options(${p3_target} PRIVATE /W4 /GR-)
+  else()
+    target_compile_options(${p3_target} PRIVATE
+      -Wall -Wextra -Wpedantic -Werror -fno-exceptions -fno-rtti)
+  endif()
+  add_test(NAME drive_test_m${motors}_host COMMAND ${p3_target})
+endforeach()

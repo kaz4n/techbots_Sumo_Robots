@@ -1,0 +1,48 @@
+{
+  "profile": "configured_sanitize",
+  "run_name": "configured_sanitize",
+  "focused": true,
+  "start_utc": "2026-09-24T03:04:57.539486+00:00",
+  "synthetic_config_overlay": true,
+  "commands": [
+    {
+      "argv": [
+        "cmake",
+        "-S",
+        "/dev/shm/sumox_d123_configured_sanitize/fixture/host",
+        "-B",
+        "/dev/shm/sumox_d123_configured_sanitize/build",
+        "-DCMAKE_BUILD_TYPE=Debug",
+        "-DCMAKE_EXE_LINKER_FLAGS=-fsanitize=address,undefined -no-pie",
+        "-DCMAKE_CXX_FLAGS=-fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie -DAPP_TEST_CONFIGURED_BUTTONS=1"
+      ],
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "cmake",
+        "--build",
+        "/dev/shm/sumox_d123_configured_sanitize/build",
+        "--parallel",
+        "4",
+        "--target",
+        "drive_test_m0_tests",
+        "drive_test_m1_tests"
+      ],
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "ctest",
+        "--test-dir",
+        "/dev/shm/sumox_d123_configured_sanitize/build",
+        "--output-on-failure",
+        "-R",
+        "^drive_test_"
+      ],
+      "returncode": 0
+    }
+  ],
+  "returncode": 0,
+  "end_utc": "2026-09-24T03:05:18.888290+00:00"
+}

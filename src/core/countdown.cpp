@@ -458,7 +458,8 @@ MenuResult Menu::stepObserved(const MenuSample& sample, const ButtonTiming& timi
     if (sample.button == core::ButtonLevel::NONE) {
         if (selection_.service_menu && sample.qualified_start_release) {
             result.request = selection_.service;
-            result.request_unavailable = selection_.service == Service::DRIVE_TEST;
+            result.request_unavailable = !SUMOX_P3_DRIVE_TEST &&
+                selection_.service == Service::DRIVE_TEST;
             // A service START replaces any pending MODE gesture with fresh NONE.
             disarm();
             observeNone(0U, result);

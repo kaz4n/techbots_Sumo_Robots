@@ -1,0 +1,296 @@
+{
+  "result": "PASS",
+  "checks": [
+    {
+      "name": "legacy_default",
+      "kind": "config_compile_only",
+      "command": [
+        "g++",
+        "-std=c++17",
+        "-fsyntax-only",
+        "-x",
+        "c++",
+        "-I",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src",
+        "-"
+      ],
+      "expected_accept": true,
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "explicit_default",
+      "kind": "config_compile_only",
+      "command": [
+        "g++",
+        "-std=c++17",
+        "-fsyntax-only",
+        "-x",
+        "c++",
+        "-I",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src",
+        "-DSUMOX_P3_DRIVE_TEST=0",
+        "-"
+      ],
+      "expected_accept": true,
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "p3_m0",
+      "kind": "config_compile_only",
+      "command": [
+        "g++",
+        "-std=c++17",
+        "-fsyntax-only",
+        "-x",
+        "c++",
+        "-I",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src",
+        "-DSUMOX_P3_DRIVE_TEST=1",
+        "-DMOTORS_ALLOWED=0",
+        "-"
+      ],
+      "expected_accept": true,
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "p3_m1_host",
+      "kind": "config_compile_only",
+      "command": [
+        "g++",
+        "-std=c++17",
+        "-fsyntax-only",
+        "-x",
+        "c++",
+        "-I",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src",
+        "-DSUMOX_P3_DRIVE_TEST=1",
+        "-DMOTORS_ALLOWED=1",
+        "-"
+      ],
+      "expected_accept": true,
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "p3_match_refusal",
+      "kind": "config_compile_only",
+      "command": [
+        "g++",
+        "-std=c++17",
+        "-fsyntax-only",
+        "-x",
+        "c++",
+        "-I",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src",
+        "-DSUMOX_P3_DRIVE_TEST=1",
+        "-DMATCH=1",
+        "-"
+      ],
+      "expected_accept": false,
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "In file included from <stdin>:1:\n/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/config.h:25:36: error: static assertion failed: P3 drive profile is exclusive and not a MATCH build\n   25 | static_assert(!SUMOX_P3_DRIVE_TEST || (!MATCH && !SUMOX_B4_STAND),\n      |               ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n",
+      "passed": true
+    },
+    {
+      "name": "p3_b4_refusal",
+      "kind": "config_compile_only",
+      "command": [
+        "g++",
+        "-std=c++17",
+        "-fsyntax-only",
+        "-x",
+        "c++",
+        "-I",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src",
+        "-DSUMOX_P3_DRIVE_TEST=1",
+        "-DSUMOX_B4_STAND=1",
+        "-"
+      ],
+      "expected_accept": false,
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "In file included from <stdin>:1:\n/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/config.h:25:36: error: static assertion failed: P3 drive profile is exclusive and not a MATCH build\n   25 | static_assert(!SUMOX_P3_DRIVE_TEST || (!MATCH && !SUMOX_B4_STAND),\n      |               ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n",
+      "passed": true
+    },
+    {
+      "name": "p3_negative_refusal",
+      "kind": "config_compile_only",
+      "command": [
+        "g++",
+        "-std=c++17",
+        "-fsyntax-only",
+        "-x",
+        "c++",
+        "-I",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src",
+        "-DSUMOX_P3_DRIVE_TEST=-1",
+        "-"
+      ],
+      "expected_accept": false,
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "In file included from <stdin>:1:\n/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/config.h:23:40: error: static assertion failed: SUMOX_P3_DRIVE_TEST must be 0 or 1\n   23 | static_assert(SUMOX_P3_DRIVE_TEST == 0 || SUMOX_P3_DRIVE_TEST == 1,\n",
+      "passed": true
+    },
+    {
+      "name": "p3_two_refusal",
+      "kind": "config_compile_only",
+      "command": [
+        "g++",
+        "-std=c++17",
+        "-fsyntax-only",
+        "-x",
+        "c++",
+        "-I",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src",
+        "-DSUMOX_P3_DRIVE_TEST=2",
+        "-"
+      ],
+      "expected_accept": false,
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "In file included from <stdin>:1:\n/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/config.h:23:40: error: static assertion failed: SUMOX_P3_DRIVE_TEST must be 0 or 1\n   23 | static_assert(SUMOX_P3_DRIVE_TEST == 0 || SUMOX_P3_DRIVE_TEST == 1,\n",
+      "passed": true
+    },
+    {
+      "name": "p3_empty_refusal",
+      "kind": "config_compile_only",
+      "command": [
+        "g++",
+        "-std=c++17",
+        "-fsyntax-only",
+        "-x",
+        "c++",
+        "-I",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src",
+        "-DSUMOX_P3_DRIVE_TEST=",
+        "-"
+      ],
+      "expected_accept": false,
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "In file included from <stdin>:1:\n/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/config.h:23:35: error: expected primary-expression before \u2018==\u2019 token\n   23 | static_assert(SUMOX_P3_DRIVE_TEST == 0 || SUMOX_P3_DRIVE_TEST == 1,\n      |                                   ^~\n/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/config.h:23:63: error: expected primary-expression before \u2018==\u2019 token\n   23 | static_assert(SUMOX_P3_DRIVE_TEST == 0 || SUMOX_P3_DRIVE_TEST == 1,\n      |                                                               ^~\n/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/config.h:25:36: error: expected primary-expression before \u2018||\u2019 token\n   25 | static_assert(!SUMOX_P3_DRIVE_TEST || (!MATCH && !SUMOX_B4_STAND),\n      |                                    ^~\n",
+      "passed": true
+    },
+    {
+      "name": "legacy_match",
+      "kind": "config_compile_only",
+      "command": [
+        "g++",
+        "-std=c++17",
+        "-fsyntax-only",
+        "-x",
+        "c++",
+        "-I",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src",
+        "-DSUMOX_P3_DRIVE_TEST=0",
+        "-DMATCH=1",
+        "-DMOTORS_ALLOWED=1",
+        "-"
+      ],
+      "expected_accept": true,
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "legacy_b4",
+      "kind": "config_compile_only",
+      "command": [
+        "g++",
+        "-std=c++17",
+        "-fsyntax-only",
+        "-x",
+        "c++",
+        "-I",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src",
+        "-DSUMOX_P3_DRIVE_TEST=0",
+        "-DSUMOX_B4_STAND=1",
+        "-"
+      ],
+      "expected_accept": true,
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "",
+      "passed": true
+    },
+    {
+      "name": "private_positive_fixture",
+      "kind": "tooling",
+      "passed": true
+    },
+    {
+      "name": "compiler.S.extra_flags",
+      "kind": "tooling_refusal",
+      "passed": true,
+      "reason": "App build property differs from pinned policy: compiler.S.extra_flags"
+    },
+    {
+      "name": "compiler.c.elf.extra_flags",
+      "kind": "tooling_refusal",
+      "passed": true,
+      "reason": "App build property differs from pinned policy: compiler.c.elf.extra_flags"
+    },
+    {
+      "name": "build.extra_flags",
+      "kind": "tooling_refusal",
+      "passed": true,
+      "reason": "App build property differs from pinned policy: build.extra_flags"
+    },
+    {
+      "name": "build.extra_ldflags",
+      "kind": "tooling_refusal",
+      "passed": true,
+      "reason": "App build property differs from pinned policy: build.extra_ldflags"
+    },
+    {
+      "name": "build.boot_mode",
+      "kind": "tooling_refusal",
+      "passed": true,
+      "reason": "App build property differs from pinned policy: build.boot_mode"
+    },
+    {
+      "name": "compiler.c.extra_flags",
+      "kind": "tooling_refusal",
+      "passed": true,
+      "reason": "App build property differs from pinned policy: compiler.c.extra_flags"
+    },
+    {
+      "name": "compiler.cpp.extra_flags",
+      "kind": "tooling_refusal",
+      "passed": true,
+      "reason": "App build property differs from pinned policy: compiler.cpp.extra_flags"
+    },
+    {
+      "name": "build.project_name",
+      "kind": "tooling_refusal",
+      "passed": true,
+      "reason": "App build property differs from pinned policy: build.project_name"
+    }
+  ],
+  "count": 20,
+  "hashes": {
+    "src/config.h": "79ab632143c92078b5540dc6047f2f6a9dd1fff9a1e1768112a0a88819634446",
+    "tools/app_build_policy.py": "2adcfc6e12ce96b3b8115ea4794ac390efedbc8069e56f3c9d922195dc848ffa",
+    "tools/board_tool.py": "d8ab26e5e0f19a40f90f1691d2e460d185d684080a2205411651cfdce3b430ae",
+    "bench/drive_test/drive_test.ino": "6ae6bdf0fd46fd95a28490f37aa91d09da7e335919483309c48862d4cdc0e883"
+  },
+  "limitations": [
+    "Config-only host compiler probes and synthetic policy inputs.",
+    "No profile C++ tests or executable firmware executed.",
+    "No board connection, upload, reset or motor action."
+  ]
+}

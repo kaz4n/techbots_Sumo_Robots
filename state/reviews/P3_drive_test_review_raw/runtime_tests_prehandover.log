@@ -1,0 +1,67 @@
+Internal ctest changing into directory: /dev/shm/sumox_d123_reviewer_private_v3/build
+UpdateCTestConfiguration  from :/dev/shm/sumox_d123_reviewer_private_v3/build/DartConfiguration.tcl
+UpdateCTestConfiguration  from :/dev/shm/sumox_d123_reviewer_private_v3/build/DartConfiguration.tcl
+Test project /dev/shm/sumox_d123_reviewer_private_v3/build
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 1
+    Start 1: private_runtime_m0
+
+1: Test command: /dev/shm/sumox_d123_reviewer_private_v3/build/private_runtime_m0
+1: Working Directory: /dev/shm/sumox_d123_reviewer_private_v3/build
+1: Test timeout computed to be: 10000000
+1: [doctest] doctest version is "2.4.12"
+1: [doctest] run with "--help" for options
+1: ===============================================================================
+1: /dev/shm/sumox_d123_reviewer_private_v3/private_runtime.cc:34:
+1: TEST CASE:  B3 B8 B13 D123 reviewer real Runtime ADC release traverses full hold and no-combat drive
+1: 
+1: /dev/shm/sumox_d123_reviewer_private_v3/private_runtime.cc:26: ERROR: CHECK( passed ) is NOT correct!
+1:   values: CHECK( false )
+1:   logged: false
+1: 
+1: /dev/shm/sumox_d123_reviewer_private_v3/private_runtime.cc:34: FATAL ERROR: test case CRASHED: SIGABRT - Abort (abnormal termination) signal
+1: 
+1: ===============================================================================
+1: [doctest] test cases:  1 |  0 passed | 1 failed | 2 skipped
+1: [doctest] assertions: 46 | 45 passed | 1 failed |
+1: [doctest] Status: FAILURE!
+1/2 Test #1: private_runtime_m0 ...............Subprocess aborted***Exception:   0.03 sec
+test 2
+    Start 2: private_runtime_m1
+
+2: Test command: /dev/shm/sumox_d123_reviewer_private_v3/build/private_runtime_m1
+2: Working Directory: /dev/shm/sumox_d123_reviewer_private_v3/build
+2: Test timeout computed to be: 10000000
+2: [doctest] doctest version is "2.4.12"
+2: [doctest] run with "--help" for options
+2: ===============================================================================
+2: /dev/shm/sumox_d123_reviewer_private_v3/private_runtime.cc:34:
+2: TEST CASE:  B3 B8 B13 D123 reviewer real Runtime ADC release traverses full hold and no-combat drive
+2: 
+2: /dev/shm/sumox_d123_reviewer_private_v3/private_runtime.cc:26: ERROR: CHECK( passed ) is NOT correct!
+2:   values: CHECK( false )
+2:   logged: false
+2: 
+2: /dev/shm/sumox_d123_reviewer_private_v3/private_runtime.cc:34: FATAL ERROR: test case CRASHED: SIGABRT - Abort (abnormal termination) signal
+2: 
+2: ===============================================================================
+2: [doctest] test cases:  1 |  0 passed | 1 failed | 2 skipped
+2: [doctest] assertions: 46 | 45 passed | 1 failed |
+2: [doctest] Status: FAILURE!
+2/2 Test #2: private_runtime_m1 ...............Subprocess aborted***Exception:   0.03 sec
+
+0% tests passed, 2 tests failed out of 2
+
+Total Test time (real) =   0.06 sec
+
+The following tests FAILED:
+	  1 - private_runtime_m0 (Subprocess aborted)
+	  2 - private_runtime_m1 (Subprocess aborted)
+Errors while running CTest
+Output from these tests are in: /dev/shm/sumox_d123_reviewer_private_v3/build/Testing/Temporary/LastTest.log
+Use "--rerun-failed --output-on-failure" to re-run the failed cases verbosely.

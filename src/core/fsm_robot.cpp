@@ -25,7 +25,11 @@ std::uint64_t ageForever(std::uint64_t age, std::uint32_t delta) {
 }
 
 bool moving(core::State state) {
-    return state >= core::State::OPENER && state <= core::State::REFLANK;
+    return (state >= core::State::OPENER && state <= core::State::REFLANK)
+#if SUMOX_P3_DRIVE_TEST
+        || state == core::State::DRIVE_TEST
+#endif
+        ;
 }
 
 bool validDuty(float duty) { return std::isfinite(duty) && duty >= -1.0F && duty <= 1.0F; }
@@ -101,7 +105,7 @@ RobotResult Robot::step(const RobotInput& input) {
     runLifecycle(resolved);
     runEscape(resolved);
     routeMotion(resolved);
-#if !SUMOX_B4_STAND
+#if !SUMOX_B4_STAND && !SUMOX_P3_DRIVE_TEST
     checkStall();
 #endif
     prepareFinalRequest();
@@ -307,8 +311,14 @@ void Robot::beginAttempt() {
 }
 
 void Robot::runLifecycle(const RobotInput& input) {
+    const auto selection = menu_.selection();
     const bool allow_start = tick_.entry == core::State::IDLE && initialized_ &&
-        faults_ == 0U && !menu_.selection().service_menu && !tick_.line_start_inhibited;
+        faults_ == 0U && !tick_.line_start_inhibited &&
+#if SUMOX_P3_DRIVE_TEST
+        selection.service_menu && selection.service == countdown::Service::DRIVE_TEST;
+#else
+        !selection.service_menu;
+#endif
     countdown::ServiceSample sample{input.t_us, input.raw_gyro_z_dps, input.imu_ok,
         result_.line_mask, tick_.sampled ? tick_.observation.confirmed_mask : std::uint8_t{0}};
     sample.explicit_line = input.line.explicit_values;
@@ -422,6 +432,9 @@ void Robot::cancelMotion() {
 void Robot::routeMotion(const RobotInput& input) {
 #if SUMOX_B4_STAND
     routeStand(input);
+#elif SUMOX_P3_DRIVE_TEST
+    (void)input;
+    routeDriveTest();
 #else
     if (!tick_.permission) {
         cancelMotion();
@@ -593,8 +606,10 @@ void Robot::runSearch() {
                                        result_.heading.imu_ok, searchContext());
         if (!search_active_) { faults_ |= SCRIPT_START; return; }
     }
+    // P3 keeps perception and memory but never interrupts SEARCH to engage it.
+    const auto mask = SUMOX_P3_DRIVE_TEST ? std::uint8_t{0U} : result_.opponent_mask;
     const auto result = search_.step(tick_.t_us, result_.heading.heading_deg,
-                                      result_.heading.imu_ok, result_.opponent_mask);
+                                      result_.heading.imu_ok, mask);
     acceptMotion(result.motion, result.profile);
     if (result.turn_timed_out) markFault(logframe::FaultCode::TURN_TIMEOUT, 4U);
     if (result.phase == SearchPhase::SCAN || result.phase == SearchPhase::ADVANCE)

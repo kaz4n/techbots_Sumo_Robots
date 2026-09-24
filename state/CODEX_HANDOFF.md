@@ -8,7 +8,23 @@ Read [CODEX_EXECUTION.md](CODEX_EXECUTION.md) for the current compact checklist;
 accumulated historical resume snapshots, retained in Git at `fbfb0f2e` and earlier.
 Do not treat an old snapshot, template or synthetic test as current approval.
 
-## Current work and board
+## Current P3 software
+
+D123 DRIVE_TEST is implemented, host/sanitizer tested and target-compiled. Read
+[validation](analysis/P3_drive_test_validation.md) and its separate same-model
+review. New accepted locked oracle5bde7967 stays protected; all35priorlockedfiles
+are unchanged. Actual local service release/full hold reaches SEARCH/edge only
+through the real application/Gate. No motor or source grant is inferred.
+Next software task: finite P3 3.4 single-turn trial for±90/±180, preserving the
+existing Turn contract via explicit coordinate reflection for leftward trials.
+P3 3.3 stopping trials also remain unimplemented; final rest after reverse/escape
+is not forward stopping distance, and its datum must match measured R_room.
+
+D123 compiled default source090e2182/ELF21b28ee3 and P3sourcecc1ef324/ELFbf530d15.
+Conditional loader free spans16/10624bytes are not live RAM/WCET. The defaultimage
+is8bytes smaller than D120, not identical. No D123 upload or MCU operation occurred.
+
+## Historical board and P2 evidence
 
 D118 completed one exact bare-board default/M0 app upload and passive observation
 in `fbfb0f2e`. See [actual validation](analysis/P2_app_default_actual_validation.md)

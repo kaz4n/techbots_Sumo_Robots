@@ -151,7 +151,10 @@ void service(Frame& frame, const DisplaySample& sample) {
         } else calibration(frame, sample);
         break;
     case countdown::Service::DRIVE_TEST:
-        glyph(frame, 0U, D, 3U); glyph(frame, 4U, CROSS, 5U); break;
+        glyph(frame, 0U, D, 3U);
+        if (!SUMOX_P3_DRIVE_TEST || sample.service_unavailable)
+            glyph(frame, 4U, CROSS, 5U);
+        break;
     case countdown::Service::LOG_DUMP:
         glyph(frame, 0U, L, 3U); glyph(frame, 4U, DOWN, 5U); break;
     default: break;
@@ -167,7 +170,8 @@ RenderStatus render(const DisplaySample& sample, Frame& frame) {
         glyph(frame, 0U, B, 3U); glyph(frame, 4U, HOURGLASS, 5U);
     } else if (state == core::State::STOPPED || state == core::State::DRIVE_TEST) {
         glyph(frame, 0U, state == core::State::STOPPED ? S : D, 3U);
-        glyph(frame, 4U, CROSS, 5U);
+        if (!SUMOX_P3_DRIVE_TEST || state == core::State::STOPPED)
+            glyph(frame, 4U, CROSS, 5U);
     } else if (state == core::State::COUNTDOWN) {
         const std::uint32_t elapsed = sample.t_us - sample.release_us;
         if (elapsed >= (config::COUNTDOWN_MS + config::COUNTDOWN_MARGIN_MS) * 1000U)

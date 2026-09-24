@@ -1,0 +1,37 @@
+{
+  "evidence": [
+    "test_freeze.json",
+    "tooling_run01.txt",
+    "tooling_run01_exit.txt",
+    "tooling_run02.txt",
+    "tooling_run02_exit.txt",
+    "unchanged_checks.json",
+    "hash_check_launcher_note.txt"
+  ],
+  "board_operations": 0,
+  "upload_manifest_edited": false,
+  "result": "PASS",
+  "files": [
+    {
+      "path": "tools/board_tool.py",
+      "sha256": "d8ab26e5e0f19a40f90f1691d2e460d185d684080a2205411651cfdce3b430ae"
+    },
+    {
+      "path": "tools/app_build_policy.py",
+      "sha256": "2adcfc6e12ce96b3b8115ea4794ac390efedbc8069e56f3c9d922195dc848ffa"
+    },
+    {
+      "path": "bench/drive_test/drive_test.ino",
+      "sha256": "6ae6bdf0fd46fd95a28490f37aa91d09da7e335919483309c48862d4cdc0e883"
+    },
+    {
+      "path": "tests/tooling/test_drive_test_profile.py",
+      "sha256": "bfb8fa118e6a1a61edb13448f36f0669d87962c40f2c0e1d679230c73815ea91"
+    }
+  ],
+  "new_tests": 14,
+  "old_tests_edited": false,
+  "command": "WSL PYTHONPATH=tests/tooling python3 -m unittest tests.tooling.test_drive_test_profile tests.tooling.test_motor_direction_policy tests.tooling.test_app_build_policy tests.tooling.test_opp_view_policy tests.tooling.test_runtime_inert_policy tests.tooling.test_motor_stand_inhibit_policy tests.tooling.test_recorder_transport_policy",
+  "tests": 93,
+  "completed": "2026-09-24T02:57:42.8286761Z"
+}

@@ -127,3 +127,26 @@ decoration: `alignas(MODE_ARC_ENABLED) inline constexpr char ordinary = 0;`
 is a valid ordinary read with canonical MODE_ARC_ENABLED=1, but is rejected.
 Both examples were source-derived and sent to the coordinator before adoption.
 No reviewer execution or implementation/public-test edit; final verdict pending.
+
+## Alignment-read/builtin repair review
+
+Source `65cba907d3a425e24706b6ca44a6e4a671971d9c75f5955f7bfe46342cf9d5f1`
+changes only three declaration helpers and closes the two preceding cases.
+Verified public 74/private 19 PASS receipts; supplemental discovery failed
+before tests because the declaration helper was imported from the other copy's
+directory. Preserve that runner-location receipt and rerun byte-exact tests from
+one official directory. See `source_read_fix_review.json` for the bindings.
+
+The parenthesized qualified-type predicate still omits trailing cv and a leading
+global qualifier: `std::uint32_t const (TICK_US) = 2000U` and
+`::std::uint32_t (TICK_US) = 2000U` are concrete extra declarations not recognized.
+These finite cases were forwarded for independent adjudication before a verdict.
+No reviewer execution or production/public-test edits.
+
+At coordinator request, remaining concrete single-qualified-type cases were
+batched in `qualified_type_batch.json`: global qualification, trailing cv,
+cv-qualified pointers inside/outside parentheses and pointer/reference tokens
+interleaved with balanced name parentheses. Positive controls retain ordinary
+reads while declaring another name. No template/function/member-pointer or
+general-C++ parser expansion is proposed. All cases remain source-derived here;
+the independent author/coordinator own pre-fix reproduction and any repair.

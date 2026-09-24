@@ -1,0 +1,36 @@
+{
+  "start_utc": "2026-09-24T18:06:44.388390+00:00",
+  "argv": [
+    "wsl",
+    "-d",
+    "Ubuntu",
+    "--",
+    "env",
+    "TMPDIR=/dev/shm",
+    "PYTHONDONTWRITEBYTECODE=1",
+    "python3",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests/tooling",
+    "-p",
+    "test_opener_abort*.py",
+    "-v"
+  ],
+  "source_sha256": "65cba907d3a425e24706b6ca44a6e4a671971d9c75f5955f7bfe46342cf9d5f1",
+  "test_hashes": {
+    "opener_abort_fixture.py": "b0f242bd3f5a1bf1aac43da8595b8f60e7d3a988bae0f000ab4b29770688e4ac",
+    "test_opener_abort_alignment_type_heads.py": "3983610ea0accc300c760cf52f690f2c84b649b519c1c3be1cd32067b888ced2",
+    "test_opener_abort_binding.py": "c23324d05759e5921294a043bd490780065e196b414cb601652fd2d3390bc5d0",
+    "test_opener_abort_cohort.py": "57fd8ab3e271335008931366834ce3cc75f29ded17032c91f6426c32cfdef2c1",
+    "test_opener_abort_declarations.py": "0787b64796bf96fcd4bb595db61fbaf83cd62683180f3fec0d55a5c192b62c0e",
+    "test_opener_abort_declarator_prefixes.py": "426786fa25297e086e197e1dbfcfa5bbdf1ff71d2d3f901716e36a293fe0c341",
+    "test_opener_abort_source.py": "163252f289310f31518bac59a057e3ce330a9918f2c6df44588bc20ed361847d",
+    "test_opener_abort_wire.py": "26df66f83d7e72bdec0a80527ed08fb89013837a2f85db5b8ffa0d3a5ffa014a"
+  },
+  "returncode": 0,
+  "end_utc": "2026-09-24T18:06:55.738786+00:00",
+  "log_sha256": "ae91141e333bf496b61cac9fb4c97623ad55b2a52379fb081de639987678c23a"
+}

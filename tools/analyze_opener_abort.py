@@ -212,19 +212,22 @@ def _config_directives(code):
     return '\n'.join(output)
 
 
-def _without_declaration_decorations(prefix):
+def _without_declaration_decorations(prefix, suffix):
     # Decorations cannot hide an extra declaration; this never relaxes canonical spelling.
-    output, cursor = [], 0
+    output, cursor, context = [], 0, prefix + suffix
     pattern = re.compile(r'\[\[|\balignas\s*\(')
     while match := pattern.search(prefix, cursor):
         output.append(prefix[cursor:match.start()])
         start = match.start() if match.group() == '[[' else match.end() - 1
-        opening = prefix[start]
+        opening = context[start]
         closing, depth, end = (']' if opening == '[' else ')'), 1, start + 1
-        while end < len(prefix) and depth:
-            depth += int(prefix[end] == opening) - int(prefix[end] == closing)
+        while end < len(context) and depth:
+            depth += int(context[end] == opening) - int(context[end] == closing)
             end += 1
         _configuration(depth == 0, "Unterminated declaration decoration.")
+        # The identifier lies inside this balanced decoration, so it is a read.
+        if end > len(prefix):
+            return None
         output.append(' ')
         cursor = end
     return ''.join(output) + prefix[cursor:]
@@ -241,7 +244,8 @@ def _parenthesized_declarator(prefix, suffix):
     head = prefix[:opening.start()].strip()
     storage = r'(?:(?:inline|constexpr|consteval|constinit|static|extern|const|volatile|register|thread_local)\s+)*'
     qualified_type = r'(?:[A-Za-z_]\w*\s*::\s*)*[A-Za-z_]\w*'
-    builtin_type = r'(?:(?:unsigned|signed|short|long)\s+)+(?:int|double|char|long)'
+    builtin = r'(?:unsigned|signed|short|long|int|char|double|float|bool|wchar_t|char16_t|char32_t|void)'
+    builtin_type = builtin + r'(?:\s+(?:' + builtin + r'|const|volatile))*'
     # A direct initializer has both a type and another variable name before '('.
     typed = re.fullmatch(storage + r'(?:' + qualified_type + '|' + builtin_type + r')[\s*&]*', head)
     return typed is not None or _subsequent_declarator(head)
@@ -265,7 +269,9 @@ def _subsequent_declarator(prefix):
 
 
 def _extra_declarator(prefix, suffix):
-    prefix = _without_declaration_decorations(prefix)
+    prefix = _without_declaration_decorations(prefix, suffix)
+    if prefix is None:
+        return False
     if _parenthesized_declarator(prefix, suffix):
         return True
     separate = ('=' not in prefix and re.fullmatch(r'[\w:\s*&]+', prefix) is not None)

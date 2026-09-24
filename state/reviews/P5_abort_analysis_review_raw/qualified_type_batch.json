@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "recorded_utc": "2026-09-24T18:08:20.6231232Z",
+  "implementation_sha256": "65cba907d3a425e24706b6ca44a6e4a671971d9c75f5955f7bfe46342cf9d5f1",
+  "scope": "Concrete single-qualified-type CV/global/pointer/reference declarator placements; no template/function/member-pointer/general-C++ parser expansion",
+  "examples": [
+    "std::uint32_t const volatile (TICK_US) = 2000U;",
+    "::std::uint32_t (TICK_US) = 2000U;",
+    "std::uint32_t * const (TICK_US) = nullptr;",
+    "std::uint32_t const * const (TICK_US) = nullptr;",
+    "std::uint32_t (* const TICK_US) = nullptr;",
+    "std::uint32_t (*(TICK_US)) = nullptr;",
+    "std::uint32_t const (&(TICK_US)) = 2000U;"
+  ],
+  "placement": "Each is an extra declaration in namespace other after the seven canonical declarations; same-namespace/placement variants remain separate independently authored probes.",
+  "source_reason": "qualified_type omits global/trailing cv; pointer suffix admits only bare */&; opening regex admits contiguous opening parentheses followed by bare */&, not cv or interleaved parentheses; suffix only closes that counted opening group.",
+  "positive_controls": "Use another declared name and read existing constant in RHS/direct initializer; pointer controls use address of the const canonical constant with a const pointee.",
+  "evidence": "Source-derived cases sent together at coordinator request; no reviewer imports/test/compiler execution",
+  "next_step": "Independent author freezes batch, coordinator reproduces before repair, then exact bounded normalization and final receipts reviewed."
+}

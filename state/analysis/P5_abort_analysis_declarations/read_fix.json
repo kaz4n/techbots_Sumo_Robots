@@ -1,0 +1,31 @@
+{
+  "start_utc": "2026-09-24T18:05:50.375613+00:00",
+  "argv": [
+    "wsl",
+    "-d",
+    "Ubuntu",
+    "--",
+    "env",
+    "TMPDIR=/dev/shm",
+    "PYTHONDONTWRITEBYTECODE=1",
+    "python3",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "state/analysis/P5_abort_analysis_declarations",
+    "-p",
+    "test_opener_abort*.py",
+    "-v"
+  ],
+  "source_sha256": "65cba907d3a425e24706b6ca44a6e4a671971d9c75f5955f7bfe46342cf9d5f1",
+  "test_hashes": {
+    "test_opener_abort_alignment_type_heads.py": "3983610ea0accc300c760cf52f690f2c84b649b519c1c3be1cd32067b888ced2",
+    "test_opener_abort_declarations.py": "0787b64796bf96fcd4bb595db61fbaf83cd62683180f3fec0d55a5c192b62c0e",
+    "test_opener_abort_declarator_prefixes.py": "426786fa25297e086e197e1dbfcfa5bbdf1ff71d2d3f901716e36a293fe0c341"
+  },
+  "returncode": 1,
+  "end_utc": "2026-09-24T18:05:59.676418+00:00",
+  "log_sha256": "27670bade74cbe8fd369c19b07b246126325e0e5ce15c76f584decb2fc45ee01"
+}

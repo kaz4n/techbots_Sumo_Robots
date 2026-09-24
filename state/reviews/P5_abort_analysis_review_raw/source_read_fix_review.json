@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "recorded_utc": "2026-09-24T18:07:19.5757831Z",
+  "implementation_sha256": "65cba907d3a425e24706b6ca44a6e4a671971d9c75f5955f7bfe46342cf9d5f1",
+  "reviewed_delta": "Exactly three helpers: balanced decoration context across current identifier; explicit read sentinel; finite builtin keyword/cv heads. No report, contract, chronology or qualification changes.",
+  "closed_cases": [
+    "Ordinary alignas supported-name read no longer mistaken for incomplete decoration.",
+    "Reported unsigned-short parenthesized extra declaration recognized; ordinary other-name direct reads cannot match builtin-only head."
+  ],
+  "receipts": [
+    {
+      "path": "state/analysis/P5_abort_analysis_raw/public_read_fix.json",
+      "sha256": "0ab79c5ab96a861c6bdf1211891636d39a3a83f4dc993af5cc830384b82cabbe",
+      "log_sha256": "17ba7962a571f0cf3fe42a74022c1e91f0e09af7ad18e0737829d85f1f4eadb2",
+      "returncode": 0
+    },
+    {
+      "path": "state/reviews/P5_abort_analysis_review_raw/private_read_fix.json",
+      "sha256": "2c2505748a9fd05355f3e20fc18c10d03aaef83a8ca31a88a06619a5687b2df3",
+      "log_sha256": "1c1e92a8f1eb90f243e32e83e27c3b1e97d2af06820261ff07590a2ec8975889",
+      "returncode": 0
+    },
+    {
+      "path": "state/analysis/P5_abort_analysis_declarations/read_fix.json",
+      "sha256": "cbe561e64cb022d51ffac878fa7b2428a57dbc783344cf958f29a8ff29e06043",
+      "log_sha256": "27670bade74cbe8fd369c19b07b246126325e0e5ce15c76f584decb2fc45ee01",
+      "returncode": 1
+    }
+  ],
+  "receipt_adjudication": "Public74/private19 pass. Supplemental discovery failed before running tests because duplicate module basename resolved to tests/tooling instead of state directory; this log demonstrates a runner-location failure, not a production test assertion. Byte-exact official-directory transfer and rerun pending.",
+  "remaining_source_cases": [
+    "inline constexpr std::uint32_t const (TICK_US) = 2000U;",
+    "inline constexpr ::std::uint32_t (TICK_US) = 2000U;"
+  ],
+  "reason": "qualified_type omits trailing cv and optional global qualifier; parenthesized type family still has finite unsupported-declaration gaps. Sent for coordinator independent adjudication before final verdict.",
+  "status": "PENDING_QUALIFIED_TYPE_ADJUDICATION_AND_FINAL_RECEIPTS",
+  "execution_performed": false
+}

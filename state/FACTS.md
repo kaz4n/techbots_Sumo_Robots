@@ -620,3 +620,7 @@ e4eca064 PASS with no open findings. Independently checked31 receipt inputs,
 17 local pins,103 working and102 staged source files, and836 retained application
 instruction/literal rows against ELF bytes. D150 remains FAILED; D151 closes
 only its missing wrapper edge. No runtime, physical or human-gate acceptance.
+
+
+## F160 - Static upload dependency inventory (2026-09-25T03:06:32.969894+04:00)
+Verified file/source evidence only: three Linux read-only calls exited0/empty stderr; eleven installed tools/configs/loader identities, mem_helper include and seven higher-priority absent shadow paths were recorded. Pinned CLI version1.5.1 commit01f3d4f2b. Source-derived raw app.ino.bin selector resolves the checked static flat sibling; no actual upload is claimed. See analysis/P7_static_startup_dependencies.md and analysis/P7_static_upload_route.md. No MCU read/reset/compiler or physical result. Recheck identities/paths before a separately scoped run.

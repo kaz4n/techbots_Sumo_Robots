@@ -1096,3 +1096,5 @@ physical/loadedRAM/gate claim. | contract=this commit
 2026-09-25T02:48:51.444270+04:00 | P7 D151 exact wrapper read adopted | Source4c39fafc/planfb7043e6/reviewd6124220PASS;13args/335units/preflight4cases/zero board. One18byte range only, no retry/compile/upload/reset; D150failure preserved | wrapper read GO commit
 
 2026-09-25T02:53:01.140514+04:00 | P7 selected native dispatch evidence complete | D151 GOa60ef466: five clean reads, exact18-byte wrapper; D150 failed partial query preserved. Fresh-context reviewe4eca064 PASS, source/stage and836 instruction/literal rows verified. No compile/upload/reset/source/test change; physical gates pending. Next prepare source-bound inert startup qualification. Storage13d50c43/495fb0be saved about49.9MiB | dispatch closure commit
+
+2026-09-25T03:06:32.969894+04:00 | P7 startup dependency preparation | Three Linux read-only calls exit0; fresh CLI/OpenOCD/config/loader and include-shadow evidence. Source audit corrects raw BIN selector for static sibling payload. No upload/reset/MCU read; next pure bounded capture host implementation. Evidence analysis/P7_static_startup_dependencies.md | dependency evidence commit

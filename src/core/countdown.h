@@ -55,6 +55,8 @@ public:
     ButtonEvents step(std::uint32_t t_us, core::ButtonLevel level);
     ButtonEvents stepObserved(std::uint32_t decision_us, std::uint32_t source_us,
                               core::ButtonLevel level);
+    // D138 observation only: actual qualified NONE can arm the next START.
+    bool neutralStartArmed() const;
     void reset();
 private:
     core::ButtonLevel candidate_ = core::ButtonLevel::NONE;
@@ -113,6 +115,8 @@ public:
     // service action at most once and only if final IDLE/fault/STOP policy allows;
     // the raw snapshot may still contain a pulse on a STOP-priority observation.
     ButtonEvents buttonEvents() const;
+    // Forwards Buttons state; does not include Gate phase or grant permission.
+    bool neutralStartArmed() const;
     void reset();
 private:
     StopHold stop_;
@@ -234,6 +238,7 @@ public:
         bool stop_requested = false, bool allow_match_start = true);
     // Same last-step snapshot as Controller, without sampling Buttons again.
     ButtonEvents buttonEvents() const;
+    bool neutralStartArmed() const;
     void reset();
 private:
     Controller controller_;

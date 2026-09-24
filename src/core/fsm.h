@@ -515,6 +515,8 @@ struct RobotResult {
     std::uint32_t button_source_us = 0U; // Earliest conversion age.
     std::uint32_t button_age_us = 0U;
     std::uint32_t button_sequence = 0U;
+    // D138 current qualified ordinary START-route observation, never permission.
+    bool match_start_eligible = false;
 };
 class Robot {
 public:

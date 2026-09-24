@@ -138,6 +138,7 @@ private:
     bool opponentsReady() const;
     bool postDecision();
     bool display();
+    void projectStartStatus(ui::DisplaySample& sample) const;
     void initializeDump();
     bool dumpReceiptValid() const;
     bool inhibitedIdle(std::uint32_t now_us) const;

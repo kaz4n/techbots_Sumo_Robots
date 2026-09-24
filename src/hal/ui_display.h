@@ -36,6 +36,9 @@ struct DisplaySample {
     std::uint8_t calibration_stage = 0U;
     std::uint32_t calibration_samples = 0U;
     bool service_unavailable = false; // D103 display projection only, not a fault.
+    // D138 actual Runtime pairing; unbound samples preserve the legacy display.
+    bool start_status_available = false;
+    bool start_ready = false; // Informational only; never a motion grant.
 };
 enum class RenderStatus : std::uint8_t { OK, INVALID };
 // Pure, complete overwrite; exact glyphs/layout in P2_matrix_contract.md.

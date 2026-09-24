@@ -1,0 +1,58 @@
+COMMAND c++ -DDOCTEST_CONFIG_NO_EXCEPTIONS -DMOTORS_ALLOWED=0 -DSUMOX_P4_REACTIVE=1 -I/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/host/../src -isystem /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/host/third_party -g -std=c++17 -Wall -Wextra -Wpedantic -Werror -fno-exceptions -fno-rtti -I/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests -c /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/reviews/P4_push_through_review_raw/private_probes.cc -o /dev/shm/sumox_d131_default0/build/private_d131_m0.o
+In file included from /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/reviews/P4_push_through_review_raw/private_probes.cc:4:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/reviews/P4_push_through_review_raw/private_probes.cc: In lambda function:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/reviews/P4_push_through_review_raw/private_probes.cc:93:5: error: static assertion failed: Exceptions are disabled! Use DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS if you want to compile with exceptions disabled.
+   93 |     REQUIRE(exited); s.t_us += 1000U; s.line_mask = 2U;
+      |     ^~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/reviews/P4_push_through_review_raw/private_probes.cc: In function ‘void DOCTEST_ANON_FUNC_98()’:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/reviews/P4_push_through_review_raw/private_probes.cc:93:5: error: expression cannot be used as a function
+   93 |     REQUIRE(exited); s.t_us += 1000U; s.line_mask = 2U;
+      |     ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/reviews/P4_push_through_review_raw/private_probes.cc: In lambda function:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/reviews/P4_push_through_review_raw/private_probes.cc:171:5: error: static assertion failed: Exceptions are disabled! Use DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS if you want to compile with exceptions disabled.
+  171 |     REQUIRE(first.robot.outputs.ui_state == (duration ? core::State::ATTACK : core::State::EDGE_ESCAPE));
+      |     ^~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/reviews/P4_push_through_review_raw/private_probes.cc: In function ‘void DOCTEST_ANON_FUNC_110()’:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/reviews/P4_push_through_review_raw/private_probes.cc:171:5: error: expression cannot be used as a function
+  171 |     REQUIRE(first.robot.outputs.ui_state == (duration ? core::State::ATTACK : core::State::EDGE_ESCAPE));
+      |     ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/reviews/P4_push_through_review_raw/private_probes.cc: In lambda function:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/reviews/P4_push_through_review_raw/private_probes.cc:187:5: error: static assertion failed: Exceptions are disabled! Use DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS if you want to compile with exceptions disabled.
+  187 |     REQUIRE(first.robot.outputs.ui_state == (duration ? core::State::ATTACK : core::State::EDGE_ESCAPE));
+      |     ^~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/reviews/P4_push_through_review_raw/private_probes.cc: In function ‘void DOCTEST_ANON_FUNC_112()’:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/reviews/P4_push_through_review_raw/private_probes.cc:187:5: error: expression cannot be used as a function
+  187 |     REQUIRE(first.robot.outputs.ui_state == (duration ? core::State::ATTACK : core::State::EDGE_ESCAPE));
+      |     ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/reviews/P4_push_through_review_raw/private_probes.cc: In lambda function:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/reviews/P4_push_through_review_raw/private_probes.cc:201:5: error: static assertion failed: Exceptions are disabled! Use DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS if you want to compile with exceptions disabled.
+  201 |     REQUIRE(rig.next().robot.outputs.ui_state == core::State::ATTACK);
+      |     ^~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/reviews/P4_push_through_review_raw/private_probes.cc: In function ‘void DOCTEST_ANON_FUNC_114()’:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/reviews/P4_push_through_review_raw/private_probes.cc:201:5: error: expression cannot be used as a function
+  201 |     REQUIRE(rig.next().robot.outputs.ui_state == core::State::ATTACK);
+      |     ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/reviews/P4_push_through_review_raw/private_probes.cc: In lambda function:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/reviews/P4_push_through_review_raw/private_probes.cc:202:29: error: static assertion failed: Exceptions are disabled! Use DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS if you want to compile with exceptions disabled.
+  202 |     rig.source.ax_g = 2.0F; REQUIRE(rig.next().robot.contact); rig.source.ax_g = 0.0F;
+      |                             ^~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/reviews/P4_push_through_review_raw/private_probes.cc: In function ‘void DOCTEST_ANON_FUNC_114()’:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/reviews/P4_push_through_review_raw/private_probes.cc:202:29: error: expression cannot be used as a function
+  202 |     rig.source.ax_g = 2.0F; REQUIRE(rig.next().robot.contact); rig.source.ax_g = 0.0F;
+      |                             ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/reviews/P4_push_through_review_raw/private_probes.cc: In lambda function:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/reviews/P4_push_through_review_raw/private_probes.cc:204:5: error: static assertion failed: Exceptions are disabled! Use DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS if you want to compile with exceptions disabled.
+  204 |     REQUIRE(rig.owner.report().applied.feedback.duty_l >= config::STALL_MIN_DUTY);
+      |     ^~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/reviews/P4_push_through_review_raw/private_probes.cc: In function ‘void DOCTEST_ANON_FUNC_114()’:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/reviews/P4_push_through_review_raw/private_probes.cc:204:5: error: expression cannot be used as a function
+  204 |     REQUIRE(rig.owner.report().applied.feedback.duty_l >= config::STALL_MIN_DUTY);
+      |     ^
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/reviews/P4_push_through_review_raw/private_probes.cc: In lambda function:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/reviews/P4_push_through_review_raw/private_probes.cc:205:5: error: static assertion failed: Exceptions are disabled! Use DOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS if you want to compile with exceptions disabled.
+  205 |     REQUIRE(rig.owner.report().applied.feedback.duty_r >= config::STALL_MIN_DUTY);
+      |     ^~~~~~~
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/reviews/P4_push_through_review_raw/private_probes.cc: In function ‘void DOCTEST_ANON_FUNC_114()’:
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/reviews/P4_push_through_review_raw/private_probes.cc:205:5: error: expression cannot be used as a function
+  205 |     REQUIRE(rig.owner.report().applied.feedback.duty_r >= config::STALL_MIN_DUTY);
+      |     ^

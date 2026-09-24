@@ -1,0 +1,55 @@
+Start testing: Sep 24 11:11 +04
+----------------------------------------------------------
+5/16 Testing: push_through_m0_host
+5/16 Test: push_through_m0_host
+Command: "/dev/shm/sumox_d131_positive20/build/push_through_m0_tests"
+Directory: /dev/shm/sumox_d131_positive20/build
+"push_through_m0_host" start time: Sep 24 11:11 +04
+Output:
+----------------------------------------------------------
+[doctest] doctest version is "2.4.12"
+[doctest] run with "--help" for options
+===============================================================================
+[doctest] test cases:     34 |     34 passed | 0 failed | 0 skipped
+[doctest] assertions: 979896 | 979896 passed | 0 failed |
+[doctest] Status: SUCCESS!
+<end of output>
+Test time =   0.38 sec
+----------------------------------------------------------
+Test Passed.
+"push_through_m0_host" end time: Sep 24 11:11 +04
+"push_through_m0_host" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/16 Testing: push_through_m1_host
+6/16 Test: push_through_m1_host
+Command: "/dev/shm/sumox_d131_positive20/build/push_through_m1_tests"
+Directory: /dev/shm/sumox_d131_positive20/build
+"push_through_m1_host" start time: Sep 24 11:11 +04
+Output:
+----------------------------------------------------------
+[doctest] doctest version is "2.4.12"
+[doctest] run with "--help" for options
+===============================================================================
+/dev/shm/sumox_d131_positive20/fixture/tests/test_push_through.cc:210:
+TEST CASE:  B11 B9.4 D131 later contact and deflection revoke before any executed stall or limiter slot
+
+/dev/shm/sumox_d131_positive20/fixture/tests/fixtures/push_through_fixture.h:137: ERROR: CHECK( passed ) is NOT correct!
+  values: CHECK( false )
+  logged: rig.at(entered + 1250000U).outputs.ui_state == State::TRACK
+
+/dev/shm/sumox_d131_positive20/fixture/tests/test_push_through.cc:210: FATAL ERROR: test case CRASHED: SIGABRT - Abort (abnormal termination) signal
+
+===============================================================================
+[doctest] test cases:     32 |     31 passed | 1 failed | 2 skipped
+[doctest] assertions: 979474 | 979473 passed | 1 failed |
+[doctest] Status: FAILURE!
+<end of output>
+Test time =   0.39 sec
+----------------------------------------------------------
+Test Failed.
+"push_through_m1_host" end time: Sep 24 11:11 +04
+"push_through_m1_host" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Sep 24 11:11 +04

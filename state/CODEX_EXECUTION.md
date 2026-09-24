@@ -1,6 +1,10 @@
 # Current execution checklist - 2026-09-24 Asia/Dubai
 
 **Active: P4 software under D128; D131 validation and D132 admission in progress.**
+**User-paused 2026-09-24 for network disconnect.** D131 host validation passed;
+D132 first admission run failed three app-header-layout subcases in one new
+method. Resume independent adjudication in analysis/P4_push_through_checkpoint.md.
+No build, test process or board operation remains running.
 D051/D075/D122 permit software scheduling before physical acceptance. Assumptions
 are not measurements, human gates or run permissions. PROGRESS.md is the
 append-only phase/gate history; historical checkpoints remain in Git.

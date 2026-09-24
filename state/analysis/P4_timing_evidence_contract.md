@@ -69,6 +69,18 @@ Side/rear stuck alone and an inactive/nonmasking phantom marker do not exclude.
 Staggered debounce may enter TRACK without canceling. Trace errors never modify
 outputs, counters, source qualification, behavior state, or governor permission.
 
+D131 pre-acceptance extension (delegated D051, 2026-09-24): with the new bounded
+push-through owner and a positive configured duration, admitted nonzero line masks
+also close INTERRUPTED_EDGE while
+armed/observing, even if Escape is temporarily deferred. An otherwise eligible
+first arming observation with white closes immediately. Black cannot reopen it.
+This prevents edge-context approaches from contributing ordinary loss-braking
+evidence. The earlier actual-escape wording above records original D129 policy;
+this is an explicit conservative extension, not a claim that D129 already did it.
+The same code8 remains excluded, with no format or motion change; existing source
+error precedence and prior receipt completion before current events remain intact.
+The disabled-default event classification remains unchanged, including STOP/white ties.
+
 Capture actual `NormalResult.brake` caused by front loss, excluding deferred
 edge exit or other forced brakes. Require confirmed unsuppressed front zero and
 final valid SEARCH/DEFEND selection, brake request, enabled permission and exact

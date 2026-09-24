@@ -1,0 +1,11 @@
+# Configured20 timing sanitizer first-failure adjudication
+
+Observed: M0 passed37 cases; M1 passed36 and failed only the optional timing case expecting INTERRUPTED_EDGE on the first deferred-white tick. The fixture uses the existing actual-Gate p4_time::Rig and a valid ATTACK/no-contact receipt; FC+SL does not exclude or prematurely close the trace.
+
+D129's adopted contract P4_timing_evidence_contract.md:61-67 explicitly orders an exclusion for **actual edge preemption/escape fault**. Existing fsm_timing.cpp checks escape_required or EscapeFault. During D131 front-white deferral, ATTACK remains authorized and neither actual condition exists. Consequently, the already armed trace remains armed and no INTERRUPTED_EDGE event is emitted. This agrees with D129; it is not evidence of a prematurely closed fixture trace.
+
+D131's instruction to preserve the existing D129 exclusion must retain that actual-preemption boundary. Interpreting its shorthand 'on line evidence' as any white reading would instead be a policy extension requiring an explicit decision. Recommended oracle: assert no edge exclusion during deferred ATTACK, then end deferral via raw FC loss or deadline and require immediate actual EDGE_ESCAPE plus INTERRUPTED_EDGE, without an invented loss-brake decision or zero-applied success.
+
+Root informed. No production edit is justified by the original expectation alone. Preserve the original test and failure receipt and record the contract clarification and any oracle correction; do not simply remove the failing assertion.
+
+Subsequent coordinator decision under D051: intentionally broaden the evidence-only exclusion to admitted true-white during deferral, preventing a P4.2 success trace from mixing with a push-through episode. Preserve the original test/failure, wire code and old contract meaning; append the new policy visibly. This is a selected policy extension, not a claim that original D129 production was defective. The reviewer accepts that authorized direction, with regression needed for already-armed and first-arm-eligible white, retained white, no retry, and unchanged motor output. First-arm-eligible white was specifically raised because the existing IDLE arming branch bypasses excludeTimingTrace for that call.

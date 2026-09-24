@@ -1,0 +1,57 @@
+diff --git a/tests/tooling/test_tools.py b/tests/tooling/test_tools.py
+--- a/tests/tooling/test_tools.py
++++ b/tests/tooling/test_tools.py
+@@ -59,7 +59,10 @@
+         path.write_text(text, encoding='utf-8')
+ 
+     def make_fixture(self):
+-        self.write('src/config.h', '#pragma once\n#define FIXTURE_VALUE 20\n')
++        self.write('src/config.h', '#pragma once\n#define FIXTURE_VALUE 20\n'
++                   '#include <cstdint>\nnamespace config {\n'
++                   'inline constexpr std::uint32_t EDGE_PUSH_THROUGH_MS = 0U;\n'
++                   '}\n')
+         for module in ('core', 'hal'):
+             self.write(f'src/{module}/value.h',
+                        f'#pragma once\nint {module}Value();\n')
+diff --git a/tests/tooling/test_adb_transport.py b/tests/tooling/test_adb_transport.py
+--- a/tests/tooling/test_adb_transport.py
++++ b/tests/tooling/test_adb_transport.py
+@@ -174,7 +174,10 @@
+         destination.write_text(text, encoding='utf-8')
+ 
+     def make_fixture(self):
+-        self.write('src/config.h', '#pragma once\n#define FIXTURE_VALUE 20\n')
++        self.write('src/config.h', '#pragma once\n#define FIXTURE_VALUE 20\n'
++                   '#include <cstdint>\nnamespace config {\n'
++                   'inline constexpr std::uint32_t EDGE_PUSH_THROUGH_MS = 0U;\n'
++                   '}\n')
+         for module in ('core', 'hal'):
+             self.write(f'src/{module}/value.h', '#pragma once\n')
+             self.write(f'src/{module}/value.cpp', '#include "../config.h"\n#include "value.h"\n')
+diff --git a/tests/tooling/test_ui_adc_probe_policy.py b/tests/tooling/test_ui_adc_probe_policy.py
+--- a/tests/tooling/test_ui_adc_probe_policy.py
++++ b/tests/tooling/test_ui_adc_probe_policy.py
+@@ -38,7 +38,10 @@
+         self.patch = mock.patch.object(self.board, 'ROOT', self.root)
+         self.patch.start()
+         self.addCleanup(self.patch.stop)
+-        self.write('src/config.h', b'// literal config\n')
++        self.write('src/config.h', b'// literal config\n'
++                   b'#include <cstdint>\nnamespace config {\n'
++                   b'inline constexpr std::uint32_t EDGE_PUSH_THROUGH_MS = 0U;\n'
++                   b'}\n')
+         for directory in ('core', 'hal', 'app'):
+             self.write('src/'+directory+'/shared.h', ('// '+directory+'\n').encode())
+         self.write(SKETCH+'/'+PROJECT, b'// literal probe\nvoid setup() {}\nvoid loop() {}\n')
+@@ -313,7 +316,10 @@
+         (self.root/'src').mkdir()
+         (self.root/'src/ui_bench_native.h').write_text(STUB)
+         (self.root/'src/ui_bench.h').write_text('#pragma once\n#include "ui_bench_native.h"\n')
+-        (self.root/'src/config.h').write_text('#pragma once\n')
++        (self.root/'src/config.h').write_text('#pragma once\n'
++            '#include <cstdint>\nnamespace config {\n'
++            'inline constexpr std::uint32_t EDGE_PUSH_THROUGH_MS = 0U;\n'
++            '}\n')
+         (self.root/'Arduino.h').write_text('#pragma once\n')
+         (self.root/'main.cc').write_text(MAIN)
+         self.compiler = shutil.which('g++')

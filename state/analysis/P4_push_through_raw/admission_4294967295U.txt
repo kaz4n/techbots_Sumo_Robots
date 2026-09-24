@@ -1,0 +1,5 @@
+/dev/shm/sumox_d131_admission_rc2vwf6u/fixture/src/core/edge.cpp: In member function ‘edge::GuardResult edge::Guard::step(uint8_t, bool, bool)’:
+/dev/shm/sumox_d131_admission_rc2vwf6u/fixture/src/core/edge.cpp:53:48: error: static assertion failed: Push-through must remain within the B9.4 100ms bound
+   53 |     static_assert(config::EDGE_PUSH_THROUGH_MS <= 100U,
+      |                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~
+/dev/shm/sumox_d131_admission_rc2vwf6u/fixture/src/core/edge.cpp:53:48: note: the comparison reduces to ‘(4294967295 <= 100)’

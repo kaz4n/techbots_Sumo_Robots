@@ -1,0 +1,33 @@
+{
+  "time_utc": "2026-09-24T07:35:31.721814+00:00",
+  "previous_freeze_sha256": "97f86186f6cd882495b56ec02467e4f09d43ecc23013a8aaf0424ecedf350fb6",
+  "reason": "Explicit positive-duration timing exclusion extension and independent supplement; preserve default0 classification",
+  "changes": {
+    "host/CMakeLists.txt": {
+      "before": "20746e22e06eaf65e68d1b82ce7e70730bde9f7828cd1a80a1f41bf2757837fe",
+      "after": "86b1fce856f684fb513fc2fbfe0a4aead0bb471640b3a0bc3f48cdc096ab2651"
+    },
+    "src/core/fsm_timing.cpp": {
+      "before": "339f3934704b5c102e9606a3fc84c64ab82a4397f9952d87b3ddf2d2f93b6dcb",
+      "after": "e372d59115373f563f0599117676f1d7d05e8169c30799d8c5e99d903fb2c0b7"
+    },
+    "state/analysis/P4_push_through_contract.md": {
+      "before": "54e75f5dedba9be0a4b793d5cf2fc88e15e034f374a289c393c1fa47797da5d8",
+      "after": "3c8a016bd64848478730d617d11dd4588af81c7382ff53b5e32296ca7da1608e"
+    },
+    "docs/BEHAVIOR.md": {
+      "before": "db3c350a3fcaf879659cb43d605b772809334cbe03c03c8d8c39cf241370b395",
+      "after": "dce3836ba24d6ca14cf410e7f9bceb92892f7d97dad83ab4501cb2a0e5032e19"
+    },
+    "tests/test_push_through_timing.cc": {
+      "before": null,
+      "after": "493ef8b46e659fc40d8acb4204f36563b537a7dd824fe8de4418280cf4a8471e"
+    },
+    "state/analysis/P4_timing_evidence_contract.md": {
+      "before": null,
+      "after": "6f928cea4caad511147566aeedaca6cff43ad61c0d45f4f1d1428d0ec8a15317"
+    }
+  },
+  "prior_locked_exact": 40,
+  "preflight_note": "First inline freeze helper compared a digest to the manifest metadata object, aborting before writes; corrected to read sha256 and bytes. No source/test execution failure."
+}

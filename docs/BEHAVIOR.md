@@ -361,6 +361,11 @@ the exception that tick before REFLANK/limiter side effects, even if the limiter
 would deny. Existing contact, governor, STOP and source-fault rules remain intact.
 The shipped duration remains0; positive physical tuning still requires P4.4's
 actual trial evidence. See state/analysis/P4_push_through_contract.md.
+With a positive configured duration, timing evidence also excludes an approach observed with a nonzero
+admitted line mask, even during deferral or on the first eligible arming tick.
+It cannot later reopen after black. This extends D129's actual-escape exclusion;
+it changes evidence qualification only, preserving source/receipt priorities
+and the disabled-default event classification.
 
 ---
 

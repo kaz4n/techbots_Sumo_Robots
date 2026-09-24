@@ -1,0 +1,51 @@
+{
+  "name": "legacy_timing_sanitize",
+  "duration_ms": 0,
+  "flags": [
+    "legacy",
+    "sanitize"
+  ],
+  "start_utc": "2026-09-24T07:36:53.017589+00:00",
+  "commands": [
+    {
+      "argv": [
+        "cmake",
+        "-S",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/host",
+        "-B",
+        "/dev/shm/sumox_d131_legacy_timing_sanitize/build",
+        "-DCMAKE_BUILD_TYPE=Debug",
+        "-DCMAKE_EXE_LINKER_FLAGS=-fsanitize=address,undefined -no-pie",
+        "-DCMAKE_CXX_FLAGS=-fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie"
+      ],
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "cmake",
+        "--build",
+        "/dev/shm/sumox_d131_legacy_timing_sanitize/build",
+        "--parallel",
+        "1",
+        "--target",
+        "timing_evidence_m0_tests",
+        "timing_evidence_m1_tests"
+      ],
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "ctest",
+        "--test-dir",
+        "/dev/shm/sumox_d131_legacy_timing_sanitize/build",
+        "--output-on-failure",
+        "-R",
+        "^timing_evidence_"
+      ],
+      "returncode": 0
+    }
+  ],
+  "input_freeze_sha256": "33a9307d7d61bd340246db07031ab98dabd1cf04c3d5bcf5a4b33fedfb161c7a",
+  "returncode": 0,
+  "end_utc": "2026-09-24T07:37:53.072895+00:00"
+}

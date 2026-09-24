@@ -26,8 +26,10 @@ heading coordinate even without IMU; mask3 consumes a valid opponent-side value.
 Other front masks do not consume side or rear-duty predicates. During deferral,
 save healthy finite coordinates and ignore unavailable current yaw (including
 nonfinite), using the retained coordinate for a closing row with unavailable
-IMU. Healthy nonfinite yaw or invalid consumed head-on side cancels to the
-ordinary INVALID_CONTEXT fault that observation. A retained coordinate is not
+IMU. While white persists, healthy nonfinite yaw or invalid consumed head-on
+side cancels to the ordinary INVALID_CONTEXT fault that observation. Fresh
+black consumes no row context; Robot's independent context faults still apply.
+A retained coordinate is not
 new heading evidence.
 
 Escape can enter the exception only with no active escape/fault, a new admitted
@@ -83,7 +85,15 @@ Preserve the real line mask and new-white event through fusion, edge history,
 stall and recording; do not substitute a black mask to bypass arbitration.
 Deferral emits no actual escape-enter/exit/replan or inward-history pulse.
 Replans remain0 until actual entry, then follow the unchanged three-replacement
-budget. Existing D129 timing exclusion on line evidence remains unchanged.
+budget. D131's explicit pre-acceptance clarification extends D129 timing
+exclusion, for positive configured durations, to any admitted nonzero line mask,
+including deferred white. Close
+INTERRUPTED_EDGE while armed/observing and on an otherwise eligible first arming
+observation that is white. Never reopen after black. This evidence-only extension
+does not change motion or the wire code's EXCLUDED interpretation; original D129
+excluded actual escape/fault. Existing invalid-source precedence and receipt
+completion before later-current observations remain unchanged. Disabled-default
+event classification, including simultaneous STOP/white, remains unchanged.
 
 ## Storage, defaults and verification
 

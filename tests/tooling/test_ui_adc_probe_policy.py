@@ -38,7 +38,10 @@ class UiAdcProbeStageTests(unittest.TestCase):
         self.patch = mock.patch.object(self.board, 'ROOT', self.root)
         self.patch.start()
         self.addCleanup(self.patch.stop)
-        self.write('src/config.h', b'// literal config\n')
+        self.write('src/config.h', b'// literal config\n'
+                   b'#include <cstdint>\nnamespace config {\n'
+                   b'inline constexpr std::uint32_t EDGE_PUSH_THROUGH_MS = 0U;\n'
+                   b'}\n')
         for directory in ('core', 'hal', 'app'):
             self.write('src/'+directory+'/shared.h', ('// '+directory+'\n').encode())
         self.write(SKETCH+'/'+PROJECT, b'// literal probe\nvoid setup() {}\nvoid loop() {}\n')
@@ -313,7 +316,10 @@ class UiAdcProbeWrapperTests(unittest.TestCase):
         (self.root/'src').mkdir()
         (self.root/'src/ui_bench_native.h').write_text(STUB)
         (self.root/'src/ui_bench.h').write_text('#pragma once\n#include "ui_bench_native.h"\n')
-        (self.root/'src/config.h').write_text('#pragma once\n')
+        (self.root/'src/config.h').write_text('#pragma once\n'
+            '#include <cstdint>\nnamespace config {\n'
+            'inline constexpr std::uint32_t EDGE_PUSH_THROUGH_MS = 0U;\n'
+            '}\n')
         (self.root/'Arduino.h').write_text('#pragma once\n')
         (self.root/'main.cc').write_text(MAIN)
         self.compiler = shutil.which('g++')

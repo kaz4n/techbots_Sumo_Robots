@@ -1,0 +1,58 @@
+{
+  "name": "configured20_timing_sanitize",
+  "duration_ms": 20,
+  "flags": [
+    "configured",
+    "review",
+    "sanitize",
+    "timing"
+  ],
+  "start_utc": "2026-09-24T07:20:09.504937+00:00",
+  "commands": [
+    {
+      "argv": [
+        "cmake",
+        "-S",
+        "/dev/shm/sumox_d131_configured20_timing_sanitize/fixture/host",
+        "-B",
+        "/dev/shm/sumox_d131_configured20_timing_sanitize/build",
+        "-DCMAKE_BUILD_TYPE=Debug",
+        "-DCMAKE_EXE_LINKER_FLAGS=-fsanitize=address,undefined -no-pie",
+        "-DCMAKE_CXX_FLAGS=-fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie -DAPP_TEST_CONFIGURED_BUTTONS=1 -DSUMOX_TIMING_EVIDENCE=1"
+      ],
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "cmake",
+        "--build",
+        "/dev/shm/sumox_d131_configured20_timing_sanitize/build",
+        "--parallel",
+        "1",
+        "--target",
+        "push_through_m0_tests",
+        "push_through_m1_tests"
+      ],
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "ctest",
+        "--test-dir",
+        "/dev/shm/sumox_d131_configured20_timing_sanitize/build",
+        "--output-on-failure",
+        "-R",
+        "^push_through_"
+      ],
+      "returncode": 8
+    }
+  ],
+  "synthetic_replacements": {
+    "EDGE_PUSH_THROUGH_MS = 0U": "EDGE_PUSH_THROUGH_MS = 20U",
+    "BUTTON_WINDOWS_CONFIGURED = 0U": "BUTTON_WINDOWS_CONFIGURED = 1U",
+    "BUTTON_LOW_RAW[4] = {0U, 0U, 0U, 0U}": "BUTTON_LOW_RAW[4] = {0U, 900U, 1900U, 2900U}",
+    "BUTTON_HIGH_RAW[4] = {0U, 0U, 0U, 0U}": "BUTTON_HIGH_RAW[4] = {100U, 1100U, 2100U, 3100U}"
+  },
+  "returncode": 8,
+  "end_utc": "2026-09-24T07:20:47.794880+00:00"
+}

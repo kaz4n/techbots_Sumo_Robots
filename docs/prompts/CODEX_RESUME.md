@@ -1,6 +1,9 @@
 # Resume SumoX-26 with Codex
 
 Current phase: P4 software under D128; D131/D132 are in progress after D130.
+User-paused on2026-09-24 for network disconnect. D131 host checks finished;
+D132 is applied with one new app-layout test method failing in three subcases.
+On explicit resume, adjudicate that frozen failure before any test/source change.
 Read state/analysis/P4_push_through_checkpoint.md first for the exact unfinished
 task and frozen evidence; preserve the task-owned uncommitted changes.
 D129 trace is host-tested; target/native

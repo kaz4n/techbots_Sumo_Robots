@@ -59,7 +59,10 @@ class ToolContractTests(unittest.TestCase):
         path.write_text(text, encoding='utf-8')
 
     def make_fixture(self):
-        self.write('src/config.h', '#pragma once\n#define FIXTURE_VALUE 20\n')
+        self.write('src/config.h', '#pragma once\n#define FIXTURE_VALUE 20\n'
+                   '#include <cstdint>\nnamespace config {\n'
+                   'inline constexpr std::uint32_t EDGE_PUSH_THROUGH_MS = 0U;\n'
+                   '}\n')
         for module in ('core', 'hal'):
             self.write(f'src/{module}/value.h',
                        f'#pragma once\nint {module}Value();\n')

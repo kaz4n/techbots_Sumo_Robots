@@ -1,0 +1,105 @@
+*** Begin Patch
+*** Update File: tools/board_tool.py
+@@
+-def stage(sketch):
++def _push_config_code(text):
++    # Preserve line boundaries while removing comments and literal contents.
++    token = re.compile(r'//|/\*|(?:u8|[uUL])?R"|["\']')
++    output, cursor = [], 0
++    while match := token.search(text, cursor):
++        start, kind = match.start(), match.group()
++        output.append(text[cursor:start])
++        if kind == '//':
++            end = text.find('\n', match.end())
++            end = len(text) if end < 0 else end
++        elif kind == '/*':
++            end = text.find('*/', match.end())
++            if end < 0:
++                fail('EDGE_PUSH_THROUGH_MS: unterminated block comment')
++            end += 2
++        elif kind.endswith('R"'):
++            opener = re.match(r'([^ ()\\\t\r\n]{0,16})\(', text[match.end():match.end() + 17])
++            if not opener:
++                fail('EDGE_PUSH_THROUGH_MS: unsupported raw literal')
++            closing = ')' + opener.group(1) + '"'
++            end = text.find(closing, match.end() + opener.end())
++            if end < 0:
++                fail('EDGE_PUSH_THROUGH_MS: unterminated raw literal')
++            end += len(closing)
++        else:
++            end = match.end()
++            while end < len(text) and text[end] != kind:
++                if text[end] in '\r\n':
++                    fail('EDGE_PUSH_THROUGH_MS: unterminated quoted literal')
++                end += 2 if text[end] == '\\' else 1
++            if end >= len(text):
++                fail('EDGE_PUSH_THROUGH_MS: unterminated quoted literal')
++            end += 1
++        output.append(re.sub(r'[^\n]', ' ', text[start:end]))
++        cursor = end
++    output.append(text[cursor:])
++    return ''.join(output)
++
++
++def _push_config_directives(code):
++    # Track nesting only; no condition or macro is evaluated.
++    output, depth = [], 0
++    for line in code.split('\n'):
++        directive = re.match(r'^\s*#\s*([A-Za-z_][A-Za-z0-9_]*)', line)
++        in_directive = directive is not None
++        if re.search(r'\bEDGE_PUSH_THROUGH_MS\b', line) and (depth or in_directive):
++            fail('EDGE_PUSH_THROUGH_MS: conditional or macro declaration unsupported')
++        if directive:
++            kind = directive.group(1)
++            if kind in ('if', 'ifdef', 'ifndef'):
++                depth += 1
++            elif kind == 'endif':
++                depth -= 1
++                if depth < 0:
++                    fail('EDGE_PUSH_THROUGH_MS: unmatched conditional directive')
++            elif kind in ('else', 'elif') and depth == 0:
++                fail('EDGE_PUSH_THROUGH_MS: unmatched conditional directive')
++        output.append(re.sub(r'[^\n]', ' ', line) if in_directive else line)
++    if depth:
++        fail('EDGE_PUSH_THROUGH_MS: unterminated conditional directive')
++    return '\n'.join(output)
++
++
++def validate_push_through_config(path):
++    try:
++        text = Path(path).read_text(encoding='utf-8')
++    except (OSError, UnicodeError) as error:
++        fail(f'EDGE_PUSH_THROUGH_MS: cannot read copied config: {error}')
++    if re.search(r'\\[ \t\v\f]*\r?\n', text):
++        fail('EDGE_PUSH_THROUGH_MS: physical line splices are unsupported')
++    code = _push_config_code(text)
++    if re.search(r'(?m)^[ \t\v\f\r]*%:', code):
++        fail('EDGE_PUSH_THROUGH_MS: digraph directives are unsupported')
++    if len(re.findall(r'\bEDGE_PUSH_THROUGH_MS\b', code)) != 1:
++        fail('EDGE_PUSH_THROUGH_MS: require exactly one active declaration')
++    code = _push_config_directives(code)
++    declaration = re.search(
++        r'\binline\s+constexpr\s+std\s*::\s*uint32_t\s+'
++        r'EDGE_PUSH_THROUGH_MS\s*=\s*([0-9]+)[Uu]\s*;', code)
++    if not declaration:
++        fail('EDGE_PUSH_THROUGH_MS: require canonical unsigned decimal declaration')
++    prefix = code[:declaration.start()]
++    boundary = max(prefix.rfind(';'), prefix.rfind('{'), prefix.rfind('}')) + 1
++    if prefix[boundary:].strip():
++        fail('EDGE_PUSH_THROUGH_MS: unsupported declaration prefix')
++    digits = declaration.group(1)
++    if len(digits) > 3 or (len(digits) > 1 and digits.startswith('0')):
++        fail('EDGE_PUSH_THROUGH_MS: require canonical decimal in 0..100')
++    if int(digits) > 100:
++        fail('EDGE_PUSH_THROUGH_MS: value must be in 0..100')
++
++
++def stage(sketch):
+@@
+-    shutil.copy2(ROOT / 'src/config.h', staged_src / 'config.h')
++    try:
++        shutil.copy2(ROOT / 'src/config.h', staged_src / 'config.h')
++    except OSError as error:
++        fail(f'EDGE_PUSH_THROUGH_MS: cannot copy config: {error}')
++    validate_push_through_config(staged_src / 'config.h')
+*** End Patch

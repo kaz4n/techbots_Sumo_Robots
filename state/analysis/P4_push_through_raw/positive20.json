@@ -1,0 +1,50 @@
+{
+  "name": "positive20",
+  "duration_ms": 20,
+  "flags": [
+    "review"
+  ],
+  "start_utc": "2026-09-24T07:10:57.108068+00:00",
+  "commands": [
+    {
+      "argv": [
+        "cmake",
+        "-S",
+        "/dev/shm/sumox_d131_positive20/fixture/host",
+        "-B",
+        "/dev/shm/sumox_d131_positive20/build",
+        "-DCMAKE_BUILD_TYPE=Debug"
+      ],
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "cmake",
+        "--build",
+        "/dev/shm/sumox_d131_positive20/build",
+        "--parallel",
+        "2",
+        "--target",
+        "push_through_m0_tests",
+        "push_through_m1_tests"
+      ],
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "ctest",
+        "--test-dir",
+        "/dev/shm/sumox_d131_positive20/build",
+        "--output-on-failure",
+        "-R",
+        "^push_through_"
+      ],
+      "returncode": 8
+    }
+  ],
+  "synthetic_replacements": {
+    "EDGE_PUSH_THROUGH_MS = 0U": "EDGE_PUSH_THROUGH_MS = 20U"
+  },
+  "returncode": 8,
+  "end_utc": "2026-09-24T07:11:10.219122+00:00"
+}

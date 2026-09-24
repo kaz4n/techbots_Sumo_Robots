@@ -1,4 +1,39 @@
-# D131/D132 working checkpoint after storage request
+# D131/D132 working checkpoint - user-requested pause
+
+**Latest checkpoint: 2026-09-24, 11:40 Asia/Dubai.** The user
+explicitly paused for network disconnection. No build, test process or board
+operation remains running. Test-author/reviewer turns were interrupted. Resume
+only when the user resumes the goal. This latest section supersedes the older
+step list below, retained as the preceding checkpoint.
+
+D131 validation is finished at host scope: configured20/timing1 ASan/UBSan passes
+42 public and14 private cases per M0/M1; oldD129 sanitizer passes30 per M0/M1.
+Both new white-only predicates are gated on positive duration, preserving the
+default0 STOP/white classification. All684 frozen inputs and40 prior protected
+files were verified before the D132 change; final_binding_before_D132.json binds
+that state. Shipped config remains exact0. Final review still depends on D132.
+
+D132 patch is now applied to tools/board_tool.py, SHA-256
+bfa5ce00cc0ad72772eca48a3efcbb7af09a1e71a4d56ac5c300c377a63ad702.
+The three old tooling files received only four canonical-config fixture additions;
+originals are in P4_push_literal_raw/original. New32-method oracle is frozen as
+fc1ca53858d5f55d3d6d08de5ac766cbf3c6e574811fb7c00e127851625f1caa.
+The first admission run finished with three failing subcases in one new method:
+app stages at0/20/100 expect output/local.h, which is absent. All other31 methods
+pass. Exact failure and hashes: P4_push_literal_raw/admission.txt/json and freeze.json.
+No fix or oracle amendment has been made; no broader D132 regression/private run
+has started. This is a failed run, not D132 acceptance.
+
+**First task on resume:** independently adjudicate that app-header layout
+expectation against the required existing staging layout (the author had only
+just received this task when interrupted). Inspect the source separately as
+coordinator/reviewer. Preserve the original frozen oracle/failure before any
+justified new-test correction. Then run the admission retry and focused regression
+runner, reviewer12 private methods, finalize source bindings/review and ledgers.
+Do not repeat passed D131 matrices without a relevant source change. Target fit,
+full-source WCET, physical trials and human gates remain pending.
+
+---
 
 2026-09-24 Asia/Dubai. Base commit ac49d422; implementation and new tests are
 present as uncommitted task-owned changes. Do not restart or discard them.

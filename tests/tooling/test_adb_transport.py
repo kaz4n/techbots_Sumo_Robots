@@ -174,7 +174,10 @@ class AdbTransportTests(unittest.TestCase):
         destination.write_text(text, encoding='utf-8')
 
     def make_fixture(self):
-        self.write('src/config.h', '#pragma once\n#define FIXTURE_VALUE 20\n')
+        self.write('src/config.h', '#pragma once\n#define FIXTURE_VALUE 20\n'
+                   '#include <cstdint>\nnamespace config {\n'
+                   'inline constexpr std::uint32_t EDGE_PUSH_THROUGH_MS = 0U;\n'
+                   '}\n')
         for module in ('core', 'hal'):
             self.write(f'src/{module}/value.h', '#pragma once\n')
             self.write(f'src/{module}/value.cpp', '#include "../config.h"\n#include "value.h"\n')

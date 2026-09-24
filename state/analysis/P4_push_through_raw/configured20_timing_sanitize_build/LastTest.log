@@ -1,0 +1,52 @@
+Start testing: Sep 24 11:20 +04
+----------------------------------------------------------
+5/16 Testing: push_through_m0_host
+5/16 Test: push_through_m0_host
+Command: "/dev/shm/sumox_d131_configured20_timing_sanitize/build/push_through_m0_tests"
+Directory: /dev/shm/sumox_d131_configured20_timing_sanitize/build
+"push_through_m0_host" start time: Sep 24 11:20 +04
+Output:
+----------------------------------------------------------
+[doctest] doctest version is "2.4.12"
+[doctest] run with "--help" for options
+===============================================================================
+[doctest] test cases:     37 |     37 passed | 0 failed | 0 skipped
+[doctest] assertions: 980130 | 980130 passed | 0 failed |
+[doctest] Status: SUCCESS!
+<end of output>
+Test time =   3.08 sec
+----------------------------------------------------------
+Test Passed.
+"push_through_m0_host" end time: Sep 24 11:20 +04
+"push_through_m0_host" time elapsed: 00:00:03
+----------------------------------------------------------
+
+6/16 Testing: push_through_m1_host
+6/16 Test: push_through_m1_host
+Command: "/dev/shm/sumox_d131_configured20_timing_sanitize/build/push_through_m1_tests"
+Directory: /dev/shm/sumox_d131_configured20_timing_sanitize/build
+"push_through_m1_host" start time: Sep 24 11:20 +04
+Output:
+----------------------------------------------------------
+[doctest] doctest version is "2.4.12"
+[doctest] run with "--help" for options
+===============================================================================
+/dev/shm/sumox_d131_configured20_timing_sanitize/fixture/tests/test_push_through.cc:295:
+TEST CASE:  B9.4 B15 D131 deferredwhite remains an edge exclusion for actual targetloss timing
+
+/dev/shm/sumox_d131_configured20_timing_sanitize/fixture/tests/test_push_through.cc:300: ERROR: CHECK( p4_time::count(r, p4_time::Detail::INTERRUPTED_EDGE) == (1 ? 1U : 0U) ) is NOT correct!
+  values: CHECK( 0 == 1 )
+
+===============================================================================
+[doctest] test cases:     37 |     36 passed | 1 failed | 0 skipped
+[doctest] assertions: 979854 | 979853 passed | 1 failed |
+[doctest] Status: FAILURE!
+<end of output>
+Test time =   2.99 sec
+----------------------------------------------------------
+Test Failed.
+"push_through_m1_host" end time: Sep 24 11:20 +04
+"push_through_m1_host" time elapsed: 00:00:02
+----------------------------------------------------------
+
+End testing: Sep 24 11:20 +04

@@ -1,0 +1,7 @@
+In file included from /dev/shm/sumox_d131_admission_rc2vwf6u/fixture/src/core/governor.h:5,
+                 from /dev/shm/sumox_d131_admission_rc2vwf6u/fixture/src/core/edge.h:6,
+                 from /dev/shm/sumox_d131_admission_rc2vwf6u/fixture/src/core/edge.cpp:4:
+/dev/shm/sumox_d131_admission_rc2vwf6u/fixture/src/core/../config.h:205:55: error: conversion from ‘long long unsigned int’ to ‘uint32_t’ {aka ‘unsigned int’} changes value from ‘4294967296’ to ‘0’ [-Werror=overflow]
+  205 | inline constexpr std::uint32_t EDGE_PUSH_THROUGH_MS = 4294967296ULL; // ms
+      |                                                       ^~~~~~~~~~~~~
+cc1plus: all warnings being treated as errors

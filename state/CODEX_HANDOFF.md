@@ -10,6 +10,12 @@ Do not treat an old snapshot, template or synthetic test as current approval.
 
 ## Current software checkpoint
 
+Dated user pause: 2026-09-24, network disconnect. D131 host validation now passes;
+D132 tooling is applied, but its first32-method run has three failed app-layout
+subcases in one new test. No fix yet; no process or hardware action is running.
+Read the latest section of analysis/P4_push_through_checkpoint.md before the
+older notes. First resume task is independent adjudication of that expectation.
+
 D131/D132 are in progress on top of ac49d422, with task-owned uncommitted code,
 tests and evidence. Resume through analysis/P4_push_through_checkpoint.md; it
 records completed runs, the remaining timing-policy regression, pending native

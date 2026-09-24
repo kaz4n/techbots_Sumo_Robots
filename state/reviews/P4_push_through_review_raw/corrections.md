@@ -1,0 +1,5 @@
+# Private fixture correction history
+v1 freeze: 5976a5700079421c68be5a3a8b243fe90e765544a7ef2a9cb71af309a65ffa70 (before implementation/new public tests).
+v2: 3c75ae3a67661244ad728f0890d9748b24672297b4c0f56f5d551c58b894462e (before first execution): B5 healthy no-contact front-only creates a phantom on white; ordinary no-contact cases instead make IMU unavailable, deflection case admits FC+SL before white. Existing .60 approach/.02 per ms slew plus Gate quantization requires more than10 post-contact increments to reliably exceed .80;11 selected. Expectations unchanged. v1 retained.
+v3: 628712ac33f708ea98e9a3728ffe1f99aea44901dde50b0b9f87036c29da52e5 after first compile-only failure default0_private: raw REQUIRE unsupported by existing DOCTEST_CONFIG_NO_EXCEPTIONS. Replaced only with existing APP_REQUIRE: CHECK plus abort for failed prerequisite. No case had run, no assertion removed. v2 retained.
+Attempted same-build private retry found /dev/shm build absent; no execution occurred. Root owns subsequent serial copied-config runs.

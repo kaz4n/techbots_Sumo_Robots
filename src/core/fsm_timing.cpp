@@ -77,7 +77,9 @@ bool Robot::excludeTimingTrace(const RobotInput& input) {
     const std::uint32_t decision = input.t_us - origin;
     if (!validTimingSource(input) || start > end || end > decision || decision >= HALF_RANGE)
         closeTimingTrace(Detail::INVALID_SOURCE_TIME);
-    else if (tick_.escape.escape_required || tick_.escape.fault != edge::EscapeFault::NONE)
+    else if ((config::EDGE_PUSH_THROUGH_MS > 0U && result_.line_mask != 0U) ||
+             tick_.escape.escape_required ||
+             tick_.escape.fault != edge::EscapeFault::NONE)
         closeTimingTrace(Detail::INTERRUPTED_EDGE);
     else if (!tick_.permission || faults_ != 0U || tick_.selected == core::State::STOPPED)
         closeTimingTrace(Detail::INTERRUPTED_STOP_FAULT);
@@ -128,6 +130,9 @@ void Robot::publishTimingTrace(const RobotInput& input) {
             (result_.opponent_mask & 7U) != 0U && !timingFrontFiltered()) {
             timing_trace_.anchor_us = tick_.t_us;
             timing_trace_.phase = TimingPhase::ARMED;
+            // D131 excludes edge-context approaches even while motion is deferred.
+            if (config::EDGE_PUSH_THROUGH_MS > 0U && result_.line_mask != 0U)
+                closeTimingTrace(Detail::INTERRUPTED_EDGE);
         }
         return;
     }

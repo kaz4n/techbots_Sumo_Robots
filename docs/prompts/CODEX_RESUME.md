@@ -1,5 +1,18 @@
 # Resume SumoX-26 with Codex
 
+**D138 ACTIVE (2026-09-24 22:42 Dubai):** a continuation source audit found a
+host-implementable P7.2 readiness/battery display gap. Adopted contract568bc277,
+designreviewPASS5bc6f928 and public interfaces committed36a96bd2. This supersedes
+the earlier no-further-host-task checkpoint below only for this concrete task.
+Fresh-context p7_ready_tests owns new state/analysis/P7_readiness_test_draft;
+p5_native_compile owns countdown.cpp/fsm_robot.cpp/runtime_inputs.cpp/ui_display.cpp
+implementation and its notes. Root owns interfaces/CMake/ledgers and execution.
+No new implementation tests/builds have run. First require independent test
+freeze and exact first implementation hashes, then run focused/default/configured
+M0/M1, sanitizer/fullhost, source-bound target/layout checks and separate review.
+Read analysis/P7_readiness_contract.md and P7_readiness_baseline.json. Do not
+claim native matrix/physical READY, change grants or reuse motor permission.
+
 Current phase: **P7 awaiting release prerequisites**. D137 document preparation
 is closed2700da11; P5 software is closed. Actual physical acceptance/human gates
 remain pending. Do not reset toP0

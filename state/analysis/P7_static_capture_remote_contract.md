@@ -89,6 +89,10 @@ The only executable argv is:
 
 OPENOCD/config are the pinned absolute bindings paths; NAME/address/size are
 the next immutable plan item. cwd is /home/arduino. Output path is first absent.
+Tcl braces around the complete path are literal; address is lowercase hexadecimal
+prefixed0x with exactly eight digits, size decimal. The default process wrapper
+must recompute remaining budget immediately before Popen after stream-file/path
+checks; expired budget prevents Popen and timeout is min(supplied timeout,remaining).
 Use a fixed minimal subprocess environment HOME/USER/LOGNAME/PATH/LANG, with
 HOME=/home/arduino, USER=LOGNAME=arduino, PATH=/usr/bin:/bin, LANG=C.UTF-8.
 No shell, MCU write/reset/halt command or connection server is added.
@@ -162,6 +166,10 @@ retained original directory descriptor after checking that descriptor's identity
 never write through the replacement pathname. New commands/claim creation still
 require the complete path identity. A helper context-exit error is additional
 failure evidence, never permission to erase an earlier failure or return success.
+Finite local receipt/output retention may run after the collection deadline; it
+launches no MCU command. If the clock itself fails, retain the last valid
+monotonic observation (or None if unavailable) plus the clock error when writing
+failure receipts; do not lose the original error solely trying to timestamp it.
 
 Independent spec-derived tests freeze before implementation execution. Test exact
 argv/order/extent, identity/pin/parent drift, existing output, durable claim before

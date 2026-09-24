@@ -1,5 +1,9 @@
 {
   "status": "FROZEN_FOR_AUTHORIZED_HOST_TEST",
+  "oracle_revision": 2,
+  "prior_oracle_commit": "047d6576",
+  "prior_freeze_sha256": "06e7e61c68fc0aaf2fe329c29547805cde9c4a0ee6c8588aa7677c4b00f2bc2b",
+  "revision_reason": "Coordinator-approved independent review found the original exact directory set overstrict: the public contract requires recording the runner own hash and permits compact input metadata. Only the positive receipt assertion now additionally requires inputs.json and checks its exact reviewed pins, verified stage and current runner hash. Original freeze and first failure remain preserved in prior_oracle_commit.",
   "scope": "Independent D143 runner protocol tests using exact command fakes and unchanged fixed local inputs",
   "test_methods": 22,
   "implementation_bodies_read": false,
@@ -8,7 +12,7 @@
   "implementation_binding": "The coordinator must record reviewed runner and helper source hashes before and after each execution. Mutable implementation bytes are not part of this independent oracle freeze. The test derives only opaque helper SHA256 and compressed bytes to compare exact transport arguments.",
   "inputs_sha256": {
     "state/analysis/P7_static_runner_test_draft/public_fixtures.py": "7232fa8700765c402f448f8954e94952271f1551eae47916504a9914101fffca",
-    "state/analysis/P7_static_runner_test_draft/test_static_runner.py": "cb6055a7d24312cada12b7b18e8debb7cd083df8abf30c9d0c509fe6203e5c91",
+    "state/analysis/P7_static_runner_test_draft/test_static_runner.py": "594d399dc818d3ae5113648d92589d8921b16fd37c36d1682d4ea59ba6bfbc20",
     "state/analysis/P7_static_runner_contract.md": "35473ed0eb59b9d7fd097cb25554b591ec6bd470703504e1a525219b2fdba7e7",
     "state/analysis/P7_static_remote_contract_draft.md": "a4be3733d40632b4ae79e3bbbab3300f720b8f7f13f3337d35d96dfc90373b39",
     "state/analysis/P7_static_link_probe_raw/static_bootstrap.txt": "a6bb46737bea18fc564e77bbd7124c20771258b4fe4ca41a17cbd4cce9798419",

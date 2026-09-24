@@ -170,7 +170,31 @@ class StaticRunnerContract(unittest.TestCase):
         self.assertEqual((self.receipt/'app.ino.elf').read_bytes(),self.packet['app.ino.elf'])
         self.assertEqual(result['final_elf'],dict(path=str(self.receipt/'app.ino.elf'),**self.report['artifacts']['app.ino.elf']))
         self.assertEqual({path.name for path in self.receipt.iterdir()},
-                         {'result.json','app.ino.elf',*[f'{i:04}.json' for i in range(1,27)]})
+                         {'inputs.json','result.json','app.ino.elf',*[f'{i:04}.json' for i in range(1,27)]})
+        inputs = json.loads((self.receipt/'inputs.json').read_text())
+        self.assertEqual(set(inputs), {'pins','stage','runner_sha256'})
+        expected_pins = {
+            'tools/board_tool.py': '3f2dac6d2b0f75209d335f5045e5233aab2dea8ca9edd740b69a652476ddf2bc',
+            'tools/app_build_policy.py': 'd5a4ce59870574ac601c3d8837b472adf7eec81e86982794fa16a7b3b354a7c6',
+            'tools/app_build_commands.json': '63f6c41e34bae9fce1d945c3271b3fe86343f27544affe25ae14788438d62e1d',
+            'tools/app_build_pins.json': '55720e65b03f6cd28964c675ceeec76619824cd11525549fbac0503b8efa972b',
+            'state/analysis/P7_static_link_probe_raw/static_policy.py': 'ec3d8a5e8c4910bbdbbb96fb5123c8bb42b294ce9342c76db73b8d3b5eab7775',
+            'state/analysis/P7_static_link_probe_raw/static_reference.json': '1dc8ac6dec8534536acfcc4da73516416ea465cfcc1a349900fd13e210144a2b',
+            'state/analysis/P7_static_link_probe_raw/additional_pins.json': 'd8dc249656cef0a852af8385d59fbdd3e9e30ace2dcb113921bf7964483fe924',
+            'state/analysis/P7_default_qualification_raw/reuse_stage.py': '78e173296c1d4366e4866b947b017814d69be2055c739cf1d96d0980eb40900e',
+            'state/analysis/P7_default_qualification_raw/working_source_manifest.json': 'c106c0fb8baaf0a6f2536558da0084bd7d236c4ee8e77a4110b60107ad073391',
+            'state/analysis/P7_default_qualification_raw/checked_stage_manifest.json': '56ab12b990ebe664941677e29dfef783197bc98c3a9de1985b54d57bb30da56a',
+            'state/analysis/P7_static_link_probe_contract.md': 'd9090cc49a657bdaf08d47def5b9f1fdc8b7da620e19335a0a10b338da32abae',
+            'state/analysis/P7_static_link_probe_raw/static_artifacts.py': 'd30372dd4b8fb8c2661d00affc4a215cc88e3f62511995ff6303827bed4b7368',
+            'state/analysis/P7_static_artifact_contract.md': 'b6a18e4d27e500d6306587141cbb27bcd7e546ce9bb507f148f28591634bec54',
+            'state/analysis/P7_static_runner_contract.md': '35473ed0eb59b9d7fd097cb25554b591ec6bd470703504e1a525219b2fdba7e7',
+            'state/analysis/P7_static_remote_contract_draft.md': 'a4be3733d40632b4ae79e3bbbab3300f720b8f7f13f3337d35d96dfc90373b39',
+            'state/analysis/P7_static_link_probe_raw/static_bootstrap.txt': 'a6bb46737bea18fc564e77bbd7124c20771258b4fe4ca41a17cbd4cce9798419',
+            'state/analysis/P7_static_link_probe_raw/static_remote.py': self.f.digest((RAW/'static_remote.py').read_bytes())}
+        self.assertEqual(inputs['pins'], expected_pins)
+        self.assertEqual(inputs['runner_sha256'], self.f.digest((RAW/'run_static_probe.py').read_bytes()))
+        self.assertEqual(inputs['stage'], dict(source_files=103,stage_files=102,
+                                              source_sha256=self.f.SOURCE,read_only_reuse=True))
         for index in range(1,27):
             record = json.loads((self.receipt/f'{index:04}.json').read_text())
             self.assertEqual(set(record),{'sequence','phase','board','argv','timeout','start_utc',

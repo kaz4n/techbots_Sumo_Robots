@@ -14,9 +14,28 @@ namespace openers {
 // These are requests to the future FSM, not assignments of Robot state. The FSM
 // must still enforce edge priority, centering/contact rules and motor permission.
 enum class Exit : std::uint8_t { NONE, FRONT_TARGET, SIDE_OR_REAR_TARGET, SEARCH, INVALID };
+#if SUMOX_P5_ABORT_TIMING
+enum class AbortPhase : std::uint8_t {
+    DIRECT = 0, PIVOT = 1, TRAVERSE = 2, TURN_IN = 3, WAIT_HOLD = 4
+};
+enum class AbortCause : std::uint8_t {
+    NONE = 0, CURRENT_FRONT = 1, CURRENT_SIDE_OR_REAR = 2,
+    SNAPSHOT_ONLY = 3, NATURAL_END = 4
+};
+// D135 observational pulse for this call, captured before terminal phase changes.
+struct AbortEvidence {
+    AbortPhase phase = AbortPhase::DIRECT;
+    AbortCause cause = AbortCause::NONE;
+    std::uint8_t effective_mask = 0;
+    bool snapshot_front_present = false;
+};
+#endif
 struct Result {
     motion::Result motion;
     Exit exit = Exit::NONE;
+#if SUMOX_P5_ABORT_TIMING
+    AbortEvidence abort;
+#endif
 };
 
 class Direct {
@@ -60,6 +79,9 @@ struct FlankResult {
     bool motion_timed_out = false; // Per-call pulse for any B7 timeout completion.
     bool scan_hint_valid = false; // Only SIDESTEP finishing into SEARCH supplies it.
     motion::Direction scan_direction = motion::Direction::LEFT;
+#if SUMOX_P5_ABORT_TIMING
+    AbortEvidence abort;
+#endif
 };
 class Flank {
 public:

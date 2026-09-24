@@ -414,8 +414,8 @@ struct TickTiming {
     bool start_valid = false;
     std::uint32_t started_us = 0; // Actual acquisition start; t_us stays decision time.
 };
-#if SUMOX_TIMING_EVIDENCE
-// D129 source evidence only; no change to debounce or motion permission.
+#if SUMOX_TIMING_EVIDENCE || SUMOX_P5_ABORT_TIMING
+// Source evidence only; no change to debounce or motion permission.
 struct OpponentReadWindow {
     bool valid = false;
     std::uint32_t started_us = 0U;
@@ -445,7 +445,7 @@ struct RobotInput {
     bool opponent_fresh = false; // Explicit line mode only; independent of QTR frames.
     core::ButtonEvidence buttons;
     TickTiming timing; // D092 opt-in complete-tick accounting; legacy default unchanged.
-#if SUMOX_TIMING_EVIDENCE
+#if SUMOX_TIMING_EVIDENCE || SUMOX_P5_ABORT_TIMING
     OpponentReadWindow opponent_read;
 #endif
 };
@@ -457,6 +457,7 @@ struct RobotResult {
     // D128: real local match start enters SEARCH; selected mode is metadata only.
     static constexpr bool REACTIVE_PROFILE = SUMOX_P4_REACTIVE != 0;
     static constexpr bool TIMING_EVIDENCE_PROFILE = SUMOX_TIMING_EVIDENCE != 0;
+    static constexpr bool OPENER_TIMING_PROFILE = SUMOX_P5_ABORT_TIMING != 0;
 #if SUMOX_P3_STOP_TRIAL
     stop_trial::Report stop_trial;
     bool stop_trial_stopping = false;
@@ -579,6 +580,9 @@ private:
 #if SUMOX_TIMING_EVIDENCE
         bool contact = false;
 #endif
+#if SUMOX_P5_ABORT_TIMING
+        bool abort_handover = false;
+#endif
     };
     struct Tick {
         core::State entry = core::State::BOOT;
@@ -610,7 +614,25 @@ private:
         bool timing_loss_brake = false;
         bool timing_epoch_valid = false;
 #endif
+#if SUMOX_P5_ABORT_TIMING
+        openers::AbortEvidence abort;
+        std::uint64_t abort_token = 0;
+        bool abort_routed = false;
+        bool abort_epoch_valid = false;
+#endif
     };
+#if SUMOX_P5_ABORT_TIMING
+    enum class AbortTracePhase : std::uint8_t { IDLE, WAITING, RECEIPT, CLOSED };
+    void captureOpenerAbort(const openers::AbortEvidence& evidence);
+    void markOpenerHandover();
+    void receiveOpenerTiming(const RobotInput& input, bool applied_valid);
+    bool validOpenerSource(const RobotInput& input) const;
+    bool validOpenerHandover() const;
+    std::uint16_t openerCueValue() const;
+    void publishOpenerTiming(const RobotInput& input);
+    void closeOpenerTiming(logframe::OpenerTimingDetail detail, std::uint16_t value = 1U);
+    AbortTracePhase abort_trace_phase_ = AbortTracePhase::IDLE;
+#endif
 #if SUMOX_TIMING_EVIDENCE
     enum class TimingPhase : std::uint8_t { IDLE, ARMED, OBSERVING, RECEIPT, CLOSED };
     struct TimingTrace {

@@ -1,7 +1,7 @@
 // Tests D135 per-call opener evidence against B12 predicates and completion rules.
 // Separates current detection, saved snapshot, natural completion and internal cues.
 // Isolated draft tests exhaust masks without inspecting or replaying implementation predicates.
-#include "p5_abort_fixture.h"
+#include "fixtures/p5_abort_fixture.h"
 
 using namespace p5_abort;
 namespace {
@@ -151,4 +151,27 @@ TEST_CASE("B12 D055 D135 WAIT ordered cue is not an abort and full flank preserv
         CHECK(r.flank.abort.cause == cause); CHECK_FALSE(r.approach_cue);
         if (cause != Cause::NONE) pulse(r.flank.abort, static_cast<Phase>(phase), cause, mask);
     }
+}
+
+TEST_CASE("B12 B13 D135 inactive reset invalid and disabled scripts never publish a detection pulse") {
+    openers::Direct direct; CHECK(direct.step(0U, 0.0F, true, 127U).abort.cause == Cause::NONE);
+    APP_REQUIRE(direct.start(0U, 0.0F, 0U)); direct.reset();
+    CHECK(direct.step(1000U, 0.0F, true, 127U).abort.cause == Cause::NONE);
+    for (unsigned mode : {1U, 2U, 4U, 5U}) {
+        openers::Flank flank; CHECK(flank.step(sample(0U, 127U)).abort.cause == Cause::NONE);
+        const bool available = core::modeAvailable(static_cast<Mode>(mode));
+        CHECK(flank.start(0U, 0.0F, true, static_cast<Mode>(mode)) == available);
+        if (!available) {
+            const auto r = flank.step(sample(1000U, 127U)); CHECK(r.exit == openers::Exit::INVALID);
+            CHECK(r.abort.cause == Cause::NONE); zero(r.motion);
+        }
+        flank.reset(); CHECK(flank.step(sample(2000U, 127U)).abort.cause == Cause::NONE);
+    }
+    openers::Wait wait; CHECK(wait.step(sample(0U, 127U)).flank.abort.cause == Cause::NONE);
+    const bool available = core::modeAvailable(Mode::WAIT); CHECK(wait.start(0U, 0.0F) == available);
+    if (!available) {
+        const auto r = wait.step(sample(1000U, 127U)); CHECK(r.phase == openers::WaitPhase::INVALID);
+        CHECK(r.flank.abort.cause == Cause::NONE); zero(r.flank.motion);
+    }
+    wait.reset(); CHECK(wait.step(sample(2000U, 127U)).flank.abort.cause == Cause::NONE);
 }

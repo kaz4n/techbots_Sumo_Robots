@@ -1,0 +1,127 @@
+# D135 independent public-oracle draft plan
+
+2026-09-24. Derived from the adopted `P5_abort_evidence_contract.md` at
+2aa0ac2e, BEHAVIOR B2/B3/B4/B5/B6/B7/B12/B13/B15, D033/D034/D055/D134,
+and public headers. P5.3's physical ten-trial requirement remains separate.
+The four paused draft files are preserved by Git at bf36abfb. These new oracles have
+not been compiled, imported or executed. Production implementation bodies were
+not read. D134's frozen sources, existing tests/locks, headers, CMake, tools and
+shared ledgers were not edited by this author.
+
+## Draft inventory and expectations
+
+After root released the D134 host barrier at d6a8319e, the drafts were moved
+to the new test paths below; include paths alone changed during that transfer.
+No redundant draft source copies remain. The new safety file remains unaccepted
+pending review/validation. There are42 TEST_CASEs with configured buttons,40
+otherwise, plus18 Python methods. Counts describe authored cases, not passes.
+
+| File | Cases | Independent expectations |
+|---|---:|---|
+| `tests/fixtures/p5_abort_fixture.h` | helper | Public Robot, actual MotorGate and Transaction; separate T/read/D/A/C; literal cue table; exact timing suffix/order; public menu/START admission only |
+| `tests/test_abort_codec.cc` |5| Profile/capacity constants; all65,536 cue words; all256 details with boundary values; exact8-byte little-endian wire; all four appends at21-event capacity |
+| `tests/test_abort_openers.cc` |9|128x128 Direct snapshot/current combinations; all128 masks per available Flank phase and WAIT phase; same-call phase advance; front/outer priority; natural and primitive timeout distinction; deadline ties/wrap; reset/disabled/inactive pulses |
+| `tests/test_abort_robot.cc` |15| Header adjacency; GO-time Direct; phase/mask handover with D034 centering; held effective target after raw clearing; true late snapshot negative/control; WAIT zero/cue/full Flank; actual receipt delays0/999/1000/1001/50000us; clock wrap; invalid source metadata with unchanged requests; full64-bit receipt mismatch and invalid duty/EN/chronology; duplicates/reset/missing tail |
+| `tests/locked/test_abort_timing_safety.cc` |6| Exact full hold for every available mode; all15 white masks before candidate; STOP/source priority; real PWM quantization/EN; old valid receipt before new edge/STOP/source fault;10,000 fixed-seed bounded R1/R5 streams |
+| `tests/test_abort_runtime.cc` |3| Empty SetupGrants remain inert; configured actual Runtime read interval equals one callback's start/end, real Transaction receipt time and recorder bytes; DIRECT and zero-duty WAIT candidates; partial/failed/out-of-epoch source refusal and no retry |
+| `tests/test_abort_recording.cc` |4| Public synthetic envelope composition: partial batch retention/loss,4096-event ring overflow while frames continue, malformed count/invalid cue propagation, visible APPLIED never erases loss, unfinished/reset prefix stays incomplete |
+| `tests/tooling/test_opener_timing_policy.py` |18| Exact checked wrapper/project/flags, both result/preflight validators, expanded recipe/artifact binding, old app/P4 admission, zero-I/O upload/MATCH/Immediate/foreign-run refusal, local profiles, no new upload key, empty grants/no source overrides, default/binary/exclusive profile and wrapper syntax probes |
+
+The opcode/detail/cue expectations are literal contract values, not calls to a
+production cue encoder. Exhaustive cue validation and opener behavior share an
+independent spec table, never an implementation predicate. Actual Robot records
+check both the cue and resulting state, plus their same-D timestamps; receipt
+results must appear before current-decision events. Upper-token-bit corruption
+preserves the low32 bits and must fail. Gate assertions compare the acknowledged
+downward-quantized PWM with the governed request, including M0 physical zero.
+
+The snapshot tests establish a confirmed target at release+5.000/5.001s, inside
+D024's final300ms window. Replacement begins at5.060s and GO is5.100s. This avoids
+the independently adjudicated D134 stale-snapshot fixture error. The wrap case
+first measures only the fixture's menu/START schedule, then translates the full
+timeline so candidate D is exactly0; read times cross the numerical wrap.
+
+The safety draft retains B4's moving rear/side rows. It does not infer universal
+braking from EDGE_ESCAPE. Brake/fault rows retain zero checks; other rows retain
+the0.80 cap and exact actual Gate quantization. Existing frozen D134 oracles
+already cover literal settled vectors and the B6 slew/reversal sequence.
+
+## Build and review boundary
+
+Root may integrate explicit dedicated M0/M1 targets using the existing
+`B4_HOST_SOURCES` source list and its doctest main. Add the six `.cc` files above
+and include directories `src`, `tests` and `host/third_party`.
+This reuses actual core, app Runtime /
+Transaction, Gate, UI, ADC, QTR/IMU adapters, recorder/CSV/dump sources; no extra
+native hardware implementation, stub replacement or test setter is required.
+
+Compiler-wide profile: C++17, MATCH=0, SUMOX_P5_ABORT_TIMING=1,
+MOTORS_ALLOWED=0 or1; B4_STAND, P3_DRIVE_TEST, P3_TURN_TRIAL, P3_STOP_TRIAL,
+P4_REACTIVE and SUMOX_TIMING_EVIDENCE all0. Keep warnings-as-errors, no RTTI,
+no exceptions, and DOCTEST_CONFIG_NO_EXCEPTIONS. These drafts intentionally
+require the new adopted public AbortEvidence/AbortPhase/AbortCause members and
+OPENER_TIMING_PROFILE declaration before they can compile.
+
+Configured Runtime coverage requires `APP_TEST_CONFIGURED_BUTTONS` and an isolated
+copied config with BUTTON_WINDOWS_CONFIGURED=1,
+BUTTON_LOW_RAW={0,900,1900,2900}, BUTTON_HIGH_RAW={100,1100,2100,3100}.
+This is the established synthetic fixture in `tests/tooling/test_app_runtime.py`,
+not a physical button-window grant. Keep other shipped timing/governor values.
+Run normal and sanitizer M0/M1; run all four D134 availability combinations in
+copied configs to exercise disabled script pulses. Enabled choices use public
+menu gestures, so no injected mode or fixed default selection is needed.
+
+The18 Python methods prepare compiler-profile/wrapper syntax probes and exact
+public policy admission checks; no compiler, import or method has run yet.
+Root owns exact default/P4 ABI comparisons, unchanged protected regressions and
+checked native compile/ELF/loader audit. Source-local checks use the established
+sketch.yaml/yml refusal and the wrapper's absence of macro overrides. Root
+explicitly confirmed that no broader new source-scan API is intended.
+Old P4 assertions stay in their existing dedicated profiles; they are not
+reinterpreted as P5 evidence. No new analyzer API or scoring framework is assumed.
+
+## Honest coverage limits and remaining review responsibilities
+
+- Public APIs cannot force an omitted/wrong routeNormal invocation, a different
+  internal route token, corrupted Pending tag/attempt phase, unexpected private
+  owner replacement, or Robot's UINT64 token exhaustion. Source review and
+  bounded mutations in isolated copies must check these branches. In particular,
+  omitted routing must yield HANDOVER_FAILED and lost ownership must never attach
+  APPLIED to a later receipt. No public setter or private-layout hack is added.
+- Final preemption after an already captured cue is specified, but ordinary
+  public safety inputs preempt before opener evaluation. Its exact terminal
+  prefix needs source review/isolated mutation unless a reviewer identifies a
+  genuine public input path. The existing direct edge/STOP tests assert actual
+  preemption and receipt-before-current-observation ordering without fabricating
+  that intermediate private state.
+- Contact cannot be injected independently of the ordinary opener/contact
+  state rules. The tests exercise WAIT's real zero request and effective held
+  perception, and impose no P4 raw-clear/contact/positive-wheel exclusion.
+  Review must ensure no inappropriate D129 exclusion was copied into P5.
+- Saturating an actual Robot's private event batch on the precise cue call has
+  no public seam. The explicitly synthetic EventBatch/AttemptRecorder cases
+  prove prefix/loss composition; actual Robot/Runtime cases independently prove
+  representative producer suffixes and source/receipt ownership. Source review
+  must verify that all specified appends are attempted and rejected records
+  cannot reopen the candidate. Synthetic envelopes are not hardware provenance.
+- Missing tail/reset/abort remain incomplete. A clean recording that is still
+  RECORDING is unfinished; incomplete()==false alone is never a completed dump.
+  Sparse Transaction timelines deliberately skip25Hz frames and assert visible
+  skipped/incomplete status while separately requiring zero event loss. Dense
+  actual Runtime cases check frame cadence and event integrity together.
+- Native RAM/stack fit, physical clock accuracy, actual A1/QTR/IMU acceptance,
+  motor authorization, live extraction and P5 physical10/10 trials remain open.
+  M0 APPLIED records are diagnostics even when arithmetic is within1000us.
+
+## Pre-freeze static corrections
+
+The resumed drafts corrected an uncompiled `r.port` typo to `rig.port`, renamed
+the codec boundary-value title so it does not claim all noncue values were
+exhausted, anchored the wrap test at an actual numerical crossing, and replaced
+the sparse-timeline globally-clean recording assumption with explicit D070
+skipped-frame/incomplete checks. No execution failure or production repair
+prompted these corrections. Original four-file draft provenance remains bf36abfb.
+
+Next action: root/reviewer inspect and freeze exact hashes before any compilation
+or implementation execution; accept the new safety candidates only through the
+established new-lock process. No result or physical pass is claimed.

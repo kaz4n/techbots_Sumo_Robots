@@ -78,6 +78,13 @@ enum class TimingDetail : std::uint8_t {
 #else
 inline constexpr std::size_t ROBOT_EVENT_CAPACITY = 21U;
 #endif
+#if SUMOX_P5_ABORT_TIMING
+enum class OpenerTimingDetail : std::uint8_t {
+    HEADER = 0, READ_START = 16, READ_END = 17, QUALIFIED = 18,
+    HANDOVER = 19, APPLIED = 20, NOT_ABORT = 21, INTERRUPTED = 22,
+    INVALID_SOURCE = 23, INVALID_RECEIPT = 24, HANDOVER_FAILED = 25
+};
+#endif
 enum class FaultCode : std::uint8_t {
     IMU_UNAVAILABLE = 1, OPPONENT_STUCK, QTR_STUCK_WARNING, LOW_BATTERY,
     CALIBRATION, ESCAPE_FAULT, CORE_CONTRACT_FAULT, TURN_TIMEOUT,

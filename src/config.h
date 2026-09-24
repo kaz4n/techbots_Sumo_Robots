@@ -28,6 +28,15 @@
 #ifndef SUMOX_TIMING_EVIDENCE
 #define SUMOX_TIMING_EVIDENCE 0
 #endif
+#ifndef SUMOX_P5_ABORT_TIMING
+#define SUMOX_P5_ABORT_TIMING 0
+#endif
+static_assert(SUMOX_P5_ABORT_TIMING == 0 || SUMOX_P5_ABORT_TIMING == 1,
+              "SUMOX_P5_ABORT_TIMING must be 0 or 1");
+static_assert(!SUMOX_P5_ABORT_TIMING || (!MATCH && !SUMOX_B4_STAND &&
+              !SUMOX_P3_DRIVE_TEST && !SUMOX_P3_TURN_TRIAL && !SUMOX_P3_STOP_TRIAL &&
+              !SUMOX_P4_REACTIVE && !SUMOX_TIMING_EVIDENCE),
+              "P5 abort timing is exclusive and not a MATCH build");
 static_assert(SUMOX_TIMING_EVIDENCE == 0 || SUMOX_TIMING_EVIDENCE == 1,
               "SUMOX_TIMING_EVIDENCE must be 0 or 1");
 static_assert(!SUMOX_TIMING_EVIDENCE || SUMOX_P4_REACTIVE,

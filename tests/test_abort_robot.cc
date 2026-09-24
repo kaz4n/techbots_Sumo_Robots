@@ -1,7 +1,7 @@
 // Tests D135 source-to-handover-to-application evidence through public production owners.
 // Distinguishes actual Gate receipts from deliberately altered invalid receipt inputs.
 // Isolated draft tests cover timing endpoints, causal negatives, priority and no-retry lifetime.
-#include "p5_abort_fixture.h"
+#include "fixtures/p5_abort_fixture.h"
 
 using namespace p5_abort;
 namespace {
@@ -100,6 +100,17 @@ TEST_CASE("B12 D135 phase advancement can qualify a persistent front on the same
     }
 }
 
+TEST_CASE("B5 B12 D135 held effective front remains eligible after fresh raw electrical deassertion") {
+    for (unsigned mode : {1U, 2U}) {
+        Rig rig; preparePhase(rig, mode, 1U); rig.opponent(2U); rig.next(); rig.next();
+        APP_REQUIRE(rig.last.opponent_mask == 2U); CHECK(rig.trace_size == 1U);
+        rig.opponent(0U); rig.input.raw_heading_deg = mode == 1U ? 50.0F : -50.0F;
+        const auto d = rig.now + 1000U; const auto r = rig.step(d);
+        CHECK(rig.input.opp_raw_mask == 0x78U); CHECK(r.opponent_mask == 2U);
+        qualified(rig, r, mode, 2U, 1U, 2U, State::TRACK, d, d); complete(rig, d);
+    }
+}
+
 TEST_CASE("B12 D135 DIRECT snapshot-only is NOT_ABORT even when current perception routes side") {
     for (unsigned current : {0U, 8U}) {
         Rig rig; const auto release = rig.release(); rig.services(release);
@@ -161,7 +172,9 @@ TEST_CASE("B15 D135 actual Transaction Gate recorder preserve early exact and la
         const auto elapsed = static_cast<std::uint32_t>(applied.t_us - event(candidate.robot, QUALIFIED).t_us);
         CHECK(elapsed == delay); CHECK((elapsed <= 1000U) == (delay <= 1000U));
         CHECK(stored(rig.owner.recording(), APPLIED) == 1U);
-        CHECK_FALSE(rig.owner.recording().incomplete());
+        // Sparse host epochs intentionally skip frames; event integrity is independent.
+        CHECK(rig.owner.recording().incomplete());
+        CHECK(rig.owner.recording().summary().skipped_frames > 0U);
         CHECK(rig.owner.recording().summary().upstream_event_rejected == 0U);
         CHECK(rig.owner.recording().summary().event_semantic_rejected == 0U);
         if (!MOTORS_ALLOWED) app_test::zero(rig.port);
@@ -169,8 +182,10 @@ TEST_CASE("B15 D135 actual Transaction Gate recorder preserve early exact and la
 }
 
 TEST_CASE("B15 D135 valid common-anchor source and receipt chronology survives numerical clock wrap") {
-    Rig rig; rig.go(Mode::DIRECT, 0U - 5267000U);
+    Rig anchor; anchor.go(); const auto prefix = anchor.frontCandidate().t_us;
+    Rig rig; rig.go(Mode::DIRECT, 0U - prefix);
     auto value = rig.frontCandidate(); const auto d = value.t_us;
+    CHECK(d == 0U); CHECK(value.opponent_read.started_us > d);
     const auto r = rig.submit(value, 40U, 80U);
     qualified(rig, r, 3U, 0U, 1U, 2U, State::TRACK, d - 150U, d - 120U);
     complete(rig, d + 40U); CHECK_FALSE(rig.last.timing_incomplete);
@@ -224,7 +239,7 @@ TEST_CASE("B15 D135 duplicate decision cannot consume receipt or replay qualifie
     const auto size = rig.trace_size, operations = rig.port.operations;
     auto duplicate = rig.at(rig.now); duplicate.stop_requested = true;
     const auto r = rig.robot.step(duplicate);
-    CHECK_FALSE(r.fresh); CHECK(r.events.count == 0U); CHECK(r.port.operations == operations);
+    CHECK_FALSE(r.fresh); CHECK(r.events.count == 0U); CHECK(rig.port.operations == operations);
     CHECK(rig.trace_size == size); complete(rig, value.t_us);
 }
 

@@ -1,7 +1,7 @@
 // Tests the adopted D135 numeric event grammar independently of producer branches.
 // Preserves every historical mode ID and rejects unlisted phase/cause combinations.
 // Isolated draft host cases exhaust all packed cue values and exact bounded retention.
-#include "p5_abort_fixture.h"
+#include "fixtures/p5_abort_fixture.h"
 
 using namespace p5_abort;
 
@@ -31,7 +31,7 @@ TEST_CASE("B15 D135 all65536 cue words follow the independent mode phase cause m
     }
 }
 
-TEST_CASE("B15 D135 every detail and exhaustive noncue values reject P4 and reserved grammar") {
+TEST_CASE("B15 D135 every detail and boundary noncue values reject P4 and reserved grammar") {
     for (unsigned detail = 0U; detail < 256U; ++detail) {
         if (detail == QUALIFIED) continue;
         for (unsigned value : {0U, 1U, 2U, 3U, 4U, 5U, 6U, 7U, 8U, 9U, 10U, 11U,

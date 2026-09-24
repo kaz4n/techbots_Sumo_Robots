@@ -2,7 +2,7 @@
 // Keeps acquisition, decision, application and completion clocks distinct in host traces.
 // Draft tests use only admitted public inputs; malformed receipts are explicitly altered evidence.
 #pragma once
-#include "fixtures/app_transaction_fixture.h"
+#include "app_transaction_fixture.h"
 #include "core/openers.h"
 #include <array>
 #include <cmath>

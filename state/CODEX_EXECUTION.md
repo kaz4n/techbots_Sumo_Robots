@@ -60,9 +60,11 @@ pending; D051/D075/D122/D137 permit scheduling, not fabricated measurements.
 - [x] Local entry/constructor inspection:34 commands/32 functions; source/ELF match,
   separate review14e6d959 PASS. Original raw92b72069 retained; literal-elision
   description corrected. Early native printk/startup behavior remains unmeasured.
-- [ ] Audit actual used native bindings and exact16-type/82-offset target ABI.
-  Use current_default_abi query list only under a separately bound file-only read;
-  never execute the historical collector unchanged or reuse consumed commands.
+- [x] D149 exact16-type/82-offset debug-layout comparison: all match; five reads
+  exit0 and separate actualreview3f4d20b7 PASS. See analysis/P7_static_native_abi_validation.md.
+  No MCU execution; the file-only observation is terminal and consumed.
+- [ ] Close complete native driver/API dispatch coverage. Bounded address/veneer
+  audit is available; indirect callbacks still need explicit coverage.
 - [ ] Qualify native loading/startup, stack/heap/WCET and release workflow before
   adoption. Structural RAM tail94352B is not measured free memory.
 

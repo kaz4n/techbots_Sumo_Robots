@@ -99,3 +99,66 @@ It does not establish completeness of the selected fields, native function/
 device/callback ABI, execution/loading, startup correctness, live RAM/stack,
 WCET, static adoption, physical acceptance or a human gate. Existing dynamic
 fit failures, original D144 rejection and D148 structural status remain separate.
+
+## Actual D149 receipt review
+
+25 September2026, after GO commit `2cd8d795`. This follow-up reuses the same
+review context and bounded second reviewer; it is not fresh-context or runtime
+review. Original review bytes had SHA256
+`7d054afbd68a19a734053f69fc4c3992a55fee5498b675a44cb0194f316eb994`
+before this append. Both reviewers only read/parsed local receipts and compared
+hashes; no GDB/board invocation, retry, implementation/test edit or commit.
+
+**PASS for actual D149 evidence; no open findings.**
+
+The launcher spans2026-09-24T22:25:12.618302Z to22:25:14.803024Z
+(25September02:25:12..14 Dubai), exits0 with empty stderr and records unchanged
+source7c7fa476. All five command receipts have the expected board2629958581,
+sequence/order and successful statuses, with empty stderr and no errors:
+remote_postcheck, installed_pins, file_only_gdb, remote_postcheck, installed_pins.
+
+Independent actual-output comparison verified that the full467 GDB arguments
+equal the pinned baseline with only its ELF argument replaced and the early
+`-iex "set auto-load no"` inserted before that file. All230 original query
+strings are unchanged. The352801B GDB output independently parses to16 unique
+type names and82 unique members; every size/alignment/offset equals the pinned
+current_default baseline. The independently parsed dictionary exactly equals
+`result.actual`. Result is STATIC_ABI_MATCH with matches_current_default true,
+five reads, zero compiler/property-query attempts and no postcheck errors.
+
+Independent binding checks also verified:
+
+- Current wrapper hash, all17 local pins and both pinned ABI baseline files.
+  All103 project source and102 stage files still match the frozen manifests and
+  independently reproduce source aggregatefcddbd8e in full.
+- Both captured helper commands decode to exact unchanged helper8ba9b190 and
+  its exact bootstrap. Their action is postcheck, with the original run/Claim.
+  Returned identities, including original boot, Claims and all eight FileRecords
+  match historical D1440001/0021 and the new inputs. Both source observations
+  match all102 local stage byte counts/hashes; compiler-candidate lists are empty.
+- Both installed observations match all26 literal expected paths/hashes and each
+  other. No partial hash-set comparison substitutes for this full match.
+- All35 retained D144/D148 JSON evidence files are byte-identical to GO
+  commit2cd8d795: original D14425 command receipts plus inputs/result, D148's
+  five command receipts plus inputs/result and its launcher. Historical negative
+  and structural evidence remains intact.
+
+Exact inspected hashes under `P7_static_link_probe_raw/native_abi/`:
+
+| File | SHA256 |
+|---|---|
+| inputs.json | 501aac4745a5a9a67cd4f73ec52956769476b8e1eb7352ae18a0f9d8f88aa75f |
+| 0001.json | 8a5be8830f55cf221deb80dffd7c8412f047b61a42316e53641826a615631a60 |
+| 0002.json | aac977915401c1e69701b0f8e57b6934e29e01a63f3d42625dc06c35b8df1b06 |
+| 0003.json | a7c0c4797414e396e19d981b54e104d250cd77a32ac25e221f182e85c9da0994 |
+| 0004.json | d12a0312535bd91f9e1f57e9d45dc043d66b344931676de438ea8e0f8b8937a6 |
+| 0005.json | 887de51d16a9c6b1a6a110a65a474b6d45dcb3aa811cc5c08ecc78e8726425e9 |
+| result.json | 797c84f4cd12266a963802a50d16923f6243666ae6e8151f748fec7b10a10676 |
+
+Adjacent `native_abi_launcher.json`:
+`0f40e70946c082e8228a35ffae2924b7b921197234f78fc97cc79880693d78bf`.
+
+The result closes only this98-entry debug-layout comparison. It does not prove
+full native function/device/callback ABI compatibility, field coverage, loading,
+MCU behavior, live memory/stack, WCET, static production adoption, physical
+acceptance or a human gate. Those evidence boundaries remain unchanged.

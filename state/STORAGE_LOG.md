@@ -185,3 +185,16 @@ local entry audit retained one101536B receipt plus its note/review. Two larger
 trial captures stayed in RAM and wrote no files. These compact artifacts remain
 necessary review/reproduction evidence. No cleanup candidate is introduced; all
 local Python used-B. C: free573599744B at02:21Dubai, a fluctuating system value.
+
+
+## 2026-09-25T02:27:56.075972+04:00 ABI receipts and compression check
+
+D149 retained478121B across seven command/input/result files plus a small launcher;
+full original GDB output exists only inside0003.json, not as a duplicate stdout file.
+These are required actual observation/review evidence. Seven recent immutable
+native read/entry receipts were checked with compact.exe /c /exe:lzx /i /q /a.
+The command exited0 but reported zero files recompressed, and measured storage
+was unchanged: **0 additional bytes recovered**. Every SHA256, size and mtime
+remains exact; no files were deleted. Receipt: analysis/storage_compression_20260925_native_reads.json.
+Their preexisting compressed allocation was already smaller than logical size.
+C: free526831616B after this check; do not attribute system fluctuations to cleanup.

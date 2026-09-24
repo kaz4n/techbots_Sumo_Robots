@@ -24,7 +24,7 @@ FinalELF5cc2dfde, debug/temp0f7f2825, flat package5f08afe0 are original D144 byt
 Flash payload93080B; static RAM span167792B, region tail94352B. The tail is NOT
 measured live RAM/stack/heap or runtime qualification. No upload/reset occurred.
 
-All native operations D144/D145/D146/D148 are terminal and consumed. D144's old
+All native operations D144/D145/D146/D148/D149 are terminal and consumed. D144's old
 unsupported-symbol rejection remains intact. D147's separately tested exact-six
 TLS metadata extension passes19new+51old host methods, with independent review.
 D141/D142/D143 contracts, original parsers/tests/consumers and production dynamic
@@ -35,10 +35,14 @@ Local entry/constructor audit is complete (original6ecb8ab6):34 local commands,
 32 focused functions; separate review14e6d959 PASS. Read analysis/P7_static_entry_audit.md.
 One literal-elision description was corrected; raw receipt92b72069 is unchanged.
 Three native printk calls before initialization remain an untested startup dependency.
-Exact next task: finish the missing native reference/ABI audit. The existing current_default_abi
-receipt contains16 type size/alignment and82 member-offset queries. A later
-file-only GDB observation may reuse those exact queries against D144 debug ELF
-with source/tool/artifact binding; do not execute the historical hardwired collector.
+D149's file-only GDB comparison also passes: GO2cd8d795, source7c7fa476,
+16 type size/alignment pairs and82 offsets match; five read commands0/noerrors.
+Separate actualreview3f4d20b7 PASS. Read analysis/P7_static_native_abi_validation.md.
+No compiler, target/inferior or upload/reset. D149 is terminal and consumed.
+Exact next task: review/close bounded native address audit, then the remaining
+indirect driver/API dispatch coverage using existing evidence or a separately
+scoped file-only packaged-loader inspection. Do not confuse matching addresses
+or these selected project layouts with complete native API/runtime qualification.
 Native startup, stack/heap/WCET, physical acceptance and human gates stay pending.
 Do not integrate a static upload path or run an MCU merely because structure passes.
 

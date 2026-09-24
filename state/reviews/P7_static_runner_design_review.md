@@ -91,3 +91,48 @@ The fixed parent obligations for source/tool identity, freshness, native entry,
 constructors, wrappers/heaps and ABI audit remain separate. No query/compiler GO,
 static fit, runtime result, production-policy expansion, upload/reset, motor
 permission or human phase gate follows from this review.
+
+## Final interface review, 2026-09-25
+
+The following later revision supersedes the earlier pending-interface disposition
+above. **No open material design finding remains. Recommend adoption only for
+HOST implementation and independently frozen host/WSL tests.** Adoption itself
+belongs to the coordinator; no native query/compiler GO follows.
+
+| Final reviewed input | Bytes | SHA-256 |
+|---|---:|---|
+| `state/analysis/P7_static_runner_contract.md` | 18342 | `35473ed0eb59b9d7fd097cb25554b591ec6bd470703504e1a525219b2fdba7e7` |
+| `state/analysis/P7_static_remote_contract_draft.md` | 23571 | `a4be3733d40632b4ae79e3bbbab3300f720b8f7f13f3337d35d96dfc90373b39` |
+| `state/analysis/P7_static_link_probe_raw/static_bootstrap.txt` | 1096 | `a6bb46737bea18fc564e77bbd7124c20771258b4fe4ca41a17cbd4cce9798419` |
+
+Read-only inspection closes the outstanding interface-definition items: runner
+lines 150-194 give canonical dispatch/postcheck order, attempt anchoring and
+primary/secondary failure rules; lines 196-240 define nested report/file/chunk
+acceptance and command receipts. Remote lines 295-325 give partial failure-data
+shapes, independent check ordering and a per-source 1 MiB bound. The fixed BOOT
+template uses canonical base64, cap+1 decompression, EOF/tail rejection and the
+literal raw-source hash before UTF-8 decoding/execution; its sole substitution
+and argv adjustment are explicit. BOOT/helper execution was not performed.
+
+An additional **MAJOR, now closed**, was identified in interim runner
+`9918d2a602ce60e49b05ff475fc997127814231d474eda8578e438d72033be58`,
+lines 178-182: treating every integer CalledProcessError return code as proof of
+remote compiler completion could authorize remote postchecks after transport
+loss. AOSP's client distinguishes a received shell exit packet from unexpected
+disconnection, and its daemon's hangup handling does not establish observed
+compiler termination at the client. These primary sources explain the evidence
+gap; they do not qualify the installed ADB binary. [ADB client source](https://android.googlesource.com/platform/packages/modules/adb/+/refs/heads/main/client/commandline.cpp),
+[ADB daemon source](https://android.googlesource.com/platform/packages/modules/adb/+/refs/heads/main/daemon/shell_service.cpp).
+Final runner lines 178-185 and remote lines 336-350 conservatively classify every
+nonzero compile transport result/CalledProcessError, timeout, launch error and
+malformed result as unknown, permitting only local checks. A well-formed zero
+result with rejected D141 metadata is a known failed terminal path and retains
+the full independent postchecks. No completion wrapper, retry or new command is
+introduced.
+
+Independent oracle freeze still precedes implementation execution. Exact helper
+bytes/hash, instantiated bootstrap, runner/launcher pins and complete command
+vectors must be bound, tested and separately code-reviewed before a later native
+GO. The fixed production policies and D141/D142 contracts remain unchanged;
+native entry/constructor/binding/ABI audit, actual static fit, runtime and human
+gates remain pending. This remains a reused-context same-model design review.

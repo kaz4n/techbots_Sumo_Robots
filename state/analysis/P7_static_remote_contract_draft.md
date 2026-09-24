@@ -74,6 +74,10 @@ __name__='__main__'. Freeze its exact source alongside implementation; the accep
 H hash is a reviewed literal, never a caller flag. BOOT decode/hash failure exits
 nonzero without a helper success envelope and remains the original command failure.
 No remote file is installed.
+The exact template is [static_bootstrap.txt](P7_static_link_probe_raw/static_bootstrap.txt),
+SHA256 a6bb46737bea18fc564e77bbd7124c20771258b4fe4ca41a17cbd4cce9798419.
+Replace its single @HELPER_SHA256@ token with the runner's literal helper pin;
+no other template transformation or caller-provided replacement is allowed.
 
 Before every transport call, compute exactly
 `subprocess.list2cmdline([ADB, '-s', '2629958581', 'shell', '-T', shlex.join(argv)])`.
@@ -288,6 +292,38 @@ subcheck error in the failure data's additional `failures` list of
 This allows a failed compile to retain its partial artifacts and independent
 source checks without pretending that collection passed.
 
+## Failure-data completion and independent checks
+
+Before valid action/argument admission, emit BAD_REQUEST with data={} and no
+filesystem mutation. action/run_id are the supplied strings when present and
+otherwise null; invalid tokens are not normalized into valid ones. After admission,
+failure data retains exactly that action's success keys, with null for an
+unavailable whole field, except the following explicit additions/partial shapes:
+
+- Source failure retains path, SOURCE, file_count (observed count or null),
+  total_bytes (sum of successfully hashed files), and files (only completed hashes).
+- Claim failure additionally has partial_directories:{run,build,artifacts}, each
+  a checked DirId or null. claim is null until all three directories are claimed;
+  created contains every successful mkdir in order. Success has no partial field.
+- absent outputs contains all eight keys, each `absent`, `present`, or null if
+  lookup failed; only eight `absent` entries can succeed.
+- Artifact/layout failure retains every completed FileRecord; files is null if
+  no claimed directories could be checked. Layout report is null until validation
+  succeeds. read fields that were not observed are null, never invented chunks.
+- postcheck always attempts independent checks in order `claim`, `identity`,
+  `resources`, `processes`, `source`, `files`. Its failure-only `failures` list uses
+  those exact check strings, each with code/message. A failed claim prevents
+  reading its output directories; record files failure PATH while still attempting
+  the unrelated identity/resources/processes/source checks. All other independent
+  failures preserve completed observations. Resource observation after compile
+  does not apply minimum floors. Outer code is always POSTCHECK_FAILED.
+
+All action filesystem reads are bounded and nonblocking where special files
+could otherwise hang. Because M contains hashes without lengths, use a1MiB
+per-source-file limit and the fixed102-file set, then require exact literal hashes. This is a helper
+resource bound, not a source change. Total source bytes are independently matched
+by the runner to the local stage. No custom exception object crosses transport.
+
 ## Runner sequence, failures and retained evidence
 
 1. Validate fixed local hashes and D139 local stage; claim a fresh local receipt
@@ -297,7 +333,7 @@ source checks without pretending that collection passed.
    with D141. Immediately before the sole compile repeat inventory, source,
    absent, local bindings, overrides and26 pins. Invoke the exact jobs1 compiler
    from the existing proposal, without a helper wrapper around it.
-3. On a terminal compiler result, retain the original return code/stdout/stderr,
+3. On a well-formed zero compiler transport result, retain original code/stdout/stderr,
    run postcheck and repeat local/installed/override checks even on compile failure.
    If compiler/policy/postchecks pass, run layout, read only final ELF, and perform
    final postcheck/binding checks after collection. Stop after this attempt.
@@ -308,7 +344,9 @@ stdout/stderr afterward. Preserve `CalledProcessError` and `TimeoutExpired`
 outputs without lossy conversion. A timeout/launch error has no invented exit0;
 compile completion stays unknown and no artifact success, retry, reset or new
 compiler follows. Automatic postchecks apply to terminal results, not an outer
-compile timeout whose remote process may still be running. Additional read-only
+compile timeout or nonzero ADB result whose remote process may still be running.
+The runner's canonical sequence defines those as COMPILE_OUTCOME_UNKNOWN with
+local checks only; a local nonzero return is not a remote completion indicator. Additional read-only
 diagnosis after such a timeout needs coordinator direction.
 
 Keep the first failure as primary and all later check failures separately; a

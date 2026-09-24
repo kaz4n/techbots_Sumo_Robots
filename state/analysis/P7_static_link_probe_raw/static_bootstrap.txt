@@ -1,0 +1,25 @@
+# Decodes and verifies the fixed remote helper before executing its source.
+# Keeps compressed command framing separate from the helper's public arguments.
+# Draft template: independent boundary tests and review must precede execution.
+import base64
+import hashlib
+import sys
+import zlib
+
+if len(sys.argv) < 2:
+    raise ValueError('Missing compressed helper argument')
+encoded = sys.argv[1]
+compressed = base64.b64decode(encoded, validate=True)
+if base64.b64encode(compressed).decode('ascii') != encoded:
+    raise ValueError('Noncanonical helper base64')
+decoder = zlib.decompressobj(zlib.MAX_WBITS)
+raw = decoder.decompress(compressed, 98304 + 1)
+if len(raw) > 98304:
+    raise ValueError('Helper source exceeds 98304 bytes')
+if not decoder.eof or decoder.unused_data or decoder.unconsumed_tail:
+    raise ValueError('Incomplete or trailing helper zlib stream')
+if hashlib.sha256(raw).hexdigest() != '@HELPER_SHA256@':
+    raise ValueError('Helper source SHA256 mismatch')
+source = raw.decode('utf-8')
+del sys.argv[1]
+exec(compile(source, '<static-remote>', 'exec'), {'__name__': '__main__'})

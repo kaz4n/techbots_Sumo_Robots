@@ -117,12 +117,12 @@ CalledProcessError only after its actual code/text are recorded.
    ownership/ancestry and absence of all eight fixed output destinations. Source
    or any stale artifact drift stops before compile. Query output cannot count
    as a newly compiled artifact.
-8. Issue exactly one actual compiler argv from the proposal. Record terminal
-   stdout/stderr/code, then validate D141 compile result. Whether compiler/status
-   validation passes or fails, attempt local source/pins and remote source/pins/
-   overrides checks independently, preserving their failures separately. If the
-   compiler timed out, only local verification may occur and no remote postcheck
-   is issued because terminal state is unknown.
+8. Issue exactly one actual compiler argv from the proposal. Record observed
+   stdout/stderr/code; a well-formed zero transport result permits D141 validation
+   and the terminal postcheck group even if that validation fails. A nonzero
+   transport result may instead be an ADB disconnect; classify it as unknown
+   completion, retaining original output/exception and running local checks only.
+   Timeout or any other uncertain completion likewise permits no remote postcheck.
 9. Only after successful compile/result/postchecks, bound-check and identify all
    seven canonical build outputs plus selected A/app.ino.bin-zsk.bin. The selected
    export must equal the canonical flat package. Perform D142 validation with
@@ -146,6 +146,98 @@ before transport. All paths/argument templates are
 fixed and validated; no caller shell fragment or alternate sketch/build profile.
 
 ## Receipts, failures and storage
+
+### Canonical dispatch and attempt accounting
+
+The following is the sole successful command order. `overrides` and `pins` mean
+the exact one-command calls emitted by the unchanged common helpers; merge the
+18+8 pin maps in their existing insertion order. Helper arguments are those in
+the remote companion; no additional inventory or hidden transport call occurs.
+
+1. inventory; CLI version; CLI core list; CLI data directory; CLI user directory.
+2. source; overrides; pins; claim; absent; expanded-properties query.
+3. Recheck local pins and stage, then source; overrides; pins; inventory; absent.
+4. Compile once. On a terminal result, validate its D141 report, then perform
+   all postchecks in this order: local pins, local stage, remote postcheck,
+   installed pins, overrides. These five checks are independent: retain each
+   failure and continue the remaining checks. No artifact collection if any fails.
+5. artifacts; layout; read final-ELF chunks in increasing offsets. All eight
+   FileRecords must stay identical to the successful first postcheck, including
+   metadata and hashes. Each chunk's FileRecord must equal that baseline's ELF.
+6. Repeat all five checks from step4 in the same order after collection; the
+   second remote postcheck must match all eight baseline FileRecords. Save the
+   complete checked ELF only after these checks, by exclusive creation, then
+   write success. If a collection command/validation fails, still perform this
+   final five-check group once, preserving the collection failure as primary.
+
+Before compile is attempted, fail immediately without the terminal postcheck
+group. Increment query_attempts/compile_attempts only after persisting the
+planned command receipt and immediately before invoking command. These are
+dispatch attempts, not proof of remote process startup. No outcome permits a
+second attempt. Other command failures propagate with the actual attempt counts.
+After compile dispatch, only a well-formed CompletedProcess with integer non-bool
+returncode0 establishes the normal terminal path. Any nonzero returned result or
+CalledProcessError may be an ADB transport failure while compilation continues;
+it therefore remains unknown rather than proving a remote compiler exit.
+TimeoutExpired, OSError, an unexpected callback exception or malformed status leaves
+COMPILE_OUTCOME_UNKNOWN: run local pins/stage checks only, with no remote action.
+A zero-return compile whose metadata fails D141 validation remains FAILED even
+if later postchecks fail. No wrapper or inferred remote-completion marker is added.
+
+Each postcheck error is `{check,class,message}` with check one of `local_pins`,
+`local_stage`, `remote_postcheck`, `installed_pins`, `overrides`, in that order.
+For an otherwise successful compile/collection, the first postcheck failure is
+the primary exception too; retain the whole ordered postcheck_errors list.
+Primary error is `{class,message}`. Failure result has exactly status,phase,
+query_attempts,compile_attempts,error,postcheck_errors. Phase is the failing
+logical command/check name above; use `query`, `compile`, `artifacts`, `layout`,
+`read`, `local_admission`, `local_claim` or `result_write` where applicable.
+
+### Host acceptance of returned evidence
+
+Every successful helper envelope and nested object has exactly its companion
+keys, correct action/run identity, and no bool in an integer field. All JSON
+numbers are finite; hashes are64 lowercase hex characters. Claim IDs must remain
+identical to the runner's own first claim; boot identity also equals inventory.
+Compare both source checks and postcheck source maps to all102 pinned local-stage
+names/hashes and observed local byte lengths, with exact total and SOURCE digest.
+All eight successful file records must be nonempty regular files within the
+companion bounds. Export size/hash equals its canonical build package; the pinned
+helper additionally performs the byte comparison. Metadata integer fields are
+nonnegative. Freshness still rests on exclusive claims and absent destinations.
+
+The layout has exactly the D142 result keys/nested fields. Require its fixed status
+and entry; flash/RAM starts and upper limits equal D142 constants, end lies within
+the region, and remaining equals limit-end. All integer fields are non-bool and
+nonnegative. Data-copy source/span lies in flash, destination/span lies in RAM;
+the span ends no later than bss_zero.start. BSS zero bytes=end-start and its range
+lies within RAM with end<=ram.end. Sections are unique, nonempty, address-sorted
+records from D142's named allocation table, with exactly its permitted type/flags,
+power-of-two-or-zero alignment and aligned addresses. .text/.data/.bss are required.
+Each extent fits its flash/RAM region; flash load_address equals address, .data's
+load span fits flash, and only .bss has null load_address. Section extents cannot
+overlap. weak_undefined is a sorted unique list of nonempty strings, each at most
+4096 characters; it is still pending native-use review. Seven report artifact
+identities equal the baseline records. Reject any extra/missing nested fields.
+These are report-integrity checks; the exact unchanged remote D142 function is
+the structural validator, and full native instruction/ABI acceptance is separate.
+
+Read offsets begin at0 and advance by exactly the decoded length through the
+baseline ELF size, using the companion's262144-byte maximum. Canonical base64,
+chunk SHA/length/offset/name, FileRecord and Claim must match on every response.
+The accumulated ELF hash/length must equal baseline; no partial or repeated chunk
+can become success. Record final_elf as exactly `{path,bytes,sha256}`.
+
+### Exact command receipt format
+
+Use `0001.json`, `0002.json`, ... in the exclusive local receipt directory.
+A planned record has exactly `sequence,phase,board,argv,timeout,start_utc`;
+complete the same owned record with `end_utc,returncode,stdout,stderr,error`.
+error is null for a normal process result, or `{class,message}` for an exception.
+For exception output only, bytes become `{encoding:"base64",data:<canonical>}`;
+str/null remain unchanged. Retain a returned nonzero process as actual output
+before converting it to CalledProcessError. A failed receipt write prevents
+dispatch; a failed completion write never invents success or allows a retry.
 
 Before every command, persist a monotonically numbered JSON record with planned
 argv, board, timeout, phase and UTC start. Complete it with end time, actual

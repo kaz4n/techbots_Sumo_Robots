@@ -80,6 +80,50 @@ inline void terminal(const fsm::RobotResult& r, unsigned detail, unsigned value,
     suffix(r, {detail}); const auto e = event(r, detail);
     CHECK(e.t_us == d); CHECK(e.value == value);
 }
+inline void firstDutyReceipt(const logframe::EventInput& e, const fsm::RobotResult& pending,
+                             const fsm::PreviousTick& previous, std::uint32_t d) {
+    CHECK(previous.applied_valid); CHECK(previous.token == pending.token);
+    CHECK(previous.motors_enabled); CHECK(pending.outputs.motors_enabled);
+    const auto origin = event(pending, QUALIFIED).t_us;
+    CHECK(static_cast<std::uint32_t>(d - origin) < 0x80000000U);
+    CHECK(static_cast<std::uint32_t>(previous.applied_us - origin) <=
+          static_cast<std::uint32_t>(d - origin));
+    CHECK(e.t_us == previous.applied_us);
+    const float actual[] = {previous.duty_l, previous.duty_r};
+    const float requested[] = {pending.outputs.duty_l, pending.outputs.duty_r};
+    unsigned wheels = 0U, packed = 0U;
+    for (unsigned side = 0U; side < 2U; ++side) {
+        APP_REQUIRE(std::isfinite(actual[side]));
+        CHECK(actual[side] * requested[side] >= 0.0F);
+        CHECK(std::fabs(actual[side]) <= std::fabs(requested[side]));
+        if (actual[side] != 0.0F) wheels |= 1U << side;
+        const auto code = static_cast<std::int16_t>(std::round(static_cast<double>(actual[side]) * 127.0));
+        packed |= static_cast<unsigned>(static_cast<std::uint8_t>(code)) << (8U * side);
+    }
+    CHECK(wheels != 0U); CHECK(e.detail == wheels); CHECK(e.value == packed);
+}
+inline void receiptPrefix(const fsm::RobotResult& r, unsigned detail,
+                          const fsm::RobotResult& pending, const fsm::PreviousTick& previous,
+                          std::uint32_t d) {
+    APP_REQUIRE(count(r, detail) == 1U);
+    bool first_duty = false, statistics = false, found = false;
+    for (unsigned i = 0U; i < r.events.count; ++i) {
+        const auto& e = r.events.entries[i];
+        if (e.type == TIMING && e.detail == detail) { found = true; break; }
+        // D060/D092 permit these prior-receipt extensions before D135 closes it.
+        if (e.type == core::Event::FIRST_NONZERO_DUTY) {
+            CHECK_FALSE(first_duty); CHECK_FALSE(statistics); first_duty = true;
+            firstDutyReceipt(e, pending, previous, d);
+        } else {
+            CHECK(e.type == core::Event::FAULT); CHECK(e.detail == 9U);
+            CHECK_FALSE(statistics); statistics = true;
+            CHECK(e.value != 0U); CHECK((e.value & ~7U) == 0U);
+            CHECK(e.t_us == ((e.value & 4U) != 0U ? d : previous.completed_us));
+            if (detail == APPLIED) CHECK((e.value & 4U) == 0U);
+        }
+    }
+    CHECK(found); // No current-decision event may precede this receipt's trace result.
+}
 struct Rig {
     app_test::Port port;
     motors::MotorGate gate{port.port()};

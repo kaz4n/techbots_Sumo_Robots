@@ -84,7 +84,8 @@ TEST_CASE("B12 B15 D135 actual Runtime projects one complete source interval and
         APP_REQUIRE(candidate.timing_valid); const auto receipt = rig.owner.transaction().previous();
         CHECK(receipt.duration_valid); CHECK(receipt.completed_us == candidate.completed_us);
         APP_REQUIRE(rig.next()); CHECK(event(rig.robot(), APPLIED).t_us == receipt.applied_us);
-        CHECK(rig.robot().events.entries[0].detail == APPLIED);
+        receiptPrefix(rig.robot(), APPLIED, candidate.robot, receipt,
+                      rig.owner.transaction().report().decision_us);
         const auto& recording = rig.owner.transaction().recording();
         CHECK(stored(recording, QUALIFIED) == 1U); CHECK(stored(recording, HANDOVER) == 1U);
         CHECK(stored(recording, APPLIED) == 1U); noEventLoss(recording);

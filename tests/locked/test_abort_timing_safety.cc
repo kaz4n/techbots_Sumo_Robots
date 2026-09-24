@@ -5,8 +5,9 @@
 
 using namespace p5_abort;
 namespace {
-void physical(const Rig& rig) {
-    CHECK(rig.applied.fault == motors::Fault::NONE);
+void physical(const Rig& rig, motors::Fault expected_fault = motors::Fault::NONE) {
+    CHECK(rig.applied.fault == expected_fault);
+    CHECK(rig.applied.consumed); CHECK(rig.applied.feedback.applied_valid);
     CHECK(rig.applied.feedback.token == rig.last.token);
     const bool enabled = rig.last.outputs.motors_enabled && MOTORS_ALLOWED != 0;
     CHECK(rig.applied.feedback.motors_enabled == enabled); CHECK(rig.port.enabled == enabled);
@@ -22,6 +23,34 @@ void physical(const Rig& rig) {
         CHECK(actual == doctest::Approx(expected));
     }
     if (!enabled) app_test::zero(rig.port);
+}
+void edgeSelection(const fsm::RobotResult& r, bool pushed) {
+    unsigned edges = 0U;
+    for (unsigned i = 0U; i < r.events.count; ++i) {
+        const auto& e = r.events.entries[i]; if (e.type != core::Event::EDGE) continue;
+        ++edges; CHECK(((e.detail & logframe::PUSHED_OUT) != 0U) == pushed);
+        CHECK((e.detail & logframe::ENTERED) != 0U); CHECK((e.detail & logframe::NEW_WHITE) != 0U);
+    }
+    CHECK(edges == 1U);
+}
+void pivotSlew(float actual, float previous, float target, std::uint32_t elapsed) {
+    CHECK(actual * target >= 0.0F); CHECK(std::fabs(actual) <= std::fabs(target));
+    if (previous * target < 0.0F) { CHECK(actual == 0.0F); return; }
+    const float budget = 0.02F * (static_cast<float>(elapsed) / 1000.0F);
+    const float reachable = std::fabs(previous) + budget;
+    const float magnitude = reachable < std::fabs(target) ? reachable : std::fabs(target);
+    CHECK(actual == doctest::Approx(std::copysign(magnitude, target)));
+}
+void pushedPivot(Rig& rig, unsigned mask, core::Outputs previous, std::uint32_t elapsed) {
+    // Single rear pivots away; both rear with this neutral history defaults LEFT.
+    const float left = (mask & 8U) != 0U ? -0.80F : 0.80F;
+    pivotSlew(rig.last.outputs.duty_l, previous.duty_l, left, elapsed);
+    pivotSlew(rig.last.outputs.duty_r, previous.duty_r, -left, elapsed);
+    rig.next(40000U); // B6 reaches the cap before the unchanged-heading pivot deadline.
+    CHECK(rig.last.outputs.ui_state == State::EDGE_ESCAPE); CHECK(rig.last.line_mask == mask);
+    CHECK(rig.last.escape_fault == edge::EscapeFault::NONE); CHECK_FALSE(rig.last.contact);
+    CHECK(rig.last.outputs.duty_l == doctest::Approx(left));
+    CHECK(rig.last.outputs.duty_r == doctest::Approx(-left)); physical(rig);
 }
 void noLaterTrace(Rig& rig) {
     const auto before = rig.trace_size; rig.opponent(2U); rig.white(0U);
@@ -56,17 +85,26 @@ TEST_CASE("B4 R5 D135 all15 white masks interrupt each available opener before d
         if (!core::modeAvailable(static_cast<Mode>(mode))) continue;
         for (unsigned mask = 1U; mask < 16U; ++mask) {
             CAPTURE(mode); CAPTURE(mask); Rig rig; rig.go(static_cast<Mode>(mode));
-            rig.opponent(2U); rig.next(); rig.white(mask); const auto r = rig.next();
+            rig.opponent(2U); rig.next();
+            const auto previous = rig.previous; const auto request = rig.last.outputs;
+            const auto before = rig.now; rig.white(mask); const auto r = rig.next();
             CHECK(r.outputs.ui_state == State::EDGE_ESCAPE); CHECK(r.line_mask == mask);
             CHECK_FALSE(r.contact); terminal(r, INTERRUPTED, 1U, rig.now);
             CHECK(rig.trace_size == 2U); CHECK(count(r, QUALIFIED) == 0U); physical(rig);
             CHECK(std::fabs(r.outputs.duty_l) <= 0.80F); CHECK(std::fabs(r.outputs.duty_r) <= 0.80F);
             const bool fault = mask == 7U || mask == 11U || mask >= 13U;
             CHECK(r.escape_fault == (fault ? edge::EscapeFault::WHITE_PATTERN : edge::EscapeFault::NONE));
-            if (fault || mask == 1U || mask == 2U || mask == 3U || mask == 6U || mask == 9U) {
+            CHECK(r.opponent_mask == 2U); CHECK(previous.applied_valid);
+            const bool forward = previous.duty_l > 0.0F && previous.duty_r > 0.0F;
+            CHECK(forward == (MOTORS_ALLOWED != 0 && mode == 3U));
+            const bool pushed = !fault && (mask & 12U) != 0U && forward;
+            edgeSelection(r, pushed);
+            if (fault || mask == 1U || mask == 2U || mask == 3U ||
+                (!pushed && (mask == 6U || mask == 9U))) {
                 CHECK(r.outputs.duty_l == 0.0F); CHECK(r.outputs.duty_r == 0.0F);
                 for (auto pulse : rig.port.pulses) CHECK(pulse == 0U);
             }
+            if (pushed) pushedPivot(rig, mask, request, static_cast<std::uint32_t>(rig.now - before));
             noLaterTrace(rig);
         }
     }
@@ -80,7 +118,7 @@ TEST_CASE("B2 B13 D135 STOP before cue closes once and physical gate stays inhib
         CHECK(r.outputs.ui_state == State::STOPPED); CHECK_FALSE(r.outputs.motors_enabled);
         CHECK(r.outputs.duty_l == 0.0F); CHECK(r.outputs.duty_r == 0.0F);
         terminal(r, INTERRUPTED, 2U, rig.now); CHECK(rig.trace_size == 2U);
-        physical(rig); app_test::zero(rig.port); noLaterTrace(rig);
+        physical(rig, motors::Fault::STOPPED); app_test::zero(rig.port); noLaterTrace(rig);
         CHECK(rig.last.outputs.ui_state == State::STOPPED); app_test::zero(rig.port);
     }
 }
@@ -97,24 +135,23 @@ TEST_CASE("B2 B15 D135 invalid or stale source wins evidence disposition without
         if (scenario == 0U) CHECK(r.outputs.ui_state == State::TRACK);
         if (scenario == 1U) CHECK(r.outputs.ui_state == State::EDGE_ESCAPE);
         if (scenario >= 2U) { CHECK(r.outputs.ui_state == State::STOPPED); app_test::zero(rig.port); }
-        physical(rig); noLaterTrace(rig);
+        physical(rig, scenario >= 2U ? motors::Fault::STOPPED : motors::Fault::NONE); noLaterTrace(rig);
     }
 }
 
 TEST_CASE("B2 B4 B15 D135 valid prior application completes before later edge STOP or source fault") {
     for (unsigned scenario = 0U; scenario < 3U; ++scenario) {
         Rig rig; rig.go(); auto value = rig.frontCandidate(); rig.submit(value, 40U, 80U);
-        const auto applied = rig.previous; CHECK(applied.token == rig.last.token);
+        const auto pending = rig.last; const auto applied = rig.previous; CHECK(applied.token == rig.last.token);
         CHECK(applied.motors_enabled == (MOTORS_ALLOWED != 0)); physical(rig);
         if (scenario == 0U) rig.white(1U);
         if (scenario == 1U) rig.input.stop_requested = true;
         if (scenario == 2U) rig.input.observations_fresh = false;
         const auto r = rig.next(); CHECK(count(r) == 1U); CHECK(rig.trace_size == 6U);
         CHECK(event(r, APPLIED).t_us == applied.applied_us);
-        APP_REQUIRE(r.events.count > 0U); CHECK(r.events.entries[0].type == TIMING);
-        CHECK(r.events.entries[0].detail == APPLIED);
+        receiptPrefix(r, APPLIED, pending, applied, rig.now);
         CHECK(r.outputs.ui_state == (scenario == 0U ? State::EDGE_ESCAPE : State::STOPPED));
-        physical(rig); noLaterTrace(rig);
+        physical(rig, scenario == 0U ? motors::Fault::NONE : motors::Fault::STOPPED); noLaterTrace(rig);
     }
 }
 

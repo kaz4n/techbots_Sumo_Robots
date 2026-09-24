@@ -125,3 +125,81 @@ prompted these corrections. Original four-file draft provenance remains bf36abfb
 Next action: root/reviewer inspect and freeze exact hashes before any compilation
 or implementation execution; accept the new safety candidates only through the
 established new-lock process. No result or physical pass is claimed.
+
+## First public execution adjudication and draft correction
+
+Root's preserved `P5_abort_timing_raw/normal_first.json`, `.txt` and
+`normal_first_LastTest.log` report successful compilation but failing tests:
+M0 37/40 cases passed with10 failed assertions; M1 33/40 passed with32 failed
+assertions. Original oracles/source/failure provenance is retained in
+b0540500/2d924f1f. Independent author, reviewer and root agreed that the failures
+come from three assumptions in these still-unaccepted draft tests, not a
+production change requirement. Root authorized only the bounded corrections below.
+
+1. Both variants'10 failures required Fault::NONE on normal inhibited STOPPED
+   receipts. `P2_motor_gate_contract.md` lines45,76-80 explicitly preserves the
+   STOPPED latch with valid disabled receipts; existing locked
+   `test_motor_gate.cpp` lines582,892 assert that behavior. The helper now takes
+   an explicit expected fault, default NONE; only test scenarios that explicitly
+   require STOPPED pass STOPPED. Token/EN/PWM checks remain, and consumed/valid
+   receipt checks are explicit. No unrelated fault is accepted.
+2. Four M1 failures assumed zero for DIRECT diagonal masks6/9. The unchanged
+   stimulus confirms FC while preceding actual M1 wheel duties are both positive.
+   B4.3/D049 and public `edge.h` lines187-190 therefore select pushed-out before
+   ordinary B4.2 diagonal rows. M0 does not satisfy the actual-duty predicate.
+   The test now captures prior actual feedback and governed request separately,
+   checks the expected positive-duty qualifier and centered mask, and requires
+   exact PUSHED_OUT flag equivalence below the unchanged three/four-white fault
+   priority. Ordinary brake/fault zeros remain. Qualified pushed-out rows require
+   away-pivot signs, reversal braking, same-direction B6 slew, exact settled
+   +/-0.80 at40ms and actual Gate PWM quantization. Original stimuli and loops
+   remain; the40ms observation adds a specified settled check.
+3. Eighteen M1 failures required APPLIED at global event ordinal0. Observed
+   event2/detail3 is the valid FIRST_NONZERO_DUTY extension of the same preceding
+   receipt. D135 lines252-254 and `P1_robot_contract.md` line86 require receipt
+   events before current-decision events, not APPLIED before other legitimate
+   preceding-receipt extensions. The replacement helper admits only one ordered
+   FIRST_NONZERO_DUTY and/or FAULT9 prefix. It checks actual receipt identity,
+   permission, A timestamp, sign/magnitude, exact duty bits/bytes; FAULT9 requires
+   documented nonzero bits0..2 and C timestamp, or current D for timing-incomplete.
+   Successful APPLIED cannot use that invalid-timing prefix. Any current-decision
+   event before the trace result fails. Unique result, counts, timestamp, value,
+   full-token and no-retry expectations remain. The same invalid global-ordinal
+   assumption is corrected in the new Runtime and invalid-receipt cases.
+
+Only the new helper, new Robot/Runtime test files, new unaccepted safety test and
+this plan changed. All42 established protected files and production remain
+untouched by this author. No compilation or execution followed the correction;
+root owns review/refreeze and the next run. Test-case counts remain40 normal /
+42 configured and18 Python methods. This disposition preserves the first failure
+and does not convert host timing or synthetic callbacks into physical evidence.
+
+## Deferred legacy size/alignment regression runner
+
+`P5_abort_timing_raw/run_layouts.py` is prepared for root's later serial run;
+this author has not imported, compiled or executed it. It resolves the exact
+pre-D135 commit `d6a8319e`, archives only `src`, checks every archive member's
+path/type before extraction into an owned `/dev/shm` TemporaryDirectory, and
+copies the current frozen source there with exact hashes. The generated probe
+includes public headers and prints size/alignment only; no production body is
+compiled or linked. Its compile-time profile assertions prevent a mislabeled
+default, reactive, timing or P5 observation.
+
+The planned matrix has 14 sequential header-only compilations: baseline/current
+for default M0/M1, reactive M0/M1, and reactive-plus-timing M0/M1, then current
+P5 M0/M1. Every one of 12 types must match size and alignment in each of the
+six legacy comparisons (72 type pairs). The types are Direct, Flank, Wait,
+Result, FlankResult, WaitResult, RobotInput, RobotResult, Robot, Transaction,
+Runtime and EventBatch. P5's two measurements are separate observations with
+no baseline-equivalence requirement. Size/alignment equality does not establish
+member offsets, calling conventions, target RAM/stack fit or WCET.
+
+The runner refuses existing output labels; root can later use
+`TMPDIR=/dev/shm python3 state/analysis/P5_abort_timing_raw/run_layouts.py layout_first`.
+The JSON/text receipts retain exact argv and compiler version, resolved revision,
+archive/probe/runner/binary/output hashes, parsed measurements and comparisons,
+frozen-input checks before/after, full source inventories once plus compact
+after hashes/equality, and scratch size/release status. Temporary sources and
+executables are removed by the context manager even after a failed check.
+No older report, test, header, implementation or build file changes for this
+preparation. Root owns the execution barrier and any resulting validation claim.

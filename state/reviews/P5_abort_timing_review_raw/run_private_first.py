@@ -18,7 +18,7 @@ record_path = out / (label + '_private.json')
 log_path = out / (label + '_private.txt')
 assert not record_path.exists() and not log_path.exists(), 'Preserve original receipts'
 freeze = json.loads((out / 'freeze.json').read_text(encoding='utf-8-sig'))
-expected = 'f9eb1025f49238d985c7f5adf9c433cf3272433049deea09d6e92de23c8487ca'
+expected = '06a74b56981222d6476c9f3042cc1675c4aa8765b21c4896fb64f387932c7ac1'
 assert hashlib.sha256(probe.read_bytes()).hexdigest() == expected, 'Frozen 13-case source changed'
 assert probe.read_text().count('\nTEST_CASE(') == 13, 'Wrong independent test case count'
 frozen_files = {}

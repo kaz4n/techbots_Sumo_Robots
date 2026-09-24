@@ -1,0 +1,71 @@
+{
+  "label": "normal_retry1",
+  "flags": [
+    "review"
+  ],
+  "start_utc": "2026-09-24T11:34:49.025572+00:00",
+  "input_freeze_sha256": "4b868df9407ae1d4a85ec0f13d5d9e0cebd3cd008d0dc0611556d177ace41894",
+  "runner_sha256": "6f08a06d3d3d02165c772619f0ce7598198ea7ae0e7f5a1fb4589e3c401f6694",
+  "commands": [
+    {
+      "argv": [
+        "cmake",
+        "-S",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/host",
+        "-B",
+        "/dev/shm/sumox_d135_jwir05k6/build",
+        "-DCMAKE_BUILD_TYPE=Debug"
+      ],
+      "returncode": 0,
+      "start_utc": "2026-09-24T11:34:49.030743+00:00",
+      "end_utc": "2026-09-24T11:34:51.699379+00:00"
+    },
+    {
+      "argv": [
+        "cmake",
+        "--build",
+        "/dev/shm/sumox_d135_jwir05k6/build",
+        "--parallel",
+        "1",
+        "--target",
+        "opener_timing_m0_tests",
+        "opener_timing_m1_tests"
+      ],
+      "returncode": 0,
+      "start_utc": "2026-09-24T11:34:51.699860+00:00",
+      "end_utc": "2026-09-24T11:35:38.020050+00:00"
+    },
+    {
+      "argv": [
+        "ctest",
+        "--test-dir",
+        "/dev/shm/sumox_d135_jwir05k6/build",
+        "--output-on-failure",
+        "-R",
+        "^opener_timing_"
+      ],
+      "returncode": 0,
+      "start_utc": "2026-09-24T11:35:38.020340+00:00",
+      "end_utc": "2026-09-24T11:35:39.131903+00:00"
+    },
+    {
+      "argv": [
+        "/usr/bin/python3",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/reviews/P5_abort_timing_review_raw/run_private.py",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots",
+        "/dev/shm/sumox_d135_jwir05k6/build",
+        "normal_retry1"
+      ],
+      "returncode": 1,
+      "start_utc": "2026-09-24T11:35:39.132091+00:00",
+      "end_utc": "2026-09-24T11:35:41.201705+00:00"
+    }
+  ],
+  "hardware_access": false,
+  "frozen_inputs": 656,
+  "returncode": 1,
+  "scratch_released": true,
+  "source_verified_after_run": true,
+  "end_utc": "2026-09-24T11:35:42.103590+00:00",
+  "log_sha256": "8e16e0750151276fa9fab5f7f2fc94d53c78be8bdc8ca48b35d5147c956c6010"
+}

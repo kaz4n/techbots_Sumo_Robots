@@ -28,10 +28,10 @@ void noRetry(Rig& rig) {
     CHECK(rig.trace_size == count_before); CHECK(count(rig.last) == 0U);
 }
 void complete(Rig& rig, std::uint32_t a) {
+    const auto pending = rig.last; const auto previous = rig.previous;
     const auto done = rig.next(); CHECK(count(done, APPLIED) == 1U);
     CHECK(event(done, APPLIED).t_us == a); CHECK(event(done, APPLIED).value == 1U);
-    APP_REQUIRE(done.events.count != 0U); CHECK(done.events.entries[0].type == TIMING);
-    CHECK(done.events.entries[0].detail == APPLIED); CHECK(rig.trace_size == 6U);
+    receiptPrefix(done, APPLIED, pending, previous, rig.now); CHECK(rig.trace_size == 6U);
 }
 void sameMotion(const fsm::RobotResult& a, const fsm::RobotResult& b) {
     CHECK(a.outputs.ui_state == b.outputs.ui_state);
@@ -229,8 +229,7 @@ TEST_CASE("B15 D135 altered immediate receipt rejects whole token chronology dut
         const auto rejected = rig.submit(value);
         CHECK(count(rejected, INVALID_RECEIPT) == 1U); CHECK(count(rejected, APPLIED) == 0U);
         CHECK(event(rejected, INVALID_RECEIPT).t_us == value.t_us); CHECK(rig.trace_size == 6U);
-        CHECK(rejected.events.entries[0].type == TIMING);
-        CHECK(rejected.events.entries[0].detail == INVALID_RECEIPT); noRetry(rig);
+        receiptPrefix(rejected, INVALID_RECEIPT, r, value.previous, value.t_us); noRetry(rig);
     }
 }
 

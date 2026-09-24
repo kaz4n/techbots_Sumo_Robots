@@ -23,10 +23,17 @@ modeled span. No D126 MCU action; live stack/heap/WCET and physical metrics stay
 open. SC-AN keeps originalrest measurement and separately requires measured
 peak excursion/common R_room reference before cap advice.
 
-Next: D127 offline P3.1 countdown analysis, contract in
-analysis/P3_countdown_analysis_contract.md. Separate implementation/test authors
-are preparing the tool and public oracle; freeze tests before execution. No
-physical result or human gate is inferred from software checks.
+D127 offline P3.1 countdown analysis is implemented and host-tested. Read
+analysis/P3_countdown_analysis_validation.md and its separate review. All71WSL
+methods pass; private7-method suites pass on bothWSL/Windows. Original public
+fixture hook failures are retained; independent correction ec9167bd preserves
+all assertions and verifies the hook actually ran. Production1a91b857 unchanged.
+Full publicWindows suite remains environment-limited by symlink privileges.
+
+P3_software_acceptance_packet.md maps completed software to all original physical
+criteria. Next eligible software under the user's hardware-at-end direction:
+P4 reactive GO routing with openers disabled, then exact timing evidence SC-AO.
+No physical result or human gate is inferred from these software checks.
 
 ## Historical board and P2 evidence
 

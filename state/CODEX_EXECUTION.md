@@ -108,3 +108,12 @@ newacceptedlocked7d6c5193, retaineddraftfailure and actualremainingphysicalwork.
 
 See analysis/P3_stop_trial_validation.md and separate review. Accepted locked
 01213382 is protected. Physical P3.1-3.7 and human gate remain pending.
+
+
+## D127 current checkpoint
+
+- [x] Offline 50-start countdown analyzer; full71WSL methods and7private methods eachWSL/Windows.
+- [x] Original failed draft preserved; fixture-only correction with explicit injection count; production unchanged.
+- [x]38locked and493D126source bindings unchanged; no firmware/board operation.
+- [x] P3 software/physical acceptance packet; physical3.1-3.7 remain pending.
+- [ ] Next: P4 reactive GO routing, then SC-AO exact stimulus/applied-duty evidence.

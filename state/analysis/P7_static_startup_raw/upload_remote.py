@@ -108,6 +108,7 @@ class Upload:
         self.root_fd, self.output_fd = None, None
         self.claimed, self.first_exception = False, None
         self.context_failures = []
+        self.process_error = None
         self.argv = ['/usr/bin/arduino-cli', '--config-file', '/dev/null', 'upload',
                      '--fqbn', 'arduino:zephyr:unoq:link_mode=static',
                      '--input-file', BUILD + '/app.ino.bin', SKETCH]
@@ -126,11 +127,14 @@ class Upload:
         self.support.require(remaining > 0, 'Upload deadline expired')
         return remaining
 
-    def remember(self, error, context_check='helper_context'):
+    def remember(self, error, context_check='helper_context', direct=False):
+        if direct:
+            self.process_error = error
         chain, current = [], error
         while current is not None and not any(current is item for item in chain):
             chain.append(current)
-            if current.__cause__ is not None or current.__suppress_context__:
+            if (current is self.process_error or current.__cause__ is not None or
+                    current.__suppress_context__):
                 break
             current = current.__context__
         if self.first_exception is None:
@@ -319,17 +323,27 @@ class Upload:
                              'Malformed executor flags')
         self.report['subprocess'] = value
 
+    def process_failure(self, error):
+        # The helper's outward error already accounts for handled timeout/kill errors.
+        self.remember(error, direct=True)
+        if hasattr(error, 'subprocess_result'):
+            self.postcheck('subprocess_outcome', lambda: self.retain_outcome(error.subprocess_result))
+
     def execute(self, argv, stdout_path, stderr_path, timeout):
         self.check_directory()
         with os.fdopen(self.open_exclusive(stdout_path.name), 'wb') as stdout:
             with os.fdopen(self.open_exclusive(stderr_path.name), 'wb') as stderr:
                 self.check_directory()
                 timeout = min(120, timeout, self.budget())
-                child = subprocess.Popen(argv, stdin=subprocess.DEVNULL, stdout=stdout,
-                                         stderr=stderr, cwd='/home/arduino', shell=False,
-                                         env=dict(ENVIRONMENT), start_new_session=True,
-                                         preexec_fn=self.support.limit_child_output)
-                value = self.support.wait_child(child, timeout)
+                try:
+                    child = subprocess.Popen(argv, stdin=subprocess.DEVNULL, stdout=stdout,
+                                             stderr=stderr, cwd='/home/arduino', shell=False,
+                                             env=dict(ENVIRONMENT), start_new_session=True,
+                                             preexec_fn=self.support.limit_child_output)
+                    value = self.support.wait_child(child, timeout)
+                except Exception as error:
+                    self.process_failure(error)
+                    raise
                 self.retain_outcome(value)
                 for stream in (stdout, stderr):
                     stream.flush()
@@ -361,9 +375,10 @@ class Upload:
             self.support.check_execution(value)
             self.budget()
         except Exception as error:
-            self.remember(error)
-            if hasattr(error, 'subprocess_result'):
-                self.postcheck('subprocess_outcome', lambda: self.retain_outcome(error.subprocess_result))
+            if self.executor is not None and self.report['attempts'] == 1:
+                self.process_failure(error)
+            else:
+                self.remember(error)
         for label in ('stdout', 'stderr'):
             self.postcheck(label, lambda label=label: self.read_stream(label))
 

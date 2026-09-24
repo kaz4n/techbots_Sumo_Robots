@@ -112,3 +112,18 @@ extra-declaration predicates. This is the same open MAJOR admission defect,
 source-derived and not executed by this reviewer. Sent concrete cases to the
 coordinator before adoption; independent probes and bounded repair remain needed.
 `source_fix1_review.json` binds the receipts and exact examples. No final PASS.
+
+## Second repair review: two bounded cases remain
+
+Source `1c124dfe816f90faf694c1820376b6a6a5a0cf60f7e8d1e84558a82914195fd0`
+closes the preceding parenthesized/leading-decoration examples. Public 74,
+private 19 and declaration 15 methods pass; receipt/log hashes are verified in
+`source_fix2_review.json`. Canonical declaration spelling remains strict.
+
+The same admission finding remains open for `unsigned short (TICK_US) = 2000U`:
+the finite builtin-type alternative omits terminal `short`. Also, the new
+decoration helper mistakes the partial prefix before a name for a malformed full
+decoration: `alignas(MODE_ARC_ENABLED) inline constexpr char ordinary = 0;`
+is a valid ordinary read with canonical MODE_ARC_ENABLED=1, but is rejected.
+Both examples were source-derived and sent to the coordinator before adoption.
+No reviewer execution or implementation/public-test edit; final verdict pending.

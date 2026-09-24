@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "recorded_utc": "2026-09-24T18:02:46.8186893Z",
+  "status": "MAJOR_REMAINS_OPEN",
+  "implementation_sha256": "1c124dfe816f90faf694c1820376b6a6a5a0cf60f7e8d1e84558a82914195fd0",
+  "closed_reported_forms": "Canonical uint32 parenthesized names and leading [[maybe_unused]]/alignas literal decorations now rejected as extra declarations; canonical admission remains strict.",
+  "receipts": [
+    {
+      "path": "state/analysis/P5_abort_analysis_raw/public_fix2.json",
+      "sha256": "ec2b0958bf7bc1f146db0ffb82b868dc433bf61d4c57721b94a8772055e893ed",
+      "log_sha256": "ec1205f5ad4ed228bca42580e64e1ec566ce5457029082f87ff14d54c90f0067",
+      "returncode": 0
+    },
+    {
+      "path": "state/reviews/P5_abort_analysis_review_raw/private_fix2.json",
+      "sha256": "eb5eb44bc769a3df7a22396517ff2633660ecb08749933b169036d3122d53fbb",
+      "log_sha256": "01f0393d7f8b335b87276ef73e0e11531c96e4906d7ee43dbab43c271e0e5cae",
+      "returncode": 0
+    },
+    {
+      "path": "state/analysis/P5_abort_analysis_declarations/second_repair.json",
+      "sha256": "d182457fd4fbc3648a08628a6e874a876e4db11ba27a0dc072952ee5dd12d308",
+      "log_sha256": "323a195eb15bda00584a303b0911177ac16b31f95eb813b545592b7094e3333b",
+      "returncode": 0
+    }
+  ],
+  "findings": [
+    {
+      "location": "tools/analyze_opener_abort.py:215-230,267-268",
+      "example": "alignas(MODE_ARC_ENABLED) inline constexpr char ordinary = 0;",
+      "kind": "Ordinary unconditional read regression",
+      "reason": "With canonical MODE_ARC_ENABLED=1 this declares another char with valid alignment. The helper receives only the prefix before the supported name, sees alignas( without its later closing parenthesis, and raises Unsupported Configuration. Full source is balanced."
+    },
+    {
+      "location": "tools/analyze_opener_abort.py:233-247",
+      "example": "namespace duplicate { inline constexpr unsigned short (TICK_US) = 2000U; }",
+      "kind": "Unsupported extra declaration remains admitted",
+      "reason": "Parenthesized head unsigned short does not match single qualified_type, and builtin_type excludes terminal short. This misses a finite builtin combination in the agreed classifier design."
+    }
+  ],
+  "evidence": "Source-derived only; exact cases forwarded before adoption. Reviewer ran no imports or tests.",
+  "next_step": "Coordinator freezes independent cases and preserves fix2 receipts, applies bounded repair, then obtains source-bound final results."
+}

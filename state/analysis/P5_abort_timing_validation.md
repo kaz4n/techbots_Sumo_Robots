@@ -1,6 +1,6 @@
 # D135 qualified opener-abort evidence validation
 
-2026-09-24 Asia/Dubai. **IMPLEMENTED; host matrix PASS; final review pending.**
+2026-09-24 Asia/Dubai. **IMPLEMENTED/HOST-TESTED/TARGET-COMPILED; scoped review PASS.**
 The exact producer is2d924f1f, with independently adjudicated new draft-oracle
 corrections94a7bb5d. The adopted contract is P5_abort_evidence_contract.md.
 This is preparation for P5.3, not physical10/10 acceptance or a human phase gate.
@@ -67,6 +67,9 @@ must bind results before accepting the new locked candidate. Fault probes are
 post-source-review checks, not original independent test authorship; each runs
 one intended new case while filtering the13 previously passing private cases.
 The final_binding.json binds656 inputs,42 protected files and14 passing receipts.
+The [separate fresh-context review](../reviews/P5_abort_timing_review.md) passes
+with no open BLOCKER/MAJOR/MINOR. It recommends acceptance of the new locked
+candidate; the coordinator's accepted_locked.json records its exact hash.
 
 [Native report](P5_abort_native_compile.md) retains the exact source/ELF/ABI and
 44 checked artifacts. The full default app separately exceeds its pristine

@@ -1,49 +1,42 @@
 # Resume SumoX-26 with Codex
 
-Current software phase: P5. D134 optional-mode implementation now passes full
-ordinary18-target regression, four-pair M0/M1 sanitizer/private checks and
-positive20 timing supplement; original failures/corrections remain recorded.
-Resume D135 qualified-abort evidence implementation after reading its contract,
-independent draft/private freezes and current Git status. Board was reconnected
-bare on24September; verify current transport before any new board operation.
-Native compile-only receipts are separate from host validation and physical gates.
+Current phase: P5 software, physical acceptance deferred. Do not reset to P0.
+D134 host completion d6a8319e; D135 production2d924f1f and reviewed draft-oracle
+corrections94a7bb5d; native/D136 contract4b1e701e. No actual human phase gate
+or motor permission is inferred from those software results.
 
-1. Read AGENTS.md fully, state/CODEX_HANDOFF.md, CODEX_EXECUTION.md, recent
-   PROGRESS.md, DECISIONS.md, FACTS.md, TUNING_LOG.md and open findings. Load the
-   active phase prompt and relevant PLAN/HARDWARE/BEHAVIOR sections.
-2. Inspect Git status/diffs, nested instructions, current tools and actual
-   Asia/Dubai time. Preserve unrelated edits, evidence and credentials.
-3. Read state/analysis/P4_push_through_checkpoint.md plus validation reports and
-   state/reviews/P4_push_through_review.md. D131 default/positive/configured and
-   sanitizer runs passed; D13232 public and12 private methods passed. D133 same296
-   tooling methods passed after exact historical-fixture repair. All344 prior
-   adapter assertions and41 protected source files are unchanged. Keep original
-   failures and successful hashes. Do not repeat matrices without a relevant change.
-4. Read state/analysis/P5_mode_availability_contract.md, its working checkpoint,
-   validation report and P5_host_profile_integration_failure.md. Read completed
-   full/reduced/sanitizer checks and scoped review; preserve the accepted locked hash.
-   D135 abort-evidence contract is adopted in2aa0ac2e, following design4dc72ac1;
-   independent isolated test drafts may exist, but implementation waits until
-   D134 frozen-source validation closes. No physical gate follows from software
-   scheduling. Shipped push duration remains0.
-5. D129/D131 target compilation/native fit are still pending. Prior D128 reactive
-   source9ddaa2aa/ELF01e39e39 modeled free6512; default43d16734 modeled free16.
-   These are historical compiler/model results, not live RAM/stack or full800us
-   WCET. Do not infer fresh board access; hardware tests are deferred by the user.
-6. Last actual MCU run remains D118 e820c0e1/defaultM0, committedfbfb0f2e.
-   Original run claims are consumed; no replay/reset/restore under them. Native
-   dump prerequisites remain in P2_native_dump_prerequisite_followup.md. Known
-   passwordless sudo failed; do not repeat or manufacture grants.
-7. Follow AGENTS storage rule and state/STORAGE_LOG.md. Check free space before
-   large jobs, use TMPDIR=/dev/shm and one compiler process, retain compact receipts
-   before releasing new scratch. Old85MB cleanup was denied; do not bypass it.
-   Preserve checked target artifacts, source, evidence, user files and Git history.
-8. D051 delegates engineering choices; hardware-at-end permits safe software
-   scheduling. PINMAP/EXPLAINED/human gates and specific STAND/RING authorization
-   remain distinct. Apply actual end28Sep scope cut, P6 gate eligibility by30Sep,
-   freeze1Oct21:00 Dubai. Commit finished tasks promptly; never push or move tags.
+1. Read AGENTS.md fully, CODEX_HANDOFF.md, CODEX_EXECUTION.md, recent PROGRESS,
+   DECISIONS, FACTS, TUNING_LOG and open findings. Load active P5 prompt and
+   relevant PLAN/BEHAVIOR/HARDWARE sections. Inspect Git and nested instructions;
+   preserve user work. Determine actual Asia/Dubai date and current disk space.
+2. Inspect D135 raw receipts and any still-running pipeline70124 before running
+   another compiler. Full20targets and private13perM already PASS; configured,
+   sanitizer, configured-sanitizer are queued serially. Do not mistake a log for
+   a terminal success. All656 frozen inputs must remain exact during validation.
+3. After that matrix, execute prepared run_tools.py admission/regression,
+   run_layouts.py and run_faults.py serially; all retain receipts and release
+   owned scratch. Fault probes are isolated copies, not production edits or
+   pre-implementation independent tests. Complete separate review and only then
+   accept the new locked candidate. Existing42 protected files stay unchanged.
+4. Check P5_default_fit_experiment.md: one isolated default-app native candidate
+   compile is authorized, no source integration yet. D134 default model fails
+   by32B; D135 opener wrapper fits by1328B but omits default dump transport.
+   Native compilation/model is not upload/live-RAM/stack/WCET/physical evidence.
+5. D136 contract is adopted. Independent public/private drafts are in state
+   analysis/reviews; freeze before companion implementation execution. Only
+   after D135 frozen checks finish may production tooling/newtests be added.
+   Preserve unchanged CSV/D130 tools and established tests.
+6. Last actual MCU upload remains consumed D118 sourcee820c0e1/defaultM0.
+   BareUNOQ2629958581 was freshly visible24September; recheck transport for new
+   work. Use existing board-side CLI/verifiedADB fallback; no upload/reset or
+   motor-capable action follows from compile-only or --match. Native dump
+   prerequisite visibility/cancel/reopen remains unresolved; no sudo retry.
+7. Keep generated data only while useful. Use TMPDIR=/dev/shm, one host compiler,
+   retain compact receipts within the same live invocation, then release owned
+   scratch. Old85.48MB and new1.70MB deletions were denied; do not bypass policy.
+8. D051 delegates engineering choices, not measured facts, human gates or
+   per-run STAND/RING permission. No extra hardware request now. Follow actual
+   end28Sep scope cut, P4-by30Sep P6 condition, freeze1Oct21:00 Dubai. Commit
+   completed tasks promptly, never push/rewrite/move tags. Record checkpoint.
 
-D130 completion cd22e7c7; D131 contract ac49d422; prior pause2bdc6eae.
-P4 software completion39791703, ledger-byte correction2483038a, P5 designcf35d0a8.
-PROGRESS.md has legacy non-UTF8 separators; append without re-encoding old bytes.
-Read latest PROGRESS entries for subsequent commits and the exact next task.
+PROGRESS.md has legacy non-UTF8 bytes; append only, never decode/rewrite it.

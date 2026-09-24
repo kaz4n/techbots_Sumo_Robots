@@ -10,55 +10,42 @@ Do not treat an old snapshot, template or synthetic test as current approval.
 
 ## Current software checkpoint
 
-User resumed2026-09-24. D131/D132/D133 are IMPLEMENTED/HOST-TESTED with separate
-same-model scoped review PASS, no open findings. D131 final timing/sanitizer42public
-and14private cases pass perM0/M1; unchanged legacy30 pass perM0/M1. D13232 admission
-and12 private methods pass. D133 same296-method tooling rerun passes after exact
-historical fixture repair; all344 established assertions remain unchanged.
-Read analysis/P4_push_through_checkpoint.md and the two validation reports.
-Current task is D134 optional-mode availability: contract adopted after design
-review, config/public declarations present, independent tests being authored
-before implementation. See analysis/P5_mode_availability_contract.md. No gate follows.
-The user's storage follow-up added the retention rule in AGENTS.md and the
-compact history in STORAGE_LOG.md. Additional deletion was blocked by tooling.
+P5 is active under D134/D135/D136. D134 host closure is committed d6a8319e:
+all18 ordinary targets, four availability-pair M0/M1 sanitizer/private matrices,
+positive20 timing supplement and60+296 tooling PASS; separate scoped review PASS.
+Read analysis/P5_mode_availability_validation.md. Its new locked source is protected.
 
-D130 is IMPLEMENTED/HOST-TESTED with fresh-context scoped review PASS. Source
-b2229370 and original41-method oracle are unchanged after first-run112public
-methods (41new+33countdown+38CSV) and13private methods pass. All648prior tracked
-inputs and40protected files remain exact. Read analysis/P4_loss_analysis_validation.md.
-Bounded B9.4 push-through is now implemented, host-tested and reviewed.
-Default window remains0; copied positive fixtures are not positive tuning.
+D135 qualified opener-abort production is committed2d924f1f. The first public
+failures were independently traced to new draft assumptions; originals retained,
+reviewed corrections committed94a7bb5d. No42 established protected file changed.
+Current full20-target regression and13 private cases perM0/M1 PASS. Configured,
+sanitizer and configured-sanitizer runs are in serial pipeline70124; inspect
+analysis/P5_abort_timing_raw and reviews/P5_abort_timing_review_raw for terminal
+JSON receipts, never infer success from a started log. Frozen656 inputs stay
+unchanged until the matrix, tooling, layout and isolated fault probes finish.
 
-D129 is IMPLEMENTED/HOST-TESTED with separate scoped review PASS and no open
-scoped BLOCKER/MAJOR. Read analysis/P4_timing_evidence_validation.md and
-reviews/P4_timing_evidence_review.md. All14 normal host targets pass; timing30-case
-M0/M1 normal/sanitizer,32-case configured normal/sanitizer,149tooling+2registry
-pass. A chronology finding was fixed with unchanged independent regression.
-One new unaccepted tooling oracle was corrected from syntax assumptions to
-actual compiler-rejection checks. Original failures and all oracle versions
-are retained. All39 prior locked files remain exact; newe384e7fb is now protected.
+D135 native compile/conditional fit PASS in4b1e701e (F149): exact2d924f1f source,
+ELF9583f94d, model1328B free. This wrapper omits default app dump transport.
+Default app D134 compile succeeded but loader model has32B deficit (F148).
+An isolated three-file zero-window optimization experiment is authorized for one
+native compile only; see analysis/P5_default_fit_experiment.md. No integration
+or behavior/capacity change follows before validation and independent review.
+No upload/reset/MCU operation occurred during these new compile checks.
 
-D129 native compilation/default byte identity/MCU fit remain pending: current ADB
-inventory found no board. No upload, reset, MCU run, physical result or gate in
-this slice. Prior D128 reactive9ddaa2aa/ELF01e39e39 modeled free6512 and default
-43d16734 free16 are historical figures, not D129 or live memory/WCET proof.
+D136 offline analyzer contract adopted in4b1e701e underD051; public pure cue
+helper clarification follows in DECISIONS. Independent public/private drafts
+are state-only until D135 frozen validation ends. Analyzer is not implemented.
+Read analysis/P5_abort_analysis_contract.md and its separate design review.
 
-D130 adopted contract: analysis/P4_loss_analysis_contract.md. Existing CSV/countdown
-tools stay unchanged; new analyzer usage is in docs/target_loss_analysis.md.
-D131/D132 must finish validation/review before any positive tuning; retain default0.
-Use analysis/P4_software_acceptance_packet.md for all deferred physical criteria.
+P3/P4 software evidence and deferred physical metrics remain in their acceptance
+packets. D131 bounded push is implemented/reviewed; shipped window remains0.
+Native transport ownership/framing, full-source WCET, live stack/RAM, actual
+sensor/button/pin/mechanical trials and human gates remain pending.
 
-P3 software preparation is complete (D123 drive, D125 turns, D126 stop, D127
-countdown analysis); actual3.1-3.7 and human gate remain pending. Its acceptance
-packet and original failures are retained. D128 reactive GO enters SEARCH with
-no opener, then actual perception/contact/stall/edge paths.
-
-User-requested storage cleanup43319eec removed inspected closed temps and
-rebuildable host outputs. NTFS compression preserved all21145 evidence files
-byte-for-byte. See analysis/DISK_CLEANUP_20260924.md. Use /dev/shm builds and
-TMPDIR=/dev/shm, archive receipts in the same invocation and run heavy jobs
-serially. Initial D129 WSL service interruption was environmental, not a test
-result; partial logs are retained. Check C: free space before further artifacts.
+User storage policy: preserve compact evidence, use owned /dev/shm scratch and
+one host compiler. Two automatic-review-denied cleanup batches (historical85.48MB
+and new1.70MB duplicate stage) remain; do not retry by another route. No checked
+ELF, source, unique evidence, user file or persistent virtual disk is disposable.
 
 ## Historical board and P2 evidence
 
@@ -145,18 +132,6 @@ Resume with docs/prompts/CODEX_RESUME.md. Commit bounded finished tasks promptly
 record actual tests/failures/evidence, and stop at real external blockers rather
 than inventing a phase pass or promising unattended completion through human gates.
 
-D130 completion commit: cd22e7c7. D131 contract commit: ac49d422.
-Current working checkpoint: analysis/P4_push_through_checkpoint.md.
-P4 completion39791703; byte-preservation correction2483038a; P5 proposalcf35d0a8.
-PROGRESS.md contains legacy non-UTF8 separators: preserve its existing bytes and
-append without re-encoding historical content. D134 is the first unfinished task;
-read analysis/P5_mode_availability_checkpoint.md for the current process/receipts,
-including the later CMake profile-association failure and reviewed fix. D135
-abort-evidence preparation is adopted in2aa0ac2e after design4dc72ac1; isolated
-test drafting may proceed, but production waits for D134 frozen validation.
-
-User pause2026-09-24 13:09Dubai: D134full18normal/private6perM nowPASS. Resume firstunexecuted sanitizer matrix thenpositive20supplement from analysis/P5_mode_availability_checkpoint.md. Session69267 endedexit0; no activecompiler/boardoperation. D135drafts remainisolated/unvalidated; newreviewer privateartifactsnotyetwritten. Preserve allfailedreceipts; finalD134review/acceptance stillpending.
-
-Resume2026-09-24 15:21Dubai: D134 serial sanitizer matrix and positive20 supplement completedexit0. Final649source/41protected/prefix binding exact; host closure and nextD135 task in P5_mode_availability_checkpoint.md. Independent13-case D135private freeze nowexists; publicdrafts isolated. BareUNOQ inventory succeeds; newcompile-only nativework trackedseparately, no upload/reset/physicalgate.
-
-2026-09-24T15:32:56.340156+04:00: D134closurecommittedd6a8319e. D135interfaces/publictests b0540500 andinitialimplementation/firstfailedhost2d924f1f preserved. New18toolingmethodsPASS. Publicdraftoraclecorrections independentlyadjudicated; noexisting42lockedtestchange. NativeD134app compilePASSbutmodel32Bdeficit; reactive_timingmodel5016Bfree (F148). No upload. D135nativecompile nowusingexact2d924f1fsource, andhostvalidationcontinues.
+PROGRESS.md contains legacy non-UTF8 separators: append without re-encoding
+historical bytes. Historical checkpoints remain in Git; this current section
+supersedes their pending-task text, never their original receipts.

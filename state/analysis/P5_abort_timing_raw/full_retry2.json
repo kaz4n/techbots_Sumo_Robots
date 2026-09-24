@@ -1,0 +1,67 @@
+{
+  "label": "full_retry2",
+  "flags": [
+    "full",
+    "review"
+  ],
+  "start_utc": "2026-09-24T11:38:25.526323+00:00",
+  "input_freeze_sha256": "4b868df9407ae1d4a85ec0f13d5d9e0cebd3cd008d0dc0611556d177ace41894",
+  "runner_sha256": "6f08a06d3d3d02165c772619f0ce7598198ea7ae0e7f5a1fb4589e3c401f6694",
+  "commands": [
+    {
+      "argv": [
+        "cmake",
+        "-S",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/host",
+        "-B",
+        "/dev/shm/sumox_d135_j8s4pvs_/build",
+        "-DCMAKE_BUILD_TYPE=Debug"
+      ],
+      "returncode": 0,
+      "start_utc": "2026-09-24T11:38:25.533191+00:00",
+      "end_utc": "2026-09-24T11:38:28.144718+00:00"
+    },
+    {
+      "argv": [
+        "cmake",
+        "--build",
+        "/dev/shm/sumox_d135_j8s4pvs_/build",
+        "--parallel",
+        "1"
+      ],
+      "returncode": 0,
+      "start_utc": "2026-09-24T11:38:28.145217+00:00",
+      "end_utc": "2026-09-24T11:46:15.119696+00:00"
+    },
+    {
+      "argv": [
+        "ctest",
+        "--test-dir",
+        "/dev/shm/sumox_d135_j8s4pvs_/build",
+        "--output-on-failure"
+      ],
+      "returncode": 0,
+      "start_utc": "2026-09-24T11:46:15.120056+00:00",
+      "end_utc": "2026-09-24T11:46:39.386817+00:00"
+    },
+    {
+      "argv": [
+        "/usr/bin/python3",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/reviews/P5_abort_timing_review_raw/run_private.py",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots",
+        "/dev/shm/sumox_d135_j8s4pvs_/build",
+        "full_retry2"
+      ],
+      "returncode": 0,
+      "start_utc": "2026-09-24T11:46:39.387057+00:00",
+      "end_utc": "2026-09-24T11:46:42.299339+00:00"
+    }
+  ],
+  "hardware_access": false,
+  "frozen_inputs": 656,
+  "returncode": 0,
+  "scratch_released": true,
+  "source_verified_after_run": true,
+  "end_utc": "2026-09-24T11:46:44.385088+00:00",
+  "log_sha256": "cb212ec71167c74771afd06b4cdbc4dfba9ab981ec43e1bf55f75c3a62a24205"
+}

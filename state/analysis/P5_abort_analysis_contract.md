@@ -15,6 +15,13 @@ and existing tests unchanged. Import and call the unchanged CSV validator; do
 not create a shared analysis framework, transport service, dashboard or report
 generator. No shell, network, board, compilation or program invocation.
 
+Public pure seam: `decode_cue(value: int, mode: int) -> dict | None` returns
+the exact five cue fields listed below for valid matching-mode D135 metadata,
+otherwise None. Reject booleans, non-integers, values outside0..65535 and modes
+outside1..6. It reads no files or current config. This allows the independent
+full uint16 metadata oracle without65536 filesystem cohorts; end-to-end tests
+still verify that the analyzer uses the same declared wire contract.
+
 Proposed CLI: `python tools/analyze_opener_abort.py path/to/cohort.json`.
 One positional local JSON path, one JSON report on stdout. Return 0 only when
 cohort `timing_status` is PASS; return 1 for every other analysis result and

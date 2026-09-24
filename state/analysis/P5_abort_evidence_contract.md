@@ -1,8 +1,13 @@
-# Proposed P5.3 qualified-abort evidence contract
+# D135 P5.3 qualified-abort evidence contract
 
-**PROPOSED, NOT ADOPTED**, 2026-09-24. Root must decide adoption after D134.
-This specifies option2 from P5_abort_evidence_options.md; it changes no source,
-test, phase, grant, ledger or physical acceptance. No execution has occurred.
+**ADOPTED for bounded software preparation under D051**,2026-09-24. The final
+proposal c6314c04 is preserved in4dc72ac1 and passes separate same-model design
+review. D134 regression remains in progress; implementation must wait for that
+frozen-source validation to finish. Independent spec-only test preparation may
+proceed in isolated draft files. Active software phase remains P5. This decision
+does not establish native fit, a hardware grant, physical acceptance or a gate.
+The proposed forms below are the adopted interface/semantic contract; no code
+or execution follows merely from adoption.
 
 ## Scope and claim
 
@@ -351,5 +356,5 @@ actual trials remain pending. This proposal deliberately has no upload/run
 grant. If later acceptance requires latency from physical appearance or an
 electrical transition, that is a different externally measured origin and must
 be specified separately; it is not supplied by this logical-abort contract.
-The stated profile, grammar and logical elapsed metric are concrete proposed
-choices for root review, not already accepted policy.
+The profile, grammar and logical elapsed metric are now the adopted software
+contract; target realization and physical acceptance remain explicitly pending.

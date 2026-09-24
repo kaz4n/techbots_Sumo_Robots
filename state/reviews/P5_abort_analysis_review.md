@@ -64,3 +64,51 @@ case with a bounded coordinator-owned probe, then decide any narrow production
 fix and independently approved test-harness correction. Complete the remaining
 source/contract review and rerun source-bound public/private and prior regressions.
 No D136 acceptance verdict, further execution or permission follows this pause.
+
+## D136 test 16 adjudication after resume
+
+The original failure is a proven injection mismatch: the private conventional
+`CSV` module differs from the file-loaded `csv_validator` actually called at
+`analyze_opener_abort.py:549`. No fixture mutation occurred. This conclusion
+uses import/call-site evidence, not the zero call count alone; it does not
+establish that all snapshot-binding behavior is correct.
+
+Before correction or execution, preserved original probe bytes in
+`P5_abort_analysis_review_raw/private_probes_first.py` and the active freeze in
+`private_freeze_before_harness.json`. The earlier `private_freeze_first.json`
+and both original first-execution receipts remain unchanged. Detailed proof and
+the narrow authorized correction are recorded in `private_harness_adjudication.json`.
+Only test 16's dependency interception may change: load one subject, verify the
+validator file identity, patch that actual dependency, then retain every original
+mutation, exact one-call, INVALID and cleared-endpoint assertion. No execution yet.
+
+The authorized harness correction is now frozen, still unexecuted by this reviewer.
+Probe SHA256 `b270aafdf3a0ca43027912e4273104cf292208cc1c99d20aba3f2e8a7139b303`;
+active freeze `5a27ca331c9380dc410843d9610efe41f1308083ff089dae65d57186c2a9faa1`.
+`private_harness_correction.json` records the before/after bindings. The runner,
+other 18 methods and every original test 16 assertion remain unchanged.
+
+The first-source contract review is complete, with the declaration finding open.
+It also affects comma declarators such as `OTHER = 1U, TICK_US{2000U}`: their
+prefix defeats the original declaration predicate. The coordinator reports
+independently frozen pre-fix reproductions and owns the repair. No additional
+material finding arose in cue grammar, chronology, actual declared route-state
+checks, snapshot/manifest binding, loss/owner precedence or aggregation; see
+`source_review_first.json`. Final D136 verdict remains PENDING exact repair
+review, corrected-private execution and bound regression receipts.
+
+## First repair review: MAJOR remains open
+
+Reviewed source `02b2180a1014a7b78243101585730ab66849a3803b7336bbab407124d7e72ab4`.
+The bounded declaration helper closes the original reproduced forms. Verified
+receipt/log hashes for public 74, private 19 and declaration 8 PASS on this source;
+corrected private 19 also passes unchanged first source. Existing 112 regressions
+passed first source with unchanged dependencies. These results remain preserved.
+
+`_extra_declarator` still misses `inline constexpr std::uint32_t (TICK_US) = 2000U;`
+and extra list declarations prefixed with `[[maybe_unused]]` or `alignas(8)`.
+Each can accompany the canonical constant in another namespace and escape both
+extra-declaration predicates. This is the same open MAJOR admission defect,
+source-derived and not executed by this reviewer. Sent concrete cases to the
+coordinator before adoption; independent probes and bounded repair remain needed.
+`source_fix1_review.json` binds the receipts and exact examples. No final PASS.

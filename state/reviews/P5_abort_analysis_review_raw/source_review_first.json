@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "recorded_utc": "2026-09-24T17:54:42.2327340Z",
+  "status": "SOURCE_REVIEW_COMPLETE_WITH_OPEN_DECLARATION_FINDING",
+  "implementation_sha256": "9891c3eaa8a283d918d1e253a691c55c3d7d8ad3b9574eefcc14452f1e8b7843",
+  "contract_sha256": "be0de4d832b5794a96e1d87e35234c7291e0d63f68dba30e2d0b6cdb72c79c46",
+  "reviewer": "Separate same-model reused reviewer context; no cross-model or fresh phase-gate claim",
+  "open_finding": {
+    "severity": "MAJOR",
+    "lines": "tools/analyze_opener_abort.py:215-233",
+    "issue": "Extra direct/list and comma-separated declarations escape restricted configuration admission",
+    "examples": [
+      "namespace duplicate { inline constexpr std::uint32_t TICK_US{2000U}; }",
+      "namespace duplicate { inline constexpr std::uint32_t TICK_US(2000U); }",
+      "namespace duplicate { inline constexpr std::uint32_t OTHER = 1U, TICK_US{2000U}; }"
+    ],
+    "consequence": "Historical snapshot may be marked DECLARED_MATCH despite duplicate or unsupported supported-name declaration",
+    "review_evidence": "Import-free source reasoning; coordinator reports independent pre-fix reproductions at d0169983",
+    "remediation_owner": "Coordinator; review exact repair and bound result receipts before adoption"
+  },
+  "reviewed_without_additional_material_finding": [
+    "Exact schema/path/bounds and descriptor identity checks; no subprocess/network/board action.",
+    "decode_cue pure uint16 metadata table and snapshot/cause/phase restrictions.",
+    "All event ordinal and START/GO/header metadata constraints; adjacency and one-candidate grammar.",
+    "GO-to-decision and common read-anchor chronology, zero/wrap/half-range, diagnostic failure clocks and inclusive historical deadline.",
+    "Current-mask handover state and historical threshold; explicit HANDOVER_FAILED remains logical failure.",
+    "Historical source hash/extraction/availability and validate-every-bundle source-invalid reporting.",
+    "Accepted validator manifest retention; event/summary hash/size/row binding; invalid clears arithmetic.",
+    "Owner, detailed loss, closure, M0, missing binding and duplicate precedence.",
+    "Ten-attempt qualified/logical-failure/elapsed aggregation; declared hardware eligibility and permanent false acceptance fields."
+  ],
+  "private_harness": "Independently adjudicated conventional vs file-loaded validator module mismatch; narrow correction frozen separately, unexecuted by reviewer",
+  "execution_performed": false,
+  "current_verdict": "PENDING coordinator correction, corrected-private execution and complete regression/source-binding receipts"
+}

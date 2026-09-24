@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "recorded_utc": "2026-09-24T17:56:06.8064080Z",
+  "implementation_sha256": "02b2180a1014a7b78243101585730ab66849a3803b7336bbab407124d7e72ab4",
+  "status": "MAJOR_REMAINS_OPEN",
+  "confirmed_delta": "Small _extra_declarator helper adds direct/list suffixes and top-level comma tracking with parentheses/bracket depth; closes reproduced original cases.",
+  "passed_receipts": "Public74, private19, declaration8 pass on fix1; corrected private19 also passes original source; existing112 regressions pass original source with unchanged dependencies.",
+  "receipts": [
+    {
+      "path": "state/analysis/P5_abort_analysis_raw/public_fix1.json",
+      "sha256": "d50c2d73600fe8319d7cae10a24699f632957c70d25e775da960e3eb6b2f62d6",
+      "log_sha256": "5c15f8638883a1c3ec1b5efb55fe45bd17449a56806d4ff02ef1dbcb5d6a5a94",
+      "returncode": 0,
+      "log_verified": true
+    },
+    {
+      "path": "state/reviews/P5_abort_analysis_review_raw/private_fix1.json",
+      "sha256": "a5a35149ef45d638a161fc9d764565476bcb766f35ecb5b20428018cfeb5f29b",
+      "log_sha256": "82f22b4663697b7429358687495d339589e84b777451d5867d9b119125bb0011",
+      "returncode": 0,
+      "log_verified": true
+    },
+    {
+      "path": "state/reviews/P5_abort_analysis_review_raw/private_harness_retry1.json",
+      "sha256": "5ea5c3b1bc3ae8c00f4d6ff69a1ae3d896b05530105d064619f34adc51994cb9",
+      "log_sha256": "4659f0b5c7398fa258b35f3c0cadffe1d17c3932166d44d8bb9cd7e128436c09",
+      "returncode": 0,
+      "log_verified": true
+    },
+    {
+      "path": "state/analysis/P5_abort_analysis_declarations/first.json",
+      "sha256": "c61e19cf356b0a903e320d9b18e5b3c1cc664ecc0af5c5727b32564de5583f00",
+      "log_sha256": "55361519c59fb2295937eb7f9eb4e9e9e8ce380f95501eaeefb71fb9c046cad4",
+      "returncode": 1,
+      "log_verified": true
+    },
+    {
+      "path": "state/analysis/P5_abort_analysis_declarations/fix1.json",
+      "sha256": "d9b2a92c1d8fc8c4703bbe4df17b25e21c2ccde81c5f61b299e01a684d70c8ac",
+      "log_sha256": "cff23ad59d9a554e2a772b1535484d4d6e5c4660cccb2681cee179c4f3a21869",
+      "returncode": 0,
+      "log_verified": true
+    },
+    {
+      "path": "state/analysis/P5_abort_analysis_raw/regression_first.json",
+      "sha256": "bfcf2532575b94b5b1fbd6730f5466e9f0e3ce6bbe12afd9a89750efb84ad01a",
+      "log_sha256": "512eda570ab28dc108fef0b738b5adfe24be9af607324db004c5f7f60d2f95b1",
+      "returncode": 0,
+      "log_verified": true
+    }
+  ],
+  "finding": {
+    "location": "tools/analyze_opener_abort.py:215-250",
+    "summary": "Parenthesized supported-name declarators and leading attribute/alignment declaration prefixes still escape detection",
+    "examples": [
+      "namespace duplicate { inline constexpr std::uint32_t (TICK_US) = 2000U; }",
+      "namespace duplicate { [[maybe_unused]] inline constexpr std::uint32_t TICK_US{2000U}; }",
+      "namespace duplicate { alignas(8) inline constexpr std::uint32_t TICK_US{2000U}; }"
+    ],
+    "reason": "The first example ends prefix with ( and begins suffix with ); the others place bracket/parenthesis characters in prefix. separate/subsequent/assigned all remain false.",
+    "evidence": "Source-derived, not executed by reviewer; sent to coordinator before adoption.",
+    "recommendation": "Bounded extra-declaration rejection with separately frozen negative and ordinary-parenthesized/attributed/aligned-read positive controls; preserve all current first/fix receipts."
+  },
+  "execution_performed": false,
+  "next_step": "Review exact next source delta and bound receipt set; final adoption verdict remains pending."
+}

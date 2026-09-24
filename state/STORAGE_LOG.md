@@ -163,3 +163,15 @@ Transparent LZX compression of22 separately checked immutable historical P2 evid
 2026-09-25T02:01:55.701741+04:00 | D146 new evidence compression | Three required immutable observed files (debug ELF, map, original read receipt) compressed transparently with LZX. GetCompressedFileSizeW-reported storage fell818141B; all hashes, sizes and mtimes unchanged. Receipt analysis/storage_compression_20260925_tls_evidence.json. These records remain necessary; no deletion, duplicate artifact or denied-action retry. No claim that global C: free-space changes equal this delta.
 
 2026-09-25T02:05:56.567390+04:00 | D147 retention | Retain19 frozen test/fixture/plan and actual command-output/receipt files totaling43907B plus small source/contract/review/validation. One transient16MiB fixture exercised bounds in RAM; no persistent binary fixture, compiler tree, checkout or bytecode created. Retain original private CLI usage failure alongside corrected result. No denied cleanup retry.
+
+
+## 2026-09-25T02:14:29.072366+04:00 bounded disposable-file follow-up
+
+Separate read-only inspection found no new safe deletion candidates: no task-owned
+Windows Temp remnants, no repo temporary/partial files outside prior excluded
+paths, no new top-level build artifacts, and logs contains only .gitkeep.
+Prior denied cleanup paths and active npm caches were excluded, not retried.
+Current D148 sources/receipts and D145-D147 evidence are required and retained.
+No files were removed in this follow-up. C: free was677650432B at02:11Dubai;
+this is a current observation, not a cleanup-recovery claim. D148 reuses existing
+board artifacts in memory and returns compact reports instead of binary copies.

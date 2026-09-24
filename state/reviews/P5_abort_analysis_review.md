@@ -1,6 +1,8 @@
 # D136 private companion-analysis review
 
-Status: PENDING implementation review and authorized execution. No software PASS claimed.
+Current status: PASS for scoped D136 offline software on final source `8e002c6f…` (`5277dec0`).
+All reported findings below are closed; final source/receipt review is at the end.
+Earlier preparation and pause checkpoints are retained as historical evidence.
 Provenance: separate same-model reviewer reusing prior P4/D134/design context; not fresh gate review or cross-model. Only review/raw ownership; no production, public test, ledger, compiler or board changes.
 
 Nineteen private spec-derived methods and a hash-bound runner are frozen in
@@ -150,3 +152,32 @@ interleaved with balanced name parentheses. Positive controls retain ordinary
 reads while declaring another name. No template/function/member-pointer or
 general-C++ parser expansion is proposed. All cases remain source-derived here;
 the independent author/coordinator own pre-fix reproduction and any repair.
+
+## Final scoped D136 verdict — PASS
+
+No open material finding remains in the adopted offline analyzer and the reviewed
+finite input boundary. Final source SHA256:
+`8e002c6f627e1cb39af94d244a3ba62b817967e9d0e8ceac7497f9f6eb52c4d2`.
+
+Verified terminal results and exact source/test/log bindings: 93 public methods
+PASS (3.721 s), 19 private methods PASS (1.841 s). The unchanged legacy analyzer/
+CSV dependencies retain their 112-method PASS. Independently rehashed all 694
+prior inputs with zero mismatches, including all 43 protected locked files.
+Original public 74 and private 19 expectations, first failures and later
+independently frozen regression cases remain preserved; the sole private harness
+correction changes dependency interception while retaining every original assertion.
+
+The final type-head delta closes the reported global/CV/pointer/reference forms
+without changing canonical extraction, trace/report logic or ordinary-read intent.
+This is a finite lexical admission utility, not a C++ parser, preprocessor,
+compiler or blanket assertion about arbitrary C++ source. Discovery-path failure
+and a transient post-test README byte/EOL drift were preserved/adjudicated; the
+README was restored byte-exact and the final 694-input check passed.
+
+`P5_abort_analysis_review_raw/final_receipt_review.json` binds the evidence;
+SHA256 `fcbb4dbcd9623b3627f308297ca33e4097c3a1282e8ea8c6c1ff95931a28fcce`.
+This is separate-context same-model review with reused context, not cross-model
+or fresh phase-gate review. The reviewer executed no tests, compiler or board action.
+All evidence is synthetic local software evidence. Deployed-image/producer runtime,
+transport, native fit, calibrated clock, WCET, physical 10/10, motor permission
+and human phase gates remain outside this PASS; acceptance booleans stay false.

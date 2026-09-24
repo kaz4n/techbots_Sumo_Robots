@@ -39,3 +39,5 @@ reproducible objects. Do not retry a denied deletion through another mechanism.
 2026-09-24T15:57:51.3256967+04:00 | D135 layout_retry1 and faults_first | Both runner-owned /dev/shm build/copy trees released after compact receipts. Layout reports exact scratch bytes; faults bytes not measured. First layoutattempt allocated no scratch/compiler. Prior denied deletions unchanged.
 
 2026-09-24T16:10:54.406100+04:00 | Pause retention | Kept32 MATCH qualification files totaling354055 logicalbytes (checkedELF/receipts/manifests/scripts) plus compact analyzer first-run/failure/review evidence. Needed for offline resumption and source-bound review; no extra snapshot or cleanup attempted. Earlier denied batches remain unchanged.
+
+2026-09-24T22:14:55.246824+04:00 | D136 retention | Temporary synthetic fixtures used /dev/shm and unittest cleanup; no native rebuild or host object tree created. Retained small source/test freezes, unique first-failure logs and passing/review receipts for reproduction. Native MATCH evidence42files396062logicalbytes remains needed. No whole new checkout, no deletion retry for earlier denied batches.

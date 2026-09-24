@@ -992,3 +992,5 @@ physical/loadedRAM/gate claim. | contract=this commit
 2026-09-24T21:51:12.913171+04:00 | P5 software | USER RESUMED fromc4fadad0; bareboard reported connected | D136 unchanged firstsource prior112regression PASSexit0 in5.936s,694priorinputs unchanged. Independent duplicate-declaration cases/private harness adjudication and archived MATCH accounting resumed; no compile/upload/reset started. C:2.31GBfree. Commit tasks promptly without delay | resume validation checkpoint
 
 2026-09-24T21:57:56.772014+04:00 | P5 MATCH qualification | TARGET-COMPILED beforepause; resumed orderedmodel/import checksPASSexit0,1584Bconditionalspan/62imports. Root42+3hashesPASS,F151. No compile/upload/reset/MCU action this resume; separate reviewpending | native evidence commit
+
+2026-09-24T22:14:55.246824+04:00 | P5 D136 software closure | IMPLEMENTED/HOST-TESTED/scopedreviewPASS; final5277dec0 source8e002c6f,93public19private and112legacychecksPASS;694priorinputs43protectedunchanged. Original failures/harnessadjudications retained. P5physical/humangatepending; MATCHF151conditionalmodelreviewPASS | closurecommit

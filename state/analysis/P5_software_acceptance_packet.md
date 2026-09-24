@@ -20,7 +20,7 @@ historical IDs1..6 remain readable even when an optional mode is removed.
 |---|---|---|
 |5.1 Static box|Actual opener/FSM, governor/contact qualification and edge paths are host-tested.|Ten trials per included opener: at least9/10 eventually ATTACK on the box, zero self-exits. Record every result.|
 |5.2 Charger proxy|SIDESTEP phase priorities and WAIT approach/inner sidestep are implemented.|SIDESTEP and WAIT: ten string-pulled charger trials,60fps video; at least8/10 avoid frontal impact and reach the box side.|
-|5.3 Abort|D135 actual predicate/phase, current route and applied receipt are implemented and reviewed (70c964a7). D136 analyzer is implemented; declaration-admission review repair remains pending.|Ten original trials per included opener, all meet the qualified one-tick bound. Resolve source/clock/transport/run prerequisites; no favorable replacement of exclusions or failures.|
+|5.3 Abort|D135 actual predicate/phase, current route and applied receipt are implemented and reviewed (70c964a7). D136 analyzer passes93public/19private checks and separate scoped review (5277dec0); original failures are retained.|Ten original trials per included opener, all meet the qualified one-tick bound. Resolve source/clock/transport/run prerequisites; no favorable replacement of exclusions or failures.|
 |5.4 Mirror|Mirrored opener logic and host symmetry checks exist.|Actual L/R heading traces agree within10degrees. A host symmetry property is not physical heading accuracy.|
 |5.5 Mode UI|Bounded available-mode navigation and matrix projection are implemented/tested.|Operator selects every available mode within5seconds and reads confirmation at arm's length. Bare-board compilation cannot verify operator or display acceptance.|
 
@@ -56,3 +56,7 @@ requires independent review with no BLOCKER and the human's GATE P5 PASS.
 If the scope cut applies, record the decision and set both optional availability
 flags0, retaining mandatory openers and the recorder. This packet creates no
 release tag, rehearsal result or competition qualification.
+
+[D136 final validation](P5_abort_analysis_validation.md) records the93public,
+19private and112unchanged-dependency checks. The input grammar, source hashes and
+conditional MATCH loader result do not establish real trials or a human P5 gate.

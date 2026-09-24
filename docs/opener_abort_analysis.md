@@ -1,7 +1,8 @@
 # Analyze qualified opener handover timing
 
 Usage follows [D136's exact contract](../state/analysis/P5_abort_analysis_contract.md);
-implementation validation is pending. This offline
+host validation passes93 public and19 private methods; see
+[validation and review status](../state/analysis/P5_abort_analysis_validation.md). This offline
 tool analyzes existing local recorder bundles. It never compiles, uploads,
 connects to the robot, or grants permission to run motors.
 

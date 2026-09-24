@@ -915,3 +915,5 @@ physical/loadedRAM/gate claim. | contract=this commit
 2026-09-24T07:33:25.330480+04:00 | P3 3.4 D125 | IMPLEMENTED/HOST-TESTED/TARGET-COMPILED isolated turn trial; fullhold/edge/realGate/finiteSTOP, all8normaltargets and dedicatedM0/M1sanitizer,4angles, correctedconfigured29cases,107tooling+2registry+privatechecksPASS. Defaultbinaryunchanged; no MCU run/physical acceptance. Evidence analysis/P3_turn_integration_validation.md; contract ebe34983; taskcommit follows. Next3.3finite stoppingprofile.
 
 2026-09-24T07:35:40.045964+04:00 | P3 | D125 committed f39c9929 with scopedreviewPASS; begin D126finite stoppingprofile/publiccontract underD051/D122. No phasegate/physicalmeasurement.
+
+2026-09-24T07:48:31.258197+04:00 | P3 | D126 stopping trial | IMPLEMENTED/HOST-TESTED/TARGET-COMPILED; all10normal,30caseM0/M1san/all5duties,31configurednormal/san,121tooling+2registry; separate review;37locked unchanged; no MCU/physical/gate; next D127 countdown analyzer | commit this task

@@ -5,18 +5,18 @@
    docs/prompts/P3_first_drive.md. Reload relevant HARDWARE/BEHAVIOR sections.
 2. Inspect Git status/diffs, nested instructions, tools and actual Asia/Dubai time.
    Preserve user work, credentials and historical evidence; never author a gate.
-3. D123 DRIVE_TEST and D124/D125 turn trials are implemented and reviewed. Read
-   state/analysis/P3_turn_integration_validation.md and its separate review.
-   All8normal targets pass; turn28-case M0/M1 sanitizer and allsignedangles pass;
-   configured29-case Runtime normal/san pass after independently corrected draft
-   fixture readiness. New accepted locked7d6c5193 is protected, all36old unchanged.
-4. Next eligible software: finite P3 3.3 stopping-duty trial. Preserve full hold,
-   source admission, actual edge escape, R6 final electrical caps and real Gate
-   receipts. SC-AN records rest versus maximum excursion/common reference. No
-   measured cap or physical acceptance follows from a software implementation.
-5. D125 checked turnsourcefcf43381 has11424-byte conditional loader free span;
-   default5c7df067 reproduces D123 ELF/ZSK/loader, free16. This is not liveRAM/WCET.
-   No D125 MCU action. Last actual MCU run remains D118 e820c0e1/defaultM0,
+3. D123 DRIVE_TEST, D124/D125 turns and D126 stopping trials are complete software.
+   Read state/analysis/P3_stop_trial_validation.md and its separate review.
+   All10normal targets, stopping30-case M0/M1 sanitizer/all5duties and configured
+   31-case normal/sanitizer pass. Accepted locked01213382 now protected;37prior
+   locked unchanged. No production or oracle repair was needed in D126.
+4. Next eligible software: D127 offline P3.1 countdown-event analyzer. Read its
+   analysis/P3_countdown_analysis_contract.md; independent test and implementation
+   authors are preparing files. Freeze before execution, preserve the validator,
+   then run tests and separate review. Synthetic arithmetic never proves a run.
+5. D126 checked stopping9fd0f6ed has11912-byte conditional loader free span;
+   defaultf1d1292d reproduces D125 ELF/ZSK/loader, free16. This is not liveRAM/WCET.
+   No D126 MCU action. Last actual MCU run remains D118 e820c0e1/defaultM0,
    committed fbfb0f2e; both run claims consumed. Do not replay/reset/restore it.
 6. Native dump remains blocked on prerequisites in
    state/analysis/P2_native_dump_prerequisite_followup.md. Known passwordless sudo

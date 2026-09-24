@@ -68,6 +68,10 @@ inline constexpr std::uint32_t STOP_TRIAL_BRAKE_MS = 500U;
 static_assert(STOP_TRIAL_DUTY == 0.30F || STOP_TRIAL_DUTY == 0.40F ||
               STOP_TRIAL_DUTY == 0.50F || STOP_TRIAL_DUTY == 0.60F ||
               STOP_TRIAL_DUTY == 0.70F, "Stopping trial requires one specified duty");
+static_assert(STOP_TRIAL_APPROACH_MS > 0U && STOP_TRIAL_BRAKE_MS > 0U &&
+              STOP_TRIAL_APPROACH_MS < 0x80000000U / 1000U &&
+              STOP_TRIAL_BRAKE_MS < 0x80000000U / 1000U,
+              "Stopping trial intervals must be positive and below clock half range");
 // D078 native ADC development bounds and unchanged HARDWARE2/3 proposal.
 // Nominal scaling is not measured divider/reference calibration or PINMAP OK.
 inline constexpr std::uint32_t VBAT_INPUT_PIN = 14U; // A0 / PA4 / ADC1 channel9

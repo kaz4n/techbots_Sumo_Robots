@@ -26,7 +26,7 @@ std::uint64_t ageForever(std::uint64_t age, std::uint32_t delta) {
 
 bool moving(core::State state) {
     return (state >= core::State::OPENER && state <= core::State::REFLANK)
-#if SUMOX_P3_DRIVE_TEST || SUMOX_P3_TURN_TRIAL
+#if SUMOX_P3_DRIVE_TEST || SUMOX_P3_TURN_TRIAL || SUMOX_P3_STOP_TRIAL
         || state == core::State::DRIVE_TEST
 #endif
         ;
@@ -49,6 +49,9 @@ bool validProfile(governor::Profile profile) {
 #if SUMOX_B4_STAND
     case governor::Profile::STAND:
 #endif
+#if SUMOX_P3_STOP_TRIAL
+    case governor::Profile::STOP_TRIAL_FORWARD:
+#endif
         return true;
     }
     return false;
@@ -70,6 +73,10 @@ void clearActions(RobotResult& result) {
 #if SUMOX_P3_TURN_TRIAL
     result.turn_trial.fresh = false;
     result.turn_trial.phase_changed = false;
+#endif
+#if SUMOX_P3_STOP_TRIAL
+    result.stop_trial.fresh = false;
+    result.stop_trial.phase_changed = false;
 #endif
     result.lifecycle.gate.start_release = false;
     result.lifecycle.gate.go = false;
@@ -109,7 +116,7 @@ RobotResult Robot::step(const RobotInput& input) {
     runLifecycle(resolved);
     runEscape(resolved);
     routeMotion(resolved);
-#if !SUMOX_B4_STAND && !SUMOX_P3_DRIVE_TEST && !SUMOX_P3_TURN_TRIAL
+#if !SUMOX_B4_STAND && !SUMOX_P3_DRIVE_TEST && !SUMOX_P3_TURN_TRIAL && !SUMOX_P3_STOP_TRIAL
     checkStall();
 #endif
     prepareFinalRequest();
@@ -318,7 +325,7 @@ void Robot::runLifecycle(const RobotInput& input) {
     const auto selection = menu_.selection();
     const bool allow_start = tick_.entry == core::State::IDLE && initialized_ &&
         faults_ == 0U && !tick_.line_start_inhibited &&
-#if SUMOX_P3_DRIVE_TEST || SUMOX_P3_TURN_TRIAL
+#if SUMOX_P3_DRIVE_TEST || SUMOX_P3_TURN_TRIAL || SUMOX_P3_STOP_TRIAL
         selection.service_menu && selection.service == countdown::Service::DRIVE_TEST;
 #else
         !selection.service_menu;
@@ -340,6 +347,9 @@ void Robot::runLifecycle(const RobotInput& input) {
 #endif
 #if SUMOX_P3_TURN_TRIAL
                                         || turn_trial_stopping_
+#endif
+#if SUMOX_P3_STOP_TRIAL
+                                        || stop_trial_stopping_
 #endif
                                         , allow_start);
     if (result_.lifecycle.gate.start_release) beginAttempt();
@@ -439,6 +449,9 @@ void Robot::cancelMotion() {
 void Robot::routeMotion(const RobotInput& input) {
 #if SUMOX_B4_STAND
     routeStand(input);
+#elif SUMOX_P3_STOP_TRIAL
+    (void)input;
+    routeStopTrial();
 #elif SUMOX_P3_TURN_TRIAL
     (void)input;
     routeTurnTrial();
@@ -753,6 +766,9 @@ void Robot::prepareFinalRequest() {
 #if SUMOX_P3_TURN_TRIAL
         || turn_trial_inhibited_
 #endif
+#if SUMOX_P3_STOP_TRIAL
+        || stop_trial_inhibited_
+#endif
         ;
     if (tick_.forced_brake || tick_.request.inhibited) {
         tick_.request.duty_l = tick_.request.duty_r = 0.0F;
@@ -952,6 +968,9 @@ void Robot::finish(const RobotInput& input) {
 #if SUMOX_P3_TURN_TRIAL
     publishTurnTrial();
 #endif
+#if SUMOX_P3_STOP_TRIAL
+    publishStopTrial();
+#endif
     state_ = tick_.selected;
     result_.menu = menu_.stepObserved({input.t_us, input.button, tick_.entry,
         faults_ != 0U || state_ == core::State::STOPPED || result_.escape_fault != edge::EscapeFault::NONE,
@@ -990,6 +1009,9 @@ RobotResult Robot::exhaust(const RobotInput& input) {
 #endif
 #if SUMOX_P3_TURN_TRIAL
     publishTurnTrial();
+#endif
+#if SUMOX_P3_STOP_TRIAL
+    publishStopTrial();
 #endif
     result_.ticks = statistics_;
     result_.skipped_frames = skipped_frames_;

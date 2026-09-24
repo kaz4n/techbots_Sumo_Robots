@@ -30,6 +30,9 @@ bool profileCap(const Request& request, float& cap) {
 #if SUMOX_B4_STAND
     case Profile::STAND: cap = config::STAND_DUTY; break;
 #endif
+#if SUMOX_P3_STOP_TRIAL
+    case Profile::STOP_TRIAL_FORWARD: cap = config::STOP_TRIAL_DUTY; break;
+#endif
     default: return false;
     }
     cap = std::clamp(cap, 0.0F, 1.0F);

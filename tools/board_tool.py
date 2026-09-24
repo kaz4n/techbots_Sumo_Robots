@@ -297,8 +297,8 @@ def flash_profile(args):
         import ui_adc_run
         identified = ui_adc_run.validate_request(args, startup)
     probe = args.sketch == 'bench/runtime_inert'
-    sensor_bench = args.sketch in ('bench/opp_view', 'bench/qtr_raw', 'bench/vbat', 'bench/imu_heading', 'bench/ui', 'bench/ui_adc_probe', 'bench/motor_stand', 'bench/recorder', 'bench/motor_direction', 'bench/drive_test', 'bench/turn_accuracy')
-    if (probe or args.sketch in ('bench/ui_adc_probe', 'bench/motor_stand', 'bench/recorder', 'bench/motor_direction', 'bench/drive_test', 'bench/turn_accuracy')) and (args.match or startup != 'default'):
+    sensor_bench = args.sketch in ('bench/opp_view', 'bench/qtr_raw', 'bench/vbat', 'bench/imu_heading', 'bench/ui', 'bench/ui_adc_probe', 'bench/motor_stand', 'bench/recorder', 'bench/motor_direction', 'bench/drive_test', 'bench/turn_accuracy', 'bench/stopping_distance')
+    if (probe or args.sketch in ('bench/ui_adc_probe', 'bench/motor_stand', 'bench/recorder', 'bench/motor_direction', 'bench/drive_test', 'bench/turn_accuracy', 'bench/stopping_distance')) and (args.match or startup != 'default'):
         fail('Native probe requires default startup and MATCH=0 MOTORS_ALLOWED=0')
     if sensor_bench and args.match:
         fail('Sensor bench requires MATCH=0 MOTORS_ALLOWED=0')
@@ -350,6 +350,8 @@ def flash(args):
         flags += ' -DSUMOX_P3_DRIVE_TEST=1'
     if args.sketch == 'bench/turn_accuracy':
         flags += ' -DSUMOX_P3_TURN_TRIAL=1'
+    if args.sketch == 'bench/stopping_distance':
+        flags += ' -DSUMOX_P3_STOP_TRIAL=1'
     artifact_folder = f'{board_folder}/artifacts/{"match" if args.match else "bench"}-{startup}'
     if args.sketch == 'app':
         compile_app(board, checksum, board_folder, remote_root, fqbn, flags, startup)
@@ -361,7 +363,8 @@ def flash(args):
                    'bench/motor_stand': 'motor_stand.ino', 'bench/recorder': 'recorder.ino',
                    'bench/motor_direction': 'motor_direction.ino',
                    'bench/drive_test': 'drive_test.ino',
-                   'bench/turn_accuracy': 'turn_accuracy.ino'}[args.sketch]
+                   'bench/turn_accuracy': 'turn_accuracy.ino',
+                   'bench/stopping_distance': 'stopping_distance.ino'}[args.sketch]
         artifact_folder = compile_app(board, checksum, board_folder, remote_root, fqbn,
                                       flags, startup, project=project)
     else:

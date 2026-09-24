@@ -1,0 +1,47 @@
+{
+  "profile": "duty60",
+  "run_name": "duty60",
+  "focused": true,
+  "start_utc": "2026-09-24T03:46:59.099868+00:00",
+  "synthetic_config_overlay": true,
+  "duty": "0.60F",
+  "commands": [
+    {
+      "argv": [
+        "cmake",
+        "-S",
+        "/dev/shm/sumox_d126_duty60/fixture/host",
+        "-B",
+        "/dev/shm/sumox_d126_duty60/build",
+        "-DCMAKE_BUILD_TYPE=Debug"
+      ],
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "cmake",
+        "--build",
+        "/dev/shm/sumox_d126_duty60/build",
+        "--parallel",
+        "4",
+        "--target",
+        "stop_trial_m0_tests",
+        "stop_trial_m1_tests"
+      ],
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "ctest",
+        "--test-dir",
+        "/dev/shm/sumox_d126_duty60/build",
+        "--output-on-failure",
+        "-R",
+        "^stop_trial_"
+      ],
+      "returncode": 0
+    }
+  ],
+  "returncode": 0,
+  "end_utc": "2026-09-24T03:47:07.180709+00:00"
+}

@@ -10,20 +10,23 @@ Do not treat an old snapshot, template or synthetic test as current approval.
 
 ## Current P3 software
 
-D123 DRIVE_TEST and D124/D125 finite turn trials are implemented and reviewed.
-Read analysis/P3_drive_test_validation.md and analysis/P3_turn_integration_validation.md.
-All eight normal host targets pass; new turn M0/M1 sanitizer, all four signed
-angles and configured29-case Runtime normal/sanitizer checks pass. New accepted
-locked7d6c5193 is protected, alongside all36 previous files. Original draft
-fixture failure and independent readiness correction are preserved.
+D123 DRIVE_TEST, D124/D125 finite turns and D126 finite stopping trials are
+implemented and reviewed. Latest evidence: analysis/P3_stop_trial_validation.md.
+All ten normal host targets pass; stopping30-case M0/M1 normal/sanitizer and
+all five duty settings pass; configured31-case normal/sanitizer Runtime checks
+pass.121tooling+2registry checks pass. Newly accepted locked01213382 is protected;
+all37previouslocked files remain exact. No production or oracle repair was needed.
 
-Checked turn sourcefcf43381/ELFf41e2cb7 has11424-byte conditional free span.
-Default5c7df067 reproduces D123 ELF/ZSK/loader exactly, retaining16-byte modeled
-span. No D125 MCU operation; live stack/heap/WCET and physical metrics stay open.
-Next eligible task: finite P3 3.3 stopping trial, preserving actual full escape
-and final electrical trial caps. SC-AN records that final rest after reverse
-is not peak forward excursion; use common measured references before cap advice.
-No phase gate or physical measurement has been inferred from software checks.
+Checked stopping source9fd0f6ed/ELFb4f15bfe has11912-byte conditional loader free
+span. Defaultf1d1292d reproduces D125 ELF/ZSK/loader exactly, retaining16-byte
+modeled span. No D126 MCU action; live stack/heap/WCET and physical metrics stay
+open. SC-AN keeps originalrest measurement and separately requires measured
+peak excursion/common R_room reference before cap advice.
+
+Next: D127 offline P3.1 countdown analysis, contract in
+analysis/P3_countdown_analysis_contract.md. Separate implementation/test authors
+are preparing the tool and public oracle; freeze tests before execution. No
+physical result or human gate is inferred from software checks.
 
 ## Historical board and P2 evidence
 

@@ -96,3 +96,15 @@ rerun. No target build, MCU action or physical acceptance in this slice.
 
 See analysis/P3_turn_integration_validation.md and separate review for receipts,
 newacceptedlocked7d6c5193, retaineddraftfailure and actualremainingphysicalwork.
+
+
+## D126 current checkpoint - supersedes prior next-task notes
+
+- [x] Finite stopping trial through actual Straight/Governor/Gate and full escape.
+- [x] All10normal targets, new30-case M0/M1 sanitizer/all5duties, configured31-case normal/sanitizer.
+- [x]121tooling+2registry,4privatecases eachM0/M1;37priorlocked unchanged.
+- [x] Checked inert target compiled; default binary exact D125; no MCU action.
+- [ ] D127 P3.1 countdown-event analyzer: contract adopted; implementation and independent oracle in progress.
+
+See analysis/P3_stop_trial_validation.md and separate review. Accepted locked
+01213382 is protected. Physical P3.1-3.7 and human gate remain pending.

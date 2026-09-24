@@ -50,8 +50,11 @@ Return exactly these keys:
 - `errors`: list of strings naming malformed prefix fields, empty otherwise.
 
 Reference identity is intentionally the caller's responsibility: the later
-collector must bind loader SHA6b2ffd3a and static package SHA5f08afe0 before
-calling this pure comparator. Synthetic host fixtures are not native evidence.
+collector must bind the ELF-derived loader image SHAe9322826 and static package
+SHA5f08afe0 before calling this pure comparator. Derive the loader's263680 bytes
+from the checked ELF39d4a4fd with the pinned existing p0.loader_image parser.
+The packaged loader BIN6b2ffd3a differs at one byte and is not the uploaded ELF's
+physical-byte reference. Synthetic host fixtures are not native evidence.
 
 ## Literal public-prefix layout
 

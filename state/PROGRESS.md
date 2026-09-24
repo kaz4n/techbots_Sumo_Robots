@@ -1100,3 +1100,5 @@ physical/loadedRAM/gate claim. | contract=this commit
 2026-09-25T03:06:32.969894+04:00 | P7 startup dependency preparation | Three Linux read-only calls exit0; fresh CLI/OpenOCD/config/loader and include-shadow evidence. Source audit corrects raw BIN selector for static sibling payload. No upload/reset/MCU read; next pure bounded capture host implementation. Evidence analysis/P7_static_startup_dependencies.md | dependency evidence commit
 
 2026-09-25T03:07:56.900112+04:00 | P7 D152 pure capture adopted | Designreviewe18be2cb PASS; fixed18reads/713656B plan and strict pure interpretation. Draft implementation written but not executed; independent test freeze pending. No board operation or production change | pure capture contract commit
+
+2026-09-25T03:10:12.888418+04:00 | P7 D152 host first run | 37 frozen independent methods PASSexit0/0.206s; sourceb7ab979d unchanged. Caller loader-reference defect independently corrected to ELF-derivede932; original saved6d45e3b5. No board/production/test changes; final review pending | capture host result commit

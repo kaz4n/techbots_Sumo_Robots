@@ -10,8 +10,8 @@ deferred; actual P0-P5 criteria and human gates have not been replaced by assump
 | Original task | Current deliverable | Required completion evidence |
 |---|---|---|
 | 7.1 Freeze/release | Build-only example corrected to `tools/flash.sh app --match --compile-only` | Validated source/config and checked artifacts; actual freeze/release conditions; recorded release commit and v1.0 tag. No tag exists by virtue of this packet. |
-| 7.2 Runbook | [Draft runbook](../../docs/RUNBOOK.md) and [mode card](../../docs/MODE_CARD.md) in preparation | Scoped document review, qualified operational procedures, team review and actual printed copies. |
-| 7.3 Dress rehearsal | [Blank rehearsal/scouting sheets](../../docs/REHEARSAL_SCOUTING.md) in preparation | Three real best-of-three sets on2October, exact timings and procedural observations; no blank cell is a pass. |
+| 7.2 Runbook | [Draft runbook](../../docs/RUNBOOK.md) and [mode card](../../docs/MODE_CARD.md) written and scoped-reviewed | Qualified operational procedures, team review and actual printed copies. |
+| 7.3 Dress rehearsal | [Blank rehearsal/scouting sheets](../../docs/REHEARSAL_SCOUTING.md) written and scoped-reviewed | Three real best-of-three sets on2October, exact timings and procedural observations; no blank cell is a pass. |
 | 7.4 Kit | Inventory in the runbook | Team records actual packed items; no purchase or possession inferred. |
 | Exit gate | [Filled pending request](../reviews/P7_gate_request.md) | Required evidence, genuinely fresh independent gate review with no open BLOCKER, human `GATE P7 PASS`. |
 
@@ -27,6 +27,10 @@ display projection does not establish literal READY or a numeric battery reading
 Optional stopped-service reset does not rearm a match. Native recorder delivery
 and a log-preserving next-round workflow remain unqualified. Draft procedures
 must surface these gaps rather than instruct an operator to bypass them.
+The original READY/battery-on-matrix criterion remains open as
+[SC-AP](spec_conflicts.md#sc-ap-p7-operational-readiness-versus-current-displayrearmdump-open-d137).
+An external calibrated method in a draft field is not automatic acceptance of a
+replacement criterion; any changed semantics need their recorded decision first.
 
 Prior acceptance entry points:
 
@@ -62,5 +66,25 @@ cut. Freeze1October21:00Dubai, rehearsal2October, competition3October. No code o
 release claim follows automatically from any date. After freeze only permitted
 config values with tuning evidence; other code work needs an explicit human exception.
 
-Validation status: documents/review currently in preparation. The final source/link
-check and separate scoped review will be appended here before software closure.
+## Completed software-document validation
+
+The three preparation drafts and safe build-only example are complete. The
+[separate scoped review](../reviews/P7_operator_docs_review.md) passes with no
+open findings; it is a reused same-model context, not the fresh phase-gate review.
+Its [receipt](../reviews/P7_operator_docs_review_receipt.json) freezes the reviewed
+documents and source references. Root independently checked52relative links and
+9fragments, all43protected source hashes, the original PROGRESS byte prefix and
+no src/host/tests/tools changes from0faf2e6d; see
+[local receipt](P7_document_validation.json). `git diff --check` exited0.
+
+No firmware or tool tests were repeated for this prose-only change, and no new
+target build, upload/reset, hardware measurement or tuning was performed. The
+root-identified session-authorization and date-only tag wording were corrected
+before final review. SC-AP and all actual release criteria remain open.
+
+Next eligible dependent work: obtain the real prerequisites in the linked
+acceptance packets and resolve SC-AP against that release, then validate the
+actual runbook workflow. Native dump work first needs the specified privileged
+read-only holder evidence and reviewed quiescence/cancel/reopen plan. Do not
+rerun unchanged host matrices, repeat denied cleanup, deploy the current draft,
+enable setup grants from assumptions, or fabricate P6 eligibility/release gates.

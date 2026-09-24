@@ -3,8 +3,9 @@
 <!-- Checked against P5_openers.md and the linked source-bound validation records. -->
 # P5 software acceptance packet
 
-2026-09-24 Asia/Dubai. P5 software work is active; **all physical P5 metrics
-remain pending**. The user reports a bare UNO Q and requests no additional
+2026-09-24 Asia/Dubai. P5 software work is complete and scoped-reviewed in
+0faf2e6d; **all physical P5 metrics remain pending**. D137 advances only P7
+document preparation. The user reports a bare UNO Q and requests no additional
 hardware now. No assumed acceptance is a measurement or GATE P5 PASS.
 
 The original priority remains SIDESTEP_R/L, DIRECT, optional ARC_R/L, then WAIT.

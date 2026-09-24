@@ -996,3 +996,5 @@ physical/loadedRAM/gate claim. | contract=this commit
 2026-09-24T22:14:55.246824+04:00 | P5 D136 software closure | IMPLEMENTED/HOST-TESTED/scopedreviewPASS; final5277dec0 source8e002c6f,93public19private and112legacychecksPASS;694priorinputs43protectedunchanged. Original failures/harnessadjudications retained. P5physical/humangatepending; MATCHF151conditionalmodelreviewPASS | closurecommit
 
 2026-09-24T22:17:20.531829+04:00 | P7 documentation D137 | SOFTWARE-PREPARATION active under existing software-first direction; P5softwareclosed0faf2e6d, actualP5gatepending. Original7.2/7.4 and blank7.3 records only; P6deferred, no target/firmware/tag/gate action. Corrected7.1 build-only command; scoped document review next | scheduling commit
+
+2026-09-24T22:23:40.901462+04:00 | P7 D137 | IMPLEMENTED/scopedreviewPASS for runbook/modecard/inventory/blankrehearsal docs;52links9fragmentsPASS,43protected unchanged,no production/tool/testdiff. SC-AP and actual7.1/7.3/print/physical/humangatespending; no newboardaction. Next dependent release prerequisites per P7packet | operator-document commit

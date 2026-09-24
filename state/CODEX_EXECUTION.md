@@ -47,12 +47,17 @@ D139's unchanged current default/M0 qualification is complete with a592B modeled
 deficit. Read analysis/P7_default_qualification_validation.md and its review;
 compiler success does not qualify this image. The two old failed candidates are
 not adopted. A bounded source audit identified no credible single fit repair.
-D140 read-only source qualification is complete in `6e6fe21c`; see
-analysis/P7_static_link_research.md and its reviewed evidence. Next finalize the
-proposed D141 static/M0 probe interfaces and exact command/ABI/section literals,
-then freeze independent tests and obtain the separate scoped review before
-adoption/execution. The draft is analysis/P7_static_link_probe_contract.md.
-Current checked policy remains dynamic-only; no static compile is yet authorized.
+D140 source qualification is complete in `6e6fe21c`. D141 policy-only host work
+is now complete: 35 independent methods and four private regression cases pass;
+separate review has no open findings. Read analysis/P7_static_policy_validation.md.
+The original literal-path defect/failures are preserved; no established test or
+production policy was changed. Exact reference has 84 keys; eight pins are additive.
+
+Next define the artifact validator and one-shot runner in a companion scope,
+including precise section/ABI/package/source/path checks and negative fixtures.
+Do not edit the frozen policy contract or oracles. Their full-probe draft remains
+unadopted; implementation/query/compiler needs the separate scoped review and
+adoption. Production remains dynamic-only, no static image has been built.
 
 Then resume only genuinely available required evidence: physical packets, native
 dump holder/quiescence/cancel/reopen prerequisites, and SC-AP release workflow.
@@ -64,7 +69,7 @@ Last actual MCU upload remains consumed D118defaultM0 e820c0e1; recheck actual
 transport for a new task and never reuse its run approval.
 
 Storage: compression recovered 353,796,096 allocated bytes across 129 old text
-captures, with unchanged hashes; no files deleted. C: about 900 MB free, recheck.
+captures, with unchanged hashes; no files deleted. C: about 850 MB free at latest check, recheck.
 Automatic approval rejected deletion of 154 Arduino download archives (4.26 GiB)
 with "blocked by policy". Earlier stage/host/snapshot denials remain unchanged.
 Do not retry denied actions through another mechanism. See STORAGE_LOG.md.

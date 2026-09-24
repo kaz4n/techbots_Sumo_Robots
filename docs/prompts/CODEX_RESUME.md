@@ -1,17 +1,19 @@
 # Resume SumoX-26 with Codex
 
-**D140 source audit complete; D141 feasibility contract remains a draft.**
-Commit `6e6fe21c` preserves the reviewed installed-source and packaging evidence.
-The current default/M0 image still has a modeled 592-byte dynamic-loader deficit.
-No static image has been compiled or run. Production admission remains dynamic-only.
-Next finish the proposed static/M0 artifact probe's exact interfaces and literals,
-then independent tests and review before adopting or executing its bounded scope.
+**D141 policy component is HOST-TESTED and separately reviewed.**
+The scoped validator passes 35 independent host methods and the reviewer's four
+regression cases. Its single path-substitution defect is fixed; original failures
+and source commit `92d9bb8b` remain preserved. Production admission is unchanged.
+No static image has been built or run; the default dynamic deficit is still 592
+bytes. Next define the remaining artifact/one-shot-runner interfaces and tests,
+then obtain separate scoped adoption/review before any target query or compiler.
 
 
 Current phase: **P7 software/release preparation**. D138 readiness software has
 passing host/full/sanitizer and exact MATCH target checks. D139 now records the
 current default/M0 modeled592B deficit. D140 static-link source research is
-complete; the separately scoped artifact-probe contract remains draft. Never reset toP0 or revive older
+complete; D141 pure policy work is host-tested and reviewed. The remaining
+artifact/runner component stays draft. Never reset toP0 or revive older
 blanket no-host-work checkpoints. Physical/human gates remain pending.
 
 1. Read rootAGENTS fully, state/CODEX_HANDOFF.md/CODEX_EXECUTION.md, latest
@@ -21,13 +23,15 @@ blanket no-host-work checkpoints. Physical/human gates remain pending.
    reviews/P7_readiness_review.md and P7_remaining_scope_audit.md. D138 final687
    freeze0fe188b7,43protected,full22targets and configured31perM PASS. All commands
    are terminal. Final review PASS has no open findings; commit finished work promptly.
-3. Read P7_default_qualification_validation.md and its separate review. One
-   unchanged default/M0 compile passed; ordered fit failed by 592 bytes. Do not
-   repeat it or restart old failed candidates. D140 source research is complete
-   in 6e6fe21c: read P7_static_link_research.md, sources and review. Finish the
-   proposed D141 contract's exact public interfaces and command/ABI/section
-   literals, followed by independent tests and scoped review before adoption or
-   execution. No static compiler, policy change or upload is currently authorized.
+3. D139's unchanged default/M0 compile passed but modeled fit failed by 592
+   bytes. Do not repeat it or restart old failed candidates. D140 source research
+   is complete in 6e6fe21c. D141 pure policy now passes 35 independent methods
+   and four private regression cases, with scoped review PASS: read
+   P7_static_policy_validation.md and reviews/P7_static_policy_review.md. Preserve
+   the original path defect and failure receipts. Next define the remaining
+   artifact-validator/one-shot-runner interfaces and negative tests in a companion
+   scope. Do not silently edit its frozen policy contract/oracles. Full probe
+   adoption/review is still needed before implementation or target query/compiler.
 
 4. D138 MATCHsourcefcddbd8e/ELFcb5fbb53 has only864Bconditional loader span,
   62resolvedimports,16ABI/72oldoffset matches. No upload/live RAM/stack/WCET or
@@ -40,7 +44,7 @@ blanket no-host-work checkpoints. Physical/human gates remain pending.
    not PINMAP, EXPLAINED, human gates or fresh STAND/RING permission. P6 still needs
    actualP4gate. Complete actual P7 print/release/rehearsal only with evidence.
 7. Keep compact evidence and one heavy compiler. Text-evidence compression
-   recovered 337.4 MiB with every hash unchanged; C: about 900 MB free, recheck.
+   recovered 337.4 MiB with every hash unchanged; C: about 850 MB free at latest check, recheck.
    Automatic approval blocked deletion of 4.26 GiB Arduino download caches with
    "blocked by policy"; no files deleted. Earlier stage/host/snapshot denials also
    stand. Never retry denied cleanup or change paging/persistent virtual disks.

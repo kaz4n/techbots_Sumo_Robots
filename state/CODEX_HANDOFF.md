@@ -1,11 +1,12 @@
 # Codex handoff - 2026-09-25 Asia/Dubai
 
-**D140 source audit complete; D141 feasibility contract remains a draft.**
-Commit `6e6fe21c` preserves the reviewed installed-source and packaging evidence.
-The current default/M0 image still has a modeled 592-byte dynamic-loader deficit.
-No static image has been compiled or run. Production admission remains dynamic-only.
-Next finish the proposed static/M0 artifact probe's exact interfaces and literals,
-then independent tests and review before adopting or executing its bounded scope.
+**D141 policy component is HOST-TESTED and separately reviewed.**
+The scoped validator passes 35 independent host methods and the reviewer's four
+regression cases. Its single path-substitution defect is fixed; original failures
+and source commit `92d9bb8b` remain preserved. Production admission is unchanged.
+No static image has been built or run; the default dynamic deficit is still 592
+bytes. Next define the remaining artifact/one-shot-runner interfaces and tests,
+then obtain separate scoped adoption/review before any target query or compiler.
 
 
 **Active phase: P7 software/release preparation.** D138 informational READY and
@@ -46,11 +47,22 @@ uses a direct entry, fixed placement and packaged libc aliases; these are source
 findings, not artifact fit or runtime acceptance. Old failed candidates remain
 unadopted, and the current dynamic policy is unchanged.
 
-Next settle the public interfaces and complete expected command/ABI/section
-literals in analysis/P7_static_link_probe_contract.md. The revised draft review (e5c20fed) closed both initial findings. It preserves one
-fixed source, default/M0, no upload/reset, independent negative tests, exact
-artifact freshness and direct-entry validation. A reviewed draft does not itself
-authorize implementation or compilation. All compiler/board commands are terminal.
+D141 adopted only the pure policy component in commit `8c093525`. Read
+analysis/P7_static_policy_validation.md and reviews/P7_static_policy_review.md.
+Final source ec3d8a5e passes the original 27 and eight new independent methods,
+plus the unchanged four-case private reproducer. Separate same-model review
+8fe8726a has no open findings. Exact 84-command reference and eight additive
+pins were independently checked; none of the 18 production pins was replaced.
+No firmware/config/established-test/production-policy change or board action.
+
+Next settle the remaining artifact-validator and one-shot-runner interfaces,
+exact named-section/ABI acceptance, immutable input/command bindings and negative
+fixtures from the parent contract. Use a companion scope document: the current
+policy contract is now one of its eight frozen oracle inputs and must not be
+silently rewritten. Full probe implementation/query/compiler authorization is
+still pending its separate bounded review/adoption. Derived e_flags 0x05000400
+is a proposal, not an observed static image. All commands are terminal; there is
+no active compiler, compression process or background board operation.
 
 D134 mode availability, D135 abort producer and D136 analyzer are closed for
 software (d6a8319e/70c964a7/0faf2e6d). Their validation packets retain actual scope,
@@ -77,7 +89,7 @@ No additional hardware request now; no fresh STAND/RING authorization exists.
 Storage cleanup recovered 353,796,096 allocated bytes (337.4 MiB) by transparent
 LZX compression of 129 historical JSON/TXT evidence files; all before/after hashes
 match. No file was deleted. Receipts are in analysis/storage_compression_20260924_*
-and STORAGE_LOG.md. C: had approximately 900 MB free after the batch; recheck
+and STORAGE_LOG.md. C: had approximately 900 MB free after the batch (about 850 MB at the latest check); recheck
 before large work because system activity changes it. Keep compact evidence and
 one heavy compiler; do not change paging or persistent virtual disks.
 

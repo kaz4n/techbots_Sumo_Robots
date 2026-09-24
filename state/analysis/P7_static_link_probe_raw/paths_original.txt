@@ -1,0 +1,153 @@
+test_both_path_roots_can_contain_both_literal_tokens (test_static_policy_paths.StaticPolicyPathLiterals.test_both_path_roots_can_contain_both_literal_tokens) ... 
+  test_both_path_roots_can_contain_both_literal_tokens (test_static_policy_paths.StaticPolicyPathLiterals.test_both_path_roots_can_contain_both_literal_tokens) (validator='validate_preflight', build='/literal/@DATA_DIR@/@BUILD_PATH@/build', data='/literal/@BUILD_PATH@/@DATA_DIR@/data') ... ERROR
+  test_both_path_roots_can_contain_both_literal_tokens (test_static_policy_paths.StaticPolicyPathLiterals.test_both_path_roots_can_contain_both_literal_tokens) (validator='validate_compile_result', build='/literal/@DATA_DIR@/@BUILD_PATH@/build', data='/literal/@BUILD_PATH@/@DATA_DIR@/data') ... ERROR
+test_coherent_build_metadata_cannot_authorize_recursively_expanded_commands (test_static_policy_paths.StaticPolicyPathLiterals.test_coherent_build_metadata_cannot_authorize_recursively_expanded_commands) ... 
+  test_coherent_build_metadata_cannot_authorize_recursively_expanded_commands (test_static_policy_paths.StaticPolicyPathLiterals.test_coherent_build_metadata_cannot_authorize_recursively_expanded_commands) (validator='validate_preflight', build='/literal/@DATA_DIR@/build', data='/synthetic/path-literals/arduino-data') ... FAIL
+  test_coherent_build_metadata_cannot_authorize_recursively_expanded_commands (test_static_policy_paths.StaticPolicyPathLiterals.test_coherent_build_metadata_cannot_authorize_recursively_expanded_commands) (validator='validate_compile_result', build='/literal/@DATA_DIR@/build', data='/synthetic/path-literals/arduino-data') ... FAIL
+test_distinct_normal_roots_remain_accepted (test_static_policy_paths.StaticPolicyPathLiterals.test_distinct_normal_roots_remain_accepted) ... ok
+test_literal_build_token_in_data_root_is_preserved (test_static_policy_paths.StaticPolicyPathLiterals.test_literal_build_token_in_data_root_is_preserved) ... ok
+test_literal_data_token_in_build_root_is_preserved (test_static_policy_paths.StaticPolicyPathLiterals.test_literal_data_token_in_build_root_is_preserved) ... 
+  test_literal_data_token_in_build_root_is_preserved (test_static_policy_paths.StaticPolicyPathLiterals.test_literal_data_token_in_build_root_is_preserved) (validator='validate_preflight', build='/literal/@DATA_DIR@/build', data='/synthetic/path-literals/arduino-data') ... ERROR
+  test_literal_data_token_in_build_root_is_preserved (test_static_policy_paths.StaticPolicyPathLiterals.test_literal_data_token_in_build_root_is_preserved) (validator='validate_compile_result', build='/literal/@DATA_DIR@/build', data='/synthetic/path-literals/arduino-data') ... ERROR
+  test_literal_data_token_in_build_root_is_preserved (test_static_policy_paths.StaticPolicyPathLiterals.test_literal_data_token_in_build_root_is_preserved) (validator='validate_preflight', build='/literal/pre@DATA_DIR@post/build', data='/synthetic/path-literals/arduino-data') ... ERROR
+  test_literal_data_token_in_build_root_is_preserved (test_static_policy_paths.StaticPolicyPathLiterals.test_literal_data_token_in_build_root_is_preserved) (validator='validate_compile_result', build='/literal/pre@DATA_DIR@post/build', data='/synthetic/path-literals/arduino-data') ... ERROR
+test_one_pass_oracle_preserves_literal_inserted_tokens (test_static_policy_paths.StaticPolicyPathLiterals.test_one_pass_oracle_preserves_literal_inserted_tokens) ... ok
+test_recursive_single_command_drift_is_rejected_for_either_path_root (test_static_policy_paths.StaticPolicyPathLiterals.test_recursive_single_command_drift_is_rejected_for_either_path_root) ... ok
+test_self_named_tokens_in_path_values_are_preserved (test_static_policy_paths.StaticPolicyPathLiterals.test_self_named_tokens_in_path_values_are_preserved) ... ok
+
+======================================================================
+ERROR: test_both_path_roots_can_contain_both_literal_tokens (test_static_policy_paths.StaticPolicyPathLiterals.test_both_path_roots_can_contain_both_literal_tokens) (validator='validate_preflight', build='/literal/@DATA_DIR@/@BUILD_PATH@/build', data='/literal/@BUILD_PATH@/@DATA_DIR@/data')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\state\analysis\P7_static_link_probe_test_draft\test_static_policy_paths.py", line 75, in accept
+    self.assertEqual(self.call(name, envelope, build, data), self.expected(build, data))
+                     ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\state\analysis\P7_static_link_probe_test_draft\test_static_policy_paths.py", line 69, in call
+    return getattr(self.policy, name)(json.dumps(envelope), build_path=build, data_dir=data)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\state\analysis\P7_static_link_probe_raw\static_policy.py", line 108, in validate_preflight
+    return _validate(text, build_path, data_dir, False)
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\state\analysis\P7_static_link_probe_raw\static_policy.py", line 102, in _validate
+    _validate_commands(properties, build_path, data_dir)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\state\analysis\P7_static_link_probe_raw\static_policy.py", line 84, in _validate_commands
+    raise ValueError('Unreviewed static command property: ' + key)
+ValueError: Unreviewed static command property: build.check_command-dynamic
+
+======================================================================
+ERROR: test_both_path_roots_can_contain_both_literal_tokens (test_static_policy_paths.StaticPolicyPathLiterals.test_both_path_roots_can_contain_both_literal_tokens) (validator='validate_compile_result', build='/literal/@DATA_DIR@/@BUILD_PATH@/build', data='/literal/@BUILD_PATH@/@DATA_DIR@/data')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\state\analysis\P7_static_link_probe_test_draft\test_static_policy_paths.py", line 75, in accept
+    self.assertEqual(self.call(name, envelope, build, data), self.expected(build, data))
+                     ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\state\analysis\P7_static_link_probe_test_draft\test_static_policy_paths.py", line 69, in call
+    return getattr(self.policy, name)(json.dumps(envelope), build_path=build, data_dir=data)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\state\analysis\P7_static_link_probe_raw\static_policy.py", line 113, in validate_compile_result
+    return _validate(text, build_path, data_dir, True)
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\state\analysis\P7_static_link_probe_raw\static_policy.py", line 102, in _validate
+    _validate_commands(properties, build_path, data_dir)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\state\analysis\P7_static_link_probe_raw\static_policy.py", line 84, in _validate_commands
+    raise ValueError('Unreviewed static command property: ' + key)
+ValueError: Unreviewed static command property: build.check_command-dynamic
+
+======================================================================
+ERROR: test_literal_data_token_in_build_root_is_preserved (test_static_policy_paths.StaticPolicyPathLiterals.test_literal_data_token_in_build_root_is_preserved) (validator='validate_preflight', build='/literal/@DATA_DIR@/build', data='/synthetic/path-literals/arduino-data')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\state\analysis\P7_static_link_probe_test_draft\test_static_policy_paths.py", line 75, in accept
+    self.assertEqual(self.call(name, envelope, build, data), self.expected(build, data))
+                     ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\state\analysis\P7_static_link_probe_test_draft\test_static_policy_paths.py", line 69, in call
+    return getattr(self.policy, name)(json.dumps(envelope), build_path=build, data_dir=data)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\state\analysis\P7_static_link_probe_raw\static_policy.py", line 108, in validate_preflight
+    return _validate(text, build_path, data_dir, False)
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\state\analysis\P7_static_link_probe_raw\static_policy.py", line 102, in _validate
+    _validate_commands(properties, build_path, data_dir)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\state\analysis\P7_static_link_probe_raw\static_policy.py", line 84, in _validate_commands
+    raise ValueError('Unreviewed static command property: ' + key)
+ValueError: Unreviewed static command property: build.check_command-dynamic
+
+======================================================================
+ERROR: test_literal_data_token_in_build_root_is_preserved (test_static_policy_paths.StaticPolicyPathLiterals.test_literal_data_token_in_build_root_is_preserved) (validator='validate_compile_result', build='/literal/@DATA_DIR@/build', data='/synthetic/path-literals/arduino-data')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\state\analysis\P7_static_link_probe_test_draft\test_static_policy_paths.py", line 75, in accept
+    self.assertEqual(self.call(name, envelope, build, data), self.expected(build, data))
+                     ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\state\analysis\P7_static_link_probe_test_draft\test_static_policy_paths.py", line 69, in call
+    return getattr(self.policy, name)(json.dumps(envelope), build_path=build, data_dir=data)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\state\analysis\P7_static_link_probe_raw\static_policy.py", line 113, in validate_compile_result
+    return _validate(text, build_path, data_dir, True)
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\state\analysis\P7_static_link_probe_raw\static_policy.py", line 102, in _validate
+    _validate_commands(properties, build_path, data_dir)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\state\analysis\P7_static_link_probe_raw\static_policy.py", line 84, in _validate_commands
+    raise ValueError('Unreviewed static command property: ' + key)
+ValueError: Unreviewed static command property: build.check_command-dynamic
+
+======================================================================
+ERROR: test_literal_data_token_in_build_root_is_preserved (test_static_policy_paths.StaticPolicyPathLiterals.test_literal_data_token_in_build_root_is_preserved) (validator='validate_preflight', build='/literal/pre@DATA_DIR@post/build', data='/synthetic/path-literals/arduino-data')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\state\analysis\P7_static_link_probe_test_draft\test_static_policy_paths.py", line 75, in accept
+    self.assertEqual(self.call(name, envelope, build, data), self.expected(build, data))
+                     ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\state\analysis\P7_static_link_probe_test_draft\test_static_policy_paths.py", line 69, in call
+    return getattr(self.policy, name)(json.dumps(envelope), build_path=build, data_dir=data)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\state\analysis\P7_static_link_probe_raw\static_policy.py", line 108, in validate_preflight
+    return _validate(text, build_path, data_dir, False)
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\state\analysis\P7_static_link_probe_raw\static_policy.py", line 102, in _validate
+    _validate_commands(properties, build_path, data_dir)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\state\analysis\P7_static_link_probe_raw\static_policy.py", line 84, in _validate_commands
+    raise ValueError('Unreviewed static command property: ' + key)
+ValueError: Unreviewed static command property: build.check_command-dynamic
+
+======================================================================
+ERROR: test_literal_data_token_in_build_root_is_preserved (test_static_policy_paths.StaticPolicyPathLiterals.test_literal_data_token_in_build_root_is_preserved) (validator='validate_compile_result', build='/literal/pre@DATA_DIR@post/build', data='/synthetic/path-literals/arduino-data')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\state\analysis\P7_static_link_probe_test_draft\test_static_policy_paths.py", line 75, in accept
+    self.assertEqual(self.call(name, envelope, build, data), self.expected(build, data))
+                     ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\state\analysis\P7_static_link_probe_test_draft\test_static_policy_paths.py", line 69, in call
+    return getattr(self.policy, name)(json.dumps(envelope), build_path=build, data_dir=data)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\state\analysis\P7_static_link_probe_raw\static_policy.py", line 113, in validate_compile_result
+    return _validate(text, build_path, data_dir, True)
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\state\analysis\P7_static_link_probe_raw\static_policy.py", line 102, in _validate
+    _validate_commands(properties, build_path, data_dir)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\state\analysis\P7_static_link_probe_raw\static_policy.py", line 84, in _validate_commands
+    raise ValueError('Unreviewed static command property: ' + key)
+ValueError: Unreviewed static command property: build.check_command-dynamic
+
+======================================================================
+FAIL: test_coherent_build_metadata_cannot_authorize_recursively_expanded_commands (test_static_policy_paths.StaticPolicyPathLiterals.test_coherent_build_metadata_cannot_authorize_recursively_expanded_commands) (validator='validate_preflight', build='/literal/@DATA_DIR@/build', data='/synthetic/path-literals/arduino-data')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\state\analysis\P7_static_link_probe_test_draft\test_static_policy_paths.py", line 84, in reject_commands
+    with self.assertRaises(ValueError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_coherent_build_metadata_cannot_authorize_recursively_expanded_commands (test_static_policy_paths.StaticPolicyPathLiterals.test_coherent_build_metadata_cannot_authorize_recursively_expanded_commands) (validator='validate_compile_result', build='/literal/@DATA_DIR@/build', data='/synthetic/path-literals/arduino-data')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\state\analysis\P7_static_link_probe_test_draft\test_static_policy_paths.py", line 84, in reject_commands
+    with self.assertRaises(ValueError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.116s
+
+FAILED (failures=2, errors=6)

@@ -1,0 +1,18 @@
+{
+  "utc": "2026-09-24T20:10:09.153208+00:00",
+  "argv": [
+    "C:\\Users\\narut\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+    "-B",
+    "state\\analysis\\P7_static_link_probe_review_raw\\path_token_probe.py"
+  ],
+  "returncode": 1,
+  "stdout": "{\n  \"build_path\": \"/synthetic/@DATA_DIR@/build\",\n  \"data_dir\": \"/synthetic/data\",\n  \"cases\": [\n    {\n      \"validator\": \"validate_preflight\",\n      \"literal_path\": true,\n      \"expected\": \"ACCEPT\",\n      \"actual\": \"REJECT\",\n      \"pass\": false\n    },\n    {\n      \"validator\": \"validate_compile_result\",\n      \"literal_path\": true,\n      \"expected\": \"ACCEPT\",\n      \"actual\": \"REJECT\",\n      \"pass\": false\n    },\n    {\n      \"validator\": \"validate_preflight\",\n      \"literal_path\": false,\n      \"expected\": \"REJECT\",\n      \"actual\": \"ACCEPT\",\n      \"pass\": false\n    },\n    {\n      \"validator\": \"validate_compile_result\",\n      \"literal_path\": false,\n      \"expected\": \"REJECT\",\n      \"actual\": \"ACCEPT\",\n      \"pass\": false\n    }\n  ],\n  \"passed\": 0\n}\n",
+  "stderr": "",
+  "inputs_sha256": {
+    "state/analysis/P7_static_link_probe_raw/static_policy.py": "49389784b982c057b7298f6fa031770fceb73f3ed8c1224b74439e39a0d59cc3",
+    "state/analysis/P7_static_link_probe_review_raw/path_token_probe.py": "00611d402ba071ee0ee47915a90e549f7245e9349b45c103ee6ebaee9891786d",
+    "state/analysis/P7_static_link_probe_test_draft/test_static_policy.py": "5c1b7a771c7982061e9a97db0c0dabd42f3a47a4ee8e5f6fff263a8845da36d1",
+    "state/analysis/P7_static_link_probe_test_draft/freeze_policy.json": "cdf83f9eb414e4fa62591ee9bdd2d76cbead5d34f27dc3c595df49bd21881774"
+  },
+  "scope": "Focused synthetic host path-binding check only; no board/build/implementation/oracle edit"
+}

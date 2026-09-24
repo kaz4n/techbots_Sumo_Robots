@@ -87,3 +87,5 @@ Do not recompress based only on the Compressed attribute: successful LZX files
 may report Archive alone. Use these receipts to identify completed paths. No
 pending compression/compiler process remains; no denied action, system paging or
 persistent virtual disk was changed.
+
+2026-09-25T00:15:12.102192+04:00 | D141 retention | Kept 17 scoped raw/test/reference files totaling 100317 bytes plus small validation/review records. These bind reproducible policy checks, independent oracles and original failure evidence. No compiler tree, package, source snapshot or bytecode created. Reviewer removed one owned unexecuted duplicate private-test draft after the independent supplement was supplied (bytes not measured); original4-case negative probe retained. No denied cleanup retried. C: free 849965056 bytes; prior compression recovery unchanged.

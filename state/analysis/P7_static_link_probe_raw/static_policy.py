@@ -6,6 +6,7 @@ import importlib.util
 import json
 import math
 from pathlib import Path
+import re
 
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -77,9 +78,11 @@ def _validate_commands(properties, build_path, data_dir):
                   if key.startswith(_common.COMMAND_PREFIXES)}
     if controlled.keys() != reference.keys():
         raise ValueError('Missing or unreviewed static command property')
+    substitutions = {'BUILD_PATH': build_path, 'DATA_DIR': data_dir}
     for key, template in reference.items():
-        expected = template.replace('@BUILD_PATH@', build_path)
-        expected = expected.replace('@DATA_DIR@', data_dir)
+        # Tokens occurring inside a supplied path remain literal path bytes.
+        expected = re.sub(r'@(BUILD_PATH|DATA_DIR)@',
+                          lambda match: substitutions[match[1]], template)
         if controlled[key] != expected:
             raise ValueError('Unreviewed static command property: ' + key)
 

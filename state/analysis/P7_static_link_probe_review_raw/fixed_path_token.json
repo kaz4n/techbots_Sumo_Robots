@@ -1,0 +1,31 @@
+{
+  "utc": "2026-09-24T20:13:00.557767+00:00",
+  "argv": [
+    "C:\\Users\\narut\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+    "-B",
+    "state\\analysis\\P7_static_link_probe_review_raw\\path_token_probe.py"
+  ],
+  "returncode": 0,
+  "stdout": "{\n  \"build_path\": \"/synthetic/@DATA_DIR@/build\",\n  \"data_dir\": \"/synthetic/data\",\n  \"cases\": [\n    {\n      \"validator\": \"validate_preflight\",\n      \"literal_path\": true,\n      \"expected\": \"ACCEPT\",\n      \"actual\": \"ACCEPT\",\n      \"pass\": true\n    },\n    {\n      \"validator\": \"validate_compile_result\",\n      \"literal_path\": true,\n      \"expected\": \"ACCEPT\",\n      \"actual\": \"ACCEPT\",\n      \"pass\": true\n    },\n    {\n      \"validator\": \"validate_preflight\",\n      \"literal_path\": false,\n      \"expected\": \"REJECT\",\n      \"actual\": \"REJECT\",\n      \"pass\": true\n    },\n    {\n      \"validator\": \"validate_compile_result\",\n      \"literal_path\": false,\n      \"expected\": \"REJECT\",\n      \"actual\": \"REJECT\",\n      \"pass\": true\n    }\n  ],\n  \"passed\": 4\n}\n",
+  "stderr": "",
+  "inputs_sha256": {
+    "state/analysis/P7_static_link_probe_raw/static_policy.py": "ec3d8a5e8c4910bbdbbb96fb5123c8bb42b294ce9342c76db73b8d3b5eab7775",
+    "state/analysis/P7_static_link_probe_review_raw/path_token_probe.py": "00611d402ba071ee0ee47915a90e549f7245e9349b45c103ee6ebaee9891786d",
+    "state/analysis/P7_static_link_probe_test_draft/freeze_paths.json": "e1f56eafd17ae41d20e4854b4f170a7b997cb499e53a52248c924016dbb8bbb0",
+    "state/analysis/P7_static_link_probe_raw/policy_fixed.json": "fe5d1118cb354e8790e6f148f77b4fa923875d665795220584b0b40dfcc59ec6",
+    "state/analysis/P7_static_link_probe_raw/policy_fixed.txt": "a38186e0d0a4e2a3788bd6a1189b9a7088d357662cecee8cd31c1f9562cab5f4",
+    "tools/app_build_pins.json": "55720e65b03f6cd28964c675ceeec76619824cd11525549fbac0503b8efa972b"
+  },
+  "unchanged_frozen_inputs_checked": 8,
+  "function_line_spans": {
+    "_finite_float": 5,
+    "_check_json": 10,
+    "_read_reference": 8,
+    "_expected_metadata": 21,
+    "_validate_commands": 13,
+    "_validate": 17,
+    "validate_preflight": 3,
+    "validate_compile_result": 3
+  },
+  "scope": "Unchanged four-case host reproducer against bounded repair; no board/build/source or oracle edit"
+}

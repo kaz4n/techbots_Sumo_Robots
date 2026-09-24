@@ -9,23 +9,22 @@ or motor permission is inferred from those software results.
    DECISIONS, FACTS, TUNING_LOG and open findings. Load active P5 prompt and
    relevant PLAN/BEHAVIOR/HARDWARE sections. Inspect Git and nested instructions;
    preserve user work. Determine actual Asia/Dubai date and current disk space.
-2. Inspect D135 raw receipts and any still-running pipeline70124 before running
-   another compiler. Full20targets and private13perM already PASS; configured,
-   sanitizer, configured-sanitizer are queued serially. Do not mistake a log for
-   a terminal success. All656 frozen inputs must remain exact during validation.
-3. After that matrix, execute prepared run_tools.py admission/regression,
-   run_layouts.py and run_faults.py serially; all retain receipts and release
-   owned scratch. Fault probes are isolated copies, not production edits or
-   pre-implementation independent tests. Complete separate review and only then
-   accept the new locked candidate. Existing42 protected files stay unchanged.
-4. Check P5_default_fit_experiment.md: one isolated default-app native candidate
-   compile is authorized, no source integration yet. D134 default model fails
-   by32B; D135 opener wrapper fits by1328B but omits default dump transport.
-   Native compilation/model is not upload/live-RAM/stack/WCET/physical evidence.
-5. D136 contract is adopted. Independent public/private drafts are in state
-   analysis/reviews; freeze before companion implementation execution. Only
-   after D135 frozen checks finish may production tooling/newtests be added.
-   Preserve unchanged CSV/D130 tools and established tests.
+2. D135 closed70c964a7: full20targets; public40/configured42 and13private perM,
+   normal/sanitizer;18new/74admission/296regression,72layouts,8faults PASS. Scoped
+   review PASS,43protected tests now. Read its validation and finalbinding; never
+   rerun completed matrices without a relevant change.
+3. D136 implementation is active. Original74public/19private probes frozen and
+   publicfiles transferred unchanged;694prior inputs bound. Worker owns new
+   tools/analyze_opener_abort.py, must return firsthash before execution. Run
+   P5_abort_analysis_raw/run_public.py public/regression and private run_private.py
+   with exactfirsthash. Preserve failures, fix implementation or independently
+   adjudicate new draft errors; no existing test weakening.
+4. Both isolated default-fit candidates remain UNADOPTED after model deficits
+   24/32B. No candidatehosttests or thirdoptimizationcompile. Review report/bea923c8.
+   Separate unchanged MATCH/Immediate compile-only session25141 may still run;
+   inspect P5_match_native_raw receipts before another board operation.
+5. Complete D136 review, usage and software packet; then next eligible original
+   phase task. No actual human gate, physical10/10 or target-WCET claim follows.
 6. Last actual MCU upload remains consumed D118 sourcee820c0e1/defaultM0.
    BareUNOQ2629958581 was freshly visible24September; recheck transport for new
    work. Use existing board-side CLI/verifiedADB fallback; no upload/reset or

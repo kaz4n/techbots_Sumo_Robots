@@ -1,7 +1,7 @@
 # Current execution checklist - 2026-09-24 Asia/Dubai
 
 **Active: P5 software.** D134 is host-complete/reviewed; D135 is implemented and
-under final validation; D136 offline analysis contract is adopted. Physical gates
+complete and reviewed; D136 offline analysis is being implemented. Physical gates
 remain pending under D051/D075/D122 scheduling authority. PROGRESS.md is the
 append-only phase/gate history. Do not rewrite its legacy bytes.
 
@@ -23,35 +23,35 @@ append-only phase/gate history. Do not rewrite its legacy bytes.
 - [x] Preserve first failures; reviewed draft-oracle correction94a7bb5d.
       Production and42 established protected sources unchanged.
 - [x] Full20 host targets PASS; private13 cases perM0/M1 PASS (full_retry2).
-- [ ] Configured42-case M0/M1 normal and private checks.
-- [ ] Normal/configured M0/M1 ASan/UBSan and private checks.
-- [ ] Prior admission/regression, legacy layouts, eight copied-source fault probes.
+- [x] Configured42-case M0/M1 normal and private checks.
+- [x] Normal/configured M0/M1 ASan/UBSan and private checks.
+- [x]74admission/296regression,72legacy layoutpairs,8copied-source ASan/UBSan faults.
 - [x] Exact inert target compile and conditional model fit1328B (F149/4b1e701e).
       Wrapper omits full app dump owner; it does not fix default-app32B deficit.
-- [ ] Final separate review and acceptance of new locked candidate.
+- [x] Final separate review PASS and newlocked e9fd accepted in70c964a7 (43protected).
 
-Pipeline70124 serially owns the host compiler until its final receipt. Inspect
-P5_abort_timing_raw/{full_retry2,configured_first,sanitizer_first,
-configured_sanitizer_first}.json; a started log is not a result. Preserve656
-frozen inputs until complete. Then run state-only run_tools.py admission and
-regression, run_layouts.py layout_first and run_faults.py faults_first, serially.
-Each runner records commands/status and cleans only its own completed scratch.
-Fault injection changes copied implementation only; it is post-review probing.
+D135 is closed in70c964a7; all host pipelines ended and owned scratch was
+released. Original failures and reviewed corrections remain. Do not rerun these
+matrices without relevant changes. Read P5_abort_timing_validation.md and review.
 
 ## Next eligible work
 
-1. Complete D135 checks/review against exact bytes; fix actual findings without
-   weakening established tests. No repeated matrix absent a relevant change.
-2. Inspect one authorized isolated default-fit native experiment. Do not adopt
-   its three-file candidate until target layout/fit and unchanged host default/
-   positive-window regressions plus independent review support it. See
-   analysis/P5_default_fit_experiment.md; no upload is part of the experiment.
-3. D136 contract and five decisions adopted; pure decode_cue seam clarified.
-   Independent public/private drafts live under state. Freeze first, implement
-   new offline companion only after D135 frozen validation ends. Do not alter
-   CSV/D130 tools or manufacture physical eligibility/acceptance.
-4. Finish P5 software acceptance packet, then recover next eligible original
-   phase task under scheduling authority; P6 deadline condition remains binding.
+1. Complete D136 offline analyzer.74public methods/65536cue words and19private
+   probes frozen before implementation; five public files transferred unchanged
+   to tests/tooling.694prior inputs frozen under P5_abort_analysis_raw. Native
+   worker owns only tools/analyze_opener_abort.py and implementation notes; root
+   owns docs, runner and execution. Wait for firstsourcehash before tests; retain
+   first failures and do not modify established tests.
+2. Native fit experiments inbea923c8 are closed UNADOPTED: candidate1/2 model
+   deficits24/32B. Source-equivalence review passes but no hostcandidate checks;
+   optimization stopped aftertwo unsuccessful candidates. Do not run another
+   candidate or apply their four copied files. Original D134default deficit32B
+   is known; unmodified D135default has not been compiled.
+3. Separate unchanged production MATCH/Immediate compile-only runs in session
+   25141, P5_match_native_raw. It is target qualification, not another memory-fix
+   candidate. No upload/reset/run permitted. Inspect its terminal receipt/model.
+4. Finish D136 source-bound validation/review and update the P5 acceptance packet.
+   Actual P5/human gates remain pending; recover next eligible original task.
 
 Read analysis/P5_mode_availability_validation.md for completedD134; its matrices
 and60+296 tooling checks need no rerun unless later changes affect them. Source

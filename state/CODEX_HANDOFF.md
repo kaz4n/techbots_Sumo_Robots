@@ -18,23 +18,27 @@ Read analysis/P5_mode_availability_validation.md. Its new locked source is prote
 D135 qualified opener-abort production is committed2d924f1f. The first public
 failures were independently traced to new draft assumptions; originals retained,
 reviewed corrections committed94a7bb5d. No42 established protected file changed.
-Current full20-target regression and13 private cases perM0/M1 PASS. Configured,
-sanitizer and configured-sanitizer runs are in serial pipeline70124; inspect
-analysis/P5_abort_timing_raw and reviews/P5_abort_timing_review_raw for terminal
-JSON receipts, never infer success from a started log. Frozen656 inputs stay
-unchanged until the matrix, tooling, layout and isolated fault probes finish.
+D135 is now closed70c964a7: full20targets, public40/configured42 plus13private
+perM0/M1 normal+ASan/UBSan,18new/74admission/296regression,72layoutpairs and8faults
+PASS. Separate fresh-context review PASS; newlocked e9fd accepted,43protected.
+All prior656 inputs and42protected exact; all completed host scratch released.
+Read analysis/P5_abort_timing_validation.md; preserve originals and do not rerun
+completed matrices without relevant changes.
 
 D135 native compile/conditional fit PASS in4b1e701e (F149): exact2d924f1f source,
 ELF9583f94d, model1328B free. This wrapper omits default app dump transport.
-Default app D134 compile succeeded but loader model has32B deficit (F148).
-An isolated three-file zero-window optimization experiment is authorized for one
-native compile only; see analysis/P5_default_fit_experiment.md. No integration
-or behavior/capacity change follows before validation and independent review.
-No upload/reset/MCU operation occurred during these new compile checks.
+D134 default-app model deficit32B is observed. Two isolated source-equivalent
+candidates failedfit24/32B and remain UNADOPTED inbea923c8; no thirdoptimization
+compile or candidatehosttests. UnmodifiedD135default has not been targetcompiled.
+Separate unmodified production MATCH/Immediate compile-only session25141 is
+active or recently finished: inspect P5_match_native_raw terminal receipts.
+No upload/reset/MCU operation occurs in these compile checks.
 
-D136 offline analyzer contract adopted in4b1e701e underD051; public pure cue
-helper clarification follows in DECISIONS. Independent public/private drafts
-are state-only until D135 frozen validation ends. Analyzer is not implemented.
+D136 offline analyzer contract is adopted,74public/19private probes frozen before
+implementation; pure cue decoder tests all65536values. Publicfiles transferred
+unchanged to tests/tooling;694priorinputs bound. Worker owns new analyzer+notes;
+root owns execution/docs. No implementation execution until firstsourcehash is
+reported. Current privatefreeze includes the reviewed closure clarification.
 Read analysis/P5_abort_analysis_contract.md and its separate design review.
 
 P3/P4 software evidence and deferred physical metrics remain in their acceptance

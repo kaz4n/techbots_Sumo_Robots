@@ -1,3 +1,21 @@
+## Active checkpoint - 2026-09-24T04:42:52.533106+04:00
+
+P2 D118 bare-board app observation COMPLETE IN ITS NARROW SCOPE. Read
+state/analysis/P2_app_default_actual_validation.md and F147; separate actualreview
+744checksPASS,183rawfiles preserved. Software9b4afcb2; freshchecked10f172 compiled
+exactsourcee820c0e1/defaultM0, oneupload and onecapture exit0. SampledRuntime
+RUNNING/NONE epochs212505→292059; bothheaps4500free/4364largest. Stored513us is
+not fullsource WCET. Initializationfalse and alloptionalgrantsfalse are retained.
+CurrentMCU is this app, maycontinue inhibitednative ticks; bothclaimsCONSUMED.
+DO NOT rerun/reset/restore under D118, alter approvedrecords or infer anygate.
+Next unfinisheddistinctscope: native-dump prerequisite proof in
+state/analysis/P2_native_dump_prerequisite_followup.md (completeholder visibility,
+quiescence/cancel/reopen evidence beforegrants; existingaudit has no privilege/
+UARTauthority). OtherremainingP2acceptance needs realqualifiedhardware/bench
+evidence. No extra hardware is requested now; user connectedUNOQalone.
+Softwaretools/reviews committed9b4afcb2; actualevidence is in thischeckpointcommit.
+No firmware/config/grant/oldlockedtest change or newhumanphasegate.
+
 ## Active checkpoint - 2026-09-24T04:09:29.021567+04:00
 
 P2 D118 capture software contract06377731 adopted after separate preflight PASS.

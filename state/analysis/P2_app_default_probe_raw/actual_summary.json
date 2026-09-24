@@ -1,0 +1,121 @@
+{
+  "status": "CAPTURED_PRESENT_RUNNING_COUNTER_ADVANCED",
+  "run_id": "app-default-e820c0e1-run01",
+  "software_commit": "9b4afcb22823ce48cb20cb4cb951cd55229ac1f2",
+  "target": "2629958581",
+  "generated_utc": "2026-09-24T00:40:13.815906+00:00",
+  "image": {
+    "source_sha256": "e820c0e16c29cfd289889273f02721a995e5336b14397f64d6093cffd42b8b69",
+    "elf_sha256": "8379f152554649fd1b96165f29fda1f165c2b5cfc51d8dca430a37e19f693257",
+    "zsk_sha256": "c60443cd8d90c26a85591153dfa38d5f9233bd686b413b2ab7daa3e1457f6df5"
+  },
+  "checked_build_receipt": "10f172276dcb46edab7c991b8cf03e3f",
+  "capture_counts": {
+    "reads": 58,
+    "commands": 62,
+    "requested_bytes": 1404304
+  },
+  "capture_duration_seconds": 422.7765316039986,
+  "archived_file_count": 183,
+  "archived_bytes": 1809179,
+  "runtime_samples": [
+    {
+      "phase": 1,
+      "fault": 0,
+      "phase_name": "RUNNING",
+      "fault_name": "NONE",
+      "fresh": 0,
+      "initialization_complete": 0,
+      "raw_lines": 1,
+      "imu_expired": 0,
+      "calibration_interrupted": 0,
+      "next_release_us": 212943607,
+      "missed_releases": 0,
+      "epochs": 212505,
+      "service_passes": 0,
+      "maximum_execution_us": 513
+    },
+    {
+      "phase": 1,
+      "fault": 0,
+      "phase_name": "RUNNING",
+      "fault_name": "NONE",
+      "fresh": 0,
+      "initialization_complete": 0,
+      "raw_lines": 1,
+      "imu_expired": 0,
+      "calibration_interrupted": 0,
+      "next_release_us": 292497607,
+      "missed_releases": 0,
+      "epochs": 292059,
+      "service_passes": 0,
+      "maximum_execution_us": 513
+    }
+  ],
+  "transaction_samples": [
+    {
+      "phase": 2,
+      "fault": 0,
+      "phase_name": "ACQUIRING",
+      "fault_name": "NONE",
+      "decision_made": 0,
+      "finished": 0,
+      "timing_valid": 1,
+      "started_us": 213024610,
+      "decision_us": 213026661,
+      "completed_us": 0,
+      "execution_us": 470
+    },
+    {
+      "phase": 2,
+      "fault": 0,
+      "phase_name": "ACQUIRING",
+      "fault_name": "NONE",
+      "decision_made": 0,
+      "finished": 0,
+      "timing_valid": 0,
+      "started_us": 292579610,
+      "decision_us": 292580662,
+      "completed_us": 0,
+      "execution_us": 0
+    }
+  ],
+  "epoch_delta": 79554,
+  "sketch": {
+    "node_address": 536951012,
+    "bss_address": 537041376,
+    "runtime_address": 537041376
+  },
+  "heap": {
+    "before": {
+      "pool_bytes": 262144,
+      "free_payload_bytes": 4500,
+      "largest_free_payload_bytes": 4364,
+      "used_payload_bytes": 257512,
+      "overhead_bytes": 132,
+      "free_chunk_count": 3,
+      "used_chunk_count": 8,
+      "metadata_sha256": "5e406fe62ebead95647f01ba3c2f580a5abbe2d67c81914bf5574c76a1135833",
+      "snapshot_sha256": "a7d3d5f42e18ad9f2a3f69ae1eca0b88d6b2dd06c1afc8e1ac8161e1c3974a86"
+    },
+    "after": {
+      "pool_bytes": 262144,
+      "free_payload_bytes": 4500,
+      "largest_free_payload_bytes": 4364,
+      "used_payload_bytes": 257512,
+      "overhead_bytes": 132,
+      "free_chunk_count": 3,
+      "used_chunk_count": 8,
+      "metadata_sha256": "5e406fe62ebead95647f01ba3c2f580a5abbe2d67c81914bf5574c76a1135833",
+      "snapshot_sha256": "d3a487f42a11a629ad3ef3c6ae4fa44e2fc9c3f91fe9488adbb0ca53eb872a62"
+    }
+  },
+  "limits": [
+    "Live prefixes are not coherent object snapshots.",
+    "Stored513us is not a full live-source WCET proof or calibrated timing.",
+    "Post-load free payload is not transient loader headroom, stack space or total-system RAM.",
+    "Initialization remained false because optional hardware grants remain absent.",
+    "Bare-board software observations do not approve wiring, motor runs, physical phase acceptance or human gates.",
+    "Current image remains loaded; this is not terminal firmware completion."
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "started_utc": "2026-09-24T00:28:16.216841+00:00",
+  "scope": "LOCAL_FILES_GIT_AND_MOCKED_COORDINATOR_ONLY_NO_BOARD",
+  "head": "9b4afcb22823ce48cb20cb4cb951cd55229ac1f2",
+  "git_head": {
+    "argv": [
+      "git",
+      "-C",
+      "C:\\Users\\narut\\OneDrive\\Desktop\\Project\\techbots_Sumo_Robots",
+      "rev-parse",
+      "HEAD"
+    ],
+    "returncode": 0,
+    "stdout": "9b4afcb22823ce48cb20cb4cb951cd55229ac1f2\n",
+    "stderr": ""
+  },
+  "file_sha256": {
+    "tools/board_tool.py": "8d89429a9add900ae6234bf9f1b663771d5cc50e9e0715b4017acc32a915fa4c",
+    "tools/app_build_policy.py": "658d68842fcd44eea284e00ca33672d1feaef8140ea127f3accf815e645ff469",
+    "tools/app_build_pins.json": "55720e65b03f6cd28964c675ceeec76619824cd11525549fbac0503b8efa972b",
+    "tools/app_build_commands.json": "63f6c41e34bae9fce1d945c3271b3fe86343f27544affe25ae14788438d62e1d",
+    "tools/app_default_run.py": "7fbeceb269912321b3b06c2b9ea9cace466c2faf4f06bebf6ec1d4ebf4d5da58",
+    "tools/app_default_capture.py": "beeffff315b2e28a95a20dc1e26477fc924b2da26d1fdd8a8b36fb013ca110e1",
+    "tools/p0_capture.py": "885c4e4206aea4ac9e03c4e92e48258db2a0ae302ff83a86430e6913afeeb57c",
+    "tools/recorder_heap.py": "d661024975925a7d8a83f4b772199bbf59911adb5adb8ea69a2082b69eed4b92",
+    "tools/p0_mem_read.cfg": "89d16a28a1489c23ec743be55ade39824f9ca5213b02b20ef4785079122e4339",
+    "tools/p0_inert_sources.json": "a1587931afa5f817bf8b93054f384918dc8cd36d4fb71c8f7b083d76e6128802",
+    "state/analysis/P2_app_default_probe_contract.md": "fbf34f25d99392bd75cbaaaf666c8ae88d112075f5a3ba16c5210b0ba68d0bff",
+    "state/analysis/P2_app_default_run_contract.md": "7b364da5fb496d24f0c5be4c58bcd0d19cd65cf31b0720d56c25385fd825cd61"
+  },
+  "source_files": 91,
+  "source_sha256": "e820c0e16c29cfd289889273f02721a995e5336b14397f64d6093cffd42b8b69",
+  "artifacts": {
+    "app.ino.elf": {
+      "bytes": 176048,
+      "sha256": "8379f152554649fd1b96165f29fda1f165c2b5cfc51d8dca430a37e19f693257"
+    },
+    "app.ino.elf-zsk.bin": {
+      "bytes": 176048,
+      "sha256": "c60443cd8d90c26a85591153dfa38d5f9233bd686b413b2ab7daa3e1457f6df5"
+    }
+  },
+  "references": {
+    "state/analysis/P2_app_default_probe_validation.md": "28f0938576d83767e40c2e6e85cf195fb4e9e6e20d456924f08604bcfe04f454",
+    "state/reviews/P2_app_default_capture_review.md": "1ee8be42311a3bc0a47b665aa8753249aa5359f71caebb51ae7f638d23908f0d",
+    "state/reviews/P2_app_default_guard_review.md": "a70f0ec279e3c7754d3b319c1204a6f0d9f9bf788a604f66b25294110c35fe2d",
+    "state/analysis/P2_app_default_probe_raw/preflight/capture_input_staging.json": "b9549bcbb37dded61738ebe450e36d793ab587d8b020e25618927a86366c0799",
+    "state/analysis/P2_app_default_probe_raw/preflight/capture_tool_deployment.json": "f311388ede3ca096a6fb99622296d863651658bf5cbc9968e979c82ac9d4688f"
+  },
+  "coordinator_sha256": "05648dbe42db6ab0ac21006978379644be52f6d71c3627ebd8d82075c4854e7f",
+  "staging_receipts_verified": true,
+  "protected_diff": {
+    "argv": [
+      "git",
+      "-C",
+      "C:\\Users\\narut\\OneDrive\\Desktop\\Project\\techbots_Sumo_Robots",
+      "diff",
+      "--exit-code",
+      "HEAD",
+      "--",
+      "src",
+      "tests/locked",
+      "tools/board_tool.py",
+      "tools/app_build_policy.py",
+      "tools/app_build_pins.json",
+      "tools/app_build_commands.json",
+      "tools/p0_capture.py",
+      "tools/recorder_heap.py",
+      "tools/p0_mem_read.cfg",
+      "tools/p0_inert_sources.json"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "coordinator_probes": [
+    {
+      "mode": "success",
+      "passed": true,
+      "local_guard_calls": 1,
+      "capture_calls": 1,
+      "status": "CAPTURE_COMMAND_SUCCEEDED",
+      "returncode": 0,
+      "error": null
+    },
+    {
+      "mode": "guard_failure",
+      "passed": true,
+      "local_guard_calls": 1,
+      "capture_calls": 0,
+      "status": "GUARD_FAILED_NO_CAPTURE",
+      "returncode": 1,
+      "error": null
+    },
+    {
+      "mode": "capture_nonzero",
+      "passed": true,
+      "local_guard_calls": 1,
+      "capture_calls": 1,
+      "status": "CAPTURE_NONZERO_NO_RETRY",
+      "returncode": 7,
+      "error": null
+    }
+  ],
+  "successful": false,
+  "error": "AssertionError()",
+  "finished_utc": "2026-09-24T00:28:16.433955+00:00"
+}

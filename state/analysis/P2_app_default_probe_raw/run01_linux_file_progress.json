@@ -1,0 +1,13 @@
+{
+  "scope": "ONE_READ_ONLY_LINUX_DIRECTORY_METADATA_CHECK_NOT_MCU_READ_OR_CAPTURE_RETRY",
+  "utc": "2026-09-24T00:36:59.171545+00:00",
+  "argv": [
+    "python3",
+    "-B",
+    "-c",
+    "from pathlib import Path; import json; r=Path(\"/home/arduino/sumox26-capture/app-default-e820c0e1-run01\"); assert r.is_dir() and not r.is_symlink(); p=sorted(r.glob(\"*.bin\")); print(json.dumps({\"created_memory_files\":len(p),\"last_names\":[x.name for x in p[-4:]],\"report_present\":(r/\"capture.json\").is_file()}))"
+  ],
+  "returncode": 0,
+  "stdout": "{\"created_memory_files\": 45, \"last_names\": [\"41-pool-2-12.bin\", \"42-pool-2-13.bin\", \"43-pool-2-14.bin\", \"44-pool-2-15.bin\"], \"report_present\": false}\n",
+  "stderr": ""
+}

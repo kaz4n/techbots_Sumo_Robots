@@ -698,3 +698,5 @@ actual effective service rate and native delivery remain HARDWARE-PENDING.
 The corrected unrestricted170-byte bound is retained. No budget/capacity reduction,
 framing/ownership grant or human gate. P2_dump_fifo_validation.md has evidence.
 SC-AL loadedRAM remainsopen; corrected appdefault has only8bytes modeled span.
+
+SC-AL D118 actual default-image update 2026-09-24T04:42:52.533106+04:00: exactsourcee820c0e1/defaultM0 now has actual fullflashbracket/resident-sketch/progress and retainedheap evidence, independently reviewed744checks. Two262144B pool snapshots have4500free payload/4364largest; metadata agrees. This closes the narrowly scoped missing actual defaultload/retainedheap observation, preserving the historical8-byte conditional peak model. Stackspace, allsource/full800us timing, MATCH physical qualification and assembledrobot acceptance remain OPEN. Stored513us is not those proofs. See P2_app_default_actual_validation.md/F147; no config/grant/phasegate change.

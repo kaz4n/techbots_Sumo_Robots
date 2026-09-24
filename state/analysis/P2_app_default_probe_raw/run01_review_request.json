@@ -1,0 +1,21 @@
+{
+  "status": "REQUEST_FOR_SEPARATE_RUN_REVIEW_NOT_APPROVAL",
+  "run_id": "app-default-e820c0e1-run01",
+  "software_commit": "9b4afcb22823ce48cb20cb4cb951cd55229ac1f2",
+  "target": "2629958581",
+  "transport": "adb",
+  "setup": "human-reported bare UNO Q",
+  "source_sha256": "e820c0e16c29cfd289889273f02721a995e5336b14397f64d6093cffd42b8b69",
+  "elf_sha256": "8379f152554649fd1b96165f29fda1f165c2b5cfc51d8dca430a37e19f693257",
+  "binary_sha256": "c60443cd8d90c26a85591153dfa38d5f9233bd686b413b2ab7daa3e1457f6df5",
+  "coordinator_script_sha256": "05648dbe42db6ab0ac21006978379644be52f6d71c3627ebd8d82075c4854e7f",
+  "scope": "One unchanged default M0 app upload through reviewed standalone guard, followed only on upload exit0 by one exact passive capture. No retry/reset/restore/optionalgrant/motorcapable image.",
+  "references": [
+    "state/analysis/P2_app_default_probe_validation.md",
+    "state/reviews/P2_app_default_capture_review.md",
+    "state/reviews/P2_app_default_guard_review.md",
+    "state/analysis/P2_app_default_probe_raw/preflight/capture_input_staging.json",
+    "state/analysis/P2_app_default_probe_raw/preflight/capture_tool_deployment.json"
+  ],
+  "coordinator_preexecution_fix": "Retain partial timeout/launch output and use exclusive capture-output creation; original draft preserved in preflight/execute_run01_initial.py. No execution."
+}

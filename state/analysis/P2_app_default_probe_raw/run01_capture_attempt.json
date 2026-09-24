@@ -1,0 +1,15 @@
+{
+  "run_id": "app-default-e820c0e1-run01",
+  "started_utc": "2026-09-24T00:32:09.901549+00:00",
+  "software_commit": "9b4afcb22823ce48cb20cb4cb951cd55229ac1f2",
+  "review_sha256": "73269d225928f6de39d9c27fc9e64fe1b48b20136780025cc40b2157d329562e",
+  "target": "2629958581",
+  "source_sha256": "e820c0e16c29cfd289889273f02721a995e5336b14397f64d6093cffd42b8b69",
+  "collector_sha256": "beeffff315b2e28a95a20dc1e26477fc924b2da26d1fdd8a8b36fb013ca110e1",
+  "argv": [
+    "python3",
+    "-B",
+    "-c",
+    "from pathlib import Path\nimport hashlib,os,sys,stat\nroot=Path('/home/arduino/sumox26-capture-tools/app-default-beeffff315b2e28a95a20dc1e26477fc924b2da26d1fdd8a8b36fb013ca110e1')\npins={'app_default_capture.py': 'beeffff315b2e28a95a20dc1e26477fc924b2da26d1fdd8a8b36fb013ca110e1', 'p0_capture.py': '885c4e4206aea4ac9e03c4e92e48258db2a0ae302ff83a86430e6913afeeb57c', 'recorder_heap.py': 'd661024975925a7d8a83f4b772199bbf59911adb5adb8ea69a2082b69eed4b92', 'p0_mem_read.cfg': '89d16a28a1489c23ec743be55ade39824f9ca5213b02b20ef4785079122e4339'}\nassert all(not p.is_symlink() for p in (root,*root.parents))\nfor name,expected in pins.items():\n    p=root/name; assert not p.is_symlink() and stat.S_ISREG(p.stat().st_mode)\n    assert hashlib.sha256(p.read_bytes()).hexdigest()==expected\nargv=[sys.executable,\"-B\",str(root/\"app_default_capture.py\"),\"--artifact-dir\",'/home/arduino/sumox26-capture-input/app_default_e820c0e16c29cfd289889273f02721a995e5336b14397f64d6093cffd42b8b69',\"--output\",'/home/arduino/sumox26-capture/app-default-e820c0e1-run01']\nos.execv(sys.executable,argv)"
+  ]
+}

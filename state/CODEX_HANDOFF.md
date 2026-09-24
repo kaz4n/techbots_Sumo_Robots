@@ -1,3 +1,34 @@
+## Active checkpoint - 2026-09-24T04:42:52.533106+04:00
+
+P2 D118 bare-board app observation COMPLETE IN ITS NARROW SCOPE. Read
+state/analysis/P2_app_default_actual_validation.md and F147; separate actualreview
+744checksPASS,183rawfiles preserved. Software9b4afcb2; freshchecked10f172 compiled
+exactsourcee820c0e1/defaultM0, oneupload and onecapture exit0. SampledRuntime
+RUNNING/NONE epochs212505→292059; bothheaps4500free/4364largest. Stored513us is
+not fullsource WCET. Initializationfalse and alloptionalgrantsfalse are retained.
+CurrentMCU is this app, maycontinue inhibitednative ticks; bothclaimsCONSUMED.
+DO NOT rerun/reset/restore under D118, alter approvedrecords or infer anygate.
+Next unfinisheddistinctscope: native-dump prerequisite proof in
+state/analysis/P2_native_dump_prerequisite_followup.md (completeholder visibility,
+quiescence/cancel/reopen evidence beforegrants; existingaudit has no privilege/
+UARTauthority). OtherremainingP2acceptance needs realqualifiedhardware/bench
+evidence. No extra hardware is requested now; user connectedUNOQalone.
+Softwaretools/reviews committed9b4afcb2; actualevidence is in thischeckpointcommit.
+No firmware/config/grant/oldlockedtest change or newhumanphasegate.
+
+## Active checkpoint - 2026-09-24T04:33:42.973229+04:00
+
+D118 app-default-e820c0e1-run01 UPLOAD COMPLETED ONCE; attempt is consumed.
+Software HEAD9b4afcb2, checked receipt10f172276dcb46edab7c991b8cf03e3f, exact
+source/ELF/ZSK hashes reproduced; upload exit0 at2026-09-24T00:32:09Z.
+One passive capture started at00:32:09Z and is still active in root session50468.
+DO NOT repeat upload/capture, reset or restore. Resume by inspecting
+raw/run01_execution_outcome.json and capture outputs; archive already collected
+Linux files only after capture ends. If interrupted, retain UNKNOWN and consumed
+claims. Currentimage is defaultM0/e820c0e1; nativeinhibited setup only, optional
+grantsfalse. Full load/progress/heap verdict is pending, not implied by upload.
+No motors, newperipherals, physical/human gate or fullWCET accepted.
+
 ## Active checkpoint - 2026-09-24T04:25:13.520525+04:00
 
 P2 D118 new capture/guard software and separate reviews pass. Read

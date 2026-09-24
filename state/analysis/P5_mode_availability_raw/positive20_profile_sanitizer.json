@@ -1,0 +1,210 @@
+{
+  "label": "positive20_profile_sanitizer",
+  "start_utc": "2026-09-24T11:19:08.143860+00:00",
+  "commands": [
+    {
+      "argv": [
+        "cmake",
+        "-S",
+        "/dev/shm/sumox_d134_positive_9umh80mp/fixture/host",
+        "-B",
+        "/dev/shm/sumox_d134_positive_9umh80mp/build",
+        "-DCMAKE_BUILD_TYPE=Debug",
+        "-DCMAKE_EXE_LINKER_FLAGS=-fsanitize=address,undefined -no-pie",
+        "-DCMAKE_CXX_FLAGS=-fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie -DAPP_TEST_CONFIGURED_BUTTONS=1 -DSUMOX_TIMING_EVIDENCE=1"
+      ],
+      "scope": "configure positive20 fixture",
+      "start_utc": "2026-09-24T11:19:15.244495+00:00",
+      "returncode": 0,
+      "end_utc": "2026-09-24T11:19:16.343107+00:00",
+      "log_start_byte": 364,
+      "log_end_byte": 757,
+      "output_sha256": "0b106ee1f9eb52c5c6918df1070929ae1c2d9ae6343dd12bb83f199070f4cede"
+    },
+    {
+      "argv": [
+        "cmake",
+        "--build",
+        "/dev/shm/sumox_d134_positive_9umh80mp/build",
+        "--parallel",
+        "1",
+        "--target",
+        "push_through_m0_tests",
+        "push_through_m1_tests",
+        "timing_evidence_m0_tests",
+        "timing_evidence_m1_tests"
+      ],
+      "scope": "build four targets serially",
+      "start_utc": "2026-09-24T11:19:16.343847+00:00",
+      "returncode": 0,
+      "end_utc": "2026-09-24T11:20:23.643757+00:00",
+      "log_start_byte": 969,
+      "log_end_byte": 26689,
+      "output_sha256": "cc775369247c797380018f88cd52cc9ba0c7a9389872d0268f3101588cae1050"
+    },
+    {
+      "argv": [
+        "/dev/shm/sumox_d134_positive_9umh80mp/build/push_through_m0_tests",
+        "--no-colors=true"
+      ],
+      "scope": "all push cases",
+      "start_utc": "2026-09-24T11:20:23.644764+00:00",
+      "returncode": 0,
+      "end_utc": "2026-09-24T11:20:27.587910+00:00",
+      "log_start_byte": 26786,
+      "log_end_byte": 27097,
+      "output_sha256": "c195d2dabef87b482e1a5f8ea218f4a024e423b93396ce0bfe10db86ec3668f0",
+      "cases": {
+        "selected": 37,
+        "passed": 37,
+        "failed": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "argv": [
+        "/dev/shm/sumox_d134_positive_9umh80mp/build/push_through_m1_tests",
+        "--no-colors=true"
+      ],
+      "scope": "all push cases",
+      "start_utc": "2026-09-24T11:20:27.588805+00:00",
+      "returncode": 0,
+      "end_utc": "2026-09-24T11:20:31.169977+00:00",
+      "log_start_byte": 27194,
+      "log_end_byte": 27505,
+      "output_sha256": "a00a8996b482089841aa3686324c561246bc24d501fd0e93b22eda9bc8a28e17",
+      "cases": {
+        "selected": 37,
+        "passed": 37,
+        "failed": 0,
+        "skipped": 0
+      }
+    },
+    {
+      "argv": [
+        "/dev/shm/sumox_d134_positive_9umh80mp/build/timing_evidence_m0_tests",
+        "--no-colors=true",
+        "--test-case=*D131*",
+        "--list-test-cases"
+      ],
+      "scope": "D131 timing only; excludes legacy D129 cases (listing only)",
+      "start_utc": "2026-09-24T11:20:31.170693+00:00",
+      "returncode": 0,
+      "end_utc": "2026-09-24T11:20:31.183291+00:00",
+      "log_start_byte": 27648,
+      "log_end_byte": 28315,
+      "output_sha256": "a3dc17c4144a35461ae25b26a748bab9a3a2c672c32e5c94f0ec31a72368ee2d",
+      "listed_case_count": 5
+    },
+    {
+      "argv": [
+        "/dev/shm/sumox_d134_positive_9umh80mp/build/timing_evidence_m0_tests",
+        "--no-colors=true",
+        "--test-case=*D131*"
+      ],
+      "scope": "D131 timing only; excludes legacy D129 cases",
+      "start_utc": "2026-09-24T11:20:31.184022+00:00",
+      "returncode": 0,
+      "end_utc": "2026-09-24T11:20:31.203234+00:00",
+      "log_start_byte": 28437,
+      "log_end_byte": 28741,
+      "output_sha256": "49c7983e84a769635fd679a77340e2b2f84b8e9ab525cab820ae15a7b5b61d1e",
+      "cases": {
+        "selected": 5,
+        "passed": 5,
+        "failed": 0,
+        "skipped": 32
+      }
+    },
+    {
+      "argv": [
+        "/dev/shm/sumox_d134_positive_9umh80mp/build/timing_evidence_m1_tests",
+        "--no-colors=true",
+        "--test-case=*D131*",
+        "--list-test-cases"
+      ],
+      "scope": "D131 timing only; excludes legacy D129 cases (listing only)",
+      "start_utc": "2026-09-24T11:20:31.203922+00:00",
+      "returncode": 0,
+      "end_utc": "2026-09-24T11:20:31.214828+00:00",
+      "log_start_byte": 28884,
+      "log_end_byte": 29551,
+      "output_sha256": "a3dc17c4144a35461ae25b26a748bab9a3a2c672c32e5c94f0ec31a72368ee2d",
+      "listed_case_count": 5
+    },
+    {
+      "argv": [
+        "/dev/shm/sumox_d134_positive_9umh80mp/build/timing_evidence_m1_tests",
+        "--no-colors=true",
+        "--test-case=*D131*"
+      ],
+      "scope": "D131 timing only; excludes legacy D129 cases",
+      "start_utc": "2026-09-24T11:20:31.215957+00:00",
+      "returncode": 0,
+      "end_utc": "2026-09-24T11:20:31.233181+00:00",
+      "log_start_byte": 29673,
+      "log_end_byte": 29977,
+      "output_sha256": "11b4b16d877d4dc0ef86f9edb07de8811315d36fbc3c02014230f5833bdc3bce",
+      "cases": {
+        "selected": 5,
+        "passed": 5,
+        "failed": 0,
+        "skipped": 32
+      }
+    }
+  ],
+  "hardware_access": false,
+  "duration_ms": 20,
+  "arc": 1,
+  "wait": 1,
+  "sanitizer": "ASan+UBSan",
+  "scope": "all push cases plus exactly five D131 timing cases per M0/M1",
+  "legacy_D129_positive_claim": false,
+  "legacy_D129_scope": "complete legacy D129 belongs to separate zero full suite",
+  "runner_sha256": "18d5269350217137d50e19f3693a2fbf62f1ff25ab36f6f5ee72e9d39838078f",
+  "scratch_released": true,
+  "input_freeze_sha256": "ba6433be25ef0f597ff198d9aa123c767f4a112c1a763b26b79dd4ffd1253c0e",
+  "verified_source_files": 649,
+  "free_bytes_before": {
+    "output": 2546110464,
+    "scratch": 4085276672
+  },
+  "scratch_path": "/dev/shm/sumox_d134_positive_9umh80mp",
+  "copied_source_before_substitutions": {
+    "files": 654,
+    "sha256": "4de5d8393539a20eaeb15e1c8904ef7a5437d78e8aed83b044071f8f648284f7",
+    "format": "sorted relative POSIX path + NUL + SHA256 + LF"
+  },
+  "synthetic_replacements": {
+    "EDGE_PUSH_THROUGH_MS = 0U": "EDGE_PUSH_THROUGH_MS = 20U",
+    "BUTTON_WINDOWS_CONFIGURED = 0U": "BUTTON_WINDOWS_CONFIGURED = 1U",
+    "BUTTON_LOW_RAW[4] = {0U, 0U, 0U, 0U}": "BUTTON_LOW_RAW[4] = {0U, 900U, 1900U, 2900U}",
+    "BUTTON_HIGH_RAW[4] = {0U, 0U, 0U, 0U}": "BUTTON_HIGH_RAW[4] = {100U, 1100U, 2100U, 3100U}"
+  },
+  "fixture_config_sha256": "d52af73d44645ed4bf6874388ebd4166996fefe866a870291d29fa147abd0fd7",
+  "fixture_source": {
+    "files": 654,
+    "sha256": "d385385c6dba8fc693af5f4f57ed200e7507c39e10031b23a400a8efc7014ed1",
+    "format": "sorted relative POSIX path + NUL + SHA256 + LF"
+  },
+  "environment_overrides": {
+    "TMPDIR": "/dev/shm/sumox_d134_positive_9umh80mp",
+    "CMAKE_BUILD_PARALLEL_LEVEL": "1",
+    "ASAN_OPTIONS": "detect_leaks=1:halt_on_error=1",
+    "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1"
+  },
+  "cmake_cache_sha256": "45a56879d8d8ac3ebe8e19086ccabd5f2434e034582dbebe27f655cde4184ef7",
+  "compiler_binding": [
+    "CMAKE_CXX_COMPILER:FILEPATH=/usr/bin/c++",
+    "CMAKE_GENERATOR:INTERNAL=Unix Makefiles"
+  ],
+  "fixture_source_after_run": {
+    "files": 654,
+    "sha256": "d385385c6dba8fc693af5f4f57ed200e7507c39e10031b23a400a8efc7014ed1",
+    "format": "sorted relative POSIX path + NUL + SHA256 + LF"
+  },
+  "source_verified_after_run": true,
+  "returncode": 0,
+  "end_utc": "2026-09-24T11:20:32.945071+00:00",
+  "log_sha256": "38500a0a072620613d865db3c357dcdd8a1abc9d49b59fe84b0ab93717504b91"
+}

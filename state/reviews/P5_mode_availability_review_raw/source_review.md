@@ -139,3 +139,39 @@ D131 cases from the timing family, while all original D129 assertions run under
 duration0. No passing test branch may substitute for the positive-only bodies.
 My earlier P4 review is explicitly corrected: the old16-target full PASS predates
 the timing-only test addition, so did not prove the final P4 CMake integration.
+
+Resume reconciliation on 2026-09-24: retained default11_full_retry2 has terminal
+exit0 for configure, full build, all18 CTest targets and private runner. Both
+D134 public targets pass20 cases; corrected private probes pass6 cases/6532
+assertions each under M0/M1. These results close the fixture syntax, B4 draft
+oracle and private snapshot-stimulus findings, and prove ordinary CMake
+integration after source reassociation. Original failed receipts/probes remain.
+The independently reviewed positive20 supplement is still required to prove
+execution of positive-only D131 timing bodies, not just disabled branches.
+
+Actual retained admission_first and regression_first receipts show60 and296
+methods respectively, all passing without failures/errors/skips. Independent
+python_first has8 passing methods. layout_first confirms equal host size and
+alignment for Menu/Flank/Wait/Robot/Runtime across fixed cf35d0a8 baseline and
+final11/00/01/10 under both motor profiles, all22 commands exit0. It records
+source unchanged and scratch released. No target ABI/RAM/WCET follows.
+resume_binding.json binds current649 combined/523 core frozen entries and41
+prior protected source files, with zero mismatches. Only reviewer-owned review
+and notes were written during this reconciliation. Overall D134 software
+verdict remains pending the coordinator's terminal sanitizer matrix and
+positive-duration supplement receipts; no independent compiler was launched.
+
+Final host closure on 2026-09-24: coordinator pipeline78012 terminated exit0.
+Read-only inspection confirms all four sanitizer availability profiles11/00/01
+(default6)/10(default4) pass20 public and6 private cases per M0/M1, all command
+exit codes0, no failures/skips or sanitizer diagnostics, and scratch released.
+Positive20 configured timing ASan/UBSan supplement passes37 unfiltered push
+cases and exactly5 selected D131 timing cases per motor profile. Its32 filtered
+non-D131 cases are explicitly excluded from the positive claim; full legacy
+D129 was already run at duration0. All8 positive command-output byte-range
+hashes, complete log and runner hashes match; copied source aggregate remains
+unchanged and scratch released. Both current source freezes again match all
+649/523 entries. final_host_receipt_review.json retains compact verification.
+This closes the CMake integration finding and final scoped host review: PASS,
+no open BLOCKER/MAJOR/MINOR. Native compilation/fit/RAM/WCET and physical/gate
+qualification remain separate. No target evidence is inferred from host data.

@@ -1,9 +1,10 @@
 # D134 optional opener availability validation
 
-Paused at user request,2026-09-24 13:09 Asia/Dubai. Active software phase P5 under D134;
+Completed host validation,2026-09-24 15:21 Asia/Dubai. Active software phase P5;
 physical acceptance and human gates remain pending. Contract27bc075a follows
-reviewed proposalcf35d0a8. Original public tests/first build failure are retained
-in425c8a97. No board compilation, upload, reset or motor run occurred here.
+reviewed proposalcf35d0a8. Original failures remain retained in425c8a97 and later
+receipts. A separate bare-board inventory now succeeds; native compilation is
+tracked separately and no upload/reset/motor run follows from these results.
 
 The change preserves six historical mode IDs and shipped availability1/1,
 provides bounded menu skipping and direct-entry rejection for disabled optional
@@ -53,18 +54,30 @@ old routing/contact/fault/cap assertion. Independent M1 was not executed on the
 failed first probe. Corrected private execution now passes6/6 perM0/M1 in the
 full retry. The intervening full-build CMake failure, minimal source reassociation
 and its scope are retained in P5_host_profile_integration_failure.md. All18 now
-pass with that fix; positive-duration supplemental coverage is still pending.
+pass with that fix; positive-duration supplemental coverage now passes as described below.
 
-## Remaining checks
+## Final sanitizer and binding checks
 
-The four-way sanitizer configuration matrix (including enabled optional
-defaults4/6), positive20 configured timing supplement, final source binding and
-scoped review closure remain required. The normal default18-target and corrected
-private M0/M1 checks are complete. Preserve each
-receipt under a new name and release owned build scratch after copying results.
+All four availability pairs pass20 public and6 private cases per M0/M1 under
+ASan/UBSan: default11, pair00, pair01 with default6, and pair10 with default4.
+Exact copied config substitutions and every command are in the uniquely named
+`*_sanitizer.json` receipts. The serial pipeline completed with exit0.
 
-Genuine native compile/loader fit, loaded RAM/stack, full worst-case tick below
-800us and P5.1-5.5 physical trials remain pending. A disabled optional mode does
-not establish a memory reduction or qualify another mode. Future reduced-source
-validation must distinguish actual reduced checks from the unchanged all-six
-capability suite; see P5_mode_availability_release_validation.md.
+`positive20_profile_sanitizer.json`: all37 push cases perM0/M1 and exactly five
+D131 timing-family cases perM0/M1 PASS under ASan/UBSan. The copied fixture uses
+push20 and explicit synthetic button windows. The five named timing cases were
+listed and executed; the32 legacy D129 cases are intentionally outside this
+supplement and pass in the separate complete duration0 ordinary run. No claim
+that their zero-duration assertions pass under positive duration is made.
+
+`final_binding.json` verifies all649 frozen inputs,41 prior protected sources,
+and the original PROGRESS prefix unchanged. The new locked safety source is
+accepted only with the separate final scoped review; its exact hash is recorded
+in `accepted_locked.json`. All five resumed runners released their owned scratch
+after saving receipts. No sanitizer findings appeared in the completed logs.
+
+Genuine native compile/loader fit is tracked separately. Loaded RAM/stack, full
+worst-case tick below800us and P5.1-5.5 physical trials remain pending. A disabled
+optional mode does not establish a memory reduction or qualify another mode.
+Future reduced-source validation must distinguish actual reduced checks from
+the unchanged all-six capability suite; see P5_mode_availability_release_validation.md.

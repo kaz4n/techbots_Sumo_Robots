@@ -1,13 +1,12 @@
 # Current execution checklist - 2026-09-24 Asia/Dubai
 
-**Active: P5 software under D134; D131/D132/D133 completed at host scope.**
-**USER PAUSED2026-09-24 13:09 Dubai.** D134 is implemented; default18 CTest targets,
-6private C++ cases perM0/M1,60+296tooling methods,8private Python and layout checks
-pass. Original failed oracles/builds remain recorded; the CMake timing-source
-association repair passes full normal regression. No active build/hardware job.
-Next on resume: four-pair sanitizer matrix, positive20 timing supplement, final
-binding/review/commit. Exact commands: analysis/P5_mode_availability_checkpoint.md.
-D135 adopted2aa0ac2e; isolated public drafts exist, no production or private freeze.
+**Active: P5 software, D134 host validation complete; D135 implementation next.**
+User resumed2026-09-24. All18 ordinary targets, four-pair M0/M1 public/private
+sanitizer matrix, positive20 timing supplement, tooling and layout checks PASS.
+Pipeline78012 endedexit0; scratch released. Original failures remain retained.
+D135 adopted2aa0ac2e; independent drafts/private13-case freeze prepared.
+BareUNOQ reconnected; fresh ADB inventory verified, compile-only worker active.
+Exact source-bound native results belong in P5_native_compile.md, not inferred.
 D051/D075/D122 permit software scheduling before physical acceptance. Assumptions
 are not measurements, human gates or run permissions. PROGRESS.md is the
 append-only phase/gate history; historical checkpoints remain in Git.
@@ -22,7 +21,7 @@ append-only phase/gate history; historical checkpoints remain in Git.
 | P2 2.5 | Software packet retained | Assembled size/weight, actual B1-B8 results and human gate |
 | P3 3.1-3.7 | D123 drive, D125 turn, D126 stop profiles; D127 countdown analyzer | Physical trials, evidence-backed tuning and GATE P3 PASS |
 | P4 4.1-4.7 | D128 reactive, D129 trace, D130 analysis, D131 bounded push and D132 admission host-tested/reviewed; D133296tooling PASS | Native fit/WCET; real trials/gate |
-| P5 | D134 implemented; default18host/6private-perM/60+296tooling/8privatePython PASS; D135 design adopted | D134 sanitizer/positive supplement/final review; D135 implementation; physical opener evidence |
+| P5 | D134 implemented; default18host/6private-perM/60+296tooling/8privatePython PASS; D135 design adopted | D135 implementation and review; native fit; physical opener evidence |
 | P6/P7 | Pending; original scope/schedule retained | P6 actual P4 gate by30Sep, freeze/rehearsal/match evidence; no inferred release tag |
 
 ## D129 current checks
@@ -51,8 +50,7 @@ No D129 upload/reset/motor action or physical result occurred.
    analysis/P4_loss_analysis_validation.md. No source/oracle repair needed.
 2. D131-D133 completed; preserve first failures and successful source-bound runs.
    D134 P5 optional-mode availability is implemented with passing default checks.
-   Resume the unexecuted sanitizer/supplement commands from its checkpoint,
-   finalize review, then D135. EDGE_PUSH_THROUGH_MS stays0; physical gates remain pending.
+   D134 sanitizer/supplement checks now pass; finalize source-bound review, then D135. EDGE_PUSH_THROUGH_MS stays0; physical gates remain pending.
 3. Use analysis/P4_software_acceptance_packet.md for deferred physical4.1-4.7.
 
 Storage cleanup43319eec removed only inspected disposable files and losslessly

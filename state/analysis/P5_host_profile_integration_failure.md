@@ -31,6 +31,8 @@ Do not rewrite the old frozen runners/results or change a protected test.
 
 Independent test author and reviewer approved this exact reassociation. Root
 applied it and updated only the host/CMakeLists.txt key in both input manifests;
-cmake_profile_correction.json preserves before/after hashes. Actual full and
-positive regression remain pending. This is a reviewed build fix, not yet a
-passing regression claim.
+cmake_profile_correction.json preserves before/after hashes. Actual full ordinary18-target regression now passes in default11_full_retry2.
+The resumed positive20_profile_sanitizer supplement passes all37 push and five
+D131 timing-family cases perM0/M1. Both recipes use the corrected CMake hash
+c0f9fbdc; original failures remain retained. This closes the build association
+defect at host scope without changing any test assertion.

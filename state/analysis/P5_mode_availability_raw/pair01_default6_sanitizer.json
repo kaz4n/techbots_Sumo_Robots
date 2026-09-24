@@ -1,0 +1,71 @@
+{
+  "label": "pair01_default6_sanitizer",
+  "arc": 0,
+  "wait": 1,
+  "default": 6,
+  "flags": [
+    "review",
+    "sanitize"
+  ],
+  "start_utc": "2026-09-24T11:17:28.408801+00:00",
+  "input_freeze_sha256": "712a15c28a3dddab0ee512bcafdfe7691dda4a400edb5d01797f2b2aab7708d3",
+  "commands": [
+    {
+      "argv": [
+        "cmake",
+        "-S",
+        "/dev/shm/sumox_d134_gil8us8p/fixture/host",
+        "-B",
+        "/dev/shm/sumox_d134_gil8us8p/build",
+        "-DCMAKE_BUILD_TYPE=Debug",
+        "-DCMAKE_EXE_LINKER_FLAGS=-fsanitize=address,undefined -no-pie",
+        "-DCMAKE_CXX_FLAGS=-fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie"
+      ],
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "cmake",
+        "--build",
+        "/dev/shm/sumox_d134_gil8us8p/build",
+        "--parallel",
+        "1",
+        "--target",
+        "mode_availability_m0_tests",
+        "mode_availability_m1_tests"
+      ],
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "ctest",
+        "--test-dir",
+        "/dev/shm/sumox_d134_gil8us8p/build",
+        "--output-on-failure",
+        "-R",
+        "^mode_availability_"
+      ],
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "/usr/bin/python3",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/reviews/P5_mode_availability_review_raw/run_private.py",
+        "/dev/shm/sumox_d134_gil8us8p/fixture",
+        "/dev/shm/sumox_d134_gil8us8p/build",
+        "pair01_default6_sanitizer"
+      ],
+      "returncode": 0
+    }
+  ],
+  "hardware_access": false,
+  "synthetic_replacements": {
+    "MODE_ARC_ENABLED = 1U": "MODE_ARC_ENABLED = 0U",
+    "MODE_WAIT_ENABLED = 1U": "MODE_WAIT_ENABLED = 1U",
+    "MODE_DEFAULT = 1U": "MODE_DEFAULT = 6U"
+  },
+  "fixture_config_sha256": "df243231d520ea7416b8639d2bfec3436d4c675c66004e9ef1ea9d33a74d6570",
+  "end_utc": "2026-09-24T11:18:21.564210+00:00",
+  "returncode": 0,
+  "scratch_released": true
+}

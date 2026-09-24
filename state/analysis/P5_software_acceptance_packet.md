@@ -6,8 +6,9 @@ remain pending. This packet requests no connection or motor run now.
 
 SIDESTEP_R/L, DIRECT, ARC_R/L and WAIT already have core implementations and
 specification tests from P1. D134 adds optional-mode removal in config, public
-entry admission and the actual menu/Robot path. Its implementation, independent
-tests and final review are in progress; a contract alone is not passing evidence.
+entry admission and the actual menu/Robot path. Its implementation passes full ordinary host regression, the four-pair
+sanitizer matrix, private probes and tooling checks. Source-bound validation
+and separate scoped review are retained; physical results remain pending.
 See [the adopted contract](P5_mode_availability_contract.md).
 
 | Original P5 requirement | Software coverage to retain | Physical acceptance still required |

@@ -1,14 +1,12 @@
 # Resume SumoX-26 with Codex
 
-Current software phase: P5 under D134; D131-D133 completed at host scope with
-separate same-model review PASS. D134 optional-mode contract is adopted under
-the user's hardware-at-end direction, not a human gate. Implementation and
-independently derived tests exist. Resume the actual receipt and process in
-P5_mode_availability_checkpoint.md. USER PAUSED2026-09-24 13:09 Dubai: all18 default
-CTest targets and6private C++ perM0/M1 now pass;60+296tooling and8private Python
-also passed. First unfinished task is the four-pair sanitizer matrix, then the
-positive20 timing-profile supplement. No build/process remains active. Original
-fixture/oracle failures and the repaired CMake association defect are preserved.
+Current software phase: P5. D134 optional-mode implementation now passes full
+ordinary18-target regression, four-pair M0/M1 sanitizer/private checks and
+positive20 timing supplement; original failures/corrections remain recorded.
+Resume D135 qualified-abort evidence implementation after reading its contract,
+independent draft/private freezes and current Git status. Board was reconnected
+bare on24September; verify current transport before any new board operation.
+Native compile-only receipts are separate from host validation and physical gates.
 
 1. Read AGENTS.md fully, state/CODEX_HANDOFF.md, CODEX_EXECUTION.md, recent
    PROGRESS.md, DECISIONS.md, FACTS.md, TUNING_LOG.md and open findings. Load the
@@ -22,8 +20,8 @@ fixture/oracle failures and the repaired CMake association defect are preserved.
    adapter assertions and41 protected source files are unchanged. Keep original
    failures and successful hashes. Do not repeat matrices without a relevant change.
 4. Read state/analysis/P5_mode_availability_contract.md, its working checkpoint,
-   validation report and P5_host_profile_integration_failure.md. Finish actual
-   full/reduced/sanitizer checks and review before accepting its new locked test.
+   validation report and P5_host_profile_integration_failure.md. Read completed
+   full/reduced/sanitizer checks and scoped review; preserve the accepted locked hash.
    D135 abort-evidence contract is adopted in2aa0ac2e, following design4dc72ac1;
    independent isolated test drafts may exist, but implementation waits until
    D134 frozen-source validation closes. No physical gate follows from software

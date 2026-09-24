@@ -1,0 +1,236 @@
+{
+  "reviewed_utc": "2026-09-24T11:21:12.8501106Z",
+  "reviewer": "Separate-context same-model, reused prior P4/design context",
+  "scope": "D134 scoped host review only; read-only receipt/hash parsing, no execution of tests or compiler",
+  "verdict": "PASS_HOST_SCOPE",
+  "availability_profiles": [
+    {
+      "label": "default11_sanitizer",
+      "public_sha256": "28bb1404078cd0d335ac06ac8c11687422315974fc1124058cbdf976c5ae4395",
+      "private_sha256": "f5d80486ed8abd5ae0183d3d34e938616eb88d739093acf5f349c1eee1304a47",
+      "public_cases": [
+        {
+          "selected": 20,
+          "passed": 20,
+          "failed": 0,
+          "skipped": 0
+        },
+        {
+          "selected": 20,
+          "passed": 20,
+          "failed": 0,
+          "skipped": 0
+        }
+      ],
+      "private_cases": [
+        {
+          "selected": 6,
+          "passed": 6,
+          "failed": 0,
+          "skipped": 0
+        },
+        {
+          "selected": 6,
+          "passed": 6,
+          "failed": 0,
+          "skipped": 0
+        }
+      ],
+      "all_commands_exit0": true,
+      "scratch_released": true
+    },
+    {
+      "label": "pair00_sanitizer",
+      "public_sha256": "2e52ef76dc239581b3424c7dcec79c21007a5ec95b09aa8842e1b2020a87188b",
+      "private_sha256": "5268552b46b0af0f085d9d77fd6ce1b347fa868591486b855836ed904f637685",
+      "public_cases": [
+        {
+          "selected": 20,
+          "passed": 20,
+          "failed": 0,
+          "skipped": 0
+        },
+        {
+          "selected": 20,
+          "passed": 20,
+          "failed": 0,
+          "skipped": 0
+        }
+      ],
+      "private_cases": [
+        {
+          "selected": 6,
+          "passed": 6,
+          "failed": 0,
+          "skipped": 0
+        },
+        {
+          "selected": 6,
+          "passed": 6,
+          "failed": 0,
+          "skipped": 0
+        }
+      ],
+      "all_commands_exit0": true,
+      "scratch_released": true
+    },
+    {
+      "label": "pair01_default6_sanitizer",
+      "public_sha256": "348f4f4f48b9254ce6995b0dc87c5de22889942cad5afbf42b63072d5dcb71ed",
+      "private_sha256": "503b3383c26bcda70f210579e39b3a52d5ae7d0b49b73273782055ce1e1f0a6e",
+      "public_cases": [
+        {
+          "selected": 20,
+          "passed": 20,
+          "failed": 0,
+          "skipped": 0
+        },
+        {
+          "selected": 20,
+          "passed": 20,
+          "failed": 0,
+          "skipped": 0
+        }
+      ],
+      "private_cases": [
+        {
+          "selected": 6,
+          "passed": 6,
+          "failed": 0,
+          "skipped": 0
+        },
+        {
+          "selected": 6,
+          "passed": 6,
+          "failed": 0,
+          "skipped": 0
+        }
+      ],
+      "all_commands_exit0": true,
+      "scratch_released": true
+    },
+    {
+      "label": "pair10_default4_sanitizer",
+      "public_sha256": "60168e2495cd533ed2bdaf5945f7ed429c9c30643b82775b19e44ad5097769d2",
+      "private_sha256": "1b5d9a36b0fb4061f4724483fdfa9ad1686e84fdf3fd0ba80ff3c6f181deddaf",
+      "public_cases": [
+        {
+          "selected": 20,
+          "passed": 20,
+          "failed": 0,
+          "skipped": 0
+        },
+        {
+          "selected": 20,
+          "passed": 20,
+          "failed": 0,
+          "skipped": 0
+        }
+      ],
+      "private_cases": [
+        {
+          "selected": 6,
+          "passed": 6,
+          "failed": 0,
+          "skipped": 0
+        },
+        {
+          "selected": 6,
+          "passed": 6,
+          "failed": 0,
+          "skipped": 0
+        }
+      ],
+      "all_commands_exit0": true,
+      "scratch_released": true
+    }
+  ],
+  "positive_receipt_sha256": "5892d15e820f16bb3d4a1206327ed04f6be7918ddae9c71242d8d1e907ff8b61",
+  "positive_cases": [
+    {
+      "selected": 37,
+      "passed": 37,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "selected": 37,
+      "passed": 37,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "selected": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 32
+    },
+    {
+      "selected": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 32
+    }
+  ],
+  "positive_command_output_hashes_verified": [
+    {
+      "scope": "configure positive20 fixture",
+      "output_sha256": "0b106ee1f9eb52c5c6918df1070929ae1c2d9ae6343dd12bb83f199070f4cede",
+      "returncode": 0
+    },
+    {
+      "scope": "build four targets serially",
+      "output_sha256": "cc775369247c797380018f88cd52cc9ba0c7a9389872d0268f3101588cae1050",
+      "returncode": 0
+    },
+    {
+      "scope": "all push cases",
+      "output_sha256": "c195d2dabef87b482e1a5f8ea218f4a024e423b93396ce0bfe10db86ec3668f0",
+      "returncode": 0
+    },
+    {
+      "scope": "all push cases",
+      "output_sha256": "a00a8996b482089841aa3686324c561246bc24d501fd0e93b22eda9bc8a28e17",
+      "returncode": 0
+    },
+    {
+      "scope": "D131 timing only; excludes legacy D129 cases (listing only)",
+      "output_sha256": "a3dc17c4144a35461ae25b26a748bab9a3a2c672c32e5c94f0ec31a72368ee2d",
+      "returncode": 0
+    },
+    {
+      "scope": "D131 timing only; excludes legacy D129 cases",
+      "output_sha256": "49c7983e84a769635fd679a77340e2b2f84b8e9ab525cab820ae15a7b5b61d1e",
+      "returncode": 0
+    },
+    {
+      "scope": "D131 timing only; excludes legacy D129 cases (listing only)",
+      "output_sha256": "a3dc17c4144a35461ae25b26a748bab9a3a2c672c32e5c94f0ec31a72368ee2d",
+      "returncode": 0
+    },
+    {
+      "scope": "D131 timing only; excludes legacy D129 cases",
+      "output_sha256": "11b4b16d877d4dc0ef86f9edb07de8811315d36fbc3c02014230f5833bdc3bce",
+      "returncode": 0
+    }
+  ],
+  "positive_log_sha256": "38500a0a072620613d865db3c357dcdd8a1abc9d49b59fe84b0ab93717504b91",
+  "positive_runner_sha256": "18d5269350217137d50e19f3693a2fbf62f1ff25ab36f6f5ee72e9d39838078f",
+  "positive_source_unchanged": true,
+  "positive_scratch_released": true,
+  "current_source_bindings": [
+    {
+      "manifest": "freeze.json",
+      "sha256": "ba6433be25ef0f597ff198d9aa123c767f4a112c1a763b26b79dd4ffd1253c0e",
+      "entries": 649,
+      "mismatches": []
+    },
+    {
+      "manifest": "core_freeze.json",
+      "sha256": "712a15c28a3dddab0ee512bcafdfe7691dda4a400edb5d01797f2b2aab7708d3",
+      "entries": 523,
+      "mismatches": []
+    }
+  ],
+  "limits": "Native target compilation/fit/RAM/WCET/physical trials and human gates remain separate; positive timing selection deliberately filters 32 non-D131 cases per binary, legacy D129 whole suite passed at duration0"
+}

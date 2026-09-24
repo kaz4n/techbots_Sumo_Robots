@@ -60,3 +60,48 @@ to the retained helper must be established from the new receipt, not inferred
 from the range or expected behavior. This scope cannot establish native startup,
 full dependency coverage, live RAM/stack/heap, timing, physical acceptance,
 production admission, motor-run authorization or a human phase gate.
+
+## Actual collection review
+
+25 September 2026. Same-model reviewer with reused context; receipt inspection
+only, without board commands or reruns. **PASS for the exact D151 collection and
+receipt bindings. No open BLOCKER, MAJOR or MINOR findings in this scope.**
+The pre-execution review above had SHA256
+d6124220f540a2d0affb454f184098902597ef918d1cd6a1f38347c6ea2175f5.
+
+The captured-source launcher ran once at22:48:52.026403-22:48:53.918189 UTC on
+24 September, exited0 with empty stderr, and records unchanged source4c39fafc.
+The present collector bytes still have that exact reviewed hash. Reconstructed
+the pure command list without preparation or dispatch: all13 arguments equal
+inputs.json and0003.json, including auto-loading disabled before the loader and
+the sole exact address-range disassembly. All five receipts have the expected
+order/phases, exit0, empty stderr and no transport error. The result is
+NATIVE_INIT_QUERIES_COLLECTED, one accepted query, five reads, zero compiler or
+property-query attempts, and an empty postcheck-error list.
+
+Both remote checks retain the previous identity, Claim, eight FileRecords,
+source packet and compiler-candidate list. The two installed reports equal the
+previously checked26-file pinned report. The inputs preserve the same local
+pin set and historical receipt bindings. D150 inputs, five command receipts and
+failed result retain their previously reviewed hashes; D151 does not relabel or
+replace that failure.
+
+Command0003 stdout is584 bytes. Its exact opening/END markers enclose seven
+rendered instructions whose addresses and opcode lengths cover the contiguous
+18-byte interval[08019e5c,08019e6e). The text shows the state-pointer load from
+device+12, the byte+1/bit0 test, a tail branch at08019e64 to08019e2c, and the
+alternate mvn119/bx-lr return sequence. This review establishes collection of
+that missing file evidence; interpretation with the helper, driver tables and
+application sites belongs to the separate combined dispatch review. It does
+not establish execution, native startup, full ABI coverage or a production gate.
+
+| Actual input under P7_static_link_probe_raw/ | SHA256 |
+|---|---|
+| native_init/inputs.json | 6a77899006ee05bdff3183532909b6a11e394183bec710df9783685ee671bd1d |
+| native_init/0001.json | 507241ebc86dbaeee79cce6621d6036ec4fa68f06f5655d69a9c51c48ade99b1 |
+| native_init/0002.json | 92dc37eca3fe25069b5162667585261ae00c053d14911ddc22f22f35090d2384 |
+| native_init/0003.json | 49eda4578514c5ae2e233b8d269ee4a8245d9d09e396daabf02278c70a7608e2 |
+| native_init/0004.json | a7929ebe524cb031a3b7042e3483f8deddacd3f38ef32e3348cf8e0a94a01bb4 |
+| native_init/0005.json | 88965dad0d1bf115533e9d35c1060d706a50f7f1988b99ba982d601485316429 |
+| native_init/result.json | 835c427707fa4fbc7c700904773fcd5061bfd8f84bc6d97c1b8cfbfbcd5e5c5f |
+| native_init_launcher.json | c925b8e288c6f16ea54636756773ea0717d9b72435d05d20f702f7aa14237a4e |

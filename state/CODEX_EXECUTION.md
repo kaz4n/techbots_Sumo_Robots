@@ -65,8 +65,15 @@ pending; D051/D075/D122/D137 permit scheduling, not fabricated measurements.
   No MCU execution; the file-only observation is terminal and consumed.
 - [x] Bounded native binding audit:168ABS/22veneers/62native values/119table entries
   verified; scoped reviewf738ef54 PASS, complete indirect dispatch still pending.
-- [ ] Close required native driver/API dispatch coverage using retained GPIO/PWM/
-  RCC/device-init evidence first. Exact next task: analysis/P7_static_native_dispatch_next.md.
+- [x] Selected GPIO/PWM/RCC direct calls and types observed; D150 remains FAILED
+  on the ambiguous init-name query, with49 useful partial sections preserved.
+- [x] D151 numeric18-byte wrapper observation:5 reads exit0/all postchecks pass;
+  separate actual reviewe35ee292 PASS. No build/upload/reset. Original negatives
+  remain unchanged. See analysis/P7_static_native_dispatch_validation.md.
+- [x] Fresh-context same-model combined dispatch reviewe4eca064 PASS, no open
+  findings.836 retained app instruction/literal rows match the actual debug ELF.
+- [ ] Prepare a reviewed bare-board M0 startup qualification using the current
+  checked packet and a verified upload/observation path; no new binary/source copy.
 - [ ] Qualify native loading/startup, stack/heap/WCET and release workflow before
   adoption. Structural RAM tail94352B is not measured free memory.
 
@@ -82,7 +89,9 @@ now. Current permission advances software, not invented measurements or gates.
 
 Storage: no new disposable candidate in the bounded follow-up f2fa3c28. D148 saves
 125141B compact receipts plus launcher, no duplicate binaries/builds. Keep required
-evidence and all previously denied targets intact. Read STORAGE_LOG.md and check
+evidence and all previously denied targets intact, including the111-file matrix
+host-output batch newly blocked on25September. Verified compression and incremental
+Git packing saved about49.9MiB; all refs/reflogs and content remain intact. Read STORAGE_LOG.md and check
 free space before material work. Python-B; no persistent fixture/compiler tree.
 
 Schedule: actualP3 not passed by end28Sep invokes reactive+SIDESTEP/DIRECT plus

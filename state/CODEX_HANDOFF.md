@@ -1,8 +1,8 @@
 # Codex handoff - 2026-09-25 Asia/Dubai
 
-**D148 existing native packet: structural/package PASS.** Five read-only board
-commands succeeded; no compile/upload/reset. See the current checkpoint below.
-Production admission, runtime acceptance and physical/human gates remain separate.
+**Selected direct native driver boundary: reviewed file-evidence PASS.** D150's
+partial read remains FAILED; D151 separately collected the missing init wrapper.
+No firmware upload, reset, compiler or source/config/test change occurred.
 
 **Active phase: P7 software/release preparation.** D138 informational READY and
 battery-threshold software is implemented, host-tested and target-compiled.
@@ -14,50 +14,43 @@ storage conservation. Software-first scheduling never creates measured acceptanc
 
 ## Current checkpoint and exact next task
 
-D148 actual existing-packet validation PASSES under the new D147 interface:
-GOdbb5f1a4, hostfbde2926, remotec6099f6d, validatorcd52a29a; five read-only
-commands exit0, query/compile0, all source/installed/artifact postchecks pass.
-Read analysis/P7_static_native_actual_validation.md and its linked receipts/review.
-The exact current source remainsfcddbd8e;103 sources/102 staged files,17 local pins
-and26 installed pins remain bound. No firmware, old test or production change.
-FinalELF5cc2dfde, debug/temp0f7f2825, flat package5f08afe0 are original D144 bytes.
-Flash payload93080B; static RAM span167792B, region tail94352B. The tail is NOT
-measured live RAM/stack/heap or runtime qualification. No upload/reset occurred.
+Current source is fcddbd8e; static final ELF5cc2dfde, debug ELF0f7f2825 and
+packaged loader39d4a4fd remain unchanged. D148 structure/package and D149 selected
+project ABI results remain valid for these files. Static RAM region tail94352B
+is not live free memory. D139's dynamic default modeled592B deficit remains.
+Production admission is still dynamic-only; no static deployment was adopted.
 
-All native operations D144/D145/D146/D148/D149 are terminal and consumed. D144's old
-unsupported-symbol rejection remains intact. D147's separately tested exact-six
-TLS metadata extension passes19new+51old host methods, with independent review.
-D141/D142/D143 contracts, original parsers/tests/consumers and production dynamic
-admission remain unchanged. D139's dynamic default profile still has592B modeled
-deficit; the native structural pass is a distinct experimental result.
+New work is consolidated in analysis/P7_static_native_dispatch_validation.md:
+actual GPIO/PWM/RCC application call sites, selected cross-image types and native
+vectors are bound to retained evidence. D150 GO9c995322 correctly ended FAILED
+because the exported init name resolved ambiguously; its49 useful sections are
+partial evidence only. Original failure and all receipts remain unchanged.
+D151 GOa60ef466 then read exactly18 bytes by numeric address, with all5 read
+commands and postchecks passing. It proves the conditional wrapper branch to
+the retained helper, which calls device.ops.init at+20. Separate reused-context
+actual collection review e35ee292 and fresh-context combined review e4eca064
+PASS, with no open findings. Read state/reviews/P7_static_native_dispatch_review.md.
+All read scopes D144-D151 that performed board work are terminal and consumed.
 
-Local entry/constructor audit is complete (original6ecb8ab6):34 local commands,
-32 focused functions; separate review14e6d959 PASS. Read analysis/P7_static_entry_audit.md.
-One literal-elision description was corrected; raw receipt92b72069 is unchanged.
-Three native printk calls before initialization remain an untested startup dependency.
-D149's file-only GDB comparison also passes: GO2cd8d795, source7c7fa476,
-16 type size/alignment pairs and82 offsets match; five read commands0/noerrors.
-Separate actualreview3f4d20b7 PASS. Read analysis/P7_static_native_abi_validation.md.
-No compiler, target/inferior or upload/reset. D149 is terminal and consumed.
-Bounded native address audit also passes scoped reviewf738ef54:168 ABS values,
-22 veneers and62 catalogued native addresses match retained packaged evidence;
-119 table entries are118 matching device pointers plus one null. Receiptc3233593
-is74101B. Read analysis/P7_static_native_bindings_audit.md and its separate review.
-This does not establish complete indirect driver/API dispatch coverage.
-Exact next task: analysis/P7_static_native_dispatch_next.md. Reuse retained
-GPIO/PWM/RCC/device-init observations to compare actual app call-site offsets;
-only missing offsets/prototypes justify a separately scoped file-only loader
-query. Prioritize MotorGate EN and zero-duty PWM init before any inert startup.
-No static upload path or run is authorized merely by these successful file audits.
-Native startup, stack/heap/WCET, physical acceptance and human gates stay pending.
-Do not integrate a static upload path or run an MCU merely because structure passes.
+Exact next task: prepare the smallest source-bound bare-board
+M0 static startup qualification using the existing packet and a verified upload
+and observation path. Reuse retained evidence; do not rebuild or copy another
+source tree. Identify the precise allowed inert run and expected observations
+before any upload. The user permits bare UNOQ testing and requests no additional
+hardware now. No motor-capable run is authorized; STAND/RING remains absent.
+Native loading/startup, live stack/heap/WCET, full release workflow and all
+physical/human gates remain pending. Do not infer them from file inspection.
 
-D148 retained seven compact input/command/result files125141B plus small launcher;
-no binaries/fixtures/build trees downloaded or created. Latest bounded storage
-inspection found no new safe disposable files; see STORAGE_LOG.md/f2fa3c28.
-All prior denied cleanup targets remain untouched; do not retry by another method.
-C: free about511MB at02:29Dubai; global fluctuations are not cleanup recovery.
-Use Python-B and small reports; keep one compiler maximum if later justified.
+Storage cleanup commits13d50c43 and495fb0be saved about49.9MiB: verified lossless
+compression recovered8495104 allocated bytes; incremental Git packing reduced
+reported loose+pack storage by43829248 bytes. All refs/reflogs were unchanged,
+new pack verification and connectivity checks passed. No source/history/evidence
+was deleted. The exact111-file P2 matrix host-output deletion was blocked by
+automatic approval before process creation; add those paths to prior denied
+cleanup targets and do not retry deletion. See STORAGE_LOG.md and compact
+storage_compression_20260925_matrix_objects.json/storage_repack_20260925.json.
+Recheck C: free space before material work; it fluctuates independently.
+No compiler tree, binary copy or Python cache was added. Use Python-B.
 
 Historical detailed checkpoints and original failures remain in Git, PROGRESS
 and linked validation packets. PROGRESS is append-only with legacy nonUTF8 bytes;

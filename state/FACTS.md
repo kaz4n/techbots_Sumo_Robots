@@ -595,3 +595,28 @@ Evidence: analysis/P7_static_native_abi_validation.md, original native_abi/0003.
 ## F158 - Bounded static native binding evidence (2026-09-25T02:30:41.957002+04:00)
 Local target-artifact audit only:168 present linker-provided ABS values agree in final/debug forms;22 instruction-decoded native veneers match named packaged-loader exports.62 distinct catalogued native values bind61 retainedD139 export values plus D140printk080173d5.119 table entries contain118 named device pointers and one null. Five allocator/random wrapping aliases are absent/[!provide] with no identified reference in checked encodings, not a missing-definition defect or whole-program no-allocation proof.
 Evidence: analysis/P7_static_native_bindings_audit.md, raw/native_bindings_audit.jsonc3233593 and separate reused-context scopedreviewf738ef54 PASS. Six local commands0, input/tool/source103 hashes unchanged. Confidence verified for enumerated encodings only. Complete indirect driver/API dispatch/reachability remains pending, demonstrated by opponent setup08111788 loading device+8 then API+0. Next existing-source audit is analysis/P7_static_native_dispatch_next.md. No board action/runtime/physical/gate claim.
+
+
+## F159 - Selected static/native driver boundary file evidence (2026-09-25)
+D150 partially observes matched device/device_ops/GPIO/PWM/RCC/pclken layouts,
+scalar widths and selected driver values for current sourcefcddbd8e and packaged
+loader39d4a4fd. Its collector remains FAILED on the ambiguous init-name query;
+that failure is never relabelled. D151 GOa60ef466 separately reads exactly18 bytes
+[08019e5c,08019e6e) with the pinned GDB. Five clean commands and all postchecks
+establish its conditional tail branch to retained do_device_init08019e2c, which
+calls device.ops.init at+20. Actual GPIO/PWM/RCC application instructions and
+selected callback types agree with the observed native targets.
+
+Evidence: analysis/P7_static_native_dispatch_validation.md and its linked three
+companion reports/compact receipts. Preserve original native_api/result.json
+FAILED and native_init/result.json COLLECTED. Confidence: verified for the selected
+file boundary only; combined fresh-context review is pending. M0 still initializes
+GPIO/PWM; empty SetupGrants keep optional services disabled. No MCU execution,
+whole native dependency proof, live RAM/stack/WCET, static production admission,
+physical acceptance or human gate follows.
+
+F159 final scoped review 2026-09-25T02:53:01.140514+04:00: separate fresh-context same-model review
+e4eca064 PASS with no open findings. Independently checked31 receipt inputs,
+17 local pins,103 working and102 staged source files, and836 retained application
+instruction/literal rows against ELF bytes. D150 remains FAILED; D151 closes
+only its missing wrapper edge. No runtime, physical or human-gate acceptance.

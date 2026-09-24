@@ -1775,3 +1775,12 @@ D-150 terminal disposition 2026-09-25T02:45:29.547149+04:00: exact one-shot ende
 Context: D150 correctly failed its strict collection check on the ambiguous by-name wrapper lookup. Retained helper disassembly plus current partialtype evidence leaves only18bytes[08019e5c,08019e6e) for the wrapper-to-helper edge. Separate reused-context reviewd6124220 passes planfb7043e6/source4c39fafc.
 Decision: one hash-bound read_native_init.py execution, SHA4c39fafc2efe646f53020ff121cd4441956c71b95c9ae1cb245454f9209da415, five read-only commands around the exact numeric-range disassembly. Preserve existing17local/26installed/source103/stage102/Claim/eightFileRecords and independent afterchecks, firsterror, no retry.
 Consequence: missing file-evidence observation only, not a repeat or success relabel of D150. No production/source/config/test change, compiler/upload/reset/MCU execution, static admission, physicalresult or human gate.
+
+D-151 actual observation 2026-09-25T02:50:29.998683+04:00: five read-onlycommands exit0/emptystderr/noaftercheckerror; source4c39fafc and alloldbindings unchanged. Numeric18-byte body readsdevice.state+12/initializedbyte1 bit0; ifclear tail-branches to observeddo_device_init08019e2c, otherwise returns-120. D150negative/49partialsections preserved. No newcompile/upload/reset/MCU; direct-boundary combinedreviewpending, runtime/production/physicalgatesremainseparate. Scopeconsumed.
+
+D-151 final scoped disposition 2026-09-25T02:53:01.140514+04:00: actual collection reviewe35ee292 and
+separate fresh-context combined dispatch reviewe4eca064 PASS, no open findings.
+The selected GPIO/PWM/RCC/device-init file boundary is closed; D150 original
+failure remains unchanged. Next is concrete inert startup qualification planning
+with existing packet and verified upload/observation path. No new deployment
+authority, firmware/config/test change, physical result or human gate follows.

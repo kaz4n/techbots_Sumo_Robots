@@ -212,7 +212,42 @@ def _config_directives(code):
     return '\n'.join(output)
 
 
-def _extra_declarator(prefix, suffix):
+def _without_declaration_decorations(prefix):
+    # Decorations cannot hide an extra declaration; this never relaxes canonical spelling.
+    output, cursor = [], 0
+    pattern = re.compile(r'\[\[|\balignas\s*\(')
+    while match := pattern.search(prefix, cursor):
+        output.append(prefix[cursor:match.start()])
+        start = match.start() if match.group() == '[[' else match.end() - 1
+        opening = prefix[start]
+        closing, depth, end = (']' if opening == '[' else ')'), 1, start + 1
+        while end < len(prefix) and depth:
+            depth += int(prefix[end] == opening) - int(prefix[end] == closing)
+            end += 1
+        _configuration(depth == 0, "Unterminated declaration decoration.")
+        output.append(' ')
+        cursor = end
+    return ''.join(output) + prefix[cursor:]
+
+
+def _parenthesized_declarator(prefix, suffix):
+    opening = re.search(r'(?:\(\s*)+[\s*&]*$', prefix)
+    if opening is None:
+        return False
+    count = opening.group().count('(')
+    closing = re.match(r'(?:\s*\)){' + str(count) + r'}\s*(?:=(?!=)|[;\[({])', suffix)
+    if closing is None:
+        return False
+    head = prefix[:opening.start()].strip()
+    storage = r'(?:(?:inline|constexpr|consteval|constinit|static|extern|const|volatile|register|thread_local)\s+)*'
+    qualified_type = r'(?:[A-Za-z_]\w*\s*::\s*)*[A-Za-z_]\w*'
+    builtin_type = r'(?:(?:unsigned|signed|short|long)\s+)+(?:int|double|char|long)'
+    # A direct initializer has both a type and another variable name before '('.
+    typed = re.fullmatch(storage + r'(?:' + qualified_type + '|' + builtin_type + r')[\s*&]*', head)
+    return typed is not None or _subsequent_declarator(head)
+
+
+def _subsequent_declarator(prefix):
     # A comma outside an expression can start another declarator in the same statement.
     parentheses, brackets, comma = 0, 0, -1
     for index, char in enumerate(prefix):
@@ -226,9 +261,15 @@ def _extra_declarator(prefix, suffix):
             brackets -= 1
         elif char == ',' and parentheses == brackets == 0:
             comma = index
+    return comma >= 0 and re.fullmatch(r'[\s*&]*', prefix[comma + 1:]) is not None
+
+
+def _extra_declarator(prefix, suffix):
+    prefix = _without_declaration_decorations(prefix)
+    if _parenthesized_declarator(prefix, suffix):
+        return True
     separate = ('=' not in prefix and re.fullmatch(r'[\w:\s*&]+', prefix) is not None)
-    subsequent = comma >= 0 and re.fullmatch(r'[\s*&]*', prefix[comma + 1:]) is not None
-    return (separate or subsequent) and re.match(r'\s*(?:;|\[|\(|\{)', suffix) is not None
+    return (separate or _subsequent_declarator(prefix)) and re.match(r'\s*(?:;|\[|\(|\{)', suffix) is not None
 
 
 def _config_value(code, name):

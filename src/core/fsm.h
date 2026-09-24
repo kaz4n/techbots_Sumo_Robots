@@ -414,6 +414,14 @@ struct TickTiming {
     bool start_valid = false;
     std::uint32_t started_us = 0; // Actual acquisition start; t_us stays decision time.
 };
+#if SUMOX_TIMING_EVIDENCE
+// D129 source evidence only; no change to debounce or motion permission.
+struct OpponentReadWindow {
+    bool valid = false;
+    std::uint32_t started_us = 0U;
+    std::uint32_t completed_us = 0U;
+};
+#endif
 struct RobotInput {
     std::uint32_t t_us = 0;
     bool initialization_complete = false;
@@ -437,6 +445,9 @@ struct RobotInput {
     bool opponent_fresh = false; // Explicit line mode only; independent of QTR frames.
     core::ButtonEvidence buttons;
     TickTiming timing; // D092 opt-in complete-tick accounting; legacy default unchanged.
+#if SUMOX_TIMING_EVIDENCE
+    OpponentReadWindow opponent_read;
+#endif
 };
 struct RobotResult {
     static constexpr bool STAND_PROFILE = SUMOX_B4_STAND != 0;
@@ -445,6 +456,7 @@ struct RobotResult {
     static constexpr bool STOP_TRIAL_PROFILE = SUMOX_P3_STOP_TRIAL != 0;
     // D128: real local match start enters SEARCH; selected mode is metadata only.
     static constexpr bool REACTIVE_PROFILE = SUMOX_P4_REACTIVE != 0;
+    static constexpr bool TIMING_EVIDENCE_PROFILE = SUMOX_TIMING_EVIDENCE != 0;
 #if SUMOX_P3_STOP_TRIAL
     stop_trial::Report stop_trial;
     bool stop_trial_stopping = false;

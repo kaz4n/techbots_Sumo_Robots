@@ -3,6 +3,7 @@
 // Host specification tests check inert defaults; later HAL tests must check real writes.
 #pragma once
 #include <cstdint>
+#include "../config.h"
 
 namespace core {
 enum class State : std::uint8_t {
@@ -28,6 +29,9 @@ struct ButtonEvidence {
 enum class Event : std::uint8_t {
     START_RELEASE, GO, FIRST_NONZERO_DUTY, STATE_CHANGE, EDGE, CONTACT,
     STALL, REFLANK_PHASE, PHANTOM_SET, FAULT
+#if SUMOX_TIMING_EVIDENCE
+    , TIMING = 10
+#endif
 };
 // D084 pure evidence metadata. Values1..3 also identify B15 presence extensions.
 enum class ImuPresence : std::uint8_t { ABSENT = 1, VALID = 2, INVALID = 3 };

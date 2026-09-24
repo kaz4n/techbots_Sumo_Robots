@@ -925,3 +925,5 @@ physical/loadedRAM/gate claim. | contract=this commit
 2026-09-24T07:59:42.088781+04:00 | P4 software | D128 scheduling/contract | ACTIVE under explicit hardware-at-end direction; P3 physical3.1-3.7/GATE still pending; first task exclusive reactive GO/noopener profile; no motor authorization | contract commit this task
 
 2026-09-24T08:10:38.176472+04:00 | P4 software | D128 reactive profile | IMPLEMENTED/HOST-TESTED/TARGET-COMPILED;12normal/34san/35configured,135tooling+2registry,private5M0/M1PASS;38lockedunchanged; no MCU/physical/gate; nextSC-AO source-window/applied-receipt trace | commit this task
+
+2026-09-24T08:14:23.047481+04:00 | P4 software | D129 public trace contract | ADOPTED under D051; independent tests/implementation next; physical and gates pending; D128 committed3985da16 | contract commit this task

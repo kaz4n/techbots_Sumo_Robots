@@ -66,7 +66,18 @@ struct EventInput {
 struct EventBytes { std::uint8_t data[EVENT_BYTES] = {}; };
 
 // D-060 metadata version1; explicit wire codes, not behavior tunables.
+#if SUMOX_TIMING_EVIDENCE
+inline constexpr std::size_t ROBOT_EVENT_CAPACITY = 26U;
+enum class TimingDetail : std::uint8_t {
+    HEADER = 0, LOSS_READ_START = 1, LOSS_READ_END = 2,
+    LOSS_BRAKE_DECISION = 3, LOSS_ZERO_APPLIED = 4,
+    EXCLUDED_TRANSIENT = 5, EXCLUDED_FILTER = 6, EXCLUDED_CONTACT_ROUTE = 7,
+    INTERRUPTED_EDGE = 8, INTERRUPTED_STOP_FAULT = 9, INVALID_SOURCE_TIME = 10,
+    INVALID_RECEIPT = 11, EXCLUDED_NO_APPROACH = 12
+};
+#else
 inline constexpr std::size_t ROBOT_EVENT_CAPACITY = 21U;
+#endif
 enum class FaultCode : std::uint8_t {
     IMU_UNAVAILABLE = 1, OPPONENT_STUCK, QTR_STUCK_WARNING, LOW_BATTERY,
     CALIBRATION, ESCAPE_FAULT, CORE_CONTRACT_FAULT, TURN_TIMEOUT,

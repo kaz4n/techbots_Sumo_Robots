@@ -25,6 +25,13 @@
 #ifndef SUMOX_P4_REACTIVE
 #define SUMOX_P4_REACTIVE 0
 #endif
+#ifndef SUMOX_TIMING_EVIDENCE
+#define SUMOX_TIMING_EVIDENCE 0
+#endif
+static_assert(SUMOX_TIMING_EVIDENCE == 0 || SUMOX_TIMING_EVIDENCE == 1,
+              "SUMOX_TIMING_EVIDENCE must be 0 or 1");
+static_assert(!SUMOX_TIMING_EVIDENCE || SUMOX_P4_REACTIVE,
+              "Timing evidence requires the P4 reactive profile");
 static_assert(MATCH == 0 || MATCH == 1, "MATCH must be 0 or 1");
 static_assert(MOTORS_ALLOWED == 0 || MOTORS_ALLOWED == 1, "MOTORS_ALLOWED must be 0 or 1");
 static_assert(SUMOX_B4_STAND == 0 || SUMOX_B4_STAND == 1, "SUMOX_B4_STAND must be 0 or 1");

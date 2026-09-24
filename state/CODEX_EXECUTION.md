@@ -1,6 +1,6 @@
 # Current execution checklist - 2026-09-24 Asia/Dubai
 
-**P3 software active under D122.** The user's assumed physical acceptance permits
+**P4 software active under D128.** The user's assumed physical acceptance permits
 software scheduling only; missing physical results remain unmeasured. D051/D075
 and D122 authorize software work before physical acceptance;
 PROGRESS.md owns append-only phase/gate history. No human phase gate passed.
@@ -131,3 +131,11 @@ D128: P4 software is now active; realP3gate/measurements remain pending. Reactiv
 
 Accepted new locked0e26c02e is protected. PhysicalP3/P4 and human gates remain
 pending; P6 eligibility still uses actual gate dates. No fresh motor permission.
+
+
+## D129 current task
+
+- [x] Adopt bounded P4-only target-loss trace/source interface.
+- [ ] Independent profile tests and implementation, then frozen validation/review.
+- [ ] Exact inert target compilation and native memory account; default/D128 compatibility.
+- [ ] Following task: offline trace analyzer. Physical P4 acceptance remains pending.

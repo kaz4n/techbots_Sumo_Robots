@@ -45,7 +45,7 @@ PINS = {
     'state/analysis/P7_static_runner_contract.md': '35473ed0eb59b9d7fd097cb25554b591ec6bd470703504e1a525219b2fdba7e7',
     'state/analysis/P7_static_remote_contract_draft.md': 'a4be3733d40632b4ae79e3bbbab3300f720b8f7f13f3337d35d96dfc90373b39',
     RAW + 'static_bootstrap.txt': 'a6bb46737bea18fc564e77bbd7124c20771258b4fe4ca41a17cbd4cce9798419',
-    RAW + 'static_remote.py': '521773e51b62e19421efe7e25192ed938e4367acd6336984b8c7ba954d9a93d1',
+    RAW + 'static_remote.py': '8ba9b190c38e728013a383348c60c287b0366607f65f703161cf7f2e142d36f8',
 }
 LIMITS = {name: 16777216 for name in (
     'app.ino.elf', 'app.ino_debug.elf', 'app.ino_temp.elf',

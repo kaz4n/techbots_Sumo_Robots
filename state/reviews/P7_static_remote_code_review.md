@@ -125,3 +125,52 @@ this addendum, so behavioral verification remains pending and this is not a
 host-tested component, board, full-probe or phase-gate acceptance. Only this
 review report was edited. Next action is independent oracle freeze and actual
 host verification with retained receipts.
+
+## First host-result ruling: source mutation classification
+
+The reviewer read the frozen oracle, original execution receipts and failure
+trace after the coordinator's first execution. All 17 inputs in
+`P7_static_remote_test_draft/freeze_remote.json` were rehashed unchanged. The
+recorded helper SHA before and after execution is the reviewed `521773e5...`.
+The helper suite ran 28 methods: 27 passed and one failed; the separate unchanged
+bootstrap suite passed all 23 methods. The reviewer did not execute either suite.
+
+The failing test at `P7_static_remote_test_draft/test_static_remote.py:449-455`
+uses actual descriptor operations and replaces `app.ino` with identical bytes
+on another inode during fstat. `read_file` detects the named-entry change at
+helper lines 246-249 and rejects with exit 2/FILE_READ. The assertion fails only
+because it expects SOURCE_DRIFT. It did not demonstrate hash-only acceptance,
+successful collection, or an ignored source mutation.
+
+**Ruling:** remote-contract lines 216-217 require rejection of source mutation;
+lines 124-129 include both error codes but do not explicitly assign every source
+mutation to SOURCE_DRIFT. The exact-code assertion is therefore more specific
+than that contract text. It should not be represented as a demonstrated safety
+defect or an unambiguous violation of an explicit error-code mapping.
+Nevertheless, SOURCE_DRIFT is the precise classification for positively detected
+source inode/content instability and matches the source action's existing
+snapshot/hash checks. A bounded implementation clarification can satisfy the
+unchanged frozen test without weakening any admission rule.
+
+Recommended repair: distinguish detected identity/extent changes in `read_file`
+from ordinary read failures, and let the source action map those detected changes
+to SOURCE_DRIFT. An internal, fixed call-site drift-code argument or typed
+identity-change exception is sufficient. Preserve FILE_READ for unrelated
+unreadability/size/special-file failures and PATH for ancestry failures; avoid
+message-text matching or blanket translation of every source read error. Keep
+the original failed receipt and test unchanged. Additional parse/metadata
+coverage remains separate and must be frozen before its execution.
+
+Evidence SHA-256:
+
+- `P7_static_remote_test_draft/first_remote_execution.json`:
+  `4ba5ad23c70795a8f21d7915c7630b4167ed9e714d96078ae7736963644713e5`.
+- `P7_static_remote_test_draft/first_remote_stderr.txt`:
+  `cb5ed921ee826b4a59efb83b5c73e044b4e8a0019c71f1465409a08c52e097b0`.
+- `P7_static_remote_test_draft/first_bootstrap_execution.json`:
+  `6844aedfb32bc7ffbe1465b1eceb880a4ee4907f4d7c82a4740c05c9c09b9a2c`.
+
+Paths above are under `state/analysis/`. Current host disposition remains
+**not passed**, because the frozen suite has one unresolved classification
+assertion. The earlier four review findings remain closed; no implementation,
+test, contract or shared ledger was edited by this reviewer.

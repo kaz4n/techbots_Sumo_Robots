@@ -231,7 +231,7 @@ def read_bounded(fd, limit):
     raise Rejected('FILE_READ', 'File exceeds bounded read')
 
 
-def read_file(parent_fd, name, limit, proc=False):
+def read_file(parent_fd, name, limit, proc=False, drift_code='FILE_READ'):
     before = os.stat(name, dir_fd=parent_fd, follow_symlinks=False)
     require(stat.S_ISREG(before.st_mode), 'FILE_READ', 'Not a regular file: ' + name)
     require(before.st_size <= limit, 'FILE_READ', 'Oversize file: ' + name)
@@ -241,12 +241,12 @@ def read_file(parent_fd, name, limit, proc=False):
     try:
         info = os.fstat(fd)
         require(stat.S_ISREG(info.st_mode) and file_id(info) == identity,
-                'FILE_READ', 'File changed while opening: ' + name)
+                drift_code, 'File changed while opening: ' + name)
         raw = read_bounded(fd, limit)
         after = os.stat(name, dir_fd=parent_fd, follow_symlinks=False)
         require(stat.S_ISREG(after.st_mode) and file_id(after) == identity and
                 file_id(os.fstat(fd)) == identity and (proc or len(raw) == identity['bytes']),
-                'FILE_READ', 'File changed while reading: ' + name)
+                drift_code, 'File changed while reading: ' + name)
         return raw, identity
     finally:
         os.close(fd)
@@ -424,7 +424,7 @@ def source_action(root_fd, request, data):
         for name in sorted(before):
             parent, filename = (SKETCH + '/' + name).rsplit('/', 1)
             with directory(root_fd, parent) as parent_fd:
-                raw, observed = read_file(parent_fd, filename, SOURCE_LIMIT)
+                raw, observed = read_file(parent_fd, filename, SOURCE_LIMIT, drift_code='SOURCE_DRIFT')
             data['files'][name] = {'bytes': len(raw), 'sha256': sha256(raw)}
             data['total_bytes'] += len(raw)
             require(observed == before[name] and sha256(raw) == request['manifest'][name],

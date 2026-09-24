@@ -95,3 +95,43 @@ All 17 literal input hashes matched again, including the updated helper
 AST counts remain 56 functions, maximum 42 lines. This bounded recheck did not
 import or execute either implementation. Independent frozen tests and exact
 helper code review remain pending; no host-test pass or native GO is inferred.
+
+## First host execution: independent oracle adjudication
+
+Reviewed the retained first runner execution without re-executing it:
+
+- `P7_static_runner_test_draft/freeze_runner.json`:
+  `06e7e61c68fc0aaf2fe329c29547805cde9c4a0ee6c8588aa7677c4b00f2bc2b`.
+- Original `test_static_runner.py`:
+  `cb6055a7d24312cada12b7b18e8debb7cd083df8abf30c9d0c509fe6203e5c91`.
+- `first_runner_execution.json`:
+  `04394b356432afb737e65959a6ce6cd06721a14e5f4b192bf23805c21d205108`.
+- `first_runner_stderr.txt`:
+  `4160cd85ec4f5dd381d1dbc580feef942dbe55309f40a69c92cd2089b38518ad`.
+
+The receipt binds runner
+`006fdb709fa695714c38f208cad2650be9cc60e7cdaac13fa95b6e9d441dbfb3`
+and helper `521773e51b62e19421efe7e25192ed938e4367acd6336984b8c7ba954d9a93d1`
+before/after execution, together with unchanged independent inputs. Stderr reports
+22 methods in13.135s, 21 passing and one failing. The sole failure is the success
+test's directory-set assertion at172-173: actual output contains `inputs.json`.
+Later assertions within that failed method did not run; this is not 22/22 PASS.
+
+**MINOR oracle overconstraint, not an implementation defect.** The frozen
+contract requires the runner's own hash to be recorded at line79. Its exact
+success and command schemas at48-56 and233-236 contain no field for that hash.
+It specifies no exclusive whole-directory file set. The storage provisions
+at252-258 limit duplicate large artifact transfers; compact input provenance is
+consistent with them. Runner lines636-637 exclusively create `inputs.json`
+containing its own hash, literal pins and verified-stage receipt before commands.
+Removing that evidence to satisfy the new assertion would undermine line79.
+
+Smallest compliant remedy: retain the original test/freeze and first failure;
+correct only the new oracle's expected directory set to include `inputs.json`,
+preserving exact equality and all command/result assertions. Independently check
+the recorded runner hash against the current source bytes; the compact receipt's
+pin/stage contents can also be checked against existing public evidence. Do not
+allow arbitrary extra files, change the frozen contract, remove evidence or
+weaken an established test. The test author should freeze the narrowly corrected
+oracle separately before another run. This ruling does not declare that rerun
+passed and adds no native authority. Reviewer modified only this review.

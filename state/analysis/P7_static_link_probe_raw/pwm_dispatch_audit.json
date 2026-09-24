@@ -1,0 +1,378 @@
+{
+  "utc": "2026-09-24T22:33:18.086705+00:00",
+  "status": "APP_PWM_DISPATCH_IDENTIFIED_PACKAGED_FORMAL_ABI_AND_INIT_DISPATCH_PENDING",
+  "scope": "File-only current static default M0 PWM driver dispatch; no board/build/upload/run",
+  "inputs_before": {
+    "state/analysis/P7_static_tls_raw/observed/app.ino_debug.elf": "0f7f2825329466e06f15144f07a5188435ac309aa1a3aff71a1a9f1be87a27bd",
+    "state/analysis/P7_default_qualification_raw/working_source_manifest.json": "c106c0fb8baaf0a6f2536558da0084bd7d236c4ee8e77a4110b60107ad073391",
+    "state/analysis/P0_pwm_installed_raw_20260923.txt": "e50cedcc257c7bc00315c207ddd6b010b250375ad24cbb6a92347532cf725f1e",
+    "state/analysis/P2_motor_native_raw/clock.json": "cba7a393e4abd0a9083dd9ebb774a20ef629f2242184818329568f915d82d6ca",
+    "state/analysis/P7_static_link_probe_raw/native_bindings_audit.json": "c3233593034e9446b4333f8e02bacf1fcec8b89de3d48fefd6b1406f09565804",
+    "src/hal/motor_port_unoq.cpp": "04803c88dc51e62dee4c1be15f4c1c8392df01d84893155bc10644cf7afd694a",
+    "src/hal/motors.cpp": "2e6f560fca84c1ed77356299e6442afaff8dff05fcf34d51cd59c9454553198b"
+  },
+  "source_manifest": "state/analysis/P7_default_qualification_raw/working_source_manifest.json",
+  "source_files_checked": 103,
+  "source_digest": "fcddbd8ef5ba4c92a2080b03e9343ac78c2406b13d9514793aa147e02f0d1da2",
+  "source_match_before": true,
+  "tool_before": {
+    "/usr/bin/arm-none-eabi-objdump": "d8e94d502fd80248334d739b3e4705369897381a69b12dc7c8cf01eadecb7d32"
+  },
+  "commands": [
+    {
+      "argv": [
+        "/usr/bin/arm-none-eabi-objdump",
+        "-d",
+        "-w",
+        "--start-address=0x08110cc4",
+        "--stop-address=0x08111004",
+        "state/analysis/P7_static_tls_raw/observed/app.ino_debug.elf"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout_bytes": 16785,
+      "stdout_sha256": "75adfc3da36268220df9fd3951b40724bbd851353bacd7e6358605749f4e2640",
+      "stdout": "\nstate/analysis/P7_static_tls_raw/observed/app.ino_debug.elf:     file format elf32-littlearm\n\n\nDisassembly of section .text:\n\n08110cc4 <_ZNK6motors8UnoQPort10timerValidEj>:\n 8110cc4:\t2902      \tcmp\tr1, #2\n 8110cc6:\te92d 4ff7 \tstmdb\tsp!, {r0, r1, r2, r4, r5, r6, r7, r8, r9, sl, fp, lr}\n 8110cca:\t4681      \tmov\tr9, r0\n 8110ccc:\t460c      \tmov\tr4, r1\n 8110cce:\td904      \tbls.n\t8110cda <_ZNK6motors8UnoQPort10timerValidEj+0x16>\n 8110cd0:\t2600      \tmovs\tr6, #0\n 8110cd2:\t4630      \tmov\tr0, r6\n 8110cd4:\tb003      \tadd\tsp, #12\n 8110cd6:\te8bd 8ff0 \tldmia.w\tsp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}\n 8110cda:\t7d47      \tldrb\tr7, [r0, #21]\n 8110cdc:\t40cf      \tlsrs\tr7, r1\n 8110cde:\tf017 0701 \tands.w\tr7, r7, #1\n 8110ce2:\td0f5      \tbeq.n\t8110cd0 <_ZNK6motors8UnoQPort10timerValidEj+0xc>\n 8110ce4:\t4608      \tmov\tr0, r1\n 8110ce6:\t4b4b      \tldr\tr3, [pc, #300]\t@ (8110e14 <_ZNK6motors8UnoQPort10timerValidEj+0x150>)\n 8110ce8:\t4798      \tblx\tr3\n 8110cea:\t4605      \tmov\tr5, r0\n 8110cec:\t2800      \tcmp\tr0, #0\n 8110cee:\td0ef      \tbeq.n\t8110cd0 <_ZNK6motors8UnoQPort10timerValidEj+0xc>\n 8110cf0:\t6843      \tldr\tr3, [r0, #4]\n 8110cf2:\t2b00      \tcmp\tr3, #0\n 8110cf4:\td0ec      \tbeq.n\t8110cd0 <_ZNK6motors8UnoQPort10timerValidEj+0xc>\n 8110cf6:\t4b48      \tldr\tr3, [pc, #288]\t@ (8110e18 <_ZNK6motors8UnoQPort10timerValidEj+0x154>)\n 8110cf8:\t4798      \tblx\tr3\n 8110cfa:\t4606      \tmov\tr6, r0\n 8110cfc:\t2800      \tcmp\tr0, #0\n 8110cfe:\td0e7      \tbeq.n\t8110cd0 <_ZNK6motors8UnoQPort10timerValidEj+0xc>\n 8110d00:\t2200      \tmovs\tr2, #0\n 8110d02:\t2300      \tmovs\tr3, #0\n 8110d04:\t2c00      \tcmp\tr4, #0\n 8110d06:\tbf14      \tite\tne\n 8110d08:\t2103      \tmovne\tr1, #3\n 8110d0a:\t2104      \tmoveq\tr1, #4\n 8110d0c:\te9cd 2300 \tstrd\tr2, r3, [sp]\n 8110d10:\t68ab      \tldr\tr3, [r5, #8]\n 8110d12:\t4628      \tmov\tr0, r5\n 8110d14:\t466a      \tmov\tr2, sp\n 8110d16:\t685b      \tldr\tr3, [r3, #4]\n 8110d18:\t4798      \tblx\tr3\n 8110d1a:\t4605      \tmov\tr5, r0\n 8110d1c:\t2800      \tcmp\tr0, #0\n 8110d1e:\td1d7      \tbne.n\t8110cd0 <_ZNK6motors8UnoQPort10timerValidEj+0xc>\n 8110d20:\te9dd a800 \tldrd\tsl, r8, [sp]\n 8110d24:\tea5a 0308 \torrs.w\tr3, sl, r8\n 8110d28:\td0d2      \tbeq.n\t8110cd0 <_ZNK6motors8UnoQPort10timerValidEj+0xc>\n 8110d2a:\t4620      \tmov\tr0, r4\n 8110d2c:\t4b3b      \tldr\tr3, [pc, #236]\t@ (8110e1c <_ZNK6motors8UnoQPort10timerValidEj+0x158>)\n 8110d2e:\t4798      \tblx\tr3\n 8110d30:\t4588      \tcmp\tr8, r1\n 8110d32:\tbf08      \tit\teq\n 8110d34:\t4582      \tcmpeq\tsl, r0\n 8110d36:\td1cb      \tbne.n\t8110cd0 <_ZNK6motors8UnoQPort10timerValidEj+0xc>\n 8110d38:\t4b39      \tldr\tr3, [pc, #228]\t@ (8110e20 <_ZNK6motors8UnoQPort10timerValidEj+0x15c>)\n 8110d3a:\t4620      \tmov\tr0, r4\n 8110d3c:\t4798      \tblx\tr3\n 8110d3e:\t4b39      \tldr\tr3, [pc, #228]\t@ (8110e24 <_ZNK6motors8UnoQPort10timerValidEj+0x160>)\n 8110d40:\t4680      \tmov\tr8, r0\n 8110d42:\t4620      \tmov\tr0, r4\n 8110d44:\t4798      \tblx\tr3\n 8110d46:\t462a      \tmov\tr2, r5\n 8110d48:\t4603      \tmov\tr3, r0\n 8110d4a:\t4628      \tmov\tr0, r5\n 8110d4c:\tf8df a0dc \tldr.w\tsl, [pc, #220]\t@ 8110e2c <_ZNK6motors8UnoQPort10timerValidEj+0x168>\n 8110d50:\tf8df b0dc \tldr.w\tfp, [pc, #220]\t@ 8110e30 <_ZNK6motors8UnoQPort10timerValidEj+0x16c>\n 8110d54:\tf109 0c18 \tadd.w\tip, r9, #24\n 8110d58:\tf85a 1b04 \tldr.w\tr1, [sl], #4\n 8110d5c:\t42a1      \tcmp\tr1, r4\n 8110d5e:\td119      \tbne.n\t8110d94 <_ZNK6motors8UnoQPort10timerValidEj+0xd0>\n 8110d60:\tf899 1016 \tldrb.w\tr1, [r9, #22]\n 8110d64:\t40d1      \tlsrs\tr1, r2\n 8110d66:\t07c9      \tlsls\tr1, r1, #31\n 8110d68:\td514      \tbpl.n\t8110d94 <_ZNK6motors8UnoQPort10timerValidEj+0xd0>\n 8110d6a:\tf85b 1022 \tldr.w\tr1, [fp, r2, lsl #2]\n 8110d6e:\tf8dc e000 \tldr.w\tlr, [ip]\n 8110d72:\t2903      \tcmp\tr1, #3\n 8110d74:\tbf09      \titett\teq\n 8110d76:\t6bd9      \tldreq\tr1, [r3, #60]\t@ 0x3c\n 8110d78:\t6c19      \tldrne\tr1, [r3, #64]\t@ 0x40\n 8110d7a:\tf045 0568 \torreq.w\tr5, r5, #104\t@ 0x68\n 8110d7e:\tf440 7080 \torreq.w\tr0, r0, #256\t@ 0x100\n 8110d82:\tbf1c      \titt\tne\n 8110d84:\tf445 45d0 \torrne.w\tr5, r5, #26624\t@ 0x6800\n 8110d88:\tf440 5080 \torrne.w\tr0, r0, #4096\t@ 0x1000\n 8110d8c:\t4571      \tcmp\tr1, lr\n 8110d8e:\td19f      \tbne.n\t8110cd0 <_ZNK6motors8UnoQPort10timerValidEj+0xc>\n 8110d90:\t45f0      \tcmp\tr8, lr\n 8110d92:\td39d      \tbcc.n\t8110cd0 <_ZNK6motors8UnoQPort10timerValidEj+0xc>\n 8110d94:\t3201      \tadds\tr2, #1\n 8110d96:\t2a04      \tcmp\tr2, #4\n 8110d98:\tf10c 0c04 \tadd.w\tip, ip, #4\n 8110d9c:\td1dc      \tbne.n\t8110d58 <_ZNK6motors8UnoQPort10timerValidEj+0x94>\n 8110d9e:\tf1b8 0f00 \tcmp.w\tr8, #0\n 8110da2:\td095      \tbeq.n\t8110cd0 <_ZNK6motors8UnoQPort10timerValidEj+0xc>\n 8110da4:\t4a20      \tldr\tr2, [pc, #128]\t@ (8110e28 <_ZNK6motors8UnoQPort10timerValidEj+0x164>)\n 8110da6:\t6a99      \tldr\tr1, [r3, #40]\t@ 0x28\n 8110da8:\tf852 2024 \tldr.w\tr2, [r2, r4, lsl #2]\n 8110dac:\t4291      \tcmp\tr1, r2\n 8110dae:\td18f      \tbne.n\t8110cd0 <_ZNK6motors8UnoQPort10timerValidEj+0xc>\n 8110db0:\t6ada      \tldr\tr2, [r3, #44]\t@ 0x2c\n 8110db2:\tb358      \tcbz\tr0, 8110e0c <_ZNK6motors8UnoQPort10timerValidEj+0x148>\n 8110db4:\tf108 38ff \tadd.w\tr8, r8, #4294967295\t@ 0xffffffff\n 8110db8:\t4542      \tcmp\tr2, r8\n 8110dba:\td189      \tbne.n\t8110cd0 <_ZNK6motors8UnoQPort10timerValidEj+0xc>\n 8110dbc:\t2781      \tmovs\tr7, #129\t@ 0x81\n 8110dbe:\t681a      \tldr\tr2, [r3, #0]\n 8110dc0:\t42ba      \tcmp\tr2, r7\n 8110dc2:\td185      \tbne.n\t8110cd0 <_ZNK6motors8UnoQPort10timerValidEj+0xc>\n 8110dc4:\t685a      \tldr\tr2, [r3, #4]\n 8110dc6:\t2a00      \tcmp\tr2, #0\n 8110dc8:\td182      \tbne.n\t8110cd0 <_ZNK6motors8UnoQPort10timerValidEj+0xc>\n 8110dca:\t689a      \tldr\tr2, [r3, #8]\n 8110dcc:\t2a00      \tcmp\tr2, #0\n 8110dce:\tf47f af7f \tbne.w\t8110cd0 <_ZNK6motors8UnoQPort10timerValidEj+0xc>\n 8110dd2:\t68da      \tldr\tr2, [r3, #12]\n 8110dd4:\t2a00      \tcmp\tr2, #0\n 8110dd6:\tf47f af7b \tbne.w\t8110cd0 <_ZNK6motors8UnoQPort10timerValidEj+0xc>\n 8110dda:\t699a      \tldr\tr2, [r3, #24]\n 8110ddc:\t2a00      \tcmp\tr2, #0\n 8110dde:\tf47f af77 \tbne.w\t8110cd0 <_ZNK6motors8UnoQPort10timerValidEj+0xc>\n 8110de2:\t69da      \tldr\tr2, [r3, #28]\n 8110de4:\t4295      \tcmp\tr5, r2\n 8110de6:\tf47f af73 \tbne.w\t8110cd0 <_ZNK6motors8UnoQPort10timerValidEj+0xc>\n 8110dea:\t6a1a      \tldr\tr2, [r3, #32]\n 8110dec:\t4290      \tcmp\tr0, r2\n 8110dee:\tf47f af6f \tbne.w\t8110cd0 <_ZNK6motors8UnoQPort10timerValidEj+0xc>\n 8110df2:\t2c00      \tcmp\tr4, #0\n 8110df4:\tf47f af6d \tbne.w\t8110cd2 <_ZNK6motors8UnoQPort10timerValidEj+0xe>\n 8110df8:\t6b1a      \tldr\tr2, [r3, #48]\t@ 0x30\n 8110dfa:\t2a00      \tcmp\tr2, #0\n 8110dfc:\tf47f af68 \tbne.w\t8110cd0 <_ZNK6motors8UnoQPort10timerValidEj+0xc>\n 8110e00:\t6c5e      \tldr\tr6, [r3, #68]\t@ 0x44\n 8110e02:\tf5a6 4300 \tsub.w\tr3, r6, #32768\t@ 0x8000\n 8110e06:\t425e      \tnegs\tr6, r3\n 8110e08:\t415e      \tadcs\tr6, r3\n 8110e0a:\te762      \tb.n\t8110cd2 <_ZNK6motors8UnoQPort10timerValidEj+0xe>\n 8110e0c:\t2a00      \tcmp\tr2, #0\n 8110e0e:\tf47f af5f \tbne.w\t8110cd0 <_ZNK6motors8UnoQPort10timerValidEj+0xc>\n 8110e12:\te7d4      \tb.n\t8110dbe <_ZNK6motors8UnoQPort10timerValidEj+0xfa>\n 8110e14:\t08110709 \t.word\t0x08110709\n 8110e18:\t08019e6f \t.word\t0x08019e6f\n 8110e1c:\t08110759 \t.word\t0x08110759\n 8110e20:\t081107c1 \t.word\t0x081107c1\n 8110e24:\t08110731 \t.word\t0x08110731\n 8110e28:\t08115fa4 \t.word\t0x08115fa4\n 8110e2c:\t08115fc0 \t.word\t0x08115fc0\n 8110e30:\t08115fb0 \t.word\t0x08115fb0\n\n08110e34 <_ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE>:\n 8110e34:\te92d 4ff7 \tstmdb\tsp!, {r0, r1, r2, r4, r5, r6, r7, r8, r9, sl, fp, lr}\n 8110e38:\t460e      \tmov\tr6, r1\n 8110e3a:\t4604      \tmov\tr4, r0\n 8110e3c:\t2800      \tcmp\tr0, #0\n 8110e3e:\td05e      \tbeq.n\t8110efe <_ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE+0xca>\n 8110e40:\t2903      \tcmp\tr1, #3\n 8110e42:\td85c      \tbhi.n\t8110efe <_ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE+0xca>\n 8110e44:\t7cc5      \tldrb\tr5, [r0, #19]\n 8110e46:\t40cd      \tlsrs\tr5, r1\n 8110e48:\tf015 0501 \tands.w\tr5, r5, #1\n 8110e4c:\td157      \tbne.n\t8110efe <_ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE+0xca>\n 8110e4e:\tf8df a0cc \tldr.w\tsl, [pc, #204]\t@ 8110f1c <_ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE+0xe8>\n 8110e52:\t47d0      \tblx\tsl\n 8110e54:\t2800      \tcmp\tr0, #0\n 8110e56:\td052      \tbeq.n\t8110efe <_ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE+0xca>\n 8110e58:\t4630      \tmov\tr0, r6\n 8110e5a:\t4b2a      \tldr\tr3, [pc, #168]\t@ (8110f04 <_ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE+0xd0>)\n 8110e5c:\ta901      \tadd\tr1, sp, #4\n 8110e5e:\t9501      \tstr\tr5, [sp, #4]\n 8110e60:\t4798      \tblx\tr3\n 8110e62:\t2800      \tcmp\tr0, #0\n 8110e64:\td04b      \tbeq.n\t8110efe <_ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE+0xca>\n 8110e66:\tf8dd b004 \tldr.w\tfp, [sp, #4]\n 8110e6a:\tf854 3026 \tldr.w\tr3, [r4, r6, lsl #2]\n 8110e6e:\t455b      \tcmp\tr3, fp\n 8110e70:\td145      \tbne.n\t8110efe <_ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE+0xca>\n 8110e72:\t2701      \tmovs\tr7, #1\n 8110e74:\t4b24      \tldr\tr3, [pc, #144]\t@ (8110f08 <_ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE+0xd4>)\n 8110e76:\tf853 8026 \tldr.w\tr8, [r3, r6, lsl #2]\n 8110e7a:\t7d63      \tldrb\tr3, [r4, #21]\n 8110e7c:\tfa07 f708 \tlsl.w\tr7, r7, r8\n 8110e80:\tfa5f f987 \tuxtb.w\tr9, r7\n 8110e84:\t401f      \tands\tr7, r3\n 8110e86:\td026      \tbeq.n\t8110ed6 <_ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE+0xa2>\n 8110e88:\t4b20      \tldr\tr3, [pc, #128]\t@ (8110f0c <_ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE+0xd8>)\n 8110e8a:\t4641      \tmov\tr1, r8\n 8110e8c:\t4620      \tmov\tr0, r4\n 8110e8e:\t4798      \tblx\tr3\n 8110e90:\tf080 0301 \teor.w\tr3, r0, #1\n 8110e94:\tb2db      \tuxtb\tr3, r3\n 8110e96:\t2b00      \tcmp\tr3, #0\n 8110e98:\td131      \tbne.n\t8110efe <_ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE+0xca>\n 8110e9a:\t4a1d      \tldr\tr2, [pc, #116]\t@ (8110f10 <_ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE+0xdc>)\n 8110e9c:\tea4f 110b \tmov.w\tr1, fp, lsl #4\n 8110ea0:\t5850      \tldr\tr0, [r2, r1]\n 8110ea2:\t459b      \tcmp\tfp, r3\n 8110ea4:\td11f      \tbne.n\t8110ee6 <_ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE+0xb2>\n 8110ea6:\t4629      \tmov\tr1, r5\n 8110ea8:\t4b1a      \tldr\tr3, [pc, #104]\t@ (8110f14 <_ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE+0xe0>)\n 8110eaa:\t4798      \tblx\tr3\n 8110eac:\tbb38      \tcbnz\tr0, 8110efe <_ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE+0xca>\n 8110eae:\t7d63      \tldrb\tr3, [r4, #21]\n 8110eb0:\t4620      \tmov\tr0, r4\n 8110eb2:\tea49 0303 \torr.w\tr3, r9, r3\n 8110eb6:\t7563      \tstrb\tr3, [r4, #21]\n 8110eb8:\t47d0      \tblx\tsl\n 8110eba:\tb1d8      \tcbz\tr0, 8110ef4 <_ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE+0xc0>\n 8110ebc:\t4641      \tmov\tr1, r8\n 8110ebe:\t4620      \tmov\tr0, r4\n 8110ec0:\t4b12      \tldr\tr3, [pc, #72]\t@ (8110f0c <_ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE+0xd8>)\n 8110ec2:\t4798      \tblx\tr3\n 8110ec4:\tb1b0      \tcbz\tr0, 8110ef4 <_ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE+0xc0>\n 8110ec6:\t2201      \tmovs\tr2, #1\n 8110ec8:\t7ce3      \tldrb\tr3, [r4, #19]\n 8110eca:\t40b2      \tlsls\tr2, r6\n 8110ecc:\t4313      \torrs\tr3, r2\n 8110ece:\t74e3      \tstrb\tr3, [r4, #19]\n 8110ed0:\tb003      \tadd\tsp, #12\n 8110ed2:\te8bd 8ff0 \tldmia.w\tsp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}\n 8110ed6:\t4a0e      \tldr\tr2, [pc, #56]\t@ (8110f10 <_ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE+0xdc>)\n 8110ed8:\tea4f 130b \tmov.w\tr3, fp, lsl #4\n 8110edc:\t58d0      \tldr\tr0, [r2, r3]\n 8110ede:\t4b0e      \tldr\tr3, [pc, #56]\t@ (8110f18 <_ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE+0xe4>)\n 8110ee0:\t4798      \tblx\tr3\n 8110ee2:\t4603      \tmov\tr3, r0\n 8110ee4:\te7d7      \tb.n\t8110e96 <_ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE+0x62>\n 8110ee6:\t0119      \tlsls\tr1, r3, #4\n 8110ee8:\t5851      \tldr\tr1, [r2, r1]\n 8110eea:\t3301      \tadds\tr3, #1\n 8110eec:\t4288      \tcmp\tr0, r1\n 8110eee:\tbf08      \tit\teq\n 8110ef0:\t3501      \taddeq\tr5, #1\n 8110ef2:\te7d6      \tb.n\t8110ea2 <_ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE+0x6e>\n 8110ef4:\tb91f      \tcbnz\tr7, 8110efe <_ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE+0xca>\n 8110ef6:\t7d63      \tldrb\tr3, [r4, #21]\n 8110ef8:\tea23 0309 \tbic.w\tr3, r3, r9\n 8110efc:\t7563      \tstrb\tr3, [r4, #21]\n 8110efe:\t2000      \tmovs\tr0, #0\n 8110f00:\te7e6      \tb.n\t8110ed0 <_ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE+0x9c>\n 8110f02:\tbf00      \tnop\n 8110f04:\t081108b9 \t.word\t0x081108b9\n 8110f08:\t08115fc0 \t.word\t0x08115fc0\n 8110f0c:\t08110cc5 \t.word\t0x08110cc5\n 8110f10:\t08116050 \t.word\t0x08116050\n 8110f14:\t08115855 \t.word\t0x08115855\n 8110f18:\t08019e6f \t.word\t0x08019e6f\n 8110f1c:\t08110c91 \t.word\t0x08110c91\n\n08110f20 <_ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj>:\n 8110f20:\te92d 4ff0 \tstmdb\tsp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}\n 8110f24:\t4689      \tmov\tr9, r1\n 8110f26:\t4693      \tmov\tfp, r2\n 8110f28:\t461e      \tmov\tr6, r3\n 8110f2a:\t4604      \tmov\tr4, r0\n 8110f2c:\tb087      \tsub\tsp, #28\n 8110f2e:\tb918      \tcbnz\tr0, 8110f38 <_ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj+0x18>\n 8110f30:\t2000      \tmovs\tr0, #0\n 8110f32:\tb007      \tadd\tsp, #28\n 8110f34:\te8bd 8ff0 \tldmia.w\tsp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}\n 8110f38:\t2300      \tmovs\tr3, #0\n 8110f3a:\t2903      \tcmp\tr1, #3\n 8110f3c:\t7483      \tstrb\tr3, [r0, #18]\n 8110f3e:\td8f7      \tbhi.n\t8110f30 <_ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj+0x10>\n 8110f40:\t2501      \tmovs\tr5, #1\n 8110f42:\t7d03      \tldrb\tr3, [r0, #20]\n 8110f44:\t408d      \tlsls\tr5, r1\n 8110f46:\tb2ed      \tuxtb\tr5, r5\n 8110f48:\tea23 0305 \tbic.w\tr3, r3, r5\n 8110f4c:\t7503      \tstrb\tr3, [r0, #20]\n 8110f4e:\t7cc3      \tldrb\tr3, [r0, #19]\n 8110f50:\t421d      \ttst\tr5, r3\n 8110f52:\td0ed      \tbeq.n\t8110f30 <_ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj+0x10>\n 8110f54:\tf8df a0a4 \tldr.w\tsl, [pc, #164]\t@ 8110ffc <_ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj+0xdc>\n 8110f58:\t47d0      \tblx\tsl\n 8110f5a:\t2800      \tcmp\tr0, #0\n 8110f5c:\td0e8      \tbeq.n\t8110f30 <_ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj+0x10>\n 8110f5e:\t4b23      \tldr\tr3, [pc, #140]\t@ (8110fec <_ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj+0xcc>)\n 8110f60:\tf853 8029 \tldr.w\tr8, [r3, r9, lsl #2]\n 8110f64:\t4b22      \tldr\tr3, [pc, #136]\t@ (8110ff0 <_ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj+0xd0>)\n 8110f66:\t4640      \tmov\tr0, r8\n 8110f68:\t4798      \tblx\tr3\n 8110f6a:\t4558      \tcmp\tr0, fp\n 8110f6c:\t4607      \tmov\tr7, r0\n 8110f6e:\td1df      \tbne.n\t8110f30 <_ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj+0x10>\n 8110f70:\t2e00      \tcmp\tr6, #0\n 8110f72:\td1dd      \tbne.n\t8110f30 <_ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj+0x10>\n 8110f74:\t4648      \tmov\tr0, r9\n 8110f76:\t4b1f      \tldr\tr3, [pc, #124]\t@ (8110ff4 <_ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj+0xd4>)\n 8110f78:\ta905      \tadd\tr1, sp, #20\n 8110f7a:\t9605      \tstr\tr6, [sp, #20]\n 8110f7c:\t4798      \tblx\tr3\n 8110f7e:\t2800      \tcmp\tr0, #0\n 8110f80:\td0d6      \tbeq.n\t8110f30 <_ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj+0x10>\n 8110f82:\teb04 0389 \tadd.w\tr3, r4, r9, lsl #2\n 8110f86:\tf854 b029 \tldr.w\tfp, [r4, r9, lsl #2]\n 8110f8a:\t9303      \tstr\tr3, [sp, #12]\n 8110f8c:\t9b05      \tldr\tr3, [sp, #20]\n 8110f8e:\t459b      \tcmp\tfp, r3\n 8110f90:\td1ce      \tbne.n\t8110f30 <_ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj+0x10>\n 8110f92:\t4641      \tmov\tr1, r8\n 8110f94:\t4620      \tmov\tr0, r4\n 8110f96:\tf8df 9068 \tldr.w\tr9, [pc, #104]\t@ 8111000 <_ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj+0xe0>\n 8110f9a:\t47c8      \tblx\tr9\n 8110f9c:\t2800      \tcmp\tr0, #0\n 8110f9e:\td0c7      \tbeq.n\t8110f30 <_ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj+0x10>\n 8110fa0:\t4b15      \tldr\tr3, [pc, #84]\t@ (8110ff8 <_ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj+0xd8>)\n 8110fa2:\tea4f 120b \tmov.w\tr2, fp, lsl #4\n 8110fa6:\teb03 1b0b \tadd.w\tfp, r3, fp, lsl #4\n 8110faa:\t5898      \tldr\tr0, [r3, r2]\n 8110fac:\tf8db 1004 \tldr.w\tr1, [fp, #4]\n 8110fb0:\tf8bb 200c \tldrh.w\tr2, [fp, #12]\n 8110fb4:\t6883      \tldr\tr3, [r0, #8]\n 8110fb6:\t9200      \tstr\tr2, [sp, #0]\n 8110fb8:\tf8d3 b000 \tldr.w\tfp, [r3]\n 8110fbc:\t463a      \tmov\tr2, r7\n 8110fbe:\t4633      \tmov\tr3, r6\n 8110fc0:\t47d8      \tblx\tfp\n 8110fc2:\t2800      \tcmp\tr0, #0\n 8110fc4:\td1b4      \tbne.n\t8110f30 <_ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj+0x10>\n 8110fc6:\t2300      \tmovs\tr3, #0\n 8110fc8:\t9a03      \tldr\tr2, [sp, #12]\n 8110fca:\t4620      \tmov\tr0, r4\n 8110fcc:\t6193      \tstr\tr3, [r2, #24]\n 8110fce:\t7da3      \tldrb\tr3, [r4, #22]\n 8110fd0:\t432b      \torrs\tr3, r5\n 8110fd2:\t75a3      \tstrb\tr3, [r4, #22]\n 8110fd4:\t47d0      \tblx\tsl\n 8110fd6:\t2800      \tcmp\tr0, #0\n 8110fd8:\td0aa      \tbeq.n\t8110f30 <_ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj+0x10>\n 8110fda:\t4641      \tmov\tr1, r8\n 8110fdc:\t4620      \tmov\tr0, r4\n 8110fde:\t47c8      \tblx\tr9\n 8110fe0:\t2800      \tcmp\tr0, #0\n 8110fe2:\td0a5      \tbeq.n\t8110f30 <_ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj+0x10>\n 8110fe4:\t7d23      \tldrb\tr3, [r4, #20]\n 8110fe6:\t431d      \torrs\tr5, r3\n 8110fe8:\t7525      \tstrb\tr5, [r4, #20]\n 8110fea:\te7a2      \tb.n\t8110f32 <_ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj+0x12>\n 8110fec:\t08115fc0 \t.word\t0x08115fc0\n 8110ff0:\t081107c1 \t.word\t0x081107c1\n 8110ff4:\t081108b9 \t.word\t0x081108b9\n 8110ff8:\t08116050 \t.word\t0x08116050\n 8110ffc:\t08110c91 \t.word\t0x08110c91\n 8111000:\t08110cc5 \t.word\t0x08110cc5\n"
+    }
+  ],
+  "inputs_after": {
+    "state/analysis/P7_static_tls_raw/observed/app.ino_debug.elf": "0f7f2825329466e06f15144f07a5188435ac309aa1a3aff71a1a9f1be87a27bd",
+    "state/analysis/P7_default_qualification_raw/working_source_manifest.json": "c106c0fb8baaf0a6f2536558da0084bd7d236c4ee8e77a4110b60107ad073391",
+    "state/analysis/P0_pwm_installed_raw_20260923.txt": "e50cedcc257c7bc00315c207ddd6b010b250375ad24cbb6a92347532cf725f1e",
+    "state/analysis/P2_motor_native_raw/clock.json": "cba7a393e4abd0a9083dd9ebb774a20ef629f2242184818329568f915d82d6ca",
+    "state/analysis/P7_static_link_probe_raw/native_bindings_audit.json": "c3233593034e9446b4333f8e02bacf1fcec8b89de3d48fefd6b1406f09565804",
+    "src/hal/motor_port_unoq.cpp": "04803c88dc51e62dee4c1be15f4c1c8392df01d84893155bc10644cf7afd694a",
+    "src/hal/motors.cpp": "2e6f560fca84c1ed77356299e6442afaff8dff05fcf34d51cd59c9454553198b"
+  },
+  "source_match_after": true,
+  "tool_after": {
+    "/usr/bin/arm-none-eabi-objdump": "d8e94d502fd80248334d739b3e4705369897381a69b12dc7c8cf01eadecb7d32"
+  },
+  "retained_loader": {
+    "sha256": "39d4a4fd47241663323f6e04f94dd8f5a9f9ad6582cf1df37f9709b74026adcd",
+    "path_in_original_receipts": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf",
+    "provenance": "Retained file-only packaged ELF receipts, not newly read/live memory",
+    "original_P0_command": [
+      "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-gdb",
+      "-nx",
+      "-nh",
+      "-batch",
+      "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf",
+      "-ex",
+      "p pwm_stm32_driver_api",
+      "-ex",
+      "p __llext_sym_z_impl_pwm_get_cycles_per_sec",
+      "-ex",
+      "p __llext_sym_z_impl_pwm_set_cycles",
+      "-ex",
+      "p __llext_sym_z_impl_device_init",
+      "-ex",
+      "p __llext_sym_z_impl_device_is_ready",
+      "-ex",
+      "p pwm_stm32_config_0",
+      "-ex",
+      "p pwm_stm32_config_1",
+      "-ex",
+      "p pwm_stm32_config_2",
+      "-ex",
+      "p pwm_stm32_config_3",
+      "-ex",
+      "p pwm_stm32_config_4",
+      "-ex",
+      "p pwm_stm32_config_5",
+      "-ex",
+      "p __device_dts_ord_120",
+      "-ex",
+      "p __llext_sym___device_dts_ord_120",
+      "-ex",
+      "p __pinctrl_dev_config__device_dts_ord_120",
+      "-ex",
+      "p *(__pinctrl_dev_config__device_dts_ord_120.states)@2",
+      "-ex",
+      "p __device_dts_ord_105",
+      "-ex",
+      "p __llext_sym___device_dts_ord_105",
+      "-ex",
+      "p __pinctrl_dev_config__device_dts_ord_105",
+      "-ex",
+      "p *(__pinctrl_dev_config__device_dts_ord_105.states)@2",
+      "-ex",
+      "p __device_dts_ord_109",
+      "-ex",
+      "p __llext_sym___device_dts_ord_109",
+      "-ex",
+      "p __pinctrl_dev_config__device_dts_ord_109",
+      "-ex",
+      "p *(__pinctrl_dev_config__device_dts_ord_109.states)@2",
+      "-ex",
+      "disassemble /r pwm_stm32_get_cycles_per_sec",
+      "-ex",
+      "disassemble /r pwm_stm32_set_cycles",
+      "-ex",
+      "disassemble /r pwm_stm32_init"
+    ],
+    "original_P0_command_exit": 0,
+    "original_P0_command_exit_evidence_line": 108,
+    "selected_P0_ranges": [
+      {
+        "line_start": 4,
+        "line_end": 4,
+        "text": "HASH /home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf 2303728 39d4a4fd47241663323f6e04f94dd8f5a9f9ad6582cf1df37f9709b74026adcd"
+      },
+      {
+        "line_start": 109,
+        "line_end": 141,
+        "text": "$1 = {set_cycles = 0x800de4d <pwm_stm32_set_cycles>, get_cycles_per_sec = 0x80196d7 <pwm_stm32_get_cycles_per_sec>}\n$2 = {{name = 0x8021674 \"z_impl_pwm_get_cycles_per_sec\", slid = 134354548}, addr = 0x0}\n$3 = {{name = 0x802165e \"z_impl_pwm_set_cycles\", slid = 134354526}, addr = 0x0}\n$4 = {{name = 0x8022477 \"z_impl_device_init\", slid = 134358135}, addr = 0x8019e5d <z_impl_device_init>}\n$5 = {{name = 0x8022460 \"z_impl_device_is_ready\", slid = 134358112}, addr = 0x8019e6f <z_impl_device_is_ready>}\n$6 = {timer = 0x40012c00, prescaler = 63, countermode = 0, deadtime = 0, mastermode = 0, pclken = 0x801e6e8 <pclken_0>, pclk_len = 2, pcfg = 0x801e6f8 <__pinctrl_dev_config__device_dts_ord_120>}\n$7 = {timer = 0x40000000, prescaler = 4, countermode = 0, deadtime = 0, mastermode = 0, pclken = 0x801e680 <pclken_1>, pclk_len = 2, pcfg = 0x801e690 <__pinctrl_dev_config__device_dts_ord_100>}\n$8 = {timer = 0x40000400, prescaler = 4, countermode = 0, deadtime = 0, mastermode = 0, pclken = 0x801e618 <pclken_2>, pclk_len = 2, pcfg = 0x801e628 <__pinctrl_dev_config__device_dts_ord_105>}\n$9 = {timer = 0x40000800, prescaler = 4, countermode = 0, deadtime = 0, mastermode = 0, pclken = 0x801e5b8 <pclken_3>, pclk_len = 2, pcfg = 0x801e5c8 <__pinctrl_dev_config__device_dts_ord_109>}\n$10 = {timer = 0x40000c00, prescaler = 4, countermode = 0, deadtime = 0, mastermode = 0, pclken = 0x801e550 <pclken_4>, pclk_len = 2, pcfg = 0x801e560 <__pinctrl_dev_config__device_dts_ord_114>}\n$11 = {timer = 0x40013400, prescaler = 63, countermode = 0, deadtime = 0, mastermode = 0, pclken = 0x801e4f8 <pclken_5>, pclk_len = 2, pcfg = 0x801e508 <__pinctrl_dev_config__device_dts_ord_123>}\n$12 = {name = 0x802409b \"pwm\", config = 0x801e6c8 <pwm_stm32_config_0>, api = 0x801c720 <pwm_stm32_driver_api>, state = 0x20001100 <__devstate_dts_ord_120>, data = 0x200002cc <pwm_stm32_data_0>, ops = {init = 0x800e1c5 <pwm_stm32_init>, deinit = 0x0}, flags = 1 '\\001', deps = 0x801c46c <__devicedeps_dts_ord_120>}\n$13 = {{name = 0x80240f3 \"__device_dts_ord_120\", slid = 134365427}, addr = 0x801c3c4 <__device_dts_ord_120>}\n$14 = {states = 0x801e700 <__pinctrl_states__device_dts_ord_120>, state_cnt = 3 '\\003'}\n$15 = {{pins = 0x801e738 <set_timer_compare>, pin_cnt = 0 '\\000', id = 0 '\\000'}, {pins = 0x801e738 <set_timer_compare>, pin_cnt = 0 '\\000', id = 1 '\\001'}}\n$16 = {name = 0x802409b \"pwm\", config = 0x801e5f8 <pwm_stm32_config_2>, api = 0x801c720 <pwm_stm32_driver_api>, state = 0x200010fc <__devstate_dts_ord_105>, data = 0x200002b4 <pwm_stm32_data_2>, ops = {init = 0x800e1c5 <pwm_stm32_init>, deinit = 0x0}, flags = 1 '\\001', deps = 0x801c480 <__devicedeps_dts_ord_105>}\n$17 = {{name = 0x80240c9 \"__device_dts_ord_105\", slid = 134365385}, addr = 0x801c37c <__device_dts_ord_105>}\n$18 = {states = 0x801e630 <__pinctrl_states__device_dts_ord_105>, state_cnt = 3 '\\003'}\n$19 = {{pins = 0x801e660 <pwm_stm32_config_1>, pin_cnt = 0 '\\000', id = 0 '\\000'}, {pins = 0x801e660 <pwm_stm32_config_1>, pin_cnt = 0 '\\000', id = 1 '\\001'}}\n$20 = {name = 0x802409b \"pwm\", config = 0x801e598 <pwm_stm32_config_3>, api = 0x801c720 <pwm_stm32_driver_api>, state = 0x200010fa <__devstate_dts_ord_109>, data = 0x200002a8 <pwm_stm32_data_3>, ops = {init = 0x800e1c5 <pwm_stm32_init>, deinit = 0x0}, flags = 1 '\\001', deps = 0x801c48a <__devicedeps_dts_ord_109>}\n$21 = {{name = 0x80240b4 \"__device_dts_ord_109\", slid = 134365364}, addr = 0x801c358 <__device_dts_ord_109>}\n$22 = {states = 0x801e5d0 <__pinctrl_states__device_dts_ord_109>, state_cnt = 3 '\\003'}\n$23 = {{pins = 0x801e5f8 <pwm_stm32_config_2>, pin_cnt = 0 '\\000', id = 0 '\\000'}, {pins = 0x801e5f8 <pwm_stm32_config_2>, pin_cnt = 0 '\\000', id = 1 '\\001'}}\nDump of assembler code for function pwm_stm32_get_cycles_per_sec:\n   0x080196d6 <+0>:\t6841    \tldr\tr1, [r0, #4]\n   0x080196d8 <+2>:\t6903    \tldr\tr3, [r0, #16]\n   0x080196da <+4>:\t6849    \tldr\tr1, [r1, #4]\n   0x080196dc <+6>:\t681b    \tldr\tr3, [r3, #0]\n   0x080196de <+8>:\t3101    \tadds\tr1, #1\n   0x080196e0 <+10>:\tfbb3 f3f1\tudiv\tr3, r3, r1\n   0x080196e4 <+14>:\t2000    \tmovs\tr0, #0\n   0x080196e6 <+16>:\te9c2 3000\tstrd\tr3, r0, [r2]\n   0x080196ea <+20>:\t4770    \tbx\tlr"
+      },
+      {
+        "line_start": 143,
+        "line_end": 165,
+        "text": "Dump of assembler code for function pwm_stm32_set_cycles:\n   0x0800de4c <+0>:\te92d 41ff\tstmdb\tsp!, {r0, r1, r2, r3, r4, r5, r6, r7, r8, lr}\n   0x0800de50 <+4>:\t4604    \tmov\tr4, r0\n   0x0800de52 <+6>:\t4608    \tmov\tr0, r1\n   0x0800de54 <+8>:\tf8d4 c004\tldr.w\tr12, [r4, #4]\n   0x0800de58 <+12>:\t4619    \tmov\tr1, r3\n   0x0800de5a <+14>:\t1e43    \tsubs\tr3, r0, #1\n   0x0800de5c <+16>:\t2b05    \tcmp\tr3, #5\n   0x0800de5e <+18>:\tf8bd 7028\tldrh.w\tr7, [sp, #40]\t@ 0x28\n   0x0800de62 <+22>:\tf8dc 5000\tldr.w\tr5, [r12]\n   0x0800de66 <+26>:\td90f    \tbls.n\t0x800de88 <pwm_stm32_set_cycles+60>\n   0x0800de68 <+28>:\t4ba7    \tldr\tr3, [pc, #668]\t@ (0x800e108 <pwm_stm32_set_cycles+700>)\n   0x0800de6a <+30>:\t9003    \tstr\tr0, [sp, #12]\n   0x0800de6c <+32>:\t9302    \tstr\tr3, [sp, #8]\n   0x0800de6e <+34>:\t2300    \tmovs\tr3, #0\n   0x0800de70 <+36>:\te9cd 3300\tstrd\tr3, r3, [sp]\n   0x0800de74 <+40>:\t4618    \tmov\tr0, r3\n   0x0800de76 <+42>:\t2201    \tmovs\tr2, #1\n   0x0800de78 <+44>:\t49a4    \tldr\tr1, [pc, #656]\t@ (0x800e10c <pwm_stm32_set_cycles+704>)\n   0x0800de7a <+46>:\tf00b fc37\tbl\t0x80196ec <z_log_msg_runtime_create>\n   0x0800de7e <+50>:\tf06f 0015\tmvn.w\tr0, #21\n   0x0800de82 <+54>:\tb004    \tadd\tsp, #16\n   0x0800de84 <+56>:\te8bd 81f0\tldmia.w\tsp!, {r4, r5, r6, r7, r8, pc}"
+      },
+      {
+        "line_start": 491,
+        "line_end": 504,
+        "text": "Dump of assembler code for function pwm_stm32_init:\n   0x0800e1c4 <+0>:\te92d 47f0\tstmdb\tsp!, {r4, r5, r6, r7, r8, r9, r10, lr}\n   0x0800e1c8 <+4>:\t4f95    \tldr\tr7, [pc, #596]\t@ (0x800e420 <pwm_stm32_init+604>)\n   0x0800e1ca <+6>:\t6846    \tldr\tr6, [r0, #4]\n   0x0800e1cc <+8>:\tf8d7 a008\tldr.w\tr10, [r7, #8]\n   0x0800e1d0 <+12>:\t4680    \tmov\tr8, r0\n   0x0800e1d2 <+14>:\tf8da 3000\tldr.w\tr3, [r10]\n   0x0800e1d6 <+18>:\tf8d0 9010\tldr.w\tr9, [r0, #16]\n   0x0800e1da <+22>:\t6834    \tldr\tr4, [r6, #0]\n   0x0800e1dc <+24>:\t6971    \tldr\tr1, [r6, #20]\n   0x0800e1de <+26>:\tb088    \tsub\tsp, #32\n   0x0800e1e0 <+28>:\tb193    \tcbz\tr3, 0x800e208 <pwm_stm32_init+68>\n   0x0800e1e2 <+30>:\t4638    \tmov\tr0, r7\n   0x0800e1e4 <+32>:\t4798    \tblx\tr3"
+      },
+      {
+        "line_start": 521,
+        "line_end": 544,
+        "text": "   0x0800e20e <+74>:\t69b3    \tldr\tr3, [r6, #24]\n   0x0800e210 <+76>:\t2b01    \tcmp\tr3, #1\n   0x0800e212 <+78>:\td929    \tbls.n\t0x800e268 <pwm_stm32_init+164>\n   0x0800e214 <+80>:\t6971    \tldr\tr1, [r6, #20]\n   0x0800e216 <+82>:\tf8da 3018\tldr.w\tr3, [r10, #24]\n   0x0800e21a <+86>:\t3108    \tadds\tr1, #8\n   0x0800e21c <+88>:\tb13b    \tcbz\tr3, 0x800e22e <pwm_stm32_init+106>\n   0x0800e21e <+90>:\t2200    \tmovs\tr2, #0\n   0x0800e220 <+92>:\t4638    \tmov\tr0, r7\n   0x0800e222 <+94>:\t4798    \tblx\tr3\n   0x0800e224 <+96>:\t4605    \tmov\tr5, r0\n   0x0800e226 <+98>:\tb128    \tcbz\tr0, 0x800e234 <pwm_stm32_init+112>\n   0x0800e228 <+100>:\t4b80    \tldr\tr3, [pc, #512]\t@ (0x800e42c <pwm_stm32_init+616>)\n   0x0800e22a <+102>:\t9503    \tstr\tr5, [sp, #12]\n   0x0800e22c <+104>:\te7df    \tb.n\t0x800e1ee <pwm_stm32_init+42>\n   0x0800e22e <+106>:\tf06f 0557\tmvn.w\tr5, #87\t@ 0x57\n   0x0800e232 <+110>:\te7f9    \tb.n\t0x800e228 <pwm_stm32_init+100>\n   0x0800e234 <+112>:\t6971    \tldr\tr1, [r6, #20]\n   0x0800e236 <+114>:\tf8da 300c\tldr.w\tr3, [r10, #12]\n   0x0800e23a <+118>:\t3108    \tadds\tr1, #8\n   0x0800e23c <+120>:\tb18b    \tcbz\tr3, 0x800e262 <pwm_stm32_init+158>\n   0x0800e23e <+122>:\t4638    \tmov\tr0, r7\n   0x0800e240 <+124>:\taa06    \tadd\tr2, sp, #24\n   0x0800e242 <+126>:\t4798    \tblx\tr3"
+      },
+      {
+        "line_start": 570,
+        "line_end": 596,
+        "text": "   0x0800e282 <+190>:\t9b06    \tldr\tr3, [sp, #24]\n   0x0800e284 <+192>:\te9d9 0101\tldrd\tr0, r1, [r9, #4]\n   0x0800e288 <+196>:\tf8c9 3000\tstr.w\tr3, [r9]\n   0x0800e28c <+200>:\t6883    \tldr\tr3, [r0, #8]\n   0x0800e28e <+202>:\t68db    \tldr\tr3, [r3, #12]\n   0x0800e290 <+204>:\tb103    \tcbz\tr3, 0x800e294 <pwm_stm32_init+208>\n   0x0800e292 <+206>:\t4798    \tblx\tr3\n   0x0800e294 <+208>:\t2100    \tmovs\tr1, #0\n   0x0800e296 <+210>:\t69f0    \tldr\tr0, [r6, #28]\n   0x0800e298 <+212>:\taa07    \tadd\tr2, sp, #28\n   0x0800e29a <+214>:\tf00b f9ba\tbl\t0x8019612 <pinctrl_lookup_state>\n   0x0800e29e <+218>:\t1e07    \tsubs\tr7, r0, #0\n   0x0800e2a0 <+220>:\tdb07    \tblt.n\t0x800e2b2 <pwm_stm32_init+238>\n   0x0800e2a2 <+222>:\t9b07    \tldr\tr3, [sp, #28]\n   0x0800e2a4 <+224>:\t2200    \tmovs\tr2, #0\n   0x0800e2a6 <+226>:\t7919    \tldrb\tr1, [r3, #4]\n   0x0800e2a8 <+228>:\t6818    \tldr\tr0, [r3, #0]\n   0x0800e2aa <+230>:\tf00b f9c4\tbl\t0x8019636 <pinctrl_configure_pins>\n   0x0800e2ae <+234>:\t1e07    \tsubs\tr7, r0, #0\n   0x0800e2b0 <+236>:\tda02    \tbge.n\t0x800e2b8 <pwm_stm32_init+244>\n   0x0800e2b2 <+238>:\t4b61    \tldr\tr3, [pc, #388]\t@ (0x800e438 <pwm_stm32_init+628>)\n   0x0800e2b4 <+240>:\t9703    \tstr\tr7, [sp, #12]\n   0x0800e2b6 <+242>:\te7c9    \tb.n\t0x800e24c <pwm_stm32_init+136>\n   0x0800e2b8 <+244>:\t6873    \tldr\tr3, [r6, #4]\n   0x0800e2ba <+246>:\t62a3    \tstr\tr3, [r4, #40]\t@ 0x28\n   0x0800e2bc <+248>:\t2300    \tmovs\tr3, #0\n   0x0800e2be <+250>:\t62e3    \tstr\tr3, [r4, #44]\t@ 0x2c"
+      },
+      {
+        "line_start": 847,
+        "line_end": 854,
+        "text": "252: static int pwm_stm32_set_cycles(const struct device *dev, uint32_t channel,\n253: \t\t\t\tuint32_t period_cycles, uint32_t pulse_cycles,\n254: \t\t\t\tpwm_flags_t flags)\n255: {\n256: \tconst struct pwm_stm32_config *cfg = dev->config;\n257: \tTIM_TypeDef *timer = cfg->timer;\n258: \n259: \tuint32_t ll_channel;"
+      },
+      {
+        "line_start": 978,
+        "line_end": 991,
+        "text": "649: static int pwm_stm32_get_cycles_per_sec(const struct device *dev,\n650: \t\t\t\t\tuint32_t channel, uint64_t *cycles)\n651: {\n652: \tstruct pwm_stm32_data *data = dev->data;\n653: \tconst struct pwm_stm32_config *cfg = dev->config;\n654: \n655: \t*cycles = (uint64_t)(data->tim_clk / (cfg->prescaler + 1));\n656: \n657: \treturn 0;\n658: }\n659: \n660: static DEVICE_API(pwm, pwm_stm32_driver_api) = {\n661: \t.set_cycles = pwm_stm32_set_cycles,\n662: \t.get_cycles_per_sec = pwm_stm32_get_cycles_per_sec,"
+      },
+      {
+        "line_start": 999,
+        "line_end": 1010,
+        "text": "670: static int pwm_stm32_init(const struct device *dev)\n671: {\n672: \tstruct pwm_stm32_data *data = dev->data;\n673: \tconst struct pwm_stm32_config *cfg = dev->config;\n674: \tTIM_TypeDef *timer = cfg->timer;\n675: \tconst struct device *clk = DEVICE_DT_GET(STM32_CLOCK_CONTROL_NODE);\n676: \tuint32_t tim_clk;\n677: \tint r;\n678: \n679: \t/* Enable clock and store its speed */\n680: \tr = clock_control_on(clk, (clock_control_subsys_t)&cfg->pclken[0]);\n681: \tif (r < 0) {"
+      },
+      {
+        "line_start": 1023,
+        "line_end": 1042,
+        "text": "694: \t\tr = clock_control_get_rate(clk, (clock_control_subsys_t)&cfg->pclken[1], &tim_clk);\n695: \t\tif (r < 0) {\n696: \t\t\tLOG_ERR(\"Timer clock rate get error (%d)\", r);\n697: \t\t\treturn r;\n698: \t\t}\n699: \t} else {\n700: \t\tLOG_ERR(\"Timer clock source is not specified\");\n701: \t\treturn -EINVAL;\n702: \t}\n703: \n704: \tdata->tim_clk = tim_clk;\n705: \n706: \t/* Reset timer to default state using RCC */\n707: \t(void)reset_line_toggle_dt(&data->reset);\n708: \n709: \t/* configure pinmux */\n710: \tr = pinctrl_apply_state(cfg->pcfg, PINCTRL_STATE_DEFAULT);\n711: \tif (r < 0) {\n712: \t\tLOG_ERR(\"PWM pinctrl setup failed (%d)\", r);\n713: \t\treturn r;"
+      },
+      {
+        "line_start": 1120,
+        "line_end": 1132,
+        "text": "123: int init_dev_apply_channel_pinctrl(const struct device *dev, size_t state_pin_idx) {\n124: \n125: \tif (dev == nullptr) {\n126: \t\treturn -EINVAL;\n127: \t}\n128: \n129: \tif (!device_is_ready(dev)) {\n130: \t\t// init device for first usage, if not ready\n131: \t\tint err = device_init(dev);\n132: \t\tif (err < 0) {\n133: \t\t\treturn err;\n134: \t\t}\n135: \t}"
+      },
+      {
+        "line_start": 1240,
+        "line_end": 1251,
+        "text": "COMMAND [\"/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-gdb\", \"-nx\", \"-nh\", \"-batch\", \"/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf\", \"-ex\", \"p pwm_stm32_data_0\", \"-ex\", \"p pwm_stm32_data_2\", \"-ex\", \"p pwm_stm32_data_3\", \"-ex\", \"p __pinctrl_dev_config__device_dts_ord_120.states[2]\", \"-ex\", \"p __pinctrl_dev_config__device_dts_ord_105.states[2]\", \"-ex\", \"p __pinctrl_dev_config__device_dts_ord_109.states[2]\", \"-ex\", \"p *(__pinctrl_dev_config__device_dts_ord_105.states[2].pins)@3\", \"-ex\", \"p __llext_sym_pinctrl_configure_pins\", \"-ex\", \"p __llext_sym_z_impl_device_init\", \"-ex\", \"p __llext_sym_z_impl_device_is_ready\"]\nCOMMAND_EXIT 0\n$1 = {tim_clk = 0, reset = {dev = 0x801bf20 <__device_dts_ord_69>, id = 3979}}\n$2 = {tim_clk = 0, reset = {dev = 0x801bf20 <__device_dts_ord_69>, id = 3713}}\n$3 = {tim_clk = 0, reset = {dev = 0x801bf20 <__device_dts_ord_69>, id = 3714}}\n$4 = {pins = 0x801e718 <__pinctrl_state_pins_2__device_dts_ord_120>, pin_cnt = 4 '\\004', id = 2 '\\002'}\n$5 = {pins = 0x801e648 <__pinctrl_state_pins_2__device_dts_ord_105>, pin_cnt = 3 '\\003', id = 2 '\\002'}\n$6 = {pins = 0x801e5e8 <__pinctrl_state_pins_2__device_dts_ord_109>, pin_cnt = 2 '\\002', id = 2 '\\002'}\n$7 = {{pinmux = 514, pincfg = 0}, {pinmux = 546, pincfg = 0}, {pinmux = 642, pincfg = 0}}\n$8 = {{name = 0x801f86f \"pinctrl_configure_pins\", slid = 134346863}, addr = 0x8019637 <pinctrl_configure_pins>}\n$9 = {{name = 0x8022477 \"z_impl_device_init\", slid = 134358135}, addr = 0x8019e5d <z_impl_device_init>}\n$10 = {{name = 0x8022460 \"z_impl_device_is_ready\", slid = 134358112}, addr = 0x8019e6f <z_impl_device_is_ready>}"
+      },
+      {
+        "line_start": 1257,
+        "line_end": 1295,
+        "text": "INSTALLED_HEADER_EXCERPTS remote exit=0\nFILE /home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/zephyr/drivers/pwm.h SHA256 e029bddf7a2bf912cf7b375967cf7c7f74c2307297bf9aa4a3dc85260ff18da5\n615: static inline int z_impl_pwm_set_cycles(const struct device *dev,\n616: \t\t\t\t\tuint32_t channel, uint32_t period,\n617: \t\t\t\t\tuint32_t pulse, pwm_flags_t flags)\n618: {\n619: \tconst struct pwm_driver_api *api =\n620: \t\t(const struct pwm_driver_api *)dev->api;\n621: \n622: \tif (pulse > period) {\n623: \t\treturn -EINVAL;\n624: \t}\n625: \n626: \treturn api->set_cycles(dev, channel, period, pulse, flags);\n627: }\n628: \n629: /**\n630:  * @brief Get the clock rate (cycles per second) for a single PWM output.\n631:  *\n632:  * @param[in] dev PWM device instance.\n633:  * @param channel PWM channel.\n634:  * @param[out] cycles Pointer to the memory to store clock rate (cycles per\n635:  *                    sec). HW specific.\n636:  *\n637:  * @retval 0 If successful.\n638:  * @retval -errno Negative errno code on failure.\n639:  */\n640: __syscall int pwm_get_cycles_per_sec(const struct device *dev, uint32_t channel,\n641: \t\t\t\t     uint64_t *cycles);\n642: \n643: static inline int z_impl_pwm_get_cycles_per_sec(const struct device *dev,\n644: \t\t\t\t\t\tuint32_t channel,\n645: \t\t\t\t\t\tuint64_t *cycles)\n646: {\n647: \tconst struct pwm_driver_api *api =\n648: \t\t(const struct pwm_driver_api *)dev->api;\n649: \n650: \treturn api->get_cycles_per_sec(dev, channel, cycles);\n651: }"
+      }
+    ]
+  },
+  "retained_clock_config": {
+    "original_explicit_config_pointer_command": {
+      "command": [
+        "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-gdb",
+        "-nx",
+        "-nh",
+        "-batch",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf",
+        "-ex",
+        "p *pwm_stm32_config_0.pclken@2",
+        "-ex",
+        "p *pwm_stm32_config_2.pclken@2",
+        "-ex",
+        "p *pwm_stm32_config_3.pclken@2",
+        "-ex",
+        "p stm32_clock_control_api",
+        "-ex",
+        "p __device_dts_ord_9",
+        "-ex",
+        "p __llext_sym___device_dts_ord_9"
+      ],
+      "exit_code": 0,
+      "stdout": "$1 = {{bus = 164, div = 0, enr = 2048}, {bus = 14, div = 0, enr = 255}}\n$2 = {{bus = 156, div = 0, enr = 2}, {bus = 13, div = 0, enr = 255}}\n$3 = {{bus = 156, div = 0, enr = 4}, {bus = 13, div = 0, enr = 255}}\n$4 = {on = 0x80189a3 <stm32_clock_control_on>, off = 0x80189e7 <stm32_clock_control_off>, async_on = 0x0, get_rate = 0x800b9ed <stm32_clock_control_get_subsys_rate>, get_status = 0x8018a59 <stm32_clock_control_get_status>, set_rate = 0x0, configure = 0x8018a13 <stm32_clock_control_configure>}\n$5 = {name = 0x8023774 \"rcc@46020c00\", config = 0x0, api = 0x801c76c <stm32_clock_control_api>, state = 0x200010e2 <__devstate_dts_ord_9>, data = 0x0, ops = {init = 0x800badd <stm32_clock_control_init>, deinit = 0x0}, flags = 0 '\\000', deps = 0x801c5a6 <__devicedeps_dts_ord_9>}\n$6 = {{name = 0x8023761 \"__device_dts_ord_9\", slid = 134362977}, addr = 0x801befc <__device_dts_ord_9>}\n",
+      "stderr": ""
+    },
+    "original_config_layout_command": {
+      "command": [
+        "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-gdb",
+        "-nx",
+        "-nh",
+        "-batch",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf",
+        "-ex",
+        "x/16uw 0x0801ea3c",
+        "-ex",
+        "ptype /o struct pwm_stm32_config",
+        "-ex",
+        "p/x *(unsigned int *)0x0801e6c8",
+        "-ex",
+        "p/x *(unsigned int *)0x0801e5f8",
+        "-ex",
+        "p/x *(unsigned int *)0x0801e598"
+      ],
+      "exit_code": 0,
+      "stdout": "0x801ea3c <MSIRangeTable>:\t48000000\t24000000\t16000000\t12000000\n0x801ea4c <MSIRangeTable+16>:\t4000000\t2000000\t1330000\t1000000\n0x801ea5c <MSIRangeTable+32>:\t3072000\t1536000\t1024000\t768000\n0x801ea6c <MSIRangeTable+48>:\t400000\t200000\t133000\t100000\n/* offset      |    size */  type = struct pwm_stm32_config {\n/*      0      |       4 */    TIM_TypeDef *timer;\n/*      4      |       4 */    uint32_t prescaler;\n/*      8      |       4 */    uint32_t countermode;\n/*     12      |       4 */    uint32_t deadtime;\n/*     16      |       4 */    uint32_t mastermode;\n/*     20      |       4 */    const struct stm32_pclken *pclken;\n/*     24      |       4 */    size_t pclk_len;\n/*     28      |       4 */    const struct pinctrl_dev_config *pcfg;\n\n                               /* total size (bytes):   32 */\n                             }\n$1 = 0x40012c00\n$2 = 0x40000400\n$3 = 0x40000800\n",
+      "stderr": ""
+    },
+    "selection_reason": "Use explicit config.pclken pointer dereferences, not the earlier bare pclken_N symbol observations, which differ in this receipt."
+  },
+  "reused_current_pinctrl_body": {
+    "start": "08115854",
+    "disassembly": "8115854:\tb537      \tpush\t{r0, r1, r2, r4, r5, lr}\n 8115856:\t460d      \tmov\tr5, r1\n 8115858:\t4604      \tmov\tr4, r0\n 811585a:\tb350      \tcbz\tr0, 81158b2 <_ZN6zephyr7arduino30init_dev_apply_channel_pinctrlEPK6devicej+0x5e>\n 811585c:\t4b18      \tldr\tr3, [pc, #96]\t@ (81158c0 <_ZN6zephyr7arduino30init_dev_apply_channel_pinctrlEPK6devicej+0x6c>)\n 811585e:\t4798      \tblx\tr3\n 8115860:\tb1d8      \tcbz\tr0, 811589a <_ZN6zephyr7arduino30init_dev_apply_channel_pinctrlEPK6devicej+0x46>\n 8115862:\t2300      \tmovs\tr3, #0\n 8115864:\t4a17      \tldr\tr2, [pc, #92]\t@ (81158c4 <_ZN6zephyr7arduino30init_dev_apply_channel_pinctrlEPK6devicej+0x70>)\n 8115866:\tf852 0033 \tldr.w\tr0, [r2, r3, lsl #3]\n 811586a:\teb02 01c3 \tadd.w\tr1, r2, r3, lsl #3\n 811586e:\t4284      \tcmp\tr4, r0\n 8115870:\td11a      \tbne.n\t81158a8 <_ZN6zephyr7arduino30init_dev_apply_channel_pinctrlEPK6devicej+0x54>\n 8115872:\t6848      \tldr\tr0, [r1, #4]\n 8115874:\tb1b0      \tcbz\tr0, 81158a4 <_ZN6zephyr7arduino30init_dev_apply_channel_pinctrlEPK6devicej+0x50>\n 8115876:\t2102      \tmovs\tr1, #2\n 8115878:\t4b13      \tldr\tr3, [pc, #76]\t@ (81158c8 <_ZN6zephyr7arduino30init_dev_apply_channel_pinctrlEPK6devicej+0x74>)\n 811587a:\taa01      \tadd\tr2, sp, #4\n 811587c:\t4798      \tblx\tr3\n 811587e:\t2800      \tcmp\tr0, #0\n 8115880:\tdb10      \tblt.n\t81158a4 <_ZN6zephyr7arduino30init_dev_apply_channel_pinctrlEPK6devicej+0x50>\n 8115882:\t9b01      \tldr\tr3, [sp, #4]\n 8115884:\t791a      \tldrb\tr2, [r3, #4]\n 8115886:\t42aa      \tcmp\tr2, r5\n 8115888:\td916      \tbls.n\t81158b8 <_ZN6zephyr7arduino30init_dev_apply_channel_pinctrlEPK6devicej+0x64>\n 811588a:\t6818      \tldr\tr0, [r3, #0]\n 811588c:\t2200      \tmovs\tr2, #0\n 811588e:\t2101      \tmovs\tr1, #1\n 8115890:\t4b0e      \tldr\tr3, [pc, #56]\t@ (81158cc <_ZN6zephyr7arduino30init_dev_apply_channel_pinctrlEPK6devicej+0x78>)\n 8115892:\teb00 00c5 \tadd.w\tr0, r0, r5, lsl #3\n 8115896:\t4798      \tblx\tr3\n 8115898:\te004      \tb.n\t81158a4 <_ZN6zephyr7arduino30init_dev_apply_channel_pinctrlEPK6devicej+0x50>\n 811589a:\t4b0d      \tldr\tr3, [pc, #52]\t@ (81158d0 <_ZN6zephyr7arduino30init_dev_apply_channel_pinctrlEPK6devicej+0x7c>)\n 811589c:\t4620      \tmov\tr0, r4\n 811589e:\t4798      \tblx\tr3\n 81158a0:\t2800      \tcmp\tr0, #0\n 81158a2:\tdade      \tbge.n\t8115862 <_ZN6zephyr7arduino30init_dev_apply_channel_pinctrlEPK6devicej+0xe>\n 81158a4:\tb003      \tadd\tsp, #12\n 81158a6:\tbd30      \tpop\t{r4, r5, pc}\n 81158a8:\t3301      \tadds\tr3, #1\n 81158aa:\t2b11      \tcmp\tr3, #17\n 81158ac:\td1db      \tbne.n\t8115866 <_ZN6zephyr7arduino30init_dev_apply_channel_pinctrlEPK6devicej+0x12>\n 81158ae:\t2000      \tmovs\tr0, #0\n 81158b0:\te7f8      \tb.n\t81158a4 <_ZN6zephyr7arduino30init_dev_apply_channel_pinctrlEPK6devicej+0x50>\n 81158b2:\tf06f 0015 \tmvn.w\tr0, #21\n 81158b6:\te7f5      \tb.n\t81158a4 <_ZN6zephyr7arduino30init_dev_apply_channel_pinctrlEPK6devicej+0x50>\n 81158b8:\tf06f 0021 \tmvn.w\tr0, #33\t@ 0x21\n 81158bc:\te7f2      \tb.n\t81158a4 <_ZN6zephyr7arduino30init_dev_apply_channel_pinctrlEPK6devicej+0x50>\n 81158be:\tbf00      \tnop\n 81158c0:\t08019e6f \t.word\t0x08019e6f\n 81158c4:\t08116758 \t.word\t0x08116758\n 81158c8:\t08019613 \t.word\t0x08019613\n 81158cc:\t08019637 \t.word\t0x08019637\n 81158d0:\t08019e5d \t.word\t0x08019e5d"
+  },
+  "devices": [
+    {
+      "ordinal": 120,
+      "name": "pwm1",
+      "address": "0x0801c3c4",
+      "api": "0x0801c720",
+      "init": "0x0800e1c5",
+      "flags": 1
+    },
+    {
+      "ordinal": 105,
+      "name": "pwm3",
+      "address": "0x0801c37c",
+      "api": "0x0801c720",
+      "init": "0x0800e1c5",
+      "flags": 1
+    },
+    {
+      "ordinal": 109,
+      "name": "pwm4",
+      "address": "0x0801c358",
+      "api": "0x0801c720",
+      "init": "0x0800e1c5",
+      "flags": 1
+    }
+  ],
+  "current_call_sites": [
+    {
+      "name": "get_cycles_per_sec",
+      "branch": "0x08110d18",
+      "device_api_offset": 8,
+      "api_slot_offset": 4,
+      "retained_named_target": "0x080196d7",
+      "arguments": "r0=device, r1=4 for timer0 else3, r2=8-byte stack output; int status checked",
+      "evidence_instructions": [
+        "0x08110d10",
+        "0x08110d16",
+        "0x08110d18"
+      ],
+      "qualification": "Current instruction offsets known; formal packaged pwm_driver_api offsets pending"
+    },
+    {
+      "name": "set_cycles",
+      "branch": "0x08110fc0",
+      "device_api_offset": 8,
+      "api_slot_offset": 0,
+      "retained_named_target": "0x0800de4d",
+      "arguments": "r0=device, r1=spec channel, r2=period, r3=pulse; halfword flags at spec+12 copied to stack argument; int status checked",
+      "evidence_instructions": [
+        "0x08110faa",
+        "0x08110fac",
+        "0x08110fb0",
+        "0x08110fb4",
+        "0x08110fb6",
+        "0x08110fb8",
+        "0x08110fbc",
+        "0x08110fbe",
+        "0x08110fc0"
+      ],
+      "M0_guard": "0x08110f70 compares saved pulse r6 with0;0x08110f72 rejects nonzero before driver dispatch",
+      "qualification": "Current instruction offsets known; formal packaged pwm_driver_api offsets pending"
+    },
+    {
+      "name": "deferred_device_init",
+      "branch": "0x0811589e",
+      "retained_native_entry": "0x08019e5d",
+      "arguments": "r0=device; reached on !device_is_ready; negative status returned before pinctrl",
+      "retained_device_ops_init": "0x0800e1c5",
+      "qualification": "App entry binding known; packaged z_impl_device_init -> ops.init byte offset and actual call not retained here"
+    }
+  ],
+  "transitive_dependency": {
+    "name": "PWM initialization reset",
+    "source": "P0 raw1035-1036: reset_line_toggle_dt(&data->reset)",
+    "instructions": "0x0800e284 loads reset dev/id from pwm_data+4/+8;0x0800e28c reads resetdev+8;0x0800e28e API+12;0x0800e292 BLX if nonnull",
+    "reset_device": "__device_dts_ord_69 at0x0801bf20",
+    "reset_ids_by_pwm1_pwm3_pwm4": [
+      3979,
+      3713,
+      3714
+    ],
+    "qualification": "Only inside packaged PWM init, not a direct current app API boundary. Native-internal reset target/type is not required for this interimage ABI slice; no exhaustive native OS audit claimed."
+  },
+  "missing_queries": {
+    "both_app_and_packaged_loader": [
+      "ptype /o struct device",
+      "ptype /o struct device_ops",
+      "ptype /o struct pwm_driver_api",
+      "ptype pwm_flags_t"
+    ],
+    "packaged_loader": [
+      "whatis pwm_stm32_set_cycles",
+      "whatis pwm_stm32_get_cycles_per_sec",
+      "whatis pwm_stm32_init",
+      "whatis z_impl_device_init",
+      "disassemble /r z_impl_device_init",
+      "p/x pwm_stm32_driver_api",
+      "p/x __device_dts_ord_120",
+      "p/x __device_dts_ord_105",
+      "p/x __device_dts_ord_109",
+      "p/x __device_dts_ord_69"
+    ],
+    "adaptive_followup": "Inspect the actual named native init dispatcher if needed. Reset-device print may corroborate inherited native identity; reset API/type is native-internal and is not required for the application-to-loader ABI boundary. Coordinator owns one combined file-only batch; this task performs none."
+  },
+  "limits": [
+    "No proof all references/reachable native services have been enumerated.",
+    "No firmware runtime, native initialization success, clock calibration, waveform/electrical readback, reset ownership, pad ownership, motor-run permission or physical gate.",
+    "M0 forbids nonzero pulse in this code path but setup still calls peripheral initialization and zero-duty writes.",
+    "Native get_cycles_per_sec computes stored tim_clk/(prescaler+1); calling it does not independently measure the live clock.",
+    "Source/prototype excerpts and compatible instructions do not substitute for the missing cross-ELF formal ABI queries.",
+    "This receipt binds an app slice to existing packaged-file target names, not a complete native-runtime qualification."
+  ],
+  "final_input_hashes": {
+    "state/analysis/P7_static_tls_raw/observed/app.ino_debug.elf": "0f7f2825329466e06f15144f07a5188435ac309aa1a3aff71a1a9f1be87a27bd",
+    "state/analysis/P7_default_qualification_raw/working_source_manifest.json": "c106c0fb8baaf0a6f2536558da0084bd7d236c4ee8e77a4110b60107ad073391",
+    "state/analysis/P0_pwm_installed_raw_20260923.txt": "e50cedcc257c7bc00315c207ddd6b010b250375ad24cbb6a92347532cf725f1e",
+    "state/analysis/P2_motor_native_raw/clock.json": "cba7a393e4abd0a9083dd9ebb774a20ef629f2242184818329568f915d82d6ca",
+    "state/analysis/P7_static_link_probe_raw/native_bindings_audit.json": "c3233593034e9446b4333f8e02bacf1fcec8b89de3d48fefd6b1406f09565804",
+    "src/hal/motor_port_unoq.cpp": "04803c88dc51e62dee4c1be15f4c1c8392df01d84893155bc10644cf7afd694a",
+    "src/hal/motors.cpp": "2e6f560fca84c1ed77356299e6442afaff8dff05fcf34d51cd59c9454553198b"
+  },
+  "exploratory_symbol_listing": {
+    "argv": [
+      "wsl",
+      "-d",
+      "Ubuntu",
+      "--",
+      "arm-none-eabi-objdump",
+      "-t",
+      "state/analysis/P7_static_tls_raw/observed/app.ino_debug.elf"
+    ],
+    "shell_filter": "Select-String -Pattern liveRate|writePwm|timerValid|configurePwm|device_init",
+    "observed_exit_code": 0,
+    "selected_rows": [
+      "08019e5d g *ABS* 00000000 z_impl_device_init",
+      "08110f20 g F .text 000000e4 _ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj",
+      "08110e34 g F .text 000000ec _ZN6motors8UnoQPort12configurePwmEPvNS_7ChannelE",
+      "08110cc4 g F .text 00000170 _ZNK6motors8UnoQPort10timerValidEj"
+    ],
+    "qualification": "Exploratory listing before bounded command; no full listing saved."
+  }
+}

@@ -1,7 +1,9 @@
 # Proposed D141 static/M0 artifact probe contract
 
-**DRAFT FOR SEPARATE ADOPTION. No implementation, properties query or compiler
-is authorized by this document.** The question is whether one unchanged current
+**D141 policy-only host preparation is adopted; the full probe remains a draft.**
+Only the fixed public policy component below may be implemented and host-tested
+after its independent oracle freeze. Artifact/runner implementation, properties
+queries and native compilation remain unapproved. The question is whether one unchanged current
 app can produce a correctly placed, source-bound static artifact using the
 installed package's existing static mode. This cannot qualify loading, native
 I/O, live RAM, stack, timing, motor operation or a release gate. D139's dynamic
@@ -68,6 +70,40 @@ The package's static check recipe is literally `true`; its existence is not a
 fit check. A passing compiler result therefore remains separate from the artifact
 validation below. Source-to-tool revision mapping must be reviewed before freezing
 the references; embedded Go module names alone do not prove repository URLs.
+
+## Fixed public policy interfaces
+
+The first bounded component is
+`state/analysis/P7_static_link_probe_raw/static_policy.py`:
+
+```python
+validate_preflight(text, *, build_path, data_dir) -> dict[str, str]
+validate_compile_result(text, *, build_path, data_dir) -> dict[str, str]
+```
+
+Both return the exact validated `build_properties` mapping. Invalid input raises
+`ValueError`, including malformed JSON, non-string text and invalid argument
+types. They perform no transport, subprocess, network or write operation; their
+only data-file read is the colocated frozen `static_reference.json`. Reuse the
+existing pure parser/builder helpers, without changing or rebinding them.
+The validator must compare that file's bytes to the reviewed literal SHA-256
+before using it; a modified reference cannot redefine the accepted commands.
+
+The reference is a flat mapping of all 84 existing controlled keys to exact
+template strings. Only `@DATA_DIR@` and `@BUILD_PATH@` are substituted. Project,
+safety flags and startup are literals, not caller options. Both validators
+enforce the fixed profile, exact installed data/core/compiler paths, canonical
+absolute argument paths and complete controlled-key equality. Compile validation
+also rejects every nonempty or non-list `used_libraries`; the existing absent-key
+default is an empty list. A properties-only preflight is not library discovery.
+Fixed non-controlled metadata also includes `upload.extension=bin-zsk.bin`;
+validating this literal does not create an upload interface or permission.
+
+The independent author may prepare policy tests from this public interface and
+the reviewed reference before implementation. The full artifact/execution
+interfaces remain pending. Completing this component cannot authorize a board
+query/compiler or produce `STATIC_ARTIFACT_PROBE_PASS`; the rest of this contract
+and separate review still apply.
 
 ## Artifact validation required before a positive probe verdict
 

@@ -1,0 +1,23 @@
+{
+  "status": "FROZEN_FOR_AUTHORIZED_HOST_TEST",
+  "frozen_at": "2026-09-25T00:07:37.2548180+04:00",
+  "scope": "Independent pure static/M0 policy tests; no artifact, runner, compiler or board action",
+  "public_interfaces": [
+    "validate_preflight(text, *, build_path, data_dir) -> dict[str, str]",
+    "validate_compile_result(text, *, build_path, data_dir) -> dict[str, str]"
+  ],
+  "reference_schema": "Flat map of the same 84 controlled keys as production; only @DATA_DIR@ and @BUILD_PATH@ placeholders",
+  "implementation_read_by_test_author": false,
+  "implementation_exists_at_freeze": false,
+  "test_execution_performed": false,
+  "test_methods": 27,
+  "execution_owner": "Coordinator; independent test author is not authorized to execute",
+  "inputs_sha256": {
+    "state/analysis/P7_static_link_probe_test_draft/test_static_policy.py": "5c1b7a771c7982061e9a97db0c0dabd42f3a47a4ee8e5f6fff263a8845da36d1",
+    "state/analysis/P7_static_link_probe_raw/static_reference.json": "1dc8ac6dec8534536acfcc4da73516416ea465cfcc1a349900fd13e210144a2b",
+    "state/analysis/P7_static_link_probe_contract.md": "d9090cc49a657bdaf08d47def5b9f1fdc8b7da620e19335a0a10b338da32abae",
+    "state/analysis/P7_static_link_probe_raw/references_note.md": "667cb43ea6133028498518910d69f45ec56298c7f7c062dc9432238b2ac698fa",
+    "tools/app_build_policy.py": "d5a4ce59870574ac601c3d8837b472adf7eec81e86982794fa16a7b3b354a7c6",
+    "tools/app_build_commands.json": "63f6c41e34bae9fce1d945c3271b3fe86343f27544affe25ae14788438d62e1d"
+  }
+}

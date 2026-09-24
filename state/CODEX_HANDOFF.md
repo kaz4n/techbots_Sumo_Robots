@@ -1,15 +1,8 @@
 # Codex handoff - 2026-09-25 Asia/Dubai
 
-**D141 policy and D142 artifact components are HOST-TESTED and separately reviewed.**
-D142 passes45 independent methods and six private methods; two pre-execution
-comparison gaps are closed with original source/failures preserved. See
-analysis/P7_static_artifact_validation.md and reviews/P7_static_artifact_code_review.md.
-Production admission is unchanged; the default dynamic deficit is still592 bytes.
-D143 passes80 independent host methods. D144's single static compile returned0,
-but layout validation rejected unsupported symbol encoding. The experiment is
-terminal and its GO consumed; no upload/reset occurred. Read
-analysis/P7_static_native_attempt_validation.md before any next board action.
-
+**D148 existing native packet: structural/package PASS.** Five read-only board
+commands succeeded; no compile/upload/reset. See the current checkpoint below.
+Production admission, runtime acceptance and physical/human gates remain separate.
 
 **Active phase: P7 software/release preparation.** D138 informational READY and
 battery-threshold software is implemented, host-tested and target-compiled.
@@ -21,121 +14,41 @@ storage conservation. Software-first scheduling never creates measured acceptanc
 
 ## Current checkpoint and exact next task
 
-25 September follow-up: cache cleanup is complete in744f50c1:92 pip HTTP
-cache files and10 ignored CPython files removed,9,386,809 logical bytes total;
-independent absence/source-hash verification passes. Active npm/npx caches,
-evidence and previously denied targets remain. See STORAGE_LOG.md.
+D148 actual existing-packet validation PASSES under the new D147 interface:
+GOdbb5f1a4, hostfbde2926, remotec6099f6d, validatorcd52a29a; five read-only
+commands exit0, query/compile0, all source/installed/artifact postchecks pass.
+Read analysis/P7_static_native_actual_validation.md and its linked receipts/review.
+The exact current source remainsfcddbd8e;103 sources/102 staged files,17 local pins
+and26 installed pins remain bound. No firmware, old test or production change.
+FinalELF5cc2dfde, debug/temp0f7f2825, flat package5f08afe0 are original D144 bytes.
+Flash payload93080B; static RAM span167792B, region tail94352B. The tail is NOT
+measured live RAM/stack/heap or runtime qualification. No upload/reset occurred.
 
-D143 host adoption is committed in2da4979a; first implementation is preserved
-in cd5625e2. Read the frozen runner/helper contracts, implementation notes and
-scoped code reviews. The runner reuses the exact source stage and transport;
-the helper binds descriptor-based file operations and bounded process scans.
-No upload/reset/cleanup path exists. An uncertain compile outcome stops all
-remote commands and preserves the first failure.
+All native operations D144/D145/D146/D148 are terminal and consumed. D144's old
+unsupported-symbol rejection remains intact. D147's separately tested exact-six
+TLS metadata extension passes19new+51old host methods, with independent review.
+D141/D142/D143 contracts, original parsers/tests/consumers and production dynamic
+admission remain unchanged. D139's dynamic default profile still has592B modeled
+deficit; the native structural pass is a distinct experimental result.
 
-Current source hashes: runner983e86d7, helper8ba9b190. Pre-execution inspection
-repairs address living-PID missing records, partial claim evidence, malformed
-deep JSON and metadata-only file observations. The separate spec-derived
-oracles are frozen in P7_static_runner_test_draft/freeze_runner.json and
-P7_static_remote_test_draft/freeze_remote.json, with separate supplemental freezes.
-Final22runner+2receipt-fault,28helper+5admission and23bootstrap methods pass.
-Original21/22 and27/28 failures remain: independent review permitted a new-oracle
-metadata correction, and source-race diagnostics were refined while keeping the
-helper oracle unchanged. Read analysis/P7_static_runner_validation.md and its
-linked receipts/reviews. All687 prior inputs,17runner pins and legacy progress
-prefix remain exact. Linux/Windows fixtures are transient; no compiler tree added.
-D145 performed the separately reviewed read-only ELF collection authorized in
-0e41849f: one read exit0, zero query/compile, no postcheck errors. The170616B
-ELF5cc2dfde now lives in analysis/P7_static_link_probe_raw/diagnosis-v1. Independent
-struct/readelf inspection identifies six absolute GLOBAL/default TLS type6 symbols
-outside D142's explicit allowlist. Official Arduino generation is consistent with
-inherited firmware TLS aliases, but exact installed assembly/object provenance
-and actual use remain unproved. Read analysis/P7_static_elf_diagnosis_validation.md
-and analysis/P7_static_tls_sources.md. D144 remains rejected; D145 read is consumed.
-D146 completed that read in54f2f268/9ee2d559: checked assembly68bb1476 matches
-loader39d4a4fd; map15da1417 LOADs objectbf3b5c57, whose six constants match all
-ELF forms and allocate no storage. The map has no actual tdata/tbss inputs and
-discards the direct accessor wrapper. Read analysis/P7_static_tls_provenance_validation.md.
-D144 rejection remains, and no indirect/native TLS or runtime claim follows.
-D147 host-only extension is complete: adopted03383c2e, first sourcecd52a29a in
-2d39b8f9 unchanged, independent freeze3462c6f8/e1cd0763. All19new+51original
-methods pass; separate fresh-context code/receipt reviewdc7156b3 has no findings.
-Read analysis/P7_static_native_tls_validation.md and its exact focused receipts.
-The original private CLI usage error (missing --source-ref) is preserved; only
-that invocation was corrected. No source/oracle repair was needed.
-Exact next task: separately scope one read-only validation of D144's existing
-seven-artifact packet using the new pure interface, binding its sourcecd52a29a,
-old base/helper, installed TLS assembly/loader, old Claim/FileRecords and current
-source. No recompile or reused GO. The new report status is deliberately rejected
-by unchanged old consumers. Entry/constructors/native ABI/runtime audit remains
-separate even if structure later passes. No board process or fixture remains.
+Exact next task: finish local entry/constructor audit from retained debug ELF/map,
+then the missing native reference/ABI audit. The existing current_default_abi
+receipt contains16 type size/alignment and82 member-offset queries. A later
+file-only GDB observation may reuse those exact queries against D144 debug ELF
+with source/tool/artifact binding; do not execute the historical hardwired collector.
+Native startup, stack/heap/WCET, physical acceptance and human gates stay pending.
+Do not integrate a static upload path or run an MCU merely because structure passes.
 
-Storage follow-up127c9566 recovered3436544 allocatedB by lossless compression of22
-historical files; independent hash/size/mtime/allocation verification passes.
-Deletion of119 newly identified old caches (1945273B) was blocked by automatic
-approval review before execution; no retry. These targets now join earlier denied
-sets. C: was about100MiBfree there and later about650MiB after independent system
-activity; recheck before every material job and keep outputs
-compact. See STORAGE_LOG.md. Do not delete unique evidence or alter system paging.
+D148 retained seven compact input/command/result files125141B plus small launcher;
+no binaries/fixtures/build trees downloaded or created. Latest bounded storage
+inspection found no new safe disposable files; see STORAGE_LOG.md/f2fa3c28.
+All prior denied cleanup targets remain untouched; do not retry by another method.
+C: free about600MB at02:17Dubai; global fluctuations are not cleanup recovery.
+Use Python-B and small reports; keep one compiler maximum if later justified.
 
-D138 production remains first-source d19f8964 (interfaces36a96bd2). Normal20cases
-perM0/M1, configured29public+2private perM, normal/configured ASan+UBSan and full22
-host targets pass. Original new-draft failures and independently reviewed repairs
-are retained; no production repair or existing protected-test amendment occurred.
-Final687input freeze0fe188b7 and43protected sources are exact. Fullordinary inputs
-remain valid after a configured-only oracle correction: exact M0/M1 preprocessor
-comparison proves unchanged ordinary translation. Root checked82links/9fragments.
-
-Exact MATCH/Immediate compile passed on bareUNOQ with one compiler, no upload:
-sourcefcddbd8e, ELFcb5fbb53, receipt04b266d5. Conditional pristine-loader peak261280B
-leaves864Bspan/860Blargest payload;62imports resolve,16target layouts and72legacy
-offsets unchanged. This is not actual loading, live RAM/stack or WCET. Read
-analysis/P7_readiness_native_validation.md and its retained checked evidence.
-
-D139 now supplies the missing current default baseline: one checked default/M0
-compile passed, receipt52b4ba3a and ELF72a8bfcd. Ordered loader fit fails by592B;
-all61 imports resolve and16 types/79 old offsets match historical default.
-No source or test changed. The original negative validator exit1 is retained.
-See analysis/P7_default_qualification_validation.md and the separate review.
-
-D140 source qualification is complete: 66 compact installed/file-only records,
-six dependencies and three official tool sources are rehashed; all 687 D138
-frozen inputs remain exact. Separate scoped review found no source-packet defect.
-Read analysis/P7_static_link_research.md and its root receipt. The linked path
-uses a direct entry, fixed placement and packaged libc aliases; these are source
-findings, not artifact fit or runtime acceptance. Old failed candidates remain
-unadopted, and the current dynamic policy is unchanged.
-
-D141 adopted only the pure policy component in commit `8c093525`. Read
-analysis/P7_static_policy_validation.md and reviews/P7_static_policy_review.md.
-Final source ec3d8a5e passes the original 27 and eight new independent methods,
-plus the unchanged four-case private reproducer. Separate same-model review
-8fe8726a has no open findings. Exact 84-command reference and eight additive
-pins were independently checked; none of the 18 production pins was replaced.
-No firmware/config/established-test/production-policy change or board action.
-
-D142 source d30372dd is committed in9f79bf41, with the original50d06722 in
-a986ffdb and original39-method oracle in8d6eb7bb. First executed repaired source
-passes45 public methods; the unchanged six-method private probe reproduces18
-failed subcases in the initial source and passes on the fix. Separate reused
-same-model review305c87e2 has no open findings. All11 public frozen inputs exact;
-24functions/max31lines. Only synthetic structural/package acceptance is proved.
-The exact derived e_flags0x05000400 and named-layout rules are now D142 admission
-expectations, not observations of a static app. The module's maximum verdict is
-STATIC_LAYOUT_PACKAGE_PASS. Source/run freshness, entry/constructor/native
-binding/ABI audit and actual static fit remain unproved.
-
-The initial runner proposal/drafts remain as provenance. D143's frozen contracts
-supersede their pending interface details. Preserve all prior contracts/oracles
-and production policy. Full entry/native binding/constructor/ABI acceptance must
-follow a real static build; neither controlled commands nor structural success
-can establish it. Current work has no native compiler or background board task.
-
-D134 mode availability, D135 abort producer and D136 analyzer are closed for
-software (d6a8319e/70c964a7/0faf2e6d). Their validation packets retain actual scope,
-original failures and all evidence. D137 operator drafts2700da11 are updated for
-D138's liveR/threshold pixel and remain NOT OPERATOR-READY. P6 stays deferred.
-Do not re-run unchanged completed matrices or add generic frameworks.
+Historical detailed checkpoints and original failures remain in Git, PROGRESS
+and linked validation packets. PROGRESS is append-only with legacy nonUTF8 bytes;
+original140971B SHA2561dbbeb53c3dc046128494af3bef240b9a00353929d6121991900c90bb2838b77.
 
 ## Physical and operational boundaries
 

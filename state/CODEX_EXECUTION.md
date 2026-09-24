@@ -48,71 +48,37 @@ pending; D051/D075/D122/D137 permit scheduling, not fabricated measurements.
 
 ## Next original-scope task
 
-D143 host-only scope adopted in2da4979a; first runner/helper implementation
-preserved in cd5625e2. Frozen contracts and bootstrap are bound by literal hashes.
-Independent tests are frozen and pass:22runner+2receipt failures,23bootstrap,
-28Linux descriptor+5admission methods. Originalfirstfailures are retained.
-Current runner983e86d7/helper8ba9b190 include reviewed bounded repairs; no existing
-production/locked test changed. Read analysis/P7_static_runner_validation.md.
-All687 prior inputs and17 literal pins remain exact. D144 runf0220228 is terminal:
-1query/1compile, compileexit0, layout exit2, allpostcheckspass. See
-analysis/P7_static_native_attempt_validation.md. D145 read/diagnosis complete:
-analysis/P7_static_elf_diagnosis_validation.md records2242symbols/sixrejectedTLS
-entries. Official source mechanism is recorded in P7_static_tls_sources.md.
-D1469ee2d559 proves installedsource/object/map provenance; see its validation.
-D14703383c2e exactsixalias purehost extension is complete: firstsourcecd52a29a
-unchanged, freeze3462c6f8/e1cd0763;19new+51old PASS, reviewdc7156b3 nofindings.
-Read analysis/P7_static_native_tls_validation.md. Next separately scoped read-only
-actual seven-artifact validation with allsource/installed/filebindings. No rebuild
-or consumerintegration follows automatically; original rejection remains intact.
+- [x] D141 fixed policy:35public+4private host methods; scoped review PASS.
+- [x] D142 static artifact parser:45public+6private methods; scoped review PASS.
+- [x] D143 one-shot transport/helper:80 methods; scoped review PASS.
+- [x] D144 current static/default/M0 compile:exit0; original layout rejection retained.
+- [x] D145 exact rejected ELF read and D146 installed TLS provenance; both consumed.
+- [x] D147 exact-six-alias extension:19new+51old methods; independent review PASS.
+- [x] D148 actual seven-artifact validation:5 read-only commands exit0, all postchecks
+  pass, query/compile0. Sourcefcddbd8e/finalELF5cc2dfde unchanged. See
+  analysis/P7_static_native_actual_validation.md and linked review/raw receipts.
+- [ ] Finish local entry/constructor inspection of existing debugELF0f7f2825/map.
+- [ ] Audit actual used native bindings and exact16-type/82-offset target ABI.
+  Use current_default_abi query list only under a separately bound file-only read;
+  never execute the historical collector unchanged or reuse consumed commands.
+- [ ] Qualify native loading/startup, stack/heap/WCET and release workflow before
+  adoption. Structural RAM tail94352B is not measured free memory.
 
-Storage follow-up744f50c1 removed9,386,809 logical bytes of verified disposable
-caches; independent verification passed. Follow-up127c9566 recovered3436544B via
-22-file lossless compression. Another119-cache deletion was blocked beforeexecution.
-Later free spaceabout650MiB (system fluctuations); recheck before material jobs.
-Active npm/npx and denied
-cleanup targets remain untouched. Exact receipt/history: STORAGE_LOG.md.
+Preserve original D144 rejection, D139 dynamic592B deficit, old frozen contracts/
+validators/oracles and production admission. No upload/reset or firmware changes
+were made by D148. No current STAND/RING authorization. The last upload remains
+consumed D118defaultM0 sourcee820c0e1; do not infer current MCU state or reuse it.
 
-D139's unchanged current default/M0 qualification is complete with a592B modeled
-deficit. Read analysis/P7_default_qualification_validation.md and its review;
-compiler success does not qualify this image. The two old failed candidates are
-not adopted. A bounded source audit identified no credible single fit repair.
-D140 source qualification is complete in `6e6fe21c`. D141 policy-only host work
-is now complete: 35 independent methods and four private regression cases pass;
-separate review has no open findings. Read analysis/P7_static_policy_validation.md.
-The original literal-path defect/failures are preserved; no established test or
-production policy was changed. Exact reference has 84 keys; eight pins are additive.
+Original P0-P5 physical/human packets, D121 B7/R6 conflict, native dump holder/
+quiescence/cancel/reopen requirements and SC-AP release workflow remain pending.
+P6 conditional, no release tag/rehearsal/human PASS. Do not request extra hardware
+now. Current permission advances software, not invented measurements or gates.
 
-D142 pure structural artifact component is complete in9f79bf41:45 independent
-public methods plus six private methods pass; reused same-model scopedreview
-305c87e2 closes both comparison gaps. Initialsource50d06722/a986ffdb and its18
-failed private subcases are retained; no oracle weakened. Read
-analysis/P7_static_artifact_validation.md. This only proves synthetic structure
-and packaging checks, not a real static app, native bindings or source freshness.
+Storage: no new disposable candidate in the bounded follow-up f2fa3c28. D148 saves
+125141B compact receipts plus launcher, no duplicate binaries/builds. Keep required
+evidence and all previously denied targets intact. Read STORAGE_LOG.md and check
+free space before material work. Python-B; no persistent fixture/compiler tree.
 
-Runner/helper artifacts and receipts live under analysis/P7_static_*.
-Do not edit frozen contracts/oracles or production admission. D143 host scope
-does not authorize board commands; structural collection will still leave actual
-entry/native binding/constructor/ABI review and runtime acceptance pending.
-
-Then resume only genuinely available required evidence: physical packets, native
-dump holder/quiescence/cancel/reopen prerequisites, and SC-AP release workflow.
-No extra hardware request now. P6 remains gated; no release tag/human PASS inferred.
-
-D134/D135/D136 old closures d6a8319e/70c964a7/0faf2e6d retain their detailed
-validation packets. Do not repeat unrelated completed analyzers/tooling matrices.
-Last actual MCU upload remains consumed D118defaultM0 e820c0e1; recheck actual
-transport for a new task and never reuse its run approval.
-
-Historical storage receipts: prior text compression recovered353796096allocatedB; additional ELF
-compression recovered50286592B with exact hashes. Four unused application dumps
-and one bytecode cache were removed; denied cleanup targets remain. C: was about
-936MB free at that earlier check; current observation above supersedes it. D142 uses only small source,
-oracle and receipt files, with transient RAM fixtures and no compiler tree.
-Automatic approval rejected deletion of 154 Arduino download archives (4.26 GiB)
-with "blocked by policy". Earlier stage/host/snapshot denials remain unchanged.
-Do not retry denied actions through another mechanism. See STORAGE_LOG.md.
-
-No actualP3 gate by end28Sep invokes reactive+SIDESTEP/DIRECT plus recorder cut.
-P6 needs actualP4 by30Sep and no stronger cut. Freeze1Oct21:00Dubai; rehearsal2Oct;
-competition3Oct. No scheduled date creates a validated release or human gate.
+Schedule: actualP3 not passed by end28Sep invokes reactive+SIDESTEP/DIRECT plus
+recorder cut; P6 needs actualP4 by30Sep and no stronger cut. Freeze1Oct21:00Dubai,
+rehearsal2Oct, competition3Oct. No scheduled date creates acceptance.

@@ -3,9 +3,9 @@
 **D139 qualification complete: compiler PASS, conditional default fit FAIL.**
 The unchanged default/M0 image exceeds the modeled loader pool by592 bytes.
 Exact evidence is in analysis/P7_default_qualification_validation.md and its
-separate review. No repair, further compile, upload or reset followed. The next
-read-only investigation traces the pinned package's Static linking mode; current
-policy remains dynamic-only and no static probe or policy change is authorized.
+separate review. D140 source research and D141 pure static-policy host validation
+are complete. Production policy remains dynamic-only; no static image has been
+built, uploaded or run. The remaining artifact validator and runner are next.
 
 
 **Active: P7 software/release preparation.** PROGRESS.md is the append-only phase
@@ -55,6 +55,9 @@ production policy was changed. Exact reference has 84 keys; eight pins are addit
 
 Next define the artifact validator and one-shot runner in a companion scope,
 including precise section/ABI/package/source/path checks and negative fixtures.
+The bounded runner design is saved in analysis/P7_static_runner_proposal.md;
+all 11 literal input hashes were checked against current files. It remains a
+proposal, with artifact interfaces/tests/implementation still to be settled.
 Do not edit the frozen policy contract or oracles. Their full-probe draft remains
 unadopted; implementation/query/compiler needs the separate scoped review and
 adoption. Production remains dynamic-only, no static image has been built.

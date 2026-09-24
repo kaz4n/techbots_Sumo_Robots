@@ -64,6 +64,15 @@ still pending its separate bounded review/adoption. Derived e_flags 0x05000400
 is a proposal, not an observed static image. All commands are terminal; there is
 no active compiler, compression process or background board operation.
 
+The separate worker's one-shot runner proposal is now retained at
+analysis/P7_static_runner_proposal.md (SHA25641496d8ee5dc5ffd26e8b9ac6000169e376b035f37a3b64e508159703dbacfc2).
+Root read it and checked all 11 input-hash literals against current bytes.
+It specifies reuse of the unchanged verified stage/transport, exclusive new
+outputs, one query and one jobs1 compile, seven artifacts and original failure
+receipts. It is not adopted or implemented; settle the companion artifact
+interface and independent negative fixtures before any target invocation.
+Storage follow-up is committed as f9714314; no source, test or board changes.
+
 D134 mode availability, D135 abort producer and D136 analyzer are closed for
 software (d6a8319e/70c964a7/0faf2e6d). Their validation packets retain actual scope,
 original failures and all evidence. D137 operator drafts2700da11 are updated for

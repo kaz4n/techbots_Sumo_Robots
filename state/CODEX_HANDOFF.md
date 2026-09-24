@@ -1,9 +1,10 @@
 # Codex handoff - 2026-09-25 Asia/Dubai
 
-**D153 passive collector: HOST-TESTED, scoped review PASS.** All46 independent
-methods and4 reviewer supplemental cases passed on first execution. Source
-1aa602d0/contract0371739e/bindingsc2c87df6; revieweed7414d has no open findings.
-Read analysis/P7_static_capture_remote_validation.md. No new MCU operation.
+**D154 upload wrapper: HOST-TESTED, scoped review PASS.** Implementation81668c79
+passes55 unchanged independent tests after one repair plus3 reviewer cases.
+Original53/55 failure is retained; review8efe48a3 closes both MAJOR findings.
+Read analysis/P7_static_upload_validation.md. D153 collector remains complete;
+no new MCU operation. Next is the minimal host coordinator and precise inert run.
 
 **Active phase: P7 software/release preparation.** D138 informational READY and
 battery-threshold software is implemented, host-tested and target-compiled.
@@ -49,9 +50,11 @@ has now been observed to select the intended data/user directories (F162); raw
 queries and original mistakenprojection are preserved. Existing board p0_capture.py
 is hash885c4e42/18880B, file-verified; reuse it to fit the Windows command budget.
 
-Exact next task: implement/test/review the host coordinator and one-shot upload
-wrapper; reuse the completed collector. Bind reviewed HEAD/source, D144 packet,
+Exact next task: implement/test/review the host coordinator; reuse the completed
+D153 collector and D154 upload wrapper. Bind reviewed HEAD/source, D144 packet,
 installed dependencies, explicit CLI configuration and selected core/recipe.
+F165/F166 file-only receipts establish observed initialization prerequisites;
+recheck them immediately before the later native scope.
 The advisory guard options are not a run grant. Do not rebuild or copy another
 source tree. Separate upload/capture claims, bounded process deadlines, independent
 postchecks and no recovery reset/retry remain required. Final capture bootstrap

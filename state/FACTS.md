@@ -667,3 +667,6 @@ review in analysis/P7_static_cli_initialization.md closes those bounded existenc
 and migration-condition gaps. No executable invoked or package downloaded. This
 is not successful initialization/runtime purity, futurestability or native-run
 authority; later coordinator must recheck exact sources/paths/HEAD/run.
+
+## F167 - Fixed upload wrapper host behavior (2026-09-25T03:55:21.028709+04:00)
+D154 current source81668c79/contract7fa1c0f0/bindingsa31bca78 passes55 unchanged independent methods3.685s/exit0 plus3 reviewer cases0.205s/exit0. Original53/55 failure preserved; first implementation repair fixes primary processerror and known-outcome retention through cleanup. Review8efe48a3 PASS within host scope. Controlled substitutes establish wrapper behavior only, not native upload/startup/quiescence or physical acceptance. Evidence analysis/P7_static_upload_validation.md.

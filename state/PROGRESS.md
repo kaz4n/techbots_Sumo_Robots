@@ -935,3 +935,5 @@ physical/loadedRAM/gate claim. | contract=this commit
 2026-09-24T10:23:22.740433+04:00 | P4 software | User-requested disk cleanup | Removed inspected closed temps and rebuildable host outputs; lossless state compression; 21145 evidence hashes unchanged; free C: approx90MiB -> 3.33GiB. D129 interrupted by WSL service termination; retry serially. See analysis/DISK_CLEANUP_20260924.md | cleanup commit this task
 
 2026-09-24T10:35:07.882427+04:00 | P4 software | D129 timing evidence | IMPLEMENTED/HOST-TESTED/scoped review PASS;14normal,30san,32configured/san,149tooling+2registry; chronologyfix and one unaccepted tooling-oracle correction with originals retained;39oldlocked exact, newe384e7fb protected. TARGET/HARDWARE-PENDING; no MCU or human gate. Next D130 offline analyzer; then bounded push-through | completion commit this task
+
+2026-09-24T10:36:36.114838+04:00 | P4 software | D130 contract | ADOPTED; offline10-attempt target-loss interval analyzer, independent author/implementer/reviewer next. D129 committedf7397d0e. No firmware/physical/gate change | contract commit this task

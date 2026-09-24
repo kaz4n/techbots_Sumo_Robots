@@ -1,8 +1,8 @@
-# D130 draft: offline P4.2 target-loss analysis
+# D130: offline P4.2 target-loss analysis
 
-PROPOSED NEXT SLICE; not yet adopted or implemented. This prepares the next
-bounded P4 software task after D129 host verification. No firmware or tuning
-change, board operation, physical acceptance or phase gate follows.
+Adopted under D051/D128 after D129 host verification and scoped review. This
+read-only P4 software task supplies interval analysis, not firmware or tuning
+changes, board operations, physical acceptance or a phase gate.
 
 ## Public interface and bounded input
 
@@ -71,7 +71,8 @@ format checks only, except START0/GO1 and TIMING10 below. START/GO if present
 must be unique, mode1..6 matching summary.mode, value0; START time matches
 summary.release_us. Every non-header trace requires one START then GO before that record in ordinal
 order; missing GO makes trace INCOMPLETE with no delay, not a reconstructed GO.
-A present GO after a trace record is INVALID.
+A present GO after a non-header trace record is INVALID; HEADER normally
+precedes GO and does not trigger this ordering rejection.
 
 No TIMING records =>NOT_RECORDED. TIMING present without HEADER =>INVALID.
 Exactly one HEADER detail0 with value0x0101(M0) or0x0105(M1); it is immediately

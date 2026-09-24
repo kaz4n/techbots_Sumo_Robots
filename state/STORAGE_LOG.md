@@ -117,3 +117,24 @@ No pagefile, virtual disk, installed tool, firmware or source was changed.
 Retain these compact cleanup receipts; no duplicate checkout/build was created.
 
 2026-09-25T00:40:30.855361+04:00 | D142 retention | Retained14 scoped raw/oracle/source files totaling102756 logicalB, plus small contract/review/validation/root receipts. They bind independent expectations, actual passing tests and original negative evidence. Fixtures were transient RAM bytes, including one16MiB+1 boundary buffer; no compiler tree, binary fixture, downloaded package, duplicate checkout or bytecode created. No denied cleanup retried; current C: check remains required before large work.
+
+## 2026-09-25T00:51:41.569839+04:00 - Additional cache cleanup
+
+Removed 92 regenerable pip HTTP cache files (8,740,886 logical bytes) and ten
+ignored CPython bytecode files (645,923 bytes), totaling 9,386,809 bytes
+(8.95 MiB). Exact bounded paths, original hashes and completion results are in
+analysis/storage_cleanup_20260925_pip_http.json and
+analysis/storage_cleanup_20260925_bytecode.json. Native PowerShell exact-file
+removal followed containment, reparse, hash and exclusive-open checks. No
+recursive removal or installed-package deletion was used. A separate context
+verified all 102 files absent and all ten retained-source checks unchanged,
+exit 0 and zero mismatches. Receipts were compacted after verification.
+
+The npm download cache (61,099,871 bytes) remains: seven running npm/npx
+launchers and recently modified cache metadata were observed. Its separate
+_npx package trees also support running tools and were retained. Unidentified
+temporary files, WSL diagnostics, earlier policy-denied cleanup targets,
+source, unique evidence and saved P7 drafts remain untouched. No pagefile,
+virtual disk, hardware or firmware change. C: free space fluctuates with other
+processes; the last deletion receipt records 865,792,000 bytes free after pip
+cleanup, not an exact allocation-recovery measurement.

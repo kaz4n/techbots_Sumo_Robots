@@ -655,3 +655,15 @@ run. Original100KB content-bound rejection and empty root metadata projection
 remain, followed by observed-bound/nested corrections. See
 analysis/P7_static_cli_selection.md and its four original receipts. No compiler,
 MCU read/reset/upload, new tool installation or physical/gate evidence.
+
+
+## F166 - CLI initialization prerequisites observed (2026-09-25T03:50:08.003244+04:00)
+Two file-only Linux calls exit0/empty stderr. Data/staging/packages and both
+indexes exist; library index58226703B/SHA36dad4c2. All five latest indexed
+builtins have checked regular0755 executable files (no .exe alternatives).
+Other package fallback roots contain only tools, excluded by pinned loader;
+sole selected platform metadata is current format2. Independent source/receipt
+review in analysis/P7_static_cli_initialization.md closes those bounded existence
+and migration-condition gaps. No executable invoked or package downloaded. This
+is not successful initialization/runtime purity, futurestability or native-run
+authority; later coordinator must recheck exact sources/paths/HEAD/run.

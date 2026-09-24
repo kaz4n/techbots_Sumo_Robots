@@ -1,0 +1,72 @@
+ */
+/* 164664      |     600 */    struct app::RuntimeReport {
+/* 164664      |       1 */        app::RuntimePhase phase;
+/* 164665      |       1 */        app::RuntimeFault fault;
+/* 164666      |       1 */        bool fresh;
+/* 164667      |       1 */        bool initialization_complete;
+/* 164668      |       1 */        bool raw_lines;
+/* 164669      |       1 */        bool imu_expired;
+/* 164670      |       1 */        bool calibration_interrupted;
+/* XXX  1-byte hole      */
+/* 164672      |       4 */        uint32_t next_release_us;
+/* 164676      |       4 */        uint32_t missed_releases;
+/* 164680      |       4 */        uint32_t epochs;
+/* 164684      |       4 */        uint32_t service_passes;
+/* 164688      |       4 */        uint32_t maximum_execution_us;
+/* 164692      |      32 */        struct opp_sensors::InitResult {
+/* 164692      |       1 */            bool ready;
+/* 164693      |       1 */            uint8_t configured_mask;
+/* XXX  2-byte hole      */
+/* 164696      |      28 */            int32_t status[7];
+
+                                       /* total size (bytes):   32 */
+                                   } opponents_setup;
+/* 164724      |       1 */        line_qtr::Status line_setup;
+/* XXX  3-byte hole      */
+/* 164728      |      24 */        struct imu::SetupReport {
+/* 164728      |       1 */            imu::SetupState state;
+/* 164729      |       1 */            imu::SetupFault fault;
+/* 164730      |       1 */            imu::BusStatus bus_status;
+/* 164731      |       1 */            imu::BusCleanup cleanup;
+/* 164732      |       4 */            uint32_t error_flags;
+/* 164736      |       4 */            uint32_t started_us;
+/* 164740      |       4 */            uint32_t observed_us;
+/* 164744      |       4 */            uint32_t advances;
+/* 164748      |       4 */            uint32_t requests;
+
+                                       /* t
+
+/* 162128      |     504 */        struct app::TransactionReport {
+/* 162128      |       1 */            app::Phase phase;
+/* 162129      |       1 */            app::Fault fault;
+/* 162130      |       1 */            bool decision_made;
+/* 162131      |       1 */            bool finished;
+/* 162132      |       1 */            bool timing_valid;
+/* XXX  3-byte hole      */
+/* 162136      |       4 */            uint32_t started_us;
+/* 162140      |       4 */            uint32_t decision_us;
+/* 162144      |       4 */            uint32_t completed_us;
+/* 162148      |       4 */            uint32_t execution_us;
+/* 162152      |     400 */            struct fsm::RobotResult {
+/* 162152      |       8 */                uint64_t token;
+/* 162160      |       1 */                bool fresh;
+/* XXX  3-byte hole      */
+/* 162164      |      12 */                struct core::Outputs {
+/* 162164      |       4 */                    float duty_l;
+/* 162168      |       4 */                    float duty_r;
+/* 162172      |       1 */                    bool motors_enabled;
+/* 162173      |       1 */                    core::State ui_state;
+/* XXX  2-byte padding   */
+
+                                               /* total size (bytes):   12 */
+                                           } outputs;
+/* 162176      |       1 */                core::Mode running_mode;
+/* 162177      |       7 */                struct countdown::MenuResult {
+/* 162177      |       3 */                    struct countdown::MenuSelection {
+/* 162177      |       1 */                        core::Mode mode;
+/* 162178      |       1 */                        bool service_menu;
+/* 162179      |       1 */                        countdown::Service service;
+
+                                                   /* total size (bytes):    3 */
+                                               } selection;
+/* 162180      |       1 */       

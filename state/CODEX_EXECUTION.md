@@ -1,3 +1,16 @@
+## Active checkpoint - 2026-09-24T04:09:29.021567+04:00
+
+P2 D118 capture software contract06377731 adopted after separate preflight PASS.
+Implement passive tools/app_default_capture.py and independently frozen additive
+public-contract tests; no implementation execution before oracle freeze. Exact
+unchanged appsourcee820c0e1/M0 is candidate only. Existing inhibited EN/PWM/timer
+setup is explicit; no sensor/UART grant. Plan62reads/66commands/1405088B under
+new64/80 caps; old probes/helpers/tests unchanged. Standalone exactrun guard
+contract, actualsoftware/runreview/records and input staging still required.
+No upload/MCUread yet; currentimage remains completed D114396bcc45. D117ed5a9dea,
+UARTprerequisitebfd212bb and eligibility1b1a13ba are saved. NativeUART ownership/
+framing, fullRAM/WCET, physical acceptance and allhuman gates remain pending.
+
 ## Active checkpoint - 2026-09-24T04:01:11.764812+04:00
 
 D117 implementation ed5a9dea and native UART prerequisite evidence bfd212bb are

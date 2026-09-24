@@ -1092,3 +1092,5 @@ physical/loadedRAM/gate claim. | contract=this commit
 2026-09-25T02:42:26.110850+04:00 | P7 D150 file-only native API read adopted | Source65cb7785/plan a795f5fe; separate reused-context review8fd3b0d4 PASS.50queries, no board execution yet; one bounded read scope only. Storage13d50c43 recovered8495104B transparently; exact111file deletion blocked/no retry | native API GO commit
 
 2026-09-25T02:45:29.547149+04:00 | P7 D150 terminal partial read | FAILED correctly on GDBstderr/empty wrapper disassembly;49other query sections retained.5commands exit0/allpostchecksPASS, no source change, compiler/upload/reset. Name lookup failure also exists in retainedADC evidence; scope consumed, no retry | partial API evidence commit
+
+2026-09-25T02:48:51.444270+04:00 | P7 D151 exact wrapper read adopted | Source4c39fafc/planfb7043e6/reviewd6124220PASS;13args/335units/preflight4cases/zero board. One18byte range only, no retry/compile/upload/reset; D150failure preserved | wrapper read GO commit

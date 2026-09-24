@@ -101,3 +101,61 @@ The scope is the direct GPIO/PWM/RCC/device-init boundary. It does not claim an
 exhaustive packaged-OS dependency audit, native loading/startup success, device
 ownership, live RAM/stack/heap, timing/WCET, physical acceptance, static production
 admission, specific motor-run authorization or any human gate.
+
+## Actual receipt review: terminal failure preserved
+
+25 September 2026. Same reviewer and reused context. **PASS for preservation and
+fail-closed disposition; D150 remains NATIVE_API_READ_FAILED.** The source review
+above did not establish that the exported name would resolve to a function.
+No board query, collector main or consumed scope was rerun for this review.
+
+The captured-source launcher exited1 and retained the original ValueError at
+read_native_api.py:140. All five recorded read commands exited0; command0003
+retains exactly `No function contains specified address.\n` on stderr. Its50
+ordered labels plus END are present, but D150_LOADER_32 has no disassembly.
+D150_LOADER_28 reports `void * const` for the exported z_impl_device_init name;
+this is not a function prototype or evidence that the native function is absent.
+The original full stdout (10258 bytes), stderr and timings remain in0003.json.
+
+The result correctly records zero accepted query blocks, five reads, zero
+compiler/property-query attempts and no postcheck errors. Zero accepted blocks
+does not erase the49 nonempty raw sections. The first failure survives the two
+independent remote postchecks and local checks; no collection/API pass follows.
+There is no new BLOCKER/MAJOR/MINOR collector defect in this actual disposition.
+
+Independently reconstructed the exact215-argument command and50 label/query
+pairs from the current source's pure command constructor, without preparation or
+dispatch. They equal inputs.json and0003.json, including auto-loading disabled
+before either ELF. Rehashed all17 local pins,103 source files and102 stage files;
+both remote packets match the original identity, Claim and eight FileRecords.
+Both26-file installed hash reports match the pinned dependencies. The current
+collector remains65cb7785 and the launcher records unchanged source. All43
+earlier tracked D144/D148/D149 JSON receipts/launchers checked equal HEAD bytes.
+
+Partial evidence is usable with explicit limits:12 of13 paired common outputs
+match after removing GDB result-number prefixes. The remaining gpio_driver_api
+outputs differ only in the unused manage_callback argument spelling bool versus
+_Bool; their40-byte layout and selected slots0/4/12/16 agree. The five paired
+scalar widths are4/1/4/4/4; pwm_flags_t is unsigned short and
+clock_control_subsys_t is void*. These observations support the selected layout
+and call-signature audit, not a complete native API/ABI or runtime qualification.
+The ambiguous init type and empty init body remain unresolved by D150.
+
+Retained-evidence lookup found the same failed name query in
+P2_adc_ownership_raw/installed_02.json records[12]. Its records[13] contains
+do_device_init at08019e2c, including device+20 callback loading/calling, but not
+the wrapper at08019e5c. The retained symbol list locates that wrapper and the
+next symbol at08019e6e; the P0 export gives its Thumb address08019e5d. These
+references do not establish the missing wrapper instructions. The lookup was
+stopped once this bounded gap and the existing helper body were identified.
+
+| Actual input under P7_static_link_probe_raw/ | SHA256 |
+|---|---|
+| native_api/inputs.json | b0f618abbe06e87e48bffd43df501f41d1a161bc422ece08a39fd8172dc27812 |
+| native_api/0001.json | 5e5b7705519ab39fc8f100e7fd255823e9f9d4166bb23987ebae47e5fe9b8173 |
+| native_api/0002.json | 83bd47410bae99489af53259f2578e1d847ec251b3e51e9262eb614706d83e5e |
+| native_api/0003.json | 5b2c1c1ce1292d3b70306d8acd08dde486e3fb2caaea8c63313c6191af716793 |
+| native_api/0004.json | c4492e63fdd8725bc316ba21a95b8f8e0c385cb6e7d1a2acba7903824816680d |
+| native_api/0005.json | a04c388a68075f1e1a9b7e5ab79e67d1c9725391407572334feba2d61011d4b1 |
+| native_api/result.json | a6a0b69ab8630805dce9b995ae407f0dd2177081e44a9948d995c3c652f19135 |
+| native_api_launcher.json | 46de16c161d61afb88bbafa4af368f80646950f4e8d2791bd0e8859eaac5628c |

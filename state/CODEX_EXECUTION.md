@@ -4,9 +4,10 @@
 The unchanged default/M0 image exceeds the modeled loader pool by592 bytes.
 Exact evidence is in analysis/P7_default_qualification_validation.md and its
 separate review. D140 source research and D141/D142 pure policy/artifact host
-validation are complete. Production policy remains dynamic-only; no static image
-has been built, uploaded or run. D143 runner/helper host validation now passes80
-methods; native invocation review and source-bound GO are next.
+validation are complete. Production policy remains dynamic-only. D143 passes80
+host methods; D144's one static compile returned0 but the structural validator
+rejected unsupported symbol encoding. No upload/reset/run. The GO is consumed;
+next is separately reviewed read-only inspection of the existing rejected ELF.
 
 
 **Active: P7 software/release preparation.** PROGRESS.md is the append-only phase
@@ -50,8 +51,10 @@ Independent tests are frozen and pass:22runner+2receipt failures,23bootstrap,
 28Linux descriptor+5admission methods. Originalfirstfailures are retained.
 Current runner983e86d7/helper8ba9b190 include reviewed bounded repairs; no existing
 production/locked test changed. Read analysis/P7_static_runner_validation.md.
-All687 prior inputs and17 literal pins remain exact. Next review the minimal
-native invocation, then record a source-bound GO; no board use occurred in D143.
+All687 prior inputs and17 literal pins remain exact. D144 runf0220228 is terminal:
+1query/1compile, compileexit0, layout exit2, allpostcheckspass. See
+analysis/P7_static_native_attempt_validation.md. Scope read-only ELF diagnosis
+next; no automatic rebuild, parser relaxation or reuse of the consumed GO.
 
 Storage follow-up744f50c1 removed9,386,809 logical bytes of verified disposable
 caches; independent verification passed. Latest free-space observations fluctuate

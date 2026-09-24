@@ -3,16 +3,17 @@
 **D141 policy and D142 structural artifact components are HOST-TESTED.**
 D143 runner/helper host implementation passes80 independently frozen methods.
 Read P7_static_runner_validation.md and current handoff before continuing.
-Next review the bounded native invocation and record its source-bound GO.
-Production admission is unchanged. No static
-image has been built or run; the default dynamic deficit is still592 bytes.
+Production admission is unchanged. D144's single static compile passed, but
+structural validation rejected unsupported symbol encoding. Its GO is consumed;
+no upload/reset occurred. Next separately scope read-only inspection of that
+already hashed ELF. The default dynamic deficit is still592 bytes.
 
 
 Current phase: **P7 software/release preparation**. D138 readiness software has
 passing host/full/sanitizer and exact MATCH target checks. D139 now records the
 current default/M0 modeled592B deficit. D140 static-link source research is
 complete; D141/D142 pure components are host-tested and reviewed. D143 host
-validation is complete, with native query/compiler still unapproved. Never reset toP0 or revive older
+validation is complete; D144 is a retained negative native experiment. Never reset toP0 or revive older
 blanket no-host-work checkpoints. Physical/human gates remain pending.
 
 1. Read rootAGENTS fully, state/CODEX_HANDOFF.md/CODEX_EXECUTION.md, latest
@@ -32,7 +33,9 @@ blanket no-host-work checkpoints. Physical/human gates remain pending.
    first source cd5625e2, current runner983e86d7/helper8ba9b190. Read frozen
    runner/remote contracts, implementation notes and independent test freezes.
    Host totals22+2runner,28+5helper,23bootstrap pass with original failures
-   preserved. Review the minimal native invocation before a source-bound GO.
+   preserved. Read P7_static_native_attempt_validation.md: runf0220228 returned
+   FAILED/layout after compileexit0 and cleanpostchecks, no localELF transfer.
+   Scope read-only collection/inspection next; never repeat the consumed GO.
    Do not rerun old matrices without cause, replace production validators or
    silently change frozen contracts/oracles.
 

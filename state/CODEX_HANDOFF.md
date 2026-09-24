@@ -4,10 +4,11 @@
 D142 passes45 independent methods and six private methods; two pre-execution
 comparison gaps are closed with original source/failures preserved. See
 analysis/P7_static_artifact_validation.md and reviews/P7_static_artifact_code_review.md.
-Production admission is unchanged. No static image has been built or run; the
-default dynamic deficit is still592 bytes. D143 now adopts the one-shot runner
-and Linux helper for host implementation/testing only. All80 independent host
-methods now pass; no target query/compiler is authorized by this scope.
+Production admission is unchanged; the default dynamic deficit is still592 bytes.
+D143 passes80 independent host methods. D144's single static compile returned0,
+but layout validation rejected unsupported symbol encoding. The experiment is
+terminal and its GO consumed; no upload/reset occurred. Read
+analysis/P7_static_native_attempt_validation.md before any next board action.
 
 
 **Active phase: P7 software/release preparation.** D138 informational READY and
@@ -43,10 +44,14 @@ metadata correction, and source-race diagnostics were refined while keeping the
 helper oracle unchanged. Read analysis/P7_static_runner_validation.md and its
 linked receipts/reviews. All687 prior inputs,17runner pins and legacy progress
 prefix remain exact. Linux/Windows fixtures are transient; no compiler tree added.
-Exact next task: review the bounded native invocation plan, then record a
-source-bound coordinator GO for at most one query and one inert static compile.
-No board command has run in D143. Structural collection still requires the
-separate actual entry/constructor/native binding/ABI audit before any probe verdict.
+Exact next task: separately scope and review read-only collection/inspection of
+D144's already hashed remote ELF to identify the rejected symbol encoding.
+Runf0220228320c4b2aa20c3e5e8264c813 ended FAILED/phase layout:1query/1compile,
+25terminal commands, no postcheck errors. ELF170616B SHA5cc2dfde remains onLinux;
+the runner correctly stopped before local ELF transfer. Preserve frozen D142
+contract/parser/oracles and this negative outcome; do not retry compilation,
+guess the symbol type or weaken admission. Full entry/native/ABI audit remains
+separate. No active process or board command remains; session31974 is terminal.
 
 D138 production remains first-source d19f8964 (interfaces36a96bd2). Normal20cases
 perM0/M1, configured29public+2private perM, normal/configured ASan+UBSan and full22

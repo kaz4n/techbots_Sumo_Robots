@@ -1,0 +1,484 @@
+Dump of assembler code for function _ZN3fsm5Robot9runEscapeERKNS_10RobotInputE:
+   0x00007934 <+0>:	b5f0    	push	{r4, r5, r6, r7, lr}
+   0x00007936 <+2>:	f890 3965	ldrb.w	r3, [r0, #2405]	@ 0x965
+   0x0000793a <+6>:	4604    	mov	r4, r0
+   0x0000793c <+8>:	460f    	mov	r7, r1
+   0x0000793e <+10>:	b093    	sub	sp, #76	@ 0x4c
+   0x00007940 <+12>:	b91b    	cbnz	r3, 0x794a <_ZN3fsm5Robot9runEscapeERKNS_10RobotInputE+22>
+   0x00007942 <+14>:	f891 3084	ldrb.w	r3, [r1, #132]	@ 0x84
+   0x00007946 <+18>:	2b00    	cmp	r3, #0
+   0x00007948 <+20>:	d05d    	beq.n	0x7a06 <_ZN3fsm5Robot9runEscapeERKNS_10RobotInputE+210>
+   0x0000794a <+22>:	683b    	ldr	r3, [r7, #0]
+   0x0000794c <+24>:	f504 705e	add.w	r0, r4, #888	@ 0x378
+   0x00007950 <+28>:	930b    	str	r3, [sp, #44]	@ 0x2c
+   0x00007952 <+30>:	f894 3733	ldrb.w	r3, [r4, #1843]	@ 0x733
+   0x00007956 <+34>:	466d    	mov	r5, sp
+   0x00007958 <+36>:	f88d 3030	strb.w	r3, [sp, #48]	@ 0x30
+   0x0000795c <+40>:	f204 7314	addw	r3, r4, #1812	@ 0x714
+   0x00007960 <+44>:	681b    	ldr	r3, [r3, #0]
+   0x00007962 <+46>:	f604 06f8	addw	r6, r4, #2296	@ 0x8f8
+   0x00007966 <+50>:	930d    	str	r3, [sp, #52]	@ 0x34
+   0x00007968 <+52>:	f894 3718	ldrb.w	r3, [r4, #1816]	@ 0x718
+   0x0000796c <+56>:	f88d 3038	strb.w	r3, [sp, #56]	@ 0x38
+   0x00007970 <+60>:	f894 3966	ldrb.w	r3, [r4, #2406]	@ 0x966
+   0x00007974 <+64>:	f88d 3039	strb.w	r3, [sp, #57]	@ 0x39
+   0x00007978 <+68>:	f894 38dc	ldrb.w	r3, [r4, #2268]	@ 0x8dc
+   0x0000797c <+72>:	f88d 303a	strb.w	r3, [sp, #58]	@ 0x3a
+   0x00007980 <+76>:	f604 1368	addw	r3, r4, #2408	@ 0x968
+   0x00007984 <+80>:	681b    	ldr	r3, [r3, #0]
+   0x00007986 <+82>:	930f    	str	r3, [sp, #60]	@ 0x3c
+   0x00007988 <+84>:	f604 136c	addw	r3, r4, #2412	@ 0x96c
+   0x0000798c <+88>:	681b    	ldr	r3, [r3, #0]
+   0x0000798e <+90>:	9310    	str	r3, [sp, #64]	@ 0x40
+   0x00007990 <+92>:	4b1e    	ldr	r3, [pc, #120]	@ (0x7a0c <_ZN3fsm5Robot9runEscapeERKNS_10RobotInputE+216>)
+   0x00007992 <+94>:	4798    	blx	r3
+   0x00007994 <+96>:	f894 372c	ldrb.w	r3, [r4, #1836]	@ 0x72c
+   0x00007998 <+100>:	f88d 0044	strb.w	r0, [sp, #68]	@ 0x44
+   0x0000799c <+104>:	f88d 3045	strb.w	r3, [sp, #69]	@ 0x45
+   0x000079a0 <+108>:	f894 383b	ldrb.w	r3, [r4, #2107]	@ 0x83b
+   0x000079a4 <+112>:	4668    	mov	r0, sp
+   0x000079a6 <+114>:	f88d 3046	strb.w	r3, [sp, #70]	@ 0x46
+   0x000079aa <+118>:	aa0b    	add	r2, sp, #44	@ 0x2c
+   0x000079ac <+120>:	4b18    	ldr	r3, [pc, #96]	@ (0x7a10 <_ZN3fsm5Robot9runEscapeERKNS_10RobotInputE+220>)
+   0x000079ae <+122>:	f504 71b0	add.w	r1, r4, #352	@ 0x160
+   0x000079b2 <+126>:	4798    	blx	r3
+   0x000079b4 <+128>:	cd0f    	ldmia	r5!, {r0, r1, r2, r3}
+   0x000079b6 <+130>:	c60f    	stmia	r6!, {r0, r1, r2, r3}
+   0x000079b8 <+132>:	cd0f    	ldmia	r5!, {r0, r1, r2, r3}
+   0x000079ba <+134>:	c60f    	stmia	r6!, {r0, r1, r2, r3}
+   0x000079bc <+136>:	e895 0003	ldmia.w	r5, {r0, r1}
+   0x000079c0 <+140>:	e886 0003	stmia.w	r6, {r0, r1}
+   0x000079c4 <+144>:	f894 390c	ldrb.w	r3, [r4, #2316]	@ 0x90c
+   0x000079c8 <+148>:	f884 3732	strb.w	r3, [r4, #1842]	@ 0x732
+   0x000079cc <+152>:	b1a3    	cbz	r3, 0x79f8 <_ZN3fsm5Robot9runEscapeERKNS_10RobotInputE+196>
+   0x000079ce <+154>:	f894 2a2c	ldrb.w	r2, [r4, #2604]	@ 0xa2c
+   0x000079d2 <+158>:	b98a    	cbnz	r2, 0x79f8 <_ZN3fsm5Robot9runEscapeERKNS_10RobotInputE+196>
+   0x000079d4 <+160>:	1e5a    	subs	r2, r3, #1
+   0x000079d6 <+162>:	2a03    	cmp	r2, #3
+   0x000079d8 <+164>:	bf94    	ite	ls
+   0x000079da <+166>:	461a    	movls	r2, r3
+   0x000079dc <+168>:	2200    	movhi	r2, #0
+   0x000079de <+170>:	f8b4 1948	ldrh.w	r1, [r4, #2376]	@ 0x948
+   0x000079e2 <+174>:	f884 3a2c	strb.w	r3, [r4, #2604]	@ 0xa2c
+   0x000079e6 <+178>:	f041 0140	orr.w	r1, r1, #64	@ 0x40
+   0x000079ea <+182>:	f8a4 1948	strh.w	r1, [r4, #2376]	@ 0x948
+   0x000079ee <+186>:	f8b4 1956	ldrh.w	r1, [r4, #2390]	@ 0x956
+   0x000079f2 <+190>:	430a    	orrs	r2, r1
+   0x000079f4 <+192>:	f8a4 2956	strh.w	r2, [r4, #2390]	@ 0x956
+   0x000079f8 <+196>:	4639    	mov	r1, r7
+   0x000079fa <+198>:	4620    	mov	r0, r4
+   0x000079fc <+200>:	4b05    	ldr	r3, [pc, #20]	@ (0x7a14 <_ZN3fsm5Robot9runEscapeERKNS_10RobotInputE+224>)
+   0x000079fe <+202>:	b013    	add	sp, #76	@ 0x4c
+   0x00007a00 <+204>:	e8bd 40f0	ldmia.w	sp!, {r4, r5, r6, r7, lr}
+   0x00007a04 <+208>:	4718    	bx	r3
+   0x00007a06 <+210>:	b013    	add	sp, #76	@ 0x4c
+   0x00007a08 <+212>:	bdf0    	pop	{r4, r5, r6, r7, pc}
+   0x00007a0a <+214>:	bf00    	nop
+   0x00007a0c <+216>:	0000    	movs	r0, r0
+   0x00007a0e <+218>:	0000    	movs	r0, r0
+   0x00007a10 <+220>:	0000    	movs	r0, r0
+   0x00007a12 <+222>:	0000    	movs	r0, r0
+   0x00007a14 <+224>:	0000    	movs	r0, r0
+   0x00007a16 <+226>:	0000    	movs	r0, r0
+End of assembler dump.
+Dump of assembler code for function _ZN3fsm5Robot4stepERKNS_10RobotInputE:
+   0x00008f38 <+0>:	b570    	push	{r4, r5, r6, lr}
+   0x00008f3a <+2>:	460c    	mov	r4, r1
+   0x00008f3c <+4>:	f894 3a30	ldrb.w	r3, [r4, #2608]	@ 0xa30
+   0x00008f40 <+8>:	4605    	mov	r5, r0
+   0x00008f42 <+10>:	4611    	mov	r1, r2
+   0x00008f44 <+12>:	b0b0    	sub	sp, #192	@ 0xc0
+   0x00008f46 <+14>:	b34b    	cbz	r3, 0x8f9c <_ZN3fsm5Robot4stepERKNS_10RobotInputE+100>
+   0x00008f48 <+16>:	6812    	ldr	r2, [r2, #0]
+   0x00008f4a <+18>:	f8d4 3a0c	ldr.w	r3, [r4, #2572]	@ 0xa0c
+   0x00008f4e <+22>:	429a    	cmp	r2, r3
+   0x00008f50 <+24>:	d124    	bne.n	0x8f9c <_ZN3fsm5Robot4stepERKNS_10RobotInputE+100>
+   0x00008f52 <+26>:	f504 61db	add.w	r1, r4, #1752	@ 0x6d8
+   0x00008f56 <+30>:	2400    	movs	r4, #0
+   0x00008f58 <+32>:	f44f 72c8	mov.w	r2, #400	@ 0x190
+   0x00008f5c <+36>:	4b3b    	ldr	r3, [pc, #236]	@ (0x904c <_ZN3fsm5Robot4stepERKNS_10RobotInputE+276>)
+   0x00008f5e <+38>:	4798    	blx	r3
+   0x00008f60 <+40>:	22b4    	movs	r2, #180	@ 0xb4
+   0x00008f62 <+42>:	4b3b    	ldr	r3, [pc, #236]	@ (0x9050 <_ZN3fsm5Robot4stepERKNS_10RobotInputE+280>)
+   0x00008f64 <+44>:	4621    	mov	r1, r4
+   0x00008f66 <+46>:	f105 0068	add.w	r0, r5, #104	@ 0x68
+   0x00008f6a <+50>:	722c    	strb	r4, [r5, #8]
+   0x00008f6c <+52>:	846c    	strh	r4, [r5, #34]	@ 0x22
+   0x00008f6e <+54>:	f885 4039	strb.w	r4, [r5, #57]	@ 0x39
+   0x00008f72 <+58>:	f885 4042	strb.w	r4, [r5, #66]	@ 0x42
+   0x00008f76 <+62>:	f885 4054	strb.w	r4, [r5, #84]	@ 0x54
+   0x00008f7a <+66>:	f885 4163	strb.w	r4, [r5, #355]	@ 0x163
+   0x00008f7e <+70>:	f885 417c	strb.w	r4, [r5, #380]	@ 0x17c
+   0x00008f82 <+74>:	61ec    	str	r4, [r5, #28]
+   0x00008f84 <+76>:	f885 4062	strb.w	r4, [r5, #98]	@ 0x62
+   0x00008f88 <+80>:	4798    	blx	r3
+   0x00008f8a <+82>:	2200    	movs	r2, #0
+   0x00008f8c <+84>:	2300    	movs	r3, #0
+   0x00008f8e <+86>:	e9c5 234e	strd	r2, r3, [r5, #312]	@ 0x138
+   0x00008f92 <+90>:	f885 411c	strb.w	r4, [r5, #284]	@ 0x11c
+   0x00008f96 <+94>:	4628    	mov	r0, r5
+   0x00008f98 <+96>:	b030    	add	sp, #192	@ 0xc0
+   0x00008f9a <+98>:	bd70    	pop	{r4, r5, r6, pc}
+   0x00008f9c <+100>:	f8d4 39c8	ldr.w	r3, [r4, #2504]	@ 0x9c8
+   0x00008fa0 <+104>:	f8d4 29cc	ldr.w	r2, [r4, #2508]	@ 0x9cc
+   0x00008fa4 <+108>:	4313    	orrs	r3, r2
+   0x00008fa6 <+110>:	d105    	bne.n	0x8fb4 <_ZN3fsm5Robot4stepERKNS_10RobotInputE+124>
+   0x00008fa8 <+112>:	460a    	mov	r2, r1
+   0x00008faa <+114>:	4628    	mov	r0, r5
+   0x00008fac <+116>:	4621    	mov	r1, r4
+   0x00008fae <+118>:	4b29    	ldr	r3, [pc, #164]	@ (0x9054 <_ZN3fsm5Robot4stepERKNS_10RobotInputE+284>)
+   0x00008fb0 <+120>:	4798    	blx	r3
+   0x00008fb2 <+122>:	e7f0    	b.n	0x8f96 <_ZN3fsm5Robot4stepERKNS_10RobotInputE+94>
+   0x00008fb4 <+124>:	22c0    	movs	r2, #192	@ 0xc0
+   0x00008fb6 <+126>:	4668    	mov	r0, sp
+   0x00008fb8 <+128>:	4e24    	ldr	r6, [pc, #144]	@ (0x904c <_ZN3fsm5Robot4stepERKNS_10RobotInputE+276>)
+   0x00008fba <+130>:	47b0    	blx	r6
+   0x00008fbc <+132>:	4669    	mov	r1, sp
+   0x00008fbe <+134>:	4620    	mov	r0, r4
+   0x00008fc0 <+136>:	4b25    	ldr	r3, [pc, #148]	@ (0x9058 <_ZN3fsm5Robot4stepERKNS_10RobotInputE+288>)
+   0x00008fc2 <+138>:	4798    	blx	r3
+   0x00008fc4 <+140>:	4669    	mov	r1, sp
+   0x00008fc6 <+142>:	4620    	mov	r0, r4
+   0x00008fc8 <+144>:	4b24    	ldr	r3, [pc, #144]	@ (0x905c <_ZN3fsm5Robot4stepERKNS_10RobotInputE+292>)
+   0x00008fca <+146>:	4798    	blx	r3
+   0x00008fcc <+148>:	4620    	mov	r0, r4
+   0x00008fce <+150>:	4b24    	ldr	r3, [pc, #144]	@ (0x9060 <_ZN3fsm5Robot4stepERKNS_10RobotInputE+296>)
+   0x00008fd0 <+152>:	4798    	blx	r3
+   0x00008fd2 <+154>:	4669    	mov	r1, sp
+   0x00008fd4 <+156>:	4620    	mov	r0, r4
+   0x00008fd6 <+158>:	4b23    	ldr	r3, [pc, #140]	@ (0x9064 <_ZN3fsm5Robot4stepERKNS_10RobotInputE+300>)
+   0x00008fd8 <+160>:	4798    	blx	r3
+   0x00008fda <+162>:	4669    	mov	r1, sp
+   0x00008fdc <+164>:	4620    	mov	r0, r4
+   0x00008fde <+166>:	4b22    	ldr	r3, [pc, #136]	@ (0x9068 <_ZN3fsm5Robot4stepERKNS_10RobotInputE+304>)
+   0x00008fe0 <+168>:	4798    	blx	r3
+   0x00008fe2 <+170>:	4669    	mov	r1, sp
+   0x00008fe4 <+172>:	4620    	mov	r0, r4
+   0x00008fe6 <+174>:	4b21    	ldr	r3, [pc, #132]	@ (0x906c <_ZN3fsm5Robot4stepERKNS_10RobotInputE+308>)
+   0x00008fe8 <+176>:	4798    	blx	r3
+   0x00008fea <+178>:	4669    	mov	r1, sp
+   0x00008fec <+180>:	4620    	mov	r0, r4
+   0x00008fee <+182>:	4b20    	ldr	r3, [pc, #128]	@ (0x9070 <_ZN3fsm5Robot4stepERKNS_10RobotInputE+312>)
+   0x00008ff0 <+184>:	4798    	blx	r3
+   0x00008ff2 <+186>:	4669    	mov	r1, sp
+   0x00008ff4 <+188>:	4620    	mov	r0, r4
+   0x00008ff6 <+190>:	4b1f    	ldr	r3, [pc, #124]	@ (0x9074 <_ZN3fsm5Robot4stepERKNS_10RobotInputE+316>)
+   0x00008ff8 <+192>:	4798    	blx	r3
+   0x00008ffa <+194>:	4669    	mov	r1, sp
+   0x00008ffc <+196>:	4620    	mov	r0, r4
+   0x00008ffe <+198>:	4b1e    	ldr	r3, [pc, #120]	@ (0x9078 <_ZN3fsm5Robot4stepERKNS_10RobotInputE+320>)
+   0x00009000 <+200>:	4798    	blx	r3
+   0x00009002 <+202>:	4669    	mov	r1, sp
+   0x00009004 <+204>:	4620    	mov	r0, r4
+   0x00009006 <+206>:	4b1d    	ldr	r3, [pc, #116]	@ (0x907c <_ZN3fsm5Robot4stepERKNS_10RobotInputE+324>)
+   0x00009008 <+208>:	4798    	blx	r3
+   0x0000900a <+210>:	4669    	mov	r1, sp
+   0x0000900c <+212>:	4620    	mov	r0, r4
+   0x0000900e <+214>:	4b1c    	ldr	r3, [pc, #112]	@ (0x9080 <_ZN3fsm5Robot4stepERKNS_10RobotInputE+328>)
+   0x00009010 <+216>:	4798    	blx	r3
+   0x00009012 <+218>:	4669    	mov	r1, sp
+   0x00009014 <+220>:	4620    	mov	r0, r4
+   0x00009016 <+222>:	4b1b    	ldr	r3, [pc, #108]	@ (0x9084 <_ZN3fsm5Robot4stepERKNS_10RobotInputE+332>)
+   0x00009018 <+224>:	4798    	blx	r3
+   0x0000901a <+226>:	4620    	mov	r0, r4
+   0x0000901c <+228>:	4b1a    	ldr	r3, [pc, #104]	@ (0x9088 <_ZN3fsm5Robot4stepERKNS_10RobotInputE+336>)
+   0x0000901e <+230>:	4798    	blx	r3
+   0x00009020 <+232>:	4620    	mov	r0, r4
+   0x00009022 <+234>:	4b1a    	ldr	r3, [pc, #104]	@ (0x908c <_ZN3fsm5Robot4stepERKNS_10RobotInputE+340>)
+   0x00009024 <+236>:	4798    	blx	r3
+   0x00009026 <+238>:	4669    	mov	r1, sp
+   0x00009028 <+240>:	4620    	mov	r0, r4
+   0x0000902a <+242>:	4b19    	ldr	r3, [pc, #100]	@ (0x9090 <_ZN3fsm5Robot4stepERKNS_10RobotInputE+344>)
+   0x0000902c <+244>:	4798    	blx	r3
+   0x0000902e <+246>:	4620    	mov	r0, r4
+   0x00009030 <+248>:	4669    	mov	r1, sp
+   0x00009032 <+250>:	4b18    	ldr	r3, [pc, #96]	@ (0x9094 <_ZN3fsm5Robot4stepERKNS_10RobotInputE+348>)
+   0x00009034 <+252>:	4798    	blx	r3
+   0x00009036 <+254>:	4669    	mov	r1, sp
+   0x00009038 <+256>:	4b17    	ldr	r3, [pc, #92]	@ (0x9098 <_ZN3fsm5Robot4stepERKNS_10RobotInputE+352>)
+   0x0000903a <+258>:	4798    	blx	r3
+   0x0000903c <+260>:	f44f 72c8	mov.w	r2, #400	@ 0x190
+   0x00009040 <+264>:	4628    	mov	r0, r5
+   0x00009042 <+266>:	f504 61db	add.w	r1, r4, #1752	@ 0x6d8
+   0x00009046 <+270>:	47b0    	blx	r6
+   0x00009048 <+272>:	e7a5    	b.n	0x8f96 <_ZN3fsm5Robot4stepERKNS_10RobotInputE+94>
+   0x0000904a <+274>:	bf00    	nop
+   0x0000904c <+276>:	0000    	movs	r0, r0
+   0x0000904e <+278>:	0000    	movs	r0, r0
+   0x00009050 <+280>:	0000    	movs	r0, r0
+   0x00009052 <+282>:	0000    	movs	r0, r0
+   0x00009054 <+284>:	0000    	movs	r0, r0
+   0x00009056 <+286>:	0000    	movs	r0, r0
+   0x00009058 <+288>:	0000    	movs	r0, r0
+   0x0000905a <+290>:	0000    	movs	r0, r0
+   0x0000905c <+292>:	0000    	movs	r0, r0
+   0x0000905e <+294>:	0000    	movs	r0, r0
+   0x00009060 <+296>:	0000    	movs	r0, r0
+   0x00009062 <+298>:	0000    	movs	r0, r0
+   0x00009064 <+300>:	0000    	movs	r0, r0
+   0x00009066 <+302>:	0000    	movs	r0, r0
+   0x00009068 <+304>:	0000    	movs	r0, r0
+   0x0000906a <+306>:	0000    	movs	r0, r0
+   0x0000906c <+308>:	0000    	movs	r0, r0
+   0x0000906e <+310>:	0000    	movs	r0, r0
+   0x00009070 <+312>:	0000    	movs	r0, r0
+   0x00009072 <+314>:	0000    	movs	r0, r0
+   0x00009074 <+316>:	0000    	movs	r0, r0
+   0x00009076 <+318>:	0000    	movs	r0, r0
+   0x00009078 <+320>:	0000    	movs	r0, r0
+   0x0000907a <+322>:	0000    	movs	r0, r0
+   0x0000907c <+324>:	0000    	movs	r0, r0
+   0x0000907e <+326>:	0000    	movs	r0, r0
+   0x00009080 <+328>:	0000    	movs	r0, r0
+   0x00009082 <+330>:	0000    	movs	r0, r0
+   0x00009084 <+332>:	0000    	movs	r0, r0
+   0x00009086 <+334>:	0000    	movs	r0, r0
+   0x00009088 <+336>:	0000    	movs	r0, r0
+   0x0000908a <+338>:	0000    	movs	r0, r0
+   0x0000908c <+340>:	0000    	movs	r0, r0
+   0x0000908e <+342>:	0000    	movs	r0, r0
+   0x00009090 <+344>:	0000    	movs	r0, r0
+   0x00009092 <+346>:	0000    	movs	r0, r0
+   0x00009094 <+348>:	0000    	movs	r0, r0
+   0x00009096 <+350>:	0000    	movs	r0, r0
+   0x00009098 <+352>:	0000    	movs	r0, r0
+   0x0000909a <+354>:	0000    	movs	r0, r0
+End of assembler dump.
+Dump of assembler code for function _ZN4edge6Escape4stepERKNS_12EscapeSampleE:
+   0x000049d0 <+0>:	2300    	movs	r3, #0
+   0x000049d2 <+2>:	e92d 43f0	stmdb	sp!, {r4, r5, r6, r7, r8, r9, lr}
+   0x000049d6 <+6>:	b08d    	sub	sp, #52	@ 0x34
+   0x000049d8 <+8>:	f881 30b7	strb.w	r3, [r1, #183]	@ 0xb7
+   0x000049dc <+12>:	f881 30b8	strb.w	r3, [r1, #184]	@ 0xb8
+   0x000049e0 <+16>:	7b53    	ldrb	r3, [r2, #13]
+   0x000049e2 <+18>:	4607    	mov	r7, r0
+   0x000049e4 <+20>:	460c    	mov	r4, r1
+   0x000049e6 <+22>:	4615    	mov	r5, r2
+   0x000049e8 <+24>:	b993    	cbnz	r3, 0x4a10 <_ZN4edge6Escape4stepERKNS_12EscapeSampleE+64>
+   0x000049ea <+26>:	f891 30cb	ldrb.w	r3, [r1, #203]	@ 0xcb
+   0x000049ee <+30>:	b133    	cbz	r3, 0x49fe <_ZN4edge6Escape4stepERKNS_12EscapeSampleE+46>
+   0x000049f0 <+32>:	f891 30bc	ldrb.w	r3, [r1, #188]	@ 0xbc
+   0x000049f4 <+36>:	b91b    	cbnz	r3, 0x49fe <_ZN4edge6Escape4stepERKNS_12EscapeSampleE+46>
+   0x000049f6 <+38>:	2103    	movs	r1, #3
+   0x000049f8 <+40>:	4620    	mov	r0, r4
+   0x000049fa <+42>:	4b62    	ldr	r3, [pc, #392]	@ (0x4b84 <_ZN4edge6Escape4stepERKNS_12EscapeSampleE+436>)
+   0x000049fc <+44>:	4798    	blx	r3
+   0x000049fe <+46>:	2200    	movs	r2, #0
+   0x00004a00 <+48>:	4621    	mov	r1, r4
+   0x00004a02 <+50>:	4638    	mov	r0, r7
+   0x00004a04 <+52>:	4b60    	ldr	r3, [pc, #384]	@ (0x4b88 <_ZN4edge6Escape4stepERKNS_12EscapeSampleE+440>)
+   0x00004a06 <+54>:	4798    	blx	r3
+   0x00004a08 <+56>:	4638    	mov	r0, r7
+   0x00004a0a <+58>:	b00d    	add	sp, #52	@ 0x34
+   0x00004a0c <+60>:	e8bd 83f0	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, pc}
+   0x00004a10 <+64>:	f891 30bc	ldrb.w	r3, [r1, #188]	@ 0xbc
+   0x00004a14 <+68>:	b10b    	cbz	r3, 0x4a1a <_ZN4edge6Escape4stepERKNS_12EscapeSampleE+74>
+   0x00004a16 <+70>:	2201    	movs	r2, #1
+   0x00004a18 <+72>:	e7f4    	b.n	0x4a04 <_ZN4edge6Escape4stepERKNS_12EscapeSampleE+52>
+   0x00004a1a <+74>:	7916    	ldrb	r6, [r2, #4]
+   0x00004a1c <+76>:	f891 00cb	ldrb.w	r0, [r1, #203]	@ 0xcb
+   0x00004a20 <+80>:	f006 060f	and.w	r6, r6, #15
+   0x00004a24 <+84>:	f080 0901	eor.w	r9, r0, #1
+   0x00004a28 <+88>:	2e00    	cmp	r6, #0
+   0x00004a2a <+90>:	bf0c    	ite	eq
+   0x00004a2c <+92>:	f04f 0900	moveq.w	r9, #0
+   0x00004a30 <+96>:	f009 0901	andne.w	r9, r9, #1
+   0x00004a34 <+100>:	461a    	mov	r2, r3
+   0x00004a36 <+102>:	fa46 f102	asr.w	r1, r6, r2
+   0x00004a3a <+106>:	3201    	adds	r2, #1
+   0x00004a3c <+108>:	f001 0101	and.w	r1, r1, #1
+   0x00004a40 <+112>:	2a04    	cmp	r2, #4
+   0x00004a42 <+114>:	440b    	add	r3, r1
+   0x00004a44 <+116>:	d1f7    	bne.n	0x4a36 <_ZN4edge6Escape4stepERKNS_12EscapeSampleE+102>
+   0x00004a46 <+118>:	2b02    	cmp	r3, #2
+   0x00004a48 <+120>:	d967    	bls.n	0x4b1a <_ZN4edge6Escape4stepERKNS_12EscapeSampleE+330>
+   0x00004a4a <+122>:	2101    	movs	r1, #1
+   0x00004a4c <+124>:	4620    	mov	r0, r4
+   0x00004a4e <+126>:	4b4d    	ldr	r3, [pc, #308]	@ (0x4b84 <_ZN4edge6Escape4stepERKNS_12EscapeSampleE+436>)
+   0x00004a50 <+128>:	4798    	blx	r3
+   0x00004a52 <+130>:	f04f 0800	mov.w	r8, #0
+   0x00004a56 <+134>:	7eab    	ldrb	r3, [r5, #26]
+   0x00004a58 <+136>:	b913    	cbnz	r3, 0x4a60 <_ZN4edge6Escape4stepERKNS_12EscapeSampleE+144>
+   0x00004a5a <+138>:	f1b9 0f00	cmp.w	r9, #0
+   0x00004a5e <+142>:	d001    	beq.n	0x4a64 <_ZN4edge6Escape4stepERKNS_12EscapeSampleE+148>
+   0x00004a60 <+144>:	f884 60c8	strb.w	r6, [r4, #200]	@ 0xc8
+   0x00004a64 <+148>:	7eaa    	ldrb	r2, [r5, #26]
+   0x00004a66 <+150>:	b122    	cbz	r2, 0x4a72 <_ZN4edge6Escape4stepERKNS_12EscapeSampleE+162>
+   0x00004a68 <+152>:	f894 20b5	ldrb.w	r2, [r4, #181]	@ 0xb5
+   0x00004a6c <+156>:	1f53    	subs	r3, r2, #5
+   0x00004a6e <+158>:	425a    	negs	r2, r3
+   0x00004a70 <+160>:	415a    	adcs	r2, r3
+   0x00004a72 <+162>:	4631    	mov	r1, r6
+   0x00004a74 <+164>:	4b45    	ldr	r3, [pc, #276]	@ (0x4b8c <_ZN4edge6Escape4stepERKNS_12EscapeSampleE+444>)
+   0x00004a76 <+166>:	4620    	mov	r0, r4
+   0x00004a78 <+168>:	4798    	blx	r3
+   0x00004a7a <+170>:	f3c0 2307	ubfx	r3, r0, #8, #8
+   0x00004a7e <+174>:	f88d 3005	strb.w	r3, [sp, #5]
+   0x00004a82 <+178>:	f3c0 4307	ubfx	r3, r0, #16, #8
+   0x00004a86 <+182>:	f88d 0004	strb.w	r0, [sp, #4]
+   0x00004a8a <+186>:	f88d 3006	strb.w	r3, [sp, #6]
+   0x00004a8e <+190>:	9b01    	ldr	r3, [sp, #4]
+   0x00004a90 <+192>:	f894 60cb	ldrb.w	r6, [r4, #203]	@ 0xcb
+   0x00004a94 <+196>:	f8ad 3000	strh.w	r3, [sp]
+   0x00004a98 <+200>:	0c1b    	lsrs	r3, r3, #16
+   0x00004a9a <+202>:	f88d 3002	strb.w	r3, [sp, #2]
+   0x00004a9e <+206>:	b15e    	cbz	r6, 0x4ab8 <_ZN4edge6Escape4stepERKNS_12EscapeSampleE+232>
+   0x00004aa0 <+208>:	f894 20bc	ldrb.w	r2, [r4, #188]	@ 0xbc
+   0x00004aa4 <+212>:	2a00    	cmp	r2, #0
+   0x00004aa6 <+214>:	d169    	bne.n	0x4b7c <_ZN4edge6Escape4stepERKNS_12EscapeSampleE+428>
+   0x00004aa8 <+216>:	f89d 3000	ldrb.w	r3, [sp]
+   0x00004aac <+220>:	2b00    	cmp	r3, #0
+   0x00004aae <+222>:	d167    	bne.n	0x4b80 <_ZN4edge6Escape4stepERKNS_12EscapeSampleE+432>
+   0x00004ab0 <+224>:	f884 30cb	strb.w	r3, [r4, #203]	@ 0xcb
+   0x00004ab4 <+228>:	f8c4 30c4	str.w	r3, [r4, #196]	@ 0xc4
+   0x00004ab8 <+232>:	4b33    	ldr	r3, [pc, #204]	@ (0x4b88 <_ZN4edge6Escape4stepERKNS_12EscapeSampleE+440>)
+   0x00004aba <+234>:	2201    	movs	r2, #1
+   0x00004abc <+236>:	4621    	mov	r1, r4
+   0x00004abe <+238>:	a802    	add	r0, sp, #8
+   0x00004ac0 <+240>:	4798    	blx	r3
+   0x00004ac2 <+242>:	eddd 7a0b	vldr	s15, [sp, #44]	@ 0x2c
+   0x00004ac6 <+246>:	f89d 302b	ldrb.w	r3, [sp, #43]	@ 0x2b
+   0x00004aca <+250>:	b18e    	cbz	r6, 0x4af0 <_ZN4edge6Escape4stepERKNS_12EscapeSampleE+288>
+   0x00004acc <+252>:	7b2a    	ldrb	r2, [r5, #12]
+   0x00004ace <+254>:	b17a    	cbz	r2, 0x4af0 <_ZN4edge6Escape4stepERKNS_12EscapeSampleE+288>
+   0x00004ad0 <+256>:	7e6a    	ldrb	r2, [r5, #25]
+   0x00004ad2 <+258>:	b16a    	cbz	r2, 0x4af0 <_ZN4edge6Escape4stepERKNS_12EscapeSampleE+288>
+   0x00004ad4 <+260>:	ed95 7a02	vldr	s14, [r5, #8]
+   0x00004ad8 <+264>:	eddf 6a2d	vldr	s13, [pc, #180]	@ 0x4b90 <_ZN4edge6Escape4stepERKNS_12EscapeSampleE+448>
+   0x00004adc <+268>:	eeb0 6ac7	vabs.f32	s12, s14
+   0x00004ae0 <+272>:	eeb4 6a66	vcmp.f32	s12, s13
+   0x00004ae4 <+276>:	eef1 fa10	vmrs	APSR_nzcv, fpscr
+   0x00004ae8 <+280>:	bf9c    	itt	ls
+   0x00004aea <+282>:	eef0 7a47	vmovls.f32	s15, s14
+   0x00004aee <+286>:	2301    	movls	r3, #1
+   0x00004af0 <+288>:	edcd 7a0b	vstr	s15, [sp, #44]	@ 0x2c
+   0x00004af4 <+292>:	463d    	mov	r5, r7
+   0x00004af6 <+294>:	f88d 901f	strb.w	r9, [sp, #31]
+   0x00004afa <+298>:	f88d 6020	strb.w	r6, [sp, #32]
+   0x00004afe <+302>:	f88d 8021	strb.w	r8, [sp, #33]	@ 0x21
+   0x00004b02 <+306>:	f88d 302b	strb.w	r3, [sp, #43]	@ 0x2b
+   0x00004b06 <+310>:	ac02    	add	r4, sp, #8
+   0x00004b08 <+312>:	cc0f    	ldmia	r4!, {r0, r1, r2, r3}
+   0x00004b0a <+314>:	c50f    	stmia	r5!, {r0, r1, r2, r3}
+   0x00004b0c <+316>:	cc0f    	ldmia	r4!, {r0, r1, r2, r3}
+   0x00004b0e <+318>:	c50f    	stmia	r5!, {r0, r1, r2, r3}
+   0x00004b10 <+320>:	e894 0003	ldmia.w	r4, {r0, r1}
+   0x00004b14 <+324>:	e885 0003	stmia.w	r5, {r0, r1}
+   0x00004b18 <+328>:	e776    	b.n	0x4a08 <_ZN4edge6Escape4stepERKNS_12EscapeSampleE+56>
+   0x00004b1a <+330>:	bb28    	cbnz	r0, 0x4b68 <_ZN4edge6Escape4stepERKNS_12EscapeSampleE+408>
+   0x00004b1c <+332>:	f8df e07c	ldr.w	lr, [pc, #124]	@ 0x4b9c <_ZN4edge6Escape4stepERKNS_12EscapeSampleE+460>
+   0x00004b20 <+336>:	f10d 0c08	add.w	r12, sp, #8
+   0x00004b24 <+340>:	e8be 000f	ldmia.w	lr!, {r0, r1, r2, r3}
+   0x00004b28 <+344>:	e8ac 000f	stmia.w	r12!, {r0, r1, r2, r3}
+   0x00004b2c <+348>:	f8de 3000	ldr.w	r3, [lr]
+   0x00004b30 <+352>:	f10d 0e18	add.w	lr, sp, #24
+   0x00004b34 <+356>:	f8cc 3000	str.w	r3, [r12]
+   0x00004b38 <+360>:	f10d 0c08	add.w	r12, sp, #8
+   0x00004b3c <+364>:	f104 03a8	add.w	r3, r4, #168	@ 0xa8
+   0x00004b40 <+368>:	4662    	mov	r2, r12
+   0x00004b42 <+370>:	ca03    	ldmia	r2!, {r0, r1}
+   0x00004b44 <+372>:	4572    	cmp	r2, lr
+   0x00004b46 <+374>:	6018    	str	r0, [r3, #0]
+   0x00004b48 <+376>:	6059    	str	r1, [r3, #4]
+   0x00004b4a <+378>:	4694    	mov	r12, r2
+   0x00004b4c <+380>:	f103 0308	add.w	r3, r3, #8
+   0x00004b50 <+384>:	d1f6    	bne.n	0x4b40 <_ZN4edge6Escape4stepERKNS_12EscapeSampleE+368>
+   0x00004b52 <+386>:	7812    	ldrb	r2, [r2, #0]
+   0x00004b54 <+388>:	701a    	strb	r2, [r3, #0]
+   0x00004b56 <+390>:	2e00    	cmp	r6, #0
+   0x00004b58 <+392>:	f43f af7b	beq.w	0x4a52 <_ZN4edge6Escape4stepERKNS_12EscapeSampleE+130>
+   0x00004b5c <+396>:	2200    	movs	r2, #0
+   0x00004b5e <+398>:	4629    	mov	r1, r5
+   0x00004b60 <+400>:	4620    	mov	r0, r4
+   0x00004b62 <+402>:	4b0c    	ldr	r3, [pc, #48]	@ (0x4b94 <_ZN4edge6Escape4stepERKNS_12EscapeSampleE+452>)
+   0x00004b64 <+404>:	4798    	blx	r3
+   0x00004b66 <+406>:	e774    	b.n	0x4a52 <_ZN4edge6Escape4stepERKNS_12EscapeSampleE+130>
+   0x00004b68 <+408>:	f894 20c8	ldrb.w	r2, [r4, #200]	@ 0xc8
+   0x00004b6c <+412>:	4629    	mov	r1, r5
+   0x00004b6e <+414>:	4620    	mov	r0, r4
+   0x00004b70 <+416>:	4b09    	ldr	r3, [pc, #36]	@ (0x4b98 <_ZN4edge6Escape4stepERKNS_12EscapeSampleE+456>)
+   0x00004b72 <+418>:	ea26 0202	bic.w	r2, r6, r2
+   0x00004b76 <+422>:	4798    	blx	r3
+   0x00004b78 <+424>:	4680    	mov	r8, r0
+   0x00004b7a <+426>:	e76c    	b.n	0x4a56 <_ZN4edge6Escape4stepERKNS_12EscapeSampleE+134>
+   0x00004b7c <+428>:	2600    	movs	r6, #0
+   0x00004b7e <+430>:	e79b    	b.n	0x4ab8 <_ZN4edge6Escape4stepERKNS_12EscapeSampleE+232>
+   0x00004b80 <+432>:	4616    	mov	r6, r2
+   0x00004b82 <+434>:	e799    	b.n	0x4ab8 <_ZN4edge6Escape4stepERKNS_12EscapeSampleE+232>
+   0x00004b84 <+436>:	0000    	movs	r0, r0
+   0x00004b86 <+438>:	0000    	movs	r0, r0
+   0x00004b88 <+440>:	0000    	movs	r0, r0
+   0x00004b8a <+442>:	0000    	movs	r0, r0
+   0x00004b8c <+444>:	0000    	movs	r0, r0
+   0x00004b8e <+446>:	0000    	movs	r0, r0
+   0x00004b90 <+448>:	ffff 7f7f	vcvt.u32.f32	<illegal reg q11.5>, <illegal reg q15.5>, #1
+   0x00004b94 <+452>:	0000    	movs	r0, r0
+   0x00004b96 <+454>:	0000    	movs	r0, r0
+   0x00004b98 <+456>:	0000    	movs	r0, r0
+   0x00004b9a <+458>:	0000    	movs	r0, r0
+   0x00004b9c <+460>:	0050    	lsls	r0, r2, #1
+   0x00004b9e <+462>:	0000    	movs	r0, r0
+End of assembler dump.
+Dump of assembler code for function _ZNK4edge6Escape6resultEb:
+   0x0000492c <+0>:	e92d 41f0	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
+   0x00004930 <+4>:	4604    	mov	r4, r0
+   0x00004932 <+6>:	460e    	mov	r6, r1
+   0x00004934 <+8>:	4b23    	ldr	r3, [pc, #140]	@ (0x49c4 <_ZNK4edge6Escape6resultEb+152>)
+   0x00004936 <+10>:	b086    	sub	sp, #24
+   0x00004938 <+12>:	4690    	mov	r8, r2
+   0x0000493a <+14>:	2100    	movs	r1, #0
+   0x0000493c <+16>:	2228    	movs	r2, #40	@ 0x28
+   0x0000493e <+18>:	4798    	blx	r3
+   0x00004940 <+20>:	4b21    	ldr	r3, [pc, #132]	@ (0x49c8 <_ZNK4edge6Escape6resultEb+156>)
+   0x00004942 <+22>:	f896 c0bc	ldrb.w	r12, [r6, #188]	@ 0xbc
+   0x00004946 <+26>:	60e3    	str	r3, [r4, #12]
+   0x00004948 <+28>:	2301    	movs	r3, #1
+   0x0000494a <+30>:	ad01    	add	r5, sp, #4
+   0x0000494c <+32>:	75a3    	strb	r3, [r4, #22]
+   0x0000494e <+34>:	f884 3022	strb.w	r3, [r4, #34]	@ 0x22
+   0x00004952 <+38>:	f1b8 0f00	cmp.w	r8, #0
+   0x00004956 <+42>:	d12f    	bne.n	0x49b8 <_ZNK4edge6Escape6resultEb+140>
+   0x00004958 <+44>:	f1bc 0f00	cmp.w	r12, #0
+   0x0000495c <+48>:	d12c    	bne.n	0x49b8 <_ZNK4edge6Escape6resultEb+140>
+   0x0000495e <+50>:	4f1b    	ldr	r7, [pc, #108]	@ (0x49cc <_ZNK4edge6Escape6resultEb+160>)
+   0x00004960 <+52>:	cf0f    	ldmia	r7!, {r0, r1, r2, r3}
+   0x00004962 <+54>:	c50f    	stmia	r5!, {r0, r1, r2, r3}
+   0x00004964 <+56>:	683b    	ldr	r3, [r7, #0]
+   0x00004966 <+58>:	4627    	mov	r7, r4
+   0x00004968 <+60>:	602b    	str	r3, [r5, #0]
+   0x0000496a <+62>:	ad01    	add	r5, sp, #4
+   0x0000496c <+64>:	cd0f    	ldmia	r5!, {r0, r1, r2, r3}
+   0x0000496e <+66>:	c70f    	stmia	r7!, {r0, r1, r2, r3}
+   0x00004970 <+68>:	682b    	ldr	r3, [r5, #0]
+   0x00004972 <+70>:	703b    	strb	r3, [r7, #0]
+   0x00004974 <+72>:	f884 c014	strb.w	r12, [r4, #20]
+   0x00004978 <+76>:	f1b8 0f00	cmp.w	r8, #0
+   0x0000497c <+80>:	d01f    	beq.n	0x49be <_ZNK4edge6Escape6resultEb+146>
+   0x0000497e <+82>:	f1bc 0c00	subs.w	r12, r12, #0
+   0x00004982 <+86>:	bf18    	it	ne
+   0x00004984 <+88>:	f04f 0c01	movne.w	r12, #1
+   0x00004988 <+92>:	f896 30cb	ldrb.w	r3, [r6, #203]	@ 0xcb
+   0x0000498c <+96>:	7563    	strb	r3, [r4, #21]
+   0x0000498e <+98>:	4620    	mov	r0, r4
+   0x00004990 <+100>:	f8d6 30c4	ldr.w	r3, [r6, #196]	@ 0xc4
+   0x00004994 <+104>:	f884 c016	strb.w	r12, [r4, #22]
+   0x00004998 <+108>:	61e3    	str	r3, [r4, #28]
+   0x0000499a <+110>:	f896 30c9	ldrb.w	r3, [r6, #201]	@ 0xc9
+   0x0000499e <+114>:	f884 3020	strb.w	r3, [r4, #32]
+   0x000049a2 <+118>:	f896 30cc	ldrb.w	r3, [r6, #204]	@ 0xcc
+   0x000049a6 <+122>:	f884 3021	strb.w	r3, [r4, #33]	@ 0x21
+   0x000049aa <+126>:	f896 30ca	ldrb.w	r3, [r6, #202]	@ 0xca
+   0x000049ae <+130>:	f884 3022	strb.w	r3, [r4, #34]	@ 0x22
+   0x000049b2 <+134>:	b006    	add	sp, #24
+   0x000049b4 <+136>:	e8bd 81f0	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
+   0x000049b8 <+140>:	f106 07a8	add.w	r7, r6, #168	@ 0xa8
+   0x000049bc <+144>:	e7d0    	b.n	0x4960 <_ZNK4edge6Escape6resultEb+52>
+   0x000049be <+146>:	f04f 0c01	mov.w	r12, #1
+   0x000049c2 <+150>:	e7e4    	b.n	0x498e <_ZNK4edge6Escape6resultEb+98>
+   0x000049c4 <+152>:	0000    	movs	r0, r0
+   0x000049c6 <+154>:	0000    	movs	r0, r0
+   0x000049c8 <+156>:	0004    	movs	r4, r0
+   0x000049ca <+158>:	0001    	movs	r1, r0
+   0x000049cc <+160>:	0050    	lsls	r0, r2, #1
+   0x000049ce <+162>:	0000    	movs	r0, r0
+End of assembler dump.

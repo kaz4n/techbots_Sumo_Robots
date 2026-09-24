@@ -1,0 +1,37 @@
+{
+  "reviewed_at": "2026-09-24T16:00:06.4482822+04:00",
+  "status": "PASS_METADATA_REBIND_ONLY_NO_ORACLE_CHANGE",
+  "reviewer": "Independent review of the original oracle by the separate D135 same-model reviewer; not its author, not cross-model",
+  "authorization": "Coordinator bounded D136 contract-dependency metadata update; preserve first freeze and do not modify tests",
+  "original_freeze_sha256": "758ef1bc32b80047cad7cdf0377f7f8a01e5d313f98c40b1b8a873a7e8831873",
+  "preserved_original_path": "state/reviews/P5_abort_analysis_review_raw/private_freeze_first.json",
+  "preserved_original_sha256": "758ef1bc32b80047cad7cdf0377f7f8a01e5d313f98c40b1b8a873a7e8831873",
+  "updated_freeze_sha256": "3657861889c9a4e9711a3382dc254333beb627071d2acd8e8e36bcb836df7282",
+  "only_changed_json_value": "dependencies.state/analysis/P5_abort_analysis_contract.md",
+  "old_contract_sha256": "ff677becfeb727908fb0497bc6bc47c4d483e61a8d97c6e2f4142fe0adc1ef79",
+  "new_contract_sha256": "be0de4d832b5794a96e1d87e35234c7291e0d63f68dba30e2d0b6cdb72c79c46",
+  "original_contract_reconstructed_by_reversing_only_clarification_sha256": "ff677becfeb727908fb0497bc6bc47c4d483e61a8d97c6e2f4142fe0adc1ef79",
+  "original_test_methods": 19,
+  "private_files_unchanged": {
+    "private_probes.py": "1dd589d4ef1ed10c678f0ef422e29e5d0479ed6496866c7730151e1a912fd984",
+    "run_private.py": "e4bd3292cf82b25f39924d71c670e01e4e8fd051bf098ded9690d3967f46bc17",
+    "freeze.md": "455e2aa4275f2057fa7e6bfa86ae00ee2639f1ca71ac92b34a6661d287a54dcf"
+  },
+  "other_dependencies_verified_unchanged": 4,
+  "compatibility_evidence": [
+    "private_probes.py:118 keeps supplied closure closed for existing fixtures",
+    "private_probes.py:418-432 nullable source/revision identity remains INCOMPLETE; it does not assert null closure is accepted",
+    "private_probes.py:228-232 and 437-449 pair aggregate incomplete=1 with nonzero detailed loss",
+    "validate_csv_bundle.py:248-250 retains INCOMPLETE_CONTRADICTION for aggregate-only incomplete",
+    "validate_csv_bundle.py:290-295 requires exact manifest keys and closure unknown/open/closed",
+    "validate_csv_bundle.py:379-399 distinguishes absent manifest from an invalid supplied one"
+  ],
+  "coverage_limit": "The original 19 probes do not directly assert absent/unknown/open/null/missing closure or aggregate-only incomplete. This review establishes no contradictory expectation; it does not claim dynamic coverage. Complementary public tests or source review must cover them.",
+  "original_freeze_timestamp_and_provenance_preserved": true,
+  "probe_or_implementation_imports": 0,
+  "test_execution": false,
+  "compiler_execution": false,
+  "production_edits": false,
+  "implementation_exists_at_review": false,
+  "metadata_update_note": "The initial metadata-copy/hash update completed; its receipt serialization stopped on a PowerShell boolean literal typo. Receipt completion verified exact original and updated bytes before writing; no probe, source or runner changed."
+}

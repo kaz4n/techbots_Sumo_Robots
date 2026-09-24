@@ -1,0 +1,56 @@
+--- candidate1/src/core/fsm_robot.cpp
++++ candidate2/src/core/fsm_robot.cpp
+@@ -553,16 +553,26 @@
+ void Robot::startOpener() {
+     cancelMotion();
+     bool started = false;
+-    if (core::modeAvailable(running_mode_)) {
+-        if (running_mode_ == core::Mode::DIRECT) {
+-            started = direct_.start(tick_.t_us, result_.heading.heading_deg,
+-                                     result_.lifecycle.services.opponent_snapshot);
+-        } else if (running_mode_ == core::Mode::WAIT) {
++    // Admission and dispatch share one mode selection; rejected modes call no script.
++    switch (running_mode_) {
++    case core::Mode::DIRECT:
++        started = direct_.start(tick_.t_us, result_.heading.heading_deg,
++                                result_.lifecycle.services.opponent_snapshot);
++        break;
++    case core::Mode::WAIT:
++        if constexpr (core::modeAvailable(core::Mode::WAIT))
+             started = wait_.start(tick_.t_us, result_.heading.heading_deg);
+-        } else {
+-            started = flank_.start(tick_.t_us, result_.heading.heading_deg,
+-                                    result_.heading.imu_ok, running_mode_);
+-        }
++        break;
++    case core::Mode::ARC_R:
++    case core::Mode::ARC_L:
++        if constexpr (!core::modeAvailable(core::Mode::ARC_R)) break;
++        [[fallthrough]];
++    case core::Mode::SIDESTEP_R:
++    case core::Mode::SIDESTEP_L:
++        started = flank_.start(tick_.t_us, result_.heading.heading_deg,
++                               result_.heading.imu_ok, running_mode_);
++        break;
++    default: break;
+     }
+     if (!started) faults_ |= SCRIPT_START;
+     opener_active_ = started;
+--- candidate1/src/core/openers.cpp
++++ candidate2/src/core/openers.cpp
+@@ -62,11 +62,13 @@
+     snapshot_ = 0U;
+     if (exit_ != Exit::NONE) {
+         active_ = false;
++#if SUMOX_P5_ABORT_TIMING
+         Result result = terminal(exit_);
+-#if SUMOX_P5_ABORT_TIMING
+         result.abort = abort;
+-#endif
+         return result;
++#else
++        return terminal(exit_);
++#endif
+     }
+     Result result;
+     result.motion = straight_.step(t_us, heading_deg, imu_ok);

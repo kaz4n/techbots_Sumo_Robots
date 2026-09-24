@@ -1,0 +1,126 @@
+Dump of assembler code for function _ZN3fsm5Robot11startOpenerEv:
+   0x00007af4 <+0>:	b538    	push	{r3, r4, r5, lr}
+   0x00007af6 <+2>:	4604    	mov	r4, r0
+   0x00007af8 <+4>:	4b16    	ldr	r3, [pc, #88]	@ (0x7b54 <_ZN3fsm5Robot11startOpenerEv+96>)
+   0x00007afa <+6>:	4798    	blx	r3
+   0x00007afc <+8>:	f894 39c1	ldrb.w	r3, [r4, #2497]	@ 0x9c1
+   0x00007b00 <+12>:	f204 7214	addw	r2, r4, #1812	@ 0x714
+   0x00007b04 <+16>:	2b03    	cmp	r3, #3
+   0x00007b06 <+18>:	ed92 0a00	vldr	s0, [r2]
+   0x00007b0a <+22>:	f8d4 1940	ldr.w	r1, [r4, #2368]	@ 0x940
+   0x00007b0e <+26>:	d112    	bne.n	0x7b36 <_ZN3fsm5Robot11startOpenerEv+66>
+   0x00007b10 <+28>:	f894 270b	ldrb.w	r2, [r4, #1803]	@ 0x70b
+   0x00007b14 <+32>:	4b10    	ldr	r3, [pc, #64]	@ (0x7b58 <_ZN3fsm5Robot11startOpenerEv+100>)
+   0x00007b16 <+34>:	f504 60a0	add.w	r0, r4, #1280	@ 0x500
+   0x00007b1a <+38>:	4798    	blx	r3
+   0x00007b1c <+40>:	b928    	cbnz	r0, 0x7b2a <_ZN3fsm5Robot11startOpenerEv+54>
+   0x00007b1e <+42>:	f8b4 3a1c	ldrh.w	r3, [r4, #2588]	@ 0xa1c
+   0x00007b22 <+46>:	f043 0302	orr.w	r3, r3, #2
+   0x00007b26 <+50>:	f8a4 3a1c	strh.w	r3, [r4, #2588]	@ 0xa1c
+   0x00007b2a <+54>:	2303    	movs	r3, #3
+   0x00007b2c <+56>:	f884 0a33	strb.w	r0, [r4, #2611]	@ 0xa33
+   0x00007b30 <+60>:	f884 38c1	strb.w	r3, [r4, #2241]	@ 0x8c1
+   0x00007b34 <+64>:	bd38    	pop	{r3, r4, r5, pc}
+   0x00007b36 <+66>:	2b06    	cmp	r3, #6
+   0x00007b38 <+68>:	d104    	bne.n	0x7b44 <_ZN3fsm5Robot11startOpenerEv+80>
+   0x00007b3a <+70>:	4b08    	ldr	r3, [pc, #32]	@ (0x7b5c <_ZN3fsm5Robot11startOpenerEv+104>)
+   0x00007b3c <+72>:	f504 60b8	add.w	r0, r4, #1472	@ 0x5c0
+   0x00007b40 <+76>:	4798    	blx	r3
+   0x00007b42 <+78>:	e7eb    	b.n	0x7b1c <_ZN3fsm5Robot11startOpenerEv+40>
+   0x00007b44 <+80>:	f894 2718	ldrb.w	r2, [r4, #1816]	@ 0x718
+   0x00007b48 <+84>:	4d05    	ldr	r5, [pc, #20]	@ (0x7b60 <_ZN3fsm5Robot11startOpenerEv+108>)
+   0x00007b4a <+86>:	f504 60a5	add.w	r0, r4, #1320	@ 0x528
+   0x00007b4e <+90>:	47a8    	blx	r5
+   0x00007b50 <+92>:	e7e4    	b.n	0x7b1c <_ZN3fsm5Robot11startOpenerEv+40>
+   0x00007b52 <+94>:	bf00    	nop
+   0x00007b54 <+96>:	0000    	movs	r0, r0
+   0x00007b56 <+98>:	0000    	movs	r0, r0
+   0x00007b58 <+100>:	0000    	movs	r0, r0
+   0x00007b5a <+102>:	0000    	movs	r0, r0
+   0x00007b5c <+104>:	0000    	movs	r0, r0
+   0x00007b5e <+106>:	0000    	movs	r0, r0
+   0x00007b60 <+108>:	0000    	movs	r0, r0
+   0x00007b62 <+110>:	0000    	movs	r0, r0
+End of assembler dump.
+Dump of assembler code for function _ZN7openers6Direct4stepEjfbh:
+   0x0000a624 <+0>:	b5f0    	push	{r4, r5, r6, r7, lr}
+   0x0000a626 <+2>:	460c    	mov	r4, r1
+   0x0000a628 <+4>:	f891 1022	ldrb.w	r1, [r1, #34]	@ 0x22
+   0x0000a62c <+8>:	b089    	sub	sp, #36	@ 0x24
+   0x0000a62e <+10>:	4605    	mov	r5, r0
+   0x0000a630 <+12>:	f89d 6038	ldrb.w	r6, [sp, #56]	@ 0x38
+   0x0000a634 <+16>:	b979    	cbnz	r1, 0xa656 <_ZN7openers6Direct4stepEjfbh+50>
+   0x0000a636 <+18>:	f894 4020	ldrb.w	r4, [r4, #32]
+   0x0000a63a <+22>:	2210    	movs	r2, #16
+   0x0000a63c <+24>:	4b29    	ldr	r3, [pc, #164]	@ (0xa6e4 <_ZN7openers6Direct4stepEjfbh+192>)
+   0x0000a63e <+26>:	4798    	blx	r3
+   0x0000a640 <+28>:	2c04    	cmp	r4, #4
+   0x0000a642 <+30>:	732c    	strb	r4, [r5, #12]
+   0x0000a644 <+32>:	d003    	beq.n	0xa64e <_ZN7openers6Direct4stepEjfbh+42>
+   0x0000a646 <+34>:	3c00    	subs	r4, #0
+   0x0000a648 <+36>:	bf18    	it	ne
+   0x0000a64a <+38>:	2401    	movne	r4, #1
+   0x0000a64c <+40>:	0064    	lsls	r4, r4, #1
+   0x0000a64e <+42>:	722c    	strb	r4, [r5, #8]
+   0x0000a650 <+44>:	4628    	mov	r0, r5
+   0x0000a652 <+46>:	b009    	add	sp, #36	@ 0x24
+   0x0000a654 <+48>:	bdf0    	pop	{r4, r5, r6, r7, pc}
+   0x0000a656 <+50>:	f894 1021	ldrb.w	r1, [r4, #33]	@ 0x21
+   0x0000a65a <+54>:	4331    	orrs	r1, r6
+   0x0000a65c <+56>:	0749    	lsls	r1, r1, #29
+   0x0000a65e <+58>:	d014    	beq.n	0xa68a <_ZN7openers6Direct4stepEjfbh+102>
+   0x0000a660 <+60>:	2101    	movs	r1, #1
+   0x0000a662 <+62>:	f884 1020	strb.w	r1, [r4, #32]
+   0x0000a666 <+66>:	2100    	movs	r1, #0
+   0x0000a668 <+68>:	f894 6020	ldrb.w	r6, [r4, #32]
+   0x0000a66c <+72>:	f884 1021	strb.w	r1, [r4, #33]	@ 0x21
+   0x0000a670 <+76>:	b186    	cbz	r6, 0xa694 <_ZN7openers6Direct4stepEjfbh+112>
+   0x0000a672 <+78>:	2210    	movs	r2, #16
+   0x0000a674 <+80>:	4628    	mov	r0, r5
+   0x0000a676 <+82>:	4b1b    	ldr	r3, [pc, #108]	@ (0xa6e4 <_ZN7openers6Direct4stepEjfbh+192>)
+   0x0000a678 <+84>:	f884 1022	strb.w	r1, [r4, #34]	@ 0x22
+   0x0000a67c <+88>:	4798    	blx	r3
+   0x0000a67e <+90>:	2e04    	cmp	r6, #4
+   0x0000a680 <+92>:	732e    	strb	r6, [r5, #12]
+   0x0000a682 <+94>:	bf18    	it	ne
+   0x0000a684 <+96>:	2602    	movne	r6, #2
+   0x0000a686 <+98>:	722e    	strb	r6, [r5, #8]
+   0x0000a688 <+100>:	e7e2    	b.n	0xa650 <_ZN7openers6Direct4stepEjfbh+44>
+   0x0000a68a <+102>:	f016 0f78	tst.w	r6, #120	@ 0x78
+   0x0000a68e <+106>:	d0ea    	beq.n	0xa666 <_ZN7openers6Direct4stepEjfbh+66>
+   0x0000a690 <+108>:	2102    	movs	r1, #2
+   0x0000a692 <+110>:	e7e6    	b.n	0xa662 <_ZN7openers6Direct4stepEjfbh+62>
+   0x0000a694 <+112>:	f8cd 601a	str.w	r6, [sp, #26]
+   0x0000a698 <+116>:	f8ad 601e	strh.w	r6, [sp, #30]
+   0x0000a69c <+120>:	ae01    	add	r6, sp, #4
+   0x0000a69e <+122>:	4621    	mov	r1, r4
+   0x0000a6a0 <+124>:	4630    	mov	r0, r6
+   0x0000a6a2 <+126>:	4f11    	ldr	r7, [pc, #68]	@ (0xa6e8 <_ZN7openers6Direct4stepEjfbh+196>)
+   0x0000a6a4 <+128>:	47b8    	blx	r7
+   0x0000a6a6 <+130>:	e896 0007	ldmia.w	r6, {r0, r1, r2}
+   0x0000a6aa <+134>:	ab04    	add	r3, sp, #16
+   0x0000a6ac <+136>:	c303    	stmia	r3!, {r0, r1}
+   0x0000a6ae <+138>:	f89d 700c	ldrb.w	r7, [sp, #12]
+   0x0000a6b2 <+142>:	801a    	strh	r2, [r3, #0]
+   0x0000a6b4 <+144>:	2f02    	cmp	r7, #2
+   0x0000a6b6 <+146>:	ab04    	add	r3, sp, #16
+   0x0000a6b8 <+148>:	d10f    	bne.n	0xa6da <_ZN7openers6Direct4stepEjfbh+182>
+   0x0000a6ba <+150>:	2203    	movs	r2, #3
+   0x0000a6bc <+152>:	f884 2020	strb.w	r2, [r4, #32]
+   0x0000a6c0 <+156>:	f894 1020	ldrb.w	r1, [r4, #32]
+   0x0000a6c4 <+160>:	fab1 f281	clz	r2, r1
+   0x0000a6c8 <+164>:	f88d 101c	strb.w	r1, [sp, #28]
+   0x0000a6cc <+168>:	0952    	lsrs	r2, r2, #5
+   0x0000a6ce <+170>:	f884 2022	strb.w	r2, [r4, #34]	@ 0x22
+   0x0000a6d2 <+174>:	cb0f    	ldmia	r3, {r0, r1, r2, r3}
+   0x0000a6d4 <+176>:	e885 000f	stmia.w	r5, {r0, r1, r2, r3}
+   0x0000a6d8 <+180>:	e7ba    	b.n	0xa650 <_ZN7openers6Direct4stepEjfbh+44>
+   0x0000a6da <+182>:	2f04    	cmp	r7, #4
+   0x0000a6dc <+184>:	bf08    	it	eq
+   0x0000a6de <+186>:	f884 7020	strbeq.w	r7, [r4, #32]
+   0x0000a6e2 <+190>:	e7ed    	b.n	0xa6c0 <_ZN7openers6Direct4stepEjfbh+156>
+   0x0000a6e4 <+192>:	0000    	movs	r0, r0
+   0x0000a6e6 <+194>:	0000    	movs	r0, r0
+   0x0000a6e8 <+196>:	0000    	movs	r0, r0
+   0x0000a6ea <+198>:	0000    	movs	r0, r0
+End of assembler dump.

@@ -1,0 +1,101 @@
+--- a/src/core/edge.h
++++ b/src/core/edge.h
+@@ -231,6 +231,15 @@
+         std::uint32_t replans = 0U;
+         std::uint32_t push_start_us;
+     };
++    // Only the configured path owns active state; the other field is unused.
++    bool escapeActive() const {
++        if constexpr (config::EDGE_PUSH_THROUGH_MS == 0U) return zero_window_active_;
++        return episode_ == Episode::ESCAPING;
++    }
++    void setEscapeActive(bool active) {
++        if constexpr (config::EDGE_PUSH_THROUGH_MS == 0U) zero_window_active_ = active;
++        else episode_ = active ? Episode::ESCAPING : Episode::IDLE;
++    }
+     bool deferEscape(const EscapeSample& sample);
+     bool startRow(const EscapeSample& sample, bool replacement);
+     bool advanceRow(const EscapeSample& sample, std::uint8_t new_bits);
+@@ -248,5 +257,6 @@
+     motion::Direction pivot_direction_ = motion::Direction::RIGHT;
+     Episode episode_ = Episode::IDLE;
+     bool pushed_out_ = false;
++    bool zero_window_active_ = false;
+ };
+ } // namespace edge
+--- a/src/core/edge.cpp
++++ b/src/core/edge.cpp
+@@ -351,7 +351,7 @@
+     selected_mask_ = mask;
+     pushed_out_ = pushed;
+     pivot_direction_ = direction;
+-    episode_ = Episode::ESCAPING;
++    setEscapeActive(true);
+     if (replacement) ++episode_data_.replans;
+     return true;
+ }
+@@ -393,7 +393,7 @@
+     if (fault_ == EscapeFault::NONE) fault_ = fault;
+     if constexpr (config::EDGE_PUSH_THROUGH_MS > 0U)
+         if (episode_ != Episode::ESCAPING) episode_data_.replans = 0U;
+-    episode_ = Episode::ESCAPING;
++    setEscapeActive(true);
+     const bool timed_out = current_.turn_timed_out;
+     const bool changed = current_.phase != ScriptPhase::INVALID;
+     current_ = RowResult{};
+@@ -407,7 +407,7 @@
+     EscapeResult out;
+     out.row = !permitted && fault_ == EscapeFault::NONE ? RowResult{} : current_;
+     out.fault = fault_;
+-    out.escape_required = permitted && episode_ == Episode::ESCAPING;
++    out.escape_required = permitted && escapeActive();
+     out.inhibit_motion = !permitted || fault_ != EscapeFault::NONE;
+     if constexpr (config::EDGE_PUSH_THROUGH_MS > 0U)
+         out.replans = episode_ == Episode::ESCAPING ? episode_data_.replans : 0U;
+@@ -422,7 +422,7 @@
+     current_.phase_changed = false;
+     current_.turn_timed_out = false;
+     if (!sample.motion_permitted) {
+-        if (episode_ == Episode::ESCAPING && fault_ == EscapeFault::NONE)
++        if (escapeActive() && fault_ == EscapeFault::NONE)
+             latchFault(EscapeFault::PERMISSION_LOST);
+         if constexpr (config::EDGE_PUSH_THROUGH_MS > 0U)
+             if (episode_ == Episode::DEFERRED) episode_ = Episode::SPENT;
+@@ -437,11 +437,11 @@
+     }
+     const auto mask = static_cast<std::uint8_t>(sample.line_mask & 0x0FU);
+     const auto new_bits = static_cast<std::uint8_t>(mask & ~previous_mask_);
+-    const bool entered = episode_ != Episode::ESCAPING && mask != 0U;
++    const bool entered = !escapeActive() && mask != 0U;
+     bool replanned = false;
+     if (faultPattern(mask)) {
+         latchFault(EscapeFault::WHITE_PATTERN);
+-    } else if (episode_ != Episode::ESCAPING) {
++    } else if (!escapeActive()) {
+         current_ = RowResult{};
+         if constexpr (config::EDGE_PUSH_THROUGH_MS > 0U) {
+             EscapeSample selection = sample;
+@@ -455,10 +455,10 @@
+     if (sample.line_updated || entered) previous_mask_ = mask;
+     const GuardResult guarded = guard_.step(mask, true,
+         sample.line_updated && current_.phase == ScriptPhase::DONE);
+-    const bool exited = episode_ == Episode::ESCAPING && fault_ == EscapeFault::NONE &&
++    const bool exited = escapeActive() && fault_ == EscapeFault::NONE &&
+         !guarded.escape_required;
+     if (exited) {
+-        episode_ = Episode::IDLE;
++        setEscapeActive(false);
+         episode_data_.replans = 0U;
+     }
+     EscapeResult out = result(true);
+--- a/src/core/fsm_robot.cpp
++++ b/src/core/fsm_robot.cpp
+@@ -416,7 +416,7 @@
+     edge::EscapeSample sample{input.t_us, result_.line_mask,
+         result_.heading.heading_deg, result_.heading.imu_ok, tick_.permission,
+         tick_.observation.bearing.centered, tick_.applied_l, tick_.applied_r, side_.direction(),
+-        result_.heading.heading_updated, result_.line_updated};
++        result_.heading.heading_updated, result_.line_updated, false};
+     if constexpr (config::EDGE_PUSH_THROUGH_MS > 0U) {
+         const auto& bearing = tick_.observation.bearing;
+         const bool raw_fc = ((input.opp_raw_mask ^ config::OPP_ACTIVE_LOW_MASK) & 0x02U) != 0U;

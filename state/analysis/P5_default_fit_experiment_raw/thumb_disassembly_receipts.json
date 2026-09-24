@@ -1,0 +1,48 @@
+[
+  {
+    "label": "D128",
+    "argv": [
+      "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-gdb",
+      "-nx",
+      "-nh",
+      "-batch",
+      "/home/arduino/sumox26_codex_build/_app_builds/native-app-v1/43d167348faf519353ad3529154095101bab7ab8dd5dad80a69a0ff0a2869bc7/bench-default/fca06cbdfd124435af8b2c13eb609d0b/build/app.ino_debug.elf",
+      "-ex",
+      "set arm force-mode thumb",
+      "-ex",
+      "disassemble /r _ZN3fsm5Robot9runEscapeERKNS_10RobotInputE",
+      "-ex",
+      "disassemble /r _ZN3fsm5Robot4stepERKNS_10RobotInputE",
+      "-ex",
+      "disassemble /r _ZN4edge6Escape4stepERKNS_12EscapeSampleE",
+      "-ex",
+      "disassemble /r _ZNK4edge6Escape6resultEb"
+    ],
+    "returncode": 0,
+    "stderr": "",
+    "scope": "Correct forced Thumb decode of same hash-checked existing debug ELF; original autodetection output retained"
+  },
+  {
+    "label": "D134",
+    "argv": [
+      "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-gdb",
+      "-nx",
+      "-nh",
+      "-batch",
+      "/home/arduino/sumox26_codex_build/_app_builds/native-app-v1/c598cad1b740b6dabc67a5dce63448e9b4b4cd5d080b8370a163da6a0b61e564/bench-default/688cc7cf8a714bc5afe2411a975aa5fa/build/app.ino_debug.elf",
+      "-ex",
+      "set arm force-mode thumb",
+      "-ex",
+      "disassemble /r _ZN3fsm5Robot9runEscapeERKNS_10RobotInputEb",
+      "-ex",
+      "disassemble /r _ZN3fsm5Robot4stepERKNS_10RobotInputE",
+      "-ex",
+      "disassemble /r _ZN4edge6Escape4stepERKNS_12EscapeSampleE",
+      "-ex",
+      "disassemble /r _ZNK4edge6Escape6resultEb"
+    ],
+    "returncode": 0,
+    "stderr": "",
+    "scope": "Correct forced Thumb decode of same hash-checked existing debug ELF; original autodetection output retained"
+  }
+]

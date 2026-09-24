@@ -27,6 +27,9 @@ void Transaction::rememberStoppedCompletion() {
 }
 
 bool Transaction::resetStoppedRobotForService() {
+#if SUMOX_B4_STAND
+    return false;
+#else
     const auto phase = recorder_.phase();
     if (report_.phase != Phase::ACQUIRING || service_reset_used_ || stopped_completions_ < 2U ||
         gate_.fault() != motors::Fault::STOPPED || recorder_.summary().terminal_exhausted ||
@@ -38,5 +41,6 @@ bool Transaction::resetStoppedRobotForService() {
     service_reset_used_ = true;
     stopped_completions_ = 0U;
     return true;
+#endif
 }
 } // namespace app

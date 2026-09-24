@@ -1,0 +1,153 @@
+{
+  "started_at": "2026-09-24T01:17:09.872544+00:00",
+  "profile": "synthetic configured ADC only",
+  "copied_folders": [
+    "src",
+    "host",
+    "tests",
+    "bench/motor_stand",
+    "bench/recorder"
+  ],
+  "workspace": "/dev/shm/sumox_d120_configured",
+  "status": "PASS",
+  "hardware_actions": false,
+  "source_edits": [
+    "isolated src/config.h only"
+  ],
+  "frozen_tests_unchanged": true,
+  "original_unchanged": true,
+  "isolated_unchanged_after_overlay": true,
+  "oracle_matches_before_and_after": true,
+  "finished_at": "2026-09-24T01:18:02.997732+00:00",
+  "commands": [
+    {
+      "name": "normal_configure",
+      "argv": [
+        "cmake",
+        "-S",
+        "/dev/shm/sumox_d120_configured/source/host",
+        "-B",
+        "/dev/shm/sumox_d120_configured/normal",
+        "-DCMAKE_BUILD_TYPE=Debug",
+        "-DCMAKE_CXX_FLAGS=-DAPP_TEST_CONFIGURED_BUTTONS=1"
+      ],
+      "cwd": "/dev/shm/sumox_d120_configured",
+      "environment_overrides": {},
+      "started_at": "2026-09-24T01:17:09.878100+00:00",
+      "shell_display": "cmake -S /dev/shm/sumox_d120_configured/source/host -B /dev/shm/sumox_d120_configured/normal -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_FLAGS=-DAPP_TEST_CONFIGURED_BUTTONS=1",
+      "exit_code": 0,
+      "finished_at": "2026-09-24T01:17:11.633352+00:00"
+    },
+    {
+      "name": "normal_build",
+      "argv": [
+        "cmake",
+        "--build",
+        "/dev/shm/sumox_d120_configured/normal",
+        "--parallel",
+        "2",
+        "--target",
+        "stand_integration_m0_tests",
+        "stand_integration_m1_tests"
+      ],
+      "cwd": "/dev/shm/sumox_d120_configured",
+      "environment_overrides": {},
+      "started_at": "2026-09-24T01:17:11.637343+00:00",
+      "shell_display": "cmake --build /dev/shm/sumox_d120_configured/normal --parallel 2 --target stand_integration_m0_tests stand_integration_m1_tests",
+      "exit_code": 0,
+      "finished_at": "2026-09-24T01:17:26.212089+00:00"
+    },
+    {
+      "name": "normal_stand_integration_m0_tests",
+      "argv": [
+        "/dev/shm/sumox_d120_configured/normal/stand_integration_m0_tests"
+      ],
+      "cwd": "/dev/shm/sumox_d120_configured",
+      "environment_overrides": {},
+      "started_at": "2026-09-24T01:17:26.215850+00:00",
+      "shell_display": "/dev/shm/sumox_d120_configured/normal/stand_integration_m0_tests",
+      "exit_code": 0,
+      "finished_at": "2026-09-24T01:17:26.393722+00:00"
+    },
+    {
+      "name": "normal_stand_integration_m1_tests",
+      "argv": [
+        "/dev/shm/sumox_d120_configured/normal/stand_integration_m1_tests"
+      ],
+      "cwd": "/dev/shm/sumox_d120_configured",
+      "environment_overrides": {},
+      "started_at": "2026-09-24T01:17:26.404947+00:00",
+      "shell_display": "/dev/shm/sumox_d120_configured/normal/stand_integration_m1_tests",
+      "exit_code": 0,
+      "finished_at": "2026-09-24T01:17:26.588871+00:00"
+    },
+    {
+      "name": "sanitizer_configure",
+      "argv": [
+        "cmake",
+        "-S",
+        "/dev/shm/sumox_d120_configured/source/host",
+        "-B",
+        "/dev/shm/sumox_d120_configured/sanitizer",
+        "-DCMAKE_BUILD_TYPE=Debug",
+        "-DCMAKE_EXE_LINKER_FLAGS=-fsanitize=address,undefined -no-pie",
+        "-DCMAKE_CXX_FLAGS=-DAPP_TEST_CONFIGURED_BUTTONS=1 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie"
+      ],
+      "cwd": "/dev/shm/sumox_d120_configured",
+      "environment_overrides": {},
+      "started_at": "2026-09-24T01:17:26.601409+00:00",
+      "shell_display": "cmake -S /dev/shm/sumox_d120_configured/source/host -B /dev/shm/sumox_d120_configured/sanitizer -DCMAKE_BUILD_TYPE=Debug '-DCMAKE_EXE_LINKER_FLAGS=-fsanitize=address,undefined -no-pie' '-DCMAKE_CXX_FLAGS=-DAPP_TEST_CONFIGURED_BUTTONS=1 -fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie'",
+      "exit_code": 0,
+      "finished_at": "2026-09-24T01:17:28.293366+00:00"
+    },
+    {
+      "name": "sanitizer_build",
+      "argv": [
+        "cmake",
+        "--build",
+        "/dev/shm/sumox_d120_configured/sanitizer",
+        "--parallel",
+        "2",
+        "--target",
+        "stand_integration_m0_tests",
+        "stand_integration_m1_tests"
+      ],
+      "cwd": "/dev/shm/sumox_d120_configured",
+      "environment_overrides": {},
+      "started_at": "2026-09-24T01:17:28.296848+00:00",
+      "shell_display": "cmake --build /dev/shm/sumox_d120_configured/sanitizer --parallel 2 --target stand_integration_m0_tests stand_integration_m1_tests",
+      "exit_code": 0,
+      "finished_at": "2026-09-24T01:17:56.794372+00:00"
+    },
+    {
+      "name": "sanitizer_stand_integration_m0_tests",
+      "argv": [
+        "/dev/shm/sumox_d120_configured/sanitizer/stand_integration_m0_tests"
+      ],
+      "cwd": "/dev/shm/sumox_d120_configured",
+      "environment_overrides": {
+        "ASAN_OPTIONS": "detect_leaks=1:abort_on_error=1",
+        "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1"
+      },
+      "started_at": "2026-09-24T01:17:56.798198+00:00",
+      "shell_display": "/dev/shm/sumox_d120_configured/sanitizer/stand_integration_m0_tests",
+      "exit_code": 0,
+      "finished_at": "2026-09-24T01:17:58.497210+00:00"
+    },
+    {
+      "name": "sanitizer_stand_integration_m1_tests",
+      "argv": [
+        "/dev/shm/sumox_d120_configured/sanitizer/stand_integration_m1_tests"
+      ],
+      "cwd": "/dev/shm/sumox_d120_configured",
+      "environment_overrides": {
+        "ASAN_OPTIONS": "detect_leaks=1:abort_on_error=1",
+        "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1"
+      },
+      "started_at": "2026-09-24T01:17:58.506254+00:00",
+      "shell_display": "/dev/shm/sumox_d120_configured/sanitizer/stand_integration_m1_tests",
+      "exit_code": 0,
+      "finished_at": "2026-09-24T01:18:00.091006+00:00"
+    }
+  ]
+}

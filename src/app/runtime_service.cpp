@@ -131,6 +131,9 @@ void Runtime::serviceMode(std::uint32_t source_us) {
 }
 
 void Runtime::observeServiceReset() {
+#if SUMOX_B4_STAND
+    return;
+#else
     if (report_.phase != RuntimePhase::STOP_OBSERVING || report_.service_only) return;
     if (!serviceButtonsValid()) {
         reset_gesture_ = ResetGesture::DISARMED;
@@ -141,9 +144,13 @@ void Runtime::observeServiceReset() {
     if (value.level == core::ButtonLevel::NONE) serviceNone(value.completed_us);
     else if (value.level == core::ButtonLevel::MODE) serviceMode(value.completed_us);
     else reset_gesture_ = ResetGesture::DISARMED;
+#endif
 }
 
 bool Runtime::applyServiceReset() {
+#if SUMOX_B4_STAND
+    return true;
+#else
     if (!report_.service_reset_pending) return true;
     report_.service_reset_pending = false;
     reset_gesture_ = ResetGesture::DISARMED;
@@ -172,6 +179,7 @@ bool Runtime::applyServiceReset() {
     service_first_source_ = true;
     std::uint32_t now = 0U;
     return clock(now);
+#endif
 }
 
 void Runtime::checkServiceContinuity(std::uint32_t now_us) {

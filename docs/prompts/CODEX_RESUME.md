@@ -5,15 +5,17 @@
    docs/prompts/P2_hal_bench.md. Reload relevant HARDWARE/BEHAVIOR sections.
 2. Inspect Git status/diffs, nested instructions, tools and actual Asia/Dubai time.
    Preserve user work, credentials and historical evidence; never author a gate.
-3. D119 pure finite B4 sequence is implemented/host-tested/target-compiled and
-   reviewed. Read state/analysis/P2_stand_sequence_validation.md and its review.
-   Full normal/sanitizer 1,496 main + 187 Gate pass; exact default/M0 loadables remain
-   identical to D118. Do not repeat completed checks without a new reason. Resume
-   the actual B4 integration contract as the first unfinished task.
-4. D119 is not a directional motor controller yet. Subsequent integration needs
-   an explicit immutable B4 Robot profile, genuine full hold/source/edge/governor/
-   MotorGate/receipt path, true STOP and coast handling, independent tests and
-   target-fit evidence. Preserve default production and locked DRIVE_TEST behavior.
+3. D119/D120 directional B4 software is implemented/host-tested/target-compiled.
+   Read state/analysis/P2_stand_integration_validation.md and its separate review.
+   Normal/sanitizer all4targets pass; configured19-case M0/M1 fixtures also pass.
+   Default/M0 loadables remain identical to D118; separate inert bench profile
+   conditionally fits with13568byte loader free span. No new MCU action occurred.
+   Do not repeat completed checks without a new reason. New locked oracle4546df24
+   joins existing protected tests; default production/DRIVE_TEST remain unchanged.
+4. First remaining P2 dependency: explicitly reconcile B7 full reversal with R6
+   before dependent implementation. D051 permits engineering choices, not a claim
+   that a lower-duty test passed the original full-power physical criterion.
+   Continue only eligible P2 work; preserve all actual acceptance/gate blockers.
 5. Last actual MCU run is D118 e820c0e1/defaultM0, committed fbfb0f2e. Both upload
    and capture are consumed. Do not rerun/reset/restore under that scope. Its
    4500-byte retained free heap and513 us stored maximum are restricted observations,

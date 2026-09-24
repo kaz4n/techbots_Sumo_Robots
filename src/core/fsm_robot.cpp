@@ -42,6 +42,9 @@ bool validProfile(governor::Profile profile) {
     case governor::Profile::OPENER: case governor::Profile::ATTACK:
     case governor::Profile::EDGE_REVERSE: case governor::Profile::REFLANK_BACK:
     case governor::Profile::REFLANK_TURN: case governor::Profile::EDGE_FORWARD:
+#if SUMOX_B4_STAND
+    case governor::Profile::STAND:
+#endif
         return true;
     }
     return false;
@@ -56,6 +59,10 @@ std::uint16_t dutyBytes(float left, float right) {
 
 void clearActions(RobotResult& result) {
     result.fresh = false;
+#if SUMOX_B4_STAND
+    result.stand.fresh = false;
+    result.stand.phase_changed = false;
+#endif
     result.lifecycle.gate.start_release = false;
     result.lifecycle.gate.go = false;
     result.lifecycle.heading_reset_requested = false;
@@ -94,7 +101,9 @@ RobotResult Robot::step(const RobotInput& input) {
     runLifecycle(resolved);
     runEscape(resolved);
     routeMotion(resolved);
+#if !SUMOX_B4_STAND
     checkStall();
+#endif
     prepareFinalRequest();
     commitAndGovern(resolved);
     updateWarnings(resolved);
@@ -311,7 +320,11 @@ void Robot::runLifecycle(const RobotInput& input) {
         sample.gyro_sequence = input.imu.sequence;
     }
     result_.lifecycle = lifecycle_.stepObserved(sample, input.button, button_timing_, input.previous_bias_dps,
-                                        input.stop_requested || faults_ != 0U, allow_start);
+                                        input.stop_requested || faults_ != 0U
+#if SUMOX_B4_STAND
+                                        || stand_stopping_
+#endif
+                                        , allow_start);
     if (result_.lifecycle.gate.start_release) beginAttempt();
     const auto& services = result_.lifecycle.services;
     if (!calibration_reported_ &&
@@ -407,6 +420,9 @@ void Robot::cancelMotion() {
 }
 
 void Robot::routeMotion(const RobotInput& input) {
+#if SUMOX_B4_STAND
+    routeStand(input);
+#else
     if (!tick_.permission) {
         cancelMotion();
         return;
@@ -429,6 +445,7 @@ void Robot::routeMotion(const RobotInput& input) {
     if (reflank_active_) runReflank();
     else if (opener_active_) runOpener(input);
     else routeNormal(!normal_active_);
+#endif
 }
 
 void Robot::acceptMotion(const motion::Result& result, governor::Profile profile, bool brake) {
@@ -704,7 +721,11 @@ void Robot::prepareFinalRequest() {
         !validProfile(tick_.request.profile)) faults_ |= GOVERNOR_CONTRACT;
     if (faults_ != 0U) tick_.selected = core::State::STOPPED;
     tick_.request.inhibited = !tick_.permission || faults_ != 0U ||
-        !moving(tick_.selected) || result_.escape_fault != edge::EscapeFault::NONE;
+        !moving(tick_.selected) || result_.escape_fault != edge::EscapeFault::NONE
+#if SUMOX_B4_STAND
+        || stand_inhibited_
+#endif
+        ;
     if (tick_.forced_brake || tick_.request.inhibited) {
         tick_.request.duty_l = tick_.request.duty_r = 0.0F;
         tick_.request.brake = true;
@@ -897,6 +918,9 @@ void Robot::savePending(const RobotInput& input) {
 }
 
 void Robot::finish(const RobotInput& input) {
+#if SUMOX_B4_STAND
+    publishStand();
+#endif
     state_ = tick_.selected;
     result_.menu = menu_.stepObserved({input.t_us, input.button, tick_.entry,
         faults_ != 0U || state_ == core::State::STOPPED || result_.escape_fault != edge::EscapeFault::NONE,
@@ -930,6 +954,9 @@ RobotResult Robot::exhaust(const RobotInput& input) {
     result_.token = 0;
     result_.contract_faults = faults_;
     publishEvents();
+#if SUMOX_B4_STAND
+    publishStand();
+#endif
     result_.ticks = statistics_;
     result_.skipped_frames = skipped_frames_;
     result_.timing_incomplete = timing_incomplete_;

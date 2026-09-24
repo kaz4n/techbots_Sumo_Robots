@@ -58,6 +58,8 @@ Otherwise advance D119 once at the real current time. Natural COMPLETE inhibits
 on the same observation in OPENER and latches stand_stopping; the next distinct
 tick requests actual Lifecycle STOP. A sequence FAULT similarly inhibits at once,
 latches SCRIPT_RESULT and stand_stopping, and requests Lifecycle STOP next tick.
+Existing SCRIPT_RESULT finalization publishes ui_state STOPPED on that first
+fault observation; only natural COMPLETE retains OPENER until the next tick.
 No timed future call, forged timestamp, second lifecycle evaluation or patched
 MotorGate result is permitted. Logical STOP qualification occurs first, so STOP
 wins a simultaneous natural terminal. An edge on the natural final boundary
@@ -66,6 +68,8 @@ interrupts before advancement. Terminal reason stays immutable afterward.
 Duplicate Robot ticks retain cached values with all action pulses cleared.
 Expose the actual helper report and pending STOP flag in fresh results; do not
 turn a prior helper freshness pulse into a new one on escape/STOP observations.
+stand_stopping remains latched until Robot reset after completion/fault/escape
+exit; it need not be set for an earlier explicit STOP/source cancellation.
 Robot::reset reconstructs the same immutable build profile and normal BOOT/start
 sequence. D103 local service reset is unavailable in profile1: Transaction returns
 false without mutation; Runtime never publishes pending/fresh/service_only even

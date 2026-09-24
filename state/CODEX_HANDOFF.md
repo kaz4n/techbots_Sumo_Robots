@@ -16,16 +16,18 @@ The app remains loaded and may continue inhibited native ticks. Both run claims
 are consumed; no replay/reset/restore under that run. Last board observation is
 historical evidence, not an assertion that the present connection is unchanged.
 
-D119 (`bf2c4524`) adopts a pure finite B4 directional request sequence. Separate
-implementation/test contexts completed it: 18 new tests, full 1,496 main + 187 Gate pass
-in normal/sanitizer,12 private reviewer profiles and scoped review PASS. See
-[validation](analysis/P2_stand_sequence_validation.md) and the checklist. One
-Linux compile-only build 62e38204 produced exact unchanged D118 loadable bytes;
-no new MCU action. Resume the actual B4 integration contract next.
-It has no motor authority. Actual Robot/Runtime directional integration remains
-unfinished and must preserve real sources, full hold, edge priority, governor,
-MotorGate and receipts. P3 DRIVE_TEST stays unavailable. Existing B4 bench only
-covers setup/inhibition. Full B7 reversal still conflicts with R6.
+D119 (`1c387810`) implements the pure finite B4 sequence. D120 contract f4a300c5
+now integrates it through actual Robot/Runtime/Governor/MotorGate in a separate
+compiler-wide bench profile. See [validation](analysis/P2_stand_integration_validation.md):
+normal and ASan/UBSan all4targets pass; main1496, Gate187, new18cases eachM0/M1;
+configured synthetic-button overlay19cases eachM0/M1 normal/sanitizer. All54policy
+checks and9private profile probes pass. New locked safety oracle4546df24 stays fixed.
+Default sourceef1efc59 reproduces exact D118 ELF/ZSK/loader; motor_direction24fe6356
+compiles with M0 and empty grants, conditional loader free span13568. No MCU action.
+The full hold, sources, edge priority, final electrical cap/coast and receipts are
+retained; D103 service reset is unavailable in the stand profile. This software
+does not establish physical B4 acceptance. P3 DRIVE_TEST remains unavailable;
+full B7 reversal still conflicts with R6. Use the checklist for remaining P2 work.
 
 Native dump execution is blocked by UART-holder visibility and unproved clean
 cancel/reopen. Read [the exact follow-up](analysis/P2_native_dump_prerequisite_followup.md).
@@ -63,6 +65,9 @@ Observed Windows/PowerShell/WSL environment is recorded in analysis/environment.
 Fresh local 2026-09-24 checks: WSL Ubuntu g++13.3.0, CMake3.28.3, Python3.12.3.
 Windows Python3.13/Git2.52 observations are historical. C: has limited space;
 check it before artifacts/builds, use WSL /dev/shm for isolated builds where useful.
+WSL auto-shutdown can erase /dev/shm between invocations: archive results/build
+metadata in the same live invocation. D120 normal build/status output survived,
+but its later LastTest copy did not; full sanitizer LastTest was preserved.
 Use `git -c core.longpaths=true`. Intended firmware compilation remains board-side
 SSH with verified ADB fallback; actual prior runs used ADB serial2629958581.
 Exact installed toolchain/startup/loader identities are in FACTS and each checked

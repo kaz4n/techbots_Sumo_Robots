@@ -81,3 +81,25 @@ else()
     -Wall -Wextra -Wpedantic -Werror -fno-exceptions -fno-rtti)
 endif()
 add_test(NAME motor_gate_enabled_host COMMAND motor_gate_enabled_tests)
+
+# D120 has an immutable bench profile in every translation unit. Keep existing
+# targets/locked cases at profile0; dedicated .cc cases exercise the real Gate.
+get_target_property(B4_HOST_SOURCES motor_gate_enabled_tests SOURCES)
+list(FILTER B4_HOST_SOURCES EXCLUDE REGEX "/tests/")
+foreach(motors 0 1)
+  set(b4_target stand_integration_m${motors}_tests)
+  add_executable(${b4_target} ${B4_HOST_SOURCES}
+    "${CMAKE_CURRENT_SOURCE_DIR}/../tests/test_stand_integration.cc"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../tests/locked/test_stand_integration_safety.cc")
+  target_include_directories(${b4_target} PRIVATE ../src)
+  target_include_directories(${b4_target} SYSTEM PRIVATE third_party)
+  target_compile_definitions(${b4_target} PRIVATE
+    DOCTEST_CONFIG_NO_EXCEPTIONS SUMOX_B4_STAND=1 MOTORS_ALLOWED=${motors})
+  if(MSVC)
+    target_compile_options(${b4_target} PRIVATE /W4 /GR-)
+  else()
+    target_compile_options(${b4_target} PRIVATE
+      -Wall -Wextra -Wpedantic -Werror -fno-exceptions -fno-rtti)
+  endif()
+  add_test(NAME stand_integration_m${motors}_host COMMAND ${b4_target})
+endforeach()

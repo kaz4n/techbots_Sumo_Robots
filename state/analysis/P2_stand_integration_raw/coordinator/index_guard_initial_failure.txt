@@ -1,0 +1,10 @@
+2026-09-24T05:22:58+04:00, coordinator packaging check, exit1:
+python state/analysis/P2_stand_integration_raw/coordinator/finalize_evidence.py
+AssertionError: policy_repaired (before_sha256 == after_sha256)
+
+Inspection: no existing hash changed. During the independent policy-only run,
+the separate author created tests/test_stand_integration.cc and the new locked
+test_stand_integration_safety.cc. Neither was an input to those Python tests.
+The index guard was overbroad. It now still requires every original hash exact
+and admits only these two exact added paths in that policy run; all other runs
+must retain identical key sets. No source/test expectation or result was changed.

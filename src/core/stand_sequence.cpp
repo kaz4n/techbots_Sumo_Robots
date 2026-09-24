@@ -82,6 +82,14 @@ Report Sequence::step(std::uint32_t t_us, bool edge_required, bool stop_requeste
     return report_;
 }
 
+bool Sequence::interrupt(Reason reason) {
+    if ((reason != Reason::STOP && reason != Reason::EDGE) ||
+        !detail::isActive(report_.phase)) return false;
+    report_.fresh = true;
+    terminate(Phase::INTERRUPTED, reason);
+    return true;
+}
+
 void Sequence::selectSegment() {
     const detail::Segment& segment = detail::SEGMENTS[report_.segment];
     report_.phase = segment.phase;

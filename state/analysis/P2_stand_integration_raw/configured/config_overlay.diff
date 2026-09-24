@@ -1,0 +1,15 @@
+--- original/src/config.h
++++ isolated/src/config.h
+@@ -39,9 +39,9 @@
+ inline constexpr std::uint32_t BUTTON_INPUT_PIN = 15U; // A1 / PA5 / ADC1 channel10; D086, proposal only
+ // D087 raw-count windows remain unconfigured until a supported electrical profile.
+ // Order: NONE, START, MODE, BOTH. RAW/count names are explicit unit exceptions.
+-inline constexpr std::uint32_t BUTTON_WINDOWS_CONFIGURED = 0U;
+-inline constexpr std::uint32_t BUTTON_LOW_RAW[4] = {0U, 0U, 0U, 0U};
+-inline constexpr std::uint32_t BUTTON_HIGH_RAW[4] = {0U, 0U, 0U, 0U};
++inline constexpr std::uint32_t BUTTON_WINDOWS_CONFIGURED = 1U;
++inline constexpr std::uint32_t BUTTON_LOW_RAW[4] = {0U, 900U, 1900U, 2900U};
++inline constexpr std::uint32_t BUTTON_HIGH_RAW[4] = {100U, 1100U, 2100U, 3100U};
+ inline constexpr std::uint32_t BUTTON_SAMPLE_MAX_AGE_US = 5000U; // D087 development continuity/age limit
+ inline constexpr std::uint32_t UI_BENCH_SAMPLES = 128U; // D112 finite raw/decoder capture; count exception
+ inline constexpr float VBAT_ADC_REFERENCE_V = 3.3F; // nominal V

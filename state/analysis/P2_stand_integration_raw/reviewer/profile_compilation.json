@@ -1,0 +1,218 @@
+{
+  "start_utc": "2026-09-24T01:16:14.862444+00:00",
+  "end_utc": "2026-09-24T01:16:16.063044+00:00",
+  "source_sha256": {
+    "src/config.h": "4b9d186d52ff1cd298845f8b5449be04edf7002076709a1287519a73a63faae3",
+    "src/core/fsm.h": "22d185135f87ce993b97add940cc31746250b6a769f41aa8e2f962d9efde7159",
+    "src/core/governor.h": "f51aeaa2e43545cbc5d28589ead8f20cacc88664743d99591855667d0e4c6281",
+    "src/app/runtime.h": "c4bc1e97bc7c88521cf9a31b6a31e9e370ad371a54dfb95cdc98f96cb71717d0"
+  },
+  "cases": [
+    {
+      "name": "default",
+      "command": [
+        "g++",
+        "-std=c++17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Werror",
+        "-fno-exceptions",
+        "-fno-rtti",
+        "-fsyntax-only",
+        "-I",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/analysis/P2_stand_integration_raw/reviewer/profile_header_probe.cpp"
+      ],
+      "returncode": 0,
+      "expected_valid": true,
+      "expected_diagnostic": "",
+      "successful": true
+    },
+    {
+      "name": "explicit_default",
+      "command": [
+        "g++",
+        "-std=c++17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Werror",
+        "-fno-exceptions",
+        "-fno-rtti",
+        "-fsyntax-only",
+        "-I",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src",
+        "-DSUMOX_B4_STAND=0",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/analysis/P2_stand_integration_raw/reviewer/profile_header_probe.cpp"
+      ],
+      "returncode": 0,
+      "expected_valid": true,
+      "expected_diagnostic": "",
+      "successful": true
+    },
+    {
+      "name": "match_default",
+      "command": [
+        "g++",
+        "-std=c++17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Werror",
+        "-fno-exceptions",
+        "-fno-rtti",
+        "-fsyntax-only",
+        "-I",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src",
+        "-DMATCH=1",
+        "-DMOTORS_ALLOWED=1",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/analysis/P2_stand_integration_raw/reviewer/profile_header_probe.cpp"
+      ],
+      "returncode": 0,
+      "expected_valid": true,
+      "expected_diagnostic": "",
+      "successful": true
+    },
+    {
+      "name": "stand_m0",
+      "command": [
+        "g++",
+        "-std=c++17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Werror",
+        "-fno-exceptions",
+        "-fno-rtti",
+        "-fsyntax-only",
+        "-I",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src",
+        "-DSUMOX_B4_STAND=1",
+        "-DMOTORS_ALLOWED=0",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/analysis/P2_stand_integration_raw/reviewer/profile_header_probe.cpp"
+      ],
+      "returncode": 0,
+      "expected_valid": true,
+      "expected_diagnostic": "",
+      "successful": true
+    },
+    {
+      "name": "stand_m1_host",
+      "command": [
+        "g++",
+        "-std=c++17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Werror",
+        "-fno-exceptions",
+        "-fno-rtti",
+        "-fsyntax-only",
+        "-I",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src",
+        "-DSUMOX_B4_STAND=1",
+        "-DMOTORS_ALLOWED=1",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/analysis/P2_stand_integration_raw/reviewer/profile_header_probe.cpp"
+      ],
+      "returncode": 0,
+      "expected_valid": true,
+      "expected_diagnostic": "",
+      "successful": true
+    },
+    {
+      "name": "invalid_negative",
+      "command": [
+        "g++",
+        "-std=c++17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Werror",
+        "-fno-exceptions",
+        "-fno-rtti",
+        "-fsyntax-only",
+        "-I",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src",
+        "-DSUMOX_B4_STAND=-1",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/analysis/P2_stand_integration_raw/reviewer/profile_header_probe.cpp"
+      ],
+      "returncode": 1,
+      "expected_valid": false,
+      "expected_diagnostic": "SUMOX_B4_STAND must be 0 or 1",
+      "successful": true
+    },
+    {
+      "name": "invalid_two",
+      "command": [
+        "g++",
+        "-std=c++17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Werror",
+        "-fno-exceptions",
+        "-fno-rtti",
+        "-fsyntax-only",
+        "-I",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src",
+        "-DSUMOX_B4_STAND=2",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/analysis/P2_stand_integration_raw/reviewer/profile_header_probe.cpp"
+      ],
+      "returncode": 1,
+      "expected_valid": false,
+      "expected_diagnostic": "SUMOX_B4_STAND must be 0 or 1",
+      "successful": true
+    },
+    {
+      "name": "stand_match_m0",
+      "command": [
+        "g++",
+        "-std=c++17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Werror",
+        "-fno-exceptions",
+        "-fno-rtti",
+        "-fsyntax-only",
+        "-I",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src",
+        "-DSUMOX_B4_STAND=1",
+        "-DMATCH=1",
+        "-DMOTORS_ALLOWED=0",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/analysis/P2_stand_integration_raw/reviewer/profile_header_probe.cpp"
+      ],
+      "returncode": 1,
+      "expected_valid": false,
+      "expected_diagnostic": "not a MATCH build",
+      "successful": true
+    },
+    {
+      "name": "stand_match_m1",
+      "command": [
+        "g++",
+        "-std=c++17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Werror",
+        "-fno-exceptions",
+        "-fno-rtti",
+        "-fsyntax-only",
+        "-I",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src",
+        "-DSUMOX_B4_STAND=1",
+        "-DMATCH=1",
+        "-DMOTORS_ALLOWED=1",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/analysis/P2_stand_integration_raw/reviewer/profile_header_probe.cpp"
+      ],
+      "returncode": 1,
+      "expected_valid": false,
+      "expected_diagnostic": "not a MATCH build",
+      "successful": true
+    }
+  ],
+  "successful": true,
+  "scope": "Header compilation only; no public-test/source changes, board action, or powered execution."
+}

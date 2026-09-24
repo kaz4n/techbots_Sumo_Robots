@@ -27,6 +27,9 @@ bool profileCap(const Request& request, float& cap) {
     case Profile::EDGE_FORWARD: cap = config::EDGE_BACK_DUTY; break;
     case Profile::REFLANK_BACK: cap = config::REFLANK_BACK_DUTY; break;
     case Profile::REFLANK_TURN: cap = config::TURN_DUTY; break;
+#if SUMOX_B4_STAND
+    case Profile::STAND: cap = config::STAND_DUTY; break;
+#endif
     default: return false;
     }
     cap = std::clamp(cap, 0.0F, 1.0F);

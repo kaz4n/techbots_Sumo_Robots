@@ -9,30 +9,39 @@ Historical snapshots are preserved in Git (`fbfb0f2e`), not current instructions
 | P0 | Tooling/source checks and inert board diagnostics recorded | Physical/pin/electrical acceptance; human gate |
 | P1 | Reviewed core; meaningful host/property/locked tests | Human EXPLAINED OK and GATE P1 PASS |
 | P2 B1/B2/B3/B5 | Native drivers and named opponent/QTR/IMU/power benches implemented, host-tested, target-compiled/reviewed | Actual polarity/ranges/colors/cadence/drift/voltage measurements |
-| P2 B6 | ADC/decoder/menu/matrix software; D114 captured 128 raw samples captured | Actual A1 circuit/windows/BOTH and UI acceptance; raw floating ADC is not a button test |
-| P2 B4 | MotorGate/native boundary and D115 setup/inhibit bench | D119 finite sequence below, then actual directional Robot/Runtime integration; physical stand trial later |
+| P2 B6 | ADC/decoder/menu/matrix software; D114 captured128raw samples | Actual A1 circuit/windows/BOTH and UI acceptance; raw floating ADC is not a button test |
+| P2 B4 | D115 inhibition plus D119/D120 finite directional actual Robot/Runtime/Gate profile; host/sanitizer/target checks | Physical source/pin qualification and separately authorized stand trial |
 | P2 B7 | Existing inhibition/receipt safety, no full reversal evidence | B7 full reverse/R6 conflict and specific future powered run |
 | P2 B8 / 2.3 / 2.4 | Recorder, app dump, calibration output, D116 full synthetic transport, D117 FIFO host/target checks | Native ownership/framing/delivery and actual physical acceptance |
 | P2 2.1 / 2.2 | Runtime integration; D118 actual default/M0 load, sampled progress and retained heap | Full live-source five-minute timing/stack/RAM; existing restricted run is not complete WCET |
 | P2 2.5 / gate | No physical acceptance claimed | Assembled weight/footprint, B1-B8 measured results, review and human GATE P2 PASS |
 | P3-P7 | Not passed; original schedule/scope intact | Required gates and real physical evidence; do not simulate |
 
-## D119 - current bounded implementation
+## D119/D120 - completed directional software
 
-Pure sequence complete; next task is real B4 integration below. Contract/public header/config adoption: `bf2c4524`,
-[contract](analysis/P2_stand_sequence_contract.md).
+Pure sequence completed in1c387810; integration contract/public adoptionf4a300c5.
+[Integration validation](analysis/P2_stand_integration_validation.md) records exact
+commands, original harness failures, source hashes and all target/evidence limits.
 
 - [x] Identify real directional B4 gap; keep DRIVE_TEST/locked defaults unchanged.
 - [x] Adopt pure twelve-row request sequence and explicit 500 ms / 0.25 nominal defaults.
 - [x] Freeze independent executable expectations before first implementation execution (amended oracle5e03938c; original retained).
 - [x] Implement and pass independent 18-case normal/sanitizer, full 1,496 main + 187 Gate normal/sanitizer,12 reviewer profiles and config checks.
 - [x] Separate source/host review PASS; exact checked default/M0 loadables match D118. See [validation](analysis/P2_stand_sequence_validation.md); final commit records this software/evidence.
-- [ ] Adopt real Robot/Runtime integration, preserving full hold/source/edge/governor/Gate/receipt behavior; check target fit before acceptance.
+- [x] Actual conditional Robot/Runtime integration retains full hold/source/edge/governor/Gate/receipt behavior and one-run STOP/coast handling.
+- [x] All4normal/sanitizer host targets; configured A1 fixture19cases eachM0/M1 in both profiles;54tooling methods and9private profile probes.
+- [x] Checked default/M0 app bytes unchanged; dedicated inert motor_direction compiles and conditionally fits with13568bytes free span.
 
-The helper never energizes motors and is not a completed directional controller.
-A recorded validation extension performed Linux compile-only and artifact checks; no upload, MCU operation or UART action. First registry launch failed
-because noncanonical Python imports created a second unpatched module; canonical
-imports then passed unchanged tests. Original output retained in D119 raw evidence.
+Software verification is distinct from physical direction, brake/coast, PWM and
+kill-latency acceptance. No upload, MCU operation or UART action occurred in D120.
+No motor-capable checked build/run route was enabled; original locked tests stay
+unchanged, and new D120 locked oracle4546df24 is now established.
+
+First unfinished dependency: reconcile B7 full-forward/full-reverse with R6 before
+dependent software or a powered trial; retain original failure/acceptance criteria
+unless explicitly superseded under the delegated engineering authority. Remaining
+physical/gate dependencies above are not assumed successful. Native UART work
+still needs its exact external prerequisites below.
 
 ## Board and blockers
 

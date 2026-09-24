@@ -2,7 +2,7 @@
 
 1. Read AGENTS.md fully, state/CODEX_HANDOFF.md, CODEX_EXECUTION.md, recent
    PROGRESS.md, DECISIONS.md, FACTS.md, TUNING_LOG.md, open findings/reviews and
-   docs/prompts/P2_hal_bench.md. Reload relevant HARDWARE/BEHAVIOR sections.
+   docs/prompts/P3_first_drive.md. Reload relevant HARDWARE/BEHAVIOR sections.
 2. Inspect Git status/diffs, nested instructions, tools and actual Asia/Dubai time.
    Preserve user work, credentials and historical evidence; never author a gate.
 3. D119/D120 directional B4 software is implemented/host-tested/target-compiled.
@@ -15,9 +15,10 @@
 4. D120 software/evidence is committed1c2389c9. Read the D121 consolidated packet
    state/analysis/P2_software_acceptance_packet.md and its fresh readiness review.
    B7 remains unaccepted under preserved R6/original full-power criterion; a lower
-   duty sequence is not a substitute. Resume only a supported review finding or
-   newly supplied physical/native prerequisite. No additional functional P2 task
-   is established; do not repeat solved checks or start P3 through missing gates.
+   duty sequence is not a substitute. D122 records the user's newer instruction
+   to assume physical acceptance and continue software: P3 software is now active.
+   Implement DRIVE_TEST while preserving unmeasured hardware/gate status; do not
+   repeat solved P2 checks or treat scheduling authorization as motor permission.
 5. Last actual MCU run is D118 e820c0e1/defaultM0, committed fbfb0f2e. Both upload
    and capture are consumed. Do not rerun/reset/restore under that scope. Its
    4500-byte retained free heap and513 us stored maximum are restricted observations,

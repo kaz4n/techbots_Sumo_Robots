@@ -1,6 +1,8 @@
 # Codex handoff - 2026-09-24 Asia/Dubai
 
-Current phase is **P2 software under D051/D075**. No human phase gate has passed.
+Current phase is **P3 software under D122**. The user explicitly directed assumed
+physical acceptance and continued development. This advances software scheduling;
+unmeasured physical results and actual human gate records remain pending.
 Read [CODEX_EXECUTION.md](CODEX_EXECUTION.md) for the current compact checklist;
 [PROGRESS.md](PROGRESS.md) is the append-only phase/task history. This replaces
 accumulated historical resume snapshots, retained in Git at `fbfb0f2e` and earlier.
@@ -26,16 +28,16 @@ Default sourceef1efc59 reproduces exact D118 ELF/ZSK/loader; motor_direction24fe
 compiles with M0 and empty grants, conditional loader free span13568. No MCU action.
 The full hold, sources, edge priority, final electrical cap/coast and receipts are
 retained; D103 service reset is unavailable in the stand profile. This software
-does not establish physical B4 acceptance. P3 DRIVE_TEST remains unavailable;
+does not establish physical B4 acceptance. P3 DRIVE_TEST is the next software task;
 full B7 reversal still conflicts with R6. D120 is committed as1c2389c9 with scoped
 review PASS. D121 leaves B7 unaccepted and preserves the original criterion/R6.
 Use [the consolidated packet](analysis/P2_software_acceptance_packet.md) and its
-fresh readiness review for remaining physical/external acceptance. Do not repeat
-completed tests or invent another controller/helper when no eligible P2 task exists.
+fresh readiness review for remaining physical/external acceptance. D122 supersedes
+the D121 stop on P3 scheduling; implement DRIVE_TEST without repeating completed P2 work.
 The fresh D121 review passes the limited software/evidence characterization but
 fails full P2 acceptance with P2-ACCEPT-1..5. This session made implementation and
-checkpoint progress; the goal is not complete. Resume at a genuine new prerequisite
-or review finding; do not manufacture progress through repeated blocker audits.
+checkpoint progress; the goal is not complete. Resume P3_first_drive.md software
+under D122; do not manufacture measurements or repeat blocker audits.
 
 Native dump execution is blocked by UART-holder visibility and unproved clean
 cancel/reopen. Read [the exact follow-up](analysis/P2_native_dump_prerequisite_followup.md).

@@ -225,3 +225,7 @@ provenance. Local hashes never prove hardware origin or a common attempt.
 D-075 records the explicit user request to advance P2 HAL software despite
 untested hardware. Host tests and compile-only checks may proceed before human
 acceptance; physical facts/gates and motor-run permission remain unprovided.
+
+D-122 records the user's later instruction to assume physical acceptance and
+continue: P3 software may proceed before measured P2 acceptance. This supersedes
+the earlier scheduling stop only; it does not create measurements or motor-run permission.

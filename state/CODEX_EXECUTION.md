@@ -1,6 +1,8 @@
 # Current execution checklist - 2026-09-24 Asia/Dubai
 
-**P2 software active.** D051/D075 authorize this work before physical acceptance;
+**P3 software active under D122.** The user's assumed physical acceptance permits
+software scheduling only; missing physical results remain unmeasured. D051/D075
+and D122 authorize software work before physical acceptance;
 PROGRESS.md owns append-only phase/gate history. No human phase gate passed.
 Historical snapshots are preserved in Git (`fbfb0f2e`), not current instructions.
 
@@ -15,7 +17,8 @@ Historical snapshots are preserved in Git (`fbfb0f2e`), not current instructions
 | P2 B8 / 2.3 / 2.4 | Recorder, app dump, calibration output, D116 full synthetic transport, D117 FIFO host/target checks | Native ownership/framing/delivery and actual physical acceptance |
 | P2 2.1 / 2.2 | Runtime integration; D118 actual default/M0 load, sampled progress and retained heap | Full live-source five-minute timing/stack/RAM; existing restricted run is not complete WCET |
 | P2 2.5 / gate | No physical acceptance claimed | Assembled weight/footprint, B1-B8 measured results, review and human GATE P2 PASS |
-| P3-P7 | Not passed; original schedule/scope intact | Required gates and real physical evidence; do not simulate |
+| P3 | SOFTWARE-ACTIVE / ASSUMED-PHYSICAL prerequisite under D122 | Implement and independently verify DRIVE_TEST; original 3.1-3.7 measurements remain pending |
+| P4-P7 | Not passed; original schedule/scope intact | Later software scheduling and real physical evidence; do not simulate |
 
 ## D119/D120 - completed directional software
 
@@ -45,7 +48,8 @@ separate readiness review: scoped PASS/no new software finding, full P2 FAIL
 with P2-ACCEPT-1..5 open. No further functional P2 software task is currently
 established by those requirements. First eligible next action is a supported
 review finding or new physical/native prerequisite, not a repeated build/probe.
-Physical/gate dependencies are not assumed successful; P3 remains ineligible.
+Historical D121 scheduling stop is superseded by D122's explicit user instruction.
+Physical/gate evidence stays pending; proceed with P3 software now.
 
 ## Board and blockers
 

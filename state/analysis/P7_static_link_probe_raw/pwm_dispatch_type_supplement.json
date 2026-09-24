@@ -1,0 +1,291 @@
+{
+  "utc": "2026-09-24T22:44:42.237420+00:00",
+  "status": "PWM_SET_GET_DIRECT_ABI_AND_SLOT_COMPARISON_CONFIRMED_FROM_FILES_D150_BATCH_STILL_FAILED",
+  "scope": "Local current-app DWARF typedef expansion plus retained D150 sections; no board retry",
+  "inputs_before": {
+    "state/analysis/P7_static_tls_raw/observed/app.ino_debug.elf": "0f7f2825329466e06f15144f07a5188435ac309aa1a3aff71a1a9f1be87a27bd",
+    "state/analysis/P7_static_link_probe_raw/native_api/0003.json": "5b2c1c1ce1292d3b70306d8acd08dde486e3fb2caaea8c63313c6191af716793",
+    "state/analysis/P7_static_link_probe_raw/pwm_dispatch_audit.json": "51509dc19ea48c063a69294c2721ee3532d2b31870c9a4d1c528eee8110a56be",
+    "state/analysis/P7_default_qualification_raw/working_source_manifest.json": "c106c0fb8baaf0a6f2536558da0084bd7d236c4ee8e77a4110b60107ad073391"
+  },
+  "inputs_after": {
+    "state/analysis/P7_static_tls_raw/observed/app.ino_debug.elf": "0f7f2825329466e06f15144f07a5188435ac309aa1a3aff71a1a9f1be87a27bd",
+    "state/analysis/P7_static_link_probe_raw/native_api/0003.json": "5b2c1c1ce1292d3b70306d8acd08dde486e3fb2caaea8c63313c6191af716793",
+    "state/analysis/P7_static_link_probe_raw/pwm_dispatch_audit.json": "51509dc19ea48c063a69294c2721ee3532d2b31870c9a4d1c528eee8110a56be",
+    "state/analysis/P7_default_qualification_raw/working_source_manifest.json": "c106c0fb8baaf0a6f2536558da0084bd7d236c4ee8e77a4110b60107ad073391"
+  },
+  "source_manifest": "state/analysis/P7_default_qualification_raw/working_source_manifest.json",
+  "source_files_checked": 103,
+  "source_match_before_and_after": true,
+  "source_digest": "fcddbd8ef5ba4c92a2080b03e9343ac78c2406b13d9514793aa147e02f0d1da2",
+  "tool_before": {
+    "/usr/bin/readelf": "64c58e15274bbbb5153f31078e455e9e77ee5f51489e709bba5bb788ce9df2b0"
+  },
+  "tool_after": {
+    "/usr/bin/readelf": "64c58e15274bbbb5153f31078e455e9e77ee5f51489e709bba5bb788ce9df2b0"
+  },
+  "command": {
+    "argv": [
+      "/usr/bin/readelf",
+      "--debug-dump=info",
+      "state/analysis/P7_static_tls_raw/observed/app.ino_debug.elf"
+    ],
+    "returncode": 0,
+    "stderr": "",
+    "stdout_bytes": 24275067,
+    "stdout_sha256": "a52e4208390db3427dedfb3eec18292dacf47ab9e585d17953f5fdc5536acd70",
+    "retention": "Full DWARF text remained in memory; only selected typedef/type DIE records retained."
+  },
+  "typedef_roots": {
+    "pwm_set_cycles_t": [
+      "bb3a3"
+    ],
+    "pwm_get_cycles_per_sec_t": [
+      "bb3d8"
+    ],
+    "pwm_flags_t": [
+      "bb351"
+    ]
+  },
+  "selected_type_DIEs": {
+    "bb3a3": {
+      "depth": 1,
+      "tag": "DW_TAG_typedef",
+      "raw": " <1><bb3a3>: Abbrev Number: 20 (DW_TAG_typedef)\n    <bb3a4>   DW_AT_name        : (indirect string, offset: 0x137e2): pwm_set_cycles_t\n    <bb3a8>   DW_AT_decl_file   : 10\n    <bb3a9>   DW_AT_decl_line   : 495\n    <bb3ab>   DW_AT_decl_column : 15\n    <bb3ac>   DW_AT_type        : <0xbb3b0>"
+    },
+    "bb3b0": {
+      "depth": 1,
+      "tag": "DW_TAG_pointer_type",
+      "raw": " <1><bb3b0>: Abbrev Number: 7 (DW_TAG_pointer_type)\n    <bb3b1>   DW_AT_byte_size   : 4\n    <bb3b1>   DW_AT_type        : <0xbb3b5>"
+    },
+    "bb3b5": {
+      "depth": 1,
+      "tag": "DW_TAG_subroutine_type",
+      "raw": " <1><bb3b5>: Abbrev Number: 26 (DW_TAG_subroutine_type)\n    <bb3b6>   DW_AT_type        : <0xb70ad>\n    <bb3ba>   DW_AT_sibling     : <0xbb3d8>"
+    },
+    "b70ad": {
+      "depth": 1,
+      "tag": "DW_TAG_base_type",
+      "raw": " <1><b70ad>: Abbrev Number: 115 (DW_TAG_base_type)\n    <b70ae>   DW_AT_byte_size   : 4\n    <b70af>   DW_AT_encoding    : 5\t(signed)\n    <b70b0>   DW_AT_name        : int"
+    },
+    "bb3be": {
+      "depth": 2,
+      "tag": "DW_TAG_formal_parameter",
+      "raw": " <2><bb3be>: Abbrev Number: 1 (DW_TAG_formal_parameter)\n    <bb3bf>   DW_AT_type        : <0xbabd9>"
+    },
+    "babd9": {
+      "depth": 1,
+      "tag": "DW_TAG_pointer_type",
+      "raw": " <1><babd9>: Abbrev Number: 7 (DW_TAG_pointer_type)\n    <babda>   DW_AT_byte_size   : 4\n    <babda>   DW_AT_type        : <0xbabd4>"
+    },
+    "babd4": {
+      "depth": 1,
+      "tag": "DW_TAG_const_type",
+      "raw": " <1><babd4>: Abbrev Number: 11 (DW_TAG_const_type)\n    <babd5>   DW_AT_type        : <0xbab55>"
+    },
+    "bab55": {
+      "depth": 1,
+      "tag": "DW_TAG_structure_type",
+      "raw": " <1><bab55>: Abbrev Number: 44 (DW_TAG_structure_type)\n    <bab56>   DW_AT_name        : (indirect string, offset: 0x1737c): device\n    <bab5a>   DW_AT_byte_size   : 36\n    <bab5b>   DW_AT_decl_file   : 48\n    <bab5c>   DW_AT_decl_line   : 513\n    <bab5e>   DW_AT_decl_column : 8\n    <bab5f>   DW_AT_sibling     : <0xbabd4>"
+    },
+    "bb3c3": {
+      "depth": 2,
+      "tag": "DW_TAG_formal_parameter",
+      "raw": " <2><bb3c3>: Abbrev Number: 1 (DW_TAG_formal_parameter)\n    <bb3c4>   DW_AT_type        : <0xb71dc>"
+    },
+    "b71dc": {
+      "depth": 1,
+      "tag": "DW_TAG_typedef",
+      "raw": " <1><b71dc>: Abbrev Number: 10 (DW_TAG_typedef)\n    <b71dd>   DW_AT_name        : (indirect string, offset: 0x5c0b): uint32_t\n    <b71e1>   DW_AT_decl_file   : 13\n    <b71e2>   DW_AT_decl_line   : 46\n    <b71e3>   DW_AT_decl_column : 20\n    <b71e4>   DW_AT_type        : <0xb70b9>"
+    },
+    "b70b9": {
+      "depth": 1,
+      "tag": "DW_TAG_typedef",
+      "raw": " <1><b70b9>: Abbrev Number: 10 (DW_TAG_typedef)\n    <b70ba>   DW_AT_name        : (indirect string, offset: 0x5c09): __uint32_t\n    <b70be>   DW_AT_decl_file   : 12\n    <b70bf>   DW_AT_decl_line   : 233\n    <b70c0>   DW_AT_decl_column : 25\n    <b70c1>   DW_AT_type        : <0xb7049>"
+    },
+    "b7049": {
+      "depth": 1,
+      "tag": "DW_TAG_base_type",
+      "raw": " <1><b7049>: Abbrev Number: 19 (DW_TAG_base_type)\n    <b704a>   DW_AT_byte_size   : 4\n    <b704b>   DW_AT_encoding    : 7\t(unsigned)\n    <b704c>   DW_AT_name        : (indirect string, offset: 0x9e9f): unsigned int"
+    },
+    "bb3c8": {
+      "depth": 2,
+      "tag": "DW_TAG_formal_parameter",
+      "raw": " <2><bb3c8>: Abbrev Number: 1 (DW_TAG_formal_parameter)\n    <bb3c9>   DW_AT_type        : <0xb71dc>"
+    },
+    "bb3cd": {
+      "depth": 2,
+      "tag": "DW_TAG_formal_parameter",
+      "raw": " <2><bb3cd>: Abbrev Number: 1 (DW_TAG_formal_parameter)\n    <bb3ce>   DW_AT_type        : <0xb71dc>"
+    },
+    "bb3d2": {
+      "depth": 2,
+      "tag": "DW_TAG_formal_parameter",
+      "raw": " <2><bb3d2>: Abbrev Number: 1 (DW_TAG_formal_parameter)\n    <bb3d3>   DW_AT_type        : <0xbb351>"
+    },
+    "bb351": {
+      "depth": 1,
+      "tag": "DW_TAG_typedef",
+      "raw": " <1><bb351>: Abbrev Number: 10 (DW_TAG_typedef)\n    <bb352>   DW_AT_name        : (indirect string, offset: 0x136f5): pwm_flags_t\n    <bb356>   DW_AT_decl_file   : 10\n    <bb357>   DW_AT_decl_line   : 116\n    <bb358>   DW_AT_decl_column : 18\n    <bb359>   DW_AT_type        : <0xb71c4>"
+    },
+    "b71c4": {
+      "depth": 1,
+      "tag": "DW_TAG_typedef",
+      "raw": " <1><b71c4>: Abbrev Number: 10 (DW_TAG_typedef)\n    <b71c5>   DW_AT_name        : (indirect string, offset: 0xa79b): uint16_t\n    <b71c9>   DW_AT_decl_file   : 13\n    <b71ca>   DW_AT_decl_line   : 34\n    <b71cb>   DW_AT_decl_column : 20\n    <b71cc>   DW_AT_type        : <0xb708e>"
+    },
+    "b708e": {
+      "depth": 1,
+      "tag": "DW_TAG_typedef",
+      "raw": " <1><b708e>: Abbrev Number: 10 (DW_TAG_typedef)\n    <b708f>   DW_AT_name        : (indirect string, offset: 0xa799): __uint16_t\n    <b7093>   DW_AT_decl_file   : 12\n    <b7094>   DW_AT_decl_line   : 224\n    <b7095>   DW_AT_decl_column : 25\n    <b7096>   DW_AT_type        : <0xb709a>"
+    },
+    "b709a": {
+      "depth": 1,
+      "tag": "DW_TAG_base_type",
+      "raw": " <1><b709a>: Abbrev Number: 19 (DW_TAG_base_type)\n    <b709b>   DW_AT_byte_size   : 2\n    <b709c>   DW_AT_encoding    : 7\t(unsigned)\n    <b709d>   DW_AT_name        : (indirect string, offset: 0x7a5e): short unsigned int"
+    },
+    "bb3d8": {
+      "depth": 1,
+      "tag": "DW_TAG_typedef",
+      "raw": " <1><bb3d8>: Abbrev Number: 20 (DW_TAG_typedef)\n    <bb3d9>   DW_AT_name        : (indirect string, offset: 0x1355e): pwm_get_cycles_per_sec_t\n    <bb3dd>   DW_AT_decl_file   : 10\n    <bb3de>   DW_AT_decl_line   : 503\n    <bb3e0>   DW_AT_decl_column : 15\n    <bb3e1>   DW_AT_type        : <0xbb3e5>"
+    },
+    "bb3e5": {
+      "depth": 1,
+      "tag": "DW_TAG_pointer_type",
+      "raw": " <1><bb3e5>: Abbrev Number: 7 (DW_TAG_pointer_type)\n    <bb3e6>   DW_AT_byte_size   : 4\n    <bb3e6>   DW_AT_type        : <0xbb3ea>"
+    },
+    "bb3ea": {
+      "depth": 1,
+      "tag": "DW_TAG_subroutine_type",
+      "raw": " <1><bb3ea>: Abbrev Number: 26 (DW_TAG_subroutine_type)\n    <bb3eb>   DW_AT_type        : <0xb70ad>\n    <bb3ef>   DW_AT_sibling     : <0xbb403>"
+    },
+    "bb3f3": {
+      "depth": 2,
+      "tag": "DW_TAG_formal_parameter",
+      "raw": " <2><bb3f3>: Abbrev Number: 1 (DW_TAG_formal_parameter)\n    <bb3f4>   DW_AT_type        : <0xbabd9>"
+    },
+    "bb3f8": {
+      "depth": 2,
+      "tag": "DW_TAG_formal_parameter",
+      "raw": " <2><bb3f8>: Abbrev Number: 1 (DW_TAG_formal_parameter)\n    <bb3f9>   DW_AT_type        : <0xb71dc>"
+    },
+    "bb3fd": {
+      "depth": 2,
+      "tag": "DW_TAG_formal_parameter",
+      "raw": " <2><bb3fd>: Abbrev Number: 1 (DW_TAG_formal_parameter)\n    <bb3fe>   DW_AT_type        : <0xbb403>"
+    },
+    "bb403": {
+      "depth": 1,
+      "tag": "DW_TAG_pointer_type",
+      "raw": " <1><bb403>: Abbrev Number: 7 (DW_TAG_pointer_type)\n    <bb404>   DW_AT_byte_size   : 4\n    <bb404>   DW_AT_type        : <0xb71fe>"
+    },
+    "b71fe": {
+      "depth": 1,
+      "tag": "DW_TAG_typedef",
+      "raw": " <1><b71fe>: Abbrev Number: 10 (DW_TAG_typedef)\n    <b71ff>   DW_AT_name        : (indirect string, offset: 0xf1f): uint64_t\n    <b7203>   DW_AT_decl_file   : 13\n    <b7204>   DW_AT_decl_line   : 58\n    <b7205>   DW_AT_decl_column : 20\n    <b7206>   DW_AT_type        : <0xb70dd>"
+    },
+    "b70dd": {
+      "depth": 1,
+      "tag": "DW_TAG_typedef",
+      "raw": " <1><b70dd>: Abbrev Number: 10 (DW_TAG_typedef)\n    <b70de>   DW_AT_name        : (indirect string, offset: 0xf1d): __uint64_t\n    <b70e2>   DW_AT_decl_file   : 12\n    <b70e3>   DW_AT_decl_line   : 242\n    <b70e4>   DW_AT_decl_column : 25\n    <b70e5>   DW_AT_type        : <0xb7042>"
+    },
+    "b7042": {
+      "depth": 1,
+      "tag": "DW_TAG_base_type",
+      "raw": " <1><b7042>: Abbrev Number: 19 (DW_TAG_base_type)\n    <b7043>   DW_AT_byte_size   : 8\n    <b7044>   DW_AT_encoding    : 7\t(unsigned)\n    <b7045>   DW_AT_name        : (indirect string, offset: 0x9e95): long long unsigned int"
+    }
+  },
+  "D150": {
+    "overall_status": "FAILED: retain original batch failure, not promoted to PASS",
+    "command_returncode": 0,
+    "stderr": "No function contains specified address.\n",
+    "numbered_query_markers": 50,
+    "nonempty_numbered_sections": 49,
+    "selected_sections": {
+      "D150_APP_00": "/* offset      |    size */  type = struct device {\n/*      0      |       4 */    const char *name;\n/*      4      |       4 */    const void *config;\n/*      8      |       4 */    const void *api;\n/*     12      |       4 */    device_state *state;\n/*     16      |       4 */    void *data;\n/*     20      |       8 */    struct device_ops {\n/*     20      |       4 */        int (*init)(const device *);\n/*     24      |       4 */        int (*deinit)(const device *);\n\n                                   /* total size (bytes):    8 */\n                               } ops;\n/*     28      |       1 */    device_flags_t flags;\n/* XXX  3-byte hole      */\n/*     32      |       4 */    const device_handle_t *deps;\n\n                               /* total size (bytes):   36 */\n                             }",
+      "D150_APP_01": "/* offset      |    size */  type = struct device_ops {\n/*      0      |       4 */    int (*init)(const device *);\n/*      4      |       4 */    int (*deinit)(const device *);\n\n                               /* total size (bytes):    8 */\n                             }",
+      "D150_APP_03": "/* offset      |    size */  type = struct pwm_driver_api {\n/*      0      |       4 */    pwm_set_cycles_t set_cycles;\n/*      4      |       4 */    pwm_get_cycles_per_sec_t get_cycles_per_sec;\n\n                               /* total size (bytes):    8 */\n                             }",
+      "D150_APP_06": "type = unsigned short",
+      "D150_LOADER_00": "/* offset      |    size */  type = struct device {\n/*      0      |       4 */    const char *name;\n/*      4      |       4 */    const void *config;\n/*      8      |       4 */    const void *api;\n/*     12      |       4 */    device_state *state;\n/*     16      |       4 */    void *data;\n/*     20      |       8 */    struct device_ops {\n/*     20      |       4 */        int (*init)(const device *);\n/*     24      |       4 */        int (*deinit)(const device *);\n\n                                   /* total size (bytes):    8 */\n                               } ops;\n/*     28      |       1 */    device_flags_t flags;\n/* XXX  3-byte hole      */\n/*     32      |       4 */    const device_handle_t *deps;\n\n                               /* total size (bytes):   36 */\n                             }",
+      "D150_LOADER_01": "/* offset      |    size */  type = struct device_ops {\n/*      0      |       4 */    int (*init)(const device *);\n/*      4      |       4 */    int (*deinit)(const device *);\n\n                               /* total size (bytes):    8 */\n                             }",
+      "D150_LOADER_03": "/* offset      |    size */  type = struct pwm_driver_api {\n/*      0      |       4 */    pwm_set_cycles_t set_cycles;\n/*      4      |       4 */    pwm_get_cycles_per_sec_t get_cycles_per_sec;\n\n                               /* total size (bytes):    8 */\n                             }",
+      "D150_LOADER_06": "type = unsigned short",
+      "D150_LOADER_17": "$15 = {name = 0x802409b, config = 0x801e6c8, api = 0x801c720, state = 0x20001100, data = 0x200002cc, ops = {init = 0x800e1c5, deinit = 0x0}, flags = 0x1, deps = 0x801c46c}",
+      "D150_LOADER_18": "$16 = {name = 0x802409b, config = 0x801e5f8, api = 0x801c720, state = 0x200010fc, data = 0x200002b4, ops = {init = 0x800e1c5, deinit = 0x0}, flags = 0x1, deps = 0x801c480}",
+      "D150_LOADER_19": "$17 = {name = 0x802409b, config = 0x801e598, api = 0x801c720, state = 0x200010fa, data = 0x200002a8, ops = {init = 0x800e1c5, deinit = 0x0}, flags = 0x1, deps = 0x801c48a}",
+      "D150_LOADER_23": "$21 = {set_cycles = 0x800de4d, get_cycles_per_sec = 0x80196d7}",
+      "D150_LOADER_25": "type = int (const device *, uint32_t, uint32_t, uint32_t, pwm_flags_t)",
+      "D150_LOADER_26": "type = int (const device *, uint32_t, uint64_t *)",
+      "D150_LOADER_27": "type = int (const device *)",
+      "D150_LOADER_28": "type = void * const",
+      "D150_LOADER_32": ""
+    },
+    "equal_app_loader_sections": [
+      [
+        "device",
+        "D150_APP_00",
+        "D150_LOADER_00"
+      ],
+      [
+        "device_ops",
+        "D150_APP_01",
+        "D150_LOADER_01"
+      ],
+      [
+        "pwm_driver_api",
+        "D150_APP_03",
+        "D150_LOADER_03"
+      ],
+      [
+        "pwm_flags_t",
+        "D150_APP_06",
+        "D150_LOADER_06"
+      ]
+    ]
+  },
+  "interpreted_app_typedefs": {
+    "pwm_set_cycles_t": {
+      "typedef_DIE": "0xbb3a3",
+      "subroutine_DIE": "0xbb3b5",
+      "declared_prototype": "int (*)(const device *, uint32_t, uint32_t, uint32_t, pwm_flags_t)",
+      "expanded_prototype": "int (*)(const device *, unsigned int, unsigned int, unsigned int, unsigned short)",
+      "return_signed_bytes": 4,
+      "parameter_scalar_bytes": [
+        null,
+        4,
+        4,
+        4,
+        2
+      ],
+      "pointer_bytes": 4,
+      "matches_loader_function_section": "D150_LOADER_25"
+    },
+    "pwm_get_cycles_per_sec_t": {
+      "typedef_DIE": "0xbb3d8",
+      "subroutine_DIE": "0xbb3ea",
+      "declared_prototype": "int (*)(const device *, uint32_t, uint64_t *)",
+      "expanded_prototype": "int (*)(const device *, unsigned int, unsigned long long *)",
+      "return_signed_bytes": 4,
+      "channel_unsigned_bytes": 4,
+      "output_pointee_unsigned_bytes": 8,
+      "pointer_bytes": 4,
+      "matches_loader_function_section": "D150_LOADER_26"
+    },
+    "pwm_flags_t": {
+      "typedef_DIE": "0xbb351",
+      "chain": [
+        "pwm_flags_t",
+        "uint16_t",
+        "__uint16_t",
+        "short unsigned int"
+      ],
+      "unsigned_bytes": 2,
+      "matches_D150_both_ELF_result": "unsigned short"
+    }
+  },
+  "closed_scoped_claim": "Both app slot offsets and the expanded app function-pointer argument/return types agree with retained D150 native PWM target prototypes; device.api+8 and device.ops.init+20 layouts agree.",
+  "still_separate": [
+    "D150 overall FAILED result is preserved; useful sections are independently interpreted only.",
+    "Actual native z_impl_device_init dispatcher body is owned by the coordinator/RCC audit; this supplement does not reinterpret its empty failed section as successful disassembly.",
+    "Native initialization success, peripheral state, runtime ownership, live timing, motor authorization, static production adoption and physical/human gates remain unproved."
+  ]
+}

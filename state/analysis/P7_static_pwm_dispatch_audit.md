@@ -120,3 +120,59 @@ object; speculative reset type names are unnecessary for this interimage ABI
 closure. The current status is deliberately pending that exact formal check,
 not a full-reference, static-runtime, peripheral/timing, physical or human-gate
 acceptance.
+
+## D150 supplement: PWM types and direct slots resolved from files
+
+The later [D150 command receipt](P7_static_link_probe_raw/native_api/0003.json)
+supplies 49 useful numbered sections out of 50. **D150's complete batch remains
+FAILED**: the `z_impl_device_init` name query returned `void * const`, its
+disassembly section is empty, and stderr says `No function contains specified
+address.` A zero GDB exit code does not override those failed acceptance checks.
+The original command receipt and original PWM audit JSON are unchanged.
+
+This supplement independently interprets the useful PWM sections and supersedes
+the preceding pending formal PWM-type items only. The
+[new compact supplement](P7_static_link_probe_raw/pwm_dispatch_type_supplement.json)
+retains their exact text and the current app's selected DWARF type records.
+No board retry or new binary copy occurred. One local `readelf --debug-dump=info`
+command returned zero with empty stderr; its full text remained in memory.
+The selected 29 type records, command/output hash, tool hash, 103 source-file
+checks and before/after input hashes are retained.
+
+App and loader sections 00/01/03/06 agree exactly for these queried types:
+
+| Type or member | File-derived result |
+|---|---|
+| `device` | 36 bytes; `api` at +8; `ops.init` at +20; `ops.deinit` at +24 |
+| `device_ops` | 8 bytes; `init` at +0 and `deinit` at +4, both `int (*)(const device *)` |
+| `pwm_driver_api` | 8 bytes; `set_cycles` at +0 and `get_cycles_per_sec` at +4 |
+| `pwm_flags_t` | `unsigned short` in both queried ELFs; current-app DWARF confirms two unsigned bytes |
+
+The PWM API structure print names typedefs rather than expanding them. The
+current debug ELF resolves those remaining chains directly:
+
+- `pwm_set_cycles_t`, DIE `0xbb3a3`, points through `0xbb3b0` to subroutine
+  `0xbb3b5`: `int (*)(const device *, uint32_t, uint32_t, uint32_t, pwm_flags_t)`.
+  Return `int` is signed four bytes; the three `uint32_t` arguments expand to
+  unsigned four-byte integers; flags expand through `uint16_t` to unsigned
+  two-byte short. The function pointer and device pointer are four bytes.
+- `pwm_get_cycles_per_sec_t`, DIE `0xbb3d8`, points through `0xbb3e5` to
+  subroutine `0xbb3ea`: `int (*)(const device *, uint32_t, uint64_t *)`.
+  The output pointee expands to unsigned eight-byte `long long`; return,
+  channel and pointer widths agree with the setter's corresponding types.
+
+These argument/return types agree with the native function prototypes in
+`D150_LOADER_25` and `D150_LOADER_26`. The now-confirmed API offsets match the
+actual getter call at `0x08110d18` and setter call at `0x08110fc0` recorded above.
+Loader sections 17-19 and 23 independently repeat the same three PWM devices,
+shared API `0x0801c720`, setter `0x0800de4d`, getter `0x080196d7`, deferred flag1
+and init target `0x0800e1c5`. Section27 gives that PWM init function the prototype
+`int (const device *)`, matching `device_ops.init`.
+
+Thus the specific application-to-native PWM set/get slot and argument-type
+comparison is confirmed for these files. The coordinator's separate retained
+native-init-body analysis owns the actual `z_impl_device_init` dispatcher chain;
+this supplement does not turn D150's empty disassembly section into evidence.
+Native initialization success, physical outputs, clock accuracy, timing,
+ownership, whole-program reference completeness, static production adoption,
+motor-run authorization and human gates remain separate.

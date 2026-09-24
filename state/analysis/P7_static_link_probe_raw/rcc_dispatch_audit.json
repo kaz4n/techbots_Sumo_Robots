@@ -1,0 +1,1444 @@
+{
+  "schema": "sumox26-scoped-static-rcc-uart-dispatch-audit-v1",
+  "created_utc": "2026-09-24T22:43:22.952414+00:00",
+  "completed_utc": "2026-09-24T22:44:41.403848+00:00",
+  "scope": "local retained-file analysis only; no board/build/install/reset/upload or new binary copies",
+  "result": "PASS_SCOPED_RCC_CALL_AND_COMMON_TYPE_MATCH; UART_HELPER_TO_OPS_INIT_IDENTIFIED; GAP_DEVICE_INIT_ENTRY_WRAPPER_INSTRUCTIONS",
+  "reported_source_digest": "fcddbd8ef5ba4c92a2080b03e9343ac78c2406b13d9514793aa147e02f0d1da2",
+  "inputs_before": {
+    "state/analysis/P7_static_tls_raw/observed/app.ino_debug.elf": {
+      "sha256": "0f7f2825329466e06f15144f07a5188435ac309aa1a3aff71a1a9f1be87a27bd",
+      "bytes": 1764708
+    },
+    "state/analysis/P7_static_link_probe_raw/diagnosis-v1/app.ino.elf": {
+      "sha256": "5cc2dfdec597f1421d6250936569bc113542723c362786f23be62834b5ba0386",
+      "bytes": 170616
+    },
+    "state/analysis/P7_static_tls_raw/observed/app.ino.map": {
+      "sha256": "15da1417d5a7f781195d86ba1554dd449e4e14548dde1ea8052e8da78cd16806",
+      "bytes": 666298
+    },
+    "state/analysis/P7_static_link_research_raw/syms-static.ld": {
+      "sha256": "f4f05a8a411196fad575360a1b6cc9f5f10a337864548e7387fb8580c4092d62",
+      "bytes": 40501
+    },
+    "state/analysis/P7_default_qualification_raw/working_source_manifest.json": {
+      "sha256": "c106c0fb8baaf0a6f2536558da0084bd7d236c4ee8e77a4110b60107ad073391",
+      "bytes": 15628
+    },
+    "state/analysis/P7_static_link_probe_raw/gpio_dispatch_audit.json": {
+      "sha256": "1d7c807431bea9bf594add7a188ee632dad2656633878e0c847830af0bfcb2ab",
+      "bytes": 64521
+    },
+    "state/analysis/P2_adc_native_raw/installed_source_03.json": {
+      "sha256": "526d69da07d2ddb5a1c0b5fc9c2c88863a20f7c6459313ed50a1e9bc998c63a2",
+      "bytes": 133028
+    },
+    "state/analysis/P2_adc_native_raw/installed_source_04.json": {
+      "sha256": "c9158bca8a31ec24d9a87b041745326d6b3902155a0a6f7c2d252788267f3b3f",
+      "bytes": 11445
+    },
+    "state/analysis/P2_adc_native_raw/query_installed_03.py": {
+      "sha256": "8a268f1856728021cbcfd13359503ab4bd84c9ae0424fe639cd31cb284024b5c",
+      "bytes": 2253
+    },
+    "state/analysis/P2_adc_native_raw/query_installed_04.py": {
+      "sha256": "39ca5fe9306802b70e941f981937e638bf87547a83ef18bcce27720bbd021399",
+      "bytes": 841
+    },
+    "state/analysis/P2_adc_native_raw/clock_stm32_ll_u5.c": {
+      "sha256": "ae2a361260bda1c543824d45c7b7bd0b6124590047cd82e0cb9163cb4a84b1cd",
+      "bytes": 28846
+    },
+    "state/analysis/P2_adc_native_raw/downloads.json": {
+      "sha256": "539512662f0e3c2cb9b648426073e097db3f2319ab9be91a358c0f9c5afdcf5a",
+      "bytes": 1305
+    },
+    "state/analysis/P2_dump_raw/native/offline_gdb.txt": {
+      "sha256": "086f48a01aba7ce6244f35d1c08a99425d77d3b2388bd4cb21c2bddc261f0b6f",
+      "bytes": 2451
+    },
+    "state/analysis/P2_dump_raw/native/uart_stm32_init.txt": {
+      "sha256": "02f8ca8661aafccf8a08e53f235d761d2430bec58657b99045508a88a04b0231",
+      "bytes": 9303
+    },
+    "state/analysis/P2_dump_raw/native/uart_identity_receipt.json": {
+      "sha256": "2420ab241fb09f3dc54adffeb7f955750217b01a24ac6d81b49fd1fe1106e2ef",
+      "bytes": 28773
+    },
+    "state/analysis/P2_dump_raw/native/native_receipt.json": {
+      "sha256": "9f92630b2bdc89840bc3fda4b9e583e4de65de486665ee0bdee8502e7128e444",
+      "bytes": 3629
+    }
+  },
+  "inputs_after": {
+    "state/analysis/P7_static_tls_raw/observed/app.ino_debug.elf": {
+      "sha256": "0f7f2825329466e06f15144f07a5188435ac309aa1a3aff71a1a9f1be87a27bd",
+      "bytes": 1764708
+    },
+    "state/analysis/P7_static_link_probe_raw/diagnosis-v1/app.ino.elf": {
+      "sha256": "5cc2dfdec597f1421d6250936569bc113542723c362786f23be62834b5ba0386",
+      "bytes": 170616
+    },
+    "state/analysis/P7_static_tls_raw/observed/app.ino.map": {
+      "sha256": "15da1417d5a7f781195d86ba1554dd449e4e14548dde1ea8052e8da78cd16806",
+      "bytes": 666298
+    },
+    "state/analysis/P7_static_link_research_raw/syms-static.ld": {
+      "sha256": "f4f05a8a411196fad575360a1b6cc9f5f10a337864548e7387fb8580c4092d62",
+      "bytes": 40501
+    },
+    "state/analysis/P7_default_qualification_raw/working_source_manifest.json": {
+      "sha256": "c106c0fb8baaf0a6f2536558da0084bd7d236c4ee8e77a4110b60107ad073391",
+      "bytes": 15628
+    },
+    "state/analysis/P7_static_link_probe_raw/gpio_dispatch_audit.json": {
+      "sha256": "1d7c807431bea9bf594add7a188ee632dad2656633878e0c847830af0bfcb2ab",
+      "bytes": 64521
+    },
+    "state/analysis/P2_adc_native_raw/installed_source_03.json": {
+      "sha256": "526d69da07d2ddb5a1c0b5fc9c2c88863a20f7c6459313ed50a1e9bc998c63a2",
+      "bytes": 133028
+    },
+    "state/analysis/P2_adc_native_raw/installed_source_04.json": {
+      "sha256": "c9158bca8a31ec24d9a87b041745326d6b3902155a0a6f7c2d252788267f3b3f",
+      "bytes": 11445
+    },
+    "state/analysis/P2_adc_native_raw/query_installed_03.py": {
+      "sha256": "8a268f1856728021cbcfd13359503ab4bd84c9ae0424fe639cd31cb284024b5c",
+      "bytes": 2253
+    },
+    "state/analysis/P2_adc_native_raw/query_installed_04.py": {
+      "sha256": "39ca5fe9306802b70e941f981937e638bf87547a83ef18bcce27720bbd021399",
+      "bytes": 841
+    },
+    "state/analysis/P2_adc_native_raw/clock_stm32_ll_u5.c": {
+      "sha256": "ae2a361260bda1c543824d45c7b7bd0b6124590047cd82e0cb9163cb4a84b1cd",
+      "bytes": 28846
+    },
+    "state/analysis/P2_adc_native_raw/downloads.json": {
+      "sha256": "539512662f0e3c2cb9b648426073e097db3f2319ab9be91a358c0f9c5afdcf5a",
+      "bytes": 1305
+    },
+    "state/analysis/P2_dump_raw/native/offline_gdb.txt": {
+      "sha256": "086f48a01aba7ce6244f35d1c08a99425d77d3b2388bd4cb21c2bddc261f0b6f",
+      "bytes": 2451
+    },
+    "state/analysis/P2_dump_raw/native/uart_stm32_init.txt": {
+      "sha256": "02f8ca8661aafccf8a08e53f235d761d2430bec58657b99045508a88a04b0231",
+      "bytes": 9303
+    },
+    "state/analysis/P2_dump_raw/native/uart_identity_receipt.json": {
+      "sha256": "2420ab241fb09f3dc54adffeb7f955750217b01a24ac6d81b49fd1fe1106e2ef",
+      "bytes": 28773
+    },
+    "state/analysis/P2_dump_raw/native/native_receipt.json": {
+      "sha256": "9f92630b2bdc89840bc3fda4b9e583e4de65de486665ee0bdee8502e7128e444",
+      "bytes": 3629
+    }
+  },
+  "tools_before": {
+    "/usr/bin/arm-none-eabi-objdump": {
+      "resolved": "/usr/bin/arm-none-eabi-objdump",
+      "sha256": "d8e94d502fd80248334d739b3e4705369897381a69b12dc7c8cf01eadecb7d32"
+    },
+    "/usr/bin/readelf": {
+      "resolved": "/usr/bin/x86_64-linux-gnu-readelf",
+      "sha256": "64c58e15274bbbb5153f31078e455e9e77ee5f51489e709bba5bb788ce9df2b0"
+    },
+    "/usr/bin/python3": {
+      "resolved": "/usr/bin/python3.12",
+      "sha256": "e50d468e8b0adfb05733f5b87b3cff34829c4a8c1aea50c865aa8bdfe4bb150f"
+    }
+  },
+  "tools_after": {
+    "/usr/bin/arm-none-eabi-objdump": {
+      "resolved": "/usr/bin/arm-none-eabi-objdump",
+      "sha256": "d8e94d502fd80248334d739b3e4705369897381a69b12dc7c8cf01eadecb7d32"
+    },
+    "/usr/bin/readelf": {
+      "resolved": "/usr/bin/x86_64-linux-gnu-readelf",
+      "sha256": "64c58e15274bbbb5153f31078e455e9e77ee5f51489e709bba5bb788ce9df2b0"
+    },
+    "/usr/bin/python3": {
+      "resolved": "/usr/bin/python3.12",
+      "sha256": "e50d468e8b0adfb05733f5b87b3cff34829c4a8c1aea50c865aa8bdfe4bb150f"
+    }
+  },
+  "python_version": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "source_before": {
+    "count": 103,
+    "mismatches": []
+  },
+  "source_after": {
+    "count": 103,
+    "mismatches": []
+  },
+  "focused_current_sources": {
+    "src/hal/power.cpp": {
+      "sha256": "eae110a771708f9f9f8a7890d943693427c60cc6f0cb083f23a129c516937599",
+      "bytes": 23632
+    },
+    "src/hal/imu_bus_unoq.cpp": {
+      "sha256": "48ab37f899805c8ed99003ca8bc36bd74b3138969c0c430fcd4db832653f468e",
+      "bytes": 25366
+    },
+    "src/hal/dump_uart_unoq.cpp": {
+      "sha256": "fdd3df0bff64a510a1333dd906f0aa0a1031214caf1bca0c00508ab7507b27fe",
+      "bytes": 17505
+    },
+    "src/app/app.ino": {
+      "sha256": "bf80c961c22b5cee89beaaca2c6d2a413af13d9b7e466d267b04752dbbebfa35",
+      "bytes": 829
+    },
+    "src/app/runtime.cpp": {
+      "sha256": "5c10dda3eb1b2f071c7da7b8965520c8b99447d51e1f8590579e4dbc2bc75015",
+      "bytes": 14005
+    },
+    "src/app/runtime_dump.cpp": {
+      "sha256": "aedd9c81b39e524cbdda00dc0d4be7614001935b6d6001d3071c7a47b913d4df",
+      "bytes": 2735
+    },
+    "src/app/runtime.h": {
+      "sha256": "b25246026fa46415979039ab3c54399c5fdf659ff9f47df293ea459d3e2fde03",
+      "bytes": 9819
+    }
+  },
+  "source_excerpts": [
+    {
+      "path": "src/hal/power.cpp",
+      "ranges": [
+        [
+          198,
+          207
+        ]
+      ],
+      "lines": [
+        [
+          198,
+          "bool enableClock() {"
+        ],
+        [
+          199,
+          "    const auto* rcc = DEVICE_DT_GET(DT_NODELABEL(rcc));"
+        ],
+        [
+          200,
+          "    const auto* api = static_cast<const clock_control_driver_api*>(rcc->api);"
+        ],
+        [
+          201,
+          "    if (api->on == nullptr) return false;"
+        ],
+        [
+          202,
+          "    stm32_pclken clock{};"
+        ],
+        [
+          203,
+          "    clock.bus = DT_CLOCKS_CELL_BY_IDX(DT_NODELABEL(adc1), 0, bus);"
+        ],
+        [
+          204,
+          "    clock.enr = DT_CLOCKS_CELL_BY_IDX(DT_NODELABEL(adc1), 0, bits);"
+        ],
+        [
+          205,
+          "    // Installed STM32 on() only enables this bus bit and reads it back; no wait."
+        ],
+        [
+          206,
+          "    return api->on(rcc, &clock) == 0 &&"
+        ],
+        [
+          207,
+          "           (RCC_NS->AHB2ENR1 & RCC_AHB2ENR1_ADC12EN) != 0U;"
+        ]
+      ]
+    },
+    {
+      "path": "src/hal/imu_bus_unoq.cpp",
+      "ranges": [
+        [
+          143,
+          150
+        ]
+      ],
+      "lines": [
+        [
+          143,
+          "bool enableClock() {"
+        ],
+        [
+          144,
+          "    const auto* rcc = DEVICE_DT_GET(DT_NODELABEL(rcc));"
+        ],
+        [
+          145,
+          "    const auto* api = static_cast<const clock_control_driver_api*>(rcc->api);"
+        ],
+        [
+          146,
+          "    if (api->on == nullptr) return false;"
+        ],
+        [
+          147,
+          "    stm32_pclken clock{};"
+        ],
+        [
+          148,
+          "    clock.bus = DT_CLOCKS_CELL_BY_IDX(IMU_BUS_NODE, 0, bus);"
+        ],
+        [
+          149,
+          "    clock.enr = DT_CLOCKS_CELL_BY_IDX(IMU_BUS_NODE, 0, bits);"
+        ],
+        [
+          150,
+          "    return api->on(rcc, &clock) == 0 && (RCC_NS->APB1ENR2 & RCC_APB1ENR2_I2C4EN) != 0U;"
+        ]
+      ]
+    },
+    {
+      "path": "src/hal/dump_uart_unoq.cpp",
+      "ranges": [
+        [
+          138,
+          169
+        ]
+      ],
+      "lines": [
+        [
+          138,
+          "NativeStatus UnoQDumpPort::begin(const SetupGrant& grant) {"
+        ],
+        [
+          139,
+          "    if (attempted_ || poisoned_) { abort(); return status_; }"
+        ],
+        [
+          140,
+          "    attempted_ = true;"
+        ],
+        [
+          141,
+          "    if (buffering_ != Buffering::LEGACY_SINGLE && buffering_ != Buffering::FIFO8)"
+        ],
+        [
+          142,
+          "        return status_ = NativeStatus::INVALID_ARGUMENT;"
+        ],
+        [
+          143,
+          "    if (!grant.setup_phase || !grant.exclusive_uart || !grant.ready_pin_owned ||"
+        ],
+        [
+          144,
+          "        !grant.framing_clean) return status_ = NativeStatus::OWNERSHIP;"
+        ],
+        [
+          145,
+          "    if (!threadContext()) return status_ = NativeStatus::CONTEXT;"
+        ],
+        [
+          146,
+          "    if (uart_owner != nullptr) return status_ = NativeStatus::OWNERSHIP;"
+        ],
+        [
+          147,
+          "    if (!metadata() || !device_is_ready(ready_pad.port) ||"
+        ],
+        [
+          148,
+          "        !device_is_ready(DEVICE_DT_GET(DT_NODELABEL(rcc))))"
+        ],
+        [
+          149,
+          "        return status_ = NativeStatus::DEVICE;"
+        ],
+        [
+          150,
+          "    if (uartDevice()->state->initialized || uartDevice()->state->init_res != 0U ||"
+        ],
+        [
+          151,
+          "        !irqIdle()) return status_ = NativeStatus::OWNERSHIP;"
+        ],
+        [
+          152,
+          "    uart_owner = this; // Never released, including failed initialization."
+        ],
+        [
+          153,
+          "    if (gpio_pin_configure_dt(&ready_pad, GPIO_INPUT | GPIO_PULL_DOWN) != 0)"
+        ],
+        [
+          154,
+          "        return status_ = NativeStatus::READY_ERROR;"
+        ],
+        [
+          155,
+          "    // Verified unbounded TEACK/REACK waits live ONLY here, in explicit setup."
+        ],
+        [
+          156,
+          "    if (device_init(uartDevice()) != 0 || !device_is_ready(uartDevice()))"
+        ],
+        [
+          157,
+          "        return status_ = NativeStatus::DEVICE;"
+        ],
+        [
+          158,
+          "    const InterruptMask mask;"
+        ],
+        [
+          159,
+          "    if (!threadContext() || !metadata() || !clocksAvailable() || !nominalClock() ||"
+        ],
+        [
+          160,
+          "        NVIC_GetActive(LPUART1_IRQn) != 0U || NVIC_GetPendingIRQ(LPUART1_IRQn) != 0U)"
+        ],
+        [
+          161,
+          "        return status_ = NativeStatus::OWNERSHIP;"
+        ],
+        [
+          162,
+          "    if (LPUART1_NS->CR1 != (TX_MODE | USART_CR1_RE) || LPUART1_NS->CR2 != 0U ||"
+        ],
+        [
+          163,
+          "        LPUART1_NS->CR3 != 0U || LPUART1_NS->PRESC != 0U ||"
+        ],
+        [
+          164,
+          "        LPUART1_NS->BRR != 355556U ||"
+        ],
+        [
+          165,
+          "        (buffering_ == Buffering::FIFO8 && LPUART1_NS->AUTOCR != 0U))"
+        ],
+        [
+          166,
+          "        return status_ = NativeStatus::REGISTER;"
+        ],
+        [
+          167,
+          "    NVIC_DisableIRQ(LPUART1_IRQn);"
+        ],
+        [
+          168,
+          "    NVIC_ClearPendingIRQ(LPUART1_IRQn);"
+        ],
+        [
+          169,
+          "    if (buffering_ == Buffering::FIFO8) return status_ = beginFifo();"
+        ]
+      ]
+    },
+    {
+      "path": "src/app/app.ino",
+      "ranges": [
+        [
+          18,
+          21
+        ]
+      ],
+      "lines": [
+        [
+          18,
+          "void setup() {"
+        ],
+        [
+          19,
+          "    // Physical grants are intentionally unconfirmed, never inferred from a build."
+        ],
+        [
+          20,
+          "    runtime.begin(app::SetupGrants{});"
+        ],
+        [
+          21,
+          "}"
+        ]
+      ]
+    },
+    {
+      "path": "src/app/runtime.cpp",
+      "ranges": [
+        [
+          50,
+          71
+        ]
+      ],
+      "lines": [
+        [
+          50,
+          "bool Runtime::initializeSources() {"
+        ],
+        [
+          51,
+          "    std::uint32_t now = 0U;"
+        ],
+        [
+          52,
+          "    if (grants_.matrix_enabled)"
+        ],
+        [
+          53,
+          "        report_.matrix_status = source_.beginMatrix(source_.context, grants_.matrix);"
+        ],
+        [
+          54,
+          "    if (!clock(now)) return false;"
+        ],
+        [
+          55,
+          "    if (grants_.adc_pair) adc_.begin();"
+        ],
+        [
+          56,
+          "    if (!clock(now)) return false;"
+        ],
+        [
+          57,
+          "    if (grants_.opponents) report_.opponents_setup = source_.beginOpponents(source_.context);"
+        ],
+        [
+          58,
+          "    if (!clock(now)) return false;"
+        ],
+        [
+          59,
+          "    if (grants_.qtr_exclusive_pads) {"
+        ],
+        [
+          60,
+          "        report_.line_setup = source_.beginLines(source_.context, true);"
+        ],
+        [
+          61,
+          "        rememberLines(source_.lines(source_.context));"
+        ],
+        [
+          62,
+          "    }"
+        ],
+        [
+          63,
+          "    if (!clock(now)) return false;"
+        ],
+        [
+          64,
+          "    if (grants_.imu_enabled) {"
+        ],
+        [
+          65,
+          "        estimator_ready_ = estimator_.begin(grants_.mounting, 0.0F);"
+        ],
+        [
+          66,
+          "        imu_publication_ = estimator_.report();"
+        ],
+        [
+          67,
+          "        report_.imu_setup = source_.startImu(source_.context, now, grants_.imu_power_confirmed);"
+        ],
+        [
+          68,
+          "        if (!clock(now)) return false;"
+        ],
+        [
+          69,
+          "        setupImuFault(now);"
+        ],
+        [
+          70,
+          "    }"
+        ],
+        [
+          71,
+          "    return clock(now);"
+        ]
+      ]
+    },
+    {
+      "path": "src/app/runtime_dump.cpp",
+      "ranges": [
+        [
+          7,
+          16
+        ]
+      ],
+      "lines": [
+        [
+          7,
+          "void Runtime::initializeDump() {"
+        ],
+        [
+          8,
+          "    if (!grants_.dump_enabled) return;"
+        ],
+        [
+          9,
+          "    if (!dump_port_.begin || !dump_port_.ready || !dump_port_.output.write ||"
+        ],
+        [
+          10,
+          "        !dump_port_.output.cancel) {"
+        ],
+        [
+          11,
+          "        report_.dump_setup = recorder::dump::NativeStatus::CONTEXT;"
+        ],
+        [
+          12,
+          "        return;"
+        ],
+        [
+          13,
+          "    }"
+        ],
+        [
+          14,
+          "    report_.dump_setup = dump_port_.begin(dump_port_.context, grants_.dump);"
+        ],
+        [
+          15,
+          "}"
+        ],
+        [
+          16,
+          ""
+        ]
+      ]
+    },
+    {
+      "path": "src/app/runtime.h",
+      "ranges": [
+        [
+          34,
+          49
+        ]
+      ],
+      "lines": [
+        [
+          34,
+          "    ui::MatrixStatus (*submitMatrix)(void*, std::uint32_t, const ui::Frame&) = nullptr;"
+        ],
+        [
+          35,
+          "};"
+        ],
+        [
+          36,
+          "struct SetupGrants {"
+        ],
+        [
+          37,
+          "    bool opponents = false;"
+        ],
+        [
+          38,
+          "    bool adc_pair = false;"
+        ],
+        [
+          39,
+          "    bool qtr_exclusive_pads = false;"
+        ],
+        [
+          40,
+          "    bool imu_enabled = false;"
+        ],
+        [
+          41,
+          "    bool imu_power_confirmed = false;"
+        ],
+        [
+          42,
+          "    imu::Mounting mounting;"
+        ],
+        [
+          43,
+          "    bool default_line_thresholds_confirmed = false;"
+        ],
+        [
+          44,
+          "    bool matrix_enabled = false;"
+        ],
+        [
+          45,
+          "    ui::MatrixGrant matrix;"
+        ],
+        [
+          46,
+          "    bool dump_enabled = false;"
+        ],
+        [
+          47,
+          "    recorder::dump::SetupGrant dump;"
+        ],
+        [
+          48,
+          "    recorder::dump::Origin dump_origin = recorder::dump::Origin::UNKNOWN;"
+        ],
+        [
+          49,
+          "    bool local_service_reset = false;"
+        ]
+      ]
+    }
+  ],
+  "commands": [
+    {
+      "args": [
+        "/usr/bin/arm-none-eabi-objdump",
+        "--version"
+      ],
+      "exit_code": 0,
+      "stdout_bytes": 281,
+      "stdout_sha256": "caa6a2b9058a6571fa943a430b76af773986aa3a225535c49b0b4ee831cf3e52",
+      "stderr": "",
+      "stdout": "GNU objdump (2.42-1ubuntu1+23) 2.42\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis program is free software; you may redistribute it under the terms of\nthe GNU General Public License version 3 or (at your option) any later version.\nThis program has absolutely no warranty.\n"
+    },
+    {
+      "args": [
+        "/usr/bin/readelf",
+        "--version"
+      ],
+      "exit_code": 0,
+      "stdout_bytes": 288,
+      "stdout_sha256": "6aca4321453ac381865f3d353ea7896b150c05026483cb9db0047eee6916723d",
+      "stderr": "",
+      "stdout": "GNU readelf (GNU Binutils for Ubuntu) 2.42\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis program is free software; you may redistribute it under the terms of\nthe GNU General Public License version 3 or (at your option) any later version.\nThis program has absolutely no warranty.\n"
+    },
+    {
+      "args": [
+        "/usr/bin/arm-none-eabi-objdump",
+        "-d",
+        "-w",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/analysis/P7_static_tls_raw/observed/app.ino_debug.elf"
+      ],
+      "exit_code": 0,
+      "stdout_bytes": 1647235,
+      "stdout_sha256": "e4833e8e4ddd093a4ed2eaa7f23a6f6481638172d29cc54b1d15e92c66a69669",
+      "stderr": "",
+      "focused_functions": [
+        {
+          "start": "0x810e3a8",
+          "symbol": "_ZN3imu3Bus5beginEv",
+          "full_function_stdout_sha256": "9db3026a8cc1c6b6a3030374473d9b9da50f1284fb7996b1ed32acd0bb01a6c0",
+          "full_function_stdout_bytes": 5902,
+          "selection_ranges": [
+            [
+              "0x810e418",
+              "0x810e44c"
+            ],
+            [
+              "0x810e4d8",
+              "0x810e4f8"
+            ]
+          ],
+          "stdout_excerpt": " 810e418:\t4831      \tldr\tr0, [pc, #196]\t@ (810e4e0 <_ZN3imu3Bus5beginEv+0x138>)\n 810e41a:\t6883      \tldr\tr3, [r0, #8]\n 810e41c:\t681a      \tldr\tr2, [r3, #0]\n 810e41e:\tb942      \tcbnz\tr2, 810e432 <_ZN3imu3Bus5beginEv+0x8a>\n 810e420:\t2301      \tmovs\tr3, #1\n 810e422:\tf884 30c6 \tstrb.w\tr3, [r4, #198]\t@ 0xc6\n 810e426:\t2306      \tmovs\tr3, #6\n 810e428:\tf88d 3000 \tstrb.w\tr3, [sp]\n 810e42c:\tf894 30e4 \tldrb.w\tr3, [r4, #228]\t@ 0xe4\n 810e430:\te7c7      \tb.n\t810e3c2 <_ZN3imu3Bus5beginEv+0x1a>\n 810e432:\t21a0      \tmovs\tr1, #160\t@ 0xa0\n 810e434:\t2202      \tmovs\tr2, #2\n 810e436:\te9cd 1200 \tstrd\tr1, r2, [sp]\n 810e43a:\t4669      \tmov\tr1, sp\n 810e43c:\t681b      \tldr\tr3, [r3, #0]\n 810e43e:\t4798      \tblx\tr3\n 810e440:\t2800      \tcmp\tr0, #0\n 810e442:\td1ed      \tbne.n\t810e420 <_ZN3imu3Bus5beginEv+0x78>\n 810e444:\t4b27      \tldr\tr3, [pc, #156]\t@ (810e4e4 <_ZN3imu3Bus5beginEv+0x13c>)\n 810e446:\tf8d3 30a0 \tldr.w\tr3, [r3, #160]\t@ 0xa0\n 810e44a:\t079b      \tlsls\tr3, r3, #30\n 810e44c:\td5e8      \tbpl.n\t810e420 <_ZN3imu3Bus5beginEv+0x78>\n 810e4d8:\t08115839 \t.word\t0x08115839\n 810e4dc:\t0810dd99 \t.word\t0x0810dd99\n 810e4e0:\t0801befc \t.word\t0x0801befc\n 810e4e4:\t46020c00 \t.word\t0x46020c00\n 810e4e8:\t40008400 \t.word\t0x40008400\n 810e4ec:\t0810e229 \t.word\t0x0810e229\n 810e4f0:\t0810e2fd \t.word\t0x0810e2fd\n 810e4f4:\t2003c6c4 \t.word\t0x2003c6c4\n 810e4f8:\t0810dde9 \t.word\t0x0810dde9"
+        },
+        {
+          "start": "0x8112178",
+          "symbol": "_ZN5power6Reader12beginProfileEb",
+          "full_function_stdout_sha256": "af400d38ce8f4392b0ca1637e239e71e9ce1c787030cd2b784790a2afcd4bc1b",
+          "full_function_stdout_bytes": 13399,
+          "selection_ranges": [
+            [
+              "0x811232e",
+              "0x811234a"
+            ],
+            [
+              "0x8112378",
+              "0x8112396"
+            ],
+            [
+              "0x8112408",
+              "0x811240c"
+            ]
+          ],
+          "stdout_excerpt": " 811232e:\t4628      \tmov\tr0, r5\n 8112330:\tf8df 80f0 \tldr.w\tr8, [pc, #240]\t@ 8112424 <_ZN5power6Reader12beginProfileEb+0x2ac>\n 8112334:\t47c0      \tblx\tr8\n 8112336:\tb120      \tcbz\tr0, 8112342 <_ZN5power6Reader12beginProfileEb+0x1ca>\n 8112338:\t4833      \tldr\tr0, [pc, #204]\t@ (8112408 <_ZN5power6Reader12beginProfileEb+0x290>)\n 811233a:\t6883      \tldr\tr3, [r0, #8]\n 811233c:\t681a      \tldr\tr2, [r3, #0]\n 811233e:\tb9da      \tcbnz\tr2, 8112378 <_ZN5power6Reader12beginProfileEb+0x200>\n 8112340:\t260a      \tmovs\tr6, #10\n 8112342:\t4631      \tmov\tr1, r6\n 8112344:\t4620      \tmov\tr0, r4\n 8112346:\t4b27      \tldr\tr3, [pc, #156]\t@ (81123e4 <_ZN5power6Reader12beginProfileEb+0x26c>)\n 8112348:\t4798      \tblx\tr3\n 811234a:\te045      \tb.n\t81123d8 <_ZN5power6Reader12beginProfileEb+0x260>\n 8112378:\t218c      \tmovs\tr1, #140\t@ 0x8c\n 811237a:\tf44f 6280 \tmov.w\tr2, #1024\t@ 0x400\n 811237e:\te9cd 1204 \tstrd\tr1, r2, [sp, #16]\n 8112382:\ta904      \tadd\tr1, sp, #16\n 8112384:\t681b      \tldr\tr3, [r3, #0]\n 8112386:\t4798      \tblx\tr3\n 8112388:\t4607      \tmov\tr7, r0\n 811238a:\t2800      \tcmp\tr0, #0\n 811238c:\td1d8      \tbne.n\t8112340 <_ZN5power6Reader12beginProfileEb+0x1c8>\n 811238e:\t4b1f      \tldr\tr3, [pc, #124]\t@ (811240c <_ZN5power6Reader12beginProfileEb+0x294>)\n 8112390:\tf8d3 308c \tldr.w\tr3, [r3, #140]\t@ 0x8c\n 8112394:\t055b      \tlsls\tr3, r3, #21\n 8112396:\td5d3      \tbpl.n\t8112340 <_ZN5power6Reader12beginProfileEb+0x1c8>\n 8112408:\t0801befc \t.word\t0x0801befc\n 811240c:\t46020c00 \t.word\t0x46020c00"
+        },
+        {
+          "start": "0x810c4bc",
+          "symbol": "_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE",
+          "full_function_stdout_sha256": "b3a6cb759d329b7140f083141b8ed1ef8e1c690837c091435f6f99e66da8cdb2",
+          "full_function_stdout_bytes": 12721,
+          "selection_ranges": [
+            [
+              "0x810c4f0",
+              "0x810c57c"
+            ],
+            [
+              "0x810c678",
+              "0x810c694"
+            ]
+          ],
+          "stdout_excerpt": " 810c4f0:\t780b      \tldrb\tr3, [r1, #0]\n 810c4f2:\tb12b      \tcbz\tr3, 810c500 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x44>\n 810c4f4:\t784b      \tldrb\tr3, [r1, #1]\n 810c4f6:\tb11b      \tcbz\tr3, 810c500 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x44>\n 810c4f8:\t788b      \tldrb\tr3, [r1, #2]\n 810c4fa:\tb10b      \tcbz\tr3, 810c500 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x44>\n 810c4fc:\t78cb      \tldrb\tr3, [r1, #3]\n 810c4fe:\tb90b      \tcbnz\tr3, 810c504 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x48>\n 810c500:\t2403      \tmovs\tr4, #3\n 810c502:\te7f3      \tb.n\t810c4ec <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x30>\n 810c504:\tf8df 91b4 \tldr.w\tr9, [pc, #436]\t@ 810c6bc <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x200>\n 810c508:\t47c8      \tblx\tr9\n 810c50a:\tb908      \tcbnz\tr0, 810c510 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x54>\n 810c50c:\t2402      \tmovs\tr4, #2\n 810c50e:\te7ed      \tb.n\t810c4ec <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x30>\n 810c510:\tf8df a1ac \tldr.w\tsl, [pc, #428]\t@ 810c6c0 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x204>\n 810c514:\tf8da 3000 \tldr.w\tr3, [sl]\n 810c518:\t2b00      \tcmp\tr3, #0\n 810c51a:\td1f1      \tbne.n\t810c500 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x44>\n 810c51c:\tf8df 81a4 \tldr.w\tr8, [pc, #420]\t@ 810c6c4 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x208>\n 810c520:\t47c0      \tblx\tr8\n 810c522:\tb908      \tcbnz\tr0, 810c528 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x6c>\n 810c524:\t2404      \tmovs\tr4, #4\n 810c526:\te7e1      \tb.n\t810c4ec <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x30>\n 810c528:\t4c54      \tldr\tr4, [pc, #336]\t@ (810c67c <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x1c0>)\n 810c52a:\t4e55      \tldr\tr6, [pc, #340]\t@ (810c680 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x1c4>)\n 810c52c:\t4620      \tmov\tr0, r4\n 810c52e:\t47b0      \tblx\tr6\n 810c530:\t2800      \tcmp\tr0, #0\n 810c532:\td0f7      \tbeq.n\t810c524 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x68>\n 810c534:\t4853      \tldr\tr0, [pc, #332]\t@ (810c684 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x1c8>)\n 810c536:\t47b0      \tblx\tr6\n 810c538:\t2800      \tcmp\tr0, #0\n 810c53a:\td0f3      \tbeq.n\t810c524 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x68>\n 810c53c:\t4f52      \tldr\tr7, [pc, #328]\t@ (810c688 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x1cc>)\n 810c53e:\t68fb      \tldr\tr3, [r7, #12]\n 810c540:\t785a      \tldrb\tr2, [r3, #1]\n 810c542:\t07d1      \tlsls\tr1, r2, #31\n 810c544:\td4dc      \tbmi.n\t810c500 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x44>\n 810c546:\t781b      \tldrb\tr3, [r3, #0]\n 810c548:\t2b00      \tcmp\tr3, #0\n 810c54a:\td1d9      \tbne.n\t810c500 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x44>\n 810c54c:\t4b4f      \tldr\tr3, [pc, #316]\t@ (810c68c <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x1d0>)\n 810c54e:\t4798      \tblx\tr3\n 810c550:\t2800      \tcmp\tr0, #0\n 810c552:\td0d5      \tbeq.n\t810c500 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x44>\n 810c554:\tf8ca 5000 \tstr.w\tr5, [sl]\n 810c558:\t6921      \tldr\tr1, [r4, #16]\n 810c55a:\t68a2      \tldr\tr2, [r4, #8]\n 810c55c:\t680b      \tldr\tr3, [r1, #0]\n 810c55e:\t4620      \tmov\tr0, r4\n 810c560:\tf423 5300 \tbic.w\tr3, r3, #8192\t@ 0x2000\n 810c564:\t600b      \tstr\tr3, [r1, #0]\n 810c566:\t6813      \tldr\tr3, [r2, #0]\n 810c568:\t210d      \tmovs\tr1, #13\n 810c56a:\t4a49      \tldr\tr2, [pc, #292]\t@ (810c690 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x1d4>)\n 810c56c:\t4798      \tblx\tr3\n 810c56e:\tb108      \tcbz\tr0, 810c574 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0xb8>\n 810c570:\t2406      \tmovs\tr4, #6\n 810c572:\te7bb      \tb.n\t810c4ec <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x30>\n 810c574:\t4b47      \tldr\tr3, [pc, #284]\t@ (810c694 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x1d8>)\n 810c576:\t4638      \tmov\tr0, r7\n 810c578:\t4798      \tblx\tr3\n 810c57a:\t2800      \tcmp\tr0, #0\n 810c57c:\td1d2      \tbne.n\t810c524 <_ZN8recorder4dump12UnoQDumpPort5beginERKNS0_10SetupGrantE+0x68>\n 810c678:\t0810c461 \t.word\t0x0810c461\n 810c67c:\t0801bf8c \t.word\t0x0801bf8c\n 810c680:\t08019e6f \t.word\t0x08019e6f\n 810c684:\t0801befc \t.word\t0x0801befc\n 810c688:\t0801c13c \t.word\t0x0801c13c\n 810c68c:\t0810bff9 \t.word\t0x0810bff9\n 810c690:\t00010020 \t.word\t0x00010020\n 810c694:\t08019e5d \t.word\t0x08019e5d"
+        }
+      ]
+    },
+    {
+      "args": [
+        "/usr/bin/readelf",
+        "--debug-dump=info",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/analysis/P7_static_tls_raw/observed/app.ino_debug.elf"
+      ],
+      "exit_code": 0,
+      "stdout_bytes": 24275067,
+      "stdout_sha256": "a52e4208390db3427dedfb3eec18292dacf47ab9e585d17953f5fdc5536acd70",
+      "stderr": "",
+      "selected_roots": {
+        "device_ops": "0x978fc",
+        "stm32_pclken": "0x98742",
+        "clock_control_driver_api": "0xaac8a"
+      },
+      "selected_die_offsets": [
+        "0x93d08",
+        "0x93d6c",
+        "0x93d78",
+        "0x93e9b",
+        "0x97828",
+        "0x978a7",
+        "0x978ac",
+        "0x978fc",
+        "0x9790a",
+        "0x97918",
+        "0x97926",
+        "0x97927",
+        "0x97930",
+        "0x97935",
+        "0x97936",
+        "0x98742",
+        "0x98750",
+        "0x9875d",
+        "0x9876a",
+        "0x98778",
+        "0xa5dee",
+        "0xa5df5",
+        "0xa5e4d",
+        "0xa5e54",
+        "0xa5f77",
+        "0xa8002",
+        "0xa9d19",
+        "0xa9d2e",
+        "0xa9dac",
+        "0xa9db1",
+        "0xaab2c",
+        "0xaab54",
+        "0xaab60",
+        "0xaab6c",
+        "0xaab78",
+        "0xaab7d",
+        "0xaab83",
+        "0xaab88",
+        "0xaab8d",
+        "0xaab92",
+        "0xaab93",
+        "0xaab9f",
+        "0xaaba4",
+        "0xaabad",
+        "0xaabb2",
+        "0xaabb7",
+        "0xaabb8",
+        "0xaabc4",
+        "0xaabc9",
+        "0xaabd2",
+        "0xaabd7",
+        "0xaabdc",
+        "0xaabe1",
+        "0xaabe2",
+        "0xaabee",
+        "0xaabf3",
+        "0xaabfc",
+        "0xaac01",
+        "0xaac06",
+        "0xaac0b",
+        "0xaac10",
+        "0xaac11",
+        "0xaac1d",
+        "0xaac22",
+        "0xaac2b",
+        "0xaac30",
+        "0xaac35",
+        "0xaac36",
+        "0xaac42",
+        "0xaac47",
+        "0xaac50",
+        "0xaac55",
+        "0xaac5a",
+        "0xaac5f",
+        "0xaac60",
+        "0xaac6c",
+        "0xaac71",
+        "0xaac7a",
+        "0xaac7f",
+        "0xaac84",
+        "0xaac89",
+        "0xaac8a",
+        "0xaac97",
+        "0xaaca3",
+        "0xaacb0",
+        "0xaacbd",
+        "0xaacca",
+        "0xaacd7",
+        "0xaace4",
+        "0xaacf1"
+      ],
+      "stdout_excerpt": " <1><93d08>: Abbrev Number: 19 (DW_TAG_base_type)\n    <93d09>   DW_AT_byte_size   : 4\n    <93d0a>   DW_AT_encoding    : 7\t(unsigned)\n    <93d0b>   DW_AT_name        : (indirect string, offset: 0x9e9f): unsigned int\n <1><93d6c>: Abbrev Number: 123 (DW_TAG_base_type)\n    <93d6d>   DW_AT_byte_size   : 4\n    <93d6e>   DW_AT_encoding    : 5\t(signed)\n    <93d6f>   DW_AT_name        : int\n <1><93d78>: Abbrev Number: 12 (DW_TAG_typedef)\n    <93d79>   DW_AT_name        : (indirect string, offset: 0x5c09): __uint32_t\n    <93d7d>   DW_AT_decl_file   : 10\n    <93d7e>   DW_AT_decl_line   : 233\n    <93d7f>   DW_AT_decl_column : 25\n    <93d80>   DW_AT_type        : <0x93d08>\n <1><93e9b>: Abbrev Number: 12 (DW_TAG_typedef)\n    <93e9c>   DW_AT_name        : (indirect string, offset: 0x5c0b): uint32_t\n    <93ea0>   DW_AT_decl_file   : 11\n    <93ea1>   DW_AT_decl_line   : 46\n    <93ea2>   DW_AT_decl_column : 20\n    <93ea3>   DW_AT_type        : <0x93d78>\n <1><97828>: Abbrev Number: 46 (DW_TAG_structure_type)\n    <97829>   DW_AT_name        : (indirect string, offset: 0x1737c): device\n    <9782d>   DW_AT_byte_size   : 36\n    <9782e>   DW_AT_decl_file   : 49\n    <9782f>   DW_AT_decl_line   : 513\n    <97831>   DW_AT_decl_column : 8\n    <97832>   DW_AT_sibling     : <0x978a7>\n <1><978a7>: Abbrev Number: 13 (DW_TAG_const_type)\n    <978a8>   DW_AT_type        : <0x97828>\n <1><978ac>: Abbrev Number: 11 (DW_TAG_pointer_type)\n    <978ad>   DW_AT_byte_size   : 4\n    <978ad>   DW_AT_type        : <0x978a7>\n <1><978fc>: Abbrev Number: 46 (DW_TAG_structure_type)\n    <978fd>   DW_AT_name        : (indirect string, offset: 0x11e9c): device_ops\n    <97901>   DW_AT_byte_size   : 8\n    <97902>   DW_AT_decl_file   : 49\n    <97903>   DW_AT_decl_line   : 501\n    <97905>   DW_AT_decl_column : 8\n    <97906>   DW_AT_sibling     : <0x97927>\n <2><9790a>: Abbrev Number: 6 (DW_TAG_member)\n    <9790b>   DW_AT_name        : (indirect string, offset: 0x11c5b): init\n    <9790f>   DW_AT_decl_file   : 49\n    <97910>   DW_AT_decl_line   : 503\n    <97912>   DW_AT_decl_column : 8\n    <97913>   DW_AT_type        : <0x97936>\n    <97917>   DW_AT_data_member_location: 0\n <2><97918>: Abbrev Number: 6 (DW_TAG_member)\n    <97919>   DW_AT_name        : (indirect string, offset: 0x120ec): deinit\n    <9791d>   DW_AT_decl_file   : 49\n    <9791e>   DW_AT_decl_line   : 506\n    <97920>   DW_AT_decl_column : 8\n    <97921>   DW_AT_type        : <0x97936>\n    <97925>   DW_AT_data_member_location: 4\n <2><97926>: Abbrev Number: 0\n <1><97927>: Abbrev Number: 37 (DW_TAG_subroutine_type)\n    <97928>   DW_AT_type        : <0x93d6c>\n    <9792c>   DW_AT_sibling     : <0x97936>\n <2><97930>: Abbrev Number: 1 (DW_TAG_formal_parameter)\n    <97931>   DW_AT_type        : <0x978ac>\n <2><97935>: Abbrev Number: 0\n <1><97936>: Abbrev Number: 11 (DW_TAG_pointer_type)\n    <97937>   DW_AT_byte_size   : 4\n    <97937>   DW_AT_type        : <0x97927>\n <1><98742>: Abbrev Number: 46 (DW_TAG_structure_type)\n    <98743>   DW_AT_name        : (indirect string, offset: 0x11174): stm32_pclken\n    <98747>   DW_AT_byte_size   : 8\n    <98748>   DW_AT_decl_file   : 52\n    <98749>   DW_AT_decl_line   : 841\n    <9874b>   DW_AT_decl_column : 8\n    <9874c>   DW_AT_sibling     : <0x98779>\n <2><98750>: Abbrev Number: 111 (DW_TAG_member)\n    <98751>   DW_AT_name        : bus\n    <98755>   DW_AT_decl_file   : 52\n    <98755>   DW_AT_decl_line   : 842\n    <98757>   DW_AT_decl_column : 11\n    <98757>   DW_AT_type        : <0x93e9b>\n    <9875b>   DW_AT_bit_size    : 12\n    <9875c>   DW_AT_data_bit_offset: 0\n <2><9875d>: Abbrev Number: 111 (DW_TAG_member)\n    <9875e>   DW_AT_name        : div\n    <98762>   DW_AT_decl_file   : 52\n    <98762>   DW_AT_decl_line   : 843\n    <98764>   DW_AT_decl_column : 11\n    <98764>   DW_AT_type        : <0x93e9b>\n    <98768>   DW_AT_bit_size    : 20\n    <98769>   DW_AT_data_bit_offset: 12\n <2><9876a>: Abbrev Number: 21 (DW_TAG_member)\n    <9876b>   DW_AT_name        : enr\n    <9876f>   DW_AT_decl_file   : 52\n    <98770>   DW_AT_decl_line   : 844\n    <98772>   DW_AT_decl_column : 11\n    <98773>   DW_AT_type        : <0x93e9b>\n    <98777>   DW_AT_data_member_location: 4\n <2><98778>: Abbrev Number: 0\n <1><a5dee>: Abbrev Number: 20 (DW_TAG_base_type)\n    <a5def>   DW_AT_byte_size   : 4\n    <a5df0>   DW_AT_encoding    : 7\t(unsigned)\n    <a5df1>   DW_AT_name        : (indirect string, offset: 0x9e9f): unsigned int\n <1><a5df5>: Abbrev Number: 20 (DW_TAG_base_type)\n    <a5df6>   DW_AT_byte_size   : 1\n    <a5df7>   DW_AT_encoding    : 8\t(unsigned char)\n    <a5df8>   DW_AT_name        : (indirect string, offset: 0x35d4): unsigned char\n <1><a5e4d>: Abbrev Number: 115 (DW_TAG_base_type)\n    <a5e4e>   DW_AT_byte_size   : 4\n    <a5e4f>   DW_AT_encoding    : 5\t(signed)\n    <a5e50>   DW_AT_name        : int\n <1><a5e54>: Abbrev Number: 11 (DW_TAG_typedef)\n    <a5e55>   DW_AT_name        : (indirect string, offset: 0x5c09): __uint32_t\n    <a5e59>   DW_AT_decl_file   : 9\n    <a5e5a>   DW_AT_decl_line   : 233\n    <a5e5b>   DW_AT_decl_column : 25\n    <a5e5c>   DW_AT_type        : <0xa5dee>\n <1><a5f77>: Abbrev Number: 11 (DW_TAG_typedef)\n    <a5f78>   DW_AT_name        : (indirect string, offset: 0x5c0b): uint32_t\n    <a5f7c>   DW_AT_decl_file   : 10\n    <a5f7d>   DW_AT_decl_line   : 46\n    <a5f7e>   DW_AT_decl_column : 20\n    <a5f7f>   DW_AT_type        : <0xa5e54>\n <1><a8002>: Abbrev Number: 128 (DW_TAG_pointer_type)\n    <a8004>   DW_AT_byte_size   : 4\n <1><a9d19>: Abbrev Number: 13 (DW_TAG_pointer_type)\n    <a9d1a>   DW_AT_byte_size   : 4\n    <a9d1a>   DW_AT_type        : <0xa5f77>\n <1><a9d2e>: Abbrev Number: 72 (DW_TAG_structure_type)\n    <a9d2f>   DW_AT_name        : (indirect string, offset: 0x1737c): device\n    <a9d33>   DW_AT_byte_size   : 36\n    <a9d34>   DW_AT_decl_file   : 34\n    <a9d35>   DW_AT_decl_line   : 513\n    <a9d37>   DW_AT_decl_column : 8\n    <a9d37>   DW_AT_sibling     : <0xa9dac>\n <1><a9dac>: Abbrev Number: 18 (DW_TAG_const_type)\n    <a9dad>   DW_AT_type        : <0xa9d2e>\n <1><a9db1>: Abbrev Number: 13 (DW_TAG_pointer_type)\n    <a9db2>   DW_AT_byte_size   : 4\n    <a9db2>   DW_AT_type        : <0xa9dac>\n <1><aab2c>: Abbrev Number: 99 (DW_TAG_enumeration_type)\n    <aab2d>   DW_AT_name        : (indirect string, offset: 0x12881): clock_control_status\n    <aab31>   DW_AT_encoding    : 7\t(unsigned)\n    <aab31>   DW_AT_byte_size   : 1\n    <aab31>   DW_AT_type        : <0xa5df5>\n    <aab35>   DW_AT_decl_file   : 37\n    <aab36>   DW_AT_decl_line   : 47\n    <aab37>   DW_AT_decl_column : 6\n    <aab37>   DW_AT_sibling     : <0xaab54>\n <1><aab54>: Abbrev Number: 11 (DW_TAG_typedef)\n    <aab55>   DW_AT_name        : (indirect string, offset: 0x12af4): clock_control_subsys_t\n    <aab59>   DW_AT_decl_file   : 37\n    <aab5a>   DW_AT_decl_line   : 59\n    <aab5b>   DW_AT_decl_column : 15\n    <aab5c>   DW_AT_type        : <0xa8002>\n <1><aab60>: Abbrev Number: 11 (DW_TAG_typedef)\n    <aab61>   DW_AT_name        : (indirect string, offset: 0x12cea): clock_control_subsys_rate_t\n    <aab65>   DW_AT_decl_file   : 37\n    <aab66>   DW_AT_decl_line   : 67\n    <aab67>   DW_AT_decl_column : 15\n    <aab68>   DW_AT_type        : <0xa8002>\n <1><aab6c>: Abbrev Number: 11 (DW_TAG_typedef)\n    <aab6d>   DW_AT_name        : (indirect string, offset: 0x128c4): clock_control_cb_t\n    <aab71>   DW_AT_decl_file   : 37\n    <aab72>   DW_AT_decl_line   : 75\n    <aab73>   DW_AT_decl_column : 16\n    <aab74>   DW_AT_type        : <0xaab78>\n <1><aab78>: Abbrev Number: 13 (DW_TAG_pointer_type)\n    <aab79>   DW_AT_byte_size   : 4\n    <aab79>   DW_AT_type        : <0xaab7d>\n <1><aab7d>: Abbrev Number: 151 (DW_TAG_subroutine_type)\n    <aab7f>   DW_AT_sibling     : <0xaab93>\n <2><aab83>: Abbrev Number: 1 (DW_TAG_formal_parameter)\n    <aab84>   DW_AT_type        : <0xa9db1>\n <2><aab88>: Abbrev Number: 1 (DW_TAG_formal_parameter)\n    <aab89>   DW_AT_type        : <0xaab54>\n <2><aab8d>: Abbrev Number: 1 (DW_TAG_formal_parameter)\n    <aab8e>   DW_AT_type        : <0xa8002>\n <2><aab92>: Abbrev Number: 0\n <1><aab93>: Abbrev Number: 11 (DW_TAG_typedef)\n    <aab94>   DW_AT_name        : (indirect string, offset: 0x12cb7): clock_control\n    <aab98>   DW_AT_decl_file   : 37\n    <aab99>   DW_AT_decl_line   : 90\n    <aab9a>   DW_AT_decl_column : 15\n    <aab9b>   DW_AT_type        : <0xaab9f>\n <1><aab9f>: Abbrev Number: 13 (DW_TAG_pointer_type)\n    <aaba0>   DW_AT_byte_size   : 4\n    <aaba0>   DW_AT_type        : <0xaaba4>\n <1><aaba4>: Abbrev Number: 48 (DW_TAG_subroutine_type)\n    <aaba5>   DW_AT_type        : <0xa5e4d>\n    <aaba9>   DW_AT_sibling     : <0xaabb8>\n <2><aabad>: Abbrev Number: 1 (DW_TAG_formal_parameter)\n    <aabae>   DW_AT_type        : <0xa9db1>\n <2><aabb2>: Abbrev Number: 1 (DW_TAG_formal_parameter)\n    <aabb3>   DW_AT_type        : <0xaab54>\n <2><aabb7>: Abbrev Number: 0\n <1><aabb8>: Abbrev Number: 11 (DW_TAG_typedef)\n    <aabb9>   DW_AT_name        : (indirect string, offset: 0x12c3c): clock_control_get\n    <aabbd>   DW_AT_decl_file   : 37\n    <aabbe>   DW_AT_decl_line   : 97\n    <aabbf>   DW_AT_decl_column : 15\n    <aabc0>   DW_AT_type        : <0xaabc4>\n <1><aabc4>: Abbrev Number: 13 (DW_TAG_pointer_type)\n    <aabc5>   DW_AT_byte_size   : 4\n    <aabc5>   DW_AT_type        : <0xaabc9>\n <1><aabc9>: Abbrev Number: 48 (DW_TAG_subroutine_type)\n    <aabca>   DW_AT_type        : <0xa5e4d>\n    <aabce>   DW_AT_sibling     : <0xaabe2>\n <2><aabd2>: Abbrev Number: 1 (DW_TAG_formal_parameter)\n    <aabd3>   DW_AT_type        : <0xa9db1>\n <2><aabd7>: Abbrev Number: 1 (DW_TAG_formal_parameter)\n    <aabd8>   DW_AT_type        : <0xaab54>\n <2><aabdc>: Abbrev Number: 1 (DW_TAG_formal_parameter)\n    <aabdd>   DW_AT_type        : <0xa9d19>\n <2><aabe1>: Abbrev Number: 0\n <1><aabe2>: Abbrev Number: 11 (DW_TAG_typedef)\n    <aabe3>   DW_AT_name        : (indirect string, offset: 0x127e8): clock_control_async_on_fn\n    <aabe7>   DW_AT_decl_file   : 37\n    <aabe8>   DW_AT_decl_line   : 106\n    <aabe9>   DW_AT_decl_column : 15\n    <aabea>   DW_AT_type        : <0xaabee>\n <1><aabee>: Abbrev Number: 13 (DW_TAG_pointer_type)\n    <aabef>   DW_AT_byte_size   : 4\n    <aabef>   DW_AT_type        : <0xaabf3>\n <1><aabf3>: Abbrev Number: 48 (DW_TAG_subroutine_type)\n    <aabf4>   DW_AT_type        : <0xa5e4d>\n    <aabf8>   DW_AT_sibling     : <0xaac11>\n <2><aabfc>: Abbrev Number: 1 (DW_TAG_formal_parameter)\n    <aabfd>   DW_AT_type        : <0xa9db1>\n <2><aac01>: Abbrev Number: 1 (DW_TAG_formal_parameter)\n    <aac02>   DW_AT_type        : <0xaab54>\n <2><aac06>: Abbrev Number: 1 (DW_TAG_formal_parameter)\n    <aac07>   DW_AT_type        : <0xaab6c>\n <2><aac0b>: Abbrev Number: 1 (DW_TAG_formal_parameter)\n    <aac0c>   DW_AT_type        : <0xa8002>\n <2><aac10>: Abbrev Number: 0\n <1><aac11>: Abbrev Number: 11 (DW_TAG_typedef)\n    <aac12>   DW_AT_name        : (indirect string, offset: 0x12896): clock_control_get_status_fn\n    <aac16>   DW_AT_decl_file   : 37\n    <aac17>   DW_AT_decl_line   : 116\n    <aac18>   DW_AT_decl_column : 37\n    <aac19>   DW_AT_type        : <0xaac1d>\n <1><aac1d>: Abbrev Number: 13 (DW_TAG_pointer_type)\n    <aac1e>   DW_AT_byte_size   : 4\n    <aac1e>   DW_AT_type        : <0xaac22>\n <1><aac22>: Abbrev Number: 48 (DW_TAG_subroutine_type)\n    <aac23>   DW_AT_type        : <0xaab2c>\n    <aac27>   DW_AT_sibling     : <0xaac36>\n <2><aac2b>: Abbrev Number: 1 (DW_TAG_formal_parameter)\n    <aac2c>   DW_AT_type        : <0xa9db1>\n <2><aac30>: Abbrev Number: 1 (DW_TAG_formal_parameter)\n    <aac31>   DW_AT_type        : <0xaab54>\n <2><aac35>: Abbrev Number: 0\n <1><aac36>: Abbrev Number: 11 (DW_TAG_typedef)\n    <aac37>   DW_AT_name        : (indirect string, offset: 0x127d6): clock_control_set\n    <aac3b>   DW_AT_decl_file   : 37\n    <aac3c>   DW_AT_decl_line   : 125\n    <aac3d>   DW_AT_decl_column : 15\n    <aac3e>   DW_AT_type        : <0xaac42>\n <1><aac42>: Abbrev Number: 13 (DW_TAG_pointer_type)\n    <aac43>   DW_AT_byte_size   : 4\n    <aac43>   DW_AT_type        : <0xaac47>\n <1><aac47>: Abbrev Number: 48 (DW_TAG_subroutine_type)\n    <aac48>   DW_AT_type        : <0xa5e4d>\n    <aac4c>   DW_AT_sibling     : <0xaac60>\n <2><aac50>: Abbrev Number: 1 (DW_TAG_formal_parameter)\n    <aac51>   DW_AT_type        : <0xa9db1>\n <2><aac55>: Abbrev Number: 1 (DW_TAG_formal_parameter)\n    <aac56>   DW_AT_type        : <0xaab54>\n <2><aac5a>: Abbrev Number: 1 (DW_TAG_formal_parameter)\n    <aac5b>   DW_AT_type        : <0xaab60>\n <2><aac5f>: Abbrev Number: 0\n <1><aac60>: Abbrev Number: 11 (DW_TAG_typedef)\n    <aac61>   DW_AT_name        : (indirect string, offset: 0x12833): clock_control_configure_fn\n    <aac65>   DW_AT_decl_file   : 37\n    <aac66>   DW_AT_decl_line   : 134\n    <aac67>   DW_AT_decl_column : 15\n    <aac68>   DW_AT_type        : <0xaac6c>\n <1><aac6c>: Abbrev Number: 13 (DW_TAG_pointer_type)\n    <aac6d>   DW_AT_byte_size   : 4\n    <aac6d>   DW_AT_type        : <0xaac71>\n <1><aac71>: Abbrev Number: 48 (DW_TAG_subroutine_type)\n    <aac72>   DW_AT_type        : <0xa5e4d>\n    <aac76>   DW_AT_sibling     : <0xaac8a>\n <2><aac7a>: Abbrev Number: 1 (DW_TAG_formal_parameter)\n    <aac7b>   DW_AT_type        : <0xa9db1>\n <2><aac7f>: Abbrev Number: 1 (DW_TAG_formal_parameter)\n    <aac80>   DW_AT_type        : <0xaab54>\n <2><aac84>: Abbrev Number: 1 (DW_TAG_formal_parameter)\n    <aac85>   DW_AT_type        : <0xa8002>\n <2><aac89>: Abbrev Number: 0\n <1><aac8a>: Abbrev Number: 57 (DW_TAG_structure_type)\n    <aac8b>   DW_AT_name        : (indirect string, offset: 0x12d06): clock_control_driver_api\n    <aac8f>   DW_AT_byte_size   : 28\n    <aac90>   DW_AT_decl_file   : 37\n    <aac91>   DW_AT_decl_line   : 141\n    <aac92>   DW_AT_decl_column : 20\n    <aac93>   DW_AT_sibling     : <0xaacf2>\n <2><aac97>: Abbrev Number: 52 (DW_TAG_member)\n    <aac98>   DW_AT_name        : on\n    <aac9b>   DW_AT_decl_file   : 37\n    <aac9c>   DW_AT_decl_line   : 143\n    <aac9d>   DW_AT_decl_column : 16\n    <aac9e>   DW_AT_type        : <0xaab93>\n    <aaca2>   DW_AT_data_member_location: 0\n <2><aaca3>: Abbrev Number: 52 (DW_TAG_member)\n    <aaca4>   DW_AT_name        : off\n    <aaca8>   DW_AT_decl_file   : 37\n    <aaca9>   DW_AT_decl_line   : 145\n    <aacaa>   DW_AT_decl_column : 16\n    <aacab>   DW_AT_type        : <0xaab93>\n    <aacaf>   DW_AT_data_member_location: 4\n <2><aacb0>: Abbrev Number: 10 (DW_TAG_member)\n    <aacb1>   DW_AT_name        : (indirect string, offset: 0x129ac): async_on\n    <aacb5>   DW_AT_decl_file   : 37\n    <aacb6>   DW_AT_decl_line   : 147\n    <aacb7>   DW_AT_decl_column : 28\n    <aacb8>   DW_AT_type        : <0xaabe2>\n    <aacbc>   DW_AT_data_member_location: 8\n <2><aacbd>: Abbrev Number: 10 (DW_TAG_member)\n    <aacbe>   DW_AT_name        : (indirect string, offset: 0x12b36): get_rate\n    <aacc2>   DW_AT_decl_file   : 37\n    <aacc3>   DW_AT_decl_line   : 149\n    <aacc4>   DW_AT_decl_column : 20\n    <aacc5>   DW_AT_type        : <0xaabb8>\n    <aacc9>   DW_AT_data_member_location: 12\n <2><aacca>: Abbrev Number: 10 (DW_TAG_member)\n    <aaccb>   DW_AT_name        : (indirect string, offset: 0x12ca0): get_status\n    <aaccf>   DW_AT_decl_file   : 37\n    <aacd0>   DW_AT_decl_line   : 151\n    <aacd1>   DW_AT_decl_column : 30\n    <aacd2>   DW_AT_type        : <0xaac11>\n    <aacd6>   DW_AT_data_member_location: 16\n <2><aacd7>: Abbrev Number: 10 (DW_TAG_member)\n    <aacd8>   DW_AT_name        : (indirect string, offset: 0x12be8): set_rate\n    <aacdc>   DW_AT_decl_file   : 37\n    <aacdd>   DW_AT_decl_line   : 153\n    <aacde>   DW_AT_decl_column : 20\n    <aacdf>   DW_AT_type        : <0xaac36>\n    <aace3>   DW_AT_data_member_location: 20\n <2><aace4>: Abbrev Number: 10 (DW_TAG_member)\n    <aace5>   DW_AT_name        : (indirect string, offset: 0x1111d): configure\n    <aace9>   DW_AT_decl_file   : 37\n    <aacea>   DW_AT_decl_line   : 155\n    <aaceb>   DW_AT_decl_column : 29\n    <aacec>   DW_AT_type        : <0xaac60>\n    <aacf0>   DW_AT_data_member_location: 24\n <2><aacf1>: Abbrev Number: 0\n"
+    }
+  ],
+  "retained_gpio_boundaries": "GPIO receipt remains frozen; shared device api8 evidence reused by reference",
+  "retained_rcc_commands": {
+    "source_03": "state/analysis/P2_adc_native_raw/installed_source_03.json",
+    "source_04": "state/analysis/P2_adc_native_raw/installed_source_04.json",
+    "query_collectors": [
+      "state/analysis/P2_adc_native_raw/query_installed_03.py",
+      "state/analysis/P2_adc_native_raw/query_installed_04.py"
+    ],
+    "selected_results_reused_not_rerun": [
+      {
+        "gdb": "disassemble stm32_clock_control_on",
+        "exit": 0,
+        "stdout": "Dump of assembler code for function stm32_clock_control_on:\n   0x080189a2 <+0>:\tldrh\tr3, [r1, #0]\n   0x080189a4 <+2>:\tsub\tsp, #8\n   0x080189a6 <+4>:\tubfx\tr3, r3, #0, #12\n   0x080189aa <+8>:\taddw\tr2, r3, #3960\t@ 0xf78\n   0x080189ae <+12>:\tubfx\tr2, r2, #0, #12\n   0x080189b2 <+16>:\tcmp\tr2, #32\n   0x080189b4 <+18>:\tbhi.n\t0x80189e0 <stm32_clock_control_on+62>\n   0x080189b6 <+20>:\tadd.w\tr3, r3, #1174405120\t@ 0x46000000\n   0x080189ba <+24>:\tadd.w\tr3, r3, #134144\t@ 0x20c00\n   0x080189be <+28>:\tldr\tr2, [r3, #0]\n   0x080189c0 <+30>:\tldr\tr0, [r1, #4]\n   0x080189c2 <+32>:\torrs\tr2, r0\n   0x080189c4 <+34>:\tmovs\tr0, #0\n   0x080189c6 <+36>:\tstr\tr2, [r3, #0]\n   0x080189c8 <+38>:\tldrh\tr3, [r1, #0]\n   0x080189ca <+40>:\tubfx\tr3, r3, #0, #12\n   0x080189ce <+44>:\tadd.w\tr3, r3, #1174405120\t@ 0x46000000\n   0x080189d2 <+48>:\tadd.w\tr3, r3, #134144\t@ 0x20c00\n   0x080189d6 <+52>:\tldr\tr3, [r3, #0]\n   0x080189d8 <+54>:\tstr\tr3, [sp, #4]\n   0x080189da <+56>:\tldr\tr3, [sp, #4]\n   0x080189dc <+58>:\tadd\tsp, #8\n   0x080189de <+60>:\tbx\tlr\n   0x080189e0 <+62>:\tmvn.w\tr0, #133\t@ 0x85\n   0x080189e4 <+66>:\tb.n\t0x80189dc <stm32_clock_control_on+58>\nEnd of assembler dump.\n",
+        "stderr": ""
+      },
+      {
+        "gdb": "p __device_dts_ord_9",
+        "exit": 0,
+        "stdout": "$1 = {name = 0x8023774 \"rcc@46020c00\", config = 0x0, api = 0x801c76c <stm32_clock_control_api>, state = 0x200010e2 <__devstate_dts_ord_9>, data = 0x0, ops = {init = 0x800badd <stm32_clock_control_init>, deinit = 0x0}, flags = 0 '\\000', deps = 0x801c5a6 <__devicedeps_dts_ord_9>}\n",
+        "stderr": ""
+      },
+      {
+        "gdb": "p *(struct clock_control_driver_api*)__device_dts_ord_9.api",
+        "exit": 0,
+        "stdout": "$1 = {on = 0x80189a3 <stm32_clock_control_on>, off = 0x80189e7 <stm32_clock_control_off>, async_on = 0x0, get_rate = 0x800b9ed <stm32_clock_control_get_subsys_rate>, get_status = 0x8018a59 <stm32_clock_control_get_status>, set_rate = 0x0, configure = 0x8018a13 <stm32_clock_control_configure>}\n",
+        "stderr": ""
+      },
+      {
+        "gdb": "p __llext_sym___device_dts_ord_9",
+        "exit": 0,
+        "stdout": "$1 = {{name = 0x8023761 \"__device_dts_ord_9\", slid = 134362977}, addr = 0x801befc <__device_dts_ord_9>}\n",
+        "stderr": ""
+      }
+    ],
+    "context": "query collector source records exact GDB-prefix/ELF/-ex invocation; bad-name queries elsewhere in old receipt remain historical failures, not current commands"
+  },
+  "retained_uart_commands": {
+    "source": "state/analysis/P2_dump_raw/native/uart_identity_receipt.json",
+    "elf_identity_source": "state/analysis/P2_dump_raw/native/native_receipt.json",
+    "elf_sha256": "39d4a4fd47241663323f6e04f94dd8f5a9f9ad6582cf1df37f9709b74026adcd",
+    "commands_reused_not_rerun": [
+      {
+        "name": "offline_gdb",
+        "argv": [
+          "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-gdb",
+          "-nx",
+          "-nh",
+          "-batch",
+          "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf",
+          "-ex",
+          "p __device_dts_ord_78",
+          "-ex",
+          "p *(struct uart_stm32_config*)__device_dts_ord_78.config",
+          "-ex",
+          "p *(struct uart_stm32_data*)__device_dts_ord_78.data",
+          "-ex",
+          "p *(struct uart_config*)((struct uart_stm32_data*)__device_dts_ord_78.data)->uart_cfg",
+          "-ex",
+          "p *((struct uart_stm32_config*)__device_dts_ord_78.config)->pclken",
+          "-ex",
+          "p __llext_sym___device_dts_ord_78",
+          "-ex",
+          "p __llext_sym___device_dts_ord_94",
+          "-ex",
+          "p uart_stm32_driver_api",
+          "-ex",
+          "p __pinctrl_dev_config__device_dts_ord_78",
+          "-ex",
+          "p __pinctrl_state_pins_0__device_dts_ord_78"
+        ],
+        "returncode": 0,
+        "stdout": "$1 = {name = 0x802426b \"serial@46002400\", config = 0x801e798 <uart_stm32_cfg_2>, api = 0x801c788 <uart_stm32_driver_api>, state = 0x20001106 <__devstate_dts_ord_78>, data = 0x200002d8 <uart_stm32_data_2>, ops = {init = 0x800f351 <uart_stm32_init>, deinit = 0x0}, flags = 1 '\\001', deps = 0x801c50e <__devicedeps_dts_ord_78>}\n$2 = {usart = 0x46002400, clock = 0x801befc <__device_dts_ord_9>, reset = {dev = 0x801bf20 <__device_dts_ord_69>, id = 4102}, pclken = 0x801e7c4 <pclken_2>, pclk_len = 1, single_wire = false, tx_rx_swap = false, rx_invert = false, tx_invert = false, de_enable = false, de_assert_time = 0 '\\000', de_deassert_time = 0 '\\000', de_invert = false, fifo_enable = false, pcfg = 0x801e7cc <__pinctrl_dev_config__device_dts_ord_78>, irq_config_func = 0x80198ed <uart_stm32_irq_config_func_2>}\n$3 = {uart_cfg = 0x200002e4 <uart_cfg_2>, user_cb = 0x0, user_data = 0x0}\n$4 = {baudrate = 115200, parity = 0 '\\000', stop_bits = 1 '\\001', data_bits = 3 '\\003', flow_ctrl = 0 '\\000'}\n$5 = {bus = 168, div = 0, enr = 64}\n$6 = {{name = 0x8024257 \"__device_dts_ord_78\", slid = 134365783}, addr = 0x801c13c <__device_dts_ord_78>}\n$7 = {{name = 0x801ffc1 \"__device_dts_ord_94\", slid = 134348737}, addr = 0x801bf8c <__device_dts_ord_94>}\n$8 = {poll_in = 0x8019ac9 <uart_stm32_poll_in>, poll_out = 0x8019a2d <uart_stm32_poll_out>, err_check = 0x80197eb <uart_stm32_err_check>, configure = 0x800f215 <uart_stm32_configure>, config_get = 0x8019943 <uart_stm32_config_get>, fifo_fill = 0x80199d5 <uart_stm32_fifo_fill>, fifo_read = 0x8019a87 <uart_stm32_fifo_read>, irq_tx_enable = 0x8019845 <uart_stm32_irq_tx_enable>, irq_tx_disable = 0x801985b <uart_stm32_irq_tx_disable>, irq_tx_ready = 0x801992f <uart_stm32_irq_tx_ready>, irq_rx_enable = 0x8019871 <uart_stm32_irq_rx_enable>, irq_rx_disable = 0x8019887 <uart_stm32_irq_rx_disable>, irq_tx_complete = 0x8019923 <uart_stm32_irq_tx_complete>, irq_rx_ready = 0x801989d <uart_stm32_irq_rx_ready>, irq_err_enable = 0x800ef71 <uart_stm32_irq_err_enable>, irq_err_disable = 0x800f001 <uart_stm32_irq_err_disable>, irq_is_pending = 0x8019a63 <uart_stm32_irq_is_pending>, irq_update = 0x80198a9 <uart_stm32_irq_update>, irq_callback_set = 0x80198ad <uart_stm32_irq_callback_set>}\n$9 = {states = 0x801e7d4 <__pinctrl_states__device_dts_ord_78>, state_cnt = 1 '\\001'}\n$10 = {{pinmux = 3304, pincfg = 512}, {pinmux = 3336, pincfg = 512}, {pinmux = 3272, pincfg = 0}, {pinmux = 3240, pincfg = 512}}\n",
+        "stderr": ""
+      },
+      {
+        "name": "uart_stm32_init",
+        "argv": [
+          "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-objdump",
+          "-d",
+          "--disassemble=uart_stm32_init",
+          "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf"
+        ],
+        "returncode": 0,
+        "stdout": "\n/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf:     file format elf32-littlearm\n\n\nDisassembly of section rom_start:\n\nDisassembly of section text:\n\n0800f350 <uart_stm32_init>:\n 800f350:\te92d 41f0 \tstmdb\tsp!, {r4, r5, r6, r7, r8, lr}\n 800f354:\tf8d0 8004 \tldr.w\tr8, [r0, #4]\n 800f358:\t4607      \tmov\tr7, r0\n 800f35a:\tf8d8 0004 \tldr.w\tr0, [r8, #4]\n 800f35e:\tf8d8 1010 \tldr.w\tr1, [r8, #16]\n 800f362:\t6883      \tldr\tr3, [r0, #8]\n 800f364:\tb086      \tsub\tsp, #24\n 800f366:\t681b      \tldr\tr3, [r3, #0]\n 800f368:\tb173      \tcbz\tr3, 800f388 <uart_stm32_init+0x38>\n 800f36a:\t4798      \tblx\tr3\n 800f36c:\t4605      \tmov\tr5, r0\n 800f36e:\tb968      \tcbnz\tr0, 800f38c <uart_stm32_init+0x3c>\n 800f370:\t2100      \tmovs\tr1, #0\n 800f372:\tf8d8 0024 \tldr.w\tr0, [r8, #36]\t@ 0x24\n 800f376:\taa05      \tadd\tr2, sp, #20\n 800f378:\tf00a f94b \tbl\t8019612 <pinctrl_lookup_state>\n 800f37c:\t1e05      \tsubs\tr5, r0, #0\n 800f37e:\tda12      \tbge.n\t800f3a6 <uart_stm32_init+0x56>\n 800f380:\t4628      \tmov\tr0, r5\n 800f382:\tb006      \tadd\tsp, #24\n 800f384:\te8bd 81f0 \tldmia.w\tsp!, {r4, r5, r6, r7, r8, pc}\n 800f388:\tf06f 0557 \tmvn.w\tr5, #87\t@ 0x57\n 800f38c:\t4b62      \tldr\tr3, [pc, #392]\t@ (800f518 <uart_stm32_init+0x1c8>)\n 800f38e:\t2201      \tmovs\tr2, #1\n 800f390:\t9302      \tstr\tr3, [sp, #8]\n 800f392:\t2300      \tmovs\tr3, #0\n 800f394:\t4961      \tldr\tr1, [pc, #388]\t@ (800f51c <uart_stm32_init+0x1cc>)\n 800f396:\t4618      \tmov\tr0, r3\n 800f398:\te9cd 3300 \tstrd\tr3, r3, [sp]\n 800f39c:\tf00a fab1 \tbl\t8019902 <z_log_msg_runtime_create.constprop.0>\n 800f3a0:\t2d00      \tcmp\tr5, #0\n 800f3a2:\tdbed      \tblt.n\t800f380 <uart_stm32_init+0x30>\n 800f3a4:\te7e4      \tb.n\t800f370 <uart_stm32_init+0x20>\n 800f3a6:\t9b05      \tldr\tr3, [sp, #20]\n 800f3a8:\t2200      \tmovs\tr2, #0\n 800f3aa:\t7919      \tldrb\tr1, [r3, #4]\n 800f3ac:\t6818      \tldr\tr0, [r3, #0]\n 800f3ae:\tf00a f942 \tbl\t8019636 <pinctrl_configure_pins>\n 800f3b2:\t1e05      \tsubs\tr5, r0, #0\n 800f3b4:\tdbe4      \tblt.n\t800f380 <uart_stm32_init+0x30>\n 800f3b6:\t687e      \tldr\tr6, [r7, #4]\n 800f3b8:\t693b      \tldr\tr3, [r7, #16]\n 800f3ba:\t6834      \tldr\tr4, [r6, #0]\n 800f3bc:\t681d      \tldr\tr5, [r3, #0]\n 800f3be:\t6823      \tldr\tr3, [r4, #0]\n 800f3c0:\tf023 0301 \tbic.w\tr3, r3, #1\n 800f3c4:\t6023      \tstr\tr3, [r4, #0]\n 800f3c6:\t68b0      \tldr\tr0, [r6, #8]\n 800f3c8:\tf00a fd51 \tbl\t8019e6e <z_impl_device_is_ready>\n 800f3cc:\t4603      \tmov\tr3, r0\n 800f3ce:\tb950      \tcbnz\tr0, 800f3e6 <uart_stm32_init+0x96>\n 800f3d0:\t4a53      \tldr\tr2, [pc, #332]\t@ (800f520 <uart_stm32_init+0x1d0>)\n 800f3d2:\t4952      \tldr\tr1, [pc, #328]\t@ (800f51c <uart_stm32_init+0x1cc>)\n 800f3d4:\te9cd 0201 \tstrd\tr0, r2, [sp, #4]\n 800f3d8:\t9000      \tstr\tr0, [sp, #0]\n 800f3da:\t2201      \tmovs\tr2, #1\n 800f3dc:\tf00a fa91 \tbl\t8019902 <z_log_msg_runtime_create.constprop.0>\n 800f3e0:\tf06f 0512 \tmvn.w\tr5, #18\n 800f3e4:\te7cc      \tb.n\t800f380 <uart_stm32_init+0x30>\n 800f3e6:\te9d6 0102 \tldrd\tr0, r1, [r6, #8]\n 800f3ea:\t6883      \tldr\tr3, [r0, #8]\n 800f3ec:\t68db      \tldr\tr3, [r3, #12]\n 800f3ee:\tb103      \tcbz\tr3, 800f3f2 <uart_stm32_init+0xa2>\n 800f3f0:\t4798      \tblx\tr3\n 800f3f2:\te854 3f00 \tldrex\tr3, [r4]\n 800f3f6:\tf043 030c \torr.w\tr3, r3, #12\n 800f3fa:\te844 3200 \tstrex\tr2, r3, [r4]\n 800f3fe:\t2a00      \tcmp\tr2, #0\n 800f400:\td1f7      \tbne.n\t800f3f2 <uart_stm32_init+0xa2>\n 800f402:\t4629      \tmov\tr1, r5\n 800f404:\t4638      \tmov\tr0, r7\n 800f406:\tf00a fb6f \tbl\t8019ae8 <uart_stm32_parameters_set>\n 800f40a:\t4605      \tmov\tr5, r0\n 800f40c:\tb110      \tcbz\tr0, 800f414 <uart_stm32_init+0xc4>\n 800f40e:\tf06f 0515 \tmvn.w\tr5, #21\n 800f412:\te7b5      \tb.n\t800f380 <uart_stm32_init+0x30>\n 800f414:\t7e33      \tldrb\tr3, [r6, #24]\n 800f416:\tb11b      \tcbz\tr3, 800f420 <uart_stm32_init+0xd0>\n 800f418:\t68a3      \tldr\tr3, [r4, #8]\n 800f41a:\tf043 0308 \torr.w\tr3, r3, #8\n 800f41e:\t60a3      \tstr\tr3, [r4, #8]\n 800f420:\t7e73      \tldrb\tr3, [r6, #25]\n 800f422:\tb11b      \tcbz\tr3, 800f42c <uart_stm32_init+0xdc>\n 800f424:\t6863      \tldr\tr3, [r4, #4]\n 800f426:\tf443 4300 \torr.w\tr3, r3, #32768\t@ 0x8000\n 800f42a:\t6063      \tstr\tr3, [r4, #4]\n 800f42c:\t7eb3      \tldrb\tr3, [r6, #26]\n 800f42e:\tb11b      \tcbz\tr3, 800f438 <uart_stm32_init+0xe8>\n 800f430:\t6863      \tldr\tr3, [r4, #4]\n 800f432:\tf443 3380 \torr.w\tr3, r3, #65536\t@ 0x10000\n 800f436:\t6063      \tstr\tr3, [r4, #4]\n 800f438:\t7ef3      \tldrb\tr3, [r6, #27]\n 800f43a:\tb11b      \tcbz\tr3, 800f444 <uart_stm32_init+0xf4>\n 800f43c:\t6863      \tldr\tr3, [r4, #4]\n 800f43e:\tf443 3300 \torr.w\tr3, r3, #131072\t@ 0x20000\n 800f442:\t6063      \tstr\tr3, [r4, #4]\n 800f444:\t7f33      \tldrb\tr3, [r6, #28]\n 800f446:\t2b00      \tcmp\tr3, #0\n 800f448:\td04f      \tbeq.n\t800f4ea <uart_stm32_init+0x19a>\n 800f44a:\t4b36      \tldr\tr3, [pc, #216]\t@ (800f524 <uart_stm32_init+0x1d4>)\n 800f44c:\t429c      \tcmp\tr4, r3\n 800f44e:\td032      \tbeq.n\t800f4b6 <uart_stm32_init+0x166>\n 800f450:\tf103 5380 \tadd.w\tr3, r3, #268435456\t@ 0x10000000\n 800f454:\t429c      \tcmp\tr4, r3\n 800f456:\td02e      \tbeq.n\t800f4b6 <uart_stm32_init+0x166>\n 800f458:\t4b33      \tldr\tr3, [pc, #204]\t@ (800f528 <uart_stm32_init+0x1d8>)\n 800f45a:\t429c      \tcmp\tr4, r3\n 800f45c:\td02b      \tbeq.n\t800f4b6 <uart_stm32_init+0x166>\n 800f45e:\tf103 5380 \tadd.w\tr3, r3, #268435456\t@ 0x10000000\n 800f462:\t429c      \tcmp\tr4, r3\n 800f464:\td027      \tbeq.n\t800f4b6 <uart_stm32_init+0x166>\n 800f466:\t4b31      \tldr\tr3, [pc, #196]\t@ (800f52c <uart_stm32_init+0x1dc>)\n 800f468:\t429c      \tcmp\tr4, r3\n 800f46a:\td024      \tbeq.n\t800f4b6 <uart_stm32_init+0x166>\n 800f46c:\tf103 5380 \tadd.w\tr3, r3, #268435456\t@ 0x10000000\n 800f470:\t429c      \tcmp\tr4, r3\n 800f472:\td020      \tbeq.n\t800f4b6 <uart_stm32_init+0x166>\n 800f474:\t4b2e      \tldr\tr3, [pc, #184]\t@ (800f530 <uart_stm32_init+0x1e0>)\n 800f476:\t429c      \tcmp\tr4, r3\n 800f478:\td01d      \tbeq.n\t800f4b6 <uart_stm32_init+0x166>\n 800f47a:\tf103 5380 \tadd.w\tr3, r3, #268435456\t@ 0x10000000\n 800f47e:\t429c      \tcmp\tr4, r3\n 800f480:\td019      \tbeq.n\t800f4b6 <uart_stm32_init+0x166>\n 800f482:\t4b2c      \tldr\tr3, [pc, #176]\t@ (800f534 <uart_stm32_init+0x1e4>)\n 800f484:\t429c      \tcmp\tr4, r3\n 800f486:\td016      \tbeq.n\t800f4b6 <uart_stm32_init+0x166>\n 800f488:\tf1b4 2f50 \tcmp.w\tr4, #1342197760\t@ 0x50005000\n 800f48c:\td013      \tbeq.n\t800f4b6 <uart_stm32_init+0x166>\n 800f48e:\t4b2a      \tldr\tr3, [pc, #168]\t@ (800f538 <uart_stm32_init+0x1e8>)\n 800f490:\t429c      \tcmp\tr4, r3\n 800f492:\td010      \tbeq.n\t800f4b6 <uart_stm32_init+0x166>\n 800f494:\tf103 5380 \tadd.w\tr3, r3, #268435456\t@ 0x10000000\n 800f498:\t429c      \tcmp\tr4, r3\n 800f49a:\td00c      \tbeq.n\t800f4b6 <uart_stm32_init+0x166>\n 800f49c:\t683b      \tldr\tr3, [r7, #0]\n 800f49e:\t2201      \tmovs\tr2, #1\n 800f4a0:\t9303      \tstr\tr3, [sp, #12]\n 800f4a2:\t4b26      \tldr\tr3, [pc, #152]\t@ (800f53c <uart_stm32_init+0x1ec>)\n 800f4a4:\t491d      \tldr\tr1, [pc, #116]\t@ (800f51c <uart_stm32_init+0x1cc>)\n 800f4a6:\t9302      \tstr\tr3, [sp, #8]\n 800f4a8:\t2300      \tmovs\tr3, #0\n 800f4aa:\t4618      \tmov\tr0, r3\n 800f4ac:\te9cd 3300 \tstrd\tr3, r3, [sp]\n 800f4b0:\tf00a fa27 \tbl\t8019902 <z_log_msg_runtime_create.constprop.0>\n 800f4b4:\te7ab      \tb.n\t800f40e <uart_stm32_init+0xbe>\n 800f4b6:\t687b      \tldr\tr3, [r7, #4]\n 800f4b8:\t681a      \tldr\tr2, [r3, #0]\n 800f4ba:\t6893      \tldr\tr3, [r2, #8]\n 800f4bc:\tf443 4380 \torr.w\tr3, r3, #16384\t@ 0x4000\n 800f4c0:\t6093      \tstr\tr3, [r2, #8]\n 800f4c2:\t6823      \tldr\tr3, [r4, #0]\n 800f4c4:\t7f72      \tldrb\tr2, [r6, #29]\n 800f4c6:\tf023 7378 \tbic.w\tr3, r3, #65011712\t@ 0x3e00000\n 800f4ca:\tea43 5342 \torr.w\tr3, r3, r2, lsl #21\n 800f4ce:\t6023      \tstr\tr3, [r4, #0]\n 800f4d0:\t6823      \tldr\tr3, [r4, #0]\n 800f4d2:\t7fb2      \tldrb\tr2, [r6, #30]\n 800f4d4:\tf423 13f8 \tbic.w\tr3, r3, #2031616\t@ 0x1f0000\n 800f4d8:\tea43 4302 \torr.w\tr3, r3, r2, lsl #16\n 800f4dc:\t6023      \tstr\tr3, [r4, #0]\n 800f4de:\t7ff3      \tldrb\tr3, [r6, #31]\n 800f4e0:\tb11b      \tcbz\tr3, 800f4ea <uart_stm32_init+0x19a>\n 800f4e2:\t68a3      \tldr\tr3, [r4, #8]\n 800f4e4:\tf443 4300 \torr.w\tr3, r3, #32768\t@ 0x8000\n 800f4e8:\t60a3      \tstr\tr3, [r4, #8]\n 800f4ea:\tf896 3020 \tldrb.w\tr3, [r6, #32]\n 800f4ee:\tb11b      \tcbz\tr3, 800f4f8 <uart_stm32_init+0x1a8>\n 800f4f0:\t6823      \tldr\tr3, [r4, #0]\n 800f4f2:\tf043 5300 \torr.w\tr3, r3, #536870912\t@ 0x20000000\n 800f4f6:\t6023      \tstr\tr3, [r4, #0]\n 800f4f8:\t6823      \tldr\tr3, [r4, #0]\n 800f4fa:\tf043 0301 \torr.w\tr3, r3, #1\n 800f4fe:\t6023      \tstr\tr3, [r4, #0]\n 800f500:\t69e3      \tldr\tr3, [r4, #28]\n 800f502:\t029a      \tlsls\tr2, r3, #10\n 800f504:\td5fc      \tbpl.n\t800f500 <uart_stm32_init+0x1b0>\n 800f506:\t69e3      \tldr\tr3, [r4, #28]\n 800f508:\t025b      \tlsls\tr3, r3, #9\n 800f50a:\td5fc      \tbpl.n\t800f506 <uart_stm32_init+0x1b6>\n 800f50c:\t4638      \tmov\tr0, r7\n 800f50e:\tf8d8 3028 \tldr.w\tr3, [r8, #40]\t@ 0x28\n 800f512:\t4798      \tblx\tr3\n 800f514:\te734      \tb.n\t800f380 <uart_stm32_init+0x30>\n 800f516:\tbf00      \tnop\n 800f518:\t08024215 \t.word\t0x08024215\n 800f51c:\t0801c8dc \t.word\t0x0801c8dc\n 800f520:\t08023804 \t.word\t0x08023804\n 800f524:\t40013800 \t.word\t0x40013800\n 800f528:\t40004400 \t.word\t0x40004400\n 800f52c:\t40004800 \t.word\t0x40004800\n 800f530:\t40004c00 \t.word\t0x40004c00\n 800f534:\t40005000 \t.word\t0x40005000\n 800f538:\t46002400 \t.word\t0x46002400\n 800f53c:\t08024235 \t.word\t0x08024235\n",
+        "stderr": ""
+      }
+    ],
+    "saved_text_matches_command_stdout_after_newline_decoding": true
+  },
+  "official_source": {
+    "path": "state/analysis/P2_adc_native_raw/clock_stm32_ll_u5.c",
+    "sha256": "ae2a361260bda1c543824d45c7b7bd0b6124590047cd82e0cb9163cb4a84b1cd",
+    "lines": [
+      [
+        168,
+        "static int stm32_clock_control_on(const struct device *dev, clock_control_subsys_t sub_system)"
+      ],
+      [
+        169,
+        "{"
+      ],
+      [
+        170,
+        "\tstruct stm32_pclken *pclken = (struct stm32_pclken *)(sub_system);"
+      ],
+      [
+        171,
+        "\tvolatile int temp;"
+      ],
+      [
+        172,
+        ""
+      ],
+      [
+        173,
+        "\tARG_UNUSED(dev);"
+      ],
+      [
+        174,
+        ""
+      ],
+      [
+        175,
+        "\tif (!IN_RANGE(pclken->bus, STM32_PERIPH_BUS_MIN, STM32_PERIPH_BUS_MAX)) {"
+      ],
+      [
+        176,
+        "\t\t/* Attempt to toggle a wrong periph clock bit */"
+      ],
+      [
+        177,
+        "\t\treturn -ENOTSUP;"
+      ],
+      [
+        178,
+        "\t}"
+      ],
+      [
+        179,
+        ""
+      ],
+      [
+        180,
+        "\tsys_set_bits(DT_REG_ADDR(DT_NODELABEL(rcc)) + pclken->bus,"
+      ],
+      [
+        181,
+        "\t\t     pclken->enr);"
+      ],
+      [
+        182,
+        "\t/* Delay after enabling the clock, to allow it to become active */"
+      ],
+      [
+        183,
+        "\ttemp = sys_read32(DT_REG_ADDR(DT_NODELABEL(rcc)) + pclken->bus);"
+      ],
+      [
+        184,
+        "\tUNUSED(temp);"
+      ],
+      [
+        185,
+        ""
+      ],
+      [
+        186,
+        "\treturn 0;"
+      ],
+      [
+        187,
+        "}"
+      ]
+    ],
+    "url": "https://raw.githubusercontent.com/arduino/zephyr/1743741760ee5d2d58da50d504855d43f9f8e826/drivers/clock_control/clock_stm32_ll_u5.c"
+  },
+  "mapping": {
+    "rcc_device": "0x0801befc",
+    "rcc_api": "0x0801c76c",
+    "current_device_api_offset": 8,
+    "current_clock_api_on_offset": 0,
+    "native_on_target": "0x080189a3",
+    "power": {
+      "call": "0x08112386",
+      "bus": "0x8c",
+      "div": 0,
+      "enr": "0x400",
+      "postcheck": "RCC+0x8c bit10"
+    },
+    "imu": {
+      "call": "0x0810e43e",
+      "bus": "0xa0",
+      "div": 0,
+      "enr": "0x2",
+      "postcheck": "RCC+0xa0 bit1"
+    },
+    "current_stm32_pclken": {
+      "size": 8,
+      "bus_data_bit_offset": 0,
+      "bus_bit_size": 12,
+      "div_data_bit_offset": 12,
+      "div_bit_size": 20,
+      "enr_byte_offset": 4
+    },
+    "uart": {
+      "device": "0x0801c13c",
+      "app_call": "0x0810c578",
+      "native_device_init_entry": "0x08019e5d",
+      "retained_ops_init_target": "0x0800f351",
+      "native_uart_init_RCC_on_call": "0x0800f36a",
+      "pclken": {
+        "bus": "0xa8",
+        "div": 0,
+        "enr": "0x40"
+      },
+      "native_setup_waits": [
+        "0x0800f500..0x0800f504 TEACK polling",
+        "0x0800f506..0x0800f50a REACK polling",
+        "0x0800f3f2..0x0800f400 exclusive-access retry"
+      ]
+    }
+  },
+  "limits": [
+    "D150 remains terminal FAILED; successful exact common type blocks match but entry wrapper0x08019e5c..0x08019e6e body is absent; no full device_init chain claim",
+    "Direct RCC.on sites are optional ADC/IMU setup paths under current absent grants, not all RCC use by native GPIO/PWM internals",
+    "Optional UART device_init is rejected by current absent dump grant before native call; enabling grants changes eligibility",
+    "Native UART initialization also traverses pinctrl/reset/parameter/logging/IRQ internals not fully audited here; finite clock_on does not establish bounded entire setup or OS",
+    "No runtime/WCET/physical acceptance, complete ABI, static adoption, or human gate claim"
+  ],
+  "storage": {
+    "receipt_limit_bytes": 102400,
+    "full_disassembly_saved": false,
+    "full_dwarf_saved": false,
+    "new_scripts": 0,
+    "new_binary_copies": 0
+  },
+  "supplement_inputs_before": {
+    "state/analysis/P7_static_link_probe_raw/native_api/0003.json": {
+      "sha256": "5b2c1c1ce1292d3b70306d8acd08dde486e3fb2caaea8c63313c6191af716793",
+      "bytes": 14577
+    },
+    "state/analysis/P2_adc_ownership_raw/installed_02.json": {
+      "sha256": "ed8b6c0fd2156483f1157fe3056ee5045ac7a38bb8c69117530e58dcc5b202f3",
+      "bytes": 163844
+    },
+    "state/analysis/P2_adc_ownership_raw/query_02.py": {
+      "sha256": "fb881502cee8568a8295ea6bff272d6178b326d9af038590d412b471b9e434c7",
+      "bytes": 2781
+    },
+    "state/analysis/P2_dump_raw/native/native_symbols.txt": {
+      "sha256": "7ee12bec79896ea4aaddc1b9492d92d9d2f6a8e33af74bb03f7b7a8bb107a5b1",
+      "bytes": 120629
+    }
+  },
+  "supplement_inputs_after": {
+    "state/analysis/P7_static_link_probe_raw/native_api/0003.json": {
+      "sha256": "5b2c1c1ce1292d3b70306d8acd08dde486e3fb2caaea8c63313c6191af716793",
+      "bytes": 14577
+    },
+    "state/analysis/P2_adc_ownership_raw/installed_02.json": {
+      "sha256": "ed8b6c0fd2156483f1157fe3056ee5045ac7a38bb8c69117530e58dcc5b202f3",
+      "bytes": 163844
+    },
+    "state/analysis/P2_adc_ownership_raw/query_02.py": {
+      "sha256": "fb881502cee8568a8295ea6bff272d6178b326d9af038590d412b471b9e434c7",
+      "bytes": 2781
+    },
+    "state/analysis/P2_dump_raw/native/native_symbols.txt": {
+      "sha256": "7ee12bec79896ea4aaddc1b9492d92d9d2f6a8e33af74bb03f7b7a8bb107a5b1",
+      "bytes": 120629
+    }
+  },
+  "supplement_d150": {
+    "scope": "reuse coordinator actual terminal-FAILED file-only result; do not rerun or reclassify entire attempt",
+    "receipt": "state/analysis/P7_static_link_probe_raw/native_api/0003.json",
+    "receipt_sha256": "5b2c1c1ce1292d3b70306d8acd08dde486e3fb2caaea8c63313c6191af716793",
+    "actual_argv": [
+      "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-gdb",
+      "-nx",
+      "-nh",
+      "-batch",
+      "-iex",
+      "set auto-load no",
+      "/home/arduino/sumox26_codex_build/_app_builds/static-app-probe-v1/fcddbd8ef5ba4c92a2080b03e9343ac78c2406b13d9514793aa147e02f0d1da2/bench-default/f0220228320c4b2aa20c3e5e8264c813/build/app.ino_debug.elf",
+      "-ex",
+      "set language c++",
+      "-ex",
+      "set max-value-size unlimited",
+      "-ex",
+      "echo D150_APP_00\\n",
+      "-ex",
+      "ptype /o struct device",
+      "-ex",
+      "echo D150_APP_01\\n",
+      "-ex",
+      "ptype /o struct device_ops",
+      "-ex",
+      "echo D150_APP_02\\n",
+      "-ex",
+      "ptype /o struct gpio_driver_api",
+      "-ex",
+      "echo D150_APP_03\\n",
+      "-ex",
+      "ptype /o struct pwm_driver_api",
+      "-ex",
+      "echo D150_APP_04\\n",
+      "-ex",
+      "ptype /o struct clock_control_driver_api",
+      "-ex",
+      "echo D150_APP_05\\n",
+      "-ex",
+      "ptype /o struct stm32_pclken",
+      "-ex",
+      "echo D150_APP_06\\n",
+      "-ex",
+      "ptype pwm_flags_t",
+      "-ex",
+      "echo D150_APP_07\\n",
+      "-ex",
+      "ptype clock_control_subsys_t",
+      "-ex",
+      "echo D150_APP_08\\n",
+      "-ex",
+      "p sizeof(int)",
+      "-ex",
+      "echo D150_APP_09\\n",
+      "-ex",
+      "p sizeof(gpio_pin_t)",
+      "-ex",
+      "echo D150_APP_10\\n",
+      "-ex",
+      "p sizeof(gpio_flags_t)",
+      "-ex",
+      "echo D150_APP_11\\n",
+      "-ex",
+      "p sizeof(gpio_port_value_t)",
+      "-ex",
+      "echo D150_APP_12\\n",
+      "-ex",
+      "p sizeof(gpio_port_pins_t)",
+      "-ex",
+      "file /home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf",
+      "-ex",
+      "echo D150_LOADER_00\\n",
+      "-ex",
+      "ptype /o struct device",
+      "-ex",
+      "echo D150_LOADER_01\\n",
+      "-ex",
+      "ptype /o struct device_ops",
+      "-ex",
+      "echo D150_LOADER_02\\n",
+      "-ex",
+      "ptype /o struct gpio_driver_api",
+      "-ex",
+      "echo D150_LOADER_03\\n",
+      "-ex",
+      "ptype /o struct pwm_driver_api",
+      "-ex",
+      "echo D150_LOADER_04\\n",
+      "-ex",
+      "ptype /o struct clock_control_driver_api",
+      "-ex",
+      "echo D150_LOADER_05\\n",
+      "-ex",
+      "ptype /o struct stm32_pclken",
+      "-ex",
+      "echo D150_LOADER_06\\n",
+      "-ex",
+      "ptype pwm_flags_t",
+      "-ex",
+      "echo D150_LOADER_07\\n",
+      "-ex",
+      "ptype clock_control_subsys_t",
+      "-ex",
+      "echo D150_LOADER_08\\n",
+      "-ex",
+      "p sizeof(int)",
+      "-ex",
+      "echo D150_LOADER_09\\n",
+      "-ex",
+      "p sizeof(gpio_pin_t)",
+      "-ex",
+      "echo D150_LOADER_10\\n",
+      "-ex",
+      "p sizeof(gpio_flags_t)",
+      "-ex",
+      "echo D150_LOADER_11\\n",
+      "-ex",
+      "p sizeof(gpio_port_value_t)",
+      "-ex",
+      "echo D150_LOADER_12\\n",
+      "-ex",
+      "p sizeof(gpio_port_pins_t)",
+      "-ex",
+      "echo D150_LOADER_13\\n",
+      "-ex",
+      "p/x __device_dts_ord_89",
+      "-ex",
+      "echo D150_LOADER_14\\n",
+      "-ex",
+      "p/x __device_dts_ord_90",
+      "-ex",
+      "echo D150_LOADER_15\\n",
+      "-ex",
+      "p/x __device_dts_ord_91",
+      "-ex",
+      "echo D150_LOADER_16\\n",
+      "-ex",
+      "p/x __device_dts_ord_94",
+      "-ex",
+      "echo D150_LOADER_17\\n",
+      "-ex",
+      "p/x __device_dts_ord_120",
+      "-ex",
+      "echo D150_LOADER_18\\n",
+      "-ex",
+      "p/x __device_dts_ord_105",
+      "-ex",
+      "echo D150_LOADER_19\\n",
+      "-ex",
+      "p/x __device_dts_ord_109",
+      "-ex",
+      "echo D150_LOADER_20\\n",
+      "-ex",
+      "p/x __device_dts_ord_9",
+      "-ex",
+      "echo D150_LOADER_21\\n",
+      "-ex",
+      "p/x __device_dts_ord_78",
+      "-ex",
+      "echo D150_LOADER_22\\n",
+      "-ex",
+      "p/x gpio_stm32_driver",
+      "-ex",
+      "echo D150_LOADER_23\\n",
+      "-ex",
+      "p/x pwm_stm32_driver_api",
+      "-ex",
+      "echo D150_LOADER_24\\n",
+      "-ex",
+      "p/x stm32_clock_control_api",
+      "-ex",
+      "echo D150_LOADER_25\\n",
+      "-ex",
+      "whatis pwm_stm32_set_cycles",
+      "-ex",
+      "echo D150_LOADER_26\\n",
+      "-ex",
+      "whatis pwm_stm32_get_cycles_per_sec",
+      "-ex",
+      "echo D150_LOADER_27\\n",
+      "-ex",
+      "whatis pwm_stm32_init",
+      "-ex",
+      "echo D150_LOADER_28\\n",
+      "-ex",
+      "whatis z_impl_device_init",
+      "-ex",
+      "echo D150_LOADER_29\\n",
+      "-ex",
+      "whatis stm32_clock_control_on",
+      "-ex",
+      "echo D150_LOADER_30\\n",
+      "-ex",
+      "whatis stm32_clock_control_get_subsys_rate",
+      "-ex",
+      "echo D150_LOADER_31\\n",
+      "-ex",
+      "whatis stm32_clock_control_configure",
+      "-ex",
+      "echo D150_LOADER_32\\n",
+      "-ex",
+      "disassemble /r z_impl_device_init",
+      "-ex",
+      "echo D150_LOADER_33\\n",
+      "-ex",
+      "whatis gpio_stm32_config",
+      "-ex",
+      "echo D150_LOADER_34\\n",
+      "-ex",
+      "whatis gpio_stm32_port_get_raw",
+      "-ex",
+      "echo D150_LOADER_35\\n",
+      "-ex",
+      "whatis gpio_stm32_port_set_bits_raw",
+      "-ex",
+      "echo D150_LOADER_36\\n",
+      "-ex",
+      "whatis gpio_stm32_port_clear_bits_raw",
+      "-ex",
+      "echo D150_END\\n"
+    ],
+    "returncode": 0,
+    "stderr": "No function contains specified address.\n",
+    "stdout_sha256": "7feb4fb9627254e3a484e008e390cce1dd05e7d02642c6661aa044d587a610e2",
+    "query_sections": 50,
+    "nonempty_sections": 49,
+    "exact_type_text_matches": {
+      "00": true,
+      "01": true,
+      "04": true,
+      "05": true,
+      "07": true
+    },
+    "sections": {
+      "D150_APP_00": "/* offset      |    size */  type = struct device {\n/*      0      |       4 */    const char *name;\n/*      4      |       4 */    const void *config;\n/*      8      |       4 */    const void *api;\n/*     12      |       4 */    device_state *state;\n/*     16      |       4 */    void *data;\n/*     20      |       8 */    struct device_ops {\n/*     20      |       4 */        int (*init)(const device *);\n/*     24      |       4 */        int (*deinit)(const device *);\n\n                                   /* total size (bytes):    8 */\n                               } ops;\n/*     28      |       1 */    device_flags_t flags;\n/* XXX  3-byte hole      */\n/*     32      |       4 */    const device_handle_t *deps;\n\n                               /* total size (bytes):   36 */\n                             }\n",
+      "D150_APP_01": "/* offset      |    size */  type = struct device_ops {\n/*      0      |       4 */    int (*init)(const device *);\n/*      4      |       4 */    int (*deinit)(const device *);\n\n                               /* total size (bytes):    8 */\n                             }\n",
+      "D150_APP_04": "/* offset      |    size */  type = struct clock_control_driver_api {\n/*      0      |       4 */    clock_control on;\n/*      4      |       4 */    clock_control off;\n/*      8      |       4 */    clock_control_async_on_fn async_on;\n/*     12      |       4 */    clock_control_get get_rate;\n/*     16      |       4 */    clock_control_get_status_fn get_status;\n/*     20      |       4 */    clock_control_set set_rate;\n/*     24      |       4 */    clock_control_configure_fn configure;\n\n                               /* total size (bytes):   28 */\n                             }\n",
+      "D150_APP_05": "/* offset      |    size */  type = struct stm32_pclken {\n/*      0: 0   |       4 */    uint32_t bus : 12;\n/*      1: 4   |       4 */    uint32_t div : 20;\n/*      4      |       4 */    uint32_t enr;\n\n                               /* total size (bytes):    8 */\n                             }\n",
+      "D150_APP_07": "type = void *\n",
+      "D150_LOADER_00": "/* offset      |    size */  type = struct device {\n/*      0      |       4 */    const char *name;\n/*      4      |       4 */    const void *config;\n/*      8      |       4 */    const void *api;\n/*     12      |       4 */    device_state *state;\n/*     16      |       4 */    void *data;\n/*     20      |       8 */    struct device_ops {\n/*     20      |       4 */        int (*init)(const device *);\n/*     24      |       4 */        int (*deinit)(const device *);\n\n                                   /* total size (bytes):    8 */\n                               } ops;\n/*     28      |       1 */    device_flags_t flags;\n/* XXX  3-byte hole      */\n/*     32      |       4 */    const device_handle_t *deps;\n\n                               /* total size (bytes):   36 */\n                             }\n",
+      "D150_LOADER_01": "/* offset      |    size */  type = struct device_ops {\n/*      0      |       4 */    int (*init)(const device *);\n/*      4      |       4 */    int (*deinit)(const device *);\n\n                               /* total size (bytes):    8 */\n                             }\n",
+      "D150_LOADER_04": "/* offset      |    size */  type = struct clock_control_driver_api {\n/*      0      |       4 */    clock_control on;\n/*      4      |       4 */    clock_control off;\n/*      8      |       4 */    clock_control_async_on_fn async_on;\n/*     12      |       4 */    clock_control_get get_rate;\n/*     16      |       4 */    clock_control_get_status_fn get_status;\n/*     20      |       4 */    clock_control_set set_rate;\n/*     24      |       4 */    clock_control_configure_fn configure;\n\n                               /* total size (bytes):   28 */\n                             }\n",
+      "D150_LOADER_05": "/* offset      |    size */  type = struct stm32_pclken {\n/*      0: 0   |       4 */    uint32_t bus : 12;\n/*      1: 4   |       4 */    uint32_t div : 20;\n/*      4      |       4 */    uint32_t enr;\n\n                               /* total size (bytes):    8 */\n                             }\n",
+      "D150_LOADER_07": "type = void *\n",
+      "D150_LOADER_20": "$18 = {name = 0x8023774, config = 0x0, api = 0x801c76c, state = 0x200010e2, data = 0x0, ops = {init = 0x800badd, deinit = 0x0}, flags = 0x0, deps = 0x801c5a6}\n",
+      "D150_LOADER_21": "$19 = {name = 0x802426b, config = 0x801e798, api = 0x801c788, state = 0x20001106, data = 0x200002d8, ops = {init = 0x800f351, deinit = 0x0}, flags = 0x1, deps = 0x801c50e}\n",
+      "D150_LOADER_24": "$22 = {on = 0x80189a3, off = 0x80189e7, async_on = 0x0, get_rate = 0x800b9ed, get_status = 0x8018a59, set_rate = 0x0, configure = 0x8018a13}\n",
+      "D150_LOADER_28": "type = void * const\n",
+      "D150_LOADER_29": "type = int (const device *, clock_control_subsys_t)\n",
+      "D150_LOADER_32": ""
+    }
+  },
+  "supplement_retained_device_init": {
+    "source_receipt": "state/analysis/P2_adc_ownership_raw/installed_02.json",
+    "collector": "state/analysis/P2_adc_ownership_raw/query_02.py",
+    "receipt_container_exit": 0,
+    "successful_helper_reused_not_rerun": {
+      "gdb": "disassemble do_device_init",
+      "exit": 0,
+      "stdout": "Dump of assembler code for function do_device_init:\n   0x08019e2c <+0>:\tpush\t{r4, lr}\n   0x08019e2e <+2>:\tldr\tr3, [r0, #20]\n   0x08019e30 <+4>:\tmov\tr4, r0\n   0x08019e32 <+6>:\tcbnz\tr3, 0x8019e44 <do_device_init+24>\n   0x08019e34 <+8>:\tmovs\tr0, #0\n   0x08019e36 <+10>:\tldr\tr2, [r4, #12]\n   0x08019e38 <+12>:\tnegs\tr0, r0\n   0x08019e3a <+14>:\tldrb\tr3, [r2, #1]\n   0x08019e3c <+16>:\torr.w\tr3, r3, #1\n   0x08019e40 <+20>:\tstrb\tr3, [r2, #1]\n   0x08019e42 <+22>:\tpop\t{r4, pc}\n   0x08019e44 <+24>:\tblx\tr3\n   0x08019e46 <+26>:\tcmp\tr0, #0\n   0x08019e48 <+28>:\tbeq.n\t0x8019e34 <do_device_init+8>\n   0x08019e4a <+30>:\tcmp\tr0, #0\n   0x08019e4c <+32>:\tit\tlt\n   0x08019e4e <+34>:\tneglt\tr0, r0\n   0x08019e50 <+36>:\tcmp\tr0, #255\t@ 0xff\n   0x08019e52 <+38>:\tit\tge\n   0x08019e54 <+40>:\tmovge\tr0, #255\t@ 0xff\n   0x08019e56 <+42>:\tldr\tr3, [r4, #12]\n   0x08019e58 <+44>:\tstrb\tr0, [r3, #0]\n   0x08019e5a <+46>:\tb.n\t0x8019e36 <do_device_init+10>\nEnd of assembler dump.\n",
+      "stderr": ""
+    },
+    "historical_wrapper_failure_reused_not_rerun": {
+      "gdb": "disassemble z_impl_device_init",
+      "exit": 1,
+      "stdout": "",
+      "stderr": "No function contains specified address.\n"
+    },
+    "symbol_rows": [
+      "08019e2c T do_device_init",
+      "08019e5c T z_impl_device_init",
+      "08019e6e T z_impl_device_is_ready"
+    ],
+    "closed_edge": "do_device_init loads ops.init at device+20 and calls it at0x08019e44; UART78 init pointer0x0800f351",
+    "remaining_gap": "entry wrapper instructions0x08019e5c..0x08019e6e missing; symbol adjacency does not prove wrapper-to-helper control flow"
+  }
+}

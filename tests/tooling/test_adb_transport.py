@@ -11,6 +11,11 @@ import subprocess
 import tempfile
 import unittest
 
+if __package__:
+    from .reviewed_source_fixture import copy_p0_source
+else:
+    from reviewed_source_fixture import copy_p0_source
+
 
 PROJECT = Path(__file__).resolve().parents[2]
 HELPER = Path(__file__).with_name('fake_command.py')
@@ -191,7 +196,7 @@ class AdbTransportTests(unittest.TestCase):
             destination = (self.root / relative).resolve()
             self.assertTrue(destination.is_relative_to(self.root.resolve()))
             shutil.rmtree(destination)
-            shutil.copytree(PROJECT / relative, destination)
+            copy_p0_source(relative, destination)
 
     def run_tool(self, *args, tool='flash.sh', changes=None):
         self.trace.unlink(missing_ok=True)

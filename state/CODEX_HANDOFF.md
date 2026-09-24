@@ -10,16 +10,13 @@ Do not treat an old snapshot, template or synthetic test as current approval.
 
 ## Current software checkpoint
 
-Dated user pause: 2026-09-24, network disconnect. D131 host validation now passes;
-D132 tooling is applied, but its first32-method run has three failed app-layout
-subcases in one new test. No fix yet; no process or hardware action is running.
-Read the latest section of analysis/P4_push_through_checkpoint.md before the
-older notes. First resume task is independent adjudication of that expectation.
-
-D131/D132 are in progress on top of ac49d422, with task-owned uncommitted code,
-tests and evidence. Resume through analysis/P4_push_through_checkpoint.md; it
-records completed runs, the remaining timing-policy regression, pending native
-literal admission and exact next steps. Neither task has final review acceptance.
+User resumed2026-09-24. D131/D132/D133 are IMPLEMENTED/HOST-TESTED with separate
+same-model scoped review PASS, no open findings. D131 final timing/sanitizer42public
+and14private cases pass perM0/M1; unchanged legacy30 pass perM0/M1. D13232 admission
+and12 private methods pass. D133 same296-method tooling rerun passes after exact
+historical fixture repair; all344 established assertions remain unchanged.
+Read analysis/P4_push_through_checkpoint.md and the two validation reports.
+Next software task is P5 optional-mode contract adoption; no gate follows.
 The user's storage follow-up added the retention rule in AGENTS.md and the
 compact history in STORAGE_LOG.md. Additional deletion was blocked by tooling.
 
@@ -27,7 +24,7 @@ D130 is IMPLEMENTED/HOST-TESTED with fresh-context scoped review PASS. Source
 b2229370 and original41-method oracle are unchanged after first-run112public
 methods (41new+33countdown+38CSV) and13private methods pass. All648prior tracked
 inputs and40protected files remain exact. Read analysis/P4_loss_analysis_validation.md.
-Bounded B9.4 push-through is now implemented and undergoing D131 validation.
+Bounded B9.4 push-through is now implemented, host-tested and reviewed.
 Default window remains0; copied positive fixtures are not positive tuning.
 
 D129 is IMPLEMENTED/HOST-TESTED with separate scoped review PASS and no open

@@ -93,3 +93,26 @@ Quoted-identifier scope was clarified by root before freeze and is covered.
 No unresolved ambiguity blocks execution. Existing fixture protocol additions
 remain separately owned and deferred until the D131 validation barrier.
 Next action: root freeze, execute and obtain separate review.
+
+## First execution and narrow layout-oracle correction
+
+The first32-method run returned three failures, all in the app0/20/100 subcases
+of `test_actual_app_and_bench_stages_keep_supported_config_bytes_and_layout`.
+The assertion expected `output/local.h`, incorrectly generalizing bench-local
+header staging to the app support directory. All other first-run subcases passed;
+original results remain `P4_push_literal_raw/admission.txt` and `admission.json`.
+
+Independent author, separate reviewer and root agreed that this is an oracle
+layout correction, not a production admission repair. The preexisting public
+`P2_app_transaction_contract.md`:135-137 places app support under staged `src/app`
+with only the `.ino` at the root. Existing `test_app_transaction.py`:133-149 and
+`test_app_runtime.py`:172-195 require nested app-header bytes and reject flattening.
+
+The approved correction selects `src/app/local.h` for app and retains `local.h`
+for benches. It preserves the existence assertion, adds exact source/staged
+header-byte comparison, and asserts app root `local.h` is absent. All32 methods
+and every other assertion remain unchanged. Original oracle SHA256
+`FC1CA53858D5F55D3D6D08DE5AC766CBF3C6E574811FB7C00E127851625F1CAA` and its first
+freeze are committed at `2bdc6eae`; Git provides provenance without another full
+snapshot. The author performed no test execution or production-body read during
+adjudication/correction. Root owns the revised freeze and unchanged-suite rerun.

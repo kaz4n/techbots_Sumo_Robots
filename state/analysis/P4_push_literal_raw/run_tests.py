@@ -12,8 +12,13 @@ out = Path(__file__).resolve().parent
 sys.path[:0] = [str(root), str(root / 'tests/tooling')]
 group = sys.argv[1]
 assert group in ('admission', 'regression')
-assert not (out / (group + '.json')).exists(), 'Preserve prior results'
-freeze = json.loads((out / 'freeze.json').read_text())
+label = sys.argv[2] if len(sys.argv) > 2 else group
+assert label.replace('_', '').isalnum()
+assert not (out / (label + '.json')).exists(), 'Preserve prior results'
+freeze_name = sys.argv[3] if len(sys.argv) > 3 else 'freeze.json'
+assert freeze_name in ('freeze.json', 'historical_fixture_freeze.json')
+freeze_path = out / freeze_name
+freeze = json.loads(freeze_path.read_text())
 for name, expected in freeze.items():
     assert hashlib.sha256((root / name).read_bytes()).hexdigest() == expected, name
 names = ['test_push_literal_admission']
@@ -30,10 +35,11 @@ if group == 'regression':
              'test_app_default_run', 'test_staged_core', 'test_runtime_config_registry']
     from tests.tooling import test_runtime_config_registry
     test_runtime_config_registry.RAW = out
-record = {'group': group, 'modules': names,
+record = {'group': group, 'label': label, 'modules': names,
           'start_utc': datetime.now(timezone.utc).isoformat(),
-          'freeze_sha256': hashlib.sha256((out / 'freeze.json').read_bytes()).hexdigest()}
-with (out / (group + '.txt')).open('w') as log:
+          'freeze_path': freeze_name,
+          'freeze_sha256': hashlib.sha256(freeze_path.read_bytes()).hexdigest()}
+with (out / (label + '.txt')).open('w') as log:
     with contextlib.redirect_stdout(log), contextlib.redirect_stderr(log):
         suite = unittest.defaultTestLoader.loadTestsFromNames(
             ['tests.tooling.' + name for name in names])
@@ -42,6 +48,6 @@ code = 0 if result.wasSuccessful() else 1
 record.update(returncode=code, tests_run=result.testsRun,
               failures=len(result.failures), errors=len(result.errors),
               skipped=len(result.skipped), end_utc=datetime.now(timezone.utc).isoformat())
-(out / (group + '.json')).write_text(json.dumps(record, indent=2) + '\n')
-print((out / (group + '.txt')).read_text()[-4500:])
+(out / (label + '.json')).write_text(json.dumps(record, indent=2) + '\n')
+print((out / (label + '.txt')).read_text()[-4500:])
 sys.exit(code)

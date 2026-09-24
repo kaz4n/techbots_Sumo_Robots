@@ -1,0 +1,88 @@
+test_only_allowlisted_inert_sketches_upload_after_compile_without_port (tests.tooling.test_tools.ToolContractTests.test_only_allowlisted_inert_sketches_upload_after_compile_without_port) ... 
+  test_only_allowlisted_inert_sketches_upload_after_compile_without_port (tests.tooling.test_tools.ToolContractTests.test_only_allowlisted_inert_sketches_upload_after_compile_without_port) (target='bench/p0_matrix') ... FAIL
+  test_only_allowlisted_inert_sketches_upload_after_compile_without_port (tests.tooling.test_tools.ToolContractTests.test_only_allowlisted_inert_sketches_upload_after_compile_without_port) (target='bench/p0_timing') ... FAIL
+test_reviewed_inert_immediate_upload_uses_same_artifact_and_zero_motor_macro (tests.tooling.test_tools.ToolContractTests.test_reviewed_inert_immediate_upload_uses_same_artifact_and_zero_motor_macro) ... FAIL
+test_reviewed_snapshot_survives_lf_checkout (tests.tooling.test_tools.ToolContractTests.test_reviewed_snapshot_survives_lf_checkout) ... 
+  test_reviewed_snapshot_survives_lf_checkout (tests.tooling.test_tools.ToolContractTests.test_reviewed_snapshot_survives_lf_checkout) (sketch='bench/p0_matrix') ... FAIL
+  test_reviewed_snapshot_survives_lf_checkout (tests.tooling.test_tools.ToolContractTests.test_reviewed_snapshot_survives_lf_checkout) (sketch='bench/p0_timing') ... FAIL
+test_reviewed_default_inert_upload_follows_compile_with_same_artifact (tests.tooling.test_adb_transport.AdbTransportTests.test_reviewed_default_inert_upload_follows_compile_with_same_artifact) ... 
+  test_reviewed_default_inert_upload_follows_compile_with_same_artifact (tests.tooling.test_adb_transport.AdbTransportTests.test_reviewed_default_inert_upload_follows_compile_with_same_artifact) (target='bench/p0_matrix') ... FAIL
+  test_reviewed_default_inert_upload_follows_compile_with_same_artifact (tests.tooling.test_adb_transport.AdbTransportTests.test_reviewed_default_inert_upload_follows_compile_with_same_artifact) (target='bench/p0_timing') ... FAIL
+test_compile_failure_prevents_reviewed_inert_upload (tests.tooling.test_adb_transport.AdbTransportTests.test_compile_failure_prevents_reviewed_inert_upload) ... FAIL
+
+======================================================================
+FAIL: test_only_allowlisted_inert_sketches_upload_after_compile_without_port (tests.tooling.test_tools.ToolContractTests.test_only_allowlisted_inert_sketches_upload_after_compile_without_port) (target='bench/p0_matrix')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_tools.py", line 231, in test_only_allowlisted_inert_sketches_upload_after_compile_without_port
+    self.assertEqual(0, result.returncode, result.stderr)
+AssertionError: 0 != 2 : ERROR: inert upload source differs from reviewed P0 snapshot; use --compile-only and obtain a new source review
+
+
+======================================================================
+FAIL: test_only_allowlisted_inert_sketches_upload_after_compile_without_port (tests.tooling.test_tools.ToolContractTests.test_only_allowlisted_inert_sketches_upload_after_compile_without_port) (target='bench/p0_timing')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_tools.py", line 231, in test_only_allowlisted_inert_sketches_upload_after_compile_without_port
+    self.assertEqual(0, result.returncode, result.stderr)
+AssertionError: 0 != 2 : ERROR: inert upload source differs from reviewed P0 snapshot; use --compile-only and obtain a new source review
+
+
+======================================================================
+FAIL: test_reviewed_inert_immediate_upload_uses_same_artifact_and_zero_motor_macro (tests.tooling.test_tools.ToolContractTests.test_reviewed_inert_immediate_upload_uses_same_artifact_and_zero_motor_macro)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_tools.py", line 178, in test_reviewed_inert_immediate_upload_uses_same_artifact_and_zero_motor_macro
+    self.assertEqual(0, result.returncode, result.stderr)
+AssertionError: 0 != 2 : ERROR: inert upload source differs from reviewed P0 snapshot; use --compile-only and obtain a new source review
+
+
+======================================================================
+FAIL: test_reviewed_snapshot_survives_lf_checkout (tests.tooling.test_tools.ToolContractTests.test_reviewed_snapshot_survives_lf_checkout) (sketch='bench/p0_matrix')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_tools.py", line 387, in test_reviewed_snapshot_survives_lf_checkout
+    self.assertEqual(0, result.returncode, result.stderr)
+AssertionError: 0 != 2 : ERROR: inert upload source differs from reviewed P0 snapshot; use --compile-only and obtain a new source review
+
+
+======================================================================
+FAIL: test_reviewed_snapshot_survives_lf_checkout (tests.tooling.test_tools.ToolContractTests.test_reviewed_snapshot_survives_lf_checkout) (sketch='bench/p0_timing')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_tools.py", line 387, in test_reviewed_snapshot_survives_lf_checkout
+    self.assertEqual(0, result.returncode, result.stderr)
+AssertionError: 0 != 2 : ERROR: inert upload source differs from reviewed P0 snapshot; use --compile-only and obtain a new source review
+
+
+======================================================================
+FAIL: test_reviewed_default_inert_upload_follows_compile_with_same_artifact (tests.tooling.test_adb_transport.AdbTransportTests.test_reviewed_default_inert_upload_follows_compile_with_same_artifact) (target='bench/p0_matrix')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_adb_transport.py", line 442, in test_reviewed_default_inert_upload_follows_compile_with_same_artifact
+    self.assertEqual(0, result.returncode, result.stderr)
+AssertionError: 0 != 2 : ERROR: inert upload source differs from reviewed P0 snapshot; use --compile-only and obtain a new source review
+
+
+======================================================================
+FAIL: test_reviewed_default_inert_upload_follows_compile_with_same_artifact (tests.tooling.test_adb_transport.AdbTransportTests.test_reviewed_default_inert_upload_follows_compile_with_same_artifact) (target='bench/p0_timing')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_adb_transport.py", line 442, in test_reviewed_default_inert_upload_follows_compile_with_same_artifact
+    self.assertEqual(0, result.returncode, result.stderr)
+AssertionError: 0 != 2 : ERROR: inert upload source differs from reviewed P0 snapshot; use --compile-only and obtain a new source review
+
+
+======================================================================
+FAIL: test_compile_failure_prevents_reviewed_inert_upload (tests.tooling.test_adb_transport.AdbTransportTests.test_compile_failure_prevents_reviewed_inert_upload)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_adb_transport.py", line 491, in test_compile_failure_prevents_reviewed_inert_upload
+    self.assertEqual(1, len(self.commands('compile')))
+AssertionError: 1 != 0
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.897s
+
+FAILED (failures=8)
+Historical app fixture: Public source fixture changed: src/app/runtime_inputs.cpp

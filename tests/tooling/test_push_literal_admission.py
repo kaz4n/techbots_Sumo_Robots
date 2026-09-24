@@ -282,7 +282,12 @@ class PushStageTests(unittest.TestCase):
                     self.assertEqual(output, self.root / 'build/stage' / Path(sketch).name)
                     self.assertEqual((output / 'src/config.h').read_bytes(), raw)
                     self.assertTrue((output / (Path(sketch).name + '.ino')).is_file())
-                    self.assertTrue((output / 'local.h').is_file())
+                    local = 'src/app/local.h' if sketch == 'app' else 'local.h'
+                    source = self.root / ('src/app' if sketch == 'app' else sketch) / 'local.h'
+                    self.assertTrue((output / local).is_file())
+                    self.assertEqual((output / local).read_bytes(), source.read_bytes())
+                    if sketch == 'app':
+                        self.assertFalse((output / 'local.h').exists())
                     self.no_board_operations(calls)
 
     def test_actual_stage_always_validates_the_copied_destination_not_the_root(self):

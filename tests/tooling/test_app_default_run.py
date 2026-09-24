@@ -64,7 +64,7 @@ class Fixture:
         check = hashlib.sha256()
         for name in sorted(self.source_map):
             local = 'src/app/app.ino' if name == 'app.ino' else name
-            data = (ROOT / local).read_bytes()
+            data = (ROOT / 'state/analysis/P2_dump_fifo_raw/target_sources_e820c0e1' / name).read_bytes()
             if digest(data) != self.source_map[name]:
                 raise AssertionError('Public source fixture changed: ' + name)
             check.update(name.encode() + b'\0'); check.update(data)

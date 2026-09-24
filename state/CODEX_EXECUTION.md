@@ -1,10 +1,10 @@
 # Current execution checklist - 2026-09-24 Asia/Dubai
 
-**Active: P4 software under D128; D131 validation and D132 admission in progress.**
-**User-paused 2026-09-24 for network disconnect.** D131 host validation passed;
-D132 first admission run failed three app-header-layout subcases in one new
-method. Resume independent adjudication in analysis/P4_push_through_checkpoint.md.
-No build, test process or board operation remains running.
+**Active: P4 software under D128; D131/D132/D133 completed at host scope.**
+**Resumed2026-09-24.** D131 host validation passed; D132 corrected32-method oracle
+and12 private methods pass. D133 same296-method regression passes. Separate
+same-model scoped review PASS, no open findings. Next P5 software contract
+adoption through analysis/P4_push_through_checkpoint.md; no board operation.
 D051/D075/D122 permit software scheduling before physical acceptance. Assumptions
 are not measurements, human gates or run permissions. PROGRESS.md is the
 append-only phase/gate history; historical checkpoints remain in Git.
@@ -18,7 +18,7 @@ append-only phase/gate history; historical checkpoints remain in Git.
 | P2 B8/2.1-2.4 | Recorder/dump software, D118 actual inert app observation | Native transport ownership/framing, full-source WCET/live memory/stack and physical acceptance |
 | P2 2.5 | Software packet retained | Assembled size/weight, actual B1-B8 results and human gate |
 | P3 3.1-3.7 | D123 drive, D125 turn, D126 stop profiles; D127 countdown analyzer | Physical trials, evidence-backed tuning and GATE P3 PASS |
-| P4 4.1-4.7 | D128 reactive, D129 trace, D130 analysis host-tested/reviewed; D131 implementation under validation | D131 timing regression/review; D132 staging admission; native checks; real trials/gate |
+| P4 4.1-4.7 | D128 reactive, D129 trace, D130 analysis, D131 bounded push and D132 admission host-tested/reviewed; D133296tooling PASS | Native fit/WCET; real trials/gate |
 | P5 | Existing core openers and tests | Eligible phase software review and physical opener evidence |
 | P6/P7 | Pending; original scope/schedule retained | P6 actual P4 gate by30Sep, freeze/rehearsal/match evidence; no inferred release tag |
 
@@ -46,9 +46,9 @@ No D129 upload/reset/motor action or physical result occurred.
 1. D130 completed:112public methods (41new+71existing) PASS first execution;
    fresh reviewer13private PASS;648prior inputs and40protected files exact. Read
    analysis/P4_loss_analysis_validation.md. No source/oracle repair needed.
-2. Resume analysis/P4_push_through_checkpoint.md: preserve completed D131 runs,
-   finish timing-policy validation, then D132 admission and final scoped review.
-   EDGE_PUSH_THROUGH_MS stays0; uncommitted task work is intentional.
+2. D131-D133 completed; preserve first failures and successful source-bound runs.
+   Review/adopt P5 optional-mode availability contract under hardware-at-end
+   direction. EDGE_PUSH_THROUGH_MS stays0; physical gates remain pending.
 3. Use analysis/P4_software_acceptance_packet.md for deferred physical4.1-4.7.
 
 Storage cleanup43319eec removed only inspected disposable files and losslessly

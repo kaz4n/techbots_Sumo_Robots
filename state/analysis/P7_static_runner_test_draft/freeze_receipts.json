@@ -1,0 +1,18 @@
+{
+  "status": "FROZEN_FOR_AUTHORIZED_HOST_TEST",
+  "scope": "Independent D143 completion-receipt failure supplement at io.open, distinguishing known zero compile completion from a transport timeout",
+  "test_methods": 2,
+  "implementation_bodies_read": false,
+  "supplement_execution_performed": false,
+  "execution_command": "python -B -m unittest discover -s state/analysis/P7_static_runner_test_draft -p test_static_runner_receipts.py -v",
+  "expectations": [
+    "A receipt write failure after a well-formed zero compile result propagates the original OSError, records FAILED, runs all first terminal postchecks, and stops after 20 exact dispatches without artifact collection.",
+    "A receipt write failure after TimeoutExpired cannot replace that original exception or its bytes. COMPILE_OUTCOME_UNKNOWN runs local pin/stage checks and stops after 17 exact dispatches."
+  ],
+  "inputs_sha256": {
+    "state/analysis/P7_static_runner_test_draft/test_static_runner_receipts.py": "b85fa86d61031647f5be48483e1edf3aaa34c75c5a79f554fe2cd364888dba73",
+    "state/analysis/P7_static_runner_test_draft/test_static_runner.py": "594d399dc818d3ae5113648d92589d8921b16fd37c36d1682d4ea59ba6bfbc20",
+    "state/analysis/P7_static_runner_test_draft/freeze_runner.json": "af5e4cea516e1ed00a511d2cd5b1703fb817a908ed2c8da14136859d0ebfa645",
+    "state/analysis/P7_static_runner_contract.md": "35473ed0eb59b9d7fd097cb25554b591ec6bd470703504e1a525219b2fdba7e7"
+  }
+}

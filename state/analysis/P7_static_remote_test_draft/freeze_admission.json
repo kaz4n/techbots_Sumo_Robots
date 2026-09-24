@@ -1,0 +1,16 @@
+{
+  "status": "FROZEN_FOR_AUTHORIZED_HOST_TEST",
+  "scope": "Independent D143 supplement for deeply nested claim JSON and descriptor-based empty/oversize metadata with replacement detection",
+  "test_methods": 5,
+  "implementation_bodies_read": false,
+  "supplement_execution_performed": false,
+  "prior_evidence": "Original remote suite and freeze remain unchanged. New cases were requested from public parse/fstat requirements after the original freeze; no implementation bodies were inspected.",
+  "execution_command": "python3 -B -m unittest discover -s state/analysis/P7_static_remote_test_draft -p test_static_remote_admission.py -v",
+  "environment": "Actual nonroot Linux uid and private /dev/shm fixtures. Oversize files are sparse temporary RAM files. All descriptor operations remain real; only OS observation wrappers inject faults. No transport or compiler.",
+  "inputs_sha256": {
+    "state/analysis/P7_static_remote_test_draft/test_static_remote_admission.py": "0e94f5f1e9ca52ac84e5bfe51dc85c95ff28c1855bd8403433056ff8c9225aa9",
+    "state/analysis/P7_static_remote_test_draft/test_static_remote.py": "63a4a4449261e487850539cca81df770411d78f138e2a065a25dd8bbfd8f6b59",
+    "state/analysis/P7_static_remote_test_draft/freeze_remote.json": "b2e01d496757541a6a34e9cec003cedba234cefa64e4272a5ac58c13a7fcd597",
+    "state/analysis/P7_static_remote_contract_draft.md": "a4be3733d40632b4ae79e3bbbab3300f720b8f7f13f3337d35d96dfc90373b39"
+  }
+}

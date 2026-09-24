@@ -5,10 +5,11 @@ Scope: only `state/analysis/P7_static_link_probe_raw/static_remote.py`, its eigh
 actions, and conformance to the adopted D143 remote/runner contracts. This is a
 host-tooling component review, not a phase, target, native-ABI or runtime gate.
 
-**Disposition: two MINOR findings remain open; no open BLOCKER or MAJOR in the
-reviewed repair.** Both original MAJOR findings are closed by source inspection.
-Behavioral verification remains pending frozen independent tests; this is not a
-host-tested component PASS.
+**Final disposition: PASS for this host-tooling component; no open BLOCKER,
+MAJOR or MINOR findings.** The helper passes 28 original plus 5 independently
+frozen supplemental methods; the separate bootstrap suite passes 23 methods.
+No target, full-probe or phase acceptance follows. The sequence below retains
+earlier review dispositions and the original failed test result.
 
 ## Reviewed identities
 
@@ -16,6 +17,7 @@ host-tested component PASS.
 |---|---|
 | First helper source, 32,185 bytes | `fa209bee067f416f7f7619e350562806b333b4d3e6faf902a7f51878eb231e1b` |
 | Reviewed bounded repair | `ff7add89ac849c9849ad4cb0bfd41f7e0e5877d61df9b74150b7da2e354e069a` |
+| Final reviewed and host-tested helper | `8ba9b190c38e728013a383348c60c287b0366607f65f703161cf7f2e142d36f8` |
 | Adopted remote contract | `a4be3733d40632b4ae79e3bbbab3300f720b8f7f13f3337d35d96dfc90373b39` |
 | Adopted runner contract | `35473ed0eb59b9d7fd097cb25554b591ec6bd470703504e1a525219b2fdba7e7` |
 | D142 validator integration pin | `d30372dd4b8fb8c2661d00affc4a215cc88e3f62511995ff6303827bed4b7368` |
@@ -174,3 +176,95 @@ Paths above are under `state/analysis/`. Current host disposition remains
 **not passed**, because the frozen suite has one unresolved classification
 assertion. The earlier four review findings remain closed; no implementation,
 test, contract or shared ledger was edited by this reviewer.
+
+## Source-drift refinement inspection closure
+
+The exact helper SHA-256 is now
+`8ba9b190c38e728013a383348c60c287b0366607f65f703161cf7f2e142d36f8`,
+preserved in `5fc7c2d9`. The reviewer inspected the full helper diff from
+`047d6576` to that commit: exactly four changed lines implement the previously
+recommended diagnostic refinement.
+
+`read_file` at line 234 gains an internal drift-code argument defaulting to
+FILE_READ. Only its opening and completed-read identity/stability checks at
+lines 244 and 249 use that argument. Only the source action at line 427 passes
+the fixed SOURCE_DRIFT literal. Argument parsing, filesystem permissions,
+descriptor reads, bounds, no-follow checks and rejection conditions remain
+unchanged. Ordinary size/special-file/read errors and ancestry failures retain
+their prior handling; there is no caller-supplied CLI error-code option.
+
+**Inspection disposition: accepted; the diagnostic refinement is closed by
+inspection, with no new finding.** The original frozen helper test and freeze
+remain byte-exact (`63a4a444...` and `b2e01d49...`). No retry receipt was yet
+available when this addendum was written, so the actual host result still
+requires the authorized retry. This reviewer performed no execution and edited
+only this report. The original failed receipt and source remain preserved.
+
+## Verified retry evidence
+
+The reviewer read `P7_static_remote_test_draft/retry1_remote_execution.json` and
+its original stderr receipt. The authorized retry reports **28/28 helper methods
+PASS**, exit 0, unittest time 0.815 seconds. Both recorded helper hashes equal
+the current reviewed `8ba9b190c38e728013a383348c60c287b0366607f65f703161cf7f2e142d36f8`.
+All 20 recorded pre/post input hashes agree; all 17 independent frozen inputs
+were independently rehashed unchanged during this review. The original failed
+execution remains retained.
+
+The unchanged first bootstrap receipt remains **23/23 PASS**, exit 0. Those
+bootstrap tests use independently constructed synthetic helper bytes; they
+validate framing/bootstrap behavior, not a native board invocation of this
+helper. No retry or extra execution was performed by the reviewer.
+
+Retained retry evidence, under `state/analysis/`:
+
+- `P7_static_remote_test_draft/retry1_remote_execution.json`, SHA-256
+  `794be08e000261edcdf009adc646ba8cb8078d30eac21a37406019e92e1e6258`.
+- `P7_static_remote_test_draft/retry1_remote_stderr.txt`, SHA-256
+  `b3afe96cff148b05ac308c88591523680f31822658ac2ba9a9e15343e6e9a55f`.
+
+**Current scoped verdict: no open findings; reviewed source and the frozen
+baseline helper host suite pass.** Coverage supplements for deep JSON and
+rejected-file metadata await independent freeze/execution and are not included
+in these counts. This review establishes neither the full runner's correctness
+nor board process/ownership behavior, static compilation, native ABI/runtime
+acceptance, motor permission or a human phase gate. Only this report was edited.
+
+## Final supplemental verification and disposition
+
+The reviewer inspected the independently authored
+`P7_static_remote_test_draft/test_static_remote_admission.py`, its separate
+freeze and the original `first_admission_execution.json`/stderr receipts.
+All four supplement freeze inputs were independently rehashed unchanged. All
+22 recorded pre/post execution hashes agree, including final helper
+`8ba9b190c38e728013a383348c60c287b0366607f65f703161cf7f2e142d36f8`.
+The original helper suite and freeze remain unchanged.
+
+The supplemental first execution reports **5/5 PASS**, exit 0, unittest time
+0.349 seconds. Its coverage directly exercises the two original MINOR findings:
+
+- Deep array/object claim JSON is rejected with BAD_REQUEST/exit 2 and empty
+  data for all five claim-consuming actions, without filesystem mutation.
+- Empty and oversize artifacts require real descriptor fstat observations and
+  preserve their checked identities without reading the rejected contents.
+- Replacing either rejected-size file after the first real fstat produces an
+  unstable record with the initial identity and no hash.
+
+Supplement evidence, under `state/analysis/`:
+
+- `P7_static_remote_test_draft/freeze_admission.json`, SHA-256
+  `54fbbaa24b0452cd621012240380ef1bc5fd09051a77b5035a441cb60c52ef72`.
+- `P7_static_remote_test_draft/test_static_remote_admission.py`, SHA-256
+  `0e94f5f1e9ca52ac84e5bfe51dc85c95ff28c1855bd8403433056ff8c9225aa9`.
+- `P7_static_remote_test_draft/first_admission_execution.json`, SHA-256
+  `660871c7b7f7627635dc973f8596db2fade900a26a7d732daf31b8bec72ed49f`.
+- `P7_static_remote_test_draft/first_admission_stderr.txt`, SHA-256
+  `4a42bf6e1cf51e4d7aaeb3b896cf886519afcd325891e92e074babda937873df`.
+
+**Final component verdict: PASS; no open findings.** Final helper host evidence
+is **28 + 5 = 33 passing methods**, with **23 separate passing bootstrap
+methods**. The original failure, all original findings and their bounded fixes
+remain recorded. This reviewer audited existing execution evidence and made no
+additional execution, implementation, test, contract, shared-ledger or board
+action. Only this review report was edited. The component's host disposition
+does not authorize native execution or settle full-runner, artifact-native,
+hardware, motor-run or human phase-gate acceptance.

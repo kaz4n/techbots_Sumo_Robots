@@ -135,3 +135,42 @@ allow arbitrary extra files, change the frozen contract, remove evidence or
 weaken an established test. The test author should freeze the narrowly corrected
 oracle separately before another run. This ruling does not declare that rerun
 passed and adds no native authority. Reviewer modified only this review.
+
+## Corrected-oracle retry and scoped host disposition
+
+Independently compared the current test with Git `047d6576`. Only
+`test_success_exact_protocol_receipts_and_checked_final_only` changed: it now
+includes exactly `inputs.json` and checks its exact three fields, all reviewed
+pins, current runner source hash and verified-stage103/102/source digest receipt.
+The other21 methods and the entire public fixture are unchanged. Directory,
+command and result equality assertions remain exact. The original failure is
+also present in `5fc7c2d9`; this is the adjudicated new-oracle correction, not a
+production-code concession or an alteration of established tests.
+
+Read-only verification of the separately frozen retry evidence:
+
+- Corrected test: `594d399dc818d3ae5113648d92589d8921b16fd37c36d1682d4ea59ba6bfbc20`.
+- Corrected freeze: `af5e4cea516e1ed00a511d2cd5b1703fb817a908ed2c8da14136859d0ebfa645`.
+- `retry1_runner_execution.json`:
+  `868da5a8069c198c0fb8a398a520337433b7ea797c5ec1dafe0adfa285b8dbb5`.
+- `retry1_runner_stderr.txt`:
+  `cc9e0f2213db4aa8a13575cee24e08a63d589608ae16daba7641873fee9db4d9`.
+- `retry1_runner_stdout.txt` is empty, SHA256
+  `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`.
+- Runner: `983e86d7eb68f437c50b4b790e96ca4520e092abe53e4d29e8ffe1a97502b208`.
+- Helper: `8ba9b190c38e728013a383348c60c287b0366607f65f703161cf7f2e142d36f8`.
+
+Retry stderr reports **22/22 PASS in13.275s**, exit0. All19 before/after receipt
+hashes agree and match current bytes; all16 corrected freeze inputs and all17
+runner literal pins also match. The runner differs from the first executed
+version only in its helper hash literal. No further execution was performed by
+this reviewer.
+
+**Scoped disposition: runner source review PASS, HOST-TESTED22/22, no open
+material runner source finding.** This does not replace the separate helper
+review or its pending supplemental checks. The repaired completion-write branch
+for an already confirmed zero compile remains verified by source inspection;
+the22 methods exercise planned-write failure but not that exact branch. A small
+independent regression for it was recommended to the coordinator before final
+full-tool host disposition. No native query/compiler, static target fit, ABI,
+runtime, motor or human-gate acceptance follows from these controlled tests.

@@ -97,6 +97,14 @@ Automatic approval review blocked deletion of 154 unused Arduino download
 archives (4,571,947,977 bytes), with only "blocked by policy" stated. No deletion
 or retry occurred. Earlier denied stage/host/snapshot cleanups also remain intact.
 
+The 25September 00:23Dubai follow-up removed four unrelated closed application
+crash dumps and one regenerable Python cache (20,176,376 logical bytes total).
+It also recovered 50,286,592 allocated bytes by transparently compressing 61
+historical ELF evidence files, with all hashes/sizes/mtimes unchanged. Exact
+receipts and the independent check are in analysis/storage_*20260925*; see
+STORAGE_LOG.md. Both WSL crash dumps and every previously denied cleanup target
+remain. Latest C: observation was about 942 MB free; recheck before large work.
+
 ## Authority and roles
 
 D015 supersedes only D009's agent assignment: Codex implements/orchestrates;

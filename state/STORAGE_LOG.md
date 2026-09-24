@@ -89,3 +89,29 @@ pending compression/compiler process remains; no denied action, system paging or
 persistent virtual disk was changed.
 
 2026-09-25T00:15:12.102192+04:00 | D141 retention | Kept 17 scoped raw/test/reference files totaling 100317 bytes plus small validation/review records. These bind reproducible policy checks, independent oracles and original failure evidence. No compiler tree, package, source snapshot or bytecode created. Reviewer removed one owned unexecuted duplicate private-test draft after the independent supplement was supplied (bytes not measured); original4-case negative probe retained. No denied cleanup retried. C: free 849965056 bytes; prior compression recovery unchanged.
+
+## 2026-09-25 00:23 Dubai - Additional bounded cleanup
+
+Removed four closed, preflighted non-WSL application crash dumps totaling
+20,152,761 logical bytes. Exact paths, hashes, containment/age checks and verified
+absence are recorded in analysis/storage_cleanup_20260925_crashdumps.json.
+Both WSL crash dumps remain as potentially relevant failure diagnostics.
+Also removed the independently checked, ignored generated cache
+tests/tooling/__pycache__/test_reactive_timing.cpython-312.pyc (23,615 bytes).
+Its tracked source remains unchanged at SHA256
+4b9e896fdc5112246f8db1a669e493819601d9d110bb625e2dfd5cbea784bc2a.
+No recursive directory removal was used.
+
+Transparent per-file LZX compression of 61 retained historical ELF artifacts
+recovered exactly 50,286,592 allocated bytes (48 MiB). Their 181,958,268 logical
+bytes, hashes and modification times remain unchanged. P7 artifacts, source
+snapshots, tools and Git were excluded. Receipt:
+analysis/storage_compression_20260925_elf.json. Independent verification is in
+analysis/storage_cleanup_20260925_verification.json. Required ELF evidence was
+preserved, not deleted or replaced with an archive.
+
+C: free space was 942,456,832 bytes at a subsequent check; system activity also
+affects this number, so it is not a measurement of deleted file allocation.
+Earlier rejected Arduino cache/host/stage/snapshot removals were not retried.
+No pagefile, virtual disk, installed tool, firmware or source was changed.
+Retain these compact cleanup receipts; no duplicate checkout/build was created.

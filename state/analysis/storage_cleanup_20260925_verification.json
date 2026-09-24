@@ -1,0 +1,59 @@
+{
+  "utc": "2026-09-24T20:22:54.792446+00:00",
+  "reviewer": "Separate same-model agent; read-only verification except this compact receipt",
+  "status": "PASS",
+  "input_receipts_sha256": {
+    "state/analysis/storage_compression_20260925_elf.json": "9815442d7df5774a4525dafb6858a45e9ae398b64eac9f1afb3f488a72efa652",
+    "state/analysis/storage_cleanup_20260925_crashdumps.json": "d9a2f2980b1ff2c883d597a9261aea064abc27fd4fc2b93979e687470bbae034"
+  },
+  "compressed_file_count": 61,
+  "hash_size_mtime_allocation_mismatches": [],
+  "compressed_logical_bytes": 181958268,
+  "allocated_before_receipt": 113483776,
+  "allocated_after_verified": 63197184,
+  "recovered_allocated_bytes_verified": 50286592,
+  "deleted_crash_dumps": [
+    {
+      "path": "C:\\Users\\narut\\AppData\\Local\\CrashDumps\\brave.exe.10840.dmp",
+      "absent": true
+    },
+    {
+      "path": "C:\\Users\\narut\\AppData\\Local\\CrashDumps\\ChatGPT.exe.14316.dmp",
+      "absent": true
+    },
+    {
+      "path": "C:\\Users\\narut\\AppData\\Local\\CrashDumps\\dptf_helper.exe.8172.dmp",
+      "absent": true
+    },
+    {
+      "path": "C:\\Users\\narut\\AppData\\Local\\CrashDumps\\SnippingTool.exe.20164.dmp",
+      "absent": true
+    }
+  ],
+  "deleted_crash_dump_logical_bytes_receipt": 20152761.0,
+  "retained_wsl_dumps": [
+    {
+      "path": "C:\\Users\\narut\\AppData\\Local\\CrashDumps\\wsl.exe.7088.dmp",
+      "exists": true,
+      "expected_bytes": 950350,
+      "bytes": 950350,
+      "sha256_current": "0299d39bc05df162fcd9544eeae004d5e0a3aa30d809d4bdc360816e7859c048"
+    },
+    {
+      "path": "C:\\Users\\narut\\AppData\\Local\\CrashDumps\\wsl.exe.8032.dmp",
+      "exists": true,
+      "expected_bytes": 961490,
+      "bytes": 961490,
+      "sha256_current": "ff0dcd4841de50f5939fdda133515d1ef00c8fd9a7fe6c39462b9247af02a2e4"
+    }
+  ],
+  "ignored_bytecode_check": {
+    "path": "tests/tooling/__pycache__/test_reactive_timing.cpython-312.pyc",
+    "absent": true,
+    "reported_removed_logical_bytes": 23615,
+    "retained_source": "tests/tooling/test_reactive_timing.py",
+    "source_bytes": 13730,
+    "source_sha256": "4b9e896fdc5112246f8db1a669e493819601d9d110bb625e2dfd5cbea784bc2a"
+  },
+  "limitations": "Exact named files only; no external directory inventory, deletion, compression, board action or test/build execution. Current WSL hashes are observations, not comparison to pre-cleanup hashes. Global drive free space is not attributed to this batch."
+}

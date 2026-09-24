@@ -47,3 +47,5 @@ else:
 (folder/'loader_account.json').write_text(json.dumps(account, indent=2)+'\n')
 print(json.dumps({key:value for key,value in account.items() if key not in ('sections','copied_regions','undefined','init','fini')}, indent=2))
 assert account['conditional_pristine_peak_free_span'] >= 0, 'Loader model does not fit'
+if project in ('app', 'reactive_test'):
+    assert account['byte_identical_to_D128'], 'Uninstrumented target changed'

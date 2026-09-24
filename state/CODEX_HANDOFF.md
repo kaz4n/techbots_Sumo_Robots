@@ -10,34 +10,38 @@ Do not treat an old snapshot, template or synthetic test as current approval.
 
 ## Current software checkpoint
 
-**USER-PAUSED during D129 on 2026-09-24T08:19:12.690758+04:00.** Resume only on explicit user
-direction, from [the exact pause checkpoint](analysis/P4_D129_PAUSE.md).
-D129 source/tooling drafts are saved but unvalidated; independent tests have
-not been authored and CMake currently references their future filenames.
-This pause checkpoint supersedes the older next-task paragraphs below.
+D129 is IMPLEMENTED/HOST-TESTED with separate scoped review PASS and no open
+scoped BLOCKER/MAJOR. Read analysis/P4_timing_evidence_validation.md and
+reviews/P4_timing_evidence_review.md. All14 normal host targets pass; timing30-case
+M0/M1 normal/sanitizer,32-case configured normal/sanitizer,149tooling+2registry
+pass. A chronology finding was fixed with unchanged independent regression.
+One new unaccepted tooling oracle was corrected from syntax assumptions to
+actual compiler-rejection checks. Original failures and all oracle versions
+are retained. All39 prior locked files remain exact; newe384e7fb is now protected.
 
+D129 native compilation/default byte identity/MCU fit remain pending: current ADB
+inventory found no board. No upload, reset, MCU run, physical result or gate in
+this slice. Prior D128 reactive9ddaa2aa/ELF01e39e39 modeled free6512 and default
+43d16734 free16 are historical figures, not D129 or live memory/WCET proof.
 
-D128 reactive P4 profile is implemented and separately reviewed. Read
-analysis/P4_reactive_profile_validation.md. All12normal host targets pass;
-new34-case M0/M1 normal/sanitizer and configured35-case normal/sanitizer pass.
-135tooling+2registry and private5cases perM0/M1 pass. New accepted locked
-0e26c02e is protected;38priorlocked remain exact. All499frozen sources unchanged.
-No production/public-oracle correction was needed.
+Next eligible task: adopt separately proposed analysis/P4_loss_analysis_contract.md,
+then independent tests, implementation and review of the read-only D130 interval
+analyzer. Existing CSV/countdown tools stay unchanged. Positive push-through is
+another P4 software dependency: edge.cpp currently requires0; implement and
+verify original bounded B9.4/R5 semantics before positive tuning, retaining default0.
+Use analysis/P4_software_acceptance_packet.md for all deferred physical criteria.
 
-Actual checked reactive9ddaa2aa/ELF01e39e39 compiles with6512-byte conditional
-loader free span. Default43d16734 reproduces D126 ELF/ZSK/loader exactly, free16.
-No D128 MCU action. These figures do not establish live RAM, stack or WCET.
-Next task: SC-AO bounded P4-only target-loss timing evidence. Read
-analysis/P4_timing_evidence_options.md, adopt an explicit contract underD051,
-then public interfaces/independent tests before implementation execution. Preserve
-source observation intervals and actual full-token-matched applied receipts;
-M0/no prior nonzero motion cannot produce measured duty-drop success. No favorable
-retry after the first excluded candidate. P5/default trace feasibility is separate.
+P3 software preparation is complete (D123 drive, D125 turns, D126 stop, D127
+countdown analysis); actual3.1-3.7 and human gate remain pending. Its acceptance
+packet and original failures are retained. D128 reactive GO enters SEARCH with
+no opener, then actual perception/contact/stall/edge paths.
 
-P3 software is complete preparation, with physical3.1-3.7 and human gate pending:
-see analysis/P3_software_acceptance_packet.md. D127 analyzer c58aeae0 passed71WSL
-methods and7private methods eachWSL/Windows; reviewed newfixture correction and
-original failures remain archived. No measured starts are supplied by its tests.
+User-requested storage cleanup43319eec removed inspected closed temps and
+rebuildable host outputs. NTFS compression preserved all21145 evidence files
+byte-for-byte. See analysis/DISK_CLEANUP_20260924.md. Use /dev/shm builds and
+TMPDIR=/dev/shm, archive receipts in the same invocation and run heavy jobs
+serially. Initial D129 WSL service interruption was environmental, not a test
+result; partial logs are retained. Check C: free space before further artifacts.
 
 ## Historical board and P2 evidence
 
@@ -123,11 +127,3 @@ rehearsal2October; competition3October. No cut/freeze was due at this checkpoint
 Resume with docs/prompts/CODEX_RESUME.md. Commit bounded finished tasks promptly,
 record actual tests/failures/evidence, and stop at real external blockers rather
 than inventing a phase pass or promising unattended completion through human gates.
-
-
-D124 update: the pure finite P3 3.4 turn helper is implemented and host-tested.
-Read state/analysis/P3_turn_trial_validation.md and its separate review.
-23 focused cases pass normally and with sanitizers; all six host targets pass
-(main1519). All36 established locked files are unchanged. Next eligible task is
-actual turn-trial Robot/Runtime/Governor/MotorGate integration, not another helper
-rerun. No target build, MCU action or physical acceptance in this slice.

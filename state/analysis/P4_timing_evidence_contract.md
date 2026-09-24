@@ -24,6 +24,11 @@ cannot qualify timing evidence. A direct caller using observations_fresh and
 legacy line data may qualify when it supplies explicit valid tick/source timing;
 explicit LineEvidence is not an additional trace requirement. Actual admitted
 sensor freshness remains required, not merely opponent_read.valid.
+While ARMED/OBSERVING, the preceding receipt must also supply valid explicit
+S/D/A/C epoch chronology and duration_valid, so the current tick start cannot
+precede its completion. Failure closes INVALID_SOURCE_TIME independently of
+approach eligibility. Pure application-identity faults with valid time retain
+STOP_FAULT precedence; the expected loss-receipt phase uses INVALID_RECEIPT.
 
 `bench/reactive_timing` uses the same actual Runtime/NativeSources/UnoQPort,
 empty grants and checked inert M0 build route as reactive_test; exact flags add
@@ -110,7 +115,8 @@ eight-byte encoding and CSV schema stay unchanged. Default codec still rejects
 
 Header metadata accepts either exact version/profile value when validating a
 record; a producer emits its own compiled M value. All other known subtypes
-require value1; all unknown/reserved combinations rejected. Wire ID1 is not a
+require value1; all unknown/reserved combinations rejected by metadata validation
+(validEventMetadata/appendEvent). packEvent retains its existing enum-only check. Wire ID1 is not a
 transaction token. Source timestamps can precede earlier-in-ordinal decision
 events; preserve ordinal order and pair named fields, never numeric time sort.
 

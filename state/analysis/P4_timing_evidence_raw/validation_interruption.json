@@ -1,0 +1,33 @@
+{
+  "utc": "2026-09-24T06:22:57.047077+00:00",
+  "runs": [
+    {
+      "argv": [
+        "wsl",
+        "-d",
+        "Ubuntu",
+        "--",
+        "python3",
+        "state/analysis/P4_timing_evidence_raw/run_host.py",
+        "normal",
+        "first"
+      ],
+      "exit_status": 1,
+      "partial_log": "first.txt"
+    },
+    {
+      "argv": [
+        "wsl",
+        "-d",
+        "Ubuntu",
+        "--",
+        "python3",
+        "state/analysis/P4_timing_evidence_raw/run_tooling.py"
+      ],
+      "exit_status": 1,
+      "partial_log": "tooling_interrupted.txt"
+    }
+  ],
+  "outcome": "ENVIRONMENT-INTERRUPTED; no complete test result; no source-fix attempt counted",
+  "system_evidence": "wsl_service_interruption.json"
+}

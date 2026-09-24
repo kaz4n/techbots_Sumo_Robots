@@ -1,0 +1,22 @@
+[doctest] doctest version is "2.4.12"
+[doctest] run with "--help" for options
+===============================================================================
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/reviews/P4_timing_evidence_review_raw/repro_original.cc:64:
+TEST CASE:  D129 private invalid intermediate epoch closes candidate before a later genuine zero
+
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/reviews/P4_timing_evidence_review_raw/repro_original.cc:75: ERROR: CHECK( rig.count(Detail::INVALID_SOURCE_TIME) == 1U ) is NOT correct!
+  values: CHECK( 0 == 1 )
+
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/reviews/P4_timing_evidence_review_raw/repro_original.cc:83: ERROR: CHECK( rig.count(Detail::LOSS_BRAKE_DECISION) == 0U ) is NOT correct!
+  values: CHECK( 1 == 0 )
+
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/reviews/P4_timing_evidence_review_raw/repro_original.cc:84: ERROR: CHECK( rig.count(Detail::LOSS_ZERO_APPLIED) == 0U ) is NOT correct!
+  values: CHECK( 1 == 0 )
+
+/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/reviews/P4_timing_evidence_review_raw/repro_original.cc:85: ERROR: CHECK( rig.count(Detail::INVALID_SOURCE_TIME) == 1U ) is NOT correct!
+  values: CHECK( 0 == 1 )
+
+===============================================================================
+[doctest] test cases:  1 |  0 passed | 1 failed | 0 skipped
+[doctest] assertions: 40 | 36 passed | 4 failed |
+[doctest] Status: FAILURE!

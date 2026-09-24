@@ -608,6 +608,7 @@ private:
 #if SUMOX_TIMING_EVIDENCE
         bool timing_approach = false;
         bool timing_loss_brake = false;
+        bool timing_epoch_valid = false;
 #endif
     };
 #if SUMOX_TIMING_EVIDENCE

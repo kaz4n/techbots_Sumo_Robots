@@ -19,6 +19,7 @@ void Robot::receiveTimingTrace(const RobotInput& input, bool applied_valid) {
     const auto& receipt = input.previous;
     const bool timed = explicit_tick_timing_ && input.timing.explicit_start &&
         receipt.duration_valid && validTimingReceipt(input);
+    tick_.timing_epoch_valid = timed;
     tick_.timing_approach = applied_valid && timed &&
         pending_.after_go && pending_.requested.ui_state == core::State::ATTACK &&
         !pending_.contact && receipt.motors_enabled &&
@@ -44,7 +45,7 @@ void Robot::receiveTimingTrace(const RobotInput& input, bool applied_valid) {
 }
 
 bool Robot::validTimingSource(const RobotInput& input) const {
-    if (!tick_.sampled || !input.opponent_read.valid || !explicit_tick_timing_ ||
+    if (!tick_.sampled || !tick_.timing_epoch_valid || !input.opponent_read.valid || !explicit_tick_timing_ ||
         !input.timing.explicit_start || !validTimingStart(input) ||
         tick_.delta_us >= HALF_RANGE) return false;
     const auto start = input.timing.started_us;

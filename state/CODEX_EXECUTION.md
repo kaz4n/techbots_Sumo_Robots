@@ -117,3 +117,5 @@ See analysis/P3_stop_trial_validation.md and separate review. Accepted locked
 - [x]38locked and493D126source bindings unchanged; no firmware/board operation.
 - [x] P3 software/physical acceptance packet; physical3.1-3.7 remain pending.
 - [ ] Next: P4 reactive GO routing, then SC-AO exact stimulus/applied-duty evidence.
+
+D128: P4 software is now active; realP3gate/measurements remain pending. Reactiveprofile contract/public identity established; independent tests precede execution. Then close SC-AO instrumentation gap.

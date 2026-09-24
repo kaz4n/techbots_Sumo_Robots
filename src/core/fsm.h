@@ -443,6 +443,8 @@ struct RobotResult {
     static constexpr bool DRIVE_TEST_PROFILE = SUMOX_P3_DRIVE_TEST != 0;
     static constexpr bool TURN_TRIAL_PROFILE = SUMOX_P3_TURN_TRIAL != 0;
     static constexpr bool STOP_TRIAL_PROFILE = SUMOX_P3_STOP_TRIAL != 0;
+    // D128: real local match start enters SEARCH; selected mode is metadata only.
+    static constexpr bool REACTIVE_PROFILE = SUMOX_P4_REACTIVE != 0;
 #if SUMOX_P3_STOP_TRIAL
     stop_trial::Report stop_trial;
     bool stop_trial_stopping = false;

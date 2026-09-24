@@ -921,3 +921,5 @@ physical/loadedRAM/gate claim. | contract=this commit
 2026-09-24T07:49:06.959350+04:00 | P3 | D126 committed6b4c353b; D127 contract | Countdown analyzer independent implementation/tests in progress; no physical/gate claim | contract commit this task
 
 2026-09-24T07:58:23.231917+04:00 | P3 | D127 countdown analyzer | IMPLEMENTED/HOST-TESTED:71WSLmethodsPASS,7privateeachWSL/Windows; one independent fixture-hook correction, firstfailures retained; all firmware/38lockedunchanged; physical3.1-3.7 pending; nextP4software under hardware-at-end scheduling | commit this task
+
+2026-09-24T07:59:42.088781+04:00 | P4 software | D128 scheduling/contract | ACTIVE under explicit hardware-at-end direction; P3 physical3.1-3.7/GATE still pending; first task exclusive reactive GO/noopener profile; no motor authorization | contract commit this task

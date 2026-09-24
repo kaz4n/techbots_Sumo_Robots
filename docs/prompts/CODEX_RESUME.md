@@ -2,7 +2,7 @@
 
 1. Read AGENTS.md fully, state/CODEX_HANDOFF.md, CODEX_EXECUTION.md, recent
    PROGRESS.md, DECISIONS.md, FACTS.md, TUNING_LOG.md, open findings/reviews and
-   docs/prompts/P3_first_drive.md. Reload relevant HARDWARE/BEHAVIOR sections.
+   docs/prompts/P4_hunt_push.md. Reload relevant HARDWARE/BEHAVIOR sections.
 2. Inspect Git status/diffs, nested instructions, tools and actual Asia/Dubai time.
    Preserve user work, credentials and historical evidence; never author a gate.
 3. D123 DRIVE_TEST, D124/D125 turns and D126 stopping trials are complete software.
@@ -15,7 +15,7 @@
    and P3_software_acceptance_packet.md. Original inactive-injection draft and
    failures retained; correctedec9167bd preserves assertions/adds invocation guard.
    Full publicWindows suite lacks symlink privilege. Firmware and38locked unchanged.
-   Next: P4 reactive GO routing/openers disabled, then SC-AO exact timing evidence,
+   D128 active: P4 reactive GO routing/openers disabled, then SC-AO exact timing evidence,
    under the user's instruction to defer physical tests. Do not invent a gate.
 5. D126 checked stopping9fd0f6ed has11912-byte conditional loader free span;
    defaultf1d1292d reproduces D125 ELF/ZSK/loader, free16. This is not liveRAM/WCET.

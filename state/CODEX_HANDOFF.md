@@ -1,6 +1,6 @@
 # Codex handoff - 2026-09-24 Asia/Dubai
 
-Current phase is **P3 software under D122**. The user explicitly directed assumed
+Current phase is **P4 software under D128**. The user explicitly directed assumed
 physical acceptance and continued development. This advances software scheduling;
 unmeasured physical results and actual human gate records remain pending.
 Read [CODEX_EXECUTION.md](CODEX_EXECUTION.md) for the current compact checklist;
@@ -8,7 +8,7 @@ Read [CODEX_EXECUTION.md](CODEX_EXECUTION.md) for the current compact checklist;
 accumulated historical resume snapshots, retained in Git at `fbfb0f2e` and earlier.
 Do not treat an old snapshot, template or synthetic test as current approval.
 
-## Current P3 software
+## Current software checkpoint
 
 D123 DRIVE_TEST, D124/D125 finite turns and D126 finite stopping trials are
 implemented and reviewed. Latest evidence: analysis/P3_stop_trial_validation.md.
@@ -31,8 +31,9 @@ all assertions and verifies the hook actually ran. Production1a91b857 unchanged.
 Full publicWindows suite remains environment-limited by symlink privileges.
 
 P3_software_acceptance_packet.md maps completed software to all original physical
-criteria. Next eligible software under the user's hardware-at-end direction:
-P4 reactive GO routing with openers disabled, then exact timing evidence SC-AO.
+criteria. D128 now makes P4 software active under the user's hardware-at-end direction:
+reactive GO routing with openers disabled, then exact timing evidence SC-AO.
+Read analysis/P4_reactive_profile_contract.md and P4_hunt_push.md.
 No physical result or human gate is inferred from these software checks.
 
 ## Historical board and P2 evidence

@@ -148,3 +148,10 @@ cleanup, not an exact allocation-recovery measurement.
 2026-09-25T01:26:57.645290+04:00 | D143 evidence retention | Retain32 test/fixture/freeze/receipt/handoff files totaling165864logicalB plus scopedsource/contracts/reviews/validation. Each supports reproduction or originalfailure evidence. Author verified zero Windows sumox_runner_* and WSL /dev/shm sumox_remote_* leftovers after normal cleanup; no persistent binaryfixture/compiler tree/bytecode created. Laterremainingtoolsbytecode deletion was blocked beforeexecution; no retry. Latest C: observation770945024B free, not a reservation.
 
 2026-09-25T01:35:17.972285+04:00 | D144 retention | Retain31 native command/launcher/input/result files448375logicalB pluscompactcheckedreceipt/validation/review. They preserve actualfirstnegative outcome and completeargv/output provenance. No duplicateWindows compiler tree or binaryfixture; no localELF wastransferred afterstructuralrejection. Remote7artifacts/exportremain required fordiagnosis. No additionaldeletion or deniedactionretry.
+
+
+## 2026-09-25T01:45:58.751607+04:00 - Bounded storage follow-up
+
+A separate read-only audit identified119 old ignored Python caches in four directories,1945273 logical bytes, with tracked sources intact. Automatic approval review rejected the exact-file PowerShell deletion before process creation with only "blocked by policy". No files were removed, no deletion receipt was created and no retry was made. These four candidate directories now join the prior denied targets: tests/tooling/__pycache__, tests/fixtures/__pycache__, tests/fixtures/app_build_overrides/__pycache__, state/analysis/__pycache__.
+
+Transparent LZX compression of22 separately checked immutable historical P2 evidence files recovered3436544 allocated bytes (3.28MiB). All hashes, logical sizes and modification times are unchanged. Receipt: analysis/storage_compression_20260925_small_elf.json. No content was deleted. Independent verification is recorded separately. C: free after compression108322816B; this is an observation, not a reservation. No source, Git history, installed tools, paging or virtual disks changed.

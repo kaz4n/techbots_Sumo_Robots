@@ -39,10 +39,16 @@ D149's file-only GDB comparison also passes: GO2cd8d795, source7c7fa476,
 16 type size/alignment pairs and82 offsets match; five read commands0/noerrors.
 Separate actualreview3f4d20b7 PASS. Read analysis/P7_static_native_abi_validation.md.
 No compiler, target/inferior or upload/reset. D149 is terminal and consumed.
-Exact next task: review/close bounded native address audit, then the remaining
-indirect driver/API dispatch coverage using existing evidence or a separately
-scoped file-only packaged-loader inspection. Do not confuse matching addresses
-or these selected project layouts with complete native API/runtime qualification.
+Bounded native address audit also passes scoped reviewf738ef54:168 ABS values,
+22 veneers and62 catalogued native addresses match retained packaged evidence;
+119 table entries are118 matching device pointers plus one null. Receiptc3233593
+is74101B. Read analysis/P7_static_native_bindings_audit.md and its separate review.
+This does not establish complete indirect driver/API dispatch coverage.
+Exact next task: analysis/P7_static_native_dispatch_next.md. Reuse retained
+GPIO/PWM/RCC/device-init observations to compare actual app call-site offsets;
+only missing offsets/prototypes justify a separately scoped file-only loader
+query. Prioritize MotorGate EN and zero-duty PWM init before any inert startup.
+No static upload path or run is authorized merely by these successful file audits.
 Native startup, stack/heap/WCET, physical acceptance and human gates stay pending.
 Do not integrate a static upload path or run an MCU merely because structure passes.
 
@@ -50,7 +56,7 @@ D148 retained seven compact input/command/result files125141B plus small launche
 no binaries/fixtures/build trees downloaded or created. Latest bounded storage
 inspection found no new safe disposable files; see STORAGE_LOG.md/f2fa3c28.
 All prior denied cleanup targets remain untouched; do not retry by another method.
-C: free about600MB at02:17Dubai; global fluctuations are not cleanup recovery.
+C: free about511MB at02:29Dubai; global fluctuations are not cleanup recovery.
 Use Python-B and small reports; keep one compiler maximum if later justified.
 
 Historical detailed checkpoints and original failures remain in Git, PROGRESS

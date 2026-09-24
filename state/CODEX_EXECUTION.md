@@ -63,8 +63,10 @@ pending; D051/D075/D122/D137 permit scheduling, not fabricated measurements.
 - [x] D149 exact16-type/82-offset debug-layout comparison: all match; five reads
   exit0 and separate actualreview3f4d20b7 PASS. See analysis/P7_static_native_abi_validation.md.
   No MCU execution; the file-only observation is terminal and consumed.
-- [ ] Close complete native driver/API dispatch coverage. Bounded address/veneer
-  audit is available; indirect callbacks still need explicit coverage.
+- [x] Bounded native binding audit:168ABS/22veneers/62native values/119table entries
+  verified; scoped reviewf738ef54 PASS, complete indirect dispatch still pending.
+- [ ] Close required native driver/API dispatch coverage using retained GPIO/PWM/
+  RCC/device-init evidence first. Exact next task: analysis/P7_static_native_dispatch_next.md.
 - [ ] Qualify native loading/startup, stack/heap/WCET and release workflow before
   adoption. Structural RAM tail94352B is not measured free memory.
 

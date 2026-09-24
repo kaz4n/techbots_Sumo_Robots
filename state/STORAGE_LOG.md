@@ -198,3 +198,5 @@ was unchanged: **0 additional bytes recovered**. Every SHA256, size and mtime
 remains exact; no files were deleted. Receipt: analysis/storage_compression_20260925_native_reads.json.
 Their preexisting compressed allocation was already smaller than logical size.
 C: free526831616B after this check; do not attribute system fluctuations to cleanup.
+
+2026-09-25T02:30:41.957002+04:00: bounded native-reference audit retained one74101B receipt plus concise note/review;1.65MB full disassembly remained in memory and was not written. These are required next-step evidence. No new temporary files or cleanup candidates remain.

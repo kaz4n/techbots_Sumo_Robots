@@ -1784,3 +1784,9 @@ The selected GPIO/PWM/RCC/device-init file boundary is closed; D150 original
 failure remains unchanged. Next is concrete inert startup qualification planning
 with existing packet and verified upload/observation path. No new deployment
 authority, firmware/config/test change, physical result or human gate follows.
+
+
+## D-152 (2026-09-25T03:07:56.900112+04:00, coordinator selection under D051 within P7) Pure static startup interpretation
+Context: dependency evidence4ba1c84e and retained D149 prefixes support the exact18-read/713656-byte passive plan. Separate fresh-context same-model design reviewe18be2cb42c54ad039e562a2ceed993640132e2c8df565c3ed8bd0d4245b6abd PASS/no open findings.
+Decision: adopt analysis/P7_static_capture_contract.md SHAee1bb8d4acd969fa16330f2e7a55bf26daac71a6dbe4f6922c730f46bcb96fc3, limited to a pure host plan/parser in P7_static_startup_raw/static_capture.py. Exact full-image brackets precede diagnostic interpretation; malformed/fault/progress states stay distinct, modular counter evidence has explicit limits. Pre-adoption clarifications define exact scalar types, list/tuple containers, lowercase raw_hex and FAULT-phase precedence. Independent tests freeze before first implementation execution, followed by separate code/receipt review.
+Consequence: no I/O, upload/reset, new MCU observation, production static admission, firmware/config change, old helper/oracle change, live RAM/WCET or physical/human gate. This is host preparation only; later capture and upload need separate bounded scopes. Synthetic fixtures remain in memory; use Python-B and no binary/source copies.

@@ -1,0 +1,131 @@
+malloc in section text
+realloc in section text
+free in section text
+calloc in section text
+random in section text
+Dump of assembler code for function malloc:
+   0x0800800c <+0>:	b538    	push	{r3, r4, r5, lr}
+   0x0800800e <+2>:	4605    	mov	r5, r0
+   0x08008010 <+4>:	f7ff ffec	bl	0x8007fec <malloc_lock>
+   0x08008014 <+8>:	462a    	mov	r2, r5
+   0x08008016 <+10>:	2108    	movs	r1, #8
+   0x08008018 <+12>:	4807    	ldr	r0, [pc, #28]	@ (0x8008038 <malloc+44>)
+   0x0800801a <+14>:	f00f f828	bl	0x801706e <sys_heap_aligned_alloc>
+   0x0800801e <+18>:	4604    	mov	r4, r0
+   0x08008020 <+20>:	b928    	cbnz	r0, 0x800802e <malloc+34>
+   0x08008022 <+22>:	b125    	cbz	r5, 0x800802e <malloc+34>
+   0x08008024 <+24>:	f7ff ff84	bl	0x8007f30 <__aeabi_read_tp>
+   0x08008028 <+28>:	220c    	movs	r2, #12
+   0x0800802a <+30>:	4b04    	ldr	r3, [pc, #16]	@ (0x800803c <malloc+48>)
+   0x0800802c <+32>:	501a    	str	r2, [r3, r0]
+   0x0800802e <+34>:	f7ff ffe7	bl	0x8008000 <malloc_unlock>
+   0x08008032 <+38>:	4620    	mov	r0, r4
+   0x08008034 <+40>:	bd38    	pop	{r3, r4, r5, pc}
+   0x08008036 <+42>:	bf00    	nop
+   0x08008038 <+44>:	17b0    	asrs	r0, r6, #30
+   0x0800803a <+46>:	2000    	movs	r0, #0
+   0x0800803c <+48>:	0014    	movs	r4, r2
+   0x0800803e <+50>:	0000    	movs	r0, r0
+End of assembler dump.
+Dump of assembler code for function realloc:
+   0x08008040 <+0>:	b538    	push	{r3, r4, r5, lr}
+   0x08008042 <+2>:	4604    	mov	r4, r0
+   0x08008044 <+4>:	460d    	mov	r5, r1
+   0x08008046 <+6>:	f7ff ffd1	bl	0x8007fec <malloc_lock>
+   0x0800804a <+10>:	4621    	mov	r1, r4
+   0x0800804c <+12>:	462b    	mov	r3, r5
+   0x0800804e <+14>:	2208    	movs	r2, #8
+   0x08008050 <+16>:	4807    	ldr	r0, [pc, #28]	@ (0x8008070 <realloc+48>)
+   0x08008052 <+18>:	f00f f88e	bl	0x8017172 <sys_heap_aligned_realloc>
+   0x08008056 <+22>:	4604    	mov	r4, r0
+   0x08008058 <+24>:	b928    	cbnz	r0, 0x8008066 <realloc+38>
+   0x0800805a <+26>:	b125    	cbz	r5, 0x8008066 <realloc+38>
+   0x0800805c <+28>:	f7ff ff68	bl	0x8007f30 <__aeabi_read_tp>
+   0x08008060 <+32>:	220c    	movs	r2, #12
+   0x08008062 <+34>:	4b04    	ldr	r3, [pc, #16]	@ (0x8008074 <realloc+52>)
+   0x08008064 <+36>:	501a    	str	r2, [r3, r0]
+   0x08008066 <+38>:	f7ff ffcb	bl	0x8008000 <malloc_unlock>
+   0x0800806a <+42>:	4620    	mov	r0, r4
+   0x0800806c <+44>:	bd38    	pop	{r3, r4, r5, pc}
+   0x0800806e <+46>:	bf00    	nop
+   0x08008070 <+48>:	17b0    	asrs	r0, r6, #30
+   0x08008072 <+50>:	2000    	movs	r0, #0
+   0x08008074 <+52>:	0014    	movs	r4, r2
+   0x08008076 <+54>:	0000    	movs	r0, r0
+End of assembler dump.
+Dump of assembler code for function free:
+   0x08008078 <+0>:	b510    	push	{r4, lr}
+   0x0800807a <+2>:	4604    	mov	r4, r0
+   0x0800807c <+4>:	f7ff ffb6	bl	0x8007fec <malloc_lock>
+   0x08008080 <+8>:	4621    	mov	r1, r4
+   0x08008082 <+10>:	4803    	ldr	r0, [pc, #12]	@ (0x8008090 <free+24>)
+   0x08008084 <+12>:	f7fd fd22	bl	0x8005acc <sys_heap_free>
+   0x08008088 <+16>:	e8bd 4010	ldmia.w	sp!, {r4, lr}
+   0x0800808c <+20>:	f7ff bfb8	b.w	0x8008000 <malloc_unlock>
+   0x08008090 <+24>:	17b0    	asrs	r0, r6, #30
+   0x08008092 <+26>:	2000    	movs	r0, #0
+End of assembler dump.
+Dump of assembler code for function calloc:
+   0x08008094 <+0>:	b570    	push	{r4, r5, r6, lr}
+   0x08008096 <+2>:	fba0 5401	umull	r5, r4, r0, r1
+   0x0800809a <+6>:	b934    	cbnz	r4, 0x80080aa <calloc+22>
+   0x0800809c <+8>:	4628    	mov	r0, r5
+   0x0800809e <+10>:	f7ff ffb5	bl	0x800800c <malloc>
+   0x080080a2 <+14>:	4606    	mov	r6, r0
+   0x080080a4 <+16>:	b940    	cbnz	r0, 0x80080b8 <calloc+36>
+   0x080080a6 <+18>:	4630    	mov	r0, r6
+   0x080080a8 <+20>:	bd70    	pop	{r4, r5, r6, pc}
+   0x080080aa <+22>:	f7ff ff41	bl	0x8007f30 <__aeabi_read_tp>
+   0x080080ae <+26>:	220c    	movs	r2, #12
+   0x080080b0 <+28>:	4b04    	ldr	r3, [pc, #16]	@ (0x80080c4 <calloc+48>)
+   0x080080b2 <+30>:	2600    	movs	r6, #0
+   0x080080b4 <+32>:	501a    	str	r2, [r3, r0]
+   0x080080b6 <+34>:	e7f6    	b.n	0x80080a6 <calloc+18>
+   0x080080b8 <+36>:	462a    	mov	r2, r5
+   0x080080ba <+38>:	4621    	mov	r1, r4
+   0x080080bc <+40>:	f013 f92f	bl	0x801b31e <memset>
+   0x080080c0 <+44>:	e7f1    	b.n	0x80080a6 <calloc+18>
+   0x080080c2 <+46>:	bf00    	nop
+   0x080080c4 <+48>:	0014    	movs	r4, r2
+   0x080080c6 <+50>:	0000    	movs	r0, r0
+End of assembler dump.
+Dump of assembler code for function random:
+   0x080126a8 <+0>:	b570    	push	{r4, r5, r6, lr}
+   0x080126aa <+2>:	4c0a    	ldr	r4, [pc, #40]	@ (0x80126d4 <random+44>)
+   0x080126ac <+4>:	f7f5 fc40	bl	0x8007f30 <__aeabi_read_tp>
+   0x080126b0 <+8>:	4a09    	ldr	r2, [pc, #36]	@ (0x80126d8 <random+48>)
+   0x080126b2 <+10>:	5823    	ldr	r3, [r4, r0]
+   0x080126b4 <+12>:	1905    	adds	r5, r0, r4
+   0x080126b6 <+14>:	4909    	ldr	r1, [pc, #36]	@ (0x80126dc <random+52>)
+   0x080126b8 <+16>:	686e    	ldr	r6, [r5, #4]
+   0x080126ba <+18>:	435a    	muls	r2, r3
+   0x080126bc <+20>:	fb01 2206	mla	r2, r1, r6, r2
+   0x080126c0 <+24>:	fba3 3101	umull	r3, r1, r3, r1
+   0x080126c4 <+28>:	3301    	adds	r3, #1
+   0x080126c6 <+30>:	eb42 0201	adc.w	r2, r2, r1
+   0x080126ca <+34>:	5023    	str	r3, [r4, r0]
+   0x080126cc <+36>:	606a    	str	r2, [r5, #4]
+   0x080126ce <+38>:	f022 4000	bic.w	r0, r2, #2147483648	@ 0x80000000
+   0x080126d2 <+42>:	bd70    	pop	{r4, r5, r6, pc}
+   0x080126d4 <+44>:	0008    	movs	r0, r1
+   0x080126d6 <+46>:	0000    	movs	r0, r0
+   0x080126d8 <+48>:	f42d 5851	bic.w	r8, sp, #13376	@ 0x3440
+   0x080126dc <+52>:	7f2d    	ldrb	r5, [r5, #28]
+   0x080126de <+54>:	4c95    	ldr	r4, [pc, #596]	@ (0x8012934 <validate_structure+92>)
+End of assembler dump.
+All variables matching regular expression "^.*heap$":
+
+File /home/runner/work/ArduinoCore-zephyr/zephyr/kernel/mempool.c:
+92:	struct k_heap _system_heap;
+92:	char kheap__system_heap[32852];
+
+File /home/runner/work/ArduinoCore-zephyr/zephyr/lib/heap/heap.c:
+14:	const struct log_source_const_data log_const_os_heap;
+
+File /home/runner/work/ArduinoCore-zephyr/zephyr/lib/libc/common/source/stdlib/malloc.c:
+117:	static struct sys_heap z_malloc_heap;
+
+File /home/runner/work/ArduinoCore-zephyr/zephyr/subsys/llext/llext_kheap.c:
+23:	char kheap_llext_heap[262144];
+23:	struct k_heap llext_heap;
+0x8005910 <loader+500>:	0x2000112c	0x08100011

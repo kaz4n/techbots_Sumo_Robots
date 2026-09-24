@@ -1,0 +1,40 @@
+All functions matching regular expression "malloc":
+
+File /home/runner/work/ArduinoCore-zephyr/zephyr/kernel/mempool.c:
+106:	void *k_malloc(size_t);
+216:	void *z_thread_malloc(size_t);
+
+File /home/runner/work/ArduinoCore-zephyr/zephyr/lib/libc/common/source/stdlib/malloc.c:
+123:	static void malloc_lock(void);
+193:	static int malloc_prepare(void);
+131:	static void malloc_unlock(void);
+
+File /home/runner/zephyr-sdk-1.0.1/gnu/arm-zephyr-eabi/arm-zephyr-eabi/sys-include/stdlib.h:
+183:	void *malloc(size_t);
+All variables matching regular expression "^.*malloc.*":
+
+File /home/runner/work/ArduinoCore-zephyr/ArduinoCore-zephyr/loader/llext_exports.c:
+73:	static const struct llext_const_symbol __llext_sym___real_malloc;
+137:	static const struct llext_const_symbol __llext_sym_k_malloc;
+
+File /home/runner/work/ArduinoCore-zephyr/zephyr/lib/libc/common/source/stdlib/malloc.c:
+120:	struct sys_mutex z_malloc_heap_mutex;
+282:	static const struct init_entry __init_malloc_prepare;
+117:	static struct sys_heap z_malloc_heap;
+Symbol "z_malloc_heap" is static storage at address 0x200017b0.
+Dump of assembler code for function malloc_prepare:
+   0x08007fc8 <+0>:	b508    	push	{r3, lr}
+   0x08007fca <+2>:	4906    	ldr	r1, [pc, #24]	@ (0x8007fe4 <malloc_prepare+28>)
+   0x08007fcc <+4>:	4806    	ldr	r0, [pc, #24]	@ (0x8007fe8 <malloc_prepare+32>)
+   0x08007fce <+6>:	f021 0107	bic.w	r1, r1, #7
+   0x08007fd2 <+10>:	f1c1 5200	rsb	r2, r1, #536870912	@ 0x20000000
+   0x08007fd6 <+14>:	f502 2240	add.w	r2, r2, #786432	@ 0xc0000
+   0x08007fda <+18>:	f00f f902	bl	0x80171e2 <sys_heap_init>
+   0x08007fde <+22>:	2000    	movs	r0, #0
+   0x08007fe0 <+24>:	bd08    	pop	{r3, pc}
+   0x08007fe2 <+26>:	bf00    	nop
+   0x08007fe4 <+28>:	3897    	subs	r0, #151	@ 0x97
+   0x08007fe6 <+30>:	2005    	movs	r0, #5
+   0x08007fe8 <+32>:	17b0    	asrs	r0, r6, #30
+   0x08007fea <+34>:	2000    	movs	r0, #0
+End of assembler dump.

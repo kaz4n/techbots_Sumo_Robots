@@ -1,0 +1,23 @@
+{
+  "utc": "2026-09-24T19:41:23.574509+00:00",
+  "argv": [
+    "C:\\Users\\narut\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\adb\\32.0.0\\adb.exe",
+    "-s",
+    "2629958581",
+    "shell",
+    "-T",
+    "python3 -c 'import json,mmap,sys\ndef varint(m,pos):\n value=0; shift=0\n while shift<64:\n  b=m[pos]; pos+=1; value|=(b&127)<<shift\n  if not b&128:return value,pos\n  shift+=7\n raise ValueError('\"'\"'oversized varint'\"'\"')\ndef string(m,pos):\n size,pos=varint(m,pos)\n assert size<65536 and pos+size<=len(m)\n return m[pos:pos+size].decode('\"'\"'utf-8'\"'\"','\"'\"'replace'\"'\"'),pos+size\nfor path in sys.argv[1:]:\n with open(path,'\"'\"'rb'\"'\"') as f,mmap.mmap(f.fileno(),0,access=mmap.ACCESS_READ) as m:\n  offset=m.find(b'\"'\"'\\xff Go buildinf:'\"'\"')\n  row={'\"'\"'path'\"'\"':path,'\"'\"'offset'\"'\"':offset}\n  if offset>=0:\n   row['\"'\"'header_hex'\"'\"']=m[offset:offset+32].hex()\n   if m[offset+15]&2:\n    row['\"'\"'go_version'\"'\"'],pos=string(m,offset+32)\n    row['\"'\"'module_build_info'\"'\"'],pos=string(m,pos)\n   else:row['\"'\"'limitation'\"'\"']='\"'\"'pointer-form build info not decoded'\"'\"'\n  print(json.dumps(row))\n' /home/arduino/.arduino15/packages/arduino/tools/gen-rodata-ld/0.1.1/gen-rodata-ld /home/arduino/.arduino15/packages/arduino/tools/zephyr-sketch-tool/0.4.1/zephyr-sketch-tool /home/arduino/.arduino15/packages/arduino/tools/zephyr-check-size/0.1.0/zephyr-check-size"
+  ],
+  "remote_argv": [
+    "python3",
+    "-c",
+    "import json,mmap,sys\ndef varint(m,pos):\n value=0; shift=0\n while shift<64:\n  b=m[pos]; pos+=1; value|=(b&127)<<shift\n  if not b&128:return value,pos\n  shift+=7\n raise ValueError('oversized varint')\ndef string(m,pos):\n size,pos=varint(m,pos)\n assert size<65536 and pos+size<=len(m)\n return m[pos:pos+size].decode('utf-8','replace'),pos+size\nfor path in sys.argv[1:]:\n with open(path,'rb') as f,mmap.mmap(f.fileno(),0,access=mmap.ACCESS_READ) as m:\n  offset=m.find(b'\\xff Go buildinf:')\n  row={'path':path,'offset':offset}\n  if offset>=0:\n   row['header_hex']=m[offset:offset+32].hex()\n   if m[offset+15]&2:\n    row['go_version'],pos=string(m,offset+32)\n    row['module_build_info'],pos=string(m,pos)\n   else:row['limitation']='pointer-form build info not decoded'\n  print(json.dumps(row))\n",
+    "/home/arduino/.arduino15/packages/arduino/tools/gen-rodata-ld/0.1.1/gen-rodata-ld",
+    "/home/arduino/.arduino15/packages/arduino/tools/zephyr-sketch-tool/0.4.1/zephyr-sketch-tool",
+    "/home/arduino/.arduino15/packages/arduino/tools/zephyr-check-size/0.1.0/zephyr-check-size"
+  ],
+  "returncode": 0,
+  "stdout_bytes": 2697,
+  "stdout_sha256": "19d54d57eb238171e28439995d56509a3322afef13b5574ac52f5c6a5db182ec",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

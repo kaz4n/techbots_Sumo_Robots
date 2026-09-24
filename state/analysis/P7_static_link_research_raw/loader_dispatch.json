@@ -1,0 +1,34 @@
+{
+  "utc": "2026-09-24T19:41:23.731054+00:00",
+  "argv": [
+    "C:\\Users\\narut\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\adb\\32.0.0\\adb.exe",
+    "-s",
+    "2629958581",
+    "shell",
+    "-T",
+    "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-gdb -nx -nh -batch /home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf -ex 'info address loader' -ex 'disassemble /r loader' -ex 'p/x sketch_base_addr' -ex 'p/x sketch_max_size' -ex 'p/x &llext_heap' -ex 'p/x llext_heap.heap.init_bytes'"
+  ],
+  "remote_argv": [
+    "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-gdb",
+    "-nx",
+    "-nh",
+    "-batch",
+    "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf",
+    "-ex",
+    "info address loader",
+    "-ex",
+    "disassemble /r loader",
+    "-ex",
+    "p/x sketch_base_addr",
+    "-ex",
+    "p/x sketch_max_size",
+    "-ex",
+    "p/x &llext_heap",
+    "-ex",
+    "p/x llext_heap.heap.init_bytes"
+  ],
+  "returncode": 0,
+  "stdout_bytes": 11751,
+  "stdout_sha256": "bb578bae6f83763e54eabd232b84c5af3dc92ac9dc23c197d401cea793b8b612",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

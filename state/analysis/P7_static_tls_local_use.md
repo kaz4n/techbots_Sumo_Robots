@@ -92,3 +92,52 @@ alone proves nothing about TLS use in a fully linked image. Symbol provenance,
 native accessor semantics and thread-pointer/layout compatibility still require
 the separate installed-source/object/map investigation. No structural parser
 acceptance, runtime correctness, memory fit, upload or physical gate follows.
+
+## D146 installed object/map comparison
+
+Independently read the checked files in `P7_static_tls_raw/observed/`; lengths and
+SHA256 values match all four corresponding `result.json` records:
+source `68bb1476` (977 B), object `bf3b5c57` (728 B), map `15da1417` (666298 B),
+debug ELF `0f7f2825` (1764708 B). The receipt also records the separate remote
+temporary ELF with the same complete SHA256 as debug; there is intentionally no
+second local copy. This note compares actual local debug bytes, with temporary
+equivalence relying on that checked receipt.
+
+Additional actual zero-exit commands, using the same in-memory subprocess method:
+
+```
+readelf -hSWrs state/analysis/P7_static_tls_raw/observed/tls-syms.S.o
+readelf -sW state/analysis/P7_static_tls_raw/observed/app.ino_debug.elf
+readelf -rW state/analysis/P7_static_tls_raw/observed/app.ino_debug.elf
+```
+
+Compared sorted `(value,size,type,bind,visibility,index,name)` TLS rows from actual
+`readelf -sW` output for object, debug and final ELF. All three have exactly the
+six rows above, equal in every compared field; only symbol-table ordinals differ.
+The source declares the same six `%tls_object` globals using `.set` absolute
+offsets and no `.size`; comments describe underlying native sizes, but observed
+object/final symbol sizes are zero. Its generated-source header names packaged
+loader SHA256 `39d4a4fd47241663323f6e04f94dd8f5a9f9ad6582cf1df37f9709b74026adcd`
+and states offsets include eight TCB bytes. That header is provenance metadata,
+not independent proof that the native TLS layout works.
+
+The actual object has zero-byte `.text`, `.data` and `.bss`, no SHF_TLS section,
+no program headers and no relocations. The debug ELF likewise has no SHF_TLS
+section, PT_TLS header or relocations. Its sole accessor-named symbol is the
+same absolute `__real___aeabi_read_tp=0x08007f31` (ordinal 1732).
+
+Map line 953 explicitly LOADs this run's `core/tls-syms.S.o`; lines 643-647
+record its zero-length ordinary sections and 0x26-byte ARM attributes under
+`Discarded input sections` (heading line 18; next heading line 883).
+Lines 767-768 put `.text.__aeabi_read_tp`, size 0x0a, from
+`core/core.a(llext_wrappers.c.o)` in that same discarded region. Line 1016 shows
+`[!provide] PROVIDE (__aeabi_read_tp = 0x8007f31)`; line 1178 provides the retained
+`__real___aeabi_read_tp` alias.
+
+Searching the complete map with `^\s*\.(?:tdata|tbss)(?:[.\s]|$)` finds no
+`.tdata`/`.tbss` input-section rows. The only occurrences are linker wildcard
+selectors at lines 3998 and 4012. Thus this object contributes only absolute TLS
+symbol metadata, and the checked map reports no conventional TLS input storage.
+This supports inherited-symbol provenance, not a general proof against inlined,
+indirect or native-library TLS access. The earlier direct-reference scan and all
+runtime/native-compatibility limitations remain unchanged.

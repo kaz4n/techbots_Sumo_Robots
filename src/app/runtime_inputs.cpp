@@ -151,6 +151,33 @@ fsm::RobotInput Runtime::project(std::uint32_t now_us) {
     return decision_input_;
 }
 
+void Runtime::projectStartStatus(ui::DisplaySample& sample) const {
+    sample.start_status_available = false;
+    sample.start_ready = false;
+    const auto& tick = transaction_.report();
+    const auto& robot = tick.robot;
+    const bool active = report_.phase == RuntimePhase::RUNNING ||
+        report_.phase == RuntimePhase::STOP_OBSERVING;
+    if (!active || report_.fault != RuntimeFault::NONE || tick.fault != Fault::NONE ||
+        !robot.fresh || robot.token == 0U || decision_input_.t_us != tick.decision_us ||
+        !dumpReceiptValid()) return;
+    sample.start_status_available = true;
+    if constexpr (MOTORS_ALLOWED && !(SUMOX_B4_STAND || SUMOX_P3_DRIVE_TEST ||
+        SUMOX_P3_TURN_TRIAL || SUMOX_P3_STOP_TRIAL || SUMOX_P4_REACTIVE ||
+        SUMOX_TIMING_EVIDENCE || SUMOX_P5_ABORT_TIMING)) {
+        sample.start_ready = report_.phase == RuntimePhase::RUNNING &&
+            !report_.service_only && !report_.service_reset_pending &&
+            report_.initialization_complete && !sources_cancelled_ &&
+            tick.applied.fault == motors::Fault::NONE && inhibitedIdle(last_clock_us_) &&
+            robot.match_start_eligible && !robot.menu.selection.service_menu &&
+            core::modeAvailable(robot.menu.selection.mode) && robot.line_available &&
+            !robot.line_raw_mode && !robot.line_calibration_hold && !robot.line_start_rearming &&
+            decision_input_.line.explicit_values &&
+            decision_input_.line.use == core::LineUse::CONTROL &&
+            decision_input_.opponent_fresh && robot.button_available && robot.button_updated;
+    }
+}
+
 bool Runtime::display() {
     if (!grants_.matrix_enabled) return true;
     auto sample = ui::displaySample(decision_input_, transaction_.report().robot);
@@ -158,6 +185,7 @@ bool Runtime::display() {
     sample.service_unavailable = report_.service_only && sample.service_menu &&
         (sample.service == countdown::Service::QTR_CAL ||
          sample.service == countdown::Service::DRIVE_TEST);
+    projectStartStatus(sample);
     ui::Frame frame;
     if (ui::render(sample, frame) != ui::RenderStatus::OK) {
         report_.matrix_status = ui::MatrixStatus::INVALID_FRAME;

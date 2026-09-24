@@ -9,6 +9,9 @@ namespace fsm {
 namespace {
 constexpr std::uint64_t FRAME_PERIOD_US = 1000000ULL / config::LOG_HZ;
 constexpr std::uint64_t FRAME_EPOCH_US = (1ULL << 32U) * 1000ULL;
+constexpr bool MATCH_START_PROFILE = !(SUMOX_B4_STAND || SUMOX_P3_DRIVE_TEST ||
+    SUMOX_P3_TURN_TRIAL || SUMOX_P3_STOP_TRIAL || SUMOX_P4_REACTIVE ||
+    SUMOX_TIMING_EVIDENCE || SUMOX_P5_ABORT_TIMING);
 static_assert(config::LOG_HZ > 0U && 1000000U % config::LOG_HZ == 0U);
 static_assert(config::EDGE_MAX_REPLANS <= 255U);
 static_assert(config::REFLANK_MAX_PER_10S <= 65535U);
@@ -66,6 +69,7 @@ std::uint16_t dutyBytes(float left, float right) {
 
 void clearActions(RobotResult& result) {
     result.fresh = false;
+    result.match_start_eligible = false;
 #if SUMOX_B4_STAND
     result.stand.fresh = false;
     result.stand.phase_changed = false;
@@ -93,6 +97,19 @@ void clearActions(RobotResult& result) {
     result.events = logframe::EventBatch{};
     result.frame_ready = false;
     result.frame_token = 0;
+}
+
+void finishStartObservation(RobotResult& result) {
+    const auto& gate = result.lifecycle.gate;
+    const auto& output = result.outputs;
+    result.match_start_eligible = result.match_start_eligible && result.fresh &&
+        output.ui_state == core::State::IDLE && !result.menu.selection.service_menu &&
+        !result.menu.selection_changed && !result.menu.menu_toggled &&
+        gate.phase == countdown::Phase::IDLE && !gate.start_release && !gate.go &&
+        !gate.motion_permitted && !output.motors_enabled &&
+        output.duty_l == 0.0F && output.duty_r == 0.0F &&
+        result.contract_faults == 0U && result.escape_fault == edge::EscapeFault::NONE &&
+        !result.line_raw_mode && !result.line_calibration_hold && !result.line_start_rearming;
 }
 } // namespace
 
@@ -372,6 +389,10 @@ void Robot::runLifecycle(const RobotInput& input) {
                                         || stop_trial_stopping_
 #endif
                                         , allow_start);
+    result_.match_start_eligible = MATCH_START_PROFILE && allow_start && explicit_button_mode_ &&
+        result_.button_available && result_.button_updated &&
+        result_.button_level == core::ButtonLevel::NONE && button_timing_.start_ready &&
+        lifecycle_.neutralStartArmed();
     if (result_.lifecycle.gate.start_release) beginAttempt();
     const auto& services = result_.lifecycle.services;
     if (!calibration_reported_ &&
@@ -386,6 +407,10 @@ void Robot::runLifecycle(const RobotInput& input) {
         result_.accepted_bias_dps = services.bias_dps;
         bias_reported_ = true;
     }
+    finishLifecycle(input);
+}
+
+void Robot::finishLifecycle(const RobotInput& input) {
     result_.heading = input.imu.explicit_values ? heading_.step(
         HeadingSample{input.t_us, input.raw_heading_deg, input.imu.heading_available,
                       input.imu.heading_updated, input.imu.observation_us},
@@ -1092,6 +1117,7 @@ void Robot::finish(const RobotInput& input) {
     result_.ticks = statistics_;
     result_.timing_incomplete = timing_incomplete_;
     result_.recording_incomplete = recording_incomplete_;
+    finishStartObservation(result_);
 }
 
 RobotResult Robot::exhaust(const RobotInput& input) {

@@ -262,3 +262,30 @@ foreach(motors 0 1)
   endif()
   add_test(NAME opener_timing_m${motors}_host COMMAND ${abort_target})
 endforeach()
+
+# D138 adds observational READY/battery coverage without changing control profiles.
+foreach(readiness_motors 0 1)
+  set(readiness_target readiness_m${readiness_motors}_tests)
+  add_executable(${readiness_target} ${B4_HOST_SOURCES}
+    "${CMAKE_CURRENT_SOURCE_DIR}/../tests/test_readiness.cc"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../tests/test_readiness_runtime.cc")
+  target_include_directories(${readiness_target} PRIVATE ../src)
+  target_include_directories(${readiness_target} SYSTEM PRIVATE third_party)
+  target_compile_definitions(${readiness_target} PRIVATE
+    DOCTEST_CONFIG_NO_EXCEPTIONS MOTORS_ALLOWED=${readiness_motors})
+  if(MSVC)
+    target_compile_options(${readiness_target} PRIVATE /W4 /GR-)
+  else()
+    target_compile_options(${readiness_target} PRIVATE
+      -Wall -Wextra -Wpedantic -Werror -fno-exceptions -fno-rtti)
+  endif()
+  add_test(NAME readiness_m${readiness_motors}_host COMMAND ${readiness_target})
+endforeach()
+# The same spec tests verify profile suppression under the existing real macros.
+foreach(readiness_profile stand_integration mode_availability push_through
+        drive_test turn_integration stop_trial reactive_profile timing_evidence opener_timing)
+  foreach(readiness_motors 0 1)
+    target_sources(${readiness_profile}_m${readiness_motors}_tests PRIVATE
+      "${CMAKE_CURRENT_SOURCE_DIR}/../tests/test_readiness.cc")
+  endforeach()
+endforeach()

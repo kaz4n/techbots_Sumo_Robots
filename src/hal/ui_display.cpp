@@ -20,6 +20,7 @@ constexpr std::uint8_t DIGITS[10][5] = {
 constexpr std::uint8_t B[5] = {6,5,6,5,6}, S[5] = {7,4,7,1,7};
 constexpr std::uint8_t E[5] = {7,4,6,4,7}, D[5] = {6,5,5,5,6};
 constexpr std::uint8_t C[5] = {7,4,4,4,7}, L[5] = {4,4,4,4,7};
+constexpr std::uint8_t R[5] = {6,5,6,5,5};
 constexpr std::uint8_t FAULTS[7][5] = {
     {7,2,2,2,7}, {7,4,7,1,7}, {7,5,7,3,1}, {4,4,4,4,7},
     {7,4,4,4,7}, {5,5,5,7,5}, {7,4,6,4,7}
@@ -160,6 +161,18 @@ void service(Frame& frame, const DisplaySample& sample) {
     default: break;
     }
 }
+
+void startStatus(Frame& frame, const DisplaySample& sample) {
+    if (!sample.start_status_available || sample.state != core::State::IDLE ||
+        sample.service_menu) return;
+    const bool battery_ready = sample.battery_available && sample.battery_v >= config::VBAT_WARN_V;
+    frame.pixels[6U * FRAME_COLS + 12U] =
+        !sample.battery_available ? 0U : battery_ready ? 7U : 3U;
+    if (sample.start_ready && battery_ready && sample.opponents_available &&
+        sample.lines_available && sample.line_mask == 0U && sample.faults == 0U &&
+        (sample.t_us / 1000U / config::UI_FAULT_PAGE_MS) % 2U == 0U)
+        glyph(frame, 10U, R, 3U);
+}
 } // namespace
 
 RenderStatus render(const DisplaySample& sample, Frame& frame) {
@@ -186,6 +199,7 @@ RenderStatus render(const DisplaySample& sample, Frame& frame) {
     }
     battery(frame, sample.battery_available, sample.battery_v);
     faults(frame, sample.faults, sample.t_us);
+    startStatus(frame, sample);
     return RenderStatus::OK;
 }
 

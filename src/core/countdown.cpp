@@ -82,6 +82,11 @@ void Buttons::reset() {
     *this = Buttons{};
 }
 
+bool Buttons::neutralStartArmed() const {
+    return initialized_ && armed_ && !pressed_ &&
+        stable_ == core::ButtonLevel::NONE && candidate_ == core::ButtonLevel::NONE;
+}
+
 bool StopHold::step(std::uint32_t t_us, core::ButtonLevel level) {
     return stepObserved(t_us, t_us, level);
 }
@@ -157,6 +162,8 @@ Result Controller::stepObserved(const core::Inputs& inputs, const ButtonTiming& 
 }
 
 ButtonEvents Controller::buttonEvents() const { return events_; }
+
+bool Controller::neutralStartArmed() const { return buttons_.neutralStartArmed(); }
 
 void Controller::reset() {
     stop_.reset();
@@ -339,6 +346,8 @@ LifecycleResult Lifecycle::stepObserved(const ServiceSample& sample, core::Butto
 }
 
 ButtonEvents Lifecycle::buttonEvents() const { return controller_.buttonEvents(); }
+
+bool Lifecycle::neutralStartArmed() const { return controller_.neutralStartArmed(); }
 
 void Lifecycle::reset() {
     controller_.reset();

@@ -1,0 +1,44 @@
+{
+  "label": "normal_first",
+  "flags": [],
+  "start_utc": "2026-09-24T18:47:45.847372+00:00",
+  "input_freeze_sha256": "276d4e121bf4c58c41c02dac3aae1b0c928406cc8447eb7a5b6acd626cab7421",
+  "runner_sha256": "05a799049d7153b9b2eb0fc4979d10b1c06f541627ba9d9cd5c53da4b06b5b28",
+  "commands": [
+    {
+      "argv": [
+        "cmake",
+        "-S",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/host",
+        "-B",
+        "/dev/shm/sumox_d138_qegsk82e/build",
+        "-DCMAKE_BUILD_TYPE=Debug"
+      ],
+      "returncode": 0,
+      "start_utc": "2026-09-24T18:47:45.857557+00:00",
+      "end_utc": "2026-09-24T18:47:50.964672+00:00"
+    },
+    {
+      "argv": [
+        "cmake",
+        "--build",
+        "/dev/shm/sumox_d138_qegsk82e/build",
+        "--parallel",
+        "1",
+        "--target",
+        "readiness_m0_tests",
+        "readiness_m1_tests"
+      ],
+      "returncode": 2,
+      "start_utc": "2026-09-24T18:47:50.965455+00:00",
+      "end_utc": "2026-09-24T18:48:19.804033+00:00"
+    }
+  ],
+  "hardware_access": false,
+  "frozen_inputs": 678,
+  "returncode": 2,
+  "scratch_released": true,
+  "source_verified_after_run": true,
+  "end_utc": "2026-09-24T18:48:21.504126+00:00",
+  "log_sha256": "a2edccf3e2c6b5344d6cd4baf173c85465a9628fb22c17cb847b9ad3f175b49a"
+}

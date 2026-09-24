@@ -688,6 +688,7 @@ private:
     void updateWarnings(const RobotInput& input);
     void updateQtrWarnings();
     void runLifecycle(const RobotInput& input);
+    void finishLifecycle(const RobotInput& input);
     void beginAttempt();
     void runEscape(const RobotInput& input, bool allow_push = true);
     void revokePushThrough(const RobotInput& input);

@@ -134,3 +134,8 @@ rehearsal2October; competition3October. No cut/freeze was due at this checkpoint
 Resume with docs/prompts/CODEX_RESUME.md. Commit bounded finished tasks promptly,
 record actual tests/failures/evidence, and stop at real external blockers rather
 than inventing a phase pass or promising unattended completion through human gates.
+
+D130 completion commit: cd22e7c7. D131 proposal now exists at
+state/analysis/P4_push_through_contract.md; adopt it explicitly underD051 after
+reviewing its no-renewal and same-tick arbitration choices, then interfaces,
+independent tests and implementation. No source change or positive tuning yet.

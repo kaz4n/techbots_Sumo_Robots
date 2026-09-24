@@ -45,3 +45,8 @@ state/analysis/P4_timing_evidence_validation.md and its separate review.
    Physical P0-P4, EXPLAINED/PINMAP/GATE and any future motor permission remain
    human-owned. Apply original actual-gate dates/scope cut/freeze. Commit bounded
    tasks promptly, never push/tag, and record exact next action at boundaries.
+
+D130 completion commit: cd22e7c7. D131 proposal now exists at
+state/analysis/P4_push_through_contract.md; adopt it explicitly underD051 after
+reviewing its no-renewal and same-tick arbitration choices, then interfaces,
+independent tests and implementation. No source change or positive tuning yet.

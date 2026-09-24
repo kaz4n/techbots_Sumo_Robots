@@ -356,3 +356,6 @@ Added STAND_SEGMENT_MS=500 and STAND_DUTY=0.25 for the pure finite B4 request se
 - 2026-09-24T05:03:06.238610+04:00 | D119 software-only validation | New500ms/0.25 nominal defaults remain unchanged and physically unqualified. Independent18-case tests, full normal/sanitizer and private invariant profiles PASS. Compile-only defaultapp finalbytes equalD118; no motors, tuning measurement, extra grant or upload. Evidence analysis/P2_stand_sequence_validation.md.
 
 - 2026-09-24T05:23:16+04:00 | D120 unmeasured B4 electrical envelope adoption | Existing STAND_DUTY0.25 now also caps final compensated regular sequence duty;500ms values unchanged. SUMOX_B4_STAND defaults0; profile1 separateM0bench only via checked route. All B16 values/pins unchanged. Host/sanitizer/checkedtarget evidence and conditional loader models in analysis/P2_stand_integration_validation.md; no physical tuning, motor run or measured brake/coast/kill/PWM claim.
+
+
+- 2026-09-24T07:10:51.912453+04:00 | D124 unmeasured turn-trial preparation | Added TURN_TRIAL_BRAKE_MS500 for a finite observed zero-duty brake-request interval after primitive completion/timeout. Not a measured chassis settling time or approved tuning gain. B16 and prior values unchanged; tests and actual integration remain separate.

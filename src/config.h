@@ -40,6 +40,8 @@ inline constexpr std::uint32_t MOTOR_PWM_SETTLE_MAX_POLLS = 4096U; // count-name
 // D119 pure B4 sequence development defaults; not physical motor qualification.
 inline constexpr std::uint32_t STAND_SEGMENT_MS = 500U; // ms per observed segment
 inline constexpr float STAND_DUTY = 0.25F; // nominal request, not electrical permission
+// D124 finite P3 turn-trial brake request; no measured settling-time claim.
+inline constexpr std::uint32_t TURN_TRIAL_BRAKE_MS = 500U; // ms after observed turn termination
 // D078 native ADC development bounds and unchanged HARDWARE2/3 proposal.
 // Nominal scaling is not measured divider/reference calibration or PINMAP OK.
 inline constexpr std::uint32_t VBAT_INPUT_PIN = 14U; // A0 / PA4 / ADC1 channel9

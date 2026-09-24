@@ -906,3 +906,6 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 - 2026-09-24T07:09:12.408796+04:00 | P3 D123 DRIVE_TEST | IMPLEMENTED/HOST-TESTED/TARGET-COMPILED/SCOPED-REVIEW-PASS: actuallocalservice/fullhold/SEARCH+edge/Gate; all6normal/sanitizer targets, configured28cases eachM0/M1,93tooling,20privateprofiles,4privateRuntimecases each. Originalunacceptedoraclefailure and exactfieldcorrectionretained;35oldlocked unchanged, newaccepted5bde7967protected. CheckedP3free10624/defaultfree16 conditionalbytes; noMCUaction orphysical/gate claim. Next finite3.4turntrial. | scheduling7d07cf7b; contract1672de8b; this implementation/evidence commit
+
+
+- 2026-09-24T07:10:51.912453+04:00 | P3 3.4 D124 finite turn-trial preparation | ADOPTED purehelper/publiccontract, explicit LEFT coordinate reflection and500ms development brake interval. Independent tests/implementation next; no target or physical claim. D123 completed feca04dc. | this contract commit

@@ -352,3 +352,5 @@ Exactdefault/M0 sourcee820c0e1, software9b4afcb2, runapp-default-e820c0e1-run01:
 
 ## 2026-09-24T04:53:21.519504+04:00 - D119 unmeasured software bench defaults
 Added STAND_SEGMENT_MS=500 and STAND_DUTY=0.25 for the pure finite B4 request sequence only. These separate values do not alias or alter B16 defaults. D051 delegated selection: a modest nominal request and observable finite dwell for later stand preparation; neither value is physically qualified and there is no motor permission, final electrical cap or claimed tuning benefit. Contract: analysis/P2_stand_sequence_contract.md. Host validation follows; no board action or previous measurement is reused as evidence for these choices.
+
+- 2026-09-24T05:03:06.238610+04:00 | D119 software-only validation | New500ms/0.25 nominal defaults remain unchanged and physically unqualified. Independent18-case tests, full normal/sanitizer and private invariant profiles PASS. Compile-only defaultapp finalbytes equalD118; no motors, tuning measurement, extra grant or upload. Evidence analysis/P2_stand_sequence_validation.md.

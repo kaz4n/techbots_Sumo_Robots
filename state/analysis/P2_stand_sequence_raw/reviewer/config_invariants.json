@@ -1,0 +1,268 @@
+{
+  "start_utc": "2026-09-24T00:56:59.190330+00:00",
+  "end_utc": "2026-09-24T00:57:01.077624+00:00",
+  "source_sha256": {
+    "src/config.h": "995a549bbb34e2064598888d0afc15841f471d9ccdbf6ef2b7672668afd827e6",
+    "src/core/stand_sequence.h": "3f01869c0276e05e5f1953e6044274bfb54bcb2b15e04d74a4e00347570603f5",
+    "src/core/stand_sequence.cpp": "8dfc2dcbdc74a01002ae117fd5649d0388bcf452d63a2ca5ab84990c6a899a94"
+  },
+  "cases": [
+    {
+      "case": "duration_zero",
+      "command": [
+        "g++",
+        "-std=c++17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Werror",
+        "-fno-exceptions",
+        "-fno-rtti",
+        "-c",
+        "src/core/stand_sequence.cpp",
+        "-o",
+        "probe.o"
+      ],
+      "compile_exit": 1,
+      "expected_valid": false,
+      "expected_diagnostic": "must have a duration",
+      "successful": true
+    },
+    {
+      "case": "duration_first_outside_half_range",
+      "command": [
+        "g++",
+        "-std=c++17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Werror",
+        "-fno-exceptions",
+        "-fno-rtti",
+        "-c",
+        "src/core/stand_sequence.cpp",
+        "-o",
+        "probe.o"
+      ],
+      "compile_exit": 1,
+      "expected_valid": false,
+      "expected_diagnostic": "clock half range",
+      "successful": true
+    },
+    {
+      "case": "duration_uint32_max",
+      "command": [
+        "g++",
+        "-std=c++17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Werror",
+        "-fno-exceptions",
+        "-fno-rtti",
+        "-c",
+        "src/core/stand_sequence.cpp",
+        "-o",
+        "probe.o"
+      ],
+      "compile_exit": 1,
+      "expected_valid": false,
+      "expected_diagnostic": "clock half range",
+      "successful": true
+    },
+    {
+      "case": "duty_zero",
+      "command": [
+        "g++",
+        "-std=c++17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Werror",
+        "-fno-exceptions",
+        "-fno-rtti",
+        "-c",
+        "src/core/stand_sequence.cpp",
+        "-o",
+        "probe.o"
+      ],
+      "compile_exit": 1,
+      "expected_valid": false,
+      "expected_diagnostic": "strictly between zero and one",
+      "successful": true
+    },
+    {
+      "case": "duty_negative",
+      "command": [
+        "g++",
+        "-std=c++17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Werror",
+        "-fno-exceptions",
+        "-fno-rtti",
+        "-c",
+        "src/core/stand_sequence.cpp",
+        "-o",
+        "probe.o"
+      ],
+      "compile_exit": 1,
+      "expected_valid": false,
+      "expected_diagnostic": "strictly between zero and one",
+      "successful": true
+    },
+    {
+      "case": "duty_one",
+      "command": [
+        "g++",
+        "-std=c++17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Werror",
+        "-fno-exceptions",
+        "-fno-rtti",
+        "-c",
+        "src/core/stand_sequence.cpp",
+        "-o",
+        "probe.o"
+      ],
+      "compile_exit": 1,
+      "expected_valid": false,
+      "expected_diagnostic": "strictly between zero and one",
+      "successful": true
+    },
+    {
+      "case": "duty_above_one",
+      "command": [
+        "g++",
+        "-std=c++17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Werror",
+        "-fno-exceptions",
+        "-fno-rtti",
+        "-c",
+        "src/core/stand_sequence.cpp",
+        "-o",
+        "probe.o"
+      ],
+      "compile_exit": 1,
+      "expected_valid": false,
+      "expected_diagnostic": "strictly between zero and one",
+      "successful": true
+    },
+    {
+      "case": "duty_nan",
+      "command": [
+        "g++",
+        "-std=c++17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Werror",
+        "-fno-exceptions",
+        "-fno-rtti",
+        "-c",
+        "src/core/stand_sequence.cpp",
+        "-o",
+        "probe.o"
+      ],
+      "compile_exit": 1,
+      "expected_valid": false,
+      "expected_diagnostic": "strictly between zero and one",
+      "successful": true
+    },
+    {
+      "case": "duty_infinite",
+      "command": [
+        "g++",
+        "-std=c++17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Werror",
+        "-fno-exceptions",
+        "-fno-rtti",
+        "-c",
+        "src/core/stand_sequence.cpp",
+        "-o",
+        "probe.o"
+      ],
+      "compile_exit": 1,
+      "expected_valid": false,
+      "expected_diagnostic": "strictly between zero and one",
+      "successful": true
+    },
+    {
+      "case": "minimum_duration",
+      "command": [
+        "g++",
+        "-std=c++17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Werror",
+        "-fno-exceptions",
+        "-fno-rtti",
+        "src/core/stand_sequence.cpp",
+        "main.cpp",
+        "-o",
+        "probe"
+      ],
+      "compile_exit": 0,
+      "expected_valid": true,
+      "expected_diagnostic": "",
+      "run_exit": 0,
+      "successful": true
+    },
+    {
+      "case": "maximum_duration",
+      "command": [
+        "g++",
+        "-std=c++17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Werror",
+        "-fno-exceptions",
+        "-fno-rtti",
+        "src/core/stand_sequence.cpp",
+        "main.cpp",
+        "-o",
+        "probe"
+      ],
+      "compile_exit": 0,
+      "expected_valid": true,
+      "expected_diagnostic": "",
+      "run_exit": 0,
+      "successful": true
+    },
+    {
+      "case": "different_positive_duty",
+      "command": [
+        "g++",
+        "-std=c++17",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Werror",
+        "-fno-exceptions",
+        "-fno-rtti",
+        "src/core/stand_sequence.cpp",
+        "main.cpp",
+        "-o",
+        "probe"
+      ],
+      "compile_exit": 0,
+      "expected_valid": true,
+      "expected_diagnostic": "",
+      "run_exit": 0,
+      "successful": true
+    }
+  ],
+  "successful": true,
+  "scope": "Copied sources only; no public oracle, production, or locked-test edits; no board action."
+}

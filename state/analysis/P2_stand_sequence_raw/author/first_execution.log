@@ -1,0 +1,75 @@
++ date --iso-8601=seconds
+2026-09-24T04:57:23+04:00
++ g++ --version
+g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+Copyright (C) 2023 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
++ df -h /dev/shm
+Filesystem      Size  Used Avail Use% Mounted on
+none            3.9G  1.1M  3.9G   1% /dev/shm
++ findmnt -no OPTIONS /dev/shm
+rw,nosuid,nodev,noatime
++ sha256sum /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_stand_sequence.cpp /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/core/stand_sequence.cpp /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/core/stand_sequence.h /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/config.h /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/host/third_party/doctest.h /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/analysis/P2_stand_sequence_raw/author/stand_sequence_main.cpp /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/analysis/P2_stand_sequence_raw/author/run_isolated.sh
+5e03938c09337d2dc6ce419b1030ef0e7b9d75f110df858219814cce3122c026  /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_stand_sequence.cpp
+8dfc2dcbdc74a01002ae117fd5649d0388bcf452d63a2ca5ab84990c6a899a94  /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/core/stand_sequence.cpp
+3f01869c0276e05e5f1953e6044274bfb54bcb2b15e04d74a4e00347570603f5  /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/core/stand_sequence.h
+995a549bbb34e2064598888d0afc15841f471d9ccdbf6ef2b7672668afd827e6  /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/config.h
+94029a7d32da24a56249658147dbd2b33ff0b9ed665295cbbaf19aafff5b0ced  /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/host/third_party/doctest.h
+98a6145a2d412b888a27ab92534fff7412b2809fc52edb74ded9e7ce808b5a67  /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/analysis/P2_stand_sequence_raw/author/stand_sequence_main.cpp
+2ecd22929c431eddd180e571c6594f109c58cdb05986d92361dd85870454005e  /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/analysis/P2_stand_sequence_raw/author/run_isolated.sh
+++ mktemp -d /dev/shm/d119-author-XXXXXX
++ build=/dev/shm/d119-author-oTtm3s
++ printf '%s\n' /dev/shm/d119-author-oTtm3s
++ flags=(-std=c++17 -Wall -Wextra -Wpedantic -Werror -fno-exceptions -fno-rtti -DDOCTEST_CONFIG_NO_EXCEPTIONS -I "$repo/src" -isystem "$repo/host/third_party")
++ sources=("$repo/tests/test_stand_sequence.cpp" "$repo/src/core/stand_sequence.cpp" "$evidence/stand_sequence_main.cpp")
++ g++ -std=c++17 -Wall -Wextra -Wpedantic -Werror -fno-exceptions -fno-rtti -DDOCTEST_CONFIG_NO_EXCEPTIONS -I /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src -isystem /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/host/third_party -O0 /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_stand_sequence.cpp /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/core/stand_sequence.cpp /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/analysis/P2_stand_sequence_raw/author/stand_sequence_main.cpp -o /dev/shm/d119-author-oTtm3s/normal
++ normal_compile=0
++ cat /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/analysis/P2_stand_sequence_raw/author/normal_compile.txt
++ normal_run=NOT_RUN
++ [[ 0 == 0 ]]
++ sha256sum /dev/shm/d119-author-oTtm3s/normal
+48c7887b85207f42c9b01d6344bc3ccf7217d614ce04deff65d53a807b1fbe05  /dev/shm/d119-author-oTtm3s/normal
++ /dev/shm/d119-author-oTtm3s/normal --no-colors=true
++ normal_run=0
++ cat /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/analysis/P2_stand_sequence_raw/author/normal_run.txt
+[doctest] doctest version is "2.4.12"
+[doctest] run with "--help" for options
+===============================================================================
+[doctest] test cases:     18 |     18 passed | 0 failed | 0 skipped
+[doctest] assertions: 246080 | 246080 passed | 0 failed |
+[doctest] Status: SUCCESS!
++ g++ -std=c++17 -Wall -Wextra -Wpedantic -Werror -fno-exceptions -fno-rtti -DDOCTEST_CONFIG_NO_EXCEPTIONS -I /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src -isystem /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/host/third_party -O1 -g -fsanitize=address,undefined -fno-omit-frame-pointer /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_stand_sequence.cpp /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/core/stand_sequence.cpp /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/analysis/P2_stand_sequence_raw/author/stand_sequence_main.cpp -o /dev/shm/d119-author-oTtm3s/sanitized
++ sanitizer_compile=0
++ cat /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/analysis/P2_stand_sequence_raw/author/sanitizer_compile.txt
++ sanitizer_run=NOT_RUN
++ [[ 0 == 0 ]]
++ sha256sum /dev/shm/d119-author-oTtm3s/sanitized
+6f1bb8b03c6b4a1f771acabb8771c41628c54a57e39a192de6795e3c6e638ed6  /dev/shm/d119-author-oTtm3s/sanitized
++ ASAN_OPTIONS=detect_leaks=1:halt_on_error=1
++ UBSAN_OPTIONS=halt_on_error=1
++ /dev/shm/d119-author-oTtm3s/sanitized --no-colors=true
++ sanitizer_run=0
++ cat /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/analysis/P2_stand_sequence_raw/author/sanitizer_run.txt
+[doctest] doctest version is "2.4.12"
+[doctest] run with "--help" for options
+===============================================================================
+[doctest] test cases:     18 |     18 passed | 0 failed | 0 skipped
+[doctest] assertions: 246080 | 246080 passed | 0 failed |
+[doctest] Status: SUCCESS!
++ printf 'normal_compile=%s\nnormal_run=%s\nsanitizer_compile=%s\nsanitizer_run=%s\n' 0 0 0 0
++ tee /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/analysis/P2_stand_sequence_raw/author/execution_status.txt
+normal_compile=0
+normal_run=0
+sanitizer_compile=0
+sanitizer_run=0
++ sha256sum /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_stand_sequence.cpp /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/core/stand_sequence.cpp
+5e03938c09337d2dc6ce419b1030ef0e7b9d75f110df858219814cce3122c026  /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/test_stand_sequence.cpp
+8dfc2dcbdc74a01002ae117fd5649d0388bcf452d63a2ca5ab84990c6a899a94  /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/core/stand_sequence.cpp
++ date --iso-8601=seconds
+2026-09-24T04:57:47+04:00
++ [[ 0 == 0 ]]
++ [[ 0 == 0 ]]
++ [[ 0 == 0 ]]
++ [[ 0 == 0 ]]

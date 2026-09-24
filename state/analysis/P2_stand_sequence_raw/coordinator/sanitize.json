@@ -1,0 +1,27 @@
+{
+  "argv": [
+    "wsl",
+    "-d",
+    "Ubuntu",
+    "--",
+    "bash",
+    "-c",
+    "cmake -S host -B build/host-sanitize && cmake --build build/host-sanitize --parallel 2 && ctest --test-dir build/host-sanitize --output-on-failure"
+  ],
+  "cwd": "C:\\Users\\narut\\OneDrive\\Desktop\\Project\\techbots_Sumo_Robots",
+  "start_utc": "2026-09-24T00:56:52.965413+00:00",
+  "end_utc": "2026-09-24T01:00:44.964154+00:00",
+  "returncode": 0,
+  "before_sha256": {
+    "src/core/stand_sequence.cpp": "8dfc2dcbdc74a01002ae117fd5649d0388bcf452d63a2ca5ab84990c6a899a94",
+    "src/core/stand_sequence.h": "3f01869c0276e05e5f1953e6044274bfb54bcb2b15e04d74a4e00347570603f5",
+    "tests/test_stand_sequence.cpp": "5e03938c09337d2dc6ce419b1030ef0e7b9d75f110df858219814cce3122c026",
+    "src/config.h": "995a549bbb34e2064598888d0afc15841f471d9ccdbf6ef2b7672668afd827e6"
+  },
+  "after_sha256": {
+    "src/core/stand_sequence.cpp": "8dfc2dcbdc74a01002ae117fd5649d0388bcf452d63a2ca5ab84990c6a899a94",
+    "src/core/stand_sequence.h": "3f01869c0276e05e5f1953e6044274bfb54bcb2b15e04d74a4e00347570603f5",
+    "tests/test_stand_sequence.cpp": "5e03938c09337d2dc6ce419b1030ef0e7b9d75f110df858219814cce3122c026",
+    "src/config.h": "995a549bbb34e2064598888d0afc15841f471d9ccdbf6ef2b7672668afd827e6"
+  }
+}

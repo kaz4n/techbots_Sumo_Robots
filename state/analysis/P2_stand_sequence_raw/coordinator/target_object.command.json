@@ -1,0 +1,12 @@
+{
+  "argv": [
+    "python3",
+    "-c",
+    "import sys,json,pathlib,hashlib\nroot=pathlib.Path(sys.argv[1]); obj=root/'sketch/src/core/stand_sequence.cpp.o'; database=root/'compile_commands.json'\ncommands=json.loads(database.read_text());selected=[x for x in commands if x.get('file','').endswith('/src/core/stand_sequence.cpp')]\nassert len(selected)==1,(len(selected),str(database))\nb=obj.read_bytes();assert b[:4]==b'\\x7fELF'\nprint(json.dumps({'object_path':str(obj),'object_bytes':len(b),'object_sha256':hashlib.sha256(b).hexdigest(),'database_sha256':hashlib.sha256(database.read_bytes()).hexdigest(),'compile_command':selected[0]}))\n",
+    "/home/arduino/sumox26_codex_build/_app_builds/native-app-v1/62e382043ee632c7048b94427de382b41f06130d66416c2ac0edf8f148c4c647/bench-default/e72172eec9c649e7b785c42d7c570ad9/build"
+  ],
+  "start_utc": "2026-09-24T01:01:15.470398+00:00",
+  "end_utc": "2026-09-24T01:01:15.695033+00:00",
+  "returncode": 0,
+  "scope": "Read-only completed Linux build files; no MCU operation"
+}

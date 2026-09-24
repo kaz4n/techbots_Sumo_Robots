@@ -1,0 +1,4 @@
+src/core/stand_sequence.cpp:16:56: error: static assertion failed: The complete observed sequence must fit below clock half range
+   16 | static_assert(SEGMENT_COUNT * 2U * SEGMENT_DURATION_US < CLOCK_HALF_RANGE_US,
+      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~
+src/core/stand_sequence.cpp:16:56: note: the comparison reduces to ‘(2147496000 < 2147483648)’

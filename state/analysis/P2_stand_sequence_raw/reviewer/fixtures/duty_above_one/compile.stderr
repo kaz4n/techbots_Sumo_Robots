@@ -1,0 +1,4 @@
+src/core/stand_sequence.cpp:14:63: error: static assertion failed: Stand requests must be finite and strictly between zero and one
+   14 | static_assert(config::STAND_DUTY > 0.0F && config::STAND_DUTY < 1.0F,
+      |                                            ~~~~~~~~~~~~~~~~~~~^~~~~~
+src/core/stand_sequence.cpp:14:63: note: the comparison reduces to ‘(1.25e+0f < 1.0e+0f)’

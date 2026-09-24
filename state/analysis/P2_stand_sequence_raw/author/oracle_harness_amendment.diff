@@ -1,0 +1,125 @@
+diff --git a/state/analysis/P2_stand_sequence_raw/author/test_stand_sequence.frozen.cpp b/tests/test_stand_sequence.cpp
+index 278160b2..46a0e73b 100644
+--- a/state/analysis/P2_stand_sequence_raw/author/test_stand_sequence.frozen.cpp
++++ b/tests/test_stand_sequence.cpp
+@@ -7,6 +7,7 @@
+ #include <array>
+ #include <cmath>
+ #include <cstdint>
++#include <cstdlib>
+ #include <limits>
+ 
+ namespace {
+@@ -34,6 +35,12 @@ constexpr std::array<ExpectedRow, 12> ROWS{{
+     {Phase::COAST, 0.0F, 0.0F}
+ }};
+ 
++// No-exception doctest cannot abort REQUIRE; keep these prerequisites fatal.
++void requireCondition(bool condition) {
++    CHECK(condition);
++    if (!condition) std::abort();
++}
++
+ void checkBounded(const Report& report) {
+     CHECK(std::isfinite(report.duty_l));
+     CHECK(std::isfinite(report.duty_r));
+@@ -55,7 +62,7 @@ void checkSame(const Report& actual, const Report& expected) {
+ }
+ 
+ void checkRow(const Report& report, unsigned row, bool fresh, bool changed) {
+-    REQUIRE(row < ROWS.size());
++    requireCondition(row < ROWS.size());
+     CHECK(report.phase == ROWS[row].phase);
+     CHECK(report.reason == Reason::NONE);
+     CHECK(report.segment == row);
+@@ -80,8 +87,8 @@ void checkTerminal(const Report& report, Phase phase, Reason reason,
+ 
+ std::uint32_t enterRow(Sequence& sequence, unsigned row,
+                        std::uint32_t start = BASE_US) {
+-    REQUIRE(row < ROWS.size());
+-    REQUIRE(sequence.start(start));
++    requireCondition(row < ROWS.size());
++    requireCondition(sequence.start(start));
+     checkRow(sequence.report(), 0U, true, true);
+     for (unsigned current = 0U; current < row; ++current) {
+         const auto boundary = start + (current + 1U) * DURATION_US;
+@@ -136,14 +143,14 @@ TEST_CASE("P2 B4 D119 not started is passive for every kind of input") {
+         checkSame(sequence.step(time, true, true), empty);
+         checkSame(sequence.report(), empty);
+     }
+-    REQUIRE(sequence.start(0U));
++    requireCondition(sequence.start(0U));
+     checkRow(sequence.report(), 0U, true, true);
+     checkRow(sequence.step(1U), 0U, true, false);
+ }
+ 
+ TEST_CASE("P2 B4 D119 refused active start changes neither pulses nor time anchors") {
+     Sequence sequence;
+-    REQUIRE(sequence.start(BASE_US));
++    requireCondition(sequence.start(BASE_US));
+     const auto started = sequence.report();
+     for (const auto time : {BASE_US, BASE_US - 1U, BASE_US + HALF_RANGE_US}) {
+         CHECK_FALSE(sequence.start(time));
+@@ -159,7 +166,7 @@ TEST_CASE("P2 B4 D119 refused active start changes neither pulses nor time ancho
+ TEST_CASE("P2 B4 D119 literal twelve rows finish at exactly six nominal seconds") {
+     for (const auto start : {0U, BASE_US, 0xffe00000U}) {
+         Sequence sequence;
+-        REQUIRE(sequence.start(start));
++        requireCondition(sequence.start(start));
+         checkRow(sequence.report(), 0U, true, true);
+         for (unsigned row = 0U; row < ROWS.size(); ++row) {
+             CAPTURE(start);
+@@ -194,7 +201,7 @@ TEST_CASE("P2 B4 D119 every transition distinguishes duration minus one exact an
+ 
+ TEST_CASE("P2 B4 D119 delayed observation anchors the following complete interval now") {
+     Sequence sequence;
+-    REQUIRE(sequence.start(BASE_US));
++    requireCondition(sequence.start(BASE_US));
+     checkRow(sequence.step(BASE_US + DURATION_US - 1U), 0U, true, false);
+     const auto delayed = BASE_US + 2U * DURATION_US - 2U;
+     checkRow(sequence.step(delayed), 1U, true, true);
+@@ -208,7 +215,7 @@ TEST_CASE("P2 B4 D119 delayed observation anchors the following complete interva
+ TEST_CASE("P2 B4 D119 every row is bounded below two durations with latest legal observations") {
+     for (const auto start : {BASE_US, 0xfffffff0U}) {
+         Sequence sequence;
+-        REQUIRE(sequence.start(start));
++        requireCondition(sequence.start(start));
+         auto entered = start;
+         for (unsigned row = 0U; row < ROWS.size(); ++row) {
+             CAPTURE(start);
+@@ -228,7 +235,7 @@ TEST_CASE("P2 B4 D119 every row is bounded below two durations with latest legal
+ TEST_CASE("P2 B4 D119 distinct observation cadence gives finite bounded output without row skips") {
+     for (const auto cadence : {1000U, 166667U, 499999U}) {
+         Sequence sequence;
+-        REQUIRE(sequence.start(BASE_US));
++        requireCondition(sequence.start(BASE_US));
+         unsigned previous_row = 0U;
+         std::uint32_t elapsed = 0U;
+         while (elapsed < 12000000U && sequence.report().phase != Phase::COMPLETE) {
+@@ -355,7 +362,7 @@ TEST_CASE("P2 B4 D119 duplicate observations suppress changed inputs and only cl
+ 
+ TEST_CASE("P2 B4 D119 suppressed stop is not latched but a distinct stop is admitted") {
+     Sequence sequence;
+-    REQUIRE(sequence.start(BASE_US));
++    requireCondition(sequence.start(BASE_US));
+     checkRow(sequence.step(BASE_US, true, true), 0U, false, false);
+     checkRow(sequence.step(BASE_US + 1U), 0U, true, false);
+     checkRow(sequence.step(BASE_US + 1U, false, true), 0U, false, false);
+@@ -384,7 +391,7 @@ TEST_CASE("P2 B4 D119 all terminal causes preserve original row reason and refus
+ 
+ TEST_CASE("P2 B4 D119 rejected start cannot erase a previously admitted gap predecessor") {
+     Sequence sequence;
+-    REQUIRE(sequence.start(BASE_US));
++    requireCondition(sequence.start(BASE_US));
+     checkRow(sequence.step(BASE_US + 400000U), 0U, true, false);
+     CHECK_FALSE(sequence.start(BASE_US + 899999U));
+     checkTerminal(sequence.step(BASE_US + 900000U), Phase::FAULT,
+@@ -393,7 +400,7 @@ TEST_CASE("P2 B4 D119 rejected start cannot erase a previously admitted gap pred
+ 
+ TEST_CASE("P2 B4 D119 wrap is admitted by unsigned delta while a true reverse clock is refused") {
+     Sequence sequence;
+-    REQUIRE(sequence.start(0xfffffff0U));
++    requireCondition(sequence.start(0xfffffff0U));
+     checkRow(sequence.step(0xffffffffU), 0U, true, false);
+     checkRow(sequence.step(0U), 0U, true, false);
+     checkRow(sequence.step(1U), 0U, true, false);

@@ -10,13 +10,19 @@ Do not treat an old snapshot, template or synthetic test as current approval.
 
 ## Current software checkpoint
 
+D131/D132 are in progress on top of ac49d422, with task-owned uncommitted code,
+tests and evidence. Resume through analysis/P4_push_through_checkpoint.md; it
+records completed runs, the remaining timing-policy regression, pending native
+literal admission and exact next steps. Neither task has final review acceptance.
+The user's storage follow-up added the retention rule in AGENTS.md and the
+compact history in STORAGE_LOG.md. Additional deletion was blocked by tooling.
+
 D130 is IMPLEMENTED/HOST-TESTED with fresh-context scoped review PASS. Source
 b2229370 and original41-method oracle are unchanged after first-run112public
 methods (41new+33countdown+38CSV) and13private methods pass. All648prior tracked
 inputs and40protected files remain exact. Read analysis/P4_loss_analysis_validation.md.
-Next P4 software task: bounded B9.4 push-through; read its options/source map,
-adopt explicit lifecycle/eligibility/memory contract, then independent tests and
-actual Robot/Escape integration. Default window remains0; no positive tuning yet.
+Bounded B9.4 push-through is now implemented and undergoing D131 validation.
+Default window remains0; copied positive fixtures are not positive tuning.
 
 D129 is IMPLEMENTED/HOST-TESTED with separate scoped review PASS and no open
 scoped BLOCKER/MAJOR. Read analysis/P4_timing_evidence_validation.md and
@@ -33,9 +39,8 @@ this slice. Prior D128 reactive9ddaa2aa/ELF01e39e39 modeled free6512 and default
 43d16734 free16 are historical figures, not D129 or live memory/WCET proof.
 
 D130 adopted contract: analysis/P4_loss_analysis_contract.md. Existing CSV/countdown
-tools stay unchanged; new analyzer usage is in docs/target_loss_analysis.md. Positive push-through is
-another P4 software dependency: edge.cpp currently requires0; implement and
-verify original bounded B9.4/R5 semantics before positive tuning, retaining default0.
+tools stay unchanged; new analyzer usage is in docs/target_loss_analysis.md.
+D131/D132 must finish validation/review before any positive tuning; retain default0.
 Use analysis/P4_software_acceptance_packet.md for all deferred physical criteria.
 
 P3 software preparation is complete (D123 drive, D125 turns, D126 stop, D127
@@ -135,7 +140,5 @@ Resume with docs/prompts/CODEX_RESUME.md. Commit bounded finished tasks promptly
 record actual tests/failures/evidence, and stop at real external blockers rather
 than inventing a phase pass or promising unattended completion through human gates.
 
-D130 completion commit: cd22e7c7. D131 proposal now exists at
-state/analysis/P4_push_through_contract.md; adopt it explicitly underD051 after
-reviewing its no-renewal and same-tick arbitration choices, then interfaces,
-independent tests and implementation. No source change or positive tuning yet.
+D130 completion commit: cd22e7c7. D131 contract commit: ac49d422.
+Current working checkpoint: analysis/P4_push_through_checkpoint.md.

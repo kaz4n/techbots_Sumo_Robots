@@ -1,6 +1,6 @@
 # Current execution checklist - 2026-09-24 Asia/Dubai
 
-**Active: P4 software under D128; D130 complete; next P4.4 bounded push-through.**
+**Active: P4 software under D128; D131 validation and D132 admission in progress.**
 D051/D075/D122 permit software scheduling before physical acceptance. Assumptions
 are not measurements, human gates or run permissions. PROGRESS.md is the
 append-only phase/gate history; historical checkpoints remain in Git.
@@ -14,7 +14,7 @@ append-only phase/gate history; historical checkpoints remain in Git.
 | P2 B8/2.1-2.4 | Recorder/dump software, D118 actual inert app observation | Native transport ownership/framing, full-source WCET/live memory/stack and physical acceptance |
 | P2 2.5 | Software packet retained | Assembled size/weight, actual B1-B8 results and human gate |
 | P3 3.1-3.7 | D123 drive, D125 turn, D126 stop profiles; D127 countdown analyzer | Physical trials, evidence-backed tuning and GATE P3 PASS |
-| P4 4.1-4.7 | D128 reactive profile, D129 timing trace host-tested/reviewed | Bounded positive push-through software; D129 native checks; all real trials/gate |
+| P4 4.1-4.7 | D128 reactive, D129 trace, D130 analysis host-tested/reviewed; D131 implementation under validation | D131 timing regression/review; D132 staging admission; native checks; real trials/gate |
 | P5 | Existing core openers and tests | Eligible phase software review and physical opener evidence |
 | P6/P7 | Pending; original scope/schedule retained | P6 actual P4 gate by30Sep, freeze/rehearsal/match evidence; no inferred release tag |
 
@@ -42,14 +42,18 @@ No D129 upload/reset/motor action or physical result occurred.
 1. D130 completed:112public methods (41new+71existing) PASS first execution;
    fresh reviewer13private PASS;648prior inputs and40protected files exact. Read
    analysis/P4_loss_analysis_validation.md. No source/oracle repair needed.
-2. Next: adopt P4.4 bounded push-through contract after source/memory mapping;
-   current EDGE_PUSH_THROUGH_MS stays0. Use the original B9.4/R5 contract.
+2. Resume analysis/P4_push_through_checkpoint.md: preserve completed D131 runs,
+   finish timing-policy validation, then D132 admission and final scoped review.
+   EDGE_PUSH_THROUGH_MS stays0; uncommitted task work is intentional.
 3. Use analysis/P4_software_acceptance_packet.md for deferred physical4.1-4.7.
 
 Storage cleanup43319eec removed only inspected disposable files and losslessly
 compressed state; all21145 preexisting evidence hashes matched. Keep build/scratch
 in /dev/shm, archive receipts in the same run, execute heavy jobs serially, check
 free space, and preserve persistent WSL/Docker disks and checked target artifacts.
+The user's ongoing retention instruction is now in AGENTS.md; record meaningful
+cleanup batches in STORAGE_LOG.md. Additional85.48MB logical deletion was denied
+by tooling; it has not been reclaimed. No new build ran during this follow-up.
 
 Deadline rules: actual P3 gate absent at end28Sep invokes scope cut; P6 needs actual
 P4 gate by30Sep; code freeze1Oct21:00 Dubai. No human gate is authored by an agent.

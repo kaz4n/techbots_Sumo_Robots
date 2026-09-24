@@ -1,6 +1,8 @@
 # Resume SumoX-26 with Codex
 
-Current phase: P4 software under D128; D130 analyzer is complete; P4.4 is next.
+Current phase: P4 software under D128; D131/D132 are in progress after D130.
+Read state/analysis/P4_push_through_checkpoint.md first for the exact unfinished
+task and frozen evidence; preserve the task-owned uncommitted changes.
 D129 trace is host-tested; target/native
 fit and physical acceptance are pending. Latest task evidence is
 state/analysis/P4_timing_evidence_validation.md and its separate review.
@@ -21,12 +23,12 @@ state/analysis/P4_timing_evidence_validation.md and its separate review.
    methods PASS; all648prior tracked inputs/40protected files exact. Read
    state/analysis/P4_loss_analysis_validation.md and its fresh-context review.
    No implementation/oracle repair was needed; preserve those accepted tests.
-5. P4.4 positive push-through remains unimplemented: edge.cpp enforces0.
-   Read state/analysis/P4_push_through_options.md and any completed source-map
-   evidence, adopt the explicit bounded lifecycle/eligibility/memory contract,
-   then implement and independently verify the original bounded
-   B9.4/R5 exception before any positive tuning. Keep the shipped default0 and
-   all real trial prerequisites. Read P4_software_acceptance_packet.md.
+5. D131 is implemented with completed default/positive/configured host runs;
+   its timing-policy extension still needs the default0 guard, updated freeze
+   and validation described in the checkpoint. D132 staging admission is a
+   prepared unapplied patch with a remaining digraph finding. Complete these
+   and independent review before acceptance. Keep shipped default0 and all
+   real trial prerequisites. Read P4_software_acceptance_packet.md.
 6. Board inventory currently has no ADB device. D129 compile/account/source
    runners are prepared but unexecuted; do not infer native fit from D128.
    D128 reactive source9ddaa2aa/ELF01e39e39 had modeled free6512; default43d16734
@@ -41,12 +43,12 @@ state/analysis/P4_timing_evidence_validation.md and its separate review.
    evidence hashes. Check free space; run heavy jobs serially using /dev/shm
    and TMPDIR=/dev/shm. Archive receipts in the same invocation. Do not delete
    checked target artifacts or persistent WSL/Docker disks.
+   Follow AGENTS.md's generated-file retention rule and state/STORAGE_LOG.md;
+   assess new data after each task and record cleanup without duplicating it.
 9. D051/D075/D122 permit safe software progress before physical acceptance.
    Physical P0-P4, EXPLAINED/PINMAP/GATE and any future motor permission remain
    human-owned. Apply original actual-gate dates/scope cut/freeze. Commit bounded
    tasks promptly, never push/tag, and record exact next action at boundaries.
 
-D130 completion commit: cd22e7c7. D131 proposal now exists at
-state/analysis/P4_push_through_contract.md; adopt it explicitly underD051 after
-reviewing its no-renewal and same-tick arbitration choices, then interfaces,
-independent tests and implementation. No source change or positive tuning yet.
+D130 completion commit: cd22e7c7. D131 contract commit: ac49d422.
+Resume the current working checkpoint, not the earlier proposal-only state.

@@ -229,3 +229,19 @@ acceptance; physical facts/gates and motor-run permission remain unprovided.
 D-122 records the user's later instruction to assume physical acceptance and
 continue: P3 software may proceed before measured P2 acceptance. This supersedes
 the earlier scheduling stop only; it does not create measurements or motor-run permission.
+
+## Generated files and storage (user instruction, 2026-09-24)
+
+After creating or saving generated data, assess its remaining purpose. Keep only
+what the task, reproduction, review, or required evidence still needs. After
+validation and evidence capture, remove verified disposable scratch copies,
+completed host object files/executables and Python bytecode when tooling permits.
+Check disk space before large jobs; run heavy builds serially with one compiler
+process while memory is constrained. Archive compact results before releasing
+temporary build directories; RAM-backed scratch still consumes system memory.
+Prefer a source commit/hash and reproducible command over another full snapshot
+when that is sufficient. Preserve unique failure/review evidence, checked target
+artifacts, source, user files, credentials and Git history. Never blanket-delete
+build/ or state/. Record meaningful cleanup batches, reasons, sizes and outcomes
+in state/STORAGE_LOG.md, including blocked deletions; avoid large duplicate
+inventories. Do not change system paging or persistent virtual disks for cleanup.

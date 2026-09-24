@@ -1,0 +1,191 @@
+test_changed_empty_metadata_in_one_form_fails (__main__.ArtifactConsistency.test_changed_empty_metadata_in_one_form_fails) ... 
+  test_changed_empty_metadata_in_one_form_fails (__main__.ArtifactConsistency.test_changed_empty_metadata_in_one_form_fails) (name='app.ino.elf', field='alignment') ... FAIL
+  test_changed_empty_metadata_in_one_form_fails (__main__.ArtifactConsistency.test_changed_empty_metadata_in_one_form_fails) (name='app.ino.elf', field='address') ... FAIL
+  test_changed_empty_metadata_in_one_form_fails (__main__.ArtifactConsistency.test_changed_empty_metadata_in_one_form_fails) (name='app.ino_debug.elf', field='alignment') ... FAIL
+  test_changed_empty_metadata_in_one_form_fails (__main__.ArtifactConsistency.test_changed_empty_metadata_in_one_form_fails) (name='app.ino_debug.elf', field='address') ... FAIL
+  test_changed_empty_metadata_in_one_form_fails (__main__.ArtifactConsistency.test_changed_empty_metadata_in_one_form_fails) (name='app.ino_temp.elf', field='alignment') ... FAIL
+  test_changed_empty_metadata_in_one_form_fails (__main__.ArtifactConsistency.test_changed_empty_metadata_in_one_form_fails) (name='app.ino_temp.elf', field='address') ... FAIL
+test_changed_entry_identity_in_one_form_fails (__main__.ArtifactConsistency.test_changed_entry_identity_in_one_form_fails) ... 
+  test_changed_entry_identity_in_one_form_fails (__main__.ArtifactConsistency.test_changed_entry_identity_in_one_form_fails) (name='app.ino.elf', field='size') ... FAIL
+  test_changed_entry_identity_in_one_form_fails (__main__.ArtifactConsistency.test_changed_entry_identity_in_one_form_fails) (name='app.ino.elf', field='info') ... FAIL
+  test_changed_entry_identity_in_one_form_fails (__main__.ArtifactConsistency.test_changed_entry_identity_in_one_form_fails) (name='app.ino.elf', field='other') ... FAIL
+  test_changed_entry_identity_in_one_form_fails (__main__.ArtifactConsistency.test_changed_entry_identity_in_one_form_fails) (name='app.ino_debug.elf', field='size') ... FAIL
+  test_changed_entry_identity_in_one_form_fails (__main__.ArtifactConsistency.test_changed_entry_identity_in_one_form_fails) (name='app.ino_debug.elf', field='info') ... FAIL
+  test_changed_entry_identity_in_one_form_fails (__main__.ArtifactConsistency.test_changed_entry_identity_in_one_form_fails) (name='app.ino_debug.elf', field='other') ... FAIL
+  test_changed_entry_identity_in_one_form_fails (__main__.ArtifactConsistency.test_changed_entry_identity_in_one_form_fails) (name='app.ino_temp.elf', field='size') ... FAIL
+  test_changed_entry_identity_in_one_form_fails (__main__.ArtifactConsistency.test_changed_entry_identity_in_one_form_fails) (name='app.ino_temp.elf', field='info') ... FAIL
+  test_changed_entry_identity_in_one_form_fails (__main__.ArtifactConsistency.test_changed_entry_identity_in_one_form_fails) (name='app.ino_temp.elf', field='other') ... FAIL
+test_matching_empty_allocation_is_accepted_and_omitted_from_report (__main__.ArtifactConsistency.test_matching_empty_allocation_is_accepted_and_omitted_from_report) ... ok
+test_matching_entry_identity_variants_remain_supported (__main__.ArtifactConsistency.test_matching_entry_identity_variants_remain_supported) ... ok
+test_missing_empty_allocation_in_one_form_fails (__main__.ArtifactConsistency.test_missing_empty_allocation_in_one_form_fails) ... 
+  test_missing_empty_allocation_in_one_form_fails (__main__.ArtifactConsistency.test_missing_empty_allocation_in_one_form_fails) (name='app.ino.elf') ... FAIL
+  test_missing_empty_allocation_in_one_form_fails (__main__.ArtifactConsistency.test_missing_empty_allocation_in_one_form_fails) (name='app.ino_debug.elf') ... FAIL
+  test_missing_empty_allocation_in_one_form_fails (__main__.ArtifactConsistency.test_missing_empty_allocation_in_one_form_fails) (name='app.ino_temp.elf') ... FAIL
+test_section_indices_can_change_without_semantic_change (__main__.ArtifactConsistency.test_section_indices_can_change_without_semantic_change) ... ok
+
+======================================================================
+FAIL: test_changed_empty_metadata_in_one_form_fails (__main__.ArtifactConsistency.test_changed_empty_metadata_in_one_form_fails) (name='app.ino.elf', field='alignment')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\state\analysis\P7_static_artifact_review_raw\test_artifact_consistency.py", line 115, in test_changed_empty_metadata_in_one_form_fails
+    with self.subTest(name=name, field=field), self.assertRaises(ValueError):
+                                               ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_changed_empty_metadata_in_one_form_fails (__main__.ArtifactConsistency.test_changed_empty_metadata_in_one_form_fails) (name='app.ino.elf', field='address')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\state\analysis\P7_static_artifact_review_raw\test_artifact_consistency.py", line 115, in test_changed_empty_metadata_in_one_form_fails
+    with self.subTest(name=name, field=field), self.assertRaises(ValueError):
+                                               ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_changed_empty_metadata_in_one_form_fails (__main__.ArtifactConsistency.test_changed_empty_metadata_in_one_form_fails) (name='app.ino_debug.elf', field='alignment')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\state\analysis\P7_static_artifact_review_raw\test_artifact_consistency.py", line 115, in test_changed_empty_metadata_in_one_form_fails
+    with self.subTest(name=name, field=field), self.assertRaises(ValueError):
+                                               ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_changed_empty_metadata_in_one_form_fails (__main__.ArtifactConsistency.test_changed_empty_metadata_in_one_form_fails) (name='app.ino_debug.elf', field='address')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\state\analysis\P7_static_artifact_review_raw\test_artifact_consistency.py", line 115, in test_changed_empty_metadata_in_one_form_fails
+    with self.subTest(name=name, field=field), self.assertRaises(ValueError):
+                                               ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_changed_empty_metadata_in_one_form_fails (__main__.ArtifactConsistency.test_changed_empty_metadata_in_one_form_fails) (name='app.ino_temp.elf', field='alignment')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\state\analysis\P7_static_artifact_review_raw\test_artifact_consistency.py", line 115, in test_changed_empty_metadata_in_one_form_fails
+    with self.subTest(name=name, field=field), self.assertRaises(ValueError):
+                                               ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_changed_empty_metadata_in_one_form_fails (__main__.ArtifactConsistency.test_changed_empty_metadata_in_one_form_fails) (name='app.ino_temp.elf', field='address')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\state\analysis\P7_static_artifact_review_raw\test_artifact_consistency.py", line 115, in test_changed_empty_metadata_in_one_form_fails
+    with self.subTest(name=name, field=field), self.assertRaises(ValueError):
+                                               ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_changed_entry_identity_in_one_form_fails (__main__.ArtifactConsistency.test_changed_entry_identity_in_one_form_fails) (name='app.ino.elf', field='size')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\state\analysis\P7_static_artifact_review_raw\test_artifact_consistency.py", line 131, in test_changed_entry_identity_in_one_form_fails
+    with self.subTest(name=name, field=field), self.assertRaises(ValueError):
+                                               ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_changed_entry_identity_in_one_form_fails (__main__.ArtifactConsistency.test_changed_entry_identity_in_one_form_fails) (name='app.ino.elf', field='info')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\state\analysis\P7_static_artifact_review_raw\test_artifact_consistency.py", line 131, in test_changed_entry_identity_in_one_form_fails
+    with self.subTest(name=name, field=field), self.assertRaises(ValueError):
+                                               ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_changed_entry_identity_in_one_form_fails (__main__.ArtifactConsistency.test_changed_entry_identity_in_one_form_fails) (name='app.ino.elf', field='other')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\state\analysis\P7_static_artifact_review_raw\test_artifact_consistency.py", line 131, in test_changed_entry_identity_in_one_form_fails
+    with self.subTest(name=name, field=field), self.assertRaises(ValueError):
+                                               ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_changed_entry_identity_in_one_form_fails (__main__.ArtifactConsistency.test_changed_entry_identity_in_one_form_fails) (name='app.ino_debug.elf', field='size')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\state\analysis\P7_static_artifact_review_raw\test_artifact_consistency.py", line 131, in test_changed_entry_identity_in_one_form_fails
+    with self.subTest(name=name, field=field), self.assertRaises(ValueError):
+                                               ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_changed_entry_identity_in_one_form_fails (__main__.ArtifactConsistency.test_changed_entry_identity_in_one_form_fails) (name='app.ino_debug.elf', field='info')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\state\analysis\P7_static_artifact_review_raw\test_artifact_consistency.py", line 131, in test_changed_entry_identity_in_one_form_fails
+    with self.subTest(name=name, field=field), self.assertRaises(ValueError):
+                                               ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_changed_entry_identity_in_one_form_fails (__main__.ArtifactConsistency.test_changed_entry_identity_in_one_form_fails) (name='app.ino_debug.elf', field='other')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\state\analysis\P7_static_artifact_review_raw\test_artifact_consistency.py", line 131, in test_changed_entry_identity_in_one_form_fails
+    with self.subTest(name=name, field=field), self.assertRaises(ValueError):
+                                               ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_changed_entry_identity_in_one_form_fails (__main__.ArtifactConsistency.test_changed_entry_identity_in_one_form_fails) (name='app.ino_temp.elf', field='size')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\state\analysis\P7_static_artifact_review_raw\test_artifact_consistency.py", line 131, in test_changed_entry_identity_in_one_form_fails
+    with self.subTest(name=name, field=field), self.assertRaises(ValueError):
+                                               ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_changed_entry_identity_in_one_form_fails (__main__.ArtifactConsistency.test_changed_entry_identity_in_one_form_fails) (name='app.ino_temp.elf', field='info')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\state\analysis\P7_static_artifact_review_raw\test_artifact_consistency.py", line 131, in test_changed_entry_identity_in_one_form_fails
+    with self.subTest(name=name, field=field), self.assertRaises(ValueError):
+                                               ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_changed_entry_identity_in_one_form_fails (__main__.ArtifactConsistency.test_changed_entry_identity_in_one_form_fails) (name='app.ino_temp.elf', field='other')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\state\analysis\P7_static_artifact_review_raw\test_artifact_consistency.py", line 131, in test_changed_entry_identity_in_one_form_fails
+    with self.subTest(name=name, field=field), self.assertRaises(ValueError):
+                                               ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_missing_empty_allocation_in_one_form_fails (__main__.ArtifactConsistency.test_missing_empty_allocation_in_one_form_fails) (name='app.ino.elf')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\state\analysis\P7_static_artifact_review_raw\test_artifact_consistency.py", line 106, in test_missing_empty_allocation_in_one_form_fails
+    with self.subTest(name=name), self.assertRaises(ValueError):
+                                  ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_missing_empty_allocation_in_one_form_fails (__main__.ArtifactConsistency.test_missing_empty_allocation_in_one_form_fails) (name='app.ino_debug.elf')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\state\analysis\P7_static_artifact_review_raw\test_artifact_consistency.py", line 106, in test_missing_empty_allocation_in_one_form_fails
+    with self.subTest(name=name), self.assertRaises(ValueError):
+                                  ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_missing_empty_allocation_in_one_form_fails (__main__.ArtifactConsistency.test_missing_empty_allocation_in_one_form_fails) (name='app.ino_temp.elf')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\state\analysis\P7_static_artifact_review_raw\test_artifact_consistency.py", line 106, in test_missing_empty_allocation_in_one_form_fails
+    with self.subTest(name=name), self.assertRaises(ValueError):
+                                  ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.050s
+
+FAILED (failures=18)

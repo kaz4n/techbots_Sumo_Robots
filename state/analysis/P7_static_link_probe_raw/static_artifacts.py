@@ -286,6 +286,8 @@ class Elf:
         require(entry['type'] == 2 and entry['value'] == ENTRY and
                 entry['section'] == text['index'] and 0 < entry['size'] <= text['size'],
                 'entry symbol inconsistent')
+        self.entry_identity = tuple(entry[key] for key in
+                                    ('value', 'size', 'type', 'bind', 'other')) + ('.text',)
         values = {name: s['value'] for name, s in selected.items()}
         data, bss = self.named['.data'], self.named['.bss']
         require(values['_sidata'] == data['load_address'] and
@@ -301,7 +303,9 @@ class Elf:
 
     def normalized(self):
         fields = ('name', 'type', 'flags', 'address', 'size', 'alignment', 'load_address', 'bytes')
-        return [tuple(s[f] for f in fields) for s in self.allocated]
+        allocated = sorted((s for s in self.sections if s['flags'] & 2),
+                           key=lambda s: (s['address'], s['name']))
+        return [tuple(s.get(f) for f in fields) for s in allocated]
 
     def binary(self):
         result = bytearray(self.flash_end - FLASH_START)
@@ -354,7 +358,8 @@ def validate_artifacts(artifacts):
     images = [Elf(artifacts[name]) for name in ELF_NAMES]
     final = images[0]
     for image in images[1:]:
-        require(image.normalized() == final.normalized() and image.bounds == final.bounds,
+        require(image.normalized() == final.normalized() and image.bounds == final.bounds and
+                image.entry_identity == final.entry_identity,
                 'allocated image/initialization differs across ELF forms')
     validate_packages(artifacts, final)
     return report(artifacts, images)

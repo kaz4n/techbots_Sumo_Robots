@@ -297,8 +297,8 @@ def flash_profile(args):
         import ui_adc_run
         identified = ui_adc_run.validate_request(args, startup)
     probe = args.sketch == 'bench/runtime_inert'
-    sensor_bench = args.sketch in ('bench/opp_view', 'bench/qtr_raw', 'bench/vbat', 'bench/imu_heading', 'bench/ui', 'bench/ui_adc_probe', 'bench/motor_stand', 'bench/recorder', 'bench/motor_direction', 'bench/drive_test', 'bench/turn_accuracy', 'bench/stopping_distance')
-    if (probe or args.sketch in ('bench/ui_adc_probe', 'bench/motor_stand', 'bench/recorder', 'bench/motor_direction', 'bench/drive_test', 'bench/turn_accuracy', 'bench/stopping_distance')) and (args.match or startup != 'default'):
+    sensor_bench = args.sketch in ('bench/opp_view', 'bench/qtr_raw', 'bench/vbat', 'bench/imu_heading', 'bench/ui', 'bench/ui_adc_probe', 'bench/motor_stand', 'bench/recorder', 'bench/motor_direction', 'bench/drive_test', 'bench/turn_accuracy', 'bench/stopping_distance', 'bench/reactive_test')
+    if (probe or args.sketch in ('bench/ui_adc_probe', 'bench/motor_stand', 'bench/recorder', 'bench/motor_direction', 'bench/drive_test', 'bench/turn_accuracy', 'bench/stopping_distance', 'bench/reactive_test')) and (args.match or startup != 'default'):
         fail('Native probe requires default startup and MATCH=0 MOTORS_ALLOWED=0')
     if sensor_bench and args.match:
         fail('Sensor bench requires MATCH=0 MOTORS_ALLOWED=0')
@@ -322,6 +322,21 @@ def flash_profile(args):
     return startup, probe, sensor_bench, identified
 
 
+def build_flags(args):
+    flags = f'-DMATCH={int(args.match)} -DMOTORS_ALLOWED={int(args.match)}'
+    if args.sketch == 'bench/motor_direction':
+        flags += ' -DSUMOX_B4_STAND=1'
+    if args.sketch == 'bench/drive_test':
+        flags += ' -DSUMOX_P3_DRIVE_TEST=1'
+    if args.sketch == 'bench/turn_accuracy':
+        flags += ' -DSUMOX_P3_TURN_TRIAL=1'
+    if args.sketch == 'bench/stopping_distance':
+        flags += ' -DSUMOX_P3_STOP_TRIAL=1'
+    if args.sketch == 'bench/reactive_test':
+        flags += ' -DSUMOX_P4_REACTIVE=1'
+    return flags
+
+
 def flash(args):
     startup, probe, sensor_bench, identified = flash_profile(args)
     board = target()
@@ -343,15 +358,7 @@ def flash(args):
     verify_core(board)
     remote(board, ['mkdir', '-p', board_folder])
     sync_sources(board, folder, board_folder)
-    flags = f'-DMATCH={int(args.match)} -DMOTORS_ALLOWED={int(args.match)}'
-    if args.sketch == 'bench/motor_direction':
-        flags += ' -DSUMOX_B4_STAND=1'
-    if args.sketch == 'bench/drive_test':
-        flags += ' -DSUMOX_P3_DRIVE_TEST=1'
-    if args.sketch == 'bench/turn_accuracy':
-        flags += ' -DSUMOX_P3_TURN_TRIAL=1'
-    if args.sketch == 'bench/stopping_distance':
-        flags += ' -DSUMOX_P3_STOP_TRIAL=1'
+    flags = build_flags(args)
     artifact_folder = f'{board_folder}/artifacts/{"match" if args.match else "bench"}-{startup}'
     if args.sketch == 'app':
         compile_app(board, checksum, board_folder, remote_root, fqbn, flags, startup)
@@ -364,7 +371,8 @@ def flash(args):
                    'bench/motor_direction': 'motor_direction.ino',
                    'bench/drive_test': 'drive_test.ino',
                    'bench/turn_accuracy': 'turn_accuracy.ino',
-                   'bench/stopping_distance': 'stopping_distance.ino'}[args.sketch]
+                   'bench/stopping_distance': 'stopping_distance.ino',
+                   'bench/reactive_test': 'reactive_test.ino'}[args.sketch]
         artifact_folder = compile_app(board, checksum, board_folder, remote_root, fqbn,
                                       flags, startup, project=project)
     else:

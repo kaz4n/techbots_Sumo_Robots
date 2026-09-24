@@ -160,3 +160,22 @@ foreach(motors 0 1)
   endif()
   add_test(NAME stop_trial_m${motors}_host COMMAND ${stop_target})
 endforeach()
+
+# D128 reactive profile reuses actual executors with a separate GO-routing oracle.
+foreach(motors 0 1)
+  set(reactive_target reactive_profile_m${motors}_tests)
+  add_executable(${reactive_target} ${B4_HOST_SOURCES}
+    "${CMAKE_CURRENT_SOURCE_DIR}/../tests/test_reactive_profile.cc"
+    "${CMAKE_CURRENT_SOURCE_DIR}/../tests/locked/test_reactive_profile_safety.cc")
+  target_include_directories(${reactive_target} PRIVATE ../src)
+  target_include_directories(${reactive_target} SYSTEM PRIVATE third_party)
+  target_compile_definitions(${reactive_target} PRIVATE
+    DOCTEST_CONFIG_NO_EXCEPTIONS SUMOX_P4_REACTIVE=1 MOTORS_ALLOWED=${motors})
+  if(MSVC)
+    target_compile_options(${reactive_target} PRIVATE /W4 /GR-)
+  else()
+    target_compile_options(${reactive_target} PRIVATE
+      -Wall -Wextra -Wpedantic -Werror -fno-exceptions -fno-rtti)
+  endif()
+  add_test(NAME reactive_profile_m${motors}_host COMMAND ${reactive_target})
+endforeach()

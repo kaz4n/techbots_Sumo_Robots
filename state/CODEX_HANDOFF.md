@@ -10,31 +10,27 @@ Do not treat an old snapshot, template or synthetic test as current approval.
 
 ## Current software checkpoint
 
-D123 DRIVE_TEST, D124/D125 finite turns and D126 finite stopping trials are
-implemented and reviewed. Latest evidence: analysis/P3_stop_trial_validation.md.
-All ten normal host targets pass; stopping30-case M0/M1 normal/sanitizer and
-all five duty settings pass; configured31-case normal/sanitizer Runtime checks
-pass.121tooling+2registry checks pass. Newly accepted locked01213382 is protected;
-all37previouslocked files remain exact. No production or oracle repair was needed.
+D128 reactive P4 profile is implemented and separately reviewed. Read
+analysis/P4_reactive_profile_validation.md. All12normal host targets pass;
+new34-case M0/M1 normal/sanitizer and configured35-case normal/sanitizer pass.
+135tooling+2registry and private5cases perM0/M1 pass. New accepted locked
+0e26c02e is protected;38priorlocked remain exact. All499frozen sources unchanged.
+No production/public-oracle correction was needed.
 
-Checked stopping source9fd0f6ed/ELFb4f15bfe has11912-byte conditional loader free
-span. Defaultf1d1292d reproduces D125 ELF/ZSK/loader exactly, retaining16-byte
-modeled span. No D126 MCU action; live stack/heap/WCET and physical metrics stay
-open. SC-AN keeps originalrest measurement and separately requires measured
-peak excursion/common R_room reference before cap advice.
+Actual checked reactive9ddaa2aa/ELF01e39e39 compiles with6512-byte conditional
+loader free span. Default43d16734 reproduces D126 ELF/ZSK/loader exactly, free16.
+No D128 MCU action. These figures do not establish live RAM, stack or WCET.
+Next task: SC-AO bounded P4-only target-loss timing evidence. Read
+analysis/P4_timing_evidence_options.md, adopt an explicit contract underD051,
+then public interfaces/independent tests before implementation execution. Preserve
+source observation intervals and actual full-token-matched applied receipts;
+M0/no prior nonzero motion cannot produce measured duty-drop success. No favorable
+retry after the first excluded candidate. P5/default trace feasibility is separate.
 
-D127 offline P3.1 countdown analysis is implemented and host-tested. Read
-analysis/P3_countdown_analysis_validation.md and its separate review. All71WSL
-methods pass; private7-method suites pass on bothWSL/Windows. Original public
-fixture hook failures are retained; independent correction ec9167bd preserves
-all assertions and verifies the hook actually ran. Production1a91b857 unchanged.
-Full publicWindows suite remains environment-limited by symlink privileges.
-
-P3_software_acceptance_packet.md maps completed software to all original physical
-criteria. D128 now makes P4 software active under the user's hardware-at-end direction:
-reactive GO routing with openers disabled, then exact timing evidence SC-AO.
-Read analysis/P4_reactive_profile_contract.md and P4_hunt_push.md.
-No physical result or human gate is inferred from these software checks.
+P3 software is complete preparation, with physical3.1-3.7 and human gate pending:
+see analysis/P3_software_acceptance_packet.md. D127 analyzer c58aeae0 passed71WSL
+methods and7private methods eachWSL/Windows; reviewed newfixture correction and
+original failures remain archived. No measured starts are supplied by its tests.
 
 ## Historical board and P2 evidence
 

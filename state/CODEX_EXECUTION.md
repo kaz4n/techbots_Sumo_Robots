@@ -119,3 +119,15 @@ See analysis/P3_stop_trial_validation.md and separate review. Accepted locked
 - [ ] Next: P4 reactive GO routing, then SC-AO exact stimulus/applied-duty evidence.
 
 D128: P4 software is now active; realP3gate/measurements remain pending. Reactiveprofile contract/public identity established; independent tests precede execution. Then close SC-AO instrumentation gap.
+
+
+## D128 current checkpoint - active P4 software
+
+- [x] Reactive SEARCH-at-GO with no opener; existing real contact/stall/edge/Gate paths.
+- [x]12normal targets;34-case M0/M1 normal/sanitizer;35configured normal/sanitizer; all first-run PASS.
+- [x]135tooling+2registry;5private cases perM0/M1;38priorlocked and499frozen files exact.
+- [x] Actual inert reactive/default compilation; default binary exactD126; no MCU action.
+- [ ] Next SC-AO P4-only exact source-window/decision/applied-zero timing evidence; read analysis/P4_timing_evidence_options.md.
+
+Accepted new locked0e26c02e is protected. PhysicalP3/P4 and human gates remain
+pending; P6 eligibility still uses actual gate dates. No fresh motor permission.

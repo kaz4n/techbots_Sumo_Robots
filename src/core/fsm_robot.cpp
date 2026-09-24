@@ -476,10 +476,24 @@ void Robot::routeMotion(const RobotInput& input) {
         routeNormal(true, true);
         return;
     }
+#if SUMOX_P4_REACTIVE
+    (void)input;
+    if (result_.lifecycle.gate.go) {
+        cancelMotion();
+        normal_active_ = true;
+        tick_.selected = core::State::SEARCH;
+        // Keep the real target mask: a target brakes Search before next-tick arbitration.
+        runSearch();
+        return;
+    }
+#else
     if (result_.lifecycle.gate.go) startOpener();
+#endif
     if (faults_ != 0U) return;
     if (reflank_active_) runReflank();
+#if !SUMOX_P4_REACTIVE
     else if (opener_active_) runOpener(input);
+#endif
     else routeNormal(!normal_active_);
 #endif
 }

@@ -1,0 +1,12 @@
+[
+  "sh",
+  "-c",
+  "for path do if test -e \"$path\" || test -L \"$path\"; then printf 'Unreviewed app override: %s\\n' \"$path\" >&2; exit 1; fi; done",
+  "sumo-app-override-check",
+  "/home/arduino/.arduino15/packages/platform.txt",
+  "/home/arduino/Arduino/hardware/platform.txt",
+  "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/platform.local.txt",
+  "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/boards.local.txt",
+  "/home/arduino/sumox26_codex_build/43d167348faf519353ad3529154095101bab7ab8dd5dad80a69a0ff0a2869bc7/app/sketch.yaml",
+  "/home/arduino/sumox26_codex_build/43d167348faf519353ad3529154095101bab7ab8dd5dad80a69a0ff0a2869bc7/app/sketch.yml"
+]

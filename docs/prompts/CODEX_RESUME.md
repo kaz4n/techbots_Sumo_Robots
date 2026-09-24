@@ -15,11 +15,14 @@
    and P3_software_acceptance_packet.md. Original inactive-injection draft and
    failures retained; correctedec9167bd preserves assertions/adds invocation guard.
    Full publicWindows suite lacks symlink privilege. Firmware and38locked unchanged.
-   D128 active: P4 reactive GO routing/openers disabled, then SC-AO exact timing evidence,
-   under the user's instruction to defer physical tests. Do not invent a gate.
-5. D126 checked stopping9fd0f6ed has11912-byte conditional loader free span;
-   defaultf1d1292d reproduces D125 ELF/ZSK/loader, free16. This is not liveRAM/WCET.
-   No D126 MCU action. Last actual MCU run remains D118 e820c0e1/defaultM0,
+   D128 P4 reactive profile now passes12normal/34san/35configured cases and separate
+   review. Read analysis/P4_reactive_profile_validation.md; newlocked0e26c02e
+   protected,38prior unchanged. Next SC-AO timing evidence: read
+   analysis/P4_timing_evidence_options.md, adopt bounded P4-only contract, then
+   interfaces/independent tests and implementation. Physical tests remain deferred.
+5. D128 checked reactive9ddaa2aa has6512-byte conditional loader free span;
+   default43d16734 reproduces D126 ELF/ZSK/loader, free16. This is not liveRAM/WCET.
+   No D128 MCU action. Last actual MCU run remains D118 e820c0e1/defaultM0,
    committed fbfb0f2e; both run claims consumed. Do not replay/reset/restore it.
 6. Native dump remains blocked on prerequisites in
    state/analysis/P2_native_dump_prerequisite_followup.md. Known passwordless sudo

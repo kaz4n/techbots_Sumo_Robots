@@ -1,0 +1,48 @@
+{
+  "profile": "sanitize",
+  "run_name": "sanitize",
+  "focused": true,
+  "start_utc": "2026-09-24T04:07:18.386775+00:00",
+  "synthetic_config_overlay": false,
+  "commands": [
+    {
+      "argv": [
+        "cmake",
+        "-S",
+        "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/host",
+        "-B",
+        "/dev/shm/sumox_d128_sanitize/build",
+        "-DCMAKE_BUILD_TYPE=Debug",
+        "-DCMAKE_EXE_LINKER_FLAGS=-fsanitize=address,undefined -no-pie",
+        "-DCMAKE_CXX_FLAGS=-fsanitize=address,undefined -fno-omit-frame-pointer -fno-pie"
+      ],
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "cmake",
+        "--build",
+        "/dev/shm/sumox_d128_sanitize/build",
+        "--parallel",
+        "4",
+        "--target",
+        "reactive_profile_m0_tests",
+        "reactive_profile_m1_tests"
+      ],
+      "returncode": 0
+    },
+    {
+      "argv": [
+        "ctest",
+        "--test-dir",
+        "/dev/shm/sumox_d128_sanitize/build",
+        "--output-on-failure",
+        "-R",
+        "^reactive_profile_"
+      ],
+      "returncode": 0
+    }
+  ],
+  "returncode": 0,
+  "end_utc": "2026-09-24T04:07:55.814498+00:00"
+}

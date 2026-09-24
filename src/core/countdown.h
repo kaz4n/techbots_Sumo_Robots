@@ -259,7 +259,7 @@ struct MenuResult {
     bool selection_changed = false; // Any mode/item/view change by this step.
     bool menu_toggled = false;
     Service request = Service::NONE; // One-call intent, never actual execution.
-    bool request_unavailable = false; // DRIVE_TEST only; no P1 motion consumer.
+    bool request_unavailable = false; // DRIVE_TEST unavailable outside D123 profile.
 };
 class Menu {
 public:
@@ -285,7 +285,7 @@ public:
     // services selected and eligible state, returns the selected request once
     // and cancels any MODE gesture. That observation begins a fresh NONE arming
     // interval before another MODE gesture. It is not accepted match START. DRIVE_TEST
-    // sets request_unavailable; other requests still need an eligible, bounded
+    // sets request_unavailable outside the D123 profile; other requests need a bounded
     // consumer, and false does not certify installed/physical availability.
     // Requests are not queued; no consumer response can enable a match or motor.
     // Caller derives D-057 allow_match_start from ENTRY state/selection, steps

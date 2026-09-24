@@ -434,6 +434,7 @@ struct RobotInput {
 };
 struct RobotResult {
     static constexpr bool STAND_PROFILE = SUMOX_B4_STAND != 0;
+    static constexpr bool DRIVE_TEST_PROFILE = SUMOX_P3_DRIVE_TEST != 0;
 #if SUMOX_B4_STAND
     stand_sequence::Report stand;
     bool stand_stopping = false;
@@ -509,7 +510,9 @@ public:
     // or contract fault inhibits immediately; Escape faults retain EDGE_ESCAPE
     // with inhibition unless explicit STOP/independent contract fault wins.
     // Match mode snapshots only on accepted match release; services are intents,
-    // DRIVE_TEST unavailable. Preserve original full hold, edge and contact rules.
+    // DRIVE_TEST unavailable by default. D123's separate P3 profile admits only
+    // that service to the full hold, then SEARCH/edge with State::DRIVE_TEST.
+    // Contract: state/analysis/P3_drive_test_contract.md. No attack/opener path.
     // Events retain decision order and prior receipt extensions first; <=21 under
     // the adopted source bound, with explicit independent loss counters. Frames
     // start at accepted START, at most one per tick, finalized only using its
@@ -607,6 +610,9 @@ private:
     void rememberEscape(const RobotInput& input);
     void cancelMotion();
     void routeMotion(const RobotInput& input);
+#if SUMOX_P3_DRIVE_TEST
+    void routeDriveTest();
+#endif
 #if SUMOX_B4_STAND
     void routeStand(const RobotInput& input);
     void cancelStand(stand_sequence::Reason reason);

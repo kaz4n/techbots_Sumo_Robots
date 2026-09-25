@@ -1,13 +1,18 @@
 # Codex handoff - 25 September 2026, Asia/Dubai
 
-**Active: P7 software/release preparation. D176 capture HOST-TESTED.**
-Source7b7e8c69/95b0344d;8finalization+38diagnostic+46unchangedlegacy tests PASS,
-14frozenpins exact. Finalreview93ef66a7PASS; initial fresh reviewer reused for
-repair. Original38PASS/source-review2MAJOR and supplemental34failing subcases
-remain retained; firstsource repair closes both. See
-analysis/P7_motor_fault_capture_validation.md. No native upload/reset/read.
-D175 uploader67eccbc5/e926b7ba and D174 decoder68653597/f6e2fd36 remain checked;
-raw COLLECTED/structural DECODED always retains UNPROVEN coherence and no gate.
+**Active: P7 software/release preparation. D177 action composition HOST-TESTED.**
+The user disconnected the board. This continuation issued no device commands.
+Final source58d32dda/8ffb65c0 passes unchanged46 original tests plus16 independent
+encoding tests; all11 frozen pins match. Separate same-model reviewb1de6217 PASS,
+reviewer reused for repairs. Actual Windows compositions are28,989/25,231 UTF16
+units, within30,000. Original45PASS/1FAIL and oversized upload rejection remain.
+Read analysis/P7_motor_fault_actions_validation.md and its exact evidence index.
+
+D175 uploader, D176 finite collector and D174 offline decoder remain unchanged.
+D177 supplies source-pinned command framing, strict response admission and checked
+upload-then-capture callbacks; it is not a native owner or permission. Historical
+installed-module observations and action_preparation.json are provenance inputs,
+not current board facts. No upload/reset/capture, firmware change or gate follows.
 
 D173 file-only observation succeeded: execution089de986/evidence cc9f50c6;
 one transport/five children exit0/reaped,26remote+120local checksPASS. Actual
@@ -28,41 +33,32 @@ No process is running. Previous source/failure/recipe/review evidence is retaine
 
 ## Exact next task
 
-Prepare the smallest source-pinned conditional inert upload/capture scope using
-existing CompileOnce.transport/prerequisites, D175 upload_loader and D176
-collect_motor_fault. Read analysis/P7_motor_fault_capture_plan_notes.md and both
-contracts/validation notes; source-only transport reuse and its limits are mapped.
-No new target build or ABI observation is needed. Do not clone another launcher
-or run the old static NativeRun unchanged; its packet binds a different artifact.
+Keep work host-only while the board is disconnected. The prepared command,
+receipt and sequence interfaces are implemented and reviewed; do not repeat
+passing tests or invent target observations. Native readiness remains unfinished.
 
-Create exact new upload/capture binding inputs from active_verified.json,
-deployment_files01/result.json and retained installed-tool metadata. Pin every
-actual helper/uploader/collector/runtime/p0 dependency and real ARM ABI. Verify
-bootstrap composition/imports and Windows30000UTF16-unit bound with controlled
-substitutes; separately review the thin glue and filled native scope before use.
-Return compact bounded summaries through local ADB, preserve full raw command
-receipts remotely and independently retain original transport/finalcheck failures.
-Perform upload once; capture only on strictly successful checked upload report.
+When the board is available, first perform a fresh bounded read-only check of
+identity, installed bz2/Base85 support, exact tools/artifacts and prerequisites.
+Then prepare/review one minimal identified inert caller using existing
+CompileOnce.transport/prerequisites, D175 upload_loader, D176 collect_motor_fault
+and D177 build_command/validate_reply/run_actions. Bind local source/test/review
+pins and actual current identity in a new durable scope. Historical boot values
+in action_preparation.json cannot be assumed current or silently used as approval.
 
-Scope is source8f592937/rawELFf9460a16/packagedb4416792 (29836B each), default
-wait/dynamic MATCH0/MOTORS_ALLOWED0/SUMOX_MOTOR_FAULT_PROBE1. Upload takes raw
-.ino.elf selector; capture checks packaged .elf-zsk.bin and full loader ELF-derived
-263680B imagee9322826. D176 resolves exact2632B/BSSalign8 and captures two2592B
-snapshots with max24reads/593424B. Decode bounded saved raw locally after collection;
-never use lifecycle interpretation as admission or claim atomicity.
+The exact artifact is source8f592937/rawELFf9460a16/packagedb4416792 (29836B each),
+default wait/dynamic MATCH0/MOTORS_ALLOWED0/SUMOX_MOTOR_FAULT_PROBE1. Upload uses
+raw .ino.elf selection; capture uses its packaged sibling and the whole pinned
+263680B loader image. D176 collects two2592B snapshots from2632B/alignment8 BSS,
+with max24reads/593424B and full flash/relocation brackets. Capture only after
+strict upload success; retain failures and independently attempt closing checks.
+Retrieve/hash raw snapshots before the D174 offline decoder; never infer atomicity.
 
-Recheck current board/tools/artifacts/identity/prerequisites and local pins, then
-record one fresh identified inert scope under existing bare-board permission.
-No motor-capable run is authorized. D160/D172/D173 and compile01/02/active01 are
-consumed; do not repin or retry them. Changing capture_remote.py intentionally
-invalidates historical whole-file pins; use the new reviewed scope instead.
-No process remains running; exact next task is binding/bootstrap thin integration,
-not another test rerun or full source/build dump. Physical gates remain pending.
-
-Both build/stage/motor_fault and build/stage/motor-fault-active01 remain after
-policy-blocked cleanup. Never retry their removal or invoke implicit staging
-against them. Explicit absent ownership is the tested safe staging route.
-Firmware limits, pins, locked assertions, and human/physical gates are unchanged.
+No motor-capable operation is authorized. D160/D172/D173 and prior compile scopes
+are consumed. Do not reuse or repin old scopes, clone another launcher, or rebuild
+the unchanged diagnostic merely because a new session began. All previously
+policy-denied cleanup targets remain, including both motor-fault stages and37
+historical stage folders listed in the stored cleanup manifest. No process is
+running. Physical/human gates, native startup/RAM/WCET and release remain pending.
 
 ## Last actual board state and evidence
 

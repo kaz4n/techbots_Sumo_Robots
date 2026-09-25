@@ -1,9 +1,11 @@
 # Current execution checklist - 2026-09-25 Asia/Dubai
 
-**D177 thin inert integration IN PROGRESS; board disconnected.**
-Source7b7e8c69/95b0344d;8+38+46methodsPASS,14pins unchanged/finalreview93ef66a7PASS.
-Original2MAJOR findings/reproduced failures retained; firstrepair closesboth.
-D175 uploader and D174 decoder remain checked. Native0; no physical/human gate.
+**D177 thin inert integration HOST-TESTED / REVIEWED; board disconnected.**
+Source58d32dda/8ffb65c0; unchanged46+new16 independent methods PASS,11pins exact;
+reviewb1de6217 PASS. Real command sizes28,989/25,231 fit30,000. Original failure
+and first repair preserved. D175/D176/D174 remain unchanged; native calls0.
+Next dependency is fresh current board admission and a reviewed native caller,
+as detailed in CODEX_HANDOFF.md. No physical or human gate has been passed.
 
 **Active: P7 software/release preparation.** PROGRESS.md is the append-only phase
 authority; preserve its legacy bytes. User asks for prompt commits and continued

@@ -12,9 +12,10 @@ physical acceptance. Do not reset the project to P0.
 2. Read current native evidence before any device action. D160 is the last
    successful upload (static/default/M0); its runtime stopped at epoch3. D161's
    passive diagnosis confirms invalid MotorGate application feedback but does
-   not identify the original failed callback. D168 compiled the default-disabled
-   diagnostic; D169's explicit inert activation is host-tested only. Neither
-   establishes active diagnostic execution, native startup qualification or WCET.
+   not identify the original failed callback. D172 compiled the active inert
+   diagnostic; D173 observed its file ABI; D174-D177 decoding/upload/capture/glue
+   are host-tested. Active diagnostic execution, native startup and WCET remain
+   unqualified. The user disconnected the board; do not assume current access.
 3. All old native scopes are consumed. Never rerun a historical launcher, repin
    its consumed manifest, reset the MCU or infer that an old capture layout fits
    changed firmware. A new operation needs fresh source/artifact/identity binding

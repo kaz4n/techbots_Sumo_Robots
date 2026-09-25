@@ -72,9 +72,9 @@ def properties_from(builder):
 
 def selected_project(project, fqbn=None, flags=None):
     if not isinstance(project, str) or project not in (
-            'app.ino', 'runtime_inert.ino', 'opp_view.ino', 'qtr_raw.ino', 'vbat.ino', 'imu_heading.ino', 'ui.ino', 'ui_adc_probe.ino', 'motor_stand.ino', 'recorder.ino', 'motor_direction.ino', 'drive_test.ino', 'turn_accuracy.ino', 'stopping_distance.ino', 'reactive_test.ino', 'reactive_timing.ino', 'opener_timing.ino'):
+            'app.ino', 'runtime_inert.ino', 'opp_view.ino', 'qtr_raw.ino', 'vbat.ino', 'imu_heading.ino', 'ui.ino', 'ui_adc_probe.ino', 'motor_stand.ino', 'motor_fault.ino', 'recorder.ino', 'motor_direction.ino', 'drive_test.ino', 'turn_accuracy.ino', 'stopping_distance.ino', 'reactive_test.ino', 'reactive_timing.ino', 'opener_timing.ino'):
         raise ValueError('Unreviewed native project name')
-    if project in ('runtime_inert.ino', 'ui_adc_probe.ino', 'motor_stand.ino', 'recorder.ino') and (
+    if project in ('runtime_inert.ino', 'ui_adc_probe.ino', 'motor_stand.ino', 'motor_fault.ino', 'recorder.ino') and (
             (fqbn is not None and fqbn != BASE_FQBN) or
             (flags is not None and flags != '-DMATCH=0 -DMOTORS_ALLOWED=0')):
         raise ValueError('Native probe requires default startup and inert flags')

@@ -1154,3 +1154,5 @@ physical/loadedRAM/gate claim. | contract=this commit
 2026-09-25T05:06:41.914052+04:00 | P7 support | Storage conservation |380 old logs losslessly compressed,1.275GiB reported recovered; hashes/size/mtime preserved; D161 checkpoint1c09f653 and next inert callback diagnostic retained | this cleanup commit
 
 2026-09-25T05:12:13.698242+04:00 | P7 | D162 inert callback diagnostic scope | Fresh-context design PASS; public interface/spec ready; implementation and independent tests pending; no native action | this commit
+
+2026-09-25T05:21:30.876862+04:00 | P7 | D163 checked diagnostic build route | Five literal admissions implemented after design PASS; independent policy tests pending; no native action | this commit

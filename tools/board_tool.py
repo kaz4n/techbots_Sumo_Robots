@@ -441,8 +441,8 @@ def flash_profile(args):
         import ui_adc_run
         identified = ui_adc_run.validate_request(args, startup)
     probe = args.sketch == 'bench/runtime_inert'
-    sensor_bench = args.sketch in ('bench/opp_view', 'bench/qtr_raw', 'bench/vbat', 'bench/imu_heading', 'bench/ui', 'bench/ui_adc_probe', 'bench/motor_stand', 'bench/recorder', 'bench/motor_direction', 'bench/drive_test', 'bench/turn_accuracy', 'bench/stopping_distance', 'bench/reactive_test', 'bench/reactive_timing', 'bench/opener_timing')
-    if (probe or args.sketch in ('bench/ui_adc_probe', 'bench/motor_stand', 'bench/recorder', 'bench/motor_direction', 'bench/drive_test', 'bench/turn_accuracy', 'bench/stopping_distance', 'bench/reactive_test', 'bench/reactive_timing', 'bench/opener_timing')) and (args.match or startup != 'default'):
+    sensor_bench = args.sketch in ('bench/opp_view', 'bench/qtr_raw', 'bench/vbat', 'bench/imu_heading', 'bench/ui', 'bench/ui_adc_probe', 'bench/motor_stand', 'bench/motor_fault', 'bench/recorder', 'bench/motor_direction', 'bench/drive_test', 'bench/turn_accuracy', 'bench/stopping_distance', 'bench/reactive_test', 'bench/reactive_timing', 'bench/opener_timing')
+    if (probe or args.sketch in ('bench/ui_adc_probe', 'bench/motor_stand', 'bench/motor_fault', 'bench/recorder', 'bench/motor_direction', 'bench/drive_test', 'bench/turn_accuracy', 'bench/stopping_distance', 'bench/reactive_test', 'bench/reactive_timing', 'bench/opener_timing')) and (args.match or startup != 'default'):
         fail('Native probe requires default startup and MATCH=0 MOTORS_ALLOWED=0')
     if sensor_bench and args.match:
         fail('Sensor bench requires MATCH=0 MOTORS_ALLOWED=0')
@@ -515,7 +515,8 @@ def flash(args):
                    'bench/opp_view': 'opp_view.ino', 'bench/qtr_raw': 'qtr_raw.ino',
                    'bench/vbat': 'vbat.ino', 'bench/imu_heading': 'imu_heading.ino',
                    'bench/ui': 'ui.ino', 'bench/ui_adc_probe': 'ui_adc_probe.ino',
-                   'bench/motor_stand': 'motor_stand.ino', 'bench/recorder': 'recorder.ino',
+                   'bench/motor_stand': 'motor_stand.ino', 'bench/motor_fault': 'motor_fault.ino',
+                   'bench/recorder': 'recorder.ino',
                    'bench/motor_direction': 'motor_direction.ino',
                    'bench/drive_test': 'drive_test.ino',
                    'bench/turn_accuracy': 'turn_accuracy.ino',

@@ -63,6 +63,13 @@ No process is running. Previous source/failure/recipe/review evidence is retaine
 
 ## Exact next task
 
+Eligibility audit1/3 after D180: previous turn made verified implementation
+progress; this continuation found no further eligible offline action. Separate
+P7-only review confirms release upload still needs a resolved native startup/link/
+artifact contract. Full rearm/dump and physical/human acceptance remain pending.
+No process is live, no actual scope/owner exists, and no device query was made.
+This is a no-progress dependency check; the goal remains active.
+
 D180 is closed within its HOST-TESTED scope. The bounded original-scope audit
 identified no further offline omission. Preserve the checkpoint while the board
 is absent; do not repeat passing suites or invent new release frameworks.

@@ -122,3 +122,22 @@ from motor permission or sensor qualification. An exact10.8V acceptance check
 needs calibrated evidence; bar appearance alone must not be described as that
 measurement. Use the existing display/error semantics and measured pit practice
 instead of adding UI features during documentation work.
+
+## P7-only dependency check after D180 (2026-09-25T13:30:01.503133+04:00)
+
+Separate read-only follow-up by /root/remaining_software_audit found no justified
+additional offline implementation. Item1 remains a real missing release capability:
+board_tool.py fixes MATCH to Immediate, while the static path is experimental/M0
+(P7_static_upload_contract.md). The actual stopped diagnostic still has invalid
+MotorGate receipts (P7_stopped_diagnostic_validation.md). A minimal deployment
+extension requires the resolved startup/link/artifact contract; existing pinned,
+single-use upload/transport primitives already exist. A generic uploader would
+guess that missing contract. No source was changed or board queried in this check.
+
+Full rearm is intentionally outside D103 evidence-service reset. The policy permits
+normal boot after physical reset; prior dump plus a qualified reset procedure can
+satisfy it without inventing same-boot recovery. Native UART holder/framing/close/
+reopen evidence is still required, as documented in the existing dump follow-up.
+P7.2/7.4 drafts exist; release fields, printing,7.3rehearsal and human gates remain
+uncompleted. P6 eligibility is absent. This is a dependency checkpoint, not
+software-complete, physical acceptance or GATE P7 PASS.

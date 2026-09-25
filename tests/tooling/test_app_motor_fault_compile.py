@@ -135,7 +135,6 @@ class CallerFixture(unittest.TestCase):
         self.source = source_hash(self.expected)
         self.head, self.dirty, self.events = HEAD, [], []
         self.manifest()
-        self.patch(self.subject.CompileDiagnostic, 'git_state', lambda owner: (self.head, self.dirty))
         self.patch(subprocess, 'run', side_effect=AssertionError('Unsubstituted process forbidden'))
         self.patch(subprocess, 'Popen', side_effect=AssertionError('Unsubstituted process forbidden'))
         self.patch(shutil, 'disk_usage', return_value=types.SimpleNamespace(free=2**31))
@@ -155,6 +154,7 @@ class CallerFixture(unittest.TestCase):
 
     def owner(self):
         owner = self.subject.CompileDiagnostic(HEAD, root=self.root)
+        self.patch(owner, 'git_state', lambda: (self.head, self.dirty))
         self.patch(owner.base, 'ADB', ADB if os.name == 'nt' else '/mnt/c/' + ADB[3:])
         self.patch(sys, 'pycache_prefix', str(self.root / RAW / 'native_static01/pycache'))
         return owner
@@ -505,6 +505,80 @@ class ArtifactReplyContract(CallerFixture):
                 self.reject(lambda: owner.validate_artifact_reply(json.dumps(bad)))
 
 
+class PreflightContract(CallerFixture):
+    def setup_preflight(self, failure=None, replies=None):
+        owner = self.owner(); owner.local(); owner.prepare()
+        self.preflight_calls = []
+        roots = dict(platform=DATA + '/packages/arduino/hardware/zephyr/1.0.0',
+                     compiler=DATA + '/packages/zephyr/tools/arm-zephyr-eabi/1.0.1')
+        pins = json.loads((self.root / 'tools/app_build_pins.json').read_bytes())
+        expected = {roots[group] + '/' + name: value for group, entries in pins.items()
+                    for name, value in entries.items()}
+        replies = {} if replies is None else replies
+        def capture(argv, name):
+            if argv == ['arduino-cli', 'version']:
+                kind, text = 'version', 'arduino-cli Version: 1.5.1 Commit: 01f3d4f2b Date: 2026-01-01T00:00:00Z\n'
+            elif argv == ['arduino-cli', 'config', 'get', 'directories.data', '--json']:
+                kind, text = 'data', json.dumps(DATA)
+            elif argv == ['arduino-cli', 'config', 'get', 'directories.user', '--json']:
+                kind, text = 'user', json.dumps(USER)
+            elif argv[:2] == ['sh', '-c']:
+                kind, text = 'overrides', ''
+                self.assertEqual(argv[3], 'sumo-app-override-check')
+                self.assertEqual(argv[4:], [DATA + '/packages/platform.txt', USER + '/hardware/platform.txt',
+                    roots['platform'] + '/platform.local.txt', roots['platform'] + '/boards.local.txt',
+                    owner.sketch + '/sketch.yaml', owner.sketch + '/sketch.yml'])
+                self.assertIn('test -e', argv[2]); self.assertIn('test -L', argv[2])
+            elif argv[:2] == ['sha256sum', '--']:
+                kind = 'pins'; self.assertEqual(argv[2:], list(expected))
+                text = ''.join(value + '  ' + path + '\n' for path, value in expected.items())
+            elif argv == self.command()[:-1] + ['--show-properties=expanded', self.command()[-1]]:
+                kind, text = 'properties', self.metadata()
+            else: raise AssertionError('Unexpected preflight command: ' + repr(argv))
+            self.preflight_calls.append(kind)
+            if kind == failure:
+                raise subprocess.CalledProcessError(43, argv, output='partial', stderr='failed ' + kind)
+            return subprocess.CompletedProcess(argv, 0, replies.get(kind, text), '')
+        self.patch(owner, 'capture', capture)
+        return owner
+
+    def test_actual_preflight_exact_order_and_commands_use_checked_validators(self):
+        owner = self.setup_preflight()
+        owner.preflight(self.command())
+        self.assertEqual(self.preflight_calls, ['version', 'data', 'user', 'overrides', 'pins', 'properties'])
+        self.assertEqual(owner.compiler_calls, 0)
+
+    def test_every_preflight_prerequisite_failure_stops_before_properties_and_compile(self):
+        order = ['version', 'data', 'user', 'overrides', 'pins']
+        for index, kind in enumerate(order):
+            owner = self.setup_preflight(failure=kind)
+            with self.subTest(prerequisite=kind), self.assertRaises(subprocess.CalledProcessError) as caught:
+                owner.preflight(self.command())
+            self.assertEqual(caught.exception.stderr, 'failed ' + kind)
+            self.assertEqual(self.preflight_calls, order[:index + 1])
+            self.assertEqual(owner.compiler_calls, 0)
+
+    def test_wrong_cli_resolved_directories_and_installed_pin_bytes_refuse(self):
+        bad = [('version', 'arduino-cli Version: 1.5.2 Commit: 01f3d4f2b Date: fixture'),
+               ('version', 'arduino-cli Version: 1.5.1 Commit: bad Date: fixture'),
+               ('data', json.dumps('/other/data')), ('user', json.dumps('/other/user')),
+               ('data', json.dumps(None)), ('user', json.dumps(USER + '/')),
+               ('pins', '0' * 64 + '  /unreviewed/file\n')]
+        for kind, text in bad:
+            owner = self.setup_preflight(replies={kind: text})
+            with self.subTest(kind=kind, text=text): self.reject(lambda: owner.preflight(self.command()))
+            self.assertNotIn('properties', self.preflight_calls)
+            self.assertEqual(owner.compiler_calls, 0)
+
+    def test_raw_expanded_properties_still_require_actual_fixed_adapter(self):
+        raw = self.metadata().replace('compiler.cpp.extra_flags=' + FLAGS,
+                                    'compiler.cpp.extra_flags=-DMATCH=0 -DMOTORS_ALLOWED=0')
+        owner = self.setup_preflight(replies={'properties': raw})
+        self.reject(lambda: owner.preflight(self.command()))
+        self.assertEqual(self.preflight_calls, ['version', 'data', 'user', 'overrides', 'pins', 'properties'])
+        self.assertEqual(owner.compiler_calls, 0)
+
+
 class ExecutionContract(CallerFixture):
     def test_actual_canonical_source_program_accepts_exact_reuse(self):
         owner, source = self.local_source_fixture()
@@ -584,7 +658,8 @@ class ExecutionContract(CallerFixture):
         self.assertIs(caught.exception, primary)
         self.assertEqual(primary.stderr, 'original')
         self.assertEqual(primary.compile_outcome['status'], 'FAILED')
-        self.assertIn('original', json.dumps(primary.compile_outcome['first_error']))
+        self.assertEqual(primary.compile_outcome['first_error'],
+                         {'type': 'CalledProcessError', 'message': str(primary)})
 
     def test_compiler_timeout_is_not_retried_and_final_checks_still_run(self):
         owner = self.controlled(self.owner())

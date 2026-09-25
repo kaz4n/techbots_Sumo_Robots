@@ -352,3 +352,6 @@ confirmed. Compact verification: analysis/storage_check_20260925_followup.json.
 
 
 2026-09-25T19:11:07.512225+04:00 | D188 native evidence retention | Retain996unique command/result files totaling1689183logicalB plus compact actual invocation/review/validation. These preserve source/identity/compiler/artifact/closure provenance; no target firmware/debug binary downloaded. New107file774626Bstage retained for next ABI/source binding; no cleanup attempt or denied-path retry. Python-B left no bytecode. Current C:free892768256B is observation, not cleanup savings.
+
+
+2026-09-25T19:19:17.201789+04:00 | D188 file ABI evidence | Retain exact raw query/result/localFAILED receipts and one compact interpreted ABI/normalizer; unique actual layout/symbol evidence needed for next bounded capture. No secondfirmware/debugbinary, bytecode,sourcecopy or targetcompile. Originalhex-sizefailure retained, no repeatedboardquery/cleanup attempt or denied-path retry. Sixfuture windows only4536B versus full169736Bdiagnostic; no currentMCUread.

@@ -770,3 +770,7 @@ HOST-VERIFIED only. D188 source6b6c883b (callercf0c826f/remote1428b934), finalin
 
 ## F197 - Actual inhibited static full-app diagnostic compile (2026-09-25T19:11:07.512225+04:00)
 DEVICE-OBSERVED compiler/files only: reviewed65b6d80e source21df6ae8, static/default/MATCH0/MOTORS_ALLOWED0/probe1. COMPILE_CHECKED exit0,1query/1compiler/236transports,8closingPASS. ELF2f8dc9f1/package deb40317, all127input/18installedpins unchanged; TLS/layout validation PASS. CLI170868Bglobals/91276Bremaining; structural91280Btail is not live freeRAM/stack/WCET. Separate reused-context same-model actual review PASS. No upload/reset/MCUread/runtime/physical/human acceptance. Source: analysis/P7_app_motor_fault_compile_actual_validation.md and native_static01 receipts.
+
+
+## F198 - New static diagnostic file ABI (2026-09-25T19:19:17.201789+04:00)
+FILE-OBSERVED/OFFLINE-INTERPRETED: exact D188ELF2f8dc9f1/debugd11a2103 contains diagnostic at0x20013960,169736B/alignment8/end0x2003d068.19size/alignmentpairs and10memberwindows validated. Original90f2815c native invocation FAILED only at decimal-only local parser after4successful children/12filepins+identityPASS/localclosingPASS. Separate offline6a990871 converts exact hexsize token only; actualexit0/5snapshots unchanged/no new boardcalls. Sixfuture capturewindows4536Btotal. Source: analysis/P7_app_motor_fault_abi_actual_validation.md and raw interpreted result. No liveRAM/startup/faultfix/WCET/physical/human-gate evidence.

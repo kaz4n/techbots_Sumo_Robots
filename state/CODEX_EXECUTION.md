@@ -1,20 +1,21 @@
 # Current execution checklist - 2026-09-25 Asia/Dubai
 
-**Current checkpoint 2026-09-25T19:11:07.512225+04:00: D188 TARGET-COMPILED / REVIEWED.**
-The connected UNO Q completed the fixed static/default/MATCH0/MOTORS_ALLOWED0/
-probe1 diagnostic source21df6ae8 at reviewed65b6d80e. One query/compiler,
-236transports, all8closing checks PASS; independent actual-evidence review PASS.
-Raw ELF2f8dc9f1, flat packagedeb40317; structural91280Btail is not live RAM/WCET.
-See [actual validation](analysis/P7_app_motor_fault_compile_actual_validation.md).
-The compile owners are consumed; do not rerun. No upload/reset/MCUread occurred;
-D184 halted isolated diagnostic remains last uploaded. No native job is running.
+**Current checkpoint: D188 target compile and actual file ABI retained.**
+Compile b54b76f9: source21df6ae8/static/default/MATCH0/MOTORS_ALLOWED0/probe1,
+one query/compiler/all8closingPASS; ELF2f8dc9f1/flatdeb40317. No firmware upload.
+Actual ABI at90f2815c: four native file queries PASS, then local hex-size parser
+FAILED; original failure/consumed owner preserved. Offline interpreter6a990871
+passes with separate actual review: diagnostic0x20013960/169736B,19typepairs,
+10windows. Six future capture regions total4536B per sample. See
+[ABI validation](analysis/P7_app_motor_fault_abi_actual_validation.md).
 
-Next eligible task: file-only actual ABI/initialization observation for this new
-static diagnostic, followed by a separately reviewed inert capture scope.
-Do not reuse old D149/D173 addresses/decoder. Original full-app IO fault and
-physical/phase/release gates remain open. User's connected continuation supersedes
-older hardware-deferral paragraphs, which are historical only. Preserve compact
-receipts and all denied cleanup paths; no motor-capable authorization is supplied.
+Next eligible task: focused new entry/global-initializer file disassembly,
+then a separate exact-artifact inhibited upload/capture scope. New entry reader
+is being prepared; no native job is running. Neither compilation nor file ABI
+resolves original full-app IO fault or proves live RAM/stack/WCET. D184's halted
+isolated M0 diagnostic is still last uploaded. No physical/human gate is passed.
+User's connected continuation supersedes historical deferrals below. Keep all
+consumed owners/failed receipts and denied cleanup paths; no motor permission.
 
 ## Historical checkpoints (superseded next actions)
 

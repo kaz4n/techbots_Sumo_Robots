@@ -1,0 +1,34 @@
+{
+  "reviewed_head": "90f2815c92f84c2fcf653ac1b13c9ac49373e805",
+  "check_only": {
+    "command": "python -B state/analysis/P7_app_motor_fault_compile_raw/inspect_static_abi.py --check-only --reviewed-head 90f2815c92f84c2fcf653ac1b13c9ac49373e805",
+    "exit_code": 0,
+    "status": "STATIC_ABI_CHECKED",
+    "command_units": 5493,
+    "file_commands": 4
+  },
+  "native": {
+    "command": "python -B state/analysis/P7_app_motor_fault_compile_raw/inspect_static_abi.py --execute --reviewed-head 90f2815c92f84c2fcf653ac1b13c9ac49373e805",
+    "exit_code": 1,
+    "status": "FAILED",
+    "error": "ValueError: Expected exactly one static diagnostic OBJECT",
+    "error_site": "inspect_static_abi.py:145 in summarize",
+    "remote_status": "OBSERVED",
+    "local_closure": "PASS",
+    "transport_calls": 1,
+    "board_child_calls": 4,
+    "owner_consumed": true
+  },
+  "observed_cause": {
+    "symbol_row": "8: 20013960 0x29708 OBJECT LOCAL DEFAULT 5 _ZN12_GLOBAL__N_110diagnosticE",
+    "size_hex": "0x29708",
+    "size_decimal": 169736,
+    "original_parser": "decimal-only size token",
+    "disposition": "Preserve original failure; interpret retained output offline only; no board repeat"
+  },
+  "receipts": {
+    "result.json": "684670c538bb032ab3b4b4ebc68ffd6cbecb743f0209aacc154af58b244101d2",
+    "local_result.json": "db885da2b94098c06f3a10bafb7914727c6bb2861d7a914f6dc3a4029ccd1516",
+    "inputs.json": "75427e4a3218411916d74f7697c2e670f1dd8954fd00add488ffebeb06344bb8"
+  }
+}

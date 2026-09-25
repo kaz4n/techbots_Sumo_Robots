@@ -1,0 +1,159 @@
+{
+  "abi": {
+    "address": 536951136,
+    "alignments": {
+      "app::Runtime": 8,
+      "app::RuntimeReport": 8,
+      "app::Transaction": 8,
+      "app::TransactionReport": 8,
+      "app_motor_fault::Report": 8,
+      "app_motor_fault::Runner": 8,
+      "app_motor_fault::Snapshot": 8,
+      "bool": 1,
+      "core::Outputs": 4,
+      "countdown::LifecycleResult": 4,
+      "countdown::Result": 4,
+      "fsm::PreviousTick": 8,
+      "fsm::RobotResult": 8,
+      "motor_fault::Call": 4,
+      "motor_fault::Trace": 4,
+      "motor_fault::TraceReport": 4,
+      "motors::HaltResult": 4,
+      "motors::MotorGate": 8,
+      "motors::Result": 8
+    },
+    "bytes": 169736,
+    "limitation": "File layout only; no MCU contents, runtime acceptance, RAM or WCET measurement",
+    "section": 5,
+    "sizes": {
+      "app::Runtime": 166376,
+      "app::RuntimeReport": 600,
+      "app::Transaction": 162544,
+      "app::TransactionReport": 504,
+      "app_motor_fault::Report": 1168,
+      "app_motor_fault::Runner": 169736,
+      "app_motor_fault::Snapshot": 1152,
+      "bool": 1,
+      "core::Outputs": 12,
+      "countdown::LifecycleResult": 28,
+      "countdown::Result": 8,
+      "fsm::PreviousTick": 48,
+      "fsm::RobotResult": 400,
+      "motor_fault::Call": 32,
+      "motor_fault::Trace": 2180,
+      "motor_fault::TraceReport": 2128,
+      "motors::HaltResult": 16,
+      "motors::MotorGate": 88,
+      "motors::Result": 56
+    },
+    "status": "STATIC_ABI_OBSERVED",
+    "symbol": "_ZN12_GLOBAL__N_110diagnosticE",
+    "windows": {
+      "attempted_": {
+        "address": 537120864,
+        "bytes": 1,
+        "offset": 169728,
+        "type": "bool"
+      },
+      "report_": {
+        "address": 537119696,
+        "bytes": 1168,
+        "offset": 168560,
+        "type": "app_motor_fault::Report"
+      },
+      "report_.before_abort.previous": {
+        "address": 537120816,
+        "bytes": 48,
+        "offset": 169680,
+        "type": "fsm::PreviousTick"
+      },
+      "report_.before_abort.runtime": {
+        "address": 537119712,
+        "bytes": 600,
+        "offset": 168576,
+        "type": "app::RuntimeReport"
+      },
+      "report_.before_abort.transaction": {
+        "address": 537120312,
+        "bytes": 504,
+        "offset": 169176,
+        "type": "app::TransactionReport"
+      },
+      "runtime_.report_": {
+        "address": 537117984,
+        "bytes": 600,
+        "offset": 166848,
+        "type": "app::RuntimeReport"
+      },
+      "runtime_.transaction_.gate_": {
+        "address": 536953520,
+        "bytes": 88,
+        "offset": 2384,
+        "type": "motors::MotorGate"
+      },
+      "runtime_.transaction_.previous_": {
+        "address": 537115952,
+        "bytes": 48,
+        "offset": 164816,
+        "type": "fsm::PreviousTick"
+      },
+      "runtime_.transaction_.report_": {
+        "address": 537115448,
+        "bytes": 504,
+        "offset": 164312,
+        "type": "app::TransactionReport"
+      },
+      "trace_.report_": {
+        "address": 536951180,
+        "bytes": 2128,
+        "offset": 44,
+        "type": "motor_fault::TraceReport"
+      }
+    }
+  },
+  "final_checks": [
+    {
+      "path": "state/analysis/P7_app_motor_fault_compile_raw/inspect_static_abi.py",
+      "status": "PASS"
+    },
+    {
+      "path": "state/analysis/P7_app_motor_fault_compile_raw/native_abi_static01/result.json",
+      "status": "PASS"
+    },
+    {
+      "path": "state/analysis/P7_app_motor_fault_compile_raw/native_abi_static01/inputs.json",
+      "status": "PASS"
+    },
+    {
+      "path": "state/analysis/P7_app_motor_fault_compile_raw/native_abi_static01/local_result.json",
+      "status": "PASS"
+    },
+    {
+      "path": "state/analysis/P7_app_motor_fault_compile_raw/native_static01/artifacts.json",
+      "status": "PASS"
+    }
+  ],
+  "limitation": "Only readelf symbol-size spelling projected; original raw attempt remains unchanged",
+  "native_operations": 0,
+  "original_attempt_status": "FAILED",
+  "projection": {
+    "changed": true,
+    "original_stdout_bytes": 158563,
+    "original_stdout_sha256": "990ce8f48a1e905799db89763beb7ef78cf0b97230c32b69deba7b76b2a09b09",
+    "original_token": "0x29708",
+    "projected_stdout_bytes": 158562,
+    "projected_stdout_sha256": "9fef6ea76f2091b828883f86d06a3c9a76117ab79f9d223ec28f6d9d2f92ee90",
+    "projected_token": "169736",
+    "size_bytes": 169736,
+    "symbol": "_ZN12_GLOBAL__N_110diagnosticE"
+  },
+  "schema": "app-motor-fault-static-abi-interpretation-v1",
+  "source_pins": {
+    "state/analysis/P7_app_motor_fault_compile_raw/inspect_static_abi.py": "0eec2ffd91958831ab0541477a5277187bb7e9179fdca1096276dda01efb6f4c",
+    "state/analysis/P7_app_motor_fault_compile_raw/native_abi_static01/inputs.json": "75427e4a3218411916d74f7697c2e670f1dd8954fd00add488ffebeb06344bb8",
+    "state/analysis/P7_app_motor_fault_compile_raw/native_abi_static01/local_result.json": "db885da2b94098c06f3a10bafb7914727c6bb2861d7a914f6dc3a4029ccd1516",
+    "state/analysis/P7_app_motor_fault_compile_raw/native_abi_static01/result.json": "684670c538bb032ab3b4b4ebc68ffd6cbecb743f0209aacc154af58b244101d2",
+    "state/analysis/P7_app_motor_fault_compile_raw/native_static01/artifacts.json": "57b98c00db1ed5d90394812fcbb3fb28effedd4381f6e2fc03a6e7c04b45a6ce"
+  },
+  "status": "OFFLINE_ABI_INTERPRETED"
+}

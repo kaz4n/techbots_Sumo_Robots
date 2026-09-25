@@ -1276,3 +1276,6 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-25T19:15:48.874816+04:00 | P7 D188 file-only ABI preparation | IMPLEMENTED/HOST-CHECKED/REVIEWED helper0eec2ffd/scope4baa09a8. Worker22controlledchecks PASS/zero native;5493Windowsunits/4filecommands/12remote pins. Separate source reviewPASS after first-error preservation correction; no pre-fix hash invented. Actual cleanHEAD check-only and one-shot observation next; no firmware/locked/historical change. Evidence analysis/P7_app_motor_fault_abi_scope.md and reviews/P7_app_motor_fault_abi_source_review.md.
+
+
+2026-09-25T19:19:17.201789+04:00 | P7 D188 actual static ABI | FILE-OBSERVED/OFFLINE-INTERPRETED.90f2815c query4childrenPASS/closingPASS but originalexit1localdecimal-sizeparser preserved; GNUreadelf0x29708=169736. Newoffline6a990871 actualexit0/16controlledchecks, separatecause/source reviewPASS; no boardrepeat.19typepairs/10windows; sixcapturewindows4536B. Actual result/interpretation retained, ownerconsumed. Next newentry/globalinitializer fileaudit before distinct inert run. Evidence analysis/P7_app_motor_fault_abi_actual_validation.md.

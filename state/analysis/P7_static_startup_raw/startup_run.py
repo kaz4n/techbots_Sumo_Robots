@@ -476,9 +476,11 @@ class NativeRun:
         return self.probe.board.remote(board, argv, capture=True, timeout=timeout)
 
     def packet(self):
+        self.check_output()
         self.probe.remote_postcheck()
 
     def installed(self):
+        self.check_output()
         self.probe.installed_pins()
 
     def prerequisites(self):
@@ -486,6 +488,7 @@ class NativeRun:
         for index, receipt in enumerate(self.prerequisite_receipts):
             try:
                 self.probe.phase = 'cli_prerequisites_' + str(index)
+                self.check_output()
                 reply = self.probe.dispatch(BOARD, receipt['argv'], capture=True, timeout=60)
                 require(reply.stderr == '' and len(reply.stdout.encode('utf-8')) <= 1048576,
                         'Invalid prerequisite reply')
@@ -518,6 +521,7 @@ class NativeRun:
                 'Unclaimed or repeated startup dispatch')
         self.dispatched_actions.add(name)
         self.probe.phase = name
+        self.check_output()
         reply = self.probe.dispatch(BOARD, self.commands[name], capture=True,
                                     timeout=195 if name == 'upload' else 630)
         limit = 16777216 if name == 'upload' else 1048576

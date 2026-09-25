@@ -30,8 +30,11 @@ physical acceptance. Do not reset the project to P0.
    its consumed manifest, reset the MCU or infer that an old capture layout fits
    changed firmware. A new operation needs fresh source/artifact/identity binding
    and review using the existing bounded primitives. Preserve original failures.
-4. Current continuation is offline only. Historical bare-UNO-Q permission does
-   not mean it is connected; wait for an explicit change to that offline scope.
+4. The user reconnected the board on25September after the offline checkpoint.
+   D184 freshly observed boot55c386b9-fe6d-4388-a7f4-1d91e0bb49d8 and prepared the
+   existing motor-disabled D179 diagnostic scope. Read the handoff and actual
+   owner/results before acting; a prepared or consumed scope is never a retry.
+   Recheck current connectivity/identity rather than assuming it from chat.
    No motor-capable upload/run has fresh STAND OK or RING OK. D051 engineering
    delegation permits documented software choices; it does not create measured
    acceptance, PINMAP/EXPLAINED approval or human GATE Pn PASS.

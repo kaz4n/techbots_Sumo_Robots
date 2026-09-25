@@ -1,5 +1,16 @@
 # Codex handoff - 25 September 2026, Asia/Dubai
 
+**Connected resumption, D184:** the user reconnected the UNO Q. Read-only admission
+observed serial2629958581/boot55c386b9-fe6d-4388-a7f4-1d91e0bb49d8, unchanged CLI
+inventory and available bz2/Base85. The first ADB client query restarted its local
+daemon; its original stderr/assertion failure is retained. No MCU action yet.
+The concrete plan is analysis/P7_motor_fault_run01_plan.md; fresh scope is
+analysis/P7_motor_fault_raw/inert_run01_scope.json. Separate review, committed
+scope and check-only admission precede one existing motor-disabled diagnostic run.
+No motor-capable permission or physical gate is supplied. Cleanup564a870d recovered
+6549294 reported allocated bytes without changing Git history; no other safe new
+deletion candidate was found. Historical offline checkpoints below remain evidence.
+
 **Offline completion audit:** original P7 scope rechecked after66672174; no further
 eligible offline implementation identified. Current runbook/acceptance/gate-request
 prose now reflects D180-D183 and retained D160/D161 failures. Separate reused-context
@@ -102,10 +113,10 @@ No process is running. Previous source/failure/recipe/review evidence is retaine
 
 ## Exact next task
 
-No further task remains in D180-D183's reviewed offline scope. Keep the current
-offline-only instruction: do not query a device or generate an approval scope.
-The next dependency is fresh board admission followed by the existing D179 inert
-diagnostic below; current main-app source also needs its own checked target build.
+No further task remains in D180-D183's reviewed offline scope. The user's new
+connected-board instruction supersedes the offline-only limit. Complete D184's
+separate scope review and committed local admission, then execute D179's existing
+inert diagnostic once. Current main-app source also needs its own checked target build.
 Only after actual artifact/target qualification and fresh identified human motor
 permission can D183's precompiled route be used. It does not create any such facts.
 Preserve original failures, historical pins and all consumed native scopes.

@@ -1,5 +1,11 @@
 # Current execution checklist - 2026-09-25 Asia/Dubai
 
+**D184 connected resumption active.** Fresh read-only board admission and local
+command composition PASS; new scope prepared for the unchanged D179 inert run.
+Separate scope review/commit/check-only precede execution; no MCU operation yet.
+Cleanup564a870d recovered6549294 reported allocated bytes; no new disposable files.
+See analysis/P7_motor_fault_run01_plan.md. Physical/human gates remain pending.
+
 **Offline scope audit complete after66672174.** No further eligible implementation
 identified by coordinator/separate reused reviewer. Stale P7 acceptance prose
 corrected and scoped-review PASS;58 links/diff checked. Exact hardware dependencies

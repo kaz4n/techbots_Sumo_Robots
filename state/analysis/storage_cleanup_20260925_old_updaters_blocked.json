@@ -1,0 +1,30 @@
+{
+  "time": "2026-09-25T17:57:26.302220+04:00",
+  "action": "Native PowerShell Remove-Item of two exact old updater installer.exe files",
+  "result": "REJECTED_BEFORE_PROCESS_CREATION",
+  "stated_reason": "blocked by policy",
+  "deleted_files": 0,
+  "reclaimed_by_deletion_bytes": 0,
+  "excluded_from_future_deletion_retries": [
+    {
+      "path": "C:\\Users\\narut\\AppData\\Local\\obsidian-updater\\installer.exe",
+      "bytes": 296595328,
+      "sha256": "B29FD8812282BC44E8782F3ED00C13BC54EF8A4039C1D86B2D3559311E77B895"
+    },
+    {
+      "path": "C:\\Users\\narut\\AppData\\Local\\@opencode-aidesktop-updater\\installer.exe",
+      "bytes": 119080328,
+      "sha256": "7B3E161E71130C8EC3E8BCF44BDDB323DB84AFB4D5CCEAF88E73E2FBBC01FEBD"
+    }
+  ],
+  "candidate_bytes": 415675656,
+  "audit": "Separate read-only context: installed versions match both old installers; newer OpenCode pending retained; no related processes, plain ancestry, exclusive-open and single-hardlink checks passed. No deletion executed.",
+  "independent_postcheck": {
+    "status": "PASS",
+    "time_utc": "2026-09-25T13:57:21Z",
+    "reviewer": "compile_once_reuse separate read-only context",
+    "result": "Both blocked installers and newer pending OpenCode installer present; all original SHA256, sizes and modification times unchanged; no deletion/retry/compression"
+  },
+  "other_cleanup": "Incremental Git repack succeeded; separate receipt storage_repack_20260925_1800.json",
+  "free_bytes_observed": 890339328
+}

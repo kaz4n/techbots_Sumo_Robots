@@ -1,0 +1,55 @@
+{
+  "time": "2026-09-25T17:54:51.013544+04:00",
+  "command": [
+    "git",
+    "-c",
+    "pack.threads=1",
+    "-c",
+    "pack.windowMemory=16m",
+    "-c",
+    "pack.deltaCacheSize=8m",
+    "repack",
+    "-d",
+    "-l"
+  ],
+  "exit": 0,
+  "output": "",
+  "before": {
+    "protected": {
+      "head": "7bf1a1dce682251c36910cec56ecd9285044c419",
+      "refs_sha256": "2d158a2457aa88c9829306c0db6da789587a4f748ec43f89175a75bf6b596ec2",
+      "reflog_sha256": "2c5c06e2f040557d456cc65f462859bd103f0e1122c9f18595421dcd08db3c32",
+      "worktree": ""
+    },
+    "storage": {
+      "counts": "count: 1212\nsize: 5449\nin-pack: 27493\npacks: 7\nsize-pack: 217426\nprune-packable: 0\ngarbage: 0\nsize-garbage: 0\n",
+      "reported_bytes": 228224000,
+      "free_bytes": 911151104
+    }
+  },
+  "after": {
+    "protected": {
+      "head": "7bf1a1dce682251c36910cec56ecd9285044c419",
+      "refs_sha256": "2d158a2457aa88c9829306c0db6da789587a4f748ec43f89175a75bf6b596ec2",
+      "reflog_sha256": "2c5c06e2f040557d456cc65f462859bd103f0e1122c9f18595421dcd08db3c32",
+      "worktree": ""
+    },
+    "storage": {
+      "counts": "count: 67\nsize: 214\nin-pack: 28638\npacks: 8\nsize-pack: 218200\nprune-packable: 0\ngarbage: 0\nsize-garbage: 0\n",
+      "reported_bytes": 223655936,
+      "free_bytes": 915787776
+    }
+  },
+  "protected_equal": true,
+  "reported_saved_bytes": 4568064,
+  "new_pack_checks": [
+    {
+      "pack": "pack-ec0cad5de7d0b1873debc881b43197750985068b.idx",
+      "exit": 0,
+      "output": ""
+    }
+  ],
+  "connectivity_exit": 0,
+  "connectivity_output": "",
+  "scope": "Incremental Git packing only; no history expiry or rewrite; no working files deleted"
+}

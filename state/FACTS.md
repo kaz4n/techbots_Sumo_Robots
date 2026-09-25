@@ -670,3 +670,6 @@ authority; later coordinator must recheck exact sources/paths/HEAD/run.
 
 ## F167 - Fixed upload wrapper host behavior (2026-09-25T03:55:21.028709+04:00)
 D154 current source81668c79/contract7fa1c0f0/bindingsa31bca78 passes55 unchanged independent methods3.685s/exit0 plus3 reviewer cases0.205s/exit0. Original53/55 failure preserved; first implementation repair fixes primary processerror and known-outcome retention through cleanup. Review8efe48a3 PASS within host scope. Controlled substitutes establish wrapper behavior only, not native upload/startup/quiescence or physical acceptance. Evidence analysis/P7_static_upload_validation.md.
+
+## F168 - Fixed startup host composition (2026-09-25T04:08:23.503879+04:00)
+D155source6f86e645/contract2bdbc3c9 passes30 independent+10 reviewer host methods; review26fcf2f7PASS. Actual local source/artifact binding construction passes, sixcommandforms, finalinlineupload28068/capture24981UTF16units below30000. No board command dispatched. The103workingfiles/102stage remainchecked; receipt source_file_count=null is a projection limitation, not absence of source checking. See analysis/P7_static_startup_launcher_validation.md. Native upload/startup/freeRAM/WCET and gates remain pending.

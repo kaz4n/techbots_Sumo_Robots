@@ -1,10 +1,10 @@
 # Codex handoff - 2026-09-25 Asia/Dubai
 
-**D154 upload wrapper: HOST-TESTED, scoped review PASS.** Implementation81668c79
-passes55 unchanged independent tests after one repair plus3 reviewer cases.
-Original53/55 failure is retained; review8efe48a3 closes both MAJOR findings.
-Read analysis/P7_static_upload_validation.md. D153 collector remains complete;
-no new MCU operation. Next is the minimal host coordinator and precise inert run.
+**D155 host launcher: HOST-TESTED, scoped review PASS.** Source6f86e645 passes
+30 independent+10 reviewer adapter tests on first execution; review26fcf2f7PASS.
+Actual local payloads fit28068/24981UTF16 units, zero board dispatches. Read
+analysis/P7_static_startup_launcher_validation.md. D153/D154 remain complete;
+next identify/commit the precise bare-board M0 run scope, then execute once.
 
 **Active phase: P7 software/release preparation.** D138 informational READY and
 battery-threshold software is implemented, host-tested and target-compiled.
@@ -50,15 +50,15 @@ has now been observed to select the intended data/user directories (F162); raw
 queries and original mistakenprojection are preserved. Existing board p0_capture.py
 is hash885c4e42/18880B, file-verified; reuse it to fit the Windows command budget.
 
-Exact next task: implement/test/review the host coordinator; reuse the completed
-D153 collector and D154 upload wrapper. Bind reviewed HEAD/source, D144 packet,
+Exact next task: identify/commit native_run01_scope.json for the completed D155
+host coordinator, D153 collector and D154 uploader. Bind reviewed HEAD/source, D144 packet,
 installed dependencies, explicit CLI configuration and selected core/recipe.
 F165/F166 file-only receipts establish observed initialization prerequisites;
 recheck them immediately before the later native scope.
-The advisory guard options are not a run grant. Do not rebuild or copy another
+The host validation alone is not a run grant. Do not rebuild or copy another
 source tree. Separate upload/capture claims, bounded process deadlines, independent
 postchecks and no recovery reset/retry remain required. Final capture bootstrap
-must be sized; the four-source estimate leaves7058units below30000 by reusing the
+has been sized: actual upload28068/capture24981units, below30000, reusing the
 installed loader utility. Identify the concrete inert run/revision before upload.
 The user permits bare UNOQ testing and requests no additional
 hardware now. No motor-capable run is authorized; STAND/RING remains absent.

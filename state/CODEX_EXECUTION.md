@@ -1,8 +1,8 @@
 # Current execution checklist - 2026-09-25 Asia/Dubai
 
-**D154 upload wrapper:55 independent+3 reviewer methods PASS; review8efe48a3PASS.**
-Implementation81668c79 repaired once; original53/55 failure preserved. Host-only,
-no MCU operation. D153 remains complete; next host coordinator and scoped run.
+**D155 host launcher:30 independent+10 reviewer methods first-runPASS.**
+Source6f86e645/review26fcf2f7PASS; actual local payloads fit28068/24981units.
+No MCU operation. D153/D154 remain complete; next identify/commit inert run scope.
 
 **D152 pure startup interpretation:37 host methods PASS and scoped review PASS.**
 See analysis/P7_static_capture_validation.md. Loader reference is ELF-derived
@@ -90,8 +90,10 @@ pending; D051/D075/D122/D137 permit scheduling, not fabricated measurements.
 - [x] D154 one-shot upload wrapper:55 unchanged public+3 reviewer methods PASS,
   both MAJOR findings resolved; original failures retained. F166 observed CLI
   initialization prerequisites; see analysis/P7_static_upload_validation.md.
-- [ ] Implement/test/review host coordinator, then
-  separately scope bare-board M0 startup qualification; reuse packet/collector,
+- [x] D155 host coordinator:30public+10reviewer methods first-runPASS;
+  review26fcf2f7PASS, actual local composition/source/packet checks and sizing.
+  See analysis/P7_static_startup_launcher_validation.md; no native action.
+- [ ] Separately scope bare-board M0 startup qualification; reuse packet/collector,
   existing pinned loader helper and explicit CLI config; no binary/source copy.
 - [ ] Qualify native loading/startup, stack/heap/WCET and release workflow before
   adoption. Structural RAM tail94352B is not measured free memory.

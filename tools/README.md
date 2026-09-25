@@ -27,43 +27,29 @@ loadedRAM, stack, physical timing and all human gates require separate evidence.
 Bench commands/upload guards are retained; unscoped app uploads remain disabled.
 The explicit precompiled MATCH route below requires separate evidence and permission.
 
-## D188 inhibited full-app diagnostic compilation
+## Inhibited full-app diagnostics
 
-The current engineering resume point is the fixed `bench/app_motor_fault`
-diagnostic, following D184's isolated run and D185's two current-app compilations.
-Those three native attempts are consumed. D186-D188's new full-app trace and
-compile-only workflow are HOST-TESTED / REVIEWED, with no target run yet. See the
-[current handoff](../state/CODEX_HANDOFF.md) and
-[D188 contract](../state/analysis/P7_app_motor_fault_compile_contract.md).
+D188 compiled the fixed static `bench/app_motor_fault` image and audited its
+actual ABI/entry. D190 run02 later uploaded it and observed four successful
+application epochs/41callbacks followed by an explicit inhibited halt. These
+owners/scopes are consumed; do not rerun `compile_app_motor_fault.py` or its old
+manifests. Exact historical commands remain in their receipts and contracts.
+Read the [actual result](../state/analysis/P7_app_motor_fault_run02_validation.md)
+and [current handoff](../state/CODEX_HANDOFF.md).
 
-Hardware work is deferred. After fresh board identity/tool observations, prepare
-and review `state/analysis/P7_app_motor_fault_compile_raw/inputs_static.json`,
-then use the new clean reviewed HEAD. No actual manifest is supplied today.
-The local admission command is read-only and does not contact the board:
+D192 adds `bench/app_motor_observe` for a longer finite host-tested observation.
+It keeps the unchanged Trace's first64 calls, reports subsequent omitted calls
+explicitly, and preserves the first failure/current call after truncation.
+It uses real Runtime epochs with empty peripheral grants and requires
+`MATCH=0`, `MOTORS_ALLOWED=0`, `SUMOX_MOTOR_FAULT_PROBE=1` for future admitted use.
+The checked-in probe default remains0. Its epoch/poll bounds live in config.h.
 
-```text
-python -B tools/compile_app_motor_fault.py --check-only --reviewed-head <40-lowercase-hex-reviewed-HEAD>
-```
-
-Only after that admission, the separately initiated compile-only action is:
-
-```text
-python -B -X "pycache_prefix=<absolute-native-path-to-native_static01-pycache>" tools/compile_app_motor_fault.py --execute --reviewed-head <40-lowercase-hex-reviewed-HEAD>
-```
-
-Run from the repository root; replace the placeholders. The prefix is the
-platform-native absolute path to
-`state/analysis/P7_app_motor_fault_compile_raw/native_static01/pycache` beneath
-this checkout (backslashes on Windows); keep the entire argument quoted for
-paths with spaces. That directory must remain absent under Python `-B`.
-The fixed build uses static linking, default
-startup and `MATCH=0`, `MOTORS_ALLOWED=0`, `SUMOX_MOTOR_FAULT_PROBE=1`. It runs one
-properties query and one compiler; it never uploads, resets or observes the MCU.
-The contract fixes local/remote ownership, source/tool pins, disk bounds and
-closing checks. A partial claim consumes the attempt; preserve failed evidence.
-No generic build route or old manifest/capture layout substitutes for this path.
-Actual package/initialization/ABI checks and later capture binding remain separate
-work after compilation; host success is not fault resolution or a phase gate.
+Generic flash/build commands reject both diagnostic sketches before staging or
+transport. New staging requires a fresh attempt and exact canonical Trace files.
+D192 does not yet have a qualified native compile/upload/capture route: new
+source/artifact/identity/ABI bindings and review are required. No old scope or
+capture layout substitutes for that evidence. See the
+[D192 contract](../state/analysis/P7_app_motor_observe_contract.md).
 
 ## D182/D183 identified precompiled MATCH upload
 

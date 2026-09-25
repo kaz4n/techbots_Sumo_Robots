@@ -50,3 +50,18 @@ The separately reviewed tools/recorder_capture.py reads exact-identity MEM-AP
 evidence; captured heap capacity and sampled SP headroom are not stack watermarks
 or fullapp WCET. See state/analysis/P2_recorder_bench_contract.md and run record.
 No UART/no-gap physical B8 or human-gate claim follows from this probe.
+
+
+## D192 longer inhibited application observation
+
+`bench/app_motor_observe` runs the actual application with empty setup grants,
+zero motor permission and finite epoch/poll bounds. It reuses the original
+motor_fault trace: first64 callback records remain, later omitted records are
+counted, and first_failure/current stay available. Truncation is visible and
+never presented as a complete trace. The runner saves the final application
+state before its own abort; final halt failure must still be checked.
+
+Default probe activation remains0. Generic tooling refuses native deployment;
+D192 source/host preparation is separate from any future checked static build
+and fresh board scope. See state/analysis/P7_app_motor_observe_contract.md.
+The earlier app_motor_fault four-epoch source and evidence remain unchanged.

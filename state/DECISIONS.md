@@ -2166,3 +2166,12 @@ D-191 actual outcome 2026-09-25T22:01:32.975637+04:00: unchangedroot02 completed
 
 
 D-190 actual outcome 2026-09-25T22:12:15.468980+04:00: existing run02 completed once at reviewed b3e584d1 with unchanged source21df6ae8/static/default/MATCH0/MOTORS0/probe1. Scope and owners consumed. Interpret saved pre-abort state before intentional-abort faults: EPOCH_LIMIT4, RUNNING/NONE,41 successful callbacks; no initiating fault observed. Preserve historical D160/D161 fault as unresolved; no safety-limit or production change is justified by this short successful run. Next define a longer bounded inhibited first-failure observation without trace overflow, with separate tests/review/new artifact and scope before any execution. No motor permission or human gate follows.
+
+
+## D-192 (2026-09-26T00:52:48.114238+04:00, longer inhibited application observation)
+Context: D190 completed four epochs without reproducing the original IO fault. Existing Trace independently retains first_failure/current after its64-call prefix fills.
+Decision: adopt analysis/P7_app_motor_observe_contract.md under D051. New small Runner composes unchanged Trace and Runtime, explicitly reports prefix truncation/loss, stops on first callback/timing/application/runtime failure or finite10000epoch/10000000poll bounds. Two new config count constants are naming exceptions; all old values/sources/locked tests remain unchanged. Independent contract-derived tests freeze before execution.
+Consequence: this is host-only preparation; no new physical grant, relaxed150us safety limit, old native owner reuse, motor permission or gate. New static target compilation/artifacts/ABI/identity/review required before separate native execution.
+
+
+D-192 host outcome 2026-09-26T01:05:05.688830+04:00: first implementation and independent oracles pass. Final board_tool LF normalization changes only line endings (equal AST); affected staging tests rerun unchanged. Runtime traces, locked safety and historical diagnostics pass normal/sanitizer checks. Preserve one coordinator filename error and all first receipts. New compile-only D193 projection is the next task; no native source/artifact/run scope yet.

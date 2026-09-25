@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "wsl",
+    "-d",
+    "Ubuntu",
+    "--",
+    "python3",
+    "-B",
+    "tests/tooling/test_app_motor_observe.py"
+  ],
+  "returncode": 0,
+  "stdout": "NORMAL [doctest] doctest version is \"2.4.12\"\n[doctest] run with \"--help\" for options\n===============================================================================\n[doctest] test cases:      14 |      14 passed | 0 failed | 0 skipped\n[doctest] assertions: 9172698 | 9172698 passed | 0 failed |\n[doctest] Status: SUCCESS!\nSANITIZED [doctest] doctest version is \"2.4.12\"\n[doctest] run with \"--help\" for options\n===============================================================================\n[doctest] test cases:      14 |      14 passed | 0 failed | 0 skipped\n[doctest] assertions: 9172698 | 9172698 passed | 0 failed |\n[doctest] Status: SUCCESS!\nNORMAL [doctest] doctest version is \"2.4.12\"\n[doctest] run with \"--help\" for options\n===============================================================================\n[doctest] test cases:    4 |    4 passed | 0 failed | 0 skipped\n[doctest] assertions: 2931 | 2931 passed | 0 failed |\n[doctest] Status: SUCCESS!\nSANITIZED [doctest] doctest version is \"2.4.12\"\n[doctest] run with \"--help\" for options\n===============================================================================\n[doctest] test cases:    4 |    4 passed | 0 failed | 0 skipped\n[doctest] assertions: 2931 | 2931 passed | 0 failed |\n[doctest] Status: SUCCESS!\n",
+  "stderr": "test_01_normal_real_runtime_contract (__main__.AppMotorObserveTests.test_01_normal_real_runtime_contract) ... ok\ntest_02_sanitized_real_runtime_contract (__main__.AppMotorObserveTests.test_02_sanitized_real_runtime_contract) ... ok\ntest_03_unsafe_flags_refused_by_public_header (__main__.AppMotorObserveTests.test_03_unsafe_flags_refused_by_public_header) ... ok\ntest_04_default_and_explicit_sketch_binding (__main__.AppMotorObserveTests.test_04_default_and_explicit_sketch_binding) ... ok\ntest_05_invalid_probe_macro_is_rejected (__main__.AppMotorObserveTests.test_05_invalid_probe_macro_is_rejected) ... ok\ntest_06_small_copied_bounds_normal (__main__.AppMotorObserveTests.test_06_small_copied_bounds_normal) ... ok\ntest_07_small_copied_bounds_sanitized (__main__.AppMotorObserveTests.test_07_small_copied_bounds_sanitized) ... ok\ntest_08_invalid_bounds_refused_by_public_header (__main__.AppMotorObserveTests.test_08_invalid_bounds_refused_by_public_header) ... ok\ntest_09_probe_is_exclusive_of_other_profiles (__main__.AppMotorObserveTests.test_09_probe_is_exclusive_of_other_profiles) ... ok\ntest_10_positive_bound_endpoints_compile (__main__.AppMotorObserveTests.test_10_positive_bound_endpoints_compile) ... ok\n\n----------------------------------------------------------------------\nRan 10 tests in 95.299s\n\nOK\n",
+  "elapsed_s": 102.93577970005572,
+  "pins_unchanged": true
+}

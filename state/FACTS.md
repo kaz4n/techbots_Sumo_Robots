@@ -798,3 +798,7 @@ DEVICE-FILES-OBSERVED: authenticated unchangedwrapper4192f23e exit0; resultc0e45
 
 ## F204 - Inhibited static full-app diagnostic completed (2026-09-25T22:12:15.468980+04:00)
 DEVICE-OBSERVED: D190 run02 source21df6ae8/package deb40317, board2629958581/boot55c386b9-fe6d-4388-a7f4-1d91e0bb49d8. One upload/26passive reads727088B, full loader/sketch before-after checks PASS. Both six-window samples identical, coherence UNPROVEN. FROZEN/EPOCH_LIMIT4 with successful begin/abort; saved runtime RUNNING/NONE/4epochs/0misses/max582MCU-us, fourth receipt valid/consumed/token4/zero outputs. All41callbacks successful; final halt inhibition_confirmed. Empty grants/initfalse expected. Original D160/D161 fault not reproduced or resolved; no electrical/RAM/stack/WCET/physical/human-gate result. Source: analysis/P7_app_motor_fault_run02_validation.md and exact raw retrieval/decoded fields.
+
+
+## F205 - Longer inhibited observation host behavior (2026-09-26T01:05:05.688830+04:00)
+HOST-VERIFIED: D192 new Runner/sketch with unchanged Trace/Runtime passes10independent methods, default14cases/9172698assertions and copied12/12bounds4cases/2931assertions each normal+ASan/UBSan. Healthy modeled10000epochs produce60017callbacks/64retained/59953rejected; late firstfailure retained. D186/D162/locked regressions pass; source/staging pins stable. This is synthetic host evidence, not elapsed target ticks, actual fault resolution, native RAM/stack/WCET or physical/human acceptance. Source: analysis/P7_app_motor_observe_validation.md and raw receipts.

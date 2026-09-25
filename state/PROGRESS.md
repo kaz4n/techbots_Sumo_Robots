@@ -1321,3 +1321,6 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-25T22:13:31.539880+04:00 | P7 D190 actual review closure | Separate same-model localread reviews PASS/no material findings:13transport/159pin/14file retrieval audit plus independent raw decoder matching every selected field of12windows. Review state/reviews/P7_app_motor_fault_run02_actual_review.md. Handoff/resume now reflect latest haltedM0diagnostic and unreproduced historicalfault; no active native session.
+
+
+2026-09-26T01:05:05.688830+04:00 | P7 D192 longer inhibited observation | IMPLEMENTED/HOST-TESTED: unchanged Trace/Runtime with10000epoch/10000000poll bounds, first-failure retention and explicit prefix loss. New10methods/default14cases9172698assertions and small4cases2931assertions each normal+san PASS; D186/D162 and locked M0/M1 regressions PASS. Linux/Windows staging complementary skips,168pins exact. Original filename invocation error retained; LF-only board_tool normalization AST-equal and affected4runs repeatedPASS. No new firmware/physical gate/motor permission. Evidence analysis/P7_app_motor_observe_validation.md; next D193 checked compile projection.

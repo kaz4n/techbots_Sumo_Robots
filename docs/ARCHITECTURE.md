@@ -73,9 +73,9 @@ flowchart TD
     C --> G[One Governor pass]
     G --> O[Requested duties and logical permission]
     G --> D[Events and pending frame candidate]
-    O -. future P2 .-> M[Only MotorGate writes EN and PWM]
+    O --> M[Only MotorGate writes EN and PWM]
     M -. actual application receipt .-> P
-    D -. future HAL storage .-> B[RAM recorder and idle-only dump]
+    D --> B[RAM recorder and guarded idle dump owner]
 ```
 
 The required receipt is an application contract, not measured wheel motion.
@@ -142,7 +142,10 @@ D-061 also handles first side/rear conflict without any usable prior bearing:
 Robot waits at zero, with800ms anchored at that first ambiguous observation.
 Later valid capture starts the real turn without extending that deadline. This
 valid unknown information does not itself become a reset-only contract fault.
-DRIVE_TEST remains unavailable in P1. Push-through, optional evasion and IMU stall
+DRIVE_TEST was unavailable in P1; later dedicated profiles implement its bounded
+trial behavior, currently exposed through inhibited compile-only wrappers.
+An operational commissioning entry and deployment path remain required.
+Push-through, optional evasion and IMU stall
 refinement remain disabled; enabling unsupported options is not silently accepted.
 
 ## Evidence and device separation
@@ -164,9 +167,11 @@ or timing overflow can authorize motion. The offline D-069/D-070 RAM owner
 preserves last-match data across Robot reset. D-073 adds stateless CSV formatting
 of exact encoded integers, raw bytes, statuses and every loss counter. Its metadata
 snapshot copies no payload arrays. Callers must prevent concurrent mutation;
-this formatter grants no live dump permission. Runtime integration and transport
-remain pending: SEALED is not current IDLE, and absence of known loss is not proof
-that recording finished or a dump has no gaps.
+this formatter grants no live dump permission. Runtime/Transaction now integrate
+the RAM owner and guarded dump lifecycle; the main entry supplies the native
+dump port. Native transport ownership/cancel/reopen and the between-round workflow
+remain unqualified. SEALED is not current IDLE, and absence of known loss is not
+proof that recording finished or a dump has no gaps.
 
 Per PLAN section7, the STM32U585 owns sensing/decisions/actuation without waiting
 for Linux. Linux builds/flashes and later stores/plots logs. No radio, Bridge or
@@ -179,8 +184,14 @@ main entry through `app::configuredSetupGrants()`: it copies explicit declaratio
 from `config.h` into the existing one-shot Runtime setup. Every checked-in grant
 remains disabled and mounting remains unconfigured; a build flag cannot confirm
 hardware. Existing consumers still validate mounting, source and service ownership.
-Target compilation of the D180 entry and actual native/physical acceptance remain
-pending; see [the binding contract](../state/analysis/P7_setup_binding_contract.md).
+D185 target-compiled both current main-app profiles; see
+[the compile evidence](../state/analysis/P7_current_app_compile_validation.md).
+This leaves production memory/loading and actual native/physical acceptance
+unqualified. D190's separate static/M0 full-app diagnostic completed four epochs
+and41callbacks, without reproducing the historical IO fault; it is not production
+adoption or sustained timing evidence. See
+[the observed diagnostic](../state/analysis/P7_app_motor_fault_run02_validation.md)
+and [the setup binding contract](../state/analysis/P7_setup_binding_contract.md).
 
 ## Sixty-second explanation
 

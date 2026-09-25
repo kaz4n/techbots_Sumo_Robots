@@ -1,4 +1,4 @@
-# Codex handoff - 25 September 2026, Asia/Dubai
+# Codex handoff - 26 September 2026, Asia/Dubai
 
 ## Current result
 
@@ -25,21 +25,31 @@ No native process or local execution session remains active.
 
 ## Exact next task
 
-Define a longer bounded inhibited observation to investigate the unreproduced
-full-app native IO fault. It must retain the first failing callback and useful
-application state without overflowing the fixed trace or unbounded sampling.
-Start from the successful D190 predicates and the existing D186/D162 source.
-Do not weaken the150us settle limit, change pins/setup grants, or call the old
-fault fixed. Preserve existing diagnostic source/evidence and locked tests.
-New firmware needs scoped independent tests/review, compile/artifact/ABI binding,
-fresh board identity and a separate native owner before execution. Reuse existing
-bounded primitives; do not create another general orchestration framework.
+D192 longer inhibited observation is implemented and host-tested. Read
+analysis/P7_app_motor_observe_validation.md and its independent review. The new
+Runner retains the existing first64 prefix and explicit rejection count while
+preserving first_failure beyond it; it stops at real faults or10000epochs /
+10000000polls. Empty grants and the150us native limit remain unchanged. All new
+host normal/sanitizer, historical diagnostics and locked regressions passed.
+No D192 board build or upload has occurred; D190 above remains the latest image.
 
-D190run02, D189run01 and every prior native owner/scope are consumed. Do not retry
-historical launchers, repin consumed scopes, or treat their boot as a fresh fact.
-A successful short diagnostic is not sustained application qualification. Current
-D185 main-app dynamic bench/MATCH compilations are complete but retain their
-conditional low-memory blockers; see P7_current_app_compile_validation.md.
+Next finish D193's new fixed static compile projection, independent oracles and
+review. Its in-progress files are tools/compile_app_motor_observe.py and
+analysis/P7_app_motor_observe_compile_contract.md; do not recreate old lifecycle
+tools. Require fresh manifest/identity, clean reviewed HEAD and one new owner.
+Then observe actual artifact/ABI/entry layout before a separate new finite native
+capture. Do not assume historical addresses apply or call the old IO fault fixed.
+All D190/D189/D188 and prior native owners/scopes are consumed; never rerun them.
+
+The full objective remains active. analysis/P7_completion_audit_20260926.md
+identifies operational commissioning, production memory/loading, actual recorder
+lifecycle and release dependencies. Historical trial wrappers are deliberately
+inert; a new operational B4 entry can reuse configured grants/Runtime before
+physical acceptance, but future execution requires fresh specific STAND OK.
+B4 terminalSTOP cannot perform the current IDLE-only UART dump: first use a
+separately bound finite retained-RAM capture, or define/review another policy.
+Do not silently enable local reset or promise delivery from dump-port wiring.
+Current D185 dynamic profiles retain their modeled memory blockers.
 
 ## Cleanup and authentication
 

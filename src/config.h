@@ -122,6 +122,9 @@ inline constexpr std::uint32_t MOTOR_ENABLE_PIN = 10U;
 inline constexpr std::uint32_t MOTOR_PWM_HZ = 10000U; // Hz
 inline constexpr std::uint32_t MOTOR_PWM_SETTLE_US = 150U; // us, whole settle pass
 inline constexpr std::uint32_t MOTOR_PWM_SETTLE_MAX_POLLS = 4096U; // count-name exception
+// D192 development observation bounds; count-name exceptions, not measured time.
+inline constexpr std::uint32_t APP_MOTOR_OBSERVE_EPOCHS = 10000U;
+inline constexpr std::uint32_t APP_MOTOR_OBSERVE_MAX_POLLS = 10000000U;
 // D119 pure B4 sequence development defaults; not physical motor qualification.
 inline constexpr std::uint32_t STAND_SEGMENT_MS = 500U; // ms per observed segment
 inline constexpr float STAND_DUTY = 0.25F; // nominal request, not electrical permission

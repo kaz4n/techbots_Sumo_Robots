@@ -3,11 +3,11 @@
 <!-- Checked through separate document review and local source/link verification. -->
 # P7 operator-document preparation
 
-Updated 2026-09-25 Asia/Dubai through D188. D137 prepares operator documents;
+Updated 2026-09-26 Asia/Dubai through actual D190. D137 prepares operator documents;
 D138 adds P7.2 informational READY/battery software; D180-D183 provide the
 setup and deployment tooling. D184/D185 add actual isolated diagnostic and
-current-app compilation evidence; D186-D188 prepare a full-app diagnostic on
-the host. **P7 release acceptance is pending.** P6 remains
+current-app compilation evidence; D186-D190 add a checked static full-app
+diagnostic and successful four-epoch inhibited observation. **P7 release acceptance is pending.** P6 remains
 deferred; actual P0-P5 criteria and human gates have not been replaced by assumptions.
 
 | Original task | Current deliverable | Required completion evidence |
@@ -127,13 +127,22 @@ The [D186 full-app trace](P7_app_motor_fault_validation.md),
 [D188 compile-only workflow](P7_app_motor_fault_compile_validation.md) are
 HOST-TESTED / REVIEWED. The diagnostic follows the actual Runtime -> Transaction
 -> Robot -> MotorGate path with empty setup grants and inhibited outputs.
-It has no current target compilation, native layout/ABI or capture evidence.
-The next hardware-dependent action is fresh board identity/tool observation,
-then a reviewed new manifest and one static/default/M0 diagnostic compilation
-under the [D188 contract](P7_app_motor_fault_compile_contract.md). Hardware work
-is currently deferred. Follow [CODEX_HANDOFF](../CODEX_HANDOFF.md); do not reuse
-old capture addresses/decoders or infer static production adoption. Full-app
-fault resolution, live RAM/stack/WCET and physical qualification remain open.
+D188 subsequently completed target compilation and actual ABI/entry audits.
+After D191's exact authenticated scratch cleanup, [D190 run02](P7_app_motor_fault_run02_validation.md)
+uploaded that static/default/M0 image and observed four completed application
+epochs/41successful callbacks, then an explicit inhibited halt. All four flash
+brackets passed; saved raw fields were independently decoded. The historical
+IO fault did not recur and remains unresolved. These scopes are consumed.
+Follow [CODEX_HANDOFF](../CODEX_HANDOFF.md); do not reuse old capture addresses,
+decoders or native owners, or infer static production adoption. D192 longer
+observation is separate host preparation. Live RAM/stack/WCET and physical
+qualification remain open.
+
+The [26September completion audit](P7_completion_audit_20260926.md) also identifies
+a missing operational commissioning route: existing B4/P3/P4/P5 wrappers are
+inhibited-only with empty grants and no dump port. Software preparation of a
+proper configured entry/profile/deployment path may proceed; physical grants and
+specific motor-run authorization remain prerequisites for execution.
 
 Other dependent release work remains: obtain the real prerequisites in the linked
 acceptance packets and resolve SC-AP against the qualified release, then validate

@@ -1,0 +1,31 @@
+{
+  "schema": "d192-independent-oracle-freeze-v1",
+  "frozen_at": "2026-09-26T00:57:27.7921122+04:00",
+  "contract_sha256": "74ceaa0a638168237ccc8b32696764e12fb626721d7b71d9694f6c6b867488f2",
+  "tests": [
+    {
+      "path": "tests/tooling/app_motor_observe_cases.cc",
+      "sha256": "ccc727e58ee1adef807de75b2c15bacbb8ade029e8a2fb504dccd0ba7e3c5750",
+      "bytes": 28046
+    },
+    {
+      "path": "tests/tooling/test_app_motor_observe.py",
+      "sha256": "729425a0b09d6c4d284f3cadf1cc192e9a1f03e87b27e22f389cffe2cee14a68",
+      "bytes": 13088
+    },
+    {
+      "path": "tests/tooling/test_app_motor_observe_staging.py",
+      "sha256": "fdcd04584d4cc66be3d00e095109fedaaf675e207dfbc3910a0b2d1f2fe92b3a",
+      "bytes": 13818
+    }
+  ],
+  "execution": "NONE: no tests, compilers or native actions invoked by independent author before freeze",
+  "derivation": "D192 contract, D186 public contract and existing independent test patterns, public Trace/Runtime/Transaction/MotorGate headers and MotorGate contract; no new Runner/sketch implementation or board_tool body read",
+  "planned": "10 runtime-driver methods: default10000 and copied12/12 normal+ASan/UBSan, sketch/default/probe/flags/bounds; 10 staging methods using isolated copied tooling",
+  "limits": [
+    "Host evidence only; no native compilation or board action authorized",
+    "Real Windows junction case runs on Windows and is skipped on Linux; portable symlink/reparse cases remain",
+    "Cannot create malformed application receipt through controlled native ports without modifying production owners; real failure-induced invalid receipt and clock-stall priority are covered",
+    "Unchanged Trace rejected-counter uint32 saturation is not driven billions of times; exact 59953 rejection count and late first_failure are covered"
+  ]
+}

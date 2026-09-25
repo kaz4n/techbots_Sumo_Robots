@@ -1,0 +1,16 @@
+{
+  "schema": "d192-readonly-connected-observation-v1",
+  "observed_utc": "2026-09-25T20:54:29.966061+00:00",
+  "argv": [
+    "C:\\Users\\narut\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\adb\\32.0.0\\adb.exe",
+    "-s",
+    "2629958581",
+    "shell",
+    "-T",
+    "/usr/bin/python3 -I -B -c 'import os,pwd,json,sys,signal;signal.alarm(15);u=os.uname();p=pwd.getpwuid(os.getuid());s=os.statvfs('\"'\"'/home/arduino'\"'\"');print(json.dumps(dict(user=p.pw_name,uid=os.getuid(),gid=os.getgid(),home=p.pw_dir,sysname=u.sysname,release=u.release,machine=u.machine,python=list(sys.version_info[:3]),boot_id=open('\"'\"'/proc/sys/kernel/random/boot_id'\"'\"').read().strip(),free_bytes=s.f_bavail*s.f_frsize)))'"
+  ],
+  "returncode": 0,
+  "stdout": "{\"user\": \"arduino\", \"uid\": 1000, \"gid\": 1000, \"home\": \"/home/arduino\", \"sysname\": \"Linux\", \"release\": \"6.16.7-g0dd6551ae96b\", \"machine\": \"aarch64\", \"python\": [3, 13, 5], \"boot_id\": \"55c386b9-fe6d-4388-a7f4-1d91e0bb49d8\", \"free_bytes\": 13981831168}\r\n",
+  "stderr": "",
+  "limitation": "Read-only identity/filesystem observation; no native scope or hardware qualification"
+}

@@ -295,7 +295,7 @@ def legacy_stage_destination(name):
 
 
 def stage(sketch, *, attempt=None):
-    if sketch == 'bench/app_motor_fault' and attempt is None:
+    if sketch in ('bench/app_motor_fault', 'bench/app_motor_observe') and attempt is None:
         fail('Full-app fault staging requires a fresh attempt')
     if sketch == 'app':
         source, name = ROOT / 'src/app/app.ino', 'app'
@@ -364,7 +364,7 @@ def stage_ui_probe_sources(sketch, destination):
 
 
 def validate_app_motor_fault_sources(sketch, source):
-    if sketch != 'bench/app_motor_fault':
+    if sketch not in ('bench/app_motor_fault', 'bench/app_motor_observe'):
         return
     for folder in (source.parent, ROOT / 'src', ROOT / 'bench/motor_fault/src'):
         for ancestor in (folder, *folder.parents):
@@ -383,7 +383,7 @@ def validate_app_motor_fault_sources(sketch, source):
 
 
 def stage_app_motor_fault_sources(sketch, destination):
-    if sketch != 'bench/app_motor_fault':
+    if sketch not in ('bench/app_motor_fault', 'bench/app_motor_observe'):
         return
     shared = ROOT / 'bench/motor_fault/src'
     check_source(shared)
@@ -567,7 +567,7 @@ def compile_app(board, checksum, board_folder, remote_root, fqbn, flags, startup
 
 
 def flash_profile(args):
-    if args.sketch == 'bench/app_motor_fault':
+    if args.sketch in ('bench/app_motor_fault', 'bench/app_motor_observe'):
         fail('Full-app fault probe requires a separately reviewed static-only build route')
     startup = build_startup(args)
     identified = False

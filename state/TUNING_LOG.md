@@ -372,3 +372,6 @@ Added STAND_SEGMENT_MS=500 and STAND_DUTY=0.25 for the pure finite B4 request se
 
 
 2026-09-25T22:12:15.468980+04:00 | D190 inhibited diagnostic observation, no tuning | Four application epochs, stored max582MCU-clockus/0misses, fourth duration560us;41successful callbacks. Six outer SETTLE spans152/131/153/131/131/131us include work outside native internal timer; not a150us-bound violation finding or WCET. Source21df6ae8/static/default/M0/probe1, fullflashbracketsPASS. Final zero-output halt confirmed in software. No config/pin/limit changed, no physical motor/sensor/electrical acceptance. Evidence analysis/P7_app_motor_fault_run02_validation.md.
+
+
+2026-09-26T01:05:05.688830+04:00 | D192 diagnostic count bounds | Added APP_MOTOR_OBSERVE_EPOCHS=10000U and APP_MOTOR_OBSERVE_MAX_POLLS=10000000U as dimensionless count-name exceptions. Existing values, pins,150us settle limit and all setup grants unchanged. Synthetic copied12/12 and endpoint fixtures are tests only; no measured tuning or new target execution. Evidence analysis/P7_app_motor_observe_validation.md.

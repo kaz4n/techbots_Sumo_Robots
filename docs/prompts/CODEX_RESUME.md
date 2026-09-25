@@ -15,9 +15,10 @@ physical acceptance. Do not reset the project to P0.
    All 41 callbacks returned true; the final halt confirmed inhibition. This is
    the latest successful firmware upload. Read analysis/P7_app_motor_fault_run02_validation.md.
    The historical D160/D161 IO fault was not reproduced or resolved. Run02 and
-   its owners are consumed; do not repeat it. Next define a longer bounded inert
-   observation retaining first-failure evidence without overflowing the trace.
-   Preserve the 150us bound and require new source/artifact/review/scope evidence.
+   its owners are consumed; do not repeat it. D192 now implements the longer bounded inert
+   observation with retained first failure and explicit prefix loss; host tests
+   passed. Next complete D193 fixed static compile preparation, then fresh
+   artifact/ABI/entry/scope evidence. Preserve the150us bound and empty grants.
 3. All old native scopes are consumed. Never rerun a historical launcher, repin
    its consumed manifest, reset the MCU or infer that an old capture layout fits
    changed firmware. A new operation needs fresh source/artifact/identity binding

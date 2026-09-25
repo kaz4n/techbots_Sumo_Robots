@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "C:/Users/narut/AppData/Local/Arduino15/packages/arduino/tools/adb/32.0.0/adb.exe",
+    "-s",
+    "2629958581",
+    "shell",
+    "-T",
+    "/usr/bin/env -i HOME=/home/arduino USER=arduino LOGNAME=arduino PATH=/usr/bin:/bin LANG=C LC_ALL=C /usr/bin/python3 -I -B -c 'import base64,bz2,json,os,signal,sys\nfrom pathlib import Path\nsignal.alarm(60)\nliteral=b'\"'\"'SumoX-26 fixed inert capability'\"'\"'\ntoken=base64.b85encode(literal)\nprint(json.dumps({'\"'\"'boot_id'\"'\"':Path('\"'\"'/proc/sys/kernel/random/boot_id'\"'\"').read_text().strip(),\n '\"'\"'uid'\"'\"':os.getuid(),'\"'\"'no_bytecode'\"'\"':bool(sys.flags.dont_write_bytecode) and sys.dont_write_bytecode is True,\n '\"'\"'bz2'\"'\"':bz2.decompress(bz2.compress(literal))==literal,\n '\"'\"'base85'\"'\"':base64.b85decode(token)==literal and base64.b85encode(base64.b85decode(token))==token}))\n'"
+  ],
+  "command_units": 821,
+  "returncode": 0,
+  "timeout_seconds": 60
+}

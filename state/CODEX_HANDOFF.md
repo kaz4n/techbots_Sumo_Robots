@@ -1,14 +1,15 @@
 # Codex handoff - 25 September 2026, Asia/Dubai
 
-**Connected resumption, D184:** the user reconnected the UNO Q. Read-only admission
-observed serial2629958581/boot55c386b9-fe6d-4388-a7f4-1d91e0bb49d8, unchanged CLI
-inventory and available bz2/Base85. The first ADB client query restarted its local
-daemon; its original stderr/assertion failure is retained. No MCU action yet.
-The concrete plan is analysis/P7_motor_fault_run01_plan.md; fresh scope is
-analysis/P7_motor_fault_raw/inert_run01_scope.json. Separate review, committed
-scope and check-only admission precede one existing motor-disabled diagnostic run.
-No motor-capable permission or physical gate is supplied. Cleanup564a870d recovered
-6549294 reported allocated bytes without changing Git history; no other safe new
+**D184 completed and reviewed; board connected.** Reviewed commit133f77bc ran the
+unchanged D179 caller once: upload1/capture1,11transports exit0, all closing checks
+PASS. Both raw snapshots match and report COMPLETE, four valid inhibited
+zero-output applications and successful final halt (STOPPED6). Separate actual
+review PASS; coherence remains UNPROVEN. Read analysis/P7_motor_fault_run01_validation.md.
+The scope/owner are consumed, with no live job. Earlier D160/D161 full-app IO
+failure remains unresolved; this isolated dynamic diagnostic did not reproduce it.
+Next: reviewed compile-only composition for current app source37a2099f, preserving
+old stages and the canonical deployment build paths. No motor permission/gate.
+Cleanup564a870d recovered6549294 reported allocated bytes; no other safe new
 deletion candidate was found. Historical offline checkpoints below remain evidence.
 
 **Offline completion audit:** original P7 scope rechecked after66672174; no further
@@ -108,47 +109,37 @@ D172 compiled the active inert diagnostic: execution6bf5ecb1/evidence db1228ce,
 source8f592937/ELFf9460a16/exportb4416792,123transports/tenchildren0,7finalchecksPASS.
 Exact flags MATCH0/MOTORS_ALLOWED0/SUMOX_MOTOR_FAULT_PROBE1, default wait startup,
 dynamic linking. Build/export ELF-ZSK hashes match. No upload/reset occurred.
-D160 remains the last actual upload; diagnostic execution and fault cause unknown.
+At that historical checkpoint D160 was the last upload; D184 now completes the
+inert diagnostic. The original full-app fault cause remains unknown.
 No process is running. Previous source/failure/recipe/review evidence is retained.
 
 ## Exact next task
 
-No further task remains in D180-D183's reviewed offline scope. The user's new
-connected-board instruction supersedes the offline-only limit. Complete D184's
-separate scope review and committed local admission, then execute D179's existing
-inert diagnostic once. Current main-app source also needs its own checked target build.
-Only after actual artifact/target qualification and fresh identified human motor
-permission can D183's precompiled route be used. It does not create any such facts.
-Preserve original failures, historical pins and all consumed native scopes.
-The D179 inert caller remains a separate reviewed future hardware diagnostic.
+Current app source37a2099f needs checked target compilation after D180. Prepare
+separate fixed bench/default M0 and MATCH/Immediate M1 compile-only profiles with
+fresh stages/owners. The generic flash staging path would delete a protected old
+stage: use existing stage(attempt=...) and compile_app(command_runner=...), with
+the unchanged bounded executor extracted into a private current-scope namespace.
+Keep canonical /home/arduino/sumox26_codex_build source/build locations, current
+identity/tool/source pins, one compiler per profile and independent closing checks.
+Review/control-check the composition, commit it, then execute serially. Compile
+only never uploads/resets/starts firmware; MATCH is not motor permission.
 
-When the board is available, first perform a fresh bounded read-only check of
-identity, installed bz2/Base85 support, exact tools/artifacts and prerequisites.
-Then bind the reviewed D179 caller using existing CompileOnce.transport,
-fresh-identity prerequisite checks, D175 upload_loader, D176 collect_motor_fault
-and D177 build_command/validate_reply/run_actions. Bind local source/test/review
-pins and actual current identity in a new durable scope. Historical boot values
-in action_preparation.json cannot be assumed current or silently used as approval.
-
-The exact artifact is source8f592937/rawELFf9460a16/packagedb4416792 (29836B each),
-default wait/dynamic MATCH0/MOTORS_ALLOWED0/SUMOX_MOTOR_FAULT_PROBE1. Upload uses
-raw .ino.elf selection; capture uses its packaged sibling and the whole pinned
-263680B loader image. D176 collects two2592B snapshots from2632B/alignment8 BSS,
-with max24reads/593424B and full flash/relocation brackets. Capture only after
-strict upload success; retain failures and independently attempt closing checks.
-Retrieve/hash raw snapshots before the D174 offline decoder; never infer atomicity.
-
-No motor-capable operation is authorized. D160/D172/D173 and prior compile scopes
-are consumed. Do not reuse or repin old scopes, clone another launcher, or rebuild
-the unchanged diagnostic merely because a new session began. All previously
-policy-denied cleanup targets remain, including the2B Windows input.wire in
-C:/Users/narut/AppData/Local/Temp/sumox-offline-error-cyeoj212, both motor-fault stages and37
-historical stage folders listed in the stored cleanup manifest. No process is
-running. Physical/human gates, native startup/RAM/WCET and release remain pending.
+D184's diagnostic scope and local/remote owners are consumed. Preserve all original
+failures and historical pins. No motor-capable operation is authorized. Physical
+acceptance, live application RAM/stack/WCET and human gates remain pending.
+All previously policy-denied cleanup targets remain excluded, including the2B
+Windows input.wire folder, both motor-fault stages, build/stage/app and37 stored
+historical stage candidates. Use compact receipts and no firmware downloads.
 
 ## Last actual board state and evidence
 
-D160 is the last successful upload: sourcefcddbd8e/static/default/M0, run02, target
+D184 is the last successful upload: source8f592937 dynamic/default/M0 inert
+diagnostic, targetADB2629958581, boot55c386b9-fe6d-4388-a7f4-1d91e0bb49d8.
+Its four zero-output applications and terminal inhibition completed; no claim of
+physical outputs or full-app qualification. See the current validation above.
+
+Earlier D160 uploaded sourcefcddbd8e/static/default/M0, run02, target
 ADB2629958581, observed boot6d4aca1b-ac1f-4caf-b1ef-e127ce3956f6. All14 transport
 calls and final checks passed;18 passive reads matched complete loader/sketch
 flash. Both runtime observations were STOPPED at epoch3. D160 is consumed.

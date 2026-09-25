@@ -9,30 +9,23 @@ physical acceptance. Do not reset the project to P0.
    Check nested instructions, Git status, actual Asia/Dubai time and free space.
    Preserve uncommitted user work. PROGRESS has legacy non-UTF8 bytes: append
    without re-encoding its history. The handoff holds the exact current next task.
-2. Read current native evidence before any device action. D160 is the last
-   successful upload (static/default/M0); its runtime stopped at epoch3. D161's
-   passive diagnosis confirms invalid MotorGate application feedback but does
-   not identify the original failed callback. D172 compiled the active inert
-   diagnostic; D173 observed its file ABI; D174-D177 decoding/upload/capture/glue
-   are host-tested. Active diagnostic execution, native startup and WCET remain
-   unqualified. The user disconnected the board; do not assume current access.
-   D178 subsequently repaired offline capture failure reporting (13new+45existing
-   Python tests and separate review PASS); its evidence is in the handoff.
-   No device operation or firmware change occurred during that host continuation.
-   D179 then implemented the fixed caller offline; its44 independent tests and
-   review are recorded in the current handoff. No actual run scope or owner was
-   created. Fresh board admission remains the next native dependency.
-   D180 binds disabled setup declarations; D181 preserves compiler failures.
-   D182/D183 prepare the precompiled MATCH deployment route offline. Read the
-   handoff for its current test/review status; code or fixture scopes do not grant
-   human authorization or qualify an artifact. Never retry a consumed attempt.
+2. Read current native evidence before any device action. D184 is the last
+   upload: the isolated dynamic/default/M0 diagnostic completed four inhibited
+   applications and terminal halt. Its scope/owner are consumed; actual separate
+   review PASS. It did not reproduce or fix D160/D161's earlier static full-app
+   IO failure. Current app source37a2099f still needs checked target compilation;
+   next is the bounded fresh-stage compile-only composition in the handoff.
+   D180 binds disabled setup declarations; D181 preserves compiler failures;
+   D182/D183 prepare precompiled MATCH deployment. Their host evidence is not
+   artifact qualification or human motor permission. Native full-app startup,
+   RAM/stack/WCET and physical/human gates remain pending.
 3. All old native scopes are consumed. Never rerun a historical launcher, repin
    its consumed manifest, reset the MCU or infer that an old capture layout fits
    changed firmware. A new operation needs fresh source/artifact/identity binding
    and review using the existing bounded primitives. Preserve original failures.
 4. The user reconnected the board on25September after the offline checkpoint.
-   D184 freshly observed boot55c386b9-fe6d-4388-a7f4-1d91e0bb49d8 and prepared the
-   existing motor-disabled D179 diagnostic scope. Read the handoff and actual
+   D184 observed boot55c386b9-fe6d-4388-a7f4-1d91e0bb49d8 and completed the
+   existing motor-disabled D179 diagnostic once. Read the handoff and actual
    owner/results before acting; a prepared or consumed scope is never a retry.
    Recheck current connectivity/identity rather than assuming it from chat.
    No motor-capable upload/run has fresh STAND OK or RING OK. D051 engineering

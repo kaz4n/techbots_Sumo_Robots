@@ -1,10 +1,13 @@
 # Current execution checklist - 2026-09-25 Asia/Dubai
 
-**D184 connected resumption active.** Fresh read-only board admission and local
-command composition PASS; new scope prepared for the unchanged D179 inert run.
-Separate scope review/commit/check-only precede execution; no MCU operation yet.
+**D184 completed: TARGET-UPLOADED / HARDWARE-OBSERVED / REVIEWED.**
+One upload/capture,11transports0, all closing checks PASS. Identical snapshots:
+COMPLETE, four valid inhibited zero-output applications, confirmed terminal halt.
+Separate actual review PASS. Scope/owner consumed; original full-app fault remains
+unresolved. Next current-source main-app checked compile-only profiles, using fresh
+stages and existing bounded executor. No live job or motor-capable permission.
 Cleanup564a870d recovered6549294 reported allocated bytes; no new disposable files.
-See analysis/P7_motor_fault_run01_plan.md. Physical/human gates remain pending.
+See analysis/P7_motor_fault_run01_validation.md. Physical/human gates remain pending.
 
 **Offline scope audit complete after66672174.** No further eligible implementation
 identified by coordinator/separate reused reviewer. Stale P7 acceptance prose
@@ -64,7 +67,7 @@ as detailed in CODEX_HANDOFF.md. No physical or human gate has been passed.
 
 **Active: P7 software/release preparation.** PROGRESS.md is the append-only phase
 authority; preserve its legacy bytes. User asks for prompt commits and continued
-host software work while the UNOQ is disconnected. Actual physical acceptance/human gates remain
+software work and authorized inert board checks with the connected UNOQ. Physical/human gates remain
 pending; D051/D075/D122/D137 permit scheduling, not fabricated measurements.
 
 | Existing task | Software/evidence status | Remaining acceptance |
@@ -184,18 +187,20 @@ pending; D051/D075/D122/D137 permit scheduling, not fabricated measurements.
   46+16host methods PASS, separate reviewb1de6217. No actual native run.
 - [x] D178 original P7 log-preservation defect repaired;13new+45existing Python
   methods PASS, review7649fb58; synthetic storage failures, no hardware claim.
-- [ ] Fresh current board admission and minimal reviewed native caller using
-  existing transport and D177 interfaces before the identified inert run.
-  No rebuild or cloned launcher framework.
+- [x] D184 fresh board admission and unchanged reviewed D179 caller: actual
+  one-shot diagnostic completed, separate evidence review PASS. No rebuild.
+- [ ] Current app source37a2099f checked target compile-only profiles, fresh
+  stages/owners and current identity; preserve prior denied cleanup paths.
   Original D160 failing operation remains unknown; do not relax safety bounds.
 - [ ] Qualify native loading/startup, stack/heap/WCET and release workflow before
   adoption. Structural RAM tail94352B is not measured free memory.
 
 Preserve original D144 rejection, D139 dynamic592B deficit, old frozen contracts/
 validators/oracles and production admission. No upload/reset or firmware changes
-were made by D148. No current STAND/RING authorization. The last successful upload is now
-D160 static/default/M0 sourcefcddbd8e; both runtime samples showed no progress.
-This is not whole-robot qualification; neither D118 nor D160 may be reused.
+were made by D148. No current STAND/RING authorization. D184 is now the last
+successful upload: dynamic/default/M0 isolated diagnostic COMPLETE. Earlier D160
+static full-app samples made no progress; that fault remains unresolved. All
+consumed D118/D160/D184 scopes remain ineligible for reuse.
 
 Original P0-P5 physical/human packets, D121 B7/R6 conflict, native dump holder/
 quiescence/cancel/reopen requirements and SC-AP release workflow remain pending.

@@ -363,10 +363,13 @@ def build_startup(args):
     return args.startup or ('immediate' if args.match else 'default')
 
 
-def capture_app_command(board, command, receipt, name):
+def capture_app_command(board, command, receipt, name, *, command_runner=None):
+    if command_runner is not None and not callable(command_runner):
+        fail('command_runner must be callable')
+    runner = remote if command_runner is None else command_runner
     (receipt / (name + '.command.json')).write_text(json.dumps(command, indent=2) + '\n')
     try:
-        result = remote(board, command, capture=True)
+        result = runner(board, command, capture=True)
         if result.returncode != 0:
             raise subprocess.CalledProcessError(result.returncode, command,
                                                 result.stdout, result.stderr)
@@ -380,29 +383,41 @@ def capture_app_command(board, command, receipt, name):
     return result
 
 
-def app_preflight(policy, board, command, receipt, fqbn, flags, build_path, project='app.ino'):
+def app_preflight(policy, board, command, receipt, fqbn, flags, build_path, project='app.ino',
+                  *, command_runner=None):
+    if command_runner is not None and not callable(command_runner):
+        fail('command_runner must be callable')
+    runner_options = {} if command_runner is None else {'command_runner': command_runner}
     directories = {}
     for name in ('data', 'user'):
         result = capture_app_command(board, ['arduino-cli', 'config', 'get',
-                                     'directories.' + name, '--json'], receipt, name + '_directory')
+                                     'directories.' + name, '--json'], receipt,
+                                     name + '_directory', **runner_options)
         directories[name] = policy.resolved_directory(result.stdout)
-    override_reader = lambda target, args, **kwargs: capture_app_command(target, args, receipt, 'overrides')
+    override_reader = lambda target, args, **kwargs: capture_app_command(
+        target, args, receipt, 'overrides', **runner_options)
     policy.check_overrides(override_reader, board, directories['data'], directories['user'], command[-1])
-    pin_reader = lambda target, args, **kwargs: capture_app_command(target, args, receipt, 'precompile_pins')
+    pin_reader = lambda target, args, **kwargs: capture_app_command(
+        target, args, receipt, 'precompile_pins', **runner_options)
     policy.verify_hashes(pin_reader, board, policy.installed_pins(directories['data']))
     query = [*command[:-1], '--show-properties=expanded', command[-1]]
-    result = capture_app_command(board, query, receipt, 'properties')
+    result = capture_app_command(board, query, receipt, 'properties', **runner_options)
     options = {} if project == 'app.ino' else {'project': project}
     policy.validate_preflight(result.stdout, fqbn, flags, build_path, directories['data'], **options)
     return directories
 
 
-def compile_app(board, checksum, board_folder, remote_root, fqbn, flags, startup, project='app.ino'):
+def compile_app(board, checksum, board_folder, remote_root, fqbn, flags, startup, project='app.ino',
+                *, command_runner=None):
+    if command_runner is not None and not callable(command_runner):
+        fail('command_runner must be callable')
+    runner = remote if command_runner is None else command_runner
+    runner_options = {} if command_runner is None else {'command_runner': command_runner}
     spec = importlib.util.spec_from_file_location('sumo_app_policy', ROOT / 'tools/app_build_policy.py')
     policy = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(policy)
     policy.selected_project(project, fqbn, flags)
-    version = remote(board, ['arduino-cli', 'version'], capture=True)
+    version = runner(board, ['arduino-cli', 'version'], capture=True)
     policy.validate_cli(version.stdout)
     mode = ('match' if 'MATCH=1' in flags else 'bench') + '-' + startup
     run_id = uuid.uuid4().hex
@@ -418,10 +433,11 @@ def compile_app(board, checksum, board_folder, remote_root, fqbn, flags, startup
     receipt.mkdir(parents=True, exist_ok=False)
     (receipt / 'command.json').write_text(json.dumps(command, indent=2) + '\n')
     options = {} if project == 'app.ino' else {'project': project}
-    directories = app_preflight(policy, board, command, receipt, fqbn, flags, build_path, **options)
-    result = capture_app_command(board, command, receipt, 'compile')
+    directories = app_preflight(policy, board, command, receipt, fqbn, flags, build_path,
+                                **options, **runner_options)
+    result = capture_app_command(board, command, receipt, 'compile', **runner_options)
     properties = policy.validate_result(result.stdout, fqbn, flags, build_path, **options)
-    hashes = policy.verify_files(remote, board, properties, build_path, artifacts)
+    hashes = policy.verify_files(runner, board, properties, build_path, artifacts)
     report = dict(policy=policy.POLICY, source_sha256=checksum, fqbn=fqbn,
                   build_path=build_path, artifacts=artifacts, file_sha256=hashes,
                   compiler_returncode=result.returncode, used_libraries=[],

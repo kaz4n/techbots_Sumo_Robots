@@ -1,0 +1,120 @@
+{
+  "schema": "sumox26-d190-run02-transform-v1",
+  "status": "GENERATED_NOT_EXECUTED",
+  "contract": "state/analysis/P7_app_motor_fault_run02_contract.md",
+  "source_run_id": "app-motor-fault-21df6ae8-run01",
+  "destination_run_id": "app-motor-fault-21df6ae8-run02",
+  "validation": "Pinned baseline bytes and every replacement count checked; variants AST-parsed only; no source imports, tests or native execution.",
+  "files": [
+    {
+      "baseline": {
+        "path": "state/analysis/P7_app_motor_fault_run_raw/remote.py",
+        "bytes": 10518,
+        "sha256": "d796489fc812a509f5ef1edbcd487a4a3afe4adc76960a94ba9c1d3ec075e10a"
+      },
+      "destination": {
+        "path": "state/analysis/P7_app_motor_fault_run_raw/remote_run02.py",
+        "bytes": 10518,
+        "sha256": "a77fb7d458ceb88f939ce785250d7c49727c56db231a9688890bef808c0c9162"
+      },
+      "substitutions": [
+        {
+          "old": "RUN_ID = 'app-motor-fault-21df6ae8-run01'",
+          "new": "RUN_ID = 'app-motor-fault-21df6ae8-run02'",
+          "count": 1
+        }
+      ],
+      "syntax": "AST_PARSE_PASS"
+    },
+    {
+      "baseline": {
+        "path": "state/analysis/P7_app_motor_fault_run_raw/actions.py",
+        "bytes": 12069,
+        "sha256": "509b15a3e65fa0fee8b215dc55dbad14bf9770f7af30c314d7b2bfc25b83db62"
+      },
+      "destination": {
+        "path": "state/analysis/P7_app_motor_fault_run_raw/actions_run02.py",
+        "bytes": 12069,
+        "sha256": "4eeb19f1923b5058a3df69ecd196d5f331e9e9f51ca1193f6c7026ca837ee0fb"
+      },
+      "substitutions": [
+        {
+          "old": "RUN_ID = 'app-motor-fault-21df6ae8-run01'",
+          "new": "RUN_ID = 'app-motor-fault-21df6ae8-run02'",
+          "count": 1
+        },
+        {
+          "old": "d796489fc812a509f5ef1edbcd487a4a3afe4adc76960a94ba9c1d3ec075e10a",
+          "new": "a77fb7d458ceb88f939ce785250d7c49727c56db231a9688890bef808c0c9162",
+          "count": 1
+        }
+      ],
+      "syntax": "AST_PARSE_PASS"
+    },
+    {
+      "baseline": {
+        "path": "state/analysis/P7_app_motor_fault_run_raw/run.py",
+        "bytes": 24802,
+        "sha256": "d0f0e0d0d1cd1de38932eb84d75330cdeafe4986fd38bf28e42edc3b7f82b0f8"
+      },
+      "destination": {
+        "path": "state/analysis/P7_app_motor_fault_run_raw/run02.py",
+        "bytes": 24869,
+        "sha256": "0adabfc352a4bcefaf87728e08ab12c1c9c5d85271b3548544b6609095666615"
+      },
+      "substitutions": [
+        {
+          "old": "RUN_ID = 'app-motor-fault-21df6ae8-run01'",
+          "new": "RUN_ID = 'app-motor-fault-21df6ae8-run02'",
+          "count": 1
+        },
+        {
+          "old": "'inert_run01_scope.json'",
+          "new": "'inert_run02_scope.json'",
+          "count": 1
+        },
+        {
+          "old": "'native_inert_run01'",
+          "new": "'native_inert_run02'",
+          "count": 1
+        },
+        {
+          "old": "'preparation.json'",
+          "new": "'preparation_run02.json'",
+          "count": 2
+        },
+        {
+          "old": "'run.py'",
+          "new": "'run02.py'",
+          "count": 2
+        },
+        {
+          "old": "'actions.py'",
+          "new": "'actions_run02.py'",
+          "count": 3
+        },
+        {
+          "old": "'remote.py'",
+          "new": "'remote_run02.py'",
+          "count": 3
+        },
+        {
+          "old": "'state/analysis/P7_app_motor_fault_caller_contract.md'",
+          "new": "'state/analysis/P7_app_motor_fault_run02_contract.md'",
+          "count": 1
+        },
+        {
+          "old": "'state/reviews/P7_app_motor_fault_caller_review.md'",
+          "new": "'state/reviews/P7_app_motor_fault_run02_review.md'",
+          "count": 1
+        },
+        {
+          "old": "    'test_run.py', 'test_actions.py', 'test_remote.py')) + (",
+          "new": "    'test_run.py', 'test_actions.py', 'test_remote.py', 'test_run02.py')) + (",
+          "count": 1
+        }
+      ],
+      "syntax": "AST_PARSE_PASS"
+    }
+  ]
+}

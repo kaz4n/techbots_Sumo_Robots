@@ -1,0 +1,28 @@
+{
+  "time_utc": "2026-09-25T16:31:00.485609+00:00",
+  "operation": "read-only reconnect identity/process inspection",
+  "program": "import os,json,pathlib,pwd,platform,stat\np=pathlib.Path('/proc/637'); out={'uid':os.getuid(),'user':pwd.getpwuid(os.getuid()).pw_name,'boot_id':pathlib.Path('/proc/sys/kernel/random/boot_id').read_text().strip(),'release':platform.release(),'machine':platform.machine(),'scratch_exists':pathlib.Path('/tmp/remoteocd').exists()}\nif p.exists():\n out['pid637']={'comm':(p/'comm').read_text().strip(),'status':(p/'status').read_text(),'stat_uid':p.stat().st_uid}\n for name in ('fd','cwd'):\n  try: out['pid637'][name]=[x.name for x in (p/name).iterdir()] if name=='fd' else os.readlink(p/name)\n  except OSError as e: out['pid637'][name]={'type':type(e).__name__,'message':str(e)}\nout['native_processes']=[{'pid':x.name,'comm':(x/'comm').read_text().strip()} for x in pathlib.Path('/proc').iterdir() if x.name.isdigit() and (x/'comm').exists() and (x/'comm').read_text().strip() in ('arduino-cli','remoteocd','openocd','dfu-util')]\nprint(json.dumps(out))",
+  "results": [
+    {
+      "argv": [
+        "C:\\Users\\narut\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\adb\\32.0.0\\adb.exe",
+        "devices",
+        "-l"
+      ],
+      "returncode": 0,
+      "stdout": "List of devices attached\n2629958581             device transport_id:1\n\n",
+      "stderr": ""
+    },
+    {
+      "argv": [
+        "C:\\Users\\narut\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\adb\\32.0.0\\adb.exe",
+        "-s",
+        "2629958581",
+        "shell"
+      ],
+      "returncode": 0,
+      "stdout": "{\"uid\": 1000, \"user\": \"arduino\", \"boot_id\": \"55c386b9-fe6d-4388-a7f4-1d91e0bb49d8\", \"release\": \"6.16.7-g0dd6551ae96b\", \"machine\": \"aarch64\", \"scratch_exists\": true, \"pid637\": {\"comm\": \"adbd\", \"status\": \"Name:\\tadbd\\nUmask:\\t0000\\nState:\\tS (sleeping)\\nTgid:\\t637\\nNgid:\\t0\\nPid:\\t637\\nPPid:\\t1\\nTracerPid:\\t0\\nUid:\\t1000\\t1000\\t1000\\t1000\\nGid:\\t1000\\t1000\\t1000\\t1000\\nFDSize:\\t256\\nGroups:\\t4 20 27 29 44 100 101 102 103 987 991 995 1000 1001 \\nNStgid:\\t637\\nNSpid:\\t637\\nNSpgid:\\t637\\nNSsid:\\t637\\nKthread:\\t0\\nVmPeak:\\t  397516 kB\\nVmSize:\\t  396464 kB\\nVmLck:\\t       0 kB\\nVmPin:\\t       0 kB\\nVmHWM:\\t    8852 kB\\nVmRSS:\\t    8828 kB\\nRssAnon:\\t    1352 kB\\nRssFile:\\t    7476 kB\\nRssShmem:\\t       0 kB\\nVmData:\\t   52624 kB\\nVmStk:\\t     132 kB\\nVmExe:\\t     284 kB\\nVmLib:\\t   12824 kB\\nVmPTE:\\t     128 kB\\nVmSwap:\\t       0 kB\\nHugetlbPages:\\t       0 kB\\nCoreDumping:\\t0\\nTHP_enabled:\\t1\\nuntag_mask:\\t0xffffffffffffff\\nThreads:\\t7\\nSigQ:\\t0/15310\\nSigPnd:\\t0000000000000000\\nShdPnd:\\t0000000000000000\\nSigBlk:\\t0000000000000000\\nSigIgn:\\t0000000000001000\\nSigCgt:\\t0000000100000200\\nCapInh:\\t0000000000000000\\nCapPrm:\\t0000000000000000\\nCapEff:\\t0000000000000000\\nCapBnd:\\t000001ffffffffff\\nCapAmb:\\t0000000000000000\\nNoNewPrivs:\\t0\\nSeccomp:\\t0\\nSeccomp_filters:\\t0\\nSpeculation_Store_Bypass:\\tnot vulnerable\\nSpeculationIndirectBranch:\\tunknown\\nCpus_allowed:\\tf\\nCpus_allowed_list:\\t0-3\\nMems_allowed:\\t0001\\nMems_allowed_list:\\t0\\nvoluntary_ctxt_switches:\\t4694\\nnonvoluntary_ctxt_switches:\\t169\\n\", \"stat_uid\": 1000, \"fd\": {\"type\": \"PermissionError\", \"message\": \"[Errno 13] Permission denied: '/proc/637/fd'\"}, \"cwd\": {\"type\": \"PermissionError\", \"message\": \"[Errno 13] Permission denied: '/proc/637/cwd'\"}}, \"native_processes\": []}\n",
+      "stderr": ""
+    }
+  ]
+}

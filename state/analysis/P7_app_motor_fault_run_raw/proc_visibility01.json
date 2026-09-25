@@ -1,0 +1,14 @@
+{
+  "operation": "read-only privileged proc visibility check",
+  "time_utc": "2026-09-25T16:31:47.502165+00:00",
+  "argv": [
+    "C:/Users/narut/AppData/Local/Arduino15/packages/arduino/tools/adb/32.0.0/adb.exe",
+    "-s",
+    "2629958581",
+    "shell",
+    "sudo -n python3 -B -c 'import os,json; print(json.dumps({'\"'\"'uid'\"'\"':os.getuid(),'\"'\"'pid637_cwd'\"'\"':os.readlink('\"'\"'/proc/637/cwd'\"'\"'),'\"'\"'pid637_fds'\"'\"':{n:os.readlink('\"'\"'/proc/637/fd/'\"'\"'+n) for n in os.listdir('\"'\"'/proc/637/fd'\"'\"')}}))'"
+  ],
+  "returncode": 1,
+  "stdout": "",
+  "stderr": "sudo: a password is required\n"
+}

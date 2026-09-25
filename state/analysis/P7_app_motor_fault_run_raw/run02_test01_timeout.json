@@ -1,0 +1,20 @@
+{
+  "schema": "d190-run02-host-invocation-failure-v1",
+  "time_utc": "2026-09-25T16:33:41.295796+00:00",
+  "argv": [
+    "wsl",
+    "-d",
+    "Ubuntu",
+    "--",
+    "python3",
+    "-B",
+    "state/analysis/P7_app_motor_fault_run_raw/test_run02.py"
+  ],
+  "result": "SUBPROCESS_TIMEOUT_120_SECONDS",
+  "tests_completed": "UNOBSERVED",
+  "stdout": "UNOBSERVED (captured run did not return)",
+  "stderr": "UNOBSERVED (captured run did not return)",
+  "receipt_limitation": "Outer subprocess.run timeout raised before original result-file writer. Exact traceback retained in conversation; no assertion result is invented.",
+  "command_deviation": "Forgot frozen env TMPDIR=/dev/shm and PYTHONDONTWRITEBYTECODE=1 plus -v; -B present.",
+  "changed_pins": []
+}

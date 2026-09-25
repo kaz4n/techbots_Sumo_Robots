@@ -1297,3 +1297,6 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-25T19:59:56.229089+04:00 | P7 D189 native run01 | ADMISSION-FAILED beforeCLI; check0/execute1,9transports,uploaddispatch1/capture0,cleanclosing. /tmp/remoteocd exists; nofirmwareflash/reset/MCUread. Ownerconsumed, originalfailure preserved. Next narrowstalescratchinvestigation/freshreviewedscope. Evidence analysis/P7_app_motor_fault_run01_validation.md.
+
+
+2026-09-25T20:36:16.724862+04:00 | P7 D190/D191 resumed | Fresh ADB identity matches expected board/boot; original cleanup01 failure recovered: no deletion, /proc/637/fd PermissionError, adbd visibility remains denied. sudo-n read-only probe requires password. D190 first host invocation120s timed out without observable test result; command deviation and unchanged147pins retained, later read-only check found zero suite processes/scratch. Exact frozen-command rerun active; D191 minimal human-assisted cleanup preparation in progress. No flash/reset/MCUread/motor permission. Commit: pending bounded closure.

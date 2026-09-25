@@ -1,0 +1,16 @@
+{
+  "command": [
+    "wsl",
+    "-d",
+    "Ubuntu",
+    "--",
+    "python3",
+    "-B",
+    "tests/tooling/test_app_motor_fault.py"
+  ],
+  "started_utc": "2026-09-25T13:26:51.470062+00:00",
+  "elapsed_s": 109.154,
+  "exit_code": 0,
+  "stdout": "NORMAL [doctest] doctest version is \"2.4.12\"\n[doctest] run with \"--help\" for options\n===============================================================================\n[doctest] test cases:    14 |    14 passed | 0 failed | 0 skipped\n[doctest] assertions: 23885 | 23885 passed | 0 failed |\n[doctest] Status: SUCCESS!\nSANITIZED [doctest] doctest version is \"2.4.12\"\n[doctest] run with \"--help\" for options\n===============================================================================\n[doctest] test cases:    14 |    14 passed | 0 failed | 0 skipped\n[doctest] assertions: 23885 | 23885 passed | 0 failed |\n[doctest] Status: SUCCESS!\n",
+  "stderr": "test_01_normal_real_runtime_contract (__main__.AppMotorFaultTests.test_01_normal_real_runtime_contract) ... ok\ntest_02_sanitized_real_runtime_contract (__main__.AppMotorFaultTests.test_02_sanitized_real_runtime_contract) ... ok\ntest_03_unsafe_flags_refused_by_public_header (__main__.AppMotorFaultTests.test_03_unsafe_flags_refused_by_public_header) ... ok\ntest_04_default_and_explicit_sketch_binding (__main__.AppMotorFaultTests.test_04_default_and_explicit_sketch_binding) ... ok\ntest_05_invalid_probe_macro_is_rejected (__main__.AppMotorFaultTests.test_05_invalid_probe_macro_is_rejected) ... ok\n\n----------------------------------------------------------------------\nRan 5 tests in 97.291s\n\nOK\n"
+}

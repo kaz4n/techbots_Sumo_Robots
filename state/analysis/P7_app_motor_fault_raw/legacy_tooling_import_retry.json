@@ -1,0 +1,23 @@
+{
+  "command": [
+    "wsl",
+    "-d",
+    "Ubuntu",
+    "--",
+    "env",
+    "TMPDIR=/dev/shm",
+    "PYTHONPATH=tests/tooling",
+    "python3",
+    "-B",
+    "-m",
+    "unittest",
+    "test_app_build_policy.AppBuildCommandTests",
+    "-v"
+  ],
+  "started_utc": "2026-09-25T13:28:03.792085+00:00",
+  "elapsed_s": 36.232,
+  "exit_code": 0,
+  "reason": "Correct coordinator invocation: legacy class imports sibling test_tools, so tests/tooling must be on PYTHONPATH. No test/source edits. Rerun only11 import-error methods.",
+  "stdout": "",
+  "stderr": "test_D099_arbitrary_flag_or_policy_arguments_never_reach_compile (test_app_build_policy.AppBuildCommandTests.test_D099_arbitrary_flag_or_policy_arguments_never_reach_compile) ... ok\ntest_D099_bench_commands_keep_original_dependency_behavior (test_app_build_policy.AppBuildCommandTests.test_D099_bench_commands_keep_original_dependency_behavior) ... ok\ntest_D099_build_and_output_paths_are_fresh_and_outside_sketch (test_app_build_policy.AppBuildCommandTests.test_D099_build_and_output_paths_are_fresh_and_outside_sketch) ... ok\ntest_D099_changed_or_missing_dependency_and_artifact_evidence_fail (test_app_build_policy.AppBuildCommandTests.test_D099_changed_or_missing_dependency_and_artifact_evidence_fail) ... ok\ntest_D099_compiler_failure_retains_error_and_never_reports_success (test_app_build_policy.AppBuildCommandTests.test_D099_compiler_failure_retains_error_and_never_reports_success) ... ok\ntest_D099_default_immediate_match_use_exact_fixed_compile_properties (test_app_build_policy.AppBuildCommandTests.test_D099_default_immediate_match_use_exact_fixed_compile_properties) ... ok\ntest_D099_every_app_upload_is_rejected_before_transport_lookup (test_app_build_policy.AppBuildCommandTests.test_D099_every_app_upload_is_rejected_before_transport_lookup) ... ok\ntest_D099_nonzero_process_rejects_even_successful_json (test_app_build_policy.AppBuildCommandTests.test_D099_nonzero_process_rejects_even_successful_json) ... ok\ntest_D099_result_rejection_is_wired_into_real_public_compile_command (test_app_build_policy.AppBuildCommandTests.test_D099_result_rejection_is_wired_into_real_public_compile_command) ... ok\ntest_D099_success_checks_all_three_elfs_package_and_installed_pins (test_app_build_policy.AppBuildCommandTests.test_D099_success_checks_all_three_elfs_package_and_installed_pins) ... ok\ntest_D099_wrong_cli_identity_and_core_stop_before_compilation (test_app_build_policy.AppBuildCommandTests.test_D099_wrong_cli_identity_and_core_stop_before_compilation) ... ok\n\n----------------------------------------------------------------------\nRan 11 tests in 34.604s\n\nOK\n"
+}

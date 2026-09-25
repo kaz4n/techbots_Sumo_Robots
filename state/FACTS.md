@@ -754,3 +754,7 @@ DEVICE-OBSERVED compiler only: source37a2099f, build6d9e48f8b648469787bc8623ae05
 
 ## F193 - Current MATCH/Immediate target compilation (2026-09-25T17:03:54.198450+04:00)
 DEVICE-OBSERVED compiler only: source37a2099f, build1fcc7d57d66848cd9ea604297538e125, Immediate startup/MATCH1/MOTORS_ALLOWED1 as compile flags only. One query/compile,21transports, exit0/all7closing checks PASS; exact canonical source reused without push. Raw ELFcb5fbb53/package004d51bf equal D138, debug2245bacd differs. Same-loader model remains conditional261280B peak/864B span/860B largest payload,62imports resolved; no dynamic loading/live memory/WCET/physical/human qualification. Source: analysis/P7_current_app_compile_raw/match01_binding/comparison.json.
+
+
+## F194 - Inhibited full-app diagnostic host behavior (2026-09-25T17:32:14.102604+04:00)
+HOST-VERIFIED only. D186 source539bfbb0/corrected independent oracle80eb359b: normal and ASan/UBSan each14cases/23885assertions;5driver methodsPASS. New staging Linux/Windows passes with explicit platform skips and actual Windows junctions. Existing Trace/Gate normal+sanitized each18cases/2570assertions; legacy tooling final67PASS/1platformskip. Separate same-model source/evidence reviewc41c6be1 PASS, eight pins/protected files verified. Source: analysis/P7_app_motor_fault_validation.md, P7_app_motor_fault_raw/ and reviews/P7_app_motor_fault_final_review.md. No target qualification, D160/D161 cause/fix, physical/RAM/WCET or human gate inference.

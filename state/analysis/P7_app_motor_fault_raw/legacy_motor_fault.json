@@ -1,0 +1,18 @@
+{
+  "command": [
+    "wsl",
+    "-d",
+    "Ubuntu",
+    "--",
+    "env",
+    "TMPDIR=/dev/shm",
+    "python3",
+    "-B",
+    "tests/tooling/test_motor_fault.py"
+  ],
+  "started_utc": "2026-09-25T13:28:55.194980+00:00",
+  "elapsed_s": 52.745,
+  "exit_code": 0,
+  "stdout": "NORMAL [doctest] doctest version is \"2.4.12\"\n[doctest] run with \"--help\" for options\n===============================================================================\n[doctest] test cases:   18 |   18 passed | 0 failed | 0 skipped\n[doctest] assertions: 2570 | 2570 passed | 0 failed |\n[doctest] Status: SUCCESS!\nSANITIZED [doctest] doctest version is \"2.4.12\"\n[doctest] run with \"--help\" for options\n===============================================================================\n[doctest] test cases:   18 |   18 passed | 0 failed | 0 skipped\n[doctest] assertions: 2570 | 2570 passed | 0 failed |\n[doctest] Status: SUCCESS!\n",
+  "stderr": "test_01_normal_contract (__main__.MotorFaultTests.test_01_normal_contract) ... ok\ntest_02_sanitized_contract (__main__.MotorFaultTests.test_02_sanitized_contract) ... ok\ntest_03_motor_capable_flags_refused (__main__.MotorFaultTests.test_03_motor_capable_flags_refused) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 50.499s\n\nOK\n"
+}

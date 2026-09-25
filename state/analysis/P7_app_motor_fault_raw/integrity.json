@@ -1,0 +1,84 @@
+{
+  "time": "2026-09-25T13:30:45.021794+00:00",
+  "status": "PASS",
+  "current_pins": {
+    "tests/tooling/app_motor_fault_cases.cc": "588acb992844248e4d6002c8f2e4bf29983eb4f6bb3e2960ffbcf81a94ce90b8",
+    "tests/tooling/test_app_motor_fault.py": "76081996556a4d96864e6c6d444b48138790ab009ff25ac0feca46afed1e92c2",
+    "tests/tooling/test_app_motor_fault_staging.py": "706c98c70e5ad66b07f012435b54f23c0f0bd9b12cb28d3864733ff5299ab6b1",
+    "state/analysis/P7_app_motor_fault_contract.md": "8f85b8f555c2b048b98f877cb51a2895285a62c6b011728c91b6c22091a0fa69",
+    "bench/app_motor_fault/src/app_motor_fault.h": "63e66027a97adbf37939c9328a31e5a94dcc86eb76981028b281430fc67562dc",
+    "bench/app_motor_fault/src/app_motor_fault.cpp": "f8ed10e57034b44c041d35e09d956c6a89b8cce442fe0fbfb2f2b764e2ae256f",
+    "bench/app_motor_fault/app_motor_fault.ino": "90efbe4a23ec718899f99cc9ab6c389ed6ada2e531ff3052341c91a996d8c4b4",
+    "tools/board_tool.py": "770fd8180ce8b6f5d429e7dfd48b8aedfe965c6350126568d49e00abd1169700"
+  },
+  "unchanged_protected_diff_command": [
+    "git",
+    "diff",
+    "--name-status",
+    "0907a3a3",
+    "--",
+    "src",
+    "tests/locked",
+    "host",
+    "bench/motor_fault"
+  ],
+  "unchanged_protected_diff_stdout": "",
+  "progress_prefix_sha256": "1dbbeb53c3dc046128494af3bef240b9a00353929d6121991900c90bb2838b77",
+  "ram_command": [
+    "wsl",
+    "-d",
+    "Ubuntu",
+    "--",
+    "python3",
+    "-B",
+    "-c",
+    "import json,pathlib;print(json.dumps([str(p) for p in pathlib.Path('/dev/shm').iterdir() if p.name.startswith(('sumox-d186-','d170-fresh-','sumox_motor_fault'))]))"
+  ],
+  "ram_exit": 0,
+  "ram_remnants": [],
+  "windows_remnants": [],
+  "receipts": {
+    "legacy_motor_fault.json": {
+      "sha256": "dcaf599eb52effd2136dbb08081d458111d1f75ba996fd2916c323d2cbe57442",
+      "bytes": 1337,
+      "exit_code": 0
+    },
+    "legacy_tooling.json": {
+      "sha256": "bf0abc5d4e8457814195e2fea8746d9b71ff4d88c9cd170250efbce59a19c536",
+      "bytes": 19738,
+      "exit_code": 1
+    },
+    "legacy_tooling_import_retry.json": {
+      "sha256": "9052a785f837b08305f77c6fc3667132f6b7ce98a89aedf8976defc418d83044",
+      "bytes": 2676,
+      "exit_code": 0
+    },
+    "oracle_correction_freeze.json": {
+      "sha256": "4e882acf78c695bf353facb151e59b631b74b6de1e1b2b87cd44a9032782c463",
+      "bytes": 1089,
+      "exit_code": null
+    },
+    "runtime_corrected.json": {
+      "sha256": "7f30ea514f23522cf40fa4d880e748f45fc4c595f056de1c85f48366737155be",
+      "bytes": 1639,
+      "exit_code": 0
+    },
+    "runtime_first.json": {
+      "sha256": "34ed5316fe379ae03b1436ead1ba5e73852c120d85b408de57d6b77371e7b4a6",
+      "bytes": 5120,
+      "exit_code": 1
+    },
+    "staging_linux_first.json": {
+      "sha256": "67e84bec6c6c1f506003c1c2b503a7dbc3fb70eedae047649eaea6839c892fa7",
+      "bytes": 2321,
+      "exit_code": 0
+    },
+    "staging_windows_first.json": {
+      "sha256": "121e1f3a1c41194980c5765ea15d5467d746e1dc39efbc8823709bd673e4a8c1",
+      "bytes": 6741,
+      "exit_code": 0
+    }
+  },
+  "native_operations": 0,
+  "note": "Initial runtime failure and coordinator legacy import-path error preserved. Full22-target CTest remains historicalD162, not rerun/current claim."
+}

@@ -1,22 +1,24 @@
 # Current execution checklist - 2026-09-25 Asia/Dubai
 
-**Current checkpoint: D186 implemented; independent tests frozen, NOT EXECUTED.**
-Source539bfbb0 adds only the default-disabled full-app diagnostic bench and
-its exact shared Trace staging/generic-route refusal. Contract/header3b6bfef7;
-implementationb14c207a; initial review MAJOR repaired539bfbb0, re-review pending.
-Independent oracle c1f8d8f6 has14C++ cases/5runtime methods/10staging methods;
-only Python AST syntax parsing ran. Freeze hashes and independence limits:
-analysis/P7_app_motor_fault_oracle_freeze.json. Next: separate reviewer checks
-the reparse repair, then run serial RAM host tests and real Windows junction
-checks, preserve actual results, fix failures and complete scoped review.
-Do not claim HOST-TESTED or target-qualified. Native static build/artifact/layout
-binding follows that closure; no new board action or physical/human gate.
-Latest user requested storage cleanup: three redundant inactive updater installers
-removed,439500537B (419.14MiB), exact pending copies and metadata independently
-verified. See STORAGE_LOG.md. All prior denied paths remain untouched.
-No native/build process was started; D184 remains last uploaded image. Earlier
-checkpoint paragraphs below are historical; they do not supersede this next task.
-
+**D186 full-app diagnostic IMPLEMENTED / HOST-TESTED / REVIEWED.**
+Source539bfbb0; independent corrected oracle80eb359b; separate same-model final
+review c41c6be1 PASS/no open material findings. Current normal+ASan/UBSan each
+14cases/23885assertions; default/explicit entry and unsafe flags pass. Staging
+passes across Linux/Windows, including real junctions; skips are recorded.
+Unchanged Trace/Gate each18cases/2570assertions; legacy tooling final67PASS and
+one Windows-onlyskip. Initial source-review finding, first oracle mismatch and
+coordinator import-path error retained. Eight pins/protected sources/history exact.
+See analysis/P7_app_motor_fault_validation.md and reviews/P7_app_motor_fault_final_review.md.
+No target operation, original fault reproduction, live RAM/WCET or human gate.
+Next eligible task: fixed static/default/M0 diagnostic compile adapter, reusing
+existing bounded executor and D141/D147 checks; independently test exact metadata,
+project/flag substitution and seven-file alias mapping before native invocation.
+Keep historical helpers/scopes and dynamic/generic admission unchanged. New ABI,
+ET_EXEC/package/native initialization/capture binding remains required; no D149
+address or D1732592B decoder reuse. D184 is still the last uploaded image.
+Latest cleanup removed419.14MiB of verified duplicate installers; source/evidence
+preserved. Current tests left0owned RAM/Windows fixtures. All earlier denied
+paths remain untouched. Older paragraphs below are historical checkpoints.
 
 **D185 both current profiles TARGET-COMPILED; no firmware upload.**
 Bench/default build6d9e48f8 (reviewed34eb56ba) and MATCH/Immediate build1fcc7d57

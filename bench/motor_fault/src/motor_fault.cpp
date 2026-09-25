@@ -79,14 +79,14 @@ bool Trace::finish(bool result) {
 
 bool Trace::configureEnable(void* context) {
     auto& self = *static_cast<Trace*>(context);
-    self.start(Operation::CONFIG_ENABLE);
+    self.start(Operation::CONFIGURE_ENABLE);
     self.report_.current.invoked = true;
     return self.finish(self.native_.configureEnableLow(self.native_.context));
 }
 
 bool Trace::configurePwm(void* context, motors::Channel channel) {
     auto& self = *static_cast<Trace*>(context);
-    self.start(Operation::CONFIG_PWM, channel);
+    self.start(Operation::CONFIGURE_PWM, channel);
     self.report_.current.invoked = true;
     return self.finish(self.native_.configurePwm(self.native_.context, channel));
 }

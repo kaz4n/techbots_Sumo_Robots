@@ -12,12 +12,12 @@ namespace motor_fault {
 inline constexpr std::uint32_t TRACE_CAPACITY = 64U; // Fixed evidence ABI extent.
 inline constexpr std::uint32_t APPLY_SAMPLES = 4U; // Fixed receipt ABI extent.
 enum class Stage : std::uint8_t { SETUP, APPLY, HALT };
-enum class Operation : std::uint8_t { CONFIG_ENABLE, CONFIG_PWM, ENABLE, PWM, SETTLE };
+enum class Operation : std::uint8_t { CONFIGURE_ENABLE, CONFIGURE_PWM, ENABLE, PWM, SETTLE };
 enum class Phase : std::uint8_t { NOT_STARTED, DISABLED, RUNNING, COMPLETE, FAULT };
 enum class Failure : std::uint8_t { NONE, SETUP, CLOCK, APPLICATION, TRACE, HALT };
 struct Call {
     Stage stage = Stage::SETUP;
-    Operation operation = Operation::CONFIG_ENABLE;
+    Operation operation = Operation::CONFIGURE_ENABLE;
     motors::Channel channel = motors::Channel::LEFT_FORWARD;
     std::uint32_t application = 0U;
     bool requested_high = false;

@@ -1,6 +1,6 @@
 # D180 main-app setup binding validation
 
-25 September 2026, Asia/Dubai. IMPLEMENTED / HOST-TESTED; separate review pending.
+25 September 2026, Asia/Dubai. IMPLEMENTED / HOST-TESTED / REVIEWED.
 Board disconnected throughout. No target compile, upload, MCU query or motor run.
 
 The original-scope audit found that main app setup always passed literal empty
@@ -58,3 +58,11 @@ Next native work is fresh board admission and the already reviewed D179 inert
 diagnostic scope, followed by actual cause/acceptance work. No real scope/owner
 was created. No further offline omission was identified by the scoped audit;
 do not repeat passing suites or build new frameworks while hardware is absent.
+
+## Independent review
+
+Fresh-context same-model review: state/reviews/P7_setup_binding_review.md,
+SHA4e26ed277a39ed1a30a722b08d5a6b92fa7b5636a4cdc8e14c4ee44331fcf0fe.
+PASS, no open BLOCKER/MAJOR/MINOR in this bounded scope. The reviewer inspected
+source/tests/receipts and independently checked identities; did not rerun tests
+or operate hardware. This is not a cross-model review or human phase approval.

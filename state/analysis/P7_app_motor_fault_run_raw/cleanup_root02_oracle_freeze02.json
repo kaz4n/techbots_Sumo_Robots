@@ -1,0 +1,29 @@
+{
+  "schema": "d191-cleanup-root02-oracle-correction-freeze-v1",
+  "status": "FROZEN_BEFORE_CORRECTED_TEST_EXECUTION",
+  "time_utc": "2026-09-25T16:41:34.6583300Z",
+  "original_commit": "1aebef6e",
+  "original_oracle_sha256": "2edabde841cb8d2a30a6a1fa0066105f9a73e22bb2e3eb8110d0fe8c9d835464",
+  "corrected_oracle_path": "state/analysis/P7_app_motor_fault_run_raw/test_cleanup_root02.py",
+  "corrected_oracle_sha256": "225ef637e85dfe4ce1598e6744c781720b900905ea0c9c3bf0737d58b49e1559",
+  "corrected_oracle_bytes": 37221,
+  "source_sha256": "4192f23ea49705a0af691953e6aec3c1f9da66c7cc1897ca3f5d49fba9fc5388",
+  "first_result_sha256": "be1d41474cf537f2e37b53f363e1c01b88e0b8423e8ab869f018579c4307c0f6",
+  "cause": "FakeOS.stat/fstat returned live mutable namespaces, so the drift injection also changed the captured before snapshot. Real os.stat_result snapshots do not alias later filesystem state.",
+  "change": "Only the two fixture return statements now return fresh SimpleNamespace(**vars(record)); all37 methods and assertions retained; implementation unchanged.",
+  "adjudication": "Original independent author, root and separate reviewer agree fixture correction; original source/oracle/failure preserved in1aebef6e.",
+  "expected_methods": 37,
+  "command": [
+    "wsl",
+    "-d",
+    "Ubuntu",
+    "--",
+    "python3",
+    "-I",
+    "-B",
+    "state/analysis/P7_app_motor_fault_run_raw/test_cleanup_root02.py",
+    "-v"
+  ],
+  "tests_executed": 0,
+  "native_operations": 0
+}

@@ -364,3 +364,9 @@ confirmed. Compact verification: analysis/storage_check_20260925_followup.json.
 
 
 2026-09-25T19:55:20.943881+04:00 | D189 host workflow: all controlled tests used owned RAM fixtures and Python-B; observed zero remaining sumox-d189/sumox_d189 directories under /dev/shm after completion. No copied source tree, target binary download or toolchain install. Retain compact source/freeze/test/admission records for failure reproduction and native provenance. C: last observed610213888B free; no disk-space recovery claimed for this verification. No denied cleanup path retried.
+
+
+2026-09-25T20:45:19.208771+04:00 | D190/D191 compact retention | Keep originalfailure receipts/source inbc2ef67c/1aebef6e and corrected finalreceipts/review; no firmware/debugdownload/build/source snapshot. Targetstage50786logicalB (9592+7873+33321) remains needed for pending human command; no cleanup executed. First hosttimeout had zero observed remaining suite/tmp/RAMfixtures; final fixture cleanup checked at closure. C:free reached0B; selected prior/current evidence files alreadyNTFS-compressed, so no compression/deletion attempted.0B reclaimed; all denied paths/paging/history unchanged. Small ownedRAMcheckpoint retained only until local docs+commit saved.
+
+
+D191 closing observation: C:recovered290537472B independently before local document saves; no cleanup savings claimed.30160B owned /dev/shm checkpoint was written/readable on creation but absent at closing query; no deletion was attempted and no unique source/result was lost because local updates already saved. Current docs and Git are the durable handoff. Zero final test fixture remnants checked separately.

@@ -103,6 +103,21 @@ def inventory(raw):
     return sorted(result)
 
 
+@contextlib.contextmanager
+def private_aliases(aliases):
+    missing = object()
+    previous = {name: sys.modules.get(name, missing) for name in aliases}
+    sys.modules.update(aliases)
+    try:
+        yield
+    finally:
+        for name, value in previous.items():
+            if value is missing:
+                sys.modules.pop(name, None)
+            else:
+                sys.modules[name] = value
+
+
 def private_oracles():
     global _PRIVATE_ORACLES
     if _PRIVATE_ORACLES is not None:
@@ -127,7 +142,7 @@ def private_oracles():
             modules[filename] = module
             sys.modules[name] = module
             aliases = {Path(key).stem: value for key, value in modules.items() if key != filename}
-            with mock.patch.dict(sys.modules, aliases):
+            with private_aliases(aliases):
                 exec(compile(projected, str(HERE / filename), 'exec'), module.__dict__)
     _PRIVATE_ORACLES = modules
     return modules
@@ -146,6 +161,7 @@ class Run02MetadataContract(unittest.TestCase):
             total += count
         self.assertEqual(total, 59)
         remote, actions, caller = (modules[name] for name in ORACLE_PINS)
+        self.assertIs(actions.pwd, sys.modules['pwd'])
         self.assertEqual(remote.RUN, NEW_RUN)
         self.assertIs(actions.remote_oracle, remote)
         self.assertIs(caller.remote_oracle, remote)

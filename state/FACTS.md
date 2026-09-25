@@ -786,3 +786,7 @@ HOST-VERIFIED only: remoted796489f/freshcontext spec-only oracle44f7651b,26WSLme
 
 ## F201 - D189 inhibited upload admission refusal (2026-09-25T19:59:56.229089+04:00)
 DEVICE-FILES-OBSERVED:31170b08 localcheck0/execute1; adapter staged, uploader rejects/tmp/remoteocd before remoteclaim/nativeCLI. Capture0; no newfirmwareflash/reset/MCUread. Readonlyentry01 observes UID1000plain3file directory withD184package b4416792/loader39d4a4fd/config38706cee, no recognizednativeprocess. This is not runtime/fault-resolution evidence. Originalownerconsumed. Source: analysis/P7_app_motor_fault_run01_validation.md and run_raw/native_inert_run01/.
+
+
+## F202 - Connected D190/D191 software validation (2026-09-25T20:45:19.208771+04:00)
+HOST-VERIFIED:62run02+37human-cleanup wrapper methodsPASS/no skips; new-fixture corrections independently reviewed, originalfailures preserved. DEVICE-FILES-OBSERVED: expectedboot/UID, same-UID adbd procvisibility denial and sudo-n password requirement;3exactsourcefiles staged/verified, not executed. No new firmware upload/reset/MCUread, cleanup success, fault resolution or gate. Source: analysis/P7_d190_d191_validation.md and reviews/P7_d190_d191_final_review.md.

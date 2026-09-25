@@ -148,12 +148,12 @@ class FakeOS:
 
     def fstat(self, fd):
         self.op('fstat', (self.handles[fd],))
-        return self.records[self.handles[fd]]
+        return types.SimpleNamespace(**vars(self.records[self.handles[fd]]))
 
     def stat(self, path, *, dir_fd=None, follow_symlinks=True):
         if follow_symlinks:
             raise AssertionError('Named source stat must not follow links')
-        return self.records[self.path(path, dir_fd)]
+        return types.SimpleNamespace(**vars(self.records[self.path(path, dir_fd)]))
 
     def read(self, fd, count):
         self.op('read', (self.handles[fd],))

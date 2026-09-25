@@ -1,5 +1,28 @@
 # Codex handoff - 25 September 2026, Asia/Dubai
 
+**Current checkpoint: D190 host checks PASS; D191 human cleanup pending.**
+Fresh connected board2629958581 has expected boot55c386b9-fe6d-4388-a7f4-1d91e0bb49d8.
+D190 corrected driver83065c7c passes62/62 with147pins stable; D191 cleanup
+source4192f23e/oracle225ef637 passes37/37. Separate fresh-context same-model
+source/host/staging review PASS: reviews/P7_d190_d191_final_review.md.
+Original timeout, fixture failures and cleanup01 permission refusal preserved.
+
+Three source files are staged and hash/owner/inode verified at
+/home/arduino/sumox26_codex_build/cleanup-app-inert-root02. The human has been
+asked to run the sudo-I-B command in analysis/P7_d190_d191_validation.md and
+reply CLEANUP DONE. Agent cannot authenticate sudo; no privileged cleanup has
+run. Do not poll/retry consumed launchers or assume scratch is gone.
+
+After reply, retrieve/validate the saved result and fresh identity/absence. Only
+success allows actual fresh run02 preparation/scope/review/check-only followed
+by one M0 diagnostic upload/capture. No scope/owner/native run02 exists yet.
+D184haltedM0 remains last successful firmware. No new upload/reset/MCUread,
+physical/RAM/WCET/human-gate result or motor-run permission.
+C:reached0B during closure; no disposable evidence/denied-path cleanup performed.
+Check storage and local checkpoint status before continuation.
+
+## Previous checkpoint (superseded next action)
+
 **Current checkpoint: D189 run01 stopped before uploader execution.**
 31170b08 check-only0/execute1; nine transports completed and adapter staged,
 but uploader admission refused existing /tmp/remoteocd before remoteclaim/CLI.

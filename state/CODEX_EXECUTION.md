@@ -306,3 +306,11 @@ exclude every prior denied path. Exact capture next-step is in CODEX_HANDOFF.md.
 
 D176 storage:0RAMremnants/126287872B C:free observed; no new diskcleanup claimed.
 Recheck space before work and preserve all earlier blocked cleanup exclusions.
+
+
+- [x] D190 fixed run02 metadata workflow:62host methodsPASS, original failures
+  preserved; independent reviewPASS. No actual run02 scope/owner exists.
+- [x] D191 human-assisted exact scratch-cleanup preparation:37host methodsPASS,
+  source/host/staging independently reviewed. Three exact files staged only.
+- [ ] Human sudo command, saved-result validation, then fresh run02 scope/review
+  and one inhibited native upload/capture. See analysis/P7_d190_d191_validation.md.

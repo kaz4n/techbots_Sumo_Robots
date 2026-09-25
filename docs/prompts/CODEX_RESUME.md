@@ -9,34 +9,30 @@ physical acceptance. Do not reset the project to P0.
    Check nested instructions, Git status, actual Asia/Dubai time and free space.
    Preserve uncommitted user work. PROGRESS has legacy non-UTF8 bytes: append
    without re-encoding its history. The handoff holds the exact current next task.
-2. Read current native evidence. D184 remains the last upload: an isolated
-   dynamic/default/M0 diagnostic completed four inhibited applications and halt.
-   Its scope is consumed; it did not reproduce or fix D160/D161 static full-app
-   IO failure. D185 current app source37a2099f is now checked target-compiled for
-   bench/default (6d9e48f8) and MATCH/Immediate (1fcc7d57); all closing checks PASS.
-   Both compile owners are consumed. Raw/package bytes equal D139/D138, debug
-   differs: retain existing model deficit/margin limits, no new ABI/live RAM or
-   WCET inference. D186-D188's full-app inhibited trace, static adapter and fixed
-   compile-only caller are now HOST-TESTED / REVIEWED at4b87582c. They have no
-   actual native manifest or target compilation. After hardware work resumes,
-   freshly observe identity/tool pins, prepare/review the new manifest and use
-   the existing caller as directed by the handoff; do not create another wrapper
-   framework or reuse D149 addresses/D173 capture decoding. D180 grants
-   remain disabled; D182/D183 deployment source does not confer run permission.
-   Physical setup, RAM/stack/WCET, explainability and human gates remain pending.
+2. Read the current handoff before selecting a native task. D184 remains the last
+   successful firmware upload (halted isolated M0 diagnostic). D188 static full-app
+   diagnostic was target-compiled and its ABI/entry files audited. D189 run01
+   rejected old /tmp/remoteocd before uploader CLI; consumed, no new firmware.
+   D190 fresh run02 variants now pass62host methods; D191 human-assisted cleanup
+   passes37host methods and its three files are staged/hash-verified. The human
+   sudo command is pending because protected adbd handles require authentication.
+   Read analysis/P7_d190_d191_validation.md and its final review. After the human
+   replies CLEANUP DONE, validate the saved result and fresh identity/absence
+   before preparing/reviewing actual run02 inputs and using its existing caller.
+   No automatic cleanup retry or old owner reuse. Original full-app fault,
+   physical setup, RAM/stack/WCET and human gates remain pending.
 3. All old native scopes are consumed. Never rerun a historical launcher, repin
    its consumed manifest, reset the MCU or infer that an old capture layout fits
    changed firmware. A new operation needs fresh source/artifact/identity binding
    and review using the existing bounded primitives. Preserve original failures.
-4. The current user objective defers hardware work until the end; do not query
-   the board during offline continuation. The earlier25September connection and
-   D184 boot55c386b9-fe6d-4388-a7f4-1d91e0bb49d8 are historical observations.
-   Read the handoff and actual owner/results before acting when hardware work
-   resumes; a prepared or consumed scope is never a retry. Recheck connectivity/
-   identity then rather than assuming the old connection or boot remains current.
-   No motor-capable upload/run has fresh STAND OK or RING OK. D051 engineering
-   delegation permits documented software choices; it does not create measured
-   acceptance, PINMAP/EXPLAINED approval or human GATE Pn PASS.
+4. The latest user explicitly reconnected the board and requested continuation,
+   superseding older offline-only paragraphs. Connection/boot must still be
+   observed for each distinct native scope. D191 staged files are preparation,
+   not cleanup success or firmware execution. Do not request the sudo password
+   in chat; the human enters it in the board terminal for the exact reviewed
+   command. No motor-capable upload/run has fresh STAND OK or RING OK. D051
+   engineering delegation does not create measurements, PINMAP/EXPLAINED approval
+   or human GATE Pn PASS. Retain the specific next action in the current handoff.
 5. Storage is constrained: recheck before large work. Read state/STORAGE_LOG.md.
    Use Python-B, small owned RAM fixtures and serial builds; retain compact
    results/source hashes. Remove only verified disposable outputs when permitted.

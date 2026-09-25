@@ -1,0 +1,17 @@
+{
+  "time": "2026-09-25T17:26:33.135270+04:00",
+  "status": "CORRECTED_NEW_ORACLE_FROZEN_NOT_RERUN",
+  "original_oracle_commit": "c1f8d8f6",
+  "first_receipt_sha256": "34ed5316fe379ae03b1436ead1ba5e73852c120d85b408de57d6b77371e7b4a6",
+  "new_case_sha256": "588acb992844248e4d6002c8f2e4bf29983eb4f6bb3e2960ffbcf81a94ce90b8",
+  "unchanged_prior_pins": {
+    "tests/tooling/test_app_motor_fault.py": true,
+    "tests/tooling/test_app_motor_fault_staging.py": true,
+    "state/analysis/P7_app_motor_fault_contract.md": true,
+    "bench/app_motor_fault/src/app_motor_fault.h": true,
+    "bench/app_motor_fault/src/app_motor_fault.cpp": true,
+    "bench/app_motor_fault/app_motor_fault.ino": true,
+    "tools/board_tool.py": true
+  },
+  "adjudication": "Independent author and separate reviewer agree D095 invalidates prior applied receipt while decision_made remains true; D186 priority3 APPLICATION_INVALID precedes priority4 RUNTIME_TERMINAL. Only new stalled-clock reason corrected; explicit receipt assertions added; no implementation or established/locked test change."
+}

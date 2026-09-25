@@ -347,7 +347,11 @@ TEST_CASE("B14 D186 finitely stalled equal clock freezes without a second real e
     Rig r; REQUIRE(r.owner.begin({true})); r.next();
     for (std::uint32_t i = 0U; i < config::APP_CLOCK_STALL_MAX_POLLS + 1U && r.owner.active(); ++i)
         r.owner.poll();
-    terminal(r, Reason::RUNTIME_TERMINAL);
+    // D095 preserves the decision but invalidates its application on terminal halt.
+    // D186 checks that invalid receipt before the Runtime terminal-state reason.
+    terminal(r, Reason::APPLICATION_INVALID);
+    CHECK(r.owner.report().before_abort.transaction.decision_made);
+    CHECK_FALSE(r.owner.report().before_abort.transaction.applied.feedback.applied_valid);
     CHECK(r.owner.report().before_abort.runtime.fault == app::RuntimeFault::CLOCK);
     CHECK(r.owner.report().before_abort.runtime.epochs == 1U);
     CHECK(r.owner.report().before_abort.transaction.robot.token == 1U); allLow(r);

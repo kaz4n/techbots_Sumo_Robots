@@ -2187,3 +2187,9 @@ D-193 host outcome 2026-09-26T01:18:25.052911+04:00:94Linux/75Windowschecks pass
 
 
 D-193 actual outcome 2026-09-26T01:31:58.826012+04:00: one fixed compile-only attempt succeeded atb5f589c5, result24d12778/artifacts5ceba77d; all8closingchecksPASS and128sourcepinsunchanged. Ownerconsumed. No production adoption, upload/runtime claim or change to historical IO fault; next separate D194 file-only ABI/entry evidence before newfinitecapture.
+
+
+## D-194 (2026-09-26T01:33:29.470097+04:00, observed application file-only ABI projection)
+Context: D193 produced checked static source3a08ddeb ELF2fd70da8/debug33e3b34d; D192 adds Report.polls and needs actual new layout before any finite capture.
+Decision: under D051 adopt analysis/P7_app_motor_observe_abi_contract.md SHA889d6a76. One new wrapper privately projects exact unchanged D188 reader bytes, reuses only pinned normalizer definitions and D193 projected caller, strengthens pre-read descriptor checks, observes polls through member expressions, and keeps raw readelf unchanged while interpreting decimal/0x size privately. Independent frozen contract-derived tests and separate review precede actual admission.
+Consequence: retain all old owners/pins/readers, four file-only children/deadlines,128MiB localgate and closingchecks. No compile/upload/reset/MCUaccess, guessedpadding/address, firmware change, motor permission or physical/human gate. Current localspace belowgate permits only small hostpreparation until independently resolved; do not retry earlier denied cleanup paths.

@@ -173,11 +173,14 @@ for Linux. Linux builds/flashes and later stores/plots logs. No radio, Bridge or
 serial motion-command path exists. A later MATCH dump is permitted only in IDLE
 and must be bounded and startup-ready; it cannot enter the control dependency.
 
-`src/app/app.ino` currently supplies an inert compile/link entry for P1 task1.5:
-one default BOOT Robot call in setup, a volatile RAM check and an empty loop. A
-compile-time guard rejects motor-enabled builds. It is not the P2 scheduler or
-HAL. Tooling rejects app uploads. Actual inert app target compilation and host
-results must be reported separately from uploads and physical tests.
+The historical P1 entry was a single inert BOOT call. D096/D101 replaced it with
+the actual Runtime sensor/decision/MotorGate/recorder pipeline. D180 connects the
+main entry through `app::configuredSetupGrants()`: it copies explicit declarations
+from `config.h` into the existing one-shot Runtime setup. Every checked-in grant
+remains disabled and mounting remains unconfigured; a build flag cannot confirm
+hardware. Existing consumers still validate mounting, source and service ownership.
+Target compilation of the D180 entry and actual native/physical acceptance remain
+pending; see [the binding contract](../state/analysis/P7_setup_binding_contract.md).
 
 ## Sixty-second explanation
 
@@ -186,9 +189,9 @@ It observes the accepted release, independently holds inhibition for the full
 configured countdown, consumes each fresh Robot token once, and returns actual
 acknowledged PWM-cycle settings. Port failures latch inhibition and invalid
 receipts. Host tests exercise the real boundary with traced callbacks in both
-disabled and active configurations. There is no installed UNO Q pin backend:
-checked routing, timer-update settling, electrical acceptance and complete tick
-timing remain pending. The application entry above remains inert.
+disabled and active configurations. The later UNO Q backend is implemented;
+native callback qualification, electrical acceptance and complete tick timing
+remain pending. The application grants above still default to disabled.
 
 "The microcontroller gets one fresh sensor snapshot and runs the same C++ Robot
 that we test on the laptop. START must be released and debounced before the full

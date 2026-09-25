@@ -13,8 +13,10 @@ rehearsal is Friday 2 October. All times below are Asia/Dubai.
 
 ## Release prerequisites — currently open
 
-The checked-in app starts with empty hardware grants, and button windows remain
-unconfigured. It cannot provide this operator workflow as shipped. D138 defines
+The checked-in app maps explicit `config.h` declarations into its setup grants;
+all remain disabled, with mounting and button windows unconfigured. D180 prepares
+that mapping without enabling any hardware. It cannot provide this operator
+workflow as shipped. D138 defines
 a blinking **R** and an exact battery-threshold pixel for qualified IDLE samples;
 their software validation is recorded in the [readiness packet](../state/analysis/P7_readiness_validation.md).
 The native matrix's startup/ownership and physical visibility remain unqualified.

@@ -1,5 +1,11 @@
 # Current execution checklist - 2026-09-25 Asia/Dubai
 
+**D180 main-app setup binding IMPLEMENTED, validation in progress.**
+Fresh audit identified config-to-SetupGrants gap; contract e4aea29c/source70b9cea5.
+All declarations remain0/unconfigured. Freeze/run independent mapping and actual
+entry fixtures plus relevant legacy checks; then finish separate review. Main-app
+target compilation is pending; D172 diagnostic and D179 pins stay unchanged.
+
 **D179 fixed inert caller HOST-TESTED / REVIEWED; board disconnected.**
 Unchanged source d8418fad/8b47b1d6;44 independent methods PASS after two new fixture
 corrections6e3d69c8; original results retained.24pins exact,0native/0RAMremnants;

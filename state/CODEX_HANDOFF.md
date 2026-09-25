@@ -1,6 +1,15 @@
 # Codex handoff - 25 September 2026, Asia/Dubai
 
-**Active: P7 software/release preparation. D179 fixed caller REVIEWED.**
+**Active: P7 software/release preparation. D180 setup binding IN PROGRESS.**
+Fresh bounded source audit found an eligible main-app configuration gap after
+D179. Contract e4aea29c and implementation70b9cea5 add a pure constexpr
+config-to-SetupGrants mapping; all checked-in declarations remainfalse/zero.
+Independent spec-only tests are being authored and separate source review is
+provisionally clear. No new code has been executed yet. Resume frozen host tests,
+relevant legacy checks and final review before closing this task. Target compilation
+of the changed main app remains pending; old target receipts are historical.
+
+**D179 fixed caller REVIEWED.**
 Board disconnected. Source d8418fad/8b47b1d6, independent corrected44-method
 oracle6e3d69c8/2260d0bc all PASS;24pins exact,0RAM scratch. Original42PASS/1FAIL/
 1ERROR and independent fixture adjudication retained; source unchanged after
@@ -52,9 +61,11 @@ No process is running. Previous source/failure/recipe/review evidence is retaine
 
 ## Exact next task
 
-The fixed D179 caller and D177 command/receipt/sequence interfaces are implemented
-and host-tested. No further original-scope offline omission was identified; do
-not invent new frameworks or repeat unchanged suites while hardware is absent.
+Finish D180 under analysis/P7_setup_binding_contract.md: freeze independent
+tests/tooling/test_configured_setup.py, run serial small RAM C++17/entry fixtures
+and unchanged relevant tooling/registry assertions, record failures/results and
+complete separate review. No grant enablement or native/target action.
+The fixed D179 caller and D177 command/receipt/sequence interfaces remain reviewed.
 No real inert_run01_scope.json or native_inert_run01 exists in this checkout.
 Preserve that absence until fresh native admission and review.
 

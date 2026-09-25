@@ -6,7 +6,8 @@ flash images matched before/after. Both runtime samples were STOPPED, epochs3,
 initialization_complete0, with no observed progress. All14 transport and final
 checks passed. Scope consumed; no extra upload/reset/read follows automatically.
 Read analysis/P7_static_startup_run02_actual_validation.md and its raw receipts.
-Source fault-path diagnosis and separate actual review are in progress.
+Separate actual review974b4526 passes evidence collection; running qualification remains NOT MET.
+Source fault-path diagnosis needs the separately scoped nested fault observation.
 
 **Active phase: P7 software/release preparation.** D138 informational READY and
 battery-threshold software is implemented, host-tested and target-compiled.

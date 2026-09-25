@@ -1144,3 +1144,5 @@ physical/loadedRAM/gate claim. | contract=this commit
 2026-09-25T04:37:49.562285+04:00 | P7 | D158 explicit separate ownership | IMPLEMENTED/HOST-TESTED:227 aggregate methods PASS; original negatives retained; scoped reviewbda4208e PASS; sixforms/zero native dispatch. D159 temporary fragment already removed separately. | bcf623dc/1854bb8e; repair closure in this commit
 
 2026-09-25T04:44:51.069949+04:00 | P7 | D160 run02 actual inert upload/passive capture | TARGET-UPLOADED/HARDWARE-OBSERVED:14 transportcalls PASS,18reads/fullflashbrackets match; NO_RUNNING_PROGRESS, epochs3 STOPPED/initfalse in bothsamples. Running/WCET/physical gates not qualified; scope consumed. | reviewedscopee852e2a5; actual evidence in this commit
+
+2026-09-25T04:58:02.214143+04:00 | P7 | D160 actual scoped review | Collection PASS; running qualification NOT MET; nested fault diagnosis next; no native action | actual evidence af676641; review closure this commit

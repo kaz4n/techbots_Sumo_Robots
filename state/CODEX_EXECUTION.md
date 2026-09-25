@@ -1,5 +1,14 @@
 # Current execution checklist - 2026-09-25 Asia/Dubai
 
+Connected resume 2026-09-25T19:00:10+04:00: the user has reconnected the UNO Q and requested
+continuation. Fresh ADB admission observes the expected board/tool pins and
+14,004,682,752B target free. Actual D188 manifest d4eae97c now binds127current
+files/source21df6ae8 to the freshly observed boot (same value as historical
+D185). Scope review/clean-head check and one compile-only attempt are next;
+no upload/reset or motor-run permission is supplied. Earlier deferral/blocker
+paragraphs below describe the superseded disconnected checkpoint.
+
+
 Current original-scope audit is in
 [P7_remaining_scope_audit.md](analysis/P7_remaining_scope_audit.md).
 D184/D185 native evidence and D186-D188 host preparation are complete within

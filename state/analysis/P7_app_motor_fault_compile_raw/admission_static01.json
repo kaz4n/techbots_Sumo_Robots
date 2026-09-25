@@ -1,0 +1,15 @@
+{
+  "time": "2026-09-25T18:59:00.478649+04:00",
+  "command": [
+    "C:\\Users\\narut\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\adb\\32.0.0\\adb.exe",
+    "-s",
+    "2629958581",
+    "shell",
+    "-T",
+    "/usr/bin/python3 -B -c 'import os,json,hashlib,pwd,shutil\nfrom pathlib import Path\npaths={\"cli\":\"/usr/bin/arduino-cli\",\"boards\":\"/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/boards.txt\",\"platform\":\"/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/platform.txt\"}\nfiles={}\nfor name,value in paths.items():\n p=Path(value);s=p.stat();h=hashlib.sha256()\n if s.st_size>134217728:raise ValueError(\"Oversize installed input\")\n with p.open(\"rb\") as f:\n  for chunk in iter(lambda:f.read(65536),b\"\"):h.update(chunk)\n a=p.stat()\n if (s.st_dev,s.st_ino,s.st_size,s.st_mtime_ns)!=(a.st_dev,a.st_ino,a.st_size,a.st_mtime_ns):raise ValueError(\"Input drift\")\n files[name]={\"path\":value,\"bytes\":s.st_size,\"sha256\":h.hexdigest()}\nprint(json.dumps({\"uid\":os.getuid(),\"user\":pwd.getpwuid(os.getuid()).pw_name,\"boot_id\":Path(\"/proc/sys/kernel/random/boot_id\").read_text().strip(),\"free_bytes\":shutil.disk_usage(\"/home/arduino\").free,\"remote_owner_exists\":os.path.lexists(\"/home/arduino/sumox26_codex_build/app-motor-fault-static01\"),\"files\":files}))\n'"
+  ],
+  "returncode": 0,
+  "stdout": "{\"uid\": 1000, \"user\": \"arduino\", \"boot_id\": \"55c386b9-fe6d-4388-a7f4-1d91e0bb49d8\", \"free_bytes\": 14004682752, \"remote_owner_exists\": false, \"files\": {\"cli\": {\"path\": \"/usr/bin/arduino-cli\", \"bytes\": 34651734, \"sha256\": \"b878632298958d61fd1eb19e70ac5d2e803d83db8930bc72dc6915eee6e8f433\"}, \"boards\": {\"path\": \"/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/boards.txt\", \"bytes\": 6101, \"sha256\": \"bd4f03904d8fe16bf845baf09d0435e79f5a46c6e6a4f445f3ee592994652b84\"}, \"platform\": {\"path\": \"/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/platform.txt\", \"bytes\": 20947, \"sha256\": \"d4c824fceb2f4cf0057da4df3235d3aee195bbbd71f59a48d344c818fcd5e638\"}}}\n",
+  "stderr": "",
+  "scope": "Fresh read-only Linux identity/tool/source/owner observation; no CLI execution, compiler, upload, reset or MCU read"
+}

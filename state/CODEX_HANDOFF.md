@@ -1,5 +1,14 @@
 # Codex handoff - 25 September 2026, Asia/Dubai
 
+Connected resume 2026-09-25T19:00:10+04:00: the user has reconnected the UNO Q and requested
+continuation. Fresh ADB admission observes the expected board/tool pins and
+14,004,682,752B target free. Actual D188 manifest d4eae97c now binds127current
+files/source21df6ae8 to the freshly observed boot (same value as historical
+D185). Scope review/clean-head check and one compile-only attempt are next;
+no upload/reset or motor-run permission is supplied. Earlier deferral/blocker
+paragraphs below describe the superseded disconnected checkpoint.
+
+
 Blocking dependency confirmed 2026-09-25T18:36:07+04:00: after three consecutive goal-turn
 checks, no further eligible offline task or live job exists. The next action
 requires the deferred board work below; full project completion is unproven.

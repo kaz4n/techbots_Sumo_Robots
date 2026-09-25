@@ -8,6 +8,7 @@ import importlib.util
 import inspect
 import json
 from pathlib import Path
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -48,6 +49,17 @@ class Compile02Tests(unittest.TestCase):
         for name, value in paths.items():
             if isinstance(getattr(self.caller, name), str):
                 value = str(value)
+            patcher = mock.patch.object(self.caller, name, value)
+            patcher.start()
+            self.addCleanup(patcher.stop)
+        # Opaque pinned helper and inert bytes satisfy fixture identity reads only.
+        support = Path(self.caller.SUPPORT)
+        destination = self.root / support
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(RAW.parents[2] / support, destination)
+        adb = self.root / 'fixture-adb'
+        adb.write_bytes(b'Harmless test bytes; subprocess dispatch is substituted.\n')
+        for name, value in (('ADB', str(adb)), ('ADB_SHA', hashlib.sha256(adb.read_bytes()).hexdigest())):
             patcher = mock.patch.object(self.caller, name, value)
             patcher.start()
             self.addCleanup(patcher.stop)
@@ -206,6 +218,142 @@ class Compile02Tests(unittest.TestCase):
                 instance.run()
         self.native.assert_not_called()
         self.assert_globals_unchanged()
+
+    def test_stage_pushes_each_mapped_source_into_the_selected_remote_sketch(self):
+        sources = {'bench/motor_fault/motor_fault.ino': b'// fixture sketch\n',
+                   'bench/motor_fault/src/motor_fault.h': b'// fixture diagnostic\n',
+                   'src/config.h': b'// fixture config\n', 'src/core/fsm.h': b'// fixture core\n',
+                   'src/hal/motors.h': b'// fixture HAL\n'}
+        manifest = {name: hashlib.sha256(data).hexdigest() for name, data in sources.items()}
+        staged = {name.removeprefix('bench/motor_fault/'): data for name, data in sources.items()}
+        for name, data in sources.items():
+            path = self.root / name
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(data)
+        for run_id in ('compile01', 'compile02'):
+            manifest_path = self.raw / ('compile_inputs.json' if run_id == 'compile01' else 'compile_inputs02.json')
+            manifest_path.write_text(json.dumps(manifest))
+            instance = self.selected(run_id)
+            instance.claimed = True
+            receipt = self.root / ('stage-receipt-' + run_id)
+            receipt.mkdir()
+            stage = Path(self.caller.STAGE)
+
+            def prepare(sketch):
+                self.assertEqual('bench/motor_fault', sketch)
+                for name, data in staged.items():
+                    path = stage / name
+                    path.parent.mkdir(parents=True, exist_ok=True)
+                    path.write_bytes(data)
+                return stage
+
+            board = mock.Mock()
+            board.stage.side_effect = prepare
+            response = (subprocess.CompletedProcess(['fixture-stage'], 0, stdout=b'', stderr=b''), receipt)
+            with mock.patch.object(instance, 'local', return_value=None), \
+                 mock.patch.object(instance, 'sources', return_value=None), \
+                 mock.patch.object(instance, 'prerequisites', return_value=None), \
+                 mock.patch.object(instance, 'direct', return_value=response), \
+                 mock.patch.object(instance, 'transport', return_value=response) as transport:
+                instance.stage(board)
+            board.stage.assert_called_once_with('bench/motor_fault')
+            expected = [mock.call(['push', str(stage / name), str(instance.sketch) + '/' + name], 60, 'push')
+                        for name in sorted(staged)]
+            self.assertCountEqual(expected, transport.call_args_list)
+            self.assert_globals_unchanged()
+            self.assertTrue(stage.resolve().is_relative_to(self.root.resolve()))
+            shutil.rmtree(stage)
+        self.native.assert_not_called()
+
+    def test_final_policy_uses_selected_instance_executor_and_sketch(self):
+        tools = self.root / 'tools'
+        tools.mkdir()
+        calls = self.root / 'policy-calls.jsonl'
+        # Controlled policy records public arguments; real policy semantics are unchanged.
+        script = ('import json\nfrom pathlib import Path\n'
+                  f'RECEIPT = Path({str(calls)!r})\n'
+                  'def note(value):\n'
+                  '    with RECEIPT.open("a") as stream: stream.write(json.dumps(value) + "\\n")\n'
+                  'def installed_pins(data):\n'
+                  '    note(["installed", data]); return {"fixture-pin": "a" * 64}\n'
+                  'def verify_hashes(runner, board, pins):\n'
+                  '    note(["verify", runner.__self__.run_id, board]); return pins\n'
+                  'def check_overrides(runner, board, data, user, sketch):\n'
+                  '    note(["overrides", runner.__self__.run_id, board, str(sketch)])\n')
+        policy = tools / 'app_build_policy.py'
+        policy.write_text(script)
+        digest = hashlib.sha256(policy.read_bytes()).hexdigest()
+        for run_id in ('compile01', 'compile02', 'compile01'):
+            path = self.raw / ('compile_inputs.json' if run_id == 'compile01' else 'compile_inputs02.json')
+            path.write_text(json.dumps({'tools/app_build_policy.py': digest}))
+            instance = self.selected(run_id)
+            with mock.patch.object(instance, 'local', return_value=None):
+                instance.final_policy(overrides=True)
+            self.assert_globals_unchanged()
+        records = [json.loads(line) for line in calls.read_text().splitlines()]
+        self.assertEqual(['compile01', 'compile02', 'compile01'],
+                         [row[1] for row in records if row[0] == 'verify'])
+        self.assertEqual([(name, str(self.remote_parent / ('motor-fault-' + name) / 'motor_fault'))
+                          for name in ('compile01', 'compile02', 'compile01')],
+                         [(row[1], row[3]) for row in records if row[0] == 'overrides'])
+        self.native.assert_not_called()
+
+    def test_positive_run_routes_checked_compile_and_final_check_to_selected_instance(self):
+        tools = self.root / 'tools'
+        tools.mkdir()
+        calls = self.root / 'compile-routing.jsonl'
+        # Pure routing substitute supplies completion counts; it executes no compiler.
+        script = ('import json\nfrom pathlib import Path\n'
+                  f'RECEIPT = Path({str(calls)!r})\n'
+                  'def source_hash(stage): return "d" * 64\n'
+                  'def compile_app(*args, project, command_runner):\n'
+                  '    owner = command_runner.__self__\n'
+                  '    owner.query_calls = 1; owner.compiler_calls = 1\n'
+                  '    with RECEIPT.open("a") as stream:\n'
+                  '        stream.write(json.dumps({"args": list(args), "project": project, '
+                  '"owner": owner.run_id}, default=str) + "\\n")\n'
+                  '    return str(owner.remote) + "/fixture-artifacts"\n')
+        (tools / 'board_tool.py').write_text(script)
+        board_digest = hashlib.sha256((tools / 'board_tool.py').read_bytes()).hexdigest()
+        for run_id in ('compile01', 'compile02'):
+            manifest = self.raw / ('compile_inputs.json' if run_id == 'compile01' else 'compile_inputs02.json')
+            manifest.write_text(json.dumps({'tools/board_tool.py': board_digest}))
+            instance = self.selected(run_id)
+            receipt = self.root / ('run-receipt-' + run_id)
+            receipt.mkdir()
+            response = (subprocess.CompletedProcess(['fixture-claim'], 0, stdout=b'{}', stderr=b''), receipt)
+            identity = {'uid': 1000, 'user': 'arduino', 'boot_id': self.caller.BOOT,
+                        'cli_sha256': self.caller.CLI_SHA, 'free_bytes': 2 ** 31, 'conflicts': []}
+
+            def stage(board):
+                instance.claimed = True
+                instance.stage_hashes = {'fixture.cpp': 'a' * 64}
+
+            arguments = ['--execute'] if run_id == 'compile01' else ['--execute', '--run', 'compile02']
+            with mock.patch.object(sys, 'argv', ['compile_motor_fault.py', *arguments]), \
+                 mock.patch.object(sys, 'dont_write_bytecode', True), \
+                 mock.patch.object(sys, 'pycache_prefix', str(Path(instance.output) / 'pycache')), \
+                 mock.patch.object(instance, 'local', return_value=None), \
+                 mock.patch.object(instance, 'inventory', return_value=identity), \
+                 mock.patch.object(instance, 'prerequisites', return_value=None), \
+                 mock.patch.object(instance, 'sources', return_value=None), \
+                 mock.patch.object(instance, 'direct', return_value=response), \
+                 mock.patch.object(instance, 'stage', side_effect=stage), \
+                 mock.patch.object(instance, 'final_policy', return_value=None) as final_policy:
+                self.assertEqual(0, instance.run())
+            self.assertTrue(final_policy.called)
+            self.assertEqual('COMPILE_CHECKED', instance.report['status'])
+            self.assertEqual(str(instance.remote) + '/fixture-artifacts', instance.report['artifacts'])
+            self.assert_globals_unchanged()
+        records = [json.loads(line) for line in calls.read_text().splitlines()]
+        self.assertEqual(2, len(records))
+        for record, run_id in zip(records, ('compile01', 'compile02')):
+            remote = str(self.remote_parent / ('motor-fault-' + run_id))
+            self.assertEqual(run_id, record['owner'])
+            self.assertEqual('motor_fault.ino', record['project'])
+            self.assertEqual(['2629958581', 'd' * 64, remote + '/motor_fault', remote,
+                              'arduino:zephyr:unoq', '-DMATCH=0 -DMOTORS_ALLOWED=0', 'default'], record['args'])
+        self.native.assert_not_called()
 
     def test_child_machinery_hashes_and_original_manifest_remain_exactly_preserved(self):
         for name in ('IDENTITY', 'REMOTE_CHILD'):

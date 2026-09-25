@@ -68,7 +68,8 @@ schema='motor-fault-action-v1', action, run_id, source_sha256, report,
 remote_result_path, full_result_bytes, full_result_sha256, first_error,
 postcheck_errors. Fixed result basename upload_result.json/capture_result.json
 under selected output. Report is the public API result; omit ONLY stdout/stderr
-from the returned upload report to keep transport bounded. Full result and raw
+from the TOP-LEVEL returned upload report to keep transport bounded. Those fields
+are siblings of subprocess; no nested stream fields exist. Full result and raw
 streams stay remotely retained by those APIs. Full bytes/hash bind the canonical
 original report before omission; when no report exists those fields and report
 are None. Errors: {type,message}; subsequent errors add check. Partial/failed
@@ -97,7 +98,8 @@ exact node_address,bss_address,bss_size,visited_nodes; N=1..3 unique4-aligned
 SRAM node addresses, selected node in list, BSS2632B/8-aligned and within
 0x20000000..0x200C0000. Each node's196B extent is in that same half-open region.
 Counts exactly commands=reads=18+2N, requested_bytes=592248+392N.
-Read metadata exact name,address,bytes,sha256,file; exact D176 successful ordered
+Read metadata exact name,address,bytes,sha256,file; addresses and byte counts
+are built-in integers, names/files/hashes are strings. Exact D176 successful ordered
 sequence, addresses/sizes, hash shape and zero-based basename. Relocation lists
 at0x200017bc; node order from visited_nodes; two snapshots at BSS+0/2592B.
 Analysis snapshots exactly those two entries. Wait is existing D176 exact shape

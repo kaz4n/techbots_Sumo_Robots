@@ -154,8 +154,8 @@ class FreshStageTests(unittest.TestCase):
         else:
             expected = dict(SHARED)
             expected['app.ino'] = APP['app.ino']
-            expected.update({'src/app/' + name: raw for name, raw in APP.items()
-                             if name != 'app.ino'})
+        expected.update({'src/app/' + name: raw for name, raw in APP.items()
+                         if name != 'app.ino'})
         actual = {path.relative_to(output).as_posix(): path.read_bytes()
                   for path in output.rglob('*') if path.is_file()}
         self.assertEqual(expected, actual)

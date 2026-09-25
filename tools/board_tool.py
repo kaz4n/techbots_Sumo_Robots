@@ -11,6 +11,7 @@ from pathlib import Path
 import re
 import shlex
 import shutil
+import stat
 import subprocess
 import sys
 import uuid
@@ -242,7 +243,58 @@ def validate_mode_availability_config(path):
         fail('MODE_DEFAULT: selected mode is disabled')
 
 
-def stage(sketch):
+def plain_stage_directory(path):
+    try:
+        metadata = path.lstat()
+    except FileNotFoundError:
+        return
+    reparse = getattr(metadata, 'st_file_attributes', 0) & stat.FILE_ATTRIBUTE_REPARSE_POINT
+    if not stat.S_ISDIR(metadata.st_mode) or reparse:
+        fail('fresh staging ancestry must contain only plain directories')
+
+
+def fresh_stage_destination(name, attempt):
+    reserved = {'con', 'prn', 'aux', 'nul'}
+    reserved.update(f'{prefix}{number}' for prefix in ('com', 'lpt')
+                    for number in range(1, 10))
+    if (type(attempt) is not str or
+            re.fullmatch(r'[a-z0-9][a-z0-9_-]{0,47}', attempt) is None or
+            attempt in reserved):
+        fail('attempt must be a portable lowercase token of 1 to 48 characters')
+    base = ROOT / 'build/stage'
+    owner = base / attempt
+    for path in (ROOT, ROOT / 'build', base):
+        plain_stage_directory(path)
+    if os.path.lexists(owner):
+        fail('fresh staging attempt already exists')
+    if (base.resolve() != ROOT.resolve() / 'build/stage' or
+            owner.resolve().parent != base.resolve()):
+        fail('unsafe fresh staging destination')
+    base.mkdir(parents=True, exist_ok=True)
+    for path in (ROOT, ROOT / 'build', base):
+        plain_stage_directory(path)
+    # Exclusive ownership leaves partial evidence intact if later copying fails.
+    owner.mkdir(mode=0o700)
+    destination = owner / name
+    destination.mkdir()
+    return destination
+
+
+def legacy_stage_destination(name):
+    base = ROOT / 'build/stage'
+    destination = base / name
+    if (ROOT / 'build').is_symlink() or base.is_symlink():
+        fail('build/stage must not use symlinks')
+    base.mkdir(parents=True, exist_ok=True)
+    if destination.is_symlink() or destination.resolve().parent != base.resolve():
+        fail('unsafe staging destination')
+    if destination.exists():
+        shutil.rmtree(destination)
+    destination.mkdir()
+    return destination
+
+
+def stage(sketch, *, attempt=None):
     if sketch == 'app':
         source, name = ROOT / 'src/app/app.ino', 'app'
     elif re.fullmatch(r'bench/[a-z][a-z0-9_]*', sketch):
@@ -258,16 +310,10 @@ def stage(sketch):
     for reserved in ['config.h', 'core', 'hal', 'app']:
         if (local_src / reserved).exists():
             fail(f'sketch-local src/{reserved} conflicts with project source')
-    base = ROOT / 'build/stage'
-    destination = base / name
-    if (ROOT / 'build').is_symlink() or base.is_symlink():
-        fail('build/stage must not use symlinks')
-    base.mkdir(parents=True, exist_ok=True)
-    if destination.is_symlink() or destination.resolve().parent != base.resolve():
-        fail('unsafe staging destination')
-    if destination.exists():
-        shutil.rmtree(destination)
-    destination.mkdir()
+    if attempt is not None:
+        destination = fresh_stage_destination(name, attempt)
+    else:
+        destination = legacy_stage_destination(name)
     for item in source.parent.iterdir():
         if item.name == '.gitkeep':
             continue

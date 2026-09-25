@@ -79,6 +79,13 @@ human check first; scripts enforce StrictHostKeyChecking=yes and BatchMode=yes.
 
 `bash tools/flash.sh bench/p0_matrix --compile-only` stages at
 `build/stage/p0_matrix/p0_matrix.ino` plus `src/config.h`, `src/core`, `src/hal`.
+Checked Python callers may use `stage(sketch, attempt='motor-fault-active01')`
+to claim `build/stage/motor-fault-active01/<sketch-name>/` exclusively. The token
+is 1–48 lowercase letters/digits/underscores/hyphens, starts with a letter or
+digit, and cannot be a Windows reserved device name. Existing attempts and
+linked staging ancestry fail explicitly; partial copies remain after failure.
+This internal API performs source preparation only and has no CLI flag. Callers
+must select fresh ownership and retain evidence before any later cleanup.
 The sketch includes `src/config.h`; sources nested in src use relative includes.
 Sketch-local headers/subfolders, including a local `src/`, are retained. A local
 `src/config.h`, `src/core`, or `src/hal` collision fails explicitly. Source

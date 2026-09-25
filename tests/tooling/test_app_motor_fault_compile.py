@@ -359,7 +359,7 @@ class LocalAdmissionContract(CallerFixture):
                      STATIC + 'static_remote.py', STATIC + 'static_artifacts.py', STATIC + 'static_native_artifacts.py'):
             path = self.root / name; original = path.read_bytes(); path.write_bytes(original + b'\n# drift\n')
             self.manifest(files=dict(self.files, **{name: digest(path.read_bytes())}))
-            with self.subTest(pin=name): self.reject(self.owner().check)
+            with self.subTest(pin=name): self.reject(lambda: self.owner().check())
             path.write_bytes(original)
 
     def test_input_symlinks_and_per_file_bound_refuse(self):

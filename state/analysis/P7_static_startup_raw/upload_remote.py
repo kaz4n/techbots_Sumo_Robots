@@ -94,8 +94,9 @@ def checked_bindings(support):
 
 
 class Upload:
-    def __init__(self, helper, support, fs_root, executor, clock):
+    def __init__(self, helper, support, fs_root, executor, clock, limit_files=None):
         self.helper, self.support = helper, support
+        self.limit_files = support.limit_child_output if limit_files is None else limit_files
         self.fs_root, self.executor = fs_root, executor
         self.clock = time.monotonic if clock is None else clock
         self.started = self.now()
@@ -339,7 +340,7 @@ class Upload:
                     child = subprocess.Popen(argv, stdin=subprocess.DEVNULL, stdout=stdout,
                                              stderr=stderr, cwd='/home/arduino', shell=False,
                                              env=dict(ENVIRONMENT), start_new_session=True,
-                                             preexec_fn=self.support.limit_child_output)
+                                             preexec_fn=self.limit_files)
                     value = self.support.wait_child(child, timeout)
                 except Exception as error:
                     self.process_failure(error)
@@ -427,8 +428,21 @@ class Upload:
                 os.close(fd)
 
 
+def limit_upload_files():
+    # This permits the pinned loader copy and transient diagnostic files of this size.
+    import resource
+    resource.setrlimit(resource.RLIMIT_FSIZE, (2303728, 2303728))
+
+
 def upload(helper, support, *, fs_root=Path('/'), executor=None, clock=None):
-    attempt = Upload(helper, support, fs_root, executor, clock)
+    return _upload(Upload(helper, support, fs_root, executor, clock))
+
+
+def upload_loader(helper, support, *, fs_root=Path('/'), executor=None, clock=None):
+    return _upload(Upload(helper, support, fs_root, executor, clock, limit_upload_files))
+
+
+def _upload(attempt):
     try:
         try:
             attempt.admit()

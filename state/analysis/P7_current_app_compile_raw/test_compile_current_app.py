@@ -240,8 +240,18 @@ class ContractCase(unittest.TestCase):
         command_runner(board, command, capture=True)
         receipt = self.root / 'build/app-receipts' / build_id
         receipt.mkdir(parents=True)
+        # Public verify_files receipts contain all installed pins plus four outputs.
+        pins = json.loads((self.root / 'tools/app_build_pins.json').read_bytes())
+        roots = dict(platform='/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0',
+                     compiler='/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1')
+        hashes = {roots[group] + '/' + name: value
+                  for group, entries in pins.items() for name, value in entries.items()}
+        outputs = [build + '/app.ino' + suffix for suffix in ('.elf', '_debug.elf', '_temp.elf')]
+        outputs.append(artifacts + '/app.ino.elf-zsk.bin')
+        hashes.update({name: digest(('controlled nonempty artifact: ' + name).encode())
+                       for name in outputs})
         report = dict(policy=POLICY, source_sha256=checksum, fqbn=fqbn, build_path=build,
-                      artifacts=artifacts, file_sha256={}, compiler_returncode=0,
+                      artifacts=artifacts, file_sha256=hashes, compiler_returncode=0,
                       used_libraries=[], resolved_directories=dict(data='/home/arduino/.arduino15',
                       user='/home/arduino/Arduino'), precompile_checks=True)
         if self.receipt_change:

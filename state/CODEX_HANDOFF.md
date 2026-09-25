@@ -1,5 +1,11 @@
 # Codex handoff - 25 September 2026, Asia/Dubai
 
+Blocking dependency confirmed 2026-09-25T18:36:07+04:00: after three consecutive goal-turn
+checks, no further eligible offline task or live job exists. The next action
+requires the deferred board work below; full project completion is unproven.
+Source/tool checkpoint07c51907 is unchanged. Resume from this handoff when
+hardware work resumes; never infer successful acceptance from the deferral.
+
 Current continuation: hardware work is deferred by the user's active objective.
 The D188 offline preparation is complete; P7's runbook, acceptance/gate request,
 tool usage and resume instructions now reflect D184-D188. The separate fresh-

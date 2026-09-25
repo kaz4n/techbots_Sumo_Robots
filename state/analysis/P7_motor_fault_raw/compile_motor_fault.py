@@ -1,7 +1,7 @@
 # Performs one fixed inert compile through the existing checked build policy.
 # Pins local inputs and board identity, preserving each command and failed output.
 # Requires source review and controlled host checks before its single native use.
-# Launch: python -B -X pycache_prefix=<absolute native_compile01/pycache> compile_motor_fault.py --execute
+# Launch: python -B -X pycache_prefix=<absolute selected output/pycache> compile_motor_fault.py --execute [--run compile02]
 import ast
 import base64
 from datetime import datetime, timezone
@@ -112,6 +112,16 @@ def decode(raw):
     return json.loads(raw, object_pairs_hook=unique)
 
 
+def parse_request(argv):
+    require(type(argv) is list and all(type(item) is str for item in argv),
+            'Expected an exact argument list')
+    if argv == ['--execute']:
+        return 'compile01'
+    if argv == ['--execute', '--run', 'compile02']:
+        return 'compile02'
+    raise ValueError('Expected --execute or --execute --run compile02')
+
+
 def write(path, value):
     with path.open('x', encoding='utf-8', newline='\n') as stream:
         json.dump(value, stream, indent=2, sort_keys=True)
@@ -152,20 +162,28 @@ def extracted_wait(raw):
 
 
 class CompileOnce:
-    def __init__(self):
-        self.inputs_raw = INPUTS.read_bytes()
+    def __init__(self, *, run_id='compile01'):
+        require(type(run_id) is str and run_id in ('compile01', 'compile02'),
+                'Expected compile01 or compile02')
+        self.run_id = run_id
+        self.output = OUTPUT if run_id == 'compile01' else RAW / 'native_compile02'
+        self.inputs_path = INPUTS if run_id == 'compile01' else RAW / 'compile_inputs02.json'
+        self.remote = REMOTE if run_id == 'compile01' else REMOTE.rsplit('/', 1)[0] + '/motor-fault-compile02'
+        self.sketch = self.remote + '/motor_fault'
+        self.inputs_raw = self.inputs_path.read_bytes()
         self.inputs = decode(self.inputs_raw)
         self.counter, self.compiler_calls, self.query_calls = 0, 0, 0
         self.claimed, self.remote_owned, self.stage_hashes = False, False, None
-        self.report = {'status': 'FAILED', 'board': BOARD, 'remote': REMOTE,
+        self.report = {'status': 'FAILED', 'board': BOARD, 'remote': self.remote,
+                       'run_id': self.run_id,
                        'started_utc': datetime.now(timezone.utc).isoformat(),
                        'inputs_sha256': sha(self.inputs_raw), 'first_error': None,
                        'final_checks': []}
 
     def local(self):
-        require(sys.dont_write_bytecode and sys.pycache_prefix == str(OUTPUT / 'pycache') and
-                not os.path.lexists(OUTPUT / 'pycache'), 'Isolated empty pycache prefix required')
-        require(INPUTS.read_bytes() == self.inputs_raw, 'Input manifest changed')
+        require(sys.dont_write_bytecode and sys.pycache_prefix == str(self.output / 'pycache') and
+                not os.path.lexists(self.output / 'pycache'), 'Isolated empty pycache prefix required')
+        require(self.inputs_path.read_bytes() == self.inputs_raw, 'Input manifest changed')
         required = {'tools/board_tool.py', 'tools/app_build_policy.py',
                     'tools/app_build_commands.json', 'tools/app_build_pins.json',
                     SUPPORT, *BASELINES, Path(__file__).relative_to(ROOT).as_posix()}
@@ -192,7 +210,7 @@ class CompileOnce:
     def transport(self, arguments, timeout, label):
         require(sha(Path(ADB).read_bytes()) == ADB_SHA, 'ADB changed')
         self.counter += 1
-        folder = OUTPUT / f'{self.counter:04d}-{label}'
+        folder = self.output / f'{self.counter:04d}-{label}'
         folder.mkdir()
         argv = [ADB, '-s', BOARD, *arguments]
         units = len(subprocess.list2cmdline(argv).encode('utf-16-le')) // 2 + 1
@@ -223,7 +241,7 @@ class CompileOnce:
         return self.transport(['shell', '-T', shlex.join(argv)], timeout, label)
 
     def preamble(self):
-        values = {'BOOT': BOOT, 'CLI': CLI, 'CLI_SHA': CLI_SHA, 'REMOTE': REMOTE, 'ENV': ENV}
+        values = {'BOOT': BOOT, 'CLI': CLI, 'CLI_SHA': CLI_SHA, 'REMOTE': self.remote, 'ENV': ENV}
         return '\n'.join(name + '=' + repr(value) for name, value in values.items()) + '\n' + IDENTITY
 
     def inventory(self, initial=False):
@@ -276,7 +294,7 @@ print(json.dumps(result))
                 expected[name] = digest
         require(self.stage_hashes == expected, 'Stage differs from reviewed inputs')
         self.local()
-        write(OUTPUT / 'staged_files.json', self.stage_hashes)
+        write(self.output / 'staged_files.json', self.stage_hashes)
         parents = sorted({str(PurePosixPath(name).parent) for name in self.stage_hashes})
         program = self.preamble() + 'Path(REMOTE).mkdir(mode=0o700)\n'
         program += "(Path(REMOTE)/'commands').mkdir()\n(Path(REMOTE)/'motor_fault').mkdir()\n"
@@ -286,7 +304,7 @@ print(json.dumps(result))
         self.direct(program, 'claim')
         self.remote_owned = True
         for name in self.stage_hashes:
-            self.transport(['push', str(STAGE / name), SKETCH + '/' + name], 60, 'push')
+            self.transport(['push', str(STAGE / name), self.sketch + '/' + name], 60, 'push')
         self.sources()
 
     def command_runner(self, board, argv, capture=False, timeout=None):
@@ -336,19 +354,19 @@ print(json.dumps(result))
         exec(compile(raw, policy.__file__, 'exec'), policy.__dict__)
         if overrides:
             policy.check_overrides(self.command_runner, BOARD, '/home/arduino/.arduino15',
-                                   '/home/arduino/Arduino', SKETCH)
+                                   '/home/arduino/Arduino', self.sketch)
         else:
             policy.verify_hashes(self.command_runner, BOARD,
                                  policy.installed_pins('/home/arduino/.arduino15'))
 
     def run(self):
-        require(sys.dont_write_bytecode and sys.pycache_prefix == str(OUTPUT / 'pycache') and
-                sys.argv[1:] == ['--execute'],
-                'Use python -B -X pycache_prefix=<absolute native_compile01/pycache> compile_motor_fault.py --execute')
+        require(sys.dont_write_bytecode and sys.pycache_prefix == str(self.output / 'pycache') and
+                parse_request(sys.argv[1:]) == self.run_id,
+                'Use the selected output/pycache prefix and matching --execute [--run compile02]')
         self.local()
         require(not os.path.lexists(STAGE), 'Local motor_fault stage already exists')
-        OUTPUT.mkdir()
-        write(OUTPUT / 'intent.json', self.report)
+        self.output.mkdir()
+        write(self.output / 'intent.json', self.report)
         try:
             self.report['initial_identity'] = self.inventory(initial=True)
             self.prerequisites()
@@ -358,7 +376,7 @@ print(json.dumps(result))
             self.stage(board)
             self.report['source_sha256'] = board.source_hash(STAGE)
             self.report['artifacts'] = board.compile_app(
-                BOARD, self.report['source_sha256'], SKETCH, REMOTE, 'arduino:zephyr:unoq',
+                BOARD, self.report['source_sha256'], self.sketch, self.remote, 'arduino:zephyr:unoq',
                 '-DMATCH=0 -DMOTORS_ALLOWED=0', 'default', project='motor_fault.ino',
                 command_runner=self.command_runner)
             require(self.compiler_calls == self.query_calls == 1, 'Missing checked compile/query')
@@ -384,10 +402,10 @@ print(json.dumps(result))
             self.report.update(finished_utc=datetime.now(timezone.utc).isoformat(),
                                commands=self.counter, compiler_calls=self.compiler_calls,
                                query_calls=self.query_calls)
-            write(OUTPUT / 'result.json', self.report)
+            write(self.output / 'result.json', self.report)
         print(json.dumps(self.report, indent=2))
         return 0 if self.report['status'] == 'COMPILE_CHECKED' else 1
 
 
 if __name__ == '__main__':
-    sys.exit(CompileOnce().run())
+    sys.exit(CompileOnce(run_id=parse_request(sys.argv[1:])).run())

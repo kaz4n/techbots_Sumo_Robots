@@ -1902,3 +1902,8 @@ Decision: rename only diagnostic Operation::CONFIG_ENABLE/CONFIG_PWM to CONFIGUR
 Consequence: no macro undefinition, core/HAL/native safety-limit/config/wiring change or native retry. Run focused normal/sanitized and macro-host validation plus source review. D165 compile_inputs.json remains historical and must reject changed source; a later compile requires explicit fresh ownership/source binding. No target acceptance, motor permission or human gate follows.
 
 D-166 final host outcome 2026-09-25T05:53:05.273575+04:00: macro1/1 plus driver3/3, normal and ASan/UBSan each18cases/2570assertions PASS,47pins exact, separate reviewa877c709PASS. Only enum labels and three test identifier references changed; no assertions/controlflow/native safety limit changed. See analysis/P7_motor_fault_macro_validation.md. Original D165 failedscope/sourcebindings remain; target recompilation pending fresh ownership.
+
+## D-167 (2026-09-25T05:54:42.401073+04:00, narrow compile ownership under D051)
+Context: D165 failed on a target macro; D166 host-tested rename is ready. Compile01 is consumed and its manifest must stay historical.
+Decision: implement analysis/P7_compile02_contract.md as closed per-instance compile01/compile02 path selection in the existing caller. Preserve old inputs/receipts and exact child-execution machinery; independent companion expectations freeze before testing. Default historical selection remains but rejects changed source.
+Consequence: HOST-ONLY, no new native action or automatic retry. A fresh input binding/plan/review and identified compile02 decision must precede target compilation. No firmware behavior/config/pin/locked-test or upload permission change.

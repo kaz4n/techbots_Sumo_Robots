@@ -700,3 +700,6 @@ HOST-OBSERVED only: default0/explicit0/explicit1 selection, binary/inert/exclusi
 
 ## F175 - Explicit fresh staging host behavior (2026-09-25T06:46:21.730677+04:00)
 HOST-OBSERVED only: D170source0160d1a6 and independent26methods pass on applicable WSL/Windows platforms, including actual Windowsjunction refusal;91existing tooling methods also pass. Source/test/review hashes and platform skips are recorded in analysis/P7_fresh_stage_validation.md. Retained D168104files/764049B preserve bytes and mtimes after validation. Explicit ownership refuses reuse and retains partial failures in controlled fixtures; no hostile concurrent-filesystem or target-build guarantee. No new board operation.
+
+## F176 - Active inert diagnostic compilation (2026-09-25T07:06:20.297115+04:00)
+TARGET-OBSERVED: exact MATCH0/MOTORS_ALLOWED0/SUMOX_MOTOR_FAULT_PROBE1 diagnostic compiled with installed CLI1.5.1/zephyr1.0.0 on UNOQ ADB2629958581. Source8f592937/finalELFf9460a16; complete identities in analysis/P7_motor_fault_raw/active_verified.json, actual packet db1228ce and separate review41ecc2c9.123transports/tenchildren exit0, all sevenfinalchecksPASS. Compiler29836B program/10432B globals are not live RAM/loader/WCET or diagnostic execution evidence. D160 remains last upload. See analysis/P7_motor_fault_active_compile_actual.md.

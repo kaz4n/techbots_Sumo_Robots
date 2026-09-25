@@ -1,0 +1,55 @@
+{
+  "timestamp": "2026-09-25T07:05:36.587972+04:00",
+  "scope": "Incremental packing of newly committed evidence; no history expiry/rewrite",
+  "argv": [
+    "git",
+    "-c",
+    "pack.deltaCacheSize=8m",
+    "repack",
+    "-d",
+    "-l",
+    "--threads=1",
+    "--window-memory=16m",
+    "--no-write-bitmap-index"
+  ],
+  "returncode": 0,
+  "seconds": 0.4134965999983251,
+  "stdout": "",
+  "before": {
+    "count": 649,
+    "size": 1349,
+    "in-pack": 26045,
+    "packs": 4,
+    "size-pack": 215824,
+    "prune-packable": 0,
+    "garbage": 0,
+    "size-garbage": 0
+  },
+  "after": {
+    "count": 66,
+    "size": 213,
+    "in-pack": 26628,
+    "packs": 5,
+    "size-pack": 216256,
+    "prune-packable": 0,
+    "garbage": 0,
+    "size-garbage": 0
+  },
+  "reported_git_storage_recovered_bytes": 720896,
+  "history_before": {
+    "head": "db1228ced6b811919511fa963d99ddf364d21dd8",
+    "refs_sha256": "e0b98450670fa059032a07920d8ff8f76c16613829c572a52be4ca8d1b9b0277",
+    "reflogs_sha256": "9893ba077dd104dfe8cad0bc820cc7add1cdf763bf7960caae09394142332bed"
+  },
+  "history_after": {
+    "head": "db1228ced6b811919511fa963d99ddf364d21dd8",
+    "refs_sha256": "e0b98450670fa059032a07920d8ff8f76c16613829c572a52be4ca8d1b9b0277",
+    "reflogs_sha256": "9893ba077dd104dfe8cad0bc820cc7add1cdf763bf7960caae09394142332bed"
+  },
+  "refs_head_reflogs_unchanged": true,
+  "new_packs_verified": [
+    "pack-9574d6df5a64fb75204259912d69a73b87414a55.idx"
+  ],
+  "connectivity_stdout": "dangling blob 950171b39ec0f606af5bc64b43e77be32e4aa882\ndangling blob 8f0717a0ed3d881b32be668798509dd3896f10db\ndangling blob 1d09569126f5bbb433e95f83b8c60750af34bb37\ndangling blob 370b8d5d0084ad863860acb992f60c0ebd8efa00\ndangling blob c40d83f7b70d5e949bff1df7e4372f82c1a4811f\ndangling blob 2812a4d9cb13215ad07a9a371a8ebc90521b4ef5\ndangling blob 7a210bd29b66c68b085dda5ee6e0faf3c83adc5d\ndangling blob b326506c671539b5fcbcbac95630f9dd5d9f654e\ndangling blob 2a2961ed5bf08408908dfaafb325d23ed4b27ce2\ndangling blob 032b14b81673e37d86fe5df5a00b9882635de8d8\ndangling blob aa2b2b547e6ce075f54c6576b8743d392208b0f0\ndangling blob b22c9ef8ef103a5787fe3d9e9542034f9568a198\ndangling blob cd2d478bc43102f1855973592dcfceebe73a0735\ndangling blob 452e53bd4cdef9f3b6e5f027cdc3f51c917f17ad\ndangling blob 7630d24023e77e0a97883b5a894b83028d0a856f\ndangling blob 0b31c143b1bc6f3dfb8dc0802684741dbebd5821\ndangling blob 3931e912424b3cb4b1fd49dcf58d06236d9d09b6\ndangling blob b5310d840976d4707f7dd465b3bdd2d316e16d4b\ndangling blob 2a337230e4b11fc8afdbeae43c5ba594a9ea3ee2\ndangling blob 7e344d88ca8427bcaba952f02891ad11a316b1d3\ndangling blob 733c4500ae91bdfb9322462236c6c0e736d4e344\ndangling blob a83cb8e2c7039b790b450dcd5903705e73528a35\ndangling blob 143e900157d9c798240c97e7524e00300f12a02c\ndangling blob 1f3f3d513c806c6746a4ded10a80a9fc885f3fc9\ndangling blob 6a4145e34b8e4c201c465b2ad963af9520e99f08\ndangling blob 4d42329c9a19a38f0c916601ca8d70ab59f9a334\ndangling blob d546059e88252047fbd524b1eecc3bcefb54d64a\ndangling blob be4f473a538ad3f7250a5e5e7cabfdd118139a23\ndangling blob 5f505eae583610b07ff8315bbdb86740e6de6908\ndangling blob d9509961403da8eb71267be3fb2c22ab195f8159\ndangling blob 7054e2f74c16845a0051000e3076ba7d3a801c72\ndangling blob da5853014983e31b6cadabbe23c7fe82ea5829d7\ndangling blob 3b5addf021b23873e5f3d9e1d14b1ceed303cef4\ndangling blob 805c7c1d9ff6f5fee2aecc605f6309cc09528308\ndangling blob f15f64ceb3c6a1da7fbe70f59c6126ecb104517f\ndangling blob 2b63e4a0d990a580c1188f6c7638b39c0addd528\ndangling blob ba6e41ca82955ffcc1397737928a7e6a095910bc\ndangling blob 1d7243da9ffb564321a9c1626d3bcb8c1af1ba93\ndangling blob 2573b03cb5015deb3d07879eb530a569d6a83730\ndangling blob 4374b005fe75987e864848f4088a2b43cbf43d08\ndangling blob 9a7e4f798c62c37deb037d3cdd9c32b11a75e423\ndangling blob 18886e28ccc882ceed2acfb36e1a48b99c5e6347\ndangling blob 5f90587b99b5ff9ed998680ba5620436443f18e6\ndangling blob dd94a2a51c43642968ecc1cdd7abcba29d78a989\ndangling blob 3696a18e97e0f843b530ef6023b19381f86de30b\ndangling blob 3c9ca986c78d1988a9cc7a6e261eff841980cdf5\ndangling blob 9aa22791abc51bc6e72df5ec192817328de0f5f7\ndangling blob 9ea6b5deeccb2b8cc0a45c25b63bd2033632bf18\ndangling blob cab03fbc2fc4e524185439c2153424eee2f93027\ndangling blob 05b841611ddc1d6651a261a04663f738bde515c2\ndangling blob 7fbf8911024b0d07f8444d41f5899e084251bc47\ndangling blob 9cc177c5f67bc698ac479aa87d6e2b4140f810f8\ndangling blob dcc29c1329b36287f0724f741fe4d00b13fefc90\ndangling blob 28cdbf36ddc9327088ef91a5aee342cb047d0612\ndangling blob 86d556a2deb2d4516949a120501612257639d3b5\ndangling blob bcda5bb808bc7b092848f0218e021f7e25e6a904\ndangling blob 0edec2cfb81ad4b901f34aebbc1f587bbe47d441\ndangling blob 3ee2876b3b018b2ba63e6d953215b17232500d8b\ndangling blob 52e7d5224ccb637a0ab70309cf3bfd4511fe4c79\ndangling blob 5ee7ff10eeee77d2876fd1947f35cd36bb80813f\ndangling blob abe8bb20851c32cf8bc460c3be95473c162ae0eb\ndangling blob 18eb39fda720ed63cd97f807eff16865170362cb\ndangling blob fceba75289c1b0f812e6a62b5f977c194a9b4177\ndangling blob 8bee2873b26dad0670fc5dfb62e6dfa3810f608c\ndangling blob 02f2ed477e4e5f43a1c8f484b9f73cfadc18b0eb\ndangling blob faff9312c9d254c57f4a0db7b973b90914be6f61\n",
+  "free_bytes_after": 1348214784
+}

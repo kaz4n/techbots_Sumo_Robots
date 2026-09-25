@@ -1,11 +1,10 @@
 # Current execution checklist - 2026-09-25 Asia/Dubai
 
-**D169 explicit inert activation HOST-TESTED; active target run still pending.**
-Independent13 methods plus29 legacy checks and normal/sanitized18 cases each PASS;
-63 frozen pins and revieweeb297fa PASS. Prior D168 source5d3d126e/ELF87fb03e5 remains
-TARGET-COMPILED, with no upload/reset. Next explicit fresh-attempt staging, then
-fresh active artifact and inert upload/capture profile. Default grant stays false.
-New staging cleanup was policy-blocked; retain its104 files and never retry removal.
+**D172 active inert diagnostic TARGET-COMPILED; execution still pending.**
+ExecutionHEAD6bf5ecb1/evidence db1228ce, source8f592937/ELFf9460a16;123transports and
+tenchildren exit0, sevenfinalchecksPASS, review41ecc2c9PASS. D17116new+12legacy
+host checks passed. No upload/reset/MCU read. Next file-only ELF/ABI and recipe
+observation, then separately identified inert upload/capture preparation.
 
 **Active: P7 software/release preparation.** PROGRESS.md is the append-only phase
 authority; preserve its legacy bytes. User asks for prompt commits and continued
@@ -113,9 +112,13 @@ pending; D051/D075/D122/D137 permit scheduling, not fabricated measurements.
   methods pass across WSL/Windows,91 legacy methods PASS, review8233de35 PASS.
   Original fixture failure retained; production/assertions unchanged on repair.
   Retained104-file stage byte/mtime and all9 input pins unchanged.
-- [ ] Minimal active-profile mapping in the existing bounded compile caller,
-  using D170 explicit ownership; then new active artifact and separately
-  identified inert upload/capture binding. Preserve consumed compile01/02.
+- [x] D171 closed active01 compile profile:16independent+12legacy tests PASS,
+  actual117-pin local admission, reviewc9781e61PASS; old manifests unchanged.
+- [x] D172 active default/dynamic inert compile: evidence db1228ce;123transports/
+  tenchildren0, sevenfinalchecksPASS, actualreview41ecc2c9PASS. No upload/reset.
+- [ ] File-only diagnostic final/debug ELF ABI and exact upload-recipe observation;
+  then minimal closed inert upload/capture profile and independent finite tests.
+  Read analysis/P7_motor_fault_capture_dependencies.md. D172 scope is consumed.
   Original D160 failing operation remains unknown; do not relax safety bounds.
 - [ ] Qualify native loading/startup, stack/heap/WCET and release workflow before
   adoption. Structural RAM tail94352B is not measured free memory.
@@ -131,19 +134,14 @@ quiescence/cancel/reopen requirements and SC-AP release workflow remain pending.
 P6 conditional, no release tag/rehearsal/human PASS. Do not request extra hardware
 now. Current permission advances software, not invented measurements or gates.
 
-Storage: D162/D163 RAM compiler/fixture outputs removed; fresh check zero sumox
-scratch directories. Independent repo/task-Temp audit found no new safe candidate.
-D167 RAM fixture cleanup left zero directories. D168's104-file/764049B local
-motor_fault stage remains: automatic cleanup review rejected deletion as blocked
-by policy. Do not retry that removal or allow implicit deletion by a staging helper.
-Retained raw packet882618B is useful target evidence; no firmware copied to Windows.
-D170 serial RAM/Windows fixtures also left zero task remnants; no new target
-build/download/binary copy or denied cleanup retry. Incremental Git packing
-recovered11196416reportedB with history/refs/reflogs preserved. C: observed1523920896B free.
-Old-session lossless compression reclaimed1369392201reported allocatedB; previous
-cleanup is recorded in STORAGE_LOG.md. Retain compact evidence and leave all prior
-policy-denied paths untouched. Recheck disk space before material work; Python-B,
-one compiler, no duplicate source/firmware snapshots.
+Storage: retained D168 stage104files/764049B and D172 active stage104files/764719B
+both had automatic cleanup review rejection (blocked by policy). Never retry
+removal directly or implicitly. D172 raw packet890157B/metadata5241B is useful;
+no firmware downloaded or new bytecode. Incremental Gitpacking recovered720896B,
+with new pack/connectivity checked and HEAD/refs/reflogs unchanged. This adds to
+D170's11196416B and historical old-session compression; see STORAGE_LOG.md.
+C: observed1348214784B free; recheck before large work. Prior denied targets and
+unique evidence remain; serial RAM builds/Python-B avoid redundant outputs.
 
 Schedule: actualP3 not passed by end28Sep invokes reactive+SIDESTEP/DIRECT plus
 recorder cut; P6 needs actualP4 by30Sep and no stronger cut. Freeze1Oct21:00Dubai,

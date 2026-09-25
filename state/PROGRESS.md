@@ -1140,3 +1140,5 @@ physical/loadedRAM/gate claim. | contract=this commit
 2026-09-25T04:27:13.330765+04:00 | P7 | D157 upload-file-limit correction | IMPLEMENTED/HOST-TESTED: 55 legacy +59 new-entry methods PASS, nine pins exact, separate scoped review fc1b2414 PASS; original D156 failed scope preserved. No native action. | implementation3787649f; closure in this commit
 
 2026-09-25T04:32:59.517971+04:00 | P7 | D159 exact failed-copy cleanup | VERIFIED REMOVED: one1MiB reproducible board temporary fragment plus empty parent; exit0, exactidentity/hash, originalfailure retained; no firmware/MCU action | scopee2fdacf3; actualreceipt in this commit
+
+2026-09-25T04:37:49.562285+04:00 | P7 | D158 explicit separate ownership | IMPLEMENTED/HOST-TESTED:227 aggregate methods PASS; original negatives retained; scoped reviewbda4208e PASS; sixforms/zero native dispatch. D159 temporary fragment already removed separately. | bcf623dc/1854bb8e; repair closure in this commit

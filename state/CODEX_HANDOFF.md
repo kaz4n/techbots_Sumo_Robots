@@ -1,14 +1,11 @@
 # Codex handoff - 2026-09-25 Asia/Dubai
 
-**D156 actual startup attempt FAILED; scope consumed.** One upload child exited1:
-the inherited1MiB file cap blocked its2,303,728B loader copy. Capture was suppressed;
-nine transport calls and all independent final checks passed. Read
-analysis/P7_static_startup_actual_validation.md. D155's30+10host tests and scoped
-review remain genuine host evidence, but did not detect this native policy defect.
-D157 correction is now host-tested: 55 legacy +59 new-entry tests and four real
-copy boundaries PASS; scoped review fc1b2414 PASS. Next: explicit fresh run
-ownership and known temporary residue handling. Never rerun D156 or claim a
-current-image startup measurement.
+**D158 fresh ownership is host-tested and reviewed; run02 is not yet executed.**
+All227 aggregate tests pass, scoped review bda4208e PASS. D159 removed only the
+exact reproducible1MiB temporary loader fragment/empty parent; original D156
+failure and consumed run01 remain intact. Next review and commit the concrete
+run02 scope, then invoke the corrected M0 upload/conditional capture once.
+Read analysis/P7_startup_run02_validation.md and P7_static_startup_run02_plan.md.
 
 **Active phase: P7 software/release preparation.** D138 informational READY and
 battery-threshold software is implemented, host-tested and target-compiled.
@@ -54,14 +51,12 @@ has now been observed to select the intended data/user directories (F162); raw
 queries and original mistakenprojection are preserved. Existing board p0_capture.py
 is hash885c4e42/18880B, file-verified; reuse it to fit the Windows command budget.
 
-Exact next task: add the smallest explicit per-instance ownership selection for
-one distinct run02, preserving legacy run01 behavior and all original evidence.
-D157 upload_loader is source bb6f9631; review fc1b2414 and validation are in
-analysis/P7_upload_file_limit_validation.md. D155 still pins the old uploader and
-must refuse it. No module-global rebinding or duplicate wrapper tree. Separately
-review disposition of the exact known 1MiB partial file under /tmp/remoteocd;
-no cleanup or new native scope has been authorized by D157.
-D156/native_run01 and its upload scope are terminal; never reuse them.
+Exact next task: scoped run02 pre-action review and native scope creation. Current
+launcher c9588835, uploader23661c8a, collectorab0bb320; review bda4208e. Distinct
+native_run02 and remote run02 owners preserve all run01 evidence. D159 already
+removed the known temporary fragment (exit0); normal uploader admission must
+still freshly require its absence. No retry or new scope follows from cleanup.
+Use --execute --run run02 --reviewed-head with the committed scope-containing HEAD.
 Bind reviewed HEAD/source, D144 packet,
 installed dependencies, explicit CLI configuration and selected core/recipe.
 F165/F166 file-only receipts establish observed initialization prerequisites;

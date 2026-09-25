@@ -426,8 +426,10 @@ class NativeRun:
         self.probe.files = old['0021']['files']
 
     def bindings(self, action):
-        return project_bindings(action, decode(self.fixed_bytes[RAW + action + '_bindings.json']),
-                                run_id=self.profile['run_id'])
+        value = decode(self.fixed_bytes[RAW + action + '_bindings.json'])
+        if self.profile['run_id'] == RUN_ID:
+            return value
+        return project_bindings(action, value, run_id=self.profile['run_id'])
 
     def payload(self, action):
         names = {'helper': PROBE_RAW + 'static_remote.py', 'support': RAW + 'capture_remote.py'}
@@ -601,11 +603,15 @@ class NativeRun:
 
 
 def native_run(reviewed_head, *, run='run01'):
-    attempt = NativeRun(reviewed_head, run=run)
-    result = orchestrate(attempt.operations(), run_id=attempt.profile['run_id'])
+    profile = run_profile(run)
+    if run == 'run01':
+        result = orchestrate(NativeRun(reviewed_head).operations())
+    else:
+        result = orchestrate(NativeRun(reviewed_head, run=run).operations(),
+                             run_id=profile['run_id'])
     if result['status'] != 'COMPLETED':
         raise RuntimeError('Startup evidence collection failed; see the persisted ' +
-                           attempt.profile['output_name'] + ' result')
+                           profile['output_name'] + ' result')
     return result
 
 

@@ -325,7 +325,8 @@ class LauncherOwnership(launcher_fixture.StartupContract):
         parser = b'def loader_image(raw):\n    return b"parser-sentinel"\n'
         parser += b' ' * (18880 - len(parser))
         helper = 'def logical_read(*args, **kwargs):\n    return ' + repr(parser) + '\n'
-        support = 'BINDINGS = "unchanged"\n'
+        support = ('import json\nBINDINGS = "unchanged"\n'
+                   'def json_bytes(value):\n    return json.dumps(value).encode("utf-8")\n')
         sources = {'helper': helper, 'support': support}
         signature = ('def collect(helper, decoder, loader_image, *, bindings=None, run_id=None):\n'
                      '    assert BINDINGS == "unchanged"\n'

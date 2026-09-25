@@ -101,9 +101,12 @@ pending; D051/D075/D122/D137 permit scheduling, not fabricated measurements.
   four real child-copy boundaries PASS, scoped review fc1b2414 PASS. D153 and
   historical failure/oracles preserved; no new native action. See
   analysis/P7_upload_file_limit_validation.md.
-- [ ] Add explicit fresh run ownership without global rebinding or cloned wrappers;
-  review known temporary residue before another inert attempt. Reuse the packet,
-  collector, pinned loader helper and explicit CLI config; no binary/source copy.
+- [x] D158 per-instance run02 ownership:227 aggregate methods PASS, review
+  bda4208e PASS; original failures/oracles preserved. Composition fits command limits.
+- [x] D159 exact known1MiB temporary fragment and empty parent removed; reviewed
+  code/result verify identity/hash, no MCU action. Original D156 remains failed.
+- [ ] Review and commit one run02 native scope, then perform the identified M0
+  upload/conditional capture using the unchanged packet and fresh admission checks.
 - [ ] Qualify native loading/startup, stack/heap/WCET and release workflow before
   adoption. Structural RAM tail94352B is not measured free memory.
 

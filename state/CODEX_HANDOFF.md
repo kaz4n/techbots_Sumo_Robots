@@ -1,6 +1,13 @@
 # Codex handoff - 25 September 2026, Asia/Dubai
 
-**Active: P7 software/release preparation. D178 offline capture repair REVIEWED.**
+**Active: P7 software/release preparation. D179 fixed caller IN PROGRESS.**
+Board disconnected; host-only implementation and independent oracle drafting.
+Contract924b16e8 fixes fresh-scope admission, existing transport reuse and durable
+single-use upload/capture closure. Source draft is ready for its first frozen
+controlled tests and separate same-model review. No real scope/owner or device
+operation exists for D179. Resume this validation before any native work.
+
+**D178 offline capture repair REVIEWED.**
 User explicitly requested continued host work without hardware. Fixed the log
 receiver's secondary disk-full error masking the original failure and partial-log
 path. Source3f73fd58/baca4d79;13 independent new and45 existing selected Python
@@ -42,14 +49,18 @@ No process is running. Previous source/failure/recipe/review evidence is retaine
 
 ## Exact next task
 
-Keep work host-only while the board is disconnected. The prepared command,
-receipt and sequence interfaces are implemented and reviewed; do not repeat
-passing tests or invent target observations. Native readiness remains unfinished.
+Keep work host-only while the board is disconnected. Finish D179 inert_run.py and
+test_inert_run.py under analysis/P7_motor_fault_caller_contract.md: freeze both,
+run controlled host tests with small RAM fixtures/Python-B, preserve failures,
+complete separate review and compact evidence. No real inert_run01_scope.json or
+native_inert_run01 directory may be created during these tests in this checkout.
+The prepared D177 command/receipt/sequence interfaces remain reviewed; do not
+repeat unrelated passing tests or invent target observations.
 
 When the board is available, first perform a fresh bounded read-only check of
 identity, installed bz2/Base85 support, exact tools/artifacts and prerequisites.
-Then prepare/review one minimal identified inert caller using existing
-CompileOnce.transport/prerequisites, D175 upload_loader, D176 collect_motor_fault
+Then bind the reviewed D179 caller using existing CompileOnce.transport,
+fresh-identity prerequisite checks, D175 upload_loader, D176 collect_motor_fault
 and D177 build_command/validate_reply/run_actions. Bind local source/test/review
 pins and actual current identity in a new durable scope. Historical boot values
 in action_preparation.json cannot be assumed current or silently used as approval.

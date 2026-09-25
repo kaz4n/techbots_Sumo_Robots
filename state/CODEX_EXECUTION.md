@@ -1,5 +1,10 @@
 # Current execution checklist - 2026-09-25 Asia/Dubai
 
+**D179 fixed inert caller IN PROGRESS; board disconnected.**
+Contract924b16e8; separate implementation/oracle owners, no native execution.
+Next freeze drafts, run controlled host tests, retain failures and obtain scoped
+same-model review. Actual scope/owner and fresh board admission remain future work.
+
 **D178 offline capture failure retention HOST-TESTED / REVIEWED.**
 Source3f73fd58/baca4d79;13new+45existing Python checks PASS, review7649fb58 PASS.
 Original capture failure/path survives error.json write failure; no retry, cleanup

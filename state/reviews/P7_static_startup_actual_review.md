@@ -78,4 +78,14 @@ directory device34/inode800. File SHA256
 `b6fced5c7a35d75e5e5b681ad9806510bb1f066f8097a198b9186d06867d50cf`.
 Its exact cap-sized truncation corroborates R1; it is not a complete loader or
 MCU-state observation. The minimum cap above refines the earlier4MiB example;
-actual copy/boundary regression and any replacement code/scope remain pending.
+at that checkpoint, copy/boundary regression and replacement code/scope remained pending.
+
+Later bounded host proof: reviewed test_upload_file_limit.py SHA163ed282,
+file_limit_freeze.json SHAf995f952 and matching file_limit_first.json.
+Freeze preceded execution; all four cases PASS, exit0/0.393s, both source and
+loader-reference pins unchanged. Actual Linux parent/descendant processes copy
+the retained loader into owned /dev/shm scratch:1MiB reproduces EFBIG and the
+exact b6fced5c prefix;2303728B permits the full39d4a4fd copy; limits one byte
+below/above that size fail/succeed as expected. This closes the copy-boundary
+regression only. It does not execute or repair the uploader, test larger-stream
+acceptance, authorize cleanup/retry, or supply native startup evidence.

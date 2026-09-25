@@ -46,8 +46,12 @@ Next task: design and test an upload-specific finite file cap compatible with
 the largest pinned copied input (2,303,728 bytes). Keep D153 capture unchanged.
 The smallest correction may retain the <1MiB diagnostic acceptance limit while
 explicitly permitting larger transient stream files; do not claim that this
-preserves the old physical stream ceiling. Add a real harmless child/descendant
-copy regression, exact-cap/one-byte-over cases and both stream boundaries.
+preserves the old physical stream ceiling. The real harmless child/descendant
+copy regression now passes4/4 cases,0.393s/exit0: original-cap failure reproduces
+the exact prefix; exact2303728 succeeds; one byte beyond fails and one byte below
+succeeds. [Frozen source/reference](P7_static_startup_raw/file_limit_freeze.json)
+and [first result](P7_static_startup_raw/file_limit_first.json) remain unchanged.
+Both uploader stream boundaries and the replacement entry still need validation.
 Preserve all original scopes, sources, assertions and failure evidence in their
 historical context. A later reviewed scope must handle the known temporary
 residue and use fresh one-shot ownership; D156 must never be rerun.

@@ -766,3 +766,7 @@ HOST-VERIFIED only. D187 source3e5d49e4/oraclee6d52ec6 (39eac0a1) passes33WSL an
 
 ## F196 - Fixed static diagnostic compile-only workflow host evidence (2026-09-25T18:21:12.104829+04:00)
 HOST-VERIFIED only. D188 source6b6c883b (callercf0c826f/remote1428b934), finalindependentcalleroraclead9f771a40methodsPASS and remoteoraclee200477c14methodsPASS/no skips; actual preflight, source/owner/command/error/descriptor/postcheck cases. Windows3.13.11/zlib1.3.1 manualcomposition29664UTF16units inclNUL, no dispatch. Separate fresh-context same-model reviewe6557e61 PASS,134pins and17ownedGitblobs exact, protectedfirmware/locked/sharedvalidator inputsunchanged. Source: analysis/P7_app_motor_fault_compile_validation.md and raw/review links. No realmanifest, targetcompile, upload/reset, originalfaultresolution, nativeinitialization/ABI, RAM/WCET/physicalacceptance or gate follows.
+
+
+## F197 - Actual inhibited static full-app diagnostic compile (2026-09-25T19:11:07.512225+04:00)
+DEVICE-OBSERVED compiler/files only: reviewed65b6d80e source21df6ae8, static/default/MATCH0/MOTORS_ALLOWED0/probe1. COMPILE_CHECKED exit0,1query/1compiler/236transports,8closingPASS. ELF2f8dc9f1/package deb40317, all127input/18installedpins unchanged; TLS/layout validation PASS. CLI170868Bglobals/91276Bremaining; structural91280Btail is not live freeRAM/stack/WCET. Separate reused-context same-model actual review PASS. No upload/reset/MCUread/runtime/physical/human acceptance. Source: analysis/P7_app_motor_fault_compile_actual_validation.md and native_static01 receipts.

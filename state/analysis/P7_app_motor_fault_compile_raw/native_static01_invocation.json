@@ -1,0 +1,16 @@
+{
+  "check_only": {
+    "command": "python -B tools/compile_app_motor_fault.py --check-only --reviewed-head 65b6d80e8a16b7178446014f498795e16a56a944",
+    "exit_code": 0,
+    "stdout": "{\r\n  \"schema\": \"app-motor-fault-static-check-v1\",\r\n  \"reviewed_head\": \"65b6d80e8a16b7178446014f498795e16a56a944\",\r\n  \"source_sha256\": \"21df6ae82cca4b09dc6b1e0de5bc719cf98ec6887800d5ce8297522e491a7950\",\r\n  \"boot_id\": \"55c386b9-fe6d-4388-a7f4-1d91e0bb49d8\",\r\n  \"project\": \"app_motor_fault.ino\",\r\n  \"fqbn\": \"arduino:zephyr:unoq:link_mode=static\",\r\n  \"flags\": \"-DMATCH=0 -DMOTORS_ALLOWED=0 -DSUMOX_MOTOR_FAULT_PROBE=1\",\r\n  \"output\": \"C:\\\\Users\\\\narut\\\\OneDrive\\\\Desktop\\\\Project\\\\techbots_Sumo_Robots\\\\state\\\\analysis\\\\P7_app_motor_fault_compile_raw\\\\native_static01\",\r\n  \"stage\": \"C:\\\\Users\\\\narut\\\\OneDrive\\\\Desktop\\\\Project\\\\techbots_Sumo_Robots\\\\build\\\\stage\\\\app-motor-fault-static01\\\\app_motor_fault\",\r\n  \"remote\": \"/home/arduino/sumox26_codex_build/app-motor-fault-static01\",\r\n  \"sketch\": \"/home/arduino/sumox26_codex_build/21df6ae82cca4b09dc6b1e0de5bc719cf98ec6887800d5ce8297522e491a7950/app_motor_fault\"\r\n}\r\n"
+  },
+  "native": {
+    "command": "python -B -X \"pycache_prefix=C:\\Users\\narut\\OneDrive\\Desktop\\Project\\techbots_Sumo_Robots\\state\\analysis\\P7_app_motor_fault_compile_raw\\native_static01\\pycache\" tools/compile_app_motor_fault.py --execute --reviewed-head 65b6d80e8a16b7178446014f498795e16a56a944",
+    "session_id": 33591,
+    "exit_code": 0,
+    "result_path": "native_static01/result.json",
+    "scope": "One compile-only execution; no upload/reset/MCU read"
+  },
+  "reviewer": "d188_native_admission_review",
+  "admission_verdict": "PASS at clean reviewed HEAD65b6d80e8a16b7178446014f498795e16a56a944"
+}

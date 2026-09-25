@@ -1,5 +1,23 @@
 # Current execution checklist - 2026-09-25 Asia/Dubai
 
+**Current checkpoint 2026-09-25T19:11:07.512225+04:00: D188 TARGET-COMPILED / REVIEWED.**
+The connected UNO Q completed the fixed static/default/MATCH0/MOTORS_ALLOWED0/
+probe1 diagnostic source21df6ae8 at reviewed65b6d80e. One query/compiler,
+236transports, all8closing checks PASS; independent actual-evidence review PASS.
+Raw ELF2f8dc9f1, flat packagedeb40317; structural91280Btail is not live RAM/WCET.
+See [actual validation](analysis/P7_app_motor_fault_compile_actual_validation.md).
+The compile owners are consumed; do not rerun. No upload/reset/MCUread occurred;
+D184 halted isolated diagnostic remains last uploaded. No native job is running.
+
+Next eligible task: file-only actual ABI/initialization observation for this new
+static diagnostic, followed by a separately reviewed inert capture scope.
+Do not reuse old D149/D173 addresses/decoder. Original full-app IO fault and
+physical/phase/release gates remain open. User's connected continuation supersedes
+older hardware-deferral paragraphs, which are historical only. Preserve compact
+receipts and all denied cleanup paths; no motor-capable authorization is supplied.
+
+## Historical checkpoints (superseded next actions)
+
 Connected resume 2026-09-25T19:00:10+04:00: the user has reconnected the UNO Q and requested
 continuation. Fresh ADB admission observes the expected board/tool pins and
 14,004,682,752B target free. Actual D188 manifest d4eae97c now binds127current

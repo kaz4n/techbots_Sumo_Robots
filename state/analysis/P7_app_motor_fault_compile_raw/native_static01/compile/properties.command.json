@@ -1,0 +1,19 @@
+[
+  "arduino-cli",
+  "compile",
+  "--json",
+  "--fqbn",
+  "arduino:zephyr:unoq:link_mode=static",
+  "--build-path",
+  "/home/arduino/sumox26_codex_build/app-motor-fault-static01/build",
+  "--output-dir",
+  "/home/arduino/sumox26_codex_build/app-motor-fault-static01/artifacts",
+  "--build-property",
+  "compiler.cpp.extra_flags=-DMATCH=0 -DMOTORS_ALLOWED=0 -DSUMOX_MOTOR_FAULT_PROBE=1",
+  "--build-property",
+  "compiler.c.extra_flags=-DMATCH=0 -DMOTORS_ALLOWED=0 -DSUMOX_MOTOR_FAULT_PROBE=1",
+  "--build-property",
+  "build.library_discovery_phase_flag=-DARDUINO_LIBRARY_DISCOVERY_PHASE=0",
+  "--show-properties=expanded",
+  "/home/arduino/sumox26_codex_build/21df6ae82cca4b09dc6b1e0de5bc719cf98ec6887800d5ce8297522e491a7950/app_motor_fault"
+]

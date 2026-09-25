@@ -27,3 +27,12 @@ Initial missing-comm/PID-disappearance and pre-rmdir identity findings are fixed
 at:36-41 and:83-89. These checks detect observed drift; they do not provide atomic
 conditional unlink/rmdir, a filesystem lock or global process/MCU quiescence.
 Any execution failure/uncertainty is evidence, not permission for an automatic retry.
+
+Actual D159 receipt review: intent29485d09 and resultfb99a50a record one execution
+at commit e2fdacf3520bb1fa0d1c9b2dbd2ea7709fca9dd5, UTC00:32:40.643934-
+00:32:40.896365. The intent's dispatched source exactly matches reviewed3b3d899b
+and the unchanged current source. Returncode0, empty stderr and REMOVED retain
+the exact1048576B/hash above, unlinked=true and directory_removed=true on the
+required boot. **Scoped cleanup receipt PASS.** This verifies the recorded
+completed action, not continuing absence or global quiescence. Failed-run logs
+remain evidence; run01 stays consumed and no upload/capture grant follows.

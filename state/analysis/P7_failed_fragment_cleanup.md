@@ -26,3 +26,5 @@ known task-owned residue after a reaped, failed copy; no other writer is expecte
 Keep exclusive local intent plus actual raw result/returncode and reviewed code
 hash. Removal does not revive consumed run01 or authorize a new upload. The normal
 uploader's preexisting-temp check stays unchanged and requires fresh absence.
+
+Actual 2026-09-25T04:32:59.517971+04:00: REMOVED, exit0, empty stderr, unlinked=true and directory_removed=true on the fixed boot. Source unchanged. Scope consumed. Compact intent/result are beside the source; no firmware operation or automatic retry.

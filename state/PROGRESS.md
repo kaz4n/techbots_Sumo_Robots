@@ -1138,3 +1138,5 @@ physical/loadedRAM/gate claim. | contract=this commit
 2026-09-25T04:22:47.679134+04:00 | P7 D157 additive upload-limit scope | Contract8b31b281/designreview73386970PASS; newupload_loader exact2303728cap, legacyAPI/oracles/D153unchanged. Draftsourcebb6f9631 andindependent59-methodcompanionready, unexecuted. No newnativegrant; D156consumed | upload-limit correction scope commit
 
 2026-09-25T04:27:13.330765+04:00 | P7 | D157 upload-file-limit correction | IMPLEMENTED/HOST-TESTED: 55 legacy +59 new-entry methods PASS, nine pins exact, separate scoped review fc1b2414 PASS; original D156 failed scope preserved. No native action. | implementation3787649f; closure in this commit
+
+2026-09-25T04:32:59.517971+04:00 | P7 | D159 exact failed-copy cleanup | VERIFIED REMOVED: one1MiB reproducible board temporary fragment plus empty parent; exit0, exactidentity/hash, originalfailure retained; no firmware/MCU action | scopee2fdacf3; actualreceipt in this commit

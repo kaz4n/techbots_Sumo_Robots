@@ -1,7 +1,8 @@
 # Tests D183 guarded precompiled MATCH deployment from its public contract.
 # Separates synthetic qualification and permission records from real authorization.
 # Freeze before Python -B execution; owned RAM fixtures and mocked remote calls only.
-from contextlib import ExitStack
+from contextlib import ExitStack, contextmanager
+import builtins
 import copy
 from datetime import datetime, timedelta, timezone
 import errno
@@ -311,6 +312,25 @@ class MatchAdmissionTests(AdmissionFixture):
         result['request']['bindings']['files']['raw']['path'] = '/changed'
         self.assertEqual(self.admit()['request'], self.request)
 
+    def test_D183_local_admission_does_not_require_windows_unavailable_resource_module(self):
+        original_import = builtins.__import__
+        def without_resource(name, *args, **kwargs):
+            if name == 'resource':
+                raise ImportError('resource unavailable on Windows')
+            return original_import(name, *args, **kwargs)
+        with mock.patch.object(builtins, '__import__', side_effect=without_resource), \
+                mock.patch.dict(sys.modules, {'resource': None}):
+            self.assertEqual(self.admit()['request'], self.request)
+
+    def test_D183_policy_uses_checked_json_content_without_later_path_read_text(self):
+        original_read = Path.read_text
+        def no_policy_reopen(path, *args, **kwargs):
+            if path.name in ('app_build_pins.json', 'app_build_commands.json'):
+                raise AssertionError('unchecked policy JSON reopen')
+            return original_read(path, *args, **kwargs)
+        with mock.patch.object(Path, 'read_text', no_policy_reopen):
+            self.assertEqual(self.admit()['request'], self.request)
+
     def test_D183_scope_and_request_missing_or_unknown_fields_rejected(self):
         original = copy.deepcopy(self.scope)
         for container in ('scope', 'request'):
@@ -500,6 +520,31 @@ class MatchDeploymentTests(AdmissionFixture):
         self.assertTrue(hasattr(caught.exception, 'deploy_outcome'))
         return caught.exception, caught.exception.deploy_outcome
 
+    @contextmanager
+    def outcome_disk_full(self):
+        def selected(path):
+            if not isinstance(path, (str, bytes, os.PathLike)):
+                return False
+            candidate = Path(os.fsdecode(path))
+            return candidate == self.owner / 'outcome.json' or candidate == Path('outcome.json')
+        def text_open(original):
+            def guarded(path, mode='r', *args, **kwargs):
+                if selected(path) and any(flag in mode for flag in 'wax+'):
+                    raise OSError(errno.ENOSPC, 'synthetic receipt disk full')
+                return original(path, mode, *args, **kwargs)
+            return guarded
+        original_os_open = os.open
+        def os_open(path, flags, *args, **kwargs):
+            if selected(path) and flags & (os.O_WRONLY | os.O_RDWR | os.O_CREAT):
+                raise OSError(errno.ENOSPC, 'synthetic receipt disk full')
+            return original_os_open(path, flags, *args, **kwargs)
+        with ExitStack() as stack:
+            stack.enter_context(mock.patch.object(Path, 'open', text_open(Path.open)))
+            stack.enter_context(mock.patch.object(io, 'open', text_open(io.open)))
+            stack.enter_context(mock.patch.object(builtins, 'open', text_open(builtins.open)))
+            stack.enter_context(mock.patch.object(os, 'open', os_open))
+            yield
+
     def test_D183_success_claims_once_dispatches_2_1_2_and_saves_exact_outcome(self):
         outcome = self.deploy()
         self.assertEqual((outcome['schema'], outcome['status'], outcome['attempts']),
@@ -643,12 +688,7 @@ class MatchDeploymentTests(AdmissionFixture):
             if number == 3:
                 raise primary
         self.remote_hook = hook
-        original_open = os.open
-        def fail_outcome(path, flags, *args, **kwargs):
-            if os.fspath(path).endswith('outcome.json'):
-                raise OSError(errno.ENOSPC, 'synthetic receipt disk full')
-            return original_open(path, flags, *args, **kwargs)
-        with mock.patch.object(os, 'open', side_effect=fail_outcome):
+        with self.outcome_disk_full():
             error, outcome = self.failed()
         self.assertIs(error, primary)
         self.assertEqual(outcome['status'], 'UNKNOWN')
@@ -656,12 +696,7 @@ class MatchDeploymentTests(AdmissionFixture):
         self.assertTrue((self.owner / 'attempt.json').exists())
 
     def test_D183_successful_upload_with_failed_outcome_save_never_returns_success(self):
-        original_open = os.open
-        def fail_outcome(path, flags, *args, **kwargs):
-            if os.fspath(path).endswith('outcome.json'):
-                raise OSError(errno.ENOSPC, 'synthetic receipt disk full')
-            return original_open(path, flags, *args, **kwargs)
-        with mock.patch.object(os, 'open', side_effect=fail_outcome):
+        with self.outcome_disk_full():
             error, outcome = self.failed()
         self.assertEqual((outcome['status'], outcome['attempts']), ('UNKNOWN', 1))
         self.assertEqual(len(self.calls), 5)

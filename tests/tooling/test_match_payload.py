@@ -136,7 +136,8 @@ class MatchPayloadTests(unittest.TestCase):
                 'sources': {role: {'source': raw.decode('utf-8'), 'sha256': digest(raw)}
                             for role, raw in self.sources.items()}}
 
-    def bootstrap(self, *, raw=None, token=None, sha=None, report=None, error=None):
+    def bootstrap(self, *, raw=None, token=None, sha=None, report=None, error=None,
+                  isolated=True, bytecode=True):
         command = self.command()
         raw = canonical(self.payload()) if raw is None else raw
         token = base64.b85encode(bz2.compress(raw)).decode() if token is None else token
@@ -146,6 +147,14 @@ class MatchPayloadTests(unittest.TestCase):
         control.canonical = canonical
         if report is not None:
             control.report = report
+        original_flags = sys.flags
+        class Flags:
+            def __getattr__(self, name):
+                if name == 'isolated':
+                    return int(isolated)
+                if name == 'dont_write_bytecode':
+                    return int(bytecode)
+                return getattr(original_flags, name)
         class Stream(io.StringIO):
             @property
             def buffer(self):
@@ -157,6 +166,8 @@ class MatchPayloadTests(unittest.TestCase):
         with ExitStack() as stack:
             stack.enter_context(mock.patch.dict(sys.modules, {CONTROL: control}))
             stack.enter_context(mock.patch.object(sys, 'argv', ['-c', sha, token]))
+            stack.enter_context(mock.patch.object(sys, 'flags', Flags()))
+            stack.enter_context(mock.patch.object(sys, 'dont_write_bytecode', bytecode))
             stack.enter_context(mock.patch.object(os, 'open', side_effect=AssertionError('filesystem')))
             stack.enter_context(redirect_stdout(stream))
             try:
@@ -357,6 +368,10 @@ class MatchPayloadTests(unittest.TestCase):
         for value in (packed[:-1], packed + b'x', packed + bz2.compress(b'{}')):
             self.denied_bootstrap(token=base64.b85encode(value).decode())
         self.denied_bootstrap(token=' ' + base64.b85encode(packed).decode())
+
+    def test_D183_bootstrap_requires_isolation_and_no_bytecode_before_source_load(self):
+        self.denied_bootstrap(isolated=False)
+        self.denied_bootstrap(bytecode=False)
 
     def test_D183_bootstrap_rejects_bounded_expansion_and_noncanonical_json(self):
         self.denied_bootstrap(raw=b' ' * 196609)

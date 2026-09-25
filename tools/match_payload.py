@@ -131,6 +131,8 @@ def _bindings(value, source_sha256, build_id, run_id):
 # Short bootstrap names reduce wire size; guard errors retain their validation phase.
 # Decoder key: O=require, v=keys, h=canonical, T=sha, r=hex_id, X=unique,
 # D=nonfinite, I=paths, f=bindings, N=request, w=load, x=main.
+# Data key: J=payload, L=raw bytes, A=modules, M=full report, m=envelope,
+# k=digest, W=encoded token, Y=value. These comments are not sent to the board.
 _BOOTSTRAP_SOURCE = r'''
 import base64, bz2, hashlib, json, re, sys, types
 

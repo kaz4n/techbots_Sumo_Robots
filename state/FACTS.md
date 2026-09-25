@@ -697,3 +697,6 @@ Observed on UNO Q ADB2629958581, boot6d4aca1b, CLI1.5.1/zephyr1.0.0: default/dyn
 
 ## F174 - Explicit inert diagnostic activation host validation (2026-09-25T06:30:31.750945+04:00)
 HOST-OBSERVED only: default0/explicit0/explicit1 selection, binary/inert/exclusive constraints, exact-byte sketch setup/loop with substituted Arduino/native headers, exact checked flag/property boundaries and17 other valid project controls pass13 independent methods.29 legacy tooling methods and normal/sanitized real diagnostic18cases/2570assertions each also pass. Source32b2d9d4/frozen84b3fbaf/revieweeb297fa; analysis/P7_fault_activation_validation.md contains command receipts. This is not a new target image or native callback/physical measurement.
+
+## F175 - Explicit fresh staging host behavior (2026-09-25T06:46:21.730677+04:00)
+HOST-OBSERVED only: D170source0160d1a6 and independent26methods pass on applicable WSL/Windows platforms, including actual Windowsjunction refusal;91existing tooling methods also pass. Source/test/review hashes and platform skips are recorded in analysis/P7_fresh_stage_validation.md. Retained D168104files/764049B preserve bytes and mtimes after validation. Explicit ownership refuses reuse and retains partial failures in controlled fixtures; no hostile concurrent-filesystem or target-build guarantee. No new board operation.

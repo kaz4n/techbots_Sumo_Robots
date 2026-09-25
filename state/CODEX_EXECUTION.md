@@ -109,8 +109,13 @@ pending; D051/D075/D122/D137 permit scheduling, not fabricated measurements.
 - [x] D169 default-disabled explicit activation/profile admission: source32b2d9d4,
   independent13+legacy29+driver3 PASS;18cases/2570assertions each normal/sanitized;
   revieweeb297fa PASS. No new native action or existing assertion changes.
-- [ ] Explicit fresh-attempt staging that never touches the retained blocked path;
-  then new active artifact and separately identified inert upload/capture binding.
+- [x] D170 explicit fresh-attempt staging: implementation0160d1a6, independent26
+  methods pass across WSL/Windows,91 legacy methods PASS, review8233de35 PASS.
+  Original fixture failure retained; production/assertions unchanged on repair.
+  Retained104-file stage byte/mtime and all9 input pins unchanged.
+- [ ] Minimal active-profile mapping in the existing bounded compile caller,
+  using D170 explicit ownership; then new active artifact and separately
+  identified inert upload/capture binding. Preserve consumed compile01/02.
   Original D160 failing operation remains unknown; do not relax safety bounds.
 - [ ] Qualify native loading/startup, stack/heap/WCET and release workflow before
   adoption. Structural RAM tail94352B is not measured free memory.
@@ -132,8 +137,9 @@ D167 RAM fixture cleanup left zero directories. D168's104-file/764049B local
 motor_fault stage remains: automatic cleanup review rejected deletion as blocked
 by policy. Do not retry that removal or allow implicit deletion by a staging helper.
 Retained raw packet882618B is useful target evidence; no firmware copied to Windows.
-D169 serial RAM compilation/fixtures also left zero task remnants; no new target
-build, download, binary copy or cleanup attempt. C: observed1556324352B free.
+D170 serial RAM/Windows fixtures also left zero task remnants; no new target
+build/download/binary copy or denied cleanup retry. Incremental Git packing
+recovered11196416reportedB with history/refs/reflogs preserved. C: observed1523920896B free.
 Old-session lossless compression reclaimed1369392201reported allocatedB; previous
 cleanup is recorded in STORAGE_LOG.md. Retain compact evidence and leave all prior
 policy-denied paths untouched. Recheck disk space before material work; Python-B,

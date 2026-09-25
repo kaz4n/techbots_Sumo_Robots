@@ -1,62 +1,44 @@
 # Resume SumoX-26 with Codex
 
-Active phase: **P7 software/release preparation** under D051/D075/D122/D137.
-Physical/human gates remain pending. Do not reset to P0 or interpret historical
-approval templates, assumptions or passing host tests as physical acceptance.
+Active phase: **P7 software/release preparation**, under D051/D075/D122/D137.
+Physical/human gates remain pending. Assumptions, dates and host tests are not
+physical acceptance. Do not reset the project to P0.
 
-1. Read root AGENTS fully, current state/CODEX_HANDOFF.md and CODEX_EXECUTION.md,
-   latest PROGRESS/DECISIONS/FACTS/TUNING_LOG, and active P7 prompt/open findings.
-   Inspect Git/nested rules, Asia/Dubai time and free space; preserve user changes.
-   PROGRESS has legacy non-UTF8 bytes: append only, never re-encode its history.
-2. Current sourcefcddbd8e/static ELF5cc2dfde/debug0f7f2825/loader39d4a4fd remain
-   unchanged. D139 dynamic default fit fails by592B. D148 structure, D149 selected
-   layout and D151 selected native dispatch file evidence are reviewed; original
-   D144 structural rejection and D150 failed name query remain preserved.
-   All old native observation/compile scopes are consumed. Production admission
-   stays dynamic-only. Do not rerun old launchers, rebuild or copy another tree.
-3. D152 pure static startup parser is complete: sourceb7ab979d,37 frozen tests
-   bcb63005 first-runPASS, reviewcdae7896. Read P7_static_capture_validation.md,
-   P7_static_capture_contract.md and the three linked reviews. The caller must
-   use ELF-derived loader263680B/SHAe9322826, not packagedBIN6b2ffd, which differs
-   by one byte. Original prose/design assumption is saved6d45e3b5; correction8fa01d1f.
-4. D153 passive collector is now complete: source1aa602d0/contract0371739e,
-   46 independent+4 reviewer supplemental methods first-runPASS/revieweed7414d.
-   Read P7_static_capture_remote_validation.md; old draftd5c8d6d6 preserved.
-   Exact next task: implement/test/review the host coordinator and one-shot upload
-   wrapper, reusing this collector and P7_static_startup_guard_options.md. This
-   note is advisory, not a native run grant. The verified upload route is in
-   P7_static_upload_route.md and P7_static_startup_dependencies.md. Recheck
-   identities/absent shadows and selected core/recipe before use. CLI --input-file selects existing raw
-   build/app.ino.bin; static recipe resolves its checked flat sibling. Explicit
-   --config-file /dev/null plus fixedenvironment now has read-only directory
-   evidence inF162. Reuse board p0_capture.py18880B/885c4e42, freshly file-checked;
-   four-source payload estimate has7058units left below30000, but final bootstrap
-   still needs actual sizing/review. Separate
-   consumed upload/capture claims, durable first-failure evidence, independent
-   postchecks and bounded board-child deadlines are required; no retry/reset
-   recovery. Capture only exact18reads/713656B; no old dynamic heap model.
-5. The user reports bare UNO Q connected and permits inert tests; no additional
-   hardware request now. No fresh STAND/RING for motor-capable firmware. Existing
-   source grants and button windows remain default-off/unqualified. Last actual
-   upload is consumedD118/sourcee820c0e1; its historical513us and4500Bfree are not
-   current-image, full-source WCET or stack/free-memory proof.
-6. Preserve original physical/human acceptance packets, D121 B7/R6 conflict,
-   native dump holder/quiescence/cancel/reopen requirements and SC-AP readiness,
-   native matrix/battery/rearm/log workflow. D051 engineering delegation does not
-   create PINMAP/EXPLAINED/gates or per-run motor permission. P6 remains conditional.
-7. Storage is constrained (about490MiB free at03:11Dubai25September; recheck).
-   Use Python-B, in-memory fixtures and one heavy compiler. Assess every generated
-   file; remove verified disposable data only when allowed, record compact results
-   in STORAGE_LOG. Recent compression/incremental Git packing saved49.9MiB with
-   hashes/refs/history intact; fresh cleanup found no new disposable remnants.
-   All previously denied deletion targets, including Arduino archives and P2
-   matrix host outputs, remain excluded. Never retry those deletions, erase unique
-   evidence/user data or alter paging/persistent virtual disks.
-8. If actual P3 has not passed by end28September, apply the documented scope cut.
-   P6 needs actual P4 by30September and no stronger cut. Freeze1October21:00Dubai;
-   rehearsal2October, competition3October. A date does not create acceptance.
-   Commit completed tasks promptly; never push/rewrite history/move release tags.
+1. Read AGENTS.md fully, state/CODEX_HANDOFF.md and CODEX_EXECUTION.md, latest
+   PROGRESS/DECISIONS/FACTS/TUNING_LOG, active P7 prompt and relevant open findings.
+   Check nested instructions, Git status, actual Asia/Dubai time and free space.
+   Preserve uncommitted user work. PROGRESS has legacy non-UTF8 bytes: append
+   without re-encoding its history. The handoff holds the exact current next task.
+2. Read current native evidence before any device action. D160 is the last
+   successful upload (static/default/M0); its runtime stopped at epoch3. D161's
+   passive diagnosis confirms invalid MotorGate application feedback but does
+   not identify the original failed callback. D168 compiled the default-disabled
+   diagnostic; D169's explicit inert activation is host-tested only. Neither
+   establishes active diagnostic execution, native startup qualification or WCET.
+3. All old native scopes are consumed. Never rerun a historical launcher, repin
+   its consumed manifest, reset the MCU or infer that an old capture layout fits
+   changed firmware. A new operation needs fresh source/artifact/identity binding
+   and review using the existing bounded primitives. Preserve original failures.
+4. The user permits testing a bare UNO Q, and requests no other hardware now.
+   No motor-capable upload/run has fresh STAND OK or RING OK. D051 engineering
+   delegation permits documented software choices; it does not create measured
+   acceptance, PINMAP/EXPLAINED approval or human GATE Pn PASS.
+5. Storage is constrained: recheck before large work. Read state/STORAGE_LOG.md.
+   Use Python-B, small owned RAM fixtures and serial builds; retain compact
+   results/source hashes. Remove only verified disposable outputs when permitted.
+   The policy-blocked build/stage/motor_fault and all other denied deletion
+   targets remain untouched, including implicit staging cleanup. Do not retry
+   through another method or modify paging/persistent virtual disks.
+6. P0-P5 physical/human packets, D121 B7/R6 conflict, native dump lifecycle and
+   SC-AP release readiness remain pending. P6 is conditional; P7 incomplete.
+   Actual P3 not passed by end28Sep requires reactive+SIDESTEP/DIRECT+recorder,
+   dropping ARC/WAIT/P6 polish. P6 also needs actual P4 by30Sep. Freeze1Oct21:00
+   Dubai; rehearsal2Oct; competition3Oct. No scheduled date creates a gate.
+7. Use independent spec-derived tests and a separate read-only reviewer. Label
+   second Codex contexts as same-model, not cross-model/human review. Preserve
+   locked tests and all existing assertions. Commit finished tasks promptly;
+   never push, rewrite history or move release tags without authorization.
 
-Reviews are separate same-model contexts, not cross-model or human approval.
-Save completed files/commits, actual validation/failures, limitations, active
-process IDs and exact next eligible task at every session boundary.
+At each boundary, save completed work/commits, actual validations and failures,
+limitations, active process IDs (if any) and the exact next eligible task. Keep
+this prompt general; use the current handoff instead of stale embedded steps.

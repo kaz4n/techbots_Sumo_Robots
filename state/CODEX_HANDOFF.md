@@ -1,6 +1,15 @@
 # Codex handoff - 25 September 2026, Asia/Dubai
 
-**Active: P7 software/release preparation. D169 activation profile HOST-TESTED.**
+**Active: P7 software/release preparation. D170 fresh staging HOST-TESTED.**
+Source0160d1a6 adds stage(sketch, *, attempt=None): explicit fresh ownership,
+checked ancestry and retained partial failures, with legacy behavior preserved.
+Independent26 methods pass across WSL/Windows (platform skips recorded),91
+unchanged tooling methods PASS; separate review8233de35 PASS. Original Windows
+fixture failure retained and corrected without changing assertions/production.
+All9 pins and the retained104-file stage's bytes/mtime are exact. Read
+analysis/P7_fresh_stage_validation.md. No active process or native action remains.
+
+D169 activation profile is also HOST-TESTED.
 Source32b2d9d4 adds only a default-zero inert build selector, sketch grant selection
 and exact project-specific policy admission. Independent13 methods,29 unchanged
 tooling methods and normal/sanitized18 cases/2570 assertions each PASS. All63 pins
@@ -17,17 +26,21 @@ target compilation evidence in addition to its macro/normal/sanitizer host tests
 
 ## Exact next task
 
-Add explicit fresh-attempt staging to tools/board_tool.py. Its current stage(sketch)
-has no alternate destination and deletes the existing fixed folder (lines245–300).
-Do not call it on the retained motor_fault stage. The smallest additive interface
-is stage(sketch, *, attempt=None), with a bounded path-safe attempt token selecting
-build/stage/<attempt>/<sketch-name>. Explicit mode requires absent attempt ownership,
-checked ancestry/containment and no deletion, overwrite, fallback or automatic
-failure cleanup. Reuse the existing source-copy/layout body and retain legacy
-default behavior for unchanged callers. Record the precise contract before edits.
-Independent tests must preserve legacy sentinel bytes/metadata, validate the full
-Arduino layout/hash, reject reuse/unsafe tokens/links and retain failed partial
-attempts. No ROOT rebinding, copied wrapper or retry of the blocked cleanup.
+Extend the existing state/analysis/P7_motor_fault_raw/compile_motor_fault.py with
+one separately owned active diagnostic profile. Record a minimal closed mapping
+contract first; preserve compile01/02 defaults, strict old inputs and assertions.
+Use D170's explicit attempt token and per-instance local stage/input/output/remote
+paths plus D169's exact active flags. Guard existing owner before board contact,
+reuse unchanged identity/prerequisite/child-deadline/reap/final-check machinery,
+and independently test routing/failure preservation. No ROOT/global rebinding,
+copied wrapper, implicit legacy stage call or cleanup retry. After host validation
+and review, bind fresh current inputs and an identified compile-only scope.
+
+D170 API: stage(sketch, *, attempt=None), selecting
+build/stage/<attempt>/<sketch-name> for a new portable1..48-character token.
+Explicit mode never deletes an earlier attempt; absent/None retains old behavior.
+Do not invoke default staging on retained build/stage/motor_fault. The source copy
+body is shared, including app support beneath src/app for both bench and app.
 
 D169 activation is ready: SUMOX_MOTOR_FAULT_PROBE defaults0; the exact active
 checked flag tuple is -DMATCH=0 -DMOTORS_ALLOWED=0 -DSUMOX_MOTOR_FAULT_PROBE=1.
@@ -100,7 +113,7 @@ sensor/motor/electrical acceptance remain tracked in existing packets/findings.
 
 ## Storage and tools
 
-C: observed1556324352B free at this checkpoint; recheck before large work. Old inactive
+C: observed1523920896B free near this checkpoint; recheck before large work. Old inactive
 session-log lossless compression reclaimed1369392201reported allocated bytes;
 previous CLI compression/IMU output removal/Git packing are in STORAGE_LOG.md.
 D165 completed local stage was removed:104files/764034logicalB. D168's new stage
@@ -108,9 +121,12 @@ contains104files/764049logicalB and is retained after automatic cleanup rejectio
 (blocked by policy, no further reason). Receipt: analysis/storage_cleanup_20260925_motor_fault_stage02.json.
 Zero bytes reclaimed by this attempt; never retry it through another method.
 The new raw packet is882618B plus compact metadata; no firmware binary downloaded.
-All D169 compiler/fixture outputs were RAM-backed and released; zero sumox task
-remnants observed. Only compact tests/receipts/review were retained; no new native
-packet, firmware copy, dependency download or cleanup attempt was made by D169.
+All D170 serial compiler/fixture outputs were released; zero Windows/RAM task
+remnants observed. Retain compact test/failure/review evidence and244837B of unique
+legacy command receipts. Independent storage audit found no new disposable files.
+Incremental Git packing recovered11196416reportedB with HEAD/refs/reflogs unchanged,
+new pack verified and connectivity PASS. Receipt storage_repack_20260925_d170.json.
+No native packet, firmware copy, dependency download or denied cleanup retry.
 Keep compact source/freeze/failure/result evidence. Previously
 policy-denied deletions remain excluded; never retry through another method.
 Use Python-B, serial heavy builds, no duplicate firmware/source trees. Archive

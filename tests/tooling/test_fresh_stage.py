@@ -359,17 +359,18 @@ class FreshStageTests(unittest.TestCase):
         sentinel, before = self.legacy_sentinel()
         owner = self.root / 'build/stage/copy-failed'
         copied = []
-        real_copyfile = shutil.copyfile
+        # Windows copy2 can bypass copyfile through CopyFile2; inject after copy2.
+        real_copy2 = shutil.copy2
 
         def fail_after_copy(source, destination, *args, **kwargs):
-            result = real_copyfile(source, destination, *args, **kwargs)
-            destination = Path(destination)
+            result = real_copy2(source, destination, *args, **kwargs)
+            destination = Path(result)
             if destination.is_relative_to(owner):
                 copied.append((destination, destination.read_bytes()))
                 raise OSError('controlled post-claim copy failure')
             return result
 
-        with self.operations(), mock.patch.object(shutil, 'copyfile', fail_after_copy):
+        with self.operations(), mock.patch.object(shutil, 'copy2', fail_after_copy):
             with self.assertRaisesRegex(OSError, 'controlled post-claim copy failure'):
                 self.board.stage('bench/motor_fault', attempt='copy-failed')
         self.assertTrue(copied, 'Fixture fault must occur after at least one actual copied file')

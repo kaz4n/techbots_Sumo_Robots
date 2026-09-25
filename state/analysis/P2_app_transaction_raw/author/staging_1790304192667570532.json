@@ -1,0 +1,291 @@
+{
+  "args": [
+    "app",
+    "--compile-only"
+  ],
+  "kwargs": {},
+  "returncode": 0,
+  "stdout": "APP BUILD CHECKED: native-app-v1; receipt=/dev/shm/sumo-tools-j7i8fe19/build/app-receipts/992217e34dcc4433aa6d3aef0167bb1d\nSIMULATED compile\nCOMPILE command completed: app; source SHA256=3f5e697213f8353df6131ee2da2cf98925e0c0a96a7f6e7105d6fb4df26b9247; MATCH=0 MOTORS_ALLOWED=0 STARTUP=default\nCompile-only: no upload requested\n",
+  "stderr": "",
+  "events": [
+    {
+      "kind": "ssh",
+      "args": [
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "StrictHostKeyChecking=yes",
+        "-o",
+        "ConnectTimeout=10",
+        "fixture@board.invalid",
+        "arduino-cli core list"
+      ]
+    },
+    {
+      "kind": "arduino",
+      "args": [
+        "core",
+        "list"
+      ]
+    },
+    {
+      "kind": "ssh",
+      "args": [
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "StrictHostKeyChecking=yes",
+        "-o",
+        "ConnectTimeout=10",
+        "fixture@board.invalid",
+        "mkdir -p /dev/shm/sumo-tools-j7i8fe19/remote/3f5e697213f8353df6131ee2da2cf98925e0c0a96a7f6e7105d6fb4df26b9247/app"
+      ]
+    },
+    {
+      "kind": "rsync",
+      "args": [
+        "-rlt",
+        "--safe-links",
+        "-e",
+        "ssh -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10",
+        "/dev/shm/sumo-tools-j7i8fe19/build/stage/app/",
+        "fixture@board.invalid:/dev/shm/sumo-tools-j7i8fe19/remote/3f5e697213f8353df6131ee2da2cf98925e0c0a96a7f6e7105d6fb4df26b9247/app/"
+      ]
+    },
+    {
+      "kind": "ssh",
+      "args": [
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "StrictHostKeyChecking=yes",
+        "-o",
+        "ConnectTimeout=10",
+        "fixture@board.invalid",
+        "arduino-cli version"
+      ]
+    },
+    {
+      "kind": "arduino",
+      "args": [
+        "version"
+      ]
+    },
+    {
+      "kind": "ssh",
+      "args": [
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "StrictHostKeyChecking=yes",
+        "-o",
+        "ConnectTimeout=10",
+        "fixture@board.invalid",
+        "arduino-cli config get directories.data --json"
+      ]
+    },
+    {
+      "kind": "arduino",
+      "args": [
+        "config",
+        "get",
+        "directories.data",
+        "--json"
+      ]
+    },
+    {
+      "kind": "ssh",
+      "args": [
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "StrictHostKeyChecking=yes",
+        "-o",
+        "ConnectTimeout=10",
+        "fixture@board.invalid",
+        "arduino-cli config get directories.user --json"
+      ]
+    },
+    {
+      "kind": "arduino",
+      "args": [
+        "config",
+        "get",
+        "directories.user",
+        "--json"
+      ]
+    },
+    {
+      "kind": "ssh",
+      "args": [
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "StrictHostKeyChecking=yes",
+        "-o",
+        "ConnectTimeout=10",
+        "fixture@board.invalid",
+        "sh -c 'for path do if test -e \"$path\" || test -L \"$path\"; then printf '\"'\"'Unreviewed app override: %s\\n'\"'\"' \"$path\" >&2; exit 1; fi; done' sumo-app-override-check /fixture/.arduino15/packages/platform.txt /fixture/Arduino/hardware/platform.txt /fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/platform.local.txt /fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/boards.local.txt /dev/shm/sumo-tools-j7i8fe19/remote/3f5e697213f8353df6131ee2da2cf98925e0c0a96a7f6e7105d6fb4df26b9247/app/sketch.yaml /dev/shm/sumo-tools-j7i8fe19/remote/3f5e697213f8353df6131ee2da2cf98925e0c0a96a7f6e7105d6fb4df26b9247/app/sketch.yml"
+      ]
+    },
+    {
+      "kind": "override_check",
+      "args": [
+        "-c",
+        "for path do if test -e \"$path\" || test -L \"$path\"; then printf 'Unreviewed app override: %s\\n' \"$path\" >&2; exit 1; fi; done",
+        "sumo-app-override-check",
+        "/fixture/.arduino15/packages/platform.txt",
+        "/fixture/Arduino/hardware/platform.txt",
+        "/fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/platform.local.txt",
+        "/fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/boards.local.txt",
+        "/dev/shm/sumo-tools-j7i8fe19/remote/3f5e697213f8353df6131ee2da2cf98925e0c0a96a7f6e7105d6fb4df26b9247/app/sketch.yaml",
+        "/dev/shm/sumo-tools-j7i8fe19/remote/3f5e697213f8353df6131ee2da2cf98925e0c0a96a7f6e7105d6fb4df26b9247/app/sketch.yml"
+      ]
+    },
+    {
+      "kind": "ssh",
+      "args": [
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "StrictHostKeyChecking=yes",
+        "-o",
+        "ConnectTimeout=10",
+        "fixture@board.invalid",
+        "sha256sum -- /fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/platform.txt /fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/boards.txt /fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/cores/arduino/Arduino.h /fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/cores/arduino/main.cpp /fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/postvariant.h /fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/variant.h /fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/includes.txt /fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/machine_flags.txt /fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/cflags.txt /fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/cxxflags.txt /fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/generated/zephyr/autoconf.h /fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf /fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/_ldscripts/build-dynamic.ld /fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/_ldscripts/memory-check.ld /fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/_ldscripts/build-static.ld /fixture/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-gcc /fixture/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-g++ /fixture/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-ld"
+      ]
+    },
+    {
+      "kind": "sha256sum",
+      "args": [
+        "--",
+        "/fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/platform.txt",
+        "/fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/boards.txt",
+        "/fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/cores/arduino/Arduino.h",
+        "/fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/cores/arduino/main.cpp",
+        "/fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/postvariant.h",
+        "/fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/variant.h",
+        "/fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/includes.txt",
+        "/fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/machine_flags.txt",
+        "/fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/cflags.txt",
+        "/fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/cxxflags.txt",
+        "/fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/generated/zephyr/autoconf.h",
+        "/fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf",
+        "/fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/_ldscripts/build-dynamic.ld",
+        "/fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/_ldscripts/memory-check.ld",
+        "/fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/_ldscripts/build-static.ld",
+        "/fixture/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-gcc",
+        "/fixture/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-g++",
+        "/fixture/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-ld"
+      ]
+    },
+    {
+      "kind": "ssh",
+      "args": [
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "StrictHostKeyChecking=yes",
+        "-o",
+        "ConnectTimeout=10",
+        "fixture@board.invalid",
+        "arduino-cli compile --json --fqbn arduino:zephyr:unoq --build-path /dev/shm/sumo-tools-j7i8fe19/remote/_app_builds/native-app-v1/3f5e697213f8353df6131ee2da2cf98925e0c0a96a7f6e7105d6fb4df26b9247/bench-default/992217e34dcc4433aa6d3aef0167bb1d/build --output-dir /dev/shm/sumo-tools-j7i8fe19/remote/_app_builds/native-app-v1/3f5e697213f8353df6131ee2da2cf98925e0c0a96a7f6e7105d6fb4df26b9247/bench-default/992217e34dcc4433aa6d3aef0167bb1d/artifacts --build-property 'compiler.cpp.extra_flags=-DMATCH=0 -DMOTORS_ALLOWED=0' --build-property 'compiler.c.extra_flags=-DMATCH=0 -DMOTORS_ALLOWED=0' --build-property build.library_discovery_phase_flag=-DARDUINO_LIBRARY_DISCOVERY_PHASE=0 --show-properties=expanded /dev/shm/sumo-tools-j7i8fe19/remote/3f5e697213f8353df6131ee2da2cf98925e0c0a96a7f6e7105d6fb4df26b9247/app"
+      ]
+    },
+    {
+      "kind": "properties_query",
+      "args": [
+        "compile",
+        "--json",
+        "--fqbn",
+        "arduino:zephyr:unoq",
+        "--build-path",
+        "/dev/shm/sumo-tools-j7i8fe19/remote/_app_builds/native-app-v1/3f5e697213f8353df6131ee2da2cf98925e0c0a96a7f6e7105d6fb4df26b9247/bench-default/992217e34dcc4433aa6d3aef0167bb1d/build",
+        "--output-dir",
+        "/dev/shm/sumo-tools-j7i8fe19/remote/_app_builds/native-app-v1/3f5e697213f8353df6131ee2da2cf98925e0c0a96a7f6e7105d6fb4df26b9247/bench-default/992217e34dcc4433aa6d3aef0167bb1d/artifacts",
+        "--build-property",
+        "compiler.cpp.extra_flags=-DMATCH=0 -DMOTORS_ALLOWED=0",
+        "--build-property",
+        "compiler.c.extra_flags=-DMATCH=0 -DMOTORS_ALLOWED=0",
+        "--build-property",
+        "build.library_discovery_phase_flag=-DARDUINO_LIBRARY_DISCOVERY_PHASE=0",
+        "--show-properties=expanded",
+        "/dev/shm/sumo-tools-j7i8fe19/remote/3f5e697213f8353df6131ee2da2cf98925e0c0a96a7f6e7105d6fb4df26b9247/app"
+      ]
+    },
+    {
+      "kind": "ssh",
+      "args": [
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "StrictHostKeyChecking=yes",
+        "-o",
+        "ConnectTimeout=10",
+        "fixture@board.invalid",
+        "arduino-cli compile --json --fqbn arduino:zephyr:unoq --build-path /dev/shm/sumo-tools-j7i8fe19/remote/_app_builds/native-app-v1/3f5e697213f8353df6131ee2da2cf98925e0c0a96a7f6e7105d6fb4df26b9247/bench-default/992217e34dcc4433aa6d3aef0167bb1d/build --output-dir /dev/shm/sumo-tools-j7i8fe19/remote/_app_builds/native-app-v1/3f5e697213f8353df6131ee2da2cf98925e0c0a96a7f6e7105d6fb4df26b9247/bench-default/992217e34dcc4433aa6d3aef0167bb1d/artifacts --build-property 'compiler.cpp.extra_flags=-DMATCH=0 -DMOTORS_ALLOWED=0' --build-property 'compiler.c.extra_flags=-DMATCH=0 -DMOTORS_ALLOWED=0' --build-property build.library_discovery_phase_flag=-DARDUINO_LIBRARY_DISCOVERY_PHASE=0 /dev/shm/sumo-tools-j7i8fe19/remote/3f5e697213f8353df6131ee2da2cf98925e0c0a96a7f6e7105d6fb4df26b9247/app"
+      ]
+    },
+    {
+      "kind": "arduino",
+      "args": [
+        "compile",
+        "--json",
+        "--fqbn",
+        "arduino:zephyr:unoq",
+        "--build-path",
+        "/dev/shm/sumo-tools-j7i8fe19/remote/_app_builds/native-app-v1/3f5e697213f8353df6131ee2da2cf98925e0c0a96a7f6e7105d6fb4df26b9247/bench-default/992217e34dcc4433aa6d3aef0167bb1d/build",
+        "--output-dir",
+        "/dev/shm/sumo-tools-j7i8fe19/remote/_app_builds/native-app-v1/3f5e697213f8353df6131ee2da2cf98925e0c0a96a7f6e7105d6fb4df26b9247/bench-default/992217e34dcc4433aa6d3aef0167bb1d/artifacts",
+        "--build-property",
+        "compiler.cpp.extra_flags=-DMATCH=0 -DMOTORS_ALLOWED=0",
+        "--build-property",
+        "compiler.c.extra_flags=-DMATCH=0 -DMOTORS_ALLOWED=0",
+        "--build-property",
+        "build.library_discovery_phase_flag=-DARDUINO_LIBRARY_DISCOVERY_PHASE=0",
+        "/dev/shm/sumo-tools-j7i8fe19/remote/3f5e697213f8353df6131ee2da2cf98925e0c0a96a7f6e7105d6fb4df26b9247/app"
+      ]
+    },
+    {
+      "kind": "ssh",
+      "args": [
+        "-o",
+        "BatchMode=yes",
+        "-o",
+        "StrictHostKeyChecking=yes",
+        "-o",
+        "ConnectTimeout=10",
+        "fixture@board.invalid",
+        "sha256sum -- /fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/platform.txt /fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/boards.txt /fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/cores/arduino/Arduino.h /fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/cores/arduino/main.cpp /fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/postvariant.h /fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/variant.h /fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/includes.txt /fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/machine_flags.txt /fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/cflags.txt /fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/cxxflags.txt /fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/generated/zephyr/autoconf.h /fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf /fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/_ldscripts/build-dynamic.ld /fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/_ldscripts/memory-check.ld /fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/_ldscripts/build-static.ld /fixture/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-gcc /fixture/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-g++ /fixture/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-ld /dev/shm/sumo-tools-j7i8fe19/remote/_app_builds/native-app-v1/3f5e697213f8353df6131ee2da2cf98925e0c0a96a7f6e7105d6fb4df26b9247/bench-default/992217e34dcc4433aa6d3aef0167bb1d/build/app.ino.elf /dev/shm/sumo-tools-j7i8fe19/remote/_app_builds/native-app-v1/3f5e697213f8353df6131ee2da2cf98925e0c0a96a7f6e7105d6fb4df26b9247/bench-default/992217e34dcc4433aa6d3aef0167bb1d/build/app.ino_debug.elf /dev/shm/sumo-tools-j7i8fe19/remote/_app_builds/native-app-v1/3f5e697213f8353df6131ee2da2cf98925e0c0a96a7f6e7105d6fb4df26b9247/bench-default/992217e34dcc4433aa6d3aef0167bb1d/build/app.ino_temp.elf /dev/shm/sumo-tools-j7i8fe19/remote/_app_builds/native-app-v1/3f5e697213f8353df6131ee2da2cf98925e0c0a96a7f6e7105d6fb4df26b9247/bench-default/992217e34dcc4433aa6d3aef0167bb1d/artifacts/app.ino.elf-zsk.bin"
+      ]
+    },
+    {
+      "kind": "sha256sum",
+      "args": [
+        "--",
+        "/fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/platform.txt",
+        "/fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/boards.txt",
+        "/fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/cores/arduino/Arduino.h",
+        "/fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/cores/arduino/main.cpp",
+        "/fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/postvariant.h",
+        "/fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/variant.h",
+        "/fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/includes.txt",
+        "/fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/machine_flags.txt",
+        "/fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/cflags.txt",
+        "/fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/cxxflags.txt",
+        "/fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/generated/zephyr/autoconf.h",
+        "/fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf",
+        "/fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/_ldscripts/build-dynamic.ld",
+        "/fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/_ldscripts/memory-check.ld",
+        "/fixture/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/_ldscripts/build-static.ld",
+        "/fixture/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-gcc",
+        "/fixture/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-g++",
+        "/fixture/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-ld",
+        "/dev/shm/sumo-tools-j7i8fe19/remote/_app_builds/native-app-v1/3f5e697213f8353df6131ee2da2cf98925e0c0a96a7f6e7105d6fb4df26b9247/bench-default/992217e34dcc4433aa6d3aef0167bb1d/build/app.ino.elf",
+        "/dev/shm/sumo-tools-j7i8fe19/remote/_app_builds/native-app-v1/3f5e697213f8353df6131ee2da2cf98925e0c0a96a7f6e7105d6fb4df26b9247/bench-default/992217e34dcc4433aa6d3aef0167bb1d/build/app.ino_debug.elf",
+        "/dev/shm/sumo-tools-j7i8fe19/remote/_app_builds/native-app-v1/3f5e697213f8353df6131ee2da2cf98925e0c0a96a7f6e7105d6fb4df26b9247/bench-default/992217e34dcc4433aa6d3aef0167bb1d/build/app.ino_temp.elf",
+        "/dev/shm/sumo-tools-j7i8fe19/remote/_app_builds/native-app-v1/3f5e697213f8353df6131ee2da2cf98925e0c0a96a7f6e7105d6fb4df26b9247/bench-default/992217e34dcc4433aa6d3aef0167bb1d/artifacts/app.ino.elf-zsk.bin"
+      ]
+    }
+  ]
+}

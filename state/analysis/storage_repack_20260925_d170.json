@@ -1,0 +1,54 @@
+{
+  "timestamp": "2026-09-25T06:44:35.194880+04:00",
+  "scope": "incremental Git storage packing, no history expiry or rewrite",
+  "argv": [
+    "git",
+    "-c",
+    "pack.deltaCacheSize=8m",
+    "repack",
+    "-d",
+    "-l",
+    "--threads=1",
+    "--window-memory=16m",
+    "--no-write-bitmap-index"
+  ],
+  "returncode": 0,
+  "seconds": 1.7573015000671148,
+  "stdout": "",
+  "before": {
+    "count": 2220,
+    "size": 12368,
+    "in-pack": 23891,
+    "packs": 3,
+    "size-pack": 214603,
+    "prune-packable": 0,
+    "garbage": 0,
+    "size-garbage": 0
+  },
+  "after": {
+    "count": 66,
+    "size": 213,
+    "in-pack": 26045,
+    "packs": 4,
+    "size-pack": 215824,
+    "prune-packable": 0,
+    "garbage": 0,
+    "size-garbage": 0
+  },
+  "reported_git_storage_recovered_bytes": 11196416,
+  "history_before": {
+    "head": "0160d1a65b56d4449fcec672e7e6273a48ed4504",
+    "refs_sha256": "672ccb59b8230cdc4fc8e7d8d8e0f02bf530518d8c770a77cce684c955f98819",
+    "reflogs_sha256": "b7a55441678a4d3265a776ecb1d9838dabb8d8e8e8f2458f66e4462933a0468e"
+  },
+  "history_after": {
+    "head": "0160d1a65b56d4449fcec672e7e6273a48ed4504",
+    "refs_sha256": "672ccb59b8230cdc4fc8e7d8d8e0f02bf530518d8c770a77cce684c955f98819",
+    "reflogs_sha256": "b7a55441678a4d3265a776ecb1d9838dabb8d8e8e8f2458f66e4462933a0468e"
+  },
+  "refs_head_reflogs_unchanged": true,
+  "new_packs_verified": [
+    "pack-ac383d4fc38b5db4b6878b14f0754696d212edcd.idx"
+  ],
+  "connectivity_stdout": ""
+}

@@ -1,5 +1,12 @@
 # P7 software preparation map
 
+**25 September D180 follow-up:** the map below preserves the24September audit.
+The runbook now exists. Item2's configuration binding is implemented and
+HOST-TESTED with every grant still disabled; see
+[D180 evidence](P7_setup_binding_validation.md). Its changed main app has not
+been target-compiled. Physical grant qualification and release acceptance remain
+pending; use CODEX_HANDOFF.md for the current task and gate status.
+
 Read-only source/document mapping, 2026-09-24, during D134 validation. Only this
 map was added; no implementation, test, board operation, release tag, phase
 advance or ledger update. D134's final result is owned by its validation/review

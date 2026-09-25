@@ -1,13 +1,13 @@
 # Codex handoff - 25 September 2026, Asia/Dubai
 
-**Active: P7 software/release preparation. D180 setup binding IN PROGRESS.**
-Fresh bounded source audit found an eligible main-app configuration gap after
-D179. Contract e4aea29c and implementation70b9cea5 add a pure constexpr
-config-to-SetupGrants mapping; all checked-in declarations remainfalse/zero.
-Independent spec-only tests are being authored and separate source review is
-provisionally clear. No new code has been executed yet. Resume frozen host tests,
-relevant legacy checks and final review before closing this task. Target compilation
-of the changed main app remains pending; old target receipts are historical.
+**Active: P7 software/release preparation. D180 HOST-TESTED, review pending.**
+Contract e4aea29c/source70b9cea5 close the main-app config-to-SetupGrants gap.
+All17 declarations remain0, axes unconfigured and originUNKNOWN. Independent
+oracle ad9bd19c passes16methods on its first run;26selected legacy methods PASS.
+Ten current/24priorD179pins exact, no old value/bench/locked-test change,0native
+calls/ownedRAMremnants. Evidence8d8f38d1 and analysis/P7_setup_binding_validation.md.
+Finish the separate review/checkpoint; changed main-app target compilation remains
+pending. Historical target receipts do not qualify this source.
 
 **D179 fixed caller REVIEWED.**
 Board disconnected. Source d8418fad/8b47b1d6, independent corrected44-method
@@ -61,10 +61,10 @@ No process is running. Previous source/failure/recipe/review evidence is retaine
 
 ## Exact next task
 
-Finish D180 under analysis/P7_setup_binding_contract.md: freeze independent
-tests/tooling/test_configured_setup.py, run serial small RAM C++17/entry fixtures
-and unchanged relevant tooling/registry assertions, record failures/results and
-complete separate review. No grant enablement or native/target action.
+Finish D180 separate review and save the closure checkpoint. All planned host
+checks pass; do not repeat unchanged suites. No further original-scope offline
+omission was identified by the bounded audit. No grant enablement or native action.
+Changed main-app target compilation and actual setup qualification remain pending.
 The fixed D179 caller and D177 command/receipt/sequence interfaces remain reviewed.
 No real inert_run01_scope.json or native_inert_run01 exists in this checkout.
 Preserve that absence until fresh native admission and review.
@@ -130,7 +130,7 @@ sensor/motor/electrical acceptance remain tracked in existing packets/findings.
 
 ## Storage and tools
 
-C: latest D179 free-space observation is in STORAGE_LOG.md; recheck before work.
+C: latest D180 free-space observation is in STORAGE_LOG.md; recheck before work.
 Only compact unique D179 source/oracle/failure/review receipts were retained;
 small owned RAM fixtures were removed, no new build/download/cache generated.
 D173 retained219185B file-only ABI packet and D174 compact sources/test results;

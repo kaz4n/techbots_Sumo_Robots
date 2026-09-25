@@ -300,8 +300,17 @@ class InertCallerContract(unittest.TestCase):
         self.assertFalse(self.output.exists())
         path.write_bytes(self.scoped_bytes[SCOPED[1]])
         self.output.symlink_to(self.root / 'missing-owner', target_is_directory=True)
-        self.rejected_admit()
+        target = os.readlink(self.output)
+        fresh = self.subject.InertRun(HEAD, root=self.root)
+        with mock.patch.object(fresh, 'git', side_effect=self.git), \
+             mock.patch.object(fresh, 'check_adb', return_value=None), self.assertRaises(Exception):
+            fresh.admit()
+        self.assertTrue(os.path.lexists(self.output))
         self.assertTrue(self.output.is_symlink())
+        self.assertEqual(target, os.readlink(self.output))
+        self.assertEqual([], self.events)
+        self.process.assert_not_called()
+        self.transport.assert_not_called()
 
     def test_linked_scope_and_pin_are_rejected_without_following(self):
         for name in (SCOPE, SCOPED[1], STATIC + 'capture_remote.py'):
@@ -749,8 +758,15 @@ class InertCallerContract(unittest.TestCase):
             with self.subTest(args=args, timeout=timeout, label=selected_label), self.assertRaises(Exception):
                 self.run.transport(args, timeout, selected_label)
         self.assertEqual(3, len(self.events))
-        for _ in range(8):
-            self.run.transport(arguments, 60, label)
+        self.run.intent('upload', None)
+        upload = self.run.action('upload')
+        self.run.prerequisites()
+        self.run.intent('capture', upload)
+        self.run.action('capture')
+        self.run.prerequisites()
+        self.assertEqual(['0', '1', 'capability', 'upload', '0', '1', 'capability',
+                          'capture', '0', '1', 'capability'], self.events)
+        self.assertEqual(11, self.run.counter)
         with self.assertRaises(Exception):
             self.run.transport(arguments, 60, label)
         self.assertEqual(11, len(self.events))

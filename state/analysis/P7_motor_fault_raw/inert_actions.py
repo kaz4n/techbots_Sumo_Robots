@@ -80,12 +80,16 @@ def capture(helper,sources,bindings,envelope):
    try: os.close(root)
    except Exception as error: remember(envelope,error,'root_close')
 def request():
- require(len(sys.argv)==4 and sys.flags.dont_write_bytecode,'Expected action, hash, payload and Python -B')
+ require(len(sys.argv)==4 and sys.flags.dont_write_bytecode and sys.dont_write_bytecode is True,'Expected action, hash, payload and Python -B')
  action,digest,token=sys.argv[1:]
  require(type(action) is str and action in ('upload','capture'),'Wrong action')
  require(re.fullmatch('[0-9a-f]{64}',digest) is not None,'Wrong payload digest')
- compressed=base64.b64decode(token,validate=True)
- require(base64.b64encode(compressed).decode('ascii')==token,'Noncanonical base64')
+ if token.startswith('b85:'):
+  compressed=base64.b85decode(token[4:])
+  require(base64.b85encode(compressed).decode('ascii')==token[4:],'Noncanonical base85')
+ else:
+  compressed=base64.b64decode(token,validate=True)
+  require(base64.b64encode(compressed).decode('ascii')==token,'Noncanonical base64')
  decoder=bz2.BZ2Decompressor()
  raw=decoder.decompress(compressed,max_length=196609)
  require(len(raw)<=196608 and decoder.eof and not decoder.unused_data,'Invalid bounded BZ2 member')
@@ -168,6 +172,11 @@ def _identity(action, bindings):
                  'Wrong binding: ' + name)
 
 
+def _command_units(remote):
+    native = [ADB, '-s', BOARD, 'shell', '-T', shlex.join(remote)]
+    return len(subprocess.list2cmdline(native).encode('utf-16-le')) // 2
+
+
 def build_command(action, sources, bindings):
     _action(action)
     _keys(sources, ('helper', 'support', 'upload') if action == 'upload'
@@ -180,13 +189,14 @@ def build_command(action, sources, bindings):
     payload = _canonical({'run_id': RUN_ID, 'source_sha256': SOURCE,
                           'sources': inline, 'bindings': bindings})
     _require(len(payload) <= PAYLOAD_LIMIT, 'Payload exceeds bound')
-    token = base64.b64encode(bz2.compress(payload, compresslevel=9)).decode('ascii')
+    compressed = bz2.compress(payload, compresslevel=9)
+    token = base64.b64encode(compressed).decode('ascii')
     remote = ['/usr/bin/env', '-i', 'HOME=/home/arduino', 'USER=arduino',
               'LOGNAME=arduino', 'PATH=/usr/bin:/bin', 'LANG=C', 'LC_ALL=C',
               '/usr/bin/python3', '-I', '-B', '-c', BOOTSTRAP, action, _sha(payload), token]
-    native = [ADB, '-s', BOARD, 'shell', '-T', shlex.join(remote)]
-    units = len(subprocess.list2cmdline(native).encode('utf-16-le')) // 2
-    _require(units <= COMMAND_LIMIT, 'Windows command exceeds bound')
+    if _command_units(remote) > COMMAND_LIMIT:
+        remote[-1] = 'b85:' + base64.b85encode(compressed).decode('ascii')
+    _require(_command_units(remote) <= COMMAND_LIMIT, 'Windows command exceeds bound')
     return remote
 
 

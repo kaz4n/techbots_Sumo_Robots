@@ -373,3 +373,6 @@ D191 closing observation: C:recovered290537472B independently before local docum
 
 
 2026-09-25T22:01:32.975637+04:00 | D191 exact target scratch cleanup | Removed only verifiedobsoleteD184/tmp/remoteocd copies:680+29836+2303728=2334244logicalB and emptydirectory. Installed/build originals rehashed unchanged. Targetresult6306B and compact unique localreceipts retained; source/debug/firmware originals untouched. Three stagedcleanup sources50786B plus result retained through actualrun02 review, then assess disposal. No Windows/denied-path deletion or paging change; targetfree13982986240B is a separate observation.
+
+
+2026-09-25T22:12:15.468980+04:00 | D190 actual run evidence retention | Keep 63 unique native/retrieval/decoded files totaling745903logicalB plus compact invocation/interpreter/review/validation. They bind upload/capture, failure-free closure and observed raw fields; raw12SRAMwindows9072B remain encoded once in saved retrieval, not separate binary copies. Full captured firmware stays on board; no firmware/debug download, host build objects or bytecode generated. D191 source/result and D190 adapter/capture originals retained as board provenance while original intermittent fault is open; no repeated cleanup attempted. Windows C:free323903488B is observation, not cleanup savings. All previously denied paths/paging/history untouched.

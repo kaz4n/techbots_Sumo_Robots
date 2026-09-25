@@ -9,28 +9,25 @@ physical acceptance. Do not reset the project to P0.
    Check nested instructions, Git status, actual Asia/Dubai time and free space.
    Preserve uncommitted user work. PROGRESS has legacy non-UTF8 bytes: append
    without re-encoding its history. The handoff holds the exact current next task.
-2. Read the current handoff before selecting a native task. D184 remains the last
-   successful firmware upload (halted isolated M0 diagnostic). D188 static full-app
-   diagnostic was target-compiled and its ABI/entry files audited. D189 run01
-   rejected old /tmp/remoteocd before uploader CLI; consumed, no new firmware.
-   D190 fresh run02 variants now pass62host methods; D191 human-assisted cleanup
-   passes37host methods and its three files are staged/hash-verified. The human
-   sudo command is pending because protected adbd handles require authentication.
-   Read analysis/P7_d190_d191_validation.md and its final review. After the human
-   replies CLEANUP DONE, validate the saved result and fresh identity/absence
-   before preparing/reviewing actual run02 inputs and using its existing caller.
-   No automatic cleanup retry or old owner reuse. Original full-app fault,
-   physical setup, RAM/stack/WCET and human gates remain pending.
+2. Read the current handoff before selecting a native task. D191 cleanup actually
+   succeeded after the user supplied authentication. D190 run02 then uploaded the
+   checked static/default/M0 full-app diagnostic and completed its four epochs.
+   All 41 callbacks returned true; the final halt confirmed inhibition. This is
+   the latest successful firmware upload. Read analysis/P7_app_motor_fault_run02_validation.md.
+   The historical D160/D161 IO fault was not reproduced or resolved. Run02 and
+   its owners are consumed; do not repeat it. Next define a longer bounded inert
+   observation retaining first-failure evidence without overflowing the trace.
+   Preserve the 150us bound and require new source/artifact/review/scope evidence.
 3. All old native scopes are consumed. Never rerun a historical launcher, repin
    its consumed manifest, reset the MCU or infer that an old capture layout fits
    changed firmware. A new operation needs fresh source/artifact/identity binding
    and review using the existing bounded primitives. Preserve original failures.
 4. The latest user explicitly reconnected the board and requested continuation,
    superseding older offline-only paragraphs. Connection/boot must still be
-   observed for each distinct native scope. D191 staged files are preparation,
-   not cleanup success or firmware execution. Do not request the sudo password
-   in chat; the human enters it in the board terminal for the exact reviewed
-   command. No motor-capable upload/run has fresh STAND OK or RING OK. D051
+   observed for each distinct native scope. The completed authentication was
+   restricted to the exact cleanup wrapper; no credential is retained in the
+   repository and no general privileged permission follows. No motor-capable
+   upload/run has fresh STAND OK or RING OK. D051
    engineering delegation does not create measurements, PINMAP/EXPLAINED approval
    or human GATE Pn PASS. Retain the specific next action in the current handoff.
 5. Storage is constrained: recheck before large work. Read state/STORAGE_LOG.md.

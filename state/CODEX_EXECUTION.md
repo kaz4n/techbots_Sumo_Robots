@@ -1,5 +1,13 @@
 # Current execution checklist - 2026-09-25 Asia/Dubai
 
+Current checkpoint: D191 authenticated cleanup and D190 native run02 are complete.
+Four inhibited application epochs/41 successful callbacks, explicit final halt;
+original D160/D161 fault not reproduced or resolved. No active execution session.
+Read CODEX_HANDOFF.md and analysis/P7_app_motor_fault_run02_validation.md for
+actual receipts, limitations and next task. All run02 owners are consumed.
+
+## Historical checkpoints below (superseded next actions)
+
 **Current checkpoint: D189 run01 stopped before uploader execution.**
 31170b08 check-only0/execute1; nine transports completed and adapter staged,
 but uploader admission refused existing /tmp/remoteocd before remoteclaim/CLI.
@@ -314,3 +322,8 @@ Recheck space before work and preserve all earlier blocked cleanup exclusions.
   source/host/staging independently reviewed. Three exact files staged only.
 - [ ] Human sudo command, saved-result validation, then fresh run02 scope/review
   and one inhibited native upload/capture. See analysis/P7_d190_d191_validation.md.
+
+
+- [x] D191 exact authenticated cleanup and D190 run02 completed, independently
+  reviewed. See P7_app_motor_fault_run02_validation.md; historical pending items
+  above are superseded. No physical gate or motor permission follows.

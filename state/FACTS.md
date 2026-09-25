@@ -794,3 +794,7 @@ HOST-VERIFIED:62run02+37human-cleanup wrapper methodsPASS/no skips; new-fixture 
 
 ## F203 - Actual exact uploader scratch cleanup (2026-09-25T22:01:32.975637+04:00)
 DEVICE-FILES-OBSERVED: authenticated unchangedwrapper4192f23e exit0; resultc0e45b30/6306B reports exactly3copies2334244B removed, emptydirectory removed, retainedoriginals unchanged and terminal UID/GIDtriples1000. Three privileged read-only scans each170processnames/3sameUIDhandles; other-userFDcoverage not claimed. Independent localreadreviewPASS. Freshobservation02 confirms originalboot/stageidentity and scratchabsence. No firmware/reset/MCUread/gate result. Source: analysis/P7_app_motor_fault_run_raw/cleanup_root02_actual_result.json and observation02.
+
+
+## F204 - Inhibited static full-app diagnostic completed (2026-09-25T22:12:15.468980+04:00)
+DEVICE-OBSERVED: D190 run02 source21df6ae8/package deb40317, board2629958581/boot55c386b9-fe6d-4388-a7f4-1d91e0bb49d8. One upload/26passive reads727088B, full loader/sketch before-after checks PASS. Both six-window samples identical, coherence UNPROVEN. FROZEN/EPOCH_LIMIT4 with successful begin/abort; saved runtime RUNNING/NONE/4epochs/0misses/max582MCU-us, fourth receipt valid/consumed/token4/zero outputs. All41callbacks successful; final halt inhibition_confirmed. Empty grants/initfalse expected. Original D160/D161 fault not reproduced or resolved; no electrical/RAM/stack/WCET/physical/human-gate result. Source: analysis/P7_app_motor_fault_run02_validation.md and exact raw retrieval/decoded fields.

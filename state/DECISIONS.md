@@ -2163,3 +2163,6 @@ D-191 authentication authorization 2026-09-25T17:59:04.856436+00:00: user explic
 
 
 D-191 actual outcome 2026-09-25T22:01:32.975637+04:00: unchangedroot02 completed once, resultc0e45b30 independently locally inspectedPASS. Exact2334244B scratchcopies removed, originalsunchanged, three170-name/3sameUIDhandle scans and permanent privilege drop successful. Other-userFDcoverage limitation remains; no hardware qualification. D190 freshadmission verifies sameboot/fullidentity19pins and three absent owners plus scratchabsence; createonlymetadata-derived preparation_run02/scope and separatelyreview before oneM0nativeattempt.
+
+
+D-190 actual outcome 2026-09-25T22:12:15.468980+04:00: existing run02 completed once at reviewed b3e584d1 with unchanged source21df6ae8/static/default/MATCH0/MOTORS0/probe1. Scope and owners consumed. Interpret saved pre-abort state before intentional-abort faults: EPOCH_LIMIT4, RUNNING/NONE,41 successful callbacks; no initiating fault observed. Preserve historical D160/D161 fault as unresolved; no safety-limit or production change is justified by this short successful run. Next define a longer bounded inhibited first-failure observation without trace overflow, with separate tests/review/new artifact and scope before any execution. No motor permission or human gate follows.

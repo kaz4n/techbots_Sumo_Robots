@@ -1315,3 +1315,9 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-25T22:03:30.099399+04:00 | P7 D190 actualrun02scope review | Independentlocalread/hashreviewPASS preparation79bf96b4/scope4564c0a9/admissiona6a970dc,12scope/12provenance/127sourcepins and19targetpins exact. Existingstatic/default/MATCH0/MOTORS0/probe1 firmware unchanged. Next committedcleanHEAD/exactGitbytes/check-only then oneM0nativeattempt. Review P7_app_motor_fault_run02_actual_scope_review.md; no MCU action yet.
+
+
+2026-09-25T22:12:15.468980+04:00 | P7 D190 actual inhibited run02 | Reviewed b3e584d1 check-only0/execute0;13transports, one upload,26reads727088B, four full flash brackets and all closing checks PASS. Saved RUNNING/NONE/epochs4,41 successful callbacks, final explicit halt confirmed inhibition; original D160/D161 IO fault not reproduced or resolved.14saved files17913B hash/identity verified; D188-map offline decode retained. No source/limit/pin/locked change, physical/WCET/human gate or motor permission. See analysis/P7_app_motor_fault_run02_validation.md; commit: this closure.
+
+
+2026-09-25T22:13:31.539880+04:00 | P7 D190 actual review closure | Separate same-model localread reviews PASS/no material findings:13transport/159pin/14file retrieval audit plus independent raw decoder matching every selected field of12windows. Review state/reviews/P7_app_motor_fault_run02_actual_review.md. Handoff/resume now reflect latest haltedM0diagnostic and unreproduced historicalfault; no active native session.

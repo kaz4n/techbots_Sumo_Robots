@@ -20,6 +20,19 @@ process, contact hardware, modify environment/files or execute module __main__.
 root defaults to this checkout; optional root supports controlled isolated tests
 and verified checkouts, not arbitrary source or command overrides.
 
+Frozen public test seams: module-level helpers, compiler and actions are the
+registered hash-checked startup_run, compile_motor_fault and inert_actions modules.
+InertRun exposes git(*args), check_adb() and transport(arguments,timeout,label);
+only compiler.CompileOnce.transport is the native primitive, called unbound.
+Tests may replace that primitive or the transport method with controlled callbacks.
+Instance diagnostics expose commands (upload/capture argv), counter, transport_errors,
+local_errors and prerequisite_errors. These are observable state, not runtime options.
+Fixed transport labels: cli-initialization, cli-builtin-files, capabilities, upload,
+capture. main returns builtin int0/1 for completed operational handling; argparse
+raises SystemExit2 for bad options and SystemExit0 for --help, without ownership or
+devices. run returns the D177 sequence result (including FAILED); admission/claim
+or failed finish may raise with original evidence retained, as specified below.
+
 Fixed identity: D177 RUN_ID motor-fault-8f592937-run01, SOURCE8f592937...f36 and
 BOARD2629958581. Fixed local owner:
 state/analysis/P7_motor_fault_raw/native_inert_run01.

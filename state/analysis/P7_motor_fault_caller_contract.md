@@ -33,6 +33,12 @@ raises SystemExit2 for bad options and SystemExit0 for --help, without ownership
 devices. run returns the D177 sequence result (including FAILED); admission/claim
 or failed finish may raise with original evidence retained, as specified below.
 
+New local command/predecessor identity hashes reuse startup_run.canonical:
+UTF-8 json.dumps with sort_keys=True, separators=(',', ':'), ensure_ascii=True,
+allow_nan=False,
+without a trailing newline. Raw source/scope hashes remain hashes of exact bytes;
+D177's existing envelope/result-file conventions are unchanged.
+
 Fixed identity: D177 RUN_ID motor-fault-8f592937-run01, SOURCE8f592937...f36 and
 BOARD2629958581. Fixed local owner:
 state/analysis/P7_motor_fault_raw/native_inert_run01.

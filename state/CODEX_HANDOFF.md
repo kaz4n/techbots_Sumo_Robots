@@ -1,6 +1,23 @@
 # Codex handoff - 25 September 2026, Asia/Dubai
 
-**Active: P7 software/release preparation. D180 HOST-TESTED / REVIEWED.**
+**Active: P7 software/release preparation. D181 IN PROGRESS, offline only.**
+User requests finishing without hardware. A controlled reproduction confirms
+compiler failure43 becomes2 when saving stdout hits ENOSPC; D181 contract7e41269a
+requires preserving primary failure and independently attempting both receipts.
+Independent tests are being authored before original-source regression execution;
+fresh contract review is clear. Source has not yet changed. Finish tests, repair,
+selected legacy checks and separate review. No device or target operation.
+
+A fresh code audit also corrects the previous all-deployment-code deferral:
+current documented MATCH dynamic/Immediate upload can be implemented and host-
+tested while its actual execution remains denied pending real qualification and
+fresh authorization. Use a separately reviewed versioned adapter reusing the
+frozen uploader, not a second process/transport stack; preserve all D179 pins.
+After D181, scope this remaining software path before declaring software-ready.
+Its actual precompiled build sibling needs future equality/hash verification;
+no current scope/approval/physical fact is supplied by this software preparation.
+
+**D180 HOST-TESTED / REVIEWED.**
 Contract e4aea29c/source70b9cea5 close the main-app config-to-SetupGrants gap.
 All17 declarations remain0, axes unconfigured and originUNKNOWN. Independent
 oracle ad9bd19c passes16methods on its first run;26selected legacy methods PASS.
@@ -63,20 +80,11 @@ No process is running. Previous source/failure/recipe/review evidence is retaine
 
 ## Exact next task
 
-Resumed offline-only on25September13:32Dubai: user confirms no board. Fresh
-eligibility audits1-3/3 retain the same startup/release/physical dependencies;
-prior blocked-run counts do not carry into this resumed run. TenD180/24D179pins
-still exact, actual scope/owner absent, no task running. No further eligible
-offline implementation is identified. Goal BLOCKED after the resumed threshold;
-full project remains incomplete. Resume only when a genuine dependency changes.
-
-D180 is closed within its HOST-TESTED scope. The bounded original-scope audit
-identified no further offline omission. Preserve the checkpoint while the board
-is absent; do not repeat passing suites or invent new release frameworks.
-Changed main-app target compilation and actual setup qualification remain pending.
-The fixed D179 caller and D177 command/receipt/sequence interfaces remain reviewed.
-No real inert_run01_scope.json or native_inert_run01 exists in this checkout.
-Preserve that absence until fresh native admission and review.
+Finish D181 from analysis/P7_compile_error_retention_contract.md, then prepare
+and independently validate the concrete existing MATCH deployment route described
+above. These newly identified offline tasks supersede the earlier blocked-only
+assessment. Preserve no-board/no-motor permissions and all previous native scopes.
+The D179 inert caller remains a separate reviewed future hardware diagnostic.
 
 When the board is available, first perform a fresh bounded read-only check of
 identity, installed bz2/Base85 support, exact tools/artifacts and prerequisites.

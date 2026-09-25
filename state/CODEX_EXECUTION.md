@@ -1,9 +1,12 @@
 # Current execution checklist - 2026-09-25 Asia/Dubai
 
-**Goal BLOCKED after resumed offline eligibility audits1-3/3.** No board. Same
-startup/release/physical dependencies remain; no further eligible offline task
-identified. TenD180/24D179pins unchanged. P7 remains the active phase, incomplete;
-no process is live. Preserve the exact native resume step in CODEX_HANDOFF.
+**Offline work resumed: D181 compiler failure retention IN PROGRESS.**
+Controlled ENOSPC reproduction demonstrates43->2 masking. Contract7e41269a;
+independent oracle drafting and fresh contract review clear, source unchanged.
+Next frozen original regressions, repair, legacy checks and review. A fresh
+code audit also identifies implementable current MATCH dynamic/Immediate
+precompiled deployment binding; scope that after D181, without native execution
+or modifying historical D179 pins. Earlier no-further-offline finding superseded.
 
 **D180 main-app setup binding HOST-TESTED / REVIEWED.**
 Contract e4aea29c/source70b9cea5; all17 declarations remain0/unconfigured.

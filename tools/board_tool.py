@@ -295,6 +295,8 @@ def legacy_stage_destination(name):
 
 
 def stage(sketch, *, attempt=None):
+    if sketch == 'bench/app_motor_fault' and attempt is None:
+        fail('Full-app fault staging requires a fresh attempt')
     if sketch == 'app':
         source, name = ROOT / 'src/app/app.ino', 'app'
     elif re.fullmatch(r'bench/[a-z][a-z0-9_]*', sketch):
@@ -329,6 +331,7 @@ def stage(sketch, *, attempt=None):
     else:
         staged_src.mkdir()
     stage_ui_probe_sources(sketch, staged_src)
+    stage_app_motor_fault_sources(sketch, staged_src)
     try:
         shutil.copy2(ROOT / 'src/config.h', staged_src / 'config.h')
     except OSError as error:
@@ -356,6 +359,27 @@ def stage_ui_probe_sources(sketch, destination):
         target_file = destination / name
         if not source.is_file() or source.is_symlink() or os.path.lexists(target_file):
             fail('bare ADC probe requires exact non-conflicting shared UI sources')
+        shutil.copy2(source, target_file)
+
+
+def stage_app_motor_fault_sources(sketch, destination):
+    if sketch != 'bench/app_motor_fault':
+        return
+    shared = ROOT / 'bench/motor_fault/src'
+    check_source(shared)
+    for ancestor in (shared, *shared.parents):
+        plain_stage_directory(ancestor)
+        if ancestor == ROOT:
+            break
+    for name in ('motor_fault.h', 'motor_fault.cpp'):
+        source = shared / name
+        target_file = destination / name
+        if not source.is_file() or os.path.lexists(target_file):
+            fail('Full-app fault probe requires exact non-conflicting shared trace sources')
+        metadata = source.lstat()
+        if (not stat.S_ISREG(metadata.st_mode) or
+                getattr(metadata, 'st_file_attributes', 0) & stat.FILE_ATTRIBUTE_REPARSE_POINT):
+            fail('Full-app fault shared trace must be a plain file')
         shutil.copy2(source, target_file)
 
 
@@ -523,6 +547,8 @@ def compile_app(board, checksum, board_folder, remote_root, fqbn, flags, startup
 
 
 def flash_profile(args):
+    if args.sketch == 'bench/app_motor_fault':
+        fail('Full-app fault probe requires a separately reviewed static-only build route')
     startup = build_startup(args)
     identified = False
     if getattr(args, 'run_ui_adc_probe', None) is not None:

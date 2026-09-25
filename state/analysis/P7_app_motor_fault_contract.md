@@ -77,7 +77,9 @@ is checked into the new bench. Source and shared files remain untouched.
 Generic flash_profile must reject this new sketch for every flag combination
 before transport/staging: it requires a later reviewed static-only native route.
 Do not register it in the dynamic app-build policy or generic upload allowlist.
-New stage attempts preserve every prior policy-denied path. No target operation
+This sketch requires an explicit fresh attempt; absent attempt fails before any
+staging claim or deletion. New stage attempts preserve every prior policy-denied
+path. No target operation
 is authorized by this host scope or its tests.
 
 ## Validation and next native dependency

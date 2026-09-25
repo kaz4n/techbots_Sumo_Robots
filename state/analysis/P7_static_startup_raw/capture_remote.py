@@ -361,21 +361,56 @@ class Capture:
         self.budget()
 
     def execute(self, argv, stdout_path, stderr_path, timeout):
-        self.check_directory()
-        with os.fdopen(self.open_exclusive(Path(stdout_path).name), 'wb') as stdout:
-            with os.fdopen(self.open_exclusive(Path(stderr_path).name), 'wb') as stderr:
-                self.check_directory()
-                timeout = min(timeout, self.budget())
-                child = subprocess.Popen(argv, stdin=subprocess.DEVNULL, stdout=stdout,
-                                         stderr=stderr, cwd='/home/arduino',
-                                         env=dict(ENVIRONMENT), start_new_session=True,
-                                         preexec_fn=limit_child_output, shell=False)
-                result = wait_child(child, timeout)
-                stdout.flush()
-                stderr.flush()
-                os.fsync(stdout.fileno())
-                os.fsync(stderr.fileno())
+        streams, result, first = [], None, None
+        try:
+            self.check_directory()
+            for path in (stdout_path, stderr_path):
+                name = Path(path).name
+                streams.append((name, self.open_stream(name)))
+            self.check_directory()
+            timeout = min(timeout, self.budget())
+            child = subprocess.Popen(argv, stdin=subprocess.DEVNULL, stdout=streams[0][1],
+                                     stderr=streams[1][1], cwd='/home/arduino',
+                                     env=dict(ENVIRONMENT), start_new_session=True,
+                                     preexec_fn=limit_child_output, shell=False)
+            result = wait_child(child, timeout)
+            # A failed child precedes every subsequent stream cleanup failure.
+            check_execution(result)
+        except Exception as error:
+            first = error
+            result = getattr(error, 'subprocess_result', result)
+        finally:
+            failures = self.cleanup_streams(streams)
+        if failures:
+            first = first or failures[0][1]
+            first.stream_cleanup_errors = getattr(first, 'stream_cleanup_errors', []) + [
+                {'file': name, **error_record(error)} for name, error in failures]
+        if first is not None:
+            if result is not None:
+                first.subprocess_result = result
+            raise first
         return result
+
+    def open_stream(self, name):
+        descriptor = self.open_exclusive(name)
+        try:
+            return os.fdopen(descriptor, 'wb')
+        except Exception as error:
+            try:
+                os.close(descriptor)
+            except Exception as cleanup_error:
+                error.stream_cleanup_errors = [{'file': name, **error_record(cleanup_error)}]
+            raise
+
+    def cleanup_streams(self, streams):
+        failures = []
+        for name, stream in streams:
+            for operation in (stream.flush, lambda: os.fsync(stream.fileno()), stream.close):
+                try:
+                    operation()
+                except Exception as error:
+                    failures.append((name, error))
+        return failures
 
     def absent(self, name):
         try:
@@ -433,6 +468,7 @@ class Capture:
             receipt['exception'] = error_record(error)
             if hasattr(error, 'subprocess_result'):
                 receipt['subprocess'] = error.subprocess_result
+            receipt['output_errors'].extend(getattr(error, 'stream_cleanup_errors', []))
             return error
         return None
 
@@ -518,6 +554,7 @@ class Capture:
         self.postcheck('identity', self.check_identity)
         self.postcheck('directory', self.check_directory)
         self.timestamp(self.report, 'finished')
+        self.postcheck('deadline', self.budget)
         if self.complete() and self.report['analysis'] is not None and self.report['first_error'] is None:
             self.report['status'] = 'COLLECTED'
         self.write_record('capture_result.json', self.report, evidence=True)

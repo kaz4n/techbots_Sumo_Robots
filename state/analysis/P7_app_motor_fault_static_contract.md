@@ -45,7 +45,9 @@ substitution/checks. Raw compiler response and caller path strings remain exact.
 Retain default/wait startup, static linking, discovery flag and every other
 comparison. Return the original actual-properties dictionary, with its actual
 new name/flags. Old project, inactive probe, MATCH/M1, dynamic/Immediate, extra
-flags/libraries/commands and malformed/nonfinite/duplicate JSON fail.
+flags/commands and malformed/nonfinite/duplicate JSON fail. As in D141,
+validate_compile_result rejects every external library and malformed library
+metadata; properties-only preflight leaves used_libraries uninterpreted.
 
 ## Artifact checks
 

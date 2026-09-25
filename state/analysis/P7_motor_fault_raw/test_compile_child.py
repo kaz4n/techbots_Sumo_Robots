@@ -41,7 +41,7 @@ class CompileChildTests(unittest.TestCase):
         sys.modules[name] = cls.caller
         cls.addClassCleanup(sys.modules.pop, name, None)
         spec.loader.exec_module(cls.caller)
-        cls.wait_source = cls.caller.extracted_wait(CAPTURE.read_bytes().decode('utf-8'))
+        cls.wait_source = cls.caller.extracted_wait(CAPTURE.read_bytes())
 
     def setUp(self):
         temporary = tempfile.TemporaryDirectory(prefix='sumox-compile-child-', dir='/dev/shm')

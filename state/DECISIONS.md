@@ -2020,3 +2020,8 @@ Decision: adopt analysis/P7_setup_binding_contract.md: pure constexpr mapping of
 Consequence: no physical fact, grant enablement, pin/button/default behavior change, bench guard change, old diagnostic repin/rebuild, motor/deployment permission or gate. Target compilation/actual setup remain hardware-pending. Existing consumer checks retain authority; no generic release framework.
 
 D-180 outcome 2026-09-25T13:28:16.015271+04:00: IMPLEMENTED/HOST-TESTED/REVIEWED source70b9cea5; independent oraclead9bd19c first-run16PASS plus26unchanged legacy methods PASS/no skips. No source/fixture repairs; ten current/24priorD179pins exact. Separate fresh-context same-model review30f3927f/4e26ed27 PASS/no findings. All17grants remain0, axes unconfigured/originUNKNOWN; every prior value/pin/bench/locked assertion unchanged. Main-app target compilation and actual qualification pending; native0, no gate. Evidence analysis/P7_setup_binding_validation.md.
+
+## D-181 (2026-09-25T13:53:39.630604+04:00, offline compiler evidence preservation under D051)
+Context: user explicitly requests finishing without hardware. Actual controlled reproduction finds receipt stdout ENOSPC masks compiler exit43 as2 and prevents stderr retention.
+Decision: adopt analysis/P7_compile_error_retention_contract.md, with independent regression on original source, bounded repair and separate review.
+Consequence: tools-only failure handling; preserve original commands/permissions, historical pins, existing tests and actual hardware-pending status. This real offline task supersedes the prior no-further-task assessment.

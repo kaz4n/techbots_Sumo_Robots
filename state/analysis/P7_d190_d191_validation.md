@@ -32,3 +32,10 @@ disposable found. No denied deletion, source/history removal or paging change.
 A temporary30160B RAM checkpoint was written while C:was full. It was absent
 at final read, after all local documents had already saved; local files/Git
 retain the checkpoint. No backup deletion or recovered disk bytes are claimed.
+
+
+Human-reply verification 2026-09-25T20:49:27.813326+04:00: CLEANUP DONE received, but read-only
+cleanup_root02_observation01.json finds result_root02.json absent and scratch
+stillpresent. Board identity and stage66341/271203 match. Exact execution unknown;
+terminal-output clarification pending. Separate /root/fresh_review read-only
+review agrees no cleanup success/native run02 admission can be inferred.

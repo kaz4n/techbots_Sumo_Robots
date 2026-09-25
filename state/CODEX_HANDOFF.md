@@ -1,5 +1,13 @@
 # Codex handoff - 25 September 2026, Asia/Dubai
 
+**Latest observation 2026-09-25T20:49:27.813326+04:00: human cleanup remains unverified.**
+User replied CLEANUP DONE; fresh read-only retrieval found no result_root02.json
+and /tmp/remoteocd still present. Expected board/boot and staging inode unchanged.
+See analysis/P7_app_motor_fault_run_raw/cleanup_root02_observation01.json.
+User has been asked for the terminal output (or whether only the DONE option
+was selected). Do not infer execution/success, retry cleanup or advance run02.
+No native action or scope was created; source/host/staging readiness below holds.
+
 **Current checkpoint: D190 host checks PASS; D191 human cleanup pending.**
 Fresh connected board2629958581 has expected boot55c386b9-fe6d-4388-a7f4-1d91e0bb49d8.
 D190 corrected driver83065c7c passes62/62 with147pins stable; D191 cleanup

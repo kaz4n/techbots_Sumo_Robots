@@ -1306,3 +1306,6 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-25T20:45:19.208771+04:00 | P7 D190/D191 closure | D19062/62 hostPASS,147pins stable; D19137/37 hostPASS after independently approved fixture-only corrections, initialfailures preservedbc2ef67c/1aebef6e. Fresh-context same-model source/host/stage reviewPASS. Five file-only commands stage/check3sources; cleanup NOT EXECUTED, sudo password human action pending. No firmware upload/reset/MCUread or motor permission. Next verify human result before fresh native run02 scope. Evidence analysis/P7_d190_d191_validation.md; commit: this closure.
+
+
+2026-09-25T20:49:27.813326+04:00 | P7 D191 human reply verification | User replied CLEANUP DONE. One read-only observation confirms expectedboard/boot and original stageidentity66341/271203, but result_root02.json absent and /tmp/remoteocd stillpresent. Cleanup pending/unverified; whether the exact command ran unknown. Separate read-only review agrees; requested terminal output. No cleanup retry/native run02 scope/upload/reset/MCUread. Evidence state/analysis/P7_app_motor_fault_run_raw/cleanup_root02_observation01.json; commit: this observation.

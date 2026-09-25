@@ -40,7 +40,8 @@ class MotorFaultTests(unittest.TestCase):
         cls.scratch = tempfile.TemporaryDirectory(prefix="sumox-motor-fault-", dir="/dev/shm")
         cls.directory = Path(cls.scratch.name)
         cls.flags = [cls.compiler, "-std=c++17", "-O1", "-g", "-Wall", "-Wextra",
-                     "-Werror", "-fno-exceptions", "-fno-rtti", "-DMATCH=0",
+                     "-Werror", "-fno-exceptions", "-fno-rtti",
+                     "-DDOCTEST_CONFIG_NO_EXCEPTIONS_BUT_WITH_ALL_ASSERTS", "-DMATCH=0",
                      "-DMOTORS_ALLOWED=0", "-ffunction-sections", "-fdata-sections",
                      "-I" + str(ROOT / "src"),
                      "-I" + str(ROOT / "host/third_party"),

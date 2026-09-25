@@ -1333,3 +1333,6 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-26T01:19:15.131681+04:00 | P7 D193 review closure | Separate same-model source/actualhost review4d5b14ad PASS/no materialfindings; preparedactualscope5d13caa7 conditionalPASS with128pins/staging/readonlyboardreceipt verified. Readyfor committedcleanHEADcheck-only andonecompile-onlyattempt. Physical/nativequalification and motorpermission remain absent.
+
+
+2026-09-26T01:21:18.451035+04:00 | P7 D193 pre-caller Git comparison | Extra coordinator rawHEAD-byte comparison stopped before caller/owners/native. Separate readonlyreview confirms exactlyone historicalJSON CRLF/LF difference: app_build_pins.json24pairs, raw55720e65 matchesmanifest; filteredGitOID matchesHEAD. Contract requires cleanGit+exactworkingpins, not rawHEAD equality. Preserve git_byte_precheck01.json b4903394; use filteredGitidentity plus unchanged128rawpins without file/contract/manifest change. Bothowners absent, no nativeattempt consumed.

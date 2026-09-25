@@ -96,3 +96,15 @@ compile supplies structural/artifact evidence only. New actual ABI/entry and
 finite capture bindings precede any upload or MCU observation. The last firmware
 remains D190's halted four-epoch inhibited image; original IO fault, production
 memory/loading, actual recorder lifecycle and physical/human gates remain open.
+
+## Pre-caller Git comparison
+
+An extra coordinator check compared raw Git blobs with every working file and
+stopped before invoking the caller. `git_byte_precheck01.json` preserves this
+result. Exactly one existing file, `tools/app_build_pins.json`, has24CRLF pairs
+in its2100-byte working copy and2076LF bytes in Git. Its reviewed raw hash remains
+55720e65; Git's filtered object hash exactly matches HEAD. A separate read-only
+review verified all128 files and effective attributes/core.autocrlf. The contract
+requires clean Git and exact working-byte manifest checks; Git filtered identity
+is the appropriate additional history comparison. No source, manifest, contract,
+attribute or input file was changed. No owner or native attempt was consumed.

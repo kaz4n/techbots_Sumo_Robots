@@ -40,13 +40,19 @@ preserving first_failure beyond it; it stops at real faults or10000epochs /
 host normal/sanitizer, historical diagnostics and locked regressions passed.
 The D193 board build succeeded; D190 above remains the latest flashed image.
 
-Next prepare the D194 file-only ABI wrapper/contract/independent tests and review.
-Reuse the pinned reader minimally with the successful D193 result24d12778 and
-artifacts5ceba77d, fresh observation owner and the new Report.polls member query.
+D194 file-only ABI wrapper297eac8b/contract889d6a76 is now host-tested:44LinuxPASS,
+42WindowsPASS/two explicit platformskips. Correctedindependentoracleac571bd4
+changes only the unsupported layout-object-identity fixture; original43PASS/1FAIL
+andoracle preserved974de230. Source/contract unchanged;135pins stable. Read
+analysis/P7_app_motor_observe_abi_validation.md and separate reviewbb0d2b11PASS.
+After cleanHEAD and space recovery, run Python-B wrapper --check-only
+--reviewed-head <40hexHEAD>, then --execute once with the sameHEAD. Outputowner
+analysis/P7_app_motor_observe_compile_raw/native_abi_static01 is UNUSED.
 D193 app-motor-observe-static01 and all earlier native owners are consumed.
-Current ABI source/test preparation is separate from actual device execution.
-Recheck free space before admission; recently only58MB C:free, below the unchanged
-128MiB native-reader gate. Do not reduce that gate or retry denied cleanup paths.
+Recheck free space before admission; closing observation8982528B C:free, below the unchanged
+128MiB native-reader gate. User was asked to free200MB outside this project;
+no reply/recovery assumed. Do not lower the gate or retry any earlier denied
+cleanup, including the old85.48MB host-output batch and all other STORAGE_LOG entries.
 
 Then observe actual artifact/ABI/entry layout before a separate new finite native
 capture. Do not assume historical addresses apply or call the old IO fault fixed.
@@ -91,7 +97,7 @@ rehearsal2Oct, competition3Oct. Scheduled dates create no acceptance.
 
 ## Storage and resumption
 
-Recheck C: before work; recently about58MB free and fluctuating. Keep unique
+Recheck C: before work; closing8982528B free and fluctuating. Keep unique
 raw receipts/source/hash-based reproduction; no duplicate firmware/debug/source
 snapshots, Python bytecode or parallel heavy builds. See STORAGE_LOG.md for
 retention/disposal purposes and exact savings. Do not retry any policy-denied

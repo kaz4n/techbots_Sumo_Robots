@@ -2193,3 +2193,9 @@ D-193 actual outcome 2026-09-26T01:31:58.826012+04:00: one fixed compile-only at
 Context: D193 produced checked static source3a08ddeb ELF2fd70da8/debug33e3b34d; D192 adds Report.polls and needs actual new layout before any finite capture.
 Decision: under D051 adopt analysis/P7_app_motor_observe_abi_contract.md SHA889d6a76. One new wrapper privately projects exact unchanged D188 reader bytes, reuses only pinned normalizer definitions and D193 projected caller, strengthens pre-read descriptor checks, observes polls through member expressions, and keeps raw readelf unchanged while interpreting decimal/0x size privately. Independent frozen contract-derived tests and separate review precede actual admission.
 Consequence: retain all old owners/pins/readers, four file-only children/deadlines,128MiB localgate and closingchecks. No compile/upload/reset/MCUaccess, guessedpadding/address, firmware change, motor permission or physical/human gate. Current localspace belowgate permits only small hostpreparation until independently resolved; do not retry earlier denied cleanup paths.
+
+
+D-194 new-oracle adjudication 2026-09-26T01:40:17.662253+04:00: independentauthor and separate reviewer both identify the sole first-run assertIs(layout) failure as unsupported object-identity assumption; contract889d6a76 requires contentpreservation. Preserve original43PASS/1FAIL/oraclefcbb950e in974de230. Author may replaceonly that newmethod assertion with content equality and addoriginal-layout snapshot/preservation check, retainingallotherassertions. No source/contract/establishedtest change; refreeze before rerun.
+
+
+D-194 host outcome 2026-09-26T01:43:00.541970+04:00: correctednewfixture passes44Linux/42Windowsmethods, twoWindowsskips coveredLinux; unchangedwrapper297eac8b/contract889d6a76 and135finalpins. No nativeclaim or newphysicalevidence. ActualABI query awaitsunchanged128MiB storageadmission and finalreview/cleanHEAD; no bypass or deniedcleanupretry.

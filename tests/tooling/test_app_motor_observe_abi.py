@@ -500,11 +500,12 @@ class AbiContract(ContractCase):
 
     def test_public_summary_passes_private_rows_and_preserves_layout(self):
         result, layout = packet('0x400'); before = copy.deepcopy(result)
+        layout_before = copy.deepcopy(layout)
         seen = []
         normalizer = module(self.inputs[NORMALIZER], ROOT / NORMALIZER, '_d194_original_normalizer')
         def parser(private, same_layout):
             seen.append(private)
-            self.assertIs(same_layout, layout)
+            self.assertEqual(same_layout, layout_before)
             self.assertIsNot(private, result)
             for old, new in zip(result['commands'], private['commands']): self.assertIsNot(old, new)
             self.assertEqual(private['commands'][:2], result['commands'][:2])
@@ -512,6 +513,7 @@ class AbiContract(ContractCase):
             return {'status': 'controlled parser result'}
         answer = self.subject.summarize(result, layout, parser=parser, normalize=normalizer.normalize)
         self.assertEqual(result, before); self.assertEqual(len(seen), 1)
+        self.assertEqual(layout, layout_before)
         self.assertEqual(answer['status'], 'controlled parser result')
         self.assertTrue(answer['readelf_size_projection']['changed'])
 

@@ -385,3 +385,6 @@ D191 closing observation: C:recovered290537472B independently before local docum
 
 
 2026-09-26T01:31:58.826012+04:00 | D193 actual compile retention | Keep996unique native receipt files1693456logicalB plus compactinvocation/closure/validation/review. New775376B107-file stage supports exactsourcechecks and remains needed for ABI/entry; targetartifact originals retained, no firmware/debugdownload. Zero newbytecode files; no host compilerobjects. C:free56795136B separatelyobserved; no cleanup saving or deniedpathretry. Keep unchanged128MiB admissiongate; smallhostpreparation usesRAMfixtures.
+
+
+2026-09-26T01:43:00.541970+04:00 | D194 compact host retention | Keep7rawfiles/58759logicalB beforeclosingreceipt plusnewsource/oracle/contracts/review. Originalfirstfailure/source inGit974de230/2ca0f06f avoidsduplicatedsnapshots. Zero verified /dev/shm/sumox-d194-* andWindowstempremnants; Python-B/noobjects/binarydownloads. C:free8982528B separatelyobserved; no cleanupclaim or earlierdeniedpathretry. Native128MiBgatestays; userdiskactionpending.

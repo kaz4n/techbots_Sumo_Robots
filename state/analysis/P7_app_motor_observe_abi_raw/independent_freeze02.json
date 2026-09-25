@@ -1,0 +1,29 @@
+{
+  "schema": "d194-independent-abi-oracle-freeze-v2",
+  "frozen_utc": "2026-09-25T21:40:27.1030305Z",
+  "oracle": {
+    "path": "tests/tooling/test_app_motor_observe_abi.py",
+    "bytes": 46134,
+    "sha256": "ac571bd4a1e4eeba9516795236c9d79329a0d2967999c22f81a953f7aa957cb2",
+    "methods": 44
+  },
+  "original_oracle": {
+    "sha256": "fcbb950ef27825664b5b734e25d68083d967f8b8c05609aa238f6026bdff963a",
+    "preserved_commit": "974de230",
+    "first_freeze": "state/analysis/P7_app_motor_observe_abi_raw/independent_freeze01.json",
+    "first_linux_result": "state/analysis/P7_app_motor_observe_abi_raw/linux_test01.json"
+  },
+  "contract": {
+    "path": "state/analysis/P7_app_motor_observe_abi_contract.md",
+    "sha256": "889d6a7697f2ddc0051ef73f52f82c1dd43f35fa45af9fc2d4958f44441bf8ff"
+  },
+  "subject": {
+    "path": "state/analysis/P7_app_motor_observe_compile_raw/inspect_static_abi.py",
+    "sha256": "297eac8b2c9878b8c8e5480053e5541dfc48e9bd35c1a99a924eadc9374d632d"
+  },
+  "correction": "Only test_public_summary_passes_private_rows_and_preserves_layout changed: snapshot layout, replace unsupported object-identity assertion with equality against snapshot, assert original layout unchanged after summarize. Every other existing assertion retained; no new parser-mutation or identity assumption.",
+  "adjudication": "Both independent reviews identified fixture defect: frozen contract requires preservation of contents, not parser-layout object identity; equal defensive copy satisfies contract.",
+  "execution": "Revised oracle not executed; root owns serial runs. Subject implementation remains unread except the preserved failure traceback line.",
+  "command": "python -B -m unittest discover -s tests/tooling -p test_app_motor_observe_abi.py -v",
+  "limits": "No production source, contract, prior freeze or prior receipt changes; no native action."
+}

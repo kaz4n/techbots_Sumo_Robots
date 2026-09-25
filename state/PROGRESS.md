@@ -1348,3 +1348,9 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-26T01:39:35.207882+04:00 | P7 D194 first Linux oracle | Source297eac8b/contract889d6a76/oraclefcbb950e:44methods43PASS/1FAIL(9.673s),134pinsunchanged. Solefailednewfixture expects original layout object identity although helper passes a protectivecopy; independentauthor/reviewer adjudicationpending, no changes or Windows rerun. Preserve linux_test01.json plusoriginaloracle/freeze. No nativeoperation.
+
+
+2026-09-26T01:43:00.541970+04:00 | P7 D194 host closure | Source297eac8b/contract889d6a76 unchanged; correctedoracleac571bd4 gives44LinuxPASS and42WindowsPASS/twoexplicitplatformskips.135pinsstable, noRAM/Windowstempremnants. Original43PASS/1FAIL preserved974de230; fixtureidentityassertion independentlyadjudicated. No nativeowner/call; C:free8982528B below128MiBgateway, useraskedfree200MB. Evidence analysis/P7_app_motor_observe_abi_validation.md; actualABI/entry pending.
+
+
+2026-09-26T01:43:40.255325+04:00 | P7 D194 final independent review | Separate same-model source/hostreviewbb0d2b11PASS/no materialfindings; exact135pins/firstfailure/newfixturecorrection/44Linux+42WindowsPASS independently audited. Zero actualD194boardcalls/ownerclaims. All execution sessions ended; nextfile-onlyABI awaits localspace>=128MiB, then cleanHEADcheck-only/oneexecute.

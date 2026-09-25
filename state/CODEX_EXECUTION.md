@@ -335,3 +335,6 @@ Recheck space before work and preserve all earlier blocked cleanup exclusions.
 
 
 - [x] D192 longerinhibitedobservation host-tested; D193 actualstaticcompile-only succeeds atb5f589c5, onequery/onecompiler/all8closingPASS. This supersedes earlier pendingD188/D193 build items. D190 stilllatestflashedimage; nextfreshD194ABI/entry, then newfinitecapture. See current CODEX_HANDOFF.md.
+
+
+- [x] D194 file-only ABIwrapper host-tested:44Linux/42WindowsPASS, two explicitWindowsskips. NoactualABIowner/call; localspacebelow128MiB, userrequestedfree200MB. Keepnativegateunchanged andresumeviahandoffafterspace/read-onlyreview.

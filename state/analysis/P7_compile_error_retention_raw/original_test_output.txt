@@ -1,0 +1,644 @@
+test_both_receipt_exceptions_are_ordered_and_primary_cause_context_survive (tests.tooling.test_compile_error_retention.CompileErrorRetentionTests.test_both_receipt_exceptions_are_ordered_and_primary_cause_context_survive) ... ERROR
+test_capture_diagnostic_baseexception_propagates (tests.tooling.test_compile_error_retention.CompileErrorRetentionTests.test_capture_diagnostic_baseexception_propagates) ... ERROR
+test_capture_signature_retains_optional_keyword_only_runner (tests.tooling.test_compile_error_retention.CompileErrorRetentionTests.test_capture_signature_retains_optional_keyword_only_runner) ... ok
+test_command_receipt_failure_prevents_runner_dispatch (tests.tooling.test_compile_error_retention.CompileErrorRetentionTests.test_command_receipt_failure_prevents_runner_dispatch) ... ok
+test_failing_capture_diagnostic_preserves_primary_and_records_console_error (tests.tooling.test_compile_error_retention.CompileErrorRetentionTests.test_failing_capture_diagnostic_preserves_primary_and_records_console_error) ... ERROR
+test_falsey_explicit_callable_never_selects_global_transport (tests.tooling.test_compile_error_retention.CompileErrorRetentionTests.test_falsey_explicit_callable_never_selects_global_transport) ... ERROR
+test_main_compiler_exit_survives_failing_capture_and_final_diagnostics (tests.tooling.test_compile_error_retention.CompileErrorRetentionTests.test_main_compiler_exit_survives_failing_capture_and_final_diagnostics) ... ERROR
+test_main_diagnostic_baseexception_is_not_swallowed (tests.tooling.test_compile_error_retention.CompileErrorRetentionTests.test_main_diagnostic_baseexception_is_not_swallowed) ... ok
+test_main_other_caught_errors_keep_exit_two_with_unavailable_stderr (tests.tooling.test_compile_error_retention.CompileErrorRetentionTests.test_main_other_caught_errors_keep_exit_two_with_unavailable_stderr) ... ERROR
+test_main_returned_command_failure_keeps_exit_despite_receipt_failure (tests.tooling.test_compile_error_retention.CompileErrorRetentionTests.test_main_returned_command_failure_keeps_exit_despite_receipt_failure) ... FAIL
+test_main_returns_compiler_exit_and_final_diagnostic_names_primary (tests.tooling.test_compile_error_retention.CompileErrorRetentionTests.test_main_returns_compiler_exit_and_final_diagnostic_names_primary) ... FAIL
+test_main_success_receipt_error_remains_explicit_exit_two (tests.tooling.test_compile_error_retention.CompileErrorRetentionTests.test_main_success_receipt_error_remains_explicit_exit_two) ... ERROR
+test_none_failure_streams_write_empty_bytes_without_mutating_primary (tests.tooling.test_compile_error_retention.CompileErrorRetentionTests.test_none_failure_streams_write_empty_bytes_without_mutating_primary) ... ERROR
+test_partial_receipt_bytes_remain_without_reopen_retry_or_delete (tests.tooling.test_compile_error_retention.CompileErrorRetentionTests.test_partial_receipt_bytes_remain_without_reopen_retry_or_delete) ... ERROR
+test_raised_failure_keeps_identity_raw_bytes_and_empty_error_list (tests.tooling.test_compile_error_retention.CompileErrorRetentionTests.test_raised_failure_keeps_identity_raw_bytes_and_empty_error_list) ... ERROR
+test_receipt_baseexception_is_not_swallowed (tests.tooling.test_compile_error_retention.CompileErrorRetentionTests.test_receipt_baseexception_is_not_swallowed) ... ERROR
+test_returned_failure_keeps_primary_fields_when_both_receipts_fail (tests.tooling.test_compile_error_retention.CompileErrorRetentionTests.test_returned_failure_keeps_primary_fields_when_both_receipts_fail) ... ERROR
+test_returned_nonzero_result_becomes_primary_with_raw_streams (tests.tooling.test_compile_error_retention.CompileErrorRetentionTests.test_returned_nonzero_result_becomes_primary_with_raw_streams) ... ERROR
+test_runner_baseexception_is_not_swallowed_or_treated_as_compiler_failure (tests.tooling.test_compile_error_retention.CompileErrorRetentionTests.test_runner_baseexception_is_not_swallowed_or_treated_as_compiler_failure) ... ERROR
+test_runner_timeout_keeps_identity_without_compiler_receipt_handling (tests.tooling.test_compile_error_retention.CompileErrorRetentionTests.test_runner_timeout_keeps_identity_without_compiler_receipt_handling) ... ERROR
+test_saved_failure_receipts_survive_unavailable_diagnostic_console (tests.tooling.test_compile_error_retention.CompileErrorRetentionTests.test_saved_failure_receipts_survive_unavailable_diagnostic_console) ... ERROR
+test_stderr_receipt_failure_preserves_primary_and_saved_stdout (tests.tooling.test_compile_error_retention.CompileErrorRetentionTests.test_stderr_receipt_failure_preserves_primary_and_saved_stdout) ... ERROR
+test_stdout_receipt_failure_preserves_primary_and_still_saves_stderr (tests.tooling.test_compile_error_retention.CompileErrorRetentionTests.test_stdout_receipt_failure_preserves_primary_and_still_saves_stderr) ... ERROR
+test_success_keeps_result_identity_raw_utf8_and_command_before_dispatch (tests.tooling.test_compile_error_retention.CompileErrorRetentionTests.test_success_keeps_result_identity_raw_utf8_and_command_before_dispatch) ... ERROR
+test_success_none_streams_keep_empty_receipt_bytes (tests.tooling.test_compile_error_retention.CompileErrorRetentionTests.test_success_none_streams_keep_empty_receipt_bytes) ... ERROR
+test_success_stderr_receipt_failure_still_refuses_success (tests.tooling.test_compile_error_retention.CompileErrorRetentionTests.test_success_stderr_receipt_failure_still_refuses_success) ... ERROR
+test_success_stdout_receipt_failure_still_refuses_success (tests.tooling.test_compile_error_retention.CompileErrorRetentionTests.test_success_stdout_receipt_failure_still_refuses_success) ... ERROR
+
+======================================================================
+ERROR: test_both_receipt_exceptions_are_ordered_and_primary_cause_context_survive (tests.tooling.test_compile_error_retention.CompileErrorRetentionTests.test_both_receipt_exceptions_are_ordered_and_primary_cause_context_survive)
+----------------------------------------------------------------------
+ValueError: original cause
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tools/board_tool.py", line 418, in capture_app_command
+    result = runner(board, command, capture=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1134, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1138, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1199, in _execute_mock_call
+    result = effect(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 97, in run_command
+    raise self.outcome
+subprocess.CalledProcessError: Command '['fixture-compiler', 'space preserved', '$literal', 'line\nbreak']' returned non-zero exit status 43.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 251, in test_both_receipt_exceptions_are_ordered_and_primary_cause_context_survive
+    self.capture()
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 101, in capture
+    return self.board.capture_app_command(BOARD, COMMAND, RECEIPT, NAME,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tools/board_tool.py", line 423, in capture_app_command
+    (receipt / (name + '.stdout.json')).write_text(error.stdout or '', encoding='utf-8')
+  File "<string>", line 3, in write_text
+  File "/usr/lib/python3.12/unittest/mock.py", line 1134, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1138, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1199, in _execute_mock_call
+    result = effect(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 46, in write_text
+    raise self.failures[path]
+ValueError: stdout encoding fixture
+
+======================================================================
+ERROR: test_capture_diagnostic_baseexception_propagates (tests.tooling.test_compile_error_retention.CompileErrorRetentionTests.test_capture_diagnostic_baseexception_propagates)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tools/board_tool.py", line 418, in capture_app_command
+    result = runner(board, command, capture=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1134, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1138, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1199, in _execute_mock_call
+    result = effect(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 97, in run_command
+    raise self.outcome
+subprocess.CalledProcessError: Command '['fixture-compiler', 'space preserved', '$literal', 'line\nbreak']' returned non-zero exit status 43.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 368, in test_capture_diagnostic_baseexception_propagates
+    self.capture()
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 101, in capture
+    return self.board.capture_app_command(BOARD, COMMAND, RECEIPT, NAME,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tools/board_tool.py", line 423, in capture_app_command
+    (receipt / (name + '.stdout.json')).write_text(error.stdout or '', encoding='utf-8')
+  File "<string>", line 3, in write_text
+  File "/usr/lib/python3.12/unittest/mock.py", line 1134, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1138, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1199, in _execute_mock_call
+    result = effect(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 46, in write_text
+    raise self.failures[path]
+OSError: [Errno 28] fixture disk full
+
+======================================================================
+ERROR: test_failing_capture_diagnostic_preserves_primary_and_records_console_error (tests.tooling.test_compile_error_retention.CompileErrorRetentionTests.test_failing_capture_diagnostic_preserves_primary_and_records_console_error)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tools/board_tool.py", line 418, in capture_app_command
+    result = runner(board, command, capture=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1134, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1138, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1199, in _execute_mock_call
+    result = effect(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 97, in run_command
+    raise self.outcome
+subprocess.CalledProcessError: Command '['fixture-compiler', 'space preserved', '$literal', 'line\nbreak']' returned non-zero exit status 43.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 354, in test_failing_capture_diagnostic_preserves_primary_and_records_console_error
+    self.capture()
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 101, in capture
+    return self.board.capture_app_command(BOARD, COMMAND, RECEIPT, NAME,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tools/board_tool.py", line 423, in capture_app_command
+    (receipt / (name + '.stdout.json')).write_text(error.stdout or '', encoding='utf-8')
+  File "<string>", line 3, in write_text
+  File "/usr/lib/python3.12/unittest/mock.py", line 1134, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1138, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1199, in _execute_mock_call
+    result = effect(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 46, in write_text
+    raise self.failures[path]
+OSError: [Errno 28] fixture disk full
+
+======================================================================
+ERROR: test_falsey_explicit_callable_never_selects_global_transport (tests.tooling.test_compile_error_retention.CompileErrorRetentionTests.test_falsey_explicit_callable_never_selects_global_transport)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 185, in test_falsey_explicit_callable_never_selects_global_transport
+    self.assert_attempts()
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 124, in assert_attempts
+    self.assertEqual('utf8', encoding.lower().replace('-', ''))
+                             ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'lower'
+
+======================================================================
+ERROR: test_main_compiler_exit_survives_failing_capture_and_final_diagnostics (tests.tooling.test_compile_error_retention.CompileErrorRetentionTests.test_main_compiler_exit_survives_failing_capture_and_final_diagnostics)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tools/board_tool.py", line 418, in capture_app_command
+    result = runner(board, command, capture=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1134, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1138, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1199, in _execute_mock_call
+    result = effect(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 97, in run_command
+    raise self.outcome
+subprocess.CalledProcessError: Command '['fixture-compiler', 'space preserved', '$literal', 'line\nbreak']' returned non-zero exit status 43.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tools/board_tool.py", line 689, in main
+    flash(args)
+  File "/usr/lib/python3.12/unittest/mock.py", line 1134, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1138, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1199, in _execute_mock_call
+    result = effect(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 149, in <lambda>
+    mock.patch.object(self.board, 'flash', side_effect=lambda args: action()) as flash:
+                                                                    ^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 101, in capture
+    return self.board.capture_app_command(BOARD, COMMAND, RECEIPT, NAME,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tools/board_tool.py", line 423, in capture_app_command
+    (receipt / (name + '.stdout.json')).write_text(error.stdout or '', encoding='utf-8')
+  File "<string>", line 3, in write_text
+  File "/usr/lib/python3.12/unittest/mock.py", line 1134, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1138, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1199, in _execute_mock_call
+    result = effect(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 46, in write_text
+    raise self.failures[path]
+OSError: [Errno 28] fixture disk full
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 395, in test_main_compiler_exit_survives_failing_capture_and_final_diagnostics
+    self.assertEqual(43, self.main(self.capture))
+                         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 150, in main
+    result = self.board.main()
+             ^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tools/board_tool.py", line 695, in main
+    print(f'ERROR: {error}', file=sys.stderr)
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 58, in write
+    raise self.error
+RuntimeError: fixture stderr failure
+
+======================================================================
+ERROR: test_main_other_caught_errors_keep_exit_two_with_unavailable_stderr (tests.tooling.test_compile_error_retention.CompileErrorRetentionTests.test_main_other_caught_errors_keep_exit_two_with_unavailable_stderr)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tools/board_tool.py", line 689, in main
+    flash(args)
+  File "/usr/lib/python3.12/unittest/mock.py", line 1134, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1138, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1199, in _execute_mock_call
+    result = effect(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 149, in <lambda>
+    mock.patch.object(self.board, 'flash', side_effect=lambda args: action()) as flash:
+                                                                    ^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1134, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1138, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1193, in _execute_mock_call
+    raise effect
+ValueError: fixture validation failure
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 407, in test_main_other_caught_errors_keep_exit_two_with_unavailable_stderr
+    self.assertEqual(2, self.main(mock.Mock(side_effect=selected)))
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 150, in main
+    result = self.board.main()
+             ^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tools/board_tool.py", line 695, in main
+    print(f'ERROR: {error}', file=sys.stderr)
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 58, in write
+    raise self.error
+BrokenPipeError: [Errno 32] fixture console closed
+
+======================================================================
+ERROR: test_main_success_receipt_error_remains_explicit_exit_two (tests.tooling.test_compile_error_retention.CompileErrorRetentionTests.test_main_success_receipt_error_remains_explicit_exit_two)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 418, in test_main_success_receipt_error_remains_explicit_exit_two
+    self.assert_attempts((STDOUT_PATH,))
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 124, in assert_attempts
+    self.assertEqual('utf8', encoding.lower().replace('-', ''))
+                             ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'lower'
+
+======================================================================
+ERROR: test_none_failure_streams_write_empty_bytes_without_mutating_primary (tests.tooling.test_compile_error_retention.CompileErrorRetentionTests.test_none_failure_streams_write_empty_bytes_without_mutating_primary)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 214, in test_none_failure_streams_write_empty_bytes_without_mutating_primary
+    self.assert_write_errors(primary, [])
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 135, in assert_write_errors
+    self.assertEqual(expected, error.evidence_write_errors)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'CalledProcessError' object has no attribute 'evidence_write_errors'
+
+======================================================================
+ERROR: test_partial_receipt_bytes_remain_without_reopen_retry_or_delete (tests.tooling.test_compile_error_retention.CompileErrorRetentionTests.test_partial_receipt_bytes_remain_without_reopen_retry_or_delete)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tools/board_tool.py", line 418, in capture_app_command
+    result = runner(board, command, capture=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1134, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1138, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1199, in _execute_mock_call
+    result = effect(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 97, in run_command
+    raise self.outcome
+subprocess.CalledProcessError: Command '['fixture-compiler', 'space preserved', '$literal', 'line\nbreak']' returned non-zero exit status 43.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 276, in test_partial_receipt_bytes_remain_without_reopen_retry_or_delete
+    self.capture()
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 101, in capture
+    return self.board.capture_app_command(BOARD, COMMAND, RECEIPT, NAME,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tools/board_tool.py", line 423, in capture_app_command
+    (receipt / (name + '.stdout.json')).write_text(error.stdout or '', encoding='utf-8')
+  File "<string>", line 3, in write_text
+  File "/usr/lib/python3.12/unittest/mock.py", line 1134, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1138, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1199, in _execute_mock_call
+    result = effect(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 46, in write_text
+    raise self.failures[path]
+OSError: [Errno 28] fixture disk full
+
+======================================================================
+ERROR: test_raised_failure_keeps_identity_raw_bytes_and_empty_error_list (tests.tooling.test_compile_error_retention.CompileErrorRetentionTests.test_raised_failure_keeps_identity_raw_bytes_and_empty_error_list)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 193, in test_raised_failure_keeps_identity_raw_bytes_and_empty_error_list
+    self.assert_write_errors(primary, [])
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 135, in assert_write_errors
+    self.assertEqual(expected, error.evidence_write_errors)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'CalledProcessError' object has no attribute 'evidence_write_errors'
+
+======================================================================
+ERROR: test_receipt_baseexception_is_not_swallowed (tests.tooling.test_compile_error_retention.CompileErrorRetentionTests.test_receipt_baseexception_is_not_swallowed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 315, in test_receipt_baseexception_is_not_swallowed
+    self.assert_attempts((STDOUT_PATH,))
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 124, in assert_attempts
+    self.assertEqual('utf8', encoding.lower().replace('-', ''))
+                             ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'lower'
+
+======================================================================
+ERROR: test_returned_failure_keeps_primary_fields_when_both_receipts_fail (tests.tooling.test_compile_error_retention.CompileErrorRetentionTests.test_returned_failure_keeps_primary_fields_when_both_receipts_fail)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tools/board_tool.py", line 420, in capture_app_command
+    raise subprocess.CalledProcessError(result.returncode, command,
+subprocess.CalledProcessError: Command '['fixture-compiler', 'space preserved', '$literal', 'line\nbreak']' returned non-zero exit status 43.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 265, in test_returned_failure_keeps_primary_fields_when_both_receipts_fail
+    self.capture()
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 101, in capture
+    return self.board.capture_app_command(BOARD, COMMAND, RECEIPT, NAME,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tools/board_tool.py", line 423, in capture_app_command
+    (receipt / (name + '.stdout.json')).write_text(error.stdout or '', encoding='utf-8')
+  File "<string>", line 3, in write_text
+  File "/usr/lib/python3.12/unittest/mock.py", line 1134, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1138, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1199, in _execute_mock_call
+    result = effect(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 46, in write_text
+    raise self.failures[path]
+OSError: [Errno 28] fixture disk full
+
+======================================================================
+ERROR: test_returned_nonzero_result_becomes_primary_with_raw_streams (tests.tooling.test_compile_error_retention.CompileErrorRetentionTests.test_returned_nonzero_result_becomes_primary_with_raw_streams)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 203, in test_returned_nonzero_result_becomes_primary_with_raw_streams
+    self.assert_write_errors(caught.exception, [])
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 135, in assert_write_errors
+    self.assertEqual(expected, error.evidence_write_errors)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'CalledProcessError' object has no attribute 'evidence_write_errors'
+
+======================================================================
+ERROR: test_runner_baseexception_is_not_swallowed_or_treated_as_compiler_failure (tests.tooling.test_compile_error_retention.CompileErrorRetentionTests.test_runner_baseexception_is_not_swallowed_or_treated_as_compiler_failure)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 323, in test_runner_baseexception_is_not_swallowed_or_treated_as_compiler_failure
+    self.assert_attempts(())
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 124, in assert_attempts
+    self.assertEqual('utf8', encoding.lower().replace('-', ''))
+                             ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'lower'
+
+======================================================================
+ERROR: test_runner_timeout_keeps_identity_without_compiler_receipt_handling (tests.tooling.test_compile_error_retention.CompileErrorRetentionTests.test_runner_timeout_keeps_identity_without_compiler_receipt_handling)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 331, in test_runner_timeout_keeps_identity_without_compiler_receipt_handling
+    self.assert_attempts(())
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 124, in assert_attempts
+    self.assertEqual('utf8', encoding.lower().replace('-', ''))
+                             ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'lower'
+
+======================================================================
+ERROR: test_saved_failure_receipts_survive_unavailable_diagnostic_console (tests.tooling.test_compile_error_retention.CompileErrorRetentionTests.test_saved_failure_receipts_survive_unavailable_diagnostic_console)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tools/board_tool.py", line 418, in capture_app_command
+    result = runner(board, command, capture=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1134, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1138, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1199, in _execute_mock_call
+    result = effect(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 97, in run_command
+    raise self.outcome
+subprocess.CalledProcessError: Command '['fixture-compiler', 'space preserved', '$literal', 'line\nbreak']' returned non-zero exit status 43.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 338, in test_saved_failure_receipts_survive_unavailable_diagnostic_console
+    self.capture()
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 101, in capture
+    return self.board.capture_app_command(BOARD, COMMAND, RECEIPT, NAME,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tools/board_tool.py", line 425, in capture_app_command
+    print(f'App {name} failed; raw output: {receipt}', file=sys.stderr)
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 58, in write
+    raise self.error
+BrokenPipeError: [Errno 32] fixture console closed
+
+======================================================================
+ERROR: test_stderr_receipt_failure_preserves_primary_and_saved_stdout (tests.tooling.test_compile_error_retention.CompileErrorRetentionTests.test_stderr_receipt_failure_preserves_primary_and_saved_stdout)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tools/board_tool.py", line 418, in capture_app_command
+    result = runner(board, command, capture=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1134, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1138, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1199, in _execute_mock_call
+    result = effect(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 97, in run_command
+    raise self.outcome
+subprocess.CalledProcessError: Command '['fixture-compiler', 'space preserved', '$literal', 'line\nbreak']' returned non-zero exit status 43.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 235, in test_stderr_receipt_failure_preserves_primary_and_saved_stdout
+    self.capture()
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 101, in capture
+    return self.board.capture_app_command(BOARD, COMMAND, RECEIPT, NAME,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tools/board_tool.py", line 424, in capture_app_command
+    (receipt / (name + '.stderr.txt')).write_text(error.stderr or '', encoding='utf-8')
+  File "<string>", line 3, in write_text
+  File "/usr/lib/python3.12/unittest/mock.py", line 1134, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1138, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1199, in _execute_mock_call
+    result = effect(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 46, in write_text
+    raise self.failures[path]
+PermissionError: [Errno 13] fixture denied
+
+======================================================================
+ERROR: test_stdout_receipt_failure_preserves_primary_and_still_saves_stderr (tests.tooling.test_compile_error_retention.CompileErrorRetentionTests.test_stdout_receipt_failure_preserves_primary_and_still_saves_stderr)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tools/board_tool.py", line 418, in capture_app_command
+    result = runner(board, command, capture=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1134, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1138, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1199, in _execute_mock_call
+    result = effect(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 97, in run_command
+    raise self.outcome
+subprocess.CalledProcessError: Command '['fixture-compiler', 'space preserved', '$literal', 'line\nbreak']' returned non-zero exit status 43.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 223, in test_stdout_receipt_failure_preserves_primary_and_still_saves_stderr
+    self.capture()
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 101, in capture
+    return self.board.capture_app_command(BOARD, COMMAND, RECEIPT, NAME,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tools/board_tool.py", line 423, in capture_app_command
+    (receipt / (name + '.stdout.json')).write_text(error.stdout or '', encoding='utf-8')
+  File "<string>", line 3, in write_text
+  File "/usr/lib/python3.12/unittest/mock.py", line 1134, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1138, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1199, in _execute_mock_call
+    result = effect(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 46, in write_text
+    raise self.failures[path]
+OSError: [Errno 28] fixture disk full
+
+======================================================================
+ERROR: test_success_keeps_result_identity_raw_utf8_and_command_before_dispatch (tests.tooling.test_compile_error_retention.CompileErrorRetentionTests.test_success_keeps_result_identity_raw_utf8_and_command_before_dispatch)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 162, in test_success_keeps_result_identity_raw_utf8_and_command_before_dispatch
+    self.assert_attempts()
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 124, in assert_attempts
+    self.assertEqual('utf8', encoding.lower().replace('-', ''))
+                             ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'lower'
+
+======================================================================
+ERROR: test_success_none_streams_keep_empty_receipt_bytes (tests.tooling.test_compile_error_retention.CompileErrorRetentionTests.test_success_none_streams_keep_empty_receipt_bytes)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 169, in test_success_none_streams_keep_empty_receipt_bytes
+    self.assertIs(self.outcome, self.capture())
+                                ^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 101, in capture
+    return self.board.capture_app_command(BOARD, COMMAND, RECEIPT, NAME,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tools/board_tool.py", line 427, in capture_app_command
+    (receipt / (name + '.stdout.json')).write_text(result.stdout, encoding='utf-8')
+  File "<string>", line 3, in write_text
+  File "/usr/lib/python3.12/unittest/mock.py", line 1134, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1138, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/unittest/mock.py", line 1199, in _execute_mock_call
+    result = effect(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 47, in write_text
+    self.contents[path] = text.encode(encoding or 'utf-8')
+                          ^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'encode'
+
+======================================================================
+ERROR: test_success_stderr_receipt_failure_still_refuses_success (tests.tooling.test_compile_error_retention.CompileErrorRetentionTests.test_success_stderr_receipt_failure_still_refuses_success)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 305, in test_success_stderr_receipt_failure_still_refuses_success
+    self.assert_attempts()
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 124, in assert_attempts
+    self.assertEqual('utf8', encoding.lower().replace('-', ''))
+                             ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'lower'
+
+======================================================================
+ERROR: test_success_stdout_receipt_failure_still_refuses_success (tests.tooling.test_compile_error_retention.CompileErrorRetentionTests.test_success_stdout_receipt_failure_still_refuses_success)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 297, in test_success_stdout_receipt_failure_still_refuses_success
+    self.assert_attempts((STDOUT_PATH,))
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 124, in assert_attempts
+    self.assertEqual('utf8', encoding.lower().replace('-', ''))
+                             ^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'lower'
+
+======================================================================
+FAIL: test_main_returned_command_failure_keeps_exit_despite_receipt_failure (tests.tooling.test_compile_error_retention.CompileErrorRetentionTests.test_main_returned_command_failure_keeps_exit_despite_receipt_failure)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 384, in test_main_returned_command_failure_keeps_exit_despite_receipt_failure
+    self.assertEqual(43, self.main(self.capture))
+AssertionError: 43 != 2
+
+======================================================================
+FAIL: test_main_returns_compiler_exit_and_final_diagnostic_names_primary (tests.tooling.test_compile_error_retention.CompileErrorRetentionTests.test_main_returns_compiler_exit_and_final_diagnostic_names_primary)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_compile_error_retention.py", line 374, in test_main_returns_compiler_exit_and_final_diagnostic_names_primary
+    self.assertEqual(43, self.main(self.capture))
+AssertionError: 43 != 2
+
+----------------------------------------------------------------------
+Ran 27 tests in 0.203s
+
+FAILED (failures=2, errors=22)

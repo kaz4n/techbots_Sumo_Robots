@@ -1285,3 +1285,6 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-25T19:30:15.155741+04:00 | P7 D188 actual entry file audit | FILE-OBSERVED/REVIEWED252988828 exit0/4children/27ranges2654B/allclosingPASS.208Bdatacopy/170632Bbssclear/soleinitializer and traceRunnerwiring validated; unchangedpureconstructor sourcefacts labeled. No nativeMCU/upload/faultfix/physicalgate. Heldremoteadapter restoredexactly. Next D189remoteadapter independenttests/review and localcaller/exactscope. Evidence analysis/P7_app_motor_fault_entry_actual_validation.md.
+
+
+2026-09-25T19:36:05.465523+04:00 | P7 D189 remote adapter | IMPLEMENTED/HOST-TESTED/REVIEWED remoted796489f/oracle44f7651b,26independentWSLmethods PASS/no skips;12pins exact. Actual inheritedlifecycle failures exercised withcontrolledartifacts/children, no nativeclaims. Source/actualreviewPASS withrecordedinheritedMINORdisposition; next localcaller/framing/actualscope. Evidence analysis/P7_app_motor_fault_remote_validation.md.

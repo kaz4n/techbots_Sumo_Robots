@@ -1,0 +1,76 @@
+{
+  "schema": "app-motor-fault-remote-freeze-v1",
+  "status": "FROZEN_BEFORE_EXECUTION",
+  "time_utc": "2026-09-25T15:32:05.334980+00:00",
+  "pins": {
+    "state/analysis/P7_app_motor_fault_run_contract.md": {
+      "bytes": 8817,
+      "sha256": "e443f1e27cd8e30e88682cfc6ae5b5150c7a774c888414456577e679faedd43c"
+    },
+    "state/analysis/P7_app_motor_fault_run_raw/remote.py": {
+      "bytes": 10518,
+      "sha256": "d796489fc812a509f5ef1edbcd487a4a3afe4adc76960a94ba9c1d3ec075e10a"
+    },
+    "state/analysis/P7_app_motor_fault_run_raw/test_remote.py": {
+      "bytes": 38249,
+      "sha256": "44f7651b70ffc06697fb2932f4bab01a8ecc8c47d2b31fe779af356596d73bb2"
+    },
+    "state/reviews/P7_app_motor_fault_remote_source_review.md": {
+      "bytes": 1634,
+      "sha256": "3ab2e672756cf0f379484b48ce9b6890706aa55bb571c3f0bc1f5c0501c1083a"
+    },
+    "state/analysis/P7_static_startup_raw/upload_remote.py": {
+      "bytes": 24710,
+      "sha256": "e926b7ba5586475664b0541370e7cfb5c50e40d8dc8b47b18e35db3e0a0a25c1"
+    },
+    "state/analysis/P7_static_startup_raw/capture_remote.py": {
+      "bytes": 37525,
+      "sha256": "95b0344d01886b6db30d55aa18a536f9a481b82348e22643e7920d817dbfac3e"
+    },
+    "state/analysis/P7_static_link_probe_raw/static_remote.py": {
+      "bytes": 33321,
+      "sha256": "8ba9b190c38e728013a383348c60c287b0366607f65f703161cf7f2e142d36f8"
+    },
+    "state/analysis/P7_static_startup_raw/upload_bindings.json": {
+      "bytes": 5344,
+      "sha256": "a31bca78bb619271e63a321173a68fca072e48bb22111ee20fc9f8c20d5e18fc"
+    },
+    "state/analysis/P7_static_startup_raw/capture_bindings.json": {
+      "bytes": 1751,
+      "sha256": "c2c87df6165556602a5a79472caedf0755c070b2e2f3e0b834f17ab0de5c0d32"
+    },
+    "state/analysis/P7_app_motor_fault_compile_raw/abi_static01_interpreted.json": {
+      "bytes": 5466,
+      "sha256": "e75d8ab00208b1e2dc64c183b4c78e6b5b2a5fe90c8a562721896aa5368819a5"
+    },
+    "state/analysis/P7_app_motor_fault_compile_raw/native_static01/artifacts.json": {
+      "bytes": 9597,
+      "sha256": "57b98c00db1ed5d90394812fcbb3fb28effedd4381f6e2fc03a6e7c04b45a6ce"
+    },
+    "state/analysis/P7_app_motor_fault_compile_raw/native_entry_static01/entry.json": {
+      "bytes": 9236,
+      "sha256": "ebff1ea46e524cc6cd0330c5271139875eec69b5e59470d3130181f13f8a0262"
+    }
+  },
+  "oracle_provenance": "app_inert_remote_tests fresh context; contract/public historicalfixture-only, newimplementationunread;26methods",
+  "native_operations": 0,
+  "command": [
+    "wsl",
+    "-d",
+    "Ubuntu",
+    "--",
+    "env",
+    "PYTHONDONTWRITEBYTECODE=1",
+    "TMPDIR=/dev/shm",
+    "python3",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "state/analysis/P7_app_motor_fault_run_raw",
+    "-p",
+    "test_remote.py",
+    "-v"
+  ]
+}

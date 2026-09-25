@@ -358,3 +358,6 @@ confirmed. Compact verification: analysis/storage_check_20260925_followup.json.
 
 
 2026-09-25T19:30:15.155741+04:00 | Static entry query retention | Keep8rawreceipt files/748799logicalB pluscompact invocation/summary/review; no firmware/debugbinary download or newbuild. Required worker10518Bremote.py held by exactsame-workspace Move-Item for cleanHEADquery, digestverified before/after and restored;0duplicateholdfiles/0deletion. No deniedpath touched; no claimedcleanup savings.
+
+
+2026-09-25T19:36:05.465523+04:00 | D189 remote host tests | Retain7499Bfreeze/testreceipt plus source/oracle/reviews;26controlledmethods use owned /dev/shm/sumox_d189_* fixtures and Python-B, no compiler/download/sourcecopy/targetbinary. No newcleanup/delete attempt or deniedpath retry. New.gitattributes scoped -text retains exact reviewedsource/oracle bytes inGit. Global C:free667820032B observed separately; no inferredsavings.

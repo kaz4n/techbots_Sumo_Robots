@@ -11,7 +11,9 @@ All D188native owners consumed; do not rerun or modify rawreceipts.
 
 Next: D189fixedremoteadapter independenthosttests/source review, then minimal
 localcaller/actualscope/fresh admission for one inhibited upload and conditional
-passivecapture. D189contract0518c7bd; remote.py IMPLEMENTED, tests/review pending.
+passivecapture. D189contract0518c7bd; remoted796489f HOST-TESTED/REVIEWED:26independentWSLmethods
+PASS,12pinsunchanged. See analysis/P7_app_motor_fault_remote_validation.md.
+Caller/actions contract now defined; their implementation/tests/review in progress.
 No upload/reset/MCUread occurred in this connected continuation; D184haltedM0
 is still lastuploaded. Originalfull-app IO fault, liveRAM/stack/WCET, physical/
 release/human gates remain open. No nativejob or leftoverholdfile is running.

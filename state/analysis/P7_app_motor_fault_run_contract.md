@@ -128,8 +128,9 @@ Only a successful one-shot upload returns `UPLOADED`. Only all 26 exact reads,
 all four flash equality checks, twelve retained SRAM windows, measured wait and
 successful closing checks return `COLLECTED`. Result schemas respectively are
 `app-motor-fault-upload-result-v1` and `app-motor-fault-capture-result-v1`.
-Capture `analysis` has schema `app-motor-fault-capture-analysis-v1`, four boolean
-flash flags, a `snapshots` list of retained SRAM read records and
+Capture `analysis` has schema `app-motor-fault-capture-analysis-v1`, an exact
+`flash` object with boolean `before_loader`, `before_sketch`, `after_loader`,
+`after_sketch` flags, a `snapshots` list of retained SRAM read records and
 `coherence: "UNPROVEN"`; it reports collection only. Field decoding occurs later
 against the observed ABI. Equal separated samples do not prove atomicity,
 worst-case execution, free RAM, electrical outputs, original-fault resolution,

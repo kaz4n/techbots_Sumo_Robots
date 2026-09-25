@@ -1,0 +1,28 @@
+{
+  "command": [
+    "wsl",
+    "-d",
+    "Ubuntu",
+    "--",
+    "env",
+    "PYTHONDONTWRITEBYTECODE=1",
+    "TMPDIR=/dev/shm",
+    "python3",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "state/analysis/P7_app_motor_fault_run_raw",
+    "-p",
+    "test_remote.py",
+    "-v"
+  ],
+  "started_utc": "2026-09-25T15:32:13.728569+00:00",
+  "finished_utc": "2026-09-25T15:32:26.065124+00:00",
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": "test_artifact_sizes_hashes_and_nested_shapes_cannot_be_rebound (test_remote.Contract.test_artifact_sizes_hashes_and_nested_shapes_cannot_be_rebound) ... ok\ntest_binding_shape_identity_and_all_native_paths_rejected (test_remote.Contract.test_binding_shape_identity_and_all_native_paths_rejected) ... ok\ntest_both_binding_schemas_accept_only_fixed_identities_without_mutation (test_remote.Contract.test_both_binding_schemas_accept_only_fixed_identities_without_mutation) ... ok\ntest_dependencies_have_exact_bytes_fresh_private_modules_and_no_old_mutation (test_remote.Contract.test_dependencies_have_exact_bytes_fresh_private_modules_and_no_old_mutation) ... ok\ntest_dependency_shape_and_byte_types_fail_before_exec (test_remote.Contract.test_dependency_shape_and_byte_types_fail_before_exec) ... ok\ntest_every_dependency_hash_is_checked_before_any_exec (test_remote.Contract.test_every_dependency_hash_is_checked_before_any_exec) ... ok\ntest_import_has_no_native_action_or_dependency_execution (test_remote.Contract.test_import_has_no_native_action_or_dependency_execution) ... ok\ntest_profile_exact_native_paths_source_static_command_and_absences (test_remote.Contract.test_profile_exact_native_paths_source_static_command_and_absences) ... ok\ntest_profile_rejects_every_other_run_and_nonexact_string_type (test_remote.Contract.test_profile_rejects_every_other_run_and_nonexact_string_type) ... ok\ntest_python_B_and_inherited_shadow_directory_constraints (test_remote.Contract.test_python_B_and_inherited_shadow_directory_constraints) ... ok\ntest_read_plan_exact_static_26_reads_727088_bytes (test_remote.Contract.test_read_plan_exact_static_26_reads_727088_bytes) ... ok\ntest_admission_rejects_changed_artifacts_symlinks_identity_and_processes (test_remote.Lifecycle.test_admission_rejects_changed_artifacts_symlinks_identity_and_processes) ... ok\ntest_after_flash_mismatch_stops_at_first_complete_bad_image (test_remote.Lifecycle.test_after_flash_mismatch_stops_at_first_complete_bad_image) ... ok\ntest_before_flash_mismatch_never_reads_sram_or_sleeps (test_remote.Lifecycle.test_before_flash_mismatch_never_reads_sram_or_sleeps) ... ok\ntest_both_lifecycles_reject_binding_and_preexisting_owner_before_command (test_remote.Lifecycle.test_both_lifecycles_reject_binding_and_preexisting_owner_before_command) ... ok\ntest_capture_all_reads_retained_flash_brackets_and_coherence_unproven (test_remote.Lifecycle.test_capture_all_reads_retained_flash_brackets_and_coherence_unproven) ... ok\ntest_capture_deadline_caps_next_child_and_no_third_read (test_remote.Lifecycle.test_capture_deadline_caps_next_child_and_no_third_read) ... ok\ntest_capture_replaced_owner_stops_and_keeps_original_directory_evidence (test_remote.Lifecycle.test_capture_replaced_owner_stops_and_keeps_original_directory_evidence) ... ok\ntest_child_failure_and_malformed_result_do_not_retry (test_remote.Lifecycle.test_child_failure_and_malformed_result_do_not_retry) ... ok\ntest_default_executors_preserve_environment_limits_timeout_and_kill_reap (test_remote.Lifecycle.test_default_executors_preserve_environment_limits_timeout_and_kill_reap) ... ok\ntest_final_pins_identity_and_original_error_all_survive_failure (test_remote.Lifecycle.test_final_pins_identity_and_original_error_all_survive_failure) ... ok\ntest_missing_short_extra_and_symlink_reads_stop_immediately (test_remote.Lifecycle.test_missing_short_extra_and_symlink_reads_stop_immediately) ... ok\ntest_one_mib_stream_cap_is_inherited (test_remote.Lifecycle.test_one_mib_stream_cap_is_inherited) ... ok\ntest_short_sample_gap_and_expired_gap_suppress_second_sample (test_remote.Lifecycle.test_short_sample_gap_and_expired_gap_suppress_second_sample) ... ok\ntest_upload_overall_deadline_failure_is_retained (test_remote.Lifecycle.test_upload_overall_deadline_failure_is_retained) ... ok\ntest_upload_success_exact_one_shot_and_all_closing_pins (test_remote.Lifecycle.test_upload_success_exact_one_shot_and_all_closing_pins) ... ok\n\n----------------------------------------------------------------------\nRan 26 tests in 4.318s\n\nOK\n",
+  "pins_unchanged": true,
+  "native_operations": 0
+}

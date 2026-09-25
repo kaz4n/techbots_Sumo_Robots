@@ -137,3 +137,8 @@ finished bounded task promptly; do not space commits artificially or push.
 D175 storage follow-up: no new disposable candidates/zero RAM remnants,0B reclaimed.
 Keep compact unique receipts; no new build/download. C:1195085824B observed at
 closing check. All previously denied targets untouched; see STORAGE_LOG.md.
+
+Latest storage: C:233459712B observed07:36Dubai after checkpoint00ed5375.
+Pagefile allocation19596MiB, up872MiB versus earlier18724MiB; active memory
+pressure is implicated. No setting/process/denied-file change. Recheck space
+before continuing; exact next capture contract/tests/source task remains above.

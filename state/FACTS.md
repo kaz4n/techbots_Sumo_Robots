@@ -745,3 +745,6 @@ DEVICE-OBSERVED via four bounded ADB calls: serial2629958581 returns device; UID
 
 ## F190 - Actual isolated inert diagnostic ( 2026-09-25T16:13:06.920927+04:00 )
 DEVICE-OBSERVED: D184 source8f592937/ELFf9460a16/packageb4416792 dynamic/default MATCH0/MOTORS_ALLOWED0 runs to COMPLETE. Four MotorGate feedback receipts are valid with EN-disabled intent/duties0;41 retained callbacks complete successfully and terminal inhibition is confirmed (STOPPED6). Both2592B raw snapshots are identical, hash8805ee82; coherenceUNPROVEN. Six observed settle callbacks130us do not establish WCET or physical output voltage. Separate actual review PASS; original D160/D161 full-app fault remains unresolved. Source: analysis/P7_motor_fault_run01_validation.md and referenced raw receipts.
+
+## F191 - Current-app compile-only caller host qualification (2026-09-25T16:46:42.705781+04:00)
+HOST-OBSERVED only: final calleraed3fbf4, controlled27+7methods PASS/exit0, durable6bf5c9c9/49823ae6. Separate reused-context same-model review94fff07d PASS. Bench/default and MATCH/Immediate source37a2099f manifest mappings checked,115pins each. No current target compilation, motor upload/run, RAM/WCET qualification or gate follows. Actual disk-full failures retained distinctly. Source: analysis/P7_current_app_compile_validation.md.

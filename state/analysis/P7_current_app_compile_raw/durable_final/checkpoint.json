@@ -1,0 +1,20 @@
+{
+  "created_utc": "2026-09-25T12:33:58.535847+00:00",
+  "source_head": "6c938ada",
+  "source_sha256": "aed3fbf4db5c962761affd5a3e2e52b1002feaaefe4e44f9f34df6ec78ba5ede",
+  "main_oracle_sha256": "9caf2709027af7184026d6d30f09f27e758663eb985c869380b6b74be43dca56",
+  "supplement_sha256": "462e246693c4683e73d7a1992ce9413e8e9f237e7ca77c8fdfc7706d8b8d7183",
+  "observed_final_results": {
+    "main": "27 PASS,50.387s",
+    "supplement": "7 PASS,5.190s"
+  },
+  "evidence_limit": "Observed session1941 console; exact RAM-first raw receipts unavailable in later WSL invocation and Windows copies failed ENOSPC. Do not describe these raw receipts as durably retained. Final independent receipt verification remains pending.",
+  "failures": [
+    "session62381 ENOSPC writing test_run03.json; outcome not inferred",
+    "session1941 ENOSPC copying both RAM receipts",
+    "subsequent recovery helper Python SyntaxError before filesystem mutation"
+  ],
+  "native_D185_attempts": 0,
+  "next": "Recheck free space; >=128MiB is required for current compile-only staging. Finish durable final host receipt/review closure, commit, then reviewed once-only bench/default and MATCH/Immediate compilation. No upload/reset.",
+  "protected": "Preserve all older denied cleanup paths, active/system logs, paging/WSL settings, frozen scopes and locked tests. D184 diagnostic completed and committed42fbe171; old full-app IO fault/physical/human gates remain open."
+}

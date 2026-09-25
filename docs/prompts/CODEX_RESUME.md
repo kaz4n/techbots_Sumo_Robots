@@ -14,7 +14,9 @@ physical acceptance. Do not reset the project to P0.
    applications and terminal halt. Its scope/owner are consumed; actual separate
    review PASS. It did not reproduce or fix D160/D161's earlier static full-app
    IO failure. Current app source37a2099f still needs checked target compilation;
-   next is the bounded fresh-stage compile-only composition in the handoff.
+   D185 composition is now host-tested/reviewed (27+7PASS) with exact durable
+   evidence restored after ENOSPC. Next: clean-head bench check-only/execute;
+   close/review/commit before the separate match profile. No upload/reset.
    D180 binds disabled setup declarations; D181 preserves compiler failures;
    D182/D183 prepare precompiled MATCH deployment. Their host evidence is not
    artifact qualification or human motor permission. Native full-app startup,

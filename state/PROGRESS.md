@@ -1345,3 +1345,6 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-26T01:32:53.502923+04:00 | P7 D193 review write completion | Prior6b550d86 captured reviewbf09033f during final filewrite; final4ddef0b4 differs only completing its last physical-acceptance limitation sentence. Final reviewer message confirmsPASS. Preserve earliercommit and finalize exactreview without historyrewrite.
+
+
+2026-09-26T01:39:35.207882+04:00 | P7 D194 first Linux oracle | Source297eac8b/contract889d6a76/oraclefcbb950e:44methods43PASS/1FAIL(9.673s),134pinsunchanged. Solefailednewfixture expects original layout object identity although helper passes a protectivecopy; independentauthor/reviewer adjudicationpending, no changes or Windows rerun. Preserve linux_test01.json plusoriginaloracle/freeze. No nativeoperation.

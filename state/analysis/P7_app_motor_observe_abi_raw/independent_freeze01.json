@@ -1,0 +1,29 @@
+{
+  "schema": "d194-independent-abi-oracle-freeze-v1",
+  "frozen_utc": "2026-09-25T21:38:35.0112330Z",
+  "oracle": {
+    "path": "tests/tooling/test_app_motor_observe_abi.py",
+    "bytes": 46030,
+    "sha256": "fcbb950ef27825664b5b734e25d68083d967f8b8c05609aa238f6026bdff963a",
+    "methods": 44
+  },
+  "contract": {
+    "path": "state/analysis/P7_app_motor_observe_abi_contract.md",
+    "sha256": "889d6a7697f2ddc0051ef73f52f82c1dd43f35fa45af9fc2d4958f44441bf8ff"
+  },
+  "subject": {
+    "path": "state/analysis/P7_app_motor_observe_compile_raw/inspect_static_abi.py",
+    "sha256": "297eac8b2c9878b8c8e5480053e5541dfc48e9bd35c1a99a924eadc9374d632d"
+  },
+  "independent_authoring": "Derived from frozen contract889d6a76 and prior ABI reader, normalizer, compiler public interfaces; prior D193 oracle consulted for cross-platform fixture conventions. New wrapper implementation not read, imported or executed before this freeze.",
+  "execution": "None: root owns first serial Windows and WSL execution and receipts.",
+  "command": "python -B -m unittest discover -s tests/tooling -p test_app_motor_observe_abi.py -v",
+  "fixtures": "Linux /dev/shm; small auto-cleaned Windows temporary files. All subprocess and socket endpoints blocked. Controlled disk-space gate, transport, Git and receipt fixtures; actual projected compiler admission/artifact validation and file-command composition are exercised.",
+  "coverage": [
+    "Exact reader bytes/pins, passive private loading and invalid CLI",
+    "Absolute/relative bounded pinned reads, real links/FIFO, descriptor/ancestor/ctime drift and primary close errors",
+    "20 observed groups, 11 windows, polls size/offset variation, decimal/hex copy-only normalization and unchanged raw packets",
+    "Strict original receipt decoder/stream/closure parser; consumed owners, clean HEAD/source/boot, command bound and independent closing errors"
+  ],
+  "limits": "Host fixtures only; no native tool, board, upload, reset, MCU read, firmware run, physical qualification or gate."
+}

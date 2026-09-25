@@ -58,8 +58,9 @@ class SyntheticRunner:
         if command[0] == 'sh':
             return 'overrides'
         if command[0] == 'sha256sum':
-            return 'artifacts' if any(Path(arg).name.endswith(('.elf', '.elf-zsk.bin'))
-                                      for arg in command[2:]) else 'pins'
+            artifacts = {PROJECT + suffix for suffix in
+                         ('.elf', '_debug.elf', '_temp.elf', '.elf-zsk.bin')}
+            return 'artifacts' if any(Path(arg).name in artifacts for arg in command[2:]) else 'pins'
         if command[0] == 'mkdir':
             return 'mkdir'
         raise AssertionError('Unrecognized synthetic command: ' + repr(command))

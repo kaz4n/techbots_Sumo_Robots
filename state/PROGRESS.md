@@ -1148,3 +1148,5 @@ physical/loadedRAM/gate claim. | contract=this commit
 2026-09-25T04:58:02.214143+04:00 | P7 | D160 actual scoped review | Collection PASS; running qualification NOT MET; nested fault diagnosis next; no native action | actual evidence af676641; review closure this commit
 
 2026-09-25T05:00:25.097694+04:00 | P7 | D161 scoped stopped-state read preparation | Source/plan review71305a36 PASS; controlled failure check PASS;752B read planned, no native action yet | this commit
+
+2026-09-25T05:05:44.191981+04:00 | P7 | D161 passive nested fault diagnosis |752B collected/independently parsed; Robot0x0110 + GateIO; source/time of failed callback still unknown; scope consumed | source1d455be7; actual closure this commit

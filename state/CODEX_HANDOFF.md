@@ -1,13 +1,11 @@
 # Codex handoff - 2026-09-25 Asia/Dubai
 
-**D160 run02 upload/capture completed; startup is not yet qualified.**
-One M0 static upload succeeded and all18 passive reads completed; both complete
-flash images matched before/after. Both runtime samples were STOPPED, epochs3,
-initialization_complete0, with no observed progress. All14 transport and final
-checks passed. Scope consumed; no extra upload/reset/read follows automatically.
-Read analysis/P7_static_startup_run02_actual_validation.md and its raw receipts.
-Separate actual review974b4526 passes evidence collection; running qualification remains NOT MET.
-Source fault-path diagnosis needs the separately scoped nested fault observation.
+**D161 confirms invalid application feedback and MotorGate IO; startup remains unqualified.**
+One752B passive read succeeded after the D160 M0 upload. Robot faults0x0110,
+MotorGateIO3 and invalid prior/current receipts are observed; prefixes still
+match STOPPED/epoch3. Separate collection/interpretation reviewc323dc88 PASS.
+The exact original callback/latency is not retained by production UnoQPort.
+D160/D161 are consumed. See analysis/P7_stopped_diagnostic_validation.md.
 
 **Active phase: P7 software/release preparation.** D138 informational READY and
 battery-threshold software is implemented, host-tested and target-compiled.
@@ -53,16 +51,15 @@ has now been observed to select the intended data/user directories (F162); raw
 queries and original mistakenprojection are preserved. Existing board p0_capture.py
 is hash885c4e42/18880B, file-verified; reuse it to fit the Windows command budget.
 
-Exact next task: explain D160's sampled STOPPED/epoch3 state from the actual
-source and obtain the smallest justified diagnostic observation, if still needed.
-Runtime::completeEpoch records STOPPED after the robot has stopped and one final
-tail epoch. Empty SetupGrants intentionally prevent initialization; missing grants
-alone normally leave BOOT, so no root cause is yet established. D160/run02 is
-terminal. Do not rerun its uploader/collector or claim the sampled790us maximum
-is WCET. Last known successful upload is now D160 sourcefcddbd8e/static/default/M0;
-it supersedes D118 only as the last upload observation, not its evidence.
-D158 host tests/review remain227PASS; D159 exact temporary cleanup is complete.
-Any further native work needs a separately bounded identified observation.
+Exact next task: prepare a small M0 bench diagnostic around the real native
+MotorGate callbacks to retain the first failed operation and bounded latency;
+review/test it before any separately identified inert upload. Source diagnosis
+and D161 actual data are in analysis/P7_stopped_diagnostic_validation.md. Preserve
+production safety limits/tests;150us settle timeout is not proven causal.
+Empty SetupGrants still prevent initialization. Last successful upload remains
+D160 sourcefcddbd8e/static/default/M0, no extra reset/read/retry after consumed D161.
+D158 host227PASS, D159 exact temporary cleanup and D160/D161 scoped reviews closed.
+No current STAND/RING, static production admission or physical/human gate exists.
 Bind reviewed HEAD/source, D144 packet,
 installed dependencies, explicit CLI configuration and selected core/recipe.
 F165/F166 file-only receipts establish observed initialization prerequisites;

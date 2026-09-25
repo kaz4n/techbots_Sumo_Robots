@@ -107,8 +107,10 @@ pending; D051/D075/D122/D137 permit scheduling, not fabricated measurements.
   code/result verify identity/hash, no MCU action. Original D156 remains failed.
 - [x] D160 one run02 upload/capture: upload success,18 passive reads/full flash
   matches,14 transport/final checks PASS. NO_RUNNING_PROGRESS: STOPPED/epochs3.
-- [ ] Trace the sampled stop; collect only a separately justified bounded diagnostic
-  if source/retained evidence cannot identify the core/Gate fault. Run02 is consumed.
+- [x] D161752B passive diagnosis: Robot0x0110/GateIO3/invalid prior receipt,
+  exact D160 prefixes; independent scoped reviewc323dc88 PASS. Scope consumed.
+- [ ] Prepare minimal inert native callback diagnostic for first-failure/latency;
+  preserve safety bounds. Original failing operation is not retained in D161.
 - [ ] Qualify native loading/startup, stack/heap/WCET and release workflow before
   adoption. Structural RAM tail94352B is not measured free memory.
 

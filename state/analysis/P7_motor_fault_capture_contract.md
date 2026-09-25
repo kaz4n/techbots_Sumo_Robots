@@ -43,6 +43,8 @@ statuses. Attempt plan is this literal finite summary (not caller-configurable):
  'loader_bytes':263680,'sketch_bytes':29836,'bss_bytes':2632,
  'snapshot_bytes':2592,'extension_nodes':3,'sample_gap_seconds':2}.
 Per-read command/result schema, filename prefix and passive argv shape unchanged.
+Each report['reads'] file field is a basename, exactly zero-based
+f'{index:02d}-{name}.bin', relative to the owned bindings.output directory.
 
 Read sequence, successful names and bytes:
 1. before.loader.0..4 from0x08000000, each65536B except final1536B;

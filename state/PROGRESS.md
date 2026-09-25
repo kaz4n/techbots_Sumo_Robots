@@ -1166,3 +1166,5 @@ physical/loadedRAM/gate claim. | contract=this commit
 2026-09-25T05:47:55.737680+04:00 | P7 D165 | TARGET-COMPILE-FAILED: native CONFIG_PWM macro collision; onecompilerexit1/reaped/no timeout;122transports0/sevenfinalchecksPASS; consumed scope. Raw native_compile01, source4ec345c0 at3c291ea2; analysis/P7_motor_fault_compile_actual.md. No upload/reset/gate. Next literal identifier repair and macro regression.
 
 2026-09-25T05:53:05.273575+04:00 | P7 D166 | IMPLEMENTED/HOST-TESTED: source88ce3e78/test7619da9c; observed-macro1/1 and focusednormal+sanitized18cases/2570assertions each PASS;47pins exact; reviewa877c709PASS. No target retry/upload/reset/gate. Next fresh compile02 ownership in existing bounded caller, preserve consumed compile01. Validation analysis/P7_motor_fault_macro_validation.md.
+
+2026-09-25T06:09:46.394702+04:00 | P7 D167/D168 | HOST-TESTED12/12, source7bd0108c/test5e705716/reviewf84cad37,117actual localpins PASS. Fresh compile02 scope prepared; native invocation follows containing commit. Original failure retained, no upload/reset/gate. See analysis/P7_compile02_validation.md.

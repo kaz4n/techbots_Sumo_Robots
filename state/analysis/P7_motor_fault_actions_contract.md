@@ -29,8 +29,12 @@ controlled tests may provide inert substitute modules. No arbitrary environment,
 run ID, script path or action override is exposed.
 
 Canonical payload <=196608 bytes, bz2.compress(...,compresslevel=9), canonical
-base64. Self-contained exported BOOTSTRAP checks action/argv count, Python -B,
-strict canonical base64, exactly one bounded BZ2 member (decompress max196609,
+base64 by default. If that actual Windows command exceeds30000 units, compose
+a canonical base85 alternative prefixed b85: and recheck the same ceiling; reject
+if neither fits. Small existing commands retain identical base64 framing.
+Self-contained exported BOOTSTRAP checks action/argv count, startup Python -B
+AND current sys.dont_write_bytecode is True, strict canonical selected base64 or
+b85:-prefixed base85, exactly one bounded BZ2 member (decompress max196609,
 require <=196608/eof/no unused_data), SHA256 and closed JSON shape. Reject duplicate
 keys and nonfinite JSON numbers. Check every inline source hash before executing
 any source. Validate selected identities before module loading. Register modules

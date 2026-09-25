@@ -1,11 +1,12 @@
 # Codex handoff - 2026-09-25 Asia/Dubai
 
-**D158 fresh ownership is host-tested and reviewed; run02 is not yet executed.**
-All227 aggregate tests pass, scoped review bda4208e PASS. D159 removed only the
-exact reproducible1MiB temporary loader fragment/empty parent; original D156
-failure and consumed run01 remain intact. Next review and commit the concrete
-run02 scope, then invoke the corrected M0 upload/conditional capture once.
-Read analysis/P7_startup_run02_validation.md and P7_static_startup_run02_plan.md.
+**D160 run02 upload/capture completed; startup is not yet qualified.**
+One M0 static upload succeeded and all18 passive reads completed; both complete
+flash images matched before/after. Both runtime samples were STOPPED, epochs3,
+initialization_complete0, with no observed progress. All14 transport and final
+checks passed. Scope consumed; no extra upload/reset/read follows automatically.
+Read analysis/P7_static_startup_run02_actual_validation.md and its raw receipts.
+Source fault-path diagnosis and separate actual review are in progress.
 
 **Active phase: P7 software/release preparation.** D138 informational READY and
 battery-threshold software is implemented, host-tested and target-compiled.
@@ -51,12 +52,16 @@ has now been observed to select the intended data/user directories (F162); raw
 queries and original mistakenprojection are preserved. Existing board p0_capture.py
 is hash885c4e42/18880B, file-verified; reuse it to fit the Windows command budget.
 
-Exact next task: scoped run02 pre-action review and native scope creation. Current
-launcher c9588835, uploader23661c8a, collectorab0bb320; review bda4208e. Distinct
-native_run02 and remote run02 owners preserve all run01 evidence. D159 already
-removed the known temporary fragment (exit0); normal uploader admission must
-still freshly require its absence. No retry or new scope follows from cleanup.
-Use --execute --run run02 --reviewed-head with the committed scope-containing HEAD.
+Exact next task: explain D160's sampled STOPPED/epoch3 state from the actual
+source and obtain the smallest justified diagnostic observation, if still needed.
+Runtime::completeEpoch records STOPPED after the robot has stopped and one final
+tail epoch. Empty SetupGrants intentionally prevent initialization; missing grants
+alone normally leave BOOT, so no root cause is yet established. D160/run02 is
+terminal. Do not rerun its uploader/collector or claim the sampled790us maximum
+is WCET. Last known successful upload is now D160 sourcefcddbd8e/static/default/M0;
+it supersedes D118 only as the last upload observation, not its evidence.
+D158 host tests/review remain227PASS; D159 exact temporary cleanup is complete.
+Any further native work needs a separately bounded identified observation.
 Bind reviewed HEAD/source, D144 packet,
 installed dependencies, explicit CLI configuration and selected core/recipe.
 F165/F166 file-only receipts establish observed initialization prerequisites;

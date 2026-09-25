@@ -105,15 +105,18 @@ pending; D051/D075/D122/D137 permit scheduling, not fabricated measurements.
   bda4208e PASS; original failures/oracles preserved. Composition fits command limits.
 - [x] D159 exact known1MiB temporary fragment and empty parent removed; reviewed
   code/result verify identity/hash, no MCU action. Original D156 remains failed.
-- [ ] Review and commit one run02 native scope, then perform the identified M0
-  upload/conditional capture using the unchanged packet and fresh admission checks.
+- [x] D160 one run02 upload/capture: upload success,18 passive reads/full flash
+  matches,14 transport/final checks PASS. NO_RUNNING_PROGRESS: STOPPED/epochs3.
+- [ ] Trace the sampled stop; collect only a separately justified bounded diagnostic
+  if source/retained evidence cannot identify the core/Gate fault. Run02 is consumed.
 - [ ] Qualify native loading/startup, stack/heap/WCET and release workflow before
   adoption. Structural RAM tail94352B is not measured free memory.
 
 Preserve original D144 rejection, D139 dynamic592B deficit, old frozen contracts/
 validators/oracles and production admission. No upload/reset or firmware changes
-were made by D148. No current STAND/RING authorization. The last upload remains
-consumed D118defaultM0 sourcee820c0e1; do not infer current MCU state or reuse it.
+were made by D148. No current STAND/RING authorization. The last successful upload is now
+D160 static/default/M0 sourcefcddbd8e; both runtime samples showed no progress.
+This is not whole-robot qualification; neither D118 nor D160 may be reused.
 
 Original P0-P5 physical/human packets, D121 B7/R6 conflict, native dump holder/
 quiescence/cancel/reopen requirements and SC-AP release workflow remain pending.

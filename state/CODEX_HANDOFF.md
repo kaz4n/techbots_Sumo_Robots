@@ -15,7 +15,8 @@ with new source/artifact/layout/attempt binding. First resolve its compatibility
 with the unresolved default allocation/static full-app context; no speculative
 fix, timing relaxation, historical layout reuse or motor-capable upload. Existing
 physical setup, live RAM/stack/WCET, explainability and human gates remain pending.
-Cleanup92738412 saved174.38MiB; final stage cleanup/history is in STORAGE_LOG.md.
+Cleanup92738412 saved174.38MiB; both new stage deletions were policy-denied.
+They remain intact/excluded from retries; see STORAGE_LOG.md.
 All prior denied deletion paths stay excluded. No native job is running; older
 paragraphs below are historical checkpoints, not current action instructions.
 

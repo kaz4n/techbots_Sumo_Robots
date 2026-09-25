@@ -7,7 +7,8 @@ review94fff07d has no open findings. Preserve three failed zero-byte Windows
 receipts. WSL backup: /home/ubuntu/sumox-d185-recovery-20260925/ (17688B).
 
 Cleanup92738412 saved174.38MiB by lossless compression; C: observed about2GiBfree.
-The seven rejected npx folder deletions join all prior excluded cleanup paths;
+The seven rejected npx folder deletions and two completed current-app stage
+folder deletions join all prior excluded cleanup paths;
 see STORAGE_LOG.md. Do not retry deletion through another method. Free-space
 fluctuations beyond measured allocation savings have an unproven external cause.
 

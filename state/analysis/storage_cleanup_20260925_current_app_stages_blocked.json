@@ -1,0 +1,34 @@
+{
+  "time": "2026-09-25T17:05:38.453319+04:00",
+  "status": "REJECTED_BEFORE_PROCESS_CREATION",
+  "action": "Native PowerShell exact literal-path removal of two completed current-app stages",
+  "stated_reason": "blocked by policy",
+  "removed_files": 0,
+  "reclaimed_bytes": 0,
+  "retry": false,
+  "targets": [
+    {
+      "path": "C:\\Users\\narut\\OneDrive\\Desktop\\Project\\techbots_Sumo_Robots\\build\\stage\\current-app-bench01",
+      "retained_files": 103,
+      "logical_bytes": 758361,
+      "manifest": "state\\analysis\\P7_current_app_compile_raw\\native_bench01\\staged_files.json",
+      "manifest_sha256": "82beef04c74c9245df15965b3211110ef1b7255fd8cebf7abfdf8d35eed2ebdb",
+      "unchanged_after_rejection": true
+    },
+    {
+      "path": "C:\\Users\\narut\\OneDrive\\Desktop\\Project\\techbots_Sumo_Robots\\build\\stage\\current-app-match01",
+      "retained_files": 103,
+      "logical_bytes": 758361,
+      "manifest": "state\\analysis\\P7_current_app_compile_raw\\native_match01\\staged_files.json",
+      "manifest_sha256": "82beef04c74c9245df15965b3211110ef1b7255fd8cebf7abfdf8d35eed2ebdb",
+      "unchanged_after_rejection": true
+    }
+  ],
+  "independent_prior_audit": "Both103-file stages matched tracked source37a2099f and saved manifests, no reparse/linked ancestry,539140reportedallocatedB each. Audit was read-only; no deletion subprocess ran.",
+  "excluded_from_future_deletion_retries": [
+    "C:\\Users\\narut\\OneDrive\\Desktop\\Project\\techbots_Sumo_Robots\\build\\stage\\current-app-bench01",
+    "C:\\Users\\narut\\OneDrive\\Desktop\\Project\\techbots_Sumo_Robots\\build\\stage\\current-app-match01"
+  ],
+  "preserved": "All source, Git history, raw/verified receipts, actual reviews and all prior denied paths remain.",
+  "current_free_bytes": 1799737344
+}

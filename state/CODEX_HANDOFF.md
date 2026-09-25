@@ -1,18 +1,16 @@
 # Codex handoff - 25 September 2026, Asia/Dubai
 
-**Current checkpoint: D189 diagnostic workflow host-tested and reviewed.**
-D188 target compile, actual static ABI and entry audits are complete for
-source21df6ae8/static/default/MATCH0/MOTORS_ALLOWED0/probe1. D189 remote26,
-actions13 and caller20 independent methods pass; finalrun d0f0e0d0,141pins stable.
-First caller admission failure and source are preserved at ef7f91d7; repaired
-implementation, unchanged tests. Separate scoped same-model review passes.
-Fresh admission01 matches19boardfiles/identity and observes new owners absent.
-Actual12provenance preparation and11pin scope ready for read-only scope review,
-then clean committed HEAD/check-only and one inhibited upload/conditionalcapture.
-See analysis/P7_app_motor_fault_caller_validation.md. No upload/reset/MCUread has
-yet occurred in this connected continuation; D184haltedM0 remains lastuploaded.
-Original full-app fault, physical/RAM/stack/WCET and human gates remain open.
-Preserve consumedowners and deniedcleanup paths. No motor-capable permission.
+**Current checkpoint: D189 run01 stopped before uploader execution.**
+31170b08 check-only0/execute1; nine transports completed and adapter staged,
+but uploader admission refused existing /tmp/remoteocd before remoteclaim/CLI.
+Capture0; no firmware flash/reset/MCUread. Original receipts/owner consumed;
+never rerun run01. D184haltedM0 remains last successful upload. Read-only entry01
+identifies three candidate stale D184 scratch copies and no native processes.
+Next verify their provenance/absence of use, narrow cleanup, then separately
+reviewed fresh run scope with unchanged M0 firmware. Do not weaken absence checks.
+D188 compilation/ABI/entry audits and59hostworkflowmethods remain valid.
+See analysis/P7_app_motor_fault_run01_validation.md. Original full-app fault,
+physical/RAM/stack/WCET and human gates remain open; no motor-capable permission.
 
 ## Historical checkpoints (superseded next actions)
 

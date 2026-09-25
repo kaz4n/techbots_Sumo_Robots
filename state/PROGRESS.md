@@ -1294,3 +1294,6 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-25T19:54:22.470215+04:00 | P7 D189 caller closure | IMPLEMENTED/HOST-TESTED/REVIEWED d0f0e0d0:20caller+13actionmethodsPASS, unchangedoracles/141pins; firstfailurepreserved.59totalworkflowmethods with prior26remotePASS. Actualpreparation/scope ready; nativeupload/capturepending. Evidence analysis/P7_app_motor_fault_caller_validation.md.
+
+
+2026-09-25T19:59:56.229089+04:00 | P7 D189 native run01 | ADMISSION-FAILED beforeCLI; check0/execute1,9transports,uploaddispatch1/capture0,cleanclosing. /tmp/remoteocd exists; nofirmwareflash/reset/MCUread. Ownerconsumed, originalfailure preserved. Next narrowstalescratchinvestigation/freshreviewedscope. Evidence analysis/P7_app_motor_fault_run01_validation.md.

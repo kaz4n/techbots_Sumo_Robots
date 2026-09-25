@@ -782,3 +782,7 @@ FILE-OBSERVED only: at252988828 fournativefilechildren exit0/27ranges2654B/12pin
 
 ## F200 - D189 fixed inert remote adapter host validation (2026-09-25T19:36:05.465523+04:00)
 HOST-VERIFIED only: remoted796489f/freshcontext spec-only oracle44f7651b,26WSLmethods PASS/no skips/4.318s;12frozeninputpins unchanged. Real inherited lifecycles withcontrolledfiles/children/clocks; synthetic exactartifacthashmapping explicitlyfixture-only. Source/actualreview noBLOCKER/MAJOR, inheriteddescriptorcloseMINORdispositionpreserved. No nativeoperation,targetsnapshot,faultfix/physicalgate. Source: analysis/P7_app_motor_fault_remote_validation.md and remote_freeze01/remote_test01 receipts.
+
+
+## F201 - D189 inhibited upload admission refusal (2026-09-25T19:59:56.229089+04:00)
+DEVICE-FILES-OBSERVED:31170b08 localcheck0/execute1; adapter staged, uploader rejects/tmp/remoteocd before remoteclaim/nativeCLI. Capture0; no newfirmwareflash/reset/MCUread. Readonlyentry01 observes UID1000plain3file directory withD184package b4416792/loader39d4a4fd/config38706cee, no recognizednativeprocess. This is not runtime/fault-resolution evidence. Originalownerconsumed. Source: analysis/P7_app_motor_fault_run01_validation.md and run_raw/native_inert_run01/.

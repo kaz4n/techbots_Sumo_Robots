@@ -2139,3 +2139,6 @@ D-189 first caller execution 2026-09-25T19:48:42.338640+04:00: actions13PASS, ca
 
 
 D-189 caller host closure 2026-09-25T19:54:22.470215+04:00: unchanged independentoracles actions13/run20PASS, remote26PASS unchanged. Localbindingrepair d0f0e0d0 beforeclaim; firstfailure ef7f91d7/52bb346f retained,141pinsstable. Separate reusedsame-modelreviewPASS/noopenBLOCKERMAJOR. Freshreadonly19files/identity/owners admissionPASS; actualpreparation12pins/scope11pins ready for review and one static/default/MATCH0/MOTORS0/probe1 upload/conditionalcapture. No motor-capable approval, firmware/testchange or humanphasegate. Evidence analysis/P7_app_motor_fault_caller_validation.md.
+
+
+D-189 actual run01 2026-09-25T19:59:56.229089+04:00:31170b08 checkonly0/execute1,9transports cleanclosures; stagedadapter but uploaderadmissionrefused preexisting/tmp/remoteocd beforeclaim/CLIchild. Capture0, noflash/reset/MCUread. Exactoriginalfailureandownerpreserved/consumed; no retry. Readonlyinspection identifies3candidateD184scratchcopies/no nativeprocess; cause/provenance reviewbeforecleanup orfreshscope. Evidence analysis/P7_app_motor_fault_run01_validation.md.

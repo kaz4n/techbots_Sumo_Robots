@@ -1,0 +1,37 @@
+{
+  "reviewed_head": "252988828e4df124b62f961273e929b8730cdb82",
+  "check_only": {
+    "command": "python -B state/analysis/P7_app_motor_fault_compile_raw/inspect_static_entry.py --check-only --reviewed-head 252988828e4df124b62f961273e929b8730cdb82",
+    "exit_code": 0,
+    "status": "STATIC_ENTRY_CHECKED",
+    "command_units": 4937
+  },
+  "native": {
+    "command": "python -B state/analysis/P7_app_motor_fault_compile_raw/inspect_static_entry.py --execute --reviewed-head 252988828e4df124b62f961273e929b8730cdb82",
+    "exit_code": 0,
+    "status": "STATIC_ENTRY_OBSERVED",
+    "transport_calls": 1,
+    "file_commands": 4,
+    "mcu_reads": 0,
+    "uploads": 0
+  },
+  "receipts_sha256": {
+    "result.json": "26103c470835b9ec4d8b67cab8f37841ecf2d601be939d7e08e52de6619be424",
+    "entry.json": "ebff1ea46e524cc6cd0330c5271139875eec69b5e59470d3130181f13f8a0262",
+    "local_result.json": "2e8c3ce09c62b6d783e102e15455471e23be86d1e4f1b0fdb53da395563577c3"
+  },
+  "owner_consumed": true,
+  "held_worker_source": {
+    "path": "state/analysis/P7_app_motor_fault_run_raw/remote.py",
+    "temporary_path": "build/review-hold-app-inert-remote.py",
+    "bytes": 10518,
+    "sha256": "d796489fc812a509f5ef1edbcd487a4a3afe4adc76960a94ba9c1d3ec075e10a",
+    "restored_identical_after_native_completion": true,
+    "hold_path_remaining": false
+  },
+  "documentation_attempt": {
+    "initial_exit_code": 1,
+    "error": "Here-string Python SyntaxError before evaluation; no file mutation",
+    "corrected_exit_code": 0
+  }
+}

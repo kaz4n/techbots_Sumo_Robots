@@ -1282,3 +1282,6 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-25T19:25:32.330750+04:00 | P7 D188 entry-file reader | IMPLEMENTED/HOST-CHECKED/REVIEWED cb9ee5bb,19controlledchecks/4937Windowsunits/0native.27ranges2654B,source reviewPASS after incomplete-disassembly parsercorrection.14type/103field ABI transcription checked separately. Next cleanHEAD file-only query, no upload. Remoteadapter task-owned10518Bfile temporarily held unchanged in ignored build/review-hold-app-inert-remote.py SHA d796489fc812a509f5ef1edbcd487a4a3afe4adc76960a94ba9c1d3ec075e10a for isolated cleanHEAD observation; restore afterward, never delete.
+
+
+2026-09-25T19:30:15.155741+04:00 | P7 D188 actual entry file audit | FILE-OBSERVED/REVIEWED252988828 exit0/4children/27ranges2654B/allclosingPASS.208Bdatacopy/170632Bbssclear/soleinitializer and traceRunnerwiring validated; unchangedpureconstructor sourcefacts labeled. No nativeMCU/upload/faultfix/physicalgate. Heldremoteadapter restoredexactly. Next D189remoteadapter independenttests/review and localcaller/exactscope. Evidence analysis/P7_app_motor_fault_entry_actual_validation.md.

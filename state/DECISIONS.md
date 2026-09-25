@@ -2124,3 +2124,6 @@ Consequence: independent contract-derived tests frozen before execution, separat
 
 
 D-188 entry file-query preparation 2026-09-25T19:25:32.330750+04:00: use new analysis/P7_app_motor_fault_entry_scope.md and helpercb9ee5bb, preserving original ABI helper and failedowner.27numeric ranges2654B and initializer bytes derive from observed symbols;9explicit private literal substitutions retain original boundedfilequery path. Separate reused-context source reviewPASS after exactbytecoverage correction,19parserchecks and localcompositionPASS/0native. Actual cleanHEAD query and semantic review precede D189run. No firmware/locked/helperhistorical change.
+
+
+D-188 actual entry observation 2026-09-25T19:30:15.155741+04:00:252988828 cleancheck/nativeexit0,1transport/4children/27ranges2654B,allclosingPASS. Separate reusedcontextsemanticreviewPASS/no concreteunknowninitializer/hardwareAPI issue; priorunchanged constructor sources distinguished from newinstructionaudit. Ownerconsumed, no upload/reset/MCUread. D189adapter/source/test work maycontinue; actual runneeds fresh localbinding/review. Workerremote.py held10518B unchanged then restoredexactly, no remainingholdfile. Evidence analysis/P7_app_motor_fault_entry_actual_validation.md.

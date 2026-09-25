@@ -1,21 +1,22 @@
 # Codex handoff - 25 September 2026, Asia/Dubai
 
-**Current checkpoint: D188 target compile and actual file ABI retained.**
-Compile b54b76f9: source21df6ae8/static/default/MATCH0/MOTORS_ALLOWED0/probe1,
-one query/compiler/all8closingPASS; ELF2f8dc9f1/flatdeb40317. No firmware upload.
-Actual ABI at90f2815c: four native file queries PASS, then local hex-size parser
-FAILED; original failure/consumed owner preserved. Offline interpreter6a990871
-passes with separate actual review: diagnostic0x20013960/169736B,19typepairs,
-10windows. Six future capture regions total4536B per sample. See
-[ABI validation](analysis/P7_app_motor_fault_abi_actual_validation.md).
+**Current checkpoint: D188 target compile, file ABI and entry audit complete.**
+Source21df6ae8/static/default/MATCH0/MOTORS_ALLOWED0/probe1 compiled; rawELF2f8dc9f1/
+flatdeb40317. ABI original90f2815c localhex-size parserFAIL preserved; offline
+interpretation and separate actualreviewPASS. Diagnostic0x20013960/169736B,
+19typepairs/10windows; sixfuture captures4536B/sample. Entry252988828 queryexit0,
+27ranges2654B/allclosingPASS; initializer/copy/clear/Runnerwiring reviewedPASS.
+See [entry validation](analysis/P7_app_motor_fault_entry_actual_validation.md).
+All D188native owners consumed; do not rerun or modify rawreceipts.
 
-Next eligible task: focused new entry/global-initializer file disassembly,
-then a separate exact-artifact inhibited upload/capture scope. New entry reader
-is being prepared; no native job is running. Neither compilation nor file ABI
-resolves original full-app IO fault or proves live RAM/stack/WCET. D184's halted
-isolated M0 diagnostic is still last uploaded. No physical/human gate is passed.
-User's connected continuation supersedes historical deferrals below. Keep all
-consumed owners/failed receipts and denied cleanup paths; no motor permission.
+Next: D189fixedremoteadapter independenthosttests/source review, then minimal
+localcaller/actualscope/fresh admission for one inhibited upload and conditional
+passivecapture. D189contract0518c7bd; remote.py IMPLEMENTED, tests/review pending.
+No upload/reset/MCUread occurred in this connected continuation; D184haltedM0
+is still lastuploaded. Originalfull-app IO fault, liveRAM/stack/WCET, physical/
+release/human gates remain open. No nativejob or leftoverholdfile is running.
+Connected userdirection supersedes historical deferrals; keep deniedcleanup
+paths and consumedowners intact. No motor-capable permission is supplied.
 
 ## Historical checkpoints (superseded next actions)
 

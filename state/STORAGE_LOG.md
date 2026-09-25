@@ -355,3 +355,6 @@ confirmed. Compact verification: analysis/storage_check_20260925_followup.json.
 
 
 2026-09-25T19:19:17.201789+04:00 | D188 file ABI evidence | Retain exact raw query/result/localFAILED receipts and one compact interpreted ABI/normalizer; unique actual layout/symbol evidence needed for next bounded capture. No secondfirmware/debugbinary, bytecode,sourcecopy or targetcompile. Originalhex-sizefailure retained, no repeatedboardquery/cleanup attempt or denied-path retry. Sixfuture windows only4536B versus full169736Bdiagnostic; no currentMCUread.
+
+
+2026-09-25T19:30:15.155741+04:00 | Static entry query retention | Keep8rawreceipt files/748799logicalB pluscompact invocation/summary/review; no firmware/debugbinary download or newbuild. Required worker10518Bremote.py held by exactsame-workspace Move-Item for cleanHEADquery, digestverified before/after and restored;0duplicateholdfiles/0deletion. No deniedpath touched; no claimedcleanup savings.

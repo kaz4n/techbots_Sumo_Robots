@@ -774,3 +774,7 @@ DEVICE-OBSERVED compiler/files only: reviewed65b6d80e source21df6ae8, static/def
 
 ## F198 - New static diagnostic file ABI (2026-09-25T19:19:17.201789+04:00)
 FILE-OBSERVED/OFFLINE-INTERPRETED: exact D188ELF2f8dc9f1/debugd11a2103 contains diagnostic at0x20013960,169736B/alignment8/end0x2003d068.19size/alignmentpairs and10memberwindows validated. Original90f2815c native invocation FAILED only at decimal-only local parser after4successful children/12filepins+identityPASS/localclosingPASS. Separate offline6a990871 converts exact hexsize token only; actualexit0/5snapshots unchanged/no new boardcalls. Sixfuture capturewindows4536Btotal. Source: analysis/P7_app_motor_fault_abi_actual_validation.md and raw interpreted result. No liveRAM/startup/faultfix/WCET/physical/human-gate evidence.
+
+
+## F199 - New static diagnostic entry file evidence (2026-09-25T19:30:15.155741+04:00)
+FILE-OBSERVED only: at252988828 fournativefilechildren exit0/27ranges2654B/12pins+identity/localclosingPASS. Actual initializer05011008 points0x08100105;208Bdatacopy/170632Bbssclear and Runner/Trace/emptygrants/begin/poll/freeze wiring reviewedPASS. Source-backed unchanged constructors distinguished from newinstructionaudit. Transaction/Previous snapshot meaningfulcopies497B/44B exclude7B/4Btrailingpadding. No MCUexecution/runtime/RAM/WCET/faultfix/physicalgate. Source: analysis/P7_app_motor_fault_entry_actual_validation.md and actualreview/rawreceipts.

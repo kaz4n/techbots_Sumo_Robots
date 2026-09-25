@@ -35,3 +35,10 @@ three prerequisite passes, one upload and conditional26read passive capture.
 No automatic retry, old owner reuse, source/helper/locked-test change or motor-
 capable permission. Board callbacks cannot establish electrical acceptance.
 Original full-app fault, complete RAM/stack/WCET and human gates remain open.
+
+Pre-CLI local wrapper at90ab80a0 stopped before check-only/execute: two scope-pinned
+Markdown files had CRLF-only Git normalization, while working hashes stayed exact.
+Original failure native_admission_failure01.json retained; native owner absent,
+zero board actions. Added exact two .gitattributes -text rules and restaged the
+unchanged original bytes; no scope hash, code, oracle or recorded evidence changed.
+Require all11scope Git blobs equal original working bytes before next admission.

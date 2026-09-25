@@ -1959,3 +1959,8 @@ Decision: execute analysis/P7_motor_fault_abi_plan.md once after source review, 
 Consequence: no upload/reset/MCU read, source or consumed-stage change, dependency install, motor permission or gate. A later inert upload/capture remains separately scoped.
 
 D-173 pre-execution review 2026-09-25T07:14:12.509806+04:00: original unexecuted reader273d1871/review FAIL retained. Fixed manifest SHA/count, independent local closure and byte-preserving per-stream failure collection; root-controlled9cases PASS/native0, final composition6009units/25pins/fivechildren verified. Revised reader50c07402; separate source revieweb9e2d78PASS, original context reused for fix review. No native attempt yet; one file-only observation follows containing commit.
+
+## D-174 (2026-09-25T07:17:00.948767+04:00, offline diagnostic decoding under D051)
+Context: D173 observes exact ARM Runner2592B and its nested fields; no diagnostic RAM has been captured.
+Decision: implement analysis/P7_motor_fault_decode_contract.md as a pure finite offline decoder, with independent spec/ABI-derived tests and separate review. Retain reported failures/partial state and explicitly unproven coherence; DECODED is not acceptance.
+Consequence: no firmware, pins, limits, locked tests, native run, upload/capture admission or human gate changes. Later collection must preserve raw bytes and bind exact deployed identity independently.

@@ -1,5 +1,14 @@
 # Codex handoff - 25 September 2026, Asia/Dubai
 
+Current continuation: hardware work is deferred by the user's active objective.
+The D188 offline preparation is complete; P7's runbook, acceptance/gate request,
+tool usage and resume instructions now reflect D184-D188. The separate fresh-
+context same-model scoped document review passes; it is not a firmware gate.
+See [the current scope audit](analysis/P7_remaining_scope_audit.md) for original
+phase coverage and unresolved dependencies. No phase PASS or release is claimed.
+Cleanup2f456172 removed212.06MiB of completed installer downloads; source and
+evidence remain intact. Recheck free space; do not recount earlier savings.
+
 **D188 fixed static diagnostic compile-only workflow HOST-TESTED / REVIEWED.**
 Source6b6c883b remains unchanged after first execution: caller cf0c826f,
 remote1428b934. Independent caller oraclead9f771a:40/40WSL PASS; remoteoracle
@@ -29,6 +38,8 @@ C: briefly exhausted during checkpoint saving, then recovered independently;
 failed draft preserved and small WSL recovery copies retained. Use Python-B,
 serial ownedRAM fixtures and compact receipts; all D188scratch was released.
 
+## Historical checkpoints (next actions superseded by D188 above)
+
 **D185 both current profiles TARGET-COMPILED; no firmware upload.**
 Bench/default build6d9e48f8 (reviewed34eb56ba) and MATCH/Immediate build1fcc7d57
 (reviewed80c059f7) each ran one query/compiler,227/21transports, all7closing checks
@@ -38,12 +49,11 @@ span/860B largest payload. No fresh ABI/live RAM/WCET or physical/human gate.
 See analysis/P7_current_app_compile_validation.md and actual review records.
 Both D185 owners are consumed; do not rerun/relabel them. D184 isolated M0 halted
 diagnostic is the last image; original D160/D161 full-app IO fault remains open.
-Next eligible engineering work: scope a minimal inhibited full-app trace through
-Runtime -> Transaction -> Robot -> MotorGate using existing motor_fault tracing,
-with new source/artifact/layout/attempt binding. First resolve its compatibility
-with the unresolved default allocation/static full-app context; no speculative
-fix, timing relaxation, historical layout reuse or motor-capable upload. Existing
-physical setup, live RAM/stack/WCET, explainability and human gates remain pending.
+D186-D188 subsequently completed the inhibited full-app trace and fixed static
+compile preparation on the host. Do not create it again; the exact next task is
+the D188 native dependency above. This does not resolve the original full-app
+fault, default allocation deficit, physical setup, live RAM/stack/WCET,
+explainability or human gates.
 Cleanup92738412 saved174.38MiB; both new stage deletions were policy-denied.
 They remain intact/excluded from retries; see STORAGE_LOG.md.
 All prior denied deletion paths stay excluded. No native job is running; older
@@ -152,15 +162,21 @@ No process is running. Previous source/failure/recipe/review evidence is retaine
 
 ## Exact next task
 
-Current app source37a2099f needs checked target compilation after D180. Prepare
-separate fixed bench/default M0 and MATCH/Immediate M1 compile-only profiles with
-fresh stages/owners. The generic flash staging path would delete a protected old
-stage: use existing stage(attempt=...) and compile_app(command_runner=...), with
-the unchanged bounded executor extracted into a private current-scope namespace.
-Keep canonical /home/arduino/sumox26_codex_build source/build locations, current
-identity/tool/source pins, one compiler per profile and independent closing checks.
-Review/control-check the composition, commit it, then execute serially. Compile
-only never uploads/resets/starts firmware; MATCH is not motor permission.
+After hardware work resumes, freshly observe board identity and installed tool
+pins, then prepare/review D188's new `inputs_static.json` on a clean committed
+HEAD. Run local admission and one fixed static/default/M0/probe1 compilation
+using `tools/compile_app_motor_fault.py` and its existing contract. Do not create
+the manifest from historical boot data. The exact staged source is
+21df6ae82cca4b09dc6b1e0de5bc719cf98ec6887800d5ce8297522e491a7950.
+See [tool usage](../tools/README.md#d188-inhibited-full-app-diagnostic-compilation)
+and [validation/limits](analysis/P7_app_motor_fault_compile_validation.md).
+This is compile-only; actual ET_EXEC/package/init/ABI and subsequent capture
+binding need new evidence before any later diagnostic operation.
+
+D185 already completed both current app source37a2099f compilation profiles;
+both owners are consumed. The earlier D185 next-task instructions are historical,
+not a request to compile them again. D149 addresses and D173's2592B decoder do
+not qualify the new D186 full-app trace. The original native fault remains open.
 
 D184's diagnostic scope and local/remote owners are consumed. Preserve all original
 failures and historical pins. No motor-capable operation is authorized. Physical
@@ -205,7 +221,9 @@ D051/D075/D122/D137 authorize software-first scheduling, not invented measuremen
 or human gates. PROGRESS.md is authoritative and append-only. P0-P5 physical and
 human acceptance remain pending; P6 is conditional; P7 is incomplete. Preserve
 R1-R11, config defaults/approved decisions, locked tests and no remote motion.
-No additional hardware is requested now; the user permits bare UNOQ inert testing.
+No additional hardware is requested now; the current objective defers hardware
+testing. Earlier permission for bare UNOQ inert work is not a current connection
+observation or permission to resume it during this offline continuation.
 The original B7/R6 conflict, native dump lifecycle, release workflow and physical
 sensor/motor/electrical acceptance remain tracked in existing packets/findings.
 

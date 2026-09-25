@@ -1,6 +1,6 @@
 # P7 gate review request - pending
 
-Prepared2026-09-24 under D137/D138; updated2026-09-25 through D183.
+Prepared2026-09-24 under D137/D138; updated2026-09-25 through D188.
 This is a filled request, **not a review verdict or human approval**. Documentation,
 READY software, setup binding and guarded deployment tooling have scoped software
 evidence; do not request a phase
@@ -16,9 +16,21 @@ PASS from a reviewer before the missing release and real rehearsal evidence exis
 - D180 [setup binding](../analysis/P7_setup_binding_validation.md), D181
   [compiler failure retention](../analysis/P7_compile_error_retention_validation.md)
   and D182/D183 [precompiled deployment](../analysis/P7_match_deploy_validation.md)
-  are HOST-TESTED / REVIEWED. All setup declarations remain disabled; current
-  main-app target compilation, actual diagnostic/deployment and qualification
-  remain pending. No scope or human run permission was created by the tests.
+  are HOST-TESTED / REVIEWED. All setup declarations remain disabled; actual
+  release deployment and qualification remain pending. No scope or human run
+  permission was created by the tests.
+- [D184 isolated diagnostic](../analysis/P7_motor_fault_run01_validation.md) is
+  TARGET-UPLOADED / HARDWARE-OBSERVED: four inhibited applications completed and
+  halted. Its consumed run did not resolve the static full-app fault.
+- [D185 current main-app profiles](../analysis/P7_current_app_compile_validation.md)
+  are TARGET-COMPILED, with both consumed owners and no upload. Source37a2099f
+  produces the same raw/package bytes as D139/D138, with different debug ELFs;
+  default592B modeled deficit and conditional MATCH memory limits remain.
+- D186/D187 [full-app diagnostic preparation](../analysis/P7_app_motor_fault_validation.md)
+  and D188 [compile-only workflow](../analysis/P7_app_motor_fault_compile_validation.md)
+  are HOST-TESTED / REVIEWED. This new diagnostic has no target compilation,
+  native ABI/capture or fault-resolution evidence; hardware work is deferred.
+  Live RAM/stack/WCET, physical acceptance and all required human gates remain open.
 - Final release commit/artifact/tag: PENDING, not assigned by this request.
 - Specifications: AGENTS R1-R11; PLAN3/5/6; P7_freeze_matchday7.1-7.4;
   relevant approved UI/start/STOP/mode decisions and retained physical packets.

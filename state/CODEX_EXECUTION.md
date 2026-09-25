@@ -1,5 +1,12 @@
 # Current execution checklist - 2026-09-25 Asia/Dubai
 
+Current original-scope audit is in
+[P7_remaining_scope_audit.md](analysis/P7_remaining_scope_audit.md).
+D184/D185 native evidence and D186-D188 host preparation are complete within
+their stated scopes. Hardware work is deferred; the next unchecked native task
+below is D188's fresh manifest/admission/compile. P0-P7 gates remain separate.
+Cleanup2f456172 recovered212.06MiB; keep all prior denied paths excluded.
+
 **D188 fixed static diagnostic compile-only workflow HOST-TESTED / REVIEWED.**
 Source6b6c883b remains unchanged after first execution: caller cf0c826f,
 remote1428b934. Independent caller oraclead9f771a:40/40WSL PASS; remoteoracle
@@ -29,6 +36,8 @@ C: briefly exhausted during checkpoint saving, then recovered independently;
 failed draft preserved and small WSL recovery copies retained. Use Python-B,
 serial ownedRAM fixtures and compact receipts; all D188scratch was released.
 
+## Historical checkpoints (next actions superseded by D188 above)
+
 **D185 both current profiles TARGET-COMPILED; no firmware upload.**
 Bench/default build6d9e48f8 (reviewed34eb56ba) and MATCH/Immediate build1fcc7d57
 (reviewed80c059f7) each ran one query/compiler,227/21transports, all7closing checks
@@ -38,12 +47,11 @@ span/860B largest payload. No fresh ABI/live RAM/WCET or physical/human gate.
 See analysis/P7_current_app_compile_validation.md and actual review records.
 Both D185 owners are consumed; do not rerun/relabel them. D184 isolated M0 halted
 diagnostic is the last image; original D160/D161 full-app IO fault remains open.
-Next eligible engineering work: scope a minimal inhibited full-app trace through
-Runtime -> Transaction -> Robot -> MotorGate using existing motor_fault tracing,
-with new source/artifact/layout/attempt binding. First resolve its compatibility
-with the unresolved default allocation/static full-app context; no speculative
-fix, timing relaxation, historical layout reuse or motor-capable upload. Existing
-physical setup, live RAM/stack/WCET, explainability and human gates remain pending.
+D186-D188 subsequently completed the inhibited full-app trace and fixed static
+compile preparation on the host. Do not create it again; the exact next task is
+the D188 native dependency above. This does not resolve the original full-app
+fault, default allocation deficit, physical setup, live RAM/stack/WCET,
+explainability or human gates.
 Cleanup92738412 saved174.38MiB; both new stage deletions were policy-denied.
 They remain intact/excluded from retries; see STORAGE_LOG.md.
 All prior denied deletion paths stay excluded. No native job is running; older
@@ -138,7 +146,7 @@ pending; D051/D075/D122/D137 permit scheduling, not fabricated measurements.
 - Read analysis/P7_readiness_validation.md and reviews/P7_readiness_review.md for
  final scoped disposition. D138 commands are terminal; owned RAM scratch released.
 
-## Next original-scope task
+## Native preparation history and remaining work
 
 - [x] D141 fixed policy:35public+4private host methods; scoped review PASS.
 - [x] D142 static artifact parser:45public+6private methods; scoped review PASS.
@@ -229,8 +237,16 @@ pending; D051/D075/D122/D137 permit scheduling, not fabricated measurements.
   methods PASS, review7649fb58; synthetic storage failures, no hardware claim.
 - [x] D184 fresh board admission and unchanged reviewed D179 caller: actual
   one-shot diagnostic completed, separate evidence review PASS. No rebuild.
-- [ ] Current app source37a2099f checked target compile-only profiles, fresh
-  stages/owners and current identity; preserve prior denied cleanup paths.
+- [x] D185 current app source37a2099f target compile-only profiles: bench/default
+  build6d9e48f8 and MATCH/Immediate build1fcc7d57, all7closing checks each PASS;
+  scoped actual reviews PASS. Both owners consumed; neither image uploaded.
+- [x] D186-D188 full-app inhibited trace, static adapter and fixed compile-only
+  workflow HOST-TESTED / REVIEWED; closure4b87582c. No actual native manifest,
+  new diagnostic target compilation, ABI/capture or fault-resolution claim.
+- [ ] After hardware work resumes: fresh identity/tool evidence, reviewed
+  inputs_static.json and one fixed D188 static/default/M0/probe1 compilation.
+  Then establish actual package/init/ABI and later capture bindings; never reuse
+  D149 addresses/D173 decoder or consumed native owners. See CODEX_HANDOFF.md.
   Original D160 failing operation remains unknown; do not relax safety bounds.
 - [ ] Qualify native loading/startup, stack/heap/WCET and release workflow before
   adoption. Structural RAM tail94352B is not measured free memory.

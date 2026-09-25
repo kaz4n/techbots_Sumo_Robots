@@ -1,0 +1,72 @@
+{
+  "time": "2026-09-25T18:34:29+04:00",
+  "baseline": "2f456172",
+  "status": "PASS",
+  "document_hashes": {
+    "docs/RUNBOOK.md": "bbf7990fbf7f3ca9730a563e7a04ec6662ac822b3f94955aec5163d5cd10399b",
+    "docs/prompts/CODEX_RESUME.md": "2b28c91ae28507b4e83856ed7800323d193376d67c78f93f154f48484ee9cf6a",
+    "tools/README.md": "17171210c9e9ffeadfe201dbcc9daeb9de6e794e4b91ac6d7442e6b135bdd1eb",
+    "state/analysis/P7_software_acceptance_packet.md": "d3f48c6f1a9365613333ddfbd8a31d31e0557b69391fcfc53554310af3930c6b",
+    "state/analysis/P7_remaining_scope_audit.md": "0e95759a918ef14984c8b2b29ee732a06dc1f02883f81db15ec37e8c6e35891c",
+    "state/reviews/P7_gate_request.md": "4d3ee9b89028f1353df5ce0252abda0c67406a3a0f4fc93a3e94864a28333870",
+    "state/CODEX_HANDOFF.md": "74429e8f620f9bd1101c2243a1ac6dc9c0c0319fa18ecd75608085d7581a75c2",
+    "state/CODEX_EXECUTION.md": "3b0e8cf4ac6067e6e9099d5ac48847df76980cf69154242dc96bba51d0134914",
+    "state/reviews/P7_d188_docs_review.md": "8bf222d1388f8e9d8670e936402dc18a38cc8bd1b1bfe2204ef559d6b9f18745"
+  },
+  "relative_links_checked": 93,
+  "fragments_checked": 6,
+  "link_errors": [],
+  "legacy_read_only_surrogate_decoding": [
+    "state/analysis/spec_conflicts.md"
+  ],
+  "protected_diff": {
+    "command": [
+      "git",
+      "diff",
+      "2f456172",
+      "--",
+      "src",
+      "bench",
+      "host",
+      "tests",
+      "tools/compile_app_motor_fault.py",
+      "tools/app_motor_fault_compile_remote.py",
+      "tools/app_motor_fault_static_policy.py",
+      "docs/PLAN.md",
+      "docs/HARDWARE.md",
+      "docs/BEHAVIOR.md",
+      "state/DECISIONS.md",
+      "state/FACTS.md",
+      "state/TUNING_LOG.md"
+    ],
+    "exit": 0,
+    "empty": true
+  },
+  "diff_check": {
+    "command": [
+      "git",
+      "-c",
+      "core.whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol",
+      "diff",
+      "--check"
+    ],
+    "exit": 0,
+    "stdout": ""
+  },
+  "legacy_progress_prefix_sha256": "1dbbeb53c3dc046128494af3bef240b9a00353929d6121991900c90bb2838b77",
+  "all_17_setup_grants_zero": true,
+  "actual_d188_manifest_absent": true,
+  "tags": {
+    "command": [
+      "git",
+      "tag",
+      "--list"
+    ],
+    "exit": 0,
+    "output": ""
+  },
+  "prior_scan_failure": "UTF-8-only inline link scan exited1 on existing spec_conflicts.md byte0x97 offset30456; surrounding PowerShell returned0 from subsequent diff check, not from Python. Corrected read-only surrogateescape scan passed91links/6fragments before final edits. Original file unchanged.",
+  "review": "P7_d188_docs_review.md: separate fresh-context same-model scoped PASS; one stale-next-action MINOR closed",
+  "no_tests_builds_network_or_native_operations": true,
+  "free_bytes_observed": 1196933120
+}

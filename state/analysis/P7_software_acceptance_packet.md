@@ -3,9 +3,11 @@
 <!-- Checked through separate document review and local source/link verification. -->
 # P7 operator-document preparation
 
-Updated 2026-09-25 Asia/Dubai through D183. D137 prepares operator documents;
-D138 adds P7.2 informational READY/battery software; D180-D183 complete the
-identified offline setup and deployment tooling. **P7 release acceptance is pending.** P6 remains
+Updated 2026-09-25 Asia/Dubai through D188. D137 prepares operator documents;
+D138 adds P7.2 informational READY/battery software; D180-D183 provide the
+setup and deployment tooling. D184/D185 add actual isolated diagnostic and
+current-app compilation evidence; D186-D188 prepare a full-app diagnostic on
+the host. **P7 release acceptance is pending.** P6 remains
 deferred; actual P0-P5 criteria and human gates have not been replaced by assumptions.
 
 | Original task | Current deliverable | Required completion evidence |
@@ -25,7 +27,10 @@ strategy, not measured matchup performance.
 Current production enters `runtime.begin(app::configuredSetupGrants())` through
 the [D180 config binding](P7_setup_binding_validation.md). All17 declarations
 remain disabled; mounting, dump origin and button windows remain unconfigured.
-The changed main app still needs target compilation and physical qualification.
+Both current main-app profiles are [TARGET-COMPILED under D185](P7_current_app_compile_validation.md):
+bench/default build6d9e48f8 and MATCH/Immediate build1fcc7d57 bind source37a2099f.
+Neither was uploaded. Runtime and physical qualification remain pending, and
+compilation does not resolve the default loader-model deficit described below.
 The D138 display uses a live blinking R and an exact threshold pixel; current
 validation and its boundaries are in the [readiness packet](P7_readiness_validation.md).
 It is not a numeric battery reading or physical acceptance. Native matrix
@@ -58,8 +63,12 @@ P5 D136 closure0faf2e6d retains93public/19private/112legacy passing checks and a
 original failures. Its [MATCH qualification](P5_match_native_validation.md) is
 historical. The later [D138 MATCH build](P7_readiness_native_validation.md) also
 establishes target compilation and conditional file-based loader/import checks
-only. Neither qualifies the current D180 app, a release deployment, full-source
-worst-case timing, physical trials or motor authorization.
+only. D185 separately binds the current source to byte-identical raw/package
+artifacts for each profile; its debug ELFs differ. This supports reuse of the
+existing same-loader file-derived models only: default592B deficit and MATCH
+conditional864B span/860B largest payload. It does not establish fresh ABI,
+live RAM/stack, full-source worst-case timing, physical trials, a qualified
+release deployment or motor authorization.
 
 No board build/upload/reset or firmware/config/test change was needed for the
 completed D137 documentation task. D138 validation is recorded separately.
@@ -107,11 +116,24 @@ Later static/default/M0 preparation reached an actual [D160 inert upload and
 capture](P7_static_startup_run02_actual_validation.md). Both runtime samples were
 STOPPED; [D161 diagnosis](P7_stopped_diagnostic_validation.md) recorded application/
 line contract faults and an invalid motor receipt, without establishing their
-native cause. The [D179 inert diagnostic caller](P7_motor_fault_caller_validation.md)
-is host-tested and reviewed, but has not run on the board. Resume with fresh
-board admission and that existing diagnostic as specified in
-[CODEX_HANDOFF](../CODEX_HANDOFF.md), preserving consumed scopes. Static production
-adoption, live RAM/stack/WCET and current main-app target qualification remain open.
+native cause. The [D184 isolated diagnostic run](P7_motor_fault_run01_validation.md)
+used the D179 caller once: four inhibited applications and41callbacks completed,
+then the Gate was halted. This dynamic/default/M0 probe did not reproduce or
+resolve the static full-app failure. Its run scope and both D185 compile owners
+are consumed; they must not be reused.
+
+The [D186 full-app trace](P7_app_motor_fault_validation.md),
+[D187 static adapter](P7_app_motor_fault_static_validation.md) and
+[D188 compile-only workflow](P7_app_motor_fault_compile_validation.md) are
+HOST-TESTED / REVIEWED. The diagnostic follows the actual Runtime -> Transaction
+-> Robot -> MotorGate path with empty setup grants and inhibited outputs.
+It has no current target compilation, native layout/ABI or capture evidence.
+The next hardware-dependent action is fresh board identity/tool observation,
+then a reviewed new manifest and one static/default/M0 diagnostic compilation
+under the [D188 contract](P7_app_motor_fault_compile_contract.md). Hardware work
+is currently deferred. Follow [CODEX_HANDOFF](../CODEX_HANDOFF.md); do not reuse
+old capture addresses/decoders or infer static production adoption. Full-app
+fault resolution, live RAM/stack/WCET and physical qualification remain open.
 
 Other dependent release work remains: obtain the real prerequisites in the linked
 acceptance packets and resolve SC-AP against the qualified release, then validate

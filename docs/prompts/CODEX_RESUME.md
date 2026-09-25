@@ -16,19 +16,24 @@ physical acceptance. Do not reset the project to P0.
    bench/default (6d9e48f8) and MATCH/Immediate (1fcc7d57); all closing checks PASS.
    Both compile owners are consumed. Raw/package bytes equal D139/D138, debug
    differs: retain existing model deficit/margin limits, no new ABI/live RAM or
-   WCET inference. Next minimal full-app inhibited diagnostic scope is described
-   in the current handoff; do not create another wrapper framework. D180 grants
+   WCET inference. D186-D188's full-app inhibited trace, static adapter and fixed
+   compile-only caller are now HOST-TESTED / REVIEWED at4b87582c. They have no
+   actual native manifest or target compilation. After hardware work resumes,
+   freshly observe identity/tool pins, prepare/review the new manifest and use
+   the existing caller as directed by the handoff; do not create another wrapper
+   framework or reuse D149 addresses/D173 capture decoding. D180 grants
    remain disabled; D182/D183 deployment source does not confer run permission.
    Physical setup, RAM/stack/WCET, explainability and human gates remain pending.
 3. All old native scopes are consumed. Never rerun a historical launcher, repin
    its consumed manifest, reset the MCU or infer that an old capture layout fits
    changed firmware. A new operation needs fresh source/artifact/identity binding
    and review using the existing bounded primitives. Preserve original failures.
-4. The user reconnected the board on25September after the offline checkpoint.
-   D184 observed boot55c386b9-fe6d-4388-a7f4-1d91e0bb49d8 and completed the
-   existing motor-disabled D179 diagnostic once. Read the handoff and actual
-   owner/results before acting; a prepared or consumed scope is never a retry.
-   Recheck current connectivity/identity rather than assuming it from chat.
+4. The current user objective defers hardware work until the end; do not query
+   the board during offline continuation. The earlier25September connection and
+   D184 boot55c386b9-fe6d-4388-a7f4-1d91e0bb49d8 are historical observations.
+   Read the handoff and actual owner/results before acting when hardware work
+   resumes; a prepared or consumed scope is never a retry. Recheck connectivity/
+   identity then rather than assuming the old connection or boot remains current.
    No motor-capable upload/run has fresh STAND OK or RING OK. D051 engineering
    delegation permits documented software choices; it does not create measured
    acceptance, PINMAP/EXPLAINED approval or human GATE Pn PASS.

@@ -24,7 +24,44 @@ library. Stable CLI/configuration/files across commands remain an assumption;
 this is not a sandbox against a compromised build host. Property-only output does
 not prove compilation or library discovery. Compiler low-memory warnings remain;
 loadedRAM, stack, physical timing and all human gates require separate evidence.
-Bench commands/upload guards are retained; app uploads are disabled in all modes.
+Bench commands/upload guards are retained; unscoped app uploads remain disabled.
+The explicit precompiled MATCH route below requires separate evidence and permission.
+
+## D182/D183 identified precompiled MATCH upload
+
+Build-only remains `bash tools/flash.sh app --match --compile-only`. Once the
+specific artifact, target and operation have real qualification and fresh human
+permission, the separate upload command is:
+
+```
+bash tools/flash.sh app --match --deploy-scope <repo-relative-scope.json>
+```
+
+This uploads and starts motor-capable firmware. It never compiles, stages or
+syncs sources. Plain `--match` is not permission; combining a deployment scope
+with `--compile-only`, a bench sketch, default startup or an ADC run is rejected.
+The wrapper uses Python `-B`; direct Python invocation must also use `-B`.
+
+The exact scope schema is in
+`state/analysis/P7_match_deploy_contract.md`. It binds current source, prior
+checked dynamic/Immediate build receipts, raw and packaged artifacts, loader/
+tool files, target/boot, qualification and a referenced current-session human
+`STAND OK` or `RING OK`. Authorization lasts at most one hour and covers only
+that identified request. A JSON record or test fixture cannot establish the
+truth or authorship of physical evidence or a human message; the operator must
+verify their provenance before invoking this command. No approved scope is
+supplied by the software implementation.
+
+Each attempt exclusively owns `state/analysis/match_deploy_<run_id>/`; failures
+and partial claims consume it. The existing transport and uploader perform one
+upload with checked prerequisites and independent closing checks. A timeout or
+unaccepted result after dispatch is `UNKNOWN`: the MCU may have started. Preserve
+both local and remote evidence and establish the actual state before considering
+any newly authorized attempt. Never retry or delete the consumed attempt.
+Remote full streams stay in the derived upload directory; compact replies carry
+their report size/hash, which cannot independently verify omitted stream bytes.
+Host tests validate this workflow; native execution and physical acceptance remain
+separate requirements.
 
 D104 applies the same checked policy to `bench/runtime_inert` with its existing
 default-startup/inert-only restrictions and exact reviewed upload identities.
@@ -134,9 +171,9 @@ Updating those snapshots requires inspecting and independently reviewing the
 new staged source as inert; never regenerate them merely to bypass a failure.
 The manifest is a source-review record, not human motor-run authorization.
 Before actually invoking
-upload, confirm the bare-board setup and installed dependencies. No command here
-implements a per-run motor authorization receipt; all motor-capable uploads
-therefore fail. `--match` cannot grant permission.
+upload, confirm the bare-board setup and installed dependencies. Unscoped
+motor-capable uploads fail; only the separately identified precompiled MATCH
+route above accepts a qualified, source-bound run. `--match` cannot grant permission.
 The current official on-board upload command is `arduino-cli upload --fqbn
 arduino:zephyr:unoq <staged-sketch>` using remoteocd, without the kit's reported
 serial port. `/dev/ttyHS1` belongs to the router; do not use it as an upload port.

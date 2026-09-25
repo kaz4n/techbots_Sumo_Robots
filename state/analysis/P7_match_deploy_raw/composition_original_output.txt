@@ -1,0 +1,38 @@
+test_D183_actual_sources_and_nonrepetitive_metadata_fit_windows_bound (__main__.RealisticCompositionTests.test_D183_actual_sources_and_nonrepetitive_metadata_fit_windows_bound) ... 
+  test_D183_actual_sources_and_nonrepetitive_metadata_fit_windows_bound (__main__.RealisticCompositionTests.test_D183_actual_sources_and_nonrepetitive_metadata_fit_windows_bound) (transport='adb') ... ERROR
+  test_D183_actual_sources_and_nonrepetitive_metadata_fit_windows_bound (__main__.RealisticCompositionTests.test_D183_actual_sources_and_nonrepetitive_metadata_fit_windows_bound) (transport='ssh') ... ERROR
+
+======================================================================
+ERROR: test_D183_actual_sources_and_nonrepetitive_metadata_fit_windows_bound (__main__.RealisticCompositionTests.test_D183_actual_sources_and_nonrepetitive_metadata_fit_windows_bound) (transport='adb')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\state\analysis\P7_match_deploy_raw\test_realistic_composition.py", line 66, in test_D183_actual_sources_and_nonrepetitive_metadata_fit_windows_bound
+    command = subject.build_command(sources, bound, SOURCE, BUILD, RUN, prefix)
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tools\match_payload.py", line 281, in build_command
+    _require(_command_units(command, native_prefix) <= COMMAND_LIMIT,
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+             'Windows command exceeds bound including NUL')
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tools\match_payload.py", line 48, in _require
+    raise ValueError(message)
+ValueError: Windows command exceeds bound including NUL
+
+======================================================================
+ERROR: test_D183_actual_sources_and_nonrepetitive_metadata_fit_windows_bound (__main__.RealisticCompositionTests.test_D183_actual_sources_and_nonrepetitive_metadata_fit_windows_bound) (transport='ssh')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\state\analysis\P7_match_deploy_raw\test_realistic_composition.py", line 66, in test_D183_actual_sources_and_nonrepetitive_metadata_fit_windows_bound
+    command = subject.build_command(sources, bound, SOURCE, BUILD, RUN, prefix)
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tools\match_payload.py", line 281, in build_command
+    _require(_command_units(command, native_prefix) <= COMMAND_LIMIT,
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+             'Windows command exceeds bound including NUL')
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tools\match_payload.py", line 48, in _require
+    raise ValueError(message)
+ValueError: Windows command exceeds bound including NUL
+
+----------------------------------------------------------------------
+Ran 1 test in 0.027s
+
+FAILED (errors=2)

@@ -67,3 +67,19 @@ recorder_heap. A future bundle must account for those real dependencies, verify
 all bytes before execution, and test its actual Windows command-size bound.
 Do not silently substitute the old runtime decoder or heap collector. Upload
 input remains raw ELF; capture reference remains its packaged ELF-ZSK sibling.
+
+Preferred minimal transport reuse after source-only explorer check:
+CompileOnce.transport in P7_motor_fault_raw/compile_motor_fault.py:222-248 can be
+called unbound with only fresh output Path/counter=0. It hashes fixed ADB, pins
+board2629958581, checks30000UTF16-unit command ceiling, claims each command folder
+and preserves intent/result/partial transport output. It does not touch compile
+profiles, SUPPORT_SHA or stages. Its prerequisites method:266-277 is reusable with
+context.transport bound and BASELINES/ROOT/BOOT/decode/projection dependencies pinned.
+D173 inspect_active_abi.py demonstrates this reuse; never repeat its consumed run.
+A thin fresh scope should use those primitives, conditional upload-then-capture
+and independent local closure, rather than clone or extend the old static probe.
+Local ADB timeout is not remote reap proof; retain remote deadlines/child cleanup.
+Transport capture_output has no byte bound and sequential file writes can fail;
+return compact fixed summaries, retain full raw receipts remotely, and preserve
+primary exceptions while attempting all independent closure checks. Labels/args/
+timeouts/owner ancestry must be fixed by the new scope; no source/global repinning.

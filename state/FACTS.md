@@ -733,3 +733,6 @@ HOST-OBSERVED only: source70b9cea5 maps explicit disabled config declarations to
 
 ## F186 - Compiler failure evidence retention (2026-09-25T14:03:27.813702+04:00)
 HOST-OBSERVED only: source0d73967b preserves compiler status/object/streams when either receipt write fails, attempts both independently and records diagnostic failures without replacing primary errors.27new+33existing methods PASS; separate fresh-context same-model review acafc242 PASS. Synthetic ENOSPC/console failure is not actual disk-full or target evidence. See analysis/P7_compile_error_retention_validation.md.
+
+## F187 - Precompiled MATCH adapter host behavior (2026-09-25T14:11:57.344739+04:00)
+HOST-OBSERVED only: source72950615 derives fixed dynamic/Immediate paths/argv, checks equal build/export packages, deep-copies bindings and reuses the unchanged uploader lifecycle.35 independent methods PASS, five exercise inherited lifecycle with controlled RAM fixtures; separate reviewcdbff1d5 PASS. No physical/source qualification or actual permission/target operation. See analysis/P7_match_upload_adapter_validation.md.

@@ -1,9 +1,12 @@
 # Current execution checklist - 2026-09-25 Asia/Dubai
 
-**D179 fixed inert caller IN PROGRESS; board disconnected.**
-Contract924b16e8; separate implementation/oracle owners, no native execution.
-Next freeze drafts, run controlled host tests, retain failures and obtain scoped
-same-model review. Actual scope/owner and fresh board admission remain future work.
+**D179 fixed inert caller HOST-TESTED / REVIEWED; board disconnected.**
+Unchanged source d8418fad/8b47b1d6;44 independent methods PASS after two new fixture
+corrections6e3d69c8; original results retained.24pins exact,0native/0RAMremnants;
+Windows commands28,990/25,232units includingNUL and missing-scope refusal checked.
+Separate review dbd4c2e4/d67c0dca PASS, no open material findings.
+See analysis/P7_motor_fault_caller_validation.md. Actual
+scope/owner/fresh admission remain future work; no other offline omission identified.
 
 **D178 offline capture failure retention HOST-TESTED / REVIEWED.**
 Source3f73fd58/baca4d79;13new+45existing Python checks PASS, review7649fb58 PASS.

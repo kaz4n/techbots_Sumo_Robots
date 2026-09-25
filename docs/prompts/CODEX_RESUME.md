@@ -19,6 +19,9 @@ physical acceptance. Do not reset the project to P0.
    D178 subsequently repaired offline capture failure reporting (13new+45existing
    Python tests and separate review PASS); its evidence is in the handoff.
    No device operation or firmware change occurred during that host continuation.
+   D179 then implemented the fixed caller offline; its44 independent tests and
+   review are recorded in the current handoff. No actual run scope or owner was
+   created. Fresh board admission remains the next native dependency.
 3. All old native scopes are consumed. Never rerun a historical launcher, repin
    its consumed manifest, reset the MCU or infer that an old capture layout fits
    changed firmware. A new operation needs fresh source/artifact/identity binding

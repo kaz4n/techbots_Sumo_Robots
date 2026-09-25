@@ -24,6 +24,7 @@ All receipts below are under [P7_motor_fault_raw](P7_motor_fault_raw/).
 | caller_corrected_freeze.json /6e3d69c8 | Only two independently adjudicated new fixtures corrected;23 other pins unchanged |
 | caller_corrected.json | 44PASS/0failures/0errors/0skips; exit0,8.512s unittest time |
 | caller_windows.json /80c3d5cd | Exact source commands28,990/25,232 UTF16 units including NUL, below30,000; missing real scope returns builtin int1 before process/owner |
+| caller_closure.json | All24 current +11 prior D177 pins match; seven raw files byte-equal Git, original PROGRESS prefix intact, firmware/locked tests/tools/build config unchanged |
 
 The independent test author did not inspect/import/execute inert_run.py while
 authoring or correcting tests. Corrected oracle SHA256

@@ -1,11 +1,14 @@
 # Codex handoff - 25 September 2026, Asia/Dubai
 
-**Active: P7 software/release preparation. D179 fixed caller IN PROGRESS.**
-Board disconnected; host-only implementation and independent oracle drafting.
-Contract924b16e8 fixes fresh-scope admission, existing transport reuse and durable
-single-use upload/capture closure. Source draft is ready for its first frozen
-controlled tests and separate same-model review. No real scope/owner or device
-operation exists for D179. Resume this validation before any native work.
+**Active: P7 software/release preparation. D179 fixed caller REVIEWED.**
+Board disconnected. Source d8418fad/8b47b1d6, independent corrected44-method
+oracle6e3d69c8/2260d0bc all PASS;24pins exact,0RAM scratch. Original42PASS/1FAIL/
+1ERROR and independent fixture adjudication retained; source unchanged after
+first execution. Windows commands28,990/25,232UTF16 includingNUL fit30,000 and
+missing real scope exits1/process0. Separate same-model review dbd4c2e4/d67c0dca
+PASS with no open material finding. See analysis/P7_motor_fault_caller_validation.md
+and reviews/P7_motor_fault_caller_review.md. No actual
+scope/owner/device action, firmware change or gate. No process is running.
 
 **D178 offline capture repair REVIEWED.**
 User explicitly requested continued host work without hardware. Fixed the log
@@ -49,13 +52,11 @@ No process is running. Previous source/failure/recipe/review evidence is retaine
 
 ## Exact next task
 
-Keep work host-only while the board is disconnected. Finish D179 inert_run.py and
-test_inert_run.py under analysis/P7_motor_fault_caller_contract.md: freeze both,
-run controlled host tests with small RAM fixtures/Python-B, preserve failures,
-complete separate review and compact evidence. No real inert_run01_scope.json or
-native_inert_run01 directory may be created during these tests in this checkout.
-The prepared D177 command/receipt/sequence interfaces remain reviewed; do not
-repeat unrelated passing tests or invent target observations.
+The fixed D179 caller and D177 command/receipt/sequence interfaces are implemented
+and host-tested. No further original-scope offline omission was identified; do
+not invent new frameworks or repeat unchanged suites while hardware is absent.
+No real inert_run01_scope.json or native_inert_run01 exists in this checkout.
+Preserve that absence until fresh native admission and review.
 
 When the board is available, first perform a fresh bounded read-only check of
 identity, installed bz2/Base85 support, exact tools/artifacts and prerequisites.
@@ -118,7 +119,9 @@ sensor/motor/electrical acceptance remain tracked in existing packets/findings.
 
 ## Storage and tools
 
-C: observed1296179200B free at this checkpoint; recheck before large work.
+C: latest D179 free-space observation is in STORAGE_LOG.md; recheck before work.
+Only compact unique D179 source/oracle/failure/review receipts were retained;
+small owned RAM fixtures were removed, no new build/download/cache generated.
 D173 retained219185B file-only ABI packet and D174 compact sources/test results;
 no firmware/debug download or persistent test scratch. No new cleanup attempted.
 D172 raw packet890157B plus compact metadata/review is retained; no firmware binary

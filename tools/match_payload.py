@@ -128,124 +128,127 @@ def _bindings(value, source_sha256, build_id, run_id):
 
 # This trusted bootstrap is compressed independently of the bounded request.
 # Request validation is repeated remotely before any supplied module is loaded.
+# Short bootstrap names reduce wire size; guard errors retain their validation phase.
+# Decoder key: O=require, v=keys, h=canonical, T=sha, r=hex_id, X=unique,
+# D=nonfinite, I=paths, f=bindings, N=request, w=load, x=main.
 _BOOTSTRAP_SOURCE = r'''
-import base64,bz2,hashlib,json,re,sys,types
+import base64, bz2, hashlib, json, re, sys, types
 
-def require(ok,message):
- if not ok: raise ValueError(message)
+def O(E, y):
+ if not E:
+  raise ValueError('Invalid MATCH ' + y)
 
-def keys(value,names):
- require(type(value) is dict and set(value)==set(names) and all(type(k) is str for k in value),'Wrong object fields')
+def v(Y, C):
+ O(type(Y) is dict and set(Y) == set(C) and all((type(t) is str for t in Y)), 'fields')
 
-def canonical(value):
- return (json.dumps(value,ensure_ascii=True,sort_keys=True,separators=(',',':'),allow_nan=False)+'\n').encode('ascii')
+def h(Y):
+ return (json.dumps(Y, ensure_ascii=True, sort_keys=True, separators=(',', ':'), allow_nan=False) + '\n').encode('ascii')
 
-def sha(raw):
- return hashlib.sha256(raw).hexdigest()
+def T(L):
+ return hashlib.sha256(L).hexdigest()
 
-def hex_id(value,width):
- require(type(value) is str and re.fullmatch('[0-9a-f]{'+str(width)+'}',value),'Invalid hexadecimal identity')
+def r(Y, Z):
+ O(type(Y) is str and re.fullmatch('[0-9a-f]{' + str(Z) + '}', Y), 'identity')
 
-def unique(pairs):
- result={}
- for key,value in pairs:
-  require(key not in result,'Duplicate JSON key')
-  result[key]=value
- return result
+def X(G):
+ P = {}
+ for u, Y in G:
+  O(u not in P, 'JSON')
+  P[u] = Y
+ return P
 
-def nonfinite(value):
+def D(Y):
  raise ValueError('Nonfinite JSON number')
 
-def paths(source,build):
- root=PARENT+'/_app_builds/native-app-v1/'+source+'/match-immediate/'+build
- files=dict(FILES)
- files.update(raw=root+'/build/app.ino.elf',sketch=root+'/build/app.ino.elf-zsk.bin',exported=root+'/artifacts/app.ino.elf-zsk.bin')
- sketch=PARENT+'/'+source+'/app'
- return files,ABSENT+tuple(sketch+'/'+name for name in ('sketch.yaml','sketch.yml','sketch.json'))
+def I(V, g):
+ R = d + '/_app_builds/native-app-v1/' + V + '/match-immediate/' + g
+ o = dict(c)
+ o.update(raw=R + '/build/app.ino.elf', sketch=R + '/build/app.ino.elf-zsk.bin', exported=R + '/artifacts/app.ino.elf-zsk.bin')
+ U = d + '/' + V + '/app'
+ return (o, a + tuple((U + '/' + B for B in ('sketch.yaml', 'sketch.yml', 'sketch.json'))))
 
-def bindings(value,source,build,run):
- keys(value,('schema','run_id','source_sha256','boot_id','uid','output','files','directories','absent'))
- fixed={'schema':'fixed-match-upload-v1','run_id':run,'source_sha256':source,'output':PARENT+'/match-'+source[:8]+'-'+run+'-upload'}
- for key,item in fixed.items():
-  require(type(value[key]) is str and value[key]==item,'Wrong binding: '+key)
- require(type(value['boot_id']) is str and re.fullmatch(r'[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}',value['boot_id']),'Invalid boot identity')
- require(type(value['uid']) is int and value['uid']==1000,'Wrong bound UID')
- files,absent=paths(source,build)
- keys(value['files'],files)
- for role,path in files.items():
-  pin=value['files'][role]
-  keys(pin,('path','bytes','sha256'))
-  require(type(pin['path']) is str and pin['path']==path,'Wrong pinned path')
-  require(type(pin['bytes']) is int and 0<pin['bytes']<=67108864,'Invalid pinned file size')
-  hex_id(pin['sha256'],64)
- package,exported=value['files']['sketch'],value['files']['exported']
- require(all(package[k]==exported[k] for k in ('bytes','sha256')),'Build and exported MATCH packages differ')
- keys(value['directories'],DIRECTORIES)
- for entries in value['directories'].values():
-  require(type(entries) is list and 1<=len(entries)<=64 and all(type(name) is str and re.fullmatch(r'[A-Za-z0-9_.-]+',name) and name not in ('.','..') for name in entries),'Invalid directory entries')
-  require(len(set(entries))==len(entries),'Duplicate directory entry')
- require(type(value['absent']) is list and len(value['absent'])==len(absent) and all(type(path) is str for path in value['absent']) and set(value['absent'])==set(absent),'Wrong absence selections')
+def f(Y, V, g, S):
+ v(Y, ('schema', 'run_id', 'source_sha256', 'boot_id', 'uid', 'output', 'files', 'directories', 'absent'))
+ p = {'schema': 'fixed-match-upload-v1', 'run_id': S, 'source_sha256': V, 'output': d + '/match-' + V[:8] + '-' + S + '-upload'}
+ for u, s in p.items():
+  O(type(Y[u]) is str and Y[u] == s, 'bindings')
+ O(type(Y['boot_id']) is str and re.fullmatch('[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}', Y['boot_id']), 'bindings')
+ O(type(Y['uid']) is int and Y['uid'] == 1000, 'bindings')
+ o, e = I(V, g)
+ v(Y['files'], o)
+ for Q, H in o.items():
+  K = Y['files'][Q]
+  v(K, ('path', 'bytes', 'sha256'))
+  O(type(K['path']) is str and K['path'] == H, 'bindings')
+  O(type(K['bytes']) is int and 0 < K['bytes'] <= 67108864, 'bindings')
+  r(K['sha256'], 64)
+ F, n = (Y['files']['sketch'], Y['files']['exported'])
+ O(all((F[t] == n[t] for t in ('bytes', 'sha256'))), 'bindings')
+ v(Y['directories'], b)
+ for l in Y['directories'].values():
+  O(type(l) is list and 1 <= len(l) <= 64 and all((type(B) is str and re.fullmatch('[A-Za-z0-9_.-]+', B) and (B not in ('.', '..')) for B in l)), 'bindings')
+  O(len(set(l)) == len(l), 'bindings')
+ O(type(Y['absent']) is list and len(Y['absent']) == len(e) and all((type(H) is str for H in Y['absent'])) and (set(Y['absent']) == set(e)), 'bindings')
 
-def request():
- require(len(sys.argv)==3 and sys.flags.isolated and sys.flags.dont_write_bytecode and sys.dont_write_bytecode is True,'Expected digest, payload and Python -I -B')
- digest,token=sys.argv[1:]
- hex_id(digest,64)
- require(0<len(token)<=30000,'Invalid payload encoding')
- compressed=base64.b85decode(token)
- require(base64.b85encode(compressed).decode('ascii')==token,'Noncanonical base85')
- decoder=bz2.BZ2Decompressor()
- raw=decoder.decompress(compressed,max_length=196609)
- require(len(raw)<=196608 and decoder.eof and not decoder.unused_data,'Invalid bounded BZ2 member')
- require(sha(raw)==digest,'Payload hash mismatch')
- payload=json.loads(raw.decode('ascii'),object_pairs_hook=unique,parse_constant=nonfinite)
- require(canonical(payload)==raw,'Noncanonical JSON')
- keys(payload,('schema','source_sha256','build_id','run_id','sources','bindings'))
- require(type(payload['schema']) is str and payload['schema']=='match-upload-payload-v1','Wrong payload schema')
- for key,width in (('source_sha256',64),('build_id',32),('run_id',32)):
-  hex_id(payload[key],width)
- keys(payload['sources'],('helper','support','upload','adapter'))
- for item in payload['sources'].values():
-  keys(item,('source','sha256'))
-  require(type(item['source']) is str and item['source'],'Empty inline source')
-  hex_id(item['sha256'],64)
-  require(sha(item['source'].encode('utf-8'))==item['sha256'],'Inline source hash mismatch')
- bindings(payload['bindings'],payload['source_sha256'],payload['build_id'],payload['run_id'])
- return payload,digest
+def N():
+ O(len(sys.argv) == 3 and sys.flags.isolated and sys.flags.dont_write_bytecode and (sys.dont_write_bytecode is True), 'payload')
+ k, W = sys.argv[1:]
+ r(k, 64)
+ O(0 < len(W) <= 30000, 'payload')
+ i = base64.b85decode(W)
+ O(base64.b85encode(i).decode('ascii') == W, 'payload')
+ j = bz2.BZ2Decompressor()
+ L = j.decompress(i, max_length=196609)
+ O(len(L) <= 196608 and j.eof and (not j.unused_data), 'payload')
+ O(T(L) == k, 'payload')
+ J = json.loads(L.decode('ascii'), object_pairs_hook=X, parse_constant=D)
+ O(h(J) == L, 'payload')
+ v(J, ('schema', 'source_sha256', 'build_id', 'run_id', 'sources', 'bindings'))
+ O(type(J['schema']) is str and J['schema'] == 'match-upload-payload-v1', 'payload')
+ for u, Z in (('source_sha256', 64), ('build_id', 32), ('run_id', 32)):
+  r(J[u], Z)
+ v(J['sources'], ('helper', 'support', 'upload', 'adapter'))
+ for s in J['sources'].values():
+  v(s, ('source', 'sha256'))
+  O(type(s['source']) is str and s['source'], 'source')
+  r(s['sha256'], 64)
+  O(T(s['source'].encode('utf-8')) == s['sha256'], 'source')
+ f(J['bindings'], J['source_sha256'], J['build_id'], J['run_id'])
+ return (J, k)
 
-def load(role,item):
- name='fixed_match_'+role
- module=types.ModuleType(name)
- module.__file__='/__sumox__/'+name+'.py'
- exec(compile(item['source'],module.__file__,'exec'),module.__dict__)
- return module
+def w(Q, s):
+ B = 'fixed_match_' + Q
+ z = types.ModuleType(B)
+ z.__file__ = '/__sumox__/' + B + '.py'
+ exec(compile(s['source'], z.__file__, 'exec'), z.__dict__)
+ return z
 
-def main():
- payload,digest=request()
- envelope={key:payload[key] for key in ('source_sha256','build_id','run_id')}
- envelope.update(schema='match-action-v1',payload_sha256=digest,remote_result_path=payload['bindings']['output']+'/upload_result.json',full_result_bytes=None,full_result_sha256=None,report=None,first_error=None)
+def x():
+ J, k = N()
+ m = {u: J[u] for u in ('source_sha256', 'build_id', 'run_id')}
+ m.update(schema='match-action-v1', payload_sha256=k, remote_result_path=J['bindings']['output'] + '/upload_result.json', full_result_bytes=None, full_result_sha256=None, report=None, first_error=None)
  try:
-  modules={role:load(role,payload['sources'][role]) for role in ('helper','support','upload','adapter')}
-  report=modules['adapter'].upload_match(modules['helper'],modules['support'],modules['upload'],bindings=payload['bindings'],source_sha256=payload['source_sha256'],build_id=payload['build_id'],run_id=payload['run_id'])
-  require(type(report) is dict,'Missing full upload result')
-  full=modules['support'].json_bytes(report)
-  require(type(full) is bytes and full==canonical(report) and 0<len(full)<=16777216,'Invalid full result encoding')
-  envelope['full_result_bytes']=len(full)
-  envelope['full_result_sha256']=sha(full)
-  envelope['report']={key:value for key,value in report.items() if key not in ('stdout','stderr')}
+  A = {Q: w(Q, J['sources'][Q]) for Q in ('helper', 'support', 'upload', 'adapter')}
+  M = A['adapter'].upload_match(A['helper'], A['support'], A['upload'], bindings=J['bindings'], source_sha256=J['source_sha256'], build_id=J['build_id'], run_id=J['run_id'])
+  O(type(M) is dict, 'result')
+  q = A['support'].json_bytes(M)
+  O(type(q) is bytes and q == h(M) and (0 < len(q) <= 16777216), 'result')
+  m['full_result_bytes'] = len(q)
+  m['full_result_sha256'] = T(q)
+  m['report'] = {u: Y for u, Y in M.items() if u not in ('stdout', 'stderr')}
  except Exception as error:
-  envelope['first_error']={'type':type(error).__name__,'message':str(error)}
- raw=canonical(envelope)
- require(len(raw)<=65536,'Action reply exceeds bound')
- sys.stdout.write(raw.decode('ascii'))
-
-main()
+  m['first_error'] = {'type': type(error).__name__, 'message': str(error)}
+ L = h(m)
+ O(len(L) <= 65536, 'result')
+ sys.stdout.write(L.decode('ascii'))
+x()
 '''
 
 
 def _bootstrap():
     definitions = '\n'.join(name + '=' + repr(value) for name, value in
-                            (('PARENT', PARENT), ('FILES', FILES),
-                             ('DIRECTORIES', DIRECTORIES), ('ABSENT', ABSENT)))
+                            (('d', PARENT), ('c', FILES),
+                             ('b', DIRECTORIES), ('a', ABSENT)))
     raw = (definitions + '\n' + _BOOTSTRAP_SOURCE).encode('utf-8')
     token = base64.b85encode(bz2.compress(raw, compresslevel=9)).decode('ascii')
     return 'import base64,bz2\nexec(bz2.decompress(base64.b85decode(' + repr(token) + ')))'

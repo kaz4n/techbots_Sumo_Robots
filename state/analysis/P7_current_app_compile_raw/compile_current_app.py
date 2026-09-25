@@ -276,6 +276,7 @@ class CompileCurrent:
         require(all(self.claimed and status == '??' and name.startswith(prefix)
                     for status, name in changes), 'Reviewed working tree is not clean')
         self.admission()
+        plain(Path(ADB))
         require(sha(Path(ADB).read_bytes()) == ADB_SHA, 'ADB changed')
         require(not os.path.lexists(importlib.util.cache_from_source(
             str(self.root / 'tools/app_build_policy.py'))), 'Nested policy bytecode cache exists')

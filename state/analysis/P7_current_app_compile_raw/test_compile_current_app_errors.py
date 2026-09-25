@@ -34,6 +34,10 @@ class InheritedReceiptErrors(unittest.TestCase):
         self.owner.local()
         self.owner.prepare()
         self.owner.claim()
+        # Isolate the receipt guard after controlled prior ownership admission.
+        # These booleans are fixture state, never evidence of native ownership.
+        self.owner.remote_owned = True
+        self.owner.source_available = True
         self.write_failures = []
 
     def fail_writes(self, *names):
@@ -105,7 +109,7 @@ class InheritedReceiptErrors(unittest.TestCase):
     def test_nonzero_compiler_survives_child_stderr_write_failure(self):
         self.check_child_failure('child.stderr')
 
-    def test_transport_timeout_survives_all_finally_receipt_failures(self):
+    def check_transport_timeout(self, name):
         primary = subprocess.TimeoutExpired(['controlled-adb'], 810,
                                             output=b'partial stdout', stderr=b'partial stderr')
         calls = []
@@ -115,15 +119,24 @@ class InheritedReceiptErrors(unittest.TestCase):
             self.assertEqual(kwargs['timeout'], 810)
             self.assertTrue(kwargs['capture_output'])
             raise primary
-        names = ['stdout', 'stderr', 'result.json']
-        with mock.patch.object(subprocess, 'run', timeout), self.fail_writes(*names):
+        # Frozen finally writes are sequential: inject one reached failure per run.
+        with mock.patch.object(subprocess, 'run', timeout), self.fail_writes(name):
             with self.assertRaises(subprocess.TimeoutExpired) as caught:
                 self.owner.transport(['shell', '-T', 'controlled-no-execution'], 810, 'controlled-timeout')
         self.assertIs(caught.exception, primary)
         self.assertEqual(len(calls), 1)
         self.assertEqual(primary.stdout, b'partial stdout')
         self.assertEqual(primary.stderr, b'partial stderr')
-        self.assert_secondary(primary, names)
+        self.assert_secondary(primary, [name])
+
+    def test_transport_timeout_survives_stdout_write_failure(self):
+        self.check_transport_timeout('stdout')
+
+    def test_transport_timeout_survives_stderr_write_failure(self):
+        self.check_transport_timeout('stderr')
+
+    def test_transport_timeout_survives_result_write_failure(self):
+        self.check_transport_timeout('result.json')
 
     def test_successful_child_with_failed_receipt_is_not_reported_successful(self):
         with self.child_reply(0), self.fail_writes('remote_result.json'):

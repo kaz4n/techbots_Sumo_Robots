@@ -1,0 +1,63 @@
+{
+  "files": {
+    "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf": {
+      "bytes": 2303728,
+      "header_hex": "7f454c460101010000000000000000000200280001000000dd7b000834000000301e23000004000534002000080028003800370001000070a4be01006cbd0108",
+      "sha256": "39d4a4fd47241663323f6e04f94dd8f5a9f9ad6582cf1df37f9709b74026adcd"
+    },
+    "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/flash_sketch.cfg": {
+      "bytes": 680,
+      "header_hex": "2320436f70797269676874202863292041726475696e6f20732e722e6c2e20616e642f6f722069747320616666696c696174656420636f6d70616e6965730a23",
+      "sha256": "38706cee1f9ff2e53364a47129d1c1aea9bb9687ed26d7d70b4a9f9bc5bca60c",
+      "text": "# Copyright (c) Arduino s.r.l. and/or its affiliated companies\n# SPDX-License-Identifier: Apache-2.0\n\nreset_config srst_only srst_nogate srst_push_pull connect_assert_srst\nif {$::tcl_platform(platform) eq \"windows\"} {\n\tset null_device NUL\n} else {\n\tset null_device /dev/null\n}\ninit\nreset\nhalt\nflash info 0\nlog_output $null_device\nif {[catch {flash verify_image ${filename0}}] != 0} {\n\tlog_output default\n\tflash write_image erase ${filename0}\n}\nlog_output $null_device\nif {[catch {flash verify_image ${filename1} 0x8100000 bin}] != 0} {\n\tlog_output default\n\tflash write_image erase ${filename1} 0x8100000 bin\n}\nlog_output default\nreset\nsleep 100\nmww 0x40036400 0xCAFFEEEE\nshutdown\n"
+    },
+    "/home/arduino/sumox26_codex_build/motor-fault-active01/_app_builds/native-app-v1/8f592937961a0c95b7cc4db88617169fcc9504644aa8b8b7dcf62f83c4c33f36/bench-default/3aafdd0129f64799b4db51efe78e5c44/artifacts/motor_fault.ino.elf-zsk.bin": {
+      "bytes": 29836,
+      "header_hex": "7f454c46010101018c7400004123000001002800010000003d17000000000000347200000000000534000000000028000f000e0001000000000070c101010000",
+      "sha256": "b4416792a5bc228f34712fad9199a07c3c480aace979faa88aa12b50288b0a79"
+    },
+    "/home/arduino/sumox26_codex_build/motor-fault-active01/_app_builds/native-app-v1/8f592937961a0c95b7cc4db88617169fcc9504644aa8b8b7dcf62f83c4c33f36/bench-default/3aafdd0129f64799b4db51efe78e5c44/build/motor_fault.ino.elf": {
+      "bytes": 29836,
+      "header_hex": "7f454c4601010100000000000000000001002800010000003d17000000000000347200000000000534000000000028000f000e0001000000000070c101010000",
+      "sha256": "f9460a16cb010d6a72d2304a9fe23f7b5a82aff486af2fe3a641abe2f96b0d81"
+    },
+    "/home/arduino/sumox26_codex_build/motor-fault-active01/_app_builds/native-app-v1/8f592937961a0c95b7cc4db88617169fcc9504644aa8b8b7dcf62f83c4c33f36/bench-default/3aafdd0129f64799b4db51efe78e5c44/build/motor_fault.ino.elf-zsk.bin": {
+      "bytes": 29836,
+      "header_hex": "7f454c46010101018c7400004123000001002800010000003d17000000000000347200000000000534000000000028000f000e0001000000000070c101010000",
+      "sha256": "b4416792a5bc228f34712fad9199a07c3c480aace979faa88aa12b50288b0a79"
+    }
+  },
+  "final_checks": [
+    {
+      "path": "/home/arduino/sumox26_codex_build/motor-fault-active01/_app_builds/native-app-v1/8f592937961a0c95b7cc4db88617169fcc9504644aa8b8b7dcf62f83c4c33f36/bench-default/3aafdd0129f64799b4db51efe78e5c44/build/motor_fault.ino.elf",
+      "status": "PASS"
+    },
+    {
+      "path": "/home/arduino/sumox26_codex_build/motor-fault-active01/_app_builds/native-app-v1/8f592937961a0c95b7cc4db88617169fcc9504644aa8b8b7dcf62f83c4c33f36/bench-default/3aafdd0129f64799b4db51efe78e5c44/build/motor_fault.ino.elf-zsk.bin",
+      "status": "PASS"
+    },
+    {
+      "path": "/home/arduino/sumox26_codex_build/motor-fault-active01/_app_builds/native-app-v1/8f592937961a0c95b7cc4db88617169fcc9504644aa8b8b7dcf62f83c4c33f36/bench-default/3aafdd0129f64799b4db51efe78e5c44/artifacts/motor_fault.ino.elf-zsk.bin",
+      "status": "PASS"
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/flash_sketch.cfg",
+      "status": "PASS"
+    },
+    {
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf",
+      "status": "PASS"
+    }
+  ],
+  "first_error": null,
+  "identity": {
+    "boot_id": "6d4aca1b-ac1f-4caf-b1ef-e127ce3956f6",
+    "cli_sha256": "b878632298958d61fd1eb19e70ac5d2e803d83db8930bc72dc6915eee6e8f433",
+    "conflicts": [],
+    "free_bytes": 14065836032,
+    "uid": 1000,
+    "user": "arduino"
+  },
+  "scope": "READ_ONLY_DIAGNOSTIC_DEPLOYMENT_FILES",
+  "status": "COLLECTED"
+}

@@ -58,27 +58,52 @@ def object_keys(support, value, expected):
     support.require(all(type(name) is str for name in value), 'Non-string object key')
 
 
-def checked_bindings(support, bindings=None, run_id='static-fcddbd8e-run01'):
+def selected_profile(support, run_id):
     support.require(type(run_id) is str and run_id in
-                    ('static-fcddbd8e-run01', 'static-fcddbd8e-run02'), 'Wrong run identity')
+                    ('static-fcddbd8e-run01', 'static-fcddbd8e-run02',
+                     'motor-fault-8f592937-run01'), 'Wrong run identity')
+    source, sketch, kind = SOURCE, SKETCH, 'static'
+    files, absent = dict(FILE_PATHS), ABSENT
+    output_name = 'static-startup-fcddbd8e-' + run_id[-5:] + '-upload'
+    fqbn = 'arduino:zephyr:unoq:link_mode=static'
+    if run_id == 'motor-fault-8f592937-run01':
+        source = '8f592937961a0c95b7cc4db88617169fcc9504644aa8b8b7dcf62f83c4c33f36'
+        sketch = PARENT + '/motor-fault-active01/motor_fault'
+        build = (PARENT + '/motor-fault-active01/_app_builds/native-app-v1/' + source +
+                 '/bench-default/3aafdd0129f64799b4db51efe78e5c44/build')
+        files['raw'] = build + '/motor_fault.ino.elf'
+        files['sketch'] = build + '/motor_fault.ino.elf-zsk.bin'
+        absent = ABSENT[:-3] + (sketch + '/sketch.yaml', sketch + '/sketch.yml',
+                               sketch + '/sketch.json')
+        output_name, kind = 'motor-fault-8f592937-run01-upload', 'motor-fault'
+        fqbn = 'arduino:zephyr:unoq'
+    return {'fixed': {'schema': 'fixed-' + kind + '-upload-v1', 'run_id': run_id,
+                      'source_sha256': source, 'output': PARENT + '/' + output_name},
+            'schema_prefix': kind + '-upload-', 'files': files, 'absent': absent,
+            'argv': ['/usr/bin/arduino-cli', '--config-file', '/dev/null', 'upload',
+                     '--fqbn', fqbn, '--input-file', files['raw'], sketch]}
+
+
+def checked_bindings(support, bindings=None, run_id='static-fcddbd8e-run01'):
+    return _checked_bindings(support, bindings, selected_profile(support, run_id))
+
+
+def _checked_bindings(support, bindings, profile):
     value = BINDINGS if bindings is None else bindings
     object_keys(support, value, ('schema', 'run_id', 'source_sha256', 'boot_id',
                                 'uid', 'output', 'files', 'directories', 'absent'))
-    output_name = 'static-startup-fcddbd8e-' + run_id[-5:] + '-upload'
-    fixed = {'schema': 'fixed-static-upload-v1', 'run_id': run_id,
-             'source_sha256': SOURCE, 'output': PARENT + '/' + output_name}
-    for name, expected in fixed.items():
+    for name, expected in profile['fixed'].items():
         support.require(type(value[name]) is str and value[name] == expected,
                         'Wrong binding: ' + name)
     support.require(type(value['boot_id']) is str and re.fullmatch(
         r'[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}', value['boot_id']),
         'Invalid boot identity')
     support.require(type(value['uid']) is int and value['uid'] == 1000, 'Wrong bound UID')
-    object_keys(support, value['files'], FILE_PATHS)
+    object_keys(support, value['files'], profile['files'])
     for name, pin in value['files'].items():
         object_keys(support, pin, ('path', 'bytes', 'sha256'))
         support.check_pin(pin)
-        support.require(pin['path'] == FILE_PATHS[name], 'Wrong pinned path: ' + name)
+        support.require(pin['path'] == profile['files'][name], 'Wrong pinned path: ' + name)
     paths = [pin['path'] for pin in value['files'].values()]
     support.require(len(set(paths)) == len(paths), 'Duplicate pinned path')
     object_keys(support, value['directories'], DIRECTORIES)
@@ -88,10 +113,10 @@ def checked_bindings(support, bindings=None, run_id='static-fcddbd8e-run01'):
             name not in ('.', '..') for name in entries), 'Invalid directory entries')
         support.require(len(set(entries)) == len(entries), 'Duplicate directory entry')
     absent = value['absent']
-    support.require(type(absent) is list and len(absent) == len(ABSENT) and
+    support.require(type(absent) is list and len(absent) == len(profile['absent']) and
                     all(type(path) is str and support.valid_path(path) for path in absent),
                     'Invalid absence list')
-    support.require(set(absent) == set(ABSENT), 'Wrong absence selections')
+    support.require(set(absent) == set(profile['absent']), 'Wrong absence selections')
     support.require(sys.flags.dont_write_bytecode, 'Python -B is required')
     return json.loads(support.json_bytes(value))
 
@@ -115,9 +140,10 @@ class Upload:
         self.claimed, self.first_exception = False, None
         self.context_failures = []
         self.process_error = None
-        self.argv = ['/usr/bin/arduino-cli', '--config-file', '/dev/null', 'upload',
-                     '--fqbn', 'arduino:zephyr:unoq:link_mode=static',
-                     '--input-file', BUILD + '/app.ino.bin', SKETCH]
+        self.profile = selected_profile(support, run_id)
+        self.report['schema'] = self.profile['schema_prefix'] + 'result-v1'
+        self.report['source_sha256'] = self.profile['fixed']['source_sha256']
+        self.argv = self.profile['argv']
 
     def now(self):
         value = self.clock()
@@ -248,7 +274,7 @@ class Upload:
                                      'Conflicting process: ' + name)
 
     def admit(self):
-        self.bindings = checked_bindings(self.support, self.input_bindings, self.run_id)
+        self.bindings = _checked_bindings(self.support, self.input_bindings, self.profile)
         self.output_name = self.bindings['output'].rsplit('/', 1)[1]
         self.report['run_id'] = self.bindings['run_id']
         self.support.require(isinstance(self.fs_root, Path) and self.fs_root.is_absolute(),
@@ -257,13 +283,13 @@ class Upload:
         self.root_fd = os.open(self.fs_root, os.O_RDONLY | os.O_DIRECTORY |
                                os.O_NOFOLLOW | os.O_CLOEXEC)
         self.check_identity()
-        for name in FILE_PATHS:
+        for name in self.profile['files']:
             self.budget()
             self.check_file(name)
         for path in DIRECTORIES:
             self.budget()
             self.check_entries(path)
-        for path in ABSENT + ('/tmp/remoteocd',):
+        for path in self.profile['absent'] + ('/tmp/remoteocd',):
             self.budget()
             self.check_absent(path)
         self.check_null()
@@ -315,8 +341,9 @@ class Upload:
             os.fsync(parent_fd)
         self.budget()
         self.write_record('upload_attempt.json', {
-            'schema': 'static-upload-attempt-v1', 'run_id': self.bindings['run_id'],
-            'source_sha256': SOURCE, 'boot_id': self.bindings['boot_id'],
+            'schema': self.profile['schema_prefix'] + 'attempt-v1',
+            'run_id': self.bindings['run_id'],
+            'source_sha256': self.bindings['source_sha256'], 'boot_id': self.bindings['boot_id'],
             'bindings': self.bindings, 'argv': self.argv, 'environment': dict(ENVIRONMENT),
             'started_utc': self.report['started_utc'], 'started_monotonic': self.started,
             'created_utc': self.support.utc(), 'created_monotonic': self.now()})
@@ -366,9 +393,9 @@ class Upload:
     def run(self):
         self.budget()
         self.write_record('upload_command.json', {
-            'schema': 'static-upload-command-v1', 'argv': self.argv,
+            'schema': self.profile['schema_prefix'] + 'command-v1', 'argv': self.argv,
             'environment': dict(ENVIRONMENT), 'cwd': '/home/arduino',
-            'run_id': self.bindings['run_id'], 'source_sha256': SOURCE,
+            'run_id': self.bindings['run_id'], 'source_sha256': self.bindings['source_sha256'],
             'boot_id': self.bindings['boot_id'], 'planned_utc': self.support.utc(),
             'planned_monotonic': self.now()})
         try:
@@ -407,11 +434,11 @@ class Upload:
                 {'check': 'finished_clock', **self.support.error_record(error)})
 
     def finalize(self):
-        for name in FILE_PATHS:
+        for name in self.profile['files']:
             self.postcheck(name, lambda name=name: self.check_file(name))
         for path in DIRECTORIES:
             self.postcheck(path, lambda path=path: self.check_entries(path))
-        for path in ABSENT:
+        for path in self.profile['absent']:
             self.postcheck(path, lambda path=path: self.check_absent(path))
         self.postcheck('identity', self.check_identity)
         self.postcheck('null', self.check_null)

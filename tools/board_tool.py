@@ -574,6 +574,12 @@ def build_flags(args):
 
 
 def flash(args):
+    if getattr(args, 'deploy_scope', None) is not None:
+        import match_deploy
+        match_deploy.validate_request(args)
+        match_deploy.upload_precompiled(sys.modules[__name__], args.deploy_scope)
+        print('Identified MATCH upload accepted; physical operation remains unverified')
+        return
     startup, probe, sensor_bench, identified = flash_profile(args)
     board = target()
     scope = None
@@ -707,6 +713,7 @@ def main():
     build.add_argument('--compile-only', action='store_true')
     build.add_argument('--startup', choices=('default', 'immediate'))
     build.add_argument('--run-ui-adc-probe', help='Exact reviewed single bare ADC run identifier')
+    build.add_argument('--deploy-scope', help='Identified precompiled MATCH scope; never build or retry')
     commands.add_parser('logs')
     commands.add_parser('preflight', description='Read-only installed-board inventory')
     args = parser.parse_args()

@@ -78,7 +78,8 @@ Use existing policy.validate_result(result, fqbn, '-DMATCH=1 -DMOTORS_ALLOWED=1'
 build_path), passing compiler text. Require exact existing compile_app argv from command.json including
 discovery property, both flags and sketch path; do not execute it. Verify all
 policy.installed_pins plus exactly raw/debug/temp ELF and exported package hashes
-in verified.file_sha256; match raw/export pins against request.bindings. Require
+in verified.file_sha256; every overlapping request.bindings file pin must agree,
+including raw/export and installed loader/boards/platform. Require
 packaged/export equality through D182. Qualification binds this exact raw/package.
 
 Recompute staged-app source digest read-only from current source using stage(app)
@@ -221,3 +222,7 @@ accepted envelope. full_result_bytes must be exact int1..16777216; two inherited
 <1MiB streams can expand to about12MiB in ensure_ascii JSON. Metadata's full
 result hash has strict digest syntax; omitted streams cannot be rehashed locally
 from the compact reply. Do not claim otherwise.
+
+The canonical flash.sh wrapper invokes python3 -B so the local inherited binding
+checker and remote -I -B policy agree; direct Python invocation must also use -B.
+This prevents bytecode storage and changes no build flags or upload authority.

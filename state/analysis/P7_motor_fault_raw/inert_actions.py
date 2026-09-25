@@ -291,6 +291,17 @@ def _reads(reads, plan):
                  'Wrong read basename')
 
 
+def _bracket_hashes(reads):
+    hashes = {item['name']: item['sha256'] for item in reads}
+    for name, digest in hashes.items():
+        if name.startswith('before.'):
+            _require(digest == hashes['after.' + name[len('before.'):]],
+                     'Flash or relocation bracket hash changed: ' + name)
+    for side in ('before', 'after'):
+        _require(hashes[side + '.llext-list'] == hashes[side + '.llext-list-confirm'],
+                 'Extension list confirmation hash changed: ' + side)
+
+
 def _capture(report):
     analysis = report['analysis']
     _keys(analysis, ('schema', 'flash', 'relocation', 'snapshots', 'coherence'))
@@ -311,6 +322,7 @@ def _capture(report):
                        ('requested_bytes', 592248 + 392 * nodes)):
         _integer(report['counts'][key], value)
     _reads(report['reads'], _plan(before))
+    _bracket_hashes(report['reads'])
     snapshots = [item for item in report['reads'] if item['name'] in
                  ('first.diagnostic', 'second.diagnostic')]
     _require(type(analysis['snapshots']) is list and

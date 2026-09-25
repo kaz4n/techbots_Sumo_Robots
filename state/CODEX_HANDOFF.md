@@ -1,15 +1,18 @@
 # Codex handoff - 25 September 2026, Asia/Dubai
 
-**Active: P7 software/release preparation. D183 IN PROGRESS, offline only.**
-D182 adapter72950615 is host-tested35methods and reviewedcdbff1d5 (0f3aa531).
-D183 caller69bb9981 with corrected independent oraclec98b1873 passes126WSL
-methods and25Windows payload methods. First59PASS/4FAIL retained9dfb0eb1;
-three reviewed source defects repaired and new fixture corrections adjudicated.
-Realistic Windows composition still rejects30303/30289units at the unchanged
-30000limit. Preserve6ed1bfd5/623150b7/a6a4798a negative receipts. Payload worker
-is reducing only trusted bootstrap representation; re-freeze/rerun before closure.
-See analysis/P7_match_deploy_contract.md and its raw receipts. No actual scope,
-permission, target operation or firmware change. No external device connected.
+**Active: P7 software/release preparation. D183 HOST-TESTED / REVIEWED, offline only.**
+D182 adapter72950615:35PASS/reviewcdbff1d5. D183 caller69bb9981/payload8a1c8523
+with comment-only35e86452:66independent WSL methods and26Windows methods PASS,
+including source-aware realistic composition;60unchanged compiler/parser checks
+also passed before payload-only size repair. Evidence24d94bb4; fresh same-model
+review76fbc5ef PASS/no open material finding. First59/4failures, fixture repairs
+and realistic oversized-command rejection remain retained. Final Windows
+compositions29919/29904units fit30000; each future request must still fit.
+See analysis/P7_match_deploy_validation.md, source/line-ending provenance and
+18current/6D182/10D180/24D179pin checks. Firmware/bench/locked tests unchanged.
+No actual deployment scope, qualification, permission, target operation or phase
+gate. Current app target compilation and native/physical acceptance remain pending.
+Offline implementation is complete for these identified tasks; no process is running.
 
 **D181 HOST-TESTED / REVIEWED.**
 Source0d73967b preserves compiler failure and independently attempts both receipts.
@@ -92,10 +95,13 @@ No process is running. Previous source/failure/recipe/review evidence is retaine
 
 ## Exact next task
 
-Finish D183 command-size repair, unchanged-oracle tests, Windows realistic
-composition and fresh review. Preserve original failures and historical pins.
-This concrete offline work supersedes the earlier blocked-only assessment.
-Preserve no-board/no-motor permissions and all previous native scopes.
+No further task remains in D180-D183's reviewed offline scope. Keep the current
+offline-only instruction: do not query a device or generate an approval scope.
+The next dependency is fresh board admission followed by the existing D179 inert
+diagnostic below; current main-app source also needs its own checked target build.
+Only after actual artifact/target qualification and fresh identified human motor
+permission can D183's precompiled route be used. It does not create any such facts.
+Preserve original failures, historical pins and all consumed native scopes.
 The D179 inert caller remains a separate reviewed future hardware diagnostic.
 
 When the board is available, first perform a fresh bounded read-only check of

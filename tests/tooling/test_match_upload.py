@@ -297,13 +297,18 @@ class MatchUploadContract(unittest.TestCase):
     def test_D182_uploader_globals_preserve_identity_and_value(self):
         names = tuple(vars(self.uploader))
         objects = {name: getattr(self.uploader, name) for name in names}
+        builtin_entries = dict(objects['__builtins__'])
         values = {name: copy.deepcopy(value) for name, value in objects.items()
-                  if type(value) in (dict, list, tuple, str, int, type(None))}
+                  if name != '__builtins__' and
+                  type(value) in (dict, list, tuple, str, int, type(None))}
         self.profile()
         self.instance()
         self.assertEqual(tuple(vars(self.uploader)), names)
         for name, value in objects.items():
             self.assertIs(getattr(self.uploader, name), value, name)
+        self.assertEqual(set(self.uploader.__builtins__), set(builtin_entries))
+        for name, value in builtin_entries.items():
+            self.assertIs(self.uploader.__builtins__[name], value, name)
         for name, value in values.items():
             self.assertEqual(getattr(self.uploader, name), value, name)
 

@@ -13,6 +13,16 @@ Public caller APIs: parse_request(argv) -> (action, reviewed_head),
 CompileDiagnostic(reviewed_head, *, root=ROOT), owner.check(), owner.run().
 For controlled tests expose owner.artifact_program() -> str and
 owner.validate_artifact_reply(text) -> dict; the latter is pure response checking.
+Preserve D185 lifecycle seams local,admission,prepare,claim,inventory,
+prerequisite,prerequisites,stage,source_admission,source_program,sources,
+transport,direct,command_runner,closing,finish,save,git_state,policy,final_policy;
+new seams compile_command,static_policy,observe_artifacts implement fixed work.
+Owner fields include root,reviewed_head,output,inputs_path,inputs_raw,inputs,code,
+board,executor,stage_owner,stage_path,stage_hashes,expected_stage,remote,sketch,
+boot,source_sha256,artifact_receipt and inherited counters/ownership flags.
+These declarations allow controlled substitutes without deriving expected
+behavior from implementation. Remote load_bundle is a dependency-loading seam;
+tests may instrument fixture OS observations explicitly, not weaken real pins.
 Arguments exactly --check-only|--execute --reviewed-head <40lowerhex>, in that
 order. Reject other arguments/types; no default execute, profiles or overrides.
 Import can read the pinned legacy module but cannot dispatch or write. Invalid

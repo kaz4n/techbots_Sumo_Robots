@@ -2142,3 +2142,9 @@ D-189 caller host closure 2026-09-25T19:54:22.470215+04:00: unchanged independen
 
 
 D-189 actual run01 2026-09-25T19:59:56.229089+04:00:31170b08 checkonly0/execute1,9transports cleanclosures; stagedadapter but uploaderadmissionrefused preexisting/tmp/remoteocd beforeclaim/CLIchild. Capture0, noflash/reset/MCUread. Exactoriginalfailureandownerpreserved/consumed; no retry. Readonlyinspection identifies3candidateD184scratchcopies/no nativeprocess; cause/provenance reviewbeforecleanup orfreshscope. Evidence analysis/P7_app_motor_fault_run01_validation.md.
+
+
+## D-190 (2026-09-25T20:02:22.725554+04:00, separately reviewed fresh inert run after stale scratch recovery)
+Context: D189run01 rejected beforeCLI because/tmp/remoteocd contains exactD184scratchcopies; originalowner/failure preserved f9152f33.
+Decision: adopt analysis/P7_app_motor_fault_run02_contract.md underD051: descriptor-bound exact3file obsoletecopy cleanup withoriginals retained, then one fresh independentlyvalidated run02 using metadata-only sourcevariants, sameM0firmware andunchangedabsence/deadline/safetychecks. Retain59projectedoracles andaddmetadata/original-run rejection checks beforefreeze/execution.
+Consequence: no oldownerreuse, automaticretry, helper/firmware/lockedtest amendment or motorcapablepermission. Actualcleanup, freshadmission andseparatereviewrequired; collection doesnotprovephysical/humangates.

@@ -1,52 +1,57 @@
 # Codex handoff - 25 September 2026, Asia/Dubai
 
-**Active: P7 software/release preparation. D172 active diagnostic TARGET-COMPILED.**
-Execution HEAD6bf5ecb1; evidence db1228ce. Source8f592937, final ELFf9460a16,
-debug7a4b2953, exportb4416792. One query/compile,123transports/tenchildren exit0,
-reaped without timeout; seven final checks PASS. Separate reused-context same-model
-actual review41ecc2c9 PASS. Read analysis/P7_motor_fault_active_compile_actual.md.
-Exact inert flags are MATCH0/MOTORS_ALLOWED0/SUMOX_MOTOR_FAULT_PROBE1, with default
-wait startup and dynamic linking. No upload/reset/MCU read occurred. D160 remains
-last upload; diagnostic execution and the original fault cause remain unknown.
-No process is running. All528 committed raw blobs byte-match collected evidence.
+**Active: P7 software/release preparation. D174 offline decoder HOST-TESTED.**
+Source68653597/f6e2fd36; independent tests b2995dea frozen7712ae0b,22/22 PASS on
+first execution,0.825s; seven frozen inputs unchanged. Separate fresh-context
+same-model reviewefe5a39ePASS. Read analysis/P7_motor_fault_decode_validation.md.
+All64calls/fourresults,208enum/367boolean/eightfloat locations and partial/failure
+states are covered. decode_snapshot returns structural DECODED and explicitly
+UNPROVEN coherence; it never authorizes hardware or claims a gate.
 
-D171 closed active01 mapping is HOST-TESTED:16independent+12legacy methods PASS,
-12frozen pins/117actual local pins exact, separate fresh-context reviewc9781e61.
-D170 fresh staging and D169 inert activation are also validated/reviewed; retain
-original failures, drafts and their analysis notes. No production safety limit,
-locked assertion, pin or B16 value changed in D169-D172.
+D173 file-only observation succeeded: execution089de986/evidence cc9f50c6;
+one transport/five children exit0/reaped,26remote+120local checksPASS. Actual
+review60fdc78ePASS. Exact ARM layout is analysis/P7_motor_fault_raw/active_abi.json,
+SHA822c917d: final ELFf9460a16, debug7a4b2953, Runner2592B/alignment8, BSSsection7
+size2632/symboloffset0, trace report44/main report2312. Loader39d4a4fd confirms
+list0x200017bc and196B nodes with BSSbase32/size92,index3. Full ten-type offsets
+and dynamic recipe are recorded. Read analysis/P7_motor_fault_abi_validation.md.
+No MCU memory was read. The reader's original findings/draft remain preserved;
+all were repaired/reviewed before the single successful file-only execution.
+
+D172 compiled the active inert diagnostic: execution6bf5ecb1/evidence db1228ce,
+source8f592937/ELFf9460a16/exportb4416792,123transports/tenchildren0,7finalchecksPASS.
+Exact flags MATCH0/MOTORS_ALLOWED0/SUMOX_MOTOR_FAULT_PROBE1, default wait startup,
+dynamic linking. Build/export ELF-ZSK hashes match. No upload/reset occurred.
+D160 remains the last actual upload; diagnostic execution and fault cause unknown.
+No process is running. Previous source/failure/recipe/review evidence is retained.
 
 ## Exact next task
 
-Obtain one bounded file-only ABI observation of the exact D172 final/debug ELF,
-and its dynamic upload recipe. Start from analysis/P7_motor_fault_capture_dependencies.md.
-Determine diagnostic symbol section/offset/extent and actual Runner/Trace/Report/
-Call/Result/PreviousTick sizes, alignments and member offsets. Bind installed
-readelf/GDB and loader bytes before reusing any dynamic relocation ABI. No target
-memory read, upload/reset, rebuild, guessed desktop layout or firmware download
-is required for this file-only task. Record a small plan/scope and reuse existing
-bounded execution primitives; do not create another orchestration framework.
+Add the smallest closed exact-artifact inert diagnostic profile to the existing
+bounded upload/capture primitives. Start from analysis/P7_motor_fault_capture_dependencies.md,
+D173 active_abi.json, tools/motor_fault_decode.py, and existing static startup
+upload_remote.py/capture_remote.py plus runtime_capture.py's dynamic LLEXT traversal.
+Do not invoke those old consumed profiles unchanged or clone another launcher.
 
-Then add the smallest closed inert diagnostic profile to existing upload/capture
-primitives, with independently derived finite decoder/control tests and review.
-Existing upload_remote.py is static-app-specific; runtime_capture.py's historical
-runtimeDiagnostics/232B selector cannot admit this image unchanged. A future
-upload/capture requires its own exact source/artifact/run scope. D172 is consumed;
-compile01/02/active01 must never be repinned or automatically retried.
+Use the actual dynamic motor_fault.ino.elf-zsk.bin recipe, exact source8f592937/
+ELFf9460a16/exportb4416792 and loader identity. Preserve upload's2303728B loader-copy
+allowance, explicit environment, fresh exclusive ownership, child deadlines/reap,
+raw failed output and independent final checks. Derive finite read/byte totals
+from the observed2632B BSS and2592B Runner; bounded <=3-node LLEXT traversal and
+exact flash/relocation bracketing precede two whole-Runner snapshots. No heap dump
+needed. Retain both raw snapshots even if decoding fails; matching samples do not
+prove atomicity. The offline decoder must not become a safety/acceptance predicate.
 
-Both build/stage/motor_fault and build/stage/motor-fault-active01 are retained
-because automatic approval review rejected their verified cleanup. Never retry
-those deletions or call implicit default staging against them. Future work uses
-explicit absent ownership only. stage(sketch, *, attempt=None) is the tested API;
-explicit mode retains partial failures. No ROOT/global rebinding or copied wrapper.
+Record a compact contract, independently derive/freeze profile/decoder integration
+tests, implement and review the exact changed boundaries, then identify one new
+inert upload/capture scope under the existing bare-board permission. No motor-capable
+run is authorized. D172/D173 and compile01/02/active01 remain consumed; never repin
+or automatically retry them. Hardware identity must be rechecked for a later run.
 
-Existing caller retains explicit CLI/config/environment, jobs1,60/720s child
-deadlines plus5s reap, source/tool checks and independent final checks. Python-B
-and a fresh per-process pycache prefix avoid old bytecode without deleting it.
-The diagnostic rejects MATCH/motor-capable profiles; Trace refuses EN-high or
-nonzero PWM. Its active grant enables only zero/disabled diagnostic operations.
-Unchanged setup may still block and timing instrumentation may perturb the fault.
-No STAND/RING authorization, physical evidence or human gate has been supplied.
+Both build/stage/motor_fault and build/stage/motor-fault-active01 remain after
+policy-blocked cleanup. Never retry their removal or invoke implicit staging
+against them. Explicit absent ownership is the tested safe staging route.
+Firmware limits, pins, locked assertions, and human/physical gates are unchanged.
 
 ## Last actual board state and evidence
 
@@ -85,7 +90,9 @@ sensor/motor/electrical acceptance remain tracked in existing packets/findings.
 
 ## Storage and tools
 
-C: observed1348214784B free after the latest packing; recheck before large work.
+C: observed1296179200B free at this checkpoint; recheck before large work.
+D173 retained219185B file-only ABI packet and D174 compact sources/test results;
+no firmware/debug download or persistent test scratch. No new cleanup attempted.
 D172 raw packet890157B plus compact metadata/review is retained; no firmware binary
 was downloaded. Its verified104-file/764719B staging removal was rejected before
 execution (blocked by policy, no further reason), leaving0B reclaimed. D168's

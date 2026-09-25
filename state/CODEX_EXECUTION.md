@@ -1,10 +1,10 @@
 # Current execution checklist - 2026-09-25 Asia/Dubai
 
-**D172 active inert diagnostic TARGET-COMPILED; execution still pending.**
-ExecutionHEAD6bf5ecb1/evidence db1228ce, source8f592937/ELFf9460a16;123transports and
-tenchildren exit0, sevenfinalchecksPASS, review41ecc2c9PASS. D17116new+12legacy
-host checks passed. No upload/reset/MCU read. Next file-only ELF/ABI and recipe
-observation, then separately identified inert upload/capture preparation.
+**D174 offline diagnostic decoder HOST-TESTED; inert execution pending.**
+Source68653597/f6e2fd36;22independent tests PASS firstexecution0.825s, sevenpins/
+reviewefe5a39ePASS. D173 file-only ABIcc9f50c6/822c917d confirms2592B Runner and
+loader offsets; no MCU read/upload/reset. Next closed exact-artifact inert
+upload/capture profile with independent integration tests and separate review.
 
 **Active: P7 software/release preparation.** PROGRESS.md is the append-only phase
 authority; preserve its legacy bytes. User asks for prompt commits and continued
@@ -116,9 +116,13 @@ pending; D051/D075/D122/D137 permit scheduling, not fabricated measurements.
   actual117-pin local admission, reviewc9781e61PASS; old manifests unchanged.
 - [x] D172 active default/dynamic inert compile: evidence db1228ce;123transports/
   tenchildren0, sevenfinalchecksPASS, actualreview41ecc2c9PASS. No upload/reset.
-- [ ] File-only diagnostic final/debug ELF ABI and exact upload-recipe observation;
-  then minimal closed inert upload/capture profile and independent finite tests.
-  Read analysis/P7_motor_fault_capture_dependencies.md. D172 scope is consumed.
+- [x] D173 file-only ELF/ABI/recipe observation: evidencecc9f50c6, compactABI822c917d,
+  fivechildren0/146postchecksPASS, review60fdc78ePASS. No MCU operation; scope consumed.
+- [x] D174 offline decoder: source68653597, independent22/22 tests PASS, sevenpins
+  exact/reviewefe5a39ePASS. Structural DECODED only; coherenceUNPROVEN.
+- [ ] Closed exact-artifact inert upload/capture profile using existing primitives,
+  actual ARM2592B Runner/2632B BSS and observed dynamic recipe. Independent finite
+  integration tests/review before any separately identified bare-board run.
   Original D160 failing operation remains unknown; do not relax safety bounds.
 - [ ] Qualify native loading/startup, stack/heap/WCET and release workflow before
   adoption. Structural RAM tail94352B is not measured free memory.
@@ -140,7 +144,8 @@ removal directly or implicitly. D172 raw packet890157B/metadata5241B is useful;
 no firmware downloaded or new bytecode. Incremental Gitpacking recovered720896B,
 with new pack/connectivity checked and HEAD/refs/reflogs unchanged. This adds to
 D170's11196416B and historical old-session compression; see STORAGE_LOG.md.
-C: observed1348214784B free; recheck before large work. Prior denied targets and
+D173 rawABI219185B/compact D174 test evidence retained; no firmware download or
+new cleanup attempt. C: observed1296179200B free; recheck before large work. Prior denied targets and
 unique evidence remain; serial RAM builds/Python-B avoid redundant outputs.
 
 Schedule: actualP3 not passed by end28Sep invokes reactive+SIDESTEP/DIRECT plus

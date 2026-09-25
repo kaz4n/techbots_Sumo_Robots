@@ -1,0 +1,29 @@
+{
+  "started_at_dubai": "2026-09-25T07:21:02.097216+04:00",
+  "argv": [
+    "python",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests/tooling",
+    "-p",
+    "test_motor_fault_decode.py",
+    "-v"
+  ],
+  "returncode": 0,
+  "seconds": 0.9346018000505865,
+  "stdout": "",
+  "stderr": "test_D174_absent_flags_and_partial_counts_do_not_erase_stored_records (test_motor_fault_decode.MotorFaultDecodeTests.test_D174_absent_flags_and_partial_counts_do_not_erase_stored_records) ... ok\r\ntest_D174_all_fields_and_array_endpoints_match_literal_arm_oracle (test_motor_fault_decode.MotorFaultDecodeTests.test_D174_all_fields_and_array_endpoints_match_literal_arm_oracle) ... ok\r\ntest_D174_byte_conversion_protocol_is_not_accepted (test_motor_fault_decode.MotorFaultDecodeTests.test_D174_byte_conversion_protocol_is_not_accepted) ... ok\r\ntest_D174_capacity_limits_reject_only_values_above_literal_extent (test_motor_fault_decode.MotorFaultDecodeTests.test_D174_capacity_limits_reject_only_values_above_literal_extent) ... ok\r\ntest_D174_every_decoded_bool_accepts_one_without_lifecycle_inference (test_motor_fault_decode.MotorFaultDecodeTests.test_D174_every_decoded_bool_accepts_one_without_lifecycle_inference) ... ok\r\ntest_D174_every_decoded_bool_rejects_nonbinary_in_absent_late_slots (test_motor_fault_decode.MotorFaultDecodeTests.test_D174_every_decoded_bool_rejects_nonbinary_in_absent_late_slots) ... ok\r\ntest_D174_every_decoded_enum_accepts_all_public_numeric_codes (test_motor_fault_decode.MotorFaultDecodeTests.test_D174_every_decoded_enum_accepts_all_public_numeric_codes) ... ok\r\ntest_D174_every_decoded_enum_rejects_invalid_codes_in_absent_late_slots (test_motor_fault_decode.MotorFaultDecodeTests.test_D174_every_decoded_enum_rejects_invalid_codes_in_absent_late_slots) ... ok\r\ntest_D174_every_reported_phase_remains_structurally_reportable (test_motor_fault_decode.MotorFaultDecodeTests.test_D174_every_reported_phase_remains_structurally_reportable) ... ok\r\ntest_D174_failure_presence_flag_is_not_inferred_from_record_contents (test_motor_fault_decode.MotorFaultDecodeTests.test_D174_failure_presence_flag_is_not_inferred_from_record_contents) ... ok\r\ntest_D174_finite_float_edges_are_preserved_without_duty_thresholds (test_motor_fault_decode.MotorFaultDecodeTests.test_D174_finite_float_edges_are_preserved_without_duty_thresholds) ... ok\r\ntest_D174_fixture_abi_receipt_remains_exactly_the_observed_source (test_motor_fault_decode.MotorFaultDecodeTests.test_D174_fixture_abi_receipt_remains_exactly_the_observed_source) ... ok\r\ntest_D174_in_progress_callback_retains_unfinished_receipt (test_motor_fault_decode.MotorFaultDecodeTests.test_D174_in_progress_callback_retains_unfinished_receipt) ... ok\r\ntest_D174_input_extent_must_match_one_snapshot_exactly (test_motor_fault_decode.MotorFaultDecodeTests.test_D174_input_extent_must_match_one_snapshot_exactly) ... ok\r\ntest_D174_maximum_counters_are_not_misread_as_invalid_signed_values (test_motor_fault_decode.MotorFaultDecodeTests.test_D174_maximum_counters_are_not_misread_as_invalid_signed_values) ... ok\r\ntest_D174_nonfinite_float_payloads_rejected_in_every_receipt_slot (test_motor_fault_decode.MotorFaultDecodeTests.test_D174_nonfinite_float_payloads_rejected_in_every_receipt_slot) ... ok\r\ntest_D174_other_builtin_input_types_raise_valueerror (test_motor_fault_decode.MotorFaultDecodeTests.test_D174_other_builtin_input_types_raise_valueerror) ... ok\r\ntest_D174_padding_ignored_ports_and_internal_state_are_not_interpreted (test_motor_fault_decode.MotorFaultDecodeTests.test_D174_padding_ignored_ports_and_internal_state_are_not_interpreted) ... ok\r\ntest_D174_rejected_mutable_input_is_not_modified (test_motor_fault_decode.MotorFaultDecodeTests.test_D174_rejected_mutable_input_is_not_modified) ... ok\r\ntest_D174_uint64_tokens_preserve_exact_integer_precision (test_motor_fault_decode.MotorFaultDecodeTests.test_D174_uint64_tokens_preserve_exact_integer_precision) ... ok\r\ntest_D174_wrapped_and_reversed_times_remain_raw_uint32 (test_motor_fault_decode.MotorFaultDecodeTests.test_D174_wrapped_and_reversed_times_remain_raw_uint32) ... ok\r\ntest_D174_zero_snapshot_preserves_every_slot_and_not_started (test_motor_fault_decode.MotorFaultDecodeTests.test_D174_zero_snapshot_preserves_every_slot_and_not_started) ... ok\r\n\r\n----------------------------------------------------------------------\r\nRan 22 tests in 0.825s\r\n\r\nOK\r\n",
+  "frozen_inputs_unchanged": {
+    "tools/motor_fault_decode.py": true,
+    "tests/tooling/test_motor_fault_decode.py": true,
+    "state/analysis/P7_motor_fault_decode_contract.md": true,
+    "state/analysis/P7_motor_fault_raw/active_abi.json": true,
+    "bench/motor_fault/src/motor_fault.h": true,
+    "src/hal/motors.h": true,
+    "src/core/fsm.h": true
+  },
+  "native_calls": 0
+}

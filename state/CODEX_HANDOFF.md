@@ -63,8 +63,8 @@ No process is running. Previous source/failure/recipe/review evidence is retaine
 
 ## Exact next task
 
-Eligibility audit1/3 after D180: previous turn made verified implementation
-progress; this continuation found no further eligible offline action. Separate
+Eligibility audit2/3 after D180: two consecutive no-progress continuations
+found no further eligible offline action. All delegated agents are terminal. Separate
 P7-only review confirms release upload still needs a resolved native startup/link/
 artifact contract. Full rearm/dump and physical/human acceptance remain pending.
 No process is live, no actual scope/owner exists, and no device query was made.

@@ -1,10 +1,9 @@
 # Current execution checklist - 2026-09-25 Asia/Dubai
 
-**D174 offline diagnostic decoder HOST-TESTED; inert execution pending.**
-Source68653597/f6e2fd36;22independent tests PASS firstexecution0.825s, sevenpins/
-reviewefe5a39ePASS. D173 file-only ABIcc9f50c6/822c917d confirms2592B Runner and
-loader offsets; no MCU read/upload/reset. Next closed exact-artifact inert
-upload/capture profile with independent integration tests and separate review.
+**D175 inert upload profile HOST-TESTED; finite capture integration next.**
+Source/oracle67eccbc5;34new+55legacy+59loader+3failure+4copy-limit PASS. Historical
+ownership19PASS/1FAIL preserves consumed old sourcepin; review1317cc4fPASS and
+all12pins unchanged. No native action; D174 decoder and D173 ABI remain checked.
 
 **Active: P7 software/release preparation.** PROGRESS.md is the append-only phase
 authority; preserve its legacy bytes. User asks for prompt commits and continued
@@ -120,7 +119,9 @@ pending; D051/D075/D122/D137 permit scheduling, not fabricated measurements.
   fivechildren0/146postchecksPASS, review60fdc78ePASS. No MCU operation; scope consumed.
 - [x] D174 offline decoder: source68653597, independent22/22 tests PASS, sevenpins
   exact/reviewefe5a39ePASS. Structural DECODED only; coherenceUNPROVEN.
-- [ ] Closed exact-artifact inert upload/capture profile using existing primitives,
+- [x] D175 closed inert upload profile: source67eccbc5, independent34PASS, direct
+  legacy tests PASS, historical consumed snapshot mismatch preserved; review1317cc4fPASS.
+- [ ] Closed exact-artifact finite capture profile using existing primitives,
   actual ARM2592B Runner/2632B BSS and observed dynamic recipe. Independent finite
   integration tests/review before any separately identified bare-board run.
   Original D160 failing operation remains unknown; do not relax safety bounds.
@@ -151,3 +152,7 @@ unique evidence remain; serial RAM builds/Python-B avoid redundant outputs.
 Schedule: actualP3 not passed by end28Sep invokes reactive+SIDESTEP/DIRECT plus
 recorder cut; P6 needs actualP4 by30Sep and no stronger cut. Freeze1Oct21:00Dubai,
 rehearsal2Oct, competition3Oct. No scheduled date creates acceptance.
+
+D175 final storage audit: zero new disposable files/zero RAM remnants,0B reclaimed.
+Current1195085824B C:free is a fluctuating observation; keep retained evidence and
+exclude every prior denied path. Exact capture next-step is in CODEX_HANDOFF.md.

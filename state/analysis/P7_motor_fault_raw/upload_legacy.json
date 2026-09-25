@@ -1,0 +1,132 @@
+{
+  "kind": "CONTROLLED_HOST_SCRIPT_TESTS",
+  "native_board_calls": 0,
+  "tests": [
+    {
+      "started_at_dubai": "2026-09-25T07:32:54.822532+04:00",
+      "argv": [
+        "wsl",
+        "-d",
+        "Ubuntu",
+        "--",
+        "env",
+        "TMPDIR=/dev/shm",
+        "PYTHONDONTWRITEBYTECODE=1",
+        "python3",
+        "-B",
+        "state/analysis/P7_static_startup_raw/test_upload_remote.py"
+      ],
+      "returncode": 0,
+      "seconds": 9.156775999930687,
+      "stdout": "",
+      "stderr": "test_admission_deadline_prevents_claim (__main__.UploadContract.test_admission_deadline_prevents_claim) ... ok\ntest_claim_fsync_failure_consumes_attempt_and_runs_postchecks (__main__.UploadContract.test_claim_fsync_failure_consumes_attempt_and_runs_postchecks) ... ok\ntest_clock_error_does_not_replace_executor_error (__main__.UploadContract.test_clock_error_does_not_replace_executor_error) ... ok\ntest_command_fsync_failure_prevents_executor (__main__.UploadContract.test_command_fsync_failure_prevents_executor) ... ok\ntest_consumed_attempt_cannot_be_reused (__main__.UploadContract.test_consumed_attempt_cannot_be_reused) ... ok\ntest_default_kill_error_preserved_and_reap_attempted (__main__.UploadContract.test_default_kill_error_preserved_and_reap_attempted) ... ok\ntest_default_process_environment_limits_and_exclusive_modes (__main__.UploadContract.test_default_process_environment_limits_and_exclusive_modes) ... ok\ntest_default_reap_error_does_not_replace_first_kill_error (__main__.UploadContract.test_default_reap_error_does_not_replace_first_kill_error) ... ok\ntest_default_rechecks_budget_after_stream_creation (__main__.UploadContract.test_default_rechecks_budget_after_stream_creation) ... ok\ntest_default_recomputes_shorter_wait_after_stream_creation (__main__.UploadContract.test_default_recomputes_shorter_wait_after_stream_creation) ... ok\ntest_default_spawn_failure_is_not_retried (__main__.UploadContract.test_default_spawn_failure_is_not_retried) ... ok\ntest_default_timeout_kills_only_owned_group_and_reaps (__main__.UploadContract.test_default_timeout_kills_only_owned_group_and_reaps) ... ok\ntest_default_unreaped_timeout_remains_unknown (__main__.UploadContract.test_default_unreaped_timeout_remains_unknown) ... ok\ntest_directory_and_absence_binding_shapes (__main__.UploadContract.test_directory_and_absence_binding_shapes) ... ok\ntest_disappeared_pid_is_allowed (__main__.UploadContract.test_disappeared_pid_is_allowed) ... ok\ntest_each_pin_content_is_checked_before_claim (__main__.UploadContract.test_each_pin_content_is_checked_before_claim) ... ok\ntest_every_forbidden_override_and_dangling_link_rejected (__main__.UploadContract.test_every_forbidden_override_and_dangling_link_rejected) ... ok\ntest_exact_conflicting_process_names (__main__.UploadContract.test_exact_conflicting_process_names) ... ok\ntest_exact_roles_and_fixed_paths_are_validated (__main__.UploadContract.test_exact_roles_and_fixed_paths_are_validated) ... ok\ntest_extra_outcome_key_rejected (__main__.UploadContract.test_extra_outcome_key_rejected) ... ok\ntest_extra_version_and_non_directory_entries_rejected (__main__.UploadContract.test_extra_version_and_non_directory_entries_rejected) ... ok\ntest_final_receipt_persistence_failure_raises (__main__.UploadContract.test_final_receipt_persistence_failure_raises) ... ok\ntest_identity_mismatch_rejected (__main__.UploadContract.test_identity_mismatch_rejected) ... ok\ntest_independent_postchecks_preserve_primary (__main__.UploadContract.test_independent_postchecks_preserve_primary) ... ok\ntest_injected_exception_preserves_first_error (__main__.UploadContract.test_injected_exception_preserves_first_error) ... ok\ntest_invalid_utf8_stream_uses_replacement (__main__.UploadContract.test_invalid_utf8_stream_uses_replacement) ... ok\ntest_malformed_return_is_not_presented_as_an_outcome (__main__.UploadContract.test_malformed_return_is_not_presented_as_an_outcome) ... ok\ntest_missing_absence_ancestors_are_allowed_but_symlink_ancestors_are_not (__main__.UploadContract.test_missing_absence_ancestors_are_allowed_but_symlink_ancestors_are_not) ... ok\ntest_missing_comm_with_live_pid_rejected (__main__.UploadContract.test_missing_comm_with_live_pid_rejected) ... ok\ntest_missing_stream_does_not_hide_other_stream (__main__.UploadContract.test_missing_stream_does_not_hide_other_stream) ... ok\ntest_non_python_b_rejected_before_mutation (__main__.UploadContract.test_non_python_b_rejected_before_mutation) ... ok\ntest_nonboolean_outcome_flags_rejected (__main__.UploadContract.test_nonboolean_outcome_flags_rejected) ... ok\ntest_nonfinite_and_backward_clock_rejected (__main__.UploadContract.test_nonfinite_and_backward_clock_rejected) ... ok\ntest_nonmapping_outcome_rejected (__main__.UploadContract.test_nonmapping_outcome_rejected) ... ok\ntest_nonregular_stream_rejected_without_blocking (__main__.UploadContract.test_nonregular_stream_rejected_without_blocking) ... ok\ntest_nonzero_outcome_preserved (__main__.UploadContract.test_nonzero_outcome_preserved) ... ok\ntest_null_device_type_number_and_symlink_checked (__main__.UploadContract.test_null_device_type_number_and_symlink_checked) ... ok\ntest_output_drift_retains_result_in_original_directory (__main__.UploadContract.test_output_drift_retains_result_in_original_directory) ... ok\ntest_output_symlink_never_entered (__main__.UploadContract.test_output_symlink_never_entered) ... ok\ntest_parent_drift_does_not_write_replacement_parent (__main__.UploadContract.test_parent_drift_does_not_write_replacement_parent) ... ok\ntest_permission_error_does_not_count_as_absence (__main__.UploadContract.test_permission_error_does_not_count_as_absence) ... ok\ntest_post_command_clock_failure_retains_consumed_receipt (__main__.UploadContract.test_post_command_clock_failure_retains_consumed_receipt) ... ok\ntest_preexisting_output_never_entered_or_modified (__main__.UploadContract.test_preexisting_output_never_entered_or_modified) ... ok\ntest_process_enumeration_is_bounded (__main__.UploadContract.test_process_enumeration_is_bounded) ... ok\ntest_remaining_budget_limits_injected_wait (__main__.UploadContract.test_remaining_budget_limits_injected_wait) ... ok\ntest_scalar_types_hashes_sizes_and_fixed_output (__main__.UploadContract.test_scalar_types_hashes_sizes_and_fixed_output) ... ok\ntest_stream_exactly_one_mib_is_rejected (__main__.UploadContract.test_stream_exactly_one_mib_is_rejected) ... ok\ntest_success_exact_command_receipt_and_nonempty_diagnostics (__main__.UploadContract.test_success_exact_command_receipt_and_nonempty_diagnostics) ... ok\ntest_support_globals_and_capture_are_not_repurposed (__main__.UploadContract.test_support_globals_and_capture_are_not_repurposed) ... ok\ntest_symlink_and_nonregular_pin_rejected (__main__.UploadContract.test_symlink_and_nonregular_pin_rejected) ... ok\ntest_symlink_stream_rejected (__main__.UploadContract.test_symlink_stream_rejected) ... ok\ntest_timeout_outcome_preserved (__main__.UploadContract.test_timeout_outcome_preserved) ... ok\ntest_tmp_remoteocd_created_by_upload_is_allowed (__main__.UploadContract.test_tmp_remoteocd_created_by_upload_is_allowed) ... ok\ntest_tmp_remoteocd_preexisting_rejected (__main__.UploadContract.test_tmp_remoteocd_preexisting_rejected) ... ok\ntest_unreaped_outcome_preserved (__main__.UploadContract.test_unreaped_outcome_preserved) ... ok\n\n----------------------------------------------------------------------\nRan 55 tests in 3.861s\n\nOK\n"
+    },
+    {
+      "started_at_dubai": "2026-09-25T07:33:03.979383+04:00",
+      "argv": [
+        "wsl",
+        "-d",
+        "Ubuntu",
+        "--",
+        "env",
+        "TMPDIR=/dev/shm",
+        "PYTHONDONTWRITEBYTECODE=1",
+        "python3",
+        "-B",
+        "state/analysis/P7_static_startup_raw/test_upload_loader.py"
+      ],
+      "returncode": 0,
+      "seconds": 4.1720103999832645,
+      "stdout": "",
+      "stderr": "test_admission_deadline_prevents_claim (__main__.UploadLoaderContract.test_admission_deadline_prevents_claim) ... ok\ntest_both_streams_just_below_one_mib_remain_accepted (__main__.UploadLoaderContract.test_both_streams_just_below_one_mib_remain_accepted) ... ok\ntest_claim_fsync_failure_consumes_attempt_and_runs_postchecks (__main__.UploadLoaderContract.test_claim_fsync_failure_consumes_attempt_and_runs_postchecks) ... ok\ntest_clock_error_does_not_replace_executor_error (__main__.UploadLoaderContract.test_clock_error_does_not_replace_executor_error) ... ok\ntest_command_fsync_failure_prevents_executor (__main__.UploadLoaderContract.test_command_fsync_failure_prevents_executor) ... ok\ntest_consumed_attempt_cannot_be_reused (__main__.UploadLoaderContract.test_consumed_attempt_cannot_be_reused) ... ok\ntest_default_kill_error_preserved_and_reap_attempted (__main__.UploadLoaderContract.test_default_kill_error_preserved_and_reap_attempted) ... ok\ntest_default_process_environment_limits_and_exclusive_modes (__main__.UploadLoaderContract.test_default_process_environment_limits_and_exclusive_modes) ... ok\ntest_default_reap_error_does_not_replace_first_kill_error (__main__.UploadLoaderContract.test_default_reap_error_does_not_replace_first_kill_error) ... ok\ntest_default_rechecks_budget_after_stream_creation (__main__.UploadLoaderContract.test_default_rechecks_budget_after_stream_creation) ... ok\ntest_default_recomputes_shorter_wait_after_stream_creation (__main__.UploadLoaderContract.test_default_recomputes_shorter_wait_after_stream_creation) ... ok\ntest_default_spawn_failure_is_not_retried (__main__.UploadLoaderContract.test_default_spawn_failure_is_not_retried) ... ok\ntest_default_timeout_kills_only_owned_group_and_reaps (__main__.UploadLoaderContract.test_default_timeout_kills_only_owned_group_and_reaps) ... ok\ntest_default_unreaped_timeout_remains_unknown (__main__.UploadLoaderContract.test_default_unreaped_timeout_remains_unknown) ... ok\ntest_directory_and_absence_binding_shapes (__main__.UploadLoaderContract.test_directory_and_absence_binding_shapes) ... ok\ntest_disappeared_pid_is_allowed (__main__.UploadLoaderContract.test_disappeared_pid_is_allowed) ... ok\ntest_each_pin_content_is_checked_before_claim (__main__.UploadLoaderContract.test_each_pin_content_is_checked_before_claim) ... ok\ntest_every_forbidden_override_and_dangling_link_rejected (__main__.UploadLoaderContract.test_every_forbidden_override_and_dangling_link_rejected) ... ok\ntest_exact_conflicting_process_names (__main__.UploadLoaderContract.test_exact_conflicting_process_names) ... ok\ntest_exact_roles_and_fixed_paths_are_validated (__main__.UploadLoaderContract.test_exact_roles_and_fixed_paths_are_validated) ... ok\ntest_extra_outcome_key_rejected (__main__.UploadLoaderContract.test_extra_outcome_key_rejected) ... ok\ntest_extra_version_and_non_directory_entries_rejected (__main__.UploadLoaderContract.test_extra_version_and_non_directory_entries_rejected) ... ok\ntest_final_receipt_persistence_failure_raises (__main__.UploadLoaderContract.test_final_receipt_persistence_failure_raises) ... ok\ntest_frozen_d153_limit_remains_one_mib (__main__.UploadLoaderContract.test_frozen_d153_limit_remains_one_mib) ... ok\ntest_identity_mismatch_rejected (__main__.UploadLoaderContract.test_identity_mismatch_rejected) ... ok\ntest_independent_postchecks_preserve_primary (__main__.UploadLoaderContract.test_independent_postchecks_preserve_primary) ... ok\ntest_injected_exception_preserves_first_error (__main__.UploadLoaderContract.test_injected_exception_preserves_first_error) ... ok\ntest_invalid_utf8_stream_uses_replacement (__main__.UploadLoaderContract.test_invalid_utf8_stream_uses_replacement) ... ok\ntest_malformed_return_is_not_presented_as_an_outcome (__main__.UploadLoaderContract.test_malformed_return_is_not_presented_as_an_outcome) ... ok\ntest_missing_absence_ancestors_are_allowed_but_symlink_ancestors_are_not (__main__.UploadLoaderContract.test_missing_absence_ancestors_are_allowed_but_symlink_ancestors_are_not) ... ok\ntest_missing_comm_with_live_pid_rejected (__main__.UploadLoaderContract.test_missing_comm_with_live_pid_rejected) ... ok\ntest_missing_stream_does_not_hide_other_stream (__main__.UploadLoaderContract.test_missing_stream_does_not_hide_other_stream) ... ok\ntest_new_limit_equals_largest_pinned_copy_extent (__main__.UploadLoaderContract.test_new_limit_equals_largest_pinned_copy_extent) ... ok\ntest_non_python_b_rejected_before_mutation (__main__.UploadLoaderContract.test_non_python_b_rejected_before_mutation) ... ok\ntest_nonboolean_outcome_flags_rejected (__main__.UploadLoaderContract.test_nonboolean_outcome_flags_rejected) ... ok\ntest_nonfinite_and_backward_clock_rejected (__main__.UploadLoaderContract.test_nonfinite_and_backward_clock_rejected) ... ok\ntest_nonmapping_outcome_rejected (__main__.UploadLoaderContract.test_nonmapping_outcome_rejected) ... ok\ntest_nonregular_stream_rejected_without_blocking (__main__.UploadLoaderContract.test_nonregular_stream_rejected_without_blocking) ... ok\ntest_nonzero_outcome_preserved (__main__.UploadLoaderContract.test_nonzero_outcome_preserved) ... ok\ntest_null_device_type_number_and_symlink_checked (__main__.UploadLoaderContract.test_null_device_type_number_and_symlink_checked) ... ok\ntest_output_drift_retains_result_in_original_directory (__main__.UploadLoaderContract.test_output_drift_retains_result_in_original_directory) ... ok\ntest_output_symlink_never_entered (__main__.UploadLoaderContract.test_output_symlink_never_entered) ... ok\ntest_parent_drift_does_not_write_replacement_parent (__main__.UploadLoaderContract.test_parent_drift_does_not_write_replacement_parent) ... ok\ntest_permission_error_does_not_count_as_absence (__main__.UploadLoaderContract.test_permission_error_does_not_count_as_absence) ... ok\ntest_post_command_clock_failure_retains_consumed_receipt (__main__.UploadLoaderContract.test_post_command_clock_failure_retains_consumed_receipt) ... ok\ntest_preexisting_output_never_entered_or_modified (__main__.UploadLoaderContract.test_preexisting_output_never_entered_or_modified) ... ok\ntest_process_enumeration_is_bounded (__main__.UploadLoaderContract.test_process_enumeration_is_bounded) ... ok\ntest_remaining_budget_limits_injected_wait (__main__.UploadLoaderContract.test_remaining_budget_limits_injected_wait) ... ok\ntest_scalar_types_hashes_sizes_and_fixed_output (__main__.UploadLoaderContract.test_scalar_types_hashes_sizes_and_fixed_output) ... ok\ntest_stderr_exactly_one_mib_is_rejected (__main__.UploadLoaderContract.test_stderr_exactly_one_mib_is_rejected) ... ok\ntest_stream_exactly_one_mib_is_rejected (__main__.UploadLoaderContract.test_stream_exactly_one_mib_is_rejected) ... ok\ntest_success_exact_command_receipt_and_nonempty_diagnostics (__main__.UploadLoaderContract.test_success_exact_command_receipt_and_nonempty_diagnostics) ... ok\ntest_support_globals_and_capture_are_not_repurposed (__main__.UploadLoaderContract.test_support_globals_and_capture_are_not_repurposed) ... ok\ntest_symlink_and_nonregular_pin_rejected (__main__.UploadLoaderContract.test_symlink_and_nonregular_pin_rejected) ... ok\ntest_symlink_stream_rejected (__main__.UploadLoaderContract.test_symlink_stream_rejected) ... ok\ntest_timeout_outcome_preserved (__main__.UploadLoaderContract.test_timeout_outcome_preserved) ... ok\ntest_tmp_remoteocd_created_by_upload_is_allowed (__main__.UploadLoaderContract.test_tmp_remoteocd_created_by_upload_is_allowed) ... ok\ntest_tmp_remoteocd_preexisting_rejected (__main__.UploadLoaderContract.test_tmp_remoteocd_preexisting_rejected) ... ok\ntest_unreaped_outcome_preserved (__main__.UploadLoaderContract.test_unreaped_outcome_preserved) ... ok\n\n----------------------------------------------------------------------\nRan 59 tests in 3.945s\n\nOK\n"
+    },
+    {
+      "started_at_dubai": "2026-09-25T07:33:08.151447+04:00",
+      "argv": [
+        "wsl",
+        "-d",
+        "Ubuntu",
+        "--",
+        "env",
+        "TMPDIR=/dev/shm",
+        "PYTHONDONTWRITEBYTECODE=1",
+        "python3",
+        "-B",
+        "state/analysis/P7_static_startup_raw/upload_private.py"
+      ],
+      "returncode": 0,
+      "seconds": 0.41167489998042583,
+      "stdout": "",
+      "stderr": "test_kill_error_and_reaped_flags_survive_later_close_error (__main__.UploadPrivate.test_kill_error_and_reaped_flags_survive_later_close_error) ... ok\ntest_success_flags_remain_failed_when_stream_close_fails (__main__.UploadPrivate.test_success_flags_remain_failed_when_stream_close_fails) ... ok\ntest_wait_error_and_unknown_flags_survive_later_close_error (__main__.UploadPrivate.test_wait_error_and_unknown_flags_survive_later_close_error) ... ok\n\n----------------------------------------------------------------------\nRan 3 tests in 0.175s\n\nOK\n"
+    },
+    {
+      "started_at_dubai": "2026-09-25T07:33:08.563167+04:00",
+      "argv": [
+        "wsl",
+        "-d",
+        "Ubuntu",
+        "--",
+        "env",
+        "TMPDIR=/dev/shm",
+        "PYTHONDONTWRITEBYTECODE=1",
+        "python3",
+        "-B",
+        "state/analysis/P7_static_startup_raw/test_run02_ownership.py"
+      ],
+      "returncode": 1,
+      "seconds": 0.8977735000662506,
+      "stdout": "",
+      "stderr": "test_caller_mutation_does_not_change_admitted_instance_pins (__main__.UploadOwnership.test_caller_mutation_does_not_change_admitted_instance_pins) ... ok\ntest_explicit_legacy_bindings_still_work_without_global_rebinding (__main__.UploadOwnership.test_explicit_legacy_bindings_still_work_without_global_rebinding) ... ok\ntest_legacy_upload_rejects_run02_and_has_no_run_id_override (__main__.UploadOwnership.test_legacy_upload_rejects_run02_and_has_no_run_id_override) ... ok\ntest_nested_legacy_instance_does_not_change_active_run02 (__main__.UploadOwnership.test_nested_legacy_instance_does_not_change_active_run02) ... ok\ntest_run02_success_owns_only_fresh_output_and_keeps_globals (__main__.UploadOwnership.test_run02_success_owns_only_fresh_output_and_keeps_globals) ... ok\ntest_wrong_run_binding_output_or_source_rejected_before_claim (__main__.UploadOwnership.test_wrong_run_binding_output_or_source_rejected_before_claim) ... ok\ntest_capture_uses_private_bindings_copy (__main__.CaptureOwnership.test_capture_uses_private_bindings_copy) ... ok\ntest_capture_wrong_identity_output_source_rejected_before_claim (__main__.CaptureOwnership.test_capture_wrong_identity_output_source_rejected_before_claim) ... ok\ntest_nested_capture_instances_do_not_share_ownership_state (__main__.CaptureOwnership.test_nested_capture_instances_do_not_share_ownership_state) ... ok\ntest_run02_collection_has_distinct_consumed_owner_and_no_global_change (__main__.CaptureOwnership.test_run02_collection_has_distinct_consumed_owner_and_no_global_change) ... ok\ntest_binding_projection_changes_only_identity_and_output_and_is_deep (__main__.LauncherOwnership.test_binding_projection_changes_only_identity_and_output_and_is_deep) ... ok\ntest_bootstrap_explicit_api_dispatch_and_no_binding_global_assignment (__main__.LauncherOwnership.test_bootstrap_explicit_api_dispatch_and_no_binding_global_assignment) ... ok\ntest_closed_cli_run02_selection_and_invalid_rejection (__main__.LauncherOwnership.test_closed_cli_run02_selection_and_invalid_rejection) ... usage: test_run02_ownership.py [-h] --execute --reviewed-head REVIEWED_HEAD\n                               [--run {run01,run02}]\ntest_run02_ownership.py: error: argument --run: invalid choice: 'run03' (choose from 'run01', 'run02')\nok\ntest_cross_run_capture_is_preserved_as_failed_collection (__main__.LauncherOwnership.test_cross_run_capture_is_preserved_as_failed_collection) ... ok\ntest_cross_run_upload_never_permits_capture (__main__.LauncherOwnership.test_cross_run_upload_never_permits_capture) ... ok\ntest_invalid_run_rejected_before_callbacks_or_native_constructor_io (__main__.LauncherOwnership.test_invalid_run_rejected_before_callbacks_or_native_constructor_io) ... ok\ntest_profiles_are_fresh_and_scope_files_are_exact (__main__.LauncherOwnership.test_profiles_are_fresh_and_scope_files_are_exact) ... ok\ntest_profiles_retain_historical_pins_and_change_only_two_for_run02 (__main__.LauncherOwnership.test_profiles_retain_historical_pins_and_change_only_two_for_run02) ... FAIL\ntest_projection_rejects_wrong_action_run_and_original_identity (__main__.LauncherOwnership.test_projection_rejects_wrong_action_run_and_original_identity) ... ok\ntest_validators_and_orchestration_require_selected_report_identity (__main__.LauncherOwnership.test_validators_and_orchestration_require_selected_report_identity) ... ok\n\n======================================================================\nFAIL: test_profiles_retain_historical_pins_and_change_only_two_for_run02 (__main__.LauncherOwnership.test_profiles_retain_historical_pins_and_change_only_two_for_run02)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/state/analysis/P7_static_startup_raw/test_run02_ownership.py\", line 223, in test_profiles_retain_historical_pins_and_change_only_two_for_run02\n    self.assertEqual(new['dependencies'][key], hashlib.sha256((HERE.parents[2] / key).read_bytes()).hexdigest())\nAssertionError: '23661c8a18205cfb64d77c5ae81765463560cf52f451e257bb3bb339d39f2b18' != 'e926b7ba5586475664b0541370e7cfb5c50e40d8dc8b47b18e35db3e0a0a25c1'\n- 23661c8a18205cfb64d77c5ae81765463560cf52f451e257bb3bb339d39f2b18\n+ e926b7ba5586475664b0541370e7cfb5c50e40d8dc8b47b18e35db3e0a0a25c1\n\n\n----------------------------------------------------------------------\nRan 20 tests in 0.599s\n\nFAILED (failures=1)\n"
+    }
+  ],
+  "final_pins": [
+    {
+      "path": "state/analysis/P7_static_startup_raw/upload_remote.py",
+      "unchanged": true
+    },
+    {
+      "path": "state/analysis/P7_static_startup_raw/test_motor_fault_upload.py",
+      "unchanged": true
+    },
+    {
+      "path": "state/analysis/P7_static_startup_raw/test_upload_remote.py",
+      "unchanged": true
+    },
+    {
+      "path": "state/analysis/P7_static_startup_raw/test_upload_loader.py",
+      "unchanged": true
+    },
+    {
+      "path": "state/analysis/P7_static_startup_raw/upload_private.py",
+      "unchanged": true
+    },
+    {
+      "path": "state/analysis/P7_static_startup_raw/test_run02_ownership.py",
+      "unchanged": true
+    },
+    {
+      "path": "state/analysis/P7_static_startup_raw/test_upload_file_limit.py",
+      "unchanged": true
+    },
+    {
+      "path": "state/analysis/P7_static_startup_raw/capture_remote.py",
+      "unchanged": true
+    },
+    {
+      "path": "state/analysis/P7_static_startup_raw/upload_bindings.json",
+      "unchanged": true
+    },
+    {
+      "path": "state/analysis/P7_static_link_probe_raw/static_remote.py",
+      "unchanged": true
+    },
+    {
+      "path": "state/analysis/P7_motor_fault_upload_contract.md",
+      "unchanged": true
+    },
+    {
+      "path": "state/analysis/P7_motor_fault_raw/active_verified.json",
+      "unchanged": true
+    }
+  ]
+}

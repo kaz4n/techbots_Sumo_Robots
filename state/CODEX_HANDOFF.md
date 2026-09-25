@@ -1,12 +1,14 @@
 # Codex handoff - 25 September 2026, Asia/Dubai
 
-**Active: P7 software/release preparation. D174 offline decoder HOST-TESTED.**
-Source68653597/f6e2fd36; independent tests b2995dea frozen7712ae0b,22/22 PASS on
-first execution,0.825s; seven frozen inputs unchanged. Separate fresh-context
-same-model reviewefe5a39ePASS. Read analysis/P7_motor_fault_decode_validation.md.
-All64calls/fourresults,208enum/367boolean/eightfloat locations and partial/failure
-states are covered. decode_snapshot returns structural DECODED and explicitly
-UNPROVEN coherence; it never authorizes hardware or claims a gate.
+**Active: P7 software/release preparation. D175 uploader HOST-TESTED.**
+Source/oracle commit67eccbc5; uploader e926b7ba, independent test bdc810cb.
+New34PASS; legacy55+59+3PASS and harmless file-limit4PASS. Historical ownership
+19PASS/1FAIL: consumed run02 still pins old23661c8a, correctly mismatching D175.
+Keep original failed receipt, old manifest and assertion; no repin or retry.
+Separate fresh-context same-model review1317cc4fPASS, all12frozen inputs exact.
+Read analysis/P7_motor_fault_upload_validation.md. No native upload/reset/read.
+D174 decoder remains source68653597/f6e2fd36,22independent tests/reviewPASS;
+structural DECODED still explicitly UNPROVEN coherence. No gate is inferred.
 
 D173 file-only observation succeeded: execution089de986/evidence cc9f50c6;
 one transport/five children exit0/reaped,26remote+120local checksPASS. Actual
@@ -27,26 +29,29 @@ No process is running. Previous source/failure/recipe/review evidence is retaine
 
 ## Exact next task
 
-Add the smallest closed exact-artifact inert diagnostic profile to the existing
-bounded upload/capture primitives. Start from analysis/P7_motor_fault_capture_dependencies.md,
-D173 active_abi.json, tools/motor_fault_decode.py, and existing static startup
-upload_remote.py/capture_remote.py plus runtime_capture.py's dynamic LLEXT traversal.
-Do not invoke those old consumed profiles unchanged or clone another launcher.
+Implement the smallest closed finite dynamic capture profile using existing
+capture_remote.py and runtime_capture.find_bss traversal. D175 upload selection
+is already complete and independently reviewed; do not redo it or old tests.
+Read analysis/P7_motor_fault_capture_plan_notes.md, P7_motor_fault_capture_dependencies.md,
+active_abi.json and tools/motor_fault_decode.py. Fix the exact public contract,
+independently derive/freeze new tests, implement and review the changed boundary.
+Do not clone a launcher or rebind module globals; preserve the static profile.
 
-Use the actual dynamic motor_fault.ino.elf-zsk.bin recipe, exact source8f592937/
-ELFf9460a16/exportb4416792 and loader identity. Preserve upload's2303728B loader-copy
-allowance, explicit environment, fresh exclusive ownership, child deadlines/reap,
-raw failed output and independent final checks. Derive finite read/byte totals
-from the observed2632B BSS and2592B Runner; bounded <=3-node LLEXT traversal and
-exact flash/relocation bracketing precede two whole-Runner snapshots. No heap dump
-needed. Retain both raw snapshots even if decoding fails; matching samples do not
-prove atomicity. The offline decoder must not become a safety/acceptance predicate.
+Diagnostic source8f592937/raw ELFf9460a16/exportb4416792. Upload CLI takes raw
+.ino.elf selector; dynamic recipe uses .elf-zsk.bin sibling, both29836B. Capture
+must compare complete loader ELF-derived263680B image e9322826 and packaged
+sketch flash before/after, bound <=3 LLEXT nodes and consistent relocation before/
+after two2592B snapshots from exact2632B BSS (base aligned8). Candidate successful
+maximum24reads/593424B, existing30s child/600s total deadlines retained. Prove the
+actual count/order and failure bounds in independent tests. Retain both raw
+snapshots even if later decoding fails; matching samples do not prove atomicity.
 
-Record a compact contract, independently derive/freeze profile/decoder integration
-tests, implement and review the exact changed boundaries, then identify one new
-inert upload/capture scope under the existing bare-board permission. No motor-capable
-run is authorized. D172/D173 and compile01/02/active01 remain consumed; never repin
-or automatically retry them. Hardware identity must be rechecked for a later run.
+Then bind current tools/artifacts/identity and every reused source in a fresh
+reviewed caller, and record one identified inert upload/capture scope under
+existing bare-board permission. No motor-capable run is authorized. D160/D172/
+D173 and compile01/02/active01 are consumed; never repin or automatically retry.
+No process remains running. Exact next task is capture contract/tests/source,
+not another source dump, target rebuild or diagnostic ABI observation.
 
 Both build/stage/motor_fault and build/stage/motor-fault-active01 remain after
 policy-blocked cleanup. Never retry their removal or invoke implicit staging
@@ -128,3 +133,7 @@ Actual P3 not passed by end28Sep requires reactive+SIDESTEP/DIRECT and recorder,
 dropping ARC/WAIT/P6 polish. P6 also requires actual P4 by30Sep. Freeze1Oct21:00,
 rehearsal2Oct, competition3Oct. Dates create no gate or evidence. Commit each
 finished bounded task promptly; do not space commits artificially or push.
+
+D175 storage follow-up: no new disposable candidates/zero RAM remnants,0B reclaimed.
+Keep compact unique receipts; no new build/download. C:1195085824B observed at
+closing check. All previously denied targets untouched; see STORAGE_LOG.md.

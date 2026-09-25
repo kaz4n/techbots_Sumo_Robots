@@ -152,3 +152,5 @@ before continuing; exact next capture contract/tests/source task remains above.
 D176 closing storage:126287872B C:free observed;0ownedRAMremnants. Prior39MB dip
 recovered without cleanup. Recheck before new work; only compact needed receipts
 and existing-source reuse. All earlier denied paths remain untouched.
+
+2026-09-25T10:50:26.087172+04:00: user resumes with board disconnected. Host-only work; do not poll or use old board identity as current. C:3635941376B free observed; recovered cleanup receipts/3478528B verified savings now recorded in STORAGE_LOG. All37new policy-denied stage folders remain, with exact manifest in analysis/storage_cleanup_20260925_old_stages_candidates.json; exclude from cleanup retries. D176 validated checkpoint unchanged; next thin composition/testing can proceed offline.

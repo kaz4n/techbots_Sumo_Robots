@@ -2,7 +2,6 @@
 # Protects retained legacy stages and compile routes without native operations.
 # Uses the public D167 RAM fixture, opaque caller import and controlled substitutes.
 import hashlib
-import importlib.util
 import inspect
 import json
 from pathlib import Path
@@ -106,30 +105,40 @@ class ActiveCompileTests(unittest.TestCase):
         self.native.assert_not_called()
 
     def test_constructor_has_closed_keyword_only_selector(self):
+        class StringAlias(str):
+            pass
+
         parameter = inspect.signature(self.caller.CompileOnce).parameters['run_id']
         self.assertEqual(inspect.Parameter.KEYWORD_ONLY, parameter.kind)
         self.assertEqual('compile01', parameter.default)
         with mock.patch.object(Path, 'read_text', side_effect=AssertionError('read')), \
              mock.patch.object(Path, 'read_bytes', side_effect=AssertionError('read')):
             for value in (None, False, 1, [], {}, b'active01', '', 'active1', 'active02',
-                          '../active01', 'active01 ', 'ACTIVE01'):
+                          '../active01', 'active01 ', 'ACTIVE01', StringAlias('active01')):
                 with self.subTest(value=value), self.assertRaises((RuntimeError, ValueError)):
                     self.selected(value)
             with self.assertRaises(TypeError):
                 self.caller.CompileOnce('active01')
+            with self.assertRaises(TypeError):
+                self.caller.CompileOnce(run_id='active01', flags='-DMOTORS_ALLOWED=1')
         self.native.assert_not_called()
 
     def test_paths_flags_manifest_reads_and_interleaving_are_instance_specific(self):
-        original = Path.read_text
+        original_text, original_bytes = Path.read_text, Path.read_bytes
         read_paths = []
 
         def read(path, *args, **kwargs):
             read_paths.append(Path(path))
-            return original(path, *args, **kwargs)
+            return original_text(path, *args, **kwargs)
+
+        def binary(path, *args, **kwargs):
+            read_paths.append(Path(path))
+            return original_bytes(path, *args, **kwargs)
 
         for run_id in ('active01', 'compile01', 'compile02', 'active01'):
             read_paths.clear()
-            with mock.patch.object(Path, 'read_text', autospec=True, side_effect=read):
+            with mock.patch.object(Path, 'read_text', autospec=True, side_effect=read), \
+                 mock.patch.object(Path, 'read_bytes', autospec=True, side_effect=binary):
                 instance = self.selected(run_id)
             active = run_id == 'active01'
             filename = {'compile01': 'compile_inputs.json', 'compile02': 'compile_inputs02.json',
@@ -155,6 +164,10 @@ class ActiveCompileTests(unittest.TestCase):
         completed = subprocess.CompletedProcess(['controlled'], 0, stdout=b'fixture', stderr=b'')
         with mock.patch.object(subprocess, 'run', return_value=completed) as controlled:
             for instance in instances + instances[:1]:
+                self.assertIn(str(instance.remote), instance.preamble())
+                for other in instances:
+                    if other is not instance:
+                        self.assertNotIn(str(other.remote), instance.preamble())
                 Path(instance.output).mkdir(parents=True, exist_ok=True)
                 with mock.patch.object(instance, 'local', return_value=None):
                     result, receipt = instance.transport(['version'], 1, 'fixture')
@@ -172,6 +185,9 @@ class ActiveCompileTests(unittest.TestCase):
                 instance.local()
             args = ['--execute', '--run', other]
             with mock.patch.object(sys, 'argv', ['compile_motor_fault.py', *args]), \
+                 mock.patch.object(sys, 'dont_write_bytecode', True), \
+                 mock.patch.object(sys, 'pycache_prefix', str(Path(instance.output) / 'pycache')), \
+                 mock.patch.object(instance, 'local', return_value=None), \
                  self.assertRaises((RuntimeError, ValueError)):
                 instance.run()
             self.assertFalse(Path(instance.output).exists())
@@ -192,6 +208,8 @@ class ActiveCompileTests(unittest.TestCase):
                 else:
                     owner.symlink_to(target if kind == 'live-link' else self.root / 'absent-target', target_is_directory=True)
                 with mock.patch.object(sys, 'argv', ['compile_motor_fault.py', '--execute', '--run', 'active01']), \
+                     mock.patch.object(sys, 'dont_write_bytecode', True), \
+                     mock.patch.object(sys, 'pycache_prefix', str(Path(instance.output) / 'pycache')), \
                      mock.patch.object(instance, 'local', return_value=None), \
                      mock.patch.object(instance, 'inventory', side_effect=AssertionError('board contact')):
                     try:
@@ -304,6 +322,38 @@ class ActiveCompileTests(unittest.TestCase):
         self.assertEqual(b'legacy retained', (legacy_stage / 'unrelated.txt').read_bytes())
         self.native.assert_not_called()
 
+    def test_final_policy_routes_active_and_legacy_executor_and_sketch(self):
+        tools = self.root / 'tools'
+        tools.mkdir()
+        calls = self.root / 'final-policy.jsonl'
+        script = ('import json\nfrom pathlib import Path\n'
+                  f'LOG = Path({str(calls)!r})\n'
+                  'def note(value):\n'
+                  '    with LOG.open("a") as out: out.write(json.dumps(value) + "\\n")\n'
+                  'def installed_pins(data): return {"fixture": "a" * 64}\n'
+                  'def verify_hashes(runner, board, pins):\n'
+                  '    note(["pins", runner.__self__.run_id, board]); return pins\n'
+                  'def check_overrides(runner, board, data, user, sketch):\n'
+                  '    note(["overrides", runner.__self__.run_id, str(sketch)])\n')
+        policy = tools / 'app_build_policy.py'
+        policy.write_text(script)
+        digest = hashlib.sha256(policy.read_bytes()).hexdigest()
+        for run_id in ('active01', 'compile01', 'active01'):
+            self.manifest(run_id, {'tools/app_build_policy.py': digest})
+            instance = self.selected(run_id)
+            instance.remote_owned = True
+            with mock.patch.object(instance, 'local', return_value=None):
+                instance.final_policy()
+                instance.final_policy(overrides=True)
+            self.assert_globals_unchanged()
+        records = [json.loads(line) for line in calls.read_text().splitlines()]
+        expected = []
+        for run_id in ('active01', 'compile01', 'active01'):
+            expected.extend([['pins', run_id, '2629958581'],
+                             ['overrides', run_id, str(self.remote_parent / ('motor-fault-' + run_id) / 'motor_fault')]])
+        self.assertEqual(expected, records)
+        self.native.assert_not_called()
+
     def exercise_run(self, fail_compile=False, fail_final=False):
         tools = self.root / 'tools'
         tools.mkdir()
@@ -372,7 +422,7 @@ class ActiveCompileTests(unittest.TestCase):
         instance, code = self.exercise_run(fail_compile=True)
         self.assertNotEqual(0, code)
         self.assertNotEqual('COMPILE_CHECKED', instance.report['status'])
-        self.assertIn('controlled compile failure', instance.report['first_error'])
+        self.assertIn('controlled compile failure', instance.report['first_error']['message'])
         self.assertEqual(['local', 'identity', 'cli_initialization_inventory', 'cli_builtin_files_inventory',
                           'remote_sources', 'installed_pins', 'overrides'],
                          [item['name'] for item in instance.report['final_checks']])
@@ -382,7 +432,7 @@ class ActiveCompileTests(unittest.TestCase):
     def test_failure_of_one_final_check_does_not_skip_later_checks_or_replace_first_error(self):
         instance, code = self.exercise_run(fail_compile=True, fail_final=True)
         self.assertNotEqual(0, code)
-        self.assertIn('controlled compile failure', instance.report['first_error'])
+        self.assertIn('controlled compile failure', instance.report['first_error']['message'])
         checks = instance.report['final_checks']
         self.assertEqual(['local', 'identity', 'cli_initialization_inventory', 'cli_builtin_files_inventory',
                           'remote_sources', 'installed_pins', 'overrides'], [item['name'] for item in checks])

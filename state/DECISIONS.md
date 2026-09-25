@@ -1952,3 +1952,8 @@ Decision: commit this scope and execute caller84efd006 once with --execute --run
 Consequence: no upload/reset/MCU read, dependency change, source overlay, motor run, extra hardware or automatic retry. Changed identity/binding or any failure preserves evidence and consumes the attempt; never repin during it. Active compilation is not diagnostic execution or physical acceptance. Retained legacy stage and all policy-denied paths stay untouched.
 
 D-172 actual outcome 2026-09-25T07:06:20.297115+04:00: TARGET-COMPILED, scope consumed. ExecutionHEAD6bf5ecb1/evidence db1228ce; source8f592937/finalELFf9460a16, one query/compile,123transports/tenchildren0/reaped/no timeout, sevenfinalchecksPASS. Separate actual review41ecc2c9PASS. Active inert flags compile, but no upload/reset/MCU read or runtime/gate evidence. New104-file/764719B stage cleanup rejected by automatic review; retained and excluded from retries. See analysis/P7_motor_fault_active_compile_actual.md. Next bounded file-only ELF/ABI and upload-recipe observation.
+
+## D-173 (2026-09-25T07:10:13.872609+04:00, bounded file-only artifact investigation under D051)
+Context: D172 active inert compilation and separate actual review pass; runtime diagnosis requires real ARM layout and exact dynamic artifact binding.
+Decision: execute analysis/P7_motor_fault_abi_plan.md once after source review, using the existing transport/reap primitives and five fixed readelf/GDB file-only commands. Bind D172 artifacts/tools/loader before and after, preserve failed/partial evidence and fresh local ownership.
+Consequence: no upload/reset/MCU read, source or consumed-stage change, dependency install, motor permission or gate. A later inert upload/capture remains separately scoped.

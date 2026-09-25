@@ -1,14 +1,13 @@
 # Codex handoff - 25 September 2026, Asia/Dubai
 
-**Active: P7 software/release preparation. D175 uploader HOST-TESTED.**
-Source/oracle commit67eccbc5; uploader e926b7ba, independent test bdc810cb.
-New34PASS; legacy55+59+3PASS and harmless file-limit4PASS. Historical ownership
-19PASS/1FAIL: consumed run02 still pins old23661c8a, correctly mismatching D175.
-Keep original failed receipt, old manifest and assertion; no repin or retry.
-Separate fresh-context same-model review1317cc4fPASS, all12frozen inputs exact.
-Read analysis/P7_motor_fault_upload_validation.md. No native upload/reset/read.
-D174 decoder remains source68653597/f6e2fd36,22independent tests/reviewPASS;
-structural DECODED still explicitly UNPROVEN coherence. No gate is inferred.
+**Active: P7 software/release preparation. D176 capture HOST-TESTED.**
+Source7b7e8c69/95b0344d;8finalization+38diagnostic+46unchangedlegacy tests PASS,
+14frozenpins exact. Finalreview93ef66a7PASS; initial fresh reviewer reused for
+repair. Original38PASS/source-review2MAJOR and supplemental34failing subcases
+remain retained; firstsource repair closes both. See
+analysis/P7_motor_fault_capture_validation.md. No native upload/reset/read.
+D175 uploader67eccbc5/e926b7ba and D174 decoder68653597/f6e2fd36 remain checked;
+raw COLLECTED/structural DECODED always retains UNPROVEN coherence and no gate.
 
 D173 file-only observation succeeded: execution089de986/evidence cc9f50c6;
 one transport/five children exit0/reaped,26remote+120local checksPASS. Actual
@@ -29,29 +28,36 @@ No process is running. Previous source/failure/recipe/review evidence is retaine
 
 ## Exact next task
 
-Implement the smallest closed finite dynamic capture profile using existing
-capture_remote.py and runtime_capture.find_bss traversal. D175 upload selection
-is already complete and independently reviewed; do not redo it or old tests.
-Read analysis/P7_motor_fault_capture_plan_notes.md, P7_motor_fault_capture_dependencies.md,
-active_abi.json and tools/motor_fault_decode.py. Fix the exact public contract,
-independently derive/freeze new tests, implement and review the changed boundary.
-Do not clone a launcher or rebind module globals; preserve the static profile.
+Prepare the smallest source-pinned conditional inert upload/capture scope using
+existing CompileOnce.transport/prerequisites, D175 upload_loader and D176
+collect_motor_fault. Read analysis/P7_motor_fault_capture_plan_notes.md and both
+contracts/validation notes; source-only transport reuse and its limits are mapped.
+No new target build or ABI observation is needed. Do not clone another launcher
+or run the old static NativeRun unchanged; its packet binds a different artifact.
 
-Diagnostic source8f592937/raw ELFf9460a16/exportb4416792. Upload CLI takes raw
-.ino.elf selector; dynamic recipe uses .elf-zsk.bin sibling, both29836B. Capture
-must compare complete loader ELF-derived263680B image e9322826 and packaged
-sketch flash before/after, bound <=3 LLEXT nodes and consistent relocation before/
-after two2592B snapshots from exact2632B BSS (base aligned8). Candidate successful
-maximum24reads/593424B, existing30s child/600s total deadlines retained. Prove the
-actual count/order and failure bounds in independent tests. Retain both raw
-snapshots even if later decoding fails; matching samples do not prove atomicity.
+Create exact new upload/capture binding inputs from active_verified.json,
+deployment_files01/result.json and retained installed-tool metadata. Pin every
+actual helper/uploader/collector/runtime/p0 dependency and real ARM ABI. Verify
+bootstrap composition/imports and Windows30000UTF16-unit bound with controlled
+substitutes; separately review the thin glue and filled native scope before use.
+Return compact bounded summaries through local ADB, preserve full raw command
+receipts remotely and independently retain original transport/finalcheck failures.
+Perform upload once; capture only on strictly successful checked upload report.
 
-Then bind current tools/artifacts/identity and every reused source in a fresh
-reviewed caller, and record one identified inert upload/capture scope under
-existing bare-board permission. No motor-capable run is authorized. D160/D172/
-D173 and compile01/02/active01 are consumed; never repin or automatically retry.
-No process remains running. Exact next task is capture contract/tests/source,
-not another source dump, target rebuild or diagnostic ABI observation.
+Scope is source8f592937/rawELFf9460a16/packagedb4416792 (29836B each), default
+wait/dynamic MATCH0/MOTORS_ALLOWED0/SUMOX_MOTOR_FAULT_PROBE1. Upload takes raw
+.ino.elf selector; capture checks packaged .elf-zsk.bin and full loader ELF-derived
+263680B imagee9322826. D176 resolves exact2632B/BSSalign8 and captures two2592B
+snapshots with max24reads/593424B. Decode bounded saved raw locally after collection;
+never use lifecycle interpretation as admission or claim atomicity.
+
+Recheck current board/tools/artifacts/identity/prerequisites and local pins, then
+record one fresh identified inert scope under existing bare-board permission.
+No motor-capable run is authorized. D160/D172/D173 and compile01/02/active01 are
+consumed; do not repin or retry them. Changing capture_remote.py intentionally
+invalidates historical whole-file pins; use the new reviewed scope instead.
+No process remains running; exact next task is binding/bootstrap thin integration,
+not another test rerun or full source/build dump. Physical gates remain pending.
 
 Both build/stage/motor_fault and build/stage/motor-fault-active01 remain after
 policy-blocked cleanup. Never retry their removal or invoke implicit staging
@@ -142,3 +148,7 @@ Latest storage: C:233459712B observed07:36Dubai after checkpoint00ed5375.
 Pagefile allocation19596MiB, up872MiB versus earlier18724MiB; active memory
 pressure is implicated. No setting/process/denied-file change. Recheck space
 before continuing; exact next capture contract/tests/source task remains above.
+
+D176 closing storage:126287872B C:free observed;0ownedRAMremnants. Prior39MB dip
+recovered without cleanup. Recheck before new work; only compact needed receipts
+and existing-source reuse. All earlier denied paths remain untouched.

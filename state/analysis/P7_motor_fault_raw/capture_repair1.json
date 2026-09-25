@@ -1,0 +1,121 @@
+{
+  "kind": "CONTROLLED_HOST_SCRIPT_TESTS",
+  "native_board_calls": 0,
+  "tests": [
+    {
+      "started_at_dubai": "2026-09-25T07:51:53.056063+04:00",
+      "argv": [
+        "wsl",
+        "-d",
+        "Ubuntu",
+        "--",
+        "env",
+        "TMPDIR=/dev/shm",
+        "PYTHONDONTWRITEBYTECODE=1",
+        "python3",
+        "-B",
+        "state/analysis/P7_static_startup_raw/test_motor_fault_capture_finalization.py"
+      ],
+      "returncode": 0,
+      "seconds": 7.847528700018302,
+      "stdout": "",
+      "stderr": "test_clean_gathering_preserves_all_final_pin_failures_and_expiry (__main__.MotorFaultFinalization.test_clean_gathering_preserves_all_final_pin_failures_and_expiry) ... ok\ntest_final_check_deadline_boundaries_599_999_600_and_601_seconds (__main__.MotorFaultFinalization.test_final_check_deadline_boundaries_599_999_600_and_601_seconds) ... ok\ntest_nonzero_child_remains_primary_before_each_later_stream_failure (__main__.MotorFaultFinalization.test_nonzero_child_remains_primary_before_each_later_stream_failure) ... ok\ntest_primary_error_and_all_independent_final_errors_survive_expiry (__main__.MotorFaultFinalization.test_primary_error_and_all_independent_final_errors_survive_expiry) ... ok\ntest_successful_child_result_survives_each_later_stream_failure (__main__.MotorFaultFinalization.test_successful_child_result_survives_each_later_stream_failure) ... ok\ntest_timed_out_child_result_survives_each_later_stream_failure (__main__.MotorFaultFinalization.test_timed_out_child_result_survives_each_later_stream_failure) ... ok\ntest_unreaped_child_result_survives_each_later_stream_failure (__main__.MotorFaultFinalization.test_unreaped_child_result_survives_each_later_stream_failure) ... ok\ntest_wait_exception_remains_primary_before_later_stream_failure (__main__.MotorFaultFinalization.test_wait_exception_remains_primary_before_later_stream_failure) ... ok\n\n----------------------------------------------------------------------\nRan 8 tests in 1.500s\n\nOK\n"
+    },
+    {
+      "started_at_dubai": "2026-09-25T07:52:00.903662+04:00",
+      "argv": [
+        "wsl",
+        "-d",
+        "Ubuntu",
+        "--",
+        "env",
+        "TMPDIR=/dev/shm",
+        "PYTHONDONTWRITEBYTECODE=1",
+        "python3",
+        "-B",
+        "state/analysis/P7_static_startup_raw/test_motor_fault_capture.py"
+      ],
+      "returncode": 0,
+      "seconds": 4.344772799988277,
+      "stdout": "",
+      "stderr": "test_adapter_rejects_arbitrary_names_types_regions_sizes_and_order (__main__.MotorFaultCaptureContract.test_adapter_rejects_arbitrary_names_types_regions_sizes_and_order) ... ok\ntest_adapter_repeated_list_and_unbounded_failed_requests_cannot_launch (__main__.MotorFaultCaptureContract.test_adapter_repeated_list_and_unbounded_failed_requests_cannot_launch) ... ok\ntest_after_flash_mismatches_fail_and_keep_both_snapshots (__main__.MotorFaultCaptureContract.test_after_flash_mismatches_fail_and_keep_both_snapshots) ... ok\ntest_after_relocation_base_and_list_changes_retain_both_raw_snapshots (__main__.MotorFaultCaptureContract.test_after_relocation_base_and_list_changes_retain_both_raw_snapshots) ... ok\ntest_all_before_flash_mismatches_prevent_sram_and_traversal (__main__.MotorFaultCaptureContract.test_all_before_flash_mismatches_prevent_sram_and_traversal) ... ok\ntest_all_five_pin_mismatches_and_wrong_sketch_extent_rejected (__main__.MotorFaultCaptureContract.test_all_five_pin_mismatches_and_wrong_sketch_extent_rejected) ... ok\ntest_bad_node_address_is_rejected_without_launch (__main__.MotorFaultCaptureContract.test_bad_node_address_is_rejected_without_launch) ... ok\ntest_bad_process_results_and_exceptions_abort_without_retry (__main__.MotorFaultCaptureContract.test_bad_process_results_and_exceptions_abort_without_retry) ... ok\ntest_clock_error_cannot_replace_primary_failure (__main__.MotorFaultCaptureContract.test_clock_error_cannot_replace_primary_failure) ... ok\ntest_complete_capture_with_final_pin_drift_is_failed (__main__.MotorFaultCaptureContract.test_complete_capture_with_final_pin_drift_is_failed) ... ok\ntest_deadline_shortens_timeout_and_blocks_next_launch (__main__.MotorFaultCaptureContract.test_deadline_shortens_timeout_and_blocks_next_launch) ... ok\ntest_default_wrapper_uses_passive_environment_group_limits_and_reap (__main__.MotorFaultCaptureContract.test_default_wrapper_uses_passive_environment_group_limits_and_reap) ... ok\ntest_detached_bindings_survive_caller_mutation (__main__.MotorFaultCaptureContract.test_detached_bindings_survive_caller_mutation) ... ok\ntest_exact_binding_keys_roles_types_and_paths (__main__.MotorFaultCaptureContract.test_exact_binding_keys_roles_types_and_paths) ... ok\ntest_existing_output_and_consumed_success_cannot_be_reused (__main__.MotorFaultCaptureContract.test_existing_output_and_consumed_success_cannot_be_reused) ... ok\ntest_failed_launch_is_counted_at_final_read_ceiling (__main__.MotorFaultCaptureContract.test_failed_launch_is_counted_at_final_read_ceiling) ... ok\ntest_full_after_node_bytes_detect_change_outside_selected_metadata (__main__.MotorFaultCaptureContract.test_full_after_node_bytes_detect_change_outside_selected_metadata) ... ok\ntest_identity_and_process_conflicts_precede_directory_claim (__main__.MotorFaultCaptureContract.test_identity_and_process_conflicts_precede_directory_claim) ... ok\ntest_identity_run_and_schema_are_closed_before_ownership (__main__.MotorFaultCaptureContract.test_identity_run_and_schema_are_closed_before_ownership) ... ok\ntest_independent_final_identity_and_all_pins_after_primary_error (__main__.MotorFaultCaptureContract.test_independent_final_identity_and_all_pins_after_primary_error) ... ok\ntest_legacy_collect_rejects_diagnostic_binding_and_identifier (__main__.MotorFaultCaptureContract.test_legacy_collect_rejects_diagnostic_binding_and_identifier) ... ok\ntest_list_confirmation_change_fails_before_snapshot (__main__.MotorFaultCaptureContract.test_list_confirmation_change_fails_before_snapshot) ... ok\ntest_loader_reference_type_extent_hash_and_pin_shape (__main__.MotorFaultCaptureContract.test_loader_reference_type_extent_hash_and_pin_shape) ... ok\ntest_matching_and_different_snapshots_never_claim_coherence (__main__.MotorFaultCaptureContract.test_matching_and_different_snapshots_never_claim_coherence) ... ok\ntest_missing_short_oversize_symlink_raw_retains_failure_evidence (__main__.MotorFaultCaptureContract.test_missing_short_oversize_symlink_raw_retains_failure_evidence) ... ok\ntest_nested_diagnostic_instances_keep_separate_ownership (__main__.MotorFaultCaptureContract.test_nested_diagnostic_instances_keep_separate_ownership) ... ok\ntest_offline_decoder_valid_fault_and_malformed_raw_keep_capture_unchanged (__main__.MotorFaultCaptureContract.test_offline_decoder_valid_fault_and_malformed_raw_keep_capture_unchanged) ... ok\ntest_output_replacement_preserves_original_owned_receipts (__main__.MotorFaultCaptureContract.test_output_replacement_preserves_original_owned_receipts) ... ok\ntest_pause_happens_after_first_snapshot_and_before_second (__main__.MotorFaultCaptureContract.test_pause_happens_after_first_snapshot_and_before_second) ... ok\ntest_real_fourth_node_never_requested (__main__.MotorFaultCaptureContract.test_real_fourth_node_never_requested) ... ok\ntest_real_traversal_empty_tail_cycle_name_and_match_faults (__main__.MotorFaultCaptureContract.test_real_traversal_empty_tail_cycle_name_and_match_faults) ... ok\ntest_real_traversal_one_two_three_nodes_exact_plan_and_counts (__main__.MotorFaultCaptureContract.test_real_traversal_one_two_three_nodes_exact_plan_and_counts) ... ok\ntest_receipts_synced_before_launch_and_claim_failure_consumes_owner (__main__.MotorFaultCaptureContract.test_receipts_synced_before_launch_and_claim_failure_consumes_owner) ... ok\ntest_selected_sketch_can_be_first_middle_or_last (__main__.MotorFaultCaptureContract.test_selected_sketch_can_be_first_middle_or_last) ... ok\ntest_short_throwing_or_deadline_pause_preserves_one_snapshot (__main__.MotorFaultCaptureContract.test_short_throwing_or_deadline_pause_preserves_one_snapshot) ... ok\ntest_stream_ceiling_stops_at_first_command_and_keeps_raw (__main__.MotorFaultCaptureContract.test_stream_ceiling_stops_at_first_command_and_keeps_raw) ... ok\ntest_symlink_input_and_output_parent_never_followed (__main__.MotorFaultCaptureContract.test_symlink_input_and_output_parent_never_followed) ... ok\ntest_traversal_admitted_only_after_full_flash_comparison (__main__.MotorFaultCaptureContract.test_traversal_admitted_only_after_full_flash_comparison) ... ok\n\n----------------------------------------------------------------------\nRan 38 tests in 4.040s\n\nOK\n"
+    },
+    {
+      "started_at_dubai": "2026-09-25T07:52:05.248481+04:00",
+      "argv": [
+        "wsl",
+        "-d",
+        "Ubuntu",
+        "--",
+        "env",
+        "TMPDIR=/dev/shm",
+        "PYTHONDONTWRITEBYTECODE=1",
+        "python3",
+        "-B",
+        "state/analysis/P7_static_startup_raw/test_capture_remote.py"
+      ],
+      "returncode": 0,
+      "seconds": 2.9467554000439122,
+      "stdout": "",
+      "stderr": "..............................................\n----------------------------------------------------------------------\nRan 46 tests in 2.757s\n\nOK\n"
+    }
+  ],
+  "final_pins": [
+    {
+      "path": "state/analysis/P7_static_startup_raw/capture_remote.py",
+      "unchanged": true
+    },
+    {
+      "path": "state/analysis/P7_static_startup_raw/test_motor_fault_capture.py",
+      "unchanged": true
+    },
+    {
+      "path": "state/analysis/P7_static_startup_raw/test_capture_remote.py",
+      "unchanged": true
+    },
+    {
+      "path": "state/analysis/P7_static_startup_raw/capture_bindings.json",
+      "unchanged": true
+    },
+    {
+      "path": "state/analysis/P7_static_startup_raw/upload_remote.py",
+      "unchanged": true
+    },
+    {
+      "path": "state/analysis/P7_static_startup_raw/test_motor_fault_upload.py",
+      "unchanged": true
+    },
+    {
+      "path": "state/analysis/P7_static_link_probe_raw/static_remote.py",
+      "unchanged": true
+    },
+    {
+      "path": "state/analysis/P7_motor_fault_capture_contract.md",
+      "unchanged": true
+    },
+    {
+      "path": "tools/runtime_capture.py",
+      "unchanged": true
+    },
+    {
+      "path": "tools/p0_capture.py",
+      "unchanged": true
+    },
+    {
+      "path": "tools/recorder_heap.py",
+      "unchanged": true
+    },
+    {
+      "path": "tools/motor_fault_decode.py",
+      "unchanged": true
+    },
+    {
+      "path": "state/analysis/P7_motor_fault_raw/active_abi.json",
+      "unchanged": true
+    },
+    {
+      "path": "state/analysis/P7_static_startup_raw/test_motor_fault_capture_finalization.py",
+      "unchanged": true
+    }
+  ]
+}

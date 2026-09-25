@@ -1975,3 +1975,8 @@ Decision: implement analysis/P7_motor_fault_upload_contract.md as one per-instan
 Consequence: host preparation only; profile selection is not artifact-origin proof or run permission. Exact native bindings/prerequisites/capture preparation and a separately identified inert scope remain necessary. No firmware/locked-test/limit/pin or old consumed-manifest change.
 
 D-175 outcome 2026-09-25T07:35:20.576695+04:00: source/oracle67eccbc5 unchanged; new34PASS, legacy55+59+3PASS, harmless filelimit4PASS. Historical run02 ownership19PASS/1FAIL retains its consumed old sourcepin23661c8a; independent review1317cc4f confirms expected snapshot mismatch, no behavior regression or manifest/assertion change. All12pins exact. HOST-TESTED only, native0. See analysis/P7_motor_fault_upload_validation.md. Next finite dynamic capture profile; no old run may be reused.
+
+## D-176 (2026-09-25T07:38:51.718499+04:00, bounded inert capture preparation under D051)
+Context: D175 closed uploader is host-tested/reviewed; observed ARM2592B Runner and2632B BSS require a finite relocated capture before another inert run.
+Decision: implement analysis/P7_motor_fault_capture_contract.md using the existing collector primitives and real bounded find_bss, with independent source-derived tests and separate review. Preserve raw snapshots, full flash/relocation bracketing, explicit UNPROVEN coherence, legacy behavior and consumed manifests.
+Consequence: host preparation only; no upload/reset/MCU read, new motor permission, firmware/config/locked-test change or inferred physical gate. Use compact source/receipts and serial RAM fixtures while disk space is low.

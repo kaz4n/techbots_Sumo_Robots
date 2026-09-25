@@ -1,4 +1,4 @@
-# Collects the fixed, passive eighteen-read static startup observation once.
+# Collects fixed, passive static and diagnostic startup observations once.
 # Keeps durable ownership, bounded child execution and incomplete evidence explicit.
 # Independent Linux host fixtures exercise descriptors, failures and process seams.
 from datetime import datetime, timezone
@@ -155,6 +155,10 @@ def wait_child(child, timeout):
 
 
 class Capture:
+    source = SOURCE
+    result_schema = 'static-capture-result-v1'
+    attempt_schema = 'static-capture-attempt-v1'
+
     def __init__(self, helper, decoder, loader_image, fs_root, executor, clock, sleeper,
                  bindings=None, run_id='static-fcddbd8e-run01'):
         self.helper, self.decoder, self.loader_image = helper, decoder, loader_image
@@ -162,8 +166,8 @@ class Capture:
         self.fs_root, self.executor = fs_root, executor
         self.clock, self.sleeper = clock or time.monotonic, sleeper or time.sleep
         self.started = self.now()
-        self.report = {'schema': 'static-capture-result-v1', 'run_id': None,
-                       'source_sha256': SOURCE, 'status': 'FAILED',
+        self.report = {'schema': self.result_schema, 'run_id': None,
+                       'source_sha256': self.source, 'status': 'FAILED',
                        'counts': {'commands': 0, 'reads': 0, 'requested_bytes': 0},
                        'started_utc': utc(), 'finished_utc': None,
                        'started_monotonic': self.started, 'finished_monotonic': None,
@@ -250,8 +254,16 @@ class Capture:
                         'Conflicting process: ' + name)
                 self.budget()
 
+    def profile_bindings(self):
+        return checked_bindings(self.input_bindings, self.run_id)
+
+    def prepare_plan(self):
+        self.plan = tuple(self.decoder.read_plan())
+        require(len(self.plan) == 18 and sum(item[2] for item in self.plan) == 713656,
+                'Decoder plan differs from fixed extent')
+
     def admit(self):
-        self.bindings = checked_bindings(self.input_bindings, self.run_id)
+        self.bindings = self.profile_bindings()
         self.output_name = self.bindings['output'].rsplit('/', 1)[1]
         self.report['run_id'] = self.bindings['run_id']
         require(isinstance(self.fs_root, Path) and self.fs_root.is_absolute(),
@@ -273,9 +285,7 @@ class Capture:
                 digest(self.loader) == pin['sha256'], 'Derived loader image differs')
         self.sketch = references['sketch']
         self.budget()
-        self.plan = tuple(self.decoder.read_plan())
-        require(len(self.plan) == 18 and sum(item[2] for item in self.plan) == 713656,
-                'Decoder plan differs from fixed extent')
+        self.prepare_plan()
         self.check_processes()
         self.budget()
 
@@ -344,8 +354,8 @@ class Capture:
             raise
         self.budget()
         self.write_record('capture_attempt.json',
-                          {'schema': 'static-capture-attempt-v1',
-                           'run_id': self.bindings['run_id'], 'source_sha256': SOURCE,
+                          {'schema': self.attempt_schema,
+                           'run_id': self.bindings['run_id'], 'source_sha256': self.source,
                            'boot_id': self.bindings['boot_id'], 'bindings': self.bindings,
                            'plan': self.plan, 'created_utc': utc()})
         self.budget()
@@ -508,12 +518,14 @@ class Capture:
         self.postcheck('identity', self.check_identity)
         self.postcheck('directory', self.check_directory)
         self.timestamp(self.report, 'finished')
-        counts = self.report['counts']
-        complete = counts == {'commands': 18, 'reads': 18, 'requested_bytes': 713656}
-        if complete and self.report['analysis'] is not None and self.report['first_error'] is None:
+        if self.complete() and self.report['analysis'] is not None and self.report['first_error'] is None:
             self.report['status'] = 'COLLECTED'
         self.write_record('capture_result.json', self.report, evidence=True)
         return self.report
+
+    def complete(self):
+        return self.report['counts'] == {'commands': 18, 'reads': 18,
+                                         'requested_bytes': 713656}
 
     def close(self):
         for fd in (self.output_fd, self.root_fd):
@@ -525,6 +537,10 @@ def collect(helper, decoder, loader_image, *, fs_root=Path('/'), executor=None,
             clock=None, sleeper=None, bindings=None, run_id='static-fcddbd8e-run01'):
     capture = Capture(helper, decoder, loader_image, fs_root, executor, clock, sleeper,
                       bindings, run_id)
+    return _collect(capture)
+
+
+def _collect(capture):
     try:
         try:
             capture.admit()
@@ -537,3 +553,237 @@ def collect(helper, decoder, loader_image, *, fs_root=Path('/'), executor=None,
         return capture.finalize()
     finally:
         capture.close()
+
+
+def _motor_fault_bindings(bindings, run_id):
+    require(type(run_id) is str and run_id == 'motor-fault-8f592937-run01',
+            'Wrong diagnostic run identity')
+    value = BINDINGS if bindings is None else bindings
+    keys(value, ('schema', 'run_id', 'source_sha256', 'boot_id', 'uid',
+                 'output', 'files', 'loader_image'))
+    source = '8f592937961a0c95b7cc4db88617169fcc9504644aa8b8b7dcf62f83c4c33f36'
+    fixed = {'schema': 'fixed-motor-fault-capture-v1', 'run_id': run_id,
+             'source_sha256': source, 'output': PARENT + '/' + run_id + '-capture'}
+    for name, expected in fixed.items():
+        require(type(value[name]) is str and value[name] == expected,
+                'Wrong binding: ' + name)
+    require(type(value['boot_id']) is str and re.fullmatch(
+        r'[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}', value['boot_id']),
+        'Invalid boot identity')
+    require(type(value['uid']) is int and value['uid'] == 1000, 'Wrong bound UID')
+    keys(value['files'], FILE_NAMES)
+    paths = {
+        'openocd': '/opt/openocd/bin/openocd',
+        'config': '/home/arduino/sumox26-capture-tools/app-default-'
+                  'beeffff315b2e28a95a20dc1e26477fc924b2da26d1fdd8a8b36fb013ca110e1'
+                  '/p0_mem_read.cfg',
+        'swj': '/opt/openocd/share/openocd/scripts/target/swj-dp.tcl',
+        'loader': '/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/'
+                  'firmwares/zephyr-arduino_uno_q_stm32u585xx.elf',
+        'sketch': PARENT + '/motor-fault-active01/_app_builds/native-app-v1/' + source +
+                  '/bench-default/3aafdd0129f64799b4db51efe78e5c44/build/'
+                  'motor_fault.ino.elf-zsk.bin'}
+    for name, pin in value['files'].items():
+        check_pin(pin)
+        require(pin['path'] == paths[name], 'Wrong diagnostic file path: ' + name)
+    check_pin(value['loader_image'], False)
+    require(value['loader_image']['bytes'] == 263680 and
+            value['files']['sketch']['bytes'] == 29836, 'Wrong reference extent')
+    require(sys.flags.dont_write_bytecode, 'Python -B is required')
+    return json.loads(json_bytes(value))
+
+
+def _motor_fault_ram(address, size):
+    require(type(address) is int and type(size) is int and address % 4 == 0 and
+            0 < size <= 2632 and 0x20000000 <= address < 0x200c0000 and
+            address + size <= 0x200c0000, 'Invalid diagnostic SRAM region')
+
+
+class _RelocationAdapter:
+    def __init__(self, capture, prefix):
+        self.capture, self.prefix = capture, prefix
+        flags = capture.report['analysis']['flash']
+        self.report = {'flash_identity_verified':
+                       flags['before_loader'] is True and flags['before_sketch'] is True}
+        self.records, self.nodes = [], []
+        self.next_address, self.confirmed = None, False
+
+    def read(self, name, address, size):
+        try:
+            return self._read(name, address, size)
+        except Exception as error:
+            self.capture.remember(error)
+            raise
+
+    def _read(self, name, address, size):
+        require(type(name) is str and type(address) is int and type(size) is int,
+                'Invalid relocation read types')
+        require(not self.confirmed, 'Relocation traversal already ended')
+        if not self.records:
+            expected = ('llext-list', 0x200017bc, 8)
+        elif self.next_address:
+            require(len(self.nodes) < 3, 'Too many extension nodes')
+            expected = ('node-' + str(len(self.nodes) + 1), self.next_address, 196)
+            _motor_fault_ram(address, size)
+        else:
+            require(self.nodes, 'Empty relocation traversal')
+            expected = ('llext-list-confirm', 0x200017bc, 8)
+        require((name, address, size) == expected, 'Unexpected relocation read')
+        if self.prefix == 'after':
+            before = self.capture.before_relocation
+            require(len(self.records) < len(before) and
+                    before[len(self.records)][:2] == (name, address),
+                    'Relocation bracket read sequence changed')
+        raw = self.capture.read_region(self.prefix + '.' + name, address, size)
+        self.records.append((name, address, raw))
+        if self.prefix == 'after':
+            require(self.records[-1] == before[len(self.records) - 1],
+                    'Relocation bracket raw bytes changed')
+        if name == 'llext-list-confirm':
+            self.confirmed = True
+        else:
+            self.next_address = int.from_bytes(raw[:4], 'little')
+            if name.startswith('node-'):
+                self.nodes.append(address)
+        return raw
+
+    def finish(self, base):
+        require(self.confirmed, 'Incomplete relocation traversal')
+        extension = self.report.get('extension')
+        keys(extension, ('node_address', 'bss_address', 'bss_size', 'visited_nodes'))
+        require(all(type(extension[key]) is int for key in
+                    ('node_address', 'bss_address', 'bss_size')) and
+                type(extension['visited_nodes']) is list and
+                all(type(node) is int for node in extension['visited_nodes']),
+                'Invalid relocation metadata types')
+        require(type(base) is int and base == extension['bss_address'] and base % 8 == 0
+                and extension['bss_size'] == 2632 and
+                extension['visited_nodes'] == self.nodes and
+                extension['node_address'] in self.nodes, 'Invalid selected BSS metadata')
+        _motor_fault_ram(base, 2632)
+        selected = next(raw for name, address, raw in self.records
+                        if name.startswith('node-') and address == extension['node_address'])
+        require(selected[4:20].split(b'\0', 1)[0] == b'sketch' and
+                int.from_bytes(selected[32:36], 'little') == base and
+                int.from_bytes(selected[92:96], 'little') == 2632,
+                'Selected BSS differs from raw node')
+        return json.loads(json_bytes(extension))
+
+
+class _MotorFaultCapture(Capture):
+    source = '8f592937961a0c95b7cc4db88617169fcc9504644aa8b8b7dcf62f83c4c33f36'
+    result_schema = 'motor-fault-capture-result-v1'
+    attempt_schema = 'motor-fault-capture-attempt-v1'
+
+    def profile_bindings(self):
+        return _motor_fault_bindings(self.input_bindings, self.run_id)
+
+    def prepare_plan(self):
+        self.plan = {'profile': 'motor-fault-v1', 'max_reads': 24,
+                     'max_requested_bytes': 593424, 'loader_bytes': 263680,
+                     'sketch_bytes': 29836, 'bss_bytes': 2632,
+                     'snapshot_bytes': 2592, 'extension_nodes': 3, 'sample_gap_seconds': 2}
+        self.report['analysis'] = {
+            'schema': 'motor-fault-capture-analysis-v1',
+            'flash': {'before_loader': False, 'before_sketch': False,
+                      'after_loader': False, 'after_sketch': False},
+            'relocation': {'before': None, 'after': None},
+            'snapshots': [], 'coherence': 'UNPROVEN'}
+        self.bss, self.gathered, self.before_relocation = None, False, None
+
+    def check_limits(self, size):
+        require(self.report['first_error'] is None, 'Earlier capture read failed')
+        counts = self.report['counts']
+        require(counts['commands'] < 24 and counts['reads'] < 24 and
+                counts['requested_bytes'] + size <= 593424,
+                'Diagnostic capture read or byte ceiling exceeded')
+
+    def launch(self, index, argv, size, receipt):
+        self.check_limits(size)
+        return super().launch(index, argv, size, receipt)
+
+    def check_region(self, name, address, size):
+        require(type(name) is str and type(address) is int and type(size) is int,
+                'Invalid diagnostic read types')
+        flash = re.fullmatch(r'(before|after)\.(loader|sketch)\.([0-4])', name)
+        if flash:
+            region, index = flash[2], int(flash[3])
+            extent, base = (263680, 0x08000000) if region == 'loader' else (29836, 0x08100000)
+            offset = index * 65536
+            require(offset < extent and address == base + offset and
+                    size == min(65536, extent - offset), 'Wrong named flash region')
+            return
+        flags = self.report['analysis']['flash']
+        require(flags['before_loader'] and flags['before_sketch'],
+                'Complete flash identity required before SRAM')
+        _motor_fault_ram(address, size)
+        if name in ('first.diagnostic', 'second.diagnostic'):
+            require(self.bss is not None and address == self.bss and size == 2592,
+                    'Wrong diagnostic snapshot region')
+        elif re.fullmatch(r'(before|after)\.llext-list(?:-confirm)?', name):
+            require(address == 0x200017bc and size == 8, 'Wrong extension list region')
+        else:
+            require(re.fullmatch(r'(before|after)\.node-[1-3]', name) and size == 196,
+                    'Wrong extension node region')
+
+    def read_region(self, name, address, size):
+        self.check_region(name, address, size)
+        self.check_limits(size)
+        try:
+            self.one_read(len(self.samples), (name, address, size))
+        finally:
+            # A later clock failure cannot hide a raw snapshot already retained.
+            self.report['analysis']['snapshots'] = [dict(item) for item in self.report['reads']
+                if item['name'] in ('first.diagnostic', 'second.diagnostic')]
+        return self.samples[-1][2]
+
+    def flash_image(self, prefix, region):
+        reference, base = (self.loader, 0x08000000) if region == 'loader' else (self.sketch, 0x08100000)
+        blocks = [self.read_region(prefix + '.' + region + '.' + str(index),
+                                   base + offset, min(65536, len(reference) - offset))
+                  for index, offset in enumerate(range(0, len(reference), 65536))]
+        matches = b''.join(blocks) == reference
+        self.report['analysis']['flash'][prefix + '_' + region] = matches
+        require(matches, 'Captured flash image differs: ' + prefix + '.' + region)
+
+    def relocate(self, prefix):
+        adapter = _RelocationAdapter(self, prefix)
+        base = self.decoder.find_bss(adapter, 2632)
+        extension = adapter.finish(base)
+        self.report['analysis']['relocation'][prefix] = extension
+        return base, adapter.records
+
+    def gather(self):
+        self.flash_image('before', 'loader')
+        self.flash_image('before', 'sketch')
+        self.bss, before = self.relocate('before')
+        self.before_relocation = before
+        self.read_region('first.diagnostic', self.bss, 2592)
+        self.pause()
+        self.read_region('second.diagnostic', self.bss, 2592)
+        after_base, after = self.relocate('after')
+        relocation = self.report['analysis']['relocation']
+        require(after_base == self.bss and before == after and
+                relocation['before'] == relocation['after'], 'Relocation bracket changed')
+        self.flash_image('after', 'sketch')
+        self.flash_image('after', 'loader')
+        self.gathered = True
+        self.budget()
+
+    def complete(self):
+        if not self.gathered:
+            return False
+        analysis = self.report['analysis']
+        nodes = len(analysis['relocation']['before']['visited_nodes'])
+        return (1 <= nodes <= 3 and all(analysis['flash'].values()) and
+                len(analysis['snapshots']) == 2 and self.report['counts'] ==
+                {'commands': 18 + 2 * nodes, 'reads': 18 + 2 * nodes,
+                 'requested_bytes': 592248 + 392 * nodes})
+
+
+def collect_motor_fault(helper, relocation, loader_image, *, fs_root=Path('/'),
+                        executor=None, clock=None, sleeper=None, bindings=None,
+                        run_id='motor-fault-8f592937-run01'):
+    capture = _MotorFaultCapture(helper, relocation, loader_image, fs_root, executor,
+                                 clock, sleeper, bindings, run_id)
+    return _collect(capture)

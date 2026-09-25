@@ -48,7 +48,22 @@ provide read(name,address,size), record verified flash state, and retain the
 extension result without copying the traversal or rebinding module globals.
 The eventual bootstrap must pin exact source of every reused primitive.
 
-Remaining before upload/capture: implement/test D175 upload profile, define and
-test the precise capture contract, bind current tools/artifacts/identity and source
-inputs in a fresh caller, then record one identified inert run. ExistingD172/D173
+D175 upload profile is implemented/tested/reviewed (67eccbc5, review1317cc4f).
+D176 precise capture contract is P7_motor_fault_capture_contract.md; implementation
+and independent tests are in progress. After that, bind current tools/artifacts/
+identity and source inputs in a fresh caller, then record one identified inert run. ExistingD172/D173
 and legacy static scopes are consumed. No further hardware is requested now.
+
+Native caller source map for the next bounded task (no caller implementation yet):
+startup_run.py:60 bootstrap supports only historical static runs and bundles a
+static decoder; :234 validator requires18reads/713656B. :411 load_probe and :448
+prepare_commands verify the historical static artifact/staging packet, not the
+D172 diagnostic. Never call that NativeRun unchanged for this build. Its checked
+payload construction, transport ownership, conditional-upload/capture sequencing
+and independent final checks are useful existing machinery to extend minimally.
+Old run01/run02 source pins/scopes stay consumed, not repinned. Loader parser on
+board is18880B/885c4e42; full runtime_capture module also imports p0_capture and
+recorder_heap. A future bundle must account for those real dependencies, verify
+all bytes before execution, and test its actual Windows command-size bound.
+Do not silently substitute the old runtime decoder or heap collector. Upload
+input remains raw ELF; capture reference remains its packaged ELF-ZSK sibling.

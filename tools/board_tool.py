@@ -306,6 +306,7 @@ def stage(sketch, *, attempt=None):
         fail('sketch must be app or bench/<lowercase_name>')
     if not source.is_file() or source.is_symlink():
         fail(f'sketch source does not exist or is a symlink: {sketch}')
+    validate_app_motor_fault_sources(sketch, source)
     for folder in [source.parent, ROOT / 'src']:
         check_source(folder)
     local_src = source.parent / 'src'
@@ -360,6 +361,25 @@ def stage_ui_probe_sources(sketch, destination):
         if not source.is_file() or source.is_symlink() or os.path.lexists(target_file):
             fail('bare ADC probe requires exact non-conflicting shared UI sources')
         shutil.copy2(source, target_file)
+
+
+def validate_app_motor_fault_sources(sketch, source):
+    if sketch != 'bench/app_motor_fault':
+        return
+    for folder in (source.parent, ROOT / 'src', ROOT / 'bench/motor_fault/src'):
+        for ancestor in (folder, *folder.parents):
+            plain_stage_directory(ancestor)
+            if ancestor == ROOT:
+                break
+        pending = [folder]
+        while pending:
+            for item in pending.pop().iterdir():
+                metadata = item.lstat()
+                if (getattr(metadata, 'st_file_attributes', 0) & stat.FILE_ATTRIBUTE_REPARSE_POINT or
+                        not (stat.S_ISREG(metadata.st_mode) or stat.S_ISDIR(metadata.st_mode))):
+                    fail('Full-app fault staging requires plain source trees')
+                if stat.S_ISDIR(metadata.st_mode):
+                    pending.append(item)
 
 
 def stage_app_motor_fault_sources(sketch, destination):

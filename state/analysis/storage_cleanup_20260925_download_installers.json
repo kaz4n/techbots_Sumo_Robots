@@ -1,0 +1,67 @@
+{
+  "time": "2026-09-25T18:26:34.8618046+04:00",
+  "status": "REMOVED",
+  "reason": "Downloaded installer payloads for already installed matching applications; installed programs retained",
+  "root": "C:\\Users\\narut\\Downloads",
+  "free_before": 998895616,
+  "files": [
+    {
+      "path": "C:\\Users\\narut\\Downloads\\Wireshark-4.6.4-x64.exe",
+      "bytes": 96981632,
+      "sha256": "102017d8e99a75b57895cd2144e6a61dc335a8ff14c7a25bd83a55f8ea9ad77b",
+      "mtime_utc": "2026-04-17T08:14:33.8161204Z",
+      "installed_path": "C:\\Program Files\\Wireshark\\Wireshark.exe",
+      "installed_bytes": 12704040,
+      "installed_sha256": "9f6c78f3828ac92e9af64055731aa27b9b6e240c88991c1ef0b5c6a2db56954b",
+      "installed_mtime_utc": "2026-02-25T18:04:08.0000000Z",
+      "installed_product_version": "4.6.4"
+    },
+    {
+      "path": "C:\\Users\\narut\\Downloads\\WIN-NotchSetup-v1.1-LauDtz_o.exe",
+      "bytes": 82514390,
+      "sha256": "def6fae101cdbacbd05e34d5908922d5270475eb899dce4822122f1df566d72a",
+      "mtime_utc": "2026-04-19T12:52:00.6419488Z",
+      "installed_path": "C:\\Users\\narut\\AppData\\Local\\Notch\\Notch.exe",
+      "installed_bytes": 6514322,
+      "installed_sha256": "f316831367226601f67521ab82d66402c0490cb5688a3e737f1d99de30839d29",
+      "installed_mtime_utc": "2026-03-27T22:44:32.0000000Z",
+      "installed_product_version": "1.1.0.0"
+    },
+    {
+      "path": "C:\\Users\\narut\\Downloads\\vcxsrv-64.1.20.14.0.installer.exe",
+      "bytes": 42865185,
+      "sha256": "7a5cd7d9d0ac982f09c8a93051fc48ab072fcc4b52237d1b91494363b9dad27e",
+      "mtime_utc": "2026-03-15T08:19:49.8531240Z",
+      "installed_path": "C:\\Program Files\\VcXsrv\\vcxsrv.exe",
+      "installed_bytes": 3767296,
+      "installed_sha256": "a00a750402f9940073e1b4be8cf260f368e1a23ecf6f637de3aa4d4b4cd4e213",
+      "installed_mtime_utc": "2021-12-31T16:09:18.0000000Z",
+      "installed_product_version": "1.20.14.0\""
+    }
+  ],
+  "installer_processes": [],
+  "preserved_app_lab": "Executable has no version metadata; four-file preflight stopped without mutation; excluded from three-file cleanup",
+  "pagefile_allocated_mib": 23413,
+  "completed": "2026-09-25T18:27:21.4810807+04:00",
+  "removed_paths": [
+    "C:\\Users\\narut\\Downloads\\Wireshark-4.6.4-x64.exe",
+    "C:\\Users\\narut\\Downloads\\WIN-NotchSetup-v1.1-LauDtz_o.exe",
+    "C:\\Users\\narut\\Downloads\\vcxsrv-64.1.20.14.0.installer.exe"
+  ],
+  "logical_bytes_removed": 222361207.0,
+  "installed_hashes_unchanged": true,
+  "free_after": 1218478080,
+  "prior_guard_failure": "First removal call exited before mutations because default ConvertFrom-Json converted timestamp strings to DateTime. Explicit DateKind String preserves exact comparison; all three size/mtime/hash checks passed independently before retry.",
+  "independent_verification": {
+    "reviewer": "cleanup_audit_new (separate context; reused read-only audit context)",
+    "result": "PASS",
+    "checks": [
+      "Three installers absent",
+      "Installed executable size/SHA256/mtime unchanged",
+      "AppLab installer retained (58246984B)",
+      "Prior denied Obsidian/OpenCode installers retained",
+      "No src/config/bench/host/locked-test diff against4b87582c"
+    ],
+    "scope": "Cleanup verification, not firmware gate review"
+  }
+}

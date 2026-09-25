@@ -1,8 +1,9 @@
 # Current execution checklist - 2026-09-25 Asia/Dubai
 
-**D155 host launcher:30 independent+10 reviewer methods first-runPASS.**
-Source6f86e645/review26fcf2f7PASS; actual local payloads fit28068/24981units.
-No MCU operation. D153/D154 remain complete; next identify/commit inert run scope.
+**D156 actual upload FAILED; capture0; scope consumed.** The inherited1MiB
+process file cap blocked copying the2,303,728B loader. Independent final checks
+passed; original failed report/temporary fragment retained. D155's30+10 host
+methods pass but did not model this native copy. Next upload-limit correction.
 
 **D152 pure startup interpretation:37 host methods PASS and scoped review PASS.**
 See analysis/P7_static_capture_validation.md. Loader reference is ELF-derived
@@ -93,7 +94,12 @@ pending; D051/D075/D122/D137 permit scheduling, not fabricated measurements.
 - [x] D155 host coordinator:30public+10reviewer methods first-runPASS;
   review26fcf2f7PASS, actual local composition/source/packet checks and sizing.
   See analysis/P7_static_startup_launcher_validation.md; no native action.
-- [ ] Separately scope bare-board M0 startup qualification; reuse packet/collector,
+- [x] D156 one scoped bare-board M0 attempt: FAILED loader-copy file limit,
+  capture0, nine transport calls0/clean final checks. Scope consumed, no retry.
+  See analysis/P7_static_startup_actual_validation.md and actual review.
+- [ ] Correct upload-specific file cap; real host child-copy/boundary regression,
+  preserve historical expectations/failure and D153. Review known temporary
+  residue and fresh one-shot scope before another inert attempt; reuse packet/collector,
   existing pinned loader helper and explicit CLI config; no binary/source copy.
 - [ ] Qualify native loading/startup, stack/heap/WCET and release workflow before
   adoption. Structural RAM tail94352B is not measured free memory.

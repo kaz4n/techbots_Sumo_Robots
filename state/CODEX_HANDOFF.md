@@ -1,10 +1,12 @@
 # Codex handoff - 2026-09-25 Asia/Dubai
 
-**D155 host launcher: HOST-TESTED, scoped review PASS.** Source6f86e645 passes
-30 independent+10 reviewer adapter tests on first execution; review26fcf2f7PASS.
-Actual local payloads fit28068/24981UTF16 units, zero board dispatches. Read
-analysis/P7_static_startup_launcher_validation.md. D153/D154 remain complete;
-next identify/commit the precise bare-board M0 run scope, then execute once.
+**D156 actual startup attempt FAILED; scope consumed.** One upload child exited1:
+the inherited1MiB file cap blocked its2,303,728B loader copy. Capture was suppressed;
+nine transport calls and all independent final checks passed. Read
+analysis/P7_static_startup_actual_validation.md. D155's30+10host tests and scoped
+review remain genuine host evidence, but did not detect this native policy defect.
+Next fix/test the upload-specific file cap and assess known temporary residue;
+never rerun D156 or claim a current-image startup measurement.
 
 **Active phase: P7 software/release preparation.** D138 informational READY and
 battery-threshold software is implemented, host-tested and target-compiled.
@@ -50,8 +52,12 @@ has now been observed to select the intended data/user directories (F162); raw
 queries and original mistakenprojection are preserved. Existing board p0_capture.py
 is hash885c4e42/18880B, file-verified; reuse it to fit the Windows command budget.
 
-Exact next task: identify/commit native_run01_scope.json for the completed D155
-host coordinator, D153 collector and D154 uploader. Bind reviewed HEAD/source, D144 packet,
+Exact next task: develop the smallest upload-file-limit correction for the
+observed2,303,728B loader copy; retain original frozen evidence and D153 capture.
+Use real harmless child-copy and diagnostic-boundary host tests. A future scope
+must bind fresh one-shot ownership and handle the exact known1MiB partial file
+under /tmp/remoteocd. D156/native_run01 and its upload scope are terminal; no retry.
+Bind reviewed HEAD/source, D144 packet,
 installed dependencies, explicit CLI configuration and selected core/recipe.
 F165/F166 file-only receipts establish observed initialization prerequisites;
 recheck them immediately before the later native scope.
@@ -86,7 +92,7 @@ original140971B SHA2561dbbeb53c3dc046128494af3bef240b9a00353929d6121991900c90bb2
 
 ## Physical and operational boundaries
 
-Last actual MCU upload remains consumed D118defaultM0 sourcee820c0e1. Historical
+Last known successful MCU upload remains consumed D118defaultM0 sourcee820c0e1. Historical
 4500Bfree/4364Blargest and513us are not current-image or full-source WCET proof.
 No current MCU state is assumed. D138 only used Linux compile/file inspection.
 Source grants and physical button windows remain default-off/unqualified.

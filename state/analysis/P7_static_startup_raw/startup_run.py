@@ -74,9 +74,12 @@ def main():
   m=types.ModuleType('fixed_startup_'+name);m.__file__='/__sumox__/'+name+'.py'
   exec(compile(source,m.__file__,'exec'),m.__dict__);modules[name]=m
  h,s=modules['helper'],modules['support']
- bindings=json.loads(value['bindings'])
+ bindings=json.loads(value['bindings']);run_id=value['run_id']
+ if type(run_id) is not str or run_id not in ('static-fcddbd8e-run01','static-fcddbd8e-run02'):raise ValueError('Wrong run identity')
  if action=='upload':
-  u=modules['upload'];u.BINDINGS=bindings;result=u.upload(h,s)
+  u=modules['upload']
+  if run_id=='static-fcddbd8e-run01':result=u.upload(h,s,bindings=bindings)
+  else:result=u.upload_loader(h,s,bindings=bindings,run_id=run_id)
  else:
   path=value['parser_path'];fd=os.open('/',os.O_RDONLY|os.O_DIRECTORY|os.O_NOFOLLOW)
   try:parser=h.logical_read(fd,path,18880)
@@ -84,7 +87,7 @@ def main():
   if len(parser)!=18880 or hashlib.sha256(parser).hexdigest()!=value['parser_sha256']:raise ValueError('Loader parser drift')
   p=types.ModuleType('fixed_startup_loader');p.__file__=path
   exec(compile(parser,path,'exec'),p.__dict__)
-  s.BINDINGS=bindings;result=s.collect(h,modules['decoder'],p.loader_image)
+  result=s.collect(h,modules['decoder'],p.loader_image,bindings=bindings,run_id=run_id)
  print(s.json_bytes(result).decode('utf-8'),end='')
 if __name__=='__main__':main()
 '''
@@ -132,8 +135,44 @@ def finite(value):
     return value
 
 
-def report_identity(report, schema, status):
-    for name, expected in (('schema', schema), ('run_id', RUN_ID),
+def checked_run_id(run_id):
+    require(type(run_id) is str and run_id in
+            ('static-fcddbd8e-run01', 'static-fcddbd8e-run02'), 'Wrong run identity')
+
+
+def run_profile(run):
+    require(type(run) is str and run in ('run01', 'run02'), 'Wrong run selection')
+    dependencies = dict(DEPENDENCIES)
+    scope_files = SCOPE_FILES
+    if run == 'run02':
+        dependencies.update({
+            RAW + 'upload_remote.py': '23661c8a18205cfb64d77c5ae81765463560cf52f451e257bb3bb339d39f2b18',
+            RAW + 'capture_remote.py': 'ab0bb32031c1986cc58db1f410a0bdca59449a9dae237672085a81e291b33458'})
+        scope_files = (RAW + 'startup_run.py', RAW + 'test_run02_ownership.py',
+                       'state/analysis/P7_startup_run02_contract.md',
+                       'state/reviews/P7_startup_run02_review.md')
+    return {'run_id': 'static-fcddbd8e-' + run, 'output_name': 'native_' + run,
+            'scope': RAW + 'native_' + run + '_scope.json',
+            'dependencies': dependencies, 'scope_files': scope_files}
+
+
+def project_bindings(action, bindings, *, run_id=RUN_ID):
+    checked_run_id(run_id)
+    require(type(action) is str and action in ('upload', 'capture'), 'Wrong binding action')
+    require(type(bindings) is dict, 'Malformed original bindings')
+    prefix = '/home/arduino/sumox26_codex_build/static-startup-fcddbd8e-'
+    for name, expected in (('source_sha256', SOURCE), ('run_id', RUN_ID),
+                           ('output', prefix + 'run01-' + action)):
+        require(type(bindings.get(name)) is str and bindings[name] == expected,
+                'Wrong original binding ' + name)
+    value = decode(canonical(bindings))
+    value.update(run_id=run_id, output=prefix + run_id[-5:] + '-' + action)
+    return value
+
+
+def report_identity(report, schema, status, *, run_id=RUN_ID):
+    checked_run_id(run_id)
+    for name, expected in (('schema', schema), ('run_id', run_id),
                            ('source_sha256', SOURCE), ('status', status)):
         require(type(report[name]) is str and report[name] == expected,
                 'Wrong report ' + name)
@@ -145,9 +184,9 @@ def report_identity(report, schema, status):
             'Reversed report timestamps')
 
 
-def check_upload(report):
+def check_upload(report, *, run_id=RUN_ID):
     keys(report, (*REPORT_COMMON, 'attempts', 'subprocess', 'stdout', 'stderr'))
-    report_identity(report, 'static-upload-result-v1', 'UPLOADED')
+    report_identity(report, 'static-upload-result-v1', 'UPLOADED', run_id=run_id)
     require(type(report['attempts']) is int and report['attempts'] == 1,
             'Upload attempt count differs')
     value = report['subprocess']
@@ -192,9 +231,9 @@ def check_analysis(value):
     canonical(value)
 
 
-def check_capture(report):
+def check_capture(report, *, run_id=RUN_ID):
     keys(report, (*REPORT_COMMON, 'counts', 'wait', 'reads', 'analysis'))
-    report_identity(report, 'static-capture-result-v1', 'COLLECTED')
+    report_identity(report, 'static-capture-result-v1', 'COLLECTED', run_id=run_id)
     expected = {'commands': 18, 'reads': 18, 'requested_bytes': 713656}
     keys(report['counts'], expected)
     require(all(type(report['counts'][name]) is int and report['counts'][name] == value
@@ -233,7 +272,8 @@ def build_command(action, payload):
     return argv
 
 
-def orchestrate(operations):
+def orchestrate(operations, *, run_id=RUN_ID):
+    checked_run_id(run_id)
     keys(operations, OPERATIONS)
     require(all(callable(operation) for operation in operations.values()), 'Noncallable operation')
     operations['admit']()
@@ -247,7 +287,7 @@ def orchestrate(operations):
             operations['intent'](action, result['upload'] if action == 'capture' else None)
             result[action + '_attempts'] += 1
             result[action] = operations[action]()
-            check(result[action])
+            check(result[action], run_id=run_id)
     except Exception as error:
         result['first_error'] = error_record(error)
     for name in CHECKS:
@@ -297,10 +337,11 @@ def projection(value):
 
 
 class NativeRun:
-    def __init__(self, reviewed_head):
+    def __init__(self, reviewed_head, *, run='run01'):
+        self.profile = run_profile(run)
         self.reviewed_head = reviewed_head
         self.root = Path(__file__).resolve().parents[3]
-        self.output = self.root / RAW / 'native_run01'
+        self.output = self.root / RAW / self.profile['output_name']
         self.runner, self.probe = None, None
         self.git_checks, self.prerequisite_errors, self.local_errors = [], [], []
         self.intent_actions, self.dispatched_actions = set(), set()
@@ -320,7 +361,7 @@ class NativeRun:
         require(observed == self.reviewed_head, 'Reviewed HEAD changed')
         require(not self.git('status', '--porcelain', '--untracked-files=no').strip(),
                 'Tracked files are not clean')
-        require(self.git('show', self.reviewed_head + ':' + SCOPE) == self.scope_raw,
+        require(self.git('show', self.reviewed_head + ':' + self.profile['scope']) == self.scope_raw,
                 'Run scope is not identical to its committed bytes')
 
     def check_adb(self):
@@ -331,8 +372,9 @@ class NativeRun:
                 os.environ.get('SUMO_ADB_EXECUTABLE') == ADB, 'Transport identity changed')
 
     def check_scope(self):
-        safe_path(self.root / SCOPE)
-        require((self.root / SCOPE).read_bytes() == self.scope_raw, 'Run scope changed')
+        path = self.root / self.profile['scope']
+        safe_path(path)
+        require(path.read_bytes() == self.scope_raw, 'Run scope changed')
 
     def local(self):
         checks = [('head', self.head), ('scope', self.check_scope), ('adb', self.check_adb)]
@@ -353,15 +395,16 @@ class NativeRun:
             raise first
 
     def load_scope(self):
-        path = self.root / SCOPE
+        path = self.root / self.profile['scope']
         safe_path(path)
         self.scope_raw = path.read_bytes()
         self.scope = decode(self.scope_raw)
         keys(self.scope, ('schema', 'run_id', 'board', 'source_sha256', 'files'))
-        for name, expected in (('schema', 'static-startup-run-scope-v1'), ('run_id', RUN_ID),
+        for name, expected in (('schema', 'static-startup-run-scope-v1'),
+                               ('run_id', self.profile['run_id']),
                                ('board', BOARD), ('source_sha256', SOURCE)):
             require(type(self.scope[name]) is str and self.scope[name] == expected, 'Wrong run scope')
-        keys(self.scope['files'], SCOPE_FILES)
+        keys(self.scope['files'], self.profile['scope_files'])
         for digest in self.scope['files'].values():
             require(type(digest) is str and re.fullmatch('[0-9a-f]{64}', digest), 'Invalid scope hash')
 
@@ -382,13 +425,18 @@ class NativeRun:
         self.probe.check_claim(old['0021']['claim'])
         self.probe.files = old['0021']['files']
 
+    def bindings(self, action):
+        return project_bindings(action, decode(self.fixed_bytes[RAW + action + '_bindings.json']),
+                                run_id=self.profile['run_id'])
+
     def payload(self, action):
         names = {'helper': PROBE_RAW + 'static_remote.py', 'support': RAW + 'capture_remote.py'}
         names['upload' if action == 'upload' else 'decoder'] = RAW + (
             'upload_remote.py' if action == 'upload' else 'static_capture.py')
         value = {'sources': {key: self.fixed_bytes[name].decode('utf-8') for key, name in names.items()},
                  'hashes': {key: self.fixed_pins[name] for key, name in names.items()},
-                 'bindings': self.fixed_bytes[RAW + action + '_bindings.json'].decode('utf-8')}
+                 'bindings': canonical(self.bindings(action)).decode('utf-8'),
+                 'run_id': self.profile['run_id']}
         if action == 'capture':
             value.update(parser_path=PARSER, parser_sha256=PARSER_SHA)
         return canonical(value)
@@ -422,7 +470,7 @@ class NativeRun:
         safe_path(self.output.parent, directory=True)
         require(not os.path.lexists(self.output), 'Host attempt already consumed')
         self.load_scope()
-        self.fixed_pins = dict(DEPENDENCIES)
+        self.fixed_pins = dict(self.profile['dependencies'])
         self.fixed_pins.update({PROBE_RAW + 'runs/' + ARTIFACT_RUN + '/' + number + '.json': digest
                                 for number, digest in RECEIPTS.items()})
         self.fixed_bytes = {name: pinned_file(self.root, name, digest)
@@ -452,7 +500,7 @@ class NativeRun:
                 'timeout': 195 if action == 'upload' else 630}
 
     def identity_record(self):
-        return {'run_id': RUN_ID, 'board': BOARD, 'source_sha256': SOURCE,
+        return {'run_id': self.profile['run_id'], 'board': BOARD, 'source_sha256': SOURCE,
                 'reviewed_head': self.reviewed_head, 'scope_sha256': sha(self.scope_raw),
                 'artifact_run_id': ARTIFACT_RUN, 'claim': self.probe.claim, 'files': self.probe.files}
 
@@ -463,7 +511,7 @@ class NativeRun:
         self.write('inputs.json', {**self.identity_record(), 'scope_files': self.scope['files'],
                    'dependency_pins': self.fixed_pins, 'runner_pins': self.runner.PINS,
                    'commands': {action: self.command_identity(action) for action in self.commands},
-                   'remote_evidence': {action: decode(self.fixed_bytes[RAW + action + '_bindings.json'])['output']
+                   'remote_evidence': {action: self.bindings(action)['output']
                                        for action in self.commands}})
 
     def transport(self, board, argv, *, capture=True, timeout=60):
@@ -507,7 +555,7 @@ class NativeRun:
         require(action not in self.intent_actions and action in self.commands, 'Repeated action intent')
         self.local()
         if action == 'capture':
-            check_upload(upload_report)
+            check_upload(upload_report, run_id=self.profile['run_id'])
         else:
             require(upload_report is None, 'Unexpected upload predecessor')
         self.write(action + '_attempt.json', {**self.identity_record(), 'action': action,
@@ -552,10 +600,12 @@ class NativeRun:
                 'capture': lambda: self.action('capture'), 'finish': self.finish}
 
 
-def native_run(reviewed_head):
-    result = orchestrate(NativeRun(reviewed_head).operations())
+def native_run(reviewed_head, *, run='run01'):
+    attempt = NativeRun(reviewed_head, run=run)
+    result = orchestrate(attempt.operations(), run_id=attempt.profile['run_id'])
     if result['status'] != 'COMPLETED':
-        raise RuntimeError('Startup evidence collection failed; see the persisted native_run01 result')
+        raise RuntimeError('Startup evidence collection failed; see the persisted ' +
+                           attempt.profile['output_name'] + ' result')
     return result
 
 
@@ -563,10 +613,13 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description='One reviewed fixed inert upload and conditional capture')
     parser.add_argument('--execute', action='store_true', required=True)
     parser.add_argument('--reviewed-head', required=True)
+    parser.add_argument('--run', choices=('run01', 'run02'), default='run01')
     args = parser.parse_args(argv)
     if not re.fullmatch('[0-9a-f]{40}', args.reviewed_head):
         parser.error('--reviewed-head must be forty lowercase hexadecimal characters')
-    return native_run(args.reviewed_head)
+    if args.run == 'run01':
+        return native_run(args.reviewed_head)
+    return native_run(args.reviewed_head, run=args.run)
 
 
 if __name__ == '__main__':

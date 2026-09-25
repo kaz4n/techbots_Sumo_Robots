@@ -58,12 +58,15 @@ def object_keys(support, value, expected):
     support.require(all(type(name) is str for name in value), 'Non-string object key')
 
 
-def checked_bindings(support):
-    value = BINDINGS
+def checked_bindings(support, bindings=None, run_id='static-fcddbd8e-run01'):
+    support.require(type(run_id) is str and run_id in
+                    ('static-fcddbd8e-run01', 'static-fcddbd8e-run02'), 'Wrong run identity')
+    value = BINDINGS if bindings is None else bindings
     object_keys(support, value, ('schema', 'run_id', 'source_sha256', 'boot_id',
                                 'uid', 'output', 'files', 'directories', 'absent'))
-    fixed = {'schema': 'fixed-static-upload-v1', 'run_id': 'static-fcddbd8e-run01',
-             'source_sha256': SOURCE, 'output': PARENT + '/' + OUTPUT_NAME}
+    output_name = 'static-startup-fcddbd8e-' + run_id[-5:] + '-upload'
+    fixed = {'schema': 'fixed-static-upload-v1', 'run_id': run_id,
+             'source_sha256': SOURCE, 'output': PARENT + '/' + output_name}
     for name, expected in fixed.items():
         support.require(type(value[name]) is str and value[name] == expected,
                         'Wrong binding: ' + name)
@@ -94,8 +97,10 @@ def checked_bindings(support):
 
 
 class Upload:
-    def __init__(self, helper, support, fs_root, executor, clock, limit_files=None):
+    def __init__(self, helper, support, fs_root, executor, clock, limit_files=None,
+                 bindings=None, run_id='static-fcddbd8e-run01'):
         self.helper, self.support = helper, support
+        self.input_bindings, self.run_id = bindings, run_id
         self.limit_files = support.limit_child_output if limit_files is None else limit_files
         self.fs_root, self.executor = fs_root, executor
         self.clock = time.monotonic if clock is None else clock
@@ -243,7 +248,8 @@ class Upload:
                                      'Conflicting process: ' + name)
 
     def admit(self):
-        self.bindings = checked_bindings(self.support)
+        self.bindings = checked_bindings(self.support, self.input_bindings, self.run_id)
+        self.output_name = self.bindings['output'].rsplit('/', 1)[1]
         self.report['run_id'] = self.bindings['run_id']
         self.support.require(isinstance(self.fs_root, Path) and self.fs_root.is_absolute(),
                              'Invalid filesystem root')
@@ -269,7 +275,7 @@ class Upload:
         with self.held(self.helper.directory(self.root_fd, PARENT), 'owned_parent') as parent_fd:
             self.support.require(self.helper.directory_id(os.fstat(parent_fd)) ==
                                  self.parent_identity, 'Parent directory identity changed')
-            manager = self.helper.child_directory(parent_fd, OUTPUT_NAME, self.bindings['output'])
+            manager = self.helper.child_directory(parent_fd, self.output_name, self.bindings['output'])
             with self.held(manager, 'owned_output') as output_fd:
                 observed = self.helper.directory_id(os.fstat(output_fd))
                 self.support.require(observed == self.output_identity and observed ==
@@ -300,9 +306,9 @@ class Upload:
         self.budget()
         with self.held(self.helper.directory(self.root_fd, PARENT), 'claim_parent') as parent_fd:
             self.parent_identity = self.helper.directory_id(os.fstat(parent_fd))
-            os.mkdir(OUTPUT_NAME, 0o700, dir_fd=parent_fd)
+            os.mkdir(self.output_name, 0o700, dir_fd=parent_fd)
             self.claimed = True
-            manager = self.helper.child_directory(parent_fd, OUTPUT_NAME, self.bindings['output'])
+            manager = self.helper.child_directory(parent_fd, self.output_name, self.bindings['output'])
             with self.held(manager, 'claim_output') as fd:
                 self.output_identity = self.helper.directory_id(os.fstat(fd))
                 self.output_fd = os.dup(fd)
@@ -434,12 +440,14 @@ def limit_upload_files():
     resource.setrlimit(resource.RLIMIT_FSIZE, (2303728, 2303728))
 
 
-def upload(helper, support, *, fs_root=Path('/'), executor=None, clock=None):
-    return _upload(Upload(helper, support, fs_root, executor, clock))
+def upload(helper, support, *, fs_root=Path('/'), executor=None, clock=None, bindings=None):
+    return _upload(Upload(helper, support, fs_root, executor, clock, bindings=bindings))
 
 
-def upload_loader(helper, support, *, fs_root=Path('/'), executor=None, clock=None):
-    return _upload(Upload(helper, support, fs_root, executor, clock, limit_upload_files))
+def upload_loader(helper, support, *, fs_root=Path('/'), executor=None, clock=None,
+                  bindings=None, run_id='static-fcddbd8e-run01'):
+    return _upload(Upload(helper, support, fs_root, executor, clock, limit_upload_files,
+                          bindings, run_id))
 
 
 def _upload(attempt):

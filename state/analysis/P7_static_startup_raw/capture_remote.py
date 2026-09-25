@@ -64,12 +64,15 @@ def check_pin(pin, has_path=True):
     require(not has_path or valid_path(pin['path']), 'Invalid pinned path')
 
 
-def checked_bindings():
-    value = BINDINGS
+def checked_bindings(bindings=None, run_id='static-fcddbd8e-run01'):
+    require(type(run_id) is str and run_id in
+            ('static-fcddbd8e-run01', 'static-fcddbd8e-run02'), 'Wrong run identity')
+    value = BINDINGS if bindings is None else bindings
     keys(value, ('schema', 'run_id', 'source_sha256', 'boot_id', 'uid',
                  'output', 'files', 'loader_image'))
-    fixed = {'schema': 'fixed-static-capture-v1', 'run_id': 'static-fcddbd8e-run01',
-             'source_sha256': SOURCE, 'output': PARENT + '/' + OUTPUT_NAME}
+    output_name = 'static-startup-fcddbd8e-' + run_id[-5:] + '-capture'
+    fixed = {'schema': 'fixed-static-capture-v1', 'run_id': run_id,
+             'source_sha256': SOURCE, 'output': PARENT + '/' + output_name}
     for name, expected in fixed.items():
         require(type(value[name]) is str and value[name] == expected,
                 'Wrong binding: ' + name)
@@ -152,8 +155,10 @@ def wait_child(child, timeout):
 
 
 class Capture:
-    def __init__(self, helper, decoder, loader_image, fs_root, executor, clock, sleeper):
+    def __init__(self, helper, decoder, loader_image, fs_root, executor, clock, sleeper,
+                 bindings=None, run_id='static-fcddbd8e-run01'):
         self.helper, self.decoder, self.loader_image = helper, decoder, loader_image
+        self.input_bindings, self.run_id = bindings, run_id
         self.fs_root, self.executor = fs_root, executor
         self.clock, self.sleeper = clock or time.monotonic, sleeper or time.sleep
         self.started = self.now()
@@ -246,7 +251,8 @@ class Capture:
                 self.budget()
 
     def admit(self):
-        self.bindings = checked_bindings()
+        self.bindings = checked_bindings(self.input_bindings, self.run_id)
+        self.output_name = self.bindings['output'].rsplit('/', 1)[1]
         self.report['run_id'] = self.bindings['run_id']
         require(isinstance(self.fs_root, Path) and self.fs_root.is_absolute(),
                 'Invalid filesystem root')
@@ -278,7 +284,7 @@ class Capture:
         with self.helper.directory(self.root_fd, PARENT) as parent_fd:
             require(self.helper.directory_id(os.fstat(parent_fd)) == self.parent_identity,
                     'Parent directory identity changed')
-            with self.helper.child_directory(parent_fd, OUTPUT_NAME,
+            with self.helper.child_directory(parent_fd, self.output_name,
                                              self.bindings['output']) as output_fd:
                 observed = self.helper.directory_id(os.fstat(output_fd))
                 require(observed == self.output_identity and observed ==
@@ -307,10 +313,10 @@ class Capture:
 
     def create_directory(self, parent_fd):
         self.parent_identity = self.helper.directory_id(os.fstat(parent_fd))
-        os.mkdir(OUTPUT_NAME, 0o700, dir_fd=parent_fd)
+        os.mkdir(self.output_name, 0o700, dir_fd=parent_fd)
         self.claimed = True
         try:
-            with self.helper.child_directory(parent_fd, OUTPUT_NAME,
+            with self.helper.child_directory(parent_fd, self.output_name,
                                              self.bindings['output']) as output_fd:
                 try:
                     self.output_identity = self.helper.directory_id(os.fstat(output_fd))
@@ -516,8 +522,9 @@ class Capture:
 
 
 def collect(helper, decoder, loader_image, *, fs_root=Path('/'), executor=None,
-            clock=None, sleeper=None):
-    capture = Capture(helper, decoder, loader_image, fs_root, executor, clock, sleeper)
+            clock=None, sleeper=None, bindings=None, run_id='static-fcddbd8e-run01'):
+    capture = Capture(helper, decoder, loader_image, fs_root, executor, clock, sleeper,
+                      bindings, run_id)
     try:
         try:
             capture.admit()

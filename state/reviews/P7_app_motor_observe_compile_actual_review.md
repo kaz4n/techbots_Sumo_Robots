@@ -133,4 +133,4 @@ The local/remote compile owners are consumed and must not be retried. No firmwar
 was flashed, no MCU memory read/reset occurred, and this compile does not resolve
 the original intermittent native fault. New file-only ABI and entry observation
 must derive layout and addresses from these exact new artifacts before any
-separately reviewed inert run. Physical ac
+separately reviewed inert run. Physical acceptance and human gates remain open.

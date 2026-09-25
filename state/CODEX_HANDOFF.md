@@ -145,6 +145,19 @@ no additional hardware is requested now. Never upload/run motor-capable firmware
 without fresh identified STAND OK/RING OK. No locked test changes without the
 required human decision. No push, tag movement, history rewrite or secrets.
 
+## Latest storage checkpoint
+
+25September05:06Dubai: old inactive Codex session logs compressed transparently;
+380 unique files retain identical content hashes, sizes and modification times.
+Reported allocation recovery1,369,392,201B (1.275GiB); C: observed1,761,878,016B
+free afterward. Active/recent sessions excluded. Earlier4 disposable IMU host
+executables removed and rootCLI compressed; receipts are in STORAGE_LOG.md.
+No previously denied deletion was retried. WOF compression is not reliably
+identified by ReparsePoint/Compressed attributes alone; consult existing cleanup
+receipts and allocated sizes to avoid needless recompression. New diagnostics
+retain39KB actual evidence, no binary/source duplicates or compiler tree.
+The exact firmware next task above is unchanged; cleanup is complete.
+
 ## Sources and tools
 
 The takeover loaded AGENTS/CLAUDE/README, all four .claude role definitions,

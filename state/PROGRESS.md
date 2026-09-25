@@ -1150,3 +1150,5 @@ physical/loadedRAM/gate claim. | contract=this commit
 2026-09-25T05:00:25.097694+04:00 | P7 | D161 scoped stopped-state read preparation | Source/plan review71305a36 PASS; controlled failure check PASS;752B read planned, no native action yet | this commit
 
 2026-09-25T05:05:44.191981+04:00 | P7 | D161 passive nested fault diagnosis |752B collected/independently parsed; Robot0x0110 + GateIO; source/time of failed callback still unknown; scope consumed | source1d455be7; actual closure this commit
+
+2026-09-25T05:06:41.914052+04:00 | P7 support | Storage conservation |380 old logs losslessly compressed,1.275GiB reported recovered; hashes/size/mtime preserved; D161 checkpoint1c09f653 and next inert callback diagnostic retained | this cleanup commit

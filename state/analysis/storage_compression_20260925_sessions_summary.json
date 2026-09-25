@@ -1,0 +1,26 @@
+{
+  "timestamp": "2026-09-25T05:06:16.807009+04:00",
+  "scope": "Transparent lossless LZX compression of old inactive Codex JSONL logs; no history deletion",
+  "receipts_sha256": {
+    "state\\analysis\\storage_compression_20260925_old_sessions.json": "4b9434c3ea69157abc03d20202ad7e79772ab3053bdd984038bdd6d83ea4610a",
+    "state\\analysis\\storage_compression_20260925_old_sessions_batch2.json": "3363c016f9f73eb1351c9a96ab32d99fac0cd21e2d188ae6a016499db98d756b",
+    "state\\analysis\\storage_compression_20260925_old_sessions_batch3.json": "660e518542d019e081d8645d22cbb1b7751f99a6d5b8c534e810976f5e01ce8f"
+  },
+  "operations": 388,
+  "unique_logs": 380,
+  "unchanged_repeated_files": 8,
+  "allocated_reclaimed_bytes": 1369392201,
+  "allocated_reclaimed_GiB": 1.2753458702936769,
+  "logical_bytes_unique": 2420278345,
+  "newest_mtime_utc": "2026-09-17T15:11:37.1451005Z",
+  "all_content_size_mtime_verified": true,
+  "active_current_session_excluded": true,
+  "note": "Batch2 repeated the eight first-batch paths with zero extra savings because WOF compression did not appear as ReparsePoint in enumeration; batch3 excludes prior receipt paths explicitly. No duplicate savings counted. Content hashes only; session bodies not exposed.",
+  "separate_receipt_audit": {
+    "reviewer": "startup_upload_design; same-model reused context",
+    "scope": "Receipts only; no log contents or new live rehash",
+    "result": "All388 operations0;380 unique paths; all byte/hash/mtime claims internally agree; exact savings verified; youngest log7.4106days old",
+    "active_root_relative_path": "2026/09/22/rollout-2026-09-22T17-17-21-01a0c943-87e2-71b2-ad6c-3172a0e44745.jsonl",
+    "active_root_exclusion": "Root verified UUID absent from every candidate; live metadata was25Sep01:00:21.496UTC before compression"
+  }
+}

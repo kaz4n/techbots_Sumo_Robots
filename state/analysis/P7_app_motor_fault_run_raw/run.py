@@ -50,6 +50,8 @@ PINS = {
     PROBE + 'static_remote.py': '8ba9b190c38e728013a383348c60c287b0366607f65f703161cf7f2e142d36f8',
     STATIC + 'capture_remote.py': '95b0344d01886b6db30d55aa18a536f9a481b82348e22643e7920d817dbfac3e',
     STATIC + 'upload_remote.py': 'e926b7ba5586475664b0541370e7cfb5c50e40d8dc8b47b18e35db3e0a0a25c1',
+    STATIC + 'upload_bindings.json': 'a31bca78bb619271e63a321173a68fca072e48bb22111ee20fc9f8c20d5e18fc',
+    STATIC + 'capture_bindings.json': 'c2c87df6165556602a5a79472caedf0755c070b2e2f3e0b834f17ab0de5c0d32',
     STATIC + 'cli_initialization_inventory.json': 'aaa2c307b7ed1b8d7e00a737447a03a63a78cd4b7fb2145142b20e9501da1e62',
     STATIC + 'cli_builtin_files_inventory.json': 'a364beb814b36b9c56328b54a9de5fa0f4ad80a67003d40c7cc994a1917ba2cb',
     'tools/compile_app_motor_fault.py': 'cf0c826feca483a78ce9839d0037d1e005a0ce73a3aa01df1ad4b309729ed25a',
@@ -168,9 +170,31 @@ class InertRun(legacy.InertRun):
         self.bindings = copy.deepcopy(preparation['bindings'])
         require(all(value['boot_id'] == self.expected_identity['boot_id']
                     for value in self.bindings.values()), 'Binding boot differs')
+        self.check_bindings()
         self.load_source()
         self.check_evidence()
         self.load_baselines()
+
+    def check_bindings(self):
+        parent = '/home/arduino/sumox26_codex_build/'
+        build = parent + 'app-motor-fault-static01/build/'
+        package = dict(path=build + 'app_motor_fault.ino.bin-zsk.bin', bytes=95328,
+                       sha256='deb40317e5c444af26e65da4b6f1d0e577d9897d59dbddff3bce03a7bc14335c')
+        expected = {}
+        for action in ('upload', 'capture'):
+            value = decode(self.fixed_bytes[STATIC + action + '_bindings.json'], 65536)
+            value.update(schema='fixed-app-motor-fault-' + action + '-v1', run_id=RUN_ID,
+                         source_sha256=SOURCE, boot_id=self.expected_identity['boot_id'],
+                         output=parent + RUN_ID + '-' + action)
+            value['files']['sketch'] = dict(package)
+            if action == 'upload':
+                value['files']['raw'] = dict(path=build + 'app_motor_fault.ino.bin', bytes=95312,
+                    sha256='18598e13f2b5601db504f5272826b0952b95477dd2b1b8d397d20bd2ff899144')
+                value['absent'][-3:] = [parent + SOURCE + '/app_motor_fault/sketch.' + suffix
+                                        for suffix in ('yaml', 'yml', 'json')]
+            expected[action] = value
+        require(canonical(self.bindings) == canonical(expected),
+                'Prepared upload/capture bindings differ from the fixed checked profile')
 
     def load_source(self):
         raw = self.fixed_bytes[COMPILED + 'inputs_static.json']

@@ -1,24 +1,18 @@
 # Codex handoff - 25 September 2026, Asia/Dubai
 
-**Current checkpoint: D188 target compile, file ABI and entry audit complete.**
-Source21df6ae8/static/default/MATCH0/MOTORS_ALLOWED0/probe1 compiled; rawELF2f8dc9f1/
-flatdeb40317. ABI original90f2815c localhex-size parserFAIL preserved; offline
-interpretation and separate actualreviewPASS. Diagnostic0x20013960/169736B,
-19typepairs/10windows; sixfuture captures4536B/sample. Entry252988828 queryexit0,
-27ranges2654B/allclosingPASS; initializer/copy/clear/Runnerwiring reviewedPASS.
-See [entry validation](analysis/P7_app_motor_fault_entry_actual_validation.md).
-All D188native owners consumed; do not rerun or modify rawreceipts.
-
-Next: D189fixedremoteadapter independenthosttests/source review, then minimal
-localcaller/actualscope/fresh admission for one inhibited upload and conditional
-passivecapture. D189contract0518c7bd; remoted796489f HOST-TESTED/REVIEWED:26independentWSLmethods
-PASS,12pinsunchanged. See analysis/P7_app_motor_fault_remote_validation.md.
-Caller/actions contract now defined; their implementation/tests/review in progress.
-No upload/reset/MCUread occurred in this connected continuation; D184haltedM0
-is still lastuploaded. Originalfull-app IO fault, liveRAM/stack/WCET, physical/
-release/human gates remain open. No nativejob or leftoverholdfile is running.
-Connected userdirection supersedes historical deferrals; keep deniedcleanup
-paths and consumedowners intact. No motor-capable permission is supplied.
+**Current checkpoint: D189 diagnostic workflow host-tested and reviewed.**
+D188 target compile, actual static ABI and entry audits are complete for
+source21df6ae8/static/default/MATCH0/MOTORS_ALLOWED0/probe1. D189 remote26,
+actions13 and caller20 independent methods pass; finalrun d0f0e0d0,141pins stable.
+First caller admission failure and source are preserved at ef7f91d7; repaired
+implementation, unchanged tests. Separate scoped same-model review passes.
+Fresh admission01 matches19boardfiles/identity and observes new owners absent.
+Actual12provenance preparation and11pin scope ready for read-only scope review,
+then clean committed HEAD/check-only and one inhibited upload/conditionalcapture.
+See analysis/P7_app_motor_fault_caller_validation.md. No upload/reset/MCUread has
+yet occurred in this connected continuation; D184haltedM0 remains lastuploaded.
+Original full-app fault, physical/RAM/stack/WCET and human gates remain open.
+Preserve consumedowners and deniedcleanup paths. No motor-capable permission.
 
 ## Historical checkpoints (superseded next actions)
 

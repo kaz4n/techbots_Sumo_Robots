@@ -28,3 +28,31 @@ lifecycle; process exit releases remaining descriptors; new envelope preserves
 outward failure plus explicitly unattributed durable report, and refuses capture.
 No tests, module imports, edits or native execution performed by the reviewer.
 Host result review and actual fresh scope/admission remain separate.
+
+## First host-run finding and bounded repair
+
+Independent caller oracle83c5fea6 exposed a real local-admission defect:
+run_test01.json preserves 19/20 PASS and the changed-package-hash subcase failure.
+The test author and reviewer separately agree the test should remain unchanged.
+Local admission must reject it before claim/staging; later remote rejection is
+insufficient. Original source/failure is retained at ef7f91d7.
+
+Repair source PASS: run.py
+d0f0e0d0d1cd1de38932eb84d75330cdeafe4986fd38bf28e42edc3b7f82b0f8, 24802 bytes.
+Lines 53-54 pin both unchanged historical binding files; lines178-197 privately
+project the exact new schema/run/source/boot/owners/raw/flat and three sketch
+absence paths. Complete canonical comparison preserves nested types/keys and
+all unchanged tool/config/loader/directory pins. Line173 invokes it before
+command composition, successful admission, claim or staging. Bool versus integer
+fields differ under canonical JSON. No helper/test/historical source changes.
+No open BLOCKER/MAJOR; unchanged independent rerun remains required.
+
+## Final controlled host result
+
+PASS: run_test02.json53f239ee records exit0, all20methods PASS/no skips,
+177.507seconds, all141frozenpins unchanged. Original failure52bb346f and source
+remain separately preserved. The original bad-package-hash method now passes
+under unchanged independent oracle83c5fea6. Actions13/13 and remote26/26 remain
+valid with unchanged source/oracles; no redundant rerun. Actual Windows command
+construction measures29667/28705UTF16units includingNUL, no dispatch. Separate
+reused-context same-model source/host review complete; no phase-gate inference.

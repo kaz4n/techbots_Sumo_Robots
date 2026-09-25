@@ -361,3 +361,6 @@ confirmed. Compact verification: analysis/storage_check_20260925_followup.json.
 
 
 2026-09-25T19:36:05.465523+04:00 | D189 remote host tests | Retain7499Bfreeze/testreceipt plus source/oracle/reviews;26controlledmethods use owned /dev/shm/sumox_d189_* fixtures and Python-B, no compiler/download/sourcecopy/targetbinary. No newcleanup/delete attempt or deniedpath retry. New.gitattributes scoped -text retains exact reviewedsource/oracle bytes inGit. Global C:free667820032B observed separately; no inferredsavings.
+
+
+2026-09-25T19:55:20.943881+04:00 | D189 host workflow: all controlled tests used owned RAM fixtures and Python-B; observed zero remaining sumox-d189/sumox_d189 directories under /dev/shm after completion. No copied source tree, target binary download or toolchain install. Retain compact source/freeze/test/admission records for failure reproduction and native provenance. C: last observed610213888B free; no disk-space recovery claimed for this verification. No denied cleanup path retried.

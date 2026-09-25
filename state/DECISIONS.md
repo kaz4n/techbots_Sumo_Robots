@@ -2136,3 +2136,6 @@ D-189 remote host closure 2026-09-25T19:36:05.465523+04:00: remoted796489f/spec-
 
 
 D-189 first caller execution 2026-09-25T19:48:42.338640+04:00: actions13PASS, caller19/20PASS; solechanged-upload-sketch-SHA preparation admitted locally. Original run_test01/freeze139pins preserved; remote rejection does not satisfy local preclaim contract. Repair implementation only with exact localbindingprojection/check; preserve independent oracle and original helpers. No native staging/upload/reset/capture. Evidence analysis/P7_app_motor_fault_caller_failure01.md.
+
+
+D-189 caller host closure 2026-09-25T19:54:22.470215+04:00: unchanged independentoracles actions13/run20PASS, remote26PASS unchanged. Localbindingrepair d0f0e0d0 beforeclaim; firstfailure ef7f91d7/52bb346f retained,141pinsstable. Separate reusedsame-modelreviewPASS/noopenBLOCKERMAJOR. Freshreadonly19files/identity/owners admissionPASS; actualpreparation12pins/scope11pins ready for review and one static/default/MATCH0/MOTORS0/probe1 upload/conditionalcapture. No motor-capable approval, firmware/testchange or humanphasegate. Evidence analysis/P7_app_motor_fault_caller_validation.md.

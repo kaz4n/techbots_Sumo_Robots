@@ -9,5 +9,5 @@ namespace {
 motors::UnoQPort native;
 motor_fault::Runner diagnostic(native.port());
 }
-void setup() { diagnostic.begin(motor_fault::Grants{}); }
+void setup() { diagnostic.begin(motor_fault::Grants{SUMOX_MOTOR_FAULT_PROBE == 1}); }
 void loop() { if (diagnostic.active()) diagnostic.poll(static_cast<std::uint32_t>(micros())); }

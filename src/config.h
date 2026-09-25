@@ -31,6 +31,17 @@
 #ifndef SUMOX_P5_ABORT_TIMING
 #define SUMOX_P5_ABORT_TIMING 0
 #endif
+#ifndef SUMOX_MOTOR_FAULT_PROBE
+#define SUMOX_MOTOR_FAULT_PROBE 0
+#endif
+// D169 selects an inert diagnostic build; it grants no upload or motor permission.
+static_assert(SUMOX_MOTOR_FAULT_PROBE == 0 || SUMOX_MOTOR_FAULT_PROBE == 1,
+              "SUMOX_MOTOR_FAULT_PROBE must be 0 or 1");
+static_assert(!SUMOX_MOTOR_FAULT_PROBE || (!MATCH && !MOTORS_ALLOWED &&
+              !SUMOX_B4_STAND && !SUMOX_P3_DRIVE_TEST && !SUMOX_P3_TURN_TRIAL &&
+              !SUMOX_P3_STOP_TRIAL && !SUMOX_P4_REACTIVE && !SUMOX_TIMING_EVIDENCE &&
+              !SUMOX_P5_ABORT_TIMING),
+              "Motor fault probe is exclusive and requires inert flags");
 static_assert(SUMOX_P5_ABORT_TIMING == 0 || SUMOX_P5_ABORT_TIMING == 1,
               "SUMOX_P5_ABORT_TIMING must be 0 or 1");
 static_assert(!SUMOX_P5_ABORT_TIMING || (!MATCH && !SUMOX_B4_STAND &&

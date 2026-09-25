@@ -74,10 +74,16 @@ def selected_project(project, fqbn=None, flags=None):
     if not isinstance(project, str) or project not in (
             'app.ino', 'runtime_inert.ino', 'opp_view.ino', 'qtr_raw.ino', 'vbat.ino', 'imu_heading.ino', 'ui.ino', 'ui_adc_probe.ino', 'motor_stand.ino', 'motor_fault.ino', 'recorder.ino', 'motor_direction.ino', 'drive_test.ino', 'turn_accuracy.ino', 'stopping_distance.ino', 'reactive_test.ino', 'reactive_timing.ino', 'opener_timing.ino'):
         raise ValueError('Unreviewed native project name')
-    if project in ('runtime_inert.ino', 'ui_adc_probe.ino', 'motor_stand.ino', 'motor_fault.ino', 'recorder.ino') and (
+    if project in ('runtime_inert.ino', 'ui_adc_probe.ino', 'motor_stand.ino', 'recorder.ino') and (
             (fqbn is not None and fqbn != BASE_FQBN) or
             (flags is not None and flags != '-DMATCH=0 -DMOTORS_ALLOWED=0')):
         raise ValueError('Native probe requires default startup and inert flags')
+    if project == 'motor_fault.ino' and (
+            (fqbn is not None and fqbn != BASE_FQBN) or
+            (flags is not None and flags not in (
+                '-DMATCH=0 -DMOTORS_ALLOWED=0',
+                '-DMATCH=0 -DMOTORS_ALLOWED=0 -DSUMOX_MOTOR_FAULT_PROBE=1'))):
+        raise ValueError('Motor fault probe requires default startup and exact inert flags')
     if project in ('opp_view.ino', 'qtr_raw.ino', 'vbat.ino', 'imu_heading.ino', 'ui.ino') and flags is not None and flags != '-DMATCH=0 -DMOTORS_ALLOWED=0':
         raise ValueError('Sensor bench requires inert flags')
     if project == 'motor_direction.ino' and (
@@ -116,6 +122,8 @@ def expected_properties(fqbn, flags, platform, project='app.ino'):
     if fqbn not in (BASE_FQBN, BASE_FQBN + ':wait_linux_boot=no'):
         raise ValueError('Unsupported app FQBN')
     allowed_flags = {
+        'motor_fault.ino': ('-DMATCH=0 -DMOTORS_ALLOWED=0',
+                            '-DMATCH=0 -DMOTORS_ALLOWED=0 -DSUMOX_MOTOR_FAULT_PROBE=1'),
         'motor_direction.ino': ('-DMATCH=0 -DMOTORS_ALLOWED=0 -DSUMOX_B4_STAND=1',),
         'drive_test.ino': ('-DMATCH=0 -DMOTORS_ALLOWED=0 -DSUMOX_P3_DRIVE_TEST=1',),
         'turn_accuracy.ino': ('-DMATCH=0 -DMOTORS_ALLOWED=0 -DSUMOX_P3_TURN_TRIAL=1',),

@@ -3,11 +3,13 @@
 D192 bounded10000epoch inhibited observation is implemented/host-tested. New
 normal/sanitizer, legacy diagnostic and locked safety results passed; read
 analysis/P7_app_motor_observe_validation.md and current CODEX_HANDOFF.md.
-The next software task is D193 fixed static compile projection validation and
-fresh native admission. D192 has not been compiled/uploaded on the target.
-D190 four-epoch halted M0 diagnostic remains last flashed; original fault open.
-All historical native owners remain consumed. No motor permission or human gate.
-Full completion gaps are in analysis/P7_completion_audit_20260926.md.
+D193 fixed static compile preparation is now host-tested/reviewed:94Linux and
+75Windows passing methods,19explicitWindowsplatformskips,197pins exact. New
+source3a08ddeb/manifestaa350c65/launcher70e1f016 await one compile-only attempt
+under clean reviewedHEAD and live checks. Read the current handoff for exact
+new owners/command prerequisites. No D193 target build/upload yet; D190 halted
+M0 diagnostic remains last flashed. All old native owners are consumed. Full
+completion gaps remain in analysis/P7_completion_audit_20260926.md.
 
 ## Historical checkpoints below (superseded next actions)
 

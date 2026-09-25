@@ -266,15 +266,31 @@ class ProjectionContract(unittest.TestCase):
                     self.reject(lambda: self.subject.read_original(name, root=root))
             path.write_bytes(self.originals[kind])
 
-    def test_original_symlink_hardlink_and_parent_link_refuse(self):
+    def test_original_hardlinks_refuse(self):
         root = self.scratch()
         for kind, (name, _, _) in ORIGINALS.items():
             path = root / name; saved = root / (kind + '-retained')
             path.rename(saved)
             try:
-                path.symlink_to(saved)
+                os.link(saved, path)
                 self.reject(lambda: self.subject.read_original(name, root=root))
-                path.unlink(); os.link(saved, path)
+                path.unlink()
+            finally:
+                if path.exists(): path.unlink()
+                saved.rename(path)
+
+    def test_original_symlink_and_parent_link_refuse(self):
+        root = self.scratch()
+        for kind, (name, _, _) in ORIGINALS.items():
+            path = root / name; saved = root / (kind + '-retained')
+            path.rename(saved)
+            try:
+                try:
+                    path.symlink_to(saved)
+                except OSError as error:
+                    if os.name == 'nt' and getattr(error, 'winerror', None) == 1314:
+                        self.skipTest('Windows symlink creation requires unavailable privilege: ' + str(error))
+                    raise
                 self.reject(lambda: self.subject.read_original(name, root=root))
                 path.unlink()
             finally:
@@ -282,10 +298,16 @@ class ProjectionContract(unittest.TestCase):
                 saved.rename(path)
         folder = root / 'tools'; saved = root / 'plain-tools'; folder.rename(saved)
         try:
-            folder.symlink_to(saved, target_is_directory=True)
+            try:
+                folder.symlink_to(saved, target_is_directory=True)
+            except OSError as error:
+                if os.name == 'nt' and getattr(error, 'winerror', None) == 1314:
+                    self.skipTest('Windows symlink creation requires unavailable privilege: ' + str(error))
+                raise
             self.reject(lambda: self.subject.read_original(ORIGINALS['caller'][0], root=root))
         finally:
-            folder.unlink(); saved.rename(folder)
+            if folder.is_symlink(): folder.unlink()
+            saved.rename(folder)
 
     def test_reparse_on_file_parent_and_fixture_root_refuses(self):
         root = self.scratch(); name = ORIGINALS['caller'][0]; original = Path.lstat

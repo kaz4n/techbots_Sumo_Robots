@@ -379,3 +379,6 @@ D191 closing observation: C:recovered290537472B independently before local docum
 
 
 2026-09-26T01:06:23.713956+04:00 | D192 host preparation retention | Retain 20 compact raw files/128058logicalB plus source/oracles/contract/review for exact reproduction. Serial normal/sanitizer compilers used owned RAM fixtures and memfd; completed fixtures self-removed and closing query observed zero relevant /dev/shm remnants. Windows owned fixtures self-cleaned. No targetbinary/debug/source snapshot downloaded, no persistent build object/executable or Python bytecode kept. C:free233967616B observed, not cleanup savings. No denied-path retry, paging change or native mutation.
+
+
+2026-09-26T01:18:25.052911+04:00 | D193 host validation retention | Retain 17 compact records/155173logicalB before closingreceipt plus source/contracts/oracles/reviews. Originalfailure retained9eb8c9c7, reversiblepatches preserve source/oracle corrections without whole duplicate snapshots. Controlled fixtures self-cleaned; zero relevantRAMremnants atclosure, Python-B used. No newnativebinary/buildsource snapshot downloaded; preparedmanifest only. C:free159567872B separatelyobserved; no savings or denied-path cleanup attempted.

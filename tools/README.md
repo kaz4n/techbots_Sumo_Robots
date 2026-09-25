@@ -46,10 +46,17 @@ The checked-in probe default remains0. Its epoch/poll bounds live in config.h.
 
 Generic flash/build commands reject both diagnostic sketches before staging or
 transport. New staging requires a fresh attempt and exact canonical Trace files.
-D192 does not yet have a qualified native compile/upload/capture route: new
-source/artifact/identity/ABI bindings and review are required. No old scope or
-capture layout substitutes for that evidence. See the
-[D192 contract](../state/analysis/P7_app_motor_observe_contract.md).
+D193 provides the separate fixed compile-only launcher
+`python -B tools/compile_app_motor_observe.py --check-only --reviewed-head <40hex>`.
+It requires its exact prepared manifest and a clean reviewed HEAD. Execution uses
+the same arguments with `--execute` and the required isolated pycache prefix;
+read the [compile contract](../state/analysis/P7_app_motor_observe_compile_contract.md)
+and current handoff before use. Each attempt is consumed once, including failure.
+The launcher projects pinned existing validators privately and preserves their
+original disk hashes, exact static/default/M0 flags and independent closing checks.
+It cannot upload firmware. New actual artifact/ABI/entry and capture bindings
+remain separate; no historical address layout substitutes for that evidence.
+See the [D192 contract](../state/analysis/P7_app_motor_observe_contract.md).
 
 ## D182/D183 identified precompiled MATCH upload
 

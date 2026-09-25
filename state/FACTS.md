@@ -802,3 +802,7 @@ DEVICE-OBSERVED: D190 run02 source21df6ae8/package deb40317, board2629958581/boo
 
 ## F205 - Longer inhibited observation host behavior (2026-09-26T01:05:05.688830+04:00)
 HOST-VERIFIED: D192 new Runner/sketch with unchanged Trace/Runtime passes10independent methods, default14cases/9172698assertions and copied12/12bounds4cases/2931assertions each normal+ASan/UBSan. Healthy modeled10000epochs produce60017callbacks/64retained/59953rejected; late firstfailure retained. D186/D162/locked regressions pass; source/staging pins stable. This is synthetic host evidence, not elapsed target ticks, actual fault resolution, native RAM/stack/WCET or physical/human acceptance. Source: analysis/P7_app_motor_observe_validation.md and raw receipts.
+
+
+## F206 - Fixed static observation compile host evidence (2026-09-26T01:18:25.052911+04:00)
+HOST-VERIFIED: D193 launcher70e1f016, contract0301726f, calleroracleae42938c andsupplement897ae6e4.94LinuxmethodsPASS/noskips;75WindowsPASS/19explicitplatformskips; actualprojectedremote/adapter exercised withsyntheticartifacts.197pins exact. Pre-execution bootstrap FIFO race repaired; originalWindowsfixtureprivilegeerror and narrowassertion-preserving split retained9eb8c9c7. Source: analysis/P7_app_motor_observe_compile_validation.md andrawreceipts. No actualtargetcompile/artifact/ABI/MCU/runtime/physicalgate inferred.

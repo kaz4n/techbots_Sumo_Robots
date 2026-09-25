@@ -2,6 +2,11 @@
 
 ## Current result
 
+D193 fixed static observation compile preparation is host-tested and reviewed.
+Read analysis/P7_app_motor_observe_compile_validation.md and both host/scope
+reviews.94Linux methods pass;75Windows pass with19platform skips. Newsource
+3a08ddeb and manifest aa350c65 are prepared; no D193 native compile yet.
+
 D191 cleanup is verified and D190 run02 completed successfully on the UNO Q.
 The latest flashed image is source21df6ae8/static/default/MATCH0/MOTORS_ALLOWED0/
 probe1, raw ELF2f8dc9f1/package deb40317. It completed four application epochs,
@@ -33,13 +38,24 @@ preserving first_failure beyond it; it stops at real faults or10000epochs /
 host normal/sanitizer, historical diagnostics and locked regressions passed.
 No D192 board build or upload has occurred; D190 above remains the latest image.
 
-Next finish D193's new fixed static compile projection, independent oracles and
-review. Its in-progress files are tools/compile_app_motor_observe.py and
-analysis/P7_app_motor_observe_compile_contract.md; do not recreate old lifecycle
-tools. Require fresh manifest/identity, clean reviewed HEAD and one new owner.
+Next perform the new D193 compile-only attempt after committing this closure.
+Launcher tools/compile_app_motor_observe.py has hash70e1f016; its contract0301726f,
+manifest aa350c65, source3a08ddeb and all128input pins are independently reviewed.
+Run check-only at the committed clean40hexHEAD, then --execute once with the
+required absolute output/pycache prefix. New output is
+analysis/P7_app_motor_observe_compile_raw/native_static01; stage/remote owner
+app-motor-observe-static01. Every actual check remains enforced, including local
+space (recent159MB free), target identity, original tools, source and closing.
+No files outside the owned output may change during the strict native operation.
+
 Then observe actual artifact/ABI/entry layout before a separate new finite native
 capture. Do not assume historical addresses apply or call the old IO fault fixed.
 All D190/D189/D188 and prior native owners/scopes are consumed; never rerun them.
+Reuse pinned D188 ABI/entry file-read lifecycles minimally, with new names/owners,
+new actual artifact hashes and private projected compile load_caller(root=ROOT).
+Observe Report.polls offset/size explicitly; it may occupy old padding. Handle
+readelf decimal/0x size spelling before execution, retaining raw text. Derive new
+entry ranges and later capture fields from actual artifacts, not old addresses.
 
 The full objective remains active. analysis/P7_completion_audit_20260926.md
 identifies operational commissioning, production memory/loading, actual recorder

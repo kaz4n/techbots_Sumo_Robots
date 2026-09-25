@@ -53,13 +53,12 @@ class MotorFaultFinalization(fixture.MotorFaultCaptureContract):
         original = self.helper.logical_read
         observed = []
         def read(fd, logical, limit, proc=False):
-            raw = original(fd, logical, limit, proc)
             if self.calls and logical in fixture.PATHS.values():
                 # There are no pin rereads during gathering. The independently
                 # required final checks begin after the last child attempt.
                 observed.append(logical)
                 self.clock.now = 100.0 + elapsed
-            return raw
+            return original(fd, logical, limit, proc)
         self.helper.logical_read = read
         return observed
 

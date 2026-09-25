@@ -1324,3 +1324,6 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-26T01:05:05.688830+04:00 | P7 D192 longer inhibited observation | IMPLEMENTED/HOST-TESTED: unchanged Trace/Runtime with10000epoch/10000000poll bounds, first-failure retention and explicit prefix loss. New10methods/default14cases9172698assertions and small4cases2931assertions each normal+san PASS; D186/D162 and locked M0/M1 regressions PASS. Linux/Windows staging complementary skips,168pins exact. Original filename invocation error retained; LF-only board_tool normalization AST-equal and affected4runs repeatedPASS. No new firmware/physical gate/motor permission. Evidence analysis/P7_app_motor_observe_validation.md; next D193 checked compile projection.
+
+
+2026-09-26T01:12:35.888985+04:00 | P7 D193 first host validation | Source70e1f016/contract0301726f:58LinuxmethodsPASS; firstWindows58 has55PASS/2platformskips/1fixturecreationERROR(WinError1314 before subjectsymlinkcheck).195pins unchanged. Firstoracle4d2c634a and originalresults retained before independent adjudication. Supplemental35remote/adapter tests frozen897ae6e4, not run. No native compile/upload/reset; readonly admission confirms boot/tools/unusedowner.

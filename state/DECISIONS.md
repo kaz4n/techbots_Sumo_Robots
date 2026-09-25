@@ -2175,3 +2175,9 @@ Consequence: this is host-only preparation; no new physical grant, relaxed150us 
 
 
 D-192 host outcome 2026-09-26T01:05:05.688830+04:00: first implementation and independent oracles pass. Final board_tool LF normalization changes only line endings (equal AST); affected staging tests rerun unchanged. Runtime traces, locked safety and historical diagnostics pass normal/sanitizer checks. Preserve one coordinator filename error and all first receipts. New compile-only D193 projection is the next task; no native source/artifact/run scope yet.
+
+
+## D-193 (2026-09-26T01:07:15.736360+04:00, fixed static observation compile projection)
+Context: D192 host observation is validated in ade88fc0; its changed source needs a new checked target artifact before any new capture. D188 already has a reviewed bounded compile lifecycle.
+Decision: under D051, adopt analysis/P7_app_motor_observe_compile_contract.md (0301726f), one new launcher with exact original and projected hashes/counts, and private reuse of unchanged caller/policy/remote code. Preserve original on-disk pins/self.code, fixed M0/static/default/probe1 flags, full source/identity/owner/closing checks, and new unused compile owner. Independent frozen oracles and separate review precede native admission.
+Consequence: no lifecycle copy, generic/dynamic admission change, motor permission, compile success, runtime qualification or human gate is inferred. A pre-execution source review found a bootstrap FIFO-swap hang; repair nonblocking open and pre-read descriptor validation without changing the contract, then test the unchanged refusal requirements.

@@ -1,0 +1,14 @@
+{
+  "schema": "d193-bootstrap-source-review-fix-v1",
+  "utc": "2026-09-25T21:09:31.671795+00:00",
+  "status": "REPAIRED_BEFORE_FIRST_EXECUTION",
+  "source": "tools/compile_app_motor_observe.py",
+  "before_sha256": "e7b8582bc18a3aeffcff0f5b06ba05a42a229416961318b713eb320ceca3a824",
+  "after_sha256": "70e1f016cec041b40c98c7c5dd5ee20223d75c4a876c76d2fcdea3d790d63827",
+  "contract_sha256": "0301726f47c0c438a7984ddd232f81c4891c511651ba81a986b15f5ef91dbfb4",
+  "frozen_oracle_sha256": "4d2c634ad18319af8ed5e421aa98314f25eac219b6aaeb8a14380688e2cda810",
+  "finding": "Regular source may be replaced by FIFO between pathname admission and open; blocking open/read occurred before descriptor identity rejection.",
+  "repair": "Use O_NONBLOCK where available and immediately reject nonregular, multiply linked, reparse or identity-mismatched descriptors before fdopen/read. Preserve final drift checks, Windows ctime separation and first-error closure.",
+  "tests_builds_native_executed": false,
+  "patch_unified": "--- before/tools/compile_app_motor_observe.py\n+++ after/tools/compile_app_motor_observe.py\n@@ -113,17 +113,22 @@\n def _read_handle(path, before, relative):\n     descriptor, stream, primary = None, None, None\n     flags = os.O_RDONLY | getattr(os, 'O_BINARY', 0) | getattr(os, 'O_CLOEXEC', 0)\n-    flags |= getattr(os, 'O_NOFOLLOW', 0)\n+    flags |= getattr(os, 'O_NOFOLLOW', 0) | getattr(os, 'O_NONBLOCK', 0)\n     try:\n         descriptor = os.open(path, flags)\n+        info = os.fstat(descriptor)\n+        opened = _stamp(info)\n+        path_identity = before[-1][:-1] if os.name == 'nt' else before[-1]\n+        handle_identity = opened[:-1] if os.name == 'nt' else opened\n+        require(stat.S_ISREG(info.st_mode) and info.st_nlink == 1 and\n+                not getattr(info, 'st_file_attributes', 0) & 1024 and\n+                path_identity == handle_identity,\n+                'Original source changed before reading: ' + relative)\n         stream = os.fdopen(descriptor, 'rb')\n         descriptor = None\n-        opened = _stamp(os.fstat(stream.fileno()))\n         raw = stream.read(65537)\n         closed = _stamp(os.fstat(stream.fileno()))\n         after = _plain_chain(path)\n-        path_identity = before[-1][:-1] if os.name == 'nt' else before[-1]\n-        handle_identity = opened[:-1] if os.name == 'nt' else opened\n         require(before == after and path_identity == handle_identity and opened == closed and\n                 len(raw) == before[-1][4] and len(raw) <= 65536,\n                 'Original source changed while reading: ' + relative)\n"
+}

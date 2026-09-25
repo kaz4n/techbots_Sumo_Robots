@@ -1162,3 +1162,5 @@ physical/loadedRAM/gate claim. | contract=this commit
 2026-09-25T05:40:57.831764+04:00 | P7 D164 | IMPLEMENTED/HOST-TESTED;146existing methods first-pass plus15new methods after classifier-only fixture correction;20pins exact, reviewaf090dbcPASS. Sources4707fbce/tests03fcb903/repairbb04de24; original failuresa59e2ada retained. Evidence analysis/P7_compile_executor_validation.md. No native compile/upload/reset or gate. Next fixed inert caller review/child-control checks/identified compile-only operation.
 
 2026-09-25T05:44:31.580657+04:00 | P7 D165 | Pre-run scope prepared: one default/M0 dynamic diagnostic target compile; callerf804f452/manifestd1ba918d/review77c7f5d3,4controlled child testsPASS. No target result yet; actual invocation follows containing commit. No upload/reset or human gate.
+
+2026-09-25T05:47:55.737680+04:00 | P7 D165 | TARGET-COMPILE-FAILED: native CONFIG_PWM macro collision; onecompilerexit1/reaped/no timeout;122transports0/sevenfinalchecksPASS; consumed scope. Raw native_compile01, source4ec345c0 at3c291ea2; analysis/P7_motor_fault_compile_actual.md. No upload/reset/gate. Next literal identifier repair and macro regression.

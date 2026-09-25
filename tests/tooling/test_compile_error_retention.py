@@ -40,6 +40,8 @@ class MemoryWrites:
         path = Path(path)
         self.events.append(('write', path))
         self.attempts.append((path, text, encoding))
+        if not isinstance(text, str):
+            raise TypeError('data must be str, not ' + type(text).__name__)
         if path in self.failures:
             if path in self.partial:
                 self.contents[path] = self.partial[path]
@@ -120,8 +122,11 @@ class CompileErrorRetentionTests(unittest.TestCase):
         self.assertEqual(('runner', COMMAND), self.events[1])
         self.runner.assert_called_once_with(BOARD, COMMAND, capture=True)
         self.remote.assert_not_called()
-        for _, _, encoding in self.files.attempts:
-            self.assertEqual('utf8', encoding.lower().replace('-', ''))
+        for path, _, encoding in self.files.attempts:
+            if path == COMMAND_PATH:
+                self.assertIsNone(encoding)
+            else:
+                self.assertEqual('utf8', encoding.lower().replace('-', ''))
 
     def assert_primary_fields(self, error, stdout=RAW_STDOUT, stderr=RAW_STDERR):
         self.assertEqual(43, error.returncode)
@@ -164,12 +169,13 @@ class CompileErrorRetentionTests(unittest.TestCase):
         self.assertEqual(RAW_STDOUT.encode('utf-8'), self.files.contents[STDOUT_PATH])
         self.assertEqual(RAW_STDERR.encode('utf-8'), self.files.contents[STDERR_PATH])
 
-    def test_success_none_streams_keep_empty_receipt_bytes(self):
+    def test_success_none_streams_refuse_nontext_without_stderr_receipt(self):
         self.outcome = subprocess.CompletedProcess(COMMAND, 0, None, None)
-        self.assertIs(self.outcome, self.capture())
-        self.assert_attempts()
-        self.assertEqual(b'', self.files.contents[STDOUT_PATH])
-        self.assertEqual(b'', self.files.contents[STDERR_PATH])
+        with self.assertRaises(TypeError):
+            self.capture()
+        self.assert_attempts((STDOUT_PATH,))
+        self.assertNotIn(STDOUT_PATH, self.files.contents)
+        self.assertNotIn(STDERR_PATH, self.files.contents)
 
     def test_falsey_explicit_callable_never_selects_global_transport(self):
         class FalseyRunner:

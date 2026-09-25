@@ -1,0 +1,15 @@
+{
+  "timestamp": "2026-09-25T06:52:12.683941+04:00",
+  "argv": [
+    "python",
+    "-B",
+    "-X",
+    "pycache_prefix=C:\\Users\\narut\\OneDrive\\Desktop\\Project\\techbots_Sumo_Robots\\state\\analysis\\P7_motor_fault_raw\\native_active01\\pycache",
+    "-c",
+    "import importlib.util,json,subprocess,sys\nfrom pathlib import Path\nfrom unittest import mock\np=Path('state/analysis/P7_motor_fault_raw/compile_motor_fault.py').resolve()\nspec=importlib.util.spec_from_file_location('_d171_local_admission',p)\nmodule=importlib.util.module_from_spec(spec)\nwith mock.patch.object(subprocess,'run',side_effect=AssertionError('Transport forbidden')), mock.patch.object(subprocess,'Popen',side_effect=AssertionError('Native child forbidden')):\n spec.loader.exec_module(module)\n selected=module.CompileOnce(run_id='active01')\n selected.local()\n assert not selected.output.exists() and not selected.stage_owner.exists()\n assert module.STAGE.is_dir()\n print(json.dumps({'status':'LOCAL_ADMITTED','pins':len(selected.inputs),'flags':selected.flags,'output':str(selected.output),'stage_path':str(selected.stage_path),'stage_owner_absent':True,'legacy_stage_retained':True,'native_calls':0}))\n"
+  ],
+  "returncode": 0,
+  "seconds": 0.5933927999576554,
+  "stdout": "{\"status\": \"LOCAL_ADMITTED\", \"pins\": 117, \"flags\": \"-DMATCH=0 -DMOTORS_ALLOWED=0 -DSUMOX_MOTOR_FAULT_PROBE=1\", \"output\": \"C:\\\\Users\\\\narut\\\\OneDrive\\\\Desktop\\\\Project\\\\techbots_Sumo_Robots\\\\state\\\\analysis\\\\P7_motor_fault_raw\\\\native_active01\", \"stage_path\": \"C:\\\\Users\\\\narut\\\\OneDrive\\\\Desktop\\\\Project\\\\techbots_Sumo_Robots\\\\build\\\\stage\\\\motor-fault-active01\\\\motor_fault\", \"stage_owner_absent\": true, \"legacy_stage_retained\": true, \"native_calls\": 0}\n",
+  "stderr": ""
+}

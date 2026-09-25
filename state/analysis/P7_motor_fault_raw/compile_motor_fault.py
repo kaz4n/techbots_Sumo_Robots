@@ -1,7 +1,7 @@
 # Performs one fixed inert compile through the existing checked build policy.
 # Pins local inputs and board identity, preserving each command and failed output.
 # Requires source review and controlled host checks before its single native use.
-# Launch: python -B -X pycache_prefix=<absolute selected output/pycache> compile_motor_fault.py --execute [--run compile02]
+# Launch: python -B -X pycache_prefix=<absolute selected output/pycache> compile_motor_fault.py --execute [--run compile02|active01]
 import ast
 import base64
 from datetime import datetime, timezone
@@ -119,7 +119,9 @@ def parse_request(argv):
         return 'compile01'
     if argv == ['--execute', '--run', 'compile02']:
         return 'compile02'
-    raise ValueError('Expected --execute or --execute --run compile02')
+    if argv == ['--execute', '--run', 'active01']:
+        return 'active01'
+    raise ValueError('Expected --execute or --execute --run compile02|active01')
 
 
 def write(path, value):
@@ -163,12 +165,22 @@ def extracted_wait(raw):
 
 class CompileOnce:
     def __init__(self, *, run_id='compile01'):
-        require(type(run_id) is str and run_id in ('compile01', 'compile02'),
-                'Expected compile01 or compile02')
+        require(type(run_id) is str and run_id in ('compile01', 'compile02', 'active01'),
+                'Expected compile01, compile02 or active01')
         self.run_id = run_id
         self.output = OUTPUT if run_id == 'compile01' else RAW / 'native_compile02'
         self.inputs_path = INPUTS if run_id == 'compile01' else RAW / 'compile_inputs02.json'
         self.remote = REMOTE if run_id == 'compile01' else REMOTE.rsplit('/', 1)[0] + '/motor-fault-compile02'
+        self.stage_path, self.stage_attempt = STAGE, None
+        self.flags = '-DMATCH=0 -DMOTORS_ALLOWED=0'
+        if run_id == 'active01':
+            self.output = RAW / 'native_active01'
+            self.inputs_path = RAW / 'compile_inputs_active01.json'
+            self.remote = REMOTE.rsplit('/', 1)[0] + '/motor-fault-active01'
+            self.stage_attempt = 'motor-fault-active01'
+            self.stage_path = ROOT / 'build/stage' / self.stage_attempt / 'motor_fault'
+            self.flags += ' -DSUMOX_MOTOR_FAULT_PROBE=1'
+        self.stage_owner = self.stage_path if self.stage_attempt is None else self.stage_path.parent
         self.sketch = self.remote + '/motor_fault'
         self.inputs_raw = self.inputs_path.read_bytes()
         self.inputs = decode(self.inputs_raw)
@@ -205,7 +217,7 @@ class CompileOnce:
         require(not os.path.lexists(importlib.util.cache_from_source(
             str(ROOT / 'tools/app_build_policy.py'))), 'Nested policy bytecode cache exists')
         if self.stage_hashes is not None:
-            require(files(STAGE) == self.stage_hashes, 'Local stage changed')
+            require(files(self.stage_path) == self.stage_hashes, 'Local stage changed')
 
     def transport(self, arguments, timeout, label):
         require(sha(Path(ADB).read_bytes()) == ADB_SHA, 'ADB changed')
@@ -277,10 +289,11 @@ print(json.dumps(result))
         require(decode(reply.stdout) == self.stage_hashes, 'Remote source filename/hash set changed')
 
     def stage(self, board):
-        require(not os.path.lexists(STAGE), 'Local motor_fault stage already exists')
+        require(not os.path.lexists(self.stage_owner), 'Local staging owner already exists')
         require(shutil.disk_usage(ROOT).free >= 134217728, 'Less than 128MiB local free space')
-        stage = board.stage('bench/motor_fault')
-        require(stage == STAGE, 'Wrong stage')
+        stage = (board.stage('bench/motor_fault', attempt=self.stage_attempt)
+                 if self.stage_attempt is not None else board.stage('bench/motor_fault'))
+        require(stage == self.stage_path, 'Wrong stage')
         self.stage_hashes = files(stage)
         expected = {}
         for name, digest in self.inputs.items():
@@ -304,7 +317,7 @@ print(json.dumps(result))
         self.direct(program, 'claim')
         self.remote_owned = True
         for name in self.stage_hashes:
-            self.transport(['push', str(STAGE / name), self.sketch + '/' + name], 60, 'push')
+            self.transport(['push', str(self.stage_path / name), self.sketch + '/' + name], 60, 'push')
         self.sources()
 
     def command_runner(self, board, argv, capture=False, timeout=None):
@@ -362,9 +375,9 @@ print(json.dumps(result))
     def run(self):
         require(sys.dont_write_bytecode and sys.pycache_prefix == str(self.output / 'pycache') and
                 parse_request(sys.argv[1:]) == self.run_id,
-                'Use the selected output/pycache prefix and matching --execute [--run compile02]')
+                'Use the selected output/pycache prefix and matching --execute [--run compile02|active01]')
         self.local()
-        require(not os.path.lexists(STAGE), 'Local motor_fault stage already exists')
+        require(not os.path.lexists(self.stage_owner), 'Local staging owner already exists')
         self.output.mkdir()
         write(self.output / 'intent.json', self.report)
         try:
@@ -374,10 +387,10 @@ print(json.dumps(result))
             board.__file__ = str(ROOT / 'tools/board_tool.py')
             exec(compile(Path(board.__file__).read_bytes(), board.__file__, 'exec'), board.__dict__)
             self.stage(board)
-            self.report['source_sha256'] = board.source_hash(STAGE)
+            self.report['source_sha256'] = board.source_hash(self.stage_path)
             self.report['artifacts'] = board.compile_app(
                 BOARD, self.report['source_sha256'], self.sketch, self.remote, 'arduino:zephyr:unoq',
-                '-DMATCH=0 -DMOTORS_ALLOWED=0', 'default', project='motor_fault.ino',
+                self.flags, 'default', project='motor_fault.ino',
                 command_runner=self.command_runner)
             require(self.compiler_calls == self.query_calls == 1, 'Missing checked compile/query')
             self.report['status'] = 'COMPILE_CHECKED'

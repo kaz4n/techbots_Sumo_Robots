@@ -1,23 +1,37 @@
 # Codex handoff - 25 September 2026, Asia/Dubai
 
-**Active: P7 software/release preparation. D165 target compile failed; D166 host fix passes.**
-The UNOQ compiler found CONFIG_PWM=1 colliding with the diagnostic enum. Original
-source4ec345c0, one compiler exit1/reaped/no timeout, all122transports0 and seven
-final checks PASS are preserved; no upload/reset occurred. The identifier-only
-D166 correction now passes macro1/1, driver3/3, normal+ASan/UBSan each18cases/
-2570assertions,47input pins and separate review. Read
-analysis/P7_motor_fault_compile_actual.md and P7_motor_fault_macro_validation.md.
+**Active: P7 software/release preparation. D168 corrected target compile PASS.**
+The UNO Q compiled the default-disabled diagnostic successfully: one query/compile,
+123 transports and ten checked children exit0, seven final checks PASS. Separate
+actual review32e1c119 passes. Source5d3d126e, final ELF87fb03e5; packet1edf4a08.
+Read analysis/P7_motor_fault_compile02_actual.md. No upload/reset/MCU read occurred.
+D167 ownership passes12 independent host tests; original fixture negatives and
+D165's target macro failure remain preserved. D166's correction now has actual
+target compilation evidence in addition to its macro/normal/sanitizer host tests.
 
 ## Exact next task
 
-Add fresh compile02 ownership/input selection per instance to the existing
-P7_motor_fault_raw/compile_motor_fault.py, without cloning it or rebinding globals.
-Keep consumed compile01/compile_inputs.json and all original receipts unchanged;
-the old117-pin manifest must reject changed source. Use distinct native_compile02,
-remote motor-fault-compile02 and input manifest. The completed local motor_fault
-stage was hash-verified and removed, so a new stage can be created normally.
-Test/review the narrow ownership selection and bind the corrected source before
-one separately identified default/M0 compile. No automatic retry of D165.
+Prepare a narrow explicit activation profile for the inert diagnostic. Its current
+sketch passes Grants{} and never activates callbacks; a successful compile is not
+the fault measurement. Load config.h, the public diagnostic contract/header and
+checked build policy. Reuse Runner::begin(Grants{true}) through a strict default-zero
+selector in config.h, with exact project-specific flag admission if required.
+Record the bounded engineering choice and independent expectations before edits.
+Preserve MATCH=0/MOTORS_ALLOWED=0, trace refusal of EN-high/nonzero PWM, native
+150us limit and all existing assertions. Avoid a copied sketch or another framework.
+
+An eventual active image needs fresh source/artifact binding and a separately
+identified inert upload/capture. Existing upload_remote.py provides bounded child
+primitives but its public profile is static-app-specific; runtime_capture.py has
+dynamic relocation references. Neither currently admits this diagnostic. Reuse
+primitives with a minimal explicit profile and ELF-derived finite capture layout;
+do not claim the old static capture plan fits a new dynamic image.
+
+Both compile01/02 are consumed. Keep their inputs and receipts unchanged. The
+new104-file local build/stage/motor_fault remains present: its verified cleanup
+was rejected by automatic review. Do not retry deleting it through another method
+or let a staging helper implicitly remove it. Host preparation remains eligible;
+future target staging must explicitly account for this retained directory.
 
 D164's explicit command_runner is implemented/reviewed:146legacy+15new host
 methods pass. Existing caller supplies explicit CLI/config/environment, --jobs1,
@@ -25,7 +39,7 @@ remote process-group720/60s deadlines+5s reap, source/tool checks and separate
 final checks. Four real-child checks pass; retain their original fixture negative.
 No inherited file-size cap constrains compiler artifacts. Per-process -B and fresh
 -X pycache_prefix avoid old bytecode without deleting it or changing global config.
-Compile01 caller/run evidence and pre-/post-action reviews are already retained.
+Compile01/02 caller/run evidence and pre-/post-action reviews are retained.
 
 The diagnostic defaults to false setup permission and rejects MATCH or motors.
 It wraps unchanged native callbacks, submits four synthetic disabled/zero commands
@@ -71,13 +85,16 @@ sensor/motor/electrical acceptance remain tracked in existing packets/findings.
 
 ## Storage and tools
 
-C: observed1670385664B free at this checkpoint; recheck before large work. Old inactive
+C: observed1613303808B free at this checkpoint; recheck before large work. Old inactive
 session-log lossless compression reclaimed1369392201reported allocated bytes;
 previous CLI compression/IMU output removal/Git packing are in STORAGE_LOG.md.
-D165 completed local stage removed:104files/764034logicalB; sources and original
-target failure retained. No prior denied cleanup path was retried.
-All D162/D163 RAM fixtures/build outputs were released; zero sumox directories
-remain in /dev/shm. Keep compact source/freeze/failure/result evidence. Previously
+D165 completed local stage was removed:104files/764034logicalB. D168's new stage
+contains104files/764049logicalB and is retained after automatic cleanup rejection
+(blocked by policy, no further reason). Receipt: analysis/storage_cleanup_20260925_motor_fault_stage02.json.
+Zero bytes reclaimed by this attempt; never retry it through another method.
+The new raw packet is882618B plus compact metadata; no firmware binary downloaded.
+All D167 RAM fixtures were released; zero sumox-compile02 directories observed.
+Keep compact source/freeze/failure/result evidence. Previously
 policy-denied deletions remain excluded; never retry through another method.
 Use Python-B, serial heavy builds, no duplicate firmware/source trees. Archive
 results before releasing /dev/shm; WSL shutdown can erase it between invocations.

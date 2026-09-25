@@ -1,10 +1,11 @@
 # Current execution checklist - 2026-09-25 Asia/Dubai
 
-**D165 target compile FAILED; D166 identifier-only host fix PASS.**
-Actual nativeCONFIG_PWM macro collision is retained. Corrected names preserve all
-values/behavior; macro1/1, normal+sanitized18cases/2570assertions each and separate
-review PASS. No upload/reset. Next fresh per-instance compile02 ownership/source
-binding in existing bounded caller, then one reviewed inert compile.
+**D168 corrected diagnostic target compile PASS; active diagnostic still pending.**
+Source5d3d126e/final ELF87fb03e5;123 transports and seven final checks PASS,
+separate actual review32e1c119 PASS. D167 adds12 passing independent host checks.
+No upload/reset. Next minimal explicit activation and inert artifact/capture profile;
+the current default grant remains false. Original D165 failure is preserved.
+New staging cleanup was policy-blocked; retain its104 files and never retry removal.
 
 **Active: P7 software/release preparation.** PROGRESS.md is the append-only phase
 authority; preserve its legacy bytes. User asks for prompt commits and continued
@@ -100,11 +101,14 @@ pending; D051/D075/D122/D137 permit scheduling, not fabricated measurements.
 - [x] D165 one identified target compile: onecompilerexit1, all122transports0/
   sevenfinalchecksPASS; CONFIG_PWM macro collision. Consumed, no upload/reset.
 - [x] D166 literal enum rename; independent macro and normal/sanitized tests PASS.
-- [ ] Fresh per-instance compile02 ownership in existingcaller, separate input
-  binding and review; preserve all compile01 pins/receipts and process bounds.
-- [ ] Recompile corrected diagnostic under new scope and inspect actual result.
-- [ ] Review target result before any separately identified inert diagnostic run.
-  The original D160 failing operation remains unknown; do not relax safety bounds.
+- [x] D167 per-instance compile02 ownership:12 independent host tests PASS,
+ 117 actual local pins and separate review PASS; original failures preserved.
+- [x] D168 corrected diagnostic TARGET-COMPILED:123 transports/ten children exit0,
+  one query/compile, seven final checks PASS; actual review32e1c119 PASS.
+  Source5d3d126e/final ELF87fb03e5; packet1edf4a08. No upload/reset/MCU read.
+- [ ] Minimal default-disabled explicit activation profile, checked build admission
+  and fresh inert upload/capture binding. Existing default grant is false.
+  Original D160 failing operation remains unknown; do not relax safety bounds.
 - [ ] Qualify native loading/startup, stack/heap/WCET and release workflow before
   adoption. Structural RAM tail94352B is not measured free memory.
 
@@ -121,6 +125,10 @@ now. Current permission advances software, not invented measurements or gates.
 
 Storage: D162/D163 RAM compiler/fixture outputs removed; fresh check zero sumox
 scratch directories. Independent repo/task-Temp audit found no new safe candidate.
+D167 RAM fixture cleanup left zero directories. D168's104-file/764049B local
+motor_fault stage remains: automatic cleanup review rejected deletion as blocked
+by policy. Do not retry that removal or allow implicit deletion by a staging helper.
+Retained raw packet882618B is useful target evidence; no firmware copied to Windows.
 Old-session lossless compression reclaimed1369392201reported allocatedB; previous
 cleanup is recorded in STORAGE_LOG.md. Retain compact evidence and leave all prior
 policy-denied paths untouched. Recheck disk space before material work; Python-B,

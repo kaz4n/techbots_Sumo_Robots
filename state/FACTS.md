@@ -758,3 +758,7 @@ DEVICE-OBSERVED compiler only: source37a2099f, build1fcc7d57d66848cd9ea604297538
 
 ## F194 - Inhibited full-app diagnostic host behavior (2026-09-25T17:32:14.102604+04:00)
 HOST-VERIFIED only. D186 source539bfbb0/corrected independent oracle80eb359b: normal and ASan/UBSan each14cases/23885assertions;5driver methodsPASS. New staging Linux/Windows passes with explicit platform skips and actual Windows junctions. Existing Trace/Gate normal+sanitized each18cases/2570assertions; legacy tooling final67PASS/1platformskip. Separate same-model source/evidence reviewc41c6be1 PASS, eight pins/protected files verified. Source: analysis/P7_app_motor_fault_validation.md, P7_app_motor_fault_raw/ and reviews/P7_app_motor_fault_final_review.md. No target qualification, D160/D161 cause/fix, physical/RAM/WCET or human gate inference.
+
+
+## F195 - Fixed static diagnostic validation adapter host behavior (2026-09-25T17:48:25.099627+04:00)
+HOST-VERIFIED only. D187 source3e5d49e4/oraclee6d52ec6 (39eac0a1) passes33WSL and28Windows methods with no skips. Windows stdlib path/handle ctime discrepancy measured on four unchanged dependencies; source retains all same-API and other cross-identity/hash/plain checks. Independent fresh-context same-model review1bc4b4db PASS;12pins exact and historical inputs unchanged. Synthetic ELF/compiler packets only. Source: analysis/P7_app_motor_fault_static_validation.md, its raw receipts and reviews/P7_app_motor_fault_static_final_review.md. No compiler/target/native ABI/RAM/WCET, actual fault fix, physical acceptance or gate inferred.

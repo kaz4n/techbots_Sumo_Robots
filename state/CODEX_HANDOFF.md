@@ -1,24 +1,25 @@
 # Codex handoff - 25 September 2026, Asia/Dubai
 
-**D186 full-app diagnostic IMPLEMENTED / HOST-TESTED / REVIEWED.**
-Source539bfbb0; independent corrected oracle80eb359b; separate same-model final
-review c41c6be1 PASS/no open material findings. Current normal+ASan/UBSan each
-14cases/23885assertions; default/explicit entry and unsafe flags pass. Staging
-passes across Linux/Windows, including real junctions; skips are recorded.
-Unchanged Trace/Gate each18cases/2570assertions; legacy tooling final67PASS and
-one Windows-onlyskip. Initial source-review finding, first oracle mismatch and
-coordinator import-path error retained. Eight pins/protected sources/history exact.
-See analysis/P7_app_motor_fault_validation.md and reviews/P7_app_motor_fault_final_review.md.
-No target operation, original fault reproduction, live RAM/WCET or human gate.
-Next eligible task: fixed static/default/M0 diagnostic compile adapter, reusing
-existing bounded executor and D141/D147 checks; independently test exact metadata,
-project/flag substitution and seven-file alias mapping before native invocation.
-Keep historical helpers/scopes and dynamic/generic admission unchanged. New ABI,
-ET_EXEC/package/native initialization/capture binding remains required; no D149
-address or D1732592B decoder reuse. D184 is still the last uploaded image.
-Latest cleanup removed419.14MiB of verified duplicate installers; source/evidence
-preserved. Current tests left0owned RAM/Windows fixtures. All earlier denied
-paths remain untouched. Older paragraphs below are historical checkpoints.
+**D187 fixed static adapter IMPLEMENTED / HOST-TESTED / REVIEWED.**
+Source/corrected oracle39eac0a1:33WSL and28Windows methods PASS/no skips;
+fresh-for-D187 same-model review1bc4b4db PASS/no open material findings.
+Twelve current/Git pins exact; historical validators/generic admission protected.
+Original Windows ctime defect and new-fixture failures remain preserved806a3603;
+full within-API identity checks remain, only Windows cross-ctime is excluded.
+Evidence: analysis/P7_app_motor_fault_static_validation.md and its raw/review.
+D186 remains host-tested/reviewed766abd20; no current target operation or gate.
+Next: implement/test the fixed static/default/M0 diagnostic compile-only caller
+using D187 tools/app_motor_fault_static_policy.py and existing bounded executor
+transport/direct/command_runner (D185 executor_namespace is the reuse seam).
+One properties query/compiler, fresh source/stage/attempt pins and independent
+closure; keep historical owners/manifests and dynamic/generic admission closed.
+Do not create another process framework. A later separately reviewed native
+invocation must bind new ET_EXEC/package/native initialization/ABI/capture data;
+D149 addresses and D1732592B decoder remain inapplicable. No native scope exists
+for D187; no compiler/board/upload work ran. D184 is still last uploaded image.
+Original full-app IO fault, physical/RAM/WCET acceptance and human gates stay open.
+Tests left0owned RAM fixtures; prior419.14MiB cleanup preserved source/evidence.
+All denied deletion targets remain excluded. Older paragraphs below are historical.
 
 **D185 both current profiles TARGET-COMPILED; no firmware upload.**
 Bench/default build6d9e48f8 (reviewed34eb56ba) and MATCH/Immediate build1fcc7d57

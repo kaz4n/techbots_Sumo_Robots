@@ -1,0 +1,81 @@
+{
+  "time": "2026-09-25T13:47:04.179967+00:00",
+  "status": "PASS",
+  "working_and_git_pins": {
+    "tests/tooling/test_app_motor_fault_static_policy.py": "e6d52ec6b0d72e893511793e9d92003092499280454093c9b6622d0e18547d5c",
+    "tools/app_motor_fault_static_policy.py": "3e5d49e4a70c0cf6197e26b1ba5ce2b7e07601bf5d9250ba430f90d1f9eab270",
+    "state/analysis/P7_app_motor_fault_static_contract.md": "21b572bf9f3ec105814f7421fee2447e6c12551ba2a61f53d994b9b1abd57688",
+    "tools/app_build_policy.py": "adc7f42a3325381c3cf15122409dfe9d92db7ca187cb242e416fef356be667f8",
+    "state/analysis/P7_static_link_probe_raw/static_policy.py": "ec3d8a5e8c4910bbdbbb96fb5123c8bb42b294ce9342c76db73b8d3b5eab7775",
+    "state/analysis/P7_static_link_probe_raw/static_reference.json": "1dc8ac6dec8534536acfcc4da73516416ea465cfcc1a349900fd13e210144a2b",
+    "state/analysis/P7_static_link_probe_raw/static_native_artifacts.py": "cd52a29a32b8ae1da4bea51dd55d9011386dd4be0ca537195bb124d13031d6c0",
+    "state/analysis/P7_static_link_probe_raw/static_artifacts.py": "d30372dd4b8fb8c2661d00affc4a215cc88e3f62511995ff6303827bed4b7368",
+    "state/analysis/P7_static_tls_raw/observed/tls-syms.S": "68bb147615813666d528b9bd650e02fb8e240f0db841939e8460d7a52fd2ee70",
+    "state/analysis/P7_static_link_probe_test_draft/test_static_policy.py": "5c1b7a771c7982061e9a97db0c0dabd42f3a47a4ee8e5f6fff263a8845da36d1",
+    "state/analysis/P7_static_artifact_test_draft/synthetic_elf.py": "503a04ea49e6452725cc489101dd3dbf7b8231c2dddac9198fdb01b7bfb2f2ef",
+    "state/analysis/P7_static_native_tls_test_draft/synthetic_native_elf.py": "5a86d5dcde5822d87d51369f943605a702b3918e39fa992e1da4798402683e15"
+  },
+  "git_blob_verification": "All12 working files matched HEAD cat-file blobs after correction commit39eac0a1; no newline exceptions",
+  "protected_diff_command": [
+    "git",
+    "diff",
+    "--name-status",
+    "766abd20",
+    "--",
+    "src",
+    "bench",
+    "host",
+    "tests/locked",
+    "tools/board_tool.py",
+    "tools/app_build_policy.py",
+    "tools/app_build_commands.json",
+    "state/analysis/P7_static_link_probe_raw",
+    "state/analysis/P7_static_tls_raw"
+  ],
+  "protected_diff_stdout": "",
+  "progress_prefix_sha256": "1dbbeb53c3dc046128494af3bef240b9a00353929d6121991900c90bb2838b77",
+  "ram_remnants_command": [
+    "wsl",
+    "-d",
+    "Ubuntu",
+    "--",
+    "python3",
+    "-B",
+    "-c",
+    "import pathlib,json;print(json.dumps([str(p) for p in pathlib.Path('/dev/shm').glob('sumox-d187-*')]))"
+  ],
+  "ram_exit": 0,
+  "ram_remnants": [],
+  "receipts": {
+    "corrected_linux.json": {
+      "bytes": 7152,
+      "sha256": "5ce6bb8d829ffa09e257d9812d27c91434b33f4750aa309e80114154eedff7f4"
+    },
+    "corrected_windows.json": {
+      "bytes": 6150,
+      "sha256": "cd93bb5f014e97671b246cf05b6e39b93bdeb16ad90960663094a04a2bd66c74"
+    },
+    "correction_freeze.json": {
+      "bytes": 2178,
+      "sha256": "80c2562c48c57a6008448a5066bb3b178881e25b117d9ba3c4fff265e550fc18"
+    },
+    "first.json": {
+      "bytes": 25686,
+      "sha256": "98ea204be9e9bc8cbb50878e62ef0c535c682c829fe077555ac9464bd8776d6a"
+    },
+    "freeze.json": {
+      "bytes": 2070,
+      "sha256": "5582c41ea5155d5e7ba300506702ee4bee9472bffcab268528ccc216c86376ab"
+    },
+    "windows_first.json": {
+      "bytes": 55854,
+      "sha256": "4c0bcdfe672f5e5bc773389a7787f4f067364390760526191eeee674e461bf02"
+    },
+    "windows_stat_observation.json": {
+      "bytes": 5780,
+      "sha256": "a38f98a3966f1987c92f98d81f0920be8d02aa653a84d56be93d2b7254f729c9"
+    }
+  },
+  "device_compiler_upload_calls": 0,
+  "windows_scope": "28metadata/artifact methods; five dependency/isolation methods run under WSL only"
+}

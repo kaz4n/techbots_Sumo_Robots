@@ -1279,3 +1279,6 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-25T19:19:17.201789+04:00 | P7 D188 actual static ABI | FILE-OBSERVED/OFFLINE-INTERPRETED.90f2815c query4childrenPASS/closingPASS but originalexit1localdecimal-sizeparser preserved; GNUreadelf0x29708=169736. Newoffline6a990871 actualexit0/16controlledchecks, separatecause/source reviewPASS; no boardrepeat.19typepairs/10windows; sixcapturewindows4536B. Actual result/interpretation retained, ownerconsumed. Next newentry/globalinitializer fileaudit before distinct inert run. Evidence analysis/P7_app_motor_fault_abi_actual_validation.md.
+
+
+2026-09-25T19:25:32.330750+04:00 | P7 D188 entry-file reader | IMPLEMENTED/HOST-CHECKED/REVIEWED cb9ee5bb,19controlledchecks/4937Windowsunits/0native.27ranges2654B,source reviewPASS after incomplete-disassembly parsercorrection.14type/103field ABI transcription checked separately. Next cleanHEAD file-only query, no upload. Remoteadapter task-owned10518Bfile temporarily held unchanged in ignored build/review-hold-app-inert-remote.py SHA d796489fc812a509f5ef1edbcd487a4a3afe4adc76960a94ba9c1d3ec075e10a for isolated cleanHEAD observation; restore afterward, never delete.

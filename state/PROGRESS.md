@@ -1273,3 +1273,6 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-25T19:11:07.512225+04:00 | P7 D188 actual static diagnostic compile | TARGET-COMPILED/REVIEWED at65b6d80e, exit0,1query/1compiler/236transports/all8closingPASS; rawELF2f8dc9f1/flatdeb40317/source21df6ae8. All127input/18installedpins stable, independent reused-context same-model actual reviewPASS. No upload/reset/MCUread; owners consumed.91280Bstructuraltail is not live RAM/WCET. Next exact-file ABI/initialization observation; originalfault/physical/human gates open. Evidence analysis/P7_app_motor_fault_compile_actual_validation.md.
+
+
+2026-09-25T19:15:48.874816+04:00 | P7 D188 file-only ABI preparation | IMPLEMENTED/HOST-CHECKED/REVIEWED helper0eec2ffd/scope4baa09a8. Worker22controlledchecks PASS/zero native;5493Windowsunits/4filecommands/12remote pins. Separate source reviewPASS after first-error preservation correction; no pre-fix hash invented. Actual cleanHEAD check-only and one-shot observation next; no firmware/locked/historical change. Evidence analysis/P7_app_motor_fault_abi_scope.md and reviews/P7_app_motor_fault_abi_source_review.md.

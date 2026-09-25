@@ -30,6 +30,7 @@ eight contract/source/tool identities were frozen before execution.
 | legacy_tooling_import_retry.json |Only11import-error methods rerun with tests/tooling on PYTHONPATH:11PASS, no edits |
 | legacy_motor_fault.json |3driver methods PASS; unchanged Trace/real Gate normal+sanitized each18cases/2570assertions |
 | integrity.json |8current pins exact, protected paths/history prefix unchanged,0owned RAM/Windows fixture remnants |
+| git_bytes.json |16checked blobs byte-exact; board_tool.py Git LF/working CRLF explicitly mapped, frozen execution pin remains exact |
 
 The corrected stalled-clock case retains every other check and adds explicit
 decision-made and invalidated-feedback assertions. Runtime abort invalidates

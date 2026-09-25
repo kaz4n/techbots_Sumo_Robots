@@ -1,13 +1,13 @@
 # Current execution checklist - 2026-09-25 Asia/Dubai
 
-**D176 finite capture HOST-TESTED; thin inert integration scope next.**
+**D177 thin inert integration IN PROGRESS; board disconnected.**
 Source7b7e8c69/95b0344d;8+38+46methodsPASS,14pins unchanged/finalreview93ef66a7PASS.
 Original2MAJOR findings/reproduced failures retained; firstrepair closesboth.
 D175 uploader and D174 decoder remain checked. Native0; no physical/human gate.
 
 **Active: P7 software/release preparation.** PROGRESS.md is the append-only phase
 authority; preserve its legacy bytes. User asks for prompt commits and continued
-software work with the bare UNOQ. Actual physical acceptance/human gates remain
+host software work while the UNOQ is disconnected. Actual physical acceptance/human gates remain
 pending; D051/D075/D122/D137 permit scheduling, not fabricated measurements.
 
 | Existing task | Software/evidence status | Remaining acceptance |

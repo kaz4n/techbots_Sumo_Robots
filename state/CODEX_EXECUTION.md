@@ -97,10 +97,13 @@ pending; D051/D075/D122/D137 permit scheduling, not fabricated measurements.
 - [x] D156 one scoped bare-board M0 attempt: FAILED loader-copy file limit,
   capture0, nine transport calls0/clean final checks. Scope consumed, no retry.
   See analysis/P7_static_startup_actual_validation.md and actual review.
-- [ ] Correct upload-specific file cap; real host child-copy/boundary regression,
-  preserve historical expectations/failure and D153. Review known temporary
-  residue and fresh one-shot scope before another inert attempt; reuse packet/collector,
-  existing pinned loader helper and explicit CLI config; no binary/source copy.
+- [x] D157 explicit upload_loader cap: 55 legacy +59 new-entry tests PASS,
+  four real child-copy boundaries PASS, scoped review fc1b2414 PASS. D153 and
+  historical failure/oracles preserved; no new native action. See
+  analysis/P7_upload_file_limit_validation.md.
+- [ ] Add explicit fresh run ownership without global rebinding or cloned wrappers;
+  review known temporary residue before another inert attempt. Reuse the packet,
+  collector, pinned loader helper and explicit CLI config; no binary/source copy.
 - [ ] Qualify native loading/startup, stack/heap/WCET and release workflow before
   adoption. Structural RAM tail94352B is not measured free memory.
 

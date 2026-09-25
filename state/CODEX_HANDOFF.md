@@ -5,8 +5,10 @@ the inherited1MiB file cap blocked its2,303,728B loader copy. Capture was suppre
 nine transport calls and all independent final checks passed. Read
 analysis/P7_static_startup_actual_validation.md. D155's30+10host tests and scoped
 review remain genuine host evidence, but did not detect this native policy defect.
-Next fix/test the upload-specific file cap and assess known temporary residue;
-never rerun D156 or claim a current-image startup measurement.
+D157 correction is now host-tested: 55 legacy +59 new-entry tests and four real
+copy boundaries PASS; scoped review fc1b2414 PASS. Next: explicit fresh run
+ownership and known temporary residue handling. Never rerun D156 or claim a
+current-image startup measurement.
 
 **Active phase: P7 software/release preparation.** D138 informational READY and
 battery-threshold software is implemented, host-tested and target-compiled.
@@ -52,11 +54,14 @@ has now been observed to select the intended data/user directories (F162); raw
 queries and original mistakenprojection are preserved. Existing board p0_capture.py
 is hash885c4e42/18880B, file-verified; reuse it to fit the Windows command budget.
 
-Exact next task: develop the smallest upload-file-limit correction for the
-observed2,303,728B loader copy; retain original frozen evidence and D153 capture.
-Use real harmless child-copy and diagnostic-boundary host tests. A future scope
-must bind fresh one-shot ownership and handle the exact known1MiB partial file
-under /tmp/remoteocd. D156/native_run01 and its upload scope are terminal; no retry.
+Exact next task: add the smallest explicit per-instance ownership selection for
+one distinct run02, preserving legacy run01 behavior and all original evidence.
+D157 upload_loader is source bb6f9631; review fc1b2414 and validation are in
+analysis/P7_upload_file_limit_validation.md. D155 still pins the old uploader and
+must refuse it. No module-global rebinding or duplicate wrapper tree. Separately
+review disposition of the exact known 1MiB partial file under /tmp/remoteocd;
+no cleanup or new native scope has been authorized by D157.
+D156/native_run01 and its upload scope are terminal; never reuse them.
 Bind reviewed HEAD/source, D144 packet,
 installed dependencies, explicit CLI configuration and selected core/recipe.
 F165/F166 file-only receipts establish observed initialization prerequisites;

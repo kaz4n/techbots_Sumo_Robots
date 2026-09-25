@@ -1,5 +1,17 @@
 # Codex handoff - 25 September 2026, Asia/Dubai
 
+**Current checkpoint 2026-09-25T22:03:30.099399+04:00: cleanup verified; run02 scope reviewed.**
+D191 authenticated unchanged4192wrapper completedonce; exact3scratchcopies
+2334244Bremoved, originalsunchanged, terminalUID/GID1000. Independentlocalactual
+reviewPASS. FreshD190admission19pins/sameboot/fullidentity/scratch+ownersabsencePASS.
+Preparation79bf96b4/scope4564c0a9 independently reviewed; exact12scope/12provenance/
+127sourcepins verified. See reviews/P7_app_motor_fault_run02_actual_scope_review.md.
+Next commit cleanHEAD, verify exactGitbytes, check-only then one existingM0run02
+caller. No run02upload/capture yet; D184 remainslastsuccessfulfirmware.
+Do not reuse olderowners or infer physical/humangates/motor permission.
+
+## Earlier continuation checkpoints
+
 **Latest observation 2026-09-25T20:49:27.813326+04:00: human cleanup remains unverified.**
 User replied CLEANUP DONE; fresh read-only retrieval found no result_root02.json
 and /tmp/remoteocd still present. Expected board/boot and staging inode unchanged.

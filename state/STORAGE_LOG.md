@@ -370,3 +370,6 @@ confirmed. Compact verification: analysis/storage_check_20260925_followup.json.
 
 
 D191 closing observation: C:recovered290537472B independently before local document saves; no cleanup savings claimed.30160B owned /dev/shm checkpoint was written/readable on creation but absent at closing query; no deletion was attempted and no unique source/result was lost because local updates already saved. Current docs and Git are the durable handoff. Zero final test fixture remnants checked separately.
+
+
+2026-09-25T22:01:32.975637+04:00 | D191 exact target scratch cleanup | Removed only verifiedobsoleteD184/tmp/remoteocd copies:680+29836+2303728=2334244logicalB and emptydirectory. Installed/build originals rehashed unchanged. Targetresult6306B and compact unique localreceipts retained; source/debug/firmware originals untouched. Three stagedcleanup sources50786B plus result retained through actualrun02 review, then assess disposal. No Windows/denied-path deletion or paging change; targetfree13982986240B is a separate observation.

@@ -1309,3 +1309,9 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-25T20:49:27.813326+04:00 | P7 D191 human reply verification | User replied CLEANUP DONE. One read-only observation confirms expectedboard/boot and original stageidentity66341/271203, but result_root02.json absent and /tmp/remoteocd stillpresent. Cleanup pending/unverified; whether the exact command ran unknown. Separate read-only review agrees; requested terminal output. No cleanup retry/native run02 scope/upload/reset/MCUread. Evidence state/analysis/P7_app_motor_fault_run_raw/cleanup_root02_observation01.json; commit: this observation.
+
+
+2026-09-25T22:01:32.975637+04:00 | P7 D191 cleanup actual / D190 fresh admission | User-provided authentication used via stdin only under narrow explicit authorization. Unchanged4192 wrapper exit0; exact3scratchcopies2334244B removed, originalsunchanged,3privilegedreads/terminalIDs1000, noerrors; resultc0e45b30 independently locally reviewedPASS. Fresh read-only19files/fullidentity/run02ownersabsence/scratchabsence/13.98GBtargetfreePASS. Prepared newrun02data/scope; separateactualscope review and cleanHEAD check-only next. No MCU/upload/reset/motor permission. Originalfailures preserved.
+
+
+2026-09-25T22:03:30.099399+04:00 | P7 D190 actualrun02scope review | Independentlocalread/hashreviewPASS preparation79bf96b4/scope4564c0a9/admissiona6a970dc,12scope/12provenance/127sourcepins and19targetpins exact. Existingstatic/default/MATCH0/MOTORS0/probe1 firmware unchanged. Next committedcleanHEAD/exactGitbytes/check-only then oneM0nativeattempt. Review P7_app_motor_fault_run02_actual_scope_review.md; no MCU action yet.

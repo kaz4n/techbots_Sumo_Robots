@@ -790,3 +790,7 @@ DEVICE-FILES-OBSERVED:31170b08 localcheck0/execute1; adapter staged, uploader re
 
 ## F202 - Connected D190/D191 software validation (2026-09-25T20:45:19.208771+04:00)
 HOST-VERIFIED:62run02+37human-cleanup wrapper methodsPASS/no skips; new-fixture corrections independently reviewed, originalfailures preserved. DEVICE-FILES-OBSERVED: expectedboot/UID, same-UID adbd procvisibility denial and sudo-n password requirement;3exactsourcefiles staged/verified, not executed. No new firmware upload/reset/MCUread, cleanup success, fault resolution or gate. Source: analysis/P7_d190_d191_validation.md and reviews/P7_d190_d191_final_review.md.
+
+
+## F203 - Actual exact uploader scratch cleanup (2026-09-25T22:01:32.975637+04:00)
+DEVICE-FILES-OBSERVED: authenticated unchangedwrapper4192f23e exit0; resultc0e45b30/6306B reports exactly3copies2334244B removed, emptydirectory removed, retainedoriginals unchanged and terminal UID/GIDtriples1000. Three privileged read-only scans each170processnames/3sameUIDhandles; other-userFDcoverage not claimed. Independent localreadreviewPASS. Freshobservation02 confirms originalboot/stageidentity and scratchabsence. No firmware/reset/MCUread/gate result. Source: analysis/P7_app_motor_fault_run_raw/cleanup_root02_actual_result.json and observation02.

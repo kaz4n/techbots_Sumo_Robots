@@ -2157,3 +2157,9 @@ Consequence: agent may stage reviewed exact files but cannot execute the privile
 
 
 D-190/D-191 outcome 2026-09-25T20:45:19.208771+04:00: independent author/root/reviewer agree two new-fixture repairs only: private oracle alias context retains stdlib pwd identity; fake stat/fstat return snapshots. Every original assertion/source/helper preserved. Final62+37methodsPASS, reviews/P7_d190_d191_final_review.mdPASS. Three source files staged only; privileged cleanup requires human terminal authentication. No native-run02 scope or hardware/gate claim. Frozen run02 count is147total/146unchanged plusdriver, correcting freeze02 prose.
+
+
+D-191 authentication authorization 2026-09-25T17:59:04.856436+00:00: user explicitly supplied board authentication to proceed with the already prepared cleanup. This supersedes only the earlier authentication-unavailable/human-only invocation restriction. Unchanged source4192f23e, fresh exact stage/boot verification and separate reused-context review support one sudo-S-H isolatedPython-I-B invocation with credential via stdin only, exclusive result and70s bound. No credential is recorded; no general privileged access, source/guard change, motor permission or phase gate follows.
+
+
+D-191 actual outcome 2026-09-25T22:01:32.975637+04:00: unchangedroot02 completed once, resultc0e45b30 independently locally inspectedPASS. Exact2334244B scratchcopies removed, originalsunchanged, three170-name/3sameUIDhandle scans and permanent privilege drop successful. Other-userFDcoverage limitation remains; no hardware qualification. D190 freshadmission verifies sameboot/fullidentity19pins and three absent owners plus scratchabsence; createonlymetadata-derived preparation_run02/scope and separatelyreview before oneM0nativeattempt.

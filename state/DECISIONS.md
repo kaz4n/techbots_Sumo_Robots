@@ -1964,3 +1964,5 @@ D-173 pre-execution review 2026-09-25T07:14:12.509806+04:00: original unexecuted
 Context: D173 observes exact ARM Runner2592B and its nested fields; no diagnostic RAM has been captured.
 Decision: implement analysis/P7_motor_fault_decode_contract.md as a pure finite offline decoder, with independent spec/ABI-derived tests and separate review. Retain reported failures/partial state and explicitly unproven coherence; DECODED is not acceptance.
 Consequence: no firmware, pins, limits, locked tests, native run, upload/capture admission or human gate changes. Later collection must preserve raw bytes and bind exact deployed identity independently.
+
+D-173 actual outcome 2026-09-25T07:19:13.636532+04:00: FILE-OBSERVED, scope consumed. Execution089de986/evidence cc9f50c6; one transport/fivechildren exit0/reaped,26remote+120local checksPASS. Runner2592B/alignment8, symboloffset0 in2632B BSS, all10type layouts and exactloader196B/BSS32/92 verified. Separate actualreview60fdc78ePASS; compactABI822c917d independently matches raw GDB. No upload/reset/MCU read; next D174offline decoding. See analysis/P7_motor_fault_abi_validation.md.

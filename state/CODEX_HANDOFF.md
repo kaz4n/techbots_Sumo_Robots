@@ -1,5 +1,12 @@
 # Codex handoff - 25 September 2026, Asia/Dubai
 
+**Offline completion audit:** original P7 scope rechecked after66672174; no further
+eligible offline implementation identified. Current runbook/acceptance/gate-request
+prose now reflects D180-D183 and retained D160/D161 failures. Separate reused-context
+review PASS;58 local link targets and diff checks pass. See
+analysis/P7_remaining_scope_audit.md. Exact next hardware task below is unchanged;
+no code, tests, target operation, scope, permission or human gate changed.
+
 **Active: P7 software/release preparation. D183 HOST-TESTED / REVIEWED, offline only.**
 D182 adapter72950615:35PASS/reviewcdbff1d5. D183 caller69bb9981/payload8a1c8523
 with comment-only35e86452:66independent WSL methods and26Windows methods PASS,

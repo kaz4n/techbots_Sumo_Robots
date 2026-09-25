@@ -1,8 +1,9 @@
 # P7 gate review request - pending
 
-Prepared2026-09-24 under D137/D138. This is a filled request, **not a review verdict or
-human approval**. Current work prepares documentation and informational READY
-software; do not request a phase
+Prepared2026-09-24 under D137/D138; updated2026-09-25 through D183.
+This is a filled request, **not a review verdict or human approval**. Documentation,
+READY software, setup binding and guarded deployment tooling have scoped software
+evidence; do not request a phase
 PASS from a reviewer before the missing release and real rehearsal evidence exists.
 
 - Phase: P7 freeze/runbook/dress rehearsal.
@@ -12,6 +13,12 @@ PASS from a reviewer before the missing release and real rehearsal evidence exis
 - D138 READY/battery software and subsequent runbook edits have separate
   [validation](../analysis/P7_readiness_validation.md) and a fresh-context scoped
   [source review](P7_readiness_review.md); neither is final phase acceptance.
+- D180 [setup binding](../analysis/P7_setup_binding_validation.md), D181
+  [compiler failure retention](../analysis/P7_compile_error_retention_validation.md)
+  and D182/D183 [precompiled deployment](../analysis/P7_match_deploy_validation.md)
+  are HOST-TESTED / REVIEWED. All setup declarations remain disabled; current
+  main-app target compilation, actual diagnostic/deployment and qualification
+  remain pending. No scope or human run permission was created by the tests.
 - Final release commit/artifact/tag: PENDING, not assigned by this request.
 - Specifications: AGENTS R1-R11; PLAN3/5/6; P7_freeze_matchday7.1-7.4;
   relevant approved UI/start/STOP/mode decisions and retained physical packets.

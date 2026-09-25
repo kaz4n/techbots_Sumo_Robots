@@ -32,7 +32,7 @@ using motor_fault::Stage;
 using motors::Channel;
 
 struct NativeCall {
-    Operation operation = Operation::CONFIG_ENABLE;
+    Operation operation = Operation::CONFIGURE_ENABLE;
     Channel channel = Channel::LEFT_FORWARD;
     bool high = false;
     std::uint32_t period = 0U, pulse = 0U;
@@ -63,10 +63,10 @@ struct Fake {
         return okay;
     }
     static bool configureEnable(void* p) {
-        return static_cast<Fake*>(p)->record(Operation::CONFIG_ENABLE);
+        return static_cast<Fake*>(p)->record(Operation::CONFIGURE_ENABLE);
     }
     static bool configurePwm(void* p, Channel channel) {
-        return static_cast<Fake*>(p)->record(Operation::CONFIG_PWM, channel);
+        return static_cast<Fake*>(p)->record(Operation::CONFIGURE_PWM, channel);
     }
     static bool enable(void* p, bool high) {
         return static_cast<Fake*>(p)->record(Operation::ENABLE, Channel::LEFT_FORWARD, high);

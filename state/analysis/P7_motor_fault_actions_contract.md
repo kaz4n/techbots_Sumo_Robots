@@ -102,6 +102,9 @@ Read metadata exact name,address,bytes,sha256,file; addresses and byte counts
 are built-in integers, names/files/hashes are strings. Exact D176 successful ordered
 sequence, addresses/sizes, hash shape and zero-based basename. Relocation lists
 at0x200017bc; node order from visited_nodes; two snapshots at BSS+0/2592B.
+Corresponding before/after loader chunks, sketch, list and node read hashes must
+match; each list hash must also match its same-side list-confirm hash. Diagnostic
+snapshot hashes may differ. These enforce D176 raw-bracket equality in the reply.
 Analysis snapshots exactly those two entries. Wait is existing D176 exact shape
 requested_seconds,before,after; requested=2, finite actual
 elapsed>=2; entire interval within the enclosing capture report. No lifecycle,

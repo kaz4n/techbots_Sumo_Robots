@@ -1,0 +1,203 @@
+{
+  "schema": "motor-fault-abi-v1",
+  "provenance": "Observed file-only ARM ELF/DWARF, D173; not a memory capture",
+  "source_sha256": "8f592937961a0c95b7cc4db88617169fcc9504644aa8b8b7dcf62f83c4c33f36",
+  "elf_sha256": "f9460a16cb010d6a72d2304a9fe23f7b5a82aff486af2fe3a641abe2f96b0d81",
+  "debug_sha256": "7a4b2953f74e08eb80667466dc03f0d4f849f54f68bb6327cb4240b73f8a8b8f",
+  "observation_sha256": "0e540e0c50dc17af292b751c05742e86f8cb84f672a8bdf6ecbcc95a753c558a",
+  "elf": {
+    "class": 32,
+    "endian": "little",
+    "machine": "ARM",
+    "type": "REL",
+    "symbol": "_ZN12_GLOBAL__N_110diagnosticE",
+    "binding": "LOCAL",
+    "section": 7,
+    "section_name": ".bss",
+    "section_size": 2632,
+    "section_alignment": 8,
+    "symbol_offset": 0,
+    "symbol_size": 2592
+  },
+  "types": {
+    "motor_fault::Runner": {
+      "size": 2592,
+      "alignment": 8,
+      "offsets": {
+        "trace_": 0,
+        "port_": 2180,
+        "gate_": 2224,
+        "report_": 2312,
+        "attempted_": 2576,
+        "last_us_": 2580,
+        "equal_polls_": 2584
+      }
+    },
+    "motor_fault::Trace": {
+      "size": 2180,
+      "alignment": 4,
+      "offsets": {
+        "native_": 0,
+        "report_": 44,
+        "stage_": 2172,
+        "application_": 2176
+      }
+    },
+    "motor_fault::TraceReport": {
+      "size": 2128,
+      "alignment": 4,
+      "offsets": {
+        "calls": 0,
+        "count": 2048,
+        "rejected": 2052,
+        "clock_reads": 2056,
+        "overflow": 2060,
+        "timing_fault": 2061,
+        "has_failure": 2062,
+        "has_current": 2063,
+        "current": 2064,
+        "first_failure": 2096
+      }
+    },
+    "motor_fault::Call": {
+      "size": 32,
+      "alignment": 4,
+      "offsets": {
+        "stage": 0,
+        "operation": 1,
+        "channel": 2,
+        "application": 4,
+        "requested_high": 8,
+        "period_cycles": 12,
+        "pulse_cycles": 16,
+        "invoked": 20,
+        "completed": 21,
+        "returned": 22,
+        "timing_valid": 23,
+        "started_us": 24,
+        "completed_us": 28
+      }
+    },
+    "motor_fault::Report": {
+      "size": 264,
+      "alignment": 8,
+      "offsets": {
+        "phase": 0,
+        "failure": 1,
+        "begin_called": 2,
+        "begin_ok": 3,
+        "halt_called": 4,
+        "begin_fault": 5,
+        "applications": 8,
+        "next_release_us": 12,
+        "missed_releases": 16,
+        "applied": 24,
+        "halt": 248
+      }
+    },
+    "motors::Port": {
+      "size": 44,
+      "alignment": 4,
+      "offsets": {
+        "context": 0,
+        "configureEnableLow": 4,
+        "configurePwm": 8,
+        "writeEnable": 12,
+        "writePwm": 16,
+        "settle": 20,
+        "clockUs": 24,
+        "period_cycles": 28
+      }
+    },
+    "motors::MotorGate": {
+      "size": 88,
+      "alignment": 8,
+      "offsets": {
+        "port_": 0,
+        "fault_": 44,
+        "initialized_": 45,
+        "began_": 46,
+        "armed_": 47,
+        "hold_complete_": 48,
+        "release_us_": 52,
+        "last_token_": 56,
+        "halted_": 64,
+        "halt_result_": 68
+      }
+    },
+    "motors::Result": {
+      "size": 56,
+      "alignment": 8,
+      "offsets": {
+        "feedback": 0,
+        "fault": 48,
+        "consumed": 49
+      }
+    },
+    "motors::HaltResult": {
+      "size": 16,
+      "alignment": 4,
+      "offsets": {
+        "fresh": 0,
+        "attempted": 1,
+        "inhibition_confirmed": 2,
+        "timing_valid": 3,
+        "started_us": 4,
+        "completed_us": 8,
+        "fault": 12
+      }
+    },
+    "fsm::PreviousTick": {
+      "size": 48,
+      "alignment": 8,
+      "offsets": {
+        "applied_valid": 0,
+        "token": 8,
+        "applied_us": 16,
+        "motors_enabled": 20,
+        "duty_l": 24,
+        "duty_r": 28,
+        "duration_valid": 32,
+        "completed_us": 36,
+        "execution_us": 40
+      }
+    }
+  },
+  "extents": {
+    "calls": 64,
+    "applied": 4
+  },
+  "loader": {
+    "elf_sha256": "39d4a4fd47241663323f6e04f94dd8f5a9f9ad6582cf1df37f9709b74026adcd",
+    "list_address": 536876988,
+    "list_size": 8,
+    "head_offset": 0,
+    "tail_offset": 4,
+    "node_size": 196,
+    "node_alignment": 4,
+    "next_offset": 0,
+    "name_offset": 4,
+    "name_size": 16,
+    "mem_offset": 20,
+    "mem_size_offset": 80,
+    "memory_regions": 12,
+    "bss_index": 3,
+    "bss_base_offset": 32,
+    "bss_size_offset": 92
+  },
+  "recipe": {
+    "build.fqbn": "arduino:zephyr:unoq",
+    "build.link_mode": "dynamic",
+    "build.boot_mode": "wait",
+    "build.project_name": "motor_fault.ino",
+    "tools.remoteocd.path": "/home/arduino/.arduino15/packages/arduino/tools/remoteocd/0.1.1",
+    "tools.remoteocd.cmd": "remoteocd",
+    "tools.remoteocd.upload.pattern": "\"{path}/{cmd}\" upload --adb-path \"/home/arduino/.arduino15/packages/arduino/tools/adb/32.0.0/adb\" -s \"{upload.port.properties.serialNumber}\" -f \"/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/flash_sketch.cfg\" \"{upload.verbose}\" \"/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf\" \"/home/arduino/sumox26_codex_build/motor-fault-active01/_app_builds/native-app-v1/8f592937961a0c95b7cc4db88617169fcc9504644aa8b8b7dcf62f83c4c33f36/bench-default/3aafdd0129f64799b4db51efe78e5c44/build/motor_fault.ino.elf-zsk.bin\""
+  },
+  "limitations": [
+    "No MCU memory was read",
+    "No runtime coherence or fault cause established",
+    "Two future passive snapshots cannot prove atomicity",
+    "All later capture/upload identities must be rechecked"
+  ]
+}

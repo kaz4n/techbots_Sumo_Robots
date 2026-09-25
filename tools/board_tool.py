@@ -409,6 +409,34 @@ def build_startup(args):
     return args.startup or ('immediate' if args.match else 'default')
 
 
+def report_app_error(error, message):
+    # A broken diagnostic sink must not replace the operation's failure status.
+    if not hasattr(error, 'diagnostic_write_errors'):
+        error.diagnostic_write_errors = []
+    try:
+        print(message, file=sys.stderr)
+    except Exception as failure:
+        error.diagnostic_write_errors.append(
+            dict(type=type(failure).__name__, message=str(failure)))
+
+
+def retain_app_failure(error, receipt, name):
+    error.evidence_write_errors = []
+    error.diagnostic_write_errors = []
+    for suffix, text in (('.stdout.json', error.stdout), ('.stderr.txt', error.stderr)):
+        path = receipt / (name + suffix)
+        try:
+            path.write_text(text or '', encoding='utf-8')
+        except Exception as failure:
+            error.evidence_write_errors.append(
+                dict(path=str(path), type=type(failure).__name__, message=str(failure)))
+    messages = [f'App {name} failed; raw output: {receipt}']
+    for failure in error.evidence_write_errors:
+        messages.append(f"Could not save output {failure['path']}: "
+                        f"{failure['type']}: {failure['message']}")
+    report_app_error(error, '\n'.join(messages))
+
+
 def capture_app_command(board, command, receipt, name, *, command_runner=None):
     if command_runner is not None and not callable(command_runner):
         fail('command_runner must be callable')
@@ -420,9 +448,7 @@ def capture_app_command(board, command, receipt, name, *, command_runner=None):
             raise subprocess.CalledProcessError(result.returncode, command,
                                                 result.stdout, result.stderr)
     except subprocess.CalledProcessError as error:
-        (receipt / (name + '.stdout.json')).write_text(error.stdout or '', encoding='utf-8')
-        (receipt / (name + '.stderr.txt')).write_text(error.stderr or '', encoding='utf-8')
-        print(f'App {name} failed; raw output: {receipt}', file=sys.stderr)
+        retain_app_failure(error, receipt, name)
         raise
     (receipt / (name + '.stdout.json')).write_text(result.stdout, encoding='utf-8')
     (receipt / (name + '.stderr.txt')).write_text(result.stderr, encoding='utf-8')
@@ -692,7 +718,7 @@ def main():
         else:
             return preflight()
     except (ValueError, OSError, subprocess.SubprocessError) as error:
-        print(f'ERROR: {error}', file=sys.stderr)
+        report_app_error(error, f'ERROR: {error}')
         return error.returncode if isinstance(error, subprocess.CalledProcessError) else 2
     return 0
 

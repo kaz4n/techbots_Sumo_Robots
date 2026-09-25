@@ -76,6 +76,41 @@ static_assert(!SUMOX_P4_REACTIVE || (!MATCH && !SUMOX_B4_STAND &&
               "P4 reactive profile is exclusive and not a MATCH build");
 
 namespace config {
+// D180 declarative setup inputs: dimensionless flags, not verification evidence.
+// Enable only against actual accepted hardware/ownership facts; defaults deny.
+inline constexpr std::uint32_t APP_GRANT_OPPONENTS = 0U;
+inline constexpr std::uint32_t APP_GRANT_ADC_PAIR = 0U;
+inline constexpr std::uint32_t APP_GRANT_QTR_EXCLUSIVE_PADS = 0U;
+inline constexpr std::uint32_t APP_GRANT_IMU_ENABLED = 0U;
+inline constexpr std::uint32_t APP_GRANT_IMU_POWER_CONFIRMED = 0U;
+inline constexpr std::uint32_t APP_GRANT_IMU_MOUNTING_CONFIRMED = 0U;
+inline constexpr std::int32_t APP_IMU_BODY_AXIS[3] = {0, 0, 0}; // signed sensor-axis IDs; unconfigured
+inline constexpr std::uint32_t APP_GRANT_DEFAULT_LINE_THRESHOLDS = 0U;
+inline constexpr std::uint32_t APP_GRANT_MATRIX_ENABLED = 0U;
+inline constexpr std::uint32_t APP_GRANT_MATRIX_NORMAL_STARTUP = 0U;
+inline constexpr std::uint32_t APP_GRANT_MATRIX_EXCLUSIVE_OWNER = 0U;
+inline constexpr std::uint32_t APP_GRANT_DUMP_ENABLED = 0U;
+inline constexpr std::uint32_t APP_GRANT_DUMP_SETUP_PHASE = 0U;
+inline constexpr std::uint32_t APP_GRANT_DUMP_EXCLUSIVE_UART = 0U;
+inline constexpr std::uint32_t APP_GRANT_DUMP_READY_PIN_OWNED = 0U;
+inline constexpr std::uint32_t APP_GRANT_DUMP_FRAMING_CLEAN = 0U;
+inline constexpr std::uint32_t APP_DUMP_ORIGIN = 0U; // enum ID: unknown0, synthetic1, hardware-reported2
+inline constexpr std::uint32_t APP_GRANT_LOCAL_SERVICE_RESET = 0U;
+inline constexpr std::uint32_t APP_GRANT_CALIBRATION_OUTPUT = 0U;
+static_assert(APP_GRANT_OPPONENTS <= 1U && APP_GRANT_ADC_PAIR <= 1U &&
+              APP_GRANT_QTR_EXCLUSIVE_PADS <= 1U && APP_GRANT_IMU_ENABLED <= 1U &&
+              APP_GRANT_IMU_POWER_CONFIRMED <= 1U && APP_GRANT_IMU_MOUNTING_CONFIRMED <= 1U &&
+              APP_GRANT_DEFAULT_LINE_THRESHOLDS <= 1U && APP_GRANT_MATRIX_ENABLED <= 1U &&
+              APP_GRANT_MATRIX_NORMAL_STARTUP <= 1U && APP_GRANT_MATRIX_EXCLUSIVE_OWNER <= 1U &&
+              APP_GRANT_DUMP_ENABLED <= 1U && APP_GRANT_DUMP_SETUP_PHASE <= 1U &&
+              APP_GRANT_DUMP_EXCLUSIVE_UART <= 1U && APP_GRANT_DUMP_READY_PIN_OWNED <= 1U &&
+              APP_GRANT_DUMP_FRAMING_CLEAN <= 1U && APP_GRANT_LOCAL_SERVICE_RESET <= 1U &&
+              APP_GRANT_CALIBRATION_OUTPUT <= 1U, "App setup flags must be zero or one");
+static_assert(APP_IMU_BODY_AXIS[0] >= -3 && APP_IMU_BODY_AXIS[0] <= 3 &&
+              APP_IMU_BODY_AXIS[1] >= -3 && APP_IMU_BODY_AXIS[1] <= 3 &&
+              APP_IMU_BODY_AXIS[2] >= -3 && APP_IMU_BODY_AXIS[2] <= 3,
+              "App mounting entries must be signed sensor-axis IDs or zero");
+static_assert(APP_DUMP_ORIGIN <= 2U, "App dump origin must be a declared origin ID");
 // Names follow B16 verbatim, including its count/ratio/gain naming exceptions.
 // Pin assignments await P0 source verification and human PINMAP OK.
 // D076 copies HARDWARE3 proposals for compile-only HAL development, not approval.

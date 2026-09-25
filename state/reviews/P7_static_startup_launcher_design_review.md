@@ -58,3 +58,11 @@ This binds the run without a circular HEAD field or reusing an old native grant.
 no open material design finding.** Preserve the initial finding and its amendment.
 Actual code/receipt review and the separately recorded inert run scope remain
 prerequisites; this review grants no native upload, reset, activation or capture.
+
+Pre-freeze clarification reviewed, contract SHA256:
+`2bdbc3c992a050383052fc87c65cd320ad395e201dd7c0e0a8f04092e1d95044`.
+Upload/capture dispatch always requires current local HEAD/source admission.
+After a separate local failure, only the four previously captured, checked
+Linux-file command forms remain usable, with pinned ADB rechecked. This keeps
+final checks independent without new finalization state or native permission.
+**PASS remains scoped to this clarified host contract; no new finding.**

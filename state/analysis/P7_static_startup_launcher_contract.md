@@ -29,7 +29,10 @@ default/unknown/missing arguments fail without board I/O. A later committed run
 scope binds that reviewed HEAD plus launcher/source/test/review digests; this
 host contract is not a run grant. Require exact current HEAD, clean tracked
 files, unchanged scoped inputs, pinned ADB and runner's17local/103source/102stage
-checks initially, immediately before each native dispatch and in finalization.
+checks initially, immediately before each upload/capture dispatch and in
+finalization. The four fixed Linux-file command forms may still execute after
+a separate local HEAD/source check fails, using captured checked command bytes
+and rechecking pinned ADB identity; they never acquire upload/capture permission.
 Never reinterpret compile_only=True as upload permission.
 The later fixed `native_run01_scope.json` is committed and must exactly match
 its bytes at HEAD. Schema `static-startup-run-scope-v1`; exact keys schema,run_id,

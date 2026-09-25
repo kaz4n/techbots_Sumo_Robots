@@ -1,0 +1,62 @@
+{
+  "decision": "D180",
+  "date_dubai": "2026-09-25T13:23:52.700122+04:00",
+  "head": "08e7f5feeae4f5142f0dbb376a8ecc6b15308740",
+  "first_execution_pending": true,
+  "independent_author": "/root/setup_binding_tests; contract and public headers only; subject not executed",
+  "pins": {
+    "state/analysis/P7_setup_binding_contract.md": {
+      "bytes": 5397,
+      "sha256": "0f62eed6ecd3664dfe8fbcc633796712d6dfba2afd7c665745c4e789f71c4555"
+    },
+    "src/config.h": {
+      "bytes": 22653,
+      "sha256": "5a47f12aef134d2604afd566387dfc484897d8663eab9c32e4eb406a5d3313ea"
+    },
+    "src/app/configured_setup.h": {
+      "bytes": 1943,
+      "sha256": "df1e51e2a0f397e0e4c0e73f760383fb582ba759ca456bec7eccfa4aa956fc0d"
+    },
+    "src/app/app.ino": {
+      "bytes": 868,
+      "sha256": "538755487e58609d8e7d2bb69b8466cb9bd1ffcfe360149bca4d4ff246302d57"
+    },
+    "src/app/runtime.h": {
+      "bytes": 9819,
+      "sha256": "b25246026fa46415979039ab3c54399c5fdf659ff9f47df293ea459d3e2fde03"
+    },
+    "src/hal/imu_heading.cpp": {
+      "bytes": 8863,
+      "sha256": "e314f57b78980993f782cf85aa48f0cd6ffadf1cb1ae99fb801c7981f1736411"
+    },
+    "tests/tooling/test_configured_setup.py": {
+      "bytes": 19598,
+      "sha256": "23633aa0dd6b712f1253db4d28460ee82477dc8297292110e61fb15dcf467da1"
+    },
+    "tests/tooling/test_runtime_config_registry.py": {
+      "bytes": 4802,
+      "sha256": "b45f5d9cdcb8d944036693f1dc86c3549277b7421e898f7a67fc589657917b49"
+    },
+    "tests/tooling/test_motor_fault_activation.py": {
+      "bytes": 17195,
+      "sha256": "a727bdc885d30b078fb9249be29b5fac54b6a27c2e23bf29780264b847b42965"
+    },
+    "tests/tooling/test_app_build_policy.py": {
+      "bytes": 22453,
+      "sha256": "e155f6d8d98b5817caa8701bad8290d2113e51d1cdef680ec1978be8520994a8"
+    }
+  },
+  "execution": "WSL Ubuntu serial host compile, controlled fixtures; no target or device",
+  "command": [
+    "wsl",
+    "-d",
+    "Ubuntu",
+    "--",
+    "python3",
+    "-B",
+    "-m",
+    "unittest",
+    "tests.tooling.test_configured_setup",
+    "-v"
+  ]
+}

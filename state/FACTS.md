@@ -751,3 +751,6 @@ HOST-OBSERVED only: final calleraed3fbf4, controlled27+7methods PASS/exit0, dura
 
 ## F192 - Current bench/default target compilation (2026-09-25T16:55:17.532077+04:00)
 DEVICE-OBSERVED compiler only: source37a2099f, build6d9e48f8b648469787bc8623ae05d163, default startup/MATCH0/MOTORS_ALLOWED0, one query/compile, exit0/all7closing checks PASS. Raw ELF72a8bfcd/package5b400268 exactly match D139; debugELFccc8990a differs. Existing same-loader allocation model still has592B deficit; compiler size output4296B local-variable allowance is not a loader/runtime proof. No upload/reset/native app execution or physical/human gate. Source: analysis/P7_current_app_compile_raw/bench01_binding/comparison.json.
+
+## F193 - Current MATCH/Immediate target compilation (2026-09-25T17:03:54.198450+04:00)
+DEVICE-OBSERVED compiler only: source37a2099f, build1fcc7d57d66848cd9ea604297538e125, Immediate startup/MATCH1/MOTORS_ALLOWED1 as compile flags only. One query/compile,21transports, exit0/all7closing checks PASS; exact canonical source reused without push. Raw ELFcb5fbb53/package004d51bf equal D138, debug2245bacd differs. Same-loader model remains conditional261280B peak/864B span/860B largest payload,62imports resolved; no dynamic loading/live memory/WCET/physical/human qualification. Source: analysis/P7_current_app_compile_raw/match01_binding/comparison.json.

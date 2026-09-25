@@ -9,19 +9,17 @@ physical acceptance. Do not reset the project to P0.
    Check nested instructions, Git status, actual Asia/Dubai time and free space.
    Preserve uncommitted user work. PROGRESS has legacy non-UTF8 bytes: append
    without re-encoding its history. The handoff holds the exact current next task.
-2. Read current native evidence before any device action. D184 is the last
-   upload: the isolated dynamic/default/M0 diagnostic completed four inhibited
-   applications and terminal halt. Its scope/owner are consumed; actual separate
-   review PASS. It did not reproduce or fix D160/D161's earlier static full-app
-   IO failure. Current app source37a2099f bench/default compilation now passed;
-   D185 composition is now host-tested/reviewed (27+7PASS) with exact durable
-   evidence restored after ENOSPC. Bench build6d9e48f8 matches the old raw/package;
-   the592B modeled deficit remains. Bench owner is consumed. Next: review/commit
-   current evidence, then separate clean-head MATCH compile-only. No upload/reset.
-   D180 binds disabled setup declarations; D181 preserves compiler failures;
-   D182/D183 prepare precompiled MATCH deployment. Their host evidence is not
-   artifact qualification or human motor permission. Native full-app startup,
-   RAM/stack/WCET and physical/human gates remain pending.
+2. Read current native evidence. D184 remains the last upload: an isolated
+   dynamic/default/M0 diagnostic completed four inhibited applications and halt.
+   Its scope is consumed; it did not reproduce or fix D160/D161 static full-app
+   IO failure. D185 current app source37a2099f is now checked target-compiled for
+   bench/default (6d9e48f8) and MATCH/Immediate (1fcc7d57); all closing checks PASS.
+   Both compile owners are consumed. Raw/package bytes equal D139/D138, debug
+   differs: retain existing model deficit/margin limits, no new ABI/live RAM or
+   WCET inference. Next minimal full-app inhibited diagnostic scope is described
+   in the current handoff; do not create another wrapper framework. D180 grants
+   remain disabled; D182/D183 deployment source does not confer run permission.
+   Physical setup, RAM/stack/WCET, explainability and human gates remain pending.
 3. All old native scopes are consumed. Never rerun a historical launcher, repin
    its consumed manifest, reset the MCU or infer that an old capture layout fits
    changed firmware. A new operation needs fresh source/artifact/identity binding

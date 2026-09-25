@@ -68,3 +68,24 @@ D184's halted isolated diagnostic remains the last image. Bench owner consumed.
 Separate reused-context actual review b02287cf PASS/no material findings;
 see ../reviews/P7_current_app_bench_actual_review.md. It confirms227transports,
 ten successful reaped child processes,115pins and103staged/remote source hashes.
+
+## Actual MATCH/Immediate compile
+
+Reviewed80c059f7, native session52257 exit0, 25Sep16:58:24-17:02:33Dubai.
+One query/compiler,21transports, all7independent closing checks PASS. Existing
+canonical source was accepted by exact filename/hash comparison without push.
+Outcome native_match01/result.json is COMPILE_CHECKED; build1fcc7d57d66848cd9ea604297538e125.
+Compact exact receipt/command and comparison are in match01_binding/. RawELF
+cb5fbb53/package004d51bf match D138 exactly; debugELF2245bacd differs. Same pinned
+loader permits reusing existing conditional byte-derived model:261280B peak in
+262144B,864B span/860B largest payload,62resolved imports. These are not observed
+live RAM/stack or WCET results and not fresh debug ABI queries. Compiler reports
+174972B program/256440B globals/5704Bremaining plus low-memory warning. No upload
+or reset; the last MCU image is still the halted D184 isolated diagnostic.
+Both D185 caller owners are consumed. Current source, config and locked tests
+were not changed by either compilation. Exact bytes eliminate duplicate binary
+downloads while fresh receipts bind current source/profile/dependencies/artifacts.
+
+Separate reused-context actual MATCH review20ea1645 PASS/no material findings;
+see ../reviews/P7_current_app_match_actual_review.md. Both current target builds
+are now separately reviewed. No phase/human/physical gate is authored.

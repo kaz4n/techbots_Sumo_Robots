@@ -1,18 +1,23 @@
 # Codex handoff - 25 September 2026, Asia/Dubai
 
-**D185 bench TARGET-COMPILED; separate MATCH compile-only is next.**
-Reviewed34eb56ba ran query1/compiler1/227transports with all7closing checks PASS.
-Build6d9e48f8 current source37a2099f rawELF/package match D139 exactly; debugELF
-is different. The existing592B modeled RAM deficit remains unresolved; no new
-ABI/live RAM/WCET claim. Read analysis/P7_current_app_compile_validation.md and
-its bench01_binding evidence. Bench owner/stage are consumed; never rerun it.
-After actual review and evidence commit, invoke match --check-only then one
---execute with native_match01/pycache on clean reviewed HEAD. Caller rechecks
->=128MiB local/>=1GiB board, identity and pins. This is compile-only, no upload.
-D184 remains the last image, isolated M0 diagnostic halted; original full-app IO
-fault and physical/human gates remain open. Cleanup92738412 saved174.38MiB with
-contents unchanged; all denied deletion paths remain excluded. Older checkpoints
-below are historical evidence; CODEX_STORAGE_RECOVERY.md records recovered tests.
+**D185 both current profiles TARGET-COMPILED; no firmware upload.**
+Bench/default build6d9e48f8 (reviewed34eb56ba) and MATCH/Immediate build1fcc7d57
+(reviewed80c059f7) each ran one query/compiler,227/21transports, all7closing checks
+PASS. Exact current raw/package hashes match D139/D138; debug hashes differ.
+Existing byte-derived models remain: default592B deficit; MATCH conditional864B
+span/860B largest payload. No fresh ABI/live RAM/WCET or physical/human gate.
+See analysis/P7_current_app_compile_validation.md and actual review records.
+Both D185 owners are consumed; do not rerun/relabel them. D184 isolated M0 halted
+diagnostic is the last image; original D160/D161 full-app IO fault remains open.
+Next eligible engineering work: scope a minimal inhibited full-app trace through
+Runtime -> Transaction -> Robot -> MotorGate using existing motor_fault tracing,
+with new source/artifact/layout/attempt binding. First resolve its compatibility
+with the unresolved default allocation/static full-app context; no speculative
+fix, timing relaxation, historical layout reuse or motor-capable upload. Existing
+physical setup, live RAM/stack/WCET, explainability and human gates remain pending.
+Cleanup92738412 saved174.38MiB; final stage cleanup/history is in STORAGE_LOG.md.
+All prior denied deletion paths stay excluded. No native job is running; older
+paragraphs below are historical checkpoints, not current action instructions.
 
 **Offline completion audit:** original P7 scope rechecked after66672174; no further
 eligible offline implementation identified. Current runbook/acceptance/gate-request

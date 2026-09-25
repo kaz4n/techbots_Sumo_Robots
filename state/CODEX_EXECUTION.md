@@ -1,5 +1,12 @@
 # Current execution checklist - 2026-09-25 Asia/Dubai
 
+**D178 offline capture failure retention HOST-TESTED / REVIEWED.**
+Source3f73fd58/baca4d79;13new+45existing Python checks PASS, review7649fb58 PASS.
+Original capture failure/path survives error.json write failure; no retry, cleanup
+or publication follows. New-fixture correction and original failures retained;
+no established/locked assertion change. Native0, board remains disconnected.
+See analysis/P7_dump_error_retention_validation.md. All11 prior D177 pins exact.
+
 **D177 thin inert integration HOST-TESTED / REVIEWED; board disconnected.**
 Source58d32dda/8ffb65c0; unchanged46+new16 independent methods PASS,11pins exact;
 reviewb1de6217 PASS. Real command sizes28,989/25,231 fit30,000. Original failure
@@ -125,9 +132,13 @@ pending; D051/D075/D122/D137 permit scheduling, not fabricated measurements.
   legacy tests PASS, historical consumed snapshot mismatch preserved; review1317cc4fPASS.
 - [x] D176 closed finite capture: source7b7e8c69,8+38+46methodsPASS/review93ef66a7PASS;
   twoMAJOR findings reproduced/repaired, fourteenpins exact. Native0.
-- [ ] Thin source-pinned upload/capture integration using existing transport; exact
-  input bindings, compact bounded responses and independent review before a fresh
-  identified bare-board run. No rebuild or cloned launcher framework.
+- [x] D177 command framing, strict receipts and conditional upload/capture callbacks;
+  46+16host methods PASS, separate reviewb1de6217. No actual native run.
+- [x] D178 original P7 log-preservation defect repaired;13new+45existing Python
+  methods PASS, review7649fb58; synthetic storage failures, no hardware claim.
+- [ ] Fresh current board admission and minimal reviewed native caller using
+  existing transport and D177 interfaces before the identified inert run.
+  No rebuild or cloned launcher framework.
   Original D160 failing operation remains unknown; do not relax safety bounds.
 - [ ] Qualify native loading/startup, stack/heap/WCET and release workflow before
   adoption. Structural RAM tail94352B is not measured free memory.

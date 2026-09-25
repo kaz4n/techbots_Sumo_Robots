@@ -721,3 +721,6 @@ FILE-OBSERVED before disconnection, 25Sep08:00Dubai: read-only installed_capture
 
 ## F182 - Inert action composition host validation (2026-09-25T11:08:31.211321+04:00)
 HOST-OBSERVED only: source58d32dda/8ffb65c0 enforces bounded framing, strict receipt admission and conditional upload/capture callbacks. Unchanged46 original plus16 independent codec methods PASS on first tested-source repair;11pins exact, separate same-model reviewb1de6217 PASS. Windows Python3.13.11 compositions28,989/25,231 units fit30,000; WSL Python3.12.3 executes controlled fixtures only. No current board availability/API, actual upload/capture, native startup or gate is established. Original failures and full receipts are in analysis/P7_motor_fault_actions_validation.md.
+
+## F183 - Offline capture failure retention ( 2026-09-25T12:46:14.434284+04:00 )
+HOST-OBSERVED only: source3f73fd58/baca4d79 preserves primary CaptureError/cause/connection evidence and partial path across a secondary journal Exception, reports failed-save details and retains partial bytes without retry/publication.13independent+45selected existing Python checks PASS; normal journal byte equality and5task/11priorD177pins verified, separate same-model review7649fb58 PASS. Synthetic ENOSPC/serialization injection is not actual full-disk or hardware acceptance. See analysis/P7_dump_error_retention_validation.md.

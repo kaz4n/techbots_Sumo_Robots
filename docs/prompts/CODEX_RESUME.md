@@ -16,6 +16,9 @@ physical acceptance. Do not reset the project to P0.
    diagnostic; D173 observed its file ABI; D174-D177 decoding/upload/capture/glue
    are host-tested. Active diagnostic execution, native startup and WCET remain
    unqualified. The user disconnected the board; do not assume current access.
+   D178 subsequently repaired offline capture failure reporting (13new+45existing
+   Python tests and separate review PASS); its evidence is in the handoff.
+   No device operation or firmware change occurred during that host continuation.
 3. All old native scopes are consumed. Never rerun a historical launcher, repin
    its consumed manifest, reset the MCU or infer that an old capture layout fits
    changed firmware. A new operation needs fresh source/artifact/identity binding

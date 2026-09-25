@@ -1,6 +1,15 @@
 # Codex handoff - 25 September 2026, Asia/Dubai
 
-**Active: P7 software/release preparation. D177 action composition HOST-TESTED.**
+**Active: P7 software/release preparation. D178 offline capture repair REVIEWED.**
+User explicitly requested continued host work without hardware. Fixed the log
+receiver's secondary disk-full error masking the original failure and partial-log
+path. Source3f73fd58/baca4d79;13 independent new and45 existing selected Python
+checks PASS. Separate same-model review7649fb58 PASS. Original failures and the
+single independently corrected new serialization fixture remain in Git; no
+established/locked assertions changed. Read analysis/P7_dump_error_retention_validation.md.
+Native calls0; no firmware or gates changed. All11 prior D177 pins remain exact.
+
+**Previous native-preparation checkpoint: D177 action composition HOST-TESTED.**
 The user disconnected the board. This continuation issued no device commands.
 Final source58d32dda/8ffb65c0 passes unchanged46 original tests plus16 independent
 encoding tests; all11 frozen pins match. Separate same-model reviewb1de6217 PASS,
@@ -56,7 +65,8 @@ Retrieve/hash raw snapshots before the D174 offline decoder; never infer atomici
 No motor-capable operation is authorized. D160/D172/D173 and prior compile scopes
 are consumed. Do not reuse or repin old scopes, clone another launcher, or rebuild
 the unchanged diagnostic merely because a new session began. All previously
-policy-denied cleanup targets remain, including both motor-fault stages and37
+policy-denied cleanup targets remain, including the2B Windows input.wire in
+C:/Users/narut/AppData/Local/Temp/sumox-offline-error-cyeoj212, both motor-fault stages and37
 historical stage folders listed in the stored cleanup manifest. No process is
 running. Physical/human gates, native startup/RAM/WCET and release remain pending.
 

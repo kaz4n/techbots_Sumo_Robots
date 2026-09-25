@@ -1152,3 +1152,5 @@ physical/loadedRAM/gate claim. | contract=this commit
 2026-09-25T05:05:44.191981+04:00 | P7 | D161 passive nested fault diagnosis |752B collected/independently parsed; Robot0x0110 + GateIO; source/time of failed callback still unknown; scope consumed | source1d455be7; actual closure this commit
 
 2026-09-25T05:06:41.914052+04:00 | P7 support | Storage conservation |380 old logs losslessly compressed,1.275GiB reported recovered; hashes/size/mtime preserved; D161 checkpoint1c09f653 and next inert callback diagnostic retained | this cleanup commit
+
+2026-09-25T05:12:13.698242+04:00 | P7 | D162 inert callback diagnostic scope | Fresh-context design PASS; public interface/spec ready; implementation and independent tests pending; no native action | this commit

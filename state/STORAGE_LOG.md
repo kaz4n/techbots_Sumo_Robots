@@ -382,3 +382,6 @@ D191 closing observation: C:recovered290537472B independently before local docum
 
 
 2026-09-26T01:18:25.052911+04:00 | D193 host validation retention | Retain 17 compact records/155173logicalB before closingreceipt plus source/contracts/oracles/reviews. Originalfailure retained9eb8c9c7, reversiblepatches preserve source/oracle corrections without whole duplicate snapshots. Controlled fixtures self-cleaned; zero relevantRAMremnants atclosure, Python-B used. No newnativebinary/buildsource snapshot downloaded; preparedmanifest only. C:free159567872B separatelyobserved; no savings or denied-path cleanup attempted.
+
+
+2026-09-26T01:31:58.826012+04:00 | D193 actual compile retention | Keep996unique native receipt files1693456logicalB plus compactinvocation/closure/validation/review. New775376B107-file stage supports exactsourcechecks and remains needed for ABI/entry; targetartifact originals retained, no firmware/debugdownload. Zero newbytecode files; no host compilerobjects. C:free56795136B separatelyobserved; no cleanup saving or deniedpathretry. Keep unchanged128MiB admissiongate; smallhostpreparation usesRAMfixtures.

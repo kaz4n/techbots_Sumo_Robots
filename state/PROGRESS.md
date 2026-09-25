@@ -1336,3 +1336,9 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-26T01:21:18.451035+04:00 | P7 D193 pre-caller Git comparison | Extra coordinator rawHEAD-byte comparison stopped before caller/owners/native. Separate readonlyreview confirms exactlyone historicalJSON CRLF/LF difference: app_build_pins.json24pairs, raw55720e65 matchesmanifest; filteredGitOID matchesHEAD. Contract requires cleanGit+exactworkingpins, not rawHEAD equality. Preserve git_byte_precheck01.json b4903394; use filteredGitidentity plus unchanged128rawpins without file/contract/manifest change. Bothowners absent, no nativeattempt consumed.
+
+
+2026-09-26T01:31:58.826012+04:00 | P7 D193 actual compile-only | COMPILE_CHECKED at reviewedb5f589c5:source3a08ddeb/static/default/M0/probe1; onequery/onecompiler/236transports,8closingPASS,128pinsunchanged. ELF2fd70da8/debug33e3b34d/package85b05c56, structural91280Btail notliveRAM. No upload/reset/MCUread; D190 remainslatestfirmware, compileownerconsumed. Evidence analysis/P7_app_motor_observe_compile_actual_validation.md; newABI/entrynext.
+
+
+2026-09-26T01:32:24.037474+04:00 | P7 D193 actual review closure | Separate same-model localread reviewbf09033fPASS/no materialfindings; independently checked236transport/ninechild receipts,107stagedsourcefiles,128local/18installedpins and8artifacts. No additionalnative operation. D194 file-onlyABI preparation next.

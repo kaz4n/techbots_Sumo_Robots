@@ -332,3 +332,6 @@ Recheck space before work and preserve all earlier blocked cleanup exclusions.
 - [x] D191 exact authenticated cleanup and D190 run02 completed, independently
   reviewed. See P7_app_motor_fault_run02_validation.md; historical pending items
   above are superseded. No physical gate or motor permission follows.
+
+
+- [x] D192 longerinhibitedobservation host-tested; D193 actualstaticcompile-only succeeds atb5f589c5, onequery/onecompiler/all8closingPASS. This supersedes earlier pendingD188/D193 build items. D190 stilllatestflashedimage; nextfreshD194ABI/entry, then newfinitecapture. See current CODEX_HANDOFF.md.

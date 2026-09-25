@@ -2,10 +2,12 @@
 
 ## Current result
 
-D193 fixed static observation compile preparation is host-tested and reviewed.
-Read analysis/P7_app_motor_observe_compile_validation.md and both host/scope
-reviews.94Linux methods pass;75Windows pass with19platform skips. Newsource
-3a08ddeb and manifest aa350c65 are prepared; no D193 native compile yet.
+D193 fixed static observation compiled successfully on the UNO Q. Read
+analysis/P7_app_motor_observe_compile_actual_validation.md and its actual review.
+At clean reviewed b5f589c5, check-only/execute returned0; one query/one compiler/
+236transports and all8closing checks passed. Source3a08ddeb/manifestaa350c65;
+rawELF2fd70da8/debug33e3b34d/package85b05c56. No new upload or MCU observation.
+Host preparation remains94LinuxPASS/75WindowsPASS with19platform skips.
 
 D191 cleanup is verified and D190 run02 completed successfully on the UNO Q.
 The latest flashed image is source21df6ae8/static/default/MATCH0/MOTORS_ALLOWED0/
@@ -36,17 +38,15 @@ Runner retains the existing first64 prefix and explicit rejection count while
 preserving first_failure beyond it; it stops at real faults or10000epochs /
 10000000polls. Empty grants and the150us native limit remain unchanged. All new
 host normal/sanitizer, historical diagnostics and locked regressions passed.
-No D192 board build or upload has occurred; D190 above remains the latest image.
+The D193 board build succeeded; D190 above remains the latest flashed image.
 
-Next perform the new D193 compile-only attempt after committing this closure.
-Launcher tools/compile_app_motor_observe.py has hash70e1f016; its contract0301726f,
-manifest aa350c65, source3a08ddeb and all128input pins are independently reviewed.
-Run check-only at the committed clean40hexHEAD, then --execute once with the
-required absolute output/pycache prefix. New output is
-analysis/P7_app_motor_observe_compile_raw/native_static01; stage/remote owner
-app-motor-observe-static01. Every actual check remains enforced, including local
-space (recent159MB free), target identity, original tools, source and closing.
-No files outside the owned output may change during the strict native operation.
+Next prepare the D194 file-only ABI wrapper/contract/independent tests and review.
+Reuse the pinned reader minimally with the successful D193 result24d12778 and
+artifacts5ceba77d, fresh observation owner and the new Report.polls member query.
+D193 app-motor-observe-static01 and all earlier native owners are consumed.
+Current ABI source/test preparation is separate from actual device execution.
+Recheck free space before admission; recently only58MB C:free, below the unchanged
+128MiB native-reader gate. Do not reduce that gate or retry denied cleanup paths.
 
 Then observe actual artifact/ABI/entry layout before a separate new finite native
 capture. Do not assume historical addresses apply or call the old IO fault fixed.
@@ -91,7 +91,7 @@ rehearsal2Oct, competition3Oct. Scheduled dates create no acceptance.
 
 ## Storage and resumption
 
-Recheck C: before work; recently about340MB free and fluctuating. Keep unique
+Recheck C: before work; recently about58MB free and fluctuating. Keep unique
 raw receipts/source/hash-based reproduction; no duplicate firmware/debug/source
 snapshots, Python bytecode or parallel heavy builds. See STORAGE_LOG.md for
 retention/disposal purposes and exact savings. Do not retry any policy-denied

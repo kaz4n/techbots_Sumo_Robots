@@ -806,3 +806,7 @@ HOST-VERIFIED: D192 new Runner/sketch with unchanged Trace/Runtime passes10indep
 
 ## F206 - Fixed static observation compile host evidence (2026-09-26T01:18:25.052911+04:00)
 HOST-VERIFIED: D193 launcher70e1f016, contract0301726f, calleroracleae42938c andsupplement897ae6e4.94LinuxmethodsPASS/noskips;75WindowsPASS/19explicitplatformskips; actualprojectedremote/adapter exercised withsyntheticartifacts.197pins exact. Pre-execution bootstrap FIFO race repaired; originalWindowsfixtureprivilegeerror and narrowassertion-preserving split retained9eb8c9c7. Source: analysis/P7_app_motor_observe_compile_validation.md andrawreceipts. No actualtargetcompile/artifact/ABI/MCU/runtime/physicalgate inferred.
+
+
+## F207 - Longer inhibited observation target compilation (2026-09-26T01:31:58.826012+04:00)
+DEVICE-FILES-OBSERVED: source3a08ddeb/static/default/MATCH0/MOTORS0/probe1 compiles once atb5f589c5;8closingPASS,128pinsunchanged. ELF2fd70da8/debug33e3b34d/package85b05c56,8artifactidentitiesstable; sixTLSsymbols/no weakundefined. CLI95360Bprogram/170868Bglobals/91276Bremaining, structural91280Btail/208Bdata/170632Bbssclear. None is measuredRAM/stack/WCET. No upload/reset/MCUread/physicalgate. Source: analysis/P7_app_motor_observe_compile_actual_validation.md and native_static01 receipts.

@@ -1,12 +1,13 @@
 # Current execution checklist - 2026-09-25 Asia/Dubai
 
-**D180 main-app setup binding HOST-TESTED, separate review pending.**
+**D180 main-app setup binding HOST-TESTED / REVIEWED.**
 Contract e4aea29c/source70b9cea5; all17 declarations remain0/unconfigured.
 Independent16methods first-run PASS;26selected legacy methods PASS, no skips.
 Ten current/24priorD179pins exact; no old value/bench/locked assertion change.
-See analysis/P7_setup_binding_validation.md. Finish separate review/checkpoint;
-changed main-app target compilation remains pending. No further offline omission
-identified by the scoped audit; preserve the reviewed historical diagnostic.
+Separate review30f3927f/4e26ed27 PASS, no open finding; source/oracle unchanged.
+See analysis/P7_setup_binding_validation.md. No further original-scope offline
+omission identified by the bounded audit. Next fresh board admission when available;
+changed main-app target compilation and physical/human gates remain pending.
 
 **D179 fixed inert caller HOST-TESTED / REVIEWED; board disconnected.**
 Unchanged source d8418fad/8b47b1d6;44 independent methods PASS after two new fixture

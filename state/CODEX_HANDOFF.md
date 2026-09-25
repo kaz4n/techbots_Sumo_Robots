@@ -1,13 +1,15 @@
 # Codex handoff - 25 September 2026, Asia/Dubai
 
-**Active: P7 software/release preparation. D180 HOST-TESTED, review pending.**
+**Active: P7 software/release preparation. D180 HOST-TESTED / REVIEWED.**
 Contract e4aea29c/source70b9cea5 close the main-app config-to-SetupGrants gap.
 All17 declarations remain0, axes unconfigured and originUNKNOWN. Independent
 oracle ad9bd19c passes16methods on its first run;26selected legacy methods PASS.
 Ten current/24priorD179pins exact, no old value/bench/locked-test change,0native
-calls/ownedRAMremnants. Evidence8d8f38d1 and analysis/P7_setup_binding_validation.md.
-Finish the separate review/checkpoint; changed main-app target compilation remains
-pending. Historical target receipts do not qualify this source.
+calls/ownedRAMremnants. Evidence8d8f38d1/89c784e1; separate fresh-context same-model
+review30f3927f/4e26ed27 PASS with no open finding. Source/oracle needed no repairs.
+See analysis/P7_setup_binding_validation.md. Changed main-app target compilation
+and actual setup qualification remain pending; old receipts do not qualify it.
+No process is running. All planned D180 host work is complete.
 
 **D179 fixed caller REVIEWED.**
 Board disconnected. Source d8418fad/8b47b1d6, independent corrected44-method
@@ -61,9 +63,9 @@ No process is running. Previous source/failure/recipe/review evidence is retaine
 
 ## Exact next task
 
-Finish D180 separate review and save the closure checkpoint. All planned host
-checks pass; do not repeat unchanged suites. No further original-scope offline
-omission was identified by the bounded audit. No grant enablement or native action.
+D180 is closed within its HOST-TESTED scope. The bounded original-scope audit
+identified no further offline omission. Preserve the checkpoint while the board
+is absent; do not repeat passing suites or invent new release frameworks.
 Changed main-app target compilation and actual setup qualification remain pending.
 The fixed D179 caller and D177 command/receipt/sequence interfaces remain reviewed.
 No real inert_run01_scope.json or native_inert_run01 exists in this checkout.
@@ -131,7 +133,7 @@ sensor/motor/electrical acceptance remain tracked in existing packets/findings.
 ## Storage and tools
 
 C: latest D180 free-space observation is in STORAGE_LOG.md; recheck before work.
-Only compact unique D179 source/oracle/failure/review receipts were retained;
+Only compact unique D180 source/oracle/test/review receipts were added;
 small owned RAM fixtures were removed, no new build/download/cache generated.
 D173 retained219185B file-only ABI packet and D174 compact sources/test results;
 no firmware/debug download or persistent test scratch. No new cleanup attempted.

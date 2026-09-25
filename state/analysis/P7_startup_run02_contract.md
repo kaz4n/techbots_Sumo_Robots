@@ -80,7 +80,9 @@ or upload_loader for run02, passing explicit bindings (and run_id only where
 accepted). Capture passes bindings/run_id to collect. No scope inferred from
 report identity. build_command(action, payload_bytes) retains its original API.
 The prior dependency pin baseline is preserved in native_run01/inputs.json
-(dependency_pins); historical scope_files are the keys of native_run01_scope.json
+(dependency_pins, excluding the four D144 runs/f0220228320c4b2aa20c3e5e8264c813/
+0001.json, 0009.json, 0017.json and 0021.json receipt entries, leaving12 keys);
+historical scope_files are the keys of native_run01_scope.json
 files. These may serve as source-independent expected data for companion tests.
 
 Tests must derive from this public contract before reading new bodies. Exercise

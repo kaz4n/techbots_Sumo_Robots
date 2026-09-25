@@ -37,3 +37,13 @@ use. Implementation and frozen receipts are pending, not inferred from design.
 No native_run02_scope.json, residue disposition or execution permission is
 provided here. The known /tmp/remoteocd entry remains a blocking admission fact;
 host ownership preparation neither deletes it nor revives the consumed attempt.
+
+Pre-freeze test-author clarifications reviewed, contract SHA256
+`e53a3273d2309ebdedd0ccb1fbd52af7ba721ef3f4ea191640c6b779b8f9d45f`.
+The payload keeps existing source/hash/bindings fields plus explicit run_id;
+API dispatch remains closed and global-free. Historical dependency expectations
+come from the preserved16-pin receipt minus its four named D144 receipt entries,
+leaving the correct12-key dependency map. This resolves the baseline ambiguity
+without changing behavior. **Design PASS applies to this clarified contract.**
+Hold actual source/receipt disposition until the independent tests are complete
+and frozen; no new execution or cleanup authority follows from this addendum.

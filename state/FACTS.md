@@ -748,3 +748,6 @@ DEVICE-OBSERVED: D184 source8f592937/ELFf9460a16/packageb4416792 dynamic/default
 
 ## F191 - Current-app compile-only caller host qualification (2026-09-25T16:46:42.705781+04:00)
 HOST-OBSERVED only: final calleraed3fbf4, controlled27+7methods PASS/exit0, durable6bf5c9c9/49823ae6. Separate reused-context same-model review94fff07d PASS. Bench/default and MATCH/Immediate source37a2099f manifest mappings checked,115pins each. No current target compilation, motor upload/run, RAM/WCET qualification or gate follows. Actual disk-full failures retained distinctly. Source: analysis/P7_current_app_compile_validation.md.
+
+## F192 - Current bench/default target compilation (2026-09-25T16:55:17.532077+04:00)
+DEVICE-OBSERVED compiler only: source37a2099f, build6d9e48f8b648469787bc8623ae05d163, default startup/MATCH0/MOTORS_ALLOWED0, one query/compile, exit0/all7closing checks PASS. Raw ELF72a8bfcd/package5b400268 exactly match D139; debugELFccc8990a differs. Existing same-loader allocation model still has592B deficit; compiler size output4296B local-variable allowance is not a loader/runtime proof. No upload/reset/native app execution or physical/human gate. Source: analysis/P7_current_app_compile_raw/bench01_binding/comparison.json.

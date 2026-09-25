@@ -1,17 +1,18 @@
 # Current execution checklist - 2026-09-25 Asia/Dubai
 
-**D185 compile-only caller HOST-TESTED / REVIEWED; native work not started.**
-Final source/scopes6c938ada:27+7controlled methods PASS, durable receipts restored
-byte-for-byte after ENOSPC; separate reused-context same-model review94fff07d PASS.
-Read analysis/P7_current_app_compile_validation.md and CODEX_STORAGE_RECOVERY.md.
-Cleanup92738412 recovered182854656allocatedB (174.38MiB), content unchanged;
-seven cache deletions were policy-denied and are excluded from retries.
-Next: clean committed reviewed HEAD -> bench --check-only, then one compile-only
---execute using native_bench01/pycache; close/review/commit before match profile.
-Both owners/stages are absent at closure; >=128MiB local and>=1GiB board required.
-No upload/reset, physical gate or motor permission. D184 remains the last upload:
-its isolated M0 diagnostic halted successfully; original full-app IO fault stays
-open. All older checkpoint paragraphs below are historical evidence.
+**D185 bench TARGET-COMPILED; separate MATCH compile-only is next.**
+Reviewed34eb56ba ran query1/compiler1/227transports with all7closing checks PASS.
+Build6d9e48f8 current source37a2099f rawELF/package match D139 exactly; debugELF
+is different. The existing592B modeled RAM deficit remains unresolved; no new
+ABI/live RAM/WCET claim. Read analysis/P7_current_app_compile_validation.md and
+its bench01_binding evidence. Bench owner/stage are consumed; never rerun it.
+After actual review and evidence commit, invoke match --check-only then one
+--execute with native_match01/pycache on clean reviewed HEAD. Caller rechecks
+>=128MiB local/>=1GiB board, identity and pins. This is compile-only, no upload.
+D184 remains the last image, isolated M0 diagnostic halted; original full-app IO
+fault and physical/human gates remain open. Cleanup92738412 saved174.38MiB with
+contents unchanged; all denied deletion paths remain excluded. Older checkpoints
+below are historical evidence; CODEX_STORAGE_RECOVERY.md records recovered tests.
 
 **Offline scope audit complete after66672174.** No further eligible implementation
 identified by coordinator/separate reused reviewer. Stale P7 acceptance prose

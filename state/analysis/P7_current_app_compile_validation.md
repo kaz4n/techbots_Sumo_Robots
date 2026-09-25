@@ -51,3 +51,20 @@ review and commit bench evidence before the separate match profile. A claimed
 owner consumes its attempt even on failure. MATCH here is compile-only; no
 upload/reset permission. Review actual artifact identity before reusing any
 historical file-derived accounting. Existing denied cleanup paths stay intact.
+
+## Actual bench/default compile after host closure
+
+Reviewed34eb56ba, native session90473 exit0, 25Sep16:47:46-16:53:53Dubai.
+One query and one compiler,227transports, all7independent closing checks PASS.
+Outcome native_bench01/result.json is COMPILE_CHECKED; build6d9e48f8b648469787bc8623ae05d163.
+Compact exact receipt/command and comparison are in bench01_binding/ beneath
+P7_current_app_compile_raw. RawELF72a8bfcd/package5b400268 match D139 exactly;
+debugELFccc8990a differs. Same pinned loader permits reusing file-derived model:
+592B deficit and61resolved imports, under historical assumptions. No fresh ABI,
+live RAM/stack/WCET or physical acceptance follows. Compiler reported177100B
+program/257848Bglobals/4296Bremaining and low-memory warning. No upload/reset;
+D184's halted isolated diagnostic remains the last image. Bench owner consumed.
+
+Separate reused-context actual review b02287cf PASS/no material findings;
+see ../reviews/P7_current_app_bench_actual_review.md. It confirms227transports,
+ten successful reaped child processes,115pins and103staged/remote source hashes.

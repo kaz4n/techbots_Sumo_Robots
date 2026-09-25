@@ -11,7 +11,7 @@ The seven rejected npx folder deletions join all prior excluded cleanup paths;
 see STORAGE_LOG.md. Do not retry deletion through another method. Free-space
 fluctuations beyond measured allocation savings have an unproven external cause.
 
-No D185 native attempt began. Resume the precise compile-only task in
+D185 bench native compile now passed (build6d9e48f8); owner consumed. Resume the separate MATCH compile-only task in
 CODEX_HANDOFF.md after current space/identity/source checks. Last upload D184
 completed with the isolated inert image halted. Full-app IO fault and all
 physical/human gates remain pending.

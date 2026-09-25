@@ -32,8 +32,7 @@ _ALIASES = {PROJECT + suffix: 'app.ino' + suffix for suffix in (
 
 def _stamp(info):
     return (info.st_dev, info.st_ino, info.st_mode, info.st_nlink, info.st_size,
-            info.st_mtime_ns, info.st_ctime_ns,
-            getattr(info, 'st_file_attributes', 0))
+            info.st_mtime_ns, getattr(info, 'st_file_attributes', 0), info.st_ctime_ns)
 
 
 def _plain_path(path):
@@ -63,7 +62,10 @@ def _checked_source(relative):
         after = _plain_path(path)
     except OSError as error:
         raise ValueError('Missing or unreadable static validator input: ' + relative) from error
-    if before != after or before[-1] != opened or opened != closed:
+    # Windows lstat/fstat expose different ctime values; each API must stay stable.
+    path_identity = before[-1][:-1] if os.name == 'nt' else before[-1]
+    handle_identity = opened[:-1] if os.name == 'nt' else opened
+    if before != after or path_identity != handle_identity or opened != closed:
         raise ValueError('Static validator input changed while reading: ' + relative)
     if not 0 < len(raw) <= 65536 or hashlib.sha256(raw).hexdigest() != _PINS[relative]:
         raise ValueError('Reviewed static validator bytes changed: ' + relative)

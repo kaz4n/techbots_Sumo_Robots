@@ -1,0 +1,21 @@
+{
+  "time": "2026-09-25T17:44:53.249821+04:00",
+  "status": "CORRECTED_SOURCE_AND_NEW_ORACLE_FROZEN_NOT_RERUN",
+  "sha256": {
+    "tests/tooling/test_app_motor_fault_static_policy.py": "e6d52ec6b0d72e893511793e9d92003092499280454093c9b6622d0e18547d5c",
+    "tools/app_motor_fault_static_policy.py": "3e5d49e4a70c0cf6197e26b1ba5ce2b7e07601bf5d9250ba430f90d1f9eab270",
+    "state/analysis/P7_app_motor_fault_static_contract.md": "21b572bf9f3ec105814f7421fee2447e6c12551ba2a61f53d994b9b1abd57688",
+    "tools/app_build_policy.py": "adc7f42a3325381c3cf15122409dfe9d92db7ca187cb242e416fef356be667f8",
+    "state/analysis/P7_static_link_probe_raw/static_policy.py": "ec3d8a5e8c4910bbdbbb96fb5123c8bb42b294ce9342c76db73b8d3b5eab7775",
+    "state/analysis/P7_static_link_probe_raw/static_reference.json": "1dc8ac6dec8534536acfcc4da73516416ea465cfcc1a349900fd13e210144a2b",
+    "state/analysis/P7_static_link_probe_raw/static_native_artifacts.py": "cd52a29a32b8ae1da4bea51dd55d9011386dd4be0ca537195bb124d13031d6c0",
+    "state/analysis/P7_static_link_probe_raw/static_artifacts.py": "d30372dd4b8fb8c2661d00affc4a215cc88e3f62511995ff6303827bed4b7368",
+    "state/analysis/P7_static_tls_raw/observed/tls-syms.S": "68bb147615813666d528b9bd650e02fb8e240f0db841939e8460d7a52fd2ee70",
+    "state/analysis/P7_static_link_probe_test_draft/test_static_policy.py": "5c1b7a771c7982061e9a97db0c0dabd42f3a47a4ee8e5f6fff263a8845da36d1",
+    "state/analysis/P7_static_artifact_test_draft/synthetic_elf.py": "503a04ea49e6452725cc489101dd3dbf7b8231c2dddac9198fdb01b7bfb2f2ef",
+    "state/analysis/P7_static_native_tls_test_draft/synthetic_native_elf.py": "5a86d5dcde5822d87d51369f943605a702b3918e39fa992e1da4798402683e15"
+  },
+  "unchanged_inputs": 10,
+  "original_receipts_commit": "806a3603",
+  "adjudication": "Separate source reviewer and worker measured real Windows path/handle ctime mismatch; compare full stamps within each API and omit only Windows cross-ctime. Independent author/reviewer identified helper default BUILD mismatch and os.lstat mock missing Path.lstat->os.stat(follow_symlinks=False); explicit fixture args and verified injection preserve all assertions."
+}

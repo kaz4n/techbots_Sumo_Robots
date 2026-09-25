@@ -246,7 +246,7 @@ class FixedMetadataContract(ContractFixture):
             self.reject_metadata(envelope, build, data)
 
     def test_original_project_and_old_flags_fail_even_when_coherent(self):
-        self.reject_metadata(self.support.public_envelope(self.reference))
+        self.reject_metadata(self.support.public_envelope(self.reference, BUILD, DATA))
         for key, value in (('build.project_name', 'app.ino'),
                            ('compiler.c.extra_flags', OLD_FLAGS),
                            ('compiler.cpp.extra_flags', OLD_FLAGS)):
@@ -637,26 +637,40 @@ class DependencyProvenanceContract(ContractFixture):
 
     def test_reparse_attribute_on_files_and_ancestors_is_rejected(self):
         original_lstat = os.lstat
+        original_stat = os.stat
         flag = getattr(stat, 'FILE_ATTRIBUTE_REPARSE_POINT', 0x400)
         for method, relative in self.relevant_calls():
             for ancestor in (False, True):
                 target = ROOT / relative
                 if ancestor:
                     target = target.parent
+                injections = 0
 
-                def marked(path, *args, **kwargs):
-                    observed = original_lstat(path, *args, **kwargs)
+                def mark_result(path, observed):
+                    nonlocal injections
                     if Path(path) != target:
                         return observed
+                    injections += 1
                     attributes = {name: getattr(observed, name) for name in dir(observed)
                                   if name.startswith('st_')}
                     attributes['st_file_attributes'] = flag
                     return types.SimpleNamespace(**attributes)
 
+                def marked_lstat(path, *args, **kwargs):
+                    return mark_result(path, original_lstat(path, *args, **kwargs))
+
+                def marked_stat(path, *args, **kwargs):
+                    observed = original_stat(path, *args, **kwargs)
+                    if kwargs.get('follow_symlinks', True) is False:
+                        return mark_result(path, observed)
+                    return observed
+
                 with self.subTest(method=method, path=str(target)):
-                    with mock.patch.object(os, 'lstat', marked):
+                    with mock.patch.object(os, 'lstat', marked_lstat), \
+                            mock.patch.object(os, 'stat', marked_stat):
                         with self.assertRaises((ValueError, OSError)):
                             self.invoke(self.policy, method)
+                    self.assertGreater(injections, 0, 'Reparse evidence must reach the validator')
 
     def test_adapter_does_not_mutate_other_historical_consumers(self):
         with mock.patch.dict(sys.modules):
@@ -664,8 +678,8 @@ class DependencyProvenanceContract(ContractFixture):
             sys.modules['app_build_policy'] = dynamic
             original = load_module('static_policy', ROOT / RAW / 'static_policy.py')
             sys.modules['static_policy'] = original
-            text = json.dumps(self.support.public_envelope(self.reference))
-            expected = self.support.public_properties(self.reference)
+            text = json.dumps(self.support.public_envelope(self.reference, BUILD, DATA))
+            expected = self.support.public_properties(self.reference, BUILD, DATA)
             for method in METHODS:
                 self.assertEqual(getattr(original, method)(text, build_path=BUILD, data_dir=DATA),
                                  expected)

@@ -1,6 +1,12 @@
 # Codex handoff - 25 September 2026, Asia/Dubai
 
-**Active: P7 software/release preparation. D168 corrected target compile PASS.**
+**Active: P7 software/release preparation. D169 activation profile HOST-TESTED.**
+Source32b2d9d4 adds only a default-zero inert build selector, sketch grant selection
+and exact project-specific policy admission. Independent13 methods,29 unchanged
+tooling methods and normal/sanitized18 cases/2570 assertions each PASS. All63 pins
+match; separate fresh-context revieweeb297fa PASS. Read
+analysis/P7_fault_activation_validation.md. No new target build or board action.
+
 The UNO Q compiled the default-disabled diagnostic successfully: one query/compile,
 123 transports and ten checked children exit0, seven final checks PASS. Separate
 actual review32e1c119 passes. Source5d3d126e, final ELF87fb03e5; packet1edf4a08.
@@ -11,14 +17,23 @@ target compilation evidence in addition to its macro/normal/sanitizer host tests
 
 ## Exact next task
 
-Prepare a narrow explicit activation profile for the inert diagnostic. Its current
-sketch passes Grants{} and never activates callbacks; a successful compile is not
-the fault measurement. Load config.h, the public diagnostic contract/header and
-checked build policy. Reuse Runner::begin(Grants{true}) through a strict default-zero
-selector in config.h, with exact project-specific flag admission if required.
-Record the bounded engineering choice and independent expectations before edits.
-Preserve MATCH=0/MOTORS_ALLOWED=0, trace refusal of EN-high/nonzero PWM, native
-150us limit and all existing assertions. Avoid a copied sketch or another framework.
+Add explicit fresh-attempt staging to tools/board_tool.py. Its current stage(sketch)
+has no alternate destination and deletes the existing fixed folder (lines245–300).
+Do not call it on the retained motor_fault stage. The smallest additive interface
+is stage(sketch, *, attempt=None), with a bounded path-safe attempt token selecting
+build/stage/<attempt>/<sketch-name>. Explicit mode requires absent attempt ownership,
+checked ancestry/containment and no deletion, overwrite, fallback or automatic
+failure cleanup. Reuse the existing source-copy/layout body and retain legacy
+default behavior for unchanged callers. Record the precise contract before edits.
+Independent tests must preserve legacy sentinel bytes/metadata, validate the full
+Arduino layout/hash, reject reuse/unsafe tokens/links and retain failed partial
+attempts. No ROOT rebinding, copied wrapper or retry of the blocked cleanup.
+
+D169 activation is ready: SUMOX_MOTOR_FAULT_PROBE defaults0; the exact active
+checked flag tuple is -DMATCH=0 -DMOTORS_ALLOWED=0 -DSUMOX_MOTOR_FAULT_PROBE=1.
+Native limits and Trace refusal of EN-high/nonzero PWM are unchanged. Existing
+compile01/02 manifests must reject this changed source; no source repinning in
+consumed attempts. A fresh compile needs new ownership and the explicit safe stage.
 
 An eventual active image needs fresh source/artifact binding and a separately
 identified inert upload/capture. Existing upload_remote.py provides bounded child
@@ -85,7 +100,7 @@ sensor/motor/electrical acceptance remain tracked in existing packets/findings.
 
 ## Storage and tools
 
-C: observed1613303808B free at this checkpoint; recheck before large work. Old inactive
+C: observed1556324352B free at this checkpoint; recheck before large work. Old inactive
 session-log lossless compression reclaimed1369392201reported allocated bytes;
 previous CLI compression/IMU output removal/Git packing are in STORAGE_LOG.md.
 D165 completed local stage was removed:104files/764034logicalB. D168's new stage
@@ -93,7 +108,9 @@ contains104files/764049logicalB and is retained after automatic cleanup rejectio
 (blocked by policy, no further reason). Receipt: analysis/storage_cleanup_20260925_motor_fault_stage02.json.
 Zero bytes reclaimed by this attempt; never retry it through another method.
 The new raw packet is882618B plus compact metadata; no firmware binary downloaded.
-All D167 RAM fixtures were released; zero sumox-compile02 directories observed.
+All D169 compiler/fixture outputs were RAM-backed and released; zero sumox task
+remnants observed. Only compact tests/receipts/review were retained; no new native
+packet, firmware copy, dependency download or cleanup attempt was made by D169.
 Keep compact source/freeze/failure/result evidence. Previously
 policy-denied deletions remain excluded; never retry through another method.
 Use Python-B, serial heavy builds, no duplicate firmware/source trees. Archive

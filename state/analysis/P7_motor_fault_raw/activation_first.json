@@ -1,0 +1,23 @@
+{
+  "argv": [
+    "wsl",
+    "-d",
+    "Ubuntu",
+    "--",
+    "env",
+    "PYTHONDONTWRITEBYTECODE=1",
+    "PYTHONPYCACHEPREFIX=/dev/shm/sumox-d169-validation-pycache",
+    "python3",
+    "-B",
+    "-m",
+    "unittest",
+    "tests.tooling.test_motor_fault_activation",
+    "-v"
+  ],
+  "timestamp": "2026-09-25T02:26:19.640768+00:00",
+  "returncode": 0,
+  "seconds": 7.842715200036764,
+  "stdout": "",
+  "stderr": "test_D169_actual_sketch_default_keeps_grant_disabled_and_gates_loop (tests.tooling.test_motor_fault_activation.ActivationCompileTests.test_D169_actual_sketch_default_keeps_grant_disabled_and_gates_loop) ... ok\ntest_D169_actual_sketch_explicit_one_grants_runner_and_gates_loop (tests.tooling.test_motor_fault_activation.ActivationCompileTests.test_D169_actual_sketch_explicit_one_grants_runner_and_gates_loop) ... ok\ntest_D169_actual_sketch_explicit_zero_keeps_grant_disabled_and_gates_loop (tests.tooling.test_motor_fault_activation.ActivationCompileTests.test_D169_actual_sketch_explicit_zero_keeps_grant_disabled_and_gates_loop) ... ok\ntest_D169_config_default_and_explicit_zero_are_disabled (tests.tooling.test_motor_fault_activation.ActivationCompileTests.test_D169_config_default_and_explicit_zero_are_disabled) ... ok\ntest_D169_config_excludes_each_other_profile (tests.tooling.test_motor_fault_activation.ActivationCompileTests.test_D169_config_excludes_each_other_profile) ... ok\ntest_D169_config_one_preserves_inert_defaults (tests.tooling.test_motor_fault_activation.ActivationCompileTests.test_D169_config_one_preserves_inert_defaults) ... ok\ntest_D169_config_rejects_each_unsafe_match_motor_tuple (tests.tooling.test_motor_fault_activation.ActivationCompileTests.test_D169_config_rejects_each_unsafe_match_motor_tuple) ... ok\ntest_D169_config_rejects_non_boolean_numbers (tests.tooling.test_motor_fault_activation.ActivationCompileTests.test_D169_config_rejects_non_boolean_numbers) ... ok\ntest_D169_policy_accepts_exact_default_and_active_flags_with_same_properties (tests.tooling.test_motor_fault_activation.ActivationPolicyTests.test_D169_policy_accepts_exact_default_and_active_flags_with_same_properties) ... ok\ntest_D169_policy_denies_new_selector_to_other_projects (tests.tooling.test_motor_fault_activation.ActivationPolicyTests.test_D169_policy_denies_new_selector_to_other_projects) ... ok\ntest_D169_policy_refuses_c_cpp_mismatch_or_static_immediate_metadata (tests.tooling.test_motor_fault_activation.ActivationPolicyTests.test_D169_policy_refuses_c_cpp_mismatch_or_static_immediate_metadata) ... ok\ntest_D169_policy_rejects_all_alternate_fqbns_for_both_flags (tests.tooling.test_motor_fault_activation.ActivationPolicyTests.test_D169_policy_rejects_all_alternate_fqbns_for_both_flags) ... ok\ntest_D169_policy_rejects_explicit_zero_reorder_duplicates_extra_and_unsafe_flags (tests.tooling.test_motor_fault_activation.ActivationPolicyTests.test_D169_policy_rejects_explicit_zero_reorder_duplicates_extra_and_unsafe_flags) ... ok\n\n----------------------------------------------------------------------\nRan 13 tests in 1.463s\n\nOK\n",
+  "pins_unchanged": true
+}

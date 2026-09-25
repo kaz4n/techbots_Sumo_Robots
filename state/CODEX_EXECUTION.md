@@ -1,10 +1,10 @@
 # Current execution checklist - 2026-09-25 Asia/Dubai
 
-**D168 corrected diagnostic target compile PASS; active diagnostic still pending.**
-Source5d3d126e/final ELF87fb03e5;123 transports and seven final checks PASS,
-separate actual review32e1c119 PASS. D167 adds12 passing independent host checks.
-No upload/reset. Next minimal explicit activation and inert artifact/capture profile;
-the current default grant remains false. Original D165 failure is preserved.
+**D169 explicit inert activation HOST-TESTED; active target run still pending.**
+Independent13 methods plus29 legacy checks and normal/sanitized18 cases each PASS;
+63 frozen pins and revieweeb297fa PASS. Prior D168 source5d3d126e/ELF87fb03e5 remains
+TARGET-COMPILED, with no upload/reset. Next explicit fresh-attempt staging, then
+fresh active artifact and inert upload/capture profile. Default grant stays false.
 New staging cleanup was policy-blocked; retain its104 files and never retry removal.
 
 **Active: P7 software/release preparation.** PROGRESS.md is the append-only phase
@@ -106,8 +106,11 @@ pending; D051/D075/D122/D137 permit scheduling, not fabricated measurements.
 - [x] D168 corrected diagnostic TARGET-COMPILED:123 transports/ten children exit0,
   one query/compile, seven final checks PASS; actual review32e1c119 PASS.
   Source5d3d126e/final ELF87fb03e5; packet1edf4a08. No upload/reset/MCU read.
-- [ ] Minimal default-disabled explicit activation profile, checked build admission
-  and fresh inert upload/capture binding. Existing default grant is false.
+- [x] D169 default-disabled explicit activation/profile admission: source32b2d9d4,
+  independent13+legacy29+driver3 PASS;18cases/2570assertions each normal/sanitized;
+  revieweeb297fa PASS. No new native action or existing assertion changes.
+- [ ] Explicit fresh-attempt staging that never touches the retained blocked path;
+  then new active artifact and separately identified inert upload/capture binding.
   Original D160 failing operation remains unknown; do not relax safety bounds.
 - [ ] Qualify native loading/startup, stack/heap/WCET and release workflow before
   adoption. Structural RAM tail94352B is not measured free memory.
@@ -129,6 +132,8 @@ D167 RAM fixture cleanup left zero directories. D168's104-file/764049B local
 motor_fault stage remains: automatic cleanup review rejected deletion as blocked
 by policy. Do not retry that removal or allow implicit deletion by a staging helper.
 Retained raw packet882618B is useful target evidence; no firmware copied to Windows.
+D169 serial RAM compilation/fixtures also left zero task remnants; no new target
+build, download, binary copy or cleanup attempt. C: observed1556324352B free.
 Old-session lossless compression reclaimed1369392201reported allocatedB; previous
 cleanup is recorded in STORAGE_LOG.md. Retain compact evidence and leave all prior
 policy-denied paths untouched. Recheck disk space before material work; Python-B,

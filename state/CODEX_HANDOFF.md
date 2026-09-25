@@ -1,28 +1,33 @@
 # Codex handoff - 25 September 2026, Asia/Dubai
 
-**Active: P7 software/release preparation, D188 compile-only caller in progress.**
-D187 remains IMPLEMENTED/HOST-TESTED/REVIEWED:33WSL+28Windows PASS,
-source39eac0a1/review1bc4b4db, evidence P7_app_motor_fault_static_validation.md.
-D186 remains reviewed766abd20. Original failures, hardware gates and full-app
-IO fault remain open. Last software checkpoint before D188:7bf1a1dc.
+**D188 fixed static diagnostic compile-only workflow HOST-TESTED / REVIEWED.**
+Source6b6c883b remains unchanged after first execution: caller cf0c826f,
+remote1428b934. Independent caller oraclead9f771a:40/40WSL PASS; remoteoracle
+e200477c:14/14WSL PASS, no skips. Separate fresh-context same-model review
+e6557e61 PASS/no open findings. Actual Windows source/command composition is
+29,664UTF16 units includingNUL under unchanged30,000 bound; transport replaced.
+Evidence: analysis/P7_app_motor_fault_compile_validation.md and its raw/review.
+Original fixture failures and ENOSPC checkpoint remain;134pins and17Gitblobs
+verified. Firmware/locked tests/shared policy/historical validators unchanged.
+No target operation, actual manifest, upload/reset, fault fix or phase gate.
 
-D188 contract a62a5f85/36b3d22f: analysis/P7_app_motor_fault_compile_contract.md.
-- [x] Define fixed static/default/MATCH0/MOTORS0/probe1 compile-only workflow.
-- [x] Project107 staged files/774626bytes to source21df6ae82cca4b09dc6b1e0de5bc719cf98ec6887800d5ce8297522e491a7950 without staging or native action.
-- [ ] Implement tools/compile_app_motor_fault.py and app_motor_fault_compile_remote.py
-  using pinned D185 execution/D187 artifact validation; no new process framework.
-- [ ] Freeze independent contract tests, validate controlled failures and actual
-  Windows command size, preserve original failures, obtain separate fresh review.
-- [ ] Later: fresh board admission and reviewed invocation. No actual inputs_static
-  manifest/boot scope exists now; no board, upload/reset or hardware claim.
+**Next task requires hardware work to resume:** freshly observe board identity
+and tool pins, then prepare/review inputs_static.json for fixed static/default/
+MATCH0/MOTORS0/probe1 source21df6ae82cca4b09dc6b1e0de5bc719cf98ec6887800d5ce8297522e491a7950.
+Use tools/compile_app_motor_fault.py with the new reviewed clean HEAD; follow
+analysis/P7_app_motor_fault_compile_contract.md and claim its fresh attempt once.
+This action is compile-only. Actual ET_EXEC/package/init/ABI and later diagnostic
+capture bindings need new evidence; D149 addresses/D1732592B decoder do not apply.
+Do not manufacture the future boot/manifest or rerun consumed historical owners.
+Current user objective defers hardware; no further native action is authorized
+by this host closure. Original full-app IO fault, input qualification, RAM/stack/
+WCET, release/rehearsal and human gates remain open. No work runs in background.
 
-Use one properties query/compiler, fresh fixed owners and independent closing.
-Generic/dynamic admission and historical owners stay unchanged. Future native
-ET_EXEC/package/init/ABI/capture bindings must be newly observed; D149 addresses
-and D1732592B decoder remain inapplicable. Physical/RAM/WCET and human gates pending.
-Storage cleanup50cda7fa recovered4.36MiB Git storage; old Obsidian/OpenCode cache
-removal was policy-denied. Those and every earlier denied target remain excluded.
-Recheck free space before testing; use Python-B/owned RAM and compact receipts.
+D18761hostmethods/review1bc4b4db and D186review766abd20 remain valid precedents.
+Storage50cda7fa recovered4.36MiB viaGit; all policy-denied deletions remain excluded.
+C: briefly exhausted during checkpoint saving, then recovered independently;
+failed draft preserved and small WSL recovery copies retained. Use Python-B,
+serial ownedRAM fixtures and compact receipts; all D188scratch was released.
 
 **D185 both current profiles TARGET-COMPILED; no firmware upload.**
 Bench/default build6d9e48f8 (reviewed34eb56ba) and MATCH/Immediate build1fcc7d57

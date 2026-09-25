@@ -22,11 +22,16 @@ physical acceptance. Do not reset the project to P0.
    D179 then implemented the fixed caller offline; its44 independent tests and
    review are recorded in the current handoff. No actual run scope or owner was
    created. Fresh board admission remains the next native dependency.
+   D180 binds disabled setup declarations; D181 preserves compiler failures.
+   D182/D183 prepare the precompiled MATCH deployment route offline. Read the
+   handoff for its current test/review status; code or fixture scopes do not grant
+   human authorization or qualify an artifact. Never retry a consumed attempt.
 3. All old native scopes are consumed. Never rerun a historical launcher, repin
    its consumed manifest, reset the MCU or infer that an old capture layout fits
    changed firmware. A new operation needs fresh source/artifact/identity binding
    and review using the existing bounded primitives. Preserve original failures.
-4. The user permits testing a bare UNO Q, and requests no other hardware now.
+4. Current continuation is offline only. Historical bare-UNO-Q permission does
+   not mean it is connected; wait for an explicit change to that offline scope.
    No motor-capable upload/run has fresh STAND OK or RING OK. D051 engineering
    delegation permits documented software choices; it does not create measured
    acceptance, PINMAP/EXPLAINED approval or human GATE Pn PASS.

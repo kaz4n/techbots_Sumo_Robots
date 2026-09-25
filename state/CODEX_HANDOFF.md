@@ -64,10 +64,11 @@ No process is running. Previous source/failure/recipe/review evidence is retaine
 ## Exact next task
 
 Resumed offline-only on25September13:32Dubai: user confirms no board. Fresh
-eligibility audit1/3 retains the same startup/release/physical dependencies;
+eligibility audits1-3/3 retain the same startup/release/physical dependencies;
 prior blocked-run counts do not carry into this resumed run. TenD180/24D179pins
 still exact, actual scope/owner absent, no task running. No further eligible
-offline implementation is identified. Goal active; full project remains incomplete.
+offline implementation is identified. Goal BLOCKED after the resumed threshold;
+full project remains incomplete. Resume only when a genuine dependency changes.
 
 D180 is closed within its HOST-TESTED scope. The bounded original-scope audit
 identified no further offline omission. Preserve the checkpoint while the board

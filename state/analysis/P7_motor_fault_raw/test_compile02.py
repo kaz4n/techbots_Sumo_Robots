@@ -234,6 +234,7 @@ class Compile02Tests(unittest.TestCase):
             manifest_path = self.raw / ('compile_inputs.json' if run_id == 'compile01' else 'compile_inputs02.json')
             manifest_path.write_text(json.dumps(manifest))
             instance = self.selected(run_id)
+            Path(instance.output).mkdir(parents=True)
             instance.claimed = True
             receipt = self.root / ('stage-receipt-' + run_id)
             receipt.mkdir()
@@ -287,7 +288,9 @@ class Compile02Tests(unittest.TestCase):
             path = self.raw / ('compile_inputs.json' if run_id == 'compile01' else 'compile_inputs02.json')
             path.write_text(json.dumps({'tools/app_build_policy.py': digest}))
             instance = self.selected(run_id)
+            instance.remote_owned = True
             with mock.patch.object(instance, 'local', return_value=None):
+                instance.final_policy()
                 instance.final_policy(overrides=True)
             self.assert_globals_unchanged()
         records = [json.loads(line) for line in calls.read_text().splitlines()]

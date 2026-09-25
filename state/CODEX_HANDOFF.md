@@ -1,25 +1,28 @@
 # Codex handoff - 25 September 2026, Asia/Dubai
 
-**D187 fixed static adapter IMPLEMENTED / HOST-TESTED / REVIEWED.**
-Source/corrected oracle39eac0a1:33WSL and28Windows methods PASS/no skips;
-fresh-for-D187 same-model review1bc4b4db PASS/no open material findings.
-Twelve current/Git pins exact; historical validators/generic admission protected.
-Original Windows ctime defect and new-fixture failures remain preserved806a3603;
-full within-API identity checks remain, only Windows cross-ctime is excluded.
-Evidence: analysis/P7_app_motor_fault_static_validation.md and its raw/review.
-D186 remains host-tested/reviewed766abd20; no current target operation or gate.
-Next: implement/test the fixed static/default/M0 diagnostic compile-only caller
-using D187 tools/app_motor_fault_static_policy.py and existing bounded executor
-transport/direct/command_runner (D185 executor_namespace is the reuse seam).
-One properties query/compiler, fresh source/stage/attempt pins and independent
-closure; keep historical owners/manifests and dynamic/generic admission closed.
-Do not create another process framework. A later separately reviewed native
-invocation must bind new ET_EXEC/package/native initialization/ABI/capture data;
-D149 addresses and D1732592B decoder remain inapplicable. No native scope exists
-for D187; no compiler/board/upload work ran. D184 is still last uploaded image.
-Original full-app IO fault, physical/RAM/WCET acceptance and human gates stay open.
-Tests left0owned RAM fixtures; prior419.14MiB cleanup preserved source/evidence.
-All denied deletion targets remain excluded. Older paragraphs below are historical.
+**Active: P7 software/release preparation, D188 compile-only caller in progress.**
+D187 remains IMPLEMENTED/HOST-TESTED/REVIEWED:33WSL+28Windows PASS,
+source39eac0a1/review1bc4b4db, evidence P7_app_motor_fault_static_validation.md.
+D186 remains reviewed766abd20. Original failures, hardware gates and full-app
+IO fault remain open. Last software checkpoint before D188:7bf1a1dc.
+
+D188 contract a62a5f85/36b3d22f: analysis/P7_app_motor_fault_compile_contract.md.
+- [x] Define fixed static/default/MATCH0/MOTORS0/probe1 compile-only workflow.
+- [x] Project107 staged files/774626bytes to source21df6ae82cca4b09dc6b1e0de5bc719cf98ec6887800d5ce8297522e491a7950 without staging or native action.
+- [ ] Implement tools/compile_app_motor_fault.py and app_motor_fault_compile_remote.py
+  using pinned D185 execution/D187 artifact validation; no new process framework.
+- [ ] Freeze independent contract tests, validate controlled failures and actual
+  Windows command size, preserve original failures, obtain separate fresh review.
+- [ ] Later: fresh board admission and reviewed invocation. No actual inputs_static
+  manifest/boot scope exists now; no board, upload/reset or hardware claim.
+
+Use one properties query/compiler, fresh fixed owners and independent closing.
+Generic/dynamic admission and historical owners stay unchanged. Future native
+ET_EXEC/package/init/ABI/capture bindings must be newly observed; D149 addresses
+and D1732592B decoder remain inapplicable. Physical/RAM/WCET and human gates pending.
+Storage cleanup50cda7fa recovered4.36MiB Git storage; old Obsidian/OpenCode cache
+removal was policy-denied. Those and every earlier denied target remain excluded.
+Recheck free space before testing; use Python-B/owned RAM and compact receipts.
 
 **D185 both current profiles TARGET-COMPILED; no firmware upload.**
 Bench/default build6d9e48f8 (reviewed34eb56ba) and MATCH/Immediate build1fcc7d57

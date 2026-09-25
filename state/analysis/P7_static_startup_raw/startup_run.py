@@ -463,7 +463,7 @@ class NativeRun:
         self.write('inputs.json', {**self.identity_record(), 'scope_files': self.scope['files'],
                    'dependency_pins': self.fixed_pins, 'runner_pins': self.runner.PINS,
                    'commands': {action: self.command_identity(action) for action in self.commands},
-                   'remote_evidence': {action: '/home/arduino/sumox26_codex_build/' + RUN_ID + '-' + action
+                   'remote_evidence': {action: decode(self.fixed_bytes[RAW + action + '_bindings.json'])['output']
                                        for action in self.commands}})
 
     def transport(self, board, argv, *, capture=True, timeout=60):
@@ -549,7 +549,10 @@ class NativeRun:
 
 
 def native_run(reviewed_head):
-    return orchestrate(NativeRun(reviewed_head).operations())
+    result = orchestrate(NativeRun(reviewed_head).operations())
+    if result['status'] != 'COMPLETED':
+        raise RuntimeError('Startup evidence collection failed; see the persisted native_run01 result')
+    return result
 
 
 def main(argv=None):

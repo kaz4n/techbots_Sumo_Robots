@@ -1354,3 +1354,6 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-26T01:43:40.255325+04:00 | P7 D194 final independent review | Separate same-model source/hostreviewbb0d2b11PASS/no materialfindings; exact135pins/firstfailure/newfixturecorrection/44Linux+42WindowsPASS independently audited. Zero actualD194boardcalls/ownerclaims. All execution sessions ended; nextfile-onlyABI awaits localspace>=128MiB, then cleanHEADcheck-only/oneexecute.
+
+
+2026-09-26T01:51:41.861383+04:00 | P7 B4 scope refinement and disk interruption | Read-only sourceaudit proves existingapp.ino alreadyprovidesoperationalB4binding; missingtaskis distinctprofile/build/deployadmission, notduplicatedentry. See analysis/P7_b4_profile_scope_followup.md. NoD195contract/code/testscreated. C0interruptedownedreportwrite; restoredexactHEAD5095B229e42d9,no dataloss. D194nativeownerunused; userstorageactionpending.

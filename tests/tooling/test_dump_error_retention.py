@@ -174,30 +174,27 @@ class DumpErrorRetentionTests(unittest.TestCase):
     def test_journal_serialization_exception_retains_original_input_failure(self):
         primary = OSError(errno.EIO, "synthetic input before serialization")
         secondary = TypeError("synthetic error journal serialization failure")
-        original = json.dumps
-        failed = [False]
+        original = json.dump
+        prefix = '{"synthetic_partial_serialization":'
         serializations = []
 
-        def parts():
-            yield WIRE[:80]
-            failed[0] = True
-            raise primary
-
-        def dumps(value, *args, **kwargs):
-            if failed[0]:
+        def dump(value, stream, *args, **kwargs):
+            if Path(stream.name).name == "error.json":
                 serializations.append(value)
+                stream.write(prefix)
+                stream.flush()
                 raise secondary
-            return original(value, *args, **kwargs)
+            return original(value, stream, *args, **kwargs)
 
-        with mock.patch.object(json, "dumps", dumps), self.journal_fault() as attempts, \
+        with mock.patch.object(json, "dump", dump), self.journal_fault() as attempts, \
              mock.patch.object(self.module, "publish") as publication:
-            error = self.caught(parts())
+            error = self.caught(self.failing_input(primary))
         self.assertIs(error.__cause__, primary)
         self.assertIn(str(primary), str(error))
         partial = self.retained(error, WIRE[:80], secondary)
         self.assertEqual(len(serializations), 1)
-        self.assertEqual(attempts, [])
-        self.assertFalse((partial / "error.json").exists())
+        self.assertEqual(attempts, [partial / "error.json"])
+        self.assertEqual((partial / "error.json").read_bytes(), prefix.encode("utf-8"))
         publication.assert_not_called()
 
     def test_journal_interrupts_propagate_without_catching_baseexception(self):

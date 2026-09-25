@@ -255,8 +255,8 @@ def _retained_failure(error, chunks, parser, partial):
         journal_error = {"type": type(write_error).__name__, "message": str(write_error)}
     message = str(failure) + "; partial evidence: " + str(partial)
     if journal_error is not None:
-        message = failure.code + ": " + message + "; error report could not be saved: " + \
-                  journal_error["type"] + ": " + journal_error["message"]
+        message = str(failure) + " (" + failure.code + "); partial evidence: " + str(partial) + \
+                  "; error report could not be saved: " + journal_error["type"] + ": " + journal_error["message"]
     raised = CaptureError(failure.code, message)
     raised.connection_evidence = evidence
     raised.partial_path = str(partial)

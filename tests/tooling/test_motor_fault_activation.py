@@ -283,15 +283,43 @@ class ActivationPolicyTests(unittest.TestCase):
                         self.expected(flags, fqbn)
 
     def test_D169_policy_denies_new_selector_to_other_projects(self):
-        for project in ('app.ino', 'runtime_inert.ino', 'recorder_inert.ino', 'opp_view.ino',
-                        'qtr_raw.ino', 'vbat.ino', 'ui.ino', 'ui_adc_probe.ino',
-                        'imu_heading.ino', 'motor_stand.ino'):
-            for flags in (ACTIVE_FLAGS, FLAGS + ' -DSUMOX_MOTOR_FAULT_PROBE=0'):
+        profiles = [(project, FLAGS) for project in (
+            'app.ino', 'runtime_inert.ino', 'recorder.ino', 'opp_view.ino',
+            'qtr_raw.ino', 'vbat.ino', 'ui.ino', 'ui_adc_probe.ino',
+            'imu_heading.ino', 'motor_stand.ino')]
+        profiles.extend((project, FLAGS + suffix) for project, suffix in (
+            ('motor_direction.ino', ' -DSUMOX_B4_STAND=1'),
+            ('drive_test.ino', ' -DSUMOX_P3_DRIVE_TEST=1'),
+            ('turn_accuracy.ino', ' -DSUMOX_P3_TURN_TRIAL=1'),
+            ('stopping_distance.ino', ' -DSUMOX_P3_STOP_TRIAL=1'),
+            ('reactive_test.ino', ' -DSUMOX_P4_REACTIVE=1'),
+            ('reactive_timing.ino', ' -DSUMOX_P4_REACTIVE=1 -DSUMOX_TIMING_EVIDENCE=1'),
+            ('opener_timing.ino', ' -DSUMOX_P5_ABORT_TIMING=1')))
+        boundaries = ((self.policy.validate_result, ()),
+                      (self.policy.validate_preflight, (DATA,)))
+        for project, original_flags in profiles:
+            original = json.dumps(self.document(FLAGS)).replace(PROJECT, project)
+            original = original.replace(FLAGS, original_flags)
+            with self.subTest(project=project, control=True):
+                expected = self.expected(original_flags, project=project)
+                self.assertEqual(original_flags, expected['compiler.c.extra_flags'])
+                for boundary, tail in boundaries:
+                    result = boundary(original, FQBN, original_flags, BUILD, *tail,
+                                      project=project)
+                    self.assertEqual(project, result['build.project_name'])
+                    self.assertEqual(original_flags, result['compiler.c.extra_flags'])
+                    self.assertEqual(original_flags, result['compiler.cpp.extra_flags'])
+            rejected = dict.fromkeys((ACTIVE_FLAGS,
+                original_flags + ' -DSUMOX_MOTOR_FAULT_PROBE=1',
+                original_flags + ' -DSUMOX_MOTOR_FAULT_PROBE=0'))
+            for flags in rejected:
+                document = original.replace(original_flags, flags)
                 with self.subTest(project=project, flags=flags):
                     with self.assertRaises(ValueError):
-                        self.policy.selected_project(project, FQBN, flags)
-                    with self.assertRaises(ValueError):
                         self.expected(flags, project=project)
+                    for boundary, tail in boundaries:
+                        with self.subTest(boundary=boundary.__name__), self.assertRaises(ValueError):
+                            boundary(document, FQBN, flags, BUILD, *tail, project=project)
 
     def test_D169_policy_refuses_c_cpp_mismatch_or_static_immediate_metadata(self):
         for flags in (FLAGS, ACTIVE_FLAGS):

@@ -20,6 +20,13 @@ Other projects gain no admission for the new flag. Explicit0, reordered/extra/
 duplicate flags and alternate FQBNs remain rejected by checked motor-fault builds.
 No CLI upload allowlist, consumed caller/manifest or staging helper changes.
 
+Public boundary clarification before execution: expected_properties and the full
+preflight/result validators enforce complete flag admission. selected_project is
+an existing project selector with optional project-specific checks; it has never
+fully validated generic app flags. Preserve that helper's existing behavior for
+other projects. Test their rejection at the complete checked boundaries, with a
+valid original profile as the control, and use the actual recorder.ino project.
+
 Independent companion tests derive from this contract and public headers, not
 implementation bodies. Cover default/0/1 config, invalid numeric values, each
 unsafe/exclusive profile, actual sketch setup and loop selection using controlled

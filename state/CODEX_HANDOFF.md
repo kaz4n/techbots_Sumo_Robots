@@ -1,23 +1,31 @@
 # Codex handoff - 25 September 2026, Asia/Dubai
 
-**Active: P7 software/release preparation. D162/D163 are HOST-TESTED and reviewed.**
-The inert MotorGate callback diagnostic is implemented; 18 cases/2570 assertions
-pass normally and under ASan/UBSan, the unsafe-flag driver passes, the unchanged
-full host matrix passes22/22, and compile policies pass65/65. Separate same-model
-reviews have no open material findings. Read analysis/P7_motor_fault_validation.md.
-No target compilation or MCU action occurred in D162/D163.
+**Active: P7 software/release preparation. D165 target compile failed; D166 host fix passes.**
+The UNOQ compiler found CONFIG_PWM=1 colliding with the diagnostic enum. Original
+source4ec345c0, one compiler exit1/reaped/no timeout, all122transports0 and seven
+final checks PASS are preserved; no upload/reset occurred. The identifier-only
+D166 correction now passes macro1/1, driver3/3, normal+ASan/UBSan each18cases/
+2570assertions,47input pins and separate review. Read
+analysis/P7_motor_fault_compile_actual.md and P7_motor_fault_macro_validation.md.
 
 ## Exact next task
 
-Prepare and execute one identified compile-only check of bench/motor_fault through
-the existing checked project/recipe/artifact route. D163 added five literals to
-board_tool.py/app_build_policy.py; historical consumed probes retain old bindings
-and must reject the edited tools. Do not repin or reuse their consumed ownership.
-Use an explicit installed CLI, minimal environment, empty config, fresh source-
-bound paths, --jobs1, a board-side process-group deadline and bounded reap. An
-outer transport timeout alone is insufficient. Existing capture_remote.wait_child
-and stop_child can be reused without module-global mutation. Do not inherit the
-capture1MiB or uploader2303728B file caps into a compiler. Keep the caller small.
+Add fresh compile02 ownership/input selection per instance to the existing
+P7_motor_fault_raw/compile_motor_fault.py, without cloning it or rebinding globals.
+Keep consumed compile01/compile_inputs.json and all original receipts unchanged;
+the old117-pin manifest must reject changed source. Use distinct native_compile02,
+remote motor-fault-compile02 and input manifest. The completed local motor_fault
+stage was hash-verified and removed, so a new stage can be created normally.
+Test/review the narrow ownership selection and bind the corrected source before
+one separately identified default/M0 compile. No automatic retry of D165.
+
+D164's explicit command_runner is implemented/reviewed:146legacy+15new host
+methods pass. Existing caller supplies explicit CLI/config/environment, --jobs1,
+remote process-group720/60s deadlines+5s reap, source/tool checks and separate
+final checks. Four real-child checks pass; retain their original fixture negative.
+No inherited file-size cap constrains compiler artifacts. Per-process -B and fresh
+-X pycache_prefix avoid old bytecode without deleting it or changing global config.
+Compile01 caller/run evidence and pre-/post-action reviews are already retained.
 
 The diagnostic defaults to false setup permission and rejects MATCH or motors.
 It wraps unchanged native callbacks, submits four synthetic disabled/zero commands
@@ -63,10 +71,11 @@ sensor/motor/electrical acceptance remain tracked in existing packets/findings.
 
 ## Storage and tools
 
-C: observed1714384896B free at05:29Dubai; recheck before large work. Old inactive
+C: observed1670385664B free at this checkpoint; recheck before large work. Old inactive
 session-log lossless compression reclaimed1369392201reported allocated bytes;
 previous CLI compression/IMU output removal/Git packing are in STORAGE_LOG.md.
-The latest independent repo/task-Temp audit found no new safe deletion candidates.
+D165 completed local stage removed:104files/764034logicalB; sources and original
+target failure retained. No prior denied cleanup path was retried.
 All D162/D163 RAM fixtures/build outputs were released; zero sumox directories
 remain in /dev/shm. Keep compact source/freeze/failure/result evidence. Previously
 policy-denied deletions remain excluded; never retry through another method.

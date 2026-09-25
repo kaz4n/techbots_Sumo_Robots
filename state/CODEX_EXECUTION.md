@@ -1,10 +1,10 @@
 # Current execution checklist - 2026-09-25 Asia/Dubai
 
-**D162/D163 host diagnostic and compile route: PASS, target compile pending.**
-Normal and sanitized18cases/2570assertions each; fullhost22/22; policy65/65.
-Separate source/receipt reviews PASS. Original harness/import failures preserved.
-Read analysis/P7_motor_fault_validation.md. Last MCU upload remains D160 M0;
-D161 observed GateIO/invalid receipts. Both scopes consumed; no new native action.
+**D165 target compile FAILED; D166 identifier-only host fix PASS.**
+Actual nativeCONFIG_PWM macro collision is retained. Corrected names preserve all
+values/behavior; macro1/1, normal+sanitized18cases/2570assertions each and separate
+review PASS. No upload/reset. Next fresh per-instance compile02 ownership/source
+binding in existing bounded caller, then one reviewed inert compile.
 
 **Active: P7 software/release preparation.** PROGRESS.md is the append-only phase
 authority; preserve its legacy bytes. User asks for prompt commits and continued
@@ -96,9 +96,13 @@ pending; D051/D075/D122/D137 permit scheduling, not fabricated measurements.
   real Gate, first-failure retention, default denied setup; unchanged native limits.
 - [x] D163 checked compile-only route: five literal additions;65policy tests PASS.
   No historical pins, upload manifests or existing assertions changed.
-- [ ] One identified target compile: explicit CLI/env/config, --jobs1, board-side
-  deadline/reap, fresh bound paths and actual artifact validation. D163 lacks
-  those execution bounds by itself. Do not reuse consumed historical probes.
+- [x] D164 per-call executor:146legacy+15new host methods and review PASS.
+- [x] D165 one identified target compile: onecompilerexit1, all122transports0/
+  sevenfinalchecksPASS; CONFIG_PWM macro collision. Consumed, no upload/reset.
+- [x] D166 literal enum rename; independent macro and normal/sanitized tests PASS.
+- [ ] Fresh per-instance compile02 ownership in existingcaller, separate input
+  binding and review; preserve all compile01 pins/receipts and process bounds.
+- [ ] Recompile corrected diagnostic under new scope and inspect actual result.
 - [ ] Review target result before any separately identified inert diagnostic run.
   The original D160 failing operation remains unknown; do not relax safety bounds.
 - [ ] Qualify native loading/startup, stack/heap/WCET and release workflow before

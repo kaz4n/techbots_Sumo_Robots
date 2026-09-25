@@ -688,3 +688,6 @@ HARDWARE-OBSERVED within D161 sampled windows. Sourcefcddbd8e/static/default/M0 
 
 ## F171 - Inert MotorGate diagnostic host validation (2026-09-25T05:29:30.226819+04:00)
 Observed local host only: 18 contract-derived cases/2570 assertions each normal and ASan/UBSan, three driver methods including refusal of three unsafe flag combinations, full existing22-target host matrix and65 compile-policy methods all pass. Source/freeze/review and exact commands are in analysis/P7_motor_fault_validation.md. Callback tracing retains first failure but adds timing overhead; it cannot identify the original D160 operation or prove native timing. No target compilation or run in this scope.
+
+## F172 - Observed native macro collision and host correction (2026-09-25T05:53:05.273575+04:00)
+D165 actual UNOQ/zephyr1.0.0 compiler reports generated autoconf.h:402 CONFIG_PWM=1 colliding with motor_fault.h:15. Compiler1/reaped/no timeout; all sevenfinalchecksPASS. Source receipt native_compile01/0116-checked-command/child.stdout; analysis/P7_motor_fault_compile_actual.md. D166 renames only enum identifiers and passes observed-macro syntax plus normal/sanitized regression; numericvalues unchanged. This is observed toolchain evidence and host correction, not a successful target recompile or physical measurement.

@@ -193,3 +193,31 @@ separate reviewer checks source/results. Test complete actual source composition
 size on Windows, with current helper/support/upload/adapter bytes. This finishes
 software preparation only; target compilation of changed firmware, current-board
 qualification, MotorGate diagnostic, RAM/WCET and human gates remain pending.
+
+## Public fixture clarifications before implementation execution
+
+Software map keys are full repo-relative tools/<name>. `board` is the existing
+board_tool module (or controlled test seam) with ROOT,target,transport,
+require_transport,remote,SSH_OPTIONS,adb_executable,report_app_error. Its ROOT is
+the root passed to load_scope; tests may substitute an owned RAM workspace.
+load_scope has no transport call. upload_precompiled returns only accepted
+outcome; otherwise raises the primary error with deploy_outcome attached.
+
+Outcome exact fields: schema=`match-deploy-outcome-v1`,run_id,source_sha256,
+scope_sha256,request_sha256,target,transport,status,attempts,remote_result,
+commands,first_error,postcheck_errors,started_utc,finished_utc. Status FAILED
+before upload dispatch, UNKNOWN after any unaccepted dispatch, ACCEPTED only
+after validated response and all closing checks. Attempts is0/1; remote_result
+is the accepted decoded envelope or null. Command receipts have exactly label,
+argv_sha256,returncode,stdout,stderr,error; retain transport output including
+failures. Errors are type/message records; postchecks add check. Successful
+receipt-save failure raises; primary errors survive secondary-save errors.
+
+Payload exact fields: schema=`match-upload-payload-v1`,source_sha256,build_id,
+run_id,sources,bindings. Source values have exactly source(UTF8 text),sha256.
+Remote argv after -c is BOOTSTRAP,payload_sha256,bare canonical base85 token
+(no prefix); the digest is argv[-2]. validate_reply returns the complete decoded
+accepted envelope. full_result_bytes must be exact int1..16777216; two inherited
+<1MiB streams can expand to about12MiB in ensure_ascii JSON. Metadata's full
+result hash has strict digest syntax; omitted streams cannot be rehashed locally
+from the compact reply. Do not claim otherwise.

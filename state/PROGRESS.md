@@ -1128,3 +1128,5 @@ physical/loadedRAM/gate claim. | contract=this commit
 2026-09-25T03:59:13.575391+04:00 | P7 D155 host composition adopted | Contractf91f1210/designreview55c8f8ad PASS; separate draft implementation/spec-derivedtests underway. ReusecompletedD153/D154/packet/F166, no nativegrant or execution; native scope absent | launcher contract commit
 
 2026-09-25T04:08:23.503879+04:00 | P7 D155 host startup launcher complete | 30public+10reviewer first-runPASS/source6f86e645/review26fcf2f7PASS; actual localcomposition16+17pins/103source102stage/sixcommands,28068/24981units,zero dispatch. Commits8b0e1e58/62f73588/0cdfa50b/fdbd3cb5/3bcc8219 preservecontract/drafts/repairs/results. Next exact inertscope thenoneupload+conditionalcapture; no gate | launcher closure commit
+
+2026-09-25T04:11:07.233776+04:00 | P7 D156 inert startup scope | Plan1702591a/scopec7447815/pre-runreview484725e8PASS; userbareUNOpermission, exactD144sourcefcddbd8e/M0. Adoptoneupload+conditional18passivereads through reviewedD155, currentHEADbinding; no nativeactionyet/no retry/gate | inert startup scope commit

@@ -1156,3 +1156,5 @@ physical/loadedRAM/gate claim. | contract=this commit
 2026-09-25T05:12:13.698242+04:00 | P7 | D162 inert callback diagnostic scope | Fresh-context design PASS; public interface/spec ready; implementation and independent tests pending; no native action | this commit
 
 2026-09-25T05:21:30.876862+04:00 | P7 | D163 checked diagnostic build route | Five literal admissions implemented after design PASS; independent policy tests pending; no native action | this commit
+
+2026-09-25T05:29:30.226819+04:00 | P7 D162/D163 | IMPLEMENTED/HOST-TESTED: normal+sanitized18cases/2570assertions each, unsafe-build refusal driver3/3, fullhost22/22 and policy65/65; separate reviews PASS 7a182ffb/204d425d, all pins exact. Original failures retained; no assertion/production safety change. Evidence analysis/P7_motor_fault_validation.md; implementation90e73959/buildroute0a95b230/driverrepair0c009360, receipt/review commit follows. No native action or gate. RAM scratch removed.

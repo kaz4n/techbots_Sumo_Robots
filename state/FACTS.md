@@ -685,3 +685,6 @@ Status: HARDWARE-OBSERVED, limited to D160 recorded samples. Source: analysis/P7
 
 ## F-172 - Observed stopped-state nested fault records (2026-09-25T05:05:44.191981+04:00)
 HARDWARE-OBSERVED within D161 sampled windows. Sourcefcddbd8e/static/default/M0 inherited from D160; sameboot6d4aca1b. Robot faults0x0110, MotorGateIO3, consumed token3 with invalid feedback; previous token2 invalid, duration546us. Exact752B/orderedwords and D160 prefix matches reviewed independentlyc323dc88. First failed native callback and timing unknown; zero stored duties are not measured pad voltages. See analysis/P7_stopped_diagnostic_validation.md and raw/parsed records. No physical/WCET/human acceptance.
+
+## F171 - Inert MotorGate diagnostic host validation (2026-09-25T05:29:30.226819+04:00)
+Observed local host only: 18 contract-derived cases/2570 assertions each normal and ASan/UBSan, three driver methods including refusal of three unsafe flag combinations, full existing22-target host matrix and65 compile-policy methods all pass. Source/freeze/review and exact commands are in analysis/P7_motor_fault_validation.md. Callback tracing retains first failure but adds timing overhead; it cannot identify the original D160 operation or prove native timing. No target compilation or run in this scope.

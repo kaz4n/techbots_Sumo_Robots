@@ -1,27 +1,10 @@
 # Current execution checklist - 2026-09-25 Asia/Dubai
 
-**D156 actual upload FAILED; capture0; scope consumed.** The inherited1MiB
-process file cap blocked copying the2,303,728B loader. Independent final checks
-passed; original failed report/temporary fragment retained. D155's30+10 host
-methods pass but did not model this native copy. Next upload-limit correction.
-
-**D152 pure startup interpretation:37 host methods PASS and scoped review PASS.**
-See analysis/P7_static_capture_validation.md. Loader reference is ELF-derived
-e9322826; original packaged-BIN reference defect is preserved and corrected.
-No current-image upload or MCU capture. Next implement/review the bounded guard.
-
-**D139 qualification complete: compiler PASS, conditional default fit FAIL.**
-The unchanged default/M0 image exceeds the modeled loader pool by592 bytes.
-Exact evidence is in analysis/P7_default_qualification_validation.md and its
-separate review. D140 source research and D141/D142 pure policy/artifact host
-validation are complete. Production policy remains dynamic-only. D143 passes80
-host methods; D144's one static compile returned0 but the structural validator
-rejected unsupported symbol encoding. No upload/reset/run. The GO is consumed;
-D145 identified six absolute TLS type6 symbols after one checked read; exact
-installed TLS assembly/object provenance is verified by D146. Native/indirect
-use remains unqualified. D147 pure host extension passes19new+51old methods and
-separate fresh-context code/receipt review; actual new-interface validation pending.
-
+**D162/D163 host diagnostic and compile route: PASS, target compile pending.**
+Normal and sanitized18cases/2570assertions each; fullhost22/22; policy65/65.
+Separate source/receipt reviews PASS. Original harness/import failures preserved.
+Read analysis/P7_motor_fault_validation.md. Last MCU upload remains D160 M0;
+D161 observed GateIO/invalid receipts. Both scopes consumed; no new native action.
 
 **Active: P7 software/release preparation.** PROGRESS.md is the append-only phase
 authority; preserve its legacy bytes. User asks for prompt commits and continued
@@ -109,8 +92,15 @@ pending; D051/D075/D122/D137 permit scheduling, not fabricated measurements.
   matches,14 transport/final checks PASS. NO_RUNNING_PROGRESS: STOPPED/epochs3.
 - [x] D161752B passive diagnosis: Robot0x0110/GateIO3/invalid prior receipt,
   exact D160 prefixes; independent scoped reviewc323dc88 PASS. Scope consumed.
-- [ ] Prepare minimal inert native callback diagnostic for first-failure/latency;
-  preserve safety bounds. Original failing operation is not retained in D161.
+- [x] D162 inert callback diagnostic implemented and independently host-tested;
+  real Gate, first-failure retention, default denied setup; unchanged native limits.
+- [x] D163 checked compile-only route: five literal additions;65policy tests PASS.
+  No historical pins, upload manifests or existing assertions changed.
+- [ ] One identified target compile: explicit CLI/env/config, --jobs1, board-side
+  deadline/reap, fresh bound paths and actual artifact validation. D163 lacks
+  those execution bounds by itself. Do not reuse consumed historical probes.
+- [ ] Review target result before any separately identified inert diagnostic run.
+  The original D160 failing operation remains unknown; do not relax safety bounds.
 - [ ] Qualify native loading/startup, stack/heap/WCET and release workflow before
   adoption. Structural RAM tail94352B is not measured free memory.
 
@@ -125,12 +115,12 @@ quiescence/cancel/reopen requirements and SC-AP release workflow remain pending.
 P6 conditional, no release tag/rehearsal/human PASS. Do not request extra hardware
 now. Current permission advances software, not invented measurements or gates.
 
-Storage: no new disposable candidate in the bounded follow-up f2fa3c28. D148 saves
-125141B compact receipts plus launcher, no duplicate binaries/builds. Keep required
-evidence and all previously denied targets intact, including the111-file matrix
-host-output batch newly blocked on25September. Verified compression and incremental
-Git packing saved about49.9MiB; all refs/reflogs and content remain intact. Read STORAGE_LOG.md and check
-free space before material work. Python-B; no persistent fixture/compiler tree.
+Storage: D162/D163 RAM compiler/fixture outputs removed; fresh check zero sumox
+scratch directories. Independent repo/task-Temp audit found no new safe candidate.
+Old-session lossless compression reclaimed1369392201reported allocatedB; previous
+cleanup is recorded in STORAGE_LOG.md. Retain compact evidence and leave all prior
+policy-denied paths untouched. Recheck disk space before material work; Python-B,
+one compiler, no duplicate source/firmware snapshots.
 
 Schedule: actualP3 not passed by end28Sep invokes reactive+SIDESTEP/DIRECT plus
 recorder cut; P6 needs actualP4 by30Sep and no stronger cut. Freeze1Oct21:00Dubai,

@@ -1,19 +1,20 @@
 # Codex handoff - 25 September 2026, Asia/Dubai
 
-**Active: P7 software/release preparation. D181 IN PROGRESS, offline only.**
-User requests finishing without hardware. A controlled reproduction confirms
-compiler failure43 becomes2 when saving stdout hits ENOSPC; D181 contract7e41269a
-requires preserving primary failure and independently attempting both receipts.
-Independent tests are being authored before original-source regression execution;
-fresh contract review is clear. Source has not yet changed. Finish tests, repair,
-selected legacy checks and separate review. No device or target operation.
+**Active: P7 software/release preparation. D181 HOST-TESTED / REVIEWED, offline only.**
+Source0d73967b preserves compiler failure and independently attempts both receipts.
+Corrected independent oracle d0f259fe and unchanged executor/parser cases:60PASS,
+no skips. Original failures and independently adjudicated new-fixture corrections
+are retained; established/locked assertions unchanged. Evidence/review7ad55b8c,
+fresh same-model review acafc242 PASS/no open finding. Ten D180 and24 D179 pins
+remain exact. See analysis/P7_compile_error_retention_validation.md.
+No device/target operation or running process. User requests finishing offline.
 
 A fresh code audit also corrects the previous all-deployment-code deferral:
 current documented MATCH dynamic/Immediate upload can be implemented and host-
 tested while its actual execution remains denied pending real qualification and
 fresh authorization. Use a separately reviewed versioned adapter reusing the
 frozen uploader, not a second process/transport stack; preserve all D179 pins.
-After D181, scope this remaining software path before declaring software-ready.
+Next scope this remaining software path before declaring software-ready.
 Its actual precompiled build sibling needs future equality/hash verification;
 no current scope/approval/physical fact is supplied by this software preparation.
 
@@ -80,8 +81,7 @@ No process is running. Previous source/failure/recipe/review evidence is retaine
 
 ## Exact next task
 
-Finish D181 from analysis/P7_compile_error_retention_contract.md, then prepare
-and independently validate the concrete existing MATCH deployment route described
+Prepare and independently validate the concrete existing MATCH deployment route described
 above. These newly identified offline tasks supersede the earlier blocked-only
 assessment. Preserve no-board/no-motor permissions and all previous native scopes.
 The D179 inert caller remains a separate reviewed future hardware diagnostic.

@@ -1,12 +1,13 @@
 # Current execution checklist - 2026-09-25 Asia/Dubai
 
-**Offline work resumed: D181 compiler failure retention IN PROGRESS.**
-Controlled ENOSPC reproduction demonstrates43->2 masking. Contract7e41269a;
-independent oracle drafting and fresh contract review clear, source unchanged.
-Next frozen original regressions, repair, legacy checks and review. A fresh
-code audit also identifies implementable current MATCH dynamic/Immediate
-precompiled deployment binding; scope that after D181, without native execution
-or modifying historical D179 pins. Earlier no-further-offline finding superseded.
+**D181 compiler failure retention HOST-TESTED / REVIEWED.**
+Source0d73967b/corrected independent oracle d0f259fe:60methods PASS/no skips,
+including33unchanged executor/parser cases. Original negative receipts and two
+independently corrected new-fixture assumptions retained. Evidence/review7ad55b8c;
+fresh same-model review acafc242 PASS/no open findings. No established/locked
+test change;10D180/24D179pins exact;0native. Next implement the reviewed existing
+MATCH dynamic/Immediate precompiled deployment route, without hardware execution
+or modifying historical pins. Earlier no-further-offline assessment superseded.
 
 **D180 main-app setup binding HOST-TESTED / REVIEWED.**
 Contract e4aea29c/source70b9cea5; all17 declarations remain0/unconfigured.

@@ -9,6 +9,9 @@ sketch profiles and local/global overrides, checks18 installed hashes, validates
 absence of external libraries and four generated artifact hashes. Every build
 uses fresh policy/source/mode paths. Raw preflight/compiler evidence is retained
 under `build/app-receipts/<run-id>/`. Failure stops the workflow explicitly.
+Compiler failure keeps its original exit status even if saving evidence fails.
+Both output receipts are attempted independently; save and diagnostic failures
+are reported without retrying or deleting partial evidence (D181).
 
 Actual default, inert Immediate and MATCH compile-only builds passed on2026-09-23.
 Their82sources, nineELFs, startup/import/motor-branch differences and explicit

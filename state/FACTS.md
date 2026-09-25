@@ -730,3 +730,6 @@ HOST-OBSERVED only: source d8418fad/8b47b1d6 requires fresh committed scope/iden
 
 ## F185 - Main-app setup binding host qualification (2026-09-25T13:28:16.015271+04:00)
 HOST-OBSERVED only: source70b9cea5 maps explicit disabled config declarations to existing SetupGrants without inference; real public-type constexpr, invalid-range, existing Estimator and controlled actual-entry checks pass.16new+26existing selected methods PASS with no repairs/skips;10current/24priorD179pins exact, review30f3927f PASS. No Arduino/target/native execution or physical/current ownership evidence follows. Changed main-app target compilation remains pending. See analysis/P7_setup_binding_validation.md.
+
+## F186 - Compiler failure evidence retention (2026-09-25T14:03:27.813702+04:00)
+HOST-OBSERVED only: source0d73967b preserves compiler status/object/streams when either receipt write fails, attempts both independently and records diagnostic failures without replacing primary errors.27new+33existing methods PASS; separate fresh-context same-model review acafc242 PASS. Synthetic ENOSPC/console failure is not actual disk-full or target evidence. See analysis/P7_compile_error_retention_validation.md.

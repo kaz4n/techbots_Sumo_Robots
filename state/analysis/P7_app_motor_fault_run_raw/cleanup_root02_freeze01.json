@@ -1,0 +1,49 @@
+{
+  "schema": "d190-cleanup-root02-source-freeze-v1",
+  "time_utc": "2026-09-25T16:38:28.393984+00:00",
+  "status": "SOURCE_FROZEN_PENDING_INDEPENDENT_TESTS_REVIEW",
+  "pins": [
+    {
+      "path": "state/analysis/P7_app_motor_fault_run_raw/cleanup_root02.py",
+      "bytes": 9592,
+      "sha256": "4192f23ea49705a0af691953e6aec3c1f9da66c7cc1897ca3f5d49fba9fc5388"
+    },
+    {
+      "path": "state/analysis/P7_app_motor_fault_run_raw/cleanup_root02_contract.md",
+      "bytes": 7863,
+      "sha256": "7df04aea3b76acc4e93fa40467bf7b8d81594923fa35f657262d7ad4cb88d03d"
+    },
+    {
+      "path": "state/analysis/P7_app_motor_fault_run_raw/cleanup_remoteocd02_proposal.md",
+      "bytes": 5583,
+      "sha256": "726d5a7d360605b0078d2103aee1c5ccc0d7049a9fea5d5743ba32ca0f096d27"
+    },
+    {
+      "path": "state/analysis/P7_app_motor_fault_run_raw/cleanup_remoteocd01.py",
+      "bytes": 7873,
+      "sha256": "23ef85ae3c386cc76751eea0fb18a90148a6fe513e3e8c753d527c06efcbbe95"
+    },
+    {
+      "path": "state/analysis/P7_app_motor_fault_run_raw/cleanup_remoteocd01_result.json",
+      "bytes": 23444,
+      "sha256": "e382b267a1cf9af53f6bd8ec17b15d3c75d20270b70bab809179bee7898f5a3f"
+    },
+    {
+      "path": "state/analysis/P7_static_link_probe_raw/static_remote.py",
+      "bytes": 33321,
+      "sha256": "8ba9b190c38e728013a383348c60c287b0366607f65f703161cf7f2e142d36f8"
+    }
+  ],
+  "syntax": "ast.parse PASS; source not executed",
+  "board_actions": 0,
+  "historical_source_preserved": true,
+  "reviewed_draft": {
+    "bytes": 8576,
+    "sha256": "f2eaa4a50e533145860ee412f92092ed52a538e44347e34c774f8d17f7a0c851",
+    "findings": [
+      "surviving missing proc link silently skipped",
+      "close error can stop remaining descriptor closes",
+      "isolated Python needed before imports"
+    ]
+  }
+}

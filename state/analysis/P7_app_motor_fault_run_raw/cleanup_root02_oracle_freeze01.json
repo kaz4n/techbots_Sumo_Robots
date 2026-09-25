@@ -1,0 +1,50 @@
+{
+  "schema": "d190-cleanup-root02-independent-oracle-freeze-v1",
+  "status": "FROZEN_BEFORE_FIRST_TEST_EXECUTION",
+  "time_utc": "2026-09-25T16:39:47.9710430Z",
+  "pins": {
+    "state/analysis/P7_app_motor_fault_run_raw/test_cleanup_root02.py": {
+      "bytes": 37159,
+      "sha256": "2edabde841cb8d2a30a6a1fa0066105f9a73e22bb2e3eb8110d0fe8c9d835464"
+    },
+    "state/analysis/P7_app_motor_fault_run_raw/cleanup_root02.py": {
+      "bytes": 9592,
+      "sha256": "4192f23ea49705a0af691953e6aec3c1f9da66c7cc1897ca3f5d49fba9fc5388"
+    },
+    "state/analysis/P7_app_motor_fault_run_raw/cleanup_root02_contract.md": {
+      "bytes": 7863,
+      "sha256": "7df04aea3b76acc4e93fa40467bf7b8d81594923fa35f657262d7ad4cb88d03d"
+    },
+    "state/analysis/P7_app_motor_fault_run_raw/cleanup_remoteocd01.py": {
+      "bytes": 7873,
+      "sha256": "23ef85ae3c386cc76751eea0fb18a90148a6fe513e3e8c753d527c06efcbbe95"
+    },
+    "state/analysis/P7_static_link_probe_raw/static_remote.py": {
+      "bytes": 33321,
+      "sha256": "8ba9b190c38e728013a383348c60c287b0366607f65f703161cf7f2e142d36f8"
+    },
+    "state/analysis/P7_app_motor_fault_run_raw/cleanup_remoteocd01_intent.json": {
+      "bytes": 21767,
+      "sha256": "51460282082d30924d634c32bb137fe30efef03175dcebbd6831c27b4c9679e7"
+    },
+    "state/analysis/P7_app_motor_fault_run_raw/cleanup_remoteocd01_result.json": {
+      "bytes": 23444,
+      "sha256": "e382b267a1cf9af53f6bd8ec17b15d3c75d20270b70bab809179bee7898f5a3f"
+    }
+  },
+  "command": [
+    "wsl",
+    "-d",
+    "Ubuntu",
+    "--",
+    "python3",
+    "-I",
+    "-B",
+    "state/analysis/P7_app_motor_fault_run_raw/test_cleanup_root02.py",
+    "-v"
+  ],
+  "expected_methods": 37,
+  "syntax": "AST_PARSE_PASS_ONLY",
+  "provenance": "Independent contract-only author; implementation contents unread and unimported before freeze. Historical cleanup source inspected; controlled credentials/descriptors/proc/body fixtures. No tests or board/privilege/mutation operations executed.",
+  "native_operations": 0
+}

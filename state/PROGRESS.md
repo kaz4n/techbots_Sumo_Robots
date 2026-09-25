@@ -1300,3 +1300,6 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-25T20:36:16.724862+04:00 | P7 D190/D191 resumed | Fresh ADB identity matches expected board/boot; original cleanup01 failure recovered: no deletion, /proc/637/fd PermissionError, adbd visibility remains denied. sudo-n read-only probe requires password. D190 first host invocation120s timed out without observable test result; command deviation and unchanged147pins retained, later read-only check found zero suite processes/scratch. Exact frozen-command rerun active; D191 minimal human-assisted cleanup preparation in progress. No flash/reset/MCUread/motor permission. Commit: pending bounded closure.
+
+
+2026-09-25T20:40:45.338362+04:00 | P7 D191 human-assisted cleanup preparation | Source4192f23e/contract7df04aea independently reviewed after three pre-execution findings closed; no privileged run or stage. Independent oracle2edabde8 first37methods gives36PASS/1FAIL at stat-drift refusal; retain all first artifacts and await independent cause adjudication before repair. D190 exact62method run retained1FAIL/3ERROR, confirmed new-driver sys.modules fixture defect; original committedbc2ef67c, driver-only repair83065c7c frozen with146otherpins unchanged, corrected rerun active.

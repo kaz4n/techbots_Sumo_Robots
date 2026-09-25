@@ -1,0 +1,72 @@
+{
+  "schema": "d191-human-cleanup-staging-plan-v1",
+  "stage": "/home/arduino/sumox26_codex_build/cleanup-app-inert-root02",
+  "pins": {
+    "cleanup_root02.py": {
+      "local": "state/analysis/P7_app_motor_fault_run_raw/cleanup_root02.py",
+      "bytes": 9592,
+      "sha256": "4192f23ea49705a0af691953e6aec3c1f9da66c7cc1897ca3f5d49fba9fc5388"
+    },
+    "cleanup_remoteocd01.py": {
+      "local": "state/analysis/P7_app_motor_fault_run_raw/cleanup_remoteocd01.py",
+      "bytes": 7873,
+      "sha256": "23ef85ae3c386cc76751eea0fb18a90148a6fe513e3e8c753d527c06efcbbe95"
+    },
+    "static_remote.py": {
+      "local": "state/analysis/P7_static_link_probe_raw/static_remote.py",
+      "bytes": 33321,
+      "sha256": "8ba9b190c38e728013a383348c60c287b0366607f65f703161cf7f2e142d36f8"
+    }
+  },
+  "prepare_program": "import os,stat,pathlib,json,hashlib,signal\nsignal.alarm(20)\nassert os.getuid()==os.geteuid()==1000\nboot=pathlib.Path('/proc/sys/kernel/random/boot_id').read_text().strip()\nassert boot=='55c386b9-fe6d-4388-a7f4-1d91e0bb49d8'\nflags=os.O_RDONLY|os.O_DIRECTORY|os.O_NOFOLLOW|os.O_CLOEXEC\nfds=[os.open('/',flags)]\ntry:\n for part in ('home','arduino','sumox26_codex_build'):\n  before=os.stat(part,dir_fd=fds[-1],follow_symlinks=False)\n  assert stat.S_ISDIR(before.st_mode)\n  if part!='home': assert before.st_uid==1000\n  child=os.open(part,flags,dir_fd=fds[-1]); fds.append(child)\n  after=os.fstat(child); assert (after.st_dev,after.st_ino,after.st_mode,after.st_uid)==(before.st_dev,before.st_ino,before.st_mode,before.st_uid)\n os.mkdir('cleanup-app-inert-root02',mode=0o700,dir_fd=fds[-1])\n child=os.open('cleanup-app-inert-root02',flags,dir_fd=fds[-1]);fds.append(child)\n info=os.fstat(child);assert info.st_uid==1000 and stat.S_IMODE(info.st_mode)==0o700 and os.listdir(child)==[]\n print(json.dumps({'status':'EXCLUSIVE_EMPTY_STAGE_CREATED','boot_id':boot,'dev':info.st_dev,'ino':info.st_ino}))\nfinally:\n for fd in reversed(fds):os.close(fd)\n",
+  "verify_program": "import os,stat,pathlib,json,hashlib,signal\nsignal.alarm(20)\nassert os.getuid()==os.geteuid()==1000\nboot=pathlib.Path('/proc/sys/kernel/random/boot_id').read_text().strip()\nassert boot=='55c386b9-fe6d-4388-a7f4-1d91e0bb49d8'\nflags=os.O_RDONLY|os.O_DIRECTORY|os.O_NOFOLLOW|os.O_CLOEXEC\nfds=[os.open('/',flags)]\ntry:\n for part in ('home','arduino','sumox26_codex_build'):\n  before=os.stat(part,dir_fd=fds[-1],follow_symlinks=False)\n  assert stat.S_ISDIR(before.st_mode)\n  if part!='home': assert before.st_uid==1000\n  child=os.open(part,flags,dir_fd=fds[-1]); fds.append(child)\n  after=os.fstat(child); assert (after.st_dev,after.st_ino,after.st_mode,after.st_uid)==(before.st_dev,before.st_ino,before.st_mode,before.st_uid)\n pins={'cleanup_root02.py': {'bytes': 9592, 'sha256': '4192f23ea49705a0af691953e6aec3c1f9da66c7cc1897ca3f5d49fba9fc5388'}, 'cleanup_remoteocd01.py': {'bytes': 7873, 'sha256': '23ef85ae3c386cc76751eea0fb18a90148a6fe513e3e8c753d527c06efcbbe95'}, 'static_remote.py': {'bytes': 33321, 'sha256': '8ba9b190c38e728013a383348c60c287b0366607f65f703161cf7f2e142d36f8'}}\n child=os.open('cleanup-app-inert-root02',flags,dir_fd=fds[-1]);fds.append(child)\n info=os.fstat(child);assert info.st_uid==1000 and stat.S_IMODE(info.st_mode)==0o700 and set(os.listdir(child))==set(pins)\n observed={}\n for name,pin in pins.items():\n  before=os.stat(name,dir_fd=child,follow_symlinks=False)\n  assert stat.S_ISREG(before.st_mode) and before.st_uid==before.st_gid==1000 and before.st_nlink==1 and before.st_size==pin['bytes']\n  fd=os.open(name,os.O_RDONLY|os.O_NOFOLLOW|os.O_CLOEXEC,dir_fd=child)\n  try:\n   opened=os.fstat(fd);assert (opened.st_dev,opened.st_ino,opened.st_size)==(before.st_dev,before.st_ino,before.st_size)\n   data=b''\n   while len(data)<=pin['bytes']:\n    chunk=os.read(fd,pin['bytes']+1-len(data))\n    if not chunk:break\n    data+=chunk\n   digest=hashlib.sha256(data).hexdigest();assert len(data)==pin['bytes'] and digest==pin['sha256']\n   after=os.fstat(fd);current=os.stat(name,dir_fd=child,follow_symlinks=False)\n   def stamp(s):return (s.st_dev,s.st_ino,s.st_mode,s.st_uid,s.st_gid,s.st_nlink,s.st_size,s.st_mtime_ns,s.st_ctime_ns)\n   assert stamp(before)==stamp(after)==stamp(current)\n   observed[name]={'bytes':len(data),'sha256':digest,'uid':before.st_uid,'gid':before.st_gid,'nlink':before.st_nlink}\n  finally:os.close(fd)\n print(json.dumps({'status':'STAGED_FILES_VERIFIED_NOT_EXECUTED','boot_id':boot,'dev':info.st_dev,'ino':info.st_ino,'files':observed,'scratch_exists':pathlib.Path('/tmp/remoteocd').exists()}))\nfinally:\n for fd in reversed(fds):os.close(fd)\n",
+  "commands": [
+    [
+      "C:/Users/narut/AppData/Local/Arduino15/packages/arduino/tools/adb/32.0.0/adb.exe",
+      "-s",
+      "2629958581",
+      "shell",
+      "/usr/bin/python3 -I -B -c 'import os,stat,pathlib,json,hashlib,signal\nsignal.alarm(20)\nassert os.getuid()==os.geteuid()==1000\nboot=pathlib.Path('\"'\"'/proc/sys/kernel/random/boot_id'\"'\"').read_text().strip()\nassert boot=='\"'\"'55c386b9-fe6d-4388-a7f4-1d91e0bb49d8'\"'\"'\nflags=os.O_RDONLY|os.O_DIRECTORY|os.O_NOFOLLOW|os.O_CLOEXEC\nfds=[os.open('\"'\"'/'\"'\"',flags)]\ntry:\n for part in ('\"'\"'home'\"'\"','\"'\"'arduino'\"'\"','\"'\"'sumox26_codex_build'\"'\"'):\n  before=os.stat(part,dir_fd=fds[-1],follow_symlinks=False)\n  assert stat.S_ISDIR(before.st_mode)\n  if part!='\"'\"'home'\"'\"': assert before.st_uid==1000\n  child=os.open(part,flags,dir_fd=fds[-1]); fds.append(child)\n  after=os.fstat(child); assert (after.st_dev,after.st_ino,after.st_mode,after.st_uid)==(before.st_dev,before.st_ino,before.st_mode,before.st_uid)\n os.mkdir('\"'\"'cleanup-app-inert-root02'\"'\"',mode=0o700,dir_fd=fds[-1])\n child=os.open('\"'\"'cleanup-app-inert-root02'\"'\"',flags,dir_fd=fds[-1]);fds.append(child)\n info=os.fstat(child);assert info.st_uid==1000 and stat.S_IMODE(info.st_mode)==0o700 and os.listdir(child)==[]\n print(json.dumps({'\"'\"'status'\"'\"':'\"'\"'EXCLUSIVE_EMPTY_STAGE_CREATED'\"'\"','\"'\"'boot_id'\"'\"':boot,'\"'\"'dev'\"'\"':info.st_dev,'\"'\"'ino'\"'\"':info.st_ino}))\nfinally:\n for fd in reversed(fds):os.close(fd)\n'"
+    ],
+    [
+      "C:/Users/narut/AppData/Local/Arduino15/packages/arduino/tools/adb/32.0.0/adb.exe",
+      "-s",
+      "2629958581",
+      "push",
+      "C:\\Users\\narut\\OneDrive\\Desktop\\Project\\techbots_Sumo_Robots\\state\\analysis\\P7_app_motor_fault_run_raw\\cleanup_root02.py",
+      "/home/arduino/sumox26_codex_build/cleanup-app-inert-root02/cleanup_root02.py"
+    ],
+    [
+      "C:/Users/narut/AppData/Local/Arduino15/packages/arduino/tools/adb/32.0.0/adb.exe",
+      "-s",
+      "2629958581",
+      "push",
+      "C:\\Users\\narut\\OneDrive\\Desktop\\Project\\techbots_Sumo_Robots\\state\\analysis\\P7_app_motor_fault_run_raw\\cleanup_remoteocd01.py",
+      "/home/arduino/sumox26_codex_build/cleanup-app-inert-root02/cleanup_remoteocd01.py"
+    ],
+    [
+      "C:/Users/narut/AppData/Local/Arduino15/packages/arduino/tools/adb/32.0.0/adb.exe",
+      "-s",
+      "2629958581",
+      "push",
+      "C:\\Users\\narut\\OneDrive\\Desktop\\Project\\techbots_Sumo_Robots\\state\\analysis\\P7_static_link_probe_raw\\static_remote.py",
+      "/home/arduino/sumox26_codex_build/cleanup-app-inert-root02/static_remote.py"
+    ],
+    [
+      "C:/Users/narut/AppData/Local/Arduino15/packages/arduino/tools/adb/32.0.0/adb.exe",
+      "-s",
+      "2629958581",
+      "shell",
+      "/usr/bin/python3 -I -B -c 'import os,stat,pathlib,json,hashlib,signal\nsignal.alarm(20)\nassert os.getuid()==os.geteuid()==1000\nboot=pathlib.Path('\"'\"'/proc/sys/kernel/random/boot_id'\"'\"').read_text().strip()\nassert boot=='\"'\"'55c386b9-fe6d-4388-a7f4-1d91e0bb49d8'\"'\"'\nflags=os.O_RDONLY|os.O_DIRECTORY|os.O_NOFOLLOW|os.O_CLOEXEC\nfds=[os.open('\"'\"'/'\"'\"',flags)]\ntry:\n for part in ('\"'\"'home'\"'\"','\"'\"'arduino'\"'\"','\"'\"'sumox26_codex_build'\"'\"'):\n  before=os.stat(part,dir_fd=fds[-1],follow_symlinks=False)\n  assert stat.S_ISDIR(before.st_mode)\n  if part!='\"'\"'home'\"'\"': assert before.st_uid==1000\n  child=os.open(part,flags,dir_fd=fds[-1]); fds.append(child)\n  after=os.fstat(child); assert (after.st_dev,after.st_ino,after.st_mode,after.st_uid)==(before.st_dev,before.st_ino,before.st_mode,before.st_uid)\n pins={'\"'\"'cleanup_root02.py'\"'\"': {'\"'\"'bytes'\"'\"': 9592, '\"'\"'sha256'\"'\"': '\"'\"'4192f23ea49705a0af691953e6aec3c1f9da66c7cc1897ca3f5d49fba9fc5388'\"'\"'}, '\"'\"'cleanup_remoteocd01.py'\"'\"': {'\"'\"'bytes'\"'\"': 7873, '\"'\"'sha256'\"'\"': '\"'\"'23ef85ae3c386cc76751eea0fb18a90148a6fe513e3e8c753d527c06efcbbe95'\"'\"'}, '\"'\"'static_remote.py'\"'\"': {'\"'\"'bytes'\"'\"': 33321, '\"'\"'sha256'\"'\"': '\"'\"'8ba9b190c38e728013a383348c60c287b0366607f65f703161cf7f2e142d36f8'\"'\"'}}\n child=os.open('\"'\"'cleanup-app-inert-root02'\"'\"',flags,dir_fd=fds[-1]);fds.append(child)\n info=os.fstat(child);assert info.st_uid==1000 and stat.S_IMODE(info.st_mode)==0o700 and set(os.listdir(child))==set(pins)\n observed={}\n for name,pin in pins.items():\n  before=os.stat(name,dir_fd=child,follow_symlinks=False)\n  assert stat.S_ISREG(before.st_mode) and before.st_uid==before.st_gid==1000 and before.st_nlink==1 and before.st_size==pin['\"'\"'bytes'\"'\"']\n  fd=os.open(name,os.O_RDONLY|os.O_NOFOLLOW|os.O_CLOEXEC,dir_fd=child)\n  try:\n   opened=os.fstat(fd);assert (opened.st_dev,opened.st_ino,opened.st_size)==(before.st_dev,before.st_ino,before.st_size)\n   data=b'\"'\"''\"'\"'\n   while len(data)<=pin['\"'\"'bytes'\"'\"']:\n    chunk=os.read(fd,pin['\"'\"'bytes'\"'\"']+1-len(data))\n    if not chunk:break\n    data+=chunk\n   digest=hashlib.sha256(data).hexdigest();assert len(data)==pin['\"'\"'bytes'\"'\"'] and digest==pin['\"'\"'sha256'\"'\"']\n   after=os.fstat(fd);current=os.stat(name,dir_fd=child,follow_symlinks=False)\n   def stamp(s):return (s.st_dev,s.st_ino,s.st_mode,s.st_uid,s.st_gid,s.st_nlink,s.st_size,s.st_mtime_ns,s.st_ctime_ns)\n   assert stamp(before)==stamp(after)==stamp(current)\n   observed[name]={'\"'\"'bytes'\"'\"':len(data),'\"'\"'sha256'\"'\"':digest,'\"'\"'uid'\"'\"':before.st_uid,'\"'\"'gid'\"'\"':before.st_gid,'\"'\"'nlink'\"'\"':before.st_nlink}\n  finally:os.close(fd)\n print(json.dumps({'\"'\"'status'\"'\"':'\"'\"'STAGED_FILES_VERIFIED_NOT_EXECUTED'\"'\"','\"'\"'boot_id'\"'\"':boot,'\"'\"'dev'\"'\"':info.st_dev,'\"'\"'ino'\"'\"':info.st_ino,'\"'\"'files'\"'\"':observed,'\"'\"'scratch_exists'\"'\"':pathlib.Path('\"'\"'/tmp/remoteocd'\"'\"').exists()}))\nfinally:\n for fd in reversed(fds):os.close(fd)\n'"
+    ]
+  ],
+  "command_utf16_units": [
+    1440,
+    298,
+    308,
+    294,
+    3187
+  ],
+  "permission": "Stage regular source files only; no sudo, cleanup, MCU operation or firmware execution",
+  "execution": "PENDING independent host checks/source+staging-plan review; no command has run"
+}

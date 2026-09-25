@@ -226,3 +226,15 @@ from the compact reply. Do not claim otherwise.
 The canonical flash.sh wrapper invokes python3 -B so the local inherited binding
 checker and remote -I -B policy agree; direct Python invocation must also use -B.
 This prevents bytecode storage and changes no build flags or upload authority.
+
+First-run portability/snapshot repair clarification: local binding admission
+uses exactly the five pinned pure support definitions require,keys,json_bytes,
+valid_path,check_pin in an isolated json/re namespace. Require exactly one
+top-level definition each; do not import Linux resource on Windows or stub it
+globally. Remote support remains unchanged/full. Local policy executes its
+checked AST with only the two exact Path(__file__).with_name(<commands/pins JSON>)
+.read_text() calls replaced by checked UTF8 string constants, one each. Preserve
+every other node; fail on shape drift. No historical module/global mutation.
+On outcome-save failure promote that error if no primary exists, mark UNKNOWN
+after dispatch, attach deploy_outcome and add outcome_write postcheck details.
+Retain any original primary; do not retry saving or return accepted success.

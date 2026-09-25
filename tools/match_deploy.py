@@ -2,6 +2,7 @@
 # Keeps compilation, physical qualification and human permission separate.
 # Independent host fixtures exercise admission, existing transport and failures.
 from datetime import datetime, timezone
+import ast
 import hashlib
 import json
 import os
@@ -114,6 +115,40 @@ def load_module(root, name, raw):
     module = types.ModuleType('sumox_match_' + Path(name).stem)
     module.__file__ = str(root / name)
     exec(compile(raw, module.__file__, 'exec'), module.__dict__)
+    return module
+
+
+def binding_support(raw):
+    names = ('require', 'keys', 'json_bytes', 'valid_path', 'check_pin')
+    tree = ast.parse(raw)
+    definitions = [node for node in tree.body if isinstance(node, ast.FunctionDef) and node.name in names]
+    require(sorted(node.name for node in definitions) == sorted(names), 'Frozen binding definitions differ')
+    namespace = {'json': json, 're': re}
+    # Local admission needs only these pure definitions, not Linux resource APIs.
+    exec(compile(ast.Module(body=definitions, type_ignores=[]), '<checked-binding-view>', 'exec'), namespace)
+    return types.SimpleNamespace(**{name: namespace[name] for name in names})
+
+
+def policy_snapshot(root, code):
+    names = ('app_build_commands.json', 'app_build_pins.json')
+    patterns = {ast.dump(ast.parse("Path(__file__).with_name(" + repr(name) +
+                ").read_text()", mode='eval').body): name for name in names}
+    seen = []
+
+    class CheckedReads(ast.NodeTransformer):
+        def visit_Call(self, node):
+            name = patterns.get(ast.dump(node))
+            if name is None:
+                return self.generic_visit(node)
+            seen.append(name)
+            text = code['tools/' + name].decode('utf-8')
+            return ast.copy_location(ast.Constant(value=text), node)
+
+    tree = CheckedReads().visit(ast.parse(code['tools/app_build_policy.py']))
+    require(sorted(seen) == sorted(names), 'Checked policy read structure changed')
+    module = types.ModuleType('sumox_match_policy_snapshot')
+    module.__file__ = str(root / 'tools/app_build_policy.py')
+    exec(compile(tree, module.__file__, 'exec'), module.__dict__)
     return module
 
 
@@ -304,7 +339,7 @@ def load_scope(root, relative, target, transport, *, now=None):
             type(transport) is str and transport in ('ssh', 'adb') and request['transport'] == transport,
             'Configured target/transport differs')
     code = checked_code(root, request)
-    support = load_module(root, STATIC + 'capture_remote.py', code[STATIC + 'capture_remote.py'])
+    support = binding_support(code[STATIC + 'capture_remote.py'])
     uploader = load_module(root, STATIC + 'upload_remote.py', code[STATIC + 'upload_remote.py'])
     adapter = load_module(root, 'tools/match_upload.py', code['tools/match_upload.py'])
     profile = adapter.match_profile(uploader, support, request['source_sha256'],
@@ -313,7 +348,7 @@ def load_scope(root, relative, target, transport, *, now=None):
     require(all(bindings['files']['sketch'][k] == bindings['files']['exported'][k]
                 for k in ('bytes', 'sha256')), 'Packaged/exported bytes differ')
     require(app_source_hash(root) == request['source_sha256'], 'Current firmware source changed')
-    policy = load_module(root, 'tools/app_build_policy.py', code['tools/app_build_policy.py'])
+    policy = policy_snapshot(root, code)
     checked_build(root, request, profile, policy)
     qualification = checked_qualification(root, request)
     digest = sha(canonical(request))
@@ -470,7 +505,10 @@ def save_outcome(board, output, identity, outcome, first):
         write_exclusive(output / 'outcome.json', outcome)
     except Exception as error:
         if first is None:
-            raise
+            first = error
+        outcome['status'] = 'UNKNOWN' if outcome['attempts'] else 'FAILED'
+        outcome['first_error'] = error_record(first)
+        outcome['postcheck_errors'].append({'check': 'outcome_write', **error_record(error)})
         first.evidence_write_errors = [error_record(error)]
         board.report_app_error(first, 'Could not save MATCH outcome: ' + str(error))
     if first is not None:

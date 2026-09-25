@@ -275,8 +275,12 @@ services in software; their physical native transport acceptance remains pending
 
 Successful capture publishes a unique directory with frames/events/summary CSV,
 manifest, validation report, capture metadata and original wire bytes. Protocol,
-CRC or connection failures retain a `.partial` directory and error report. A
-successful interrupted/loss-bearing capture still reports its loss. Optional
+CRC or connection failures retain a `.partial` directory and error report. If
+saving the error report also fails (for example, the disk is full), the failure
+diagnostic retains the original error, partial-directory path and failed-save
+details. Existing partial files remain available; capture is not retried or
+published as successful. A successful interrupted/loss-bearing capture still
+reports its loss. Optional
 `--firmware-revision`, `--source-sha256` and `--config-sha256` are caller declarations;
 local hashes and an offline capture do not prove physical source or acceptance.
 Live `--timeout` defaults to330seconds (range1..3600); connection timeout is at most

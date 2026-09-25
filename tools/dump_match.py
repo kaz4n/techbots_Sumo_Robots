@@ -32,6 +32,8 @@ class CaptureError(ValueError):
         super().__init__(message)
         self.code = code
         self.connection_evidence = None
+        self.partial_path = None
+        self.evidence_write_error = None
 
 
 def require(condition, code, message):
@@ -235,6 +237,33 @@ def bundle(capture, directory, base, capture_id, target, identities):
             "BUNDLE", "Reconstructed CSV bundle failed integrity/owner validation.")
 
 
+def _retained_failure(error, chunks, parser, partial):
+    failure = error if isinstance(error, CaptureError) else CaptureError("CAPTURE", str(error))
+    if failure.code.startswith("CONNECTION_"):
+        try:
+            parser.finish()
+        except CaptureError as wire_error:
+            failure = wire_error
+    failure = getattr(chunks, "_receive_failure", None) or failure
+    evidence = getattr(chunks, "connection_evidence", None)
+    journal_error = None
+    try:
+        write_json(partial / "error.json", dict(code=failure.code, message=str(failure), closure="partial",
+                   transport_outcome=getattr(chunks, "outcome", None), connection_evidence=evidence))
+    except Exception as write_error:
+        # A full disk must not hide the capture failure or its retained bytes.
+        journal_error = {"type": type(write_error).__name__, "message": str(write_error)}
+    message = str(failure) + "; partial evidence: " + str(partial)
+    if journal_error is not None:
+        message = failure.code + ": " + message + "; error report could not be saved: " + \
+                  journal_error["type"] + ": " + journal_error["message"]
+    raised = CaptureError(failure.code, message)
+    raised.connection_evidence = evidence
+    raised.partial_path = str(partial)
+    raised.evidence_write_error = journal_error
+    return raised
+
+
 def save_capture(chunks, output_dir, *, receive_mode="offline", target=None,
                  firmware_revision=None, source_sha256=None, config_sha256=None):
     identities = dict(firmware_revision=firmware_revision, source_sha256=source_sha256, config_sha256=config_sha256)
@@ -270,19 +299,7 @@ def save_capture(chunks, output_dir, *, receive_mode="offline", target=None,
         publish(partial, destination)
         return destination
     except (CaptureError, csv._InvalidInput, OSError, ValueError, subprocess.SubprocessError) as error:
-        failure = error if isinstance(error, CaptureError) else CaptureError("CAPTURE", str(error))
-        if failure.code.startswith("CONNECTION_"):
-            try:
-                parser.finish()
-            except CaptureError as wire_error:
-                failure = wire_error
-        failure = getattr(chunks, "_receive_failure", None) or failure
-        write_json(partial / "error.json", dict(code=failure.code, message=str(failure), closure="partial",
-                   transport_outcome=getattr(chunks, "outcome", None),
-                   connection_evidence=getattr(chunks, "connection_evidence", None)))
-        raised = CaptureError(failure.code, str(failure) + "; partial evidence: " + str(partial))
-        raised.connection_evidence = getattr(chunks, "connection_evidence", None)
-        raise raised from error
+        raise _retained_failure(error, chunks, parser, partial) from error
 
 
 def offline_chunks(path):

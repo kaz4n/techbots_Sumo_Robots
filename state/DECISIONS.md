@@ -2133,3 +2133,6 @@ D-189 source-review/scope refinement 2026-09-25T19:31:49.922118+04:00: remoted79
 
 
 D-189 remote host closure 2026-09-25T19:36:05.465523+04:00: remoted796489f/spec-only independentoracle44f7651b firstexecution26PASS/no skips,12pinsunchanged. Separate reusedcontextsource/actualreviewPASS; inheritedcloseMINOR disposition retained forstrictouterhandling. Explicitanalysis.flash contractclarification beforefreeze, noimplementation/testrepair. Originalhelpers/firmware/lockedtests unchanged,0native. Fixed stagedadapter localcaller/action preparation follows under publiccontract; no actualscope/runpermissiongate created.
+
+
+D-189 first caller execution 2026-09-25T19:48:42.338640+04:00: actions13PASS, caller19/20PASS; solechanged-upload-sketch-SHA preparation admitted locally. Original run_test01/freeze139pins preserved; remote rejection does not satisfy local preclaim contract. Repair implementation only with exact localbindingprojection/check; preserve independent oracle and original helpers. No native staging/upload/reset/capture. Evidence analysis/P7_app_motor_fault_caller_failure01.md.

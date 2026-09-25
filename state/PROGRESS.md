@@ -1288,3 +1288,6 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-25T19:36:05.465523+04:00 | P7 D189 remote adapter | IMPLEMENTED/HOST-TESTED/REVIEWED remoted796489f/oracle44f7651b,26independentWSLmethods PASS/no skips;12pins exact. Actual inheritedlifecycle failures exercised withcontrolledartifacts/children, no nativeclaims. Source/actualreviewPASS withrecordedinheritedMINORdisposition; next localcaller/framing/actualscope. Evidence analysis/P7_app_motor_fault_remote_validation.md.
+
+
+2026-09-25T19:48:42.338640+04:00 | P7 D189 caller first host execution | actions13PASS/caller19of20PASS; exactartifactlocaladmission gap preserved;139pinsunchanged. Implementationrepair pending, testsunchanged. Freshreadonly19boardfiles/identityPASS, ownersabsent; no staging/upload/reset/capture. Evidence analysis/P7_app_motor_fault_caller_failure01.md.

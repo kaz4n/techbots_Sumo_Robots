@@ -1432,3 +1432,6 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-26T12:50:01.171247+04:00 | P7 D203 host preparation complete | Linux107PASS/currentWindows85PASS22coveredskips; firstWindowsERROR preserved22c0750c/causeunknown, trace96cde093 and unchangedisolatedfullsuite5d63e13a acceptedwithoutguardchange.196pins/fixturesclosedb36f777e; reviewc68852ffPASS. Freshreadonlyadmissiondc082eac/manifest1b847d96/scopec08195d7 await separateadmissionreview andcleanHEAD foronecompileonly. D201 remainsflashed; no physicalgate.
+
+
+2026-09-26T13:03:49.635815+04:00 | P7 D203 actual compile PASS | Cleandbeec127 check0/execute0,1query1serialcompiler238transports/all8closingPASS; result323a4d3c/artifactsfc5eb9e2/localcf3e16fb/actualreview9c3e8cfe.196host/129manifest/10scope/108stagehashes stable. Rawbinary152Bsmaller,structuralRAMunchanged; no timingclaim. Attemptconsumed; freshABI/entryproposal next. No upload;D201remainsflashed.

@@ -439,3 +439,6 @@ D191 closing observation: C:recovered290537472B independently before local docum
 
 
 2026-09-26T12:50:01.171247+04:00 | D203 host evidence closure | Retain 22 compact result/stream/intent/trace files totalling 134763B across6consumedowners for reproduction/review and originalfailure evidence. Test-owned fixtures self-cleaned; b36f777e confirms no matchedWindows/LinuxRAM remnants and emptyisolatedTEMP. No recursive/manualdeletion or historicalowner cleanup. Cfree17782038528B; targetartifacts notyetcreated.
+
+
+2026-09-26T13:03:49.635815+04:00 | D203 actual compile evidence | Retain1004compactnative receipt/streamfiles1698674B and108verifiedlocalstagefiles781200B for actualreview and upcoming file-onlyartifact/sourceclosure. Preserve eightcheckedtargetartifact observations andunique newbuild evidence onboard. No hostobject/Pythonbytecode fixture remnants identified; no blanketcleanup or prior-deniedpath retry. Cfree16995299328B atclosingcf3e16fb. No duplicate localELFs copied; sourcecommitdbeec127 plusmanifest1b847d96 reproduce inputs.

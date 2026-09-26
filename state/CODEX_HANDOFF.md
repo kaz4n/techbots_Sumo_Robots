@@ -70,34 +70,42 @@ until a new fixed compile, actual ABI/entry and separately reviewed inhibited
 runtime attempt. All prior native owners are consumed; do not rerun historical
 launchers, reset the MCU casually or repin old manifests.
 
-## Exact next task: D203 single compile-only attempt
+## Completed D203 compile; next fresh ABI inspection
 
-D203 contract318a6267, launcher957666a8 and independent frozen oracles are
-accepted by finalhostreviewc68852ff. Linux107PASS; acceptedWindows85PASS and
-22explicit skips individually coveredLinux. OriginalWindowscaller65PASS/
-3skip/1ERROR is preserved22c0750c; causeunknown. Single unchanged-method
-trace96cde093 is non-reproduction only. Complete unchanged isolatedTEMP
-caller5d63e13a passes66/3skip;196pins exact. No production/guard/assertion edit.
-See analysis/P7_motor_const_compile_validation.md and raw/host_closing01.json.
+D203 compiled once at clean dbeec127ba651b6a4346f70aaf5b78bc79718ce0.
+Check0/execute0/369.34s,1query1compiler238transports/all8closingPASS;
+result323a4d3c, artifactsfc5eb9e2, invocationd8b43e95, localclosingcf3e16fb.
+Independent actualreview9c3e8cfe PASS at
+reviews/P7_motor_const_compile_actual_review.md, no open finding.
+All196host/129manifest/10scope pins and108stagefiles781200B remain exact.
+Read analysis/P7_motor_const_compile_actual_validation.md.
 
-Read-only admission01 dc082eac passes currentidentity/sameboot,28installedpins,
-fullcredentials,resources,ownerabsence andclosingidentity; no nativeaction.
-Manifest inputs_static.json1b847d96 binds129files. Diagnosticmapping
-4bc3a2e6ebb497d43a433aa887ab8388dd3dab075a4f44918ed614db30034cd2 has110inventory
-files782068B/108mapped781200B; onlyD202motorcpp differs fromD198. Local
-manifestadmission passed. Scope01 c08195d7 binds10files and freshowners.
+Current compiled diagnostic source is
+4bc3a2e6ebb497d43a433aa887ab8388dd3dab075a4f44918ed614db30034cd2.
+RawELF172600B/390b69c1, debug1838360B/b3520cac, rawBIN95352B/76d2846d,
+package95368B/f15c7ce1. Text decreases128B/rodata24B; data208/zeroBSS170664/
+structuralRAMtail90256 unchanged. This is not targetinstruction/timing/WCET
+or liveRAM evidence. Static/default/MATCH0/MOTORS0/probe1 unchanged.
+D201 source117cc0e7 remains latest flashed. AllD203compileowners consumed.
 
-Review-only const_compile_review owns separate
-reviews/P7_motor_const_compile_admission_review.md; hostreview is immutable.
-Its FINAL PASS e85747af is saved; all agents stopped writes. Commit preparation to cleanHEAD,
-run tools/compile_motor_const.py --check-only --reviewed-head HEAD withPython-I-B,
-then exactly one --execute using -X pycache_prefix=<absoluteRAW>/native_static01/pycache.
-Record check/execute in memory until nativechild completes to preservecleanHEAD.
-Retain onequery60s,onecompilerjobs1/720s,reap5s andall8artifact/closingchecks.
-No concurrent writers/tests/compilers; allownerssingle-use, preservefirsterrors.
-No upload/reset/MCUread. Newartifacts require freshABI/entry before a later
-separately reviewed inhibitedruntime. NeverreuseD199addresses or assume
-candidateRate/Period remain emitted. D201 remains latest flashedimage.
+Hostreviewc68852ff and admissionreviewe85747af remain immutable. Accepted
+Linux107PASS/currentWindows85PASS22coveredskips; firstWindowsstampERROR
+preserved22c0750c/causeunknown. Trace96cde093 is non-reproduction only;
+unchangedisolatedfullsuite5d63e13a passed without source/guard/assertion edits.
+Freshadmissiondc082eac/manifest1b847d96/scopec08195d7 precede actualcompile.
+
+Agent const_abi_spec owns ONLY proposed D204
+analysis/P7_motor_const_abi_contract.md and raw/abi_derivation01.json.
+It is preparing a data-only counted metadata successor to D199 file-only
+ABIreader. No new reader exists and no D204 adoption/execution yet.
+After proposal FINAL, independent review/adopteddecision precede new reader;
+freeze independent oracle before actual new implementation inspection/execution.
+New planned localowner RAW/native_abi_static01 and absent remotescope
+app-motor-const-abi-static01 must bind actualD203 artifacts. Preserve original
+4filecommands/13closingchecks; complete readelf symbols permit fresh helper
+presence/absence observation. Do not reuse D199 addresses or require candidate
+helpers to remain emitted. A separately bound entry scope follows observed
+symbols, then separately reviewed inhibitedruntime. No motor permission/gate.
 
 ## Evidence prerequisites already complete
 
@@ -145,4 +153,4 @@ Freeze1October21:00Dubai, rehearsal2October, competition3October. Dates do not
 create acceptance. Read AGENTS.md/CODEX_RESUME/CODEX_EXECUTION and latest state.
 PROGRESS is binary-append-only: first140971B SHA256
 1dbbeb53c3dc046128494af3bef240b9a00353929d6121991900c90bb2838b77.
-No host or board job is active. D203 actual compile is not yet started.
+No host/compiler/device job is active. D203 compile is complete and consumed; D204 proposal is being authored.

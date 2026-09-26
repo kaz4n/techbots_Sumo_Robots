@@ -2347,3 +2347,6 @@ D-203 host closure 2026-09-26T12:50:01.171247+04:00: Adopt final independent rev
 
 
 D-203 native preparation closure 2026-09-26T12:51:52.919732+04:00: Adopt independent admissionreviewe85747afPASS, hostreviewc68852ff unchanged. Exact129manifest/10scope/196hostpins and freshread-onlyboard observations close. Execute at most one fixed compile-only attempt after clean committedreviewedHEAD and localcheck-only, preserving ownerconsumption/firsterrors/alluse-timechecks. This authorization does not include upload, reset or MCUmemory access.
+
+
+D-203 actual compile closure 2026-09-26T13:03:49.635815+04:00: Adopt actualreview9c3e8cfePASS. Clean dbeec127 check0/execute0 produced current4bc3a2e6 artifacts through1query/1serialcompiler/238transports/all8closingPASS. Result323a4d3c/artifactsfc5eb9e2/localclosingcf3e16fb;196host/129manifest/10scope/108stage inputs unchanged. Text-128B/rodata-24B/rawbinary-152B and unchangedstructuralRAM are file evidence only. Ownerconsumed; prepare separate freshD204file-onlyABI, then observedinstruction scope and newinhibitedruntime. No upload/reset/MCUread or fault/timing acceptance follows.

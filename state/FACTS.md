@@ -874,3 +874,7 @@ HOST-VERIFIED: source19906B/fdbc27d9 changes only the immutable helper region; e
 
 ## F223 - Constant metadata diagnostic compiler host preparation (2026-09-26T12:50:01.171247+04:00)
 HOST-VERIFIED: exactlauncher957666a8 retains inheritedguards; independent Linux107PASS, acceptedWindows85PASS22coveredskips,196pins unchanged, hostreviewc68852ffPASS. OriginalWindowsstampERROR retained/causeunknown; unchangedtrace and isolatedfullsuite are separate evidence. DEVICE-OBSERVED readonlyadmissiondc082eac verifies sameboard/boot,28installedfiles,resources and newownerabsence. Manifest1b847d96 binds129inputs/source4bc3a2e6; no actualcompile/upload/timingbenefit yet. Source: analysis/P7_motor_const_compile_validation.md.
+
+
+## F224 - Constant metadata diagnostic target compilation (2026-09-26T13:03:49.635815+04:00)
+FILE-OBSERVED: D203 source4bc3a2e6 atcleandbeec127 compilesonce withfixedstatic/default/MATCH0/MOTORS0/probe1. Result323a4d3c/artifactsfc5eb9e2:1query1compiler238transports/all8closingPASS. Actualreview9c3e8cfe independently reconcilesallcommands/payloads/source/28installedpins/artifacts;196host/129manifest/10scope stable. RawELF172600B/390b69c1,debug1838360B/b3520cac,rawBIN95352B/76d2846d,package95368B/f15c7ce1. Text-128/rodata-24 versusD198;208data/170664zeroBSS/90256structuralRAMtail unchanged. No freshreportABI/helperinstruction/liveRAM/runtimebenefit orupload. Source: analysis/P7_motor_const_compile_actual_validation.md.

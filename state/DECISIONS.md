@@ -2724,3 +2724,19 @@ D-233 actual compile/run and scheduling (2026-09-27T01:41:46.948550+04:00): Nati
 Under D051 adopt the existing receive-stream enum and uint64 session as config declarations with zero defaults. Forward immutable setup grants into every Runtime Context. Current deployment recognizes/protects these declarations and refuses nondefault stream/session pending a separately qualified fresh receive workflow; no hardware grant or reset-freshness claim. Adopt reviewb0032c22 FINALPASS and integratef3858d4a as3ec262a0. Linux28Pythonmethods,49realRuntimeUBSancases12558assertions,registry18legacychecks and21uniqueWindowsmethods pass; original sparse-dependency and unchanged metadata-guard refusals retained. No nativeD234action.
 
 D-233 failed-delivery evidence acceptance (2026-09-27T01:43:27.403199+04:00): Adopt actualreview03378b10; no reconciliation blocker, actualdeliveryFAILED.145inputs110stagefiles45transports9compileclosing/oneupload/900sTIMEOUT0bytes independently reconciled. Sourcece4e6939 remains distinct from currentD234. Passivecapture34538 continues; causeunknown.
+
+## D-235 (2026-09-27T01:45:53.083488+04:00) - Six-store UART service candidate after native timeout
+Under D051 choose the minimal candidate DUMP_UART_STEP_BYTES8 to6, preserving
+80us step,100ms packet and300000ms total deadlines, every ownership/ready/
+framing/poison guard and FIFO selection. D233 observed STORE_DEADLINE before
+the eighth TDR store,offset7/74,payload59; this does not directly distinguish
+step versus packet deadline. Six reduces work per call and has an existing
+unrestricted capacity bound288575one-ms calls (11.425s nominal margin) and
+maximum79-byte packet15calls including completion. This is not a measured
+minimum rate or a proven cure. Four/five are rejected against unchanged300s.
+Preserve historical8-store fixtures/assertions; add current6-store coverage
+and exact full-capacity delivery/reassembly under the current configuration.
+No locked test, motor grant or hard deadline changes. CleanupREADBACK_FAILED
+remains separate: actual register value and cause were not captured. Do not
+assume USART documentation applies to LPUART or silently relax cleanup checks.
+Host/review before any separately bound new inhibited native diagnostic.

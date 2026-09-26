@@ -1,0 +1,152 @@
+{
+  "schema": "d195-actions-first-host-test-v1",
+  "platform": "linux",
+  "started_utc": "2026-09-26T05:12:16.630099+00:00",
+  "elapsed_seconds": 6.128,
+  "command": [
+    "wsl",
+    "-d",
+    "Ubuntu",
+    "--",
+    "python3",
+    "-I",
+    "-B",
+    "-m",
+    "unittest",
+    "discover",
+    "-s",
+    "tests/tooling",
+    "-p",
+    "test_app_motor_observe_actions.py",
+    "-v"
+  ],
+  "returncode": 0,
+  "stdout": "",
+  "stderr": "test_bootstrap_rejects_bad_framing_before_root_or_module_execution (test_app_motor_observe_actions.ActionsContract.test_bootstrap_rejects_bad_framing_before_root_or_module_execution) ... ok\ntest_bootstrap_success_checks_staged_adapter_and_capture_parser_again (test_app_motor_observe_actions.ActionsContract.test_bootstrap_success_checks_staged_adapter_and_capture_parser_again) ... ok\ntest_build_rejects_wrong_roles_bytes_identities_and_staging_pins (test_app_motor_observe_actions.ActionsContract.test_build_rejects_wrong_roles_bytes_identities_and_staging_pins) ... ok\ntest_capture_reply_rejects_any_wrong_read_bracket_snapshot_count_or_wait (test_app_motor_observe_actions.ActionsContract.test_capture_reply_rejects_any_wrong_read_bracket_snapshot_count_or_wait) ... ok\ntest_changed_staged_adapter_and_installed_parser_never_dispatch (test_app_motor_observe_actions.ActionsContract.test_changed_staged_adapter_and_installed_parser_never_dispatch) ... ok\ntest_closure_drift_cannot_be_overridden_by_successful_inner_report (test_app_motor_observe_actions.ActionsContract.test_closure_drift_cannot_be_overridden_by_successful_inner_report) ... ok\ntest_commands_bind_exact_sources_adapter_identity_canonical_payload_and_windows_limit (test_app_motor_observe_actions.ActionsContract.test_commands_bind_exact_sources_adapter_identity_canonical_payload_and_windows_limit) ... ok\ntest_finish_failure_retains_original_sequence_error_without_retry (test_app_motor_observe_actions.ActionsContract.test_finish_failure_retains_original_sequence_error_without_retry) ... ok\ntest_outward_close_error_preserves_unattributed_durable_report_and_fails (test_app_motor_observe_actions.ActionsContract.test_outward_close_error_preserves_unattributed_durable_report_and_fails) ... ok\ntest_reply_requires_exact_envelope_origin_identity_and_clean_errors (test_app_motor_observe_actions.ActionsContract.test_reply_requires_exact_envelope_origin_identity_and_clean_errors) ... ok\ntest_success_sequence_is_exact_and_passes_retained_upload_predecessor (test_app_motor_observe_actions.ActionsContract.test_success_sequence_is_exact_and_passes_retained_upload_predecessor) ... ok\ntest_upload_error_or_unattributed_success_suppresses_capture_and_keeps_closing_errors (test_app_motor_observe_actions.ActionsContract.test_upload_error_or_unattributed_success_suppresses_capture_and_keeps_closing_errors) ... ok\ntest_upload_reply_rejects_partial_ambiguous_or_expired_process (test_app_motor_observe_actions.ActionsContract.test_upload_reply_rejects_partial_ambiguous_or_expired_process) ... ok\ntest_fixed_inputs_and_retained_method_inventory (test_app_motor_observe_actions.WaitValidation.test_fixed_inputs_and_retained_method_inventory) ... ok\ntest_pre_wait_order_inside_capture_and_before_sample_pause (test_app_motor_observe_actions.WaitValidation.test_pre_wait_order_inside_capture_and_before_sample_pause) ... ok\ntest_pre_wait_requested_seconds_is_exact_integer_30 (test_app_motor_observe_actions.WaitValidation.test_pre_wait_requested_seconds_is_exact_integer_30) ... ok\ntest_pre_wait_timestamps_reject_bool_nonfinite_and_nonnumeric (test_app_motor_observe_actions.WaitValidation.test_pre_wait_timestamps_reject_bool_nonfinite_and_nonnumeric) ... ok\ntest_sample_pause_and_finished_bounds_remain_independent (test_app_motor_observe_actions.WaitValidation.test_sample_pause_and_finished_bounds_remain_independent) ... ok\ntest_sequence_keeps_invalid_wait_receipt_first_failure_and_closes_once (test_app_motor_observe_actions.WaitValidation.test_sequence_keeps_invalid_wait_receipt_first_failure_and_closes_once) ... ok\ntest_short_or_backward_pre_wait_is_not_success (test_app_motor_observe_actions.WaitValidation.test_short_or_backward_pre_wait_is_not_success) ... ok\ntest_valid_wait_cannot_promote_failed_or_unattributed_outer_result (test_app_motor_observe_actions.WaitValidation.test_valid_wait_cannot_promote_failed_or_unattributed_outer_result) ... ok\ntest_valid_wait_receipt_and_inclusive_boundaries (test_app_motor_observe_actions.WaitValidation.test_valid_wait_receipt_and_inclusive_boundaries) ... ok\ntest_wait_does_not_admit_terminal_or_extra_analysis_claims (test_app_motor_observe_actions.WaitValidation.test_wait_does_not_admit_terminal_or_extra_analysis_claims) ... ok\ntest_wait_requires_exact_present_object_keys (test_app_motor_observe_actions.WaitValidation.test_wait_requires_exact_present_object_keys) ... ok\n\n----------------------------------------------------------------------\nRan 24 tests in 0.965s\n\nOK\n",
+  "before": {
+    "tests/tooling/test_app_motor_observe_actions.py": {
+      "bytes": 13390,
+      "sha256": "103493975bccdcab094b412a5ba26cf125a6f294a9b5efac167660f6fda8a563"
+    },
+    "state/analysis/P7_app_motor_observe_caller_contract.md": {
+      "bytes": 8618,
+      "sha256": "03b61d0c152fccd69775c458023ffe0a48d307a0a1056d2ea36d7fe2adf81a34"
+    },
+    "state/analysis/P7_app_motor_observe_remote_contract.md": {
+      "bytes": 11937,
+      "sha256": "c2563449091f44ccd827b8cbc1173dc3e655614f6bb8d01c091540b99958d9c7"
+    },
+    "state/analysis/P7_app_motor_fault_run_raw/test_actions.py": {
+      "bytes": 26162,
+      "sha256": "2035499ecb3195fdc4bb68f37ada7b88dac0f93abfbc1c70668e6c31d3fe2297"
+    },
+    "tests/tooling/test_app_motor_observe_remote.py": {
+      "bytes": 20956,
+      "sha256": "f45218ea3d9fb118adfe796c12fc5f4bab654c843cf33cc531e81d99a3f41fc6"
+    },
+    "state/analysis/P7_app_motor_fault_run_raw/test_remote.py": {
+      "bytes": 38249,
+      "sha256": "44f7651b70ffc06697fb2932f4bab01a8ecc8c47d2b31fe779af356596d73bb2"
+    },
+    "state/analysis/P7_app_motor_fault_run_raw/remote_run02.py": {
+      "bytes": 10518,
+      "sha256": "a77fb7d458ceb88f939ce785250d7c49727c56db231a9688890bef808c0c9162"
+    },
+    "state/analysis/P7_app_motor_fault_run_raw/actions_run02.py": {
+      "bytes": 12069,
+      "sha256": "4eeb19f1923b5058a3df69ecd196d5f331e9e9f51ca1193f6c7026ca837ee0fb"
+    },
+    "state/analysis/P7_motor_fault_raw/inert_actions.py": {
+      "bytes": 19120,
+      "sha256": "8ffb65c0f1284f261ae1237bcf260e866176e83433a3538908780962513f1104"
+    },
+    "state/analysis/P7_static_startup_raw/upload_remote.py": {
+      "bytes": 24710,
+      "sha256": "e926b7ba5586475664b0541370e7cfb5c50e40d8dc8b47b18e35db3e0a0a25c1"
+    },
+    "state/analysis/P7_static_startup_raw/capture_remote.py": {
+      "bytes": 37525,
+      "sha256": "95b0344d01886b6db30d55aa18a536f9a481b82348e22643e7920d817dbfac3e"
+    },
+    "state/analysis/P7_static_link_probe_raw/static_remote.py": {
+      "bytes": 33321,
+      "sha256": "8ba9b190c38e728013a383348c60c287b0366607f65f703161cf7f2e142d36f8"
+    },
+    "state/analysis/P7_app_motor_observe_run_raw/actions.py": {
+      "bytes": 12515,
+      "sha256": "6a730069e2511306459f5c3443976a84351b155fd04660a094606cfd98f2829f"
+    },
+    "state/analysis/P7_app_motor_observe_run_raw/remote.py": {
+      "bytes": 11357,
+      "sha256": "98b0f5394d64f61178277f701adb81eece3d5f136ea84a8c5fb30534a5b241db"
+    },
+    "state/analysis/P7_app_motor_observe_run_raw/test_actions_independent_freeze01.json": {
+      "bytes": 4469,
+      "sha256": "bec460b5202892bfe8ac143ca9274c2a19dc2cd283a77308074cac8f031f78d2"
+    }
+  },
+  "after": {
+    "tests/tooling/test_app_motor_observe_actions.py": {
+      "bytes": 13390,
+      "sha256": "103493975bccdcab094b412a5ba26cf125a6f294a9b5efac167660f6fda8a563"
+    },
+    "state/analysis/P7_app_motor_observe_caller_contract.md": {
+      "bytes": 8618,
+      "sha256": "03b61d0c152fccd69775c458023ffe0a48d307a0a1056d2ea36d7fe2adf81a34"
+    },
+    "state/analysis/P7_app_motor_observe_remote_contract.md": {
+      "bytes": 11937,
+      "sha256": "c2563449091f44ccd827b8cbc1173dc3e655614f6bb8d01c091540b99958d9c7"
+    },
+    "state/analysis/P7_app_motor_fault_run_raw/test_actions.py": {
+      "bytes": 26162,
+      "sha256": "2035499ecb3195fdc4bb68f37ada7b88dac0f93abfbc1c70668e6c31d3fe2297"
+    },
+    "tests/tooling/test_app_motor_observe_remote.py": {
+      "bytes": 20956,
+      "sha256": "f45218ea3d9fb118adfe796c12fc5f4bab654c843cf33cc531e81d99a3f41fc6"
+    },
+    "state/analysis/P7_app_motor_fault_run_raw/test_remote.py": {
+      "bytes": 38249,
+      "sha256": "44f7651b70ffc06697fb2932f4bab01a8ecc8c47d2b31fe779af356596d73bb2"
+    },
+    "state/analysis/P7_app_motor_fault_run_raw/remote_run02.py": {
+      "bytes": 10518,
+      "sha256": "a77fb7d458ceb88f939ce785250d7c49727c56db231a9688890bef808c0c9162"
+    },
+    "state/analysis/P7_app_motor_fault_run_raw/actions_run02.py": {
+      "bytes": 12069,
+      "sha256": "4eeb19f1923b5058a3df69ecd196d5f331e9e9f51ca1193f6c7026ca837ee0fb"
+    },
+    "state/analysis/P7_motor_fault_raw/inert_actions.py": {
+      "bytes": 19120,
+      "sha256": "8ffb65c0f1284f261ae1237bcf260e866176e83433a3538908780962513f1104"
+    },
+    "state/analysis/P7_static_startup_raw/upload_remote.py": {
+      "bytes": 24710,
+      "sha256": "e926b7ba5586475664b0541370e7cfb5c50e40d8dc8b47b18e35db3e0a0a25c1"
+    },
+    "state/analysis/P7_static_startup_raw/capture_remote.py": {
+      "bytes": 37525,
+      "sha256": "95b0344d01886b6db30d55aa18a536f9a481b82348e22643e7920d817dbfac3e"
+    },
+    "state/analysis/P7_static_link_probe_raw/static_remote.py": {
+      "bytes": 33321,
+      "sha256": "8ba9b190c38e728013a383348c60c287b0366607f65f703161cf7f2e142d36f8"
+    },
+    "state/analysis/P7_app_motor_observe_run_raw/actions.py": {
+      "bytes": 12515,
+      "sha256": "6a730069e2511306459f5c3443976a84351b155fd04660a094606cfd98f2829f"
+    },
+    "state/analysis/P7_app_motor_observe_run_raw/remote.py": {
+      "bytes": 11357,
+      "sha256": "98b0f5394d64f61178277f701adb81eece3d5f136ea84a8c5fb30534a5b241db"
+    },
+    "state/analysis/P7_app_motor_observe_run_raw/test_actions_independent_freeze01.json": {
+      "bytes": 4469,
+      "sha256": "bec460b5202892bfe8ac143ca9274c2a19dc2cd283a77308074cac8f031f78d2"
+    }
+  },
+  "pins_unchanged": true,
+  "scope": "Controlled host-only fixtures. No board, native transport, authentication, upload or real sleep."
+}

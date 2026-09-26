@@ -65,13 +65,25 @@ native_entry_static01 is CONSUMED: check0/execute0 at41bea260, result61c7b090/
 entrye195fdeb, all13remote+localPASS and27ranges2686Bcomplete. Actual review
 d1a09f19PASS establishes finite limits/pre-abort ordering/terminalpassivity for
 selected instructions, not runtime behavior. Read entry_validation andactualreview.
-D195 remotecontractc2563449/source98b0f539 prepares exactD193capture26reads727152B
-with one30swait before first SRAM and unchanged2sbetween samples. D196cleanup
-contract7258230a binds only3currentD190copies2399736B in/tmp/remoteocd inode869;
-newrecipe1834edd3/rootwrappera089cc3b andexclusiveobserve-root03 owner. Their
-independent hosttests/source reviews are in progress; no staging/cleanup/upload
-has occurred. Next close those tests/reviews, then fresh scopedcleanup and new
-caller/actions preparation/admission before any finiteinhibitedupload/capture.
+D195 remotecontractc2563449/source98b0f539, callercontract03b61d0c/run95cc5cb6/
+actions6a730069 now pass91Linux methods and48Windows/43Linux-only skips; all
+historical59methods and128manifestpins retained. Remote review98e0a956 andcaller
+reviewac506885 PASS. Fieldmapb96b6a3e has14currenttypes/104fields, independently
+checked against actualGDB, not hostABI. Preparation8acf1b13 binds12provenance
+files; new11file inert_run01_scope is ready for separate scope review. It fixes
+source3a08ddeb/rawf1df5e7f95344B/package85b05c5695360B,26reads727152B and
+one30swait beforefirstSRAM plus unchanged2sgap. No newupload/capture has run.
+
+D196 exactcleanup actually completed once: recipe1834edd3/rootwrappera089cc3b,
+newobserve-root03 stage/result CONSUMED. Result321e6e5c6360B confirms exact3D190
+scratchcopies2399736B removed, originalsunchanged, permanent UID/GID1000 and
+no errors; actualreview0131ea59PASS. Freshreadonlyadmission01 verifies19next-run
+filepins/samefullidentityboot/no conflicts, scratch absent and three newnative
+ownersunused. Credential via stdinonly; no generalprivilege or retry permission.
+Next finalize native-scope review, commit all currentfiles, check-only then one
+D195 inhibited attempt. No unrelated filewrites allowed during fixed native
+run because its cleanHEAD guard intentionally rejects them. Preserve D190 as
+latestflashed until actualnewupload succeeds; never rerun an oldowner.
 D193 app-motor-observe-static01 and all earlier native owners are consumed.
 Recheck free space and fresh board/boot identity before admission; retain the
 128MiB native-reader gate. Do not lower the gate or retry any earlier denied

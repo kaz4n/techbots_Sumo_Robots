@@ -1390,3 +1390,6 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-26T09:16:57.341735+04:00 | P7 D195 caller/action firsthostPASS | Independent91LinuxmethodsPASS,48WindowsPASS/43explicitLinux-onlyskips; all59historicalmethods retained, all128manifest/provenance/sourcepins unchanged. No repairs/retries. Callerfinalreview/newscopepending; D196actualreview0131ea59closes exactscratchcleanup.
+
+
+2026-09-26T09:18:19.785499+04:00 | P7 D195 final hostreview/scopepreparation | Reviews98e0a956/ac506885PASS;91Linux/48WindowsPASS43POSIXskips, fieldmap14types104fields actualGDBaudited. Preparation8acf1b13 plus11file exactscope created fromactual19fileadmission. Nativeownersunused; separate scopereview/cleanHEAD/check-only thenoneM0uploadcapture.

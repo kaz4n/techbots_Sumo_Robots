@@ -1,0 +1,497 @@
+{
+  "limitation": "Selected fields only; no MCU snapshot or host ABI inference",
+  "prior_map_sha256": "2da7da2188de1e49c12c43887e23a66125a819b3ee4a164d254178ef33adb726",
+  "provenance": "All14 selected full ptype blocks compare exactly after namespace rename and single Report.polls declaration; separate review required",
+  "schema": "app-motor-observe-observed-decode-fields-v1",
+  "source": "native_abi_static02/result.json command3 SUMOX_LAYOUT output",
+  "source_sha256": "a5e67635f43b96b813885687fbafe743cfc3ec6a93d089a66453ca574c0676da",
+  "status": "OBSERVED_FIELDS_TRANSCRIBED",
+  "types": {
+    "app::RuntimeReport": {
+      "bytes": 600,
+      "fields": {
+        "epochs": {
+          "kind": "u32",
+          "offset": 16
+        },
+        "fault": {
+          "kind": "u8",
+          "offset": 1
+        },
+        "fresh": {
+          "kind": "bool",
+          "offset": 2
+        },
+        "initialization_complete": {
+          "kind": "bool",
+          "offset": 3
+        },
+        "maximum_execution_us": {
+          "kind": "u32",
+          "offset": 24
+        },
+        "missed_releases": {
+          "kind": "u32",
+          "offset": 12
+        },
+        "next_release_us": {
+          "kind": "u32",
+          "offset": 8
+        },
+        "phase": {
+          "kind": "u8",
+          "offset": 0
+        },
+        "service_passes": {
+          "kind": "u32",
+          "offset": 20
+        }
+      }
+    },
+    "app::TransactionReport": {
+      "bytes": 504,
+      "fields": {
+        "applied": {
+          "kind": "Result",
+          "offset": 424
+        },
+        "completed_us": {
+          "kind": "u32",
+          "offset": 16
+        },
+        "decision_made": {
+          "kind": "bool",
+          "offset": 2
+        },
+        "decision_us": {
+          "kind": "u32",
+          "offset": 12
+        },
+        "execution_us": {
+          "kind": "u32",
+          "offset": 20
+        },
+        "fault": {
+          "kind": "u8",
+          "offset": 1
+        },
+        "finished": {
+          "kind": "bool",
+          "offset": 3
+        },
+        "halt": {
+          "kind": "HaltResult",
+          "offset": 480
+        },
+        "phase": {
+          "kind": "u8",
+          "offset": 0
+        },
+        "recorded": {
+          "kind": "u8",
+          "offset": 496
+        },
+        "robot": {
+          "kind": "RobotResult",
+          "offset": 24
+        },
+        "started_us": {
+          "kind": "u32",
+          "offset": 8
+        },
+        "timing_valid": {
+          "kind": "bool",
+          "offset": 4
+        }
+      }
+    },
+    "app_motor_observe::Report": {
+      "bytes": 1168,
+      "fields": {
+        "abort_called": {
+          "kind": "bool",
+          "offset": 6
+        },
+        "abort_returned": {
+          "kind": "bool",
+          "offset": 7
+        },
+        "before_abort": {
+          "kind": "Snapshot",
+          "offset": 16
+        },
+        "before_abort_valid": {
+          "kind": "bool",
+          "offset": 5
+        },
+        "begin_called": {
+          "kind": "bool",
+          "offset": 2
+        },
+        "begin_finished": {
+          "kind": "bool",
+          "offset": 3
+        },
+        "begin_ok": {
+          "kind": "bool",
+          "offset": 4
+        },
+        "last_step_returned": {
+          "kind": "bool",
+          "offset": 8
+        },
+        "phase": {
+          "kind": "u8",
+          "offset": 0
+        },
+        "polls": {
+          "kind": "u32",
+          "offset": 12
+        },
+        "reason": {
+          "kind": "u8",
+          "offset": 1
+        }
+      }
+    },
+    "app_motor_observe::Snapshot": {
+      "bytes": 1152,
+      "fields": {
+        "previous": {
+          "kind": "PreviousTick",
+          "offset": 1104
+        },
+        "runtime": {
+          "kind": "RuntimeReport",
+          "offset": 0
+        },
+        "transaction": {
+          "kind": "TransactionReport",
+          "offset": 600
+        }
+      }
+    },
+    "core::Outputs": {
+      "bytes": 12,
+      "fields": {
+        "duty_l": {
+          "kind": "f32",
+          "offset": 0
+        },
+        "duty_r": {
+          "kind": "f32",
+          "offset": 4
+        },
+        "motors_enabled": {
+          "kind": "bool",
+          "offset": 8
+        },
+        "ui_state": {
+          "kind": "u8",
+          "offset": 9
+        }
+      }
+    },
+    "countdown::LifecycleResult": {
+      "bytes": 28,
+      "fields": {
+        "gate": {
+          "kind": "CountdownResult",
+          "offset": 0
+        }
+      }
+    },
+    "countdown::Result": {
+      "bytes": 8,
+      "fields": {
+        "go": {
+          "kind": "bool",
+          "offset": 3
+        },
+        "motion_permitted": {
+          "kind": "bool",
+          "offset": 1
+        },
+        "phase": {
+          "kind": "u8",
+          "offset": 0
+        },
+        "release_us": {
+          "kind": "u32",
+          "offset": 4
+        },
+        "start_release": {
+          "kind": "bool",
+          "offset": 2
+        }
+      }
+    },
+    "fsm::PreviousTick": {
+      "bytes": 48,
+      "fields": {
+        "applied_us": {
+          "kind": "u32",
+          "offset": 16
+        },
+        "applied_valid": {
+          "kind": "bool",
+          "offset": 0
+        },
+        "completed_us": {
+          "kind": "u32",
+          "offset": 36
+        },
+        "duration_valid": {
+          "kind": "bool",
+          "offset": 32
+        },
+        "duty_l": {
+          "kind": "f32",
+          "offset": 24
+        },
+        "duty_r": {
+          "kind": "f32",
+          "offset": 28
+        },
+        "execution_us": {
+          "kind": "u32",
+          "offset": 40
+        },
+        "motors_enabled": {
+          "kind": "bool",
+          "offset": 20
+        },
+        "token": {
+          "kind": "u64",
+          "offset": 8
+        }
+      }
+    },
+    "fsm::RobotResult": {
+      "bytes": 400,
+      "fields": {
+        "contract_faults": {
+          "kind": "u16",
+          "offset": 88
+        },
+        "escape_fault": {
+          "kind": "u8",
+          "offset": 90
+        },
+        "fresh": {
+          "kind": "bool",
+          "offset": 8
+        },
+        "lifecycle": {
+          "kind": "LifecycleResult",
+          "offset": 32
+        },
+        "outputs": {
+          "kind": "Outputs",
+          "offset": 12
+        },
+        "running_mode": {
+          "kind": "u8",
+          "offset": 24
+        },
+        "token": {
+          "kind": "u64",
+          "offset": 0
+        }
+      }
+    },
+    "motor_fault::Call": {
+      "bytes": 32,
+      "fields": {
+        "application": {
+          "kind": "u32",
+          "offset": 4
+        },
+        "channel": {
+          "kind": "u8",
+          "offset": 2
+        },
+        "completed": {
+          "kind": "bool",
+          "offset": 21
+        },
+        "completed_us": {
+          "kind": "u32",
+          "offset": 28
+        },
+        "invoked": {
+          "kind": "bool",
+          "offset": 20
+        },
+        "operation": {
+          "kind": "u8",
+          "offset": 1
+        },
+        "period_cycles": {
+          "kind": "u32",
+          "offset": 12
+        },
+        "pulse_cycles": {
+          "kind": "u32",
+          "offset": 16
+        },
+        "requested_high": {
+          "kind": "bool",
+          "offset": 8
+        },
+        "returned": {
+          "kind": "bool",
+          "offset": 22
+        },
+        "stage": {
+          "kind": "u8",
+          "offset": 0
+        },
+        "started_us": {
+          "kind": "u32",
+          "offset": 24
+        },
+        "timing_valid": {
+          "kind": "bool",
+          "offset": 23
+        }
+      }
+    },
+    "motor_fault::TraceReport": {
+      "bytes": 2128,
+      "fields": {
+        "calls": {
+          "kind": "Call[64]",
+          "offset": 0
+        },
+        "clock_reads": {
+          "kind": "u32",
+          "offset": 2056
+        },
+        "count": {
+          "kind": "u32",
+          "offset": 2048
+        },
+        "current": {
+          "kind": "Call",
+          "offset": 2064
+        },
+        "first_failure": {
+          "kind": "Call",
+          "offset": 2096
+        },
+        "has_current": {
+          "kind": "bool",
+          "offset": 2063
+        },
+        "has_failure": {
+          "kind": "bool",
+          "offset": 2062
+        },
+        "overflow": {
+          "kind": "bool",
+          "offset": 2060
+        },
+        "rejected": {
+          "kind": "u32",
+          "offset": 2052
+        },
+        "timing_fault": {
+          "kind": "bool",
+          "offset": 2061
+        }
+      }
+    },
+    "motors::HaltResult": {
+      "bytes": 16,
+      "fields": {
+        "attempted": {
+          "kind": "bool",
+          "offset": 1
+        },
+        "completed_us": {
+          "kind": "u32",
+          "offset": 8
+        },
+        "fault": {
+          "kind": "u8",
+          "offset": 12
+        },
+        "fresh": {
+          "kind": "bool",
+          "offset": 0
+        },
+        "inhibition_confirmed": {
+          "kind": "bool",
+          "offset": 2
+        },
+        "started_us": {
+          "kind": "u32",
+          "offset": 4
+        },
+        "timing_valid": {
+          "kind": "bool",
+          "offset": 3
+        }
+      }
+    },
+    "motors::MotorGate": {
+      "bytes": 88,
+      "fields": {
+        "armed_": {
+          "kind": "bool",
+          "offset": 47
+        },
+        "began_": {
+          "kind": "bool",
+          "offset": 46
+        },
+        "fault_": {
+          "kind": "u8",
+          "offset": 44
+        },
+        "halt_result_": {
+          "kind": "HaltResult",
+          "offset": 68
+        },
+        "halted_": {
+          "kind": "bool",
+          "offset": 64
+        },
+        "hold_complete_": {
+          "kind": "bool",
+          "offset": 48
+        },
+        "initialized_": {
+          "kind": "bool",
+          "offset": 45
+        },
+        "last_token_": {
+          "kind": "u64",
+          "offset": 56
+        },
+        "release_us_": {
+          "kind": "u32",
+          "offset": 52
+        }
+      }
+    },
+    "motors::Result": {
+      "bytes": 56,
+      "fields": {
+        "consumed": {
+          "kind": "bool",
+          "offset": 49
+        },
+        "fault": {
+          "kind": "u8",
+          "offset": 48
+        },
+        "feedback": {
+          "kind": "PreviousTick",
+          "offset": 0
+        }
+      }
+    }
+  }
+}

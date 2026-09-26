@@ -1,0 +1,106 @@
+{
+  "schema": "d195-independent-observer-actions-oracle-freeze-v1",
+  "derivation": "Frozen caller/remote contracts and checked historical 13-method actions oracle plus checked remote fixture provider. New actions implementation body unread and unimported before this freeze.",
+  "test": {
+    "path": "tests/tooling/test_app_motor_observe_actions.py",
+    "bytes": 13390,
+    "sha256": "103493975bccdcab094b412a5ba26cf125a6f294a9b5efac167660f6fda8a563"
+  },
+  "inputs": [
+    {
+      "path": "state/analysis/P7_app_motor_observe_caller_contract.md",
+      "bytes": 8618,
+      "sha256": "03b61d0c152fccd69775c458023ffe0a48d307a0a1056d2ea36d7fe2adf81a34"
+    },
+    {
+      "path": "state/analysis/P7_app_motor_observe_remote_contract.md",
+      "bytes": 11937,
+      "sha256": "c2563449091f44ccd827b8cbc1173dc3e655614f6bb8d01c091540b99958d9c7"
+    },
+    {
+      "path": "state/analysis/P7_app_motor_fault_run_raw/test_actions.py",
+      "bytes": 26162,
+      "sha256": "2035499ecb3195fdc4bb68f37ada7b88dac0f93abfbc1c70668e6c31d3fe2297"
+    },
+    {
+      "path": "tests/tooling/test_app_motor_observe_remote.py",
+      "bytes": 20956,
+      "sha256": "f45218ea3d9fb118adfe796c12fc5f4bab654c843cf33cc531e81d99a3f41fc6"
+    },
+    {
+      "path": "state/analysis/P7_app_motor_fault_run_raw/test_remote.py",
+      "bytes": 38249,
+      "sha256": "44f7651b70ffc06697fb2932f4bab01a8ecc8c47d2b31fe779af356596d73bb2"
+    },
+    {
+      "path": "state/analysis/P7_app_motor_fault_run_raw/remote_run02.py",
+      "bytes": 10518,
+      "sha256": "a77fb7d458ceb88f939ce785250d7c49727c56db231a9688890bef808c0c9162"
+    },
+    {
+      "path": "state/analysis/P7_app_motor_fault_run_raw/actions_run02.py",
+      "bytes": 12069,
+      "sha256": "4eeb19f1923b5058a3df69ecd196d5f331e9e9f51ca1193f6c7026ca837ee0fb"
+    },
+    {
+      "path": "state/analysis/P7_motor_fault_raw/inert_actions.py",
+      "bytes": 19120,
+      "sha256": "8ffb65c0f1284f261ae1237bcf260e866176e83433a3538908780962513f1104"
+    },
+    {
+      "path": "state/analysis/P7_static_startup_raw/upload_remote.py",
+      "bytes": 24710,
+      "sha256": "e926b7ba5586475664b0541370e7cfb5c50e40d8dc8b47b18e35db3e0a0a25c1"
+    },
+    {
+      "path": "state/analysis/P7_static_startup_raw/capture_remote.py",
+      "bytes": 37525,
+      "sha256": "95b0344d01886b6db30d55aa18a536f9a481b82348e22643e7920d817dbfac3e"
+    },
+    {
+      "path": "state/analysis/P7_static_link_probe_raw/static_remote.py",
+      "bytes": 33321,
+      "sha256": "8ba9b190c38e728013a383348c60c287b0366607f65f703161cf7f2e142d36f8"
+    }
+  ],
+  "expected_subjects": [
+    {
+      "path": "state/analysis/P7_app_motor_observe_run_raw/actions.py",
+      "bytes": 12515,
+      "sha256": "6a730069e2511306459f5c3443976a84351b155fd04660a094606cfd98f2829f"
+    },
+    {
+      "path": "state/analysis/P7_app_motor_observe_run_raw/remote.py",
+      "bytes": 11357,
+      "sha256": "98b0f5394d64f61178277f701adb81eece3d5f136ea84a8c5fb30534a5b241db"
+    }
+  ],
+  "methods": {
+    "inherited": 13,
+    "supplementary": 11,
+    "total": 24,
+    "supplementary_names": [
+      "test_fixed_inputs_and_retained_method_inventory",
+      "test_valid_wait_receipt_and_inclusive_boundaries",
+      "test_wait_requires_exact_present_object_keys",
+      "test_pre_wait_requested_seconds_is_exact_integer_30",
+      "test_pre_wait_timestamps_reject_bool_nonfinite_and_nonnumeric",
+      "test_short_or_backward_pre_wait_is_not_success",
+      "test_pre_wait_order_inside_capture_and_before_sample_pause",
+      "test_sample_pause_and_finished_bounds_remain_independent",
+      "test_wait_does_not_admit_terminal_or_extra_analysis_claims",
+      "test_valid_wait_cannot_promote_failed_or_unattributed_outer_result",
+      "test_sequence_keeps_invalid_wait_receipt_first_failure_and_closes_once"
+    ]
+  },
+  "platforms": {
+    "windows": "19 runnable;5 explicit Linux descriptor/bootstrap skips",
+    "linux": "24 runnable"
+  },
+  "public_fixture_api": "private_oracles() -> (remote, actions); ROOT,HISTORICAL,SUBJECT Path globals",
+  "storage": "Linux inherited bootstrap uses temporary /dev/shm files with context-managed removal; other fixtures remain memory-only. Python -B; no native device or real sleep.",
+  "commands": {
+    "windows": "python -I -B -m unittest discover -s tests/tooling -p test_app_motor_observe_actions.py -v",
+    "linux": "wsl -d Ubuntu -- python3 -I -B -m unittest discover -s tests/tooling -p test_app_motor_observe_actions.py -v"
+  }
+}

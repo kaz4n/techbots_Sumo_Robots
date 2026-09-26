@@ -93,8 +93,12 @@ def pinned(base, root, pin, *, empty=False, limit=4194304):
     return raw
 
 
-def checked_code(base, root, reviewed_head):
+def checked_code(base, root, reviewed_head, *, identified=False):
     names = {CALLER, ADAPTER, CONTRACT, COMPILER, INHERITED, BASE, 'tools/board_tool.py'} | set(base.FIXED)
+    if identified:
+        names.update(('tools/run_app_identified_delivery.py', 'tools/run_recorder_delivery.py',
+                      'tools/dump_match.py', 'tools/validate_csv_bundle.py',
+                      'state/analysis/P7_app_identified_delivery_contract.md'))
     code = {name: base.read_file(root, name) for name in names}
     for name, expected in {**base.FIXED, **FROZEN}.items():
         require(base.sha(code[name]) == expected, 'Frozen source changed: ' + name)
@@ -223,7 +227,7 @@ def config_text(raw):
     return text, protected
 
 
-def config_literals(raw):
+def config_literals(raw, *, _session=None):
     text, protected = config_text(raw)
     expected = {'APP_GRANT_' + name for name in GRANTS}
     require(set(re.findall(r'\bAPP_GRANT_[A-Z0-9_]+\b', text)) == expected, 'Unsupported setup grant set')
@@ -243,8 +247,13 @@ def config_literals(raw):
     values['APP_DUMP_SESSION_ID'] = int(rows[0].group(1))
     accepted.append(rows[0].group())
     # This deployment workflow has no fresh identified receive owner yet.
-    require(values['APP_DUMP_RECEIVE_STREAM_ID'] == values['APP_DUMP_SESSION_ID'] == 0,
-            'Identified dump deployment needs a separately qualified workflow')
+    if _session is None:
+        require(values['APP_DUMP_RECEIVE_STREAM_ID'] == values['APP_DUMP_SESSION_ID'] == 0,
+                'Identified dump deployment needs a separately qualified workflow')
+    else:
+        require(type(_session) is int and 1 <= _session <= 0xffffffffffffffff and
+                values['APP_DUMP_RECEIVE_STREAM_ID'] == 1 and values['APP_DUMP_SESSION_ID'] == _session,
+                'Identified dump configuration differs from reserved session')
     rows = list(re.finditer(r'\binline\s+constexpr\s+std::int32_t\s+APP_IMU_BODY_AXIS\[3\]\s*=\s*'
                            r'\{\s*(-?[0-3])\s*,\s*(-?[0-3])\s*,\s*(-?[0-3])\s*\}\s*;', text))
     require(len(rows) == 1, 'Unsupported or duplicate mounting literal')
@@ -368,44 +377,79 @@ def checked_bindings(base, root, code, adapter, request, selection, artifacts, o
     return profile
 
 
-def load_scope(root, relative, reviewed_head, target, transport, *, now=None, _output=None):
+def delivery_owner(base, root, delivery):
+    base.keys(delivery, ('run_id', 'session', 'claimed'))
+    base.hexadecimal(delivery['run_id'], 32)
+    require(type(delivery['session']) is int and 1 <= delivery['session'] <= 0xffffffffffffffff and
+            delivery['session'] == int(delivery['run_id'][:16], 16) and
+            type(delivery['claimed']) is bool, 'Invalid identified delivery owner')
+    return root / 'state/analysis' / ('app_identified_delivery_' + delivery['run_id'][:16])
+
+
+def delivery_claim(scope):
+    return dict(schema='app-identified-delivery-claim-v1', session=scope['delivery']['session'],
+        request=scope['request'], request_sha256=scope['request_sha256'],
+        scope_sha256=scope['scope_sha256'], reviewed_head=scope['reviewed_head'])
+
+
+def load_scope(root, relative, reviewed_head, target, transport, *, now=None, _output=None,
+               _delivery=None):
     root = Path(root).absolute()
     base = bootstrap(root)
     base.hexadecimal(reviewed_head, 40)
-    git_clean(root, reviewed_head, _output)
+    paired = None if _delivery is None else delivery_owner(base, root, _delivery)
+    git_clean(root, reviewed_head, paired if _delivery and _delivery['claimed'] else _output)
     raw = base.read_file(root, relative, 65536)
     scope = base.decode(raw)
     base.keys(scope, ('schema', 'request', 'authorization'))
     require(scope['schema'] == 'commissioning-app-deploy-v1', 'Unknown deployment schema')
-    code, compiler = checked_code(base, root, reviewed_head)
+    code, compiler = checked_code(base, root, reviewed_head, identified=_delivery is not None)
     adapter = base.load_module(root, ADAPTER, code[ADAPTER])
     request = scope['request']
     selection = checked_request(base, adapter, request, target, transport)
     owner = compile_owner(base, compiler, root, request)
     artifacts = checked_receipts(base, root, request, owner)
     profile = checked_bindings(base, root, code, adapter, request, selection, artifacts, owner)
-    config = config_literals(owner.code['src/config.h'])
+    config = config_literals(owner.code['src/config.h'],
+                             _session=None if _delivery is None else _delivery['session'])
     for name, body in owner.code.items():
         if name.startswith('src/'):
             require(not re.search(rb'^\s*#\s*(?:define|undef)\s+(?:APP_GRANT_[A-Z0-9_]+|APP_IMU_BODY_AXIS|APP_DUMP_ORIGIN|APP_DUMP_RECEIVE_STREAM_ID|APP_DUMP_SESSION_ID)\b',
                                   body, re.M), 'Source overrides setup declarations')
     qualification = checked_qualification(base, root, request, config)
     checked_authorization(base, root, scope, base.current_time(now))
-    return dict(root=root, relative=relative, reviewed_head=reviewed_head, request=request,
+    result = dict(root=root, relative=relative, reviewed_head=reviewed_head, request=request,
         selection=selection, profile=profile, scope_sha256=base.sha(raw),
         request_sha256=base.sha(base.canonical(request)), code=code, compiler_owner=owner,
         qualification=qualification, base=base, adapter=adapter)
+    if _delivery is not None:
+        require(request['run_id'] == _delivery['run_id'] and target == '2629958581' and transport == 'adb',
+                'Identified delivery route/attempt differs')
+        require(all(config['APP_GRANT_' + name] == 1 for name in
+                    ('DUMP_ENABLED', 'DUMP_SETUP_PHASE', 'DUMP_EXCLUSIVE_UART', 'DUMP_READY_PIN_OWNED')),
+                'Identified app delivery requires qualified native dump grants')
+        result.update(delivery=dict(_delivery), delivery_owner=paired)
+        if _delivery['claimed']:
+            require(base.read_file(root, (paired / 'claim.json').relative_to(root).as_posix(), 65536) ==
+                    base.canonical(delivery_claim(result)), 'Reserved delivery claim changed')
+        else:
+            require(not os.path.lexists(paired), 'Identified image/session is consumed')
+    return result
 
 
 def output_path(scope):
+    if 'delivery_owner' in scope:
+        return scope['delivery_owner'] / 'upload'
     return scope['root'] / 'state/analysis' / ('commissioning_deploy_' + scope['request']['run_id'])
 
 
-def check_only(board, relative, reviewed_head, *, now=None):
-    scope = load_scope(board.ROOT, relative, reviewed_head, board.target(), board.transport(), now=now)
+def check_only(board, relative, reviewed_head, *, now=None, _delivery=None):
+    scope = load_scope(board.ROOT, relative, reviewed_head, board.target(), board.transport(),
+                       now=now, _delivery=_delivery)
     base, request = scope['base'], scope['request']
     require(not os.path.lexists(output_path(scope)), 'Commissioning deployment attempt is consumed')
-    base.plain(output_path(scope).parent, directory=True)
+    base.plain(scope['root'] / 'state/analysis' if _delivery and not _delivery['claimed'] else
+               output_path(scope).parent, directory=True)
     require(shutil.disk_usage(scope['root']).free >= 134217728, 'Less than 128MiB free for evidence')
     return dict(schema='commissioning-app-deploy-check-v1', status='ADMITTED_LOCAL', board_observed=False,
         **{key: request[key] for key in ('mode', 'profile', 'motors_allowed', 'source_sha256', 'run_id')},
@@ -425,7 +469,7 @@ def prepare(board, scope):
 
 def revalidate(board, scope, output, now):
     current = load_scope(board.ROOT, scope['relative'], scope['reviewed_head'], board.target(), board.transport(),
-                         now=now, _output=output)
+                         now=now, _output=output, _delivery=scope.get('delivery'))
     require(current['scope_sha256'] == scope['scope_sha256'] and
             current['request_sha256'] == scope['request_sha256'] and current['code'] == scope['code'],
             'Deployment inputs changed after admission')
@@ -446,9 +490,11 @@ def closing(board, scope, items, projection, output, identity, outcome, now):
     return errors
 
 
-def upload_precompiled(board, relative, reviewed_head, *, now=None):
-    check_only(board, relative, reviewed_head, now=now)
-    scope = load_scope(board.ROOT, relative, reviewed_head, board.target(), board.transport(), now=now)
+def upload_precompiled(board, relative, reviewed_head, *, now=None, _delivery=None):
+    require(_delivery is None or _delivery['claimed'] is True, 'Paired receiver owner must be reserved first')
+    check_only(board, relative, reviewed_head, now=now, _delivery=_delivery)
+    scope = load_scope(board.ROOT, relative, reviewed_head, board.target(), board.transport(),
+                       now=now, _delivery=_delivery)
     base, request = scope['base'], scope['request']
     command, projection, items = prepare(board, scope)
     board.require_transport(sync=False)

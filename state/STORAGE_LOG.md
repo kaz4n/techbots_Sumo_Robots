@@ -412,3 +412,6 @@ D191 closing observation: C:recovered290537472B independently before local docum
 
 
 2026-09-26T10:16:08.181213+04:00 | D198 actual compile evidence | Retain1004 unique native receipt files/1699771 logical bytes, compact invocation3560B and local closure1123B plus validation/review. The108-file/780479B local stage and original target artifacts support upcoming file-only ABI/entry checks. No duplicate firmware/debug downloads, no new bytecode or host compiler objects. C: observed20804710400B free. No deletion/reclaimed-byte claim or prior denied target retry.
+
+
+2026-09-26T10:31:26.921009+04:00 | Next scratch cleanup read-only planning | One bounded nonprivileged inventory e95ebed4 observes exactly three D195 upload copies2399768B in /tmp/remoteocd device34/inode1172, all matching retained originals with stable stamps and same boot. Preserve24558B receipt and9770B observational helper plus proposed D200 contract24d849f2. Protected process handles and new root04-owner absence remain unchecked; no staging/authentication/deletion occurred and no reclaimed bytes claimed. D191/D196 scopes remain consumed; prior denied host targets untouched.

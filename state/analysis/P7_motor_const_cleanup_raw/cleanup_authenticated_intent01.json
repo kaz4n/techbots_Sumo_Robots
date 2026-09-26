@@ -1,0 +1,22 @@
+{
+  "schema": "d206-one-authenticated-cleanup-intent-v1",
+  "operation": "One exact user-authorized D206 cleanup",
+  "prepared": "2026-09-26T14:02:41.963342+04:00",
+  "argv": [
+    "C:/Users/narut/AppData/Local/Arduino15/packages/arduino/tools/adb/32.0.0/adb.exe",
+    "-s",
+    "2629958581",
+    "shell",
+    "-T",
+    "set -C; sudo -S -p \"\" -H /usr/bin/python3 -I -B /home/arduino/sumox26_codex_build/cleanup-app-const-root05/cleanup_root05.py > /home/arduino/sumox26_codex_build/cleanup-app-const-root05/result_root05.json"
+  ],
+  "timeout_seconds": 70,
+  "credential_transport": "Windows no-echo console to native stdin only; value omitted",
+  "template_sha256": "5f78e1dc7c68d3aaa72883360b069b8fd790b4769e5e62e198251585b0d076d5",
+  "source_sha256": "1be147fe67bfafb60275ef1f741f05cfe2262be70c89b0eddbbfc3ec349837d4",
+  "host_review_sha256": "09b5bed31953e9b9175029ffea742adba3a21c7a7ae3dad8e462406ed56a7baf",
+  "verifier_review_sha256": "f7dadb77d65c6ea2eb91e2b01bbdf9f1032b80474a4fb9ebaaf02011358bfabb",
+  "staged_verification_sha256": "7de3bb3a0d7a81feac727e1c7dc3a6d67e8d9519a7070c6c0a2eb051f3fc35f9",
+  "admission": "One fixed invocation under ongoing user continuation and supplied credential, only after separate actual-stage/admission review. No general sudo authority, additional elevated command or retry.",
+  "prerequisite_review": "state/reviews/P7_motor_const_cleanup_stage_review.md"
+}

@@ -2389,3 +2389,15 @@ D-205 actual closure 2026-09-26T13:57:22.919929+04:00: Adopt actualreview008572b
 
 
 D-206 source/host closure 2026-09-26T13:57:55.057210+04:00: Adopt sourcehostreview09b5bed3PASS; exactrecipeedd1c8aa/wrapper1be147fe/oracle1f33e47b remain. First52LinuxPASS/15WindowsPASS37explicitLinux-coveredskips,45pinsclose098b1d55,no retry. The two newly derived absence/staging plans require independent preparationreview before board use. Stageverification and authenticatedadmission remain separate; no actualcleanup or firmware result is claimed.
+
+
+## D-207 (2026-09-26T14:03:53.506891+04:00, current inhibited diagnostic comparison)
+Context: D203 source4bc3a2e6/currentpackage95368f15c7ce1, acceptedD204 ABI4cd28fe8 and D205 emitted-instruction review008572bf establish current static artifacts, not a runtime remedy. D201 setup failure154us remains evidence.
+Decision: under D051 adopt analysis/P7_motor_const_run_contract.md1949c7db32bfda4c3318095597b740ea17644ec5b0109cc2e589387842dbbf85 and normative data run_derivation01.jsonc9096143. Permit exact10remote/8actions/15caller/7correcteddecoder metadata steps and current16type115field mapecceef91. Fresh app-motor-const-4bc3a2e6-run01 owners; M0/probe1/defaultstatic only, allgrants/deadlines150us4096 unchanged. Preserve99native+67correcteddecoder historicalmethods/assertions. Independent oracles must freeze before newsubjectinspection/execution; implementationauthor mustnotinspectneworacles first.
+Consequence: authorize bounded localimplementation/oracle preparation only. Separate preparation/source/host/map/interpreter/scope reviews, D206 actualcleanup closure, fresh board/admission and cleanHEAD/check-only precede one inhibitedupload/capture. No newrun, motorpermission, physicalgate, coherence, speedup or SETTLErepair is claimed. Anylaterfault remains visible evenifsetup passes.
+
+
+D-206 actual closure 2026-09-26T14:09:22.515800+04:00: Adopt actualreviewaaede1e1PASS. Single authenticatedroot05 invocation0/emptytransportstreams; savedresult3b8f035a/retrievald45d5447/rootclosingf0cfa6ad establishexact3removals2399928B andempty/tmp/remoteocddev34ino1452 removal. All3protectedscans165names/3sameuserhandles,restoration andpermanentall1000drop recorded, noerrors. Retainedoriginals/stagedsourcesfullstamps unchanged,6remote+localclosurePASS. Ownersconsumed,no retry. Credentialstdinonly. This closes cleanup prerequisite only, not firmware/timing/motor/physical acceptance.
+
+
+D-207 preparation review 2026-09-26T14:09:22.515800+04:00: Adopt data-only preparationreviewe06f3b73PASS for unchanged1949c7db/c9096143,168pins/129sourcepins,40source and10privateprojectionsteps,current16type115fieldmap/sixwindows/26reads727128B. Root implementationffa801e3 materializes exactexpectedfourmodules/map/preparation withoutoraclereads/imports. Firstlocalpreparationconstruction mistakenly useddigest-onlyfilesvalues; pinnedhash refused beforewrite, failure8c88732d preserved. Corrected to requiredbytes/hash objects,expected519a95f6 unchanged. No source/contract/test weakening, devicecall orretry. Independentoracles stillpending; nonewsubjectreview/execution untilFINAL.

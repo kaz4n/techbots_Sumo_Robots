@@ -898,3 +898,7 @@ FILE-OBSERVED: D205 actualreview008572bf accepts32ranges34aliases3834bytes1429de
 
 ## F229 - Current upload cleanup host checks (2026-09-26T13:57:55.057210+04:00)
 HOST-VERIFIED: D206 exact4recipe/6wrapper metadata derivations pass52Linuxmethods and15Windows with37Linux-coveredcredential/processskips. Separate review09b5bed3 confirms retained49historicalmethods/assertions plus3newchecks,45stablepins andclosedstreams. No actualprotectedprocessclearance ordelete is implied. Source: analysis/P7_motor_const_cleanup_validation.md.
+
+
+## F230 - Exact current upload scratch removed (2026-09-26T14:09:22.515800+04:00)
+BOARD-FILE-OBSERVED: D206 actualreviewaaede1e1 accepts savedresult3b8f035a andindependentretrievald45d5447. Exactly3staleD201copies2399928logicalB andemptydirectorydev34ino1452 removed. Threeprotectedscans165names/3sameuserhandles, credentials restoredbeforeunlink andpermanentlydropped1000 atfinalexit; noerrors. Allretainedoriginals/stagedsourcesunchanged, scratchabsenttwice, sixremotechecks and45localpinsPASS. D201remainsflashed; no runtimeorphysicalclaim. Source: analysis/P7_motor_const_cleanup_actual_validation.md.

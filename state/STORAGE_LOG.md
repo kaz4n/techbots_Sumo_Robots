@@ -457,3 +457,6 @@ D191 closing observation: C:recovered290537472B independently before local docum
 
 
 2026-09-26T13:57:22.919929+04:00 | D205 actual and D206 host retention | Keep eight nativefiles889913B and compact closing/reviews to bind instruction evidence; keep first hoststreams/receipts and exact cleanup sources for review. Cfree8238292992B atD205closure. No duplicate ELF/download, manual deletion or reclaimedbytes. Prior denied paths untouched.
+
+
+2026-09-26T14:09:22.515800+04:00 | D206 exact board cleanup | Removed only verified3D201scratchcopies2399928logicalB andempty/tmp/remoteocddev34ino1452, actual3b8f035a/reviewaaede1e1. Retainedoriginalsand50660Bstagedsources remainrequired; savedresult6367B preserved. No hostcleanup orprior-deniedtarget touched. Rootclosingf0cfa6ad:Cfree6327058432B. Logicalpayload removal is not a measured filesystem free-space delta.

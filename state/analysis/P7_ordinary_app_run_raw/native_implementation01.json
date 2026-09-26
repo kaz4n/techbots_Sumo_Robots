@@ -1,0 +1,702 @@
+{
+  "schema": "d212-native-implementation-v1",
+  "at": "2026-09-26T18:04:13.059453+04:00",
+  "contract": {
+    "bytes": 25120,
+    "sha256": "828b334235877131580618908cc164381a988f297c4e22235eb72e34fe200e75"
+  },
+  "derivation": {
+    "bytes": 119497,
+    "sha256": "9a8ef9caa96f0e30a8ad741319d5ea59668b8e6066d0c96fb59defd35f896d66"
+  },
+  "review": {
+    "bytes": 12602,
+    "sha256": "b5c6f6124145cdefc9046cdb00c59c00505e62a23f601b7839ab020f48a271b8"
+  },
+  "input_pins_verified": 166,
+  "subjects": {
+    "actions.py": {
+      "identity": {
+        "bytes": 12496,
+        "sha256": "07c03a65fad73f49064abd0af77161b5ed10e2c6002bb6c442e7ab5b28ee25b1"
+      },
+      "steps": [
+        {
+          "count": 1,
+          "new": "9044ebbb3cd3b2dbb7aa5984dd5ff23bfff697372f1f29d56693af9ea5eaf31a",
+          "old": "4bc3a2e6ebb497d43a433aa887ab8388dd3dab075a4f44918ed614db30034cd2",
+          "purpose": "current source",
+          "before": {
+            "bytes": 12501,
+            "sha256": "8aac6877a3bae25001c26c088ea947bbf3c7c0f2c0113619fb1db8c2a53834d9"
+          },
+          "after": {
+            "bytes": 12501,
+            "sha256": "16ebfb9b2ba22fbb51c7a910c90f056ebc594053711a2efa6cfb5e18a7295506"
+          }
+        },
+        {
+          "count": 1,
+          "new": "ordinary-app-9044ebbb-run01",
+          "old": "app-motor-const-4bc3a2e6-run01",
+          "purpose": "fresh fixed attempt",
+          "before": {
+            "bytes": 12501,
+            "sha256": "16ebfb9b2ba22fbb51c7a910c90f056ebc594053711a2efa6cfb5e18a7295506"
+          },
+          "after": {
+            "bytes": 12498,
+            "sha256": "93a4de07d83bea1d9709724f91d5d6582785ad9d060ff835d7806468ea5dcc9c"
+          }
+        },
+        {
+          "count": 4,
+          "new": "ordinary-app-",
+          "old": "app-motor-const-",
+          "purpose": "fixed ordinary schemas and ownership",
+          "before": {
+            "bytes": 12498,
+            "sha256": "93a4de07d83bea1d9709724f91d5d6582785ad9d060ff835d7806468ea5dcc9c"
+          },
+          "after": {
+            "bytes": 12486,
+            "sha256": "b13945df5701316d0e4bb685cba4da1ebb5615b0296bad257e97a6f098703d48"
+          }
+        },
+        {
+          "count": 1,
+          "new": "92928",
+          "old": "95352",
+          "purpose": "raw binary length",
+          "before": {
+            "bytes": 12486,
+            "sha256": "b13945df5701316d0e4bb685cba4da1ebb5615b0296bad257e97a6f098703d48"
+          },
+          "after": {
+            "bytes": 12486,
+            "sha256": "189de33189f07ff5ac70fb3d03b0dab014df415fcee9df78c35d0531f2d7faea"
+          }
+        },
+        {
+          "count": 1,
+          "new": "92944",
+          "old": "95368",
+          "purpose": "packaged image length",
+          "before": {
+            "bytes": 12486,
+            "sha256": "189de33189f07ff5ac70fb3d03b0dab014df415fcee9df78c35d0531f2d7faea"
+          },
+          "after": {
+            "bytes": 12486,
+            "sha256": "45ddee47f3f6ef175b521737f324f28b2f02c8713ecc2996e6543ff9b56a19c3"
+          }
+        },
+        {
+          "count": 1,
+          "new": "_ordinary_app",
+          "old": "_app_motor_const",
+          "purpose": "private module identity",
+          "before": {
+            "bytes": 12486,
+            "sha256": "45ddee47f3f6ef175b521737f324f28b2f02c8713ecc2996e6543ff9b56a19c3"
+          },
+          "after": {
+            "bytes": 12483,
+            "sha256": "ab6010d1cc9fc5a10c88f9dc8f14f943be248beb33f51b4dd65f495b266519db"
+          }
+        },
+        {
+          "count": 1,
+          "new": "WINDOWS = (('report', 537115800, 600), ('transaction', 537113264, 504), ('previous', 537113768, 48), ('gate', 536951336, 88), ('grants', 537115776, 21), ('attempted_word', 537117352, 4), ('motor_port', 537117512, 40))",
+          "old": "WINDOWS = (('trace', 536951180, 2128), ('report', 537119696, 1168),\n           ('runtime', 537117984, 600), ('transaction', 537115448, 504),\n           ('settle', 537121768, 28), ('gate', 536929280, 88))",
+          "purpose": "complete fixed metadata assignment",
+          "before": {
+            "bytes": 12483,
+            "sha256": "ab6010d1cc9fc5a10c88f9dc8f14f943be248beb33f51b4dd65f495b266519db"
+          },
+          "after": {
+            "bytes": 12497,
+            "sha256": "e14f0f31b631f01a4bf9edeaa5338b6b0986a4c8aa6cbe1643e3da39bbce494d"
+          }
+        },
+        {
+          "count": 1,
+          "new": "ADAPTER_SHA = 'a2c2fc9d32694a96a406b6de499bfb04a2a159710443c8b37ca56e92921a536f'",
+          "old": "ADAPTER_SHA = '51c60cd5ac87b823b84b2c7d993933690f0a3110e4d89c7cb958549fb5f111bc'",
+          "purpose": "exact prospective adapter",
+          "before": {
+            "bytes": 12497,
+            "sha256": "e14f0f31b631f01a4bf9edeaa5338b6b0986a4c8aa6cbe1643e3da39bbce494d"
+          },
+          "after": {
+            "bytes": 12497,
+            "sha256": "43265a540b718b929fbc27dac0c59f95011a506c8bbd9bf581010dbb58681980"
+          }
+        },
+        {
+          "count": 1,
+          "new": "ADAPTER_BYTES = 11269",
+          "old": "ADAPTER_BYTES = 11331",
+          "purpose": "exact prospective adapter",
+          "before": {
+            "bytes": 12497,
+            "sha256": "43265a540b718b929fbc27dac0c59f95011a506c8bbd9bf581010dbb58681980"
+          },
+          "after": {
+            "bytes": 12497,
+            "sha256": "5b8b3469fb0fd2068b8d4645ad906c9a2d7cc2c5f29e42b636eaff4cfc796e1d"
+          }
+        },
+        {
+          "count": 1,
+          "new": "(('commands', 28), ('reads', 28), ('requested_bytes', 715858))",
+          "old": "(('commands', 26), ('reads', 26), ('requested_bytes', 727128))",
+          "purpose": "fixed complete totals",
+          "before": {
+            "bytes": 12497,
+            "sha256": "5b8b3469fb0fd2068b8d4645ad906c9a2d7cc2c5f29e42b636eaff4cfc796e1d"
+          },
+          "after": {
+            "bytes": 12497,
+            "sha256": "228f1049f82744402ec0499673e815ea10bee4484d9cd85c869d46537426d930"
+          }
+        },
+        {
+          "count": 1,
+          "new": "# Composes fixed ordinary application actions through the established framing.",
+          "old": "# Composes the fixed static diagnostic actions through the established framing.",
+          "purpose": "purpose comment",
+          "before": {
+            "bytes": 12497,
+            "sha256": "228f1049f82744402ec0499673e815ea10bee4484d9cd85c869d46537426d930"
+          },
+          "after": {
+            "bytes": 12496,
+            "sha256": "07c03a65fad73f49064abd0af77161b5ed10e2c6002bb6c442e7ab5b28ee25b1"
+          }
+        }
+      ]
+    },
+    "remote.py": {
+      "identity": {
+        "bytes": 11269,
+        "sha256": "a2c2fc9d32694a96a406b6de499bfb04a2a159710443c8b37ca56e92921a536f"
+      },
+      "steps": [
+        {
+          "count": 1,
+          "new": "9044ebbb3cd3b2dbb7aa5984dd5ff23bfff697372f1f29d56693af9ea5eaf31a",
+          "old": "4bc3a2e6ebb497d43a433aa887ab8388dd3dab075a4f44918ed614db30034cd2",
+          "purpose": "current source",
+          "before": {
+            "bytes": 11331,
+            "sha256": "51c60cd5ac87b823b84b2c7d993933690f0a3110e4d89c7cb958549fb5f111bc"
+          },
+          "after": {
+            "bytes": 11331,
+            "sha256": "4b2ded1a3d67b452c42efb372dd38034164483a07cc88e7152ddea92da39a207"
+          }
+        },
+        {
+          "count": 1,
+          "new": "ordinary-app-9044ebbb-run01",
+          "old": "app-motor-const-4bc3a2e6-run01",
+          "purpose": "fresh fixed attempt",
+          "before": {
+            "bytes": 11331,
+            "sha256": "4b2ded1a3d67b452c42efb372dd38034164483a07cc88e7152ddea92da39a207"
+          },
+          "after": {
+            "bytes": 11328,
+            "sha256": "9fea962480eaf848ef9fc9a94abab3512d48f98e16e26b4dbcf42993f6a1d72f"
+          }
+        },
+        {
+          "count": 8,
+          "new": "ordinary-app-",
+          "old": "app-motor-const-",
+          "purpose": "fixed ordinary schemas and ownership",
+          "before": {
+            "bytes": 11328,
+            "sha256": "9fea962480eaf848ef9fc9a94abab3512d48f98e16e26b4dbcf42993f6a1d72f"
+          },
+          "after": {
+            "bytes": 11304,
+            "sha256": "49c8a9571fb6b1ad4545c0390b9557410dc3b6cd6936dfb3e5770dba37fc13ac"
+          }
+        },
+        {
+          "count": 3,
+          "new": "app",
+          "old": "app_motor_observe",
+          "purpose": "ordinary sketch path",
+          "before": {
+            "bytes": 11304,
+            "sha256": "49c8a9571fb6b1ad4545c0390b9557410dc3b6cd6936dfb3e5770dba37fc13ac"
+          },
+          "after": {
+            "bytes": 11262,
+            "sha256": "eb1df30e32d0b82f4c637417417d24f76d64a222ca7b6b55a5263934ad5e7ce5"
+          }
+        },
+        {
+          "count": 2,
+          "new": "92928",
+          "old": "95352",
+          "purpose": "raw binary length",
+          "before": {
+            "bytes": 11262,
+            "sha256": "eb1df30e32d0b82f4c637417417d24f76d64a222ca7b6b55a5263934ad5e7ce5"
+          },
+          "after": {
+            "bytes": 11262,
+            "sha256": "c956db2c8aa37fd3bdeb342bcbe725115ed305694f77f851cca0dee6573d198c"
+          }
+        },
+        {
+          "count": 2,
+          "new": "92944",
+          "old": "95368",
+          "purpose": "packaged image length",
+          "before": {
+            "bytes": 11262,
+            "sha256": "c956db2c8aa37fd3bdeb342bcbe725115ed305694f77f851cca0dee6573d198c"
+          },
+          "after": {
+            "bytes": 11262,
+            "sha256": "94dfa6f08f31ed624ec63a4a5623a450fe5b29e1d136344df5a8c9839c673c52"
+          }
+        },
+        {
+          "count": 1,
+          "new": "6f5f531b114219d712d857b4ac89ad161ceb217211207788a27443b7d4ab6db7",
+          "old": "76d2846dfe99602b1a4dd680f19c8150a02af4dba3b4f3411fafd7c55e3824d3",
+          "purpose": "raw hash",
+          "before": {
+            "bytes": 11262,
+            "sha256": "94dfa6f08f31ed624ec63a4a5623a450fe5b29e1d136344df5a8c9839c673c52"
+          },
+          "after": {
+            "bytes": 11262,
+            "sha256": "c0fbcbec7570a2ccf9982b370d9da88efb93457bac0f3e4f1573f03712601564"
+          }
+        },
+        {
+          "count": 1,
+          "new": "7fa9d41da043931e1237712e1e88bda4151c82933af2ecec97ce3a02184d23ad",
+          "old": "f15c7ce1f0ff5fea2d44d0b60f0607f9adae22b83ba5043fe4de5e2b21fa26f7",
+          "purpose": "package hash",
+          "before": {
+            "bytes": 11262,
+            "sha256": "c0fbcbec7570a2ccf9982b370d9da88efb93457bac0f3e4f1573f03712601564"
+          },
+          "after": {
+            "bytes": 11262,
+            "sha256": "8766d553871833c85d0ec3a82f16a1b38a5b4220f94ccc7d29709a0fc334890f"
+          }
+        },
+        {
+          "count": 1,
+          "new": "_ordinary_app",
+          "old": "_app_motor_const",
+          "purpose": "private module identity",
+          "before": {
+            "bytes": 11262,
+            "sha256": "8766d553871833c85d0ec3a82f16a1b38a5b4220f94ccc7d29709a0fc334890f"
+          },
+          "after": {
+            "bytes": 11259,
+            "sha256": "0b9a7f579c6e70b4e71341ffd17765f773c2ae80e9fc7e4735dd910671186563"
+          }
+        },
+        {
+          "count": 1,
+          "new": "WINDOWS = (('report', 537115800, 600), ('transaction', 537113264, 504), ('previous', 537113768, 48), ('gate', 536951336, 88), ('grants', 537115776, 21), ('attempted_word', 537117352, 4), ('motor_port', 537117512, 40))",
+          "old": "WINDOWS = (\n    ('trace', 536951180, 2128),\n    ('report', 537119696, 1168),\n    ('runtime', 537117984, 600),\n    ('transaction', 537115448, 504),\n    ('settle', 537121768, 28),\n    ('gate', 536929280, 88))",
+          "purpose": "complete fixed metadata assignment",
+          "before": {
+            "bytes": 11259,
+            "sha256": "0b9a7f579c6e70b4e71341ffd17765f773c2ae80e9fc7e4735dd910671186563"
+          },
+          "after": {
+            "bytes": 11270,
+            "sha256": "3d52aa7056b7ec8c543bfeb5dbe64464d46dfcef546824bfde5891fb1b977ac7"
+          }
+        },
+        {
+          "count": 2,
+          "new": "OrdinaryAppCapture",
+          "old": "AppMotorConstCapture",
+          "purpose": "private capture class",
+          "before": {
+            "bytes": 11270,
+            "sha256": "3d52aa7056b7ec8c543bfeb5dbe64464d46dfcef546824bfde5891fb1b977ac7"
+          },
+          "after": {
+            "bytes": 11266,
+            "sha256": "1a8513bbdb61512173f31d27b3dfe6dd3935c6842ca29ec879be5c21f851d145"
+          }
+        },
+        {
+          "count": 1,
+          "new": "22: ('after_sketch', 21, 23, self.sketch)",
+          "old": "20: ('after_sketch', 19, 21, self.sketch)",
+          "purpose": "complete after-sketch bracket",
+          "before": {
+            "bytes": 11266,
+            "sha256": "1a8513bbdb61512173f31d27b3dfe6dd3935c6842ca29ec879be5c21f851d145"
+          },
+          "after": {
+            "bytes": 11266,
+            "sha256": "e5c06193473768ac9eb028b7e5175bd224ae8db32e4c1274abb6f14c49b9c903"
+          }
+        },
+        {
+          "count": 1,
+          "new": "27: ('after_loader', 23, 28, self.loader)",
+          "old": "25: ('after_loader', 21, 26, self.loader)",
+          "purpose": "complete after-loader bracket",
+          "before": {
+            "bytes": 11266,
+            "sha256": "e5c06193473768ac9eb028b7e5175bd224ae8db32e4c1274abb6f14c49b9c903"
+          },
+          "after": {
+            "bytes": 11266,
+            "sha256": "b7ca9e8cdb31d44c9ea7178ed5b7dacc0ef04cb60853b24b4675c56ec5910d6d"
+          }
+        },
+        {
+          "count": 1,
+          "new": "if index == 14:",
+          "old": "if index == 13:",
+          "purpose": "pause before second set",
+          "before": {
+            "bytes": 11266,
+            "sha256": "b7ca9e8cdb31d44c9ea7178ed5b7dacc0ef04cb60853b24b4675c56ec5910d6d"
+          },
+          "after": {
+            "bytes": 11266,
+            "sha256": "d65d07be9c1bf61e5e3cad693cf9c41ad2593b24bf5dff6618813275a42003fb"
+          }
+        },
+        {
+          "count": 1,
+          "new": "len(analysis['snapshots']) == 14",
+          "old": "len(analysis['snapshots']) == 12",
+          "purpose": "two seven-window sets",
+          "before": {
+            "bytes": 11266,
+            "sha256": "d65d07be9c1bf61e5e3cad693cf9c41ad2593b24bf5dff6618813275a42003fb"
+          },
+          "after": {
+            "bytes": 11266,
+            "sha256": "74e0ba78f87ab3628185d891824021bcab949d0c74c02ba93c9f12ff07863f6e"
+          }
+        },
+        {
+          "count": 1,
+          "new": "{'commands': 28, 'reads': 28, 'requested_bytes': 715858}",
+          "old": "{'commands': 26, 'reads': 26, 'requested_bytes': 727128}",
+          "purpose": "fixed exact collection total",
+          "before": {
+            "bytes": 11266,
+            "sha256": "74e0ba78f87ab3628185d891824021bcab949d0c74c02ba93c9f12ff07863f6e"
+          },
+          "after": {
+            "bytes": 11266,
+            "sha256": "671e84b5764df9066dfab852c623480d01cd4a8ba51a2763e57b863480fe4ef9"
+          }
+        },
+        {
+          "count": 1,
+          "new": "# Adapts the reviewed one-shot lifecycle to the exact inhibited ordinary application.",
+          "old": "# Adapts the reviewed one-shot lifecycle to the exact inhibited static diagnostic.",
+          "purpose": "purpose comment",
+          "before": {
+            "bytes": 11266,
+            "sha256": "671e84b5764df9066dfab852c623480d01cd4a8ba51a2763e57b863480fe4ef9"
+          },
+          "after": {
+            "bytes": 11269,
+            "sha256": "a2c2fc9d32694a96a406b6de499bfb04a2a159710443c8b37ca56e92921a536f"
+          }
+        }
+      ]
+    },
+    "run.py": {
+      "identity": {
+        "bytes": 24859,
+        "sha256": "f48a8be9fa380a2a922613d188ae7622eafffdf3dc5fec12edc1372b4f7fc2d2"
+      },
+      "steps": [
+        {
+          "count": 1,
+          "new": "PROVENANCE = tuple(COMPILED + name for name in (\n    'inputs_static.json', 'native_static01/result.json', 'native_static01/artifacts.json',\n    'native_abi_static01/result.json', 'native_abi_static01/local_result.json',\n    'native_abi_static01/abi.json', 'native_entry_static01/result.json',\n    'native_entry_static01/local_result.json', 'native_entry_static01/entry.json')) + (\n    'state/reviews/P7_ordinary_app_static_compile_actual_review.md',\n    'state/reviews/P7_ordinary_app_abi_actual_review.md',\n    'state/reviews/P7_ordinary_app_entry_actual_review.md')",
+          "old": "PROVENANCE = tuple(COMPILED + name for name in (\n    'inputs_static.json', 'native_static01/result.json', 'native_static01/artifacts.json',\n    'native_abi_static01/result.json', 'native_abi_static01/local_result.json',\n    'native_abi_static01/abi.json', 'native_entry_static01/result.json',\n    'native_entry_static01/local_result.json', 'native_entry_static01/entry.json')) + tuple(\n    'state/reviews/P7_motor_const_' + name + '.md' for name in (\n        'compile_actual_review', 'abi_actual_review', 'entry_actual_review'))",
+          "purpose": "complete fixed metadata assignment",
+          "before": {
+            "bytes": 24862,
+            "sha256": "d135835d22be424e9599d5a100f66275732bac6486facd7b86367d09c2c811ff"
+          },
+          "after": {
+            "bytes": 24901,
+            "sha256": "031b9fe4c08b52c9fe0a8e3a1f7efa97337eb343c1f691df2b3f09ab7d5ae415"
+          }
+        },
+        {
+          "count": 1,
+          "new": "9044ebbb3cd3b2dbb7aa5984dd5ff23bfff697372f1f29d56693af9ea5eaf31a",
+          "old": "4bc3a2e6ebb497d43a433aa887ab8388dd3dab075a4f44918ed614db30034cd2",
+          "purpose": "current source",
+          "before": {
+            "bytes": 24901,
+            "sha256": "031b9fe4c08b52c9fe0a8e3a1f7efa97337eb343c1f691df2b3f09ab7d5ae415"
+          },
+          "after": {
+            "bytes": 24901,
+            "sha256": "d47c6b100a4a5a8ea3fc36c134da0abed013bfa94a9b4d4e9f9e441a09ac345e"
+          }
+        },
+        {
+          "count": 1,
+          "new": "ordinary-app-9044ebbb-run01",
+          "old": "app-motor-const-4bc3a2e6-run01",
+          "purpose": "fresh fixed attempt",
+          "before": {
+            "bytes": 24901,
+            "sha256": "d47c6b100a4a5a8ea3fc36c134da0abed013bfa94a9b4d4e9f9e441a09ac345e"
+          },
+          "after": {
+            "bytes": 24898,
+            "sha256": "d4fc50a94cfef69f4e5f7923b15b7b0a126395b1ef0377078f5c4e38f2360171"
+          }
+        },
+        {
+          "count": 6,
+          "new": "ordinary-app-",
+          "old": "app-motor-const-",
+          "purpose": "fixed ordinary schemas and ownership",
+          "before": {
+            "bytes": 24898,
+            "sha256": "d4fc50a94cfef69f4e5f7923b15b7b0a126395b1ef0377078f5c4e38f2360171"
+          },
+          "after": {
+            "bytes": 24880,
+            "sha256": "4f84b1fe532ee80bf784b0934d34a67ac62ea744801a7016d9a80884dbdea6d1"
+          }
+        },
+        {
+          "count": 4,
+          "new": "app",
+          "old": "app_motor_observe",
+          "purpose": "ordinary sketch path",
+          "before": {
+            "bytes": 24880,
+            "sha256": "4f84b1fe532ee80bf784b0934d34a67ac62ea744801a7016d9a80884dbdea6d1"
+          },
+          "after": {
+            "bytes": 24824,
+            "sha256": "3f3f6421f0917a1616c25f4198ab730134f7fd4841fdd8b9cfcbf223cec223ad"
+          }
+        },
+        {
+          "count": 1,
+          "new": "92928",
+          "old": "95352",
+          "purpose": "raw binary length",
+          "before": {
+            "bytes": 24824,
+            "sha256": "3f3f6421f0917a1616c25f4198ab730134f7fd4841fdd8b9cfcbf223cec223ad"
+          },
+          "after": {
+            "bytes": 24824,
+            "sha256": "cd54d88892b202fa19faf19ca8050b848963d8f8018b13b54e12922dc2aa86c2"
+          }
+        },
+        {
+          "count": 1,
+          "new": "92944",
+          "old": "95368",
+          "purpose": "packaged image length",
+          "before": {
+            "bytes": 24824,
+            "sha256": "cd54d88892b202fa19faf19ca8050b848963d8f8018b13b54e12922dc2aa86c2"
+          },
+          "after": {
+            "bytes": 24824,
+            "sha256": "61fa030dccdd7db8877177b15c292bcc7e62bf62da8c18e17f68d4140c63dd9c"
+          }
+        },
+        {
+          "count": 1,
+          "new": "6f5f531b114219d712d857b4ac89ad161ceb217211207788a27443b7d4ab6db7",
+          "old": "76d2846dfe99602b1a4dd680f19c8150a02af4dba3b4f3411fafd7c55e3824d3",
+          "purpose": "raw hash",
+          "before": {
+            "bytes": 24824,
+            "sha256": "61fa030dccdd7db8877177b15c292bcc7e62bf62da8c18e17f68d4140c63dd9c"
+          },
+          "after": {
+            "bytes": 24824,
+            "sha256": "8ef9eaffb9005baa4cdb134273fd874ede6895c78b1c1f35f1752229ce0a8d89"
+          }
+        },
+        {
+          "count": 1,
+          "new": "7fa9d41da043931e1237712e1e88bda4151c82933af2ecec97ce3a02184d23ad",
+          "old": "f15c7ce1f0ff5fea2d44d0b60f0607f9adae22b83ba5043fe4de5e2b21fa26f7",
+          "purpose": "package hash",
+          "before": {
+            "bytes": 24824,
+            "sha256": "8ef9eaffb9005baa4cdb134273fd874ede6895c78b1c1f35f1752229ce0a8d89"
+          },
+          "after": {
+            "bytes": 24824,
+            "sha256": "bae7572db3994de734ef5fdf54314336c95ebb1160c63e883f13436e13c1dfad"
+          }
+        },
+        {
+          "count": 1,
+          "new": "P7_ordinary_app_static_compile_raw",
+          "old": "P7_motor_const_compile_raw",
+          "purpose": "accepted ordinary evidence root",
+          "before": {
+            "bytes": 24824,
+            "sha256": "bae7572db3994de734ef5fdf54314336c95ebb1160c63e883f13436e13c1dfad"
+          },
+          "after": {
+            "bytes": 24832,
+            "sha256": "2ba4b7269e1c31e323c0c506d5cb54cfc54f469f93da43a4458ca6b5ec0e345f"
+          }
+        },
+        {
+          "count": 2,
+          "new": "P7_ordinary_app_run_raw",
+          "old": "P7_motor_const_run_raw",
+          "purpose": "new attempt root",
+          "before": {
+            "bytes": 24832,
+            "sha256": "2ba4b7269e1c31e323c0c506d5cb54cfc54f469f93da43a4458ca6b5ec0e345f"
+          },
+          "after": {
+            "bytes": 24834,
+            "sha256": "09c070f56917ca8d5c297d0d34c7bcd62a41b818b7ecd62a639031893375ee37"
+          }
+        },
+        {
+          "count": 3,
+          "new": "test_ordinary_app_",
+          "old": "test_motor_const_",
+          "purpose": "new oracle names",
+          "before": {
+            "bytes": 24834,
+            "sha256": "09c070f56917ca8d5c297d0d34c7bcd62a41b818b7ecd62a639031893375ee37"
+          },
+          "after": {
+            "bytes": 24837,
+            "sha256": "37ebf2ca6af73b4c6e6e1b6d9b2d400ae4da738c7ed3b1130b638083df7b4a69"
+          }
+        },
+        {
+          "count": 3,
+          "new": "P7_ordinary_app_",
+          "old": "P7_motor_const_",
+          "purpose": "new review and contract metadata",
+          "before": {
+            "bytes": 24837,
+            "sha256": "37ebf2ca6af73b4c6e6e1b6d9b2d400ae4da738c7ed3b1130b638083df7b4a69"
+          },
+          "after": {
+            "bytes": 24840,
+            "sha256": "644a679eb5f32e3bbc02d294f3bd6dab5b3023addbcbed460bdf1e7247e1e246"
+          }
+        },
+        {
+          "count": 1,
+          "new": "'a5e8f8b4b78312245c7cde3e86a39db9073b5ef9e5fa2806a3d39eece8600bb7'",
+          "old": "'1b847d96bb21fa72ed19138cb93f803b56b74224dffd7019dd930d99ff7bac95'",
+          "purpose": "accepted ordinary manifest",
+          "before": {
+            "bytes": 24840,
+            "sha256": "644a679eb5f32e3bbc02d294f3bd6dab5b3023addbcbed460bdf1e7247e1e246"
+          },
+          "after": {
+            "bytes": 24840,
+            "sha256": "c8d046db094e770b333369b3a0c646e69c5160de86e27e53dc94069e14be42b3"
+          }
+        },
+        {
+          "count": 2,
+          "new": "tools/compile_ordinary_app_static.py",
+          "old": "tools/compile_motor_const.py",
+          "purpose": "accepted ordinary source mapper and admission",
+          "before": {
+            "bytes": 24840,
+            "sha256": "c8d046db094e770b333369b3a0c646e69c5160de86e27e53dc94069e14be42b3"
+          },
+          "after": {
+            "bytes": 24856,
+            "sha256": "d409acd9d6e5eb60bd449ecf599f9c2e1199c2b4ca512b92f35f719e1c793c39"
+          }
+        },
+        {
+          "count": 1,
+          "new": "40b5c765c01bc1749f6ea4534a4b7f274b681b5fa9295ab6f0c57fbf94d66a89",
+          "old": "957666a83c6fa36408dd6616f93d9cdc583622b29a51a6f6c6e960dd4cd1f247",
+          "purpose": "accepted ordinary launcher pin",
+          "before": {
+            "bytes": 24856,
+            "sha256": "d409acd9d6e5eb60bd449ecf599f9c2e1199c2b4ca512b92f35f719e1c793c39"
+          },
+          "after": {
+            "bytes": 24856,
+            "sha256": "5a4b8eea8f6e18330d17441823f4ea575616faecf42f50b74f4f094f38afac79"
+          }
+        },
+        {
+          "count": 1,
+          "new": "len(value['files']) == 125",
+          "old": "len(value['files']) == 129",
+          "purpose": "ordinary manifest cardinality",
+          "before": {
+            "bytes": 24856,
+            "sha256": "5a4b8eea8f6e18330d17441823f4ea575616faecf42f50b74f4f094f38afac79"
+          },
+          "after": {
+            "bytes": 24856,
+            "sha256": "02b27a95a16ee7f424d47937e971e85df628b4670370f53b1d044d282c7e7620"
+          }
+        },
+        {
+          "count": 2,
+          "new": "D208",
+          "old": "D203",
+          "purpose": "evidence label",
+          "before": {
+            "bytes": 24856,
+            "sha256": "02b27a95a16ee7f424d47937e971e85df628b4670370f53b1d044d282c7e7620"
+          },
+          "after": {
+            "bytes": 24856,
+            "sha256": "9bfa9a7d78b3deb8379dd29697a8d42846eb85f35ff09fc85af0ef2faf0e3c2a"
+          }
+        },
+        {
+          "count": 1,
+          "new": "One fixed inhibited ordinary application attempt",
+          "old": "One fixed inhibited static diagnostic attempt",
+          "purpose": "CLI description",
+          "before": {
+            "bytes": 24856,
+            "sha256": "9bfa9a7d78b3deb8379dd29697a8d42846eb85f35ff09fc85af0ef2faf0e3c2a"
+          },
+          "after": {
+            "bytes": 24859,
+            "sha256": "f48a8be9fa380a2a922613d188ae7622eafffdf3dc5fec12edc1372b4f7fc2d2"
+          }
+        }
+      ]
+    }
+  },
+  "execution": false
+}

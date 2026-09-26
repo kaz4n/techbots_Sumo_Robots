@@ -1499,3 +1499,7 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-26T18:00:25.205280+04:00 | P7 | D211 first Linux host failure preserved | 51PASS/1FAIL/0skip, all66pinsstable; stale exact contract-phrase fixture, adjudication pending. NoWindows/staging/cleanup | pending commit
+
+2026-09-26T18:04:13.059453+04:00 P7: adopted D212 FINAL02 ordinary inhibited observation preparation (828b3342/9a8ef9ca/d8f4eb7e; reviewb5c6f612). Separate implementation/oracle/source/host/native admission remains; no ordinary upload or gate.
+
+2026-09-26T18:10:04.386538+04:00 P7: D211 correctedhostclosure PASS (52Linux;15Windows+37Linux-coveredskips;69pins). Source/hostreviewf033655e accepted; original51/1failure preserved. Boardabsence/staging/authentication remain next.

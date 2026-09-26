@@ -320,3 +320,11 @@ tests/tooling/test_compile_ordinary_app_static_remote.py whitespace=-blank-at-eo
 state/analysis/P7_ordinary_app_cleanup_raw/** -text whitespace=cr-at-eol,-blank-at-eof
 
 state/analysis/P7_ordinary_app_run_raw/** -text whitespace=cr-at-eol,-blank-at-eof
+
+# Preserve existing append-only state bytes and frozen D212 oracle EOF bytes.
+state/DECISIONS.md -text whitespace=cr-at-eol
+state/PROGRESS.md -text whitespace=cr-at-eol
+tests/tooling/test_ordinary_app_remote.py whitespace=-blank-at-eof
+tests/tooling/test_ordinary_app_actions.py whitespace=-blank-at-eof
+tests/tooling/test_ordinary_app_run.py whitespace=-blank-at-eof
+.gitattributes -text whitespace=cr-at-eol

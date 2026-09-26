@@ -244,6 +244,31 @@
       "uid": 1000
     }
   },
+  "bounded_correction02": {
+    "adjudication": "31 exact bodies, nine metadata spans (including parent _plan and nested flash), nine semantic replacements, six removed diagnostic helpers: all55 historical functions accounted for. One new ordinary findings helper remains permitted.",
+    "finding": "The ast.walk inventory separately counted nested _plan.flash as exact despite its parent _plan ordinary extent95368-to92944 metadata seam.",
+    "original_contract": {
+      "bytes": 24793,
+      "sha256": "04b5ee941b92b19b286e9953da77c46398f9869d622d8b57be3d24dce974d15d"
+    },
+    "original_derivation": {
+      "bytes": 117644,
+      "sha256": "237e2b54238b8f23e4fc6e00beb20b4e37d03a96e893a3146036787b962a3867"
+    },
+    "original_map": {
+      "bytes": 42416,
+      "sha256": "d8f4eb7eb36430cff975e3032168fa61f2c249e55596401a67862b272bb08fb7"
+    },
+    "preserved_commit": "c9db52852d177f88ffee70350248f06b1cb83163",
+    "recorded_utc": "2026-09-26T13:59:44.717482+00:00",
+    "subject_or_test_or_device_execution": false,
+    "unchanged": [
+      "native recipes17/11/19 and prospective source identities",
+      "107-field scalar map bytes/hash",
+      "read geometry and budgets",
+      "semantic replacements and test obligations"
+    ]
+  },
   "contract_path": "state/analysis/P7_ordinary_app_run_contract.md",
   "created_utc": "2026-09-26T13:52:12.143913+00:00",
   "decoder": {
@@ -256,7 +281,27 @@
       "_read_rows",
       "_waits",
       "_flash",
-      "_capture_status"
+      "_capture_status",
+      "flash"
+    ],
+    "metadata_nested_spans": [
+      {
+        "additional_replacement_steps": 0,
+        "after": {
+          "bytes": 311,
+          "sha256": "372f13c4062a18c88f3b44804268b6939f81ea52bf897f871c8aa5f122b16a65"
+        },
+        "before": {
+          "bytes": 311,
+          "sha256": "b91546d5950c5d8f2b3191f76beabdf5c41ce763c4df1b3526ed97059e691146"
+        },
+        "covered_by_parent": "_plan",
+        "inventory_name": "flash",
+        "meaning": "The SAME ordinary image-extent replacement in the parent _plan changes this nested body. It is not a second transformation and must not be applied twice.",
+        "new_extent": 92944,
+        "old_extent": 95368,
+        "path": "_plan.flash"
+      }
     ],
     "new_named_helpers_allowed": [
       "_ordinary_findings"
@@ -406,10 +451,6 @@
       "_wait_record": {
         "bytes": 679,
         "sha256": "2a73c94d7f385f4faaa518a352caf3d08d5d0762921ddb2003166a98477a166e"
-      },
-      "flash": {
-        "bytes": 311,
-        "sha256": "b91546d5950c5d8f2b3191f76beabdf5c41ce763c4df1b3526ed97059e691146"
       },
       "main": {
         "bytes": 956,

@@ -1,5 +1,34 @@
 # Codex handoff - 26 September 2026, Asia/Dubai
 
+## Active D210: entry reader sealed; independent oracle pending
+
+D210 contract31029B/d2820420 and binding106946B/36cafffc are adopted under D051,
+preparationreview10307B/fe154519 FINAL PASS. Original unadopted draft is preserved
+in commitd74c6471; sole source-attribution correction is recorded6e1522e5.
+Fixed64groups77aliases10420B129expressions,13constructorpairs,3LOCAL11WEAK
+and50GLOBAL groups come from accepted D2092234-symbol inventory.
+
+Root created only the new entrysubject18546B/5bcb6e12 and receipt13109B/3f3e9fe8:
+13exact constructionsteps,12functions with only2private label changes. Projected
+reader12987B/331f1091/parser14259B/a71d5c17 use9countedmetadata steps each.
+Hostdriver3503B/26e575d0 uses3metadata substitutions,360s limit and distinct
+entry_first_linux01 / entry_first_windows01 owners with isolated temp roots.
+All work to date is data/AST construction; no subject or tests executed.
+
+fresh_review owns the independent oracle/fixture/freeze and may inspect only
+the metadata receipt before its FINAL. Root has read/hashed no neworacle.
+const_cleanup_review waits for oracleFINAL before any newsubject inspection;
+then source/fixture review, coordinatorfreeze, firstserial hostruns, source/host
+closure and freshfixed native scope/admission precede cleanHEAD/check-only and
+one file-only instruction observation. No native entry owner exists yet.
+
+Current details: analysis/P7_ordinary_app_entry_validation.md. Source planning
+for a later passive ordinary runtime observation is unadopted at
+analysis/P7_ordinary_app_observation_followup.md: repeated reports are not atomic,
+FAULT is not cleanup-complete and passive capture leaves the MCU loop running.
+No ordinary upload is currently admitted. All production/config/locked tests
+remain unchanged. D207 is latest verified flashed image; D209 ABI is accepted.
+
 ## Latest checkpoint: D209 ordinary ABI independently accepted
 
 This top checkpoint supersedes older current/next paragraphs below. Active P7

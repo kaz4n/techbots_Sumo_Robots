@@ -1477,3 +1477,7 @@ physical/loadedRAM/gate claim. | contract=this commit
 2026-09-26T16:42:11.311676+04:00 | P7 | D209 native ABI admission | reviewbd83b5ce PASS;10scope/159host/125manifest pins; staged bytes exact; one file-only attempt after cleanHEAD | pending commit
 
 2026-09-26T16:48:18.143956+04:00 | P7 | D209 actual ordinary ABI accepted | review585be669 PASS;4children/13remote+localPASS;13layouts/6windows/47enums/2234symbols; ownerconsumed | pending commit
+
+2026-09-26T17:05:24.481073+04:00 | P7 | D210 ordinary entry contract adopted | reviewfe154519 PASS;64groups77aliases10420B; bounded source-attribution fix preserved; implementation/oracle next | pending commit
+
+2026-09-26T17:07:42.614366+04:00 | P7 | D210 entry implementation sealed | subject18546B/5bcb6e12, reader331f1091/parsera71d5c17, receipt3f3e9fe8; data-only construction; independent oracle pending | pending commit

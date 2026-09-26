@@ -46,12 +46,12 @@ private source execution:
 | ABI_REVIEW | state/reviews/P7_ordinary_app_abi_actual_review.md | 9627 | 585be669385e1ca85ddd188d3eeda5fdf11cfc3392eea614370d9bfabbcc4b6a |
 | ARTIFACTS | state/analysis/P7_ordinary_app_static_compile_raw/native_static01/artifacts.json | 9281 | 275ebb61be4a0487fe381d915ec28eea4634926b1d06a627850266f5c0a750e0 |
 | PARSER | state/analysis/P7_app_motor_fault_compile_raw/inspect_static_entry.py | 10317 | cb9ee5bbd5ca8a74510185d77e7d880acf1a03f05608a5ea1459e534a287fa34 |
-| BINDING | state/analysis/P7_ordinary_app_static_compile_raw/entry_binding01.json | 106792 | 24de4c183fb7478d71cffdbcb2bf1933759c496ee61a79957c05e3cdf89c6420 |
+| BINDING | state/analysis/P7_ordinary_app_static_compile_raw/entry_binding01.json | 106946 | 36cafffcfebc647b5019b438705fa42a8be94edfb5d8b67deac2508878c6ae89 |
 
 `SELF` is bound through clean reviewed HEAD and inherited local pinning; do not
 create a recursive self hash. The binding has no hash of this contract or of
 itself. Its `18` preparation input pins and
-`23` relevant source-file pins supplement the runtime
+`24` relevant source-file pins supplement the runtime
 input set without introducing runtime selectors. It records the exact old/new
 projection operands, every intermediate identity, selected full symbol rows,
 source references/rationales and artifact identities. JSON escapes encode exact

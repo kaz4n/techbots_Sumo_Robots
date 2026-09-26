@@ -1,0 +1,22 @@
+{
+  "schema": "d210-preparation-findings-v1",
+  "at": "2026-09-26T17:02:42.622544+04:00",
+  "stage": "unadopted proposal review; no new subject or test execution",
+  "original_proposal_commit": "d74c6471d4234cd8caea215e38e9777e1ebe6463",
+  "original_contract": {
+    "bytes": 31029,
+    "sha256": "fb1c308da57faadefb655987f966537381cba9bdbce196d68edb89edb4f73f82"
+  },
+  "original_binding": {
+    "bytes": 106792,
+    "sha256": "24de4c183fb7478d71cffdbcb2bf1933759c496ee61a79957c05e3cdf89c6420"
+  },
+  "finding": "power_reader_port source pointer attributes readerInputPort to power_inputs.cpp; actual definition is power_inputs_unoq.cpp:17.",
+  "correct_source": {
+    "path": "src/hal/power_inputs_unoq.cpp",
+    "bytes": 862,
+    "sha256": "c1756accbff46213c12c2d6c93569e6fc6495618e09d1fa67a3a47967e332173"
+  },
+  "authorized_revision": "Correct that pointer, add the source pin while retaining power_inputs.cpp for InputOwner, update source count23 to24 and final binding identity in contract only. Preserve all selected ranges/aliases, algorithms, recipes, guards and oracle requirements.",
+  "preservation": "Original two drafts preserved exactly in Git; no duplicate scratch copies. Author FINAL and renewed independent review precede adoption."
+}

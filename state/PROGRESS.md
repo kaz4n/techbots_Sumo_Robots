@@ -1558,3 +1558,5 @@ physical/loadedRAM/gate claim. | contract=this commit
 2026-09-26T21:37:12.498571+04:00 | P7/D219 | Corrected10Linux+10WindowsPASS/no skips,184pinsstable, closure3553f619. Original mock export missing-status failure retained; productiond5042c4d/59f1b3ba unchanged. FINAL review pending. | pending
 
 2026-09-26T21:38:06.334177+04:00 | P7/D219 | Independent reviewbb218ead FINAL PASS accepts usablecapturecaller and focused20hostpasses. ActualB4load/capture remain separate; D220cleanup andD221upload preparation ongoing. | pending
+
+2026-09-26T21:40:55.962099+04:00 | P7/D219 | Caller committed3136a50c. Git-blob check found one inherited capture_bindings.json had LF repository normalization versus frozen CRLF localbytes (same content); supplemental -text attribute/staging preserves exact1751B. The initial sequential shell continued tocommit after checker failure; no native action occurred and no source/input bytes changed. All184blobs rechecked next. | pending

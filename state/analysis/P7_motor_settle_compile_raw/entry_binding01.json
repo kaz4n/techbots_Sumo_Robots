@@ -1,0 +1,867 @@
+{
+  "schema": "motor-settle-entry-binding-v1",
+  "scope": "Fixed ELF-file symbols/ranges derived from accepted D199 ABI; instruction semantics and initializer contents still pending",
+  "source_sha256": "117cc0e777341c893f4e618a97e3f196fd0bbf2427cb2a4b02543eb37d6522da",
+  "boot_id": "55c386b9-fe6d-4388-a7f4-1d91e0bb49d8",
+  "build_owner": "/home/arduino/sumox26_codex_build/app-motor-settle-static01",
+  "input_pins": {
+    "state/analysis/P7_motor_settle_compile_raw/inspect_static_abi.py": {
+      "bytes": 16106,
+      "sha256": "0f2b37c906a8ad78d596a1256af94d67d3d47793f6025a5e9dc4449d928002ea"
+    },
+    "state/analysis/P7_app_motor_fault_compile_raw/inspect_static_entry.py": {
+      "bytes": 10317,
+      "sha256": "cb9ee5bbd5ca8a74510185d77e7d880acf1a03f05608a5ea1459e534a287fa34"
+    },
+    "state/analysis/P7_motor_settle_compile_raw/native_abi_static01/result.json": {
+      "bytes": 905572,
+      "sha256": "230ef847f74e84d032a87336f74a4817d4cd8317a0ea5abc72c54fdd0d03eb6e"
+    },
+    "state/analysis/P7_motor_settle_compile_raw/native_abi_static01/abi.json": {
+      "bytes": 5410,
+      "sha256": "069ed01bee9fba11159a4d93d156b8ada35ea5c11414b77870d80b6182d59941"
+    },
+    "state/analysis/P7_motor_settle_compile_raw/native_abi_static01/local_result.json": {
+      "bytes": 275,
+      "sha256": "eb68ef2e125445ad94fc5c0dc251c2a411d55120ab1299e205a1674b572576f9"
+    },
+    "state/reviews/P7_motor_settle_abi_actual_review.md": {
+      "bytes": 7312,
+      "sha256": "a7c3993ab5e0d008b4464bf93f89b5877447992fa8e3197d8c869812e11f874f"
+    },
+    "state/analysis/P7_motor_settle_compile_raw/native_static01/artifacts.json": {
+      "bytes": 9648,
+      "sha256": "e18384c14c0b1367667b265ab4c532a4010be65697460a1cd45487bccd9eca10"
+    }
+  },
+  "readelf_stdout": {
+    "bytes": 158956,
+    "sha256": "4aece135bfa9e429227e0ee17c59b54db1a1bf100fdc714de0076361f7ee1e8b"
+  },
+  "text_section": {
+    "index": 1,
+    "address": 135266320,
+    "alignment": 8,
+    "flags": 6,
+    "load_address": 135266320,
+    "name": ".text",
+    "size": 90824,
+    "type": 1
+  },
+  "ranges": [
+    {
+      "label": "entry_point",
+      "start": 135266320,
+      "end": 135266504,
+      "symbols": [
+        {
+          "name": "entry_point",
+          "value": 135266321,
+          "bytes": 184,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1
+        }
+      ]
+    },
+    {
+      "label": "setup",
+      "start": 135266504,
+      "end": 135266536,
+      "symbols": [
+        {
+          "name": "setup",
+          "value": 135266505,
+          "bytes": 32,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1
+        }
+      ]
+    },
+    {
+      "label": "loop",
+      "start": 135266536,
+      "end": 135266564,
+      "symbols": [
+        {
+          "name": "loop",
+          "value": 135266537,
+          "bytes": 28,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1
+        }
+      ]
+    },
+    {
+      "label": "global_initializer",
+      "start": 135266564,
+      "end": 135266968,
+      "symbols": [
+        {
+          "name": "_GLOBAL__sub_I_setup",
+          "value": 135266565,
+          "bytes": 404,
+          "type": "FUNC",
+          "binding": "LOCAL",
+          "visibility": "DEFAULT",
+          "section": 1
+        }
+      ]
+    },
+    {
+      "label": "app_dump_port",
+      "start": 135266984,
+      "end": 135267024,
+      "symbols": [
+        {
+          "name": "_ZN3app12unoQDumpPortERN8recorder4dump12UnoQDumpPortE",
+          "value": 135266985,
+          "bytes": 40,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1
+        }
+      ]
+    },
+    {
+      "label": "sources_port",
+      "start": 135267296,
+      "end": 135267420,
+      "symbols": [
+        {
+          "name": "_ZN3app13NativeSources4portEv",
+          "value": 135267297,
+          "bytes": 124,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1
+        }
+      ]
+    },
+    {
+      "label": "sources_adc_port",
+      "start": 135267420,
+      "end": 135267440,
+      "symbols": [
+        {
+          "name": "_ZN3app13NativeSources7adcPortEv",
+          "value": 135267421,
+          "bytes": 20,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1
+        }
+      ]
+    },
+    {
+      "label": "runner_constructor",
+      "start": 135281028,
+      "end": 135281500,
+      "symbols": [
+        {
+          "name": "_ZN17app_motor_observe6RunnerC1ERKN6motors4PortERKN5power9InputPortERKN3app10SourcePortERKNS9_8DumpPortE",
+          "value": 135281029,
+          "bytes": 472,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1
+        },
+        {
+          "name": "_ZN17app_motor_observe6RunnerC2ERKN6motors4PortERKN5power9InputPortERKN3app10SourcePortERKNS9_8DumpPortE",
+          "value": 135281029,
+          "bytes": 472,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1
+        }
+      ]
+    },
+    {
+      "label": "runner_application_valid",
+      "start": 135281500,
+      "end": 135281588,
+      "symbols": [
+        {
+          "name": "_ZNK17app_motor_observe6Runner16applicationValidEv",
+          "value": 135281501,
+          "bytes": 88,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1
+        }
+      ]
+    },
+    {
+      "label": "runner_stop_reason",
+      "start": 135281588,
+      "end": 135281696,
+      "symbols": [
+        {
+          "name": "_ZNK17app_motor_observe6Runner10stopReasonEv",
+          "value": 135281589,
+          "bytes": 108,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1
+        }
+      ]
+    },
+    {
+      "label": "runner_freeze",
+      "start": 135281696,
+      "end": 135281836,
+      "symbols": [
+        {
+          "name": "_ZN17app_motor_observe6Runner6freezeENS_6ReasonE",
+          "value": 135281697,
+          "bytes": 140,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1
+        }
+      ]
+    },
+    {
+      "label": "runner_begin",
+      "start": 135281836,
+      "end": 135281980,
+      "symbols": [
+        {
+          "name": "_ZN17app_motor_observe6Runner5beginERKN11motor_fault6GrantsE",
+          "value": 135281837,
+          "bytes": 144,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1
+        }
+      ]
+    },
+    {
+      "label": "runner_poll",
+      "start": 135281980,
+      "end": 135282072,
+      "symbols": [
+        {
+          "name": "_ZN17app_motor_observe6Runner4pollEv",
+          "value": 135281981,
+          "bytes": 92,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1
+        }
+      ]
+    },
+    {
+      "label": "dump_port",
+      "start": 135317376,
+      "end": 135317396,
+      "symbols": [
+        {
+          "name": "_ZN8recorder4dump12UnoQDumpPort4portEv",
+          "value": 135317377,
+          "bytes": 20,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1
+        }
+      ]
+    },
+    {
+      "label": "loop_hook",
+      "start": 135334940,
+      "end": 135334942,
+      "symbols": [
+        {
+          "name": "_Z10__loopHookv",
+          "value": 135334941,
+          "bytes": 2,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1
+        }
+      ]
+    },
+    {
+      "label": "candidate_rate",
+      "start": 135335056,
+      "end": 135335160,
+      "symbols": [
+        {
+          "name": "_ZN6motors12_GLOBAL__N_113candidateRateEj",
+          "value": 135335057,
+          "bytes": 104,
+          "type": "FUNC",
+          "binding": "LOCAL",
+          "visibility": "DEFAULT",
+          "section": 1
+        }
+      ]
+    },
+    {
+      "label": "candidate_period",
+      "start": 135335160,
+      "end": 135335216,
+      "symbols": [
+        {
+          "name": "_ZN6motors12_GLOBAL__N_115candidatePeriodEj",
+          "value": 135335161,
+          "bytes": 56,
+          "type": "FUNC",
+          "binding": "LOCAL",
+          "visibility": "DEFAULT",
+          "section": 1
+        }
+      ]
+    },
+    {
+      "label": "motor_port",
+      "start": 135335732,
+      "end": 135335872,
+      "symbols": [
+        {
+          "name": "_ZN6motors8UnoQPort4portEv",
+          "value": 135335733,
+          "bytes": 140,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1
+        }
+      ]
+    },
+    {
+      "label": "power_reader_port",
+      "start": 135344940,
+      "end": 135344976,
+      "symbols": [
+        {
+          "name": "_ZN5power15readerInputPortERNS_6ReaderE",
+          "value": 135344941,
+          "bytes": 36,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1
+        }
+      ]
+    },
+    {
+      "label": "trace_constructor",
+      "start": 135355564,
+      "end": 135355708,
+      "symbols": [
+        {
+          "name": "_ZN11motor_fault5TraceC1ERKN6motors4PortE",
+          "value": 135355565,
+          "bytes": 144,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1
+        },
+        {
+          "name": "_ZN11motor_fault5TraceC2ERKN6motors4PortE",
+          "value": 135355565,
+          "bytes": 144,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1
+        }
+      ]
+    },
+    {
+      "label": "trace_port",
+      "start": 135355708,
+      "end": 135355836,
+      "symbols": [
+        {
+          "name": "_ZN11motor_fault5Trace4portEv",
+          "value": 135355709,
+          "bytes": 128,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1
+        }
+      ]
+    },
+    {
+      "label": "memcpy",
+      "start": 135356460,
+      "end": 135356468,
+      "symbols": [
+        {
+          "name": "memcpy",
+          "value": 135356461,
+          "bytes": 8,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1
+        }
+      ]
+    },
+    {
+      "label": "memset",
+      "start": 135356468,
+      "end": 135356476,
+      "symbols": [
+        {
+          "name": "memset",
+          "value": 135356469,
+          "bytes": 8,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1
+        }
+      ]
+    },
+    {
+      "label": "unsigned_divide",
+      "start": 135356652,
+      "end": 135356662,
+      "symbols": [
+        {
+          "name": "__aeabi_uldivmod",
+          "value": 135356653,
+          "bytes": 10,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1
+        }
+      ]
+    },
+    {
+      "label": "init_variant",
+      "start": 135356676,
+      "end": 135356678,
+      "symbols": [
+        {
+          "name": "initVariant",
+          "value": 135356677,
+          "bytes": 2,
+          "type": "FUNC",
+          "binding": "WEAK",
+          "visibility": "DEFAULT",
+          "section": 1
+        }
+      ]
+    },
+    {
+      "label": "main",
+      "start": 135356680,
+      "end": 135356724,
+      "symbols": [
+        {
+          "name": "main",
+          "value": 135356681,
+          "bytes": 44,
+          "type": "FUNC",
+          "binding": "WEAK",
+          "visibility": "DEFAULT",
+          "section": 1
+        }
+      ]
+    },
+    {
+      "label": "start_static_threads",
+      "start": 135356724,
+      "end": 135356832,
+      "symbols": [
+        {
+          "name": "_Z20start_static_threadsv",
+          "value": 135356725,
+          "bytes": 108,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1
+        }
+      ]
+    },
+    {
+      "label": "publish_settle",
+      "start": 135335264,
+      "end": 135335324,
+      "symbols": [
+        {
+          "name": "_ZN6motors12_GLOBAL__N_113publishSettleENS_17SettleProbeReasonEjjhh",
+          "value": 135335265,
+          "bytes": 60,
+          "type": "FUNC",
+          "binding": "LOCAL",
+          "visibility": "DEFAULT",
+          "section": 1
+        }
+      ]
+    },
+    {
+      "label": "motor_settle",
+      "start": 135337404,
+      "end": 135337696,
+      "symbols": [
+        {
+          "name": "_ZN6motors8UnoQPort6settleEPv",
+          "value": 135337405,
+          "bytes": 292,
+          "type": "FUNC",
+          "binding": "GLOBAL",
+          "visibility": "DEFAULT",
+          "section": 1
+        }
+      ]
+    }
+  ],
+  "initialization": {
+    "section": {
+      "index": 2,
+      "address": 135357144,
+      "alignment": 4,
+      "flags": 3,
+      "load_address": 135357144,
+      "name": ".init_array",
+      "size": 4,
+      "type": 14
+    },
+    "bounds": [
+      {
+        "name": "__init_array_start",
+        "value": 135357144,
+        "bytes": 0,
+        "type": "NOTYPE",
+        "binding": "LOCAL",
+        "visibility": "DEFAULT",
+        "section": 2
+      },
+      {
+        "name": "__init_array_end",
+        "value": 135357148,
+        "bytes": 0,
+        "type": "NOTYPE",
+        "binding": "LOCAL",
+        "visibility": "DEFAULT",
+        "section": 2
+      },
+      {
+        "name": "__preinit_array_start",
+        "value": 135357144,
+        "bytes": 0,
+        "type": "NOTYPE",
+        "binding": "LOCAL",
+        "visibility": "DEFAULT",
+        "section": 2
+      },
+      {
+        "name": "__preinit_array_end",
+        "value": 135357144,
+        "bytes": 0,
+        "type": "NOTYPE",
+        "binding": "LOCAL",
+        "visibility": "DEFAULT",
+        "section": 2
+      },
+      {
+        "name": "__static_thread_data_list_start",
+        "value": 135357144,
+        "bytes": 0,
+        "type": "NOTYPE",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "section": 2
+      },
+      {
+        "name": "__static_thread_data_list_end",
+        "value": 135357144,
+        "bytes": 0,
+        "type": "NOTYPE",
+        "binding": "GLOBAL",
+        "visibility": "DEFAULT",
+        "section": 2
+      }
+    ],
+    "expected_pointer": 135266565,
+    "contents_observed": false
+  },
+  "settle_probe": {
+    "name": "_ZN6motors12_GLOBAL__N_119settle_probe_reportE",
+    "value": 537121768,
+    "bytes": 28,
+    "type": "OBJECT",
+    "binding": "LOCAL",
+    "visibility": "DEFAULT",
+    "section": 5
+  },
+  "absent_function_entities": [
+    "storeSettleSample",
+    "settleProbeReport"
+  ],
+  "disassembly_groups": 29,
+  "gdb_expressions": 59,
+  "projection": {
+    "reader_input": {
+      "bytes": 17061,
+      "sha256": "67ff238ce7a9f847e53d98fb4f3c47f02bbea12c51a1062457f1583a9399acc6"
+    },
+    "reader_output": {
+      "bytes": 17085,
+      "sha256": "db4122376e7ef2da92ca49633b01248514274744b429ad54bede8d0c8d8da9f8"
+    },
+    "reader_replacements": [
+      {
+        "old": "'/inspect_static_abi.py'",
+        "new": "'/inspect_static_entry.py'",
+        "count": 1
+      },
+      {
+        "old": "'native_abi_static01'",
+        "new": "'native_entry_static01'",
+        "count": 1
+      },
+      {
+        "old": "app-motor-settle-abi-static01",
+        "new": "app-motor-settle-entry-static01",
+        "count": 1
+      },
+      {
+        "old": "D199_STATIC_FILE_ONLY_ABI",
+        "new": "D199_STATIC_FILE_ONLY_ENTRY",
+        "count": 2
+      },
+      {
+        "old": "STATIC_ABI_CHECKED",
+        "new": "STATIC_ENTRY_CHECKED",
+        "count": 1
+      },
+      {
+        "old": "STATIC_ABI_OBSERVED",
+        "new": "STATIC_ENTRY_OBSERVED",
+        "count": 2
+      },
+      {
+        "old": "'file-abi'",
+        "new": "'file-entry'",
+        "count": 1
+      },
+      {
+        "old": "'abi.json'",
+        "new": "'entry.json'",
+        "count": 1
+      },
+      {
+        "old": "StaticAbi",
+        "new": "StaticEntry",
+        "count": 2
+      }
+    ],
+    "parser_input": {
+      "bytes": 10317,
+      "sha256": "cb9ee5bbd5ca8a74510185d77e7d880acf1a03f05608a5ea1459e534a287fa34"
+    },
+    "parser_output": {
+      "bytes": 10562,
+      "sha256": "7f96678955bc37082766f3b02b46b1cdbba832624815b1ba4266a549d3e372f2"
+    },
+    "parser_replacements": [
+      {
+        "old": "/home/arduino/sumox26_codex_build/app-motor-fault-static01/build/app_motor_fault.ino",
+        "new": "/home/arduino/sumox26_codex_build/app-motor-settle-static01/build/app_motor_observe.ino",
+        "count": 1
+      },
+      {
+        "old": "15app_motor_fault",
+        "new": "17app_motor_observe",
+        "count": 6
+      },
+      {
+        "old": "0x0811621c",
+        "new": "0x081162dc",
+        "count": 1
+      },
+      {
+        "old": "0x08116218",
+        "new": "0x081162d8",
+        "count": 4
+      },
+      {
+        "old": "0x081160e0",
+        "new": "0x081161a0",
+        "count": 1
+      },
+      {
+        "old": "0x08116074",
+        "new": "0x08116134",
+        "count": 2
+      },
+      {
+        "old": "0x08116048",
+        "new": "0x08116108",
+        "count": 1
+      },
+      {
+        "old": "0x08116046",
+        "new": "0x08116106",
+        "count": 1
+      },
+      {
+        "old": "0x08116044",
+        "new": "0x08116104",
+        "count": 1
+      },
+      {
+        "old": "0x08116036",
+        "new": "0x081160f6",
+        "count": 1
+      },
+      {
+        "old": "0x0811602c",
+        "new": "0x081160ec",
+        "count": 1
+      },
+      {
+        "old": "0x08115f7c",
+        "new": "0x0811603c",
+        "count": 1
+      },
+      {
+        "old": "0x08115f74",
+        "new": "0x08116034",
+        "count": 2
+      },
+      {
+        "old": "0x08115f6c",
+        "new": "0x0811602c",
+        "count": 1
+      },
+      {
+        "old": "0x08115cfc",
+        "new": "0x08115dbc",
+        "count": 1
+      },
+      {
+        "old": "0x08115c7c",
+        "new": "0x08115d3c",
+        "count": 2
+      },
+      {
+        "old": "0x08115bec",
+        "new": "0x08115cac",
+        "count": 1
+      },
+      {
+        "old": "0x08113290",
+        "new": "0x08113350",
+        "count": 1
+      },
+      {
+        "old": "0x0811326c",
+        "new": "0x0811332c",
+        "count": 1
+      },
+      {
+        "old": "0x08110f64",
+        "new": "0x08110fc0",
+        "count": 1
+      },
+      {
+        "old": "0x08110ed8",
+        "new": "0x08110f34",
+        "count": 1
+      },
+      {
+        "old": "0x08110d10",
+        "new": "0x08110d30",
+        "count": 1
+      },
+      {
+        "old": "0x08110cd8",
+        "new": "0x08110cf8",
+        "count": 2
+      },
+      {
+        "old": "0x08110c70",
+        "new": "0x08110c90",
+        "count": 1
+      },
+      {
+        "old": "0x08110bfe",
+        "new": "0x08110c1e",
+        "count": 1
+      },
+      {
+        "old": "0x08110bfc",
+        "new": "0x08110c1c",
+        "count": 1
+      },
+      {
+        "old": "0x0810c774",
+        "new": "0x0810c794",
+        "count": 1
+      },
+      {
+        "old": "0x0810c760",
+        "new": "0x0810c780",
+        "count": 1
+      },
+      {
+        "old": "0x08103d78",
+        "new": "0x08103d98",
+        "count": 1
+      },
+      {
+        "old": "0x08103d24",
+        "new": "0x08103d3c",
+        "count": 2
+      },
+      {
+        "old": "0x08103c94",
+        "new": "0x08103cac",
+        "count": 2
+      },
+      {
+        "old": "0x08103c08",
+        "new": "0x08103c20",
+        "count": 2
+      },
+      {
+        "old": "0x08103bb0",
+        "new": "0x08103bb4",
+        "count": 2
+      },
+      {
+        "old": "0x08103b58",
+        "new": "0x08103b5c",
+        "count": 2
+      },
+      {
+        "old": "    ('start_static_threads', 0x08116134, 0x081161a0, ('_Z20start_static_threadsv',)),\n)",
+        "new": "    ('start_static_threads', 0x08116134, 0x081161a0, ('_Z20start_static_threadsv',)),\n    ('publish_settle', 0x08110d60, 0x08110d9c,\n        ('_ZN6motors12_GLOBAL__N_113publishSettleENS_17SettleProbeReasonEjjhh',)),\n    ('motor_settle', 0x081115bc, 0x081116e0, ('_ZN6motors8UnoQPort6settleEPv',)),\n)",
+        "count": 1
+      },
+      {
+        "old": "('global_initializer', 'candidate_rate', 'candidate_period')",
+        "new": "('global_initializer', 'candidate_rate', 'candidate_period', 'publish_settle')",
+        "count": 1
+      }
+    ]
+  }
+}

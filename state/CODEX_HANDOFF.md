@@ -1,3 +1,32 @@
+## Current checkpoint - 2026-09-27T02:27:44.850753+04:00
+
+D239 COMPILE-ONLY ACTIVE exec69910. Frozen isolatedworktree
+C:/Users/narut/AppData/Local/Temp/sumox-recorder-repeat-native-20260927
+HEAD1b2af246cd88e6207e846ee340f8c4e46a5bb980,attempt354cf1586a9648d88cb9dad105a6c992,
+session3840709944287840472,source3d9306d7b804a68d6e7c2764171077526fbe14074b4564ea2e071ffd5a8e839b.
+OwnerP7_recorder_delivery_raw/recorder-354cf1586a9648d8; static/default/MATCH0/MOTORS0.
+Tempstemsumox_recorder_repeat_attempt03. No uploadyet; keepHEAD/sourcefrozen.
+Aftercompileclosure/rootacceptance, onefull200srecord/900sreceiver --run is
+admitted underD239. Exactnewsession/fullreceiver/CRC acceptance required.
+
+D239cleanupCOMPLETED fiveactionsall0/result6354B30b958cb:three2359784Bcopies
++empty/tmp/remoteocddev34/ino7093 removed,originalsintact,threeprotectedscans
+165names/3sameUIDhandles,finaluid/gidtriples1000,6retrievalclosingPASS.
+Preparationreviewaad639c7/57pins/8tests/7reversals; actualreviewerinprogress.
+Maincommitdb356063containsallreceipts. No credentialstored orrouteroperation.
+
+D238actualcapture accepted034c70df;26reads639504B,15retrievalclosingreads,
+65equalfields/coherenceUNPROVEN,fullflashmatches,Runner/TransferSENT_UNCONFIRMED,
+nativeOK/unpoisoned/firstfailureNONE,607508bytes5001frames8eventsCRC2865663826.
+D237actualreceiverFAILED missingopening60B; retained607448Bfullbody+END,
+reviewdd50e6e7. All evidenceandpriorfailurescommitted. D239newattemptempirically
+checksframingwithoutrepairorrouterreset. Sameaccepted6storecodeonlynewidentity.
+
+Agentrecorder_diag narrowlyaudits log-preservingrearm/appfreshsessionworkflow
+fornextnecessarysoftware, no nativeactions. Reviewerownsactualcleanupreview.
+BOARDONLY/no physicalgates ormotorpermission; policyblockedlocalstagecleanup
+remainsuntouched. Objectiveactive, no fullprojectcompletionclaim.
+
 ## Current checkpoint - 2026-09-27T02:21:12.108926+04:00
 
 Objective active: finish software and connected-board work quickly; BOARD ONLY.

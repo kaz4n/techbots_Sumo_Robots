@@ -1,3 +1,5 @@
+Current execution pointer, 2026-09-27T01:41:46.948550+04:00: use top CODEX_HANDOFF.md. D233 passivefirstfailure capture34538 is active; D234 session forwarding integrated. All older next-action paragraphs below are historical.
+
 Current execution pointer, 26 September 2026: resume from CODEX_HANDOFF.md. D219 capture and D223 sampled UART visibility are accepted. Next is the D222 sequential compile-only commissioning matrix plus remaining live synthetic delivery engineering. Historical entries below do not authorize rerunning consumed owners.
 
 # Current execution checklist - 2026-09-26 Asia/Dubai

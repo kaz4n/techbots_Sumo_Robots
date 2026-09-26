@@ -1616,3 +1616,5 @@ matrix is admitted conditionally, not yet executed. Firmware unchanged. | pendin
 2026-09-27T01:02:53.961983+04:00 | P7/D229-D231 | Integrated accepted p99 software and single current nativecompile; D230 actual passive diagnosis accepted, original UART error missing. D231 focused first-failure preservation in isolated worktree; no native run or gate. | integration checkpoint
 
 2026-09-27T01:12:10.447103+04:00 | P7/D231-D233 | Diagnostic source integrated byte-exact;21methods576models51150assertions and review7e401a18PASS. Fresh inhibited diagnostic compile next; D232 exact cleanup preparation/review isolated. | source2ea85f68
+
+2026-09-27T01:41:46.948550+04:00 | P7/D232-D234 | Exact old upload scratch2359512B removed/accepted; fresh inhibitedrecorder compiled/uploaded once but receiveFAILED; passivecausecapture34538 active. Session forwarding host-tested/reviewed integrated3ec262a0;155importedfiles verifiedbyteexact. | cf9f4086/3ec262a0

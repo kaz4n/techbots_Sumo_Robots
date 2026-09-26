@@ -1,3 +1,29 @@
+## Current checkpoint - 2026-09-27T01:41:46.948550+04:00
+
+Objective: complete software and connected-board work quickly; BOARD ONLY.
+D231 first native failure retention is accepted; D232 exact old scratch cleanup
+removed2359512B, actualreview119bb5c0. D233 nativeHEADce4e6939/source29cb1e76
+compiled55376B/b13a32b5, oneuploadUPLOADED,900sreceiveFAILED with no accepted
+capture and no closing errors. Full evidence cf9f4086. Both cleanup owners and
+delivery owner consumed. Latest uploader-reported image is inhibited D233.
+
+Passive first-failure capture is ACTIVE session34538 from isolated worktree
+C:/Users/narut/AppData/Local/Temp/sumox-recorder-fresh-diagnosis-20260927
+HEAD3c9f11f5. Keep that worktree frozen until closure. One --execute admitted
+after receiver9246closed; no reset/upload/retry. Actual ABI221717e2 accepted
+reviewe8f4f533 has64fields,692B/snapshot; firstFailure address536951133,size8.
+Next: collect/review actual firstFailure, then choose source-backed remedy.
+Do not infer the cause from zero received/acknowledged bytes.
+
+D234 session forwarding is integrated3ec262a0, independentreviewb0032c22;
+Linux28Pythonmethods+49Runtimecases12558assertions,registry18legacychecks and
+21uniqueWindowsmethods pass. Default stream/session stay0; deploy refuses
+nondefault values until fresh receive workflow qualification. No targetD234run.
+All155importedcleanup/diagnostic/sessionfiles match original commits bytewise.
+No physical acceptance, motor-run authority, liveRAM/full-loop timing or human
+gate follows.28September scope decision and1October21:00freeze remain in force.
+Policyblockedlocalstagecleanup remains untouched. Older checkpoints historical.
+
 ## Current checkpoint - 2026-09-27T01:02:53.961983+04:00
 
 Objective: finish the software and connected-board work quickly. Hardware is

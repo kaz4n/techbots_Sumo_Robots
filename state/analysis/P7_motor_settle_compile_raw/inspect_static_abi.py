@@ -170,13 +170,13 @@ def settle_expressions():
     for name, member, _, _ in FIELDS:
         key = name + '.' + member
         expressions += [
-            'echo SUMOX_FIELD_OFFSET ' + key + '\n',
+            'echo SUMOX_FIELD_OFFSET ' + key + '\\n',
             'p/d (unsigned long)&((' + name + '*)0)->' + member,
-            'echo SUMOX_FIELD_WIDTH ' + key + '\n',
+            'echo SUMOX_FIELD_WIDTH ' + key + '\\n',
             'p/d sizeof(((' + name + '*)0)->' + member + ')',
         ]
     for name, _ in REASONS:
-        expressions += ['echo SUMOX_REASON ' + name + '\n',
+        expressions += ['echo SUMOX_REASON ' + name + '\\n',
                         'p/d (unsigned int)motors::SettleProbeReason::' + name]
     return expressions
 

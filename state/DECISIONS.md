@@ -2767,3 +2767,14 @@ Keep static/default/MATCH0/MOTORS0,200srecording,900sreceiver,oneupload,all
 source/boot/session/absencechecks. Separate actualcompile review may finish
 during reception; it adds no nativeoperation. No retry/reset or motorgrant.
 Success requires full identifiedreceiver/CSV/CRC validation, not uploadalone.
+
+D235 actualcompile acceptance (2026-09-27T02:04:16.274566+04:00): Adopt reviewdff2d18a PASS;145input/110stagepins,28transports9reapedchildren/9closingchecks,55376Bpackage3b4812a7,layoutRAM97424B. Fullrun64092 separatelyactive; uploaderUPLOADEDonce, receptionpending. Exact19importedsource/test/evidencefiles verified after integration8576cdd0/8a74ec5a.
+
+## D-238 (2026-09-27T02:04:16.274566+04:00) - Fresh six-store recorder result observation preparation
+Under D051 prepare a data-only derivative of acceptedD233 ABI/passivecaller
+for D237source289300a4/compileHEAD1b2af246,session8582740024591403637 and
+package3b4812a7. New isolatedsource/tools/owners; preserve fullflashbrackets,
+64fields,8Bfirstfailure and all validatedELFbounds. No staleaddressreuse.
+After source/focusedhost/review, file-only ABI may overlapreceiver; passive
+MCUcapture must wait fullrunclosure. Observe retainedsuccess/failurediagnostics
+without retransmission/reset/reflash. Do not infer a cause or physicalevidence.

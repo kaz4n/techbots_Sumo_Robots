@@ -1,0 +1,440 @@
+[
+  {
+    "source": "tools/commissioning_app_static_policy.py",
+    "target": "tools/match_static_policy.py",
+    "old_sha256": "1e46cf058ccab40a2cb8e0aa9f3e9583b1f11d35fd22baaf93ff9b55d78ba931",
+    "new_sha256": "d81852c4f78b94794698abe2c375ffcb20a28a6d5edd37d9fccc4045e772645c",
+    "old_bytes": 4779,
+    "new_bytes": 6819,
+    "forward_exact": true,
+    "reverse_exact": true,
+    "changes": [
+      {
+        "old_line": 8,
+        "old": "FQBN = 'arduino:zephyr:unoq:link_mode=static'\n",
+        "new_line": 8,
+        "new": "FQBN = 'arduino:zephyr:unoq:link_mode=static,wait_linux_boot=no'\n"
+      },
+      {
+        "old_line": 21,
+        "old": "PROFILES = ('b4_stand', 'p3_drive', 'p3_turn', 'p3_stop', 'p4_reactive',\n            'p4_timing', 'p5_abort_timing')\n",
+        "new_line": 21,
+        "new": "PROFILES = ('match',)\n"
+      },
+      {
+        "old_line": 26,
+        "old": "_ENABLED = dict(b4_stand=(0,), p3_drive=(1,), p3_turn=(2,), p3_stop=(3,),\n                p4_reactive=(4,), p4_timing=(4, 5), p5_abort_timing=(6,))\n",
+        "new_line": 25,
+        "new": "_ENABLED = dict(match=())\n"
+      },
+      {
+        "old_line": 33,
+        "old": "    if type(motors_allowed) is not int or motors_allowed not in (0, 1):\n",
+        "new_line": 31,
+        "new": "    if type(motors_allowed) is not int or motors_allowed != 1:\n"
+      },
+      {
+        "old_line": 35,
+        "old": "    values = [('MATCH', 0), ('MOTORS_ALLOWED', motors_allowed)]\n",
+        "new_line": 33,
+        "new": "    values = [('MATCH', 1), ('MOTORS_ALLOWED', motors_allowed)]\n"
+      },
+      {
+        "old_line": 66,
+        "old": "",
+        "new_line": 64,
+        "new": "    default_metadata = namespace['_metadata_policy']\n    namespace['_metadata_policy'] = lambda: immediate_metadata(default_metadata())\n"
+      },
+      {
+        "old_line": 67,
+        "old": "",
+        "new_line": 67,
+        "new": "\n\n\ndef immediate_metadata(policy):\n    original = policy['_expected_metadata']\n    def expected(build_path, data_dir):\n        values = original(build_path, data_dir)\n        values.update({'build.fqbn': FQBN, 'build.boot_mode': 'immediate'})\n        return values\n    reference = policy['_read_reference']()\n    for index in (1, 2):\n        key = 'recipe.hooks.objcopy.postobjcopy.' + str(index) + '.pattern'\n        if reference[key].count(' -prelinked  ') != 1:\n            raise ValueError('Reviewed package recipe changed')\n        reference[key] = reference[key].replace(' -prelinked  ', ' -prelinked -immediate ')\n    policy['_expected_metadata'] = expected\n    policy['_read_reference'] = lambda: dict(reference)\n    return policy\n\n\ndef immediate_artifacts(artifacts, native_tls_source, frozen_validator_source, saved):\n    extension = {'__name__': '_match_static_native_tls'}\n    exec(compile(saved[_RAW + 'static_native_artifacts.py'], '<checked-native-tls>', 'exec'), extension)\n    frozen = extension['load_frozen']\n    def load(native, source):\n        base = frozen(native, source)\n        original = base['package_header']\n        def header(length):\n            value = original(length)\n            if len(value) != 16 or value[14] != 2:\n                raise ValueError('Reviewed prelinked header changed')\n            return value[:14] + bytes([6]) + value[15:]\n        base['package_header'] = header\n        return base\n    extension['load_frozen'] = load\n    return extension['validate_artifacts'](artifacts, native_tls_source, frozen_validator_source)\n"
+      },
+      {
+        "old_line": 84,
+        "old": "    policy = _policy(profile, motors_allowed, snapshots)\n    result = policy['validate_artifacts'](\n        artifacts, native_tls_source, frozen_validator_source,\n        exported_flat_package=exported_flat_package)\n    result['status'] = 'STATIC_COMMISSIONING_APP_LAYOUT_PACKAGE_PASS'\n    result['profile'] = profile\n    result['motors_allowed'] = motors_allowed\n    return result\n\n",
+        "new_line": 120,
+        "new": "    flags = safety_flags(profile, motors_allowed=motors_allowed)\n    saved = _snapshots(snapshots)\n    if (type(exported_flat_package) is not bytes or type(artifacts) is not dict or\n            exported_flat_package != artifacts.get(PROJECT + '.bin-zsk.bin')):\n        raise ValueError('Exported flat package must equal the build package bytes')\n    report = immediate_artifacts(artifacts, native_tls_source, frozen_validator_source, saved)\n    aliases = {PROJECT + suffix: PROJECT + suffix for suffix in (\n        '.elf', '_debug.elf', '_temp.elf', '.bin', '.bin-zsk.bin', '.elf-zsk.bin', '.map')}\n    return dict(status='STATIC_MATCH_APP_LAYOUT_PACKAGE_PASS', profile=profile,\n        motors_allowed=motors_allowed, project=PROJECT, fqbn=FQBN, flags=flags,\n        artifact_aliases=aliases, artifact_sha256={name: hashlib.sha256(data).hexdigest()\n        for name, data in artifacts.items()}, validator_report=report)\n"
+      }
+    ]
+  },
+  {
+    "source": "tools/compile_commissioning_app.py",
+    "target": "tools/compile_match_static.py",
+    "old_sha256": "038a74777db7d26a15ff543d311fc4df2503e6f6b8e3b08fabcfb1c853220462",
+    "new_sha256": "dc1cb02c5376828da12497d59925a482b4dbba1fa74b8942e3e57d853cd89baf",
+    "old_bytes": 17992,
+    "new_bytes": 17853,
+    "forward_exact": true,
+    "reverse_exact": true,
+    "changes": [
+      {
+        "old_line": 19,
+        "old": "CALLER = 'tools/compile_commissioning_app.py'\nPOLICY = 'tools/commissioning_app_static_policy.py'\nREMOTE_HELPER = 'tools/commissioning_app_compile_remote.py'\n",
+        "new_line": 19,
+        "new": "CALLER = 'tools/compile_match_static.py'\nPOLICY = 'tools/match_static_policy.py'\nREMOTE_HELPER = 'tools/match_static_compile_remote.py'\n"
+      },
+      {
+        "old_line": 23,
+        "old": "CONTRACT = 'state/analysis/P7_commissioning_build_contract.md'\nRAW = 'state/analysis/P7_commissioning_build_raw'\n",
+        "new_line": 23,
+        "new": "CONTRACT = 'state/analysis/P7_match_static_contract.md'\nRAW = 'state/analysis/P7_match_static_raw'\n"
+      },
+      {
+        "old_line": 27,
+        "old": "PROFILES = ('b4_stand', 'p3_drive', 'p3_turn', 'p3_stop', 'p4_reactive',\n            'p4_timing', 'p5_abort_timing')\n",
+        "new_line": 27,
+        "new": "PROFILES = ('match',)\n"
+      },
+      {
+        "old_line": 41,
+        "old": "    require(type(motors_allowed) is int and motors_allowed in (0, 1), 'Exact motor integer required')\n",
+        "new_line": 40,
+        "new": "    require(type(motors_allowed) is int and motors_allowed == 1, 'Exact motor integer required')\n"
+      },
+      {
+        "old_line": 61,
+        "old": "    require(argv[4] in ('0', '1'), 'Explicit motor integer required')\n",
+        "new_line": 60,
+        "new": "    require(argv[4] == '1', 'Explicit motor integer required')\n"
+      },
+      {
+        "old_line": 71,
+        "old": "    owner = 'commission-' + profile + '-m' + str(motors_allowed) + '-' + digest[:12]\n",
+        "new_line": 70,
+        "new": "    owner = 'match-static-' + profile + '-m' + str(motors_allowed) + '-' + digest[:12]\n"
+      },
+      {
+        "old_line": 130,
+        "old": "    active = dict(b4_stand=(0,), p3_drive=(1,), p3_turn=(2,), p3_stop=(3,),\n                  p4_reactive=(4,), p4_timing=(4, 5), p5_abort_timing=(6,))[profile]\n    values = [('MATCH', 0), ('MOTORS_ALLOWED', motors_allowed)]\n",
+        "new_line": 129,
+        "new": "    _selection(profile, motors_allowed, 'flags')\n    active = ()\n    values = [('MATCH', 1), ('MOTORS_ALLOWED', motors_allowed)]\n"
+      },
+      {
+        "old_line": 157,
+        "old": "",
+        "new_line": 156,
+        "new": "        self.startup = 'immediate'\n"
+      },
+      {
+        "old_line": 174,
+        "old": "        value = dict(schema='commissioning-app-static-inputs-v1', profile=self.profile,\n",
+        "new_line": 174,
+        "new": "        value = dict(schema='match-static-app-static-inputs-v1', profile=self.profile,\n"
+      },
+      {
+        "old_line": 195,
+        "old": "        result.update(self.identity('commissioning-app-static-check-v1'), board_observed=False)\n",
+        "new_line": 195,
+        "new": "        result.update(self.identity('match-static-app-static-check-v1'), board_observed=False)\n"
+      },
+      {
+        "old_line": 204,
+        "old": "        intent = self.identity('commissioning-app-static-intent-v1')\n",
+        "new_line": 204,
+        "new": "        intent = self.identity('match-static-app-static-intent-v1')\n"
+      },
+      {
+        "old_line": 232,
+        "old": "        require(type(value) is dict and value.get('status') == 'STATIC_COMMISSIONING_APP_LAYOUT_PACKAGE_PASS'\n",
+        "new_line": 232,
+        "new": "        require(type(value) is dict and value.get('status') == 'STATIC_MATCH_APP_LAYOUT_PACKAGE_PASS'\n"
+      },
+      {
+        "old_line": 244,
+        "old": "        require(type(value) is dict and value.get('schema') == 'commissioning-app-static-artifacts-v1',\n",
+        "new_line": 244,
+        "new": "        require(type(value) is dict and value.get('schema') == 'match-static-app-static-artifacts-v1',\n"
+      },
+      {
+        "old_line": 259,
+        "old": "        report = self.identity('commissioning-app-static-compile-outcome-v1')\n",
+        "new_line": 259,
+        "new": "        report = self.identity('match-static-app-static-compile-outcome-v1')\n"
+      },
+      {
+        "old_line": 292,
+        "old": "",
+        "new_line": 292,
+        "new": "    module.FQBN = 'arduino:zephyr:unoq:link_mode=static,wait_linux_boot=no'\n"
+      }
+    ]
+  },
+  {
+    "source": "tools/commissioning_app_compile_remote.py",
+    "target": "tools/match_static_compile_remote.py",
+    "old_sha256": "476f6025e55fa9c2bdd0f29341fb660197a9f7eead8fd34b7c71e277158014a3",
+    "new_sha256": "b248cc75c5142e76b4b26fea043d24bbd84267ace9e9c92ff5f68d4e5dd8da6c",
+    "old_bytes": 5305,
+    "new_bytes": 5206,
+    "forward_exact": true,
+    "reverse_exact": true,
+    "changes": [
+      {
+        "old_line": 10,
+        "old": "POLICY = (4779, '1e46cf058ccab40a2cb8e0aa9f3e9583b1f11d35fd22baaf93ff9b55d78ba931')\nPINS = {'helper': '8ba9b190c38e728013a383348c60c287b0366607f65f703161cf7f2e142d36f8', 'policy': '1e46cf058ccab40a2cb8e0aa9f3e9583b1f11d35fd22baaf93ff9b55d78ba931', 'adapter': '3e5d49e4a70c0cf6197e26b1ba5ce2b7e07601bf5d9250ba430f90d1f9eab270', 'common': 'adc7f42a3325381c3cf15122409dfe9d92db7ca187cb242e416fef356be667f8', 'static_policy': 'ec3d8a5e8c4910bbdbbb96fb5123c8bb42b294ce9342c76db73b8d3b5eab7775', 'reference': '1dc8ac6dec8534536acfcc4da73516416ea465cfcc1a349900fd13e210144a2b', 'extension': 'cd52a29a32b8ae1da4bea51dd55d9011386dd4be0ca537195bb124d13031d6c0', 'base': 'd30372dd4b8fb8c2661d00affc4a215cc88e3f62511995ff6303827bed4b7368', 'primitive': '7dc788cbfb92688d3b1a2343f673da1bae3fa3ade1df5836ae437c013750b2d3'}\nSIZES = {'helper': 33321, 'policy': 4779, 'adapter': 8262, 'common': 14956, 'static_policy': 4836, 'reference': 17809, 'extension': 3718, 'base': 18322, 'primitive': 7821}\nPROFILES = ('b4_stand', 'p3_drive', 'p3_turn', 'p3_stop', 'p4_reactive',\n            'p4_timing', 'p5_abort_timing')\n",
+        "new_line": 10,
+        "new": "POLICY = (6819, 'd81852c4f78b94794698abe2c375ffcb20a28a6d5edd37d9fccc4045e772645c')\nPINS = {'helper': '8ba9b190c38e728013a383348c60c287b0366607f65f703161cf7f2e142d36f8', 'policy': 'd81852c4f78b94794698abe2c375ffcb20a28a6d5edd37d9fccc4045e772645c', 'adapter': '3e5d49e4a70c0cf6197e26b1ba5ce2b7e07601bf5d9250ba430f90d1f9eab270', 'common': 'adc7f42a3325381c3cf15122409dfe9d92db7ca187cb242e416fef356be667f8', 'static_policy': 'ec3d8a5e8c4910bbdbbb96fb5123c8bb42b294ce9342c76db73b8d3b5eab7775', 'reference': '1dc8ac6dec8534536acfcc4da73516416ea465cfcc1a349900fd13e210144a2b', 'extension': 'cd52a29a32b8ae1da4bea51dd55d9011386dd4be0ca537195bb124d13031d6c0', 'base': 'd30372dd4b8fb8c2661d00affc4a215cc88e3f62511995ff6303827bed4b7368', 'primitive': '7dc788cbfb92688d3b1a2343f673da1bae3fa3ade1df5836ae437c013750b2d3'}\nSIZES = {'helper': 33321, 'policy': 6819, 'adapter': 8262, 'common': 14956, 'static_policy': 4836, 'reference': 17809, 'extension': 3718, 'base': 18322, 'primitive': 7821}\nPROFILES = ('match',)\n"
+      },
+      {
+        "old_line": 25,
+        "old": "    require(type(motors_allowed) is int and motors_allowed in (0, 1), 'Exact motor integer required')\n",
+        "new_line": 24,
+        "new": "    require(type(motors_allowed) is int and motors_allowed == 1, 'Exact motor integer required')\n"
+      },
+      {
+        "old_line": 30,
+        "old": "    return 'commission-' + profile + '-m' + str(motors_allowed) + '-' + digest[:12]\n",
+        "new_line": 29,
+        "new": "    return 'match-static-' + profile + '-m' + str(motors_allowed) + '-' + digest[:12]\n"
+      },
+      {
+        "old_line": 80,
+        "old": "    result.update(schema='commissioning-app-static-artifacts-v1', profile=profile,\n",
+        "new_line": 79,
+        "new": "    result.update(schema='match-static-app-static-artifacts-v1', profile=profile,\n"
+      }
+    ]
+  },
+  {
+    "source": "tools/commissioning_app_upload.py",
+    "target": "tools/match_static_upload.py",
+    "old_sha256": "6fe131d2d7dbffa1af54bebaf080a0deababee5e08a2286f1abed943ddede765",
+    "new_sha256": "d7f9395ad4b1d491f20dc9976fa8d9eb746c8fc9b5b8d5ef977c3c1a4fd4a8ed",
+    "old_bytes": 13772,
+    "new_bytes": 13689,
+    "forward_exact": true,
+    "reverse_exact": true,
+    "changes": [
+      {
+        "old_line": 18,
+        "old": "PROFILES = ('b4_stand', 'p3_drive', 'p3_turn', 'p3_stop', 'p4_reactive',\n            'p4_timing', 'p5_abort_timing')\n",
+        "new_line": 18,
+        "new": "PROFILES = ('match',)\n"
+      },
+      {
+        "old_line": 22,
+        "old": "FQBN = 'arduino:zephyr:unoq:link_mode=static'\n",
+        "new_line": 21,
+        "new": "FQBN = 'arduino:zephyr:unoq:link_mode=static,wait_linux_boot=no'\n"
+      },
+      {
+        "old_line": 67,
+        "old": "    require(type(value['motors_allowed']) is int and value['motors_allowed'] in (0, 1),\n",
+        "new_line": 66,
+        "new": "    require(type(value['motors_allowed']) is int and value['motors_allowed'] == 1,\n"
+      },
+      {
+        "old_line": 82,
+        "old": "    owner = 'commission-' + profile + '-m' + str(motors_allowed) + '-' + digest\n",
+        "new_line": 81,
+        "new": "    owner = 'match-static-' + profile + '-m' + str(motors_allowed) + '-' + digest\n"
+      },
+      {
+        "old_line": 90,
+        "old": "    return dict(fixed=dict(schema='fixed-commissioning-app-upload-v1', run_id=run_id,\n                          source_sha256=source_sha256, output=PARENT + '/commission-upload-' + run_id),\n                schema_prefix='commissioning-app-upload-', files=files, absent=absent,\n",
+        "new_line": 89,
+        "new": "    return dict(fixed=dict(schema='fixed-match-static-app-upload-v1', run_id=run_id,\n                          source_sha256=source_sha256, output=PARENT + '/match-static-upload-' + run_id),\n                schema_prefix='match-static-app-upload-', files=files, absent=absent,\n"
+      },
+      {
+        "old_line": 115,
+        "old": "    require(payload['schema'] == 'commissioning-app-upload-payload-v1', 'Invalid payload schema')\n",
+        "new_line": 114,
+        "new": "    require(payload['schema'] == 'match-static-app-upload-payload-v1', 'Invalid payload schema')\n"
+      },
+      {
+        "old_line": 134,
+        "old": "    attempt.report['schema'] = 'commissioning-app-upload-result-v1'\n",
+        "new_line": 133,
+        "new": "    attempt.report['schema'] = 'match-static-app-upload-result-v1'\n"
+      },
+      {
+        "old_line": 159,
+        "old": "result=dict(schema='commissioning-app-action-v1',selection=payload['selection'],payload_sha256=expected,remote_result_path=payload['bindings']['output']+'/upload_result.json',full_result_bytes=None,full_result_sha256=None,report=None,first_error=None)\n",
+        "new_line": 158,
+        "new": "result=dict(schema='match-static-app-action-v1',selection=payload['selection'],payload_sha256=expected,remote_result_path=payload['bindings']['output']+'/upload_result.json',full_result_bytes=None,full_result_sha256=None,report=None,first_error=None)\n"
+      },
+      {
+        "old_line": 178,
+        "old": "    payload = canonical(dict(schema='commissioning-app-upload-payload-v1', selection=selected,\n",
+        "new_line": 177,
+        "new": "    payload = canonical(dict(schema='match-static-app-upload-payload-v1', selection=selected,\n"
+      },
+      {
+        "old_line": 222,
+        "old": "    expected = dict(schema='commissioning-app-upload-result-v1', status='UPLOADED',\n",
+        "new_line": 221,
+        "new": "    expected = dict(schema='match-static-app-upload-result-v1', status='UPLOADED',\n"
+      },
+      {
+        "old_line": 249,
+        "old": "    require(value['schema'] == 'commissioning-app-action-v1' and\n",
+        "new_line": 248,
+        "new": "    require(value['schema'] == 'match-static-app-action-v1' and\n"
+      },
+      {
+        "old_line": 251,
+        "old": "            and value['remote_result_path'] == PARENT + '/commission-upload-' + selected['run_id'] +\n",
+        "new_line": 250,
+        "new": "            and value['remote_result_path'] == PARENT + '/match-static-upload-' + selected['run_id'] +\n"
+      }
+    ]
+  },
+  {
+    "source": "tools/deploy_commissioning_app.py",
+    "target": "tools/deploy_match_static.py",
+    "old_sha256": "e030c2497605fc77938c70e7cb76e8c29db65322bdb4cba87381a70d2ddcfde4",
+    "new_sha256": "87b85c1ebc3a80d83c7cf22c71e8b23c314395773ae95538cf90f449fda43149",
+    "old_bytes": 32202,
+    "new_bytes": 28596,
+    "forward_exact": true,
+    "reverse_exact": true,
+    "changes": [
+      {
+        "old_line": 17,
+        "old": "CALLER = 'tools/deploy_commissioning_app.py'\nADAPTER = 'tools/commissioning_app_upload.py'\nCONTRACT = 'state/analysis/P7_commissioning_deploy_contract.md'\nCOMPILER = 'tools/compile_commissioning_app.py'\n",
+        "new_line": 17,
+        "new": "CALLER = 'tools/deploy_match_static.py'\nADAPTER = 'tools/match_static_upload.py'\nCONTRACT = 'state/analysis/P7_match_static_contract.md'\nCOMPILER = 'tools/compile_match_static.py'\n"
+      },
+      {
+        "old_line": 28,
+        "old": "    COMPILER: '038a74777db7d26a15ff543d311fc4df2503e6f6b8e3b08fabcfb1c853220462',\n",
+        "new_line": 28,
+        "new": "    COMPILER: 'dc1cb02c5376828da12497d59925a482b4dbba1fa74b8942e3e57d853cd89baf',\n"
+      },
+      {
+        "old_line": 42,
+        "old": "GATES = dict(b4_stand='GATE P1 PASS', p3_drive='GATE P2 PASS', p3_turn='GATE P2 PASS',\n    p3_stop='GATE P2 PASS', p4_reactive='GATE P3 PASS', p4_timing='GATE P3 PASS',\n    p5_abort_timing='GATE P4 PASS')\n\n\n",
+        "new_line": 42,
+        "new": ""
+      },
+      {
+        "old_line": 78,
+        "old": "    module = types.ModuleType('_commissioning_deploy_primitives')\n",
+        "new_line": 73,
+        "new": "    module = types.ModuleType('_match_static_deploy_primitives')\n"
+      },
+      {
+        "old_line": 98,
+        "old": "        names.update(('tools/run_app_identified_delivery.py', 'tools/run_recorder_delivery.py',\n",
+        "new_line": 93,
+        "new": "        names.update(('tools/run_match_identified_delivery.py', 'tools/run_recorder_delivery.py',\n"
+      },
+      {
+        "old_line": 100,
+        "old": "                      'state/analysis/P7_app_identified_delivery_contract.md'))\n",
+        "new_line": 95,
+        "new": "                      'state/analysis/P7_match_static_contract.md'))\n"
+      },
+      {
+        "old_line": 128,
+        "old": "    mode = 'inhibited_diagnostic' if request['motors_allowed'] == 0 else 'operational_commissioning'\n    require(type(request['mode']) is str and request['mode'] == mode and request['startup'] == 'default',\n",
+        "new_line": 123,
+        "new": "    mode = 'inhibited_diagnostic' if request['motors_allowed'] == 0 else 'operational_match'\n    require(type(request['mode']) is str and request['mode'] == mode and request['startup'] == 'immediate',\n"
+      },
+      {
+        "old_line": 159,
+        "old": "    identity = owner.identity('commissioning-app-static-compile-outcome-v1')\n",
+        "new_line": 154,
+        "new": "    identity = owner.identity('match-static-app-static-compile-outcome-v1')\n"
+      },
+      {
+        "old_line": 172,
+        "old": "    expected = owner.identity('commissioning-app-static-intent-v1')\n",
+        "new_line": 167,
+        "new": "    expected = owner.identity('match-static-app-static-intent-v1')\n"
+      },
+      {
+        "old_line": 196,
+        "old": "    policy = base.load_module(root, 'tools/commissioning_app_static_policy.py',\n                              owner.code['tools/commissioning_app_static_policy.py'])\n",
+        "new_line": 191,
+        "new": "    policy = base.load_module(root, 'tools/match_static_policy.py',\n                              owner.code['tools/match_static_policy.py'])\n"
+      },
+      {
+        "old_line": 297,
+        "old": "    enabled = {name for name, value in config.items() if name.startswith('APP_GRANT_') and value == 1}\n    if request['motors_allowed'] == 0:\n        require(request['qualification'] is None and not enabled and config['APP_IMU_BODY_AXIS'] == [0, 0, 0]\n                and config['APP_DUMP_ORIGIN'] == 0, 'M0 diagnostic requires all setup grants absent')\n        return None\n    require({'APP_GRANT_OPPONENTS', 'APP_GRANT_ADC_PAIR', 'APP_GRANT_QTR_EXCLUSIVE_PADS'} <= enabled and\n            config['BUTTON_WINDOWS_CONFIGURED'] == 1, 'Operational setup remains unconfigured')\n    checked_button_windows(config)\n    value = base.decode(pinned(base, root, request['qualification'], limit=65536))\n    base.keys(value, ('schema', 'operation_image_sha256', 'operation', 'verdict', 'reviewer',\n                     'limitations', 'checks', 'grants', 'gate', 'turn_basis'))\n    operation = 'stand' if request['profile'] == 'b4_stand' else 'ring'\n    image = {key: item for key, item in request.items() if key != 'qualification'}\n    require(value['schema'] == 'commissioning-operation-qualification-v1' and\n            value['verdict'] == 'QUALIFIED_FOR_IDENTIFIED_OPERATION' and value['operation'] == operation and\n            value['operation_image_sha256'] == base.sha(base.canonical(image)), 'Qualification operation/image differs')\n    require(type(value['reviewer']) is str and value['reviewer'].strip() and\n            type(value['limitations']) is list and all(type(item) is str for item in value['limitations']),\n            'Missing qualification disposition')\n    base.keys(value['checks'], CHECKS)\n    base.keys(value['grants'], enabled)\n    for check in (*value['checks'].values(), *value['grants'].values()):\n        physical_check(base, root, check)\n    gate = value['gate']\n    base.keys(gate, ('reply', 'message_ref', 'evidence'))\n    require(gate['reply'] == GATES[request['profile']] and type(gate['message_ref']) is str and\n            gate['message_ref'].strip(), 'Required human phase gate is absent')\n    evidence_list(base, root, gate['evidence'])\n    checked_turn(request['profile'], value['turn_basis'], enabled, config)\n    return value\n\n\ndef checked_turn(profile, basis, enabled, config):\n    require(type(basis) is str and basis in (('imu_accuracy', 'timed_fallback') if profile == 'p3_turn'\n                                           else ('not_applicable',)), 'Turn evidence basis is missing')\n    if basis == 'imu_accuracy':\n        require({'APP_GRANT_IMU_ENABLED', 'APP_GRANT_IMU_POWER_CONFIRMED',\n                 'APP_GRANT_IMU_MOUNTING_CONFIRMED'} <= enabled and\n                sorted(abs(item) for item in config['APP_IMU_BODY_AXIS']) == [1, 2, 3],\n                'IMU accuracy needs accepted power/mounting/axis configuration')\n",
+        "new_line": 292,
+        "new": "    # Preserve the production MATCH qualification contract, with the selected tuple.\n    base.FQBN = 'arduino:zephyr:unoq:link_mode=static,wait_linux_boot=no'\n    return base.checked_qualification(root, request)\n"
+      },
+      {
+        "old_line": 340,
+        "old": "    request = scope['request']\n    if request['motors_allowed'] == 0:\n        require(scope['authorization'] is None, 'M0 diagnostic carries no motor authority')\n        return\n    value = base.decode(pinned(base, root, scope['authorization'], limit=65536))\n    base.keys(value, ('schema', 'request_sha256', 'reply', 'message_ref', 'issued_utc', 'expires_utc'))\n    reply = 'STAND OK' if request['profile'] == 'b4_stand' else 'RING OK'\n    require(value['schema'] == 'commissioning-human-authorization-v1' and value['reply'] == reply and\n            value['request_sha256'] == base.sha(base.canonical(request)) and\n            type(value['message_ref']) is str and value['message_ref'].strip(), 'Specific human authorization absent')\n    issued, expires = base.utc(value['issued_utc']), base.utc(value['expires_utc'])\n    require(0 < (expires - issued).total_seconds() <= 3600 and issued <= now < expires,\n            'Specific human authorization is stale, future or too long-lived')\n",
+        "new_line": 298,
+        "new": "    qualification = checked_qualification(base, root, scope['request'], None)\n    return base.checked_authorization(root, scope, qualification,\n        base.sha(base.canonical(scope['request'])), now)\n"
+      },
+      {
+        "old_line": 385,
+        "old": "    return root / 'state/analysis' / ('app_identified_delivery_' + delivery['run_id'][:16])\n",
+        "new_line": 333,
+        "new": "    return root / 'state/analysis' / ('match_identified_delivery_' + delivery['run_id'][:16])\n"
+      },
+      {
+        "old_line": 389,
+        "old": "    return dict(schema='app-identified-delivery-claim-v1', session=scope['delivery']['session'],\n",
+        "new_line": 337,
+        "new": "    return dict(schema='match-identified-delivery-claim-v1', session=scope['delivery']['session'],\n"
+      },
+      {
+        "old_line": 404,
+        "old": "    require(scope['schema'] == 'commissioning-app-deploy-v1', 'Unknown deployment schema')\n",
+        "new_line": 352,
+        "new": "    require(scope['schema'] == 'match-static-app-deploy-v1', 'Unknown deployment schema')\n"
+      },
+      {
+        "old_line": 442,
+        "old": "    return scope['root'] / 'state/analysis' / ('commissioning_deploy_' + scope['request']['run_id'])\n",
+        "new_line": 390,
+        "new": "    return scope['root'] / 'state/analysis' / ('match_static_deploy_' + scope['request']['run_id'])\n"
+      },
+      {
+        "old_line": 453,
+        "old": "    return dict(schema='commissioning-app-deploy-check-v1', status='ADMITTED_LOCAL', board_observed=False,\n",
+        "new_line": 401,
+        "new": "    return dict(schema='match-static-app-deploy-check-v1', status='ADMITTED_LOCAL', board_observed=False,\n"
+      },
+      {
+        "old_line": 505,
+        "old": "    outcome.update(schema='commissioning-app-deploy-outcome-v1',\n",
+        "new_line": 453,
+        "new": "    outcome.update(schema='match-static-app-deploy-outcome-v1',\n"
+      },
+      {
+        "old_line": 509,
+        "old": "        base.write_exclusive(output / 'attempt.json', dict(schema='commissioning-app-attempt-v1',\n",
+        "new_line": 457,
+        "new": "        base.write_exclusive(output / 'attempt.json', dict(schema='match-static-app-attempt-v1',\n"
+      }
+    ]
+  },
+  {
+    "source": "tools/run_app_identified_delivery.py",
+    "target": "tools/run_match_identified_delivery.py",
+    "old_sha256": "92fbf240eb8f450b2012fc59111b7bd39a03d606439b63fceb96bb03df8bf1a9",
+    "new_sha256": "60b7b69926defabe2dc364d6c64c5fb58ea1d3f8f7290b86b1c4929bd5169535",
+    "old_bytes": 11292,
+    "new_bytes": 11291,
+    "forward_exact": true,
+    "reverse_exact": true,
+    "changes": [
+      {
+        "old_line": 13,
+        "old": "DEPLOY = 'tools/deploy_commissioning_app.py'\n",
+        "new_line": 13,
+        "new": "DEPLOY = 'tools/deploy_match_static.py'\n"
+      },
+      {
+        "old_line": 62,
+        "old": "    return dict(schema='app-identified-delivery-check-v1', status='ADMITTED_LOCAL',\n",
+        "new_line": 62,
+        "new": "    return dict(schema='match-identified-delivery-check-v1', status='ADMITTED_LOCAL',\n"
+      },
+      {
+        "old_line": 142,
+        "old": "    report = dict(schema='app-identified-delivery-result-v1', status='FAILED',\n",
+        "new_line": 142,
+        "new": "    report = dict(schema='match-identified-delivery-result-v1', status='FAILED',\n"
+      }
+    ]
+  }
+]

@@ -1,0 +1,494 @@
+# Admits one D222 commissioning upload against exact source and external evidence.
+# Separates inhibited diagnostics from physically qualified, authorized motor runs.
+# Independent D227 tests cover Git blobs, closed profiles and consumed attempts.
+from datetime import datetime, timezone
+import hashlib
+import json
+import os
+from pathlib import Path
+import re
+import shutil
+import stat
+import subprocess
+import sys
+import types
+
+
+ROOT = Path(__file__).absolute().parents[1]
+CALLER = 'tools/deploy_match_static.py'
+ADAPTER = 'tools/match_static_upload.py'
+CONTRACT = 'state/analysis/P7_match_static_contract.md'
+COMPILER = 'tools/compile_match_static.py'
+BASE = 'tools/match_deploy.py'
+STATIC = 'state/analysis/P7_static_startup_raw/'
+UPLOADER = STATIC + 'upload_remote.py'
+INHERITED = 'tools/match_upload.py'
+BOOT = '55c386b9-fe6d-4388-a7f4-1d91e0bb49d8'
+FROZEN = {
+    BASE: '3acacad6e95aff1012e9d0d1f8ef60905c026ebe865569fdb71384abd607d2a9',
+    COMPILER: 'dc1cb02c5376828da12497d59925a482b4dbba1fa74b8942e3e57d853cd89baf',
+    INHERITED: '777a2f29a326094c34298f07d3597eb603bf3487f8780f18c5da122bb527d9be'}
+RECEIPTS = dict(inputs='inputs.json', intent='intent.json', staged_files='staged_files.json',
+    result='result.json', artifacts='artifacts.json', compile_command='compile/compile.command.json',
+    compile_stdout='compile/compile.stdout.json', compile_stderr='compile/compile.stderr.txt',
+    properties_command='compile/properties.command.json', properties_stdout='compile/properties.stdout.json',
+    properties_stderr='compile/properties.stderr.txt')
+GRANTS = ('OPPONENTS', 'ADC_PAIR', 'QTR_EXCLUSIVE_PADS', 'IMU_ENABLED',
+    'IMU_POWER_CONFIRMED', 'IMU_MOUNTING_CONFIRMED', 'DEFAULT_LINE_THRESHOLDS',
+    'MATRIX_ENABLED', 'MATRIX_NORMAL_STARTUP', 'MATRIX_EXCLUSIVE_OWNER', 'DUMP_ENABLED',
+    'DUMP_SETUP_PHASE', 'DUMP_EXCLUSIVE_UART', 'DUMP_READY_PIN_OWNED', 'DUMP_FRAMING_CLEAN',
+    'LOCAL_SERVICE_RESET', 'CALIBRATION_OUTPUT')
+CHECKS = ('pinmap', 'electrical', 'buttons', 'battery', 'line_calibration',
+          'motor_inhibition', 'profile_parameters', 'source_clock')
+def require(condition, message):
+    if not condition:
+        raise ValueError(message)
+
+
+def parse_request(argv):
+    require(type(argv) is list and all(type(item) is str for item in argv) and len(argv) == 5 and
+            argv[0] in ('--check-only', '--execute') and argv[1::2] == ['--scope', '--reviewed-head'],
+            'Expected action --scope RELATIVE_JSON --reviewed-head HEAD')
+    require(re.fullmatch('[0-9a-f]{40}', argv[4]), 'Invalid reviewed HEAD')
+    require(argv[2] and not Path(argv[2]).is_absolute(), 'Relative scope required')
+    return dict(action=argv[0], scope=argv[2], reviewed_head=argv[4])
+
+
+def bootstrap(root):
+    path = root / BASE
+    for node in (path, *path.parents):
+        info = node.lstat()
+        require((stat.S_ISREG(info.st_mode) if node == path else stat.S_ISDIR(info.st_mode)) and
+                not getattr(info, 'st_file_attributes', 0) & 1024, 'Nonplain bootstrap path')
+    before = path.stat()
+    require(before.st_nlink == 1 and 0 < before.st_size <= 65536, 'Invalid bootstrap size/link')
+    flags = os.O_RDONLY | getattr(os, 'O_BINARY', 0) | getattr(os, 'O_NOFOLLOW', 0)
+    with os.fdopen(os.open(path, flags), 'rb') as stream:
+        opened = os.fstat(stream.fileno())
+        raw = stream.read(65537)
+        after = os.fstat(stream.fileno())
+    stamp = lambda item: (item.st_dev, item.st_ino, item.st_mode, item.st_nlink,
+                          item.st_size, item.st_mtime_ns)
+    require(stamp(before) == stamp(opened) == stamp(after) == stamp(path.stat()) and
+            hashlib.sha256(raw).hexdigest() == FROZEN[BASE], 'Frozen bootstrap changed')
+    module = types.ModuleType('_match_static_deploy_primitives')
+    module.__file__ = str(path)
+    exec(compile(raw, str(path), 'exec'), module.__dict__)
+    return module
+
+
+def pinned(base, root, pin, *, empty=False, limit=4194304):
+    base.keys(pin, ('path', 'bytes', 'sha256'))
+    base.hexadecimal(pin['sha256'], 64)
+    require(type(pin['bytes']) is int and (0 if empty else 1) <= pin['bytes'] <= limit,
+            'Invalid evidence size')
+    raw = base.read_file(root, pin['path'], limit)
+    require((root / pin['path']).stat().st_nlink == 1 and len(raw) == pin['bytes'] and
+            base.sha(raw) == pin['sha256'], 'Pinned evidence changed')
+    return raw
+
+
+def checked_code(base, root, reviewed_head, *, identified=False):
+    names = {CALLER, ADAPTER, CONTRACT, COMPILER, INHERITED, BASE, 'tools/board_tool.py'} | set(base.FIXED)
+    if identified:
+        names.update(('tools/run_match_identified_delivery.py', 'tools/run_recorder_delivery.py',
+                      'tools/dump_match.py', 'tools/validate_csv_bundle.py',
+                      'state/analysis/P7_match_static_contract.md'))
+    code = {name: base.read_file(root, name) for name in names}
+    for name, expected in {**base.FIXED, **FROZEN}.items():
+        require(base.sha(code[name]) == expected, 'Frozen source changed: ' + name)
+    compiler = base.load_module(root, COMPILER, code[COMPILER])
+    require(code == compiler._head_bytes(root, reviewed_head, names), 'Deployment software HEAD differs')
+    return code, compiler
+
+
+def git_clean(root, reviewed_head, output=None):
+    def git(args):
+        value = subprocess.run(['git', '-C', str(root), *args], stdin=subprocess.DEVNULL,
+                               capture_output=True, timeout=30, check=True)
+        require(not value.stderr and len(value.stdout) <= 1048576, 'Invalid Git response')
+        return value.stdout.decode('utf-8')
+    require(git(['rev-parse', 'HEAD']).strip() == reviewed_head, 'Reviewed deployment HEAD changed')
+    rows = [row for row in git(['status', '--porcelain=v1', '-z', '--untracked-files=all']).split('\0') if row]
+    prefix = None if output is None else output.relative_to(root).as_posix() + '/'
+    require(all(prefix and row.startswith('?? ' + prefix) for row in rows), 'Deployment tree is not clean')
+
+
+def checked_request(base, adapter, request, target, transport):
+    base.keys(request, ('profile', 'motors_allowed', 'mode', 'compile_attempt', 'run_id',
+        'source_commit', 'source_sha256', 'config_sha256', 'startup', 'target', 'transport',
+        'bindings', 'build_receipts', 'qualification'))
+    selection = adapter.checked_selection({name: request[name] for name in adapter.SELECTION})
+    base.hexadecimal(request['source_commit'], 40)
+    base.hexadecimal(request['config_sha256'], 64)
+    mode = 'inhibited_diagnostic' if request['motors_allowed'] == 0 else 'operational_match'
+    require(type(request['mode']) is str and request['mode'] == mode and request['startup'] == 'immediate',
+            'Wrong commissioning mode/startup')
+    pattern = r'[A-Za-z0-9][A-Za-z0-9_.:-]*' if transport == 'adb' else r'[A-Za-z0-9_][A-Za-z0-9_.@-]*'
+    require(type(target) is str and re.fullmatch(pattern, target) and type(transport) is str and
+            transport in ('adb', 'ssh') and request['target'] == target and request['transport'] == transport,
+            'Configured target/transport differs')
+    return selection
+
+
+def compile_owner(base, compiler, root, request):
+    args = dict(action='--check-only', profile=request['profile'], motors_allowed=request['motors_allowed'],
+                attempt=request['compile_attempt'], reviewed_head=request['source_commit'])
+    owner = compiler.make_owner(args, root=root)
+    owner.admission()
+    require(owner.source_sha256 == request['source_sha256'] and owner.boot == BOOT and
+            base.sha(owner.code['src/config.h']) == request['config_sha256'], 'Compiled source/config differs')
+    # admission compares the complete current input set to actual commit blobs.
+    return owner
+
+
+def checked_receipts(base, root, request, owner):
+    base.keys(request['build_receipts'], RECEIPTS)
+    documents, prefix = {}, owner.output.relative_to(root).as_posix() + '/'
+    for role, leaf in RECEIPTS.items():
+        pin = request['build_receipts'][role]
+        require(type(pin) is dict and pin.get('path') == prefix + leaf, 'Wrong compile receipt path')
+        documents[role] = pinned(base, root, pin, empty=role.endswith('_stderr'))
+    require(documents['inputs'] == owner.inputs_raw, 'Complete compile input manifest differs')
+    require(base.decode(documents['staged_files']) == owner.expected_stage, 'Compiled source mapping differs')
+    require(not documents['compile_stderr'] and not documents['properties_stderr'], 'Compile stderr not empty')
+    identity = owner.identity('match-static-app-static-compile-outcome-v1')
+    result = base.decode(documents['result'])
+    require(all(type(result.get(key)) is type(value) and result[key] == value
+                for key, value in identity.items()), 'Compile result identity differs')
+    require(result.get('status') == 'COMPILE_CHECKED' and result.get('first_error') is None and
+            all(type(result.get(key)) is int and result[key] == 1 for key in ('query_calls', 'compiler_calls')),
+            'Compile did not close successfully exactly once')
+    checks = ('local', 'identity', 'initialization', 'builtins', 'remote_sources',
+              'installed_pins', 'overrides', 'artifacts', 'artifact_sources')
+    require(result.get('final_checks') == [dict(name=name, status='PASS', error=None) for name in checks] and
+            result.get('artifacts') == owner.artifacts,
+            'Incomplete compile closure')
+    intent = base.decode(documents['intent'])
+    expected = owner.identity('match-static-app-static-intent-v1')
+    expected.update(inputs_sha256=base.sha(documents['inputs']), remote=owner.remote, sketch=owner.sketch)
+    base.keys(intent, (*expected, 'stage', 'started_utc'))
+    require(all(type(intent[key]) is type(value) and intent[key] == value for key, value in expected.items()),
+            'Compile intent differs')
+    require(type(intent['stage']) is str and intent['stage'].replace('\\', '/').endswith(
+        '/build/stage/' + owner.stage_attempt + '/app'), 'Compile stage intent differs')
+    base.utc(intent['started_utc'])
+    require(base.utc(result['finished_utc']) >= base.utc(result['started_utc']), 'Compile UTC ordering differs')
+    artifacts = owner.validate_artifact_reply(documents['artifacts'].decode('utf-8'))
+    checked_compile_metadata(base, root, owner, documents)
+    return artifacts
+
+
+def checked_compile_metadata(base, root, owner, documents):
+    common = base.policy_snapshot(root, owner.code)
+    command = ['arduino-cli', 'compile', '--json', '--fqbn', owner.fqbn,
+        '--build-path', owner.build_path, '--output-dir', owner.artifacts,
+        '--build-property', 'compiler.cpp.extra_flags=' + owner.flags,
+        '--build-property', 'compiler.c.extra_flags=' + owner.flags,
+        '--build-property', 'build.library_discovery_phase_flag=' + common.DISCOVERY, owner.sketch]
+    require(base.decode(documents['compile_command']) == command and
+            base.decode(documents['properties_command']) == [*command[:-1], '--show-properties=expanded', command[-1]],
+            'Compile/query commands differ')
+    policy = base.load_module(root, 'tools/match_static_policy.py',
+                              owner.code['tools/match_static_policy.py'])
+    snapshots = {name: owner.code[name] for name in policy.SNAPSHOT_PINS}
+    args = dict(build_path=owner.build_path, data_dir='/home/arduino/.arduino15',
+                profile=owner.profile, motors_allowed=owner.motors_allowed, snapshots=snapshots)
+    policy.validate_preflight(documents['properties_stdout'].decode('utf-8'), **args)
+    policy.validate_compile_result(documents['compile_stdout'].decode('utf-8'), **args)
+
+
+def config_text(raw):
+    text = raw.decode('utf-8')
+    require(not re.search(r'\\\r?\n|\b(?:u8|[uUL])?R"', text), 'Unsupported config literal syntax')
+    token = r'/\*[\s\S]*?\*/|//[^\n]*|"(?:\\.|[^"\\])*"|\'(?:\\.|[^\'\\])*\''
+    text = re.sub(token, lambda item: re.sub(r'[^\n]', ' ', item.group()), text)
+    protected = r'\b(?:APP_GRANT_[A-Z0-9_]+|APP_IMU_BODY_AXIS|APP_DUMP_ORIGIN|APP_DUMP_RECEIVE_STREAM_ID|APP_DUMP_SESSION_ID|BUTTON_WINDOWS_CONFIGURED|BUTTON_LOW_RAW|BUTTON_HIGH_RAW)\b'
+    depth = 0
+    for line in text.splitlines():
+        directive = re.match(r'^\s*#\s*(\w+)\b', line)
+        if directive:
+            require(not re.search(protected, line), 'Protected config preprocessor use is unsupported')
+            word = directive.group(1)
+            if word in ('if', 'ifdef', 'ifndef'):
+                depth += 1
+            elif word in ('elif', 'else', 'endif'):
+                require(depth > 0, 'Unbalanced config conditional')
+                if word == 'endif':
+                    depth -= 1
+        else:
+            require(not depth or not re.search(protected, line), 'Conditional protected declaration is unsupported')
+    require(depth == 0, 'Unclosed config conditional')
+    return text, protected
+
+
+def config_literals(raw, *, _session=None):
+    text, protected = config_text(raw)
+    expected = {'APP_GRANT_' + name for name in GRANTS}
+    require(set(re.findall(r'\bAPP_GRANT_[A-Z0-9_]+\b', text)) == expected, 'Unsupported setup grant set')
+    values, accepted = {}, []
+    number = r'(?:0|[1-9][0-9]*)'
+    for name in (*sorted(expected), 'APP_DUMP_ORIGIN', 'APP_DUMP_RECEIVE_STREAM_ID', 'BUTTON_WINDOWS_CONFIGURED'):
+        rows = list(re.finditer(r'\binline\s+constexpr\s+std::uint32_t\s+' + name +
+                               r'\s*=\s*(' + number + r')U\s*;', text))
+        require(len(rows) == 1, 'Unsupported or duplicate config literal: ' + name)
+        values[name] = int(rows[0].group(1))
+        accepted.append(rows[0].group())
+    require(all(values[name] in (0, 1) for name in expected) and values['APP_DUMP_ORIGIN'] in (0, 1, 2)
+            and values['BUTTON_WINDOWS_CONFIGURED'] in (0, 1), 'Invalid config literal values')
+    rows = list(re.finditer(r'\binline\s+constexpr\s+std::uint64_t\s+APP_DUMP_SESSION_ID'
+                           r'\s*=\s*(' + number + r')U\s*;', text))
+    require(len(rows) == 1, 'Unsupported or duplicate dump session literal')
+    values['APP_DUMP_SESSION_ID'] = int(rows[0].group(1))
+    accepted.append(rows[0].group())
+    # This deployment workflow has no fresh identified receive owner yet.
+    if _session is None:
+        require(values['APP_DUMP_RECEIVE_STREAM_ID'] == values['APP_DUMP_SESSION_ID'] == 0,
+                'Identified dump deployment needs a separately qualified workflow')
+    else:
+        require(type(_session) is int and 1 <= _session <= 0xffffffffffffffff and
+                values['APP_DUMP_RECEIVE_STREAM_ID'] == 1 and values['APP_DUMP_SESSION_ID'] == _session,
+                'Identified dump configuration differs from reserved session')
+    rows = list(re.finditer(r'\binline\s+constexpr\s+std::int32_t\s+APP_IMU_BODY_AXIS\[3\]\s*=\s*'
+                           r'\{\s*(-?[0-3])\s*,\s*(-?[0-3])\s*,\s*(-?[0-3])\s*\}\s*;', text))
+    require(len(rows) == 1, 'Unsupported or duplicate mounting literal')
+    values['APP_IMU_BODY_AXIS'] = [int(item) for item in rows[0].groups()]
+    accepted.append(rows[0].group())
+    element = r'\s*(' + number + r')U\s*'
+    for name in ('BUTTON_LOW_RAW', 'BUTTON_HIGH_RAW'):
+        rows = list(re.finditer(r'\binline\s+constexpr\s+std::uint32_t\s+' + name +
+            r'\s*\[\s*4\s*\]\s*=\s*\{' + ','.join([element] * 4) + r'\}\s*;', text))
+        require(len(rows) == 1, 'Unsupported or duplicate button window literal')
+        values[name] = [int(item) for item in rows[0].groups()]
+        accepted.append(rows[0].group())
+    for declaration in accepted:
+        text = text.replace(declaration, '', 1)
+    text = re.sub(r'\bstatic_assert\s*\([^;]*\)\s*;', '', text)
+    require(not re.search(protected, text), 'Unsupported protected declaration or use')
+    return values
+
+
+def checked_button_windows(config):
+    windows = list(zip(config['BUTTON_LOW_RAW'], config['BUTTON_HIGH_RAW']))
+    require(any(low or high for low, high in windows), 'Default button windows cannot qualify')
+    require(all(0 <= low <= high <= 16383 for low, high in windows), 'Invalid button ADC window')
+    for index, (low, high) in enumerate(windows):
+        require(all(high < other_low or other_high < low for other_low, other_high in windows[index + 1:]),
+                'Button ADC windows overlap at an inclusive endpoint')
+
+
+def evidence_list(base, root, value):
+    require(type(value) is list and 1 <= len(value) <= 16, 'Missing bounded physical evidence')
+    for pin in value:
+        pinned(base, root, pin, limit=1048576)
+
+
+def physical_check(base, root, value):
+    base.keys(value, ('verdict', 'evidence'))
+    require(value['verdict'] == 'PHYSICALLY_ACCEPTED', 'Physical acceptance is absent')
+    evidence_list(base, root, value['evidence'])
+
+
+def checked_qualification(base, root, request, config):
+    # Preserve the production MATCH qualification contract, with the selected tuple.
+    base.FQBN = 'arduino:zephyr:unoq:link_mode=static,wait_linux_boot=no'
+    return base.checked_qualification(root, request)
+
+
+def checked_authorization(base, root, scope, now):
+    qualification = checked_qualification(base, root, scope['request'], None)
+    return base.checked_authorization(root, scope, qualification,
+        base.sha(base.canonical(scope['request'])), now)
+
+
+def checked_bindings(base, root, code, adapter, request, selection, artifacts, owner):
+    uploader = base.load_module(root, UPLOADER, code[UPLOADER])
+    support = base.binding_support(code[STATIC + 'capture_remote.py'])
+    profile = adapter.commissioning_profile(uploader, support, **selection)
+    bindings = uploader._checked_bindings(support, request['bindings'], profile)
+    require(bindings['boot_id'] == BOOT, 'Compile/upload boot differs')
+    for role, leaf in (('raw', 'build/app.ino.bin'), ('sketch', 'build/app.ino.bin-zsk.bin'),
+                       ('exported', 'artifacts/app.ino.bin-zsk.bin')):
+        record, pin = artifacts['files'][leaf], bindings['files'][role]
+        require(pin['sha256'] == record['sha256'] and pin['bytes'] == record['identity']['bytes'],
+                'Upload artifact differs from complete D222 receipt')
+    loader, pin = artifacts['loader'], bindings['files']['loader']
+    require(pin['sha256'] == loader['sha256'] and pin['bytes'] == loader['identity']['bytes'],
+            'Upload loader differs from compile layout')
+    common = base.policy_snapshot(root, owner.code)
+    installed = common.installed_pins('/home/arduino/.arduino15')
+    for pin in bindings['files'].values():
+        require(pin['path'] not in installed or pin['sha256'] == installed[pin['path']],
+                'Upload installed dependency differs from compile inputs')
+    require(all(bindings['files']['sketch'][key] == bindings['files']['exported'][key]
+                for key in ('bytes', 'sha256')), 'Packaged/exported bytes differ')
+    return profile
+
+
+def delivery_owner(base, root, delivery):
+    base.keys(delivery, ('run_id', 'session', 'claimed'))
+    base.hexadecimal(delivery['run_id'], 32)
+    require(type(delivery['session']) is int and 1 <= delivery['session'] <= 0xffffffffffffffff and
+            delivery['session'] == int(delivery['run_id'][:16], 16) and
+            type(delivery['claimed']) is bool, 'Invalid identified delivery owner')
+    return root / 'state/analysis' / ('match_identified_delivery_' + delivery['run_id'][:16])
+
+
+def delivery_claim(scope):
+    return dict(schema='match-identified-delivery-claim-v1', session=scope['delivery']['session'],
+        request=scope['request'], request_sha256=scope['request_sha256'],
+        scope_sha256=scope['scope_sha256'], reviewed_head=scope['reviewed_head'])
+
+
+def load_scope(root, relative, reviewed_head, target, transport, *, now=None, _output=None,
+               _delivery=None):
+    root = Path(root).absolute()
+    base = bootstrap(root)
+    base.hexadecimal(reviewed_head, 40)
+    paired = None if _delivery is None else delivery_owner(base, root, _delivery)
+    git_clean(root, reviewed_head, paired if _delivery and _delivery['claimed'] else _output)
+    raw = base.read_file(root, relative, 65536)
+    scope = base.decode(raw)
+    base.keys(scope, ('schema', 'request', 'authorization'))
+    require(scope['schema'] == 'match-static-app-deploy-v1', 'Unknown deployment schema')
+    code, compiler = checked_code(base, root, reviewed_head, identified=_delivery is not None)
+    adapter = base.load_module(root, ADAPTER, code[ADAPTER])
+    request = scope['request']
+    selection = checked_request(base, adapter, request, target, transport)
+    owner = compile_owner(base, compiler, root, request)
+    artifacts = checked_receipts(base, root, request, owner)
+    profile = checked_bindings(base, root, code, adapter, request, selection, artifacts, owner)
+    config = config_literals(owner.code['src/config.h'],
+                             _session=None if _delivery is None else _delivery['session'])
+    for name, body in owner.code.items():
+        if name.startswith('src/'):
+            require(not re.search(rb'^\s*#\s*(?:define|undef)\s+(?:APP_GRANT_[A-Z0-9_]+|APP_IMU_BODY_AXIS|APP_DUMP_ORIGIN|APP_DUMP_RECEIVE_STREAM_ID|APP_DUMP_SESSION_ID)\b',
+                                  body, re.M), 'Source overrides setup declarations')
+    qualification = checked_qualification(base, root, request, config)
+    checked_authorization(base, root, scope, base.current_time(now))
+    result = dict(root=root, relative=relative, reviewed_head=reviewed_head, request=request,
+        selection=selection, profile=profile, scope_sha256=base.sha(raw),
+        request_sha256=base.sha(base.canonical(request)), code=code, compiler_owner=owner,
+        qualification=qualification, base=base, adapter=adapter)
+    if _delivery is not None:
+        require(request['run_id'] == _delivery['run_id'] and target == '2629958581' and transport == 'adb',
+                'Identified delivery route/attempt differs')
+        require(all(config['APP_GRANT_' + name] == 1 for name in
+                    ('DUMP_ENABLED', 'DUMP_SETUP_PHASE', 'DUMP_EXCLUSIVE_UART', 'DUMP_READY_PIN_OWNED')),
+                'Identified app delivery requires qualified native dump grants')
+        result.update(delivery=dict(_delivery), delivery_owner=paired)
+        if _delivery['claimed']:
+            require(base.read_file(root, (paired / 'claim.json').relative_to(root).as_posix(), 65536) ==
+                    base.canonical(delivery_claim(result)), 'Reserved delivery claim changed')
+        else:
+            require(not os.path.lexists(paired), 'Identified image/session is consumed')
+    return result
+
+
+def output_path(scope):
+    if 'delivery_owner' in scope:
+        return scope['delivery_owner'] / 'upload'
+    return scope['root'] / 'state/analysis' / ('match_static_deploy_' + scope['request']['run_id'])
+
+
+def check_only(board, relative, reviewed_head, *, now=None, _delivery=None):
+    scope = load_scope(board.ROOT, relative, reviewed_head, board.target(), board.transport(),
+                       now=now, _delivery=_delivery)
+    base, request = scope['base'], scope['request']
+    require(not os.path.lexists(output_path(scope)), 'Commissioning deployment attempt is consumed')
+    base.plain(scope['root'] / 'state/analysis' if _delivery and not _delivery['claimed'] else
+               output_path(scope).parent, directory=True)
+    require(shutil.disk_usage(scope['root']).free >= 134217728, 'Less than 128MiB free for evidence')
+    return dict(schema='match-static-app-deploy-check-v1', status='ADMITTED_LOCAL', board_observed=False,
+        **{key: request[key] for key in ('mode', 'profile', 'motors_allowed', 'source_sha256', 'run_id')},
+        **{key: scope[key] for key in ('scope_sha256', 'request_sha256', 'reviewed_head')})
+
+
+def prepare(board, scope):
+    base, code, request = scope['base'], scope['code'], scope['request']
+    sources = dict(helper=code[base.HELPER], support=code[STATIC + 'capture_remote.py'],
+                   upload=code[UPLOADER], inherited_adapter=code[INHERITED], adapter=code[ADAPTER])
+    native = ([board.adb_executable(), '-s', request['target'], 'shell', '-T']
+              if request['transport'] == 'adb' else ['ssh', *board.SSH_OPTIONS, request['target']])
+    command = scope['adapter'].build_command(sources, request['bindings'], scope['selection'], native)
+    helpers = base.load_module(scope['root'], STATIC + 'startup_run.py', code[STATIC + 'startup_run.py'])
+    return command, helpers.projection, base.prerequisites(scope)
+
+
+def revalidate(board, scope, output, now):
+    current = load_scope(board.ROOT, scope['relative'], scope['reviewed_head'], board.target(), board.transport(),
+                         now=now, _output=output, _delivery=scope.get('delivery'))
+    require(current['scope_sha256'] == scope['scope_sha256'] and
+            current['request_sha256'] == scope['request_sha256'] and current['code'] == scope['code'],
+            'Deployment inputs changed after admission')
+
+
+def closing(board, scope, items, projection, output, identity, outcome, now):
+    base, errors = scope['base'], []
+    operations = [('local', lambda: revalidate(board, scope, output, now)),
+                  ('owner', lambda: base.check_owner(output, identity))]
+    operations.extend((item[0], lambda item=item: base.check_prerequisite(
+        board, scope, item, 'after', outcome, projection)) for item in items)
+    for name, operation in operations:
+        try:
+            operation()
+        except BaseException as error:
+            outcome['postcheck_errors'].append(dict(check=name, **base.error_record(error)))
+            errors.append(error)
+    return errors
+
+
+def upload_precompiled(board, relative, reviewed_head, *, now=None, _delivery=None):
+    require(_delivery is None or _delivery['claimed'] is True, 'Paired receiver owner must be reserved first')
+    check_only(board, relative, reviewed_head, now=now, _delivery=_delivery)
+    scope = load_scope(board.ROOT, relative, reviewed_head, board.target(), board.transport(),
+                       now=now, _delivery=_delivery)
+    base, request = scope['base'], scope['request']
+    command, projection, items = prepare(board, scope)
+    board.require_transport(sync=False)
+    revalidate(board, scope, None, now)
+    output = output_path(scope)
+    output.mkdir(mode=0o700)
+    identity = base.owner_identity(output)
+    outcome = base.new_outcome(scope, now)
+    outcome.update(schema='match-static-app-deploy-outcome-v1',
+                   **{key: request[key] for key in ('profile', 'motors_allowed', 'mode')})
+    first = None
+    try:
+        base.write_exclusive(output / 'attempt.json', dict(schema='match-static-app-attempt-v1',
+            request=request, request_sha256=scope['request_sha256'], scope_sha256=scope['scope_sha256'],
+            reviewed_head=reviewed_head, argv_sha256=base.sha(base.canonical(command)),
+            started_utc=base.current_time(now).isoformat()))
+        for item in items:
+            base.check_prerequisite(board, scope, item, 'before', outcome, projection)
+        revalidate(board, scope, output, now)
+        base.check_owner(output, identity)
+        outcome['attempts'] = 1
+        text = base.command(board, request['target'], command, 240, 'upload', outcome)
+        outcome['remote_result'] = scope['adapter'].validate_reply(text, scope['selection'], command[-2])
+    except BaseException as error:
+        first = error
+    errors = closing(board, scope, items, projection, output, identity, outcome, now)
+    first = first or (errors[0] if errors else None)
+    outcome.update(first_error=None if first is None else base.error_record(first),
+                   finished_utc=base.current_time(now).isoformat())
+    outcome['status'] = ('ACCEPTED' if first is None and outcome['remote_result'] is not None else
+                         ('UNKNOWN' if outcome['attempts'] else 'FAILED'))
+    base.save_outcome(board, output, identity, outcome, first)
+    return outcome
+
+
+def main(argv):
+    request = parse_request(argv)
+    require(sys.flags.isolated and sys.dont_write_bytecode, 'Python -I -B required')
+    base = bootstrap(ROOT)
+    code, _ = checked_code(base, ROOT, request['reviewed_head'])
+    board = base.load_module(ROOT, 'tools/board_tool.py', code['tools/board_tool.py'])
+    operation = check_only if request['action'] == '--check-only' else upload_precompiled
+    result = operation(board, request['scope'], request['reviewed_head'])
+    print(json.dumps(result, indent=2))
+    return 0
+
+
+if __name__ == '__main__':
+    sys.exit(main(sys.argv[1:]))

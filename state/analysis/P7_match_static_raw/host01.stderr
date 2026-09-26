@@ -1,0 +1,29 @@
+test_complete_compiler_policy_remote_bundle_and_exact_upload_tuple (__main__.Admission.test_complete_compiler_policy_remote_bundle_and_exact_upload_tuple) ... ERROR
+test_paired_production_identity_receiver_and_session_consumption (__main__.Admission.test_paired_production_identity_receiver_and_session_consumption) ... ok
+test_real_qualification_authority_and_compiler_metadata_refusals (__main__.Admission.test_real_qualification_authority_and_compiler_metadata_refusals) ... ok
+test_compiler_request_refuses_other_tuples_and_legacy_policy_is_unchanged (__main__.Policy.test_compiler_request_refuses_other_tuples_and_legacy_policy_is_unchanged) ... ok
+test_only_closed_tuple_and_immediate_header_with_full_body_checks (__main__.Policy.test_only_closed_tuple_and_immediate_header_with_full_body_checks) ... ok
+
+======================================================================
+ERROR: test_complete_compiler_policy_remote_bundle_and_exact_upload_tuple (__main__.Admission.test_complete_compiler_policy_remote_bundle_and_exact_upload_tuple)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tests\test_match_static.py", line 140, in test_complete_compiler_policy_remote_bundle_and_exact_upload_tuple
+    policy = self.owner.static_policy()
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tools\compile_match_static.py", line 212, in static_policy
+    self.local()
+    ~~~~~~~~~~^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_87aqnpu3\tools\compile_app_motor_fault.py", line 302, in local
+    self.output.mkdir(mode=0o700)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_87aqnpu3\state\analysis\P7_current_app_compile_raw\compile_current_app.py", line 274, in local
+    require(head == self.reviewed_head, 'Reviewed HEAD changed')
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_87aqnpu3\state\analysis\P7_current_app_compile_raw\compile_current_app.py", line 53, in require
+    raise ValueError(message)
+ValueError: Reviewed HEAD changed
+
+----------------------------------------------------------------------
+Ran 5 tests in 23.779s
+
+FAILED (errors=1)

@@ -50,9 +50,9 @@ bool Runner::begin(bool enabled, const recorder::dump::SetupGrant& grants) {
         fail(Failure::PORT);
         return false;
     }
-    if (!grants.setup_phase || !grants.exclusive_uart || !grants.ready_pin_owned ||
-        !grants.framing_clean) { fail(Failure::GRANT); return false; }
+    if (!recorder::dump::setupGrantAccepted(grants)) { fail(Failure::GRANT); return false; }
     if (!validConfig()) { fail(Failure::CONFIG); return false; }
+    session_ = grants.session;
     initialized_ = true; // Cleanup is required after any initialization attempt.
     if (!ownerResult(transaction_.initialize())) return false;
     report_.dump_setup = dump_port_.begin(dump_port_.context, grants);

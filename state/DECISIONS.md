@@ -2632,3 +2632,30 @@ failure. No upload, motor-run permission, physical evidence or phase gate.
 
 
 D-223 actual acceptance (2026-09-26T22:41:44.155598+04:00): Adopt source/host review 9c8fb765 and actual review 0bce66ac FINAL PASS for bounded holder visibility. One exact no-echo authenticated read-only observation returned 0 in 14.381 s; both complete sweeps saw 165 processes, 275 tasks and only arduino-router PID 568 fd 7 across ten task tables. All five reviewed inputs and before/after boundary identities match. No observation problem or truncation; 6180 actual FD metadata stats. Raw stdout 5459 bytes / SHA-256 8380134796ac20aeab649e52ba4feacc22a75bc6dccd020ee7b69df8bc5c1be5. Consume this observation owner. Continuous exclusivity, clean framing and receiver readiness remain UNKNOWN; no setup grant or runtime/physical acceptance follows.
+
+## D-224 (2026-09-26) - Identified recorder delivery over an untrusted receive stream
+Context: D223 established bounded UART holder visibility but did not establish
+clean Linux receive framing. Wire v1 already has session fields on every record.
+Decision under D051: adopt P7_recorder_session_contract.md. Supply an optional
+positive uint64 session without changing legacy zero-default bytes; freeze it
+per Transfer and cancel on mid-transfer change. Add explicit default-off
+UNTRUSTED_RECEIVE_STREAM setup admission requiring that identity and all other
+existing ownership grants. Preserve framing_clean as unobserved, every native
+register/FIFO/poison/bounds check, and production runtime/setup grants. Require
+strict expected-session receiver matching on BEGIN, every row and END, retaining
+raw bytes and expected/observed/rejected identity on failure and success. No
+skip/resync/retry is added. Keep checked-in synthetic runner disabled; later
+staged identity and one exact M0 static/default upload require separate concrete
+run admission. This is software preparation, not delivery evidence, hardware
+qualification, a motor-run permit or a human phase gate.
+## D-225 (2026-09-26) - Concrete inhibited recorder delivery caller
+Under D051 adopt P7_recorder_delivery_contract.md for software implementation.
+Use one session-keyed owner and separate check/compile/run phases. Reuse checked
+static compile/artifact and uploader lifecycles with a closed recorder M0 profile;
+include staged session identity in the exact source hash. One directory push is
+followed by full source closure before compile. Keep all upload absence guards,
+including /tmp/remoteocd; cleanup remains a separate exact operation. Arm the
+expected-session TCP receiver only after compilation and read-only upload
+admission, then permit one upload. Use 900-second capture with bounded process
+cleanup, preserve initial/closing failures and claim no clean framing. No actual
+run, physical acceptance, motor authority or phase gate is established here.

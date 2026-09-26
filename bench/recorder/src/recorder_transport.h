@@ -128,6 +128,7 @@ private:
     core::ButtonLevel button_ = core::ButtonLevel::NONE;
     std::uint64_t elapsed_us_ = 0U;
     std::uint64_t pending_token_ = 0U;
+    std::uint64_t session_ = 0U;
     std::uint32_t last_clock_us_ = 0U, previous_poll_us_ = 0U, equal_polls_ = 0U;
     std::uint32_t stage_started_us_ = 0U, sequence_ = 0U, reset_hold_us_ = 0U;
     std::uint32_t pending_source_us_ = 0U, pending_sequence_ = 0U;

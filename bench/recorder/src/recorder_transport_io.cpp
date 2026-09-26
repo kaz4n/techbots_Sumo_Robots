@@ -79,7 +79,7 @@ bool Runner::transfer(std::uint32_t& after) {
     if (!sample(now)) { fail(Failure::CLOCK); return false; }
     const auto decision = transaction_.report().decision_us;
     if (now - decision >= config::TICK_US) { fail(Failure::DEADLINE); return false; }
-    transfer_.step({now, decision, ready, recorder::dump::Origin::SYNTHETIC},
+    transfer_.step({now, decision, ready, recorder::dump::Origin::SYNTHETIC, session_},
                    transaction_.report().robot, source());
     if (!sample(after)) { fail(Failure::CLOCK); return false; }
     if (after - decision >= config::TICK_US) { fail(Failure::DEADLINE); return false; }

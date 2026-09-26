@@ -173,7 +173,8 @@ void Transfer::start(const Context& context, const fsm::RobotResult& result,
     origin_ = context.origin;
     report_ = Report{};
     report_.phase = Phase::ACTIVE;
-    report_.session = result.token;
+    supplied_session_ = context.session;
+    report_.session = context.session == 0U ? result.token : context.session;
     report_.epoch = snapshot.attempt.epoch_token;
     size_ = offset_ = ordinal_ = total_age_us_ = stall_age_us_ = 0U;
     crc_ = 0xFFFFFFFFU;
@@ -320,6 +321,11 @@ Report Transfer::step(const Context& context, const fsm::RobotResult& result,
     const bool intent = request && result.token > last_request_;
     // Even an ignored intent is consumed; completing a session cannot replay it.
     if (request && result.token > last_request_) last_request_ = result.token;
+    // A changed identity revokes pending bytes even at the same clock sample.
+    if (report_.phase == Phase::ACTIVE && context.session != supplied_session_) {
+        fail(Phase::CANCELLED, Reason::SESSION_CHANGED);
+        return report_;
+    }
     if (!admit(context, result, intent)) return report_;
     if (report_.phase != Phase::ACTIVE) {
         if (!intent) return report_;

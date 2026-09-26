@@ -49,6 +49,19 @@ def integer(token, low, high):
     return value
 
 
+def validate_expected_session(value):
+    require(value is None or (type(value) is int and 1 <= value <= csv.UINT64_MAX),
+            "SESSION_ARGUMENT", "Expected session must be an exact positive uint64 integer.")
+    return value
+
+
+def session_argument(token):
+    try:
+        return integer(token, 1, csv.UINT64_MAX)
+    except CaptureError as error:
+        raise argparse.ArgumentTypeError(str(error)) from error
+
+
 @dataclass(frozen=True)
 class Capture:
     session: int
@@ -67,7 +80,9 @@ class Capture:
 
 
 class Parser:
-    def __init__(self):
+    def __init__(self, expected_session=None):
+        self.expected_session = validate_expected_session(expected_session)
+        self.observed_session = self.rejected_session = None
         self.pending = bytearray()
         self.total = self.crc = self.frames_seen = self.events_seen = 0
         self.stage = "BEGIN"
@@ -75,6 +90,20 @@ class Parser:
         self.summary_row = None
         self.files = {role: bytearray() for role in csv.ROLES}
         self.error = None
+
+    def session_evidence(self):
+        return dict(expected_session=self.expected_session, observed_session=self.observed_session,
+                    rejected_session=self.rejected_session)
+
+    def _session(self, value, *, begin=False):
+        if begin:
+            self.observed_session = value
+        if self.expected_session is not None and value != self.expected_session:
+            self.rejected_session = value
+            require(False, "SESSION_MISMATCH", "Wire session differs from the expected attempt.")
+        if not begin and value != self.observed_session:
+            self.rejected_session = value
+            require(False, "SESSION", "Mixed wire sessions.")
 
     def feed(self, chunk):
         if self.error is not None:
@@ -103,6 +132,7 @@ class Parser:
         require(len(fields) == 10 and fields[:2] == ["SUMOX26_DUMP", "1"], "BEGIN", "Missing exact version-1 envelope.")
         bounds = ((1, csv.UINT64_MAX), (1, csv.UINT64_MAX), (0, 2),
                   (1, csv.UINT32_MAX), (1, 5001), (1, 4096), (0, 5001), (0, 4096))
+        self._session(integer(fields[2], 1, csv.UINT64_MAX), begin=True)
         self.meta = tuple(integer(t, *bound) for t, bound in zip(fields[2:], bounds))
         require(self.meta[6] <= self.meta[4] and self.meta[7] <= self.meta[5], "CAPACITY", "Retained count exceeds capacity.")
         self.stage = "SH"
@@ -148,7 +178,7 @@ class Parser:
         else:
             fields = text.split(",", 2)
             require(len(fields) == 3 and fields[0] == self.stage, "ORDER", "Unexpected wire record.")
-            require(integer(fields[1], 1, csv.UINT64_MAX) == self.meta[0], "SESSION", "Mixed wire sessions.")
+            self._session(integer(fields[1], 1, csv.UINT64_MAX))
             if self.stage == "END":
                 tail = fields[2].split(",")
                 require(len(tail) == 3, "END", "Malformed END.")
@@ -165,6 +195,9 @@ class Parser:
         require(self.stage == "DONE" and not self.pending, "TRUNCATED", "Capture lacks a complete valid END.")
         return Capture(*self.meta, self.crc, self.summary_row["mode"],
                        *(bytes(self.files[role]) for role in csv.ROLES))
+
+
+WireParser = Parser
 
 
 def local_path(value):
@@ -249,7 +282,8 @@ def _retained_failure(error, chunks, parser, partial):
     journal_error = None
     try:
         write_json(partial / "error.json", dict(code=failure.code, message=str(failure), closure="partial",
-                   transport_outcome=getattr(chunks, "outcome", None), connection_evidence=evidence))
+                   transport_outcome=getattr(chunks, "outcome", None), connection_evidence=evidence,
+                   **parser.session_evidence()))
     except Exception as write_error:
         # A full disk must not hide the capture failure or its retained bytes.
         journal_error = {"type": type(write_error).__name__, "message": str(write_error)}
@@ -261,11 +295,13 @@ def _retained_failure(error, chunks, parser, partial):
     raised.connection_evidence = evidence
     raised.partial_path = str(partial)
     raised.evidence_write_error = journal_error
+    raised.session_evidence = parser.session_evidence()
     return raised
 
 
 def save_capture(chunks, output_dir, *, receive_mode="offline", target=None,
-                 firmware_revision=None, source_sha256=None, config_sha256=None):
+                 firmware_revision=None, source_sha256=None, config_sha256=None, expected_session=None):
+    parser = Parser(expected_session)
     identities = dict(firmware_revision=firmware_revision, source_sha256=source_sha256, config_sha256=config_sha256)
     declarations(receive_mode, target, identities)
     parent = output_path(output_dir)
@@ -275,7 +311,6 @@ def save_capture(chunks, output_dir, *, receive_mode="offline", target=None,
     stamp = datetime.now(timezone(timedelta(hours=4))).strftime("%Y%m%d_%H%M%S")
     partial = parent / (stamp + "_" + capture_id + ".partial")
     partial.mkdir()
-    parser = Parser()
     try:
         with (partial / "wire.txt").open("xb") as raw:
             written = 0
@@ -292,7 +327,8 @@ def save_capture(chunks, output_dir, *, receive_mode="offline", target=None,
                    crc32=capture.crc32, receive_mode=receive_mode, target=target,
                    hardware_acceptance=False, origin_is_caller_declaration=True,
                    transport_integrity="PASS", transport_outcome=getattr(chunks, "outcome", None),
-                   connection_evidence=getattr(chunks, "connection_evidence", None)))
+                   connection_evidence=getattr(chunks, "connection_evidence", None),
+                   **parser.session_evidence()))
         local_path(parent)
         destination = parent / base
         require(not destination.exists(), "EXISTS", "Capture destination already exists.")
@@ -987,16 +1023,18 @@ def _cli_arguments(argv):
                         help="Offline wire fixture; never contacts a board")
     parser.add_argument("--output-dir", type=Path, default=argparse.SUPPRESS)
     parser.add_argument("--timeout", type=int, default=argparse.SUPPRESS)
+    parser.add_argument("--expected-session", type=session_argument, default=argparse.SUPPRESS,
+                        help="Reject every envelope outside this positive uint64 attempt identity")
     modes = parser.add_mutually_exclusive_group()
     modes.add_argument("--connection-ticket", help="Fresh caller-generated UUID hex for this capture")
     modes.add_argument("--observe-connection", help="Observe only this ticket's current TCP connection")
     for key in IDENTITIES:
         parser.add_argument("--" + key.replace("_", "-"), default=argparse.SUPPRESS)
     args = parser.parse_args(argv)
-    capture_only = {"input", "output_dir", "timeout", *IDENTITIES}
+    capture_only = {"input", "output_dir", "timeout", "expected_session", *IDENTITIES}
     if args.observe_connection is not None and capture_only.intersection(vars(args)):
         parser.error("Observer mode cannot include capture-only options.")
-    defaults = dict(input=None, output_dir=board.ROOT / "logs", timeout=330,
+    defaults = dict(input=None, output_dir=board.ROOT / "logs", timeout=330, expected_session=None,
                     **{key: None for key in IDENTITIES})
     for key, value in defaults.items():
         if not hasattr(args, key):
@@ -1056,7 +1094,8 @@ def main(argv=None):
             chunks = live_chunks(target, args.timeout)
         else:
             chunks = live_chunks(target, args.timeout, connection_ticket=args.connection_ticket)
-        destination = save_capture(chunks, args.output_dir, receive_mode=mode, target=target, **identities)
+        destination = save_capture(chunks, args.output_dir, receive_mode=mode, target=target,
+                                   expected_session=args.expected_session, **identities)
         print(destination)
         return 0
     except (CaptureError, csv._InvalidInput, OSError, ValueError) as error:

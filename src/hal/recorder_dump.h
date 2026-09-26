@@ -9,7 +9,8 @@ enum class Origin : std::uint8_t { UNKNOWN, SYNTHETIC, HARDWARE_REPORTED };
 enum class Phase : std::uint8_t { IDLE, ACTIVE, SENT_UNCONFIRMED, CANCELLED, FAILED, REFUSED };
 enum class Reason : std::uint8_t {
  NONE, CONTEXT, STALE_CONTEXT, RESULT_ORDER, TIME_ORDER, LINUX_UNAVAILABLE,
- NO_EVIDENCE, SOURCE_CHANGED, FORMAT, PORT, STALL, TOTAL, RESET, INVALID_CONFIG
+ NO_EVIDENCE, SOURCE_CHANGED, FORMAT, PORT, STALL, TOTAL, RESET, INVALID_CONFIG,
+ SESSION_CHANGED
 };
 enum class WriteStatus : std::uint8_t { PENDING, PROGRESS, ERROR };
 struct WriteResult { WriteStatus status = WriteStatus::ERROR; std::size_t count = 0U; };
@@ -22,6 +23,8 @@ struct Context {
  std::uint32_t now_us = 0U, decision_us = 0U;
  bool linux_ready = false;
  Origin origin = Origin::UNKNOWN;
+ // Zero preserves the legacy result-token identity; nonzero is caller supplied.
+ std::uint64_t session = 0U;
 };
 struct Report {
  Phase phase = Phase::IDLE;
@@ -65,6 +68,7 @@ private:
  Record record_ = Record::BEGIN;
  Origin origin_ = Origin::UNKNOWN;
  std::uint64_t last_token_ = 0U, last_request_ = 0U;
+ std::uint64_t supplied_session_ = 0U;
  std::uint32_t last_us_ = 0U, last_decision_us_ = 0U;
  std::uint32_t total_age_us_ = 0U, stall_age_us_ = 0U;
  std::uint32_t ordinal_ = 0U, crc_ = 0xFFFFFFFFU;

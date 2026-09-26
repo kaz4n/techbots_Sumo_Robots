@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "wsl",
+    "-d",
+    "Ubuntu",
+    "--",
+    "python3",
+    "-B",
+    "-c",
+    "import os; os.chdir('/mnt/c/Users/narut/AppData/Local/Temp/sumox-recorder-session-20260926'); os.environ[\"SUMOX_SESSION_COMMANDS\"]=\"state/analysis/P7_recorder_session_raw/first01/linux_commands.json\"; import unittest; suite=unittest.defaultTestLoader.loadTestsFromNames([\"tests.tooling.test_recorder_session\",\"tests.tooling.test_recorder_session_host\"]); result=unittest.TextTestRunner(verbosity=2).run(suite); raise SystemExit(not result.wasSuccessful())"
+  ],
+  "returncode": 0,
+  "seconds": 143.67451230005827,
+  "inputs_unchanged": true
+}

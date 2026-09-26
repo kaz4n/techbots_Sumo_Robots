@@ -9,12 +9,24 @@ enum class NativeStatus : std::uint8_t {
  REGISTER, POISONED, TIMEOUT, INVALID_ARGUMENT
 };
 enum class Buffering : std::uint8_t { LEGACY_SINGLE = 0U, FIFO8 = 1U };
+enum class ReceiveStream : std::uint8_t {
+ TRUSTED_FRAMING = 0U, UNTRUSTED_RECEIVE_STREAM = 1U
+};
 struct SetupGrant {
  bool setup_phase = false;
  bool exclusive_uart = false;
  bool ready_pin_owned = false;
  bool framing_clean = false;
+ ReceiveStream receive_stream = ReceiveStream::TRUSTED_FRAMING;
+ std::uint64_t session = 0U;
 };
+// Identified reception tolerates unknown upstream framing only. It creates no
+// ownership grant and the receiver must reject every wrong-session envelope.
+inline bool setupGrantAccepted(const SetupGrant& grant) {
+ if (!grant.setup_phase || !grant.exclusive_uart || !grant.ready_pin_owned) return false;
+ if (grant.receive_stream == ReceiveStream::TRUSTED_FRAMING) return grant.framing_clean;
+ return grant.receive_stream == ReceiveStream::UNTRUSTED_RECEIVE_STREAM && grant.session != 0U;
+}
 class UnoQDumpPort {
 public:
  constexpr UnoQDumpPort() = default;

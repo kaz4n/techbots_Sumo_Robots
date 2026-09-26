@@ -140,8 +140,7 @@ NativeStatus UnoQDumpPort::begin(const SetupGrant& grant) {
     attempted_ = true;
     if (buffering_ != Buffering::LEGACY_SINGLE && buffering_ != Buffering::FIFO8)
         return status_ = NativeStatus::INVALID_ARGUMENT;
-    if (!grant.setup_phase || !grant.exclusive_uart || !grant.ready_pin_owned ||
-        !grant.framing_clean) return status_ = NativeStatus::OWNERSHIP;
+    if (!setupGrantAccepted(grant)) return status_ = NativeStatus::OWNERSHIP;
     if (!threadContext()) return status_ = NativeStatus::CONTEXT;
     if (uart_owner != nullptr) return status_ = NativeStatus::OWNERSHIP;
     if (!metadata() || !device_is_ready(ready_pad.port) ||

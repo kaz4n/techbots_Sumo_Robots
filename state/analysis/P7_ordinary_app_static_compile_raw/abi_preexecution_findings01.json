@@ -1,0 +1,62 @@
+{
+  "created": "2026-09-26T16:22:40.574303+04:00",
+  "findings": [
+    {
+      "id": "ABI209-PARSER-01",
+      "issue": "Opening header, final brace and total balance do not exclude unavailable/incomplete placeholders or multiple complete outer type answers.",
+      "kind": "product",
+      "method": "_complete_layout",
+      "reviewer": "ordinary_abi_scope",
+      "scope": "Reject unavailable/incomplete sentinels and require exactly one outer type body with no content after its closing brace; preserve raw layouts and all other parsing."
+    },
+    {
+      "id": "ABI209-ORACLE-01",
+      "issue": "ast.literal_eval cannot resolve D188 HARD_PINS dictionary keys that are ast.Name constants.",
+      "kind": "fixture",
+      "method": "test_loading_is_private_passive_and_preserves_all_current_and_original_pins",
+      "reviewer": "const_cleanup_review",
+      "scope": "Resolve only pinned top-level string constants and dictionary names/literals as data without execution; retain every pin assertion."
+    },
+    {
+      "id": "ABI209-ORACLE-02",
+      "issue": "Positive fake prefix/GDB vector contradicts contract fixed commands.",
+      "kind": "fixture",
+      "method": "test_queries_are_exact_185_expressions_four_commands_and_no_target_actions",
+      "reviewer": "const_cleanup_review and ordinary_abi_scope",
+      "scope": "Use canonical prefix and guarded command-vector recording builder; retain exact query checks and separately reject changed commands."
+    }
+  ],
+  "host_bound": "Retain reviewed360-second outer driver within independent600-second maximum; native bounds unchanged.",
+  "independent_revision": "Expand existing layout negative cases for incomplete/unavailable body, multiple outer answers, unbalanced/trailing/wrong-type outputs without removing prior cases or assertions. Only metadata pins refresh otherwise.",
+  "originals": {
+    "state/analysis/P7_ordinary_app_static_compile_raw/abi_fixture_derivation01.json": {
+      "bytes": 51052,
+      "preserved_as": "state/analysis/P7_ordinary_app_static_compile_raw/abi_version01_preserved/abi_fixture_derivation01.json",
+      "sha256": "56761c40ce35a10a91712acb1901671a9492a61253d929efc260d0dbeedca1ef"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/abi_implementation01.json": {
+      "bytes": 7618,
+      "preserved_as": "state/analysis/P7_ordinary_app_static_compile_raw/abi_version01_preserved/abi_implementation01.json",
+      "sha256": "fb4c70a9edb6682e3347621bbcc694519ff2fdb220ea3b87456a01ff0e787bd8"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/abi_independent_freeze01.json": {
+      "bytes": 29083,
+      "preserved_as": "state/analysis/P7_ordinary_app_static_compile_raw/abi_version01_preserved/abi_independent_freeze01.json",
+      "sha256": "80d44ccf14ca30016e4d3713a3bb546e4915f57d21025425ab9749572e872925"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/inspect_static_abi.py": {
+      "bytes": 43966,
+      "preserved_as": "state/analysis/P7_ordinary_app_static_compile_raw/abi_version01_preserved/inspect_static_abi.py",
+      "sha256": "fe64ceb3e7d8a5d9b3b7253f5b91b33c74e478bd27bfa33a55ab5cfb8c923edb"
+    },
+    "tests/tooling/test_ordinary_app_abi.py": {
+      "bytes": 42112,
+      "preserved_as": "state/analysis/P7_ordinary_app_static_compile_raw/abi_version01_preserved/test_ordinary_app_abi.py",
+      "sha256": "a9a97b4aa6df99c6b4219d8900ed8a920948f0fa9acad967846d3785314db556"
+    }
+  },
+  "schema": "d209-preexecution-findings-v1",
+  "status": "SOURCE_AND_ORACLE_BLOCKERS_BEFORE_FIRST_EXECUTION",
+  "subject_executed": false,
+  "tests_executed": false
+}

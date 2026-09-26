@@ -1,5 +1,29 @@
 # Codex handoff - 26 September 2026, Asia/Dubai
 
+## Active D209: ordinary ABI host evidence accepted; native admission next
+
+D208 actual acceptance is committed2356aaef. D209 contract541710f0 and
+data249a4209 are adopted unchanged; preparationreview5f40659e and FINAL
+source/host reviewf3e72aca PASS. Reader44449B/f816a523 and receipt02 4e8fb0a1
+retain projected12965B/7fb42d51 and exact inherited lifecycle guards. Initial
+pre-execution findings35f2ce6d and all five original versions are preserved.
+Independent oracle0a88018a/fixtureec2494c6/freeze847d3831 ran once per platform:
+Linux66PASS; Windows64PASS plus2 exact Linux-covered skips. Driver1e50cb8e and
+coordinator0173a01c bind159 unchanged inputs; closing9b85a177 verifies132
+outcomes and empty scoped temporary fixtures. No passing suite needs a rerun.
+
+abi_native_scope01.json fixes13types/six Runtime windows/47enum answers/
+185expressions/92markers/two objects and four bounded file children. Separate
+admission review6585B/bd83b5ce is FINAL PASS; committed clean HEAD and local check-only precede exactly
+one execute into native_abi_static01. Embedded use-time board identity, absent
+remote scope and12file hashes precede children;13 remotechecks plus independent
+localclosure follow. No separate observer, upload/reset/MCU read or privilege.
+All writers stop during native closure. No ordinary ABI observation yet.
+
+After actual ABI review, derive a fresh ordinary entry/instruction scope from
+current symbols; no diagnostic Runner/Trace/SETTLE coordinates transfer.
+Production/configuration/locked tests remain unchanged; D207 is latest flash.
+
 ## Latest checkpoint: D208 ordinary compile independently accepted
 
 This checkpoint supersedes every older current/next paragraph below. The user
@@ -296,3 +320,6 @@ D208 adopted at 2026-09-26T14:56:29.828888+04:00 under D051: immutable proposal0
 
 
 2026-09-26 P7: D208 actual board admission,125-file ordinary manifest and15-role compile scope accepted by review7bf556e3. Index audit228 exact blobs/191 frozen pins PASS; no tested working bytes changed. Next: clean reviewed commit, check-only, then one jobs1 ordinary static M0 compile; current verified flash remains D207. No phase gate or motor authorization.
+
+
+D209 adopted 2026-09-26T16:10:27.564245+04:00: contract541710f0/data249a4209/preparationreview5f40659e unchanged. Root owns new ordinary ABI subject; fresh_review owns independent fixtures and must not inspect/hash subject body before FINAL. Metadata-only implementation receipt permitted. No code execution until independent freeze; then source/host/scope reviews before any file-only native action. D208 acceptance commit2356aaef.

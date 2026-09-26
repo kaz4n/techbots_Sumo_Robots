@@ -1468,3 +1468,10 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-26T16:00:43.065530+04:00 | P7 | D208 ordinary static compile independently accepted | Review8cd383e4 PASS; one query/compiler,230transports/eightclosingPASS atclean9bdd38ae. Source9044ebbb; package92944B/7fa9d41d; structural RAM94352B is not live headroom. No flash/runtime/gate. Next fresh ordinary ABI/entry preparation. | commit pending
+
+
+2026-09-26T16:10:27.564245+04:00 | P7 | D209 ordinary file-only ABI preparation adopted | Contract541710f0/data249a4209/preparationreview5f40659e PASS. Root implementation and independent spec-derived fixtures next; no new subject execution or board call. | commit pending
+
+2026-09-26T16:38:33.194692+04:00 | P7 | D209 ABI source/host acceptance | FINAL reviewf3e72aca PASS; Linux66/Windows64+2covered;159pins stable; no native yet | pending commit
+
+2026-09-26T16:42:11.311676+04:00 | P7 | D209 native ABI admission | reviewbd83b5ce PASS;10scope/159host/125manifest pins; staged bytes exact; one file-only attempt after cleanHEAD | pending commit

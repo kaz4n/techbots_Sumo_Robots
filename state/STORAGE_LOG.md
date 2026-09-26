@@ -475,3 +475,6 @@ D191 closing observation: C:recovered290537472B independently before local docum
 
 
 2026-09-26T15:53:59.907309+04:00 P7 D208 native compile: retained972 native receipt files/1650045 bytes plus104 staged source files/764405 bytes. Checked board ELF/debug/map/package artifacts and canonical source remain needed for independent actual review and the immediate ordinary ABI/entry/load follow-up; the local stage remains for that closure. No host object executable or Python bytecode was created. Native compilation used one jobs1 compiler; no automatic retry, board cleanup or deletion of previously protected paths occurred. Temporary host test fixtures are already empty.
+
+
+2026-09-26T16:34:14.832590+04:00 | D209 ordinary ABI host preparation | Retain25 abi-prefixed evidence/fixture/orchestration files totaling504668B plus checked reader/oracle source for reproduction, two pre-execution fixture corrections and parser finding. First serial Linux66PASS/Windows64PASS+2coveredskips closed9b85a177; all159inputpins stable. All scoped test-created Linux RAM fixtures and dedicated Windows TEMP contents are absent after normal unittest cleanup. No manual deletion, compiled artifact duplication or retry of prior denied paths. Observed C:free6493216768B; no claim that its change measures this task usage.

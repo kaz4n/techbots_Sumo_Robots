@@ -1,0 +1,1108 @@
+{
+  "assertion_boundaries": "39 selected inherited methods retain all assertion calls; named literal metadata projections and injected fixture data are explicitly listed.27 new cases exercise ordinary behavior, not renamed Runner/SETTLE semantics.",
+  "commands": [
+    "python -I -B tests/tooling/test_ordinary_app_abi.py"
+  ],
+  "contract_dimensions": {
+    "board_identity_closures": 1,
+    "enum_values": 47,
+    "expressions": 185,
+    "file_children": 4,
+    "markers": 92,
+    "numeric_answers": 79,
+    "objects": 2,
+    "remote_file_closures": 12,
+    "type_groups": 13,
+    "windows": 6
+  },
+  "counts": {
+    "excluded_D204_nonapplicable": 32,
+    "new_ordinary": 27,
+    "retained_bootstrap": 11,
+    "retained_checked_command": 1,
+    "retained_lifecycle": 13,
+    "retained_total": 39,
+    "retained_windows_mode": 14,
+    "total": 66
+  },
+  "created_utc": "2026-09-26T12:19:27.076937+00:00",
+  "excluded_from_D204_71": {
+    "D194_lifecycle": {
+      "test_execute_retains_raw_before_normalized_abi_and_independent_closure": "Requires obsolete readelf_size_projection.changed. New ordinary success test retains raw/write-order/direct-once/local-closure/claimed-owner assertions and checks the new schema instead."
+    },
+    "D194_selected_ABI": {
+      "test_decimal_and_hex_normalize_only_private_copy_with_exact_metadata": "Diagnostic Runner/Trace/polls/normalization schema replaced by independent ordinary two-object cases.",
+      "test_normalizer_rejects_missing_duplicate_malformed_zero_oversized_symbols": "Diagnostic Runner/Trace/polls/normalization schema replaced by independent ordinary two-object cases.",
+      "test_parser_rejects_exec_section_symbol_size_and_bss_bounds": "Diagnostic Runner/Trace/polls/normalization schema replaced by independent ordinary two-object cases.",
+      "test_parser_rejects_missing_duplicate_tags_and_alignment_windows": "Diagnostic Runner/Trace/polls/normalization schema replaced by independent ordinary two-object cases.",
+      "test_polls_size_and_offset_are_observed_instead_of_assumed": "Diagnostic Runner/Trace/polls/normalization schema replaced by independent ordinary two-object cases.",
+      "test_summary_rejects_bad_container_counts_rows_base64_and_utf8": "Diagnostic Runner/Trace/polls/normalization schema replaced by independent ordinary two-object cases."
+    },
+    "D199_additions": {
+      "test_all_six_inputs_precede_any_private_execution": "D199 diagnostic wrapper/probe query/parser/composition assumptions do not apply. Equivalent relevant guards/CLI/identity/admission are independently checked against current direct-wrapper contract.",
+      "test_bad_raw_encoding_on_either_new_input_stream_refuses_without_mutation": "D199 diagnostic wrapper/probe query/parser/composition assumptions do not apply. Equivalent relevant guards/CLI/identity/admission are independently checked against current direct-wrapper contract.",
+      "test_complete_separate_report_decimal_hex_and_exact_mappings_preserve_raw": "D199 diagnostic wrapper/probe query/parser/composition assumptions do not apply. Equivalent relevant guards/CLI/identity/admission are independently checked against current direct-wrapper contract.",
+      "test_current_polls_type_guard_and_required_numeric_tags_remain_active": "D199 diagnostic wrapper/probe query/parser/composition assumptions do not apply. Equivalent relevant guards/CLI/identity/admission are independently checked against current direct-wrapper contract.",
+      "test_exact_fourteen_projection_changes_and_no_execution_or_io": "D199 diagnostic wrapper/probe query/parser/composition assumptions do not apply. Equivalent relevant guards/CLI/identity/admission are independently checked against current direct-wrapper contract.",
+      "test_exact_fresh62_expressions_and_four_commands223_subject_order": "D199 diagnostic wrapper/probe query/parser/composition assumptions do not apply. Equivalent relevant guards/CLI/identity/admission are independently checked against current direct-wrapper contract.",
+      "test_exact_symbol_candidate_name_kind_binding_section_and_duplicates": "D199 diagnostic wrapper/probe query/parser/composition assumptions do not apply. Equivalent relevant guards/CLI/identity/admission are independently checked against current direct-wrapper contract.",
+      "test_global_section_agreement_and_bss_zero_not_whole_section": "D199 diagnostic wrapper/probe query/parser/composition assumptions do not apply. Equivalent relevant guards/CLI/identity/admission are independently checked against current direct-wrapper contract.",
+      "test_invalid_cli_and_missing_B_precede_loading_valid_main_delegates_once": "D199 diagnostic wrapper/probe query/parser/composition assumptions do not apply. Equivalent relevant guards/CLI/identity/admission are independently checked against current direct-wrapper contract.",
+      "test_new_numeric_tags_each_missing_duplicate_wrong_and_malformed_refuse": "D199 diagnostic wrapper/probe query/parser/composition assumptions do not apply. Equivalent relevant guards/CLI/identity/admission are independently checked against current direct-wrapper contract.",
+      "test_new_report_failure_retains_original_raw_and_independent_local_closure": "D199 diagnostic wrapper/probe query/parser/composition assumptions do not apply. Equivalent relevant guards/CLI/identity/admission are independently checked against current direct-wrapper contract.",
+      "test_new_tag_order_extra_unknown_and_non_numeric_lines_refuse": "D199 diagnostic wrapper/probe query/parser/composition assumptions do not apply. Equivalent relevant guards/CLI/identity/admission are independently checked against current direct-wrapper contract.",
+      "test_original_first_composition_and_private_extended_pins": "D199 diagnostic wrapper/probe query/parser/composition assumptions do not apply. Equivalent relevant guards/CLI/identity/admission are independently checked against current direct-wrapper contract.",
+      "test_passive_import_and_exact_original_bootstrap_bodies": "D199 diagnostic wrapper/probe query/parser/composition assumptions do not apply. Equivalent relevant guards/CLI/identity/admission are independently checked against current direct-wrapper contract.",
+      "test_projection_rejects_types_drift_counts_newlines_and_already_projected": "D199 diagnostic wrapper/probe query/parser/composition assumptions do not apply. Equivalent relevant guards/CLI/identity/admission are independently checked against current direct-wrapper contract.",
+      "test_real_prepare_binds_d198_header_and_refuses_old_d193_artifact_packet": "D199 diagnostic wrapper/probe query/parser/composition assumptions do not apply. Equivalent relevant guards/CLI/identity/admission are independently checked against current direct-wrapper contract.",
+      "test_summary_once_on_deep_copies_even_if_delegate_mutates_them": "D199 diagnostic wrapper/probe query/parser/composition assumptions do not apply. Equivalent relevant guards/CLI/identity/admission are independently checked against current direct-wrapper contract.",
+      "test_summary_primary_identity_non_dict_and_invalid_containers_fail": "D199 diagnostic wrapper/probe query/parser/composition assumptions do not apply. Equivalent relevant guards/CLI/identity/admission are independently checked against current direct-wrapper contract.",
+      "test_symbol_size_tokens_alignment_zero_bounds_and_overlap": "D199 diagnostic wrapper/probe query/parser/composition assumptions do not apply. Equivalent relevant guards/CLI/identity/admission are independently checked against current direct-wrapper contract.",
+      "test_three_probe_type_sizes_and_alignments_are_observed_and_exact": "D199 diagnostic wrapper/probe query/parser/composition assumptions do not apply. Equivalent relevant guards/CLI/identity/admission are independently checked against current direct-wrapper contract."
+    },
+    "D204_additions": {
+      "test_consumed_d199_local_owner_and_transport_scope_are_not_current": "D204 exact19-step diagnostic derivative/current source assumptions do not apply; current four-span/twelve-step seal and ordinary admission/old-owner/artifact checks replace these expectations.",
+      "test_current_artifact_pins_require_all_thirteen_closures_and_preserve_raw": "D204 exact19-step diagnostic derivative/current source assumptions do not apply; current four-span/twelve-step seal and ordinary admission/old-owner/artifact checks replace these expectations.",
+      "test_current_six_pins_reject_stale_d199_bytes_before_private_execution": "D204 exact19-step diagnostic derivative/current source assumptions do not apply; current four-span/twelve-step seal and ordinary admission/old-owner/artifact checks replace these expectations.",
+      "test_current_source_manifest_and_artifact_admission_refuse_d199_substitutes": "D204 exact19-step diagnostic derivative/current source assumptions do not apply; current four-span/twelve-step seal and ordinary admission/old-owner/artifact checks replace these expectations.",
+      "test_exact_nineteen_step_wrapper_and_all_function_bodies": "D204 exact19-step diagnostic derivative/current source assumptions do not apply; current four-span/twelve-step seal and ordinary admission/old-owner/artifact checks replace these expectations."
+    }
+  },
+  "file_tool_pins": {
+    "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-gdb": "8e709e322c50351a932d1bdf4103caf238eaf226a4984e56e6f353e64bc4b778",
+    "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-readelf": "c37462dcd380ae1039eb8a0aab379a619415e1100472291ffea2eae34161092e"
+  },
+  "guard_source": "state/analysis/P7_motor_const_compile_raw/inspect_static_abi.py",
+  "historical": {
+    "base": {
+      "fixture_bindings": [
+        "WRAPPER/CONTRACT/CONTRACT_SHA/COMPILE_RAW/SOURCE/OWNER/SCOPE/LAUNCHER/PINS retarget to checked ordinary metadata.",
+        "ContractCase.setUpClass original executes unchanged, then exact new wrapper identity is checked.",
+        "packet factory supplies independently authored ordinary two-object packet; diagnostic size argument is mapped to ordinary0x1000.",
+        "Lifecycle prepare still performs actual ordinary compiler admission/prepare; controlled executing-owner fixture preserves raw/closure/error assertions."
+      ],
+      "original": {
+        "bytes": 46134,
+        "sha256": "b43b384aafc77499b4752af7633e2a94c98e67e955554f75490f5dc30e45bcbe"
+      },
+      "projected": {
+        "bytes": 46105,
+        "sha256": "8803429d1b60fd02a9c3859c2ab34e2ffcf572356fcd1b20f73b6a9d2f902656"
+      },
+      "source": "tests/tooling/test_app_motor_observe_abi.py",
+      "steps": [
+        {
+          "count": 3,
+          "new": "D209_STATIC_FILE_ONLY_ABI",
+          "old": "D194_STATIC_FILE_ONLY_ABI",
+          "reason": "Current file-only transport scope; old D188 negative scope unchanged."
+        },
+        {
+          "count": 2,
+          "new": "/build/app.ino.elf",
+          "old": "/build/app_motor_observe.ino.elf",
+          "reason": "Current ordinary ELF command expectation; unused diagnostic query method stays unselected."
+        },
+        {
+          "count": 1,
+          "new": "'SUMOX_SIZE app::Runtime'",
+          "old": "'SUMOX_SIZE report_.polls'",
+          "reason": "Selected parser-failure lifecycle case removes an actually queried ordinary marker; all rejection/closure assertions unchanged."
+        }
+      ]
+    },
+    "windows_mode": {
+      "fixture_bindings": [
+        "SUBJECT points at current ordinary wrapper. Original setUpClass remains, followed by exact subject identity check.",
+        "All14 original mode methods and assertions remain byte-identical."
+      ],
+      "original": {
+        "bytes": 9907,
+        "sha256": "9777060b05f041f409a822e30c68c1630192b0354d6462b89f47cb1a2b1ac687"
+      },
+      "projected": {
+        "bytes": 9907,
+        "sha256": "9777060b05f041f409a822e30c68c1630192b0354d6462b89f47cb1a2b1ac687"
+      },
+      "source": "tests/tooling/test_app_motor_observe_abi_windows_mode.py",
+      "steps": []
+    }
+  },
+  "independence": "Behavioral expectations derive from adopted541710f0 contract, its data249a4209, pinned sources and historical oracles. Only implementation01 metadata was read; new subject body never read/hashed/imported/executed by author. No tests, compiler or device calls.",
+  "inherited_assertion_calls": {
+    "AbiContract": {
+      "test_command_receipts_reject_argv_execution_deadlines_streams_and_stderr": {
+        "original": 0,
+        "projected": 0
+      }
+    },
+    "BootstrapContract": {
+      "test_absolute_relative_limit_and_digest_contract": {
+        "original": 2,
+        "projected": 2
+      },
+      "test_ctime_cross_api_exception_is_only_windows_and_each_api_stays_stable": {
+        "original": 1,
+        "projected": 1
+      },
+      "test_descriptor_drift_including_same_api_ctime_refuses": {
+        "original": 0,
+        "projected": 0
+      },
+      "test_empty_oversized_missing_wrong_digest_and_directory_refuse": {
+        "original": 0,
+        "projected": 0
+      },
+      "test_initial_descriptor_type_link_and_identity_refuse_before_read": {
+        "original": 0,
+        "projected": 0
+      },
+      "test_parent_snapshot_drift_during_read_refuses": {
+        "original": 0,
+        "projected": 0
+      },
+      "test_read_is_bounded_and_preserves_primary_over_close": {
+        "original": 5,
+        "projected": 5
+      },
+      "test_real_file_and_parent_symlink_refuse": {
+        "original": 0,
+        "projected": 0
+      },
+      "test_real_hardlink_refuses": {
+        "original": 0,
+        "projected": 0
+      },
+      "test_regular_to_fifo_swap_is_nonblocking_and_never_read": {
+        "original": 2,
+        "projected": 2
+      },
+      "test_reparse_on_file_parent_or_root_refuses_before_open": {
+        "original": 0,
+        "projected": 0
+      }
+    },
+    "LifecycleContract": {
+      "test_execute_actual_decoder_rejects_duplicate_keys_nonfinite_and_invalid_json": {
+        "original": 2,
+        "projected": 2
+      },
+      "test_execute_consumed_owner_is_not_reused": {
+        "original": 3,
+        "projected": 3
+      },
+      "test_execute_invalid_stream_or_parser_failure_is_closed_after_raw_retention": {
+        "original": 3,
+        "projected": 3
+      },
+      "test_execute_scope_status_error_command_count_and_closure_refusals_retain_raw": {
+        "original": 4,
+        "projected": 4
+      },
+      "test_execute_transport_stderr_or_oversized_reply_refuses_and_closes": {
+        "original": 2,
+        "projected": 2
+      },
+      "test_local_accepts_only_claimed_owner_untracked_outputs_and_checks_local_pins": {
+        "original": 1,
+        "projected": 1
+      },
+      "test_local_refuses_wrong_head_dirty_tree_source_and_boot": {
+        "original": 0,
+        "projected": 0
+      },
+      "test_lone_local_or_closure_write_failure_remains_failure": {
+        "original": 3,
+        "projected": 3
+      },
+      "test_prepare_consumed_owner_and_low_space_refuse": {
+        "original": 0,
+        "projected": 0
+      },
+      "test_prepare_rejects_command_over_windows_bound": {
+        "original": 1,
+        "projected": 1
+      },
+      "test_prepare_rejects_wrong_compile_receipt_before_any_claim": {
+        "original": 1,
+        "projected": 1
+      },
+      "test_primary_child_error_survives_local_and_receipt_close_failures": {
+        "original": 6,
+        "projected": 6
+      },
+      "test_real_prepare_composes_four_file_tools_pins_and_windows_bound_without_claim": {
+        "original": 16,
+        "projected": 16
+      }
+    },
+    "WindowsExecutableModeContract": {
+      "test_complete_path_only_execute_delta_accepts_all_four_extensions_and_case": {
+        "original": 0,
+        "projected": 0
+      },
+      "test_exact_mode_equality_remains_valid_for_both_platforms_and_suffixes": {
+        "original": 0,
+        "projected": 0
+      },
+      "test_full_descriptor_mode_must_stay_identical_after_read": {
+        "original": 0,
+        "projected": 0
+      },
+      "test_full_path_mode_must_stay_identical_after_read": {
+        "original": 0,
+        "projected": 0
+      },
+      "test_hash_is_still_required_after_eligible_mode_difference": {
+        "original": 0,
+        "projected": 0
+      },
+      "test_nonmatching_or_nonfinal_extension_differences_refuse_before_read": {
+        "original": 0,
+        "projected": 0
+      },
+      "test_nonregular_reparse_and_multiple_links_refuse_before_read": {
+        "original": 0,
+        "projected": 0
+      },
+      "test_nonwindows_execute_difference_refuses_before_read_for_every_extension": {
+        "original": 0,
+        "projected": 0
+      },
+      "test_other_identity_field_mismatches_refuse_before_read": {
+        "original": 0,
+        "projected": 0
+      },
+      "test_other_permission_and_special_bits_are_never_masked": {
+        "original": 0,
+        "projected": 0
+      },
+      "test_partial_execute_deltas_and_reverse_direction_refuse_before_read": {
+        "original": 0,
+        "projected": 0
+      },
+      "test_readonly_regular_modes_accept_only_the_same_complete_delta": {
+        "original": 0,
+        "projected": 0
+      },
+      "test_real_executable_named_regular_file_is_read_without_launching": {
+        "original": 3,
+        "projected": 3
+      },
+      "test_windows_ctime_api_difference_retains_within_api_stability": {
+        "original": 0,
+        "projected": 0
+      }
+    }
+  },
+  "inputs": {
+    "src/app/.gitkeep": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "src/app/app.ino": {
+      "bytes": 868,
+      "sha256": "538755487e58609d8e7d2bb69b8466cb9bd1ffcfe360149bca4d4ff246302d57"
+    },
+    "src/app/calibration_output.h": {
+      "bytes": 880,
+      "sha256": "ed7e085f8504895d375938ebac45f264e8da4c84d56fb4b6805095185464533a"
+    },
+    "src/app/configured_setup.h": {
+      "bytes": 1943,
+      "sha256": "df1e51e2a0f397e0e4c0e73f760383fb582ba759ca456bec7eccfa4aa956fc0d"
+    },
+    "src/app/dump_port.h": {
+      "bytes": 676,
+      "sha256": "9dca1b44c22e77ee1a8af17905452e9d3c509e5d798412b6cfde9cd5dcf1c4bb"
+    },
+    "src/app/dump_port_unoq.cpp": {
+      "bytes": 755,
+      "sha256": "162ff2bc33e1c1e79def845ef89c491e6628e234b59d7d5ae60826d8c8ee8335"
+    },
+    "src/app/native_sources_unoq.cpp": {
+      "bytes": 2430,
+      "sha256": "291e88a6ae007a18a5e94d105e722c15b2bdc7dbce81062f2ab5f218d9576047"
+    },
+    "src/app/native_sources_unoq.h": {
+      "bytes": 1689,
+      "sha256": "11cd88cc1ae4f94b4b0f3ccafbf68bc9087b7098cbb008ec5daeca4298c381b5"
+    },
+    "src/app/runtime.cpp": {
+      "bytes": 14005,
+      "sha256": "5c10dda3eb1b2f071c7da7b8965520c8b99447d51e1f8590579e4dbc2bc75015"
+    },
+    "src/app/runtime.h": {
+      "bytes": 9819,
+      "sha256": "b25246026fa46415979039ab3c54399c5fdf659ff9f47df293ea459d3e2fde03"
+    },
+    "src/app/runtime_calibration.cpp": {
+      "bytes": 9248,
+      "sha256": "18bf09803ad4140ac16ffe57646953d81020c16cadcaccb8539b31f48c60c3e6"
+    },
+    "src/app/runtime_dump.cpp": {
+      "bytes": 2735,
+      "sha256": "aedd9c81b39e524cbdda00dc0d4be7614001935b6d6001d3071c7a47b913d4df"
+    },
+    "src/app/runtime_inputs.cpp": {
+      "bytes": 10716,
+      "sha256": "fc1d095ab96f97fa4f81e3609bdd3108c39ed4b6b17639b4843e6d6f4e5cc4dc"
+    },
+    "src/app/runtime_service.cpp": {
+      "bytes": 8467,
+      "sha256": "3ba957b06df00767c20afdf6f73923af77d767691876ac245ea49c80e118dc7e"
+    },
+    "src/app/transaction.cpp": {
+      "bytes": 5739,
+      "sha256": "ada8080d67d76750a1bc41fc522bbe17076d66a3f887d735c8530f7414993f63"
+    },
+    "src/app/transaction.h": {
+      "bytes": 3710,
+      "sha256": "a3c3f12eb49e517f116560b1efed1376110da0e424f6a1714098fcc3c8a84b19"
+    },
+    "src/app/transaction_service.cpp": {
+      "bytes": 2127,
+      "sha256": "978bf71921ae3cc0806461ce3e17c48f195a9f0cff310cafb8faa8b104e7b271"
+    },
+    "src/config.h": {
+      "bytes": 22873,
+      "sha256": "34d6d6bce215fc098c3c4ae8e2c4436cb66e50e4f73db81a7ef8da964ba242c6"
+    },
+    "src/core/.gitkeep": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "src/core/countdown.cpp": {
+      "bytes": 19273,
+      "sha256": "4875714d84e2a1caff22c006dbf4e9d2cc389db9e9686346581181d1c0ede5e6"
+    },
+    "src/core/countdown.h": {
+      "bytes": 17321,
+      "sha256": "283a8bbeda0e1f6b5f2c171c4d3a0e00fd2d3a0e532886c787d0ce55dca866f7"
+    },
+    "src/core/edge.cpp": {
+      "bytes": 18797,
+      "sha256": "ffd8d1d2fd5900c540aba011a8f79a43fb7be8b200e13769035a25766b45ede6"
+    },
+    "src/core/edge.h": {
+      "bytes": 13823,
+      "sha256": "b29b3982e27138be1fae361fde0b22e7ff58cf84e80d4cd4f3738a68c4796271"
+    },
+    "src/core/fsm.cpp": {
+      "bytes": 26474,
+      "sha256": "cad394ff8ee7f9072a8596a566092e2f3b9fadfda5966170e3d126ea18c71bb0"
+    },
+    "src/core/fsm.h": {
+      "bytes": 41126,
+      "sha256": "878e4524d6ceceec2a40b86158b11f8a5c18bd03afe35ee5507241dd89562485"
+    },
+    "src/core/fsm_buttons.cpp": {
+      "bytes": 4396,
+      "sha256": "82ba1038c75e172012d59921051aadf98e9928f5b1acb27dbb4e91eef3dbfbdd"
+    },
+    "src/core/fsm_drive_test.cpp": {
+      "bytes": 1139,
+      "sha256": "d1e7c0ce587637e8a4ad95818d1ebfca356797e860112a2ed4bb734b13849421"
+    },
+    "src/core/fsm_imu.cpp": {
+      "bytes": 5234,
+      "sha256": "5e873f5825e97976bc64c1d2fdd85eb44bc51697176bfec737677aa4e367d1e7"
+    },
+    "src/core/fsm_line.cpp": {
+      "bytes": 4746,
+      "sha256": "5ade80a598b501aa1ef7b2b3226916aefbc8e54ba7396d47b1ece5c7e48dd372"
+    },
+    "src/core/fsm_opener_timing.cpp": {
+      "bytes": 5359,
+      "sha256": "eda6945e6bc5535bab9174872642ae266b3e22baaee9895b47c05fd5d40d7d72"
+    },
+    "src/core/fsm_qtr_cal.cpp": {
+      "bytes": 6632,
+      "sha256": "bc1ce76fc3021c2a1f8434322c8a37324ecf86cadc9f0f9e4373a43b0dcceb00"
+    },
+    "src/core/fsm_robot.cpp": {
+      "bytes": 49551,
+      "sha256": "2efd83e51ecdd6d213a5e97cd6e23cf9e7084d50fd4cf49fc8b202967827dfd8"
+    },
+    "src/core/fsm_stand.cpp": {
+      "bytes": 2774,
+      "sha256": "c766dbe959a68c17f8c17085f0b8a00bcad518c6e99dfefcbf580c4a8c969550"
+    },
+    "src/core/fsm_stop_trial.cpp": {
+      "bytes": 5630,
+      "sha256": "78410d6775ea1e114c2083f1b5238e6c8c03ea7b1ab75b3cbeee5ef94e62ebac"
+    },
+    "src/core/fsm_timing.cpp": {
+      "bytes": 6937,
+      "sha256": "e372d59115373f563f0599117676f1d7d05e8169c30799d8c5e99d903fb2c0b7"
+    },
+    "src/core/fsm_turn_trial.cpp": {
+      "bytes": 4359,
+      "sha256": "4d4af54e72097626be8870153559a138530021945d7e5d3cd3c1e4e40be748e3"
+    },
+    "src/core/governor.cpp": {
+      "bytes": 4052,
+      "sha256": "1047daacf8acdf62854aa543f5c6020d7755216ca8df2456ef963b81bd2aa7b8"
+    },
+    "src/core/governor.h": {
+      "bytes": 2023,
+      "sha256": "13c2f5b334aeaf799445ffbffb8c3632f06606999a282e44396cfce16d05e042"
+    },
+    "src/core/logframe.cpp": {
+      "bytes": 13820,
+      "sha256": "2c23e3b504f452a0316f9b8db594f8a54fbe6fd8af68c9a54535239387753ff3"
+    },
+    "src/core/logframe.h": {
+      "bytes": 7841,
+      "sha256": "18bb21e9bff3765fb216f54b10be2c6e06c6380b551b9cd658ad9cb3f28b4660"
+    },
+    "src/core/motion.cpp": {
+      "bytes": 9185,
+      "sha256": "c8f4286e42d964275c269b97dca9e00b5d8d55524046a3ed63433ae0e9cb9656"
+    },
+    "src/core/motion.h": {
+      "bytes": 6982,
+      "sha256": "1d8baa81d23bc794562d9b3f695ba98eacd0a3fedfc3ae0f0b6ad4923d66fb78"
+    },
+    "src/core/openers.cpp": {
+      "bytes": 13552,
+      "sha256": "fafaabe0373e97dd72becca0eabf1a7948dcfe8a20656016201c3d4dad871d80"
+    },
+    "src/core/openers.h": {
+      "bytes": 10478,
+      "sha256": "3982ac808a831bbf1ee17b2e5307129bd615e8d96de17488835e048679a743f4"
+    },
+    "src/core/opp_fusion.cpp": {
+      "bytes": 16361,
+      "sha256": "693cfa4e900783d0d7bff7995623862f67296e7223b9c31157cbf620bc316d85"
+    },
+    "src/core/opp_fusion.h": {
+      "bytes": 12108,
+      "sha256": "66b31cd0b85aaee4a52a6574fc596a4117bbc0ffcca8180936b29ab467cc454b"
+    },
+    "src/core/stall.cpp": {
+      "bytes": 4456,
+      "sha256": "46e0f67eb3d3b820150d156eb2a1cae2e074e44c56f98d6ab4b739c837229436"
+    },
+    "src/core/stall.h": {
+      "bytes": 3700,
+      "sha256": "88accba473a43b04949a30696d968f3aaf308493ef00a9ba16aa40018765b9e3"
+    },
+    "src/core/stand_sequence.cpp": {
+      "bytes": 3762,
+      "sha256": "7c76616dc8adef0560fe88fc7b9ec198f60dc191f9162220dbc929ca8471b476"
+    },
+    "src/core/stand_sequence.h": {
+      "bytes": 1602,
+      "sha256": "8e4d3e8f631529555d3adb8031de8ea33f3a221c6326c9a09f13fd6b87f6f843"
+    },
+    "src/core/stop_trial.h": {
+      "bytes": 1026,
+      "sha256": "11e400c333cec032d321a28d72bdfaf1a7362dea4343a6b76f2b67f8198c6d0c"
+    },
+    "src/core/turn_trial.cpp": {
+      "bytes": 4149,
+      "sha256": "cc88727fa5a19117ceb88ad3c4b068ea4df815a8570f7d5c7b80c23ae4d3d62f"
+    },
+    "src/core/turn_trial.h": {
+      "bytes": 1892,
+      "sha256": "74f6a41c750e72f7b5ad355d8700da39054de702928fac52d5893f6cc72009c0"
+    },
+    "src/core/types.h": {
+      "bytes": 4094,
+      "sha256": "8fec6d334fcb1c631c48ed0a076100d2925fee812706af721bb8a208c8c5b8eb"
+    },
+    "src/hal/.gitkeep": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "src/hal/dump_uart_unoq.cpp": {
+      "bytes": 17505,
+      "sha256": "fdd3df0bff64a510a1333dd906f0aa0a1031214caf1bca0c00508ab7507b27fe"
+    },
+    "src/hal/dump_uart_unoq.h": {
+      "bytes": 2227,
+      "sha256": "c924ae2fc21569884ae7bc9138de948da7358014c81be314a5cf0508fa508e6e"
+    },
+    "src/hal/imu.cpp": {
+      "bytes": 10419,
+      "sha256": "f38f0f2116f77534a9c812acd925c574d009fff8c3a521dd6af3c255f49e8a37"
+    },
+    "src/hal/imu.h": {
+      "bytes": 2743,
+      "sha256": "6c967d4a5a6a644036b2a80ae768cda2871dc55ec4e00fcb33f2d82f3821e750"
+    },
+    "src/hal/imu_acquisition.cpp": {
+      "bytes": 7164,
+      "sha256": "0f5aef4921c961cc85bc0c335792740972c9a02bb04c2d9624ea4c22a10c6f0e"
+    },
+    "src/hal/imu_acquisition.h": {
+      "bytes": 3658,
+      "sha256": "2528f6ff678550f2655ae6c42b1e133792385cdcec99a875712a2690b8b440df"
+    },
+    "src/hal/imu_acquisition_async.cpp": {
+      "bytes": 6907,
+      "sha256": "1bcdf95293eec7ec13c2b014726274bd97d7d53de1b7222361e38b01b83b59e9"
+    },
+    "src/hal/imu_adapter.cpp": {
+      "bytes": 4549,
+      "sha256": "4e82f5659c6b4ceda6b76292b0b374efeb66d30b9739ee1fa14519101d7dd340"
+    },
+    "src/hal/imu_adapter.h": {
+      "bytes": 654,
+      "sha256": "27ef58be36c239bee56c7f205cbf1a3043c7a472a90f78b5c06245385d4314d6"
+    },
+    "src/hal/imu_bus_async_unoq.cpp": {
+      "bytes": 8839,
+      "sha256": "097c5ae9a2f99f8155652ef78e4c7d254fbd3ea2b826faade9af8bd5faba5e29"
+    },
+    "src/hal/imu_bus_unoq.cpp": {
+      "bytes": 25366,
+      "sha256": "48ab37f899805c8ed99003ca8bc36bd74b3138969c0c430fcd4db832653f468e"
+    },
+    "src/hal/imu_bus_unoq.h": {
+      "bytes": 6677,
+      "sha256": "bb00c91780ef35e4de7d9118039fec558218b0a63f5e9e141e23c2573b512ffe"
+    },
+    "src/hal/imu_heading.cpp": {
+      "bytes": 8863,
+      "sha256": "e314f57b78980993f782cf85aa48f0cd6ffadf1cb1ae99fb801c7981f1736411"
+    },
+    "src/hal/imu_heading.h": {
+      "bytes": 3175,
+      "sha256": "178f0c24a8b2b2c637a5fd6c860169906792f1d71acca662a8ec14448763848d"
+    },
+    "src/hal/line_qtr.cpp": {
+      "bytes": 18927,
+      "sha256": "7fc768d4ca050ee19c6a09c7808347240bfb57550cebce3a7d966845cc70a58a"
+    },
+    "src/hal/line_qtr.h": {
+      "bytes": 3751,
+      "sha256": "a5127bb26470c1a842ed417be6e953706cacbe47a9c64f01f45e1a1da7d52e24"
+    },
+    "src/hal/line_qtr_adapter.cpp": {
+      "bytes": 9600,
+      "sha256": "f6257c422b97d8ac5bd63768401d55750eaaa8d3faf83982e516b0e7de3c02d0"
+    },
+    "src/hal/line_qtr_adapter.h": {
+      "bytes": 1638,
+      "sha256": "2374055556fe4f3e2ddf1ec7273e11135256cbaa553d2e88b67c9647067dff54"
+    },
+    "src/hal/loop_hook.cpp": {
+      "bytes": 259,
+      "sha256": "bc481ea9f4567a4c8f8dde741134c94ac4f70b42257a39807a80c7ed93ba6839"
+    },
+    "src/hal/motor_port_unoq.cpp": {
+      "bytes": 19906,
+      "sha256": "fdbc27d972a59a9c955b67b88072a03df3b90a4629e22fd7833ff5f09e0c8f8b"
+    },
+    "src/hal/motor_port_unoq.h": {
+      "bytes": 1427,
+      "sha256": "7f09a544a032b35207de7c5f074f3f1fd3de9e74c3b482579f819eaa39020ef5"
+    },
+    "src/hal/motor_settle_probe.h": {
+      "bytes": 2366,
+      "sha256": "2eced554fce20ff938daf44866ee0bad6d99fa28e377af762bb0f037376b75a8"
+    },
+    "src/hal/motors.cpp": {
+      "bytes": 9997,
+      "sha256": "2e6f560fca84c1ed77356299e6442afaff8dff05fcf34d51cd59c9454553198b"
+    },
+    "src/hal/motors.h": {
+      "bytes": 2428,
+      "sha256": "8128aa9fdbfc2bde8c811dbd82c4c79a75e625dd5714facfae44bffbe92bf149"
+    },
+    "src/hal/native_pins.cpp": {
+      "bytes": 629,
+      "sha256": "222a95a33995065596ec4a08bc1a4fe925b7743aa2bb7b27c24195230376b008"
+    },
+    "src/hal/native_pins.h": {
+      "bytes": 456,
+      "sha256": "34b4fb42e33ec2232f4574c997d4a701ec5a75efcbb12f37d5040e266c13022c"
+    },
+    "src/hal/opp_sensors.cpp": {
+      "bytes": 3316,
+      "sha256": "c68f13bf8d3aa41e52f94d7a1af2e8e47216df2e9ec0e5c15d45605d8f033509"
+    },
+    "src/hal/opp_sensors.h": {
+      "bytes": 935,
+      "sha256": "445fb48b903b32fdc885bae41cd1d5e923aac12195363379881a2f7cee0ca97b"
+    },
+    "src/hal/power.cpp": {
+      "bytes": 23632,
+      "sha256": "eae110a771708f9f9f8a7890d943693427c60cc6f0cb083f23a129c516937599"
+    },
+    "src/hal/power.h": {
+      "bytes": 3142,
+      "sha256": "22dfc8aad43c164fbd1f078b2aa3f3e5377e8a314aede60ce19172b7f51fb94d"
+    },
+    "src/hal/power_inputs.cpp": {
+      "bytes": 9306,
+      "sha256": "a0f6e910eae7309ab6b778ecb2647ff21e94a9d5bd3f60e6558a50b3d9cfa32c"
+    },
+    "src/hal/power_inputs.h": {
+      "bytes": 3521,
+      "sha256": "4c36caf8eb8d2e80380cf993cfbe8682a030ed21cb7dd08d513584b11ce20864"
+    },
+    "src/hal/power_inputs_unoq.cpp": {
+      "bytes": 862,
+      "sha256": "c1756accbff46213c12c2d6c93569e6fc6495618e09d1fa67a3a47967e332173"
+    },
+    "src/hal/qtr_cal.cpp": {
+      "bytes": 9618,
+      "sha256": "b23a7e7665eb89a18eea8fb98334e5794b611a35dbc0de7542dbdd095905ca60"
+    },
+    "src/hal/qtr_cal.h": {
+      "bytes": 2925,
+      "sha256": "d8af2a7ad89974642b2afd84904cae740f981d822184ef3351b832157ca5e03e"
+    },
+    "src/hal/qtr_cal_format.cpp": {
+      "bytes": 2010,
+      "sha256": "90da4efc9377cbf4f814421ee97bfdcd1f0cbf426dc05856c8bd3ec04d8cb6b7"
+    },
+    "src/hal/recorder.cpp": {
+      "bytes": 9006,
+      "sha256": "8873d8f50f5b6e04c8ee92a986d118569624877d8cfebcad4206d0c638fee5b7"
+    },
+    "src/hal/recorder.h": {
+      "bytes": 3247,
+      "sha256": "51a95f35475c38588acdc7cd12c372f0c11afd482077c556a98c92baa169ffec"
+    },
+    "src/hal/recorder_csv.cpp": {
+      "bytes": 9760,
+      "sha256": "779b1e2609ddb4aadfd1624dabf7c0607039e99a395a3b2abc2c1aa4558318c2"
+    },
+    "src/hal/recorder_csv.h": {
+      "bytes": 2387,
+      "sha256": "0be2bebf0d8cc80376fcd4ca259a258e028647f4103dab5934bc7b972f12d8e2"
+    },
+    "src/hal/recorder_dump.cpp": {
+      "bytes": 15093,
+      "sha256": "222193fd96c9dfa1c15437785879fb154c8e9a9ee6ff20291824ce72f338f058"
+    },
+    "src/hal/recorder_dump.h": {
+      "bytes": 3034,
+      "sha256": "9d6f56ad1472ca4f66cb6e4ea7ad217baa89b39270bd8a4ebf1467314a663c17"
+    },
+    "src/hal/recorder_frames.cpp": {
+      "bytes": 2999,
+      "sha256": "5f65157fe2c1ae699dfb041b08c271eef959c0d9664f3c6b98421403d57270dc"
+    },
+    "src/hal/recorder_frames.h": {
+      "bytes": 2945,
+      "sha256": "093ef637e29f3f84d685d12842eeb1a0540a21646cb42a9dbfa005a734113d53"
+    },
+    "src/hal/ui.cpp": {
+      "bytes": 3413,
+      "sha256": "cfda5ea3077b28325425e45bee0dc54fb95803ab826ee4e098348a359ed4a3e8"
+    },
+    "src/hal/ui.h": {
+      "bytes": 889,
+      "sha256": "fc0231e65be092c8b26d73fc16b0c13d220347c30e5959d00aed13acb811a326"
+    },
+    "src/hal/ui_display.cpp": {
+      "bytes": 12037,
+      "sha256": "496b5f289e5199f8aad6d01313befbd5d12401b65e3c3977397ac605c884991d"
+    },
+    "src/hal/ui_display.h": {
+      "bytes": 2314,
+      "sha256": "5619adc7a0228fca3b15cb2ef2007d71eea4e620a41616de5e4a7f0c25004e02"
+    },
+    "src/hal/ui_matrix_unoq.cpp": {
+      "bytes": 3206,
+      "sha256": "c42cd52a399d4177d9e28b7595349babf0ee8e9069328be2d272a2538b8af412"
+    },
+    "src/hal/ui_matrix_unoq.h": {
+      "bytes": 1344,
+      "sha256": "4df1c4f5404c0c19b032d62f7e1a24777da3ce328030afbab7a7d41d824d5024"
+    },
+    "state/analysis/P7_app_motor_fault_compile_raw/inspect_static_abi.py": {
+      "bytes": 16600,
+      "sha256": "0eec2ffd91958831ab0541477a5277187bb7e9179fdca1096276dda01efb6f4c"
+    },
+    "state/analysis/P7_current_app_compile_raw/compile_current_app.py": {
+      "bytes": 29311,
+      "sha256": "aed3fbf4db5c962761affd5a3e2e52b1002feaaefe4e44f9f34df6ec78ba5ede"
+    },
+    "state/analysis/P7_motor_const_abi_contract.md": {
+      "bytes": 15192,
+      "sha256": "55a9f10dec0a7a148fc6fab3cc80ae131ae2e9a82ac74ce14c7aeb1c484ce3d1"
+    },
+    "state/analysis/P7_motor_const_compile_raw/inputs_static.json": {
+      "bytes": 13559,
+      "sha256": "1b847d96bb21fa72ed19138cb93f803b56b74224dffd7019dd930d99ff7bac95"
+    },
+    "state/analysis/P7_motor_const_compile_raw/inspect_static_abi.py": {
+      "bytes": 16087,
+      "sha256": "f360a52d6e8c29227b8a59481f37f5e8a30b207d7b66fbffaa8e8785a4dedf3c"
+    },
+    "state/analysis/P7_motor_const_compile_raw/native_static01/artifacts.json": {
+      "bytes": 9645,
+      "sha256": "fc5eb9e233c4642e0388f14132efdebab535d55134ce39c43d33c485d67e4ddd"
+    },
+    "state/analysis/P7_motor_const_compile_raw/native_static01/result.json": {
+      "bytes": 1605,
+      "sha256": "323a4d3c56c5465ad82321ba5c918091bf0b0e5500691bbcdb68dd1b2d5de5e7"
+    },
+    "state/analysis/P7_motor_fault_raw/compile_motor_fault.py": {
+      "bytes": 22843,
+      "sha256": "84efd00611b3a6a8129655005930ff58e555221f6bd8d88a23c7fa1c4381ac0d"
+    },
+    "state/analysis/P7_motor_fault_raw/inspect_active_abi.py": {
+      "bytes": 10183,
+      "sha256": "50c074024105e5920ab1557557abfd45c1bcd4280224e2360935a40caf46869a"
+    },
+    "state/analysis/P7_ordinary_app_abi_contract.md": {
+      "bytes": 20543,
+      "sha256": "541710f0e84b732b65890b451e43d8bc5ab34977367749b383ab3ae75ee48b2f"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_contract.md": {
+      "bytes": 21756,
+      "sha256": "06cd96f1c84fb50368050344853e4f5dfe0540a2d9a95b43def853b402b87f5d"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/abi_derivation01.json": {
+      "bytes": 54047,
+      "sha256": "249a420990149eb8b73268d7a2582ab93f56909268075d058de3491754d5b675"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/abi_implementation01.json": {
+      "bytes": 7618,
+      "sha256": "fb4c70a9edb6682e3347621bbcc694519ff2fdb220ea3b87456a01ff0e787bd8"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/inputs_static.json": {
+      "bytes": 12940,
+      "sha256": "a5e8f8b4b78312245c7cde3e86a39db9073b5ef9e5fa2806a3d39eece8600bb7"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/native_static01/artifacts.json": {
+      "bytes": 9281,
+      "sha256": "275ebb61be4a0487fe381d915ec28eea4634926b1d06a627850266f5c0a750e0"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/native_static01/result.json": {
+      "bytes": 1565,
+      "sha256": "221d02be2de722a8886a142328d3accb147cf1ab89b60ed9857e62fdd303aeb0"
+    },
+    "state/analysis/P7_static_link_probe_raw/static_artifacts.py": {
+      "bytes": 18322,
+      "sha256": "d30372dd4b8fb8c2661d00affc4a215cc88e3f62511995ff6303827bed4b7368"
+    },
+    "state/analysis/P7_static_link_probe_raw/static_native_artifacts.py": {
+      "bytes": 3718,
+      "sha256": "cd52a29a32b8ae1da4bea51dd55d9011386dd4be0ca537195bb124d13031d6c0"
+    },
+    "state/analysis/P7_static_link_probe_raw/static_policy.py": {
+      "bytes": 4836,
+      "sha256": "ec3d8a5e8c4910bbdbbb96fb5123c8bb42b294ce9342c76db73b8d3b5eab7775"
+    },
+    "state/analysis/P7_static_link_probe_raw/static_reference.json": {
+      "bytes": 17809,
+      "sha256": "1dc8ac6dec8534536acfcc4da73516416ea465cfcc1a349900fd13e210144a2b"
+    },
+    "state/analysis/P7_static_link_probe_raw/static_remote.py": {
+      "bytes": 33321,
+      "sha256": "8ba9b190c38e728013a383348c60c287b0366607f65f703161cf7f2e142d36f8"
+    },
+    "state/analysis/P7_static_startup_raw/capture_remote.py": {
+      "bytes": 37525,
+      "sha256": "95b0344d01886b6db30d55aa18a536f9a481b82348e22643e7920d817dbfac3e"
+    },
+    "state/analysis/P7_static_startup_raw/cli_builtin_files_inventory.json": {
+      "bytes": 17400,
+      "sha256": "a364beb814b36b9c56328b54a9de5fa0f4ad80a67003d40c7cc994a1917ba2cb"
+    },
+    "state/analysis/P7_static_startup_raw/cli_initialization_inventory.json": {
+      "bytes": 19987,
+      "sha256": "aaa2c307b7ed1b8d7e00a737447a03a63a78cd4b7fb2145142b20e9501da1e62"
+    },
+    "state/reviews/P7_ordinary_app_static_compile_actual_review.md": {
+      "bytes": 14982,
+      "sha256": "8cd383e47ab78db74141c0100aedb134afaeac60195555c8eac3b529e1de9865"
+    },
+    "tests/tooling/test_app_motor_observe_abi.py": {
+      "bytes": 46134,
+      "sha256": "b43b384aafc77499b4752af7633e2a94c98e67e955554f75490f5dc30e45bcbe"
+    },
+    "tests/tooling/test_app_motor_observe_abi_windows_mode.py": {
+      "bytes": 9907,
+      "sha256": "9777060b05f041f409a822e30c68c1630192b0354d6462b89f47cb1a2b1ac687"
+    },
+    "tests/tooling/test_motor_const_abi.py": {
+      "bytes": 18621,
+      "sha256": "ea268af833eb8e6c24423d7214b8c81ed8ea15bb356d8eebc6f8cd7c7229495b"
+    },
+    "tests/tooling/test_motor_settle_abi.py": {
+      "bytes": 30983,
+      "sha256": "96763b42d61b80654503f4093d32ac3b174ab2152fdfb795b3801304e4e2b252"
+    },
+    "tools/app_build_commands.json": {
+      "bytes": 17617,
+      "sha256": "63f6c41e34bae9fce1d945c3271b3fe86343f27544affe25ae14788438d62e1d"
+    },
+    "tools/app_build_pins.json": {
+      "bytes": 2100,
+      "sha256": "55720e65b03f6cd28964c675ceeec76619824cd11525549fbac0503b8efa972b"
+    },
+    "tools/app_build_policy.py": {
+      "bytes": 14956,
+      "sha256": "adc7f42a3325381c3cf15122409dfe9d92db7ca187cb242e416fef356be667f8"
+    },
+    "tools/app_motor_fault_compile_remote.py": {
+      "bytes": 6891,
+      "sha256": "1428b9345d5f524b6c79ede2c30eabb240b6a45ef6a30a593063c3902054fec2"
+    },
+    "tools/app_motor_fault_static_policy.py": {
+      "bytes": 8262,
+      "sha256": "3e5d49e4a70c0cf6197e26b1ba5ce2b7e07601bf5d9250ba430f90d1f9eab270"
+    },
+    "tools/board_tool.py": {
+      "bytes": 37039,
+      "sha256": "0ba071553971374339fce2809780f32685567f4e7b46544557df75dddc25f255"
+    },
+    "tools/compile_app_motor_fault.py": {
+      "bytes": 29802,
+      "sha256": "cf0c826feca483a78ce9839d0037d1e005a0ce73a3aa01df1ad4b309729ed25a"
+    },
+    "tools/compile_ordinary_app_static.py": {
+      "bytes": 26136,
+      "sha256": "40b5c765c01bc1749f6ea4534a4b7f274b681b5fa9295ab6f0c57fbf94d66a89"
+    },
+    "tools/match_deploy.py": {
+      "bytes": 26266,
+      "sha256": "3acacad6e95aff1012e9d0d1f8ef60905c026ebe865569fdb71384abd607d2a9"
+    }
+  },
+  "new_assertion_calls": {
+    "test_all_47_enum_values_must_be_observed_and_equal_source_definition": 1,
+    "test_all_current_artifact_pins_and_thirteen_closures_are_required": 8,
+    "test_all_type_size_alignment_bounds_and_exact_bool_are_enforced": 0,
+    "test_complete_two_objects_windows_types_enums_and_exact_schema": 17,
+    "test_current_source_manifest_artifact_and_scope_reject_const_diagnostic_substitutes": 2,
+    "test_decimal_hex_sizes_and_fresh_addresses_offsets_are_observed": 11,
+    "test_each_command_identity_execution_limit_encoding_and_stderr_is_required": 0,
+    "test_each_forbidden_diagnostic_symbol_refuses_without_querying_its_type": 0,
+    "test_each_layout_block_must_be_present_nonempty_and_available": 1,
+    "test_each_marker_missing_duplicate_reordered_or_unknown_refuses": 1,
+    "test_each_object_size_tokens_and_alignment_must_match_queried_type": 0,
+    "test_each_object_symbol_requires_unique_complete_local_object_identity": 0,
+    "test_every_numeric_answer_requires_one_unsigned_integer": 1,
+    "test_every_original_and_contract_is_checked_before_private_execution": 1,
+    "test_every_window_containment_alignment_and_pairwise_nonoverlap_are_checked": 0,
+    "test_import_is_passive_and_seven_guard_cli_bodies_are_exact": 2,
+    "test_invalid_result_containers_command_counts_rows_and_layout_containers_refuse": 0,
+    "test_loading_is_private_passive_and_preserves_all_current_and_original_pins": 9,
+    "test_main_exact_forms_B_requirement_and_once_only_result_error_delegation": 8,
+    "test_objects_independently_require_initialized_bss_and_nonoverlap": 0,
+    "test_projection_has_only_four_semantic_spans_after_counted_metadata": 4,
+    "test_projector_refuses_types_drift_occurrences_line_endings_and_projected_input": 0,
+    "test_queries_are_exact_185_expressions_four_commands_and_no_target_actions": 7,
+    "test_real_ordinary_admission_rechecks_125_inputs_mapping_and_hash_helper": 10,
+    "test_success_retains_raw_before_ordinary_summary_and_independent_local_closure": 12,
+    "test_summary_is_pure_under_IO_guards_and_preserves_every_raw_field": 3,
+    "test_unique_observed_bss_section_and_checked_layout_agreement_are_required": 0
+  },
+  "new_methods": [
+    "test_import_is_passive_and_seven_guard_cli_bodies_are_exact",
+    "test_projection_has_only_four_semantic_spans_after_counted_metadata",
+    "test_projector_refuses_types_drift_occurrences_line_endings_and_projected_input",
+    "test_main_exact_forms_B_requirement_and_once_only_result_error_delegation",
+    "test_every_original_and_contract_is_checked_before_private_execution",
+    "test_loading_is_private_passive_and_preserves_all_current_and_original_pins",
+    "test_real_ordinary_admission_rechecks_125_inputs_mapping_and_hash_helper",
+    "test_current_source_manifest_artifact_and_scope_reject_const_diagnostic_substitutes",
+    "test_queries_are_exact_185_expressions_four_commands_and_no_target_actions",
+    "test_complete_two_objects_windows_types_enums_and_exact_schema",
+    "test_decimal_hex_sizes_and_fresh_addresses_offsets_are_observed",
+    "test_summary_is_pure_under_IO_guards_and_preserves_every_raw_field",
+    "test_invalid_result_containers_command_counts_rows_and_layout_containers_refuse",
+    "test_each_command_identity_execution_limit_encoding_and_stderr_is_required",
+    "test_each_marker_missing_duplicate_reordered_or_unknown_refuses",
+    "test_every_numeric_answer_requires_one_unsigned_integer",
+    "test_all_type_size_alignment_bounds_and_exact_bool_are_enforced",
+    "test_each_layout_block_must_be_present_nonempty_and_available",
+    "test_all_47_enum_values_must_be_observed_and_equal_source_definition",
+    "test_each_object_symbol_requires_unique_complete_local_object_identity",
+    "test_each_object_size_tokens_and_alignment_must_match_queried_type",
+    "test_objects_independently_require_initialized_bss_and_nonoverlap",
+    "test_unique_observed_bss_section_and_checked_layout_agreement_are_required",
+    "test_every_window_containment_alignment_and_pairwise_nonoverlap_are_checked",
+    "test_each_forbidden_diagnostic_symbol_refuses_without_querying_its_type",
+    "test_success_retains_raw_before_ordinary_summary_and_independent_local_closure",
+    "test_all_current_artifact_pins_and_thirteen_closures_are_required"
+  ],
+  "oracle_specific_environment_required": false,
+  "original_inputs": {
+    "state/analysis/P7_app_motor_fault_compile_raw/inspect_static_abi.py": {
+      "bytes": 16600,
+      "sha256": "0eec2ffd91958831ab0541477a5277187bb7e9179fdca1096276dda01efb6f4c"
+    },
+    "state/analysis/P7_motor_const_compile_raw/inspect_static_abi.py": {
+      "bytes": 16087,
+      "sha256": "f360a52d6e8c29227b8a59481f37f5e8a30b207d7b66fbffaa8e8785a4dedf3c"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/inputs_static.json": {
+      "bytes": 12940,
+      "sha256": "a5e8f8b4b78312245c7cde3e86a39db9073b5ef9e5fa2806a3d39eece8600bb7"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/native_static01/artifacts.json": {
+      "bytes": 9281,
+      "sha256": "275ebb61be4a0487fe381d915ec28eea4634926b1d06a627850266f5c0a750e0"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/native_static01/result.json": {
+      "bytes": 1565,
+      "sha256": "221d02be2de722a8886a142328d3accb147cf1ab89b60ed9857e62fdd303aeb0"
+    },
+    "tools/compile_ordinary_app_static.py": {
+      "bytes": 26136,
+      "sha256": "40b5c765c01bc1749f6ea4534a4b7f274b681b5fa9295ab6f0c57fbf94d66a89"
+    }
+  },
+  "platforms": {
+    "linux": {
+      "collected": 66,
+      "planned_skips": 0,
+      "temporary": "/dev/shm actual nonroot user"
+    },
+    "windows": {
+      "collected": 66,
+      "conditional_symlink_privilege_skip": 1,
+      "explicit_FIFO_skip": 1,
+      "temporary": "Dedicated TEMP/TMP/TMPDIR before interpreter startup; never sharedTemp"
+    }
+  },
+  "projected_expected": {
+    "bytes": 12965,
+    "sha256": "7fb42d51a3f42f99c7e7890b4f4c1dc90360c2d84c09d3bbde7ccea4d1138aea"
+  },
+  "reader_base": "state/analysis/P7_app_motor_fault_compile_raw/inspect_static_abi.py",
+  "reader_intermediate": {
+    "bytes": 16613,
+    "sha256": "c6d2fad323649a0cc2d394925750df72d0040409abe020ae9c92faa2c81d0217"
+  },
+  "reader_metadata_steps": [
+    {
+      "count": 1,
+      "new": "state/analysis/P7_ordinary_app_static_compile_raw",
+      "old": "state/analysis/P7_app_motor_fault_compile_raw"
+    },
+    {
+      "count": 1,
+      "new": "tools/compile_ordinary_app_static.py",
+      "old": "tools/compile_app_motor_fault.py"
+    },
+    {
+      "count": 1,
+      "new": "ordinary-app-static01",
+      "old": "app-motor-fault-static01"
+    },
+    {
+      "count": 1,
+      "new": "ordinary-app-abi-static01",
+      "old": "app-motor-fault-abi-static01"
+    },
+    {
+      "count": 2,
+      "new": "D209_STATIC_FILE_ONLY_ABI",
+      "old": "D188_STATIC_FILE_ONLY_ABI"
+    },
+    {
+      "count": 1,
+      "new": "9044ebbb3cd3b2dbb7aa5984dd5ff23bfff697372f1f29d56693af9ea5eaf31a",
+      "old": "21df6ae82cca4b09dc6b1e0de5bc719cf98ec6887800d5ce8297522e491a7950"
+    },
+    {
+      "count": 1,
+      "new": "40b5c765c01bc1749f6ea4534a4b7f274b681b5fa9295ab6f0c57fbf94d66a89",
+      "old": "cf0c826feca483a78ce9839d0037d1e005a0ce73a3aa01df1ad4b309729ed25a"
+    },
+    {
+      "count": 1,
+      "new": "a5e8f8b4b78312245c7cde3e86a39db9073b5ef9e5fa2806a3d39eece8600bb7",
+      "old": "d4eae97c1c47a1ce0fa24c9d7e3ae44857a565cd7b85b9c17be45143654d3eb5"
+    },
+    {
+      "count": 1,
+      "new": "221d02be2de722a8886a142328d3accb147cf1ab89b60ed9857e62fdd303aeb0",
+      "old": "f8928bd0b9a59f47c1bc02c627523af8f250535ffcd269e37e5a80414cc0ce82"
+    },
+    {
+      "count": 1,
+      "new": "275ebb61be4a0487fe381d915ec28eea4634926b1d06a627850266f5c0a750e0",
+      "old": "57b98c00db1ed5d90394812fcbb3fb28effedd4381f6e2fc03a6e7c04b45a6ce"
+    },
+    {
+      "count": 1,
+      "new": "self.compiler = loaded(COMPILE, HARD_PINS[COMPILE]).load_caller(root=ROOT)",
+      "old": "self.compiler = loaded(COMPILE, HARD_PINS[COMPILE])"
+    },
+    {
+      "count": 1,
+      "new": "/build/app.ino",
+      "old": "/build/app_motor_fault.ino"
+    }
+  ],
+  "scenario_inventory": {
+    "all_remote_closing_paths_plus_success": 14,
+    "each_window_negative_cases": 23,
+    "empty_or_unavailable_layouts": 39,
+    "incorrect_enum_values": 47,
+    "marker_missing_duplicate_reorder": 276,
+    "numeric_malformed_or_duplicate": 474,
+    "size_alignment_bool_boundaries": 67
+  },
+  "schema": "d209-independent-abi-fixture-v1",
+  "selection": {
+    "AbiContract": [
+      "test_command_receipts_reject_argv_execution_deadlines_streams_and_stderr"
+    ],
+    "BootstrapContract": [
+      "test_absolute_relative_limit_and_digest_contract",
+      "test_empty_oversized_missing_wrong_digest_and_directory_refuse",
+      "test_real_hardlink_refuses",
+      "test_real_file_and_parent_symlink_refuse",
+      "test_reparse_on_file_parent_or_root_refuses_before_open",
+      "test_initial_descriptor_type_link_and_identity_refuse_before_read",
+      "test_descriptor_drift_including_same_api_ctime_refuses",
+      "test_ctime_cross_api_exception_is_only_windows_and_each_api_stays_stable",
+      "test_parent_snapshot_drift_during_read_refuses",
+      "test_read_is_bounded_and_preserves_primary_over_close",
+      "test_regular_to_fifo_swap_is_nonblocking_and_never_read"
+    ],
+    "LifecycleContract": [
+      "test_real_prepare_composes_four_file_tools_pins_and_windows_bound_without_claim",
+      "test_local_refuses_wrong_head_dirty_tree_source_and_boot",
+      "test_local_accepts_only_claimed_owner_untracked_outputs_and_checks_local_pins",
+      "test_prepare_consumed_owner_and_low_space_refuse",
+      "test_prepare_rejects_command_over_windows_bound",
+      "test_prepare_rejects_wrong_compile_receipt_before_any_claim",
+      "test_execute_consumed_owner_is_not_reused",
+      "test_execute_scope_status_error_command_count_and_closure_refusals_retain_raw",
+      "test_execute_invalid_stream_or_parser_failure_is_closed_after_raw_retention",
+      "test_execute_transport_stderr_or_oversized_reply_refuses_and_closes",
+      "test_execute_actual_decoder_rejects_duplicate_keys_nonfinite_and_invalid_json",
+      "test_primary_child_error_survives_local_and_receipt_close_failures",
+      "test_lone_local_or_closure_write_failure_remains_failure"
+    ],
+    "WindowsExecutableModeContract": [
+      "test_real_executable_named_regular_file_is_read_without_launching",
+      "test_complete_path_only_execute_delta_accepts_all_four_extensions_and_case",
+      "test_readonly_regular_modes_accept_only_the_same_complete_delta",
+      "test_exact_mode_equality_remains_valid_for_both_platforms_and_suffixes",
+      "test_nonwindows_execute_difference_refuses_before_read_for_every_extension",
+      "test_nonmatching_or_nonfinal_extension_differences_refuse_before_read",
+      "test_partial_execute_deltas_and_reverse_direction_refuse_before_read",
+      "test_other_permission_and_special_bits_are_never_masked",
+      "test_other_identity_field_mismatches_refuse_before_read",
+      "test_nonregular_reparse_and_multiple_links_refuse_before_read",
+      "test_full_path_mode_must_stay_identical_after_read",
+      "test_full_descriptor_mode_must_stay_identical_after_read",
+      "test_windows_ctime_api_difference_retains_within_api_stability",
+      "test_hash_is_still_required_after_eligible_mode_difference"
+    ]
+  },
+  "serial": true,
+  "status": "FINAL_INDEPENDENT_FIXTURE",
+  "subject_expected": {
+    "bytes": 43966,
+    "sha256": "fe64ceb3e7d8a5d9b3b7253f5b91b33c74e478bd27bfa33a55ab5cfb8c923edb"
+  },
+  "temporary_cleanup": "Inherited addCleanup TemporaryDirectory callbacks, with sumox-d194-, sumox-d194-mode-, sumox-d209-abi- prefixes under bounded dedicated platform root; no production/device/owner cleanup.",
+  "timeout_seconds": 600
+}

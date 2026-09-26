@@ -1,0 +1,69 @@
+{
+  "schema": "d209-fixed-file-only-abi-scope-v1",
+  "prepared": "2026-09-26T16:38:33.194692+04:00",
+  "action": "one check-only then one execute at clean reviewed HEAD, no auto-retry",
+  "source_sha256": "9044ebbb3cd3b2dbb7aa5984dd5ff23bfff697372f1f29d56693af9ea5eaf31a",
+  "boot_id": "55c386b9-fe6d-4388-a7f4-1d91e0bb49d8",
+  "serial": "2629958581",
+  "local_owner": "state/analysis/P7_ordinary_app_static_compile_raw/native_abi_static01",
+  "remote_scope": "/home/arduino/sumox26_codex_build/ordinary-app-abi-static01",
+  "build_owner": "/home/arduino/sumox26_codex_build/ordinary-app-static01",
+  "file_children": 4,
+  "gdb_expressions": 185,
+  "subjects": 13,
+  "child_timeout_seconds": 60,
+  "reap_seconds": 5,
+  "transport_timeout_seconds": 400,
+  "stream_limit_bytes": 1048576,
+  "reply_limit_bytes": 8388608,
+  "windows_command_units_limit": 30000,
+  "local_free_minimum_bytes": 134217728,
+  "limits": "File observation only; no compile, upload, reset, MCU read, privilege, motor or gate. Ordinary loop is not terminal or coherent. Entry ranges follow actual ABI.",
+  "inputs": {
+    "state/analysis/P7_ordinary_app_abi_contract.md": {
+      "bytes": 20543,
+      "sha256": "541710f0e84b732b65890b451e43d8bc5ab34977367749b383ab3ae75ee48b2f"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/inspect_static_abi.py": {
+      "bytes": 44449,
+      "sha256": "f816a52366d7031f860d5cdd93e0715905df4b675a24e89d8dbb1d2b63eda97d"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/inputs_static.json": {
+      "bytes": 12940,
+      "sha256": "a5e8f8b4b78312245c7cde3e86a39db9073b5ef9e5fa2806a3d39eece8600bb7"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/native_static01/result.json": {
+      "bytes": 1565,
+      "sha256": "221d02be2de722a8886a142328d3accb147cf1ab89b60ed9857e62fdd303aeb0"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/native_static01/artifacts.json": {
+      "bytes": 9281,
+      "sha256": "275ebb61be4a0487fe381d915ec28eea4634926b1d06a627850266f5c0a750e0"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/abi_host_closing01.json": {
+      "bytes": 26889,
+      "sha256": "9b85a177cbc164ebb0b824f12c0d3344a7f8ddb733d7fa13d6b4a881ef3a2ef3"
+    },
+    "state/reviews/P7_ordinary_app_abi_review.md": {
+      "bytes": 8934,
+      "sha256": "f3e72aca3a84f9c9a268fb2af0d731c95213f0f024a64bcab84517de2774b53a"
+    },
+    "state/reviews/P7_ordinary_app_static_compile_actual_review.md": {
+      "bytes": 14982,
+      "sha256": "8cd383e47ab78db74141c0100aedb134afaeac60195555c8eac3b529e1de9865"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/abi_coordinator_freeze01.json": {
+      "bytes": 30803,
+      "sha256": "0173a01c3df2d9c1901d878cb185de4429fce808e3b0929f2ee798d21c07637c"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/abi_implementation02.json": {
+      "bytes": 8480,
+      "sha256": "4e8fb0a1acbf59bac6f729dfdaeeee28104984d0439dfda0ffaf96717c7c7d42"
+    }
+  },
+  "admission_boundary": "No separate board observer. Check-only local only. Execute includes current identity, absent remote scope and12file hashes/stamps before four children, then13closing checks and independent local closure. No retries.",
+  "runtime_windows": 6,
+  "gdb_markers": 92,
+  "enum_answers": 47,
+  "ordinary_objects": 2
+}

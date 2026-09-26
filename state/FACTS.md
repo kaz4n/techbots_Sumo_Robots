@@ -914,3 +914,7 @@ BOARD-OBSERVED, bounded diagnostic: D207 actual review b5624884 accepts single c
 
 ## F233 - Ordinary application static inhibited target compilation (2026-09-26T16:00:43.065530+04:00)
 FILE-OBSERVED: D208 at clean9bdd38ae completes one query/compiler,230transports and all8closing checks with independent actual review8cd383e4 PASS. Source9044ebbb/125-filemanifest and191coordinator/15scopepins remain exact;104stagedfiles764405B. Result221d02be/artifacts275ebb61: rawELF170376B/aaeeb640,debug1751548B/71e51238,package92944B/7fa9d41d;208data,167272zeroing span,167584fullBSS,94352structuralRAMtail. CLI separately reports94348remaining; neither is measured headroom. Sevenidentityaliases and nativeTLS/layout/package pass. No flash/reset/MCUread or ordinary runtime qualification; D207 remains flashed. Source: analysis/P7_ordinary_app_static_compile_validation.md.
+
+
+## F234 - Ordinary file-only ABI reader host evidence (2026-09-26T16:38:33.194692+04:00)
+HOST-VERIFIED: final reader44449B/f816a523, projected12965B/7fb42d51 and independent oracle44414B/0a88018a pass first Linux66 and Windows64 with two exact Linux-covered skips. Reviewf3e72aca FINAL PASS independently reconciles132outcomes,159pins and empty scoped temporary fixtures. Original pre-execution findings and versions preserved. No actual ordinary ABI, instructions, upload or runtime result. Source: analysis/P7_ordinary_app_abi_validation.md.

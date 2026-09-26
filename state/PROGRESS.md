@@ -1372,3 +1372,6 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-26T08:48:03.916477+04:00 | P7 D194 actual ABI02 PASS | Atcleanefadbe5c check0/execute0;1transport/4filechildren0reaped/emptystderr/13remoteclosing+localPASS. Resulta5e67635/ABIdfc34596,142pinsstable;Runner0x20013960/169736B/align8, polls4B/align4/offset168572. OriginalFAILED01retained;02CONSUMED. No compile/upload/reset/MCUread; actualreviewthenentryinstructionobservation next.
+
+
+2026-09-26T08:55:29.495957+04:00 | P7 D194 entry host validation | Source0c3a3dd1/contract437f8cb8, independent19Windows+19LinuxPASS/no skips;150pinsstable.27currentELFderivedranges, exactbootstrap/lifecycle/parserprojection; nativeentryownerunused. Finalreview/cleanHEAD thennewfile-onlyentryquery. Separatereadonlyscratchinventory sees3D190copies; no useproof/cleanup/nativeupload.

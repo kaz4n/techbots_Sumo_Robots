@@ -1,0 +1,31 @@
+{
+  "schema": "d194-observer-entry-independent-oracle-freeze-v1",
+  "frozen_utc": "2026-09-26T04:53:43.8238361Z",
+  "oracle": {
+    "path": "tests/tooling/test_app_motor_observe_entry.py",
+    "bytes": 29705,
+    "sha256": "b7db0b43ae5e487cd6475e0b6dd6272d33a8316bcfba64a07f6c2a3e2c0415d8",
+    "methods": 19
+  },
+  "subject": {
+    "path": "state/analysis/P7_app_motor_observe_compile_raw/inspect_static_entry.py",
+    "sha256": "0c3a3dd1fd19ffc51dc90b3d47081cf4bb8d2cc4b84076756ff92b4a49d893ad"
+  },
+  "contract": {
+    "path": "state/analysis/P7_app_motor_observe_entry_contract.md",
+    "sha256": "437f8cb87b7456f0dfc766e506830e0f5ba23cc5b605de5957ff458b5603caaa"
+  },
+  "derivation": "Frozen entry contract437f8cb8; pinned historical cb9ee5bb public entry parser; historical ABI/ABI02 oracle fixture helpers b43b384a/9e50373e. New entry implementation body not read, imported or executed before this freeze.",
+  "coverage": [
+    "Passive import/strict main, exact five bootstrap helper source bodies",
+    "Exact reader and parser byte projections with all32 fixed address substitutions and rejection checks",
+    "All six provenance checks before exec; original-first composition; no historical entry load/main; private direct query/summary replacement",
+    "All27 range groups and constructor aliases; synthetic decimal/hex symbol packets, init-array pointer/bounds,16/32-bit complete opcode coverage and raw block hashes",
+    "Malformed/missing/duplicate symbols/aliases/markers, tuple/range/type/Thumb errors, init span/pointer failures, instruction gaps/overlaps/coverage",
+    "Fresh owner and unchanged D193 artifacts; actual prepare composition, raw entry receipts, consumed owner/primary failure/local closure"
+  ],
+  "fixtures": "Synthetic nonexecuted ELF text and disassembly; checked public historical helpers. Linux /dev/shm and small auto-cleaned Windows temporary files. Subprocess/socket endpoints blocked; no firmware file or executable downloaded.",
+  "execution": "No test/new subject execution by independent author. Root owns first serial platform runs and immutable receipts.",
+  "command": "python -B -m unittest discover -s tests/tooling -p test_app_motor_observe_entry.py -v",
+  "limits": "Host file-parser evidence only; no native/compiler/board/upload/reset/MCU/motion operation or runtime/hardware qualification."
+}

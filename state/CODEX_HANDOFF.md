@@ -58,9 +58,12 @@ at cleanefadbe5c: check0/execute0,1transport/4filechildren0/13remote+localPASS.
 Resulta5e67635/ABIdfc34596: Runner0x20013960/169736B/align8; polls4B/align4/
 offset168572. Read P7_app_motor_observe_abi02_validation.md and actualreview.
 Both native_abi_static01 and02 are CONSUMED. No firmware/MCU operation occurred.
-Next prepare a new file-only entry reader from successful ABI02 observed symbols,
-then independently test/review before one new entry observation. The draft entry
-contract is owned by run02_audit; do not treat an unfinished draft as adopted.
+The new file-only entry reader is prepared: inspect_static_entry.py0c3a3dd1,
+contract437f8cb8, independent19Windows+19LinuxPASS/no skips,150pins stable and
+reviewd52c4cb8PASS. Read P7_app_motor_observe_entry_validation.md. New observer
+native_entry_static01 is UNUSED: cleanHEAD/check-only then one execute is next.
+Afterward independently review actual instructions before any new run scope.
+Separate scratch inventory sees3D190copies; upload needs separately bound cleanup.
 D193 app-motor-observe-static01 and all earlier native owners are consumed.
 Recheck free space and fresh board/boot identity before admission; retain the
 128MiB native-reader gate. Do not lower the gate or retry any earlier denied

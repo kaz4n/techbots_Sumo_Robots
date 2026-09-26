@@ -44,22 +44,34 @@ result10d8a184 commands[3]. This supports investigating constant evaluation,
 not a measured speedup. Initial implementation37139e83 is19906B/fdbc27d9;
 its author receipt is implementation01.json/ef139b60. Independent oracle
 2b8f66e3/freeze0ff50996 was frozen before any implementation review or execution.
-Coordinator freezee6f81685 binds148 inputs (commit2b7449b2). The first serial
-metadata host attempt is running; no result is accepted yet. Its owner is
-analysis/P7_motor_expected_metadata_raw/metadata_first_linux01, driven by
-host_driver01.py metadata (session4252). After it finishes, run the distinct
-probe and locked groups once, preserve first failures and obtain the separate
-review at reviews/P7_motor_expected_metadata_review.md. Do not rerun consumed
-owners or alter pinned files while a test is active.
+Initial coordinator freezee6f81685 binds148 inputs (commit2b7449b2). First
+metadata attempt preserved4d7b92a9 fails only the predecessor carrier-zero
+fixture's promoted warning. Independently reviewed fixture correction239fc472
+admits and requires that one visible warning, with original numeric assertions,
+all other-Werror and UBSan retained. Corrected oracle7378ed6a/freeze68a539d9 and
+coordinator45be4784 bind154 unchanged inputs. Corrected result7249f9bf passes
+all7 methods/all45 numeric rows across4variants/all21 four-way transcripts.
+Locked disabled/enabled suites pass76cases217020assertions. HistoricalD197
+remains4PASS/1FAIL: fullsymbol inventory loses only DOMAINS/SELECTORS readonly
+objects and candidateRate localtext; no additions. Full display-only auxiliary
+failure is preserved and separately adjudicated under D202, never relabeledPASS.
+See analysis/P7_motor_expected_metadata_validation.md. Final reviewf7b8a116 at
+reviews/P7_motor_expected_metadata_review.md PASS, no open material finding;
+all host owners are consumed and all temporary fixture directories are absent.
+Broad unittest discovery still includes the preserved historical D197 failure;
+do not claim it is wholly passing. No test exclusion was introduced.
+Next adopt a fresh D203 fixed compile-only contract being prepared at
+analysis/P7_motor_const_compile_contract.md; tools/compile_motor_const.py does
+not yet exist. Same static/default/MATCH0/M0/probe1 diagnostic, fresh const
+ownership and current source only. Do not rerun old launchers.
 
-Run independent metadata/native transcript checks and unchanged locked suites,
-serially, retaining first failures. Also run unchanged D197 oracle; its complete
-symbol equality might expose legitimately removed immutable metadata storage.
-Do not alter/filter that assertion or force artificial symbols. Record and
-review any difference before proceeding. No target optimization benefit is
-established until a new fixed compile, actual ABI/entry and separately reviewed
-inhibited runtime attempt. All prior native owners are consumed; do not rerun
-historical launchers, reset the MCU casually or repin old manifests.
+Independent metadata/native transcript checks, unchanged locked suites and
+the unchanged D197 oracle have completed serially with first failures retained
+and reviewed as described above. Do not alter/filter the historical assertion
+or force artificial symbols. No target optimization benefit is established
+until a new fixed compile, actual ABI/entry and separately reviewed inhibited
+runtime attempt. All prior native owners are consumed; do not rerun historical
+launchers, reset the MCU casually or repin old manifests.
 
 ## Evidence prerequisites already complete
 
@@ -107,5 +119,5 @@ Freeze1October21:00Dubai, rehearsal2October, competition3October. Dates do not
 create acceptance. Read AGENTS.md/CODEX_RESUME/CODEX_EXECUTION and latest state.
 PROGRESS is binary-append-only: first140971B SHA256
 1dbbeb53c3dc046128494af3bef240b9a00353929d6121991900c90bb2838b77.
-No native board process remains active. Host metadata test session4252 is active
-at this checkpoint; verify the saved owner/result before starting any new job.
+No native board or host test process remains active at this checkpoint. D202
+host evidence is reviewed; D203 contract preparation is in progress.

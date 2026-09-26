@@ -223,11 +223,22 @@ still a later dependency. See `state/analysis/P0_counter_validation.md` for the
 explicit8-second capture deadline, raw exits and scope. No receive command path
 was added to the MCU or this logger.
 
-`python3 -m unittest discover -s tests/tooling -v` uses controlled SSH/rsync
+`python3 -B -m unittest discover -s tests/tooling -v` uses controlled SSH/rsync
 substitutes. These tests must check argument rejection, all flag combinations,
 default macros, actual staging include paths, strict host checking, no upload/
 reset/start during compile-only, wrong core, and propagation of SSH/sync/compile
 failures. A substitute returning zero is script-test evidence only.
+
+Broad discovery also includes historical fixed-scope oracles and newer tests
+that require a fresh evidence directory. It is not currently a wholly passing
+single-command suite. In particular, D202 preserves D197's complete-symbol
+equality failure after eliminating two read-only metadata symbols and one local
+helper symbol; its successor
+checks and locked motor suites pass separately. No assertion is filtered or
+excluded. Use the exact commands and evidence owners in
+`state/analysis/P7_motor_expected_metadata_validation.md` for that scoped result;
+do not rerun a consumed owner. `tools/test_host.sh` remains the separate CMake/
+CTest entry and does not discover these Python oracles.
 
 ## Explicit USB ADB fallback
 

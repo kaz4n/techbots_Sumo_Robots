@@ -1,0 +1,63 @@
+{
+  "schema": "d202-host-closing-v1",
+  "at": "2026-09-26T12:09:12.787249+04:00",
+  "production": {
+    "bytes": 19906,
+    "sha256": "fdbc27d972a59a9c955b67b88072a03df3b90a4629e22fd7833ff5f09e0c8f8b"
+  },
+  "freeze_sha256": "45be47843590fa66909c984d47e9a54c8cc08ad1ccde377058eab75a7ab4c27a",
+  "input_count": 154,
+  "changed_inputs": [],
+  "scratch_observation": {
+    "argv": [
+      "wsl",
+      "-d",
+      "Ubuntu",
+      "--",
+      "bash",
+      "-lc",
+      "find /dev/shm -maxdepth 1 -type d \\( -name \"sumox-d202-*\" -o -name \"sumox-d197-*\" -o -name \"sumo-native-motor-*\" \\) -print"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "host_disk_free_bytes": 18607923200,
+  "owners": {
+    "metadata_first_linux01": {
+      "files": 402,
+      "bytes": 500369,
+      "result_sha256": "30be8e67676755b78ef790a71e8be4e86c9b87270319cdcce6e52df29fdd8e9c",
+      "returncode": 1,
+      "changed_inputs": []
+    },
+    "probe_first_linux01": {
+      "files": 90,
+      "bytes": 126737,
+      "result_sha256": "2807bfa7112104e3a008308b258039305dc41d433161647cde0e57a4eed935ce",
+      "returncode": 1,
+      "changed_inputs": []
+    },
+    "locked_first_linux01": {
+      "files": 31,
+      "bytes": 31674,
+      "result_sha256": "4ec6c1281e046a37954d8f0c47fc83273180a57177c83e69fa62ef940dc6bdbb",
+      "returncode": 0,
+      "changed_inputs": []
+    },
+    "symbols_audit_linux01": {
+      "files": 21,
+      "bytes": 36060,
+      "result_sha256": "9307d706a83ae875ca41a08e9610efe60dc958f2b56a854d1531b269a9c8868e",
+      "returncode": 1,
+      "changed_inputs": []
+    },
+    "metadata_corrected_linux02": {
+      "files": 475,
+      "bytes": 601028,
+      "result_sha256": "7249f9bf767fb42a54eaf34ebaf712ec7e182c9962e6a088341eb08ff7f98af5",
+      "returncode": 0,
+      "changed_inputs": []
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "at": "2026-09-26T12:09:27.773985+04:00",
+  "argv": [
+    "wsl",
+    "-d",
+    "Ubuntu",
+    "--",
+    "find",
+    "/dev/shm",
+    "-maxdepth",
+    "1",
+    "-type",
+    "d",
+    "(",
+    "-name",
+    "sumox-d202-*",
+    "-o",
+    "-name",
+    "sumox-d197-*",
+    "-o",
+    "-name",
+    "sumo-native-motor-*",
+    ")",
+    "-print"
+  ],
+  "returncode": 2,
+  "stdout": "",
+  "stderr": "/bin/bash: -c: line 1: syntax error near unexpected token `('\n/bin/bash: -c: line 1: `find /dev/shm -maxdepth 1 -type d ( -name sumox-d202-* -o -name sumox-d197-* -o -name sumo-native-motor-* ) -print'\n",
+  "note": "Direct argv observation avoids shell escaping ambiguity in closing01; no deletion."
+}

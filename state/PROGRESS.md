@@ -1357,3 +1357,6 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-26T01:51:41.861383+04:00 | P7 B4 scope refinement and disk interruption | Read-only sourceaudit proves existingapp.ino alreadyprovidesoperationalB4binding; missingtaskis distinctprofile/build/deployadmission, notduplicatedentry. See analysis/P7_b4_profile_scope_followup.md. NoD195contract/code/testscreated. C0interruptedownedreportwrite; restoredexactHEAD5095B229e42d9,no dataloss. D194nativeownerunused; userstorageactionpending.
+
+
+2026-09-26T08:30:55.656683+04:00 | P7 D194 resumed actual preflight | Userfreedspace; verified223989760B then1GBfree,135pinsstable/cleanHEAD1c0151fa. Check-only STOPPED beforeowner/board becauseWindowsADB.exe lstatmode100777 vsfstat100666; pathbefore/afterandbinaryhashe79dc8fc unchanged. CPython3.13.11 sourcesexplainextension-derived0111 bits. Preserve preflight_actual01/windows_adb_mode01; narrowcontractreview/independentregressionpending, no guardbypass/nativeaction.

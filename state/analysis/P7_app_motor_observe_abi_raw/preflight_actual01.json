@@ -1,0 +1,20 @@
+{
+  "observed_utc": "2026-09-26T04:28:10.997995+00:00",
+  "reviewed_head": "1c0151fa5ccf20eb539bc0de97125e83759304fd",
+  "free_bytes": 1035894784,
+  "input_count": 135,
+  "check": {
+    "argv": [
+      "C:\\Users\\narut\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+      "-B",
+      "state/analysis/P7_app_motor_observe_compile_raw/inspect_static_abi.py",
+      "--check-only",
+      "--reviewed-head",
+      "1c0151fa5ccf20eb539bc0de97125e83759304fd"
+    ],
+    "returncode": 1,
+    "stdout": "",
+    "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\narut\\OneDrive\\Desktop\\Project\\techbots_Sumo_Robots\\state\\analysis\\P7_app_motor_observe_compile_raw\\inspect_static_abi.py\", line 199, in <module>\n    sys.exit(main(sys.argv[1:]))\n             ~~~~^^^^^^^^^^^^^^\n  File \"C:\\Users\\narut\\OneDrive\\Desktop\\Project\\techbots_Sumo_Robots\\state\\analysis\\P7_app_motor_observe_compile_raw\\inspect_static_abi.py\", line 195, in main\n    return load_reader(root=ROOT).main(argv)\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^\n  File \"C:\\Users\\narut\\OneDrive\\Desktop\\Project\\techbots_Sumo_Robots\\state\\analysis\\P7_app_motor_fault_compile_raw\\inspect_static_abi.py\", line 293, in main\n  File \"C:\\Users\\narut\\OneDrive\\Desktop\\Project\\techbots_Sumo_Robots\\state\\analysis\\P7_app_motor_fault_compile_raw\\inspect_static_abi.py\", line 200, in prepare\n    require(shutil.disk_usage(ROOT).free >= 134217728, 'Less than 128MiB local free space')\n    ^^^^^^^^^^^^\n  File \"C:\\Users\\narut\\OneDrive\\Desktop\\Project\\techbots_Sumo_Robots\\state\\analysis\\P7_app_motor_fault_compile_raw\\inspect_static_abi.py\", line 197, in local\n    self.local()\n    ~~~~~~~~~~^^\n  File \"C:\\Users\\narut\\OneDrive\\Desktop\\Project\\techbots_Sumo_Robots\\state\\analysis\\P7_app_motor_observe_compile_raw\\inspect_static_abi.py\", line 143, in pinned\n    return _read_handle(path, expected, limit, before)\n  File \"C:\\Users\\narut\\OneDrive\\Desktop\\Project\\techbots_Sumo_Robots\\state\\analysis\\P7_app_motor_observe_compile_raw\\inspect_static_abi.py\", line 110, in _read_handle\n    require(stat.S_ISREG(info.st_mode) and info.st_nlink == 1 and\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n            not getattr(info, 'st_file_attributes', 0) & 1024 and\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n            path_identity == handle_identity, 'ABI input changed before reading')\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\narut\\OneDrive\\Desktop\\Project\\techbots_Sumo_Robots\\state\\analysis\\P7_app_motor_observe_compile_raw\\inspect_static_abi.py\", line 57, in require\n    raise ValueError(message)\nValueError: ABI input changed before reading\n",
+    "elapsed_s": 0.5873303000116721
+  }
+}

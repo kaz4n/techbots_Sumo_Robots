@@ -1,0 +1,18 @@
+[
+  "arduino-cli",
+  "compile",
+  "--json",
+  "--fqbn",
+  "arduino:zephyr:unoq:link_mode=static",
+  "--build-path",
+  "/home/arduino/sumox26_codex_build/recorder-36370b3b911165b9/build",
+  "--output-dir",
+  "/home/arduino/sumox26_codex_build/recorder-36370b3b911165b9/artifacts",
+  "--build-property",
+  "compiler.cpp.extra_flags=-DMATCH=0 -DMOTORS_ALLOWED=0",
+  "--build-property",
+  "compiler.c.extra_flags=-DMATCH=0 -DMOTORS_ALLOWED=0",
+  "--build-property",
+  "build.library_discovery_phase_flag=-DARDUINO_LIBRARY_DISCOVERY_PHASE=0",
+  "/home/arduino/sumox26_codex_build/829f0a33fc7c673bcac916b18a7c88b23a2a539cfb6d003bcfe583d09a36fd2d/recorder"
+]

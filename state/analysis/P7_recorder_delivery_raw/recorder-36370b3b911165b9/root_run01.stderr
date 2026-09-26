@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tools\run_recorder_delivery.py", line 939, in <module>
+    sys.exit(main(sys.argv[1:]))
+             ~~~~^^^^^^^^^^^^^^
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tools\run_recorder_delivery.py", line 930, in main
+    result = run_delivery(request)
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tools\run_recorder_delivery.py", line 922, in run_delivery
+    raise first
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tools\run_recorder_delivery.py", line 896, in run_delivery
+    worker, state = arm_receiver(owner, run, dump)
+                    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tools\run_recorder_delivery.py", line 758, in arm_receiver
+    require(os.environ.get('SUMO_TRANSPORT') == 'adb' and owner.board.target() == TARGET,
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            'Explicit identified ADB transport required')
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tools\run_recorder_delivery.py", line 49, in require
+    raise ValueError(message)
+ValueError: Explicit identified ADB transport required

@@ -1,0 +1,24 @@
+{
+  "schema": "d228-observed-integration-defect-v1",
+  "attempt": "36370b3b911165b926583f33448b0b09",
+  "session": 3906603552232007097,
+  "source_commit": "183e329e37a74d4bdf91bab55a20728946b5ef67",
+  "caller_sha256": "9ea1be98388139343be02bc74857c220faa75c32b876b9938f855188d750b6cd",
+  "compile_status": "COMPILE_CHECKED",
+  "compile_query_calls": 1,
+  "compile_compiler_calls": 1,
+  "compile_closing_checks": 9,
+  "package_bytes": 55104,
+  "package_sha256": "49d92fe34717999e01d1f2974ebcd2b475c9ba9ec25b2c940120158c0337373b",
+  "run_status": "FAILED_BEFORE_RECEIVER_OR_UPLOAD",
+  "upload_attempts": 0,
+  "firmware_changed": false,
+  "first_error": {
+    "message": "Explicit identified ADB transport required",
+    "type": "ValueError"
+  },
+  "closing_errors": [],
+  "cause": "Caller compiler and command owner bind fixed ADB; receiver alone checked ambient transport after staging/admission. Advertised default command and check-only did not expose that mismatch.",
+  "owner_consumed": true,
+  "retry_performed": false
+}

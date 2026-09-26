@@ -1595,3 +1595,6 @@ matrix is admitted conditionally, not yet executed. Firmware unchanged. | pendin
 
 
 2026-09-26T23:51:00.892116+04:00 | P7 | D222 matrix14/14COMPILE_CHECKED, source9044; rootexecuted unchangedreviewer reconciliation14PASS beforeD224integration. D224/D225integrated7f7cc0d0/299cb922. D226 actualexactcleanup PASS,3files2387320B/3protectedscans/6closingPASS; originalsretained, firmwareunchanged; no retries.
+
+
+2026-09-27T00:01:05.268630+04:00 | P7/D222,D225,D228 | D222FINAL14/14review22264320 accepted(original9044source). D225nativecompilePASS1query/1compiler/28transports/9closing; image55104B49d92fe3. RunFAILED before receiver/upload due late ambientADBrequirement; upload0/closingerrors0, firmwareunchanged. Consumed36370b3b ownerretained. D228narrowfixedprivate-transport correctionadopted; tests/reviewpending, no retry.

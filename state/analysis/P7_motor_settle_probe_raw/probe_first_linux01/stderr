@@ -1,0 +1,22 @@
+setUpClass (__main__.MotorSettleProbeTests) ... ERROR
+
+======================================================================
+ERROR: setUpClass (__main__.MotorSettleProbeTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_motor_settle_probe.py", line 119, in setUpClass
+    cls.build_variant(name, probe, source)
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_motor_settle_probe.py", line 183, in build_variant
+    cls.command([*cls.flags(probe), obj, cases, *cls.common, wrappers, '-o', binary], label='link-' + name)
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_motor_settle_probe.py", line 171, in command
+    raise AssertionError(f'{label}: exit {result.returncode}\n' +
+AssertionError: link-original: exit 1
+/usr/bin/ld: /dev/shm/sumox-d197-l4pkga_9/common-2.o: in function `motors::MotorGate::validCommand(unsigned int, fsm::RobotResult const&)':
+motors.cpp:(.text+0xc8c): undefined reference to `opp_fusion::frontView(unsigned char)'
+collect2: error: ld returned 1 exit status
+
+
+----------------------------------------------------------------------
+Ran 0 tests in 5.084s
+
+FAILED (errors=1)

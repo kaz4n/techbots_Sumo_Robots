@@ -2,148 +2,103 @@
 
 ## Current result
 
-D193 fixed static observation compiled successfully on the UNO Q. Read
-analysis/P7_app_motor_observe_compile_actual_validation.md and its actual review.
-At clean reviewed b5f589c5, check-only/execute returned0; one query/one compiler/
-236transports and all8closing checks passed. Source3a08ddeb/manifestaa350c65;
-rawELF2fd70da8/debug33e3b34d/package85b05c56. No new upload or MCU observation.
-Host preparation remains94LinuxPASS/75WindowsPASS with19platform skips.
+D195 longer inhibited observation reproduced a native SETTLE callback failure at
+application 921. Read [actual validation](analysis/P7_app_motor_observe_actual_validation.md)
+and its linked raw evidence/review. The latest flashed image is D193 source
+3a08ddeb/static/default/MATCH0/MOTORS_ALLOWED0/probe1, raw BIN f1df5e7f and
+package85b05c56. D190's earlier four-epoch observation remains historical.
 
-D191 cleanup is verified and D190 run02 completed successfully on the UNO Q.
-The latest flashed image is source21df6ae8/static/default/MATCH0/MOTORS_ALLOWED0/
-probe1, raw ELF2f8dc9f1/package deb40317. It completed four application epochs,
-retained41 successful native callbacks and froze after its explicit inhibited
-halt. The original D160/D161 full-app IO fault did not recur and is still open.
+At clean reviewed HEAD10be3126, check-only and execute returned0. One upload,
+one capture,13transports,26reads727152B and four complete flash comparisons
+passed. The 30-second pre-sample and2-second separation waits completed. All six
+SRAM pairs are byte-identical; coherence is still UNPROVEN. One subsequent
+file-only query verified14saved files18017B with closing rereads. Nothing was
+downloaded from the MCU during that file retrieval.
 
-Read [actual validation](analysis/P7_app_motor_fault_run02_validation.md), its
-linked raw receipts and actual review. Clean reviewed execution HEAD was
-b3e584d1ce265f2c469ce0edc39bafe4121b65f0. Check-only/execute each returned0;
-13transports, one upload,26passive reads727088B, all four full flash brackets and
-closing checks passed. The saved pre-abort state is RUNNING/NONE/epochs4,
-maximum_execution_us582/missed0; final FAULT/ABORTED/STOPPED fields follow the
-intentional diagnostic abort. All peripheral setup grants remain absent.
+Observer FROZEN/CALLBACK_FAILURE at921epochs/115539polls. First failure is
+APPLY/SETTLE returnedfalse with154us outer span. Trace preserves64successful
+prefix calls and5485omitted calls, plus first_failure/current. Saved pre-abort
+runtime is RUNNING/NONE, but the motor receipt is invalid/IO. Final explicit
+abort produced runtime/transaction faults; final HALT/SETTLE also failed and
+inhibition_confirmed=false. Software did not confirm inhibition. Zero requests
+and MOTORS_ALLOWED0 do not substitute for electrical measurements.
 
-Both samples of each of six SRAM windows are byte-identical. Their coherent
-atomicity is UNPROVEN. The14saved files17913B were fetched in one file-only query
-with hashes/identity/closing rereads verified; no duplicate firmware downloaded.
-The fixed interpreter uses observed D188 offsets, not the older D149/D173 layout.
-Raw bytes remain in retrieved_inert_run02/0001-read-saved-results/stdout.
-No native process or local execution session remains active.
+The completed instrumented transaction/stored maximum is859us, above the800us
+target for that sample; this is not production WCET. A successful SETUP/SETTLE
+also spans154us, so the outer durations do not identify the internal150us timeout
+branch. Original fault cause remains open; no safety limit has been relaxed.
 
 ## Exact next task
 
-D192 longer inhibited observation is implemented and host-tested. Read
-analysis/P7_app_motor_observe_validation.md and its independent review. The new
-Runner retains the existing first64 prefix and explicit rejection count while
-preserving first_failure beyond it; it stops at real faults or10000epochs /
-10000000polls. Empty grants and the150us native limit remain unchanged. All new
-host normal/sanitizer, historical diagnostics and locked regressions passed.
-The D193 board build succeeded; D190 above remains the latest flashed image.
+Prepare D197 minimal probe-only internal SETTLE reason/current/first_failure
+storage. Preserve existing conditions, short-circuit order, hardware and clock
+calls,150us/4096poll limits, pins, grants and productionprobe0 behavior. Record
+only existing internal observations with explicit validity/staleness semantics.
+Independent tests use unchanged locked native fixtures; no locked edits.
+Contract/tests/source review and host evidence precede a new target compile.
 
-D194 resumed after the user freed C: (over21GB currently). Original actual
-check-only refused before owner/device because CPython synthesizes pathname0111
-for Windows executable extensions. Original failure/source preserveda4362e7b,
-independent frozen regression/original failuresd519a2f3. Narrow contract amendment
-0d81956d/source497f756e passes14new+44existingLinux and14new+42existingWindows
-checks, with the same2Windows skips coveredLinux;136pinsstable. Every other
-identity check and full same-API raw mode stability remains. Corrected actual
-attempt01 then FAILED solely on GDB alignof(member-expression) syntax; all four
-children returned0 and remote/local closure passed. Preserve97dd06b7/e83afc5f;
-native_abi_static01 is CONSUMED. No complete ABI was accepted.
+Every earlier native owner is consumed, including D193static01, D194ABI01/02 and
+entry01, D195run01 and D196root03. Never rerun historical launchers or repin their
+manifests. Any changed firmware needs new checked artifacts and observed ABI/
+entry before a separately reviewed inhibited scope. Do not reuse old addresses.
+No native process or local execution session remains active at this checkpoint.
 
-New inspect_static_abi02.py a0a5aef1/contract772615cd pins that failure and queries
-ALIGN of actual observed unsigned int, while confirming current member ptype.
-Independent21Windows+21Linux methods PASS;142pins stable. ActualABI02 now PASSED
-at cleanefadbe5c: check0/execute0,1transport/4filechildren0/13remote+localPASS.
-Resulta5e67635/ABIdfc34596: Runner0x20013960/169736B/align8; polls4B/align4/
-offset168572. Read P7_app_motor_observe_abi02_validation.md and actualreview.
-Both native_abi_static01 and02 are CONSUMED. No firmware/MCU operation occurred.
-The new file-only entry reader is prepared: inspect_static_entry.py0c3a3dd1,
-contract437f8cb8, independent19Windows+19LinuxPASS/no skips,150pins stable and
-reviewd52c4cb8PASS. Read P7_app_motor_observe_entry_validation.md. New observer
-native_entry_static01 is CONSUMED: check0/execute0 at41bea260, result61c7b090/
-entrye195fdeb, all13remote+localPASS and27ranges2686Bcomplete. Actual review
-d1a09f19PASS establishes finite limits/pre-abort ordering/terminalpassivity for
-selected instructions, not runtime behavior. Read entry_validation andactualreview.
-D195 remotecontractc2563449/source98b0f539, callercontract03b61d0c/run95cc5cb6/
-actions6a730069 now pass91Linux methods and48Windows/43Linux-only skips; all
-historical59methods and128manifestpins retained. Remote review98e0a956 andcaller
-reviewac506885 PASS. Fieldmapb96b6a3e has14currenttypes/104fields, independently
-checked against actualGDB, not hostABI. Preparation8acf1b13 binds12provenance
-files; new11file inert_run01_scope is ready for separate scope review. It fixes
-source3a08ddeb/rawf1df5e7f95344B/package85b05c5695360B,26reads727152B and
-one30swait beforefirstSRAM plus unchanged2sgap. No newupload/capture has run.
-
-D196 exactcleanup actually completed once: recipe1834edd3/rootwrappera089cc3b,
-newobserve-root03 stage/result CONSUMED. Result321e6e5c6360B confirms exact3D190
-scratchcopies2399736B removed, originalsunchanged, permanent UID/GID1000 and
-no errors; actualreview0131ea59PASS. Freshreadonlyadmission01 verifies19next-run
-filepins/samefullidentityboot/no conflicts, scratch absent and three newnative
-ownersunused. Credential via stdinonly; no generalprivilege or retry permission.
-Next finalize native-scope review, commit all currentfiles, check-only then one
-D195 inhibited attempt. No unrelated filewrites allowed during fixed native
-run because its cleanHEAD guard intentionally rejects them. Preserve D190 as
-latestflashed until actualnewupload succeeds; never rerun an oldowner.
-D193 app-motor-observe-static01 and all earlier native owners are consumed.
-Recheck free space and fresh board/boot identity before admission; retain the
-128MiB native-reader gate. Do not lower the gate or retry any earlier denied
-cleanup, including the old85.48MB host-output batch and all other STORAGE_LOG entries.
-
-Then observe actual artifact/ABI/entry layout before a separate new finite native
-capture. Do not assume historical addresses apply or call the old IO fault fixed.
-All D190/D189/D188 and prior native owners/scopes are consumed; never rerun them.
-Reuse pinned D188 ABI/entry file-read lifecycles minimally, with new names/owners,
-new actual artifact hashes and private projected compile load_caller(root=ROOT).
-Observe Report.polls offset/size explicitly; it may occupy old padding. Handle
-readelf decimal/0x size spelling before execution, retaining raw text. Derive new
-entry ranges and later capture fields from actual artifacts, not old addresses.
+D194 actual ABI02resulta5e67635/ABIdfc34596 and entry61c7b090/e195fdeb establish
+the D193 layout/instructions only. Original ABI01 GDB syntax failure remains
+preserved. Windows executable-stat0111 exception is narrowly reviewed and all
+other identity checks remain. D195 preparation8acf1b13/fieldmapb96b6a3e and
+reviews98e0a956/ac506885/5a7944ed bind its91LinuxPASS and48WindowsPASS with43
+explicit Linux-only skips; these do not automatically validate changed source.
 
 The full objective remains active. analysis/P7_completion_audit_20260926.md
-identifies operational commissioning, production memory/loading, actual recorder
-lifecycle and release dependencies. Historical trial wrappers are deliberately
-inert; existing app.ino already binds operational B4, but profile/build/deploy
-admission is missing (see P7_b4_profile_scope_followup.md). Software can proceed before
-physical acceptance, but future execution requires fresh specific STAND OK.
-B4 terminalSTOP cannot perform the current IDLE-only UART dump: first use a
-separately bound finite retained-RAM capture, or define/review another policy.
-Do not silently enable local reset or promise delivery from dump-port wiring.
-Current D185 dynamic profiles retain their modeled memory blockers.
+lists production memory/loading, operational commissioning, recorder lifecycle
+and release dependencies. The current ordinary app static compile is a useful
+next task after fault localization; historical static evidence is not a current
+source build. D185 dynamic profiles retain their modeled memory blockers.
+
+Existing app.ino already binds operational B4; missing work is profile/build/
+deploy admission (analysis/P7_b4_profile_scope_followup.md), not another entry.
+B4 terminalSTOP cannot use the current IDLE-only UART dump. Use separately bound
+retained-RAM capture first or define/review a new policy; do not enable local
+reset silently. Motor-capable execution requires fresh STAND OK or RING OK.
 
 ## Cleanup and authentication
 
-The user supplied authentication for the already prepared D191 cleanup. One
-unchanged4192f23e wrapper removed exactly3obsoleteD184scratchcopies2334244logicalB,
-kept originals unchanged and permanently dropped to UID/GID1000. Resultc0e45b30
-and observation02 were independently inspected. Credential went through stdin,
-not argv or repository files; do not retain/repeat it. Permission was restricted
-to this exact cleanup, not general privileged access. Earlier CLEANUP DONE clicks
-had not executed anything; original missing-result/refusal receipts remain.
+D191 and D196 exact authenticated cleanup invocations completed once and are
+consumed. D196 result321e6e5c removed exactly three D190 scratch copies2399736B
+and their empty directory; original files unchanged, all mutations UID1000,
+permanent privilege drop successful. Actual review0131ea59PASS. New D195 upload
+scratch, if present, requires fresh observation and a separate exact binding.
+Never reuse root03. Staged sources/results remain useful provenance.
+
+User-supplied authentication was passed through stdin, never retained in files
+or argv. Do not repeat/store it. Those scopes grant no general privileged access.
+Earlier CLEANUP DONE clicks did not run commands; preserve original refusals.
 
 ## Boundaries and schedule
 
-Active phase: P7 software/release preparation, under D051/D075/D122/D137.
-P0-P5 physical/human acceptance and P7 release remain open; P6 is conditional.
-No STAND OK/RING OK for a motor-capable run, PINMAP approval or human phase gate
-has been created. Sensor/electrical acceptance, actual RAM/stack/WCET, D121 B7/R6,
-native dump lifecycle and release readiness remain open. Header IO stays3.3V.
+Active phase P7 software/release preparation under D051/D075/D122/D137. P0-P5
+physical/human acceptance and P7 release remain open; P6 is conditional. No
+STAND/RING/PINMAP or human phase gate exists. Sensor/electrical acceptance,
+actual RAM/stack/WCET, D121 B7/R6, native UART dump lifecycle and SC-AP release
+remain open. Header IO stays3.3V. Connection alone creates no acceptance.
 
 Actual P3 not passed by end28Sep invokes reactive+SIDESTEP/DIRECT+recorder and
 drops ARC/WAIT/P6 polish. P6 also needs actual P4 by30Sep. Freeze1Oct21:00Dubai,
-rehearsal2Oct, competition3Oct. Scheduled dates create no acceptance.
+rehearsal2Oct, competition3Oct. Scheduled dates create no gate.
 
 ## Storage and resumption
 
-Recheck C: before work; user restored over21GB free on the resumed turn. Keep unique
-raw receipts/source/hash-based reproduction; no duplicate firmware/debug/source
-snapshots, Python bytecode or parallel heavy builds. See STORAGE_LOG.md for
-retention/disposal purposes and exact savings. Do not retry any policy-denied
-cleanup target, including both old motor-fault stages, build/stage/app, the2B
-input.wire directory or the37historical denied stage folders. Do not modify paging
-or persistent virtual disks. Current board capture/artifact originals stay retained.
+The user restored over21GB C: space; recheck before large jobs. Keep unique raw
+receipts/source/hash-based reproduction, avoid duplicate firmware/debug/source
+snapshots and bytecode, run heavy builds serially. Preserve board originals and
+every prior policy-denied cleanup target listed in STORAGE_LOG.md, including
+old85.48MB hostoutputs, both motor-fault stages, build/stage/app,2Binput.wire and
+37historical stagefolders. No alternate deletion route or paging/disk changes.
 
 Read AGENTS.md fully, docs/prompts/CODEX_RESUME.md, CODEX_EXECUTION.md and latest
-PROGRESS/DECISIONS/FACTS/TUNING_LOG before work. Preserve user changes and commit
-bounded tasks locally; never push or rewrite history. PROGRESS is append-only
-with legacy bytes: its first140971B SHA256 is
+PROGRESS/DECISIONS/FACTS/TUNING_LOG. Preserve user work; bounded local commits,
+no remote push/history rewriting. PROGRESS is append-only with legacy bytes:
+first140971B SHA256
 1dbbeb53c3dc046128494af3bef240b9a00353929d6121991900c90bb2838b77.
-Historical handoff checkpoints remain in Git; use this current next action.
+Historical checkpoints remain in Git; this is the current next action.

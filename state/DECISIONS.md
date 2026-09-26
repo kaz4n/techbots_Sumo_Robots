@@ -2223,3 +2223,6 @@ Consequence: no general privileged access, credential storage, old-owner retry, 
 
 
 D-195 caller extension 2026-09-26T09:06:42.000938+04:00: adopt analysis/P7_app_motor_observe_caller_contract.md03b61d0c. Preserve D190 caller/action lifecycle, exactD193128pin projection through load_caller, successfulABI02 evidence and newfixedowners. Validate recorded30swait ordering before unchanged2sgap; retain strictbindings/staging/firsterrors/13transports/deadlines. Independentoracles/review then freshpreparation/scope required; no executionauthorized by hostpreparation alone.
+
+
+D-195 actual outcome 2026-09-26T09:35:15.664942+04:00: one fixed inhibited run atclean10be3126 completed collection and reproduced SETTLE failure atapplication921. Source3a08ddeb is latestflashed; scope/ownersconsumed. Preserve result4fc33583, raw3bb9425f, decodedc37a3069 andactualreviewf8779db4. PreabortRUNNING/NONE but invalidIOmotorreceipt; explicitabort explains finalfaultlabels. FinalHALTsettle alsofalse/inhibitionunconfirmed. Outer154us is not internaldeadline evidence because successfulSETUP also154us. Keep150us/4096pollbounds; nextminimalprobe must classifyexactbranch without extra hardware/clockcalls. No rootcausefix, productionWCET, physicalacceptance or gate follows.

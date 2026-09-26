@@ -9,16 +9,14 @@ physical acceptance. Do not reset the project to P0.
    Check nested instructions, Git status, actual Asia/Dubai time and free space.
    Preserve uncommitted user work. PROGRESS has legacy non-UTF8 bytes: append
    without re-encoding its history. The handoff holds the exact current next task.
-2. Read the current handoff before selecting a native task. D191 cleanup actually
-   succeeded after the user supplied authentication. D190 run02 then uploaded the
-   checked static/default/M0 full-app diagnostic and completed its four epochs.
-   All 41 callbacks returned true; the final halt confirmed inhibition. This is
-   the latest successful firmware upload. Read analysis/P7_app_motor_fault_run02_validation.md.
-   The historical D160/D161 IO fault was not reproduced or resolved. Run02 and
-   its owners are consumed; do not repeat it. D192 now implements the longer bounded inert
-   observation with retained first failure and explicit prefix loss; host tests
-   passed. Next complete D193 fixed static compile preparation, then fresh
-   artifact/ABI/entry/scope evidence. Preserve the150us bound and empty grants.
+2. Read the current handoff before selecting a native task. D195 longer inhibited
+   observation is now the latest flashed image and reproduced SETTLE failure at
+   application921. Its final halt did not confirm inhibition; exact internal
+   cause remains unknown. Read analysis/P7_app_motor_observe_actual_validation.md.
+   The next task is minimal internal rejection evidence, preserving150us/4096poll
+   bounds, empty grants, hardware-call order and production behavior. All current
+   native owners and completed D191/D196 cleanups are consumed. Tests, review,
+   new artifacts and observed ABI/entry precede a fresh inhibited native scope.
 3. All old native scopes are consumed. Never rerun a historical launcher, repin
    its consumed manifest, reset the MCU or infer that an old capture layout fits
    changed firmware. A new operation needs fresh source/artifact/identity binding

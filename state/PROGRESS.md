@@ -1393,3 +1393,6 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-26T09:18:19.785499+04:00 | P7 D195 final hostreview/scopepreparation | Reviews98e0a956/ac506885PASS;91Linux/48WindowsPASS43POSIXskips, fieldmap14types104fields actualGDBaudited. Preparation8acf1b13 plus11file exactscope created fromactual19fileadmission. Nativeownersunused; separate scopereview/cleanHEAD/check-only thenoneM0uploadcapture.
+
+
+2026-09-26T09:35:15.664942+04:00 | P7 D195 actual inhibited observation | Atclean10be3126 check0/execute0,13transports/oneupload/26reads727152B/fullflashbracketsPASS; result4fc33583. ObserverFROZEN/CALLBACK_FAILURE at921epochs/115539polls, firstAPPLY/SETTLEfalse; finalHALTsettlefalse/inhibitionunconfirmed. Instrumented859us sample, internalbranchunknown. Separateactualreviewf8779db4PASS/2020scalarchecks. Allownersconsumed; nextminimalinternalprobe, no guardrelaxation/physicalgate.

@@ -400,3 +400,6 @@ D191 closing observation: C:recovered290537472B independently before local docum
 
 
 2026-09-26T09:14:29.834608+04:00 | D196 exactboard scratch cleanup | Removed only /tmp/remoteocd three verified D190uploadcopies2399736logicalB andemptydirectory device34/inode869. Retained installed/build originals, contentrechecked; copied source stage50662B retained for specific executionreview/reproduction. Result6360B321e6e5c, no privilegedmutation/allunlinksUID1000; auth scopeconsumed. No hostcleanup or previouslydeniedtargets touched.
+
+
+2026-09-26T09:35:15.664942+04:00 | D195 actual evidence retention | Keep 63unique native/retrieval/decoded files totaling744583logicalB plus compactinvocation/interpreter/review/validation. RawSRAM9072B remains encoded in savedretrieval, no separatebinarycopy; fullflashcapture staysonboard. Source/artifacts/originalfailure evidence remainneeded forlocalization. No hostobjects/bytecode, no newcleanup/reclaimedbytes; Cfree20945272832B separatelyobserved. Allpriorblockedtargets/paging/historyuntouched.

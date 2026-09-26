@@ -375,3 +375,6 @@ Added STAND_SEGMENT_MS=500 and STAND_DUTY=0.25 for the pure finite B4 request se
 
 
 2026-09-26T01:05:05.688830+04:00 | D192 diagnostic count bounds | Added APP_MOTOR_OBSERVE_EPOCHS=10000U and APP_MOTOR_OBSERVE_MAX_POLLS=10000000U as dimensionless count-name exceptions. Existing values, pins,150us settle limit and all setup grants unchanged. Synthetic copied12/12 and endpoint fixtures are tests only; no measured tuning or new target execution. Evidence analysis/P7_app_motor_observe_validation.md.
+
+
+2026-09-26T09:35:15.664942+04:00 | D195 inhibited diagnostic, no tuning | FirstnativeSETTLEfalse atapplication921; completedinstrumentedtransaction/max859us exceeds800ustarget for thissample, notproductionWCET. Outerfailure154us andlaterHALT153us do notmeasureinternaldeadline; successfulSETUPalso154us. Finalhaltinhibitionunconfirmed. No config/pin/limit change orphysicalacceptance. Source3a08ddeb/fullflashbracketsPASS; analysis/P7_app_motor_observe_actual_validation.md.

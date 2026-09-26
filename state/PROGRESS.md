@@ -1444,3 +1444,6 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-26T13:42:18.328351+04:00 | P7 D205 first host checks PASS | Exactreadera71eb624 and independentoracledaf208fa pass30Linux/30Windows,noskips/retries;268pins/streams/order/fixtures close60995dee. Source/oracle reviewPASS; finalhost/scope review andcleanHEAD/check-only precede singlefile-onlyentry. No newfirmware/runtimeclaim.
+
+
+2026-09-26T13:57:22.919929+04:00 | P7 | D205 actual instruction inspection | PASS reviewed008572bf;32groups/34aliases/3834B,constantselections andlivechecks retained; no runtimeclaim; D206adopted/hosttests52Linux,15Windows+37coveredskips | commit pending

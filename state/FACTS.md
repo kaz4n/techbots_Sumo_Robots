@@ -890,3 +890,7 @@ FILE-OBSERVED: D204 onefile-onlyattemptatd3bcfaa0 returnedcheck0/execute0,4succe
 
 ## F227 - Current instruction reader host checks (2026-09-26T13:44:30.406499+04:00)
 HOST-VERIFIED: exactD205readera71eb624/projected580abb32/parserc4c4f9e2 retains12/9/7metadatarecipe andallotherbodyguards. Independentdaf208fa passesfirst30Linux/30Windows,no skips/retries;23historical119assertion/rejectioncalls plus7new64calls retained. Finalreview0c2e5facPASS,268pins andemptyfixtures close60995dee. Fixed32groups34aliases65expressions3834selectedbytes have noactualinstructionobservation yet. Source: analysis/P7_motor_const_entry_validation.md.
+
+
+## F228 - Current expected-metadata instruction emission (2026-09-26T13:57:22.919929+04:00)
+FILE-OBSERVED: D205 actualreview008572bf accepts32ranges34aliases3834bytes1429decodedrows, initializer08116258/05011008 and preserved startup/Runner semantics. candidatePeriod20B selects250/3200/invalid0; timerValid livegetter remains and compares2.5M/32M constants. SETTLE150us/4096/threefreshflags and firstfailure guard remain. Exact268/13/151pins and13remote+localchecks close. This is no measured speedup, repair, coherence or physicalgate. Source: analysis/P7_motor_const_entry_actual_validation.md.

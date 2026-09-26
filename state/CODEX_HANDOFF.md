@@ -186,7 +186,17 @@ Freeze1October21:00Dubai, rehearsal2October, competition3October. Dates do not
 create acceptance. Read AGENTS.md/CODEX_RESUME/CODEX_EXECUTION and latest state.
 PROGRESS is binary-append-only: first140971B SHA256
 1dbbeb53c3dc046128494af3bef240b9a00353929d6121991900c90bb2838b77.
-No host/compiler/device job is active. D203 and D204 native owners are consumed. D204 actual review4cd28fe8 accepted; D205 first30Linux/30Windows hosttests PASS; separate host/scope review closes next beforeone file-only entry attempt. D206 proposedcontract25caada6/derivation26aa4a50/prepreview38d0a891 arecomplete.
-Its oracletemplate test_motor_const_cleanup.py hasFIXTURE_PIN=None andnoJSON
-freeze yet: explicitlyunfinished/unexecuted, retainedinGitwhilewriterholds.
-D206subjectsnotcreated; no cleanup ornewflash yet.
+D203, D204 and D205 native owners are consumed. D205 actual review008572bf
+is accepted: raw6700e974/entryb80c8ce8/rootclosing82abafa9,32groups34aliases
+3834B/1429decodedrows and268/13/151pins closed. The intended expected rate and
+period constants are emitted; live checks and150us/4096 remain. Runtime repair
+and timing remain pending; D201 still flashed. Read the actual entry validation.
+
+D206 is adopted unchanged25caada6/derivation26aa4a50. Independent oracleFINAL
+1f33e47b/freeze9740a6e0 preceded newsubject inspection. Actual recipe7738/edd1c8aa
+and wrapper9601/1be147fe match. First Linux52PASS; Windows15PASS37Linux-covered
+skips,45pins unchanged, closing098b1d55. Separate source/host review closes next.
+Fresh absence/staging intents40e8cdfd/4a326fd5 await independent preparation
+review; no root05 stage, authentication or cleanup yet. Password stays stdin-only.
+D207 current-image inhibited runtime contract is being prepared separately;
+no historical owner/address/image is silently reused and no motor-capable run.

@@ -454,3 +454,6 @@ D191 closing observation: C:recovered290537472B independently before local docum
 
 
 2026-09-26T13:42:18.328351+04:00 | D205 host evidence retention | Keep compactfirst-run8receipts/streams andsource/oracle/projection/freezes forreview/reproduction. Hostclosing60995dee independentlyconfirms268pins andno LinuxRAM/sharedWindows/privateWindows fixture remnants. No duplicate ELFdownload/manualcleanup or reclaimedbyteclaim. Cfree6858928128B. Prior denied targets untouched.
+
+
+2026-09-26T13:57:22.919929+04:00 | D205 actual and D206 host retention | Keep eight nativefiles889913B and compact closing/reviews to bind instruction evidence; keep first hoststreams/receipts and exact cleanup sources for review. Cfree8238292992B atD205closure. No duplicate ELF/download, manual deletion or reclaimedbytes. Prior denied paths untouched.

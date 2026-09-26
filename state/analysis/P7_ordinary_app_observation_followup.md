@@ -14,7 +14,9 @@ completion timing; robot token/state/output and contract faults; applied motor
 feedback; retained PreviousTick; MotorGate initialization/fault/halt receipt;
 and native port configuration, low/settled/mask/timer/channel/pulse bookkeeping.
 An independent later decoder must transcribe current offsets from the accepted
-raw ptype layouts. No diagnostic Runner or SETTLE lifetime report exists here.
+raw ptype layouts. RuntimeReport has no nested TransactionReport or duplicate
+transaction snapshot: the600-byte outer scheduling/sensor/service report and
+the504-byte live transaction report are separate windows (runtime.h61-104,172). No diagnostic Runner or SETTLE lifetime report exists here.
 
 app.ino ignores begin's return and then repeatedly calls step (lines19-26).
 Runtime attempted_ latches on entry, not success (runtime.cpp74-88). RUNNING and
@@ -73,3 +75,58 @@ partial-sample classifications; and reset-continuity limits. Linux boot ID and
 unchanged flash do not prove that the MCU did not reset. No existing read guard
 may be silently relaxed. These are preparation questions, not requests for
 human physical acceptance or permission to run motors.
+
+## Existing guarded tool seams, source planning only
+
+D207 run.py201-225 is diagnostic-specific: manifest schema,129-file count,
+source4bc3 and compile_motor_const source mapping. A later ordinary caller must
+use the accepted compile_ordinary_app_static.py mapping/admission,125 inputs
+and source9044, preserving collision/reserved-name/count/4MiB/digest checks.
+Changing only the count or required sketch predicate would be insufficient.
+Its capability_program118-136 and run.py180-199 also bind diagnostic sketch
+and artifact paths. The ordinary raw upload BIN is92928B/6f5f531b; its checked
+flat package is92944B/7fa9d41d. Preserve the exact static/default CLI shape;
+M0/MATCH0/probe0 come from source/artifact evidence, not new upload arguments.
+The checked_evidence provenance must select accepted D208/D209/D210 packets.
+
+D207 remote.py102-143,188-218 and actions.py constants/_bootstrap/_plan/_capture
+contain fixed diagnostic schema/path/window/read-count/byte-total assumptions.
+A later scope needs exact ordinary replacements and fresh owners, with no
+Runner/Trace/SETTLE terminal predicates. Preserve raw samples, coherenceUNPROVEN,
+full before/after loader+sketch comparisons and first-error/partial evidence.
+Existing source_data/source_snapshot/source_action bodies remain candidates
+for exact reuse with before/after tree stability and complete source hashes.
+
+Preserve core upload lifecycle bodies and descriptor/file/process/identity
+guards,14 fixed absence selections (only three sketch-path substitutions),
+/tmp/remoteocd absence, one upload claim/intent,180s+5s reap and1MiB streams.
+Capture command/one_read/pause/finalize/close/_collect bodies retain bounded
+process/output ownership,600s total/30s child budgets, raw-first retention and
+returned-only success. Any claimed byte identity needs its own later contract
+and oracle; this note does not approve an implementation or additional query.
+
+The passive command is pinned OpenOCD plus p0_mem_read.cfg and only dump_image
+and shutdown. The config uses reset_config none and an AP0 mem_ap target with
+no Cortex target, flash driver or events; network command ports are disabled.
+Passive capture does not halt/resume/reset/write the MCU. Host shutdown or
+SIGKILL terminates OpenOCD, not firmware. Upload separately flashes/resets.
+
+Exact alignment distinction: tools/p0_capture.py127-134 requires an exact-int
+uint32 address divisible by4, a positive exact-int length and containment in
+[0x20000000,0x200c0000). It does not require length divisible by4. D207's fixed
+Capture.one_read/command does not call p0.ram_range; its windows are predeclared.
+This does not establish target support for an unaligned one-byte attempted_
+read. Prefer an explicitly scoped aligned containing read or independently
+reviewed fixed-byte support later, with no silent shared-policy relaxation.
+
+The two real receipt copies are transaction_.report_.applied.feedback and
+transaction_.previous_. Preserve them separately: completion first finalizes
+the live report, copies feedback to previous, adds its duration/completion
+fields and finally marks transaction IDLE. Runtime then advances outer epoch/
+maximum/freshness/scheduling fields. New open resets the report while retaining
+previous. Failure invalidates both after publishing transaction FAULT and
+attempting halt. Differences can reflect normal lifecycle stages or torn live
+reads; even stable IDLE does not require byte equality because previous has
+additional duration data. The runtime/transaction/previous composite Snapshot
+and before_abort copy belong only to the diagnostic observer, not ordinary
+RuntimeReport. No duplicate transaction window should be invented.

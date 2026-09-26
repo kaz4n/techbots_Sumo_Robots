@@ -1,0 +1,79 @@
+{
+  "schema": "d205-fixed-file-only-entry-scope-v1",
+  "prepared": "2026-09-26T13:44:30.406499+04:00",
+  "action": "one check-only then one execute at clean reviewed HEAD, no auto-retry",
+  "source_sha256": "4bc3a2e6ebb497d43a433aa887ab8388dd3dab075a4f44918ed614db30034cd2",
+  "boot_id": "55c386b9-fe6d-4388-a7f4-1d91e0bb49d8",
+  "serial": "2629958581",
+  "local_owner": "state/analysis/P7_motor_const_compile_raw/native_entry_static01",
+  "remote_scope": "/home/arduino/sumox26_codex_build/app-motor-const-entry-static01",
+  "build_owner": "/home/arduino/sumox26_codex_build/app-motor-const-static01",
+  "file_children": 4,
+  "gdb_expressions": 65,
+  "disassembly_groups": 32,
+  "function_aliases": 34,
+  "child_timeout_seconds": 60,
+  "reap_seconds": 5,
+  "transport_timeout_seconds": 400,
+  "stream_limit_bytes": 1048576,
+  "reply_limit_bytes": 8388608,
+  "windows_command_units_limit": 30000,
+  "local_free_minimum_bytes": 134217728,
+  "limits": "File observation only; no compile, upload, reset, MCU read, privilege, motor or gate. Actual publication and SETTLE semantics require independent instruction review.",
+  "selected_file_bytes": 3834,
+  "inputs": {
+    "state/analysis/P7_motor_const_entry_contract.md": {
+      "bytes": 22163,
+      "sha256": "6663d1ea7309c809d8f727fc5bf68291128e54c83ca64b7d1ce53b9ff1cea9d9"
+    },
+    "state/analysis/P7_motor_const_compile_raw/inspect_static_entry.py": {
+      "bytes": 14941,
+      "sha256": "a71eb62496ddedcc4d295579cea383635f309c8394dfd6c9ee32913a7418d835"
+    },
+    "state/analysis/P7_motor_const_compile_raw/entry_binding01.json": {
+      "bytes": 44374,
+      "sha256": "7417ff7055e30238e8a3231db3287ffb3520ec8929ce3437afbd0dff1c2d60ae"
+    },
+    "state/analysis/P7_motor_const_compile_raw/inputs_static.json": {
+      "bytes": 13559,
+      "sha256": "1b847d96bb21fa72ed19138cb93f803b56b74224dffd7019dd930d99ff7bac95"
+    },
+    "state/analysis/P7_motor_const_compile_raw/native_static01/result.json": {
+      "bytes": 1605,
+      "sha256": "323a4d3c56c5465ad82321ba5c918091bf0b0e5500691bbcdb68dd1b2d5de5e7"
+    },
+    "state/analysis/P7_motor_const_compile_raw/native_static01/artifacts.json": {
+      "bytes": 9645,
+      "sha256": "fc5eb9e233c4642e0388f14132efdebab535d55134ce39c43d33c485d67e4ddd"
+    },
+    "state/analysis/P7_motor_const_compile_raw/native_abi_static01/result.json": {
+      "bytes": 904847,
+      "sha256": "bbdecb404a42237fafaf0bf4b2e38690b62ee45119cdfabd9b2f7dde17a6b9b0"
+    },
+    "state/analysis/P7_motor_const_compile_raw/native_abi_static01/abi.json": {
+      "bytes": 5410,
+      "sha256": "6fed52b884c6015a2c9d2f6803bea20e764418fcc94cffe144161026259f6a97"
+    },
+    "state/analysis/P7_motor_const_compile_raw/native_abi_static01/local_result.json": {
+      "bytes": 275,
+      "sha256": "3cd224b237fc1b18586d7b2fb22c2a47833a801fea06b96b338027102db5d55d"
+    },
+    "state/analysis/P7_motor_const_compile_raw/entry_host_closing01.json": {
+      "bytes": 1937,
+      "sha256": "60995dee6b837ff199fdb6f8c2432b4fa9963da5d8a11d7db493bad08a915572"
+    },
+    "state/reviews/P7_motor_const_entry_review.md": {
+      "bytes": 16398,
+      "sha256": "0c2e5fac514767619d1434a5f415ddbd00bed58d6d23f8eb7b325fd6ad821ddd"
+    },
+    "state/reviews/P7_motor_const_abi_actual_review.md": {
+      "bytes": 10178,
+      "sha256": "4cd28fe8ce3b689319da5ddb42739c664fd0e4bcdc2552b521ee23b8b3331411"
+    },
+    "state/reviews/P7_motor_const_compile_actual_review.md": {
+      "bytes": 10135,
+      "sha256": "9c3e8cfe07ae33cac8d4a91f74127c33d3929e299bd5da339934943d784f21df"
+    }
+  },
+  "admission_boundary": "Check-only is local and unclaimed; one execute transport requires current embedded identity, absent remote scope,12file opening checks,4bounded children,13remoteclosing andindependentlocalclosure. No additionalobserveror retry."
+}

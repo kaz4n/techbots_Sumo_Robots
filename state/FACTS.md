@@ -886,3 +886,7 @@ HOST-VERIFIED: exact19-step readerf360a52d/projected938c1de2 and independent71me
 
 ## F226 - Current constant metadata diagnostic ABI and symbols (2026-09-26T13:28:04.272129+04:00)
 FILE-OBSERVED: D204 onefile-onlyattemptatd3bcfaa0 returnedcheck0/execute0,4successfulreapedchildren,13remote+localPASS, firsterrornull. Actualreview4cd28fe8 independentlyreconciles20817Bprogram,223expressions/111markers/88numericanswers,2299symbols and238/8/143pins. Runner20013960/169736 and separateSETTLEreport2003d3e8/28 freshlyobserved,11Runneroffsets/11reportfieldpairs/9enums match. candidateRateexact/nametoken absent; candidatePeriod20B08110c91. No emittedinstruction/timing/faultrepair/liveRAM/MCUread; D201remainsflashed. Source: analysis/P7_motor_const_abi_actual_validation.md.
+
+
+## F227 - Current instruction reader host checks (2026-09-26T13:44:30.406499+04:00)
+HOST-VERIFIED: exactD205readera71eb624/projected580abb32/parserc4c4f9e2 retains12/9/7metadatarecipe andallotherbodyguards. Independentdaf208fa passesfirst30Linux/30Windows,no skips/retries;23historical119assertion/rejectioncalls plus7new64calls retained. Finalreview0c2e5facPASS,268pins andemptyfixtures close60995dee. Fixed32groups34aliases65expressions3834selectedbytes have noactualinstructionobservation yet. Source: analysis/P7_motor_const_entry_validation.md.

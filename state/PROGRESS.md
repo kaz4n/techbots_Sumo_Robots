@@ -1441,3 +1441,6 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-26T13:28:04.272129+04:00 | P7 D204 actual ABI PASS | Cleand3bcfaa0/check0/execute0,1transport4children13remote+localPASS. Rawbbdecb40/ABI6fed52b8/actualreview4cd28fe8/closinge181ebe1; all238/8/143pins stable,2299symbols/currentreportlayout accepted. Nativeownerconsumed;32groupcurrent-symbol D205entrydraftnext. No upload/runtime/timingclaim.
+
+
+2026-09-26T13:42:18.328351+04:00 | P7 D205 first host checks PASS | Exactreadera71eb624 and independentoracledaf208fa pass30Linux/30Windows,noskips/retries;268pins/streams/order/fixtures close60995dee. Source/oracle reviewPASS; finalhost/scope review andcleanHEAD/check-only precede singlefile-onlyentry. No newfirmware/runtimeclaim.

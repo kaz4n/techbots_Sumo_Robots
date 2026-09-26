@@ -126,10 +126,14 @@ writePwm/mapChannel; seven whole/context parser substitutions preserve logic.
 D205 adopted: contract6663d1ea/binding7417ff70/derivationae6ef0de, preparation
 review4edbac30PASS. Exact12wrapper/9reader/7parser steps yieldprospective
 14941B/a71eb624; reader17075/580abb32, parser10866/c4c4f9e2. Implementation
-ownership followsadoption; independentoracle isbeingauthored (23old+7new,
-planned30methodseachplatform). No newentryreader may be inspected byroot/
-reviewer or executed before independentoracleFINAL. Hostdrivere1c5c725 uses
-exclusiveentry_first_<platform>01 owners andentry_coordinator_freeze01.json.
+implementationreceipt63280104 is final. Independentoracle FINAL barrier closed:
+oracledaf208fa/fixture7e699de0/freeze16402cc8 retains23methods119assertions
+plus7methods64assertions. Root verifiedactualsubjectexacta71eb624 andsealed
+268-pin coordinatorfreeze2e02ce58. First serial Linux30/Windows30 PASS withno
+skips/retries; hostclosing60995dee confirms pins/streams/order/emptyfixtures.
+Read analysis/P7_motor_const_entry_validation.md. Finalsourcehostreview0c2e5facPASS and13inputentryscope4b2f9f5f/admissionreview
+2e187d66PASS are accepted. CommitcleanHEAD/check-only then onefile-onlyentry
+operationnext; do notreuse D204ABI orhistoricalentry owners.
 No D204 compile/upload/reset/MCU read occurred; D201 remains flashed.
 
 ## Evidence prerequisites already complete
@@ -182,4 +186,7 @@ Freeze1October21:00Dubai, rehearsal2October, competition3October. Dates do not
 create acceptance. Read AGENTS.md/CODEX_RESUME/CODEX_EXECUTION and latest state.
 PROGRESS is binary-append-only: first140971B SHA256
 1dbbeb53c3dc046128494af3bef240b9a00353929d6121991900c90bb2838b77.
-No host/compiler/device job is active. D203 and D204 native owners are consumed. D204 actual review4cd28fe8 accepted; D205 adopted after preparationreview; implementation and independentoracle are preparing. Wait oracleFINAL before newsubjectinspection/execution.
+No host/compiler/device job is active. D203 and D204 native owners are consumed. D204 actual review4cd28fe8 accepted; D205 first30Linux/30Windows hosttests PASS; separate host/scope review closes next beforeone file-only entry attempt. D206 proposedcontract25caada6/derivation26aa4a50/prepreview38d0a891 arecomplete.
+Its oracletemplate test_motor_const_cleanup.py hasFIXTURE_PIN=None andnoJSON
+freeze yet: explicitlyunfinished/unexecuted, retainedinGitwhilewriterholds.
+D206subjectsnotcreated; no cleanup ornewflash yet.

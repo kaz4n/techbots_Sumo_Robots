@@ -451,3 +451,6 @@ D191 closing observation: C:recovered290537472B independently before local docum
 
 
 2026-09-26T13:31:00.204164+04:00 | Fresh D201 uploader inventory only | Source462c0534/reviewdd2bce49 and observationaddee38e verify exactly3duplicatecopies2399928B at/tmp/remoteocddev34/inode1452 with retainedoriginals/allidentitiesclosed. Keepcompactsource/derivation/24555Brawresult for anylaterboundedcleanup. No protectedhandleclearance, deletion or reclaimedbytes; D200root04andoldinode1172 remainconsumed. Prior denied targets untouched.
+
+
+2026-09-26T13:42:18.328351+04:00 | D205 host evidence retention | Keep compactfirst-run8receipts/streams andsource/oracle/projection/freezes forreview/reproduction. Hostclosing60995dee independentlyconfirms268pins andno LinuxRAM/sharedWindows/privateWindows fixture remnants. No duplicate ELFdownload/manualcleanup or reclaimedbyteclaim. Cfree6858928128B. Prior denied targets untouched.

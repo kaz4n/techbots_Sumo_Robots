@@ -49,9 +49,14 @@ compiler, 238 transports and all eight closing checks. Result9b7f0c44 and
 artifact receipte18384c1 bind ELF6091f27d/debugdc610650/packagee4000781 (95520B).
 All129 source pins remain exact; app-motor-settle-static01 is consumed.
 See analysis/P7_motor_settle_compile_actual_validation.md and its actual review.
-D199 file-only ABI preparation is next, followed by entry ranges derived from
-that actual symbol table. The separate report's target layout, zero-init range
-and publication stores remain unobserved. D195 is still the latest flashed image.
+D199 file-only ABI reader is host-validated and reviewed076a9742 PASS:
+source0f2b37c9, contractdfc76276,66 Linux/64 Windows passes with two skips
+covered on Linux,192 frozen inputs unchanged. Complete the fresh fixed scope,
+clean HEAD/check-only and one native_abi_static01 execution, then derive entry
+ranges from its actual symbol table. The separate report's target layout and
+publication stores remain unobserved. D195 is still the latest flashed image.
+D200 cleanup contract24d849f2 is proposed only; read-only inventorye95ebed4
+binds three D195 scratch copies2399768B. No new cleanup has been admitted or run.
 
 Every earlier native owner is consumed, including D193static01, D194ABI01/02 and
 entry01, D195run01 and D196root03. Never rerun historical launchers or repin their

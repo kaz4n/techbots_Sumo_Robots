@@ -1405,3 +1405,6 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-26T10:16:08.181213+04:00 | P7 D198 actual compile PASS | One query/compiler, 238 transports, all eight closing checks at reviewed18c1135c. Result9b7f0c44/artifactse18384c1, source117cc0e7 and129pins exact. ELF6091f27d/debugdc610650/packagee4000781 (95520B). Independent actual reviewf046db47 PASS. Owner consumed; no upload/MCU read. D195 remains flashed; actual new ABI/publication evidence next.
+
+
+2026-09-26T10:32:15.555509+04:00 | P7 D199 ABI reader host PASS | Source0f2b37c9/contractdfc76276, independent final66 Linux PASS and64 Windows PASS with symlink-privilege/FIFO skips both covered Linux. All192pins exact, no fixture remnants, review076a9742 PASS. Initial literal bug preservedf4c8c6aa; first passing fixture coverage gap preservede3e69d9e and corrected without assertion/source changes. Fresh file-only actual ABI owner pending; D195 remains flashed.

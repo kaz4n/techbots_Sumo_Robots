@@ -165,8 +165,10 @@ def extend_packet(result, layout, report_token='28', report_address=PROBE_ADDRES
     for label, name, value in NEW_TAGS:
         debug += 'SUMOX_' + label + ' ' + name + '\n$9 = ' + str(value) + '\n'
     replace_text(result, 3, debug)
-    replace_text(result, 2, text(result, 2) +
+    elf_rows = text(result, 2).splitlines(keepends=True)
+    elf_rows.insert(len(elf_rows)-1,
         f' 92: {report_address:08x} {report_token} OBJECT LOCAL DEFAULT 7 {PROBE_SYMBOL}\n')
+    replace_text(result, 2, ''.join(elf_rows))
     result['scope'] = 'D199_STATIC_FILE_ONLY_ABI'
     return result, layout
 
@@ -404,7 +406,9 @@ class SettleAbiContract(unittest.TestCase):
             packet=copy.deepcopy(result);replace_text(packet,3,changed);self.reject(lambda:reader.summarize(packet,layout))
 
     def test_exact_symbol_candidate_name_kind_binding_section_and_duplicates(self):
-        reader=self.loaded();result,layout=self.packet();original=text(result,2);row=original.splitlines(keepends=True)[-1]
+        reader=self.loaded();result,layout=self.packet();original=text(result,2)
+        rows=[line for line in original.splitlines(keepends=True) if line.rstrip().endswith(' '+PROBE_SYMBOL)]
+        self.assertEqual(len(rows),1);row=rows[0]
         for changed in (original.replace(row,''),original.replace(PROBE_SYMBOL,PROBE_SYMBOL+'x'),original+row,
                         original+row.replace('OBJECT','FUNC'),original+row.replace('LOCAL','GLOBAL'),
                         original.replace(row,row.replace('OBJECT','NOTYPE')),

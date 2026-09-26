@@ -354,3 +354,6 @@ Recheck space before work and preserve all earlier blocked cleanup exclusions.
 
 
 - [x] D198 actual compile-only succeeds at clean18c1135c; result9b7f0c44, artifactse18384c1 and independent reviewf046db47 PASS. All129pins exact; native compile owner consumed. D199 actual ABI/entry preparation next, then a separate inhibited capture. D195 remains the latest flashed image.
+
+
+- [x] D199 ABI reader source and host tests reviewed076a9742 PASS:66 Linux/64 Windows methods, two Windows skips covered Linux,192pins exact. Fresh file-only ABI scope/check-only thenoneexecution next; actual entry/store evidence and inhibitedcapture remain separate.

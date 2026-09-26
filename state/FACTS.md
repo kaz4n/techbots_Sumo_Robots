@@ -842,3 +842,7 @@ HOST-VERIFIED: D198b98a5f54 exactmetadata derivative/contractc0b35281 passes102L
 
 ## F215 - Internal SETTLE probe target compilation (2026-09-26T10:16:08.181213+04:00)
 DEVICE-FILES-OBSERVED: D198 source117cc0e7/static/default/MATCH0/MOTORS0/probe1 compiles once at18c1135c; all8 closing checks PASS and129pins unchanged. ELF6091f27d/debugdc610650/packagee4000781 (95520B), all8 artifact identities stable. CLI171892B globals/90252B remaining; structural90256B RAM tail/data208B/BSS-clear170664B. These are layout accounting, not measured live RAM/stack/WCET or proof of report retention. Independent reviewf046db47 PASS; D195 remains flashed. Source: analysis/P7_motor_settle_compile_actual_validation.md.
+
+
+## F216 - Internal report file-reader host evidence (2026-09-26T10:32:15.555509+04:00)
+HOST-VERIFIED: D199 source0f2b37c9/contractdfc76276 preserves D194 ABI02 lifecycle and adds exact223 expressions/23 subjects while retaining11 Runner windows. Separate target report checks enforce numeric fields/enums, one LOCAL OBJECT, initialized BSS and no overlap. Independent66 Linux/64 Windows methods PASS; two explicit Windows skips covered Linux,192pins exact, review076a9742 PASS. No actual target ABI/address/content observation yet. Source: analysis/P7_motor_settle_abi_validation.md.

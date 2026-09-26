@@ -2226,3 +2226,9 @@ D-195 caller extension 2026-09-26T09:06:42.000938+04:00: adopt analysis/P7_app_m
 
 
 D-195 actual outcome 2026-09-26T09:35:15.664942+04:00: one fixed inhibited run atclean10be3126 completed collection and reproduced SETTLE failure atapplication921. Source3a08ddeb is latestflashed; scope/ownersconsumed. Preserve result4fc33583, raw3bb9425f, decodedc37a3069 andactualreviewf8779db4. PreabortRUNNING/NONE but invalidIOmotorreceipt; explicitabort explains finalfaultlabels. FinalHALTsettle alsofalse/inhibitionunconfirmed. Outer154us is not internaldeadline evidence because successfulSETUP also154us. Keep150us/4096pollbounds; nextminimalprobe must classifyexactbranch without extra hardware/clockcalls. No rootcausefix, productionWCET, physicalacceptance or gate follows.
+
+
+## D-197 (2026-09-26T09:36:07.021364+04:00, internal native SETTLE exit observation)
+Context: D195 actually reproduced SETTLEfalse atapplication921, but its outer154us span cannot distinguish seven internalrejections; successfulSETUPalso154us. FinalHALTsettlefalse leavesinhibitionunconfirmed.
+Decision: underD051 adopt analysis/P7_motor_settle_probe_contract.md3346b119. Add only probe1 fixed28B separate current/first_failure report and return-site recording in motor_port_unoq.cpp plus oneheader. Preserve exactproductionprobe0 preprocessedsettle, existing hardware/clockcalls, shortcircuits,150us/4096polls, config/pins/lockedtests/Trace/Runnerlayouts. Use only existing elapsed/poll/fresh observations with explicit validity; no extra clockread, resetAPI or inferredsubcause.
+Consequence: independentlyauthored tests freeze beforeimplementationread/execution, separate source/hostreview and newtargetartifacts/ABI/entry/scope before any nativeuse. This is diagnosticpreparation, notrootcausefix/guardrelaxation/physicalqualification/motorpermission/phasegate. Productionstaticcompile remainslaterwork.

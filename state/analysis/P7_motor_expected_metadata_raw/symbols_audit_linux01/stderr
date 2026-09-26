@@ -1,0 +1,54 @@
+test_probe0_symbols_unchanged_and_report_exists_only_in_probe1 (__main__.MotorSettleProbeTests.test_probe0_symbols_unchanged_and_report_exists_only_in_probe1) ... FAIL
+
+======================================================================
+FAIL: test_probe0_symbols_unchanged_and_report_exists_only_in_probe1 (__main__.MotorSettleProbeTests.test_probe0_symbols_unchanged_and_report_exists_only_in_probe1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "tests/tooling/test_motor_settle_probe.py", line 198, in test_probe0_symbols_unchanged_and_report_exists_only_in_probe1
+    self.assertEqual(observed['original'], observed['probe0'])
+AssertionError: Lists differ: ['T m[692 chars]ce)::DOMAINS', 'r motors::(anonymous namespace[752 chars]INS'] != ['T m[692 chars]ce)::NATIVE_CHANNELS', 'r motors::(anonymous n[598 chars]INS']
+
+First differing element 14:
+'r motors::(anonymous namespace)::DOMAINS'
+'r motors::(anonymous namespace)::NATIVE_CHANNELS'
+
+First list contains 3 additional elements.
+First extra element 26:
+'u config::MOTOR_PWM_PINS'
+
+  ['T motors::UnoQPort::bankValid() const',
+   'T motors::UnoQPort::clockUs(void*)',
+   'T motors::UnoQPort::configureEnableLow(void*)',
+   'T motors::UnoQPort::configurePwm(void*, motors::Channel)',
+   'T motors::UnoQPort::enableLow() const',
+   'T motors::UnoQPort::enableOwned() const',
+   'T motors::UnoQPort::port()',
+   'T motors::UnoQPort::settle(void*)',
+   'T motors::UnoQPort::timerValid(unsigned int) const',
+   'T motors::UnoQPort::writeEnable(void*, bool)',
+   'T motors::UnoQPort::writePwm(void*, motors::Channel, unsigned int, unsigned '
+   'int)',
+   'd motors::(anonymous namespace)::PWM_PADS',
+   'd motors::(anonymous namespace)::PWM_SPECS',
+   'r motors::(anonymous namespace)::CHANNEL_TIMERS',
+-  'r motors::(anonymous namespace)::DOMAINS',
+   'r motors::(anonymous namespace)::NATIVE_CHANNELS',
+   'r motors::(anonymous namespace)::PRESCALERS',
+-  'r motors::(anonymous namespace)::SELECTORS',
+   't motors::(anonymous namespace)::candidatePeriod(unsigned int)',
+-  't motors::(anonymous namespace)::candidateRate(unsigned int)',
+   't motors::(anonymous namespace)::mapChannel(unsigned int, unsigned int&)',
+   't motors::(anonymous namespace)::samePad(gpio_dt_spec const&, gpio_dt_spec '
+   'const&)',
+   't motors::(anonymous namespace)::timerDevice(unsigned int)',
+   't motors::(anonymous namespace)::timerRegisters(unsigned int)',
+   't motors::(anonymous namespace)::validInputSeparation(gpio_dt_spec const&)',
+   't motors::(anonymous namespace)::validPad(gpio_dt_spec const&)',
+   'u config::MOTOR_PWM_PINS',
+   'u config::OPP_INPUT_PINS',
+   'u config::P0_QTR_PINS']
+
+----------------------------------------------------------------------
+Ran 1 test in 5.904s
+
+FAILED (failures=1)

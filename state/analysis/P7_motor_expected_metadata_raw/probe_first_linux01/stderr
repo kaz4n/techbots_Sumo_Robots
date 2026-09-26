@@ -1,0 +1,28 @@
+test_all_exit_reports_and_exact_original_probe0_probe1_native_clock_hardware_sequences (__main__.MotorSettleProbeTests.test_all_exit_reports_and_exact_original_probe0_probe1_native_clock_hardware_sequences) ... ok
+test_probe0_preprocessed_settle_body_is_exact_original (__main__.MotorSettleProbeTests.test_probe0_preprocessed_settle_body_is_exact_original) ... ok
+test_probe0_symbols_unchanged_and_report_exists_only_in_probe1 (__main__.MotorSettleProbeTests.test_probe0_symbols_unchanged_and_report_exists_only_in_probe1) ... FAIL
+test_public_interface_exclusion_and_existing_inert_guards (__main__.MotorSettleProbeTests.test_public_interface_exclusion_and_existing_inert_guards) ... ok
+test_unchanged_config_trace_runner_and_all_locked_fixture_bytes (__main__.MotorSettleProbeTests.test_unchanged_config_trace_runner_and_all_locked_fixture_bytes) ... ok
+
+======================================================================
+FAIL: test_probe0_symbols_unchanged_and_report_exists_only_in_probe1 (__main__.MotorSettleProbeTests.test_probe0_symbols_unchanged_and_report_exists_only_in_probe1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_motor_settle_probe.py", line 198, in test_probe0_symbols_unchanged_and_report_exists_only_in_probe1
+    self.assertEqual(observed['original'], observed['probe0'])
+AssertionError: Lists differ: ['T m[692 chars]ce)::DOMAINS', 'r motors::(anonymous namespace[752 chars]INS'] != ['T m[692 chars]ce)::NATIVE_CHANNELS', 'r motors::(anonymous n[598 chars]INS']
+
+First differing element 14:
+'r motors::(anonymous namespace)::DOMAINS'
+'r motors::(anonymous namespace)::NATIVE_CHANNELS'
+
+First list contains 3 additional elements.
+First extra element 26:
+'u config::MOTOR_PWM_PINS'
+
+Diff is 1599 characters long. Set self.maxDiff to None to see it.
+
+----------------------------------------------------------------------
+Ran 5 tests in 7.419s
+
+FAILED (failures=1)

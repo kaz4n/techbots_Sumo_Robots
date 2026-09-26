@@ -2208,3 +2208,18 @@ D-194 attempt02 query amendment 2026-09-26T08:40:50.176347+04:00: one actualfile
 
 
 D-194 entry observation adoption 2026-09-26T08:50:24.160991+04:00: ABI02acceptedresulta5e67635/ABIdfc34596 andactualreviewe9c8d255 establishcurrentfilelayout. UnderD051 adopt entrycontract437f8cb8, with27ranges/boundsconfirmedfromsuccessfulrawreadelfb3542b0d. Newentrywrapper privatelyreuses ABI02lifecycle andoldentryparser throughcount/hashchecked literalchangesonly, sixinputs beforeexecution/exact5bootstraphelpers. Source/testindependence, frozenhostresults andseparatereview precede onefreshfile-onlyentryscope. Arraybytes/instructionsemantics remainunobserved untilactualquery/review; noMCU/firmware/phasepermission follows.
+
+
+## D-195 (2026-09-26T09:02:46.330577+04:00, fixed longer inhibited observation capture preparation)
+Context: D193 artifact and D194 actual ABI establish six observer windows; the longer finite diagnostic needs a bounded observation interval.
+Decision: under D051 adopt analysis/P7_app_motor_observe_remote_contract.md c2563449. Preserve D190 source and lifecycles, apply exact observer metadata only and one recorded 30-second wait before the first SRAM read; retain the 2-second separation, 26 reads, 600-second budget, exclusive owners and first-failure evidence. Independent contract-derived tests and review precede native admission.
+Consequence: host preparation only. Caller/action validation, actual entry review, separately bound scratch cleanup and fresh exact inhibited-run scope remain required. Delay does not prove terminal state; no motor grant, changed firmware policy, physical evidence or human gate follows.
+
+
+## D-196 (2026-09-26T09:03:35.890692+04:00, exact current upload scratch cleanup)
+Context: fresh read-only inventory20db3c25 sees three D190 upload copies, 2399736B, in directory device34/inode869; D191 old cleanup is consumed. User requests continued connected-board work and supplied authentication.
+Decision: under D051 adopt analysis/P7_app_motor_observe_cleanup_contract.md7258230a. Prepare only exact metadata-derived recipe1834edd3/wrappera089cc3b, new exclusive observe-root03 stage/result, retaining all original content/use/identity/privilege-drop guards. Independent frozen oracles and separate review plus fresh staged-source binding precede one specifically scoped authenticated invocation.
+Consequence: no general privileged access, credential storage, old-owner retry, process exemption, firmware operation, motor permission or phase gate. Preparation is not deletion evidence; uncertain or failed execution is preserved without automatic retry.
+
+
+D-195 caller extension 2026-09-26T09:06:42.000938+04:00: adopt analysis/P7_app_motor_observe_caller_contract.md03b61d0c. Preserve D190 caller/action lifecycle, exactD193128pin projection through load_caller, successfulABI02 evidence and newfixedowners. Validate recorded30swait ordering before unchanged2sgap; retain strictbindings/staging/firsterrors/13transports/deadlines. Independentoracles/review then freshpreparation/scope required; no executionauthorized by hostpreparation alone.

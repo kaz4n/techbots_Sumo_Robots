@@ -1,0 +1,36 @@
+{
+  "argv": [
+    "/bin/sh",
+    "-c",
+    "for path do if test -e \"$path\" || test -L \"$path\"; then printf 'Unreviewed app override: %s\\n' \"$path\" >&2; exit 1; fi; done",
+    "sumo-app-override-check",
+    "/home/arduino/.arduino15/packages/platform.txt",
+    "/home/arduino/Arduino/hardware/platform.txt",
+    "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/platform.local.txt",
+    "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/boards.local.txt",
+    "/home/arduino/sumox26_codex_build/702ad99ee4f888c58de1715cb91512cb0a174a646d914db6ce9155489ffa63e8/recorder/sketch.yaml",
+    "/home/arduino/sumox26_codex_build/702ad99ee4f888c58de1715cb91512cb0a174a646d914db6ce9155489ffa63e8/recorder/sketch.yml"
+  ],
+  "deadline_seconds": 60,
+  "env": {
+    "HOME": "/home/arduino",
+    "LANG": "C.UTF-8",
+    "LOGNAME": "arduino",
+    "PATH": "/usr/bin:/bin",
+    "USER": "arduino"
+  },
+  "execution": {
+    "reaped": true,
+    "returncode": 0,
+    "timed_out": false
+  },
+  "finished": 1790453284.9817488,
+  "pid": 18175,
+  "reap_seconds": 5,
+  "started": 1790453284.9677927,
+  "status": "COMPLETED",
+  "stderr_base64": "",
+  "stderr_bytes": 0,
+  "stdout_base64": "",
+  "stdout_bytes": 0
+}

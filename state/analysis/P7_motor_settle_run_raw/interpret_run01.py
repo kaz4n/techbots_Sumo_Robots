@@ -402,6 +402,15 @@ def _analysis_types(value):
             _value_type(value[name], list, 'capture', _child(path, name))
 
 
+def _read_types(rows):
+    for index, row in enumerate(rows):
+        path = '/capture_result/reads/' + str(index)
+        _keys(row, READ_KEYS, 'capture', 'READ_PLAN', path)
+        for field, kind in (('name', str), ('address', int), ('bytes', int),
+                             ('sha256', str), ('file', str)):
+            _value_type(row[field], kind, 'capture', _child(path, field))
+
+
 def _receipt_types(upload, capture):
     strings = ('run_id', 'schema', 'source_sha256', 'status', 'stderr', 'stdout')
     for stage, receipt, names in (('upload', upload, UPLOAD_KEYS),
@@ -418,14 +427,13 @@ def _receipt_types(upload, capture):
                 _need(value is None or type(value) is dict, stage, 'TYPE', target)
             elif name in ('postcheck_errors', 'reads'):
                 _value_type(value, list, stage, target)
+                if name == 'reads':
+                    _read_types(value)
             elif name == 'subprocess':
                 for field, kind in (('reaped', bool), ('returncode', int), ('timed_out', bool)):
                     _value_type(value[field], kind, stage, _child(target, field))
             elif name == 'analysis':
                 _analysis_types(value)
-            elif name == 'counts':
-                for field in COUNT_KEYS:
-                    _value_type(value[field], int, stage, _child(target, field))
 
 
 def _identities(upload, capture):
@@ -489,8 +497,10 @@ def _upload_admission(upload):
 
 def _counts(capture):
     values = capture['counts']
-    commands, reads, requested = (values[name] for name in COUNT_KEYS)
     path = '/capture_result/counts/'
+    for name in COUNT_KEYS:
+        _need(type(values[name]) is int, 'capture', 'COUNTS', path + name)
+    commands, reads, requested = (values[name] for name in COUNT_KEYS)
     _need(0 <= commands <= 26, 'capture', 'COUNTS', path + 'commands')
     _need(0 <= reads <= commands and commands in (reads, reads + 1),
           'capture', 'COUNTS', path + 'reads')
@@ -504,10 +514,6 @@ def _read_rows(capture, count):
     _need(len(rows) == count, 'capture', 'READ_PLAN', '/capture_result/reads')
     for index, row in enumerate(rows):
         path = '/capture_result/reads/' + str(index)
-        _keys(row, READ_KEYS, 'capture', 'READ_PLAN', path)
-        for field, kind in (('name', str), ('address', int), ('bytes', int),
-                             ('sha256', str), ('file', str)):
-            _need(type(row[field]) is kind, 'capture', 'READ_PLAN', _child(path, field))
         name, address, size = PLAN[index]
         for field, expected in (('name', name), ('address', address), ('bytes', size)):
             _need(row[field] == expected, 'capture', 'READ_PLAN', _child(path, field))
@@ -561,7 +567,7 @@ def _waits(capture, commands, reads):
 
 def _flash(capture, commands, reads):
     flags = capture['analysis']['flash']
-    for name, boundary in zip(FLASH_KEYS, (4, 6, 20, 25)):
+    for name, boundary in zip(FLASH_KEYS, (4, 6, 25, 20)):
         path = '/capture_result/analysis/flash/' + name
         _need(not flags[name] or reads > boundary, 'capture', 'FLASH', path)
         _need(commands <= boundary + 1 or flags[name], 'capture', 'FLASH', path)

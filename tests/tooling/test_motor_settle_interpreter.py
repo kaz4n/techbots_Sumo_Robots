@@ -640,14 +640,37 @@ class PacketOracle(OracleBase):
 
     def test_packet_json_is_strict_utf8_duplicate_finite_and_bounded(self):
         bodies = [b'\xff', b'{', b'{} trailing', b'{"status":0,"status":1}',
-                  b'{"x":NaN}', b'{"x":Infinity}', b'{"x":-Infinity}', b'{"x":1e999}',
-                  b'[' * 2000 + b'0' + b']' * 2000]
+                  b'{"x":NaN}', b'{"x":Infinity}', b'{"x":-Infinity}', b'{"x":1e999}']
         for raw in bodies:
             with self.subTest(raw=raw[:30]):
                 self.rejected(raw, 'packet', 'JSON', '/')
+        deep_raw = b'[' * 2000 + b'0' + b']' * 2000
+        try:
+            json.loads(deep_raw)
+        except RecursionError:
+            expected_code = 'JSON'
+        else:
+            expected_code = 'KEYS'
+        self.rejected(deep_raw, 'packet', expected_code, '/')
         self.rejected(bytes(1048577), 'packet', 'PACKET_SIZE', '/')
         for raw in (b'null', b'[]', b'3', b'"x"'):
             self.rejected(raw, 'packet', 'KEYS', '/')
+
+    def test_packet_parser_recursion_error_is_a_stable_json_rejection(self):
+        packet_text = '{"oracle_recursion_probe":0}'
+        packet_raw = packet_text.encode('ascii')
+        original_loads = json.loads
+        injections = []
+
+        def controlled_loads(value, *args, **kwargs):
+            if value == packet_text or value == packet_raw:
+                injections.append('packet')
+                raise RecursionError('controlled oracle packet parse failure')
+            return original_loads(value, *args, **kwargs)
+
+        with mock.patch.object(json, 'loads', side_effect=controlled_loads):
+            self.rejected(packet_raw, 'packet', 'JSON', '/')
+        self.assertEqual(injections, ['packet'])
 
     def test_whitespace_key_order_and_string_contents_are_preserved(self):
         upload, capture, bodies, _ = fixture()

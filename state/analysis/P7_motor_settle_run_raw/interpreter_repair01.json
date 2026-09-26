@@ -1,0 +1,100 @@
+{
+  "changes": [
+    {
+      "functions": [
+        "_flash"
+      ],
+      "reason": "FLASH_KEYS is before_loader,before_sketch,after_loader,after_sketch; bind to indices4,6,25,20 while preserving flag predicate and error order."
+    },
+    {
+      "functions": [
+        "_receipt_types",
+        "_counts"
+      ],
+      "reason": "Remove early count scalar TYPE checks. In the late COUNTS phase, require all three exact int types in commands/reads/requested_bytes order before arithmetic and slicing. Counts container TYPE and key-set KEYS remain early and unchanged."
+    },
+    {
+      "functions": [
+        "_read_types",
+        "_receipt_types",
+        "_read_rows"
+      ],
+      "reason": "Read-row exact key/shape check remains READ_PLAN and moves to the listed capture reads type phase. After it, name/address/bytes/sha256/file exact types use TYPE before identities. Late prefix extent, fixed values, hash syntax, indexed filename and snapshot equality remain unchanged. Parent explicitly confirmed this movement before edit."
+    }
+  ],
+  "contract": {
+    "bytes": 32296,
+    "path": "state/analysis/P7_motor_settle_interpreter_contract.md",
+    "sha256": "6007ec4e2e22cdf0e8f751790c49924b26b4adb8f9dfde5d5f6db2ed9bd7dff8"
+  },
+  "failure_accounting": {
+    "counts_classification_failure_events": 1,
+    "deep_valid_array_oracle_assumption_separate": 1,
+    "other_flash_related_failure_events": 3,
+    "prefix_failures_and_aggregate": 11,
+    "read_row_type_failure_events": 1,
+    "total_saved_first_failure_events_per_platform": 17
+  },
+  "first_host_evidence": [
+    {
+      "bytes": 15528,
+      "path": "state/analysis/P7_motor_settle_run_raw/first_interpreter_linux01/stderr",
+      "sha256": "6f491af37cbf9e1180a9bd296df03154153ea7b3693b3af46d568c920d12fcb5"
+    },
+    {
+      "bytes": 671,
+      "path": "state/analysis/P7_motor_settle_run_raw/first_interpreter_linux01/result.json",
+      "sha256": "a3c677c6db95452f2f74be5ba2b81595fe3ab5bba026601055b26045a8700ea5"
+    },
+    {
+      "bytes": 16365,
+      "path": "state/analysis/P7_motor_settle_run_raw/first_interpreter_windows01/stderr",
+      "sha256": "8f6f0cccbdb78fa6c457b5c408f4286f253f66158f31dbccb87caecdf7cd0ed5"
+    },
+    {
+      "bytes": 594,
+      "path": "state/analysis/P7_motor_settle_run_raw/first_interpreter_windows01/result.json",
+      "sha256": "19c06d895f610075840675eb00bc854e886d57ff0f3ced00890e100c2f27fed1"
+    }
+  ],
+  "first_host_results_preserved_commit": "b69cc011",
+  "next_action": "Coordinator freezes these repaired bytes and performs serial host retests; fresh reviewer checks source and actual results.",
+  "original_source": {
+    "bytes": 31143,
+    "sha256": "eb23a62a43379bc69d5cf894a8be4a606da4ea5c417d2d21aaa486dcaf892724"
+  },
+  "original_source_preserved_commit": "1df96c20",
+  "prepared_utc": "2026-09-26T07:31:06.078953+00:00",
+  "repaired_source": {
+    "bytes": 31266,
+    "sha256": "ea43a42f582f6e8bf2dfa4e2090efb03313f3333036cc1a3159d72295f680c88"
+  },
+  "schema": "d201-interpreter-contract-repair-v1",
+  "scope": {
+    "board_or_native_calls": 0,
+    "firmware_or_native_caller_edits": false,
+    "oracle_or_contract_edits": false,
+    "subject_import_or_execution": false,
+    "tests_executed": false
+  },
+  "source_path": "state/analysis/P7_motor_settle_run_raw/interpret_run01.py",
+  "static_checks": {
+    "all_other_existing_function_asts_exact": true,
+    "changed_existing_functions": [
+      "_receipt_types",
+      "_counts",
+      "_read_rows",
+      "_flash"
+    ],
+    "function_count": 54,
+    "lf_only": true,
+    "maximum_function_lines": 27,
+    "module_nonfunction_ast_exact": true,
+    "new_private_function": "_read_types",
+    "source_parses_as_ast": true,
+    "three_comment_intro_exact": true
+  },
+  "status": "SOURCE_REPAIRED_AWAITING_COORDINATED_RETEST",
+  "unified_diff": "--- state/analysis/P7_motor_settle_run_raw/interpret_run01.py@1df96c20\n+++ state/analysis/P7_motor_settle_run_raw/interpret_run01.py@repair01\n@@ -402,6 +402,15 @@\n             _value_type(value[name], list, 'capture', _child(path, name))\n \n \n+def _read_types(rows):\n+    for index, row in enumerate(rows):\n+        path = '/capture_result/reads/' + str(index)\n+        _keys(row, READ_KEYS, 'capture', 'READ_PLAN', path)\n+        for field, kind in (('name', str), ('address', int), ('bytes', int),\n+                             ('sha256', str), ('file', str)):\n+            _value_type(row[field], kind, 'capture', _child(path, field))\n+\n+\n def _receipt_types(upload, capture):\n     strings = ('run_id', 'schema', 'source_sha256', 'status', 'stderr', 'stdout')\n     for stage, receipt, names in (('upload', upload, UPLOAD_KEYS),\n@@ -418,14 +427,13 @@\n                 _need(value is None or type(value) is dict, stage, 'TYPE', target)\n             elif name in ('postcheck_errors', 'reads'):\n                 _value_type(value, list, stage, target)\n+                if name == 'reads':\n+                    _read_types(value)\n             elif name == 'subprocess':\n                 for field, kind in (('reaped', bool), ('returncode', int), ('timed_out', bool)):\n                     _value_type(value[field], kind, stage, _child(target, field))\n             elif name == 'analysis':\n                 _analysis_types(value)\n-            elif name == 'counts':\n-                for field in COUNT_KEYS:\n-                    _value_type(value[field], int, stage, _child(target, field))\n \n \n def _identities(upload, capture):\n@@ -489,8 +497,10 @@\n \n def _counts(capture):\n     values = capture['counts']\n+    path = '/capture_result/counts/'\n+    for name in COUNT_KEYS:\n+        _need(type(values[name]) is int, 'capture', 'COUNTS', path + name)\n     commands, reads, requested = (values[name] for name in COUNT_KEYS)\n-    path = '/capture_result/counts/'\n     _need(0 <= commands <= 26, 'capture', 'COUNTS', path + 'commands')\n     _need(0 <= reads <= commands and commands in (reads, reads + 1),\n           'capture', 'COUNTS', path + 'reads')\n@@ -504,10 +514,6 @@\n     _need(len(rows) == count, 'capture', 'READ_PLAN', '/capture_result/reads')\n     for index, row in enumerate(rows):\n         path = '/capture_result/reads/' + str(index)\n-        _keys(row, READ_KEYS, 'capture', 'READ_PLAN', path)\n-        for field, kind in (('name', str), ('address', int), ('bytes', int),\n-                             ('sha256', str), ('file', str)):\n-            _need(type(row[field]) is kind, 'capture', 'READ_PLAN', _child(path, field))\n         name, address, size = PLAN[index]\n         for field, expected in (('name', name), ('address', address), ('bytes', size)):\n             _need(row[field] == expected, 'capture', 'READ_PLAN', _child(path, field))\n@@ -561,7 +567,7 @@\n \n def _flash(capture, commands, reads):\n     flags = capture['analysis']['flash']\n-    for name, boundary in zip(FLASH_KEYS, (4, 6, 20, 25)):\n+    for name, boundary in zip(FLASH_KEYS, (4, 6, 25, 20)):\n         path = '/capture_result/analysis/flash/' + name\n         _need(not flags[name] or reads > boundary, 'capture', 'FLASH', path)\n         _need(commands <= boundary + 1 or flags[name], 'capture', 'FLASH', path)\n",
+  "unmodified_parser": "No depth limit, JSON parser change or special case was introduced for the valid 2000-level array. That independent oracle assumption is adjudicated separately."
+}

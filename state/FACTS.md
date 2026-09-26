@@ -858,3 +858,7 @@ DEVICE-OBSERVED: one D200 authenticated invocationexit0; raw6370B05507941 report
 
 ## F219 - SETTLE entry file reader host evidence (2026-09-26T10:59:01.194294+04:00)
 HOST-VERIFIED: sourcec9e8f023 retains exact descriptor/lifecycle composition and applies fixed9reader/36parser substitutions to29ranges31aliases59queries. Independent23Linux/23WindowsmethodsPASS/no skips,204pinsstable, reviewdcf1a079PASS. No actual initializer/publication instructions orruntimeevidence yet. Source: analysis/P7_motor_settle_entry_validation.md.
+
+
+## F220 - Actual emitted SETTLE diagnostic instructions (2026-09-26T11:06:57.253762+04:00)
+FILE-OBSERVED: D199 onefile-only attemptat5adbd784 passes4children/13remote+localclosingchecks;29ranges31aliases3038filebytes, initializer05011008=>08100105. Actualreview20f54afaPASS confirms separate2003d3e8 reportcurrentfields beforepresenceflag, firstfailurestores behindlifetimeguard, all8completedreasons and150us4096 bounds plusselectedinertentryRunnerbehavior.151local/204frozenpins exact. Nolivecontents/runtimecause/atomicity/physicalqualification. Source: analysis/P7_motor_settle_entry_actual_validation.md.

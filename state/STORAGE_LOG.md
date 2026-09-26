@@ -427,3 +427,6 @@ D191 closing observation: C:recovered290537472B independently before local docum
 
 
 2026-09-26T10:59:01.194294+04:00 | D199 entry host evidence | Retain compact source/oracle/204-pin freeze, both first23-test result sets, contract/binding, review and scope. No newPYC or downloadedELF/debugbinary; no cleanup/reclaimed-byte claim. Draft nextcapture1499f20b remains preparation only withactualentry pins pending.
+
+
+2026-09-26T11:06:57.253762+04:00 | D199 entry native evidence | Retain8ownerfiles798606logicalB pluscompactinvocation/validation/15336Bactualreview tobindemittedinstructions andnextcapture. GDBraw118292B retained; noELF/debugdownload/newbytecode/deletion. CurrentCfree20626288640B. All204hostpinsstable; ownerconsumed andpriorpolicy-deniedpaths untouched.

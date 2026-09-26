@@ -55,20 +55,25 @@ native_abi_static01 now succeeds atclean23f0aeba: result230ef847/ABI069ed01b,
 localeb68ef2e, four file children0 and all13remote+localclosingchecks PASS.
 Actualreviewa7c3993a verifies143localpins/23groups/11windows and the separate
 28B/align4 report at0x2003d3e8, all11fieldpairs/ninereasons. ABIowner consumed.
-Next derive fixed entry ranges from that rawsymboltable and inspect publication
-instructions. Actual report contents and failure branch remain unknown; D195
-is still flashed. See analysis/P7_motor_settle_abi_actual_validation.md.
+D199 actualentry now passes atclean5adbd784: result10d8a184/entry8332f797/
+localec4c45e9,4filechildren and13remote+localclosingPASS. Actualreview20f54afa
+verifies publication/firstfailureguard/all8SETTLEoutcomes/150us4096 bounds and
+selectedinertentryRunnerbehavior. Entrynativeowner consumed. Actual report
+contents and failure branch remain unknown; D195 is still flashed. See
+analysis/P7_motor_settle_entry_actual_validation.md.
 D200 exactcleanup is complete:49Linux/12WindowsPASS with37coveredskips,
 source/stage reviewsPASS, one authenticatedroot04 invocationexit0. Raw05507941
 and independentretrievalb7b776c9/actualreview5bc9d56d verify precisely3copies
 2399768B removed, originals/stagedsources unchanged, permanentUIDGID1000.
 Root04/resultowner consumed. Originalreadonlyobserverfailure and localEOF
 before device invocation remain preserved; no firmware operation occurred.
-D199 entrycontractaf8ce726/binding62346762 adopted; sourcec9e8f023 and
-frozenindependent23methodoracle4e6e1cae passes23Linux/23Windows/no skips.
-All204pins exact; freshsource/hostreviewdcf1a079PASS. Newfile-only entryscope
-then one cleanHEAD attempt and actualsemanticreview; actualinstructions
-and runtime SETTLEreport stillpending. See motor_settle_cleanup_validation.
+D199 entry host andnativework iscomplete; all204pins exact,23Linux/23Windows
+PASS/noskips andactualreview20f54afaPASS. Nextadopt newD201fixedcapture and
+offlineinterpretercontracts; draft1499f20b binds6windows/26reads/727432B,
+replacingonly livePrevious48B withseparateSettle28B, retainingpreabortPrevious
+andfinalRuntime/Transaction/Gate. Currentfieldmap0faba243 has16types/115fields.
+Finalcontracts/sources/independentoracles/reviews/freshadmission stillpending.
+No newupload/capture owner claimed; no runtimeSETTLEvalue orcause known.
 
 Every earlier native owner is consumed, including D193static01, D194ABI01/02 and
 entry01, D195run01 and D196root03. Never rerun historical launchers or repin their

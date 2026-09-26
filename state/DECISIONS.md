@@ -2292,3 +2292,6 @@ D-200 actual outcome 2026-09-26T10:56:13.468580+04:00: exact single root04 invoc
 
 
 D-199 entry host outcome 2026-09-26T10:59:01.194294+04:00: first serial23Linux/23WindowsmethodsPASS/no skips,204inputpinsstable, independentfresh-contextreviewdcf1a079PASS. Admit only the fixed new file-entry scope after scope review/cleanHEAD/check-only; retain all lifecycle/identity/firsterror guards. Actual initializer/stores/nativeconditions remain unobserved; no firmwareoperation/limit change or gate.
+
+
+D-199 actual entry outcome 2026-09-26T11:06:57.253762+04:00: single fixedfile-only attempt at5adbd784 succeeds, raw10d8a184/summary8332f797/localec4c45e9, actualreview20f54afaPASS. Observedinitializer points08100105; currentstoresprecedehas_current, failurestoresguardedbypreexistinghas_failure andprecedeflag atobserved2003d3e8. All7falseplusSUCCESS paths retain150us4096polls; selectedentryRunnerinertwiring/stops/passivityreviewed. Consume native_entry_static01; no retry. Fileemissiondoesnotestablishruntimecontents/cause/atomicity/WCET/physicalgate. Freshcapturecontracts/oracles/reviews/admission stillrequired.

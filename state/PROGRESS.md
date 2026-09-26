@@ -1417,3 +1417,6 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-26T10:59:01.194294+04:00 | P7 D199 entry reader host PASS | Sourcec9e8f023/contractaf8ce726/binding62346762; independent23Linux/23WindowsmethodsPASS/noskips,204pinsstable/closing1d798f24. Fresh-contextreviewdcf1a079PASS/no findings. Fixed29ranges31aliases59expressions; no nativeentry yet. One fixedfile-only scope next, D195 remains flashed.
+
+
+2026-09-26T11:06:57.253762+04:00 | P7 D199 actual entry PASS | Atclean5adbd784 check0/execute0,1transport4children0/emptyerrors,13remote+localclosingPASS. Raw10d8a184/entry8332f797/localec4c45e9;29ranges31aliases3038filebytes/initpointer08100105 observed. Review20f54afaPASS verifies reportstores/firstfailureguard/all8SETTLEoutcomes150us4096 andselectedinertentryRunnerbehavior. Ownerconsumed; no MCUoperation. D201capturepreparation next; D195stillflashed.

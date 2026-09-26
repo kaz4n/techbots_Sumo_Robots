@@ -3,33 +3,28 @@
 <!-- Checked through separate document review and local source/link verification. -->
 # P7 operator-document preparation
 
-Current status, 26 September 2026 (D219/D221 actual): the core/HAL/runtime and
-operator preparation are implemented, and the connected hardware is the UNO Q
-alone. D220 completed the verified stale-upload cleanup. D221 loaded the fixed
-B4 motor-disabled profile. D219 subsequently captured retained memory and
-exported CSV, with complete loader/sketch comparisons passing before and after
-the reads. The recorder is **EMPTY: zero frames, zero events, one summary row**.
-This establishes a bounded collection/export path, not a recorded match or
-physical robot acceptance. [Independent actual review](../reviews/P7_b4_recorder_actual_review.md)
-is FINAL PASS for that bounded outcome.
+Current status, 27 September 2026: the connected hardware is the UNO Q alone.
+D222's fourteen commissioning builds pass independent actual review for their
+original source snapshot. D227's guarded commissioning deployment tools are
+implemented and independently accepted; no motor-enabled run is authorized.
 
-Use the [actual capture and limits](P7_b4_recorder_actual_validation.md),
-[accepted upload](P7_b4_app_upload_actual_validation.md),
-[accepted cleanup](P7_b4_app_cleanup_actual_validation.md), and the
-[completion audit](P7_completion_audit_20260926.md). All setup grants remain absent
-and motor output is disabled. The earlier ordinary-M0 passive samples reported
-RUNNING/NONE, maximum execution 477 us and no missed releases with initialization
-false; those samples do not qualify the now-loaded B4 profile or initialized
-worst-case timing. B4 file ABI, emitted-entry inspection, fixed decoder and
-capture caller have separate accepted source/host evidence.
+The latest uploader-reported image is the **inhibited recorder**, uploaded once
+by D228 after successful compilation. Its receiver timed out after900seconds
+with **zero UART bytes**. No recording, observed session or successful delivery
+was obtained. Source/dependency/artifact closing checks passed. Preserve this
+consumed attempt for passive status diagnosis; do not retry or reset it.
+See [actual failed delivery](P7_recorder_delivery_actual_validation.md),
+[compile matrix](P7_commissioning_build_actual_validation.md), and
+[deployment validation](P7_commissioning_deploy_validation.md).
 
-The selected lifecycle tokens and phase agree, but the full lifecycle brackets
-changed. Coherence and body origin remain UNPROVEN. Native UART/Bridge delivery,
-log-preserving reset/restart qualification, initialized RAM/stack/timing,
-wiring/calibration, physical trials, printed team materials, rehearsal and human
-gates remain open. The dated evidence below describes historical preparation;
-its earlier pending-upload/capture statements are superseded by this paragraph,
-not retroactively changed into acceptance. Do not rerun consumed native owners.
+D219's earlier B4 retained-memory capture remains an accepted EMPTY export with
+origin/coherence UNPROVEN; it is historical evidence from a different image.
+All actual wiring/calibration, initialized timing/live RAM, physical trials,
+log-preserving restart, operator rehearsal and human gates remain open.
+D229's S..C percentile machinery is host-accepted in a separate worktree and
+awaits integration/target validation. D230 prepares passive diagnosis of the
+silent recorder. Neither supplies physical qualification or a phase pass.
+The dated paragraphs below describe historical preparation and earlier images.
 
 Updated 2026-09-26 Asia/Dubai through actual D190. D137 prepares operator documents;
 D138 adds P7.2 informational READY/battery software; D180-D183 provide the

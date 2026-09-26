@@ -509,3 +509,21 @@ A complete result requires 5,001 zero-duty frames, eight expected events, SEALED
 no reported loss and the declared timing bounds. Raw partial/failed captures remain
 saved. This establishes synthetic target software evidence only, not sensor,
 motor, physical timing or human gate acceptance.
+
+
+### Guarded commissioning deployment (D227)
+
+`deploy_commissioning_app.py` selects an existing checked D222 build for one of
+the seven fixed commissioning profiles. Use the exact source/artifact-bound scope
+in [the contract](../state/analysis/P7_commissioning_deploy_contract.md):
+
+```text
+python -I -B tools/deploy_commissioning_app.py --check-only --scope RELATIVE_JSON --reviewed-head HEAD40
+python -I -B tools/deploy_commissioning_app.py --execute --scope RELATIVE_JSON --reviewed-head HEAD40
+```
+
+M0 scopes must prove disabled setup. M1 additionally requires actual source-bound
+qualification, the original human phase prerequisite and fresh specific STAND OK
+or RING OK. Current BOARD ONLY supplies none of those M1 prerequisites. The tool
+performs no compilation, capture, cleanup or retry. Host acceptance is recorded
+in [validation](../state/analysis/P7_commissioning_deploy_validation.md).

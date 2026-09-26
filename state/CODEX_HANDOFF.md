@@ -1,3 +1,41 @@
+## Current checkpoint - 2026-09-27T00:31:03.836051+04:00
+
+Objective: finish the software and connected-board work quickly. Physical state
+remains BOARD ONLY; no motor-run authority, physical acceptance or human gate.
+
+D222 fourteen commissioning builds are FINAL PASS for original source9044;
+D227 guarded deployment is integrated at12ffd16c, reviewb5f95ad3, 29Linux and
+29uniqueWindows methods pass across retained runs. D224 session support and
+D228 fixed-private-ADB correction are integrated; 17+17receiver checks pass.
+
+Latest uploader-reported image is the inhibited recorder from nativeHEAD004dc7cf,
+attempt377911abefabd094971ee6d089326604. CompilePASS (1query/compiler,28transports,
+9closingchecks); oneuploadUPLOADED; receiver900sTIMEOUT with ZERO bytes, no observed
+session and no closing errors. Failureevidence committeda6da0f16; see
+analysis/P7_recorder_delivery_actual_validation.md. This is not successful
+recording/delivery. Old36370pre-upload failure is separately consumed. No live
+exec session or native action remains; no retry/reset/reflash was performed.
+
+Next D230: fresh file-only ABI then minimal passive Runner/Transfer/nativeUART
+status windows, with exact currentimage/fullflash comparisons and raw brackets.
+Implementation/tests/review are in isolated sumox-recorder-diagnosis-20260927;
+no nativeD230action yet. Keep main firmware144sourceinputs unchanged through this
+diagnosis; bind sourcecompileHEAD004dc7cf separately from newer collectorHEAD.
+
+D229 p99 machinery is independently accepted5f1047fd in isolated
+sumox-timing-p99-20260927:16cases316assertions, hostRuntime+3240B. Integrate only
+after recorderdiagnosis; targetfit/overhead and full-loop/all-live5min remain
+unqualified. No missing primarybehavior module was found; later app identified
+dump needs session plus independently bound epoch/reset-continuity handling,
+not merely a fixed compiled session. Watchdog is disabled in the captured
+installed configuration; stale F031 is corrected without another probe.
+
+Modified main deliverables: D228 caller/testfix and failednativeevidence; D227
+deploymenttools/tests/contracts/review; state ledgers/currentpackets. The passive
+failure cause is unknown. Both policyblockedcleanup scopes remain untouched:
+old764405Bstage plus14D222stages10701670B. No credentials saved. Schedule remains
+28September scope decision and1October21:00freeze. Older checkpoints are history.
+
 ## Current checkpoint - 2026-09-26T22:41:44.155598+04:00
 
 Objective: finish software and connected-board validation quickly; physical state is BOARD ONLY. D222 shared commissioning compile-only tooling is committed in 6e8ccc73 and accepted by review dc6439f3: 30 Linux tests, 29 Windows tests plus one explicit platform skip. Next: execute seven profiles x explicit M0/M1, token native01, in review order; one compiler jobs=1, clean exact HEAD per tuple, commit each closed owner before the next. Stop on failure. No upload is included. See analysis/P7_commissioning_build_validation.md.

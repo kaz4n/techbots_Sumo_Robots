@@ -1602,3 +1602,5 @@ matrix is admitted conditionally, not yet executed. Firmware unchanged. | pendin
 2026-09-27T00:07:21.779953+04:00 | P7/D228 | Fixed private ADB transport accepted independent751e30a3;17Windows+17LinuxPASS, old-source2methodcounterexample retained. Fresh corrected M0recorder attempt next after cleancommit. No new native action yet. | pending
 
 2026-09-27T00:29:04.773795+04:00 | P7/D228-D230 | Fresh377911ab: compilePASS1query/compiler28transports9checks; oneuploadUPLOADED. ReceiverTIMEOUT0bytes, observed/rejectedsessionnull, closingerrors0; all45maintransports0. Attemptconsumed, causeunknown. Latestreportedimageinhibitedrecorder. D229hostp99preparation16cases316assertionsPASSawaitsreview; D230passivefailurediagnosispreparing. | nativeHEAD004dc7cf
+
+2026-09-27T00:31:03.836051+04:00 | P7 | IntegratedD22712ffd16c with exactreviewedbytes; refreshedhandoff/runbook/P7packet/oldwatchdogfact against currentfailureevidence. D229hostreview5f1047fdPASSheldisolated; D230diagnostic source/tests/reviewongoing. | pendingdocscommit

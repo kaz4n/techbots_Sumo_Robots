@@ -3,7 +3,7 @@
 <!-- Review against P7, PLAN, current UI sources and linked acceptance packets. -->
 # Match-day runbook
 
-**Preparation draft updated through D219/D221 actual results, 26 September 2026. NOT OPERATOR-READY.** Print only
+**Preparation draft updated through D228 failed delivery, 27 September 2026. NOT OPERATOR-READY.** Print only
 after the release owner fills and verifies the release record below. Writing
 this runbook supplies no deployment, motor-run permission or human phase gate.
 
@@ -11,7 +11,7 @@ Use the [mode card](MODE_CARD.md) and [rehearsal/scouting sheets](REHEARSAL_SCOU
 with this document. The competition is Saturday 3 October; the planned dress
 rehearsal is Friday 2 October. All times below are Asia/Dubai.
 
-## Release prerequisites — currently open
+## Release prerequisites â€” currently open
 
 The checked-in app maps explicit `config.h` declarations into its setup grants;
 all remain disabled, with mounting and button windows unconfigured. D180 prepares
@@ -24,13 +24,13 @@ A mode number/arrow alone is not readiness; the battery bar is not numeric volta
 
 | Required before using the workflow | Current boundary / evidence owner |
 |---|---|
-| Identified runnable release and deployment | D221 loaded the fixed B4 motor-disabled application on the bare board. D219 captured retained memory and exported an EMPTY recorder (zero frame/event rows), with complete loader/sketch comparisons before and after the reads. All setup grants remain absent. This does not qualify an operational robot release, native UART delivery, initialized timing or live memory. Record the source/config/artifact and qualified deployment using the [current P7 packet](../state/analysis/P7_software_acceptance_packet.md). |
+| Identified runnable release and deployment | Latest uploaded image is a motor-disabled recorder diagnostic. D228 compiled/uploaded successfully, but its receiver timed out with zero UART bytes; passive diagnosis is pending. D222 commissioning builds and D227 guarded deployment tools have separate accepted evidence. This is not an operational robot release. Record source/config/artifact and qualified deployment using the [current P7 packet](../state/analysis/P7_software_acceptance_packet.md). |
 | Hardware and usable controls | PINMAP/electrical qualification, calibrated battery reading, actual sensors, distinct button levels including BOTH, visible display and source setup remain required. [P2 packet](../state/analysis/P2_software_acceptance_packet.md) lists the missing evidence. |
 | Original P7 display criterion | Qualify D138's live blinking R and battery-threshold pixel on the actual release matrix, including native startup/ownership, calibrated input, visibility and failure behavior; see [open SC-AP](../state/analysis/spec_conflicts.md). An external meter does not replace this criterion. |
 | Motion and opener acceptance | Resolve the real starts, stopping/edge, combat and opener criteria in the [P3](../state/analysis/P3_software_acceptance_packet.md), [P4](../state/analysis/P4_software_acceptance_packet.md) and [P5](../state/analysis/P5_software_acceptance_packet.md) packets. Each powered practice attempt needs fresh STAND OK or RING OK bound to that specific run, target, firmware and scope; never reuse it for another attempt. |
 | Safe stop, retrieval and next-round rearming | Verify a physical procedure for this release. D103's optional local service reset is disabled by default and retains motor inhibition; it **does not rearm a match**. Do not substitute it for a restart procedure. |
 | Log preservation and extraction | Verify native ownership, framing and the actual inhibited IDLE dump route. These remain [blocked prerequisites](../state/analysis/P2_native_dump_prerequisite_followup.md). A reboot, battery swap or later match is not a log-preservation procedure. |
-| Organizer decisions | Record answers to [PLAN §5](PLAN.md#5-questions-for-the-organizers-send-today): orientation, mode changes, radios, arena, activation timing, scale and blade. D-014 remains pending. No pre-angled placement or between-round mode-change permission is assumed. |
+| Organizer decisions | Record answers to [PLAN Â§5](PLAN.md#5-questions-for-the-organizers-send-today): orientation, mode changes, radios, arena, activation timing, scale and blade. D-014 remains pending. No pre-angled placement or between-round mode-change permission is assumed. |
 | Release acceptance | Actual loaded RAM/stack, full-source timing, physical results, independent review and required human gates remain separate from software tests. |
 
 Source basis: [app entry](../src/app/app.ino), [setup grants](../src/app/runtime.h),
@@ -66,14 +66,14 @@ If P3 has not passed by the end of 28 September, apply the documented
 scope decision: SIDESTEP/DIRECT plus reactive core and recorder; remove ARC,
 WAIT and P6. P6 otherwise requires an actual P4 pass by 30 September.
 
-## Operator workflow — after release prerequisites are closed
+## Operator workflow â€” after release prerequisites are closed
 
 ### Night before
 
 - [ ] Charge both packs using the team's approved charging procedure; label them.
 - [ ] Weigh the complete robot and record the actual reading. Project target:
   2,950 g within 20 g; confirm the organizer's weigh-in rule and scale separately.
-- [ ] Check the complete footprint in the 199 × 199 mm project check square,
+- [ ] Check the complete footprint in the 199 Ã— 199 mm project check square,
   including attached blade, sensors and wires.
 - [ ] Check screws, existing threadlocker and retained parts; clean the tires.
 - [ ] Pack the inventory below and print the verified runbook, mode card and sheets.
@@ -170,6 +170,6 @@ Tick items actually owned and packed; this is an inventory, not a purchase list.
 - [ ] Printed verified runbook, mode card and rehearsal/scouting sheets.
 
 Original scope: [P7 prompt](prompts/P7_freeze_matchday.md),
-[PLAN §3/§5/§6](PLAN.md), [hardware checks](HARDWARE.md#9-hardware-verification-checklist-feeds-p2).
+[PLAN Â§3/Â§5/Â§6](PLAN.md), [hardware checks](HARDWARE.md#9-hardware-verification-checklist-feeds-p2).
 Completed preparation is not GATE P7: the actual tag/hash, printed documents,
 rehearsal, review and human `GATE P7 PASS` still need evidence.

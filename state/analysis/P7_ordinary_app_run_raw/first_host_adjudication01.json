@@ -1,0 +1,23 @@
+{
+  "schema": "d212-first-host-fixture-adjudication-v1",
+  "at": "2026-09-26T18:28:20.739722+04:00",
+  "preserved_commit": "0331c9d3",
+  "independent_reviewer": "const_cleanup_review",
+  "classification": "Both failures are fixture-only; product sources and normative contract are unchanged.",
+  "findings": [
+    {
+      "case": "assert_recipe shared by remote/actions/caller",
+      "cause": "Normative recipe rows have old/new/count/purpose, whereas project intentionally requires intermediate before/after pins for fixture rows.",
+      "authorized_change": "Keep project unchanged. Replace expected=project(raw,record[steps]) in assert_recipe with expected=raw and an exact ordered normative loop asserting each old-byte occurrence count before replacement. Preserve step count, predecessor pin, final source-byte equality and final identity assertions; add one assertion site."
+    },
+    {
+      "case": "OrdinaryRemote profile binding equality",
+      "cause": "Both helper profiles inherit old boot6d4aca1b-ac1f-4caf-b1ef-e127ce3956f6 instead of adopted55c386b9-fe6d-4388-a7f4-1d91e0bb49d8; every other field matches.",
+      "authorized_change": "Add one count1 projected remote-core helper original.update boot_id=current literal alongside existing ordinary schema. Preserve full equality and all identity negatives, historical JSONs and product validation."
+    }
+  ],
+  "dependent_changes": "Only fixture helper/projection records, assertion inventory increment, all consequential source/support/self/freeze pins and review evidence. No method removal, source or contract edit, generic normalization, relaxed assertion, or test filtering.",
+  "tests_after_failure": false,
+  "native_operation": false,
+  "required_next": "Independent revised freeze and source/oracle readiness, fresh native driver02 and owner02 before corrected Linux then Windows suite pairs; unchanged decoder driver01 waits suite order."
+}

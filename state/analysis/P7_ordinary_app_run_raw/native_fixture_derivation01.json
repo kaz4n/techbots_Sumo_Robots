@@ -1,6 +1,6 @@
 {
   "schema": "d212-independent-native-fixtures-v1",
-  "status": "FINAL02_INDEPENDENT_NATIVE_FIXTURE_SINGLE_ADJUDICATED_CORRECTION",
+  "status": "FINAL03_INDEPENDENT_NATIVE_FIXTURE_TWO_ADJUDICATED_CORRECTIONS",
   "contract": {
     "path": "state/analysis/P7_ordinary_app_run_contract.md",
     "bytes": 25120,
@@ -1334,11 +1334,24 @@
             "bytes": 38498,
             "sha256": "67526274c9bc326793b54dca29d564b0f89c5696f30716aa79dce5c008a3235d"
           }
+        },
+        {
+          "old": "original.update(schema='fixed-ordinary-app-' + kind + '-v1',",
+          "new": "original.update(schema='fixed-ordinary-app-' + kind + '-v1',\n                    boot_id='55c386b9-fe6d-4388-a7f4-1d91e0bb49d8',",
+          "count": 1,
+          "before": {
+            "bytes": 38498,
+            "sha256": "67526274c9bc326793b54dca29d564b0f89c5696f30716aa79dce5c008a3235d"
+          },
+          "after": {
+            "bytes": 38566,
+            "sha256": "6a716d689b7c4a19bee49eb93431987a60d225ce9c28edea24f027bd811b8527"
+          }
         }
       ],
       "expected": {
-        "bytes": 38498,
-        "sha256": "67526274c9bc326793b54dca29d564b0f89c5696f30716aa79dce5c008a3235d"
+        "bytes": 38566,
+        "sha256": "6a716d689b7c4a19bee49eb93431987a60d225ce9c28edea24f027bd811b8527"
       }
     },
     "actions": {
@@ -4760,5 +4773,111 @@
     },
     "unchanged": "106 methods, every assertion, all other stimuli, native source expectations, contract and scalar map. No native subject read/hash/import or test execution.",
     "inspection_boundary": "The reviewer separately inspected the frozen decoder under root release; no new native subject was inspected during original native oracle construction or this correction."
+  },
+  "first_host_correction03": {
+    "status": "FINAL03_TWO_ADJUDICATED_FIXTURE_CORRECTIONS_BEFORE_RETEST",
+    "preserved_commit": "0331c9d3",
+    "adjudication": {
+      "path": "state/analysis/P7_ordinary_app_run_raw/first_host_adjudication01.json",
+      "bytes": 1923,
+      "sha256": "587fc48cf40288dd9fedcfb4d6e246f44568aee8de35e08e4f90ca63cf667eb0"
+    },
+    "original_files": {
+      "tests/tooling/test_ordinary_app_remote.py": {
+        "bytes": 9671,
+        "sha256": "c08f6f5bebee88f983e581f9c3495fee87becee243b9d8826dce43c7eb4b063b"
+      },
+      "tests/tooling/test_ordinary_app_actions.py": {
+        "bytes": 7125,
+        "sha256": "518cf63cbdfbe3a559722625c6c11586659c70bf631563f3c1c060e2ddd2bc97"
+      },
+      "tests/tooling/test_ordinary_app_run.py": {
+        "bytes": 9244,
+        "sha256": "99b02ed0fc347dcc41263d8fbbecff6635e2f80c57fc6f6257351e2d31ab7575"
+      },
+      "state/analysis/P7_ordinary_app_run_raw/native_fixture_derivation01.json": {
+        "bytes": 190296,
+        "sha256": "37f912c0397f594a7d1f3c76bb10e228c7b03daad52363cb7980f13bb2449a1b"
+      },
+      "state/analysis/P7_ordinary_app_run_raw/native_independent_freeze01.json": {
+        "bytes": 85709,
+        "sha256": "2c8dc31a3114847ae0729b916a49b3c87b16348dce5750162b7794d4d0e83792"
+      }
+    },
+    "remote_core_step": {
+      "old": "original.update(schema='fixed-ordinary-app-' + kind + '-v1',",
+      "new": "original.update(schema='fixed-ordinary-app-' + kind + '-v1',\n                    boot_id='55c386b9-fe6d-4388-a7f4-1d91e0bb49d8',",
+      "count": 1,
+      "before": {
+        "bytes": 38498,
+        "sha256": "67526274c9bc326793b54dca29d564b0f89c5696f30716aa79dce5c008a3235d"
+      },
+      "after": {
+        "bytes": 38566,
+        "sha256": "6a716d689b7c4a19bee49eb93431987a60d225ce9c28edea24f027bd811b8527"
+      }
+    },
+    "bindings_helper_before": {
+      "bytes": 967,
+      "sha256": "c2cf46f5881df607aac540ee48d70856c9bb212913a317fd3ae8155521bb0bde"
+    },
+    "bindings_helper_after": {
+      "bytes": 1035,
+      "sha256": "aac5d4b651d7819b55e3871c01dc570ee4b30b897f73864c8db17e6964f29b51"
+    },
+    "shared_helper": {
+      "assert_recipe": {
+        "before_sites": 3,
+        "after_sites": 4,
+        "added_sites": 1,
+        "retained_assertions": "step count; final exact source bytes; final identity",
+        "count_assertion_executions_by_suite": {
+          "remote": 17,
+          "actions": 11,
+          "run": 19
+        },
+        "before": {
+          "bytes": 542,
+          "sha256": "b5107b0366ea505112c0ce6c9bd41378d40c0003c1908e935e9ee676609bc354"
+        },
+        "after": {
+          "bytes": 702,
+          "sha256": "396e4a1d318789b4d24ccebbd42bae317c75c62f3ec591bf063e7bcd73b18842"
+        }
+      },
+      "project": {
+        "unchanged": true,
+        "bytes": 417,
+        "sha256": "23c6ae1820f45ef80189075d9073e4ad26499b5ef7c38815aa0c6969ffa37d95"
+      }
+    },
+    "unchanged": "106 methods, all inherited assertions, other stimuli, strict project helper, native expected sources, contract, map and product validators. No new native subject read/hash/import or test execution.",
+    "template_note": "Original template_before_final_pin_bindings identities remain historical construction records; this revision records the shared-helper delta separately."
+  },
+  "shared_helper_assertion_inventory": {
+    "assert_recipe": {
+      "before_sites": 3,
+      "after_sites": 4,
+      "added_sites": 1,
+      "retained_assertions": "step count; final exact source bytes; final identity",
+      "count_assertion_executions_by_suite": {
+        "remote": 17,
+        "actions": 11,
+        "run": 19
+      },
+      "before": {
+        "bytes": 542,
+        "sha256": "b5107b0366ea505112c0ce6c9bd41378d40c0003c1908e935e9ee676609bc354"
+      },
+      "after": {
+        "bytes": 702,
+        "sha256": "396e4a1d318789b4d24ccebbd42bae317c75c62f3ec591bf063e7bcd73b18842"
+      }
+    },
+    "project": {
+      "unchanged": true,
+      "bytes": 417,
+      "sha256": "23c6ae1820f45ef80189075d9073e4ad26499b5ef7c38815aa0c6969ffa37d95"
+    }
   }
 }

@@ -12,7 +12,7 @@ import unittest
 
 ROOT = Path(__file__).resolve().parents[2]
 SUPPORT = 'tests/tooling/test_ordinary_app_remote.py'
-SUPPORT_SHA = 'c08f6f5bebee88f983e581f9c3495fee87becee243b9d8826dce43c7eb4b063b'
+SUPPORT_SHA = '674c832edf77a2365234f80a17cf629fd6fedcc49501337c9c2984c2d3ac6083'
 _SUPPORT = _PROVIDER = None
 
 

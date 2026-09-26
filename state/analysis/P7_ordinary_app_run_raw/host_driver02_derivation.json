@@ -1,0 +1,41 @@
+{
+  "schema": "d212-corrected-native-driver-v1",
+  "at": "2026-09-26T18:28:44.140366+04:00",
+  "original": {
+    "bytes": 3688,
+    "sha256": "30017a43d236fc20fdb969bedfd326fb58625aed541d5a1218a52e9d82c703bc"
+  },
+  "steps": [
+    {
+      "old": "freeze_path = RAW / (group + '_coordinator_freeze01.json')",
+      "new": "freeze_path = RAW / (group + '_coordinator_freeze02.json')",
+      "count": 1,
+      "before": {
+        "bytes": 3688,
+        "sha256": "30017a43d236fc20fdb969bedfd326fb58625aed541d5a1218a52e9d82c703bc"
+      },
+      "after": {
+        "bytes": 3688,
+        "sha256": "c4a055af408abc01e8a6b7869b6d0110c5231db8b637b34ba585706c41ef02cb"
+      }
+    },
+    {
+      "old": "owner = RAW / ('first_' + suite + '_' + platform + '01')",
+      "new": "owner = RAW / ('first_' + suite + '_' + platform + '02')",
+      "count": 1,
+      "before": {
+        "bytes": 3688,
+        "sha256": "c4a055af408abc01e8a6b7869b6d0110c5231db8b637b34ba585706c41ef02cb"
+      },
+      "after": {
+        "bytes": 3688,
+        "sha256": "758ac4e15f8b7dda2458cd43c122fb0683ea1b97209bd77b9390729d6b58edda"
+      }
+    }
+  ],
+  "subject": {
+    "bytes": 3688,
+    "sha256": "758ac4e15f8b7dda2458cd43c122fb0683ea1b97209bd77b9390729d6b58edda"
+  },
+  "limits": "Exactly two exclusive-owner/freeze path changes; all serial600s/temp/stream/closure limits unchanged. Decoder driver01 unchanged and separate. First failed owner preserved0331c9d3."
+}

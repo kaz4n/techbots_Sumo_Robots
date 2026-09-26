@@ -13,7 +13,7 @@ import unittest
 ROOT = Path(__file__).resolve().parents[2]
 RAW = 'state/analysis/P7_ordinary_app_run_raw/'
 FIXTURE = RAW + 'native_fixture_derivation01.json'
-FIXTURE_PIN = {'bytes': 190296, 'sha256': '37f912c0397f594a7d1f3c76bb10e228c7b03daad52363cb7980f13bb2449a1b'}
+FIXTURE_PIN = {'bytes': 194972, 'sha256': '8cfd7f553c4e17334a899c575d2b4935cbcfd69c332b43c7fe0a84bfc1f95372'}
 _PROVIDER = None
 
 
@@ -93,7 +93,10 @@ def assert_recipe(case, kind, count):
     record = derivation['native_recipes'][kind + '.py']
     case.assertEqual(len(record['steps']), count)
     raw = checked(ROOT / record['input']['path'], record['input'])
-    expected = project(raw, record['steps'])
+    expected = raw
+    for row in record['steps']:
+        case.assertEqual(expected.count(row['old'].encode()), row['count'])
+        expected = expected.replace(row['old'].encode(), row['new'].encode())
     actual = checked(ROOT / RAW / (kind + '.py'), record['expected'])
     case.assertEqual(actual, expected)
     case.assertEqual(identity(actual), record['expected'])

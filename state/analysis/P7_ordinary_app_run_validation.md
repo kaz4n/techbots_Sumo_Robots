@@ -13,3 +13,11 @@ No D212 subject or suite has executed. Source and fixture readiness, coordinator
 The MCU continues after host collection ends. This work does not establish final inhibition, atomic snapshots, uninterrupted execution, measured WCET, physical qualification, or a human phase gate. D207 remains the latest verified flashed image.
 
 The precommit audit initially refused Git's normalized index copies of existing mixed-line-ending state files and three frozen oracle EOF warnings. Narrow `.gitattributes` rules preserve the exact existing state and attribute-file bytes and exempt only the three oracle terminal blank lines from whitespace lint. Restaging under those rules produced 29 exact index/working-tree matches; no source, oracle, assertion, or historical working-file bytes were normalized. The protected original PROGRESS prefix still matches SHA-256 `1dbbeb53c3dc046128494af3bef240b9a00353929d6121991900c90bb2838b77`.
+
+## First host result (2026-09-26T18:27:28.007715+04:00)
+
+Before execution, independent review found that an inherited negative still mutated read 19, now an ordinary SRAM sample. Its original purpose was to corrupt the first after-sketch flash chunk. The exact lambda was changed to read 21, preserving every assertion and all 106 method names. Original preparation is preserved in `57ff804f`; the corrected fixture and dependent pins were independently reviewed before running.
+
+The first Linux remote suite then ran 47 cases: 45 passed, one failed and one errored, with all 340 coordinator pins unchanged. The recipe test attempted to read intermediate `before` keys that are absent from the normative recipe rows. A profile-binding equality assertion also failed; independent adjudication is pending. Raw streams, frozen revision02 and the failure receipt are preserved in `0331c9d3`. No other suite or D212 board operation has run. Do not reuse the first suite owner or alter source/expectations before adjudication.
+
+D211 cleanup is separately accepted in `31aa5aea`. That filesystem result does not resolve these host failures or qualify ordinary application runtime.

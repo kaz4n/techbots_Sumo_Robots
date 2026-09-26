@@ -1411,3 +1411,6 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-26T10:38:09.109037+04:00 | P7 D199 actual ABI PASS | Atclean23f0aeba check0/execute0, one transport/four file children0/empty stderr,13remote+localclosingPASS. Result230ef847/ABI069ed01b/localeb68ef2e; report0x2003d3e8/28B/align4/section5 inzeroBSS,11fieldpairs/ninereasons and23groups11windows observed. Actualreviewa7c3993a PASS. Ownerconsumed; no firmware/MCU operation. Entrypublication evidence next; D195 remainsflashed.
+
+
+2026-09-26T10:56:13.468580+04:00 | P7 D200 exact cleanup PASS | Host49Linux/12WindowsPASS37coveredskips; stagingobserver01failure preserved and exactlooprepair verification02PASS. One authenticated native invocation0, raw05507941 removes3copies2399768B/emptydirectory only; retainedoriginals/stagedsources unchanged, finalUIDGIDtriples1000, independent actualreview5bc9d56dPASS. Root04 consumed. No firmware operation or faultrepair. Evidence analysis/P7_motor_settle_cleanup_validation.md.

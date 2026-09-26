@@ -850,3 +850,7 @@ HOST-VERIFIED: D199 source0f2b37c9/contractdfc76276 preserves D194 ABI02 lifecyc
 
 ## F217 - Target-file SETTLE report layout (2026-09-26T10:38:09.109037+04:00)
 FILE-OBSERVED: D199 at23f0aeba observes separateLOCALOBJECT report0x2003d3e8/28B/align4/section5, wholly incheckedzeroBSS and outsideRunner[0x20013960,0x2003d068). TargetSample12/4,Report28/4,Reason1/1; all11offset-width pairs and9enumvalues verifiedraw,23typegroups/11Runnerwindows. Fourfilechildren0/emptyerrors/13remote+localPASS,143localpins exact, actualreviewa7c3993a. Publicationfunctionrows emitted; theirinstructions andruntimecontents remainunobserved. Source: analysis/P7_motor_settle_abi_actual_validation.md.
+
+
+## F218 - Exact D195 uploader scratch removal (2026-09-26T10:56:13.468580+04:00)
+DEVICE-OBSERVED: one D200 authenticated invocationexit0; raw6370B05507941 reports precisely3copies2399768B removedfromdev34/inode1172 andemptydirectoryremoved. Threeprotectedprocessscans each167names/3sameUIDhandlesets, errorfree, user-ownedmutations andpermanentUID/GIDtriples1000. Independent retrievalb7b776c9 reopens originals/stagedsources with unchangedfullstamps/hashes, scratchabsenttwice, sameboot; actualreview5bc9d56dPASS. Other-userFD/race limitations remain. No firmware orrootcause evidence. Source: analysis/P7_motor_settle_cleanup_validation.md.

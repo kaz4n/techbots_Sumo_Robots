@@ -2283,3 +2283,9 @@ D-200 independent staged-observer finding 2026-09-26T10:46:41.390310+04:00: firs
 
 
 D-199 entry contract adoption 2026-09-26T10:49:56.692553+04:00: under D051 adopt analysis/P7_motor_settle_entry_contract.md af8ce726 and binding62346762, derived from accepted actual ABI230ef847/069ed01b/reviewa7c3993a. Prepare one private metadata-derived entry wrapper preserving file-only lifecycle, nine reader and36 parser substitutions,29fixedranges/31aliases/59expressions including actual publishSettle and UnoQPort::settle. Independent oracle freezes before author implementation read. Source/host review precedes fresh fixed file-only owner; actual initializer/instruction semantics remain unobserved. No upload, MCU read, guard change, motor permission or phase gate.
+
+
+D-200 local input transport 2026-09-26T10:51:35.015224+04:00: plain host pipes returned EOF before credential input; launcher stopped at its input assertion before subprocess.run. Preserve cleanup_auth_input_failure01.json and the already saved immutable intent. Zero native authenticated invocations, no credential received or result owner created by this failed local launch. Use standard no-echo Windows console input for the same exact saved command; no change to target/pins/guards/one-invocation limit.
+
+
+D-200 actual outcome 2026-09-26T10:56:13.468580+04:00: exact single root04 invocation succeeded, raw05507941/retrievalb7b776c9/actualreview5bc9d56dPASS. Precisely3copies2399768B andemptydirectoryremoved; allretainedoriginals/stagedsourcefullstamps/hashes verifiedunchanged; threeprotectedscans/errorfree/permanentUIDGIDtriples1000. Bothschemas/allactualfields independentlychecked. Originalreadonlyobserverfailure andlocalEOF-before-devicecall preserved; no guard weakened. Root04/resultowner consumed, no retry/generalprivilege/firmware/gate.

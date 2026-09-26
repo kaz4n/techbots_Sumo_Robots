@@ -1,0 +1,19 @@
+{
+  "operation": "D200 one exact authenticated cleanup",
+  "time_utc": "2026-09-26T06:51:13.860882+00:00",
+  "argv": [
+    "C:/Users/narut/AppData/Local/Arduino15/packages/arduino/tools/adb/32.0.0/adb.exe",
+    "-s",
+    "2629958581",
+    "shell",
+    "-T",
+    "set -C; sudo -S -p \"\" -H /usr/bin/python3 -I -B /home/arduino/sumox26_codex_build/cleanup-app-settle-root04/cleanup_root04.py > /home/arduino/sumox26_codex_build/cleanup-app-settle-root04/result_root04.json"
+  ],
+  "timeout_seconds": 70,
+  "credential_transport": "stdin only; value omitted",
+  "source_sha256": "13f33327c5474d7c4dee56657a9d93b50e6fcdaee864e1855c916417a53c6290",
+  "host_review_sha256": "1ebd7342b31d3baa7bca04eb3c0d43123c5d4e3cac9f2400b6ca61ec2a7d2ea0",
+  "stage_review_sha256": "7e0181e54b21fb5869670afc5875eaacfaadf368231a7a0d38af7e40ead840f6",
+  "staged_verification_sha256": "2c7a1ad2955f4835c05f289ca63bba25a210772c51cd65750ada997c7d4699bb",
+  "admission": "One fixed D200 invocation under ongoing user continuation and supplied authentication; no general sudo authority or retry."
+}

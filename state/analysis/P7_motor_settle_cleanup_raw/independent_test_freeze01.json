@@ -1,0 +1,385 @@
+{
+  "commands": {
+    "linux": "python3 -I -B tests/tooling/test_motor_settle_cleanup.py",
+    "windows": "python -I -B tests/tooling/test_motor_settle_cleanup.py"
+  },
+  "contract": {
+    "bytes": 16277,
+    "path": "state/analysis/P7_motor_settle_cleanup_contract.md",
+    "sha256": "6cb02590369cdce1edd748987df363f99f336c9736dfd06e72906c4578457f47"
+  },
+  "exact_negative_bindings": {
+    "current_D193_uploaded_D195": {
+      "bytes": 95360,
+      "retained_path": "/home/arduino/sumox26_codex_build/app-motor-observe-static01/build/app_motor_observe.ino.bin-zsk.bin",
+      "sha256": "85b05c564fd3545c6b6e16fb64ed2aef8893226e32048309f1b71f97a5db4b6c"
+    },
+    "current_inode": 1172,
+    "current_scratch_basename": "app_motor_observe.ino.bin-zsk.bin",
+    "future_D198": {
+      "bytes": 95520,
+      "sha256": "e400078166394d0f8ea44b601e9ba2948992c4f263c5c7ee5fb3942433c143d0"
+    },
+    "old_inode": 869,
+    "old_scratch_basename": "app_motor_fault.ino.bin-zsk.bin",
+    "prior_D190": {
+      "bytes": 95328,
+      "retained_path": "/home/arduino/sumox26_codex_build/app-motor-fault-static01/build/app_motor_fault.ino.bin-zsk.bin",
+      "sha256": "deb40317e5c444af26e65da4b6f1d0e577d9897d59dbddff3bce03a7bc14335c"
+    },
+    "source_basename_refusals": [
+      "cleanup_remoteocd01.py",
+      "cleanup_remoteocd02.py",
+      "cleanup_root03.py"
+    ],
+    "source_substitutions_refused_before_exec": [
+      [
+        "cleanup-app-settle-root04",
+        "cleanup-app-observe-root03"
+      ],
+      [
+        "d200-authenticated-settle-cleanup-v1",
+        "d196-authenticated-observer-cleanup-v1"
+      ]
+    ]
+  },
+  "fixture_projections": {
+    "core": {
+      "assertion_call_names_preserved": 147,
+      "bytes": 37255,
+      "changes": [
+        {
+          "after": "cleanup-app-settle-root04",
+          "before": "cleanup-app-inert-root02",
+          "count": 1
+        },
+        {
+          "after": "cleanup_remoteocd03.py",
+          "before": "cleanup_remoteocd01.py",
+          "count": 5
+        },
+        {
+          "after": "cleanup_root04.py",
+          "before": "cleanup_root02.py",
+          "count": 2
+        },
+        {
+          "after": "_independent_cleanup_root04",
+          "before": "_independent_cleanup_root02",
+          "count": 1
+        },
+        {
+          "after": "7740",
+          "before": "7873",
+          "count": 1
+        },
+        {
+          "after": "7737",
+          "before": "7870",
+          "count": 1
+        },
+        {
+          "after": "6afeea1b9733670cdf315b2bf29b3e6e9c24016a2ba9217013e67496ec088f4d",
+          "before": "23ef85ae3c386cc76751eea0fb18a90148a6fe513e3e8c753d527c06efcbbe95",
+          "count": 1
+        },
+        {
+          "after": "96d1197ec296906958f71c772102fdd34f7979525cde3e41222ee611025274c4",
+          "before": "51286ad414794e82f3161bed16cbb47dca421e831316e053a7eab967469f602e",
+          "count": 1
+        },
+        {
+          "after": "d200-exact-settle-scratch-cleanup-v1",
+          "before": "d190-exact-scratch-cleanup-v1",
+          "count": 3
+        },
+        {
+          "after": "d200-authenticated-settle-cleanup-v1",
+          "before": "d190-human-root-cleanup-v2",
+          "count": 1
+        },
+        {
+          "after": "fs.records['/tmp/remoteocd'].st_ino = 1172",
+          "before": "fs.records['/tmp/remoteocd'].st_ino = 33",
+          "count": 1
+        }
+      ],
+      "input": "state/analysis/P7_app_motor_fault_run_raw/test_cleanup_root02.py",
+      "scope": "Exact complete historical bytes, metadata only",
+      "sha256": "4109c339f8d6a8faa195b671a8b20ce778810bd895e04846b84784f58610a33f"
+    },
+    "delta": {
+      "assertion_call_names_preserved": 34,
+      "bytes": 14478,
+      "changes": [
+        {
+          "after": "cleanup_remoteocd03.py",
+          "before": "cleanup_remoteocd02.py",
+          "count": 7
+        },
+        {
+          "after": "cleanup_root04.py",
+          "before": "cleanup_root03.py",
+          "count": 2
+        },
+        {
+          "after": "cleanup-app-settle-root04",
+          "before": "cleanup-app-observe-root03",
+          "count": 1
+        },
+        {
+          "after": "7737",
+          "before": "7732",
+          "count": 1
+        },
+        {
+          "after": "7740",
+          "before": "7735",
+          "count": 1
+        },
+        {
+          "after": "result_root04.json",
+          "before": "result_root03.json",
+          "count": 1
+        },
+        {
+          "after": "Create it\\nexclusively with no-clobber behavior; never overwrite a prior result",
+          "before": "create\\nit exclusively, never overwrite it",
+          "count": 1
+        },
+        {
+          "after": "(95360, PAYLOAD_SHA",
+          "before": "(95328, PAYLOAD_SHA",
+          "count": 1
+        },
+        {
+          "after": "2399768",
+          "before": "2399736",
+          "count": 1
+        },
+        {
+          "after": "'app_motor_fault.ino.bin-zsk.bin', 'flash_sketch.cfg'",
+          "before": "'motor_fault.ino.elf-zsk.bin', 'flash_sketch.cfg'",
+          "count": 1
+        },
+        {
+          "after": "(b'x' * 95328, b'x' * 95360, b'x' * 95361)",
+          "before": "(b'x' * 29836, b'x' * 95328, b'x' * 95329)",
+          "count": 1
+        },
+        {
+          "after": "deb40317e5c444af26e65da4b6f1d0e577d9897d59dbddff3bce03a7bc14335c",
+          "before": "b4416792a5bc228f34712fad9199a07c3c480aace979faa88aa12b50288b0a79",
+          "count": 1
+        },
+        {
+          "after": "recipe.checked_bytes(b'x' * 95360, pin)",
+          "before": "recipe.checked_bytes(b'x' * 95328, pin)",
+          "count": 1
+        },
+        {
+          "after": "(869, 1172)",
+          "before": "(33, 869)",
+          "count": 1
+        },
+        {
+          "after": "if inode == 869 else",
+          "before": "if inode == 33 else",
+          "count": 1
+        },
+        {
+          "after": "int(inode == 1172)",
+          "before": "int(inode == 869)",
+          "count": 1
+        },
+        {
+          "after": "self.directory_fixture(recipe, 1172)",
+          "before": "self.directory_fixture(recipe, 869)",
+          "count": 1
+        },
+        {
+          "after": "'app-motor-fault-static01'",
+          "before": "'motor-fault-active01'",
+          "count": 1
+        }
+      ],
+      "input": "tests/tooling/test_app_motor_observe_cleanup.py",
+      "scope": "MetadataContract class only; exact source block selected by AST bounds and unique full bytes, not positional test data",
+      "sha256": "fc1ce156a78519c041a8836191583f4548fc7846d5c229060818dfbc9a33f0a2"
+    },
+    "private_functions": [
+      "recipe_projection: independent exact four-step D196 reconstruction",
+      "wrapper_projection: independent exact six-step D196 reconstruction",
+      "inherited_oracle: checked direct historical core projection"
+    ],
+    "private_globals": [
+      "NEW",
+      "CONTRACT",
+      "RECIPE_SHA",
+      "PROJECTED_SHA",
+      "WRAPPER_SHA",
+      "PAYLOAD_NAME",
+      "PAYLOAD_PATH",
+      "PAYLOAD_SHA",
+      "PINS merged with historical entries preserved"
+    ],
+    "private_module_files": [
+      "core uses new raw/_private_oracle.py to retain repository parent depth",
+      "delta uses historical test path with private module name; no historical file changes"
+    ]
+  },
+  "methods": {
+    "core": [
+      "test_credentials_are_full_real_effective_saved_lists",
+      "test_drop_privilege_detects_silent_retained_saved_uid",
+      "test_drop_privilege_removes_saved_root_and_attempts_both_on_failure",
+      "test_enter_user_clears_groups_and_sets_gid_before_uid",
+      "test_enter_user_detects_syscall_failure_and_silent_wrong_result",
+      "test_enter_user_rejects_any_wrong_initial_uid_or_gid_without_mutation",
+      "test_execute_entry_failure_still_drops_root_without_original_main",
+      "test_execute_invalid_json_or_success_status_with_nonzero_exit_is_failure",
+      "test_execute_load_failure_still_drops_root",
+      "test_execute_main_exception_retains_raw_partial_stdout_and_first_error",
+      "test_execute_original_error_remains_first_when_terminal_drop_also_fails",
+      "test_execute_original_failure_retains_partial_receipt_exactly",
+      "test_execute_requires_isolated_python_before_loading_or_cleanup",
+      "test_execute_requires_python_b_before_loading_or_cleanup",
+      "test_execute_success_keeps_original_functions_calls_once_and_restores_argv",
+      "test_execute_terminal_drop_errors_cannot_convert_original_success_to_success",
+      "test_execute_wrong_identity_or_extra_argument_cannot_enter_cleanup",
+      "test_import_safe_and_original_sources_still_pinned",
+      "test_load_cleanup_uses_exact_sources_without_main_execution",
+      "test_loaded_original_has_only_exact_missing_link_projection",
+      "test_main_prints_one_compact_result_and_returns_status",
+      "test_observe_does_not_skip_permission_or_use_rejection",
+      "test_observe_elevates_only_euid_calls_once_and_restores",
+      "test_observe_elevation_failure_still_restores_and_records",
+      "test_observe_gid_drift_is_rejected_even_after_euid_restoration",
+      "test_observe_restoration_failure_refuses_success_and_silent_credential_drift",
+      "test_observe_scan_and_restore_failure_preserve_both_and_raise_first",
+      "test_observe_wrong_entry_never_calls_original_or_elevates",
+      "test_original_cleanup_mutations_run_uid1000_with_three_root_observations",
+      "test_projected_scan_missing_link_rejects_surviving_pid_accepts_departed_pid",
+      "test_projected_scan_retains_permission_native_name_and_directory_use_rejections",
+      "test_read_source_attempts_every_close_preserving_first_error",
+      "test_read_source_exact_two_dependencies_and_descriptor_closure",
+      "test_read_source_hash_corruption_and_read_error_close_all_descriptors",
+      "test_read_source_refuses_arbitrary_names_before_open",
+      "test_read_source_refuses_nonplain_ancestry_and_wrong_owner",
+      "test_read_source_stat_drift_is_refused"
+    ],
+    "focused": [
+      "test_D190_and_D198_package_bytes_cannot_replace_the_current_D193_copy",
+      "test_previous_source_names_and_stage_schema_source_drift_fail_before_execution"
+    ],
+    "metadata": [
+      "test_all_frozen_inputs_and_consumed_success_are_preserved",
+      "test_exact_new_payload_pin_and_retained_originals",
+      "test_exact_recipe_metadata_diff_and_private_observer_projection",
+      "test_exact_wrapper_metadata_diff_preserves_all_operational_bytes",
+      "test_fresh_stage_dependencies_and_old_basename_refusal",
+      "test_inherited_oracle_retains_all_37_methods_and_assertions",
+      "test_old_inode_refuses_and_new_inode_reaches_inventory_without_deleting",
+      "test_old_payload_length_and_digest_refuse_without_relaxing_new_pin",
+      "test_old_retained_payload_path_has_no_fallback",
+      "test_old_scratch_basename_refuses_before_child_reads_or_mutations"
+    ],
+    "total": 49
+  },
+  "new_subject_expected_only_not_read_or_hashed": {
+    "state/analysis/P7_motor_settle_cleanup_raw/cleanup_remoteocd03.py": {
+      "bytes": 7740,
+      "sha256": "6afeea1b9733670cdf315b2bf29b3e6e9c24016a2ba9217013e67496ec088f4d"
+    },
+    "state/analysis/P7_motor_settle_cleanup_raw/cleanup_root04.py": {
+      "bytes": 9603,
+      "sha256": "13f33327c5474d7c4dee56657a9d93b50e6fcdaee864e1855c916417a53c6290"
+    }
+  },
+  "oracle": {
+    "bytes": 12023,
+    "path": "tests/tooling/test_motor_settle_cleanup.py",
+    "sha256": "afbc97d1bd310646505d6fdc61b21db26418d27163b44700faa23a52a4842f2b"
+  },
+  "platform_plan": {
+    "linux": {
+      "run": 49,
+      "skip": 0
+    },
+    "windows": {
+      "reason": "Unchanged Linux credential/proc core fixtures only; all metadata/focused methods execute.",
+      "run": 12,
+      "skip": 37
+    }
+  },
+  "safety": "No tests, subject imports, source execution, native/device, credential transition, deletion, or historical edits by author. Only AST parsing, byte hashing/transformation of historical fixtures, and writes to the two authorized new oracle/freeze files.",
+  "schema": "d200-independent-cleanup-oracle-freeze-v1",
+  "schema_boundary": "Source pins and exact emitted schema literals are checked. No claim is made that unchanged run_original independently rejects otherwise valid external old-schema JSON. Actual saved-receipt schema/evidence validation belongs to the coordinator.",
+  "status": "FROZEN_BEFORE_NEW_IMPLEMENTATION_READ_HASH_IMPORT_AND_BEFORE_ANY_TEST_EXECUTION",
+  "verified_historical_and_contract_inputs": {
+    "state/analysis/P7_app_motor_fault_compile_raw/native_static01/artifacts.json": {
+      "bytes": 9597,
+      "sha256": "57b98c00db1ed5d90394812fcbb3fb28effedd4381f6e2fc03a6e7c04b45a6ce"
+    },
+    "state/analysis/P7_app_motor_fault_run_raw/cleanup_remoteocd01.py": {
+      "bytes": 7873,
+      "sha256": "23ef85ae3c386cc76751eea0fb18a90148a6fe513e3e8c753d527c06efcbbe95"
+    },
+    "state/analysis/P7_app_motor_fault_run_raw/cleanup_root02.py": {
+      "bytes": 9592,
+      "sha256": "4192f23ea49705a0af691953e6aec3c1f9da66c7cc1897ca3f5d49fba9fc5388"
+    },
+    "state/analysis/P7_app_motor_fault_run_raw/cleanup_root02_actual_result.json": {
+      "bytes": 6306,
+      "sha256": "c0e45b308cd3bc73fa4a3b537471e7f753b5bb256270126c9f492da0d1af2700"
+    },
+    "state/analysis/P7_app_motor_fault_run_raw/test_cleanup_root02.py": {
+      "bytes": 37221,
+      "sha256": "225ef637e85dfe4ce1598e6744c781720b900905ea0c9c3bf0737d58b49e1559"
+    },
+    "state/analysis/P7_app_motor_observe_abi_raw/upload_scratch_inventory01.json": {
+      "bytes": 3216,
+      "sha256": "20db3c251a907d6b143afc11a05c44780ba3a09d85e3202ad05878225f4a06f2"
+    },
+    "state/analysis/P7_app_motor_observe_cleanup_contract.md": {
+      "bytes": 12460,
+      "sha256": "7258230a63f48e09401186b8ad3bed09f958006909610cea835926427a3609f6"
+    },
+    "state/analysis/P7_app_motor_observe_compile_raw/native_static01/artifacts.json": {
+      "bytes": 9651,
+      "sha256": "5ceba77dde7c493d66398bfd6d8e0e27e56345612290cb8fef9328f24b87625b"
+    },
+    "state/analysis/P7_app_motor_observe_run_raw/cleanup_remoteocd02.py": {
+      "bytes": 7735,
+      "sha256": "1834edd39d628dccda0516f35cbc35434fd659c28392df6600cfdcf882e8ec9a"
+    },
+    "state/analysis/P7_app_motor_observe_run_raw/cleanup_root03.py": {
+      "bytes": 9606,
+      "sha256": "a089cc3bac9d8df3ffe53947e22b1bb4ffa139a733c7ebb1f5ba62e6d5bd804f"
+    },
+    "state/analysis/P7_motor_settle_cleanup_contract.md": {
+      "bytes": 16277,
+      "sha256": "6cb02590369cdce1edd748987df363f99f336c9736dfd06e72906c4578457f47"
+    },
+    "state/analysis/P7_motor_settle_cleanup_raw/admission01.json": {
+      "bytes": 24558,
+      "sha256": "e95ebed4ee3d6441abccced02adbcc4857fe5f10418d94e158b009d3edecf922"
+    },
+    "state/analysis/P7_motor_settle_cleanup_raw/observe_admission01.py": {
+      "bytes": 9770,
+      "sha256": "e4db653bf71bb2201549ea0ade3d637521520d6e2e9747473cf52fd6688aaa83"
+    },
+    "state/analysis/P7_motor_settle_compile_raw/native_static01/artifacts.json": {
+      "bytes": 9648,
+      "sha256": "e18384c14c0b1367667b265ab4c532a4010be65697460a1cd45487bccd9eca10"
+    },
+    "state/analysis/P7_static_link_probe_raw/static_remote.py": {
+      "bytes": 33321,
+      "sha256": "8ba9b190c38e728013a383348c60c287b0366607f65f703161cf7f2e142d36f8"
+    },
+    "tests/tooling/test_app_motor_observe_cleanup.py": {
+      "bytes": 14429,
+      "sha256": "18b150d239ba34aca30ce8b436036532a15e2c5aacb53ccf1166f51a68a831c0"
+    }
+  }
+}

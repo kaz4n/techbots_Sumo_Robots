@@ -58,10 +58,16 @@ Actualreviewa7c3993a verifies143localpins/23groups/11windows and the separate
 Next derive fixed entry ranges from that rawsymboltable and inspect publication
 instructions. Actual report contents and failure branch remain unknown; D195
 is still flashed. See analysis/P7_motor_settle_abi_actual_validation.md.
-D200 clarifiedcleanupcontract6cb02590 is adopted; exactrecipe6afeea1b/wrapper
-13f33327 are prepared, independenthosttests/source-review/staging stillpending.
-Read-onlyinventorye95ebed4 binds three D195 scratch copies2399768B/dev34inode1172.
-No new root04 staging/authentication/deletion has occurred; oldscopes consumed.
+D200 exactcleanup is complete:49Linux/12WindowsPASS with37coveredskips,
+source/stage reviewsPASS, one authenticatedroot04 invocationexit0. Raw05507941
+and independentretrievalb7b776c9/actualreview5bc9d56d verify precisely3copies
+2399768B removed, originals/stagedsources unchanged, permanentUIDGID1000.
+Root04/resultowner consumed. Originalreadonlyobserverfailure and localEOF
+before device invocation remain preserved; no firmware operation occurred.
+D199 entrycontractaf8ce726/binding62346762 adopted; sourcec9e8f023 and
+frozenindependent23methodoracle4e6e1cae ready, firstserialhostruns inprogress.
+Then finalsource/hostreview and newfile-only entryscope; actualinstructions
+and runtime SETTLEreport stillpending. See motor_settle_cleanup_validation.
 
 Every earlier native owner is consumed, including D193static01, D194ABI01/02 and
 entry01, D195run01 and D196root03. Never rerun historical launchers or repin their

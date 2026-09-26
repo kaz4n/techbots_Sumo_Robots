@@ -3,6 +3,7 @@
 // Independent scripted source tests and native target compilation verify D096.
 #pragma once
 #include "transaction.h"
+#include "epoch_timing.h"
 #include "dump_port.h"
 #include "calibration_output.h"
 #include "../hal/power_inputs.h"
@@ -101,6 +102,7 @@ public:
     bool step();
     void abort();
     const RuntimeReport& report() const { return report_; }
+    const epoch_timing::Distribution& epochTiming() const { return epoch_timing_; }
     const Transaction& transaction() const { return transaction_; }
     const fsm::RobotInput& decisionInput() const { return decision_input_; }
     const line_qtr::Snapshot& lineEvidence() const { return decision_line_; }
@@ -227,5 +229,6 @@ private:
     std::uint32_t output_total_us_ = 0U;
     std::uint32_t output_stall_us_ = 0U;
 #endif
+    epoch_timing::Distribution epoch_timing_;
 };
 } // namespace app

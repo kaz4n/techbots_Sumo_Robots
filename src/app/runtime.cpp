@@ -286,6 +286,7 @@ bool Runtime::completeEpoch() {
     const auto& tick = transaction_.report();
     if (!acceptClock(tick.completed_us)) { fail(RuntimeFault::CLOCK); return false; }
     report_.epochs = added(report_.epochs, 1U);
+    epoch_timing_.observe(tick.execution_us, tick.started_us, tick.completed_us);
     if (tick.execution_us > report_.maximum_execution_us)
         report_.maximum_execution_us = tick.execution_us;
     report_.fresh = true;

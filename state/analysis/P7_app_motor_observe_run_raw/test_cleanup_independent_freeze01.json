@@ -1,0 +1,89 @@
+{
+  "schema": "d196-independent-cleanup-oracle-freeze-v1",
+  "derivation": "Frozen contract plus checked original 37-method oracle; no new subject body read or imported before this freeze.",
+  "test": {
+    "path": "tests/tooling/test_app_motor_observe_cleanup.py",
+    "bytes": 14429,
+    "sha256": "18b150d239ba34aca30ce8b436036532a15e2c5aacb53ccf1166f51a68a831c0"
+  },
+  "inputs": [
+    {
+      "path": "state/analysis/P7_app_motor_observe_cleanup_contract.md",
+      "bytes": 12460,
+      "sha256": "7258230a63f48e09401186b8ad3bed09f958006909610cea835926427a3609f6"
+    },
+    {
+      "path": "state/analysis/P7_app_motor_fault_run_raw/cleanup_remoteocd01.py",
+      "bytes": 7873,
+      "sha256": "23ef85ae3c386cc76751eea0fb18a90148a6fe513e3e8c753d527c06efcbbe95"
+    },
+    {
+      "path": "state/analysis/P7_app_motor_fault_run_raw/cleanup_root02.py",
+      "bytes": 9592,
+      "sha256": "4192f23ea49705a0af691953e6aec3c1f9da66c7cc1897ca3f5d49fba9fc5388"
+    },
+    {
+      "path": "state/analysis/P7_app_motor_fault_run_raw/test_cleanup_root02.py",
+      "bytes": 37221,
+      "sha256": "225ef637e85dfe4ce1598e6744c781720b900905ea0c9c3bf0737d58b49e1559"
+    },
+    {
+      "path": "state/analysis/P7_app_motor_fault_run_raw/cleanup_root02_actual_result.json",
+      "bytes": 6306,
+      "sha256": "c0e45b308cd3bc73fa4a3b537471e7f753b5bb256270126c9f492da0d1af2700"
+    },
+    {
+      "path": "state/analysis/P7_static_link_probe_raw/static_remote.py",
+      "bytes": 33321,
+      "sha256": "8ba9b190c38e728013a383348c60c287b0366607f65f703161cf7f2e142d36f8"
+    },
+    {
+      "path": "state/analysis/P7_app_motor_observe_abi_raw/upload_scratch_inventory01.json",
+      "bytes": 3216,
+      "sha256": "20db3c251a907d6b143afc11a05c44780ba3a09d85e3202ad05878225f4a06f2"
+    },
+    {
+      "path": "state/analysis/P7_app_motor_fault_compile_raw/native_static01/artifacts.json",
+      "bytes": 9597,
+      "sha256": "57b98c00db1ed5d90394812fcbb3fb28effedd4381f6e2fc03a6e7c04b45a6ce"
+    }
+  ],
+  "expected_subjects": [
+    {
+      "path": "state/analysis/P7_app_motor_observe_run_raw/cleanup_remoteocd02.py",
+      "bytes": 7735,
+      "sha256": "1834edd39d628dccda0516f35cbc35434fd659c28392df6600cfdcf882e8ec9a"
+    },
+    {
+      "path": "state/analysis/P7_app_motor_observe_run_raw/cleanup_root03.py",
+      "bytes": 9606,
+      "sha256": "a089cc3bac9d8df3ffe53947e22b1bb4ffa139a733c7ebb1f5ba62e6d5bd804f"
+    }
+  ],
+  "methods": {
+    "inherited_unchanged_assertions": 37,
+    "additional": 10,
+    "total": 47,
+    "additional_names": [
+      "test_all_frozen_inputs_and_consumed_success_are_preserved",
+      "test_exact_recipe_metadata_diff_and_private_observer_projection",
+      "test_exact_wrapper_metadata_diff_preserves_all_operational_bytes",
+      "test_inherited_oracle_retains_all_37_methods_and_assertions",
+      "test_fresh_stage_dependencies_and_old_basename_refusal",
+      "test_exact_new_payload_pin_and_retained_originals",
+      "test_old_scratch_basename_refuses_before_child_reads_or_mutations",
+      "test_old_payload_length_and_digest_refuse_without_relaxing_new_pin",
+      "test_old_inode_refuses_and_new_inode_reaches_inventory_without_deleting",
+      "test_old_retained_payload_path_has_no_fallback"
+    ]
+  },
+  "platforms": {
+    "linux": "47 methods; original 37 retain Linux Python -I -B admission and original fixture semantics",
+    "windows": "10 portable supplements; 37 inherited credential/proc methods explicitly skipped"
+  },
+  "scope": "Host fixtures only; all credentials, process scan and deletion mocked. No board/authentication/firmware action.",
+  "commands": {
+    "windows": "python -I -B -m unittest discover -s tests/tooling -p test_app_motor_observe_cleanup.py -v",
+    "linux": "wsl -d Ubuntu -- python3 -I -B -m unittest discover -s tests/tooling -p test_app_motor_observe_cleanup.py -v"
+  }
+}

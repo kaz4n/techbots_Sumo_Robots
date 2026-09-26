@@ -2247,3 +2247,6 @@ D-197 interface-fixture adjudication 2026-09-26T09:49:17.480561+04:00: dependenc
 
 
 D-197 host outcome 2026-09-26T09:52:54.246983+04:00: exactimplementationf1ee755a/2eced554 andunchangedcontract3346b119 passindependent5methods/21x3differentialruns plus76lockedcases217020assertions. All140pinsstable; reviewbe2ff77ePASS. DiagnosticvolatileRAMpublication retains firstfailure without extra hardware/clockcalls; productionprobe0preprocessedbody/symbolsexact. Twoharness-onlyfirstfailures remaininGit, no assertionorproductionrepair. No newnativeimage/address/retention/cause observed; D198compilethenactualABI/entry/capture remain.
+
+
+D-198 host outcome 2026-09-26T10:04:25.022331+04:00: exactsourceb98a5f54 passes102Linux/81Windowsmethodswith21explicitplatformskipscoveredLinux,167pinsstable. Firstnewstagingfixture omitted claim/stage afterprepare; preserve4c61913e, correctonlycontrolledfixturelifecycle+coupledhelperhash/allassertionsunchanged. Admission01extrainventorynlink1 restriction wasunnecessaryforinstalledhardlinkedcompiler; originalD193predicate restoredonlyinreadonlyadmission02 afterstablemetadata/hashproof, noproductionguardchange. Review50a276b9PASS. Exact129pinmanifestaa314548/source117cc0e7 prepared; newfixedcompile-onlyscope/cleanHEAD precedeexecution. No nativeartifact/faultrepair/gatecreated.

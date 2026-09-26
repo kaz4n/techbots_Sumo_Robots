@@ -1399,3 +1399,6 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-26T09:52:54.246983+04:00 | P7 D197 host closure PASS | Sourcef1ee755a/header2eced554 addprobe-only28Bcurrent/firstfailure withunchanged150us/4096polls/nativecalls. Independentfinal5methodsPASS/21scenariosx3exacttranscripts, probe0preprocessed/symbolsexact; locked76cases217020assertionsPASS.140pinsstable/nofixtureremnants. Firstharnessfailuresc7fa1679/a0ccf86d retained; only twoindependentlyadjudicatedfixturecorrections, allassertionsunchanged. Reviewbe2ff77ePASS. D198newcompilehostvalidationongoing; D195stilllatestflashed/internalcauseunobserved.
+
+
+2026-09-26T10:04:25.022331+04:00 | P7 D198 host compile preparation PASS | Launcherb98a5f54/contractc0b35281 preserve D193 lifecycle withfreshapp-motor-settle-static01 owners. Independent102LinuxPASS/81WindowsPASS21explicitcoveredskips,167pinsstable; review50a276b9PASS. Firstnewfixturestagingomission4c61913e preserved/correctedonlycontrolledclaim-stagecalls/allassertionsretained. Readonlyadmission02all28installed/21localpinsPASS/sameboot; originalaccidentalobserverhardlinkrestrictionpreservedthenrestoredbaseline, noproductionguardchange. Manifest129pinsaa314548/source117cc0e7/108stagefiles780479B. Noactualcompile/nativeowner yet; finalscopecleanHEADnext.

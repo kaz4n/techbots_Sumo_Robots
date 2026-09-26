@@ -9,7 +9,7 @@ import unittest
 
 ROOT = Path(__file__).resolve().parents[2]
 SUPPORT = 'tests/tooling/test_motor_settle_compile.py'
-SUPPORT_SHA = '3093f6dfa45a20d6f5bb05b8f157a90ae4acc9a72bef41e7913e49bfc53cd5e6'
+SUPPORT_SHA = '71371f9361ef20ae0a64feb156e10e24e22722b1b31d8d426816d69bd6db962a'
 
 
 def support():

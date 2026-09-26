@@ -1,0 +1,112 @@
+{
+  "author_checks": "Read-only inherited prepare/stage/fixture confirmation and AST syntax only; no test/compiler/device calls during repair.",
+  "commands": [
+    "python -I -B tests/tooling/test_motor_settle_compile.py",
+    "python -I -B tests/tooling/test_motor_settle_compile_remote.py",
+    "env TMPDIR=/dev/shm python3 -I -B tests/tooling/test_motor_settle_compile.py",
+    "env TMPDIR=/dev/shm python3 -I -B tests/tooling/test_motor_settle_compile_remote.py"
+  ],
+  "correction": "Only new header-staging fixture now installs inherited controlled endpoints and invokes local/prepare/claim/stage, exactly as established D188 staging test. prepare alone only loaded modules and did not stage. All assertions and all102 method semantics retained; remote SUPPORT_SHA refreshed solely for coupled caller identity.",
+  "design": "Checked whole D193 oracle bytes, exact counted metadata-only substitutions and final projected hashes. Private inherited D188/D187 fixture transformations have exact original/final pins. All94 historical methods/assertions retained; supplementary fixed identity/header inventory and prior-owner refusal tests. No shared sys.modules aliases. Original Linux-only descriptor and Windows symlink privilege skips retained. Synthetic endpoints only.",
+  "exact_diff": "--- tests/tooling/test_motor_settle_compile.py@3093f6df\n+++ tests/tooling/test_motor_settle_compile.py\n@@ -143,13 +143,13 @@\n     class SettleOwnerTests(oracle.CallerFixture):\n         def test_header_is_in_exact_inventory_mapping_source_digest_and_staged_bytes(self):\n             name = 'src/hal/motor_settle_probe.h'\n-            owner = self.owner(); owner.local()\n+            owner = self.controlled(self.owner()); owner.local()\n             self.assertIn(name, owner.source_names())\n             self.assertEqual(owner.code[name], (ROOT / name).read_bytes())\n             self.assertEqual(owner.expected_stage[name], self.files[name])\n             self.assertEqual(owner.source_sha256, self.source)\n             self.assertTrue(owner.sketch.endswith('/' + self.source + '/app_motor_observe'))\n-            owner.prepare()\n+            owner.prepare(); owner.claim(); owner.stage()\n             self.assertEqual((owner.stage_path / name).read_bytes(), owner.code[name])\n             self.assertEqual(owner.stage_path.name, 'app_motor_observe')\n \n--- tests/tooling/test_motor_settle_compile_remote.py@230cf366\n+++ tests/tooling/test_motor_settle_compile_remote.py\n@@ -9,7 +9,7 @@\n \n ROOT = Path(__file__).resolve().parents[2]\n SUPPORT = 'tests/tooling/test_motor_settle_compile.py'\n-SUPPORT_SHA = '3093f6dfa45a20d6f5bb05b8f157a90ae4acc9a72bef41e7913e49bfc53cd5e6'\n+SUPPORT_SHA = '71371f9361ef20ae0a64feb156e10e24e22722b1b31d8d426816d69bd6db962a'\n \n \n def support():\n",
+  "execution": "Coordinator serial host runs only after source/test/master freeze; preserve all first failures before adjudication.",
+  "inputs": {
+    "state/analysis/P7_app_motor_observe_compile_contract.md": {
+      "bytes": 10919,
+      "sha256": "0301726f47c0c438a7984ddd232f81c4891c511651ba81a986b15f5ef91dbfb4"
+    },
+    "state/analysis/P7_motor_settle_compile_contract.md": {
+      "bytes": 14344,
+      "sha256": "c0b352810c41c8b3744acdd1c15bc4b21ecb76bc15d76d4fedea4fdde37dc756"
+    },
+    "state/analysis/P7_motor_settle_probe_contract.md": {
+      "bytes": 12585,
+      "sha256": "3346b11970814ce7703c48f56cb38405449453964bb79d1740d5a49e78610f7c"
+    },
+    "tests/tooling/test_app_motor_fault_compile.py": {
+      "bytes": 45438,
+      "sha256": "53d547ad4c9c4df9e55313014e89ab731fddcf8edde6983c5cb535d253f73e96"
+    },
+    "tests/tooling/test_app_motor_fault_compile_remote.py": {
+      "bytes": 18332,
+      "sha256": "db0ff0284eb7c528a852f39a57fcb668c72c098543b6d6813298fc2dfeddd80b"
+    },
+    "tests/tooling/test_app_motor_fault_static_policy.py": {
+      "bytes": 36715,
+      "sha256": "e6d52ec6b0d72e893511793e9d92003092499280454093c9b6622d0e18547d5c"
+    },
+    "tests/tooling/test_app_motor_observe_compile.py": {
+      "bytes": 29767,
+      "sha256": "ae42938cace40745068421bf6e8e813295b12c16b376c93bd00b019b311b724d"
+    },
+    "tests/tooling/test_app_motor_observe_compile_remote.py": {
+      "bytes": 8787,
+      "sha256": "897ae6e468aaa619ff72fa03532278458a250cfc440add52fd8eff180d587413"
+    },
+    "tools/app_motor_fault_compile_remote.py": {
+      "bytes": 6891,
+      "sha256": "1428b9345d5f524b6c79ede2c30eabb240b6a45ef6a30a593063c3902054fec2"
+    },
+    "tools/app_motor_fault_static_policy.py": {
+      "bytes": 8262,
+      "sha256": "3e5d49e4a70c0cf6197e26b1ba5ce2b7e07601bf5d9250ba430f90d1f9eab270"
+    },
+    "tools/compile_app_motor_fault.py": {
+      "bytes": 29802,
+      "sha256": "cf0c826feca483a78ce9839d0037d1e005a0ce73a3aa01df1ad4b309729ed25a"
+    },
+    "tools/compile_app_motor_observe.py": {
+      "bytes": 7583,
+      "sha256": "70e1f016cec041b40c98c7c5dd5ee20223d75c4a876c76d2fcdea3d790d63827"
+    }
+  },
+  "method_counts": {
+    "caller": {
+      "inherited_D193": 59,
+      "new": 6,
+      "total": 65
+    },
+    "remote": {
+      "inherited_D193": 35,
+      "new": 2,
+      "total": 37
+    },
+    "total": 102
+  },
+  "preserved_prior_commit": "4c61913e",
+  "prior_freeze": {
+    "bytes": 4066,
+    "path": "state/analysis/P7_motor_settle_compile_raw/independent_test_freeze01.json",
+    "sha256": "4bd4b435e5e4c8574022c9a06e7e252e8b71816eaf162d4509a27931ec57fa49"
+  },
+  "prior_observation": "First Linux caller64PASS/1ERROR at missing staged header; remote37PASS;165 pins stable. Original source/oracles/receipts preserved by coordinator.",
+  "prior_tests": {
+    "tests/tooling/test_motor_settle_compile.py": {
+      "bytes": 11293,
+      "sha256": "3093f6dfa45a20d6f5bb05b8f157a90ae4acc9a72bef41e7913e49bfc53cd5e6"
+    },
+    "tests/tooling/test_motor_settle_compile_remote.py": {
+      "bytes": 3412,
+      "sha256": "230cf366cf080b8d8085b15c3149601f8f215ff4362cb3349563fc7670092d48"
+    }
+  },
+  "schema": "d198-independent-compile-oracles-freeze-v2",
+  "scope": "Only two new tooling oracles and this freeze. Historical oracles, firmware and locked fixtures untouched.",
+  "status": "FROZEN_STAGING_FIXTURE_CORRECTION_BEFORE_SECOND_CALLER_EXECUTION",
+  "subject_author_reported_only": {
+    "tools/compile_motor_settle_probe.py": {
+      "bytes": 7570,
+      "sha256": "b98a5f54e2be122162e76074673190f52ef4218c766d517125b48127bb4b8b62"
+    }
+  },
+  "tests": {
+    "tests/tooling/test_motor_settle_compile.py": {
+      "bytes": 11340,
+      "sha256": "71371f9361ef20ae0a64feb156e10e24e22722b1b31d8d426816d69bd6db962a"
+    },
+    "tests/tooling/test_motor_settle_compile_remote.py": {
+      "bytes": 3412,
+      "sha256": "b2da457db6da3d01412dd300d495f075a8631294c75627f66b91dc1ee9fbd2e7"
+    }
+  }
+}

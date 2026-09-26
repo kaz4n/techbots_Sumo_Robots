@@ -38,10 +38,14 @@ preprocessedbody/symbolsexact. Locked76cases217020assertionsPASS;140pinsstable,
 no temporaryremnants, reviewbe2ff77ePASS. Read P7_motor_settle_probe_validation.md.
 Two harness-only failures are preserved; no assertion or firmware repair occurred.
 
-Finish D198 fresh fixed compile-tool hostvalidation/review. Contractc0b35281 and
-launcherb98a5f54 use newapp-motor-settle-static01 owners with sameobserver sketch/
-mapping/profile. FirstLinuxcaller64PASS/1newfixtureerror is underreview; no native
-compile occurred. Then bind current source/boot/manifest and onecompile-onlyscope.
+D198 fresh fixed compile-tool hostvalidation/review PASS: contractc0b35281 and
+launcherb98a5f54,102Linux/81WindowsPASS21coveredplatformskips,167pinsstable,
+review50a276b9. Originalnewfixture/admissionobserver failures are preserved;
+corrections changed neither assertions norproductionguards. New129pinmanifest
+aa314548 binds source117cc0e7/108stagedfiles780479B; readonlyadmission1c6c5ca3
+verifies sameboot/fullidentity/28installedpins andunusedapp-motor-settle-static01
+owners. Finalscope review/cleanHEAD precede onecompile-onlyattempt; no actual
+D198compile yet. Sameobserver sketch/static/default/M0/probe1 profile remains.
 Actual target28Breport symbol/ABI/zero-init/storepath need file-only observation
 before a separately bound inhibitedcapture. D195 remains the latestflashedimage.
 

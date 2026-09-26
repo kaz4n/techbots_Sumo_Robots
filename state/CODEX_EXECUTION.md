@@ -348,3 +348,6 @@ Recheck space before work and preserve all earlier blocked cleanup exclusions.
 
 
 - [x] D197 internalSETTLEreason report hostvalidated andindependentlyreviewed; firstfailure/current28B, no changednativecalls/productionprobe0/150usbound. See P7_motor_settle_probe_validation.md. D198freshcompiletoolhostvalidation next; currentflashedD195 cause remainsunobserved.
+
+
+- [x] D198 fresh compile-only launcher/source/oracle/host validation and readonlyadmission reviewedPASS;102Linux/81WindowsmethodsPASS21explicitcoveredskips. Manifest129pins/source117cc0e7 prepared. Finalscope/cleanHEAD thenonecompile-onlyattempt; no newupload/ABI/capture yet.

@@ -143,13 +143,13 @@ def new_owner_cases(oracle):
     class SettleOwnerTests(oracle.CallerFixture):
         def test_header_is_in_exact_inventory_mapping_source_digest_and_staged_bytes(self):
             name = 'src/hal/motor_settle_probe.h'
-            owner = self.owner(); owner.local()
+            owner = self.controlled(self.owner()); owner.local()
             self.assertIn(name, owner.source_names())
             self.assertEqual(owner.code[name], (ROOT / name).read_bytes())
             self.assertEqual(owner.expected_stage[name], self.files[name])
             self.assertEqual(owner.source_sha256, self.source)
             self.assertTrue(owner.sketch.endswith('/' + self.source + '/app_motor_observe'))
-            owner.prepare()
+            owner.prepare(); owner.claim(); owner.stage()
             self.assertEqual((owner.stage_path / name).read_bytes(), owner.code[name])
             self.assertEqual(owner.stage_path.name, 'app_motor_observe')
 

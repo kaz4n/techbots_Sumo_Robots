@@ -834,3 +834,7 @@ DEVICE-OBSERVED: D195 source3a08ddeb/static/default/MATCH0/MOTORS0/probe1 frozeC
 
 ## F213 - Internal SETTLE diagnostic host evidence (2026-09-26T09:52:54.246983+04:00)
 HOST-VERIFIED: D197sourcef1ee755a/header2eced554 defineprobe-only28B report,sevendistinctfalseexits andsuccess; explicitvalidity/current/lifetimefirstfailure. FiveindependentmethodsPASS/21scenariosx3completeoriginal0/current0/current1native-clock-hardwaretranscripts exact; probe0preprocessedbody/definedsymbolsexact, noallocations/interface/probe-inertguardschecked. Existinglocked76cases217020assertionsPASS,140pinsstable. Reviewbe2ff77e confirmsno sourcechangefromfixturecorrections. Not targetretention/ABI/timing/electrical/faultcause evidence. Source: analysis/P7_motor_settle_probe_validation.md.
+
+
+## F214 - Fresh internal-probe compile workflow preparation (2026-09-26T10:04:25.022331+04:00)
+HOST-VERIFIED: D198b98a5f54 exactmetadata derivative/contractc0b35281 passes102Linux and81Windowsmethods/21explicitcoveredplatformskips;167pinsstable/review50a276b9PASS. Preparedmanifestaa314548 has129pins,110inventoryfiles/781347B mappedto108files780479B/source117cc0e7. DEVICE-READONLY: admission1c6c5ca3 matchesfullsamebootUIDGID1000 identity,28installedpins, no recognizedconflicts/newownersabsent; correctedonlyextraobserverhardlinkrestriction, notproductionguards. No actualcompile/upload/MCUread orruntimecauseevidence. Source: analysis/P7_motor_settle_compile_validation.md andrawreceipts.

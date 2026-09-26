@@ -406,3 +406,6 @@ D191 closing observation: C:recovered290537472B independently before local docum
 
 
 2026-09-26T09:52:54.246983+04:00 | D197 hostprobe retention | Retain229compactrawfiles/384181logicalB plus source/oracles/contract/review/validation, includingbothuniqueharnessfailures. ExacttranscriptscomparedinRAM withcompacthashesretained; no fullsource/binarysnapshot needed. OwnedRAM/memfdoutputs andlocked/tmpfixture removedbytheirsuites; closing0f3a4053 observes0remnants. No boardcopies/bytecode/reclaimedbyteclaim; Cfree20802203648B. Previouslydeniedcleanup untouched.
+
+
+2026-09-26T10:04:25.022331+04:00 | D198 hostpreparation retention | Keep36compactfiles/216183logicalB includinguniqueoriginalfixture/admissionfailures, correctedreceipts, manifest/scope andsourcehashreproduction. Hostfixtures selfcleaned; closing8e80ad67 observes0relevantRAM/Windowstempremnants. No targetartifactdownload/build/sourcecopycreatedyet; no reclaimedbytes/deniedpathretry. Cfree20808589312B separatelyobserved.

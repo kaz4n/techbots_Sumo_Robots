@@ -3,9 +3,11 @@
 <!-- Review against P7, PLAN, current UI sources and linked acceptance packets. -->
 # Match-day runbook
 
-**Preparation draft updated through D228 failed delivery, 27 September 2026. NOT OPERATOR-READY.** Print only
-after the release owner fills and verifies the release record below. Writing
-this runbook supplies no deployment, motor-run permission or human phase gate.
+**Preparation draft updated through D239 delivery and D240/D241 tooling,
+27 September 2026. NOT OPERATOR-READY.** The current D241 production compile-only
+check and independent actual review passed. Print only after the release owner fills
+and verifies the release record below. This runbook supplies no deployment,
+motor-run permission or human phase gate.
 
 Use the [mode card](MODE_CARD.md) and [rehearsal/scouting sheets](REHEARSAL_SCOUTING.md)
 with this document. The competition is Saturday 3 October; the planned dress
@@ -24,18 +26,51 @@ A mode number/arrow alone is not readiness; the battery bar is not numeric volta
 
 | Required before using the workflow | Current boundary / evidence owner |
 |---|---|
-| Identified runnable release and deployment | Latest uploaded image is a motor-disabled recorder diagnostic. D228 compiled/uploaded successfully, but its receiver timed out with zero UART bytes; passive diagnosis is pending. D222 commissioning builds and D227 guarded deployment tools have separate accepted evidence. This is not an operational robot release. Record source/config/artifact and qualified deployment using the [current P7 packet](../state/analysis/P7_software_acceptance_packet.md). |
+| Identified runnable release and deployment | D239 delivered a complete motor-disabled synthetic recorder run: 5,001 frames, eight events, the expected session, opening envelope and checksum, with no reported loss. Its [actual result](../state/analysis/P7_recorder_repeat_delivery_actual_validation.md) is accepted. D240/D241 application delivery and static production tooling are host-tested and reviewed; the current D241 target compile and artifact/layout checks passed. This is not an operational robot release. Record source/config/artifact and qualified deployment using the [P7 packet](../state/analysis/P7_software_acceptance_packet.md). |
 | Hardware and usable controls | PINMAP/electrical qualification, calibrated battery reading, actual sensors, distinct button levels including BOTH, visible display and source setup remain required. [P2 packet](../state/analysis/P2_software_acceptance_packet.md) lists the missing evidence. |
 | Original P7 display criterion | Qualify D138's live blinking R and battery-threshold pixel on the actual release matrix, including native startup/ownership, calibrated input, visibility and failure behavior; see [open SC-AP](../state/analysis/spec_conflicts.md). An external meter does not replace this criterion. |
 | Motion and opener acceptance | Resolve the real starts, stopping/edge, combat and opener criteria in the [P3](../state/analysis/P3_software_acceptance_packet.md), [P4](../state/analysis/P4_software_acceptance_packet.md) and [P5](../state/analysis/P5_software_acceptance_packet.md) packets. Each powered practice attempt needs fresh STAND OK or RING OK bound to that specific run, target, firmware and scope; never reuse it for another attempt. |
 | Safe stop, retrieval and next-round rearming | Verify a physical procedure for this release. D103's optional local service reset is disabled by default and retains motor inhibition; it **does not rearm a match**. Do not substitute it for a restart procedure. |
-| Log preservation and extraction | Verify native ownership, framing and the actual inhibited IDLE dump route. These remain [blocked prerequisites](../state/analysis/P2_native_dump_prerequisite_followup.md). A reboot, battery swap or later match is not a log-preservation procedure. |
+| Log preservation and extraction | D239 proves one complete synthetic delivery. Qualify the actual application's inhibited IDLE dump, configured grants and physical controls separately. Native cancellation/reopen and continuous ownership remain [unqualified](../state/analysis/P2_native_dump_prerequisite_followup.md). Retain the validated export before reset or battery swap; reset does not preserve RAM logs or renew a used session. |
 | Organizer decisions | Record answers to [PLAN §5](PLAN.md#5-questions-for-the-organizers-send-today): orientation, mode changes, radios, arena, activation timing, scale and blade. D-014 remains pending. No pre-angled placement or between-round mode-change permission is assumed. |
 | Release acceptance | Actual loaded RAM/stack, full-source timing, physical results, independent review and required human gates remain separate from software tests. |
 
 Source basis: [app entry](../src/app/app.ino), [setup grants](../src/app/runtime.h),
 [config](../src/config.h), [UI renderer](../src/hal/ui_display.cpp),
 [D103 service contract](../state/analysis/P2_service_reset_contract.md).
+
+D228's zero-byte failure and D237's missing-envelope failure remain original
+failed evidence; the D239 result does not repair or relabel either stream.
+See [D228](../state/analysis/P7_recorder_delivery_actual_validation.md) and
+[the missing-envelope analysis](../state/analysis/P7_recorder_missing_envelope_analysis.md).
+
+### Release-owner tooling
+
+Use the reviewed [D241 static production contract](../state/analysis/P7_match_static_contract.md)
+for the fixed MATCH/Immediate/M1 build. First run the local check:
+
+`python -I -B tools/compile_match_static.py --check-only --profile match --motors-allowed 1 --attempt TOKEN --reviewed-head FULL_HEAD`
+
+After admission, replace only `--check-only` with `--execute` for the one
+compile-only attempt. Use a fresh owner and the exact reviewed commit. This
+compiler does not upload. Record the completed artifact/layout result; the
+current target check passed; retain its [actual evidence](../state/analysis/P7_match_static_actual_validation.md).
+
+A separately qualified precompiled production upload uses
+`python -I -B tools/deploy_match_static.py --check-only --scope RELATIVE_JSON --reviewed-head FULL_HEAD`.
+For a fresh identified recording, use
+`python -I -B tools/run_match_identified_delivery.py --check-only --scope RELATIVE_JSON --reviewed-head FULL_HEAD`.
+The corresponding commissioning route is
+`python -I -B tools/run_app_identified_delivery.py --check-only --scope RELATIVE_JSON --reviewed-head FULL_HEAD`
+under the [D240 contract](../state/analysis/P7_app_identified_delivery_contract.md).
+
+Execution of either paired route arms the existing receiver before one qualified
+upload. It requires the fresh session in the exact compiled config, qualified
+native dump grants and source/artifact evidence. Motor-capable execution also
+requires actual STAND OK or RING OK for that specific run. Standalone deployment
+refuses nondefault sessions; a consumed image/session cannot be retried after
+failure or made fresh by reset. Bare-board M0 with absent grants cannot qualify
+an operational application dump.
 
 ## Release record
 
@@ -140,13 +175,18 @@ organizer/referee procedure before relying on it, and rehearse the complete swap
 
 ### After the match
 
-When a laptop and the qualified inhibited IDLE route are available, capture the
-log before any reset/power-off that could lose it. Start the receive-only capture
-before the local LOG_DUMP action using the existing
-[capture instructions](../tools/README.md#idle-recorder-capture-d090). Retain the
-original wire/CSV files, manifests, validation and loss status, including partial
-or failed captures. A TCP connection alone does not qualify the native transport.
-If no safe qualified dump is available, record NOT CAPTURED and the reason.
+Plan the capture before deploying an identified application image: the paired
+route above arms its bounded receiver before upload. After the match, use the
+qualified inhibited IDLE service route and local LOG_DUMP action while that
+receiver is active. Capture and validate before any reset/power-off that could
+lose the log. A later reset or receiver restart cannot renew a consumed session.
+The existing [receive-only instructions](../tools/README.md#idle-recorder-capture-d090)
+remain available for separately qualified capture scopes.
+
+Retain the original wire/CSV files, manifests, validation and loss status,
+including partial or failed captures. A TCP connection alone does not qualify
+the native transport. If no safe qualified dump is available, record NOT CAPTURED
+and the reason.
 
 ## Failure playbook
 

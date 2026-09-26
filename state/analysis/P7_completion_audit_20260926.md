@@ -1,3 +1,24 @@
+# Current completion audit - 27 September 2026
+
+D239 complete synthetic delivery is accepted: 5,001 frames, 8 events, original
+607,508-byte wire stream, expected session/envelope/CRC and all closing checks
+PASS. D240/D241 implement the remaining identified application delivery and
+static/Immediate production compile/deploy routes; their focused host reviews pass.
+The current D241 compile-only and artifact/layout checks passed;
+see [actual validation](P7_match_static_actual_validation.md). No motor-enabled upload is admitted.
+
+A narrow source/runbook audit found no further concrete software feature gap in
+the current scope after those routes. Current evidence and release-tool usage are
+being reconciled. See [the current acceptance packet](P7_software_acceptance_packet.md)
+and [project status](../../docs/PROJECT_STATUS.md). Board-only hardware cannot
+qualify physical inputs, motors, initialized timing/live RAM, ring behavior,
+operational recording/restart, rehearsal or human phase gates. These remain open.
+
+## Historical audit snapshots
+
+All earlier dated pending-delivery and missing-route statements below are retained
+history and are superseded by the current section. Their negative evidence remains.
+
 Current update (2026-09-27T02:22:24.212732+04:00): D235 six-store candidate is host/target-compile accepted. D237 now completes native transmission: D238 passive retained status is SENT_UNCONFIRMED/nativeOK,607508bytes,5001frames,8events,CRC2865663826,26reads639504B with matching fullflash brackets and65equal fields. Coherence remains UNPROVEN. D237 receiver retained607448bytes, missing exactly the opening60-byte envelope, so actual delivery remains FAILED (reviewdd50e6e7). No stream was repaired or accepted. D239 prepares one freshsession on unchanged accepted six-store source after exact stale cleanup; no router restart. See current CODEX_HANDOFF, P7_recorder_six_result_actual_validation.md and P7_recorder_missing_envelope_analysis.md. Physical/human gates, live initializedrobot timing and log-preserving rearm/cancel qualification remain open. All prior status paragraphs below are historical.
 
 Current update:

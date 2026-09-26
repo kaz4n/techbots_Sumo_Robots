@@ -1,3 +1,44 @@
+## Current checkpoint - 2026-09-27T03:03:51.754983+04:00
+
+Objective: finish the project software with the connected UNO Q; current hardware
+is BOARD ONLY. All concrete implementation/tooling work identified by the narrow
+final source/runbook audit is complete. Physical qualification and human gates
+remain open; do not invent them or a release tag. No native process is active.
+
+D241 compile10427 CLOSED0/413.746s at6306c88e54353e7864a86656614402631a5a3b9c,
+source9337c580d3451de6f2cfe02ebcaa19abf75b147cf7e35bca34defcc562ed1c3e.
+COMPILE_CHECKED, exactstatic/Immediate/MATCH1/M1/all8probes0,package92092B
+7895a4d8991bd2158e63c69cb37ebcdc4f39632311a1dbf47401c3a34f664c86, flag6 and
+fullELF/TLS/body/layoutPASS. Query/compiler1/1,235transports,ninefinalPASS.
+StaticRAMremaining91280B/flash694340B, notliveRAM/WCET. No upload/reset/run.
+FrozenworktreeC:/Users/narut/AppData/Local/Temp/sumox-match-static-native-20260927
+ownerstate/analysis/P7_match_static_raw/match-static-match-m1-1d657ca567ed.
+All993closedownerfiles1748556B+6outerstreams copiedbyteexact MAIN; actualreport
+state/analysis/P7_match_static_actual_validation.md. Independentactualreview
+dbbac69a PASS (6178B LF), no findings; all9checkedchildren reaped. Raw durable
+MAINcommitccd84fe7. Final software/docs acceptance is ready for root commit.
+Source/hostreview01851b69 PASS/47pins/sixmethods; no more nativework scheduled.
+
+D239 accepted full syntheticdelivery:607508B/5001frames/8events, exactsession
+3840709944287840472/envelope/CRC1933962482,SEALED/no reportedloss,allclosuresPASS;
+review4408e544. Raw8af9b6b0/acceptancee91461ff. Loadedimage stays inhibited
+syntheticrecorder package3a1bbd2f; no extra capture. D240 pairedapplication
+delivery accepted a3c0fba6/reviewf89a92b4/ninemethods. D241 supplies corresponding
+productionroute with unchanged specificSTAND/RING andqualificationguards.
+
+Updateddocs: docs/PROJECT_STATUS.md, docs/RUNBOOK.md, docs/prompts/P7_freeze_matchday.md,
+tools/README.md, P7_software_acceptance_packet/P7_completion_audit andstateledgers.
+47selectedlocal link targetsresolve; diffcheckPASS. Originalfailedrecordings,
+cancel/reopenlimits andpolicyblockedoldlocalstage deletionspreserved. No P6
+eligibilityorphysicalgates inferred. Currentnative checkedartifacts andfrozen
+source/stage retained foractualreview/futurequalifieddeployment evidence.
+
+Next external work: assembled wiring/PINMAP/calibrations, actualsensor/motor
+checks, initializedtiming/liveRAM, stopping/edge/ring, qualifiedapplication
+recording/restart/rehearsal, organizeranswers andrequiredhumangates. Actual
+motor-capablerun stillneedsspecificSTANDOK/RINGOK. Donotrerunacceptedhost
+suites/compile/syntheticdiagnostic merelybecause hardwareisstillmissing.
+
 ## Current checkpoint - 2026-09-27T02:40:05.275489+04:00
 
 D239 delivery34435 CLOSED0 in375.741s: DELIVERED/FULL_SYNTHETIC_PASS.

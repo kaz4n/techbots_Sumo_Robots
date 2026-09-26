@@ -1,3 +1,49 @@
+# Current software acceptance packet - 27 September 2026
+
+Connected hardware: **UNO Q only**. Software implementation and review have
+advanced under the delegated engineering scope; physical release acceptance and
+human phase gates remain pending. This is **not an operator-ready release**.
+
+- D239 delivered and verified the complete inhibited synthetic recording:
+  607,508 wire bytes, 5,001 frames and 8 events, the expected session/envelope/CRC,
+  SEALED lifecycle and no reported loss. All closing checks passed. See
+  [actual validation](P7_recorder_repeat_delivery_actual_validation.md) and
+  [independent review](../reviews/P7_recorder_repeat_delivery_actual_review.md).
+  This supersedes earlier pending-delivery statuses while preserving their failures.
+- D240 implements qualified application upload plus identified reception; nine
+  focused tests and [review](../reviews/P7_app_identified_delivery_review.md) pass.
+  D241 provides static/Immediate production MATCH compilation, guarded deployment
+  and the paired production recording route; six focused tests and
+  [review](../reviews/P7_match_static_review.md) pass. See the
+  [D241 contract](P7_match_static_contract.md) and [tool usage](../../tools/README.md).
+- The current D241 compile-only and artifact/layout checks passed. See
+  [actual validation](P7_match_static_actual_validation.md). It did not upload or run M1.
+  Existing source defaults/setup grants remain unchanged.
+
+The remaining acceptance work requires physical facts or run authority: wiring
+and pin acceptance, calibration and qualified inputs, actual countdown/edge/stop
+behavior, initialized loop timing and live memory, motor/ring trials, operational
+application recording, restart/rehearsal, organizer answers and human gates.
+Current software already preserves logs during service reset; export and validate
+before normal reset. A fixed recording session is single use even after failure.
+Native cancellation/reopen and general router cleanliness remain unqualified.
+
+The narrow completion audit found no additional concrete firmware/tool feature
+missing from the active runbook scope. Its immediate remainder is the current
+compile evidence and documentation reconciliation. Do not infer physical
+acceptance from host tests, artifact layout or the synthetic board experiment.
+
+The schedule in PLAN.md remains controlling: P3 scope decision at end 28 September,
+P6 eligibility only with the actual P4 gate by 30 September and no stronger cut,
+freeze 1 October at 21:00 Dubai, rehearsal 2 October, competition 3 October.
+No v1.0 release tag or human phase pass is created by this packet.
+
+## Historical acceptance snapshots
+
+The dated paragraphs below preserve prior evidence and limitations. Their pending
+D239 delivery, missing commissioning route and legacy dynamic release directions
+are superseded by the current section above and the current runbook/tool contracts.
+
 Current update (2026-09-27T02:22:24.212732+04:00): D235 six-store candidate is host/target-compile accepted. D237 now completes native transmission: D238 passive retained status is SENT_UNCONFIRMED/nativeOK,607508bytes,5001frames,8events,CRC2865663826,26reads639504B with matching fullflash brackets and65equal fields. Coherence remains UNPROVEN. D237 receiver retained607448bytes, missing exactly the opening60-byte envelope, so actual delivery remains FAILED (reviewdd50e6e7). No stream was repaired or accepted. D239 prepares one freshsession on unchanged accepted six-store source after exact stale cleanup; no router restart. See current CODEX_HANDOFF, P7_recorder_six_result_actual_validation.md and P7_recorder_missing_envelope_analysis.md. Physical/human gates, live initializedrobot timing and log-preserving rearm/cancel qualification remain open. All prior status paragraphs below are historical.
 
 Current update:
@@ -45,7 +91,7 @@ deferred; actual P0-P5 criteria and human gates have not been replaced by assump
 
 | Original task | Current deliverable | Required completion evidence |
 |---|---|---|
-| 7.1 Freeze/release | Build-only example corrected to `tools/flash.sh app --match --compile-only` | Validated source/config and checked artifacts; actual freeze/release conditions; recorded release commit and v1.0 tag. No tag exists by virtue of this packet. |
+| 7.1 Freeze/release | Current static/Immediate production compile route is `tools/compile_match_static.py`; see the D241 contract and actual validation. Legacy dynamic build examples below are historical. | Validated source/config and checked artifacts; actual freeze/release conditions; recorded release commit and v1.0 tag. No tag exists by virtue of this packet. |
 | 7.2 Runbook | [Draft runbook](../../docs/RUNBOOK.md) and [mode card](../../docs/MODE_CARD.md) written and scoped-reviewed | Qualified operational procedures, team review and actual printed copies. |
 | 7.3 Dress rehearsal | [Blank rehearsal/scouting sheets](../../docs/REHEARSAL_SCOUTING.md) written and scoped-reviewed | Three real best-of-three sets on2October, exact timings and procedural observations; no blank cell is a pass. |
 | 7.4 Kit | Inventory in the runbook | Team records actual packed items; no purchase or possession inferred. |

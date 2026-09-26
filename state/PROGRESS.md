@@ -1630,3 +1630,9 @@ matrix is admitted conditionally, not yet executed. Firmware unchanged. | pendin
 | 2026-09-27T02:26:46.838224+04:00 | P7 connected-board software | D239 previous-upload cleanup and fresh compile | CleanupPASS2359784B/result30b958cb; serialsame-six-sourcefreshsessioncompile69910active; no uploadyet | commit containing this row |
 
 | 2026-09-27T02:39:05.514234+04:00 | P7 connected-board software | D239 full identified synthetic recorder delivery | DELIVERED/FULL_SYNTHETIC_PASS375.741s;607508B,5001frames/8events,correctBEGIN/session/CRC,SEALED/no reportedloss,allclosingerrors empty; actualreviewpending | commit containing this row |
+
+| 2026-09-27T02:54:51.075746+04:00 | P7 software preparation | D240 identified application delivery and D241 static production toolchain | D2409 focused methods and reviewf89a92b4 PASS; D2416 methods/47 pins/review01851b69 PASS. D241 single compile-only active10427; physical gates unchanged. | a3c0fba6,6306c88e |
+
+| 2026-09-27T03:03:03.095679+04:00 | P7 software preparation | D241 current static Immediate MATCH1/M1 compile-only | COMPILE_CHECKED;92092Bpackage7895a4d8;query/compiler1/1;235transports;9closingPASS;413.746s. No upload. Independent actual review closing. | source6306c88e |
+
+| 2026-09-27T03:05:15.797045+04:00 | P7 software preparation | Final current software/board-only closure | D241actualreviewdbbac69a PASS; D239fullsyntheticdelivery accepted; D240/D241tooling accepted;47local-linktargets and diffcheckPASS. Currentstatus/runbook/handoff reconciled. Physicalrobotacceptance andhumangates remain OPEN. | rawccd84fe7;source6306c88e |

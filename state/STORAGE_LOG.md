@@ -583,3 +583,6 @@ Author verified447member failurearchive8856114B compressed494868B and612member s
 
 ### 2026-09-27T02:26:46.838224+04:00 - D239 exact D237 upload scratch
 Removed only2359784B threeverifiedcopies from /tmp/remoteocddev34/ino7093 andthenemptydirectory. Originalpackage3b4812a7/installedloader/configretainedunchanged,3protectedscans/6closingPASS, result30b958cb. UniqueD237missing-envelope stream andD238passivestatus remainretainedforreview/reproduction; no credentialstored. Maincopies266D237ownerfiles2514245B and63D238files559451B retainedascanonicalreceipts; isolatedowners remain neededforin-flightreview/sourcepins. No priorpolicyblockedlocalstage retried. Cfreeabout2GBbeforecurrentserialtargetcompile.
+
+### D241 closed compile retention (2026-09-27T03:03:03.095679+04:00)
+Retained993 original owner files1,748,556B byteexact in MAIN plus6 outer command/output receipts and copy manifest. Purpose: source/compile/package provenance, independent review and future guarded deployment. No duplicate full repository/archive. Native checked artifacts retained with original compiler output; frozen source/stage retained for remaining actual review and source-bound deployment evidence. C: about1.94GB free before closure. Previously blocked old local stage deletions were not retried; no new deletion or paging/disk setting change.

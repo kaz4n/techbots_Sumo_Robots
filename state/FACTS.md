@@ -1010,3 +1010,20 @@ Source: analysis/P7_recorder_six_result_actual_validation.md, actualreview034c70
 
 ### D239 complete identified synthetic delivery (2026-09-27T02:44:36.991459+04:00)
 Source: analysis/P7_recorder_repeat_delivery_actual_validation.md and actualreview4408e544. Confidence high for this single savedattempt; no physicalacceptance. Source3d9306d7/package3a1bbd2f/session3840709944287840472 delivered607508B originalwire withBEGIN/ENDCRC1933962482,5001frames8events,SEALED/no reportedloss. Source/upload/receiver closingchecksPASS. This doesnotestablishroutercleanliness, abort/reopen or currentproductionMATCHfit.
+
+
+### D241 static Immediate selection (2026-09-27, before native compile)
+Verified cached primary-source bytes match all four SHA-256 pins in
+analysis/P7_match_static_contract.md: installed boards.txt54-61, installed
+platform.txt94-97/164-165, pinned CLI specification139-140 and pinned
+zephyr-sketch-tool_main.go76-84. The combined menu selection is
+`arduino:zephyr:unoq:link_mode=static,wait_linux_boot=no`; installed recipes
+add `-immediate`, and the package header combines prelinked0x02 with
+Immediate0x04 to require0x06. Confidence high for those saved versions.
+This selects the compile-only experiment; current installed recipe/artifact
+matching must still pass during the actual run. No upload or physical fact.
+
+### D241 actual production compile-only (2026-09-27T03:03:03.095679+04:00)
+Direct source: analysis/P7_match_static_raw/match-static-match-m1-1d657ca567ed/result.json and artifacts.json. Source9337c580 at6306c88e compiled once as ordinaryMATCH1/M1/static/Immediate with all8probes0. Package92092B7895a4d8,flag6,fullELF/TLS/body/layoutPASS; query/compiler1/1,235transports,ninefinalPASS. StructuralRAMremaining91280B andflash694340B are static counts only. No upload/boot execution,liveRAM,WCET,physicalorhuman gate follows.
+
+D241 actual independent closure (2026-09-27T03:05:15.797045+04:00): reviewdbbac69a independently reconciles the current production compile and all993savedownerfiles,135inputs,105stagefiles,9reapedchildren/9finalchecks. Arduino memory summary91276B and structuralRAM91280B are distinct static counts; neither is measuredfreeRAM. No material finding within compile-onlyscope.

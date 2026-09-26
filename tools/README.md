@@ -527,3 +527,37 @@ qualification, the original human phase prerequisite and fresh specific STAND OK
 or RING OK. Current BOARD ONLY supplies none of those M1 prerequisites. The tool
 performs no compilation, capture, cleanup or retry. Host acceptance is recorded
 in [validation](../state/analysis/P7_commissioning_deploy_validation.md).
+
+## Identified application delivery (D240)
+
+`run_app_identified_delivery.py` pairs a qualified commissioning upload with
+the receiver and validates the complete recording. Use `--check-only`, then
+`--execute`, with `--scope RELATIVE_JSON --reviewed-head HEAD40` as specified
+in [the contract](../state/analysis/P7_app_identified_delivery_contract.md).
+The compiled stream ID is 1; its positive session must equal the first 16 hex
+digits of the run ID. Each image/session is single use, including failed runs.
+The caller requires the existing dump setup grants, qualification and specific
+motor-run permission. Current board-only setup cannot supply those facts.
+Standalone commissioning deployment continues to refuse identified sessions.
+
+## Static competition firmware (D241)
+
+The fixed production selection is MATCH1/MOTORS_ALLOWED1, all diagnostic
+profiles off, static linking and Immediate startup:
+
+```text
+python -I -B tools/compile_match_static.py --check-only --profile match --motors-allowed 1 --attempt TOKEN --reviewed-head HEAD40
+python -I -B tools/compile_match_static.py --execute --profile match --motors-allowed 1 --attempt TOKEN --reviewed-head HEAD40
+```
+
+Compilation does not upload or run the firmware. Keep a single compiler active
+and retain the complete result. The exact FQBN is
+`arduino:zephyr:unoq:link_mode=static,wait_linux_boot=no`.
+
+Future `deploy_match_static.py` and `run_match_identified_delivery.py` accept
+`--check-only` or `--execute`, followed by `--scope RELATIVE_JSON
+--reviewed-head HEAD40`. Both require exact source/artifact qualification and
+fresh STAND OK or RING OK for that run. The paired route additionally requires
+the compiled fresh session and dump grants and validates the full recording.
+See [the fixed selection and scope contract](../state/analysis/P7_match_static_contract.md).
+Host tests and a compile-only result do not supply physical qualification.

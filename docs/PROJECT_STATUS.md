@@ -1,6 +1,6 @@
 # Current project status
 
-Updated 27 September 2026, 02:42 Dubai. Connected hardware: **UNO Q only**.
+Updated 27 September 2026, 03:05 Dubai. Connected hardware: **UNO Q only**.
 
 The firmware modules and commissioning software are implemented. The latest
 inhibited board diagnostic delivered a complete synthetic recording: **5,001
@@ -8,12 +8,17 @@ frames and 8 events**, with the expected session, opening envelope and checksum,
 and no reported loss. The receiver saved the original wire data and CSV files.
 [Result and evidence](../state/analysis/P7_recorder_repeat_delivery_actual_validation.md).
 
-Two release-tooling items are being closed: pairing a qualified application
-upload with a fresh recording session, and building the current competition
-firmware with static linking and Immediate startup. The application delivery
-tool has passed nine focused tests and independent source review.
-The production profile will receive a compile-only check. Motor-enabled firmware
-has not been authorized for upload or operation.
+The remaining release tooling is implemented and reviewed: identified application
+delivery, static/Immediate competition compilation, guarded deployment and paired
+recording reception. Their focused suites passed 9 and 6 tests respectively.
+The current competition build **passed on the UNO Q**, including package and
+layout validation and all nine closing checks. The package is 92,092 bytes; see
+[the compile evidence](../state/analysis/P7_match_static_actual_validation.md).
+It was not uploaded. The board retains the inhibited synthetic diagnostic.
+
+A final scope audit found no additional concrete software feature missing from
+the current runbook. Implementation and available board-only checks are complete;
+competition readiness still requires the physical acceptance below.
 
 The connected-board result uses synthetic inputs. Wiring, pin acceptance,
 sensor calibration, actual motor behavior, initialized robot timing, stopping

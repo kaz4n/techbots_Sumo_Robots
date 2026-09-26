@@ -25,3 +25,7 @@ invocation and actual result retrieval/review remain required. Scope removes
 only those three verified scratch copies and their empty directory. Credentials
 remain stdin-only; deletion uses restored Arduino IDs and final permanent drop.
 No firmware operation, motor permission, physical measurement or gate follows.
+
+
+## First host failure (2026-09-26T18:00:25.205280+04:00)
+First Linux completed52cases:51PASS/1FAIL, no skips, inner1.995s/outer12.223s. All66 coordinator inputs stayed exact. MetadataContract.test_fresh_stage_dependencies_and_old_basename_refusal expected the prior exact contract phrase, which differs from the adopted D211 sentence. Raw stderr ef7159ac, all first receipts and original oracle/fixture/freezes are preserved before independent adjudication. Windows and all native staging/authentication have not run. No production or cleanup subject changed.

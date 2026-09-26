@@ -1,0 +1,68 @@
+{
+  "schema": "d211-first-host-failure-v1",
+  "at": "2026-09-26T18:00:25.205280+04:00",
+  "run": "cleanup_first_linux01",
+  "outcomes": {
+    "pass": 51,
+    "fail": 1,
+    "skip": 0
+  },
+  "failed_method": "MetadataContract.test_fresh_stage_dependencies_and_old_basename_refusal",
+  "error": "AssertionError: expected contract phrase not found",
+  "expected_fixture_literal": "Create it\nexclusively with no-clobber behavior; never overwrite a prior result",
+  "actual_contract_literal": "Create the result exclusively with no-clobber behavior; never overwrite a\nprior result",
+  "original_pins": {
+    "tests/tooling/test_ordinary_app_cleanup.py": {
+      "bytes": 9719,
+      "sha256": "2f95c3c9fbb5d89160eb7a67b3dfa6a3b1a71007155ee1363364b7b9a8f68093"
+    },
+    "state/analysis/P7_ordinary_app_cleanup_raw/cleanup_fixture_derivation01.json": {
+      "bytes": 168830,
+      "sha256": "b2b1c0bfa2103b55808974a03024b7e61b764000c47e53b409cb437f93048663"
+    },
+    "state/analysis/P7_ordinary_app_cleanup_raw/cleanup_independent_freeze01.json": {
+      "bytes": 53682,
+      "sha256": "8050044eed07de89a477d2edd3843f1488d61f389ea2f1a7475bbea1ef1e7744"
+    },
+    "state/analysis/P7_ordinary_app_cleanup_raw/cleanup_coordinator_freeze01.json": {
+      "bytes": 12867,
+      "sha256": "e3a08f5bb8cdb528fd505e3deb53bd82e7027a5fc84a13b33e000ffaa8594edf"
+    },
+    "state/analysis/P7_ordinary_app_cleanup_raw/cleanup_host_driver01.py": {
+      "bytes": 3509,
+      "sha256": "aa2a3250ecca315661a1ba87543eb43c23749cc180434a6dcdb4d7cd97890b6b"
+    },
+    "state/analysis/P7_ordinary_app_cleanup_raw/cleanup_remoteocd05.py": {
+      "bytes": 7740,
+      "sha256": "1a59d4b2fc12a0b74a81f65847d7384002423882bd42f5242a98774c8bc02958"
+    },
+    "state/analysis/P7_ordinary_app_cleanup_raw/cleanup_root06.py": {
+      "bytes": 9607,
+      "sha256": "290a7236dc7cc5c6b679a72d5864fb99408dd21bbd30b7b8f3edf74c0fe10aa3"
+    },
+    "state/analysis/P7_ordinary_app_cleanup_contract.md": {
+      "bytes": 17371,
+      "sha256": "934945d6f26675e4f2d024d772c97cbf18e8fe000510a67ecda5586a1f45dac1"
+    },
+    "state/analysis/P7_ordinary_app_cleanup_raw/cleanup_first_linux01/intent.json": {
+      "bytes": 524,
+      "sha256": "b1547ec98888bae7eee54d0ca7209c5c9695fa9dc44bdced9236f958b917cd95"
+    },
+    "state/analysis/P7_ordinary_app_cleanup_raw/cleanup_first_linux01/result.json": {
+      "bytes": 849,
+      "sha256": "93ab6f86510b0b628a5790b382f6278dfc4b62711cef6c11e417e71addeb7a77"
+    },
+    "state/analysis/P7_ordinary_app_cleanup_raw/cleanup_first_linux01/stderr": {
+      "bytes": 27239,
+      "sha256": "ef7159acab7d0915e08e03758d072041ad93d584e04ddbb5cdb3169fb664ab63"
+    },
+    "state/analysis/P7_ordinary_app_cleanup_raw/cleanup_first_linux01/stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "changed_inputs": [],
+  "windows_run": false,
+  "native_staging_or_cleanup": false,
+  "status": "Preserve before independent adjudication; no correction or retry yet"
+}

@@ -1496,3 +1496,6 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-26T17:55:10.023684+04:00 | P7 | D211 cleanup contract adopted and exact source sealed | Reviewd46d5a36 PASS; recipe1a59d4b2/wrapper290a7236,4/6metadata steps; independentoracle pending; no cleanup execution | pending commit
+
+
+2026-09-26T18:00:25.205280+04:00 | P7 | D211 first Linux host failure preserved | 51PASS/1FAIL/0skip, all66pinsstable; stale exact contract-phrase fixture, adjudication pending. NoWindows/staging/cleanup | pending commit

@@ -1,0 +1,2765 @@
+{
+  "schema": "d211-independent-cleanup-fixture-derivation-v1",
+  "historical": {
+    "path": "tests/tooling/test_motor_settle_cleanup.py",
+    "bytes": 12023,
+    "sha256": "afbc97d1bd310646505d6fdc61b21db26418d27163b44700faa23a52a4842f2b"
+  },
+  "recipe": {
+    "path": "state/analysis/P7_ordinary_app_cleanup_raw/cleanup_derivation01.json",
+    "bytes": 30865,
+    "sha256": "96c12bcd19e94b86945908fd556591e9925c6b842a9e92b82ef0ee8787588694"
+  },
+  "contract": {
+    "path": "state/analysis/P7_ordinary_app_cleanup_contract.md",
+    "bytes": 17371,
+    "sha256": "934945d6f26675e4f2d024d772c97cbf18e8fe000510a67ecda5586a1f45dac1"
+  },
+  "historical_d206_fixture": {
+    "path": "state/analysis/P7_motor_const_cleanup_raw/cleanup_fixture_derivation01.json",
+    "bytes": 68656,
+    "sha256": "1c6fc3bad5be218059ec6069ab1e5b810a06522089641b30b11208c2c3d205b7"
+  },
+  "historical_d206_oracle": {
+    "path": "tests/tooling/test_motor_const_cleanup.py",
+    "bytes": 9686,
+    "sha256": "1f33e47b8e9e29342aee1fa19a65ad430bdfb5d7a863349b497f140deef39486"
+  },
+  "oracle_steps": [
+    {
+      "old": "NEW = 'state/analysis/P7_motor_settle_cleanup_raw/'",
+      "new": "NEW = 'state/analysis/P7_motor_const_cleanup_raw/'",
+      "count": 1,
+      "before": {
+        "bytes": 12023,
+        "sha256": "afbc97d1bd310646505d6fdc61b21db26418d27163b44700faa23a52a4842f2b"
+      },
+      "after": {
+        "bytes": 12022,
+        "sha256": "bf98156fe8682f463fab8661c2ed6a0518f76e0596f6773aec7d272f26b24f83"
+      }
+    },
+    {
+      "old": "CONTRACT = 'state/analysis/P7_motor_settle_cleanup_contract.md'",
+      "new": "CONTRACT = 'state/analysis/P7_motor_const_cleanup_contract.md'",
+      "count": 1,
+      "before": {
+        "bytes": 12022,
+        "sha256": "bf98156fe8682f463fab8661c2ed6a0518f76e0596f6773aec7d272f26b24f83"
+      },
+      "after": {
+        "bytes": 12021,
+        "sha256": "1d115da7ccd8c9a86c8b2379fcb577a6a7c70a5524703edfd3771947e7736e9d"
+      }
+    },
+    {
+      "old": "CONTRACT_PIN = (16277, '6cb02590369cdce1edd748987df363f99f336c9736dfd06e72906c4578457f47')",
+      "new": "CONTRACT_PIN = (16120, '25caada684cbf50964db02e3c8197fd75fdb6f0c448dd32df47067aa43c2c3ac')",
+      "count": 1,
+      "before": {
+        "bytes": 12021,
+        "sha256": "1d115da7ccd8c9a86c8b2379fcb577a6a7c70a5524703edfd3771947e7736e9d"
+      },
+      "after": {
+        "bytes": 12021,
+        "sha256": "edff28be1200cbb1dfe19158ac1cf89648f8f0b4094d766899c295c647a81ac5"
+      }
+    },
+    {
+      "old": "RECIPE_SHA = '6afeea1b9733670cdf315b2bf29b3e6e9c24016a2ba9217013e67496ec088f4d'",
+      "new": "RECIPE_SHA = 'edd1c8aa44f8de82cbfe1d7333b6ce836396922f82eacbe89d87fa6bcf3eb598'",
+      "count": 1,
+      "before": {
+        "bytes": 12021,
+        "sha256": "edff28be1200cbb1dfe19158ac1cf89648f8f0b4094d766899c295c647a81ac5"
+      },
+      "after": {
+        "bytes": 12021,
+        "sha256": "990cbcb537ce36d6291be580b28ecf1a80d786339e500bbd85164c72ca9642e6"
+      }
+    },
+    {
+      "old": "PROJECTED_SHA = '96d1197ec296906958f71c772102fdd34f7979525cde3e41222ee611025274c4'",
+      "new": "PROJECTED_SHA = '565acb3988bb0eba0c6865ac27daf5bbc277c85a67204f036bf098b3261b00be'",
+      "count": 1,
+      "before": {
+        "bytes": 12021,
+        "sha256": "990cbcb537ce36d6291be580b28ecf1a80d786339e500bbd85164c72ca9642e6"
+      },
+      "after": {
+        "bytes": 12021,
+        "sha256": "71b5a96a5d79cd5ab3d7437491dd5ebcf7fb4ddcf7a1de1048088cb15bae3c3e"
+      }
+    },
+    {
+      "old": "WRAPPER_SHA = '13f33327c5474d7c4dee56657a9d93b50e6fcdaee864e1855c916417a53c6290'",
+      "new": "WRAPPER_SHA = '1be147fe67bfafb60275ef1f741f05cfe2262be70c89b0eddbbfc3ec349837d4'",
+      "count": 1,
+      "before": {
+        "bytes": 12021,
+        "sha256": "71b5a96a5d79cd5ab3d7437491dd5ebcf7fb4ddcf7a1de1048088cb15bae3c3e"
+      },
+      "after": {
+        "bytes": 12021,
+        "sha256": "ab405ff3cddd0aaa345fc77164df59c15829b4d985a5d183be3b046d7f0ebe0f"
+      }
+    },
+    {
+      "old": "PAYLOAD_PATH = '/home/arduino/sumox26_codex_build/app-motor-observe-static01/build/' + PAYLOAD_NAME",
+      "new": "PAYLOAD_PATH = '/home/arduino/sumox26_codex_build/app-motor-settle-static01/build/app_motor_observe.ino.bin-zsk.bin'",
+      "count": 1,
+      "before": {
+        "bytes": 12021,
+        "sha256": "ab405ff3cddd0aaa345fc77164df59c15829b4d985a5d183be3b046d7f0ebe0f"
+      },
+      "after": {
+        "bytes": 12038,
+        "sha256": "84f25fb3d914ef8164a80d6aecb9f3709d5261feede76ae9052e3e869f336253"
+      }
+    },
+    {
+      "old": "PAYLOAD_SHA = '85b05c564fd3545c6b6e16fb64ed2aef8893226e32048309f1b71f97a5db4b6c'",
+      "new": "PAYLOAD_SHA = 'e400078166394d0f8ea44b601e9ba2948992c4f263c5c7ee5fb3942433c143d0'",
+      "count": 1,
+      "before": {
+        "bytes": 12038,
+        "sha256": "84f25fb3d914ef8164a80d6aecb9f3709d5261feede76ae9052e3e869f336253"
+      },
+      "after": {
+        "bytes": 12038,
+        "sha256": "c5fb63e67666c16f2aae3100546bac3365d4ac3ffc42f9a5e896211e3d907632"
+      }
+    },
+    {
+      "old": "FUTURE_PAYLOAD_SHA = 'e400078166394d0f8ea44b601e9ba2948992c4f263c5c7ee5fb3942433c143d0'",
+      "new": "FUTURE_PAYLOAD_SHA = 'f15c7ce1f0ff5fea2d44d0b60f0607f9adae22b83ba5043fe4de5e2b21fa26f7'",
+      "count": 1,
+      "before": {
+        "bytes": 12038,
+        "sha256": "c5fb63e67666c16f2aae3100546bac3365d4ac3ffc42f9a5e896211e3d907632"
+      },
+      "after": {
+        "bytes": 12038,
+        "sha256": "13e1c48227e45db9ff38aabfe17d76b407ce0a4144acfc3d64420c7943446048"
+      }
+    },
+    {
+      "old": "PINS = {\n    CONTRACT: CONTRACT_PIN, CORE: CORE_PIN, DELTA: DELTA_PIN,\n    PRIOR + 'cleanup_remoteocd02.py': (7735, PRIOR_RECIPE_SHA),\n    PRIOR + 'cleanup_root03.py': (9606, 'a089cc3bac9d8df3ffe53947e22b1bb4ffa139a733c7ebb1f5ba62e6d5bd804f'),\n    'state/analysis/P7_app_motor_observe_cleanup_contract.md': (12460, '7258230a63f48e09401186b8ad3bed09f958006909610cea835926427a3609f6'),\n    'state/analysis/P7_static_link_probe_raw/static_remote.py': (33321, '8ba9b190c38e728013a383348c60c287b0366607f65f703161cf7f2e142d36f8'),\n    NEW + 'observe_admission01.py': (9770, 'e4db653bf71bb2201549ea0ade3d637521520d6e2e9747473cf52fd6688aaa83'),\n    NEW + 'admission01.json': (24558, 'e95ebed4ee3d6441abccced02adbcc4857fe5f10418d94e158b009d3edecf922'),\n    'state/analysis/P7_app_motor_observe_compile_raw/native_static01/artifacts.json': (9651, '5ceba77dde7c493d66398bfd6d8e0e27e56345612290cb8fef9328f24b87625b'),\n    'state/analysis/P7_motor_settle_compile_raw/native_static01/artifacts.json': (9648, 'e18384c14c0b1367667b265ab4c532a4010be65697460a1cd45487bccd9eca10'),\n    NEW + 'cleanup_remoteocd03.py': (7740, RECIPE_SHA),\n    NEW + 'cleanup_root04.py': (9603, WRAPPER_SHA),\n}",
+      "new": "PINS = {'state/analysis/P7_motor_settle_cleanup_contract.md': (16277, '6cb02590369cdce1edd748987df363f99f336c9736dfd06e72906c4578457f47'), 'state/analysis/P7_app_motor_fault_run_raw/test_cleanup_root02.py': (37221, '225ef637e85dfe4ce1598e6744c781720b900905ea0c9c3bf0737d58b49e1559'), 'tests/tooling/test_app_motor_observe_cleanup.py': (14429, '18b150d239ba34aca30ce8b436036532a15e2c5aacb53ccf1166f51a68a831c0'), 'state/analysis/P7_app_motor_observe_run_raw/cleanup_remoteocd02.py': (7735, '1834edd39d628dccda0516f35cbc35434fd659c28392df6600cfdcf882e8ec9a'), 'state/analysis/P7_app_motor_observe_run_raw/cleanup_root03.py': (9606, 'a089cc3bac9d8df3ffe53947e22b1bb4ffa139a733c7ebb1f5ba62e6d5bd804f'), 'state/analysis/P7_app_motor_observe_cleanup_contract.md': (12460, '7258230a63f48e09401186b8ad3bed09f958006909610cea835926427a3609f6'), 'state/analysis/P7_static_link_probe_raw/static_remote.py': (33321, '8ba9b190c38e728013a383348c60c287b0366607f65f703161cf7f2e142d36f8'), 'state/analysis/P7_motor_settle_cleanup_raw/observe_admission01.py': (9770, 'e4db653bf71bb2201549ea0ade3d637521520d6e2e9747473cf52fd6688aaa83'), 'state/analysis/P7_motor_settle_cleanup_raw/admission01.json': (24558, 'e95ebed4ee3d6441abccced02adbcc4857fe5f10418d94e158b009d3edecf922'), 'state/analysis/P7_app_motor_observe_compile_raw/native_static01/artifacts.json': (9651, '5ceba77dde7c493d66398bfd6d8e0e27e56345612290cb8fef9328f24b87625b'), 'state/analysis/P7_motor_settle_compile_raw/native_static01/artifacts.json': (9648, 'e18384c14c0b1367667b265ab4c532a4010be65697460a1cd45487bccd9eca10'), 'state/analysis/P7_motor_settle_cleanup_raw/cleanup_remoteocd03.py': (7740, '6afeea1b9733670cdf315b2bf29b3e6e9c24016a2ba9217013e67496ec088f4d'), 'state/analysis/P7_motor_settle_cleanup_raw/cleanup_root04.py': (9603, '13f33327c5474d7c4dee56657a9d93b50e6fcdaee864e1855c916417a53c6290'), 'state/analysis/P7_motor_const_cleanup_contract.md': (16120, '25caada684cbf50964db02e3c8197fd75fdb6f0c448dd32df47067aa43c2c3ac'), 'state/analysis/P7_motor_const_cleanup_raw/admission01.json': (24555, 'addee38e4e6a4721b712ff861ded9ae4330b04a1b7f119632320805b4146b3a7'), 'state/analysis/P7_motor_const_cleanup_raw/inventory_derivation01.json': (3615, 'd2537c7470b2dfc80d65d4aee1c656a17edecacf5aeb1b0e56991dcb9e4f97df'), 'state/analysis/P7_motor_const_cleanup_raw/observe_admission01.py': (9769, '462c0534826b19d0722f86c69444a61bc55309514d7741ce196f40292a85ecd8'), 'state/analysis/P7_motor_const_compile_raw/native_static01/artifacts.json': (9645, 'fc5eb9e233c4642e0388f14132efdebab535d55134ce39c43d33c485d67e4ddd'), 'state/analysis/P7_motor_settle_cleanup_raw/cleanup_absence01.json': (21530, '83913618afbb11a061c9d46e90402f58479808ea09ec354ff49d806b4b034a58'), 'state/analysis/P7_motor_settle_cleanup_raw/cleanup_actual_result.json': (6370, '05507941ebbc8f9ba88c366dbf3c762e80042654a7c8de9166637ecc4e7c7ebd'), 'state/analysis/P7_motor_settle_cleanup_raw/cleanup_authenticated_intent01.json': (1072, '5f78e1dc7c68d3aaa72883360b069b8fd790b4769e5e62e198251585b0d076d5'), 'state/analysis/P7_motor_settle_cleanup_raw/cleanup_retrieval01.json': (46397, 'b7b776c998ace2c3e8e44e6208db298298c935b587ad5bbdbf172f843aa35c06'), 'state/analysis/P7_motor_settle_cleanup_raw/cleanup_stage_intent01.json': (20649, '09584e7a4dfe232705201c3f3f254736147813d43daed98fc98caddf673d74d9'), 'state/analysis/P7_motor_settle_cleanup_raw/cleanup_stage_verification01.json': (30404, 'f0ca0f685aeb77b9340d19c80e1242f073b824ff993200f3ff34f5b338b8e05b'), 'state/analysis/P7_motor_settle_cleanup_raw/cleanup_stage_verification02.json': (39917, '2c7a1ad2955f4835c05f289ca63bba25a210772c51cd65750ada997c7d4699bb'), 'state/analysis/P7_motor_settle_cleanup_raw/independent_test_freeze01.json': (15494, 'b5d1721358f5dd8d6e8f6acdf9caaa192f791b876e6b91e7154b17e080ad873b'), 'state/reviews/P7_motor_const_cleanup_inventory_review.md': (5672, 'dd2bce4966fa4e782af5b12d2871d02420d1d8cc5217f2d553f810a9eca8f7df'), 'state/reviews/P7_motor_settle_actual_review.md': (14116, '690a41643fc06a7d5c56ab61cc89113d602d8d6dee9e436cdbb09e3f7f19a0bc'), 'state/reviews/P7_motor_settle_cleanup_actual_review.md': (6870, '5bc9d56dadc6092ba327517163ca037df729641258b0842ab017d000eee994e6'), 'state/reviews/P7_motor_settle_cleanup_stage_review.md': (7179, '7e0181e54b21fb5869670afc5875eaacfaadf368231a7a0d38af7e40ead840f6'), 'tests/tooling/test_motor_settle_cleanup.py': (12023, 'afbc97d1bd310646505d6fdc61b21db26418d27163b44700faa23a52a4842f2b'), 'state/analysis/P7_motor_const_cleanup_raw/cleanup_remoteocd04.py': (7738, 'edd1c8aa44f8de82cbfe1d7333b6ce836396922f82eacbe89d87fa6bcf3eb598'), 'state/analysis/P7_motor_const_cleanup_raw/cleanup_root05.py': (9601, '1be147fe67bfafb60275ef1f741f05cfe2262be70c89b0eddbbfc3ec349837d4')}",
+      "count": 1,
+      "before": {
+        "bytes": 12038,
+        "sha256": "13e1c48227e45db9ff38aabfe17d76b407ce0a4144acfc3d64420c7943446048"
+      },
+      "after": {
+        "bytes": 15588,
+        "sha256": "8358850e05b51aa3e3ddce3f863cb3c36a17abec10ba59bd5c7328939ce79b0b"
+      }
+    },
+    {
+      "old": "NEW_PAYLOAD = \"    '\" + PAYLOAD_NAME + \"': (95360, '\" + PAYLOAD_SHA + \"',\\n        '\" + PAYLOAD_PATH + \"'),\\n\"",
+      "new": "NEW_PAYLOAD = \"    'app_motor_observe.ino.bin-zsk.bin': (95520, 'e400078166394d0f8ea44b601e9ba2948992c4f263c5c7ee5fb3942433c143d0',\\n        '/home/arduino/sumox26_codex_build/app-motor-settle-static01/build/app_motor_observe.ino.bin-zsk.bin'),\\n\"",
+      "count": 1,
+      "before": {
+        "bytes": 15588,
+        "sha256": "8358850e05b51aa3e3ddce3f863cb3c36a17abec10ba59bd5c7328939ce79b0b"
+      },
+      "after": {
+        "bytes": 15725,
+        "sha256": "7862dbae54e7329605ba937c839eb044eeaeaf8ca03f879dc52823e70cc1ed01"
+      }
+    },
+    {
+      "old": "CORE_CHANGES = (\n    ('cleanup-app-inert-root02', 'cleanup-app-settle-root04', 1),\n    ('cleanup_remoteocd01.py', 'cleanup_remoteocd03.py', 5),\n    ('cleanup_root02.py', 'cleanup_root04.py', 2),\n    ('_independent_cleanup_root02', '_independent_cleanup_root04', 1),\n    ('7873', '7740', 1), ('7870', '7737', 1),\n    (OLD_RECIPE_SHA, RECIPE_SHA, 1), (OLD_PROJECTED_SHA, PROJECTED_SHA, 1),\n    ('d190-exact-scratch-cleanup-v1', 'd200-exact-settle-scratch-cleanup-v1', 3),\n    ('d190-human-root-cleanup-v2', 'd200-authenticated-settle-cleanup-v1', 1),\n    (\"fs.records['/tmp/remoteocd'].st_ino = 33\", \"fs.records['/tmp/remoteocd'].st_ino = 1172\", 1),\n)",
+      "new": "CORE_CHANGES = (('cleanup-app-inert-root02', 'cleanup-app-const-root05', 1), ('cleanup_remoteocd01.py', 'cleanup_remoteocd04.py', 5), ('cleanup_root02.py', 'cleanup_root05.py', 2), ('_independent_cleanup_root02', '_independent_cleanup_root05', 1), ('7873', '7738', 1), ('7870', '7735', 1), ('23ef85ae3c386cc76751eea0fb18a90148a6fe513e3e8c753d527c06efcbbe95', 'edd1c8aa44f8de82cbfe1d7333b6ce836396922f82eacbe89d87fa6bcf3eb598', 1), ('51286ad414794e82f3161bed16cbb47dca421e831316e053a7eab967469f602e', '565acb3988bb0eba0c6865ac27daf5bbc277c85a67204f036bf098b3261b00be', 1), ('d190-exact-scratch-cleanup-v1', 'd206-exact-const-scratch-cleanup-v1', 3), ('d190-human-root-cleanup-v2', 'd206-authenticated-const-cleanup-v1', 1), (\"fs.records['/tmp/remoteocd'].st_ino = 33\", \"fs.records['/tmp/remoteocd'].st_ino = 1452\", 1))",
+      "count": 1,
+      "before": {
+        "bytes": 15725,
+        "sha256": "7862dbae54e7329605ba937c839eb044eeaeaf8ca03f879dc52823e70cc1ed01"
+      },
+      "after": {
+        "bytes": 15893,
+        "sha256": "ea8a8ff98711543069c652450897063999e182ba122a2acefebadd67d28b3bba"
+      }
+    },
+    {
+      "old": "DELTA_CHANGES = (\n    ('cleanup_remoteocd02.py', 'cleanup_remoteocd03.py', 7),\n    ('cleanup_root03.py', 'cleanup_root04.py', 2),\n    ('cleanup-app-observe-root03', 'cleanup-app-settle-root04', 1),\n    ('7732', '7737', 1), ('7735', '7740', 1),\n    ('result_root03.json', 'result_root04.json', 1),\n    ('create\\\\nit exclusively, never overwrite it',\n     'Create it\\\\nexclusively with no-clobber behavior; never overwrite a prior result', 1),\n    ('(95328, PAYLOAD_SHA', '(95360, PAYLOAD_SHA', 1), ('2399736', '2399768', 1),\n    (\"'motor_fault.ino.elf-zsk.bin', 'flash_sketch.cfg'\", \"'app_motor_fault.ino.bin-zsk.bin', 'flash_sketch.cfg'\", 1),\n    (\"(b'x' * 29836, b'x' * 95328, b'x' * 95329)\", \"(b'x' * 95328, b'x' * 95360, b'x' * 95361)\", 1),\n    ('b4416792a5bc228f34712fad9199a07c3c480aace979faa88aa12b50288b0a79', PRIOR_PAYLOAD_SHA, 1),\n    (\"recipe.checked_bytes(b'x' * 95328, pin)\", \"recipe.checked_bytes(b'x' * 95360, pin)\", 1),\n    ('(33, 869)', '(869, 1172)', 1), ('if inode == 33 else', 'if inode == 869 else', 1),\n    ('int(inode == 869)', 'int(inode == 1172)', 1),\n    ('self.directory_fixture(recipe, 869)', 'self.directory_fixture(recipe, 1172)', 1),\n    (\"'motor-fault-active01'\", \"'app-motor-fault-static01'\", 1),\n)",
+      "new": "DELTA_CHANGES = (('cleanup_remoteocd02.py', 'cleanup_remoteocd04.py', 7), ('cleanup_root03.py', 'cleanup_root05.py', 2), ('cleanup-app-observe-root03', 'cleanup-app-const-root05', 1), ('7735', '7738', 1), ('7732', '7735', 1), ('result_root03.json', 'result_root05.json', 1), ('create\\\\nit exclusively, never overwrite it', 'Create it\\\\nexclusively with no-clobber behavior; never overwrite a prior result', 1), ('(95328, PAYLOAD_SHA', '(95520, PAYLOAD_SHA', 1), ('2399736', '2399928', 1), (\"'motor_fault.ino.elf-zsk.bin', 'flash_sketch.cfg'\", \"'app_motor_fault.ino.bin-zsk.bin', 'flash_sketch.cfg'\", 1), (\"(b'x' * 29836, b'x' * 95328, b'x' * 95329)\", \"(b'x' * 95328, b'x' * 95520, b'x' * 95521)\", 1), ('b4416792a5bc228f34712fad9199a07c3c480aace979faa88aa12b50288b0a79', 'deb40317e5c444af26e65da4b6f1d0e577d9897d59dbddff3bce03a7bc14335c', 1), (\"recipe.checked_bytes(b'x' * 95328, pin)\", \"recipe.checked_bytes(b'x' * 95520, pin)\", 1), ('(33, 869)', '(1172, 1452)', 1), ('if inode == 33 else', 'if inode == 1172 else', 1), ('int(inode == 869)', 'int(inode == 1452)', 1), ('self.directory_fixture(recipe, 869)', 'self.directory_fixture(recipe, 1452)', 1), (\"'motor-fault-active01'\", \"'app-motor-fault-static01'\", 1))",
+      "count": 1,
+      "before": {
+        "bytes": 15893,
+        "sha256": "ea8a8ff98711543069c652450897063999e182ba122a2acefebadd67d28b3bba"
+      },
+      "after": {
+        "bytes": 15875,
+        "sha256": "730efb4aa10af6049f17f7e02958229e18876c25dd7d1fa152e20a3de6daaa1f"
+      }
+    },
+    {
+      "old": "def recipe_projection():\n    raw = replace_checked(checked(PRIOR + 'cleanup_remoteocd02.py'), (\n        ('D190', 'D195', 1), (OLD_PAYLOAD, NEW_PAYLOAD, 1),\n        ('info.st_ino == 869', 'info.st_ino == 1172', 1),\n        ('d196-exact-observer-scratch-cleanup-v1', 'd200-exact-settle-scratch-cleanup-v1', 1)))\n    if (len(raw), sha(raw)) != PINS[NEW + 'cleanup_remoteocd03.py']:\n        raise AssertionError('Independent recipe identity')\n    return raw",
+      "new": "def recipe_projection():\n    raw = replace_checked(checked(PRIOR + 'cleanup_remoteocd02.py'), (\n        ('D190', 'D201', 1), (OLD_PAYLOAD, NEW_PAYLOAD, 1),\n        ('info.st_ino == 869', 'info.st_ino == 1452', 1),\n        ('d196-exact-observer-scratch-cleanup-v1', 'd206-exact-const-scratch-cleanup-v1', 1)))\n    if (len(raw), sha(raw)) != PINS[NEW + 'cleanup_remoteocd04.py']:\n        raise AssertionError('Independent recipe identity')\n    return raw",
+      "count": 1,
+      "before": {
+        "bytes": 15875,
+        "sha256": "730efb4aa10af6049f17f7e02958229e18876c25dd7d1fa152e20a3de6daaa1f"
+      },
+      "after": {
+        "bytes": 15874,
+        "sha256": "b46c893b668e9706ab6835277a19352f19095c3d2cbb071fef09091fe6d26f51"
+      }
+    },
+    {
+      "old": "def wrapper_projection():\n    raw = replace_checked(checked(PRIOR + 'cleanup_root03.py'), (\n        ('cleanup-app-observe-root03', 'cleanup-app-settle-root04', 1),\n        ('cleanup_remoteocd02.py', 'cleanup_remoteocd03.py', 4), ('7735', '7740', 1),\n        (PRIOR_RECIPE_SHA, RECIPE_SHA, 1), (PRIOR_PROJECTED_SHA, PROJECTED_SHA, 1),\n        ('d196-authenticated-observer-cleanup-v1', 'd200-authenticated-settle-cleanup-v1', 1)))\n    if (len(raw), sha(raw)) != PINS[NEW + 'cleanup_root04.py']:\n        raise AssertionError('Independent wrapper identity')\n    return raw",
+      "new": "def wrapper_projection():\n    raw = replace_checked(checked(PRIOR + 'cleanup_root03.py'), (\n        ('cleanup-app-observe-root03', 'cleanup-app-const-root05', 1),\n        ('cleanup_remoteocd02.py', 'cleanup_remoteocd04.py', 4), ('7735', '7738', 1),\n        (PRIOR_RECIPE_SHA, RECIPE_SHA, 1), (PRIOR_PROJECTED_SHA, PROJECTED_SHA, 1),\n        ('d196-authenticated-observer-cleanup-v1', 'd206-authenticated-const-cleanup-v1', 1)))\n    if (len(raw), sha(raw)) != PINS[NEW + 'cleanup_root05.py']:\n        raise AssertionError('Independent wrapper identity')\n    return raw",
+      "count": 1,
+      "before": {
+        "bytes": 15874,
+        "sha256": "b46c893b668e9706ab6835277a19352f19095c3d2cbb071fef09091fe6d26f51"
+      },
+      "after": {
+        "bytes": 15872,
+        "sha256": "c1519fd92752ace296a631ab8eb967cc7c6c7606e1d2f21f594ba315c4c9e178"
+      }
+    },
+    {
+      "old": "(37255, '4109c339f8d6a8faa195b671a8b20ce778810bd895e04846b84784f58610a33f')",
+      "new": "(37250, 'dfd89dea54a6bba65db4c7678f1cc0a9062e2bbea203405d30c7ba0b2985d263')",
+      "count": 1,
+      "before": {
+        "bytes": 15872,
+        "sha256": "c1519fd92752ace296a631ab8eb967cc7c6c7606e1d2f21f594ba315c4c9e178"
+      },
+      "after": {
+        "bytes": 15872,
+        "sha256": "647b946483930e065e13e8d81cf3b8131267fe0ea47b4edac5aed7ece7e9ce32"
+      }
+    },
+    {
+      "old": "(14478, 'fc1ce156a78519c041a8836191583f4548fc7846d5c229060818dfbc9a33f0a2')",
+      "new": "(14479, 'a44d6dc1ed6859ec2f06cb862f66d532355ed58c5ac4f1261958a898c8070879')",
+      "count": 1,
+      "before": {
+        "bytes": 15872,
+        "sha256": "647b946483930e065e13e8d81cf3b8131267fe0ea47b4edac5aed7ece7e9ce32"
+      },
+      "after": {
+        "bytes": 15872,
+        "sha256": "e44199b0158ea8a781916e8a8849a41e5a62f30f866a2e71d2173671349d47dc"
+      }
+    },
+    {
+      "old": "def focused_cases(oracle):\n    class CurrentCopyRefusals(unittest.TestCase):\n        def test_D190_and_D198_package_bytes_cannot_replace_the_current_D193_copy(self):\n            recipe = oracle.definitions('cleanup_remoteocd03.py')\n            before = dict(recipe.PINS); pin = recipe.PINS[PAYLOAD_NAME]\n            self.assertEqual(pin, (95360, PAYLOAD_SHA, PAYLOAD_PATH))\n            for wrong_size in (95328, 95520):\n                with self.subTest(size=wrong_size), self.assertRaisesRegex(ValueError, 'Copy or original differs'):\n                    recipe.checked_bytes(b'x' * wrong_size, pin)\n            for wrong_digest in (PRIOR_PAYLOAD_SHA, FUTURE_PAYLOAD_SHA):\n                digest = mock.Mock(return_value=types.SimpleNamespace(hexdigest=lambda: wrong_digest))\n                recipe.hashlib = types.SimpleNamespace(sha256=digest)\n                with self.subTest(digest=wrong_digest), self.assertRaisesRegex(ValueError, 'Copy or original differs'):\n                    recipe.checked_bytes(b'x' * 95360, pin)\n                digest.assert_called_once()\n            self.assertEqual(recipe.PINS, before)\n\n        def test_previous_source_names_and_stage_schema_source_drift_fail_before_execution(self):\n            wrapper = oracle.definitions('cleanup_root04.py')\n            wrapper.os = types.SimpleNamespace(open=mock.Mock(side_effect=AssertionError('Unknown source opened')))\n            for name in ('cleanup_remoteocd01.py', 'cleanup_remoteocd02.py', 'cleanup_root03.py'):\n                with self.subTest(name=name), self.assertRaisesRegex(ValueError, 'Unknown source basename'):\n                    wrapper.read_source(name)\n            wrapper.os.open.assert_not_called()\n            name = NEW + 'cleanup_root04.py'; current = checked(name)\n            # These are rejected SOURCE substitutions, not a new JSON schema predicate.\n            for before, after in (\n                    (b'cleanup-app-settle-root04', b'cleanup-app-observe-root03'),\n                    (b'd200-authenticated-settle-cleanup-v1', b'd196-authenticated-observer-cleanup-v1')):\n                self.assertEqual(current.count(before), 1)\n                wrong = current.replace(before, after); read = Path.read_bytes\n                def observed(path):\n                    return wrong if path == ROOT / name else read(path)\n                with mock.patch.object(Path, 'read_bytes', observed), self.assertRaisesRegex(AssertionError, 'Frozen input changed'):\n                    oracle.definitions('cleanup_root04.py')\n\n    return CurrentCopyRefusals",
+      "new": "def focused_cases(oracle):\n    class CurrentCopyRefusals(unittest.TestCase):\n        def test_D190_D195_and_D203_packages_cannot_replace_current_D201_copy(self):\n            recipe = oracle.definitions('cleanup_remoteocd04.py')\n            before = dict(recipe.PINS); pin = recipe.PINS[PAYLOAD_NAME]\n            self.assertEqual(pin, (95520, PAYLOAD_SHA, PAYLOAD_PATH))\n            for wrong_size in (95328, 95360, 95368):\n                with self.subTest(size=wrong_size), self.assertRaisesRegex(ValueError, 'Copy or original differs'):\n                    recipe.checked_bytes(b'x' * wrong_size, pin)\n            for wrong_digest in (PRIOR_PAYLOAD_SHA, '85b05c564fd3545c6b6e16fb64ed2aef8893226e32048309f1b71f97a5db4b6c', FUTURE_PAYLOAD_SHA):\n                digest = mock.Mock(return_value=types.SimpleNamespace(hexdigest=lambda: wrong_digest))\n                recipe.hashlib = types.SimpleNamespace(sha256=digest)\n                with self.subTest(digest=wrong_digest), self.assertRaisesRegex(ValueError, 'Copy or original differs'):\n                    recipe.checked_bytes(b'x' * 95520, pin)\n                digest.assert_called_once()\n            self.assertEqual(recipe.PINS, before)\n\n        def test_previous_source_names_and_stage_schema_source_drift_fail_before_execution(self):\n            wrapper = oracle.definitions('cleanup_root05.py')\n            wrapper.os = types.SimpleNamespace(open=mock.Mock(side_effect=AssertionError('Unknown source opened')))\n            for name in ('cleanup_remoteocd01.py', 'cleanup_remoteocd02.py', 'cleanup_remoteocd03.py', 'cleanup_root03.py', 'cleanup_root04.py'):\n                with self.subTest(name=name), self.assertRaisesRegex(ValueError, 'Unknown source basename'):\n                    wrapper.read_source(name)\n            wrapper.os.open.assert_not_called()\n            name = NEW + 'cleanup_root05.py'; current = checked(name)\n            # These are rejected SOURCE substitutions, not a new JSON schema predicate.\n            for before, after in (\n                    (b'cleanup-app-const-root05', b'cleanup-app-settle-root04'),\n                    (b'd206-authenticated-const-cleanup-v1', b'd200-authenticated-settle-cleanup-v1')):\n                self.assertEqual(current.count(before), 1)\n                wrong = current.replace(before, after); read = Path.read_bytes\n                def observed(path):\n                    return wrong if path == ROOT / name else read(path)\n                with mock.patch.object(Path, 'read_bytes', observed), self.assertRaisesRegex(AssertionError, 'Frozen input changed'):\n                    oracle.definitions('cleanup_root05.py')\n\n    return CurrentCopyRefusals",
+      "count": 1,
+      "before": {
+        "bytes": 15872,
+        "sha256": "e44199b0158ea8a781916e8a8849a41e5a62f30f866a2e71d2173671349d47dc"
+      },
+      "after": {
+        "bytes": 15985,
+        "sha256": "dc30ff593ee2b88462cf47b9565a8877804cf5577dc7508fa95e31326a052bcb"
+      }
+    },
+    {
+      "old": "NEW = 'state/analysis/P7_motor_const_cleanup_raw/'",
+      "new": "NEW = 'state/analysis/P7_ordinary_app_cleanup_raw/'",
+      "count": 1,
+      "before": {
+        "bytes": 15985,
+        "sha256": "dc30ff593ee2b88462cf47b9565a8877804cf5577dc7508fa95e31326a052bcb"
+      },
+      "after": {
+        "bytes": 15986,
+        "sha256": "699d7d0320a35fb6e92e03c8308f921520692cb5b552f7a7ba3d52dbe08a9b6e"
+      }
+    },
+    {
+      "old": "CONTRACT = 'state/analysis/P7_motor_const_cleanup_contract.md'",
+      "new": "CONTRACT = 'state/analysis/P7_ordinary_app_cleanup_contract.md'",
+      "count": 1,
+      "before": {
+        "bytes": 15986,
+        "sha256": "699d7d0320a35fb6e92e03c8308f921520692cb5b552f7a7ba3d52dbe08a9b6e"
+      },
+      "after": {
+        "bytes": 15987,
+        "sha256": "9b96d6c55b3b025cc126b7b96d55dd27fde2404c5c2cef493535ea40dce36efb"
+      }
+    },
+    {
+      "old": "CONTRACT_PIN = (16120, '25caada684cbf50964db02e3c8197fd75fdb6f0c448dd32df47067aa43c2c3ac')",
+      "new": "CONTRACT_PIN = (17371, '934945d6f26675e4f2d024d772c97cbf18e8fe000510a67ecda5586a1f45dac1')",
+      "count": 1,
+      "before": {
+        "bytes": 15987,
+        "sha256": "9b96d6c55b3b025cc126b7b96d55dd27fde2404c5c2cef493535ea40dce36efb"
+      },
+      "after": {
+        "bytes": 15987,
+        "sha256": "15667de19ff52eef34b2e22876dea1ba8f198ca6dfb7b9b26b6f0b0f46d4bd62"
+      }
+    },
+    {
+      "old": "RECIPE_SHA = 'edd1c8aa44f8de82cbfe1d7333b6ce836396922f82eacbe89d87fa6bcf3eb598'",
+      "new": "RECIPE_SHA = '1a59d4b2fc12a0b74a81f65847d7384002423882bd42f5242a98774c8bc02958'",
+      "count": 1,
+      "before": {
+        "bytes": 15987,
+        "sha256": "15667de19ff52eef34b2e22876dea1ba8f198ca6dfb7b9b26b6f0b0f46d4bd62"
+      },
+      "after": {
+        "bytes": 15987,
+        "sha256": "65c999df4fab28047269fac258c275f42ef8b5e3510f7ad41907b06471d0a49e"
+      }
+    },
+    {
+      "old": "WRAPPER_SHA = '1be147fe67bfafb60275ef1f741f05cfe2262be70c89b0eddbbfc3ec349837d4'",
+      "new": "WRAPPER_SHA = '290a7236dc7cc5c6b679a72d5864fb99408dd21bbd30b7b8f3edf74c0fe10aa3'",
+      "count": 1,
+      "before": {
+        "bytes": 15987,
+        "sha256": "65c999df4fab28047269fac258c275f42ef8b5e3510f7ad41907b06471d0a49e"
+      },
+      "after": {
+        "bytes": 15987,
+        "sha256": "6c83f0466af342d43a89da61a630563b2829e5674adbf423f80355e166263861"
+      }
+    },
+    {
+      "old": "PROJECTED_SHA = '565acb3988bb0eba0c6865ac27daf5bbc277c85a67204f036bf098b3261b00be'",
+      "new": "PROJECTED_SHA = 'e90a5189a76d05bd7674d1bb771b9f480d59b5b26cc4a390109c47431a69d731'",
+      "count": 1,
+      "before": {
+        "bytes": 15987,
+        "sha256": "6c83f0466af342d43a89da61a630563b2829e5674adbf423f80355e166263861"
+      },
+      "after": {
+        "bytes": 15987,
+        "sha256": "3ba7aa0f51dbc1cf6e3677fd9ed42c2bb8947c35cb9086b20f866c531d1d77f6"
+      }
+    },
+    {
+      "old": "PAYLOAD_PATH = '/home/arduino/sumox26_codex_build/app-motor-settle-static01/build/app_motor_observe.ino.bin-zsk.bin'",
+      "new": "PAYLOAD_PATH = '/home/arduino/sumox26_codex_build/app-motor-const-static01/build/app_motor_observe.ino.bin-zsk.bin'",
+      "count": 1,
+      "before": {
+        "bytes": 15987,
+        "sha256": "3ba7aa0f51dbc1cf6e3677fd9ed42c2bb8947c35cb9086b20f866c531d1d77f6"
+      },
+      "after": {
+        "bytes": 15986,
+        "sha256": "3da884d4dd5ef195c4381856eb1ebb439463151302c00f1a992637042998ce01"
+      }
+    },
+    {
+      "old": "PAYLOAD_SHA = 'e400078166394d0f8ea44b601e9ba2948992c4f263c5c7ee5fb3942433c143d0'",
+      "new": "PAYLOAD_SHA = 'f15c7ce1f0ff5fea2d44d0b60f0607f9adae22b83ba5043fe4de5e2b21fa26f7'",
+      "count": 1,
+      "before": {
+        "bytes": 15986,
+        "sha256": "3da884d4dd5ef195c4381856eb1ebb439463151302c00f1a992637042998ce01"
+      },
+      "after": {
+        "bytes": 15986,
+        "sha256": "b97b36b4866b7f319bae2b4aaa006477338b82d1c113d7e71de5364776151173"
+      }
+    },
+    {
+      "old": "FUTURE_PAYLOAD_SHA = 'f15c7ce1f0ff5fea2d44d0b60f0607f9adae22b83ba5043fe4de5e2b21fa26f7'",
+      "new": "FUTURE_PAYLOAD_SHA = '7fa9d41da043931e1237712e1e88bda4151c82933af2ecec97ce3a02184d23ad'",
+      "count": 1,
+      "before": {
+        "bytes": 15986,
+        "sha256": "b97b36b4866b7f319bae2b4aaa006477338b82d1c113d7e71de5364776151173"
+      },
+      "after": {
+        "bytes": 15986,
+        "sha256": "50cd89415e0e4659a39b256775702f095d509598d4ca661f263091f07cd2cd1d"
+      }
+    },
+    {
+      "old": "PINS = {'state/analysis/P7_motor_settle_cleanup_contract.md': (16277, '6cb02590369cdce1edd748987df363f99f336c9736dfd06e72906c4578457f47'), 'state/analysis/P7_app_motor_fault_run_raw/test_cleanup_root02.py': (37221, '225ef637e85dfe4ce1598e6744c781720b900905ea0c9c3bf0737d58b49e1559'), 'tests/tooling/test_app_motor_observe_cleanup.py': (14429, '18b150d239ba34aca30ce8b436036532a15e2c5aacb53ccf1166f51a68a831c0'), 'state/analysis/P7_app_motor_observe_run_raw/cleanup_remoteocd02.py': (7735, '1834edd39d628dccda0516f35cbc35434fd659c28392df6600cfdcf882e8ec9a'), 'state/analysis/P7_app_motor_observe_run_raw/cleanup_root03.py': (9606, 'a089cc3bac9d8df3ffe53947e22b1bb4ffa139a733c7ebb1f5ba62e6d5bd804f'), 'state/analysis/P7_app_motor_observe_cleanup_contract.md': (12460, '7258230a63f48e09401186b8ad3bed09f958006909610cea835926427a3609f6'), 'state/analysis/P7_static_link_probe_raw/static_remote.py': (33321, '8ba9b190c38e728013a383348c60c287b0366607f65f703161cf7f2e142d36f8'), 'state/analysis/P7_motor_settle_cleanup_raw/observe_admission01.py': (9770, 'e4db653bf71bb2201549ea0ade3d637521520d6e2e9747473cf52fd6688aaa83'), 'state/analysis/P7_motor_settle_cleanup_raw/admission01.json': (24558, 'e95ebed4ee3d6441abccced02adbcc4857fe5f10418d94e158b009d3edecf922'), 'state/analysis/P7_app_motor_observe_compile_raw/native_static01/artifacts.json': (9651, '5ceba77dde7c493d66398bfd6d8e0e27e56345612290cb8fef9328f24b87625b'), 'state/analysis/P7_motor_settle_compile_raw/native_static01/artifacts.json': (9648, 'e18384c14c0b1367667b265ab4c532a4010be65697460a1cd45487bccd9eca10'), 'state/analysis/P7_motor_settle_cleanup_raw/cleanup_remoteocd03.py': (7740, '6afeea1b9733670cdf315b2bf29b3e6e9c24016a2ba9217013e67496ec088f4d'), 'state/analysis/P7_motor_settle_cleanup_raw/cleanup_root04.py': (9603, '13f33327c5474d7c4dee56657a9d93b50e6fcdaee864e1855c916417a53c6290'), 'state/analysis/P7_motor_const_cleanup_contract.md': (16120, '25caada684cbf50964db02e3c8197fd75fdb6f0c448dd32df47067aa43c2c3ac'), 'state/analysis/P7_motor_const_cleanup_raw/admission01.json': (24555, 'addee38e4e6a4721b712ff861ded9ae4330b04a1b7f119632320805b4146b3a7'), 'state/analysis/P7_motor_const_cleanup_raw/inventory_derivation01.json': (3615, 'd2537c7470b2dfc80d65d4aee1c656a17edecacf5aeb1b0e56991dcb9e4f97df'), 'state/analysis/P7_motor_const_cleanup_raw/observe_admission01.py': (9769, '462c0534826b19d0722f86c69444a61bc55309514d7741ce196f40292a85ecd8'), 'state/analysis/P7_motor_const_compile_raw/native_static01/artifacts.json': (9645, 'fc5eb9e233c4642e0388f14132efdebab535d55134ce39c43d33c485d67e4ddd'), 'state/analysis/P7_motor_settle_cleanup_raw/cleanup_absence01.json': (21530, '83913618afbb11a061c9d46e90402f58479808ea09ec354ff49d806b4b034a58'), 'state/analysis/P7_motor_settle_cleanup_raw/cleanup_actual_result.json': (6370, '05507941ebbc8f9ba88c366dbf3c762e80042654a7c8de9166637ecc4e7c7ebd'), 'state/analysis/P7_motor_settle_cleanup_raw/cleanup_authenticated_intent01.json': (1072, '5f78e1dc7c68d3aaa72883360b069b8fd790b4769e5e62e198251585b0d076d5'), 'state/analysis/P7_motor_settle_cleanup_raw/cleanup_retrieval01.json': (46397, 'b7b776c998ace2c3e8e44e6208db298298c935b587ad5bbdbf172f843aa35c06'), 'state/analysis/P7_motor_settle_cleanup_raw/cleanup_stage_intent01.json': (20649, '09584e7a4dfe232705201c3f3f254736147813d43daed98fc98caddf673d74d9'), 'state/analysis/P7_motor_settle_cleanup_raw/cleanup_stage_verification01.json': (30404, 'f0ca0f685aeb77b9340d19c80e1242f073b824ff993200f3ff34f5b338b8e05b'), 'state/analysis/P7_motor_settle_cleanup_raw/cleanup_stage_verification02.json': (39917, '2c7a1ad2955f4835c05f289ca63bba25a210772c51cd65750ada997c7d4699bb'), 'state/analysis/P7_motor_settle_cleanup_raw/independent_test_freeze01.json': (15494, 'b5d1721358f5dd8d6e8f6acdf9caaa192f791b876e6b91e7154b17e080ad873b'), 'state/reviews/P7_motor_const_cleanup_inventory_review.md': (5672, 'dd2bce4966fa4e782af5b12d2871d02420d1d8cc5217f2d553f810a9eca8f7df'), 'state/reviews/P7_motor_settle_actual_review.md': (14116, '690a41643fc06a7d5c56ab61cc89113d602d8d6dee9e436cdbb09e3f7f19a0bc'), 'state/reviews/P7_motor_settle_cleanup_actual_review.md': (6870, '5bc9d56dadc6092ba327517163ca037df729641258b0842ab017d000eee994e6'), 'state/reviews/P7_motor_settle_cleanup_stage_review.md': (7179, '7e0181e54b21fb5869670afc5875eaacfaadf368231a7a0d38af7e40ead840f6'), 'tests/tooling/test_motor_settle_cleanup.py': (12023, 'afbc97d1bd310646505d6fdc61b21db26418d27163b44700faa23a52a4842f2b'), 'state/analysis/P7_motor_const_cleanup_raw/cleanup_remoteocd04.py': (7738, 'edd1c8aa44f8de82cbfe1d7333b6ce836396922f82eacbe89d87fa6bcf3eb598'), 'state/analysis/P7_motor_const_cleanup_raw/cleanup_root05.py': (9601, '1be147fe67bfafb60275ef1f741f05cfe2262be70c89b0eddbbfc3ec349837d4')}",
+      "new": "PINS = {'state/analysis/P7_motor_settle_cleanup_contract.md': (16277, '6cb02590369cdce1edd748987df363f99f336c9736dfd06e72906c4578457f47'), 'state/analysis/P7_app_motor_fault_run_raw/test_cleanup_root02.py': (37221, '225ef637e85dfe4ce1598e6744c781720b900905ea0c9c3bf0737d58b49e1559'), 'tests/tooling/test_app_motor_observe_cleanup.py': (14429, '18b150d239ba34aca30ce8b436036532a15e2c5aacb53ccf1166f51a68a831c0'), 'state/analysis/P7_app_motor_observe_run_raw/cleanup_remoteocd02.py': (7735, '1834edd39d628dccda0516f35cbc35434fd659c28392df6600cfdcf882e8ec9a'), 'state/analysis/P7_app_motor_observe_run_raw/cleanup_root03.py': (9606, 'a089cc3bac9d8df3ffe53947e22b1bb4ffa139a733c7ebb1f5ba62e6d5bd804f'), 'state/analysis/P7_app_motor_observe_cleanup_contract.md': (12460, '7258230a63f48e09401186b8ad3bed09f958006909610cea835926427a3609f6'), 'state/analysis/P7_static_link_probe_raw/static_remote.py': (33321, '8ba9b190c38e728013a383348c60c287b0366607f65f703161cf7f2e142d36f8'), 'state/analysis/P7_motor_settle_cleanup_raw/observe_admission01.py': (9770, 'e4db653bf71bb2201549ea0ade3d637521520d6e2e9747473cf52fd6688aaa83'), 'state/analysis/P7_motor_settle_cleanup_raw/admission01.json': (24558, 'e95ebed4ee3d6441abccced02adbcc4857fe5f10418d94e158b009d3edecf922'), 'state/analysis/P7_app_motor_observe_compile_raw/native_static01/artifacts.json': (9651, '5ceba77dde7c493d66398bfd6d8e0e27e56345612290cb8fef9328f24b87625b'), 'state/analysis/P7_motor_settle_compile_raw/native_static01/artifacts.json': (9648, 'e18384c14c0b1367667b265ab4c532a4010be65697460a1cd45487bccd9eca10'), 'state/analysis/P7_motor_settle_cleanup_raw/cleanup_remoteocd03.py': (7740, '6afeea1b9733670cdf315b2bf29b3e6e9c24016a2ba9217013e67496ec088f4d'), 'state/analysis/P7_motor_settle_cleanup_raw/cleanup_root04.py': (9603, '13f33327c5474d7c4dee56657a9d93b50e6fcdaee864e1855c916417a53c6290'), 'state/analysis/P7_motor_const_cleanup_contract.md': (16120, '25caada684cbf50964db02e3c8197fd75fdb6f0c448dd32df47067aa43c2c3ac'), 'state/analysis/P7_motor_const_cleanup_raw/admission01.json': (24555, 'addee38e4e6a4721b712ff861ded9ae4330b04a1b7f119632320805b4146b3a7'), 'state/analysis/P7_motor_const_cleanup_raw/inventory_derivation01.json': (3615, 'd2537c7470b2dfc80d65d4aee1c656a17edecacf5aeb1b0e56991dcb9e4f97df'), 'state/analysis/P7_motor_const_cleanup_raw/observe_admission01.py': (9769, '462c0534826b19d0722f86c69444a61bc55309514d7741ce196f40292a85ecd8'), 'state/analysis/P7_motor_const_compile_raw/native_static01/artifacts.json': (9645, 'fc5eb9e233c4642e0388f14132efdebab535d55134ce39c43d33c485d67e4ddd'), 'state/analysis/P7_motor_settle_cleanup_raw/cleanup_absence01.json': (21530, '83913618afbb11a061c9d46e90402f58479808ea09ec354ff49d806b4b034a58'), 'state/analysis/P7_motor_settle_cleanup_raw/cleanup_actual_result.json': (6370, '05507941ebbc8f9ba88c366dbf3c762e80042654a7c8de9166637ecc4e7c7ebd'), 'state/analysis/P7_motor_settle_cleanup_raw/cleanup_authenticated_intent01.json': (1072, '5f78e1dc7c68d3aaa72883360b069b8fd790b4769e5e62e198251585b0d076d5'), 'state/analysis/P7_motor_settle_cleanup_raw/cleanup_retrieval01.json': (46397, 'b7b776c998ace2c3e8e44e6208db298298c935b587ad5bbdbf172f843aa35c06'), 'state/analysis/P7_motor_settle_cleanup_raw/cleanup_stage_intent01.json': (20649, '09584e7a4dfe232705201c3f3f254736147813d43daed98fc98caddf673d74d9'), 'state/analysis/P7_motor_settle_cleanup_raw/cleanup_stage_verification01.json': (30404, 'f0ca0f685aeb77b9340d19c80e1242f073b824ff993200f3ff34f5b338b8e05b'), 'state/analysis/P7_motor_settle_cleanup_raw/cleanup_stage_verification02.json': (39917, '2c7a1ad2955f4835c05f289ca63bba25a210772c51cd65750ada997c7d4699bb'), 'state/analysis/P7_motor_settle_cleanup_raw/independent_test_freeze01.json': (15494, 'b5d1721358f5dd8d6e8f6acdf9caaa192f791b876e6b91e7154b17e080ad873b'), 'state/reviews/P7_motor_const_cleanup_inventory_review.md': (5672, 'dd2bce4966fa4e782af5b12d2871d02420d1d8cc5217f2d553f810a9eca8f7df'), 'state/reviews/P7_motor_settle_actual_review.md': (14116, '690a41643fc06a7d5c56ab61cc89113d602d8d6dee9e436cdbb09e3f7f19a0bc'), 'state/reviews/P7_motor_settle_cleanup_actual_review.md': (6870, '5bc9d56dadc6092ba327517163ca037df729641258b0842ab017d000eee994e6'), 'state/reviews/P7_motor_settle_cleanup_stage_review.md': (7179, '7e0181e54b21fb5869670afc5875eaacfaadf368231a7a0d38af7e40ead840f6'), 'tests/tooling/test_motor_settle_cleanup.py': (12023, 'afbc97d1bd310646505d6fdc61b21db26418d27163b44700faa23a52a4842f2b'), 'state/analysis/P7_motor_const_cleanup_raw/cleanup_remoteocd04.py': (7738, 'edd1c8aa44f8de82cbfe1d7333b6ce836396922f82eacbe89d87fa6bcf3eb598'), 'state/analysis/P7_motor_const_cleanup_raw/cleanup_root05.py': (9601, '1be147fe67bfafb60275ef1f741f05cfe2262be70c89b0eddbbfc3ec349837d4'), 'state/analysis/P7_app_motor_fault_compile_raw/native_static01/artifacts.json': (9597, '57b98c00db1ed5d90394812fcbb3fb28effedd4381f6e2fc03a6e7c04b45a6ce'), 'state/analysis/P7_app_motor_fault_run_raw/cleanup_remoteocd01.py': (7873, '23ef85ae3c386cc76751eea0fb18a90148a6fe513e3e8c753d527c06efcbbe95'), 'state/analysis/P7_app_motor_fault_run_raw/cleanup_root02.py': (9592, '4192f23ea49705a0af691953e6aec3c1f9da66c7cc1897ca3f5d49fba9fc5388'), 'state/analysis/P7_app_motor_fault_run_raw/cleanup_root02_actual_result.json': (6306, 'c0e45b308cd3bc73fa4a3b537471e7f753b5bb256270126c9f492da0d1af2700'), 'state/analysis/P7_app_motor_observe_abi_raw/upload_scratch_inventory01.json': (3216, '20db3c251a907d6b143afc11a05c44780ba3a09d85e3202ad05878225f4a06f2'), 'state/analysis/P7_motor_const_cleanup_raw/cleanup_derivation01.json': (17895, '26aa4a50e0dd63fc23b7a93317a69a19fc571f80e5fceba7b61e446b204f3869'), 'state/analysis/P7_motor_const_cleanup_raw/cleanup_fixture_derivation01.json': (68656, '1c6fc3bad5be218059ec6069ab1e5b810a06522089641b30b11208c2c3d205b7'), 'tests/tooling/test_motor_const_cleanup.py': (9686, '1f33e47b8e9e29342aee1fa19a65ad430bdfb5d7a863349b497f140deef39486'), 'state/analysis/P7_ordinary_app_cleanup_contract.md': (17371, '934945d6f26675e4f2d024d772c97cbf18e8fe000510a67ecda5586a1f45dac1'), 'state/analysis/P7_ordinary_app_cleanup_raw/admission01.json': (24552, 'ed68c4c8c31e16600950a689e362a0d83e3b839e5b46636230b703681e6d025b'), 'state/analysis/P7_ordinary_app_cleanup_raw/observe_admission01.py': (9768, 'a8e3b8b2cf19246e682288b3106bf18bb921a849681695b5e8461ffe3ed3807d'), 'state/analysis/P7_ordinary_app_cleanup_raw/inventory_derivation01.json': (3486, '807184e74964c1f660421ba954a9896e59eb03468c98f6dddba57a84ac237c8a'), 'state/analysis/P7_ordinary_app_cleanup_raw/inventory_intent01.json': (1119, 'b80a784bd6c23825d826b1e3cfddddd291669e675710272f212ffc4130dbbc52'), 'state/reviews/P7_ordinary_app_cleanup_inventory_review.md': (6826, 'c4327b1bb8c7cec0bddefec18ebf77d77f9d4249bf1983e04a4ebd31f8e580cf'), 'state/analysis/P7_motor_const_cleanup_raw/cleanup_independent_freeze01.json': (20685, '9740a6e0fa34374cb7ba3b2c63bcde3fa100a10a75eeb4f038b8670b5ced943c'), 'state/analysis/P7_motor_const_cleanup_raw/cleanup_root05_actual_result.json': (6367, '3b8f035a6b282ada5a5fbf5992a5343d27a3dc245962ee7f64032757420e11e8'), 'state/analysis/P7_motor_const_cleanup_raw/cleanup_stage_verification_intent01.json': (34505, '8776a33d82394e595bb57889166dadd1e4caef00674b57e971de7dc119afa731'), 'state/analysis/P7_motor_const_cleanup_raw/cleanup_stage_verification01.json': (9876, '7de3bb3a0d7a81feac727e1c7dc3a6d67e8d9519a7070c6c0a2eb051f3fc35f9'), 'state/reviews/P7_motor_const_cleanup_actual_review.md': (8082, 'aaede1e1d8a0a8deef6b48de191abe76cf06bb2779f6ce4fa810c4467544e9c8'), 'state/reviews/P7_motor_const_cleanup_source_review.md': (10091, '09b5bed31953e9b9175029ffea742adba3a21c7a7ae3dad8e462406ed56a7baf'), 'state/analysis/P7_motor_const_run_raw/native_inert_run01/upload_attempt.json': (778, 'e0d90810a0ce2b63b080190a322b31aed51cc429cacf2995204cb9cd68804d08'), 'state/reviews/P7_motor_const_run_actual_review.md': (14825, 'b562488423fce03712e0156deba21f52fddc826f096c70dcb1736d78aee71937'), 'state/analysis/P7_ordinary_app_static_compile_raw/native_static01/artifacts.json': (9281, '275ebb61be4a0487fe381d915ec28eea4634926b1d06a627850266f5c0a750e0'), 'state/analysis/P7_ordinary_app_cleanup_raw/cleanup_derivation01.json': (30865, '96c12bcd19e94b86945908fd556591e9925c6b842a9e92b82ef0ee8787588694'), 'state/analysis/P7_ordinary_app_cleanup_raw/cleanup_host_driver01.py': (3509, 'aa2a3250ecca315661a1ba87543eb43c23749cc180434a6dcdb4d7cd97890b6b'), 'state/analysis/P7_ordinary_app_cleanup_raw/cleanup_host_driver_derivation01.json': (1789, 'f084481c80e24fd34f237febb36687f144fb19eab7ad0be5f692bb6258e291b1'), 'state/analysis/P7_ordinary_app_cleanup_raw/cleanup_remoteocd05.py': (7740, '1a59d4b2fc12a0b74a81f65847d7384002423882bd42f5242a98774c8bc02958'), 'state/analysis/P7_ordinary_app_cleanup_raw/cleanup_root06.py': (9607, '290a7236dc7cc5c6b679a72d5864fb99408dd21bbd30b7b8f3edf74c0fe10aa3')}",
+      "count": 1,
+      "before": {
+        "bytes": 15986,
+        "sha256": "50cd89415e0e4659a39b256775702f095d509598d4ca661f263091f07cd2cd1d"
+      },
+      "after": {
+        "bytes": 20091,
+        "sha256": "b196e7c88529d2b7baa0e8324c674697689e6d6e84941839b6478417941622c9"
+      }
+    },
+    {
+      "old": "NEW_PAYLOAD = \"    'app_motor_observe.ino.bin-zsk.bin': (95520, 'e400078166394d0f8ea44b601e9ba2948992c4f263c5c7ee5fb3942433c143d0',\\n        '/home/arduino/sumox26_codex_build/app-motor-settle-static01/build/app_motor_observe.ino.bin-zsk.bin'),\\n\"",
+      "new": "NEW_PAYLOAD = \"    'app_motor_observe.ino.bin-zsk.bin': (95368, 'f15c7ce1f0ff5fea2d44d0b60f0607f9adae22b83ba5043fe4de5e2b21fa26f7',\\n        '/home/arduino/sumox26_codex_build/app-motor-const-static01/build/app_motor_observe.ino.bin-zsk.bin'),\\n\"",
+      "count": 1,
+      "before": {
+        "bytes": 20091,
+        "sha256": "b196e7c88529d2b7baa0e8324c674697689e6d6e84941839b6478417941622c9"
+      },
+      "after": {
+        "bytes": 20090,
+        "sha256": "9f6d0b3d6ccc82aa773781d3c0a1996dc6b729114e077dbc8a4a48aeb460fe9b"
+      }
+    },
+    {
+      "old": "CORE_CHANGES = (('cleanup-app-inert-root02', 'cleanup-app-const-root05', 1), ('cleanup_remoteocd01.py', 'cleanup_remoteocd04.py', 5), ('cleanup_root02.py', 'cleanup_root05.py', 2), ('_independent_cleanup_root02', '_independent_cleanup_root05', 1), ('7873', '7738', 1), ('7870', '7735', 1), ('23ef85ae3c386cc76751eea0fb18a90148a6fe513e3e8c753d527c06efcbbe95', 'edd1c8aa44f8de82cbfe1d7333b6ce836396922f82eacbe89d87fa6bcf3eb598', 1), ('51286ad414794e82f3161bed16cbb47dca421e831316e053a7eab967469f602e', '565acb3988bb0eba0c6865ac27daf5bbc277c85a67204f036bf098b3261b00be', 1), ('d190-exact-scratch-cleanup-v1', 'd206-exact-const-scratch-cleanup-v1', 3), ('d190-human-root-cleanup-v2', 'd206-authenticated-const-cleanup-v1', 1), (\"fs.records['/tmp/remoteocd'].st_ino = 33\", \"fs.records['/tmp/remoteocd'].st_ino = 1452\", 1))",
+      "new": "CORE_CHANGES = (('cleanup-app-inert-root02', 'cleanup-ordinary-app-root06', 1), ('cleanup_remoteocd01.py', 'cleanup_remoteocd05.py', 5), ('cleanup_root02.py', 'cleanup_root06.py', 2), ('_independent_cleanup_root02', '_independent_cleanup_root06', 1), ('7873', '7740', 1), ('7870', '7737', 1), ('23ef85ae3c386cc76751eea0fb18a90148a6fe513e3e8c753d527c06efcbbe95', '1a59d4b2fc12a0b74a81f65847d7384002423882bd42f5242a98774c8bc02958', 1), ('51286ad414794e82f3161bed16cbb47dca421e831316e053a7eab967469f602e', 'e90a5189a76d05bd7674d1bb771b9f480d59b5b26cc4a390109c47431a69d731', 1), ('d190-exact-scratch-cleanup-v1', 'd211-exact-ordinary-scratch-cleanup-v1', 3), ('d190-human-root-cleanup-v2', 'd211-authenticated-ordinary-cleanup-v1', 1), (\"fs.records['/tmp/remoteocd'].st_ino = 33\", \"fs.records['/tmp/remoteocd'].st_ino = 1732\", 1))",
+      "count": 1,
+      "before": {
+        "bytes": 20090,
+        "sha256": "9f6d0b3d6ccc82aa773781d3c0a1996dc6b729114e077dbc8a4a48aeb460fe9b"
+      },
+      "after": {
+        "bytes": 20099,
+        "sha256": "f2c54183fb3d605b6403f4004a624d9cb9892d001da308e45537e4c30d3204da"
+      }
+    },
+    {
+      "old": "DELTA_CHANGES = (('cleanup_remoteocd02.py', 'cleanup_remoteocd04.py', 7), ('cleanup_root03.py', 'cleanup_root05.py', 2), ('cleanup-app-observe-root03', 'cleanup-app-const-root05', 1), ('7735', '7738', 1), ('7732', '7735', 1), ('result_root03.json', 'result_root05.json', 1), ('create\\\\nit exclusively, never overwrite it', 'Create it\\\\nexclusively with no-clobber behavior; never overwrite a prior result', 1), ('(95328, PAYLOAD_SHA', '(95520, PAYLOAD_SHA', 1), ('2399736', '2399928', 1), (\"'motor_fault.ino.elf-zsk.bin', 'flash_sketch.cfg'\", \"'app_motor_fault.ino.bin-zsk.bin', 'flash_sketch.cfg'\", 1), (\"(b'x' * 29836, b'x' * 95328, b'x' * 95329)\", \"(b'x' * 95328, b'x' * 95520, b'x' * 95521)\", 1), ('b4416792a5bc228f34712fad9199a07c3c480aace979faa88aa12b50288b0a79', 'deb40317e5c444af26e65da4b6f1d0e577d9897d59dbddff3bce03a7bc14335c', 1), (\"recipe.checked_bytes(b'x' * 95328, pin)\", \"recipe.checked_bytes(b'x' * 95520, pin)\", 1), ('(33, 869)', '(1172, 1452)', 1), ('if inode == 33 else', 'if inode == 1172 else', 1), ('int(inode == 869)', 'int(inode == 1452)', 1), ('self.directory_fixture(recipe, 869)', 'self.directory_fixture(recipe, 1452)', 1), (\"'motor-fault-active01'\", \"'app-motor-fault-static01'\", 1))",
+      "new": "DELTA_CHANGES = (('cleanup_remoteocd02.py', 'cleanup_remoteocd05.py', 7), ('cleanup_root03.py', 'cleanup_root06.py', 2), ('cleanup-app-observe-root03', 'cleanup-ordinary-app-root06', 1), ('7735', '7740', 1), ('7732', '7737', 1), ('result_root03.json', 'result_root06.json', 1), ('create\\\\nit exclusively, never overwrite it', 'Create it\\\\nexclusively with no-clobber behavior; never overwrite a prior result', 1), ('(95328, PAYLOAD_SHA', '(95368, PAYLOAD_SHA', 1), ('2399736', '2399776', 1), (\"'motor_fault.ino.elf-zsk.bin', 'flash_sketch.cfg'\", \"'app_motor_fault.ino.bin-zsk.bin', 'flash_sketch.cfg'\", 1), (\"(b'x' * 29836, b'x' * 95328, b'x' * 95329)\", \"(b'x' * 95328, b'x' * 95368, b'x' * 95369)\", 1), ('b4416792a5bc228f34712fad9199a07c3c480aace979faa88aa12b50288b0a79', 'deb40317e5c444af26e65da4b6f1d0e577d9897d59dbddff3bce03a7bc14335c', 1), (\"recipe.checked_bytes(b'x' * 95328, pin)\", \"recipe.checked_bytes(b'x' * 95368, pin)\", 1), ('(33, 869)', '(1452, 1732)', 1), ('if inode == 33 else', 'if inode == 1452 else', 1), ('int(inode == 869)', 'int(inode == 1732)', 1), ('self.directory_fixture(recipe, 869)', 'self.directory_fixture(recipe, 1732)', 1), (\"'motor-fault-active01'\", \"'app-motor-fault-static01'\", 1))",
+      "count": 1,
+      "before": {
+        "bytes": 20099,
+        "sha256": "f2c54183fb3d605b6403f4004a624d9cb9892d001da308e45537e4c30d3204da"
+      },
+      "after": {
+        "bytes": 20102,
+        "sha256": "d701711e9adcce612e378217776736a690557330b178cfafbfe4ca02a1d34ffb"
+      }
+    },
+    {
+      "old": "def recipe_projection():\n    raw = replace_checked(checked(PRIOR + 'cleanup_remoteocd02.py'), (\n        ('D190', 'D201', 1), (OLD_PAYLOAD, NEW_PAYLOAD, 1),\n        ('info.st_ino == 869', 'info.st_ino == 1452', 1),\n        ('d196-exact-observer-scratch-cleanup-v1', 'd206-exact-const-scratch-cleanup-v1', 1)))\n    if (len(raw), sha(raw)) != PINS[NEW + 'cleanup_remoteocd04.py']:\n        raise AssertionError('Independent recipe identity')\n    return raw\n",
+      "new": "def recipe_projection():\n    raw = replace_checked(checked(PRIOR + 'cleanup_remoteocd02.py'), (\n        ('D190', 'D207', 1), (OLD_PAYLOAD, NEW_PAYLOAD, 1),\n        ('info.st_ino == 869', 'info.st_ino == 1732', 1),\n        ('d196-exact-observer-scratch-cleanup-v1', 'd211-exact-ordinary-scratch-cleanup-v1', 1)))\n    if (len(raw), sha(raw)) != PINS[NEW + 'cleanup_remoteocd05.py']:\n        raise AssertionError('Independent recipe identity')\n    return raw\n",
+      "count": 1,
+      "before": {
+        "bytes": 20102,
+        "sha256": "d701711e9adcce612e378217776736a690557330b178cfafbfe4ca02a1d34ffb"
+      },
+      "after": {
+        "bytes": 20105,
+        "sha256": "3dd01e9e7c0a9300093bbec8190c4ed1809701f8351f06f8af9fbc30a54d6f4c"
+      }
+    },
+    {
+      "old": "def wrapper_projection():\n    raw = replace_checked(checked(PRIOR + 'cleanup_root03.py'), (\n        ('cleanup-app-observe-root03', 'cleanup-app-const-root05', 1),\n        ('cleanup_remoteocd02.py', 'cleanup_remoteocd04.py', 4), ('7735', '7738', 1),\n        (PRIOR_RECIPE_SHA, RECIPE_SHA, 1), (PRIOR_PROJECTED_SHA, PROJECTED_SHA, 1),\n        ('d196-authenticated-observer-cleanup-v1', 'd206-authenticated-const-cleanup-v1', 1)))\n    if (len(raw), sha(raw)) != PINS[NEW + 'cleanup_root05.py']:\n        raise AssertionError('Independent wrapper identity')\n    return raw\n",
+      "new": "def wrapper_projection():\n    raw = replace_checked(checked(PRIOR + 'cleanup_root03.py'), (\n        ('cleanup-app-observe-root03', 'cleanup-ordinary-app-root06', 1),\n        ('cleanup_remoteocd02.py', 'cleanup_remoteocd05.py', 4), ('7735', '7740', 1),\n        (PRIOR_RECIPE_SHA, RECIPE_SHA, 1), (PRIOR_PROJECTED_SHA, PROJECTED_SHA, 1),\n        ('d196-authenticated-observer-cleanup-v1', 'd211-authenticated-ordinary-cleanup-v1', 1)))\n    if (len(raw), sha(raw)) != PINS[NEW + 'cleanup_root06.py']:\n        raise AssertionError('Independent wrapper identity')\n    return raw\n",
+      "count": 1,
+      "before": {
+        "bytes": 20105,
+        "sha256": "3dd01e9e7c0a9300093bbec8190c4ed1809701f8351f06f8af9fbc30a54d6f4c"
+      },
+      "after": {
+        "bytes": 20111,
+        "sha256": "9d4228704c443da687d037d95ef59dc89312384f5f71708a276893985f98aa76"
+      }
+    },
+    {
+      "old": "(37250, 'dfd89dea54a6bba65db4c7678f1cc0a9062e2bbea203405d30c7ba0b2985d263')",
+      "new": "(37265, 'eb6d02f514d767232d136c79ad09c98bfa85c125bb23dc9f79e6f8c4095c48d7')",
+      "count": 1,
+      "before": {
+        "bytes": 20111,
+        "sha256": "9d4228704c443da687d037d95ef59dc89312384f5f71708a276893985f98aa76"
+      },
+      "after": {
+        "bytes": 20111,
+        "sha256": "14934a245f8e03e1a438ebd032e74153b97bd6bce3970dc0a69ae381b3ddfbc2"
+      }
+    },
+    {
+      "old": "(14479, 'a44d6dc1ed6859ec2f06cb862f66d532355ed58c5ac4f1261958a898c8070879')",
+      "new": "(14482, 'b09cfb82030c6ddedaf3b980db0ac348b99df0a178823ebadee054531d5ca411')",
+      "count": 1,
+      "before": {
+        "bytes": 20111,
+        "sha256": "14934a245f8e03e1a438ebd032e74153b97bd6bce3970dc0a69ae381b3ddfbc2"
+      },
+      "after": {
+        "bytes": 20111,
+        "sha256": "355b8f568ffadfc969d2b29f0393a967cdcfbfc3ad8d27e23dc95558241f91b3"
+      }
+    },
+    {
+      "old": "def focused_cases(oracle):\n    class CurrentCopyRefusals(unittest.TestCase):\n        def test_D190_D195_and_D203_packages_cannot_replace_current_D201_copy(self):\n            recipe = oracle.definitions('cleanup_remoteocd04.py')\n            before = dict(recipe.PINS); pin = recipe.PINS[PAYLOAD_NAME]\n            self.assertEqual(pin, (95520, PAYLOAD_SHA, PAYLOAD_PATH))\n            for wrong_size in (95328, 95360, 95368):\n                with self.subTest(size=wrong_size), self.assertRaisesRegex(ValueError, 'Copy or original differs'):\n                    recipe.checked_bytes(b'x' * wrong_size, pin)\n            for wrong_digest in (PRIOR_PAYLOAD_SHA, '85b05c564fd3545c6b6e16fb64ed2aef8893226e32048309f1b71f97a5db4b6c', FUTURE_PAYLOAD_SHA):\n                digest = mock.Mock(return_value=types.SimpleNamespace(hexdigest=lambda: wrong_digest))\n                recipe.hashlib = types.SimpleNamespace(sha256=digest)\n                with self.subTest(digest=wrong_digest), self.assertRaisesRegex(ValueError, 'Copy or original differs'):\n                    recipe.checked_bytes(b'x' * 95520, pin)\n                digest.assert_called_once()\n            self.assertEqual(recipe.PINS, before)\n\n        def test_previous_source_names_and_stage_schema_source_drift_fail_before_execution(self):\n            wrapper = oracle.definitions('cleanup_root05.py')\n            wrapper.os = types.SimpleNamespace(open=mock.Mock(side_effect=AssertionError('Unknown source opened')))\n            for name in ('cleanup_remoteocd01.py', 'cleanup_remoteocd02.py', 'cleanup_remoteocd03.py', 'cleanup_root03.py', 'cleanup_root04.py'):\n                with self.subTest(name=name), self.assertRaisesRegex(ValueError, 'Unknown source basename'):\n                    wrapper.read_source(name)\n            wrapper.os.open.assert_not_called()\n            name = NEW + 'cleanup_root05.py'; current = checked(name)\n            # These are rejected SOURCE substitutions, not a new JSON schema predicate.\n            for before, after in (\n                    (b'cleanup-app-const-root05', b'cleanup-app-settle-root04'),\n                    (b'd206-authenticated-const-cleanup-v1', b'd200-authenticated-settle-cleanup-v1')):\n                self.assertEqual(current.count(before), 1)\n                wrong = current.replace(before, after); read = Path.read_bytes\n                def observed(path):\n                    return wrong if path == ROOT / name else read(path)\n                with mock.patch.object(Path, 'read_bytes', observed), self.assertRaisesRegex(AssertionError, 'Frozen input changed'):\n                    oracle.definitions('cleanup_root05.py')\n\n    return CurrentCopyRefusals\n",
+      "new": "def focused_cases(oracle):\n    class CurrentCopyRefusals(unittest.TestCase):\n        def test_D190_D195_D198_D208_packages_cannot_replace_current_D207_copy(self):\n            recipe = oracle.definitions('cleanup_remoteocd05.py')\n            before = dict(recipe.PINS); pin = recipe.PINS[PAYLOAD_NAME]\n            self.assertEqual(pin, (95368, PAYLOAD_SHA, PAYLOAD_PATH))\n            for wrong_size in (95328, 95360, 95520, 92944):\n                with self.subTest(size=wrong_size), self.assertRaisesRegex(ValueError, 'Copy or original differs'):\n                    recipe.checked_bytes(b'x' * wrong_size, pin)\n            for wrong_digest in (PRIOR_PAYLOAD_SHA, '85b05c564fd3545c6b6e16fb64ed2aef8893226e32048309f1b71f97a5db4b6c', 'e400078166394d0f8ea44b601e9ba2948992c4f263c5c7ee5fb3942433c143d0', FUTURE_PAYLOAD_SHA):\n                digest = mock.Mock(return_value=types.SimpleNamespace(hexdigest=lambda: wrong_digest))\n                recipe.hashlib = types.SimpleNamespace(sha256=digest)\n                with self.subTest(digest=wrong_digest), self.assertRaisesRegex(ValueError, 'Copy or original differs'):\n                    recipe.checked_bytes(b'x' * 95368, pin)\n                digest.assert_called_once()\n            self.assertEqual(recipe.PINS, before)\n\n        def test_previous_source_names_and_stage_schema_source_drift_fail_before_execution(self):\n            wrapper = oracle.definitions('cleanup_root06.py')\n            wrapper.os = types.SimpleNamespace(open=mock.Mock(side_effect=AssertionError('Unknown source opened')))\n            for name in ('cleanup_remoteocd01.py', 'cleanup_remoteocd02.py', 'cleanup_remoteocd03.py', 'cleanup_remoteocd04.py', 'cleanup_root03.py', 'cleanup_root04.py', 'cleanup_root05.py'):\n                with self.subTest(name=name), self.assertRaisesRegex(ValueError, 'Unknown source basename'):\n                    wrapper.read_source(name)\n            wrapper.os.open.assert_not_called()\n            name = NEW + 'cleanup_root06.py'; current = checked(name)\n            # These are rejected SOURCE substitutions, not a new JSON schema predicate.\n            for before, after in (\n                    (b'cleanup-ordinary-app-root06', b'cleanup-app-const-root05'),\n                    (b'd211-authenticated-ordinary-cleanup-v1', b'd206-authenticated-const-cleanup-v1')):\n                self.assertEqual(current.count(before), 1)\n                wrong = current.replace(before, after); read = Path.read_bytes\n                def observed(path):\n                    return wrong if path == ROOT / name else read(path)\n                with mock.patch.object(Path, 'read_bytes', observed), self.assertRaisesRegex(AssertionError, 'Frozen input changed'):\n                    oracle.definitions('cleanup_root06.py')\n\n    return CurrentCopyRefusals\n",
+      "count": 1,
+      "before": {
+        "bytes": 20111,
+        "sha256": "355b8f568ffadfc969d2b29f0393a967cdcfbfc3ad8d27e23dc95558241f91b3"
+      },
+      "after": {
+        "bytes": 20238,
+        "sha256": "7ba7f12d8d8fd7c844b4fccc0177ae133f9315e7cfd9bff60a5b98b2a668607b"
+      }
+    }
+  ],
+  "oracle_projected": {
+    "bytes": 20238,
+    "sha256": "7ba7f12d8d8fd7c844b4fccc0177ae133f9315e7cfd9bff60a5b98b2a668607b"
+  },
+  "d211_oracle_delta_steps": [
+    {
+      "old": "NEW = 'state/analysis/P7_motor_const_cleanup_raw/'",
+      "new": "NEW = 'state/analysis/P7_ordinary_app_cleanup_raw/'",
+      "count": 1,
+      "before": {
+        "bytes": 15985,
+        "sha256": "dc30ff593ee2b88462cf47b9565a8877804cf5577dc7508fa95e31326a052bcb"
+      },
+      "after": {
+        "bytes": 15986,
+        "sha256": "699d7d0320a35fb6e92e03c8308f921520692cb5b552f7a7ba3d52dbe08a9b6e"
+      }
+    },
+    {
+      "old": "CONTRACT = 'state/analysis/P7_motor_const_cleanup_contract.md'",
+      "new": "CONTRACT = 'state/analysis/P7_ordinary_app_cleanup_contract.md'",
+      "count": 1,
+      "before": {
+        "bytes": 15986,
+        "sha256": "699d7d0320a35fb6e92e03c8308f921520692cb5b552f7a7ba3d52dbe08a9b6e"
+      },
+      "after": {
+        "bytes": 15987,
+        "sha256": "9b96d6c55b3b025cc126b7b96d55dd27fde2404c5c2cef493535ea40dce36efb"
+      }
+    },
+    {
+      "old": "CONTRACT_PIN = (16120, '25caada684cbf50964db02e3c8197fd75fdb6f0c448dd32df47067aa43c2c3ac')",
+      "new": "CONTRACT_PIN = (17371, '934945d6f26675e4f2d024d772c97cbf18e8fe000510a67ecda5586a1f45dac1')",
+      "count": 1,
+      "before": {
+        "bytes": 15987,
+        "sha256": "9b96d6c55b3b025cc126b7b96d55dd27fde2404c5c2cef493535ea40dce36efb"
+      },
+      "after": {
+        "bytes": 15987,
+        "sha256": "15667de19ff52eef34b2e22876dea1ba8f198ca6dfb7b9b26b6f0b0f46d4bd62"
+      }
+    },
+    {
+      "old": "RECIPE_SHA = 'edd1c8aa44f8de82cbfe1d7333b6ce836396922f82eacbe89d87fa6bcf3eb598'",
+      "new": "RECIPE_SHA = '1a59d4b2fc12a0b74a81f65847d7384002423882bd42f5242a98774c8bc02958'",
+      "count": 1,
+      "before": {
+        "bytes": 15987,
+        "sha256": "15667de19ff52eef34b2e22876dea1ba8f198ca6dfb7b9b26b6f0b0f46d4bd62"
+      },
+      "after": {
+        "bytes": 15987,
+        "sha256": "65c999df4fab28047269fac258c275f42ef8b5e3510f7ad41907b06471d0a49e"
+      }
+    },
+    {
+      "old": "WRAPPER_SHA = '1be147fe67bfafb60275ef1f741f05cfe2262be70c89b0eddbbfc3ec349837d4'",
+      "new": "WRAPPER_SHA = '290a7236dc7cc5c6b679a72d5864fb99408dd21bbd30b7b8f3edf74c0fe10aa3'",
+      "count": 1,
+      "before": {
+        "bytes": 15987,
+        "sha256": "65c999df4fab28047269fac258c275f42ef8b5e3510f7ad41907b06471d0a49e"
+      },
+      "after": {
+        "bytes": 15987,
+        "sha256": "6c83f0466af342d43a89da61a630563b2829e5674adbf423f80355e166263861"
+      }
+    },
+    {
+      "old": "PROJECTED_SHA = '565acb3988bb0eba0c6865ac27daf5bbc277c85a67204f036bf098b3261b00be'",
+      "new": "PROJECTED_SHA = 'e90a5189a76d05bd7674d1bb771b9f480d59b5b26cc4a390109c47431a69d731'",
+      "count": 1,
+      "before": {
+        "bytes": 15987,
+        "sha256": "6c83f0466af342d43a89da61a630563b2829e5674adbf423f80355e166263861"
+      },
+      "after": {
+        "bytes": 15987,
+        "sha256": "3ba7aa0f51dbc1cf6e3677fd9ed42c2bb8947c35cb9086b20f866c531d1d77f6"
+      }
+    },
+    {
+      "old": "PAYLOAD_PATH = '/home/arduino/sumox26_codex_build/app-motor-settle-static01/build/app_motor_observe.ino.bin-zsk.bin'",
+      "new": "PAYLOAD_PATH = '/home/arduino/sumox26_codex_build/app-motor-const-static01/build/app_motor_observe.ino.bin-zsk.bin'",
+      "count": 1,
+      "before": {
+        "bytes": 15987,
+        "sha256": "3ba7aa0f51dbc1cf6e3677fd9ed42c2bb8947c35cb9086b20f866c531d1d77f6"
+      },
+      "after": {
+        "bytes": 15986,
+        "sha256": "3da884d4dd5ef195c4381856eb1ebb439463151302c00f1a992637042998ce01"
+      }
+    },
+    {
+      "old": "PAYLOAD_SHA = 'e400078166394d0f8ea44b601e9ba2948992c4f263c5c7ee5fb3942433c143d0'",
+      "new": "PAYLOAD_SHA = 'f15c7ce1f0ff5fea2d44d0b60f0607f9adae22b83ba5043fe4de5e2b21fa26f7'",
+      "count": 1,
+      "before": {
+        "bytes": 15986,
+        "sha256": "3da884d4dd5ef195c4381856eb1ebb439463151302c00f1a992637042998ce01"
+      },
+      "after": {
+        "bytes": 15986,
+        "sha256": "b97b36b4866b7f319bae2b4aaa006477338b82d1c113d7e71de5364776151173"
+      }
+    },
+    {
+      "old": "FUTURE_PAYLOAD_SHA = 'f15c7ce1f0ff5fea2d44d0b60f0607f9adae22b83ba5043fe4de5e2b21fa26f7'",
+      "new": "FUTURE_PAYLOAD_SHA = '7fa9d41da043931e1237712e1e88bda4151c82933af2ecec97ce3a02184d23ad'",
+      "count": 1,
+      "before": {
+        "bytes": 15986,
+        "sha256": "b97b36b4866b7f319bae2b4aaa006477338b82d1c113d7e71de5364776151173"
+      },
+      "after": {
+        "bytes": 15986,
+        "sha256": "50cd89415e0e4659a39b256775702f095d509598d4ca661f263091f07cd2cd1d"
+      }
+    },
+    {
+      "old": "PINS = {'state/analysis/P7_motor_settle_cleanup_contract.md': (16277, '6cb02590369cdce1edd748987df363f99f336c9736dfd06e72906c4578457f47'), 'state/analysis/P7_app_motor_fault_run_raw/test_cleanup_root02.py': (37221, '225ef637e85dfe4ce1598e6744c781720b900905ea0c9c3bf0737d58b49e1559'), 'tests/tooling/test_app_motor_observe_cleanup.py': (14429, '18b150d239ba34aca30ce8b436036532a15e2c5aacb53ccf1166f51a68a831c0'), 'state/analysis/P7_app_motor_observe_run_raw/cleanup_remoteocd02.py': (7735, '1834edd39d628dccda0516f35cbc35434fd659c28392df6600cfdcf882e8ec9a'), 'state/analysis/P7_app_motor_observe_run_raw/cleanup_root03.py': (9606, 'a089cc3bac9d8df3ffe53947e22b1bb4ffa139a733c7ebb1f5ba62e6d5bd804f'), 'state/analysis/P7_app_motor_observe_cleanup_contract.md': (12460, '7258230a63f48e09401186b8ad3bed09f958006909610cea835926427a3609f6'), 'state/analysis/P7_static_link_probe_raw/static_remote.py': (33321, '8ba9b190c38e728013a383348c60c287b0366607f65f703161cf7f2e142d36f8'), 'state/analysis/P7_motor_settle_cleanup_raw/observe_admission01.py': (9770, 'e4db653bf71bb2201549ea0ade3d637521520d6e2e9747473cf52fd6688aaa83'), 'state/analysis/P7_motor_settle_cleanup_raw/admission01.json': (24558, 'e95ebed4ee3d6441abccced02adbcc4857fe5f10418d94e158b009d3edecf922'), 'state/analysis/P7_app_motor_observe_compile_raw/native_static01/artifacts.json': (9651, '5ceba77dde7c493d66398bfd6d8e0e27e56345612290cb8fef9328f24b87625b'), 'state/analysis/P7_motor_settle_compile_raw/native_static01/artifacts.json': (9648, 'e18384c14c0b1367667b265ab4c532a4010be65697460a1cd45487bccd9eca10'), 'state/analysis/P7_motor_settle_cleanup_raw/cleanup_remoteocd03.py': (7740, '6afeea1b9733670cdf315b2bf29b3e6e9c24016a2ba9217013e67496ec088f4d'), 'state/analysis/P7_motor_settle_cleanup_raw/cleanup_root04.py': (9603, '13f33327c5474d7c4dee56657a9d93b50e6fcdaee864e1855c916417a53c6290'), 'state/analysis/P7_motor_const_cleanup_contract.md': (16120, '25caada684cbf50964db02e3c8197fd75fdb6f0c448dd32df47067aa43c2c3ac'), 'state/analysis/P7_motor_const_cleanup_raw/admission01.json': (24555, 'addee38e4e6a4721b712ff861ded9ae4330b04a1b7f119632320805b4146b3a7'), 'state/analysis/P7_motor_const_cleanup_raw/inventory_derivation01.json': (3615, 'd2537c7470b2dfc80d65d4aee1c656a17edecacf5aeb1b0e56991dcb9e4f97df'), 'state/analysis/P7_motor_const_cleanup_raw/observe_admission01.py': (9769, '462c0534826b19d0722f86c69444a61bc55309514d7741ce196f40292a85ecd8'), 'state/analysis/P7_motor_const_compile_raw/native_static01/artifacts.json': (9645, 'fc5eb9e233c4642e0388f14132efdebab535d55134ce39c43d33c485d67e4ddd'), 'state/analysis/P7_motor_settle_cleanup_raw/cleanup_absence01.json': (21530, '83913618afbb11a061c9d46e90402f58479808ea09ec354ff49d806b4b034a58'), 'state/analysis/P7_motor_settle_cleanup_raw/cleanup_actual_result.json': (6370, '05507941ebbc8f9ba88c366dbf3c762e80042654a7c8de9166637ecc4e7c7ebd'), 'state/analysis/P7_motor_settle_cleanup_raw/cleanup_authenticated_intent01.json': (1072, '5f78e1dc7c68d3aaa72883360b069b8fd790b4769e5e62e198251585b0d076d5'), 'state/analysis/P7_motor_settle_cleanup_raw/cleanup_retrieval01.json': (46397, 'b7b776c998ace2c3e8e44e6208db298298c935b587ad5bbdbf172f843aa35c06'), 'state/analysis/P7_motor_settle_cleanup_raw/cleanup_stage_intent01.json': (20649, '09584e7a4dfe232705201c3f3f254736147813d43daed98fc98caddf673d74d9'), 'state/analysis/P7_motor_settle_cleanup_raw/cleanup_stage_verification01.json': (30404, 'f0ca0f685aeb77b9340d19c80e1242f073b824ff993200f3ff34f5b338b8e05b'), 'state/analysis/P7_motor_settle_cleanup_raw/cleanup_stage_verification02.json': (39917, '2c7a1ad2955f4835c05f289ca63bba25a210772c51cd65750ada997c7d4699bb'), 'state/analysis/P7_motor_settle_cleanup_raw/independent_test_freeze01.json': (15494, 'b5d1721358f5dd8d6e8f6acdf9caaa192f791b876e6b91e7154b17e080ad873b'), 'state/reviews/P7_motor_const_cleanup_inventory_review.md': (5672, 'dd2bce4966fa4e782af5b12d2871d02420d1d8cc5217f2d553f810a9eca8f7df'), 'state/reviews/P7_motor_settle_actual_review.md': (14116, '690a41643fc06a7d5c56ab61cc89113d602d8d6dee9e436cdbb09e3f7f19a0bc'), 'state/reviews/P7_motor_settle_cleanup_actual_review.md': (6870, '5bc9d56dadc6092ba327517163ca037df729641258b0842ab017d000eee994e6'), 'state/reviews/P7_motor_settle_cleanup_stage_review.md': (7179, '7e0181e54b21fb5869670afc5875eaacfaadf368231a7a0d38af7e40ead840f6'), 'tests/tooling/test_motor_settle_cleanup.py': (12023, 'afbc97d1bd310646505d6fdc61b21db26418d27163b44700faa23a52a4842f2b'), 'state/analysis/P7_motor_const_cleanup_raw/cleanup_remoteocd04.py': (7738, 'edd1c8aa44f8de82cbfe1d7333b6ce836396922f82eacbe89d87fa6bcf3eb598'), 'state/analysis/P7_motor_const_cleanup_raw/cleanup_root05.py': (9601, '1be147fe67bfafb60275ef1f741f05cfe2262be70c89b0eddbbfc3ec349837d4')}",
+      "new": "PINS = {'state/analysis/P7_motor_settle_cleanup_contract.md': (16277, '6cb02590369cdce1edd748987df363f99f336c9736dfd06e72906c4578457f47'), 'state/analysis/P7_app_motor_fault_run_raw/test_cleanup_root02.py': (37221, '225ef637e85dfe4ce1598e6744c781720b900905ea0c9c3bf0737d58b49e1559'), 'tests/tooling/test_app_motor_observe_cleanup.py': (14429, '18b150d239ba34aca30ce8b436036532a15e2c5aacb53ccf1166f51a68a831c0'), 'state/analysis/P7_app_motor_observe_run_raw/cleanup_remoteocd02.py': (7735, '1834edd39d628dccda0516f35cbc35434fd659c28392df6600cfdcf882e8ec9a'), 'state/analysis/P7_app_motor_observe_run_raw/cleanup_root03.py': (9606, 'a089cc3bac9d8df3ffe53947e22b1bb4ffa139a733c7ebb1f5ba62e6d5bd804f'), 'state/analysis/P7_app_motor_observe_cleanup_contract.md': (12460, '7258230a63f48e09401186b8ad3bed09f958006909610cea835926427a3609f6'), 'state/analysis/P7_static_link_probe_raw/static_remote.py': (33321, '8ba9b190c38e728013a383348c60c287b0366607f65f703161cf7f2e142d36f8'), 'state/analysis/P7_motor_settle_cleanup_raw/observe_admission01.py': (9770, 'e4db653bf71bb2201549ea0ade3d637521520d6e2e9747473cf52fd6688aaa83'), 'state/analysis/P7_motor_settle_cleanup_raw/admission01.json': (24558, 'e95ebed4ee3d6441abccced02adbcc4857fe5f10418d94e158b009d3edecf922'), 'state/analysis/P7_app_motor_observe_compile_raw/native_static01/artifacts.json': (9651, '5ceba77dde7c493d66398bfd6d8e0e27e56345612290cb8fef9328f24b87625b'), 'state/analysis/P7_motor_settle_compile_raw/native_static01/artifacts.json': (9648, 'e18384c14c0b1367667b265ab4c532a4010be65697460a1cd45487bccd9eca10'), 'state/analysis/P7_motor_settle_cleanup_raw/cleanup_remoteocd03.py': (7740, '6afeea1b9733670cdf315b2bf29b3e6e9c24016a2ba9217013e67496ec088f4d'), 'state/analysis/P7_motor_settle_cleanup_raw/cleanup_root04.py': (9603, '13f33327c5474d7c4dee56657a9d93b50e6fcdaee864e1855c916417a53c6290'), 'state/analysis/P7_motor_const_cleanup_contract.md': (16120, '25caada684cbf50964db02e3c8197fd75fdb6f0c448dd32df47067aa43c2c3ac'), 'state/analysis/P7_motor_const_cleanup_raw/admission01.json': (24555, 'addee38e4e6a4721b712ff861ded9ae4330b04a1b7f119632320805b4146b3a7'), 'state/analysis/P7_motor_const_cleanup_raw/inventory_derivation01.json': (3615, 'd2537c7470b2dfc80d65d4aee1c656a17edecacf5aeb1b0e56991dcb9e4f97df'), 'state/analysis/P7_motor_const_cleanup_raw/observe_admission01.py': (9769, '462c0534826b19d0722f86c69444a61bc55309514d7741ce196f40292a85ecd8'), 'state/analysis/P7_motor_const_compile_raw/native_static01/artifacts.json': (9645, 'fc5eb9e233c4642e0388f14132efdebab535d55134ce39c43d33c485d67e4ddd'), 'state/analysis/P7_motor_settle_cleanup_raw/cleanup_absence01.json': (21530, '83913618afbb11a061c9d46e90402f58479808ea09ec354ff49d806b4b034a58'), 'state/analysis/P7_motor_settle_cleanup_raw/cleanup_actual_result.json': (6370, '05507941ebbc8f9ba88c366dbf3c762e80042654a7c8de9166637ecc4e7c7ebd'), 'state/analysis/P7_motor_settle_cleanup_raw/cleanup_authenticated_intent01.json': (1072, '5f78e1dc7c68d3aaa72883360b069b8fd790b4769e5e62e198251585b0d076d5'), 'state/analysis/P7_motor_settle_cleanup_raw/cleanup_retrieval01.json': (46397, 'b7b776c998ace2c3e8e44e6208db298298c935b587ad5bbdbf172f843aa35c06'), 'state/analysis/P7_motor_settle_cleanup_raw/cleanup_stage_intent01.json': (20649, '09584e7a4dfe232705201c3f3f254736147813d43daed98fc98caddf673d74d9'), 'state/analysis/P7_motor_settle_cleanup_raw/cleanup_stage_verification01.json': (30404, 'f0ca0f685aeb77b9340d19c80e1242f073b824ff993200f3ff34f5b338b8e05b'), 'state/analysis/P7_motor_settle_cleanup_raw/cleanup_stage_verification02.json': (39917, '2c7a1ad2955f4835c05f289ca63bba25a210772c51cd65750ada997c7d4699bb'), 'state/analysis/P7_motor_settle_cleanup_raw/independent_test_freeze01.json': (15494, 'b5d1721358f5dd8d6e8f6acdf9caaa192f791b876e6b91e7154b17e080ad873b'), 'state/reviews/P7_motor_const_cleanup_inventory_review.md': (5672, 'dd2bce4966fa4e782af5b12d2871d02420d1d8cc5217f2d553f810a9eca8f7df'), 'state/reviews/P7_motor_settle_actual_review.md': (14116, '690a41643fc06a7d5c56ab61cc89113d602d8d6dee9e436cdbb09e3f7f19a0bc'), 'state/reviews/P7_motor_settle_cleanup_actual_review.md': (6870, '5bc9d56dadc6092ba327517163ca037df729641258b0842ab017d000eee994e6'), 'state/reviews/P7_motor_settle_cleanup_stage_review.md': (7179, '7e0181e54b21fb5869670afc5875eaacfaadf368231a7a0d38af7e40ead840f6'), 'tests/tooling/test_motor_settle_cleanup.py': (12023, 'afbc97d1bd310646505d6fdc61b21db26418d27163b44700faa23a52a4842f2b'), 'state/analysis/P7_motor_const_cleanup_raw/cleanup_remoteocd04.py': (7738, 'edd1c8aa44f8de82cbfe1d7333b6ce836396922f82eacbe89d87fa6bcf3eb598'), 'state/analysis/P7_motor_const_cleanup_raw/cleanup_root05.py': (9601, '1be147fe67bfafb60275ef1f741f05cfe2262be70c89b0eddbbfc3ec349837d4'), 'state/analysis/P7_app_motor_fault_compile_raw/native_static01/artifacts.json': (9597, '57b98c00db1ed5d90394812fcbb3fb28effedd4381f6e2fc03a6e7c04b45a6ce'), 'state/analysis/P7_app_motor_fault_run_raw/cleanup_remoteocd01.py': (7873, '23ef85ae3c386cc76751eea0fb18a90148a6fe513e3e8c753d527c06efcbbe95'), 'state/analysis/P7_app_motor_fault_run_raw/cleanup_root02.py': (9592, '4192f23ea49705a0af691953e6aec3c1f9da66c7cc1897ca3f5d49fba9fc5388'), 'state/analysis/P7_app_motor_fault_run_raw/cleanup_root02_actual_result.json': (6306, 'c0e45b308cd3bc73fa4a3b537471e7f753b5bb256270126c9f492da0d1af2700'), 'state/analysis/P7_app_motor_observe_abi_raw/upload_scratch_inventory01.json': (3216, '20db3c251a907d6b143afc11a05c44780ba3a09d85e3202ad05878225f4a06f2'), 'state/analysis/P7_motor_const_cleanup_raw/cleanup_derivation01.json': (17895, '26aa4a50e0dd63fc23b7a93317a69a19fc571f80e5fceba7b61e446b204f3869'), 'state/analysis/P7_motor_const_cleanup_raw/cleanup_fixture_derivation01.json': (68656, '1c6fc3bad5be218059ec6069ab1e5b810a06522089641b30b11208c2c3d205b7'), 'tests/tooling/test_motor_const_cleanup.py': (9686, '1f33e47b8e9e29342aee1fa19a65ad430bdfb5d7a863349b497f140deef39486'), 'state/analysis/P7_ordinary_app_cleanup_contract.md': (17371, '934945d6f26675e4f2d024d772c97cbf18e8fe000510a67ecda5586a1f45dac1'), 'state/analysis/P7_ordinary_app_cleanup_raw/admission01.json': (24552, 'ed68c4c8c31e16600950a689e362a0d83e3b839e5b46636230b703681e6d025b'), 'state/analysis/P7_ordinary_app_cleanup_raw/observe_admission01.py': (9768, 'a8e3b8b2cf19246e682288b3106bf18bb921a849681695b5e8461ffe3ed3807d'), 'state/analysis/P7_ordinary_app_cleanup_raw/inventory_derivation01.json': (3486, '807184e74964c1f660421ba954a9896e59eb03468c98f6dddba57a84ac237c8a'), 'state/analysis/P7_ordinary_app_cleanup_raw/inventory_intent01.json': (1119, 'b80a784bd6c23825d826b1e3cfddddd291669e675710272f212ffc4130dbbc52'), 'state/reviews/P7_ordinary_app_cleanup_inventory_review.md': (6826, 'c4327b1bb8c7cec0bddefec18ebf77d77f9d4249bf1983e04a4ebd31f8e580cf'), 'state/analysis/P7_motor_const_cleanup_raw/cleanup_independent_freeze01.json': (20685, '9740a6e0fa34374cb7ba3b2c63bcde3fa100a10a75eeb4f038b8670b5ced943c'), 'state/analysis/P7_motor_const_cleanup_raw/cleanup_root05_actual_result.json': (6367, '3b8f035a6b282ada5a5fbf5992a5343d27a3dc245962ee7f64032757420e11e8'), 'state/analysis/P7_motor_const_cleanup_raw/cleanup_stage_verification_intent01.json': (34505, '8776a33d82394e595bb57889166dadd1e4caef00674b57e971de7dc119afa731'), 'state/analysis/P7_motor_const_cleanup_raw/cleanup_stage_verification01.json': (9876, '7de3bb3a0d7a81feac727e1c7dc3a6d67e8d9519a7070c6c0a2eb051f3fc35f9'), 'state/reviews/P7_motor_const_cleanup_actual_review.md': (8082, 'aaede1e1d8a0a8deef6b48de191abe76cf06bb2779f6ce4fa810c4467544e9c8'), 'state/reviews/P7_motor_const_cleanup_source_review.md': (10091, '09b5bed31953e9b9175029ffea742adba3a21c7a7ae3dad8e462406ed56a7baf'), 'state/analysis/P7_motor_const_run_raw/native_inert_run01/upload_attempt.json': (778, 'e0d90810a0ce2b63b080190a322b31aed51cc429cacf2995204cb9cd68804d08'), 'state/reviews/P7_motor_const_run_actual_review.md': (14825, 'b562488423fce03712e0156deba21f52fddc826f096c70dcb1736d78aee71937'), 'state/analysis/P7_ordinary_app_static_compile_raw/native_static01/artifacts.json': (9281, '275ebb61be4a0487fe381d915ec28eea4634926b1d06a627850266f5c0a750e0'), 'state/analysis/P7_ordinary_app_cleanup_raw/cleanup_derivation01.json': (30865, '96c12bcd19e94b86945908fd556591e9925c6b842a9e92b82ef0ee8787588694'), 'state/analysis/P7_ordinary_app_cleanup_raw/cleanup_host_driver01.py': (3509, 'aa2a3250ecca315661a1ba87543eb43c23749cc180434a6dcdb4d7cd97890b6b'), 'state/analysis/P7_ordinary_app_cleanup_raw/cleanup_host_driver_derivation01.json': (1789, 'f084481c80e24fd34f237febb36687f144fb19eab7ad0be5f692bb6258e291b1'), 'state/analysis/P7_ordinary_app_cleanup_raw/cleanup_remoteocd05.py': (7740, '1a59d4b2fc12a0b74a81f65847d7384002423882bd42f5242a98774c8bc02958'), 'state/analysis/P7_ordinary_app_cleanup_raw/cleanup_root06.py': (9607, '290a7236dc7cc5c6b679a72d5864fb99408dd21bbd30b7b8f3edf74c0fe10aa3')}",
+      "count": 1,
+      "before": {
+        "bytes": 15986,
+        "sha256": "50cd89415e0e4659a39b256775702f095d509598d4ca661f263091f07cd2cd1d"
+      },
+      "after": {
+        "bytes": 20091,
+        "sha256": "b196e7c88529d2b7baa0e8324c674697689e6d6e84941839b6478417941622c9"
+      }
+    },
+    {
+      "old": "NEW_PAYLOAD = \"    'app_motor_observe.ino.bin-zsk.bin': (95520, 'e400078166394d0f8ea44b601e9ba2948992c4f263c5c7ee5fb3942433c143d0',\\n        '/home/arduino/sumox26_codex_build/app-motor-settle-static01/build/app_motor_observe.ino.bin-zsk.bin'),\\n\"",
+      "new": "NEW_PAYLOAD = \"    'app_motor_observe.ino.bin-zsk.bin': (95368, 'f15c7ce1f0ff5fea2d44d0b60f0607f9adae22b83ba5043fe4de5e2b21fa26f7',\\n        '/home/arduino/sumox26_codex_build/app-motor-const-static01/build/app_motor_observe.ino.bin-zsk.bin'),\\n\"",
+      "count": 1,
+      "before": {
+        "bytes": 20091,
+        "sha256": "b196e7c88529d2b7baa0e8324c674697689e6d6e84941839b6478417941622c9"
+      },
+      "after": {
+        "bytes": 20090,
+        "sha256": "9f6d0b3d6ccc82aa773781d3c0a1996dc6b729114e077dbc8a4a48aeb460fe9b"
+      }
+    },
+    {
+      "old": "CORE_CHANGES = (('cleanup-app-inert-root02', 'cleanup-app-const-root05', 1), ('cleanup_remoteocd01.py', 'cleanup_remoteocd04.py', 5), ('cleanup_root02.py', 'cleanup_root05.py', 2), ('_independent_cleanup_root02', '_independent_cleanup_root05', 1), ('7873', '7738', 1), ('7870', '7735', 1), ('23ef85ae3c386cc76751eea0fb18a90148a6fe513e3e8c753d527c06efcbbe95', 'edd1c8aa44f8de82cbfe1d7333b6ce836396922f82eacbe89d87fa6bcf3eb598', 1), ('51286ad414794e82f3161bed16cbb47dca421e831316e053a7eab967469f602e', '565acb3988bb0eba0c6865ac27daf5bbc277c85a67204f036bf098b3261b00be', 1), ('d190-exact-scratch-cleanup-v1', 'd206-exact-const-scratch-cleanup-v1', 3), ('d190-human-root-cleanup-v2', 'd206-authenticated-const-cleanup-v1', 1), (\"fs.records['/tmp/remoteocd'].st_ino = 33\", \"fs.records['/tmp/remoteocd'].st_ino = 1452\", 1))",
+      "new": "CORE_CHANGES = (('cleanup-app-inert-root02', 'cleanup-ordinary-app-root06', 1), ('cleanup_remoteocd01.py', 'cleanup_remoteocd05.py', 5), ('cleanup_root02.py', 'cleanup_root06.py', 2), ('_independent_cleanup_root02', '_independent_cleanup_root06', 1), ('7873', '7740', 1), ('7870', '7737', 1), ('23ef85ae3c386cc76751eea0fb18a90148a6fe513e3e8c753d527c06efcbbe95', '1a59d4b2fc12a0b74a81f65847d7384002423882bd42f5242a98774c8bc02958', 1), ('51286ad414794e82f3161bed16cbb47dca421e831316e053a7eab967469f602e', 'e90a5189a76d05bd7674d1bb771b9f480d59b5b26cc4a390109c47431a69d731', 1), ('d190-exact-scratch-cleanup-v1', 'd211-exact-ordinary-scratch-cleanup-v1', 3), ('d190-human-root-cleanup-v2', 'd211-authenticated-ordinary-cleanup-v1', 1), (\"fs.records['/tmp/remoteocd'].st_ino = 33\", \"fs.records['/tmp/remoteocd'].st_ino = 1732\", 1))",
+      "count": 1,
+      "before": {
+        "bytes": 20090,
+        "sha256": "9f6d0b3d6ccc82aa773781d3c0a1996dc6b729114e077dbc8a4a48aeb460fe9b"
+      },
+      "after": {
+        "bytes": 20099,
+        "sha256": "f2c54183fb3d605b6403f4004a624d9cb9892d001da308e45537e4c30d3204da"
+      }
+    },
+    {
+      "old": "DELTA_CHANGES = (('cleanup_remoteocd02.py', 'cleanup_remoteocd04.py', 7), ('cleanup_root03.py', 'cleanup_root05.py', 2), ('cleanup-app-observe-root03', 'cleanup-app-const-root05', 1), ('7735', '7738', 1), ('7732', '7735', 1), ('result_root03.json', 'result_root05.json', 1), ('create\\\\nit exclusively, never overwrite it', 'Create it\\\\nexclusively with no-clobber behavior; never overwrite a prior result', 1), ('(95328, PAYLOAD_SHA', '(95520, PAYLOAD_SHA', 1), ('2399736', '2399928', 1), (\"'motor_fault.ino.elf-zsk.bin', 'flash_sketch.cfg'\", \"'app_motor_fault.ino.bin-zsk.bin', 'flash_sketch.cfg'\", 1), (\"(b'x' * 29836, b'x' * 95328, b'x' * 95329)\", \"(b'x' * 95328, b'x' * 95520, b'x' * 95521)\", 1), ('b4416792a5bc228f34712fad9199a07c3c480aace979faa88aa12b50288b0a79', 'deb40317e5c444af26e65da4b6f1d0e577d9897d59dbddff3bce03a7bc14335c', 1), (\"recipe.checked_bytes(b'x' * 95328, pin)\", \"recipe.checked_bytes(b'x' * 95520, pin)\", 1), ('(33, 869)', '(1172, 1452)', 1), ('if inode == 33 else', 'if inode == 1172 else', 1), ('int(inode == 869)', 'int(inode == 1452)', 1), ('self.directory_fixture(recipe, 869)', 'self.directory_fixture(recipe, 1452)', 1), (\"'motor-fault-active01'\", \"'app-motor-fault-static01'\", 1))",
+      "new": "DELTA_CHANGES = (('cleanup_remoteocd02.py', 'cleanup_remoteocd05.py', 7), ('cleanup_root03.py', 'cleanup_root06.py', 2), ('cleanup-app-observe-root03', 'cleanup-ordinary-app-root06', 1), ('7735', '7740', 1), ('7732', '7737', 1), ('result_root03.json', 'result_root06.json', 1), ('create\\\\nit exclusively, never overwrite it', 'Create it\\\\nexclusively with no-clobber behavior; never overwrite a prior result', 1), ('(95328, PAYLOAD_SHA', '(95368, PAYLOAD_SHA', 1), ('2399736', '2399776', 1), (\"'motor_fault.ino.elf-zsk.bin', 'flash_sketch.cfg'\", \"'app_motor_fault.ino.bin-zsk.bin', 'flash_sketch.cfg'\", 1), (\"(b'x' * 29836, b'x' * 95328, b'x' * 95329)\", \"(b'x' * 95328, b'x' * 95368, b'x' * 95369)\", 1), ('b4416792a5bc228f34712fad9199a07c3c480aace979faa88aa12b50288b0a79', 'deb40317e5c444af26e65da4b6f1d0e577d9897d59dbddff3bce03a7bc14335c', 1), (\"recipe.checked_bytes(b'x' * 95328, pin)\", \"recipe.checked_bytes(b'x' * 95368, pin)\", 1), ('(33, 869)', '(1452, 1732)', 1), ('if inode == 33 else', 'if inode == 1452 else', 1), ('int(inode == 869)', 'int(inode == 1732)', 1), ('self.directory_fixture(recipe, 869)', 'self.directory_fixture(recipe, 1732)', 1), (\"'motor-fault-active01'\", \"'app-motor-fault-static01'\", 1))",
+      "count": 1,
+      "before": {
+        "bytes": 20099,
+        "sha256": "f2c54183fb3d605b6403f4004a624d9cb9892d001da308e45537e4c30d3204da"
+      },
+      "after": {
+        "bytes": 20102,
+        "sha256": "d701711e9adcce612e378217776736a690557330b178cfafbfe4ca02a1d34ffb"
+      }
+    },
+    {
+      "old": "def recipe_projection():\n    raw = replace_checked(checked(PRIOR + 'cleanup_remoteocd02.py'), (\n        ('D190', 'D201', 1), (OLD_PAYLOAD, NEW_PAYLOAD, 1),\n        ('info.st_ino == 869', 'info.st_ino == 1452', 1),\n        ('d196-exact-observer-scratch-cleanup-v1', 'd206-exact-const-scratch-cleanup-v1', 1)))\n    if (len(raw), sha(raw)) != PINS[NEW + 'cleanup_remoteocd04.py']:\n        raise AssertionError('Independent recipe identity')\n    return raw\n",
+      "new": "def recipe_projection():\n    raw = replace_checked(checked(PRIOR + 'cleanup_remoteocd02.py'), (\n        ('D190', 'D207', 1), (OLD_PAYLOAD, NEW_PAYLOAD, 1),\n        ('info.st_ino == 869', 'info.st_ino == 1732', 1),\n        ('d196-exact-observer-scratch-cleanup-v1', 'd211-exact-ordinary-scratch-cleanup-v1', 1)))\n    if (len(raw), sha(raw)) != PINS[NEW + 'cleanup_remoteocd05.py']:\n        raise AssertionError('Independent recipe identity')\n    return raw\n",
+      "count": 1,
+      "before": {
+        "bytes": 20102,
+        "sha256": "d701711e9adcce612e378217776736a690557330b178cfafbfe4ca02a1d34ffb"
+      },
+      "after": {
+        "bytes": 20105,
+        "sha256": "3dd01e9e7c0a9300093bbec8190c4ed1809701f8351f06f8af9fbc30a54d6f4c"
+      }
+    },
+    {
+      "old": "def wrapper_projection():\n    raw = replace_checked(checked(PRIOR + 'cleanup_root03.py'), (\n        ('cleanup-app-observe-root03', 'cleanup-app-const-root05', 1),\n        ('cleanup_remoteocd02.py', 'cleanup_remoteocd04.py', 4), ('7735', '7738', 1),\n        (PRIOR_RECIPE_SHA, RECIPE_SHA, 1), (PRIOR_PROJECTED_SHA, PROJECTED_SHA, 1),\n        ('d196-authenticated-observer-cleanup-v1', 'd206-authenticated-const-cleanup-v1', 1)))\n    if (len(raw), sha(raw)) != PINS[NEW + 'cleanup_root05.py']:\n        raise AssertionError('Independent wrapper identity')\n    return raw\n",
+      "new": "def wrapper_projection():\n    raw = replace_checked(checked(PRIOR + 'cleanup_root03.py'), (\n        ('cleanup-app-observe-root03', 'cleanup-ordinary-app-root06', 1),\n        ('cleanup_remoteocd02.py', 'cleanup_remoteocd05.py', 4), ('7735', '7740', 1),\n        (PRIOR_RECIPE_SHA, RECIPE_SHA, 1), (PRIOR_PROJECTED_SHA, PROJECTED_SHA, 1),\n        ('d196-authenticated-observer-cleanup-v1', 'd211-authenticated-ordinary-cleanup-v1', 1)))\n    if (len(raw), sha(raw)) != PINS[NEW + 'cleanup_root06.py']:\n        raise AssertionError('Independent wrapper identity')\n    return raw\n",
+      "count": 1,
+      "before": {
+        "bytes": 20105,
+        "sha256": "3dd01e9e7c0a9300093bbec8190c4ed1809701f8351f06f8af9fbc30a54d6f4c"
+      },
+      "after": {
+        "bytes": 20111,
+        "sha256": "9d4228704c443da687d037d95ef59dc89312384f5f71708a276893985f98aa76"
+      }
+    },
+    {
+      "old": "(37250, 'dfd89dea54a6bba65db4c7678f1cc0a9062e2bbea203405d30c7ba0b2985d263')",
+      "new": "(37265, 'eb6d02f514d767232d136c79ad09c98bfa85c125bb23dc9f79e6f8c4095c48d7')",
+      "count": 1,
+      "before": {
+        "bytes": 20111,
+        "sha256": "9d4228704c443da687d037d95ef59dc89312384f5f71708a276893985f98aa76"
+      },
+      "after": {
+        "bytes": 20111,
+        "sha256": "14934a245f8e03e1a438ebd032e74153b97bd6bce3970dc0a69ae381b3ddfbc2"
+      }
+    },
+    {
+      "old": "(14479, 'a44d6dc1ed6859ec2f06cb862f66d532355ed58c5ac4f1261958a898c8070879')",
+      "new": "(14482, 'b09cfb82030c6ddedaf3b980db0ac348b99df0a178823ebadee054531d5ca411')",
+      "count": 1,
+      "before": {
+        "bytes": 20111,
+        "sha256": "14934a245f8e03e1a438ebd032e74153b97bd6bce3970dc0a69ae381b3ddfbc2"
+      },
+      "after": {
+        "bytes": 20111,
+        "sha256": "355b8f568ffadfc969d2b29f0393a967cdcfbfc3ad8d27e23dc95558241f91b3"
+      }
+    },
+    {
+      "old": "def focused_cases(oracle):\n    class CurrentCopyRefusals(unittest.TestCase):\n        def test_D190_D195_and_D203_packages_cannot_replace_current_D201_copy(self):\n            recipe = oracle.definitions('cleanup_remoteocd04.py')\n            before = dict(recipe.PINS); pin = recipe.PINS[PAYLOAD_NAME]\n            self.assertEqual(pin, (95520, PAYLOAD_SHA, PAYLOAD_PATH))\n            for wrong_size in (95328, 95360, 95368):\n                with self.subTest(size=wrong_size), self.assertRaisesRegex(ValueError, 'Copy or original differs'):\n                    recipe.checked_bytes(b'x' * wrong_size, pin)\n            for wrong_digest in (PRIOR_PAYLOAD_SHA, '85b05c564fd3545c6b6e16fb64ed2aef8893226e32048309f1b71f97a5db4b6c', FUTURE_PAYLOAD_SHA):\n                digest = mock.Mock(return_value=types.SimpleNamespace(hexdigest=lambda: wrong_digest))\n                recipe.hashlib = types.SimpleNamespace(sha256=digest)\n                with self.subTest(digest=wrong_digest), self.assertRaisesRegex(ValueError, 'Copy or original differs'):\n                    recipe.checked_bytes(b'x' * 95520, pin)\n                digest.assert_called_once()\n            self.assertEqual(recipe.PINS, before)\n\n        def test_previous_source_names_and_stage_schema_source_drift_fail_before_execution(self):\n            wrapper = oracle.definitions('cleanup_root05.py')\n            wrapper.os = types.SimpleNamespace(open=mock.Mock(side_effect=AssertionError('Unknown source opened')))\n            for name in ('cleanup_remoteocd01.py', 'cleanup_remoteocd02.py', 'cleanup_remoteocd03.py', 'cleanup_root03.py', 'cleanup_root04.py'):\n                with self.subTest(name=name), self.assertRaisesRegex(ValueError, 'Unknown source basename'):\n                    wrapper.read_source(name)\n            wrapper.os.open.assert_not_called()\n            name = NEW + 'cleanup_root05.py'; current = checked(name)\n            # These are rejected SOURCE substitutions, not a new JSON schema predicate.\n            for before, after in (\n                    (b'cleanup-app-const-root05', b'cleanup-app-settle-root04'),\n                    (b'd206-authenticated-const-cleanup-v1', b'd200-authenticated-settle-cleanup-v1')):\n                self.assertEqual(current.count(before), 1)\n                wrong = current.replace(before, after); read = Path.read_bytes\n                def observed(path):\n                    return wrong if path == ROOT / name else read(path)\n                with mock.patch.object(Path, 'read_bytes', observed), self.assertRaisesRegex(AssertionError, 'Frozen input changed'):\n                    oracle.definitions('cleanup_root05.py')\n\n    return CurrentCopyRefusals\n",
+      "new": "def focused_cases(oracle):\n    class CurrentCopyRefusals(unittest.TestCase):\n        def test_D190_D195_D198_D208_packages_cannot_replace_current_D207_copy(self):\n            recipe = oracle.definitions('cleanup_remoteocd05.py')\n            before = dict(recipe.PINS); pin = recipe.PINS[PAYLOAD_NAME]\n            self.assertEqual(pin, (95368, PAYLOAD_SHA, PAYLOAD_PATH))\n            for wrong_size in (95328, 95360, 95520, 92944):\n                with self.subTest(size=wrong_size), self.assertRaisesRegex(ValueError, 'Copy or original differs'):\n                    recipe.checked_bytes(b'x' * wrong_size, pin)\n            for wrong_digest in (PRIOR_PAYLOAD_SHA, '85b05c564fd3545c6b6e16fb64ed2aef8893226e32048309f1b71f97a5db4b6c', 'e400078166394d0f8ea44b601e9ba2948992c4f263c5c7ee5fb3942433c143d0', FUTURE_PAYLOAD_SHA):\n                digest = mock.Mock(return_value=types.SimpleNamespace(hexdigest=lambda: wrong_digest))\n                recipe.hashlib = types.SimpleNamespace(sha256=digest)\n                with self.subTest(digest=wrong_digest), self.assertRaisesRegex(ValueError, 'Copy or original differs'):\n                    recipe.checked_bytes(b'x' * 95368, pin)\n                digest.assert_called_once()\n            self.assertEqual(recipe.PINS, before)\n\n        def test_previous_source_names_and_stage_schema_source_drift_fail_before_execution(self):\n            wrapper = oracle.definitions('cleanup_root06.py')\n            wrapper.os = types.SimpleNamespace(open=mock.Mock(side_effect=AssertionError('Unknown source opened')))\n            for name in ('cleanup_remoteocd01.py', 'cleanup_remoteocd02.py', 'cleanup_remoteocd03.py', 'cleanup_remoteocd04.py', 'cleanup_root03.py', 'cleanup_root04.py', 'cleanup_root05.py'):\n                with self.subTest(name=name), self.assertRaisesRegex(ValueError, 'Unknown source basename'):\n                    wrapper.read_source(name)\n            wrapper.os.open.assert_not_called()\n            name = NEW + 'cleanup_root06.py'; current = checked(name)\n            # These are rejected SOURCE substitutions, not a new JSON schema predicate.\n            for before, after in (\n                    (b'cleanup-ordinary-app-root06', b'cleanup-app-const-root05'),\n                    (b'd211-authenticated-ordinary-cleanup-v1', b'd206-authenticated-const-cleanup-v1')):\n                self.assertEqual(current.count(before), 1)\n                wrong = current.replace(before, after); read = Path.read_bytes\n                def observed(path):\n                    return wrong if path == ROOT / name else read(path)\n                with mock.patch.object(Path, 'read_bytes', observed), self.assertRaisesRegex(AssertionError, 'Frozen input changed'):\n                    oracle.definitions('cleanup_root06.py')\n\n    return CurrentCopyRefusals\n",
+      "count": 1,
+      "before": {
+        "bytes": 20111,
+        "sha256": "355b8f568ffadfc969d2b29f0393a967cdcfbfc3ad8d27e23dc95558241f91b3"
+      },
+      "after": {
+        "bytes": 20238,
+        "sha256": "7ba7f12d8d8fd7c844b4fccc0177ae133f9315e7cfd9bff60a5b98b2a668607b"
+      }
+    }
+  ],
+  "core_steps": [
+    {
+      "old": "cleanup-app-inert-root02",
+      "new": "cleanup-ordinary-app-root06",
+      "count": 1,
+      "before": {
+        "bytes": 37221,
+        "sha256": "225ef637e85dfe4ce1598e6744c781720b900905ea0c9c3bf0737d58b49e1559"
+      },
+      "after": {
+        "bytes": 37224,
+        "sha256": "db5be6bbb192738ff895d9715a3d2d138748a009f255543b6036c1fa2c47e9e2"
+      }
+    },
+    {
+      "old": "cleanup_remoteocd01.py",
+      "new": "cleanup_remoteocd05.py",
+      "count": 5,
+      "before": {
+        "bytes": 37224,
+        "sha256": "db5be6bbb192738ff895d9715a3d2d138748a009f255543b6036c1fa2c47e9e2"
+      },
+      "after": {
+        "bytes": 37224,
+        "sha256": "7a36f8cc30e12e392c576edac4cd2b7810cd664999fb0f95e597ddf3003b7184"
+      }
+    },
+    {
+      "old": "cleanup_root02.py",
+      "new": "cleanup_root06.py",
+      "count": 2,
+      "before": {
+        "bytes": 37224,
+        "sha256": "7a36f8cc30e12e392c576edac4cd2b7810cd664999fb0f95e597ddf3003b7184"
+      },
+      "after": {
+        "bytes": 37224,
+        "sha256": "8af24c242e239fb47e2ecb54303e362cd268fadfc52a7201b678002e0fee057e"
+      }
+    },
+    {
+      "old": "_independent_cleanup_root02",
+      "new": "_independent_cleanup_root06",
+      "count": 1,
+      "before": {
+        "bytes": 37224,
+        "sha256": "8af24c242e239fb47e2ecb54303e362cd268fadfc52a7201b678002e0fee057e"
+      },
+      "after": {
+        "bytes": 37224,
+        "sha256": "382e3aeeb7682f0fd69b5328d3106a0423b617d71ca3464b1ddf714a2e0e2011"
+      }
+    },
+    {
+      "old": "7873",
+      "new": "7740",
+      "count": 1,
+      "before": {
+        "bytes": 37224,
+        "sha256": "382e3aeeb7682f0fd69b5328d3106a0423b617d71ca3464b1ddf714a2e0e2011"
+      },
+      "after": {
+        "bytes": 37224,
+        "sha256": "c6c4f6987726ad4b3d90ba340a20222482d712b0e783d28053ecdfc203ca8a3f"
+      }
+    },
+    {
+      "old": "7870",
+      "new": "7737",
+      "count": 1,
+      "before": {
+        "bytes": 37224,
+        "sha256": "c6c4f6987726ad4b3d90ba340a20222482d712b0e783d28053ecdfc203ca8a3f"
+      },
+      "after": {
+        "bytes": 37224,
+        "sha256": "2065f82a412b24b29356ac5e79564f8d29569a16b53083a025b5b95be9f2eb9d"
+      }
+    },
+    {
+      "old": "23ef85ae3c386cc76751eea0fb18a90148a6fe513e3e8c753d527c06efcbbe95",
+      "new": "1a59d4b2fc12a0b74a81f65847d7384002423882bd42f5242a98774c8bc02958",
+      "count": 1,
+      "before": {
+        "bytes": 37224,
+        "sha256": "2065f82a412b24b29356ac5e79564f8d29569a16b53083a025b5b95be9f2eb9d"
+      },
+      "after": {
+        "bytes": 37224,
+        "sha256": "f0d3d195b708c42d8208d91cf1b1587dba9275e8043d99f6a5fd8125a02ff362"
+      }
+    },
+    {
+      "old": "51286ad414794e82f3161bed16cbb47dca421e831316e053a7eab967469f602e",
+      "new": "e90a5189a76d05bd7674d1bb771b9f480d59b5b26cc4a390109c47431a69d731",
+      "count": 1,
+      "before": {
+        "bytes": 37224,
+        "sha256": "f0d3d195b708c42d8208d91cf1b1587dba9275e8043d99f6a5fd8125a02ff362"
+      },
+      "after": {
+        "bytes": 37224,
+        "sha256": "4eee8131f7d89fe4841c3416ded038d7f2563f702da17d21ff22bfadaa75f65a"
+      }
+    },
+    {
+      "old": "d190-exact-scratch-cleanup-v1",
+      "new": "d211-exact-ordinary-scratch-cleanup-v1",
+      "count": 3,
+      "before": {
+        "bytes": 37224,
+        "sha256": "4eee8131f7d89fe4841c3416ded038d7f2563f702da17d21ff22bfadaa75f65a"
+      },
+      "after": {
+        "bytes": 37251,
+        "sha256": "1aab6f763e864835553722153c3c390a51ed446945f006d3aa0c49089c95bdf7"
+      }
+    },
+    {
+      "old": "d190-human-root-cleanup-v2",
+      "new": "d211-authenticated-ordinary-cleanup-v1",
+      "count": 1,
+      "before": {
+        "bytes": 37251,
+        "sha256": "1aab6f763e864835553722153c3c390a51ed446945f006d3aa0c49089c95bdf7"
+      },
+      "after": {
+        "bytes": 37263,
+        "sha256": "386d4f02ba213231e876ebaf7291c040d639c638d817c243997e9618364f481d"
+      }
+    },
+    {
+      "old": "fs.records['/tmp/remoteocd'].st_ino = 33",
+      "new": "fs.records['/tmp/remoteocd'].st_ino = 1732",
+      "count": 1,
+      "before": {
+        "bytes": 37263,
+        "sha256": "386d4f02ba213231e876ebaf7291c040d639c638d817c243997e9618364f481d"
+      },
+      "after": {
+        "bytes": 37265,
+        "sha256": "eb6d02f514d767232d136c79ad09c98bfa85c125bb23dc9f79e6f8c4095c48d7"
+      }
+    }
+  ],
+  "core_projected": {
+    "bytes": 37265,
+    "sha256": "eb6d02f514d767232d136c79ad09c98bfa85c125bb23dc9f79e6f8c4095c48d7"
+  },
+  "metadata_class_steps": [
+    {
+      "old": "cleanup_remoteocd02.py",
+      "new": "cleanup_remoteocd05.py",
+      "count": 7,
+      "before": {
+        "bytes": 7718,
+        "sha256": "c671445d65b042277ccb19696cf40b2bc9b8216008d13e779eec48d760ce1514"
+      },
+      "after": {
+        "bytes": 7718,
+        "sha256": "6b9ff230996fb3dad9f172f4ad31ece9f7c3dda64746259a706192bafe6029d5"
+      }
+    },
+    {
+      "old": "cleanup_root03.py",
+      "new": "cleanup_root06.py",
+      "count": 2,
+      "before": {
+        "bytes": 7718,
+        "sha256": "6b9ff230996fb3dad9f172f4ad31ece9f7c3dda64746259a706192bafe6029d5"
+      },
+      "after": {
+        "bytes": 7718,
+        "sha256": "bebf57e5ee56cccafe5276a272f33718cf92a21c0a3ae6ba2f3e3d5c82dbdaf1"
+      }
+    },
+    {
+      "old": "cleanup-app-observe-root03",
+      "new": "cleanup-ordinary-app-root06",
+      "count": 1,
+      "before": {
+        "bytes": 7718,
+        "sha256": "bebf57e5ee56cccafe5276a272f33718cf92a21c0a3ae6ba2f3e3d5c82dbdaf1"
+      },
+      "after": {
+        "bytes": 7719,
+        "sha256": "9f1cf489474e07d37705d269efd1c83b5c66192bf3898099f799a03b47018da1"
+      }
+    },
+    {
+      "old": "7735",
+      "new": "7740",
+      "count": 1,
+      "before": {
+        "bytes": 7719,
+        "sha256": "9f1cf489474e07d37705d269efd1c83b5c66192bf3898099f799a03b47018da1"
+      },
+      "after": {
+        "bytes": 7719,
+        "sha256": "45271e50448091963d08ba78d7578c1c5745fb60c398a1f4a8b23771074659ca"
+      }
+    },
+    {
+      "old": "7732",
+      "new": "7737",
+      "count": 1,
+      "before": {
+        "bytes": 7719,
+        "sha256": "45271e50448091963d08ba78d7578c1c5745fb60c398a1f4a8b23771074659ca"
+      },
+      "after": {
+        "bytes": 7719,
+        "sha256": "269ba7e525ea4a10ec9ca46126249c417594805606e04ccdb46a00bc6d316c5b"
+      }
+    },
+    {
+      "old": "result_root03.json",
+      "new": "result_root06.json",
+      "count": 1,
+      "before": {
+        "bytes": 7719,
+        "sha256": "269ba7e525ea4a10ec9ca46126249c417594805606e04ccdb46a00bc6d316c5b"
+      },
+      "after": {
+        "bytes": 7719,
+        "sha256": "75b85f0f65e5d9a7b2eddaed519a089115b8d261e4d2026e5f98eecb63b8db63"
+      }
+    },
+    {
+      "old": "create\\nit exclusively, never overwrite it",
+      "new": "Create it\\nexclusively with no-clobber behavior; never overwrite a prior result",
+      "count": 1,
+      "before": {
+        "bytes": 7719,
+        "sha256": "75b85f0f65e5d9a7b2eddaed519a089115b8d261e4d2026e5f98eecb63b8db63"
+      },
+      "after": {
+        "bytes": 7756,
+        "sha256": "a6e8e57b927378656fb7f16537dc8bdc8b0f915ab1e0e02fb4ef0198d2ed2b6f"
+      }
+    },
+    {
+      "old": "(95328, PAYLOAD_SHA",
+      "new": "(95368, PAYLOAD_SHA",
+      "count": 1,
+      "before": {
+        "bytes": 7756,
+        "sha256": "a6e8e57b927378656fb7f16537dc8bdc8b0f915ab1e0e02fb4ef0198d2ed2b6f"
+      },
+      "after": {
+        "bytes": 7756,
+        "sha256": "941568a0708ef9027ca0175fa3c6b8c9e8bd65943f5164a8f4bd34c8d36e656b"
+      }
+    },
+    {
+      "old": "2399736",
+      "new": "2399776",
+      "count": 1,
+      "before": {
+        "bytes": 7756,
+        "sha256": "941568a0708ef9027ca0175fa3c6b8c9e8bd65943f5164a8f4bd34c8d36e656b"
+      },
+      "after": {
+        "bytes": 7756,
+        "sha256": "31c8b7eb8980126123471378a6e181db7c213763ff2dc2f9ab90a540a4004d0e"
+      }
+    },
+    {
+      "old": "'motor_fault.ino.elf-zsk.bin', 'flash_sketch.cfg'",
+      "new": "'app_motor_fault.ino.bin-zsk.bin', 'flash_sketch.cfg'",
+      "count": 1,
+      "before": {
+        "bytes": 7756,
+        "sha256": "31c8b7eb8980126123471378a6e181db7c213763ff2dc2f9ab90a540a4004d0e"
+      },
+      "after": {
+        "bytes": 7760,
+        "sha256": "a5aa487e8ab8c8e055a89e26e5c1089601ba50c055ab111d60d8c89bf98693cd"
+      }
+    },
+    {
+      "old": "(b'x' * 29836, b'x' * 95328, b'x' * 95329)",
+      "new": "(b'x' * 95328, b'x' * 95368, b'x' * 95369)",
+      "count": 1,
+      "before": {
+        "bytes": 7760,
+        "sha256": "a5aa487e8ab8c8e055a89e26e5c1089601ba50c055ab111d60d8c89bf98693cd"
+      },
+      "after": {
+        "bytes": 7760,
+        "sha256": "39c7a94ce205add112e93bede44232bc2aa41a6e2f00ffecfc9c68a0ddb0d3be"
+      }
+    },
+    {
+      "old": "b4416792a5bc228f34712fad9199a07c3c480aace979faa88aa12b50288b0a79",
+      "new": "deb40317e5c444af26e65da4b6f1d0e577d9897d59dbddff3bce03a7bc14335c",
+      "count": 1,
+      "before": {
+        "bytes": 7760,
+        "sha256": "39c7a94ce205add112e93bede44232bc2aa41a6e2f00ffecfc9c68a0ddb0d3be"
+      },
+      "after": {
+        "bytes": 7760,
+        "sha256": "256bed4b1c57964075fc5ec5cdb79e69913f14d06c68eb8d6951bb81e09b571e"
+      }
+    },
+    {
+      "old": "recipe.checked_bytes(b'x' * 95328, pin)",
+      "new": "recipe.checked_bytes(b'x' * 95368, pin)",
+      "count": 1,
+      "before": {
+        "bytes": 7760,
+        "sha256": "256bed4b1c57964075fc5ec5cdb79e69913f14d06c68eb8d6951bb81e09b571e"
+      },
+      "after": {
+        "bytes": 7760,
+        "sha256": "7a739e244b0ab28098d365ff57ed73867550689bf4c6190182be809cbdc9f0e7"
+      }
+    },
+    {
+      "old": "(33, 869)",
+      "new": "(1452, 1732)",
+      "count": 1,
+      "before": {
+        "bytes": 7760,
+        "sha256": "7a739e244b0ab28098d365ff57ed73867550689bf4c6190182be809cbdc9f0e7"
+      },
+      "after": {
+        "bytes": 7763,
+        "sha256": "4e709efd3ca8eb465051d039e3632f932c12ba9040ba3d7333b1f761d8cf6092"
+      }
+    },
+    {
+      "old": "if inode == 33 else",
+      "new": "if inode == 1452 else",
+      "count": 1,
+      "before": {
+        "bytes": 7763,
+        "sha256": "4e709efd3ca8eb465051d039e3632f932c12ba9040ba3d7333b1f761d8cf6092"
+      },
+      "after": {
+        "bytes": 7765,
+        "sha256": "592d0403baeb48389cf6bf2d8acb8200d71e6ce0fcb07a60fe5d6f29d40e0adc"
+      }
+    },
+    {
+      "old": "int(inode == 869)",
+      "new": "int(inode == 1732)",
+      "count": 1,
+      "before": {
+        "bytes": 7765,
+        "sha256": "592d0403baeb48389cf6bf2d8acb8200d71e6ce0fcb07a60fe5d6f29d40e0adc"
+      },
+      "after": {
+        "bytes": 7766,
+        "sha256": "b643d438eaf12c09ce5c0429c36109ccace42ae924b85d6fdf5b3651528e1eb9"
+      }
+    },
+    {
+      "old": "self.directory_fixture(recipe, 869)",
+      "new": "self.directory_fixture(recipe, 1732)",
+      "count": 1,
+      "before": {
+        "bytes": 7766,
+        "sha256": "b643d438eaf12c09ce5c0429c36109ccace42ae924b85d6fdf5b3651528e1eb9"
+      },
+      "after": {
+        "bytes": 7767,
+        "sha256": "298abfe84245e29636ec70e6491c5fa864ccf4e42df17caf33ea42a12ee92c7c"
+      }
+    },
+    {
+      "old": "'motor-fault-active01'",
+      "new": "'app-motor-fault-static01'",
+      "count": 1,
+      "before": {
+        "bytes": 7767,
+        "sha256": "298abfe84245e29636ec70e6491c5fa864ccf4e42df17caf33ea42a12ee92c7c"
+      },
+      "after": {
+        "bytes": 7771,
+        "sha256": "f08fb553ab4392e47cab4116e8bb6734f3f479b1a2f706a69ce1a8e30f851176"
+      }
+    }
+  ],
+  "metadata_projected": {
+    "bytes": 14482,
+    "sha256": "b09cfb82030c6ddedaf3b980db0ac348b99df0a178823ebadee054531d5ca411"
+  },
+  "focused_delta_steps": [
+    {
+      "old": "test_D190_D195_and_D203_packages_cannot_replace_current_D201_copy",
+      "new": "test_D190_D195_D198_D208_packages_cannot_replace_current_D207_copy",
+      "count": 1,
+      "before": {
+        "bytes": 2668,
+        "sha256": "12e4ff2ebfac6587b6170ad4a915afd7f89fd17f36679c80abc638328da82fce"
+      },
+      "after": {
+        "bytes": 2669,
+        "sha256": "5094e7d6bcc486023c380a9a40ad5b66af64491458b720eec891cb3bdb782a3a"
+      }
+    },
+    {
+      "old": "oracle.definitions('cleanup_remoteocd04.py')",
+      "new": "oracle.definitions('cleanup_remoteocd05.py')",
+      "count": 1,
+      "before": {
+        "bytes": 2669,
+        "sha256": "5094e7d6bcc486023c380a9a40ad5b66af64491458b720eec891cb3bdb782a3a"
+      },
+      "after": {
+        "bytes": 2669,
+        "sha256": "07d79b1a1d8af632a73a6ffcafc8245cb68f3d0423828151d79fec483081f99b"
+      }
+    },
+    {
+      "old": "(95520, PAYLOAD_SHA, PAYLOAD_PATH)",
+      "new": "(95368, PAYLOAD_SHA, PAYLOAD_PATH)",
+      "count": 1,
+      "before": {
+        "bytes": 2669,
+        "sha256": "07d79b1a1d8af632a73a6ffcafc8245cb68f3d0423828151d79fec483081f99b"
+      },
+      "after": {
+        "bytes": 2669,
+        "sha256": "b8316d265111ee5a4af16b18cf3b289c0b4843489354671aaf6e1beac9c69979"
+      }
+    },
+    {
+      "old": "(95328, 95360, 95368)",
+      "new": "(95328, 95360, 95520, 92944)",
+      "count": 1,
+      "before": {
+        "bytes": 2669,
+        "sha256": "b8316d265111ee5a4af16b18cf3b289c0b4843489354671aaf6e1beac9c69979"
+      },
+      "after": {
+        "bytes": 2676,
+        "sha256": "ebf29dffd9110a7978f07ac07d722c4d1438fa37cbad0f4157b7cda28e554432"
+      }
+    },
+    {
+      "old": "'85b05c564fd3545c6b6e16fb64ed2aef8893226e32048309f1b71f97a5db4b6c', FUTURE_PAYLOAD_SHA",
+      "new": "'85b05c564fd3545c6b6e16fb64ed2aef8893226e32048309f1b71f97a5db4b6c', 'e400078166394d0f8ea44b601e9ba2948992c4f263c5c7ee5fb3942433c143d0', FUTURE_PAYLOAD_SHA",
+      "count": 1,
+      "before": {
+        "bytes": 2676,
+        "sha256": "ebf29dffd9110a7978f07ac07d722c4d1438fa37cbad0f4157b7cda28e554432"
+      },
+      "after": {
+        "bytes": 2744,
+        "sha256": "8346a4070c56a801cd764b459027078518b317f3b4b408415a661c2dd3005537"
+      }
+    },
+    {
+      "old": "b'x' * 95520",
+      "new": "b'x' * 95368",
+      "count": 1,
+      "before": {
+        "bytes": 2744,
+        "sha256": "8346a4070c56a801cd764b459027078518b317f3b4b408415a661c2dd3005537"
+      },
+      "after": {
+        "bytes": 2744,
+        "sha256": "fa01a6e532c6c512f5ee1ce928b175db65b1ac529a03daea343c451f27419bcd"
+      }
+    },
+    {
+      "old": "oracle.definitions('cleanup_root05.py')",
+      "new": "oracle.definitions('cleanup_root06.py')",
+      "count": 2,
+      "before": {
+        "bytes": 2744,
+        "sha256": "fa01a6e532c6c512f5ee1ce928b175db65b1ac529a03daea343c451f27419bcd"
+      },
+      "after": {
+        "bytes": 2744,
+        "sha256": "40483e531d1d0448a27c229004d014333c0b491cde0008ffedbaa552ba780084"
+      }
+    },
+    {
+      "old": "'cleanup_remoteocd03.py', 'cleanup_root03.py', 'cleanup_root04.py'",
+      "new": "'cleanup_remoteocd03.py', 'cleanup_remoteocd04.py', 'cleanup_root03.py', 'cleanup_root04.py', 'cleanup_root05.py'",
+      "count": 1,
+      "before": {
+        "bytes": 2744,
+        "sha256": "40483e531d1d0448a27c229004d014333c0b491cde0008ffedbaa552ba780084"
+      },
+      "after": {
+        "bytes": 2791,
+        "sha256": "8adc30021a3344de85b2e37e567be4f66903484249b7a1eb12c4148de3d671b3"
+      }
+    },
+    {
+      "old": "name = NEW + 'cleanup_root05.py'",
+      "new": "name = NEW + 'cleanup_root06.py'",
+      "count": 1,
+      "before": {
+        "bytes": 2791,
+        "sha256": "8adc30021a3344de85b2e37e567be4f66903484249b7a1eb12c4148de3d671b3"
+      },
+      "after": {
+        "bytes": 2791,
+        "sha256": "1ce560867c096d05bf92075ed25a87263749da724ced4a2e7acee53a65ccc589"
+      }
+    },
+    {
+      "old": "(b'cleanup-app-const-root05', b'cleanup-app-settle-root04')",
+      "new": "(b'cleanup-ordinary-app-root06', b'cleanup-app-const-root05')",
+      "count": 1,
+      "before": {
+        "bytes": 2791,
+        "sha256": "1ce560867c096d05bf92075ed25a87263749da724ced4a2e7acee53a65ccc589"
+      },
+      "after": {
+        "bytes": 2793,
+        "sha256": "7abf6941ab06a1763abc620d57078dc5ea749cff4b233c28963b4a1baf6b581b"
+      }
+    },
+    {
+      "old": "(b'd206-authenticated-const-cleanup-v1', b'd200-authenticated-settle-cleanup-v1')",
+      "new": "(b'd211-authenticated-ordinary-cleanup-v1', b'd206-authenticated-const-cleanup-v1')",
+      "count": 1,
+      "before": {
+        "bytes": 2793,
+        "sha256": "7abf6941ab06a1763abc620d57078dc5ea749cff4b233c28963b4a1baf6b581b"
+      },
+      "after": {
+        "bytes": 2795,
+        "sha256": "2f36dc414f83139e7413fb76b7dc248fae17b7f2b27a4f8ec543adbee06d4855"
+      }
+    }
+  ],
+  "outer_d206_steps_before_fixture_pin": [
+    {
+      "old": "# Adds D206 exact lineage, observed current payload and earlier inode/path refusals.",
+      "new": "# Adds D211 exact lineage, observed current payload and earlier inode/path refusals.",
+      "count": 1,
+      "before": {
+        "bytes": 9686,
+        "sha256": "1f33e47b8e9e29342aee1fa19a65ad430bdfb5d7a863349b497f140deef39486"
+      },
+      "after": {
+        "bytes": 9686,
+        "sha256": "0ad0d12624bac68b0988496f1075637098ea2dd7aa4e9f09f9350d58ab99456a"
+      }
+    },
+    {
+      "old": "RAW = 'state/analysis/P7_motor_const_cleanup_raw/'",
+      "new": "RAW = 'state/analysis/P7_ordinary_app_cleanup_raw/'",
+      "count": 1,
+      "before": {
+        "bytes": 9686,
+        "sha256": "0ad0d12624bac68b0988496f1075637098ea2dd7aa4e9f09f9350d58ab99456a"
+      },
+      "after": {
+        "bytes": 9687,
+        "sha256": "821a50158a31f3b3d90c4fb1cb109f5ef8cff37e5db53b91ce238cc74dbb5cb6"
+      }
+    },
+    {
+      "old": "D206",
+      "new": "D211",
+      "count": 5,
+      "before": {
+        "bytes": 9687,
+        "sha256": "821a50158a31f3b3d90c4fb1cb109f5ef8cff37e5db53b91ce238cc74dbb5cb6"
+      },
+      "after": {
+        "bytes": 9687,
+        "sha256": "d12afc1b8a15ab225ef1f35736e2030c8c29b3a10ac31ac18e570efa3f590e5d"
+      }
+    },
+    {
+      "old": "_d206_private_d200_oracle",
+      "new": "_d211_private_d200_oracle",
+      "count": 1,
+      "before": {
+        "bytes": 9687,
+        "sha256": "d12afc1b8a15ab225ef1f35736e2030c8c29b3a10ac31ac18e570efa3f590e5d"
+      },
+      "after": {
+        "bytes": 9687,
+        "sha256": "7ed8ee337007a56605742a15746dacc2400bdbf0b1f9d201863bc472302d72d8"
+      }
+    },
+    {
+      "old": "cleanup_remoteocd04.py",
+      "new": "cleanup_remoteocd05.py",
+      "count": 4,
+      "before": {
+        "bytes": 9687,
+        "sha256": "7ed8ee337007a56605742a15746dacc2400bdbf0b1f9d201863bc472302d72d8"
+      },
+      "after": {
+        "bytes": 9687,
+        "sha256": "1fd427ba5433d8646c934e8ad8beeddae3aa57a7719b4d34b2325969202ad7ef"
+      }
+    },
+    {
+      "old": "cleanup_root05.py",
+      "new": "cleanup_root06.py",
+      "count": 1,
+      "before": {
+        "bytes": 9687,
+        "sha256": "1fd427ba5433d8646c934e8ad8beeddae3aa57a7719b4d34b2325969202ad7ef"
+      },
+      "after": {
+        "bytes": 9687,
+        "sha256": "01af39983d30b016b360f98f5ec1a487805aa17a2c07cfac3a3b85da434126bd"
+      }
+    },
+    {
+      "old": "result_root05.json",
+      "new": "result_root06.json",
+      "count": 1,
+      "before": {
+        "bytes": 9687,
+        "sha256": "01af39983d30b016b360f98f5ec1a487805aa17a2c07cfac3a3b85da434126bd"
+      },
+      "after": {
+        "bytes": 9687,
+        "sha256": "b9a27a2af38ffd41bc8151ca46dc24ae568fba2444c65897233c143aac8d01b7"
+      }
+    },
+    {
+      "old": "50660",
+      "new": "50668",
+      "count": 1,
+      "before": {
+        "bytes": 9687,
+        "sha256": "b9a27a2af38ffd41bc8151ca46dc24ae568fba2444c65897233c143aac8d01b7"
+      },
+      "after": {
+        "bytes": 9687,
+        "sha256": "d6f7ba241e3bef9c95c0b8967c197c1feaa1477d557842b6aecbea396bc694e7"
+      }
+    },
+    {
+      "old": "(34, 1452)",
+      "new": "(34, 1732)",
+      "count": 1,
+      "before": {
+        "bytes": 9687,
+        "sha256": "d6f7ba241e3bef9c95c0b8967c197c1feaa1477d557842b6aecbea396bc694e7"
+      },
+      "after": {
+        "bytes": 9687,
+        "sha256": "be2a979a7e92c10ed605d0ca6ab764a2058e58ec3ba7176c80ad4bb0fc51ecff"
+      }
+    },
+    {
+      "old": "exact_three_d201_copies",
+      "new": "exact_three_d207_copies",
+      "count": 1,
+      "before": {
+        "bytes": 9687,
+        "sha256": "be2a979a7e92c10ed605d0ca6ab764a2058e58ec3ba7176c80ad4bb0fc51ecff"
+      },
+      "after": {
+        "bytes": 9687,
+        "sha256": "ca50d063d9a6556f2bc7ac0e2483c9ae5575f7ff0a7b0c32698980eac461f733"
+      }
+    },
+    {
+      "old": "2399928",
+      "new": "2399776",
+      "count": 1,
+      "before": {
+        "bytes": 9687,
+        "sha256": "ca50d063d9a6556f2bc7ac0e2483c9ae5575f7ff0a7b0c32698980eac461f733"
+      },
+      "after": {
+        "bytes": 9687,
+        "sha256": "be8b1830a7bfb0cfc1ff91afd11310c04b8cc786bbcaeeca0c916314c6df804f"
+      }
+    },
+    {
+      "old": "(95520, 'e400078166394d0f8ea44b601e9ba2948992c4f263c5c7ee5fb3942433c143d0',",
+      "new": "(95368, 'f15c7ce1f0ff5fea2d44d0b60f0607f9adae22b83ba5043fe4de5e2b21fa26f7',",
+      "count": 1,
+      "before": {
+        "bytes": 9687,
+        "sha256": "be8b1830a7bfb0cfc1ff91afd11310c04b8cc786bbcaeeca0c916314c6df804f"
+      },
+      "after": {
+        "bytes": 9687,
+        "sha256": "b3d23bd5b7258d0b11805cec1a706639c5ab58bb7cb9670edff4152068b63261"
+      }
+    },
+    {
+      "old": "app-motor-settle-static01/build/app_motor_observe.ino.bin-zsk.bin",
+      "new": "app-motor-const-static01/build/app_motor_observe.ino.bin-zsk.bin",
+      "count": 1,
+      "before": {
+        "bytes": 9687,
+        "sha256": "b3d23bd5b7258d0b11805cec1a706639c5ab58bb7cb9670edff4152068b63261"
+      },
+      "after": {
+        "bytes": 9686,
+        "sha256": "e51f4460909f5845eb7d52c51e827267026797c641b57403fd92fcbba921b6e4"
+      }
+    },
+    {
+      "old": "b'x' * 95520",
+      "new": "b'x' * 95368",
+      "count": 2,
+      "before": {
+        "bytes": 9686,
+        "sha256": "e51f4460909f5845eb7d52c51e827267026797c641b57403fd92fcbba921b6e4"
+      },
+      "after": {
+        "bytes": 9686,
+        "sha256": "9a968ba61d3499a6f204096e74fe1f2f50ba58558e4651cf4d76e1ca0a5db5e6"
+      }
+    },
+    {
+      "old": "root05_absence_observed",
+      "new": "root06_absence_observed",
+      "count": 1,
+      "before": {
+        "bytes": 9686,
+        "sha256": "9a968ba61d3499a6f204096e74fe1f2f50ba58558e4651cf4d76e1ca0a5db5e6"
+      },
+      "after": {
+        "bytes": 9686,
+        "sha256": "545b7ece5d631c76054e77d10af2eb08fd97bdca19d1f4481d78dfdde8f053b5"
+      }
+    },
+    {
+      "old": "for inode in (33, 869, 1172):",
+      "new": "for inode in (33, 869, 1172, 1452):",
+      "count": 1,
+      "before": {
+        "bytes": 9686,
+        "sha256": "545b7ece5d631c76054e77d10af2eb08fd97bdca19d1f4481d78dfdde8f053b5"
+      },
+      "after": {
+        "bytes": 9692,
+        "sha256": "4e85f91468076a588e2e623676daac13336478bc93c594b7327e14e541e20dd2"
+      }
+    },
+    {
+      "old": "('app-motor-fault-static01', 'app-motor-observe-static01', 'app-motor-const-static01')",
+      "new": "('app-motor-fault-static01', 'app-motor-observe-static01', 'app-motor-settle-static01', 'ordinary-app-static01')",
+      "count": 1,
+      "before": {
+        "bytes": 9692,
+        "sha256": "4e85f91468076a588e2e623676daac13336478bc93c594b7327e14e541e20dd2"
+      },
+      "after": {
+        "bytes": 9718,
+        "sha256": "a96170ef41ba7696d8948780d8096c1654f2a977f2c75f95f84ec86f9a608762"
+      }
+    },
+    {
+      "old": "directory_fixture(self, recipe, 1452)",
+      "new": "directory_fixture(self, recipe, 1732)",
+      "count": 1,
+      "before": {
+        "bytes": 9718,
+        "sha256": "a96170ef41ba7696d8948780d8096c1654f2a977f2c75f95f84ec86f9a608762"
+      },
+      "after": {
+        "bytes": 9718,
+        "sha256": "84f7af4fad2006018a3cc2f59bd65b7fdab0fdad8e4f6816ab4209dd09459f67"
+      }
+    }
+  ],
+  "outer_d206_projected_before_fixture_pin": {
+    "bytes": 9718,
+    "sha256": "84f7af4fad2006018a3cc2f59bd65b7fdab0fdad8e4f6816ab4209dd09459f67"
+  },
+  "method_preservation": {
+    "core": {
+      "test_import_safe_and_original_sources_still_pinned": {
+        "current_name": "test_import_safe_and_original_sources_still_pinned",
+        "before": {
+          "bytes": 178,
+          "sha256": "dbc5399e147e944a1f539525ad370e1eb158a7224064a4d1a2af220c843c1e93"
+        },
+        "projected": {
+          "bytes": 178,
+          "sha256": "dbc5399e147e944a1f539525ad370e1eb158a7224064a4d1a2af220c843c1e93"
+        },
+        "assertion_calls": 2
+      },
+      "test_credentials_are_full_real_effective_saved_lists": {
+        "current_name": "test_credentials_are_full_real_effective_saved_lists",
+        "before": {
+          "bytes": 219,
+          "sha256": "41415d513dbf84ff432862f36a343585167f1370a00c1002338fa845c2a76206"
+        },
+        "projected": {
+          "bytes": 219,
+          "sha256": "41415d513dbf84ff432862f36a343585167f1370a00c1002338fa845c2a76206"
+        },
+        "assertion_calls": 1
+      },
+      "test_enter_user_clears_groups_and_sets_gid_before_uid": {
+        "current_name": "test_enter_user_clears_groups_and_sets_gid_before_uid",
+        "before": {
+          "bytes": 455,
+          "sha256": "66748e7f21379efec619269f3f2300bce134ba47dacaf4429d0e99a4498a7e13"
+        },
+        "projected": {
+          "bytes": 455,
+          "sha256": "66748e7f21379efec619269f3f2300bce134ba47dacaf4429d0e99a4498a7e13"
+        },
+        "assertion_calls": 3
+      },
+      "test_enter_user_rejects_any_wrong_initial_uid_or_gid_without_mutation": {
+        "current_name": "test_enter_user_rejects_any_wrong_initial_uid_or_gid_without_mutation",
+        "before": {
+          "bytes": 528,
+          "sha256": "8a16f3f3fd59c6d9a22bd1fba197e592e186a98efb842e994751971ea6c34808"
+        },
+        "projected": {
+          "bytes": 528,
+          "sha256": "8a16f3f3fd59c6d9a22bd1fba197e592e186a98efb842e994751971ea6c34808"
+        },
+        "assertion_calls": 2
+      },
+      "test_enter_user_detects_syscall_failure_and_silent_wrong_result": {
+        "current_name": "test_enter_user_detects_syscall_failure_and_silent_wrong_result",
+        "before": {
+          "bytes": 729,
+          "sha256": "388c8e892dfae7e838e95fe97b31f990f87f145f9a065271ee0f7aaa6621c374"
+        },
+        "projected": {
+          "bytes": 729,
+          "sha256": "388c8e892dfae7e838e95fe97b31f990f87f145f9a065271ee0f7aaa6621c374"
+        },
+        "assertion_calls": 2
+      },
+      "test_observe_elevates_only_euid_calls_once_and_restores": {
+        "current_name": "test_observe_elevates_only_euid_calls_once_and_restores",
+        "before": {
+          "bytes": 929,
+          "sha256": "980ee46f686e930ae6759358f9fef62446b67b96b833bdd269645485f7bba4c7"
+        },
+        "projected": {
+          "bytes": 929,
+          "sha256": "980ee46f686e930ae6759358f9fef62446b67b96b833bdd269645485f7bba4c7"
+        },
+        "assertion_calls": 10
+      },
+      "test_observe_does_not_skip_permission_or_use_rejection": {
+        "current_name": "test_observe_does_not_skip_permission_or_use_rejection",
+        "before": {
+          "bytes": 754,
+          "sha256": "acd28ec242756b93f8059a61f692592ea046b8278a2636d1231f0e04d3afadbf"
+        },
+        "projected": {
+          "bytes": 754,
+          "sha256": "acd28ec242756b93f8059a61f692592ea046b8278a2636d1231f0e04d3afadbf"
+        },
+        "assertion_calls": 5
+      },
+      "test_observe_wrong_entry_never_calls_original_or_elevates": {
+        "current_name": "test_observe_wrong_entry_never_calls_original_or_elevates",
+        "before": {
+          "bytes": 352,
+          "sha256": "834cdb709cabec0d041590d0acee0863022968aa1e1e06b3e421ad941378396b"
+        },
+        "projected": {
+          "bytes": 352,
+          "sha256": "834cdb709cabec0d041590d0acee0863022968aa1e1e06b3e421ad941378396b"
+        },
+        "assertion_calls": 3
+      },
+      "test_observe_elevation_failure_still_restores_and_records": {
+        "current_name": "test_observe_elevation_failure_still_restores_and_records",
+        "before": {
+          "bytes": 592,
+          "sha256": "cb9ce26f95fc7f3279b911ae69d43e468555e650a9caa60fa6f6da21189e6d2a"
+        },
+        "projected": {
+          "bytes": 592,
+          "sha256": "cb9ce26f95fc7f3279b911ae69d43e468555e650a9caa60fa6f6da21189e6d2a"
+        },
+        "assertion_calls": 5
+      },
+      "test_observe_scan_and_restore_failure_preserve_both_and_raise_first": {
+        "current_name": "test_observe_scan_and_restore_failure_preserve_both_and_raise_first",
+        "before": {
+          "bytes": 587,
+          "sha256": "8b04968dc0b19f56d578acf6a7bb7512f87ea93e7c10712d1b4b5a5440af9e6d"
+        },
+        "projected": {
+          "bytes": 587,
+          "sha256": "8b04968dc0b19f56d578acf6a7bb7512f87ea93e7c10712d1b4b5a5440af9e6d"
+        },
+        "assertion_calls": 4
+      },
+      "test_observe_restoration_failure_refuses_success_and_silent_credential_drift": {
+        "current_name": "test_observe_restoration_failure_refuses_success_and_silent_credential_drift",
+        "before": {
+          "bytes": 693,
+          "sha256": "f1421370e0326342f231a0cca493c2713a154d1a60009b26ccff26af4ecabad3"
+        },
+        "projected": {
+          "bytes": 693,
+          "sha256": "f1421370e0326342f231a0cca493c2713a154d1a60009b26ccff26af4ecabad3"
+        },
+        "assertion_calls": 2
+      },
+      "test_observe_gid_drift_is_rejected_even_after_euid_restoration": {
+        "current_name": "test_observe_gid_drift_is_rejected_even_after_euid_restoration",
+        "before": {
+          "bytes": 404,
+          "sha256": "423fe984ca46247399e145cdb08f443963329a69ff7795274b5c92548e3f2a4f"
+        },
+        "projected": {
+          "bytes": 404,
+          "sha256": "423fe984ca46247399e145cdb08f443963329a69ff7795274b5c92548e3f2a4f"
+        },
+        "assertion_calls": 3
+      },
+      "test_drop_privilege_removes_saved_root_and_attempts_both_on_failure": {
+        "current_name": "test_drop_privilege_removes_saved_root_and_attempts_both_on_failure",
+        "before": {
+          "bytes": 525,
+          "sha256": "9bbc78531d89f8b6ab8250df6674699a8926c4eead23d861e56b41b6bf38523b"
+        },
+        "projected": {
+          "bytes": 525,
+          "sha256": "9bbc78531d89f8b6ab8250df6674699a8926c4eead23d861e56b41b6bf38523b"
+        },
+        "assertion_calls": 4
+      },
+      "test_drop_privilege_detects_silent_retained_saved_uid": {
+        "current_name": "test_drop_privilege_detects_silent_retained_saved_uid",
+        "before": {
+          "bytes": 206,
+          "sha256": "216545144311dcc4c2cd4e6a8ed917c0c67b2b3c5815391ca66c9eb736bc33cc"
+        },
+        "projected": {
+          "bytes": 206,
+          "sha256": "216545144311dcc4c2cd4e6a8ed917c0c67b2b3c5815391ca66c9eb736bc33cc"
+        },
+        "assertion_calls": 1
+      },
+      "test_read_source_exact_two_dependencies_and_descriptor_closure": {
+        "current_name": "test_read_source_exact_two_dependencies_and_descriptor_closure",
+        "before": {
+          "bytes": 265,
+          "sha256": "369070fda56800283a32360a15fb398b4e77ca82f7a713489a842dca19f437d2"
+        },
+        "projected": {
+          "bytes": 265,
+          "sha256": "369070fda56800283a32360a15fb398b4e77ca82f7a713489a842dca19f437d2"
+        },
+        "assertion_calls": 3
+      },
+      "test_read_source_refuses_arbitrary_names_before_open": {
+        "current_name": "test_read_source_refuses_arbitrary_names_before_open",
+        "before": {
+          "bytes": 417,
+          "sha256": "67fbbb44a614f33c0d7ad13b4f8a80aae5bff5481f136612d711cf3517584576"
+        },
+        "projected": {
+          "bytes": 417,
+          "sha256": "66643453a5384a9f768110d7f836bd117808a60f8c1c2f0f8c97d9c92b4b70fe"
+        },
+        "assertion_calls": 2
+      },
+      "test_read_source_refuses_nonplain_ancestry_and_wrong_owner": {
+        "current_name": "test_read_source_refuses_nonplain_ancestry_and_wrong_owner",
+        "before": {
+          "bytes": 1141,
+          "sha256": "88c4b7b814e949e302bb8cdd892568ee0300efa70e54ed975c1caaabfd96c614"
+        },
+        "projected": {
+          "bytes": 1141,
+          "sha256": "88c4b7b814e949e302bb8cdd892568ee0300efa70e54ed975c1caaabfd96c614"
+        },
+        "assertion_calls": 2
+      },
+      "test_read_source_hash_corruption_and_read_error_close_all_descriptors": {
+        "current_name": "test_read_source_hash_corruption_and_read_error_close_all_descriptors",
+        "before": {
+          "bytes": 623,
+          "sha256": "0ad23c291be23f3e33e89e4b9e4b7a1b3bce9e067e899d689a0b82c80773a743"
+        },
+        "projected": {
+          "bytes": 623,
+          "sha256": "0ad23c291be23f3e33e89e4b9e4b7a1b3bce9e067e899d689a0b82c80773a743"
+        },
+        "assertion_calls": 4
+      },
+      "test_read_source_stat_drift_is_refused": {
+        "current_name": "test_read_source_stat_drift_is_refused",
+        "before": {
+          "bytes": 551,
+          "sha256": "9b22263d9e00693a179310b548e2764873f282d3d68cf89265eb179ead7ef2c3"
+        },
+        "projected": {
+          "bytes": 551,
+          "sha256": "9b22263d9e00693a179310b548e2764873f282d3d68cf89265eb179ead7ef2c3"
+        },
+        "assertion_calls": 2
+      },
+      "test_read_source_attempts_every_close_preserving_first_error": {
+        "current_name": "test_read_source_attempts_every_close_preserving_first_error",
+        "before": {
+          "bytes": 740,
+          "sha256": "c3de11d4f4135f0af197e9a4b47c00e3b9fa8e535669aa3a597eadfac67be921"
+        },
+        "projected": {
+          "bytes": 740,
+          "sha256": "c3de11d4f4135f0af197e9a4b47c00e3b9fa8e535669aa3a597eadfac67be921"
+        },
+        "assertion_calls": 6
+      },
+      "test_load_cleanup_uses_exact_sources_without_main_execution": {
+        "current_name": "test_load_cleanup_uses_exact_sources_without_main_execution",
+        "before": {
+          "bytes": 604,
+          "sha256": "732b8f062b5371ec26bbd689c2bd2d9265d1f35d0ea3ec70cb66f589d8509654"
+        },
+        "projected": {
+          "bytes": 604,
+          "sha256": "732b8f062b5371ec26bbd689c2bd2d9265d1f35d0ea3ec70cb66f589d8509654"
+        },
+        "assertion_calls": 6
+      },
+      "test_loaded_original_has_only_exact_missing_link_projection": {
+        "current_name": "test_loaded_original_has_only_exact_missing_link_projection",
+        "before": {
+          "bytes": 1410,
+          "sha256": "7fbd3d3f7cb97ab7ef121f920f491fe3688ff6391327ef227a8b05a0bf7070cb"
+        },
+        "projected": {
+          "bytes": 1410,
+          "sha256": "3d622b9aa385faae33fc356dd114b82033693bfe62cd457aa938634f2cbcd972"
+        },
+        "assertion_calls": 9
+      },
+      "test_projected_scan_missing_link_rejects_surviving_pid_accepts_departed_pid": {
+        "current_name": "test_projected_scan_missing_link_rejects_surviving_pid_accepts_departed_pid",
+        "before": {
+          "bytes": 810,
+          "sha256": "4435ae65169a12c293e6ca502c582b4068919b02ef101cfe526a89c109d1c42b"
+        },
+        "projected": {
+          "bytes": 810,
+          "sha256": "4435ae65169a12c293e6ca502c582b4068919b02ef101cfe526a89c109d1c42b"
+        },
+        "assertion_calls": 2
+      },
+      "test_projected_scan_retains_permission_native_name_and_directory_use_rejections": {
+        "current_name": "test_projected_scan_retains_permission_native_name_and_directory_use_rejections",
+        "before": {
+          "bytes": 850,
+          "sha256": "e53d16cc2974f0a030d1489b9b62da004f01d43cf9eeddc54e0af99a537d7a9c"
+        },
+        "projected": {
+          "bytes": 850,
+          "sha256": "e53d16cc2974f0a030d1489b9b62da004f01d43cf9eeddc54e0af99a537d7a9c"
+        },
+        "assertion_calls": 1
+      },
+      "test_original_cleanup_mutations_run_uid1000_with_three_root_observations": {
+        "current_name": "test_original_cleanup_mutations_run_uid1000_with_three_root_observations",
+        "before": {
+          "bytes": 3598,
+          "sha256": "b65cee66633b85475a075ee2eaf5286dab9ec133b0f102a67180eed16a21c23f"
+        },
+        "projected": {
+          "bytes": 3601,
+          "sha256": "fcc83f8fcfddda05c13d242d8d0fbeabf132bd2649dc0037e0cf9e6a2a02a982"
+        },
+        "assertion_calls": 10
+      },
+      "test_execute_success_keeps_original_functions_calls_once_and_restores_argv": {
+        "current_name": "test_execute_success_keeps_original_functions_calls_once_and_restores_argv",
+        "before": {
+          "bytes": 1314,
+          "sha256": "2ba8dded4b731e3b810564095ae5644b7eade592c634edfe47fce1b32a39ca2b"
+        },
+        "projected": {
+          "bytes": 1317,
+          "sha256": "86ec927cb31b62f352f56e6ce3dadc479aa6112622588447f84e00cfc5e02883"
+        },
+        "assertion_calls": 14
+      },
+      "test_execute_wrong_identity_or_extra_argument_cannot_enter_cleanup": {
+        "current_name": "test_execute_wrong_identity_or_extra_argument_cannot_enter_cleanup",
+        "before": {
+          "bytes": 559,
+          "sha256": "eccfe3e9eff1a1be0d47604e92cacdb511340a2590883615210fcdc1361e14b6"
+        },
+        "projected": {
+          "bytes": 559,
+          "sha256": "eccfe3e9eff1a1be0d47604e92cacdb511340a2590883615210fcdc1361e14b6"
+        },
+        "assertion_calls": 5
+      },
+      "test_execute_requires_python_b_before_loading_or_cleanup": {
+        "current_name": "test_execute_requires_python_b_before_loading_or_cleanup",
+        "before": {
+          "bytes": 380,
+          "sha256": "3b20170d090f7765e46a20d6d7b0d13bed12d7ab047dda8aba820fde5b7edd44"
+        },
+        "projected": {
+          "bytes": 380,
+          "sha256": "3b20170d090f7765e46a20d6d7b0d13bed12d7ab047dda8aba820fde5b7edd44"
+        },
+        "assertion_calls": 2
+      },
+      "test_execute_requires_isolated_python_before_loading_or_cleanup": {
+        "current_name": "test_execute_requires_isolated_python_before_loading_or_cleanup",
+        "before": {
+          "bytes": 399,
+          "sha256": "dbf187ae7159f9f7cedefb4c28cb864719e9a0bdbbaa25e5faeaccc1725d31b4"
+        },
+        "projected": {
+          "bytes": 399,
+          "sha256": "dbf187ae7159f9f7cedefb4c28cb864719e9a0bdbbaa25e5faeaccc1725d31b4"
+        },
+        "assertion_calls": 2
+      },
+      "test_execute_load_failure_still_drops_root": {
+        "current_name": "test_execute_load_failure_still_drops_root",
+        "before": {
+          "bytes": 398,
+          "sha256": "87c566a69df7568cee71160c5a2f4bb752d26d457b55dc44462d7e7262a5b35b"
+        },
+        "projected": {
+          "bytes": 398,
+          "sha256": "87c566a69df7568cee71160c5a2f4bb752d26d457b55dc44462d7e7262a5b35b"
+        },
+        "assertion_calls": 3
+      },
+      "test_execute_entry_failure_still_drops_root_without_original_main": {
+        "current_name": "test_execute_entry_failure_still_drops_root_without_original_main",
+        "before": {
+          "bytes": 477,
+          "sha256": "1576b51e5d05199a2a18b3f5c11966c684a901940c7a884a980f202e6b7eed73"
+        },
+        "projected": {
+          "bytes": 477,
+          "sha256": "1576b51e5d05199a2a18b3f5c11966c684a901940c7a884a980f202e6b7eed73"
+        },
+        "assertion_calls": 4
+      },
+      "test_execute_original_failure_retains_partial_receipt_exactly": {
+        "current_name": "test_execute_original_failure_retains_partial_receipt_exactly",
+        "before": {
+          "bytes": 687,
+          "sha256": "e695ff61d7c66b6697a3e8ea673c89be5c79f854cd5b9086f19a1424d3e3ed37"
+        },
+        "projected": {
+          "bytes": 690,
+          "sha256": "8adec22f10038565aa5c490cd3377d4113da676a3236980efe95a3a745e081f9"
+        },
+        "assertion_calls": 4
+      },
+      "test_execute_main_exception_retains_raw_partial_stdout_and_first_error": {
+        "current_name": "test_execute_main_exception_retains_raw_partial_stdout_and_first_error",
+        "before": {
+          "bytes": 542,
+          "sha256": "0f96d8112e7a00803be90981ed18a29ffb1cc06688874bb3126836f8fbee2726"
+        },
+        "projected": {
+          "bytes": 542,
+          "sha256": "0f96d8112e7a00803be90981ed18a29ffb1cc06688874bb3126836f8fbee2726"
+        },
+        "assertion_calls": 4
+      },
+      "test_execute_invalid_json_or_success_status_with_nonzero_exit_is_failure": {
+        "current_name": "test_execute_invalid_json_or_success_status_with_nonzero_exit_is_failure",
+        "before": {
+          "bytes": 881,
+          "sha256": "8d1f2c485e881945f3dc1d053cb09bff61fe7a78f206036ddf5f02d716282ced"
+        },
+        "projected": {
+          "bytes": 881,
+          "sha256": "8d1f2c485e881945f3dc1d053cb09bff61fe7a78f206036ddf5f02d716282ced"
+        },
+        "assertion_calls": 3
+      },
+      "test_execute_terminal_drop_errors_cannot_convert_original_success_to_success": {
+        "current_name": "test_execute_terminal_drop_errors_cannot_convert_original_success_to_success",
+        "before": {
+          "bytes": 494,
+          "sha256": "f5c29121e248ec68d972278d4b3483c5532e68095e4ed194ef59e90b97cf7fb6"
+        },
+        "projected": {
+          "bytes": 494,
+          "sha256": "f5c29121e248ec68d972278d4b3483c5532e68095e4ed194ef59e90b97cf7fb6"
+        },
+        "assertion_calls": 4
+      },
+      "test_execute_original_error_remains_first_when_terminal_drop_also_fails": {
+        "current_name": "test_execute_original_error_remains_first_when_terminal_drop_also_fails",
+        "before": {
+          "bytes": 513,
+          "sha256": "3192e368c200eca3fd5b1c2a37e71df922714908d87f6004ed24cee996ee2c75"
+        },
+        "projected": {
+          "bytes": 513,
+          "sha256": "3192e368c200eca3fd5b1c2a37e71df922714908d87f6004ed24cee996ee2c75"
+        },
+        "assertion_calls": 2
+      },
+      "test_main_prints_one_compact_result_and_returns_status": {
+        "current_name": "test_main_prints_one_compact_result_and_returns_status",
+        "before": {
+          "bytes": 509,
+          "sha256": "c3e016391bbd4376b3eabad374a87562534a7473fb50faaef26fa304822d735b"
+        },
+        "projected": {
+          "bytes": 509,
+          "sha256": "c3e016391bbd4376b3eabad374a87562534a7473fb50faaef26fa304822d735b"
+        },
+        "assertion_calls": 2
+      }
+    },
+    "metadata": {
+      "test_all_frozen_inputs_and_consumed_success_are_preserved": {
+        "current_name": "test_all_frozen_inputs_and_consumed_success_are_preserved",
+        "before": {
+          "bytes": 171,
+          "sha256": "156708dacc8da65c3ae8cd65a3507ed618bc6e29a79d1f6fdb556b10c52150cc"
+        },
+        "projected": {
+          "bytes": 171,
+          "sha256": "156708dacc8da65c3ae8cd65a3507ed618bc6e29a79d1f6fdb556b10c52150cc"
+        },
+        "assertion_calls": 0
+      },
+      "test_exact_recipe_metadata_diff_and_private_observer_projection": {
+        "current_name": "test_exact_recipe_metadata_diff_and_private_observer_projection",
+        "before": {
+          "bytes": 378,
+          "sha256": "b3930b9b42d63e36f233411c1c4babd927592a2b4c732f8f955e0e567172d662"
+        },
+        "projected": {
+          "bytes": 378,
+          "sha256": "e528c2d52b802d2ac2d4511d6150da0951c8905828964e7fbc45732ec297055e"
+        },
+        "assertion_calls": 3
+      },
+      "test_exact_wrapper_metadata_diff_preserves_all_operational_bytes": {
+        "current_name": "test_exact_wrapper_metadata_diff_preserves_all_operational_bytes",
+        "before": {
+          "bytes": 163,
+          "sha256": "dc21c5119693212b9594f29cce42cbc51c066a76fa320e777e8f7d4fb90f6637"
+        },
+        "projected": {
+          "bytes": 163,
+          "sha256": "778775b102bb9c6622f3d5b14b6b09a912ff2a2b8a07169e711bd4b552fceb43"
+        },
+        "assertion_calls": 1
+      },
+      "test_inherited_oracle_retains_all_37_methods_and_assertions": {
+        "current_name": "test_inherited_oracle_retains_all_37_methods_and_assertions",
+        "before": {
+          "bytes": 917,
+          "sha256": "6867a92a41b7ec15f256d3d040f88a1222717f1d0265452a6c8c42f941e8ac5c"
+        },
+        "projected": {
+          "bytes": 917,
+          "sha256": "6867a92a41b7ec15f256d3d040f88a1222717f1d0265452a6c8c42f941e8ac5c"
+        },
+        "assertion_calls": 3
+      },
+      "test_fresh_stage_dependencies_and_old_basename_refusal": {
+        "current_name": "test_fresh_stage_dependencies_and_old_basename_refusal",
+        "before": {
+          "bytes": 990,
+          "sha256": "d58fe79822323a33f945472eb37f42eef1768b014ebe89887d893b1245d8309e"
+        },
+        "projected": {
+          "bytes": 993,
+          "sha256": "0dcf445b9bbf67a087d1be21a5a54cef4bdcec6f8f5c21d434612753e6ceee74"
+        },
+        "assertion_calls": 7
+      },
+      "test_exact_new_payload_pin_and_retained_originals": {
+        "current_name": "test_exact_new_payload_pin_and_retained_originals",
+        "before": {
+          "bytes": 919,
+          "sha256": "90af283447b5fe3580c24713df10b6ac10668973fbcc536df849a566910ff864"
+        },
+        "projected": {
+          "bytes": 919,
+          "sha256": "f164e3b4d1a4c33340b1165eb4239c6c1c21504a6c35d4ca971f5a555e0d64ba"
+        },
+        "assertion_calls": 7
+      },
+      "test_old_scratch_basename_refuses_before_child_reads_or_mutations": {
+        "current_name": "test_old_scratch_basename_refuses_before_child_reads_or_mutations",
+        "before": {
+          "bytes": 613,
+          "sha256": "dfecb3a8777c0a223090129aba594591d9f0167b4ad0ffd16b27521fef66e99d"
+        },
+        "projected": {
+          "bytes": 613,
+          "sha256": "50b3ae6c4208140b7b6879480597d45f565595c6a76dfb849800278818698acb"
+        },
+        "assertion_calls": 2
+      },
+      "test_old_payload_length_and_digest_refuse_without_relaxing_new_pin": {
+        "current_name": "test_old_payload_length_and_digest_refuse_without_relaxing_new_pin",
+        "before": {
+          "bytes": 889,
+          "sha256": "823da735d4da38e83165a7a898b45bebf67f26041bbd18227b803a5d088dccac"
+        },
+        "projected": {
+          "bytes": 889,
+          "sha256": "4462e16b623d9a129b7b6d4d8e051a0835505491e6c6c20e7ff87d6d74ed60f8"
+        },
+        "assertion_calls": 3
+      },
+      "test_old_inode_refuses_and_new_inode_reaches_inventory_without_deleting": {
+        "current_name": "test_old_inode_refuses_and_new_inode_reaches_inventory_without_deleting",
+        "before": {
+          "bytes": 837,
+          "sha256": "589495cc3a5552dc7cdd063ab3e107cd2b69ae342cbd448dcc8494674f05b519"
+        },
+        "projected": {
+          "bytes": 837,
+          "sha256": "00df3f08c61bfa340537b5b1adf021fb97128c71d7cacb20f3baa952b206af8d"
+        },
+        "assertion_calls": 4
+      },
+      "test_old_retained_payload_path_has_no_fallback": {
+        "current_name": "test_old_retained_payload_path_has_no_fallback",
+        "before": {
+          "bytes": 859,
+          "sha256": "91df90dbf66d00c0f202589a66e56bafe471949c068626c43aa5a1a4fd353bc1"
+        },
+        "projected": {
+          "bytes": 859,
+          "sha256": "d8962b27ee4022ad66b60482a3b1f8d997c4b87d701334646a3fe8fdd1680542"
+        },
+        "assertion_calls": 4
+      }
+    },
+    "focused": {
+      "test_D190_D195_and_D203_packages_cannot_replace_current_D201_copy": {
+        "current_name": "test_D190_D195_D198_D208_packages_cannot_replace_current_D207_copy",
+        "before": {
+          "bytes": 1115,
+          "sha256": "3d350fefa781506113a215f9e5937ca2fd7dcb44f6f84d745fcac43440c6b4df"
+        },
+        "projected": {
+          "bytes": 1191,
+          "sha256": "6903f2995a2d2c2293b94bfb1dda1aaf74455fab9e22f3ace666397d7e01f754"
+        },
+        "assertion_calls": 5
+      },
+      "test_previous_source_names_and_stage_schema_source_drift_fail_before_execution": {
+        "current_name": "test_previous_source_names_and_stage_schema_source_drift_fail_before_execution",
+        "before": {
+          "bytes": 1443,
+          "sha256": "0877c3d21dbcf1d0b25f05a83030ca61fcc1cfdeff25cd94abfc26eef1fde9c1"
+        },
+        "projected": {
+          "bytes": 1494,
+          "sha256": "5ec706fbb47d333259c7e80e5e58107aa29eb86be40d8a5d179286fffb404d52"
+        },
+        "assertion_calls": 4
+      }
+    },
+    "d206_supplement": {
+      "test_exact_four_recipe_six_wrapper_steps_preserve_all_other_bytes": {
+        "current_name": "test_exact_four_recipe_six_wrapper_steps_preserve_all_other_bytes",
+        "before": {
+          "bytes": 1938,
+          "sha256": "c2eb49081156ceef92ea5ec7172daaff283a8966810daeb9a46c1da52df532f9"
+        },
+        "projected": {
+          "bytes": 1938,
+          "sha256": "8b02a0d3e259b4ffd5ca807a07a99deac2884d592653d870bf410774c7efa34e"
+        },
+        "assertion_calls": 12
+      },
+      "test_saved_inventory_binds_current_package_and_current_digest_is_accepted": {
+        "current_name": "test_saved_inventory_binds_current_package_and_current_digest_is_accepted",
+        "before": {
+          "bytes": 2688,
+          "sha256": "aa8a9b954f26f69ccdadbed8731d46b816ce43b4e9f41711e573cc78812911f9"
+        },
+        "projected": {
+          "bytes": 2687,
+          "sha256": "500a2750a782ef2052524aa072b0b2e60855ab8b56fa236f7945e7384cb0fe25"
+        },
+        "assertion_calls": 21
+      },
+      "test_all_earlier_inodes_and_retained_paths_refuse_without_fallback": {
+        "current_name": "test_all_earlier_inodes_and_retained_paths_refuse_without_fallback",
+        "before": {
+          "bytes": 1817,
+          "sha256": "5d881b4ac16e303a8c40d21d42604741fabe319d88a317c7e243db61308dc067"
+        },
+        "projected": {
+          "bytes": 1849,
+          "sha256": "c6ca416b82942c8fcb9de1a428ac74b646941a4e394e6d46f6b6a0c359cfe9cc"
+        },
+        "assertion_calls": 7
+      }
+    }
+  },
+  "retained_method_names": {
+    "core": [
+      "test_import_safe_and_original_sources_still_pinned",
+      "test_credentials_are_full_real_effective_saved_lists",
+      "test_enter_user_clears_groups_and_sets_gid_before_uid",
+      "test_enter_user_rejects_any_wrong_initial_uid_or_gid_without_mutation",
+      "test_enter_user_detects_syscall_failure_and_silent_wrong_result",
+      "test_observe_elevates_only_euid_calls_once_and_restores",
+      "test_observe_does_not_skip_permission_or_use_rejection",
+      "test_observe_wrong_entry_never_calls_original_or_elevates",
+      "test_observe_elevation_failure_still_restores_and_records",
+      "test_observe_scan_and_restore_failure_preserve_both_and_raise_first",
+      "test_observe_restoration_failure_refuses_success_and_silent_credential_drift",
+      "test_observe_gid_drift_is_rejected_even_after_euid_restoration",
+      "test_drop_privilege_removes_saved_root_and_attempts_both_on_failure",
+      "test_drop_privilege_detects_silent_retained_saved_uid",
+      "test_read_source_exact_two_dependencies_and_descriptor_closure",
+      "test_read_source_refuses_arbitrary_names_before_open",
+      "test_read_source_refuses_nonplain_ancestry_and_wrong_owner",
+      "test_read_source_hash_corruption_and_read_error_close_all_descriptors",
+      "test_read_source_stat_drift_is_refused",
+      "test_read_source_attempts_every_close_preserving_first_error",
+      "test_load_cleanup_uses_exact_sources_without_main_execution",
+      "test_loaded_original_has_only_exact_missing_link_projection",
+      "test_projected_scan_missing_link_rejects_surviving_pid_accepts_departed_pid",
+      "test_projected_scan_retains_permission_native_name_and_directory_use_rejections",
+      "test_original_cleanup_mutations_run_uid1000_with_three_root_observations",
+      "test_execute_success_keeps_original_functions_calls_once_and_restores_argv",
+      "test_execute_wrong_identity_or_extra_argument_cannot_enter_cleanup",
+      "test_execute_requires_python_b_before_loading_or_cleanup",
+      "test_execute_requires_isolated_python_before_loading_or_cleanup",
+      "test_execute_load_failure_still_drops_root",
+      "test_execute_entry_failure_still_drops_root_without_original_main",
+      "test_execute_original_failure_retains_partial_receipt_exactly",
+      "test_execute_main_exception_retains_raw_partial_stdout_and_first_error",
+      "test_execute_invalid_json_or_success_status_with_nonzero_exit_is_failure",
+      "test_execute_terminal_drop_errors_cannot_convert_original_success_to_success",
+      "test_execute_original_error_remains_first_when_terminal_drop_also_fails",
+      "test_main_prints_one_compact_result_and_returns_status"
+    ],
+    "metadata": [
+      "test_all_frozen_inputs_and_consumed_success_are_preserved",
+      "test_exact_recipe_metadata_diff_and_private_observer_projection",
+      "test_exact_wrapper_metadata_diff_preserves_all_operational_bytes",
+      "test_inherited_oracle_retains_all_37_methods_and_assertions",
+      "test_fresh_stage_dependencies_and_old_basename_refusal",
+      "test_exact_new_payload_pin_and_retained_originals",
+      "test_old_scratch_basename_refuses_before_child_reads_or_mutations",
+      "test_old_payload_length_and_digest_refuse_without_relaxing_new_pin",
+      "test_old_inode_refuses_and_new_inode_reaches_inventory_without_deleting",
+      "test_old_retained_payload_path_has_no_fallback"
+    ],
+    "focused": [
+      "test_D190_D195_D198_D208_packages_cannot_replace_current_D207_copy",
+      "test_previous_source_names_and_stage_schema_source_drift_fail_before_execution"
+    ],
+    "d206_supplement": [
+      "test_exact_four_recipe_six_wrapper_steps_preserve_all_other_bytes",
+      "test_saved_inventory_binds_current_package_and_current_digest_is_accepted",
+      "test_all_earlier_inodes_and_retained_paths_refuse_without_fallback"
+    ]
+  },
+  "retained_assertions": {
+    "core": 147,
+    "core_test_methods": 143,
+    "core_helpers": 4,
+    "metadata": 34,
+    "focused": 9,
+    "d206_supplement": 40
+  },
+  "assertion_scope_note": "Exactly 52 cases. Every historical assertion call survives. Changes are pinned metadata, expanded stale alternatives, one case-name correction, and independent fixture binding. No subject or test module evaluated at authoring.",
+  "expected_subjects_data_only": {
+    "state/analysis/P7_ordinary_app_cleanup_raw/cleanup_remoteocd05.py": {
+      "bytes": 7740,
+      "sha256": "1a59d4b2fc12a0b74a81f65847d7384002423882bd42f5242a98774c8bc02958"
+    },
+    "state/analysis/P7_ordinary_app_cleanup_raw/cleanup_root06.py": {
+      "bytes": 9607,
+      "sha256": "290a7236dc7cc5c6b679a72d5864fb99408dd21bbd30b7b8f3edf74c0fe10aa3"
+    }
+  },
+  "private_projection": {
+    "expected": {
+      "bytes": 7737,
+      "sha256": "e90a5189a76d05bd7674d1bb771b9f480d59b5b26cc4a390109c47431a69d731"
+    },
+    "steps": [
+      {
+        "step": 1,
+        "old": "                except FileNotFoundError:\n                    continue\n",
+        "new": "                except FileNotFoundError:\n                    raise\n",
+        "count": 1,
+        "before": {
+          "bytes": 7740,
+          "sha256": "1a59d4b2fc12a0b74a81f65847d7384002423882bd42f5242a98774c8bc02958"
+        },
+        "after": {
+          "bytes": 7737,
+          "sha256": "e90a5189a76d05bd7674d1bb771b9f480d59b5b26cc4a390109c47431a69d731"
+        }
+      }
+    ],
+    "written_to_disk": false
+  },
+  "schema_boundary": "Source digest/schema literal substitutions are rejected; unchanged run_original does not gain a nested JSON schema predicate. Coordinator separately accepts exact actual result schemas.",
+  "current_copy_binding": {
+    "receipt": "state/analysis/P7_ordinary_app_cleanup_raw/admission01.json",
+    "board_identity": {
+      "boot_id": "55c386b9-fe6d-4388-a7f4-1d91e0bb49d8",
+      "gid": 1000,
+      "home": "/home/arduino",
+      "machine": "aarch64",
+      "python": [
+        3,
+        13,
+        5
+      ],
+      "release": "6.16.7-g0dd6551ae96b",
+      "sysname": "Linux",
+      "uid": 1000,
+      "user": "arduino"
+    },
+    "observed_directory": {
+      "ctime_ns": 1790418829759976512,
+      "dev": 34,
+      "gid": 1000,
+      "ino": 1732,
+      "mode": 16877,
+      "mtime_ns": 1790418829759976512,
+      "nlink": 2,
+      "size": 100,
+      "uid": 1000
+    },
+    "files": {
+      "app_motor_observe.ino.bin-zsk.bin": {
+        "bytes": 95368,
+        "sha256": "f15c7ce1f0ff5fea2d44d0b60f0607f9adae22b83ba5043fe4de5e2b21fa26f7",
+        "observed_inode": 1734,
+        "retained_path": "/home/arduino/sumox26_codex_build/app-motor-const-static01/build/app_motor_observe.ino.bin-zsk.bin"
+      },
+      "flash_sketch.cfg": {
+        "bytes": 680,
+        "sha256": "38706cee1f9ff2e53364a47129d1c1aea9bb9687ed26d7d70b4a9f9bc5bca60c",
+        "observed_inode": 1735,
+        "retained_path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/flash_sketch.cfg"
+      },
+      "zephyr-arduino_uno_q_stm32u585xx.elf": {
+        "bytes": 2303728,
+        "sha256": "39d4a4fd47241663323f6e04f94dd8f5a9f9ad6582cf1df37f9709b74026adcd",
+        "observed_inode": 1733,
+        "retained_path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf"
+      }
+    },
+    "observed_files": {
+      "app_motor_observe.ino.bin-zsk.bin": {
+        "bytes": 95368,
+        "descriptor_identity": {
+          "bytes": 95368,
+          "ctime_ns": 1790418829759976512,
+          "device": 34,
+          "inode": 1734,
+          "mtime_ns": 1790418829759976512
+        },
+        "identity": {
+          "ctime_ns": 1790418829759976512,
+          "dev": 34,
+          "gid": 1000,
+          "ino": 1734,
+          "mode": 33188,
+          "mtime_ns": 1790418829759976512,
+          "nlink": 1,
+          "size": 95368,
+          "uid": 1000
+        },
+        "sha256": "f15c7ce1f0ff5fea2d44d0b60f0607f9adae22b83ba5043fe4de5e2b21fa26f7"
+      },
+      "flash_sketch.cfg": {
+        "bytes": 680,
+        "descriptor_identity": {
+          "bytes": 680,
+          "ctime_ns": 1790418829759976512,
+          "device": 34,
+          "inode": 1735,
+          "mtime_ns": 1790418829759976512
+        },
+        "identity": {
+          "ctime_ns": 1790418829759976512,
+          "dev": 34,
+          "gid": 1000,
+          "ino": 1735,
+          "mode": 33188,
+          "mtime_ns": 1790418829759976512,
+          "nlink": 1,
+          "size": 680,
+          "uid": 1000
+        },
+        "sha256": "38706cee1f9ff2e53364a47129d1c1aea9bb9687ed26d7d70b4a9f9bc5bca60c"
+      },
+      "zephyr-arduino_uno_q_stm32u585xx.elf": {
+        "bytes": 2303728,
+        "descriptor_identity": {
+          "bytes": 2303728,
+          "ctime_ns": 1790418829759976512,
+          "device": 34,
+          "inode": 1733,
+          "mtime_ns": 1790418829759976512
+        },
+        "identity": {
+          "ctime_ns": 1790418829759976512,
+          "dev": 34,
+          "gid": 1000,
+          "ino": 1733,
+          "mode": 33261,
+          "mtime_ns": 1790418829759976512,
+          "nlink": 1,
+          "size": 2303728,
+          "uid": 1000
+        },
+        "sha256": "39d4a4fd47241663323f6e04f94dd8f5a9f9ad6582cf1df37f9709b74026adcd"
+      }
+    },
+    "retained_originals": {
+      "app_motor_observe.ino.bin-zsk.bin": {
+        "bytes": 95368,
+        "descriptor_identity": {
+          "bytes": 95368,
+          "ctime_ns": 1790413089150019555,
+          "device": 66341,
+          "inode": 273237,
+          "mtime_ns": 1790413089150019555
+        },
+        "identity": {
+          "ctime_ns": 1790413089150019555,
+          "dev": 66341,
+          "gid": 1000,
+          "ino": 273237,
+          "mode": 33188,
+          "mtime_ns": 1790413089150019555,
+          "nlink": 1,
+          "size": 95368,
+          "uid": 1000
+        },
+        "path": "/home/arduino/sumox26_codex_build/app-motor-const-static01/build/app_motor_observe.ino.bin-zsk.bin",
+        "sha256": "f15c7ce1f0ff5fea2d44d0b60f0607f9adae22b83ba5043fe4de5e2b21fa26f7"
+      },
+      "flash_sketch.cfg": {
+        "bytes": 680,
+        "descriptor_identity": {
+          "bytes": 680,
+          "ctime_ns": 1790092194033215544,
+          "device": 66341,
+          "inode": 18238,
+          "mtime_ns": 1790092194033215544
+        },
+        "identity": {
+          "ctime_ns": 1790092194033215544,
+          "dev": 66341,
+          "gid": 1000,
+          "ino": 18238,
+          "mode": 33188,
+          "mtime_ns": 1790092194033215544,
+          "nlink": 1,
+          "size": 680,
+          "uid": 1000
+        },
+        "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/flash_sketch.cfg",
+        "sha256": "38706cee1f9ff2e53364a47129d1c1aea9bb9687ed26d7d70b4a9f9bc5bca60c"
+      },
+      "zephyr-arduino_uno_q_stm32u585xx.elf": {
+        "bytes": 2303728,
+        "descriptor_identity": {
+          "bytes": 2303728,
+          "ctime_ns": 1790092194602372651,
+          "device": 66341,
+          "inode": 18245,
+          "mtime_ns": 1790092194602372651
+        },
+        "identity": {
+          "ctime_ns": 1790092194602372651,
+          "dev": 66341,
+          "gid": 1000,
+          "ino": 18245,
+          "mode": 33261,
+          "mtime_ns": 1790092194602372651,
+          "nlink": 1,
+          "size": 2303728,
+          "uid": 1000
+        },
+        "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf",
+        "sha256": "39d4a4fd47241663323f6e04f94dd8f5a9f9ad6582cf1df37f9709b74026adcd"
+      }
+    },
+    "payload_bytes": 2399776,
+    "matching_flags": {
+      "expected_originals_match": true,
+      "exact_three_d207_copies": true
+    },
+    "five_closing_checks": [
+      {
+        "name": "scratch",
+        "status": "PASS"
+      },
+      {
+        "name": "/home/arduino/sumox26_codex_build/app-motor-const-static01/build/app_motor_observe.ino.bin-zsk.bin",
+        "status": "PASS"
+      },
+      {
+        "name": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/flash_sketch.cfg",
+        "status": "PASS"
+      },
+      {
+        "name": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf",
+        "status": "PASS"
+      },
+      {
+        "name": "board_identity",
+        "status": "PASS"
+      }
+    ],
+    "local_input_closure": "PASS",
+    "protected_handle_clearance": false,
+    "root06_absence_observed": false
+  },
+  "explicit_alternatives_refused": {
+    "packages": [
+      {
+        "label": "D190",
+        "bytes": 95328,
+        "sha256": "deb40317e5c444af26e65da4b6f1d0e577d9897d59dbddff3bce03a7bc14335c"
+      },
+      {
+        "label": "D195",
+        "bytes": 95360,
+        "sha256": "85b05c564fd3545c6b6e16fb64ed2aef8893226e32048309f1b71f97a5db4b6c"
+      },
+      {
+        "label": "D198-uploaded-by-D201",
+        "bytes": 95520,
+        "sha256": "e400078166394d0f8ea44b601e9ba2948992c4f263c5c7ee5fb3942433c143d0"
+      },
+      {
+        "label": "D208-ordinary-unflashed",
+        "bytes": 92944,
+        "sha256": "7fa9d41da043931e1237712e1e88bda4151c82933af2ecec97ce3a02184d23ad"
+      }
+    ],
+    "inodes": [
+      33,
+      869,
+      1172,
+      1452
+    ],
+    "retained_owners": [
+      "app-motor-fault-static01",
+      "app-motor-observe-static01",
+      "app-motor-settle-static01",
+      "ordinary-app-static01"
+    ],
+    "prior_scope": "cleanup-app-const-root05",
+    "negative_identity_rule": "Current D20795368/f15c7ce1 and app-motor-const-static01 are positive bindings; never project a negative to current identities."
+  },
+  "frozen_inputs": {
+    "state/analysis/P7_app_motor_fault_compile_raw/native_static01/artifacts.json": {
+      "bytes": 9597,
+      "sha256": "57b98c00db1ed5d90394812fcbb3fb28effedd4381f6e2fc03a6e7c04b45a6ce"
+    },
+    "state/analysis/P7_app_motor_fault_run_raw/cleanup_remoteocd01.py": {
+      "bytes": 7873,
+      "sha256": "23ef85ae3c386cc76751eea0fb18a90148a6fe513e3e8c753d527c06efcbbe95"
+    },
+    "state/analysis/P7_app_motor_fault_run_raw/cleanup_root02.py": {
+      "bytes": 9592,
+      "sha256": "4192f23ea49705a0af691953e6aec3c1f9da66c7cc1897ca3f5d49fba9fc5388"
+    },
+    "state/analysis/P7_app_motor_fault_run_raw/cleanup_root02_actual_result.json": {
+      "bytes": 6306,
+      "sha256": "c0e45b308cd3bc73fa4a3b537471e7f753b5bb256270126c9f492da0d1af2700"
+    },
+    "state/analysis/P7_app_motor_fault_run_raw/test_cleanup_root02.py": {
+      "bytes": 37221,
+      "sha256": "225ef637e85dfe4ce1598e6744c781720b900905ea0c9c3bf0737d58b49e1559"
+    },
+    "state/analysis/P7_app_motor_observe_abi_raw/upload_scratch_inventory01.json": {
+      "bytes": 3216,
+      "sha256": "20db3c251a907d6b143afc11a05c44780ba3a09d85e3202ad05878225f4a06f2"
+    },
+    "state/analysis/P7_app_motor_observe_cleanup_contract.md": {
+      "bytes": 12460,
+      "sha256": "7258230a63f48e09401186b8ad3bed09f958006909610cea835926427a3609f6"
+    },
+    "state/analysis/P7_app_motor_observe_compile_raw/native_static01/artifacts.json": {
+      "bytes": 9651,
+      "sha256": "5ceba77dde7c493d66398bfd6d8e0e27e56345612290cb8fef9328f24b87625b"
+    },
+    "state/analysis/P7_app_motor_observe_run_raw/cleanup_remoteocd02.py": {
+      "bytes": 7735,
+      "sha256": "1834edd39d628dccda0516f35cbc35434fd659c28392df6600cfdcf882e8ec9a"
+    },
+    "state/analysis/P7_app_motor_observe_run_raw/cleanup_root03.py": {
+      "bytes": 9606,
+      "sha256": "a089cc3bac9d8df3ffe53947e22b1bb4ffa139a733c7ebb1f5ba62e6d5bd804f"
+    },
+    "state/analysis/P7_motor_const_cleanup_contract.md": {
+      "bytes": 16120,
+      "sha256": "25caada684cbf50964db02e3c8197fd75fdb6f0c448dd32df47067aa43c2c3ac"
+    },
+    "state/analysis/P7_motor_const_cleanup_raw/admission01.json": {
+      "bytes": 24555,
+      "sha256": "addee38e4e6a4721b712ff861ded9ae4330b04a1b7f119632320805b4146b3a7"
+    },
+    "state/analysis/P7_motor_const_cleanup_raw/cleanup_derivation01.json": {
+      "bytes": 17895,
+      "sha256": "26aa4a50e0dd63fc23b7a93317a69a19fc571f80e5fceba7b61e446b204f3869"
+    },
+    "state/analysis/P7_motor_const_cleanup_raw/cleanup_fixture_derivation01.json": {
+      "bytes": 68656,
+      "sha256": "1c6fc3bad5be218059ec6069ab1e5b810a06522089641b30b11208c2c3d205b7"
+    },
+    "state/analysis/P7_motor_const_cleanup_raw/inventory_derivation01.json": {
+      "bytes": 3615,
+      "sha256": "d2537c7470b2dfc80d65d4aee1c656a17edecacf5aeb1b0e56991dcb9e4f97df"
+    },
+    "state/analysis/P7_motor_const_cleanup_raw/observe_admission01.py": {
+      "bytes": 9769,
+      "sha256": "462c0534826b19d0722f86c69444a61bc55309514d7741ce196f40292a85ecd8"
+    },
+    "state/analysis/P7_motor_const_compile_raw/native_static01/artifacts.json": {
+      "bytes": 9645,
+      "sha256": "fc5eb9e233c4642e0388f14132efdebab535d55134ce39c43d33c485d67e4ddd"
+    },
+    "state/analysis/P7_motor_settle_cleanup_contract.md": {
+      "bytes": 16277,
+      "sha256": "6cb02590369cdce1edd748987df363f99f336c9736dfd06e72906c4578457f47"
+    },
+    "state/analysis/P7_motor_settle_cleanup_raw/admission01.json": {
+      "bytes": 24558,
+      "sha256": "e95ebed4ee3d6441abccced02adbcc4857fe5f10418d94e158b009d3edecf922"
+    },
+    "state/analysis/P7_motor_settle_cleanup_raw/cleanup_absence01.json": {
+      "bytes": 21530,
+      "sha256": "83913618afbb11a061c9d46e90402f58479808ea09ec354ff49d806b4b034a58"
+    },
+    "state/analysis/P7_motor_settle_cleanup_raw/cleanup_actual_result.json": {
+      "bytes": 6370,
+      "sha256": "05507941ebbc8f9ba88c366dbf3c762e80042654a7c8de9166637ecc4e7c7ebd"
+    },
+    "state/analysis/P7_motor_settle_cleanup_raw/cleanup_authenticated_intent01.json": {
+      "bytes": 1072,
+      "sha256": "5f78e1dc7c68d3aaa72883360b069b8fd790b4769e5e62e198251585b0d076d5"
+    },
+    "state/analysis/P7_motor_settle_cleanup_raw/cleanup_remoteocd03.py": {
+      "bytes": 7740,
+      "sha256": "6afeea1b9733670cdf315b2bf29b3e6e9c24016a2ba9217013e67496ec088f4d"
+    },
+    "state/analysis/P7_motor_settle_cleanup_raw/cleanup_retrieval01.json": {
+      "bytes": 46397,
+      "sha256": "b7b776c998ace2c3e8e44e6208db298298c935b587ad5bbdbf172f843aa35c06"
+    },
+    "state/analysis/P7_motor_settle_cleanup_raw/cleanup_root04.py": {
+      "bytes": 9603,
+      "sha256": "13f33327c5474d7c4dee56657a9d93b50e6fcdaee864e1855c916417a53c6290"
+    },
+    "state/analysis/P7_motor_settle_cleanup_raw/cleanup_stage_intent01.json": {
+      "bytes": 20649,
+      "sha256": "09584e7a4dfe232705201c3f3f254736147813d43daed98fc98caddf673d74d9"
+    },
+    "state/analysis/P7_motor_settle_cleanup_raw/cleanup_stage_verification01.json": {
+      "bytes": 30404,
+      "sha256": "f0ca0f685aeb77b9340d19c80e1242f073b824ff993200f3ff34f5b338b8e05b"
+    },
+    "state/analysis/P7_motor_settle_cleanup_raw/cleanup_stage_verification02.json": {
+      "bytes": 39917,
+      "sha256": "2c7a1ad2955f4835c05f289ca63bba25a210772c51cd65750ada997c7d4699bb"
+    },
+    "state/analysis/P7_motor_settle_cleanup_raw/independent_test_freeze01.json": {
+      "bytes": 15494,
+      "sha256": "b5d1721358f5dd8d6e8f6acdf9caaa192f791b876e6b91e7154b17e080ad873b"
+    },
+    "state/analysis/P7_motor_settle_cleanup_raw/observe_admission01.py": {
+      "bytes": 9770,
+      "sha256": "e4db653bf71bb2201549ea0ade3d637521520d6e2e9747473cf52fd6688aaa83"
+    },
+    "state/analysis/P7_motor_settle_compile_raw/native_static01/artifacts.json": {
+      "bytes": 9648,
+      "sha256": "e18384c14c0b1367667b265ab4c532a4010be65697460a1cd45487bccd9eca10"
+    },
+    "state/analysis/P7_static_link_probe_raw/static_remote.py": {
+      "bytes": 33321,
+      "sha256": "8ba9b190c38e728013a383348c60c287b0366607f65f703161cf7f2e142d36f8"
+    },
+    "state/reviews/P7_motor_const_cleanup_inventory_review.md": {
+      "bytes": 5672,
+      "sha256": "dd2bce4966fa4e782af5b12d2871d02420d1d8cc5217f2d553f810a9eca8f7df"
+    },
+    "state/reviews/P7_motor_settle_actual_review.md": {
+      "bytes": 14116,
+      "sha256": "690a41643fc06a7d5c56ab61cc89113d602d8d6dee9e436cdbb09e3f7f19a0bc"
+    },
+    "state/reviews/P7_motor_settle_cleanup_actual_review.md": {
+      "bytes": 6870,
+      "sha256": "5bc9d56dadc6092ba327517163ca037df729641258b0842ab017d000eee994e6"
+    },
+    "state/reviews/P7_motor_settle_cleanup_stage_review.md": {
+      "bytes": 7179,
+      "sha256": "7e0181e54b21fb5869670afc5875eaacfaadf368231a7a0d38af7e40ead840f6"
+    },
+    "tests/tooling/test_app_motor_observe_cleanup.py": {
+      "bytes": 14429,
+      "sha256": "18b150d239ba34aca30ce8b436036532a15e2c5aacb53ccf1166f51a68a831c0"
+    },
+    "tests/tooling/test_motor_const_cleanup.py": {
+      "bytes": 9686,
+      "sha256": "1f33e47b8e9e29342aee1fa19a65ad430bdfb5d7a863349b497f140deef39486"
+    },
+    "tests/tooling/test_motor_settle_cleanup.py": {
+      "bytes": 12023,
+      "sha256": "afbc97d1bd310646505d6fdc61b21db26418d27163b44700faa23a52a4842f2b"
+    },
+    "state/analysis/P7_ordinary_app_cleanup_contract.md": {
+      "bytes": 17371,
+      "sha256": "934945d6f26675e4f2d024d772c97cbf18e8fe000510a67ecda5586a1f45dac1"
+    },
+    "state/analysis/P7_ordinary_app_cleanup_raw/admission01.json": {
+      "bytes": 24552,
+      "sha256": "ed68c4c8c31e16600950a689e362a0d83e3b839e5b46636230b703681e6d025b"
+    },
+    "state/analysis/P7_ordinary_app_cleanup_raw/observe_admission01.py": {
+      "bytes": 9768,
+      "sha256": "a8e3b8b2cf19246e682288b3106bf18bb921a849681695b5e8461ffe3ed3807d"
+    },
+    "state/analysis/P7_ordinary_app_cleanup_raw/inventory_derivation01.json": {
+      "bytes": 3486,
+      "sha256": "807184e74964c1f660421ba954a9896e59eb03468c98f6dddba57a84ac237c8a"
+    },
+    "state/analysis/P7_ordinary_app_cleanup_raw/inventory_intent01.json": {
+      "bytes": 1119,
+      "sha256": "b80a784bd6c23825d826b1e3cfddddd291669e675710272f212ffc4130dbbc52"
+    },
+    "state/reviews/P7_ordinary_app_cleanup_inventory_review.md": {
+      "bytes": 6826,
+      "sha256": "c4327b1bb8c7cec0bddefec18ebf77d77f9d4249bf1983e04a4ebd31f8e580cf"
+    },
+    "state/analysis/P7_motor_const_cleanup_raw/cleanup_remoteocd04.py": {
+      "bytes": 7738,
+      "sha256": "edd1c8aa44f8de82cbfe1d7333b6ce836396922f82eacbe89d87fa6bcf3eb598"
+    },
+    "state/analysis/P7_motor_const_cleanup_raw/cleanup_root05.py": {
+      "bytes": 9601,
+      "sha256": "1be147fe67bfafb60275ef1f741f05cfe2262be70c89b0eddbbfc3ec349837d4"
+    },
+    "state/analysis/P7_motor_const_cleanup_raw/cleanup_independent_freeze01.json": {
+      "bytes": 20685,
+      "sha256": "9740a6e0fa34374cb7ba3b2c63bcde3fa100a10a75eeb4f038b8670b5ced943c"
+    },
+    "state/analysis/P7_motor_const_cleanup_raw/cleanup_root05_actual_result.json": {
+      "bytes": 6367,
+      "sha256": "3b8f035a6b282ada5a5fbf5992a5343d27a3dc245962ee7f64032757420e11e8"
+    },
+    "state/analysis/P7_motor_const_cleanup_raw/cleanup_stage_verification_intent01.json": {
+      "bytes": 34505,
+      "sha256": "8776a33d82394e595bb57889166dadd1e4caef00674b57e971de7dc119afa731"
+    },
+    "state/analysis/P7_motor_const_cleanup_raw/cleanup_stage_verification01.json": {
+      "bytes": 9876,
+      "sha256": "7de3bb3a0d7a81feac727e1c7dc3a6d67e8d9519a7070c6c0a2eb051f3fc35f9"
+    },
+    "state/reviews/P7_motor_const_cleanup_actual_review.md": {
+      "bytes": 8082,
+      "sha256": "aaede1e1d8a0a8deef6b48de191abe76cf06bb2779f6ce4fa810c4467544e9c8"
+    },
+    "state/reviews/P7_motor_const_cleanup_source_review.md": {
+      "bytes": 10091,
+      "sha256": "09b5bed31953e9b9175029ffea742adba3a21c7a7ae3dad8e462406ed56a7baf"
+    },
+    "state/analysis/P7_motor_const_run_raw/native_inert_run01/upload_attempt.json": {
+      "bytes": 778,
+      "sha256": "e0d90810a0ce2b63b080190a322b31aed51cc429cacf2995204cb9cd68804d08"
+    },
+    "state/reviews/P7_motor_const_run_actual_review.md": {
+      "bytes": 14825,
+      "sha256": "b562488423fce03712e0156deba21f52fddc826f096c70dcb1736d78aee71937"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/native_static01/artifacts.json": {
+      "bytes": 9281,
+      "sha256": "275ebb61be4a0487fe381d915ec28eea4634926b1d06a627850266f5c0a750e0"
+    },
+    "state/analysis/P7_ordinary_app_cleanup_raw/cleanup_derivation01.json": {
+      "bytes": 30865,
+      "sha256": "96c12bcd19e94b86945908fd556591e9925c6b842a9e92b82ef0ee8787588694"
+    },
+    "state/analysis/P7_ordinary_app_cleanup_raw/cleanup_host_driver01.py": {
+      "bytes": 3509,
+      "sha256": "aa2a3250ecca315661a1ba87543eb43c23749cc180434a6dcdb4d7cd97890b6b"
+    },
+    "state/analysis/P7_ordinary_app_cleanup_raw/cleanup_host_driver_derivation01.json": {
+      "bytes": 1789,
+      "sha256": "f084481c80e24fd34f237febb36687f144fb19eab7ad0be5f692bb6258e291b1"
+    }
+  },
+  "author_boundary": {
+    "new_subject_reads": 0,
+    "new_subject_hashes": 0,
+    "subject_imports": 0,
+    "subject_executions": 0,
+    "test_invocations": 0,
+    "device_calls": 0,
+    "authoring": "Historical source text/AST and exact in-memory metadata substitutions only."
+  },
+  "authoring_refusals": [
+    {
+      "stage": "outer oracle metadata projection before any output writes",
+      "operation": "data-only source replacement count assertion",
+      "returncode": 1,
+      "error": "AssertionError: ('D206', 5, 6)",
+      "resolution": "The opening comment had already changed once; five diagnostic-message occurrences remain. Changed expected count6 to5; no assertion or test control flow changed.",
+      "tests_executed": 0,
+      "new_subject_reads": 0
+    }
+  ]
+}

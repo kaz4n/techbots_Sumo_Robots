@@ -918,3 +918,7 @@ FILE-OBSERVED: D208 at clean9bdd38ae completes one query/compiler,230transports 
 
 ## F234 - Ordinary file-only ABI reader host evidence (2026-09-26T16:38:33.194692+04:00)
 HOST-VERIFIED: final reader44449B/f816a523, projected12965B/7fb42d51 and independent oracle44414B/0a88018a pass first Linux66 and Windows64 with two exact Linux-covered skips. Reviewf3e72aca FINAL PASS independently reconciles132outcomes,159pins and empty scoped temporary fixtures. Original pre-execution findings and versions preserved. No actual ordinary ABI, instructions, upload or runtime result. Source: analysis/P7_ordinary_app_abi_validation.md.
+
+
+## F235 - Ordinary application file layouts and symbols (2026-09-26T16:48:18.143956+04:00)
+FILE-OBSERVED: D209 at clean326931f4 completes one file-only transport,4children,13remote andlocalPASS; actualreview585be669 reconciles full17529B transportedprogram and162distinct current/native-commit pins (159host/10scope/133runtime sets). Complete2234symbols and92markers/79numeric answers establish13 raw layouts,sixwindows and47 source enums. Runtime0x20013960/166376B/align8 ends at motor_port0x2003c348/40B/align4; both initializedBSS section5. Result6a17c12c/ABIe224750e/rootclosurec8501453. No ordinaryupload/runtime/MCUread, coherence, liveRAM/timing/physical/gate claim. Source: analysis/P7_ordinary_app_abi_actual_validation.md.

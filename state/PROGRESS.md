@@ -1475,3 +1475,5 @@ physical/loadedRAM/gate claim. | contract=this commit
 2026-09-26T16:38:33.194692+04:00 | P7 | D209 ABI source/host acceptance | FINAL reviewf3e72aca PASS; Linux66/Windows64+2covered;159pins stable; no native yet | pending commit
 
 2026-09-26T16:42:11.311676+04:00 | P7 | D209 native ABI admission | reviewbd83b5ce PASS;10scope/159host/125manifest pins; staged bytes exact; one file-only attempt after cleanHEAD | pending commit
+
+2026-09-26T16:48:18.143956+04:00 | P7 | D209 actual ordinary ABI accepted | review585be669 PASS;4children/13remote+localPASS;13layouts/6windows/47enums/2234symbols; ownerconsumed | pending commit

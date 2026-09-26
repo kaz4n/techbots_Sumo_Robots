@@ -1,28 +1,39 @@
 # Codex handoff - 26 September 2026, Asia/Dubai
 
-## Active D209: ordinary ABI host evidence accepted; native admission next
+## Latest checkpoint: D209 ordinary ABI independently accepted
 
-D208 actual acceptance is committed2356aaef. D209 contract541710f0 and
-data249a4209 are adopted unchanged; preparationreview5f40659e and FINAL
-source/host reviewf3e72aca PASS. Reader44449B/f816a523 and receipt02 4e8fb0a1
-retain projected12965B/7fb42d51 and exact inherited lifecycle guards. Initial
-pre-execution findings35f2ce6d and all five original versions are preserved.
-Independent oracle0a88018a/fixtureec2494c6/freeze847d3831 ran once per platform:
-Linux66PASS; Windows64PASS plus2 exact Linux-covered skips. Driver1e50cb8e and
-coordinator0173a01c bind159 unchanged inputs; closing9b85a177 verifies132
-outcomes and empty scoped temporary fixtures. No passing suite needs a rerun.
+This top checkpoint supersedes older current/next paragraphs below. Active P7
+software/release preparation continues under D051; no physical/human gate or
+motor-run permission. Latest verified flash remains accepted D207 diagnostic,
+static/default/MATCH0/M0/probe1; ordinary application has never been uploaded.
 
-abi_native_scope01.json fixes13types/six Runtime windows/47enum answers/
-185expressions/92markers/two objects and four bounded file children. Separate
-admission review6585B/bd83b5ce is FINAL PASS; committed clean HEAD and local check-only precede exactly
-one execute into native_abi_static01. Embedded use-time board identity, absent
-remote scope and12file hashes precede children;13 remotechecks plus independent
-localclosure follow. No separate observer, upload/reset/MCU read or privilege.
-All writers stop during native closure. No ordinary ABI observation yet.
+D208 ordinary compile is accepted2356aaef, source9044ebbb/static/default/M0/
+probe0/allgrants0. D209 preparation committed326931f49fb0512372a8638958acd8093754e227.
+At that clean HEAD, one file-only transport completed four successful children
+and13remote+localPASS, firsterrornull. Check0.540s/execute2.187s,6001commandunits.
+Actual review9627B/585be669 is FINAL PASS. Result6a17c12c/ABIe224750e/
+local9c78721c/rootclosurec8501453 bind159host/10scope/133runtime pins (162union).
+Complete2234symbols,13rawlayouts,six Runtime windows and47source enums match.
+Runtime0x20013960/166376B and motor_port0x2003c348/40B are adjacent initialized
+BSS objects. No guessed diagnostic coordinates or ordinaryruntime claim.
+Read analysis/P7_ordinary_app_abi_actual_validation.md and accepted review.
 
-After actual ABI review, derive a fresh ordinary entry/instruction scope from
-current symbols; no diagnostic Runner/Trace/SETTLE coordinates transfer.
-Production/configuration/locked tests remain unchanged; D207 is latest flash.
+Next: prepare fresh ordinary entry/instruction contract and data-only binding
+from the accepted complete symbol inventory. fresh_review owns contract/binding;
+ordinary_abi_scope supplies actual selected groups; root owns implementation
+after adoption, with independently frozen oracle and separate reviews before
+new native use. Current ABI and all historical owners are consumed. Keep
+unchanged descriptor/lifecycle guards and file-only limits. No diagnostic
+Runner/Trace/SETTLE/freeze semantics transfer. Repeating ordinary reports lack
+an atomic snapshot or terminal publication; preserve those limits in later
+finite inhibited runtime preparation. No ordinary upload is currently admitted.
+
+D209 source/host reviewsf3e72aca/admissionbd83b5ce remain immutable. FirstLinux
+66PASS and Windows64PASS+2 exactLinux-covered skips; no repeats needed. All
+pre-execution findings/originalversions remain preserved. Eight native files
+1475298logicalB retained, C:6489399296B at closure. No temporary fixture remnants
+or manual deletion. PROGRESS binary history stays append-only, first140971B
+SHA1dbbeb53c3dc046128494af3bef240b9a00353929d6121991900c90bb2838b77.
 
 ## Latest checkpoint: D208 ordinary compile independently accepted
 

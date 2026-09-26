@@ -9,6 +9,8 @@ application921 and D201's setup FINAL_DEADLINE154us remain distinct preserved
 observations; one successful run does not prove an intermittent fault cured.
 See P7_motor_const_run_actual_validation.md. D208's ordinary static compile has
 returned COMPILE_CHECKED and is independently accepted by review8cd383e4.
+D209 ordinary file-only ABI is accepted by review585be669; fresh fixed entry
+instructions and ordinary inhibited runtime remain pending.
 
 A separate reused-context same-model read-only reviewer inspected current phase
 prompts, PLAN, acceptance packets and operational source/tool paths. Core, HAL,
@@ -20,7 +22,7 @@ the following concrete remaining software and qualification work.
 |---|---|---|
 | Native motor fault localization | D201 observes setup FINAL_DEADLINE154us; D202 moves immutable expected metadata to constants; D207 reaches10000epochs, max519us/missed0 and final callback-level inhibition acknowledgment | Preserve D195/D201 failures and trace truncation; ordinary runtime and full initialized operational timing remain unqualified. No measured speedup or intermittent-cure claim |
 | Commissioning firmware | Seven trial wrappers remain inert; ordinary app.ino already binds Runtime, configured grants and native dump port | Separate B4/P3 profile/build/deploy admission using the existing entry; preserve historical inert wrappers. See P7_b4_profile_scope_followup.md |
-| Production memory/loading | D208 ordinary static/default/M0/probe0 compilation passes native checks; independent actual review8cd383e4 accepted. Package92944B, structural RAM tail94352B. D185 dynamic deficit and conditional MATCH figures remain historical separate profiles | Fresh ordinary ABI/entry observation, separately bounded inhibited load/run, live stack/headroom and full-source timing; no MATCH/B4 fit inference |
+| Production memory/loading | D208 ordinary static/default/M0/probe0 compilation passes native checks; independent actual review8cd383e4 accepted. Package92944B, structural RAM tail94352B. D185 dynamic deficit and conditional MATCH figures remain historical separate profiles | Ordinary ABI accepted585be669; fresh entry observation, separately bounded inhibited load/run, live stack/headroom and full-source timing; no MATCH/B4 fit inference |
 | Recorder and next round | Formatting/storage/runtime software exists; native UART ownership/cancel/reopen remains unqualified | Complete actual prerequisites, same-boot delivery and log-preserving rearm under SC-AP; repair only evidenced defects |
 | Operator/release deliverables | Runbook, mode card, rehearsal sheets and kit list drafted | Qualify procedures against operational firmware, print/team review, actual rehearsal, freeze artifacts/tag and human gates |
 | Conditional P6 | Plotter, real plots, JUDGE_PACK and demo not delivered | Eligibility requires actual P4 gate by30September and no28September scope cut; do not invent eligibility |

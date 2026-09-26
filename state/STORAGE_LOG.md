@@ -478,3 +478,6 @@ D191 closing observation: C:recovered290537472B independently before local docum
 
 
 2026-09-26T16:34:14.832590+04:00 | D209 ordinary ABI host preparation | Retain25 abi-prefixed evidence/fixture/orchestration files totaling504668B plus checked reader/oracle source for reproduction, two pre-execution fixture corrections and parser finding. First serial Linux66PASS/Windows64PASS+2coveredskips closed9b85a177; all159inputpins stable. All scoped test-created Linux RAM fixtures and dedicated Windows TEMP contents are absent after normal unittest cleanup. No manual deletion, compiled artifact duplication or retry of prior denied paths. Observed C:free6493216768B; no claim that its change measures this task usage.
+
+
+2026-09-26T16:44:21.241513+04:00 | D209 native ABI evidence | Retain8 exact native receipts/raw streams/layout files1475298logicalB plus invocation and4273Bclosing for reproduction/review; no duplicate ELF downloaded. Original host/preexecution evidence preserved. C:6489399296B free; no manual deletion, retries or reclaimed-byte claim.

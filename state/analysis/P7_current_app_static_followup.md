@@ -6,8 +6,11 @@ The native result is COMPILE_CHECKED with all eight closing checks passing;
 independent actual-result review8cd383e4 accepts this packet. Current source is9044ebbb, package
 92944B/7fa9d41d and structural RAM tail94352B. See
 P7_ordinary_app_static_compile_validation.md for exact evidence and limitations.
-The next work is ordinary file-only ABI/entry preparation, then a separately
-reviewed finite inhibited runtime scope. No ordinary upload has occurred.
+D209 now independently accepts the ordinary file-only ABI (review585be669):
+13types, sixwindows and2234symbols, with all closing checks passing. See
+P7_ordinary_app_abi_actual_validation.md. Next is a fresh fixed ordinary entry
+instruction scope, then separately reviewed finite inhibited runtime work.
+No ordinary upload has occurred.
 
 The following source-planning note is historical; its former next actions are
 superseded by that current validation and CODEX_HANDOFF.md.

@@ -1,0 +1,149 @@
+{
+  "schema": "d209-native-abi-local-closing-v1",
+  "at": "2026-09-26T16:43:53.386093+04:00",
+  "coordinator_pins": 159,
+  "scope_pins": 10,
+  "runtime_local_pins": 133,
+  "changed_inputs": [],
+  "commands": [
+    {
+      "index": 0,
+      "elapsed_seconds": 0.011722564697265625,
+      "stdout": {
+        "bytes": 283,
+        "sha256": "fb0fb06d29e07100d474b8370bcc7cc304258189feab180bc678c9c0abdff851"
+      },
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "index": 1,
+      "elapsed_seconds": 0.07327461242675781,
+      "stdout": {
+        "bytes": 281,
+        "sha256": "a2ba24fa1b25ad3c6b26e5fcf0e715f1eeb4a8480434761ed9f4c7682bb12438"
+      },
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "index": 2,
+      "elapsed_seconds": 0.029921293258666992,
+      "stdout": {
+        "bytes": 153800,
+        "sha256": "24dc0cdd68e9f395f979246a90d5a994a6b5244864a286559dbbb0731ea36181"
+      },
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "index": 3,
+      "elapsed_seconds": 0.3389410972595215,
+      "stdout": {
+        "bytes": 269625,
+        "sha256": "293d2459239a393dce1630f63f07cf7e330fbf1bf13d7f797db7b9bdd0c82c40"
+      },
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  ],
+  "remote_closing_checks": 13,
+  "local_closure": {
+    "final_checks": [
+      {
+        "name": "local",
+        "status": "PASS"
+      }
+    ],
+    "finished_utc": "2026-09-26T12:42:24.176394+00:00",
+    "first_error": null,
+    "started_utc": "2026-09-26T12:42:22.462917+00:00",
+    "status": "STATIC_ABI_OBSERVED",
+    "transport_calls": 1
+  },
+  "complete_symbol_tables": [
+    [
+      ".symtab",
+      "2234"
+    ]
+  ],
+  "symbol_row_count": 2234,
+  "selected_objects": {
+    "motor_port": [
+      "15",
+      "2003c348",
+      "40",
+      "OBJECT",
+      "LOCAL",
+      "DEFAULT",
+      "5",
+      "_ZN12_GLOBAL__N_110motor_portE"
+    ],
+    "runtime": [
+      "8",
+      "20013960",
+      "0x289e8",
+      "OBJECT",
+      "LOCAL",
+      "DEFAULT",
+      "5",
+      "_ZN12_GLOBAL__N_17runtimeE"
+    ]
+  },
+  "markers": 92,
+  "numeric_answers": 79,
+  "types": 13,
+  "runtime_windows": 6,
+  "enum_answers": 47,
+  "abi": {
+    "bytes": 274942,
+    "sha256": "e224750ea11a9bd462c1708e2d797b622e9fee56e3e46e479242bff19eefdbf4"
+  },
+  "native_owner_files": {
+    "0001-file-abi/intent.json": {
+      "bytes": 6111,
+      "sha256": "f33ddba6b0db3aa3001ea7f1d8e03b32d33b7558e3b63ed78719b91fdcf2e3db"
+    },
+    "0001-file-abi/result.json": {
+      "bytes": 6130,
+      "sha256": "0b47af82d1fa30f5842961db6d7701296b2ca26c3cf6fa427997ef97a1befae7"
+    },
+    "0001-file-abi/stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "0001-file-abi/stdout": {
+      "bytes": 577792,
+      "sha256": "49c21918748d86819ba0da6dd3c0ecc5acfde2d85f08963c94d01488f578b4da"
+    },
+    "abi.json": {
+      "bytes": 274942,
+      "sha256": "e224750ea11a9bd462c1708e2d797b622e9fee56e3e46e479242bff19eefdbf4"
+    },
+    "inputs.json": {
+      "bytes": 28377,
+      "sha256": "3ab0a217e49ffe1508d60f2f8c871eff010dad124c1dc2fdcc27741b32cc6105"
+    },
+    "local_result.json": {
+      "bytes": 275,
+      "sha256": "9c78721cfaa7330cc523619c31ad207832ffe6f9ca3abcc9e93bec7743212cf0"
+    },
+    "result.json": {
+      "bytes": 581671,
+      "sha256": "6a17c12cb24396bf9a58a883ea295ec51feff2abe68d826983f363b3bcbb6d3b"
+    }
+  },
+  "native_owner_file_count": 8,
+  "native_owner_logical_bytes": 1475298,
+  "c_free_bytes": 6489399296,
+  "coordinator_audit_note": "First read-only local audit stopped before writing on KeyError elapsed_seconds. Native child records contain started/finished; corrected audit computes their difference. No native call, source, test, result or guard changed or rerun.",
+  "limitations": "File layout/symbols only; no ordinary loading, MCU contents, coherent snapshot, timing, live RAM, physical or human gate."
+}

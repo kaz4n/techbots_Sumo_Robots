@@ -2446,3 +2446,6 @@ D-209 source/host closure 2026-09-26T16:38:33.194692+04:00: Adopt FINAL independ
 
 
 D-209 native admission 2026-09-26T16:42:11.311676+04:00: Adopt immutable independent admissionreviewbd83b5ce FINAL PASS for scopee34576f4 and ten exact inputs,159coordinator/125manifest pins. All frozen/new files match staged bytes. Permit one local check-only followed by one file-only execute after clean committedreviewedHEAD; all writers stop through localclosure. Preserve mandatory embedded currentidentity/12remote files/fourchildren/13closing checks, all bounds and firsterrors. No upload/reset/MCUread or ordinaryruntime/gate claim.
+
+
+D-209 actual closure 2026-09-26T16:48:18.143956+04:00: Adopt independent actualreview585be669 FINAL PASS for the one file-only attempt at clean326931f4. Result6a17c12c/ABIe224750e/local9c78721c/rootc8501453 bind four successfulchildren,13remote+localPASS and159/10/133unchangedpins. Complete2234symbols,13layouts,sixwindows,47enums are freshly observed. Runtime20013960/166376 and motor_port2003c348/40 are separate initializedBSS objects. Ownerconsumed; use accepted inventory only for a separately prepared ordinary entryscope. No upload, MCUread, ordinaryruntime, atomicity, measuredRAM/WCET, physicalgate or motorpermission follows.

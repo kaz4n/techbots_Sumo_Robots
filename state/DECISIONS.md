@@ -2751,3 +2751,19 @@ D-235 scheduling amendment (2026-09-27T01:52:30.263887+04:00): User requests fas
 D235candidate nativeidentityupdate (2026-09-27T01:55:27.131624+04:00): Three localcheck-onlyrefusals (WindowsJSONlineendings,staleindexmetadata,missing emptyevidenceparent) occurredbeforeanynativecall/owner. Restored exactGitbytes, disabledautocrlf onlyinthisworktree, restaged identicalblobsto refreshindex; no guardedsourcechanged. Freshattempt771c04943d4c4a759055d794fa4b706e/session8582740024591403637 passedcheck1.113s andcompile-onlyactive40773 at unchanged1b2af246. Priorlogs preservedP7_recorder_six_preflight_raw. No guard bypass or upload.
 
 D-236 actual acceptance (2026-09-27T01:56:40.802936+04:00): Adopt independentreview7a81ff95 PASS;65uniqueinputpins/exactdispatcherbindings,fiveactions0/noerrors,result6345Bf46a31b2 matchesretrieval,threecopies2359784B+emptydirectoryremoved,3protectedscans/finalcredentialdrop,originalsintact,6retrievalclosingPASS. Ownerconsumed. SeparateD235compile-onlycandidate40773 active; no uploadadmittedyet.
+
+D-235 source/host acceptance (2026-09-27T02:01:59.190497+04:00): Adopt independentreviewfab3176e PASS for candidate1b2af246 plus sealedhost03.30methods normal+ASanUBSan,747commands/740cases47575886assertions all0/emptystderr;29pins612successmembers reconciled. Fullrawcapacity287225calls,independentbound288575. Host01/missinghost02rawevidence failures retained; no guard loosened or native cure claim.
+
+## D-237 (2026-09-27T02:01:59.190497+04:00) - One inhibited six-store recorder delivery
+Under D051, after D235 acceptedsource/host and root actualcompileclosure, admit
+one --run using unchangedreviewedD228caller in frozen isolatednativeworktree
+sumox-recorder-six-native-20260927 HEAD1b2af246cd88e6207e846ee340f8c4e46a5bb980,
+attempt771c04943d4c4a759055d794fa4b706e,session8582740024591403637.
+Source289300a4be9547cd294dc1f753bbe17a429d16776c46467fec5417b1290f4ffc,
+package55376B SHA3b4812a7a57ec964437d6d1048f96724e3fed5d0a3f9419acd26adbcd5e70a5d.
+145Git/currentinputs,110stagefiles,1query/compilerjobs1,28transports/9closing
+PASS; structuralRAM97424B. D236cleanup completed/accepted7a81ff95 beforehand.
+Keep static/default/MATCH0/MOTORS0,200srecording,900sreceiver,oneupload,all
+source/boot/session/absencechecks. Separate actualcompile review may finish
+during reception; it adds no nativeoperation. No retry/reset or motorgrant.
+Success requires full identifiedreceiver/CSV/CRC validation, not uploadalone.

@@ -1606,3 +1606,5 @@ matrix is admitted conditionally, not yet executed. Firmware unchanged. | pendin
 2026-09-27T00:31:03.836051+04:00 | P7 | IntegratedD22712ffd16c with exactreviewedbytes; refreshedhandoff/runbook/P7packet/oldwatchdogfact against currentfailureevidence. D229hostreview5f1047fdPASSheldisolated; D230diagnostic source/tests/reviewongoing. | pendingdocscommit
 
 2026-09-27T00:37:09.556098+04:00 | P7/D230 | File-only ABI checkpoint integrated d57397c3, review64507927PASS;18+18host methods and19pins stable. Check-only then one file-only read next. D228 failed-evidence reviewf5695e77 accepted, deliverystillFAILED. D229accepted isolatedcommits5d1ca6ea/ac8be0c7 helduntildiagnosis. | pending
+
+2026-09-27T00:41:01.202936+04:00 | P7/D230 | Actual file-only ABI PASS: one transport, four children, 12 remote file checks plus identity/local closure. Independent review 75334f6a accepts ABI de0cb0ec. Passive status capture next; firmware inputs unchanged. | collector b90fd291

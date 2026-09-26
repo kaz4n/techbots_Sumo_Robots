@@ -565,3 +565,5 @@ alternative deletion occurred. No new disposable build output was generated.
 2026-09-27T00:06:41.815709+04:00 | D222 local stage cleanup | After final matrix review, exact native PowerShell removal of14manifest-verified candidate source stages1456files10701670B was rejected before execution by automatic approval review: blocked by policy. No deletion/reclaimed bytes; retain all14paths without retry/alternate method. Prior764405Bblockedstage was explicitly excluded and remains untouched. Receipt matrix_closure01/local_stage_cleanup_blocked01.json. Unique native artifacts/receipts/source/Git preserved.
 
 2026-09-27T00:29:04.773795+04:00 | D228 actual failed delivery | Retain267unique receipt files1722667B before rootclosure/report, including original timeout/empty partial capture, checked board artifacts and fresh stage for diagnosis. No cleanup/retry; all policyblocked paths retained. C free about2.08GB.
+
+2026-09-27T00:41:01.202936+04:00 | D230 | Retain native_abi01 ELF/DWARF evidence, transport receipts and root closure for exact layout reproduction and review. No disposable target data removed. Original local cleanup policy blocks remain in force.

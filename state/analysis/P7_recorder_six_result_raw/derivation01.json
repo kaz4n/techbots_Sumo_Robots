@@ -1,0 +1,142 @@
+{
+  "abi": {
+    "after": {
+      "bytes": 24902,
+      "sha256": "9606ab96576b1cae5382fdd383b5c8c05d7ef3bf5f9469809c7fa97b3954ba8c"
+    },
+    "before": {
+      "bytes": 24804,
+      "sha256": "0a2c745275e47d5c89ff0bb5e711d140268bc0d35f78cb0b36e717bbdf75cefb"
+    },
+    "complete_reverse_equal": true,
+    "path": "tools/recorder_six_result_abi.py",
+    "steps": [
+      {
+        "count": 5,
+        "new": "recorder_six_result",
+        "old": "recorder_first_failure"
+      },
+      {
+        "count": 1,
+        "new": "1b2af246cd88e6207e846ee340f8c4e46a5bb980",
+        "old": "ce4e69390d21d9a91231581a186be4a63213135e"
+      },
+      {
+        "count": 1,
+        "new": "771c04943d4c4a759055d794fa4b706e",
+        "old": "07f19e32c483cebadecaa63f4d6d720f"
+      },
+      {
+        "count": 2,
+        "new": "recorder-771c04943d4c4a75",
+        "old": "recorder-07f19e32c483ceba"
+      },
+      {
+        "count": 1,
+        "new": "8582740024591403637",
+        "old": "572412568535289530"
+      },
+      {
+        "count": 1,
+        "new": "289300a4be9547cd294dc1f753bbe17a429d16776c46467fec5417b1290f4ffc",
+        "old": "29cb1e76193e4b7c562d1fd842039f61367a82c2651a2303c09518d35a0c7ce9"
+      },
+      {
+        "count": 4,
+        "new": "D238",
+        "old": "D233"
+      },
+      {
+        "count": 1,
+        "new": "    'session': ('runner', 'session_', None),\n    'packet_started_us': ('native_dump', 'started_us_', None),",
+        "old": "    'session': ('runner', 'session_', None),"
+      },
+      {
+        "count": 1,
+        "new": "FIELDS += [('session', '', 8, 'uint'), ('native_status', '', 1, 'recorder::dump::NativeStatus')]\nFIELDS += [('packet_started_us', '', 4, 'uint')]",
+        "old": "FIELDS += [('session', '', 8, 'uint'), ('native_status', '', 1, 'recorder::dump::NativeStatus')]"
+      }
+    ],
+    "template": "tools/recorder_first_failure_abi.py"
+  },
+  "caller": {
+    "after": {
+      "bytes": 19593,
+      "sha256": "b46893c3e6cf7ce258a3eeaf221074770d1d80b64a425ff7058321c9c99114c2"
+    },
+    "before": {
+      "bytes": 19614,
+      "sha256": "c5ea40f9583beee040395030a0f73f0f5c50701e0885267fa17205b1319f047a"
+    },
+    "complete_reverse_equal": true,
+    "path": "tools/run_recorder_six_result_capture.py",
+    "steps": [
+      {
+        "count": 7,
+        "new": "recorder_six_result",
+        "old": "recorder_first_failure"
+      },
+      {
+        "count": 1,
+        "new": "D238",
+        "old": "D233"
+      },
+      {
+        "count": 1,
+        "new": "len(source) == 11770",
+        "old": "len(source) == 11772"
+      },
+      {
+        "count": 1,
+        "new": "2dfd19f72aa913660f8b32b113093047976d03c218bb793a7aa973b0d2765d5d",
+        "old": "576efd496802c5d789ce1a6c183144dadb6d309487709d3a0a4fdd4fcb8a1b96"
+      }
+    ],
+    "template": "tools/run_recorder_first_failure_capture.py"
+  },
+  "capture": {
+    "after": {
+      "bytes": 11770,
+      "sha256": "2dfd19f72aa913660f8b32b113093047976d03c218bb793a7aa973b0d2765d5d"
+    },
+    "before": {
+      "bytes": 11772,
+      "sha256": "576efd496802c5d789ce1a6c183144dadb6d309487709d3a0a4fdd4fcb8a1b96"
+    },
+    "complete_reverse_equal": true,
+    "path": "tools/recorder_six_result_capture.py",
+    "steps": [
+      {
+        "count": 1,
+        "new": "recorder_six_result",
+        "old": "recorder_first_failure"
+      },
+      {
+        "count": 1,
+        "new": "771c04943d4c4a759055d794fa4b706e",
+        "old": "07f19e32c483cebadecaa63f4d6d720f"
+      },
+      {
+        "count": 2,
+        "new": "recorder-771c04943d4c4a75",
+        "old": "recorder-07f19e32c483ceba"
+      },
+      {
+        "count": 1,
+        "new": "8582740024591403637",
+        "old": "572412568535289530"
+      },
+      {
+        "count": 1,
+        "new": "289300a4be9547cd294dc1f753bbe17a429d16776c46467fec5417b1290f4ffc",
+        "old": "29cb1e76193e4b7c562d1fd842039f61367a82c2651a2303c09518d35a0c7ce9"
+      },
+      {
+        "count": 1,
+        "new": "3b4812a7a57ec964437d6d1048f96724e3fed5d0a3f9419acd26adbcd5e70a5d",
+        "old": "b13a32b5e92993a49f165b907d5d6036fa933e1680bb23ff2738620b294fd584"
+      }
+    ],
+    "template": "tools/recorder_first_failure_capture.py"
+  }
+}

@@ -1,3 +1,39 @@
+## Current checkpoint - 2026-09-27T02:21:12.108926+04:00
+
+Objective active: finish software and connected-board work quickly; BOARD ONLY.
+D237 six-store run is CLOSED:375.042s/FAILED because first60-byte BEGIN
+was absent. Full transport607448B contains5001frames/8events/endCRC;
+accepted capture remains null. Actual reviewdd50e6e7 reconciles45transports,
+oneupload and clean closing. All266ownerfiles now preserved inMAIN.
+
+D238 passive capture35584 CLOSED0 in204.585s at collectord83305da.
+26reads639504B,10transports,65equalfields,completeflashbracketsPASS;
+coherenceUNPROVEN. Runner/transferSENT_UNCONFIRMED/failureNONE, nativeOK,
+notpoisoned/inactive,firstfailureNONE. Transfer607508bytes/5001frames/8events
+CRC2865663826. Original captureSHAaa584d44. Mainrawcopy559451B plusouter
+receipts/rootclosure. Independent actualreview inprogress; no nativechild.
+D238source/ABI integrateda7089980/c8bd26e7,41nonattrsfiles exact.
+
+D239 admits one freshsession attempt on unchanged accepted6store source after
+exactD237scratchcleanup. Freshnativeworktree
+C:/Users/narut/AppData/Local/Temp/sumox-recorder-repeat-native-20260927
+HEAD1b2af246cd88e6207e846ee340f8c4e46a5bb980,attempt354cf1586a9648d88cb9dad105a6c992,
+session3840709944287840472. Check-onlyPASS1.238s; no compile/uploadyet.
+Tempstemsumox_recorder_repeat_attempt03; two earlierlocal-only refusals retained
+P7_recorder_repeat_preflight_raw. Do not relax source or receiverguards.
+
+Freshscratchobserver18b59196 passed aftercaptureclosure. Agentrecorder_diag
+owns only repeatcleanuppreparation inMAIN P7_recorder_repeat_cleanup_raw;
+exact currentpackage3b4812a7 andobservedinode fromadmission. Freshremote
+cleanup-recorder-repeat-root01; no actionexecutedyet. Reviewbeforebinding/native.
+No routerrestart or serialreopen: prior7bytepartialdecoder explainsmissingfirst
+line conditionally, not proven. See P7_recorder_missing_envelope_analysis.md.
+
+All physical/humangates, motorpermission and initializedrobot timing remain
+open. Other pendingsoftware includes log-preservingrearm and cancellation/
+reopen qualification; freshdeliverysuccesswouldclose only boundedsynthetic
+transportscope. Policyblockedlocalstage deletions remainuntouched.
+
 ## Current checkpoint - 2026-09-27T02:11:23.466397+04:00
 
 Objective active: finish software/connected-board work quickly; BOARDONLY.

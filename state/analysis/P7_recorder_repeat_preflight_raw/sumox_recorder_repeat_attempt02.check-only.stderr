@@ -1,0 +1,25 @@
+Traceback (most recent call last):
+  File "C:\Users\narut\AppData\Local\Temp\sumox-recorder-repeat-native-20260927\tools\run_recorder_delivery.py", line 942, in <module>
+    sys.exit(main(sys.argv[1:]))
+             ~~~~^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-recorder-repeat-native-20260927\tools\run_recorder_delivery.py", line 935, in main
+    owner = make_owner(request)
+  File "C:\Users\narut\AppData\Local\Temp\sumox-recorder-repeat-native-20260927\tools\run_recorder_delivery.py", line 395, in make_owner
+    base = bootstrap._bootstrap(root).load_caller(root=root)
+  File "C:\Users\narut\AppData\Local\Temp\sumox-recorder-repeat-native-20260927\tools\compile_b4_app_static.py", line 143, in load_caller
+    caller = predecessor.load_caller(root=root)
+  File "C:\Users\narut\AppData\Local\Temp\sumox-recorder-repeat-native-20260927\tools\compile_ordinary_app_static.py", line 174, in load_caller
+    originals = {name: read_original(name, root=root) for name in ORIGINALS}
+                       ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-recorder-repeat-native-20260927\tools\compile_ordinary_app_static.py", line 169, in read_original
+    return _read_handle(path, before, relative)
+  File "C:\Users\narut\AppData\Local\Temp\sumox-recorder-repeat-native-20260927\tools\compile_ordinary_app_static.py", line 145, in _read_handle
+    require(before == after and path_identity == handle_identity and opened == closed and
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            len(raw) == before[-1][4] and len(raw) <= 65536,
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            'Original source changed while reading: ' + relative)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-recorder-repeat-native-20260927\tools\compile_ordinary_app_static.py", line 61, in require
+    raise ValueError(message)
+ValueError: Original source changed while reading: tools/app_motor_fault_static_policy.py

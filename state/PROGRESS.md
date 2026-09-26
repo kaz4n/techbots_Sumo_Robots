@@ -1624,3 +1624,5 @@ matrix is admitted conditionally, not yet executed. Firmware unchanged. | pendin
 2026-09-27T01:57:09.115362+04:00 | P7/D235-D236 | D236exactcleanupaccepted7a81ff95. D235oneconfig6-storecandidate isolated1b2af246 compile40773 active;hostevidenceclosing/reviewpending,no upload. |9babf37c
 
 | 2026-09-27T02:16:47.871157+04:00 | P7 connected-board software | D237 six-store delivery closes; D238 passive result observation | FAILED missing required firstenvelope; fulltransportretained, runclosureclean; reviewedpassivecapture35584active | commit containing this row |
+
+| 2026-09-27T02:20:29.501559+04:00 | P7 connected-board software | D238 actual passive result / D239 fresh identified validation | D238COLLECTED204.585s26reads639504B,65equalfields/nativeOK/SENT_UNCONFIRMED; D237deliverystillFAILED missing60B BEGIN; D239preparation | commit containing this row |

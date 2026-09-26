@@ -1,3 +1,25 @@
+## Current checkpoint - 2026-09-27T01:49:07.223200+04:00
+
+D233 passive first-failure capture is COMPLETE and acceptedcf1ba387, integrated
+347c88ef. No live native process remains. Actualimage compared D233source29cb1e76,
+packageb13a32b5.24reads639496B/fourflashcomparisons/all64fieldsequal;coherence
+UNPROVEN. FirstfailureTIMEOUT/STORE_DEADLINE offset7/74,payload59. Cleanup
+READBACK_FAILED withownershipOK. No exacttimerbranch orCR1value captured.
+
+NextD235: isolatedrecorder_diag implementing config8-to6stores only, preserve
+80us/100ms/300s/allguards, historical8fixture pluscurrent6capacity/native tests.
+Candidate is not a cure until nativeevidence; sixstoremodel288575calls fits300s.
+NextD236:MAIN82ea5d7a exactcurrentD233scratchcleanup packageprepared,8testPASS;
+reviewerrecorder_delivery_review inspecting.59pinmanifest5bd1a098,admission
+bc2a9423,dev34ino6818,three2359784B. No stage/auth/delete hasrun. Two hash
+placeholders maybebound afterindependentreview. Then five sequentialdispatcher
+actions exactly once, noechostdin. Oldcleanupowners consumed.
+
+D234sessionforwarding integrated3ec262a0,host/reviewPASS,defaults0/currentdeploy
+nondefaultrefusal. ExistingD229p99compile evidence separate. BoardONLY,no motor
+run authority/physicalgates. Mainobjectiveactive; no projectcompletion claim.
+Older activeprocess/currentimage paragraphs below are superseded.
+
 ## Current checkpoint - 2026-09-27T01:41:46.948550+04:00
 
 Objective: complete software and connected-board work quickly; BOARD ONLY.

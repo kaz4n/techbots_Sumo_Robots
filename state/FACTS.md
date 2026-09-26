@@ -995,3 +995,12 @@ acknowledged payload bytes. Native initialized/poisoned true,statusPOISONED,
 cleanup_verified false. Session matches3997245574426120340. Original native
 reason is not retained; zero acknowledged payload does not prove zero UART
 stores. Coherence remains UNPROVEN; no live RAM/full-loop/physical acceptance.
+
+### D233 retained first-native-failure (2026-09-27T01:49:07.223200+04:00)
+Source: analysis/P7_recorder_first_failure_capture_actual_validation.md and
+reviewcf1ba387; fullflashmatches source29cb1e76/packageb13a32b5 before/after.
+Both64field samples agree on TIMEOUT/STORE_DEADLINE,packetoffset7/74,payload59,
+firstcleanupREADBACK_FAILED with evaluatedownershipOK. Those are retained
+software fields, not transmitted/received byte evidence; which timer expired
+and the observed CR1value are absent. Runner202479completedepochs,maxS..C482us,
+missed0; not full-loopWCET. No coherence,liveRAM,delivery or physical acceptance.

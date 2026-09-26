@@ -1,3 +1,42 @@
+## Current checkpoint - 2026-09-27T02:33:22.721458+04:00
+
+D239 DELIVER Y RUN ACTIVE exec34435 (startabout02:30Dubai). Oneupload
+transport0; recording200s then transmission, receiver900s. Savedwire0B at02:32
+is still insideexpectedrecordingwindow. Do not changeisolatedsource/HEAD,
+reset,retry,cleanup orstartanothernativejob beforethisrun/receivercloses.
+WorktreeC:/Users/narut/AppData/Local/Temp/sumox-recorder-repeat-native-20260927,
+HEAD1b2af246cd88e6207e846ee340f8c4e46a5bb980,attempt354cf1586a9648d88cb9dad105a6c992,
+session3840709944287840472,source3d9306d7b804a68d6e7c2764171077526fbe14074b4564ea2e071ffd5a8e839b.
+OwnerP7_recorder_delivery_raw/recorder-354cf1586a9648d8. Package55376B
+3a1bbd2f277edb4617cafe0b4404c4753f1ad9141cb8d107cb07ed33bf24e724.
+OuterTempstemsumox_recorder_repeat_attempt03(.json/.run.stdout/.run.stderr).
+Compile69910CLOSED0/254.374s acceptedreview729399c6:145pins110stagefiles,
+28transports9reapedchildren/closingchecks,structuralRAM97424B. Main5closed
+compilecopies only; fullownerintegrationafterrunclosure. M0/MATCH0/staticdefault.
+
+D239cleanupactualaccepted4446c181,6354B30b958cbresult,2359784Bremoved+empty
+7093dir; allfiveactions/6closingchecksPASS. No firmware/routerchangebycleanup.
+D238actualaccepted034c70df,26reads639504B/65fields: priorD237native transfer
+SENT_UNCONFIRMED607508B, receiver607448Bmissing60B BEGIN. D237FAILEDpreserved;
+D239freshsessionempiricallytestscompleteframing, no inferredcleanstate/repair.
+
+D240software-only identifiedAPPdelivery toolimplementation ACTIVEagentrecorder_diag.
+Ownership additivecaller tools/run_app_identified_delivery.py, narrow
+ tools/deploy_commissioning_app.py opt-in,tests/test_app_identified_delivery.py,
+P7_app_identified_deliverycontract/validation/raw andownattrsONLY. No firmware,
+sourceconfigs,lockedtests,ledgers,nativeoperations. PreservecurrentD227M0empty
+grants/M1specificSTAND/RING andqualifications; reservefreshoneuseimage/session,
+existingreceiverbeforeoneupload,unchangedenvelope/session/CRC/CSV. Nobench
+syntheticcountassertions. Sourcegrants remainphysical; hardwareappcapturepending.
+D103reset/rearmfirmwarealreadyexists; smallestremainingcodegap ispairedapptooling.
+
+Reviewerrecorder_delivery_review currentlynarrowlyaudits currentSTATIC MATCH/
+Immediate/M1 releasecompile/tooling afterD234/D235; read-only/no native. Then
+D240source reviewwhenready andD239actualdeliveryreviewafterclosure. Rootmain
+canedit docs, butkeepnativeworktreefrozen. Mainlatestacceptedcompilecommita84d0e7c.
+No physicalgates/motorpermission; BOARDONLY. Allpriorpolicyblockedlocalstage
+cleanupscopesremainuntouched. Goalactive; don'tclaimprojectcomplete.
+
 ## Current checkpoint - 2026-09-27T02:27:44.850753+04:00
 
 D239 COMPILE-ONLY ACTIVE exec69910. Frozen isolatedworktree

@@ -468,3 +468,43 @@ decoder checks, not an invented historical pass count. Actual native entry
 review, capture admission/results and independent actual-byte interpretation
 remain separately required. This offline task creates no physical acceptance,
 motor-run permission, phase gate, runtime success or safety qualification.
+
+## Pre-implementation error-code clarification
+
+This narrows error classification only; all acceptance predicates above remain.
+It was settled before the independent decoder oracle freeze or source execution.
+
+- File-row metadata requires an exact int in1..1048576 and syntactically valid
+  lowercase hash. Type, range or hash-syntax failure is files/ROW_TYPE at
+  /files/INDEX/bytes or /sha256. After base64 decoding, length disagreement is
+  FILE_SIZE and digest disagreement is FILE_HASH at that file-row field.
+- Receipt root or named analysis/counts/flash/subprocess object with a wrong
+  container type uses that receipt stage's TYPE at the object path. A dict with
+  a missing/extra fixed key uses KEYS at the object path. Wait records and error
+  records are the expressly separate exceptions below.
+- A receipt first_error that is neither null nor a dict uses TYPE at
+  /RECEIPT/first_error. A dict with incorrect keys or nested field types uses
+  ERROR_SHAPE there or at its offending field. postcheck_errors not a list uses
+  TYPE at that field; an invalid list entry (including a non-dict) uses
+  ERROR_SHAPE at its indexed entry/field. A structurally valid nonnull upload
+  error or nonempty upload postcheck list fails STATUS at the relevant field.
+- A correctly typed upload attempts value other than1 uses STATUS at
+  /upload_result/attempts. Correctly typed subprocess values differing from
+  reaped=true, returncode=0 or timed_out=false use STATUS at the offending nested
+  field; wrong Python types use TYPE. Run/source/schema string mismatches use
+  IDENTITY; a status literal mismatch uses STATUS. Clock representation/range
+  checks use CLOCK, including null, bool, nonfinite or empty UTC clock fields.
+- Validate the complete wait/pre_sample_wait record in the late WAIT phase.
+  Every wrong container, key set, scalar type, numeric bound/order or required
+  duration uses capture/WAIT at the record or offending field path. A missing
+  wait member within the outer capture/analysis object still fails its outer
+  KEYS check. This retains null/partial boundary waits without reading ahead.
+- Missing declared snapshot bodies use files/MISSING_FILE at the full required
+  path, checked in fixed expected order. An otherwise allowed saved SRAM path
+  outside the declared snapshot set uses files/FILE_SET at that extra full path,
+  checked in input row order. Unknown full paths fail the earlier PATH check.
+  Both JSON receipts remain required in upload-then-capture order.
+
+No test should infer a new native status, rewrite a receipt or relax malformed
+input because two rejection codes were previously plausible. Public paths not
+further constrained above remain slash-separated and deterministic as specified.

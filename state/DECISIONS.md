@@ -2740,3 +2740,6 @@ No locked test, motor grant or hard deadline changes. CleanupREADBACK_FAILED
 remains separate: actual register value and cause were not captured. Do not
 assume USART documentation applies to LPUART or silently relax cleanup checks.
 Host/review before any separately bound new inhibited native diagnostic.
+
+## D-236 (2026-09-27T01:48:38.945743+04:00) - Exact stale D233 upload copies
+Under D051/user cleanup authorization, adopt fresh read-only admissionbc2a9423 and data-only cleanup packageP7_recorder_six_cleanup for /tmp/remoteocddev34/ino6818,three2359784B copies/retainedoriginals. EightfocusedtestsPASS,firststale fixtureassertion failure retained. MainROOT is chosen because no nativechild remains; all inputpins/guards and freshstagecleanup-recorder-six-root01 remain. Independentreview before exact authenticatedcleanup; no MCUaction/generalprivilege. Twoliteral manifest/reviewbindings only afterward.

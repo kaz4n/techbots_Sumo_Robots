@@ -1,0 +1,19 @@
+......F.
+======================================================================
+FAIL: test_new_observation_literals_and_embedded_sources_match_exactly (__main__.PreparationTests.test_new_observation_literals_and_embedded_sources_match_exactly)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\state\analysis\P7_recorder_six_cleanup_raw\test_preparation01.py", line 97, in test_new_observation_literals_and_embedded_sources_match_exactly
+    self.assertEqual(pin(read('admission01.json'))['sha256'],
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     '17cfc318c40cbe01b95f824bea001a7aa03359b94bbae54119fa21830f627b99')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'bc2a9423e342d9d81bb4d9b8d0613018dea4970b526dcf2d9b30314357710197' != '17cfc318c40cbe01b95f824bea001a7aa03359b94bbae54119fa21830f627b99'
+- bc2a9423e342d9d81bb4d9b8d0613018dea4970b526dcf2d9b30314357710197
++ 17cfc318c40cbe01b95f824bea001a7aa03359b94bbae54119fa21830f627b99
+
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.714s
+
+FAILED (failures=1)

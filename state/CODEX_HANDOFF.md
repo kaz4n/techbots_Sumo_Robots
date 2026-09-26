@@ -1070,3 +1070,5 @@ Ordinary9044ebbb/M0/probe0/zero-grant source is unchanged. Native106Linux+62Wind
 
 
 D213 accepted 2026-09-26T19:11:44.235046+04:00: first65Linux+65WindowsPASS/no skips/all16pinsstable, sourceaadccdbb, oraclece5e915a, review67441159, closureacaf2f32. No source/oracle changes afterseal. Next D214 fixedM0B4compile-only integration; preserve D208 mapper/lifecycle, add D213localpolicy+remote snapshots and exact resultmode. No target operation beyond acceptedD212 yet.
+
+D243 checkpoint (2026-09-27T03:27:36.470498+04:00): source6cda7d82 and review88cfdc2d accepted,16/143 host PASS. Root next compiles timing-M0 and ordinary MATCH-M1 serially in frozen sparse worktrees, then checks exact target ELF observer presence/absence. Board remains board-only; no motor/upload permission. B7/R6 policy question is pending; no exception inferred.

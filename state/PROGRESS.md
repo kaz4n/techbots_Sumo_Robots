@@ -1520,3 +1520,9 @@ physical/loadedRAM/gate claim. | contract=this commit
 2026-09-26T19:52:27.515553+04:00 | P7/D214 | Corrected product passes91Linux methods; Windows66PASS/22skips/3import errors in portable test fixture.213pinsstable;Windows temporary empty. Independent review accepts code and bounded Windows-only pwd sentinel correction without assertion/method/skip changes; targeted rerun pending. No native action. | pending
 
 2026-09-26T20:04:28.195171+04:00 | P7/D214 | Source/host review9b71f156 PASS: composed91LinuxPASS and69WindowsPASS/22Linux-covered skips;224pinsstable, original failures preserved. Read-only preparation0a793001 and actual780a628f PASS:28installedpins/identity/owners/resources stable. Manifestfc8e6fc1 has130files, source9044ebbb,104mapped764405B. FixedM0 compile scope521c4b08 awaits final native admission/cleancommit/check-only. No B4 compiler/upload yet. | pending
+
+
+2026-09-26T20:13:56.895312+04:00 | P7/D214 | Native B4M0 static compile returned COMPILE_CHECKED:1query/1compiler jobs1/25transports/9closingPASS; package82912B84667b0a, structuralRAM94352B vs CLI94348B. Rootclosure7a43d0be verifies244current+HEAD/224coordinator/130manifest/17scope and104stage764405B. Independent actual review pending; no B4 upload or MCUread. | native HEAD34c1b965
+
+
+2026-09-26T20:16:13.062764+04:00 | P7/D214 | Independent actualreview7490c232 FINAL PASS; nativecompile accepted, all9closingchecks and244current+HEAD pins pass. No open material compile finding. D215 fixed file-only B4ABI preparation proceeds; D212 ordinaryM0 remains latest verifiedflash; bareboard only. | pending

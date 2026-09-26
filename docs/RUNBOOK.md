@@ -3,7 +3,7 @@
 <!-- Review against P7, PLAN, current UI sources and linked acceptance packets. -->
 # Match-day runbook
 
-**Preparation draft updated through D188, 25 September 2026. NOT OPERATOR-READY.** Print only
+**Preparation draft updated through D214, 26 September 2026. NOT OPERATOR-READY.** Print only
 after the release owner fills and verifies the release record below. Writing
 this runbook supplies no deployment, motor-run permission or human phase gate.
 
@@ -24,7 +24,7 @@ A mode number/arrow alone is not readiness; the battery bar is not numeric volta
 
 | Required before using the workflow | Current boundary / evidence owner |
 |---|---|
-| Identified runnable release and deployment | D185 target-compiled both current main-app profiles without upload. Runtime qualification, the full-app fault, memory/timing acceptance and actual release deployment remain open. D183's deployment software and D186-D188's inhibited diagnostic preparation are host-tested; they do not provide a runnable release or run permission. Record the qualified source/config/artifact and actual deployment using the [current P7 packet](../state/analysis/P7_software_acceptance_packet.md). |
+| Identified runnable release and deployment | D212 uploaded the ordinary motor-disabled application and passively observed it on the bare board; initialization remains incomplete with all setup grants absent. D214 compiled the B4 motor-disabled profile without uploading it. These checks do not qualify an operational robot release, initialized timing or live memory. Record the source/config/artifact and qualified deployment using the [current P7 packet](../state/analysis/P7_software_acceptance_packet.md). |
 | Hardware and usable controls | PINMAP/electrical qualification, calibrated battery reading, actual sensors, distinct button levels including BOTH, visible display and source setup remain required. [P2 packet](../state/analysis/P2_software_acceptance_packet.md) lists the missing evidence. |
 | Original P7 display criterion | Qualify D138's live blinking R and battery-threshold pixel on the actual release matrix, including native startup/ownership, calibrated input, visibility and failure behavior; see [open SC-AP](../state/analysis/spec_conflicts.md). An external meter does not replace this criterion. |
 | Motion and opener acceptance | Resolve the real starts, stopping/edge, combat and opener criteria in the [P3](../state/analysis/P3_software_acceptance_packet.md), [P4](../state/analysis/P4_software_acceptance_packet.md) and [P5](../state/analysis/P5_software_acceptance_packet.md) packets. Each powered practice attempt needs fresh STAND OK or RING OK bound to that specific run, target, firmware and scope; never reuse it for another attempt. |

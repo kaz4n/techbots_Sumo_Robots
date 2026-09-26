@@ -1,0 +1,959 @@
+{
+  "schema": "d214-native-closing-v1",
+  "created": "2026-09-26T20:12:17.644426+04:00",
+  "status": "PASS",
+  "reviewed_head": "34c1b965f4ed2a9332c4f890ee2a4a27d89a7ba0",
+  "checks": {
+    "prerequisites": {
+      "count": 244,
+      "changed": []
+    },
+    "coordinator": {
+      "count": 224,
+      "changed": []
+    },
+    "scope": {
+      "count": 17,
+      "changed": []
+    },
+    "manifest": {
+      "count": 130,
+      "changed": []
+    },
+    "head_blobs": {
+      "count": 244,
+      "changed": []
+    }
+  },
+  "outer": {
+    "bytes": 9114,
+    "sha256": "c2c5dfba3315f6ee79067baa31a6a9b014961ac4e2173974dfcb2df284761bd4"
+  },
+  "result": {
+    "bytes": 1829,
+    "sha256": "b722db17adabafc03f6ad8583bcef9b0f6b7d1def4d3e54962508aad4039567a"
+  },
+  "artifacts": {
+    "bytes": 9484,
+    "sha256": "0acaa30a4ba01ac5c9ff8c8fddc66c4bec94e033b1194ec63271f12affb6c085"
+  },
+  "transports": [
+    {
+      "owner": "0001-identity",
+      "units_including_nul": 2603,
+      "timeout_seconds": 90,
+      "files": {
+        "intent.json": {
+          "bytes": 2744,
+          "sha256": "5e470121cce705d55b6537e4e10d407ac58528a870e1d972037ec23262f98604"
+        },
+        "result.json": {
+          "bytes": 2763,
+          "sha256": "9621fbab10c69fd3b15bb77130561a9b9028a77d6b9d79a27b9963760eafe2a1"
+        },
+        "stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout": {
+          "bytes": 211,
+          "sha256": "b1acde87309e551c690195ced50cffa479c990c8a2ff4d8360c796be34b5dc00"
+        }
+      }
+    },
+    {
+      "owner": "0002-cli_initialization_inventory",
+      "units_including_nul": 16154,
+      "timeout_seconds": 60,
+      "files": {
+        "intent.json": {
+          "bytes": 16313,
+          "sha256": "fe18b78f27fd7fb1bef2db4128033bfa825ff44ca599a892d946e48fedf2d38a"
+        },
+        "result.json": {
+          "bytes": 16332,
+          "sha256": "415d944557ee91d0a409f326566315cbd349abaf0bfcf49e847a0ca6cdfadc88"
+        },
+        "stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout": {
+          "bytes": 4222,
+          "sha256": "87dd74d65be4bb5552993ebfc154a3262a9f35f8c4eb64eb9a67f0d2cfdb350a"
+        }
+      }
+    },
+    {
+      "owner": "0003-cli_builtin_files_inventory",
+      "units_including_nul": 14793,
+      "timeout_seconds": 60,
+      "files": {
+        "intent.json": {
+          "bytes": 14935,
+          "sha256": "a0e924705f29fd12ccccb704c21aed48be072a7091944bd2049b6bad0afbaed6"
+        },
+        "result.json": {
+          "bytes": 14954,
+          "sha256": "64f363d1ec627c503d2c10bc498db20805e0063e7a4d79326e7295a361499d5e"
+        },
+        "stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout": {
+          "bytes": 2909,
+          "sha256": "28ea6f8203046186d141a1740d447ccafc3c4fde96e0c2183e7ff55566ffd19e"
+        }
+      }
+    },
+    {
+      "owner": "0004-command-owner",
+      "units_including_nul": 2585,
+      "timeout_seconds": 90,
+      "files": {
+        "intent.json": {
+          "bytes": 2726,
+          "sha256": "01906e5ed2006bddae2b55010439468575ac55011048155ea0653ae81a43af85"
+        },
+        "result.json": {
+          "bytes": 2745,
+          "sha256": "a57c2cb75389981b63978c3a2708ae152dec00760e79722a14ff31be5b489c57"
+        },
+        "stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout": {
+          "bytes": 211,
+          "sha256": "b1acde87309e551c690195ced50cffa479c990c8a2ff4d8360c796be34b5dc00"
+        }
+      }
+    },
+    {
+      "owner": "0005-source-admission",
+      "units_including_nul": 16372,
+      "timeout_seconds": 90,
+      "files": {
+        "intent.json": {
+          "bytes": 16540,
+          "sha256": "e2c35dc29dab52e7860ad34d376837c97ab0a6aa9fab22fbf07a4cb7fa462bed"
+        },
+        "result.json": {
+          "bytes": 16559,
+          "sha256": "de4a1a2013a1d758bedf5518eb6d0219e12aeeefda79fbae7c1de3e3468e264a"
+        },
+        "stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout": {
+          "bytes": 18,
+          "sha256": "9bc598034a00dff539febd7436f504ffd2d36654e9b9f790faa63b8045e182d5"
+        }
+      }
+    },
+    {
+      "owner": "0006-source-set",
+      "units_including_nul": 3560,
+      "timeout_seconds": 90,
+      "files": {
+        "intent.json": {
+          "bytes": 3718,
+          "sha256": "705e10351ba5012ecfb550c8559c3445be2515b0a63faec63798f6e59f9756c2"
+        },
+        "result.json": {
+          "bytes": 3737,
+          "sha256": "d6b2fb6bf05da3f4a16810400f0e159103fd12b35fe98470d4a40864456f8fce"
+        },
+        "stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout": {
+          "bytes": 9769,
+          "sha256": "1303bd39ad21ef40f86adb3345bf32070438123a7e0686781206f0bcdc230889"
+        }
+      }
+    },
+    {
+      "owner": "0007-identity",
+      "units_including_nul": 2516,
+      "timeout_seconds": 90,
+      "files": {
+        "intent.json": {
+          "bytes": 2656,
+          "sha256": "abc7d8db44c5608a6368169eaa5e043f647cd2aa03638e40761dfd4093324557"
+        },
+        "result.json": {
+          "bytes": 2675,
+          "sha256": "f46040f4d097346600cee5be2b4211739970c6b8a8e3c85e15dfc81701a75f3e"
+        },
+        "stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout": {
+          "bytes": 211,
+          "sha256": "d8703a9f58298e058e0583ddb53cc354040ce7506c27cc2c2f014352bee2c22b"
+        }
+      }
+    },
+    {
+      "owner": "0008-checked-command",
+      "units_including_nul": 5927,
+      "timeout_seconds": 150,
+      "files": {
+        "child.stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "child.stdout": {
+          "bytes": 73,
+          "sha256": "448e1970fdd268fd62248f457c900b1a169a46dbda34331f90f181fd31a328c0"
+        },
+        "intent.json": {
+          "bytes": 6121,
+          "sha256": "8ca1ed2e3b62996343da34d95ae6c5ac38b07f9d006efd728179596037f4a116"
+        },
+        "remote_result.json": {
+          "bytes": 674,
+          "sha256": "c428e67f33ea9565a5b3eb337ebce76db17c95637f00658c64c495bb0c2a0ad2"
+        },
+        "result.json": {
+          "bytes": 6140,
+          "sha256": "84f075dd4eb35ebd4a030dc56b5cee760163a21cb3a42a98d35092d3768f0942"
+        },
+        "stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout": {
+          "bytes": 587,
+          "sha256": "342197e954512d4fbcd6c2c444fd8ccef8b2ba7447643e47596ed0a4a3aa4e4c"
+        }
+      }
+    },
+    {
+      "owner": "0009-checked-command",
+      "units_including_nul": 5999,
+      "timeout_seconds": 150,
+      "files": {
+        "child.stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "child.stdout": {
+          "bytes": 27,
+          "sha256": "a40322ef2aba6b33e2ab8698aca91715f18541282b85595d52425ebeb47b042b"
+        },
+        "intent.json": {
+          "bytes": 6193,
+          "sha256": "16800e2422ab40cf2bd66ca9940196908adf364b4c3cd9ba2b2d923530cafc32"
+        },
+        "remote_result.json": {
+          "bytes": 657,
+          "sha256": "b9b4749b54b07954ac139bee2ca188f22219a733e7d20eac477de8c3587faef2"
+        },
+        "result.json": {
+          "bytes": 6212,
+          "sha256": "404fd9d7326a8f4883493ab42a2bd478f905dc7674eeb7fcf80e11274f8f2ab6"
+        },
+        "stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout": {
+          "bytes": 558,
+          "sha256": "ce39775e2c9a6ba6aff4cf1d0dc28e6e88f0a54fe09342596212ccc3ee97da43"
+        }
+      }
+    },
+    {
+      "owner": "0010-checked-command",
+      "units_including_nul": 5999,
+      "timeout_seconds": 150,
+      "files": {
+        "child.stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "child.stdout": {
+          "bytes": 24,
+          "sha256": "c90bb32059df387944ad3cefb40913ef7683e610ab8b396a863de588f4bc93c2"
+        },
+        "intent.json": {
+          "bytes": 6193,
+          "sha256": "00151447c15f8303103d211ccfd6058fded813337abbfff50efaaa5c63e358dd"
+        },
+        "remote_result.json": {
+          "bytes": 653,
+          "sha256": "774041cf7db75aec15b95f407ba09dd117e5ea40335dfe02c1936742b9f7717f"
+        },
+        "result.json": {
+          "bytes": 6212,
+          "sha256": "efdc5c4e38369fd9c862cae32987ea233d96d7485dbc771dab429a6a2732de1f"
+        },
+        "stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout": {
+          "bytes": 554,
+          "sha256": "3ec9eb26c0856c72e54c6c7cc02efe25a6c564efa91e269558067699e4f2edce"
+        }
+      }
+    },
+    {
+      "owner": "0011-checked-command",
+      "units_including_nul": 6629,
+      "timeout_seconds": 150,
+      "files": {
+        "child.stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "child.stdout": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "intent.json": {
+          "bytes": 6827,
+          "sha256": "5b0f6930f1692f40de59b72e06e8924a9de43ebcb78fa20b8664516b8f0c8287"
+        },
+        "remote_result.json": {
+          "bytes": 1212,
+          "sha256": "cb94c4f50cf21f3218f9fc6f20315189da9fc16137a75f90bc30c259d3c706c1"
+        },
+        "result.json": {
+          "bytes": 6846,
+          "sha256": "04ff86f85955be2351ac1a0a51d2ad587c90779f03010583f4b58f0f044475ec"
+        },
+        "stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout": {
+          "bytes": 1101,
+          "sha256": "b2eaa434a9b71f7e9686e256dc392c610c366f191b18dbc9339f25a256067683"
+        }
+      }
+    },
+    {
+      "owner": "0012-checked-command",
+      "units_including_nul": 7986,
+      "timeout_seconds": 150,
+      "files": {
+        "child.stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "child.stdout": {
+          "bytes": 3038,
+          "sha256": "5a84b701257419fc616ea1703a765a39796768f023c07e475556f117ce1f1805"
+        },
+        "intent.json": {
+          "bytes": 8180,
+          "sha256": "446236c3df386cfa6736d6b302c5018359f2f0bf144f1a4fea99223e469983a9"
+        },
+        "remote_result.json": {
+          "bytes": 6559,
+          "sha256": "670d4315c05a105a49f07790e380806426c12839ed10edec56f8449b03a9bf7f"
+        },
+        "result.json": {
+          "bytes": 8199,
+          "sha256": "c915c2864ec19cc70648efc3aaf5a69f4a854b4e3e32f126b63e43010317e67a"
+        },
+        "stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout": {
+          "bytes": 6408,
+          "sha256": "d2916304c3ca7adb353a2d7ce2c6af67c0b9e95def4386704ffc237edd8b5691"
+        }
+      }
+    },
+    {
+      "owner": "0013-checked-command",
+      "units_including_nul": 7134,
+      "timeout_seconds": 150,
+      "files": {
+        "child.stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "child.stdout": {
+          "bytes": 42739,
+          "sha256": "f00f00b4a2fc0761a39aab0cdd165aa05dc383ada7b218a38c269493afd98243"
+        },
+        "intent.json": {
+          "bytes": 7328,
+          "sha256": "00110359da87d6dc488554d31a8bef4ea683a7ec1d134069e73a261d02a07ec0"
+        },
+        "remote_result.json": {
+          "bytes": 58636,
+          "sha256": "b349f4a9482763b83f9502067fbf9b8a280fb86a17bf5fc4f5608d9b46fa4d56"
+        },
+        "result.json": {
+          "bytes": 7347,
+          "sha256": "9363113edf2057985488a92f356b7070c18ffd43acc1462dfc2969af545ca123"
+        },
+        "stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout": {
+          "bytes": 58481,
+          "sha256": "a44d112aa95d2d8904890e757fb82d7cef327c809b8bf4dfd030f4812c509fcd"
+        }
+      }
+    },
+    {
+      "owner": "0014-checked-command",
+      "units_including_nul": 7093,
+      "timeout_seconds": 810,
+      "files": {
+        "child.stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "child.stdout": {
+          "bytes": 43170,
+          "sha256": "473d5bc56751c80a52cf07e107a9e2871f46145414f3525ea8350b637d33e2d5"
+        },
+        "intent.json": {
+          "bytes": 7287,
+          "sha256": "d72cb2f4d2a80c9ebf6e7cd88ec27a6f5be0c969d37537a13ae4b9111bca5f19"
+        },
+        "remote_result.json": {
+          "bytes": 59175,
+          "sha256": "aa67485f05c7216366fef67a740ed72f8ae6e86da5d70a9a05650153608e1bee"
+        },
+        "result.json": {
+          "bytes": 7306,
+          "sha256": "c1beb63cd279d35ce2a7ab76ad3baf935f334b416300975ea73223b1df3772b6"
+        },
+        "stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout": {
+          "bytes": 59024,
+          "sha256": "8fb8443f8e89d24d942538727e4b79921291bd9753721d0a64880a18ddec5476"
+        }
+      }
+    },
+    {
+      "owner": "0015-artifact-source-first",
+      "units_including_nul": 29352,
+      "timeout_seconds": 90,
+      "files": {
+        "intent.json": {
+          "bytes": 29563,
+          "sha256": "b09821c8203fdbc1401eb5f66c600c8ce374fb26e3cf0e927f708a9593a77c40"
+        },
+        "result.json": {
+          "bytes": 29582,
+          "sha256": "56286bb906bfde3483c3114f4c0a8b09c2e236bf0690255dad1820d505a9cc5b"
+        },
+        "stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout": {
+          "bytes": 180,
+          "sha256": "cf955618080849dbf303ef47a5bcf8c6bbbafe4d726109a6e4972285beaf02fd"
+        }
+      }
+    },
+    {
+      "owner": "0016-artifact-source-second",
+      "units_including_nul": 23319,
+      "timeout_seconds": 90,
+      "files": {
+        "intent.json": {
+          "bytes": 23530,
+          "sha256": "3065ef047365cce60434b63a80f4bf0ac0b21951fb6e62787f989610ddc9dd53"
+        },
+        "result.json": {
+          "bytes": 23549,
+          "sha256": "5a30f853404e89f2969399d20edb07f009fc06cbdc7864fc93988ad52e63b996"
+        },
+        "stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout": {
+          "bytes": 180,
+          "sha256": "78b27a01acb610eb5bf5959869e4e34ce438c121aea7995a659b6259f553fcf6"
+        }
+      }
+    },
+    {
+      "owner": "0017-artifacts",
+      "units_including_nul": 8968,
+      "timeout_seconds": 90,
+      "files": {
+        "intent.json": {
+          "bytes": 9192,
+          "sha256": "52692f41a124c7eb1da63bbd39c1d7ef95b4d1661f4feb7b0ae251d1a39a95c9"
+        },
+        "result.json": {
+          "bytes": 9211,
+          "sha256": "dd8aa306f82a053820f63d92b4d7df9b484b8cbb464675906c3f41eb04c85835"
+        },
+        "stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout": {
+          "bytes": 6471,
+          "sha256": "094d3629fe48f74a425ba275313a21859d97de58ac391d8f2973d789fd241360"
+        }
+      }
+    },
+    {
+      "owner": "0018-identity",
+      "units_including_nul": 2516,
+      "timeout_seconds": 90,
+      "files": {
+        "intent.json": {
+          "bytes": 2656,
+          "sha256": "abc7d8db44c5608a6368169eaa5e043f647cd2aa03638e40761dfd4093324557"
+        },
+        "result.json": {
+          "bytes": 2675,
+          "sha256": "f46040f4d097346600cee5be2b4211739970c6b8a8e3c85e15dfc81701a75f3e"
+        },
+        "stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout": {
+          "bytes": 211,
+          "sha256": "8931c3a80c8b577ea555a8e6d3be43df073efa3e079a99e936da2d8b32457e32"
+        }
+      }
+    },
+    {
+      "owner": "0019-cli_initialization_inventory",
+      "units_including_nul": 16154,
+      "timeout_seconds": 60,
+      "files": {
+        "intent.json": {
+          "bytes": 16313,
+          "sha256": "fe18b78f27fd7fb1bef2db4128033bfa825ff44ca599a892d946e48fedf2d38a"
+        },
+        "result.json": {
+          "bytes": 16332,
+          "sha256": "415d944557ee91d0a409f326566315cbd349abaf0bfcf49e847a0ca6cdfadc88"
+        },
+        "stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout": {
+          "bytes": 4222,
+          "sha256": "87dd74d65be4bb5552993ebfc154a3262a9f35f8c4eb64eb9a67f0d2cfdb350a"
+        }
+      }
+    },
+    {
+      "owner": "0020-cli_builtin_files_inventory",
+      "units_including_nul": 14793,
+      "timeout_seconds": 60,
+      "files": {
+        "intent.json": {
+          "bytes": 14935,
+          "sha256": "a0e924705f29fd12ccccb704c21aed48be072a7091944bd2049b6bad0afbaed6"
+        },
+        "result.json": {
+          "bytes": 14954,
+          "sha256": "64f363d1ec627c503d2c10bc498db20805e0063e7a4d79326e7295a361499d5e"
+        },
+        "stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout": {
+          "bytes": 2909,
+          "sha256": "28ea6f8203046186d141a1740d447ccafc3c4fde96e0c2183e7ff55566ffd19e"
+        }
+      }
+    },
+    {
+      "owner": "0021-source-set",
+      "units_including_nul": 3560,
+      "timeout_seconds": 90,
+      "files": {
+        "intent.json": {
+          "bytes": 3718,
+          "sha256": "705e10351ba5012ecfb550c8559c3445be2515b0a63faec63798f6e59f9756c2"
+        },
+        "result.json": {
+          "bytes": 3737,
+          "sha256": "d6b2fb6bf05da3f4a16810400f0e159103fd12b35fe98470d4a40864456f8fce"
+        },
+        "stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout": {
+          "bytes": 9769,
+          "sha256": "1303bd39ad21ef40f86adb3345bf32070438123a7e0686781206f0bcdc230889"
+        }
+      }
+    },
+    {
+      "owner": "0022-checked-command",
+      "units_including_nul": 7986,
+      "timeout_seconds": 150,
+      "files": {
+        "child.stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "child.stdout": {
+          "bytes": 3038,
+          "sha256": "5a84b701257419fc616ea1703a765a39796768f023c07e475556f117ce1f1805"
+        },
+        "intent.json": {
+          "bytes": 8180,
+          "sha256": "7c8363a6fccfb320da8715dfb68be34f0a0495b28133110b6a9714f4b2006f33"
+        },
+        "remote_result.json": {
+          "bytes": 6559,
+          "sha256": "d49ff5f5962b36d40f39c05cd947b33489c8eac59ee056edf5cd181c37b2fbc2"
+        },
+        "result.json": {
+          "bytes": 8199,
+          "sha256": "255e41afdb839ca87a1188279a644e675ffc04c1ea62b0719576be3e219830f5"
+        },
+        "stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout": {
+          "bytes": 6408,
+          "sha256": "f8ff1fe69bd5945117b6c1f027a77c85a253f53fa3dd96996b0ff4bf38bcf43b"
+        }
+      }
+    },
+    {
+      "owner": "0023-checked-command",
+      "units_including_nul": 6629,
+      "timeout_seconds": 150,
+      "files": {
+        "child.stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "child.stdout": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "intent.json": {
+          "bytes": 6827,
+          "sha256": "cd980e682722906631abe429e8107d972b63c28757651579adefbeca055e2268"
+        },
+        "remote_result.json": {
+          "bytes": 1212,
+          "sha256": "1221bfc19a459e7b2590b441dd7f847bb7d1434143dbb6e50719c8a46b43296d"
+        },
+        "result.json": {
+          "bytes": 6846,
+          "sha256": "810d9fc1c0d576abf0647c59d2425bc6a1522c6368788c899423fd16cb3b5846"
+        },
+        "stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout": {
+          "bytes": 1101,
+          "sha256": "b7717f72f7fdbdea6ba3e1a317a07ec1167e2665b84e0fcc32e3479aa07259e3"
+        }
+      }
+    },
+    {
+      "owner": "0024-artifacts-final",
+      "units_including_nul": 8968,
+      "timeout_seconds": 90,
+      "files": {
+        "intent.json": {
+          "bytes": 9192,
+          "sha256": "52692f41a124c7eb1da63bbd39c1d7ef95b4d1661f4feb7b0ae251d1a39a95c9"
+        },
+        "result.json": {
+          "bytes": 9211,
+          "sha256": "dd8aa306f82a053820f63d92b4d7df9b484b8cbb464675906c3f41eb04c85835"
+        },
+        "stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout": {
+          "bytes": 6471,
+          "sha256": "094d3629fe48f74a425ba275313a21859d97de58ac391d8f2973d789fd241360"
+        }
+      }
+    },
+    {
+      "owner": "0025-artifact-sources-final",
+      "units_including_nul": 7713,
+      "timeout_seconds": 90,
+      "files": {
+        "intent.json": {
+          "bytes": 7923,
+          "sha256": "17a317a55a07e5f2de1b2204966cf83a8a8136cd5e561042e05cf143a096da5e"
+        },
+        "result.json": {
+          "bytes": 7942,
+          "sha256": "c1901ca91a4cc2b61558431dc022d0ef898f7b9657c53663764e9fc0a3069eb5"
+        },
+        "stderr": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stdout": {
+          "bytes": 180,
+          "sha256": "78b27a01acb610eb5bf5959869e4e34ce438c121aea7995a659b6259f553fcf6"
+        }
+      }
+    }
+  ],
+  "children": [
+    {
+      "owner": "0008-checked-command",
+      "argv": [
+        "/usr/bin/arduino-cli",
+        "--config-file",
+        "/dev/null",
+        "version"
+      ],
+      "deadline_seconds": 60,
+      "elapsed_seconds": 0.04172110557556152
+    },
+    {
+      "owner": "0009-checked-command",
+      "argv": [
+        "/usr/bin/arduino-cli",
+        "--config-file",
+        "/dev/null",
+        "config",
+        "get",
+        "directories.data",
+        "--json"
+      ],
+      "deadline_seconds": 60,
+      "elapsed_seconds": 0.04299020767211914
+    },
+    {
+      "owner": "0010-checked-command",
+      "argv": [
+        "/usr/bin/arduino-cli",
+        "--config-file",
+        "/dev/null",
+        "config",
+        "get",
+        "directories.user",
+        "--json"
+      ],
+      "deadline_seconds": 60,
+      "elapsed_seconds": 0.042220354080200195
+    },
+    {
+      "owner": "0011-checked-command",
+      "argv": [
+        "/bin/sh",
+        "-c",
+        "for path do if test -e \"$path\" || test -L \"$path\"; then printf 'Unreviewed app override: %s\\n' \"$path\" >&2; exit 1; fi; done",
+        "sumo-app-override-check",
+        "/home/arduino/.arduino15/packages/platform.txt",
+        "/home/arduino/Arduino/hardware/platform.txt",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/platform.local.txt",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/boards.local.txt",
+        "/home/arduino/sumox26_codex_build/9044ebbb3cd3b2dbb7aa5984dd5ff23bfff697372f1f29d56693af9ea5eaf31a/app/sketch.yaml",
+        "/home/arduino/sumox26_codex_build/9044ebbb3cd3b2dbb7aa5984dd5ff23bfff697372f1f29d56693af9ea5eaf31a/app/sketch.yml"
+      ],
+      "deadline_seconds": 60,
+      "elapsed_seconds": 0.010347604751586914
+    },
+    {
+      "owner": "0012-checked-command",
+      "argv": [
+        "/usr/bin/sha256sum",
+        "--",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/platform.txt",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/boards.txt",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/cores/arduino/Arduino.h",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/cores/arduino/main.cpp",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/postvariant.h",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/variant.h",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/includes.txt",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/machine_flags.txt",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/cflags.txt",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/cxxflags.txt",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/generated/zephyr/autoconf.h",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/_ldscripts/build-dynamic.ld",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/_ldscripts/memory-check.ld",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/_ldscripts/build-static.ld",
+        "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-gcc",
+        "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-g++",
+        "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-ld"
+      ],
+      "deadline_seconds": 60,
+      "elapsed_seconds": 0.05075979232788086
+    },
+    {
+      "owner": "0013-checked-command",
+      "argv": [
+        "/usr/bin/arduino-cli",
+        "--config-file",
+        "/dev/null",
+        "compile",
+        "--json",
+        "--fqbn",
+        "arduino:zephyr:unoq:link_mode=static",
+        "--build-path",
+        "/home/arduino/sumox26_codex_build/b4-app-m0-static01/build",
+        "--output-dir",
+        "/home/arduino/sumox26_codex_build/b4-app-m0-static01/artifacts",
+        "--build-property",
+        "compiler.cpp.extra_flags=-DMATCH=0 -DMOTORS_ALLOWED=0 -DSUMOX_B4_STAND=1 -DSUMOX_P3_DRIVE_TEST=0 -DSUMOX_P3_TURN_TRIAL=0 -DSUMOX_P3_STOP_TRIAL=0 -DSUMOX_P4_REACTIVE=0 -DSUMOX_TIMING_EVIDENCE=0 -DSUMOX_P5_ABORT_TIMING=0 -DSUMOX_MOTOR_FAULT_PROBE=0",
+        "--build-property",
+        "compiler.c.extra_flags=-DMATCH=0 -DMOTORS_ALLOWED=0 -DSUMOX_B4_STAND=1 -DSUMOX_P3_DRIVE_TEST=0 -DSUMOX_P3_TURN_TRIAL=0 -DSUMOX_P3_STOP_TRIAL=0 -DSUMOX_P4_REACTIVE=0 -DSUMOX_TIMING_EVIDENCE=0 -DSUMOX_P5_ABORT_TIMING=0 -DSUMOX_MOTOR_FAULT_PROBE=0",
+        "--build-property",
+        "build.library_discovery_phase_flag=-DARDUINO_LIBRARY_DISCOVERY_PHASE=0",
+        "--show-properties=expanded",
+        "--jobs",
+        "1",
+        "/home/arduino/sumox26_codex_build/9044ebbb3cd3b2dbb7aa5984dd5ff23bfff697372f1f29d56693af9ea5eaf31a/app"
+      ],
+      "deadline_seconds": 60,
+      "elapsed_seconds": 1.6506011486053467
+    },
+    {
+      "owner": "0014-checked-command",
+      "argv": [
+        "/usr/bin/arduino-cli",
+        "--config-file",
+        "/dev/null",
+        "compile",
+        "--json",
+        "--fqbn",
+        "arduino:zephyr:unoq:link_mode=static",
+        "--build-path",
+        "/home/arduino/sumox26_codex_build/b4-app-m0-static01/build",
+        "--output-dir",
+        "/home/arduino/sumox26_codex_build/b4-app-m0-static01/artifacts",
+        "--build-property",
+        "compiler.cpp.extra_flags=-DMATCH=0 -DMOTORS_ALLOWED=0 -DSUMOX_B4_STAND=1 -DSUMOX_P3_DRIVE_TEST=0 -DSUMOX_P3_TURN_TRIAL=0 -DSUMOX_P3_STOP_TRIAL=0 -DSUMOX_P4_REACTIVE=0 -DSUMOX_TIMING_EVIDENCE=0 -DSUMOX_P5_ABORT_TIMING=0 -DSUMOX_MOTOR_FAULT_PROBE=0",
+        "--build-property",
+        "compiler.c.extra_flags=-DMATCH=0 -DMOTORS_ALLOWED=0 -DSUMOX_B4_STAND=1 -DSUMOX_P3_DRIVE_TEST=0 -DSUMOX_P3_TURN_TRIAL=0 -DSUMOX_P3_STOP_TRIAL=0 -DSUMOX_P4_REACTIVE=0 -DSUMOX_TIMING_EVIDENCE=0 -DSUMOX_P5_ABORT_TIMING=0 -DSUMOX_MOTOR_FAULT_PROBE=0",
+        "--build-property",
+        "build.library_discovery_phase_flag=-DARDUINO_LIBRARY_DISCOVERY_PHASE=0",
+        "--jobs",
+        "1",
+        "/home/arduino/sumox26_codex_build/9044ebbb3cd3b2dbb7aa5984dd5ff23bfff697372f1f29d56693af9ea5eaf31a/app"
+      ],
+      "deadline_seconds": 720,
+      "elapsed_seconds": 226.7490315437317
+    },
+    {
+      "owner": "0022-checked-command",
+      "argv": [
+        "/usr/bin/sha256sum",
+        "--",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/platform.txt",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/boards.txt",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/cores/arduino/Arduino.h",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/cores/arduino/main.cpp",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/postvariant.h",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/variant.h",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/includes.txt",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/machine_flags.txt",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/cflags.txt",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/cxxflags.txt",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/generated/zephyr/autoconf.h",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/_ldscripts/build-dynamic.ld",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/_ldscripts/memory-check.ld",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/_ldscripts/build-static.ld",
+        "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-gcc",
+        "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-g++",
+        "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/1.0.1/bin/arm-zephyr-eabi-ld"
+      ],
+      "deadline_seconds": 60,
+      "elapsed_seconds": 0.042695045471191406
+    },
+    {
+      "owner": "0023-checked-command",
+      "argv": [
+        "/bin/sh",
+        "-c",
+        "for path do if test -e \"$path\" || test -L \"$path\"; then printf 'Unreviewed app override: %s\\n' \"$path\" >&2; exit 1; fi; done",
+        "sumo-app-override-check",
+        "/home/arduino/.arduino15/packages/platform.txt",
+        "/home/arduino/Arduino/hardware/platform.txt",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/platform.local.txt",
+        "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/boards.local.txt",
+        "/home/arduino/sumox26_codex_build/9044ebbb3cd3b2dbb7aa5984dd5ff23bfff697372f1f29d56693af9ea5eaf31a/app/sketch.yaml",
+        "/home/arduino/sumox26_codex_build/9044ebbb3cd3b2dbb7aa5984dd5ff23bfff697372f1f29d56693af9ea5eaf31a/app/sketch.yml"
+      ],
+      "deadline_seconds": 60,
+      "elapsed_seconds": 0.013486146926879883
+    }
+  ],
+  "stage": {
+    "files": 104,
+    "bytes": 764405,
+    "mapping": "all staged hashes matched source manifest"
+  },
+  "payload": {
+    "first": {
+      "identity": [
+        66341,
+        274493,
+        33152,
+        1,
+        1000,
+        1000,
+        16384,
+        1790439043291295682,
+        1790439043291295682
+      ],
+      "sha256": "4445be193bb2bb5808e87b0adc685e2be9a6d7757a4088106b9c5bd76c3bda68"
+    },
+    "second_and_final": {
+      "identity": [
+        66341,
+        274493,
+        33152,
+        1,
+        1000,
+        1000,
+        28087,
+        1790439044535638931,
+        1790439044535638931
+      ],
+      "sha256": "901ff1d8657d74581f19543c87873402eccbc76867004b602f7b8755902d2f68"
+    }
+  },
+  "layout": {
+    "status": "STATIC_B4_APP_LAYOUT_PACKAGE_PASS",
+    "motors_allowed": 0,
+    "package": {
+      "bytes": 82912,
+      "sha256": "84667b0a22ff7701059a266b6c82bb61de1f7ccec96280e4f13b5692bf785a28"
+    },
+    "structural_ram": {
+      "end": 537118720,
+      "remaining": 94352,
+      "start": 536950928
+    },
+    "cli_report": "Sketch uses 82912 bytes (10%) of program storage space. Maximum is 786432 bytes.\nGlobal variables use 167796 bytes (64%) of dynamic memory, leaving 94348 bytes for local variables. Maximum is 262144 bytes.\n"
+  },
+  "boundary": "Compile and file-layout evidence only; no B4 upload/reset/MCU read, live RAM/WCET, physical acceptance or gate."
+}

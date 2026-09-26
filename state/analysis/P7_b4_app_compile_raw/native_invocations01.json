@@ -1,0 +1,54 @@
+{
+  "schema": "d214-native-invocations-v1",
+  "reviewed_head": "34c1b965f4ed2a9332c4f890ee2a4a27d89a7ba0",
+  "prerequisites_sha256": "2365bc036baf286bca651a2a682eb892e321b60f1dd25aa478242837a941c3d9",
+  "first_error": null,
+  "check": {
+    "argv": [
+      "C:\\Users\\narut\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+      "-I",
+      "-B",
+      "tools/compile_b4_app_static.py",
+      "--check-only",
+      "--reviewed-head",
+      "34c1b965f4ed2a9332c4f890ee2a4a27d89a7ba0"
+    ],
+    "timeout_seconds": 120,
+    "started": "2026-09-26T20:06:23.912430+04:00",
+    "returncode": 0,
+    "stdout": "{\r\n  \"schema\": \"b4-app-m0-static-check-v1\",\r\n  \"reviewed_head\": \"34c1b965f4ed2a9332c4f890ee2a4a27d89a7ba0\",\r\n  \"source_sha256\": \"9044ebbb3cd3b2dbb7aa5984dd5ff23bfff697372f1f29d56693af9ea5eaf31a\",\r\n  \"boot_id\": \"55c386b9-fe6d-4388-a7f4-1d91e0bb49d8\",\r\n  \"project\": \"app.ino\",\r\n  \"fqbn\": \"arduino:zephyr:unoq:link_mode=static\",\r\n  \"flags\": \"-DMATCH=0 -DMOTORS_ALLOWED=0 -DSUMOX_B4_STAND=1 -DSUMOX_P3_DRIVE_TEST=0 -DSUMOX_P3_TURN_TRIAL=0 -DSUMOX_P3_STOP_TRIAL=0 -DSUMOX_P4_REACTIVE=0 -DSUMOX_TIMING_EVIDENCE=0 -DSUMOX_P5_ABORT_TIMING=0 -DSUMOX_MOTOR_FAULT_PROBE=0\",\r\n  \"output\": \"C:\\\\Users\\\\narut\\\\OneDrive\\\\Desktop\\\\Project\\\\techbots_Sumo_Robots\\\\state\\\\analysis\\\\P7_b4_app_compile_raw\\\\native_static01\",\r\n  \"stage\": \"C:\\\\Users\\\\narut\\\\OneDrive\\\\Desktop\\\\Project\\\\techbots_Sumo_Robots\\\\build\\\\stage\\\\b4-app-m0-static01\\\\app\",\r\n  \"remote\": \"/home/arduino/sumox26_codex_build/b4-app-m0-static01\",\r\n  \"sketch\": \"/home/arduino/sumox26_codex_build/9044ebbb3cd3b2dbb7aa5984dd5ff23bfff697372f1f29d56693af9ea5eaf31a/app\"\r\n}\r\n",
+    "stderr": "",
+    "stdout_base64": "ew0KICAic2NoZW1hIjogImI0LWFwcC1tMC1zdGF0aWMtY2hlY2stdjEiLA0KICAicmV2aWV3ZWRfaGVhZCI6ICIzNGMxYjk2NWY0ZWQyYTkzMzJjNGY4OTBlZTJhNGEyN2Q4OWE3YmEwIiwNCiAgInNvdXJjZV9zaGEyNTYiOiAiOTA0NGViYmIzY2QzYjJkYmI3YWE1OTg0ZGQ1ZmYyM2JmZmY2OTczNzJmMWYyOWQ1NjY5M2FmOWVhNWVhZjMxYSIsDQogICJib290X2lkIjogIjU1YzM4NmI5LWZlNmQtNDM4OC1hN2Y0LTFkOTFlMGJiNDlkOCIsDQogICJwcm9qZWN0IjogImFwcC5pbm8iLA0KICAiZnFibiI6ICJhcmR1aW5vOnplcGh5cjp1bm9xOmxpbmtfbW9kZT1zdGF0aWMiLA0KICAiZmxhZ3MiOiAiLURNQVRDSD0wIC1ETU9UT1JTX0FMTE9XRUQ9MCAtRFNVTU9YX0I0X1NUQU5EPTEgLURTVU1PWF9QM19EUklWRV9URVNUPTAgLURTVU1PWF9QM19UVVJOX1RSSUFMPTAgLURTVU1PWF9QM19TVE9QX1RSSUFMPTAgLURTVU1PWF9QNF9SRUFDVElWRT0wIC1EU1VNT1hfVElNSU5HX0VWSURFTkNFPTAgLURTVU1PWF9QNV9BQk9SVF9USU1JTkc9MCAtRFNVTU9YX01PVE9SX0ZBVUxUX1BST0JFPTAiLA0KICAib3V0cHV0IjogIkM6XFxVc2Vyc1xcbmFydXRcXE9uZURyaXZlXFxEZXNrdG9wXFxQcm9qZWN0XFx0ZWNoYm90c19TdW1vX1JvYm90c1xcc3RhdGVcXGFuYWx5c2lzXFxQN19iNF9hcHBfY29tcGlsZV9yYXdcXG5hdGl2ZV9zdGF0aWMwMSIsDQogICJzdGFnZSI6ICJDOlxcVXNlcnNcXG5hcnV0XFxPbmVEcml2ZVxcRGVza3RvcFxcUHJvamVjdFxcdGVjaGJvdHNfU3Vtb19Sb2JvdHNcXGJ1aWxkXFxzdGFnZVxcYjQtYXBwLW0wLXN0YXRpYzAxXFxhcHAiLA0KICAicmVtb3RlIjogIi9ob21lL2FyZHVpbm8vc3Vtb3gyNl9jb2RleF9idWlsZC9iNC1hcHAtbTAtc3RhdGljMDEiLA0KICAic2tldGNoIjogIi9ob21lL2FyZHVpbm8vc3Vtb3gyNl9jb2RleF9idWlsZC85MDQ0ZWJiYjNjZDNiMmRiYjdhYTU5ODRkZDVmZjIzYmZmZjY5NzM3MmYxZjI5ZDU2NjkzYWY5ZWE1ZWFmMzFhL2FwcCINCn0NCg==",
+    "stdout_sha256": "1a93851cfbf7f0b7bc34fccde5f08b7e71acf4d9844085a8ce6f604993377bdb",
+    "stderr_base64": "",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "elapsed_seconds": 0.705741300014779
+  },
+  "execute": {
+    "argv": [
+      "C:\\Users\\narut\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+      "-I",
+      "-B",
+      "-X",
+      "pycache_prefix=C:\\Users\\narut\\OneDrive\\Desktop\\Project\\techbots_Sumo_Robots\\state\\analysis\\P7_b4_app_compile_raw\\native_static01\\pycache",
+      "tools/compile_b4_app_static.py",
+      "--execute",
+      "--reviewed-head",
+      "34c1b965f4ed2a9332c4f890ee2a4a27d89a7ba0"
+    ],
+    "timeout_seconds": 1800,
+    "started": "2026-09-26T20:06:24.618320+04:00",
+    "returncode": 0,
+    "stdout": "{\r\n  \"schema\": \"b4-app-m0-static-compile-outcome-v1\",\r\n  \"project\": \"app.ino\",\r\n  \"fqbn\": \"arduino:zephyr:unoq:link_mode=static\",\r\n  \"flags\": \"-DMATCH=0 -DMOTORS_ALLOWED=0 -DSUMOX_B4_STAND=1 -DSUMOX_P3_DRIVE_TEST=0 -DSUMOX_P3_TURN_TRIAL=0 -DSUMOX_P3_STOP_TRIAL=0 -DSUMOX_P4_REACTIVE=0 -DSUMOX_TIMING_EVIDENCE=0 -DSUMOX_P5_ABORT_TIMING=0 -DSUMOX_MOTOR_FAULT_PROBE=0\",\r\n  \"reviewed_head\": \"34c1b965f4ed2a9332c4f890ee2a4a27d89a7ba0\",\r\n  \"source_sha256\": \"9044ebbb3cd3b2dbb7aa5984dd5ff23bfff697372f1f29d56693af9ea5eaf31a\",\r\n  \"boot_id\": \"55c386b9-fe6d-4388-a7f4-1d91e0bb49d8\",\r\n  \"started_utc\": \"2026-09-26T16:06:26.296134+00:00\",\r\n  \"final_checks\": [\r\n    {\r\n      \"name\": \"local\",\r\n      \"status\": \"PASS\",\r\n      \"error\": null\r\n    },\r\n    {\r\n      \"name\": \"identity\",\r\n      \"status\": \"PASS\",\r\n      \"error\": null\r\n    },\r\n    {\r\n      \"name\": \"initialization\",\r\n      \"status\": \"PASS\",\r\n      \"error\": null\r\n    },\r\n    {\r\n      \"name\": \"builtins\",\r\n      \"status\": \"PASS\",\r\n      \"error\": null\r\n    },\r\n    {\r\n      \"name\": \"remote_sources\",\r\n      \"status\": \"PASS\",\r\n      \"error\": null\r\n    },\r\n    {\r\n      \"name\": \"installed_pins\",\r\n      \"status\": \"PASS\",\r\n      \"error\": null\r\n    },\r\n    {\r\n      \"name\": \"overrides\",\r\n      \"status\": \"PASS\",\r\n      \"error\": null\r\n    },\r\n    {\r\n      \"name\": \"artifacts\",\r\n      \"status\": \"PASS\",\r\n      \"error\": null\r\n    },\r\n    {\r\n      \"name\": \"artifact_sources\",\r\n      \"status\": \"PASS\",\r\n      \"error\": null\r\n    }\r\n  ],\r\n  \"status\": \"COMPILE_CHECKED\",\r\n  \"first_error\": null,\r\n  \"compiler_calls\": 1,\r\n  \"query_calls\": 1,\r\n  \"transport_calls\": 25,\r\n  \"artifacts\": \"/home/arduino/sumox26_codex_build/b4-app-m0-static01/artifacts\",\r\n  \"receipt\": \"C:\\\\Users\\\\narut\\\\OneDrive\\\\Desktop\\\\Project\\\\techbots_Sumo_Robots\\\\state\\\\analysis\\\\P7_b4_app_compile_raw\\\\native_static01\\\\artifacts.json\",\r\n  \"finished_utc\": \"2026-09-26T16:10:59.197529+00:00\"\r\n}\r\n",
+    "stderr": "",
+    "stdout_base64": "ew0KICAic2NoZW1hIjogImI0LWFwcC1tMC1zdGF0aWMtY29tcGlsZS1vdXRjb21lLXYxIiwNCiAgInByb2plY3QiOiAiYXBwLmlubyIsDQogICJmcWJuIjogImFyZHVpbm86emVwaHlyOnVub3E6bGlua19tb2RlPXN0YXRpYyIsDQogICJmbGFncyI6ICItRE1BVENIPTAgLURNT1RPUlNfQUxMT1dFRD0wIC1EU1VNT1hfQjRfU1RBTkQ9MSAtRFNVTU9YX1AzX0RSSVZFX1RFU1Q9MCAtRFNVTU9YX1AzX1RVUk5fVFJJQUw9MCAtRFNVTU9YX1AzX1NUT1BfVFJJQUw9MCAtRFNVTU9YX1A0X1JFQUNUSVZFPTAgLURTVU1PWF9USU1JTkdfRVZJREVOQ0U9MCAtRFNVTU9YX1A1X0FCT1JUX1RJTUlORz0wIC1EU1VNT1hfTU9UT1JfRkFVTFRfUFJPQkU9MCIsDQogICJyZXZpZXdlZF9oZWFkIjogIjM0YzFiOTY1ZjRlZDJhOTMzMmM0Zjg5MGVlMmE0YTI3ZDg5YTdiYTAiLA0KICAic291cmNlX3NoYTI1NiI6ICI5MDQ0ZWJiYjNjZDNiMmRiYjdhYTU5ODRkZDVmZjIzYmZmZjY5NzM3MmYxZjI5ZDU2NjkzYWY5ZWE1ZWFmMzFhIiwNCiAgImJvb3RfaWQiOiAiNTVjMzg2YjktZmU2ZC00Mzg4LWE3ZjQtMWQ5MWUwYmI0OWQ4IiwNCiAgInN0YXJ0ZWRfdXRjIjogIjIwMjYtMDktMjZUMTY6MDY6MjYuMjk2MTM0KzAwOjAwIiwNCiAgImZpbmFsX2NoZWNrcyI6IFsNCiAgICB7DQogICAgICAibmFtZSI6ICJsb2NhbCIsDQogICAgICAic3RhdHVzIjogIlBBU1MiLA0KICAgICAgImVycm9yIjogbnVsbA0KICAgIH0sDQogICAgew0KICAgICAgIm5hbWUiOiAiaWRlbnRpdHkiLA0KICAgICAgInN0YXR1cyI6ICJQQVNTIiwNCiAgICAgICJlcnJvciI6IG51bGwNCiAgICB9LA0KICAgIHsNCiAgICAgICJuYW1lIjogImluaXRpYWxpemF0aW9uIiwNCiAgICAgICJzdGF0dXMiOiAiUEFTUyIsDQogICAgICAiZXJyb3IiOiBudWxsDQogICAgfSwNCiAgICB7DQogICAgICAibmFtZSI6ICJidWlsdGlucyIsDQogICAgICAic3RhdHVzIjogIlBBU1MiLA0KICAgICAgImVycm9yIjogbnVsbA0KICAgIH0sDQogICAgew0KICAgICAgIm5hbWUiOiAicmVtb3RlX3NvdXJjZXMiLA0KICAgICAgInN0YXR1cyI6ICJQQVNTIiwNCiAgICAgICJlcnJvciI6IG51bGwNCiAgICB9LA0KICAgIHsNCiAgICAgICJuYW1lIjogImluc3RhbGxlZF9waW5zIiwNCiAgICAgICJzdGF0dXMiOiAiUEFTUyIsDQogICAgICAiZXJyb3IiOiBudWxsDQogICAgfSwNCiAgICB7DQogICAgICAibmFtZSI6ICJvdmVycmlkZXMiLA0KICAgICAgInN0YXR1cyI6ICJQQVNTIiwNCiAgICAgICJlcnJvciI6IG51bGwNCiAgICB9LA0KICAgIHsNCiAgICAgICJuYW1lIjogImFydGlmYWN0cyIsDQogICAgICAic3RhdHVzIjogIlBBU1MiLA0KICAgICAgImVycm9yIjogbnVsbA0KICAgIH0sDQogICAgew0KICAgICAgIm5hbWUiOiAiYXJ0aWZhY3Rfc291cmNlcyIsDQogICAgICAic3RhdHVzIjogIlBBU1MiLA0KICAgICAgImVycm9yIjogbnVsbA0KICAgIH0NCiAgXSwNCiAgInN0YXR1cyI6ICJDT01QSUxFX0NIRUNLRUQiLA0KICAiZmlyc3RfZXJyb3IiOiBudWxsLA0KICAiY29tcGlsZXJfY2FsbHMiOiAxLA0KICAicXVlcnlfY2FsbHMiOiAxLA0KICAidHJhbnNwb3J0X2NhbGxzIjogMjUsDQogICJhcnRpZmFjdHMiOiAiL2hvbWUvYXJkdWluby9zdW1veDI2X2NvZGV4X2J1aWxkL2I0LWFwcC1tMC1zdGF0aWMwMS9hcnRpZmFjdHMiLA0KICAicmVjZWlwdCI6ICJDOlxcVXNlcnNcXG5hcnV0XFxPbmVEcml2ZVxcRGVza3RvcFxcUHJvamVjdFxcdGVjaGJvdHNfU3Vtb19Sb2JvdHNcXHN0YXRlXFxhbmFseXNpc1xcUDdfYjRfYXBwX2NvbXBpbGVfcmF3XFxuYXRpdmVfc3RhdGljMDFcXGFydGlmYWN0cy5qc29uIiwNCiAgImZpbmlzaGVkX3V0YyI6ICIyMDI2LTA5LTI2VDE2OjEwOjU5LjE5NzUyOSswMDowMCINCn0NCg==",
+    "stdout_sha256": "ecd3d849357c7746b12dcd64f621c48568409bbd7a292edb0e3d526e7d852713",
+    "stderr_base64": "",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "elapsed_seconds": 274.6018024000805
+  },
+  "closing_errors": [],
+  "changed_inputs": [],
+  "prerequisites_unchanged": true,
+  "head_after": "34c1b965f4ed2a9332c4f890ee2a4a27d89a7ba0"
+}

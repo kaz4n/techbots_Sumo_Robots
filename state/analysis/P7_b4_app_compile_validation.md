@@ -42,3 +42,8 @@ HEAD and one successful check-only invocation. No B4 upload, reset or MCU read
 is authorized by this tool. D212 remains the latest verified flashed firmware.
 Loading B4, its own ABI/capture, live memory/timing, recording delivery, physical
 commissioning and human gates remain separate.
+
+
+## Native outcome
+
+The preparation requirements above have now completed. One native attempt returned COMPILE_CHECKED and independent actual review7490c232 is FINAL PASS. See P7_b4_app_compile_actual_validation.md for exact artifacts, timing, closure and remaining qualification boundaries. Do not rerun the consumed native owner.

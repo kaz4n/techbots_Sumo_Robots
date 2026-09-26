@@ -3,6 +3,24 @@
 <!-- Checked through separate document review and local source/link verification. -->
 # P7 operator-document preparation
 
+Current status, 26 September 2026 (D214): the core/HAL/runtime and operator
+preparation are implemented, but the connected hardware is the UNO Q alone.
+D212's ordinary M0 application was uploaded and independently reviewed. Two
+passive samples reported RUNNING/NONE, maximum execution 477 us and no missed
+releases, with initialization false and all grants absent. This does not measure
+initialized worst-case timing or verify sensors/motors. D214's B4 M0 compile
+completed with a checked 82,912-byte package; it was not uploaded.
+
+Use [D212 actual validation](P7_ordinary_app_run_actual_validation.md),
+[D214 actual validation](P7_b4_app_compile_actual_validation.md), and the
+[current completion audit](P7_completion_audit_20260926.md). Fresh B4 file-only
+ABI/retained-recorder tooling is being prepared. Native UART delivery, full
+rearming, live RAM/stack/timing, wiring/calibration, physical trials, printed
+team materials and human gates remain open. The dated evidence below describes
+historical preparation; its earlier pending-upload statements are superseded
+by this paragraph, not retroactively changed into acceptance.
+
+
 Updated 2026-09-26 Asia/Dubai through actual D190. D137 prepares operator documents;
 D138 adds P7.2 informational READY/battery software; D180-D183 provide the
 setup and deployment tooling. D184/D185 add actual isolated diagnostic and

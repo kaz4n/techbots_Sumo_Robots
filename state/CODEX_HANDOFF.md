@@ -1,3 +1,27 @@
+## Current checkpoint - 2026-09-26T20:16:13.062764+04:00
+
+D214 B4 M0/static/default compile-only is independently accepted: actualreview
+7490c232 FINAL PASS, one compiler/jobs1,25transports,9closingPASS. Native clean
+HEAD34c1b965, source9044ebbb, package82912B84667b0a, ELF152780B12a24abf,
+debug1779680B4c0fc8e2. StructuralRAM94352 andCLI94348 are static counts.
+Rootclosure7a43d0be binds244current+HEAD/224coordinator/130manifest/17scope
+and104stage764405B. Owner native_static01 consumed; no execution is live.
+Keep checked board artifacts and localstage for D215 admission. No B4 upload,
+reset or MCUread occurred. D212 ordinaryM0 remains latestverifiedflash.
+
+Next software: D215 fixed file-only B4ABI adapter over D209 four-child lifecycle.
+ordinary_abi_scope owns briefcontract/newsubject; b4_next_scope owns independent
+focused313-expression oracle. Neither subject nor tests have run. Only new
+B4/recorder semantics need targeted tests; inherited unchanged guards retain
+accepted coverage. Separate review/boundedcommand/cleanHEAD before native.
+Then derive exact observed recorder map and pure packed-record CSV conversion.
+No generictransport expansion or redundant bareboardB4sequence run is needed.
+
+User confirmed BOARD ONLY. All setupgrants remain absent; initialization,
+physical sensors/motors, fullWCET/liveRAM, nativeUART/rearm andhuman gates are
+unqualified. Prior denied emptyD212temp cleanup remains untouched. Updated
+runbook/packet reflectD212/D214; older checkpoints below are historical.
+
 ## Current checkpoint - 2026-09-26T20:05:34.328821+04:00
 
 D214 is independently admitted for exactly one fixed-M0 B4 compile-only attempt.

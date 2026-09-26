@@ -945,3 +945,7 @@ Observed: D212 atcleanb5017310 uploads ordinarysource9044ebbb/static/default/MAT
 
 ### F241 - Current connected hardware (2026-09-26T19:05:17.329579+04:00)
 User explicitly replied "Board only" in this session. Treat sensors,motor drivers and complete robot as unavailable for present commissioning. This is a user-reported connection state, not pin/electrical acceptance or a setup grant.
+
+
+### D214 B4 compile-only observation (2026-09-26T20:13:56.895312+04:00)
+Source: analysis/P7_b4_app_compile_raw/native_static01/artifacts.json and result.json; native_closing01.json7a43d0be. Confidence: directly observed compile/file evidence. Fixed app.ino B4/static/default/MATCH0/MOTORS0/other profiles0 compiled once on the connected UNO Q. Package82912B84667b0a; ELF152780B12a24abf; debug1779680B4c0fc8e2. Layout validatorPASS. StructuralRAM remainder94352B and CLI94348B are separate static counts; neither measures free RAM. All105source files/configured grants unchanged. No upload/reset/MCUread or physical acceptance follows. User confirmed board only.

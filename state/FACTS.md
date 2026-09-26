@@ -953,3 +953,7 @@ Source: analysis/P7_b4_app_compile_raw/native_static01/artifacts.json and result
 
 ### D215 B4 file ABI (2026-09-26T20:40:51.857897+04:00)
 Directsource: analysis/P7_b4_app_compile_raw/native_abi_static01/abi.json25bf5764 and actualreviewc7fe6fe9. Runtime166456B at536951136; motorport40B at537117592; recorder159200B at536954120/Runtimeoffset2984. Frame25B/5001slots/status1251B; events8B/4096slots; nativeindex4B, bool1B. These are exact compiled-image layouts, not live memory contents or physical acceptance. D212ordinaryM0 remains latestverifiedflash; never use B4addresses to decode its RAM.
+
+
+### D217 B4 emitted entry instructions (2026-09-26T21:07:45.993195+04:00)
+Direct source: analysis/P7_b4_app_compile_raw/native_entry_static01/entry.json a7a75618 and actualreviewe2bf58f4. Observed64selectedgroups/77aliases/10488bytes/3703instructionrows,2037symbols, initializer0x081131e4 bytes01011008/pointer0x08100101. FreshB4 constructor/publication/gate offsets reconcile;421meaningful RobotResult bytes copied inside424-byteABIcontainer. Confidence high for selected file emission only. No closedcallgraph, MCUexecution, electricalinhibition, timing/physicalqualification or gate.

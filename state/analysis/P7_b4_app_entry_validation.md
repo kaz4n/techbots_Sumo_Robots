@@ -33,3 +33,7 @@ Seven B4 strategy interiors are outside this selected-instruction scope.
 This work does not establish a closed call graph, live RAM contents, initialized
 WCET, electrical inhibition, a completed B4 sequence or physical acceptance.
 The latest verified loaded firmware remains the ordinary inhibited D212 image.
+
+Actual outcome: the single file-only attempt subsequently passed independent
+review `e2bf58f4`. See [actual validation](P7_b4_app_entry_actual_validation.md).
+The initializer expectation is now observed in that exact compiled image.

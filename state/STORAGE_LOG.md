@@ -525,3 +525,6 @@ D191 closing observation: C:recovered290537472B independently before local docum
 
 
 2026-09-26T20:59:49.011778+04:00 - D217 host evidence retained: originalzero-testLinuxfailure, original24420-byteoracle source, boundedrepairreceipt and16passingoutcomes. Unique failure/review/reproduction evidence remains needed. CorrectedWindows temporary owner haszero children/zero payloadbytes; retainedempty. Linuxfixturetemporary root was/dev/shm; no independentremnantinventoryclaimed. C: free6353764352B atpre-hostcheck. No boardfilescreated/deleted byhosttests; prior blockedlocalstage retained withoutretry.
+
+
+2026-09-26T21:07:45.993195+04:00 - D217 actualfile evidence retained: entry21582B, rawresult693504B, localclosure277B, inputs26671B plus boundedtransportstreams and root/reviewerreceipts. These bind currentcompiledinstruction evidence and futureB4captureadmission; no duplicatefirmwarebuild/artifact created. File-onlyremote scope remainedabsent. No cleanup/deletion attempted; previouslyblockedlocalstage remains.

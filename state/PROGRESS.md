@@ -1541,3 +1541,6 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-26T20:59:49.011778+04:00 | P7/D217 | Corrected independent focused suite8Linux+8WindowsPASS/noskips,169pinsstable, rootclosureb29e8d7c. OriginalLinux0-testfixtureidentityerror806782d5 preserved; helper-onlyoracle repair retainsall8methods, checkerb2158281unchanged. File-onlyscope4b0a7303 awaits FINALreview/cleanHEAD. | pending
+
+
+2026-09-26T21:07:45.993195+04:00 | P7/D217 | Actual file-only reviewe2bf58f4 FINAL PASS:1transport/4children/13remote+localPASS;175current+HEADpins,64groups77aliases10488B3703rows/2037symbols/init01011008. Nativeclosure917fe835; no B4upload orMCUread. D218capture-to-CSV components in preparation. | nativeHEAD327e5de3

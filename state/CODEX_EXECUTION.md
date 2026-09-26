@@ -357,3 +357,6 @@ Recheck space before work and preserve all earlier blocked cleanup exclusions.
 
 
 - [x] D199 ABI reader source and host tests reviewed076a9742 PASS:66 Linux/64 Windows methods, two Windows skips covered Linux,192pins exact. Fresh file-only ABI scope/check-only thenoneexecution next; actual entry/store evidence and inhibitedcapture remain separate.
+
+
+- [x] D199 actual file ABI at23f0aeba passes four child commands/allclosingchecks; report28B at0x2003d3e8 with observed fields/reasons. Reviewa7c3993a PASS. ABIowner consumed; current entry binding and instruction review precede a separate inhibitedcapture. D200 exactcleanup source/oracle preparation ongoing; no new deletion.

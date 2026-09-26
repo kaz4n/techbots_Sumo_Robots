@@ -846,3 +846,7 @@ DEVICE-FILES-OBSERVED: D198 source117cc0e7/static/default/MATCH0/MOTORS0/probe1 
 
 ## F216 - Internal report file-reader host evidence (2026-09-26T10:32:15.555509+04:00)
 HOST-VERIFIED: D199 source0f2b37c9/contractdfc76276 preserves D194 ABI02 lifecycle and adds exact223 expressions/23 subjects while retaining11 Runner windows. Separate target report checks enforce numeric fields/enums, one LOCAL OBJECT, initialized BSS and no overlap. Independent66 Linux/64 Windows methods PASS; two explicit Windows skips covered Linux,192pins exact, review076a9742 PASS. No actual target ABI/address/content observation yet. Source: analysis/P7_motor_settle_abi_validation.md.
+
+
+## F217 - Target-file SETTLE report layout (2026-09-26T10:38:09.109037+04:00)
+FILE-OBSERVED: D199 at23f0aeba observes separateLOCALOBJECT report0x2003d3e8/28B/align4/section5, wholly incheckedzeroBSS and outsideRunner[0x20013960,0x2003d068). TargetSample12/4,Report28/4,Reason1/1; all11offset-width pairs and9enumvalues verifiedraw,23typegroups/11Runnerwindows. Fourfilechildren0/emptyerrors/13remote+localPASS,143localpins exact, actualreviewa7c3993a. Publicationfunctionrows emitted; theirinstructions andruntimecontents remainunobserved. Source: analysis/P7_motor_settle_abi_actual_validation.md.

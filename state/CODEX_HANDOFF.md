@@ -49,14 +49,19 @@ compiler, 238 transports and all eight closing checks. Result9b7f0c44 and
 artifact receipte18384c1 bind ELF6091f27d/debugdc610650/packagee4000781 (95520B).
 All129 source pins remain exact; app-motor-settle-static01 is consumed.
 See analysis/P7_motor_settle_compile_actual_validation.md and its actual review.
-D199 file-only ABI reader is host-validated and reviewed076a9742 PASS:
-source0f2b37c9, contractdfc76276,66 Linux/64 Windows passes with two skips
-covered on Linux,192 frozen inputs unchanged. Complete the fresh fixed scope,
-clean HEAD/check-only and one native_abi_static01 execution, then derive entry
-ranges from its actual symbol table. The separate report's target layout and
-publication stores remain unobserved. D195 is still the latest flashed image.
-D200 cleanup contract24d849f2 is proposed only; read-only inventorye95ebed4
-binds three D195 scratch copies2399768B. No new cleanup has been admitted or run.
+D199 file-only ABI reader passes66 Linux/64 Windows methods with two skips
+covered on Linux,192 frozen inputs exact and review076a9742 PASS. Its actual
+native_abi_static01 now succeeds atclean23f0aeba: result230ef847/ABI069ed01b,
+localeb68ef2e, four file children0 and all13remote+localclosingchecks PASS.
+Actualreviewa7c3993a verifies143localpins/23groups/11windows and the separate
+28B/align4 report at0x2003d3e8, all11fieldpairs/ninereasons. ABIowner consumed.
+Next derive fixed entry ranges from that rawsymboltable and inspect publication
+instructions. Actual report contents and failure branch remain unknown; D195
+is still flashed. See analysis/P7_motor_settle_abi_actual_validation.md.
+D200 clarifiedcleanupcontract6cb02590 is adopted; exactrecipe6afeea1b/wrapper
+13f33327 are prepared, independenthosttests/source-review/staging stillpending.
+Read-onlyinventorye95ebed4 binds three D195 scratch copies2399768B/dev34inode1172.
+No new root04 staging/authentication/deletion has occurred; oldscopes consumed.
 
 Every earlier native owner is consumed, including D193static01, D194ABI01/02 and
 entry01, D195run01 and D196root03. Never rerun historical launchers or repin their

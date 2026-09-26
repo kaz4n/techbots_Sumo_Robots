@@ -1408,3 +1408,6 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-26T10:32:15.555509+04:00 | P7 D199 ABI reader host PASS | Source0f2b37c9/contractdfc76276, independent final66 Linux PASS and64 Windows PASS with symlink-privilege/FIFO skips both covered Linux. All192pins exact, no fixture remnants, review076a9742 PASS. Initial literal bug preservedf4c8c6aa; first passing fixture coverage gap preservede3e69d9e and corrected without assertion/source changes. Fresh file-only actual ABI owner pending; D195 remains flashed.
+
+
+2026-09-26T10:38:09.109037+04:00 | P7 D199 actual ABI PASS | Atclean23f0aeba check0/execute0, one transport/four file children0/empty stderr,13remote+localclosingPASS. Result230ef847/ABI069ed01b/localeb68ef2e; report0x2003d3e8/28B/align4/section5 inzeroBSS,11fieldpairs/ninereasons and23groups11windows observed. Actualreviewa7c3993a PASS. Ownerconsumed; no firmware/MCU operation. Entrypublication evidence next; D195 remainsflashed.

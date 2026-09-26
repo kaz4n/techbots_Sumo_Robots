@@ -418,3 +418,6 @@ D191 closing observation: C:recovered290537472B independently before local docum
 
 
 2026-09-26T10:32:15.555509+04:00 | D199 host retention | Keep compact original/corrected oracle freezes, four platform result sets, wrapper/projection evidence, review and validation. Initial source/contract/coverage findings are preserved by commits, avoiding duplicate snapshots. Closing67b640ce observes192stablepins and zero owned Linux/Windows temporary fixtures; Python-B avoids bytecode and no target binary was downloaded. C: observed20755898368B free; no cleanup savings or denied-path retries.
+
+
+2026-09-26T10:38:09.109037+04:00 | D199 actual file evidence retention | Retain8nativeownerfiles1858490logicalB pluscompactinvocation/validation/review tobindactualABI andfutureentry/capture. Originalreadelf/GDBbytes preserved, no ELF/debugbinarydownload or MCUcapture; all143localpins independentlychecked. No cleanup/reclaimedbytes, no prior denied target retry. ABIownerconsumed; checkedD198artifacts/stages remainneeded.

@@ -1,0 +1,26 @@
+{
+  "schema": "d214-first-host-failure-v1",
+  "created": "2026-09-26T19:38:59.648767+04:00",
+  "tests": 87,
+  "passed_methods": 82,
+  "failed_methods": 5,
+  "failure_records": 7,
+  "failed_names": [
+    "test_descriptor_two_transfers_roundtrip_and_final_read_decode_real_sources",
+    "test_first_transfer_refuses_existing_regular_symlink_and_hardlink_without_mutation",
+    "test_primary_write_failure_survives_secondary_close_errors_and_all_closes",
+    "test_read_refuses_complete_payload_replacement_trailing_or_corrupt_bytes",
+    "test_second_transfer_refuses_prior_record_hash_mode_link_and_byte_drift"
+  ],
+  "skips": 0,
+  "unittest_seconds": 112.276,
+  "outer_seconds": 130.18498069990892,
+  "frozen_inputs": 203,
+  "changed_inputs": [],
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_sha256": "80c87c05108ae574ce80c9c72b4562a707b9f6c5da04ff299eec6ff76833f8b4",
+  "source_finding": "Independent reviewer found incomplete or uncertain transfer closure returns FAILED without actually attempting read-only payload observation; contract requires the observation.",
+  "next": "Preserve first source/oracle/results in Git, correct only these bounded paths and add missing gap coverage, then run new exclusive revision owners. No first Windows run or native operation.",
+  "preliminary_hypothesis": "Root initially suspected fixture path confinement; independent author inspection rejected that hypothesis before any fixture change.",
+  "first_failure_cause": "Sealed ARTIFACT_SOURCE_IO omits dir_fd=folder from its ancestry child os.open call. The confined fixture correctly rejects the resulting cwd-relative home open. Repair product descriptor anchoring; do not relax the fixture."
+}

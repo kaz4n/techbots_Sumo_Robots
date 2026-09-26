@@ -1,5 +1,12 @@
 # Ordinary inhibited observation: source planning only
 
+Current update, 26 September 2026, 19:19 Dubai: this historical planning note
+was superseded by adopted D212 and its accepted actual evidence. The ordinary
+inhibited app is now the latest verified flashed image. Read
+P7_ordinary_app_run_actual_validation.md for the sampled results and limits.
+The preparation, native and retrieval owners are consumed; do not repeat them.
+
+
 26 September 2026. This is an unadopted planning note after accepted D209 ABI
 review585be669. D210 entry inspection is still in preparation. There is no new
 upload, capture contract, decoder, address map or native admission here.

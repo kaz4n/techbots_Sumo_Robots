@@ -1,5 +1,15 @@
 # B4 build-profile follow-up, 26 September 2026
 
+Current update, 26 September 2026, 19:19 Dubai: D210 entry inspection and
+D212 ordinary inhibited loading/passive observation are independently accepted.
+D213 implements the proposed B4 snapshot policy; 65 focused tests passed on
+Linux and 65 on Windows, with source/host review accepted. D214 now implements
+fixed-M0 compile-only admission using the existing app entry. Loading B4,
+its own ABI/capture, configured physical facts and motor-run authorization
+remain separate. The design and interruption narrative below is historical;
+no disk-space or cleanup reply is pending. Latest verified firmware is D212.
+
+
 Current status: disk-space recovery and the D194/D195 continuation described
 below are historical. The user freed space; C: had6489399296B at the D209
 closure. No disk-space reply is pending. D207's inhibited diagnostic, D208's

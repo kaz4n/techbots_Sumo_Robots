@@ -2494,3 +2494,9 @@ UnderD051 adopt P7_b4_app_policy_contract.md: host-only app.ino/static/default e
 
 
 D-213 outcome 2026-09-26T19:11:44.235046+04:00: implementationaadccdbb accepted; independent65Linux+65WindowsPASS/no skips/all16pinsstable, review67441159/closureacaf2f32. Host-only policy, old33cases/source/config/wrappers unchanged; build/deploy integration and hardware remain separate.
+
+
+## D-214 (2026-09-26T19:12:49.628368+04:00, fixed M0 B4 compile-only integration)
+Adopt analysis/P7_b4_app_compile_contract.md underD051 afterD213accepted. NewfixedM0caller/remotevalidator reuseD208mapping/lifecycle andD213pinnedbytepolicy, preservingallguards/oldfiles. Independentimplementation/testauthors andseparatereview; no nativeuntilsource/host/freshadmission/cleanHEAD. No upload/MCU/reset/grants/physicalacceptance.
+
+D-214 transport amendment (2026-09-26T19:22:33.112818+04:00, D051): The eight-source inline artifact command measured41318 Windows UTF-16 units including NUL, exceeding the preserved30000 ceiling before execution. Adopt two bounded postcompile source-only transfers into exclusive artifact-sources.zlib within the fresh B4 compile owner, with descriptor/no-follow/identity/hash/readback checks, consumed-attempt semantics and independent closing after partial failure. Existing zlib/JSON source validation and all compiler/artifact guards remain. Contract76ba6262 records exact seams; independent oracle and review precede use. No firmware action, retry, new owner or bound relaxation.

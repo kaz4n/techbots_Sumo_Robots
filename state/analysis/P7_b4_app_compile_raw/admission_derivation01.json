@@ -1,0 +1,93 @@
+{
+  "schema": "d214-preparation-source-derivation-v1",
+  "created": "2026-09-26T19:17:52.682908+04:00",
+  "status": "PREPARED_NOT_EXECUTED",
+  "files": {
+    "admission_source01.py": {
+      "old_path": "state/analysis/P7_ordinary_app_static_compile_raw/admission_source01.py",
+      "old_pin": {
+        "bytes": 10221,
+        "sha256": "051ca7806d85f2ac0fa28da91b38d666c4eb73dea1374eee45e1b0472210f5ef"
+      },
+      "new_pin": {
+        "bytes": 10218,
+        "sha256": "8a593022dee53a413a8c5edf96e180d3749193662535c60a788bb3dedd8f5c28"
+      },
+      "changes": [
+        {
+          "old": "ordinary-app-static01",
+          "new": "b4-app-m0-static01",
+          "count": 1
+        },
+        {
+          "old": "Read-only D208 compile admission",
+          "new": "Read-only D214 compile admission",
+          "count": 1
+        }
+      ]
+    },
+    "admission_closing_source01.py": {
+      "old_path": "state/analysis/P7_ordinary_app_static_compile_raw/admission_closing_source01.py",
+      "old_pin": {
+        "bytes": 1912,
+        "sha256": "405913a787fcd41f801c108503bb8fc5e4bae07abb4a3af71af791a680ac981d"
+      },
+      "new_pin": {
+        "bytes": 1909,
+        "sha256": "ede79b759b0aa6b8aef60b2e2820356064416515918e2a7c42a9a595b920b8e7"
+      },
+      "changes": [
+        {
+          "old": "ordinary-app-static01",
+          "new": "b4-app-m0-static01",
+          "count": 1
+        }
+      ]
+    },
+    "admission_driver01.py": {
+      "old_path": "state/analysis/P7_ordinary_app_static_compile_raw/admission_driver01.py",
+      "old_pin": {
+        "bytes": 6430,
+        "sha256": "eb2e7156973e72a4b33499bb87091d6c6ff9c63b3f539f060aa3b39843c76bda"
+      },
+      "new_pin": {
+        "bytes": 6431,
+        "sha256": "aca83e3d83edfc2b25ea6336ae4dd782fdf37c5c4e838cd943b5343ed0f2e32e"
+      },
+      "changes": [
+        {
+          "old": "D208",
+          "new": "D214",
+          "count": 1
+        },
+        {
+          "old": "D203",
+          "new": "D208",
+          "count": 1
+        },
+        {
+          "old": "coordinator_freeze03.json",
+          "new": "coordinator_freeze01.json",
+          "count": 1
+        },
+        {
+          "old": "ordinary-app-static01",
+          "new": "b4-app-m0-static01",
+          "count": 1
+        },
+        {
+          "old": "schema='d208-readonly-board-admission-v1'",
+          "new": "schema='d214-readonly-board-admission-v1'",
+          "count": 1
+        },
+        {
+          "old": "// 2\n    assert units",
+          "new": "// 2 + 1\n    assert units",
+          "count": 1
+        }
+      ]
+    }
+  },
+  "note": "Preserve D208 programs exactly except counted profile names, freeze filename and adding the required NUL to Windows command length. No board operation or source import.",
+  "preparation_refusal": "First construction used a CRLF match for an LF-only driver line and refused before writing that driver. The two already-written observer derivatives were checked byte-identical and retained; only the literal newline selector was corrected. No native execution."
+}

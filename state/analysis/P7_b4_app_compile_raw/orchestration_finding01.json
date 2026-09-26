@@ -1,0 +1,18 @@
+{
+  "schema": "d214-orchestration-preexecution-finding-v1",
+  "created": "2026-09-26T19:32:26.897756+04:00",
+  "status": "CORRECTED_SOURCE_REVIEW_PASS",
+  "file": "state/analysis/P7_b4_app_compile_raw/native_driver01.py",
+  "before": {
+    "bytes": 4122,
+    "sha256_prefix": "2765b145"
+  },
+  "finding": "Invocation launch or independent closing exceptions could prevent saving captured outer child streams.",
+  "correction": "Record ordinary invocation exceptions, run three closing observations independently, preserve first error, and save only after native child has ended.",
+  "after": {
+    "bytes": 5099,
+    "sha256": "029916bf63dc329323f11c7f8d0312711f860eb69e74a4315d37120cc42acb16"
+  },
+  "execution": "None; source review finding only.",
+  "review": "Separate const_cleanup_review accepted exact corrected source; no execution or file edits by reviewer."
+}

@@ -1,5 +1,17 @@
 # Project completion audit - 26 September 2026
 
+Current update, 26 September 2026, 19:19 Dubai: D212 ordinary inhibited
+firmware is now loaded and independently accepted. Two passive sample sets
+show RUNNING/NONE, zero selected motor commands, maximum_execution_us=477
+and missed_releases=0; initialization remains false with all grants absent.
+These are sampled software values, not initialized WCET or physical acceptance.
+D213 B4 policy is implemented, with 65 tests passing on each host platform and
+no open review finding. D214 fixed-M0 B4 compile integration is in progress.
+The user confirmed that only the board is connected. The earlier pending
+ordinary-runtime and unimplemented-policy statements below are historical.
+See P7_ordinary_app_run_actual_validation.md and P7_b4_app_policy_validation.md.
+
+
 Objective remains the complete SumoX-26 project. Current phase is P7 software /
 release preparation, with earlier physical and human gates still open. This is
 a targeted current-source gap audit, not a completed requirement-by-requirement

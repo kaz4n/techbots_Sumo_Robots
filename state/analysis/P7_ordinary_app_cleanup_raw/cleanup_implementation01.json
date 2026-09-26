@@ -1,0 +1,217 @@
+{
+  "schema": "d211-exact-cleanup-implementation-v1",
+  "at": "2026-09-26T17:55:10.023684+04:00",
+  "contract": {
+    "path": "state/analysis/P7_ordinary_app_cleanup_contract.md",
+    "bytes": 17371,
+    "sha256": "934945d6f26675e4f2d024d772c97cbf18e8fe000510a67ecda5586a1f45dac1"
+  },
+  "derivation": {
+    "bytes": 30865,
+    "sha256": "96c12bcd19e94b86945908fd556591e9925c6b842a9e92b82ef0ee8787588694"
+  },
+  "preparation_review": {
+    "bytes": 12216,
+    "sha256": "d46d5a3694dc90c025962ffb24138640d320c225012845ffa807ca77a901efee"
+  },
+  "input_pins_verified": 26,
+  "outputs": {
+    "state/analysis/P7_ordinary_app_cleanup_raw/cleanup_remoteocd05.py": {
+      "bytes": 7740,
+      "sha256": "1a59d4b2fc12a0b74a81f65847d7384002423882bd42f5242a98774c8bc02958"
+    },
+    "state/analysis/P7_ordinary_app_cleanup_raw/cleanup_root06.py": {
+      "bytes": 9607,
+      "sha256": "290a7236dc7cc5c6b679a72d5864fb99408dd21bbd30b7b8f3edf74c0fe10aa3"
+    }
+  },
+  "recipes": [
+    {
+      "kind": "recipe",
+      "input": "state/analysis/P7_motor_const_cleanup_raw/cleanup_remoteocd04.py",
+      "output": "state/analysis/P7_ordinary_app_cleanup_raw/cleanup_remoteocd05.py",
+      "steps": [
+        {
+          "step": 1,
+          "old": "D201",
+          "new": "D207",
+          "count": 1,
+          "before": {
+            "bytes": 7738,
+            "sha256": "edd1c8aa44f8de82cbfe1d7333b6ce836396922f82eacbe89d87fa6bcf3eb598"
+          },
+          "after": {
+            "bytes": 7738,
+            "sha256": "4a88f6179a81d1bebb3fa58dbe687dfe6c52a33f7f1c93986267ab0b8a353b40"
+          }
+        },
+        {
+          "step": 2,
+          "old": "    'app_motor_observe.ino.bin-zsk.bin': (95520, 'e400078166394d0f8ea44b601e9ba2948992c4f263c5c7ee5fb3942433c143d0',\n        '/home/arduino/sumox26_codex_build/app-motor-settle-static01/build/app_motor_observe.ino.bin-zsk.bin'),\n",
+          "new": "    'app_motor_observe.ino.bin-zsk.bin': (95368, 'f15c7ce1f0ff5fea2d44d0b60f0607f9adae22b83ba5043fe4de5e2b21fa26f7',\n        '/home/arduino/sumox26_codex_build/app-motor-const-static01/build/app_motor_observe.ino.bin-zsk.bin'),\n",
+          "count": 1,
+          "before": {
+            "bytes": 7738,
+            "sha256": "4a88f6179a81d1bebb3fa58dbe687dfe6c52a33f7f1c93986267ab0b8a353b40"
+          },
+          "after": {
+            "bytes": 7737,
+            "sha256": "5ca8eff23ac4877b4ed930c9d756d1b731aea165a8b320f8e4eb68e25585fe68"
+          }
+        },
+        {
+          "step": 3,
+          "old": "info.st_ino == 1452",
+          "new": "info.st_ino == 1732",
+          "count": 1,
+          "before": {
+            "bytes": 7737,
+            "sha256": "5ca8eff23ac4877b4ed930c9d756d1b731aea165a8b320f8e4eb68e25585fe68"
+          },
+          "after": {
+            "bytes": 7737,
+            "sha256": "1c9edfaf2c5f96fb059de5e022dd8dedbf64e4f8c3574bb9e0590a485f1f6fcb"
+          }
+        },
+        {
+          "step": 4,
+          "old": "d206-exact-const-scratch-cleanup-v1",
+          "new": "d211-exact-ordinary-scratch-cleanup-v1",
+          "count": 1,
+          "before": {
+            "bytes": 7737,
+            "sha256": "1c9edfaf2c5f96fb059de5e022dd8dedbf64e4f8c3574bb9e0590a485f1f6fcb"
+          },
+          "after": {
+            "bytes": 7740,
+            "sha256": "1a59d4b2fc12a0b74a81f65847d7384002423882bd42f5242a98774c8bc02958"
+          }
+        }
+      ],
+      "functions": [
+        "require",
+        "stamp",
+        "directory_stamp",
+        "checked_bytes",
+        "processes",
+        "inventory",
+        "cleanup",
+        "expired",
+        "main"
+      ]
+    },
+    {
+      "kind": "wrapper",
+      "input": "state/analysis/P7_motor_const_cleanup_raw/cleanup_root05.py",
+      "output": "state/analysis/P7_ordinary_app_cleanup_raw/cleanup_root06.py",
+      "steps": [
+        {
+          "step": 1,
+          "old": "cleanup-app-const-root05",
+          "new": "cleanup-ordinary-app-root06",
+          "count": 1,
+          "before": {
+            "bytes": 9601,
+            "sha256": "1be147fe67bfafb60275ef1f741f05cfe2262be70c89b0eddbbfc3ec349837d4"
+          },
+          "after": {
+            "bytes": 9604,
+            "sha256": "b36ab1f1c69196f0a926ffea430bd76bd556fbdb8f557fcaf3f487da82ff3224"
+          }
+        },
+        {
+          "step": 2,
+          "old": "cleanup_remoteocd04.py",
+          "new": "cleanup_remoteocd05.py",
+          "count": 4,
+          "before": {
+            "bytes": 9604,
+            "sha256": "b36ab1f1c69196f0a926ffea430bd76bd556fbdb8f557fcaf3f487da82ff3224"
+          },
+          "after": {
+            "bytes": 9604,
+            "sha256": "7105f37c2546a6cb594405cae3b4c34dabff2d3d2b0a22a58e7cc91fbf25fd64"
+          }
+        },
+        {
+          "step": 3,
+          "old": "7738",
+          "new": "7740",
+          "count": 1,
+          "before": {
+            "bytes": 9604,
+            "sha256": "7105f37c2546a6cb594405cae3b4c34dabff2d3d2b0a22a58e7cc91fbf25fd64"
+          },
+          "after": {
+            "bytes": 9604,
+            "sha256": "29ea5aa85c305eb51fc2f67a0c11986f3b2cd8e83163d3f2c7cb78549f2c1931"
+          }
+        },
+        {
+          "step": 4,
+          "old": "edd1c8aa44f8de82cbfe1d7333b6ce836396922f82eacbe89d87fa6bcf3eb598",
+          "new": "1a59d4b2fc12a0b74a81f65847d7384002423882bd42f5242a98774c8bc02958",
+          "count": 1,
+          "before": {
+            "bytes": 9604,
+            "sha256": "29ea5aa85c305eb51fc2f67a0c11986f3b2cd8e83163d3f2c7cb78549f2c1931"
+          },
+          "after": {
+            "bytes": 9604,
+            "sha256": "5775c1f218202ad838b9c0060c29700337169499e7a725c90dcf8d60fdf7a31f"
+          }
+        },
+        {
+          "step": 5,
+          "old": "565acb3988bb0eba0c6865ac27daf5bbc277c85a67204f036bf098b3261b00be",
+          "new": "e90a5189a76d05bd7674d1bb771b9f480d59b5b26cc4a390109c47431a69d731",
+          "count": 1,
+          "before": {
+            "bytes": 9604,
+            "sha256": "5775c1f218202ad838b9c0060c29700337169499e7a725c90dcf8d60fdf7a31f"
+          },
+          "after": {
+            "bytes": 9604,
+            "sha256": "e1775647e3c266629f8614e3108490e8f5b877137b2b45b24c98a323685cc137"
+          }
+        },
+        {
+          "step": 6,
+          "old": "d206-authenticated-const-cleanup-v1",
+          "new": "d211-authenticated-ordinary-cleanup-v1",
+          "count": 1,
+          "before": {
+            "bytes": 9604,
+            "sha256": "e1775647e3c266629f8614e3108490e8f5b877137b2b45b24c98a323685cc137"
+          },
+          "after": {
+            "bytes": 9607,
+            "sha256": "290a7236dc7cc5c6b679a72d5864fb99408dd21bbd30b7b8f3edf74c0fe10aa3"
+          }
+        }
+      ],
+      "functions": [
+        "require",
+        "credentials",
+        "error_record",
+        "stamp",
+        "read_source",
+        "load_cleanup",
+        "enter_user",
+        "observe",
+        "drop_privilege",
+        "unique_object",
+        "invalid_constant",
+        "run_original",
+        "execute",
+        "main"
+      ]
+    }
+  ],
+  "private_projected_recipe": {
+    "bytes": 7737,
+    "sha256": "e90a5189a76d05bd7674d1bb771b9f480d59b5b26cc4a390109c47431a69d731"
+  },
+  "private_projection_written": false,
+  "limits": "Construction and AST data only; no source/import/test/device execution and no independent new oracle read or hash. Independent oracle FINAL precedes new subject review; native prerequisites remain separate."
+}

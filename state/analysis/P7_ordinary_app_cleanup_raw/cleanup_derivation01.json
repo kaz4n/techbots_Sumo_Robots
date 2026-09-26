@@ -1,0 +1,762 @@
+{
+  "schema": "d211-unadopted-cleanup-derivation-v1",
+  "status": "FINAL_PROPOSAL_UNADOPTED_NO_IMPLEMENTATION",
+  "operation": "Local saved source/data reads, strict JSON validation, hashes and literal in-memory byte transformations only. No subject written, imported or executed; no tests, staging, credentials, device or cleanup action.",
+  "recipe": {
+    "input": "state/analysis/P7_motor_const_cleanup_raw/cleanup_remoteocd04.py",
+    "proposed_output": "state/analysis/P7_ordinary_app_cleanup_raw/cleanup_remoteocd05.py",
+    "expected": {
+      "bytes": 7740,
+      "sha256": "1a59d4b2fc12a0b74a81f65847d7384002423882bd42f5242a98774c8bc02958"
+    },
+    "steps": [
+      {
+        "step": 1,
+        "old": "D201",
+        "new": "D207",
+        "count": 1,
+        "before": {
+          "bytes": 7738,
+          "sha256": "edd1c8aa44f8de82cbfe1d7333b6ce836396922f82eacbe89d87fa6bcf3eb598"
+        },
+        "after": {
+          "bytes": 7738,
+          "sha256": "4a88f6179a81d1bebb3fa58dbe687dfe6c52a33f7f1c93986267ab0b8a353b40"
+        }
+      },
+      {
+        "step": 2,
+        "old": "    'app_motor_observe.ino.bin-zsk.bin': (95520, 'e400078166394d0f8ea44b601e9ba2948992c4f263c5c7ee5fb3942433c143d0',\n        '/home/arduino/sumox26_codex_build/app-motor-settle-static01/build/app_motor_observe.ino.bin-zsk.bin'),\n",
+        "new": "    'app_motor_observe.ino.bin-zsk.bin': (95368, 'f15c7ce1f0ff5fea2d44d0b60f0607f9adae22b83ba5043fe4de5e2b21fa26f7',\n        '/home/arduino/sumox26_codex_build/app-motor-const-static01/build/app_motor_observe.ino.bin-zsk.bin'),\n",
+        "count": 1,
+        "before": {
+          "bytes": 7738,
+          "sha256": "4a88f6179a81d1bebb3fa58dbe687dfe6c52a33f7f1c93986267ab0b8a353b40"
+        },
+        "after": {
+          "bytes": 7737,
+          "sha256": "5ca8eff23ac4877b4ed930c9d756d1b731aea165a8b320f8e4eb68e25585fe68"
+        }
+      },
+      {
+        "step": 3,
+        "old": "info.st_ino == 1452",
+        "new": "info.st_ino == 1732",
+        "count": 1,
+        "before": {
+          "bytes": 7737,
+          "sha256": "5ca8eff23ac4877b4ed930c9d756d1b731aea165a8b320f8e4eb68e25585fe68"
+        },
+        "after": {
+          "bytes": 7737,
+          "sha256": "1c9edfaf2c5f96fb059de5e022dd8dedbf64e4f8c3574bb9e0590a485f1f6fcb"
+        }
+      },
+      {
+        "step": 4,
+        "old": "d206-exact-const-scratch-cleanup-v1",
+        "new": "d211-exact-ordinary-scratch-cleanup-v1",
+        "count": 1,
+        "before": {
+          "bytes": 7737,
+          "sha256": "1c9edfaf2c5f96fb059de5e022dd8dedbf64e4f8c3574bb9e0590a485f1f6fcb"
+        },
+        "after": {
+          "bytes": 7740,
+          "sha256": "1a59d4b2fc12a0b74a81f65847d7384002423882bd42f5242a98774c8bc02958"
+        }
+      }
+    ],
+    "structure": {
+      "function_names": [
+        "require",
+        "stamp",
+        "directory_stamp",
+        "checked_bytes",
+        "processes",
+        "inventory",
+        "cleanup",
+        "expired",
+        "main"
+      ],
+      "byte_equal_function_names": [
+        "require",
+        "stamp",
+        "directory_stamp",
+        "checked_bytes",
+        "processes",
+        "inventory",
+        "expired"
+      ],
+      "metadata_changed_function_names": [
+        "cleanup",
+        "main"
+      ],
+      "imports_equal": true
+    }
+  },
+  "private_projection": {
+    "expected": {
+      "bytes": 7737,
+      "sha256": "e90a5189a76d05bd7674d1bb771b9f480d59b5b26cc4a390109c47431a69d731"
+    },
+    "steps": [
+      {
+        "step": 1,
+        "old": "                except FileNotFoundError:\n                    continue\n",
+        "new": "                except FileNotFoundError:\n                    raise\n",
+        "count": 1,
+        "before": {
+          "bytes": 7740,
+          "sha256": "1a59d4b2fc12a0b74a81f65847d7384002423882bd42f5242a98774c8bc02958"
+        },
+        "after": {
+          "bytes": 7737,
+          "sha256": "e90a5189a76d05bd7674d1bb771b9f480d59b5b26cc4a390109c47431a69d731"
+        }
+      }
+    ],
+    "written_to_disk": false
+  },
+  "wrapper": {
+    "input": "state/analysis/P7_motor_const_cleanup_raw/cleanup_root05.py",
+    "proposed_output": "state/analysis/P7_ordinary_app_cleanup_raw/cleanup_root06.py",
+    "expected": {
+      "bytes": 9607,
+      "sha256": "290a7236dc7cc5c6b679a72d5864fb99408dd21bbd30b7b8f3edf74c0fe10aa3"
+    },
+    "steps": [
+      {
+        "step": 1,
+        "old": "cleanup-app-const-root05",
+        "new": "cleanup-ordinary-app-root06",
+        "count": 1,
+        "before": {
+          "bytes": 9601,
+          "sha256": "1be147fe67bfafb60275ef1f741f05cfe2262be70c89b0eddbbfc3ec349837d4"
+        },
+        "after": {
+          "bytes": 9604,
+          "sha256": "b36ab1f1c69196f0a926ffea430bd76bd556fbdb8f557fcaf3f487da82ff3224"
+        }
+      },
+      {
+        "step": 2,
+        "old": "cleanup_remoteocd04.py",
+        "new": "cleanup_remoteocd05.py",
+        "count": 4,
+        "before": {
+          "bytes": 9604,
+          "sha256": "b36ab1f1c69196f0a926ffea430bd76bd556fbdb8f557fcaf3f487da82ff3224"
+        },
+        "after": {
+          "bytes": 9604,
+          "sha256": "7105f37c2546a6cb594405cae3b4c34dabff2d3d2b0a22a58e7cc91fbf25fd64"
+        }
+      },
+      {
+        "step": 3,
+        "old": "7738",
+        "new": "7740",
+        "count": 1,
+        "before": {
+          "bytes": 9604,
+          "sha256": "7105f37c2546a6cb594405cae3b4c34dabff2d3d2b0a22a58e7cc91fbf25fd64"
+        },
+        "after": {
+          "bytes": 9604,
+          "sha256": "29ea5aa85c305eb51fc2f67a0c11986f3b2cd8e83163d3f2c7cb78549f2c1931"
+        }
+      },
+      {
+        "step": 4,
+        "old": "edd1c8aa44f8de82cbfe1d7333b6ce836396922f82eacbe89d87fa6bcf3eb598",
+        "new": "1a59d4b2fc12a0b74a81f65847d7384002423882bd42f5242a98774c8bc02958",
+        "count": 1,
+        "before": {
+          "bytes": 9604,
+          "sha256": "29ea5aa85c305eb51fc2f67a0c11986f3b2cd8e83163d3f2c7cb78549f2c1931"
+        },
+        "after": {
+          "bytes": 9604,
+          "sha256": "5775c1f218202ad838b9c0060c29700337169499e7a725c90dcf8d60fdf7a31f"
+        }
+      },
+      {
+        "step": 5,
+        "old": "565acb3988bb0eba0c6865ac27daf5bbc277c85a67204f036bf098b3261b00be",
+        "new": "e90a5189a76d05bd7674d1bb771b9f480d59b5b26cc4a390109c47431a69d731",
+        "count": 1,
+        "before": {
+          "bytes": 9604,
+          "sha256": "5775c1f218202ad838b9c0060c29700337169499e7a725c90dcf8d60fdf7a31f"
+        },
+        "after": {
+          "bytes": 9604,
+          "sha256": "e1775647e3c266629f8614e3108490e8f5b877137b2b45b24c98a323685cc137"
+        }
+      },
+      {
+        "step": 6,
+        "old": "d206-authenticated-const-cleanup-v1",
+        "new": "d211-authenticated-ordinary-cleanup-v1",
+        "count": 1,
+        "before": {
+          "bytes": 9604,
+          "sha256": "e1775647e3c266629f8614e3108490e8f5b877137b2b45b24c98a323685cc137"
+        },
+        "after": {
+          "bytes": 9607,
+          "sha256": "290a7236dc7cc5c6b679a72d5864fb99408dd21bbd30b7b8f3edf74c0fe10aa3"
+        }
+      }
+    ],
+    "structure": {
+      "function_names": [
+        "require",
+        "credentials",
+        "error_record",
+        "stamp",
+        "read_source",
+        "load_cleanup",
+        "enter_user",
+        "observe",
+        "drop_privilege",
+        "unique_object",
+        "invalid_constant",
+        "run_original",
+        "execute",
+        "main"
+      ],
+      "byte_equal_function_names": [
+        "require",
+        "credentials",
+        "error_record",
+        "stamp",
+        "read_source",
+        "enter_user",
+        "observe",
+        "drop_privilege",
+        "unique_object",
+        "invalid_constant",
+        "main"
+      ],
+      "metadata_changed_function_names": [
+        "load_cleanup",
+        "run_original",
+        "execute"
+      ],
+      "imports_equal": true
+    }
+  },
+  "fresh_owners": {
+    "stage": "/home/arduino/sumox26_codex_build/cleanup-ordinary-app-root06",
+    "result": "/home/arduino/sumox26_codex_build/cleanup-ordinary-app-root06/result_root06.json",
+    "source_basenames": [
+      "cleanup_root06.py",
+      "cleanup_remoteocd05.py",
+      "static_remote.py"
+    ],
+    "expected_source_bytes": 50668,
+    "actual_stage_identity": null,
+    "admitted_native_invocations": 0
+  },
+  "preserved_limits": {
+    "alarm_seconds": 55,
+    "transport_seconds": 70,
+    "process_count": 4096,
+    "same_user_fd_count": 4096,
+    "sorted_unlink_count": 3,
+    "credential_handling": "Protected stdin only; no credential in argv, files or evidence.",
+    "permanent_drop": "Root only for protected read-only scans. Restore and verify Arduino real/effective IDs with saved root between scans before each unlink; permanently drop both UID/GID triples to all1000 in execute finally after cleanup or admitted failure. Preserve every error and close guard."
+  },
+  "historical_oracle": {
+    "path": "tests/tooling/test_motor_const_cleanup.py",
+    "proposed_oracle": "tests/tooling/test_ordinary_app_cleanup.py",
+    "methods": 52,
+    "historical_component_platform_predictions": {
+      "linux": {
+        "pass": 52,
+        "skip": 0
+      },
+      "windows": {
+        "pass": 15,
+        "skip": 37
+      }
+    },
+    "author_barrier": "Independent new oracle and all inputs FINAL before its author reads, hashes, imports or executes new subjects. Preserve all52 historical methods and assertion/guard/first-error meanings.",
+    "new_supplements": "Counts and names separately frozen; current D207 package accepted; D190/D195/D198 and unflashed ordinary D208 refused. Preserve old inode33/869/1172 cases; add1452 and root05/stale retained-owner refusals.",
+    "method_inventory": {
+      "historical": {
+        "core": [
+          "test_import_safe_and_original_sources_still_pinned",
+          "test_credentials_are_full_real_effective_saved_lists",
+          "test_enter_user_clears_groups_and_sets_gid_before_uid",
+          "test_enter_user_rejects_any_wrong_initial_uid_or_gid_without_mutation",
+          "test_enter_user_detects_syscall_failure_and_silent_wrong_result",
+          "test_observe_elevates_only_euid_calls_once_and_restores",
+          "test_observe_does_not_skip_permission_or_use_rejection",
+          "test_observe_wrong_entry_never_calls_original_or_elevates",
+          "test_observe_elevation_failure_still_restores_and_records",
+          "test_observe_scan_and_restore_failure_preserve_both_and_raise_first",
+          "test_observe_restoration_failure_refuses_success_and_silent_credential_drift",
+          "test_observe_gid_drift_is_rejected_even_after_euid_restoration",
+          "test_drop_privilege_removes_saved_root_and_attempts_both_on_failure",
+          "test_drop_privilege_detects_silent_retained_saved_uid",
+          "test_read_source_exact_two_dependencies_and_descriptor_closure",
+          "test_read_source_refuses_arbitrary_names_before_open",
+          "test_read_source_refuses_nonplain_ancestry_and_wrong_owner",
+          "test_read_source_hash_corruption_and_read_error_close_all_descriptors",
+          "test_read_source_stat_drift_is_refused",
+          "test_read_source_attempts_every_close_preserving_first_error",
+          "test_load_cleanup_uses_exact_sources_without_main_execution",
+          "test_loaded_original_has_only_exact_missing_link_projection",
+          "test_projected_scan_missing_link_rejects_surviving_pid_accepts_departed_pid",
+          "test_projected_scan_retains_permission_native_name_and_directory_use_rejections",
+          "test_original_cleanup_mutations_run_uid1000_with_three_root_observations",
+          "test_execute_success_keeps_original_functions_calls_once_and_restores_argv",
+          "test_execute_wrong_identity_or_extra_argument_cannot_enter_cleanup",
+          "test_execute_requires_python_b_before_loading_or_cleanup",
+          "test_execute_requires_isolated_python_before_loading_or_cleanup",
+          "test_execute_load_failure_still_drops_root",
+          "test_execute_entry_failure_still_drops_root_without_original_main",
+          "test_execute_original_failure_retains_partial_receipt_exactly",
+          "test_execute_main_exception_retains_raw_partial_stdout_and_first_error",
+          "test_execute_invalid_json_or_success_status_with_nonzero_exit_is_failure",
+          "test_execute_terminal_drop_errors_cannot_convert_original_success_to_success",
+          "test_execute_original_error_remains_first_when_terminal_drop_also_fails",
+          "test_main_prints_one_compact_result_and_returns_status"
+        ],
+        "metadata": [
+          "test_all_frozen_inputs_and_consumed_success_are_preserved",
+          "test_exact_recipe_metadata_diff_and_private_observer_projection",
+          "test_exact_wrapper_metadata_diff_preserves_all_operational_bytes",
+          "test_inherited_oracle_retains_all_37_methods_and_assertions",
+          "test_fresh_stage_dependencies_and_old_basename_refusal",
+          "test_exact_new_payload_pin_and_retained_originals",
+          "test_old_scratch_basename_refuses_before_child_reads_or_mutations",
+          "test_old_payload_length_and_digest_refuse_without_relaxing_new_pin",
+          "test_old_inode_refuses_and_new_inode_reaches_inventory_without_deleting",
+          "test_old_retained_payload_path_has_no_fallback"
+        ],
+        "focused": [
+          "test_D190_D195_and_D203_packages_cannot_replace_current_D201_copy",
+          "test_previous_source_names_and_stage_schema_source_drift_fail_before_execution"
+        ]
+      },
+      "added": [
+        "test_exact_four_recipe_six_wrapper_steps_preserve_all_other_bytes",
+        "test_saved_inventory_binds_current_package_and_current_digest_is_accepted",
+        "test_all_earlier_inodes_and_retained_paths_refuse_without_fallback"
+      ],
+      "total": 52,
+      "historical_assertions": {
+        "core": 147,
+        "metadata": 34,
+        "focused": 9
+      },
+      "historical_assertion_scope": "Core147 includes143 in test methods and4 in unchanged helper methods; all complete projected bytes and assertions preserved. Metadata34 and focused9 preserved.",
+      "added_assertions": {
+        "test_exact_four_recipe_six_wrapper_steps_preserve_all_other_bytes": 12,
+        "test_saved_inventory_binds_current_package_and_current_digest_is_accepted": 21,
+        "test_all_earlier_inodes_and_retained_paths_refuse_without_fallback": 7
+      },
+      "renamed_historical_method": "Former D190/D198 refusal changes only metadata: current D201 uploaded D198 image now accepted, while D190/D195/D203 alternatives are explicitly refused."
+    }
+  },
+  "explicit_alternatives_refused": {
+    "packages": [
+      {
+        "label": "D190",
+        "bytes": 95328,
+        "sha256": "deb40317e5c444af26e65da4b6f1d0e577d9897d59dbddff3bce03a7bc14335c"
+      },
+      {
+        "label": "D195",
+        "bytes": 95360,
+        "sha256": "85b05c564fd3545c6b6e16fb64ed2aef8893226e32048309f1b71f97a5db4b6c"
+      },
+      {
+        "label": "D198-uploaded-by-D201",
+        "bytes": 95520,
+        "sha256": "e400078166394d0f8ea44b601e9ba2948992c4f263c5c7ee5fb3942433c143d0"
+      },
+      {
+        "label": "D208-ordinary-unflashed",
+        "bytes": 92944,
+        "sha256": "7fa9d41da043931e1237712e1e88bda4151c82933af2ecec97ce3a02184d23ad"
+      }
+    ],
+    "inodes": [
+      33,
+      869,
+      1172,
+      1452
+    ],
+    "retained_owners": [
+      "app-motor-fault-static01",
+      "app-motor-observe-static01",
+      "app-motor-settle-static01",
+      "ordinary-app-static01"
+    ],
+    "prior_scope": "cleanup-app-const-root05",
+    "negative_identity_rule": "Current D20795368/f15c7ce1 and app-motor-const-static01 are positive bindings; never project a negative to current identities."
+  },
+  "staging_verifier_lineage": {
+    "intent": "state/analysis/P7_motor_const_cleanup_raw/cleanup_stage_verification_intent01.json",
+    "accepted_result": "state/analysis/P7_motor_const_cleanup_raw/cleanup_stage_verification01.json",
+    "rule": "Derive/review separately as data. Preserve separate staged-source pin loop, scratch-only inventory, current full stamps and absent result. Preserve historical D200 failed01 and corrected02."
+  },
+  "acceptance_boundary": "Independent preparation/adoption, source/host, stage/admission and actual retrieval review required. Exact both D211 schemas, nested evidence, protected scans/restorations/permanent drop, retained originals and source closure. No retries, old owners, fallback deletion, historical denied paths or firmware operations.",
+  "preparation_notes": [
+    "First data-only projection construction returned a PowerShell error rather than JSON; functions JSON.parse refused with SyntaxError Unexpected token E. Named old/new/count row objects then yielded all required counts/hashes. No artifact or subject written/imported/executed by that construction.",
+    "A second data-only derivation assembly refused while hashing a directory due to PowerShell array-expression grouping of relative input paths. It stopped before opening the output. Explicit JSON input-path arrays replace ambiguous expression grouping; no source/guard/assertion changed.",
+    "Function-span comparison is text-only; complete counted byte projection is the primary identity proof. No AST import or subject execution.",
+    "Actual inventory validated as saved data. Protected handles, root06 absence and cleanup remain unobserved."
+  ],
+  "at": "2026-09-26T17:49:43.7057424+04:00",
+  "inputs": {
+    "state/analysis/P7_ordinary_app_cleanup_contract.md": {
+      "bytes": 17371,
+      "sha256": "934945d6f26675e4f2d024d772c97cbf18e8fe000510a67ecda5586a1f45dac1"
+    },
+    "state/analysis/P7_ordinary_app_cleanup_raw/admission01.json": {
+      "bytes": 24552,
+      "sha256": "ed68c4c8c31e16600950a689e362a0d83e3b839e5b46636230b703681e6d025b"
+    },
+    "state/analysis/P7_ordinary_app_cleanup_raw/observe_admission01.py": {
+      "bytes": 9768,
+      "sha256": "a8e3b8b2cf19246e682288b3106bf18bb921a849681695b5e8461ffe3ed3807d"
+    },
+    "state/analysis/P7_ordinary_app_cleanup_raw/inventory_derivation01.json": {
+      "bytes": 3486,
+      "sha256": "807184e74964c1f660421ba954a9896e59eb03468c98f6dddba57a84ac237c8a"
+    },
+    "state/analysis/P7_ordinary_app_cleanup_raw/inventory_intent01.json": {
+      "bytes": 1119,
+      "sha256": "b80a784bd6c23825d826b1e3cfddddd291669e675710272f212ffc4130dbbc52"
+    },
+    "state/reviews/P7_ordinary_app_cleanup_inventory_review.md": {
+      "bytes": 6826,
+      "sha256": "c4327b1bb8c7cec0bddefec18ebf77d77f9d4249bf1983e04a4ebd31f8e580cf"
+    },
+    "state/analysis/P7_motor_const_cleanup_contract.md": {
+      "bytes": 16120,
+      "sha256": "25caada684cbf50964db02e3c8197fd75fdb6f0c448dd32df47067aa43c2c3ac"
+    },
+    "state/analysis/P7_motor_const_cleanup_raw/cleanup_remoteocd04.py": {
+      "bytes": 7738,
+      "sha256": "edd1c8aa44f8de82cbfe1d7333b6ce836396922f82eacbe89d87fa6bcf3eb598"
+    },
+    "state/analysis/P7_motor_const_cleanup_raw/cleanup_root05.py": {
+      "bytes": 9601,
+      "sha256": "1be147fe67bfafb60275ef1f741f05cfe2262be70c89b0eddbbfc3ec349837d4"
+    },
+    "state/analysis/P7_motor_const_cleanup_raw/cleanup_derivation01.json": {
+      "bytes": 17895,
+      "sha256": "26aa4a50e0dd63fc23b7a93317a69a19fc571f80e5fceba7b61e446b204f3869"
+    },
+    "state/analysis/P7_motor_const_cleanup_raw/cleanup_fixture_derivation01.json": {
+      "bytes": 68656,
+      "sha256": "1c6fc3bad5be218059ec6069ab1e5b810a06522089641b30b11208c2c3d205b7"
+    },
+    "state/analysis/P7_motor_const_cleanup_raw/cleanup_independent_freeze01.json": {
+      "bytes": 20685,
+      "sha256": "9740a6e0fa34374cb7ba3b2c63bcde3fa100a10a75eeb4f038b8670b5ced943c"
+    },
+    "state/analysis/P7_motor_const_cleanup_raw/cleanup_root05_actual_result.json": {
+      "bytes": 6367,
+      "sha256": "3b8f035a6b282ada5a5fbf5992a5343d27a3dc245962ee7f64032757420e11e8"
+    },
+    "state/analysis/P7_motor_const_cleanup_raw/cleanup_stage_verification_intent01.json": {
+      "bytes": 34505,
+      "sha256": "8776a33d82394e595bb57889166dadd1e4caef00674b57e971de7dc119afa731"
+    },
+    "state/analysis/P7_motor_const_cleanup_raw/cleanup_stage_verification01.json": {
+      "bytes": 9876,
+      "sha256": "7de3bb3a0d7a81feac727e1c7dc3a6d67e8d9519a7070c6c0a2eb051f3fc35f9"
+    },
+    "state/reviews/P7_motor_const_cleanup_actual_review.md": {
+      "bytes": 8082,
+      "sha256": "aaede1e1d8a0a8deef6b48de191abe76cf06bb2779f6ce4fa810c4467544e9c8"
+    },
+    "state/reviews/P7_motor_const_cleanup_source_review.md": {
+      "bytes": 10091,
+      "sha256": "09b5bed31953e9b9175029ffea742adba3a21c7a7ae3dad8e462406ed56a7baf"
+    },
+    "state/analysis/P7_motor_const_compile_raw/native_static01/artifacts.json": {
+      "bytes": 9645,
+      "sha256": "fc5eb9e233c4642e0388f14132efdebab535d55134ce39c43d33c485d67e4ddd"
+    },
+    "state/analysis/P7_motor_const_run_raw/native_inert_run01/upload_attempt.json": {
+      "bytes": 778,
+      "sha256": "e0d90810a0ce2b63b080190a322b31aed51cc429cacf2995204cb9cd68804d08"
+    },
+    "state/reviews/P7_motor_const_run_actual_review.md": {
+      "bytes": 14825,
+      "sha256": "b562488423fce03712e0156deba21f52fddc826f096c70dcb1736d78aee71937"
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/native_static01/artifacts.json": {
+      "bytes": 9281,
+      "sha256": "275ebb61be4a0487fe381d915ec28eea4634926b1d06a627850266f5c0a750e0"
+    },
+    "state/analysis/P7_static_link_probe_raw/static_remote.py": {
+      "bytes": 33321,
+      "sha256": "8ba9b190c38e728013a383348c60c287b0366607f65f703161cf7f2e142d36f8"
+    },
+    "tests/tooling/test_motor_const_cleanup.py": {
+      "bytes": 9686,
+      "sha256": "1f33e47b8e9e29342aee1fa19a65ad430bdfb5d7a863349b497f140deef39486"
+    },
+    "tests/tooling/test_motor_settle_cleanup.py": {
+      "bytes": 12023,
+      "sha256": "afbc97d1bd310646505d6fdc61b21db26418d27163b44700faa23a52a4842f2b"
+    },
+    "tests/tooling/test_app_motor_observe_cleanup.py": {
+      "bytes": 14429,
+      "sha256": "18b150d239ba34aca30ce8b436036532a15e2c5aacb53ccf1166f51a68a831c0"
+    },
+    "state/analysis/P7_app_motor_fault_run_raw/test_cleanup_root02.py": {
+      "bytes": 37221,
+      "sha256": "225ef637e85dfe4ce1598e6744c781720b900905ea0c9c3bf0737d58b49e1559"
+    }
+  },
+  "contract": {
+    "path": "state/analysis/P7_ordinary_app_cleanup_contract.md",
+    "bytes": 17371,
+    "sha256": "934945d6f26675e4f2d024d772c97cbf18e8fe000510a67ecda5586a1f45dac1"
+  },
+  "current_inventory_binding": {
+    "receipt": "state/analysis/P7_ordinary_app_cleanup_raw/admission01.json",
+    "board_identity": {
+      "boot_id": "55c386b9-fe6d-4388-a7f4-1d91e0bb49d8",
+      "gid": 1000,
+      "home": "/home/arduino",
+      "machine": "aarch64",
+      "python": [
+        3,
+        13,
+        5
+      ],
+      "release": "6.16.7-g0dd6551ae96b",
+      "sysname": "Linux",
+      "uid": 1000,
+      "user": "arduino"
+    },
+    "observed_directory": {
+      "ctime_ns": 1790418829759976512,
+      "dev": 34,
+      "gid": 1000,
+      "ino": 1732,
+      "mode": 16877,
+      "mtime_ns": 1790418829759976512,
+      "nlink": 2,
+      "size": 100,
+      "uid": 1000
+    },
+    "files": {
+      "app_motor_observe.ino.bin-zsk.bin": {
+        "bytes": 95368,
+        "sha256": "f15c7ce1f0ff5fea2d44d0b60f0607f9adae22b83ba5043fe4de5e2b21fa26f7",
+        "observed_inode": 1734,
+        "retained_path": "/home/arduino/sumox26_codex_build/app-motor-const-static01/build/app_motor_observe.ino.bin-zsk.bin"
+      },
+      "flash_sketch.cfg": {
+        "bytes": 680,
+        "sha256": "38706cee1f9ff2e53364a47129d1c1aea9bb9687ed26d7d70b4a9f9bc5bca60c",
+        "observed_inode": 1735,
+        "retained_path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/flash_sketch.cfg"
+      },
+      "zephyr-arduino_uno_q_stm32u585xx.elf": {
+        "bytes": 2303728,
+        "sha256": "39d4a4fd47241663323f6e04f94dd8f5a9f9ad6582cf1df37f9709b74026adcd",
+        "observed_inode": 1733,
+        "retained_path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf"
+      }
+    },
+    "observed_files": {
+      "app_motor_observe.ino.bin-zsk.bin": {
+        "bytes": 95368,
+        "descriptor_identity": {
+          "bytes": 95368,
+          "ctime_ns": 1790418829759976512,
+          "device": 34,
+          "inode": 1734,
+          "mtime_ns": 1790418829759976512
+        },
+        "identity": {
+          "ctime_ns": 1790418829759976512,
+          "dev": 34,
+          "gid": 1000,
+          "ino": 1734,
+          "mode": 33188,
+          "mtime_ns": 1790418829759976512,
+          "nlink": 1,
+          "size": 95368,
+          "uid": 1000
+        },
+        "sha256": "f15c7ce1f0ff5fea2d44d0b60f0607f9adae22b83ba5043fe4de5e2b21fa26f7"
+      },
+      "flash_sketch.cfg": {
+        "bytes": 680,
+        "descriptor_identity": {
+          "bytes": 680,
+          "ctime_ns": 1790418829759976512,
+          "device": 34,
+          "inode": 1735,
+          "mtime_ns": 1790418829759976512
+        },
+        "identity": {
+          "ctime_ns": 1790418829759976512,
+          "dev": 34,
+          "gid": 1000,
+          "ino": 1735,
+          "mode": 33188,
+          "mtime_ns": 1790418829759976512,
+          "nlink": 1,
+          "size": 680,
+          "uid": 1000
+        },
+        "sha256": "38706cee1f9ff2e53364a47129d1c1aea9bb9687ed26d7d70b4a9f9bc5bca60c"
+      },
+      "zephyr-arduino_uno_q_stm32u585xx.elf": {
+        "bytes": 2303728,
+        "descriptor_identity": {
+          "bytes": 2303728,
+          "ctime_ns": 1790418829759976512,
+          "device": 34,
+          "inode": 1733,
+          "mtime_ns": 1790418829759976512
+        },
+        "identity": {
+          "ctime_ns": 1790418829759976512,
+          "dev": 34,
+          "gid": 1000,
+          "ino": 1733,
+          "mode": 33261,
+          "mtime_ns": 1790418829759976512,
+          "nlink": 1,
+          "size": 2303728,
+          "uid": 1000
+        },
+        "sha256": "39d4a4fd47241663323f6e04f94dd8f5a9f9ad6582cf1df37f9709b74026adcd"
+      }
+    },
+    "retained_originals": {
+      "app_motor_observe.ino.bin-zsk.bin": {
+        "bytes": 95368,
+        "descriptor_identity": {
+          "bytes": 95368,
+          "ctime_ns": 1790413089150019555,
+          "device": 66341,
+          "inode": 273237,
+          "mtime_ns": 1790413089150019555
+        },
+        "identity": {
+          "ctime_ns": 1790413089150019555,
+          "dev": 66341,
+          "gid": 1000,
+          "ino": 273237,
+          "mode": 33188,
+          "mtime_ns": 1790413089150019555,
+          "nlink": 1,
+          "size": 95368,
+          "uid": 1000
+        },
+        "path": "/home/arduino/sumox26_codex_build/app-motor-const-static01/build/app_motor_observe.ino.bin-zsk.bin",
+        "sha256": "f15c7ce1f0ff5fea2d44d0b60f0607f9adae22b83ba5043fe4de5e2b21fa26f7"
+      },
+      "flash_sketch.cfg": {
+        "bytes": 680,
+        "descriptor_identity": {
+          "bytes": 680,
+          "ctime_ns": 1790092194033215544,
+          "device": 66341,
+          "inode": 18238,
+          "mtime_ns": 1790092194033215544
+        },
+        "identity": {
+          "ctime_ns": 1790092194033215544,
+          "dev": 66341,
+          "gid": 1000,
+          "ino": 18238,
+          "mode": 33188,
+          "mtime_ns": 1790092194033215544,
+          "nlink": 1,
+          "size": 680,
+          "uid": 1000
+        },
+        "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/flash_sketch.cfg",
+        "sha256": "38706cee1f9ff2e53364a47129d1c1aea9bb9687ed26d7d70b4a9f9bc5bca60c"
+      },
+      "zephyr-arduino_uno_q_stm32u585xx.elf": {
+        "bytes": 2303728,
+        "descriptor_identity": {
+          "bytes": 2303728,
+          "ctime_ns": 1790092194602372651,
+          "device": 66341,
+          "inode": 18245,
+          "mtime_ns": 1790092194602372651
+        },
+        "identity": {
+          "ctime_ns": 1790092194602372651,
+          "dev": 66341,
+          "gid": 1000,
+          "ino": 18245,
+          "mode": 33261,
+          "mtime_ns": 1790092194602372651,
+          "nlink": 1,
+          "size": 2303728,
+          "uid": 1000
+        },
+        "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf",
+        "sha256": "39d4a4fd47241663323f6e04f94dd8f5a9f9ad6582cf1df37f9709b74026adcd"
+      }
+    },
+    "payload_bytes": 2399776,
+    "matching_flags": {
+      "expected_originals_match": true,
+      "exact_three_d207_copies": true
+    },
+    "five_closing_checks": [
+      {
+        "name": "scratch",
+        "status": "PASS"
+      },
+      {
+        "name": "/home/arduino/sumox26_codex_build/app-motor-const-static01/build/app_motor_observe.ino.bin-zsk.bin",
+        "status": "PASS"
+      },
+      {
+        "name": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/flash_sketch.cfg",
+        "status": "PASS"
+      },
+      {
+        "name": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf",
+        "status": "PASS"
+      },
+      {
+        "name": "board_identity",
+        "status": "PASS"
+      }
+    ],
+    "local_input_closure": "PASS",
+    "protected_handle_clearance": false,
+    "root06_absence_observed": false
+  },
+  "inventory_validation": {
+    "strict_duplicate_free_json": "PASS",
+    "raw_stream_lengths_hashes": "PASS",
+    "complete_transmitted_program_matches_observer_body": "PASS",
+    "embedded_33321_byte_helper": "PASS",
+    "same_board_and_directory_stamps": "PASS",
+    "copy_original_pairs_and_descriptor_stamps": "PASS",
+    "program_sha256": "59827ae85c73e342ed41f96c8b00b60741c8e846010bc0daedfe547752b1ed54",
+    "stdout_bytes": 4496,
+    "stdout_sha256": "cee7326d2b9bf568bb593fc5ce4ac28f01e3d151665e5d10567f529122685d40",
+    "command_units": 18656,
+    "returncode": 0,
+    "elapsed_seconds": 0.6157435999484733,
+    "compiler_process_candidates": []
+  }
+}

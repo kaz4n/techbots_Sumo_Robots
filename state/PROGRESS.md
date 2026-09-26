@@ -1493,3 +1493,6 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-26T17:43:11.826524+04:00 | P7 | D211 preliminary read-only scratch inventory | One invocation0/emptyerr, receipt ed68c4c8; exact threeD207copies2399776B/dev34ino1732,5remote+localPASS. Protectedhandles notinspected; freshcleanupdraft next | pending commit
+
+
+2026-09-26T17:55:10.023684+04:00 | P7 | D211 cleanup contract adopted and exact source sealed | Reviewd46d5a36 PASS; recipe1a59d4b2/wrapper290a7236,4/6metadata steps; independentoracle pending; no cleanup execution | pending commit

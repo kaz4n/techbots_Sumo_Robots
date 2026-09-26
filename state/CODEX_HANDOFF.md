@@ -17,10 +17,12 @@ Read analysis/P7_ordinary_app_entry_actual_validation.md. Owner consumed.
 D211 preliminary inventory completed once: admission01.json24552B/ed68c4c8,
 five remote+localPASS, both match flags true. Exactly3D207copies2399776B in
 /tmp/remoteocddev34ino1732 match originals. Protectedhandles are uninspected;
-no deletion yet. ordinary_abi_scope owns the fresh root06 cleanup contract and
-data derivation; const_cleanup_review owns separate preparation review. Root
-will implement only after adoption; independent oracle must precede subject
-inspection/execution. Preserve root05 and all prior owners as consumed.
+no deletion yet. D211 contract934945d6/derivation96c12bcd adopted after
+preparationreview12216B/d46d5a36 FINAL PASS. Root sealed recipe7740B/1a59d4b2,
+wrapper9607B/290a7236, private7737B/e90a5189 and receipt7447B/0e23b2be.
+Independent oracleauthor ordinary_abi_scope must freeze before newsubject
+inspection; fresh_review owns source/host review after that barrier. No tests
+or root06 absence/staging/authentication yet. Preserve all prior consumedowners.
 In parallel fresh_review owns an UNADOPTED D212 ordinary passive-run contract
 and derivation. Candidate two seven-window sets use an aligned4B attempted_
 container;28reads715858B with fullflashbrackets. No run is admitted. Continue

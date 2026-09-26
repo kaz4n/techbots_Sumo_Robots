@@ -1,4 +1,34 @@
-## Current checkpoint - 2026-09-27T03:15:37.181087+04:00
+## Current checkpoint - 2026-09-27T03:45:20.981253+04:00
+
+D243 is COMPLETE within measurement-preparation scope. Source6cda7d82,
+source/host review88cfdc2d and actual review06588b00 PASS. Durable current native
+and inspection evidence is commit68970699; actual validation is
+state/analysis/P7_outer_loop_timing_actual_validation.md. Frozen build HEADce15bb96,
+sourcefcb9a31a, host16 cases/143 assertions; both serial native compiles close0.
+Timing owner commission-p4_timing-m0-5e497d4294e4 (411.576s), production owner
+match-static-match-m1-c1c267697b5d (252.399s). Timing object6688B/align8, actual
+ARM writes for both populations proved; ordinary package7895a4d8/finalELFba9766a8
+are identical to D241. No native child remains active. No upload/reset/MCU run.
+Loaded firmware remains D239 inhibited synthetic recorder; its full delivery
+607508B/5001frames/8events is already accepted and must not be needlessly repeated.
+
+Current full requirement map: state/analysis/P7_full_requirement_audit_20260927.md.
+Full project remains UNACHIEVED: board-only setup, absent physical calibration/
+run cohorts, human phase gates/release/rehearsal; conditional P6 work ineligible.
+The explicit B7-only R6 exception question is still pending. Silence is not a
+policy change. No new motor run or wiring change is authorized. D243 does not
+prove live sensor timing, live RAM or a five-minute physical acceptance trial.
+
+This turn made real progress and did not mark the goal complete or blocked.
+Next continuation: check new user input/external prerequisite changes first.
+Do not repeat the full audit, accepted builds or captures simply to remain busy.
+If prerequisites remain unchanged, report the specific impasse; only mark the
+active goal blocked after the required consecutive blocked-turn threshold.
+Date is27September; end28September scope decision and1October21:00 freeze remain.
+No prior policy-blocked local stage deletion was retried. Raw CRLF output stays
+byteexact, even where Git whitespace checking flags original transport lines.
+
+## Historical checkpoint - 2026-09-27T03:15:37.181087+04:00
 
 Full-goal continuation found a concrete P2.2 software measurement gap; do not
 repeat the earlier narrow assertion that all software preparation is finished.

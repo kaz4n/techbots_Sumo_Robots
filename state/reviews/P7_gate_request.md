@@ -10,7 +10,10 @@ artifact checks passed. See [current actual validation](../analysis/P7_match_sta
 and [actual review](P7_match_static_actual_review.md). This supplies no physical
 robot, operational application capture or motor-run acceptance.
 
-D243 outer-loop/five-minute timing preparation is in progress. B7 retains its
+D243 outer-loop/five-minute timing preparation passes focused host tests, both
+current target compiles and offline ARM retention/exclusion checks. See
+[actual validation](../analysis/P7_outer_loop_timing_actual_validation.md).
+Actual five-minute all-sensor timing remains unmeasured. B7 retains its
 protected R6 conflict. P6 deliverables are absent and currently ineligible.
 No qualified final release/config/deployment, v1.0 tag, printed team-approved
 runbook, three actual best-of-three rehearsal sets or human GATE P7 PASS exists.

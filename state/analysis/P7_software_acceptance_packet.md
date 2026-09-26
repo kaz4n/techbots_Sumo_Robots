@@ -29,8 +29,12 @@ before normal reset. A fixed recording session is single use even after failure.
 Native cancellation/reopen and general router cleanliness remain unqualified.
 
 The [full requirement audit](P7_full_requirement_audit_20260927.md) supersedes
-the earlier narrow completion statement. D243 is preparing outer-loop timing
-and a fixed five-minute population for P2.2. B7 retains its protected R6 conflict;
+the earlier narrow completion statement. D243 implements outer-loop timing
+and a fixed five-minute population for P2.2: 16 cases/143 assertions, independent
+source review, both current target compiles and offline retained-code/layout
+checks pass. The ordinary production package remains byte-identical to D241.
+See [D243 actual validation](P7_outer_loop_timing_actual_validation.md). No live
+five-minute timing trial is claimed. B7 retains its protected R6 conflict;
 P6 deliverables remain absent and currently ineligible. Current compile and
 synthetic-delivery evidence are accepted within their stated scopes. Do not infer physical
 acceptance from host tests, artifact layout or the synthetic board experiment.

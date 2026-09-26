@@ -1,6 +1,6 @@
 # Current project status
 
-Updated 27 September 2026, 03:05 Dubai. Connected hardware: **UNO Q only**.
+Updated 27 September 2026, 03:43 Dubai. Connected hardware: **UNO Q only**.
 
 The firmware modules and commissioning software are implemented. The latest
 inhibited board diagnostic delivered a complete synthetic recording: **5,001
@@ -17,8 +17,13 @@ layout validation and all nine closing checks. The package is 92,092 bytes; see
 It was not uploaded. The board retains the inhibited synthetic diagnostic.
 
 The [full requirement audit](../state/analysis/P7_full_requirement_audit_20260927.md)
-found remaining P2.2 measurement preparation: outer-loop timing and a fixed
-five-minute sample window. D243 is implementing that support. B7 also needs an
+identified P2.2 measurement preparation: outer-loop timing and a fixed
+five-minute sample window. D243 now implements it with 16 focused cases/143
+assertions, independent review and two passing current target builds. Offline
+ARM inspection proves timing-observer retention and ordinary-profile exclusion;
+the production package is byte-identical to D241. See the
+[current timing/build evidence](../state/analysis/P7_outer_loop_timing_actual_validation.md).
+A live-sensor timing trial still needs the assembled robot. B7 also needs an
 explicit resolution of its full-reverse versus R6 conflict. P6 judge deliverables
 remain conditional on the real P4 gate. The full project is not complete.
 

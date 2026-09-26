@@ -1640,3 +1640,5 @@ matrix is admitted conditionally, not yet executed. Firmware unchanged. | pendin
 | 2026-09-27T03:14:47.510329+04:00 | Full objective audit | D242 numbered P0-P7 tasks/exits and global requirements checked against saved evidence | Full project unachieved. Current compile/delivery accepted; P2.2 outer-loop/five-minute preparation missing (D243 adopted), B7protectedchoice pending, P6ineligible, physical/human gates missing. AGENTS command discovery corrected. | baselineab71e01e |
 
 2026-09-27T03:27:36.470498+04:00 | P7/D243 | Source/host observer6cda7d82 accepted, review88cfdc2d PASS;16/143,15 commands0. Separate timing-M0 and MATCH-M1 target compilation next, no upload. | source6cda7d82
+
+2026-09-27T03:45:20.981253+04:00 | P7/D243 | Source/host and both current native compiles accepted; offline target retained ARM stores/layout and production exclusion PASS, actual review06588b00. Production package/finalELF unchanged fromD241; no upload or physical timing claim. Updated full requirement audit/current docs. | source6cda7d82; raw68970699

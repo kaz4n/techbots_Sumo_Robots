@@ -7,9 +7,11 @@ was repeated for this audit. The preceding goal turn made real progress: D241
 compiled and its actual review passed, with durable raw evidence and current docs.
 
 **The full project is not complete.** The broader audit supersedes the earlier
-narrow statement that no further software preparation was identified. P2.2 lacks
-an outer-loop population and a bounded five-minute observation window; D243 now
-prepares that instrumentation. B7 additionally retains the D121/R6 policy conflict.
+narrow statement that no further software preparation was identified. The P2.2
+outer-loop/five-minute instrumentation gap is now closed by D243 source/host and
+current target compilation/offline retention checks; its physical all-sensor
+trial remains absent. See P7_outer_loop_timing_actual_validation.md. B7 additionally
+retains the D121/R6 policy conflict.
 P6 contains absent deliverables but is currently ineligible. Physical results,
 human gates and release/rehearsal requirements remain unfulfilled.
 
@@ -63,7 +65,7 @@ scheduling delegation does not author human gate lines.
 | B7 brownout | U/H: D121 in P2_software_acceptance_packet.md and P2_motor_stand_feasibility.md. Original20 full forward/reverse cycles conflict with unchanged R6/current ATTACK. Protected resolution, then actual half-pack run and no-reset evidence are required; partial-duty tests cannot substitute. |
 | B8 recorder | P synthetic subset/H live robot: D239 actual validation proves607508B wire,5001frames/8events/session/CRC/CSV/SEALED/no reportedloss. Missing actual200s live acquisition and live free-RAM/stack qualification. |
 | 2.1 application integration | S/restricted native evidence: P2_app_runtime_validation.md, P2_app_default_actual_validation.md, D241 current compile. All-source initialized runtime acceptance remains H. No watchdog integration is required for the verified disabled installed watchdog. |
-| 2.2 five-minute full timing | S partial/U/H: D229 P7_epoch_timing_contract.md explicitly excludes outer/observer/failed/idle work and has no five-minute cohort. D243 prepares conservative outer-loop intervals; all-sensors-live <800us worst-case/p99 remains a physical requirement. |
+| 2.2 five-minute full timing | S/H: D243 now supplies conservative outer-loop intervals and the fixed five-minute cohort, with focused host and current target compile/retention proof in P7_outer_loop_timing_actual_validation.md. D229 completed-epoch evidence stays separate. All-sensors-live <800us worst-case/p99 remains a physical requirement. |
 | 2.3 MATCH traffic | S/H runtime: P2_app_dump_validation.md, D240/D241 contracts and current compile. IDLE-only operational capture/ownership remains unqualified; no motion-input route is authorized. |
 | 2.4 QTR_CAL | S/H: P2_qtr_cal_validation.md, P2_calibration_delivery_validation.md, P2_qtr_receiver_validation.md. Need real color sequence/ranges/visible service/accepted delivery. |
 | 2.5 dimensions | H: no accepted assembled weight or footprint measurement. |
@@ -143,8 +145,9 @@ constraints remain, no push/tag; R11 requires actual measurements beforeacceptan
 All intended core/HAL modules exist; a complete hardware claim still cannot be
 derived from module presence, tests or a package manifest.
 
-Next executable action is D243 timing preparation under D051. The B7-only R6
-exception question is pending the human; silence does not authorize it. Do not
+D243 software measurement preparation is complete within its reviewed scope.
+The next substantive work needs new physical evidence or the explicit B7-only R6
+exception decision. That question is pending the human; silence does not authorize it. Do not
 repeat accepted builds/diagnostics without a source change or a new evidence
 question. Current date precedes end28September scope cut and1October21:00freeze.
 The full goal remains active and unachieved; this audit does not pass a phase.

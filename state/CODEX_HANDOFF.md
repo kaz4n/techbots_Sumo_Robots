@@ -1,3 +1,39 @@
+## Current checkpoint - 2026-09-27T02:40:05.275489+04:00
+
+D239 delivery34435 CLOSED0 in375.741s: DELIVERED/FULL_SYNTHETIC_PASS.
+Expected session3840709944287840472, full607508Bwire with BEGIN andCRC,
+5001frames8eventsSEALED/NONE_REPORTED,allclosingerrors empty. No further
+nativeprocessactive. Full266ownerfiles3611765B+outerstreams nowMAINcommit
+8af9b6b0; result0542e44f/wire492ac281. Independentactualdeliveryreviewpending.
+Do NOT run newABI/passivecapture: fullreceiveracceptance alreadyobtained.
+Loadedimageinhibitedstatic/defaultrecorder package3a1bbd2f/source3d9306d7.
+/tmp/remoteocd nowcontains thislatestupload'scopies; untouched pendingneed.
+GitinitialaddlongCSVpathfailed; command-local core.longpaths=true retained
+exactoriginalpaths/bytes. No global/OSsettingschanged;gitstatusnormalworks.
+
+D240 identifiedapplicationdelivery source/contract implemented onMAIN by
+recorder_diag; ninefocusedmethodsPASS afterpreservedfirstfixtureassertion and
+Windowsmetadatarefusal.25pinclosure sentreviewer. Newcaller + narrowD227opt-in,
+no firmware/config/grantchanges. AuthorwillcommitonlyD240filesafterreviewseal.
+Rootdoesnotstageitsdirtyfiles. ReviewerisfinishingD240thenD239actualdelivery.
+
+D241 QUEUED authorrecorder_diag afterD240acceptance, separatecommit. Missing
+staticproductionMATCH/installedImmediate/M1 tuple isconcrete: legacymatchroute
+usesdynamicImmediate; staticordinary/commissioningroutesareMATCH0/default.
+Implementboundedcheckedcompile + correspondingprecompiledguardeddeploy
+selection,source/qualification/permissionguardsunchanged. No nativeactions
+byagent. Afterfocusedhost/reviewrootonecurrent-sourcecompile-onlyartifact/
+layoutclosure. No M1upload/run withoutspecificSTAND/RING;BOARDONLYstill.
+ExactImmediateoptionmustcomefromverifiedinstalledcore/source,notguessed.
+
+D239 source/host/fullsyntheticdelivery doesnotqualifyphysicalrobot/WCET/liveRAM,
+cancel/reopen,routercleanliness orhumangates. PriorD237missing60Bfailure and
+D238passiveSENT_UNCONFIRMEDevidencepreserved. D103rearmimplementation exists:
+service-onlyresetpreserveslogs/inhibition; acceptedexportbefore normalreset.
+Physicalrestart/rehearsalremainsSC-AP. Policyblockedlocalstage deletionsuntouched.
+Goalactive;finishD240/D241 andcurrentuser-facingstatus, don'tclaimfullphysical
+qualification. Rootmainmayrecordevidence whileauthorownsitsfiles.
+
 ## Current checkpoint - 2026-09-27T02:33:22.721458+04:00
 
 D239 DELIVER Y RUN ACTIVE exec34435 (startabout02:30Dubai). Oneupload

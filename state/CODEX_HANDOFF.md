@@ -1,4 +1,20 @@
-## Current checkpoint - 2026-09-27T03:45:20.981253+04:00
+## Current impasse - 2026-09-27T03:47:50.801865+04:00
+
+Three consecutive goal continuations verified the same genuine blocker after
+D243 completion: board-only hardware, missing physical qualification and human
+gates, and the unanswered B7-only R6 exception decision. No substantive authorized
+next action exists under the current project requirements. Goal blocked threshold
+is satisfied; the coordinator now records BLOCKED through the goal tool. Full
+project completion is not claimed. Audits1-3 are administrative, not progress.
+
+Resume when the user supplies the B7 policy decision or changes the physical/
+authorization prerequisites. An approved B7 software exception still does not
+supply STAND OK/RING OK for a motor run. P6 remains conditional on its actual
+gate; release/rehearsal and physical tests remain required. On a user resume,
+start a fresh blocked audit count and recheck actual prerequisites. Preserve all
+accepted D243/D239 evidence; no unchanged build/capture replay is needed.
+
+## Historical completed-work checkpoint - 2026-09-27T03:45:20.981253+04:00
 
 D243 is COMPLETE within measurement-preparation scope. Source6cda7d82,
 source/host review88cfdc2d and actual review06588b00 PASS. Durable current native

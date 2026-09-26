@@ -1363,3 +1363,6 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-26T08:35:51.732652+04:00 | P7 D194 Windows portability repair | User restored21GBspace. Originalpreflight/refusal and frozenregression retained; exactCPythonextension-mode exception preservesfullrawsameAPI stamps/allotherchecks. Source497f756e/contract0d81956d,136pinsstable. Windows14new+42existingPASS/2knownskips; Linux14new+44existingPASS. Independentfinalreview then cleanHEAD/check-only/freshidentity/onefile-onlyABI remain. No owner/devicecall/firmwarechange.
+
+
+2026-09-26T08:38:16.243759+04:00 | P7 D194 actual ABI attempt01 | Correctedcheck-only PASS at79dc3964; freshsameboot/uid1000/scopeabsent. Onefile-onlytransport/fourchildrenreturned0, but GDB16.2 ALIGN-memberexpression syntaxerror86B. Rawsizeof4/ptypeunsignedint/offset168572 retained, no completeABI accepted. All13remoteclosure+localPASS; ownernative_abi_static01 CONSUMED, no retry. Preserveallreceipts; separatequeryrepair/newowner required. No flash/reset/MCU operation.

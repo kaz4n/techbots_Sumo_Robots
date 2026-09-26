@@ -1,0 +1,21 @@
+Traceback (most recent call last):
+  File "C:\Users\narut\AppData\Local\Temp\sumox-recorder-six-native-20260927\tools\run_recorder_delivery.py", line 942, in <module>
+    sys.exit(main(sys.argv[1:]))
+             ~~~~^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-recorder-six-native-20260927\tools\run_recorder_delivery.py", line 936, in main
+    result = owner.check() if request['action'] == '--check-only' else owner.run()
+             ~~~~~~~~~~~^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-recorder-six-native-20260927\tools\run_recorder_delivery.py", line 320, in check
+    value = super().check()
+  File "C:\Users\narut\AppData\Local\Temp\sumox-recorder-six-native-20260927\tools\compile_app_motor_fault.py", line 312, in check
+    return program + 'expected_directories=' + repr(sorted(directories(self.expected_stage))) + '\n' + '''def checked_source_set():
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-recorder-six-native-20260927\state\analysis\P7_current_app_compile_raw\compile_current_app.py", line 98, in plain
+    info = item.lstat()
+  File "C:\Users\narut\AppData\Local\Programs\Python\Python313\Lib\pathlib\_abc.py", line 437, in lstat
+    return self.stat(follow_symlinks=False)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Programs\Python\Python313\Lib\pathlib\_local.py", line 515, in stat
+    return os.stat(self, follow_symlinks=follow_symlinks)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] The system cannot find the file specified: 'C:\\Users\\narut\\AppData\\Local\\Temp\\sumox-recorder-six-native-20260927\\state\\analysis\\P7_recorder_delivery_raw'

@@ -574,3 +574,6 @@ alternative deletion occurred. No new disposable build output was generated.
 
 ### 2026-09-27T01:41:46.948550+04:00 - D232 exact stale board upload copies
 Removed only flash_sketch.cfg680B, recorder.ino.bin-zsk.bin55104B, loader2303728B (2359512B total) from /tmp/remoteocd dev34/ino6292, then its empty directory. Retained originals verified unchanged; protected process scans and sixclosingchecks pass. Initial wrong-inode refusal preserved, fresh corrected owner accepted119bb5c0; result SHAee4aed5046a01dccb8500dbf1748b53b60f047e00b73636268ed1da45b607da2. Native firmware unchanged bycleanup; later distinct D233 upload recorded separately. Keep compact source/tests/unique failures/receipts; D234 temporary host binaries/copies released by TemporaryDirectory. Previously policyblocked local stages remain untouched.
+
+### 2026-09-27T01:55:27.131624+04:00 - D236 exact D233 upload scratch
+Removed threeverifiedcurrentuploadcopies2359784B and empty/tmp/remoteocddev34/ino6818. Originalretainedbuild/installedfilesintact;3protectedscans,6closingPASS,resultf46a31b2. No credential retained; no firmwarechange. Retain compactsource/receipts/originalfixturefailure forreview; previouslypolicyblockedlocalstages unchanged.

@@ -1566,3 +1566,9 @@ physical/loadedRAM/gate claim. | contract=this commit
 2026-09-26T21:48:55.805620+04:00 | P7/D220 | Actualcleanup independentlyaccepted32756000:3verifiedstaleD212copies2397352B andscratch2007removed,3protectedscans/credentialrestore+drop,sixclosurePASS,originalsretained. Oneattempt consumed. | pending
 
 2026-09-26T21:50:40.094131+04:00 | P7/D221 | Nativeadmissionfab6302f FINALconditionalPASS;230prerequisites/scope9158547d/driver ea8f42a2 frozen. Cleanexactcommit/check-only next; stillnoB4upload. | pending
+
+2026-09-26T21:53:37.942995+04:00 | P7/D221 | Nativeclean310f9606:check2.208s+execute29.392sreturn0,9transports/oneUPLOADEDcompactreturnedreport,230current+HEADpinsstable, closuref7b5967d. Independentactualreviewpending; no MCUreadbackyet. | nativeHEAD310f9606
+
+2026-09-26T21:56:32.180306+04:00 | P7/D221 | Independent actualreviewca817e15 FINAL PASS accepts one fixedM0B4upload. D219nativecaptureprerequisites prepared; ownadmission/cleanHEAD/check-only next. | nativeHEAD310f9606
+
+2026-09-26T21:58:12.437808+04:00 | P7/D219 | Captureadmission98546722 FINALconditionalPASS;282prerequisitepins/scope d5e8372a/driver4585df16 frozen. Current+HEADaudit/cleancommit/check-only thenonecapture. | pending

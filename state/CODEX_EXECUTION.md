@@ -5,8 +5,11 @@ D208 ordinary static/default/M0/probe0 compilation returned COMPILE_CHECKED and
 is independently accepted by actual review8cd383e4. Read the top checkpoint in
 CODEX_HANDOFF.md and analysis/P7_ordinary_app_static_compile_validation.md.
 D207 remains the latest verified flashed image. No D208 upload/reset/MCU read.
-All completed native owners are consumed. The next bounded work is ordinary
-file-only ABI/entry preparation; diagnostic Runner/SETTLE layouts do not apply.
+D209 ordinary file-only ABI is now accepted by actual review585be669;13 raw
+layouts, six windows and2234 symbols reconcile with all closing checks. See
+analysis/P7_ordinary_app_abi_actual_validation.md. All completed native owners
+are consumed. Next is the fresh ordinary entry/instruction contract and binding
+derived from that accepted inventory; diagnostic layouts do not apply.
 All older current/next paragraphs below are historical and superseded by this
 checkpoint and the handoff. Continue the full project without inventing physical
 acceptance or human gates. No fresh STAND/RING permission has been supplied.

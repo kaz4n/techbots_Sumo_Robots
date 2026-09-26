@@ -2487,3 +2487,10 @@ D-212 first host adjudication 2026-09-26T18:28:20.739722+04:00: firstLinuxremote
 
 
 D-212 decoder fixture adjudication 2026-09-26T18:42:46.369562+04:00: firstLinux46methods39PASS/7erroredmethods(9subtesterrorrecords),179pinsstable, preserved acf8cddf. Independent review confirms ordinary packet/map paths now share one temporary parent; repeated map-parent mkdir refuses before product invocation. Permit exactly one fixture map_path.parent.mkdir(parents=True) to add exist_ok=True; packet-owner creation and all46methods/assertions/product bytes remain unchanged. Refreeze/new02decoderowners precede rerun; Windows01 never ran. Raw unittest trailing whitespace preserved under one exact stderr attribute; no output normalization.
+
+
+## D-213 (2026-09-26T18:58:25.978046+04:00, ordinary B4 snapshot policy)
+UnderD051 adopt P7_b4_app_policy_contract.md: host-only app.ino/static/default explicitM0/M1 and allotherprofilemacros0, fiveexactbytesnapshots, unchangedD187validation. No firmware/config/wrapperchanges, build/upload/grants/motorpermission. Independenttests andseparatereview precede acceptance.
+
+
+D-213 outcome 2026-09-26T19:11:44.235046+04:00: implementationaadccdbb accepted; independent65Linux+65WindowsPASS/no skips/all16pinsstable, review67441159/closureacaf2f32. Host-only policy, old33cases/source/config/wrappers unchanged; build/deploy integration and hardware remain separate.

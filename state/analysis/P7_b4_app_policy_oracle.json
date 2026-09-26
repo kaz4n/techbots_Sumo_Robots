@@ -1,0 +1,634 @@
+{
+  "schema": "d213-independent-oracle-v1",
+  "status": "FINAL_FROZEN_BEFORE_NEW_SUBJECT_INSPECTION_OR_EXECUTION",
+  "at": "2026-09-26T19:04:46.745971+04:00",
+  "contract": {
+    "path": "state/analysis/P7_b4_app_policy_contract.md",
+    "bytes": 3996,
+    "sha256": "1d6ffa2f49ba5a7925e1fbfc70a80a73a22dc0b5cc04a936b318eb97159d52c7"
+  },
+  "subject_declaration_metadata_only": {
+    "path": "tools/b4_app_static_policy.py",
+    "bytes": 4055,
+    "sha256": "aadccdbb0a92338a90a789251f691a42e029c7f73b312b638b85d04c5d2d4ddf",
+    "author_read": false
+  },
+  "test": {
+    "path": "tests/tooling/test_b4_app_static_policy.py",
+    "bytes": 44244,
+    "sha256": "ce5e915a76eb8649da078748d0060d9b33b7e1344d910aa88e2ea01f00a8137c"
+  },
+  "inputs": {
+    "state/analysis/P7_static_link_probe_test_draft/test_static_policy.py": {
+      "bytes": 20240,
+      "sha256": "5c1b7a771c7982061e9a97db0c0dabd42f3a47a4ee8e5f6fff263a8845da36d1"
+    },
+    "state/analysis/P7_static_artifact_test_draft/synthetic_elf.py": {
+      "bytes": 7632,
+      "sha256": "503a04ea49e6452725cc489101dd3dbf7b8231c2dddac9198fdb01b7bfb2f2ef"
+    },
+    "state/analysis/P7_static_native_tls_test_draft/synthetic_native_elf.py": {
+      "bytes": 2542,
+      "sha256": "5a86d5dcde5822d87d51369f943605a702b3918e39fa992e1da4798402683e15"
+    },
+    "state/analysis/P7_static_tls_raw/observed/tls-syms.S": {
+      "bytes": 977,
+      "sha256": "68bb147615813666d528b9bd650e02fb8e240f0db841939e8460d7a52fd2ee70"
+    },
+    "state/analysis/P7_static_link_probe_raw/static_artifacts.py": {
+      "bytes": 18322,
+      "sha256": "d30372dd4b8fb8c2661d00affc4a215cc88e3f62511995ff6303827bed4b7368"
+    },
+    "tests/tooling/test_app_motor_fault_static_policy.py": {
+      "bytes": 36715,
+      "sha256": "e6d52ec6b0d72e893511793e9d92003092499280454093c9b6622d0e18547d5c"
+    },
+    "state/analysis/P7_b4_app_policy_contract.md": {
+      "bytes": 3996,
+      "sha256": "1d6ffa2f49ba5a7925e1fbfc70a80a73a22dc0b5cc04a936b318eb97159d52c7"
+    },
+    "tools/app_motor_fault_static_policy.py": {
+      "bytes": 8262,
+      "sha256": "3e5d49e4a70c0cf6197e26b1ba5ce2b7e07601bf5d9250ba430f90d1f9eab270"
+    },
+    "tools/app_build_policy.py": {
+      "bytes": 14956,
+      "sha256": "adc7f42a3325381c3cf15122409dfe9d92db7ca187cb242e416fef356be667f8"
+    },
+    "state/analysis/P7_static_link_probe_raw/static_policy.py": {
+      "bytes": 4836,
+      "sha256": "ec3d8a5e8c4910bbdbbb96fb5123c8bb42b294ce9342c76db73b8d3b5eab7775"
+    },
+    "state/analysis/P7_static_link_probe_raw/static_reference.json": {
+      "bytes": 17809,
+      "sha256": "1dc8ac6dec8534536acfcc4da73516416ea465cfcc1a349900fd13e210144a2b"
+    },
+    "state/analysis/P7_static_link_probe_raw/static_native_artifacts.py": {
+      "bytes": 3718,
+      "sha256": "cd52a29a32b8ae1da4bea51dd55d9011386dd4be0ca537195bb124d13031d6c0"
+    }
+  },
+  "input_count": 12,
+  "selection": {
+    "SnapshotContract": {
+      "methods": [
+        "test_all_public_apis_require_keyword_only_motors_and_snapshots",
+        "test_each_call_revalidates_snapshots_without_cache_or_input_mutation",
+        "test_every_snapshot_shape_size_hash_and_exact_type_rejects_before_exec",
+        "test_existing_historical_module_names_and_globals_are_not_mutated",
+        "test_motors_rejects_every_nonexact_type_and_out_of_range_before_snapshots_or_exec",
+        "test_private_profiles_m0_m1_m0_are_isolated_and_original_modules_are_unchanged",
+        "test_snapshot_map_is_copied_before_first_private_execution"
+      ],
+      "count": 7,
+      "direct_assertion_sites": 28,
+      "verdict_helper_sites": 0
+    },
+    "MetadataM0": {
+      "methods": [
+        "test_all_required_uncontrolled_metadata_is_exact",
+        "test_both_interfaces_accept_and_return_complete_actual_properties",
+        "test_compile_rejects_external_libraries_and_preserves_absent_default",
+        "test_constants_and_reference_substitution_counts_are_exact",
+        "test_every_controlled_command_is_required_and_literal",
+        "test_exact_order_all_ten_macros_and_coherent_opposite_profile_are_rejected",
+        "test_extra_controlled_keys_and_duplicate_properties_fail",
+        "test_fixed_profile_rejects_each_unreviewed_alternative",
+        "test_inserted_paths_are_substituted_once_and_never_name_rewritten",
+        "test_json_rejects_duplicates_nonfinite_malformed_and_wrong_types",
+        "test_json_result_and_builder_shapes_remain_strict",
+        "test_noncanonical_or_unsafe_path_arguments_fail",
+        "test_original_project_and_old_flags_fail_even_when_coherent",
+        "test_platform_version_core_and_variant_bind_to_caller_data",
+        "test_raw_text_and_caller_paths_reach_historical_validator_unchanged",
+        "test_recursively_expanded_or_rewritten_command_paths_fail"
+      ],
+      "count": 16,
+      "direct_assertion_sites": 17,
+      "verdict_helper_sites": 19
+    },
+    "MetadataM1": {
+      "methods": [
+        "test_all_required_uncontrolled_metadata_is_exact",
+        "test_both_interfaces_accept_and_return_complete_actual_properties",
+        "test_compile_rejects_external_libraries_and_preserves_absent_default",
+        "test_constants_and_reference_substitution_counts_are_exact",
+        "test_every_controlled_command_is_required_and_literal",
+        "test_exact_order_all_ten_macros_and_coherent_opposite_profile_are_rejected",
+        "test_extra_controlled_keys_and_duplicate_properties_fail",
+        "test_fixed_profile_rejects_each_unreviewed_alternative",
+        "test_inserted_paths_are_substituted_once_and_never_name_rewritten",
+        "test_json_rejects_duplicates_nonfinite_malformed_and_wrong_types",
+        "test_json_result_and_builder_shapes_remain_strict",
+        "test_noncanonical_or_unsafe_path_arguments_fail",
+        "test_original_project_and_old_flags_fail_even_when_coherent",
+        "test_platform_version_core_and_variant_bind_to_caller_data",
+        "test_raw_text_and_caller_paths_reach_historical_validator_unchanged",
+        "test_recursively_expanded_or_rewritten_command_paths_fail"
+      ],
+      "count": 16,
+      "direct_assertion_sites": 17,
+      "verdict_helper_sites": 19
+    },
+    "ArtifactM0": {
+      "methods": [
+        "test_all_three_allocated_images_must_agree",
+        "test_artifact_container_and_each_value_type_or_empty_are_rejected",
+        "test_each_of_six_tls_names_is_required_in_every_elf",
+        "test_each_required_actual_filename_and_only_those_names",
+        "test_each_tls_tuple_field_in_each_image_is_checked",
+        "test_elf_identity_bounds_entry_and_initialization_rejections_propagate",
+        "test_exact_success_contains_unmodified_complete_legacy_report",
+        "test_export_must_be_bytes_and_exactly_equal_build_flat_package",
+        "test_flat_and_diagnostic_package_metadata_and_payload_rejections_propagate",
+        "test_native_and_frozen_source_types_bounds_and_hashes_remain_enforced",
+        "test_real_validator_receives_exact_seven_original_byte_objects",
+        "test_returned_dictionaries_are_isolated_between_calls",
+        "test_wrong_tls_type_duplicate_or_additional_symbols_fail"
+      ],
+      "count": 13,
+      "direct_assertion_sites": 15,
+      "verdict_helper_sites": 17
+    },
+    "ArtifactM1": {
+      "methods": [
+        "test_all_three_allocated_images_must_agree",
+        "test_artifact_container_and_each_value_type_or_empty_are_rejected",
+        "test_each_of_six_tls_names_is_required_in_every_elf",
+        "test_each_required_actual_filename_and_only_those_names",
+        "test_each_tls_tuple_field_in_each_image_is_checked",
+        "test_elf_identity_bounds_entry_and_initialization_rejections_propagate",
+        "test_exact_success_contains_unmodified_complete_legacy_report",
+        "test_export_must_be_bytes_and_exactly_equal_build_flat_package",
+        "test_flat_and_diagnostic_package_metadata_and_payload_rejections_propagate",
+        "test_native_and_frozen_source_types_bounds_and_hashes_remain_enforced",
+        "test_real_validator_receives_exact_seven_original_byte_objects",
+        "test_returned_dictionaries_are_isolated_between_calls",
+        "test_wrong_tls_type_duplicate_or_additional_symbols_fail"
+      ],
+      "count": 13,
+      "direct_assertion_sites": 15,
+      "verdict_helper_sites": 17
+    }
+  },
+  "ordered_method_ids": [
+    "__main__.SnapshotContract.test_all_public_apis_require_keyword_only_motors_and_snapshots",
+    "__main__.SnapshotContract.test_each_call_revalidates_snapshots_without_cache_or_input_mutation",
+    "__main__.SnapshotContract.test_every_snapshot_shape_size_hash_and_exact_type_rejects_before_exec",
+    "__main__.SnapshotContract.test_existing_historical_module_names_and_globals_are_not_mutated",
+    "__main__.SnapshotContract.test_motors_rejects_every_nonexact_type_and_out_of_range_before_snapshots_or_exec",
+    "__main__.SnapshotContract.test_private_profiles_m0_m1_m0_are_isolated_and_original_modules_are_unchanged",
+    "__main__.SnapshotContract.test_snapshot_map_is_copied_before_first_private_execution",
+    "__main__.MetadataM0.test_all_required_uncontrolled_metadata_is_exact",
+    "__main__.MetadataM0.test_both_interfaces_accept_and_return_complete_actual_properties",
+    "__main__.MetadataM0.test_compile_rejects_external_libraries_and_preserves_absent_default",
+    "__main__.MetadataM0.test_constants_and_reference_substitution_counts_are_exact",
+    "__main__.MetadataM0.test_every_controlled_command_is_required_and_literal",
+    "__main__.MetadataM0.test_exact_order_all_ten_macros_and_coherent_opposite_profile_are_rejected",
+    "__main__.MetadataM0.test_extra_controlled_keys_and_duplicate_properties_fail",
+    "__main__.MetadataM0.test_fixed_profile_rejects_each_unreviewed_alternative",
+    "__main__.MetadataM0.test_inserted_paths_are_substituted_once_and_never_name_rewritten",
+    "__main__.MetadataM0.test_json_rejects_duplicates_nonfinite_malformed_and_wrong_types",
+    "__main__.MetadataM0.test_json_result_and_builder_shapes_remain_strict",
+    "__main__.MetadataM0.test_noncanonical_or_unsafe_path_arguments_fail",
+    "__main__.MetadataM0.test_original_project_and_old_flags_fail_even_when_coherent",
+    "__main__.MetadataM0.test_platform_version_core_and_variant_bind_to_caller_data",
+    "__main__.MetadataM0.test_raw_text_and_caller_paths_reach_historical_validator_unchanged",
+    "__main__.MetadataM0.test_recursively_expanded_or_rewritten_command_paths_fail",
+    "__main__.MetadataM1.test_all_required_uncontrolled_metadata_is_exact",
+    "__main__.MetadataM1.test_both_interfaces_accept_and_return_complete_actual_properties",
+    "__main__.MetadataM1.test_compile_rejects_external_libraries_and_preserves_absent_default",
+    "__main__.MetadataM1.test_constants_and_reference_substitution_counts_are_exact",
+    "__main__.MetadataM1.test_every_controlled_command_is_required_and_literal",
+    "__main__.MetadataM1.test_exact_order_all_ten_macros_and_coherent_opposite_profile_are_rejected",
+    "__main__.MetadataM1.test_extra_controlled_keys_and_duplicate_properties_fail",
+    "__main__.MetadataM1.test_fixed_profile_rejects_each_unreviewed_alternative",
+    "__main__.MetadataM1.test_inserted_paths_are_substituted_once_and_never_name_rewritten",
+    "__main__.MetadataM1.test_json_rejects_duplicates_nonfinite_malformed_and_wrong_types",
+    "__main__.MetadataM1.test_json_result_and_builder_shapes_remain_strict",
+    "__main__.MetadataM1.test_noncanonical_or_unsafe_path_arguments_fail",
+    "__main__.MetadataM1.test_original_project_and_old_flags_fail_even_when_coherent",
+    "__main__.MetadataM1.test_platform_version_core_and_variant_bind_to_caller_data",
+    "__main__.MetadataM1.test_raw_text_and_caller_paths_reach_historical_validator_unchanged",
+    "__main__.MetadataM1.test_recursively_expanded_or_rewritten_command_paths_fail",
+    "__main__.ArtifactM0.test_all_three_allocated_images_must_agree",
+    "__main__.ArtifactM0.test_artifact_container_and_each_value_type_or_empty_are_rejected",
+    "__main__.ArtifactM0.test_each_of_six_tls_names_is_required_in_every_elf",
+    "__main__.ArtifactM0.test_each_required_actual_filename_and_only_those_names",
+    "__main__.ArtifactM0.test_each_tls_tuple_field_in_each_image_is_checked",
+    "__main__.ArtifactM0.test_elf_identity_bounds_entry_and_initialization_rejections_propagate",
+    "__main__.ArtifactM0.test_exact_success_contains_unmodified_complete_legacy_report",
+    "__main__.ArtifactM0.test_export_must_be_bytes_and_exactly_equal_build_flat_package",
+    "__main__.ArtifactM0.test_flat_and_diagnostic_package_metadata_and_payload_rejections_propagate",
+    "__main__.ArtifactM0.test_native_and_frozen_source_types_bounds_and_hashes_remain_enforced",
+    "__main__.ArtifactM0.test_real_validator_receives_exact_seven_original_byte_objects",
+    "__main__.ArtifactM0.test_returned_dictionaries_are_isolated_between_calls",
+    "__main__.ArtifactM0.test_wrong_tls_type_duplicate_or_additional_symbols_fail",
+    "__main__.ArtifactM1.test_all_three_allocated_images_must_agree",
+    "__main__.ArtifactM1.test_artifact_container_and_each_value_type_or_empty_are_rejected",
+    "__main__.ArtifactM1.test_each_of_six_tls_names_is_required_in_every_elf",
+    "__main__.ArtifactM1.test_each_required_actual_filename_and_only_those_names",
+    "__main__.ArtifactM1.test_each_tls_tuple_field_in_each_image_is_checked",
+    "__main__.ArtifactM1.test_elf_identity_bounds_entry_and_initialization_rejections_propagate",
+    "__main__.ArtifactM1.test_exact_success_contains_unmodified_complete_legacy_report",
+    "__main__.ArtifactM1.test_export_must_be_bytes_and_exactly_equal_build_flat_package",
+    "__main__.ArtifactM1.test_flat_and_diagnostic_package_metadata_and_payload_rejections_propagate",
+    "__main__.ArtifactM1.test_native_and_frozen_source_types_bounds_and_hashes_remain_enforced",
+    "__main__.ArtifactM1.test_real_validator_receives_exact_seven_original_byte_objects",
+    "__main__.ArtifactM1.test_returned_dictionaries_are_isolated_between_calls",
+    "__main__.ArtifactM1.test_wrong_tls_type_duplicate_or_additional_symbols_fail"
+  ],
+  "total_methods": 65,
+  "platform_expectation": {
+    "linux": {
+      "pass": 65,
+      "skip": 0
+    },
+    "windows": {
+      "pass": 65,
+      "skip": 0
+    }
+  },
+  "assertion_inventory": {
+    "direct_sites_selected_classes": 92,
+    "verdict_helper_sites_selected_classes": 72,
+    "fixture_assertion_sites": 2,
+    "notes": "Shared metadata/artifact source bodies are each instantiated for M0 and M1; counts are syntax sites, not loop-expanded assertion executions."
+  },
+  "selected_historical_methods": {
+    "FixedMetadataContract.test_constants_and_reference_substitution_counts_are_exact": {
+      "original": {
+        "bytes": 447,
+        "sha256": "a00ac86bff3dcdf0bcc345905d69e8fd7ae201d5d52ccbcf8802e4161523cb56"
+      },
+      "assertions": 4,
+      "new": {
+        "bytes": 682,
+        "sha256": "af17c0f69c96d4a73b074e0a16e631900bc8b758bae528894e2e70dfd526746d"
+      },
+      "new_assertions": 4
+    },
+    "FixedMetadataContract.test_both_interfaces_accept_and_return_complete_actual_properties": {
+      "original": {
+        "bytes": 509,
+        "sha256": "43bb8d77ef5bea188a5fa9a468837b3db49cf4ef56c639bc203b43a193cd38e2"
+      },
+      "assertions": 3,
+      "new": {
+        "bytes": 504,
+        "sha256": "829ecdc175e65be8bfdb4601b970ab8afc22ac8038c9a2bd57f2b3beb531cf54"
+      },
+      "new_assertions": 3
+    },
+    "FixedMetadataContract.test_raw_text_and_caller_paths_reach_historical_validator_unchanged": {
+      "original": {
+        "bytes": 947,
+        "sha256": "29a95b6368061c8b74364c745425f12de305b7fb24a400de4ea2f8f057aea912"
+      },
+      "assertions": 5,
+      "new": {
+        "bytes": 942,
+        "sha256": "73672ebcd8821ed88bbfe4f1867ea650913d189ccbe08e7e176f8fe37eaba318"
+      },
+      "new_assertions": 5
+    },
+    "FixedMetadataContract.test_inserted_paths_are_substituted_once_and_never_name_rewritten": {
+      "original": {
+        "bytes": 674,
+        "sha256": "41bea3d2eb732808bcd3d16db5791e8ff311496e2566d5be3ff90bbfad00dab5"
+      },
+      "assertions": 1,
+      "new": {
+        "bytes": 669,
+        "sha256": "0732d94d9fc215f9497085a6e531bcd9fc0a77e3b740a3a27e98b5c18272838c"
+      },
+      "new_assertions": 1
+    },
+    "FixedMetadataContract.test_recursively_expanded_or_rewritten_command_paths_fail": {
+      "original": {
+        "bytes": 553,
+        "sha256": "0a7f3d73d4fff853ebd953c64fb425fc87b40fc8b2f15834183a2f7ce138fb56"
+      },
+      "assertions": 1,
+      "new": {
+        "bytes": 562,
+        "sha256": "476bacb1802500ce1e5fbe94e6e70db18da59069dae89c2e9c13ef22559ad563"
+      },
+      "new_assertions": 1
+    },
+    "FixedMetadataContract.test_original_project_and_old_flags_fail_even_when_coherent": {
+      "original": {
+        "bytes": 506,
+        "sha256": "a1ab2a4424dbe7e87c836a1f071b79350d50df8b2814643b39e2c878e9cd5340"
+      },
+      "assertions": 0,
+      "new": {
+        "bytes": 513,
+        "sha256": "771775de5b96a57a4c2c3da03197d2adca90bd75b3bb6f55a7a2d1753081b576"
+      },
+      "new_assertions": 0
+    },
+    "FixedMetadataContract.test_fixed_profile_rejects_each_unreviewed_alternative": {
+      "original": {
+        "bytes": 1402,
+        "sha256": "0b5e2d03eba2e351d46a81c345f7156d277a2c2c474ab2b08e6ae885615db1d8"
+      },
+      "assertions": 0,
+      "new": {
+        "bytes": 1425,
+        "sha256": "378ecb2431a12e1ebf56b9a0ed85a6b961a2be1180fbdedf7096944374243508"
+      },
+      "new_assertions": 0
+    },
+    "FixedMetadataContract.test_every_controlled_command_is_required_and_literal": {
+      "original": {
+        "bytes": 424,
+        "sha256": "fcf2498904799285165f0cf90a173d9df72daa29a63e306b19fe556fa0d5eacd"
+      },
+      "assertions": 0,
+      "new": {
+        "bytes": 419,
+        "sha256": "8cc7b0c574ce88b2a8f4e596ed4b03a5569d5eb38e7eb7f595026158512b4786"
+      },
+      "new_assertions": 0
+    },
+    "FixedMetadataContract.test_extra_controlled_keys_and_duplicate_properties_fail": {
+      "original": {
+        "bytes": 679,
+        "sha256": "7d48291134f4d7b7ce07e5efd635a6628829bbbf948a61bb9224dd45c8ccd5ad"
+      },
+      "assertions": 0,
+      "new": {
+        "bytes": 674,
+        "sha256": "48c70d801a340066c42f0d55e92b2003cdbbaa06b68665d3a55363de70aad9ff"
+      },
+      "new_assertions": 0
+    },
+    "FixedMetadataContract.test_all_required_uncontrolled_metadata_is_exact": {
+      "original": {
+        "bytes": 446,
+        "sha256": "f0e7580a291a4c17a47a09b5e80211228fd13f83baeea9e21f5fa17464dbaf73"
+      },
+      "assertions": 0,
+      "new": {
+        "bytes": 441,
+        "sha256": "26fc96e0271f88d3d7777d6efe867c3d1cac9e189858b4a7678fd6b21cd7ed57"
+      },
+      "new_assertions": 0
+    },
+    "FixedMetadataContract.test_platform_version_core_and_variant_bind_to_caller_data": {
+      "original": {
+        "bytes": 648,
+        "sha256": "ef65dbe5bc2c4240837a984433b8b49c34d9e64ba17c63e152fbf6ecd2745278"
+      },
+      "assertions": 0,
+      "new": {
+        "bytes": 643,
+        "sha256": "c50a5c70f05513eaf2ece71e23f625f8f71c473a1f8f0e83f186d9c8423bfff9"
+      },
+      "new_assertions": 0
+    },
+    "FixedMetadataContract.test_noncanonical_or_unsafe_path_arguments_fail": {
+      "original": {
+        "bytes": 611,
+        "sha256": "075bbde26cca47cb6cb2b297c69b241df2996ce159974763fb1c67bfc7ef1cc7"
+      },
+      "assertions": 0,
+      "new": {
+        "bytes": 606,
+        "sha256": "60227af59421fcbbc1f0f1c5573671b4d50cd298bfc1e9fe1a0208194a1f08c4"
+      },
+      "new_assertions": 0
+    },
+    "FixedMetadataContract.test_compile_rejects_external_libraries_and_preserves_absent_default": {
+      "original": {
+        "bytes": 749,
+        "sha256": "f0d2f159d6b5d3a05292f6138f0833371644c25b76e283e8ac2ee6127ab75e07"
+      },
+      "assertions": 2,
+      "new": {
+        "bytes": 744,
+        "sha256": "f8328feb44ceb63c361e7222500a8c10153ba527179d2140eb2c9a5cc329f86b"
+      },
+      "new_assertions": 2
+    },
+    "FixedMetadataContract.test_json_rejects_duplicates_nonfinite_malformed_and_wrong_types": {
+      "original": {
+        "bytes": 662,
+        "sha256": "20af8d8eb3256cac1f95e2a486b85ff9a1e229540c14faf148debab95c66ad28"
+      },
+      "assertions": 0,
+      "new": {
+        "bytes": 657,
+        "sha256": "9d3c621b567d0fd44365e4c0a3002f5a87a419ed0b97eb933f107c368ab3ddfd"
+      },
+      "new_assertions": 0
+    },
+    "FixedMetadataContract.test_json_result_and_builder_shapes_remain_strict": {
+      "original": {
+        "bytes": 945,
+        "sha256": "34dd92c050e7c087e8675ea3a49e8f7ef1af1b6436479cb1bec7b5fbac19dfab"
+      },
+      "assertions": 0,
+      "new": {
+        "bytes": 940,
+        "sha256": "b65602faccebb72a696bbd55dc0478bb838e3787b476346db04113fb5857295b"
+      },
+      "new_assertions": 0
+    },
+    "FixedArtifactContract.test_exact_success_contains_unmodified_complete_legacy_report": {
+      "original": {
+        "bytes": 577,
+        "sha256": "8deac05146cb9fb187ca43f57c89927fab5defc8e9bdf469a89c1ee50c1135a3"
+      },
+      "assertions": 5,
+      "new": {
+        "bytes": 572,
+        "sha256": "2cd4609eb4112989a9afe9bbcf7a3c5250410404060e7f035626357b3a006e8a"
+      },
+      "new_assertions": 5
+    },
+    "FixedArtifactContract.test_real_validator_receives_exact_seven_original_byte_objects": {
+      "original": {
+        "bytes": 1016,
+        "sha256": "4ca5bea8fe27fdff36b2f0ec912bf0c0cd0a91db2b240a7b4c62bc4fd61904bd"
+      },
+      "assertions": 6,
+      "new": {
+        "bytes": 1011,
+        "sha256": "149c2598fc1f26e407bede9bc44721b35c2a88954bb8159752d31b0b3dd92715"
+      },
+      "new_assertions": 6
+    },
+    "FixedArtifactContract.test_returned_dictionaries_are_isolated_between_calls": {
+      "original": {
+        "bytes": 374,
+        "sha256": "d3230b2ffc96e2f092d9e4579c1c1bb34c2fd936afdf2ff4b0971482b1086f9d"
+      },
+      "assertions": 1,
+      "new": {
+        "bytes": 369,
+        "sha256": "a89f8896e613021e4763336802babd58dd4b22c88805e2759dfa40e9c79b63a1"
+      },
+      "new_assertions": 1
+    },
+    "FixedArtifactContract.test_each_required_actual_filename_and_only_those_names": {
+      "original": {
+        "bytes": 636,
+        "sha256": "07d0db8c18a3f90f9637ab1d153e7018f40af143bf7daa4a230bc8627992bbec"
+      },
+      "assertions": 0,
+      "new": {
+        "bytes": 800,
+        "sha256": "0b93f151191dfcc7cd83809896b8d6fd0ea050320aace41793f712a04aabe27f"
+      },
+      "new_assertions": 0
+    },
+    "FixedArtifactContract.test_artifact_container_and_each_value_type_or_empty_are_rejected": {
+      "original": {
+        "bytes": 664,
+        "sha256": "165f651663245608f1dab48b79df79de29f334e973a5215ef8f8a202d40a3ca6"
+      },
+      "assertions": 0,
+      "new": {
+        "bytes": 659,
+        "sha256": "55c5717bb8cf8cf2ba07d50fd02e42937c0812af525e9a36de8e419e5daf3bf6"
+      },
+      "new_assertions": 0
+    },
+    "FixedArtifactContract.test_export_must_be_bytes_and_exactly_equal_build_flat_package": {
+      "original": {
+        "bytes": 786,
+        "sha256": "c632c8926275d04354041a7803fcf82e63f8cc29b8d0eb78a9b6708235f6e7ab"
+      },
+      "assertions": 2,
+      "new": {
+        "bytes": 772,
+        "sha256": "3439dce1a30bb799266b855bf3ec82ffa361031d7798463f82129480850308ab"
+      },
+      "new_assertions": 2
+    },
+    "FixedArtifactContract.test_native_and_frozen_source_types_bounds_and_hashes_remain_enforced": {
+      "original": {
+        "bytes": 922,
+        "sha256": "452b139ce7468b9c561891016949955ee53c4dd46230bf65bc4c48563475ce13"
+      },
+      "assertions": 1,
+      "new": {
+        "bytes": 908,
+        "sha256": "503b49238c7d1a309154dea29dd995dd819b26ac03663ce93aeff075931f9760"
+      },
+      "new_assertions": 1
+    },
+    "FixedArtifactContract.test_each_of_six_tls_names_is_required_in_every_elf": {
+      "original": {
+        "bytes": 462,
+        "sha256": "0529592c8b9636517fabebea2aaf9aa15eef9e78e4a3a6377cab954fb8538c07"
+      },
+      "assertions": 0,
+      "new": {
+        "bytes": 457,
+        "sha256": "06bc4daaa278565f0fd7e7315e522b6550912856b1ed4a6ec466c565c4592962"
+      },
+      "new_assertions": 0
+    },
+    "FixedArtifactContract.test_each_tls_tuple_field_in_each_image_is_checked": {
+      "original": {
+        "bytes": 505,
+        "sha256": "805b0fa0cf508b0826f9d2dad40878672a03a91dfe402e641c4cac977373f8f4"
+      },
+      "assertions": 0,
+      "new": {
+        "bytes": 500,
+        "sha256": "24681d402d62ca752d5291bc68a3f38da86aa07c76b0dae24e4455c7471fa7d2"
+      },
+      "new_assertions": 0
+    },
+    "FixedArtifactContract.test_wrong_tls_type_duplicate_or_additional_symbols_fail": {
+      "original": {
+        "bytes": 974,
+        "sha256": "94fc5d68581d3f2015c07ef11ee2aa06c7eb2f13ace17f4658bf78ab711aff52"
+      },
+      "assertions": 0,
+      "new": {
+        "bytes": 969,
+        "sha256": "96b181fd3ef980853dc7708e931c9dcd556479cf684231f686f796b2599a131d"
+      },
+      "new_assertions": 0
+    },
+    "FixedArtifactContract.test_elf_identity_bounds_entry_and_initialization_rejections_propagate": {
+      "original": {
+        "bytes": 1021,
+        "sha256": "387ed1ae601457c684d302bb34efe2dc933f66daaf7e4050746270660dce5759"
+      },
+      "assertions": 0,
+      "new": {
+        "bytes": 1016,
+        "sha256": "131bb3c351e92ee9409109c86b6dd8e84d9553cb95c9d8fc5688089d3c3f00a1"
+      },
+      "new_assertions": 0
+    },
+    "FixedArtifactContract.test_all_three_allocated_images_must_agree": {
+      "original": {
+        "bytes": 386,
+        "sha256": "5c4c2d6d1da279641471d4eca9128341552821263b5728a50b8e0f616c4ee5e9"
+      },
+      "assertions": 0,
+      "new": {
+        "bytes": 381,
+        "sha256": "df6e7b0d2c2f0ccff7730fec65c476f1816151f24c09650808de74276016adb2"
+      },
+      "new_assertions": 0
+    },
+    "FixedArtifactContract.test_flat_and_diagnostic_package_metadata_and_payload_rejections_propagate": {
+      "original": {
+        "bytes": 773,
+        "sha256": "ca5ad5db1ea0e0e7729d3ddefe639ec7eec86a24b1785d1b2a657072630988d3"
+      },
+      "assertions": 0,
+      "new": {
+        "bytes": 768,
+        "sha256": "fa2dfe8eae172e3d9a4335a70e6f2500cacb2dc19edabcec47833b62c4fc04b7"
+      },
+      "new_assertions": 0
+    }
+  },
+  "historical_dependency_mapping": {
+    "test_ordinary_relocated_minimal_tree_accepts_all_interfaces": "Both M0/M1 metadata and artifact positives use five explicit pinned byte snapshots with all source reads prohibited; no relocated filesystem tree is required by the new API.",
+    "test_each_call_rechecks_missing_changed_oversized_and_nonfile_dependencies": "SnapshotContract tests each path and public API for missing/extra/exact key/value types/short/long/changed/oversize plus repeated-call validation; no cache can promote changed bytes.",
+    "test_each_dependency_symlink_and_its_ancestor_symlink_fail_after_import": "Filesystem path acquisition is outside this bytes API. Original test remains unchanged. Exact string key/bytes admission plus no source opens replace this boundary here; no claim of new filesystem symlink validation.",
+    "test_reparse_attribute_on_files_and_ancestors_is_rejected": "Same scoped replacement as symlink acquisition: no source-data rereads. Existing read-only module-location resolution is permitted. Original filesystem test stays intact.",
+    "test_adapter_does_not_mutate_other_historical_consumers": "SnapshotContract tests M0/M1/M0 and sentinel historical sys.modules identities/globals; snapshots stay unchanged, results stay independent."
+  },
+  "adaptation_audit": [
+    "Fifteen metadata and thirteen artifact test bodies preserve every existing direct assertion count; their shared fixtures now supply required explicit motors and exact snapshots. They are concrete source methods, not runtime text projections.",
+    "Public constant checks now assert the normative ten flags/reference84/name24/flags5 rather than requiring undocumented subject constants.",
+    "Diagnostic project negatives become app_motor_fault.ino because app.ino is now positive; rewritten path negative remains explicitly unequal.",
+    "Both motor variants use coherent opposite-profile flags as a negative; PROBE=0 is changed to1. New case rejects reordered/missing/duplicate/extra/B4-disabled and each competing-profile macro across all matching properties.",
+    "Seven filename aliases are identity mappings. The old legacy packet negative is explicitly renamed to app_motor_fault.ino; extra-name cases use diagnostic names rather than current positive aliases.",
+    "Artifact expected report keeps all historical fields/nested layout/TLS/size/hash data, changes only outward status/project/flags/identity aliases and adds declared motors_allowed. Direct bad native/frozen/export calls supply required keywords through the same no-effect fixture.",
+    "Every five-snapshot mutation is tested for each public API before exec. Motor failures are compared with the same invalid-motor baseline and forbid both source hashing and exec to establish motor admission ordering.",
+    "Caller snapshot map is altered by a controlled callback at the first private exec; successful checks must use the earlier validated copy. Original bytes are immutable and not changed.",
+    "All original33 historical tests and source files remain unchanged; five filesystem dependency tests are explicitly mapped above, not silently deleted or claimed applicable."
+  ],
+  "no_effects": "During subject import/public calls, builtins/io/Path source reads and writes, descriptor opens, subprocesses, sockets and filesystem mutations raise AssertionError. Read-only module-location resolution remains permitted. Historical synthetic/helper inputs are pinned and loaded only by test fixture setup.",
+  "commands": {
+    "linux_first": "env TMPDIR=/dev/shm python3 -I -B tests/tooling/test_b4_app_static_policy.py -v",
+    "windows_after_linux": "python -I -B tests/tooling/test_b4_app_static_policy.py -v"
+  },
+  "execution_plan": "Root only after separate source/oracle readiness; serial Linux then Windows with isolated temporary roots and 600-second limits, exclusive raw receipts and before/after frozen pins. Preserve first failure; no automatic retries.",
+  "authoring_validation": {
+    "ast_parse": true,
+    "methods": 65,
+    "historical_methods_adapted": 28,
+    "historical_suite_unchanged": true,
+    "all12pins_match": true,
+    "new_subject_reads": 0,
+    "new_subject_hashes": 0,
+    "new_subject_imports": 0,
+    "test_invocations": 0,
+    "native_calls": 0,
+    "authoring_refusals": []
+  },
+  "limits": "Host policy tests only. The artifact motors_allowed field declares requested validated profile, not compiler origin, motor authorization, runtime state or physical inhibition. No build, upload, target action, commissioning or gate follows from this freeze."
+}

@@ -502,3 +502,6 @@ D191 closing observation: C:recovered290537472B independently before local docum
 
 
 2026-09-26T19:05:17.329579+04:00 P7 D212 actual evidence: retained exact13transportreceipts,16-file savedpacket20172B and decoded61257B pluscompact closure/review; no duplicate SRAM binary downloads. Native and retrieval owners consumed. Board uploader scratch is retained pending a separatelyverified cleanup if a futureuploadneedsit; no automatic repeat or broaddeletion. Originaltarget artifacts/unique failures/source/Githistory remain. No build orbytecode created bythisobservation.
+
+
+2026-09-26T19:11:44.235046+04:00 P7 D213: retained130host outcomes/compact16pinfreeze/closure and source+oracle; no compilerobjects or bytecode. Windows dedicated temporary parent observedempty and retained as command-owner evidence; no repeat of any policy-denied deletion.

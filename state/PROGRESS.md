@@ -1511,3 +1511,6 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-26T19:05:17.329579+04:00 P7: D212 ordinaryM0 upload/passivecapture/retrieval/decoded actual accepted review173dd5c2. Oneupload/onecapture28reads715858B/allflashmatch/380pinsstable;214scalars,epoch integers142768→145878,477us sampledmax/missed0/no sampledfault ornonzerocommand, initfalse/RobotBOOT/zerogrants. Bareboard confirmed. Allnative/retrievalowners consumed; no retry/gate/physical/WCETclaim. D213B4policy hostvalidation next.
+
+
+2026-09-26T19:11:44.235046+04:00 P7: D213 B4 snapshotpolicy implemented/host-tested/reviewed67441159PASS. First65cases eachplatform/all16pinsstable; no nativeoperation. Next fixedM0B4compile-only integration; userBOARD ONLY.

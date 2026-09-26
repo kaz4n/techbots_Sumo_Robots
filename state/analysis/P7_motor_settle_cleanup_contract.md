@@ -176,8 +176,15 @@ Keep raw/partial cleanup stdout, strict duplicate/nonfinite JSON refusal,
 first failure, removed-name list, independent close/restoration/drop errors,
 all output fields and success conditions. Only the nested and outer schema
 strings become d200-exact-settle-scratch-cleanup-v1 and
-d200-authenticated-settle-cleanup-v1. No receipt can be treated as successful
-solely because a transport exited0 or some files became absent.
+d200-authenticated-settle-cleanup-v1. The unchanged run_original validates
+that parsed output is an object, cleanup_returncode is0 and status is
+REMOVED_EXACT_STALE_COPIES; it does not independently check the nested schema.
+Do not add a runtime schema predicate or claim it rejects an old-schema JSON
+object that otherwise meets those existing checks. The exact pinned sources
+emit the D200 schemas; the independent coordinator validates both schemas
+and all required evidence in the actual saved receipt before accepting the
+cleanup result. No receipt can be treated as successful solely because a
+transport exited0 or some files became absent.
 
 ## Fresh staging and one scoped authenticated action
 
@@ -235,8 +242,13 @@ in the new freeze instead of claiming old fixed metadata describes D200.
 
 Add independent exact four-step recipe and six-step wrapper reconstruction,
 private observer projection identity and unchanged nonmetadata source checks.
-Old inode869, old D190 payload basename/size/hash/retained path, old wrapper
-stage/schema and D19895,520-byte/e4000781 image substitutions must refuse.
+Old inode869, old D190 payload basename/size/hash/retained path and
+D19895,520-byte/e4000781 image substitutions must refuse. Old wrapper stage
+or schema metadata substituted into source bytes fails the fixed source pins;
+using an old stage path fails the exact staged-source/path binding. Check the
+exact emitted D200 outer/nested schema values and the coordinator's saved-
+receipt validation separately. Do not assert that the unchanged run_original
+automatically rejects otherwise valid externally supplied old-schema JSON.
 Check current helper pin, three and only three unlinks plus empty rmdir as
 UID/GID1000, protected same-user observation under effective UID0, restoration
 before mutation, permanent UID/GID1000 on all admitted exits, first-error

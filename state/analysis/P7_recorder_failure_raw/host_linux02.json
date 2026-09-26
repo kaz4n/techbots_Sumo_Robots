@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "returncode": 0,
+  "native_calls": 0,
+  "utc": "2026-09-26T20:31:39.525959+00:00",
+  "command": [
+    "wsl",
+    "-d",
+    "Ubuntu",
+    "--",
+    "python3",
+    "-B",
+    "-c",
+    "import os,pathlib,json,shutil,subprocess,tempfile\nsrc=pathlib.Path('/mnt/c/Users/narut/AppData/Local/Temp/sumox-recorder-diagnosis-20260927')\nmanifest=json.loads((src/'state/analysis/P7_recorder_delivery_raw/recorder-377911abefabd094/inputs.json').read_bytes())\nfiles=set(manifest['files'])\nfiles.update(['tools/recorder_failure_abi.py','tools/recorder_failure_capture.py','tests/test_recorder_failure.py','state/analysis/P7_recorder_failure_contract.md','state/analysis/P7_recorder_failure_raw/plan.json','state/analysis/P7_ordinary_app_static_compile_raw/inspect_static_abi.py','state/analysis/P7_app_motor_fault_compile_raw/inspect_static_abi.py','state/analysis/P7_motor_fault_raw/inspect_active_abi.py'])\nfiles.update('state/analysis/P7_recorder_delivery_raw/recorder-377911abefabd094/'+n for n in ('inputs.json','artifacts.json','result.json','staged_files.json'))\nwith tempfile.TemporaryDirectory(prefix='sumox-recorder-linux-',dir='/dev/shm') as name:\n dst=pathlib.Path(name)\n for p in files:\n  q=dst/p;q.parent.mkdir(parents=True,exist_ok=True);q.write_bytes((src/p).read_bytes())\n os.environ['GIT_DIR']='/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/.git/worktrees/sumox-recorder-diagnosis-20260927'\n os.environ['GIT_WORK_TREE']=str(dst)\n run=subprocess.run(['python3','-B','-m','unittest','discover','-s',str(dst/'tests'),'-p','test_recorder_failure.py','-v'],cwd=dst)\n raise SystemExit(run.returncode)\n"
+  ],
+  "source_pins": {
+    "tools/recorder_failure_abi.py": "2191e8d77513ee3b2d9f47497523cf3199a70112e325e01d1543b8e3aca1add6",
+    "tools/recorder_failure_capture.py": "13fc387d0cb6d0475232aa4683bf47423ad2f85255db543f62da71ea5c8420b2",
+    "tests/test_recorder_failure.py": "a85a3b6ff6d6c84d16db0e7882da2f2da278642caeaac5235874d3d2822ea6c2",
+    "state/analysis/P7_recorder_failure_contract.md": "565cbdf85ddb03db1cd843eb7b2d0a31d875c8e55ed3027e1e3a56bd3cd50279",
+    "state/analysis/P7_recorder_failure_raw/plan.json": "6bdfd2a6652f6c9309bafa525b8ce9db181c36d6f367e8d2452acc9c7d1290b1"
+  }
+}

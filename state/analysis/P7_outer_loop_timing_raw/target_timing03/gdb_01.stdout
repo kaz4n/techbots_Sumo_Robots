@@ -1,0 +1,674 @@
+OBJECT_LAYOUT
+/* offset      |    size */  type = class app::outer_loop_timing::Observer {
+/*      0      |    6688 */    struct app::outer_loop_timing::Data {
+/*      0      |    3236 */        class app::epoch_timing::Distribution {
+/*      0      |    3236 */            struct app::epoch_timing::Data {
+/*      0      |    3200 */                uint32_t bins[800];
+/*   3200      |       4 */                uint32_t samples;
+/*   3204      |       4 */                uint32_t overflow;
+/*   3208      |       4 */                uint32_t rejected;
+/*   3212      |       4 */                uint32_t retained_maximum_us;
+/*   3216      |       4 */                uint32_t maximum_us;
+/*   3220      |       4 */                uint32_t first_started_us;
+/*   3224      |       4 */                uint32_t retained_completed_us;
+/*   3228      |       4 */                uint32_t last_completed_us;
+/*   3232      |       1 */                bool saturated;
+/* XXX  3-byte padding   */
+
+                                           /* total size (bytes): 3236 */
+                                       } data_;
+
+                                       /* total size (bytes): 3236 */
+                                   } all;
+/*   3236      |    3236 */        class app::epoch_timing::Distribution {
+/*   3236      |    3236 */            struct app::epoch_timing::Data {
+/*   3236      |    3200 */                uint32_t bins[800];
+/*   6436      |       4 */                uint32_t samples;
+/*   6440      |       4 */                uint32_t overflow;
+/*   6444      |       4 */                uint32_t rejected;
+/*   6448      |       4 */                uint32_t retained_maximum_us;
+/*   6452      |       4 */                uint32_t maximum_us;
+/*   6456      |       4 */                uint32_t first_started_us;
+/*   6460      |       4 */                uint32_t retained_completed_us;
+/*   6464      |       4 */                uint32_t last_completed_us;
+/*   6468      |       1 */                bool saturated;
+/* XXX  3-byte padding   */
+
+                                           /* total size (bytes): 3236 */
+                                       } data_;
+
+                                       /* total size (bytes): 3236 */
+                                   } completed;
+/*   6472      |       1 */        app::outer_loop_timing::Status status;
+/* XXX  3-byte hole      */
+/*   6476      |       8 */        struct app::outer_loop_timing::Count {
+/*   6476      |       4 */            uint32_t polls;
+/*   6480      |       4 */            uint32_t maximum_us;
+
+                                       /* total size (bytes):    8 */
+                                   } idle;
+/*   6484      |       8 */        struct app::outer_loop_timing::Count {
+/*   6484      |       4 */            uint32_t polls;
+/*   6488      |       4 */            uint32_t maximum_us;
+
+                                       /* total size (bytes):    8 */
+                                   } failed;
+/*   6492      |       8 */        struct app::outer_loop_timing::Count {
+/*   6492      |       4 */            uint32_t polls;
+/*   6496      |       4 */            uint32_t maximum_us;
+
+                                       /* total size (bytes):    8 */
+                                   } terminal;
+/*   6500      |       8 */        struct app::outer_loop_timing::Count {
+/*   6500      |       4 */            uint32_t polls;
+/*   6504      |       4 */            uint32_t maximum_us;
+
+                                       /* total size (bytes):    8 */
+                                   } uncertain;
+/*   6508      |      28 */        struct app::outer_loop_timing::Poll {
+/*   6508      |      12 */            struct app::outer_loop_timing::Context {
+/*   6508      |       1 */                app::RuntimePhase phase;
+/*   6509      |       1 */                app::RuntimeFault fault;
+/* XXX  2-byte hole      */
+/*   6512      |       4 */                uint32_t epochs;
+/*   6516      |       1 */                bool initialized;
+/* XXX  3-byte padding   */
+
+                                           /* total size (bytes):   12 */
+                                       } before;
+/*   6520      |      12 */            struct app::outer_loop_timing::Context {
+/*   6520      |       1 */                app::RuntimePhase phase;
+/*   6521      |       1 */                app::RuntimeFault fault;
+/* XXX  2-byte hole      */
+/*   6524      |       4 */                uint32_t epochs;
+/*   6528      |       1 */                bool initialized;
+/* XXX  3-byte padding   */
+
+                                           /* total size (bytes):   12 */
+                                       } after;
+/*   6532      |       1 */            bool returned;
+/* XXX  3-byte padding   */
+
+                                       /* total size (bytes):   28 */
+                                   } pending;
+/*   6536      |      28 */        struct app::outer_loop_timing::Poll {
+/*   6536      |      12 */            struct app::outer_loop_timing::Context {
+/*   6536      |       1 */                app::RuntimePhase phase;
+/*   6537      |       1 */                app::RuntimeFault fault;
+/* XXX  2-byte hole      */
+/*   6540      |       4 */                uint32_t epochs;
+/*   6544      |       1 */                bool initialized;
+/* XXX  3-byte padding   */
+
+                                           /* total size (bytes):   12 */
+                                       } before;
+/*   6548      |      12 */            struct app::outer_loop_timing::Context {
+/*   6548      |       1 */                app::RuntimePhase phase;
+/*   6549      |       1 */                app::RuntimeFault fault;
+/* XXX  2-byte hole      */
+/*   6552      |       4 */                uint32_t epochs;
+/*   6556      |       1 */                bool initialized;
+/* XXX  3-byte padding   */
+
+                                           /* total size (bytes):   12 */
+                                       } after;
+/*   6560      |       1 */            bool returned;
+/* XXX  3-byte padding   */
+
+                                       /* total size (bytes):   28 */
+                                   } last_population;
+/*   6564      |      28 */        struct app::outer_loop_timing::Poll {
+/*   6564      |      12 */            struct app::outer_loop_timing::Context {
+/*   6564      |       1 */                app::RuntimePhase phase;
+/*   6565      |       1 */                app::RuntimeFault fault;
+/* XXX  2-byte hole      */
+/*   6568      |       4 */                uint32_t epochs;
+/*   6572      |       1 */                bool initialized;
+/* XXX  3-byte padding   */
+
+                                           /* total size (bytes):   12 */
+                                       } before;
+/*   6576      |      12 */            struct app::outer_loop_timing::Context {
+/*   6576      |       1 */                app::RuntimePhase phase;
+/*   6577      |       1 */                app::RuntimeFault fault;
+/* XXX  2-byte hole      */
+/*   6580      |       4 */                uint32_t epochs;
+/*   6584      |       1 */                bool initialized;
+/* XXX  3-byte padding   */
+
+                                           /* total size (bytes):   12 */
+                                       } after;
+/*   6588      |       1 */            bool returned;
+/* XXX  3-byte padding   */
+
+                                       /* total size (bytes):   28 */
+                                   } first_failure;
+/*   6592      |      28 */        struct app::outer_loop_timing::Poll {
+/*   6592      |      12 */            struct app::outer_loop_timing::Context {
+/*   6592      |       1 */                app::RuntimePhase phase;
+/*   6593      |       1 */                app::RuntimeFault fault;
+/* XXX  2-byte hole      */
+/*   6596      |       4 */                uint32_t epochs;
+/*   6600      |       1 */                bool initialized;
+/* XXX  3-byte padding   */
+
+                                           /* total size (bytes):   12 */
+                                       } before;
+/*   6604      |      12 */            struct app::outer_loop_timing::Context {
+/*   6604      |       1 */                app::RuntimePhase phase;
+/*   6605      |       1 */                app::RuntimeFault fault;
+/* XXX  2-byte hole      */
+/*   6608      |       4 */                uint32_t epochs;
+/*   6612      |       1 */                bool initialized;
+/* XXX  3-byte padding   */
+
+                                           /* total size (bytes):   12 */
+                                       } after;
+/*   6616      |       1 */            bool returned;
+/* XXX  3-byte padding   */
+
+                                       /* total size (bytes):   28 */
+                                   } first_uncertain;
+/*   6620      |       4 */        uint32_t anchor_us;
+/*   6624      |       4 */        uint32_t pending_entry_us;
+/*   6628      |       4 */        uint32_t last_entry_us;
+/*   6632      |       4 */        uint32_t last_population_entry_us;
+/*   6636      |       4 */        uint32_t close_entry_us;
+/*   6640      |       4 */        uint32_t drain_end_us;
+/*   6644      |       4 */        uint32_t drain_us;
+/*   6648      |       4 */        uint32_t bad_entry_us;
+/*   6652      |       4 */        uint32_t equal_entries;
+/*   6656      |       8 */        uint64_t elapsed_us;
+/*   6664      |       8 */        uint64_t close_elapsed_us;
+/*   6672      |       8 */        uint64_t overshoot_us;
+/*   6680      |       1 */        bool pending_context;
+/*   6681      |       1 */        bool population_closed;
+/* XXX  6-byte padding   */
+
+                                   /* total size (bytes): 6688 */
+                               } data_;
+
+                               /* total size (bytes): 6688 */
+                             }
+SIZE app::outer_loop_timing::Observer
+$1 = 6688
+ALIGN app::outer_loop_timing::Observer
+$2 = 8
+/* offset      |    size */  type = class app::outer_loop_timing::Observer {
+/*      0      |    6688 */    struct app::outer_loop_timing::Data {
+/*      0      |    3236 */        class app::epoch_timing::Distribution {
+/*      0      |    3236 */            struct app::epoch_timing::Data {
+/*      0      |    3200 */                uint32_t bins[800];
+/*   3200      |       4 */                uint32_t samples;
+/*   3204      |       4 */                uint32_t overflow;
+/*   3208      |       4 */                uint32_t rejected;
+/*   3212      |       4 */                uint32_t retained_maximum_us;
+/*   3216      |       4 */                uint32_t maximum_us;
+/*   3220      |       4 */                uint32_t first_started_us;
+/*   3224      |       4 */                uint32_t retained_completed_us;
+/*   3228      |       4 */                uint32_t last_completed_us;
+/*   3232      |       1 */                bool saturated;
+/* XXX  3-byte padding   */
+
+                                           /* total size (bytes): 3236 */
+                                       } data_;
+
+                                       /* total size (bytes): 3236 */
+                                   } all;
+/*   3236      |    3236 */        class app::epoch_timing::Distribution {
+/*   3236      |    3236 */            struct app::epoch_timing::Data {
+/*   3236      |    3200 */                uint32_t bins[800];
+/*   6436      |       4 */                uint32_t samples;
+/*   6440      |       4 */                uint32_t overflow;
+/*   6444      |       4 */                uint32_t rejected;
+/*   6448      |       4 */                uint32_t retained_maximum_us;
+/*   6452      |       4 */                uint32_t maximum_us;
+/*   6456      |       4 */                uint32_t first_started_us;
+/*   6460      |       4 */                uint32_t retained_completed_us;
+/*   6464      |       4 */                uint32_t last_completed_us;
+/*   6468      |       1 */                bool saturated;
+/* XXX  3-byte padding   */
+
+                                           /* total size (bytes): 3236 */
+                                       } data_;
+
+                                       /* total size (bytes): 3236 */
+                                   } completed;
+/*   6472      |       1 */        app::outer_loop_timing::Status status;
+/* XXX  3-byte hole      */
+/*   6476      |       8 */        struct app::outer_loop_timing::Count {
+/*   6476      |       4 */            uint32_t polls;
+/*   6480      |       4 */            uint32_t maximum_us;
+
+                                       /* total size (bytes):    8 */
+                                   } idle;
+/*   6484      |       8 */        struct app::outer_loop_timing::Count {
+/*   6484      |       4 */            uint32_t polls;
+/*   6488      |       4 */            uint32_t maximum_us;
+
+                                       /* total size (bytes):    8 */
+                                   } failed;
+/*   6492      |       8 */        struct app::outer_loop_timing::Count {
+/*   6492      |       4 */            uint32_t polls;
+/*   6496      |       4 */            uint32_t maximum_us;
+
+                                       /* total size (bytes):    8 */
+                                   } terminal;
+/*   6500      |       8 */        struct app::outer_loop_timing::Count {
+/*   6500      |       4 */            uint32_t polls;
+/*   6504      |       4 */            uint32_t maximum_us;
+
+                                       /* total size (bytes):    8 */
+                                   } uncertain;
+/*   6508      |      28 */        struct app::outer_loop_timing::Poll {
+/*   6508      |      12 */            struct app::outer_loop_timing::Context {
+/*   6508      |       1 */                app::RuntimePhase phase;
+/*   6509      |       1 */                app::RuntimeFault fault;
+/* XXX  2-byte hole      */
+/*   6512      |       4 */                uint32_t epochs;
+/*   6516      |       1 */                bool initialized;
+/* XXX  3-byte padding   */
+
+                                           /* total size (bytes):   12 */
+                                       } before;
+/*   6520      |      12 */            struct app::outer_loop_timing::Context {
+/*   6520      |       1 */                app::RuntimePhase phase;
+/*   6521      |       1 */                app::RuntimeFault fault;
+/* XXX  2-byte hole      */
+/*   6524      |       4 */                uint32_t epochs;
+/*   6528      |       1 */                bool initialized;
+/* XXX  3-byte padding   */
+
+                                           /* total size (bytes):   12 */
+                                       } after;
+/*   6532      |       1 */            bool returned;
+/* XXX  3-byte padding   */
+
+                                       /* total size (bytes):   28 */
+                                   } pending;
+/*   6536      |      28 */        struct app::outer_loop_timing::Poll {
+/*   6536      |      12 */            struct app::outer_loop_timing::Context {
+/*   6536      |       1 */                app::RuntimePhase phase;
+/*   6537      |       1 */                app::RuntimeFault fault;
+/* XXX  2-byte hole      */
+/*   6540      |       4 */                uint32_t epochs;
+/*   6544      |       1 */                bool initialized;
+/* XXX  3-byte padding   */
+
+                                           /* total size (bytes):   12 */
+                                       } before;
+/*   6548      |      12 */            struct app::outer_loop_timing::Context {
+/*   6548      |       1 */                app::RuntimePhase phase;
+/*   6549      |       1 */                app::RuntimeFault fault;
+/* XXX  2-byte hole      */
+/*   6552      |       4 */                uint32_t epochs;
+/*   6556      |       1 */                bool initialized;
+/* XXX  3-byte padding   */
+
+                                           /* total size (bytes):   12 */
+                                       } after;
+/*   6560      |       1 */            bool returned;
+/* XXX  3-byte padding   */
+
+                                       /* total size (bytes):   28 */
+                                   } last_population;
+/*   6564      |      28 */        struct app::outer_loop_timing::Poll {
+/*   6564      |      12 */            struct app::outer_loop_timing::Context {
+/*   6564      |       1 */                app::RuntimePhase phase;
+/*   6565      |       1 */                app::RuntimeFault fault;
+/* XXX  2-byte hole      */
+/*   6568      |       4 */                uint32_t epochs;
+/*   6572      |       1 */                bool initialized;
+/* XXX  3-byte padding   */
+
+                                           /* total size (bytes):   12 */
+                                       } before;
+/*   6576      |      12 */            struct app::outer_loop_timing::Context {
+/*   6576      |       1 */                app::RuntimePhase phase;
+/*   6577      |       1 */                app::RuntimeFault fault;
+/* XXX  2-byte hole      */
+/*   6580      |       4 */                uint32_t epochs;
+/*   6584      |       1 */                bool initialized;
+/* XXX  3-byte padding   */
+
+                                           /* total size (bytes):   12 */
+                                       } after;
+/*   6588      |       1 */            bool returned;
+/* XXX  3-byte padding   */
+
+                                       /* total size (bytes):   28 */
+                                   } first_failure;
+/*   6592      |      28 */        struct app::outer_loop_timing::Poll {
+/*   6592      |      12 */            struct app::outer_loop_timing::Context {
+/*   6592      |       1 */                app::RuntimePhase phase;
+/*   6593      |       1 */                app::RuntimeFault fault;
+/* XXX  2-byte hole      */
+/*   6596      |       4 */                uint32_t epochs;
+/*   6600      |       1 */                bool initialized;
+/* XXX  3-byte padding   */
+
+                                           /* total size (bytes):   12 */
+                                       } before;
+/*   6604      |      12 */            struct app::outer_loop_timing::Context {
+/*   6604      |       1 */                app::RuntimePhase phase;
+/*   6605      |       1 */                app::RuntimeFault fault;
+/* XXX  2-byte hole      */
+/*   6608      |       4 */                uint32_t epochs;
+/*   6612      |       1 */                bool initialized;
+/* XXX  3-byte padding   */
+
+                                           /* total size (bytes):   12 */
+                                       } after;
+/*   6616      |       1 */            bool returned;
+/* XXX  3-byte padding   */
+
+                                       /* total size (bytes):   28 */
+                                   } first_uncertain;
+/*   6620      |       4 */        uint32_t anchor_us;
+/*   6624      |       4 */        uint32_t pending_entry_us;
+/*   6628      |       4 */        uint32_t last_entry_us;
+/*   6632      |       4 */        uint32_t last_population_entry_us;
+/*   6636      |       4 */        uint32_t close_entry_us;
+/*   6640      |       4 */        uint32_t drain_end_us;
+/*   6644      |       4 */        uint32_t drain_us;
+/*   6648      |       4 */        uint32_t bad_entry_us;
+/*   6652      |       4 */        uint32_t equal_entries;
+/*   6656      |       8 */        uint64_t elapsed_us;
+/*   6664      |       8 */        uint64_t close_elapsed_us;
+/*   6672      |       8 */        uint64_t overshoot_us;
+/*   6680      |       1 */        bool pending_context;
+/*   6681      |       1 */        bool population_closed;
+/* XXX  6-byte padding   */
+
+                                   /* total size (bytes): 6688 */
+                               } data_;
+
+                               /* total size (bytes): 6688 */
+                             }
+SIZE app::outer_loop_timing::Data
+$3 = 6688
+ALIGN app::outer_loop_timing::Data
+$4 = 8
+/* offset      |    size */  type = struct app::outer_loop_timing::Data {
+/*      0      |    3236 */    class app::epoch_timing::Distribution {
+/*      0      |    3236 */        struct app::epoch_timing::Data {
+/*      0      |    3200 */            uint32_t bins[800];
+/*   3200      |       4 */            uint32_t samples;
+/*   3204      |       4 */            uint32_t overflow;
+/*   3208      |       4 */            uint32_t rejected;
+/*   3212      |       4 */            uint32_t retained_maximum_us;
+/*   3216      |       4 */            uint32_t maximum_us;
+/*   3220      |       4 */            uint32_t first_started_us;
+/*   3224      |       4 */            uint32_t retained_completed_us;
+/*   3228      |       4 */            uint32_t last_completed_us;
+/*   3232      |       1 */            bool saturated;
+/* XXX  3-byte padding   */
+
+                                       /* total size (bytes): 3236 */
+                                   } data_;
+
+                                   /* total size (bytes): 3236 */
+                               } all;
+/*   3236      |    3236 */    class app::epoch_timing::Distribution {
+/*   3236      |    3236 */        struct app::epoch_timing::Data {
+/*   3236      |    3200 */            uint32_t bins[800];
+/*   6436      |       4 */            uint32_t samples;
+/*   6440      |       4 */            uint32_t overflow;
+/*   6444      |       4 */            uint32_t rejected;
+/*   6448      |       4 */            uint32_t retained_maximum_us;
+/*   6452      |       4 */            uint32_t maximum_us;
+/*   6456      |       4 */            uint32_t first_started_us;
+/*   6460      |       4 */            uint32_t retained_completed_us;
+/*   6464      |       4 */            uint32_t last_completed_us;
+/*   6468      |       1 */            bool saturated;
+/* XXX  3-byte padding   */
+
+                                       /* total size (bytes): 3236 */
+                                   } data_;
+
+                                   /* total size (bytes): 3236 */
+                               } completed;
+/*   6472      |       1 */    app::outer_loop_timing::Status status;
+/* XXX  3-byte hole      */
+/*   6476      |       8 */    struct app::outer_loop_timing::Count {
+/*   6476      |       4 */        uint32_t polls;
+/*   6480      |       4 */        uint32_t maximum_us;
+
+                                   /* total size (bytes):    8 */
+                               } idle;
+/*   6484      |       8 */    struct app::outer_loop_timing::Count {
+/*   6484      |       4 */        uint32_t polls;
+/*   6488      |       4 */        uint32_t maximum_us;
+
+                                   /* total size (bytes):    8 */
+                               } failed;
+/*   6492      |       8 */    struct app::outer_loop_timing::Count {
+/*   6492      |       4 */        uint32_t polls;
+/*   6496      |       4 */        uint32_t maximum_us;
+
+                                   /* total size (bytes):    8 */
+                               } terminal;
+/*   6500      |       8 */    struct app::outer_loop_timing::Count {
+/*   6500      |       4 */        uint32_t polls;
+/*   6504      |       4 */        uint32_t maximum_us;
+
+                                   /* total size (bytes):    8 */
+                               } uncertain;
+/*   6508      |      28 */    struct app::outer_loop_timing::Poll {
+/*   6508      |      12 */        struct app::outer_loop_timing::Context {
+/*   6508      |       1 */            app::RuntimePhase phase;
+/*   6509      |       1 */            app::RuntimeFault fault;
+/* XXX  2-byte hole      */
+/*   6512      |       4 */            uint32_t epochs;
+/*   6516      |       1 */            bool initialized;
+/* XXX  3-byte padding   */
+
+                                       /* total size (bytes):   12 */
+                                   } before;
+/*   6520      |      12 */        struct app::outer_loop_timing::Context {
+/*   6520      |       1 */            app::RuntimePhase phase;
+/*   6521      |       1 */            app::RuntimeFault fault;
+/* XXX  2-byte hole      */
+/*   6524      |       4 */            uint32_t epochs;
+/*   6528      |       1 */            bool initialized;
+/* XXX  3-byte padding   */
+
+                                       /* total size (bytes):   12 */
+                                   } after;
+/*   6532      |       1 */        bool returned;
+/* XXX  3-byte padding   */
+
+                                   /* total size (bytes):   28 */
+                               } pending;
+/*   6536      |      28 */    struct app::outer_loop_timing::Poll {
+/*   6536      |      12 */        struct app::outer_loop_timing::Context {
+/*   6536      |       1 */            app::RuntimePhase phase;
+/*   6537      |       1 */            app::RuntimeFault fault;
+/* XXX  2-byte hole      */
+/*   6540      |       4 */            uint32_t epochs;
+/*   6544      |       1 */            bool initialized;
+/* XXX  3-byte padding   */
+
+                                       /* total size (bytes):   12 */
+                                   } before;
+/*   6548      |      12 */        struct app::outer_loop_timing::Context {
+/*   6548      |       1 */            app::RuntimePhase phase;
+/*   6549      |       1 */            app::RuntimeFault fault;
+/* XXX  2-byte hole      */
+/*   6552      |       4 */            uint32_t epochs;
+/*   6556      |       1 */            bool initialized;
+/* XXX  3-byte padding   */
+
+                                       /* total size (bytes):   12 */
+                                   } after;
+/*   6560      |       1 */        bool returned;
+/* XXX  3-byte padding   */
+
+                                   /* total size (bytes):   28 */
+                               } last_population;
+/*   6564      |      28 */    struct app::outer_loop_timing::Poll {
+/*   6564      |      12 */        struct app::outer_loop_timing::Context {
+/*   6564      |       1 */            app::RuntimePhase phase;
+/*   6565      |       1 */            app::RuntimeFault fault;
+/* XXX  2-byte hole      */
+/*   6568      |       4 */            uint32_t epochs;
+/*   6572      |       1 */            bool initialized;
+/* XXX  3-byte padding   */
+
+                                       /* total size (bytes):   12 */
+                                   } before;
+/*   6576      |      12 */        struct app::outer_loop_timing::Context {
+/*   6576      |       1 */            app::RuntimePhase phase;
+/*   6577      |       1 */            app::RuntimeFault fault;
+/* XXX  2-byte hole      */
+/*   6580      |       4 */            uint32_t epochs;
+/*   6584      |       1 */            bool initialized;
+/* XXX  3-byte padding   */
+
+                                       /* total size (bytes):   12 */
+                                   } after;
+/*   6588      |       1 */        bool returned;
+/* XXX  3-byte padding   */
+
+                                   /* total size (bytes):   28 */
+                               } first_failure;
+/*   6592      |      28 */    struct app::outer_loop_timing::Poll {
+/*   6592      |      12 */        struct app::outer_loop_timing::Context {
+/*   6592      |       1 */            app::RuntimePhase phase;
+/*   6593      |       1 */            app::RuntimeFault fault;
+/* XXX  2-byte hole      */
+/*   6596      |       4 */            uint32_t epochs;
+/*   6600      |       1 */            bool initialized;
+/* XXX  3-byte padding   */
+
+                                       /* total size (bytes):   12 */
+                                   } before;
+/*   6604      |      12 */        struct app::outer_loop_timing::Context {
+/*   6604      |       1 */            app::RuntimePhase phase;
+/*   6605      |       1 */            app::RuntimeFault fault;
+/* XXX  2-byte hole      */
+/*   6608      |       4 */            uint32_t epochs;
+/*   6612      |       1 */            bool initialized;
+/* XXX  3-byte padding   */
+
+                                       /* total size (bytes):   12 */
+                                   } after;
+/*   6616      |       1 */        bool returned;
+/* XXX  3-byte padding   */
+
+                                   /* total size (bytes):   28 */
+                               } first_uncertain;
+/*   6620      |       4 */    uint32_t anchor_us;
+/*   6624      |       4 */    uint32_t pending_entry_us;
+/*   6628      |       4 */    uint32_t last_entry_us;
+/*   6632      |       4 */    uint32_t last_population_entry_us;
+/*   6636      |       4 */    uint32_t close_entry_us;
+/*   6640      |       4 */    uint32_t drain_end_us;
+/*   6644      |       4 */    uint32_t drain_us;
+/*   6648      |       4 */    uint32_t bad_entry_us;
+/*   6652      |       4 */    uint32_t equal_entries;
+/*   6656      |       8 */    uint64_t elapsed_us;
+/*   6664      |       8 */    uint64_t close_elapsed_us;
+/*   6672      |       8 */    uint64_t overshoot_us;
+/*   6680      |       1 */    bool pending_context;
+/*   6681      |       1 */    bool population_closed;
+/* XXX  6-byte padding   */
+
+                               /* total size (bytes): 6688 */
+                             }
+SIZE app::outer_loop_timing::Context
+$5 = 12
+ALIGN app::outer_loop_timing::Context
+$6 = 4
+/* offset      |    size */  type = struct app::outer_loop_timing::Context {
+/*      0      |       1 */    app::RuntimePhase phase;
+/*      1      |       1 */    app::RuntimeFault fault;
+/* XXX  2-byte hole      */
+/*      4      |       4 */    uint32_t epochs;
+/*      8      |       1 */    bool initialized;
+/* XXX  3-byte padding   */
+
+                               /* total size (bytes):   12 */
+                             }
+SIZE app::outer_loop_timing::Poll
+$7 = 28
+ALIGN app::outer_loop_timing::Poll
+$8 = 4
+/* offset      |    size */  type = struct app::outer_loop_timing::Poll {
+/*      0      |      12 */    struct app::outer_loop_timing::Context {
+/*      0      |       1 */        app::RuntimePhase phase;
+/*      1      |       1 */        app::RuntimeFault fault;
+/* XXX  2-byte hole      */
+/*      4      |       4 */        uint32_t epochs;
+/*      8      |       1 */        bool initialized;
+/* XXX  3-byte padding   */
+
+                                   /* total size (bytes):   12 */
+                               } before;
+/*     12      |      12 */    struct app::outer_loop_timing::Context {
+/*     12      |       1 */        app::RuntimePhase phase;
+/*     13      |       1 */        app::RuntimeFault fault;
+/* XXX  2-byte hole      */
+/*     16      |       4 */        uint32_t epochs;
+/*     20      |       1 */        bool initialized;
+/* XXX  3-byte padding   */
+
+                                   /* total size (bytes):   12 */
+                               } after;
+/*     24      |       1 */    bool returned;
+/* XXX  3-byte padding   */
+
+                               /* total size (bytes):   28 */
+                             }
+SIZE app::outer_loop_timing::Count
+$9 = 8
+ALIGN app::outer_loop_timing::Count
+$10 = 4
+/* offset      |    size */  type = struct app::outer_loop_timing::Count {
+/*      0      |       4 */    uint32_t polls;
+/*      4      |       4 */    uint32_t maximum_us;
+
+                               /* total size (bytes):    8 */
+                             }
+SIZE app::epoch_timing::Distribution
+$11 = 3236
+ALIGN app::epoch_timing::Distribution
+$12 = 4
+/* offset      |    size */  type = class app::epoch_timing::Distribution {
+/*      0      |    3236 */    struct app::epoch_timing::Data {
+/*      0      |    3200 */        uint32_t bins[800];
+/*   3200      |       4 */        uint32_t samples;
+/*   3204      |       4 */        uint32_t overflow;
+/*   3208      |       4 */        uint32_t rejected;
+/*   3212      |       4 */        uint32_t retained_maximum_us;
+/*   3216      |       4 */        uint32_t maximum_us;
+/*   3220      |       4 */        uint32_t first_started_us;
+/*   3224      |       4 */        uint32_t retained_completed_us;
+/*   3228      |       4 */        uint32_t last_completed_us;
+/*   3232      |       1 */        bool saturated;
+/* XXX  3-byte padding   */
+
+                                   /* total size (bytes): 3236 */
+                               } data_;
+
+                               /* total size (bytes): 3236 */
+                             }
+SIZE app::epoch_timing::Data
+$13 = 3236
+ALIGN app::epoch_timing::Data
+$14 = 4
+/* offset      |    size */  type = struct app::epoch_timing::Data {
+/*      0      |    3200 */    uint32_t bins[800];
+/*   3200      |       4 */    uint32_t samples;
+/*   3204      |       4 */    uint32_t overflow;
+/*   3208      |       4 */    uint32_t rejected;
+/*   3212      |       4 */    uint32_t retained_maximum_us;
+/*   3216      |       4 */    uint32_t maximum_us;
+/*   3220      |       4 */    uint32_t first_started_us;
+/*   3224      |       4 */    uint32_t retained_completed_us;
+/*   3228      |       4 */    uint32_t last_completed_us;
+/*   3232      |       1 */    bool saturated;
+/* XXX  3-byte padding   */
+
+                               /* total size (bytes): 3236 */
+                             }

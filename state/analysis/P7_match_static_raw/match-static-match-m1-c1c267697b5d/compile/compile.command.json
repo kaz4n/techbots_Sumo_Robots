@@ -1,0 +1,18 @@
+[
+  "arduino-cli",
+  "compile",
+  "--json",
+  "--fqbn",
+  "arduino:zephyr:unoq:link_mode=static,wait_linux_boot=no",
+  "--build-path",
+  "/home/arduino/sumox26_codex_build/match-static-match-m1-c1c267697b5d/build",
+  "--output-dir",
+  "/home/arduino/sumox26_codex_build/match-static-match-m1-c1c267697b5d/artifacts",
+  "--build-property",
+  "compiler.cpp.extra_flags=-DMATCH=1 -DMOTORS_ALLOWED=1 -DSUMOX_B4_STAND=0 -DSUMOX_P3_DRIVE_TEST=0 -DSUMOX_P3_TURN_TRIAL=0 -DSUMOX_P3_STOP_TRIAL=0 -DSUMOX_P4_REACTIVE=0 -DSUMOX_TIMING_EVIDENCE=0 -DSUMOX_P5_ABORT_TIMING=0 -DSUMOX_MOTOR_FAULT_PROBE=0",
+  "--build-property",
+  "compiler.c.extra_flags=-DMATCH=1 -DMOTORS_ALLOWED=1 -DSUMOX_B4_STAND=0 -DSUMOX_P3_DRIVE_TEST=0 -DSUMOX_P3_TURN_TRIAL=0 -DSUMOX_P3_STOP_TRIAL=0 -DSUMOX_P4_REACTIVE=0 -DSUMOX_TIMING_EVIDENCE=0 -DSUMOX_P5_ABORT_TIMING=0 -DSUMOX_MOTOR_FAULT_PROBE=0",
+  "--build-property",
+  "build.library_discovery_phase_flag=-DARDUINO_LIBRARY_DISCOVERY_PHASE=0",
+  "/home/arduino/sumox26_codex_build/fcb9a31adef28ca7d2f79335cc466dcc4ddb31007ff2da4341a33fb07983cace/app"
+]

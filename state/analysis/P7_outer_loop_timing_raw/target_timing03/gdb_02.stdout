@@ -1,0 +1,38 @@
+Dump of assembler code from 0x81000c8 to 0x8100134:
+   0x081000c8 <_ZN3app12epoch_timing12Distribution7observeEjjj+0>:	b510    	push	{r4, lr}
+   0x081000ca <_ZN3app12epoch_timing12Distribution7observeEjjj+2>:	f8d0 4c90	ldr.w	r4, [r0, #3216]	@ 0xc90
+   0x081000ce <_ZN3app12epoch_timing12Distribution7observeEjjj+6>:	f8c0 3c9c	str.w	r3, [r0, #3228]	@ 0xc9c
+   0x081000d2 <_ZN3app12epoch_timing12Distribution7observeEjjj+10>:	428c    	cmp	r4, r1
+   0x081000d4 <_ZN3app12epoch_timing12Distribution7observeEjjj+12>:	f8d0 4c80	ldr.w	r4, [r0, #3200]	@ 0xc80
+   0x081000d8 <_ZN3app12epoch_timing12Distribution7observeEjjj+16>:	bf38    	it	cc
+   0x081000da <_ZN3app12epoch_timing12Distribution7observeEjjj+18>:	f8c0 1c90	strcc.w	r1, [r0, #3216]	@ 0xc90
+   0x081000de <_ZN3app12epoch_timing12Distribution7observeEjjj+22>:	f1b4 3fff	cmp.w	r4, #4294967295	@ 0xffffffff
+   0x081000e2 <_ZN3app12epoch_timing12Distribution7observeEjjj+26>:	d10a    	bne.n	0x81000fa <_ZN3app12epoch_timing12Distribution7observeEjjj+50>
+   0x081000e4 <_ZN3app12epoch_timing12Distribution7observeEjjj+28>:	2301    	movs	r3, #1
+   0x081000e6 <_ZN3app12epoch_timing12Distribution7observeEjjj+30>:	f880 3ca0	strb.w	r3, [r0, #3232]	@ 0xca0
+   0x081000ea <_ZN3app12epoch_timing12Distribution7observeEjjj+34>:	f8d0 3c88	ldr.w	r3, [r0, #3208]	@ 0xc88
+   0x081000ee <_ZN3app12epoch_timing12Distribution7observeEjjj+38>:	1c5a    	adds	r2, r3, #1
+   0x081000f0 <_ZN3app12epoch_timing12Distribution7observeEjjj+40>:	d002    	beq.n	0x81000f8 <_ZN3app12epoch_timing12Distribution7observeEjjj+48>
+   0x081000f2 <_ZN3app12epoch_timing12Distribution7observeEjjj+42>:	3301    	adds	r3, #1
+   0x081000f4 <_ZN3app12epoch_timing12Distribution7observeEjjj+44>:	f8c0 3c88	str.w	r3, [r0, #3208]	@ 0xc88
+   0x081000f8 <_ZN3app12epoch_timing12Distribution7observeEjjj+48>:	bd10    	pop	{r4, pc}
+   0x081000fa <_ZN3app12epoch_timing12Distribution7observeEjjj+50>:	b90c    	cbnz	r4, 0x8100100 <_ZN3app12epoch_timing12Distribution7observeEjjj+56>
+   0x081000fc <_ZN3app12epoch_timing12Distribution7observeEjjj+52>:	f8c0 2c94	str.w	r2, [r0, #3220]	@ 0xc94
+   0x08100100 <_ZN3app12epoch_timing12Distribution7observeEjjj+56>:	3401    	adds	r4, #1
+   0x08100102 <_ZN3app12epoch_timing12Distribution7observeEjjj+58>:	f5b1 7f48	cmp.w	r1, #800	@ 0x320
+   0x08100106 <_ZN3app12epoch_timing12Distribution7observeEjjj+62>:	f8c0 4c80	str.w	r4, [r0, #3200]	@ 0xc80
+   0x0810010a <_ZN3app12epoch_timing12Distribution7observeEjjj+66>:	bf37    	itett	cc
+   0x0810010c <_ZN3app12epoch_timing12Distribution7observeEjjj+68>:	f850 2021	ldrcc.w	r2, [r0, r1, lsl #2]
+   0x08100110 <_ZN3app12epoch_timing12Distribution7observeEjjj+72>:	f8d0 2c84	ldrcs.w	r2, [r0, #3204]	@ 0xc84
+   0x08100114 <_ZN3app12epoch_timing12Distribution7observeEjjj+76>:	3201    	addcc	r2, #1
+   0x08100116 <_ZN3app12epoch_timing12Distribution7observeEjjj+78>:	f840 2021	strcc.w	r2, [r0, r1, lsl #2]
+   0x0810011a <_ZN3app12epoch_timing12Distribution7observeEjjj+82>:	bf24    	itt	cs
+   0x0810011c <_ZN3app12epoch_timing12Distribution7observeEjjj+84>:	3201    	addcs	r2, #1
+   0x0810011e <_ZN3app12epoch_timing12Distribution7observeEjjj+86>:	f8c0 2c84	strcs.w	r2, [r0, #3204]	@ 0xc84
+   0x08100122 <_ZN3app12epoch_timing12Distribution7observeEjjj+90>:	f8d0 2c8c	ldr.w	r2, [r0, #3212]	@ 0xc8c
+   0x08100126 <_ZN3app12epoch_timing12Distribution7observeEjjj+94>:	f8c0 3c98	str.w	r3, [r0, #3224]	@ 0xc98
+   0x0810012a <_ZN3app12epoch_timing12Distribution7observeEjjj+98>:	428a    	cmp	r2, r1
+   0x0810012c <_ZN3app12epoch_timing12Distribution7observeEjjj+100>:	bf38    	it	cc
+   0x0810012e <_ZN3app12epoch_timing12Distribution7observeEjjj+102>:	f8c0 1c8c	strcc.w	r1, [r0, #3212]	@ 0xc8c
+   0x08100132 <_ZN3app12epoch_timing12Distribution7observeEjjj+106>:	e7e1    	b.n	0x81000f8 <_ZN3app12epoch_timing12Distribution7observeEjjj+48>
+End of assembler dump.

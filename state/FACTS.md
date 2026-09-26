@@ -934,3 +934,7 @@ FILE-OBSERVED: D210 actualreview24002B/a30c194b accepts one file-only observatio
 
 ## F238 - Current D207 upload scratch inventory (2026-09-26T17:43:11.826524+04:00)
 FILE-OBSERVED: separate reviewed observera8e3b8b2/derivation807184e7/reviewc4327b1b returns0 with receipt24552B/ed68c4c8 and five remote plus local PASS. Both original-match and exact-three-copy flags true. /tmp/remoteocd device34/inode1732, UID/GID1000 and full stamps remain stable; package95368B/f15c7ce1,flashcfg680B/38706cee,loader2303728B/39d4a4fd total2399776B. Recognized compiler candidates empty, but protected cwd/FD handles uninspected: no process-use clearance or deletion result. D207 firmware remains latest verified flashed image. Source: analysis/P7_ordinary_app_cleanup_raw/admission01.json.
+
+
+## F239 - Exact stale upload cleanup (2026-09-26T18:24:51.159231+04:00)
+FILE-OBSERVED: D211 actual review `46792354` accepts one authenticated invocation and one separate read-only retrieval. Raw result `0930bc90` and retrieval `4be9c41b` establish removal of exactly three copies totaling 2,399,776 bytes plus empty /tmp/remoteocd device34/inode1732. Three bounded scans restored Arduino credentials before mutation; final recorded UID/GID triples are all1000, with no errors. Original files and staged sources remain unchanged; six remote closing checks and69 local pins pass. Supplementary-group [1000] is source-enforced at entry, not a separately recorded final observation. No firmware, physical, motor or gate change. Source: analysis/P7_ordinary_app_cleanup_actual_validation.md.

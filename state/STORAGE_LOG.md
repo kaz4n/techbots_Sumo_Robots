@@ -493,3 +493,6 @@ D191 closing observation: C:recovered290537472B independently before local docum
 
 
 2026-09-26T17:43:11.826524+04:00 | D211 scratch inventory only | Verified exactly3 D207 upload copies2399776logicalB in /tmp/remoteocddev34ino1732, matching retained originals. Keep inventory24552B/ed68c4c8 and its exactsource/derivation/intent/review for scoped cleanup preparation. No files removed and no reclaimed-space claim; protectedprocess-use clearance remains mandatory. Prior denied cleanup targets untouched.
+
+
+2026-09-26T18:24:51.159231+04:00 | D211 exact board cleanup | Removed only three verified stale D207 upload copies totaling2,399,776 logical bytes and empty /tmp/remoteocd device34/inode1732. Actualreview46792354, raw0930bc90 and retrieval4be9c41b verify absence and stable originals. Retain50,668B staged source,6,376B saved result and compact local reviews/receipts for reproduction; no disposable build objects created. No filesystem allocated-space measurement is inferred from payload bytes. C: free5605707776B. Earlier policy-denied targets remain untouched.

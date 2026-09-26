@@ -1,0 +1,77 @@
+{
+  "schema": "d199-fixed-file-only-entry-scope-v1",
+  "prepared": "2026-09-26T10:59:01.194294+04:00",
+  "action": "one check-only then one execute at clean reviewed HEAD, no auto-retry",
+  "source_sha256": "117cc0e777341c893f4e618a97e3f196fd0bbf2427cb2a4b02543eb37d6522da",
+  "boot_id": "55c386b9-fe6d-4388-a7f4-1d91e0bb49d8",
+  "serial": "2629958581",
+  "local_owner": "state/analysis/P7_motor_settle_compile_raw/native_entry_static01",
+  "remote_scope": "/home/arduino/sumox26_codex_build/app-motor-settle-entry-static01",
+  "build_owner": "/home/arduino/sumox26_codex_build/app-motor-settle-static01",
+  "file_children": 4,
+  "gdb_expressions": 59,
+  "disassembly_groups": 29,
+  "function_aliases": 31,
+  "child_timeout_seconds": 60,
+  "reap_seconds": 5,
+  "transport_timeout_seconds": 400,
+  "stream_limit_bytes": 1048576,
+  "reply_limit_bytes": 8388608,
+  "windows_command_units_limit": 30000,
+  "local_free_minimum_bytes": 134217728,
+  "inputs": {
+    "state/analysis/P7_motor_settle_entry_contract.md": {
+      "bytes": 19485,
+      "sha256": "af8ce726bf49b79fecc07548bd78a808d788894ea9e9e1b59daa69eae8a54e7d"
+    },
+    "state/analysis/P7_motor_settle_compile_raw/inspect_static_entry.py": {
+      "bytes": 10425,
+      "sha256": "c9e8f023ffc853dce951b05c24cbd55bef04270682c3d271cb1087b2fa67ab81"
+    },
+    "state/analysis/P7_motor_settle_compile_raw/entry_binding01.json": {
+      "bytes": 20870,
+      "sha256": "6234676242fdd7e61136fd2a1f66fabb0242b10ee597ef2bf6555a9444ecfd2b"
+    },
+    "state/analysis/P7_motor_settle_compile_raw/inputs_static.json": {
+      "bytes": 13432,
+      "sha256": "aa314548521968fd3b1b7b1ef415da3c72c90a6bc914d0a9204ff707bcd7d282"
+    },
+    "state/analysis/P7_motor_settle_compile_raw/native_static01/result.json": {
+      "bytes": 1608,
+      "sha256": "9b7f0c445cc84ad6d526445bf8e93ea189f718f0c883da8a1bf5cf077e741af5"
+    },
+    "state/analysis/P7_motor_settle_compile_raw/native_static01/artifacts.json": {
+      "bytes": 9648,
+      "sha256": "e18384c14c0b1367667b265ab4c532a4010be65697460a1cd45487bccd9eca10"
+    },
+    "state/analysis/P7_motor_settle_compile_raw/native_abi_static01/result.json": {
+      "bytes": 905572,
+      "sha256": "230ef847f74e84d032a87336f74a4817d4cd8317a0ea5abc72c54fdd0d03eb6e"
+    },
+    "state/analysis/P7_motor_settle_compile_raw/native_abi_static01/abi.json": {
+      "bytes": 5410,
+      "sha256": "069ed01bee9fba11159a4d93d156b8ada35ea5c11414b77870d80b6182d59941"
+    },
+    "state/analysis/P7_motor_settle_compile_raw/native_abi_static01/local_result.json": {
+      "bytes": 275,
+      "sha256": "eb68ef2e125445ad94fc5c0dc251c2a411d55120ab1299e205a1674b572576f9"
+    },
+    "state/analysis/P7_motor_settle_compile_raw/entry_host_closing01.json": {
+      "bytes": 640,
+      "sha256": "1d798f2491b136c85201b2e3848b10808a5b7aa725eb6d45f27c485cab15923a"
+    },
+    "state/reviews/P7_motor_settle_entry_review.md": {
+      "bytes": 8924,
+      "sha256": "dcf1a079d15f2e30d03d7792062975caef01aab516c776bd0510829bc23751e2"
+    },
+    "state/reviews/P7_motor_settle_abi_actual_review.md": {
+      "bytes": 7312,
+      "sha256": "a7c3993ab5e0d008b4464bf93f89b5877447992fa8e3197d8c869812e11f874f"
+    },
+    "state/reviews/P7_motor_settle_compile_actual_review.md": {
+      "bytes": 8475,
+      "sha256": "f046db4709a339df345b2e2214da0a946cee4ecebe00b05d80266abe8bb2f624"
+    }
+  },
+  "limits": "File observation only; no compile, upload, reset, MCU read, privilege, motor or gate. Actual publication and SETTLE semantics require independent instruction review."
+}

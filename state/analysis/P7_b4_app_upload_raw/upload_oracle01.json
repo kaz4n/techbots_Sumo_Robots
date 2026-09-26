@@ -1,0 +1,195 @@
+{
+  "schema": "b4-app-upload-independent-oracle-v1",
+  "status": "FINAL",
+  "sealed_at": "2026-09-26T21:39:12.2577989+04:00",
+  "scope": "D221 fixed inhibited B4 upload-only preparation; nine focused host methods. No native upload, board call, cleanup or motor permission follows.",
+  "test": {
+    "path": "tests/tooling/test_b4_app_upload.py",
+    "bytes": 31644,
+    "sha256": "1724d4c0f3a034dbd375f9fd45303939f4be3a3a06f9fc27dd41247484cb9da4",
+    "method_count": 9,
+    "methods": [
+      "test_remote_exact_profile_artifacts_pins_and_unchanged_upload_composition",
+      "test_upload_only_command_framing_exact_types_and_preserved_guard_bodies",
+      "test_bootstrap_returned_origin_fallback_and_independent_closing_checks",
+      "test_compact_reply_validation_requires_exact_upload_success_and_returned_origin",
+      "test_upload_only_action_sequence_first_errors_and_finish_attachment",
+      "test_actual_b4_source_and_profile_evidence_admission",
+      "test_scope_commands_once_only_intent_and_nine_call_bounds",
+      "test_caller_inherited_bodies_success_order_and_staging_failure",
+      "test_cli_check_only_and_canonical_head_selection"
+    ]
+  },
+  "source_independence": {
+    "new_caller_read": false,
+    "new_remote_read": false,
+    "new_actions_read": false,
+    "new_subject_hashes_read": false,
+    "new_subjects_imported": false,
+    "new_subjects_executed": false,
+    "tests_executed": false,
+    "basis": "Fixed normative D221 contract and plan01, accepted D212 remote/actions/caller and ancestor sources, accepted D214 current manifest/compile evidence and D215/D217 saved actual evidence. Public fixture seams were declared before implementation inspection. Root separately binds newly sealed subjects before first execution.",
+    "runtime_note": "The test computes the staged adapter identity only during root-scheduled execution against the separately frozen new remote; this oracle author did not read/hash that new subject before seal."
+  },
+  "inputs": {
+    "state/analysis/P7_static_startup_raw/capture_remote.py": {
+      "sha256": "95b0344d01886b6db30d55aa18a536f9a481b82348e22643e7920d817dbfac3e",
+      "bytes": 37525
+    },
+    "state/analysis/P7_b4_app_upload_raw/plan01.json": {
+      "sha256": "07726511930332b17c49c02c91a1f83df2d22bcc09502fd8255fa573bedee3b8",
+      "bytes": 8282
+    },
+    "state/analysis/P7_ordinary_app_run_raw/remote.py": {
+      "sha256": "a2c2fc9d32694a96a406b6de499bfb04a2a159710443c8b37ca56e92921a536f",
+      "bytes": 11269
+    },
+    "state/analysis/P7_b4_app_compile_raw/native_abi_static01/abi.json": {
+      "sha256": "25bf57646977fec8b4614b06cfe2b3df2e3bb94172122b2ee8f5ceaaec6677bc",
+      "bytes": 293222
+    },
+    "state/analysis/P7_b4_app_compile_raw/native_entry_static01/entry.json": {
+      "sha256": "a7a7561835e69367d6d94575534ced47ca1573d87bc27da9dad58e782a8136d3",
+      "bytes": 21582
+    },
+    "state/analysis/P7_b4_app_compile_raw/native_entry_static01/local_result.json": {
+      "sha256": "5a1ae408603e6e9dff01f1c115d777a7c767dc00229bac838002a29ec6ecaefd",
+      "bytes": 277
+    },
+    "state/analysis/P7_ordinary_app_run_raw/actions.py": {
+      "sha256": "07c03a65fad73f49064abd0af77161b5ed10e2c6002bb6c442e7ab5b28ee25b1",
+      "bytes": 12496
+    },
+    "tests/tooling/test_ordinary_app_actions.py": {
+      "sha256": "d7e5fefd3739288fd7f2076ddb8440d4a450a4f9dcbe945c72681989bad91847",
+      "bytes": 7125
+    },
+    "state/analysis/P7_b4_app_compile_raw/native_abi_static01/local_result.json": {
+      "sha256": "7175682488de957b36582fc3b030554ac3cfb8a83ea6ab10ffde6fa2a8534729",
+      "bytes": 275
+    },
+    "state/analysis/P7_static_startup_raw/startup_run.py": {
+      "sha256": "c95888353c9d85c5d9b0e545553a9e9dcde372b5b313102dd14240ce38db4e0c",
+      "bytes": 31972
+    },
+    "state/analysis/P7_b4_app_compile_raw/inputs_static.json": {
+      "sha256": "fc8e6fc1131c1952d5e1809f9dc6fb96763dd5e111749424e9ccfaec9b58d38c",
+      "bytes": 13493
+    },
+    "state/analysis/P7_b4_app_compile_raw/native_static01/result.json": {
+      "sha256": "b722db17adabafc03f6ad8583bcef9b0f6b7d1def4d3e54962508aad4039567a",
+      "bytes": 1829
+    },
+    "state/analysis/P7_static_link_probe_raw/static_remote.py": {
+      "sha256": "8ba9b190c38e728013a383348c60c287b0366607f65f703161cf7f2e142d36f8",
+      "bytes": 33321
+    },
+    "tests/tooling/test_ordinary_app_run.py": {
+      "sha256": "f6a574451f0f469527955571c1055918fa1ae83d3850d95a1a543f5320f7ee1c",
+      "bytes": 9244
+    },
+    "state/analysis/P7_ordinary_app_run_raw/run.py": {
+      "sha256": "f48a8be9fa380a2a922613d188ae7622eafffdf3dc5fec12edc1372b4f7fc2d2",
+      "bytes": 24859
+    },
+    "state/analysis/P7_motor_fault_raw/inert_run.py": {
+      "sha256": "8b47b1d6e9073179e4f587e09ce04e1a1c0cfc6797daf3151d0a7126d279f56a",
+      "bytes": 23100
+    },
+    "state/analysis/P7_static_startup_raw/upload_remote.py": {
+      "sha256": "e926b7ba5586475664b0541370e7cfb5c50e40d8dc8b47b18e35db3e0a0a25c1",
+      "bytes": 24710
+    },
+    "state/analysis/P7_b4_app_upload_contract.md": {
+      "sha256": "f9ab9c6729fe4ac6504fe6d284086331f680a004976e0e2898fde41a41222ff8",
+      "bytes": 8925
+    },
+    "state/analysis/P7_ordinary_app_static_compile_raw/inputs_static.json": {
+      "sha256": "a5e8f8b4b78312245c7cde3e86a39db9073b5ef9e5fa2806a3d39eece8600bb7",
+      "bytes": 12940
+    },
+    "state/analysis/P7_b4_app_compile_raw/native_static01/artifacts.json": {
+      "sha256": "0acaa30a4ba01ac5c9ff8c8fddc66c4bec94e033b1194ec63271f12affb6c085",
+      "bytes": 9484
+    },
+    "state/analysis/P7_motor_fault_raw/inert_actions.py": {
+      "sha256": "8ffb65c0f1284f261ae1237bcf260e866176e83433a3538908780962513f1104",
+      "bytes": 19120
+    }
+  },
+  "fixed_profile": {
+    "run_id": "b4-app-m0-9044ebbb-load01",
+    "source_sha256": "9044ebbb3cd3b2dbb7aa5984dd5ff23bfff697372f1f29d56693af9ea5eaf31a",
+    "project": "app.ino",
+    "fqbn": "arduino:zephyr:unoq:link_mode=static",
+    "motors_allowed": 0,
+    "match": 0,
+    "b4_stand": 1,
+    "raw_bytes": 82896,
+    "raw_sha256": "6fcad2f09c90bbc7dd72760e7a794305811d042a9d2e578e03d5154cc368a471",
+    "package_bytes": 82912,
+    "package_sha256": "84667b0a22ff7701059a266b6c82bb61de1f7ccec96280e4f13b5692bf785a28",
+    "manifest_inputs": 130,
+    "scope_files": 10,
+    "maximum_native_calls": 9,
+    "upload_attempts": 1,
+    "capture_actions": 0
+  },
+  "coverage": [
+    "Exact current native selected profile, raw/package/loader metadata, all three dependency pins checked before private exec; unchanged upload composition is observed through a mocked upload_loader, not executed.",
+    "Three unchanged native adapter bodies plus selected_profile's two explicit schema-label substitutions; seven inherited D212 caller bodies and eight ancestor bodies retain exact source identity.",
+    "Canonical JSON, single BZ2 member, exact helper/support/upload roles, fixed binding and adapter selection, full Windows UTF-16 argv limit; stale bindings, wrong actions/source snapshots and bool-as-int fields refuse.",
+    "Nine unchanged bootstrap guard bodies; controlled perform/staged_read fixture verifies only helper and adapter loads, one upload, both adapter reads, root close, successful returned origin, unattributed durable fallback, and earliest error across independent closing failures.",
+    "Compact upload report validates one attempt, successful reaped child, duration and finite-clock requirements, clean errors and returned attribution; malformed reports remain unchanged.",
+    "Pure five-operation run_actions success order and first-error preservation for local/prerequisite/intent/upload failures; closing checks remain independent; finish failure attaches FAILED sequence_result; extra capture operation refuses.",
+    "Real current B4 source and compile/ABI/entry evidence admission; stale ordinary manifest/artifact and wrong B4/MOTORS_ALLOWED flags, FQBN, project or saved status refuse.",
+    "Exactly six fixed allowlist entries and nine total calls, upload-only intent with no predecessor, one dispatch, fresh ten-file scope, exact identity/types and no capture/retrieve route.",
+    "Actual caller run under controlled inherited seams covers successful upload-only order, repeated run refusal, staging failure plus closing error and no upload attempt.",
+    "CLI check-only invokes admission alone; missing/ambiguous mode and noncanonical reviewed HEAD refuse before caller construction."
+  ],
+  "fixture": {
+    "synthetic_upload_report": true,
+    "started_monotonic": 100,
+    "finished_monotonic": 101,
+    "subprocess": {
+      "returncode": 0,
+      "timed_out": false,
+      "reaped": true
+    },
+    "streams": "Literal controlled stdout and empty stderr in full canonical report; compact envelope omits only these two fields and retains full-report length/hash.",
+    "bootstrap": "Extract only the declared perform/staged_read and unchanged guard functions from framed program data during root tests; fake helper/adapter and fake root descriptor prevent board I/O.",
+    "caller": "Real source/provenance data for load_inputs and evidence checks; temporary scope files and controlled sequence methods for owner and ordering checks. Native transport endpoints are forbidden."
+  },
+  "inheritance": {
+    "native_bodies": 4,
+    "caller_bodies": 15,
+    "bootstrap_guard_bodies": 9,
+    "old_test_suites_replayed": false,
+    "upload_loader_executed": false,
+    "host_platform_skips": false,
+    "windows": "Inert resource/pwd stubs only when unavailable, matching accepted host fixture pattern."
+  },
+  "execution": {
+    "performed": false,
+    "owner": "root",
+    "commands": [
+      "python3 -I -B tests/tooling/test_b4_app_upload.py",
+      "python -I -B tests/tooling/test_b4_app_upload.py"
+    ],
+    "verbosity": 2,
+    "limits": {
+      "payload_bytes": 196608,
+      "full_windows_argv_utf16_including_nul": 30000,
+      "reply_bytes": 65536,
+      "upload_outer_timeout_seconds": 195,
+      "other_timeout_seconds": 60
+    },
+    "receipt": "Root creates distinct first-run evidence owners and unions the immutable oracle basis with separately sealed production identities."
+  },
+  "limitations": [
+    "Host fixtures and exact inherited-body preservation do not establish a successful physical upload.",
+    "No new native attempt, root credential use, cleanup, firmware execution, motor authorization or human gate occurred during oracle preparation.",
+    "B4 configuration remains MOTORS_ALLOWED=0 with unchanged zero setup grants; sensor, motor, SRAM, timing and robot acceptance remain separate.",
+    "No capture or synthetic predecessor is introduced; D219 is a distinct later capture-only path."
+  ]
+}

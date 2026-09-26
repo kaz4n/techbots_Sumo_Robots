@@ -1,0 +1,1290 @@
+{
+  "caller_private_projection": {
+    "count": 1,
+    "input": "state/analysis/P7_ordinary_app_run_raw/run.py",
+    "new": "actions = INJECTED_ACTIONS",
+    "old": "actions = _module('actions', RAW + 'actions.py', (ROOT / RAW / 'actions.py').read_bytes())",
+    "remaining_source_unchanged": true
+  },
+  "command_measurement": {
+    "base64_native_utf16_including_nul": 31227,
+    "bootstrap_bytes": 6702,
+    "bootstrap_sha256": "2c2f7b33b6454fd1044d122caa9a2e4c8551408c73298b7fe557abb7b8668e11",
+    "method": "Data-only AST literal extraction and independent canonical/BZ2/shell composition; no command execution",
+    "native_limit": 30000,
+    "payload_bytes": 102608,
+    "payload_limit": 196608,
+    "payload_sha256": "ea73114e4c529a9716b8a7d73615e4a962a3f3555f226fd91bff0e2a9de1d13d",
+    "selected_encoding": "base85",
+    "selected_native_utf16_including_nul": 29529,
+    "within_bounds": true
+  },
+  "exact_diffs": [
+    {
+      "forward_exact": true,
+      "input": "state/analysis/P7_ordinary_app_run_raw/remote.py",
+      "input_identity": {
+        "bytes": 11269,
+        "sha256": "a2c2fc9d32694a96a406b6de499bfb04a2a159710443c8b37ca56e92921a536f"
+      },
+      "output": "state/analysis/P7_b4_app_upload_raw/remote.py",
+      "output_identity": {
+        "bytes": 5115,
+        "sha256": "c2f0a4423839f9b3444c2949587486248d3a0af9578ae8188fd478bb55868b57"
+      },
+      "reverse_exact": true,
+      "spans": [
+        {
+          "new": "# Uploads only the fixed inhibited B4 image through the accepted native lifecycle.\n# Keeps existing installed-file and descriptor guards without capture or MCU reads.\n# Focused independent fixtures verify the new fixed profile and attempt boundaries.\n",
+          "new_lines": [
+            1,
+            3
+          ],
+          "new_start_byte": 0,
+          "old": "# Adapts the reviewed one-shot lifecycle to the exact inhibited ordinary application.\n# Collects small file-observed ABI windows while preserving complete flash brackets.\n# Independent contract fixtures exercise fixed admission, execution and failures.\n",
+          "old_lines": [
+            1,
+            3
+          ],
+          "old_start_byte": 0,
+          "operation": "replace"
+        },
+        {
+          "new": "RUN_ID = 'b4-app-m0-9044ebbb-load01'\n",
+          "new_lines": [
+            12,
+            12
+          ],
+          "new_start_byte": 447,
+          "old": "RUN_ID = 'ordinary-app-9044ebbb-run01'\n",
+          "old_lines": [
+            12,
+            12
+          ],
+          "old_start_byte": 449,
+          "operation": "replace"
+        },
+        {
+          "new": "BUILD = PARENT + '/b4-app-m0-static01/build'\n",
+          "new_lines": [
+            15,
+            15
+          ],
+          "new_start_byte": 569,
+          "old": "BUILD = PARENT + '/ordinary-app-static01/build'\n",
+          "old_lines": [
+            15,
+            15
+          ],
+          "old_start_byte": 573,
+          "operation": "replace"
+        },
+        {
+          "new": "    'raw': (82896, '6fcad2f09c90bbc7dd72760e7a794305811d042a9d2e578e03d5154cc368a471'),\n    'sketch': (82912, '84667b0a22ff7701059a266b6c82bb61de1f7ccec96280e4f13b5692bf785a28'),\n",
+          "new_lines": [
+            23,
+            24
+          ],
+          "new_start_byte": 987,
+          "old": "    'raw': (92928, '6f5f531b114219d712d857b4ac89ad161ceb217211207788a27443b7d4ab6db7'),\n    'sketch': (92944, '7fa9d41da043931e1237712e1e88bda4151c82933af2ecec97ce3a02184d23ad'),\n",
+          "old_lines": [
+            23,
+            24
+          ],
+          "old_start_byte": 994,
+          "operation": "replace"
+        },
+        {
+          "new": "",
+          "new_lines": [
+            27,
+            26
+          ],
+          "new_start_byte": 1357,
+          "old": "WINDOWS = (('report', 537115800, 600), ('transaction', 537113264, 504), ('previous', 537113768, 48), ('gate', 536951336, 88), ('grants', 537115776, 21), ('attempted_word', 537117352, 4), ('motor_port', 537117512, 40))\n",
+          "old_lines": [
+            27,
+            27
+          ],
+          "old_start_byte": 1364,
+          "operation": "delete"
+        },
+        {
+          "new": "        module = ModuleType('_b4_app_private_' + name)\n        module.__file__ = '<pinned-b4-app-' + name + '>'\n",
+          "new_lines": [
+            38,
+            39
+          ],
+          "new_start_byte": 1805,
+          "old": "        module = ModuleType('_ordinary_app_private_' + name)\n        module.__file__ = '<pinned-ordinary-app-' + name + '>'\n",
+          "old_lines": [
+            39,
+            40
+          ],
+          "old_start_byte": 2030,
+          "operation": "replace"
+        },
+        {
+          "new": "        'fixed': {'schema': 'fixed-b4-app-upload-v1', 'run_id': RUN_ID,\n",
+          "new_lines": [
+            72,
+            72
+          ],
+          "new_start_byte": 3776,
+          "old": "        'fixed': {'schema': 'fixed-ordinary-app-upload-v1', 'run_id': RUN_ID,\n",
+          "old_lines": [
+            73,
+            73
+          ],
+          "old_start_byte": 4013,
+          "operation": "replace"
+        },
+        {
+          "new": "        'schema_prefix': 'b4-app-upload-', 'files': files, 'absent': absent,\n",
+          "new_lines": [
+            74,
+            74
+          ],
+          "new_start_byte": 3937,
+          "old": "        'schema_prefix': 'ordinary-app-upload-', 'files': files, 'absent': absent,\n",
+          "old_lines": [
+            75,
+            75
+          ],
+          "old_start_byte": 4180,
+          "operation": "replace"
+        },
+        {
+          "new": "",
+          "new_lines": [
+            95,
+            94
+          ],
+          "new_start_byte": 4776,
+          "old": "def checked_capture_bindings(dependencies, bindings):\n    support = dependencies.capture\n    support.keys(bindings, ('schema', 'run_id', 'source_sha256', 'boot_id', 'uid',\n                            'output', 'files', 'loader_image'))\n    fixed = {'schema': 'fixed-ordinary-app-capture-v1', 'run_id': RUN_ID,\n             'source_sha256': SOURCE, 'output': PARENT + '/' + RUN_ID + '-capture'}\n    for name, expected in fixed.items():\n        support.require(type(bindings[name]) is str and bindings[name] == expected,\n                        'Wrong binding: ' + name)\n    support.require(type(bindings['boot_id']) is str and re.fullmatch(\n        r'[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}', bindings['boot_id']),\n        'Invalid boot identity')\n    support.require(type(bindings['uid']) is int and bindings['uid'] == 1000,\n                    'Wrong bound UID')\n    support.keys(bindings['files'], support.FILE_NAMES)\n    paths = selected_profile(support)['files']\n    paths['config'] = ('/home/arduino/sumox26-capture-tools/app-default-'\n                       'beeffff315b2e28a95a20dc1e26477fc924b2da26d1fdd8a8b36fb013ca110e1'\n                       '/p0_mem_read.cfg')\n    for name, pin in bindings['files'].items():\n        support.check_pin(pin)\n        support.require(pin['path'] == paths[name], 'Wrong capture path: ' + name)\n    for name in ('sketch', 'loader'):\n        _artifact(support, name, bindings['files'][name])\n    support.check_pin(bindings['loader_image'], False)\n    _artifact(support, 'loader_image', bindings['loader_image'])\n    support.require(sys.flags.dont_write_bytecode, 'Python -B is required')\n    return json.loads(support.json_bytes(bindings))\n\n\ndef _flash_plan(prefix, region):\n    base, extent = (0x08000000, 263680) if region == 'loader' else (0x08100000, 92944)\n    return tuple((prefix + '.' + region + '.' + str(index), base + offset,\n                  min(65536, extent - offset))\n                 for index, offset in enumerate(range(0, extent, 65536)))\n\n\ndef read_plan():\n    first = tuple(('first.' + name, address, size) for name, address, size in WINDOWS)\n    second = tuple(('second.' + name, address, size) for name, address, size in WINDOWS)\n    return (_flash_plan('before', 'loader') + _flash_plan('before', 'sketch') +\n            first + second + _flash_plan('after', 'sketch') + _flash_plan('after', 'loader'))\n\n\n",
+          "old_lines": [
+            96,
+            139
+          ],
+          "old_start_byte": 5025,
+          "operation": "delete"
+        },
+        {
+          "new": "",
+          "new_lines": [
+            100,
+            99
+          ],
+          "new_start_byte": 5115,
+          "old": "\n\ndef _capture_type(dependencies):\n    support = dependencies.capture\n\n    class OrdinaryAppCapture(support.Capture):\n        source = SOURCE\n        result_schema = 'ordinary-app-capture-result-v1'\n        attempt_schema = 'ordinary-app-capture-attempt-v1'\n\n        def profile_bindings(self):\n            return checked_capture_bindings(dependencies, self.input_bindings)\n\n        def prepare_plan(self):\n            self.plan = read_plan()\n            self.report['analysis'] = {\n                'schema': 'ordinary-app-capture-analysis-v1',\n                'flash': {'before_loader': False, 'before_sketch': False,\n                          'after_loader': False, 'after_sketch': False},\n                'snapshots': [], 'coherence': 'UNPROVEN', 'pre_sample_wait': None}\n\n        def check_image(self, label, begin, end, reference):\n            observed = b''.join(item[2] for item in self.samples[begin:end])\n            matches = observed == reference\n            self.report['analysis']['flash'][label] = matches\n            support.require(matches, 'Captured flash image differs: ' + label)\n\n        def pre_sample_pause(self):\n            support.require(self.budget() > 30, 'Insufficient budget before first sample')\n            wait = {'requested_seconds': 30, 'before': self.now(), 'after': None}\n            self.report['analysis']['pre_sample_wait'] = wait\n            self.sleeper(30)\n            wait['after'] = self.now()\n            support.require(wait['after'] - wait['before'] >= 30,\n                            'Initial observation delay was shorter than thirty seconds')\n            self.budget()\n\n        def gather(self):\n            brackets = {4: ('before_loader', 0, 5, self.loader),\n                        6: ('before_sketch', 5, 7, self.sketch),\n                        22: ('after_sketch', 21, 23, self.sketch),\n                        27: ('after_loader', 23, 28, self.loader)}\n            for index, item in enumerate(self.plan):\n                support.require(self.report['first_error'] is None,\n                                'Earlier capture read failed')\n                if index == 7:\n                    self.pre_sample_pause()\n                if index == 14:\n                    self.pause()\n                try:\n                    self.one_read(index, item)\n                finally:\n                    self.report['analysis']['snapshots'] = [dict(record)\n                        for record in self.report['reads']\n                        if record['name'].startswith(('first.', 'second.'))]\n                if index in brackets:\n                    self.check_image(*brackets[index])\n                self.budget()\n\n        def complete(self):\n            analysis = self.report['analysis']\n            wait = analysis['pre_sample_wait'] if analysis is not None else None\n            return (wait is not None and wait['after'] is not None and\n                    wait['after'] - wait['before'] >= 30 and\n                    all(analysis['flash'].values()) and\n                    len(analysis['snapshots']) == 14 and self.report['counts'] ==\n                    {'commands': 28, 'reads': 28, 'requested_bytes': 715858})\n\n    return OrdinaryAppCapture\n\n\ndef collect(dependencies, loader_image, *, fs_root=Path('/'), executor=None,\n            clock=None, sleeper=None, bindings=None):\n    capture = _capture_type(dependencies)(\n        dependencies.helper, None, loader_image, fs_root, executor, clock, sleeper,\n        bindings, RUN_ID)\n    return dependencies.capture._collect(capture)\n",
+          "old_lines": [
+            145,
+            221
+          ],
+          "old_start_byte": 7737,
+          "operation": "delete"
+        }
+      ]
+    },
+    {
+      "forward_exact": true,
+      "input": "state/analysis/P7_ordinary_app_run_raw/actions.py",
+      "input_identity": {
+        "bytes": 12496,
+        "sha256": "07c03a65fad73f49064abd0af77161b5ed10e2c6002bb6c442e7ab5b28ee25b1"
+      },
+      "output": "state/analysis/P7_b4_app_upload_raw/actions.py",
+      "output_identity": {
+        "bytes": 21419,
+        "sha256": "7d5cd50fba630c5ca46bdc786f0959610c4c6e6b31059b7fbf13206c09faca57"
+      },
+      "reverse_exact": true,
+      "spans": [
+        {
+          "new": "# Composes only the fixed inhibited B4 upload through accepted bounded framing.\n# Retains exact source and returned-report checks with no capture predecessor.\n# Focused independent fixtures cover profile admission and one-shot failure closure.\n",
+          "new_lines": [
+            1,
+            3
+          ],
+          "new_start_byte": 0,
+          "old": "# Composes fixed ordinary application actions through the established framing.\n# Preserves one-shot sequencing and errors while checking a small staged adapter.\n# Independent contract fixtures verify composition, receipts and failure closure.\nimport ast\n",
+          "old_lines": [
+            1,
+            4
+          ],
+          "old_start_byte": 0,
+          "operation": "replace"
+        },
+        {
+          "new": "RUN_ID = 'b4-app-m0-9044ebbb-load01'\nPARENT = \"/home/arduino/sumox26_codex_build/\"\nADAPTER = '/home/arduino/sumox26_codex_build/b4-app-m0-9044ebbb-load01-adapter/remote.py'\nADAPTER_SHA = 'c2f0a4423839f9b3444c2949587486248d3a0af9578ae8188fd478bb55868b57'\nADAPTER_BYTES = 5115\nSOURCE_HASHES = {'helper': '8ba9b190c38e728013a383348c60c287b0366607f65f703161cf7f2e142d36f8', 'support': '95b0344d01886b6db30d55aa18a536f9a481b82348e22643e7920d817dbfac3e', 'upload': 'e926b7ba5586475664b0541370e7cfb5c50e40d8dc8b47b18e35db3e0a0a25c1'}\nBINDINGS = {'absent': ['/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/boards.local.txt', '/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/platform.local.txt', '/home/arduino/.arduino15/packages/platform.txt', '/home/arduino/Arduino/hardware', '/home/arduino/openocd_gpiod.cfg', '/home/arduino/stm32u5x.cfg', '/home/arduino/stm32x5x_common.cfg', '/home/arduino/mem_helper.tcl', '/home/arduino/target/swj-dp.tcl', '/opt/openocd/mem_helper.tcl', '/opt/openocd/target/swj-dp.tcl', '/home/arduino/sumox26_codex_build/9044ebbb3cd3b2dbb7aa5984dd5ff23bfff697372f1f29d56693af9ea5eaf31a/app/sketch.yaml', '/home/arduino/sumox26_codex_build/9044ebbb3cd3b2dbb7aa5984dd5ff23bfff697372f1f29d56693af9ea5eaf31a/app/sketch.yml', '/home/arduino/sumox26_codex_build/9044ebbb3cd3b2dbb7aa5984dd5ff23bfff697372f1f29d56693af9ea5eaf31a/app/sketch.json'], 'boot_id': '55c386b9-fe6d-4388-a7f4-1d91e0bb49d8', 'directories': {'/home/arduino/.arduino15/packages': ['SiliconLabs', 'arduino', 'builtin', 'zephyr'], '/home/arduino/.arduino15/packages/arduino/hardware/zephyr': ['1.0.0'], '/home/arduino/.arduino15/packages/arduino/tools/remoteocd': ['0.1.1']}, 'files': {'adb': {'bytes': 7916376, 'path': '/home/arduino/.arduino15/packages/arduino/tools/adb/32.0.0/adb', 'sha256': 'ed62ac1ec90ef305cf0c8fa317284cd75b7cda88ecd8dbdd097044101072d164'}, 'boards': {'bytes': 6101, 'path': '/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/boards.txt', 'sha256': 'bd4f03904d8fe16bf845baf09d0435e79f5a46c6e6a4f445f3ee592994652b84'}, 'cli': {'bytes': 34651734, 'path': '/usr/bin/arduino-cli', 'sha256': 'b878632298958d61fd1eb19e70ac5d2e803d83db8930bc72dc6915eee6e8f433'}, 'common_config': {'bytes': 8468, 'path': '/opt/openocd/stm32x5x_common.cfg', 'sha256': '139a2c4167e4fc649ab0057560858e03a24dcafeb5b0b3a3bcb7b9373e0869e4'}, 'flash_config': {'bytes': 680, 'path': '/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/flash_sketch.cfg', 'sha256': '38706cee1f9ff2e53364a47129d1c1aea9bb9687ed26d7d70b4a9f9bc5bca60c'}, 'gpio_config': {'bytes': 194, 'path': '/opt/openocd/openocd_gpiod.cfg', 'sha256': '58c0c341ba2a0c758bb044683884fb4af01ff6c9cf292bec6b2115c44f7ff836'}, 'index': {'bytes': 1691790, 'path': '/home/arduino/.arduino15/package_index.json', 'sha256': '3cb9691dc81453f0ad429c721af4aaf87ff18d9431408f4cd75c8bb479419c3e'}, 'installed': {'bytes': 303397, 'path': '/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/installed.json', 'sha256': '985d3ba102ebf440eca4fb9a9f767b35134e3d827919224bb7635b4b106f86f9'}, 'loader': {'bytes': 2303728, 'path': '/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf', 'sha256': '39d4a4fd47241663323f6e04f94dd8f5a9f9ad6582cf1df37f9709b74026adcd'}, 'mem_helper': {'bytes': 1021, 'path': '/opt/openocd/share/openocd/scripts/mem_helper.tcl', 'sha256': '01794a37e9a8bdc20e2304ee64e9d70549c0872f5f6c40fa032a165bcbba1fd2'}, 'openocd': {'bytes': 14435552, 'path': '/opt/openocd/bin/openocd', 'sha256': '04778a80c5c619ee4eef7505db91328f1d7e789107c496f2ddcf96d081f5b0ff'}, 'platform': {'bytes': 20947, 'path': '/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/platform.txt', 'sha256': 'd4c824fceb2f4cf0057da4df3235d3aee195bbbd71f59a48d344c818fcd5e638'}, 'raw': {'bytes': 82896, 'path': '/home/arduino/sumox26_codex_build/b4-app-m0-static01/build/app.ino.bin', 'sha256': '6fcad2f09c90bbc7dd72760e7a794305811d042a9d2e578e03d5154cc368a471'}, 'remoteocd': {'bytes': 6451057, 'path': '/home/arduino/.arduino15/packages/arduino/tools/remoteocd/0.1.1/remoteocd', 'sha256': '2a3f820b867d113a82a86470f2caa128bc15b52303ad4ce0a5cbd62002cb2b60'}, 'sketch': {'bytes': 82912, 'path': '/home/arduino/sumox26_codex_build/b4-app-m0-static01/build/app.ino.bin-zsk.bin', 'sha256': '84667b0a22ff7701059a266b6c82bb61de1f7ccec96280e4f13b5692bf785a28'}, 'swj': {'bytes': 1148, 'path': '/opt/openocd/share/openocd/scripts/target/swj-dp.tcl', 'sha256': 'aad132008735bbafea3d18a304632c638f0fb99bfc19530c9f577eda2b10410a'}, 'target_config': {'bytes': 1762, 'path': '/opt/openocd/stm32u5x.cfg', 'sha256': '8c0ffc41eadd0593168b825d60d6736329c08974c047fdac722fabb93c0ee46a'}}, 'output': '/home/arduino/sumox26_codex_build/b4-app-m0-9044ebbb-load01-upload', 'run_id': 'b4-app-m0-9044ebbb-load01', 'schema': 'fixed-b4-app-upload-v1', 'source_sha256': '9044ebbb3cd3b2dbb7aa5984dd5ff23bfff697372f1f29d56693af9ea5eaf31a', 'uid': 1000}\nEXPECTED_IDENTITY = {'boot_id': '55c386b9-fe6d-4388-a7f4-1d91e0bb49d8', 'gid': 1000, 'home': '/home/arduino', 'machine': 'aarch64', 'python': [3, 13, 5], 'release': '6.16.7-g0dd6551ae96b', 'sysname': 'Linux', 'uid': 1000, 'user': 'arduino'}\n",
+          "new_lines": [
+            16,
+            23
+          ],
+          "new_start_byte": 609,
+          "old": "RUN_ID = 'ordinary-app-9044ebbb-run01'\nPARENT = '/home/arduino/sumox26_codex_build/'\nADAPTER = PARENT + RUN_ID + '-adapter/remote.py'\nADAPTER_SHA = 'a2c2fc9d32694a96a406b6de499bfb04a2a159710443c8b37ca56e92921a536f'\nADAPTER_BYTES = 11269\nSOURCE_HASHES = {\n    'helper': '8ba9b190c38e728013a383348c60c287b0366607f65f703161cf7f2e142d36f8',\n    'support': '95b0344d01886b6db30d55aa18a536f9a481b82348e22643e7920d817dbfac3e',\n    'upload': 'e926b7ba5586475664b0541370e7cfb5c50e40d8dc8b47b18e35db3e0a0a25c1'}\nWINDOWS = (('report', 537115800, 600), ('transaction', 537113264, 504), ('previous', 537113768, 48), ('gate', 536951336, 88), ('grants', 537115776, 21), ('attempted_word', 537117352, 4), ('motor_port', 537117512, 40))\n\n",
+          "old_lines": [
+            17,
+            27
+          ],
+          "old_start_byte": 619,
+          "operation": "replace"
+        },
+        {
+          "new": "",
+          "new_lines": [
+            36,
+            35
+          ],
+          "new_start_byte": 6327,
+          "old": "\n",
+          "old_lines": [
+            40,
+            40
+          ],
+          "old_start_byte": 1815,
+          "operation": "delete"
+        },
+        {
+          "new": "    source = raw.decode('utf-8').replace('motor-fault-action-v1', 'b4-app-upload-action-v1').replace('motor-fault-', 'b4-app-')\n",
+          "new_lines": [
+            40,
+            40
+          ],
+          "new_start_byte": 6497,
+          "old": "    source = raw.decode('utf-8').replace('motor-fault-', 'ordinary-app-')\n",
+          "old_lines": [
+            45,
+            45
+          ],
+          "old_start_byte": 1986,
+          "operation": "replace"
+        },
+        {
+          "new": "",
+          "new_lines": [
+            45,
+            44
+          ],
+          "new_start_byte": 6762,
+          "old": "\n",
+          "old_lines": [
+            50,
+            50
+          ],
+          "old_start_byte": 2197,
+          "operation": "delete"
+        },
+        {
+          "new": "def same(left, right):\n    if type(left) is not type(right):\n        return False\n    if type(left) is dict:\n        return set(left) == set(right) and all(same(k, next(k2 for k2 in right if k2 == k))\n            and same(left[k], right[k]) for k in left)\n    if type(left) is list:\n        return len(left) == len(right) and all(same(a, b) for a, b in zip(left, right))\n    return left == right\n",
+          "new_lines": [
+            47,
+            55
+          ],
+          "new_start_byte": 6782,
+          "old": "_CAPTURE = r'''\ndef staged_read(helper,root,pin):\n raw=helper.logical_read(root,pin['path'],pin['bytes'])\n require(type(raw) is bytes and len(raw)==pin['bytes'] and sha(raw)==pin['sha256'],'Staged adapter mismatch')\n return raw\n",
+          "old_lines": [
+            53,
+            57
+          ],
+          "old_start_byte": 2218,
+          "operation": "replace"
+        },
+        {
+          "new": "_BOOTSTRAP_SOURCE = \"\\nimport base64,bz2,hashlib,json,os,re,sys,types\\nRUN_ID='b4-app-m0-9044ebbb-load01'\\nSOURCE='9044ebbb3cd3b2dbb7aa5984dd5ff23bfff697372f1f29d56693af9ea5eaf31a'\\nPARENT='/home/arduino/sumox26_codex_build/'\\ndef require(ok,message):\\n if not ok: raise ValueError(message)\\n\\ndef canonical(value):\\n return (json.dumps(value,ensure_ascii=True,sort_keys=True,separators=(',',':'),allow_nan=False)+'\\\\n').encode('ascii')\\n\\ndef sha(raw):\\n return hashlib.sha256(raw).hexdigest()\\n\\ndef keys(value,names):\\n require(type(value) is dict and set(value)==set(names),'Wrong object fields')\\n\\ndef unique(pairs):\\n value={}\\n for key,item in pairs:\\n  require(key not in value,'Duplicate JSON key')\\n  value[key]=item\\n return value\\n\\ndef nonfinite(value):\\n raise ValueError('Nonfinite JSON number')\\n\\ndef load(name,source,filename):\\n module=types.ModuleType(name)\\n module.__file__=filename\\n sys.modules[name]=module\\n exec(compile(source,filename,'exec'),module.__dict__)\\n return module\\n\\ndef error_record(error):\\n return {'type':type(error).__name__,'message':str(error)}\\n\\ndef remember(envelope,error,check=None):\\n record=error_record(error)\\n if envelope['first_error'] is None: envelope['first_error']=record\\n if check is not None: envelope['postcheck_errors'].append({'check':check,**record})\\ndef same(left, right):\\n    if type(left) is not type(right):\\n        return False\\n    if type(left) is dict:\\n        return set(left) == set(right) and all(same(k, next(k2 for k2 in right if k2 == k))\\n            and same(left[k], right[k]) for k in left)\\n    if type(left) is list:\\n        return len(left) == len(right) and all(same(a, b) for a, b in zip(left, right))\\n    return left == right\\n\\ndef request():\\n require(len(sys.argv)==4 and sys.flags.dont_write_bytecode and sys.dont_write_bytecode is True,'Expected action, hash, payload and Python -B')\\n action,digest,token=sys.argv[1:]\\n require(type(action) is str and action == 'upload','Wrong action')\\n require(re.fullmatch('[0-9a-f]{64}',digest) is not None,'Wrong payload digest')\\n if token.startswith('b85:'):\\n  compressed=base64.b85decode(token[4:])\\n  require(base64.b85encode(compressed).decode('ascii')==token[4:],'Noncanonical base85')\\n else:\\n  compressed=base64.b64decode(token,validate=True)\\n  require(base64.b64encode(compressed).decode('ascii')==token,'Noncanonical base64')\\n decoder=bz2.BZ2Decompressor()\\n raw=decoder.decompress(compressed,max_length=196609)\\n require(len(raw)<=196608 and decoder.eof and not decoder.unused_data,'Invalid bounded BZ2 member')\\n require(sha(raw)==digest,'Payload hash mismatch')\\n payload=json.loads(raw.decode('ascii'),object_pairs_hook=unique,parse_constant=nonfinite)\\n require(canonical(payload)==raw,'Noncanonical JSON')\\n keys(payload,('run_id','source_sha256','sources','bindings','adapter_pin'))\\n require(payload['run_id']==RUN_ID and payload['source_sha256']==SOURCE,'Wrong payload identity')\\n sources=payload['sources']\\n roles=('helper','support','upload')\\n keys(sources,roles)\\n for role in roles:\\n  item=sources[role]\\n  keys(item,('source','sha256'))\\n  require(type(item['source']) is str and item['source'],'Empty inline source')\\n  require(type(item['sha256']) is str and sha(item['source'].encode('utf-8'))==item['sha256'],'Inline source hash mismatch')\\n  require(item['sha256']=={'helper': '8ba9b190c38e728013a383348c60c287b0366607f65f703161cf7f2e142d36f8', 'support': '95b0344d01886b6db30d55aa18a536f9a481b82348e22643e7920d817dbfac3e', 'upload': 'e926b7ba5586475664b0541370e7cfb5c50e40d8dc8b47b18e35db3e0a0a25c1'}[role],'Pinned inline source differs')\\n bindings=payload['bindings']\\n require(type(bindings) is dict,'Wrong bindings type')\\n fixed={'schema':'fixed-b4-app-'+action+'-v1','run_id':RUN_ID,'source_sha256':SOURCE,'output':PARENT+RUN_ID+'-'+action}\\n for name,value in fixed.items():\\n  require(type(bindings.get(name)) is str and bindings[name]==value,'Wrong binding: '+name)\\n require(sha(canonical(bindings))=='2faf9ab12b685ec07a556aa63c8dd68d380ba6efe4e3f6b7d5f246b848441a41','Wrong fixed upload bindings')\\n adapter_pin=payload['adapter_pin']\\n require(same(adapter_pin,{'path': '/home/arduino/sumox26_codex_build/b4-app-m0-9044ebbb-load01-adapter/remote.py', 'bytes': 5115, 'sha256': 'c2f0a4423839f9b3444c2949587486248d3a0af9578ae8188fd478bb55868b57'}),'Wrong staged adapter pin')\\n return action,sources,bindings,adapter_pin\\ndef staged_read(helper,root,pin):\\n raw=helper.logical_read(root,pin['path'],pin['bytes'])\\n require(type(raw) is bytes and len(raw)==pin['bytes'] and sha(raw)==pin['sha256'],'Staged adapter mismatch')\\n return raw\\n\\ndef perform(action,sources,bindings,adapter_pin,envelope):\\n root=None\\n try:\\n  helper=load('fixed_b4_upload_helper',sources['helper']['source'],'/__sumox__/helper.py')\\n  root=os.open('/',os.O_RDONLY|os.O_DIRECTORY|os.O_NOFOLLOW|os.O_CLOEXEC)\\n  adapter=load('fixed_b4_upload_adapter',staged_read(helper,root,adapter_pin),adapter_pin['path'])\\n  dependencies=adapter.load_dependencies({role:sources[key]['source'].encode('utf-8') for role,key in (('helper','helper'),('capture','support'),('upload','upload'))})\\n  envelope['report']=adapter.upload(dependencies,bindings=bindings)\\n  envelope['report_origin']='returned'\\n except Exception as error:\\n  remember(envelope,error)\\n finally:\\n  if root is not None:\\n   if envelope['report'] is None:\\n    try:\\n     raw=helper.logical_read(root,envelope['remote_result_path'],16777216)\\n     envelope['report']=json.loads(raw.decode('ascii'),object_pairs_hook=unique,parse_constant=nonfinite)\\n     require(canonical(envelope['report'])==raw,'Noncanonical durable result')\\n     envelope['report_origin']='durable_unattributed'\\n    except FileNotFoundError: pass\\n    except Exception as error: remember(envelope,error,'durable_result')\\n   try: staged_read(helper,root,adapter_pin)\\n   except Exception as error: remember(envelope,error,'staged_adapter')\\n   try: os.close(root)\\n   except Exception as error: remember(envelope,error,'root_close')\\n\\ndef main():\\n action,sources,bindings,adapter_pin=request()\\n envelope={'schema':'b4-app-upload-action-v1','action':action,'run_id':RUN_ID,'source_sha256':SOURCE,\\n  'report':None,'report_origin':None,'remote_result_path':bindings['output']+'/'+action+'_result.json',\\n  'full_result_bytes':None,'full_result_sha256':None,'first_error':None,'postcheck_errors':[]}\\n perform(action,sources,bindings,adapter_pin,envelope)\\n if envelope['report'] is not None:\\n  full=canonical(envelope['report'])\\n  envelope['full_result_bytes']=len(full);envelope['full_result_sha256']=sha(full)\\n  envelope['report']={key:value for key,value in envelope['report'].items() if key not in ('stdout','stderr')}\\n raw=canonical(envelope)\\n require(len(raw)<=65536,'Action reply exceeds bound')\\n sys.stdout.write(raw.decode('ascii'))\\nmain()\\n\"\nBOOTSTRAP = \"import base64,bz2\\nexec(bz2.decompress(base64.b64decode('QlpoOTFBWSZTWc8IFCgAAElfgGRQQP///j833/6////+YAvcMfeydDV7TB7Gvdik029w10HQ6AiSAXCUQI0CGmgTU8JlNhNT0g0GmmmIxGhoGgamIaJ6BTKZEGmg0AyBoAAGjEAA000mgk0TU0yaaZGgNBoAAAA0AAEmlJqaRk0ak9JmoYg2poANANADQ0PUAHDTTBDIaaZGTCAaaAMJo0yYAEDQSJE0AmJHoJlNpomlN6aUaGhiaaHqGgNqGmmZJt+lj/H/dmk7N+zHfVFYxTiNGCHkbEYLDOabR+1MoLitoxTYiNFT9LhxsW68jxgOb5kvCEhSSIihEdgb0wU63YGj6WvO89DR3nmvMi5uh2Y/J4bWnC2Z5R62fHw0fpXfqBmMKWBa5VIqjARYJBzQlALmpGGR0gE/cXgsiZTzGh1IIqVsr0iDKamhJlIc22yQ+mS6CDB0Umjgy7W3qMvMYhcPw5V0eMcgmsgekVAnqCJTt01vdsy+523xSuAykqpuRNjUNKEzsaWdVysHipq94q4Rs04xTMCRQI3EJtBpgTLhDj63V05/SlHlpDQcUR0eGC7LTuxGz97vQsj1nr5YhUMQ4My1xo1+50LbBrFDi/VqSBv693jgczbuCIi1xyo1pc8PSOahRAQi3BsDAYZlmB0zVsZG5VsIOHECEIkZSEKVSe2Bx5BtXKeI2CCv7Ew4oJkQoJQlIFyHJMECpsuUxkucBowxFUqY0pcKePt68+7jxGN9YvVDBkPqub6wlQdQEDhO0RvEVzpdgQ8FTdNNGjD4Mu7fgsLFWLi93G3i4JKgFS4qKuS1KOzBUgUMauuAacOIoovA8nWG/oyvEi5ZstLy8piYfwmYc1P2LYpmBxTS/avoqBqvYLgu1auHfJCxAWzBtMHQTcpHM4yNMPFf2ZkGsrCZR53j8FpQPjVh6DxEboptcG0MSTzNhE25F09XFZT5rQ6bXDPy6JonB2ASE4LpvHim3UE54Jw4ZzahBTc7xd3dS1aIQlNCNK0lCOSAQGPe6dzM8PScyaatVYMw1kUmmu1IUldaGQB3GgbKF1IiKmIz2ZqCJBrnEQKToaofcQp+jAccDkXjpNaLtzJTgxrF0nPhw6KMjdRS19T21ZIzaqoLaibi7JPC5XoTw8S9erljKRqES54kY3iSiyatz4Y3WPqa2unGx+4dWTUtWfHBwzqpYrsgHgEAjViGhSF4Fd1I1ZZXkpX2BRNhI7I4wlcb+LYUxli7g7Bq+5go0RFhiESCzKTg6sXuqkVuHZJHId/PR9hWpUlOyyYLA0zW2QWB4udcpwaSLqZXm8rNEcQO1bynN4M7PMVJ9RUp1dbOWtJIVYHGuWMDKGVmphlUQtOI1FIq77dk+qSIcjy8XMS+rIVClOjUT2NCz0IVbKrVxR8H6+u0tHVvgzhQiQFQFN1l2QtTe1ZM4y9v9Cyv5GkjlcsBZ0oiQBzWM3taUUjBkYM+pgz19WDvCtnagxuiX3B+XJ9nUlqgGuZbW9OhkgOSE/f03HBLcPwhEKCb4oKg27NyfZ198wIXAy+WQaoF9vlGPjMT05nJAntmNcKkNrccTA4kAZfrf3GIzkQ0DBgI3QNU4VVWk/U8rym3kDy64coC+FBZcWQU9xKhfH9XeDpO7BMLP3vwX3bSTJkFS+kgmWzWREtDaFVlXwkl8EitbxhNdaMFFeqLIz1DTlxHKJn7n9Pw9/PIgjWxY/o6OmWpWHQ7gksTPbL1zkG6VGi8zuxBLSKooiOMJvIN7JhQi1hIXY2U386YhPJjO0LD5Am4tFrTzjkE8BW0IKhUEf5aLBGJuD080gns9CZBSsOIuXil5opdYE7GoWWlEB7TqVAnOuYXi4tmtmrJUyVl+7fXhvEGZsJ17HqbVleVaY2GvWqsmR1vUnAiMsglBGJxAqu2rsTgoNTkyLYY67cVy05VxdPTPPEF0DTAZlfVTokvUQ0jjv8gss3dszzNiaWot3dBNoYMUjOGri4GHQsZ2/IknRjaMTA5bMUgy1MIxUxilMgbZ7yDj38Dz8Oflv5ki8xvjGEQ2mNNIM8uvflflm+gluRKnTcp7PrEmsMeFLg7mQps6c51igE5KXeCwvFCJCfKOh45WaKKBxjyyKpI1YI9+rTeXy6YhtA3YclEwUri2Usryt3W8lm7UsaKXNVZO6NqOsjQgOiwdMMDCYUuUHuhlv7xz6dchTpPWe3MhrHB55KCACINieVRWSgzCOtSOmi5EegrDcC+NaPwWU6uBpdKMlIY5siFzzrEvboI8fyoFmhezERBqLQCRnYl+kTV66LduoFXWj9raMQ+TkyQz723durWxC7UDAWR8G8QqWDMmLLRayCXxTfvBDcHidDr127kWt+mpMJOqZKSh7Kkxdx4DUINIagFmYn3sXFobmxiJszWwVRQVQVUUFrNhZk37tau2vweWCrsfz9b6euy+55V9nTw6ktwb1DYzygDmYCPIlUFVEG1BgiTA4jU0ibFad5tXchuG0guWLmK9ZMxWR89KGVpMutPADJLyNmQiZLqDoDw1xUIOqoK1Iml4nt+iwPzStEMwbN5CFV3IDFYICQVn6LzaCP9bVISLwrVaAg+ZXU0aZw5d1hRDndHi06A2totNhbbBT76RdEeUOHDTFC31kOHLag0G0xhjzPDUwznEhuHBEi0wAyiBjmr6Kv1O7E3K2CoBmz7KNNGA6SI9xAo1bDNAtSyEK0dyCACk5nAdo0Hff4qnC6grkLQarkiDy1rqDSIM61ardWlHxmTWdQxhBA2LaURtP8tWaIyNRlSjC2hebBWhlYRGH2OB38jjLZFlwVgXAEoY1cgJtMFwxvkCmgKoEUUkfcwq0LREIKFciCJV1yQKdp2CSpgcAR4I/47KGddp4CzA9hcA9EuLSbQ1/AQZKgDEUPMpWVCMEC7uoEguaAsRvUyRh0QqNdv4p6ccCozS2sYG16rx+Z4CFqeBdRbrw37O04aErZtuFUPQiI8klmgX1O65YoVZQxvkwwaLohx7EiylqgFid6KlUBpDEgIN7h6JxmQJz6AhVRDqYWKMMUhQjBJE2zgcj2gOYZT5HJCbA2DeUkOfXHRDkTb/TD3eJUJmzeyB2pHUB/tPetGyvMzNJmwY3ovVMzBSPX3HZI/AB2SG3BhuSRiHvGIbAvN42ZDUICPkFYZh0rrT8FDUEh8GHc5ltle8a982D1OdVE1oWHM6NCjii1xoNdBFUwazonQcDmk8HA3Fwk7CxG7st5srV8pEO/k2mm30oYr7UX3WKwUWwKAiUfG+3NAXbFXa7H7jHQqImF9qDqZ0VnC7LK4Pf6cEZB79IiqEbzWre02DYQvd2IurZYMqcJkWzRFtsTnmMrrnWTorgmTCs3/KgEA0PgiyIIORZhMFkkExSKInynSgNJXbezs7YldeYo187FtphqCedW/BdzJJt7NmofjhCG1BBAQeh0IEhpcQNqDtalWHPisbzv+MtES+isuVytELhJgsJajzuIOdw6dmOsGoS0ggqQLgILdnHiYndMpPCDOolvU9KdLbTuGiWahMyHhYNChEW+B7FLdyu6o3vY5df+P7uwyN7Fy5T/i7kinChIZ4QKFAA==')))\"\n",
+          "new_lines": [
+            57,
+            58
+          ],
+          "new_start_byte": 7179,
+          "old": "def perform(action,sources,bindings,adapter_pin,envelope):\n root=None;helper=None;parser_read=False\n try:\n  helper=load('fixed_app_fault_helper',sources['helper']['source'],'/__sumox__/helper.py')\n  root=os.open('/',os.O_RDONLY|os.O_DIRECTORY|os.O_NOFOLLOW|os.O_CLOEXEC)\n  adapter=load('fixed_app_fault_adapter',staged_read(helper,root,adapter_pin),adapter_pin['path'])\n  dependencies=adapter.load_dependencies({role:sources[key]['source'].encode('utf-8') for role,key in (('helper','helper'),('capture','support'),('upload','upload'))})\n  if action=='capture':\n   parser_read=True\n   parser=load('p0_capture',installed_read(helper,root,PINS[0]),INSTALLED+'p0_capture.py')\n   envelope['report']=adapter.collect(dependencies,parser.loader_image,bindings=bindings)\n  else: envelope['report']=adapter.upload(dependencies,bindings=bindings)\n  envelope['report_origin']='returned'\n except Exception as error:\n  remember(envelope,error)\n finally:\n  if root is not None:\n   if envelope['report'] is None and envelope['first_error'] is not None:\n    try:\n     raw=helper.logical_read(root,envelope['remote_result_path'],16777216)\n     envelope['report']=json.loads(raw.decode('ascii'),object_pairs_hook=unique,parse_constant=nonfinite)\n     require(canonical(envelope['report'])==raw,'Noncanonical durable result')\n     envelope['report_origin']='durable_unattributed'\n    except FileNotFoundError: pass\n    except Exception as error: remember(envelope,error,'durable_result')\n   try: staged_read(helper,root,adapter_pin)\n   except Exception as error: remember(envelope,error,'staged_adapter')\n   if parser_read:\n    try: installed_read(helper,root,PINS[0])\n    except Exception as error: remember(envelope,error,'installed:p0_capture')\n   try: os.close(root)\n   except Exception as error: remember(envelope,error,'root_close')\n'''\n\n_MAIN = r'''\ndef main():\n action,sources,bindings,adapter_pin=request()\n envelope={'schema':'ordinary-app-action-v1','action':action,'run_id':RUN_ID,'source_sha256':SOURCE,\n  'report':None,'report_origin':None,'remote_result_path':bindings['output']+'/'+action+'_result.json',\n  'full_result_bytes':None,'full_result_sha256':None,'first_error':None,'postcheck_errors':[]}\n perform(action,sources,bindings,adapter_pin,envelope)\n if envelope['report'] is not None:\n  full=canonical(envelope['report'])\n  envelope['full_result_bytes']=len(full);envelope['full_result_sha256']=sha(full)\n  if action=='upload': envelope['report']={key:value for key,value in envelope['report'].items() if key not in ('stdout','stderr')}\n raw=canonical(envelope)\n require(len(raw)<=65536,'Action reply exceeds bound')\n sys.stdout.write(raw.decode('ascii'))\nmain()\n'''\n\n\ndef _bootstrap():\n    original = legacy._BOOTSTRAP_SOURCE\n    functions = {node.name: ast.get_source_segment(original, node)\n                 for node in ast.parse(original).body if isinstance(node, ast.FunctionDef)}\n    prefix = original[:original.index('def require(')]\n    prefix = prefix[:prefix.index('PINS=')] + (\n        \"PINS=(('p0_capture',18880,'885c4e4206aea4ac9e03c4e92e48258db2a0ae302ff83a86430e6913afeeb57c'),)\\n\")\n    prefix = prefix.replace('ordinary-app-8f592937-run01', RUN_ID).replace(\n        '8f592937961a0c95b7cc4db88617169fcc9504644aa8b8b7dcf62f83c4c33f36', SOURCE)\n    request = functions['request'].replace(\n        \"('run_id','source_sha256','sources','bindings')\",\n        \"('run_id','source_sha256','sources','bindings','adapter_pin')\").replace(\n        \"roles=('helper','support','upload') if action=='upload' else ('helper','support')\",\n        \"roles=('helper','support','upload')\").replace(\n        'return action,sources,bindings',\n        \"adapter_pin=payload['adapter_pin']\\n keys(adapter_pin,('path','bytes','sha256'))\\n\"\n        \" require(adapter_pin==\" + repr(dict(path=ADAPTER, bytes=ADAPTER_BYTES, sha256=ADAPTER_SHA)) +\n        \" and type(adapter_pin['bytes']) is int,'Wrong staged adapter pin')\\n return action,sources,bindings,adapter_pin\")\n    source_check = \"require(type(item['sha256']) is str and sha(item['source'].encode('utf-8'))==item['sha256'],'Inline source hash mismatch')\"\n    legacy._require(request.count(source_check) == 1, 'Legacy source-check seam changed')\n    fixed_check = \"\\n  require(item['sha256']==\" + repr(SOURCE_HASHES) + \"[role],'Pinned inline source differs')\"\n    request = request.replace(source_check, source_check + fixed_check)\n    common = ('require', 'canonical', 'sha', 'keys', 'unique', 'nonfinite', 'load',\n              'error_record', 'remember', 'installed_read')\n    return prefix + '\\n\\n'.join(functions[name] for name in common) + '\\n' + request + _CAPTURE + _MAIN\n\n\n_BOOTSTRAP_SOURCE = _bootstrap()\nBOOTSTRAP = ('import base64,bz2\\nexec(bz2.decompress(base64.b64decode(' + repr(\n    base64.b64encode(bz2.compress(_BOOTSTRAP_SOURCE.encode(), 9)).decode()) + ')))')\n\n",
+          "old_lines": [
+            59,
+            141
+          ],
+          "old_start_byte": 2447,
+          "operation": "replace"
+        },
+        {
+          "new": "    legacy._require(type(action) is str and action == 'upload', 'Only upload is permitted')\n    legacy._require(same(bindings, BINDINGS), 'Wrong fixed upload bindings')\n",
+          "new_lines": [
+            61,
+            62
+          ],
+          "new_start_byte": 17774,
+          "old": "    legacy._action(action)\n",
+          "old_lines": [
+            144,
+            144
+          ],
+          "old_start_byte": 7332,
+          "operation": "replace"
+        },
+        {
+          "new": "    legacy._require(same(adapter_pin, dict(path=ADAPTER, bytes=ADAPTER_BYTES, sha256=ADAPTER_SHA)),\n                    'Wrong staged adapter pin')\n",
+          "new_lines": [
+            66,
+            67
+          ],
+          "new_start_byte": 18082,
+          "old": "    legacy._require(adapter_pin == dict(path=ADAPTER, bytes=ADAPTER_BYTES, sha256=ADAPTER_SHA)\n                    and type(adapter_pin['bytes']) is int, 'Wrong staged adapter pin')\n",
+          "old_lines": [
+            148,
+            149
+          ],
+          "old_start_byte": 7498,
+          "operation": "replace"
+        },
+        {
+          "new": "_original_validate_reply = legacy.validate_reply\n",
+          "new_lines": [
+            86,
+            86
+          ],
+          "new_start_byte": 19391,
+          "old": "\ndef _plan():\n    def flash(prefix, region):\n        size, base = (263680, 0x08000000) if region == 'loader' else (92944, 0x08100000)\n        return [(prefix + '.' + region + '.' + str(index), base + offset, min(65536, size - offset))\n                for index, offset in enumerate(range(0, size, 65536))]\n    samples = [(prefix + '.' + name, address, size) for prefix in ('first', 'second')\n               for name, address, size in WINDOWS]\n    return flash('before', 'loader') + flash('before', 'sketch') + samples + flash('after', 'sketch') + flash('after', 'loader')\n\n\ndef _capture(report):\n    analysis = report['analysis']\n    legacy._keys(analysis, ('schema', 'flash', 'snapshots', 'coherence', 'pre_sample_wait'))\n    legacy._require(analysis['schema'] == 'ordinary-app-capture-analysis-v1' and\n                    analysis['coherence'] == 'UNPROVEN', 'Wrong analysis identity')\n    legacy._keys(analysis['flash'], ('before_loader', 'before_sketch', 'after_loader', 'after_sketch'))\n    legacy._require(all(value is True for value in analysis['flash'].values()), 'Flash was not verified')\n    legacy._keys(report['counts'], ('commands', 'reads', 'requested_bytes'))\n    for key, expected in (('commands', 28), ('reads', 28), ('requested_bytes', 715858)):\n        legacy._integer(report['counts'][key], expected)\n    legacy._reads(report['reads'], _plan())\n    hashes = {item['name']: item['sha256'] for item in report['reads']}\n    for name, digest in hashes.items():\n        if name.startswith('before.'):\n            legacy._require(digest == hashes['after.' + name[len('before.'):]], 'Flash bracket hash changed')\n    snapshots = [item for item in report['reads'] if item['name'].startswith(('first.', 'second.'))]\n    legacy._require(type(analysis['snapshots']) is list and\n                    legacy._canonical(analysis['snapshots']) == legacy._canonical(snapshots), 'Wrong snapshots')\n    wait = report['wait']\n    legacy._keys(wait, ('requested_seconds', 'before', 'after'))\n    legacy._integer(wait['requested_seconds'], 2)\n    legacy._number(wait['before'])\n    legacy._number(wait['after'])\n    legacy._require(report['started_monotonic'] <= wait['before'] and\n                    wait['after'] <= report['finished_monotonic'] and\n                    wait['after'] - wait['before'] >= 2, 'Invalid sample separation')\n    pre = analysis['pre_sample_wait']\n    legacy._keys(pre, ('requested_seconds', 'before', 'after'))\n    legacy._integer(pre['requested_seconds'], 30)\n    legacy._number(pre['before'])\n    legacy._number(pre['after'])\n    legacy._require(report['started_monotonic'] <= pre['before'] <= pre['after'] <= wait['before']\n                    and pre['after'] - pre['before'] >= 30, 'Invalid initial observation delay')\n\n",
+          "old_lines": [
+            168,
+            212
+          ],
+          "old_start_byte": 8841,
+          "operation": "replace"
+        },
+        {
+          "new": "    legacy._require(type(action) is str and action == 'upload', 'Only upload is permitted')\n",
+          "new_lines": [
+            89,
+            89
+          ],
+          "new_start_byte": 19476,
+          "old": "",
+          "old_lines": [
+            215,
+            214
+          ],
+          "old_start_byte": 11629,
+          "operation": "insert"
+        },
+        {
+          "new": "",
+          "new_lines": [
+            97,
+            96
+          ],
+          "new_start_byte": 20055,
+          "old": "\nlegacy._capture = _capture\n# Save the original validator before supplying the sequence's adapted public seam.\n_original_validate_reply = legacy.validate_reply\n\n\n",
+          "old_lines": [
+            222,
+            227
+          ],
+          "old_start_byte": 12116,
+          "operation": "delete"
+        },
+        {
+          "new": "    legacy._keys(operations, ('local', 'prerequisites', 'intent', 'upload', 'finish'))\n    legacy._require(all(callable(operation) for operation in operations.values()),\n             'Expected five callable operations')\n    report = {'schema': 'b4-app-upload-sequence-v1', 'status': 'FAILED',\n              'upload': None, 'upload_attempts': 0, 'first_error': None, 'postcheck_errors': []}\n",
+          "new_lines": [
+            98,
+            102
+          ],
+          "new_start_byte": 20084,
+          "old": "    previous = legacy.validate_reply\n    legacy.validate_reply = validate_reply\n",
+          "old_lines": [
+            229,
+            230
+          ],
+          "old_start_byte": 12307,
+          "operation": "replace"
+        },
+        {
+          "new": "        for action in ('upload',):\n            operations['local']()\n            operations['prerequisites']()\n            predecessor = None\n            operations['intent'](action, predecessor)\n            report[action + '_attempts'] += 1\n            report[action] = operations[action]()\n            validate_reply(action, report[action])\n    except Exception as error:\n        legacy._remember(report, error)\n    for check in ('local', 'prerequisites'):\n        try:\n            operations[check]()\n        except Exception as error:\n            legacy._remember(report, error, check)\n    if report['first_error'] is None and not report['postcheck_errors']:\n        report['status'] = 'COMPLETED'\n    try:\n        operations['finish'](report)\n    except Exception as error:\n        report['status'] = 'FAILED'\n        legacy._remember(report, error, 'finish')\n        error.sequence_result = report\n        raise\n    return report\n",
+          "new_lines": [
+            104,
+            128
+          ],
+          "new_start_byte": 20483,
+          "old": "        return legacy.run_actions(operations)\n    finally:\n        legacy.validate_reply = previous\n",
+          "old_lines": [
+            232,
+            234
+          ],
+          "old_start_byte": 12396,
+          "operation": "replace"
+        }
+      ]
+    },
+    {
+      "forward_exact": true,
+      "input": "state/analysis/P7_ordinary_app_run_raw/run.py",
+      "input_identity": {
+        "bytes": 24859,
+        "sha256": "f48a8be9fa380a2a922613d188ae7622eafffdf3dc5fec12edc1372b4f7fc2d2"
+      },
+      "output": "tools/upload_b4_app.py",
+      "output_identity": {
+        "bytes": 15397,
+        "sha256": "faea6cbf06d9f79273033fc9d1d819f1b7ce5f489b814ada0ff1b93c2df3c7ec"
+      },
+      "reverse_exact": true,
+      "spans": [
+        {
+          "new": "# Uploads one fixed motor-disabled B4 application through guarded native staging.\n# Keeps reviewed ownership and transport checks without a capture or retry path.\n# Focused independent fixtures cover the B4 bindings and nine-call sequence.\n",
+          "new_lines": [
+            1,
+            3
+          ],
+          "new_start_byte": 0,
+          "old": "# Calls one fixed static inhibited upload and conditional passive capture.\n# Reuses reviewed ownership/transport with one small exclusive adapter staging.\n# Independent contract tests cover admission, sequencing and failure evidence.\n",
+          "old_lines": [
+            1,
+            3
+          ],
+          "old_start_byte": 0,
+          "operation": "replace"
+        },
+        {
+          "new": "",
+          "new_lines": [
+            5,
+            4
+          ],
+          "new_start_byte": 256,
+          "old": "import base64\nimport bz2\n",
+          "old_lines": [
+            5,
+            6
+          ],
+          "old_start_byte": 250,
+          "operation": "delete"
+        },
+        {
+          "new": "",
+          "new_lines": [
+            11,
+            10
+          ],
+          "new_start_byte": 340,
+          "old": "import shlex\n",
+          "old_lines": [
+            13,
+            13
+          ],
+          "old_start_byte": 359,
+          "operation": "delete"
+        },
+        {
+          "new": "ROOT = Path(__file__).absolute().parents[1]\nRAW = 'state/analysis/P7_b4_app_upload_raw/'\nCOMPILED = 'state/analysis/P7_b4_app_compile_raw/'\nSCOPE = RAW + 'upload01_scope.json'\nOUTPUT = RAW + 'native_upload01'\n",
+          "new_lines": [
+            14,
+            18
+          ],
+          "new_start_byte": 365,
+          "old": "ROOT = Path(__file__).absolute().parents[3]\nRAW = 'state/analysis/P7_ordinary_app_run_raw/'\nOLD = 'state/analysis/P7_motor_fault_raw/'\nSTATIC = 'state/analysis/P7_static_startup_raw/'\nPROBE = 'state/analysis/P7_static_link_probe_raw/'\nCOMPILED = 'state/analysis/P7_ordinary_app_static_compile_raw/'\nSCOPE = RAW + 'inert_run01_scope.json'\nOUTPUT = RAW + 'native_inert_run01'\n",
+          "old_lines": [
+            17,
+            24
+          ],
+          "old_start_byte": 397,
+          "operation": "replace"
+        },
+        {
+          "new": "RUN_ID = 'b4-app-m0-9044ebbb-load01'\n",
+          "new_lines": [
+            20,
+            20
+          ],
+          "new_start_byte": 613,
+          "old": "RUN_ID = 'ordinary-app-9044ebbb-run01'\n",
+          "old_lines": [
+            26,
+            26
+          ],
+          "old_start_byte": 810,
+          "operation": "replace"
+        },
+        {
+          "new": "MANIFEST_SHA = 'fc8e6fc1131c1952d5e1809f9dc6fb96763dd5e111749424e9ccfaec9b58d38c'\nOLD_CALLER = 'state/analysis/P7_ordinary_app_run_raw/run.py'\nOLD_CALLER_SHA = 'f48a8be9fa380a2a922613d188ae7622eafffdf3dc5fec12edc1372b4f7fc2d2'\nACTIONS_SHA = '7d5cd50fba630c5ca46bdc786f0959610c4c6e6b31059b7fbf13206c09faca57'\nPLAN_SHA = '07726511930332b17c49c02c91a1f83df2d22bcc09502fd8255fa573bedee3b8'\n",
+          "new_lines": [
+            24,
+            28
+          ],
+          "new_start_byte": 821,
+          "old": "MANIFEST_SHA = 'a5e8f8b4b78312245c7cde3e86a39db9073b5ef9e5fa2806a3d39eece8600bb7'\nPROVENANCE = tuple(COMPILED + name for name in (\n    'inputs_static.json', 'native_static01/result.json', 'native_static01/artifacts.json',\n    'native_abi_static01/result.json', 'native_abi_static01/local_result.json',\n    'native_abi_static01/abi.json', 'native_entry_static01/result.json',\n    'native_entry_static01/local_result.json', 'native_entry_static01/entry.json')) + (\n    'state/reviews/P7_ordinary_app_static_compile_actual_review.md',\n    'state/reviews/P7_ordinary_app_abi_actual_review.md',\n    'state/reviews/P7_ordinary_app_entry_actual_review.md')\nSCOPE_FILES = tuple(RAW + name for name in (\n    'preparation.json', 'run.py', 'actions.py', 'remote.py')) + (\n    'tests/tooling/test_ordinary_app_run.py',\n    'tests/tooling/test_ordinary_app_actions.py',\n    'tests/tooling/test_ordinary_app_remote.py',\n    'state/analysis/P7_ordinary_app_run_contract.md',\n    'state/analysis/P7_ordinary_app_run_raw/run_derivation01.json',\n    'state/reviews/P7_ordinary_app_caller_review.md',\n    'state/reviews/P7_ordinary_app_remote_review.md')\nPINS = {\n    OLD + 'inert_run.py': '8b47b1d6e9073179e4f587e09ce04e1a1c0cfc6797daf3151d0a7126d279f56a',\n    OLD + 'inert_actions.py': '8ffb65c0f1284f261ae1237bcf260e866176e83433a3538908780962513f1104',\n    OLD + 'compile_motor_fault.py': '84efd00611b3a6a8129655005930ff58e555221f6bd8d88a23c7fa1c4381ac0d',\n    STATIC + 'startup_run.py': 'c95888353c9d85c5d9b0e545553a9e9dcde372b5b313102dd14240ce38db4e0c',\n    PROBE + 'static_remote.py': '8ba9b190c38e728013a383348c60c287b0366607f65f703161cf7f2e142d36f8',\n    STATIC + 'capture_remote.py': '95b0344d01886b6db30d55aa18a536f9a481b82348e22643e7920d817dbfac3e',\n    STATIC + 'upload_remote.py': 'e926b7ba5586475664b0541370e7cfb5c50e40d8dc8b47b18e35db3e0a0a25c1',\n    STATIC + 'upload_bindings.json': 'a31bca78bb619271e63a321173a68fca072e48bb22111ee20fc9f8c20d5e18fc',\n    STATIC + 'capture_bindings.json': 'c2c87df6165556602a5a79472caedf0755c070b2e2f3e0b834f17ab0de5c0d32',\n    STATIC + 'cli_initialization_inventory.json': 'aaa2c307b7ed1b8d7e00a737447a03a63a78cd4b7fb2145142b20e9501da1e62',\n    STATIC + 'cli_builtin_files_inventory.json': 'a364beb814b36b9c56328b54a9de5fa0f4ad80a67003d40c7cc994a1917ba2cb',\n    'tools/compile_ordinary_app_static.py': '40b5c765c01bc1749f6ea4534a4b7f274b681b5fa9295ab6f0c57fbf94d66a89',\n    'state/analysis/P7_current_app_compile_raw/compile_current_app.py':\n        'aed3fbf4db5c962761affd5a3e2e52b1002feaaefe4e44f9f34df6ec78ba5ede'}\n",
+          "old_lines": [
+            30,
+            62
+          ],
+          "old_start_byte": 1020,
+          "operation": "replace"
+        },
+        {
+          "new": "def _module(name, path, raw, **injected):\n    module = types.ModuleType(name)\n",
+          "new_lines": [
+            31,
+            32
+          ],
+          "new_start_byte": 1209,
+          "old": "def _module(name, path, raw):\n    module = types.ModuleType('_app_inert_' + name)\n",
+          "old_lines": [
+            65,
+            66
+          ],
+          "old_start_byte": 3571,
+          "operation": "replace"
+        },
+        {
+          "new": "    module.__dict__.update(injected)\n",
+          "new_lines": [
+            34,
+            34
+          ],
+          "new_start_byte": 1326,
+          "old": "",
+          "old_lines": [
+            68,
+            67
+          ],
+          "old_start_byte": 3692,
+          "operation": "insert"
+        },
+        {
+          "new": "def _checked(path, digest):\n    import stat\n    target = ROOT / path\n    for node in (target, *target.parents):\n        info = node.lstat()\n        plain = stat.S_ISREG if node == target else stat.S_ISDIR\n        if not plain(info.st_mode) or getattr(info, 'st_file_attributes', 0) & 1024:\n            raise ValueError('Nonplain dependency: ' + str(node))\n    raw = target.read_bytes()\n    if hashlib.sha256(raw).hexdigest() != digest:\n        raise ValueError('Changed dependency: ' + path)\n    return raw\n",
+          "new_lines": [
+            39,
+            50
+          ],
+          "new_start_byte": 1448,
+          "old": "actions = _module('actions', RAW + 'actions.py', (ROOT / RAW / 'actions.py').read_bytes())\n",
+          "old_lines": [
+            72,
+            72
+          ],
+          "old_start_byte": 3777,
+          "operation": "replace"
+        },
+        {
+          "new": "actions = _module('_b4_upload_actions', RAW + 'actions.py',\n                  _checked(RAW + 'actions.py', ACTIONS_SHA))\nPLAN = json.loads(_checked(RAW + 'plan01.json', PLAN_SHA))\nSCOPE_FILES, PROVENANCE = tuple(PLAN['scope_files']), tuple(PLAN['provenance'])\n_old_source = _checked(OLD_CALLER, OLD_CALLER_SHA)\n_old_import = b\"actions = _module('actions', RAW + 'actions.py', (ROOT / RAW / 'actions.py').read_bytes())\"\nif _old_source.count(_old_import) != 1:\n    raise ValueError('D212 action injection seam changed')\n_old_source = _old_source.replace(_old_import, b'actions = INJECTED_ACTIONS')\nlegacy = _module('_b4_upload_d212', OLD_CALLER, _old_source, INJECTED_ACTIONS=actions)\nPINS = dict(legacy.PINS, **{OLD_CALLER: OLD_CALLER_SHA,\n    RAW + 'actions.py': ACTIONS_SHA, RAW + 'plan01.json': PLAN_SHA,\n    RAW + 'remote.py': actions.ADAPTER_SHA})\nhelpers, compiler, current = legacy.helpers, legacy.compiler, legacy.current\nSTATIC, PROBE = legacy.STATIC, legacy.PROBE\nBASELINE_LABELS, BASELINES = legacy.BASELINE_LABELS, legacy.BASELINES\n",
+          "new_lines": [
+            53,
+            68
+          ],
+          "new_start_byte": 1957,
+          "old": "def _pinned_module(name, path):\n    return _module(name, path, actions.checked_source(ROOT / path, PINS[path]))\n\n\nhelpers = _pinned_module('helpers', STATIC + 'startup_run.py')\ncompiler = _pinned_module('compiler', OLD + 'compile_motor_fault.py')\ncurrent = _pinned_module('current', 'state/analysis/P7_current_app_compile_raw/compile_current_app.py')\ndiagnostic = _pinned_module('diagnostic', 'tools/compile_ordinary_app_static.py').load_caller(root=ROOT)\n",
+          "old_lines": [
+            75,
+            82
+          ],
+          "old_start_byte": 3870,
+          "operation": "replace"
+        },
+        {
+          "new": "",
+          "new_lines": [
+            71,
+            70
+          ],
+          "new_start_byte": 3158,
+          "old": "\n\ndef _legacy():\n    path = OLD + 'inert_run.py'\n    source = actions.checked_source(ROOT / path, PINS[path]).decode('utf-8')\n    substitutions = {\n        \"helpers = load_pinned('fixed_inert_local_helpers', STATIC + 'startup_run.py')\": 'helpers = INJECTED_HELPERS',\n        \"compiler = load_pinned('fixed_inert_transport', RAW + 'compile_motor_fault.py')\": 'compiler = INJECTED_COMPILER',\n        \"actions = load_pinned('fixed_inert_actions', RAW + 'inert_actions.py')\": 'actions = INJECTED_ACTIONS'}\n    for old, new in substitutions.items():\n        require(source.count(old) == 1, 'Legacy seam changed')\n        source = source.replace(old, new)\n    source = source.replace('motor-fault-', 'ordinary-app-').replace(\n        \"RAW + 'inert_run.py'\", \"RAW + 'run.py'\")\n    source = source.replace('< 11', '< 13').replace('<= 11', '<= 13').replace('== 11', '== 13')\n    source = source.replace(\"limit = 1 if label in ('upload', 'capture') else 3\",\n                            \"limit = 1 if label in ('upload', 'capture', 'adapter-claim', 'adapter-push') else 3\")\n    module = types.ModuleType('_app_inert_legacy')\n    module.__dict__.update(__file__=str(ROOT / path), INJECTED_HELPERS=helpers,\n                           INJECTED_COMPILER=compiler, INJECTED_ACTIONS=actions)\n    exec(compile(source, module.__file__, 'exec'), module.__dict__)\n    module.__dict__.update(ROOT=ROOT, RAW=RAW, SCOPE=SCOPE, OUTPUT=OUTPUT, RUN_ID=RUN_ID,\n                           SOURCE=SOURCE, SCOPE_FILES=SCOPE_FILES, PINS=PINS,\n                           CALLER_SHA=sha(Path(__file__).read_bytes()))\n    return module\n\n\nlegacy = _legacy()\n",
+          "old_lines": [
+            85,
+            112
+          ],
+          "old_start_byte": 4484,
+          "operation": "delete"
+        },
+        {
+          "new": "for module in (legacy, legacy.legacy):\n    module.__dict__.update(ROOT=ROOT, RAW=RAW, COMPILED=COMPILED, SCOPE=SCOPE,\n        OUTPUT=OUTPUT, RUN_ID=RUN_ID, SOURCE=SOURCE, SCOPE_FILES=SCOPE_FILES,\n        PINS=PINS, actions=actions, PREPARATION=PREPARATION, PROVENANCE=PROVENANCE,\n        ADAPTER_ROOT=ADAPTER_ROOT, MANIFEST_SHA=MANIFEST_SHA)\nlegacy.legacy.CALLER_SHA = sha(Path(__file__).read_bytes())\n",
+          "new_lines": [
+            74,
+            79
+          ],
+          "new_start_byte": 3340,
+          "old": "BASELINE_LABELS, BASELINES = legacy.BASELINE_LABELS, legacy.BASELINES\n",
+          "old_lines": [
+            116,
+            116
+          ],
+          "old_start_byte": 6288,
+          "operation": "replace"
+        },
+        {
+          "new": "class UploadRun(legacy.InertRun):\n    def load_scope(self):\n        path = self.root / SCOPE\n        safe_path(path)\n        self.scope_raw = path.read_bytes()\n        self.scope = decode(self.scope_raw, 65536)\n        keys(self.scope, ('schema', 'run_id', 'board', 'source_sha256',\n                          'expected_identity', 'files'))\n        for name, expected in (('schema', 'b4-app-upload-native-scope-v1'),\n                               ('run_id', RUN_ID), ('board', BOARD), ('source_sha256', SOURCE)):\n            require(type(self.scope[name]) is str and self.scope[name] == expected,\n                    'Wrong upload scope identity')\n        keys(self.scope['files'], SCOPE_FILES)\n        require(all(type(v) is str and re.fullmatch('[0-9a-f]{64}', v)\n                    for v in self.scope['files'].values()), 'Invalid scope pin')\n        require(self.scope['files']['tools/upload_b4_app.py'] ==\n                legacy.legacy.CALLER_SHA, 'Scope caller differs')\n        require(actions.same(self.scope['expected_identity'], actions.EXPECTED_IDENTITY),\n                'Wrong fixed board identity')\n        self.expected_identity = copy.deepcopy(self.scope['expected_identity'])\n",
+          "new_lines": [
+            82,
+            101
+          ],
+          "new_start_byte": 3744,
+          "old": "def capability_program(helper_raw, expected, pin):\n    packed = bz2.compress(canonical(dict(helper=helper_raw.decode(), manifest=expected)), 9)\n    prefix = ('import base64,bz2,hashlib,json,os,signal,sys,types\\n'\n              'from pathlib import Path\\nsignal.alarm(60)\\npacket=json.loads(bz2.decompress(base64.b64decode(' +\n              repr(base64.b64encode(packed).decode()) + ')))\\n')\n    return prefix + 'SOURCE=' + repr(SOURCE) + '\\npin=' + repr(pin) + '\\n' + '''raw=packet['helper'].encode()\nif hashlib.sha256(raw).hexdigest()!='8ba9b190c38e728013a383348c60c287b0366607f65f703161cf7f2e142d36f8':raise ValueError('Helper drift')\nh=types.ModuleType('fixed_app_source');exec(compile(raw,'/__sumox__/helper.py','exec'),h.__dict__)\nh.SOURCE=SOURCE;h.SKETCH='/home/arduino/sumox26_codex_build/'+SOURCE+'/app'\nroot=os.open('/',os.O_RDONLY|os.O_DIRECTORY|os.O_NOFOLLOW|os.O_CLOEXEC)\ntry:\n data=h.source_data();h.source_action(root,{'manifest':packet['manifest']},data)\n adapter=h.logical_read(root,pin['path'],pin['bytes'])\n if len(adapter)!=pin['bytes'] or h.sha256(adapter)!=pin['sha256']:raise ValueError('Adapter drift')\n boot=h.boot_id(root)\nfinally:os.close(root)\nliteral=b'SumoX-26 fixed inert capability';token=base64.b85encode(literal)\nprint(json.dumps({'boot_id':boot,'uid':os.getuid(),'no_bytecode':bool(sys.flags.dont_write_bytecode) and sys.dont_write_bytecode is True,\n 'bz2':bz2.decompress(bz2.compress(literal))==literal,'base85':base64.b85decode(token)==literal and base64.b85encode(base64.b85decode(token))==token,\n 'adapter_bytes':len(adapter),'adapter_sha256':h.sha256(adapter),'source_sha256':SOURCE,'source_files':data['files']}))\n'''\n\n\nclass InertRun(legacy.InertRun):\n    def __init__(self, reviewed_head, *, root=None):\n        super().__init__(reviewed_head, root=root)\n        self.stage_started = self.stage_ready = False\n        self.stage_intent_ready = self.stage_claim_verified = False\n        self.stage_dispatches = set()\n\n    def head(self):\n        super().head()\n        changes = self.git('status', '--porcelain', '--untracked-files=all').decode('utf-8').splitlines()\n        prefix = OUTPUT + '/'\n        require(all(self.claimed and line.startswith('?? ' + prefix) for line in changes),\n                'Unrelated untracked files exist')\n",
+          "old_lines": [
+            119,
+            154
+          ],
+          "old_start_byte": 6360,
+          "operation": "replace"
+        },
+        {
+          "new": "        self.fixed_bytes = {name: pinned_file(self.root, name, digest)\n                            for name, digest in PINS.items()}\n",
+          "new_lines": [
+            105,
+            106
+          ],
+          "new_start_byte": 5003,
+          "old": "        self.fixed_bytes = {name: pinned_file(self.root, name, digest) for name, digest in PINS.items()}\n",
+          "old_lines": [
+            158,
+            158
+          ],
+          "old_start_byte": 8704,
+          "operation": "replace"
+        },
+        {
+          "new": "        value = decode(raw, 65536)\n        keys(value, ('schema', 'run_id', 'source_sha256', 'bindings', 'files'))\n        require(value['schema'] == 'b4-app-upload-preparation-v1'\n                and value['run_id'] == RUN_ID and value['source_sha256'] == SOURCE,\n",
+          "new_lines": [
+            108,
+            111
+          ],
+          "new_start_byte": 5220,
+          "old": "        preparation = decode(raw, 65536)\n        keys(preparation, ('schema', 'run_id', 'source_sha256', 'bindings', 'files'))\n        require(preparation['schema'] == 'ordinary-app-run-preparation-v1' and\n                preparation['run_id'] == RUN_ID and preparation['source_sha256'] == SOURCE,\n",
+          "old_lines": [
+            160,
+            163
+          ],
+          "old_start_byte": 8893,
+          "operation": "replace"
+        },
+        {
+          "new": "        keys(value['files'], PROVENANCE)\n        for name, pin in value['files'].items():\n",
+          "new_lines": [
+            113,
+            114
+          ],
+          "new_start_byte": 5531,
+          "old": "        keys(preparation['files'], PROVENANCE)\n        for name, pin in preparation['files'].items():\n",
+          "old_lines": [
+            165,
+            166
+          ],
+          "old_start_byte": 9237,
+          "operation": "replace"
+        },
+        {
+          "new": "            body = pinned_file(self.root, name, pin['sha256'])\n            require(type(pin['bytes']) is int and 0 < pin['bytes'] == len(body),\n                    'Wrong provenance size')\n            self.fixed_bytes[name], self.fixed_pins[name] = body, pin['sha256']\n        keys(value['bindings'], ('upload',))\n        self.bindings = copy.deepcopy(value['bindings'])\n",
+          "new_lines": [
+            116,
+            121
+          ],
+          "new_start_byte": 5664,
+          "old": "            data = pinned_file(self.root, name, pin['sha256'])\n            require(type(pin['bytes']) is int and pin['bytes'] > 0 and len(data) == pin['bytes'],\n                    'Provenance size changed')\n            self.fixed_bytes[name], self.fixed_pins[name] = data, pin['sha256']\n        keys(preparation['bindings'], ('upload', 'capture'))\n        self.bindings = copy.deepcopy(preparation['bindings'])\n        require(all(value['boot_id'] == self.expected_identity['boot_id']\n                    for value in self.bindings.values()), 'Binding boot differs')\n",
+          "old_lines": [
+            168,
+            175
+          ],
+          "old_start_byte": 9382,
+          "operation": "replace"
+        },
+        {
+          "new": "        require(actions.same(self.bindings, {'upload': actions.BINDINGS}),\n                'Wrong fixed upload-only bindings')\n        require(actions.same(self.expected_identity, actions.EXPECTED_IDENTITY),\n                'Upload boot/identity differs')\n",
+          "new_lines": [
+            128,
+            131
+          ],
+          "new_start_byte": 6183,
+          "old": "        parent = '/home/arduino/sumox26_codex_build/'\n        build = parent + 'ordinary-app-static01/build/'\n        package = dict(path=build + 'app.ino.bin-zsk.bin', bytes=92944,\n                       sha256='7fa9d41da043931e1237712e1e88bda4151c82933af2ecec97ce3a02184d23ad')\n        expected = {}\n        for action in ('upload', 'capture'):\n            value = decode(self.fixed_bytes[STATIC + action + '_bindings.json'], 65536)\n            value.update(schema='fixed-ordinary-app-' + action + '-v1', run_id=RUN_ID,\n                         source_sha256=SOURCE, boot_id=self.expected_identity['boot_id'],\n                         output=parent + RUN_ID + '-' + action)\n            value['files']['sketch'] = dict(package)\n            if action == 'upload':\n                value['files']['raw'] = dict(path=build + 'app.ino.bin', bytes=92928,\n                    sha256='6f5f531b114219d712d857b4ac89ad161ceb217211207788a27443b7d4ab6db7')\n                value['absent'][-3:] = [parent + SOURCE + '/app/sketch.' + suffix\n                                        for suffix in ('yaml', 'yml', 'json')]\n            expected[action] = value\n        require(canonical(self.bindings) == canonical(expected),\n                'Prepared upload/capture bindings differ from the fixed checked profile')\n",
+          "old_lines": [
+            182,
+            200
+          ],
+          "old_start_byte": 10098,
+          "operation": "replace"
+        },
+        {
+          "new": "        require(sha(raw) == MANIFEST_SHA, 'B4 manifest changed')\n",
+          "new_lines": [
+            135,
+            135
+          ],
+          "new_start_byte": 6531,
+          "old": "        require(sha(raw) == MANIFEST_SHA, 'D208 manifest changed')\n",
+          "old_lines": [
+            204,
+            204
+          ],
+          "old_start_byte": 11488,
+          "operation": "replace"
+        },
+        {
+          "new": "        require(value['schema'] == 'b4-app-m0-static-inputs-v1'\n                and value['source_sha256'] == SOURCE\n                and value['boot_id'] == self.expected_identity['boot_id']\n                and type(value['files']) is dict and len(value['files']) == 130,\n                'B4 source identity differs')\n",
+          "new_lines": [
+            138,
+            142
+          ],
+          "new_start_byte": 6700,
+          "old": "        require(value['schema'] == 'ordinary-app-static-inputs-v1' and\n                value['source_sha256'] == SOURCE and value['boot_id'] == self.expected_identity['boot_id']\n                and type(value['files']) is dict and len(value['files']) == 125, 'D208 source identity differs')\n",
+          "old_lines": [
+            207,
+            209
+          ],
+          "old_start_byte": 11659,
+          "operation": "replace"
+        },
+        {
+          "new": "        self.source_hashes, source = legacy.diagnostic.CompileDiagnostic.source_mapping(\n            owner, self.fixed_bytes, names)\n",
+          "new_lines": [
+            148,
+            149
+          ],
+          "new_start_byte": 7295,
+          "old": "        self.source_hashes, source = diagnostic.CompileDiagnostic.source_mapping(owner, self.fixed_bytes, names)\n",
+          "old_lines": [
+            215,
+            215
+          ],
+          "old_start_byte": 12227,
+          "operation": "replace"
+        },
+        {
+          "new": "        self.adapter_pin = dict(path=actions.ADAPTER, bytes=actions.ADAPTER_BYTES,\n                                sha256=actions.ADAPTER_SHA)\n",
+          "new_lines": [
+            154,
+            155
+          ],
+          "new_start_byte": 7726,
+          "old": "        self.adapter_pin = dict(path=actions.ADAPTER, bytes=actions.ADAPTER_BYTES, sha256=actions.ADAPTER_SHA)\n",
+          "old_lines": [
+            220,
+            220
+          ],
+          "old_start_byte": 12638,
+          "operation": "replace"
+        },
+        {
+          "new": "",
+          "new_lines": [
+            159,
+            158
+          ],
+          "new_start_byte": 7990,
+          "old": "    def source_inventory(self):\n        owner = types.SimpleNamespace(root=self.root, base=current)\n        return diagnostic.CompileDiagnostic.source_names(owner)\n\n",
+          "old_lines": [
+            224,
+            227
+          ],
+          "old_start_byte": 12870,
+          "operation": "delete"
+        },
+        {
+          "new": "        super().check_evidence()\n        value = decode(self.fixed_bytes[COMPILED + 'native_static01/result.json'], 1048576)\n        require(value['schema'] == 'b4-app-m0-static-compile-outcome-v1'\n                and value['project'] == PLAN['profile']['project']\n                and value['fqbn'] == PLAN['profile']['fqbn']\n                and value['flags'] == PLAN['profile']['flags'],\n                'Not the fixed inhibited B4 build')\n",
+          "new_lines": [
+            160,
+            166
+          ],
+          "new_start_byte": 8020,
+          "old": "        values = {name: decode(self.fixed_bytes[COMPILED + name], 1048576) for name in (\n            'native_static01/result.json', 'native_static01/artifacts.json',\n            'native_abi_static01/local_result.json', 'native_abi_static01/abi.json',\n            'native_entry_static01/local_result.json', 'native_entry_static01/entry.json')}\n        compiled = values['native_static01/result.json']\n        require(compiled['status'] == 'COMPILE_CHECKED' and compiled['source_sha256'] == SOURCE and\n                compiled['boot_id'] == self.expected_identity['boot_id'] and compiled['first_error'] is None,\n                'Actual compiler evidence is not successful')\n        require(values['native_static01/artifacts.json']['status'] == 'ARTIFACTS_CHECKED', 'Artifacts unqualified')\n        require(values['native_abi_static01/local_result.json']['status'] == 'STATIC_ABI_OBSERVED' and\n                values['native_abi_static01/local_result.json']['first_error'] is None and\n                values['native_abi_static01/abi.json']['status'] == 'STATIC_ABI_OBSERVED',\n                'Actual ABI evidence is not successful')\n        require(values['native_entry_static01/local_result.json']['status'] == 'STATIC_ENTRY_OBSERVED' and\n                values['native_entry_static01/local_result.json']['first_error'] is None and\n                values['native_entry_static01/entry.json']['status'] == 'STATIC_ENTRY_OBSERVED',\n                'Actual entry evidence is not successful')\n\n    def load_baselines(self):\n        self.prerequisite_receipts = []\n        for label, filename in zip(BASELINE_LABELS, BASELINES):\n            receipt = helpers.decode(self.fixed_bytes[STATIC + filename + '.json'])\n            require(type(receipt['returncode']) is int and receipt['returncode'] == 0 and\n                    receipt['stderr'] == '', 'Failed baseline receipt')\n            expected = helpers.decode(receipt['stdout'])\n            identity = copy.deepcopy(self.expected_identity)\n            identity['boot_id'] = expected['identity']['boot_id']\n            require(expected['status'] == 'COLLECTED' and canonical(identity) == canonical(expected['identity'])\n                    and type(identity['uid']) is int and identity['uid'] == 1000, 'Baseline identity differs')\n            self.prerequisite_receipts.append((label, receipt, expected))\n",
+          "old_lines": [
+            229,
+            258
+          ],
+          "old_start_byte": 13065,
+          "operation": "replace"
+        },
+        {
+          "new": "        remote = {'upload': tuple(actions.build_command('upload', sources,\n                    copy.deepcopy(self.bindings['upload']), self.adapter_pin))}\n",
+          "new_lines": [
+            172,
+            173
+          ],
+          "new_start_byte": 8724,
+          "old": "        remote = {name: tuple(actions.build_command(name, sources, copy.deepcopy(self.bindings[name]),\n                                                    self.adapter_pin)) for name in ('upload', 'capture')}\n",
+          "old_lines": [
+            264,
+            265
+          ],
+          "old_start_byte": 15676,
+          "operation": "replace"
+        },
+        {
+          "new": "        remote.update({label: tuple(receipt['argv'])\n                       for label, receipt, unused in self.prerequisite_receipts})\n        isolated = legacy.legacy.CAPABILITY_ARGV[:-1]\n        remote['capabilities'] = isolated + (legacy.capability_program(\n            sources['helper'], self.source_hashes, self.adapter_pin),)\n",
+          "new_lines": [
+            175,
+            179
+          ],
+          "new_start_byte": 8940,
+          "old": "        remote.update({label: tuple(receipt['argv']) for label, receipt, unused in self.prerequisite_receipts})\n        isolated = legacy.CAPABILITY_ARGV[:-1]\n        remote['capabilities'] = isolated + (capability_program(sources['helper'], self.source_hashes, self.adapter_pin),)\n",
+          "old_lines": [
+            267,
+            269
+          ],
+          "old_start_byte": 15946,
+          "operation": "replace"
+        },
+        {
+          "new": "        claim = '\\n'.join(name + '=' + repr(value) for name, value in values.items())\n        claim += '\\n' + compiler.IDENTITY\n",
+          "new_lines": [
+            182,
+            183
+          ],
+          "new_start_byte": 9421,
+          "old": "        claim = '\\n'.join(name + '=' + repr(value) for name, value in values.items()) + '\\n' + compiler.IDENTITY\n",
+          "old_lines": [
+            272,
+            272
+          ],
+          "old_start_byte": 16377,
+          "operation": "replace"
+        },
+        {
+          "new": "        self.timeouts = types.MappingProxyType({**{name: 195 if name == 'upload' else 60\n",
+          "new_lines": [
+            188,
+            188
+          ],
+          "new_start_byte": 9835,
+          "old": "        self.timeouts = types.MappingProxyType({**{name: {'upload': 195, 'capture': 630}.get(name, 60)\n",
+          "old_lines": [
+            277,
+            277
+          ],
+          "old_start_byte": 16776,
+          "operation": "replace"
+        },
+        {
+          "new": "        self.command_records = {name: command_record(argv, self.timeouts[name])\n                                for name, argv in remote.items()}\n        self.command_records['adapter-push'] = dict(\n            argv_sha256=sha(canonical(list(self.push_arguments))), timeout=60)\n        allowed = {(native_arguments(argv), self.timeouts[name], name)\n                   for name, argv in remote.items()}\n",
+          "new_lines": [
+            190,
+            195
+          ],
+          "new_start_byte": 10016,
+          "old": "        self.command_records = {name: command_record(argv, self.timeouts[name]) for name, argv in remote.items()}\n        self.command_records['adapter-push'] = dict(argv_sha256=sha(canonical(list(self.push_arguments))), timeout=60)\n        allowed = {(native_arguments(argv), self.timeouts[name], name) for name, argv in remote.items()}\n",
+          "old_lines": [
+            279,
+            281
+          ],
+          "old_start_byte": 16971,
+          "operation": "replace"
+        },
+        {
+          "new": "        require(len(self.allowed) == 6, 'Wrong fixed upload allowlist')\n",
+          "new_lines": [
+            198,
+            198
+          ],
+          "new_start_byte": 10523,
+          "old": "        require(len(self.allowed) == 7, 'Wrong fixed command allowlist')\n",
+          "old_lines": [
+            284,
+            284
+          ],
+          "old_start_byte": 17414,
+          "operation": "replace"
+        },
+        {
+          "new": "    def claim(self):\n        require(self.admitted and not self.claim_started, 'Missing admission or repeated claim')\n        self.claim_started = True\n        self.local()\n        require(not os.path.lexists(self.output), 'Host attempt already consumed')\n        self.output.mkdir(mode=0o700)\n        info = self.output.stat()\n        self.output_identity = (info.st_dev, info.st_ino)\n        self.claimed = True\n        inputs = {**self.scope['files'], **self.fixed_pins, SCOPE: sha(self.scope_raw),\n                  ADB: ADB_SHA}\n        self.write('inputs.json', {**self.identity_record(), 'input_hashes': inputs,\n                   'commands': self.command_records,\n                   'remote_evidence': {'upload': self.bindings['upload']['output']}})\n        self.claim_ready = True\n",
+          "new_lines": [
+            201,
+            215
+          ],
+          "new_start_byte": 10642,
+          "old": "    def state_bytes(self):\n        return canonical(dict(inherited=super().state_bytes().decode(), source_hashes=self.source_hashes,\n                              source_files=self.source_files, adapter_pin=self.adapter_pin,\n                              push_arguments=self.push_arguments))\n",
+          "old_lines": [
+            287,
+            290
+          ],
+          "old_start_byte": 17534,
+          "operation": "replace"
+        },
+        {
+          "new": "        require(type(self.counter) is int and self.counter < 9, 'Upload transport bound')\n        limit = 2 if label in (*BASELINE_LABELS, 'capabilities') else 1\n        require(self.command_counts.get(label, 0) < limit, 'Upload command already consumed')\n        return super().transport(arguments, timeout, label)\n",
+          "new_lines": [
+            218,
+            221
+          ],
+          "new_start_byte": 11485,
+          "old": "        if label in ('adapter-claim', 'adapter-push'):\n            require(self.stage_started is True and self.stage_intent_ready is True and\n                    not self.stage_ready and label not in self.stage_dispatches,\n                    'Staging dispatch lacks durable unused intent')\n            if label == 'adapter-claim':\n                require(not self.stage_dispatches, 'Adapter claim must be first')\n            else:\n                require(self.stage_claim_verified is True and self.stage_dispatches == {'adapter-claim'},\n                        'Adapter push requires the verified exclusive claim')\n            self.stage_dispatches.add(label)\n        try:\n            return super().transport(arguments, timeout, label)\n        except Exception as error:\n            primary = current.failure_guard(error, 'transport')\n            if primary is error:\n                raise\n            raise primary from error\n\n    def check_capability(self):\n        value = self.query('capabilities', 65536)\n        keys(value, ('boot_id', 'uid', 'no_bytecode', 'bz2', 'base85',\n                     'adapter_bytes', 'adapter_sha256', 'source_sha256', 'source_files'))\n        require(value['boot_id'] == self.expected_identity['boot_id'] and\n                type(value['uid']) is int and value['uid'] == 1000 and\n                all(value[name] is True for name in ('no_bytecode', 'bz2', 'base85')), 'Capability identity/API differs')\n        require(type(value['adapter_bytes']) is int and value['adapter_bytes'] == actions.ADAPTER_BYTES and\n                value['adapter_sha256'] == actions.ADAPTER_SHA and value['source_sha256'] == SOURCE and\n                canonical(value['source_files']) == canonical(self.source_files), 'Adapter/source observation differs')\n\n    def stage(self):\n        require(self.claim_ready and not self.stage_started, 'Missing claim or staging already consumed')\n        self.stage_started = True\n        self.local()\n        self.write('adapter_attempt.json', {**self.identity_record(), 'adapter': self.adapter_pin,\n                   'commands': {name: self.command_records[name] for name in ('adapter-claim', 'adapter-push')}})\n        self.stage_intent_ready = True\n        value = self.query('adapter-claim', 4096)\n        keys(value, ('uid', 'user', 'boot_id', 'cli_sha256', 'free_bytes', 'conflicts'))\n        require(type(value['uid']) is int and value['uid'] == 1000 and value['user'] == 'arduino' and\n                value['boot_id'] == self.expected_identity['boot_id'] and value['cli_sha256'] == compiler.CLI_SHA and\n                type(value['free_bytes']) is int and value['free_bytes'] >= 1073741824 and value['conflicts'] == [],\n                'Adapter claim identity differs')\n        self.stage_claim_verified = True\n        self.local()\n        reply, unused = self.transport(self.push_arguments, 60, 'adapter-push')\n        require(type(reply.returncode) is int and reply.returncode == 0, 'Adapter transfer failed')\n        self.stage_ready = True\n",
+          "old_lines": [
+            293,
+            339
+          ],
+          "old_start_byte": 17879,
+          "operation": "replace"
+        },
+        {
+          "new": "        require(type(action) is str and action == 'upload' and predecessor is None,\n                'Only upload without predecessor is permitted')\n",
+          "new_lines": [
+            224,
+            225
+          ],
+          "new_start_byte": 11845,
+          "old": "        require(self.stage_ready, 'Checked staging required before action intent')\n",
+          "old_lines": [
+            342,
+            342
+          ],
+          "old_start_byte": 20930,
+          "operation": "replace"
+        },
+        {
+          "new": "        require(type(self.counter) is int and self.counter == self.transport_calls <= 9,\n                'Transport counter differs')\n        require(self.dispatched_actions <= self.intent_actions <= {'upload'},\n                'Invalid upload action set')\n",
+          "new_lines": [
+            229,
+            232
+          ],
+          "new_start_byte": 12083,
+          "old": "        require(type(self.counter) is int and self.counter == self.transport_calls <= 13, 'Transport counter differs')\n        require(self.dispatched_actions <= self.intent_actions <= {'upload', 'capture'}, 'Invalid action sets')\n",
+          "old_lines": [
+            346,
+            347
+          ],
+          "old_start_byte": 21103,
+          "operation": "replace"
+        },
+        {
+          "new": "            expected = {name: 2 for name in (*BASELINE_LABELS, 'capabilities')}\n            expected.update({name: 1 for name in ('adapter-claim', 'adapter-push', 'upload')})\n            require(self.counter == 9 and self.command_counts == expected\n                    and self.stage_ready and self.stage_intent_ready\n                    and self.stage_claim_verified\n                    and self.stage_dispatches == {'adapter-claim', 'adapter-push'}\n                    and self.intent_actions == self.dispatched_actions == {'upload'},\n                    'Incomplete successful upload dispatch set')\n            require(type(result['upload_attempts']) is int and result['upload_attempts'] == 1,\n                    'Wrong upload attempt count')\n            require(not (self.local_errors or self.prerequisite_errors or self.transport_errors),\n                    'Successful diagnostics contain errors')\n",
+          "new_lines": [
+            234,
+            245
+          ],
+          "new_start_byte": 12384,
+          "old": "            expected = {name: 3 for name in (*BASELINE_LABELS, 'capabilities')}\n            expected.update({name: 1 for name in ('adapter-claim', 'adapter-push', 'upload', 'capture')})\n            require(self.stage_ready and self.counter == 13 and self.command_counts == expected and\n                    self.stage_intent_ready and self.stage_claim_verified and\n                    self.stage_dispatches == {'adapter-claim', 'adapter-push'} and\n                    self.intent_actions == self.dispatched_actions == {'upload', 'capture'}, 'Incomplete successful dispatch set')\n            require(type(result['upload_attempts']) is int and result['upload_attempts'] == 1 and\n                    type(result['capture_attempts']) is int and result['capture_attempts'] == 1,\n                    'Incomplete successful attempt counts')\n            require(not (self.local_errors or self.prerequisite_errors or self.transport_errors), 'Successful diagnostics contain errors')\n\n    def diagnostics(self):\n        return {**super().diagnostics(), 'staging': {\n            'started': self.stage_started, 'intent_ready': self.stage_intent_ready,\n            'claim_verified': self.stage_claim_verified, 'ready': self.stage_ready,\n            'dispatched': sorted(self.stage_dispatches)}}\n",
+          "old_lines": [
+            349,
+            364
+          ],
+          "old_start_byte": 21378,
+          "operation": "replace"
+        },
+        {
+          "new": "        result = dict(schema='b4-app-upload-sequence-v1', status='FAILED', upload=None,\n                      upload_attempts=0, first_error=helpers.error_record(error), postcheck_errors=[])\n",
+          "new_lines": [
+            248,
+            249
+          ],
+          "new_start_byte": 13327,
+          "old": "        result = dict(schema='ordinary-app-sequence-v1', status='FAILED', upload=None, capture=None,\n                      upload_attempts=0, capture_attempts=0, first_error=helpers.error_record(error), postcheck_errors=[])\n",
+          "old_lines": [
+            367,
+            368
+          ],
+          "old_start_byte": 22695,
+          "operation": "replace"
+        },
+        {
+          "new": "                                    'finish': self.finish})\n",
+          "new_lines": [
+            273,
+            273
+          ],
+          "new_start_byte": 14407,
+          "old": "                                    'capture': lambda: self.action('capture'), 'finish': self.finish})\n",
+          "old_lines": [
+            392,
+            392
+          ],
+          "old_start_byte": 23808,
+          "operation": "replace"
+        },
+        {
+          "new": "    parser = argparse.ArgumentParser(description='One fixed inhibited B4 upload', allow_abbrev=False)\n",
+          "new_lines": [
+            277,
+            277
+          ],
+          "new_start_byte": 14490,
+          "old": "    parser = argparse.ArgumentParser(description='One fixed inhibited ordinary application attempt', allow_abbrev=False)\n",
+          "old_lines": [
+            396,
+            396
+          ],
+          "old_start_byte": 23934,
+          "operation": "replace"
+        },
+        {
+          "new": "        owner = UploadRun(args.reviewed_head)\n",
+          "new_lines": [
+            286,
+            286
+          ],
+          "new_start_byte": 15034,
+          "old": "        owner = InertRun(args.reviewed_head)\n",
+          "old_lines": [
+            405,
+            405
+          ],
+          "old_start_byte": 24497,
+          "operation": "replace"
+        }
+      ]
+    }
+  ],
+  "fixed_binding": {
+    "canonical_bytes": 4308,
+    "canonical_sha256": "2faf9ab12b685ec07a556aa63c8dd68d380ba6efe4e3f6b7d5f246b848441a41",
+    "host_comparison": "recursive exact types and values",
+    "native_comparison": "SHA256 of strictly canonical duplicate-free finite JSON, before dependency execution"
+  },
+  "inputs": {
+    "state/analysis/P7_b4_app_compile_raw/inputs_static.json": {
+      "bytes": 13493,
+      "sha256": "fc8e6fc1131c1952d5e1809f9dc6fb96763dd5e111749424e9ccfaec9b58d38c"
+    },
+    "state/analysis/P7_b4_app_compile_raw/native_abi_static01/abi.json": {
+      "bytes": 293222,
+      "sha256": "25bf57646977fec8b4614b06cfe2b3df2e3bb94172122b2ee8f5ceaaec6677bc"
+    },
+    "state/analysis/P7_b4_app_compile_raw/native_abi_static01/local_result.json": {
+      "bytes": 275,
+      "sha256": "7175682488de957b36582fc3b030554ac3cfb8a83ea6ab10ffde6fa2a8534729"
+    },
+    "state/analysis/P7_b4_app_compile_raw/native_abi_static01/result.json": {
+      "bytes": 597470,
+      "sha256": "ac0f379ad7da6d02d9cce4f1035405f48fd4f9fcf19de4bb7bcec7f31cf8f69a"
+    },
+    "state/analysis/P7_b4_app_compile_raw/native_entry_static01/entry.json": {
+      "bytes": 21582,
+      "sha256": "a7a7561835e69367d6d94575534ced47ca1573d87bc27da9dad58e782a8136d3"
+    },
+    "state/analysis/P7_b4_app_compile_raw/native_entry_static01/local_result.json": {
+      "bytes": 277,
+      "sha256": "5a1ae408603e6e9dff01f1c115d777a7c767dc00229bac838002a29ec6ecaefd"
+    },
+    "state/analysis/P7_b4_app_compile_raw/native_entry_static01/result.json": {
+      "bytes": 693504,
+      "sha256": "e8b63a2a76a1d9ed680f5a6f4159b033bbae9812f567f57a9901493a5d375462"
+    },
+    "state/analysis/P7_b4_app_compile_raw/native_static01/artifacts.json": {
+      "bytes": 9484,
+      "sha256": "0acaa30a4ba01ac5c9ff8c8fddc66c4bec94e033b1194ec63271f12affb6c085"
+    },
+    "state/analysis/P7_b4_app_compile_raw/native_static01/result.json": {
+      "bytes": 1829,
+      "sha256": "b722db17adabafc03f6ad8583bcef9b0f6b7d1def4d3e54962508aad4039567a"
+    },
+    "state/analysis/P7_b4_app_upload_contract.md": {
+      "bytes": 8925,
+      "sha256": "f9ab9c6729fe4ac6504fe6d284086331f680a004976e0e2898fde41a41222ff8"
+    },
+    "state/analysis/P7_b4_app_upload_raw/plan01.json": {
+      "bytes": 8282,
+      "sha256": "07726511930332b17c49c02c91a1f83df2d22bcc09502fd8255fa573bedee3b8"
+    },
+    "state/analysis/P7_motor_fault_raw/inert_actions.py": {
+      "bytes": 19120,
+      "sha256": "8ffb65c0f1284f261ae1237bcf260e866176e83433a3538908780962513f1104"
+    },
+    "state/analysis/P7_motor_fault_raw/inert_run.py": {
+      "bytes": 23100,
+      "sha256": "8b47b1d6e9073179e4f587e09ce04e1a1c0cfc6797daf3151d0a7126d279f56a"
+    },
+    "state/analysis/P7_ordinary_app_run_raw/actions.py": {
+      "bytes": 12496,
+      "sha256": "07c03a65fad73f49064abd0af77161b5ed10e2c6002bb6c442e7ab5b28ee25b1"
+    },
+    "state/analysis/P7_ordinary_app_run_raw/remote.py": {
+      "bytes": 11269,
+      "sha256": "a2c2fc9d32694a96a406b6de499bfb04a2a159710443c8b37ca56e92921a536f"
+    },
+    "state/analysis/P7_ordinary_app_run_raw/run.py": {
+      "bytes": 24859,
+      "sha256": "f48a8be9fa380a2a922613d188ae7622eafffdf3dc5fec12edc1372b4f7fc2d2"
+    },
+    "state/analysis/P7_static_link_probe_raw/static_remote.py": {
+      "bytes": 33321,
+      "sha256": "8ba9b190c38e728013a383348c60c287b0366607f65f703161cf7f2e142d36f8"
+    },
+    "state/analysis/P7_static_startup_raw/capture_remote.py": {
+      "bytes": 37525,
+      "sha256": "95b0344d01886b6db30d55aa18a536f9a481b82348e22643e7920d817dbfac3e"
+    },
+    "state/analysis/P7_static_startup_raw/upload_remote.py": {
+      "bytes": 24710,
+      "sha256": "e926b7ba5586475664b0541370e7cfb5c50e40d8dc8b47b18e35db3e0a0a25c1"
+    },
+    "state/reviews/P7_b4_app_abi_actual_review.md": {
+      "bytes": 5715,
+      "sha256": "c7fe6fe9b0629e65548e69eb7aa66a94cbda3bf9da5f5e13baeaa18be32902b6"
+    },
+    "state/reviews/P7_b4_app_compile_actual_review.md": {
+      "bytes": 8486,
+      "sha256": "7490c2325668a744ebaf3685a12c24365843be402c2d9dae166a79e4a1e4faad"
+    },
+    "state/reviews/P7_b4_app_entry_actual_review.md": {
+      "bytes": 8823,
+      "sha256": "e2bf58f4afeb4b645b6a22d1028dc5629f179899cc9d44bffd1503ef4b69b46d"
+    }
+  },
+  "limits_and_nonclaims": [
+    "No native admission scope emitted",
+    "D220 cleanup acceptance and fresh scratch absence pending",
+    "D219 remains separate; no synthetic predecessor",
+    "No hardware, timing, electrical or phase-gate conclusion"
+  ],
+  "operation": "Authorized source construction, AST parsing, hashes, literal/diff reversal and command sizing as data only. No subject import, subject execution, test, board call, cleanup, credential or owner creation.",
+  "outputs": {
+    "state/analysis/P7_b4_app_upload_raw/actions.py": {
+      "bytes": 21419,
+      "sha256": "7d5cd50fba630c5ca46bdc786f0959610c4c6e6b31059b7fbf13206c09faca57"
+    },
+    "state/analysis/P7_b4_app_upload_raw/preparation.json": {
+      "bytes": 8189,
+      "sha256": "ac6bace04fa1196c20944eea4d693dfa02f920e2bfa1efb2a55e4010aaede509"
+    },
+    "state/analysis/P7_b4_app_upload_raw/remote.py": {
+      "bytes": 5115,
+      "sha256": "c2f0a4423839f9b3444c2949587486248d3a0af9578ae8188fd478bb55868b57"
+    },
+    "tools/upload_b4_app.py": {
+      "bytes": 15397,
+      "sha256": "faea6cbf06d9f79273033fc9d1d819f1b7ce5f489b814ada0ff1b93c2df3c7ec"
+    }
+  },
+  "preseal_bound_finding": {
+    "actions_sha256": "15bf67dd8280883b18da9ea590be89d6c34b25723e25d398381a17c330595187",
+    "base64_native_units": 33139,
+    "base85_native_units": 31441,
+    "payload_bytes": 102608,
+    "reproducible_from_current": "Replace native binding hash equality with same(bindings, BINDINGS literal), then regenerate its BZ2 wrapper; original hash and measurements recorded.",
+    "resolution": "Replace duplicate full fixed binding literal in bootstrap with its canonical SHA256 equality. Host deep exact comparison and native strict canonical JSON remain; limits unchanged.",
+    "subject_executed": false
+  },
+  "schema": "b4-app-upload-source-derivation-v1",
+  "status": "SOURCE_SEALED_PENDING_INDEPENDENT_ORACLE_REVIEW_AND_HOST_TESTS",
+  "unchanged_bodies": [
+    {
+      "name": "_artifact",
+      "origin": "state/analysis/P7_ordinary_app_run_raw/remote.py",
+      "source_bytes": 267,
+      "source_sha256": "701cd235c2a7fa6ad873b9ff78abe99cb249dba5fa0d25f758bb1593a5ef82e2",
+      "target": "state/analysis/P7_b4_app_upload_raw/remote.py"
+    },
+    {
+      "name": "checked_upload_bindings",
+      "origin": "state/analysis/P7_ordinary_app_run_raw/remote.py",
+      "source_bytes": 283,
+      "source_sha256": "7ecacaf1cf7bfd54e893b647fc756209818bb33f3b8e18d6741907295f4ca43c",
+      "target": "state/analysis/P7_b4_app_upload_raw/remote.py"
+    },
+    {
+      "name": "upload",
+      "origin": "state/analysis/P7_ordinary_app_run_raw/remote.py",
+      "source_bytes": 338,
+      "source_sha256": "1a4eb377c3ec199a9a64790ed360603c5aebbb56a00b551b588129ac0cf73cb0",
+      "target": "state/analysis/P7_b4_app_upload_raw/remote.py"
+    },
+    {
+      "name": "checked_source",
+      "origin": "state/analysis/P7_ordinary_app_run_raw/actions.py",
+      "source_bytes": 472,
+      "source_sha256": "35741ce4feab94bcfc9b830760c0b9b82386a258cbc6e669925658be8ba3881f",
+      "target": "state/analysis/P7_b4_app_upload_raw/actions.py"
+    },
+    {
+      "inherited_by": "tools/upload_b4_app.py::UploadRun",
+      "name": "head",
+      "origin": "state/analysis/P7_ordinary_app_run_raw/run.py",
+      "source_bytes": 316,
+      "source_sha256": "99ba99e49ef9f7d4fe3c3e723d902e4a1be8212520298aa799230a765f346e79"
+    },
+    {
+      "inherited_by": "tools/upload_b4_app.py::UploadRun",
+      "name": "source_inventory",
+      "origin": "state/analysis/P7_ordinary_app_run_raw/run.py",
+      "source_bytes": 159,
+      "source_sha256": "14c846d13bef9de792e9f62fd3e8af4690fea83f5d0aa5b843106a38df873379"
+    },
+    {
+      "inherited_by": "tools/upload_b4_app.py::UploadRun",
+      "name": "load_baselines",
+      "origin": "state/analysis/P7_ordinary_app_run_raw/run.py",
+      "source_bytes": 857,
+      "source_sha256": "586f956a412f9bfa90cc51cd02fa730b2f1f3c98708c7fb7b06e325605ad6909"
+    },
+    {
+      "inherited_by": "tools/upload_b4_app.py::UploadRun",
+      "name": "state_bytes",
+      "origin": "state/analysis/P7_ordinary_app_run_raw/run.py",
+      "source_bytes": 287,
+      "source_sha256": "a93dfba45dd1f9bbf921ad2e28f320a73fe553fa4d3465e7151cf39b659be060"
+    },
+    {
+      "inherited_by": "tools/upload_b4_app.py::UploadRun",
+      "name": "check_capability",
+      "origin": "state/analysis/P7_ordinary_app_run_raw/run.py",
+      "source_bytes": 837,
+      "source_sha256": "e861990d1ab2cba3e0c3387cd28f7834d55bd8a950849ed685ef7d9df9e69c29"
+    },
+    {
+      "inherited_by": "tools/upload_b4_app.py::UploadRun",
+      "name": "stage",
+      "origin": "state/analysis/P7_ordinary_app_run_raw/run.py",
+      "source_bytes": 1229,
+      "source_sha256": "88a131035ae8941a662eccf537d7933a68f3ffa5de7b1d6ae8ec572795d2a32d"
+    },
+    {
+      "inherited_by": "tools/upload_b4_app.py::UploadRun",
+      "name": "diagnostics",
+      "origin": "state/analysis/P7_ordinary_app_run_raw/run.py",
+      "source_bytes": 302,
+      "source_sha256": "fa341d3388ce51244f10f94d27730b45f1b8b42710f5e08015bfd72f94663e39"
+    },
+    {
+      "inherited_by": "tools/upload_b4_app.py::UploadRun",
+      "name": "check_adb",
+      "origin": "state/analysis/P7_motor_fault_raw/inert_run.py",
+      "source_bytes": 127,
+      "source_sha256": "b1c68958ca21b01e52e219a22498b2687ecbdc589494d035384f46a9cf51b2f1"
+    },
+    {
+      "inherited_by": "tools/upload_b4_app.py::UploadRun",
+      "name": "check_state",
+      "origin": "state/analysis/P7_motor_fault_raw/inert_run.py",
+      "source_bytes": 517,
+      "source_sha256": "5370ae0dbe629330f92cfde5a1846e15e968387d097cf9b370e35d526aae809e"
+    },
+    {
+      "inherited_by": "tools/upload_b4_app.py::UploadRun",
+      "name": "local",
+      "origin": "state/analysis/P7_motor_fault_raw/inert_run.py",
+      "source_bytes": 446,
+      "source_sha256": "989cd2c667c582502414fed12f19e59c007c2f3b257c018fef7348600365407e"
+    },
+    {
+      "inherited_by": "tools/upload_b4_app.py::UploadRun",
+      "name": "admit",
+      "origin": "state/analysis/P7_motor_fault_raw/inert_run.py",
+      "source_bytes": 652,
+      "source_sha256": "08e4a809d38fb1073fe7065e0458b44b4e2ebdae21f85ad5f204be90188177aa"
+    },
+    {
+      "inherited_by": "tools/upload_b4_app.py::UploadRun",
+      "name": "identity_record",
+      "origin": "state/analysis/P7_motor_fault_raw/inert_run.py",
+      "source_bytes": 267,
+      "source_sha256": "1e0727b87821bf70c634bcdedb8358b96a8874edc8ee793547824c3372616a08"
+    },
+    {
+      "inherited_by": "tools/upload_b4_app.py::UploadRun",
+      "name": "action",
+      "origin": "state/analysis/P7_motor_fault_raw/inert_run.py",
+      "source_bytes": 390,
+      "source_sha256": "0661811a15150c08fa25e5e1d33816925d1ace50c61ad39474c0a4922744889d"
+    },
+    {
+      "inherited_by": "tools/upload_b4_app.py::UploadRun",
+      "name": "failed_finish",
+      "origin": "state/analysis/P7_motor_fault_raw/inert_run.py",
+      "source_bytes": 337,
+      "source_sha256": "7f844cb8b6b31765a495738a0eb1a8cec49505b400129318cb6ed750db81837f"
+    },
+    {
+      "inherited_by": "tools/upload_b4_app.py::UploadRun",
+      "name": "finish",
+      "origin": "state/analysis/P7_motor_fault_raw/inert_run.py",
+      "source_bytes": 773,
+      "source_sha256": "04dcc439ef2cd7f2bfca5dbd52544b0f8351503ecb47928476cf5d50cfdd5db9"
+    }
+  ],
+  "uploader_dependency": {
+    "body_mutations": [],
+    "bytes": 24710,
+    "path": "state/analysis/P7_static_startup_raw/upload_remote.py",
+    "sha256": "e926b7ba5586475664b0541370e7cfb5c50e40d8dc8b47b18e35db3e0a0a25c1"
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "schema": "d219-native-driver-derivation-v1",
+  "template_path": "state/analysis/P7_b4_app_compile_raw/entry_native_driver01.py",
+  "template": {
+    "bytes": 5165,
+    "sha256": "730e160444ee0436b18abf0944fac8a4c9745b096c3f0cb87035aba5bb134af5"
+  },
+  "subject": {
+    "bytes": 5132,
+    "sha256": "4585df16bd71d0b19380aab98463084ee81bbec5373e69c18e3a9f66573e2ca0"
+  },
+  "steps": [
+    {
+      "old": "D217 file-only entry",
+      "new": "D219 fixed capture",
+      "count": 1,
+      "before": {
+        "bytes": 5165,
+        "sha256": "730e160444ee0436b18abf0944fac8a4c9745b096c3f0cb87035aba5bb134af5"
+      },
+      "after": {
+        "bytes": 5163,
+        "sha256": "02b3eb595b336e4578ffc23574c48546c9dcf8334d310d074deedb6423e228f1"
+      }
+    },
+    {
+      "old": "entry_native_",
+      "new": "capture_native_",
+      "count": 3,
+      "before": {
+        "bytes": 5163,
+        "sha256": "02b3eb595b336e4578ffc23574c48546c9dcf8334d310d074deedb6423e228f1"
+      },
+      "after": {
+        "bytes": 5169,
+        "sha256": "031bb1da47703479a9f07dc1c9d8fa4936768a537c2dcbc995926fcb2afb9275"
+      }
+    },
+    {
+      "old": "native_entry_static01",
+      "new": "native_capture01",
+      "count": 2,
+      "before": {
+        "bytes": 5169,
+        "sha256": "031bb1da47703479a9f07dc1c9d8fa4936768a537c2dcbc995926fcb2afb9275"
+      },
+      "after": {
+        "bytes": 5159,
+        "sha256": "23f30db935b17930f826e56278b07ee29ae828cb4f41f102fac868323deef379"
+      }
+    },
+    {
+      "old": "state/analysis/P7_b4_app_compile_raw/inspect_static_entry.py",
+      "new": "tools/capture_b4_recorder.py",
+      "count": 1,
+      "before": {
+        "bytes": 5159,
+        "sha256": "23f30db935b17930f826e56278b07ee29ae828cb4f41f102fac868323deef379"
+      },
+      "after": {
+        "bytes": 5127,
+        "sha256": "39828c00be197869906b4a27f7d7a45fecc76a5cc678b1ae78e75273284941f3"
+      }
+    },
+    {
+      "old": "d217-abi-native-invocations-v1",
+      "new": "d219-capture-native-invocations-v1",
+      "count": 1,
+      "before": {
+        "bytes": 5127,
+        "sha256": "39828c00be197869906b4a27f7d7a45fecc76a5cc678b1ae78e75273284941f3"
+      },
+      "after": {
+        "bytes": 5131,
+        "sha256": "96ee721e950e2579c9a432ae6d70364240b8e2f2f6211425aa33e8dfa0800961"
+      }
+    },
+    {
+      "old": "'--reviewed-head', head], 500)",
+      "new": "'--reviewed-head', head], 1500)",
+      "count": 1,
+      "before": {
+        "bytes": 5131,
+        "sha256": "96ee721e950e2579c9a432ae6d70364240b8e2f2f6211425aa33e8dfa0800961"
+      },
+      "after": {
+        "bytes": 5132,
+        "sha256": "4585df16bd71d0b19380aab98463084ee81bbec5373e69c18e3a9f66573e2ca0"
+      }
+    }
+  ],
+  "limits": "Parent orchestration budget covers existing individual bounded calls and final checks; no child limit widened. Scope prepared, native execution not yet admitted."
+}

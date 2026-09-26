@@ -1,0 +1,100 @@
+{
+  "schema": "d221-host-closing-v1",
+  "created": "2026-09-26T21:42:43.267951+04:00",
+  "status": "PASS",
+  "input_count": 195,
+  "changed_inputs": [],
+  "freeze": {
+    "bytes": 30708,
+    "sha256": "02291bf3af8030bdcbbd08eaee3a08f95353fcf4e29a353c524f71728bfc723d"
+  },
+  "oracle": {
+    "bytes": 10672,
+    "sha256": "97fb48a8a3d2958bb769d0b9d874ff85ae17f8d3412bc0e83da7c449e6be2d57"
+  },
+  "runs": [
+    {
+      "platform": "linux",
+      "methods": [
+        "test_actual_b4_source_and_profile_evidence_admission",
+        "test_bootstrap_returned_origin_fallback_and_independent_closing_checks",
+        "test_caller_inherited_bodies_success_order_and_staging_failure",
+        "test_cli_check_only_and_canonical_head_selection",
+        "test_compact_reply_validation_requires_exact_upload_success_and_returned_origin",
+        "test_remote_exact_profile_artifacts_pins_and_unchanged_upload_composition",
+        "test_scope_commands_once_only_intent_and_nine_call_bounds",
+        "test_upload_only_action_sequence_first_errors_and_finish_attachment",
+        "test_upload_only_command_framing_exact_types_and_preserved_guard_bodies"
+      ],
+      "elapsed_seconds": 27.935194700025022,
+      "result": {
+        "bytes": 842,
+        "sha256": "34000595141b7526802f5bead2b29813e501681b7fef1810de712c43af98f55f"
+      },
+      "stderr": {
+        "bytes": 1518,
+        "sha256": "a3741cc9ff3f7e22402c5fd0da62b5d2c4c762246f6e87179e7370fd0ce2a485"
+      }
+    },
+    {
+      "platform": "windows",
+      "methods": [
+        "test_actual_b4_source_and_profile_evidence_admission",
+        "test_bootstrap_returned_origin_fallback_and_independent_closing_checks",
+        "test_caller_inherited_bodies_success_order_and_staging_failure",
+        "test_cli_check_only_and_canonical_head_selection",
+        "test_compact_reply_validation_requires_exact_upload_success_and_returned_origin",
+        "test_remote_exact_profile_artifacts_pins_and_unchanged_upload_composition",
+        "test_scope_commands_once_only_intent_and_nine_call_bounds",
+        "test_upload_only_action_sequence_first_errors_and_finish_attachment",
+        "test_upload_only_command_framing_exact_types_and_preserved_guard_bodies"
+      ],
+      "elapsed_seconds": 2.0639454000629485,
+      "result": {
+        "bytes": 894,
+        "sha256": "27b63bc01349405fd1a334b4129269ecfacf7ee951a5b2881d36de89d6a8eb90"
+      },
+      "stderr": {
+        "bytes": 1531,
+        "sha256": "2f432014b9822478bb892ca2739b076c1ec671ab8f35b9eea838a2452ed8c375"
+      }
+    }
+  ],
+  "saved_files": {
+    "state/analysis/P7_b4_app_upload_raw/upload_first_linux01/intent.json": {
+      "bytes": 517,
+      "sha256": "d94f8edc3e74a4fcc21c42b27281e7bd43548e954d151030fd15feef3462efa6"
+    },
+    "state/analysis/P7_b4_app_upload_raw/upload_first_linux01/result.json": {
+      "bytes": 842,
+      "sha256": "34000595141b7526802f5bead2b29813e501681b7fef1810de712c43af98f55f"
+    },
+    "state/analysis/P7_b4_app_upload_raw/upload_first_linux01/stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "state/analysis/P7_b4_app_upload_raw/upload_first_linux01/stderr": {
+      "bytes": 1518,
+      "sha256": "a3741cc9ff3f7e22402c5fd0da62b5d2c4c762246f6e87179e7370fd0ce2a485"
+    },
+    "state/analysis/P7_b4_app_upload_raw/upload_first_windows01/intent.json": {
+      "bytes": 571,
+      "sha256": "456d3bf260f1a2e6b67078caa7dfcabdcec7d66801907e26e7f541fa8fc71824"
+    },
+    "state/analysis/P7_b4_app_upload_raw/upload_first_windows01/result.json": {
+      "bytes": 894,
+      "sha256": "27b63bc01349405fd1a334b4129269ecfacf7ee951a5b2881d36de89d6a8eb90"
+    },
+    "state/analysis/P7_b4_app_upload_raw/upload_first_windows01/stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "state/analysis/P7_b4_app_upload_raw/upload_first_windows01/stderr": {
+      "bytes": 1531,
+      "sha256": "2f432014b9822478bb892ca2739b076c1ec671ab8f35b9eea838a2452ed8c375"
+    }
+  },
+  "first_pass": true,
+  "storage": "Windows fixture temporary owner empty, zero payload; no independent Linux remnant inventory claimed. Unique receipts retained.",
+  "boundary": "Synthetic host and exact inherited source checks only; no B4 upload or physical acceptance."
+}

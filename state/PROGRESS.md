@@ -1564,3 +1564,5 @@ physical/loadedRAM/gate claim. | contract=this commit
 2026-09-26T21:43:47.763434+04:00 | P7/D221 | First9Linux+9WindowsPASS/no skips/repairs,195pinsstable, closure1ede62be. FixedM0B4upload software awaitsFINALreview/concretenativeadmission; D220cleanupstagedverificationpasses butdelete notyetinvoked. | pending
 
 2026-09-26T21:48:55.805620+04:00 | P7/D220 | Actualcleanup independentlyaccepted32756000:3verifiedstaleD212copies2397352B andscratch2007removed,3protectedscans/credentialrestore+drop,sixclosurePASS,originalsretained. Oneattempt consumed. | pending
+
+2026-09-26T21:50:40.094131+04:00 | P7/D221 | Nativeadmissionfab6302f FINALconditionalPASS;230prerequisites/scope9158547d/driver ea8f42a2 frozen. Cleanexactcommit/check-only next; stillnoB4upload. | pending

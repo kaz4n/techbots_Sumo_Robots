@@ -555,3 +555,6 @@ alternative deletion occurred. No new disposable build output was generated.
 
 
 2026-09-26T22:41:44.155598+04:00 | D222/D223 | Retain compact source/host reviews, original failing fixture evidence, corrected successful test receipts and the unique 5459-byte UART observation plus authentication transport metadata. Credentials were never saved. No bulk build created or cleanup attempted in this batch. C: free space before matrix 5,629,304,832 bytes. Previously policy-blocked local stage remains retained without retry.
+
+
+2026-09-26T23:34:31.301064+04:00 | D224-D226 preparation | Retained compact session/caller tests, original failures and reviewed cleanup plans; test-owned temporary fixtures and host compiler scratch released by their owners. Restored two worktree CLI inventory files to exact main/HEAD bytes after checkout newline conversion; guards unchanged. New attributes preserve frozen receipt bytes. C: free approximately5.0GB before next native work. No board deletion yet. Previously policyblocked764405-byte local stage remains untouched and excluded.

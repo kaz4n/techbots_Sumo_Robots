@@ -1,0 +1,26 @@
+test_active_compiler_refuses_before_any_descriptor_inspection (__main__.PreparationTests.test_active_compiler_refuses_before_any_descriptor_inspection) ... ok
+test_complete_reverse_proof_for_recipe_wrapper_and_four_programs (__main__.PreparationTests.test_complete_reverse_proof_for_recipe_wrapper_and_four_programs) ... ok
+test_intents_keep_staging_separate_from_authentication_and_deletion (__main__.PreparationTests.test_intents_keep_staging_separate_from_authentication_and_deletion) ... FAIL
+test_load_projection_pins_and_exact_three_current_originals (__main__.PreparationTests.test_load_projection_pins_and_exact_three_current_originals) ... ok
+test_projected_disappearing_handle_is_not_silently_skipped (__main__.PreparationTests.test_projected_disappearing_handle_is_not_silently_skipped) ... ok
+
+======================================================================
+FAIL: test_intents_keep_staging_separate_from_authentication_and_deletion (__main__.PreparationTests.test_intents_keep_staging_separate_from_authentication_and_deletion)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\AppData\Local\Temp\sumox-recorder-session-20260926\state\analysis\P7_recorder_cleanup_raw\test_preparation01.py", line 128, in test_intents_keep_staging_separate_from_authentication_and_deletion
+    self.assertEqual(auth['argv'][-1], "set -C; sudo -S -p '' -H /usr/bin/python3 -I -B " +
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                     STAGE + '/cleanup_root01.py > ' + STAGE + '/result_root01.json')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'set -C; sudo -S -p "" -H /usr/bin/python[158 chars]json' != "set -C; sudo -S -p '' -H /usr/bin/python[158 chars]json"
+- set -C; sudo -S -p "" -H /usr/bin/python3 -I -B /home/arduino/sumox26_codex_build/cleanup-recorder-root01/cleanup_root01.py > /home/arduino/sumox26_codex_build/cleanup-recorder-root01/result_root01.json
+?                    ^^
++ set -C; sudo -S -p '' -H /usr/bin/python3 -I -B /home/arduino/sumox26_codex_build/cleanup-recorder-root01/cleanup_root01.py > /home/arduino/sumox26_codex_build/cleanup-recorder-root01/result_root01.json
+?                    ^^
+
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.118s
+
+FAILED (failures=1)

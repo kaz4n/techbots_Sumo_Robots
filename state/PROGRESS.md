@@ -1589,3 +1589,6 @@ matrix is admitted conditionally, not yet executed. Firmware unchanged. | pendin
 
 
 2026-09-26T22:41:44.155598+04:00 | P7 | D223 read-only UART visibility | PASS: two complete privileged metadata samples, 165 processes/275 tasks each; only router PID 568 fd 7 observed; independent actual review 0bce66ac. No firmware or service changes; readiness unknown. | commit pending
+
+
+2026-09-26T23:34:31.301064+04:00 | P7/D224-D226 | D224 session freshness and D225 one-attempt delivery caller accepted by independent reviews b881a492/42e3b241; 42 applicable Windows and 43 Linux caller methods PASS, core/legacy evidence retained. Committed isolated source8cbce5a1/d4f85db4; main source remains frozen for D222 native matrix. D226 exact stale-copy cleanup preparation accepted a1f8f484; five focused local methods PASS, fresh read-only inventory only. No cleanup or recorder native action yet. | isolated preparation commit

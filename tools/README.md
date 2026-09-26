@@ -482,3 +482,30 @@ current artifact/layout bindings and fresh attempt scope.
 Use `python -I -B tools/compile_commissioning_app.py --check-only --profile PROFILE --motors-allowed 0 --attempt native01 --reviewed-head FULL_HEAD`, then the same arguments with `--execute` after admission. Profiles: b4_stand, p3_drive, p3_turn, p3_stop, p4_reactive, p4_timing, p5_abort_timing. Motors must be explicitly 0 or 1. This compiles the real main application with static/default startup and MATCH0; it never uploads. Keep one compiler at a time and retain/commit each owner before the next. See state/reviews/P7_commissioning_build_review.md for the admitted matrix and failure handling.
 
 D223 observe_uart_holders.py produced one consumed privileged metadata-only observation; its exact source/transport and actual review are under state/analysis/P7_uart_holder_raw and state/reviews/P7_uart_holder_actual_review.md. It is evidence of two samples, not a general UART preparation or recurring privilege command.
+
+
+## Identified full recorder delivery (D224/D225)
+
+`run_recorder_delivery.py` runs one inhibited 200-second synthetic recording on
+an identified bare UNO Q. Its checked-in bench identity remains disabled. Read
+[the contract](../state/analysis/P7_recorder_delivery_contract.md) and
+[accepted source/host review](../state/reviews/P7_recorder_delivery_review.md)
+before a native attempt. One fresh 32-character lowercase hex attempt supplies
+a positive uint64 wire session; use the same attempt and exact current committed
+HEAD for `--check-only`, `--compile`, then `--run`. No automatic retry is allowed.
+
+```
+python -I -B tools/run_recorder_delivery.py --check-only --attempt HEX32 --reviewed-head HEAD40
+python -I -B tools/run_recorder_delivery.py --compile --attempt HEX32 --reviewed-head HEAD40
+python -I -B tools/run_recorder_delivery.py --run --attempt HEX32 --reviewed-head HEAD40
+```
+
+Keep HEAD unchanged between compilation and delivery. Compilation must close
+successfully with all artifact and identity checks. Existing upload scratch must
+be independently cleared by its exact reviewed cleanup; this caller never deletes
+it. The receiver is armed before the single static/default M0 upload and requires
+the expected identity on every wire record. A TCP connection alone is not readiness.
+A complete result requires 5,001 zero-duty frames, eight expected events, SEALED,
+no reported loss and the declared timing bounds. Raw partial/failed captures remain
+saved. This establishes synthetic target software evidence only, not sensor,
+motor, physical timing or human gate acceptance.

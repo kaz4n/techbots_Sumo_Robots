@@ -1,25 +1,27 @@
-## Current checkpoint - 2026-09-26T19:40:54.195779+04:00
+## Current checkpoint - 2026-09-26T20:05:34.328821+04:00
 
-D212 ordinary inhibited app remains latest verified flashed firmware; user has
-BOARD ONLY. Source9044ebbb, static/default/MATCH0/MOTORS0/probe0/all grants absent.
-D213 B4 snapshot policy is accepted in e7298bc7 with65 PASS on each platform.
+D214 is independently admitted for exactly one fixed-M0 B4 compile-only attempt.
+Source/host review9b71f156 accepts corrected launcher b21527e2 and remote7dc788cb.
+Final test coverage is composed:91 Linux PASS,69 Windows PASS/22 Linux-covered
+skips. Final coordinator abfcee5e has224 current pins; host closure677401d9 binds
+all86 unchanged plus5 fresh outcomes per platform. Original failures remain in
+8b669d77/3f6ad8bb. No B4 compile has run yet.
 
-D214 fixed-M0 compile integration is being corrected after first host checks.
-Commit8b669d77 preserves original implementation, independent oracle and first
-Linux result:87 methods,82 PASS,5 failed methods/7failure records;203pins stable.
-The tests correctly found an unanchored directory open in the new payload helper.
-Review also found skipped partial-transfer observation and a masked fixture
-JSON-output omission. ordinary_abi_scope owns bounded launcher corrections and
-interface03/implementation02; fresh_review owns corrected87+gap tests/oracle02/
-independent_freeze02; const_cleanup_review reviews only. No frozen receipt is to
-be overwritten. Root must make coordinator_freeze02 and new host_driver02 with
-exclusive revision02 owners after both new seals. No B4 board attempt has run.
+Fresh read-only admission780a628f passed28 installed pins/identity/resources and
+new-owner absence. Manifestfc8e6fc1 binds130 inputs and source9044ebbb,104 mapped
+files/764405 bytes. Scope521c4b08 and native admission2320e092 accept one query,
+one compiler/jobs1 and two bounded source-only payload transfers. Final native
+prerequisites bind244 current inputs. Next: byte-audit/commit clean HEAD,
+then python -I -B state/analysis/P7_b4_app_compile_raw/native_driver01.py once.
+The driver performs check-only then one execute, preserves outer streams and
+closing failures. Do not rerun consumed owners or edit files during execution.
 
-Native/admission driver sources are prepared and source-reviewed; do not execute
-before corrected host/source acceptance, fresh read-only admission, exact scope
-and clean reviewed commit. Root native_driver01 is5099B/029916bf and preserves
-outer streams even after closing errors. All old native owners remain consumed.
-No motor-run authorization, initialized WCET, physical acceptance or human gate.
+D212 remains latest verified flashed firmware. User confirmed BOARD ONLY.
+D213 snapshot policy remains accepted. No motor authorization, physical facts,
+initialized WCET/RAM or human gate was supplied. Explorer b4_next_scope found
+that future B4 commissioning can reuse fixed D209/D212 adapters and capture the
+retained recorder after STOP; packed RAM decoding is new semantics. Current
+zero grants cannot exercise START/GO. No duplicate sketch/UART policy is needed.
 
 # Codex handoff - 26 September 2026, Asia/Dubai
 

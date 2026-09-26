@@ -1,0 +1,15 @@
+{
+  "schema": "d214-targeted-host-invocation-v1",
+  "platform": "windows",
+  "argv": [
+    "C:\\Users\\narut\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+    "-I",
+    "-B",
+    "-c",
+    "import runpy,unittest,sys; values=runpy.run_path('tests/tooling/test_b4_app_compile.py',run_name='_d214_portable_review'); suite=unittest.defaultTestLoader.loadTestsFromTestCase(values['PortableRemoteContract']); assert suite.countTestCases()==5; result=unittest.TextTestRunner(verbosity=2).run(suite); sys.exit(not result.wasSuccessful())"
+  ],
+  "started": "2026-09-26T19:56:54.802149+04:00",
+  "timeout_seconds": 600,
+  "temporary_root": "C:\\Users\\narut\\OneDrive\\Desktop\\Project\\techbots_Sumo_Robots\\state\\analysis\\P7_b4_app_compile_raw\\revision03_portable_windows01\\temporary",
+  "freeze_sha256": "abfcee5e9385fa75f6d85d02723070c00422714b450b3d1730eec5d9ea2ab527"
+}

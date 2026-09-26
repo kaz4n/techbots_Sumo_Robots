@@ -1,0 +1,80 @@
+# Records one bounded D214 host suite without contacting the board.
+# Keeps first output and frozen inputs under an exclusive platform owner.
+# Checked by source review and the independently authored focused suite.
+import datetime
+import hashlib
+import json
+import os
+from pathlib import Path
+import shlex
+import subprocess
+import sys
+import time
+
+ROOT = Path(__file__).resolve().parents[3]
+RAW = Path(__file__).resolve().parent
+WSL_ROOT = '/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots'
+
+
+def changed(pins):
+    result = []
+    for name, pin in pins.items():
+        body = (ROOT / name).read_bytes()
+        if len(body) != pin['bytes'] or hashlib.sha256(body).hexdigest() != pin['sha256']:
+            result.append(name)
+    return result
+
+
+def main():
+    assert sys.flags.isolated and sys.dont_write_bytecode and len(sys.argv) == 2
+    platform = sys.argv[1]
+    assert platform in ('linux', 'windows')
+    freeze_path = RAW / 'coordinator_freeze03.json'
+    frozen = freeze_path.read_bytes()
+    pins = json.loads(frozen)['files']
+    assert not changed(pins)
+    owner = RAW / ('revision03_portable_' + platform + '01')
+    owner.mkdir()
+    script = "import runpy,unittest,sys; values=runpy.run_path('tests/tooling/test_b4_app_compile.py',run_name='_d214_portable_review'); suite=unittest.defaultTestLoader.loadTestsFromTestCase(values['PortableRemoteContract']); assert suite.countTestCases()==5; result=unittest.TextTestRunner(verbosity=2).run(suite); sys.exit(not result.wasSuccessful())"
+    env, temporary = dict(os.environ), None
+    if platform == 'windows':
+        temporary = owner / 'temporary'
+        temporary.mkdir()
+        assert temporary.resolve().is_relative_to(RAW.resolve())
+        env.update(TEMP=str(temporary), TMP=str(temporary), TMPDIR=str(temporary))
+        command = [sys.executable, '-I', '-B', '-c', script]
+    else:
+        command = ['wsl', '-d', 'Ubuntu', '--', 'bash', '-lc',
+                   'cd ' + shlex.quote(WSL_ROOT) + ' && exec ' +
+                   shlex.join(['env', 'TMPDIR=/dev/shm', 'python3', '-I', '-B', '-c', script])]
+    record = dict(schema='d214-targeted-host-invocation-v1', platform=platform,
+                  argv=command, started=datetime.datetime.now().astimezone().isoformat(),
+                  timeout_seconds=600, temporary_root=str(temporary) if temporary else '/dev/shm',
+                  freeze_sha256=hashlib.sha256(frozen).hexdigest())
+    with (owner / 'intent.json').open('x', encoding='utf-8', newline='\n') as stream:
+        json.dump(record, stream, indent=2)
+        stream.write('\n')
+    start = time.monotonic()
+    try:
+        result = subprocess.run(command, cwd=ROOT, env=env, capture_output=True, timeout=600)
+    except subprocess.TimeoutExpired as error:
+        result = subprocess.CompletedProcess(command, -1, error.stdout or b'', error.stderr or b'')
+        record['timed_out'] = True
+    for name, body in (('stdout', result.stdout), ('stderr', result.stderr)):
+        with (owner / name).open('xb') as stream:
+            stream.write(body)
+        record[name + '_sha256'] = hashlib.sha256(body).hexdigest()
+    record.update(returncode=result.returncode, elapsed_seconds=time.monotonic()-start,
+                  changed_inputs=changed(pins), freeze_unchanged=freeze_path.read_bytes() == frozen,
+                  temporary_remnants=sorted(p.name for p in temporary.iterdir()) if temporary else None)
+    with (owner / 'result.json').open('x', encoding='utf-8', newline='\n') as stream:
+        json.dump(record, stream, indent=2)
+        stream.write('\n')
+    print(json.dumps(record))
+    print(result.stderr.decode('utf-8', 'replace')[-2500:])
+    return int(bool(result.returncode or record['changed_inputs'] or
+                    not record['freeze_unchanged'] or record['temporary_remnants']))
+
+
+if __name__ == '__main__':
+    sys.exit(main())

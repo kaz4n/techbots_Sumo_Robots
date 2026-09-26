@@ -505,3 +505,5 @@ D191 closing observation: C:recovered290537472B independently before local docum
 
 
 2026-09-26T19:11:44.235046+04:00 P7 D213: retained130host outcomes/compact16pinfreeze/closure and source+oracle; no compilerobjects or bytecode. Windows dedicated temporary parent observedempty and retained as command-owner evidence; no repeat of any policy-denied deletion.
+
+2026-09-26T20:04:28.195171+04:00 | D214 preparation | Retained unique first/revision02 failure streams, exact source/oracle receipts and final composed host closure for review/reproduction; original source versions live in8b669d77/3f6ad8bb rather than duplicate source snapshots. Both Windows test temporary roots are empty (zero payload) and retained as ownership evidence; no removal attempted. No Python bytecode/native build/stage created by this preparation. C: measured6917386240B free at19:58Dubai. Fresh board read reports root2935209984B/home13891117056B/RAMavailable3229184000B; upcoming compiler remains jobs1. No system paging or disk settings changed.

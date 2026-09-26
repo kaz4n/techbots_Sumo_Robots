@@ -1,0 +1,44 @@
+{
+  "schema": "d214-targeted-orchestration-revision-v1",
+  "source": "host_driver02.py",
+  "source_sha256": "c8d8534db78e18e52f3246d92ef2bed2a3984f327b692f82c07c6fc99ec08afb",
+  "host_driver": {
+    "bytes": 3883,
+    "sha256": "ae698d957145b7cf52ae0478a12bef83d051606e341829aa21ba06a1e41a57db"
+  },
+  "substitutions": [
+    {
+      "before": "coordinator_freeze02.json",
+      "after": "coordinator_freeze03.json"
+    },
+    {
+      "before": "('revision02_' + platform + '01')",
+      "after": "('revision03_portable_' + platform + '01')"
+    },
+    {
+      "before": "script = 'tests/tooling/test_b4_app_compile.py'",
+      "after": "script = \"import runpy,unittest,sys; values=runpy.run_path('tests/tooling/test_b4_app_compile.py',run_name='_d214_portable_review'); suite=unittest.defaultTestLoader.loadTestsFromTestCase(values['PortableRemoteContract']); assert suite.countTestCases()==5; result=unittest.TextTestRunner(verbosity=2).run(suite); sys.exit(not result.wasSuccessful())\""
+    },
+    {
+      "before": "[sys.executable, '-I', '-B', script]",
+      "after": "[sys.executable, '-I', '-B', '-c', script]"
+    },
+    {
+      "before": "'python3', '-I', '-B', script]",
+      "after": "'python3', '-I', '-B', '-c', script]"
+    },
+    {
+      "before": "schema='d214-host-invocation-v1'",
+      "after": "schema='d214-targeted-host-invocation-v1'"
+    }
+  ],
+  "scope": "Only five PortableRemoteContract tests; standard unittest loader after runpy with non-main name. Same213-derived current pin closure/600s/isolated environments/stream preservation; exclusive revision03 owners.",
+  "admission_driver": {
+    "base": "admission_driver02.py",
+    "base_sha256": "9995e61ce2731d8044f3b8be46f7b7f8fb4a6572329ab4e0a39608e74f490e6d",
+    "bytes": 6431,
+    "sha256": "818afe16746e2d45363c5f964da07628a78a7c3f49749c2d8cca847005ada596",
+    "change": "One coordinator_freeze02.json -> coordinator_freeze03.json literal."
+  },
+  "execution": "None; independent review and FINAL03 freeze required."
+}

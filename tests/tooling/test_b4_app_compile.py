@@ -21,7 +21,7 @@ from contextlib import ExitStack, contextmanager, redirect_stdout
 
 ROOT = Path(__file__).resolve().parents[2]
 RAW = 'state/analysis/P7_b4_app_compile_raw'
-ORACLE = RAW + '/oracle02.json'
+ORACLE = RAW + '/oracle03.json'
 SUBJECT = 'tools/compile_b4_app_static.py'
 REMOTE_SUBJECT = 'tools/b4_app_compile_remote.py'
 POLICY = 'tools/b4_app_static_policy.py'
@@ -681,6 +681,15 @@ def transfer_cases(base):
 
 class PortableRemoteContract(unittest.TestCase):
     def setUp(self):
+        if sys.platform == 'win32' and 'pwd' not in sys.modules:
+            sentinel = types.ModuleType('pwd')
+            def forbidden(*args, **kwargs):
+                raise AssertionError('Portable fixture must not call POSIX account APIs')
+            sentinel.getpwuid = forbidden
+            sentinel.__getattr__ = forbidden
+            # This entry was absent; restore that exact state after this case.
+            self.addCleanup(lambda: sys.modules.pop('pwd', None))
+            sys.modules['pwd'] = sentinel
         self.subject = load_checked(REMOTE_SUBJECT, '_d214_remote_portable')
         self.fixture = remote_fixture(); self.values = bundle()
 

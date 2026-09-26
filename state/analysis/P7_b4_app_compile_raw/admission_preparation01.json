@@ -1,0 +1,101 @@
+{
+  "schema": "d214-readonly-admission-preparation-v1",
+  "created": "2026-09-26T20:00:42.515800+04:00",
+  "status": "PREPARED_NOT_EXECUTED",
+  "files": {
+    "state/reviews/P7_b4_app_compile_review.md": {
+      "bytes": 8109,
+      "sha256": "9b71f156a35e5e92fbf8bd3f45b554ab649ca32127af9ddabc15d6292224c133"
+    },
+    "state/analysis/P7_b4_app_compile_contract.md": {
+      "bytes": 8757,
+      "sha256": "76ba6262b2bbdf8ec65359c98488e66befae664d64d5a125c2de65480dda5c06"
+    },
+    "state/analysis/P7_b4_app_compile_raw/interface03.json": {
+      "bytes": 12700,
+      "sha256": "9ff2ead7662345f8020aadb61dbdd86e998fc6ca51e6b12a86ba156af2137f7d"
+    },
+    "state/analysis/P7_b4_app_compile_raw/implementation02.json": {
+      "bytes": 4223,
+      "sha256": "52c8f55adb6b7699adab59c18d3776ec92ae45577949aebc7b8c50fc9a719545"
+    },
+    "state/analysis/P7_b4_app_compile_raw/coordinator_freeze03.json": {
+      "bytes": 36942,
+      "sha256": "abfcee5e9385fa75f6d85d02723070c00422714b450b3d1730eec5d9ea2ab527"
+    },
+    "state/analysis/P7_b4_app_compile_raw/host_closing01.json": {
+      "bytes": 33391,
+      "sha256": "677401d9bd97e33b7a62b1f21a76d9cb35c3279b18325e4fd53f0082102279d9"
+    },
+    "state/analysis/P7_b4_app_compile_raw/inputs_static.json": {
+      "bytes": 13493,
+      "sha256": "fc8e6fc1131c1952d5e1809f9dc6fb96763dd5e111749424e9ccfaec9b58d38c"
+    },
+    "state/analysis/P7_b4_app_compile_raw/manifest_preparation01.json": {
+      "bytes": 16001,
+      "sha256": "beda4bc19296c2b133ec79ac9d5e712af31fd8f353db5f3f6762dba33b49b6a7"
+    },
+    "state/analysis/P7_b4_app_compile_raw/admission_derivation01.json": {
+      "bytes": 3068,
+      "sha256": "46e8ace3dc34e48a79d831dfaa5aeb419938b134091d1ca3ae925400f0e1f513"
+    },
+    "state/analysis/P7_b4_app_compile_raw/admission_source01.py": {
+      "bytes": 10218,
+      "sha256": "8a593022dee53a413a8c5edf96e180d3749193662535c60a788bb3dedd8f5c28"
+    },
+    "state/analysis/P7_b4_app_compile_raw/admission_closing_source01.py": {
+      "bytes": 1909,
+      "sha256": "ede79b759b0aa6b8aef60b2e2820356064416515918e2a7c42a9a595b920b8e7"
+    },
+    "state/analysis/P7_b4_app_compile_raw/admission_driver03.py": {
+      "bytes": 6431,
+      "sha256": "818afe16746e2d45363c5f964da07628a78a7c3f49749c2d8cca847005ada596"
+    }
+  },
+  "commands": [
+    {
+      "source": "admission_source01.py",
+      "bytes": 10218,
+      "sha256": "8a593022dee53a413a8c5edf96e180d3749193662535c60a788bb3dedd8f5c28",
+      "command_utf16_units_including_nul": 12765,
+      "outer_timeout_seconds": 75
+    },
+    {
+      "source": "admission_closing_source01.py",
+      "bytes": 1909,
+      "sha256": "ede79b759b0aa6b8aef60b2e2820356064416515918e2a7c42a9a595b920b8e7",
+      "command_utf16_units_including_nul": 2488,
+      "outer_timeout_seconds": 75
+    }
+  ],
+  "expected_boot_id": "55c386b9-fe6d-4388-a7f4-1d91e0bb49d8",
+  "expected_cli_sha256": "b878632298958d61fd1eb19e70ac5d2e803d83db8930bc72dc6915eee6e8f433",
+  "expected_identity": {
+    "uid": 1000,
+    "gid": 1000,
+    "user": "arduino",
+    "home": "/home/arduino",
+    "sysname": "Linux",
+    "release": "6.16.7-g0dd6551ae96b",
+    "machine": "aarch64",
+    "python": [
+      3,
+      13,
+      5
+    ],
+    "boot_id": "55c386b9-fe6d-4388-a7f4-1d91e0bb49d8"
+  },
+  "installed_file_count": 28,
+  "remote_owner": "/home/arduino/sumox26_codex_build/b4-app-m0-static01",
+  "driver": "admission_driver03.py",
+  "limits": {
+    "windows_command_utf16_units_including_nul": 30000,
+    "local_free_bytes": 134217728,
+    "board_root_and_home_free_bytes": 1073741824,
+    "observer_alarm_seconds": 45,
+    "closing_alarm_seconds": 60
+  },
+  "scope": "Exactly two separately attempted read-only observations, with exclusive local intent/result. No source upload/staging/owner claim/query/compiler/reset/MCU/sudo/cleanup. Preserve first error and all local/independent closing checks.",
+  "derivation": "admission_derivation01 plus orchestration_revision03: exact D208 observers with counted attempt labels and driver current freeze03 reference; no guard changes.",
+  "expected_not_observed": "Current board identity, resources and owner absence remain unobserved for D214 until admitted execution."
+}

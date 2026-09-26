@@ -1,0 +1,151 @@
+{
+  "schema": "b4-app-m0-static-scope-v1",
+  "created": "2026-09-26T20:02:52.939647+04:00",
+  "status": "PREPARED_NOT_EXECUTED",
+  "operation": "Exactly one compile-only attempt after independent actual-admission/scope review, clean committed reviewed HEAD and successful local check-only. No upload/reset/MCU/install/privilege/cleanup/retry.",
+  "source_sha256": "9044ebbb3cd3b2dbb7aa5984dd5ff23bfff697372f1f29d56693af9ea5eaf31a",
+  "boot_id": "55c386b9-fe6d-4388-a7f4-1d91e0bb49d8",
+  "board_serial": "2629958581",
+  "project": "app.ino",
+  "fqbn": "arduino:zephyr:unoq:link_mode=static",
+  "flags": "-DMATCH=0 -DMOTORS_ALLOWED=0 -DSUMOX_B4_STAND=1 -DSUMOX_P3_DRIVE_TEST=0 -DSUMOX_P3_TURN_TRIAL=0 -DSUMOX_P3_STOP_TRIAL=0 -DSUMOX_P4_REACTIVE=0 -DSUMOX_TIMING_EVIDENCE=0 -DSUMOX_P5_ABORT_TIMING=0 -DSUMOX_MOTOR_FAULT_PROBE=0",
+  "startup": "default",
+  "motors_allowed": 0,
+  "attempt": "b4-app-m0-static01",
+  "local_output": "state/analysis/P7_b4_app_compile_raw/native_static01",
+  "stage_owner": "build/stage/b4-app-m0-static01",
+  "stage_child": "app",
+  "remote_owner": "/home/arduino/sumox26_codex_build/b4-app-m0-static01",
+  "canonical_source": "/home/arduino/sumox26_codex_build/9044ebbb3cd3b2dbb7aa5984dd5ff23bfff697372f1f29d56693af9ea5eaf31a/app",
+  "canonical_reuse": "Only exact existing full source content/directory admission; no repair.",
+  "manifest_files": 130,
+  "source_inventory_files": 105,
+  "staged_files": 104,
+  "staged_bytes": 764405,
+  "limits": {
+    "queries": 1,
+    "query_seconds": 60,
+    "compilers": 1,
+    "jobs": 1,
+    "compile_seconds": 720,
+    "reap_seconds": 5,
+    "windows_command_utf16_units_including_nul": 30000,
+    "local_free_bytes": 134217728,
+    "board_free_bytes": 1073741824,
+    "source_payload_transfers": 2,
+    "source_payload_chunk_max": 16384,
+    "source_payload_packed_max": 32768,
+    "source_payload_unpacked_max": 262144
+  },
+  "artifact_source_payload": {
+    "leaf": "artifact-sources.zlib",
+    "packed_bytes": 28087,
+    "packed_sha256": "901ff1d8657d74581f19543c87873402eccbc76867004b602f7b8755902d2f68",
+    "chunk_bytes": [
+      16384,
+      11703
+    ],
+    "order": "Only after checked successful compile, before artifact observation. Final independent read; incomplete attempts observe then fail, no retries."
+  },
+  "authorization": "D051 and D214 engineering continuation; no motor-capable run permission/human gate.",
+  "roles": {
+    "launcher": "tools/compile_b4_app_static.py",
+    "remote_validator": "tools/b4_app_compile_remote.py",
+    "policy": "tools/b4_app_static_policy.py",
+    "contract": "state/analysis/P7_b4_app_compile_contract.md",
+    "policy_contract": "state/analysis/P7_b4_app_policy_contract.md",
+    "interface": "state/analysis/P7_b4_app_compile_raw/interface03.json",
+    "implementation": "state/analysis/P7_b4_app_compile_raw/implementation02.json",
+    "source_host_review": "state/reviews/P7_b4_app_compile_review.md",
+    "independent_freeze": "state/analysis/P7_b4_app_compile_raw/independent_freeze03.json",
+    "coordinator_freeze": "state/analysis/P7_b4_app_compile_raw/coordinator_freeze03.json",
+    "host_closing": "state/analysis/P7_b4_app_compile_raw/host_closing01.json",
+    "manifest": "state/analysis/P7_b4_app_compile_raw/inputs_static.json",
+    "manifest_preparation": "state/analysis/P7_b4_app_compile_raw/manifest_preparation01.json",
+    "admission_preparation": "state/analysis/P7_b4_app_compile_raw/admission_preparation01.json",
+    "admission_actual": "state/analysis/P7_b4_app_compile_raw/admission01.json",
+    "readonly_admission_review": "state/reviews/P7_b4_app_compile_admission_review.md",
+    "payload_size": "state/analysis/P7_b4_app_compile_raw/payload_size02.json"
+  },
+  "files": {
+    "tools/compile_b4_app_static.py": {
+      "bytes": 24356,
+      "sha256": "b21527e2cbdb50304ef18d8edd982a5bb8eec6f633d75043bd4e323b7cc59e80"
+    },
+    "tools/b4_app_compile_remote.py": {
+      "bytes": 7821,
+      "sha256": "7dc788cbfb92688d3b1a2343f673da1bae3fa3ade1df5836ae437c013750b2d3"
+    },
+    "tools/b4_app_static_policy.py": {
+      "bytes": 4055,
+      "sha256": "aadccdbb0a92338a90a789251f691a42e029c7f73b312b638b85d04c5d2d4ddf"
+    },
+    "state/analysis/P7_b4_app_compile_contract.md": {
+      "bytes": 8757,
+      "sha256": "76ba6262b2bbdf8ec65359c98488e66befae664d64d5a125c2de65480dda5c06"
+    },
+    "state/analysis/P7_b4_app_policy_contract.md": {
+      "bytes": 3996,
+      "sha256": "1d6ffa2f49ba5a7925e1fbfc70a80a73a22dc0b5cc04a936b318eb97159d52c7"
+    },
+    "state/analysis/P7_b4_app_compile_raw/interface03.json": {
+      "bytes": 12700,
+      "sha256": "9ff2ead7662345f8020aadb61dbdd86e998fc6ca51e6b12a86ba156af2137f7d"
+    },
+    "state/analysis/P7_b4_app_compile_raw/implementation02.json": {
+      "bytes": 4223,
+      "sha256": "52c8f55adb6b7699adab59c18d3776ec92ae45577949aebc7b8c50fc9a719545"
+    },
+    "state/reviews/P7_b4_app_compile_review.md": {
+      "bytes": 8109,
+      "sha256": "9b71f156a35e5e92fbf8bd3f45b554ab649ca32127af9ddabc15d6292224c133"
+    },
+    "state/analysis/P7_b4_app_compile_raw/independent_freeze03.json": {
+      "bytes": 35391,
+      "sha256": "0ca70af8f6859a06f5c7c1ed3698651bbca7e01bd61be3d4984cc392be88c473"
+    },
+    "state/analysis/P7_b4_app_compile_raw/coordinator_freeze03.json": {
+      "bytes": 36942,
+      "sha256": "abfcee5e9385fa75f6d85d02723070c00422714b450b3d1730eec5d9ea2ab527"
+    },
+    "state/analysis/P7_b4_app_compile_raw/host_closing01.json": {
+      "bytes": 33391,
+      "sha256": "677401d9bd97e33b7a62b1f21a76d9cb35c3279b18325e4fd53f0082102279d9"
+    },
+    "state/analysis/P7_b4_app_compile_raw/inputs_static.json": {
+      "bytes": 13493,
+      "sha256": "fc8e6fc1131c1952d5e1809f9dc6fb96763dd5e111749424e9ccfaec9b58d38c"
+    },
+    "state/analysis/P7_b4_app_compile_raw/manifest_preparation01.json": {
+      "bytes": 16001,
+      "sha256": "beda4bc19296c2b133ec79ac9d5e712af31fd8f353db5f3f6762dba33b49b6a7"
+    },
+    "state/analysis/P7_b4_app_compile_raw/admission_preparation01.json": {
+      "bytes": 4202,
+      "sha256": "e0c0f252a1b2d0bf270867cf04b134aee792822132bff088b0df4f90afc1fddd"
+    },
+    "state/analysis/P7_b4_app_compile_raw/admission01.json": {
+      "bytes": 64653,
+      "sha256": "780a628f8f0ec8ba20e4c926fc83663b599bfd189764c76e25762633191086ea"
+    },
+    "state/reviews/P7_b4_app_compile_admission_review.md": {
+      "bytes": 4212,
+      "sha256": "0a793001a0966d263c97ce7fda038dcef1a1870c85e991e9ba69d5360ab85caa"
+    },
+    "state/analysis/P7_b4_app_compile_raw/payload_size02.json": {
+      "bytes": 3122,
+      "sha256": "c8bad9f8fe4b92181620eb479ce6de90e11c6c13b8bd65b71790c890c3b6534c"
+    }
+  },
+  "role_binding": {
+    "path": "state/analysis/P7_b4_app_compile_raw/native_scope_role_binding02.json",
+    "bytes": 2781,
+    "sha256": "bf85b1719bc033ec0f87aae3f9d7578a9dd93ab505460a4b6f966bf34294ca28"
+  },
+  "readonly_admission": {
+    "bytes": 64653,
+    "sha256": "780a628f8f0ec8ba20e4c926fc83663b599bfd189764c76e25762633191086ea"
+  },
+  "source_snapshot": "105 source files and grants unchanged from D212. Exact native compiler/tool/source/resource checks are repeated at use.",
+  "evidence_boundary": "B4 M0 static/default file artifacts/layout only. Loading/ABI/capture/live RAM/timing/recording delivery and physical commissioning/gates remain separate."
+}

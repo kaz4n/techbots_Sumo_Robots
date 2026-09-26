@@ -1,0 +1,41 @@
+{
+  "all_64_fields_equal": true,
+  "capture_result_sha256": "a1641460b6fc99655f7a66a75f908d2e40555a26d7763d6e2e3d0a0c02bd53bd",
+  "coherence": "UNPROVEN",
+  "collector_head": "3c9f11f5cc9550e1423a5cca01bf274c33f7da22",
+  "counts": {
+    "commands": 24,
+    "reads": 24,
+    "requested_bytes": 639496
+  },
+  "first_failure": {
+    "first_failure.cleanup": {
+      "name": "READBACK_FAILED",
+      "value": 5
+    },
+    "first_failure.cleanup_ownership": {
+      "name": "OK",
+      "value": 1
+    },
+    "first_failure.ownership_evaluated": true,
+    "first_failure.packet_offset": 7,
+    "first_failure.packet_size": 74,
+    "first_failure.payload_size": 59,
+    "first_failure.reason": {
+      "name": "TIMEOUT",
+      "value": 9
+    },
+    "first_failure.site": {
+      "name": "STORE_DEADLINE",
+      "value": 13
+    }
+  },
+  "flash": {
+    "after_loader": true,
+    "after_sketch": true,
+    "before_loader": true,
+    "before_sketch": true
+  },
+  "interpretation": "TIMEOUT at STORE_DEADLINE after7submittedbytes; deadlinebranch and readback mechanism not directly recorded",
+  "status": "PASS_PASSIVE_FIRST_FAILURE_CAPTURE"
+}

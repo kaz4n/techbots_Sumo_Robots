@@ -2722,3 +2722,5 @@ D-233 actual compile/run and scheduling (2026-09-27T01:41:46.948550+04:00): Nati
 
 ## D-234 (2026-09-27T01:41:46.948550+04:00) - Explicit application dump session forwarding
 Under D051 adopt the existing receive-stream enum and uint64 session as config declarations with zero defaults. Forward immutable setup grants into every Runtime Context. Current deployment recognizes/protects these declarations and refuses nondefault stream/session pending a separately qualified fresh receive workflow; no hardware grant or reset-freshness claim. Adopt reviewb0032c22 FINALPASS and integratef3858d4a as3ec262a0. Linux28Pythonmethods,49realRuntimeUBSancases12558assertions,registry18legacychecks and21uniqueWindowsmethods pass; original sparse-dependency and unchanged metadata-guard refusals retained. No nativeD234action.
+
+D-233 failed-delivery evidence acceptance (2026-09-27T01:43:27.403199+04:00): Adopt actualreview03378b10; no reconciliation blocker, actualdeliveryFAILED.145inputs110stagefiles45transports9compileclosing/oneupload/900sTIMEOUT0bytes independently reconciled. Sourcece4e6939 remains distinct from currentD234. Passivecapture34538 continues; causeunknown.

@@ -1,0 +1,192 @@
+{
+  "argv": [
+    "C:\\Users\\narut\\AppData\\Local\\Arduino15\\packages\\arduino\\tools\\adb\\32.0.0\\adb.exe",
+    "-s",
+    "2629958581",
+    "shell",
+    "-T",
+    "/usr/bin/env -i HOME=/home/arduino USER=arduino LOGNAME=arduino PATH=/usr/bin:/bin LANG=C.UTF-8 /usr/bin/python3 -I -B -c '# Checks fixed D200 cleanup evidence and D201 board files without mutation.\n# Preserves the earlier descriptor, identity, process, resource and absence guards.\n# Reviewed by exact template projection and static AST checks before one admission.\nimport os,stat,sys,json,hashlib,base64,bz2,types,signal\nfrom pathlib import Path\nsignal.alarm(55)\npins={'\"'\"'cleanup_root04.py'\"'\"': {'\"'\"'bytes'\"'\"': 9603, '\"'\"'sha256'\"'\"': '\"'\"'13f33327c5474d7c4dee56657a9d93b50e6fcdaee864e1855c916417a53c6290'\"'\"'}, '\"'\"'cleanup_remoteocd03.py'\"'\"': {'\"'\"'bytes'\"'\"': 7740, '\"'\"'sha256'\"'\"': '\"'\"'6afeea1b9733670cdf315b2bf29b3e6e9c24016a2ba9217013e67496ec088f4d'\"'\"'}, '\"'\"'static_remote.py'\"'\"': {'\"'\"'bytes'\"'\"': 33321, '\"'\"'sha256'\"'\"': '\"'\"'8ba9b190c38e728013a383348c60c287b0366607f65f703161cf7f2e142d36f8'\"'\"'}}\npacket=json.loads(bz2.decompress(base64.b64decode('\"'\"'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'\"'\"')))\n\nfor name,pin in pins.items():\n raw=packet[name].encode();assert len(raw)==pin['\"'\"'bytes'\"'\"'] and hashlib.sha256(raw).hexdigest()==pin['\"'\"'sha256'\"'\"']\nh=types.ModuleType('\"'\"'fixed_stage_helper'\"'\"');exec(compile(packet['\"'\"'static_remote.py'\"'\"'],'\"'\"'/__sumox__/helper.py'\"'\"','\"'\"'exec'\"'\"'),h.__dict__)\nr=types.ModuleType('\"'\"'fixed_stage_recipe'\"'\"');exec(compile(packet['\"'\"'cleanup_remoteocd03.py'\"'\"'],'\"'\"'/__sumox__/recipe.py'\"'\"','\"'\"'exec'\"'\"'),r.__dict__)\nfiles={'\"'\"'/home/arduino/sumox26-capture-tools/app-default-beeffff315b2e28a95a20dc1e26477fc924b2da26d1fdd8a8b36fb013ca110e1/p0_mem_read.cfg'\"'\"': {'\"'\"'bytes'\"'\"': 694, '\"'\"'path'\"'\"': '\"'\"'/home/arduino/sumox26-capture-tools/app-default-beeffff315b2e28a95a20dc1e26477fc924b2da26d1fdd8a8b36fb013ca110e1/p0_mem_read.cfg'\"'\"', '\"'\"'sha256'\"'\"': '\"'\"'89d16a28a1489c23ec743be55ade39824f9ca5213b02b20ef4785079122e4339'\"'\"'}, '\"'\"'/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf'\"'\"': {'\"'\"'bytes'\"'\"': 2303728, '\"'\"'path'\"'\"': '\"'\"'/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf'\"'\"', '\"'\"'sha256'\"'\"': '\"'\"'39d4a4fd47241663323f6e04f94dd8f5a9f9ad6582cf1df37f9709b74026adcd'\"'\"'}, '\"'\"'/opt/openocd/bin/openocd'\"'\"': {'\"'\"'bytes'\"'\"': 14435552, '\"'\"'path'\"'\"': '\"'\"'/opt/openocd/bin/openocd'\"'\"', '\"'\"'sha256'\"'\"': '\"'\"'04778a80c5c619ee4eef7505db91328f1d7e789107c496f2ddcf96d081f5b0ff'\"'\"'}, '\"'\"'/home/arduino/sumox26_codex_build/app-motor-settle-static01/build/app_motor_observe.ino.bin-zsk.bin'\"'\"': {'\"'\"'bytes'\"'\"': 95520, '\"'\"'path'\"'\"': '\"'\"'/home/arduino/sumox26_codex_build/app-motor-settle-static01/build/app_motor_observe.ino.bin-zsk.bin'\"'\"', '\"'\"'sha256'\"'\"': '\"'\"'e400078166394d0f8ea44b601e9ba2948992c4f263c5c7ee5fb3942433c143d0'\"'\"'}, '\"'\"'/opt/openocd/share/openocd/scripts/target/swj-dp.tcl'\"'\"': {'\"'\"'bytes'\"'\"': 1148, '\"'\"'path'\"'\"': '\"'\"'/opt/openocd/share/openocd/scripts/target/swj-dp.tcl'\"'\"', '\"'\"'sha256'\"'\"': '\"'\"'aad132008735bbafea3d18a304632c638f0fb99bfc19530c9f577eda2b10410a'\"'\"'}, '\"'\"'/home/arduino/.arduino15/packages/arduino/tools/adb/32.0.0/adb'\"'\"': {'\"'\"'bytes'\"'\"': 7916376, '\"'\"'path'\"'\"': '\"'\"'/home/arduino/.arduino15/packages/arduino/tools/adb/32.0.0/adb'\"'\"', '\"'\"'sha256'\"'\"': '\"'\"'ed62ac1ec90ef305cf0c8fa317284cd75b7cda88ecd8dbdd097044101072d164'\"'\"'}, '\"'\"'/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/boards.txt'\"'\"': {'\"'\"'bytes'\"'\"': 6101, '\"'\"'path'\"'\"': '\"'\"'/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/boards.txt'\"'\"', '\"'\"'sha256'\"'\"': '\"'\"'bd4f03904d8fe16bf845baf09d0435e79f5a46c6e6a4f445f3ee592994652b84'\"'\"'}, '\"'\"'/usr/bin/arduino-cli'\"'\"': {'\"'\"'bytes'\"'\"': 34651734, '\"'\"'path'\"'\"': '\"'\"'/usr/bin/arduino-cli'\"'\"', '\"'\"'sha256'\"'\"': '\"'\"'b878632298958d61fd1eb19e70ac5d2e803d83db8930bc72dc6915eee6e8f433'\"'\"'}, '\"'\"'/opt/openocd/stm32x5x_common.cfg'\"'\"': {'\"'\"'bytes'\"'\"': 8468, '\"'\"'path'\"'\"': '\"'\"'/opt/openocd/stm32x5x_common.cfg'\"'\"', '\"'\"'sha256'\"'\"': '\"'\"'139a2c4167e4fc649ab0057560858e03a24dcafeb5b0b3a3bcb7b9373e0869e4'\"'\"'}, '\"'\"'/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/flash_sketch.cfg'\"'\"': {'\"'\"'bytes'\"'\"': 680, '\"'\"'path'\"'\"': '\"'\"'/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/flash_sketch.cfg'\"'\"', '\"'\"'sha256'\"'\"': '\"'\"'38706cee1f9ff2e53364a47129d1c1aea9bb9687ed26d7d70b4a9f9bc5bca60c'\"'\"'}, '\"'\"'/opt/openocd/openocd_gpiod.cfg'\"'\"': {'\"'\"'bytes'\"'\"': 194, '\"'\"'path'\"'\"': '\"'\"'/opt/openocd/openocd_gpiod.cfg'\"'\"', '\"'\"'sha256'\"'\"': '\"'\"'58c0c341ba2a0c758bb044683884fb4af01ff6c9cf292bec6b2115c44f7ff836'\"'\"'}, '\"'\"'/home/arduino/.arduino15/package_index.json'\"'\"': {'\"'\"'bytes'\"'\"': 1691790, '\"'\"'path'\"'\"': '\"'\"'/home/arduino/.arduino15/package_index.json'\"'\"', '\"'\"'sha256'\"'\"': '\"'\"'3cb9691dc81453f0ad429c721af4aaf87ff18d9431408f4cd75c8bb479419c3e'\"'\"'}, '\"'\"'/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/installed.json'\"'\"': {'\"'\"'bytes'\"'\"': 303397, '\"'\"'path'\"'\"': '\"'\"'/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/installed.json'\"'\"', '\"'\"'sha256'\"'\"': '\"'\"'985d3ba102ebf440eca4fb9a9f767b35134e3d827919224bb7635b4b106f86f9'\"'\"'}, '\"'\"'/opt/openocd/share/openocd/scripts/mem_helper.tcl'\"'\"': {'\"'\"'bytes'\"'\"': 1021, '\"'\"'path'\"'\"': '\"'\"'/opt/openocd/share/openocd/scripts/mem_helper.tcl'\"'\"', '\"'\"'sha256'\"'\"': '\"'\"'01794a37e9a8bdc20e2304ee64e9d70549c0872f5f6c40fa032a165bcbba1fd2'\"'\"'}, '\"'\"'/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/platform.txt'\"'\"': {'\"'\"'bytes'\"'\"': 20947, '\"'\"'path'\"'\"': '\"'\"'/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/platform.txt'\"'\"', '\"'\"'sha256'\"'\"': '\"'\"'d4c824fceb2f4cf0057da4df3235d3aee195bbbd71f59a48d344c818fcd5e638'\"'\"'}, '\"'\"'/home/arduino/sumox26_codex_build/app-motor-settle-static01/build/app_motor_observe.ino.bin'\"'\"': {'\"'\"'bytes'\"'\"': 95504, '\"'\"'path'\"'\"': '\"'\"'/home/arduino/sumox26_codex_build/app-motor-settle-static01/build/app_motor_observe.ino.bin'\"'\"', '\"'\"'sha256'\"'\"': '\"'\"'d1033e627420e0de5d8ca90ebdf79c284228a23448f3d3e99130651d5afc65cc'\"'\"'}, '\"'\"'/home/arduino/.arduino15/packages/arduino/tools/remoteocd/0.1.1/remoteocd'\"'\"': {'\"'\"'bytes'\"'\"': 6451057, '\"'\"'path'\"'\"': '\"'\"'/home/arduino/.arduino15/packages/arduino/tools/remoteocd/0.1.1/remoteocd'\"'\"', '\"'\"'sha256'\"'\"': '\"'\"'2a3f820b867d113a82a86470f2caa128bc15b52303ad4ce0a5cbd62002cb2b60'\"'\"'}, '\"'\"'/opt/openocd/stm32u5x.cfg'\"'\"': {'\"'\"'bytes'\"'\"': 1762, '\"'\"'path'\"'\"': '\"'\"'/opt/openocd/stm32u5x.cfg'\"'\"', '\"'\"'sha256'\"'\"': '\"'\"'8c0ffc41eadd0593168b825d60d6736329c08974c047fdac722fabb93c0ee46a'\"'\"'}, '\"'\"'/home/arduino/sumox26-capture-tools/app-default-beeffff315b2e28a95a20dc1e26477fc924b2da26d1fdd8a8b36fb013ca110e1/p0_capture.py'\"'\"': {'\"'\"'path'\"'\"': '\"'\"'/home/arduino/sumox26-capture-tools/app-default-beeffff315b2e28a95a20dc1e26477fc924b2da26d1fdd8a8b36fb013ca110e1/p0_capture.py'\"'\"', '\"'\"'bytes'\"'\"': 18880, '\"'\"'sha256'\"'\"': '\"'\"'885c4e4206aea4ac9e03c4e92e48258db2a0ae302ff83a86430e6913afeeb57c'\"'\"'}}\n\nroot=os.open('\"'\"'/'\"'\"',os.O_RDONLY|os.O_DIRECTORY|os.O_NOFOLLOW|os.O_CLOEXEC)\nstage='\"'\"'/home/arduino/sumox26_codex_build/cleanup-app-settle-root04'\"'\"'\ntry:\n identity=h.identity(root);assert identity==r.EXPECTED\n body=h.logical_read(root,stage+'\"'\"'/result_root04.json'\"'\"',16384)\n assert len(body)==6370 and hashlib.sha256(body).hexdigest()=='\"'\"'05507941ebbc8f9ba88c366dbf3c762e80042654a7c8de9166637ecc4e7c7ebd'\"'\"'\n result=json.loads(body);assert result['\"'\"'status'\"'\"']=='\"'\"'REMOVED_EXACT_STALE_COPIES'\"'\"' and result['\"'\"'first_error'\"'\"'] is None\n assert not os.path.lexists('\"'\"'/tmp/remoteocd'\"'\"')\n for name,pin in pins.items():\n  raw=h.logical_read(root,stage+'\"'\"'/'\"'\"'+name,pin['\"'\"'bytes'\"'\"']);assert len(raw)==pin['\"'\"'bytes'\"'\"'] and hashlib.sha256(raw).hexdigest()==pin['\"'\"'sha256'\"'\"']\n for name,pin in r.PINS.items():r.checked_bytes(h.logical_read(root,pin[2],pin[0]),pin)\n checked=[]\n for path,pin in files.items():\n  raw=h.logical_read(root,path,pin['\"'\"'bytes'\"'\"']);assert len(raw)==pin['\"'\"'bytes'\"'\"'] and hashlib.sha256(raw).hexdigest()==pin['\"'\"'sha256'\"'\"']\n  checked.append(pin)\n absent=['\"'\"'/tmp/remoteocd'\"'\"']+['\"'\"'/home/arduino/sumox26_codex_build/app-motor-settle-117cc0e7-run01-'\"'\"'+s for s in ('\"'\"'adapter'\"'\"','\"'\"'upload'\"'\"','\"'\"'capture'\"'\"')]\n assert all(not os.path.lexists(p) for p in absent)\n conflicts=h.processes(root);assert conflicts==[]\n resources=h.resources(root);assert resources['\"'\"'root_available_bytes'\"'\"']>=1073741824\n assert h.identity(root)==identity\n print(json.dumps({'\"'\"'status'\"'\"':'\"'\"'CLEANUP_RETRIEVED_AND_NEXT_RUN_FILES_CHECKED'\"'\"','\"'\"'identity'\"'\"':identity,'\"'\"'files'\"'\"':checked,'\"'\"'absent'\"'\"':absent,'\"'\"'conflicts'\"'\"':conflicts,'\"'\"'resources'\"'\"':resources,'\"'\"'cleanup_result'\"'\"':{'\"'\"'bytes'\"'\"':len(body),'\"'\"'sha256'\"'\"':hashlib.sha256(body).hexdigest(),'\"'\"'base64'\"'\"':base64.b64encode(body).decode()}},sort_keys=True))\nfinally:os.close(root)\n'"
+  ],
+  "boot_id": "55c386b9-fe6d-4388-a7f4-1d91e0bb49d8",
+  "cleanup_result": {
+    "bytes": 6370,
+    "path": "/home/arduino/sumox26_codex_build/cleanup-app-settle-root04/result_root04.json",
+    "sha256": "05507941ebbc8f9ba88c366dbf3c762e80042654a7c8de9166637ecc4e7c7ebd"
+  },
+  "cleanup_stage": "/home/arduino/sumox26_codex_build/cleanup-app-settle-root04",
+  "command_utf16_limit": 30000,
+  "command_utf16_units_including_nul": 26130,
+  "files": [
+    {
+      "bytes": 694,
+      "path": "/home/arduino/sumox26-capture-tools/app-default-beeffff315b2e28a95a20dc1e26477fc924b2da26d1fdd8a8b36fb013ca110e1/p0_mem_read.cfg",
+      "sha256": "89d16a28a1489c23ec743be55ade39824f9ca5213b02b20ef4785079122e4339"
+    },
+    {
+      "bytes": 2303728,
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf",
+      "sha256": "39d4a4fd47241663323f6e04f94dd8f5a9f9ad6582cf1df37f9709b74026adcd"
+    },
+    {
+      "bytes": 14435552,
+      "path": "/opt/openocd/bin/openocd",
+      "sha256": "04778a80c5c619ee4eef7505db91328f1d7e789107c496f2ddcf96d081f5b0ff"
+    },
+    {
+      "bytes": 95520,
+      "path": "/home/arduino/sumox26_codex_build/app-motor-settle-static01/build/app_motor_observe.ino.bin-zsk.bin",
+      "sha256": "e400078166394d0f8ea44b601e9ba2948992c4f263c5c7ee5fb3942433c143d0"
+    },
+    {
+      "bytes": 1148,
+      "path": "/opt/openocd/share/openocd/scripts/target/swj-dp.tcl",
+      "sha256": "aad132008735bbafea3d18a304632c638f0fb99bfc19530c9f577eda2b10410a"
+    },
+    {
+      "bytes": 7916376,
+      "path": "/home/arduino/.arduino15/packages/arduino/tools/adb/32.0.0/adb",
+      "sha256": "ed62ac1ec90ef305cf0c8fa317284cd75b7cda88ecd8dbdd097044101072d164"
+    },
+    {
+      "bytes": 6101,
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/boards.txt",
+      "sha256": "bd4f03904d8fe16bf845baf09d0435e79f5a46c6e6a4f445f3ee592994652b84"
+    },
+    {
+      "bytes": 34651734,
+      "path": "/usr/bin/arduino-cli",
+      "sha256": "b878632298958d61fd1eb19e70ac5d2e803d83db8930bc72dc6915eee6e8f433"
+    },
+    {
+      "bytes": 8468,
+      "path": "/opt/openocd/stm32x5x_common.cfg",
+      "sha256": "139a2c4167e4fc649ab0057560858e03a24dcafeb5b0b3a3bcb7b9373e0869e4"
+    },
+    {
+      "bytes": 680,
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/flash_sketch.cfg",
+      "sha256": "38706cee1f9ff2e53364a47129d1c1aea9bb9687ed26d7d70b4a9f9bc5bca60c"
+    },
+    {
+      "bytes": 194,
+      "path": "/opt/openocd/openocd_gpiod.cfg",
+      "sha256": "58c0c341ba2a0c758bb044683884fb4af01ff6c9cf292bec6b2115c44f7ff836"
+    },
+    {
+      "bytes": 1691790,
+      "path": "/home/arduino/.arduino15/package_index.json",
+      "sha256": "3cb9691dc81453f0ad429c721af4aaf87ff18d9431408f4cd75c8bb479419c3e"
+    },
+    {
+      "bytes": 303397,
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/installed.json",
+      "sha256": "985d3ba102ebf440eca4fb9a9f767b35134e3d827919224bb7635b4b106f86f9"
+    },
+    {
+      "bytes": 1021,
+      "path": "/opt/openocd/share/openocd/scripts/mem_helper.tcl",
+      "sha256": "01794a37e9a8bdc20e2304ee64e9d70549c0872f5f6c40fa032a165bcbba1fd2"
+    },
+    {
+      "bytes": 20947,
+      "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/platform.txt",
+      "sha256": "d4c824fceb2f4cf0057da4df3235d3aee195bbbd71f59a48d344c818fcd5e638"
+    },
+    {
+      "bytes": 95504,
+      "path": "/home/arduino/sumox26_codex_build/app-motor-settle-static01/build/app_motor_observe.ino.bin",
+      "sha256": "d1033e627420e0de5d8ca90ebdf79c284228a23448f3d3e99130651d5afc65cc"
+    },
+    {
+      "bytes": 6451057,
+      "path": "/home/arduino/.arduino15/packages/arduino/tools/remoteocd/0.1.1/remoteocd",
+      "sha256": "2a3f820b867d113a82a86470f2caa128bc15b52303ad4ce0a5cbd62002cb2b60"
+    },
+    {
+      "bytes": 1762,
+      "path": "/opt/openocd/stm32u5x.cfg",
+      "sha256": "8c0ffc41eadd0593168b825d60d6736329c08974c047fdac722fabb93c0ee46a"
+    },
+    {
+      "bytes": 18880,
+      "path": "/home/arduino/sumox26-capture-tools/app-default-beeffff315b2e28a95a20dc1e26477fc924b2da26d1fdd8a8b36fb013ca110e1/p0_capture.py",
+      "sha256": "885c4e4206aea4ac9e03c4e92e48258db2a0ae302ff83a86430e6913afeeb57c"
+    }
+  ],
+  "host_timeout_seconds": 70,
+  "inputs": [
+    {
+      "bytes": 38985,
+      "path": "state/analysis/P7_app_motor_observe_run_raw/admission01.json",
+      "sha256": "7836d8030d806366988d04074ed104ae341207293257eed7c05d5b83f777c9d5"
+    },
+    {
+      "bytes": 9603,
+      "path": "state/analysis/P7_motor_settle_cleanup_raw/cleanup_root04.py",
+      "sha256": "13f33327c5474d7c4dee56657a9d93b50e6fcdaee864e1855c916417a53c6290"
+    },
+    {
+      "bytes": 7740,
+      "path": "state/analysis/P7_motor_settle_cleanup_raw/cleanup_remoteocd03.py",
+      "sha256": "6afeea1b9733670cdf315b2bf29b3e6e9c24016a2ba9217013e67496ec088f4d"
+    },
+    {
+      "bytes": 33321,
+      "path": "state/analysis/P7_static_link_probe_raw/static_remote.py",
+      "sha256": "8ba9b190c38e728013a383348c60c287b0366607f65f703161cf7f2e142d36f8"
+    },
+    {
+      "bytes": 6370,
+      "path": "state/analysis/P7_motor_settle_cleanup_raw/cleanup_actual_result.json",
+      "sha256": "05507941ebbc8f9ba88c366dbf3c762e80042654a7c8de9166637ecc4e7c7ebd"
+    },
+    {
+      "bytes": 9648,
+      "path": "state/analysis/P7_motor_settle_compile_raw/native_static01/artifacts.json",
+      "sha256": "e18384c14c0b1367667b265ab4c532a4010be65697460a1cd45487bccd9eca10"
+    },
+    {
+      "bytes": 1608,
+      "path": "state/analysis/P7_motor_settle_compile_raw/native_static01/result.json",
+      "sha256": "9b7f0c445cc84ad6d526445bf8e93ea189f718f0c883da8a1bf5cf077e741af5"
+    },
+    {
+      "bytes": 24233,
+      "path": "state/analysis/P7_motor_settle_run_raw/capture_binding01.json",
+      "sha256": "0a9d4a6af736ff96efa3b9213696f4369cb861e07996e594ebce00c996e39619"
+    }
+  ],
+  "minimum_root_available_bytes": 1073741824,
+  "operation": "Read-only D200 evidence and D201 admission; no upload, capture, cleanup, owner claim, or process change",
+  "prepared_utc": "2026-09-26T07:26:33.803515+00:00",
+  "program": {
+    "bytes": 23871,
+    "path": "state/analysis/P7_motor_settle_run_raw/admission02_readonly.py",
+    "sha256": "fecc2ba16719a287077fe009fa0ef8b586a6a4214240d6cac54a3467aa16fd33"
+  },
+  "remote_alarm_seconds": 55,
+  "required_absent": [
+    "/tmp/remoteocd",
+    "/home/arduino/sumox26_codex_build/app-motor-settle-117cc0e7-run01-adapter",
+    "/home/arduino/sumox26_codex_build/app-motor-settle-117cc0e7-run01-upload",
+    "/home/arduino/sumox26_codex_build/app-motor-settle-117cc0e7-run01-capture"
+  ],
+  "run_id": "app-motor-settle-117cc0e7-run01",
+  "schema": "d201-readonly-admission-intent-v1",
+  "serial": "2629958581",
+  "source_pins": {
+    "cleanup_remoteocd03.py": {
+      "bytes": 7740,
+      "sha256": "6afeea1b9733670cdf315b2bf29b3e6e9c24016a2ba9217013e67496ec088f4d"
+    },
+    "cleanup_root04.py": {
+      "bytes": 9603,
+      "sha256": "13f33327c5474d7c4dee56657a9d93b50e6fcdaee864e1855c916417a53c6290"
+    },
+    "static_remote.py": {
+      "bytes": 33321,
+      "sha256": "8ba9b190c38e728013a383348c60c287b0366607f65f703161cf7f2e142d36f8"
+    }
+  },
+  "status": "PREPARED_NOT_EXECUTED"
+}

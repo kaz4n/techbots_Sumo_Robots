@@ -1,0 +1,98 @@
+{
+  "schema": "d207-scratch-readonly-inventory-derivation-v1",
+  "at": "2026-09-26T17:37:47.372259+04:00",
+  "subject": {
+    "bytes": 9768,
+    "sha256": "a8e3b8b2cf19246e682288b3106bf18bb921a849681695b5e8461ffe3ed3807d"
+  },
+  "steps": [
+    {
+      "old": "READ_ONLY_D201_UPLOAD_SCRATCH_AND_ORIGINALS",
+      "new": "READ_ONLY_D207_UPLOAD_SCRATCH_AND_ORIGINALS",
+      "count": 1,
+      "before": {
+        "bytes": 9769,
+        "sha256": "462c0534826b19d0722f86c69444a61bc55309514d7741ce196f40292a85ecd8"
+      },
+      "after": {
+        "bytes": 9769,
+        "sha256": "177eeed3bd8290261d7d08bd932d56e44420a8f6f82d4b8d4f609603d1f1759d"
+      }
+    },
+    {
+      "old": "95520",
+      "new": "95368",
+      "count": 1,
+      "before": {
+        "bytes": 9769,
+        "sha256": "177eeed3bd8290261d7d08bd932d56e44420a8f6f82d4b8d4f609603d1f1759d"
+      },
+      "after": {
+        "bytes": 9769,
+        "sha256": "489f20fab4bf7c6581b13c4c5e61a1a55197fa3d7a3a0bc3bbc0129a68632128"
+      }
+    },
+    {
+      "old": "e400078166394d0f8ea44b601e9ba2948992c4f263c5c7ee5fb3942433c143d0",
+      "new": "f15c7ce1f0ff5fea2d44d0b60f0607f9adae22b83ba5043fe4de5e2b21fa26f7",
+      "count": 1,
+      "before": {
+        "bytes": 9769,
+        "sha256": "489f20fab4bf7c6581b13c4c5e61a1a55197fa3d7a3a0bc3bbc0129a68632128"
+      },
+      "after": {
+        "bytes": 9769,
+        "sha256": "7f838724e76c37369dc414fb4e3cb3b08df7025d0863650c216b5768d204bbde"
+      }
+    },
+    {
+      "old": "app-motor-settle-static01",
+      "new": "app-motor-const-static01",
+      "count": 1,
+      "before": {
+        "bytes": 9769,
+        "sha256": "7f838724e76c37369dc414fb4e3cb3b08df7025d0863650c216b5768d204bbde"
+      },
+      "after": {
+        "bytes": 9768,
+        "sha256": "33b8582149cdd9f4a56b858300a171079040a7a9e083555dc04b3d482538b44b"
+      }
+    },
+    {
+      "old": "exact_three_d201_copies",
+      "new": "exact_three_d207_copies",
+      "count": 1,
+      "before": {
+        "bytes": 9768,
+        "sha256": "33b8582149cdd9f4a56b858300a171079040a7a9e083555dc04b3d482538b44b"
+      },
+      "after": {
+        "bytes": 9768,
+        "sha256": "a8e3b8b2cf19246e682288b3106bf18bb921a849681695b5e8461ffe3ed3807d"
+      }
+    }
+  ],
+  "pins": {
+    "state/analysis/P7_motor_const_cleanup_raw/observe_admission01.py": {
+      "bytes": 9769,
+      "sha256": "462c0534826b19d0722f86c69444a61bc55309514d7741ce196f40292a85ecd8"
+    },
+    "state/analysis/P7_static_link_probe_raw/static_remote.py": {
+      "bytes": 33321,
+      "sha256": "8ba9b190c38e728013a383348c60c287b0366607f65f703161cf7f2e142d36f8"
+    },
+    "state/analysis/P7_motor_const_compile_raw/native_static01/artifacts.json": {
+      "bytes": 9645,
+      "sha256": "fc5eb9e233c4642e0388f14132efdebab535d55134ce39c43d33c485d67e4ddd"
+    },
+    "state/analysis/P7_motor_const_run_raw/native_inert_run01/upload_attempt.json": {
+      "bytes": 778,
+      "sha256": "e0d90810a0ce2b63b080190a322b31aed51cc429cacf2995204cb9cd68804d08"
+    },
+    "state/reviews/P7_motor_const_run_actual_review.md": {
+      "bytes": 14825,
+      "sha256": "b562488423fce03712e0156deba21f52fddc826f096c70dcb1736d78aee71937"
+    }
+  },
+  "limits": "Preparation only; exact five metadata substitutions, unchanged inherited functions/guards. Fresh nonprivileged read-only inventory; no cleanup, firmware operation, privileged process scan or motor authorization. Independent preparation review precedes invocation. Prior D206/root05 owners are consumed."
+}

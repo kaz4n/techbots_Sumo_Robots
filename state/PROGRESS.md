@@ -1490,3 +1490,6 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-26T17:41:58.659089+04:00 | P7 | D210 ordinary entry actual accepted | Reviewa30c194b PASS;64groups77aliases10420B,174pins and allclosingPASS; ownerconsumed. D211readonlyinventory and D212draft next; no ordinaryupload/gate | pending commit
+
+
+2026-09-26T17:43:11.826524+04:00 | P7 | D211 preliminary read-only scratch inventory | One invocation0/emptyerr, receipt ed68c4c8; exact threeD207copies2399776B/dev34ino1732,5remote+localPASS. Protectedhandles notinspected; freshcleanupdraft next | pending commit

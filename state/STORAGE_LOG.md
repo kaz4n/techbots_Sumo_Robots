@@ -490,3 +490,6 @@ D191 closing observation: C:recovered290537472B independently before local docum
 
 
 2026-09-26T17:37:15.374209+04:00 | D210 native instruction evidence | Retain8 native files1471584logicalB, exact invocation and6157B independent closure for actual review/reproduction; no duplicate ELF downloaded. Local audit ordering correction preserved, no native retry or evidence change. C:free5906980864B, no manual deletion or reclaimed-space claim. Consumed owner retained; production/config/locked tests unchanged.
+
+
+2026-09-26T17:43:11.826524+04:00 | D211 scratch inventory only | Verified exactly3 D207 upload copies2399776logicalB in /tmp/remoteocddev34ino1732, matching retained originals. Keep inventory24552B/ed68c4c8 and its exactsource/derivation/intent/review for scoped cleanup preparation. No files removed and no reclaimed-space claim; protectedprocess-use clearance remains mandatory. Prior denied cleanup targets untouched.

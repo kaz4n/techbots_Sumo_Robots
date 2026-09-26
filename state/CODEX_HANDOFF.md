@@ -14,11 +14,13 @@ No ordinary upload, coherent runtime, final inhibition, measured timing/RAM,
 physical acceptance or phase gate follows. D207 is latest verified flash.
 Read analysis/P7_ordinary_app_entry_actual_validation.md. Owner consumed.
 
-Next: execute once the separately reviewed nonprivileged D207 scratch inventory
-in P7_ordinary_app_cleanup_raw/observe_admission01.py9768B/a8e3b8b2, five-step
-derivation807184e7 and preparationreview6826B/c4327b1b. Intentb80a784b is saved;
-admission01.json is still absent. Inspect both actual match flags, identities
-and closure before preparing D211/root06 cleanup; never reuse root05.
+D211 preliminary inventory completed once: admission01.json24552B/ed68c4c8,
+five remote+localPASS, both match flags true. Exactly3D207copies2399776B in
+/tmp/remoteocddev34ino1732 match originals. Protectedhandles are uninspected;
+no deletion yet. ordinary_abi_scope owns the fresh root06 cleanup contract and
+data derivation; const_cleanup_review owns separate preparation review. Root
+will implement only after adoption; independent oracle must precede subject
+inspection/execution. Preserve root05 and all prior owners as consumed.
 In parallel fresh_review owns an UNADOPTED D212 ordinary passive-run contract
 and derivation. Candidate two seven-window sets use an aligned4B attempted_
 container;28reads715858B with fullflashbrackets. No run is admitted. Continue

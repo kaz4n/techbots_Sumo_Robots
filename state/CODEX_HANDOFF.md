@@ -27,7 +27,7 @@ D195's distinct source3a08ddeb observation at921epochs remains historical;
 its APPLY/SETTLE154us outer and failedHALT do not identify an internal branch.
 D201 does not automatically explain that earlier run or prove physical cause.
 
-## Exact next task
+## Completed D202 host change
 
 D202 is adopted in DECISIONS.md under D051. Contract:
 analysis/P7_motor_expected_metadata_contract.md (6222B, SHA2abaae2995e1938e4c7f0dcef2522c9334d9550bd77d9da37727b47a7940a846).
@@ -60,10 +60,7 @@ reviews/P7_motor_expected_metadata_review.md PASS, no open material finding;
 all host owners are consumed and all temporary fixture directories are absent.
 Broad unittest discovery still includes the preserved historical D197 failure;
 do not claim it is wholly passing. No test exclusion was introduced.
-Next adopt a fresh D203 fixed compile-only contract being prepared at
-analysis/P7_motor_const_compile_contract.md; tools/compile_motor_const.py does
-not yet exist. Same static/default/MATCH0/M0/probe1 diagnostic, fresh const
-ownership and current source only. Do not rerun old launchers.
+D203 is now adopted and prepared as described below. Do not rerun old launchers.
 
 Independent metadata/native transcript checks, unchanged locked suites and
 the unchanged D197 oracle have completed serially with first failures retained
@@ -72,6 +69,47 @@ or force artificial symbols. No target optimization benefit is established
 until a new fixed compile, actual ABI/entry and separately reviewed inhibited
 runtime attempt. All prior native owners are consumed; do not rerun historical
 launchers, reset the MCU casually or repin old manifests.
+
+## Exact next task: D203 compile-only host validation
+
+Contract analysis/P7_motor_const_compile_contract.md11305B/318a6267 and
+derivation17980B/d4c89cd5 were adopted4333c2ed. Initial unexecuted launcher
+tools/compile_motor_const.py was committeddd3bf2d1 with author receipt
+raw/implementation01.json7189B/e2fd9ce9. Its ten exact metadata substitutions
+are specified to yield7557B/957666a8, caller29874/bda40e96, remote6893/914d4d11;
+adapter8266/e3d23d5c and all shared bootstrap/lifecycle guards stay exact.
+Root and reviewer's independent data-only reconstruction agree, but they have
+not inspected or executed the actual new implementation pending oracle freeze.
+
+Agent fresh_review owns the new test_motor_const_compile.py and _remote.py
+oracles/independent_freeze01.json. Agent const_compile_review is review-only,
+baseline/contract checks complete; wake it after oracle FINAL freeze before
+implementation review. Agent const_compile_spec completed contract/implementation
+and stopped writes. No host/native process is active. Root host_driver01.py
+2790B/d73e4184 is prepared for serial linux/windows caller/remote groups. After
+oracle FINAL freeze, root must bind the current implementation and full input
+closure in coordinator_freeze01.json, preserve initial files, run all groups
+once and obtain final source/host review before any actual manifest/admission.
+
+Current diagnostic mapping source4bc3a2e6ebb497d43a433aa887ab8388dd3dab075a4f44918ed614db30034cd2
+has110inventoryfiles782068B and108mapped781200B. Only motorcpp differs from
+D198; substituting ff35c83e predecessor bytes in memory reproduces117cc0e7.
+New ownership is app-motor-const-static01 / P7_motor_const_compile_raw,
+same app_motor_observe/static/default/MATCH0/MOTORS0/probe1. No actual manifest,
+stage, compiler, upload, reset or MCU read exists for D203 yet.
+
+After host review, use D198's successful raw/admission02.json source as the
+read-only admission baseline (correct installed compiler hardlinks; do not
+restore admission01's nlink1 error). The complete source is in
+commands[0].argv[-1], with PACKET identities/28installedpins/remoteowner. Fresh
+D203 observation must change only owner metadata and preserve semantic checks;
+record fresh outputs and closing identity. Manifest generation is local via
+reviewed launcher.load_caller, CompileDiagnostic.source_names/source_mapping,
+and base.read; no prepare/claim/stage/run. Four manifest keys are schema,
+source_sha256, boot_id, files; files maps each REQUIRED|source_names path to a
+SHA string. Recompute current source, observe current boot and save exclusively.
+Actual scope/clean reviewedHEAD/check-only precede one jobs1 compile. All new
+artifacts need actual ABI/entry evidence before any later inhibited upload.
 
 ## Evidence prerequisites already complete
 
@@ -120,4 +158,4 @@ create acceptance. Read AGENTS.md/CODEX_RESUME/CODEX_EXECUTION and latest state.
 PROGRESS is binary-append-only: first140971B SHA256
 1dbbeb53c3dc046128494af3bef240b9a00353929d6121991900c90bb2838b77.
 No native board or host test process remains active at this checkpoint. D202
-host evidence is reviewed; D203 contract preparation is in progress.
+host evidence is reviewed; D203 independent oracle preparation is in progress.

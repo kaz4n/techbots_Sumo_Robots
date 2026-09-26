@@ -1,0 +1,259 @@
+{
+  "D188_private_fixtures": {
+    "53d547ad4c9c4df9e55313014e89ab731fddcf8edde6983c5cb535d253f73e96": {
+      "bytes": 45450,
+      "counts": [
+        1,
+        1,
+        1,
+        4
+      ],
+      "old_projected_bytes": 45463,
+      "old_projected_sha256": "9b5e5e998f6d0222edb227095642c65f71f2baffb47005db4fb7ca41e56f2981",
+      "sha256": "61419076917fe2b0fc877d68ece2a299d29d906bd65eec3c75bf9b45446c875c",
+      "source": "tests/tooling/test_app_motor_fault_compile.py"
+    },
+    "db0ff0284eb7c528a852f39a57fcb668c72c098543b6d6813298fc2dfeddd80b": {
+      "bytes": 18338,
+      "counts": [
+        0,
+        0,
+        0,
+        2
+      ],
+      "old_projected_bytes": 18340,
+      "old_projected_sha256": "da85976fd1abddbc3032aefb2ca5ebb630125730fc6008698ea3706bf6dda6ed",
+      "sha256": "b4af110de1947141108479fd5fd72d56b68b3631cb26683da9fad4fa8549df71",
+      "source": "tests/tooling/test_app_motor_fault_compile_remote.py"
+    },
+    "e6d52ec6b0d72e893511793e9d92003092499280454093c9b6622d0e18547d5c": {
+      "bytes": 36723,
+      "counts": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "old_projected_bytes": 36723,
+      "old_projected_sha256": "e7e6f70b9deed177a3afedc35d30c8595501a4987d57dbaa86f9380c7792e592",
+      "sha256": "e7e6f70b9deed177a3afedc35d30c8595501a4987d57dbaa86f9380c7792e592",
+      "source": "tests/tooling/test_app_motor_fault_static_policy.py"
+    }
+  },
+  "D193_private_oracles": {
+    "caller": {
+      "bytes": 29717,
+      "sha256": "e4c9c37b7717a7347533e947894a5289733c15c518444778bb4953a5971d14ba"
+    },
+    "remote": {
+      "bytes": 8775,
+      "sha256": "58b773b4d35c6e7c8971fee5ab9916a83e4cb00a0abad3c325226076ab1ef748"
+    }
+  },
+  "caller_oracle_projection": {
+    "assert_calls_preserved": 25,
+    "original": {
+      "bytes": 11340,
+      "path": "tests/tooling/test_motor_settle_compile.py",
+      "sha256": "71371f9361ef20ae0a64feb156e10e24e22722b1b31d8d426816d69bd6db962a"
+    },
+    "projected": {
+      "bytes": 11314,
+      "sha256": "6e891d61ad54675498b15dabb120db0c55361ea1412963d3f80967c16928b69a"
+    },
+    "replacements": [
+      {
+        "count": 2,
+        "new": "tools/compile_motor_const.py",
+        "old": "tools/compile_motor_settle_probe.py"
+      },
+      {
+        "count": 2,
+        "new": "P7_motor_const_compile_contract.md",
+        "old": "P7_motor_settle_compile_contract.md"
+      },
+      {
+        "count": 2,
+        "new": "P7_motor_const_compile_raw",
+        "old": "P7_motor_settle_compile_raw"
+      },
+      {
+        "count": 5,
+        "new": "app-motor-const-static",
+        "old": "app-motor-settle-static"
+      },
+      {
+        "count": 2,
+        "new": "_sumox_d203_const_compile",
+        "old": "_sumox_d198_settle_compile"
+      },
+      {
+        "count": 4,
+        "new": "D203",
+        "old": "D198"
+      },
+      {
+        "count": 1,
+        "new": "7557",
+        "old": "7570"
+      },
+      {
+        "count": 1,
+        "new": "957666a83c6fa36408dd6616f93d9cdc583622b29a51a6f6c6e960dd4cd1f247",
+        "old": "b98a5f54e2be122162e76074673190f52ef4218c766d517125b48127bb4b8b62"
+      },
+      {
+        "count": 1,
+        "new": "318a6267f29a5837d6afe7197d6f86d88230886f1dd8ea0bb1af0345a4c75174",
+        "old": "c0b352810c41c8b3744acdd1c15bc4b21ecb76bc15d76d4fedea4fdde37dc756"
+      },
+      {
+        "count": 1,
+        "new": "bda40e969dc48d4194f1c391c013cf0853e1fb39dee780a94f4754412d59f41a",
+        "old": "9a9d8df4130369eb4a31a348b76ddd7c2b3ca63c1e448250cc7d60dfc1d3158c"
+      },
+      {
+        "count": 1,
+        "new": "914d4d11057c8982154fbcd80fbea485977cf4952fad045625ca88271052040a",
+        "old": "dc359de37aab994e5dfbbadda1997235213da4e50c7f19f44141df18f2df7160"
+      },
+      {
+        "count": 1,
+        "new": "29874",
+        "old": "29889"
+      },
+      {
+        "count": 1,
+        "new": "6893",
+        "old": "6895"
+      },
+      {
+        "count": 1,
+        "new": "REMOTE.replace('const', 'fault')",
+        "old": "REMOTE.replace('settle', 'fault')"
+      },
+      {
+        "count": 1,
+        "new": "29717",
+        "old": "29742"
+      },
+      {
+        "count": 1,
+        "new": "e4c9c37b7717a7347533e947894a5289733c15c518444778bb4953a5971d14ba",
+        "old": "dfe165aecd80c4a30e0047ec4c10b175a1290b6cb2119c3d982d51ee82e560fa"
+      },
+      {
+        "count": 1,
+        "new": "8775",
+        "old": "8785"
+      },
+      {
+        "count": 1,
+        "new": "58b773b4d35c6e7c8971fee5ab9916a83e4cb00a0abad3c325226076ab1ef748",
+        "old": "9089aebea6be747ecadfd6c79e4d7de8754c596ded163638f7ec09d7c5a2fd46"
+      },
+      {
+        "count": 1,
+        "new": "45450",
+        "old": "45463"
+      },
+      {
+        "count": 1,
+        "new": "61419076917fe2b0fc877d68ece2a299d29d906bd65eec3c75bf9b45446c875c",
+        "old": "9b5e5e998f6d0222edb227095642c65f71f2baffb47005db4fb7ca41e56f2981"
+      },
+      {
+        "count": 1,
+        "new": "18338",
+        "old": "18340"
+      },
+      {
+        "count": 1,
+        "new": "b4af110de1947141108479fd5fd72d56b68b3631cb26683da9fad4fa8549df71",
+        "old": "da85976fd1abddbc3032aefb2ca5ebb630125730fc6008698ea3706bf6dda6ed"
+      }
+    ]
+  },
+  "expected_platform_coverage": {
+    "linux": {
+      "pass_if_successful": 107,
+      "skips": 0
+    },
+    "windows": {
+      "caller_skips": [
+        "test_original_symlink_and_parent_link_refuse when privilege unavailable",
+        "test_regular_to_fifo_swap_is_nonblocking_and_never_read",
+        "test_input_symlinks_and_per_file_bound_refuse when privilege unavailable"
+      ],
+      "pass_if_successful": 85,
+      "remote_skips": "All original 18 Linux nofollow cases plus the new consumed-settle remote case retain the inherited Linux-only decorator.",
+      "skips": 22
+    }
+  },
+  "limitations": "No implementation peek/import/test/compiler/device call; projected Python AST parsed only.",
+  "method": "AST/data-only exact count-checked metadata projections of pinned D198/D193/D188 oracles; no new launcher read or subject execution",
+  "method_counts": {
+    "caller": {
+      "added": 4,
+      "preserved": 65,
+      "total": 69
+    },
+    "remote": {
+      "added": 1,
+      "preserved": 37,
+      "total": 38
+    },
+    "total": 107
+  },
+  "new_oracles": {
+    "tests/tooling/test_motor_const_compile.py": {
+      "bytes": 9992,
+      "sha256": "647a98ea97438e67860a8bc9794cbd4685127f494c5e3d123bca73c8e2894129"
+    },
+    "tests/tooling/test_motor_const_compile_remote.py": {
+      "bytes": 3451,
+      "sha256": "aa9b2520f96e110b962bb184766cea3e01ef352834d80834371a1fae0540f559"
+    }
+  },
+  "remote_oracle_projection": {
+    "assert_calls_preserved": 7,
+    "original": {
+      "bytes": 3412,
+      "path": "tests/tooling/test_motor_settle_compile_remote.py",
+      "sha256": "b2da457db6da3d01412dd300d495f075a8631294c75627f66b91dc1ee9fbd2e7"
+    },
+    "projected": {
+      "bytes": 3410,
+      "sha256": "d620e92092b65f500de3f6df28c72d6c79f591ed686968b99ebfb1b142535d8a"
+    },
+    "replacements": [
+      {
+        "count": 1,
+        "new": "tests/tooling/test_motor_const_compile.py",
+        "old": "tests/tooling/test_motor_settle_compile.py"
+      },
+      {
+        "count": 1,
+        "new": "647a98ea97438e67860a8bc9794cbd4685127f494c5e3d123bca73c8e2894129",
+        "old": "71371f9361ef20ae0a64feb156e10e24e22722b1b31d8d426816d69bd6db962a"
+      },
+      {
+        "count": 1,
+        "new": "app-motor-const-static",
+        "old": "app-motor-settle-static"
+      },
+      {
+        "count": 3,
+        "new": "D203",
+        "old": "D198"
+      },
+      {
+        "count": 1,
+        "new": "_d203_private_test_support",
+        "old": "_d198_private_test_support"
+      }
+    ]
+  },
+  "schema": "d203-independent-fixture-derivation-v1",
+  "unchanged_assertion_policy": "Every assertion call and complete method body in the private preserved modules remains after the explicit metadata substitutions. Original fault and observe negative literals remain; consumed-settle cases are additional methods, not replacements."
+}

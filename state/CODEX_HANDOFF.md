@@ -1,3 +1,39 @@
+## Current checkpoint - 2026-09-27T02:11:23.466397+04:00
+
+Objective active: finish software/connected-board work quickly; BOARDONLY.
+D235 6-storecandidate integrated8576cdd0/8a74ec5a;30methods/740C++cases
+47575886assertions normal+ASanUBSanPASS,reviewfab3176e. Actualtargetcompile
+272.453sPASS/reviewdff2d18a:145inputs110stagefiles28transports9closingPASS,
+source289300a4/package55376B3b4812a7/layoutRAM97424B.
+
+D237 actualdelivery ACTIVE exec64092, startabout02:02Dubai; oneuploadUPLOADED.
+Isolatednativeworktree C:/Users/narut/AppData/Local/Temp/sumox-recorder-six-native-20260927
+MUSTSTAYatHEAD1b2af246cd88e6207e846ee340f8c4e46a5bb980. Attempt
+771c04943d4c4a759055d794fa4b706e/session8582740024591403637,owner
+state/analysis/P7_recorder_delivery_raw/recorder-771c04943d4c4a75.
+Full200sscenario/900sreceiver,expecteddeadline02:17:26 plusclosing. Saved
+wire.txt still0bytes at02:08; no newfailurecause inferred. No reset/retry.
+Tempouterstemsumox_recorder_six_attempt04(.run.stdout/.stderr/.json).
+Main has5closedcompilecopies only; fullnativeowner integration waitsrunclosure.
+
+D238prepare in C:/Users/narut/AppData/Local/Temp/sumox-recorder-six-result-20260927
+agentrecorder_diag,reviewerrecorder_delivery_review. Derivative names
+recorder_six_result*, RAWP7_recorder_six_result_raw. Initial7Windowsmethods
+PASS/3reverseproofs; amend to65fields/12windows with passivepacket_started_us
+uint32 for retainedTIMEOUT age,537expressionlines/9types.64fieldreviewa24b0888
+unadopted/superseded; preservehistory. Need newfocusedreceipt/finalreview/commit.
+Afterreview, file-onlyABIcanoverlapreceiver; passivecaptureONLYafterrunclosure
+ifneeded. FullvalidateddeliverymaymakeextraMCUcaptureunnecessary. No native
+D238actionyet. Rootaloneownsnative; donoteditfrozennativeworktree.
+
+D236cleanupCOMPLETEaccepted7a81ff95:2359784Bexactcopies+emptydirremoved,
+originalsintact/6closingPASS/result6345Bf46a31b2;ownerconsumed,no credential
+saved. D233previouscapturecf1ba387showedTIMEOUT/STORE_DEADLINE7/74/59 and
+cleanupREADBACK_FAILED/ownershipOK; exacttimerbranch/readbackvalueabsent.
+New6candidateisnotyetaproventargetfix. D234sessionforwarding/D229p99 remain
+acceptedsoftware/separatecompile evidence. No physical/humangates or motor
+permission. Older checkpoints superseded; allpolicyblockedlocalstagesuntouched.
+
 ## Current checkpoint - 2026-09-27T01:57:09.115362+04:00
 
 Objective remains full software/connected-board completion; BOARD ONLY, no

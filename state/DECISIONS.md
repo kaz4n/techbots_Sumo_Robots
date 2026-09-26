@@ -2778,3 +2778,12 @@ package3b4812a7. New isolatedsource/tools/owners; preserve fullflashbrackets,
 After source/focusedhost/review, file-only ABI may overlapreceiver; passive
 MCUcapture must wait fullrunclosure. Observe retainedsuccess/failurediagnostics
 without retransmission/reset/reflash. Do not infer a cause or physicalevidence.
+
+D238 diagnostic-scope addition (2026-09-27T02:11:23.466397+04:00): Add exactly one passiveuint32 field
+packet_started_us from native_dump.started_us_, using freshDWARFoffset/extent
+and native.data interval verification. poison leaves this field intact. Existing
+Runner.last_poll_us/request_us can contextualize packet age after a timeout,
+without anotherfirmwareupload. New65fields/12windows/537querylines,9types
+unchanged; mechanicallyderivedreadcounts/bytebudgets,not guessedaddresses.
+No hardware read before source/host/review and laterfullreceiverclosure.
+Previous64fieldreviewcheckpointa24b0888 is superseded/unadopted; preserveit.

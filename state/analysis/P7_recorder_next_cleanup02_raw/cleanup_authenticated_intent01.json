@@ -1,0 +1,51 @@
+{
+  "adb_sha256": "e79dc8fc3c6385192bdccd7ff7eabe3d5c1ec292475a06b04d82759f07655982",
+  "admission": {
+    "bytes": 24500,
+    "sha256": "17cfc318c40cbe01b95f824bea001a7aa03359b94bbae54119fa21830f627b99"
+  },
+  "argv": [
+    "C:/Users/narut/AppData/Local/Arduino15/packages/arduino/tools/adb/32.0.0/adb.exe",
+    "-s",
+    "2629958581",
+    "shell",
+    "-T",
+    "set -C; sudo -S -p \"\" -H /usr/bin/python3 -I -B /home/arduino/sumox26_codex_build/cleanup-recorder-next-root02/cleanup_root01.py > /home/arduino/sumox26_codex_build/cleanup-recorder-next-root02/result_root01.json"
+  ],
+  "complete_reverse_equal": true,
+  "credential_transport": "No-echo console or already-authorized protected pipe; credential enters subprocess STDIN only, never argv/environment/source/evidence. No tty and sudo prompt empty.",
+  "helper": {
+    "bytes": 33321,
+    "sha256": "8ba9b190c38e728013a383348c60c287b0366607f65f703161cf7f2e142d36f8"
+  },
+  "operation": "One authenticated exact-three-copy cleanup after stage verification",
+  "prerequisites": [
+    "Main compile matrix complete, no active native compiler/uploader",
+    "Independent preparation review PASS",
+    "Exact source staging and independent finalized stage verification PASS",
+    "Bind and recheck hashes of preparation review, staged verification, source files, intent, ADB before any authentication; repeat local input closure afterwards"
+  ],
+  "recipe": {
+    "bytes": 7723,
+    "sha256": "4c6e8bbfecb10a42d9963a0159a3f3e869bbf9db5e9b13b4f09a099991f39059"
+  },
+  "result": "/home/arduino/sumox26_codex_build/cleanup-recorder-next-root02/result_root01.json",
+  "schema": "recorder-next-cleanup-authenticated-intent-v1",
+  "single_use": "Create local cleanup_authenticated_invocation01.json exclusively BEFORE obtaining/passing credential; remote set -C refuses existing result. Failed attempt consumes owner; no retry.",
+  "stage": "/home/arduino/sumox26_codex_build/cleanup-recorder-next-root02",
+  "status": "PREPARED_NOT_AUTHORIZED_BY_OBSERVATION",
+  "stderr_max_bytes": 65536,
+  "stdout_max_bytes": 65536,
+  "template": {
+    "path": "state/analysis/P7_recorder_cleanup_raw/cleanup_authenticated_intent01.json",
+    "pin": {
+      "bytes": 2424,
+      "sha256": "36176e11dba1f8f84c31f5f949e0aebbaecb57c7d677fde0d5014831611b68ab"
+    }
+  },
+  "timeout_seconds": 70,
+  "wrapper": {
+    "bytes": 9616,
+    "sha256": "8090a0e47b8a2e7bb4ee0342bad63b84be7e9f892c57350c3a3aaec861085974"
+  }
+}

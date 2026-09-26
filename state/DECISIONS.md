@@ -2317,3 +2317,9 @@ D-201 decoder first runs each executed 66 methods with 17 failure events, preser
 
 
 D-201 actual outcome 2026-09-26T11:47:14.501322+04:00: One fixed inhibited attempt completed at ff35c83e; rawfb529423, saved-file packete32415b2, decoded4d8383c3 and actualreview690a4164 establish SETUP_FAILED with lifetime FINAL_DEADLINE154us/poll5/fresh7 and later setup-cleanup SUCCESS132us/poll4. All owners consumed. This localizes the recorded rejection, not physical cause, atomicity or a remedy. Preserve D195's distinct921-epoch result. No bounds or safety checks changed.
+
+
+## D-202 (2026-09-26T11:48:04.177041+04:00, compile-time expected motor metadata)
+Context: independently reviewed D201 evidence690a4164 localizes the saved failure to FINAL_DEADLINE154us during setup. D199 saved file instructions retain runtime64-bit divisions in candidateRate/candidatePeriod, which derive only immutable DT/config values; this is a concrete emission opportunity, not proof of timing cause.
+Decision: under D051 adopt analysis/P7_motor_expected_metadata_contract.md2abaae2995e1938e4c7f0dcef2522c9334d9550bd77d9da37727b47a7940a846. Permit only exact original math in constexpr expectedRate/expectedPeriod and three-scalar runtime selections within the original two-helper region. Supersede D197 helper-byte immutability only for this region; retain every byte outside, all live observations/count/order,150us/4096, report, pins/config/grants and locked/historical tests. Freeze an independent oracle before implementation inspection/execution; separate reviewer and serial host checks follow. Preserve any original D197 whole-symbol mismatch for explicit review, never force symbols or weaken its assertion.
+Consequence: no new hardware assumption, timing benefit, runtime repair or gate is claimed. This does not authorize compile/upload against a consumed owner; any target build, ABI/entry or runtime attempt needs its own new fixed checked scope.

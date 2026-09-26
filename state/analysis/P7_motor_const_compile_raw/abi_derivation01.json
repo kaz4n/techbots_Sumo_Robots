@@ -1,0 +1,1008 @@
+{
+  "closing_inputs": "all exact bytes unchanged",
+  "contract": {
+    "bytes": 15192,
+    "path": "state/analysis/P7_motor_const_abi_contract.md",
+    "sha256": "55a9f10dec0a7a148fc6fab3cc80ae131ae2e9a82ac74ce14c7aeb1c484ce3d1"
+  },
+  "created_utc": "2026-09-26T09:03:13.071752+00:00",
+  "current_artifact_bindings": {
+    "artifacts/app_motor_observe.ino.bin-zsk.bin": {
+      "bytes": 95368,
+      "sha256": "f15c7ce1f0ff5fea2d44d0b60f0607f9adae22b83ba5043fe4de5e2b21fa26f7"
+    },
+    "build/app_motor_observe.ino.bin": {
+      "bytes": 95352,
+      "sha256": "76d2846dfe99602b1a4dd680f19c8150a02af4dba3b4f3411fafd7c55e3824d3"
+    },
+    "build/app_motor_observe.ino.bin-zsk.bin": {
+      "bytes": 95368,
+      "sha256": "f15c7ce1f0ff5fea2d44d0b60f0607f9adae22b83ba5043fe4de5e2b21fa26f7"
+    },
+    "build/app_motor_observe.ino.elf": {
+      "bytes": 172600,
+      "sha256": "390b69c1f35dd85a56462e562561e16b4659c0e31aa44d99aaf5b87e4ccd7e13"
+    },
+    "build/app_motor_observe.ino.elf-zsk.bin": {
+      "bytes": 172600,
+      "sha256": "5416c121deb8ff3cb0a27a3d8d150981fe945c5ab818fe3da788744f4980db7f"
+    },
+    "build/app_motor_observe.ino.map": {
+      "bytes": 449499,
+      "sha256": "23416a129a832bbbc4738814a7a1326a62f5e5f9e879d925ab7620e3ab1b88a3"
+    },
+    "build/app_motor_observe.ino_debug.elf": {
+      "bytes": 1838360,
+      "sha256": "b3520cacc96ccd3d410b011dd6b4e65761c503b940fa13f1fddfe59db3666066"
+    },
+    "build/app_motor_observe.ino_temp.elf": {
+      "bytes": 1838360,
+      "sha256": "b3520cacc96ccd3d410b011dd6b4e65761c503b940fa13f1fddfe59db3666066"
+    }
+  },
+  "execution_boundary": {
+    "compiler_invocations": 0,
+    "native_owners_created": 0,
+    "new_executable_files_created": 0,
+    "subject_executions": 0,
+    "subject_imports": 0,
+    "test_invocations": 0,
+    "transport_invocations": 0,
+    "upload_reset_mcu_operations": 0
+  },
+  "function_identity_check": {
+    "all_names_equal": true,
+    "changed_function_names": [
+      "load_reader"
+    ],
+    "count": 17,
+    "sole_change": "private ModuleType name _sumox_d199_abi02_original to _sumox_d204_abi02_original",
+    "unchanged_functions": [
+      "require",
+      "_stamp",
+      "_plain_chain",
+      "_read_handle",
+      "pinned",
+      "_verify",
+      "project_reader",
+      "settle_expressions",
+      "_number",
+      "_field_observations",
+      "_probe_sizes",
+      "_report_symbol",
+      "_bss_section",
+      "_probe_object",
+      "summarize",
+      "main"
+    ]
+  },
+  "host_oracle_requirement": {
+    "additional_cases": [
+      "exact19step_wrapper_derivative",
+      "new_owner_scope_source_manifest_artifact_binding",
+      "old_settle_owner_source_packet_refusal_with_old_fault_observe_negatives_preserved"
+    ],
+    "baseline_path": "tests/tooling/test_motor_settle_abi.py",
+    "historical_linux_passes": 66,
+    "historical_windows_passes": 64,
+    "historical_windows_skips": 2,
+    "new_independent_freeze_before_new_subject_inspection_or_execution": true,
+    "preserve_methods": 66
+  },
+  "input_pins": {
+    "src/hal/motor_port_unoq.cpp": {
+      "bytes": 19906,
+      "sha256": "fdbc27d972a59a9c955b67b88072a03df3b90a4629e22fd7833ff5f09e0c8f8b"
+    },
+    "src/hal/motor_settle_probe.h": {
+      "bytes": 2366,
+      "sha256": "2eced554fce20ff938daf44866ee0bad6d99fa28e377af762bb0f037376b75a8"
+    },
+    "state/analysis/P7_app_motor_fault_compile_raw/inspect_static_abi.py": {
+      "bytes": 16600,
+      "sha256": "0eec2ffd91958831ab0541477a5277187bb7e9179fdca1096276dda01efb6f4c"
+    },
+    "state/analysis/P7_app_motor_observe_compile_raw/inspect_static_abi.py": {
+      "bytes": 9318,
+      "sha256": "497f756e4eab440d659a4d26ef38ec8d92abdd9f92a5938d1da04705745f42d5"
+    },
+    "state/analysis/P7_app_motor_observe_compile_raw/inspect_static_abi02.py": {
+      "bytes": 8219,
+      "sha256": "a0a5aef19538059450bcb723b6f74cca4d9b7008454760285e8818540ceca421"
+    },
+    "state/analysis/P7_motor_const_abi_contract.md": {
+      "bytes": 15192,
+      "sha256": "55a9f10dec0a7a148fc6fab3cc80ae131ae2e9a82ac74ce14c7aeb1c484ce3d1"
+    },
+    "state/analysis/P7_motor_const_compile_contract.md": {
+      "bytes": 11305,
+      "sha256": "318a6267f29a5837d6afe7197d6f86d88230886f1dd8ea0bb1af0345a4c75174"
+    },
+    "state/analysis/P7_motor_const_compile_raw/inputs_static.json": {
+      "bytes": 13559,
+      "sha256": "1b847d96bb21fa72ed19138cb93f803b56b74224dffd7019dd930d99ff7bac95"
+    },
+    "state/analysis/P7_motor_const_compile_raw/native_static01/artifacts.json": {
+      "bytes": 9645,
+      "sha256": "fc5eb9e233c4642e0388f14132efdebab535d55134ce39c43d33c485d67e4ddd"
+    },
+    "state/analysis/P7_motor_const_compile_raw/native_static01/result.json": {
+      "bytes": 1605,
+      "sha256": "323a4d3c56c5465ad82321ba5c918091bf0b0e5500691bbcdb68dd1b2d5de5e7"
+    },
+    "state/analysis/P7_motor_settle_abi_contract.md": {
+      "bytes": 22405,
+      "sha256": "dfc762768731cf53ef1240a0d9eabface824ad96a72f3dfeaa1824c72332d956"
+    },
+    "state/analysis/P7_motor_settle_compile_raw/abi_corrected_linux01/result.json": {
+      "bytes": 636,
+      "sha256": "98fd35bd42a9a27f1514fb786675cbda3667adf1fb238d20cb9fe49c4b795d54"
+    },
+    "state/analysis/P7_motor_settle_compile_raw/abi_corrected_windows01/result.json": {
+      "bytes": 559,
+      "sha256": "218d732cc730b885e8351e0b05e1f56779560b7a48c3cbfdeb7fbf0ba898ad63"
+    },
+    "state/analysis/P7_motor_settle_compile_raw/abi_independent_freeze02.json": {
+      "bytes": 14117,
+      "sha256": "46c51e3f3fffaaa83a37cc9cfe91a045b0b6c219d925a730918ea327330bd661"
+    },
+    "state/analysis/P7_motor_settle_compile_raw/inspect_static_abi.py": {
+      "bytes": 16106,
+      "sha256": "0f2b37c906a8ad78d596a1256af94d67d3d47793f6025a5e9dc4449d928002ea"
+    },
+    "tests/tooling/test_app_motor_observe_abi.py": {
+      "bytes": 46134,
+      "sha256": "b43b384aafc77499b4752af7633e2a94c98e67e955554f75490f5dc30e45bcbe"
+    },
+    "tests/tooling/test_app_motor_observe_abi02.py": {
+      "bytes": 24242,
+      "sha256": "9e50373e9c0f9d26ecd1e6f4097aa90bf7f346fa42476183b50ed2d0c1feddc3"
+    },
+    "tests/tooling/test_app_motor_observe_abi_windows_mode.py": {
+      "bytes": 9907,
+      "sha256": "9777060b05f041f409a822e30c68c1630192b0354d6462b89f47cb1a2b1ac687"
+    },
+    "tests/tooling/test_motor_settle_abi.py": {
+      "bytes": 30983,
+      "sha256": "96763b42d61b80654503f4093d32ac3b174ab2152fdfb795b3801304e4e2b252"
+    },
+    "tools/compile_motor_const.py": {
+      "bytes": 7557,
+      "sha256": "957666a83c6fa36408dd6616f93d9cdc583622b29a51a6f6c6e960dd4cd1f247"
+    }
+  },
+  "limitations": [
+    "D203 actual artifact acceptance is separate and not claimed by this proposal",
+    "No new ABI symbol or address has been observed",
+    "No candidateRate or candidatePeriod symbol is required by the ABI reader",
+    "New implementation, independent oracle, reviews and clean scope admission remain pending",
+    "No runtime timing benefit, motor permission or human phase gate"
+  ],
+  "ordered_wrapper_substitutions": [
+    {
+      "after": {
+        "bytes": 16106,
+        "sha256": "6acea11ae2485a5d5ce32fd37b81c42c21f75f1c56f20fac5252f1ea9f2aee07"
+      },
+      "before": {
+        "bytes": 16106,
+        "sha256": "0f2b37c906a8ad78d596a1256af94d67d3d47793f6025a5e9dc4449d928002ea"
+      },
+      "count": 2,
+      "new": "D204",
+      "old": "D199"
+    },
+    {
+      "after": {
+        "bytes": 16104,
+        "sha256": "1e7d74c906df6f626c548192891bc52b2fcb425532782e7f94f766cff3c7bb91"
+      },
+      "before": {
+        "bytes": 16106,
+        "sha256": "6acea11ae2485a5d5ce32fd37b81c42c21f75f1c56f20fac5252f1ea9f2aee07"
+      },
+      "count": 2,
+      "new": "P7_motor_const_compile_raw",
+      "old": "P7_motor_settle_compile_raw"
+    },
+    {
+      "after": {
+        "bytes": 16090,
+        "sha256": "e659eed6d2663f778a0903ff3b6909d499265e60650e5394af11cdcfd432d352"
+      },
+      "before": {
+        "bytes": 16104,
+        "sha256": "1e7d74c906df6f626c548192891bc52b2fcb425532782e7f94f766cff3c7bb91"
+      },
+      "count": 2,
+      "new": "tools/compile_motor_const.py",
+      "old": "tools/compile_motor_settle_probe.py"
+    },
+    {
+      "after": {
+        "bytes": 16089,
+        "sha256": "6fabdb1f8521cd9f0eeb8d1518bae463a0ab932a14f71e5bfef7abccd20c3a4d"
+      },
+      "before": {
+        "bytes": 16090,
+        "sha256": "e659eed6d2663f778a0903ff3b6909d499265e60650e5394af11cdcfd432d352"
+      },
+      "count": 1,
+      "new": "P7_motor_const_abi_contract.md",
+      "old": "P7_motor_settle_abi_contract.md"
+    },
+    {
+      "after": {
+        "bytes": 16089,
+        "sha256": "3f692052c0d676e12056c240886ec34b64b5d2b667489a8e4089d97a73c01c82"
+      },
+      "before": {
+        "bytes": 16089,
+        "sha256": "6fabdb1f8521cd9f0eeb8d1518bae463a0ab932a14f71e5bfef7abccd20c3a4d"
+      },
+      "count": 1,
+      "new": "55a9f10dec0a7a148fc6fab3cc80ae131ae2e9a82ac74ce14c7aeb1c484ce3d1",
+      "old": "dfc762768731cf53ef1240a0d9eabface824ad96a72f3dfeaa1824c72332d956"
+    },
+    {
+      "after": {
+        "bytes": 16089,
+        "sha256": "2d5864ea175fca3354487f2805aab83f943c8b53849d3b2ef8783f71054b2ac0"
+      },
+      "before": {
+        "bytes": 16089,
+        "sha256": "3f692052c0d676e12056c240886ec34b64b5d2b667489a8e4089d97a73c01c82"
+      },
+      "count": 1,
+      "new": "7557",
+      "old": "7570"
+    },
+    {
+      "after": {
+        "bytes": 16089,
+        "sha256": "afead258e48989f37166539e206c059ef2cc1f34909cd9141cfaa2e14a1c77c9"
+      },
+      "before": {
+        "bytes": 16089,
+        "sha256": "2d5864ea175fca3354487f2805aab83f943c8b53849d3b2ef8783f71054b2ac0"
+      },
+      "count": 1,
+      "new": "13559",
+      "old": "13432"
+    },
+    {
+      "after": {
+        "bytes": 16089,
+        "sha256": "0b6ac870762b25e4eb13681726fd40905c48b7161d175eb33f1a661dcefa416c"
+      },
+      "before": {
+        "bytes": 16089,
+        "sha256": "afead258e48989f37166539e206c059ef2cc1f34909cd9141cfaa2e14a1c77c9"
+      },
+      "count": 1,
+      "new": "1605",
+      "old": "1608"
+    },
+    {
+      "after": {
+        "bytes": 16089,
+        "sha256": "cbfb0a5d82a50b364c9b9d4a6ae2e4652834ccf2ac3acfdd8303b6091c0adf16"
+      },
+      "before": {
+        "bytes": 16089,
+        "sha256": "0b6ac870762b25e4eb13681726fd40905c48b7161d175eb33f1a661dcefa416c"
+      },
+      "count": 1,
+      "new": "9645",
+      "old": "9648"
+    },
+    {
+      "after": {
+        "bytes": 16089,
+        "sha256": "f0397fad937cd9ad9c023dc70d53374c18052cea0b16df998f597abd7945a22d"
+      },
+      "before": {
+        "bytes": 16089,
+        "sha256": "cbfb0a5d82a50b364c9b9d4a6ae2e4652834ccf2ac3acfdd8303b6091c0adf16"
+      },
+      "count": 2,
+      "new": "957666a83c6fa36408dd6616f93d9cdc583622b29a51a6f6c6e960dd4cd1f247",
+      "old": "b98a5f54e2be122162e76074673190f52ef4218c766d517125b48127bb4b8b62"
+    },
+    {
+      "after": {
+        "bytes": 16089,
+        "sha256": "5bb180a0463ac1a4a432db1440d2e142406d2c04a88f1ded42ef4a1da6cff51c"
+      },
+      "before": {
+        "bytes": 16089,
+        "sha256": "f0397fad937cd9ad9c023dc70d53374c18052cea0b16df998f597abd7945a22d"
+      },
+      "count": 2,
+      "new": "1b847d96bb21fa72ed19138cb93f803b56b74224dffd7019dd930d99ff7bac95",
+      "old": "aa314548521968fd3b1b7b1ef415da3c72c90a6bc914d0a9204ff707bcd7d282"
+    },
+    {
+      "after": {
+        "bytes": 16089,
+        "sha256": "49ef31ca231bd82afdcf35e0f340565821902bc8a5b4cb42f9bfd1b2c1727e92"
+      },
+      "before": {
+        "bytes": 16089,
+        "sha256": "5bb180a0463ac1a4a432db1440d2e142406d2c04a88f1ded42ef4a1da6cff51c"
+      },
+      "count": 2,
+      "new": "323a4d3c56c5465ad82321ba5c918091bf0b0e5500691bbcdb68dd1b2d5de5e7",
+      "old": "9b7f0c445cc84ad6d526445bf8e93ea189f718f0c883da8a1bf5cf077e741af5"
+    },
+    {
+      "after": {
+        "bytes": 16089,
+        "sha256": "a8a5db6df2abe8ec8d7e43f1628feb31db776b1ba9c491b2d7e8f8b0b418b3cd"
+      },
+      "before": {
+        "bytes": 16089,
+        "sha256": "49ef31ca231bd82afdcf35e0f340565821902bc8a5b4cb42f9bfd1b2c1727e92"
+      },
+      "count": 2,
+      "new": "fc5eb9e233c4642e0388f14132efdebab535d55134ce39c43d33c485d67e4ddd",
+      "old": "e18384c14c0b1367667b265ab4c532a4010be65697460a1cd45487bccd9eca10"
+    },
+    {
+      "after": {
+        "bytes": 16088,
+        "sha256": "8bd76393c61621d8f5b723e9a6c6a8f62ed9a6e0809561d1d8ec23eff65719a2"
+      },
+      "before": {
+        "bytes": 16089,
+        "sha256": "a8a5db6df2abe8ec8d7e43f1628feb31db776b1ba9c491b2d7e8f8b0b418b3cd"
+      },
+      "count": 1,
+      "new": "app-motor-const-abi-static01",
+      "old": "app-motor-settle-abi-static01"
+    },
+    {
+      "after": {
+        "bytes": 16087,
+        "sha256": "d1d67e49911c9a6aafd0da011ee374a2a6646b6350cee468a0f684258b6172d2"
+      },
+      "before": {
+        "bytes": 16088,
+        "sha256": "8bd76393c61621d8f5b723e9a6c6a8f62ed9a6e0809561d1d8ec23eff65719a2"
+      },
+      "count": 1,
+      "new": "app-motor-const-static01",
+      "old": "app-motor-settle-static01"
+    },
+    {
+      "after": {
+        "bytes": 16087,
+        "sha256": "b9e934d3cea1109547d59c0deea01eeb209036667028010c8c5e0add63837972"
+      },
+      "before": {
+        "bytes": 16087,
+        "sha256": "d1d67e49911c9a6aafd0da011ee374a2a6646b6350cee468a0f684258b6172d2"
+      },
+      "count": 1,
+      "new": "4bc3a2e6ebb497d43a433aa887ab8388dd3dab075a4f44918ed614db30034cd2",
+      "old": "117cc0e777341c893f4e618a97e3f196fd0bbf2427cb2a4b02543eb37d6522da"
+    },
+    {
+      "after": {
+        "bytes": 16087,
+        "sha256": "7d251a62f044a844ec7a2b4632c2102bb56d593ea02de21a8aeec411b379e842"
+      },
+      "before": {
+        "bytes": 16087,
+        "sha256": "b9e934d3cea1109547d59c0deea01eeb209036667028010c8c5e0add63837972"
+      },
+      "count": 1,
+      "new": "17051",
+      "old": "17061"
+    },
+    {
+      "after": {
+        "bytes": 16087,
+        "sha256": "120c83718cb9d4d75685a49a8a5d9ddfc1e52b79ded96c511467c1bfb50e5534"
+      },
+      "before": {
+        "bytes": 16087,
+        "sha256": "7d251a62f044a844ec7a2b4632c2102bb56d593ea02de21a8aeec411b379e842"
+      },
+      "count": 1,
+      "new": "938c1de2cc35f4c57f63c411ba1ca5e732bd4f0f86788e65034c6c91b5f848e6",
+      "old": "67ff238ce7a9f847e53d98fb4f3c47f02bbea12c51a1062457f1583a9399acc6"
+    },
+    {
+      "after": {
+        "bytes": 16087,
+        "sha256": "f360a52d6e8c29227b8a59481f37f5e8a30b207d7b66fbffaa8e8785a4dedf3c"
+      },
+      "before": {
+        "bytes": 16087,
+        "sha256": "120c83718cb9d4d75685a49a8a5d9ddfc1e52b79ded96c511467c1bfb50e5534"
+      },
+      "count": 1,
+      "new": "_sumox_d204_abi02_original",
+      "old": "_sumox_d199_abi02_original"
+    }
+  ],
+  "original_first_projection_chain": [
+    {
+      "input": {
+        "bytes": 16600,
+        "sha256": "0eec2ffd91958831ab0541477a5277187bb7e9179fdca1096276dda01efb6f4c"
+      },
+      "ordered_substitutions": [
+        {
+          "after": {
+            "bytes": 16620,
+            "sha256": "af5fe30e311a4a238b3581b5f324ce98a048968360abba844292d90fc1963e8d"
+          },
+          "before": {
+            "bytes": 16600,
+            "sha256": "0eec2ffd91958831ab0541477a5277187bb7e9179fdca1096276dda01efb6f4c"
+          },
+          "count": 10,
+          "new": "app_motor_observe",
+          "old": "app_motor_fault"
+        },
+        {
+          "after": {
+            "bytes": 16624,
+            "sha256": "4c0dc4da4189a5bca785ad9def93b47da03ebde3e2ec39a4aa59b97ab01dbefb"
+          },
+          "before": {
+            "bytes": 16620,
+            "sha256": "af5fe30e311a4a238b3581b5f324ce98a048968360abba844292d90fc1963e8d"
+          },
+          "count": 2,
+          "new": "app-motor-observe",
+          "old": "app-motor-fault"
+        },
+        {
+          "after": {
+            "bytes": 16624,
+            "sha256": "ecdb8190d995b817a9f25c351f7a7179b71038d6a4f0f3ea17aa9d857db89a38"
+          },
+          "before": {
+            "bytes": 16624,
+            "sha256": "4c0dc4da4189a5bca785ad9def93b47da03ebde3e2ec39a4aa59b97ab01dbefb"
+          },
+          "count": 2,
+          "new": "D194_STATIC_FILE_ONLY_ABI",
+          "old": "D188_STATIC_FILE_ONLY_ABI"
+        },
+        {
+          "after": {
+            "bytes": 16647,
+            "sha256": "a7d2332eac4da4fb7569c94a3a6d8480c2dee57c19d8c38183acee13433a7092"
+          },
+          "before": {
+            "bytes": 16624,
+            "sha256": "ecdb8190d995b817a9f25c351f7a7179b71038d6a4f0f3ea17aa9d857db89a38"
+          },
+          "count": 1,
+          "new": "self.compiler = loaded(COMPILE, HARD_PINS[COMPILE]).load_caller(root=ROOT)",
+          "old": "self.compiler = loaded(COMPILE, HARD_PINS[COMPILE])"
+        },
+        {
+          "after": {
+            "bytes": 16647,
+            "sha256": "5ba0b27d8a3c7f0a985d01127f4d54f85dd9c7bf4ff2aa1722edbffed3cf5162"
+          },
+          "before": {
+            "bytes": 16647,
+            "sha256": "a7d2332eac4da4fb7569c94a3a6d8480c2dee57c19d8c38183acee13433a7092"
+          },
+          "count": 1,
+          "new": "3a08ddeb437c47940a1a6b2ba8e63f7843e5b242ca68ae38c27849bd4e33dbb0",
+          "old": "21df6ae82cca4b09dc6b1e0de5bc719cf98ec6887800d5ce8297522e491a7950"
+        },
+        {
+          "after": {
+            "bytes": 16647,
+            "sha256": "505d0161d1feb53a503c890c6b9fb43767d3d4a1e0683d05ceb533570a1db638"
+          },
+          "before": {
+            "bytes": 16647,
+            "sha256": "5ba0b27d8a3c7f0a985d01127f4d54f85dd9c7bf4ff2aa1722edbffed3cf5162"
+          },
+          "count": 1,
+          "new": "70e1f016cec041b40c98c7c5dd5ee20223d75c4a876c76d2fcdea3d790d63827",
+          "old": "cf0c826feca483a78ce9839d0037d1e005a0ce73a3aa01df1ad4b309729ed25a"
+        },
+        {
+          "after": {
+            "bytes": 16647,
+            "sha256": "61aaa00d0a5cfc96e3a4a6f09704467afab06cd6e60a701dbf7be799c71896da"
+          },
+          "before": {
+            "bytes": 16647,
+            "sha256": "505d0161d1feb53a503c890c6b9fb43767d3d4a1e0683d05ceb533570a1db638"
+          },
+          "count": 1,
+          "new": "aa350c657fbff328dc139793c4ccd09c86ce45e05bdc7acaa20822498beb7d6e",
+          "old": "d4eae97c1c47a1ce0fa24c9d7e3ae44857a565cd7b85b9c17be45143654d3eb5"
+        },
+        {
+          "after": {
+            "bytes": 16647,
+            "sha256": "8d0ee300cbc888b239273c21be25df488fc698cea867a90f97ecf79b8182c774"
+          },
+          "before": {
+            "bytes": 16647,
+            "sha256": "61aaa00d0a5cfc96e3a4a6f09704467afab06cd6e60a701dbf7be799c71896da"
+          },
+          "count": 1,
+          "new": "24d12778bbb337a5cba411fadab5c5e7a8fd69f99beee7b68ac110c31613622b",
+          "old": "f8928bd0b9a59f47c1bc02c627523af8f250535ffcd269e37e5a80414cc0ce82"
+        },
+        {
+          "after": {
+            "bytes": 16647,
+            "sha256": "e3035bb41c5f9b53337aab91a7d2ed9b2ce796d5e75e85b8e089228cc3f71872"
+          },
+          "before": {
+            "bytes": 16647,
+            "sha256": "8d0ee300cbc888b239273c21be25df488fc698cea867a90f97ecf79b8182c774"
+          },
+          "count": 1,
+          "new": "5ceba77dde7c493d66398bfd6d8e0e27e56345612290cb8fef9328f24b87625b",
+          "old": "57b98c00db1ed5d90394812fcbb3fb28effedd4381f6e2fc03a6e7c04b45a6ce"
+        },
+        {
+          "after": {
+            "bytes": 16664,
+            "sha256": "b80a8909419e7d47576326e8b380188a5b5d9cf0a4d1b04ac8faf7bb2ee9920e"
+          },
+          "before": {
+            "bytes": 16647,
+            "sha256": "e3035bb41c5f9b53337aab91a7d2ed9b2ce796d5e75e85b8e089228cc3f71872"
+          },
+          "count": 1,
+          "new": "'countdown::Result', 'report_.polls')",
+          "old": "'countdown::Result')"
+        },
+        {
+          "after": {
+            "bytes": 16702,
+            "sha256": "80800734515b352e5a76adb399fc3d50548c6bb0eb5e7619d7ed80e8f2616bda"
+          },
+          "before": {
+            "bytes": 16664,
+            "sha256": "b80a8909419e7d47576326e8b380188a5b5d9cf0a4d1b04ac8faf7bb2ee9920e"
+          },
+          "count": 1,
+          "new": "    'report_.polls': 'report_.polls',\n    'attempted_': 'bool',",
+          "old": "    'attempted_': 'bool',"
+        },
+        {
+          "after": {
+            "bytes": 16827,
+            "sha256": "df76bccb33312b2632053a2a41bcc15e492981c1e24e9458e051b10831dc41ff"
+          },
+          "before": {
+            "bytes": 16702,
+            "sha256": "80800734515b352e5a76adb399fc3d50548c6bb0eb5e7619d7ed80e8f2616bda"
+          },
+          "count": 1,
+          "new": "    expressions = ['set max-value-size 1048576']\n    for name in (*TYPES, 'bool'):\n        subject = ('((app_motor_observe::Runner*)0)->report_.polls'\n                   if name == 'report_.polls' else name)\n",
+          "old": "    expressions = ['set max-value-size 1048576']\n    for name in (*TYPES, 'bool'):\n"
+        },
+        {
+          "after": {
+            "bytes": 16830,
+            "sha256": "69dc9d7f33f68f3650113b1620a6f1119e9a9f3c52e4d42f800f699a6ce5c271"
+          },
+          "before": {
+            "bytes": 16827,
+            "sha256": "df76bccb33312b2632053a2a41bcc15e492981c1e24e9458e051b10831dc41ff"
+          },
+          "count": 1,
+          "new": "expression + '(' + subject + ')'",
+          "old": "expression + '(' + name + ')'"
+        },
+        {
+          "after": {
+            "bytes": 16833,
+            "sha256": "f359bebbbba176036891027412327b6b59e47d849e46c37cfe3363cd70a95c14"
+          },
+          "before": {
+            "bytes": 16830,
+            "sha256": "69dc9d7f33f68f3650113b1620a6f1119e9a9f3c52e4d42f800f699a6ce5c271"
+          },
+          "count": 1,
+          "new": "'ptype /o ' + subject",
+          "old": "'ptype /o ' + name"
+        }
+      ],
+      "output": {
+        "bytes": 16833,
+        "sha256": "f359bebbbba176036891027412327b6b59e47d849e46c37cfe3363cd70a95c14"
+      },
+      "source": "state/analysis/P7_app_motor_observe_compile_raw/inspect_static_abi.py"
+    },
+    {
+      "input": {
+        "bytes": 16833,
+        "sha256": "f359bebbbba176036891027412327b6b59e47d849e46c37cfe3363cd70a95c14"
+      },
+      "ordered_substitutions": [
+        {
+          "after": {
+            "bytes": 16835,
+            "sha256": "b06cdaaa1ccc2fcdab2f0f9cf3f982623421342b2c371598230e653ad779cd41"
+          },
+          "before": {
+            "bytes": 16833,
+            "sha256": "f359bebbbba176036891027412327b6b59e47d849e46c37cfe3363cd70a95c14"
+          },
+          "count": 1,
+          "new": "'/inspect_static_abi02.py'",
+          "old": "'/inspect_static_abi.py'"
+        },
+        {
+          "after": {
+            "bytes": 16835,
+            "sha256": "1f3b0b7d9070d961bf9ddf452a31044bfd66a48a25fe1d58bc862ac0950c767f"
+          },
+          "before": {
+            "bytes": 16835,
+            "sha256": "b06cdaaa1ccc2fcdab2f0f9cf3f982623421342b2c371598230e653ad779cd41"
+          },
+          "count": 1,
+          "new": "'native_abi_static02'",
+          "old": "'native_abi_static01'"
+        },
+        {
+          "after": {
+            "bytes": 16835,
+            "sha256": "3d88aff8264a708ec7607842d641522ad1d07036c61707de02f2375406b4a2a7"
+          },
+          "before": {
+            "bytes": 16835,
+            "sha256": "1f3b0b7d9070d961bf9ddf452a31044bfd66a48a25fe1d58bc862ac0950c767f"
+          },
+          "count": 1,
+          "new": "app-motor-observe-abi-static02",
+          "old": "app-motor-observe-abi-static01"
+        },
+        {
+          "after": {
+            "bytes": 16839,
+            "sha256": "400302c56ce3a90d0a9e04fe84adae3b5f9cd09a8e9f143574f87c5fdb1f234b"
+          },
+          "before": {
+            "bytes": 16835,
+            "sha256": "3d88aff8264a708ec7607842d641522ad1d07036c61707de02f2375406b4a2a7"
+          },
+          "count": 2,
+          "new": "D194_STATIC_FILE_ONLY_ABI02",
+          "old": "D194_STATIC_FILE_ONLY_ABI"
+        },
+        {
+          "after": {
+            "bytes": 16937,
+            "sha256": "b03561df65e768cf582a42d520e6241a9cd02c3563685b87070bd3dfc820e981"
+          },
+          "before": {
+            "bytes": 16839,
+            "sha256": "400302c56ce3a90d0a9e04fe84adae3b5f9cd09a8e9f143574f87c5fdb1f234b"
+          },
+          "count": 1,
+          "new": "expression + '(' + ('unsigned int' if name == 'report_.polls' and\n                            label == 'ALIGN' else subject) + ')'",
+          "old": "expression + '(' + subject + ')'"
+        }
+      ],
+      "output": {
+        "bytes": 16937,
+        "sha256": "b03561df65e768cf582a42d520e6241a9cd02c3563685b87070bd3dfc820e981"
+      },
+      "source": "state/analysis/P7_app_motor_observe_compile_raw/inspect_static_abi02.py"
+    },
+    {
+      "input": {
+        "bytes": 16937,
+        "sha256": "b03561df65e768cf582a42d520e6241a9cd02c3563685b87070bd3dfc820e981"
+      },
+      "ordered_substitutions": [
+        {
+          "after": {
+            "bytes": 16931,
+            "sha256": "effcf2064917bccfb1ac69d0910cf8b2c4a2232c897ffd59965f47f3df70d319"
+          },
+          "before": {
+            "bytes": 16937,
+            "sha256": "b03561df65e768cf582a42d520e6241a9cd02c3563685b87070bd3dfc820e981"
+          },
+          "count": 1,
+          "new": "P7_motor_const_compile_raw",
+          "old": "P7_app_motor_observe_compile_raw"
+        },
+        {
+          "after": {
+            "bytes": 16929,
+            "sha256": "411b1a38a5694a32df850b6c0c14264b26a1dad4c66c0a6aa4cc0f1b7c10e109"
+          },
+          "before": {
+            "bytes": 16931,
+            "sha256": "effcf2064917bccfb1ac69d0910cf8b2c4a2232c897ffd59965f47f3df70d319"
+          },
+          "count": 1,
+          "new": "'/inspect_static_abi.py'",
+          "old": "'/inspect_static_abi02.py'"
+        },
+        {
+          "after": {
+            "bytes": 16923,
+            "sha256": "4e5abde7f052d21530992d61fcfc0496273440fbebb296e26f2ca6516bd7fc26"
+          },
+          "before": {
+            "bytes": 16929,
+            "sha256": "411b1a38a5694a32df850b6c0c14264b26a1dad4c66c0a6aa4cc0f1b7c10e109"
+          },
+          "count": 1,
+          "new": "tools/compile_motor_const.py",
+          "old": "tools/compile_app_motor_observe.py"
+        },
+        {
+          "after": {
+            "bytes": 16923,
+            "sha256": "b35cfba083982c93dfd89ebdc66a4bc157bd4c08c197b866ce9987613ad114fe"
+          },
+          "before": {
+            "bytes": 16923,
+            "sha256": "4e5abde7f052d21530992d61fcfc0496273440fbebb296e26f2ca6516bd7fc26"
+          },
+          "count": 1,
+          "new": "'native_abi_static01'",
+          "old": "'native_abi_static02'"
+        },
+        {
+          "after": {
+            "bytes": 16921,
+            "sha256": "f8cf8aa0e09a595b95d188b27f0639d8c071f0f22526225705bcd027a30620fe"
+          },
+          "before": {
+            "bytes": 16923,
+            "sha256": "b35cfba083982c93dfd89ebdc66a4bc157bd4c08c197b866ce9987613ad114fe"
+          },
+          "count": 1,
+          "new": "app-motor-const-abi-static01",
+          "old": "app-motor-observe-abi-static02"
+        },
+        {
+          "after": {
+            "bytes": 16919,
+            "sha256": "bb781b51cf7d945ce504a67f21ca94d0c4885fb00d1ff0b72f90a61a95dd9ca6"
+          },
+          "before": {
+            "bytes": 16921,
+            "sha256": "f8cf8aa0e09a595b95d188b27f0639d8c071f0f22526225705bcd027a30620fe"
+          },
+          "count": 1,
+          "new": "app-motor-const-static01",
+          "old": "app-motor-observe-static01"
+        },
+        {
+          "after": {
+            "bytes": 16915,
+            "sha256": "e23304abc8e96d40ec55ed897288d711891f349b8e554debc8f11f82a440e53f"
+          },
+          "before": {
+            "bytes": 16919,
+            "sha256": "bb781b51cf7d945ce504a67f21ca94d0c4885fb00d1ff0b72f90a61a95dd9ca6"
+          },
+          "count": 2,
+          "new": "D204_STATIC_FILE_ONLY_ABI",
+          "old": "D194_STATIC_FILE_ONLY_ABI02"
+        },
+        {
+          "after": {
+            "bytes": 16915,
+            "sha256": "4670df167a196d306f42507ed1b86fa672d6ca3cf590cfcf9078ce803d0bcbaa"
+          },
+          "before": {
+            "bytes": 16915,
+            "sha256": "e23304abc8e96d40ec55ed897288d711891f349b8e554debc8f11f82a440e53f"
+          },
+          "count": 1,
+          "new": "4bc3a2e6ebb497d43a433aa887ab8388dd3dab075a4f44918ed614db30034cd2",
+          "old": "3a08ddeb437c47940a1a6b2ba8e63f7843e5b242ca68ae38c27849bd4e33dbb0"
+        },
+        {
+          "after": {
+            "bytes": 16915,
+            "sha256": "cb350de9987e205220e7c0496653c0bbde7a41c0dbd3c8baa33b3ac9e74d6e4e"
+          },
+          "before": {
+            "bytes": 16915,
+            "sha256": "4670df167a196d306f42507ed1b86fa672d6ca3cf590cfcf9078ce803d0bcbaa"
+          },
+          "count": 1,
+          "new": "957666a83c6fa36408dd6616f93d9cdc583622b29a51a6f6c6e960dd4cd1f247",
+          "old": "70e1f016cec041b40c98c7c5dd5ee20223d75c4a876c76d2fcdea3d790d63827"
+        },
+        {
+          "after": {
+            "bytes": 16915,
+            "sha256": "8d20d84421226af4f7312217abab6343741de17147d19ef1e4f35b885fbd7287"
+          },
+          "before": {
+            "bytes": 16915,
+            "sha256": "cb350de9987e205220e7c0496653c0bbde7a41c0dbd3c8baa33b3ac9e74d6e4e"
+          },
+          "count": 1,
+          "new": "1b847d96bb21fa72ed19138cb93f803b56b74224dffd7019dd930d99ff7bac95",
+          "old": "aa350c657fbff328dc139793c4ccd09c86ce45e05bdc7acaa20822498beb7d6e"
+        },
+        {
+          "after": {
+            "bytes": 16915,
+            "sha256": "6f1cd8451cbe9497fb3f123b09e8a07ed0691ffe39b6cf6391c503a7073512d0"
+          },
+          "before": {
+            "bytes": 16915,
+            "sha256": "8d20d84421226af4f7312217abab6343741de17147d19ef1e4f35b885fbd7287"
+          },
+          "count": 1,
+          "new": "323a4d3c56c5465ad82321ba5c918091bf0b0e5500691bbcdb68dd1b2d5de5e7",
+          "old": "24d12778bbb337a5cba411fadab5c5e7a8fd69f99beee7b68ac110c31613622b"
+        },
+        {
+          "after": {
+            "bytes": 16915,
+            "sha256": "e358297b8bc8646e88e5c1df75b61051efe947b65204e35c0f584d871af3855f"
+          },
+          "before": {
+            "bytes": 16915,
+            "sha256": "6f1cd8451cbe9497fb3f123b09e8a07ed0691ffe39b6cf6391c503a7073512d0"
+          },
+          "count": 1,
+          "new": "fc5eb9e233c4642e0388f14132efdebab535d55134ce39c43d33c485d67e4ddd",
+          "old": "5ceba77dde7c493d66398bfd6d8e0e27e56345612290cb8fef9328f24b87625b"
+        },
+        {
+          "after": {
+            "bytes": 17011,
+            "sha256": "3f40de901edd27be66a0392fb61e188806f9556daf7cbcaa32852161d3567ec5"
+          },
+          "before": {
+            "bytes": 16915,
+            "sha256": "e358297b8bc8646e88e5c1df75b61051efe947b65204e35c0f584d871af3855f"
+          },
+          "count": 1,
+          "new": "'countdown::Result', 'motors::SettleProbeSample',\n         'motors::SettleProbeReport', 'motors::SettleProbeReason', 'report_.polls')",
+          "old": "'countdown::Result', 'report_.polls')"
+        },
+        {
+          "after": {
+            "bytes": 17051,
+            "sha256": "938c1de2cc35f4c57f63c411ba1ca5e732bd4f0f86788e65034c6c91b5f848e6"
+          },
+          "before": {
+            "bytes": 17011,
+            "sha256": "3f40de901edd27be66a0392fb61e188806f9556daf7cbcaa32852161d3567ec5"
+          },
+          "count": 1,
+          "new": "    expressions += settle_expressions()\n    build = OWNER + '/build/app_motor_observe.ino'\n",
+          "old": "    build = OWNER + '/build/app_motor_observe.ino'\n"
+        }
+      ],
+      "output": {
+        "bytes": 17051,
+        "sha256": "938c1de2cc35f4c57f63c411ba1ca5e732bd4f0f86788e65034c6c91b5f848e6"
+      },
+      "source": "state/analysis/P7_motor_const_compile_raw/inspect_static_abi.py"
+    }
+  ],
+  "predecessor": {
+    "bytes": 16106,
+    "path": "state/analysis/P7_motor_settle_compile_raw/inspect_static_abi.py",
+    "sha256": "0f2b37c906a8ad78d596a1256af94d67d3d47793f6025a5e9dc4449d928002ea"
+  },
+  "projected_reader": {
+    "bytes": 17051,
+    "sha256": "938c1de2cc35f4c57f63c411ba1ca5e732bd4f0f86788e65034c6c91b5f848e6"
+  },
+  "prospective_subject": {
+    "bytes": 16087,
+    "path": "state/analysis/P7_motor_const_compile_raw/inspect_static_abi.py",
+    "sha256": "f360a52d6e8c29227b8a59481f37f5e8a30b207d7b66fbffaa8e8785a4dedf3c"
+  },
+  "runtime_preexecution_inputs": {
+    "state/analysis/P7_app_motor_observe_compile_raw/inspect_static_abi02.py": {
+      "bytes": 8219,
+      "sha256": "a0a5aef19538059450bcb723b6f74cca4d9b7008454760285e8818540ceca421"
+    },
+    "state/analysis/P7_motor_const_abi_contract.md": {
+      "bytes": 15192,
+      "sha256": "55a9f10dec0a7a148fc6fab3cc80ae131ae2e9a82ac74ce14c7aeb1c484ce3d1"
+    },
+    "state/analysis/P7_motor_const_compile_raw/inputs_static.json": {
+      "bytes": 13559,
+      "sha256": "1b847d96bb21fa72ed19138cb93f803b56b74224dffd7019dd930d99ff7bac95"
+    },
+    "state/analysis/P7_motor_const_compile_raw/native_static01/artifacts.json": {
+      "bytes": 9645,
+      "sha256": "fc5eb9e233c4642e0388f14132efdebab535d55134ce39c43d33c485d67e4ddd"
+    },
+    "state/analysis/P7_motor_const_compile_raw/native_static01/result.json": {
+      "bytes": 1605,
+      "sha256": "323a4d3c56c5465ad82321ba5c918091bf0b0e5500691bbcdb68dd1b2d5de5e7"
+    },
+    "tools/compile_motor_const.py": {
+      "bytes": 7557,
+      "sha256": "957666a83c6fa36408dd6616f93d9cdc583622b29a51a6f6c6e960dd4cd1f247"
+    }
+  },
+  "saved_compile_claims": {
+    "compiler_calls": 1,
+    "final_checks": [
+      {
+        "error": null,
+        "name": "local",
+        "status": "PASS"
+      },
+      {
+        "error": null,
+        "name": "identity",
+        "status": "PASS"
+      },
+      {
+        "error": null,
+        "name": "initialization",
+        "status": "PASS"
+      },
+      {
+        "error": null,
+        "name": "builtins",
+        "status": "PASS"
+      },
+      {
+        "error": null,
+        "name": "remote_sources",
+        "status": "PASS"
+      },
+      {
+        "error": null,
+        "name": "installed_pins",
+        "status": "PASS"
+      },
+      {
+        "error": null,
+        "name": "overrides",
+        "status": "PASS"
+      },
+      {
+        "error": null,
+        "name": "artifacts",
+        "status": "PASS"
+      }
+    ],
+    "independent_actual_review_required_before_native_abi": true,
+    "query_calls": 1,
+    "reviewed_head": "dbeec127ba651b6a4346f70aaf5b78bc79718ce0",
+    "status": "COMPILE_CHECKED",
+    "transport_calls": 238
+  },
+  "schema": "d204-proposed-file-only-abi-derivation-v1",
+  "scope": {
+    "build_owner": "/home/arduino/sumox26_codex_build/app-motor-const-static01",
+    "file_children": 4,
+    "gdb_expressions": 223,
+    "local_owner": "state/analysis/P7_motor_const_compile_raw/native_abi_static01",
+    "local_owner_observed_absent": true,
+    "remote_closing_checks": 13,
+    "remote_scope": "/home/arduino/sumox26_codex_build/app-motor-const-abi-static01",
+    "remote_scope_fresh_absence_required": true,
+    "runner_windows": 11,
+    "subjects": 23,
+    "transport_scope": "D204_STATIC_FILE_ONLY_ABI"
+  },
+  "source_sha256": "4bc3a2e6ebb497d43a433aa887ab8388dd3dab075a4f44918ed614db30034cd2",
+  "status": "PROPOSED_METADATA_DERIVATION_ONLY",
+  "wrapper_literal_occurrences": 26,
+  "wrapper_substitution_steps": 19
+}

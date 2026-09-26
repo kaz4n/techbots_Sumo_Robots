@@ -1,7 +1,39 @@
 {
   "schema": "d211-independent-cleanup-freeze-v1",
-  "created_utc": "2026-09-26T13:56:51.277248+00:00",
-  "status": "FINAL_INDEPENDENT_ORACLE_FROZEN_AFTER_FORMAL_ADOPTION_BEFORE_SUBJECT_INSPECTION",
+  "created_utc": "2026-09-26T14:04:08.324617+00:00",
+  "status": "FINAL02_INDEPENDENT_ORACLE_AFTER_BOUNDED_PROSE_FIX_BEFORE_SUBJECT_INSPECTION",
+  "revision02": {
+    "preserved_head": "23079c01a5a6528a44ecbecf889b827730252f29",
+    "adjudication": "Root and independent fresh_review confirmed the sole Linux failure is an inherited D206 prose expectation inconsistent with the adopted D211 contract. Exact full expected string only; assertIn and all52 methods/assertions/control flow retained. No subject/contract changes.",
+    "old_oracle": {
+      "bytes": 9719,
+      "sha256": "2f95c3c9fbb5d89160eb7a67b3dfa6a3b1a71007155ee1363364b7b9a8f68093"
+    },
+    "old_fixture": {
+      "bytes": 168830,
+      "sha256": "b2b1c0bfa2103b55808974a03024b7e61b764000c47e53b409cb437f93048663"
+    },
+    "old_freeze": {
+      "bytes": 53682,
+      "sha256": "8050044eed07de89a477d2edd3843f1488d61f389ea2f1a7475bbea1ef1e7744"
+    },
+    "failure_stderr": {
+      "path": "state/analysis/P7_ordinary_app_cleanup_raw/cleanup_first_linux01/stderr",
+      "bytes": 27239,
+      "sha256": "ef7159acab7d0915e08e03758d072041ad93d584e04ddbb5cdb3169fb664ab63"
+    },
+    "failure_result": {
+      "path": "state/analysis/P7_ordinary_app_cleanup_raw/cleanup_first_linux01/result.json",
+      "bytes": 849,
+      "sha256": "93ab6f86510b0b628a5790b382f6278dfc4b62711cef6c11e417e71addeb7a77"
+    },
+    "original_run": "52 Linux cases; 51 pass and one fixture prose failure; all66 coordinator pins stable. No Windows/native action.",
+    "old_expected_string": "Create it\nexclusively with no-clobber behavior; never overwrite a prior result",
+    "new_expected_string": "Create the result exclusively with no-clobber behavior; never overwrite a\nprior result.",
+    "changes": "One metadata_class_steps replacement target and corresponding DELTA_CHANGES literal; only consequential projected-body/intermediate/fixture/oracle/freeze identities and this adjudication record.",
+    "subject_reads_or_hashes": 0,
+    "author_test_invocations": 0
+  },
   "formal_adoption": {
     "root_message": "D211 formally adopted after preparation review FINAL PASS; implementation sealed by root before oracle read. Author did not inspect or hash implementation.",
     "preparation_review": {
@@ -186,8 +218,8 @@
       "sha256": "96c12bcd19e94b86945908fd556591e9925c6b842a9e92b82ef0ee8787588694"
     },
     "state/analysis/P7_ordinary_app_cleanup_raw/cleanup_fixture_derivation01.json": {
-      "bytes": 168830,
-      "sha256": "b2b1c0bfa2103b55808974a03024b7e61b764000c47e53b409cb437f93048663"
+      "bytes": 170738,
+      "sha256": "1a98b3077ea9448e58ad9756a1e8d521803765b48a565b1aa0d144e52a48ef89"
     },
     "state/analysis/P7_ordinary_app_cleanup_raw/cleanup_host_driver01.py": {
       "bytes": 3509,
@@ -267,19 +299,19 @@
     },
     "tests/tooling/test_ordinary_app_cleanup.py": {
       "bytes": 9719,
-      "sha256": "2f95c3c9fbb5d89160eb7a67b3dfa6a3b1a71007155ee1363364b7b9a8f68093"
+      "sha256": "8b814c6a19e30862ca8e4215deb17aa5f35094ad62c5a390fa81edc73a079a3c"
     }
   },
   "pin_count": 62,
   "oracle": {
     "path": "tests/tooling/test_ordinary_app_cleanup.py",
     "bytes": 9719,
-    "sha256": "2f95c3c9fbb5d89160eb7a67b3dfa6a3b1a71007155ee1363364b7b9a8f68093"
+    "sha256": "8b814c6a19e30862ca8e4215deb17aa5f35094ad62c5a390fa81edc73a079a3c"
   },
   "fixture_derivation": {
     "path": "state/analysis/P7_ordinary_app_cleanup_raw/cleanup_fixture_derivation01.json",
-    "bytes": 168830,
-    "sha256": "b2b1c0bfa2103b55808974a03024b7e61b764000c47e53b409cb437f93048663"
+    "bytes": 170738,
+    "sha256": "1a98b3077ea9448e58ad9756a1e8d521803765b48a565b1aa0d144e52a48ef89"
   },
   "contract": {
     "path": "state/analysis/P7_ordinary_app_cleanup_contract.md",
@@ -304,8 +336,8 @@
     "historical_d200_steps": 36,
     "d206_to_d211_steps": 18,
     "historical_d200_output": {
-      "bytes": 20238,
-      "sha256": "7ba7f12d8d8fd7c844b4fccc0177ae133f9315e7cfd9bff60a5b98b2a668607b"
+      "bytes": 20247,
+      "sha256": "18411b436c7a3eb2787d58ca65f797082d8459e2f95fcac0a36294ea50c10b6b"
     },
     "core_steps": 11,
     "core_output": {
@@ -314,14 +346,14 @@
     },
     "metadata_class_steps": 18,
     "metadata_output": {
-      "bytes": 14482,
-      "sha256": "b09cfb82030c6ddedaf3b980db0ac348b99df0a178823ebadee054531d5ca411"
+      "bytes": 14491,
+      "sha256": "e7124269fd7ac0e329ecb4dd90d6c15403df43505b3317073776f3e87ff2cfc4"
     },
     "focused_steps": 11,
     "d206_outer_steps": 18,
     "outer_fixture_pin_step": {
       "old": "FIXTURE_PIN = {'bytes': 68656, 'sha256': '1c6fc3bad5be218059ec6069ab1e5b810a06522089641b30b11208c2c3d205b7'}",
-      "new": "FIXTURE_PIN = {'bytes': 168830, 'sha256': 'b2b1c0bfa2103b55808974a03024b7e61b764000c47e53b409cb437f93048663'}",
+      "new": "FIXTURE_PIN = {'bytes': 170738, 'sha256': '1a98b3077ea9448e58ad9756a1e8d521803765b48a565b1aa0d144e52a48ef89'}",
       "count": 1,
       "before": {
         "bytes": 9718,
@@ -329,7 +361,7 @@
       },
       "after": {
         "bytes": 9719,
-        "sha256": "2f95c3c9fbb5d89160eb7a67b3dfa6a3b1a71007155ee1363364b7b9a8f68093"
+        "sha256": "8b814c6a19e30862ca8e4215deb17aa5f35094ad62c5a390fa81edc73a079a3c"
       }
     },
     "exact_D206_recipe_steps": 4,
@@ -917,8 +949,8 @@
             "sha256": "d58fe79822323a33f945472eb37f42eef1768b014ebe89887d893b1245d8309e"
           },
           "projected": {
-            "bytes": 993,
-            "sha256": "0dcf445b9bbf67a087d1be21a5a54cef4bdcec6f8f5c21d434612753e6ceee74"
+            "bytes": 1002,
+            "sha256": "0cc0e1cce8bfb584948b13585ce396c5946e8ad1ab1fe141d90cef2464be9c01"
           },
           "assertion_calls": 7
         },

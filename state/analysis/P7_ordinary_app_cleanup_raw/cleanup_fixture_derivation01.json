@@ -418,15 +418,15 @@
     },
     {
       "old": "DELTA_CHANGES = (('cleanup_remoteocd02.py', 'cleanup_remoteocd04.py', 7), ('cleanup_root03.py', 'cleanup_root05.py', 2), ('cleanup-app-observe-root03', 'cleanup-app-const-root05', 1), ('7735', '7738', 1), ('7732', '7735', 1), ('result_root03.json', 'result_root05.json', 1), ('create\\\\nit exclusively, never overwrite it', 'Create it\\\\nexclusively with no-clobber behavior; never overwrite a prior result', 1), ('(95328, PAYLOAD_SHA', '(95520, PAYLOAD_SHA', 1), ('2399736', '2399928', 1), (\"'motor_fault.ino.elf-zsk.bin', 'flash_sketch.cfg'\", \"'app_motor_fault.ino.bin-zsk.bin', 'flash_sketch.cfg'\", 1), (\"(b'x' * 29836, b'x' * 95328, b'x' * 95329)\", \"(b'x' * 95328, b'x' * 95520, b'x' * 95521)\", 1), ('b4416792a5bc228f34712fad9199a07c3c480aace979faa88aa12b50288b0a79', 'deb40317e5c444af26e65da4b6f1d0e577d9897d59dbddff3bce03a7bc14335c', 1), (\"recipe.checked_bytes(b'x' * 95328, pin)\", \"recipe.checked_bytes(b'x' * 95520, pin)\", 1), ('(33, 869)', '(1172, 1452)', 1), ('if inode == 33 else', 'if inode == 1172 else', 1), ('int(inode == 869)', 'int(inode == 1452)', 1), ('self.directory_fixture(recipe, 869)', 'self.directory_fixture(recipe, 1452)', 1), (\"'motor-fault-active01'\", \"'app-motor-fault-static01'\", 1))",
-      "new": "DELTA_CHANGES = (('cleanup_remoteocd02.py', 'cleanup_remoteocd05.py', 7), ('cleanup_root03.py', 'cleanup_root06.py', 2), ('cleanup-app-observe-root03', 'cleanup-ordinary-app-root06', 1), ('7735', '7740', 1), ('7732', '7737', 1), ('result_root03.json', 'result_root06.json', 1), ('create\\\\nit exclusively, never overwrite it', 'Create it\\\\nexclusively with no-clobber behavior; never overwrite a prior result', 1), ('(95328, PAYLOAD_SHA', '(95368, PAYLOAD_SHA', 1), ('2399736', '2399776', 1), (\"'motor_fault.ino.elf-zsk.bin', 'flash_sketch.cfg'\", \"'app_motor_fault.ino.bin-zsk.bin', 'flash_sketch.cfg'\", 1), (\"(b'x' * 29836, b'x' * 95328, b'x' * 95329)\", \"(b'x' * 95328, b'x' * 95368, b'x' * 95369)\", 1), ('b4416792a5bc228f34712fad9199a07c3c480aace979faa88aa12b50288b0a79', 'deb40317e5c444af26e65da4b6f1d0e577d9897d59dbddff3bce03a7bc14335c', 1), (\"recipe.checked_bytes(b'x' * 95328, pin)\", \"recipe.checked_bytes(b'x' * 95368, pin)\", 1), ('(33, 869)', '(1452, 1732)', 1), ('if inode == 33 else', 'if inode == 1452 else', 1), ('int(inode == 869)', 'int(inode == 1732)', 1), ('self.directory_fixture(recipe, 869)', 'self.directory_fixture(recipe, 1732)', 1), (\"'motor-fault-active01'\", \"'app-motor-fault-static01'\", 1))",
+      "new": "DELTA_CHANGES = (('cleanup_remoteocd02.py', 'cleanup_remoteocd05.py', 7), ('cleanup_root03.py', 'cleanup_root06.py', 2), ('cleanup-app-observe-root03', 'cleanup-ordinary-app-root06', 1), ('7735', '7740', 1), ('7732', '7737', 1), ('result_root03.json', 'result_root06.json', 1), ('create\\\\nit exclusively, never overwrite it', 'Create the result exclusively with no-clobber behavior; never overwrite a\\\\nprior result.', 1), ('(95328, PAYLOAD_SHA', '(95368, PAYLOAD_SHA', 1), ('2399736', '2399776', 1), (\"'motor_fault.ino.elf-zsk.bin', 'flash_sketch.cfg'\", \"'app_motor_fault.ino.bin-zsk.bin', 'flash_sketch.cfg'\", 1), (\"(b'x' * 29836, b'x' * 95328, b'x' * 95329)\", \"(b'x' * 95328, b'x' * 95368, b'x' * 95369)\", 1), ('b4416792a5bc228f34712fad9199a07c3c480aace979faa88aa12b50288b0a79', 'deb40317e5c444af26e65da4b6f1d0e577d9897d59dbddff3bce03a7bc14335c', 1), (\"recipe.checked_bytes(b'x' * 95328, pin)\", \"recipe.checked_bytes(b'x' * 95368, pin)\", 1), ('(33, 869)', '(1452, 1732)', 1), ('if inode == 33 else', 'if inode == 1452 else', 1), ('int(inode == 869)', 'int(inode == 1732)', 1), ('self.directory_fixture(recipe, 869)', 'self.directory_fixture(recipe, 1732)', 1), (\"'motor-fault-active01'\", \"'app-motor-fault-static01'\", 1))",
       "count": 1,
       "before": {
         "bytes": 20099,
         "sha256": "f2c54183fb3d605b6403f4004a624d9cb9892d001da308e45537e4c30d3204da"
       },
       "after": {
-        "bytes": 20102,
-        "sha256": "d701711e9adcce612e378217776736a690557330b178cfafbfe4ca02a1d34ffb"
+        "bytes": 20111,
+        "sha256": "b970fe1518d50d2e21120cdd138a4d53f5217ca6822c3145461693c249bdbc38"
       }
     },
     {
@@ -434,12 +434,12 @@
       "new": "def recipe_projection():\n    raw = replace_checked(checked(PRIOR + 'cleanup_remoteocd02.py'), (\n        ('D190', 'D207', 1), (OLD_PAYLOAD, NEW_PAYLOAD, 1),\n        ('info.st_ino == 869', 'info.st_ino == 1732', 1),\n        ('d196-exact-observer-scratch-cleanup-v1', 'd211-exact-ordinary-scratch-cleanup-v1', 1)))\n    if (len(raw), sha(raw)) != PINS[NEW + 'cleanup_remoteocd05.py']:\n        raise AssertionError('Independent recipe identity')\n    return raw\n",
       "count": 1,
       "before": {
-        "bytes": 20102,
-        "sha256": "d701711e9adcce612e378217776736a690557330b178cfafbfe4ca02a1d34ffb"
+        "bytes": 20111,
+        "sha256": "b970fe1518d50d2e21120cdd138a4d53f5217ca6822c3145461693c249bdbc38"
       },
       "after": {
-        "bytes": 20105,
-        "sha256": "3dd01e9e7c0a9300093bbec8190c4ed1809701f8351f06f8af9fbc30a54d6f4c"
+        "bytes": 20114,
+        "sha256": "50d9498c25aa46aa2749826ebc093ea8aff4b0c0a0de7af86c40f08edb64908e"
       }
     },
     {
@@ -447,12 +447,12 @@
       "new": "def wrapper_projection():\n    raw = replace_checked(checked(PRIOR + 'cleanup_root03.py'), (\n        ('cleanup-app-observe-root03', 'cleanup-ordinary-app-root06', 1),\n        ('cleanup_remoteocd02.py', 'cleanup_remoteocd05.py', 4), ('7735', '7740', 1),\n        (PRIOR_RECIPE_SHA, RECIPE_SHA, 1), (PRIOR_PROJECTED_SHA, PROJECTED_SHA, 1),\n        ('d196-authenticated-observer-cleanup-v1', 'd211-authenticated-ordinary-cleanup-v1', 1)))\n    if (len(raw), sha(raw)) != PINS[NEW + 'cleanup_root06.py']:\n        raise AssertionError('Independent wrapper identity')\n    return raw\n",
       "count": 1,
       "before": {
-        "bytes": 20105,
-        "sha256": "3dd01e9e7c0a9300093bbec8190c4ed1809701f8351f06f8af9fbc30a54d6f4c"
+        "bytes": 20114,
+        "sha256": "50d9498c25aa46aa2749826ebc093ea8aff4b0c0a0de7af86c40f08edb64908e"
       },
       "after": {
-        "bytes": 20111,
-        "sha256": "9d4228704c443da687d037d95ef59dc89312384f5f71708a276893985f98aa76"
+        "bytes": 20120,
+        "sha256": "9c8eddecdbcf8f0934eeef79c2956c982c570e4262c448bba55e8fb0a8d6dd4d"
       }
     },
     {
@@ -460,25 +460,25 @@
       "new": "(37265, 'eb6d02f514d767232d136c79ad09c98bfa85c125bb23dc9f79e6f8c4095c48d7')",
       "count": 1,
       "before": {
-        "bytes": 20111,
-        "sha256": "9d4228704c443da687d037d95ef59dc89312384f5f71708a276893985f98aa76"
+        "bytes": 20120,
+        "sha256": "9c8eddecdbcf8f0934eeef79c2956c982c570e4262c448bba55e8fb0a8d6dd4d"
       },
       "after": {
-        "bytes": 20111,
-        "sha256": "14934a245f8e03e1a438ebd032e74153b97bd6bce3970dc0a69ae381b3ddfbc2"
+        "bytes": 20120,
+        "sha256": "8f7dc7de249e180a2be6c21332464e01c62ac0f8802a3a97ff197d2957063f0b"
       }
     },
     {
       "old": "(14479, 'a44d6dc1ed6859ec2f06cb862f66d532355ed58c5ac4f1261958a898c8070879')",
-      "new": "(14482, 'b09cfb82030c6ddedaf3b980db0ac348b99df0a178823ebadee054531d5ca411')",
+      "new": "(14491, 'e7124269fd7ac0e329ecb4dd90d6c15403df43505b3317073776f3e87ff2cfc4')",
       "count": 1,
       "before": {
-        "bytes": 20111,
-        "sha256": "14934a245f8e03e1a438ebd032e74153b97bd6bce3970dc0a69ae381b3ddfbc2"
+        "bytes": 20120,
+        "sha256": "8f7dc7de249e180a2be6c21332464e01c62ac0f8802a3a97ff197d2957063f0b"
       },
       "after": {
-        "bytes": 20111,
-        "sha256": "355b8f568ffadfc969d2b29f0393a967cdcfbfc3ad8d27e23dc95558241f91b3"
+        "bytes": 20120,
+        "sha256": "9dc9ee2ea701f0e0424b756b9b9c8c336db2f478c1e52eb7d4b64e3947b23491"
       }
     },
     {
@@ -486,18 +486,18 @@
       "new": "def focused_cases(oracle):\n    class CurrentCopyRefusals(unittest.TestCase):\n        def test_D190_D195_D198_D208_packages_cannot_replace_current_D207_copy(self):\n            recipe = oracle.definitions('cleanup_remoteocd05.py')\n            before = dict(recipe.PINS); pin = recipe.PINS[PAYLOAD_NAME]\n            self.assertEqual(pin, (95368, PAYLOAD_SHA, PAYLOAD_PATH))\n            for wrong_size in (95328, 95360, 95520, 92944):\n                with self.subTest(size=wrong_size), self.assertRaisesRegex(ValueError, 'Copy or original differs'):\n                    recipe.checked_bytes(b'x' * wrong_size, pin)\n            for wrong_digest in (PRIOR_PAYLOAD_SHA, '85b05c564fd3545c6b6e16fb64ed2aef8893226e32048309f1b71f97a5db4b6c', 'e400078166394d0f8ea44b601e9ba2948992c4f263c5c7ee5fb3942433c143d0', FUTURE_PAYLOAD_SHA):\n                digest = mock.Mock(return_value=types.SimpleNamespace(hexdigest=lambda: wrong_digest))\n                recipe.hashlib = types.SimpleNamespace(sha256=digest)\n                with self.subTest(digest=wrong_digest), self.assertRaisesRegex(ValueError, 'Copy or original differs'):\n                    recipe.checked_bytes(b'x' * 95368, pin)\n                digest.assert_called_once()\n            self.assertEqual(recipe.PINS, before)\n\n        def test_previous_source_names_and_stage_schema_source_drift_fail_before_execution(self):\n            wrapper = oracle.definitions('cleanup_root06.py')\n            wrapper.os = types.SimpleNamespace(open=mock.Mock(side_effect=AssertionError('Unknown source opened')))\n            for name in ('cleanup_remoteocd01.py', 'cleanup_remoteocd02.py', 'cleanup_remoteocd03.py', 'cleanup_remoteocd04.py', 'cleanup_root03.py', 'cleanup_root04.py', 'cleanup_root05.py'):\n                with self.subTest(name=name), self.assertRaisesRegex(ValueError, 'Unknown source basename'):\n                    wrapper.read_source(name)\n            wrapper.os.open.assert_not_called()\n            name = NEW + 'cleanup_root06.py'; current = checked(name)\n            # These are rejected SOURCE substitutions, not a new JSON schema predicate.\n            for before, after in (\n                    (b'cleanup-ordinary-app-root06', b'cleanup-app-const-root05'),\n                    (b'd211-authenticated-ordinary-cleanup-v1', b'd206-authenticated-const-cleanup-v1')):\n                self.assertEqual(current.count(before), 1)\n                wrong = current.replace(before, after); read = Path.read_bytes\n                def observed(path):\n                    return wrong if path == ROOT / name else read(path)\n                with mock.patch.object(Path, 'read_bytes', observed), self.assertRaisesRegex(AssertionError, 'Frozen input changed'):\n                    oracle.definitions('cleanup_root06.py')\n\n    return CurrentCopyRefusals\n",
       "count": 1,
       "before": {
-        "bytes": 20111,
-        "sha256": "355b8f568ffadfc969d2b29f0393a967cdcfbfc3ad8d27e23dc95558241f91b3"
+        "bytes": 20120,
+        "sha256": "9dc9ee2ea701f0e0424b756b9b9c8c336db2f478c1e52eb7d4b64e3947b23491"
       },
       "after": {
-        "bytes": 20238,
-        "sha256": "7ba7f12d8d8fd7c844b4fccc0177ae133f9315e7cfd9bff60a5b98b2a668607b"
+        "bytes": 20247,
+        "sha256": "18411b436c7a3eb2787d58ca65f797082d8459e2f95fcac0a36294ea50c10b6b"
       }
     }
   ],
   "oracle_projected": {
-    "bytes": 20238,
-    "sha256": "7ba7f12d8d8fd7c844b4fccc0177ae133f9315e7cfd9bff60a5b98b2a668607b"
+    "bytes": 20247,
+    "sha256": "18411b436c7a3eb2787d58ca65f797082d8459e2f95fcac0a36294ea50c10b6b"
   },
   "d211_oracle_delta_steps": [
     {
@@ -658,15 +658,15 @@
     },
     {
       "old": "DELTA_CHANGES = (('cleanup_remoteocd02.py', 'cleanup_remoteocd04.py', 7), ('cleanup_root03.py', 'cleanup_root05.py', 2), ('cleanup-app-observe-root03', 'cleanup-app-const-root05', 1), ('7735', '7738', 1), ('7732', '7735', 1), ('result_root03.json', 'result_root05.json', 1), ('create\\\\nit exclusively, never overwrite it', 'Create it\\\\nexclusively with no-clobber behavior; never overwrite a prior result', 1), ('(95328, PAYLOAD_SHA', '(95520, PAYLOAD_SHA', 1), ('2399736', '2399928', 1), (\"'motor_fault.ino.elf-zsk.bin', 'flash_sketch.cfg'\", \"'app_motor_fault.ino.bin-zsk.bin', 'flash_sketch.cfg'\", 1), (\"(b'x' * 29836, b'x' * 95328, b'x' * 95329)\", \"(b'x' * 95328, b'x' * 95520, b'x' * 95521)\", 1), ('b4416792a5bc228f34712fad9199a07c3c480aace979faa88aa12b50288b0a79', 'deb40317e5c444af26e65da4b6f1d0e577d9897d59dbddff3bce03a7bc14335c', 1), (\"recipe.checked_bytes(b'x' * 95328, pin)\", \"recipe.checked_bytes(b'x' * 95520, pin)\", 1), ('(33, 869)', '(1172, 1452)', 1), ('if inode == 33 else', 'if inode == 1172 else', 1), ('int(inode == 869)', 'int(inode == 1452)', 1), ('self.directory_fixture(recipe, 869)', 'self.directory_fixture(recipe, 1452)', 1), (\"'motor-fault-active01'\", \"'app-motor-fault-static01'\", 1))",
-      "new": "DELTA_CHANGES = (('cleanup_remoteocd02.py', 'cleanup_remoteocd05.py', 7), ('cleanup_root03.py', 'cleanup_root06.py', 2), ('cleanup-app-observe-root03', 'cleanup-ordinary-app-root06', 1), ('7735', '7740', 1), ('7732', '7737', 1), ('result_root03.json', 'result_root06.json', 1), ('create\\\\nit exclusively, never overwrite it', 'Create it\\\\nexclusively with no-clobber behavior; never overwrite a prior result', 1), ('(95328, PAYLOAD_SHA', '(95368, PAYLOAD_SHA', 1), ('2399736', '2399776', 1), (\"'motor_fault.ino.elf-zsk.bin', 'flash_sketch.cfg'\", \"'app_motor_fault.ino.bin-zsk.bin', 'flash_sketch.cfg'\", 1), (\"(b'x' * 29836, b'x' * 95328, b'x' * 95329)\", \"(b'x' * 95328, b'x' * 95368, b'x' * 95369)\", 1), ('b4416792a5bc228f34712fad9199a07c3c480aace979faa88aa12b50288b0a79', 'deb40317e5c444af26e65da4b6f1d0e577d9897d59dbddff3bce03a7bc14335c', 1), (\"recipe.checked_bytes(b'x' * 95328, pin)\", \"recipe.checked_bytes(b'x' * 95368, pin)\", 1), ('(33, 869)', '(1452, 1732)', 1), ('if inode == 33 else', 'if inode == 1452 else', 1), ('int(inode == 869)', 'int(inode == 1732)', 1), ('self.directory_fixture(recipe, 869)', 'self.directory_fixture(recipe, 1732)', 1), (\"'motor-fault-active01'\", \"'app-motor-fault-static01'\", 1))",
+      "new": "DELTA_CHANGES = (('cleanup_remoteocd02.py', 'cleanup_remoteocd05.py', 7), ('cleanup_root03.py', 'cleanup_root06.py', 2), ('cleanup-app-observe-root03', 'cleanup-ordinary-app-root06', 1), ('7735', '7740', 1), ('7732', '7737', 1), ('result_root03.json', 'result_root06.json', 1), ('create\\\\nit exclusively, never overwrite it', 'Create the result exclusively with no-clobber behavior; never overwrite a\\\\nprior result.', 1), ('(95328, PAYLOAD_SHA', '(95368, PAYLOAD_SHA', 1), ('2399736', '2399776', 1), (\"'motor_fault.ino.elf-zsk.bin', 'flash_sketch.cfg'\", \"'app_motor_fault.ino.bin-zsk.bin', 'flash_sketch.cfg'\", 1), (\"(b'x' * 29836, b'x' * 95328, b'x' * 95329)\", \"(b'x' * 95328, b'x' * 95368, b'x' * 95369)\", 1), ('b4416792a5bc228f34712fad9199a07c3c480aace979faa88aa12b50288b0a79', 'deb40317e5c444af26e65da4b6f1d0e577d9897d59dbddff3bce03a7bc14335c', 1), (\"recipe.checked_bytes(b'x' * 95328, pin)\", \"recipe.checked_bytes(b'x' * 95368, pin)\", 1), ('(33, 869)', '(1452, 1732)', 1), ('if inode == 33 else', 'if inode == 1452 else', 1), ('int(inode == 869)', 'int(inode == 1732)', 1), ('self.directory_fixture(recipe, 869)', 'self.directory_fixture(recipe, 1732)', 1), (\"'motor-fault-active01'\", \"'app-motor-fault-static01'\", 1))",
       "count": 1,
       "before": {
         "bytes": 20099,
         "sha256": "f2c54183fb3d605b6403f4004a624d9cb9892d001da308e45537e4c30d3204da"
       },
       "after": {
-        "bytes": 20102,
-        "sha256": "d701711e9adcce612e378217776736a690557330b178cfafbfe4ca02a1d34ffb"
+        "bytes": 20111,
+        "sha256": "b970fe1518d50d2e21120cdd138a4d53f5217ca6822c3145461693c249bdbc38"
       }
     },
     {
@@ -674,12 +674,12 @@
       "new": "def recipe_projection():\n    raw = replace_checked(checked(PRIOR + 'cleanup_remoteocd02.py'), (\n        ('D190', 'D207', 1), (OLD_PAYLOAD, NEW_PAYLOAD, 1),\n        ('info.st_ino == 869', 'info.st_ino == 1732', 1),\n        ('d196-exact-observer-scratch-cleanup-v1', 'd211-exact-ordinary-scratch-cleanup-v1', 1)))\n    if (len(raw), sha(raw)) != PINS[NEW + 'cleanup_remoteocd05.py']:\n        raise AssertionError('Independent recipe identity')\n    return raw\n",
       "count": 1,
       "before": {
-        "bytes": 20102,
-        "sha256": "d701711e9adcce612e378217776736a690557330b178cfafbfe4ca02a1d34ffb"
+        "bytes": 20111,
+        "sha256": "b970fe1518d50d2e21120cdd138a4d53f5217ca6822c3145461693c249bdbc38"
       },
       "after": {
-        "bytes": 20105,
-        "sha256": "3dd01e9e7c0a9300093bbec8190c4ed1809701f8351f06f8af9fbc30a54d6f4c"
+        "bytes": 20114,
+        "sha256": "50d9498c25aa46aa2749826ebc093ea8aff4b0c0a0de7af86c40f08edb64908e"
       }
     },
     {
@@ -687,12 +687,12 @@
       "new": "def wrapper_projection():\n    raw = replace_checked(checked(PRIOR + 'cleanup_root03.py'), (\n        ('cleanup-app-observe-root03', 'cleanup-ordinary-app-root06', 1),\n        ('cleanup_remoteocd02.py', 'cleanup_remoteocd05.py', 4), ('7735', '7740', 1),\n        (PRIOR_RECIPE_SHA, RECIPE_SHA, 1), (PRIOR_PROJECTED_SHA, PROJECTED_SHA, 1),\n        ('d196-authenticated-observer-cleanup-v1', 'd211-authenticated-ordinary-cleanup-v1', 1)))\n    if (len(raw), sha(raw)) != PINS[NEW + 'cleanup_root06.py']:\n        raise AssertionError('Independent wrapper identity')\n    return raw\n",
       "count": 1,
       "before": {
-        "bytes": 20105,
-        "sha256": "3dd01e9e7c0a9300093bbec8190c4ed1809701f8351f06f8af9fbc30a54d6f4c"
+        "bytes": 20114,
+        "sha256": "50d9498c25aa46aa2749826ebc093ea8aff4b0c0a0de7af86c40f08edb64908e"
       },
       "after": {
-        "bytes": 20111,
-        "sha256": "9d4228704c443da687d037d95ef59dc89312384f5f71708a276893985f98aa76"
+        "bytes": 20120,
+        "sha256": "9c8eddecdbcf8f0934eeef79c2956c982c570e4262c448bba55e8fb0a8d6dd4d"
       }
     },
     {
@@ -700,25 +700,25 @@
       "new": "(37265, 'eb6d02f514d767232d136c79ad09c98bfa85c125bb23dc9f79e6f8c4095c48d7')",
       "count": 1,
       "before": {
-        "bytes": 20111,
-        "sha256": "9d4228704c443da687d037d95ef59dc89312384f5f71708a276893985f98aa76"
+        "bytes": 20120,
+        "sha256": "9c8eddecdbcf8f0934eeef79c2956c982c570e4262c448bba55e8fb0a8d6dd4d"
       },
       "after": {
-        "bytes": 20111,
-        "sha256": "14934a245f8e03e1a438ebd032e74153b97bd6bce3970dc0a69ae381b3ddfbc2"
+        "bytes": 20120,
+        "sha256": "8f7dc7de249e180a2be6c21332464e01c62ac0f8802a3a97ff197d2957063f0b"
       }
     },
     {
       "old": "(14479, 'a44d6dc1ed6859ec2f06cb862f66d532355ed58c5ac4f1261958a898c8070879')",
-      "new": "(14482, 'b09cfb82030c6ddedaf3b980db0ac348b99df0a178823ebadee054531d5ca411')",
+      "new": "(14491, 'e7124269fd7ac0e329ecb4dd90d6c15403df43505b3317073776f3e87ff2cfc4')",
       "count": 1,
       "before": {
-        "bytes": 20111,
-        "sha256": "14934a245f8e03e1a438ebd032e74153b97bd6bce3970dc0a69ae381b3ddfbc2"
+        "bytes": 20120,
+        "sha256": "8f7dc7de249e180a2be6c21332464e01c62ac0f8802a3a97ff197d2957063f0b"
       },
       "after": {
-        "bytes": 20111,
-        "sha256": "355b8f568ffadfc969d2b29f0393a967cdcfbfc3ad8d27e23dc95558241f91b3"
+        "bytes": 20120,
+        "sha256": "9dc9ee2ea701f0e0424b756b9b9c8c336db2f478c1e52eb7d4b64e3947b23491"
       }
     },
     {
@@ -726,12 +726,12 @@
       "new": "def focused_cases(oracle):\n    class CurrentCopyRefusals(unittest.TestCase):\n        def test_D190_D195_D198_D208_packages_cannot_replace_current_D207_copy(self):\n            recipe = oracle.definitions('cleanup_remoteocd05.py')\n            before = dict(recipe.PINS); pin = recipe.PINS[PAYLOAD_NAME]\n            self.assertEqual(pin, (95368, PAYLOAD_SHA, PAYLOAD_PATH))\n            for wrong_size in (95328, 95360, 95520, 92944):\n                with self.subTest(size=wrong_size), self.assertRaisesRegex(ValueError, 'Copy or original differs'):\n                    recipe.checked_bytes(b'x' * wrong_size, pin)\n            for wrong_digest in (PRIOR_PAYLOAD_SHA, '85b05c564fd3545c6b6e16fb64ed2aef8893226e32048309f1b71f97a5db4b6c', 'e400078166394d0f8ea44b601e9ba2948992c4f263c5c7ee5fb3942433c143d0', FUTURE_PAYLOAD_SHA):\n                digest = mock.Mock(return_value=types.SimpleNamespace(hexdigest=lambda: wrong_digest))\n                recipe.hashlib = types.SimpleNamespace(sha256=digest)\n                with self.subTest(digest=wrong_digest), self.assertRaisesRegex(ValueError, 'Copy or original differs'):\n                    recipe.checked_bytes(b'x' * 95368, pin)\n                digest.assert_called_once()\n            self.assertEqual(recipe.PINS, before)\n\n        def test_previous_source_names_and_stage_schema_source_drift_fail_before_execution(self):\n            wrapper = oracle.definitions('cleanup_root06.py')\n            wrapper.os = types.SimpleNamespace(open=mock.Mock(side_effect=AssertionError('Unknown source opened')))\n            for name in ('cleanup_remoteocd01.py', 'cleanup_remoteocd02.py', 'cleanup_remoteocd03.py', 'cleanup_remoteocd04.py', 'cleanup_root03.py', 'cleanup_root04.py', 'cleanup_root05.py'):\n                with self.subTest(name=name), self.assertRaisesRegex(ValueError, 'Unknown source basename'):\n                    wrapper.read_source(name)\n            wrapper.os.open.assert_not_called()\n            name = NEW + 'cleanup_root06.py'; current = checked(name)\n            # These are rejected SOURCE substitutions, not a new JSON schema predicate.\n            for before, after in (\n                    (b'cleanup-ordinary-app-root06', b'cleanup-app-const-root05'),\n                    (b'd211-authenticated-ordinary-cleanup-v1', b'd206-authenticated-const-cleanup-v1')):\n                self.assertEqual(current.count(before), 1)\n                wrong = current.replace(before, after); read = Path.read_bytes\n                def observed(path):\n                    return wrong if path == ROOT / name else read(path)\n                with mock.patch.object(Path, 'read_bytes', observed), self.assertRaisesRegex(AssertionError, 'Frozen input changed'):\n                    oracle.definitions('cleanup_root06.py')\n\n    return CurrentCopyRefusals\n",
       "count": 1,
       "before": {
-        "bytes": 20111,
-        "sha256": "355b8f568ffadfc969d2b29f0393a967cdcfbfc3ad8d27e23dc95558241f91b3"
+        "bytes": 20120,
+        "sha256": "9dc9ee2ea701f0e0424b756b9b9c8c336db2f478c1e52eb7d4b64e3947b23491"
       },
       "after": {
-        "bytes": 20238,
-        "sha256": "7ba7f12d8d8fd7c844b4fccc0177ae133f9315e7cfd9bff60a5b98b2a668607b"
+        "bytes": 20247,
+        "sha256": "18411b436c7a3eb2787d58ca65f797082d8459e2f95fcac0a36294ea50c10b6b"
       }
     }
   ],
@@ -965,15 +965,15 @@
     },
     {
       "old": "create\\nit exclusively, never overwrite it",
-      "new": "Create it\\nexclusively with no-clobber behavior; never overwrite a prior result",
+      "new": "Create the result exclusively with no-clobber behavior; never overwrite a\\nprior result.",
       "count": 1,
       "before": {
         "bytes": 7719,
         "sha256": "75b85f0f65e5d9a7b2eddaed519a089115b8d261e4d2026e5f98eecb63b8db63"
       },
       "after": {
-        "bytes": 7756,
-        "sha256": "a6e8e57b927378656fb7f16537dc8bdc8b0f915ab1e0e02fb4ef0198d2ed2b6f"
+        "bytes": 7765,
+        "sha256": "bdf776d4be7437ab5600e3b96a3e6cdb9cccd47d467784a9f1a6ab25c3c74871"
       }
     },
     {
@@ -981,12 +981,12 @@
       "new": "(95368, PAYLOAD_SHA",
       "count": 1,
       "before": {
-        "bytes": 7756,
-        "sha256": "a6e8e57b927378656fb7f16537dc8bdc8b0f915ab1e0e02fb4ef0198d2ed2b6f"
+        "bytes": 7765,
+        "sha256": "bdf776d4be7437ab5600e3b96a3e6cdb9cccd47d467784a9f1a6ab25c3c74871"
       },
       "after": {
-        "bytes": 7756,
-        "sha256": "941568a0708ef9027ca0175fa3c6b8c9e8bd65943f5164a8f4bd34c8d36e656b"
+        "bytes": 7765,
+        "sha256": "fc13f584a9c0caab8b4866b50a43a215df9e053acbfc21ad104b137a2670f3aa"
       }
     },
     {
@@ -994,12 +994,12 @@
       "new": "2399776",
       "count": 1,
       "before": {
-        "bytes": 7756,
-        "sha256": "941568a0708ef9027ca0175fa3c6b8c9e8bd65943f5164a8f4bd34c8d36e656b"
+        "bytes": 7765,
+        "sha256": "fc13f584a9c0caab8b4866b50a43a215df9e053acbfc21ad104b137a2670f3aa"
       },
       "after": {
-        "bytes": 7756,
-        "sha256": "31c8b7eb8980126123471378a6e181db7c213763ff2dc2f9ab90a540a4004d0e"
+        "bytes": 7765,
+        "sha256": "20ebc47e276f07fdb12f9f800b7c9900a264596ea7840bae070de8a81bb28c63"
       }
     },
     {
@@ -1007,12 +1007,12 @@
       "new": "'app_motor_fault.ino.bin-zsk.bin', 'flash_sketch.cfg'",
       "count": 1,
       "before": {
-        "bytes": 7756,
-        "sha256": "31c8b7eb8980126123471378a6e181db7c213763ff2dc2f9ab90a540a4004d0e"
+        "bytes": 7765,
+        "sha256": "20ebc47e276f07fdb12f9f800b7c9900a264596ea7840bae070de8a81bb28c63"
       },
       "after": {
-        "bytes": 7760,
-        "sha256": "a5aa487e8ab8c8e055a89e26e5c1089601ba50c055ab111d60d8c89bf98693cd"
+        "bytes": 7769,
+        "sha256": "0d2c0dcdc379a014fc7652f813f910856283b634a5de37e8bcfa51e906933f87"
       }
     },
     {
@@ -1020,12 +1020,12 @@
       "new": "(b'x' * 95328, b'x' * 95368, b'x' * 95369)",
       "count": 1,
       "before": {
-        "bytes": 7760,
-        "sha256": "a5aa487e8ab8c8e055a89e26e5c1089601ba50c055ab111d60d8c89bf98693cd"
+        "bytes": 7769,
+        "sha256": "0d2c0dcdc379a014fc7652f813f910856283b634a5de37e8bcfa51e906933f87"
       },
       "after": {
-        "bytes": 7760,
-        "sha256": "39c7a94ce205add112e93bede44232bc2aa41a6e2f00ffecfc9c68a0ddb0d3be"
+        "bytes": 7769,
+        "sha256": "cc0a1f9e7db0ff6137c2bd63a3b43f0f29691d43fe9a926fb6fcc95d9c16a8ac"
       }
     },
     {
@@ -1033,12 +1033,12 @@
       "new": "deb40317e5c444af26e65da4b6f1d0e577d9897d59dbddff3bce03a7bc14335c",
       "count": 1,
       "before": {
-        "bytes": 7760,
-        "sha256": "39c7a94ce205add112e93bede44232bc2aa41a6e2f00ffecfc9c68a0ddb0d3be"
+        "bytes": 7769,
+        "sha256": "cc0a1f9e7db0ff6137c2bd63a3b43f0f29691d43fe9a926fb6fcc95d9c16a8ac"
       },
       "after": {
-        "bytes": 7760,
-        "sha256": "256bed4b1c57964075fc5ec5cdb79e69913f14d06c68eb8d6951bb81e09b571e"
+        "bytes": 7769,
+        "sha256": "eff4b30e969bbd1906e3ab00014b7fcf1ea47bc2a63b5ba868433e073a1c1e6f"
       }
     },
     {
@@ -1046,12 +1046,12 @@
       "new": "recipe.checked_bytes(b'x' * 95368, pin)",
       "count": 1,
       "before": {
-        "bytes": 7760,
-        "sha256": "256bed4b1c57964075fc5ec5cdb79e69913f14d06c68eb8d6951bb81e09b571e"
+        "bytes": 7769,
+        "sha256": "eff4b30e969bbd1906e3ab00014b7fcf1ea47bc2a63b5ba868433e073a1c1e6f"
       },
       "after": {
-        "bytes": 7760,
-        "sha256": "7a739e244b0ab28098d365ff57ed73867550689bf4c6190182be809cbdc9f0e7"
+        "bytes": 7769,
+        "sha256": "f09168af3a2463ff35a331f524e7c4fe9560ba52269f5dccff19369cdde48596"
       }
     },
     {
@@ -1059,12 +1059,12 @@
       "new": "(1452, 1732)",
       "count": 1,
       "before": {
-        "bytes": 7760,
-        "sha256": "7a739e244b0ab28098d365ff57ed73867550689bf4c6190182be809cbdc9f0e7"
+        "bytes": 7769,
+        "sha256": "f09168af3a2463ff35a331f524e7c4fe9560ba52269f5dccff19369cdde48596"
       },
       "after": {
-        "bytes": 7763,
-        "sha256": "4e709efd3ca8eb465051d039e3632f932c12ba9040ba3d7333b1f761d8cf6092"
+        "bytes": 7772,
+        "sha256": "8f7876d5af9e39b85328a1f67fa0834a34468f9eb537fdaf8dd7e61a76d268b4"
       }
     },
     {
@@ -1072,12 +1072,12 @@
       "new": "if inode == 1452 else",
       "count": 1,
       "before": {
-        "bytes": 7763,
-        "sha256": "4e709efd3ca8eb465051d039e3632f932c12ba9040ba3d7333b1f761d8cf6092"
+        "bytes": 7772,
+        "sha256": "8f7876d5af9e39b85328a1f67fa0834a34468f9eb537fdaf8dd7e61a76d268b4"
       },
       "after": {
-        "bytes": 7765,
-        "sha256": "592d0403baeb48389cf6bf2d8acb8200d71e6ce0fcb07a60fe5d6f29d40e0adc"
+        "bytes": 7774,
+        "sha256": "5ac8085ae0caf979ee629422e04bfacccd1e34b03eb102d562fd5d07cb10616a"
       }
     },
     {
@@ -1085,12 +1085,12 @@
       "new": "int(inode == 1732)",
       "count": 1,
       "before": {
-        "bytes": 7765,
-        "sha256": "592d0403baeb48389cf6bf2d8acb8200d71e6ce0fcb07a60fe5d6f29d40e0adc"
+        "bytes": 7774,
+        "sha256": "5ac8085ae0caf979ee629422e04bfacccd1e34b03eb102d562fd5d07cb10616a"
       },
       "after": {
-        "bytes": 7766,
-        "sha256": "b643d438eaf12c09ce5c0429c36109ccace42ae924b85d6fdf5b3651528e1eb9"
+        "bytes": 7775,
+        "sha256": "5cb448cf77fc514352e2d47645af26492010232efb2605322f1bd060a2b0b97a"
       }
     },
     {
@@ -1098,12 +1098,12 @@
       "new": "self.directory_fixture(recipe, 1732)",
       "count": 1,
       "before": {
-        "bytes": 7766,
-        "sha256": "b643d438eaf12c09ce5c0429c36109ccace42ae924b85d6fdf5b3651528e1eb9"
+        "bytes": 7775,
+        "sha256": "5cb448cf77fc514352e2d47645af26492010232efb2605322f1bd060a2b0b97a"
       },
       "after": {
-        "bytes": 7767,
-        "sha256": "298abfe84245e29636ec70e6491c5fa864ccf4e42df17caf33ea42a12ee92c7c"
+        "bytes": 7776,
+        "sha256": "211dafcedf5931ff9d049fde98ced640ef80e7a8b9ba30410580129f04dcf926"
       }
     },
     {
@@ -1111,18 +1111,18 @@
       "new": "'app-motor-fault-static01'",
       "count": 1,
       "before": {
-        "bytes": 7767,
-        "sha256": "298abfe84245e29636ec70e6491c5fa864ccf4e42df17caf33ea42a12ee92c7c"
+        "bytes": 7776,
+        "sha256": "211dafcedf5931ff9d049fde98ced640ef80e7a8b9ba30410580129f04dcf926"
       },
       "after": {
-        "bytes": 7771,
-        "sha256": "f08fb553ab4392e47cab4116e8bb6734f3f479b1a2f706a69ce1a8e30f851176"
+        "bytes": 7780,
+        "sha256": "fda41353033a2b6e0f35fa3dbd1b6a8e68d17b88cce04703dc5ab4922349d7a6"
       }
     }
   ],
   "metadata_projected": {
-    "bytes": 14482,
-    "sha256": "b09cfb82030c6ddedaf3b980db0ac348b99df0a178823ebadee054531d5ca411"
+    "bytes": 14491,
+    "sha256": "e7124269fd7ac0e329ecb4dd90d6c15403df43505b3317073776f3e87ff2cfc4"
   },
   "focused_delta_steps": [
     {
@@ -2012,8 +2012,8 @@
           "sha256": "d58fe79822323a33f945472eb37f42eef1768b014ebe89887d893b1245d8309e"
         },
         "projected": {
-          "bytes": 993,
-          "sha256": "0dcf445b9bbf67a087d1be21a5a54cef4bdcec6f8f5c21d434612753e6ceee74"
+          "bytes": 1002,
+          "sha256": "0cc0e1cce8bfb584948b13585ce396c5946e8ad1ab1fe141d90cef2464be9c01"
         },
         "assertion_calls": 7
       },
@@ -2761,5 +2761,37 @@
       "tests_executed": 0,
       "new_subject_reads": 0
     }
-  ]
+  ],
+  "revision02": {
+    "preserved_head": "23079c01a5a6528a44ecbecf889b827730252f29",
+    "adjudication": "Root and independent fresh_review confirmed the sole Linux failure is an inherited D206 prose expectation inconsistent with the adopted D211 contract. Exact full expected string only; assertIn and all52 methods/assertions/control flow retained. No subject/contract changes.",
+    "old_oracle": {
+      "bytes": 9719,
+      "sha256": "2f95c3c9fbb5d89160eb7a67b3dfa6a3b1a71007155ee1363364b7b9a8f68093"
+    },
+    "old_fixture": {
+      "bytes": 168830,
+      "sha256": "b2b1c0bfa2103b55808974a03024b7e61b764000c47e53b409cb437f93048663"
+    },
+    "old_freeze": {
+      "bytes": 53682,
+      "sha256": "8050044eed07de89a477d2edd3843f1488d61f389ea2f1a7475bbea1ef1e7744"
+    },
+    "failure_stderr": {
+      "path": "state/analysis/P7_ordinary_app_cleanup_raw/cleanup_first_linux01/stderr",
+      "bytes": 27239,
+      "sha256": "ef7159acab7d0915e08e03758d072041ad93d584e04ddbb5cdb3169fb664ab63"
+    },
+    "failure_result": {
+      "path": "state/analysis/P7_ordinary_app_cleanup_raw/cleanup_first_linux01/result.json",
+      "bytes": 849,
+      "sha256": "93ab6f86510b0b628a5790b382f6278dfc4b62711cef6c11e417e71addeb7a77"
+    },
+    "original_run": "52 Linux cases; 51 pass and one fixture prose failure; all66 coordinator pins stable. No Windows/native action.",
+    "old_expected_string": "Create it\nexclusively with no-clobber behavior; never overwrite a prior result",
+    "new_expected_string": "Create the result exclusively with no-clobber behavior; never overwrite a\nprior result.",
+    "changes": "One metadata_class_steps replacement target and corresponding DELTA_CHANGES literal; only consequential projected-body/intermediate/fixture/oracle/freeze identities and this adjudication record.",
+    "subject_reads_or_hashes": 0,
+    "author_test_invocations": 0
+  }
 }

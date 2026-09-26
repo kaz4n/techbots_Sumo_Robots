@@ -1,0 +1,26 @@
+{
+  "schema": "d211-corrected-host-driver-v1",
+  "at": "2026-09-26T18:05:05.786165+04:00",
+  "original": {
+    "bytes": 3509,
+    "sha256": "aa2a3250ecca315661a1ba87543eb43c23749cc180434a6dcdb4d7cd97890b6b"
+  },
+  "steps": [
+    {
+      "old": "FREEZE = RAW / 'cleanup_coordinator_freeze01.json'",
+      "new": "FREEZE = RAW / 'cleanup_coordinator_freeze02.json'",
+      "count": 1
+    },
+    {
+      "old": "owner = RAW / ('cleanup_first_' + platform + '01')",
+      "new": "owner = RAW / ('cleanup_first_' + platform + '02')",
+      "count": 1
+    }
+  ],
+  "subject": {
+    "bytes": 3509,
+    "sha256": "ae299f601e917cd438f24065da490681a89babe31947ac3788cdcba9ad3f0c22"
+  },
+  "preserved_first_failure": "cleanup_first_failure01.json",
+  "limits_unchanged": true
+}

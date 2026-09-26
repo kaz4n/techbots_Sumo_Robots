@@ -29,3 +29,6 @@ No firmware operation, motor permission, physical measurement or gate follows.
 
 ## First host failure (2026-09-26T18:00:25.205280+04:00)
 First Linux completed52cases:51PASS/1FAIL, no skips, inner1.995s/outer12.223s. All66 coordinator inputs stayed exact. MetadataContract.test_fresh_stage_dependencies_and_old_basename_refusal expected the prior exact contract phrase, which differs from the adopted D211 sentence. Raw stderr ef7159ac, all first receipts and original oracle/fixture/freezes are preserved before independent adjudication. Windows and all native staging/authentication have not run. No production or cleanup subject changed.
+
+## Corrected host closure (2026-09-26T18:10:04.386538+04:00)
+Independent adjudication confirmed exactly one full no-clobber/no-overwrite contract sentence mismatch. Oracle8b814c6a/fixture1a98b307/freezee770256f preserve all52 methods and230 assertion calls; no subject or contract change. Fresh driver02ae299f60/freeze02429c409e bound69inputs. Linux02 passes52/0skips; Windows02 passes15/37 namedLinux-coveredskips, empty scopedtemp. Raw closure and FINAL source/hostreviewf033655e accepted. Earlier failed Linux01 remains preserved at23079c01. No native stage/authentication yet.

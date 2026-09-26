@@ -168,9 +168,9 @@ immediately followed by SUMOX_SIZE bool; its ALIGN uses observed unsigned int.
 Retain fsm::PreviousTick and every existing Runner window, including the live
 previous window. This ABI task does not choose a later capture window set.
 
-settle_expressions() returns a fresh exact list of68 strings, in the order
+settle_expressions() returns a fresh exact list of62 strings, in the order
 below. Append them after all inherited Runner OFFSET queries. There are
-229 total GDB expressions: original143 + three subjects18 + extra68.
+223 total GDB expressions: original143 + three subjects18 + extra62.
 No expression calls a function, dereferences target memory or connects to an
 inferior. Only file type/symbol information and null-based member expressions
 are used; no member-expression alignof is introduced.
@@ -215,12 +215,20 @@ Then for each enum row emit `echo SUMOX_REASON <name>\n` followed by
 | FINAL_DEADLINE | 7 |
 | POLL_LIMIT | 8 |
 
-Finally emit `echo SUMOX_VALID <name>\n` and
-`p/d (unsigned int)motors::<name>` for SETTLE_ELAPSED_VALID=1,
-SETTLE_POLL_VALID=2, SETTLE_FRESH_VALID=4, in that order. Numeric answers must
-be observed, not supplied from these expected-value tables. Missing optimized
-debug information or GDB errors fail with raw evidence retained; do not
-suppress stderr or silently replace an unsupported query with its expectation.
+Numeric field and enum answers must be observed, not supplied from these
+expected-value tables. Missing optimized debug information or GDB errors fail
+with raw evidence retained; do not suppress stderr or silently replace an
+unsupported query with its expectation.
+
+Do not query the unused inline constexpr SETTLE_ELAPSED_VALID,
+SETTLE_POLL_VALID or SETTLE_FRESH_VALID objects. The pinned D197 header defines
+their source semantics as1,2,4 respectively, with allowed mask7; these are not
+target-observed ABI values and do not appear in the ABI summary. The actual
+D197 implementation does not reference those named constants, so the D198
+-g/-Os build does not guarantee their debug visibility. Their absence has not
+been observed or asserted. This restriction was agreed before implementation
+or native ABI execution, not as a fallback after a failed target query. The
+actual Sample.valid field's offset10 and width1 remain required observations.
 
 ## Pure additional summary and separate global object
 
@@ -236,8 +244,8 @@ The execution lifecycle, not this pure wrapper, retains full command/stream
 accounting and returncode/stderr/finalization checks.
 
 Require target-observed Sample size12/alignment4, Report size28/alignment4,
-Reason size1/alignment1, all eleven field offsets/widths, all nine enum values,
-and all three validity values exactly as above. Use unique numeric tagged
+Reason size1/alignment1, all eleven field offsets/widths and all nine enum
+values exactly as above. Use unique numeric tagged
 answers, with the complete new marker sequence in exact query order. Reject
 missing, extra, duplicate, reordered or malformed new tags, negative or
 noninteger values, and mismatches. Preserve all ptype blocks in raw output for
@@ -269,8 +277,7 @@ Return all saved-summary fields plus exactly one new key, settle_probe:
   symbol: <observed complete name>, address: <observed integer>,
   bytes: 28, alignment: 4, section: <observed integer>,
   fields: {<T.M>: {offset: <observed integer>, bytes: <observed integer>}, ...},
-  reasons: {<enum name>: <observed integer>, ...},
-  valid_bits: {<SETTLE_*_VALID name>: <observed integer>, ...}
+  reasons: {<enum name>: <observed integer>, ...}
 }
 ```
 
@@ -324,7 +331,7 @@ window parsing and real prepare/execute/closure assertions. Replace neither
 production lifecycle methods nor failures with success-only mocks. Add new
 tests for the exact14-step projected identity, original-first private
 composition, all-input checks before private execution, new SELF/pins/owners,
-four commands/23 subjects/229 expressions, exact field/reason/valid tags,
+four commands/23 subjects/223 expressions, exact field/reason tags,
 polls contiguity, observed separate object and decimal/hex size forms.
 Exercise wrong/duplicate/missing binding/kind/name/section, size/alignment,
 zero-BSS edge cases and Runner overlap, every numeric mismatch, raw/layout

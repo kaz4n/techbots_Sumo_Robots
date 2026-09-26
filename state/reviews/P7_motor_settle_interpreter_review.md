@@ -1,5 +1,11 @@
 # D201 offline interpreter fresh-context review
 
+Final status: PASS for corrected source and host interpretation preparation;
+all three implementation findings and the one fixture portability finding are
+resolved by the bounded changes and receipts recorded below. No open material
+finding. Original findings, source/oracle identities and first failures remain
+preserved. This PASS does not establish a native capture or decoded board result.
+
 2026-09-26. Reviewer owns this review only. Initial status: BLOCKED on two
 implementation findings. No subject, test, transport or device execution was
 performed by the reviewer. Initial source is 31143 bytes, SHA256
@@ -105,3 +111,112 @@ The reviewer independently verified all ten oracle input pins and all thirteen
 coordinator input pins against current files. Original source and oracle bytes
 were preserved before any correction. Serial first execution/results and
 subsequent bounded fixes are coordinator-owned and remain to be reviewed.
+
+## First host results and adjudication
+
+Original source, oracle and all first receipts were preserved in Git before
+repair (source1df96c20, oracleacba66de, resultsb69cc011). First Linux and Windows
+each ran66 methods, no skips, with17 failure records across seven methods.
+Ten records are failed prefix subtests plus their outer coverage-count failure;
+the remaining six are separate failed methods. Result hashes are
+a3c677c6db95452f2f74be5ba2b81595fe3ab5bba026601055b26045a8700ea5
+(Linux671 bytes) and
+19c06d895f610075840675eb00bc854e886d57ff0f3ced00890e100c2f27fed1
+(Windows594 bytes). Both report unchanged input closures. Reviewer checked
+saved stdout/stderr hashes and inspected first failure text; no tests were
+executed by this reviewer.
+
+The failures confirm the two initial findings. The reversed after-flash
+boundaries explain all ten prefix subtests and their outer count, complete
+status, explicit flash-boundary and failed-hash-retention failures. Count
+member bool classification confirms the second finding. Two additional
+adjudications follow:
+
+3. BLOCKER, implementation: read-row field type violations currently produce
+   READ_PLAN. The adopted receipt type phase requires TYPE for wrong exact
+   Python types, including bool address/bytes and nonstring name/hash. Reserve
+   READ_PLAN for correctly typed fixed-plan/key/linkage disagreement. Repair
+   the type classification/order without admitting malformed data or changing
+   the frozen assertions.
+4. Fixture portability defect: the oracle assumed a2000-level array always
+   raises the standard JSON parser's RecursionError. The coordinator's isolated
+   Python3.13.11 standard-library probe confirms that valid JSON parses as a
+   list despite sys.getrecursionlimit()==1000. The contract declares no numeric
+   depth cutoff; JSON means a parser failure. The source correctly rejects
+   that parsed list as packet/KEYS. Do not add an arbitrary depth limit or
+   change the contract to fit the fixture. Keep rejection of the same deep
+   input, selecting KEYS if an independent standard-library parse succeeds
+   and JSON if it raises RecursionError. Add controlled RecursionError
+   injection at the packet parse, preserving the normal map parse, to prove
+   the required stable packet/JSON classification independently of platform
+   parser depth. This is a bounded fixture repair, not weakened acceptance.
+
+The earlier static statement that no fixture defect was identified is retained
+as the result of that initial inspection; this first-run evidence exposes the
+specific portability assumption. These four causes account for all17 first
+failure records. Final PASS requires separately frozen bounded corrections and
+new serial receipts; all original failures remain evidence.
+
+## Corrected-source closure
+
+Correction commit82a24b14 preserves contract6007ec4e, field map0faba243 and all
+firmware/native source bytes. Corrected interpreter31266 bytes has SHA256
+ea43a42f582f6e8bf2dfa4e2090efb03313f3333036cc1a3159d72295f680c88.
+The reviewer inspected the exact Git diff from original1df96c20 and the repair
+receipt7384 bytes / baa0aacba7a4d8d12878db6ee9eebf532820b88ba81960e404f0ef7f2e56eb71:
+
+- Finding1 resolved: the existing ordered flag keys now bind boundaries
+  (4,6,25,20), matching before_loader, before_sketch, after_loader,
+  after_sketch. Both original boundary predicates remain unchanged.
+- Finding2 resolved: exact-int count member checks execute at the start of
+  the late COUNTS phase, before comparisons/arithmetic. Named counts-object
+  TYPE/KEYS checks remain. No malformed count is admitted.
+- Finding3 resolved: a small read-row type helper preserves the existing
+  exact key check and applies capture/TYPE at the receipt type phase. Later
+  fixed-plan checks retain READ_PLAN for correctly typed name/address/extent,
+  hash and basename disagreement. No read, file or partial-prefix rule changes.
+
+The source diff contains only these three bounded repairs. No accepted schema,
+native status, caller guard, timing limit, output ownership or firmware branch
+was changed. No parser depth cutoff was added to production.
+
+Corrected independent oracle67442 bytes has SHA256
+1800b0cd3772e06020bff45d0637ea8a9c8f70ab7a6624a81f6a05af30fdde66.
+Portability receipt5794 bytes /
+883bdf33acb61412a0963417b98786374fb4010cdb65c9e6a086559322ba0006
+records the isolated fixture repair. The reviewer compared its exact diff
+against oracleacba66de: one existing method keeps the same2000-array input and
+all its other strict-JSON assertions, but derives the expected parser-failure
+versus parsed-list category from standalone json.loads. One new method injects
+RecursionError only for a dedicated packet value, delegates the map parse to
+the captured original parser, asserts packet/JSON and exactly one injection.
+All other original test methods and assertions remain unchanged. The corrected
+suite has67 methods, with no subject-derived expected values or relaxed packet
+acceptance. Finding4 is resolved as fixture portability, not a firmware fix.
+
+Coordinator freeze02 is3375 bytes /
+817ab4abe570f1fe97970917330022ca0b2491756a021b0c93ccbecfb8bce6a3.
+It retains the original closure with only the authorized source/oracle updates
+and adds the original freeze and two correction receipts, for sixteen pins.
+The reviewer independently hashed all sixteen current inputs; all match.
+
+| Corrected first receipt under P7_motor_settle_run_raw | Actual result | Result SHA256 |
+|---|---|---|
+| second_interpreter_linux01/result.json | 67 PASS, no skips, exit0 | 5e583f780aeaec50fc11104b0e55c253b9842699762d107fb8940a081805d535 |
+| second_interpreter_windows01/result.json | 67 PASS, no skips, exit0 | c63f7854dcba425110f8ce9916cf515fa4d7f945543afbf814883284a8ad248a |
+
+Both commands use Python-I-B and360-second host bounds; Linux uses
+TMPDIR=/dev/shm. Linux started07:31:58.689682UTC and Windows started
+07:32:09.647305UTC after Linux completion. Unittest times are2.033 and2.165
+seconds. Neither invocation timed out or changed a frozen input. Exact stderr
+hashes areca81fbea096e6febaa7e88df316ce8e0505290af8d42b2ebd892c07165669ea5
+and771100c575e9569e2f7e08dcf44bdeab5994f71b292731e7c44be70bfebe7943.
+The reviewer verified saved stdout/stderr bytes against the receipts. All
+fifty-three partial-prefix cases, branch/field checks, original failure cases
+and the new parser-error injection now pass on both platforms.
+
+This final PASS closes offline source/host preparation only. A future saved
+packet still requires its independently observed explicit hash, original raw
+receipt preservation and separate actual-byte review. DECODED is format status,
+PARTIAL preserves a failed capture, and semantic CONSISTENT does not establish
+atomicity or measured success. No native failure can be upgraded by this parser.

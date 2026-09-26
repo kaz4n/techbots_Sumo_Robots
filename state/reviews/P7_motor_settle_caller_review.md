@@ -1,8 +1,8 @@
 # D201 caller/actions fresh-context review
 
-26 September 2026, Asia/Dubai. Source inspection complete with no open material
-finding. Host review pending the coordinator's first caller results. This is
-not yet a final caller PASS or approval of a final scope. Reviewer
+26 September 2026, Asia/Dubai. PASS for source, host preparation and the concrete
+preparation binding below; no open material finding. This is not approval of
+an unprovided final scope. Reviewer
 `/root/settle_run_review` used local source, contract, oracle and saved receipt
 reads plus static/data comparisons only; no subject import, test execution or
 device/native action was performed.
@@ -85,7 +85,66 @@ and found no mismatch. Original assertions and failures remain preserved.
 
 The action invocations use Python-I-B, Linux TMPDIR=/dev/shm, and report no
 changed input. All five Windows-skipped descriptor cases passed on Linux.
-Caller receipts will be appended after the coordinator's serial runs finish.
+The first caller runs subsequently completed, with no failure or repair:
+
+| First receipt under P7_motor_settle_run_raw | Observed result | Result SHA256 |
+|---|---|---|
+| first_run_linux01/result.json | 27 PASS, no skips, exit0 | 266d7bfdbf95099ea3675f9d223efce0bf4da93045d69d8801cf76a0fd8ba317 |
+| first_run_windows01/result.json | 7 PASS,20 explicit Linux skips,27 discovered, exit0 | a2f8f9871c763b96d2cb2ba3dd6155293c9ca6b723b58f372f210df7dcafd527 |
+
+Caller stderr hashes are14436f6f3986675159885f6ec8ebd21657ca1415ab99353f0fe5e0cb043151f4
+and397badc3a952f8975d0e3adc46f7d6f364f03e0001c3c000b456bb25627872b3.
+Linux unittest time284.953 seconds remains within the driver's360-second
+host bound; Windows skips the unchanged twenty Linux-descriptor caller cases,
+all covered by Linux. The reviewer verified stdout/stderr bytes against all
+six first native-host receipts; every invocation reports no changed input.
+Combined with the separately reviewed remote adapter, native tooling totals
+99 Linux passes and56 Windows passes with43 explicit covered Linux skips.
+
+## Fresh read-only admission and prepared binding
+
+The coordinator's separately owned admission02 has one saved read-only
+invocation, result512 bytes / 56fe583ea4c4352177f88c7c37d4dcdb90ea1c285483f74aef0310da6849a185,
+stdout12690 bytes / 1de33f851639ca1b30cf119809408d61968b1ffb4832b4c1cdfe48fc79860bea,
+exit0 and empty stderr. Program23871 bytes /
+fecc2ba16719a287077fe009fa0ef8b586a6a4214240d6cac54a3467aa16fd33 and
+intent33571 bytes / e9a304ff57b58f4da77ad731d4c976e3b8de7a3b9d7500958f978e1ab0e81d47
+were reviewed by local reads only. The reviewer extracted the exact program
+from the saved argv, checked its equality to the saved source, independently
+counted26130 UTF16 command units including NUL against30000, and inspected its
+derivation from the preserved D195 admission. The only nonmetadata predicate
+addition binds the retrieved D200 result to its exact6370-byte/05507941 hash
+before JSON parsing. The other changes select the current three pinned cleanup
+sources, current artifact pairs, retained root04 result and fresh D201 owners.
+
+The compressed payload contains three exact length/hash checked source bodies.
+Only helper and recipe definitions are privately loaded; no cleanup/wrapper
+main is called. The program opens a read-only no-follow root descriptor,
+checks full current Arduino identity at both ends, reads the pinned cleanup
+receipt, staged sources and three retained originals, hashes nineteen current
+artifact/tool/config files, checks /tmp/remoteocd and all three future owners
+absent, refuses recognized process conflicts, requires1GiB root space and
+closes its descriptor in finally. Signal55 seconds and host70 seconds bound
+the observation. No authentication, write, process change, upload or MCU read
+is present.
+
+Observed nineteen file pins equal intent exactly. The saved cleanup body is
+byte-identical to the accepted local D200 result. Absences and same boot
+55c386b9-fe6d-4388-a7f4-1d91e0bb49d8 match; conflicts is empty. Reported free
+root bytes13937221632, RAM3188633600 and tmp1924096000 are observations, not a
+new persistent guarantee. This observer does not repeat every file/process
+check at closure, perform a protected descriptor-use scan or prove future
+absence. The actual caller must retain its own fresh checks.
+
+Prepared binding preparation.json10008 bytes /
+c37e9a78b10e08c4e90f2f47245a856ca8e2eee6d1027d96e766c7029b010084
+has the exact five keys and twelve fixed provenance roles. The reviewer
+independently hashed all twelve current files and reconstructed both expected
+bindings from the unchanged static upload/capture baselines plus the exact
+D201 metadata; both match without importing the subject. The raw/package,
+installed dependencies, loader image, excluded overrides and current boot
+remain fixed. This reviews the concrete preparation only; it does not replace
+the still-separate final scope, clean HEAD or native caller admission.
 
 ## Evidence boundary
 

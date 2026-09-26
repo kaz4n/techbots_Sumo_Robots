@@ -1420,3 +1420,6 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-26T11:06:57.253762+04:00 | P7 D199 actual entry PASS | Atclean5adbd784 check0/execute0,1transport4children0/emptyerrors,13remote+localclosingPASS. Raw10d8a184/entry8332f797/localec4c45e9;29ranges31aliases3038filebytes/initpointer08100105 observed. Review20f54afaPASS verifies reportstores/firstfailureguard/all8SETTLEoutcomes150us4096 andselectedinertentryRunnerbehavior. Ownerconsumed; no MCUoperation. D201capturepreparation next; D195stillflashed.
+
+
+2026-09-26T11:33:04.379067+04:00 | P7 D201 host preparation verified | Exact native derivatives pass 99 Linux methods and 56 Windows methods with 43 explicit Linux-only skips covered on Linux. First decoder failures preserved b69cc011; three implementation fixes and one portable fixture correction in 82a24b14 pass 67 Linux/67 Windows methods, no skips, all16 revised pins stable. Read-only admission02 passed current board/boot,19files/exact D200 result/4absences. Fixed scope reviewed; final decoder review and clean-HEAD check-only precede one inhibited upload/capture. D195 remains flashed; no physical gate or motor authorization.

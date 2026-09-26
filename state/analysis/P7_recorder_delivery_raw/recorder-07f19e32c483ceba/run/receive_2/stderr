@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "<string>", line 382, in <module>
+    _receiver(int(sys.argv[1]), sys.argv[2], sys.argv[3], sys.argv[4])
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 379, in _receiver
+    raise failure
+  File "<string>", line 355, in _receiver
+    _receive(sock, claim["deadline_monotonic_ns"], evidence)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 319, in _receive
+    chunk = sock.recv(min(65536, limit - evidence["total"] + 1))
+TimeoutError: timed out

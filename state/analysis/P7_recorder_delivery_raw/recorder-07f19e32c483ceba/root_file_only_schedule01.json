@@ -1,0 +1,16 @@
+{
+  "schema": "D233-file-only-scheduling-decision-v1",
+  "utc": "2026-09-26T21:27:58.917945+00:00",
+  "authority": "D051 and user request to finish quickly",
+  "decision": "Offline ELF/readelf/GDB queries on the closed compile artifacts may overlap the bounded TCP receiver. Supersedes only the derivative contract file-only after-run scheduling restriction.",
+  "compile_closed": true,
+  "compile_result_sha256": "aac76518e1900667cf4319e14422ace824ef58e6d719726db3e250d2f9ef387a",
+  "file_only_actions": [
+    "read closed compile artifacts",
+    "offline readelf",
+    "offline gdb"
+  ],
+  "no_mcu_uart_openocd_cleanup_build_upload": true,
+  "passive_mcu_capture_requires_run_receiver_closure": true,
+  "physical_or_motor_grant": false
+}

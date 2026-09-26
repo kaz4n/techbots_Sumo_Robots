@@ -1628,3 +1628,5 @@ matrix is admitted conditionally, not yet executed. Firmware unchanged. | pendin
 | 2026-09-27T02:20:29.501559+04:00 | P7 connected-board software | D238 actual passive result / D239 fresh identified validation | D238COLLECTED204.585s26reads639504B,65equalfields/nativeOK/SENT_UNCONFIRMED; D237deliverystillFAILED missing60B BEGIN; D239preparation | commit containing this row |
 
 | 2026-09-27T02:26:46.838224+04:00 | P7 connected-board software | D239 previous-upload cleanup and fresh compile | CleanupPASS2359784B/result30b958cb; serialsame-six-sourcefreshsessioncompile69910active; no uploadyet | commit containing this row |
+
+| 2026-09-27T02:39:05.514234+04:00 | P7 connected-board software | D239 full identified synthetic recorder delivery | DELIVERED/FULL_SYNTHETIC_PASS375.741s;607508B,5001frames/8events,correctBEGIN/session/CRC,SEALED/no reportedloss,allclosingerrors empty; actualreviewpending | commit containing this row |

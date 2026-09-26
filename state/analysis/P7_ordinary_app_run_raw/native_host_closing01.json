@@ -1,0 +1,993 @@
+{
+  "all_current_pins_match": true,
+  "context": "Same-model reused-context reviewer; independent of native implementation/oracle authors. Receipt/data closure only, not target evidence.",
+  "coordinator": {
+    "bytes": 58246,
+    "path": "state/analysis/P7_ordinary_app_run_raw/native_coordinator_freeze02.json",
+    "sha256": "7ef6cd290b97581a16fc41ba71c5ce9797ab855d6950da9490532f65249b97ab"
+  },
+  "coordinator_unchanged": true,
+  "created_utc": "2026-09-26T14:43:03.122494+00:00",
+  "current_input_count": 344,
+  "driver": {
+    "bytes": 3688,
+    "path": "state/analysis/P7_ordinary_app_run_raw/host_driver02.py",
+    "sha256": "758ac4e15f8b7dda2458cd43c122fb0683ea1b97209bd77b9390729d6b58edda"
+  },
+  "fixture": {
+    "bytes": 194972,
+    "path": "state/analysis/P7_ordinary_app_run_raw/native_fixture_derivation01.json",
+    "sha256": "8cfd7f553c4e17334a899c575d2b4935cbcfd69c332b43c7fe0a84bfc1f95372"
+  },
+  "independent_freeze": {
+    "bytes": 89811,
+    "path": "state/analysis/P7_ordinary_app_run_raw/native_independent_freeze01.json",
+    "sha256": "f0238fde982c1f2f35dec11f8f3d4316cee85471a3303cca13973886df3df786"
+  },
+  "limits": "Only six corrected native host suites and their frozen inputs are accepted here. Decoder host status, board admission, upload/capture and runtime/physical/WCET/coherence acceptance are separate. No tests were run by this reviewer; the sole subprocess was the saved read-only local WSL directory listing.",
+  "linux_remnant_check": {
+    "argv": [
+      "wsl",
+      "-d",
+      "Ubuntu",
+      "--",
+      "/usr/bin/python3",
+      "-I",
+      "-B",
+      "-c",
+      "import json,os\nprefixes=('sumox_d189_','sumox-d189-bootstrap-','sumox-d189-run-')\nrows=[]\nwith os.scandir('/dev/shm') as entries:\n for entry in entries:\n  if entry.name.startswith(prefixes):\n   s=entry.stat(follow_symlinks=False);rows.append({'name':entry.name,'dev':s.st_dev,'ino':s.st_ino,'uid':s.st_uid,'gid':s.st_gid,'mode':s.st_mode})\nprint(json.dumps({'schema':'d212-native-host-remnants-v1','uid':os.getuid(),'gid':os.getgid(),'root':'/dev/shm','prefixes':list(prefixes),'entries':sorted(rows,key=lambda x:x['name'])},sort_keys=True))\n"
+    ],
+    "outer_seconds": 8.650040699983947,
+    "parsed": {
+      "entries": [],
+      "gid": 1000,
+      "prefixes": [
+        "sumox_d189_",
+        "sumox-d189-bootstrap-",
+        "sumox-d189-run-"
+      ],
+      "root": "/dev/shm",
+      "schema": "d212-native-host-remnants-v1",
+      "uid": 1000
+    },
+    "returncode": 0,
+    "started": "2026-09-26T18:42:54.468930+04:00",
+    "stderr": "",
+    "stderr_bytes": 0,
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stdout": "{\"entries\": [], \"gid\": 1000, \"prefixes\": [\"sumox_d189_\", \"sumox-d189-bootstrap-\", \"sumox-d189-run-\"], \"root\": \"/dev/shm\", \"schema\": \"d212-native-host-remnants-v1\", \"uid\": 1000}\n",
+    "stdout_bytes": 177,
+    "stdout_sha256": "db7be958a37aceab80fab29f1d4b3c98c9ba8252adc0953e447af1c7b0ff4efc",
+    "timeout_seconds": 30
+  },
+  "local_free_bytes": 7404572672,
+  "method_outcomes": [
+    {
+      "linux": "ok",
+      "method": "Contract.test_artifact_sizes_hashes_and_nested_shapes_cannot_be_rebound",
+      "suite": "remote",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "Contract.test_binding_shape_identity_and_all_native_paths_rejected",
+      "suite": "remote",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "Contract.test_both_binding_schemas_accept_only_fixed_identities_without_mutation",
+      "suite": "remote",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "Contract.test_dependencies_have_exact_bytes_fresh_private_modules_and_no_old_mutation",
+      "suite": "remote",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "Contract.test_dependency_shape_and_byte_types_fail_before_exec",
+      "suite": "remote",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "Contract.test_every_dependency_hash_is_checked_before_any_exec",
+      "suite": "remote",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "Contract.test_import_has_no_native_action_or_dependency_execution",
+      "suite": "remote",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "Contract.test_profile_exact_native_paths_source_static_command_and_absences",
+      "suite": "remote",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "Contract.test_profile_rejects_every_other_run_and_nonexact_string_type",
+      "suite": "remote",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "Contract.test_python_B_and_inherited_shadow_directory_constraints",
+      "suite": "remote",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "Contract.test_read_plan_exact_static_26_reads_727088_bytes",
+      "suite": "remote",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "Lifecycle.test_admission_rejects_changed_artifacts_symlinks_identity_and_processes",
+      "suite": "remote",
+      "windows": "skipped 'Linux descriptor contract'"
+    },
+    {
+      "linux": "ok",
+      "method": "Lifecycle.test_after_flash_mismatch_stops_at_first_complete_bad_image",
+      "suite": "remote",
+      "windows": "skipped 'Linux descriptor contract'"
+    },
+    {
+      "linux": "ok",
+      "method": "Lifecycle.test_before_flash_mismatch_never_reads_sram_or_sleeps",
+      "suite": "remote",
+      "windows": "skipped 'Linux descriptor contract'"
+    },
+    {
+      "linux": "ok",
+      "method": "Lifecycle.test_both_lifecycles_reject_binding_and_preexisting_owner_before_command",
+      "suite": "remote",
+      "windows": "skipped 'Linux descriptor contract'"
+    },
+    {
+      "linux": "ok",
+      "method": "Lifecycle.test_capture_all_reads_retained_flash_brackets_and_coherence_unproven",
+      "suite": "remote",
+      "windows": "skipped 'Linux descriptor contract'"
+    },
+    {
+      "linux": "ok",
+      "method": "Lifecycle.test_capture_deadline_caps_next_child_and_no_third_read",
+      "suite": "remote",
+      "windows": "skipped 'Linux descriptor contract'"
+    },
+    {
+      "linux": "ok",
+      "method": "Lifecycle.test_capture_replaced_owner_stops_and_keeps_original_directory_evidence",
+      "suite": "remote",
+      "windows": "skipped 'Linux descriptor contract'"
+    },
+    {
+      "linux": "ok",
+      "method": "Lifecycle.test_child_failure_and_malformed_result_do_not_retry",
+      "suite": "remote",
+      "windows": "skipped 'Linux descriptor contract'"
+    },
+    {
+      "linux": "ok",
+      "method": "Lifecycle.test_default_executors_preserve_environment_limits_timeout_and_kill_reap",
+      "suite": "remote",
+      "windows": "skipped 'Linux descriptor contract'"
+    },
+    {
+      "linux": "ok",
+      "method": "Lifecycle.test_final_pins_identity_and_original_error_all_survive_failure",
+      "suite": "remote",
+      "windows": "skipped 'Linux descriptor contract'"
+    },
+    {
+      "linux": "ok",
+      "method": "Lifecycle.test_missing_short_extra_and_symlink_reads_stop_immediately",
+      "suite": "remote",
+      "windows": "skipped 'Linux descriptor contract'"
+    },
+    {
+      "linux": "ok",
+      "method": "Lifecycle.test_one_mib_stream_cap_is_inherited",
+      "suite": "remote",
+      "windows": "skipped 'Linux descriptor contract'"
+    },
+    {
+      "linux": "ok",
+      "method": "Lifecycle.test_short_sample_gap_and_expired_gap_suppress_second_sample",
+      "suite": "remote",
+      "windows": "skipped 'Linux descriptor contract'"
+    },
+    {
+      "linux": "ok",
+      "method": "Lifecycle.test_upload_overall_deadline_failure_is_retained",
+      "suite": "remote",
+      "windows": "skipped 'Linux descriptor contract'"
+    },
+    {
+      "linux": "ok",
+      "method": "Lifecycle.test_upload_success_exact_one_shot_and_all_closing_pins",
+      "suite": "remote",
+      "windows": "skipped 'Linux descriptor contract'"
+    },
+    {
+      "linux": "ok",
+      "method": "WaitContract.test_baseline_and_only_authorized_function_changes",
+      "suite": "remote",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "WaitContract.test_complete_requires_all_original_evidence_and_valid_wait",
+      "suite": "remote",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "WaitContract.test_equal_or_insufficient_budget_refuses_before_record_or_sleep",
+      "suite": "remote",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "WaitContract.test_final_budget_oversleep_does_not_reset_origin",
+      "suite": "remote",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "WaitContract.test_final_close_exception_leaves_first_wait_error_in_written_result",
+      "suite": "remote",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "WaitContract.test_gather_exact_wait_positions_flash_brackets_and_complete",
+      "suite": "remote",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "WaitContract.test_gather_wait_failure_stops_after_seven_reads",
+      "suite": "remote",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "WaitContract.test_initial_wait_fields_and_success_preserve_capture_origin",
+      "suite": "remote",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "WaitContract.test_invalid_or_backward_after_clock_keeps_partial_wait",
+      "suite": "remote",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "WaitContract.test_invalid_or_backward_clock_before_record_cannot_sleep",
+      "suite": "remote",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "WaitContract.test_just_over_thirty_seconds_remaining_is_admitted",
+      "suite": "remote",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "WaitContract.test_short_sleep_retains_observed_after",
+      "suite": "remote",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "WaitContract.test_throwing_sleeper_retains_before_and_original_exception",
+      "suite": "remote",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "PublicWaitLifecycle.test_first_wait_error_survives_failing_closing_pins_identity_and_clock",
+      "suite": "remote",
+      "windows": "skipped 'Linux descriptor contract'"
+    },
+    {
+      "linux": "ok",
+      "method": "PublicWaitLifecycle.test_public_collect_retains_wait_and_separate_sample_gap",
+      "suite": "remote",
+      "windows": "skipped 'Linux descriptor contract'"
+    },
+    {
+      "linux": "ok",
+      "method": "PublicWaitLifecycle.test_public_collect_wait_failures_keep_seven_reads_and_flash_evidence",
+      "suite": "remote",
+      "windows": "skipped 'Linux descriptor contract'"
+    },
+    {
+      "linux": "ok",
+      "method": "OrdinaryRemote.test_D207_source_owners_and_diagnostic_images_are_refused",
+      "suite": "remote",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "OrdinaryRemote.test_exact_seventeen_recipe_steps_preserve_all_other_bytes",
+      "suite": "remote",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "OrdinaryRemote.test_initial_and_sample_waits_keep_original_six_hundred_second_budget",
+      "suite": "remote",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "OrdinaryRemote.test_ordinary_artifact_paths_absences_and_raw_package_separation",
+      "suite": "remote",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "OrdinaryRemote.test_seven_windows_twenty_eight_reads_and_all_flash_boundaries",
+      "suite": "remote",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "ActionsContract.test_bootstrap_rejects_bad_framing_before_root_or_module_execution",
+      "suite": "actions",
+      "windows": "skipped 'Linux controlled descriptor fixtures'"
+    },
+    {
+      "linux": "ok",
+      "method": "ActionsContract.test_bootstrap_success_checks_staged_adapter_and_capture_parser_again",
+      "suite": "actions",
+      "windows": "skipped 'Linux controlled descriptor fixtures'"
+    },
+    {
+      "linux": "ok",
+      "method": "ActionsContract.test_build_rejects_wrong_roles_bytes_identities_and_staging_pins",
+      "suite": "actions",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "ActionsContract.test_capture_reply_rejects_any_wrong_read_bracket_snapshot_count_or_wait",
+      "suite": "actions",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "ActionsContract.test_changed_staged_adapter_and_installed_parser_never_dispatch",
+      "suite": "actions",
+      "windows": "skipped 'Linux controlled descriptor fixtures'"
+    },
+    {
+      "linux": "ok",
+      "method": "ActionsContract.test_closure_drift_cannot_be_overridden_by_successful_inner_report",
+      "suite": "actions",
+      "windows": "skipped 'Linux controlled descriptor fixtures'"
+    },
+    {
+      "linux": "ok",
+      "method": "ActionsContract.test_commands_bind_exact_sources_adapter_identity_canonical_payload_and_windows_limit",
+      "suite": "actions",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "ActionsContract.test_finish_failure_retains_original_sequence_error_without_retry",
+      "suite": "actions",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "ActionsContract.test_outward_close_error_preserves_unattributed_durable_report_and_fails",
+      "suite": "actions",
+      "windows": "skipped 'Linux controlled descriptor fixtures'"
+    },
+    {
+      "linux": "ok",
+      "method": "ActionsContract.test_reply_requires_exact_envelope_origin_identity_and_clean_errors",
+      "suite": "actions",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "ActionsContract.test_success_sequence_is_exact_and_passes_retained_upload_predecessor",
+      "suite": "actions",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "ActionsContract.test_upload_error_or_unattributed_success_suppresses_capture_and_keeps_closing_errors",
+      "suite": "actions",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "ActionsContract.test_upload_reply_rejects_partial_ambiguous_or_expired_process",
+      "suite": "actions",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "WaitValidation.test_fixed_inputs_and_retained_method_inventory",
+      "suite": "actions",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "WaitValidation.test_pre_wait_order_inside_capture_and_before_sample_pause",
+      "suite": "actions",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "WaitValidation.test_pre_wait_requested_seconds_is_exact_integer_30",
+      "suite": "actions",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "WaitValidation.test_pre_wait_timestamps_reject_bool_nonfinite_and_nonnumeric",
+      "suite": "actions",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "WaitValidation.test_sample_pause_and_finished_bounds_remain_independent",
+      "suite": "actions",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "WaitValidation.test_sequence_keeps_invalid_wait_receipt_first_failure_and_closes_once",
+      "suite": "actions",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "WaitValidation.test_short_or_backward_pre_wait_is_not_success",
+      "suite": "actions",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "WaitValidation.test_valid_wait_cannot_promote_failed_or_unattributed_outer_result",
+      "suite": "actions",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "WaitValidation.test_valid_wait_receipt_and_inclusive_boundaries",
+      "suite": "actions",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "WaitValidation.test_wait_does_not_admit_terminal_or_extra_analysis_claims",
+      "suite": "actions",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "WaitValidation.test_wait_requires_exact_present_object_keys",
+      "suite": "actions",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "OrdinaryActions.test_D207_source_consumed_owner_and_unattributed_receipts_are_refused",
+      "suite": "actions",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "OrdinaryActions.test_each_stale_diagnostic_window_and_malformed_receipt_refuses_without_mutation",
+      "suite": "actions",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "OrdinaryActions.test_exact_eleven_recipe_steps_and_fixed_adapter_identity",
+      "suite": "actions",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "OrdinaryActions.test_plan_framing_and_actual_full_windows_argv_bounds",
+      "suite": "actions",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "OrdinaryActions.test_private_projection_installed_pins_and_scope_roles",
+      "suite": "actions",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "CallerContract.test_actual_source_inventory_matches_the_original_manifest_without_mutation",
+      "suite": "run",
+      "windows": "skipped 'Owned /dev/shm fixture required'"
+    },
+    {
+      "linux": "ok",
+      "method": "CallerContract.test_admission_is_local_read_only_and_rechecks_all_127_original_input_hashes",
+      "suite": "run",
+      "windows": "skipped 'Owned /dev/shm fixture required'"
+    },
+    {
+      "linux": "ok",
+      "method": "CallerContract.test_allowlist_wrong_command_timeout_and_per_label_counts_reject_before_transport",
+      "suite": "run",
+      "windows": "skipped 'Owned /dev/shm fixture required'"
+    },
+    {
+      "linux": "ok",
+      "method": "CallerContract.test_capability_staged_hash_or_source_names_drift_prevents_upload",
+      "suite": "run",
+      "windows": "skipped 'Owned /dev/shm fixture required'"
+    },
+    {
+      "linux": "ok",
+      "method": "CallerContract.test_claim_and_stage_are_exclusive_durable_and_use_exact_seven_command_allowlist",
+      "suite": "run",
+      "windows": "skipped 'Owned /dev/shm fixture required'"
+    },
+    {
+      "linux": "ok",
+      "method": "CallerContract.test_cli_check_only_has_no_staging_transport_or_owner_and_bad_modes_fail",
+      "suite": "run",
+      "windows": "skipped 'Owned /dev/shm fixture required'"
+    },
+    {
+      "linux": "ok",
+      "method": "CallerContract.test_intent_and_actual_predecessor_hash_are_required_and_consumed",
+      "suite": "run",
+      "windows": "skipped 'Owned /dev/shm fixture required'"
+    },
+    {
+      "linux": "ok",
+      "method": "CallerContract.test_invalid_staging_identity_prevents_push_and_attempts_closing_checks",
+      "suite": "run",
+      "windows": "skipped 'Owned /dev/shm fixture required'"
+    },
+    {
+      "linux": "ok",
+      "method": "CallerContract.test_linked_scope_and_source_pin_fail_closed_without_source_copies",
+      "suite": "run",
+      "windows": "skipped 'Owned /dev/shm fixture required'"
+    },
+    {
+      "linux": "ok",
+      "method": "CallerContract.test_local_drift_after_intent_refuses_dispatch_and_preserves_owner",
+      "suite": "run",
+      "windows": "skipped 'Owned /dev/shm fixture required'"
+    },
+    {
+      "linux": "ok",
+      "method": "CallerContract.test_missing_scope_wrong_head_dirty_tree_or_uncommitted_scope_never_claims",
+      "suite": "run",
+      "windows": "skipped 'Owned /dev/shm fixture required'"
+    },
+    {
+      "linux": "ok",
+      "method": "CallerContract.test_preparation_manifest_and_source_drift_are_rejected",
+      "suite": "run",
+      "windows": "skipped 'Owned /dev/shm fixture required'"
+    },
+    {
+      "linux": "ok",
+      "method": "CallerContract.test_prerequisites_verify_source_projection_and_attempt_all_three",
+      "suite": "run",
+      "windows": "skipped 'Owned /dev/shm fixture required'"
+    },
+    {
+      "linux": "ok",
+      "method": "CallerContract.test_primary_transport_error_and_closing_errors_are_all_durable",
+      "suite": "run",
+      "windows": "skipped 'Owned /dev/shm fixture required'"
+    },
+    {
+      "linux": "ok",
+      "method": "CallerContract.test_scope_shape_source_caller_and_identity_are_exact",
+      "suite": "run",
+      "windows": "skipped 'Owned /dev/shm fixture required'"
+    },
+    {
+      "linux": "ok",
+      "method": "CallerContract.test_staging_transport_cannot_bypass_intent_or_verified_claim",
+      "suite": "run",
+      "windows": "skipped 'Owned /dev/shm fixture required'"
+    },
+    {
+      "linux": "ok",
+      "method": "CallerContract.test_staging_uncertainty_consumes_owner_closes_and_never_uploads",
+      "suite": "run",
+      "windows": "skipped 'Owned /dev/shm fixture required'"
+    },
+    {
+      "linux": "ok",
+      "method": "CallerContract.test_success_sequence_has_exactly_13_transports_and_unproven_collection",
+      "suite": "run",
+      "windows": "skipped 'Owned /dev/shm fixture required'"
+    },
+    {
+      "linux": "ok",
+      "method": "CallerContract.test_unrelated_untracked_files_fail_and_only_claimed_evidence_is_allowed",
+      "suite": "run",
+      "windows": "skipped 'Owned /dev/shm fixture required'"
+    },
+    {
+      "linux": "ok",
+      "method": "CallerContract.test_upload_failure_or_outward_error_never_dispatches_capture",
+      "suite": "run",
+      "windows": "skipped 'Owned /dev/shm fixture required'"
+    },
+    {
+      "linux": "ok",
+      "method": "ObserverEvidence.test_fixed_new_scope_owners_and_cli_signature_preserve_old_owners",
+      "suite": "run",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "ObserverEvidence.test_old_manifest_refused_before_projection_and_any_transport",
+      "suite": "run",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "ObserverEvidence.test_projected_d193_source_inventory_and_mapping_are_exact",
+      "suite": "run",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "ObserverEvidence.test_successful_abi02_and_entry_evidence_accepts_without_native_work",
+      "suite": "run",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "ObserverEvidence.test_wrong_abi_status_error_and_failed_predecessor_are_rejected",
+      "suite": "run",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "OrdinaryCaller.test_D207_artifacts_ABI_entry_source_and_consumed_owner_fail_real_admission",
+      "suite": "run",
+      "windows": "skipped 'Owned /dev/shm admission fixture required'"
+    },
+    {
+      "linux": "ok",
+      "method": "OrdinaryCaller.test_exact_nineteen_steps_and_private_caller_projection",
+      "suite": "run",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "OrdinaryCaller.test_exact_scope_provenance_bindings_absences_and_current_owner",
+      "suite": "run",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "OrdinaryCaller.test_real_125_file_ordinary_mapping_helper_digest_and_refusal_seams",
+      "suite": "run",
+      "windows": "ok"
+    },
+    {
+      "linux": "ok",
+      "method": "OrdinaryCaller.test_stale_129_file_D207_manifest_is_rejected_before_mapping",
+      "suite": "run",
+      "windows": "ok"
+    }
+  ],
+  "preexecution_finding": {
+    "bytes": 1237,
+    "path": "state/analysis/P7_ordinary_app_run_raw/preexecution_fixture_finding01.json",
+    "sha256": "ad1eadedeb230cc33683b3db21f51bc0dbd47b2d9e6c51f025529fdcbd735e75"
+  },
+  "preserved_first_failure": {
+    "adjudication": {
+      "bytes": 1923,
+      "path": "state/analysis/P7_ordinary_app_run_raw/first_host_adjudication01.json",
+      "sha256": "587fc48cf40288dd9fedcfb4d6e246f44568aee8de35e08e4f90ca63cf667eb0"
+    },
+    "commit": "0331c9d3",
+    "errors": 1,
+    "failures": 1,
+    "files": [
+      {
+        "bytes": 545,
+        "path": "state/analysis/P7_ordinary_app_run_raw/first_remote_linux01/intent.json",
+        "sha256": "7ef7b66051675949de9e28c54b176a8fb796c7df6beac0079b2f316dd9893434"
+      },
+      {
+        "bytes": 870,
+        "path": "state/analysis/P7_ordinary_app_run_raw/first_remote_linux01/result.json",
+        "sha256": "f444f08a8474d4ce12d48349f31febaf7bdca259c075c83b68f2a41d0180bb0f"
+      },
+      {
+        "bytes": 0,
+        "path": "state/analysis/P7_ordinary_app_run_raw/first_remote_linux01/stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "bytes": 9039,
+        "path": "state/analysis/P7_ordinary_app_run_raw/first_remote_linux01/stderr",
+        "sha256": "ca4685c33f2634544530156a02228db1e5000bace7565608a95e77583ced1e0b"
+      }
+    ],
+    "fixture_only": true,
+    "linux_pass": 45,
+    "product_changes": false
+  },
+  "receipts": [
+    {
+      "changed_inputs": [],
+      "files": [
+        {
+          "bytes": 545,
+          "path": "state/analysis/P7_ordinary_app_run_raw/first_remote_linux02/intent.json",
+          "sha256": "5433b60ffbc332e0d1eccad30efe648d78b31cf8a2e755e6f2c28406e35183e7"
+        },
+        {
+          "bytes": 869,
+          "path": "state/analysis/P7_ordinary_app_run_raw/first_remote_linux02/result.json",
+          "sha256": "bcc8d0285cfe145f96626dd8d8f1be3db5731d4941884c54e7083ba97b5a6626"
+        },
+        {
+          "bytes": 0,
+          "path": "state/analysis/P7_ordinary_app_run_raw/first_remote_linux02/stdout",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "bytes": 7152,
+          "path": "state/analysis/P7_ordinary_app_run_raw/first_remote_linux02/stderr",
+          "sha256": "71aa150e88e819fc6bcebfcb3fd0bc9f36c79085805ff8498909a2d7a87c44fc"
+        }
+      ],
+      "freeze_unchanged": true,
+      "inner_seconds": 8.827,
+      "outer_seconds": 19.97141829994507,
+      "passed": 47,
+      "platform": "linux",
+      "returncode": 0,
+      "skipped": 0,
+      "started": "2026-09-26T18:32:05.900549+04:00",
+      "suite": "remote",
+      "timed_out": false
+    },
+    {
+      "changed_inputs": [],
+      "files": [
+        {
+          "bytes": 602,
+          "path": "state/analysis/P7_ordinary_app_run_raw/first_remote_windows02/intent.json",
+          "sha256": "2ff49f6e46c86eb5a8d1491e20e813e3e3c8a8d53db4e11deddd2dd3111abd51"
+        },
+        {
+          "bytes": 925,
+          "path": "state/analysis/P7_ordinary_app_run_raw/first_remote_windows02/result.json",
+          "sha256": "9a2d3e56f6fb6cc1a3a694c4da28bf36cfc3885b801ea2c34fde27adccbd8cfb"
+        },
+        {
+          "bytes": 0,
+          "path": "state/analysis/P7_ordinary_app_run_raw/first_remote_windows02/stdout",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "bytes": 7811,
+          "path": "state/analysis/P7_ordinary_app_run_raw/first_remote_windows02/stderr",
+          "sha256": "6a88ae908e4c910e6dc6f67fc65f6aa1a77bf4a65415066fc8077050e8bfdf53"
+        }
+      ],
+      "freeze_unchanged": true,
+      "inner_seconds": 1.62,
+      "outer_seconds": 2.0173626999603584,
+      "passed": 29,
+      "platform": "windows",
+      "returncode": 0,
+      "skipped": 18,
+      "started": "2026-09-26T18:35:19.347928+04:00",
+      "suite": "remote",
+      "timed_out": false
+    },
+    {
+      "changed_inputs": [],
+      "files": [
+        {
+          "bytes": 547,
+          "path": "state/analysis/P7_ordinary_app_run_raw/first_actions_linux02/intent.json",
+          "sha256": "e2609b1deb303543f1f7ef948dcb2a3942643811009bf00457585342ba312dba"
+        },
+        {
+          "bytes": 872,
+          "path": "state/analysis/P7_ordinary_app_run_raw/first_actions_linux02/result.json",
+          "sha256": "d704791c6a04d5bbb2edcb61a084ada078ec9940188b83c1fd39d791a6a96c7e"
+        },
+        {
+          "bytes": 151,
+          "path": "state/analysis/P7_ordinary_app_run_raw/first_actions_linux02/stdout",
+          "sha256": "4f1a16a8044b7b7e524438decd4f16a76c86f46a04fbac43182c6e49c71c1018"
+        },
+        {
+          "bytes": 4778,
+          "path": "state/analysis/P7_ordinary_app_run_raw/first_actions_linux02/stderr",
+          "sha256": "80f1b21ecfa942c5c078b2265b48a13ea7801018121e841fec151663fdf6ba22"
+        }
+      ],
+      "freeze_unchanged": true,
+      "inner_seconds": 3.925,
+      "outer_seconds": 19.236660999944434,
+      "passed": 29,
+      "platform": "linux",
+      "returncode": 0,
+      "skipped": 0,
+      "started": "2026-09-26T18:35:21.628114+04:00",
+      "suite": "actions",
+      "timed_out": false
+    },
+    {
+      "changed_inputs": [],
+      "files": [
+        {
+          "bytes": 605,
+          "path": "state/analysis/P7_ordinary_app_run_raw/first_actions_windows02/intent.json",
+          "sha256": "131404e0cd3fec62dca794674c7cc42443942c7d6a5dfa8cabe23cfe35304548"
+        },
+        {
+          "bytes": 928,
+          "path": "state/analysis/P7_ordinary_app_run_raw/first_actions_windows02/result.json",
+          "sha256": "c1d99af31eeb4602685c929dfafd4032ead79c1bf0d6ec1bfb8d0640cf61be01"
+        },
+        {
+          "bytes": 153,
+          "path": "state/analysis/P7_ordinary_app_run_raw/first_actions_windows02/stdout",
+          "sha256": "8367c2720ded7234a08ebc5cf31a40c5a0b48b718e9a97f30ad6b98720471f62"
+        },
+        {
+          "bytes": 5044,
+          "path": "state/analysis/P7_ordinary_app_run_raw/first_actions_windows02/stderr",
+          "sha256": "9495e12fc99966ff139d296a68fe470257c4b209c7863039fca4f6a331ea6a35"
+        }
+      ],
+      "freeze_unchanged": true,
+      "inner_seconds": 0.458,
+      "outer_seconds": 1.1270342998905107,
+      "passed": 24,
+      "platform": "windows",
+      "returncode": 0,
+      "skipped": 5,
+      "started": "2026-09-26T18:35:41.339650+04:00",
+      "suite": "actions",
+      "timed_out": false
+    },
+    {
+      "changed_inputs": [],
+      "files": [
+        {
+          "bytes": 539,
+          "path": "state/analysis/P7_ordinary_app_run_raw/first_run_linux02/intent.json",
+          "sha256": "7c5decca192b476affe58f4d9437a4dd053e5e26959233876d910b3b2c13b289"
+        },
+        {
+          "bytes": 864,
+          "path": "state/analysis/P7_ordinary_app_run_raw/first_run_linux02/result.json",
+          "sha256": "6171a1a48a8189e01a25f11388fae35d5adb5a502937a2765ee7b7c418153404"
+        },
+        {
+          "bytes": 0,
+          "path": "state/analysis/P7_ordinary_app_run_raw/first_run_linux02/stdout",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "bytes": 5143,
+          "path": "state/analysis/P7_ordinary_app_run_raw/first_run_linux02/stderr",
+          "sha256": "7357cd570ebe3bac38cdf6611e085607d77071774221261d85cf83e814a77f27"
+        }
+      ],
+      "freeze_unchanged": true,
+      "inner_seconds": 324.016,
+      "outer_seconds": 342.63004009996075,
+      "passed": 30,
+      "platform": "linux",
+      "returncode": 0,
+      "skipped": 0,
+      "started": "2026-09-26T18:35:42.762078+04:00",
+      "suite": "run",
+      "timed_out": false
+    },
+    {
+      "changed_inputs": [],
+      "files": [
+        {
+          "bytes": 593,
+          "path": "state/analysis/P7_ordinary_app_run_raw/first_run_windows02/intent.json",
+          "sha256": "55f8e55818f147200aabd3f0368e09f0f48e078e5b708a0f2a8e60730d4a0365"
+        },
+        {
+          "bytes": 916,
+          "path": "state/analysis/P7_ordinary_app_run_raw/first_run_windows02/result.json",
+          "sha256": "bda4a72b80b9176ca3c87163ce371e065e90cc7f698d8d6edc7b8b5381657685"
+        },
+        {
+          "bytes": 0,
+          "path": "state/analysis/P7_ordinary_app_run_raw/first_run_windows02/stdout",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "bytes": 6018,
+          "path": "state/analysis/P7_ordinary_app_run_raw/first_run_windows02/stderr",
+          "sha256": "c1e976f495e6d3880fde040b7f8bce0218c2a2c2a307e4aa2c087d661033b15a"
+        }
+      ],
+      "freeze_unchanged": true,
+      "inner_seconds": 0.513,
+      "outer_seconds": 0.8778196999337524,
+      "passed": 9,
+      "platform": "windows",
+      "returncode": 0,
+      "skipped": 21,
+      "started": "2026-09-26T18:41:25.679757+04:00",
+      "suite": "run",
+      "timed_out": false
+    }
+  ],
+  "schema": "d212-native-host-closing-v1",
+  "status": "PASS",
+  "totals": {
+    "changed_inputs": 0,
+    "linux_pass": 106,
+    "method_rows": 106,
+    "platform_outcomes": 212,
+    "timeouts": 0,
+    "uncovered_skip_ids": [],
+    "windows_pass": 62,
+    "windows_skips": 44
+  },
+  "windows_argv_units": {
+    "linux": [
+      {
+        "D212_actual_windows_argv": "upload",
+        "utf16_units_including_nul": 29662
+      },
+      {
+        "D212_actual_windows_argv": "capture",
+        "utf16_units_including_nul": 28722
+      }
+    ],
+    "windows": [
+      {
+        "D212_actual_windows_argv": "upload",
+        "utf16_units_including_nul": 29662
+      },
+      {
+        "D212_actual_windows_argv": "capture",
+        "utf16_units_including_nul": 28722
+      }
+    ]
+  },
+  "windows_temporary_directories_empty": [
+    "state/analysis/P7_ordinary_app_run_raw/first_remote_windows02/temporary",
+    "state/analysis/P7_ordinary_app_run_raw/first_actions_windows02/temporary",
+    "state/analysis/P7_ordinary_app_run_raw/first_run_windows02/temporary"
+  ]
+}

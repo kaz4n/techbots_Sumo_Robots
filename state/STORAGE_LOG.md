@@ -496,3 +496,6 @@ D191 closing observation: C:recovered290537472B independently before local docum
 
 
 2026-09-26T18:24:51.159231+04:00 | D211 exact board cleanup | Removed only three verified stale D207 upload copies totaling2,399,776 logical bytes and empty /tmp/remoteocd device34/inode1732. Actualreview46792354, raw0930bc90 and retrieval4be9c41b verify absence and stable originals. Retain50,668B staged source,6,376B saved result and compact local reviews/receipts for reproduction; no disposable build objects created. No filesystem allocated-space measurement is inferred from payload bytes. C: free5605707776B. Earlier policy-denied targets remain untouched.
+
+
+2026-09-26T18:50:27.191693+04:00 P7 D212 host fixtures: native Linux task-prefix scan and three Windows fixture directories were empty; decoder Windows fixture directory also verifiedempty. Attempted nonrecursive removal of the exact decoder Windows temporary directory was rejected before execution by automatic policy with "blocked by policy" and no additional reason. Retain this empty directory;0payloadbytes/0reclaimed, no retry. Raw streams, first failures and compact closures retained for review; Python-I-B avoided bytecode. C: observed7.4GBfree before nativepreparation.

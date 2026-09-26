@@ -1505,3 +1505,6 @@ physical/loadedRAM/gate claim. | contract=this commit
 2026-09-26T18:10:04.386538+04:00 P7: D211 correctedhostclosure PASS (52Linux;15Windows+37Linux-coveredskips;69pins). Source/hostreviewf033655e accepted; original51/1failure preserved. Boardabsence/staging/authentication remain next.
 
 2026-09-26T18:24:51.159231+04:00 P7: D211 actual cleanup accepted (review46792354; raw0930bc90; retrieval4be9c41b). Removed exact3copies2,399,776B+emptydir; originals/source/69pins intact. D212 firstLinuxremote47 cases yielded45PASS/1FAIL/1ERROR, all340pins stable; saved0331c9d3, independent adjudication pending before any further suite. No ordinary upload.
+
+
+2026-09-26T18:47:12.925705+04:00 P7: D212 native host106Linux/62Windows+44coveredskips; decoder46eachPASS. Correctedfixtures only, failures preservedacf8cddf; finaldecoderreview thenfreshreadonlyadmission/scope/check/native next. No ordinaryflash yet.

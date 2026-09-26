@@ -106,8 +106,8 @@
     "test_stale_diagnostic_maps_windows_owners_sources_and_images_are_refused",
     "test_first_structural_error_preserves_receipts_prior_windows_and_anomaly_values"
   ],
-  "projected_bytes": 35695,
-  "projected_sha256": "99f91b12d22e3ee2bedfd305c57d5647cd2d4e2566d550a57c5d307eed79f39f",
+  "projected_bytes": 35710,
+  "projected_sha256": "a6e58d6fbaad9120306379016df1a51790f627bc791173653981fa3e7dc813ad",
   "retained_34": [
     {
       "class_name": "PacketOracle",
@@ -250,6 +250,59 @@
     "MainOracle": 28,
     "OracleBase": 21,
     "PacketOracle": 71
+  },
+  "revision02": {
+    "author_boundary": "No new decoder source read/hash/import/execution and no tests/device calls; root authorized the independent-reviewer-adjudicated bounded correction. Native closure/review already sealed.",
+    "authorized_step": {
+      "count": 1,
+      "new": "map_path.parent.mkdir(parents=True, exist_ok=True)",
+      "old": "map_path.parent.mkdir(parents=True)"
+    },
+    "cause": "D212 map and retrieval packet share RAW; packet.parent.mkdir already creates map_path.parent. Seven Main methods emitted nine setup error records before module.load_subject/call_main.",
+    "first_failure_files": [
+      {
+        "bytes": 556,
+        "path": "state/analysis/P7_ordinary_app_run_raw/first_interpreter_linux01/intent.json",
+        "sha256": "cf648a0c9d9577a3efa9d38f6c8a7c49832557cdb757aa578f91568ece86a1c1"
+      },
+      {
+        "bytes": 881,
+        "path": "state/analysis/P7_ordinary_app_run_raw/first_interpreter_linux01/result.json",
+        "sha256": "0bf516109239d83bd939f05318aea2faa9c73913f1036890e6de13ffef4ea8b5"
+      },
+      {
+        "bytes": 0,
+        "path": "state/analysis/P7_ordinary_app_run_raw/first_interpreter_linux01/stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "bytes": 15523,
+        "path": "state/analysis/P7_ordinary_app_run_raw/first_interpreter_linux01/stderr",
+        "sha256": "9a7db09a72d06b674035f2e54a20922aecde7ff08d985ef21ca15301feb67b0a"
+      }
+    ],
+    "first_linux_error_records": 9,
+    "first_linux_errored_methods": 7,
+    "first_linux_method_passes": 39,
+    "original_files": {
+      "state/analysis/P7_ordinary_app_run_raw/decoder_fixture_derivation01.json": {
+        "bytes": 20031,
+        "path": "state/analysis/P7_ordinary_app_run_raw/decoder_fixture_derivation01.json",
+        "sha256": "45bf10d2d98bfad857aefe918038de630c7d1c9e851e586fb01e5513183bcbfb"
+      },
+      "state/analysis/P7_ordinary_app_run_raw/decoder_independent_freeze01.json": {
+        "bytes": 55442,
+        "path": "state/analysis/P7_ordinary_app_run_raw/decoder_independent_freeze01.json",
+        "sha256": "4c78e9b776c83b5c49fef54a91347c5a64574a953db77f37d36911e4042191ab"
+      },
+      "tests/tooling/test_ordinary_app_interpret.py": {
+        "bytes": 35945,
+        "path": "tests/tooling/test_ordinary_app_interpret.py",
+        "sha256": "69a772a82e67f43996c025924267564ab8431631f87c7fd4714265ddd5659bc7"
+      }
+    },
+    "preserved_commit": "acf8cddf",
+    "scope": "Only projected MainOracle.local_main map parent creation. Packet parent creation, output exclusivity and all assertions remain unchanged."
   },
   "schema": "d212-independent-decoder-fixture-derivation-v1",
   "sections": [
@@ -512,7 +565,7 @@
       ]
     },
     {
-      "after_sha256": "f75a5ea21dd347c5aebfbc1ecd5ccf3b46d324a93036ac127a4ba435af98db0b",
+      "after_sha256": "313271f620a63949652e5c659a56c0fe6c13e5c7b91bb7570404e4ee997a1f10",
       "before_sha256": "4acade8c8447a550b8ec6e6b0afaac88f41e356d0326d7d74c109c09fac52e98",
       "methods": [
         "local_main",
@@ -531,9 +584,14 @@
           "count": 1,
           "new": "prefix='d212-decoder-oracle-'",
           "old": "prefix='d201-oracle-'"
+        },
+        {
+          "count": 1,
+          "new": "map_path.parent.mkdir(parents=True, exist_ok=True)",
+          "old": "map_path.parent.mkdir(parents=True)"
         }
       ]
     }
   ],
-  "status": "FINAL_AUTHOR_DATA_ONLY"
+  "status": "FINAL02_AFTER_ADJUDICATED_FIXTURE_ONLY_CORRECTION"
 }

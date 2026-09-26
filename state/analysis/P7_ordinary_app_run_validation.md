@@ -21,3 +21,15 @@ Before execution, independent review found that an inherited negative still muta
 The first Linux remote suite then ran 47 cases: 45 passed, one failed and one errored, with all 340 coordinator pins unchanged. The recipe test attempted to read intermediate `before` keys that are absent from the normative recipe rows. A profile-binding equality assertion also failed; independent adjudication is pending. Raw streams, frozen revision02 and the failure receipt are preserved in `0331c9d3`. No other suite or D212 board operation has run. Do not reuse the first suite owner or alter source/expectations before adjudication.
 
 D211 cleanup is separately accepted in `31aa5aea`. That filesystem result does not resolve these host failures or qualify ordinary application runtime.
+
+
+## Host completion (2026-09-26T18:47:12.925705+04:00)
+
+Corrected native fixtures now pass 106 Linux cases and 62 Windows cases, with all 44 Windows skips covered by Linux passes. Decoder FINAL02 passes all 46 cases on each platform without skips. There are 260 passing outcomes across 304 planned platform outcomes. Native344 and decoder187 coordinator pins remained unchanged. Caller reviewe67533c4 and remote/actions review27277b8e are accepted; decoder final receipt review is closing.
+
+The initial decoder fixture produced39passing methods and seven errored methods (nine subtest error records) before product calls. Commitacf8cddf preserves it. The sole corrected map-directory creation now tolerates the already-created packet parent; packet/output ownership and all assertions remain exclusive. Product source7091979c is unchanged. Native fixture adjudications likewise changed no firmware or product validators.
+
+No D212 board invocation has occurred yet. Fresh read-only admission, final scope review and cleanHEAD/check-only remain next. No suite needs repetition absent a new change or finding.
+
+
+Fresh board admission at18:49:07 returned0 in0.8593s, rawstdoutace6899b, empty stderr and unchanged local pins. Expected fullbootidentity,19files,fourabsencepaths and no conflicts matched; root13,892,296,704B/RAM3,180,081,152B available. Scope94e1c4cc binds11roles; additional380prerequisitepins43379da5 retain map/decoder/D211closure. Finaldecoderreview9223cfe0/closing71178b07 accepted; no material source/host findings. Finaladmissionreview and cleanHEAD/check-only precede nativeexecution.

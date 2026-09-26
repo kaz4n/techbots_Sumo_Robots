@@ -19,6 +19,7 @@
     }
   },
   "authoring_validation": {
+    "all46_methods_and_assertion_sites_unchanged": true,
     "all_70_historical_methods_partitioned": true,
     "all_input_pins_rehashed": true,
     "ast_parse": true,
@@ -28,6 +29,7 @@
     "oracle_executions": 0,
     "projected_sections": 10,
     "retained_assertion_verdict_calls_preserved": 120,
+    "revision02_class_ast_restores_exactly_after_removing_one_keyword": true,
     "subject_imports": 0,
     "test_invocations": 0
   },
@@ -53,8 +55,8 @@
     "snapshots": 14,
     "windows": 7
   },
-  "created_utc": "2026-09-26T14:15:07.799429+00:00",
-  "environment": "Serial root execution with exclusive first_interpreter_linux01/first_interpreter_windows01 receipts; Linux TMPDIR=/dev/shm; Windows dedicated uniquely owned TEMP/TMP/TMPDIR before child startup; fixture prefix d212-decoder-oracle-. No automatic retry.",
+  "created_utc": "2026-09-26T14:45:16.158188+00:00",
+  "environment": "Corrected serial root execution with exclusive first_interpreter_linux02/first_interpreter_windows02 receipts; original first_interpreter_linux01 preservedacf8cddf. Linux TMPDIR=/dev/shm; Windows uniquely owned TEMP/TMP/TMPDIR; fixture prefixd212-decoder-oracle-. No automatic retry.",
   "excluded_methods": 36,
   "exclusion_reason": "Old nested diagnostic types/aliases/Trace/SETTLE validity/branch annotations and rejection of noncanonical native scalar bytes do not describe ordinary live RAM. Historical source/assertions remain immutable. New ordinary cases replace these semantic obligations explicitly; receipt framing/CLI and corrected first-error ordering remain.",
   "exclusions": {
@@ -105,16 +107,16 @@
   },
   "execution_boundary": "Author performed AST/literal/JSON/hash checks of allowed historical and normative data only. The new decoder and native subjects remained unread, unhashed, unimported and unexecuted. Neither new oracle nor subject was executed; no tests, compiler or device/native operation.",
   "fixture_derivation": {
-    "bytes": 20031,
+    "bytes": 22892,
     "path": "state/analysis/P7_ordinary_app_run_raw/decoder_fixture_derivation01.json",
-    "sha256": "45bf10d2d98bfad857aefe918038de630c7d1c9e851e586fb01e5513183bcbfb"
+    "sha256": "97b76a3d364459bf15b58f98ffaa094e00ead8a4273bb034f72b98aca89e66b1"
   },
   "implementation_receipt": {
     "bytes": 14886,
     "path": "state/analysis/P7_ordinary_app_run_raw/decoder_implementation01.json",
     "sha256": "6b0a37c458c348d31cc1e8a99d6ec6194625c2a7e99c4ffc2c9f286c32a953e0"
   },
-  "input_count": 175,
+  "input_count": 180,
   "inputs": {
     "src/app/.gitkeep": {
       "bytes": 0,
@@ -767,14 +769,39 @@
       "sha256": "70d990310b97c97ccfa59099088de6b4395cb51f4f6e1a18ef4f969feda27cc8"
     },
     "state/analysis/P7_ordinary_app_run_raw/decoder_fixture_derivation01.json": {
-      "bytes": 20031,
+      "bytes": 22892,
       "path": "state/analysis/P7_ordinary_app_run_raw/decoder_fixture_derivation01.json",
-      "sha256": "45bf10d2d98bfad857aefe918038de630c7d1c9e851e586fb01e5513183bcbfb"
+      "sha256": "97b76a3d364459bf15b58f98ffaa094e00ead8a4273bb034f72b98aca89e66b1"
     },
     "state/analysis/P7_ordinary_app_run_raw/decoder_implementation01.json": {
       "bytes": 14886,
       "path": "state/analysis/P7_ordinary_app_run_raw/decoder_implementation01.json",
       "sha256": "6b0a37c458c348d31cc1e8a99d6ec6194625c2a7e99c4ffc2c9f286c32a953e0"
+    },
+    "state/analysis/P7_ordinary_app_run_raw/first_interpreter_linux01/intent.json": {
+      "bytes": 556,
+      "path": "state/analysis/P7_ordinary_app_run_raw/first_interpreter_linux01/intent.json",
+      "sha256": "cf648a0c9d9577a3efa9d38f6c8a7c49832557cdb757aa578f91568ece86a1c1"
+    },
+    "state/analysis/P7_ordinary_app_run_raw/first_interpreter_linux01/result.json": {
+      "bytes": 881,
+      "path": "state/analysis/P7_ordinary_app_run_raw/first_interpreter_linux01/result.json",
+      "sha256": "0bf516109239d83bd939f05318aea2faa9c73913f1036890e6de13ffef4ea8b5"
+    },
+    "state/analysis/P7_ordinary_app_run_raw/first_interpreter_linux01/stderr": {
+      "bytes": 15523,
+      "path": "state/analysis/P7_ordinary_app_run_raw/first_interpreter_linux01/stderr",
+      "sha256": "9a7db09a72d06b674035f2e54a20922aecde7ff08d985ef21ca15301feb67b0a"
+    },
+    "state/analysis/P7_ordinary_app_run_raw/first_interpreter_linux01/stdout": {
+      "bytes": 0,
+      "path": "state/analysis/P7_ordinary_app_run_raw/first_interpreter_linux01/stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "state/analysis/P7_ordinary_app_run_raw/interpreter_coordinator_freeze01.json": {
+      "bytes": 28940,
+      "path": "state/analysis/P7_ordinary_app_run_raw/interpreter_coordinator_freeze01.json",
+      "sha256": "389f4a0669590686f34f16025509f2bcfff20462e9b4fb6473f150d8bffd4ae3"
     },
     "state/analysis/P7_ordinary_app_run_raw/ordinary_scalar_map01.json": {
       "bytes": 42416,
@@ -944,7 +971,7 @@
     "tests/tooling/test_ordinary_app_interpret.py": {
       "bytes": 35945,
       "path": "tests/tooling/test_ordinary_app_interpret.py",
-      "sha256": "69a772a82e67f43996c025924267564ab8431631f87c7fd4714265ddd5659bc7"
+      "sha256": "c48679f489054004398dae6e191cccb93fe3462e9b80894764fc2f487c9ab4b1"
     },
     "tools/app_build_commands.json": {
       "bytes": 17617,
@@ -1237,7 +1264,7 @@
     "__main__.OrdinaryOracle.test_unknown_enums_and_source_only_contract_bits_remain_numeric"
   ],
   "projected_fixture": {
-    "bytes": 35695,
+    "bytes": 35710,
     "sections": [
       {
         "bytes": 59,
@@ -1294,18 +1321,71 @@
         "step_count": 21
       },
       {
-        "bytes": 7966,
+        "bytes": 7981,
         "name": "MainOracle",
-        "sha256": "f75a5ea21dd347c5aebfbc1ecd5ccf3b46d324a93036ac127a4ba435af98db0b",
-        "step_count": 1
+        "sha256": "313271f620a63949652e5c659a56c0fe6c13e5c7b91bb7570404e4ee997a1f10",
+        "step_count": 2
       }
     ],
-    "sha256": "99f91b12d22e3ee2bedfd305c57d5647cd2d4e2566d550a57c5d307eed79f39f"
+    "sha256": "a6e58d6fbaad9120306379016df1a51790f627bc791173653981fa3e7dc813ad"
   },
   "retained_methods": 34,
+  "revision02": {
+    "author_boundary": "No new decoder source read/hash/import/execution and no tests/device calls; root authorized the independent-reviewer-adjudicated bounded correction. Native closure/review already sealed.",
+    "authorized_step": {
+      "count": 1,
+      "new": "map_path.parent.mkdir(parents=True, exist_ok=True)",
+      "old": "map_path.parent.mkdir(parents=True)"
+    },
+    "cause": "D212 map and retrieval packet share RAW; packet.parent.mkdir already creates map_path.parent. Seven Main methods emitted nine setup error records before module.load_subject/call_main.",
+    "first_failure_files": [
+      {
+        "bytes": 556,
+        "path": "state/analysis/P7_ordinary_app_run_raw/first_interpreter_linux01/intent.json",
+        "sha256": "cf648a0c9d9577a3efa9d38f6c8a7c49832557cdb757aa578f91568ece86a1c1"
+      },
+      {
+        "bytes": 881,
+        "path": "state/analysis/P7_ordinary_app_run_raw/first_interpreter_linux01/result.json",
+        "sha256": "0bf516109239d83bd939f05318aea2faa9c73913f1036890e6de13ffef4ea8b5"
+      },
+      {
+        "bytes": 0,
+        "path": "state/analysis/P7_ordinary_app_run_raw/first_interpreter_linux01/stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "bytes": 15523,
+        "path": "state/analysis/P7_ordinary_app_run_raw/first_interpreter_linux01/stderr",
+        "sha256": "9a7db09a72d06b674035f2e54a20922aecde7ff08d985ef21ca15301feb67b0a"
+      }
+    ],
+    "first_linux_error_records": 9,
+    "first_linux_errored_methods": 7,
+    "first_linux_method_passes": 39,
+    "original_files": {
+      "state/analysis/P7_ordinary_app_run_raw/decoder_fixture_derivation01.json": {
+        "bytes": 20031,
+        "path": "state/analysis/P7_ordinary_app_run_raw/decoder_fixture_derivation01.json",
+        "sha256": "45bf10d2d98bfad857aefe918038de630c7d1c9e851e586fb01e5513183bcbfb"
+      },
+      "state/analysis/P7_ordinary_app_run_raw/decoder_independent_freeze01.json": {
+        "bytes": 55442,
+        "path": "state/analysis/P7_ordinary_app_run_raw/decoder_independent_freeze01.json",
+        "sha256": "4c78e9b776c83b5c49fef54a91347c5a64574a953db77f37d36911e4042191ab"
+      },
+      "tests/tooling/test_ordinary_app_interpret.py": {
+        "bytes": 35945,
+        "path": "tests/tooling/test_ordinary_app_interpret.py",
+        "sha256": "69a772a82e67f43996c025924267564ab8431631f87c7fd4714265ddd5659bc7"
+      }
+    },
+    "preserved_commit": "acf8cddf",
+    "scope": "Only projected MainOracle.local_main map parent creation. Packet parent creation, output exclusivity and all assertions remain unchanged."
+  },
   "schema": "d212-independent-decoder-freeze-v1",
   "skips": 0,
-  "status": "FROZEN_BEFORE_NEW_SUBJECT_READ_OR_EXECUTION",
+  "status": "FROZEN_FINAL02_BEFORE_CORRECTED_HOST_EXECUTION",
   "subject_declaration_from_root": {
     "bytes": 29009,
     "path": "state/analysis/P7_ordinary_app_run_raw/interpret_run01.py",
@@ -1316,7 +1396,7 @@
   "test": {
     "bytes": 35945,
     "path": "tests/tooling/test_ordinary_app_interpret.py",
-    "sha256": "69a772a82e67f43996c025924267564ab8431631f87c7fd4714265ddd5659bc7"
+    "sha256": "c48679f489054004398dae6e191cccb93fe3462e9b80894764fc2f487c9ab4b1"
   },
   "timeout_seconds_per_suite": 600,
   "windows_expected_pass": 46

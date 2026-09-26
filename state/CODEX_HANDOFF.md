@@ -1,5 +1,32 @@
 # Codex handoff - 26 September 2026, Asia/Dubai
 
+## Latest checkpoint: D210 ordinary entry independently accepted
+
+This checkpoint supersedes older current/next paragraphs below. Active P7
+software/release preparation continues; no motor-run permission or human gate.
+D210 actual review24002B/a30c194b is FINAL PASS. At clean HEAD
+f14ff870779987b9552bb14782b97cea11c7457a, one file-only transport completed
+four children and13remote+localPASS. Root closure6157B/66477a38 binds174unique
+current/native-commit pins and exact13818Bprogram. All64groups77aliases10420B,
+3688dump rows and2234symbols reconcile; initializer is01011008/0x08100101.
+Every selected group has semantic review; unselected callees remain explicit.
+No ordinary upload, coherent runtime, final inhibition, measured timing/RAM,
+physical acceptance or phase gate follows. D207 is latest verified flash.
+Read analysis/P7_ordinary_app_entry_actual_validation.md. Owner consumed.
+
+Next: execute once the separately reviewed nonprivileged D207 scratch inventory
+in P7_ordinary_app_cleanup_raw/observe_admission01.py9768B/a8e3b8b2, five-step
+derivation807184e7 and preparationreview6826B/c4327b1b. Intentb80a784b is saved;
+admission01.json is still absent. Inspect both actual match flags, identities
+and closure before preparing D211/root06 cleanup; never reuse root05.
+In parallel fresh_review owns an UNADOPTED D212 ordinary passive-run contract
+and derivation. Candidate two seven-window sets use an aligned4B attempted_
+container;28reads715858B with fullflashbrackets. No run is admitted. Continue
+only after independent contract/source/oracle/admission requirements; keep
+ordinary source9044ebbb/static/default/M0/probe0 and all grants absent.
+No active exec session. All D210 review/source/native originals are immutable.
+
+
 ## Active D210: native admission accepted; clean commit and execution next
 
 Independent source/host review10497B/ca0104db is FINAL PASS. Fifteen-input

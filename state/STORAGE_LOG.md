@@ -487,3 +487,6 @@ D191 closing observation: C:recovered290537472B independently before local docum
 
 
 2026-09-26T17:25:14.121824+04:00 | D210 first host closure | Retain first Linux/Windows receipts and raw streams plus14410Bclosure and833BreadonlyLinuxinventory. Both scoped temporary roots are empty; no manual deletion, test retry or reclaimed-space claim. C:5933735936B free. Original proposal commit and authoring refusals retained for review.
+
+
+2026-09-26T17:37:15.374209+04:00 | D210 native instruction evidence | Retain8 native files1471584logicalB, exact invocation and6157B independent closure for actual review/reproduction; no duplicate ELF downloaded. Local audit ordering correction preserved, no native retry or evidence change. C:free5906980864B, no manual deletion or reclaimed-space claim. Consumed owner retained; production/config/locked tests unchanged.

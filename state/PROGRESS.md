@@ -1487,3 +1487,6 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-26T17:32:54.259489+04:00 | P7 | D210 native admission | FINAL 3a1aa879 PASS;15scope/171hostpins,174 exact index blobs; clean commit and check-only precede one file-only entry attempt | pending commit
+
+
+2026-09-26T17:41:58.659089+04:00 | P7 | D210 ordinary entry actual accepted | Reviewa30c194b PASS;64groups77aliases10420B,174pins and allclosingPASS; ownerconsumed. D211readonlyinventory and D212draft next; no ordinaryupload/gate | pending commit

@@ -926,3 +926,7 @@ FILE-OBSERVED: D209 at clean326931f4 completes one file-only transport,4children
 
 ## F236 - Ordinary entry reader host evidence (2026-09-26T17:29:46.250615+04:00)
 HOST-VERIFIED: final reader18546B/5bcb6e12 and independent oracle13323B/6dcac3cc pass all27 methods on each platform, no skips/retries. Review10497B/ca0104db and closure14410B/7ca9dd4e independently reconcile54 outcomes,171 unchanged inputs and empty scoped temporary inventories. No actual entry instructions or ordinary runtime observation yet. Source: analysis/P7_ordinary_app_entry_validation.md.
+
+
+## F237 - Ordinary application selected emitted instructions (2026-09-26T17:41:58.659089+04:00)
+FILE-OBSERVED: D210 actualreview24002B/a30c194b accepts one file-only observation at cleanf14ff870. All64groups77aliases10420B/3688rows,2234symbols and initializer0x081158f0 bytes01011008/pointer0x08100101 reconcile;174distinct current/native-commit pins,13818Bprogram,fourchildren,13remote+localclosing PASS. Ordinary setup discards begin return and loop runs continuously. Selected M0 transaction requests enableLOW/fourzeroPWM/settle; native callbacks reject high/nonzero and retain150us/4096. Fault/status/receipt writes are staged, not atomic cleanup/publication barriers. This is file emission, not execution, physical inhibition, ordinary runtime, measured RAM/WCET or gate. Source: analysis/P7_ordinary_app_entry_actual_validation.md.

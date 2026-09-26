@@ -1598,3 +1598,5 @@ matrix is admitted conditionally, not yet executed. Firmware unchanged. | pendin
 
 
 2026-09-27T00:01:05.268630+04:00 | P7/D222,D225,D228 | D222FINAL14/14review22264320 accepted(original9044source). D225nativecompilePASS1query/1compiler/28transports/9closing; image55104B49d92fe3. RunFAILED before receiver/upload due late ambientADBrequirement; upload0/closingerrors0, firmwareunchanged. Consumed36370b3b ownerretained. D228narrowfixedprivate-transport correctionadopted; tests/reviewpending, no retry.
+
+2026-09-27T00:07:21.779953+04:00 | P7/D228 | Fixed private ADB transport accepted independent751e30a3;17Windows+17LinuxPASS, old-source2methodcounterexample retained. Fresh corrected M0recorder attempt next after cleancommit. No new native action yet. | pending

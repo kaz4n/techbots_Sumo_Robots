@@ -561,3 +561,5 @@ alternative deletion occurred. No new disposable build output was generated.
 
 
 2026-09-26T23:51:00.892116+04:00 | P7 | D226 removed only three verified stale D221 upload copies2387320B and empty/tmp/remoteocd dev34ino2281; actual_closure01 records3protectedscans, originalsunchanged and6closingPASS. Native cleanup source/evidence retained for reproduction. Old policyblockedlocalstage764405B remains excluded and unchanged.
+
+2026-09-27T00:06:41.815709+04:00 | D222 local stage cleanup | After final matrix review, exact native PowerShell removal of14manifest-verified candidate source stages1456files10701670B was rejected before execution by automatic approval review: blocked by policy. No deletion/reclaimed bytes; retain all14paths without retry/alternate method. Prior764405Bblockedstage was explicitly excluded and remains untouched. Receipt matrix_closure01/local_stage_cleanup_blocked01.json. Unique native artifacts/receipts/source/Git preserved.

@@ -221,7 +221,7 @@ class ReceiverOwnershipTests(unittest.TestCase):
             def start(self):self.target()
         def capture(target,timeout,**kwargs):calls.append(('capture',target,timeout,kwargs));return 'capture object'
         def save(value,path,**kwargs):calls.append(('save',value,path,kwargs));return path/'complete'
-        dump=types.SimpleNamespace(LiveCapture=capture,save_capture=save)
+        dump=types.SimpleNamespace(LiveCapture=capture,save_capture=save,board=self.dump.board)
         with mock.patch.dict(os.environ,{'SUMO_TRANSPORT':'adb'}),mock.patch.object(self.subject.threading,'Thread',Thread):
             worker,state=self.subject.arm_receiver(self.owner,self.owner.output/'run',dump)
         self.assertIsNone(state['error']);self.assertEqual(Path(state['destination']).parts[-2:],('capture','complete'))

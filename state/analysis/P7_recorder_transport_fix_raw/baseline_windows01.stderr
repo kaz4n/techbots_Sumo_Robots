@@ -1,0 +1,90 @@
+test_missing_or_conflicting_environment_cannot_select_the_private_route (tests.tooling.test_recorder_fixed_transport.FixedReceiverTests.test_missing_or_conflicting_environment_cannot_select_the_private_route) ... 
+  test_missing_or_conflicting_environment_cannot_select_the_private_route (tests.tooling.test_recorder_fixed_transport.FixedReceiverTests.test_missing_or_conflicting_environment_cannot_select_the_private_route) (ambient={}) ... FAIL
+  test_missing_or_conflicting_environment_cannot_select_the_private_route (tests.tooling.test_recorder_fixed_transport.FixedReceiverTests.test_missing_or_conflicting_environment_cannot_select_the_private_route) (ambient={'SUMO_TRANSPORT': 'ssh', 'SUMO_HOST': 'unrelated-host'}) ... FAIL
+  test_missing_or_conflicting_environment_cannot_select_the_private_route (tests.tooling.test_recorder_fixed_transport.FixedReceiverTests.test_missing_or_conflicting_environment_cannot_select_the_private_route) (ambient={'SUMO_TRANSPORT': 'adb', 'SUMO_ADB_SERIAL': 'other-board'}) ... FAIL
+  test_missing_or_conflicting_environment_cannot_select_the_private_route (tests.tooling.test_recorder_fixed_transport.FixedReceiverTests.test_missing_or_conflicting_environment_cannot_select_the_private_route) (ambient={'SUMO_TRANSPORT': 'invalid'}) ... FAIL
+test_missing_or_conflicting_environment_cannot_select_the_private_route (tests.tooling.test_recorder_fixed_transport.FixedReceiverTests.test_missing_or_conflicting_environment_cannot_select_the_private_route) ... FAIL
+test_arm_with_no_environment_uses_private_identity_without_owner_settings (tests.tooling.test_recorder_fixed_transport.FixedReceiverTests.test_arm_with_no_environment_uses_private_identity_without_owner_settings) ... ERROR
+
+======================================================================
+ERROR: test_arm_with_no_environment_uses_private_identity_without_owner_settings (tests.tooling.test_recorder_fixed_transport.FixedReceiverTests.test_arm_with_no_environment_uses_private_identity_without_owner_settings)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tests\tooling\test_recorder_fixed_transport.py", line 65, in test_arm_with_no_environment_uses_private_identity_without_owner_settings
+    unused, state = self.subject.arm_receiver(
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~^
+        self.owner, self.owner.output / 'run', self.dump)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\state\analysis\P7_recorder_transport_fix_raw\original_run_recorder_delivery.py", line 758, in arm_receiver
+    require(os.environ.get('SUMO_TRANSPORT') == 'adb' and owner.board.target() == TARGET,
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            'Explicit identified ADB transport required')
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\state\analysis\P7_recorder_transport_fix_raw\original_run_recorder_delivery.py", line 49, in require
+    raise ValueError(message)
+ValueError: Explicit identified ADB transport required
+
+======================================================================
+FAIL: test_missing_or_conflicting_environment_cannot_select_the_private_route (tests.tooling.test_recorder_fixed_transport.FixedReceiverTests.test_missing_or_conflicting_environment_cannot_select_the_private_route) (ambient={})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tests\tooling\test_recorder_fixed_transport.py", line 29, in test_missing_or_conflicting_environment_cannot_select_the_private_route
+    self.assertEqual(dump.board.transport(), 'adb')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'ssh' != 'adb'
+- ssh
++ adb
+
+
+======================================================================
+FAIL: test_missing_or_conflicting_environment_cannot_select_the_private_route (tests.tooling.test_recorder_fixed_transport.FixedReceiverTests.test_missing_or_conflicting_environment_cannot_select_the_private_route) (ambient={'SUMO_TRANSPORT': 'ssh', 'SUMO_HOST': 'unrelated-host'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tests\tooling\test_recorder_fixed_transport.py", line 29, in test_missing_or_conflicting_environment_cannot_select_the_private_route
+    self.assertEqual(dump.board.transport(), 'adb')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'ssh' != 'adb'
+- ssh
++ adb
+
+
+======================================================================
+FAIL: test_missing_or_conflicting_environment_cannot_select_the_private_route (tests.tooling.test_recorder_fixed_transport.FixedReceiverTests.test_missing_or_conflicting_environment_cannot_select_the_private_route) (ambient={'SUMO_TRANSPORT': 'adb', 'SUMO_ADB_SERIAL': 'other-board'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tests\tooling\test_recorder_fixed_transport.py", line 29, in test_missing_or_conflicting_environment_cannot_select_the_private_route
+    self.assertEqual(dump.board.transport(), 'adb')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'ssh' != 'adb'
+- ssh
++ adb
+
+
+======================================================================
+FAIL: test_missing_or_conflicting_environment_cannot_select_the_private_route (tests.tooling.test_recorder_fixed_transport.FixedReceiverTests.test_missing_or_conflicting_environment_cannot_select_the_private_route) (ambient={'SUMO_TRANSPORT': 'invalid'})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tests\tooling\test_recorder_fixed_transport.py", line 29, in test_missing_or_conflicting_environment_cannot_select_the_private_route
+    self.assertEqual(dump.board.transport(), 'adb')
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'ssh' != 'adb'
+- ssh
++ adb
+
+
+======================================================================
+FAIL: test_missing_or_conflicting_environment_cannot_select_the_private_route (tests.tooling.test_recorder_fixed_transport.FixedReceiverTests.test_missing_or_conflicting_environment_cannot_select_the_private_route)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tests\tooling\test_recorder_fixed_transport.py", line 36, in test_missing_or_conflicting_environment_cannot_select_the_private_route
+    self.owner.board.transport.assert_not_called()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\narut\AppData\Local\Programs\Python\Python313\Lib\unittest\mock.py", line 940, in assert_not_called
+    raise AssertionError(msg)
+AssertionError: Expected 'mock' to not have been called. Called 4 times.
+Calls: [call(), call(), call(), call()].
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.390s
+
+FAILED (failures=5, errors=1)

@@ -733,9 +733,6 @@ def receiver_modules(owner, commands):
     board = types.ModuleType('_recorder_receive_board')
     board.__dict__.update(owner.board.__dict__)
     board.remote = commands.remote
-    # This caller owns one fixed ADB route; ambient pit-tool settings cannot select it.
-    board.transport = lambda: 'adb'
-    board.target = lambda: TARGET
     csv = module_from('_recorder_csv', owner.code['tools/validate_csv_bundle.py'],
                       owner.root / 'tools/validate_csv_bundle.py')
     original = builtins.__import__
@@ -758,8 +755,8 @@ def receiver_modules(owner, commands):
 
 
 def arm_receiver(owner, run, dump):
-    require(dump.board.transport() == 'adb' and dump.board.target() == TARGET,
-            'Fixed identified ADB receiver required')
+    require(os.environ.get('SUMO_TRANSPORT') == 'adb' and owner.board.target() == TARGET,
+            'Explicit identified ADB transport required')
     state = dict(destination=None, error=None)
     capture = dump.LiveCapture(TARGET, 900, connection_ticket=owner.attempt)
     def receive():

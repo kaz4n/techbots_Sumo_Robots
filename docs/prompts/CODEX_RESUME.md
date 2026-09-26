@@ -9,16 +9,16 @@ physical acceptance. Do not reset the project to P0.
    Check nested instructions, Git status, actual Asia/Dubai time and free space.
    Preserve uncommitted user work. PROGRESS has legacy non-UTF8 bytes: append
    without re-encoding its history. The handoff holds the exact current next task.
-2. Read the current handoff before selecting a native task. D195 longer inhibited
-   observation is now the latest flashed image and reproduced SETTLE failure at
-   application921. Its final halt did not confirm inhibition; exact internal
-   cause remains unknown. Read analysis/P7_app_motor_observe_actual_validation.md.
-   D197 internal rejection instrumentation is host-validated, and D198 target
-   compile-only succeeded. Next observe its file ABI and publication stores,
-   then prepare a fresh inhibited capture; preserve150us/4096poll bounds,
-   empty grants, hardware-call order and production behavior. All current
-   native owners and completed D191/D196 cleanups are consumed. Tests, review,
-   new artifacts and observed ABI/entry precede a fresh inhibited native scope.
+2. Read the current handoff before selecting a native task. D201 is the latest
+   inhibited capture: its saved SETUP failure is FINAL_DEADLINE154us before any
+   control epoch. D198 source117cc0e7 remains flashed; D199 actual ABI/entry and
+   D200 cleanup are complete. D195's application921 failure remains a distinct
+   historical observation. Read analysis/P7_motor_settle_run_validation.md.
+   D202 permits only compile-time derivation of immutable expected motor metadata;
+   its independent host validation/review is the current task. Preserve150us/4096,
+   every live check/call/order and zero grants. All native owners are consumed.
+   New checked artifacts and actual ABI/entry must precede a separately reviewed
+   inhibited run. Use the handoff for current host sessions and exact next steps.
 3. All old native scopes are consumed. Never rerun a historical launcher, repin
    its consumed manifest, reset the MCU or infer that an old capture layout fits
    changed firmware. A new operation needs fresh source/artifact/identity binding

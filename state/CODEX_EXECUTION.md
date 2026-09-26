@@ -1,5 +1,17 @@
 # Current execution checklist - 2026-09-26 Asia/Dubai
 
+Current checkpoint: D201 actual inhibited capture and independent review are
+complete. Firstfailure FINAL_DEADLINE154us occurs during SETUP, zeroepochs;
+subsequent setup-inhibit cleanup SETTLE succeeds132us. No timing remedy or gate.
+D202 narrow compile-time metadata edit is committed; independent oracle frozen
+before source review/execution, first serial host checks in progress. Read
+CODEX_HANDOFF.md for active sessions, owners and exact next steps. D198
+source117cc0e7 remains flashed, and all native owners are consumed. Every older
+"current" or "next" paragraph below is historical and is superseded by this
+checkpoint and the handoff. Do not restart or rerun historical scopes.
+
+## Earlier D192-D193 checkpoint
+
 D192 bounded10000epoch inhibited observation is implemented/host-tested. New
 normal/sanitizer, legacy diagnostic and locked safety results passed; read
 analysis/P7_app_motor_observe_validation.md and current CODEX_HANDOFF.md.

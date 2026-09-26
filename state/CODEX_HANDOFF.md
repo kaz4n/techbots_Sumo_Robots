@@ -41,9 +41,16 @@ All bytes outside this region, native observations/order/count, SETTLE body,
 The emitted predecessor has runtime64-bit division dispatches in candidateRate
 (08110cca/08110cd8) and candidatePeriod(08110d0c), seen in saved D199 entry
 result10d8a184 commands[3]. This supports investigating constant evaluation,
-not a measured speedup. No new production edit or test execution had occurred
-when this handoff was written. An independent oracle is being authored without
-new-implementation access. Preserve its freeze before any test execution.
+not a measured speedup. Initial implementation37139e83 is19906B/fdbc27d9;
+its author receipt is implementation01.json/ef139b60. Independent oracle
+2b8f66e3/freeze0ff50996 was frozen before any implementation review or execution.
+Coordinator freezee6f81685 binds148 inputs (commit2b7449b2). The first serial
+metadata host attempt is running; no result is accepted yet. Its owner is
+analysis/P7_motor_expected_metadata_raw/metadata_first_linux01, driven by
+host_driver01.py metadata (session4252). After it finishes, run the distinct
+probe and locked groups once, preserve first failures and obtain the separate
+review at reviews/P7_motor_expected_metadata_review.md. Do not rerun consumed
+owners or alter pinned files while a test is active.
 
 Run independent metadata/native transcript checks and unchanged locked suites,
 serially, retaining first failures. Also run unchanged D197 oracle; its complete
@@ -100,4 +107,5 @@ Freeze1October21:00Dubai, rehearsal2October, competition3October. Dates do not
 create acceptance. Read AGENTS.md/CODEX_RESUME/CODEX_EXECUTION and latest state.
 PROGRESS is binary-append-only: first140971B SHA256
 1dbbeb53c3dc046128494af3bef240b9a00353929d6121991900c90bb2838b77.
-No native process or execution session remains active at this checkpoint.
+No native board process remains active. Host metadata test session4252 is active
+at this checkpoint; verify the saved owner/result before starting any new job.

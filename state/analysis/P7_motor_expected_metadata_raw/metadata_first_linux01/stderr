@@ -1,0 +1,28 @@
+test_01_exact_outside_region_and_derivation_bodies (__main__.MotorExpectedMetadataTests.test_01_exact_outside_region_and_derivation_bodies) ... ok
+test_02_runtime_helpers_force_three_automatic_constexpr_scalar_results (__main__.MotorExpectedMetadataTests.test_02_runtime_helpers_force_three_automatic_constexpr_scalar_results) ... ok
+test_03_all_21_full_transcripts_previous_current_probe0_probe1 (__main__.MotorExpectedMetadataTests.test_03_all_21_full_transcripts_previous_current_probe0_probe1) ... ok
+test_04_explicit_numeric_matrix_and_whole_port_zeroing (__main__.MotorExpectedMetadataTests.test_04_explicit_numeric_matrix_and_whole_port_zeroing) ... FAIL
+test_05_probe0_report_absent_probe1_single_zero_initialized_report_present (__main__.MotorExpectedMetadataTests.test_05_probe0_report_absent_probe1_single_zero_initialized_report_present) ... ok
+test_06_public_probe_exclusion_and_inert_guards_remain (__main__.MotorExpectedMetadataTests.test_06_public_probe_exclusion_and_inert_guards_remain) ... ok
+test_07_all_frozen_headers_config_d197_and_locked_fixtures_preserved (__main__.MotorExpectedMetadataTests.test_07_all_frozen_headers_config_d197_and_locked_fixtures_preserved) ... ok
+
+======================================================================
+FAIL: test_04_explicit_numeric_matrix_and_whole_port_zeroing (__main__.MotorExpectedMetadataTests.test_04_explicit_numeric_matrix_and_whole_port_zeroing)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_motor_expected_metadata.py", line 313, in test_04_explicit_numeric_matrix_and_whole_port_zeroing
+    self.command([*self.flags(probe,tree),*definitions,'-include',SHIM,
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_motor_expected_metadata.py", line 185, in command
+    raise AssertionError(label + ': ' + result.stderr[-8000:].decode('utf-8','replace'))
+AssertionError: matrix-carrier_zero-previous-0-build: In file included from /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/native_motor_expected_metadata_cases.cc:4:
+/dev/shm/sumox-d202-3_q1m4bn/carrier-0/src/hal/previous.cpp: In function ‘uint32_t motors::{anonymous}::candidatePeriod(uint32_t)’:
+/dev/shm/sumox-d202-3_q1m4bn/carrier-0/src/hal/previous.cpp:119:30: error: division by zero [-Werror=div-by-zero]
+  119 |     const auto cycles = rate / carrier;
+      |                         ~~~~~^~~~~~~~~
+cc1plus: all warnings being treated as errors
+
+
+----------------------------------------------------------------------
+Ran 7 tests in 144.178s
+
+FAILED (failures=1)

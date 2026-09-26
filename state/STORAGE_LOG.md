@@ -445,3 +445,6 @@ D191 closing observation: C:recovered290537472B independently before local docum
 
 
 2026-09-26T13:20:27.252674+04:00 | D204 host evidence retention | Keep eight first-run receipt/stream files plus compact oracle,derivation,freezes and validation. Closingbb30f2d6 confirms all238pins and no matched Linux/Windows/privateTEMP fixtures. No hostobject/ELFdownload/manualcleanup or reclaimed-size claim. Cfree8882872320B. Prior denied targets untouched.
+
+
+2026-09-26T13:28:04.272129+04:00 | D204 actual file evidence retention | Keep eight native owner files1857008logicalB plus compact invocation/closing/validation/review tobind actualABI and nextentryscope. No ELF/debugdownload, manualcleanup or reclaimed-byteclaim. CurrentCfree9487302656B atclosinge181ebe1; allcheckedsource/artifact originals remainneeded. Historicaldeniedcleanup targets untouched.

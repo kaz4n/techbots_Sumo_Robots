@@ -1,0 +1,205 @@
+{
+  "address": 536951136,
+  "alignments": {
+    "app::Runtime": 8,
+    "app::RuntimeReport": 8,
+    "app::Transaction": 8,
+    "app::TransactionReport": 8,
+    "app_motor_observe::Report": 8,
+    "app_motor_observe::Runner": 8,
+    "app_motor_observe::Snapshot": 8,
+    "bool": 1,
+    "core::Outputs": 4,
+    "countdown::LifecycleResult": 4,
+    "countdown::Result": 4,
+    "fsm::PreviousTick": 8,
+    "fsm::RobotResult": 8,
+    "motor_fault::Call": 4,
+    "motor_fault::Trace": 4,
+    "motor_fault::TraceReport": 4,
+    "motors::HaltResult": 4,
+    "motors::MotorGate": 8,
+    "motors::Result": 8,
+    "motors::SettleProbeReason": 1,
+    "motors::SettleProbeReport": 4,
+    "motors::SettleProbeSample": 4,
+    "report_.polls": 4
+  },
+  "bytes": 169736,
+  "limitation": "File layout only; no MCU contents, runtime acceptance, RAM or WCET measurement",
+  "polls_alignment_type": {
+    "evidence_sha256": "e83afc5f10cec2ed72f88d6567f6f13e5809518e1b89f3d5988d988b297e78f5",
+    "type": "unsigned int"
+  },
+  "readelf_size_projection": {
+    "changed": true,
+    "original_stdout_bytes": 158419,
+    "original_stdout_sha256": "5632ddc6fe74d5ec5357e2f43f0a36bb74028232d833d4d2eac4537a319ee163",
+    "original_token": "0x29708",
+    "projected_stdout_bytes": 158418,
+    "projected_stdout_sha256": "76bad01329898f2b12ad096985655b5b52a2fb22b0b41e1c6edd5d8a5e46096d",
+    "projected_token": "169736",
+    "size_bytes": 169736,
+    "symbol": "_ZN12_GLOBAL__N_110diagnosticE"
+  },
+  "section": 5,
+  "settle_probe": {
+    "address": 537121768,
+    "alignment": 4,
+    "bytes": 28,
+    "fields": {
+      "motors::SettleProbeReport.current": {
+        "bytes": 12,
+        "offset": 0
+      },
+      "motors::SettleProbeReport.first_failure": {
+        "bytes": 12,
+        "offset": 12
+      },
+      "motors::SettleProbeReport.has_current": {
+        "bytes": 1,
+        "offset": 24
+      },
+      "motors::SettleProbeReport.has_failure": {
+        "bytes": 1,
+        "offset": 25
+      },
+      "motors::SettleProbeReport.reserved": {
+        "bytes": 2,
+        "offset": 26
+      },
+      "motors::SettleProbeSample.elapsed_us": {
+        "bytes": 4,
+        "offset": 0
+      },
+      "motors::SettleProbeSample.fresh_mask": {
+        "bytes": 1,
+        "offset": 9
+      },
+      "motors::SettleProbeSample.poll_index": {
+        "bytes": 4,
+        "offset": 4
+      },
+      "motors::SettleProbeSample.reason": {
+        "bytes": 1,
+        "offset": 8
+      },
+      "motors::SettleProbeSample.reserved": {
+        "bytes": 1,
+        "offset": 11
+      },
+      "motors::SettleProbeSample.valid": {
+        "bytes": 1,
+        "offset": 10
+      }
+    },
+    "reasons": {
+      "FINAL_DEADLINE": 7,
+      "INITIAL_BANK": 4,
+      "NONE": 0,
+      "NULL_CONTEXT": 2,
+      "POLL_BANK": 6,
+      "POLL_DEADLINE": 5,
+      "POLL_LIMIT": 8,
+      "PRECONDITION": 3,
+      "SUCCESS": 1
+    },
+    "section": 5,
+    "symbol": "_ZN6motors12_GLOBAL__N_119settle_probe_reportE"
+  },
+  "sizes": {
+    "app::Runtime": 166376,
+    "app::RuntimeReport": 600,
+    "app::Transaction": 162544,
+    "app::TransactionReport": 504,
+    "app_motor_observe::Report": 1168,
+    "app_motor_observe::Runner": 169736,
+    "app_motor_observe::Snapshot": 1152,
+    "bool": 1,
+    "core::Outputs": 12,
+    "countdown::LifecycleResult": 28,
+    "countdown::Result": 8,
+    "fsm::PreviousTick": 48,
+    "fsm::RobotResult": 400,
+    "motor_fault::Call": 32,
+    "motor_fault::Trace": 2180,
+    "motor_fault::TraceReport": 2128,
+    "motors::HaltResult": 16,
+    "motors::MotorGate": 88,
+    "motors::Result": 56,
+    "motors::SettleProbeReason": 1,
+    "motors::SettleProbeReport": 28,
+    "motors::SettleProbeSample": 12,
+    "report_.polls": 4
+  },
+  "status": "STATIC_ABI_OBSERVED",
+  "symbol": "_ZN12_GLOBAL__N_110diagnosticE",
+  "windows": {
+    "attempted_": {
+      "address": 537120864,
+      "bytes": 1,
+      "offset": 169728,
+      "type": "bool"
+    },
+    "report_": {
+      "address": 537119696,
+      "bytes": 1168,
+      "offset": 168560,
+      "type": "app_motor_observe::Report"
+    },
+    "report_.before_abort.previous": {
+      "address": 537120816,
+      "bytes": 48,
+      "offset": 169680,
+      "type": "fsm::PreviousTick"
+    },
+    "report_.before_abort.runtime": {
+      "address": 537119712,
+      "bytes": 600,
+      "offset": 168576,
+      "type": "app::RuntimeReport"
+    },
+    "report_.before_abort.transaction": {
+      "address": 537120312,
+      "bytes": 504,
+      "offset": 169176,
+      "type": "app::TransactionReport"
+    },
+    "report_.polls": {
+      "address": 537119708,
+      "bytes": 4,
+      "offset": 168572,
+      "type": "report_.polls"
+    },
+    "runtime_.report_": {
+      "address": 537117984,
+      "bytes": 600,
+      "offset": 166848,
+      "type": "app::RuntimeReport"
+    },
+    "runtime_.transaction_.gate_": {
+      "address": 536953520,
+      "bytes": 88,
+      "offset": 2384,
+      "type": "motors::MotorGate"
+    },
+    "runtime_.transaction_.previous_": {
+      "address": 537115952,
+      "bytes": 48,
+      "offset": 164816,
+      "type": "fsm::PreviousTick"
+    },
+    "runtime_.transaction_.report_": {
+      "address": 537115448,
+      "bytes": 504,
+      "offset": 164312,
+      "type": "app::TransactionReport"
+    },
+    "trace_.report_": {
+      "address": 536951180,
+      "bytes": 2128,
+      "offset": 44,
+      "type": "motor_fault::TraceReport"
+    }
+  }
+}

@@ -882,3 +882,7 @@ FILE-OBSERVED: D203 source4bc3a2e6 atcleandbeec127 compilesonce withfixedstatic/
 
 ## F225 - Constant metadata ABI reader host checks (2026-09-26T13:21:22.876098+04:00)
 HOST-VERIFIED: exact19-step readerf360a52d/projected938c1de2 and independent71method oracleea268af8 pass firstLinux71/Windows69+2coveredskips. Reviewer ae662c11 independentlyreconciles all238pins, eight savedstreams/receipts, same unique methodorder and fixtureclosurebb30f2d6. No newtargettypes/addresses/helperpresence orruntimebenefit observedyet. Source: analysis/P7_motor_const_abi_validation.md.
+
+
+## F226 - Current constant metadata diagnostic ABI and symbols (2026-09-26T13:28:04.272129+04:00)
+FILE-OBSERVED: D204 onefile-onlyattemptatd3bcfaa0 returnedcheck0/execute0,4successfulreapedchildren,13remote+localPASS, firsterrornull. Actualreview4cd28fe8 independentlyreconciles20817Bprogram,223expressions/111markers/88numericanswers,2299symbols and238/8/143pins. Runner20013960/169736 and separateSETTLEreport2003d3e8/28 freshlyobserved,11Runneroffsets/11reportfieldpairs/9enums match. candidateRateexact/nametoken absent; candidatePeriod20B08110c91. No emittedinstruction/timing/faultrepair/liveRAM/MCUread; D201remainsflashed. Source: analysis/P7_motor_const_abi_actual_validation.md.

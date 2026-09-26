@@ -2362,3 +2362,6 @@ D-204 host closure 2026-09-26T13:21:22.876098+04:00: Adopt independentreviewae66
 
 
 D-204 native admission 2026-09-26T13:22:33.592848+04:00: Adopt separate admissionreview763b0c82PASS/sourcehostae662c11PASS. Scope6b7fba9d binds8currentinputs;238coordinatorpins unchanged, freshlocalowner absent. AftercleancommittedHEAD/localcheck-only, admit one file-only ABI execution with currentembeddedboardadmission,4boundedchildren,13remoteclosing+localclosure; no retry/compile/upload/reset/MCUread.
+
+
+D-204 actual closure 2026-09-26T13:28:04.272129+04:00: Adopt actualreview4cd28fe8PASS for singlefile-onlyattempt atcleand3bcfaa0. Rawbbdecb40/ABI6fed52b8/local3cd224b2/rootclosinge181ebe1:4reapedchildren,13remote+localPASS,238host/8scope/143runtimepins stable.2299complete symbols/freshRunner20013960+report2003d3e8, exactlayouts; candidateRateabsent, candidatePeriod20B08110c91.23typegroupsTOTAL (22TYPES+bool); no querychange. Ownerconsumed. PrepareD205fixed32group/34alias/65expression scope using28retainedgroups plus4consumers,7whole/contextparser substitutions; no runtime selectors or oldaddresses. No instruction/timing/SETTLErepair/runtimegate follows.

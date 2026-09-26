@@ -1,0 +1,251 @@
+{
+  "schema": "d204-native-abi-local-closing-v1",
+  "at": "2026-09-26T13:24:30.981360+04:00",
+  "coordinator_pins": 238,
+  "scope_pins": 8,
+  "runtime_local_pins": 143,
+  "changed_inputs": [],
+  "commands": [
+    {
+      "index": 0,
+      "stdout": {
+        "bytes": 283,
+        "sha256": "fb0fb06d29e07100d474b8370bcc7cc304258189feab180bc678c9c0abdff851"
+      },
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "elapsed_seconds": 0.012018918991088867
+    },
+    {
+      "index": 1,
+      "stdout": {
+        "bytes": 281,
+        "sha256": "a2ba24fa1b25ad3c6b26e5fcf0e715f1eeb4a8480434761ed9f4c7682bb12438"
+      },
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "elapsed_seconds": 0.07267403602600098
+    },
+    {
+      "index": 2,
+      "stdout": {
+        "bytes": 158419,
+        "sha256": "5632ddc6fe74d5ec5357e2f43f0a36bb74028232d833d4d2eac4537a319ee163"
+      },
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "elapsed_seconds": 0.030024051666259766
+    },
+    {
+      "index": 3,
+      "stdout": {
+        "bytes": 504466,
+        "sha256": "bf8cf406f301898840e8ce96dc2894d15177819c36454389b8d01eb63552ef9b"
+      },
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "elapsed_seconds": 0.44780898094177246
+    }
+  ],
+  "remote_closing_checks": 13,
+  "local_closure": {
+    "final_checks": [
+      {
+        "name": "local",
+        "status": "PASS"
+      }
+    ],
+    "finished_utc": "2026-09-26T09:22:52.615863+00:00",
+    "first_error": null,
+    "started_utc": "2026-09-26T09:22:50.234562+00:00",
+    "status": "STATIC_ABI_OBSERVED",
+    "transport_calls": 1
+  },
+  "complete_symbol_tables": [
+    [
+      ".symtab",
+      "2299"
+    ]
+  ],
+  "symbol_row_count": 2299,
+  "selected_symbols": {
+    "candidate_rate": {
+      "symbol": "_ZN6motors12_GLOBAL__N_113candidateRateEj",
+      "rows": [],
+      "presence": "ABSENT_EXACT_NAME"
+    },
+    "candidate_period": {
+      "symbol": "_ZN6motors12_GLOBAL__N_115candidatePeriodEj",
+      "rows": [
+        [
+          "981",
+          "08110c91",
+          "20",
+          "FUNC",
+          "LOCAL",
+          "DEFAULT",
+          "1",
+          "_ZN6motors12_GLOBAL__N_115candidatePeriodEj"
+        ]
+      ],
+      "presence": "PRESENT"
+    },
+    "expected_rate": {
+      "symbol": "_ZN6motors12_GLOBAL__N_112expectedRateEj",
+      "rows": [],
+      "presence": "ABSENT_EXACT_NAME"
+    },
+    "expected_period": {
+      "symbol": "_ZN6motors12_GLOBAL__N_114expectedPeriodEj",
+      "rows": [],
+      "presence": "ABSENT_EXACT_NAME"
+    },
+    "timer_valid": {
+      "symbol": "_ZNK6motors8UnoQPort10timerValidEj",
+      "rows": [
+        [
+          "2039",
+          "081111a5",
+          "384",
+          "FUNC",
+          "GLOBAL",
+          "DEFAULT",
+          "1",
+          "_ZNK6motors8UnoQPort10timerValidEj"
+        ]
+      ],
+      "presence": "PRESENT"
+    },
+    "bank_valid": {
+      "symbol": "_ZNK6motors8UnoQPort9bankValidEv",
+      "rows": [
+        [
+          "1638",
+          "081114f5",
+          "68",
+          "FUNC",
+          "GLOBAL",
+          "DEFAULT",
+          "1",
+          "_ZNK6motors8UnoQPort9bankValidEv"
+        ]
+      ],
+      "presence": "PRESENT"
+    },
+    "write_pwm": {
+      "symbol": "_ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj",
+      "rows": [
+        [
+          "1786",
+          "08111411",
+          "228",
+          "FUNC",
+          "GLOBAL",
+          "DEFAULT",
+          "1",
+          "_ZN6motors8UnoQPort8writePwmEPvNS_7ChannelEjj"
+        ]
+      ],
+      "presence": "PRESENT"
+    },
+    "map_channel": {
+      "symbol": "_ZN6motors12_GLOBAL__N_110mapChannelEjRj",
+      "rows": [
+        [
+          "994",
+          "08110da1",
+          "264",
+          "FUNC",
+          "LOCAL",
+          "DEFAULT",
+          "1",
+          "_ZN6motors12_GLOBAL__N_110mapChannelEjRj"
+        ]
+      ],
+      "presence": "PRESENT"
+    },
+    "settle": {
+      "symbol": "_ZN6motors8UnoQPort6settleEPv",
+      "rows": [
+        [
+          "1743",
+          "08111539",
+          "292",
+          "FUNC",
+          "GLOBAL",
+          "DEFAULT",
+          "1",
+          "_ZN6motors8UnoQPort6settleEPv"
+        ]
+      ],
+      "presence": "PRESENT"
+    },
+    "publish_settle": {
+      "symbol": "_ZN6motors12_GLOBAL__N_113publishSettleENS_17SettleProbeReasonEjjhh",
+      "rows": [
+        [
+          "987",
+          "08110cd5",
+          "60",
+          "FUNC",
+          "LOCAL",
+          "DEFAULT",
+          "1",
+          "_ZN6motors12_GLOBAL__N_113publishSettleENS_17SettleProbeReasonEjjhh"
+        ]
+      ],
+      "presence": "PRESENT"
+    }
+  },
+  "abi": {
+    "bytes": 5410,
+    "sha256": "6fed52b884c6015a2c9d2f6803bea20e764418fcc94cffe144161026259f6a97"
+  },
+  "native_owner_files": {
+    "abi.json": {
+      "bytes": 5410,
+      "sha256": "6fed52b884c6015a2c9d2f6803bea20e764418fcc94cffe144161026259f6a97"
+    },
+    "inputs.json": {
+      "bytes": 33427,
+      "sha256": "9e8db724955f5bcf5c5e206d862ff445778b08c7a48808f447b14884d46f124c"
+    },
+    "local_result.json": {
+      "bytes": 275,
+      "sha256": "3cd224b237fc1b18586d7b2fb22c2a47833a801fea06b96b338027102db5d55d"
+    },
+    "result.json": {
+      "bytes": 904847,
+      "sha256": "bbdecb404a42237fafaf0bf4b2e38690b62ee45119cdfabd9b2f7dde17a6b9b0"
+    },
+    "0001-file-abi/intent.json": {
+      "bytes": 6335,
+      "sha256": "278dbc8cff2d7e75ed9393301650edd93d95a71a5c92754ac9723d59398d344d"
+    },
+    "0001-file-abi/result.json": {
+      "bytes": 6354,
+      "sha256": "81c2cbcf9e5d562122b99fe4e1ace12b95bc445d3164df0bb3873b17d37f73b8"
+    },
+    "0001-file-abi/stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "0001-file-abi/stdout": {
+      "bytes": 900360,
+      "sha256": "17631968972f5a9d79119a8977cb5eb6a4ce5f5af4dc4756e2ed34d7af657872"
+    }
+  },
+  "native_owner_file_count": 8,
+  "native_owner_logical_bytes": 1857008,
+  "c_free_bytes": 9487302656,
+  "coordinator_audit_note": "First read-only inline audit stopped before writing: it compared sorted serialized remote_pins iteration with runtime insertion order. Corrected audit reconstructs exact original order: eight artifact keys, GDB, readelf, loader, TLS, identity. All thirteen rows and membership checked; no subject, fixture, result, native operation or guard changed or rerun.",
+  "limitations": "File observation only; exact name absence does not exclude inlined computation, clones or instructions in consumers. No MCU/runtime/timing/physical evidence."
+}

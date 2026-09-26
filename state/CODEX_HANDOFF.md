@@ -107,14 +107,25 @@ ae662c11PASS is immutable. Fixedscope6b7fba9d with8inputs and separate
 admissionreview763b0c82PASS permit cleanHEAD/check-only then one file-only
 ABI observation. Allwritersstopped; no D204nativeoperation has run yet.
 
-Newplanned ABIlocalowner RAW/native_abi_static01 and checkedabsent remotescope
-app-motor-const-abi-static01 bind actualD203 buildowner/staticartifacts.
-Preserve original4filecommands/13closingchecks/localclosure. Complete readelf
-symbols permit fresh helperpresence/absence observation. Newreport/global
-addresses must be observed; never reuse D199 coordinates. Host/source/fixed
-scope review, cleanHEAD/check-only precede one nativefile-onlyABI attempt.
-A separatelybound entry scope follows acceptedactualsymbols, then separately
-reviewed inhibitedruntime. No compile/upload/reset/MCUread or motorpermission.
+D204 actual file-only observation completed once at clean d3bcfaa026e971c902f33c1f4c648338a6263677.
+Check-only and execute returned0; one transport, four reaped file children and
+13 remote plus local closing checks PASS. RAW/native_abi_static01 is consumed.
+Result904847B/bbdecb40, abi5410B/6fed52b8, local275B/3cd224b2. Independent
+root closure6866B/e181ebe1 verifies238host/8scope/143runtime local pins and
+2299 complete symbol rows. Separate actual review4cd28fe8PASS is final and accepted; read
+analysis/P7_motor_const_abi_actual_validation.md.
+
+Current Runner is freshly observed at20013960/169736 and separate SETTLE report
+at2003d3e8/28. All11 Runner offsets,11 report offset/width pairs,9 reason values
+and Sample12/4,Report28/4,Reason1/1 match. Query count is223 with23 total type
+groups (22 TYPES plus bool), not23 plus an extra bool. candidateRate has no
+exact symbol row; candidatePeriod remains20B at08110c91. This is no proof of
+instruction removal or speedup. Actualreviewaccepted. D205 preparation owns a fixed32group/34alias/65expression
+entry scope from current symbols:28retainedgroups plus timerValid/bankValid/
+writePwm/mapChannel; seven whole/context parser substitutions preserve logic.
+Contract/binding/derivation draft only until review/adoption; no newentryreader
+may execute or be inspected before independentoracleFINAL.
+No D204 compile/upload/reset/MCU read occurred; D201 remains flashed.
 
 ## Evidence prerequisites already complete
 
@@ -162,4 +173,4 @@ Freeze1October21:00Dubai, rehearsal2October, competition3October. Dates do not
 create acceptance. Read AGENTS.md/CODEX_RESUME/CODEX_EXECUTION and latest state.
 PROGRESS is binary-append-only: first140971B SHA256
 1dbbeb53c3dc046128494af3bef240b9a00353929d6121991900c90bb2838b77.
-No host/compiler/device job is active. D203 compile is complete and consumed; D204 first host suites and separate source/host/scope reviews pass; commit cleanHEAD, check-only, then single file-only ABI observation next.
+No host/compiler/device job is active. D203 and D204 native owners are consumed. D204 actual review4cd28fe8 accepted; current-symbol-derived D205 entry contract/binding/derivation preparation is underway, no new executable yet.

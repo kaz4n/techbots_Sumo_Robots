@@ -499,3 +499,6 @@ D191 closing observation: C:recovered290537472B independently before local docum
 
 
 2026-09-26T18:50:27.191693+04:00 P7 D212 host fixtures: native Linux task-prefix scan and three Windows fixture directories were empty; decoder Windows fixture directory also verifiedempty. Attempted nonrecursive removal of the exact decoder Windows temporary directory was rejected before execution by automatic policy with "blocked by policy" and no additional reason. Retain this empty directory;0payloadbytes/0reclaimed, no retry. Raw streams, first failures and compact closures retained for review; Python-I-B avoided bytecode. C: observed7.4GBfree before nativepreparation.
+
+
+2026-09-26T19:05:17.329579+04:00 P7 D212 actual evidence: retained exact13transportreceipts,16-file savedpacket20172B and decoded61257B pluscompact closure/review; no duplicate SRAM binary downloads. Native and retrieval owners consumed. Board uploader scratch is retained pending a separatelyverified cleanup if a futureuploadneedsit; no automatic repeat or broaddeletion. Originaltarget artifacts/unique failures/source/Githistory remain. No build orbytecode created bythisobservation.

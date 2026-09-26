@@ -938,3 +938,10 @@ FILE-OBSERVED: separate reviewed observera8e3b8b2/derivation807184e7/reviewc4327
 
 ## F239 - Exact stale upload cleanup (2026-09-26T18:24:51.159231+04:00)
 FILE-OBSERVED: D211 actual review `46792354` accepts one authenticated invocation and one separate read-only retrieval. Raw result `0930bc90` and retrieval `4be9c41b` establish removal of exactly three copies totaling 2,399,776 bytes plus empty /tmp/remoteocd device34/inode1732. Three bounded scans restored Arduino credentials before mutation; final recorded UID/GID triples are all1000, with no errors. Original files and staged sources remain unchanged; six remote closing checks and69 local pins pass. Supplementary-group [1000] is source-enforced at entry, not a separately recorded final observation. No firmware, physical, motor or gate change. Source: analysis/P7_ordinary_app_cleanup_actual_validation.md.
+
+
+### F240 - Ordinary inhibited application sampled observation (2026-09-26T19:05:17.329579+04:00)
+Observed: D212 atcleanb5017310 uploads ordinarysource9044ebbb/static/default/MATCH0/M0/probe0/zerogrants once.28reads715858B,allflashcomparisons and380localpins match. Savedpacket1fe00614/decoded3deb755b/actualreview173dd5c2 reconcile214scalars. RuntimeRUNNING/NONE;epochs142768 and145878;maxcounter477us/missed0/initfalse;selectedduties/pulses0/enabledfalse. Confidence high for these sampled bytes only; mixedtransactionstates/coherenceUNPROVEN/no initializedWCET,physicalinhibition orfault-cure claim. Source: analysis/P7_ordinary_app_run_actual_validation.md and named rawreceipts.
+
+### F241 - Current connected hardware (2026-09-26T19:05:17.329579+04:00)
+User explicitly replied "Board only" in this session. Treat sensors,motor drivers and complete robot as unavailable for present commissioning. This is a user-reported connection state, not pin/electrical acceptance or a setup grant.

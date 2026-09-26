@@ -1508,3 +1508,6 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-26T18:47:12.925705+04:00 P7: D212 native host106Linux/62Windows+44coveredskips; decoder46eachPASS. Correctedfixtures only, failures preservedacf8cddf; finaldecoderreview thenfreshreadonlyadmission/scope/check/native next. No ordinaryflash yet.
+
+
+2026-09-26T19:05:17.329579+04:00 P7: D212 ordinaryM0 upload/passivecapture/retrieval/decoded actual accepted review173dd5c2. Oneupload/onecapture28reads715858B/allflashmatch/380pinsstable;214scalars,epoch integers142768→145878,477us sampledmax/missed0/no sampledfault ornonzerocommand, initfalse/RobotBOOT/zerogrants. Bareboard confirmed. Allnative/retrievalowners consumed; no retry/gate/physical/WCETclaim. D213B4policy hostvalidation next.

@@ -1,3 +1,9 @@
+## Current checkpoint - 2026-09-26T19:05:17.329579+04:00
+
+D212 ordinary app is the latest verified flashed firmware: source9044ebbb,static/default/MATCH0/MOTORS0/probe0/allgrants0. Atcleanb5017310,onecheck/oneexecute/13transports/28reads715858B succeeded,allflashmatches/380pinsstable. Actualreview173dd5c2 accepts savedpacket1fe00614 and decoded3deb755b,214scalars. Runtime sampled RUNNING/NONE,epochs142768→145878,max477us/missed0,initfalse/RobotBOOT;selectedmotorcommandszero. Mixedtransactions/coherenceUNPROVEN; no continuousexecution/WCET/physical/gate/fault-cure claim. Owners consumed; no rerun. UserconfirmedBOARD ONLY.
+
+Current authorizedsoftwaretask D213: tools/b4_app_static_policy.py and shortcontract drafted/sealed; independentoracleauthor ordinary_abi_scope preparing tests withoutsubjectinspection. No D213subject/testexecution yet. Root ownsimplementation; separate reviewer afteroracleFINAL. Fivepinnedsnapshots,app.ino/defaultstatic,B4exclusive,explicitintegerM0/M1; purehostvalidationonly. Finish tests/review thenbuild/deploysoftware. No sensors/driversavailable; nativeUART/stack/RAM/fullWCET/physical calibration/motor/ring/humangates remainunqualified. FullD212evidence: analysis/P7_ordinary_app_run_actual_validation.md.
+
 # Codex handoff - 26 September 2026, Asia/Dubai
 
 ## Latest checkpoint: D210 ordinary entry independently accepted

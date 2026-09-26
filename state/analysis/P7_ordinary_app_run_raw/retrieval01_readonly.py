@@ -1,0 +1,23 @@
+EXPECTED={'boot_id': '55c386b9-fe6d-4388-a7f4-1d91e0bb49d8', 'gid': 1000, 'home': '/home/arduino', 'machine': 'aarch64', 'python': [3, 13, 5], 'release': '6.16.7-g0dd6551ae96b', 'sysname': 'Linux', 'uid': 1000, 'user': 'arduino'}
+PINS=[{'path': '/home/arduino/sumox26_codex_build/ordinary-app-9044ebbb-run01-upload/upload_result.json', 'bytes': 1799, 'sha256': '409725db096f931e62fcd44f257afdb311cd72e1fe8b24c8b0cfa57f2560c3ed'}, {'path': '/home/arduino/sumox26_codex_build/ordinary-app-9044ebbb-run01-capture/capture_result.json', 'bytes': 7826, 'sha256': '1c15e030e2b20e0044aec9da5bc2a0d2ba805ea453c1471599a09a384303ca89'}, {'path': '/home/arduino/sumox26_codex_build/ordinary-app-9044ebbb-run01-capture/07-first.report.bin', 'bytes': 600, 'sha256': '996fc42b8dea84b259da1ab8252006cfe4a5060f35d9088178b5d35ede34591e'}, {'path': '/home/arduino/sumox26_codex_build/ordinary-app-9044ebbb-run01-capture/08-first.transaction.bin', 'bytes': 504, 'sha256': 'a2344209c8c779ac63cd0f0a04000d78ff1b185393e421252a46ac2df02a6455'}, {'path': '/home/arduino/sumox26_codex_build/ordinary-app-9044ebbb-run01-capture/09-first.previous.bin', 'bytes': 48, 'sha256': '2173aeef4984c8ec3ab1aa2af96e1f4dd0b06b33a72127523b395f76cd05f07e'}, {'path': '/home/arduino/sumox26_codex_build/ordinary-app-9044ebbb-run01-capture/10-first.gate.bin', 'bytes': 88, 'sha256': '04bf1e8189e1bbb0409b50b1ea5bbb8c2b2647b1b18469fef1ec1d3fc54ea2be'}, {'path': '/home/arduino/sumox26_codex_build/ordinary-app-9044ebbb-run01-capture/11-first.grants.bin', 'bytes': 21, 'sha256': 'c90232586b801f9558a76f2f963eccd831d9fe6775e4c8f1446b2331aa2132f2'}, {'path': '/home/arduino/sumox26_codex_build/ordinary-app-9044ebbb-run01-capture/12-first.attempted_word.bin', 'bytes': 4, 'sha256': '4afc7d98518180331a55e2f7b2d03f93c15d1c24afc976cdfb5737e02a190203'}, {'path': '/home/arduino/sumox26_codex_build/ordinary-app-9044ebbb-run01-capture/13-first.motor_port.bin', 'bytes': 40, 'sha256': '03316c511675031c27a0530955122f5246c38000f9640feb78a901f7e115c692'}, {'path': '/home/arduino/sumox26_codex_build/ordinary-app-9044ebbb-run01-capture/14-second.report.bin', 'bytes': 600, 'sha256': '4223b14de37d788959aa004bc9a80e927ee4e0ff5cbc637245d9036973c96e1b'}, {'path': '/home/arduino/sumox26_codex_build/ordinary-app-9044ebbb-run01-capture/15-second.transaction.bin', 'bytes': 504, 'sha256': '8ce6171a900d551f720fbe96b9e00a5b1c5f8d8a8d4ef1887d74c11b219d59d1'}, {'path': '/home/arduino/sumox26_codex_build/ordinary-app-9044ebbb-run01-capture/16-second.previous.bin', 'bytes': 48, 'sha256': '01c90f534ec653d6a5964f7fe41f2feb30e02f25614d541e6ebe0ca76e6170b2'}, {'path': '/home/arduino/sumox26_codex_build/ordinary-app-9044ebbb-run01-capture/17-second.gate.bin', 'bytes': 88, 'sha256': '8553d5d7a34ac1e784964a4fafe7fa43866c64751ba6eb6007a6c4a284b3c065'}, {'path': '/home/arduino/sumox26_codex_build/ordinary-app-9044ebbb-run01-capture/18-second.grants.bin', 'bytes': 21, 'sha256': 'c90232586b801f9558a76f2f963eccd831d9fe6775e4c8f1446b2331aa2132f2'}, {'path': '/home/arduino/sumox26_codex_build/ordinary-app-9044ebbb-run01-capture/19-second.attempted_word.bin', 'bytes': 4, 'sha256': '4afc7d98518180331a55e2f7b2d03f93c15d1c24afc976cdfb5737e02a190203'}, {'path': '/home/arduino/sumox26_codex_build/ordinary-app-9044ebbb-run01-capture/20-second.motor_port.bin', 'bytes': 40, 'sha256': '8585137c52e7ce0b27ea97dfc00654e22db5e6486e7bc5fbbdc2d5f187ddb090'}]
+import base64,zlib,hashlib,json,os,sys,types,signal
+signal.alarm(60)
+source=zlib.decompress(base64.b64decode(sys.argv[1],validate=True))
+if hashlib.sha256(source).hexdigest()!='8ba9b190c38e728013a383348c60c287b0366607f65f703161cf7f2e142d36f8':raise ValueError('Helper changed')
+h=types.ModuleType('read_only_result_helper');h.__file__='/__sumox__/static_remote.py';exec(compile(source,h.__file__,'exec'),h.__dict__)
+fd=os.open('/',os.O_RDONLY|os.O_DIRECTORY|os.O_NOFOLLOW)
+try:
+ before=h.identity(fd)
+ if before!=EXPECTED:raise ValueError('Identity changed')
+ rows=[]
+ for pin in PINS:
+  body=h.logical_read(fd,pin['path'],pin['bytes'])
+  if len(body)!=pin['bytes'] or hashlib.sha256(body).hexdigest()!=pin['sha256']:raise ValueError('Result pin mismatch')
+  rows.append(dict(pin,data_base64=base64.b64encode(body).decode('ascii')))
+ for pin in PINS:
+  body=h.logical_read(fd,pin['path'],pin['bytes'])
+  if len(body)!=pin['bytes'] or hashlib.sha256(body).hexdigest()!=pin['sha256']:raise ValueError('Closing result pin mismatch')
+ after=h.identity(fd)
+ if after!=before:raise ValueError('Closing identity changed')
+ print(json.dumps({'status':'FILE_ONLY_RESULTS_VERIFIED','identity_before':before,'identity_after':after,'files':rows,'closing_file_checks':len(PINS)},separators=(',',':')))
+finally:os.close(fd)

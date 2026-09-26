@@ -402,3 +402,7 @@ Recheck space before work and preserve all earlier blocked cleanup exclusions.
 
 
 - [x] D199 actual file-entry observation andsemanticreview20f54afaPASS at5adbd784: publication/firstfailureguard/SETTLE bounds/selectedinertstartup verified. native_entry_static01 consumed; D195stillflashed. NextadoptfixedD201capture+offlineinterpretercontracts, freezeindependentoracles andvalidatebeforefreshnativeadmission.
+
+
+- [x] D212 ordinary app static/default/M0/probe0 uploaded and passively observed; actualreview173dd5c2 PASS. This supersedes older latest-flash statements. Sampled runtime counters increase, no sampledfault; hardware initialization remains incomplete underzero grants.
+- [ ] D213 B4 snapshot policy independenttests/review, then separate build/deploy tooling. Boardonly connected; physicalacceptance/motor/ring/UARTrearm qualification andhumangates remain open.

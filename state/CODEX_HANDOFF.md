@@ -1,3 +1,30 @@
+## Current checkpoint - 2026-09-26T20:34:50.339299+04:00
+
+D215 is ready for one file-only B4 ABI attempt. Source4b31dfed, independent
+20Linux+20WindowsPASS/no skips,153frozeninputs unchanged; rootclosure35323fb4
+and source-host review3e6ec1d8 FINAL PASS. Contractf1f1469c/plan874da0a9,
+14-role scope4899430a and final native admission907243b5 are accepted.
+Prerequisite union contains166current files. Next exactbyte stage/commit,
+clean reviewed HEAD, then python -I -B
+state/analysis/P7_b4_app_compile_raw/abi_native_driver01.py once.
+Driver does onecheck then oneconditionalexecute; native_abi_static01 and
+abi_native_invocations01.json are absent and must not be reused. No liveexec.
+Allotherwritersheld through nativeclosure; no D216draftfiles have beenwritten.
+
+D216next: pure fixed-B4 retained-recorder decoder/CSV export. Productionworker
+ordinary_abi_scope and independentoracleauthor b4_next_scope have contract/API
+only in messages: exactactualmaphash,35essential nativefields/9bools,3arrays,
+all36CSVcolumns/22loss terms; caller rawbytes preserved, unsupportedmetadata
+refuses atomicexport, format/consistency/lifecycle/provenance separate. Map must
+be transcribed from freshD215 layouts before source/oracle seals. Hold writes
+until rootreportsABI nativecomplete. No inferredoffsets or transport expansion.
+
+D214compile accepted e3b2f9bc/review7490c232; D212ordinaryM0 remains latestflash.
+UserBOARD ONLY; no initializedWCET/liveRAM/physical/motor/human gate. Disposable
+localstage104files764405B retirement was automaticallyblocked beforeexecution;
+no delete/retry/alternativeroute. It remains and is not an ABI dependency. See
+local_stage_cleanup_blocked01.json; earlierblockedtargets remain untouched.
+
 ## Current checkpoint - 2026-09-26T20:16:13.062764+04:00
 
 D214 B4 M0/static/default compile-only is independently accepted: actualreview

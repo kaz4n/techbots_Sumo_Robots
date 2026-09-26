@@ -1,0 +1,126 @@
+{
+  "schema": "d215-b4-abi-native-scope-v1",
+  "created": "2026-09-26T20:33:22.443309+04:00",
+  "status": "PREPARED_NOT_EXECUTED",
+  "operation": "One check-only followed conditionally by one fixed file-only execution after independent admission and clean reviewed HEAD. No compiler, upload, reset, MCU read, privilege or retry.",
+  "profile": {
+    "project": "app.ino",
+    "fqbn": "arduino:zephyr:unoq:link_mode=static",
+    "flags": "-DMATCH=0 -DMOTORS_ALLOWED=0 -DSUMOX_B4_STAND=1 -DSUMOX_P3_DRIVE_TEST=0 -DSUMOX_P3_TURN_TRIAL=0 -DSUMOX_P3_STOP_TRIAL=0 -DSUMOX_P4_REACTIVE=0 -DSUMOX_TIMING_EVIDENCE=0 -DSUMOX_P5_ABORT_TIMING=0 -DSUMOX_MOTOR_FAULT_PROBE=0",
+    "source_sha256": "9044ebbb3cd3b2dbb7aa5984dd5ff23bfff697372f1f29d56693af9ea5eaf31a",
+    "motors_allowed": 0
+  },
+  "bindings": {
+    "build_owner": "/home/arduino/sumox26_codex_build/b4-app-m0-static01",
+    "remote_scope": "/home/arduino/sumox26_codex_build/b4-app-m0-abi-static01",
+    "local_owner": "state/analysis/P7_b4_app_compile_raw/native_abi_static01",
+    "scope": "D215_STATIC_FILE_ONLY_ABI",
+    "schema": "b4-app-m0-static-abi-v1"
+  },
+  "query_counts": {
+    "retained_expressions": 185,
+    "added_expressions": 128,
+    "total_expressions": 313,
+    "markers": 156,
+    "types": 21,
+    "windows": 7,
+    "enums": 73,
+    "children": 4
+  },
+  "prospective_program": {
+    "bytes": 24363,
+    "sha256": "d0c4f1233e1de6b00d64688f92c1d12ae0b7333ab4638dda9f6f677c1731e5b0",
+    "compressed_base64_bytes": 6676,
+    "windows_utf16_units_including_nul": 6981,
+    "children": 4,
+    "remote_file_closing_checks": 12,
+    "identity_closing_checks": 1
+  },
+  "limits": {
+    "children": 4,
+    "child_seconds": 60,
+    "reap_seconds": 5,
+    "stream_bytes": 1048576,
+    "transport_seconds": 400,
+    "outer_seconds": 500,
+    "reply_bytes": 8388608,
+    "windows_utf16_units_with_nul": 30000,
+    "local_free_bytes_minimum": 134217728
+  },
+  "fresh_admission": "Inside sole remote operation: fixed boardserial, boot, UID/GID, resources, ownerabsence and12pinnedfiles;13remotechecks and independentlocalclosure. No duplicateboardinventory.",
+  "roles": {
+    "subject": "state/analysis/P7_b4_app_compile_raw/inspect_static_abi.py",
+    "contract": "state/analysis/P7_b4_app_abi_contract.md",
+    "plan": "state/analysis/P7_b4_app_compile_raw/abi_plan01.json",
+    "derivation": "state/analysis/P7_b4_app_compile_raw/abi_derivation01.json",
+    "oracle": "state/analysis/P7_b4_app_compile_raw/abi_oracle01.json",
+    "test": "tests/tooling/test_b4_app_abi.py",
+    "coordinator": "state/analysis/P7_b4_app_compile_raw/abi_coordinator_freeze01.json",
+    "host_closing": "state/analysis/P7_b4_app_compile_raw/abi_host_closing01.json",
+    "source_host_review": "state/reviews/P7_b4_app_abi_review.md",
+    "native_driver": "state/analysis/P7_b4_app_compile_raw/abi_native_driver01.py",
+    "native_driver_derivation": "state/analysis/P7_b4_app_compile_raw/abi_native_driver_derivation01.json",
+    "compile_artifacts": "state/analysis/P7_b4_app_compile_raw/native_static01/artifacts.json",
+    "compile_result": "state/analysis/P7_b4_app_compile_raw/native_static01/result.json",
+    "compile_review": "state/reviews/P7_b4_app_compile_actual_review.md"
+  },
+  "files": {
+    "state/analysis/P7_b4_app_compile_raw/inspect_static_abi.py": {
+      "bytes": 32744,
+      "sha256": "4b31dfed3508ebd612abd7de31c5d25e5983c57b802fc55946d3996cf259943d"
+    },
+    "state/analysis/P7_b4_app_abi_contract.md": {
+      "bytes": 8820,
+      "sha256": "f1f1469c2967a198446d5e7fb01bb7388cee6450732b9e9dde1a9b244633224e"
+    },
+    "state/analysis/P7_b4_app_compile_raw/abi_plan01.json": {
+      "bytes": 33706,
+      "sha256": "874da0a9af0477d3ec94cbbc8f86edc03c68229fa0dc7b0c1bc2c7c7dcdf1037"
+    },
+    "state/analysis/P7_b4_app_compile_raw/abi_derivation01.json": {
+      "bytes": 33182,
+      "sha256": "6f4b7fd790d015b49fb7f25440149f6d10c91402a6487add1c4460f328d99cc2"
+    },
+    "state/analysis/P7_b4_app_compile_raw/abi_oracle01.json": {
+      "bytes": 6329,
+      "sha256": "9f13ad73b24c9d728539ef417ad73fe099ab6e10376debbe68dcdefd530c3976"
+    },
+    "tests/tooling/test_b4_app_abi.py": {
+      "bytes": 28287,
+      "sha256": "82e09db623e9a7f7b4be5fff8784dc4bb1d936f20dd1b55ed2c8261818f88a46"
+    },
+    "state/analysis/P7_b4_app_compile_raw/abi_coordinator_freeze01.json": {
+      "bytes": 23585,
+      "sha256": "891e16c301660372ed70ea775939e7f6965285d09fdc4d56d0739ffa78c61a69"
+    },
+    "state/analysis/P7_b4_app_compile_raw/abi_host_closing01.json": {
+      "bytes": 5817,
+      "sha256": "35323fb4380d9523f3f37d217fe7e7402e3155d3aaec66b574589ee61d02fa13"
+    },
+    "state/reviews/P7_b4_app_abi_review.md": {
+      "bytes": 6406,
+      "sha256": "3e6ec1d8de5f16d898eb4cf29fe55fe49d80f4d55d27898a9e368dfad4f4ba98"
+    },
+    "state/analysis/P7_b4_app_compile_raw/abi_native_driver01.py": {
+      "bytes": 5151,
+      "sha256": "286f710a1b20f611c1134aac339f375d041171426ac3f1508637791e2bda0832"
+    },
+    "state/analysis/P7_b4_app_compile_raw/abi_native_driver_derivation01.json": {
+      "bytes": 1618,
+      "sha256": "9fc0bb5dce951e81f6ed5e5b006623327f7e230ff754cc188cadaa375a4eaff8"
+    },
+    "state/analysis/P7_b4_app_compile_raw/native_static01/artifacts.json": {
+      "bytes": 9484,
+      "sha256": "0acaa30a4ba01ac5c9ff8c8fddc66c4bec94e033b1194ec63271f12affb6c085"
+    },
+    "state/analysis/P7_b4_app_compile_raw/native_static01/result.json": {
+      "bytes": 1829,
+      "sha256": "b722db17adabafc03f6ad8583bcef9b0f6b7d1def4d3e54962508aad4039567a"
+    },
+    "state/reviews/P7_b4_app_compile_actual_review.md": {
+      "bytes": 8486,
+      "sha256": "7490c2325668a744ebaf3685a12c24365843be402c2d9dae166a79e4a1e4faad"
+    }
+  },
+  "boundary": "ABI file observations only; no live contents, coherent recorder, initialized timing/RAM, physical or human gate."
+}

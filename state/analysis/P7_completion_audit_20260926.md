@@ -1,5 +1,15 @@
 # Project completion audit - 26 September 2026
 
+Latest update: D214 B4 M0/static/default compile-only is accepted in commit
+e3b2f9bc, with independent actual review7490c232 PASS. Its checked package is
+82,912 bytes; no B4 upload occurred. D215 file-only B4 ABI/recorder-layout
+preparation is underway using the existing four-child inspection path and
+focused new tests. D212 remains the latest verified loaded ordinary inhibited
+application. The bare board has no accepted sensor/motor setup. The paragraphs
+below are dated historical audit evidence; their pending-D214 statements are
+superseded by this update. See P7_b4_app_compile_actual_validation.md.
+
+
 Current update, 26 September 2026, 19:19 Dubai: D212 ordinary inhibited
 firmware is now loaded and independently accepted. Two passive sample sets
 show RUNNING/NONE, zero selected motor commands, maximum_execution_us=477

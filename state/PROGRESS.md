@@ -1526,3 +1526,6 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-26T20:16:13.062764+04:00 | P7/D214 | Independent actualreview7490c232 FINAL PASS; nativecompile accepted, all9closingchecks and244current+HEAD pins pass. No open material compile finding. D215 fixed file-only B4ABI preparation proceeds; D212 ordinaryM0 remains latest verifiedflash; bareboard only. | pending
+
+
+2026-09-26T20:33:59.995208+04:00 | P7/D215 | Fixed B4 file-only ABI adapter source/host accepted3e6ec1d8; first20Linux+20WindowsPASS/no skips,153pinsstable, closure35323fb4. Native scope4899430a prepared; separate admission/cleanHEAD/check next. No nativeABI yet. | pending

@@ -1,0 +1,117 @@
+{
+  "schema": "d215-host-closing-v1",
+  "created": "2026-09-26T20:30:43.589685+04:00",
+  "status": "PASS",
+  "input_count": 153,
+  "changed_inputs": [],
+  "freeze": {
+    "bytes": 23585,
+    "sha256": "891e16c301660372ed70ea775939e7f6965285d09fdc4d56d0739ffa78c61a69"
+  },
+  "oracle": {
+    "bytes": 6329,
+    "sha256": "9f13ad73b24c9d728539ef417ad73fe099ab6e10376debbe68dcdefd530c3976"
+  },
+  "runs": [
+    {
+      "platform": "linux",
+      "methods": [
+        "test_added_type_sizes_and_alignments_keep_existing_bounds",
+        "test_all_three_indices_require_exact_four_bytes_including_mixed_widths",
+        "test_complete_b4_schema_profile_capacities_and_separate_nested_subfields",
+        "test_each_added_layout_rejects_empty_unavailable_wrong_type_and_unbalanced",
+        "test_each_array_extent_is_exact_and_packed_status_capacity_is_not_rounded_down",
+        "test_each_of_26_enum_members_must_equal_its_declared_value",
+        "test_every_added_marker_rejects_missing_duplicate_reordered_and_unknown",
+        "test_exact_313_expressions_keep_185_prefix_and_four_file_commands",
+        "test_five_enum_widths_require_one_byte",
+        "test_new_numeric_answers_reject_negative_fraction_duplicate_and_junk",
+        "test_ordinary_185_expression_packet_is_not_b4_abi_evidence",
+        "test_passive_import_and_seven_guard_cli_bodies_remain_exact",
+        "test_real_b4_source_and_artifact_admission_refuses_ordinary_and_m1_metadata",
+        "test_recorder_window_requires_initialized_owner_containment_alignment_and_nonoverlap",
+        "test_relocated_recorder_uses_observations_and_summary_is_pure",
+        "test_resident_arrays_and_indices_must_fit_their_observed_parent",
+        "test_robot_container_requires_unique_direct_member_and_matching_type_name",
+        "test_stand_subfields_require_robot_containment_alignment_and_each_other_nonoverlap",
+        "test_wire_element_sizes_are_exact",
+        "test_wrong_tool_prefix_or_unguarded_gdb_argv_refuses"
+      ],
+      "count": 20,
+      "skips": 0,
+      "elapsed_seconds": 28.2744534999365,
+      "result": {
+        "bytes": 837,
+        "sha256": "4effc1adf23ecd52f337962ea5631897bdb4b4cd04307be78c074a57f37ec7a4"
+      }
+    },
+    {
+      "platform": "windows",
+      "methods": [
+        "test_added_type_sizes_and_alignments_keep_existing_bounds",
+        "test_all_three_indices_require_exact_four_bytes_including_mixed_widths",
+        "test_complete_b4_schema_profile_capacities_and_separate_nested_subfields",
+        "test_each_added_layout_rejects_empty_unavailable_wrong_type_and_unbalanced",
+        "test_each_array_extent_is_exact_and_packed_status_capacity_is_not_rounded_down",
+        "test_each_of_26_enum_members_must_equal_its_declared_value",
+        "test_every_added_marker_rejects_missing_duplicate_reordered_and_unknown",
+        "test_exact_313_expressions_keep_185_prefix_and_four_file_commands",
+        "test_five_enum_widths_require_one_byte",
+        "test_new_numeric_answers_reject_negative_fraction_duplicate_and_junk",
+        "test_ordinary_185_expression_packet_is_not_b4_abi_evidence",
+        "test_passive_import_and_seven_guard_cli_bodies_remain_exact",
+        "test_real_b4_source_and_artifact_admission_refuses_ordinary_and_m1_metadata",
+        "test_recorder_window_requires_initialized_owner_containment_alignment_and_nonoverlap",
+        "test_relocated_recorder_uses_observations_and_summary_is_pure",
+        "test_resident_arrays_and_indices_must_fit_their_observed_parent",
+        "test_robot_container_requires_unique_direct_member_and_matching_type_name",
+        "test_stand_subfields_require_robot_containment_alignment_and_each_other_nonoverlap",
+        "test_wire_element_sizes_are_exact",
+        "test_wrong_tool_prefix_or_unguarded_gdb_argv_refuses"
+      ],
+      "count": 20,
+      "skips": 0,
+      "elapsed_seconds": 3.3798206999199465,
+      "result": {
+        "bytes": 889,
+        "sha256": "e2ee2e739864490f2eb0d76667e81e5dc55b0990d88b57272dca103295881dc6"
+      }
+    }
+  ],
+  "files": {
+    "state/analysis/P7_b4_app_compile_raw/abi_first_linux01/intent.json": {
+      "bytes": 514,
+      "sha256": "0d0b24860f1ee489336e4eab17fcd0d3dc65dcc264b25a9cf00ee2cb556b2787"
+    },
+    "state/analysis/P7_b4_app_compile_raw/abi_first_linux01/result.json": {
+      "bytes": 837,
+      "sha256": "4effc1adf23ecd52f337962ea5631897bdb4b4cd04307be78c074a57f37ec7a4"
+    },
+    "state/analysis/P7_b4_app_compile_raw/abi_first_linux01/stderr": {
+      "bytes": 3382,
+      "sha256": "5049ca8065e64dcfea04a958ba06d4b8f997d10f1bf0903889233e6fcc79cbc4"
+    },
+    "state/analysis/P7_b4_app_compile_raw/abi_first_linux01/stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "state/analysis/P7_b4_app_compile_raw/abi_first_windows01/intent.json": {
+      "bytes": 566,
+      "sha256": "5a6b266230629a954e80bb8cee63c1a6a8bb0b9aa4e101b37ac9db456a9d4f8d"
+    },
+    "state/analysis/P7_b4_app_compile_raw/abi_first_windows01/result.json": {
+      "bytes": 889,
+      "sha256": "e2ee2e739864490f2eb0d76667e81e5dc55b0990d88b57272dca103295881dc6"
+    },
+    "state/analysis/P7_b4_app_compile_raw/abi_first_windows01/stderr": {
+      "bytes": 3406,
+      "sha256": "3ed242fa4c74b3e4d3751ca17ebf928d2de53ca97f98e2f5c4d2b8632c235d7e"
+    },
+    "state/analysis/P7_b4_app_compile_raw/abi_first_windows01/stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "temporary": "Windows scoped temporary is empty; retained as0payload ownership evidence. Linux automatic fixture cleanup only; no separate native inventory claimed.",
+  "boundary": "First20focusedmethods each platform; no repairs/skips/retries/boardcalls or broad inheritedsuite repeat."
+}

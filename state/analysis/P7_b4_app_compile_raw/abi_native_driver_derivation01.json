@@ -1,0 +1,53 @@
+{
+  "schema": "d215-native-driver-derivation-v1",
+  "created": "2026-09-26T20:17:44.706380+04:00",
+  "base": {
+    "path": "state\\analysis\\P7_b4_app_compile_raw\\native_driver01.py",
+    "bytes": 5099,
+    "sha256": "029916bf63dc329323f11c7f8d0312711f860eb69e74a4315d37120cc42acb16"
+  },
+  "result": {
+    "path": "state\\analysis\\P7_b4_app_compile_raw\\abi_native_driver01.py",
+    "bytes": 5151,
+    "sha256": "286f710a1b20f611c1134aac339f375d041171426ac3f1508637791e2bda0832"
+  },
+  "steps": [
+    {
+      "old": "D214 compile-only",
+      "new": "D215 file-only ABI",
+      "count": 1
+    },
+    {
+      "old": "native_invocations01.json",
+      "new": "abi_native_invocations01.json",
+      "count": 1
+    },
+    {
+      "old": "native_static01",
+      "new": "native_abi_static01",
+      "count": 2
+    },
+    {
+      "old": "native_prerequisites01.json",
+      "new": "abi_native_prerequisites01.json",
+      "count": 2
+    },
+    {
+      "old": "tools/compile_b4_app_static.py",
+      "new": "state/analysis/P7_b4_app_compile_raw/inspect_static_abi.py",
+      "count": 1
+    },
+    {
+      "old": "d214-native-invocations-v1",
+      "new": "d215-abi-native-invocations-v1",
+      "count": 1
+    },
+    {
+      "old": "head], 1800)",
+      "new": "head], 500)",
+      "count": 1
+    }
+  ],
+  "authoring_note": "Initial in-memory transform refused an expected native_static01 occurrence count of3; actual count2. No files or subject executions preceded this correction.",
+  "boundary": "Literal metadata/owner/500-second outer ceiling only. No execution. Native admission and clean reviewed HEAD required."
+}

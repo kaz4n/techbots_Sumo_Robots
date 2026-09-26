@@ -2511,3 +2511,9 @@ Consequence: no new firmware, grants, transport framework, upload/reset/MCUread 
 
 
 D-214 actual acceptance (2026-09-26T20:16:13.062764+04:00): Adopt independent review7490c232 FINAL PASS for one compile-only attempt at clean34c1b965. Outer c2c5dfba and rootclosure7a43d0be reconcile244current+HEAD pins/25transports/1query/1jobs1compiler/9closingPASS and exact104stage764405B. PackagedB4M0 image82912B84667b0a; structuralRAM94352 versusCLI94348 remain staticcounts. Owner consumed; no upload/reset/MCUread/runtime/physical/gate authority. Retain checkedartifacts forD215; subsequent native scope remains separate.
+
+
+D-215 source/host acceptance (2026-09-26T20:33:59.995208+04:00): Adopt contractf1f1469c/plan874da0a9 and unchanged subject4b31dfed after independent review3e6ec1d8 FINAL PASS. First20Linux+20Windows/no skips/no repairs; hostclosure35323fb4 binds153unchangedinputs and40outcomes. Fixed4-byteindex support is an explicit prospective ABI requirement. Scope4899430a fixes14roles/313expressions/4children and inheritedsole embeddedfresh admission; separate admissionreview/cleanHEAD/check-only precede native. No firmware or gate change.
+
+
+D-215 native admission (2026-09-26T20:34:50.339299+04:00): Adopt review907243b5 FINAL conditional PASS for scope4899430a. All14roles/153coordinator/130manifest pins agree; native prerequisite union has166files. Permit one localcheck followed by one file-only execute after exact committedcleanHEAD; freeze allwriters throughclosure. Use inheritedfreshidentity/12remotefiles/4boundedchildren/13remote+localclosing. Localstage remains after automatic policydenial; no dependency impact or alternate deletion. No upload/reset/MCUread/motor/human gate.

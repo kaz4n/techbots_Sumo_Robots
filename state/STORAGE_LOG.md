@@ -510,3 +510,9 @@ D191 closing observation: C:recovered290537472B independently before local docum
 
 
 2026-09-26T20:13:56.895312+04:00 D214 generated storage: retain25transport rawstreams/receipts, compiler/query outputs and checked board artifacts for review/reproduction/fresh B4ABI. Exact local stage104files764405B remains required while ABI reader admission is prepared; do not delete a live dependency. Source-only board artifact-sources.zlib28087B retained for independent closing provenance. No new cleanup/deletion/sudo. Prior policy-blocked empty D212temp and other denied targets remain untouched.
+
+
+2026-09-26T20:23:52.263915+04:00 D215 storage-purpose inspection: unchanged StaticAbi.local calls compile admission, which reads src/130manifest and builds expectedstage in memory; it does not call compile local/check/stage/run. StaticAbi.prepare/execute read receipts and boardartifacts, not localstage. D214localstage104files764405B becomes disposable after final D215source review confirms this inherited seam. Preserve source/staged_files.json/checked boardartifacts. No deletion performed in this inspection.
+
+
+2026-09-26T20:33:59.995208+04:00 D215 disposable localstage retirement was blocked by automatic approval review before execution, with only blocked by policy. The stage remains present; acceptedD214closure records104files764405B. No deletion or alternate route ran. The first combined read-only/record-writing batch was likewise denied beforeexecution; a separate source patch recorded the tool responses in local_stage_cleanup_blocked01.json. Keep this small stage and all earlier denied targets. Fresh host Windows temporary root is empty and retained as zero-payload ownership evidence.

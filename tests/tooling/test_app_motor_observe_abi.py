@@ -27,7 +27,7 @@ import zlib
 ROOT = Path(__file__).absolute().parents[2]
 WRAPPER = 'state/analysis/P7_app_motor_observe_compile_raw/inspect_static_abi.py'
 CONTRACT = 'state/analysis/P7_app_motor_observe_abi_contract.md'
-CONTRACT_SHA = '889d6a7697f2ddc0051ef73f52f82c1dd43f35fa45af9fc2d4958f44441bf8ff'
+CONTRACT_SHA = '0d81956d0be277a077f048a4d2eccda0ad13c44437d453a94a78ab154a1f26aa'
 ORIGINAL = 'state/analysis/P7_app_motor_fault_compile_raw/inspect_static_abi.py'
 NORMALIZER = 'state/analysis/P7_app_motor_fault_compile_raw/interpret_static_abi.py'
 LAUNCHER = 'tools/compile_app_motor_observe.py'

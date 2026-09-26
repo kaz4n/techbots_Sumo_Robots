@@ -102,6 +102,16 @@ nonempty bounded contents, unchanged path/ancestor snapshots and descriptor
 snapshots before/after read, and matching digest. Compare device/inode/mode/
 link-count/size/mtime_ns/attributes across APIs; ctime also matches except that
 Windows path/handle ctime are compared only for stability within each API.
+Windows CPython synthesizes pathname execute bits for a final case-insensitive
+.exe/.bat/.cmd/.com extension. In addition to exact mode equality, permit only
+both regular files with such an extension on Windows, path_mode==(fd_mode|0111)
+AND (path_mode^fd_mode)==0111. Normalize only the temporary cross-API comparison;
+retain full raw modes in both path-before/after and descriptor-open/after stamps.
+Every other identity field remains exact under the existing ctime rule. Partial,
+reverse, other-mode-bit, noneligible-extension and non-Windows differences fail
+before reading. This amendment follows CPython v3.13.11 Modules/posixmodule.c
+update_st_mode_from_path and Python/fileutils.c attributes_to_mode; the original
+contract and preflight refusal remain in Git before this change.
 All descriptor closes are attempted; preserve a primary read/check exception
 if close also fails, and fail on a lone close error. No special file is read.
 

@@ -17,7 +17,7 @@ READER = 'state/analysis/P7_app_motor_fault_compile_raw/inspect_static_abi.py'
 NORMALIZER = 'state/analysis/P7_app_motor_fault_compile_raw/interpret_static_abi.py'
 LAUNCHER = 'tools/compile_app_motor_observe.py'
 CONTRACT = 'state/analysis/P7_app_motor_observe_abi_contract.md'
-CONTRACT_SHA = '889d6a7697f2ddc0051ef73f52f82c1dd43f35fa45af9fc2d4958f44441bf8ff'
+CONTRACT_SHA = '0d81956d0be277a077f048a4d2eccda0ad13c44437d453a94a78ab154a1f26aa'
 ORIGINALS = {
     READER: (16600, '0eec2ffd91958831ab0541477a5277187bb7e9179fdca1096276dda01efb6f4c'),
     NORMALIZER: (5928, '6a990871af18ca8bc5d10f9d11efda4619052bf1de5ab272188de746f95dad21'),
@@ -107,6 +107,12 @@ def _read_handle(path, expected, limit, before):
         opened = _stamp(info)
         path_identity = before[-1][:-1] if os.name == 'nt' else before[-1]
         handle_identity = opened[:-1] if os.name == 'nt' else opened
+        # CPython adds all execute bits to these Windows pathname stat results.
+        if (os.name == 'nt' and path.suffix.lower() in ('.exe', '.bat', '.cmd', '.com') and
+                stat.S_ISREG(path_identity[2]) and stat.S_ISREG(handle_identity[2]) and
+                path_identity[2] == (handle_identity[2] | 0o111) and
+                path_identity[2] ^ handle_identity[2] == 0o111):
+            handle_identity = (*handle_identity[:2], path_identity[2], *handle_identity[3:])
         require(stat.S_ISREG(info.st_mode) and info.st_nlink == 1 and
                 not getattr(info, 'st_file_attributes', 0) & 1024 and
                 path_identity == handle_identity, 'ABI input changed before reading')

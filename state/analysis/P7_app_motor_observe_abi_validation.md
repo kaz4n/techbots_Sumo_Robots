@@ -66,3 +66,14 @@ memory/loading, recorder lifecycle, physical acceptance and human gates remain
 open. Separate same-model source/host review passed with no material findings:
 `../reviews/P7_app_motor_observe_abi_review.md`, SHA256
 `bb0d2b1111fc3bc357133e398dad48a9cbe0ccb0ef8e584bf04efe3932b9c719`.
+
+
+## Windows executable-mode correction (2026-09-26T08:35:51.732652+04:00)
+
+User storage action restored over21GB free. Actual check-only at HEAD1c0151fa stopped before any owner or board call: CPython3.13.11 lstat adds0111 for executable extensions while fstat reports ordinary permissions. The unchanged ADB SHAe79dc8fc and all other identity fields were verified. Original source297eac8b/contract889d6a76 and raw preflight are preserved ina4362e7b; independent regression and original-subject failures in d519a2f3.
+
+The explicitly amended contract0d81956d permits only the complete pathname-only0111 difference on Windows for regular files with final case-insensitive .exe/.bat/.cmd/.com. Every other identity/hash/size/link/type/reparse check remains; full raw same-API modes remain stable. Source SHA497f756e4eab440d659a4d26ef38ec8d92abdd9f92a5938d1da04705745f42d5. Existing oracle changed only its contract metadata pin, SHA b43b384a; new independent14-method oracle9777060b unchanged.
+
+Frozen136inputs in coordinator_freeze03.json passed serial verification: Windows14new+42existing PASS (two existing platform skips), Linux14new+44existing PASS. All136pins unchanged afterward. Retain original failure receipts and all fixed receipts under ABIraw; these are host checks only. No native ABI owner or target call has occurred yet.
+
+Primary implementation evidence: https://github.com/python/cpython/blob/v3.13.11/Modules/posixmodule.c#L1831-L1852 and https://github.com/python/cpython/blob/v3.13.11/Python/fileutils.c#L999-L1028 .

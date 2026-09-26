@@ -40,18 +40,19 @@ preserving first_failure beyond it; it stops at real faults or10000epochs /
 host normal/sanitizer, historical diagnostics and locked regressions passed.
 The D193 board build succeeded; D190 above remains the latest flashed image.
 
-D194 file-only ABI wrapper297eac8b/contract889d6a76 is now host-tested:44LinuxPASS,
-42WindowsPASS/two explicit platformskips. Correctedindependentoracleac571bd4
-changes only the unsupported layout-object-identity fixture; original43PASS/1FAIL
-andoracle preserved974de230. Source/contract unchanged;135pins stable. Read
-analysis/P7_app_motor_observe_abi_validation.md and separate reviewbb0d2b11PASS.
-After cleanHEAD and space recovery, run Python-B wrapper --check-only
+D194 resumed after the user freed C: (over21GB currently). Original actual
+check-only refused before owner/device because CPython synthesizes pathname0111
+for Windows executable extensions. Original failure/source preserveda4362e7b,
+independent frozen regression/original failuresd519a2f3. Narrow contract amendment
+0d81956d/source497f756e passes14new+44existingLinux and14new+42existingWindows
+checks, with the same2Windows skips coveredLinux;136pinsstable. Every other
+identity check and full same-API raw mode stability remains. Read the validation
+and new Windows review before admission. At cleanHEAD run Python-B --check-only
 --reviewed-head <40hexHEAD>, then --execute once with the sameHEAD. Outputowner
 analysis/P7_app_motor_observe_compile_raw/native_abi_static01 is UNUSED.
 D193 app-motor-observe-static01 and all earlier native owners are consumed.
-Recheck free space before admission; closing observation8982528B C:free, below the unchanged
-128MiB native-reader gate. User was asked to free200MB outside this project;
-no reply/recovery assumed. Do not lower the gate or retry any earlier denied
+Recheck free space and fresh board/boot identity before admission; retain the
+128MiB native-reader gate. Do not lower the gate or retry any earlier denied
 cleanup, including the old85.48MB host-output batch and all other STORAGE_LOG entries.
 
 Then observe actual artifact/ABI/entry layout before a separate new finite native
@@ -66,7 +67,8 @@ entry ranges and later capture fields from actual artifacts, not old addresses.
 The full objective remains active. analysis/P7_completion_audit_20260926.md
 identifies operational commissioning, production memory/loading, actual recorder
 lifecycle and release dependencies. Historical trial wrappers are deliberately
-inert; a new operational B4 entry can reuse configured grants/Runtime before
+inert; existing app.ino already binds operational B4, but profile/build/deploy
+admission is missing (see P7_b4_profile_scope_followup.md). Software can proceed before
 physical acceptance, but future execution requires fresh specific STAND OK.
 B4 terminalSTOP cannot perform the current IDLE-only UART dump: first use a
 separately bound finite retained-RAM capture, or define/review another policy.
@@ -97,7 +99,7 @@ rehearsal2Oct, competition3Oct. Scheduled dates create no acceptance.
 
 ## Storage and resumption
 
-Recheck C: before work; closing8982528B free and fluctuating. Keep unique
+Recheck C: before work; user restored over21GB free on the resumed turn. Keep unique
 raw receipts/source/hash-based reproduction; no duplicate firmware/debug/source
 snapshots, Python bytecode or parallel heavy builds. See STORAGE_LOG.md for
 retention/disposal purposes and exact savings. Do not retry any policy-denied

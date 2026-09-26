@@ -1360,3 +1360,6 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-26T08:30:55.656683+04:00 | P7 D194 resumed actual preflight | Userfreedspace; verified223989760B then1GBfree,135pinsstable/cleanHEAD1c0151fa. Check-only STOPPED beforeowner/board becauseWindowsADB.exe lstatmode100777 vsfstat100666; pathbefore/afterandbinaryhashe79dc8fc unchanged. CPython3.13.11 sourcesexplainextension-derived0111 bits. Preserve preflight_actual01/windows_adb_mode01; narrowcontractreview/independentregressionpending, no guardbypass/nativeaction.
+
+
+2026-09-26T08:35:51.732652+04:00 | P7 D194 Windows portability repair | User restored21GBspace. Originalpreflight/refusal and frozenregression retained; exactCPythonextension-mode exception preservesfullrawsameAPI stamps/allotherchecks. Source497f756e/contract0d81956d,136pinsstable. Windows14new+42existingPASS/2knownskips; Linux14new+44existingPASS. Independentfinalreview then cleanHEAD/check-only/freshidentity/onefile-onlyABI remain. No owner/devicecall/firmwarechange.

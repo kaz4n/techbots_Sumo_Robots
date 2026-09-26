@@ -123,8 +123,13 @@ exact symbol row; candidatePeriod remains20B at08110c91. This is no proof of
 instruction removal or speedup. Actualreviewaccepted. D205 preparation owns a fixed32group/34alias/65expression
 entry scope from current symbols:28retainedgroups plus timerValid/bankValid/
 writePwm/mapChannel; seven whole/context parser substitutions preserve logic.
-Contract/binding/derivation draft only until review/adoption; no newentryreader
-may execute or be inspected before independentoracleFINAL.
+D205 adopted: contract6663d1ea/binding7417ff70/derivationae6ef0de, preparation
+review4edbac30PASS. Exact12wrapper/9reader/7parser steps yieldprospective
+14941B/a71eb624; reader17075/580abb32, parser10866/c4c4f9e2. Implementation
+ownership followsadoption; independentoracle isbeingauthored (23old+7new,
+planned30methodseachplatform). No newentryreader may be inspected byroot/
+reviewer or executed before independentoracleFINAL. Hostdrivere1c5c725 uses
+exclusiveentry_first_<platform>01 owners andentry_coordinator_freeze01.json.
 No D204 compile/upload/reset/MCU read occurred; D201 remains flashed.
 
 ## Evidence prerequisites already complete
@@ -177,4 +182,4 @@ Freeze1October21:00Dubai, rehearsal2October, competition3October. Dates do not
 create acceptance. Read AGENTS.md/CODEX_RESUME/CODEX_EXECUTION and latest state.
 PROGRESS is binary-append-only: first140971B SHA256
 1dbbeb53c3dc046128494af3bef240b9a00353929d6121991900c90bb2838b77.
-No host/compiler/device job is active. D203 and D204 native owners are consumed. D204 actual review4cd28fe8 accepted; current-symbol-derived D205 entry contract/binding/derivation preparation is underway, no new executable yet.
+No host/compiler/device job is active. D203 and D204 native owners are consumed. D204 actual review4cd28fe8 accepted; D205 adopted after preparationreview; implementation and independentoracle are preparing. Wait oracleFINAL before newsubjectinspection/execution.

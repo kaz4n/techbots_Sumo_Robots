@@ -1,0 +1,1353 @@
+{
+  "boundary": "AST/literal data projection only. No test, subject import/execution, new subject read/hash, compiler or device call.",
+  "contract": {
+    "bytes": 27620,
+    "path": "state/analysis/P7_motor_const_run_contract.md",
+    "sha256": "1949c7db32bfda4c3318095597b740ea17644ec5b0109cc2e589387842dbbf85"
+  },
+  "created_utc": "2026-09-26T10:08:23.722420+00:00",
+  "derivation": {
+    "bytes": 87930,
+    "path": "state/analysis/P7_motor_const_run_raw/run_derivation01.json",
+    "sha256": "c90961438062c153f9c99621eba0617b3fc26b0f3dbdd2c35859ec2e744b5bfb"
+  },
+  "fixtures": {
+    "actions": {
+      "added_methods": [
+        [
+          "CurrentActions",
+          "test_D201_source_and_consumed_owner_refused_without_receipt_mutation"
+        ],
+        [
+          "CurrentActions",
+          "test_private_actions_projection_identity_and_contract_role_pins"
+        ]
+      ],
+      "assertion_calls": {
+        "core_whole_module": 65,
+        "higher_whole_module": 15,
+        "new_outer_whole_module": 22,
+        "retained_D201_outer_test_bodies": 15
+      },
+      "core_input": {
+        "bytes": 26162,
+        "path": "state/analysis/P7_app_motor_fault_run_raw/test_actions.py",
+        "sha256": "2035499ecb3195fdc4bb68f37ada7b88dac0f93abfbc1c70668e6c31d3fe2297"
+      },
+      "current_core": {
+        "bytes": 26302,
+        "sha256": "3fbbeba7c1d4d9eff6ab0d48027b5011f6e482447dbfcfe33021fba42acd8c11"
+      },
+      "current_core_steps": [
+        [
+          "import test_remote as remote_oracle",
+          "# remote_oracle is privately injected",
+          1
+        ],
+        [
+          "import pwd",
+          "pwd = PRIVATE_PWD",
+          1
+        ],
+        [
+          "10518",
+          "11331",
+          2
+        ],
+        [
+          "10519",
+          "11332",
+          1
+        ],
+        [
+          "d796489fc812a509f5ef1edbcd487a4a3afe4adc76960a94ba9c1d3ec075e10a",
+          "51c60cd5ac87b823b84b2c7d993933690f0a3110e4d89c7cb958549fb5f111bc",
+          1
+        ],
+        [
+          "app-motor-fault",
+          "app-motor-const",
+          4
+        ],
+        [
+          "HERE / 'actions.py'",
+          "SUBJECT",
+          1
+        ],
+        [
+          "727088",
+          "727128",
+          1
+        ],
+        [
+          "727089",
+          "727129",
+          1
+        ],
+        [
+          "    reads = [{'name': name, 'address': address, 'bytes': size,",
+          "    value['finished_monotonic'] = 43.0\n    reads = [{'name': name, 'address': address, 'bytes': size,",
+          1
+        ],
+        [
+          "wait={'requested_seconds': 2, 'before': 10.5, 'after': 12.5}",
+          "wait={'requested_seconds': 2, 'before': 40.5, 'after': 42.5}",
+          1
+        ],
+        [
+          "'coherence': 'UNPROVEN', 'snapshots': copy.deepcopy(reads[7:19]),",
+          "'pre_sample_wait': {'requested_seconds': 30, 'before': 10.0, 'after': 40.0},\n                           'coherence': 'UNPROVEN', 'snapshots': copy.deepcopy(reads[7:19]),",
+          1
+        ],
+        [
+          "after=12.499",
+          "after=42.499",
+          1
+        ]
+      ],
+      "current_provider": {
+        "bytes": 13354,
+        "sha256": "3de6c08233bd6502b17bb681f06c6bb5772365eea131d5a60f8a050ab0954bf8"
+      },
+      "d201_provider": {
+        "bytes": 13354,
+        "sha256": "901df0417fbbdde55a7c65919e2ec4980521674dbe2c399d97821815fb946022"
+      },
+      "exact_method_count": 29,
+      "historical_outer": {
+        "bytes": 6563,
+        "path": "tests/tooling/test_motor_settle_actions.py",
+        "sha256": "448b05c2353af00fb3114c5f49acd64c18e8b9387e4c45fcff45a2fcc44abc49"
+      },
+      "output_file": {
+        "bytes": 9549,
+        "path": "tests/tooling/test_motor_const_actions.py",
+        "sha256": "05a8c43509e7ba4b3cb0752214a7163f64718300bc310f2e9b5805151394a2ff"
+      },
+      "projection_steps": [
+        {
+          "after": {
+            "bytes": 13349,
+            "sha256": "946daa586842450631ebffa7a9c81c4d5a5cb1b47d2281131b1fbf3732d3697a"
+          },
+          "before": {
+            "bytes": 13354,
+            "sha256": "901df0417fbbdde55a7c65919e2ec4980521674dbe2c399d97821815fb946022"
+          },
+          "count": 5,
+          "new": "P7_motor_const",
+          "old": "P7_motor_settle"
+        },
+        {
+          "after": {
+            "bytes": 13347,
+            "sha256": "6a32b90cfe1f8a0569a8f8a32faf8600bdd031f624da63bad0cf2df7742ac21e"
+          },
+          "before": {
+            "bytes": 13349,
+            "sha256": "946daa586842450631ebffa7a9c81c4d5a5cb1b47d2281131b1fbf3732d3697a"
+          },
+          "count": 2,
+          "new": "test_motor_const",
+          "old": "test_motor_settle"
+        },
+        {
+          "after": {
+            "bytes": 13346,
+            "sha256": "fbbed6e7f0ddf680dc97d6475c8fb8ca6d14ef8a27f23a3b95992308da942242"
+          },
+          "before": {
+            "bytes": 13347,
+            "sha256": "6a32b90cfe1f8a0569a8f8a32faf8600bdd031f624da63bad0cf2df7742ac21e"
+          },
+          "count": 1,
+          "new": "app-motor-const",
+          "old": "app-motor-settle"
+        },
+        {
+          "after": {
+            "bytes": 13346,
+            "sha256": "50dbb2c1ee76f1c4d9438ac0d8378b59591b28943f4796608841c53c9c21e294"
+          },
+          "before": {
+            "bytes": 13346,
+            "sha256": "fbbed6e7f0ddf680dc97d6475c8fb8ca6d14ef8a27f23a3b95992308da942242"
+          },
+          "count": 2,
+          "new": "11331",
+          "old": "11343"
+        },
+        {
+          "after": {
+            "bytes": 13346,
+            "sha256": "e13dc3c027e91f6a53f6ff822aa1b545af37d82267def05fc1425f8e6228bf4e"
+          },
+          "before": {
+            "bytes": 13346,
+            "sha256": "50dbb2c1ee76f1c4d9438ac0d8378b59591b28943f4796608841c53c9c21e294"
+          },
+          "count": 1,
+          "new": "11332",
+          "old": "11344"
+        },
+        {
+          "after": {
+            "bytes": 13346,
+            "sha256": "3bceb246e1e62bf564738464ddfefc0257032d005c91767b4db757de014bd961"
+          },
+          "before": {
+            "bytes": 13346,
+            "sha256": "e13dc3c027e91f6a53f6ff822aa1b545af37d82267def05fc1425f8e6228bf4e"
+          },
+          "count": 1,
+          "new": "727128",
+          "old": "727432"
+        },
+        {
+          "after": {
+            "bytes": 13346,
+            "sha256": "1e8feb1eca6bd4ae44b621a2a8d89c84d2a44c9a41e9541675c3c0b9f5151d4f"
+          },
+          "before": {
+            "bytes": 13346,
+            "sha256": "3bceb246e1e62bf564738464ddfefc0257032d005c91767b4db757de014bd961"
+          },
+          "count": 1,
+          "new": "727129",
+          "old": "727433"
+        },
+        {
+          "after": {
+            "bytes": 13346,
+            "sha256": "5ff33993a6e002b3ba4e1b6f0675832bdd237f5906418070b67964e9197b9c3c"
+          },
+          "before": {
+            "bytes": 13346,
+            "sha256": "1e8feb1eca6bd4ae44b621a2a8d89c84d2a44c9a41e9541675c3c0b9f5151d4f"
+          },
+          "count": 1,
+          "new": "809f9cecf0bce5a5d67c6f44027c0f92a1b7fd1da186aed80db00ccba5bc69cd",
+          "old": "0b1977444737694e8b39e5d712bd7766bd1db4d6073bf582cbed9e960b4f38b5"
+        },
+        {
+          "after": {
+            "bytes": 13346,
+            "sha256": "bfcc278b5d04aa968560f9fbcc9cfc8e24154b6485f81dfa0843f2b71f63a49e"
+          },
+          "before": {
+            "bytes": 13346,
+            "sha256": "5ff33993a6e002b3ba4e1b6f0675832bdd237f5906418070b67964e9197b9c3c"
+          },
+          "count": 1,
+          "new": "8aac6877a3bae25001c26c088ea947bbf3c7c0f2c0113619fb1db8c2a53834d9",
+          "old": "8918231c9c2aaf1b72120539e1677db73ce9103798fa860e9fa2501ac669092a"
+        },
+        {
+          "after": {
+            "bytes": 13346,
+            "sha256": "b6f2f8392af21bb6f1c9b74a2d27f147dfd6b8159cb5ccf98151c83ae9f4b6f9"
+          },
+          "before": {
+            "bytes": 13346,
+            "sha256": "bfcc278b5d04aa968560f9fbcc9cfc8e24154b6485f81dfa0843f2b71f63a49e"
+          },
+          "count": 1,
+          "new": "51c60cd5ac87b823b84b2c7d993933690f0a3110e4d89c7cb958549fb5f111bc",
+          "old": "577f2f17ae532db1e21644868b624d0d8a903771309a39b0b3488f8ae4f98cb0"
+        },
+        {
+          "after": {
+            "bytes": 13343,
+            "sha256": "30ffaa7b28a1cc66db1a841a7cffc857236f1dcd33d5439bbda5cf4a42a21841"
+          },
+          "before": {
+            "bytes": 13346,
+            "sha256": "b6f2f8392af21bb6f1c9b74a2d27f147dfd6b8159cb5ccf98151c83ae9f4b6f9"
+          },
+          "count": 1,
+          "new": "state/analysis/P7_motor_const_run_contract.md",
+          "old": "state/analysis/P7_motor_const_caller_contract.md"
+        },
+        {
+          "after": {
+            "bytes": 13354,
+            "sha256": "0906204c16dd1a28688259a243699e8e5df03524110b4571f5c03d6ac648565f"
+          },
+          "before": {
+            "bytes": 13343,
+            "sha256": "30ffaa7b28a1cc66db1a841a7cffc857236f1dcd33d5439bbda5cf4a42a21841"
+          },
+          "count": 1,
+          "new": "state/analysis/P7_motor_const_run_raw/run_derivation01.json",
+          "old": "state/analysis/P7_motor_const_remote_contract.md"
+        },
+        {
+          "after": {
+            "bytes": 13354,
+            "sha256": "8a414f6dab8aed5b65a5abba5642a0f7045bc2f91d03fcc6f83011d2e4cfbacf"
+          },
+          "before": {
+            "bytes": 13354,
+            "sha256": "0906204c16dd1a28688259a243699e8e5df03524110b4571f5c03d6ac648565f"
+          },
+          "count": 1,
+          "new": "1949c7db32bfda4c3318095597b740ea17644ec5b0109cc2e589387842dbbf85",
+          "old": "4a07cd9a8d21620896446665edccf5b7ad165c11e8bd97df9784c3a6e618f3f9"
+        },
+        {
+          "after": {
+            "bytes": 13354,
+            "sha256": "3de6c08233bd6502b17bb681f06c6bb5772365eea131d5a60f8a050ab0954bf8"
+          },
+          "before": {
+            "bytes": 13354,
+            "sha256": "8a414f6dab8aed5b65a5abba5642a0f7045bc2f91d03fcc6f83011d2e4cfbacf"
+          },
+          "count": 1,
+          "new": "c90961438062c153f9c99621eba0617b3fc26b0f3dbdd2c35859ec2e744b5bfb",
+          "old": "6d245a4e1f0426d5ed54b1ca47d124643ba9b2e3b6c86975294ba6efcd641dd3"
+        }
+      ],
+      "retained_D201_outer_methods": [
+        [
+          "CurrentActions",
+          "test_exact_nine_metadata_changes_preserve_other_action_source_bytes"
+        ],
+        [
+          "CurrentActions",
+          "test_action_plan_matches_current_remote_and_bounded_inline_commands"
+        ],
+        [
+          "CurrentActions",
+          "test_previous_window_and_stale_source_are_refused_without_receipt_mutation"
+        ]
+      ],
+      "retained_core_methods": [
+        [
+          "ActionsContract",
+          "test_commands_bind_exact_sources_adapter_identity_canonical_payload_and_windows_limit"
+        ],
+        [
+          "ActionsContract",
+          "test_build_rejects_wrong_roles_bytes_identities_and_staging_pins"
+        ],
+        [
+          "ActionsContract",
+          "test_bootstrap_rejects_bad_framing_before_root_or_module_execution"
+        ],
+        [
+          "ActionsContract",
+          "test_bootstrap_success_checks_staged_adapter_and_capture_parser_again"
+        ],
+        [
+          "ActionsContract",
+          "test_changed_staged_adapter_and_installed_parser_never_dispatch"
+        ],
+        [
+          "ActionsContract",
+          "test_closure_drift_cannot_be_overridden_by_successful_inner_report"
+        ],
+        [
+          "ActionsContract",
+          "test_outward_close_error_preserves_unattributed_durable_report_and_fails"
+        ],
+        [
+          "ActionsContract",
+          "test_reply_requires_exact_envelope_origin_identity_and_clean_errors"
+        ],
+        [
+          "ActionsContract",
+          "test_upload_reply_rejects_partial_ambiguous_or_expired_process"
+        ],
+        [
+          "ActionsContract",
+          "test_capture_reply_rejects_any_wrong_read_bracket_snapshot_count_or_wait"
+        ],
+        [
+          "ActionsContract",
+          "test_success_sequence_is_exact_and_passes_retained_upload_predecessor"
+        ],
+        [
+          "ActionsContract",
+          "test_upload_error_or_unattributed_success_suppresses_capture_and_keeps_closing_errors"
+        ],
+        [
+          "ActionsContract",
+          "test_finish_failure_retains_original_sequence_error_without_retry"
+        ]
+      ],
+      "retained_higher_methods": [
+        [
+          "WaitValidation",
+          "test_fixed_inputs_and_retained_method_inventory"
+        ],
+        [
+          "WaitValidation",
+          "test_valid_wait_receipt_and_inclusive_boundaries"
+        ],
+        [
+          "WaitValidation",
+          "test_wait_requires_exact_present_object_keys"
+        ],
+        [
+          "WaitValidation",
+          "test_pre_wait_requested_seconds_is_exact_integer_30"
+        ],
+        [
+          "WaitValidation",
+          "test_pre_wait_timestamps_reject_bool_nonfinite_and_nonnumeric"
+        ],
+        [
+          "WaitValidation",
+          "test_short_or_backward_pre_wait_is_not_success"
+        ],
+        [
+          "WaitValidation",
+          "test_pre_wait_order_inside_capture_and_before_sample_pause"
+        ],
+        [
+          "WaitValidation",
+          "test_sample_pause_and_finished_bounds_remain_independent"
+        ],
+        [
+          "WaitValidation",
+          "test_wait_does_not_admit_terminal_or_extra_analysis_claims"
+        ],
+        [
+          "WaitValidation",
+          "test_valid_wait_cannot_promote_failed_or_unattributed_outer_result"
+        ],
+        [
+          "WaitValidation",
+          "test_sequence_keeps_invalid_wait_receipt_first_failure_and_closes_once"
+        ]
+      ]
+    },
+    "remote": {
+      "added_methods": [
+        [
+          "CurrentRemote",
+          "test_D201_source_package_and_consumed_owner_bindings_are_rejected"
+        ],
+        [
+          "CurrentRemote",
+          "test_current_profile_keeps_fixed_bounds_and_one_wait"
+        ]
+      ],
+      "assertion_calls": {
+        "core_whole_module": 135,
+        "higher_whole_module": 72,
+        "new_outer_whole_module": 19,
+        "retained_D201_outer_test_bodies": 14
+      },
+      "core_input": {
+        "bytes": 38249,
+        "path": "state/analysis/P7_app_motor_fault_run_raw/test_remote.py",
+        "sha256": "44f7651b70ffc06697fb2932f4bab01a8ecc8c47d2b31fe779af356596d73bb2"
+      },
+      "current_core": {
+        "bytes": 38547,
+        "sha256": "7bd7ca7fcbb4a56af664236b472d2d91da4eb1fc1be6a2aefdc44de0abe8168b"
+      },
+      "current_core_steps": [
+        [
+          "('previous', 537115952, 48)",
+          "('settle', 537121768, 28)",
+          1
+        ],
+        [
+          "4536",
+          "4516",
+          1
+        ],
+        [
+          "21df6ae82cca4b09dc6b1e0de5bc719cf98ec6887800d5ce8297522e491a7950",
+          "4bc3a2e6ebb497d43a433aa887ab8388dd3dab075a4f44918ed614db30034cd2",
+          1
+        ],
+        [
+          "app-motor-fault-21df6ae8-run01",
+          "app-motor-const-4bc3a2e6-run01",
+          1
+        ],
+        [
+          "app-motor-fault",
+          "app-motor-const",
+          6
+        ],
+        [
+          "app_motor_fault",
+          "app_motor_observe",
+          3
+        ],
+        [
+          "95312",
+          "95352",
+          1
+        ],
+        [
+          "18598e13f2b5601db504f5272826b0952b95477dd2b1b8d397d20bd2ff899144",
+          "76d2846dfe99602b1a4dd680f19c8150a02af4dba3b4f3411fafd7c55e3824d3",
+          1
+        ],
+        [
+          "95328",
+          "95368",
+          1
+        ],
+        [
+          "deb40317e5c444af26e65da4b6f1d0e577d9897d59dbddff3bce03a7bc14335c",
+          "f15c7ce1f0ff5fea2d44d0b60f0607f9adae22b83ba5043fe4de5e2b21fa26f7",
+          1
+        ],
+        [
+          "29792",
+          "29832",
+          1
+        ],
+        [
+          "(26, 727088)",
+          "(26, 727128)",
+          1
+        ],
+        [
+          "'requested_bytes': 727088",
+          "'requested_bytes': 727128",
+          1
+        ],
+        [
+          "HERE / 'remote.py'",
+          "SUBJECT",
+          3
+        ],
+        [
+          "side_effect=AssertionError('Native action forbidden'))",
+          "side_effect=AssertionError('Native action forbidden'), create=True)",
+          2
+        ],
+        [
+          "self.assertEqual(self.clock.sleeps, [2])",
+          "self.assertEqual(self.clock.sleeps, [30, 2])",
+          1
+        ],
+        [
+          "            self.assertEqual(len(self.calls), 13)\n            self.clock.sleep(seconds)",
+          "            self.assertIn(seconds, (30, 2))\n            self.assertEqual(len(self.calls), 7 if seconds == 30 else 13)\n            self.clock.sleep(seconds)",
+          1
+        ],
+        [
+          "                def sleep(seconds):\n                    case.assertEqual(len(case.calls), 13)\n                    case.clock.now += elapsed",
+          "                def sleep(seconds):\n                    if seconds == 30:\n                        case.assertEqual(len(case.calls), 7)\n                        case.clock.sleep(seconds)\n                        return\n                    case.assertEqual(seconds, 2)\n                    case.assertEqual(len(case.calls), 13)\n                    case.clock.now += elapsed",
+          1
+        ]
+      ],
+      "current_no_wait_baseline": {
+        "bytes": 10522,
+        "sha256": "44d8edd3724ea78e673f35d07e2ab92736822faccfcbb28bc9b4fa8cc0d83a73"
+      },
+      "current_provider": {
+        "bytes": 21190,
+        "sha256": "fb90838accf91e6af276451b8418b74763257e699f403ebf7070f93097c222fd"
+      },
+      "d201_provider": {
+        "bytes": 21196,
+        "sha256": "c96d981202c9e19ad3fb50f50c23a726867b8b5a49dcf795816a9289b206d4ae"
+      },
+      "exact_method_count": 47,
+      "historical_outer": {
+        "bytes": 7444,
+        "path": "tests/tooling/test_motor_settle_remote.py",
+        "sha256": "0b1977444737694e8b39e5d712bd7766bd1db4d6073bf582cbed9e960b4f38b5"
+      },
+      "output_file": {
+        "bytes": 10067,
+        "path": "tests/tooling/test_motor_const_remote.py",
+        "sha256": "809f9cecf0bce5a5d67c6f44027c0f92a1b7fd1da186aed80db00ccba5bc69cd"
+      },
+      "projection_steps": [
+        {
+          "after": {
+            "bytes": 21195,
+            "sha256": "99cfe3a0a9ada1d1cd827aebad89304b906a2b19f0e0843662258a8659c6739e"
+          },
+          "before": {
+            "bytes": 21196,
+            "sha256": "c96d981202c9e19ad3fb50f50c23a726867b8b5a49dcf795816a9289b206d4ae"
+          },
+          "count": 1,
+          "new": "P7_motor_const_run_raw",
+          "old": "P7_motor_settle_run_raw"
+        },
+        {
+          "after": {
+            "bytes": 21195,
+            "sha256": "ad4edbd70aefa2df694261610ba951f61a891f9d31a32637c6948b833a5ba0e2"
+          },
+          "before": {
+            "bytes": 21195,
+            "sha256": "99cfe3a0a9ada1d1cd827aebad89304b906a2b19f0e0843662258a8659c6739e"
+          },
+          "count": 1,
+          "new": "4bc3a2e6ebb497d43a433aa887ab8388dd3dab075a4f44918ed614db30034cd2",
+          "old": "117cc0e777341c893f4e618a97e3f196fd0bbf2427cb2a4b02543eb37d6522da"
+        },
+        {
+          "after": {
+            "bytes": 21194,
+            "sha256": "d6f45fe6a49e0445ca63054996dabbb36db86fc3311fdd72989fb6044602810f"
+          },
+          "before": {
+            "bytes": 21195,
+            "sha256": "ad4edbd70aefa2df694261610ba951f61a891f9d31a32637c6948b833a5ba0e2"
+          },
+          "count": 1,
+          "new": "app-motor-const-4bc3a2e6-run01",
+          "old": "app-motor-settle-117cc0e7-run01"
+        },
+        {
+          "after": {
+            "bytes": 21192,
+            "sha256": "6f80b34b07d842b1f2c968c6a25733e95dc2f6c1c415a28d92298b93ce790117"
+          },
+          "before": {
+            "bytes": 21194,
+            "sha256": "d6f45fe6a49e0445ca63054996dabbb36db86fc3311fdd72989fb6044602810f"
+          },
+          "count": 2,
+          "new": "app-motor-const",
+          "old": "app-motor-settle"
+        },
+        {
+          "after": {
+            "bytes": 21191,
+            "sha256": "e20c50ddcfe027b0f214af36f0b28d40c9b45474c6bd15f6ddc90314b2160ac9"
+          },
+          "before": {
+            "bytes": 21192,
+            "sha256": "6f80b34b07d842b1f2c968c6a25733e95dc2f6c1c415a28d92298b93ce790117"
+          },
+          "count": 1,
+          "new": "_app_motor_const_private_",
+          "old": "_app_motor_settle_private_"
+        },
+        {
+          "after": {
+            "bytes": 21190,
+            "sha256": "a990fedce50172b3986e035199c1d775f71304e60f60d6c654f435b086c1f135"
+          },
+          "before": {
+            "bytes": 21191,
+            "sha256": "e20c50ddcfe027b0f214af36f0b28d40c9b45474c6bd15f6ddc90314b2160ac9"
+          },
+          "count": 1,
+          "new": "AppMotorConstCapture",
+          "old": "AppMotorSettleCapture"
+        },
+        {
+          "after": {
+            "bytes": 21190,
+            "sha256": "dab64b04d914659f809c8d1d5fccc9190e3149019a05a2a50f080da481190b1c"
+          },
+          "before": {
+            "bytes": 21190,
+            "sha256": "a990fedce50172b3986e035199c1d775f71304e60f60d6c654f435b086c1f135"
+          },
+          "count": 1,
+          "new": "76d2846dfe99602b1a4dd680f19c8150a02af4dba3b4f3411fafd7c55e3824d3",
+          "old": "d1033e627420e0de5d8ca90ebdf79c284228a23448f3d3e99130651d5afc65cc"
+        },
+        {
+          "after": {
+            "bytes": 21190,
+            "sha256": "9005c24696905511a80a5d33554b9b65956b78d49055ca5335ebc073f7ae82ce"
+          },
+          "before": {
+            "bytes": 21190,
+            "sha256": "dab64b04d914659f809c8d1d5fccc9190e3149019a05a2a50f080da481190b1c"
+          },
+          "count": 1,
+          "new": "f15c7ce1f0ff5fea2d44d0b60f0607f9adae22b83ba5043fe4de5e2b21fa26f7",
+          "old": "e400078166394d0f8ea44b601e9ba2948992c4f263c5c7ee5fb3942433c143d0"
+        },
+        {
+          "after": {
+            "bytes": 21190,
+            "sha256": "fb9028786e7b905d4ebe217b25e5b75d3e4269f7d042b4e5b349cd41821ff416"
+          },
+          "before": {
+            "bytes": 21190,
+            "sha256": "9005c24696905511a80a5d33554b9b65956b78d49055ca5335ebc073f7ae82ce"
+          },
+          "count": 2,
+          "new": "95352",
+          "old": "95504"
+        },
+        {
+          "after": {
+            "bytes": 21190,
+            "sha256": "79891a0f94d06a250515fa06783d6e565a549e3d719b202a1735dbabc675466a"
+          },
+          "before": {
+            "bytes": 21190,
+            "sha256": "fb9028786e7b905d4ebe217b25e5b75d3e4269f7d042b4e5b349cd41821ff416"
+          },
+          "count": 2,
+          "new": "95368",
+          "old": "95520"
+        },
+        {
+          "after": {
+            "bytes": 21190,
+            "sha256": "6f91ab1bdbf68d719ec10919fb3fc0480557b95ebafd983749b4561b642d5b88"
+          },
+          "before": {
+            "bytes": 21190,
+            "sha256": "79891a0f94d06a250515fa06783d6e565a549e3d719b202a1735dbabc675466a"
+          },
+          "count": 1,
+          "new": "29832",
+          "old": "29984"
+        },
+        {
+          "after": {
+            "bytes": 21190,
+            "sha256": "6612b93a5065ea9f237164818ffa538df3890871bc954ea89755d32de95b6c34"
+          },
+          "before": {
+            "bytes": 21190,
+            "sha256": "6f91ab1bdbf68d719ec10919fb3fc0480557b95ebafd983749b4561b642d5b88"
+          },
+          "count": 5,
+          "new": "727128",
+          "old": "727432"
+        },
+        {
+          "after": {
+            "bytes": 21190,
+            "sha256": "6bfcd8e8b35fcd05d86984d05130524d7f53b07f14d2125c7d7e929be71fe0d0"
+          },
+          "before": {
+            "bytes": 21190,
+            "sha256": "6612b93a5065ea9f237164818ffa538df3890871bc954ea89755d32de95b6c34"
+          },
+          "count": 1,
+          "new": "10522",
+          "old": "10534"
+        },
+        {
+          "after": {
+            "bytes": 21190,
+            "sha256": "fb90838accf91e6af276451b8418b74763257e699f403ebf7070f93097c222fd"
+          },
+          "before": {
+            "bytes": 21190,
+            "sha256": "6bfcd8e8b35fcd05d86984d05130524d7f53b07f14d2125c7d7e929be71fe0d0"
+          },
+          "count": 1,
+          "new": "44d8edd3724ea78e673f35d07e2ab92736822faccfcbb28bc9b4fa8cc0d83a73",
+          "old": "a8aa4a7cb83ee734683ee3a4d2f089476e6705a916632049b148d9f5238492d6"
+        }
+      ],
+      "retained_D201_outer_methods": [
+        [
+          "CurrentRemote",
+          "test_exact_eleven_metadata_changes_preserve_all_other_source_bytes"
+        ],
+        [
+          "CurrentRemote",
+          "test_exact_current_six_windows_and_twenty_six_reads"
+        ],
+        [
+          "CurrentRemote",
+          "test_previous_source_and_D193_image_bindings_cannot_replace_current_inputs"
+        ]
+      ],
+      "retained_core_methods": [
+        [
+          "Contract",
+          "test_import_has_no_native_action_or_dependency_execution"
+        ],
+        [
+          "Contract",
+          "test_dependencies_have_exact_bytes_fresh_private_modules_and_no_old_mutation"
+        ],
+        [
+          "Contract",
+          "test_every_dependency_hash_is_checked_before_any_exec"
+        ],
+        [
+          "Contract",
+          "test_dependency_shape_and_byte_types_fail_before_exec"
+        ],
+        [
+          "Contract",
+          "test_profile_exact_native_paths_source_static_command_and_absences"
+        ],
+        [
+          "Contract",
+          "test_profile_rejects_every_other_run_and_nonexact_string_type"
+        ],
+        [
+          "Contract",
+          "test_both_binding_schemas_accept_only_fixed_identities_without_mutation"
+        ],
+        [
+          "Contract",
+          "test_binding_shape_identity_and_all_native_paths_rejected"
+        ],
+        [
+          "Contract",
+          "test_artifact_sizes_hashes_and_nested_shapes_cannot_be_rebound"
+        ],
+        [
+          "Contract",
+          "test_python_B_and_inherited_shadow_directory_constraints"
+        ],
+        [
+          "Contract",
+          "test_read_plan_exact_static_26_reads_727088_bytes"
+        ],
+        [
+          "Lifecycle",
+          "test_upload_success_exact_one_shot_and_all_closing_pins"
+        ],
+        [
+          "Lifecycle",
+          "test_capture_all_reads_retained_flash_brackets_and_coherence_unproven"
+        ],
+        [
+          "Lifecycle",
+          "test_both_lifecycles_reject_binding_and_preexisting_owner_before_command"
+        ],
+        [
+          "Lifecycle",
+          "test_admission_rejects_changed_artifacts_symlinks_identity_and_processes"
+        ],
+        [
+          "Lifecycle",
+          "test_before_flash_mismatch_never_reads_sram_or_sleeps"
+        ],
+        [
+          "Lifecycle",
+          "test_after_flash_mismatch_stops_at_first_complete_bad_image"
+        ],
+        [
+          "Lifecycle",
+          "test_missing_short_extra_and_symlink_reads_stop_immediately"
+        ],
+        [
+          "Lifecycle",
+          "test_short_sample_gap_and_expired_gap_suppress_second_sample"
+        ],
+        [
+          "Lifecycle",
+          "test_child_failure_and_malformed_result_do_not_retry"
+        ],
+        [
+          "Lifecycle",
+          "test_final_pins_identity_and_original_error_all_survive_failure"
+        ],
+        [
+          "Lifecycle",
+          "test_capture_deadline_caps_next_child_and_no_third_read"
+        ],
+        [
+          "Lifecycle",
+          "test_upload_overall_deadline_failure_is_retained"
+        ],
+        [
+          "Lifecycle",
+          "test_capture_replaced_owner_stops_and_keeps_original_directory_evidence"
+        ],
+        [
+          "Lifecycle",
+          "test_one_mib_stream_cap_is_inherited"
+        ],
+        [
+          "Lifecycle",
+          "test_default_executors_preserve_environment_limits_timeout_and_kill_reap"
+        ]
+      ],
+      "retained_higher_methods": [
+        [
+          "WaitContract",
+          "test_baseline_and_only_authorized_function_changes"
+        ],
+        [
+          "WaitContract",
+          "test_initial_wait_fields_and_success_preserve_capture_origin"
+        ],
+        [
+          "WaitContract",
+          "test_equal_or_insufficient_budget_refuses_before_record_or_sleep"
+        ],
+        [
+          "WaitContract",
+          "test_just_over_thirty_seconds_remaining_is_admitted"
+        ],
+        [
+          "WaitContract",
+          "test_short_sleep_retains_observed_after"
+        ],
+        [
+          "WaitContract",
+          "test_throwing_sleeper_retains_before_and_original_exception"
+        ],
+        [
+          "WaitContract",
+          "test_invalid_or_backward_clock_before_record_cannot_sleep"
+        ],
+        [
+          "WaitContract",
+          "test_invalid_or_backward_after_clock_keeps_partial_wait"
+        ],
+        [
+          "WaitContract",
+          "test_final_budget_oversleep_does_not_reset_origin"
+        ],
+        [
+          "WaitContract",
+          "test_gather_exact_wait_positions_flash_brackets_and_complete"
+        ],
+        [
+          "WaitContract",
+          "test_gather_wait_failure_stops_after_seven_reads"
+        ],
+        [
+          "WaitContract",
+          "test_complete_requires_all_original_evidence_and_valid_wait"
+        ],
+        [
+          "WaitContract",
+          "test_final_close_exception_leaves_first_wait_error_in_written_result"
+        ],
+        [
+          "PublicWaitLifecycle",
+          "test_public_collect_retains_wait_and_separate_sample_gap"
+        ],
+        [
+          "PublicWaitLifecycle",
+          "test_public_collect_wait_failures_keep_seven_reads_and_flash_evidence"
+        ],
+        [
+          "PublicWaitLifecycle",
+          "test_first_wait_error_survives_failing_closing_pins_identity_and_clock"
+        ]
+      ]
+    },
+    "run": {
+      "added_methods": [
+        [
+          "CurrentCaller",
+          "test_D201_manifest_is_refused_before_real_source_mapping"
+        ],
+        [
+          "CurrentCaller",
+          "test_D201_artifacts_ABI_entry_source_and_consumed_owner_fail_real_admission"
+        ],
+        [
+          "CurrentCaller",
+          "test_current_private_recipes_and_scope_roles_are_exact"
+        ]
+      ],
+      "assertion_calls": {
+        "core_whole_module": 104,
+        "higher_whole_module": 28,
+        "new_outer_whole_module": 27,
+        "retained_D201_outer_test_bodies": 12
+      },
+      "core_input": {
+        "bytes": 28902,
+        "path": "state/analysis/P7_app_motor_fault_run_raw/test_run.py",
+        "sha256": "83c5fea689bac3f5eac0e83cf76137774d8e1a02d401017079e014ea1a0c0d8e"
+      },
+      "current_core": {
+        "bytes": 28952,
+        "sha256": "c034159e32d7bad1f566dd703f15edc1f46d9a069a71f5385d0a37d4aa3f7b85"
+      },
+      "current_core_steps": [
+        [
+          "import test_actions as actions_oracle",
+          "actions_oracle = INJECTED_ACTIONS",
+          1
+        ],
+        [
+          "import test_remote as remote_oracle",
+          "remote_oracle = INJECTED_REMOTE",
+          1
+        ],
+        [
+          "app_motor_fault",
+          "app_motor_observe",
+          14
+        ],
+        [
+          "P7_app_motor_observe",
+          "P7_motor_const",
+          9
+        ],
+        [
+          "app-motor-fault",
+          "app-motor-const",
+          2
+        ],
+        [
+          "P7_motor_const_remote_source_review.md",
+          "P7_motor_const_remote_review.md",
+          1
+        ],
+        [
+          "P7_motor_const_run_contract.md",
+          "P7_motor_const_remote_contract.md",
+          1
+        ],
+        [
+          "P7_motor_const_native_actual_review.md",
+          "P7_motor_const_compile_actual_review.md",
+          1
+        ],
+        [
+          "P7_motor_const_abi_actual_review.md",
+          "P7_motor_const_abi_actual_review.md",
+          1
+        ],
+        [
+          "native_abi_static01",
+          "native_abi_static01",
+          2
+        ],
+        [
+          "abi_static01_interpreted.json",
+          "native_abi_static01/abi.json",
+          1
+        ],
+        [
+          "RAW + 'test_run.py'",
+          "'tests/tooling/test_motor_const_run.py'",
+          1
+        ],
+        [
+          "RAW + 'test_actions.py'",
+          "'tests/tooling/test_motor_const_actions.py'",
+          1
+        ],
+        [
+          "RAW + 'test_remote.py'",
+          "'tests/tooling/test_motor_const_remote.py'",
+          2
+        ],
+        [
+          "d4eae97c1c47a1ce0fa24c9d7e3ae44857a565cd7b85b9c17be45143654d3eb5",
+          "1b847d96bb21fa72ed19138cb93f803b56b74224dffd7019dd930d99ff7bac95",
+          1
+        ],
+        [
+          "self.assertEqual(len(self.manifest['files']), 127)",
+          "self.assertEqual(len(self.manifest['files']), 129)",
+          1
+        ],
+        [
+          "'adapter_bytes': 10518",
+          "'adapter_bytes': 11331",
+          1
+        ],
+        [
+          "state/analysis/P7_motor_const_caller_contract.md",
+          "state/analysis/P7_motor_const_run_contract.md",
+          1
+        ],
+        [
+          "state/analysis/P7_motor_const_remote_contract.md",
+          "state/analysis/P7_motor_const_run_raw/run_derivation01.json",
+          1
+        ]
+      ],
+      "current_provider": {
+        "bytes": 11248,
+        "sha256": "1ba880d2b0c29e1e7d38f243848ff4ec1b91be59a3b49645d62f86bc808a65af"
+      },
+      "d201_provider": {
+        "bytes": 11031,
+        "sha256": "d3ab296290774a4bc9cf623e8fa6d7360b8fce6cea7159b6fd6c8ed378c42b4a"
+      },
+      "exact_method_count": 30,
+      "historical_outer": {
+        "bytes": 6663,
+        "path": "tests/tooling/test_motor_settle_run.py",
+        "sha256": "7321a3ca41f7dd63ff27204308daab987ba699e9cef16fe0851e6cac85000108"
+      },
+      "output_file": {
+        "bytes": 11992,
+        "path": "tests/tooling/test_motor_const_run.py",
+        "sha256": "a9b51a4fc47950d8ebb5aedcce25abade99e4cbc8240d30aafcb8c78cf9e7c5b"
+      },
+      "projection_steps": [
+        {
+          "after": {
+            "bytes": 11020,
+            "sha256": "54ec2fe374e137541663bbec40f7e1d9457361f82b6198d2974e68c8c8b6f966"
+          },
+          "before": {
+            "bytes": 11031,
+            "sha256": "d3ab296290774a4bc9cf623e8fa6d7360b8fce6cea7159b6fd6c8ed378c42b4a"
+          },
+          "count": 11,
+          "new": "P7_motor_const",
+          "old": "P7_motor_settle"
+        },
+        {
+          "after": {
+            "bytes": 11016,
+            "sha256": "853e855f72ad52f3165d0e505fe266ff032d11ed4e302f63252ee77571ccdff1"
+          },
+          "before": {
+            "bytes": 11020,
+            "sha256": "54ec2fe374e137541663bbec40f7e1d9457361f82b6198d2974e68c8c8b6f966"
+          },
+          "count": 4,
+          "new": "test_motor_const",
+          "old": "test_motor_settle"
+        },
+        {
+          "after": {
+            "bytes": 11014,
+            "sha256": "b51d38350354cec0601d597e9b4f72c6cd97c991d64d6e00b0943646ebb676b8"
+          },
+          "before": {
+            "bytes": 11016,
+            "sha256": "853e855f72ad52f3165d0e505fe266ff032d11ed4e302f63252ee77571ccdff1"
+          },
+          "count": 2,
+          "new": "app-motor-const-4bc3a2e6-run01",
+          "old": "app-motor-settle-117cc0e7-run01"
+        },
+        {
+          "after": {
+            "bytes": 11013,
+            "sha256": "9fd379d45f19e345021439080b7ffbb3f462d25e39de3599d5f39f0140b2c732"
+          },
+          "before": {
+            "bytes": 11014,
+            "sha256": "b51d38350354cec0601d597e9b4f72c6cd97c991d64d6e00b0943646ebb676b8"
+          },
+          "count": 1,
+          "new": "app-motor-const",
+          "old": "app-motor-settle"
+        },
+        {
+          "after": {
+            "bytes": 11013,
+            "sha256": "45287067981b83d506d596e627d0bd613ada2226b51223aa512de0e9e4279299"
+          },
+          "before": {
+            "bytes": 11013,
+            "sha256": "9fd379d45f19e345021439080b7ffbb3f462d25e39de3599d5f39f0140b2c732"
+          },
+          "count": 2,
+          "new": "11331",
+          "old": "11343"
+        },
+        {
+          "after": {
+            "bytes": 11006,
+            "sha256": "4627c4aa55a2c3b0c637d520d353dc0011ca54263f940e397d9bdcb230bbfb8d"
+          },
+          "before": {
+            "bytes": 11013,
+            "sha256": "45287067981b83d506d596e627d0bd613ada2226b51223aa512de0e9e4279299"
+          },
+          "count": 1,
+          "new": "compile_motor_const",
+          "old": "compile_motor_settle_probe"
+        },
+        {
+          "after": {
+            "bytes": 11006,
+            "sha256": "6be58fb07cba3a4c86c1a2a7fca9f51b0379784309705c2217e547e4b8d67e59"
+          },
+          "before": {
+            "bytes": 11006,
+            "sha256": "4627c4aa55a2c3b0c637d520d353dc0011ca54263f940e397d9bdcb230bbfb8d"
+          },
+          "count": 1,
+          "new": "05a8c43509e7ba4b3cb0752214a7163f64718300bc310f2e9b5805151394a2ff",
+          "old": "448b05c2353af00fb3114c5f49acd64c18e8b9387e4c45fcff45a2fcc44abc49"
+        },
+        {
+          "after": {
+            "bytes": 11006,
+            "sha256": "cc96e3e7298b654e1d9496f73f370cd8f74753008ef5ce555476e8f6ae361675"
+          },
+          "before": {
+            "bytes": 11006,
+            "sha256": "6be58fb07cba3a4c86c1a2a7fca9f51b0379784309705c2217e547e4b8d67e59"
+          },
+          "count": 1,
+          "new": "1b847d96bb21fa72ed19138cb93f803b56b74224dffd7019dd930d99ff7bac95",
+          "old": "aa314548521968fd3b1b7b1ef415da3c72c90a6bc914d0a9204ff707bcd7d282"
+        },
+        {
+          "after": {
+            "bytes": 11006,
+            "sha256": "9c8c5566f18013eb980603dec1c2c982292e1b1729a6999cab89cdb124c19b86"
+          },
+          "before": {
+            "bytes": 11006,
+            "sha256": "cc96e3e7298b654e1d9496f73f370cd8f74753008ef5ce555476e8f6ae361675"
+          },
+          "count": 1,
+          "new": "957666a83c6fa36408dd6616f93d9cdc583622b29a51a6f6c6e960dd4cd1f247",
+          "old": "b98a5f54e2be122162e76074673190f52ef4218c766d517125b48127bb4b8b62"
+        },
+        {
+          "after": {
+            "bytes": 11006,
+            "sha256": "681bc46dd2cd2346a7a517584d006be78ba36abf34628d4193f263d719873e39"
+          },
+          "before": {
+            "bytes": 11006,
+            "sha256": "9c8c5566f18013eb980603dec1c2c982292e1b1729a6999cab89cdb124c19b86"
+          },
+          "count": 1,
+          "new": "51c60cd5ac87b823b84b2c7d993933690f0a3110e4d89c7cb958549fb5f111bc",
+          "old": "577f2f17ae532db1e21644868b624d0d8a903771309a39b0b3488f8ae4f98cb0"
+        },
+        {
+          "after": {
+            "bytes": 11248,
+            "sha256": "1ba880d2b0c29e1e7d38f243848ff4ec1b91be59a3b49645d62f86bc808a65af"
+          },
+          "before": {
+            "bytes": 11006,
+            "sha256": "681bc46dd2cd2346a7a517584d006be78ba36abf34628d4193f263d719873e39"
+          },
+          "count": 1,
+          "new": "(\"'adapter_bytes': 10518\", \"'adapter_bytes': 11331\", 1),\n        ('state/analysis/P7_motor_const_caller_contract.md', 'state/analysis/P7_motor_const_run_contract.md', 1),\n        ('state/analysis/P7_motor_const_remote_contract.md', 'state/analysis/P7_motor_const_run_raw/run_derivation01.json', 1))",
+          "old": "(\"'adapter_bytes': 10518\", \"'adapter_bytes': 11331\", 1))"
+        }
+      ],
+      "retained_D201_outer_methods": [
+        [
+          "CurrentCaller",
+          "test_exact_seventeen_metadata_changes_preserve_other_caller_source_bytes"
+        ],
+        [
+          "CurrentCaller",
+          "test_current_header_in_129_inputs_and_D193_manifest_rejected_before_mapping"
+        ]
+      ],
+      "retained_core_methods": [
+        [
+          "CallerContract",
+          "test_admission_is_local_read_only_and_rechecks_all_127_original_input_hashes"
+        ],
+        [
+          "CallerContract",
+          "test_actual_source_inventory_matches_the_original_manifest_without_mutation"
+        ],
+        [
+          "CallerContract",
+          "test_missing_scope_wrong_head_dirty_tree_or_uncommitted_scope_never_claims"
+        ],
+        [
+          "CallerContract",
+          "test_unrelated_untracked_files_fail_and_only_claimed_evidence_is_allowed"
+        ],
+        [
+          "CallerContract",
+          "test_scope_shape_source_caller_and_identity_are_exact"
+        ],
+        [
+          "CallerContract",
+          "test_preparation_manifest_and_source_drift_are_rejected"
+        ],
+        [
+          "CallerContract",
+          "test_linked_scope_and_source_pin_fail_closed_without_source_copies"
+        ],
+        [
+          "CallerContract",
+          "test_claim_and_stage_are_exclusive_durable_and_use_exact_seven_command_allowlist"
+        ],
+        [
+          "CallerContract",
+          "test_success_sequence_has_exactly_13_transports_and_unproven_collection"
+        ],
+        [
+          "CallerContract",
+          "test_staging_uncertainty_consumes_owner_closes_and_never_uploads"
+        ],
+        [
+          "CallerContract",
+          "test_staging_transport_cannot_bypass_intent_or_verified_claim"
+        ],
+        [
+          "CallerContract",
+          "test_invalid_staging_identity_prevents_push_and_attempts_closing_checks"
+        ],
+        [
+          "CallerContract",
+          "test_capability_staged_hash_or_source_names_drift_prevents_upload"
+        ],
+        [
+          "CallerContract",
+          "test_prerequisites_verify_source_projection_and_attempt_all_three"
+        ],
+        [
+          "CallerContract",
+          "test_upload_failure_or_outward_error_never_dispatches_capture"
+        ],
+        [
+          "CallerContract",
+          "test_intent_and_actual_predecessor_hash_are_required_and_consumed"
+        ],
+        [
+          "CallerContract",
+          "test_allowlist_wrong_command_timeout_and_per_label_counts_reject_before_transport"
+        ],
+        [
+          "CallerContract",
+          "test_local_drift_after_intent_refuses_dispatch_and_preserves_owner"
+        ],
+        [
+          "CallerContract",
+          "test_primary_transport_error_and_closing_errors_are_all_durable"
+        ],
+        [
+          "CallerContract",
+          "test_cli_check_only_has_no_staging_transport_or_owner_and_bad_modes_fail"
+        ]
+      ],
+      "retained_higher_methods": [
+        [
+          "ObserverEvidence",
+          "test_projected_d193_source_inventory_and_mapping_are_exact"
+        ],
+        [
+          "ObserverEvidence",
+          "test_successful_abi02_and_entry_evidence_accepts_without_native_work"
+        ],
+        [
+          "ObserverEvidence",
+          "test_wrong_abi_status_error_and_failed_predecessor_are_rejected"
+        ],
+        [
+          "ObserverEvidence",
+          "test_old_manifest_refused_before_projection_and_any_transport"
+        ],
+        [
+          "ObserverEvidence",
+          "test_fixed_new_scope_owners_and_cli_signature_preserve_old_owners"
+        ]
+      ]
+    }
+  },
+  "historical_negative_refs_preserved": [
+    "D194 failed ABI01 local_result",
+    "D195 excluded ABI02 provenance",
+    "D193 source/package/128-source manifest",
+    "D190 core negatives"
+  ],
+  "schema": "motor-const-independent-native-fixtures-v1",
+  "status": "STATIC_FIXTURE_PROJECTIONS_VERIFIED_NOT_EXECUTED"
+}

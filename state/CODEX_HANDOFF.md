@@ -220,3 +220,11 @@ noD207imports/tests/nativeoperationyet. Root/reviewers waitfororacleFINAL before
 subjectreview/test. Then serialnative99+supplements andcorrecteddecoder67+
 supplements, finalreviews/scope/freshadmission/cleanHEAD/check-only precede
 oneM0/probe1upload/capture. D201remainsthelatestflashedimage.
+
+
+## D207 host closure and imminent inhibited run (2026-09-26T14:30:41.694867+04:00)
+
+The prior preparation-only paragraph is superseded: independent oracles are FINAL, exact subjects passed first host suites (106 Linux native; 62 Windows plus 44 covered skips; decoder 70 each). Final reviews 74083d6e/316fec95/f4fd1bc8 and closures eeccfad2/d331a41b are accepted. Two preparation refusals and one nonblocking summary quoting defect are preserved. Fresh read-only admission passed at 14:29:32, raw 9a84758f, expected boot/19 files/four absences/no conflicts. Scope 23c1fcf6 binds eleven exact roles. Final independent admission review, clean committed HEAD and check-only precede the one inhibited attempt. D201 remains flashed until that execution. Keep all writers stopped throughout native closure; then retrieve only saved result/SRAM files through separately reviewed file-only logic and decode with the actual packet hash.
+
+
+D207 final admission at 2026-09-26T14:32:16.946535+04:00: review 3f0357cd PASS accepts exact scope and board evidence. All writers stopped. Commit current accepted state, run local check-only once, then the single exact inhibited execution if it passes. Save outer receipts only after the native caller closes. Subsequent saved-file retrieval and actual-result review remain separate.

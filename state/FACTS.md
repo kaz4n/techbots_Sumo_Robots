@@ -902,3 +902,7 @@ HOST-VERIFIED: D206 exact4recipe/6wrapper metadata derivations pass52Linuxmethod
 
 ## F230 - Exact current upload scratch removed (2026-09-26T14:09:22.515800+04:00)
 BOARD-FILE-OBSERVED: D206 actualreviewaaede1e1 accepts savedresult3b8f035a andindependentretrievald45d5447. Exactly3staleD201copies2399928logicalB andemptydirectorydev34ino1452 removed. Threeprotectedscans165names/3sameuserhandles, credentials restoredbeforeunlink andpermanentlydropped1000 atfinalexit; noerrors. Allretainedoriginals/stagedsourcesunchanged, scratchabsenttwice, sixremotechecks and45localpinsPASS. D201remainsflashed; no runtimeorphysicalclaim. Source: analysis/P7_motor_const_cleanup_actual_validation.md.
+
+
+## F231 - Current inhibited diagnostic host checks and read-only board admission (2026-09-26T14:30:41.694867+04:00)
+HOST-VERIFIED and BOARD-FILE-OBSERVED: D207 eight first serial host suites passed with stable 302/184 coordinator pins, no retries, no timeouts and no scoped fixture remnants. Native totals are 106 Linux passes and 62 Windows passes with 44 Linux-covered skips; decoder 70 passes each. Final source/host reviews 74083d6e, 316fec95 and f4fd1bc8 accepted. One read-only admission at 14:29:32 Dubai verifies the expected boot, 19 files, accepted cleanup, four absences and no recognized conflicts; raw stdout 9a84758f. No new upload/runtime result yet. Source: analysis/P7_motor_const_run_validation.md.

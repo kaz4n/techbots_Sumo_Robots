@@ -1,0 +1,174 @@
+{
+  "schema": "d207-readonly-admission-derivation-v1",
+  "inputs": {
+    "state/analysis/P7_motor_settle_run_raw/admission02_readonly.py": {
+      "bytes": 23871,
+      "sha256": "fecc2ba16719a287077fe009fa0ef8b586a6a4214240d6cac54a3467aa16fd33"
+    },
+    "state/analysis/P7_motor_settle_run_raw/admission02_intent.json": {
+      "bytes": 33571,
+      "sha256": "e9a304ff57b58f4da77ad731d4c976e3b8de7a3b9d7500958f978e1ab0e81d47"
+    },
+    "state/analysis/P7_motor_const_run_raw/preparation.json": {
+      "bytes": 9988,
+      "sha256": "519a95f623e3c463842217cdb568cb1909941974b49c36453bfc8f8ea1f8449e"
+    },
+    "state/analysis/P7_motor_const_cleanup_raw/cleanup_stage_intent01.json": {
+      "bytes": 23437,
+      "sha256": "4a326fd560a72954ee720a4ddc6849b29676d0c773570f11d0a848e6c6403a8d"
+    },
+    "state/analysis/P7_motor_const_cleanup_raw/cleanup_root05_actual_result.json": {
+      "bytes": 6367,
+      "sha256": "3b8f035a6b282ada5a5fbf5992a5343d27a3dc245962ee7f64032757420e11e8"
+    },
+    "state/reviews/P7_motor_const_cleanup_actual_review.md": {
+      "bytes": 8082,
+      "sha256": "aaede1e1d8a0a8deef6b48de191abe76cf06bb2779f6ce4fa810c4467544e9c8"
+    },
+    "state/analysis/P7_motor_const_run_raw/admission01_readonly.py": {
+      "bytes": 23886,
+      "sha256": "769933e9baa0c0b9fa61dc72017bd3585a8680f9e3238fe65b362a60fb2fc198"
+    }
+  },
+  "steps": [
+    {
+      "target": "D200",
+      "count": 1,
+      "before": {
+        "bytes": 23871,
+        "sha256": "fecc2ba16719a287077fe009fa0ef8b586a6a4214240d6cac54a3467aa16fd33"
+      },
+      "after": {
+        "bytes": 23871,
+        "sha256": "25521d1f791b55b81c736d7aabdbfeca5c22e34a36d2797e71b5891d07328b6b"
+      }
+    },
+    {
+      "target": "D201",
+      "count": 1,
+      "before": {
+        "bytes": 23871,
+        "sha256": "25521d1f791b55b81c736d7aabdbfeca5c22e34a36d2797e71b5891d07328b6b"
+      },
+      "after": {
+        "bytes": 23871,
+        "sha256": "13b82e9155cb5e8905295f00eb3b9a6d564a81c7d821afe5936b6a0674006a40"
+      }
+    },
+    {
+      "target": "pins={'cleanup_root04.py': {'bytes': 9603, 'sha256': '13f33327c5474d7c4dee56657a9d93b50e6fcdaee864e1855c916417a53c6290'}, 'cleanup_remoteocd03.py': {'bytes': 7740, 'sha256': '6afeea1b9733670cdf315b2bf29b3e6e9c24016a2ba9217013e67496ec088f4d'}, 'static_remote.py': {'bytes': 33321, 'sha256': '8ba9b190c38e728013a383348c60c287b0366607f65f703161cf7f2e142d36f8'}}",
+      "count": 1,
+      "before": {
+        "bytes": 23871,
+        "sha256": "13b82e9155cb5e8905295f00eb3b9a6d564a81c7d821afe5936b6a0674006a40"
+      },
+      "after": {
+        "bytes": 23871,
+        "sha256": "2e92e52d4396d6da396e740d86ae8d39960400931b046c70889685c99c3d5a4d"
+      }
+    },
+    {
+      "target": "packet=json.loads(bz2.decompress(base64.b64decode('QlpoOTFBWSZTWUyX09gAXjL/gEXfd8Z6/////////r////5gP",
+      "count": 1,
+      "before": {
+        "bytes": 23871,
+        "sha256": "2e92e52d4396d6da396e740d86ae8d39960400931b046c70889685c99c3d5a4d"
+      },
+      "after": {
+        "bytes": 23892,
+        "sha256": "50f3b80c65a5acee3bcb5c5fb07849f16e88d709e8e8267394da9c65eec1f3f3"
+      }
+    },
+    {
+      "target": "files={'/home/arduino/sumox26-capture-tools/app-default-beeffff315b2e28a95a20dc1e26477fc924b2da26d1f",
+      "count": 1,
+      "before": {
+        "bytes": 23892,
+        "sha256": "50f3b80c65a5acee3bcb5c5fb07849f16e88d709e8e8267394da9c65eec1f3f3"
+      },
+      "after": {
+        "bytes": 23888,
+        "sha256": "4bd9c5d503a611453f9bcde5c738d645af1e805d5b766b9b4f255a922b2cc8f1"
+      }
+    },
+    {
+      "target": "cleanup_remoteocd03.py",
+      "count": 1,
+      "before": {
+        "bytes": 23888,
+        "sha256": "4bd9c5d503a611453f9bcde5c738d645af1e805d5b766b9b4f255a922b2cc8f1"
+      },
+      "after": {
+        "bytes": 23888,
+        "sha256": "f0de7c4065d1b6c9db7ae8498496b44b87539a733be26bd6c0ed90fd4c8de4c8"
+      }
+    },
+    {
+      "target": "cleanup-app-settle-root04",
+      "count": 1,
+      "before": {
+        "bytes": 23888,
+        "sha256": "f0de7c4065d1b6c9db7ae8498496b44b87539a733be26bd6c0ed90fd4c8de4c8"
+      },
+      "after": {
+        "bytes": 23887,
+        "sha256": "a5cfe73fb25bad608ced50d7aae1873cd8a32d10a1609b7a9e5dc4aec4bd714b"
+      }
+    },
+    {
+      "target": "result_root04.json",
+      "count": 1,
+      "before": {
+        "bytes": 23887,
+        "sha256": "a5cfe73fb25bad608ced50d7aae1873cd8a32d10a1609b7a9e5dc4aec4bd714b"
+      },
+      "after": {
+        "bytes": 23887,
+        "sha256": "c78bb043fdc57d7484d15f1880de30beb24e331ec30cc9c3a4ea010054e5622c"
+      }
+    },
+    {
+      "target": "len(body)==6370",
+      "count": 1,
+      "before": {
+        "bytes": 23887,
+        "sha256": "c78bb043fdc57d7484d15f1880de30beb24e331ec30cc9c3a4ea010054e5622c"
+      },
+      "after": {
+        "bytes": 23887,
+        "sha256": "d246ce26c80f19376f55ccfc3fb6e0f1d878eb958bf850161120b7913ef5c6b2"
+      }
+    },
+    {
+      "target": "05507941ebbc8f9ba88c366dbf3c762e80042654a7c8de9166637ecc4e7c7ebd",
+      "count": 1,
+      "before": {
+        "bytes": 23887,
+        "sha256": "d246ce26c80f19376f55ccfc3fb6e0f1d878eb958bf850161120b7913ef5c6b2"
+      },
+      "after": {
+        "bytes": 23887,
+        "sha256": "3cd318661b4c3d29b6576440bb8f7cd857212c6157ac4e7926159fcae8bb1c45"
+      }
+    },
+    {
+      "target": "app-motor-settle-117cc0e7-run01",
+      "count": 1,
+      "before": {
+        "bytes": 23887,
+        "sha256": "3cd318661b4c3d29b6576440bb8f7cd857212c6157ac4e7926159fcae8bb1c45"
+      },
+      "after": {
+        "bytes": 23886,
+        "sha256": "769933e9baa0c0b9fa61dc72017bd3585a8680f9e3238fe65b362a60fb2fc198"
+      }
+    }
+  ],
+  "expected": {
+    "bytes": 23886,
+    "sha256": "769933e9baa0c0b9fa61dc72017bd3585a8680f9e3238fe65b362a60fb2fc198"
+  },
+  "changed_current_build_files": 2,
+  "unchanged_installed_helper_files": 17,
+  "execution": 0
+}

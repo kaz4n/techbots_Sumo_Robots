@@ -460,3 +460,9 @@ D191 closing observation: C:recovered290537472B independently before local docum
 
 
 2026-09-26T14:09:22.515800+04:00 | D206 exact board cleanup | Removed only verified3D201scratchcopies2399928logicalB andempty/tmp/remoteocddev34ino1452, actual3b8f035a/reviewaaede1e1. Retainedoriginalsand50660Bstagedsources remainrequired; savedresult6367B preserved. No hostcleanup orprior-deniedtarget touched. Rootclosingf0cfa6ad:Cfree6327058432B. Logicalpayload removal is not a measured filesystem free-space delta.
+
+
+2026-09-26T14:30:41.694867+04:00 | D207 host evidence retention | Keep eight first invocation receipts/raw streams, independent freezes, exact derivatives, closure summaries and final reviews for reproduction. Scoped Linux/Windows fixtures are empty; no manual deletion or reclaimed-byte claim. Fresh board admission reports 13914370048 root bytes available; laptop has 6030618624 bytes available now. No earlier denied cleanup target was touched.
+
+
+2026-09-26T14:33:11.086360+04:00 | D207 exact-byte Git preservation | Pre-commit index comparison found automatic EOL conversion in 23 new raw receipt/Windows stream blobs. Added only the scoped P7_motor_const_run_raw/** -text rule and restaged existing bytes. All 59 raw files now equal their index blobs byte for byte. Working source, oracles, reviews, scope and raw evidence were never altered; no tests or board actions were repeated.

@@ -1,0 +1,1455 @@
+{
+  "coordinator_current_mismatches": [],
+  "coordinator_freeze": {
+    "bytes": 50297,
+    "path": "state/analysis/P7_motor_const_run_raw/native_coordinator_freeze01.json",
+    "sha256": "f86281252c5dd8124d9db63bc696221d9b94b3d2cab158cb2b41cd73cce03f45"
+  },
+  "coordinator_inputs": 302,
+  "created_utc": "2026-09-26T10:26:12.802024+00:00",
+  "first_attempts_only": true,
+  "fixture_cleanup": {
+    "linux": {
+      "argv": [
+        "wsl",
+        "-d",
+        "Ubuntu",
+        "--",
+        "python3",
+        "-I",
+        "-B",
+        "-c",
+        "import json,os; names=sorted(n for n in os.listdir(\"/dev/shm\") if n.startswith((\"sumox_d189_\",\"sumox-d189-bootstrap-\",\"sumox-d189-run-\",\"d201-oracle-\")));print(json.dumps({\"root\":\"/dev/shm\",\"prefixes\":[\"sumox_d189_\",\"sumox-d189-bootstrap-\",\"sumox-d189-run-\",\"d201-oracle-\"],\"names\":names}))"
+      ],
+      "inspection": "Nonprivileged local WSL directory-name listing only; no subject imports or test/device activity.",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": {
+        "names": [],
+        "prefixes": [
+          "sumox_d189_",
+          "sumox-d189-bootstrap-",
+          "sumox-d189-run-",
+          "d201-oracle-"
+        ],
+        "root": "/dev/shm"
+      }
+    },
+    "windows": "Every scoped saved temporary_remnants is []; independently listed each same owned directory and found zero entries."
+  },
+  "independent_current_mismatches": [],
+  "independent_freeze": {
+    "bytes": 66977,
+    "path": "state/analysis/P7_motor_const_run_raw/native_independent_freeze01.json",
+    "sha256": "7a426a2f946e645e1373d1153ee18708e4ccdd1c7c4b78eed64c1c2618d09336"
+  },
+  "independent_inputs": 290,
+  "limitations": "Controlled host test results only. No target runtime remedy, physical safety, motor permission, atomic SRAM coherence, WCET or phase gate follows.",
+  "observed_first_owner_directories": [
+    "first_actions_linux01",
+    "first_actions_windows01",
+    "first_interpreter_linux01",
+    "first_interpreter_windows01",
+    "first_remote_linux01",
+    "first_remote_windows01",
+    "first_run_linux01",
+    "first_run_windows01"
+  ],
+  "results": [
+    {
+      "argv": [
+        "wsl",
+        "-d",
+        "Ubuntu",
+        "--",
+        "bash",
+        "-lc",
+        "cd /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots && exec env TMPDIR=/dev/shm python3 -I -B tests/tooling/test_motor_const_remote.py"
+      ],
+      "errors": 0,
+      "failures": 0,
+      "files": {
+        "intent.json": {
+          "bytes": 544,
+          "path": "state/analysis/P7_motor_const_run_raw/first_remote_linux01/intent.json",
+          "sha256": "e6b7ce8955256cebd4d49a1807f641035f7e9a7a60c58232559096d306b754c2"
+        },
+        "result.json": {
+          "bytes": 868,
+          "path": "state/analysis/P7_motor_const_run_raw/first_remote_linux01/result.json",
+          "sha256": "c60d27c1e1c150f3d7124e62f1242be57f1d621d0b0bcef6af07bbf557535719"
+        },
+        "stderr": {
+          "bytes": 7144,
+          "path": "state/analysis/P7_motor_const_run_raw/first_remote_linux01/stderr",
+          "sha256": "6e2e1b12f8159fae235f35270d4873f2369ab93dd1452be397c26637abf7c65d"
+        },
+        "stdout": {
+          "bytes": 0,
+          "path": "state/analysis/P7_motor_const_run_raw/first_remote_linux01/stdout",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "fixture_remnants_saved": null,
+      "historical_stderr": {
+        "bytes": 6841,
+        "path": "state/analysis/P7_motor_settle_run_raw/first_remote_linux01/stderr",
+        "sha256": "2f0df27aeac30b5e4a4c29be2b4e912bd59a47a41659c72f74439dbabe562657"
+      },
+      "method_count": 47,
+      "method_outcomes": [
+        {
+          "method": "Contract.test_artifact_sizes_hashes_and_nested_shapes_cannot_be_rebound",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "Contract.test_binding_shape_identity_and_all_native_paths_rejected",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "Contract.test_both_binding_schemas_accept_only_fixed_identities_without_mutation",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "Contract.test_dependencies_have_exact_bytes_fresh_private_modules_and_no_old_mutation",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "Contract.test_dependency_shape_and_byte_types_fail_before_exec",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "Contract.test_every_dependency_hash_is_checked_before_any_exec",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "Contract.test_import_has_no_native_action_or_dependency_execution",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "Contract.test_profile_exact_native_paths_source_static_command_and_absences",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "Contract.test_profile_rejects_every_other_run_and_nonexact_string_type",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "Contract.test_python_B_and_inherited_shadow_directory_constraints",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "Contract.test_read_plan_exact_static_26_reads_727088_bytes",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "Lifecycle.test_admission_rejects_changed_artifacts_symlinks_identity_and_processes",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "Lifecycle.test_after_flash_mismatch_stops_at_first_complete_bad_image",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "Lifecycle.test_before_flash_mismatch_never_reads_sram_or_sleeps",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "Lifecycle.test_both_lifecycles_reject_binding_and_preexisting_owner_before_command",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "Lifecycle.test_capture_all_reads_retained_flash_brackets_and_coherence_unproven",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "Lifecycle.test_capture_deadline_caps_next_child_and_no_third_read",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "Lifecycle.test_capture_replaced_owner_stops_and_keeps_original_directory_evidence",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "Lifecycle.test_child_failure_and_malformed_result_do_not_retry",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "Lifecycle.test_default_executors_preserve_environment_limits_timeout_and_kill_reap",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "Lifecycle.test_final_pins_identity_and_original_error_all_survive_failure",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "Lifecycle.test_missing_short_extra_and_symlink_reads_stop_immediately",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "Lifecycle.test_one_mib_stream_cap_is_inherited",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "Lifecycle.test_short_sample_gap_and_expired_gap_suppress_second_sample",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "Lifecycle.test_upload_overall_deadline_failure_is_retained",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "Lifecycle.test_upload_success_exact_one_shot_and_all_closing_pins",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "WaitContract.test_baseline_and_only_authorized_function_changes",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "WaitContract.test_complete_requires_all_original_evidence_and_valid_wait",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "WaitContract.test_equal_or_insufficient_budget_refuses_before_record_or_sleep",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "WaitContract.test_final_budget_oversleep_does_not_reset_origin",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "WaitContract.test_final_close_exception_leaves_first_wait_error_in_written_result",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "WaitContract.test_gather_exact_wait_positions_flash_brackets_and_complete",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "WaitContract.test_gather_wait_failure_stops_after_seven_reads",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "WaitContract.test_initial_wait_fields_and_success_preserve_capture_origin",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "WaitContract.test_invalid_or_backward_after_clock_keeps_partial_wait",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "WaitContract.test_invalid_or_backward_clock_before_record_cannot_sleep",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "WaitContract.test_just_over_thirty_seconds_remaining_is_admitted",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "WaitContract.test_short_sleep_retains_observed_after",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "WaitContract.test_throwing_sleeper_retains_before_and_original_exception",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "PublicWaitLifecycle.test_first_wait_error_survives_failing_closing_pins_identity_and_clock",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "PublicWaitLifecycle.test_public_collect_retains_wait_and_separate_sample_gap",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "PublicWaitLifecycle.test_public_collect_wait_failures_keep_seven_reads_and_flash_evidence",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "CurrentRemote.test_D201_source_package_and_consumed_owner_bindings_are_rejected",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "CurrentRemote.test_current_profile_keeps_fixed_bounds_and_one_wait",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "CurrentRemote.test_exact_current_six_windows_and_twenty_six_reads",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "CurrentRemote.test_exact_eleven_metadata_changes_preserve_all_other_source_bytes",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "CurrentRemote.test_previous_source_and_D193_image_bindings_cannot_replace_current_inputs",
+          "outcome": "PASS",
+          "reason": null
+        }
+      ],
+      "outer_seconds": 37.00218049995601,
+      "pass": 47,
+      "platform": "linux",
+      "retained_D201_actual_methods_same_outcomes": 45,
+      "skip": 0,
+      "started": "2026-09-26T14:15:08.362672+04:00",
+      "suite": "remote",
+      "timed_out": false,
+      "timeout_seconds": 600,
+      "unittest_seconds": 17.151
+    },
+    {
+      "argv": [
+        "C:\\Users\\narut\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-I",
+        "-B",
+        "tests/tooling/test_motor_const_remote.py"
+      ],
+      "errors": 0,
+      "failures": 0,
+      "files": {
+        "intent.json": {
+          "bytes": 600,
+          "path": "state/analysis/P7_motor_const_run_raw/first_remote_windows01/intent.json",
+          "sha256": "a6ad8ff6a98cc6a2eaebe2efd4844b18b43fd1249412951e782bdabd248f62a9"
+        },
+        "result.json": {
+          "bytes": 923,
+          "path": "state/analysis/P7_motor_const_run_raw/first_remote_windows01/result.json",
+          "sha256": "7031b596c9c039aa2cc244789f1ef0642e30f8af8cefcbb673a2019732113204"
+        },
+        "stderr": {
+          "bytes": 7802,
+          "path": "state/analysis/P7_motor_const_run_raw/first_remote_windows01/stderr",
+          "sha256": "1403175fdf1178fbb179b3a467ea8c63d1d1b7cda920da1d395f6cd73ed80339"
+        },
+        "stdout": {
+          "bytes": 0,
+          "path": "state/analysis/P7_motor_const_run_raw/first_remote_windows01/stdout",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "fixture_remnants_saved": [],
+      "historical_stderr": {
+        "bytes": 7498,
+        "path": "state/analysis/P7_motor_settle_run_raw/first_remote_windows01/stderr",
+        "sha256": "b24b0b6b07607ef7b673590b2b5e2c47622242cace4c2367790d9a7d5f6fde90"
+      },
+      "method_count": 47,
+      "method_outcomes": [
+        {
+          "method": "Contract.test_artifact_sizes_hashes_and_nested_shapes_cannot_be_rebound",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "Contract.test_binding_shape_identity_and_all_native_paths_rejected",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "Contract.test_both_binding_schemas_accept_only_fixed_identities_without_mutation",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "Contract.test_dependencies_have_exact_bytes_fresh_private_modules_and_no_old_mutation",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "Contract.test_dependency_shape_and_byte_types_fail_before_exec",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "Contract.test_every_dependency_hash_is_checked_before_any_exec",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "Contract.test_import_has_no_native_action_or_dependency_execution",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "Contract.test_profile_exact_native_paths_source_static_command_and_absences",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "Contract.test_profile_rejects_every_other_run_and_nonexact_string_type",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "Contract.test_python_B_and_inherited_shadow_directory_constraints",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "Contract.test_read_plan_exact_static_26_reads_727088_bytes",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "Lifecycle.test_admission_rejects_changed_artifacts_symlinks_identity_and_processes",
+          "outcome": "SKIP",
+          "reason": "'Linux descriptor contract"
+        },
+        {
+          "method": "Lifecycle.test_after_flash_mismatch_stops_at_first_complete_bad_image",
+          "outcome": "SKIP",
+          "reason": "'Linux descriptor contract"
+        },
+        {
+          "method": "Lifecycle.test_before_flash_mismatch_never_reads_sram_or_sleeps",
+          "outcome": "SKIP",
+          "reason": "'Linux descriptor contract"
+        },
+        {
+          "method": "Lifecycle.test_both_lifecycles_reject_binding_and_preexisting_owner_before_command",
+          "outcome": "SKIP",
+          "reason": "'Linux descriptor contract"
+        },
+        {
+          "method": "Lifecycle.test_capture_all_reads_retained_flash_brackets_and_coherence_unproven",
+          "outcome": "SKIP",
+          "reason": "'Linux descriptor contract"
+        },
+        {
+          "method": "Lifecycle.test_capture_deadline_caps_next_child_and_no_third_read",
+          "outcome": "SKIP",
+          "reason": "'Linux descriptor contract"
+        },
+        {
+          "method": "Lifecycle.test_capture_replaced_owner_stops_and_keeps_original_directory_evidence",
+          "outcome": "SKIP",
+          "reason": "'Linux descriptor contract"
+        },
+        {
+          "method": "Lifecycle.test_child_failure_and_malformed_result_do_not_retry",
+          "outcome": "SKIP",
+          "reason": "'Linux descriptor contract"
+        },
+        {
+          "method": "Lifecycle.test_default_executors_preserve_environment_limits_timeout_and_kill_reap",
+          "outcome": "SKIP",
+          "reason": "'Linux descriptor contract"
+        },
+        {
+          "method": "Lifecycle.test_final_pins_identity_and_original_error_all_survive_failure",
+          "outcome": "SKIP",
+          "reason": "'Linux descriptor contract"
+        },
+        {
+          "method": "Lifecycle.test_missing_short_extra_and_symlink_reads_stop_immediately",
+          "outcome": "SKIP",
+          "reason": "'Linux descriptor contract"
+        },
+        {
+          "method": "Lifecycle.test_one_mib_stream_cap_is_inherited",
+          "outcome": "SKIP",
+          "reason": "'Linux descriptor contract"
+        },
+        {
+          "method": "Lifecycle.test_short_sample_gap_and_expired_gap_suppress_second_sample",
+          "outcome": "SKIP",
+          "reason": "'Linux descriptor contract"
+        },
+        {
+          "method": "Lifecycle.test_upload_overall_deadline_failure_is_retained",
+          "outcome": "SKIP",
+          "reason": "'Linux descriptor contract"
+        },
+        {
+          "method": "Lifecycle.test_upload_success_exact_one_shot_and_all_closing_pins",
+          "outcome": "SKIP",
+          "reason": "'Linux descriptor contract"
+        },
+        {
+          "method": "WaitContract.test_baseline_and_only_authorized_function_changes",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "WaitContract.test_complete_requires_all_original_evidence_and_valid_wait",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "WaitContract.test_equal_or_insufficient_budget_refuses_before_record_or_sleep",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "WaitContract.test_final_budget_oversleep_does_not_reset_origin",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "WaitContract.test_final_close_exception_leaves_first_wait_error_in_written_result",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "WaitContract.test_gather_exact_wait_positions_flash_brackets_and_complete",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "WaitContract.test_gather_wait_failure_stops_after_seven_reads",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "WaitContract.test_initial_wait_fields_and_success_preserve_capture_origin",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "WaitContract.test_invalid_or_backward_after_clock_keeps_partial_wait",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "WaitContract.test_invalid_or_backward_clock_before_record_cannot_sleep",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "WaitContract.test_just_over_thirty_seconds_remaining_is_admitted",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "WaitContract.test_short_sleep_retains_observed_after",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "WaitContract.test_throwing_sleeper_retains_before_and_original_exception",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "PublicWaitLifecycle.test_first_wait_error_survives_failing_closing_pins_identity_and_clock",
+          "outcome": "SKIP",
+          "reason": "'Linux descriptor contract"
+        },
+        {
+          "method": "PublicWaitLifecycle.test_public_collect_retains_wait_and_separate_sample_gap",
+          "outcome": "SKIP",
+          "reason": "'Linux descriptor contract"
+        },
+        {
+          "method": "PublicWaitLifecycle.test_public_collect_wait_failures_keep_seven_reads_and_flash_evidence",
+          "outcome": "SKIP",
+          "reason": "'Linux descriptor contract"
+        },
+        {
+          "method": "CurrentRemote.test_D201_source_package_and_consumed_owner_bindings_are_rejected",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "CurrentRemote.test_current_profile_keeps_fixed_bounds_and_one_wait",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "CurrentRemote.test_exact_current_six_windows_and_twenty_six_reads",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "CurrentRemote.test_exact_eleven_metadata_changes_preserve_all_other_source_bytes",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "CurrentRemote.test_previous_source_and_D193_image_bindings_cannot_replace_current_inputs",
+          "outcome": "PASS",
+          "reason": null
+        }
+      ],
+      "outer_seconds": 0.9622185999760404,
+      "pass": 29,
+      "platform": "windows",
+      "retained_D201_actual_methods_same_outcomes": 45,
+      "skip": 18,
+      "started": "2026-09-26T14:16:22.084632+04:00",
+      "suite": "remote",
+      "timed_out": false,
+      "timeout_seconds": 600,
+      "unittest_seconds": 0.721
+    },
+    {
+      "argv": [
+        "wsl",
+        "-d",
+        "Ubuntu",
+        "--",
+        "bash",
+        "-lc",
+        "cd /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots && exec env TMPDIR=/dev/shm python3 -I -B tests/tooling/test_motor_const_actions.py"
+      ],
+      "errors": 0,
+      "failures": 0,
+      "files": {
+        "intent.json": {
+          "bytes": 546,
+          "path": "state/analysis/P7_motor_const_run_raw/first_actions_linux01/intent.json",
+          "sha256": "59585d24ce95a4e8c285d1929a292beb2ecd46e2a3a8b62dad8644dac8d4dccd"
+        },
+        "result.json": {
+          "bytes": 870,
+          "path": "state/analysis/P7_motor_const_run_raw/first_actions_linux01/result.json",
+          "sha256": "ebc87b8b5458433e76568fd1341a2ef086b5f9bec0ed45f2781ef8ef1e9c040d"
+        },
+        "stderr": {
+          "bytes": 4825,
+          "path": "state/analysis/P7_motor_const_run_raw/first_actions_linux01/stderr",
+          "sha256": "101d0b8828ead2f7d583ac10ad25896c21f8126daf112c475c2e38806e7a381d"
+        },
+        "stdout": {
+          "bytes": 0,
+          "path": "state/analysis/P7_motor_const_run_raw/first_actions_linux01/stdout",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "fixture_remnants_saved": null,
+      "historical_stderr": {
+        "bytes": 4493,
+        "path": "state/analysis/P7_motor_settle_run_raw/first_actions_linux01/stderr",
+        "sha256": "d00a5254a84f04b701a2f6b7f6af813058339c9b8c8e082a72490bf0bc66fae6"
+      },
+      "method_count": 29,
+      "method_outcomes": [
+        {
+          "method": "ActionsContract.test_bootstrap_rejects_bad_framing_before_root_or_module_execution",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "ActionsContract.test_bootstrap_success_checks_staged_adapter_and_capture_parser_again",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "ActionsContract.test_build_rejects_wrong_roles_bytes_identities_and_staging_pins",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "ActionsContract.test_capture_reply_rejects_any_wrong_read_bracket_snapshot_count_or_wait",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "ActionsContract.test_changed_staged_adapter_and_installed_parser_never_dispatch",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "ActionsContract.test_closure_drift_cannot_be_overridden_by_successful_inner_report",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "ActionsContract.test_commands_bind_exact_sources_adapter_identity_canonical_payload_and_windows_limit",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "ActionsContract.test_finish_failure_retains_original_sequence_error_without_retry",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "ActionsContract.test_outward_close_error_preserves_unattributed_durable_report_and_fails",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "ActionsContract.test_reply_requires_exact_envelope_origin_identity_and_clean_errors",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "ActionsContract.test_success_sequence_is_exact_and_passes_retained_upload_predecessor",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "ActionsContract.test_upload_error_or_unattributed_success_suppresses_capture_and_keeps_closing_errors",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "ActionsContract.test_upload_reply_rejects_partial_ambiguous_or_expired_process",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "WaitValidation.test_fixed_inputs_and_retained_method_inventory",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "WaitValidation.test_pre_wait_order_inside_capture_and_before_sample_pause",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "WaitValidation.test_pre_wait_requested_seconds_is_exact_integer_30",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "WaitValidation.test_pre_wait_timestamps_reject_bool_nonfinite_and_nonnumeric",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "WaitValidation.test_sample_pause_and_finished_bounds_remain_independent",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "WaitValidation.test_sequence_keeps_invalid_wait_receipt_first_failure_and_closes_once",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "WaitValidation.test_short_or_backward_pre_wait_is_not_success",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "WaitValidation.test_valid_wait_cannot_promote_failed_or_unattributed_outer_result",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "WaitValidation.test_valid_wait_receipt_and_inclusive_boundaries",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "WaitValidation.test_wait_does_not_admit_terminal_or_extra_analysis_claims",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "WaitValidation.test_wait_requires_exact_present_object_keys",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "CurrentActions.test_D201_source_and_consumed_owner_refused_without_receipt_mutation",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "CurrentActions.test_action_plan_matches_current_remote_and_bounded_inline_commands",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "CurrentActions.test_exact_nine_metadata_changes_preserve_other_action_source_bytes",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "CurrentActions.test_previous_window_and_stale_source_are_refused_without_receipt_mutation",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "CurrentActions.test_private_actions_projection_identity_and_contract_role_pins",
+          "outcome": "PASS",
+          "reason": null
+        }
+      ],
+      "outer_seconds": 7.922373500070535,
+      "pass": 29,
+      "platform": "linux",
+      "retained_D201_actual_methods_same_outcomes": 27,
+      "skip": 0,
+      "started": "2026-09-26T14:16:27.424421+04:00",
+      "suite": "actions",
+      "timed_out": false,
+      "timeout_seconds": 600,
+      "unittest_seconds": 1.854
+    },
+    {
+      "argv": [
+        "C:\\Users\\narut\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-I",
+        "-B",
+        "tests/tooling/test_motor_const_actions.py"
+      ],
+      "errors": 0,
+      "failures": 0,
+      "files": {
+        "intent.json": {
+          "bytes": 603,
+          "path": "state/analysis/P7_motor_const_run_raw/first_actions_windows01/intent.json",
+          "sha256": "f85ec52b45aed257827c77869c050ff7f4c1bf9b97b4fb07a7f1653bb47cd6ec"
+        },
+        "result.json": {
+          "bytes": 927,
+          "path": "state/analysis/P7_motor_const_run_raw/first_actions_windows01/result.json",
+          "sha256": "4306bbd0b5cf5355085835f7e78ba26a111014d56c7afcacfd0fed51fa8373ad"
+        },
+        "stderr": {
+          "bytes": 5091,
+          "path": "state/analysis/P7_motor_const_run_raw/first_actions_windows01/stderr",
+          "sha256": "39dfbcbd9daee25c4e866de6ec0604fdd4c04258df0aa7eb67f10c2235ce9689"
+        },
+        "stdout": {
+          "bytes": 0,
+          "path": "state/analysis/P7_motor_const_run_raw/first_actions_windows01/stdout",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "fixture_remnants_saved": [],
+      "historical_stderr": {
+        "bytes": 4757,
+        "path": "state/analysis/P7_motor_settle_run_raw/first_actions_windows01/stderr",
+        "sha256": "d6ff0e45cbfea98dcdfff743f2aae471f651063baa821d0d20ce14171d9d58fb"
+      },
+      "method_count": 29,
+      "method_outcomes": [
+        {
+          "method": "ActionsContract.test_bootstrap_rejects_bad_framing_before_root_or_module_execution",
+          "outcome": "SKIP",
+          "reason": "'Linux controlled descriptor fixtures"
+        },
+        {
+          "method": "ActionsContract.test_bootstrap_success_checks_staged_adapter_and_capture_parser_again",
+          "outcome": "SKIP",
+          "reason": "'Linux controlled descriptor fixtures"
+        },
+        {
+          "method": "ActionsContract.test_build_rejects_wrong_roles_bytes_identities_and_staging_pins",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "ActionsContract.test_capture_reply_rejects_any_wrong_read_bracket_snapshot_count_or_wait",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "ActionsContract.test_changed_staged_adapter_and_installed_parser_never_dispatch",
+          "outcome": "SKIP",
+          "reason": "'Linux controlled descriptor fixtures"
+        },
+        {
+          "method": "ActionsContract.test_closure_drift_cannot_be_overridden_by_successful_inner_report",
+          "outcome": "SKIP",
+          "reason": "'Linux controlled descriptor fixtures"
+        },
+        {
+          "method": "ActionsContract.test_commands_bind_exact_sources_adapter_identity_canonical_payload_and_windows_limit",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "ActionsContract.test_finish_failure_retains_original_sequence_error_without_retry",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "ActionsContract.test_outward_close_error_preserves_unattributed_durable_report_and_fails",
+          "outcome": "SKIP",
+          "reason": "'Linux controlled descriptor fixtures"
+        },
+        {
+          "method": "ActionsContract.test_reply_requires_exact_envelope_origin_identity_and_clean_errors",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "ActionsContract.test_success_sequence_is_exact_and_passes_retained_upload_predecessor",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "ActionsContract.test_upload_error_or_unattributed_success_suppresses_capture_and_keeps_closing_errors",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "ActionsContract.test_upload_reply_rejects_partial_ambiguous_or_expired_process",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "WaitValidation.test_fixed_inputs_and_retained_method_inventory",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "WaitValidation.test_pre_wait_order_inside_capture_and_before_sample_pause",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "WaitValidation.test_pre_wait_requested_seconds_is_exact_integer_30",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "WaitValidation.test_pre_wait_timestamps_reject_bool_nonfinite_and_nonnumeric",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "WaitValidation.test_sample_pause_and_finished_bounds_remain_independent",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "WaitValidation.test_sequence_keeps_invalid_wait_receipt_first_failure_and_closes_once",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "WaitValidation.test_short_or_backward_pre_wait_is_not_success",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "WaitValidation.test_valid_wait_cannot_promote_failed_or_unattributed_outer_result",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "WaitValidation.test_valid_wait_receipt_and_inclusive_boundaries",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "WaitValidation.test_wait_does_not_admit_terminal_or_extra_analysis_claims",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "WaitValidation.test_wait_requires_exact_present_object_keys",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "CurrentActions.test_D201_source_and_consumed_owner_refused_without_receipt_mutation",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "CurrentActions.test_action_plan_matches_current_remote_and_bounded_inline_commands",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "CurrentActions.test_exact_nine_metadata_changes_preserve_other_action_source_bytes",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "CurrentActions.test_previous_window_and_stale_source_are_refused_without_receipt_mutation",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "CurrentActions.test_private_actions_projection_identity_and_contract_role_pins",
+          "outcome": "PASS",
+          "reason": null
+        }
+      ],
+      "outer_seconds": 0.40621269994881004,
+      "pass": 24,
+      "platform": "windows",
+      "retained_D201_actual_methods_same_outcomes": 27,
+      "skip": 5,
+      "started": "2026-09-26T14:16:40.354732+04:00",
+      "suite": "actions",
+      "timed_out": false,
+      "timeout_seconds": 600,
+      "unittest_seconds": 0.197
+    },
+    {
+      "argv": [
+        "wsl",
+        "-d",
+        "Ubuntu",
+        "--",
+        "bash",
+        "-lc",
+        "cd /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots && exec env TMPDIR=/dev/shm python3 -I -B tests/tooling/test_motor_const_run.py"
+      ],
+      "errors": 0,
+      "failures": 0,
+      "files": {
+        "intent.json": {
+          "bytes": 538,
+          "path": "state/analysis/P7_motor_const_run_raw/first_run_linux01/intent.json",
+          "sha256": "656be7235104afeaf49b8408b682f83a2f07715ae24079f005c9c195797b9961"
+        },
+        "result.json": {
+          "bytes": 862,
+          "path": "state/analysis/P7_motor_const_run_raw/first_run_linux01/result.json",
+          "sha256": "9d6af7daec8555b6904ac64c2a6a247c1cca910ce5ba2d7b0eadf20f203c6d6f"
+        },
+        "stderr": {
+          "bytes": 5162,
+          "path": "state/analysis/P7_motor_const_run_raw/first_run_linux01/stderr",
+          "sha256": "19c99642501d7929554c98861fb8a8c20fcc57bad88d81eac4320d233dd44738"
+        },
+        "stdout": {
+          "bytes": 0,
+          "path": "state/analysis/P7_motor_const_run_raw/first_run_linux01/stdout",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "fixture_remnants_saved": null,
+      "historical_stderr": {
+        "bytes": 4690,
+        "path": "state/analysis/P7_motor_settle_run_raw/first_run_linux01/stderr",
+        "sha256": "14436f6f3986675159885f6ec8ebd21657ca1415ab99353f0fe5e0cb043151f4"
+      },
+      "method_count": 30,
+      "method_outcomes": [
+        {
+          "method": "CallerContract.test_actual_source_inventory_matches_the_original_manifest_without_mutation",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "CallerContract.test_admission_is_local_read_only_and_rechecks_all_127_original_input_hashes",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "CallerContract.test_allowlist_wrong_command_timeout_and_per_label_counts_reject_before_transport",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "CallerContract.test_capability_staged_hash_or_source_names_drift_prevents_upload",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "CallerContract.test_claim_and_stage_are_exclusive_durable_and_use_exact_seven_command_allowlist",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "CallerContract.test_cli_check_only_has_no_staging_transport_or_owner_and_bad_modes_fail",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "CallerContract.test_intent_and_actual_predecessor_hash_are_required_and_consumed",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "CallerContract.test_invalid_staging_identity_prevents_push_and_attempts_closing_checks",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "CallerContract.test_linked_scope_and_source_pin_fail_closed_without_source_copies",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "CallerContract.test_local_drift_after_intent_refuses_dispatch_and_preserves_owner",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "CallerContract.test_missing_scope_wrong_head_dirty_tree_or_uncommitted_scope_never_claims",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "CallerContract.test_preparation_manifest_and_source_drift_are_rejected",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "CallerContract.test_prerequisites_verify_source_projection_and_attempt_all_three",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "CallerContract.test_primary_transport_error_and_closing_errors_are_all_durable",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "CallerContract.test_scope_shape_source_caller_and_identity_are_exact",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "CallerContract.test_staging_transport_cannot_bypass_intent_or_verified_claim",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "CallerContract.test_staging_uncertainty_consumes_owner_closes_and_never_uploads",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "CallerContract.test_success_sequence_has_exactly_13_transports_and_unproven_collection",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "CallerContract.test_unrelated_untracked_files_fail_and_only_claimed_evidence_is_allowed",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "CallerContract.test_upload_failure_or_outward_error_never_dispatches_capture",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "ObserverEvidence.test_fixed_new_scope_owners_and_cli_signature_preserve_old_owners",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "ObserverEvidence.test_old_manifest_refused_before_projection_and_any_transport",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "ObserverEvidence.test_projected_d193_source_inventory_and_mapping_are_exact",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "ObserverEvidence.test_successful_abi02_and_entry_evidence_accepts_without_native_work",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "ObserverEvidence.test_wrong_abi_status_error_and_failed_predecessor_are_rejected",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "CurrentCaller.test_D201_artifacts_ABI_entry_source_and_consumed_owner_fail_real_admission",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "CurrentCaller.test_D201_manifest_is_refused_before_real_source_mapping",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "CurrentCaller.test_current_header_in_129_inputs_and_D193_manifest_rejected_before_mapping",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "CurrentCaller.test_current_private_recipes_and_scope_roles_are_exact",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "CurrentCaller.test_exact_seventeen_metadata_changes_preserve_other_caller_source_bytes",
+          "outcome": "PASS",
+          "reason": null
+        }
+      ],
+      "outer_seconds": 303.6586694000289,
+      "pass": 30,
+      "platform": "linux",
+      "retained_D201_actual_methods_same_outcomes": 27,
+      "skip": 0,
+      "started": "2026-09-26T14:16:41.252723+04:00",
+      "suite": "run",
+      "timed_out": false,
+      "timeout_seconds": 600,
+      "unittest_seconds": 291.94
+    },
+    {
+      "argv": [
+        "C:\\Users\\narut\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+        "-I",
+        "-B",
+        "tests/tooling/test_motor_const_run.py"
+      ],
+      "errors": 0,
+      "failures": 0,
+      "files": {
+        "intent.json": {
+          "bytes": 591,
+          "path": "state/analysis/P7_motor_const_run_raw/first_run_windows01/intent.json",
+          "sha256": "3a50ee7538712cf950c1a70191c9310530f5c60356995635cbe3297a3ecbaf2f"
+        },
+        "result.json": {
+          "bytes": 914,
+          "path": "state/analysis/P7_motor_const_run_raw/first_run_windows01/result.json",
+          "sha256": "1eaf40e65879e4192190135d5df9f527ad4fe769a405243acd4b793dc3a510fc"
+        },
+        "stderr": {
+          "bytes": 6037,
+          "path": "state/analysis/P7_motor_const_run_raw/first_run_windows01/stderr",
+          "sha256": "30e456ee1afabb29b9d39b5f09fad742b94a9a352a853cd68ad94752799a0488"
+        },
+        "stdout": {
+          "bytes": 0,
+          "path": "state/analysis/P7_motor_const_run_raw/first_run_windows01/stdout",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "fixture_remnants_saved": [],
+      "historical_stderr": {
+        "bytes": 5513,
+        "path": "state/analysis/P7_motor_settle_run_raw/first_run_windows01/stderr",
+        "sha256": "397badc3a952f8975d0e3adc46f7d6f364f03e0001c3c000b456bb25627872b3"
+      },
+      "method_count": 30,
+      "method_outcomes": [
+        {
+          "method": "CallerContract.test_actual_source_inventory_matches_the_original_manifest_without_mutation",
+          "outcome": "SKIP",
+          "reason": "'Owned /dev/shm fixture required"
+        },
+        {
+          "method": "CallerContract.test_admission_is_local_read_only_and_rechecks_all_127_original_input_hashes",
+          "outcome": "SKIP",
+          "reason": "'Owned /dev/shm fixture required"
+        },
+        {
+          "method": "CallerContract.test_allowlist_wrong_command_timeout_and_per_label_counts_reject_before_transport",
+          "outcome": "SKIP",
+          "reason": "'Owned /dev/shm fixture required"
+        },
+        {
+          "method": "CallerContract.test_capability_staged_hash_or_source_names_drift_prevents_upload",
+          "outcome": "SKIP",
+          "reason": "'Owned /dev/shm fixture required"
+        },
+        {
+          "method": "CallerContract.test_claim_and_stage_are_exclusive_durable_and_use_exact_seven_command_allowlist",
+          "outcome": "SKIP",
+          "reason": "'Owned /dev/shm fixture required"
+        },
+        {
+          "method": "CallerContract.test_cli_check_only_has_no_staging_transport_or_owner_and_bad_modes_fail",
+          "outcome": "SKIP",
+          "reason": "'Owned /dev/shm fixture required"
+        },
+        {
+          "method": "CallerContract.test_intent_and_actual_predecessor_hash_are_required_and_consumed",
+          "outcome": "SKIP",
+          "reason": "'Owned /dev/shm fixture required"
+        },
+        {
+          "method": "CallerContract.test_invalid_staging_identity_prevents_push_and_attempts_closing_checks",
+          "outcome": "SKIP",
+          "reason": "'Owned /dev/shm fixture required"
+        },
+        {
+          "method": "CallerContract.test_linked_scope_and_source_pin_fail_closed_without_source_copies",
+          "outcome": "SKIP",
+          "reason": "'Owned /dev/shm fixture required"
+        },
+        {
+          "method": "CallerContract.test_local_drift_after_intent_refuses_dispatch_and_preserves_owner",
+          "outcome": "SKIP",
+          "reason": "'Owned /dev/shm fixture required"
+        },
+        {
+          "method": "CallerContract.test_missing_scope_wrong_head_dirty_tree_or_uncommitted_scope_never_claims",
+          "outcome": "SKIP",
+          "reason": "'Owned /dev/shm fixture required"
+        },
+        {
+          "method": "CallerContract.test_preparation_manifest_and_source_drift_are_rejected",
+          "outcome": "SKIP",
+          "reason": "'Owned /dev/shm fixture required"
+        },
+        {
+          "method": "CallerContract.test_prerequisites_verify_source_projection_and_attempt_all_three",
+          "outcome": "SKIP",
+          "reason": "'Owned /dev/shm fixture required"
+        },
+        {
+          "method": "CallerContract.test_primary_transport_error_and_closing_errors_are_all_durable",
+          "outcome": "SKIP",
+          "reason": "'Owned /dev/shm fixture required"
+        },
+        {
+          "method": "CallerContract.test_scope_shape_source_caller_and_identity_are_exact",
+          "outcome": "SKIP",
+          "reason": "'Owned /dev/shm fixture required"
+        },
+        {
+          "method": "CallerContract.test_staging_transport_cannot_bypass_intent_or_verified_claim",
+          "outcome": "SKIP",
+          "reason": "'Owned /dev/shm fixture required"
+        },
+        {
+          "method": "CallerContract.test_staging_uncertainty_consumes_owner_closes_and_never_uploads",
+          "outcome": "SKIP",
+          "reason": "'Owned /dev/shm fixture required"
+        },
+        {
+          "method": "CallerContract.test_success_sequence_has_exactly_13_transports_and_unproven_collection",
+          "outcome": "SKIP",
+          "reason": "'Owned /dev/shm fixture required"
+        },
+        {
+          "method": "CallerContract.test_unrelated_untracked_files_fail_and_only_claimed_evidence_is_allowed",
+          "outcome": "SKIP",
+          "reason": "'Owned /dev/shm fixture required"
+        },
+        {
+          "method": "CallerContract.test_upload_failure_or_outward_error_never_dispatches_capture",
+          "outcome": "SKIP",
+          "reason": "'Owned /dev/shm fixture required"
+        },
+        {
+          "method": "ObserverEvidence.test_fixed_new_scope_owners_and_cli_signature_preserve_old_owners",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "ObserverEvidence.test_old_manifest_refused_before_projection_and_any_transport",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "ObserverEvidence.test_projected_d193_source_inventory_and_mapping_are_exact",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "ObserverEvidence.test_successful_abi02_and_entry_evidence_accepts_without_native_work",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "ObserverEvidence.test_wrong_abi_status_error_and_failed_predecessor_are_rejected",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "CurrentCaller.test_D201_artifacts_ABI_entry_source_and_consumed_owner_fail_real_admission",
+          "outcome": "SKIP",
+          "reason": "'Owned /dev/shm admission fixture required"
+        },
+        {
+          "method": "CurrentCaller.test_D201_manifest_is_refused_before_real_source_mapping",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "CurrentCaller.test_current_header_in_129_inputs_and_D193_manifest_rejected_before_mapping",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "CurrentCaller.test_current_private_recipes_and_scope_roles_are_exact",
+          "outcome": "PASS",
+          "reason": null
+        },
+        {
+          "method": "CurrentCaller.test_exact_seventeen_metadata_changes_preserve_other_caller_source_bytes",
+          "outcome": "PASS",
+          "reason": null
+        }
+      ],
+      "outer_seconds": 0.6193396999733523,
+      "pass": 9,
+      "platform": "windows",
+      "retained_D201_actual_methods_same_outcomes": 27,
+      "skip": 21,
+      "started": "2026-09-26T14:24:11.397532+04:00",
+      "suite": "run",
+      "timed_out": false,
+      "timeout_seconds": 600,
+      "unittest_seconds": 0.258
+    }
+  ],
+  "retry_evidence": "Exactly one first suite/platform owner for each planned run; all eight observed first owners listed; each receipt exit0, no timeout/repair/retry receipt is present in this planned owner set.",
+  "role_boundary": "Independent saved-receipt/data closure by original oracle author; not implementation/source review. No test, subject execution/import, compiler, device or authentication operation performed for this closure. Files hashed only to close coordinator pins.",
+  "schema": "d207-native-host-closing-v1",
+  "status": "HOST_RECEIPTS_CLOSED_PASS",
+  "totals": {
+    "linux": {
+      "errors": 0,
+      "failures": 0,
+      "method_count": 106,
+      "pass": 106,
+      "skip": 0
+    },
+    "windows": {
+      "errors": 0,
+      "failures": 0,
+      "method_count": 106,
+      "pass": 62,
+      "skip": 44
+    }
+  }
+}

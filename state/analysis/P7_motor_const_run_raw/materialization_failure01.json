@@ -1,0 +1,21 @@
+{
+  "schema": "d207-local-materialization-failure-v1",
+  "at": "2026-09-26T14:05:23.869309+04:00",
+  "status": "PREPARATION_NOT_WRITTEN",
+  "first_error": "Coordinator constructed preparation.files as digest-only values instead of preserving predecessor bytes/sha256 objects; prospective hash assertion refused before file creation.",
+  "rejected_data": {
+    "bytes": 9441,
+    "sha256": "b80f84da52041b7e21e58de57dc6fd2863ede88ac07578f39139cc2b7d5da79b"
+  },
+  "created": [
+    "run.py",
+    "actions.py",
+    "remote.py",
+    "interpret_run01.py",
+    "../P7_motor_const_compile_raw/abi_static01_decode_fields.json"
+  ],
+  "source_recipe_changes": 0,
+  "tests_or_subject_execution": 0,
+  "device_calls": 0,
+  "correction": "Use exact current provenance objects as specified and preserve schema; expected9988/519a95f6 unchanged."
+}

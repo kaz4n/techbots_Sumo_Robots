@@ -540,3 +540,15 @@ D191 closing observation: C:recovered290537472B independently before local docum
 2026-09-26T21:48:55.805620+04:00 | D220 verified board scratch cleanup | Removed exactly3D212temporaryuploadcopies2397352logicalB andempty/tmp/remoteocd(dev34ino2007), after currentoriginal/hash/descriptor/protected-process checks. Review32756000/raw437d1b30/retrievalce224f90/closure19ec6822 PASS. Retain originals, unique evidence, and root07stage50637B as pinnedreviewdependency. No credentialstored. Prior deniedlocalstage764405B untouched; no retry.
 
 2026-09-26T21:53:37.942995+04:00 | D221 upload evidence retention | Preserve unique9-transport receipts, fixed5KBremoteadapter and checked B4build files for actualreview/capture. CLIupload recreated/tmp/remoteocd; no freshinode/contentinventory exists, so not yet verifieddisposable under a new scope. D220root07scope consumed and mustnotbe reused. No objectbuild or Pythonbytecode created; no further host scratch cleanup attempted.
+
+
+2026-09-26T22:10:36.680817+04:00 | D219 actual evidence retention | Retain the one completed capture's 64
+local files (863,639 bytes), 13 retrieved packet leaves and 3 CSV files for review
+and reproduction. Root closure 4eb57601 pins each artifact. The ten retained owner
+chunks total 159,200 bytes; no duplicate assembled-owner file was written. Board
+raw flash/SRAM leaves and report remain evidence for the native comparisons.
+No Python bytecode was found in the capture output. C: free 5,743,394,816 bytes at the
+closing storage observation. Keep checked source/build artifacts and fresh D221
+upload scratch; no fresh scratch inventory supports deletion. The prior automatic
+policy block on the 764,405-byte local stage remains in effect; no retry or
+alternative deletion occurred. No new disposable build output was generated.

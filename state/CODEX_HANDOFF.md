@@ -1,3 +1,37 @@
+## Current checkpoint - 2026-09-26T22:10:36.680817+04:00
+
+Objective: finish the connected-board work quickly while preserving motor
+inhibition and truthful release evidence. D220 stale-upload cleanup is accepted;
+three verified copies totaling 2,397,352 bytes were removed. D221 loaded the fixed
+B4 M0 application at native HEAD 310f9606 (actual review ca817e15).
+
+D219 now completed one capture/export at native HEAD 256dbd5d. All 282 current and
+native-HEAD prerequisites match. Ten transports returned 0; the native report
+records 26 reads/852624 requested bytes and full loader/sketch comparisons before
+and after SRAM. The recorder is EMPTY: 0 frames, 0 events, 1 summary row. Full
+lifecycle brackets differ although selected tokens/phase agree. Coherence and
+origin remain UNPROVEN. Independent actual review is FINAL PASS; see
+reviews/P7_b4_recorder_actual_review.md (25b53987). The completion packet links all results.
+
+Changed deliverables: exact native_capture01 evidence and root closure 4eb57601,
+analysis/P7_b4_recorder_actual_validation.md, current P7 packet, docs/RUNBOOK.md,
+tools/README.md and state ledgers. No firmware source change. Earlier source/host
+acceptance remains: D219 corrected 10 Linux + 10 Windows PASS; D221 first 9 + 9 PASS.
+No broad tests or native operation were repeated to close the documentation.
+
+All native owners are consumed; do not retry capture/upload/cleanup. No live exec
+sessions remain. The current physical state is BOARD ONLY. Next work is the
+remaining commissioning/qualification in the P2-P7 packets: actual wiring and
+calibration, native UART/Bridge delivery, initialized timing and RAM/stack,
+protected decisions, motor/ring trials, operator rehearsal and human gates.
+A motor-enabled attempt still requires STAND OK or RING OK for that exact run.
+The 28 September scope cut and 1 October 21:00 code freeze remain in PLAN.
+
+Fresh D221 upload scratch is retained pending its own observed inventory.
+Automatic approval review blocked removal of the 764,405-byte local stage; retain
+it without retry. No credentials were stored. Prior checkpoints below are dated
+history and do not supersede this current result.
+
 ## Current checkpoint - 2026-09-26T21:49:35.371986+04:00
 
 D219 capture-only caller is accepted reviewbb218ead, corrected10Linux+10WindowsPASS,184pinsstable/closure3553f619. Committed3136a50c plusa6853f98 exact inheritedcapture_bindings bytes. Original singlefixturefailure retained.

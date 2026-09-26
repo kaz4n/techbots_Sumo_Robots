@@ -2575,3 +2575,18 @@ D-221 native admission (2026-09-26T21:50:40.094131+04:00): Adopt reviewfab6302f 
 D-221 actual acceptance (2026-09-26T21:56:32.180306+04:00): Adopt reviewca817e15 FINAL PASS at clean310f9606. One UPLOADED returnedcompactreport,9transports,230current+HEAD/161runtimepins,rootclosuref7b5967d. Full durable1793B result not retrieved; upload is notMCUreadback orphysicalqualification. D219 mustindependentlycomparefullflash before SRAM; freshuploadscratchneeds itsown future scope.
 
 D-219 native admission (2026-09-26T21:58:12.437808+04:00): Adopt review98546722 FINALconditionalPASS. Scope d5e8372a/driver4585df16/prerequisiteunion282filesfbd92f2b admitonecapture-only+fixedretrieval aftercurrent/nativeHEADbyteaudit, cleancommit andsuccessfulcheck-only. D221actualuploadca817e15 is accepted; fullB4flashmustmatchbeforeSRAM. No nativewrite, reset, upload, privilege or motorpermission follows. Holdallwriters throughnativeclosure.
+
+
+D-219 actual acceptance (2026-09-26T22:14:04.329737+04:00): Adopt the independent FINAL PASS in
+state/reviews/P7_b4_recorder_actual_review.md (6616 bytes, SHA-256
+25b53987ddbda8de83b5e9f1122abf8e98ab3e583e66c0a6b409a4a5adafc4b5) for the saved capture at native HEAD
+256dbd5da6661fdf01b6a954c02380cd8c60cc8c. Root closure 4eb57601 matches all 282
+current/native-HEAD prerequisite pins and 64 actual files. Ten transports returned 0,
+one capture/retrieval completed, and the full report records 26 reads/852624 bytes
+with full loader/sketch comparisons before and after SRAM. CSV export passes with
+EMPTY lifecycle, 0 frames/0 events/1 summary row and NONE_REPORTED loss. Whole
+brackets differ at bytes 96/97 despite selected lifecycle equality; origin and
+coherence remain UNPROVEN. No native UART, initialized WCET/RAM, sensor/motor,
+match recording or human gate acceptance follows. Consume all attempt owners;
+retain exact evidence and stop this bounded native operation. Proceed through
+remaining commissioning prerequisites using the updated handoff/runbook.

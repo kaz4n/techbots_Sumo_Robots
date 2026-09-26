@@ -1,0 +1,608 @@
+{
+  "schema": "d219-actual-root-closing-v1",
+  "created": "2026-09-26T22:08:38.397504+04:00",
+  "reviewed_native_head": "256dbd5da6661fdf01b6a954c02380cd8c60cc8c",
+  "status": "PASS_WITH_EMPTY_RECORDING",
+  "prerequisite_count": 282,
+  "prerequisites_current_and_native_head": "EXACT",
+  "prerequisite_manifest": {
+    "bytes": 47363,
+    "sha256": "fbd92f2b91bbece2eff2f98235ef7469098da43bc69651fb162be6536fc108ad"
+  },
+  "invocations": {
+    "bytes": 1919,
+    "sha256": "c5fbd231a809539172ce91bc7f341a64f94aee3caaf7bdee6f2e3a9393851235"
+  },
+  "native_check_and_execute_returncode": 0,
+  "all_closing_errors": [],
+  "capture_status": "COLLECTED",
+  "counts": {
+    "commands": 26,
+    "reads": 26,
+    "requested_bytes": 852624
+  },
+  "capture_elapsed_seconds": 256.8346208229923,
+  "reported_flash_comparisons": {
+    "after_loader": true,
+    "after_sketch": true,
+    "before_loader": true,
+    "before_sketch": true
+  },
+  "transport_outcomes": [
+    {
+      "name": "0001-adapter-claim",
+      "returncode": 0,
+      "timeout_seconds": 60,
+      "command_units": 2264,
+      "result": {
+        "bytes": 2422,
+        "sha256": "0344b5d1b9b18152ce83811e1214a62099040f396f07072d722e8c5fd56f51ef"
+      },
+      "stdout": {
+        "bytes": 211,
+        "sha256": "fb269e3d824020edf4550760014a5b1b5d494a89c958badab3a25002bddc83df"
+      },
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "0002-adapter-push",
+      "returncode": 0,
+      "timeout_seconds": 60,
+      "command_units": 273,
+      "result": {
+        "bytes": 410,
+        "sha256": "963e3be68d653cdca395c3f61cf2d47235bcdb8c3a7f73278ccadd2c85bd55c8"
+      },
+      "stdout": {
+        "bytes": 151,
+        "sha256": "c46dacb9f0c8f1fcc9b87011349064752ffdc889439ce0949815b280e9d42191"
+      },
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "0003-cli-initialization",
+      "returncode": 0,
+      "timeout_seconds": 60,
+      "command_units": 16154,
+      "result": {
+        "bytes": 16332,
+        "sha256": "415d944557ee91d0a409f326566315cbd349abaf0bfcf49e847a0ca6cdfadc88"
+      },
+      "stdout": {
+        "bytes": 4222,
+        "sha256": "87dd74d65be4bb5552993ebfc154a3262a9f35f8c4eb64eb9a67f0d2cfdb350a"
+      },
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "0004-cli-builtin-files",
+      "returncode": 0,
+      "timeout_seconds": 60,
+      "command_units": 14793,
+      "result": {
+        "bytes": 14954,
+        "sha256": "64f363d1ec627c503d2c10bc498db20805e0063e7a4d79326e7295a361499d5e"
+      },
+      "stdout": {
+        "bytes": 2909,
+        "sha256": "28ea6f8203046186d141a1740d447ccafc3c4fde96e0c2183e7ff55566ffd19e"
+      },
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "0005-capabilities",
+      "returncode": 0,
+      "timeout_seconds": 60,
+      "command_units": 19236,
+      "result": {
+        "bytes": 19386,
+        "sha256": "c41cb83d96a07fe0ac4e1a40ebc832107055a56f4313bdcb9c1f9132ea1804d9"
+      },
+      "stdout": {
+        "bytes": 12909,
+        "sha256": "d81e4aa0b8847f115d4ed26b19c22d86ba4f28bf12ba57fd58efbb5e7f29f2fe"
+      },
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "0006-capture",
+      "returncode": 0,
+      "timeout_seconds": 630,
+      "command_units": 25672,
+      "result": {
+        "bytes": 25803,
+        "sha256": "6e799a2d8e5688022435e58739bcc64c6b3d8ed490b8128bef2c61fa498720a4"
+      },
+      "stdout": {
+        "bytes": 5901,
+        "sha256": "21c07a0f7ef3b2e32a4fbc342373a4862d6838376f5bd66bb8449042abb9d6a9"
+      },
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "0007-retrieve",
+      "returncode": 0,
+      "timeout_seconds": 60,
+      "command_units": 14427,
+      "result": {
+        "bytes": 14557,
+        "sha256": "f5173c62e5dd678f6de78941ae72c05cafefcc8640da6758a0ac1ae9f29ba40c"
+      },
+      "stdout": {
+        "bytes": 222950,
+        "sha256": "0829a13e3e9b08daa31ac8c99c6e453f8d30f718fe27e08913ed21dc22157bda"
+      },
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "0008-cli-initialization",
+      "returncode": 0,
+      "timeout_seconds": 60,
+      "command_units": 16154,
+      "result": {
+        "bytes": 16332,
+        "sha256": "415d944557ee91d0a409f326566315cbd349abaf0bfcf49e847a0ca6cdfadc88"
+      },
+      "stdout": {
+        "bytes": 4222,
+        "sha256": "87dd74d65be4bb5552993ebfc154a3262a9f35f8c4eb64eb9a67f0d2cfdb350a"
+      },
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "0009-cli-builtin-files",
+      "returncode": 0,
+      "timeout_seconds": 60,
+      "command_units": 14793,
+      "result": {
+        "bytes": 14954,
+        "sha256": "64f363d1ec627c503d2c10bc498db20805e0063e7a4d79326e7295a361499d5e"
+      },
+      "stdout": {
+        "bytes": 2909,
+        "sha256": "28ea6f8203046186d141a1740d447ccafc3c4fde96e0c2183e7ff55566ffd19e"
+      },
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "0010-capabilities",
+      "returncode": 0,
+      "timeout_seconds": 60,
+      "command_units": 19236,
+      "result": {
+        "bytes": 19386,
+        "sha256": "c41cb83d96a07fe0ac4e1a40ebc832107055a56f4313bdcb9c1f9132ea1804d9"
+      },
+      "stdout": {
+        "bytes": 12909,
+        "sha256": "d81e4aa0b8847f115d4ed26b19c22d86ba4f28bf12ba57fd58efbb5e7f29f2fe"
+      },
+      "stderr": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  ],
+  "retrieved_packet": {
+    "07-before.lifecycle.bin": {
+      "bytes": 120,
+      "sha256": "def4272de35a7a86f073344ccf171c1ddcadd08cc862e1ceb18db92e81cc143a"
+    },
+    "08-owner.0.bin": {
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+    },
+    "09-owner.1.bin": {
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+    },
+    "10-owner.2.bin": {
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+    },
+    "11-owner.3.bin": {
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+    },
+    "12-owner.4.bin": {
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+    },
+    "13-owner.5.bin": {
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+    },
+    "14-owner.6.bin": {
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+    },
+    "15-owner.7.bin": {
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+    },
+    "16-owner.8.bin": {
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+    },
+    "17-owner.9.bin": {
+      "bytes": 11744,
+      "sha256": "9fa9c9448de049fdeb6527fd8a6a2dbb0b70be4f138ce8aaaa40cde0bdc394c9"
+    },
+    "18-after.lifecycle.bin": {
+      "bytes": 120,
+      "sha256": "bede069ae35985c7733d48351a873194e0ded9757066f901a4a100bb5648bba3"
+    },
+    "capture_result.json": {
+      "bytes": 5423,
+      "sha256": "0568c17beb07c530d222e1f32a80c77d1da7baa49d7487eb80eba9fd691a7a27"
+    }
+  },
+  "assembled_owner": {
+    "bytes": 159200,
+    "sha256": "6ef672428954b00d018442c98dec7874da9fd46feb76dfc9452bce634ac1a9e0"
+  },
+  "csv": {
+    "frames.csv": {
+      "bytes": 164,
+      "sha256": "6bfe18d6ce198c83ba19d2eb4ca019fd7de4785ceaef0aa66bc7b94b5a124b4e",
+      "data_rows": 0
+    },
+    "events.csv": {
+      "bytes": 54,
+      "sha256": "3d559b8bab9a11a577d7135c2521fa277dfff813ccea69e5d954fa5fb904cc7b",
+      "data_rows": 0
+    },
+    "summary.csv": {
+      "bytes": 627,
+      "sha256": "7f79c35e23f991266848309e02bb833df931b454e78ed31b980c606f49536555",
+      "data_rows": 1
+    }
+  },
+  "recording": {
+    "lifecycle": "EMPTY",
+    "loss": "NONE_REPORTED",
+    "phase_code": 0
+  },
+  "selected_lifecycle_equalities": {
+    "before_after": {
+      "epoch_token": true,
+      "last_frame_token": true,
+      "phase": true
+    },
+    "before_body": {
+      "epoch_token": true,
+      "last_frame_token": true,
+      "phase": true
+    },
+    "body_after": {
+      "epoch_token": true,
+      "last_frame_token": true,
+      "phase": true
+    }
+  },
+  "raw_lifecycle_byte_differences": {
+    "before_body": [
+      96,
+      97
+    ],
+    "body_after": [
+      96,
+      97
+    ],
+    "before_after": [
+      96,
+      97
+    ]
+  },
+  "raw_only_u64_at_bracket_offset_96": {
+    "before": 534757,
+    "body": 583347,
+    "after": 583483
+  },
+  "raw_lifecycle_caveat": "Selected epoch_token, last_frame_token and phase agree. Entire lifecycle brackets differ in a raw-only field; this is not an atomic/coherent snapshot. No raw-only field is promoted into decoder status.",
+  "body_origin": "UNPROVEN",
+  "coherence": "UNPROVEN",
+  "common_attempt_verified": false,
+  "transport_verified": false,
+  "hardware_acceptance": false,
+  "decoder_provenance": {
+    "closure": "UNKNOWN",
+    "declared": null,
+    "evidence_kind": "UNKNOWN",
+    "status": "ABSENT"
+  },
+  "artifact_file_count": 64,
+  "artifact_total_bytes": 863639,
+  "artifacts": {
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/0001-adapter-claim/intent.json": {
+      "bytes": 2403,
+      "sha256": "f2b92491ae1218ade1bf356b28a1493f967dfe9f55484c43bd607221f68b347a"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/0001-adapter-claim/result.json": {
+      "bytes": 2422,
+      "sha256": "0344b5d1b9b18152ce83811e1214a62099040f396f07072d722e8c5fd56f51ef"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/0001-adapter-claim/stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/0001-adapter-claim/stdout": {
+      "bytes": 211,
+      "sha256": "fb269e3d824020edf4550760014a5b1b5d494a89c958badab3a25002bddc83df"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/0002-adapter-push/intent.json": {
+      "bytes": 391,
+      "sha256": "6a9ce04e42b446a979e4edcbc9331e8eeca09a1e5d53cf8b5724a427a48895c5"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/0002-adapter-push/result.json": {
+      "bytes": 410,
+      "sha256": "963e3be68d653cdca395c3f61cf2d47235bcdb8c3a7f73278ccadd2c85bd55c8"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/0002-adapter-push/stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/0002-adapter-push/stdout": {
+      "bytes": 151,
+      "sha256": "c46dacb9f0c8f1fcc9b87011349064752ffdc889439ce0949815b280e9d42191"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/0003-cli-initialization/intent.json": {
+      "bytes": 16313,
+      "sha256": "fe18b78f27fd7fb1bef2db4128033bfa825ff44ca599a892d946e48fedf2d38a"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/0003-cli-initialization/result.json": {
+      "bytes": 16332,
+      "sha256": "415d944557ee91d0a409f326566315cbd349abaf0bfcf49e847a0ca6cdfadc88"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/0003-cli-initialization/stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/0003-cli-initialization/stdout": {
+      "bytes": 4222,
+      "sha256": "87dd74d65be4bb5552993ebfc154a3262a9f35f8c4eb64eb9a67f0d2cfdb350a"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/0004-cli-builtin-files/intent.json": {
+      "bytes": 14935,
+      "sha256": "a0e924705f29fd12ccccb704c21aed48be072a7091944bd2049b6bad0afbaed6"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/0004-cli-builtin-files/result.json": {
+      "bytes": 14954,
+      "sha256": "64f363d1ec627c503d2c10bc498db20805e0063e7a4d79326e7295a361499d5e"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/0004-cli-builtin-files/stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/0004-cli-builtin-files/stdout": {
+      "bytes": 2909,
+      "sha256": "28ea6f8203046186d141a1740d447ccafc3c4fde96e0c2183e7ff55566ffd19e"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/0005-capabilities/intent.json": {
+      "bytes": 19367,
+      "sha256": "38f3b590501b7d3b5920686e87fc172c96056d86b4417576338b8e988f90fbd8"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/0005-capabilities/result.json": {
+      "bytes": 19386,
+      "sha256": "c41cb83d96a07fe0ac4e1a40ebc832107055a56f4313bdcb9c1f9132ea1804d9"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/0005-capabilities/stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/0005-capabilities/stdout": {
+      "bytes": 12909,
+      "sha256": "d81e4aa0b8847f115d4ed26b19c22d86ba4f28bf12ba57fd58efbb5e7f29f2fe"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/0006-capture/intent.json": {
+      "bytes": 25784,
+      "sha256": "3f6554a6ca74a727e5af27a83ff8ae4d0ff30c527812c097b06812740ba26ad9"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/0006-capture/result.json": {
+      "bytes": 25803,
+      "sha256": "6e799a2d8e5688022435e58739bcc64c6b3d8ed490b8128bef2c61fa498720a4"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/0006-capture/stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/0006-capture/stdout": {
+      "bytes": 5901,
+      "sha256": "21c07a0f7ef3b2e32a4fbc342373a4862d6838376f5bd66bb8449042abb9d6a9"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/0007-retrieve/intent.json": {
+      "bytes": 14538,
+      "sha256": "53d4997164888f6a71f56a3c3509c96debf703c729d29f4dd5cd26ea93b7ad13"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/0007-retrieve/result.json": {
+      "bytes": 14557,
+      "sha256": "f5173c62e5dd678f6de78941ae72c05cafefcc8640da6758a0ac1ae9f29ba40c"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/0007-retrieve/stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/0007-retrieve/stdout": {
+      "bytes": 222950,
+      "sha256": "0829a13e3e9b08daa31ac8c99c6e453f8d30f718fe27e08913ed21dc22157bda"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/0008-cli-initialization/intent.json": {
+      "bytes": 16313,
+      "sha256": "fe18b78f27fd7fb1bef2db4128033bfa825ff44ca599a892d946e48fedf2d38a"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/0008-cli-initialization/result.json": {
+      "bytes": 16332,
+      "sha256": "415d944557ee91d0a409f326566315cbd349abaf0bfcf49e847a0ca6cdfadc88"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/0008-cli-initialization/stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/0008-cli-initialization/stdout": {
+      "bytes": 4222,
+      "sha256": "87dd74d65be4bb5552993ebfc154a3262a9f35f8c4eb64eb9a67f0d2cfdb350a"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/0009-cli-builtin-files/intent.json": {
+      "bytes": 14935,
+      "sha256": "a0e924705f29fd12ccccb704c21aed48be072a7091944bd2049b6bad0afbaed6"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/0009-cli-builtin-files/result.json": {
+      "bytes": 14954,
+      "sha256": "64f363d1ec627c503d2c10bc498db20805e0063e7a4d79326e7295a361499d5e"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/0009-cli-builtin-files/stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/0009-cli-builtin-files/stdout": {
+      "bytes": 2909,
+      "sha256": "28ea6f8203046186d141a1740d447ccafc3c4fde96e0c2183e7ff55566ffd19e"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/0010-capabilities/intent.json": {
+      "bytes": 19367,
+      "sha256": "38f3b590501b7d3b5920686e87fc172c96056d86b4417576338b8e988f90fbd8"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/0010-capabilities/result.json": {
+      "bytes": 19386,
+      "sha256": "c41cb83d96a07fe0ac4e1a40ebc832107055a56f4313bdcb9c1f9132ea1804d9"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/0010-capabilities/stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/0010-capabilities/stdout": {
+      "bytes": 12909,
+      "sha256": "d81e4aa0b8847f115d4ed26b19c22d86ba4f28bf12ba57fd58efbb5e7f29f2fe"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/07-before.lifecycle.bin": {
+      "bytes": 120,
+      "sha256": "def4272de35a7a86f073344ccf171c1ddcadd08cc862e1ceb18db92e81cc143a"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/08-owner.0.bin": {
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/09-owner.1.bin": {
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/10-owner.2.bin": {
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/11-owner.3.bin": {
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/12-owner.4.bin": {
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/13-owner.5.bin": {
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/14-owner.6.bin": {
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/15-owner.7.bin": {
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/16-owner.8.bin": {
+      "bytes": 16384,
+      "sha256": "4fe7b59af6de3b665b67788cc2f99892ab827efae3a467342b3bb4e3bc8e5bfe"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/17-owner.9.bin": {
+      "bytes": 11744,
+      "sha256": "9fa9c9448de049fdeb6527fd8a6a2dbb0b70be4f138ce8aaaa40cde0bdc394c9"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/18-after.lifecycle.bin": {
+      "bytes": 120,
+      "sha256": "bede069ae35985c7733d48351a873194e0ded9757066f901a4a100bb5648bba3"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/adapter_attempt.json": {
+      "bytes": 1055,
+      "sha256": "d7ed26cf1cb3aa4d6f33d3a372e7593a465f5e7f5329f84c17363707bb745bac"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/capture_attempt.json": {
+      "bytes": 779,
+      "sha256": "a8d658a3adf889a096e16eeef8b1cc8e6d19bbc7a664227002cb921a165ffc48"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/capture_envelope.json": {
+      "bytes": 5900,
+      "sha256": "e27b91750ccc7e190556d907b5f1393a3dda2db4552aff0e812740bc2227a1c0"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/capture_result.json": {
+      "bytes": 5423,
+      "sha256": "0568c17beb07c530d222e1f32a80c77d1da7baa49d7487eb80eba9fd691a7a27"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/events.csv": {
+      "bytes": 54,
+      "sha256": "3d559b8bab9a11a577d7135c2521fa277dfff813ccea69e5d954fa5fb904cc7b"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/export.json": {
+      "bytes": 7903,
+      "sha256": "d7e615c66eab0a79ada798e9bf2637cc8ffce9b09cc2e9f5529077b87ba921b6"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/final_checks.json": {
+      "bytes": 44854,
+      "sha256": "2fed7880648d7be8931f2764ffe700fd520b0e38eb9a63d68cfb8011f761c75b"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/frames.csv": {
+      "bytes": 164,
+      "sha256": "6bfe18d6ce198c83ba19d2eb4ca019fd7de4785ceaef0aa66bc7b94b5a124b4e"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/inputs.json": {
+      "bytes": 19615,
+      "sha256": "8b73e815ceb9338961ab6133e4d0677b1c9b5e5f9222dc35848bc42090ca3b08"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/result.json": {
+      "bytes": 58833,
+      "sha256": "783d3e995274a2da7664fd815b331e24e4ab353b8c0ca397091eb0532a576a6e"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/retrieve_attempt.json": {
+      "bytes": 817,
+      "sha256": "826cebeebb074fe66a00c906794528fb25497e843decdfed3d6d8ae87609472a"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/native_capture01/summary.csv": {
+      "bytes": 627,
+      "sha256": "7f79c35e23f991266848309e02bb833df931b454e78ed31b980c606f49536555"
+    }
+  },
+  "limits": [
+    "Bare board only; no sensor, motor or ring acceptance.",
+    "Zero match frames/events; incomplete=0 does not establish a completed recording.",
+    "Full flash comparisons are native report observations; host retrieval intentionally includes 13 SRAM/report leaves, not all 26 board raw leaves.",
+    "Native UART, initialized WCET/RAM and human gates remain open.",
+    "No repeated native capture, upload, cleanup or host tests."
+  ]
+}

@@ -463,3 +463,15 @@ CSV bundles and prints a JSON report. It checks ten qualified D129 intervals
 against the declared 35000us bound; incomplete, excluded or M0 evidence cannot
 satisfy the cohort. Exit0 means arithmetic PASS, not physical acceptance or a
 motor-run authorization. See [the schema and interpretation](../docs/target_loss_analysis.md).
+
+## Fixed B4 retained-memory capture (D219)
+
+`capture_b4_recorder.py` is the fixed, reviewed motor-disabled capture caller.
+Its one admitted `capture01` has completed; the attempt owner is consumed and
+must not be rerun. See the [actual capture and CSV evidence](../state/analysis/P7_b4_recorder_actual_validation.md).
+The saved files contain an EMPTY recorder with zero frame/event samples.
+`decode_b4_capture.py` validates that fixed packet and `decode_b4_recorder.py`
+handles its exact compiled layout. Their integrity checks retain origin and
+coherence as unproven. This path does not qualify native UART/Bridge delivery or
+replace the match IDLE log dump. A different image or later capture needs its own
+current artifact/layout bindings and fresh attempt scope.

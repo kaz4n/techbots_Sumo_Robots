@@ -1572,3 +1572,12 @@ physical/loadedRAM/gate claim. | contract=this commit
 2026-09-26T21:56:32.180306+04:00 | P7/D221 | Independent actualreviewca817e15 FINAL PASS accepts one fixedM0B4upload. D219nativecaptureprerequisites prepared; ownadmission/cleanHEAD/check-only next. | nativeHEAD310f9606
 
 2026-09-26T21:58:12.437808+04:00 | P7/D219 | Captureadmission98546722 FINALconditionalPASS;282prerequisitepins/scope d5e8372a/driver4585df16 frozen. Current+HEADaudit/cleancommit/check-only thenonecapture. | pending
+
+
+2026-09-26T22:14:04.329737+04:00 | P7/D219 | Actual capture/export independently accepted FINAL PASS at
+native HEAD 256dbd5d: 282 current/HEAD pins, 10 successful transports, 26 reads/852624B,
+full loader/sketch comparisons before/after, 13 exact retrieved leaves, EMPTY
+recorder (0 frames/0 events/1 summary), coherence UNPROVEN. Root closure 4eb57601.
+Updated current handoff, P7 packet and runbook; 76 existing local links verified,
+no source change or repeated native/test run. Physical/native UART/timing/RAM
+qualification and human gates remain open; board only. | nativeHEAD 256dbd5d

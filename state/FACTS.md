@@ -963,3 +963,21 @@ Direct file observation: analysis/P7_b4_app_cleanup_raw/admission01.json97577771
 
 ### D220 exact stale scratch removed (2026-09-26T21:49:35.371986+04:00)
 Direct source: analysis/P7_b4_app_cleanup_raw/cleanup_root07_actual_result.json437d1b30 and independent retrievalce224f90, actualreview32756000. Three D212upload copies2397352B anddirectorydev34ino2007 removed; originalsintact,threeprotectedscans/finaltriples1000,sixclosingPASS. This is board-filecleanup, no firmware/physicalacceptance.
+
+
+### D221 loaded B4 and D219 retained capture (2026-09-26T22:10:36.680817+04:00)
+Direct sources: analysis/P7_b4_app_upload_actual_validation.md and
+analysis/P7_b4_recorder_run_raw/native_capture01/capture_result.json
+(5423 bytes, SHA-256 0568c17beb07c530d222e1f32a80c77d1da7baa49d7487eb80eba9fd691a7a27).
+The latest observed loaded image is the fixed static/default B4 profile,
+MATCH0/MOTORS_ALLOWED0, source 9044ebbb, all setup grants absent. This supersedes
+earlier dated statements that D212 ordinary M0 remains loaded. The D219 report
+records full loader/sketch comparisons passing before and after 26 reads
+(852,624 requested bytes); the exact report and 12 SRAM leaves were retrieved.
+The 159,200-byte owner at 536954120 decodes as EMPTY, phase 0, no reported loss,
+zero frame/event CSV rows and one summary row. Selected epoch/last-frame/phase
+agree at zero; full lifecycle brackets differ at offsets 96/97. Origin and
+coherence stay UNPROVEN, with no transport/common-attempt/hardware promotion.
+Confidence is high for saved byte identities and reported bounded observations;
+no initialized timing, live RAM margin, native UART, sensor/motor or physical gate
+is established. User's current wiring report is BOARD ONLY.

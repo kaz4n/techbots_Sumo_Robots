@@ -3,29 +3,33 @@
 <!-- Checked through separate document review and local source/link verification. -->
 # P7 operator-document preparation
 
-Current status, 26 September 2026 (D217): the core/HAL/runtime and operator
-preparation are implemented, but the connected hardware is the UNO Q alone.
-D212's ordinary M0 application was uploaded and independently reviewed. Two
-passive samples reported RUNNING/NONE, maximum execution 477 us and no missed
-releases, with initialization false and all grants absent. This does not measure
-initialized worst-case timing or verify sensors/motors. D214's B4 M0 compile
-completed with a checked 82,912-byte package; it was not uploaded.
+Current status, 26 September 2026 (D219/D221 actual): the core/HAL/runtime and
+operator preparation are implemented, and the connected hardware is the UNO Q
+alone. D220 completed the verified stale-upload cleanup. D221 loaded the fixed
+B4 motor-disabled profile. D219 subsequently captured retained memory and
+exported CSV, with complete loader/sketch comparisons passing before and after
+the reads. The recorder is **EMPTY: zero frames, zero events, one summary row**.
+This establishes a bounded collection/export path, not a recorded match or
+physical robot acceptance. [Independent actual review](../reviews/P7_b4_recorder_actual_review.md)
+is FINAL PASS for that bounded outcome.
 
-Use [D212 actual validation](P7_ordinary_app_run_actual_validation.md),
-[D214 actual validation](P7_b4_app_compile_actual_validation.md), and the
-[current completion audit](P7_completion_audit_20260926.md). Fresh B4 file-only
-ABI is independently accepted. The fixed recorder decoder passed 20 tests on
-each host platform; it preserves raw bytes and every loss field, with capture
-origin and coherence still unproven. File-only B4 entry inspection is also
-accepted (review e2bf58f4; commit bc97c030). Its 64 selected groups and initializer
-match the checked B4 image. Bounded retained capture/local CSV components are
-accepted (review e598b25b; 15 tests per platform). Their qualified caller,
-staging and retrieval integration is D219 work; no B4 recording was captured.
-Native UART delivery, log-preserving reset/restart qualification, live RAM/stack/timing, wiring/calibration, physical trials, printed
-team materials and human gates remain open. The dated evidence below describes
-historical preparation; its earlier pending-upload statements are superseded
-by this paragraph, not retroactively changed into acceptance.
+Use the [actual capture and limits](P7_b4_recorder_actual_validation.md),
+[accepted upload](P7_b4_app_upload_actual_validation.md),
+[accepted cleanup](P7_b4_app_cleanup_actual_validation.md), and the
+[completion audit](P7_completion_audit_20260926.md). All setup grants remain absent
+and motor output is disabled. The earlier ordinary-M0 passive samples reported
+RUNNING/NONE, maximum execution 477 us and no missed releases with initialization
+false; those samples do not qualify the now-loaded B4 profile or initialized
+worst-case timing. B4 file ABI, emitted-entry inspection, fixed decoder and
+capture caller have separate accepted source/host evidence.
 
+The selected lifecycle tokens and phase agree, but the full lifecycle brackets
+changed. Coherence and body origin remain UNPROVEN. Native UART/Bridge delivery,
+log-preserving reset/restart qualification, initialized RAM/stack/timing,
+wiring/calibration, physical trials, printed team materials, rehearsal and human
+gates remain open. The dated evidence below describes historical preparation;
+its earlier pending-upload/capture statements are superseded by this paragraph,
+not retroactively changed into acceptance. Do not rerun consumed native owners.
 
 Updated 2026-09-26 Asia/Dubai through actual D190. D137 prepares operator documents;
 D138 adds P7.2 informational READY/battery software; D180-D183 provide the

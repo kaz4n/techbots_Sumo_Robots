@@ -2289,3 +2289,6 @@ D-200 local input transport 2026-09-26T10:51:35.015224+04:00: plain host pipes r
 
 
 D-200 actual outcome 2026-09-26T10:56:13.468580+04:00: exact single root04 invocation succeeded, raw05507941/retrievalb7b776c9/actualreview5bc9d56dPASS. Precisely3copies2399768B andemptydirectoryremoved; allretainedoriginals/stagedsourcefullstamps/hashes verifiedunchanged; threeprotectedscans/errorfree/permanentUIDGIDtriples1000. Bothschemas/allactualfields independentlychecked. Originalreadonlyobserverfailure andlocalEOF-before-devicecall preserved; no guard weakened. Root04/resultowner consumed, no retry/generalprivilege/firmware/gate.
+
+
+D-199 entry host outcome 2026-09-26T10:59:01.194294+04:00: first serial23Linux/23WindowsmethodsPASS/no skips,204inputpinsstable, independentfresh-contextreviewdcf1a079PASS. Admit only the fixed new file-entry scope after scope review/cleanHEAD/check-only; retain all lifecycle/identity/firsterror guards. Actual initializer/stores/nativeconditions remain unobserved; no firmwareoperation/limit change or gate.

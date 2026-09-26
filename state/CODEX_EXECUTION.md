@@ -363,3 +363,6 @@ Recheck space before work and preserve all earlier blocked cleanup exclusions.
 
 
 - [x] D200 exact cleanup completed once and reviewed5bc9d56dPASS: three stale D195 copies2399768B removed, originals/stagedsources unchanged, permanent privilege drop verified. Root04 consumed. D199 entry host validation and later file-only instructions/capture remain next; D195 still flashed.
+
+
+- [x] D199 entry reader host23Linux/23WindowsPASS/no skips,204pinsstable, fresh reviewdcf1a079PASS. Fixedfile-only scope then actualentry and semanticreview precede the proposedinhibitedcapture.

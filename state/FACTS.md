@@ -854,3 +854,7 @@ FILE-OBSERVED: D199 at23f0aeba observes separateLOCALOBJECT report0x2003d3e8/28B
 
 ## F218 - Exact D195 uploader scratch removal (2026-09-26T10:56:13.468580+04:00)
 DEVICE-OBSERVED: one D200 authenticated invocationexit0; raw6370B05507941 reports precisely3copies2399768B removedfromdev34/inode1172 andemptydirectoryremoved. Threeprotectedprocessscans each167names/3sameUIDhandlesets, errorfree, user-ownedmutations andpermanentUID/GIDtriples1000. Independent retrievalb7b776c9 reopens originals/stagedsources with unchangedfullstamps/hashes, scratchabsenttwice, sameboot; actualreview5bc9d56dPASS. Other-userFD/race limitations remain. No firmware orrootcause evidence. Source: analysis/P7_motor_settle_cleanup_validation.md.
+
+
+## F219 - SETTLE entry file reader host evidence (2026-09-26T10:59:01.194294+04:00)
+HOST-VERIFIED: sourcec9e8f023 retains exact descriptor/lifecycle composition and applies fixed9reader/36parser substitutions to29ranges31aliases59queries. Independent23Linux/23WindowsmethodsPASS/no skips,204pinsstable, reviewdcf1a079PASS. No actual initializer/publication instructions orruntimeevidence yet. Source: analysis/P7_motor_settle_entry_validation.md.

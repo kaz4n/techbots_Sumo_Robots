@@ -957,3 +957,9 @@ Directsource: analysis/P7_b4_app_compile_raw/native_abi_static01/abi.json25bf576
 
 ### D217 B4 emitted entry instructions (2026-09-26T21:07:45.993195+04:00)
 Direct source: analysis/P7_b4_app_compile_raw/native_entry_static01/entry.json a7a75618 and actualreviewe2bf58f4. Observed64selectedgroups/77aliases/10488bytes/3703instructionrows,2037symbols, initializer0x081131e4 bytes01011008/pointer0x08100101. FreshB4 constructor/publication/gate offsets reconcile;421meaningful RobotResult bytes copied inside424-byteABIcontainer. Confidence high for selected file emission only. No closedcallgraph, MCUexecution, electricalinhibition, timing/physicalqualification or gate.
+
+### D220 D212 scratch inventory (2026-09-26T21:35:40.809863+04:00)
+Direct file observation: analysis/P7_b4_app_cleanup_raw/admission01.json97577771. Scratch /tmp/remoteocd is dev34ino2007 with three unchanged originals-matching copies totaling2397352B: ordinarypackage92944, flashconfiguration680, loader2303728. Both full directory stamps match and five remote plus local checks pass. Recognized compiler candidates empty; protected process handles uninspected, so no process-use clearance or cleanup result. D212 firmware remains loaded.
+
+### D220 exact stale scratch removed (2026-09-26T21:49:35.371986+04:00)
+Direct source: analysis/P7_b4_app_cleanup_raw/cleanup_root07_actual_result.json437d1b30 and independent retrievalce224f90, actualreview32756000. Three D212upload copies2397352B anddirectorydev34ino2007 removed; originalsintact,threeprotectedscans/finaltriples1000,sixclosingPASS. This is board-filecleanup, no firmware/physicalacceptance.

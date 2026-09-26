@@ -1,0 +1,42 @@
+{
+  "schema": "d220-one-authenticated-cleanup-intent-v1",
+  "operation": "One exact user-authorized D212 stale-upload cleanup under D220",
+  "prepared": "2026-09-26T21:43:14.593812+04:00",
+  "argv": [
+    "C:/Users/narut/AppData/Local/Arduino15/packages/arduino/tools/adb/32.0.0/adb.exe",
+    "-s",
+    "2629958581",
+    "shell",
+    "-T",
+    "set -C; sudo -S -p \"\" -H /usr/bin/python3 -I -B /home/arduino/sumox26_codex_build/cleanup-b4-app-root07/cleanup_root07.py > /home/arduino/sumox26_codex_build/cleanup-b4-app-root07/result_root07.json"
+  ],
+  "timeout_seconds": 70,
+  "credential_transport": "Windows no-echo console to native stdin only; value omitted",
+  "template_path": "state/analysis/P7_ordinary_app_cleanup_raw/cleanup_authenticated_intent01.json",
+  "template": {
+    "bytes": 1413,
+    "sha256": "8be7c55962424322e4c9729a2cb9f554e80b8d93b2b59903155974646c81b003"
+  },
+  "wrapper": {
+    "bytes": 9608,
+    "sha256": "559c83d78ade592271e97b0bcd2c6621aed161c465019b8df15fbfaceb41c781"
+  },
+  "recipe": {
+    "bytes": 7708,
+    "sha256": "5fc2150f986814bec8d36409caf5f0e0d4303e5c2cdc96e08605f6e9f0dee574"
+  },
+  "source_review": {
+    "bytes": 6063,
+    "sha256": "9523c8decd3a9a52d0088a4ec6cbb01446fd5bd3747d95b881beacb20f0bb13e"
+  },
+  "verifier_review": {
+    "bytes": 3437,
+    "sha256": "6dec2e4024796b705b320316e40ba492e4ef9b0e7c7973c2e695f196eaa96fbf"
+  },
+  "staged_verification": {
+    "bytes": 9621,
+    "sha256": "de1ccd539b5a0e696cc7f1dd5f138ce2abf911a8865b9052f10e676777843a6c"
+  },
+  "admission": "Requires independent actual staged-verification and invocation review; one fixed cleanup only under existing continuation and supplied credential. No general sudo authority or retry.",
+  "prerequisite_review": "state/reviews/P7_b4_app_cleanup_stage_review.md"
+}

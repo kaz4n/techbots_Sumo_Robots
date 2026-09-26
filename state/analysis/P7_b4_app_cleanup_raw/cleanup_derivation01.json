@@ -1,0 +1,179 @@
+{
+  "schema": "d220-exact-cleanup-derivation-v1",
+  "created": "2026-09-26T21:34:00.049878+04:00",
+  "status": "PREPARATION_ONLY",
+  "basis": {
+    "state/analysis/P7_ordinary_app_cleanup_raw/cleanup_remoteocd05.py": {
+      "bytes": 7740,
+      "sha256": "1a59d4b2fc12a0b74a81f65847d7384002423882bd42f5242a98774c8bc02958"
+    },
+    "state/analysis/P7_ordinary_app_cleanup_raw/cleanup_root06.py": {
+      "bytes": 9607,
+      "sha256": "290a7236dc7cc5c6b679a72d5864fb99408dd21bbd30b7b8f3edf74c0fe10aa3"
+    },
+    "state/analysis/P7_b4_app_cleanup_raw/admission01.json": {
+      "bytes": 24459,
+      "sha256": "975777719f82fe57452088dcf114c7b057cdb70cb8392dbcdbb37bbf7be99a19"
+    },
+    "state/reviews/P7_ordinary_app_cleanup_review.md": {
+      "bytes": 9123,
+      "sha256": "f033655ea6d72c14b092958e73b885887e56d3b57ad1f4fcb198365103dc1713"
+    },
+    "state/reviews/P7_ordinary_app_cleanup_stage_review.md": {
+      "bytes": 6502,
+      "sha256": "7bbc22eee8254b448983069c3df5e07e1c2a6aca36dac16608b82a26cbfefd3a"
+    },
+    "state/analysis/P7_static_link_probe_raw/static_remote.py": {
+      "bytes": 33321,
+      "sha256": "8ba9b190c38e728013a383348c60c287b0366607f65f703161cf7f2e142d36f8"
+    }
+  },
+  "authoring_refusal": {
+    "phase": "wrapper metadata construction",
+    "cause": "Expected three recipe-basename occurrences; actual count is four. Count assertion refused before writing wrapper; recipe alone had been written.",
+    "resolution": "Count corrected to four observed literal references; all reverse comparisons required.",
+    "subject_execution": false
+  },
+  "cleanup_remoteocd06.py": {
+    "template": "cleanup_remoteocd05.py",
+    "subject": {
+      "bytes": 7708,
+      "sha256": "5fc2150f986814bec8d36409caf5f0e0d4303e5c2cdc96e08605f6e9f0dee574"
+    },
+    "steps": [
+      {
+        "old": "D207",
+        "new": "D212",
+        "count": 1,
+        "before": {
+          "bytes": 7740,
+          "sha256": "1a59d4b2fc12a0b74a81f65847d7384002423882bd42f5242a98774c8bc02958"
+        },
+        "after": {
+          "bytes": 7740,
+          "sha256": "36c52d3a21bc72ea9a6c5bd1fa5e30c9576c9cee24f244146953828fc9cfe0a7"
+        }
+      },
+      {
+        "old": "    'app_motor_observe.ino.bin-zsk.bin': (95368, 'f15c7ce1f0ff5fea2d44d0b60f0607f9adae22b83ba5043fe4de5e2b21fa26f7',\n        '/home/arduino/sumox26_codex_build/app-motor-const-static01/build/app_motor_observe.ino.bin-zsk.bin'),",
+        "new": "    'app.ino.bin-zsk.bin': (92944, '7fa9d41da043931e1237712e1e88bda4151c82933af2ecec97ce3a02184d23ad',\n        '/home/arduino/sumox26_codex_build/ordinary-app-static01/build/app.ino.bin-zsk.bin'),",
+        "count": 1,
+        "before": {
+          "bytes": 7740,
+          "sha256": "36c52d3a21bc72ea9a6c5bd1fa5e30c9576c9cee24f244146953828fc9cfe0a7"
+        },
+        "after": {
+          "bytes": 7709,
+          "sha256": "e1abf7140784c1d59444a738cf89aece5fdbbc19fa20cc2df97958029c4f650d"
+        }
+      },
+      {
+        "old": "info.st_ino == 1732",
+        "new": "info.st_ino == 2007",
+        "count": 1,
+        "before": {
+          "bytes": 7709,
+          "sha256": "e1abf7140784c1d59444a738cf89aece5fdbbc19fa20cc2df97958029c4f650d"
+        },
+        "after": {
+          "bytes": 7709,
+          "sha256": "fc7743937fce7ad7c2e3aa1ad7d2c14d6c5147136c101ca95d2231771bc86ae2"
+        }
+      },
+      {
+        "old": "d211-exact-ordinary-scratch-cleanup-v1",
+        "new": "d220-exact-b4-prerequisite-cleanup-v1",
+        "count": 1,
+        "before": {
+          "bytes": 7709,
+          "sha256": "fc7743937fce7ad7c2e3aa1ad7d2c14d6c5147136c101ca95d2231771bc86ae2"
+        },
+        "after": {
+          "bytes": 7708,
+          "sha256": "5fc2150f986814bec8d36409caf5f0e0d4303e5c2cdc96e08605f6e9f0dee574"
+        }
+      }
+    ],
+    "complete_reverse_equal": true
+  },
+  "cleanup_root07.py": {
+    "template": "cleanup_root06.py",
+    "subject": {
+      "bytes": 9608,
+      "sha256": "559c83d78ade592271e97b0bcd2c6621aed161c465019b8df15fbfaceb41c781"
+    },
+    "steps": [
+      {
+        "old": "cleanup-ordinary-app-root06",
+        "new": "cleanup-b4-app-root07",
+        "count": 1,
+        "before": {
+          "bytes": 9607,
+          "sha256": "290a7236dc7cc5c6b679a72d5864fb99408dd21bbd30b7b8f3edf74c0fe10aa3"
+        },
+        "after": {
+          "bytes": 9601,
+          "sha256": "2c49ea0b64705573cbf213b559e8970f66aef03933d73f793a5b3169b2cab257"
+        }
+      },
+      {
+        "old": "cleanup_remoteocd05.py",
+        "new": "cleanup_remoteocd06.py",
+        "count": 4,
+        "before": {
+          "bytes": 9601,
+          "sha256": "2c49ea0b64705573cbf213b559e8970f66aef03933d73f793a5b3169b2cab257"
+        },
+        "after": {
+          "bytes": 9601,
+          "sha256": "132dbeaf9e9908ce59dd3157e06a1f57bca46d7288a2919d4ae83e2756413273"
+        }
+      },
+      {
+        "old": "(7740, '1a59d4b2fc12a0b74a81f65847d7384002423882bd42f5242a98774c8bc02958')",
+        "new": "(7708, '5fc2150f986814bec8d36409caf5f0e0d4303e5c2cdc96e08605f6e9f0dee574')",
+        "count": 1,
+        "before": {
+          "bytes": 9601,
+          "sha256": "132dbeaf9e9908ce59dd3157e06a1f57bca46d7288a2919d4ae83e2756413273"
+        },
+        "after": {
+          "bytes": 9601,
+          "sha256": "7a94d74213adb127197a609fccc61201b634ac3da9b52736b17bed855207c23a"
+        }
+      },
+      {
+        "old": "e90a5189a76d05bd7674d1bb771b9f480d59b5b26cc4a390109c47431a69d731",
+        "new": "6bc61be4c8d688d144e7747a9abe696b3d27cf392a9859de79e815100d0c7b37",
+        "count": 1,
+        "before": {
+          "bytes": 9601,
+          "sha256": "7a94d74213adb127197a609fccc61201b634ac3da9b52736b17bed855207c23a"
+        },
+        "after": {
+          "bytes": 9601,
+          "sha256": "ae27e16a817922743e976138ecadd172897f0adeca682fc76b76279f8ea2b3b1"
+        }
+      },
+      {
+        "old": "d211-authenticated-ordinary-cleanup-v1",
+        "new": "d220-authenticated-b4-prerequisite-cleanup-v1",
+        "count": 1,
+        "before": {
+          "bytes": 9601,
+          "sha256": "ae27e16a817922743e976138ecadd172897f0adeca682fc76b76279f8ea2b3b1"
+        },
+        "after": {
+          "bytes": 9608,
+          "sha256": "559c83d78ade592271e97b0bcd2c6621aed161c465019b8df15fbfaceb41c781"
+        }
+      }
+    ],
+    "complete_reverse_equal": true
+  },
+  "projected_recipe": {
+    "bytes": 7705,
+    "sha256": "6bc61be4c8d688d144e7747a9abe696b3d27cf392a9859de79e815100d0c7b37"
+  },
+  "scope": "Fresh exact three D212 stale files only; process/identity/credential operational bodies unchanged. Wrapper temporarily elevates only protected process observations and restores before deletions. Existing host coverage applies through exact reverse metadata proof; separate source/derivation review before staging and bounded invocation."
+}

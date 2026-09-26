@@ -1,3 +1,13 @@
+## Current checkpoint - 2026-09-26T21:49:35.371986+04:00
+
+D219 capture-only caller is accepted reviewbb218ead, corrected10Linux+10WindowsPASS,184pinsstable/closure3553f619. Committed3136a50c plusa6853f98 exact inheritedcapture_bindings bytes. Original singlefixturefailure retained.
+
+D220 cleanup is complete review32756000: exact3D212copies2397352B andempty/tmp/remoteocd(dev34ino2007) removed; originalsintact,3protectedscans/credentialrestore+drop,sixclosingPASS. Raw437d1b30/retrievalce224f90/closure19ec6822. Root07ownerconsumed, credentials neverstored.
+
+D221 upload-only software accepted01fd369f:9Linux+9WindowsPASS/no skips,195pinsstable/closure1ede62be. Scope9158547d, driver ea8f42a2, prerequisiteunion230files789bff40 prepared. Separate nativeadmission reviewer b4_upload_review is sealing; then root exactbytecommit/cleanHEAD/check-only/oneupload. No B4uploadyet; D212ordinary remainsloaded. D219nativecapture scoped5e8372a/driver4585df16 prepared but must wait B4uploadactualacceptance and itsown nativeadmission/prerequisiteunion.
+
+No liveexec sessions. Allsource/oracles frozen. Boardonly; physicalsensormotor,initializedWCET/liveRAM,nativeUART,rehersal/humangates remainopen. Prior policyblockedlocalstage764405B remains untouched.
+
 ## Current checkpoint - 2026-09-26T21:23:01.335228+04:00
 
 D218 is accepted: review e598b25b FINAL PASS, native source e28d0131 and host

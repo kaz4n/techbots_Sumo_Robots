@@ -448,3 +448,6 @@ D191 closing observation: C:recovered290537472B independently before local docum
 
 
 2026-09-26T13:28:04.272129+04:00 | D204 actual file evidence retention | Keep eight native owner files1857008logicalB plus compact invocation/closing/validation/review tobind actualABI and nextentryscope. No ELF/debugdownload, manualcleanup or reclaimed-byteclaim. CurrentCfree9487302656B atclosinge181ebe1; allcheckedsource/artifact originals remainneeded. Historicaldeniedcleanup targets untouched.
+
+
+2026-09-26T13:31:00.204164+04:00 | Fresh D201 uploader inventory only | Source462c0534/reviewdd2bce49 and observationaddee38e verify exactly3duplicatecopies2399928B at/tmp/remoteocddev34/inode1452 with retainedoriginals/allidentitiesclosed. Keepcompactsource/derivation/24555Brawresult for anylaterboundedcleanup. No protectedhandleclearance, deletion or reclaimedbytes; D200root04andoldinode1172 remainconsumed. Prior denied targets untouched.

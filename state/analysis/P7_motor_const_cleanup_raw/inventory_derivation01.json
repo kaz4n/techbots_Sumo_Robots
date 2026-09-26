@@ -1,0 +1,100 @@
+{
+  "schema": "d201-scratch-readonly-inventory-derivation-v1",
+  "at": "2026-09-26T13:28:36.953663+04:00",
+  "subject": {
+    "bytes": 9769,
+    "sha256": "462c0534826b19d0722f86c69444a61bc55309514d7741ce196f40292a85ecd8"
+  },
+  "steps": [
+    {
+      "old": "READ_ONLY_D195_UPLOAD_SCRATCH_AND_ORIGINALS",
+      "new": "READ_ONLY_D201_UPLOAD_SCRATCH_AND_ORIGINALS",
+      "count": 1,
+      "before": {
+        "bytes": 9770,
+        "sha256": "e4db653bf71bb2201549ea0ade3d637521520d6e2e9747473cf52fd6688aaa83"
+      },
+      "after": {
+        "bytes": 9770,
+        "sha256": "b36bacaa2019a09a7e9958d3eec88885c6973ffd98f993469c09460809aa08a8"
+      }
+    },
+    {
+      "old": "95360",
+      "new": "95520",
+      "count": 1,
+      "before": {
+        "bytes": 9770,
+        "sha256": "b36bacaa2019a09a7e9958d3eec88885c6973ffd98f993469c09460809aa08a8"
+      },
+      "after": {
+        "bytes": 9770,
+        "sha256": "90c0f2df99383e522f54feaecf5da0b3121abd5d28126a5a3252485a1738ed93"
+      }
+    },
+    {
+      "old": "85b05c564fd3545c6b6e16fb64ed2aef8893226e32048309f1b71f97a5db4b6c",
+      "new": "e400078166394d0f8ea44b601e9ba2948992c4f263c5c7ee5fb3942433c143d0",
+      "count": 1,
+      "before": {
+        "bytes": 9770,
+        "sha256": "90c0f2df99383e522f54feaecf5da0b3121abd5d28126a5a3252485a1738ed93"
+      },
+      "after": {
+        "bytes": 9770,
+        "sha256": "94f22f6cba46625132ee8e4c49b5a1976d958e29a68fba09250d56a2572ee29d"
+      }
+    },
+    {
+      "old": "app-motor-observe-static01",
+      "new": "app-motor-settle-static01",
+      "count": 1,
+      "before": {
+        "bytes": 9770,
+        "sha256": "94f22f6cba46625132ee8e4c49b5a1976d958e29a68fba09250d56a2572ee29d"
+      },
+      "after": {
+        "bytes": 9769,
+        "sha256": "2e3593d7a7b1fc22b5bc35ddb52237b56db32594e8bb2716ad74febd65608b57"
+      }
+    },
+    {
+      "old": "exact_three_d195_copies",
+      "new": "exact_three_d201_copies",
+      "count": 1,
+      "before": {
+        "bytes": 9769,
+        "sha256": "2e3593d7a7b1fc22b5bc35ddb52237b56db32594e8bb2716ad74febd65608b57"
+      },
+      "after": {
+        "bytes": 9769,
+        "sha256": "462c0534826b19d0722f86c69444a61bc55309514d7741ce196f40292a85ecd8"
+      }
+    }
+  ],
+  "pins": {
+    "state/analysis/P7_motor_settle_cleanup_raw/observe_admission01.py": {
+      "bytes": 9770,
+      "sha256": "e4db653bf71bb2201549ea0ade3d637521520d6e2e9747473cf52fd6688aaa83"
+    },
+    "state/analysis/P7_motor_settle_compile_raw/native_static01/artifacts.json": {
+      "bytes": 9648,
+      "sha256": "e18384c14c0b1367667b265ab4c532a4010be65697460a1cd45487bccd9eca10"
+    },
+    "state/reviews/P7_motor_settle_actual_review.md": {
+      "bytes": 14116,
+      "sha256": "690a41643fc06a7d5c56ab61cc89113d602d8d6dee9e436cdbb09e3f7f19a0bc"
+    },
+    "state/analysis/P7_static_link_probe_raw/static_remote.py": {
+      "bytes": 33321,
+      "sha256": "8ba9b190c38e728013a383348c60c287b0366607f65f703161cf7f2e142d36f8"
+    },
+    "state/analysis/P7_static_startup_raw/upload_remote.py": {
+      "bytes": 24710,
+      "sha256": "e926b7ba5586475664b0541370e7cfb5c50e40d8dc8b47b18e35db3e0a0a25c1"
+    }
+  },
+  "output_owner": "state/analysis/P7_motor_const_cleanup_raw/admission01.json",
+  "operation": "One nonprivileged read-only inventory. No cleanup, sudo, credential, compile/upload/reset/MCU operation. Original and scratch identities freshly measured, no old inode reused.",
+  "acceptance": "OBSERVED alone is insufficient: independently require both expected_originals_match and exact_three_d201_copies plus closing identities before any later cleanup preparation."
+}

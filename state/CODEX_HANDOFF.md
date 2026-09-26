@@ -159,8 +159,12 @@ flash/run. Header IO remains3.3V; D051/D075/D122/D137 permit software progress,
 not manufactured physical facts. D121 B7/R6 remains protected.
 
 D200 root04 completed once, precisely3 staleD195 copies2399768B removed and
-retained originals verified; no retry. D201 may have produced fresh uploader
-scratch: any next cleanup requires new exact observation/binding/use checks.
+retained originals verified; no retry. Fresh read-only D201 inventoryaddee38e
+under P7_motor_const_cleanup_raw now confirms exactly3copies2399928B at
+/tmp/remoteocddev34/inode1452, bothmatchingbooleans andfiveclosingchecksPASS.
+Source462c0534/reviewdd2bce49 accepted; no protectedhandleclearance or deletion.
+Read analysis/P7_motor_const_cleanup_inventory.md. Any later cleanup needs a
+new exact root05 scope/contract and use checks, never D200root04 oroldinode1172.
 Credentials were stdin-only and are not retained. Never revisit prior denied
 cleanup targets (old85.48MB hostbatch,37stagefolders, motor-fault stages,
 build/stage/app and2Binput.wire), userfiles or Git history. C: had about20.5GB

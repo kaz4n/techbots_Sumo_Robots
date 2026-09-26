@@ -1,0 +1,8 @@
+{
+  "scope": "LOCAL_PREPARATION_ONLY",
+  "native_calls": 0,
+  "initial_derivation_error": "AssertionError: ('absence_program01.py', b'cleanup-recorder-root01')",
+  "reason": "The local reverse-proof builder initially expected one fresh-stage replacement; the reviewed absence and stage programs contain respectively two and three uses.",
+  "resolution": "Use explicit exact counts 2/3/1/1 for absence/stage/verify/retrieve, retaining byte-for-byte reverse checks. The already prepared recipe/wrapper bytes were unchanged.",
+  "root_path_update": "Root then requested execution from this isolated worktree so MAIN could remain frozen. The dispatcher ROOT literal is now one additional proved data-only replacement. No operational guard or recipe changed."
+}

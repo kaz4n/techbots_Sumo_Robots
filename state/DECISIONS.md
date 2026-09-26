@@ -2534,3 +2534,19 @@ Under D051 adopt P7_b4_app_entry_contract.md and binding fb2ab19d. Reuse accepte
 
 
 D-217 host outcome 2026-09-26T21:01:24.040048+04:00: review8054c937 FINAL PASS accepts unchanged checkerb2158281 and corrected8Linux+8WindowsPASS. Independent fixture identity-format defect repaired without changing any test method; original failure retained. Concrete file-only scope4b0a7303 conditionally admitted at clean committed HEAD with175 prerequisite pins; no native observation claimed yet.
+
+
+## D-218 (2026-09-26T21:06:45.321646+04:00) - Fixed retained B4 capture and local CSV completion
+
+Under D051 adopt P7_b4_recorder_capture_contract.md c6eba89a and plan14137f10. Implement a capture-only component reusing the accepted bounded MEM-AP lifecycle, plus pure local returned-report/raw-file verification and unchanged D216 decoding. Fixed26reads/852624B; completeB4 flash checked before any SRAM; ten recorder chunks and two lifecycle brackets. Preserve partialraw and all first/closing errors; no source-origin/coherence/physical claim. CurrentordinaryD212 image is incompatible and must refuse beforeSRAM. No upload, transport, newmotorpermission or native execution is adopted; an explicitlyqualifiedcaller remains required. Independentfocusedtests and source/hostreview precede componentacceptance.
+
+
+D-217 actual outcome 2026-09-26T21:07:45.993195+04:00: native file-only observation at clean327e5de3 accepted by reviewe2bf58f4 FINAL PASS; rootclosure917fe835. All175current+HEAD prerequisites,154nativepins,4children,13remote+localclosure and64groups77aliases10488B3703rows pass. No upload/MCUread/physicalclaim. D218capture layer remains separately in preparation.
+
+
+## D-219 (2026-09-26T21:18:44.488581+04:00) - Usable fixed B4 capture-only caller
+
+Under D051 adopt P7_b4_recorder_run_contract.md 9320a657 and plan fc79af42 for software integration. Reuse accepted local/head/transport/descriptor guards with a fresh staged adapter, one capture action, fixed 13-leaf retrieval and local D218/D216 completion. Remove upload sequencing rather than synthesizing a predecessor receipt. The 10-call limit, 30,000-unit Windows limit and exact image/owner bindings remain fixed. Preserve all partial/error evidence and write CSV only from accepted decoder bytes after successful closing. D218 FINAL review is required before final caller/oracle seals. No upload, cleanup, privilege, MCU write, motor authorization or native attempt is adopted here; any native execution needs its separately reviewed concrete scope.
+
+
+D-218 outcome 2026-09-26T21:23:01.335228+04:00: source/host review e598b25b FINAL PASS accepts native e28d0131 and repaired host 1c0f75c0. Corrected 15 Linux plus 15 Windows tests pass; all 36 inputs stable, root closure 321ab674. The pre-test owner retention finding, original source and first JSON-fixture failures remain preserved. Only capture components are accepted; D219 caller and actual native capture remain separate.

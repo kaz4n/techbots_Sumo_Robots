@@ -1,0 +1,217 @@
+{
+  "schema": "b4-recorder-capture-independent-oracle-v2",
+  "status": "FINAL",
+  "sealed_at": "2026-09-26T17:18:31Z",
+  "scope": "D218 focused host checks for fixed B4 capture hooks and saved-bundle decoder; no upload, board action, transport execution, motor authorization or hardware acceptance.",
+  "oracle_author": "b4_next_scope",
+  "source_independence": {
+    "new_subjects_read": false,
+    "new_subjects_hashed": false,
+    "new_subjects_imported": false,
+    "new_subjects_executed": false,
+    "tests_executed": false,
+    "basis": "Normative contract and plan, accepted D212 capture/action sources and fixture patterns, accepted Capture/_collect dependencies, D216 fixed layout and literal D073 CSV goldens. New implementation identity is bound separately by root after this independent seal.",
+    "note": "Original execution is retained separately. No implementation inspection informed this fixture repair; root and independent reviewer adjudicated it against the unchanged contract."
+  },
+  "test": {
+    "path": "tests/tooling/test_b4_recorder_capture.py",
+    "bytes": 31592,
+    "sha256": "d0476af156990efcc182750584e9d2af451937c3ef450c72efba0cf82ac828dd",
+    "method_count": 15,
+    "methods": [
+      "test_dependency_pins_precede_private_execution_and_inherited_capture_bodies_remain_exact",
+      "test_exact_bindings_detach_and_reject_stale_profile_paths_pins_and_types",
+      "test_fixed_26read_plan_and_all_three_lifecycle_observations_preserve_mismatch",
+      "test_flash_mismatch_stops_at_each_image_boundary_and_before_sram_for_stale_sketch",
+      "test_partial_read_failure_preserves_available_owner_and_lifecycle_without_padding",
+      "test_complete_local_bundle_reassembles_exact_owner_and_d073_csv_without_origin_claim",
+      "test_local_lifecycle_mismatch_and_nested_decoder_refusal_remain_distinct_from_bundle_success",
+      "test_envelope_identity_returned_origin_and_successful_closure_are_required",
+      "test_exact_file_selection_and_report_hash_embedded_types_and_timestamps_are_required",
+      "test_ordered_read_geometry_and_every_sram_leaf_hash_are_required",
+      "test_all_flash_flags_and_seven_chunk_hash_pairs_are_required",
+      "test_analysis_is_recomputed_with_exact_types_and_layout_binding_precedes_nested_decode",
+      "test_bounded_json_utf8_duplicate_nonfinite_and_deep_failures_preserve_raw_inputs",
+      "test_exact_input_types_and_all_resource_limits_refuse_before_hash_or_parse",
+      "test_pure_local_decode_does_not_call_native_or_io_and_retained_raw_mapping_is_detached"
+    ]
+  },
+  "inputs": {
+    "state/analysis/P7_motor_fault_raw/inert_actions.py": {
+      "bytes": 19120,
+      "sha256": "8ffb65c0f1284f261ae1237bcf260e866176e83433a3538908780962513f1104"
+    },
+    "tools/p0_capture.py": {
+      "bytes": 18880,
+      "sha256": "885c4e4206aea4ac9e03c4e92e48258db2a0ae302ff83a86430e6913afeeb57c"
+    },
+    "tests/tooling/test_csv_bundle.py": {
+      "bytes": 46588,
+      "sha256": "56d580f8a462abe24989c058877e0f59d03f5096860eff434e5dd0451813a0ac"
+    },
+    "tools/validate_csv_bundle.py": {
+      "bytes": 19324,
+      "sha256": "1c4781fdd0f77a610998644db610bf6adf5a2373d4f32f3ec7ca486185ff52f2"
+    },
+    "tests/tooling/test_ordinary_app_actions.py": {
+      "bytes": 7125,
+      "sha256": "d7e5fefd3739288fd7f2076ddb8440d4a450a4f9dcbe945c72681989bad91847"
+    },
+    "state/analysis/P7_ordinary_app_run_raw/remote.py": {
+      "bytes": 11269,
+      "sha256": "a2c2fc9d32694a96a406b6de499bfb04a2a159710443c8b37ca56e92921a536f"
+    },
+    "tests/tooling/test_b4_recorder_decode.py": {
+      "bytes": 28930,
+      "sha256": "6baf8870e080f56499de4b42b26061dcd4d77fadf367c2e312b0dbb0a28a2a2b"
+    },
+    "state/analysis/P7_b4_recorder_capture_contract.md": {
+      "bytes": 12517,
+      "sha256": "c6eba89ae4a5567d220fd69ccc73190c2918e05e6fac57eba35697ca5460bc6b"
+    },
+    "state/analysis/P7_static_link_probe_raw/static_remote.py": {
+      "bytes": 33321,
+      "sha256": "8ba9b190c38e728013a383348c60c287b0366607f65f703161cf7f2e142d36f8"
+    },
+    "state/analysis/P7_ordinary_app_run_raw/actions.py": {
+      "bytes": 12496,
+      "sha256": "07c03a65fad73f49064abd0af77161b5ed10e2c6002bb6c442e7ab5b28ee25b1"
+    },
+    "state/analysis/P7_ordinary_app_run_raw/preparation.json": {
+      "bytes": 9954,
+      "sha256": "3f65a84a5cd856b021357e16e601c7bed27afaecead6e21e0558a2ce0ca3384e"
+    },
+    "tools/decode_b4_recorder.py": {
+      "bytes": 11743,
+      "sha256": "43347b569098b78cbdbf32a1e4b06ebbbef245c4c57b91609fa38d8bb3cca8a3"
+    },
+    "state/analysis/P7_static_startup_raw/capture_remote.py": {
+      "bytes": 37525,
+      "sha256": "95b0344d01886b6db30d55aa18a536f9a481b82348e22643e7920d817dbfac3e"
+    },
+    "state/analysis/P7_b4_recorder_capture_raw/plan01.json": {
+      "bytes": 8384,
+      "sha256": "14137f101e508e93c556eff2c0e2526cde4f63217def6e7c376d5f5078e3e5f7"
+    },
+    "tests/tooling/test_ordinary_app_remote.py": {
+      "bytes": 9831,
+      "sha256": "674c832edf77a2365234f80a17cf629fd6fedcc49501337c9c2984c2d3ac6083"
+    },
+    "tests/tooling/test_app_motor_observe_remote.py": {
+      "bytes": 20956,
+      "sha256": "f45218ea3d9fb118adfe796c12fc5f4bab654c843cf33cc531e81d99a3f41fc6"
+    },
+    "state/analysis/P7_b4_recorder_decode_raw/layout01.json": {
+      "bytes": 4443,
+      "sha256": "f9b4b1531b9f714fb2b424d9613787449b2172fcc7a0e96292dd51d37d8c0b2d"
+    }
+  },
+  "fixed_geometry": {
+    "reads": 26,
+    "requested_bytes": 852624,
+    "sram_reads": 12,
+    "sram_bytes": 159440,
+    "owner_chunks": 10,
+    "owner_bytes": 159200,
+    "owner_address": 536954120,
+    "lifecycle_bytes": 120,
+    "lifecycle_address": 537113200,
+    "retrieved_files": 13,
+    "flash_images_compared": 4,
+    "before_after_flash_chunk_pairs": 7
+  },
+  "fixture": {
+    "report_bytes": 5393,
+    "returned_bytes": 5870,
+    "file_count": 13,
+    "files_bytes": 164833,
+    "method": "Independent JSON fixture structure with exact scalar widths and 64-character digest fields; Python canonical float spellings retained; no subject or test execution.",
+    "synthetic": true,
+    "body_bytes": 159200,
+    "frame_rows": 1,
+    "event_rows": 1,
+    "summary_rows": 1,
+    "epoch_token": 11,
+    "last_frame_token": 22,
+    "phase": 3,
+    "before_body_after_equal": true,
+    "flash_hashes": "Synthetic paired digests establish fixture structure only; they do not establish retrieved flash authenticity.",
+    "owner": "Literal D073 packed frame/event bytes and D215 observed fixed-map offsets, with zero initial bytes and explicit native counters/lifecycle fields.",
+    "csv": "Exact independent literal D073 frame/event text, including signed extrema, unknown codes and raw duty -128; complete D216 summary shape and independent provenance boundary assertions."
+  },
+  "coverage": [
+    "Each pinned dependency rejects stale/empty/subclass byte inputs before private execution; inherited Capture methods and _collect have exact accepted code identity; only four hooks are overridden.",
+    "Exact current binding, detached returned binding data, fixed 26-read geometry, counts, three lifecycle observations, pairwise equality and mismatch retention.",
+    "Each complete flash-image mismatch stops at its boundary; stale sketch refuses before first SRAM read.",
+    "Partial native read failures preserve available observations without padding; owner is published only after all ten chunks.",
+    "Successful pure local reconstruction yields exact owner and CSV with unchanged UNPROVEN provenance flags.",
+    "Returned-envelope identity and attributed origin, successful closure, exact 13-file selection, report bytes/hash/embedded exact types and timestamps.",
+    "All ordered read records and twelve SRAM leaf lengths/hashes, four flash flags and seven before/after chunk-hash pairs.",
+    "Late after.lifecycle hash failure retains already completed raw_owner and refuses READS without nested D216; incomplete owner chunks keep raw_owner absent.",
+    "Analysis is independently recomputed with exact scalar types; wrong layout bytes refuse before D216.",
+    "Bounded malformed UTF-8/JSON, duplicate keys, nonfinite values and deep JSON preserve raw inputs; exact input types and each resource bound raise before parsing/hashing.",
+    "Nested D216 native refusal and lifecycle disagreement remain distinct from a structurally successful capture bundle.",
+    "Pure host decode makes no native or file I/O calls; returned raw-file dictionary is detached from caller mutations."
+  ],
+  "inherited_coverage": {
+    "replayed_historical_suites": false,
+    "native_posix_filesystem_lifecycle_replayed": false,
+    "reason": "D218 contract retains accepted Capture/_collect unchanged; targeted hook tests use an in-memory read executor and exact inherited code identity. This avoids repeating accepted POSIX process/lock/owner coverage.",
+    "windows": "Use accepted inert resource/pwd stubs only when missing; no test skips. Existing process/socket endpoints are forbidden during focused checks."
+  },
+  "execution": {
+    "performed": false,
+    "owner": "root",
+    "commands": [
+      "python3 -I -B tests/tooling/test_b4_recorder_capture.py",
+      "python -I -B tests/tooling/test_b4_recorder_capture.py"
+    ],
+    "verbosity": 2,
+    "output_owners": "Root chooses distinct Linux/Windows evidence owners and binds implementation identities before first execution.",
+    "note": "Repaired oracle has not been executed; root schedules fresh Linux/Windows owners after a new freeze."
+  },
+  "limitations": [
+    "No genuine target bytes are synthesized into a hardware claim.",
+    "No native collection, board connection, firmware write or execution occurred in oracle preparation.",
+    "Equal lifecycle fields and matching local hashes never prove a coherent snapshot, common attempt, hardware origin or transport integrity.",
+    "The exact dependency bodies retain accepted guard coverage; this focused oracle does not independently requalify those historical algorithms."
+  ],
+  "supersedes": {
+    "path": "state/analysis/P7_b4_recorder_capture_raw/capture_oracle01.json",
+    "bytes": 9704,
+    "sha256": "745fb41ef323e9aff63a962224bff79fa22c2cecbc820a88d5664ff4327364f0",
+    "preserved": true
+  },
+  "repair": {
+    "scope": "Only the bounded JSON refusal method changes. Remaining 14 methods and all code outside that method are exact original bytes.",
+    "original_snapshot": {
+      "path": "state/analysis/P7_b4_recorder_capture_raw/capture_oracle01_test.py",
+      "bytes": 30601,
+      "sha256": "db77b1fc555db5c3469f7a4140b255618e5c8ac141c3d285b9f7b2dd30681662"
+    },
+    "outside_method": {
+      "bytes": 30018,
+      "sha256": "899622def957245a072c72c02f9ea5882047cb0be9935534a43764177cdbe553"
+    },
+    "reason": "Actual first Linux run preserved 14 passing methods and two fixture-code failures inside one method. Deep JSON array parsed and was correctly refused by envelope schema; malformed durable JSON had stale envelope bytes/hash and was correctly refused at report identity.",
+    "changes": [
+      "Keep exact INPUT_JSON requirements for invalid UTF-8, syntax, duplicate keys and nonfinite JSON.",
+      "A real bounded 2048-level array must preserve raw input, REFUSED and no nested decoder; accept only INPUT_JSON or ENVELOPE for returned input and INPUT_JSON or REPORT for durable report.",
+      "Refresh malformed durable report length/hash in the envelope so the parser/schema boundary is reachable.",
+      "Inject RecursionError deterministically from json.loads and require raw-preserving INPUT_JSON refusal."
+    ],
+    "source_changes": false
+  },
+  "prior_execution": {
+    "path": "state/analysis/P7_b4_recorder_capture_raw/capture_first_linux01/result.json",
+    "bytes": 847,
+    "sha256": "42e573edf34c5c087947de71f45aa588af964a4674d31eefa5ae78cc26e99016",
+    "status": "15 methods, 14 passing methods, two failures within the bounded JSON method; changed_inputs empty, freeze unchanged.",
+    "stderr": {
+      "path": "state/analysis/P7_b4_recorder_capture_raw/capture_first_linux01/stderr",
+      "bytes": 5220,
+      "sha256": "32b7787b27bbb3ecab72d4881b038d746f664951673363dc454d148bfd571b9f"
+    },
+    "preserved": true
+  }
+}

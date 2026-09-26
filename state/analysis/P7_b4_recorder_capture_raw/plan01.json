@@ -1,0 +1,313 @@
+{
+  "bindings": {
+    "boot_id": "55c386b9-fe6d-4388-a7f4-1d91e0bb49d8",
+    "files": {
+      "config": {
+        "bytes": 694,
+        "path": "/home/arduino/sumox26-capture-tools/app-default-beeffff315b2e28a95a20dc1e26477fc924b2da26d1fdd8a8b36fb013ca110e1/p0_mem_read.cfg",
+        "sha256": "89d16a28a1489c23ec743be55ade39824f9ca5213b02b20ef4785079122e4339"
+      },
+      "loader": {
+        "bytes": 2303728,
+        "path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf",
+        "sha256": "39d4a4fd47241663323f6e04f94dd8f5a9f9ad6582cf1df37f9709b74026adcd"
+      },
+      "openocd": {
+        "bytes": 14435552,
+        "path": "/opt/openocd/bin/openocd",
+        "sha256": "04778a80c5c619ee4eef7505db91328f1d7e789107c496f2ddcf96d081f5b0ff"
+      },
+      "sketch": {
+        "bytes": 82912,
+        "path": "/home/arduino/sumox26_codex_build/b4-app-m0-static01/build/app.ino.bin-zsk.bin",
+        "sha256": "84667b0a22ff7701059a266b6c82bb61de1f7ccec96280e4f13b5692bf785a28"
+      },
+      "swj": {
+        "bytes": 1148,
+        "path": "/opt/openocd/share/openocd/scripts/target/swj-dp.tcl",
+        "sha256": "aad132008735bbafea3d18a304632c638f0fb99bfc19530c9f577eda2b10410a"
+      }
+    },
+    "loader_image": {
+      "bytes": 263680,
+      "sha256": "e9322826c422fb234ac8c2e79ea38a050d0dd8dc32b2a89f6930e0a0ff7ebab2"
+    },
+    "output": "/home/arduino/sumox26_codex_build/b4-recorder-9044ebbb-capture01",
+    "run_id": "b4-recorder-9044ebbb-capture01",
+    "schema": "fixed-b4-recorder-capture-v1",
+    "source_sha256": "9044ebbb3cd3b2dbb7aa5984dd5ff23bfff697372f1f29d56693af9ea5eaf31a",
+    "uid": 1000
+  },
+  "bracket": {
+    "address": 537113200,
+    "bytes": 120,
+    "fields": {
+      "epoch_token": {
+        "bytes": 8,
+        "offset": 0
+      },
+      "last_frame_token": {
+        "bytes": 8,
+        "offset": 8
+      },
+      "phase": {
+        "bytes": 1,
+        "offset": 113
+      }
+    },
+    "owner_offset": 159080
+  },
+  "complete_files": [
+    "capture_result.json",
+    "07-before.lifecycle.bin",
+    "08-owner.0.bin",
+    "09-owner.1.bin",
+    "10-owner.2.bin",
+    "11-owner.3.bin",
+    "12-owner.4.bin",
+    "13-owner.5.bin",
+    "14-owner.6.bin",
+    "15-owner.7.bin",
+    "16-owner.8.bin",
+    "17-owner.9.bin",
+    "18-after.lifecycle.bin"
+  ],
+  "counts": {
+    "commands": 26,
+    "reads": 26,
+    "requested_bytes": 852624
+  },
+  "decoder": {
+    "bytes": 11743,
+    "path": "tools/decode_b4_recorder.py",
+    "sha256": "43347b569098b78cbdbf32a1e4b06ebbbef245c4c57b91609fa38d8bb3cca8a3"
+  },
+  "dependency_inputs": {
+    "capture": {
+      "bytes": 37525,
+      "path": "state/analysis/P7_static_startup_raw/capture_remote.py",
+      "sha256": "95b0344d01886b6db30d55aa18a536f9a481b82348e22643e7920d817dbfac3e"
+    },
+    "helper": {
+      "bytes": 33321,
+      "path": "state/analysis/P7_static_link_probe_raw/static_remote.py",
+      "sha256": "8ba9b190c38e728013a383348c60c287b0366607f65f703161cf7f2e142d36f8"
+    },
+    "p0": {
+      "bytes": 18880,
+      "path": "tools/p0_capture.py",
+      "sha256": "885c4e4206aea4ac9e03c4e92e48258db2a0ae302ff83a86430e6913afeeb57c"
+    }
+  },
+  "inputs": [
+    {
+      "bytes": 11269,
+      "path": "state/analysis/P7_ordinary_app_run_raw/remote.py",
+      "sha256": "a2c2fc9d32694a96a406b6de499bfb04a2a159710443c8b37ca56e92921a536f"
+    },
+    {
+      "bytes": 12496,
+      "path": "state/analysis/P7_ordinary_app_run_raw/actions.py",
+      "sha256": "07c03a65fad73f49064abd0af77161b5ed10e2c6002bb6c442e7ab5b28ee25b1"
+    },
+    {
+      "bytes": 9954,
+      "path": "state/analysis/P7_ordinary_app_run_raw/preparation.json",
+      "sha256": "3f65a84a5cd856b021357e16e601c7bed27afaecead6e21e0558a2ce0ca3384e"
+    },
+    {
+      "bytes": 9484,
+      "path": "state/analysis/P7_b4_app_compile_raw/native_static01/artifacts.json",
+      "sha256": "0acaa30a4ba01ac5c9ff8c8fddc66c4bec94e033b1194ec63271f12affb6c085"
+    },
+    {
+      "bytes": 293222,
+      "path": "state/analysis/P7_b4_app_compile_raw/native_abi_static01/abi.json",
+      "sha256": "25bf57646977fec8b4614b06cfe2b3df2e3bb94172122b2ee8f5ceaaec6677bc"
+    },
+    {
+      "bytes": 25482,
+      "path": "state/analysis/P7_b4_recorder_decode_raw/map_derivation01.json",
+      "sha256": "86ec272d73f5a1243725480e44af4298e718f976cc2ba49b42752fa931d61ac0"
+    },
+    {
+      "bytes": 10168,
+      "path": "state/analysis/P7_b4_recorder_decode_contract.md",
+      "sha256": "843055fbc3837611ae310d0ecb7e549063ed7280783436581219fd1120fc5d13"
+    },
+    {
+      "bytes": 19324,
+      "path": "tools/validate_csv_bundle.py",
+      "sha256": "1c4781fdd0f77a610998644db610bf6adf5a2373d4f32f3ec7ca486185ff52f2"
+    }
+  ],
+  "layout": {
+    "bytes": 4443,
+    "path": "state/analysis/P7_b4_recorder_decode_raw/layout01.json",
+    "sha256": "f9b4b1531b9f714fb2b424d9613787449b2172fcc7a0e96292dd51d37d8c0b2d"
+  },
+  "owner": {
+    "address": 536954120,
+    "bytes": 159200,
+    "chunks": 10
+  },
+  "plan": [
+    {
+      "address": 134217728,
+      "bytes": 65536,
+      "file": "00-before.loader.0.bin",
+      "name": "before.loader.0"
+    },
+    {
+      "address": 134283264,
+      "bytes": 65536,
+      "file": "01-before.loader.1.bin",
+      "name": "before.loader.1"
+    },
+    {
+      "address": 134348800,
+      "bytes": 65536,
+      "file": "02-before.loader.2.bin",
+      "name": "before.loader.2"
+    },
+    {
+      "address": 134414336,
+      "bytes": 65536,
+      "file": "03-before.loader.3.bin",
+      "name": "before.loader.3"
+    },
+    {
+      "address": 134479872,
+      "bytes": 1536,
+      "file": "04-before.loader.4.bin",
+      "name": "before.loader.4"
+    },
+    {
+      "address": 135266304,
+      "bytes": 65536,
+      "file": "05-before.sketch.0.bin",
+      "name": "before.sketch.0"
+    },
+    {
+      "address": 135331840,
+      "bytes": 17376,
+      "file": "06-before.sketch.1.bin",
+      "name": "before.sketch.1"
+    },
+    {
+      "address": 537113200,
+      "bytes": 120,
+      "file": "07-before.lifecycle.bin",
+      "name": "before.lifecycle"
+    },
+    {
+      "address": 536954120,
+      "bytes": 16384,
+      "file": "08-owner.0.bin",
+      "name": "owner.0"
+    },
+    {
+      "address": 536970504,
+      "bytes": 16384,
+      "file": "09-owner.1.bin",
+      "name": "owner.1"
+    },
+    {
+      "address": 536986888,
+      "bytes": 16384,
+      "file": "10-owner.2.bin",
+      "name": "owner.2"
+    },
+    {
+      "address": 537003272,
+      "bytes": 16384,
+      "file": "11-owner.3.bin",
+      "name": "owner.3"
+    },
+    {
+      "address": 537019656,
+      "bytes": 16384,
+      "file": "12-owner.4.bin",
+      "name": "owner.4"
+    },
+    {
+      "address": 537036040,
+      "bytes": 16384,
+      "file": "13-owner.5.bin",
+      "name": "owner.5"
+    },
+    {
+      "address": 537052424,
+      "bytes": 16384,
+      "file": "14-owner.6.bin",
+      "name": "owner.6"
+    },
+    {
+      "address": 537068808,
+      "bytes": 16384,
+      "file": "15-owner.7.bin",
+      "name": "owner.7"
+    },
+    {
+      "address": 537085192,
+      "bytes": 16384,
+      "file": "16-owner.8.bin",
+      "name": "owner.8"
+    },
+    {
+      "address": 537101576,
+      "bytes": 11744,
+      "file": "17-owner.9.bin",
+      "name": "owner.9"
+    },
+    {
+      "address": 537113200,
+      "bytes": 120,
+      "file": "18-after.lifecycle.bin",
+      "name": "after.lifecycle"
+    },
+    {
+      "address": 135266304,
+      "bytes": 65536,
+      "file": "19-after.sketch.0.bin",
+      "name": "after.sketch.0"
+    },
+    {
+      "address": 135331840,
+      "bytes": 17376,
+      "file": "20-after.sketch.1.bin",
+      "name": "after.sketch.1"
+    },
+    {
+      "address": 134217728,
+      "bytes": 65536,
+      "file": "21-after.loader.0.bin",
+      "name": "after.loader.0"
+    },
+    {
+      "address": 134283264,
+      "bytes": 65536,
+      "file": "22-after.loader.1.bin",
+      "name": "after.loader.1"
+    },
+    {
+      "address": 134348800,
+      "bytes": 65536,
+      "file": "23-after.loader.2.bin",
+      "name": "after.loader.2"
+    },
+    {
+      "address": 134414336,
+      "bytes": 65536,
+      "file": "24-after.loader.3.bin",
+      "name": "after.loader.3"
+    },
+    {
+      "address": 134479872,
+      "bytes": 1536,
+      "file": "25-after.loader.4.bin",
+      "name": "after.loader.4"
+    }
+  ],
+  "schema": "b4-recorder-capture-plan-v1"
+}

@@ -528,3 +528,6 @@ D191 closing observation: C:recovered290537472B independently before local docum
 
 
 2026-09-26T21:07:45.993195+04:00 - D217 actualfile evidence retained: entry21582B, rawresult693504B, localclosure277B, inputs26671B plus boundedtransportstreams and root/reviewerreceipts. These bind currentcompiledinstruction evidence and futureB4captureadmission; no duplicatefirmwarebuild/artifact created. File-onlyremote scope remainedabsent. No cleanup/deletion attempted; previouslyblockedlocalstage remains.
+
+
+2026-09-26T21:21:37.187551+04:00 - D218 retained unique original hostsource10009B, boundedrepair receipt, originaltest30601B, firstLinux JSON-fixture failure and corrected30PASS evidence. Syntheticfixture sizes: report5393B/envelope5870B/retrieved164833B; reproducible from pinned tests without retaining another full owner dump. CorrectedWindows temporary directory empty/zero payload; no independentLinux remnant inventory. C: free6271684608B before this host cycle. No boardfiles created or removed; prior blocked staging remains.

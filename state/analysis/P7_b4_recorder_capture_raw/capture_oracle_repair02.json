@@ -1,0 +1,70 @@
+{
+  "schema": "b4-recorder-capture-oracle-repair-v1",
+  "sealed_at": "2026-09-26T17:18:31Z",
+  "status": "FINAL",
+  "authorization": "Root authorized the exact fixture-only batch after actual Linux failure and independent reviewer agreement.",
+  "original": {
+    "path": "state/analysis/P7_b4_recorder_capture_raw/capture_oracle01_test.py",
+    "bytes": 30601,
+    "sha256": "db77b1fc555db5c3469f7a4140b255618e5c8ac141c3d285b9f7b2dd30681662"
+  },
+  "original_oracle": {
+    "path": "state/analysis/P7_b4_recorder_capture_raw/capture_oracle01.json",
+    "bytes": 9704,
+    "sha256": "745fb41ef323e9aff63a962224bff79fa22c2cecbc820a88d5664ff4327364f0",
+    "preserved": true
+  },
+  "repaired": {
+    "path": "tests/tooling/test_b4_recorder_capture.py",
+    "bytes": 31592,
+    "sha256": "d0476af156990efcc182750584e9d2af451937c3ef450c72efba0cf82ac828dd",
+    "method_count": 15,
+    "methods": [
+      "test_dependency_pins_precede_private_execution_and_inherited_capture_bodies_remain_exact",
+      "test_exact_bindings_detach_and_reject_stale_profile_paths_pins_and_types",
+      "test_fixed_26read_plan_and_all_three_lifecycle_observations_preserve_mismatch",
+      "test_flash_mismatch_stops_at_each_image_boundary_and_before_sram_for_stale_sketch",
+      "test_partial_read_failure_preserves_available_owner_and_lifecycle_without_padding",
+      "test_complete_local_bundle_reassembles_exact_owner_and_d073_csv_without_origin_claim",
+      "test_local_lifecycle_mismatch_and_nested_decoder_refusal_remain_distinct_from_bundle_success",
+      "test_envelope_identity_returned_origin_and_successful_closure_are_required",
+      "test_exact_file_selection_and_report_hash_embedded_types_and_timestamps_are_required",
+      "test_ordered_read_geometry_and_every_sram_leaf_hash_are_required",
+      "test_all_flash_flags_and_seven_chunk_hash_pairs_are_required",
+      "test_analysis_is_recomputed_with_exact_types_and_layout_binding_precedes_nested_decode",
+      "test_bounded_json_utf8_duplicate_nonfinite_and_deep_failures_preserve_raw_inputs",
+      "test_exact_input_types_and_all_resource_limits_refuse_before_hash_or_parse",
+      "test_pure_local_decode_does_not_call_native_or_io_and_retained_raw_mapping_is_detached"
+    ]
+  },
+  "unchanged_outside_method": {
+    "bytes": 30018,
+    "sha256": "899622def957245a072c72c02f9ea5882047cb0be9935534a43764177cdbe553"
+  },
+  "first_failure": {
+    "path": "state/analysis/P7_b4_recorder_capture_raw/capture_first_linux01/result.json",
+    "bytes": 847,
+    "sha256": "42e573edf34c5c087947de71f45aa588af964a4674d31eefa5ae78cc26e99016",
+    "status": "15 methods, 14 passing methods, two failures within the bounded JSON method; changed_inputs empty, freeze unchanged.",
+    "stderr": {
+      "path": "state/analysis/P7_b4_recorder_capture_raw/capture_first_linux01/stderr",
+      "bytes": 5220,
+      "sha256": "32b7787b27bbb3ecab72d4881b038d746f664951673363dc454d148bfd571b9f"
+    },
+    "preserved": true
+  },
+  "changes": [
+    "Keep exact INPUT_JSON requirements for invalid UTF-8, syntax, duplicate keys and nonfinite JSON.",
+    "A real bounded 2048-level array must preserve raw input, REFUSED and no nested decoder; accept only INPUT_JSON or ENVELOPE for returned input and INPUT_JSON or REPORT for durable report.",
+    "Refresh malformed durable report length/hash in the envelope so the parser/schema boundary is reachable.",
+    "Inject RecursionError deterministically from json.loads and require raw-preserving INPUT_JSON refusal."
+  ],
+  "source_unchanged": true,
+  "methods_preserved": 14,
+  "methods_modified": 1,
+  "total_methods": 15,
+  "reproduction_note": "Root independently reported Windows Python 3.13.11 and WSL Python 3.12.3, each recursionlimit 1000, both parsed the 2048-deep JSON array. This note records root-provided evidence; this author did not execute either runtime.",
+  "executed_by_oracle_author": false,
+  "repaired_suite_executed": false,
+  "new_subjects_read": false
+}

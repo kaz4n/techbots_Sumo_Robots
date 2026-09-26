@@ -1544,3 +1544,9 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-26T21:07:45.993195+04:00 | P7/D217 | Actual file-only reviewe2bf58f4 FINAL PASS:1transport/4children/13remote+localPASS;175current+HEADpins,64groups77aliases10488B3703rows/2037symbols/init01011008. Nativeclosure917fe835; no B4upload orMCUread. D218capture-to-CSV components in preparation. | nativeHEAD327e5de3
+
+
+2026-09-26T21:21:37.187551+04:00 | P7/D218 | Corrected focused capture suite passed15Linux+15Windows/no skips;36pinsstable, closure321ab674. Pre-test raw_owner retention repair and original JSON-fixture failures preserved. Native sourcee28d0131/host1c0f75c0 unchanged through corrected runs. FINALreview pending; D219caller integration in progress. No live B4 capture. | pending
+
+
+2026-09-26T21:23:01.335228+04:00 | P7/D218 | FINAL source/host review e598b25b PASS; capture and pure local completion accepted, corrected 15+15 PASS,36 pins stable. Original source/fixture findings preserved; no actual B4 capture. D219 usable caller in progress. | pending

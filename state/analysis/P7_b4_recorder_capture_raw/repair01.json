@@ -1,0 +1,41 @@
+{
+  "after": {
+    "bytes": 10061,
+    "path": "tools/decode_b4_capture.py",
+    "sha256": "1c0f75c001b8f66e9b3f5f4ed2be8472c8aaf1991265cfb6f91e4372043f6109"
+  },
+  "before": {
+    "bytes": 10009,
+    "path": "tools/decode_b4_capture.py",
+    "sha256": "4080c15f9185ff26dd21db7a2795943fa724071d6a8175b1b1b4608ee8f0deae"
+  },
+  "behavior": "Publish raw_owner after validated owner.9 (read17); read18 failure remains READS refusal, decoder None. No incomplete owner is published.",
+  "exact_counted_steps": [
+    {
+      "count": 1,
+      "new": "def _reads(report, files, plan, result):",
+      "old": "def _reads(report, files, plan):"
+    },
+    {
+      "count": 1,
+      "new": "            samples.append((name, address, raw))\n            if index == 17:\n                result[\"raw_owner\"] = b\"\".join(item[2] for item in samples[1:])",
+      "old": "            samples.append((name, address, raw))"
+    },
+    {
+      "count": 1,
+      "new": "        samples = _reads(report, files, plan, result)",
+      "old": "        samples = _reads(report, files, plan)\n        result[\"raw_owner\"] = b\"\".join(row[2] for row in samples[1:11])"
+    }
+  ],
+  "finding": "After all ten owner chunks validate, a malformed after.lifecycle read must preserve complete raw_owner before READS refusal.",
+  "native_calls": 0,
+  "reconstruction": "Undoing these three literal changes reconstructs the full original host byte identity.",
+  "schema": "b4-recorder-capture-repair-v1",
+  "subject_or_test_execution": false,
+  "unchanged_inputs": 15,
+  "unchanged_native": {
+    "bytes": 9769,
+    "path": "tools/b4_recorder_capture.py",
+    "sha256": "e28d01312742389737c0ca0d6914ab8593d59f93b1a67ac302029749f11b4189"
+  }
+}

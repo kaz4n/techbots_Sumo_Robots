@@ -1,3 +1,66 @@
+## Current checkpoint - 2026-09-26T21:23:01.335228+04:00
+
+D218 is accepted: review e598b25b FINAL PASS, native source e28d0131 and host
+1c0f75c0; 15 Linux plus 15 Windows PASS/no skips; 36 pins unchanged; closure
+321ab674. Pre-test owner-retention repair and original JSON-fixture failures
+are preserved. No actual B4 capture or native operation occurred. See
+analysis/P7_b4_recorder_capture_validation.md. Root is committing completed
+D218 files separately from current D219 work. No live exec sessions.
+
+D219 usable capture-only caller is in progress. Contract 9320a657 and plan
+fc79af42 adopted under D051; later private host import clarification may be
+appended with original bytes preserved. Worker ordinary_abi_scope owns
+tools/capture_b4_recorder.py, run_raw/actions.py/preparation/derivation.
+Tester b4_next_scope owns tests/tooling/test_b4_recorder_run.py and
+run_raw/run_oracle01.json. Neither caller nor oracle is sealed/executed yet.
+Use a pinned D212 subclass with new capture-only sequencing, fresh adapter
+staging, fixed 13-leaf retrieval and local exclusive CSV/report outputs.
+No fake upload receipt; no sudo, cleanup, upload or native scope adopted.
+Private checked host imports must work under -I without ambient tools imports.
+
+D217 actual instruction review accepted in bc97c030; D215/D216 accepted in
+303441e0/6c3cf6f3. D212 ordinary M0 is latest verified loaded firmware. The
+current ordinary image must refuse D218 before SRAM; do not waste its one
+fresh native owner on a knowingly mismatched image. Any eventual B4 M0 load
+and cleanup require separately concrete checked scopes; no motor permission
+is needed for this fixed M0 profile, but no physical acceptance is created.
+
+User BOARD ONLY. Native UART delivery, initialized timing/RAM, wired sensor/
+motor commissioning, protected decisions, rehearsal and human gates remain
+open. Automatic approval review previously blocked deleting the 764405-byte
+local stage; retained without retry. No credentials stored.
+
+## Current checkpoint - 2026-09-26T21:08:43.972697+04:00
+
+D217 is complete and independently accepted in bc97c030. Native clean HEAD
+327e5de3; review e2bf58f4 FINAL PASS; closure 917fe835. One file-only transport,
+four children, 13 remote plus local closing checks; all 175 current/HEAD pins
+match. Observed 64 groups, 77 aliases, 10,488 bytes, 3,703 instruction rows and
+2,037 symbols. No upload or MCU read. Native owner is consumed; do not rerun.
+See analysis/P7_b4_app_entry_actual_validation.md. D212 ordinary M0 is still
+the latest verified loaded firmware. No active exec session.
+
+D218 capture-to-CSV component work is active under D051. Contract c6eba89a
+and plan 14137f10 are sealed; production agent ordinary_abi_scope owns
+tools/b4_recorder_capture.py, tools/decode_b4_capture.py and their derivation.
+Independent tester b4_next_scope owns new focused tests/oracle. Sources/tests
+are not yet FINAL and none have run. Root created metadata-only host driver
+a19c2f5a. Source, contract, plan and oracle must be frozen before first tests.
+Reviewer const_cleanup_review accepted the contract boundary only, not code.
+
+Fixed plan: 26 reads / 852,624 bytes; full B4 flash equality before SRAM; ten
+recorder chunks and two 120-byte lifecycle brackets. Pure host completion
+requires successful returned closure and exactly 13 saved leaves before D216
+decoding. All raw partials retained; origin/coherence remain unproven. This is
+a component for an explicitly qualified caller, not upload or transport.
+Current ordinary image must refuse before SRAM. Native caller integration
+remains separate; production author is assessing the smallest complete path.
+
+User confirmed BOARD ONLY. Physical facts, sensor/motor commissioning, native
+UART delivery, initialized timing/RAM, rehearsal and human gates remain open.
+Prior automatic approval rejection left the 764,405-byte local staging copy
+in place. Do not retry denied deletion routes. No credentials stored.
+
 ## Current checkpoint - 2026-09-26T21:01:24.040048+04:00
 
 D217 source/host and conditional native admission FINAL PASS8054c937.

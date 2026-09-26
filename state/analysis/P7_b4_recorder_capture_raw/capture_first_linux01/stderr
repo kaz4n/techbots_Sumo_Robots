@@ -1,0 +1,48 @@
+test_all_flash_flags_and_seven_chunk_hash_pairs_are_required (__main__.CaptureContract.test_all_flash_flags_and_seven_chunk_hash_pairs_are_required) ... ok
+test_analysis_is_recomputed_with_exact_types_and_layout_binding_precedes_nested_decode (__main__.CaptureContract.test_analysis_is_recomputed_with_exact_types_and_layout_binding_precedes_nested_decode) ... ok
+test_bounded_json_utf8_duplicate_nonfinite_and_deep_failures_preserve_raw_inputs (__main__.CaptureContract.test_bounded_json_utf8_duplicate_nonfinite_and_deep_failures_preserve_raw_inputs) ... 
+  test_bounded_json_utf8_duplicate_nonfinite_and_deep_failures_preserve_raw_inputs (__main__.CaptureContract.test_bounded_json_utf8_duplicate_nonfinite_and_deep_failures_preserve_raw_inputs) (bytes=4096) ... FAIL
+test_bounded_json_utf8_duplicate_nonfinite_and_deep_failures_preserve_raw_inputs (__main__.CaptureContract.test_bounded_json_utf8_duplicate_nonfinite_and_deep_failures_preserve_raw_inputs) ... FAIL
+test_complete_local_bundle_reassembles_exact_owner_and_d073_csv_without_origin_claim (__main__.CaptureContract.test_complete_local_bundle_reassembles_exact_owner_and_d073_csv_without_origin_claim) ... ok
+test_dependency_pins_precede_private_execution_and_inherited_capture_bodies_remain_exact (__main__.CaptureContract.test_dependency_pins_precede_private_execution_and_inherited_capture_bodies_remain_exact) ... ok
+test_envelope_identity_returned_origin_and_successful_closure_are_required (__main__.CaptureContract.test_envelope_identity_returned_origin_and_successful_closure_are_required) ... ok
+test_exact_bindings_detach_and_reject_stale_profile_paths_pins_and_types (__main__.CaptureContract.test_exact_bindings_detach_and_reject_stale_profile_paths_pins_and_types) ... ok
+test_exact_file_selection_and_report_hash_embedded_types_and_timestamps_are_required (__main__.CaptureContract.test_exact_file_selection_and_report_hash_embedded_types_and_timestamps_are_required) ... ok
+test_exact_input_types_and_all_resource_limits_refuse_before_hash_or_parse (__main__.CaptureContract.test_exact_input_types_and_all_resource_limits_refuse_before_hash_or_parse) ... ok
+test_fixed_26read_plan_and_all_three_lifecycle_observations_preserve_mismatch (__main__.CaptureContract.test_fixed_26read_plan_and_all_three_lifecycle_observations_preserve_mismatch) ... ok
+test_flash_mismatch_stops_at_each_image_boundary_and_before_sram_for_stale_sketch (__main__.CaptureContract.test_flash_mismatch_stops_at_each_image_boundary_and_before_sram_for_stale_sketch) ... ok
+test_local_lifecycle_mismatch_and_nested_decoder_refusal_remain_distinct_from_bundle_success (__main__.CaptureContract.test_local_lifecycle_mismatch_and_nested_decoder_refusal_remain_distinct_from_bundle_success) ... ok
+test_ordered_read_geometry_and_every_sram_leaf_hash_are_required (__main__.CaptureContract.test_ordered_read_geometry_and_every_sram_leaf_hash_are_required) ... ok
+test_partial_read_failure_preserves_available_owner_and_lifecycle_without_padding (__main__.CaptureContract.test_partial_read_failure_preserves_available_owner_and_lifecycle_without_padding) ... ok
+test_pure_local_decode_does_not_call_native_or_io_and_retained_raw_mapping_is_detached (__main__.CaptureContract.test_pure_local_decode_does_not_call_native_or_io_and_retained_raw_mapping_is_detached) ... ok
+
+======================================================================
+FAIL: test_bounded_json_utf8_duplicate_nonfinite_and_deep_failures_preserve_raw_inputs (__main__.CaptureContract.test_bounded_json_utf8_duplicate_nonfinite_and_deep_failures_preserve_raw_inputs) (bytes=4096)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_b4_recorder_capture.py", line 534, in test_bounded_json_utf8_duplicate_nonfinite_and_deep_failures_preserve_raw_inputs
+    self.refused(bundle, 'INPUT_JSON', raw)
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_b4_recorder_capture.py", line 280, in refused
+    self.assertEqual(report['errors'][0]['code'], code)
+AssertionError: 'ENVELOPE' != 'INPUT_JSON'
+- ENVELOPE
++ INPUT_JSON
+
+
+======================================================================
+FAIL: test_bounded_json_utf8_duplicate_nonfinite_and_deep_failures_preserve_raw_inputs (__main__.CaptureContract.test_bounded_json_utf8_duplicate_nonfinite_and_deep_failures_preserve_raw_inputs)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_b4_recorder_capture.py", line 538, in test_bounded_json_utf8_duplicate_nonfinite_and_deep_failures_preserve_raw_inputs
+    self.refused(bundle, 'INPUT_JSON', raw)
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_b4_recorder_capture.py", line 280, in refused
+    self.assertEqual(report['errors'][0]['code'], code)
+AssertionError: 'REPORT' != 'INPUT_JSON'
+- REPORT
++ INPUT_JSON
+
+
+----------------------------------------------------------------------
+Ran 15 tests in 1.280s
+
+FAILED (failures=2)

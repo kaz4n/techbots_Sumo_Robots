@@ -1,0 +1,27 @@
+{
+  "schema": "d218-repaired-oracle-host-driver-v1",
+  "source": "state/analysis/P7_b4_recorder_capture_raw/capture_host_driver01.py",
+  "source_pin": {
+    "bytes": 3508,
+    "sha256": "a19c2f5ac5b47fab3da6756cd738b83340a7be357afbdc93b83b42f96e90c0b3"
+  },
+  "target": "state/analysis/P7_b4_recorder_capture_raw/capture_host_driver02.py",
+  "target_pin": {
+    "bytes": 3508,
+    "sha256": "7c95b58bfacede2580db38f8689f9c58c8c2a0eebb8e92b5298958c46d720e29"
+  },
+  "ordered_substitutions": [
+    {
+      "old": "capture_coordinator_freeze01.json",
+      "new": "capture_coordinator_freeze02.json",
+      "count": 1
+    },
+    {
+      "old": "platform + '01'",
+      "new": "platform + '02'",
+      "count": 1
+    }
+  ],
+  "algorithm_changes": false,
+  "reason": "Retain firstLinux failure; fresh owners for fixture-only deepJSON/hash repair. Product unchanged after pre-test owner-retention repair."
+}

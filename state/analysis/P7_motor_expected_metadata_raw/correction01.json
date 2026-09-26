@@ -1,0 +1,50 @@
+{
+  "author_actions": {
+    "AST_syntax_check": true,
+    "device_call": false,
+    "production_source_read_or_hash": false,
+    "test_or_compiler_execution": false
+  },
+  "bounded_change": "Only row carrier_zero, equally for previous/current and probe0/probe1, appends -Wno-error=div-by-zero. -Werror and all other flags, UBSan and every existing numeric/transcript/interface assertion remain. Exactly one retained nonfatal division-by-zero warning is required, and the full diagnostic must fit the saved receipt. All other rows retain unmodified flags. FREEZE pointer advances to independent_freeze02.json.",
+  "cause": "The synthetic config carrier=0 makes GCC diagnose the original predecessor statement rate/carrier despite the earlier zero-carrier return. With -Werror the fixture cannot reach runtime guard validation. The observed failure is on the unchanged predecessor, not a new implementation calculation.",
+  "corrected_oracle": {
+    "bytes": 22611,
+    "path": "tests/tooling/test_motor_expected_metadata.py",
+    "sha256": "7378ed6a1f13e32a8ac6477c39d115dc34efb2217caf7ec75f0bac25d81a2db1"
+  },
+  "created_utc": "2026-09-26T08:05:27.489967+00:00",
+  "current_subject_pin_from_saved_failure_only": {
+    "bytes": 19906,
+    "sha256": "fdbc27d972a59a9c955b67b88072a03df3b90a4629e22fd7833ff5f09e0c8f8b"
+  },
+  "diff": "--- independent_freeze01/oracle\n+++ independent_freeze02/oracle\n@@ -17,7 +17,7 @@\n \n ROOT = Path(__file__).resolve().parents[2]\n RAW = ROOT / 'state/analysis/P7_motor_expected_metadata_raw'\n-FREEZE = RAW / 'independent_freeze01.json'\n+FREEZE = RAW / 'independent_freeze02.json'\n CONTRACT = 'state/analysis/P7_motor_expected_metadata_contract.md'\n CONTRACT_SHA = '2abaae2995e1938e4c7f0dcef2522c9334d9550bd77d9da37727b47a7940a846'\n PREDECESSOR_BLOB = 'cd825eb8f5496d023062d69a2d98bc2474492fde'\n@@ -310,8 +310,14 @@\n             for version in ['previous','current']:\n                 for probe in [0,1]:\n                     label=f'matrix-{name}-{version}-{probe}';binary=self.stage / 'matrix-executable'\n-                    self.command([*self.flags(probe,tree),*definitions,'-include',SHIM,\n+                    warning_flags=['-Wno-error=div-by-zero'] if name=='carrier_zero' else []\n+                    build=self.command([*self.flags(probe,tree),*warning_flags,*definitions,'-include',SHIM,\n                         '-DD202_SUBJECT=\"'+str(tree/'src/hal'/f'{version}.cpp')+'\"',CASES,*common,wrappers,'-o',binary],label+'-build')\n+                    if name=='carrier_zero':\n+                        self.assertEqual(metadata['CARRIER'],0)\n+                        self.assertEqual(build.stderr.count(b'warning:'),1)\n+                        self.assertEqual(build.stderr.count(b'warning: division by zero [-Wdiv-by-zero]'),1)\n+                        self.assertLessEqual(len(build.stderr),8000,'Full warning must fit the retained command receipt')\n                     reply=self.run_binary(binary,label+'-run');self.assertEqual(reply.stderr,b'')\n                     value=json.loads(reply.stdout);self.assertEqual(set(value),{'rates','periods','port','native_bytes','port_bytes','calls','allocations'})\n                     self.assertEqual(value['rates'],[*rates,0,0],label)\n",
+  "evidence": {
+    "state/analysis/P7_motor_expected_metadata_raw/metadata_first_linux01/commands/0382-matrix-carrier_zero-previous-0-build.json": {
+      "bytes": 2745,
+      "sha256": "036dc622ad937fe64bafa9100e8a872e7a2b6c1466f79e94206fc59765a9c0d5"
+    },
+    "state/analysis/P7_motor_expected_metadata_raw/metadata_first_linux01/commands/closing.json": {
+      "bytes": 337,
+      "sha256": "04f280da71cc1ee3c29205b8e9aa99df04c4df579e88d7cc2e1aea4103a3daf3"
+    },
+    "state/analysis/P7_motor_expected_metadata_raw/metadata_first_linux01/result.json": {
+      "bytes": 816,
+      "sha256": "30be8e67676755b78ef790a71e8be4e86c9b87270319cdcce6e52df29fdd8e9c"
+    }
+  },
+  "evidence_boundary": "This preserves and requires a fixture compile warning; it is not a warning-free zero-carrier build claim. The real config is unchanged. Runtime zero behavior will only be established by a subsequent authorized execution.",
+  "first_failure_commit": "4d7b92a9",
+  "name": "Carrier-zero fixture permits and requires the original guarded division warning",
+  "original_freeze": {
+    "bytes": 31325,
+    "path": "state/analysis/P7_motor_expected_metadata_raw/independent_freeze01.json",
+    "sha256": "0ff509960451c8e183ed636b5d60242a8175dd5fa7afc7623a8cf68bbbcd246d"
+  },
+  "original_oracle": {
+    "bytes": 22081,
+    "path": "tests/tooling/test_motor_expected_metadata.py",
+    "sha256": "2b8f66e344319542661239b03abb46a5c48333bb472cd338480728b15fbf206c"
+  },
+  "original_oracle_commit": "2b7449b2",
+  "schema": "d202-independent-oracle-correction-v1"
+}

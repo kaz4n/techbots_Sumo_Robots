@@ -17,7 +17,7 @@ import unittest
 
 ROOT = Path(__file__).resolve().parents[2]
 RAW = ROOT / 'state/analysis/P7_motor_expected_metadata_raw'
-FREEZE = RAW / 'independent_freeze01.json'
+FREEZE = RAW / 'independent_freeze02.json'
 CONTRACT = 'state/analysis/P7_motor_expected_metadata_contract.md'
 CONTRACT_SHA = '2abaae2995e1938e4c7f0dcef2522c9334d9550bd77d9da37727b47a7940a846'
 PREDECESSOR_BLOB = 'cd825eb8f5496d023062d69a2d98bc2474492fde'
@@ -310,8 +310,14 @@ class MotorExpectedMetadataTests(unittest.TestCase):
             for version in ['previous','current']:
                 for probe in [0,1]:
                     label=f'matrix-{name}-{version}-{probe}';binary=self.stage / 'matrix-executable'
-                    self.command([*self.flags(probe,tree),*definitions,'-include',SHIM,
+                    warning_flags=['-Wno-error=div-by-zero'] if name=='carrier_zero' else []
+                    build=self.command([*self.flags(probe,tree),*warning_flags,*definitions,'-include',SHIM,
                         '-DD202_SUBJECT="'+str(tree/'src/hal'/f'{version}.cpp')+'"',CASES,*common,wrappers,'-o',binary],label+'-build')
+                    if name=='carrier_zero':
+                        self.assertEqual(metadata['CARRIER'],0)
+                        self.assertEqual(build.stderr.count(b'warning:'),1)
+                        self.assertEqual(build.stderr.count(b'warning: division by zero [-Wdiv-by-zero]'),1)
+                        self.assertLessEqual(len(build.stderr),8000,'Full warning must fit the retained command receipt')
                     reply=self.run_binary(binary,label+'-run');self.assertEqual(reply.stderr,b'')
                     value=json.loads(reply.stdout);self.assertEqual(set(value),{'rates','periods','port','native_bytes','port_bytes','calls','allocations'})
                     self.assertEqual(value['rates'],[*rates,0,0],label)

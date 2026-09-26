@@ -1,0 +1,1308 @@
+{
+  "author_actions": {
+    "AST_syntax_check": true,
+    "device_call": false,
+    "new_production_body_read": false,
+    "new_production_hash_read": false,
+    "new_production_import_or_execution": false,
+    "test_or_compiler_execution": false
+  },
+  "author_role": "Separate same-model reused-context oracle author; contract and committed predecessor only; not implementation author or execution coordinator",
+  "created_utc": "2026-09-26T08:05:27.491028+00:00",
+  "current_implementation_policy": "Deliberately absent from author freeze. Coordinator freezes current implementation separately before first execution; oracle first reads and binds it at setUpClass runtime, then requires unchanged bytes at closing.",
+  "discrepancy_correction": {
+    "affected_builds": 4,
+    "expected_each_warning": "warning: division by zero [-Wdiv-by-zero]",
+    "permitted_warning_flag": "-Wno-error=div-by-zero",
+    "preserved_original_freeze": "state/analysis/P7_motor_expected_metadata_raw/independent_freeze01.json",
+    "record": "state/analysis/P7_motor_expected_metadata_raw/correction01.json",
+    "runtime_UBSan_unchanged": true,
+    "scope": "carrier_zero-only compiler warning admission; original assertion set retained and explicit warning evidence added",
+    "warning_limit_bytes": 8000
+  },
+  "files": {
+    "bench/app_motor_observe/app_motor_observe.ino": {
+      "bytes": 845,
+      "sha256": "1df77ff537ef354bcb6bae9141ad117881216df125581f0d4ade3e286a6f007b"
+    },
+    "bench/app_motor_observe/src/app_motor_observe.cpp": {
+      "bytes": 3116,
+      "sha256": "eec10eacd250590f4eb4a6b1c01b0cac925411c1f126fe45fda9401de3de4bb3"
+    },
+    "bench/app_motor_observe/src/app_motor_observe.h": {
+      "bytes": 2478,
+      "sha256": "25bf299be1e2b917a0f91e7ad933eec5179cbfe6d92273bed0a8d9f5ce97d77e"
+    },
+    "bench/motor_fault/src/motor_fault.cpp": {
+      "bytes": 7606,
+      "sha256": "a5e3624ec89cf37f8344e069fed2e2f25bce1be8e0e6911b7aee774297c2f8c6"
+    },
+    "bench/motor_fault/src/motor_fault.h": {
+      "bytes": 3618,
+      "sha256": "0b6daf206692baab509fba12ff1afb17b812caf1ff36817883b6ee9d358c1728"
+    },
+    "src/app/calibration_output.h": {
+      "bytes": 880,
+      "sha256": "ed7e085f8504895d375938ebac45f264e8da4c84d56fb4b6805095185464533a"
+    },
+    "src/app/configured_setup.h": {
+      "bytes": 1943,
+      "sha256": "df1e51e2a0f397e0e4c0e73f760383fb582ba759ca456bec7eccfa4aa956fc0d"
+    },
+    "src/app/dump_port.h": {
+      "bytes": 676,
+      "sha256": "9dca1b44c22e77ee1a8af17905452e9d3c509e5d798412b6cfde9cd5dcf1c4bb"
+    },
+    "src/app/native_sources_unoq.h": {
+      "bytes": 1689,
+      "sha256": "11cd88cc1ae4f94b4b0f3ccafbf68bc9087b7098cbb008ec5daeca4298c381b5"
+    },
+    "src/app/runtime.h": {
+      "bytes": 9819,
+      "sha256": "b25246026fa46415979039ab3c54399c5fdf659ff9f47df293ea459d3e2fde03"
+    },
+    "src/app/transaction.h": {
+      "bytes": 3710,
+      "sha256": "a3c3f12eb49e517f116560b1efed1376110da0e424f6a1714098fcc3c8a84b19"
+    },
+    "src/config.h": {
+      "bytes": 22873,
+      "sha256": "34d6d6bce215fc098c3c4ae8e2c4436cb66e50e4f73db81a7ef8da964ba242c6"
+    },
+    "src/core/countdown.h": {
+      "bytes": 17321,
+      "sha256": "283a8bbeda0e1f6b5f2c171c4d3a0e00fd2d3a0e532886c787d0ce55dca866f7"
+    },
+    "src/core/edge.h": {
+      "bytes": 13823,
+      "sha256": "b29b3982e27138be1fae361fde0b22e7ff58cf84e80d4cd4f3738a68c4796271"
+    },
+    "src/core/fsm.h": {
+      "bytes": 41126,
+      "sha256": "878e4524d6ceceec2a40b86158b11f8a5c18bd03afe35ee5507241dd89562485"
+    },
+    "src/core/governor.h": {
+      "bytes": 2023,
+      "sha256": "13c2f5b334aeaf799445ffbffb8c3632f06606999a282e44396cfce16d05e042"
+    },
+    "src/core/logframe.h": {
+      "bytes": 7841,
+      "sha256": "18bb21e9bff3765fb216f54b10be2c6e06c6380b551b9cd658ad9cb3f28b4660"
+    },
+    "src/core/motion.h": {
+      "bytes": 6982,
+      "sha256": "1d8baa81d23bc794562d9b3f695ba98eacd0a3fedfc3ae0f0b6ad4923d66fb78"
+    },
+    "src/core/openers.h": {
+      "bytes": 10478,
+      "sha256": "3982ac808a831bbf1ee17b2e5307129bd615e8d96de17488835e048679a743f4"
+    },
+    "src/core/opp_fusion.cpp": {
+      "bytes": 16361,
+      "sha256": "693cfa4e900783d0d7bff7995623862f67296e7223b9c31157cbf620bc316d85"
+    },
+    "src/core/opp_fusion.h": {
+      "bytes": 12108,
+      "sha256": "66b31cd0b85aaee4a52a6574fc596a4117bbc0ffcca8180936b29ab467cc454b"
+    },
+    "src/core/stall.h": {
+      "bytes": 3700,
+      "sha256": "88accba473a43b04949a30696d968f3aaf308493ef00a9ba16aa40018765b9e3"
+    },
+    "src/core/stand_sequence.h": {
+      "bytes": 1602,
+      "sha256": "8e4d3e8f631529555d3adb8031de8ea33f3a221c6326c9a09f13fd6b87f6f843"
+    },
+    "src/core/stop_trial.h": {
+      "bytes": 1026,
+      "sha256": "11e400c333cec032d321a28d72bdfaf1a7362dea4343a6b76f2b67f8198c6d0c"
+    },
+    "src/core/turn_trial.h": {
+      "bytes": 1892,
+      "sha256": "74f6a41c750e72f7b5ad355d8700da39054de702928fac52d5893f6cc72009c0"
+    },
+    "src/core/types.h": {
+      "bytes": 4094,
+      "sha256": "8fec6d334fcb1c631c48ed0a076100d2925fee812706af721bb8a208c8c5b8eb"
+    },
+    "src/hal/dump_uart_unoq.h": {
+      "bytes": 2227,
+      "sha256": "c924ae2fc21569884ae7bc9138de948da7358014c81be314a5cf0508fa508e6e"
+    },
+    "src/hal/imu.h": {
+      "bytes": 2743,
+      "sha256": "6c967d4a5a6a644036b2a80ae768cda2871dc55ec4e00fcb33f2d82f3821e750"
+    },
+    "src/hal/imu_acquisition.h": {
+      "bytes": 3658,
+      "sha256": "2528f6ff678550f2655ae6c42b1e133792385cdcec99a875712a2690b8b440df"
+    },
+    "src/hal/imu_adapter.h": {
+      "bytes": 654,
+      "sha256": "27ef58be36c239bee56c7f205cbf1a3043c7a472a90f78b5c06245385d4314d6"
+    },
+    "src/hal/imu_bus_unoq.h": {
+      "bytes": 6677,
+      "sha256": "bb00c91780ef35e4de7d9118039fec558218b0a63f5e9e141e23c2573b512ffe"
+    },
+    "src/hal/imu_heading.h": {
+      "bytes": 3175,
+      "sha256": "178f0c24a8b2b2c637a5fd6c860169906792f1d71acca662a8ec14448763848d"
+    },
+    "src/hal/line_qtr.h": {
+      "bytes": 3751,
+      "sha256": "a5127bb26470c1a842ed417be6e953706cacbe47a9c64f01f45e1a1da7d52e24"
+    },
+    "src/hal/line_qtr_adapter.h": {
+      "bytes": 1638,
+      "sha256": "2374055556fe4f3e2ddf1ec7273e11135256cbaa553d2e88b67c9647067dff54"
+    },
+    "src/hal/motor_port_unoq.h": {
+      "bytes": 1427,
+      "sha256": "7f09a544a032b35207de7c5f074f3f1fd3de9e74c3b482579f819eaa39020ef5"
+    },
+    "src/hal/motor_settle_probe.h": {
+      "bytes": 2366,
+      "sha256": "2eced554fce20ff938daf44866ee0bad6d99fa28e377af762bb0f037376b75a8"
+    },
+    "src/hal/motors.cpp": {
+      "bytes": 9997,
+      "sha256": "2e6f560fca84c1ed77356299e6442afaff8dff05fcf34d51cd59c9454553198b"
+    },
+    "src/hal/motors.h": {
+      "bytes": 2428,
+      "sha256": "8128aa9fdbfc2bde8c811dbd82c4c79a75e625dd5714facfae44bffbe92bf149"
+    },
+    "src/hal/native_pins.cpp": {
+      "bytes": 629,
+      "sha256": "222a95a33995065596ec4a08bc1a4fe925b7743aa2bb7b27c24195230376b008"
+    },
+    "src/hal/native_pins.h": {
+      "bytes": 456,
+      "sha256": "34b4fb42e33ec2232f4574c997d4a701ec5a75efcbb12f37d5040e266c13022c"
+    },
+    "src/hal/opp_sensors.h": {
+      "bytes": 935,
+      "sha256": "445fb48b903b32fdc885bae41cd1d5e923aac12195363379881a2f7cee0ca97b"
+    },
+    "src/hal/power.h": {
+      "bytes": 3142,
+      "sha256": "22dfc8aad43c164fbd1f078b2aa3f3e5377e8a314aede60ce19172b7f51fb94d"
+    },
+    "src/hal/power_inputs.h": {
+      "bytes": 3521,
+      "sha256": "4c36caf8eb8d2e80380cf993cfbe8682a030ed21cb7dd08d513584b11ce20864"
+    },
+    "src/hal/qtr_cal.h": {
+      "bytes": 2925,
+      "sha256": "d8af2a7ad89974642b2afd84904cae740f981d822184ef3351b832157ca5e03e"
+    },
+    "src/hal/recorder.h": {
+      "bytes": 3247,
+      "sha256": "51a95f35475c38588acdc7cd12c372f0c11afd482077c556a98c92baa169ffec"
+    },
+    "src/hal/recorder_csv.h": {
+      "bytes": 2387,
+      "sha256": "0be2bebf0d8cc80376fcd4ca259a258e028647f4103dab5934bc7b972f12d8e2"
+    },
+    "src/hal/recorder_dump.h": {
+      "bytes": 3034,
+      "sha256": "9d6f56ad1472ca4f66cb6e4ea7ad217baa89b39270bd8a4ebf1467314a663c17"
+    },
+    "src/hal/recorder_frames.h": {
+      "bytes": 2945,
+      "sha256": "093ef637e29f3f84d685d12842eeb1a0540a21646cb42a9dbfa005a734113d53"
+    },
+    "src/hal/ui.h": {
+      "bytes": 889,
+      "sha256": "fc0231e65be092c8b26d73fc16b0c13d220347c30e5959d00aed13acb811a326"
+    },
+    "src/hal/ui_display.h": {
+      "bytes": 2314,
+      "sha256": "5619adc7a0228fca3b15cb2ef2007d71eea4e620a41616de5e4a7f0c25004e02"
+    },
+    "src/hal/ui_matrix_unoq.h": {
+      "bytes": 1344,
+      "sha256": "4df1c4f5404c0c19b032d62f7e1a24777da3ce328030afbab7a7d41d824d5024"
+    },
+    "state/analysis/P7_motor_expected_metadata_contract.md": {
+      "bytes": 6222,
+      "sha256": "2abaae2995e1938e4c7f0dcef2522c9334d9550bd77d9da37727b47a7940a846"
+    },
+    "state/analysis/P7_motor_expected_metadata_raw/correction01.json": {
+      "bytes": 4802,
+      "sha256": "0ba239f9d4183206d5326f3df98e097c4b6a8c6b272acb82b5bff6f48bfdb154"
+    },
+    "state/analysis/P7_motor_expected_metadata_raw/independent_freeze01.json": {
+      "bytes": 31325,
+      "sha256": "0ff509960451c8e183ed636b5d60242a8175dd5fa7afc7623a8cf68bbbcd246d"
+    },
+    "state/analysis/P7_motor_expected_metadata_raw/metadata_first_linux01/commands/0382-matrix-carrier_zero-previous-0-build.json": {
+      "bytes": 2745,
+      "sha256": "036dc622ad937fe64bafa9100e8a872e7a2b6c1466f79e94206fc59765a9c0d5"
+    },
+    "state/analysis/P7_motor_expected_metadata_raw/metadata_first_linux01/commands/closing.json": {
+      "bytes": 337,
+      "sha256": "04f280da71cc1ee3c29205b8e9aa99df04c4df579e88d7cc2e1aea4103a3daf3"
+    },
+    "state/analysis/P7_motor_expected_metadata_raw/metadata_first_linux01/result.json": {
+      "bytes": 816,
+      "sha256": "30be8e67676755b78ef790a71e8be4e86c9b87270319cdcce6e52df29fdd8e9c"
+    },
+    "state/analysis/P7_motor_settle_compile_raw/inputs_static.json": {
+      "bytes": 13432,
+      "sha256": "aa314548521968fd3b1b7b1ef415da3c72c90a6bc914d0a9204ff707bcd7d282"
+    },
+    "state/analysis/P7_motor_settle_probe_contract.md": {
+      "bytes": 12585,
+      "sha256": "3346b11970814ce7703c48f56cb38405449453964bb79d1740d5a49e78610f7c"
+    },
+    "tests/locked/native_motor_port/Arduino.h": {
+      "bytes": 272,
+      "sha256": "15e697c1fc030df2f4a0a4b83412e0c3ae017ae8bb5bbba4f8632e38798c9e14"
+    },
+    "tests/locked/native_motor_port/cases.cc": {
+      "bytes": 22990,
+      "sha256": "7d01821ab2ccc042140e9433bb3207b943331868726e41f644d45ca2006de312"
+    },
+    "tests/locked/native_motor_port/installed_tim_bits.h": {
+      "bytes": 20310,
+      "sha256": "bcff4119b6a4458e750bf793654de316fa1a1b1e9213cf74d8b5c3b3ec31fa56"
+    },
+    "tests/locked/native_motor_port/mapping.h": {
+      "bytes": 3480,
+      "sha256": "2a091472935328cc96c80ca50b0aac7485d036319ed63967df7e5cb743f614d9"
+    },
+    "tests/locked/native_motor_port/metadata_cases.cc": {
+      "bytes": 844,
+      "sha256": "278d733f2d2ff226fdd08a8e6f4d9ab2579b48ada2c9304c966dc74f16d0ae58"
+    },
+    "tests/locked/native_motor_port/native_fixture.cc": {
+      "bytes": 9292,
+      "sha256": "8119661047e90a5d1aff4b946986385591f6a5b5fdcee92a4f2f302a1e3d2aa2"
+    },
+    "tests/locked/native_motor_port/native_fixture.h": {
+      "bytes": 1988,
+      "sha256": "2dad212ae2eb1d116e79f450345f6d171a8da15d1a5408ff34fc10921510cae5"
+    },
+    "tests/locked/native_motor_port/probe_cases.cc": {
+      "bytes": 918,
+      "sha256": "2ea1dc4df62bbfb03563857ac3f4142703d2074712b021ac04bba24b3222084d"
+    },
+    "tests/locked/native_motor_port/stm32_ll_gpio.h": {
+      "bytes": 257,
+      "sha256": "284e0a6136097a252e55b4ce766c8985ba856770009afe424c5e393afbfb82c2"
+    },
+    "tests/locked/native_motor_port/stm32u5xx_ll_gpio.h": {
+      "bytes": 1138,
+      "sha256": "5d6f325082b382e6929892c5bb08d69fed38a8cd2a51967c5568184a4fcd444c"
+    },
+    "tests/locked/native_motor_port/stm32u5xx_ll_tim.h": {
+      "bytes": 1517,
+      "sha256": "cb25f2a713753e7ac4c361e1ea7962a6feec25d6701d32cf97faa57a69dba388"
+    },
+    "tests/locked/native_motor_port/test_main.cc": {
+      "bytes": 313,
+      "sha256": "b0277646bed186fb2567028ff5a58f57f0f0b0ecf014bb1d7879a889dce27640"
+    },
+    "tests/locked/native_motor_port/wiring_private.h": {
+      "bytes": 3900,
+      "sha256": "ccb299f460b3132a5b8016789158255aebc8b5860d3ae0dca329318558336391"
+    },
+    "tests/locked/native_motor_port/zephyr/device.h": {
+      "bytes": 351,
+      "sha256": "dd3d0eb520f810ce7a2bb6159e6c52f0835a93e98027e4dee38e39bdcf88fb51"
+    },
+    "tests/locked/native_motor_port/zephyr/devicetree.h": {
+      "bytes": 3255,
+      "sha256": "04780c7a52eee68278b2f03e36a3063c25ac1dfd29490345acf1782e06cd705c"
+    },
+    "tests/locked/native_motor_port/zephyr/drivers/clock_control/stm32_clock_control.h": {
+      "bytes": 387,
+      "sha256": "8983398006cfe0bcdf3504807f405df4c3da8dcd8c99f0ece20087373c4d077d"
+    },
+    "tests/locked/native_motor_port/zephyr/drivers/gpio.h": {
+      "bytes": 1066,
+      "sha256": "3318427099a7d0d48b9bc4f5b8d353e7a43903eed43569ec6f8b4c066f171524"
+    },
+    "tests/locked/native_motor_port/zephyr/drivers/pwm.h": {
+      "bytes": 823,
+      "sha256": "15d2d808364c7a1cd988f99d502a53f569ccc58f6a688ab5f3f1c32d5e5dd2af"
+    },
+    "tests/locked/native_motor_port/zephyrPinctrl.h": {
+      "bytes": 709,
+      "sha256": "7d2ab5bf595539610eca1f988ed822d68283bf004891af71a5a70e1629e18472"
+    },
+    "tests/native_motor_expected_metadata_cases.cc": {
+      "bytes": 2343,
+      "sha256": "c23841c8a70f6f304f6ec75a88244a961b9810904c74cc43e425c95a01a1c285"
+    },
+    "tests/native_motor_expected_metadata_shim.h": {
+      "bytes": 1406,
+      "sha256": "9d17078a439f65b5aa1f4feb563cce8c1c040d8e5c5c602f97c648080bb0874e"
+    },
+    "tests/native_motor_settle_probe_cases.cc": {
+      "bytes": 13889,
+      "sha256": "0ad263b07585c431edd5199c99f18b775befe6a6be7e95235973dd1e3bc7c93c"
+    },
+    "tests/tooling/test_motor_expected_metadata.py": {
+      "bytes": 22611,
+      "sha256": "7378ed6a1f13e32a8ac6477c39d115dc34efb2217caf7ec75f0bac25d81a2db1"
+    },
+    "tests/tooling/test_motor_port_unoq.py": {
+      "bytes": 9136,
+      "sha256": "71b25cce8042dfcb2cd49b1fe35f0c6f548185fff836f987fa42faba416cd152"
+    },
+    "tests/tooling/test_motor_settle_probe.py": {
+      "bytes": 15597,
+      "sha256": "29c6cac3d837263d7e1a90b2a677dade79915e02970cea53e839933ec502a183"
+    }
+  },
+  "first_run": {
+    "argv": [
+      "python3",
+      "-B",
+      "tests/tooling/test_motor_expected_metadata.py"
+    ],
+    "cwd": "repository root",
+    "environment": {
+      "SUMO_EXPECTED_METADATA_RECEIPT_DIR": "state/analysis/P7_motor_expected_metadata_raw/host_commands02",
+      "TMPDIR": "/dev/shm"
+    },
+    "receipt_owner_rule": "Fresh exclusive directory for corrected run; first owner must not be reused. Parent must already exist. Coordinator may select another fresh path with this same environment variable."
+  },
+  "isolated_fixture_projections": {
+    "DT_metadata_rule": "Include unchanged locked fake DT header first, then override only the 13 listed RCC/PSC/domain-selector fixture macros using explicit D202 scalar compiler definitions; no locked fixture edit",
+    "body_policy": "Previous/current subject copies remain exact opaque bytes; metadata harness includes each original translation-unit copy",
+    "carrier_original_literal": "inline constexpr std::uint32_t MOTOR_PWM_HZ = 10000U; // Hz",
+    "carrier_projections": [
+      {
+        "after_sha256": "46912f41df521501ceaa24410b7ad74db09fde814bd50055c7149900b46eeb84",
+        "before_sha256": "34d6d6bce215fc098c3c4ae8e2c4436cb66e50e4f73db81a7ef8da964ba242c6",
+        "carrier": 0,
+        "count": 1
+      },
+      {
+        "after_sha256": "611aa5ebd01225e88d5cfa047f79aa3c2e8204248147bff7faa5853650833a77",
+        "before_sha256": "34d6d6bce215fc098c3c4ae8e2c4436cb66e50e4f73db81a7ef8da964ba242c6",
+        "carrier": 1,
+        "count": 1
+      },
+      {
+        "after_sha256": "325053a25deccaab00928b704e85460bade097a5bb705d94afd82cf3f2ccfa53",
+        "before_sha256": "34d6d6bce215fc098c3c4ae8e2c4436cb66e50e4f73db81a7ef8da964ba242c6",
+        "carrier": 3,
+        "count": 1
+      },
+      {
+        "after_sha256": "34d6d6bce215fc098c3c4ae8e2c4436cb66e50e4f73db81a7ef8da964ba242c6",
+        "before_sha256": "34d6d6bce215fc098c3c4ae8e2c4436cb66e50e4f73db81a7ef8da964ba242c6",
+        "carrier": 10000,
+        "count": 1
+      },
+      {
+        "after_sha256": "a18ecd9ecb7ac6a24020badd630befaed8a5cb124f91066ca03a5ff1355f961c",
+        "before_sha256": "34d6d6bce215fc098c3c4ae8e2c4436cb66e50e4f73db81a7ef8da964ba242c6",
+        "carrier": 4294967295,
+        "count": 1
+      }
+    ],
+    "header_count": 43,
+    "header_policy": "Copy pinned src headers unchanged except one exact MOTOR_PWM_HZ value seam in the uniquely owned scratch tree; no real config/header edit",
+    "shim_path": "tests/native_motor_expected_metadata_shim.h"
+  },
+  "limits": [
+    "Host fixtures and exact transcript equivalence do not establish target instruction timing or electrical acceptance.",
+    "No target compile, upload, MCU read, motor run or phase gate is authorized by this freeze.",
+    "Pre-existing D197 whole-symbol regression remains separately executable and any failure must be preserved and adjudicated."
+  ],
+  "numeric_matrix": {
+    "defaults": {
+      "AHB": 1,
+      "APB1": 1,
+      "APB2": 1,
+      "CARRIER": 10000,
+      "DIV0": 0,
+      "DIV1": 0,
+      "DIV2": 0,
+      "DOMAIN0": 14,
+      "DOMAIN1": 13,
+      "DOMAIN2": 13,
+      "HCLK": 160000000,
+      "PSC0": 63,
+      "PSC1": 4,
+      "PSC2": 4,
+      "SELECTOR0": 255,
+      "SELECTOR1": 255,
+      "SELECTOR2": 255
+    },
+    "indices": [
+      0,
+      1,
+      2,
+      3,
+      4294967295
+    ],
+    "numeric_expected_values": "Explicit independent integers; no subject calculation generates expected rates or periods",
+    "probe_flags": [
+      0,
+      1
+    ],
+    "rate_and_period_index_pairs": 900,
+    "rows": [
+      [
+        "default_apb1",
+        {},
+        [
+          2500000,
+          32000000,
+          32000000
+        ],
+        [
+          250,
+          3200,
+          3200
+        ]
+      ],
+      [
+        "both_apb2",
+        {
+          "APB1": 2,
+          "APB2": 2
+        },
+        [
+          2500000,
+          32000000,
+          32000000
+        ],
+        [
+          250,
+          3200,
+          3200
+        ]
+      ],
+      [
+        "both_apb4",
+        {
+          "APB1": 4,
+          "APB2": 4
+        },
+        [
+          1250000,
+          16000000,
+          16000000
+        ],
+        [
+          125,
+          1600,
+          1600
+        ]
+      ],
+      [
+        "both_apb8",
+        {
+          "APB1": 8,
+          "APB2": 8
+        },
+        [
+          625000,
+          8000000,
+          8000000
+        ],
+        [
+          0,
+          800,
+          800
+        ]
+      ],
+      [
+        "both_apb16",
+        {
+          "APB1": 16,
+          "APB2": 16
+        },
+        [
+          312500,
+          4000000,
+          4000000
+        ],
+        [
+          0,
+          400,
+          400
+        ]
+      ],
+      [
+        "apb1_zero",
+        {
+          "APB1": 0
+        },
+        [
+          2500000,
+          0,
+          0
+        ],
+        [
+          250,
+          0,
+          0
+        ]
+      ],
+      [
+        "apb1_nonpower",
+        {
+          "APB1": 3
+        },
+        [
+          2500000,
+          0,
+          0
+        ],
+        [
+          250,
+          0,
+          0
+        ]
+      ],
+      [
+        "apb1_over16",
+        {
+          "APB1": 32
+        },
+        [
+          2500000,
+          0,
+          0
+        ],
+        [
+          250,
+          0,
+          0
+        ]
+      ],
+      [
+        "apb2_zero",
+        {
+          "APB2": 0
+        },
+        [
+          0,
+          32000000,
+          32000000
+        ],
+        [
+          0,
+          3200,
+          3200
+        ]
+      ],
+      [
+        "apb2_nonpower",
+        {
+          "APB2": 3
+        },
+        [
+          0,
+          32000000,
+          32000000
+        ],
+        [
+          0,
+          3200,
+          3200
+        ]
+      ],
+      [
+        "apb2_over16",
+        {
+          "APB2": 32
+        },
+        [
+          0,
+          32000000,
+          32000000
+        ],
+        [
+          0,
+          3200,
+          3200
+        ]
+      ],
+      [
+        "apb1_nondivisible",
+        {
+          "APB1": 2,
+          "CARRIER": 1,
+          "HCLK": 160000001,
+          "PSC0": 0,
+          "PSC1": 0,
+          "PSC2": 0
+        },
+        [
+          160000001,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      [
+        "apb2_nondivisible",
+        {
+          "APB2": 2,
+          "CARRIER": 1,
+          "HCLK": 160000001,
+          "PSC0": 0,
+          "PSC1": 0,
+          "PSC2": 0
+        },
+        [
+          0,
+          160000001,
+          160000001
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      [
+        "hclk_zero",
+        {
+          "HCLK": 0
+        },
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      [
+        "hclk_80mhz",
+        {
+          "HCLK": 80000000
+        },
+        [
+          1250000,
+          16000000,
+          16000000
+        ],
+        [
+          125,
+          1600,
+          1600
+        ]
+      ],
+      [
+        "ahb_zero",
+        {
+          "AHB": 0
+        },
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      [
+        "ahb_two_does_not_divide_hclk_twice",
+        {
+          "AHB": 2
+        },
+        [
+          2500000,
+          32000000,
+          32000000
+        ],
+        [
+          250,
+          3200,
+          3200
+        ]
+      ],
+      [
+        "prescalers_zero",
+        {
+          "PSC0": 0,
+          "PSC1": 0,
+          "PSC2": 0
+        },
+        [
+          160000000,
+          160000000,
+          160000000
+        ],
+        [
+          16000,
+          16000,
+          16000
+        ]
+      ],
+      [
+        "prescalers_asymmetric",
+        {
+          "PSC0": 0,
+          "PSC1": 7,
+          "PSC2": 15
+        },
+        [
+          160000000,
+          20000000,
+          10000000
+        ],
+        [
+          16000,
+          2000,
+          1000
+        ]
+      ],
+      [
+        "prescalers_max",
+        {
+          "HCLK": 6553600000,
+          "PSC0": 65535,
+          "PSC1": 65535,
+          "PSC2": 65535
+        },
+        [
+          100000,
+          100000,
+          100000
+        ],
+        [
+          10,
+          10,
+          10
+        ]
+      ],
+      [
+        "prescaler0_overmax",
+        {
+          "PSC0": 65536
+        },
+        [
+          0,
+          32000000,
+          32000000
+        ],
+        [
+          0,
+          3200,
+          3200
+        ]
+      ],
+      [
+        "prescaler1_overmax",
+        {
+          "PSC1": 65536
+        },
+        [
+          2500000,
+          0,
+          32000000
+        ],
+        [
+          250,
+          0,
+          3200
+        ]
+      ],
+      [
+        "prescaler2_overmax",
+        {
+          "PSC2": 65536
+        },
+        [
+          2500000,
+          32000000,
+          0
+        ],
+        [
+          250,
+          3200,
+          0
+        ]
+      ],
+      [
+        "prescalers_uint32max",
+        {
+          "PSC0": 4294967295,
+          "PSC1": 4294967295,
+          "PSC2": 4294967295
+        },
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      [
+        "prescaler0_nondivisible",
+        {
+          "PSC0": 2
+        },
+        [
+          0,
+          32000000,
+          32000000
+        ],
+        [
+          0,
+          3200,
+          3200
+        ]
+      ],
+      [
+        "prescaler1_nondivisible",
+        {
+          "PSC1": 2
+        },
+        [
+          2500000,
+          0,
+          32000000
+        ],
+        [
+          250,
+          0,
+          3200
+        ]
+      ],
+      [
+        "prescaler2_nondivisible",
+        {
+          "PSC2": 2
+        },
+        [
+          2500000,
+          32000000,
+          0
+        ],
+        [
+          250,
+          3200,
+          0
+        ]
+      ],
+      [
+        "domain0_wrong",
+        {
+          "DOMAIN0": 13
+        },
+        [
+          0,
+          32000000,
+          32000000
+        ],
+        [
+          0,
+          3200,
+          3200
+        ]
+      ],
+      [
+        "domain1_wrong",
+        {
+          "DOMAIN1": 14
+        },
+        [
+          2500000,
+          0,
+          32000000
+        ],
+        [
+          250,
+          0,
+          3200
+        ]
+      ],
+      [
+        "domain2_wrong",
+        {
+          "DOMAIN2": 14
+        },
+        [
+          2500000,
+          32000000,
+          0
+        ],
+        [
+          250,
+          3200,
+          0
+        ]
+      ],
+      [
+        "selector0_wrong",
+        {
+          "SELECTOR0": 254
+        },
+        [
+          0,
+          32000000,
+          32000000
+        ],
+        [
+          0,
+          3200,
+          3200
+        ]
+      ],
+      [
+        "selector1_wrong",
+        {
+          "SELECTOR1": 0
+        },
+        [
+          2500000,
+          0,
+          32000000
+        ],
+        [
+          250,
+          0,
+          3200
+        ]
+      ],
+      [
+        "selector2_wrong",
+        {
+          "SELECTOR2": 256
+        },
+        [
+          2500000,
+          32000000,
+          0
+        ],
+        [
+          250,
+          3200,
+          0
+        ]
+      ],
+      [
+        "encoded_divisor0",
+        {
+          "DIV0": 1
+        },
+        [
+          0,
+          32000000,
+          32000000
+        ],
+        [
+          0,
+          3200,
+          3200
+        ]
+      ],
+      [
+        "encoded_divisor1",
+        {
+          "DIV1": 1
+        },
+        [
+          2500000,
+          0,
+          32000000
+        ],
+        [
+          250,
+          0,
+          3200
+        ]
+      ],
+      [
+        "encoded_divisor2",
+        {
+          "DIV2": 1
+        },
+        [
+          2500000,
+          32000000,
+          0
+        ],
+        [
+          250,
+          3200,
+          0
+        ]
+      ],
+      [
+        "carrier_zero",
+        {
+          "CARRIER": 0
+        },
+        [
+          2500000,
+          32000000,
+          32000000
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      [
+        "carrier_nondivisible",
+        {
+          "CARRIER": 3
+        },
+        [
+          2500000,
+          32000000,
+          32000000
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      [
+        "period_one",
+        {
+          "HCLK": 10000,
+          "PSC0": 0,
+          "PSC1": 0,
+          "PSC2": 0
+        },
+        [
+          10000,
+          10000,
+          10000
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ],
+      [
+        "period_65536",
+        {
+          "HCLK": 655360000,
+          "PSC0": 0,
+          "PSC1": 0,
+          "PSC2": 0
+        },
+        [
+          655360000,
+          655360000,
+          655360000
+        ],
+        [
+          65536,
+          65536,
+          65536
+        ]
+      ],
+      [
+        "period_65537",
+        {
+          "HCLK": 655370000,
+          "PSC0": 0,
+          "PSC1": 0,
+          "PSC2": 0
+        },
+        [
+          655370000,
+          655370000,
+          655370000
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      [
+        "period_below_one",
+        {
+          "HCLK": 5000,
+          "PSC0": 0,
+          "PSC1": 0,
+          "PSC2": 0
+        },
+        [
+          5000,
+          5000,
+          5000
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      [
+        "hclk_above_uint32",
+        {
+          "CARRIER": 1,
+          "HCLK": 4294967296,
+          "PSC0": 65535,
+          "PSC1": 65535,
+          "PSC2": 65535
+        },
+        [
+          65536,
+          65536,
+          65536
+        ],
+        [
+          65536,
+          65536,
+          65536
+        ]
+      ],
+      [
+        "hclk_uint64max",
+        {
+          "CARRIER": 4294967295,
+          "HCLK": 18446744073709551615,
+          "PSC0": 0,
+          "PSC1": 0,
+          "PSC2": 0
+        },
+        [
+          18446744073709551615,
+          18446744073709551615,
+          18446744073709551615
+        ],
+        [
+          0,
+          0,
+          0
+        ]
+      ],
+      [
+        "carrier_uint32max_period_one",
+        {
+          "CARRIER": 4294967295,
+          "HCLK": 4294967295,
+          "PSC0": 0,
+          "PSC1": 0,
+          "PSC2": 0
+        },
+        [
+          4294967295,
+          4294967295,
+          4294967295
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ]
+    ],
+    "variant_builds": 180,
+    "variant_runs": 180,
+    "variants": 45,
+    "versions": [
+      "committed_previous",
+      "current"
+    ],
+    "whole_port_rule": "Four channel indices 1,0,1,2; all periods zero if any candidate period is zero"
+  },
+  "planned_methods": [
+    "test_01_exact_outside_region_and_derivation_bodies",
+    "test_02_runtime_helpers_force_three_automatic_constexpr_scalar_results",
+    "test_03_all_21_full_transcripts_previous_current_probe0_probe1",
+    "test_04_explicit_numeric_matrix_and_whole_port_zeroing",
+    "test_05_probe0_report_absent_probe1_single_zero_initialized_report_present",
+    "test_06_public_probe_exclusion_and_inert_guards_remain",
+    "test_07_all_frozen_headers_config_d197_and_locked_fixtures_preserved"
+  ],
+  "predecessor": {
+    "allowed_region_bytes": 1434,
+    "allowed_region_sha256": "0627c125cb0369b2fb597e24e2d53cde443db257b8d5da6ed03eae6c0685f34b",
+    "bytes": 19185,
+    "commit": "ff35c83e6d21d299dac14eb6fc5570d173a7772d",
+    "git_blob": "cd825eb8f5496d023062d69a2d98bc2474492fde",
+    "path": "src/hal/motor_port_unoq.cpp",
+    "prefix_before_allowed_region_bytes": 3918,
+    "prefix_sha256": "1082a1e104ffcc82259007af28490349d95961707a7d7616e78f39f83bb51361",
+    "sha256": "f1ee755a7bddec38e86545f4c5e5457b3ed5e5f1bdd7f5cf368cc77f91664f5e",
+    "suffix_bytes": 13833,
+    "suffix_sha256": "15d2b213e65a328fd55af3850e8871a633371efe38f14c6798db64f387ebb49a"
+  },
+  "resources": {
+    "TMPDIR": "Unique owned RAM scratch while commands execute",
+    "UBSAN_OPTIONS": "halt_on_error=1:print_stacktrace=1",
+    "cleanup": "Class cleanup verifies all frozen inputs and unchanged current subject, resolves exact owned /dev/shm/sumox-d202-* target and rejects symlink/escaped parent, preserves compact command and closing evidence, recursively removes only that unique scratch tree and checks absence",
+    "each_command_timeout_seconds": 120,
+    "estimated_duration": "3-8 minutes, host-dependent; no author execution estimate asserted as measurement",
+    "execution": "Anonymous memfd path /proc/self/fd with inherited descriptor; no board calls",
+    "minimum_scratch_free_bytes": 134217728,
+    "planned_command_receipts": 465,
+    "platform": "Linux only; unsupported platforms raise, no silent skip",
+    "python": [
+      "python3",
+      "-B"
+    ],
+    "scratch_parent": "/dev/shm",
+    "scratch_prefix": "sumox-d202-",
+    "serial_compiler_processes": 1
+  },
+  "schema": "d202-independent-expected-metadata-freeze-v2",
+  "separate_probe_checks": {
+    "inert_guards": 3,
+    "nm_queries": 4,
+    "objects": 4,
+    "probe0": "No report/accessor/helper probe symbols plus inaccessible public accessor diagnostic",
+    "probe1": "One 28-byte BSS report, one text accessor, runtime zero initial report, no dynamic constructor symbol",
+    "whole_symbol_inventory": "Unchanged D197 suite is run separately. No symbol filtering, used attribute or relaxation is applied to that suite."
+  },
+  "status": "FROZEN_CORRECTED_CARRIER_ZERO_FIXTURE_BEFORE_REEXECUTION_WITH_PRODUCTION_BODY_STILL_UNREAD_BY_AUTHOR",
+  "transcripts": {
+    "assertion": "Exact complete stdout bytes and empty stderr across previous/current and probe0/probe1, including ordered hardware/clock/allocation diagnostics",
+    "builds": 4,
+    "executions": 84,
+    "scenario_count": 21,
+    "scenarios": [
+      "null",
+      "unconfigured",
+      "missing0",
+      "missing1",
+      "missing2",
+      "missing3",
+      "enable_readback",
+      "initial_rate",
+      "initial_register",
+      "loop_ready",
+      "loop_register",
+      "final149",
+      "final150",
+      "final151",
+      "wrap149",
+      "wrap150",
+      "loop_deadline",
+      "limit_zero",
+      "limit_partial",
+      "first_failure",
+      "gate_cleanup"
+    ],
+    "unchanged_cases_path": "tests/native_motor_settle_probe_cases.cc"
+  }
+}

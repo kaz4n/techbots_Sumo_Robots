@@ -16,9 +16,11 @@ layout validation and all nine closing checks. The package is 92,092 bytes; see
 [the compile evidence](../state/analysis/P7_match_static_actual_validation.md).
 It was not uploaded. The board retains the inhibited synthetic diagnostic.
 
-A final scope audit found no additional concrete software feature missing from
-the current runbook. Implementation and available board-only checks are complete;
-competition readiness still requires the physical acceptance below.
+The [full requirement audit](../state/analysis/P7_full_requirement_audit_20260927.md)
+found remaining P2.2 measurement preparation: outer-loop timing and a fixed
+five-minute sample window. D243 is implementing that support. B7 also needs an
+explicit resolution of its full-reverse versus R6 conflict. P6 judge deliverables
+remain conditional on the real P4 gate. The full project is not complete.
 
 The connected-board result uses synthetic inputs. Wiring, pin acceptance,
 sensor calibration, actual motor behavior, initialized robot timing, stopping

@@ -28,9 +28,11 @@ Current software already preserves logs during service reset; export and validat
 before normal reset. A fixed recording session is single use even after failure.
 Native cancellation/reopen and general router cleanliness remain unqualified.
 
-The narrow completion audit found no additional concrete firmware/tool feature
-missing from the active runbook scope. Its immediate remainder is the current
-compile evidence and documentation reconciliation. Do not infer physical
+The [full requirement audit](P7_full_requirement_audit_20260927.md) supersedes
+the earlier narrow completion statement. D243 is preparing outer-loop timing
+and a fixed five-minute population for P2.2. B7 retains its protected R6 conflict;
+P6 deliverables remain absent and currently ineligible. Current compile and
+synthetic-delivery evidence are accepted within their stated scopes. Do not infer physical
 acceptance from host tests, artifact layout or the synthetic board experiment.
 
 The schedule in PLAN.md remains controlling: P3 scope decision at end 28 September,

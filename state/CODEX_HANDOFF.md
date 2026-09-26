@@ -1,3 +1,33 @@
+## Current checkpoint - 2026-09-27T03:15:37.181087+04:00
+
+Full-goal continuation found a concrete P2.2 software measurement gap; do not
+repeat the earlier narrow assertion that all software preparation is finished.
+D242 full requirement audit atab71e01e is state/analysis/P7_full_requirement_audit_20260927.md.
+Allphysical/humangates remain absent; P6plotter/JUDGE_PACK are absent butcurrently
+ineligible. OriginalB7 fullreverse conflictswithR6 underD121; an explicituser
+choice ispending viaasync question. Silence doesnot authorizeanexception.
+
+D243 ACTIVE authorrecorder_diag, contractcommita4540854c3a730fe3531a0f6188153e2d0340891,
+state/analysis/P7_outer_loop_timing_contract.md. Reviewerrecorder_delivery_review
+accepteddesignandawaitsimplementation/focusedtests. Scopednewouter_loop_timing.h,
+app.ino timing-profileonlybinding,newdiagnosticwindowconstant,focusedtests.
+Consecutiveentry wallintervals includeRuntime/allpaths,observerandframeworkgap;
+300sstartcohort+straddler+one separatedrain,thenimmutablepublication. Bothall-poll
+andcompleted-labelled distributions,overlappingfailureevidence,clock/saturation/
+partialpopulationlimitations; notpureCPUWCET/all-sensoracceptance. NoRuntime/HAL/
+control/grant/lockedtestchanges ornewcaptureframework. Authorownsitscode/tests/
+contract/validation; rootownsAGENTS/currentstatus/fullaudit/gaterequest/ledgers.
+No nativeprocessactive. Rootlater serialtimingM0/currentproductioncompile-only
+afterhost/review; noM1upload orrun. SaveactualELFretainedobserveridentityfortiming
+profile and verifyobserverabsentordinaryMATCH. ExistingD229S..C unchanged.
+
+Lastactualcompiledsourceis6306c88e (D241),notyetnewD243. D241actualdbbac69aPASS,
+rawccd84fe7/acceptanceab71e01e; package92092B7895a4d8,structuralRAM91280B. D239
+loadedimage remainsinhibitedsyntheticrecorder3a1bbd2f,full607508B/5001frames/8events
+deliveryaccepted4408e544. Do not rerununchangedcaptureoroldconsumedowners.
+Oldpolicyblockedlocalstagedeletionsuntouched. Goalactive,progressisnewtiming
+preparationandfullrequirements/doccorrection; no completionorblockedclaim.
+
 ## Current checkpoint - 2026-09-27T03:03:51.754983+04:00
 
 Objective: finish the project software with the connected UNO Q; current hardware

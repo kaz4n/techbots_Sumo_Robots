@@ -118,13 +118,15 @@ The agent creates these scripts in P0 and updates this table once they work.
 | Host tests | `tools/test_host.sh` |
 | Read-only board inventory (ADB verified; missing utilities reported) | `tools/preflight.sh` |
 | Build + flash a bench sketch | `tools/flash.sh bench/<name>` |
-| Build + flash match firmware | `tools/flash.sh app --match` |
-| Compile only (no upload) | `tools/flash.sh app --compile-only` |
+| Compile current static/Immediate competition firmware (no upload) | `python -I -B tools/compile_match_static.py --check-only --profile match --motors-allowed 1 --attempt TOKEN --reviewed-head FULL_HEAD`, then the same command with `--execute` after admission |
+| Upload an already qualified static competition build | `python -I -B tools/deploy_match_static.py --check-only --scope RELATIVE_JSON --reviewed-head FULL_HEAD`; execution requires the exact qualified scope and fresh specific `STAND OK` or `RING OK` |
+| Upload and receive a fresh identified competition recording | `python -I -B tools/run_match_identified_delivery.py --check-only --scope RELATIVE_JSON --reviewed-head FULL_HEAD`; see `tools/README.md` for session, setup and execution requirements |
+| Legacy default compile only (no upload) | `tools/flash.sh app --compile-only` |
 | Live log | `tools/logs.sh` |
 | Dump the last match | `tools/dump_match.sh` |
-| Plot a log | `python3 tools/plot_match.py logs/<file>` |
+| Planned P6 plotter (not yet implemented; P6 eligibility required) | Intended command: `python3 tools/plot_match.py logs/<file>` |
 
-Build path: sync the sketch to the UNO Q over SSH, then compile and upload on the board with arduino-cli (FQBN `arduino:zephyr:unoq`). Fallback: adb over USB. P0 verifies exact commands and records them in state/FACTS.md.
+Build path: sync the sketch to the UNO Q over SSH, then compile and upload on the board with arduino-cli. Fallback: adb over USB. P0 verifies exact commands and records them in state/FACTS.md. The current D241 competition selection is `arduino:zephyr:unoq:link_mode=static,wait_linux_boot=no`; its separate compile-only and precompiled deployment contracts are in `state/analysis/P7_match_static_contract.md`. Generic `tools/flash.sh app --match` is a legacy path and does not replace qualified deployment. Compilation never supplies motor-run permission or a phase gate.
 
 ---
 

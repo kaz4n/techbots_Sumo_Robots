@@ -1,3 +1,10 @@
+Current full-scope correction, 27 September 2026: the narrow audit below did not
+prove project completion. The [full requirement audit](P7_full_requirement_audit_20260927.md)
+identifies D243 outer-loop/five-minute timing preparation, the unresolved B7/R6
+policy conflict, absent conditional P6 deliverables and all remaining physical,
+human and release requirements. D239/D241 evidence remains accepted only in its
+stated synthetic/compile scope. The goal is active and unachieved.
+
 # Current completion audit - 27 September 2026
 
 D239 complete synthetic delivery is accepted: 5,001 frames, 8 events, original

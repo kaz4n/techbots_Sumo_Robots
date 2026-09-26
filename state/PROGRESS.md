@@ -1636,3 +1636,5 @@ matrix is admitted conditionally, not yet executed. Firmware unchanged. | pendin
 | 2026-09-27T03:03:03.095679+04:00 | P7 software preparation | D241 current static Immediate MATCH1/M1 compile-only | COMPILE_CHECKED;92092Bpackage7895a4d8;query/compiler1/1;235transports;9closingPASS;413.746s. No upload. Independent actual review closing. | source6306c88e |
 
 | 2026-09-27T03:05:15.797045+04:00 | P7 software preparation | Final current software/board-only closure | D241actualreviewdbbac69a PASS; D239fullsyntheticdelivery accepted; D240/D241tooling accepted;47local-linktargets and diffcheckPASS. Currentstatus/runbook/handoff reconciled. Physicalrobotacceptance andhumangates remain OPEN. | rawccd84fe7;source6306c88e |
+
+| 2026-09-27T03:14:47.510329+04:00 | Full objective audit | D242 numbered P0-P7 tasks/exits and global requirements checked against saved evidence | Full project unachieved. Current compile/delivery accepted; P2.2 outer-loop/five-minute preparation missing (D243 adopted), B7protectedchoice pending, P6ineligible, physical/human gates missing. AGENTS command discovery corrected. | baselineab71e01e |

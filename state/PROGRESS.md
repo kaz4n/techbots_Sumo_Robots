@@ -1612,3 +1612,5 @@ matrix is admitted conditionally, not yet executed. Firmware unchanged. | pendin
 2026-09-27T00:48:34.913867+04:00 | P7/D230 | Complete passive caller integrated b48887d0, review 5930b2d5 PASS, 10 Windows tests. Three bindings prepared offline with spec c6c668d8. Exact same-HEAD local check then one passive execution next, serialized after isolated D229 compile. | pending bindings commit
 
 2026-09-27T01:00:41.313085+04:00 | P7/D230-D231 | Passive capture actual review f05ab1c1 PASS: recorded FAILED/DUMP and PORT, first native error lost by later cancellation; no guessed cause. D231 additive failure-record repair assigned isolated, no new native action. D229 updated p4_timing M0 target compile independently accepted77335ad3, integration next. | capture26943377
+
+2026-09-27T01:02:53.961983+04:00 | P7/D229-D231 | Integrated accepted p99 software and single current nativecompile; D230 actual passive diagnosis accepted, original UART error missing. D231 focused first-failure preservation in isolated worktree; no native run or gate. | integration checkpoint

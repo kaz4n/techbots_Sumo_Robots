@@ -2705,3 +2705,5 @@ or retries. Repeated terminal calls must preserve the first record; ordinary
 cancellation stays distinguishable. Test the actual error-then-cancel sequence
 and existing native/FIFO invariants. This does not identify D228's original
 error, fix an assumed timeout, authorize motor operation or admit a native run.
+
+D-229 integration and native acceptance (2026-09-27T01:02:53.961983+04:00): Integrated isolated5d1ca6ea/ac8be0c7 and actualevidence d98f0cc1 after D230 capture closure. Adopt native review77335ad3 PASS for current p4_timing M0/static/default source13e34a04, package91128B557bc714, structuralRAM91280B. One query/compiler,235transports,9closingPASS; no upload/live p99/freeRAM/physical qualification. Preserve old14profile source9044 evidence separately.

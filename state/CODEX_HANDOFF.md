@@ -1,3 +1,42 @@
+## Current checkpoint - 2026-09-27T01:02:53.961983+04:00
+
+Objective: finish the software and connected-board work quickly. Hardware is
+BOARD ONLY; no physical acceptance, motor-run authority or human phase gate.
+
+D230 passive diagnosis is complete and independently accepted (f05ab1c1).
+One capture at collector26943377 took209.534s, with24reads/638936bytes and
+full loader/sketch comparisons before and after. Both56status fields agree;
+coherence remains UNPROVEN. Runner FAILED/DUMP after202480completed epochs,
+missed0, maxcompleted S..C484us, maxlateness2us. Transfer FAILED/PORT with0
+acknowledged bytes; native initialized/poisoned, statusPOISONED, cleanup
+unverified. Session matches3997245574426120340. The original native reason
+was overwritten by later cancellation; do not infer timeout or another cause.
+See analysis/P7_recorder_failure_capture_actual_validation.md. The actual
+UART delivery remains FAILED; no capture/upload/reset retry occurred.
+
+D229 timing distribution is now integrated from isolated5d1ca6ea/ac8be0c7,
+with16host cases/316assertions and review5f1047fd. One current p4_timing M0
+static/default compile at ac8be0c7 passed; source13e34a04, package91128B
+557bc714, structural RAM remainder91280B. All135inputs/105stagedfiles and
+235transports/9closingchecks reconcile; actual review77335ad3 accepts it.
+This is compile/layout evidence, not measured targetp99/freeRAM/full-loop
+timing. D229 was not uploaded. D222's14-profile matrix remains for source9044.
+
+Next D231: append a bounded original-native-failure/first-cleanup record in
+UnoQDumpPort, preserving all existing statuses, guards and hardware behavior.
+Implementation and focused native/FIFO models are isolated in
+sumox-recorder-first-failure-20260927 (agent recorder_diag). No nativeD231
+action is admitted yet. Root must review/integrate the tested repair and
+prepare a new source-bound inhibited diagnostic; never reuse consumed owners.
+
+Modified deliverables: D230 caller/bindings/raw snapshots/actual review,
+D229 epoch_timing header/runtime/config/tests and targetcompile evidence,
+plus state ledgers. Current loaded image remains D228 inhibitedrecorder
+from004dc7cf/source702ad99e, now flash-compared byD230. No live board child
+remains. Both policyblocked localcleanup scopes are retained untouched.
+28September scope decision and1October21:00freeze remain in force.
+Older checkpoints below are historical.
+
 ## Current checkpoint - 2026-09-27T00:31:03.836051+04:00
 
 Objective: finish the software and connected-board work quickly. Physical state

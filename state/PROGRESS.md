@@ -1620,3 +1620,5 @@ matrix is admitted conditionally, not yet executed. Firmware unchanged. | pendin
 2026-09-27T01:41:46.948550+04:00 | P7/D232-D234 | Exact old upload scratch2359512B removed/accepted; fresh inhibitedrecorder compiled/uploaded once but receiveFAILED; passivecausecapture34538 active. Session forwarding host-tested/reviewed integrated3ec262a0;155importedfiles verifiedbyteexact. | cf9f4086/3ec262a0
 
 2026-09-27T01:49:07.223200+04:00 | P7/D233-D236 | Passivefirstfailure acceptedcf1ba387:STORE_DEADLINE/TIMEOUT7submitted/74,cleanupREADBACK_FAILED. D235sixstorecandidate isolatedhostwork, D236freshexactcleanup2359784B prepared8tests/reviewpending. No nativechild remains. |347c88ef/82ea5d7a
+
+2026-09-27T01:57:09.115362+04:00 | P7/D235-D236 | D236exactcleanupaccepted7a81ff95. D235oneconfig6-storecandidate isolated1b2af246 compile40773 active;hostevidenceclosing/reviewpending,no upload. |9babf37c

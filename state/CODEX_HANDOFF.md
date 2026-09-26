@@ -1,3 +1,42 @@
+## Current checkpoint - 2026-09-27T01:57:09.115362+04:00
+
+Objective remains full software/connected-board completion; BOARD ONLY, no
+motor permission or physical/human gates. D233 first-failure capture accepted
+cf1ba387 and integrated347c88ef: TIMEOUT/STORE_DEADLINE offset7/74,payload59;
+cleanupREADBACK_FAILED/ownershipOK. No exacttimerbranch orCR1value.
+
+D235 SIX-STORE CANDIDATE compile-only is ACTIVE exec40773 in frozen worktree
+C:/Users/narut/AppData/Local/Temp/sumox-recorder-six-native-20260927
+HEAD1b2af246cd88e6207e846ee340f8c4e46a5bb980.
+Attempt771c04943d4c4a759055d794fa4b706e/session8582740024591403637; owner
+state/analysis/P7_recorder_delivery_raw/recorder-771c04943d4c4a75.
+OuterTemp sumox_recorder_six_attempt04.json and .compile.stdout/.stderr.
+Check-onlyPASS1.113s, onecompilejobs1 inprogress. No uploadyet. Keep isolated
+HEAD/source frozen throughcompile and any later admittedrun. Prior3localonly
+preflightrefusals are preserved inMAIN P7_recorder_six_preflight_raw; exact
+Gitbytes restored for2JSONs/worktreeautocrlffalse/indexrefresh/emptyrawparent
+resolved checkout issues without nativecalls or guardchanges.
+
+Host authorrecorder_diag owns isolated sumox-dump-six-store-20260927, base
+77ee8a66, soleproductioncommit1b2af246 is config8to6. Focused30method host02
+PASSconsole but /dev/shm disappeared beforearchive; author rerunsclosure
+with archive inside same WSLprocess. Host01 retained Linuxrenameat2on/mnt/c
+publication failure.30methods:2config,12currentnative,11currentFIFO streams,
+1capacitymodel,4historicaleight; normal+ASanUBSan. Reviewerrecorder_delivery_review
+inspects source now; no candidateacceptance/upload until sealedhost/reviewPASS.
+
+D236 exactD233scratchcleanup COMPLETE and accepted7a81ff95 at9babf37c. Five
+actions0/noerror;3copies2359784B andempty/tmp/remoteocddev34ino6818removed.
+Originalsintact/6closingPASS/result6345Bf46a31b2. No credentials saved.
+Cleanupowner consumed. No cleanup or MCU job overlaps candidatecompiler.
+
+Next: collect actual candidatecompile/closingpins. Finish D235 host/review,
+integrate source/evidence onMAIN while nativeisolated remains frozen. Only
+after acceptance admit one --run with sameattempt/head via unchanged checked
+caller;900sreceiver/200srecording unchanged. No reuseofconsumedowners. D234
+sessionforwarding andD229p99 remain separatelyintegrated; actualgatesopen.
+Older checkpoints below are historical.
+
 ## Current checkpoint - 2026-09-27T01:49:07.223200+04:00
 
 D233 passive first-failure capture is COMPLETE and acceptedcf1ba387, integrated

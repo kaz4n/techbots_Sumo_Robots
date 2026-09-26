@@ -362,3 +362,10 @@ state/analysis/P7_static_startup_raw/capture_bindings.json -text whitespace=cr-a
 
 # Preserve the sealed actual D219 review bytes.
 state/reviews/P7_b4_recorder_actual_review.md -text whitespace=cr-at-eol,-blank-at-eof
+
+# Preserve exact D222/D223 host and native evidence bytes.
+state/analysis/P7_commissioning_build_raw/** -text whitespace=cr-at-eol,-blank-at-eof,-blank-at-eol
+state/analysis/P7_uart_holder_raw/** -text whitespace=cr-at-eol,-blank-at-eof,-blank-at-eol
+state/reviews/P7_commissioning_build_review.md -text whitespace=cr-at-eol,-blank-at-eof
+state/reviews/P7_uart_holder_review.md -text whitespace=cr-at-eol,-blank-at-eof
+state/reviews/P7_uart_holder_actual_review.md -text whitespace=cr-at-eol,-blank-at-eof

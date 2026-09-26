@@ -1,0 +1,146 @@
+test_all_fourteen_literal_identities_and_constants (__main__.CommissioningPolicy.test_all_fourteen_literal_identities_and_constants) ... ok
+test_all_profiles_preserve_complete_artifact_report_and_original_inputs (__main__.CommissioningPolicy.test_all_profiles_preserve_complete_artifact_report_and_original_inputs) ... 
+  test_all_profiles_preserve_complete_artifact_report_and_original_inputs (__main__.CommissioningPolicy.test_all_profiles_preserve_complete_artifact_report_and_original_inputs) (profile='b4_stand', motors=1) ... FAIL
+  test_all_profiles_preserve_complete_artifact_report_and_original_inputs (__main__.CommissioningPolicy.test_all_profiles_preserve_complete_artifact_report_and_original_inputs) (profile='p3_drive', motors=0) ... FAIL
+  test_all_profiles_preserve_complete_artifact_report_and_original_inputs (__main__.CommissioningPolicy.test_all_profiles_preserve_complete_artifact_report_and_original_inputs) (profile='p3_drive', motors=1) ... FAIL
+  test_all_profiles_preserve_complete_artifact_report_and_original_inputs (__main__.CommissioningPolicy.test_all_profiles_preserve_complete_artifact_report_and_original_inputs) (profile='p3_turn', motors=0) ... FAIL
+  test_all_profiles_preserve_complete_artifact_report_and_original_inputs (__main__.CommissioningPolicy.test_all_profiles_preserve_complete_artifact_report_and_original_inputs) (profile='p3_turn', motors=1) ... FAIL
+  test_all_profiles_preserve_complete_artifact_report_and_original_inputs (__main__.CommissioningPolicy.test_all_profiles_preserve_complete_artifact_report_and_original_inputs) (profile='p3_stop', motors=0) ... FAIL
+  test_all_profiles_preserve_complete_artifact_report_and_original_inputs (__main__.CommissioningPolicy.test_all_profiles_preserve_complete_artifact_report_and_original_inputs) (profile='p3_stop', motors=1) ... FAIL
+  test_all_profiles_preserve_complete_artifact_report_and_original_inputs (__main__.CommissioningPolicy.test_all_profiles_preserve_complete_artifact_report_and_original_inputs) (profile='p4_reactive', motors=0) ... FAIL
+  test_all_profiles_preserve_complete_artifact_report_and_original_inputs (__main__.CommissioningPolicy.test_all_profiles_preserve_complete_artifact_report_and_original_inputs) (profile='p4_reactive', motors=1) ... FAIL
+  test_all_profiles_preserve_complete_artifact_report_and_original_inputs (__main__.CommissioningPolicy.test_all_profiles_preserve_complete_artifact_report_and_original_inputs) (profile='p4_timing', motors=0) ... FAIL
+  test_all_profiles_preserve_complete_artifact_report_and_original_inputs (__main__.CommissioningPolicy.test_all_profiles_preserve_complete_artifact_report_and_original_inputs) (profile='p4_timing', motors=1) ... FAIL
+  test_all_profiles_preserve_complete_artifact_report_and_original_inputs (__main__.CommissioningPolicy.test_all_profiles_preserve_complete_artifact_report_and_original_inputs) (profile='p5_abort_timing', motors=0) ... FAIL
+  test_all_profiles_preserve_complete_artifact_report_and_original_inputs (__main__.CommissioningPolicy.test_all_profiles_preserve_complete_artifact_report_and_original_inputs) (profile='p5_abort_timing', motors=1) ... FAIL
+test_coherent_other_profile_and_other_motor_metadata_refuse (__main__.CommissioningPolicy.test_coherent_other_profile_and_other_motor_metadata_refuse) ... ok
+test_elf_tls_package_and_export_failures_never_become_pass (__main__.CommissioningPolicy.test_elf_tls_package_and_export_failures_never_become_pass) ... ok
+test_every_profile_rejects_flag_order_duplicates_missing_and_competing_bits (__main__.CommissioningPolicy.test_every_profile_rejects_flag_order_duplicates_missing_and_competing_bits) ... ok
+test_inherited_metadata_rejections_remain_effective (__main__.CommissioningPolicy.test_inherited_metadata_rejections_remain_effective) ... ok
+test_keyword_only_explicit_selection_is_required (__main__.CommissioningPolicy.test_keyword_only_explicit_selection_is_required) ... ok
+test_profile_calls_are_isolated_and_revalidate_snapshots (__main__.CommissioningPolicy.test_profile_calls_are_isolated_and_revalidate_snapshots) ... ok
+test_real_metadata_accepts_all_profiles_and_returns_complete_properties (__main__.CommissioningPolicy.test_real_metadata_accepts_all_profiles_and_returns_complete_properties) ... ok
+test_selection_types_fail_before_snapshots_or_execution (__main__.CommissioningPolicy.test_selection_types_fail_before_snapshots_or_execution) ... ok
+test_snapshot_shape_type_hash_and_size_are_checked_before_execution (__main__.CommissioningPolicy.test_snapshot_shape_type_hash_and_size_are_checked_before_execution) ... ok
+
+======================================================================
+FAIL: test_all_profiles_preserve_complete_artifact_report_and_original_inputs (__main__.CommissioningPolicy.test_all_profiles_preserve_complete_artifact_report_and_original_inputs) (profile='b4_stand', motors=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_commissioning_app_static_policy.py", line 235, in test_all_profiles_preserve_complete_artifact_report_and_original_inputs
+    self.assertEqual(report, expected)
+AssertionError: {'sta[156 chars]OWED=1 -DSUMOX_B4_STAND=1 -DSUMOX_P3_DRIVE_TES[3619 chars]': 1} != {'sta[156 chars]OWED=0 -DSUMOX_B4_STAND=1 -DSUMOX_P3_DRIVE_TES[3619 chars]and'}
+Diff is 8708 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_all_profiles_preserve_complete_artifact_report_and_original_inputs (__main__.CommissioningPolicy.test_all_profiles_preserve_complete_artifact_report_and_original_inputs) (profile='p3_drive', motors=0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_commissioning_app_static_policy.py", line 235, in test_all_profiles_preserve_complete_artifact_report_and_original_inputs
+    self.assertEqual(report, expected)
+AssertionError: {'sta[175 chars]TAND=0 -DSUMOX_P3_DRIVE_TEST=1 -DSUMOX_P3_TURN[3600 chars]': 0} != {'sta[175 chars]TAND=1 -DSUMOX_P3_DRIVE_TEST=0 -DSUMOX_P3_TURN[3600 chars]ive'}
+Diff is 8885 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_all_profiles_preserve_complete_artifact_report_and_original_inputs (__main__.CommissioningPolicy.test_all_profiles_preserve_complete_artifact_report_and_original_inputs) (profile='p3_drive', motors=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_commissioning_app_static_policy.py", line 235, in test_all_profiles_preserve_complete_artifact_report_and_original_inputs
+    self.assertEqual(report, expected)
+AssertionError: {'sta[156 chars]OWED=1 -DSUMOX_B4_STAND=0 -DSUMOX_P3_DRIVE_TES[3619 chars]': 1} != {'sta[156 chars]OWED=0 -DSUMOX_B4_STAND=1 -DSUMOX_P3_DRIVE_TES[3619 chars]ive'}
+Diff is 8885 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_all_profiles_preserve_complete_artifact_report_and_original_inputs (__main__.CommissioningPolicy.test_all_profiles_preserve_complete_artifact_report_and_original_inputs) (profile='p3_turn', motors=0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_commissioning_app_static_policy.py", line 235, in test_all_profiles_preserve_complete_artifact_report_and_original_inputs
+    self.assertEqual(report, expected)
+AssertionError: {'sta[175 chars]TAND=0 -DSUMOX_P3_DRIVE_TEST=0 -DSUMOX_P3_TURN[3599 chars]': 0} != {'sta[175 chars]TAND=1 -DSUMOX_P3_DRIVE_TEST=0 -DSUMOX_P3_TURN[3599 chars]urn'}
+Diff is 8932 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_all_profiles_preserve_complete_artifact_report_and_original_inputs (__main__.CommissioningPolicy.test_all_profiles_preserve_complete_artifact_report_and_original_inputs) (profile='p3_turn', motors=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_commissioning_app_static_policy.py", line 235, in test_all_profiles_preserve_complete_artifact_report_and_original_inputs
+    self.assertEqual(report, expected)
+AssertionError: {'sta[156 chars]OWED=1 -DSUMOX_B4_STAND=0 -DSUMOX_P3_DRIVE_TES[3618 chars]': 1} != {'sta[156 chars]OWED=0 -DSUMOX_B4_STAND=1 -DSUMOX_P3_DRIVE_TES[3618 chars]urn'}
+Diff is 8932 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_all_profiles_preserve_complete_artifact_report_and_original_inputs (__main__.CommissioningPolicy.test_all_profiles_preserve_complete_artifact_report_and_original_inputs) (profile='p3_stop', motors=0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_commissioning_app_static_policy.py", line 235, in test_all_profiles_preserve_complete_artifact_report_and_original_inputs
+    self.assertEqual(report, expected)
+AssertionError: {'sta[175 chars]TAND=0 -DSUMOX_P3_DRIVE_TEST=0 -DSUMOX_P3_TURN[3599 chars]': 0} != {'sta[175 chars]TAND=1 -DSUMOX_P3_DRIVE_TEST=0 -DSUMOX_P3_TURN[3599 chars]top'}
+Diff is 8882 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_all_profiles_preserve_complete_artifact_report_and_original_inputs (__main__.CommissioningPolicy.test_all_profiles_preserve_complete_artifact_report_and_original_inputs) (profile='p3_stop', motors=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_commissioning_app_static_policy.py", line 235, in test_all_profiles_preserve_complete_artifact_report_and_original_inputs
+    self.assertEqual(report, expected)
+AssertionError: {'sta[156 chars]OWED=1 -DSUMOX_B4_STAND=0 -DSUMOX_P3_DRIVE_TES[3618 chars]': 1} != {'sta[156 chars]OWED=0 -DSUMOX_B4_STAND=1 -DSUMOX_P3_DRIVE_TES[3618 chars]top'}
+Diff is 8882 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_all_profiles_preserve_complete_artifact_report_and_original_inputs (__main__.CommissioningPolicy.test_all_profiles_preserve_complete_artifact_report_and_original_inputs) (profile='p4_reactive', motors=0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_commissioning_app_static_policy.py", line 235, in test_all_profiles_preserve_complete_artifact_report_and_original_inputs
+    self.assertEqual(report, expected)
+AssertionError: {'sta[175 chars]TAND=0 -DSUMOX_P3_DRIVE_TEST=0 -DSUMOX_P3_TURN[3603 chars]': 0} != {'sta[175 chars]TAND=1 -DSUMOX_P3_DRIVE_TEST=0 -DSUMOX_P3_TURN[3603 chars]ive'}
+Diff is 8930 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_all_profiles_preserve_complete_artifact_report_and_original_inputs (__main__.CommissioningPolicy.test_all_profiles_preserve_complete_artifact_report_and_original_inputs) (profile='p4_reactive', motors=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_commissioning_app_static_policy.py", line 235, in test_all_profiles_preserve_complete_artifact_report_and_original_inputs
+    self.assertEqual(report, expected)
+AssertionError: {'sta[156 chars]OWED=1 -DSUMOX_B4_STAND=0 -DSUMOX_P3_DRIVE_TES[3622 chars]': 1} != {'sta[156 chars]OWED=0 -DSUMOX_B4_STAND=1 -DSUMOX_P3_DRIVE_TES[3622 chars]ive'}
+Diff is 8930 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_all_profiles_preserve_complete_artifact_report_and_original_inputs (__main__.CommissioningPolicy.test_all_profiles_preserve_complete_artifact_report_and_original_inputs) (profile='p4_timing', motors=0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_commissioning_app_static_policy.py", line 235, in test_all_profiles_preserve_complete_artifact_report_and_original_inputs
+    self.assertEqual(report, expected)
+AssertionError: {'sta[175 chars]TAND=0 -DSUMOX_P3_DRIVE_TEST=0 -DSUMOX_P3_TURN[3601 chars]': 0} != {'sta[175 chars]TAND=1 -DSUMOX_P3_DRIVE_TEST=0 -DSUMOX_P3_TURN[3601 chars]ing'}
+Diff is 9075 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_all_profiles_preserve_complete_artifact_report_and_original_inputs (__main__.CommissioningPolicy.test_all_profiles_preserve_complete_artifact_report_and_original_inputs) (profile='p4_timing', motors=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_commissioning_app_static_policy.py", line 235, in test_all_profiles_preserve_complete_artifact_report_and_original_inputs
+    self.assertEqual(report, expected)
+AssertionError: {'sta[156 chars]OWED=1 -DSUMOX_B4_STAND=0 -DSUMOX_P3_DRIVE_TES[3620 chars]': 1} != {'sta[156 chars]OWED=0 -DSUMOX_B4_STAND=1 -DSUMOX_P3_DRIVE_TES[3620 chars]ing'}
+Diff is 9075 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_all_profiles_preserve_complete_artifact_report_and_original_inputs (__main__.CommissioningPolicy.test_all_profiles_preserve_complete_artifact_report_and_original_inputs) (profile='p5_abort_timing', motors=0)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_commissioning_app_static_policy.py", line 235, in test_all_profiles_preserve_complete_artifact_report_and_original_inputs
+    self.assertEqual(report, expected)
+AssertionError: {'sta[175 chars]TAND=0 -DSUMOX_P3_DRIVE_TEST=0 -DSUMOX_P3_TURN[3607 chars]': 0} != {'sta[175 chars]TAND=1 -DSUMOX_P3_DRIVE_TEST=0 -DSUMOX_P3_TURN[3607 chars]ing'}
+Diff is 8952 characters long. Set self.maxDiff to None to see it.
+
+======================================================================
+FAIL: test_all_profiles_preserve_complete_artifact_report_and_original_inputs (__main__.CommissioningPolicy.test_all_profiles_preserve_complete_artifact_report_and_original_inputs) (profile='p5_abort_timing', motors=1)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/tooling/test_commissioning_app_static_policy.py", line 235, in test_all_profiles_preserve_complete_artifact_report_and_original_inputs
+    self.assertEqual(report, expected)
+AssertionError: {'sta[156 chars]OWED=1 -DSUMOX_B4_STAND=0 -DSUMOX_P3_DRIVE_TES[3626 chars]': 1} != {'sta[156 chars]OWED=0 -DSUMOX_B4_STAND=1 -DSUMOX_P3_DRIVE_TES[3626 chars]ing'}
+Diff is 8952 characters long. Set self.maxDiff to None to see it.
+
+----------------------------------------------------------------------
+Ran 11 tests in 10.805s
+
+FAILED (failures=13)

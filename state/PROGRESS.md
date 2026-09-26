@@ -1581,3 +1581,8 @@ recorder (0 frames/0 events/1 summary), coherence UNPROVEN. Root closure 4eb5760
 Updated current handoff, P7 packet and runbook; 76 existing local links verified,
 no source change or repeated native/test run. Physical/native UART/timing/RAM
 qualification and human gates remain open; board only. | nativeHEAD 256dbd5d
+
+2026-09-26T22:38:29.044147+04:00 | P7/D222 | Shared seven-profile commissioning compiler implemented,
+30 Linux and 29 Windows host methods PASS (one Linux-only Windows skip), six
+inputs stable; independent review dc6439f3 FINAL PASS. Native 14-tuple compile
+matrix is admitted conditionally, not yet executed. Firmware unchanged. | pending

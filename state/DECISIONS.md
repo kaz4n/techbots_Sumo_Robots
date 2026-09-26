@@ -2590,3 +2590,42 @@ coherence remain UNPROVEN. No native UART, initialized WCET/RAM, sensor/motor,
 match recording or human gate acceptance follows. Consume all attempt owners;
 retain exact evidence and stop this bounded native operation. Proceed through
 remaining commissioning prerequisites using the updated handoff/runbook.
+
+
+## D-222 (2026-09-26T22:19:11.747807+04:00) - Shared commissioning application build path
+Context: the existing main app binds setup grants and native dumping for seven
+commissioning controllers, but current general tooling admits only inert wrapper
+builds; D213/D214 supply only a fixed B4 route. The previous goal turn made
+progress by completing and reviewing the actual B4 retained capture (9cef302c).
+Decision under D051: add one compile-only policy/caller for the closed profiles
+b4_stand, p3_drive, p3_turn, p3_stop, p4_reactive, p4_timing and p5_abort_timing.
+Require explicit M0 or M1, static/default app.ino, MATCH0 and exact selector
+metadata; retain existing metadata/artifact/identity/resource/attempt guards.
+Preserve the inert wrappers and historical callers. Prepare one cohesive source
+and test matrix instead of separate fixed scripts per controller. M1 compilation
+creates no run authority. No upload, firmware source/config/pin change, physical
+acceptance, B7/R6 policy change or human gate follows.
+
+## D-223 (2026-09-26T22:19:11.747807+04:00) - Fresh read-only UART holder observation
+Context: native recorder software exists, and the bare UNO Q is sufficient for
+its eventual synthetic delivery test. The old unprivileged UART scan could not
+inspect protected process descriptors, so it cannot establish actual holders.
+Decision under the user's connected-board continuation and D051: prepare and
+review one narrowly scoped privileged metadata observer for /dev/ttyHS1. Bind
+current boot/device and router process/executable identities; inspect bounded
+PID/task/fd tables twice, recording denied/vanished/replaced observations and
+limits. Never open the UART, read descriptor payloads, alter services, send RPC,
+reset/flash/write the MCU, or infer continuous exclusivity/framing readiness.
+Any authentication is a new exact read-only invocation with no-echo stdin;
+prior cleanup authentication supplies neither a reusable session nor a general
+privilege grant. Keep the credential out of files, command arguments and logs.
+Source review and meaningful fixture checks precede the one observation. This
+closes only visibility evidence, not DMA completion, positive reopen or delivery.
+
+D-222 source/host acceptance (2026-09-26T22:38:29.044147+04:00): Adopt review dc6439f3 FINAL PASS.
+Closed seven-profile/M0-M1 policy and shared compile-only caller pass 30 Linux
+methods and 29 Windows methods plus one explicit platform skip. Original new
+fixture failure is retained; production stayed unchanged. Admit the reviewed
+14-tuple native01 compile matrix with clean exact HEAD per attempt, sequential
+jobs1, full closing/checked artifacts, per-owner evidence commits and stop on any
+failure. No upload, motor-run permission, physical evidence or phase gate.

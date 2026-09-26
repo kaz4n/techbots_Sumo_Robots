@@ -1,0 +1,402 @@
+
+/dev/shm/sumo-d243-35u3zsbh/retention:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+0000000000001000 <_init>:
+    1000:	f3 0f 1e fa          	endbr64
+    1004:	48 83 ec 08          	sub    $0x8,%rsp
+    1008:	48 8b 05 d9 2f 00 00 	mov    0x2fd9(%rip),%rax        # 3fe8 <__gmon_start__@Base>
+    100f:	48 85 c0             	test   %rax,%rax
+    1012:	74 02                	je     1016 <_init+0x16>
+    1014:	ff d0                	call   *%rax
+    1016:	48 83 c4 08          	add    $0x8,%rsp
+    101a:	c3                   	ret
+
+Disassembly of section .plt:
+
+0000000000001020 <.plt>:
+    1020:	ff 35 9a 2f 00 00    	push   0x2f9a(%rip)        # 3fc0 <_GLOBAL_OFFSET_TABLE_+0x8>
+    1026:	ff 25 9c 2f 00 00    	jmp    *0x2f9c(%rip)        # 3fc8 <_GLOBAL_OFFSET_TABLE_+0x10>
+    102c:	0f 1f 40 00          	nopl   0x0(%rax)
+    1030:	f3 0f 1e fa          	endbr64
+    1034:	68 00 00 00 00       	push   $0x0
+    1039:	e9 e2 ff ff ff       	jmp    1020 <_init+0x20>
+    103e:	66 90                	xchg   %ax,%ax
+
+Disassembly of section .plt.got:
+
+0000000000001040 <__cxa_finalize@plt>:
+    1040:	f3 0f 1e fa          	endbr64
+    1044:	ff 25 ae 2f 00 00    	jmp    *0x2fae(%rip)        # 3ff8 <__cxa_finalize@GLIBC_2.2.5>
+    104a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+
+Disassembly of section .plt.sec:
+
+0000000000001050 <__stack_chk_fail@plt>:
+    1050:	f3 0f 1e fa          	endbr64
+    1054:	ff 25 76 2f 00 00    	jmp    *0x2f76(%rip)        # 3fd0 <__stack_chk_fail@GLIBC_2.4>
+    105a:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+
+Disassembly of section .text:
+
+0000000000001060 <main>:
+    1060:	f3 0f 1e fa          	endbr64
+    1064:	50                   	push   %rax
+    1065:	ff 05 bd 2f 00 00    	incl   0x2fbd(%rip)        # 4028 <fixture::begins>
+    106b:	e8 14 02 00 00       	call   1284 <loop()>
+    1070:	e8 0f 02 00 00       	call   1284 <loop()>
+    1075:	31 c0                	xor    %eax,%eax
+    1077:	5a                   	pop    %rdx
+    1078:	c3                   	ret
+
+0000000000001079 <_GLOBAL__sub_I_outer_loop_timing>:
+    1079:	f3 0f 1e fa          	endbr64
+    107d:	31 c0                	xor    %eax,%eax
+    107f:	31 d2                	xor    %edx,%edx
+    1081:	ff 05 9d 2f 00 00    	incl   0x2f9d(%rip)        # 4024 <fixture::constructors>
+    1087:	89 05 c3 2f 00 00    	mov    %eax,0x2fc3(%rip)        # 4050 <(anonymous namespace)::runtime+0x8>
+    108d:	48 8d 05 05 01 00 00 	lea    0x105(%rip),%rax        # 1199 <fixture::clock(void*)>
+    1094:	48 c7 05 a9 2f 00 00 	movq   $0x1,0x2fa9(%rip)        # 4048 <(anonymous namespace)::runtime>
+    109b:	01 00 00 00 
+    109f:	48 89 15 8a 2f 00 00 	mov    %rdx,0x2f8a(%rip)        # 4030 <(anonymous namespace)::timing_port>
+    10a6:	48 89 05 8b 2f 00 00 	mov    %rax,0x2f8b(%rip)        # 4038 <(anonymous namespace)::timing_port+0x8>
+    10ad:	c3                   	ret
+    10ae:	66 90                	xchg   %ax,%ax
+
+00000000000010b0 <_start>:
+    10b0:	f3 0f 1e fa          	endbr64
+    10b4:	31 ed                	xor    %ebp,%ebp
+    10b6:	49 89 d1             	mov    %rdx,%r9
+    10b9:	5e                   	pop    %rsi
+    10ba:	48 89 e2             	mov    %rsp,%rdx
+    10bd:	48 83 e4 f0          	and    $0xfffffffffffffff0,%rsp
+    10c1:	50                   	push   %rax
+    10c2:	54                   	push   %rsp
+    10c3:	45 31 c0             	xor    %r8d,%r8d
+    10c6:	31 c9                	xor    %ecx,%ecx
+    10c8:	48 8d 3d 91 ff ff ff 	lea    -0x6f(%rip),%rdi        # 1060 <main>
+    10cf:	ff 15 03 2f 00 00    	call   *0x2f03(%rip)        # 3fd8 <__libc_start_main@GLIBC_2.34>
+    10d5:	f4                   	hlt
+    10d6:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+    10dd:	00 00 00 
+
+00000000000010e0 <deregister_tm_clones>:
+    10e0:	48 8d 3d 21 2f 00 00 	lea    0x2f21(%rip),%rdi        # 4008 <__TMC_END__>
+    10e7:	48 8d 05 1a 2f 00 00 	lea    0x2f1a(%rip),%rax        # 4008 <__TMC_END__>
+    10ee:	48 39 f8             	cmp    %rdi,%rax
+    10f1:	74 15                	je     1108 <deregister_tm_clones+0x28>
+    10f3:	48 8b 05 e6 2e 00 00 	mov    0x2ee6(%rip),%rax        # 3fe0 <_ITM_deregisterTMCloneTable@Base>
+    10fa:	48 85 c0             	test   %rax,%rax
+    10fd:	74 09                	je     1108 <deregister_tm_clones+0x28>
+    10ff:	ff e0                	jmp    *%rax
+    1101:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+    1108:	c3                   	ret
+    1109:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+
+0000000000001110 <register_tm_clones>:
+    1110:	48 8d 3d f1 2e 00 00 	lea    0x2ef1(%rip),%rdi        # 4008 <__TMC_END__>
+    1117:	48 8d 35 ea 2e 00 00 	lea    0x2eea(%rip),%rsi        # 4008 <__TMC_END__>
+    111e:	48 29 fe             	sub    %rdi,%rsi
+    1121:	48 89 f0             	mov    %rsi,%rax
+    1124:	48 c1 ee 3f          	shr    $0x3f,%rsi
+    1128:	48 c1 f8 03          	sar    $0x3,%rax
+    112c:	48 01 c6             	add    %rax,%rsi
+    112f:	48 d1 fe             	sar    $1,%rsi
+    1132:	74 14                	je     1148 <register_tm_clones+0x38>
+    1134:	48 8b 05 b5 2e 00 00 	mov    0x2eb5(%rip),%rax        # 3ff0 <_ITM_registerTMCloneTable@Base>
+    113b:	48 85 c0             	test   %rax,%rax
+    113e:	74 08                	je     1148 <register_tm_clones+0x38>
+    1140:	ff e0                	jmp    *%rax
+    1142:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+    1148:	c3                   	ret
+    1149:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+
+0000000000001150 <__do_global_dtors_aux>:
+    1150:	f3 0f 1e fa          	endbr64
+    1154:	80 3d c5 2e 00 00 00 	cmpb   $0x0,0x2ec5(%rip)        # 4020 <completed.0>
+    115b:	75 2b                	jne    1188 <__do_global_dtors_aux+0x38>
+    115d:	55                   	push   %rbp
+    115e:	48 83 3d 92 2e 00 00 	cmpq   $0x0,0x2e92(%rip)        # 3ff8 <__cxa_finalize@GLIBC_2.2.5>
+    1165:	00 
+    1166:	48 89 e5             	mov    %rsp,%rbp
+    1169:	74 0c                	je     1177 <__do_global_dtors_aux+0x27>
+    116b:	48 8b 3d 8e 2e 00 00 	mov    0x2e8e(%rip),%rdi        # 4000 <__dso_handle>
+    1172:	e8 c9 fe ff ff       	call   1040 <__cxa_finalize@plt>
+    1177:	e8 64 ff ff ff       	call   10e0 <deregister_tm_clones>
+    117c:	c6 05 9d 2e 00 00 01 	movb   $0x1,0x2e9d(%rip)        # 4020 <completed.0>
+    1183:	5d                   	pop    %rbp
+    1184:	c3                   	ret
+    1185:	0f 1f 00             	nopl   (%rax)
+    1188:	c3                   	ret
+    1189:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+
+0000000000001190 <frame_dummy>:
+    1190:	f3 0f 1e fa          	endbr64
+    1194:	e9 77 ff ff ff       	jmp    1110 <register_tm_clones>
+
+0000000000001199 <fixture::clock(void*)>:
+    1199:	f3 0f 1e fa          	endbr64
+    119d:	48 83 ec 28          	sub    $0x28,%rsp
+    11a1:	64 48 8b 04 25 28 00 	mov    %fs:0x28,%rax
+    11a8:	00 00 
+    11aa:	48 89 44 24 18       	mov    %rax,0x18(%rsp)
+    11af:	48 b8 00 00 00 00 05 	movabs $0x500000000,%rax
+    11b6:	00 00 00 
+    11b9:	48 89 44 24 08       	mov    %rax,0x8(%rsp)
+    11be:	48 b8 00 a3 e1 11 09 	movabs $0x11e1a30911e1a300,%rax
+    11c5:	a3 e1 11 
+    11c8:	48 89 44 24 10       	mov    %rax,0x10(%rsp)
+    11cd:	8b 05 ad 48 00 00    	mov    0x48ad(%rip),%eax        # 5a80 <fixture::clocks>
+    11d3:	8d 50 01             	lea    0x1(%rax),%edx
+    11d6:	8b 44 84 08          	mov    0x8(%rsp,%rax,4),%eax
+    11da:	89 15 a0 48 00 00    	mov    %edx,0x48a0(%rip)        # 5a80 <fixture::clocks>
+    11e0:	48 8b 54 24 18       	mov    0x18(%rsp),%rdx
+    11e5:	64 48 2b 14 25 28 00 	sub    %fs:0x28,%rdx
+    11ec:	00 00 
+    11ee:	74 05                	je     11f5 <fixture::clock(void*)+0x5c>
+    11f0:	e8 5b fe ff ff       	call   1050 <__stack_chk_fail@plt>
+    11f5:	48 83 c4 28          	add    $0x28,%rsp
+    11f9:	c3                   	ret
+
+00000000000011fa <app::epoch_timing::Distribution::observe(unsigned int, unsigned int, unsigned int)>:
+    11fa:	39 b7 90 0c 00 00    	cmp    %esi,0xc90(%rdi)
+    1200:	73 06                	jae    1208 <app::epoch_timing::Distribution::observe(unsigned int, unsigned int, unsigned int)+0xe>
+    1202:	89 b7 90 0c 00 00    	mov    %esi,0xc90(%rdi)
+    1208:	8b 87 80 0c 00 00    	mov    0xc80(%rdi),%eax
+    120e:	89 8f 9c 0c 00 00    	mov    %ecx,0xc9c(%rdi)
+    1214:	83 f8 ff             	cmp    $0xffffffff,%eax
+    1217:	75 1b                	jne    1234 <app::epoch_timing::Distribution::observe(unsigned int, unsigned int, unsigned int)+0x3a>
+    1219:	8b 87 88 0c 00 00    	mov    0xc88(%rdi),%eax
+    121f:	c6 87 a0 0c 00 00 01 	movb   $0x1,0xca0(%rdi)
+    1226:	83 f8 ff             	cmp    $0xffffffff,%eax
+    1229:	74 44                	je     126f <app::epoch_timing::Distribution::observe(unsigned int, unsigned int, unsigned int)+0x75>
+    122b:	ff c0                	inc    %eax
+    122d:	89 87 88 0c 00 00    	mov    %eax,0xc88(%rdi)
+    1233:	c3                   	ret
+    1234:	85 c0                	test   %eax,%eax
+    1236:	75 06                	jne    123e <app::epoch_timing::Distribution::observe(unsigned int, unsigned int, unsigned int)+0x44>
+    1238:	89 97 94 0c 00 00    	mov    %edx,0xc94(%rdi)
+    123e:	ff c0                	inc    %eax
+    1240:	89 87 80 0c 00 00    	mov    %eax,0xc80(%rdi)
+    1246:	81 fe 1f 03 00 00    	cmp    $0x31f,%esi
+    124c:	77 07                	ja     1255 <app::epoch_timing::Distribution::observe(unsigned int, unsigned int, unsigned int)+0x5b>
+    124e:	89 f0                	mov    %esi,%eax
+    1250:	ff 04 87             	incl   (%rdi,%rax,4)
+    1253:	eb 06                	jmp    125b <app::epoch_timing::Distribution::observe(unsigned int, unsigned int, unsigned int)+0x61>
+    1255:	ff 87 84 0c 00 00    	incl   0xc84(%rdi)
+    125b:	39 b7 8c 0c 00 00    	cmp    %esi,0xc8c(%rdi)
+    1261:	73 06                	jae    1269 <app::epoch_timing::Distribution::observe(unsigned int, unsigned int, unsigned int)+0x6f>
+    1263:	89 b7 8c 0c 00 00    	mov    %esi,0xc8c(%rdi)
+    1269:	89 8f 98 0c 00 00    	mov    %ecx,0xc98(%rdi)
+    126f:	c3                   	ret
+
+0000000000001270 <app::outer_loop_timing::Observer::count(app::outer_loop_timing::Count&, unsigned int)>:
+    1270:	8b 07                	mov    (%rdi),%eax
+    1272:	83 f8 ff             	cmp    $0xffffffff,%eax
+    1275:	74 04                	je     127b <app::outer_loop_timing::Observer::count(app::outer_loop_timing::Count&, unsigned int)+0xb>
+    1277:	ff c0                	inc    %eax
+    1279:	89 07                	mov    %eax,(%rdi)
+    127b:	39 77 04             	cmp    %esi,0x4(%rdi)
+    127e:	73 03                	jae    1283 <app::outer_loop_timing::Observer::count(app::outer_loop_timing::Count&, unsigned int)+0x13>
+    1280:	89 77 04             	mov    %esi,0x4(%rdi)
+    1283:	c3                   	ret
+
+0000000000001284 <loop()>:
+    1284:	41 54                	push   %r12
+    1286:	55                   	push   %rbp
+    1287:	53                   	push   %rbx
+    1288:	48 83 ec 30          	sub    $0x30,%rsp
+    128c:	48 8d 1d cd 2d 00 00 	lea    0x2dcd(%rip),%rbx        # 4060 <outer_loop_timing>
+    1293:	80 bb 48 19 00 00 02 	cmpb   $0x2,0x1948(%rbx)
+    129a:	0f 87 38 03 00 00    	ja     15d8 <loop()+0x354>
+    12a0:	48 8b 3d 89 2d 00 00 	mov    0x2d89(%rip),%rdi        # 4030 <(anonymous namespace)::timing_port>
+    12a7:	ff 15 8b 2d 00 00    	call   *0x2d8b(%rip)        # 4038 <(anonymous namespace)::timing_port+0x8>
+    12ad:	8a 93 48 19 00 00    	mov    0x1948(%rbx),%dl
+    12b3:	89 c1                	mov    %eax,%ecx
+    12b5:	80 fa 02             	cmp    $0x2,%dl
+    12b8:	0f 87 6b 02 00 00    	ja     1529 <loop()+0x2a5>
+    12be:	84 d2                	test   %dl,%dl
+    12c0:	75 1e                	jne    12e0 <loop()+0x5c>
+    12c2:	89 83 e0 19 00 00    	mov    %eax,0x19e0(%rbx)
+    12c8:	89 83 e4 19 00 00    	mov    %eax,0x19e4(%rbx)
+    12ce:	89 83 dc 19 00 00    	mov    %eax,0x19dc(%rbx)
+    12d4:	c6 83 48 19 00 00 01 	movb   $0x1,0x1948(%rbx)
+    12db:	e9 49 02 00 00       	jmp    1529 <loop()+0x2a5>
+    12e0:	44 8a 8b 18 1a 00 00 	mov    0x1a18(%rbx),%r9b
+    12e7:	45 84 c9             	test   %r9b,%r9b
+    12ea:	75 12                	jne    12fe <loop()+0x7a>
+    12ec:	89 83 f8 19 00 00    	mov    %eax,0x19f8(%rbx)
+    12f2:	c6 83 48 19 00 00 06 	movb   $0x6,0x1948(%rbx)
+    12f9:	e9 2b 02 00 00       	jmp    1529 <loop()+0x2a5>
+    12fe:	89 c6                	mov    %eax,%esi
+    1300:	2b b3 e4 19 00 00    	sub    0x19e4(%rbx),%esi
+    1306:	79 12                	jns    131a <loop()+0x96>
+    1308:	89 83 f8 19 00 00    	mov    %eax,0x19f8(%rbx)
+    130e:	c6 83 48 19 00 00 04 	movb   $0x4,0x1948(%rbx)
+    1315:	e9 0f 02 00 00       	jmp    1529 <loop()+0x2a5>
+    131a:	74 0a                	je     1326 <loop()+0xa2>
+    131c:	31 c0                	xor    %eax,%eax
+    131e:	89 83 fc 19 00 00    	mov    %eax,0x19fc(%rbx)
+    1324:	eb 27                	jmp    134d <loop()+0xc9>
+    1326:	8b 83 fc 19 00 00    	mov    0x19fc(%rbx),%eax
+    132c:	ff c0                	inc    %eax
+    132e:	89 83 fc 19 00 00    	mov    %eax,0x19fc(%rbx)
+    1334:	3d ff ff 00 00       	cmp    $0xffff,%eax
+    1339:	76 12                	jbe    134d <loop()+0xc9>
+    133b:	89 8b f8 19 00 00    	mov    %ecx,0x19f8(%rbx)
+    1341:	c6 83 48 19 00 00 05 	movb   $0x5,0x1948(%rbx)
+    1348:	e9 dc 01 00 00       	jmp    1529 <loop()+0x2a5>
+    134d:	41 89 f0             	mov    %esi,%r8d
+    1350:	4c 03 83 00 1a 00 00 	add    0x1a00(%rbx),%r8
+    1357:	89 8b e4 19 00 00    	mov    %ecx,0x19e4(%rbx)
+    135d:	4c 89 83 00 1a 00 00 	mov    %r8,0x1a00(%rbx)
+    1364:	80 fa 02             	cmp    $0x2,%dl
+    1367:	75 18                	jne    1381 <loop()+0xfd>
+    1369:	89 8b f0 19 00 00    	mov    %ecx,0x19f0(%rbx)
+    136f:	89 b3 f4 19 00 00    	mov    %esi,0x19f4(%rbx)
+    1375:	c6 83 48 19 00 00 03 	movb   $0x3,0x1948(%rbx)
+    137c:	e9 a8 01 00 00       	jmp    1529 <loop()+0x2a5>
+    1381:	8b 93 70 19 00 00    	mov    0x1970(%rbx),%edx
+    1387:	31 c0                	xor    %eax,%eax
+    1389:	83 fa ff             	cmp    $0xffffffff,%edx
+    138c:	74 0c                	je     139a <loop()+0x116>
+    138e:	8d 42 01             	lea    0x1(%rdx),%eax
+    1391:	39 83 7c 19 00 00    	cmp    %eax,0x197c(%rbx)
+    1397:	0f 94 c0             	sete   %al
+    139a:	44 8a 93 84 19 00 00 	mov    0x1984(%rbx),%r10b
+    13a1:	41 89 c3             	mov    %eax,%r11d
+    13a4:	44 89 cd             	mov    %r9d,%ebp
+    13a7:	45 84 d2             	test   %r10b,%r10b
+    13aa:	45 0f 45 da          	cmovne %r10d,%r11d
+    13ae:	83 fa ff             	cmp    $0xffffffff,%edx
+    13b1:	74 14                	je     13c7 <loop()+0x143>
+    13b3:	39 93 7c 19 00 00    	cmp    %edx,0x197c(%rbx)
+    13b9:	74 04                	je     13bf <loop()+0x13b>
+    13bb:	84 c0                	test   %al,%al
+    13bd:	74 08                	je     13c7 <loop()+0x143>
+    13bf:	83 f0 01             	xor    $0x1,%eax
+    13c2:	44 21 d0             	and    %r10d,%eax
+    13c5:	89 c5                	mov    %eax,%ebp
+    13c7:	44 8a a3 78 19 00 00 	mov    0x1978(%rbx),%r12b
+    13ce:	41 80 fc 03          	cmp    $0x3,%r12b
+    13d2:	75 1b                	jne    13ef <loop()+0x16b>
+    13d4:	80 bb 6c 19 00 00 03 	cmpb   $0x3,0x196c(%rbx)
+    13db:	75 15                	jne    13f2 <loop()+0x16e>
+    13dd:	8a 83 79 19 00 00    	mov    0x1979(%rbx),%al
+    13e3:	38 83 6d 19 00 00    	cmp    %al,0x196d(%rbx)
+    13e9:	41 0f 95 c1          	setne  %r9b
+    13ed:	eb 03                	jmp    13f2 <loop()+0x16e>
+    13ef:	45 31 c9             	xor    %r9d,%r9d
+    13f2:	8b 93 e0 19 00 00    	mov    0x19e0(%rbx),%edx
+    13f8:	48 89 df             	mov    %rbx,%rdi
+    13fb:	e8 fa fd ff ff       	call   11fa <app::epoch_timing::Distribution::observe(unsigned int, unsigned int, unsigned int)>
+    1400:	80 bb a0 0c 00 00 00 	cmpb   $0x0,0xca0(%rbx)
+    1407:	0f 85 ce 00 00 00    	jne    14db <loop()+0x257>
+    140d:	0f 10 83 6c 19 00 00 	movups 0x196c(%rbx),%xmm0
+    1414:	0f 10 8b 75 19 00 00 	movups 0x1975(%rbx),%xmm1
+    141b:	89 93 e8 19 00 00    	mov    %edx,0x19e8(%rbx)
+    1421:	0f 11 83 88 19 00 00 	movups %xmm0,0x1988(%rbx)
+    1428:	0f 11 8b 91 19 00 00 	movups %xmm1,0x1991(%rbx)
+    142f:	45 84 db             	test   %r11b,%r11b
+    1432:	74 0c                	je     1440 <loop()+0x1bc>
+    1434:	48 8d bb a4 0c 00 00 	lea    0xca4(%rbx),%rdi
+    143b:	e8 ba fd ff ff       	call   11fa <app::epoch_timing::Distribution::observe(unsigned int, unsigned int, unsigned int)>
+    1440:	40 84 ed             	test   %bpl,%bpl
+    1443:	74 31                	je     1476 <loop()+0x1f2>
+    1445:	83 bb 64 19 00 00 00 	cmpl   $0x0,0x1964(%rbx)
+    144c:	75 1c                	jne    146a <loop()+0x1e6>
+    144e:	0f 10 93 6c 19 00 00 	movups 0x196c(%rbx),%xmm2
+    1455:	0f 10 9b 75 19 00 00 	movups 0x1975(%rbx),%xmm3
+    145c:	0f 29 93 c0 19 00 00 	movaps %xmm2,0x19c0(%rbx)
+    1463:	0f 11 9b c9 19 00 00 	movups %xmm3,0x19c9(%rbx)
+    146a:	48 8d bb 64 19 00 00 	lea    0x1964(%rbx),%rdi
+    1471:	e8 fa fd ff ff       	call   1270 <app::outer_loop_timing::Observer::count(app::outer_loop_timing::Count&, unsigned int)>
+    1476:	45 84 c9             	test   %r9b,%r9b
+    1479:	74 2e                	je     14a9 <loop()+0x225>
+    147b:	83 bb 54 19 00 00 00 	cmpl   $0x0,0x1954(%rbx)
+    1482:	75 1c                	jne    14a0 <loop()+0x21c>
+    1484:	0f 10 a3 6c 19 00 00 	movups 0x196c(%rbx),%xmm4
+    148b:	0f 10 ab 75 19 00 00 	movups 0x1975(%rbx),%xmm5
+    1492:	0f 11 a3 a4 19 00 00 	movups %xmm4,0x19a4(%rbx)
+    1499:	0f 11 ab ad 19 00 00 	movups %xmm5,0x19ad(%rbx)
+    14a0:	48 8d bb 54 19 00 00 	lea    0x1954(%rbx),%rdi
+    14a7:	eb 24                	jmp    14cd <loop()+0x249>
+    14a9:	45 84 d2             	test   %r10b,%r10b
+    14ac:	75 24                	jne    14d2 <loop()+0x24e>
+    14ae:	45 84 db             	test   %r11b,%r11b
+    14b1:	75 1f                	jne    14d2 <loop()+0x24e>
+    14b3:	41 80 fc 01          	cmp    $0x1,%r12b
+    14b7:	74 0d                	je     14c6 <loop()+0x242>
+    14b9:	48 8d bb 5c 19 00 00 	lea    0x195c(%rbx),%rdi
+    14c0:	41 80 fc 04          	cmp    $0x4,%r12b
+    14c4:	75 07                	jne    14cd <loop()+0x249>
+    14c6:	48 8d bb 4c 19 00 00 	lea    0x194c(%rbx),%rdi
+    14cd:	e8 9e fd ff ff       	call   1270 <app::outer_loop_timing::Observer::count(app::outer_loop_timing::Count&, unsigned int)>
+    14d2:	80 bb 44 19 00 00 00 	cmpb   $0x0,0x1944(%rbx)
+    14d9:	74 0f                	je     14ea <loop()+0x266>
+    14db:	89 8b f8 19 00 00    	mov    %ecx,0x19f8(%rbx)
+    14e1:	c6 83 48 19 00 00 07 	movb   $0x7,0x1948(%rbx)
+    14e8:	eb 3f                	jmp    1529 <loop()+0x2a5>
+    14ea:	49 81 f8 ff a2 e1 11 	cmp    $0x11e1a2ff,%r8
+    14f1:	76 29                	jbe    151c <loop()+0x298>
+    14f3:	4c 89 83 08 1a 00 00 	mov    %r8,0x1a08(%rbx)
+    14fa:	49 81 e8 00 a3 e1 11 	sub    $0x11e1a300,%r8
+    1501:	89 8b ec 19 00 00    	mov    %ecx,0x19ec(%rbx)
+    1507:	4c 89 83 10 1a 00 00 	mov    %r8,0x1a10(%rbx)
+    150e:	c6 83 19 1a 00 00 01 	movb   $0x1,0x1a19(%rbx)
+    1515:	c6 83 48 19 00 00 02 	movb   $0x2,0x1948(%rbx)
+    151c:	89 8b e0 19 00 00    	mov    %ecx,0x19e0(%rbx)
+    1522:	c6 83 18 1a 00 00 00 	movb   $0x0,0x1a18(%rbx)
+    1529:	8b 05 1d 2b 00 00    	mov    0x2b1d(%rip),%eax        # 404c <(anonymous namespace)::runtime+0x4>
+    152f:	8a 93 48 19 00 00    	mov    0x1948(%rbx),%dl
+    1535:	40 8a 3d 0c 2b 00 00 	mov    0x2b0c(%rip),%dil        # 4048 <(anonymous namespace)::runtime>
+    153c:	40 8a 35 06 2b 00 00 	mov    0x2b06(%rip),%sil        # 4049 <(anonymous namespace)::runtime+0x1>
+    1543:	8a 0d 07 2b 00 00    	mov    0x2b07(%rip),%cl        # 4050 <(anonymous namespace)::runtime+0x8>
+    1549:	89 44 24 0c          	mov    %eax,0xc(%rsp)
+    154d:	ff ca                	dec    %edx
+    154f:	ff c0                	inc    %eax
+    1551:	ff 05 e9 2a 00 00    	incl   0x2ae9(%rip)        # 4040 <fixture::steps>
+    1557:	40 88 7c 24 08       	mov    %dil,0x8(%rsp)
+    155c:	40 88 74 24 09       	mov    %sil,0x9(%rsp)
+    1561:	88 4c 24 10          	mov    %cl,0x10(%rsp)
+    1565:	89 05 e1 2a 00 00    	mov    %eax,0x2ae1(%rip)        # 404c <(anonymous namespace)::runtime+0x4>
+    156b:	80 fa 01             	cmp    $0x1,%dl
+    156e:	77 66                	ja     15d6 <loop()+0x352>
+    1570:	80 bb 18 1a 00 00 00 	cmpb   $0x0,0x1a18(%rbx)
+    1577:	74 15                	je     158e <loop()+0x30a>
+    1579:	8b 83 e4 19 00 00    	mov    0x19e4(%rbx),%eax
+    157f:	c6 83 48 19 00 00 06 	movb   $0x6,0x1948(%rbx)
+    1586:	89 83 f8 19 00 00    	mov    %eax,0x19f8(%rbx)
+    158c:	eb 48                	jmp    15d6 <loop()+0x352>
+    158e:	48 8b 54 24 08       	mov    0x8(%rsp),%rdx
+    1593:	40 88 7c 24 20       	mov    %dil,0x20(%rsp)
+    1598:	40 88 74 24 21       	mov    %sil,0x21(%rsp)
+    159d:	48 89 54 24 14       	mov    %rdx,0x14(%rsp)
+    15a2:	8b 54 24 10          	mov    0x10(%rsp),%edx
+    15a6:	89 44 24 24          	mov    %eax,0x24(%rsp)
+    15aa:	89 54 24 1c          	mov    %edx,0x1c(%rsp)
+    15ae:	0f 10 74 24 14       	movups 0x14(%rsp),%xmm6
+    15b3:	88 4c 24 28          	mov    %cl,0x28(%rsp)
+    15b7:	c6 44 24 2c 01       	movb   $0x1,0x2c(%rsp)
+    15bc:	0f 10 7c 24 1d       	movups 0x1d(%rsp),%xmm7
+    15c1:	c6 83 18 1a 00 00 01 	movb   $0x1,0x1a18(%rbx)
+    15c8:	0f 11 b3 6c 19 00 00 	movups %xmm6,0x196c(%rbx)
+    15cf:	0f 11 bb 75 19 00 00 	movups %xmm7,0x1975(%rbx)
+    15d6:	eb 0c                	jmp    15e4 <loop()+0x360>
+    15d8:	ff 05 62 2a 00 00    	incl   0x2a62(%rip)        # 4040 <fixture::steps>
+    15de:	ff 05 68 2a 00 00    	incl   0x2a68(%rip)        # 404c <(anonymous namespace)::runtime+0x4>
+    15e4:	48 83 c4 30          	add    $0x30,%rsp
+    15e8:	5b                   	pop    %rbx
+    15e9:	5d                   	pop    %rbp
+    15ea:	41 5c                	pop    %r12
+    15ec:	c3                   	ret
+
+Disassembly of section .fini:
+
+00000000000015f0 <_fini>:
+    15f0:	f3 0f 1e fa          	endbr64
+    15f4:	48 83 ec 08          	sub    $0x8,%rsp
+    15f8:	48 83 c4 08          	add    $0x8,%rsp
+    15fc:	c3                   	ret

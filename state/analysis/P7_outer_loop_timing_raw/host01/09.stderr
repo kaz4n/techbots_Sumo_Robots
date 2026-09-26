@@ -1,0 +1,49 @@
+In file included from /dev/shm/sumo-d243-09z_8fty/entry/app.ino:11,
+                 from /dev/shm/sumo-d243-09z_8fty/entry/main.cpp:2:
+/dev/shm/sumo-d243-09z_8fty/entry/src/app/outer_loop_timing.h:36:5: error: ‘epoch_timing’ does not name a type
+   36 |     epoch_timing::Distribution all;
+      |     ^~~~~~~~~~~~
+/dev/shm/sumo-d243-09z_8fty/entry/src/app/outer_loop_timing.h:37:5: error: ‘epoch_timing’ does not name a type
+   37 |     epoch_timing::Distribution completed;
+      |     ^~~~~~~~~~~~
+/dev/shm/sumo-d243-09z_8fty/entry/src/app/outer_loop_timing.h:49:5: error: ‘epoch_timing’ does not name a type
+   49 |     epoch_timing::Summary all;
+      |     ^~~~~~~~~~~~
+/dev/shm/sumo-d243-09z_8fty/entry/src/app/outer_loop_timing.h:50:5: error: ‘epoch_timing’ does not name a type
+   50 |     epoch_timing::Summary completed;
+      |     ^~~~~~~~~~~~
+/dev/shm/sumo-d243-09z_8fty/entry/src/app/outer_loop_timing.h: In member function ‘app::outer_loop_timing::Summary app::outer_loop_timing::Observer::summary() const’:
+/dev/shm/sumo-d243-09z_8fty/entry/src/app/outer_loop_timing.h:101:37: error: ‘const struct app::outer_loop_timing::Data’ has no member named ‘all’
+  101 |         return {data_.status, data_.all.summary(), data_.completed.summary(),
+      |                                     ^~~
+/dev/shm/sumo-d243-09z_8fty/entry/src/app/outer_loop_timing.h:101:58: error: ‘const struct app::outer_loop_timing::Data’ has no member named ‘completed’
+  101 |         return {data_.status, data_.all.summary(), data_.completed.summary(),
+      |                                                          ^~~~~~~~~
+/dev/shm/sumo-d243-09z_8fty/entry/src/app/outer_loop_timing.h:103:40: error: could not convert ‘{((const app::outer_loop_timing::Observer*)this)->app::outer_loop_timing::Observer::data_.app::outer_loop_timing::Data::status, <expression error>, <expression error>, ((const app::outer_loop_timing::Observer*)this)->app::outer_loop_timing::Observer::data_.app::outer_loop_timing::Data::population_closed, (((unsigned int)((const app::outer_loop_timing::Observer*)this)->app::outer_loop_timing::Observer::data_.app::outer_loop_timing::Data::uncertain.app::outer_loop_timing::Count::polls) == 0)}’ from ‘<brace-enclosed initializer list>’ to ‘app::outer_loop_timing::Summary’
+  103 |             data_.uncertain.polls == 0U};
+      |                                        ^
+      |                                        |
+      |                                        <brace-enclosed initializer list>
+/dev/shm/sumo-d243-09z_8fty/entry/src/app/outer_loop_timing.h: In member function ‘void app::outer_loop_timing::Observer::observe(uint32_t, uint32_t)’:
+/dev/shm/sumo-d243-09z_8fty/entry/src/app/outer_loop_timing.h:134:15: error: ‘struct app::outer_loop_timing::Data’ has no member named ‘all’
+  134 |         data_.all.observe(duration, data_.pending_entry_us, now_us);
+      |               ^~~
+/dev/shm/sumo-d243-09z_8fty/entry/src/app/outer_loop_timing.h:135:19: error: ‘struct app::outer_loop_timing::Data’ has no member named ‘all’
+  135 |         if (data_.all.data().saturated) { fail(Status::SATURATED, now_us); return; }
+      |                   ^~~
+/dev/shm/sumo-d243-09z_8fty/entry/src/app/outer_loop_timing.h:137:30: error: ‘struct app::outer_loop_timing::Data’ has no member named ‘completed’
+  137 |         if (completed) data_.completed.observe(duration, data_.pending_entry_us, now_us);
+      |                              ^~~~~~~~~
+/dev/shm/sumo-d243-09z_8fty/entry/src/app/outer_loop_timing.h:150:19: error: ‘struct app::outer_loop_timing::Data’ has no member named ‘all’
+  150 |         if (data_.all.data().saturated || data_.completed.data().saturated)
+      |                   ^~~
+/dev/shm/sumo-d243-09z_8fty/entry/src/app/outer_loop_timing.h:150:49: error: ‘struct app::outer_loop_timing::Data’ has no member named ‘completed’
+  150 |         if (data_.all.data().saturated || data_.completed.data().saturated)
+      |                                                 ^~~~~~~~~
+/dev/shm/sumo-d243-09z_8fty/entry/main.cpp: In function ‘int main()’:
+/dev/shm/sumo-d243-09z_8fty/entry/main.cpp:10:34: error: ‘const struct app::outer_loop_timing::Data’ has no member named ‘all’
+   10 |     if (outer_loop_timing.data().all.data().samples!=2 ||
+      |                                  ^~~
+/dev/shm/sumo-d243-09z_8fty/entry/main.cpp:11:34: error: ‘const struct app::outer_loop_timing::Data’ has no member named ‘completed’
+   11 |         outer_loop_timing.data().completed.data().samples!=2 ||
+      |                                  ^~~~~~~~~

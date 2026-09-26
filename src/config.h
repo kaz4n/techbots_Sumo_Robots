@@ -223,6 +223,8 @@ inline constexpr std::uint32_t COUNTDOWN_MARGIN_MS = 100U; // ms
 inline constexpr std::uint32_t TICK_US = 1000U; // us
 // D229 exact S..C diagnostic range; this does not change a scheduler deadline.
 inline constexpr std::uint32_t TICK_DISTRIBUTION_LIMIT_US = 800U; // us, exclusive
+// D243 diagnostic cohort only; no control or safety deadline changes.
+inline constexpr std::uint32_t OUTER_LOOP_WINDOW_US = 300000000U; // us, five minutes
 // D096 development service limits; no claim of measured complete-tick WCET.
 inline constexpr std::uint32_t APP_QTR_SERVICE_US = 600U;
 inline constexpr std::uint32_t APP_SERVICE_MAX_PASSES = 8192U; // count exception

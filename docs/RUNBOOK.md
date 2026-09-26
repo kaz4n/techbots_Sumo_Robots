@@ -11,7 +11,7 @@ Use the [mode card](MODE_CARD.md) and [rehearsal/scouting sheets](REHEARSAL_SCOU
 with this document. The competition is Saturday 3 October; the planned dress
 rehearsal is Friday 2 October. All times below are Asia/Dubai.
 
-## Release prerequisites â€” currently open
+## Release prerequisites — currently open
 
 The checked-in app maps explicit `config.h` declarations into its setup grants;
 all remain disabled, with mounting and button windows unconfigured. D180 prepares
@@ -30,7 +30,7 @@ A mode number/arrow alone is not readiness; the battery bar is not numeric volta
 | Motion and opener acceptance | Resolve the real starts, stopping/edge, combat and opener criteria in the [P3](../state/analysis/P3_software_acceptance_packet.md), [P4](../state/analysis/P4_software_acceptance_packet.md) and [P5](../state/analysis/P5_software_acceptance_packet.md) packets. Each powered practice attempt needs fresh STAND OK or RING OK bound to that specific run, target, firmware and scope; never reuse it for another attempt. |
 | Safe stop, retrieval and next-round rearming | Verify a physical procedure for this release. D103's optional local service reset is disabled by default and retains motor inhibition; it **does not rearm a match**. Do not substitute it for a restart procedure. |
 | Log preservation and extraction | Verify native ownership, framing and the actual inhibited IDLE dump route. These remain [blocked prerequisites](../state/analysis/P2_native_dump_prerequisite_followup.md). A reboot, battery swap or later match is not a log-preservation procedure. |
-| Organizer decisions | Record answers to [PLAN Â§5](PLAN.md#5-questions-for-the-organizers-send-today): orientation, mode changes, radios, arena, activation timing, scale and blade. D-014 remains pending. No pre-angled placement or between-round mode-change permission is assumed. |
+| Organizer decisions | Record answers to [PLAN §5](PLAN.md#5-questions-for-the-organizers-send-today): orientation, mode changes, radios, arena, activation timing, scale and blade. D-014 remains pending. No pre-angled placement or between-round mode-change permission is assumed. |
 | Release acceptance | Actual loaded RAM/stack, full-source timing, physical results, independent review and required human gates remain separate from software tests. |
 
 Source basis: [app entry](../src/app/app.ino), [setup grants](../src/app/runtime.h),
@@ -66,14 +66,14 @@ If P3 has not passed by the end of 28 September, apply the documented
 scope decision: SIDESTEP/DIRECT plus reactive core and recorder; remove ARC,
 WAIT and P6. P6 otherwise requires an actual P4 pass by 30 September.
 
-## Operator workflow â€” after release prerequisites are closed
+## Operator workflow — after release prerequisites are closed
 
 ### Night before
 
 - [ ] Charge both packs using the team's approved charging procedure; label them.
 - [ ] Weigh the complete robot and record the actual reading. Project target:
   2,950 g within 20 g; confirm the organizer's weigh-in rule and scale separately.
-- [ ] Check the complete footprint in the 199 Ã— 199 mm project check square,
+- [ ] Check the complete footprint in the 199 × 199 mm project check square,
   including attached blade, sensors and wires.
 - [ ] Check screws, existing threadlocker and retained parts; clean the tires.
 - [ ] Pack the inventory below and print the verified runbook, mode card and sheets.
@@ -170,6 +170,6 @@ Tick items actually owned and packed; this is an inventory, not a purchase list.
 - [ ] Printed verified runbook, mode card and rehearsal/scouting sheets.
 
 Original scope: [P7 prompt](prompts/P7_freeze_matchday.md),
-[PLAN Â§3/Â§5/Â§6](PLAN.md), [hardware checks](HARDWARE.md#9-hardware-verification-checklist-feeds-p2).
+[PLAN §3/§5/§6](PLAN.md), [hardware checks](HARDWARE.md#9-hardware-verification-checklist-feeds-p2).
 Completed preparation is not GATE P7: the actual tag/hash, printed documents,
 rehearsal, review and human `GATE P7 PASS` still need evidence.

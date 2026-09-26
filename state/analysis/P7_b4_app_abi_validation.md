@@ -38,3 +38,8 @@ This is preparation evidence only. The actual B4 ABI is not yet observed.
 The following recorder map must use those fresh layouts before a pure decoder
 can export retained bytes. Hardware origin, coherent capture, recorder lifecycle,
 loss, full initialized timing, live RAM and physical acceptance remain separate.
+
+
+## Actual outcome
+
+The single native operation now has independent FINAL PASS c7fe6fe9. Read P7_b4_app_abi_actual_validation.md; all previous future-tense native statements above are historical preparation. The native owner is consumed.

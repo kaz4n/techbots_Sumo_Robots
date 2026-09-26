@@ -1,0 +1,54 @@
+{
+  "schema": "d215-abi-native-invocations-v1",
+  "reviewed_head": "a68ab59e70e496c3b48764571f7f46bc1fee5a44",
+  "prerequisites_sha256": "33a4b37a8086f699d36f15001124acf7032383db2d0c86b07c95a539f306798e",
+  "first_error": null,
+  "check": {
+    "argv": [
+      "C:\\Users\\narut\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+      "-I",
+      "-B",
+      "state/analysis/P7_b4_app_compile_raw/inspect_static_abi.py",
+      "--check-only",
+      "--reviewed-head",
+      "a68ab59e70e496c3b48764571f7f46bc1fee5a44"
+    ],
+    "timeout_seconds": 120,
+    "started": "2026-09-26T20:35:27.079296+04:00",
+    "returncode": 0,
+    "stdout": "{\r\n  \"status\": \"STATIC_ABI_CHECKED\",\r\n  \"reviewed_head\": \"a68ab59e70e496c3b48764571f7f46bc1fee5a44\",\r\n  \"source_sha256\": \"9044ebbb3cd3b2dbb7aa5984dd5ff23bfff697372f1f29d56693af9ea5eaf31a\",\r\n  \"boot_id\": \"55c386b9-fe6d-4388-a7f4-1d91e0bb49d8\",\r\n  \"command_units\": 6981,\r\n  \"file_commands\": 4,\r\n  \"output\": \"C:\\\\Users\\\\narut\\\\OneDrive\\\\Desktop\\\\Project\\\\techbots_Sumo_Robots\\\\state\\\\analysis\\\\P7_b4_app_compile_raw\\\\native_abi_static01\"\r\n}\r\n",
+    "stderr": "",
+    "stdout_base64": "ew0KICAic3RhdHVzIjogIlNUQVRJQ19BQklfQ0hFQ0tFRCIsDQogICJyZXZpZXdlZF9oZWFkIjogImE2OGFiNTllNzBlNDk2YzNiNDg3NjQ1NzFmN2Y0NmJjMWZlZTVhNDQiLA0KICAic291cmNlX3NoYTI1NiI6ICI5MDQ0ZWJiYjNjZDNiMmRiYjdhYTU5ODRkZDVmZjIzYmZmZjY5NzM3MmYxZjI5ZDU2NjkzYWY5ZWE1ZWFmMzFhIiwNCiAgImJvb3RfaWQiOiAiNTVjMzg2YjktZmU2ZC00Mzg4LWE3ZjQtMWQ5MWUwYmI0OWQ4IiwNCiAgImNvbW1hbmRfdW5pdHMiOiA2OTgxLA0KICAiZmlsZV9jb21tYW5kcyI6IDQsDQogICJvdXRwdXQiOiAiQzpcXFVzZXJzXFxuYXJ1dFxcT25lRHJpdmVcXERlc2t0b3BcXFByb2plY3RcXHRlY2hib3RzX1N1bW9fUm9ib3RzXFxzdGF0ZVxcYW5hbHlzaXNcXFA3X2I0X2FwcF9jb21waWxlX3Jhd1xcbmF0aXZlX2FiaV9zdGF0aWMwMSINCn0NCg==",
+    "stdout_sha256": "03ce3e8b4017e5b006b995c39cf06184c1fb4dd2fb40b27bcbcf5766f8f69b2b",
+    "stderr_base64": "",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "elapsed_seconds": 0.5268267999636009
+  },
+  "execute": {
+    "argv": [
+      "C:\\Users\\narut\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+      "-I",
+      "-B",
+      "-X",
+      "pycache_prefix=C:\\Users\\narut\\OneDrive\\Desktop\\Project\\techbots_Sumo_Robots\\state\\analysis\\P7_b4_app_compile_raw\\native_abi_static01\\pycache",
+      "state/analysis/P7_b4_app_compile_raw/inspect_static_abi.py",
+      "--execute",
+      "--reviewed-head",
+      "a68ab59e70e496c3b48764571f7f46bc1fee5a44"
+    ],
+    "timeout_seconds": 500,
+    "started": "2026-09-26T20:35:27.606242+04:00",
+    "returncode": 0,
+    "stdout": "{\r\n  \"status\": \"STATIC_ABI_OBSERVED\",\r\n  \"first_error\": null,\r\n  \"final_checks\": [\r\n    {\r\n      \"name\": \"local\",\r\n      \"status\": \"PASS\"\r\n    }\r\n  ],\r\n  \"started_utc\": \"2026-09-26T16:35:28.329972+00:00\",\r\n  \"finished_utc\": \"2026-09-26T16:35:30.311099+00:00\",\r\n  \"transport_calls\": 1\r\n}\r\n",
+    "stderr": "",
+    "stdout_base64": "ew0KICAic3RhdHVzIjogIlNUQVRJQ19BQklfT0JTRVJWRUQiLA0KICAiZmlyc3RfZXJyb3IiOiBudWxsLA0KICAiZmluYWxfY2hlY2tzIjogWw0KICAgIHsNCiAgICAgICJuYW1lIjogImxvY2FsIiwNCiAgICAgICJzdGF0dXMiOiAiUEFTUyINCiAgICB9DQogIF0sDQogICJzdGFydGVkX3V0YyI6ICIyMDI2LTA5LTI2VDE2OjM1OjI4LjMyOTk3MiswMDowMCIsDQogICJmaW5pc2hlZF91dGMiOiAiMjAyNi0wOS0yNlQxNjozNTozMC4zMTEwOTkrMDA6MDAiLA0KICAidHJhbnNwb3J0X2NhbGxzIjogMQ0KfQ0K",
+    "stdout_sha256": "42d330b9c6969edb5f89f4777449f013892e0cc2ba816d8c5bbb0e4131fa95aa",
+    "stderr_base64": "",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "elapsed_seconds": 2.724869200028479
+  },
+  "closing_errors": [],
+  "changed_inputs": [],
+  "prerequisites_unchanged": true,
+  "head_after": "a68ab59e70e496c3b48764571f7f46bc1fee5a44"
+}

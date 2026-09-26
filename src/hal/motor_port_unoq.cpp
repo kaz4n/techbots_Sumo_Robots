@@ -94,7 +94,7 @@ TIM_TypeDef* timerRegisters(std::uint32_t timer) {
     return timer < 3U ? reinterpret_cast<TIM_TypeDef*>(addresses[timer]) : nullptr;
 }
 
-std::uint64_t candidateRate(std::uint32_t timer) {
+constexpr std::uint64_t expectedRate(std::uint32_t timer) {
     if (timer >= 3U || PRESCALERS[timer] > 65535U) return 0U;
     const std::uint32_t domain = timer == 0U ? STM32_SRC_TIMPCLK2 : STM32_SRC_TIMPCLK1;
     // A nonzero encoded divisor or selector would require a different clock proof.
@@ -112,12 +112,32 @@ std::uint64_t candidateRate(std::uint32_t timer) {
     return kernel % divider == 0U ? kernel / divider : 0U;
 }
 
-std::uint32_t candidatePeriod(std::uint32_t timer) {
-    const auto rate = candidateRate(timer);
+constexpr std::uint32_t expectedPeriod(std::uint32_t timer) {
+    const auto rate = expectedRate(timer);
     const std::uint32_t carrier = config::MOTOR_PWM_HZ;
     if (carrier == 0U || rate == 0U || rate % carrier != 0U) return 0U;
     const auto cycles = rate / carrier;
     return cycles > 0U && cycles <= 65536U ? static_cast<std::uint32_t>(cycles) : 0U;
+}
+
+std::uint64_t candidateRate(std::uint32_t timer) {
+    constexpr std::uint64_t RATE_0 = expectedRate(0U);
+    constexpr std::uint64_t RATE_1 = expectedRate(1U);
+    constexpr std::uint64_t RATE_2 = expectedRate(2U);
+    if (timer == 0U) return RATE_0;
+    if (timer == 1U) return RATE_1;
+    if (timer == 2U) return RATE_2;
+    return 0U;
+}
+
+std::uint32_t candidatePeriod(std::uint32_t timer) {
+    constexpr std::uint32_t PERIOD_0 = expectedPeriod(0U);
+    constexpr std::uint32_t PERIOD_1 = expectedPeriod(1U);
+    constexpr std::uint32_t PERIOD_2 = expectedPeriod(2U);
+    if (timer == 0U) return PERIOD_0;
+    if (timer == 1U) return PERIOD_1;
+    if (timer == 2U) return PERIOD_2;
+    return 0U;
 }
 
 std::uint32_t pinMask(std::uint32_t pin) {

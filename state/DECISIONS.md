@@ -2386,3 +2386,6 @@ Consequence: independent oracle FINAL1f33e47b/freeze9740a6e0 preceded any new su
 
 
 D-205 actual closure 2026-09-26T13:57:22.919929+04:00: Adopt actualreview008572bfPASS for one file-only observation at clean0a3f2b9e. Raw6700e974/entryb80c8ce8/local495c501d/rootclosing82abafa9 establish4reapedchildren13remote+localPASS,268/13/151pins,32groups34aliases3834bytes1429disassemblyrows. Current250/3200 periods and2.5M/32M expected rates replace oldexpectedmetadata division paths; livegetters/timer/bank checks and150us4096 bounds remain. Literal-pool rows are not executedinstruction counts. Ownerconsumed. Runtime benefit, SETTLE repair, coherent publication, WCET and physical gates remain unproved; prepare fresh inhibited runtime only after D206 cleanup closure.
+
+
+D-206 source/host closure 2026-09-26T13:57:55.057210+04:00: Adopt sourcehostreview09b5bed3PASS; exactrecipeedd1c8aa/wrapper1be147fe/oracle1f33e47b remain. First52LinuxPASS/15WindowsPASS37explicitLinux-coveredskips,45pinsclose098b1d55,no retry. The two newly derived absence/staging plans require independent preparationreview before board use. Stageverification and authenticatedadmission remain separate; no actualcleanup or firmware result is claimed.

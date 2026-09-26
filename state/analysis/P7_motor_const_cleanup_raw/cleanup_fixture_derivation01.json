@@ -1,0 +1,1376 @@
+{
+  "schema": "d206-independent-cleanup-fixture-derivation-v1",
+  "historical": {
+    "path": "tests/tooling/test_motor_settle_cleanup.py",
+    "bytes": 12023,
+    "sha256": "afbc97d1bd310646505d6fdc61b21db26418d27163b44700faa23a52a4842f2b"
+  },
+  "recipe": {
+    "path": "state/analysis/P7_motor_const_cleanup_raw/cleanup_derivation01.json",
+    "bytes": 17895,
+    "sha256": "26aa4a50e0dd63fc23b7a93317a69a19fc571f80e5fceba7b61e446b204f3869"
+  },
+  "contract": {
+    "path": "state/analysis/P7_motor_const_cleanup_contract.md",
+    "bytes": 16120,
+    "sha256": "25caada684cbf50964db02e3c8197fd75fdb6f0c448dd32df47067aa43c2c3ac"
+  },
+  "oracle_steps": [
+    {
+      "old": "NEW = 'state/analysis/P7_motor_settle_cleanup_raw/'",
+      "new": "NEW = 'state/analysis/P7_motor_const_cleanup_raw/'",
+      "count": 1,
+      "before": {
+        "bytes": 12023,
+        "sha256": "afbc97d1bd310646505d6fdc61b21db26418d27163b44700faa23a52a4842f2b"
+      },
+      "after": {
+        "bytes": 12022,
+        "sha256": "bf98156fe8682f463fab8661c2ed6a0518f76e0596f6773aec7d272f26b24f83"
+      }
+    },
+    {
+      "old": "CONTRACT = 'state/analysis/P7_motor_settle_cleanup_contract.md'",
+      "new": "CONTRACT = 'state/analysis/P7_motor_const_cleanup_contract.md'",
+      "count": 1,
+      "before": {
+        "bytes": 12022,
+        "sha256": "bf98156fe8682f463fab8661c2ed6a0518f76e0596f6773aec7d272f26b24f83"
+      },
+      "after": {
+        "bytes": 12021,
+        "sha256": "1d115da7ccd8c9a86c8b2379fcb577a6a7c70a5524703edfd3771947e7736e9d"
+      }
+    },
+    {
+      "old": "CONTRACT_PIN = (16277, '6cb02590369cdce1edd748987df363f99f336c9736dfd06e72906c4578457f47')",
+      "new": "CONTRACT_PIN = (16120, '25caada684cbf50964db02e3c8197fd75fdb6f0c448dd32df47067aa43c2c3ac')",
+      "count": 1,
+      "before": {
+        "bytes": 12021,
+        "sha256": "1d115da7ccd8c9a86c8b2379fcb577a6a7c70a5524703edfd3771947e7736e9d"
+      },
+      "after": {
+        "bytes": 12021,
+        "sha256": "edff28be1200cbb1dfe19158ac1cf89648f8f0b4094d766899c295c647a81ac5"
+      }
+    },
+    {
+      "old": "RECIPE_SHA = '6afeea1b9733670cdf315b2bf29b3e6e9c24016a2ba9217013e67496ec088f4d'",
+      "new": "RECIPE_SHA = 'edd1c8aa44f8de82cbfe1d7333b6ce836396922f82eacbe89d87fa6bcf3eb598'",
+      "count": 1,
+      "before": {
+        "bytes": 12021,
+        "sha256": "edff28be1200cbb1dfe19158ac1cf89648f8f0b4094d766899c295c647a81ac5"
+      },
+      "after": {
+        "bytes": 12021,
+        "sha256": "990cbcb537ce36d6291be580b28ecf1a80d786339e500bbd85164c72ca9642e6"
+      }
+    },
+    {
+      "old": "PROJECTED_SHA = '96d1197ec296906958f71c772102fdd34f7979525cde3e41222ee611025274c4'",
+      "new": "PROJECTED_SHA = '565acb3988bb0eba0c6865ac27daf5bbc277c85a67204f036bf098b3261b00be'",
+      "count": 1,
+      "before": {
+        "bytes": 12021,
+        "sha256": "990cbcb537ce36d6291be580b28ecf1a80d786339e500bbd85164c72ca9642e6"
+      },
+      "after": {
+        "bytes": 12021,
+        "sha256": "71b5a96a5d79cd5ab3d7437491dd5ebcf7fb4ddcf7a1de1048088cb15bae3c3e"
+      }
+    },
+    {
+      "old": "WRAPPER_SHA = '13f33327c5474d7c4dee56657a9d93b50e6fcdaee864e1855c916417a53c6290'",
+      "new": "WRAPPER_SHA = '1be147fe67bfafb60275ef1f741f05cfe2262be70c89b0eddbbfc3ec349837d4'",
+      "count": 1,
+      "before": {
+        "bytes": 12021,
+        "sha256": "71b5a96a5d79cd5ab3d7437491dd5ebcf7fb4ddcf7a1de1048088cb15bae3c3e"
+      },
+      "after": {
+        "bytes": 12021,
+        "sha256": "ab405ff3cddd0aaa345fc77164df59c15829b4d985a5d183be3b046d7f0ebe0f"
+      }
+    },
+    {
+      "old": "PAYLOAD_PATH = '/home/arduino/sumox26_codex_build/app-motor-observe-static01/build/' + PAYLOAD_NAME",
+      "new": "PAYLOAD_PATH = '/home/arduino/sumox26_codex_build/app-motor-settle-static01/build/app_motor_observe.ino.bin-zsk.bin'",
+      "count": 1,
+      "before": {
+        "bytes": 12021,
+        "sha256": "ab405ff3cddd0aaa345fc77164df59c15829b4d985a5d183be3b046d7f0ebe0f"
+      },
+      "after": {
+        "bytes": 12038,
+        "sha256": "84f25fb3d914ef8164a80d6aecb9f3709d5261feede76ae9052e3e869f336253"
+      }
+    },
+    {
+      "old": "PAYLOAD_SHA = '85b05c564fd3545c6b6e16fb64ed2aef8893226e32048309f1b71f97a5db4b6c'",
+      "new": "PAYLOAD_SHA = 'e400078166394d0f8ea44b601e9ba2948992c4f263c5c7ee5fb3942433c143d0'",
+      "count": 1,
+      "before": {
+        "bytes": 12038,
+        "sha256": "84f25fb3d914ef8164a80d6aecb9f3709d5261feede76ae9052e3e869f336253"
+      },
+      "after": {
+        "bytes": 12038,
+        "sha256": "c5fb63e67666c16f2aae3100546bac3365d4ac3ffc42f9a5e896211e3d907632"
+      }
+    },
+    {
+      "old": "FUTURE_PAYLOAD_SHA = 'e400078166394d0f8ea44b601e9ba2948992c4f263c5c7ee5fb3942433c143d0'",
+      "new": "FUTURE_PAYLOAD_SHA = 'f15c7ce1f0ff5fea2d44d0b60f0607f9adae22b83ba5043fe4de5e2b21fa26f7'",
+      "count": 1,
+      "before": {
+        "bytes": 12038,
+        "sha256": "c5fb63e67666c16f2aae3100546bac3365d4ac3ffc42f9a5e896211e3d907632"
+      },
+      "after": {
+        "bytes": 12038,
+        "sha256": "13e1c48227e45db9ff38aabfe17d76b407ce0a4144acfc3d64420c7943446048"
+      }
+    },
+    {
+      "old": "PINS = {\n    CONTRACT: CONTRACT_PIN, CORE: CORE_PIN, DELTA: DELTA_PIN,\n    PRIOR + 'cleanup_remoteocd02.py': (7735, PRIOR_RECIPE_SHA),\n    PRIOR + 'cleanup_root03.py': (9606, 'a089cc3bac9d8df3ffe53947e22b1bb4ffa139a733c7ebb1f5ba62e6d5bd804f'),\n    'state/analysis/P7_app_motor_observe_cleanup_contract.md': (12460, '7258230a63f48e09401186b8ad3bed09f958006909610cea835926427a3609f6'),\n    'state/analysis/P7_static_link_probe_raw/static_remote.py': (33321, '8ba9b190c38e728013a383348c60c287b0366607f65f703161cf7f2e142d36f8'),\n    NEW + 'observe_admission01.py': (9770, 'e4db653bf71bb2201549ea0ade3d637521520d6e2e9747473cf52fd6688aaa83'),\n    NEW + 'admission01.json': (24558, 'e95ebed4ee3d6441abccced02adbcc4857fe5f10418d94e158b009d3edecf922'),\n    'state/analysis/P7_app_motor_observe_compile_raw/native_static01/artifacts.json': (9651, '5ceba77dde7c493d66398bfd6d8e0e27e56345612290cb8fef9328f24b87625b'),\n    'state/analysis/P7_motor_settle_compile_raw/native_static01/artifacts.json': (9648, 'e18384c14c0b1367667b265ab4c532a4010be65697460a1cd45487bccd9eca10'),\n    NEW + 'cleanup_remoteocd03.py': (7740, RECIPE_SHA),\n    NEW + 'cleanup_root04.py': (9603, WRAPPER_SHA),\n}",
+      "new": "PINS = {'state/analysis/P7_motor_settle_cleanup_contract.md': (16277, '6cb02590369cdce1edd748987df363f99f336c9736dfd06e72906c4578457f47'), 'state/analysis/P7_app_motor_fault_run_raw/test_cleanup_root02.py': (37221, '225ef637e85dfe4ce1598e6744c781720b900905ea0c9c3bf0737d58b49e1559'), 'tests/tooling/test_app_motor_observe_cleanup.py': (14429, '18b150d239ba34aca30ce8b436036532a15e2c5aacb53ccf1166f51a68a831c0'), 'state/analysis/P7_app_motor_observe_run_raw/cleanup_remoteocd02.py': (7735, '1834edd39d628dccda0516f35cbc35434fd659c28392df6600cfdcf882e8ec9a'), 'state/analysis/P7_app_motor_observe_run_raw/cleanup_root03.py': (9606, 'a089cc3bac9d8df3ffe53947e22b1bb4ffa139a733c7ebb1f5ba62e6d5bd804f'), 'state/analysis/P7_app_motor_observe_cleanup_contract.md': (12460, '7258230a63f48e09401186b8ad3bed09f958006909610cea835926427a3609f6'), 'state/analysis/P7_static_link_probe_raw/static_remote.py': (33321, '8ba9b190c38e728013a383348c60c287b0366607f65f703161cf7f2e142d36f8'), 'state/analysis/P7_motor_settle_cleanup_raw/observe_admission01.py': (9770, 'e4db653bf71bb2201549ea0ade3d637521520d6e2e9747473cf52fd6688aaa83'), 'state/analysis/P7_motor_settle_cleanup_raw/admission01.json': (24558, 'e95ebed4ee3d6441abccced02adbcc4857fe5f10418d94e158b009d3edecf922'), 'state/analysis/P7_app_motor_observe_compile_raw/native_static01/artifacts.json': (9651, '5ceba77dde7c493d66398bfd6d8e0e27e56345612290cb8fef9328f24b87625b'), 'state/analysis/P7_motor_settle_compile_raw/native_static01/artifacts.json': (9648, 'e18384c14c0b1367667b265ab4c532a4010be65697460a1cd45487bccd9eca10'), 'state/analysis/P7_motor_settle_cleanup_raw/cleanup_remoteocd03.py': (7740, '6afeea1b9733670cdf315b2bf29b3e6e9c24016a2ba9217013e67496ec088f4d'), 'state/analysis/P7_motor_settle_cleanup_raw/cleanup_root04.py': (9603, '13f33327c5474d7c4dee56657a9d93b50e6fcdaee864e1855c916417a53c6290'), 'state/analysis/P7_motor_const_cleanup_contract.md': (16120, '25caada684cbf50964db02e3c8197fd75fdb6f0c448dd32df47067aa43c2c3ac'), 'state/analysis/P7_motor_const_cleanup_raw/admission01.json': (24555, 'addee38e4e6a4721b712ff861ded9ae4330b04a1b7f119632320805b4146b3a7'), 'state/analysis/P7_motor_const_cleanup_raw/inventory_derivation01.json': (3615, 'd2537c7470b2dfc80d65d4aee1c656a17edecacf5aeb1b0e56991dcb9e4f97df'), 'state/analysis/P7_motor_const_cleanup_raw/observe_admission01.py': (9769, '462c0534826b19d0722f86c69444a61bc55309514d7741ce196f40292a85ecd8'), 'state/analysis/P7_motor_const_compile_raw/native_static01/artifacts.json': (9645, 'fc5eb9e233c4642e0388f14132efdebab535d55134ce39c43d33c485d67e4ddd'), 'state/analysis/P7_motor_settle_cleanup_raw/cleanup_absence01.json': (21530, '83913618afbb11a061c9d46e90402f58479808ea09ec354ff49d806b4b034a58'), 'state/analysis/P7_motor_settle_cleanup_raw/cleanup_actual_result.json': (6370, '05507941ebbc8f9ba88c366dbf3c762e80042654a7c8de9166637ecc4e7c7ebd'), 'state/analysis/P7_motor_settle_cleanup_raw/cleanup_authenticated_intent01.json': (1072, '5f78e1dc7c68d3aaa72883360b069b8fd790b4769e5e62e198251585b0d076d5'), 'state/analysis/P7_motor_settle_cleanup_raw/cleanup_retrieval01.json': (46397, 'b7b776c998ace2c3e8e44e6208db298298c935b587ad5bbdbf172f843aa35c06'), 'state/analysis/P7_motor_settle_cleanup_raw/cleanup_stage_intent01.json': (20649, '09584e7a4dfe232705201c3f3f254736147813d43daed98fc98caddf673d74d9'), 'state/analysis/P7_motor_settle_cleanup_raw/cleanup_stage_verification01.json': (30404, 'f0ca0f685aeb77b9340d19c80e1242f073b824ff993200f3ff34f5b338b8e05b'), 'state/analysis/P7_motor_settle_cleanup_raw/cleanup_stage_verification02.json': (39917, '2c7a1ad2955f4835c05f289ca63bba25a210772c51cd65750ada997c7d4699bb'), 'state/analysis/P7_motor_settle_cleanup_raw/independent_test_freeze01.json': (15494, 'b5d1721358f5dd8d6e8f6acdf9caaa192f791b876e6b91e7154b17e080ad873b'), 'state/reviews/P7_motor_const_cleanup_inventory_review.md': (5672, 'dd2bce4966fa4e782af5b12d2871d02420d1d8cc5217f2d553f810a9eca8f7df'), 'state/reviews/P7_motor_settle_actual_review.md': (14116, '690a41643fc06a7d5c56ab61cc89113d602d8d6dee9e436cdbb09e3f7f19a0bc'), 'state/reviews/P7_motor_settle_cleanup_actual_review.md': (6870, '5bc9d56dadc6092ba327517163ca037df729641258b0842ab017d000eee994e6'), 'state/reviews/P7_motor_settle_cleanup_stage_review.md': (7179, '7e0181e54b21fb5869670afc5875eaacfaadf368231a7a0d38af7e40ead840f6'), 'tests/tooling/test_motor_settle_cleanup.py': (12023, 'afbc97d1bd310646505d6fdc61b21db26418d27163b44700faa23a52a4842f2b'), 'state/analysis/P7_motor_const_cleanup_raw/cleanup_remoteocd04.py': (7738, 'edd1c8aa44f8de82cbfe1d7333b6ce836396922f82eacbe89d87fa6bcf3eb598'), 'state/analysis/P7_motor_const_cleanup_raw/cleanup_root05.py': (9601, '1be147fe67bfafb60275ef1f741f05cfe2262be70c89b0eddbbfc3ec349837d4')}",
+      "count": 1,
+      "before": {
+        "bytes": 12038,
+        "sha256": "13e1c48227e45db9ff38aabfe17d76b407ce0a4144acfc3d64420c7943446048"
+      },
+      "after": {
+        "bytes": 15588,
+        "sha256": "8358850e05b51aa3e3ddce3f863cb3c36a17abec10ba59bd5c7328939ce79b0b"
+      }
+    },
+    {
+      "old": "NEW_PAYLOAD = \"    '\" + PAYLOAD_NAME + \"': (95360, '\" + PAYLOAD_SHA + \"',\\n        '\" + PAYLOAD_PATH + \"'),\\n\"",
+      "new": "NEW_PAYLOAD = \"    'app_motor_observe.ino.bin-zsk.bin': (95520, 'e400078166394d0f8ea44b601e9ba2948992c4f263c5c7ee5fb3942433c143d0',\\n        '/home/arduino/sumox26_codex_build/app-motor-settle-static01/build/app_motor_observe.ino.bin-zsk.bin'),\\n\"",
+      "count": 1,
+      "before": {
+        "bytes": 15588,
+        "sha256": "8358850e05b51aa3e3ddce3f863cb3c36a17abec10ba59bd5c7328939ce79b0b"
+      },
+      "after": {
+        "bytes": 15725,
+        "sha256": "7862dbae54e7329605ba937c839eb044eeaeaf8ca03f879dc52823e70cc1ed01"
+      }
+    },
+    {
+      "old": "CORE_CHANGES = (\n    ('cleanup-app-inert-root02', 'cleanup-app-settle-root04', 1),\n    ('cleanup_remoteocd01.py', 'cleanup_remoteocd03.py', 5),\n    ('cleanup_root02.py', 'cleanup_root04.py', 2),\n    ('_independent_cleanup_root02', '_independent_cleanup_root04', 1),\n    ('7873', '7740', 1), ('7870', '7737', 1),\n    (OLD_RECIPE_SHA, RECIPE_SHA, 1), (OLD_PROJECTED_SHA, PROJECTED_SHA, 1),\n    ('d190-exact-scratch-cleanup-v1', 'd200-exact-settle-scratch-cleanup-v1', 3),\n    ('d190-human-root-cleanup-v2', 'd200-authenticated-settle-cleanup-v1', 1),\n    (\"fs.records['/tmp/remoteocd'].st_ino = 33\", \"fs.records['/tmp/remoteocd'].st_ino = 1172\", 1),\n)",
+      "new": "CORE_CHANGES = (('cleanup-app-inert-root02', 'cleanup-app-const-root05', 1), ('cleanup_remoteocd01.py', 'cleanup_remoteocd04.py', 5), ('cleanup_root02.py', 'cleanup_root05.py', 2), ('_independent_cleanup_root02', '_independent_cleanup_root05', 1), ('7873', '7738', 1), ('7870', '7735', 1), ('23ef85ae3c386cc76751eea0fb18a90148a6fe513e3e8c753d527c06efcbbe95', 'edd1c8aa44f8de82cbfe1d7333b6ce836396922f82eacbe89d87fa6bcf3eb598', 1), ('51286ad414794e82f3161bed16cbb47dca421e831316e053a7eab967469f602e', '565acb3988bb0eba0c6865ac27daf5bbc277c85a67204f036bf098b3261b00be', 1), ('d190-exact-scratch-cleanup-v1', 'd206-exact-const-scratch-cleanup-v1', 3), ('d190-human-root-cleanup-v2', 'd206-authenticated-const-cleanup-v1', 1), (\"fs.records['/tmp/remoteocd'].st_ino = 33\", \"fs.records['/tmp/remoteocd'].st_ino = 1452\", 1))",
+      "count": 1,
+      "before": {
+        "bytes": 15725,
+        "sha256": "7862dbae54e7329605ba937c839eb044eeaeaf8ca03f879dc52823e70cc1ed01"
+      },
+      "after": {
+        "bytes": 15893,
+        "sha256": "ea8a8ff98711543069c652450897063999e182ba122a2acefebadd67d28b3bba"
+      }
+    },
+    {
+      "old": "DELTA_CHANGES = (\n    ('cleanup_remoteocd02.py', 'cleanup_remoteocd03.py', 7),\n    ('cleanup_root03.py', 'cleanup_root04.py', 2),\n    ('cleanup-app-observe-root03', 'cleanup-app-settle-root04', 1),\n    ('7732', '7737', 1), ('7735', '7740', 1),\n    ('result_root03.json', 'result_root04.json', 1),\n    ('create\\\\nit exclusively, never overwrite it',\n     'Create it\\\\nexclusively with no-clobber behavior; never overwrite a prior result', 1),\n    ('(95328, PAYLOAD_SHA', '(95360, PAYLOAD_SHA', 1), ('2399736', '2399768', 1),\n    (\"'motor_fault.ino.elf-zsk.bin', 'flash_sketch.cfg'\", \"'app_motor_fault.ino.bin-zsk.bin', 'flash_sketch.cfg'\", 1),\n    (\"(b'x' * 29836, b'x' * 95328, b'x' * 95329)\", \"(b'x' * 95328, b'x' * 95360, b'x' * 95361)\", 1),\n    ('b4416792a5bc228f34712fad9199a07c3c480aace979faa88aa12b50288b0a79', PRIOR_PAYLOAD_SHA, 1),\n    (\"recipe.checked_bytes(b'x' * 95328, pin)\", \"recipe.checked_bytes(b'x' * 95360, pin)\", 1),\n    ('(33, 869)', '(869, 1172)', 1), ('if inode == 33 else', 'if inode == 869 else', 1),\n    ('int(inode == 869)', 'int(inode == 1172)', 1),\n    ('self.directory_fixture(recipe, 869)', 'self.directory_fixture(recipe, 1172)', 1),\n    (\"'motor-fault-active01'\", \"'app-motor-fault-static01'\", 1),\n)",
+      "new": "DELTA_CHANGES = (('cleanup_remoteocd02.py', 'cleanup_remoteocd04.py', 7), ('cleanup_root03.py', 'cleanup_root05.py', 2), ('cleanup-app-observe-root03', 'cleanup-app-const-root05', 1), ('7735', '7738', 1), ('7732', '7735', 1), ('result_root03.json', 'result_root05.json', 1), ('create\\\\nit exclusively, never overwrite it', 'Create it\\\\nexclusively with no-clobber behavior; never overwrite a prior result', 1), ('(95328, PAYLOAD_SHA', '(95520, PAYLOAD_SHA', 1), ('2399736', '2399928', 1), (\"'motor_fault.ino.elf-zsk.bin', 'flash_sketch.cfg'\", \"'app_motor_fault.ino.bin-zsk.bin', 'flash_sketch.cfg'\", 1), (\"(b'x' * 29836, b'x' * 95328, b'x' * 95329)\", \"(b'x' * 95328, b'x' * 95520, b'x' * 95521)\", 1), ('b4416792a5bc228f34712fad9199a07c3c480aace979faa88aa12b50288b0a79', 'deb40317e5c444af26e65da4b6f1d0e577d9897d59dbddff3bce03a7bc14335c', 1), (\"recipe.checked_bytes(b'x' * 95328, pin)\", \"recipe.checked_bytes(b'x' * 95520, pin)\", 1), ('(33, 869)', '(1172, 1452)', 1), ('if inode == 33 else', 'if inode == 1172 else', 1), ('int(inode == 869)', 'int(inode == 1452)', 1), ('self.directory_fixture(recipe, 869)', 'self.directory_fixture(recipe, 1452)', 1), (\"'motor-fault-active01'\", \"'app-motor-fault-static01'\", 1))",
+      "count": 1,
+      "before": {
+        "bytes": 15893,
+        "sha256": "ea8a8ff98711543069c652450897063999e182ba122a2acefebadd67d28b3bba"
+      },
+      "after": {
+        "bytes": 15875,
+        "sha256": "730efb4aa10af6049f17f7e02958229e18876c25dd7d1fa152e20a3de6daaa1f"
+      }
+    },
+    {
+      "old": "def recipe_projection():\n    raw = replace_checked(checked(PRIOR + 'cleanup_remoteocd02.py'), (\n        ('D190', 'D195', 1), (OLD_PAYLOAD, NEW_PAYLOAD, 1),\n        ('info.st_ino == 869', 'info.st_ino == 1172', 1),\n        ('d196-exact-observer-scratch-cleanup-v1', 'd200-exact-settle-scratch-cleanup-v1', 1)))\n    if (len(raw), sha(raw)) != PINS[NEW + 'cleanup_remoteocd03.py']:\n        raise AssertionError('Independent recipe identity')\n    return raw",
+      "new": "def recipe_projection():\n    raw = replace_checked(checked(PRIOR + 'cleanup_remoteocd02.py'), (\n        ('D190', 'D201', 1), (OLD_PAYLOAD, NEW_PAYLOAD, 1),\n        ('info.st_ino == 869', 'info.st_ino == 1452', 1),\n        ('d196-exact-observer-scratch-cleanup-v1', 'd206-exact-const-scratch-cleanup-v1', 1)))\n    if (len(raw), sha(raw)) != PINS[NEW + 'cleanup_remoteocd04.py']:\n        raise AssertionError('Independent recipe identity')\n    return raw",
+      "count": 1,
+      "before": {
+        "bytes": 15875,
+        "sha256": "730efb4aa10af6049f17f7e02958229e18876c25dd7d1fa152e20a3de6daaa1f"
+      },
+      "after": {
+        "bytes": 15874,
+        "sha256": "b46c893b668e9706ab6835277a19352f19095c3d2cbb071fef09091fe6d26f51"
+      }
+    },
+    {
+      "old": "def wrapper_projection():\n    raw = replace_checked(checked(PRIOR + 'cleanup_root03.py'), (\n        ('cleanup-app-observe-root03', 'cleanup-app-settle-root04', 1),\n        ('cleanup_remoteocd02.py', 'cleanup_remoteocd03.py', 4), ('7735', '7740', 1),\n        (PRIOR_RECIPE_SHA, RECIPE_SHA, 1), (PRIOR_PROJECTED_SHA, PROJECTED_SHA, 1),\n        ('d196-authenticated-observer-cleanup-v1', 'd200-authenticated-settle-cleanup-v1', 1)))\n    if (len(raw), sha(raw)) != PINS[NEW + 'cleanup_root04.py']:\n        raise AssertionError('Independent wrapper identity')\n    return raw",
+      "new": "def wrapper_projection():\n    raw = replace_checked(checked(PRIOR + 'cleanup_root03.py'), (\n        ('cleanup-app-observe-root03', 'cleanup-app-const-root05', 1),\n        ('cleanup_remoteocd02.py', 'cleanup_remoteocd04.py', 4), ('7735', '7738', 1),\n        (PRIOR_RECIPE_SHA, RECIPE_SHA, 1), (PRIOR_PROJECTED_SHA, PROJECTED_SHA, 1),\n        ('d196-authenticated-observer-cleanup-v1', 'd206-authenticated-const-cleanup-v1', 1)))\n    if (len(raw), sha(raw)) != PINS[NEW + 'cleanup_root05.py']:\n        raise AssertionError('Independent wrapper identity')\n    return raw",
+      "count": 1,
+      "before": {
+        "bytes": 15874,
+        "sha256": "b46c893b668e9706ab6835277a19352f19095c3d2cbb071fef09091fe6d26f51"
+      },
+      "after": {
+        "bytes": 15872,
+        "sha256": "c1519fd92752ace296a631ab8eb967cc7c6c7606e1d2f21f594ba315c4c9e178"
+      }
+    },
+    {
+      "old": "(37255, '4109c339f8d6a8faa195b671a8b20ce778810bd895e04846b84784f58610a33f')",
+      "new": "(37250, 'dfd89dea54a6bba65db4c7678f1cc0a9062e2bbea203405d30c7ba0b2985d263')",
+      "count": 1,
+      "before": {
+        "bytes": 15872,
+        "sha256": "c1519fd92752ace296a631ab8eb967cc7c6c7606e1d2f21f594ba315c4c9e178"
+      },
+      "after": {
+        "bytes": 15872,
+        "sha256": "647b946483930e065e13e8d81cf3b8131267fe0ea47b4edac5aed7ece7e9ce32"
+      }
+    },
+    {
+      "old": "(14478, 'fc1ce156a78519c041a8836191583f4548fc7846d5c229060818dfbc9a33f0a2')",
+      "new": "(14479, 'a44d6dc1ed6859ec2f06cb862f66d532355ed58c5ac4f1261958a898c8070879')",
+      "count": 1,
+      "before": {
+        "bytes": 15872,
+        "sha256": "647b946483930e065e13e8d81cf3b8131267fe0ea47b4edac5aed7ece7e9ce32"
+      },
+      "after": {
+        "bytes": 15872,
+        "sha256": "e44199b0158ea8a781916e8a8849a41e5a62f30f866a2e71d2173671349d47dc"
+      }
+    },
+    {
+      "old": "def focused_cases(oracle):\n    class CurrentCopyRefusals(unittest.TestCase):\n        def test_D190_and_D198_package_bytes_cannot_replace_the_current_D193_copy(self):\n            recipe = oracle.definitions('cleanup_remoteocd03.py')\n            before = dict(recipe.PINS); pin = recipe.PINS[PAYLOAD_NAME]\n            self.assertEqual(pin, (95360, PAYLOAD_SHA, PAYLOAD_PATH))\n            for wrong_size in (95328, 95520):\n                with self.subTest(size=wrong_size), self.assertRaisesRegex(ValueError, 'Copy or original differs'):\n                    recipe.checked_bytes(b'x' * wrong_size, pin)\n            for wrong_digest in (PRIOR_PAYLOAD_SHA, FUTURE_PAYLOAD_SHA):\n                digest = mock.Mock(return_value=types.SimpleNamespace(hexdigest=lambda: wrong_digest))\n                recipe.hashlib = types.SimpleNamespace(sha256=digest)\n                with self.subTest(digest=wrong_digest), self.assertRaisesRegex(ValueError, 'Copy or original differs'):\n                    recipe.checked_bytes(b'x' * 95360, pin)\n                digest.assert_called_once()\n            self.assertEqual(recipe.PINS, before)\n\n        def test_previous_source_names_and_stage_schema_source_drift_fail_before_execution(self):\n            wrapper = oracle.definitions('cleanup_root04.py')\n            wrapper.os = types.SimpleNamespace(open=mock.Mock(side_effect=AssertionError('Unknown source opened')))\n            for name in ('cleanup_remoteocd01.py', 'cleanup_remoteocd02.py', 'cleanup_root03.py'):\n                with self.subTest(name=name), self.assertRaisesRegex(ValueError, 'Unknown source basename'):\n                    wrapper.read_source(name)\n            wrapper.os.open.assert_not_called()\n            name = NEW + 'cleanup_root04.py'; current = checked(name)\n            # These are rejected SOURCE substitutions, not a new JSON schema predicate.\n            for before, after in (\n                    (b'cleanup-app-settle-root04', b'cleanup-app-observe-root03'),\n                    (b'd200-authenticated-settle-cleanup-v1', b'd196-authenticated-observer-cleanup-v1')):\n                self.assertEqual(current.count(before), 1)\n                wrong = current.replace(before, after); read = Path.read_bytes\n                def observed(path):\n                    return wrong if path == ROOT / name else read(path)\n                with mock.patch.object(Path, 'read_bytes', observed), self.assertRaisesRegex(AssertionError, 'Frozen input changed'):\n                    oracle.definitions('cleanup_root04.py')\n\n    return CurrentCopyRefusals",
+      "new": "def focused_cases(oracle):\n    class CurrentCopyRefusals(unittest.TestCase):\n        def test_D190_D195_and_D203_packages_cannot_replace_current_D201_copy(self):\n            recipe = oracle.definitions('cleanup_remoteocd04.py')\n            before = dict(recipe.PINS); pin = recipe.PINS[PAYLOAD_NAME]\n            self.assertEqual(pin, (95520, PAYLOAD_SHA, PAYLOAD_PATH))\n            for wrong_size in (95328, 95360, 95368):\n                with self.subTest(size=wrong_size), self.assertRaisesRegex(ValueError, 'Copy or original differs'):\n                    recipe.checked_bytes(b'x' * wrong_size, pin)\n            for wrong_digest in (PRIOR_PAYLOAD_SHA, '85b05c564fd3545c6b6e16fb64ed2aef8893226e32048309f1b71f97a5db4b6c', FUTURE_PAYLOAD_SHA):\n                digest = mock.Mock(return_value=types.SimpleNamespace(hexdigest=lambda: wrong_digest))\n                recipe.hashlib = types.SimpleNamespace(sha256=digest)\n                with self.subTest(digest=wrong_digest), self.assertRaisesRegex(ValueError, 'Copy or original differs'):\n                    recipe.checked_bytes(b'x' * 95520, pin)\n                digest.assert_called_once()\n            self.assertEqual(recipe.PINS, before)\n\n        def test_previous_source_names_and_stage_schema_source_drift_fail_before_execution(self):\n            wrapper = oracle.definitions('cleanup_root05.py')\n            wrapper.os = types.SimpleNamespace(open=mock.Mock(side_effect=AssertionError('Unknown source opened')))\n            for name in ('cleanup_remoteocd01.py', 'cleanup_remoteocd02.py', 'cleanup_remoteocd03.py', 'cleanup_root03.py', 'cleanup_root04.py'):\n                with self.subTest(name=name), self.assertRaisesRegex(ValueError, 'Unknown source basename'):\n                    wrapper.read_source(name)\n            wrapper.os.open.assert_not_called()\n            name = NEW + 'cleanup_root05.py'; current = checked(name)\n            # These are rejected SOURCE substitutions, not a new JSON schema predicate.\n            for before, after in (\n                    (b'cleanup-app-const-root05', b'cleanup-app-settle-root04'),\n                    (b'd206-authenticated-const-cleanup-v1', b'd200-authenticated-settle-cleanup-v1')):\n                self.assertEqual(current.count(before), 1)\n                wrong = current.replace(before, after); read = Path.read_bytes\n                def observed(path):\n                    return wrong if path == ROOT / name else read(path)\n                with mock.patch.object(Path, 'read_bytes', observed), self.assertRaisesRegex(AssertionError, 'Frozen input changed'):\n                    oracle.definitions('cleanup_root05.py')\n\n    return CurrentCopyRefusals",
+      "count": 1,
+      "before": {
+        "bytes": 15872,
+        "sha256": "e44199b0158ea8a781916e8a8849a41e5a62f30f866a2e71d2173671349d47dc"
+      },
+      "after": {
+        "bytes": 15985,
+        "sha256": "dc30ff593ee2b88462cf47b9565a8877804cf5577dc7508fa95e31326a052bcb"
+      }
+    }
+  ],
+  "oracle_projected": {
+    "bytes": 15985,
+    "sha256": "dc30ff593ee2b88462cf47b9565a8877804cf5577dc7508fa95e31326a052bcb"
+  },
+  "core_steps": [
+    {
+      "old": "cleanup-app-inert-root02",
+      "new": "cleanup-app-const-root05",
+      "count": 1,
+      "before": {
+        "bytes": 37221,
+        "sha256": "225ef637e85dfe4ce1598e6744c781720b900905ea0c9c3bf0737d58b49e1559"
+      },
+      "after": {
+        "bytes": 37221,
+        "sha256": "69a18c77cd1784782dfac1630324486546981adc9f4719bb029962c69dfcd471"
+      }
+    },
+    {
+      "old": "cleanup_remoteocd01.py",
+      "new": "cleanup_remoteocd04.py",
+      "count": 5,
+      "before": {
+        "bytes": 37221,
+        "sha256": "69a18c77cd1784782dfac1630324486546981adc9f4719bb029962c69dfcd471"
+      },
+      "after": {
+        "bytes": 37221,
+        "sha256": "efba2b3b3cfeee6ff2ff6fb5766d9d8c3d2c86c3ee5678ea8091a2e4ac1d58aa"
+      }
+    },
+    {
+      "old": "cleanup_root02.py",
+      "new": "cleanup_root05.py",
+      "count": 2,
+      "before": {
+        "bytes": 37221,
+        "sha256": "efba2b3b3cfeee6ff2ff6fb5766d9d8c3d2c86c3ee5678ea8091a2e4ac1d58aa"
+      },
+      "after": {
+        "bytes": 37221,
+        "sha256": "e179ab288fa85cd49f1acaca10622f38c9138dd366854ee56255c6ac1205417f"
+      }
+    },
+    {
+      "old": "_independent_cleanup_root02",
+      "new": "_independent_cleanup_root05",
+      "count": 1,
+      "before": {
+        "bytes": 37221,
+        "sha256": "e179ab288fa85cd49f1acaca10622f38c9138dd366854ee56255c6ac1205417f"
+      },
+      "after": {
+        "bytes": 37221,
+        "sha256": "ddc82a27119d7f555fc0f93430a3f1af16f625d468bde093ce8e76382b316497"
+      }
+    },
+    {
+      "old": "7873",
+      "new": "7738",
+      "count": 1,
+      "before": {
+        "bytes": 37221,
+        "sha256": "ddc82a27119d7f555fc0f93430a3f1af16f625d468bde093ce8e76382b316497"
+      },
+      "after": {
+        "bytes": 37221,
+        "sha256": "a3143441b3e9a0b1515d71f78fec1c6c48bcf504312c9899e821cc5908f9d287"
+      }
+    },
+    {
+      "old": "7870",
+      "new": "7735",
+      "count": 1,
+      "before": {
+        "bytes": 37221,
+        "sha256": "a3143441b3e9a0b1515d71f78fec1c6c48bcf504312c9899e821cc5908f9d287"
+      },
+      "after": {
+        "bytes": 37221,
+        "sha256": "9bd15190618a8cfc09972180ed38b5278d2fb79b5ed7cc938e29e2f3139eba55"
+      }
+    },
+    {
+      "old": "23ef85ae3c386cc76751eea0fb18a90148a6fe513e3e8c753d527c06efcbbe95",
+      "new": "edd1c8aa44f8de82cbfe1d7333b6ce836396922f82eacbe89d87fa6bcf3eb598",
+      "count": 1,
+      "before": {
+        "bytes": 37221,
+        "sha256": "9bd15190618a8cfc09972180ed38b5278d2fb79b5ed7cc938e29e2f3139eba55"
+      },
+      "after": {
+        "bytes": 37221,
+        "sha256": "41a72506c59444d82bcad24737cf056929df5cca80e895d0da48f18cfe9d98a7"
+      }
+    },
+    {
+      "old": "51286ad414794e82f3161bed16cbb47dca421e831316e053a7eab967469f602e",
+      "new": "565acb3988bb0eba0c6865ac27daf5bbc277c85a67204f036bf098b3261b00be",
+      "count": 1,
+      "before": {
+        "bytes": 37221,
+        "sha256": "41a72506c59444d82bcad24737cf056929df5cca80e895d0da48f18cfe9d98a7"
+      },
+      "after": {
+        "bytes": 37221,
+        "sha256": "75871ecbb52c197c63d9a3208a3aedc06ea58938feb3aa0d302f65d554190a74"
+      }
+    },
+    {
+      "old": "d190-exact-scratch-cleanup-v1",
+      "new": "d206-exact-const-scratch-cleanup-v1",
+      "count": 3,
+      "before": {
+        "bytes": 37221,
+        "sha256": "75871ecbb52c197c63d9a3208a3aedc06ea58938feb3aa0d302f65d554190a74"
+      },
+      "after": {
+        "bytes": 37239,
+        "sha256": "e5c0df29149eae203696bd371c44d4a6ac65447715b163ac4e7d2489c1d61f6b"
+      }
+    },
+    {
+      "old": "d190-human-root-cleanup-v2",
+      "new": "d206-authenticated-const-cleanup-v1",
+      "count": 1,
+      "before": {
+        "bytes": 37239,
+        "sha256": "e5c0df29149eae203696bd371c44d4a6ac65447715b163ac4e7d2489c1d61f6b"
+      },
+      "after": {
+        "bytes": 37248,
+        "sha256": "9618600c41811c820f84f13bb5555c545b158f2712a87008a0d2c3854c77b527"
+      }
+    },
+    {
+      "old": "fs.records['/tmp/remoteocd'].st_ino = 33",
+      "new": "fs.records['/tmp/remoteocd'].st_ino = 1452",
+      "count": 1,
+      "before": {
+        "bytes": 37248,
+        "sha256": "9618600c41811c820f84f13bb5555c545b158f2712a87008a0d2c3854c77b527"
+      },
+      "after": {
+        "bytes": 37250,
+        "sha256": "dfd89dea54a6bba65db4c7678f1cc0a9062e2bbea203405d30c7ba0b2985d263"
+      }
+    }
+  ],
+  "core_projected": {
+    "bytes": 37250,
+    "sha256": "dfd89dea54a6bba65db4c7678f1cc0a9062e2bbea203405d30c7ba0b2985d263"
+  },
+  "metadata_class_steps": [
+    {
+      "old": "cleanup_remoteocd02.py",
+      "new": "cleanup_remoteocd04.py",
+      "count": 7,
+      "before": {
+        "bytes": 7718,
+        "sha256": "c671445d65b042277ccb19696cf40b2bc9b8216008d13e779eec48d760ce1514"
+      },
+      "after": {
+        "bytes": 7718,
+        "sha256": "a4a7d56c82b6893a83f7e198876c6e569a008163b5946f2317d6671683e73197"
+      }
+    },
+    {
+      "old": "cleanup_root03.py",
+      "new": "cleanup_root05.py",
+      "count": 2,
+      "before": {
+        "bytes": 7718,
+        "sha256": "a4a7d56c82b6893a83f7e198876c6e569a008163b5946f2317d6671683e73197"
+      },
+      "after": {
+        "bytes": 7718,
+        "sha256": "5f16436ec772586bee9f86fe79f43343cbcee13e5433a60cff2f2560be4120cc"
+      }
+    },
+    {
+      "old": "cleanup-app-observe-root03",
+      "new": "cleanup-app-const-root05",
+      "count": 1,
+      "before": {
+        "bytes": 7718,
+        "sha256": "5f16436ec772586bee9f86fe79f43343cbcee13e5433a60cff2f2560be4120cc"
+      },
+      "after": {
+        "bytes": 7716,
+        "sha256": "8c4e99547d57477c015adfb82978de59186bc280fe5832c1f78ca377f250ed79"
+      }
+    },
+    {
+      "old": "7735",
+      "new": "7738",
+      "count": 1,
+      "before": {
+        "bytes": 7716,
+        "sha256": "8c4e99547d57477c015adfb82978de59186bc280fe5832c1f78ca377f250ed79"
+      },
+      "after": {
+        "bytes": 7716,
+        "sha256": "9b3f1873fbba4ee0bfe48f6e5a3b23ad27fc395938da2e8a7797fc86102f564f"
+      }
+    },
+    {
+      "old": "7732",
+      "new": "7735",
+      "count": 1,
+      "before": {
+        "bytes": 7716,
+        "sha256": "9b3f1873fbba4ee0bfe48f6e5a3b23ad27fc395938da2e8a7797fc86102f564f"
+      },
+      "after": {
+        "bytes": 7716,
+        "sha256": "3237cbcd0bd29c0d5ba2be4d77192e9a734501522cb871a6a6bce9778e0d85e1"
+      }
+    },
+    {
+      "old": "result_root03.json",
+      "new": "result_root05.json",
+      "count": 1,
+      "before": {
+        "bytes": 7716,
+        "sha256": "3237cbcd0bd29c0d5ba2be4d77192e9a734501522cb871a6a6bce9778e0d85e1"
+      },
+      "after": {
+        "bytes": 7716,
+        "sha256": "02cbde652671cdfa241e36b4828fad43f9308ec39575bf6c34e306b585e940ca"
+      }
+    },
+    {
+      "old": "create\\nit exclusively, never overwrite it",
+      "new": "Create it\\nexclusively with no-clobber behavior; never overwrite a prior result",
+      "count": 1,
+      "before": {
+        "bytes": 7716,
+        "sha256": "02cbde652671cdfa241e36b4828fad43f9308ec39575bf6c34e306b585e940ca"
+      },
+      "after": {
+        "bytes": 7753,
+        "sha256": "a40290be62995a5e2d3c5039c1d77505222ba2689457e1a745678bc5d91f5425"
+      }
+    },
+    {
+      "old": "(95328, PAYLOAD_SHA",
+      "new": "(95520, PAYLOAD_SHA",
+      "count": 1,
+      "before": {
+        "bytes": 7753,
+        "sha256": "a40290be62995a5e2d3c5039c1d77505222ba2689457e1a745678bc5d91f5425"
+      },
+      "after": {
+        "bytes": 7753,
+        "sha256": "8501dad4c869b4c46221bb76bf1e54b82729e095663b0951f833ba45929e0414"
+      }
+    },
+    {
+      "old": "2399736",
+      "new": "2399928",
+      "count": 1,
+      "before": {
+        "bytes": 7753,
+        "sha256": "8501dad4c869b4c46221bb76bf1e54b82729e095663b0951f833ba45929e0414"
+      },
+      "after": {
+        "bytes": 7753,
+        "sha256": "a6dcea34a5c4ecd4691fcc71f18ff8a98cb7fa0ad4ebd243747e2c6e98f69234"
+      }
+    },
+    {
+      "old": "'motor_fault.ino.elf-zsk.bin', 'flash_sketch.cfg'",
+      "new": "'app_motor_fault.ino.bin-zsk.bin', 'flash_sketch.cfg'",
+      "count": 1,
+      "before": {
+        "bytes": 7753,
+        "sha256": "a6dcea34a5c4ecd4691fcc71f18ff8a98cb7fa0ad4ebd243747e2c6e98f69234"
+      },
+      "after": {
+        "bytes": 7757,
+        "sha256": "05c94c9e7e29440075871288f2d2e2a85e1bc1e181a8ac3407bbbd1096e9bfcf"
+      }
+    },
+    {
+      "old": "(b'x' * 29836, b'x' * 95328, b'x' * 95329)",
+      "new": "(b'x' * 95328, b'x' * 95520, b'x' * 95521)",
+      "count": 1,
+      "before": {
+        "bytes": 7757,
+        "sha256": "05c94c9e7e29440075871288f2d2e2a85e1bc1e181a8ac3407bbbd1096e9bfcf"
+      },
+      "after": {
+        "bytes": 7757,
+        "sha256": "9641ea9f63b04237009c863f129a5ad06ecbdc3f8982daa91bbb2986e2538e21"
+      }
+    },
+    {
+      "old": "b4416792a5bc228f34712fad9199a07c3c480aace979faa88aa12b50288b0a79",
+      "new": "deb40317e5c444af26e65da4b6f1d0e577d9897d59dbddff3bce03a7bc14335c",
+      "count": 1,
+      "before": {
+        "bytes": 7757,
+        "sha256": "9641ea9f63b04237009c863f129a5ad06ecbdc3f8982daa91bbb2986e2538e21"
+      },
+      "after": {
+        "bytes": 7757,
+        "sha256": "736bf7a0a9d691766af806d9b94b835520f1f31a69751aaeca6aef52b41cbf47"
+      }
+    },
+    {
+      "old": "recipe.checked_bytes(b'x' * 95328, pin)",
+      "new": "recipe.checked_bytes(b'x' * 95520, pin)",
+      "count": 1,
+      "before": {
+        "bytes": 7757,
+        "sha256": "736bf7a0a9d691766af806d9b94b835520f1f31a69751aaeca6aef52b41cbf47"
+      },
+      "after": {
+        "bytes": 7757,
+        "sha256": "29f55986b063b7b96425cff18d218589ea59561e08885d67dcc542522d8617a3"
+      }
+    },
+    {
+      "old": "(33, 869)",
+      "new": "(1172, 1452)",
+      "count": 1,
+      "before": {
+        "bytes": 7757,
+        "sha256": "29f55986b063b7b96425cff18d218589ea59561e08885d67dcc542522d8617a3"
+      },
+      "after": {
+        "bytes": 7760,
+        "sha256": "95d5f381bd43ce9cf163700fbf284946780de7d0e3d0b632a3268dc2a13f7376"
+      }
+    },
+    {
+      "old": "if inode == 33 else",
+      "new": "if inode == 1172 else",
+      "count": 1,
+      "before": {
+        "bytes": 7760,
+        "sha256": "95d5f381bd43ce9cf163700fbf284946780de7d0e3d0b632a3268dc2a13f7376"
+      },
+      "after": {
+        "bytes": 7762,
+        "sha256": "128e75849bbec3dc7e975e7a70de3dcb12815821b5d82ac47f037cdd214f9930"
+      }
+    },
+    {
+      "old": "int(inode == 869)",
+      "new": "int(inode == 1452)",
+      "count": 1,
+      "before": {
+        "bytes": 7762,
+        "sha256": "128e75849bbec3dc7e975e7a70de3dcb12815821b5d82ac47f037cdd214f9930"
+      },
+      "after": {
+        "bytes": 7763,
+        "sha256": "7a9961c4d6e7d4028ad90d28d6342b013d90bdc4689ffd40cb97dc8ee48075e8"
+      }
+    },
+    {
+      "old": "self.directory_fixture(recipe, 869)",
+      "new": "self.directory_fixture(recipe, 1452)",
+      "count": 1,
+      "before": {
+        "bytes": 7763,
+        "sha256": "7a9961c4d6e7d4028ad90d28d6342b013d90bdc4689ffd40cb97dc8ee48075e8"
+      },
+      "after": {
+        "bytes": 7764,
+        "sha256": "225e7aa8ca1165d618e07139daed19bb25640e45d2c8a510e362721421b60b1a"
+      }
+    },
+    {
+      "old": "'motor-fault-active01'",
+      "new": "'app-motor-fault-static01'",
+      "count": 1,
+      "before": {
+        "bytes": 7764,
+        "sha256": "225e7aa8ca1165d618e07139daed19bb25640e45d2c8a510e362721421b60b1a"
+      },
+      "after": {
+        "bytes": 7768,
+        "sha256": "ffbd6d62305f3f90f272f5b02a64bcb4e5c20b6382514d5d6de98bec733d1fab"
+      }
+    }
+  ],
+  "metadata_projected": {
+    "bytes": 14479,
+    "sha256": "a44d6dc1ed6859ec2f06cb862f66d532355ed58c5ac4f1261958a898c8070879"
+  },
+  "method_preservation": {
+    "core": {
+      "test_import_safe_and_original_sources_still_pinned": {
+        "current_name": "test_import_safe_and_original_sources_still_pinned",
+        "before": {
+          "bytes": 173,
+          "sha256": "6be4c1e5d359002a4471a775b4c45afbe88755bfcaf3c7d5b416a26b6a8005c8"
+        },
+        "projected": {
+          "bytes": 173,
+          "sha256": "6be4c1e5d359002a4471a775b4c45afbe88755bfcaf3c7d5b416a26b6a8005c8"
+        },
+        "assertion_calls": 2
+      },
+      "test_credentials_are_full_real_effective_saved_lists": {
+        "current_name": "test_credentials_are_full_real_effective_saved_lists",
+        "before": {
+          "bytes": 214,
+          "sha256": "767f24b9bcfabba76ecccba863af12bf53ecc63fa2166a7407da748ed8667e92"
+        },
+        "projected": {
+          "bytes": 214,
+          "sha256": "767f24b9bcfabba76ecccba863af12bf53ecc63fa2166a7407da748ed8667e92"
+        },
+        "assertion_calls": 1
+      },
+      "test_enter_user_clears_groups_and_sets_gid_before_uid": {
+        "current_name": "test_enter_user_clears_groups_and_sets_gid_before_uid",
+        "before": {
+          "bytes": 450,
+          "sha256": "08e2ab14335aa1800be35d8574eff8fa4796bd0a67e9827dbef8eadda8aa751a"
+        },
+        "projected": {
+          "bytes": 450,
+          "sha256": "08e2ab14335aa1800be35d8574eff8fa4796bd0a67e9827dbef8eadda8aa751a"
+        },
+        "assertion_calls": 3
+      },
+      "test_enter_user_rejects_any_wrong_initial_uid_or_gid_without_mutation": {
+        "current_name": "test_enter_user_rejects_any_wrong_initial_uid_or_gid_without_mutation",
+        "before": {
+          "bytes": 523,
+          "sha256": "a6115dc20986924ff675b2836db6d0e6eecc77ca3adbb8652df50b63856b8a3a"
+        },
+        "projected": {
+          "bytes": 523,
+          "sha256": "a6115dc20986924ff675b2836db6d0e6eecc77ca3adbb8652df50b63856b8a3a"
+        },
+        "assertion_calls": 2
+      },
+      "test_enter_user_detects_syscall_failure_and_silent_wrong_result": {
+        "current_name": "test_enter_user_detects_syscall_failure_and_silent_wrong_result",
+        "before": {
+          "bytes": 724,
+          "sha256": "77c3f6e523001d19c2e808768e431c05c7e1f2e7901527310255812358de26ef"
+        },
+        "projected": {
+          "bytes": 724,
+          "sha256": "77c3f6e523001d19c2e808768e431c05c7e1f2e7901527310255812358de26ef"
+        },
+        "assertion_calls": 2
+      },
+      "test_observe_elevates_only_euid_calls_once_and_restores": {
+        "current_name": "test_observe_elevates_only_euid_calls_once_and_restores",
+        "before": {
+          "bytes": 924,
+          "sha256": "aecb253f70bfcca9ec74a8f106a65a167dafd675ac18eb74587975e84b465e9d"
+        },
+        "projected": {
+          "bytes": 924,
+          "sha256": "aecb253f70bfcca9ec74a8f106a65a167dafd675ac18eb74587975e84b465e9d"
+        },
+        "assertion_calls": 10
+      },
+      "test_observe_does_not_skip_permission_or_use_rejection": {
+        "current_name": "test_observe_does_not_skip_permission_or_use_rejection",
+        "before": {
+          "bytes": 749,
+          "sha256": "b0d7597857005f825a45f360b0b10b735e66e3ca20dd9634ba60222b1e59565a"
+        },
+        "projected": {
+          "bytes": 749,
+          "sha256": "b0d7597857005f825a45f360b0b10b735e66e3ca20dd9634ba60222b1e59565a"
+        },
+        "assertion_calls": 5
+      },
+      "test_observe_wrong_entry_never_calls_original_or_elevates": {
+        "current_name": "test_observe_wrong_entry_never_calls_original_or_elevates",
+        "before": {
+          "bytes": 347,
+          "sha256": "cb1a37a3e9b77522da5e6f07d031d11679c29b461167c0b10e18fd42b153d55c"
+        },
+        "projected": {
+          "bytes": 347,
+          "sha256": "cb1a37a3e9b77522da5e6f07d031d11679c29b461167c0b10e18fd42b153d55c"
+        },
+        "assertion_calls": 3
+      },
+      "test_observe_elevation_failure_still_restores_and_records": {
+        "current_name": "test_observe_elevation_failure_still_restores_and_records",
+        "before": {
+          "bytes": 587,
+          "sha256": "7a2418216a6364b9c2dbe1888481b8aa915e43bfc8f9fa68c5a7c415957a6c26"
+        },
+        "projected": {
+          "bytes": 587,
+          "sha256": "7a2418216a6364b9c2dbe1888481b8aa915e43bfc8f9fa68c5a7c415957a6c26"
+        },
+        "assertion_calls": 5
+      },
+      "test_observe_scan_and_restore_failure_preserve_both_and_raise_first": {
+        "current_name": "test_observe_scan_and_restore_failure_preserve_both_and_raise_first",
+        "before": {
+          "bytes": 582,
+          "sha256": "b22e6744689b6bd17c319341d6fc47b6577267479dceb083cd49614f865de58d"
+        },
+        "projected": {
+          "bytes": 582,
+          "sha256": "b22e6744689b6bd17c319341d6fc47b6577267479dceb083cd49614f865de58d"
+        },
+        "assertion_calls": 4
+      },
+      "test_observe_restoration_failure_refuses_success_and_silent_credential_drift": {
+        "current_name": "test_observe_restoration_failure_refuses_success_and_silent_credential_drift",
+        "before": {
+          "bytes": 688,
+          "sha256": "6d1e6493bafe90f9a6b56d736dcb9593e4ca28517ef0cec8aac5e3e319b84396"
+        },
+        "projected": {
+          "bytes": 688,
+          "sha256": "6d1e6493bafe90f9a6b56d736dcb9593e4ca28517ef0cec8aac5e3e319b84396"
+        },
+        "assertion_calls": 2
+      },
+      "test_observe_gid_drift_is_rejected_even_after_euid_restoration": {
+        "current_name": "test_observe_gid_drift_is_rejected_even_after_euid_restoration",
+        "before": {
+          "bytes": 399,
+          "sha256": "ceb484a885443e2b23b9c0c57ea17b21f27bfabe8014c19a66fe3019797fd881"
+        },
+        "projected": {
+          "bytes": 399,
+          "sha256": "ceb484a885443e2b23b9c0c57ea17b21f27bfabe8014c19a66fe3019797fd881"
+        },
+        "assertion_calls": 3
+      },
+      "test_drop_privilege_removes_saved_root_and_attempts_both_on_failure": {
+        "current_name": "test_drop_privilege_removes_saved_root_and_attempts_both_on_failure",
+        "before": {
+          "bytes": 520,
+          "sha256": "80720ccebbf7cc2d740966fabd72f0355a351a1b1d75034715961a4f29db4c06"
+        },
+        "projected": {
+          "bytes": 520,
+          "sha256": "80720ccebbf7cc2d740966fabd72f0355a351a1b1d75034715961a4f29db4c06"
+        },
+        "assertion_calls": 4
+      },
+      "test_drop_privilege_detects_silent_retained_saved_uid": {
+        "current_name": "test_drop_privilege_detects_silent_retained_saved_uid",
+        "before": {
+          "bytes": 201,
+          "sha256": "653e595b375ee65ec0e65e7b0e9d6409d5e4179eb0d7ab85e4430b450b2aee1b"
+        },
+        "projected": {
+          "bytes": 201,
+          "sha256": "653e595b375ee65ec0e65e7b0e9d6409d5e4179eb0d7ab85e4430b450b2aee1b"
+        },
+        "assertion_calls": 1
+      },
+      "test_read_source_exact_two_dependencies_and_descriptor_closure": {
+        "current_name": "test_read_source_exact_two_dependencies_and_descriptor_closure",
+        "before": {
+          "bytes": 260,
+          "sha256": "30d1b70e7efd8a2372e642198a15b427457bc43284260ccf1c9a968bd02fbf7d"
+        },
+        "projected": {
+          "bytes": 260,
+          "sha256": "30d1b70e7efd8a2372e642198a15b427457bc43284260ccf1c9a968bd02fbf7d"
+        },
+        "assertion_calls": 3
+      },
+      "test_read_source_refuses_arbitrary_names_before_open": {
+        "current_name": "test_read_source_refuses_arbitrary_names_before_open",
+        "before": {
+          "bytes": 412,
+          "sha256": "cba4e75f450cb794bf5a348f452c445bec0253cad843227d667a749287538e70"
+        },
+        "projected": {
+          "bytes": 412,
+          "sha256": "289e95bdcbd8f8307022052092c4b8c5631765700d0274e7792bc343202c8888"
+        },
+        "assertion_calls": 2
+      },
+      "test_read_source_refuses_nonplain_ancestry_and_wrong_owner": {
+        "current_name": "test_read_source_refuses_nonplain_ancestry_and_wrong_owner",
+        "before": {
+          "bytes": 1136,
+          "sha256": "dda48af61ab2406f9ff34c45c61b09e11e9b2ee472b056d0cf81a9cfb0e51308"
+        },
+        "projected": {
+          "bytes": 1136,
+          "sha256": "dda48af61ab2406f9ff34c45c61b09e11e9b2ee472b056d0cf81a9cfb0e51308"
+        },
+        "assertion_calls": 2
+      },
+      "test_read_source_hash_corruption_and_read_error_close_all_descriptors": {
+        "current_name": "test_read_source_hash_corruption_and_read_error_close_all_descriptors",
+        "before": {
+          "bytes": 618,
+          "sha256": "9e19697cc78c46a8373c3813e37dc2bd5f7bcaf252ff39091de7e1fe171374e8"
+        },
+        "projected": {
+          "bytes": 618,
+          "sha256": "9e19697cc78c46a8373c3813e37dc2bd5f7bcaf252ff39091de7e1fe171374e8"
+        },
+        "assertion_calls": 4
+      },
+      "test_read_source_stat_drift_is_refused": {
+        "current_name": "test_read_source_stat_drift_is_refused",
+        "before": {
+          "bytes": 546,
+          "sha256": "6704a2b4693ae3a786a9de21dedb84430785bbfc6da434a5e38e1c631e701a53"
+        },
+        "projected": {
+          "bytes": 546,
+          "sha256": "6704a2b4693ae3a786a9de21dedb84430785bbfc6da434a5e38e1c631e701a53"
+        },
+        "assertion_calls": 2
+      },
+      "test_read_source_attempts_every_close_preserving_first_error": {
+        "current_name": "test_read_source_attempts_every_close_preserving_first_error",
+        "before": {
+          "bytes": 735,
+          "sha256": "a3c59e6dcbc92c209267fae4e2065c3babced25d62a4db9d218d6217ce9e8d27"
+        },
+        "projected": {
+          "bytes": 735,
+          "sha256": "a3c59e6dcbc92c209267fae4e2065c3babced25d62a4db9d218d6217ce9e8d27"
+        },
+        "assertion_calls": 6
+      },
+      "test_load_cleanup_uses_exact_sources_without_main_execution": {
+        "current_name": "test_load_cleanup_uses_exact_sources_without_main_execution",
+        "before": {
+          "bytes": 599,
+          "sha256": "62586f3c7916abcaccc71d0c0b79e18b6745b6c81a6cff44841aa00d535dc8f6"
+        },
+        "projected": {
+          "bytes": 599,
+          "sha256": "62586f3c7916abcaccc71d0c0b79e18b6745b6c81a6cff44841aa00d535dc8f6"
+        },
+        "assertion_calls": 6
+      },
+      "test_loaded_original_has_only_exact_missing_link_projection": {
+        "current_name": "test_loaded_original_has_only_exact_missing_link_projection",
+        "before": {
+          "bytes": 1405,
+          "sha256": "4c28940824da3f5f0d8f863e3311df1df0e69071676d2a7a7a075f747f352f44"
+        },
+        "projected": {
+          "bytes": 1405,
+          "sha256": "7a4667c4aa356598d1044fde6e78aad1656f902d16f546b5466dde822fe9d622"
+        },
+        "assertion_calls": 9
+      },
+      "test_projected_scan_missing_link_rejects_surviving_pid_accepts_departed_pid": {
+        "current_name": "test_projected_scan_missing_link_rejects_surviving_pid_accepts_departed_pid",
+        "before": {
+          "bytes": 805,
+          "sha256": "6d623b981f7cf55cbd4990ffff7fb63e97c81b4502a09713269ec334cef6f83b"
+        },
+        "projected": {
+          "bytes": 805,
+          "sha256": "6d623b981f7cf55cbd4990ffff7fb63e97c81b4502a09713269ec334cef6f83b"
+        },
+        "assertion_calls": 2
+      },
+      "test_projected_scan_retains_permission_native_name_and_directory_use_rejections": {
+        "current_name": "test_projected_scan_retains_permission_native_name_and_directory_use_rejections",
+        "before": {
+          "bytes": 845,
+          "sha256": "3c111c3350b9c0898fa83cd0bf6b21cb43f9f69493c382811f66404825b04cca"
+        },
+        "projected": {
+          "bytes": 845,
+          "sha256": "3c111c3350b9c0898fa83cd0bf6b21cb43f9f69493c382811f66404825b04cca"
+        },
+        "assertion_calls": 1
+      },
+      "test_original_cleanup_mutations_run_uid1000_with_three_root_observations": {
+        "current_name": "test_original_cleanup_mutations_run_uid1000_with_three_root_observations",
+        "before": {
+          "bytes": 3585,
+          "sha256": "7876003592ab689461ee848d942ced5f0bdf2b7ba0437de7a6e0bc182d2c6bc0"
+        },
+        "projected": {
+          "bytes": 3593,
+          "sha256": "c115e73453d0869a1b4a88978385d309bf0fccf2d73f0cd01c34f791eb394360"
+        },
+        "assertion_calls": 10
+      },
+      "test_execute_success_keeps_original_functions_calls_once_and_restores_argv": {
+        "current_name": "test_execute_success_keeps_original_functions_calls_once_and_restores_argv",
+        "before": {
+          "bytes": 1300,
+          "sha256": "feb30ec9371189ce076729a85980bdda8d5e47053cb274b488c4e42e79ca0893"
+        },
+        "projected": {
+          "bytes": 1309,
+          "sha256": "c0cb2b62809890f209d7bb251fde6d9ff1e8b7cd059ca2defba58a3dc501e0af"
+        },
+        "assertion_calls": 14
+      },
+      "test_execute_wrong_identity_or_extra_argument_cannot_enter_cleanup": {
+        "current_name": "test_execute_wrong_identity_or_extra_argument_cannot_enter_cleanup",
+        "before": {
+          "bytes": 554,
+          "sha256": "1d0f088a899e887c3ae1bf9b94e93d0eb0870410672a38d85fb4c19182e8ff91"
+        },
+        "projected": {
+          "bytes": 554,
+          "sha256": "1d0f088a899e887c3ae1bf9b94e93d0eb0870410672a38d85fb4c19182e8ff91"
+        },
+        "assertion_calls": 5
+      },
+      "test_execute_requires_python_b_before_loading_or_cleanup": {
+        "current_name": "test_execute_requires_python_b_before_loading_or_cleanup",
+        "before": {
+          "bytes": 375,
+          "sha256": "d04e30bb7115505780834d81575560ec50e0cff1c7983c6621d802238f831674"
+        },
+        "projected": {
+          "bytes": 375,
+          "sha256": "d04e30bb7115505780834d81575560ec50e0cff1c7983c6621d802238f831674"
+        },
+        "assertion_calls": 2
+      },
+      "test_execute_requires_isolated_python_before_loading_or_cleanup": {
+        "current_name": "test_execute_requires_isolated_python_before_loading_or_cleanup",
+        "before": {
+          "bytes": 394,
+          "sha256": "a9cfbdf62bd4d92c75fb793bf0517daafc4d9cd30a192190da418cc12df38a5c"
+        },
+        "projected": {
+          "bytes": 394,
+          "sha256": "a9cfbdf62bd4d92c75fb793bf0517daafc4d9cd30a192190da418cc12df38a5c"
+        },
+        "assertion_calls": 2
+      },
+      "test_execute_load_failure_still_drops_root": {
+        "current_name": "test_execute_load_failure_still_drops_root",
+        "before": {
+          "bytes": 393,
+          "sha256": "9f5dfc5132e7c028d081f70c815d9b347dd90b754278a906e4a56b75384702d3"
+        },
+        "projected": {
+          "bytes": 393,
+          "sha256": "9f5dfc5132e7c028d081f70c815d9b347dd90b754278a906e4a56b75384702d3"
+        },
+        "assertion_calls": 3
+      },
+      "test_execute_entry_failure_still_drops_root_without_original_main": {
+        "current_name": "test_execute_entry_failure_still_drops_root_without_original_main",
+        "before": {
+          "bytes": 472,
+          "sha256": "c85bf9c02b7287638a81d4a9aab685c33151e1a8385668d5394deebee3f6c496"
+        },
+        "projected": {
+          "bytes": 472,
+          "sha256": "c85bf9c02b7287638a81d4a9aab685c33151e1a8385668d5394deebee3f6c496"
+        },
+        "assertion_calls": 4
+      },
+      "test_execute_original_failure_retains_partial_receipt_exactly": {
+        "current_name": "test_execute_original_failure_retains_partial_receipt_exactly",
+        "before": {
+          "bytes": 676,
+          "sha256": "10f6cb9845e61231515b06a72636a75102686aee25c1be8c6a820092c09bc348"
+        },
+        "projected": {
+          "bytes": 682,
+          "sha256": "947cbd2e822377243502dac4b81cb5f168d4c744fd2ef81a0d47ea2a3e74066e"
+        },
+        "assertion_calls": 4
+      },
+      "test_execute_main_exception_retains_raw_partial_stdout_and_first_error": {
+        "current_name": "test_execute_main_exception_retains_raw_partial_stdout_and_first_error",
+        "before": {
+          "bytes": 537,
+          "sha256": "69a8692fa58b7a8c165e0a60c0a6c1dd946bf820016847044353249a157a85cf"
+        },
+        "projected": {
+          "bytes": 537,
+          "sha256": "69a8692fa58b7a8c165e0a60c0a6c1dd946bf820016847044353249a157a85cf"
+        },
+        "assertion_calls": 4
+      },
+      "test_execute_invalid_json_or_success_status_with_nonzero_exit_is_failure": {
+        "current_name": "test_execute_invalid_json_or_success_status_with_nonzero_exit_is_failure",
+        "before": {
+          "bytes": 876,
+          "sha256": "12540af30aa9659ed5ffc63f0abf3e93a1d428c9a34fdcdfb196e90f65c133b3"
+        },
+        "projected": {
+          "bytes": 876,
+          "sha256": "12540af30aa9659ed5ffc63f0abf3e93a1d428c9a34fdcdfb196e90f65c133b3"
+        },
+        "assertion_calls": 3
+      },
+      "test_execute_terminal_drop_errors_cannot_convert_original_success_to_success": {
+        "current_name": "test_execute_terminal_drop_errors_cannot_convert_original_success_to_success",
+        "before": {
+          "bytes": 489,
+          "sha256": "013747f96d777c34116a4acd220cd5742e03f4ccb61c0daffb87a0b633ac9098"
+        },
+        "projected": {
+          "bytes": 489,
+          "sha256": "013747f96d777c34116a4acd220cd5742e03f4ccb61c0daffb87a0b633ac9098"
+        },
+        "assertion_calls": 4
+      },
+      "test_execute_original_error_remains_first_when_terminal_drop_also_fails": {
+        "current_name": "test_execute_original_error_remains_first_when_terminal_drop_also_fails",
+        "before": {
+          "bytes": 508,
+          "sha256": "9279aef709231ef6699c4c5142809e4d07d001edc78f510af214135c9c172a34"
+        },
+        "projected": {
+          "bytes": 508,
+          "sha256": "9279aef709231ef6699c4c5142809e4d07d001edc78f510af214135c9c172a34"
+        },
+        "assertion_calls": 2
+      },
+      "test_main_prints_one_compact_result_and_returns_status": {
+        "current_name": "test_main_prints_one_compact_result_and_returns_status",
+        "before": {
+          "bytes": 504,
+          "sha256": "7aeb3d70836d8faa55297df4a53d9d54f102a0d0babf5b45f4fcc680a0576795"
+        },
+        "projected": {
+          "bytes": 504,
+          "sha256": "7aeb3d70836d8faa55297df4a53d9d54f102a0d0babf5b45f4fcc680a0576795"
+        },
+        "assertion_calls": 2
+      }
+    },
+    "metadata": {
+      "test_all_frozen_inputs_and_consumed_success_are_preserved": {
+        "current_name": "test_all_frozen_inputs_and_consumed_success_are_preserved",
+        "before": {
+          "bytes": 166,
+          "sha256": "bec40e381a451a3069a26f6e7b135ed79e5d0ca38a69d79cd44e6c490b016d11"
+        },
+        "projected": {
+          "bytes": 166,
+          "sha256": "bec40e381a451a3069a26f6e7b135ed79e5d0ca38a69d79cd44e6c490b016d11"
+        },
+        "assertion_calls": 0
+      },
+      "test_exact_recipe_metadata_diff_and_private_observer_projection": {
+        "current_name": "test_exact_recipe_metadata_diff_and_private_observer_projection",
+        "before": {
+          "bytes": 373,
+          "sha256": "ee0041aa3c6e06d45959cf29113f942e0a41dac10124c5ab13f2d7c6a0d077a2"
+        },
+        "projected": {
+          "bytes": 373,
+          "sha256": "4a477dba2f12056e9fb1d32ecd16f6d75cf86cf64f51616000465415bfc64dd0"
+        },
+        "assertion_calls": 3
+      },
+      "test_exact_wrapper_metadata_diff_preserves_all_operational_bytes": {
+        "current_name": "test_exact_wrapper_metadata_diff_preserves_all_operational_bytes",
+        "before": {
+          "bytes": 158,
+          "sha256": "067680f0251ba1414529e3e0c460dfd9a94ef8297bb08c5c3ac9f83d30a7a08f"
+        },
+        "projected": {
+          "bytes": 158,
+          "sha256": "38acb6390a63ed13fb1f0c642d4ddc75fd79b84ccd0933e590fa3c716a5b9fb7"
+        },
+        "assertion_calls": 1
+      },
+      "test_inherited_oracle_retains_all_37_methods_and_assertions": {
+        "current_name": "test_inherited_oracle_retains_all_37_methods_and_assertions",
+        "before": {
+          "bytes": 912,
+          "sha256": "f6fa671ffe8b6bd6f7b1538d69aaa75e2f1614793c19090a980dd465d8278782"
+        },
+        "projected": {
+          "bytes": 912,
+          "sha256": "f6fa671ffe8b6bd6f7b1538d69aaa75e2f1614793c19090a980dd465d8278782"
+        },
+        "assertion_calls": 3
+      },
+      "test_fresh_stage_dependencies_and_old_basename_refusal": {
+        "current_name": "test_fresh_stage_dependencies_and_old_basename_refusal",
+        "before": {
+          "bytes": 950,
+          "sha256": "954cee8e4e829a47130c9ec9aab374b99d7b90adc935a3936d0c0133551af1b9"
+        },
+        "projected": {
+          "bytes": 985,
+          "sha256": "9b8a30cd9d14e3581dbab38aa57c9777f059e99c96d5e176153ee6b8f7098cda"
+        },
+        "assertion_calls": 7
+      },
+      "test_exact_new_payload_pin_and_retained_originals": {
+        "current_name": "test_exact_new_payload_pin_and_retained_originals",
+        "before": {
+          "bytes": 914,
+          "sha256": "70ef2993fcdbe5d971a66869b807ef9fe549847a508d8a23bc7e7b0367abe888"
+        },
+        "projected": {
+          "bytes": 914,
+          "sha256": "1f6dd1635545dbe7b0aa161eabb782b242a10b982cdfd3a716d8ac6d2bada583"
+        },
+        "assertion_calls": 7
+      },
+      "test_old_scratch_basename_refuses_before_child_reads_or_mutations": {
+        "current_name": "test_old_scratch_basename_refuses_before_child_reads_or_mutations",
+        "before": {
+          "bytes": 604,
+          "sha256": "d4f40e6db30ce5abe5835962aae3bc0e2d07f4935005e450a77cf99d4bc0249d"
+        },
+        "projected": {
+          "bytes": 608,
+          "sha256": "5e4cff30bfcad13e070ff7f50244a8fb5e69a78414e3331c4a44020ee21d9209"
+        },
+        "assertion_calls": 2
+      },
+      "test_old_payload_length_and_digest_refuse_without_relaxing_new_pin": {
+        "current_name": "test_old_payload_length_and_digest_refuse_without_relaxing_new_pin",
+        "before": {
+          "bytes": 884,
+          "sha256": "d49538fed8a74cd5fa208a1fd0ad00cf449f4f514d156a61f31cf1700f8712ff"
+        },
+        "projected": {
+          "bytes": 884,
+          "sha256": "3ccf37087605556730753972ece32884b4b3df0a755218c96be93018917f6970"
+        },
+        "assertion_calls": 3
+      },
+      "test_old_inode_refuses_and_new_inode_reaches_inventory_without_deleting": {
+        "current_name": "test_old_inode_refuses_and_new_inode_reaches_inventory_without_deleting",
+        "before": {
+          "bytes": 826,
+          "sha256": "c0869b9efce585966a13f4765dc3c04316d46ea54ccc228c0e802894e4f2662a"
+        },
+        "projected": {
+          "bytes": 832,
+          "sha256": "602a0e857372bf94c9b58394232ec71d17c13a078199b4d13d717dee5f94d2cd"
+        },
+        "assertion_calls": 4
+      },
+      "test_old_retained_payload_path_has_no_fallback": {
+        "current_name": "test_old_retained_payload_path_has_no_fallback",
+        "before": {
+          "bytes": 849,
+          "sha256": "1f7af9f3a06b5dee7468359598ed7d1dfbceb0720c5e1acade388b2976bd4fc5"
+        },
+        "projected": {
+          "bytes": 854,
+          "sha256": "70e52b167a5a758b25e8834add8c0f83b8265150f5bf884aa166c34edc771acc"
+        },
+        "assertion_calls": 4
+      }
+    },
+    "focused": {
+      "test_D190_and_D198_package_bytes_cannot_replace_the_current_D193_copy": {
+        "current_name": "test_D190_D195_and_D203_packages_cannot_replace_current_D201_copy",
+        "before": {
+          "bytes": 1035,
+          "sha256": "7ef1b93bd03a963bc6007d122e9e23c8216928fd6daf157d74d4d6bc1ff403ef"
+        },
+        "projected": {
+          "bytes": 1106,
+          "sha256": "eced462cd1b292833cd0343deedcd27d06d8626db9fcc00685268959a1e0fea6"
+        },
+        "assertion_calls": 5
+      },
+      "test_previous_source_names_and_stage_schema_source_drift_fail_before_execution": {
+        "current_name": "test_previous_source_names_and_stage_schema_source_drift_fail_before_execution",
+        "before": {
+          "bytes": 1392,
+          "sha256": "39ce0bc78846ecbc9969708c81c219432c47449e807832b7f657f0bda900e737"
+        },
+        "projected": {
+          "bytes": 1434,
+          "sha256": "942cdd44cd7ff539d69a1533f1ff135802939b2e2afacff0e66db6f42633e23c"
+        },
+        "assertion_calls": 4
+      }
+    }
+  },
+  "retained_method_names": {
+    "core": [
+      "test_import_safe_and_original_sources_still_pinned",
+      "test_credentials_are_full_real_effective_saved_lists",
+      "test_enter_user_clears_groups_and_sets_gid_before_uid",
+      "test_enter_user_rejects_any_wrong_initial_uid_or_gid_without_mutation",
+      "test_enter_user_detects_syscall_failure_and_silent_wrong_result",
+      "test_observe_elevates_only_euid_calls_once_and_restores",
+      "test_observe_does_not_skip_permission_or_use_rejection",
+      "test_observe_wrong_entry_never_calls_original_or_elevates",
+      "test_observe_elevation_failure_still_restores_and_records",
+      "test_observe_scan_and_restore_failure_preserve_both_and_raise_first",
+      "test_observe_restoration_failure_refuses_success_and_silent_credential_drift",
+      "test_observe_gid_drift_is_rejected_even_after_euid_restoration",
+      "test_drop_privilege_removes_saved_root_and_attempts_both_on_failure",
+      "test_drop_privilege_detects_silent_retained_saved_uid",
+      "test_read_source_exact_two_dependencies_and_descriptor_closure",
+      "test_read_source_refuses_arbitrary_names_before_open",
+      "test_read_source_refuses_nonplain_ancestry_and_wrong_owner",
+      "test_read_source_hash_corruption_and_read_error_close_all_descriptors",
+      "test_read_source_stat_drift_is_refused",
+      "test_read_source_attempts_every_close_preserving_first_error",
+      "test_load_cleanup_uses_exact_sources_without_main_execution",
+      "test_loaded_original_has_only_exact_missing_link_projection",
+      "test_projected_scan_missing_link_rejects_surviving_pid_accepts_departed_pid",
+      "test_projected_scan_retains_permission_native_name_and_directory_use_rejections",
+      "test_original_cleanup_mutations_run_uid1000_with_three_root_observations",
+      "test_execute_success_keeps_original_functions_calls_once_and_restores_argv",
+      "test_execute_wrong_identity_or_extra_argument_cannot_enter_cleanup",
+      "test_execute_requires_python_b_before_loading_or_cleanup",
+      "test_execute_requires_isolated_python_before_loading_or_cleanup",
+      "test_execute_load_failure_still_drops_root",
+      "test_execute_entry_failure_still_drops_root_without_original_main",
+      "test_execute_original_failure_retains_partial_receipt_exactly",
+      "test_execute_main_exception_retains_raw_partial_stdout_and_first_error",
+      "test_execute_invalid_json_or_success_status_with_nonzero_exit_is_failure",
+      "test_execute_terminal_drop_errors_cannot_convert_original_success_to_success",
+      "test_execute_original_error_remains_first_when_terminal_drop_also_fails",
+      "test_main_prints_one_compact_result_and_returns_status"
+    ],
+    "metadata": [
+      "test_all_frozen_inputs_and_consumed_success_are_preserved",
+      "test_exact_recipe_metadata_diff_and_private_observer_projection",
+      "test_exact_wrapper_metadata_diff_preserves_all_operational_bytes",
+      "test_inherited_oracle_retains_all_37_methods_and_assertions",
+      "test_fresh_stage_dependencies_and_old_basename_refusal",
+      "test_exact_new_payload_pin_and_retained_originals",
+      "test_old_scratch_basename_refuses_before_child_reads_or_mutations",
+      "test_old_payload_length_and_digest_refuse_without_relaxing_new_pin",
+      "test_old_inode_refuses_and_new_inode_reaches_inventory_without_deleting",
+      "test_old_retained_payload_path_has_no_fallback"
+    ],
+    "focused": [
+      "test_D190_D195_and_D203_packages_cannot_replace_current_D201_copy",
+      "test_previous_source_names_and_stage_schema_source_drift_fail_before_execution"
+    ]
+  },
+  "retained_assertions": {
+    "core": 147,
+    "metadata": 34,
+    "focused": 9
+  },
+  "assertion_scope_note": "Core147 includes143 in test methods and4 in unchanged helper methods; all complete projected bytes and assertions preserved. Metadata34 and focused9 preserved.",
+  "expected_subjects": {
+    "state/analysis/P7_motor_const_cleanup_raw/cleanup_remoteocd04.py": {
+      "bytes": 7738,
+      "sha256": "edd1c8aa44f8de82cbfe1d7333b6ce836396922f82eacbe89d87fa6bcf3eb598"
+    },
+    "state/analysis/P7_motor_const_cleanup_raw/cleanup_root05.py": {
+      "bytes": 9601,
+      "sha256": "1be147fe67bfafb60275ef1f741f05cfe2262be70c89b0eddbbfc3ec349837d4"
+    }
+  },
+  "private_projection": {
+    "bytes": 7735,
+    "sha256": "565acb3988bb0eba0c6865ac27daf5bbc277c85a67204f036bf098b3261b00be"
+  },
+  "schema_boundary": "Source digest/schema literal substitutions are rejected; unchanged run_original does not gain a nested JSON schema predicate. Coordinator separately accepts exact actual result schemas.",
+  "current_copy_binding": {
+    "board_identity": {
+      "boot_id": "55c386b9-fe6d-4388-a7f4-1d91e0bb49d8",
+      "gid": 1000,
+      "home": "/home/arduino",
+      "machine": "aarch64",
+      "python": [
+        3,
+        13,
+        5
+      ],
+      "release": "6.16.7-g0dd6551ae96b",
+      "sysname": "Linux",
+      "uid": 1000,
+      "user": "arduino"
+    },
+    "files": {
+      "app_motor_observe.ino.bin-zsk.bin": {
+        "bytes": 95520,
+        "observed_inode": 1454,
+        "retained_path": "/home/arduino/sumox26_codex_build/app-motor-settle-static01/build/app_motor_observe.ino.bin-zsk.bin",
+        "sha256": "e400078166394d0f8ea44b601e9ba2948992c4f263c5c7ee5fb3942433c143d0"
+      },
+      "flash_sketch.cfg": {
+        "bytes": 680,
+        "observed_inode": 1455,
+        "retained_path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/variants/arduino_uno_q_stm32u585xx/flash_sketch.cfg",
+        "sha256": "38706cee1f9ff2e53364a47129d1c1aea9bb9687ed26d7d70b4a9f9bc5bca60c"
+      },
+      "zephyr-arduino_uno_q_stm32u585xx.elf": {
+        "bytes": 2303728,
+        "observed_inode": 1453,
+        "retained_path": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/1.0.0/firmwares/zephyr-arduino_uno_q_stm32u585xx.elf",
+        "sha256": "39d4a4fd47241663323f6e04f94dd8f5a9f9ad6582cf1df37f9709b74026adcd"
+      }
+    },
+    "five_closing_checks": "PASS",
+    "observed_directory": {
+      "ctime_ns": 1790408030656341645,
+      "dev": 34,
+      "gid": 1000,
+      "ino": 1452,
+      "mode": 16877,
+      "mtime_ns": 1790408030656341645,
+      "nlink": 2,
+      "size": 100,
+      "uid": 1000
+    },
+    "payload_bytes": 2399928,
+    "protected_handle_clearance": false,
+    "receipt": "state/analysis/P7_motor_const_cleanup_raw/admission01.json",
+    "root05_absence_observed": false
+  },
+  "renamed_method_note": "Former D190/D198 refusal changes only metadata: current D201 uploaded D198 image now accepted, while D190/D195/D203 alternatives are explicitly refused.",
+  "author_boundary": "Data-only AST transformations; no actual new subject read/hash/import/execution, host tests, compilers, native calls, credentials or cleanup."
+}

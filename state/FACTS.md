@@ -894,3 +894,7 @@ HOST-VERIFIED: exactD205readera71eb624/projected580abb32/parserc4c4f9e2 retains1
 
 ## F228 - Current expected-metadata instruction emission (2026-09-26T13:57:22.919929+04:00)
 FILE-OBSERVED: D205 actualreview008572bf accepts32ranges34aliases3834bytes1429decodedrows, initializer08116258/05011008 and preserved startup/Runner semantics. candidatePeriod20B selects250/3200/invalid0; timerValid livegetter remains and compares2.5M/32M constants. SETTLE150us/4096/threefreshflags and firstfailure guard remain. Exact268/13/151pins and13remote+localchecks close. This is no measured speedup, repair, coherence or physicalgate. Source: analysis/P7_motor_const_entry_actual_validation.md.
+
+
+## F229 - Current upload cleanup host checks (2026-09-26T13:57:55.057210+04:00)
+HOST-VERIFIED: D206 exact4recipe/6wrapper metadata derivations pass52Linuxmethods and15Windows with37Linux-coveredcredential/processskips. Separate review09b5bed3 confirms retained49historicalmethods/assertions plus3newchecks,45stablepins andclosedstreams. No actualprotectedprocessclearance ordelete is implied. Source: analysis/P7_motor_const_cleanup_validation.md.

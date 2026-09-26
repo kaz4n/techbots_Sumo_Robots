@@ -13,7 +13,7 @@ from unittest import mock
 ROOT = Path(__file__).resolve().parents[2]
 RAW = 'state/analysis/P7_motor_const_cleanup_raw/'
 FIXTURE = RAW + 'cleanup_fixture_derivation01.json'
-FIXTURE_PIN = None  # Sealed before any subject inspection or execution.
+FIXTURE_PIN = {'bytes': 68656, 'sha256': '1c6fc3bad5be218059ec6069ab1e5b810a06522089641b30b11208c2c3d205b7'}
 NEW_METHODS = (
     'test_exact_four_recipe_six_wrapper_steps_preserve_all_other_bytes',
     'test_saved_inventory_binds_current_package_and_current_digest_is_accepted',

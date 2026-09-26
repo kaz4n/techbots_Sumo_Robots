@@ -1,0 +1,172 @@
+{
+  "abi": {
+    "after": {
+      "bytes": 24804,
+      "sha256": "0a2c745275e47d5c89ff0bb5e711d140268bc0d35f78cb0b36e717bbdf75cefb"
+    },
+    "before": {
+      "bytes": 23716,
+      "sha256": "2191e8d77513ee3b2d9f47497523cf3199a70112e325e01d1543b8e3aca1add6"
+    },
+    "complete_reverse_equal": true,
+    "path": "tools/recorder_first_failure_abi.py",
+    "steps": [
+      {
+        "count": 5,
+        "new": "recorder_first_failure",
+        "old": "recorder_failure"
+      },
+      {
+        "count": 1,
+        "new": "ce4e69390d21d9a91231581a186be4a63213135e",
+        "old": "004dc7cff534896a851901f9d7d0ba6066cae060"
+      },
+      {
+        "count": 1,
+        "new": "07f19e32c483cebadecaa63f4d6d720f",
+        "old": "377911abefabd094971ee6d089326604"
+      },
+      {
+        "count": 2,
+        "new": "recorder-07f19e32c483ceba",
+        "old": "recorder-377911abefabd094"
+      },
+      {
+        "count": 1,
+        "new": "572412568535289530",
+        "old": "3997245574426120340"
+      },
+      {
+        "count": 1,
+        "new": "29cb1e76193e4b7c562d1fd842039f61367a82c2651a2303c09518d35a0c7ce9",
+        "old": "702ad99ee4f888c58de1715cb91512cb0a174a646d914db6ce9155489ffa63e8"
+      },
+      {
+        "count": 3,
+        "new": "D233",
+        "old": "D230"
+      },
+      {
+        "count": 1,
+        "new": "D233 ELF",
+        "old": "D228 ELF"
+      },
+      {
+        "count": 1,
+        "new": "'recorder::dump::Report', 'recorder::dump::UnoQDumpPort', 'bool',\n         'recorder::dump::FailureRecord')",
+        "old": "'recorder::dump::Report', 'recorder::dump::UnoQDumpPort', 'bool')"
+      },
+      {
+        "count": 1,
+        "new": "    'first_failure': ('native_dump', 'first_failure_', TYPES[8]),\n    'native_status': ('native_dump', 'status_', None),",
+        "old": "    'native_status': ('native_dump', 'status_', None),"
+      },
+      {
+        "count": 1,
+        "new": "    'app::Fault': 'NONE SETUP ORDER CLOCK IDENTITY RECEIPT ABORTED'.split(),\n    'recorder::dump::FailureSite': 'NONE SETUP SETUP_OWNERSHIP SETUP_READY FIFO_OWNERSHIP FIFO_READBACK WRITE_POISONED WRITE_CONTEXT WRITE_OWNERSHIP WRITE_ARGUMENT TRANSMIT_OWNERSHIP TRANSMIT_READY TRANSMIT_DEADLINE STORE_DEADLINE COMPLETE_OWNERSHIP COMPLETE_READY COMPLETE_DEADLINE TC_DEADLINE CANCEL REPEATED_BEGIN'.split(),\n    'recorder::dump::CleanupDisposition': 'NOT_ATTEMPTED SKIPPED_POISONED SKIPPED_CONTEXT SKIPPED_OWNERSHIP VERIFIED READBACK_FAILED'.split(),",
+        "old": "    'app::Fault': 'NONE SETUP ORDER CLOCK IDENTITY RECEIPT ABORTED'.split(),"
+      },
+      {
+        "count": 1,
+        "new": "FIELDS += [(x, '', 1, 'bool') for x in WINDOWS if x.startswith('native_') and x != 'native_status']\nFIELDS += [('first_failure', 'reason', 1, 'recorder::dump::NativeStatus'),\n           ('first_failure', 'site', 1, 'recorder::dump::FailureSite'),\n           ('first_failure', 'cleanup', 1, 'recorder::dump::CleanupDisposition'),\n           ('first_failure', 'cleanup_ownership', 1, 'recorder::dump::NativeStatus')]\nFIELDS += [('first_failure', x, 1, 'uint') for x in ('packet_offset', 'packet_size', 'payload_size')]\nFIELDS += [('first_failure', 'ownership_evaluated', 1, 'bool')]",
+        "old": "FIELDS += [(x, '', 1, 'bool') for x in WINDOWS if x.startswith('native_') and x != 'native_status']"
+      },
+      {
+        "count": 2,
+        "new": "145",
+        "old": "144"
+      },
+      {
+        "count": 1,
+        "new": "== 110",
+        "old": "== 109"
+      }
+    ],
+    "template": "tools/recorder_failure_abi.py"
+  },
+  "caller": {
+    "after": {
+      "bytes": 19614,
+      "sha256": "c5ea40f9583beee040395030a0f73f0f5c50701e0885267fa17205b1319f047a"
+    },
+    "before": {
+      "bytes": 19572,
+      "sha256": "c61858ba7cd940499a9a69ea6a9fc92556e32263bfa54abb13dba5f8d577a87e"
+    },
+    "complete_reverse_equal": true,
+    "path": "tools/run_recorder_first_failure_capture.py",
+    "steps": [
+      {
+        "count": 7,
+        "new": "recorder_first_failure",
+        "old": "recorder_failure"
+      },
+      {
+        "count": 1,
+        "new": "D233",
+        "old": "D230"
+      },
+      {
+        "count": 1,
+        "new": "len(source) == 11772",
+        "old": "len(source) == 11767"
+      },
+      {
+        "count": 1,
+        "new": "576efd496802c5d789ce1a6c183144dadb6d309487709d3a0a4fdd4fcb8a1b96",
+        "old": "13fc387d0cb6d0475232aa4683bf47423ad2f85255db543f62da71ea5c8420b2"
+      }
+    ],
+    "template": "tools/run_recorder_failure_capture.py"
+  },
+  "capture": {
+    "after": {
+      "bytes": 11772,
+      "sha256": "576efd496802c5d789ce1a6c183144dadb6d309487709d3a0a4fdd4fcb8a1b96"
+    },
+    "before": {
+      "bytes": 11767,
+      "sha256": "13fc387d0cb6d0475232aa4683bf47423ad2f85255db543f62da71ea5c8420b2"
+    },
+    "complete_reverse_equal": true,
+    "path": "tools/recorder_first_failure_capture.py",
+    "steps": [
+      {
+        "count": 1,
+        "new": "recorder_first_failure",
+        "old": "recorder_failure"
+      },
+      {
+        "count": 1,
+        "new": "07f19e32c483cebadecaa63f4d6d720f",
+        "old": "377911abefabd094971ee6d089326604"
+      },
+      {
+        "count": 2,
+        "new": "recorder-07f19e32c483ceba",
+        "old": "recorder-377911abefabd094"
+      },
+      {
+        "count": 1,
+        "new": "572412568535289530",
+        "old": "3997245574426120340"
+      },
+      {
+        "count": 1,
+        "new": "29cb1e76193e4b7c562d1fd842039f61367a82c2651a2303c09518d35a0c7ce9",
+        "old": "702ad99ee4f888c58de1715cb91512cb0a174a646d914db6ce9155489ffa63e8"
+      },
+      {
+        "count": 3,
+        "new": "55376",
+        "old": "55104"
+      },
+      {
+        "count": 1,
+        "new": "b13a32b5e92993a49f165b907d5d6036fa933e1680bb23ff2738620b294fd584",
+        "old": "91b6042a3f13e3650fc4b23892f88e69d4c0c56edebd6514662fa2d8cd8208c6"
+      }
+    ],
+    "template": "tools/recorder_failure_capture.py"
+  }
+}

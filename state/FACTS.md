@@ -1004,3 +1004,6 @@ firstcleanupREADBACK_FAILED with evaluatedownershipOK. Those are retained
 software fields, not transmitted/received byte evidence; which timer expired
 and the observed CR1value are absent. Runner202479completedepochs,maxS..C482us,
 missed0; not full-loopWCET. No coherence,liveRAM,delivery or physical acceptance.
+
+### D237/D238 six-store synthetic recorder result (2026-09-27T02:23:43.508852+04:00)
+Source: analysis/P7_recorder_six_result_actual_validation.md, actualreview034c70df and deliveryreviewdd50e6e7. Confidence high for saved software values bounded by fullflash comparisons; snapshot coherence UNPROVEN. Both65field samples report nativeOK/inactive/unpoisoned, no recordedfirstfailure, Runner/TransferSENT_UNCONFIRMED,607508bytes/5001frames/8events/CRC2865663826/session8582740024591403637. The same-session receiver retained607448bytes with no opening60-byte envelope; deliveryremainsFAILED. A conditional priorpartialdecoder explanation is source-supported, not observed cause. No motor/sensor/physical/gate acceptance.

@@ -1,0 +1,38 @@
+test_real_upload_payload_is_staged_once_and_readonly_admitted_before_return (tests.tooling.test_recorder_delivery.DeliverySourceConstructionTests.test_real_upload_payload_is_staged_once_and_readonly_admitted_before_return) ... ERROR
+test_real_upload_profile_and_bindings_preserve_installed_pins_and_exact_artifacts (tests.tooling.test_recorder_delivery.DeliverySourceConstructionTests.test_real_upload_profile_and_bindings_preserve_installed_pins_and_exact_artifacts) ... ERROR
+
+======================================================================
+ERROR: test_real_upload_payload_is_staged_once_and_readonly_admitted_before_return (tests.tooling.test_recorder_delivery.DeliverySourceConstructionTests.test_real_upload_payload_is_staged_once_and_readonly_admitted_before_return)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\AppData\Local\Temp\sumox-recorder-session-20260926\tests\tooling\test_recorder_delivery.py", line 359, in test_real_upload_payload_is_staged_once_and_readonly_admitted_before_return
+    raw=self.subject.prepare_upload(owner,artifacts,Path(temp))
+  File "C:\Users\narut\AppData\Local\Temp\sumox-recorder-session-20260926\tools\run_recorder_delivery.py", line 528, in prepare_upload
+    bindings=upload_bindings(owner, artifacts), attempt=owner.attempt,
+             ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-recorder-session-20260926\tools\run_recorder_delivery.py", line 474, in upload_bindings
+    support = module_from('_recorder_upload_support', owner.code[STATIC + 'capture_remote.py'])
+  File "C:\Users\narut\AppData\Local\Temp\sumox-recorder-session-20260926\tools\run_recorder_delivery.py", line 112, in module_from
+    exec(compile(raw, str(path), 'exec'), module.__dict__)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sumox-source/tools/run_recorder_delivery.py", line 11, in <module>
+ModuleNotFoundError: No module named 'resource'
+
+======================================================================
+ERROR: test_real_upload_profile_and_bindings_preserve_installed_pins_and_exact_artifacts (tests.tooling.test_recorder_delivery.DeliverySourceConstructionTests.test_real_upload_profile_and_bindings_preserve_installed_pins_and_exact_artifacts)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\AppData\Local\Temp\sumox-recorder-session-20260926\tests\tooling\test_recorder_delivery.py", line 314, in test_real_upload_profile_and_bindings_preserve_installed_pins_and_exact_artifacts
+    value=self.subject.upload_bindings(owner,artifacts)
+  File "C:\Users\narut\AppData\Local\Temp\sumox-recorder-session-20260926\tools\run_recorder_delivery.py", line 474, in upload_bindings
+    support = module_from('_recorder_upload_support', owner.code[STATIC + 'capture_remote.py'])
+  File "C:\Users\narut\AppData\Local\Temp\sumox-recorder-session-20260926\tools\run_recorder_delivery.py", line 112, in module_from
+    exec(compile(raw, str(path), 'exec'), module.__dict__)
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/sumox-source/tools/run_recorder_delivery.py", line 11, in <module>
+ModuleNotFoundError: No module named 'resource'
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.646s
+
+FAILED (errors=2)

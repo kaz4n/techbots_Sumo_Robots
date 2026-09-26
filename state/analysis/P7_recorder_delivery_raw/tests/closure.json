@@ -1,0 +1,259 @@
+{
+  "schema": "recorder-delivery-host-validation-v1",
+  "status": "PASS_HOST_ONLY",
+  "base_head": "ee1bdcedf412903445c5076cae5980a43e0dc34e",
+  "caller_sha256": "9ea1be98388139343be02bc74857c220faa75c32b876b9938f855188d750b6cd",
+  "windows_unique_methods_passed": 42,
+  "windows_linux_only_skips": 1,
+  "linux_unique_methods_passed": 43,
+  "test_methods": {
+    "tests/tooling/test_recorder_delivery.py": 18,
+    "tests/tooling/test_recorder_delivery_run.py": 12,
+    "tests/tooling/test_recorder_delivery_receiver.py": 13
+  },
+  "generated_header_profiles": {
+    "MATCH0_MOTORS0": "COMPILES",
+    "MATCH1_MOTORS0": "REFUSED",
+    "MATCH0_MOTORS1": "REFUSED",
+    "MATCH1_MOTORS1": "REFUSED"
+  },
+  "hardware_actions": 0,
+  "firmware_uploads": 0,
+  "production_or_locked_test_edits_by_test_worker": 0,
+  "final_inputs": {
+    "tools/run_recorder_delivery.py": {
+      "bytes": 50592,
+      "sha256": "9ea1be98388139343be02bc74857c220faa75c32b876b9938f855188d750b6cd"
+    },
+    "state/analysis/P7_recorder_delivery_contract.md": {
+      "bytes": 5864,
+      "sha256": "8c8ac3e6ea619981477f392b4869b1ff72066bcd9206f776602c08a56a751283"
+    },
+    "tests/tooling/test_recorder_delivery.py": {
+      "bytes": 22773,
+      "sha256": "4e6408e854b67565e8cc857304baa2faa86c4bad43a8b8df27eed284011f3ac5"
+    },
+    "tests/tooling/test_recorder_delivery_run.py": {
+      "bytes": 18288,
+      "sha256": "fedd88906f8e3440ebc33c0631fd2154069cb35df7996eebde91b2f26d71777f"
+    },
+    "tests/tooling/test_recorder_delivery_receiver.py": {
+      "bytes": 16994,
+      "sha256": "d6ed189b6b4bc6c380547ec10cb2e3f5bda3b78cd0e484ce808aefdd33984573"
+    },
+    "src/hal/recorder_dump.h": {
+      "bytes": 3201,
+      "sha256": "e25df3d2875e822b78c770baccecadbd70547c4fce2632250c6f42bff03fc552"
+    },
+    "src/hal/recorder_dump.cpp": {
+      "bytes": 15424,
+      "sha256": "b65f1a9e67eea89a01e7e03b39c618d27bc2dcaad98deb71db2035c2012f585c"
+    },
+    "src/hal/dump_uart_unoq.h": {
+      "bytes": 2910,
+      "sha256": "e25b764a03828709ebddf5f2fb2a630e723101088a7effaf38b17d3691b42e04"
+    },
+    "src/hal/dump_uart_unoq.cpp": {
+      "bytes": 17430,
+      "sha256": "b544607f3c3570bf81dac150488e18d3111ffce9ac387eb4b45a2ccddd205338"
+    },
+    "bench/recorder/src/recorder_transport.h": {
+      "bytes": 6620,
+      "sha256": "78544532be7ec489909e6d18894f95332d92943cab428294a1d6fd9b2568c292"
+    },
+    "bench/recorder/src/recorder_transport.cpp": {
+      "bytes": 6571,
+      "sha256": "b62e2bed555466d802b913c56ed0188c33ae55f730d5f408857561f83cca2bcd"
+    },
+    "bench/recorder/src/recorder_transport_io.cpp": {
+      "bytes": 4052,
+      "sha256": "a419d76bd4c86c12385b3117ac6dde110c282d8e77aea8d1f9fea4845b16dcc5"
+    },
+    "bench/recorder/src/recorder_run_identity.h": {
+      "bytes": 645,
+      "sha256": "9daf17d5c1305057e7a775019ba9db242bc2a068631e8be80c4e45c48df3620c"
+    },
+    "bench/recorder/recorder.ino": {
+      "bytes": 796,
+      "sha256": "d88b6951e75f7be90b31193cad992494e3e4eb4c0518c4b350bfa20f1d326a1a"
+    },
+    "tools/dump_match.py": {
+      "bytes": 53588,
+      "sha256": "ef9b871db109b6b58f2c695ba2919c996a01b6e6e231859666e9b2a73abc69f3"
+    },
+    "tools/match_deploy.py": {
+      "bytes": 26266,
+      "sha256": "3acacad6e95aff1012e9d0d1f8ef60905c026ebe865569fdb71384abd607d2a9"
+    },
+    "state/analysis/P7_static_startup_raw/cli_initialization_inventory.json": {
+      "bytes": 19987,
+      "sha256": "aaa2c307b7ed1b8d7e00a737447a03a63a78cd4b7fb2145142b20e9501da1e62"
+    },
+    "state/analysis/P7_static_startup_raw/cli_builtin_files_inventory.json": {
+      "bytes": 17400,
+      "sha256": "a364beb814b36b9c56328b54a9de5fa0f4ad80a67003d40c7cc994a1917ba2cb"
+    }
+  },
+  "execution_receipts": [
+    {
+      "path": "first01",
+      "platform": "windows",
+      "methods": 43,
+      "passed": 21,
+      "failed": 21,
+      "skipped": 1,
+      "returncode": 1,
+      "seconds": 15.951871199999005,
+      "inputs_unchanged": true
+    },
+    {
+      "path": "windows02",
+      "platform": "windows",
+      "methods": 21,
+      "passed": 18,
+      "failed": 3,
+      "skipped": 0,
+      "returncode": 1,
+      "seconds": 4.815865200012922,
+      "inputs_unchanged": true
+    },
+    {
+      "path": "windows03",
+      "platform": "windows",
+      "methods": 2,
+      "passed": 0,
+      "failed": 2,
+      "skipped": 0,
+      "returncode": 1,
+      "seconds": 1.0040101000340655,
+      "inputs_unchanged": true
+    },
+    {
+      "path": "windows04",
+      "platform": "windows",
+      "methods": 3,
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0,
+      "returncode": 0,
+      "seconds": 1.4853234000038356,
+      "inputs_unchanged": true
+    },
+    {
+      "path": "linux01",
+      "platform": "linux",
+      "methods": 43,
+      "passed": 42,
+      "failed": 1,
+      "skipped": 0,
+      "returncode": 1,
+      "seconds": 51.47909429995343,
+      "inputs_unchanged": true
+    },
+    {
+      "path": "linux02",
+      "platform": "linux",
+      "methods": 1,
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0,
+      "returncode": 0,
+      "seconds": 12.599459599936381,
+      "inputs_unchanged": true
+    }
+  ],
+  "windows_passed_methods": [
+    "tests.tooling.test_recorder_delivery.DeliveryIdentityTests.test_cli_rejects_order_repeat_alias_type_and_shell_strings_without_reads",
+    "tests.tooling.test_recorder_delivery.DeliveryIdentityTests.test_compile_closure_requires_all_identity_profile_and_once_only_checks",
+    "tests.tooling.test_recorder_delivery.DeliveryIdentityTests.test_exact_cli_forms_and_uint64_boundaries",
+    "tests.tooling.test_recorder_delivery.DeliveryIdentityTests.test_generated_header_does_not_mutate_checked_in_disabled_source",
+    "tests.tooling.test_recorder_delivery.DeliveryIdentityTests.test_paths_share_owner_on_session_collision_and_bind_complete_source",
+    "tests.tooling.test_recorder_delivery.DeliveryIdentityTests.test_request_object_and_identity_integer_domains_are_closed",
+    "tests.tooling.test_recorder_delivery.DeliveryIdentityTests.test_session_claim_refuses_nonplain_or_missing_owner_without_creating_it",
+    "tests.tooling.test_recorder_delivery.DeliveryIdentityTests.test_session_run_claim_is_once_only_across_distinct_attempt_suffixes",
+    "tests.tooling.test_recorder_delivery.DeliverySourceConstructionTests.test_artifact_component_excludes_upload_receiver_and_process_entrypoints",
+    "tests.tooling.test_recorder_delivery.DeliverySourceConstructionTests.test_current_head_sources_and_saved_snapshot_are_rechecked_at_admission",
+    "tests.tooling.test_recorder_delivery.DeliverySourceConstructionTests.test_real_artifact_payload_fits_original_two_part_windows_envelope",
+    "tests.tooling.test_recorder_delivery.DeliverySourceConstructionTests.test_real_bootstrap_constructor_is_passive_and_recorder_specific",
+    "tests.tooling.test_recorder_delivery.DeliverySourceConstructionTests.test_real_staging_matches_independent_digest_including_generated_identity",
+    "tests.tooling.test_recorder_delivery.DeliverySourceConstructionTests.test_real_upload_payload_is_staged_once_and_readonly_admitted_before_return",
+    "tests.tooling.test_recorder_delivery.DeliverySourceConstructionTests.test_real_upload_profile_and_bindings_preserve_installed_pins_and_exact_artifacts",
+    "tests.tooling.test_recorder_delivery.DeliverySourceConstructionTests.test_source_identity_changes_with_any_staged_byte_and_caller_session",
+    "tests.tooling.test_recorder_delivery.DeliverySourceConstructionTests.test_source_mapping_refuses_reserved_overrides_and_case_collisions",
+    "tests.tooling.test_recorder_delivery_receiver.ReceiverOwnershipTests.test_arm_receiver_passes_expected_identity_and_bounded_remote_deadline",
+    "tests.tooling.test_recorder_delivery_receiver.ReceiverOwnershipTests.test_closed_latch_prevents_new_launch_and_race_after_evidence_claim",
+    "tests.tooling.test_recorder_delivery_receiver.ReceiverOwnershipTests.test_connection_pending_unknown_then_fresh_boot_connected_precedes_upload",
+    "tests.tooling.test_recorder_delivery_receiver.ReceiverOwnershipTests.test_no_upload_after_receiver_ends_or_connection_bound_expires",
+    "tests.tooling.test_recorder_delivery_receiver.ReceiverOwnershipTests.test_original_timeout_survives_one_output_read_failure_and_other_stream_is_read",
+    "tests.tooling.test_recorder_delivery_receiver.ReceiverOwnershipTests.test_output_limit_remains_primary_with_partial_bytes_when_reaping_fails",
+    "tests.tooling.test_recorder_delivery_receiver.ReceiverOwnershipTests.test_oversized_stdout_and_stderr_refuse_even_if_child_already_exited",
+    "tests.tooling.test_recorder_delivery_receiver.ReceiverOwnershipTests.test_real_receiver_modules_allow_only_exact_ticket_deadline_and_observer_commands",
+    "tests.tooling.test_recorder_delivery_receiver.ReceiverOwnershipTests.test_real_remote_saves_exact_outputs_and_reaps_once_without_communicate",
+    "tests.tooling.test_recorder_delivery_receiver.ReceiverOwnershipTests.test_stop_attempts_every_child_after_first_kill_or_wait_failure",
+    "tests.tooling.test_recorder_delivery_receiver.ReceiverOwnershipTests.test_timeout_keeps_first_failure_and_partial_bytes_when_kill_or_reap_also_fails",
+    "tests.tooling.test_recorder_delivery_receiver.ReceiverOwnershipTests.test_timeout_kills_reaps_and_retains_original_bytes",
+    "tests.tooling.test_recorder_delivery_receiver.ReceiverOwnershipTests.test_unknown_wrong_target_timeout_or_changed_adb_refuses_before_launch",
+    "tests.tooling.test_recorder_delivery_run.FullCaptureTests.test_capture_path_outside_session_owner_is_refused",
+    "tests.tooling.test_recorder_delivery_run.FullCaptureTests.test_current_source_config_revision_session_and_csv_wire_bindings_cannot_drift",
+    "tests.tooling.test_recorder_delivery_run.FullCaptureTests.test_real_full_synthetic_wire_is_reparsed_and_independently_validated",
+    "tests.tooling.test_recorder_delivery_run.FullCaptureTests.test_valid_but_short_or_lossy_or_wrong_origin_captures_are_refused",
+    "tests.tooling.test_recorder_delivery_run.RestorationTests.test_actual_restore_checks_compile_sources_artifacts_and_counter_before_run",
+    "tests.tooling.test_recorder_delivery_run.RestorationTests.test_changed_compile_artifact_stage_snapshot_or_late_source_refuses_before_claim",
+    "tests.tooling.test_recorder_delivery_run.RunOrderTests.test_connection_local_or_upload_failure_waits_once_retains_first_error_and_never_retries",
+    "tests.tooling.test_recorder_delivery_run.RunOrderTests.test_each_early_failure_stops_before_arming_and_preserves_consumed_run",
+    "tests.tooling.test_recorder_delivery_run.RunOrderTests.test_happy_path_requires_readonly_admission_before_receiver_and_one_upload",
+    "tests.tooling.test_recorder_delivery_run.RunOrderTests.test_receive_acceptance_and_late_failures_never_become_delivery",
+    "tests.tooling.test_recorder_delivery_run.RunOrderTests.test_stuck_receiver_has_only_bounded_joins_and_indeterminate_failure",
+    "tests.tooling.test_recorder_delivery_run.RunOrderTests.test_upload_profile_subprocess_or_postcheck_failure_cannot_report_delivered"
+  ],
+  "linux_passed_methods": [
+    "tests.tooling.test_recorder_delivery.DeliveryIdentityTests.test_cli_rejects_order_repeat_alias_type_and_shell_strings_without_reads",
+    "tests.tooling.test_recorder_delivery.DeliveryIdentityTests.test_compile_closure_requires_all_identity_profile_and_once_only_checks",
+    "tests.tooling.test_recorder_delivery.DeliveryIdentityTests.test_exact_cli_forms_and_uint64_boundaries",
+    "tests.tooling.test_recorder_delivery.DeliveryIdentityTests.test_generated_header_compiles_exact_inert_grants_and_refuses_match_or_motors",
+    "tests.tooling.test_recorder_delivery.DeliveryIdentityTests.test_generated_header_does_not_mutate_checked_in_disabled_source",
+    "tests.tooling.test_recorder_delivery.DeliveryIdentityTests.test_paths_share_owner_on_session_collision_and_bind_complete_source",
+    "tests.tooling.test_recorder_delivery.DeliveryIdentityTests.test_request_object_and_identity_integer_domains_are_closed",
+    "tests.tooling.test_recorder_delivery.DeliveryIdentityTests.test_session_claim_refuses_nonplain_or_missing_owner_without_creating_it",
+    "tests.tooling.test_recorder_delivery.DeliveryIdentityTests.test_session_run_claim_is_once_only_across_distinct_attempt_suffixes",
+    "tests.tooling.test_recorder_delivery.DeliverySourceConstructionTests.test_artifact_component_excludes_upload_receiver_and_process_entrypoints",
+    "tests.tooling.test_recorder_delivery.DeliverySourceConstructionTests.test_current_head_sources_and_saved_snapshot_are_rechecked_at_admission",
+    "tests.tooling.test_recorder_delivery.DeliverySourceConstructionTests.test_real_artifact_payload_fits_original_two_part_windows_envelope",
+    "tests.tooling.test_recorder_delivery.DeliverySourceConstructionTests.test_real_bootstrap_constructor_is_passive_and_recorder_specific",
+    "tests.tooling.test_recorder_delivery.DeliverySourceConstructionTests.test_real_staging_matches_independent_digest_including_generated_identity",
+    "tests.tooling.test_recorder_delivery.DeliverySourceConstructionTests.test_real_upload_payload_is_staged_once_and_readonly_admitted_before_return",
+    "tests.tooling.test_recorder_delivery.DeliverySourceConstructionTests.test_real_upload_profile_and_bindings_preserve_installed_pins_and_exact_artifacts",
+    "tests.tooling.test_recorder_delivery.DeliverySourceConstructionTests.test_source_identity_changes_with_any_staged_byte_and_caller_session",
+    "tests.tooling.test_recorder_delivery.DeliverySourceConstructionTests.test_source_mapping_refuses_reserved_overrides_and_case_collisions",
+    "tests.tooling.test_recorder_delivery_receiver.ReceiverOwnershipTests.test_arm_receiver_passes_expected_identity_and_bounded_remote_deadline",
+    "tests.tooling.test_recorder_delivery_receiver.ReceiverOwnershipTests.test_closed_latch_prevents_new_launch_and_race_after_evidence_claim",
+    "tests.tooling.test_recorder_delivery_receiver.ReceiverOwnershipTests.test_connection_pending_unknown_then_fresh_boot_connected_precedes_upload",
+    "tests.tooling.test_recorder_delivery_receiver.ReceiverOwnershipTests.test_no_upload_after_receiver_ends_or_connection_bound_expires",
+    "tests.tooling.test_recorder_delivery_receiver.ReceiverOwnershipTests.test_original_timeout_survives_one_output_read_failure_and_other_stream_is_read",
+    "tests.tooling.test_recorder_delivery_receiver.ReceiverOwnershipTests.test_output_limit_remains_primary_with_partial_bytes_when_reaping_fails",
+    "tests.tooling.test_recorder_delivery_receiver.ReceiverOwnershipTests.test_oversized_stdout_and_stderr_refuse_even_if_child_already_exited",
+    "tests.tooling.test_recorder_delivery_receiver.ReceiverOwnershipTests.test_real_receiver_modules_allow_only_exact_ticket_deadline_and_observer_commands",
+    "tests.tooling.test_recorder_delivery_receiver.ReceiverOwnershipTests.test_real_remote_saves_exact_outputs_and_reaps_once_without_communicate",
+    "tests.tooling.test_recorder_delivery_receiver.ReceiverOwnershipTests.test_stop_attempts_every_child_after_first_kill_or_wait_failure",
+    "tests.tooling.test_recorder_delivery_receiver.ReceiverOwnershipTests.test_timeout_keeps_first_failure_and_partial_bytes_when_kill_or_reap_also_fails",
+    "tests.tooling.test_recorder_delivery_receiver.ReceiverOwnershipTests.test_timeout_kills_reaps_and_retains_original_bytes",
+    "tests.tooling.test_recorder_delivery_receiver.ReceiverOwnershipTests.test_unknown_wrong_target_timeout_or_changed_adb_refuses_before_launch",
+    "tests.tooling.test_recorder_delivery_run.FullCaptureTests.test_capture_path_outside_session_owner_is_refused",
+    "tests.tooling.test_recorder_delivery_run.FullCaptureTests.test_current_source_config_revision_session_and_csv_wire_bindings_cannot_drift",
+    "tests.tooling.test_recorder_delivery_run.FullCaptureTests.test_real_full_synthetic_wire_is_reparsed_and_independently_validated",
+    "tests.tooling.test_recorder_delivery_run.FullCaptureTests.test_valid_but_short_or_lossy_or_wrong_origin_captures_are_refused",
+    "tests.tooling.test_recorder_delivery_run.RestorationTests.test_actual_restore_checks_compile_sources_artifacts_and_counter_before_run",
+    "tests.tooling.test_recorder_delivery_run.RestorationTests.test_changed_compile_artifact_stage_snapshot_or_late_source_refuses_before_claim",
+    "tests.tooling.test_recorder_delivery_run.RunOrderTests.test_connection_local_or_upload_failure_waits_once_retains_first_error_and_never_retries",
+    "tests.tooling.test_recorder_delivery_run.RunOrderTests.test_each_early_failure_stops_before_arming_and_preserves_consumed_run",
+    "tests.tooling.test_recorder_delivery_run.RunOrderTests.test_happy_path_requires_readonly_admission_before_receiver_and_one_upload",
+    "tests.tooling.test_recorder_delivery_run.RunOrderTests.test_receive_acceptance_and_late_failures_never_become_delivery",
+    "tests.tooling.test_recorder_delivery_run.RunOrderTests.test_stuck_receiver_has_only_bounded_joins_and_indeterminate_failure",
+    "tests.tooling.test_recorder_delivery_run.RunOrderTests.test_upload_profile_subprocess_or_postcheck_failure_cannot_report_delivered"
+  ],
+  "reference_wire": {
+    "path": "state/analysis/P2_recorder_transport_raw/author/run1_commands/normal_exports_1790205416118983952/positive.wire",
+    "sha256": "420b4657c0a13d813ca66e29d6217c406de4d13befd8f7584b625724e9dfdfef"
+  },
+  "free_disk_bytes": 5201883136
+}

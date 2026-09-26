@@ -1,0 +1,387 @@
+# Tests the identified recorder caller's public identity and local admission seams.
+# Independent source/hash and fresh-owner oracles never use a board connection.
+# Generated headers, real staging and checked helper construction remain host-only.
+import ast
+import copy
+from contextlib import ExitStack
+import hashlib
+import importlib.util
+import json
+import os
+from pathlib import Path
+import shutil
+import subprocess
+import sys
+import tempfile
+import types
+import unittest
+from unittest import mock
+
+ROOT=Path(__file__).resolve().parents[2]
+ATTEMPT='f123456789abcdef0123456789abcdef'
+SESSION=17375808098319191535
+HEAD='0123456789abcdef0123456789abcdef01234567'
+SOURCE='0123456789abcdef'*4
+BOOT='55c386b9-fe6d-4388-a7f4-1d91e0bb49d8'
+FLAGS='-DMATCH=0 -DMOTORS_ALLOWED=0'
+FQBN='arduino:zephyr:unoq:link_mode=static'
+CHECKS=('local','identity','initialization','builtins','remote_sources','installed_pins','overrides','artifacts','artifact_sources')
+
+
+def load(path,name):
+    spec=importlib.util.spec_from_file_location(name,path)
+    module=importlib.util.module_from_spec(spec)
+    sys.modules[name]=module
+    spec.loader.exec_module(module)
+    return module
+
+
+def request(action='--run',attempt=ATTEMPT,head=HEAD):
+    return dict(action=action,attempt=attempt,reviewed_head=head)
+
+
+def identity():
+    return dict(schema='ignored',attempt=ATTEMPT,session=SESSION,reviewed_head=HEAD,
+                source_sha256=SOURCE,boot_id=BOOT,project='recorder.ino',fqbn=FQBN,flags=FLAGS)
+
+
+def compiled():
+    result=identity()
+    result.update(schema='recorder-delivery-compile-outcome-v1',status='COMPILE_CHECKED',
+        first_error=None,compiler_calls=1,query_calls=1,
+        final_checks=[dict(name=name,status='PASS',error=None) for name in CHECKS],
+        artifact_sources_identity={'fixture':'closed-exact-source'},transport_calls=8)
+    artifacts=dict(schema='recorder-delivery-artifacts-v1',status='ARTIFACTS_CHECKED',
+        attempt=ATTEMPT,session=SESSION,source_sha256=SOURCE)
+    return result,artifacts
+
+
+class S(str):pass
+class I(int):pass
+class L(list):pass
+class D(dict):pass
+
+
+class DeliveryIdentityTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):cls.subject=load(ROOT/'tools/run_recorder_delivery.py','_d225_public')
+
+    def test_exact_cli_forms_and_uint64_boundaries(self):
+        for action in ('--check-only','--compile','--run'):
+            for attempt in (ATTEMPT,'0000000000000001'+'0'*16,'f'*32):
+                argv=[action,'--attempt',attempt,'--reviewed-head',HEAD]
+                self.assertEqual(self.subject.parse_request(argv),request(action,attempt))
+                self.assertEqual(self.subject.derive_session(attempt),int(attempt[:16],16))
+        self.assertEqual(self.subject.derive_session(ATTEMPT),SESSION)
+
+    def test_cli_rejects_order_repeat_alias_type_and_shell_strings_without_reads(self):
+        good=['--run','--attempt',ATTEMPT,'--reviewed-head',HEAD]
+        invalid=[None,{},(),tuple(good),L(good),[],good[:-1],good+['--upload'],
+                 ['--attempt',ATTEMPT,'--run','--reviewed-head',HEAD]]
+        for i in range(5):
+            row=list(good);row[i]=S(row[i]);invalid.append(row)
+            row=list(good);row[i]=None;invalid.append(row)
+        for i,values in ((0,('--execute','--upload','--reset','--match')),
+                         (2,('0'*32,'0'*16+'f'*16,ATTEMPT.upper(),ATTEMPT[:-1],ATTEMPT+'0','../x','x;id')),
+                         (4,(HEAD.upper(),HEAD[:-1],HEAD+'0','g'*40))):
+            for value in values:
+                row=list(good);row[i]=value;invalid.append(row)
+        with mock.patch.object(Path,'read_bytes',side_effect=AssertionError('Unexpected read')):
+            for row in invalid:
+                with self.subTest(row=row),self.assertRaises((ValueError,TypeError)):
+                    self.subject.parse_request(row)
+
+    def test_request_object_and_identity_integer_domains_are_closed(self):
+        valid=request()
+        invalid=[None,[],D(valid),dict(valid,extra=1)]
+        for key in valid:
+            row=dict(valid);del row[key];invalid.append(row)
+        for key,value in (('attempt',S(ATTEMPT)),('reviewed_head',None),('action','--upload')):
+            invalid.append(dict(valid,**{key:value}))
+        for row in invalid:
+            with self.subTest(row=row),self.assertRaises((ValueError,TypeError)):
+                self.subject.checked_request(row)
+        for value in (True,False,0,-1,1<<64,1.0,'1',I(1),None):
+            with self.subTest(session=value),self.assertRaises((ValueError,TypeError)):
+                self.subject.render_identity(value)
+
+    def test_paths_share_owner_on_session_collision_and_bind_complete_source(self):
+        first=self.subject.build_paths(ATTEMPT,SOURCE)
+        other=self.subject.build_paths(ATTEMPT[:16]+'f'*16,SOURCE)
+        self.assertEqual(first,other)
+        self.assertEqual(first['owner'],'recorder-f123456789abcdef')
+        self.assertEqual(first['output'],'state/analysis/P7_recorder_delivery_raw/recorder-f123456789abcdef')
+        self.assertTrue(first['sketch'].endswith('/'+SOURCE+'/recorder'))
+        changed=self.subject.build_paths(ATTEMPT,'f'*64)
+        self.assertEqual(first['owner'],changed['owner'])
+        self.assertNotEqual(first['sketch'],changed['sketch'])
+        for value in (None,S(SOURCE),SOURCE.upper(),SOURCE[:-1],'../'+'f'*61):
+            with self.assertRaises((ValueError,TypeError)):self.subject.build_paths(ATTEMPT,value)
+
+    def test_generated_header_does_not_mutate_checked_in_disabled_source(self):
+        source=ROOT/'bench/recorder/src/recorder_run_identity.h'
+        before=source.read_bytes()
+        raw=self.subject.render_identity(SESSION)
+        self.assertIn(b'ENABLED = true;',raw)
+        self.assertIn(str(SESSION).encode()+b'ULL',raw)
+        self.assertIn(b'GRANTS{true, true, true, false,',raw)
+        self.assertIn(b'UNTRUSTED_RECEIVE_STREAM, SESSION',raw)
+        self.assertIn(b'MATCH == 0 && MOTORS_ALLOWED == 0',raw)
+        self.assertEqual(source.read_bytes(),before)
+        self.assertIn(b'ENABLED = false;',before)
+        self.assertIn(b'SESSION = 0U;',before)
+        self.assertIn(b'GRANTS{};',before)
+
+    @unittest.skipUnless(os.name=='posix','Local compiler fixture runs on Linux')
+    def test_generated_header_compiles_exact_inert_grants_and_refuses_match_or_motors(self):
+        with tempfile.TemporaryDirectory(prefix='d225-header-') as temp:
+            path=Path(temp)/'probe.cc'
+            body=self.subject.render_identity((1<<64)-1)+b'\nusing namespace recorder_run_identity;\n'
+            body+=b'static_assert(ENABLED && SESSION == 18446744073709551615ULL);\n'
+            body+=b'static_assert(GRANTS.setup_phase && GRANTS.exclusive_uart && GRANTS.ready_pin_owned && !GRANTS.framing_clean);\n'
+            body+=b'static_assert(GRANTS.session == SESSION && GRANTS.receive_stream == recorder::dump::ReceiveStream::UNTRUSTED_RECEIVE_STREAM);\n'
+            path.write_bytes(body)
+            for match,motors in ((0,0),(1,0),(0,1),(1,1)):
+                result=subprocess.run(['g++','-std=c++17','-fsyntax-only','-x','c++',
+                    '-I',str(ROOT/'src'),f'-DMATCH={match}',f'-DMOTORS_ALLOWED={motors}',str(path)],
+                    capture_output=True,text=True,timeout=30)
+                if match or motors:
+                    self.assertNotEqual(result.returncode,0)
+                    self.assertIn('Inert delivery only',result.stderr)
+                else:self.assertEqual(result.returncode,0,result.stderr)
+
+    def test_compile_closure_requires_all_identity_profile_and_once_only_checks(self):
+        good,artifacts=compiled()
+        self.subject.validate_compile(good,artifacts,identity())
+        replacements={'status':['FAILED','UPLOADED'],'first_error':[{},'error'],
+            'compiler_calls':[0,2,True,1.0],'query_calls':[0,2,True],
+            'project':['app.ino'],'fqbn':['arduino:zephyr:unoq','arduino:zephyr:unoq:link_mode=dynamic'],
+            'flags':['-DMATCH=1 -DMOTORS_ALLOWED=0','-DMATCH=0 -DMOTORS_ALLOWED=1',FLAGS+' -DSUMOX_B4_STAND=1'],
+            'attempt':['e'*32],'session':[SESSION-1,str(SESSION)],'reviewed_head':['f'*40],
+            'source_sha256':['e'*64],'boot_id':['unknown'],'artifact_sources_identity':[None]}
+        for key,values in replacements.items():
+            for value in values:
+                changed=copy.deepcopy(good);changed[key]=value
+                with self.subTest(key=key,value=value),self.assertRaises((ValueError,TypeError)):
+                    self.subject.validate_compile(changed,artifacts,identity())
+        for index in range(9):
+            for damage in ('omit','fail','error','reorder'):
+                changed=copy.deepcopy(good)
+                if damage=='omit':del changed['final_checks'][index]
+                elif damage=='fail':changed['final_checks'][index]['status']='FAIL'
+                elif damage=='error':changed['final_checks'][index]['error']='late error'
+                else:changed['final_checks']=list(reversed(changed['final_checks']))
+                with self.subTest(index=index,damage=damage),self.assertRaises(ValueError):
+                    self.subject.validate_compile(changed,artifacts,identity())
+        for key,value in (('status','FAILED'),('attempt','e'*32),('session',SESSION-1),('source_sha256','e'*64)):
+            with self.subTest(artifact=key),self.assertRaises(ValueError):
+                self.subject.validate_compile(good,dict(artifacts,**{key:value}),identity())
+
+    def test_session_run_claim_is_once_only_across_distinct_attempt_suffixes(self):
+        with tempfile.TemporaryDirectory(prefix='d225-claim-') as temp:
+            root=Path(temp)
+            output=root/'state/analysis/P7_recorder_delivery_raw/recorder-f123456789abcdef'
+            output.mkdir(parents=True)
+            run=self.subject.claim_session(root,ATTEMPT)
+            expected=dict(attempt=ATTEMPT,session=SESSION)
+            self.assertEqual(json.loads((run/'attempt.json').read_bytes()),expected)
+            before=(run/'attempt.json').read_bytes()
+            for attempt in (ATTEMPT,ATTEMPT[:16]+'f'*16):
+                with self.assertRaises((FileExistsError,ValueError)):self.subject.claim_session(root,attempt)
+                self.assertEqual((run/'attempt.json').read_bytes(),before)
+            self.assertEqual(list(output.iterdir()),[run])
+
+    def test_session_claim_refuses_nonplain_or_missing_owner_without_creating_it(self):
+        with tempfile.TemporaryDirectory(prefix='d225-claim-refusal-') as temp:
+            root=Path(temp)
+            with self.assertRaises((ValueError,FileNotFoundError)):self.subject.claim_session(root,ATTEMPT)
+            self.assertEqual(list(root.iterdir()),[])
+            parent=root/'state/analysis/P7_recorder_delivery_raw';parent.mkdir(parents=True)
+            owner=parent/'recorder-f123456789abcdef';owner.write_bytes(b'not a directory')
+            with self.assertRaises((ValueError,FileNotFoundError)):self.subject.claim_session(root,ATTEMPT)
+            self.assertEqual(owner.read_bytes(),b'not a directory')
+
+
+class DeliverySourceConstructionTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):cls.subject=load(ROOT/'tools/run_recorder_delivery.py','_d225_construction')
+
+    def owner(self):
+        with mock.patch.object(subprocess,'Popen',side_effect=AssertionError('Construction spawned process')):
+            return self.subject.make_owner(request(),root=ROOT)
+
+    def test_real_bootstrap_constructor_is_passive_and_recorder_specific(self):
+        owner=self.owner()
+        self.assertEqual((owner.attempt,owner.session,owner.fqbn,owner.flags,owner.startup),
+                         (ATTEMPT,SESSION,FQBN,FLAGS,'default'))
+        self.assertFalse(owner.output.exists())
+        self.assertFalse(owner.stage_owner.exists())
+        self.assertEqual(owner._module.PROJECT,'recorder.ino')
+        self.assertEqual(owner._module.FQBN,FQBN)
+        self.assertIn('recorder.ino',owner.staged_bytes)
+        self.assertNotIn('app.ino',owner.staged_bytes)
+        self.assertIn('src/app/runtime_dump.cpp',owner.staged_bytes)
+
+    def test_real_staging_matches_independent_digest_including_generated_identity(self):
+        owner=self.owner()
+        expected=hashlib.sha256()
+        for name in sorted(owner.staged_bytes,key=Path):
+            expected.update(name.encode()+b'\0');expected.update(owner.staged_bytes[name])
+        self.assertEqual(owner.source_sha256,expected.hexdigest())
+        with tempfile.TemporaryDirectory(prefix='d225-real-stage-') as temp:
+            root=Path(temp)
+            shutil.copytree(ROOT/'src',root/'src')
+            shutil.copytree(ROOT/'bench/recorder',root/'bench/recorder')
+            (root/'build/stage').mkdir(parents=True)
+            board=load(ROOT/'tools/board_tool.py','_d225_staging_helper')
+            board.ROOT=root
+            with mock.patch.object(subprocess,'Popen',side_effect=AssertionError('Stage spawned process')):
+                staged=board.stage('bench/recorder',attempt='recorder-'+ATTEMPT[:16])
+            (staged/'src/recorder_run_identity.h').write_bytes(self.subject.render_identity(SESSION))
+            actual={p.relative_to(staged).as_posix():p.read_bytes() for p in staged.rglob('*') if p.is_file()}
+            self.assertEqual(actual,owner.staged_bytes)
+            self.assertEqual(board.source_hash(staged),owner.source_sha256)
+
+    def test_source_identity_changes_with_any_staged_byte_and_caller_session(self):
+        owner=self.owner();names=owner.source_names()
+        bodies={name:(ROOT/name).read_bytes() for name in names}
+        original=owner.source_sha256
+        for name in ('src/config.h','src/core/fsm.cpp','src/app/runtime_dump.cpp','bench/recorder/recorder.ino'):
+            changed=dict(bodies);changed[name]+=b'\n'
+            self.assertNotEqual(owner.source_mapping(changed,names)[1],original)
+        owner.session=SESSION-1
+        self.assertNotEqual(owner.source_mapping(bodies,names)[1],original)
+
+    def test_source_mapping_refuses_reserved_overrides_and_case_collisions(self):
+        owner=self.owner();names=owner.source_names()
+        bodies={name:(ROOT/name).read_bytes() for name in names}
+        for name in ('bench/recorder/src/config.h','bench/recorder/src/hal/foreign.h',
+                     'bench/recorder/src/core/foreign.cpp','bench/recorder/sketch.yaml',
+                     'bench/recorder/RECORDER.ino'):
+            with self.subTest(name=name),self.assertRaises(ValueError):
+                owner.source_mapping(dict(bodies,**{name:b'foreign'}),names|{name})
+
+    def test_current_head_sources_and_saved_snapshot_are_rechecked_at_admission(self):
+        owner=self.owner()
+        names=owner._module.REQUIRED|owner.source_names()
+        head={name:(ROOT/name).read_bytes() for name in names}
+        with mock.patch.object(owner._bootstrap,'_head_bytes',return_value=head), \
+             mock.patch.object(subprocess,'Popen',side_effect=AssertionError('Admission spawned process')):
+            owner.admission()
+            self.assertEqual(owner.inputs['source_sha256'],owner.source_sha256)
+            self.assertEqual(owner.expected_stage['src/recorder_run_identity.h'],
+                             hashlib.sha256(self.subject.render_identity(SESSION)).hexdigest())
+            changed=dict(head);changed['src/config.h']+=b'\n'
+            with mock.patch.object(owner._bootstrap,'_head_bytes',return_value=changed),self.assertRaises(ValueError):
+                owner.admission()
+            owner.manifest_saved=True
+            with mock.patch.object(owner.base,'read',side_effect=lambda p: b'changed' if p==owner.inputs_path else p.read_bytes()),self.assertRaises(ValueError):
+                owner.admission()
+
+    def test_artifact_component_excludes_upload_receiver_and_process_entrypoints(self):
+        raw=(ROOT/'tools/run_recorder_delivery.py').read_bytes()
+        component=self.subject.artifact_module_source(raw)
+        tree=ast.parse(component)
+        functions={node.name for node in tree.body if isinstance(node,ast.FunctionDef)}
+        self.assertEqual(functions,{'require','sha','derive_session','build_paths','module_from',
+                                   'snapshot_policy','inspect_artifacts'})
+        self.assertNotIn(b'run_delivery',component)
+        self.assertNotIn(b'Popen',component)
+        self.assertNotIn(b'arm_receiver',component)
+        module=self.subject.module_from('_d225_component_test',component)
+        self.assertEqual(module.build_paths(ATTEMPT,SOURCE),self.subject.build_paths(ATTEMPT,SOURCE))
+
+    def test_real_artifact_payload_fits_original_two_part_windows_envelope(self):
+        owner=self.owner()
+        owner.code={name:(ROOT/name).read_bytes() for name in owner._module.REQUIRED}
+        raw,packed=owner._artifact_payload()
+        self.assertLessEqual(len(raw),262144)
+        self.assertGreater(len(packed),16384)
+        self.assertLessEqual(len(packed),32768)
+        value=json.loads(raw)
+        self.assertEqual(value['source'].encode(),self.subject.artifact_module_source(owner.code['tools/run_recorder_delivery.py']))
+        self.assertEqual(value['bundle']['policy'],value['source'])
+
+    def test_real_upload_profile_and_bindings_preserve_installed_pins_and_exact_artifacts(self):
+        owner=self.owner()
+        owner.code={name:(ROOT/name).read_bytes() for name in owner._module.REQUIRED}
+        baseline=json.loads(owner.code[self.subject.UPLOAD_BASELINE])
+        artifacts={'files':{}}
+        for role,leaf in (('raw','build/recorder.ino.bin'),('sketch','build/recorder.ino.bin-zsk.bin'),
+                          ('exported','artifacts/recorder.ino.bin-zsk.bin')):
+            old=baseline['files']['sketch' if role=='exported' else role]
+            artifacts['files'][leaf]={'identity':{'bytes':old['bytes']},'sha256':old['sha256']}
+        value=self.subject.upload_bindings(owner,artifacts)
+        self.assertEqual(value['run_id'],ATTEMPT)
+        self.assertEqual(value['source_sha256'],owner.source_sha256)
+        self.assertEqual(value['boot_id'],BOOT)
+        for name in set(baseline['files'])-{'raw','sketch','exported'}:
+            self.assertEqual(value['files'][name],baseline['files'][name])
+        for role in ('raw','sketch','exported'):
+            self.assertIn('recorder-f123456789abcdef/',value['files'][role]['path'])
+        uploader=self.subject.module_from('_d225_uploader',owner.code[self.subject.UPLOADER])
+        profile=self.subject.upload_profile(uploader,ATTEMPT,owner.source_sha256)
+        self.assertEqual(profile['argv'][:7],['/usr/bin/arduino-cli','--config-file','/dev/null','upload','--fqbn',FQBN,'--input-file'])
+        self.assertEqual(profile['argv'][-2],value['files']['raw']['path'])
+        self.assertNotIn('compile',profile['argv'])
+        self.stale_scratch_refused(owner,uploader,profile,value)
+        for key in artifacts['files']:
+            changed=copy.deepcopy(artifacts);changed['files'][key]['sha256']='bad'
+            with self.subTest(file=key),self.assertRaises(ValueError):self.subject.upload_bindings(owner,changed)
+
+
+    def test_real_upload_payload_is_staged_once_and_readonly_admitted_before_return(self):
+        owner=self.owner()
+        owner.code={name:(ROOT/name).read_bytes() for name in owner._module.REQUIRED}
+        owner.prepare()
+        baseline=json.loads(owner.code[self.subject.UPLOAD_BASELINE]);artifacts={'files':{}}
+        for role,leaf in (('raw','build/recorder.ino.bin'),('sketch','build/recorder.ino.bin-zsk.bin'),
+                          ('exported','artifacts/recorder.ino.bin-zsk.bin')):
+            old=baseline['files']['sketch' if role=='exported' else role]
+            artifacts['files'][leaf]={'identity':{'bytes':old['bytes']},'sha256':old['sha256']}
+        calls=[]
+        def direct(program,label,timeout=90):
+            calls.append(label)
+            if label=='upload-input-owner':reply={}
+            elif label=='upload-admit':
+                self.assertIn("action='admit'",program)
+                reply=dict(status='ADMITTED',attempt=ATTEMPT,source_sha256=owner.source_sha256)
+            else:self.fail('Unexpected remote operation '+label)
+            return types.SimpleNamespace(stdout=json.dumps(reply),stderr=''),None
+        def transport(arguments,timeout,label):
+            calls.append(label)
+            self.assertEqual((arguments[0],timeout,label),('push',60,'upload-inputs'))
+            self.assertEqual(arguments[-1],owner.remote+'/recorder-upload-inputs.json')
+        with tempfile.TemporaryDirectory(prefix='d225-upload-payload-') as temp, \
+             mock.patch.object(owner,'direct',side_effect=direct), \
+             mock.patch.object(owner,'transport',side_effect=transport), \
+             mock.patch.object(subprocess,'Popen',side_effect=AssertionError('Actual process')):
+            raw=self.subject.prepare_upload(owner,artifacts,Path(temp))
+            self.assertEqual((Path(temp)/'upload_inputs.json').read_bytes(),raw)
+            self.assertLessEqual(len(raw),262144)
+            value=json.loads(raw)
+            self.assertEqual(set(value['sources']),{'helper','support','uploader','adapter','caller'})
+            self.assertEqual(value['sources']['caller'].encode(),owner.code['tools/run_recorder_delivery.py'])
+            self.assertEqual((value['attempt'],value['source_sha256']),(ATTEMPT,owner.source_sha256))
+        self.assertEqual(calls,['upload-input-owner','upload-inputs','upload-admit'])
+
+    def stale_scratch_refused(self,owner,uploader,profile,bindings):
+        support=self.subject.module_from('_d225_upload_support',owner.code['state/analysis/P7_static_startup_raw/capture_remote.py'])
+        observed=[]
+        def absent(path):
+            observed.append(path)
+            if path=='/tmp/remoteocd':raise ValueError('controlled stale upload scratch')
+        candidate=types.SimpleNamespace(support=support,input_bindings=bindings,profile=profile,
+            fs_root=owner.root,report={},budget=lambda:None,check_identity=lambda:None,
+            check_file=lambda name:None,check_entries=lambda path:None,check_absent=absent,
+            check_null=lambda: self.fail('Continued after stale scratch'),
+            check_processes=lambda:self.fail('Continued after stale scratch'))
+        with ExitStack() as stack:
+            for flag in ('O_DIRECTORY','O_NOFOLLOW','O_CLOEXEC'):
+                if not hasattr(os,flag):stack.enter_context(mock.patch.object(os,flag,0,create=True))
+            stack.enter_context(mock.patch.object(os,'open',return_value=123))
+            with self.assertRaisesRegex(ValueError,'controlled stale upload scratch'):
+                uploader.Upload.admit(candidate)
+        self.assertEqual(observed,list(profile['absent'])+['/tmp/remoteocd'])
+
+if __name__=='__main__':unittest.main()

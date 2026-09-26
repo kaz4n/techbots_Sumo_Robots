@@ -1,0 +1,58 @@
+test_exact_cli_forms_and_uint64_boundaries (tests.tooling.test_recorder_delivery.DeliveryIdentityTests.test_exact_cli_forms_and_uint64_boundaries) ... ok
+test_paths_share_owner_on_session_collision_and_bind_complete_source (tests.tooling.test_recorder_delivery.DeliveryIdentityTests.test_paths_share_owner_on_session_collision_and_bind_complete_source) ... ok
+test_session_run_claim_is_once_only_across_distinct_attempt_suffixes (tests.tooling.test_recorder_delivery.DeliveryIdentityTests.test_session_run_claim_is_once_only_across_distinct_attempt_suffixes) ... ok
+test_artifact_component_excludes_upload_receiver_and_process_entrypoints (tests.tooling.test_recorder_delivery.DeliverySourceConstructionTests.test_artifact_component_excludes_upload_receiver_and_process_entrypoints) ... ok
+test_current_head_sources_and_saved_snapshot_are_rechecked_at_admission (tests.tooling.test_recorder_delivery.DeliverySourceConstructionTests.test_current_head_sources_and_saved_snapshot_are_rechecked_at_admission) ... ERROR
+test_real_artifact_payload_fits_original_two_part_windows_envelope (tests.tooling.test_recorder_delivery.DeliverySourceConstructionTests.test_real_artifact_payload_fits_original_two_part_windows_envelope) ... ok
+test_real_bootstrap_constructor_is_passive_and_recorder_specific (tests.tooling.test_recorder_delivery.DeliverySourceConstructionTests.test_real_bootstrap_constructor_is_passive_and_recorder_specific) ... ok
+test_real_staging_matches_independent_digest_including_generated_identity (tests.tooling.test_recorder_delivery.DeliverySourceConstructionTests.test_real_staging_matches_independent_digest_including_generated_identity) ... ok
+test_real_upload_payload_is_staged_once_and_readonly_admitted_before_return (tests.tooling.test_recorder_delivery.DeliverySourceConstructionTests.test_real_upload_payload_is_staged_once_and_readonly_admitted_before_return) ... ERROR
+test_real_upload_profile_and_bindings_preserve_installed_pins_and_exact_artifacts (tests.tooling.test_recorder_delivery.DeliverySourceConstructionTests.test_real_upload_profile_and_bindings_preserve_installed_pins_and_exact_artifacts) ... ERROR
+test_source_identity_changes_with_any_staged_byte_and_caller_session (tests.tooling.test_recorder_delivery.DeliverySourceConstructionTests.test_source_identity_changes_with_any_staged_byte_and_caller_session) ... ok
+test_source_mapping_refuses_reserved_overrides_and_case_collisions (tests.tooling.test_recorder_delivery.DeliverySourceConstructionTests.test_source_mapping_refuses_reserved_overrides_and_case_collisions) ... ok
+test_connection_local_or_upload_failure_waits_once_retains_first_error_and_never_retries (tests.tooling.test_recorder_delivery_run.RunOrderTests.test_connection_local_or_upload_failure_waits_once_retains_first_error_and_never_retries) ... ok
+test_each_early_failure_stops_before_arming_and_preserves_consumed_run (tests.tooling.test_recorder_delivery_run.RunOrderTests.test_each_early_failure_stops_before_arming_and_preserves_consumed_run) ... ok
+test_happy_path_requires_readonly_admission_before_receiver_and_one_upload (tests.tooling.test_recorder_delivery_run.RunOrderTests.test_happy_path_requires_readonly_admission_before_receiver_and_one_upload) ... ok
+test_receive_acceptance_and_late_failures_never_become_delivery (tests.tooling.test_recorder_delivery_run.RunOrderTests.test_receive_acceptance_and_late_failures_never_become_delivery) ... ok
+test_stuck_receiver_has_only_bounded_joins_and_indeterminate_failure (tests.tooling.test_recorder_delivery_run.RunOrderTests.test_stuck_receiver_has_only_bounded_joins_and_indeterminate_failure) ... ok
+test_upload_profile_subprocess_or_postcheck_failure_cannot_report_delivered (tests.tooling.test_recorder_delivery_run.RunOrderTests.test_upload_profile_subprocess_or_postcheck_failure_cannot_report_delivered) ... ok
+test_closed_latch_prevents_new_launch_and_race_after_evidence_claim (tests.tooling.test_recorder_delivery_receiver.ReceiverOwnershipTests.test_closed_latch_prevents_new_launch_and_race_after_evidence_claim) ... ok
+test_cli_rejects_order_repeat_alias_type_and_shell_strings_without_reads (tests.tooling.test_recorder_delivery.DeliveryIdentityTests.test_cli_rejects_order_repeat_alias_type_and_shell_strings_without_reads) ... ok
+test_arm_receiver_passes_expected_identity_and_bounded_remote_deadline (tests.tooling.test_recorder_delivery_receiver.ReceiverOwnershipTests.test_arm_receiver_passes_expected_identity_and_bounded_remote_deadline) ... ok
+
+======================================================================
+ERROR: test_current_head_sources_and_saved_snapshot_are_rechecked_at_admission (tests.tooling.test_recorder_delivery.DeliverySourceConstructionTests.test_current_head_sources_and_saved_snapshot_are_rechecked_at_admission)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\AppData\Local\Temp\sumox-recorder-session-20260926\tests\tooling\test_recorder_delivery.py", line 270, in test_current_head_sources_and_saved_snapshot_are_rechecked_at_admission
+    owner.admission()
+    ~~~~~~~~~~~~~~~^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-recorder-session-20260926\tools\run_recorder_delivery.py", line 241, in admission
+    require(sha(code[name]) == digest, 'Frozen primitive changed: ' + name)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-recorder-session-20260926\tools\run_recorder_delivery.py", line 49, in require
+    raise ValueError(message)
+ValueError: Frozen primitive changed: state/analysis/P7_static_startup_raw/cli_initialization_inventory.json
+
+======================================================================
+ERROR: test_real_upload_payload_is_staged_once_and_readonly_admitted_before_return (tests.tooling.test_recorder_delivery.DeliverySourceConstructionTests.test_real_upload_payload_is_staged_once_and_readonly_admitted_before_return)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\AppData\Local\Temp\sumox-recorder-session-20260926\tests\tooling\test_recorder_delivery.py", line 340, in test_real_upload_payload_is_staged_once_and_readonly_admitted_before_return
+    old=baseline['files'][role]
+        ~~~~~~~~~~~~~~~~~^^^^^^
+KeyError: 'exported'
+
+======================================================================
+ERROR: test_real_upload_profile_and_bindings_preserve_installed_pins_and_exact_artifacts (tests.tooling.test_recorder_delivery.DeliverySourceConstructionTests.test_real_upload_profile_and_bindings_preserve_installed_pins_and_exact_artifacts)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\AppData\Local\Temp\sumox-recorder-session-20260926\tests\tooling\test_recorder_delivery.py", line 312, in test_real_upload_profile_and_bindings_preserve_installed_pins_and_exact_artifacts
+    old=baseline['files'][role]
+        ~~~~~~~~~~~~~~~~~^^^^^^
+KeyError: 'exported'
+
+----------------------------------------------------------------------
+Ran 21 tests in 4.347s
+
+FAILED (errors=3)

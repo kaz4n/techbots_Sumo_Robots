@@ -1,0 +1,63 @@
+{
+  "schema": "b4-recorder-run-oracle-repair-v1",
+  "status": "FINAL",
+  "sealed_at": "2026-09-26T21:34:05.2344573+04:00",
+  "authorization": "Root requested bounded repair after actual first Linux failure; original failure and oracle remain immutable.",
+  "original_oracle": {
+    "path": "state/analysis/P7_b4_recorder_run_raw/run_oracle01.json",
+    "bytes": 10622,
+    "sha256": "2be2f2179f0250dca6abd46df00e6b003d22625386a828b0c0e0621e902ac603",
+    "preserved": true
+  },
+  "original_test": {
+    "path": "state/analysis/P7_b4_recorder_run_raw/run_oracle01_test.py",
+    "bytes": 32682,
+    "sha256": "f36fd0fcb97e93a5e845f66e37b06a7f4c5ab6d58dcd850271ea1e7ee715b6bb"
+  },
+  "repaired_test": {
+    "path": "tests/tooling/test_b4_recorder_run.py",
+    "bytes": 33384,
+    "sha256": "145395a57cba25e557b013ad955b8099eb6d122395ed9ff6c71dfbabfb5a486f",
+    "methods": [
+      "test_inherited_body_identity_and_capture_command_framing",
+      "test_command_admission_rejects_stale_roles_sources_bindings_and_identity",
+      "test_capture_reply_success_and_partial_or_unattributed_refusals",
+      "test_retrieval_program_uses_only_fixed_paths_and_rechecks_all_pins_and_identity",
+      "test_fixed_retrieval_packet_decode_and_each_leaf_corruption",
+      "test_actual_b4_source_evidence_and_closed_scope_admission",
+      "test_predeclared_commands_capture_intent_and_retrieval_are_consumed_once",
+      "test_capture_only_sequence_order_failures_and_final_checks",
+      "test_local_export_preserves_exact_leaves_suppresses_invalid_csv_and_never_overwrites",
+      "test_cli_check_only_creates_no_execution_and_rejects_ambiguous_selection"
+    ],
+    "method_count": 10
+  },
+  "outside_method": {
+    "bytes": 28232,
+    "sha256": "6ccdb2d629f380c6456264033f1641d649a5c7f675a6bb4c0b614141f502180d"
+  },
+  "reason": "Controlled.export_bundle returned only a fixture label and omitted the contract-required bundle_status. Production correctly refused rather than completing.",
+  "changes": [
+    "Controlled export fixture now returns bundle_status PASS by default, and the positive assertion includes that field.",
+    "An explicit REFUSED export case verifies FAILED status, retained export, first error, export postcheck error, one capture/retrieval attempt, and exactly one export/finish."
+  ],
+  "prior_execution": {
+    "result": {
+      "path": "state/analysis/P7_b4_recorder_run_raw/run_first_linux01/result.json",
+      "bytes": 844,
+      "sha256": "199a34fc00221a81090277cebdf595730200ddc5f2bac41dad6ab6f9cb015b13"
+    },
+    "stderr": {
+      "path": "state/analysis/P7_b4_recorder_run_raw/run_first_linux01/stderr",
+      "bytes": 2782,
+      "sha256": "ae4590b8174bbb46af3dfcae2dd94be97a4274d7c4d76c514a2593500d6e81ea"
+    },
+    "status": "10 methods: nine PASS and one sequence fixture failure; 179 input pins stable as reported by root.",
+    "preserved": true
+  },
+  "unchanged_methods": 9,
+  "changed_methods": 1,
+  "tests_executed_by_author": false,
+  "production_changed": false,
+  "source_read_scope": "Initial oracle was source-blind. Root explicitly authorized reading only the failing caller run/export region after the preserved first host failure to adjudicate a missing fixture field. Actions remain unread and no new subject or test execution occurred."
+}

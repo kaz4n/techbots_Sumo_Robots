@@ -1,0 +1,41 @@
+{
+  "schema": "d219-host-driver-derivation-v1",
+  "source": "state/analysis/P7_b4_recorder_capture_raw/capture_host_driver02.py",
+  "source_pin": {
+    "bytes": 3508,
+    "sha256": "7c95b58bfacede2580db38f8689f9c58c8c2a0eebb8e92b5298958c46d720e29"
+  },
+  "target": "state/analysis/P7_b4_recorder_run_raw/run_host_driver01.py",
+  "target_pin": {
+    "bytes": 3496,
+    "sha256": "e6a4a86811f9b7a8a182f40fc0f32a89545904e8b1f0851c9e92cbc5b391fa39"
+  },
+  "ordered_substitutions": [
+    {
+      "old": "D218",
+      "new": "D219",
+      "count": 1
+    },
+    {
+      "old": "d218",
+      "new": "d219",
+      "count": 1
+    },
+    {
+      "old": "capture_coordinator_freeze02.json",
+      "new": "run_coordinator_freeze01.json",
+      "count": 1
+    },
+    {
+      "old": "'capture_first_' + platform + '02'",
+      "new": "'run_first_' + platform + '01'",
+      "count": 1
+    },
+    {
+      "old": "test_b4_recorder_capture.py",
+      "new": "test_b4_recorder_run.py",
+      "count": 1
+    }
+  ],
+  "algorithm_changes": false
+}

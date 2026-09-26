@@ -1550,3 +1550,11 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-26T21:23:01.335228+04:00 | P7/D218 | FINAL source/host review e598b25b PASS; capture and pure local completion accepted, corrected 15+15 PASS,36 pins stable. Original source/fixture findings preserved; no actual B4 capture. D219 usable caller in progress. | pending
+
+2026-09-26T21:30:15.200802+04:00 | P7/D218-D221 | D218 committed e1f5bc02. D219 isolated caller/oracle in final preparation. D220 fresh read-only scratch observer655488db derives only three metadata changes; not invoked. D221 fixed B4 M0 upload-only preparation parallelized. No new firmware or hardware result. | pending
+
+2026-09-26T21:35:40.809863+04:00 | P7/D220 | One reviewed read-only board inventory returned0, receipt97577771; exactthreeD212 copies and originals verified,5remote+localclosingPASS, /tmp/remoteocd dev34ino2007. Separate exact cleanup sources/intents prepared; no deletion yet. | pending
+
+2026-09-26T21:37:12.498571+04:00 | P7/D219 | Corrected10Linux+10WindowsPASS/no skips,184pinsstable, closure3553f619. Original mock export missing-status failure retained; productiond5042c4d/59f1b3ba unchanged. FINAL review pending. | pending
+
+2026-09-26T21:38:06.334177+04:00 | P7/D219 | Independent reviewbb218ead FINAL PASS accepts usablecapturecaller and focused20hostpasses. ActualB4load/capture remain separate; D220cleanup andD221upload preparation ongoing. | pending

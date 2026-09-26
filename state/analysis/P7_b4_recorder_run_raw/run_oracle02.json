@@ -1,0 +1,236 @@
+{
+  "schema": "b4-recorder-run-independent-oracle-v2",
+  "status": "FINAL",
+  "sealed_at": "2026-09-26T21:34:05.2344573+04:00",
+  "scope": "D219 fixed B4 capture-only caller, framing, retrieval and local export. Native execution remains separately authorized and scheduled by root.",
+  "source_independence": {
+    "new_caller_read": true,
+    "new_actions_read": false,
+    "new_subjects_hashed": false,
+    "new_subjects_imported": false,
+    "new_subjects_executed": false,
+    "tests_executed": false,
+    "basis": "Final normative contract/plan02 and declared fixture seams; accepted D212/D195 source and fixture patterns; immutable D214 manifest and actual evidence; accepted D218 literal Bundle helper plus D216/D073 CSV expectations. Root separately binds new implementation identities after this seal.",
+    "note": "Initial oracle was source-blind. Root explicitly authorized reading only the failing caller run/export region after the preserved first host failure to adjudicate a missing fixture field. Actions remain unread and no new subject or test execution occurred."
+  },
+  "test": {
+    "path": "tests/tooling/test_b4_recorder_run.py",
+    "bytes": 33384,
+    "sha256": "145395a57cba25e557b013ad955b8099eb6d122395ed9ff6c71dfbabfb5a486f",
+    "methods": [
+      "test_inherited_body_identity_and_capture_command_framing",
+      "test_command_admission_rejects_stale_roles_sources_bindings_and_identity",
+      "test_capture_reply_success_and_partial_or_unattributed_refusals",
+      "test_retrieval_program_uses_only_fixed_paths_and_rechecks_all_pins_and_identity",
+      "test_fixed_retrieval_packet_decode_and_each_leaf_corruption",
+      "test_actual_b4_source_evidence_and_closed_scope_admission",
+      "test_predeclared_commands_capture_intent_and_retrieval_are_consumed_once",
+      "test_capture_only_sequence_order_failures_and_final_checks",
+      "test_local_export_preserves_exact_leaves_suppresses_invalid_csv_and_never_overwrites",
+      "test_cli_check_only_creates_no_execution_and_rejects_ambiguous_selection"
+    ],
+    "method_count": 10
+  },
+  "inputs": {
+    "state/analysis/P7_ordinary_app_static_compile_raw/inputs_static.json": {
+      "bytes": 12940,
+      "sha256": "a5e8f8b4b78312245c7cde3e86a39db9073b5ef9e5fa2806a3d39eece8600bb7"
+    },
+    "tests/tooling/test_app_motor_observe_run.py": {
+      "bytes": 10975,
+      "sha256": "7af304d06b85de0f835856ecbd241d957c193b7d252c2849eea474e6043fbb9c"
+    },
+    "state/analysis/P7_static_startup_raw/capture_remote.py": {
+      "bytes": 37525,
+      "sha256": "95b0344d01886b6db30d55aa18a536f9a481b82348e22643e7920d817dbfac3e"
+    },
+    "tests/tooling/test_b4_recorder_capture.py": {
+      "bytes": 31592,
+      "sha256": "d0476af156990efcc182750584e9d2af451937c3ef450c72efba0cf82ac828dd"
+    },
+    "tools/decode_b4_recorder.py": {
+      "bytes": 11743,
+      "sha256": "43347b569098b78cbdbf32a1e4b06ebbbef245c4c57b91609fa38d8bb3cca8a3"
+    },
+    "state/analysis/P7_static_startup_raw/startup_run.py": {
+      "bytes": 31972,
+      "sha256": "c95888353c9d85c5d9b0e545553a9e9dcde372b5b313102dd14240ce38db4e0c"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/preparation.json": {
+      "bytes": 5559,
+      "sha256": "6a4734b802db2eaa0f2e66ae8d78db4002acc3acd5c2d63ae2c417e0e9f39de5"
+    },
+    "tests/tooling/test_ordinary_app_run.py": {
+      "bytes": 9244,
+      "sha256": "f6a574451f0f469527955571c1055918fa1ae83d3850d95a1a543f5320f7ee1c"
+    },
+    "tools/validate_csv_bundle.py": {
+      "bytes": 19324,
+      "sha256": "1c4781fdd0f77a610998644db610bf6adf5a2373d4f32f3ec7ca486185ff52f2"
+    },
+    "tests/tooling/test_ordinary_app_actions.py": {
+      "bytes": 7125,
+      "sha256": "d7e5fefd3739288fd7f2076ddb8440d4a450a4f9dcbe945c72681989bad91847"
+    },
+    "state/analysis/P7_b4_recorder_run_contract.md": {
+      "bytes": 13808,
+      "sha256": "b205280afdc8b4ce4be2b6dea498e1494b50d698bf4bea266cafa4199a716590"
+    },
+    "state/analysis/P7_ordinary_app_run_raw/run.py": {
+      "bytes": 24859,
+      "sha256": "f48a8be9fa380a2a922613d188ae7622eafffdf3dc5fec12edc1372b4f7fc2d2"
+    },
+    "state/analysis/P7_b4_recorder_run_raw/plan02.json": {
+      "bytes": 11356,
+      "sha256": "d48af05673d47d787b4eeaa3f1301f2dbc8b7e6ed9a3555401ade30d21f39604"
+    },
+    "state/analysis/P7_static_link_probe_raw/static_remote.py": {
+      "bytes": 33321,
+      "sha256": "8ba9b190c38e728013a383348c60c287b0366607f65f703161cf7f2e142d36f8"
+    },
+    "state/analysis/P7_b4_recorder_decode_raw/layout01.json": {
+      "bytes": 4443,
+      "sha256": "f9b4b1531b9f714fb2b424d9613787449b2172fcc7a0e96292dd51d37d8c0b2d"
+    },
+    "tools/decode_b4_capture.py": {
+      "bytes": 10061,
+      "sha256": "1c0f75c001b8f66e9b3f5f4ed2be8472c8aaf1991265cfb6f91e4372043f6109"
+    },
+    "state/analysis/P7_ordinary_app_run_raw/actions.py": {
+      "bytes": 12496,
+      "sha256": "07c03a65fad73f49064abd0af77161b5ed10e2c6002bb6c442e7ab5b28ee25b1"
+    },
+    "state/analysis/P7_b4_recorder_capture_raw/capture_oracle02.json": {
+      "bytes": 12201,
+      "sha256": "bf14d974be5f9b905ac2e263862c555ea1d14d095b8c9865ae006aed46b36993"
+    },
+    "state/analysis/P7_motor_fault_raw/inert_actions.py": {
+      "bytes": 19120,
+      "sha256": "8ffb65c0f1284f261ae1237bcf260e866176e83433a3538908780962513f1104"
+    },
+    "state/analysis/P7_b4_app_compile_raw/inputs_static.json": {
+      "bytes": 13493,
+      "sha256": "fc8e6fc1131c1952d5e1809f9dc6fb96763dd5e111749424e9ccfaec9b58d38c"
+    },
+    "state/analysis/P7_motor_fault_raw/inert_run.py": {
+      "bytes": 23100,
+      "sha256": "8b47b1d6e9073179e4f587e09ce04e1a1c0cfc6797daf3151d0a7126d279f56a"
+    },
+    "state/reviews/P7_b4_recorder_capture_review.md": {
+      "bytes": 7924,
+      "sha256": "e598b25b5707c9456cdda4e6d0143b9d3f2a4df66e567770b00926b64826c5e6"
+    },
+    "tools/b4_recorder_capture.py": {
+      "bytes": 9769,
+      "sha256": "e28d01312742389737c0ca0d6914ab8593d59f93b1a67ac302029749f11b4189"
+    }
+  },
+  "fixture": {
+    "packet_bytes": 222909,
+    "file_count": 13,
+    "file_bytes": 164833,
+    "base64_characters": 219804,
+    "report_bytes": 5393,
+    "returned_bytes": 5870,
+    "owner_bytes": 159200,
+    "logical_reads": 27,
+    "identity_reads": 2,
+    "method": "Data-only canonical JSON length calculation from fixed identities, exact file lengths and fixed-width hash/base64 tokens; no fixture, subject or test execution.",
+    "synthetic": true,
+    "source_files": 130,
+    "scope_files": 8,
+    "maximum_calls": 10,
+    "success_calls": 10,
+    "labels": {
+      "adapter-claim": 1,
+      "adapter-push": 1,
+      "cli-initialization": 2,
+      "cli-builtin-files": 2,
+      "capabilities": 2,
+      "capture": 1,
+      "retrieve": 1
+    },
+    "body": "Accepted D218 independent literal one-frame/one-event owner and bracket fixture; no target-origin claim.",
+    "invalid_owner": "Native go_seen byte2 preserves raw owner and suppresses all CSV, while a structurally complete D218 bundle remains distinct.",
+    "real_output": "Owned temporary directories only at root-scheduled host execution; before/after owner checks isolated while exclusive writes and byte outputs execute."
+  },
+  "coverage": [
+    "Exact body identity for seven named D212 caller methods and eight legacy methods; ten common bootstrap guard functions remain byte-identical. No historical suite replay.",
+    "Capture command canonical JSON, bounded single-member BZ2 framing, helper/support-only roles, current adapter/binding pins and full Windows UTF-16 argv bound.",
+    "Stale/ordinary source-role/binding/identity refusals preserve inputs; fixed read-only retrieval command has the same argv resource boundary.",
+    "Successful returned capture eligibility versus partial reads, stale geometry, failed closing, unattributed durable fallback, counts, wait and flash mismatch.",
+    "Declared read_bundle function extracted from command data executes with independently supplied globals and controlled helper only: 27 fixed logical reads, 13 closing rereads, two identities, and changed closing bytes/identity refusal.",
+    "Exact ordered 13-file packet reconstruction, path/size/hash/canonical-base64 and identity/closure refusal, raw owner and CSV output, separate unchanged D218 layout refusal.",
+    "Real current B4 130-file manifest/source and actual compile/ABI/entry evidence load; stale ordinary manifest and altered statuses refuse; eight-file scope identity/type/extra-key refusals.",
+    "All seven predeclared allowlist entries, fixed timeouts, capture-only intent, bound retrieval intent and one-shot dispatch; exact successful ten-call counters and invalid/excess counters refuse.",
+    "Actual run orchestration under declared controlled seams: successful order, at-most-once behavior, stage/capture/retrieval/export failures, retained first error, final local/prerequisite checks and no export after failed closure.",
+    "Real local exclusive outputs preserve envelope and 13 exact files; valid CSV exported unchanged; invalid native owner suppresses CSV; no assembled-owner duplicate and no overwrite.",
+    "CLI check-only calls admission alone; missing/ambiguous mode and noncanonical reviewed HEAD refuse without creating a caller."
+  ],
+  "inherited_coverage": {
+    "replayed_historical_suites": false,
+    "method_body_count": 15,
+    "bootstrap_body_count": 10,
+    "D218_fixture_unittest_suite_loaded": false,
+    "fixture_module_used_only_for": "Bundle, literals and independent plan/data functions",
+    "windows": "Accepted inert resource/pwd stubs only when missing; all focused methods run without platform skips.",
+    "board_processes": "Popen, subprocess.run, sockets and os.system are forbidden during focused execution; no board or real native child can run."
+  },
+  "execution": {
+    "performed": false,
+    "owner": "root",
+    "commands": [
+      "python3 -I -B tests/tooling/test_b4_recorder_run.py",
+      "python -I -B tests/tooling/test_b4_recorder_run.py"
+    ],
+    "verbosity": 2,
+    "implementation_freeze": "Root unions this receipt and basis pins with the separately sealed production inputs before first run.",
+    "cleanup": "Temporary fixture owners use TemporaryDirectory under root-selected temporary storage; production and failed evidence owners are not touched.",
+    "note": "Repaired suite remains unexecuted; root will use fresh host owners and a new freeze."
+  },
+  "limitations": [
+    "No upload, reset, MCU run, motor authorization, sensor qualification or hardware acceptance follows from host tests.",
+    "Structural packet success, local hashes and lifecycle equality do not authenticate board origin, coherent capture, common attempt or transport integrity.",
+    "Read_bundle helper tests exercise only the declared pure function; inherited root descriptor/transport ownership remains covered by exact source preservation and independent source review.",
+    "Fresh native admission scope and reviewed clean HEAD remain root-owned actions after source/host review."
+  ],
+  "supersedes": {
+    "path": "state/analysis/P7_b4_recorder_run_raw/run_oracle01.json",
+    "bytes": 10622,
+    "sha256": "2be2f2179f0250dca6abd46df00e6b003d22625386a828b0c0e0621e902ac603",
+    "preserved": true
+  },
+  "repair": {
+    "scope": "Exactly one sequence-fixture method changes; nine other test methods and all bytes outside that method remain unchanged.",
+    "original": {
+      "path": "state/analysis/P7_b4_recorder_run_raw/run_oracle01_test.py",
+      "bytes": 32682,
+      "sha256": "f36fd0fcb97e93a5e845f66e37b06a7f4c5ab6d58dcd850271ea1e7ee715b6bb"
+    },
+    "outside_method": {
+      "bytes": 28232,
+      "sha256": "6ccdb2d629f380c6456264033f1641d649a5c7f675a6bb4c0b614141f502180d"
+    },
+    "reason": "Controlled.export_bundle returned only a fixture label and omitted the contract-required bundle_status. Production correctly refused rather than completing.",
+    "changes": [
+      "Controlled export fixture now returns bundle_status PASS by default, and the positive assertion includes that field.",
+      "An explicit REFUSED export case verifies FAILED status, retained export, first error, export postcheck error, one capture/retrieval attempt, and exactly one export/finish."
+    ],
+    "assertions_weakened": false,
+    "production_changes": false
+  },
+  "prior_execution": {
+    "result": {
+      "path": "state/analysis/P7_b4_recorder_run_raw/run_first_linux01/result.json",
+      "bytes": 844,
+      "sha256": "199a34fc00221a81090277cebdf595730200ddc5f2bac41dad6ab6f9cb015b13"
+    },
+    "stderr": {
+      "path": "state/analysis/P7_b4_recorder_run_raw/run_first_linux01/stderr",
+      "bytes": 2782,
+      "sha256": "ae4590b8174bbb46af3dfcae2dd94be97a4274d7c4d76c514a2593500d6e81ea"
+    },
+    "status": "10 methods: nine PASS and one sequence fixture failure; 179 input pins stable as reported by root.",
+    "preserved": true
+  }
+}

@@ -531,3 +531,8 @@ D191 closing observation: C:recovered290537472B independently before local docum
 
 
 2026-09-26T21:21:37.187551+04:00 - D218 retained unique original hostsource10009B, boundedrepair receipt, originaltest30601B, firstLinux JSON-fixture failure and corrected30PASS evidence. Syntheticfixture sizes: report5393B/envelope5870B/retrieved164833B; reproducible from pinned tests without retaining another full owner dump. CorrectedWindows temporary directory empty/zero payload; no independentLinux remnant inventory. C: free6271684608B before this host cycle. No boardfiles created or removed; prior blocked staging remains.
+
+
+2026-09-26T21:24:00.125740+04:00 - D218 storage clarification: the original10009-byte host source is retained reproducibly by repair01.json exact three reverse substitutions plus its SHA2564080c15f and original derivation01.json, not a duplicate source snapshot. Independent review verified byte-exact reconstruction. The original30601-byte oracle does have a separate capture_oracle01_test.py snapshot. No data was removed or reconstructed product executed. Completed D218 source/evidence commit is e1f5bc02.
+
+2026-09-26T21:37:12.498571+04:00 | D219 host fixture evidence | Retain firstLinux failure and original oracle/test plus corrected10+10 receipts for review/reproduction; no duplicate board data. Windows scoped fixture directory is empty (0payload); no independent Linux remnant inventory claimed. D220 metadata-only preparation retains unexecuted intent01 as unique stale-inode review evidence, corrected02 is separately pinned. Prior policy-blocked local stage remains untouched.

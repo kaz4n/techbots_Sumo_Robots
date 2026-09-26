@@ -2550,3 +2550,18 @@ Under D051 adopt P7_b4_recorder_run_contract.md 9320a657 and plan fc79af42 for s
 
 
 D-218 outcome 2026-09-26T21:23:01.335228+04:00: source/host review e598b25b FINAL PASS accepts native e28d0131 and repaired host 1c0f75c0. Corrected 15 Linux plus 15 Windows tests pass; all 36 inputs stable, root closure 321ab674. The pre-test owner retention finding, original source and first JSON-fixture failures remain preserved. Only capture components are accepted; D219 caller and actual native capture remain separate.
+
+
+D-219 clarification (2026-09-26T21:30:15.200802+04:00): Adopt appended contract b205280a and plan02 d48af056. Original contract9320a657 and planfc79af42 are retained. Four private checked host modules and one literal action import seam allow isolated Python execution without ambient tools imports; module bodies remain exact. The fixed 10-call capture-only boundary and absence of upload/native authority are unchanged.
+
+## D-220 (2026-09-26T21:30:15.200802+04:00) - Fresh D212 scratch observation and exact cleanup preparation
+
+Under D051 continue the previously authorized stale-upload cleanup using a new scope for the D212 upload. Initial step is the fixed nonprivileged read-only observer655488db, exactly three metadata substitutions from accepted D211/a8e3b8b2, derivation0f4b7d43. Inspect fresh contents, identities and retained originals before any cleanup recipe. Expected three copies total2397352B; no old inode, privilege clearance or consumed owner is reused. Separate recipe/wrapper preparation and review must preserve inherited process/descriptor/credential guards before any cleanup invocation. No MCU operation or hardware acceptance follows.
+
+## D-221 (2026-09-26T21:30:15.200802+04:00) - Fixed B4 M0 upload-only preparation
+
+Under D051 prepare the smallest fixed B4 upload-only caller using accepted D212 upload lifecycle and D214 artifacts. Exactly nine successful transports: two staging, three initial prerequisites, one upload and three final prerequisites. No capture, fake upload receipt, widened motor grants or generic upload profile. Require retained fixed B4 manifest, compile/ABI/entry evidence and absent scratch. Independent focused source/host acceptance and concrete reviewed native scope/clean HEAD precede execution. Board-only M0 profile does not require motor-run permission and does not establish physical acceptance.
+
+D-221 contract adoption (2026-09-26T21:31:45.514852+04:00): Fixed upload-only contract f9ab9c67 and plan07726511 define the fresh b4-app-m0-9044ebbb-load01 owner, exact B4 profile/artifacts and nine-call sequence. Source and independent changed-seam oracle preparation only; native admission remains separate.
+
+D-219 acceptance (2026-09-26T21:38:06.334177+04:00): Adopt independent source/host reviewbb218ead FINAL PASS for callerd5042c4d/actions59f1b3ba, corrected10Linux+10WindowsPASS/184pinsstable/closure3553f619. Original mock missing-status failure and boundedfixture-only repair retained. Native admission remains separate; its prerequisite union must include correctedoracle02, repair andhostclosure in addition to declaredscope.

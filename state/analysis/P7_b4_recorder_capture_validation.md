@@ -17,8 +17,9 @@ remain unproven; equal lifecycle fields do not establish an atomic snapshot.
 Independent review caught an owner-retention issue before tests: a failed final
 lifecycle read discarded the assembled `raw_owner` field even when all ten
 chunks had passed. The bounded repair publishes that field immediately after
-the tenth validated chunk, while still refusing CSV. Original source and the
-repair derivation are preserved.
+the tenth validated chunk, while still refusing CSV. The exact original source
+is reproducible from the three counted reverse substitutions and its saved
+hash; the original derivation is retained.
 
 The first Linux run passed 14 of 15 methods. Two assertions in the remaining
 JSON fixture assumed a parser depth failure and used stale durable-report

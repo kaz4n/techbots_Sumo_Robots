@@ -2307,3 +2307,6 @@ D-201 offline interpretation policy 2026-09-26T11:09:33.292674+04:00: underD051 
 
 
 D-201 decoder classification clarification 2026-09-26T11:12:39.527840+04:00: original70070353 preserved inad435841. Before independentdecoderoraclefreeze/sourceexecution, append exactcode distinctions for filemetadataranges/hashsyntax, nestedreceiptcontainers/keys, errorobjects, validbutfailed uploadfields, clock/wait records and missing/extra snapshot files. No acceptedpacket/sourcepredicate/annotation behavior changed. Amended interpretercontract6007ec4e2e22cdf0e8f751790c49924b26b4adb8f9dfde5d5f6db2ed9bd7dff8 is authoritative for both independentoracle andimplementation.
+
+
+D-201 pre-freeze decoder interpretation 2026-09-26T11:16:55.909280+04:00: independentoracle author requested two remaining code classifications before anysubjectread/execution. Root confirms late saved-file/read-snapshot width orhash disagreement uses files/FILE_SIZE orFILE_HASH at file-row bytes/sha256 path, and complete correspondingflashchunk mismatch uses capture/STATUS at /capture_result after earlierflashflagchecks. Record theseinterpretations inindependentfreeze; contract6007acceptedpredicates unchanged. No observedtest/sourcebehavior used tochoose anexpectation.

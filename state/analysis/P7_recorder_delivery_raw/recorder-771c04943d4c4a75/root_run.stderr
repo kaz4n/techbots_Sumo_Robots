@@ -1,0 +1,41 @@
+Traceback (most recent call last):
+  File "C:\Users\narut\AppData\Local\Temp\sumox-recorder-six-native-20260927\tools\dump_match.py", line 322, in save_capture
+    parser.feed(chunk)
+    ~~~~~~~~~~~^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-recorder-six-native-20260927\tools\dump_match.py", line 128, in feed
+    raise self.error
+  File "C:\Users\narut\AppData\Local\Temp\sumox-recorder-six-native-20260927\tools\dump_match.py", line 123, in feed
+    self._line(line)
+    ~~~~~~~~~~^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-recorder-six-native-20260927\tools\dump_match.py", line 177, in _line
+    self._begin(text)
+    ~~~~~~~~~~~^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-recorder-six-native-20260927\tools\dump_match.py", line 132, in _begin
+    require(len(fields) == 10 and fields[:2] == ["SUMOX26_DUMP", "1"], "BEGIN", "Missing exact version-1 envelope.")
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-recorder-six-native-20260927\tools\dump_match.py", line 41, in require
+    raise CaptureError(code, message)
+_recorder_receiver.CaptureError: Missing exact version-1 envelope.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\narut\AppData\Local\Temp\sumox-recorder-six-native-20260927\tools\run_recorder_delivery.py", line 942, in <module>
+    sys.exit(main(sys.argv[1:]))
+             ~~~~^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-recorder-six-native-20260927\tools\run_recorder_delivery.py", line 933, in main
+    result = run_delivery(request)
+  File "C:\Users\narut\AppData\Local\Temp\sumox-recorder-six-native-20260927\tools\run_recorder_delivery.py", line 925, in run_delivery
+    raise first
+  File "C:\Users\narut\AppData\Local\Temp\sumox-recorder-six-native-20260927\tools\run_recorder_delivery.py", line 767, in receive
+    state['destination'] = str(dump.save_capture(capture, run / 'capture',
+                               ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+        receive_mode='adb', target=TARGET, expected_session=owner.session,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        firmware_revision=owner.reviewed_head, source_sha256=owner.source_sha256,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        config_sha256=sha(owner.code['src/config.h'])))
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-recorder-six-native-20260927\tools\dump_match.py", line 338, in save_capture
+    raise _retained_failure(error, chunks, parser, partial) from error
+_recorder_receiver.CaptureError: Missing exact version-1 envelope.; partial evidence: C:\Users\narut\AppData\Local\Temp\sumox-recorder-six-native-20260927\state\analysis\P7_recorder_delivery_raw\recorder-771c04943d4c4a75\run\capture\20260927_020226_8e1f89f511184ab683d49c89b5f0fb1e.partial

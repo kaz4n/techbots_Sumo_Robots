@@ -2787,3 +2787,5 @@ without anotherfirmwareupload. New65fields/12windows/537querylines,9types
 unchanged; mechanicallyderivedreadcounts/bytebudgets,not guessedaddresses.
 No hardware read before source/host/review and laterfullreceiverclosure.
 Previous64fieldreviewcheckpointa24b0888 is superseded/unadopted; preserveit.
+
+D237 closed / D238 admission (2026-09-27T02:16:47.871157+04:00): D237run64092 ended375.042s FAILED/BEGIN missingenvelope, oneUPLOADED, closing_errors[]/receiver_cleanup_errors[]. Fullclosedowner copiedbyteexact. Adopt D238source3fd7f1b/reviewafe4c441,193pins/8testsPASS. File-onlyABIe91def80 observed4reapedzerochildren,13remote+1localchecksPASS. Mechanicalbindings committedcollector d83305da. One passivecapture active35584 afterreceiverclosure; no reset/retry/UARTwrite. Root initial ABIstatus assertion label typo corrected beforecapture; notnativefailure.

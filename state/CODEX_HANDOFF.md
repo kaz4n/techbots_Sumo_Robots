@@ -46,10 +46,17 @@ for Windows executable extensions. Original failure/source preserveda4362e7b,
 independent frozen regression/original failuresd519a2f3. Narrow contract amendment
 0d81956d/source497f756e passes14new+44existingLinux and14new+42existingWindows
 checks, with the same2Windows skips coveredLinux;136pinsstable. Every other
-identity check and full same-API raw mode stability remains. Read the validation
-and new Windows review before admission. At cleanHEAD run Python-B --check-only
---reviewed-head <40hexHEAD>, then --execute once with the sameHEAD. Outputowner
-analysis/P7_app_motor_observe_compile_raw/native_abi_static01 is UNUSED.
+identity check and full same-API raw mode stability remains. Corrected actual
+attempt01 then FAILED solely on GDB alignof(member-expression) syntax; all four
+children returned0 and remote/local closure passed. Preserve97dd06b7/e83afc5f;
+native_abi_static01 is CONSUMED. No complete ABI was accepted.
+
+New inspect_static_abi02.py a0a5aef1/contract772615cd pins that failure and queries
+ALIGN of actual observed unsigned int, while confirming current member ptype.
+All old source/tests remain unchanged. Independent21Windows+21Linux methods PASS,
+no skips;142pins stable. Read P7_app_motor_observe_abi02_validation.md and final
+review. At cleanHEAD run its Python-B --check-only --reviewed-head <40hexHEAD>,
+then one --execute with that HEAD. native_abi_static02 is UNUSED.
 D193 app-motor-observe-static01 and all earlier native owners are consumed.
 Recheck free space and fresh board/boot identity before admission; retain the
 128MiB native-reader gate. Do not lower the gate or retry any earlier denied

@@ -1366,3 +1366,6 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-26T08:38:16.243759+04:00 | P7 D194 actual ABI attempt01 | Correctedcheck-only PASS at79dc3964; freshsameboot/uid1000/scopeabsent. Onefile-onlytransport/fourchildrenreturned0, but GDB16.2 ALIGN-memberexpression syntaxerror86B. Rawsizeof4/ptypeunsignedint/offset168572 retained, no completeABI accepted. All13remoteclosure+localPASS; ownernative_abi_static01 CONSUMED, no retry. Preserveallreceipts; separatequeryrepair/newowner required. No flash/reset/MCU operation.
+
+
+2026-09-26T08:44:55.106220+04:00 | P7 D194 ABI02 host closure | Supplementary772615cd/sourcea0a5aef1 preservesalloldfiles, observedunsignedint ALIGN-only query/newowner02; originalFAILED01 remainsconsumed. Independentoracle9e50373e gives21Windows+21LinuxPASS/noskips firstserialruns;142pinsunchanged. Finalreview and cleanHEAD precede freshonefile-onlyquery. No newfirmware/MCU/gate.

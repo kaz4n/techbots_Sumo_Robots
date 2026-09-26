@@ -388,3 +388,6 @@ D191 closing observation: C:recovered290537472B independently before local docum
 
 
 2026-09-26T01:43:00.541970+04:00 | D194 compact host retention | Keep7rawfiles/58759logicalB beforeclosingreceipt plusnewsource/oracle/contracts/review. Originalfirstfailure/source inGit974de230/2ca0f06f avoidsduplicatedsnapshots. Zero verified /dev/shm/sumox-d194-* andWindowstempremnants; Python-B/noobjects/binarydownloads. C:free8982528B separatelyobserved; no cleanupclaim or earlierdeniedpathretry. Native128MiBgatestays; userdiskactionpending.
+
+
+2026-09-26T08:41:17.506475+04:00 | D194 resumed storage and failed ABI evidence | UserreportedfreeingC; livefree21195640832B. Retain attempt011821492B originaltransport/parsedreceipt/closure for reproduction, queryrepairandreview; retaincompacthostregressionfirstfailures/fixedresults. No firmware/debugbinary downloaded; no hostbuildoutputs/newbytecodeorownedtesttempremnantsneeded. No cleanup/reclaimedbytesclaimed; priorpolicydeniedtargetsuntouched.

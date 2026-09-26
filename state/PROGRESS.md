@@ -1604,3 +1604,5 @@ matrix is admitted conditionally, not yet executed. Firmware unchanged. | pendin
 2026-09-27T00:29:04.773795+04:00 | P7/D228-D230 | Fresh377911ab: compilePASS1query/compiler28transports9checks; oneuploadUPLOADED. ReceiverTIMEOUT0bytes, observed/rejectedsessionnull, closingerrors0; all45maintransports0. Attemptconsumed, causeunknown. Latestreportedimageinhibitedrecorder. D229hostp99preparation16cases316assertionsPASSawaitsreview; D230passivefailurediagnosispreparing. | nativeHEAD004dc7cf
 
 2026-09-27T00:31:03.836051+04:00 | P7 | IntegratedD22712ffd16c with exactreviewedbytes; refreshedhandoff/runbook/P7packet/oldwatchdogfact against currentfailureevidence. D229hostreview5f1047fdPASSheldisolated; D230diagnostic source/tests/reviewongoing. | pendingdocscommit
+
+2026-09-27T00:37:09.556098+04:00 | P7/D230 | File-only ABI checkpoint integrated d57397c3, review64507927PASS;18+18host methods and19pins stable. Check-only then one file-only read next. D228 failed-evidence reviewf5695e77 accepted, deliverystillFAILED. D229accepted isolatedcommits5d1ca6ea/ac8be0c7 helduntildiagnosis. | pending

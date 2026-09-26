@@ -1,0 +1,569 @@
+test_all_fourteen_tuples_with_real_git_and_complete_compile_validators (tests.tooling.test_commissioning_deploy.AdmissionTests.test_all_fourteen_tuples_with_real_git_and_complete_compile_validators) ... ERROR
+test_authorization_exact_reply_message_and_fresh_utc_window (tests.tooling.test_commissioning_deploy.AdmissionTests.test_authorization_exact_reply_message_and_fresh_utc_window) ... ERROR
+test_check_only_is_local_read_only_and_does_not_claim (tests.tooling.test_commissioning_deploy.AdmissionTests.test_check_only_is_local_read_only_and_does_not_claim) ... ERROR
+test_cli_requires_exact_order_types_closed_fields_and_head (tests.tooling.test_commissioning_deploy.AdmissionTests.test_cli_requires_exact_order_types_closed_fields_and_head) ... ERROR
+test_compile_counts_closures_commands_properties_and_stderr_are_semantic (tests.tooling.test_commissioning_deploy.AdmissionTests.test_compile_counts_closures_commands_properties_and_stderr_are_semantic) ... ERROR
+test_inhibited_source_requires_exact_disabled_grants_axes_origin_and_syntax (tests.tooling.test_commissioning_deploy.AdmissionTests.test_inhibited_source_requires_exact_disabled_grants_axes_origin_and_syntax) ... ERROR
+test_json_unknown_missing_duplicate_nonfinite_and_pin_path_types_refuse (tests.tooling.test_commissioning_deploy.AdmissionTests.test_json_unknown_missing_duplicate_nonfinite_and_pin_path_types_refuse) ... ERROR
+test_missing_source_commit_and_changed_reviewed_deploy_blobs_reject (tests.tooling.test_commissioning_deploy.AdmissionTests.test_missing_source_commit_and_changed_reviewed_deploy_blobs_reject) ... ERROR
+test_operational_requires_source_grants_configured_buttons_and_every_evidence_check (tests.tooling.test_commissioning_deploy.AdmissionTests.test_operational_requires_source_grants_configured_buttons_and_every_evidence_check) ... ERROR
+test_operational_turn_basis_and_gates_are_profile_specific (tests.tooling.test_commissioning_deploy.AdmissionTests.test_operational_turn_basis_and_gates_are_profile_specific) ... ERROR
+test_profile_motor_startup_config_and_artifact_swaps_reject (tests.tooling.test_commissioning_deploy.AdmissionTests.test_profile_motor_startup_config_and_artifact_swaps_reject) ... ERROR
+test_qualification_and_authorization_bind_entire_request_and_run (tests.tooling.test_commissioning_deploy.AdmissionTests.test_qualification_and_authorization_bind_entire_request_and_run) ... ERROR
+test_source_commit_must_be_actual_matching_blob_even_if_manifest_is_coherent (tests.tooling.test_commissioning_deploy.AdmissionTests.test_source_commit_must_be_actual_matching_blob_even_if_manifest_is_coherent) ... ERROR
+test_admission_refusal_never_claims_or_contacts_board (tests.tooling.test_commissioning_deploy.LifecycleTests.test_admission_refusal_never_claims_or_contacts_board) ... ERROR
+test_closing_failures_are_independent_and_never_accept (tests.tooling.test_commissioning_deploy.LifecycleTests.test_closing_failures_are_independent_and_never_accept) ... ERROR
+test_outcome_write_failure_cannot_be_success (tests.tooling.test_commissioning_deploy.LifecycleTests.test_outcome_write_failure_cannot_be_success) ... ERROR
+test_success_one_upload_two_prerequisites_each_side_consumed_owner (tests.tooling.test_commissioning_deploy.LifecycleTests.test_success_one_upload_two_prerequisites_each_side_consumed_owner) ... ERROR
+test_timeout_unknown_preserves_primary_runs_closing_and_never_retries (tests.tooling.test_commissioning_deploy.LifecycleTests.test_timeout_unknown_preserves_primary_runs_closing_and_never_retries) ... ERROR
+
+======================================================================
+ERROR: test_all_fourteen_tuples_with_real_git_and_complete_compile_validators (tests.tooling.test_commissioning_deploy.AdmissionTests.test_all_fourteen_tuples_with_real_git_and_complete_compile_validators)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tests\tooling\test_commissioning_deploy.py", line 91, in setUp
+    self.admit()
+    ~~~~~~~~~~^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tests\tooling\test_commissioning_deploy.py", line 224, in admit
+    return self.subject.load_scope(self.root, SCOPE, self.head, 'synthetic-target', 'adb', **options)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tools\deploy_commissioning_app.py", line 330, in load_scope
+    artifacts = checked_receipts(base, root, request, owner)
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tools\deploy_commissioning_app.py", line 179, in checked_receipts
+    checked_compile_metadata(base, root, owner, documents)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tools\deploy_commissioning_app.py", line 198, in checked_compile_metadata
+    policy.validate_preflight(documents['properties_stdout'].decode('utf-8'), **args)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_9f1zybpx\tools\commissioning_app_static_policy.py", line 73, in validate_preflight
+    return policy['validate_preflight'](text, build_path=build_path, data_dir=data_dir)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_9f1zybpx\tools\app_motor_fault_static_policy.py", line 147, in validate_preflight
+    return policy['validate_preflight'](text, build_path=build_path, data_dir=data_dir)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_9f1zybpx\state\analysis\P7_static_link_probe_raw\static_policy.py", line 111, in validate_preflight
+    return _validate(text, build_path, data_dir, False)
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_9f1zybpx\state\analysis\P7_static_link_probe_raw\static_policy.py", line 96, in _validate
+    raise ValueError('Static core differs from the resolved data directory')
+ValueError: Static core differs from the resolved data directory
+
+======================================================================
+ERROR: test_authorization_exact_reply_message_and_fresh_utc_window (tests.tooling.test_commissioning_deploy.AdmissionTests.test_authorization_exact_reply_message_and_fresh_utc_window)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tests\tooling\test_commissioning_deploy.py", line 89, in setUp
+    self.make()
+    ~~~~~~~~~^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tests\tooling\test_commissioning_deploy.py", line 130, in make
+    owner = self.compiler.make_owner(request, root=self.root)
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tools\compile_commissioning_app.py", line 301, in make_owner
+    return load_caller(request, root=root).CompileDiagnostic(request['reviewed_head'], root=root)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tools\compile_commissioning_app.py", line 287, in load_caller
+    module = bootstrap.load_caller(root=root)
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_01zn0n9k\tools\compile_b4_app_static.py", line 143, in load_caller
+    caller = predecessor.load_caller(root=root)
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_01zn0n9k\tools\compile_ordinary_app_static.py", line 174, in load_caller
+    originals = {name: read_original(name, root=root) for name in ORIGINALS}
+                       ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_01zn0n9k\tools\compile_ordinary_app_static.py", line 169, in read_original
+    return _read_handle(path, before, relative)
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_01zn0n9k\tools\compile_ordinary_app_static.py", line 145, in _read_handle
+    require(before == after and path_identity == handle_identity and opened == closed and
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            len(raw) == before[-1][4] and len(raw) <= 65536,
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            'Original source changed while reading: ' + relative)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_01zn0n9k\tools\compile_ordinary_app_static.py", line 61, in require
+    raise ValueError(message)
+ValueError: Original source changed while reading: tools/app_motor_fault_static_policy.py
+
+======================================================================
+ERROR: test_check_only_is_local_read_only_and_does_not_claim (tests.tooling.test_commissioning_deploy.AdmissionTests.test_check_only_is_local_read_only_and_does_not_claim)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tests\tooling\test_commissioning_deploy.py", line 91, in setUp
+    self.admit()
+    ~~~~~~~~~~^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tests\tooling\test_commissioning_deploy.py", line 224, in admit
+    return self.subject.load_scope(self.root, SCOPE, self.head, 'synthetic-target', 'adb', **options)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tools\deploy_commissioning_app.py", line 330, in load_scope
+    artifacts = checked_receipts(base, root, request, owner)
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tools\deploy_commissioning_app.py", line 179, in checked_receipts
+    checked_compile_metadata(base, root, owner, documents)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tools\deploy_commissioning_app.py", line 198, in checked_compile_metadata
+    policy.validate_preflight(documents['properties_stdout'].decode('utf-8'), **args)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_alqp8qgr\tools\commissioning_app_static_policy.py", line 73, in validate_preflight
+    return policy['validate_preflight'](text, build_path=build_path, data_dir=data_dir)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_alqp8qgr\tools\app_motor_fault_static_policy.py", line 147, in validate_preflight
+    return policy['validate_preflight'](text, build_path=build_path, data_dir=data_dir)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_alqp8qgr\state\analysis\P7_static_link_probe_raw\static_policy.py", line 111, in validate_preflight
+    return _validate(text, build_path, data_dir, False)
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_alqp8qgr\state\analysis\P7_static_link_probe_raw\static_policy.py", line 96, in _validate
+    raise ValueError('Static core differs from the resolved data directory')
+ValueError: Static core differs from the resolved data directory
+
+======================================================================
+ERROR: test_cli_requires_exact_order_types_closed_fields_and_head (tests.tooling.test_commissioning_deploy.AdmissionTests.test_cli_requires_exact_order_types_closed_fields_and_head)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tests\tooling\test_commissioning_deploy.py", line 91, in setUp
+    self.admit()
+    ~~~~~~~~~~^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tests\tooling\test_commissioning_deploy.py", line 224, in admit
+    return self.subject.load_scope(self.root, SCOPE, self.head, 'synthetic-target', 'adb', **options)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tools\deploy_commissioning_app.py", line 330, in load_scope
+    artifacts = checked_receipts(base, root, request, owner)
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tools\deploy_commissioning_app.py", line 179, in checked_receipts
+    checked_compile_metadata(base, root, owner, documents)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tools\deploy_commissioning_app.py", line 198, in checked_compile_metadata
+    policy.validate_preflight(documents['properties_stdout'].decode('utf-8'), **args)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227___92p1uu\tools\commissioning_app_static_policy.py", line 73, in validate_preflight
+    return policy['validate_preflight'](text, build_path=build_path, data_dir=data_dir)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227___92p1uu\tools\app_motor_fault_static_policy.py", line 147, in validate_preflight
+    return policy['validate_preflight'](text, build_path=build_path, data_dir=data_dir)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227___92p1uu\state\analysis\P7_static_link_probe_raw\static_policy.py", line 111, in validate_preflight
+    return _validate(text, build_path, data_dir, False)
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227___92p1uu\state\analysis\P7_static_link_probe_raw\static_policy.py", line 96, in _validate
+    raise ValueError('Static core differs from the resolved data directory')
+ValueError: Static core differs from the resolved data directory
+
+======================================================================
+ERROR: test_compile_counts_closures_commands_properties_and_stderr_are_semantic (tests.tooling.test_commissioning_deploy.AdmissionTests.test_compile_counts_closures_commands_properties_and_stderr_are_semantic)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tests\tooling\test_commissioning_deploy.py", line 91, in setUp
+    self.admit()
+    ~~~~~~~~~~^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tests\tooling\test_commissioning_deploy.py", line 224, in admit
+    return self.subject.load_scope(self.root, SCOPE, self.head, 'synthetic-target', 'adb', **options)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tools\deploy_commissioning_app.py", line 330, in load_scope
+    artifacts = checked_receipts(base, root, request, owner)
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tools\deploy_commissioning_app.py", line 179, in checked_receipts
+    checked_compile_metadata(base, root, owner, documents)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tools\deploy_commissioning_app.py", line 198, in checked_compile_metadata
+    policy.validate_preflight(documents['properties_stdout'].decode('utf-8'), **args)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_an6lyl50\tools\commissioning_app_static_policy.py", line 73, in validate_preflight
+    return policy['validate_preflight'](text, build_path=build_path, data_dir=data_dir)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_an6lyl50\tools\app_motor_fault_static_policy.py", line 147, in validate_preflight
+    return policy['validate_preflight'](text, build_path=build_path, data_dir=data_dir)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_an6lyl50\state\analysis\P7_static_link_probe_raw\static_policy.py", line 111, in validate_preflight
+    return _validate(text, build_path, data_dir, False)
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_an6lyl50\state\analysis\P7_static_link_probe_raw\static_policy.py", line 96, in _validate
+    raise ValueError('Static core differs from the resolved data directory')
+ValueError: Static core differs from the resolved data directory
+
+======================================================================
+ERROR: test_inhibited_source_requires_exact_disabled_grants_axes_origin_and_syntax (tests.tooling.test_commissioning_deploy.AdmissionTests.test_inhibited_source_requires_exact_disabled_grants_axes_origin_and_syntax)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tests\tooling\test_commissioning_deploy.py", line 91, in setUp
+    self.admit()
+    ~~~~~~~~~~^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tests\tooling\test_commissioning_deploy.py", line 224, in admit
+    return self.subject.load_scope(self.root, SCOPE, self.head, 'synthetic-target', 'adb', **options)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tools\deploy_commissioning_app.py", line 330, in load_scope
+    artifacts = checked_receipts(base, root, request, owner)
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tools\deploy_commissioning_app.py", line 179, in checked_receipts
+    checked_compile_metadata(base, root, owner, documents)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tools\deploy_commissioning_app.py", line 198, in checked_compile_metadata
+    policy.validate_preflight(documents['properties_stdout'].decode('utf-8'), **args)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_iffxbskn\tools\commissioning_app_static_policy.py", line 73, in validate_preflight
+    return policy['validate_preflight'](text, build_path=build_path, data_dir=data_dir)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_iffxbskn\tools\app_motor_fault_static_policy.py", line 147, in validate_preflight
+    return policy['validate_preflight'](text, build_path=build_path, data_dir=data_dir)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_iffxbskn\state\analysis\P7_static_link_probe_raw\static_policy.py", line 111, in validate_preflight
+    return _validate(text, build_path, data_dir, False)
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_iffxbskn\state\analysis\P7_static_link_probe_raw\static_policy.py", line 96, in _validate
+    raise ValueError('Static core differs from the resolved data directory')
+ValueError: Static core differs from the resolved data directory
+
+======================================================================
+ERROR: test_json_unknown_missing_duplicate_nonfinite_and_pin_path_types_refuse (tests.tooling.test_commissioning_deploy.AdmissionTests.test_json_unknown_missing_duplicate_nonfinite_and_pin_path_types_refuse)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tests\tooling\test_commissioning_deploy.py", line 91, in setUp
+    self.admit()
+    ~~~~~~~~~~^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tests\tooling\test_commissioning_deploy.py", line 224, in admit
+    return self.subject.load_scope(self.root, SCOPE, self.head, 'synthetic-target', 'adb', **options)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tools\deploy_commissioning_app.py", line 330, in load_scope
+    artifacts = checked_receipts(base, root, request, owner)
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tools\deploy_commissioning_app.py", line 179, in checked_receipts
+    checked_compile_metadata(base, root, owner, documents)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tools\deploy_commissioning_app.py", line 198, in checked_compile_metadata
+    policy.validate_preflight(documents['properties_stdout'].decode('utf-8'), **args)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_7zjdyz5w\tools\commissioning_app_static_policy.py", line 73, in validate_preflight
+    return policy['validate_preflight'](text, build_path=build_path, data_dir=data_dir)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_7zjdyz5w\tools\app_motor_fault_static_policy.py", line 147, in validate_preflight
+    return policy['validate_preflight'](text, build_path=build_path, data_dir=data_dir)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_7zjdyz5w\state\analysis\P7_static_link_probe_raw\static_policy.py", line 111, in validate_preflight
+    return _validate(text, build_path, data_dir, False)
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_7zjdyz5w\state\analysis\P7_static_link_probe_raw\static_policy.py", line 96, in _validate
+    raise ValueError('Static core differs from the resolved data directory')
+ValueError: Static core differs from the resolved data directory
+
+======================================================================
+ERROR: test_missing_source_commit_and_changed_reviewed_deploy_blobs_reject (tests.tooling.test_commissioning_deploy.AdmissionTests.test_missing_source_commit_and_changed_reviewed_deploy_blobs_reject)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tests\tooling\test_commissioning_deploy.py", line 91, in setUp
+    self.admit()
+    ~~~~~~~~~~^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tests\tooling\test_commissioning_deploy.py", line 224, in admit
+    return self.subject.load_scope(self.root, SCOPE, self.head, 'synthetic-target', 'adb', **options)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tools\deploy_commissioning_app.py", line 329, in load_scope
+    owner = compile_owner(base, compiler, root, request)
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tools\deploy_commissioning_app.py", line 138, in compile_owner
+    owner = compiler.make_owner(args, root=root)
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_r3pg3vad\tools\compile_commissioning_app.py", line 301, in make_owner
+    return load_caller(request, root=root).CompileDiagnostic(request['reviewed_head'], root=root)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_r3pg3vad\tools\compile_commissioning_app.py", line 287, in load_caller
+    module = bootstrap.load_caller(root=root)
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_r3pg3vad\tools\compile_b4_app_static.py", line 137, in load_caller
+    raw = read_original(PREDECESSOR, root=root)
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_r3pg3vad\tools\compile_b4_app_static.py", line 124, in read_original
+    return _read_handle(path, before, relative)
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_r3pg3vad\tools\compile_b4_app_static.py", line 100, in _read_handle
+    require(before == after and path_identity == handle_identity and opened == closed and
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            len(raw) == before[-1][4] and len(raw) <= 65536,
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            'Original source changed while reading: ' + relative)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_r3pg3vad\tools\compile_b4_app_static.py", line 46, in require
+    raise ValueError(message)
+ValueError: Original source changed while reading: tools/compile_ordinary_app_static.py
+
+======================================================================
+ERROR: test_operational_requires_source_grants_configured_buttons_and_every_evidence_check (tests.tooling.test_commissioning_deploy.AdmissionTests.test_operational_requires_source_grants_configured_buttons_and_every_evidence_check)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tests\tooling\test_commissioning_deploy.py", line 91, in setUp
+    self.admit()
+    ~~~~~~~~~~^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tests\tooling\test_commissioning_deploy.py", line 224, in admit
+    return self.subject.load_scope(self.root, SCOPE, self.head, 'synthetic-target', 'adb', **options)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tools\deploy_commissioning_app.py", line 330, in load_scope
+    artifacts = checked_receipts(base, root, request, owner)
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tools\deploy_commissioning_app.py", line 179, in checked_receipts
+    checked_compile_metadata(base, root, owner, documents)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tools\deploy_commissioning_app.py", line 198, in checked_compile_metadata
+    policy.validate_preflight(documents['properties_stdout'].decode('utf-8'), **args)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_fa9fzmce\tools\commissioning_app_static_policy.py", line 73, in validate_preflight
+    return policy['validate_preflight'](text, build_path=build_path, data_dir=data_dir)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_fa9fzmce\tools\app_motor_fault_static_policy.py", line 147, in validate_preflight
+    return policy['validate_preflight'](text, build_path=build_path, data_dir=data_dir)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_fa9fzmce\state\analysis\P7_static_link_probe_raw\static_policy.py", line 111, in validate_preflight
+    return _validate(text, build_path, data_dir, False)
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_fa9fzmce\state\analysis\P7_static_link_probe_raw\static_policy.py", line 96, in _validate
+    raise ValueError('Static core differs from the resolved data directory')
+ValueError: Static core differs from the resolved data directory
+
+======================================================================
+ERROR: test_operational_turn_basis_and_gates_are_profile_specific (tests.tooling.test_commissioning_deploy.AdmissionTests.test_operational_turn_basis_and_gates_are_profile_specific)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tests\tooling\test_commissioning_deploy.py", line 91, in setUp
+    self.admit()
+    ~~~~~~~~~~^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tests\tooling\test_commissioning_deploy.py", line 224, in admit
+    return self.subject.load_scope(self.root, SCOPE, self.head, 'synthetic-target', 'adb', **options)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tools\deploy_commissioning_app.py", line 330, in load_scope
+    artifacts = checked_receipts(base, root, request, owner)
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tools\deploy_commissioning_app.py", line 179, in checked_receipts
+    checked_compile_metadata(base, root, owner, documents)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tools\deploy_commissioning_app.py", line 198, in checked_compile_metadata
+    policy.validate_preflight(documents['properties_stdout'].decode('utf-8'), **args)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_m2lc7mvq\tools\commissioning_app_static_policy.py", line 73, in validate_preflight
+    return policy['validate_preflight'](text, build_path=build_path, data_dir=data_dir)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_m2lc7mvq\tools\app_motor_fault_static_policy.py", line 147, in validate_preflight
+    return policy['validate_preflight'](text, build_path=build_path, data_dir=data_dir)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_m2lc7mvq\state\analysis\P7_static_link_probe_raw\static_policy.py", line 111, in validate_preflight
+    return _validate(text, build_path, data_dir, False)
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_m2lc7mvq\state\analysis\P7_static_link_probe_raw\static_policy.py", line 96, in _validate
+    raise ValueError('Static core differs from the resolved data directory')
+ValueError: Static core differs from the resolved data directory
+
+======================================================================
+ERROR: test_profile_motor_startup_config_and_artifact_swaps_reject (tests.tooling.test_commissioning_deploy.AdmissionTests.test_profile_motor_startup_config_and_artifact_swaps_reject)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tests\tooling\test_commissioning_deploy.py", line 91, in setUp
+    self.admit()
+    ~~~~~~~~~~^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tests\tooling\test_commissioning_deploy.py", line 224, in admit
+    return self.subject.load_scope(self.root, SCOPE, self.head, 'synthetic-target', 'adb', **options)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tools\deploy_commissioning_app.py", line 330, in load_scope
+    artifacts = checked_receipts(base, root, request, owner)
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tools\deploy_commissioning_app.py", line 179, in checked_receipts
+    checked_compile_metadata(base, root, owner, documents)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tools\deploy_commissioning_app.py", line 198, in checked_compile_metadata
+    policy.validate_preflight(documents['properties_stdout'].decode('utf-8'), **args)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_kvl_y2dv\tools\commissioning_app_static_policy.py", line 73, in validate_preflight
+    return policy['validate_preflight'](text, build_path=build_path, data_dir=data_dir)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_kvl_y2dv\tools\app_motor_fault_static_policy.py", line 147, in validate_preflight
+    return policy['validate_preflight'](text, build_path=build_path, data_dir=data_dir)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_kvl_y2dv\state\analysis\P7_static_link_probe_raw\static_policy.py", line 111, in validate_preflight
+    return _validate(text, build_path, data_dir, False)
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_kvl_y2dv\state\analysis\P7_static_link_probe_raw\static_policy.py", line 96, in _validate
+    raise ValueError('Static core differs from the resolved data directory')
+ValueError: Static core differs from the resolved data directory
+
+======================================================================
+ERROR: test_qualification_and_authorization_bind_entire_request_and_run (tests.tooling.test_commissioning_deploy.AdmissionTests.test_qualification_and_authorization_bind_entire_request_and_run)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tests\tooling\test_commissioning_deploy.py", line 91, in setUp
+    self.admit()
+    ~~~~~~~~~~^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tests\tooling\test_commissioning_deploy.py", line 224, in admit
+    return self.subject.load_scope(self.root, SCOPE, self.head, 'synthetic-target', 'adb', **options)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tools\deploy_commissioning_app.py", line 330, in load_scope
+    artifacts = checked_receipts(base, root, request, owner)
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tools\deploy_commissioning_app.py", line 179, in checked_receipts
+    checked_compile_metadata(base, root, owner, documents)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tools\deploy_commissioning_app.py", line 198, in checked_compile_metadata
+    policy.validate_preflight(documents['properties_stdout'].decode('utf-8'), **args)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_jkpg8_tm\tools\commissioning_app_static_policy.py", line 73, in validate_preflight
+    return policy['validate_preflight'](text, build_path=build_path, data_dir=data_dir)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_jkpg8_tm\tools\app_motor_fault_static_policy.py", line 147, in validate_preflight
+    return policy['validate_preflight'](text, build_path=build_path, data_dir=data_dir)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_jkpg8_tm\state\analysis\P7_static_link_probe_raw\static_policy.py", line 111, in validate_preflight
+    return _validate(text, build_path, data_dir, False)
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_jkpg8_tm\state\analysis\P7_static_link_probe_raw\static_policy.py", line 96, in _validate
+    raise ValueError('Static core differs from the resolved data directory')
+ValueError: Static core differs from the resolved data directory
+
+======================================================================
+ERROR: test_source_commit_must_be_actual_matching_blob_even_if_manifest_is_coherent (tests.tooling.test_commissioning_deploy.AdmissionTests.test_source_commit_must_be_actual_matching_blob_even_if_manifest_is_coherent)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tests\tooling\test_commissioning_deploy.py", line 91, in setUp
+    self.admit()
+    ~~~~~~~~~~^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tests\tooling\test_commissioning_deploy.py", line 224, in admit
+    return self.subject.load_scope(self.root, SCOPE, self.head, 'synthetic-target', 'adb', **options)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tools\deploy_commissioning_app.py", line 330, in load_scope
+    artifacts = checked_receipts(base, root, request, owner)
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tools\deploy_commissioning_app.py", line 179, in checked_receipts
+    checked_compile_metadata(base, root, owner, documents)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tools\deploy_commissioning_app.py", line 198, in checked_compile_metadata
+    policy.validate_preflight(documents['properties_stdout'].decode('utf-8'), **args)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_iky7ubhm\tools\commissioning_app_static_policy.py", line 73, in validate_preflight
+    return policy['validate_preflight'](text, build_path=build_path, data_dir=data_dir)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_iky7ubhm\tools\app_motor_fault_static_policy.py", line 147, in validate_preflight
+    return policy['validate_preflight'](text, build_path=build_path, data_dir=data_dir)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_iky7ubhm\state\analysis\P7_static_link_probe_raw\static_policy.py", line 111, in validate_preflight
+    return _validate(text, build_path, data_dir, False)
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_iky7ubhm\state\analysis\P7_static_link_probe_raw\static_policy.py", line 96, in _validate
+    raise ValueError('Static core differs from the resolved data directory')
+ValueError: Static core differs from the resolved data directory
+
+======================================================================
+ERROR: test_admission_refusal_never_claims_or_contacts_board (tests.tooling.test_commissioning_deploy.LifecycleTests.test_admission_refusal_never_claims_or_contacts_board)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tests\tooling\test_commissioning_deploy.py", line 91, in setUp
+    self.admit()
+    ~~~~~~~~~~^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tests\tooling\test_commissioning_deploy.py", line 224, in admit
+    return self.subject.load_scope(self.root, SCOPE, self.head, 'synthetic-target', 'adb', **options)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tools\deploy_commissioning_app.py", line 330, in load_scope
+    artifacts = checked_receipts(base, root, request, owner)
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tools\deploy_commissioning_app.py", line 179, in checked_receipts
+    checked_compile_metadata(base, root, owner, documents)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tools\deploy_commissioning_app.py", line 198, in checked_compile_metadata
+    policy.validate_preflight(documents['properties_stdout'].decode('utf-8'), **args)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_y6kj633m\tools\commissioning_app_static_policy.py", line 73, in validate_preflight
+    return policy['validate_preflight'](text, build_path=build_path, data_dir=data_dir)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_y6kj633m\tools\app_motor_fault_static_policy.py", line 147, in validate_preflight
+    return policy['validate_preflight'](text, build_path=build_path, data_dir=data_dir)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_y6kj633m\state\analysis\P7_static_link_probe_raw\static_policy.py", line 111, in validate_preflight
+    return _validate(text, build_path, data_dir, False)
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_y6kj633m\state\analysis\P7_static_link_probe_raw\static_policy.py", line 96, in _validate
+    raise ValueError('Static core differs from the resolved data directory')
+ValueError: Static core differs from the resolved data directory
+
+======================================================================
+ERROR: test_closing_failures_are_independent_and_never_accept (tests.tooling.test_commissioning_deploy.LifecycleTests.test_closing_failures_are_independent_and_never_accept)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tests\tooling\test_commissioning_deploy.py", line 91, in setUp
+    self.admit()
+    ~~~~~~~~~~^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tests\tooling\test_commissioning_deploy.py", line 224, in admit
+    return self.subject.load_scope(self.root, SCOPE, self.head, 'synthetic-target', 'adb', **options)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tools\deploy_commissioning_app.py", line 330, in load_scope
+    artifacts = checked_receipts(base, root, request, owner)
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tools\deploy_commissioning_app.py", line 179, in checked_receipts
+    checked_compile_metadata(base, root, owner, documents)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tools\deploy_commissioning_app.py", line 198, in checked_compile_metadata
+    policy.validate_preflight(documents['properties_stdout'].decode('utf-8'), **args)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_hnmlkk2h\tools\commissioning_app_static_policy.py", line 73, in validate_preflight
+    return policy['validate_preflight'](text, build_path=build_path, data_dir=data_dir)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_hnmlkk2h\tools\app_motor_fault_static_policy.py", line 147, in validate_preflight
+    return policy['validate_preflight'](text, build_path=build_path, data_dir=data_dir)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_hnmlkk2h\state\analysis\P7_static_link_probe_raw\static_policy.py", line 111, in validate_preflight
+    return _validate(text, build_path, data_dir, False)
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_hnmlkk2h\state\analysis\P7_static_link_probe_raw\static_policy.py", line 96, in _validate
+    raise ValueError('Static core differs from the resolved data directory')
+ValueError: Static core differs from the resolved data directory
+
+======================================================================
+ERROR: test_outcome_write_failure_cannot_be_success (tests.tooling.test_commissioning_deploy.LifecycleTests.test_outcome_write_failure_cannot_be_success)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tests\tooling\test_commissioning_deploy.py", line 91, in setUp
+    self.admit()
+    ~~~~~~~~~~^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tests\tooling\test_commissioning_deploy.py", line 224, in admit
+    return self.subject.load_scope(self.root, SCOPE, self.head, 'synthetic-target', 'adb', **options)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tools\deploy_commissioning_app.py", line 330, in load_scope
+    artifacts = checked_receipts(base, root, request, owner)
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tools\deploy_commissioning_app.py", line 179, in checked_receipts
+    checked_compile_metadata(base, root, owner, documents)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tools\deploy_commissioning_app.py", line 198, in checked_compile_metadata
+    policy.validate_preflight(documents['properties_stdout'].decode('utf-8'), **args)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_vzdsn6nk\tools\commissioning_app_static_policy.py", line 73, in validate_preflight
+    return policy['validate_preflight'](text, build_path=build_path, data_dir=data_dir)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_vzdsn6nk\tools\app_motor_fault_static_policy.py", line 147, in validate_preflight
+    return policy['validate_preflight'](text, build_path=build_path, data_dir=data_dir)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_vzdsn6nk\state\analysis\P7_static_link_probe_raw\static_policy.py", line 111, in validate_preflight
+    return _validate(text, build_path, data_dir, False)
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_vzdsn6nk\state\analysis\P7_static_link_probe_raw\static_policy.py", line 96, in _validate
+    raise ValueError('Static core differs from the resolved data directory')
+ValueError: Static core differs from the resolved data directory
+
+======================================================================
+ERROR: test_success_one_upload_two_prerequisites_each_side_consumed_owner (tests.tooling.test_commissioning_deploy.LifecycleTests.test_success_one_upload_two_prerequisites_each_side_consumed_owner)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tests\tooling\test_commissioning_deploy.py", line 91, in setUp
+    self.admit()
+    ~~~~~~~~~~^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tests\tooling\test_commissioning_deploy.py", line 224, in admit
+    return self.subject.load_scope(self.root, SCOPE, self.head, 'synthetic-target', 'adb', **options)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tools\deploy_commissioning_app.py", line 330, in load_scope
+    artifacts = checked_receipts(base, root, request, owner)
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tools\deploy_commissioning_app.py", line 179, in checked_receipts
+    checked_compile_metadata(base, root, owner, documents)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tools\deploy_commissioning_app.py", line 198, in checked_compile_metadata
+    policy.validate_preflight(documents['properties_stdout'].decode('utf-8'), **args)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_zszu2_k2\tools\commissioning_app_static_policy.py", line 73, in validate_preflight
+    return policy['validate_preflight'](text, build_path=build_path, data_dir=data_dir)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_zszu2_k2\tools\app_motor_fault_static_policy.py", line 147, in validate_preflight
+    return policy['validate_preflight'](text, build_path=build_path, data_dir=data_dir)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_zszu2_k2\state\analysis\P7_static_link_probe_raw\static_policy.py", line 111, in validate_preflight
+    return _validate(text, build_path, data_dir, False)
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_zszu2_k2\state\analysis\P7_static_link_probe_raw\static_policy.py", line 96, in _validate
+    raise ValueError('Static core differs from the resolved data directory')
+ValueError: Static core differs from the resolved data directory
+
+======================================================================
+ERROR: test_timeout_unknown_preserves_primary_runs_closing_and_never_retries (tests.tooling.test_commissioning_deploy.LifecycleTests.test_timeout_unknown_preserves_primary_runs_closing_and_never_retries)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tests\tooling\test_commissioning_deploy.py", line 91, in setUp
+    self.admit()
+    ~~~~~~~~~~^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tests\tooling\test_commissioning_deploy.py", line 224, in admit
+    return self.subject.load_scope(self.root, SCOPE, self.head, 'synthetic-target', 'adb', **options)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tools\deploy_commissioning_app.py", line 330, in load_scope
+    artifacts = checked_receipts(base, root, request, owner)
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tools\deploy_commissioning_app.py", line 179, in checked_receipts
+    checked_compile_metadata(base, root, owner, documents)
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tools\deploy_commissioning_app.py", line 198, in checked_compile_metadata
+    policy.validate_preflight(documents['properties_stdout'].decode('utf-8'), **args)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_km0w7idb\tools\commissioning_app_static_policy.py", line 73, in validate_preflight
+    return policy['validate_preflight'](text, build_path=build_path, data_dir=data_dir)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_km0w7idb\tools\app_motor_fault_static_policy.py", line 147, in validate_preflight
+    return policy['validate_preflight'](text, build_path=build_path, data_dir=data_dir)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_km0w7idb\state\analysis\P7_static_link_probe_raw\static_policy.py", line 111, in validate_preflight
+    return _validate(text, build_path, data_dir, False)
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_km0w7idb\state\analysis\P7_static_link_probe_raw\static_policy.py", line 96, in _validate
+    raise ValueError('Static core differs from the resolved data directory')
+ValueError: Static core differs from the resolved data directory
+
+----------------------------------------------------------------------
+Ran 18 tests in 59.568s
+
+FAILED (errors=18)

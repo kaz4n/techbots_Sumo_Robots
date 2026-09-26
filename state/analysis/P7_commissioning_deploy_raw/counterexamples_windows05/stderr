@@ -1,0 +1,98 @@
+test_inactive_or_string_decoys_cannot_hide_live_protected_grants (tests.tooling.test_commissioning_deploy.AdmissionTests.test_inactive_or_string_decoys_cannot_hide_live_protected_grants) ... 
+  test_inactive_or_string_decoys_cannot_hide_live_protected_grants (tests.tooling.test_commissioning_deploy.AdmissionTests.test_inactive_or_string_decoys_cannot_hide_live_protected_grants) (case='conditional_decoy') ... FAIL
+  test_inactive_or_string_decoys_cannot_hide_live_protected_grants (tests.tooling.test_commissioning_deploy.AdmissionTests.test_inactive_or_string_decoys_cannot_hide_live_protected_grants) (case='string_literal_decoy') ... FAIL
+test_operational_buttons_require_valid_disjoint_adc_windows (tests.tooling.test_commissioning_deploy.AdmissionTests.test_operational_buttons_require_valid_disjoint_adc_windows) ... 
+  test_operational_buttons_require_valid_disjoint_adc_windows (tests.tooling.test_commissioning_deploy.AdmissionTests.test_operational_buttons_require_valid_disjoint_adc_windows) (case='all_zero_defaults') ... FAIL
+  test_operational_buttons_require_valid_disjoint_adc_windows (tests.tooling.test_commissioning_deploy.AdmissionTests.test_operational_buttons_require_valid_disjoint_adc_windows) (case='reversed_interval') ... FAIL
+  test_operational_buttons_require_valid_disjoint_adc_windows (tests.tooling.test_commissioning_deploy.AdmissionTests.test_operational_buttons_require_valid_disjoint_adc_windows) (case='overlapping_intervals') ... FAIL
+  test_operational_buttons_require_valid_disjoint_adc_windows (tests.tooling.test_commissioning_deploy.AdmissionTests.test_operational_buttons_require_valid_disjoint_adc_windows) (case='touching_inclusive_endpoints') ... FAIL
+  test_operational_buttons_require_valid_disjoint_adc_windows (tests.tooling.test_commissioning_deploy.AdmissionTests.test_operational_buttons_require_valid_disjoint_adc_windows) (case='out_of_adc_range') ... FAIL
+
+======================================================================
+FAIL: test_inactive_or_string_decoys_cannot_hide_live_protected_grants (tests.tooling.test_commissioning_deploy.AdmissionTests.test_inactive_or_string_decoys_cannot_hide_live_protected_grants) (case='conditional_decoy')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tests\tooling\test_commissioning_deploy.py", line 344, in test_inactive_or_string_decoys_cannot_hide_live_protected_grants
+    self.reject()
+    ~~~~~~~~~~~^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tests\tooling\test_commissioning_deploy.py", line 227, in reject
+    with self.assertRaises((ValueError, TypeError, OSError)):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (<class 'ValueError'>, <class 'TypeError'>, <class 'OSError'>) not raised
+
+======================================================================
+FAIL: test_inactive_or_string_decoys_cannot_hide_live_protected_grants (tests.tooling.test_commissioning_deploy.AdmissionTests.test_inactive_or_string_decoys_cannot_hide_live_protected_grants) (case='string_literal_decoy')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tests\tooling\test_commissioning_deploy.py", line 344, in test_inactive_or_string_decoys_cannot_hide_live_protected_grants
+    self.reject()
+    ~~~~~~~~~~~^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tests\tooling\test_commissioning_deploy.py", line 227, in reject
+    with self.assertRaises((ValueError, TypeError, OSError)):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (<class 'ValueError'>, <class 'TypeError'>, <class 'OSError'>) not raised
+
+======================================================================
+FAIL: test_operational_buttons_require_valid_disjoint_adc_windows (tests.tooling.test_commissioning_deploy.AdmissionTests.test_operational_buttons_require_valid_disjoint_adc_windows) (case='all_zero_defaults')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tests\tooling\test_commissioning_deploy.py", line 364, in test_operational_buttons_require_valid_disjoint_adc_windows
+    self.reject()
+    ~~~~~~~~~~~^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tests\tooling\test_commissioning_deploy.py", line 227, in reject
+    with self.assertRaises((ValueError, TypeError, OSError)):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (<class 'ValueError'>, <class 'TypeError'>, <class 'OSError'>) not raised
+
+======================================================================
+FAIL: test_operational_buttons_require_valid_disjoint_adc_windows (tests.tooling.test_commissioning_deploy.AdmissionTests.test_operational_buttons_require_valid_disjoint_adc_windows) (case='reversed_interval')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tests\tooling\test_commissioning_deploy.py", line 364, in test_operational_buttons_require_valid_disjoint_adc_windows
+    self.reject()
+    ~~~~~~~~~~~^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tests\tooling\test_commissioning_deploy.py", line 227, in reject
+    with self.assertRaises((ValueError, TypeError, OSError)):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (<class 'ValueError'>, <class 'TypeError'>, <class 'OSError'>) not raised
+
+======================================================================
+FAIL: test_operational_buttons_require_valid_disjoint_adc_windows (tests.tooling.test_commissioning_deploy.AdmissionTests.test_operational_buttons_require_valid_disjoint_adc_windows) (case='overlapping_intervals')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tests\tooling\test_commissioning_deploy.py", line 364, in test_operational_buttons_require_valid_disjoint_adc_windows
+    self.reject()
+    ~~~~~~~~~~~^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tests\tooling\test_commissioning_deploy.py", line 227, in reject
+    with self.assertRaises((ValueError, TypeError, OSError)):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (<class 'ValueError'>, <class 'TypeError'>, <class 'OSError'>) not raised
+
+======================================================================
+FAIL: test_operational_buttons_require_valid_disjoint_adc_windows (tests.tooling.test_commissioning_deploy.AdmissionTests.test_operational_buttons_require_valid_disjoint_adc_windows) (case='touching_inclusive_endpoints')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tests\tooling\test_commissioning_deploy.py", line 364, in test_operational_buttons_require_valid_disjoint_adc_windows
+    self.reject()
+    ~~~~~~~~~~~^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tests\tooling\test_commissioning_deploy.py", line 227, in reject
+    with self.assertRaises((ValueError, TypeError, OSError)):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (<class 'ValueError'>, <class 'TypeError'>, <class 'OSError'>) not raised
+
+======================================================================
+FAIL: test_operational_buttons_require_valid_disjoint_adc_windows (tests.tooling.test_commissioning_deploy.AdmissionTests.test_operational_buttons_require_valid_disjoint_adc_windows) (case='out_of_adc_range')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tests\tooling\test_commissioning_deploy.py", line 364, in test_operational_buttons_require_valid_disjoint_adc_windows
+    self.reject()
+    ~~~~~~~~~~~^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tests\tooling\test_commissioning_deploy.py", line 227, in reject
+    with self.assertRaises((ValueError, TypeError, OSError)):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (<class 'ValueError'>, <class 'TypeError'>, <class 'OSError'>) not raised
+
+----------------------------------------------------------------------
+Ran 2 tests in 22.308s
+
+FAILED (failures=7)

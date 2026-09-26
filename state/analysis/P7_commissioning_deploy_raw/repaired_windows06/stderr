@@ -1,0 +1,37 @@
+test_inactive_or_string_decoys_cannot_hide_live_protected_grants (tests.tooling.test_commissioning_deploy.AdmissionTests.test_inactive_or_string_decoys_cannot_hide_live_protected_grants) ... ERROR
+test_operational_buttons_require_valid_disjoint_adc_windows (tests.tooling.test_commissioning_deploy.AdmissionTests.test_operational_buttons_require_valid_disjoint_adc_windows) ... ok
+test_all_fourteen_tuples_with_real_git_and_complete_compile_validators (tests.tooling.test_commissioning_deploy.AdmissionTests.test_all_fourteen_tuples_with_real_git_and_complete_compile_validators) ... ok
+
+======================================================================
+ERROR: test_inactive_or_string_decoys_cannot_hide_live_protected_grants (tests.tooling.test_commissioning_deploy.AdmissionTests.test_inactive_or_string_decoys_cannot_hide_live_protected_grants)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tests\tooling\test_commissioning_deploy.py", line 89, in setUp
+    self.make()
+    ~~~~~~~~~^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tests\tooling\test_commissioning_deploy.py", line 130, in make
+    owner = self.compiler.make_owner(request, root=self.root)
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tools\compile_commissioning_app.py", line 301, in make_owner
+    return load_caller(request, root=root).CompileDiagnostic(request['reviewed_head'], root=root)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-commissioning-deploy-20260926\tools\compile_commissioning_app.py", line 287, in load_caller
+    module = bootstrap.load_caller(root=root)
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_hehr7uyw\tools\compile_b4_app_static.py", line 137, in load_caller
+    raw = read_original(PREDECESSOR, root=root)
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_hehr7uyw\tools\compile_b4_app_static.py", line 124, in read_original
+    return _read_handle(path, before, relative)
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_hehr7uyw\tools\compile_b4_app_static.py", line 100, in _read_handle
+    require(before == after and path_identity == handle_identity and opened == closed and
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            len(raw) == before[-1][4] and len(raw) <= 65536,
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            'Original source changed while reading: ' + relative)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox_d227_hehr7uyw\tools\compile_b4_app_static.py", line 46, in require
+    raise ValueError(message)
+ValueError: Original source changed while reading: tools/compile_ordinary_app_static.py
+
+----------------------------------------------------------------------
+Ran 3 tests in 39.366s
+
+FAILED (errors=1)

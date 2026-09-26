@@ -1,0 +1,239 @@
+{
+  "adoption_commit": "4333c2ed",
+  "created_utc": "2026-09-26T08:23:21.209794+00:00",
+  "execution_boundary": {
+    "actual_manifests_created": 0,
+    "compilers_run": 0,
+    "device_calls": 0,
+    "native_owners_created": 0,
+    "oracle_edits": 0,
+    "oracle_reads": 0,
+    "stages_created": 0,
+    "subject_executions": 0,
+    "subject_imports": 0,
+    "tests_run": 0
+  },
+  "inputs": {
+    "state/analysis/P7_motor_const_compile_contract.md": {
+      "bytes": 11305,
+      "sha256": "318a6267f29a5837d6afe7197d6f86d88230886f1dd8ea0bb1af0345a4c75174"
+    },
+    "state/analysis/P7_motor_const_compile_raw/derivation01.json": {
+      "bytes": 17980,
+      "sha256": "d4c89cd5b52eca4a9f428d498d06fafaa4963b56e8286350907212f26b8168de"
+    },
+    "tools/compile_motor_settle_probe.py": {
+      "bytes": 7570,
+      "sha256": "b98a5f54e2be122162e76074673190f52ef4218c766d517125b48127bb4b8b62"
+    }
+  },
+  "limitations": [
+    "Independent oracle must freeze before coordinator/reviewer implementation review or execution.",
+    "AST and byte checks are not host behavioral validation or native admission.",
+    "Target compilation, ABI/entry observation and inhibited runtime remain separate."
+  ],
+  "method": "Read pinned D198 source and adopted contract as data. Applied only ten ordered count-checked byte replacements; parsed AST for syntax and function inventory without import, compile(), exec(), tests or subject execution.",
+  "ordered_substitutions": [
+    {
+      "after": {
+        "bytes": 7570,
+        "sha256": "fda95ca7683f17b0c4fa5fb4a68b6df1a7a0535a558523980755f29fb0799762"
+      },
+      "before": {
+        "bytes": 7570,
+        "sha256": "b98a5f54e2be122162e76074673190f52ef4218c766d517125b48127bb4b8b62"
+      },
+      "count": 1,
+      "new_utf8": "D203",
+      "old_offsets_in_step_input": [
+        176
+      ],
+      "old_utf8": "D198"
+    },
+    {
+      "after": {
+        "bytes": 7563,
+        "sha256": "3225659a3c0bf2120df46626bb329306b0e9d323160849ef46326206f0b64cff"
+      },
+      "before": {
+        "bytes": 7570,
+        "sha256": "fda95ca7683f17b0c4fa5fb4a68b6df1a7a0535a558523980755f29fb0799762"
+      },
+      "count": 1,
+      "new_utf8": "tools/compile_motor_const.py",
+      "old_offsets_in_step_input": [
+        1253
+      ],
+      "old_utf8": "tools/compile_motor_settle_probe.py"
+    },
+    {
+      "after": {
+        "bytes": 7562,
+        "sha256": "67cf87c57aef378c355b593070195eb0b8f850d8d405e9c69fab91c91dea26bc"
+      },
+      "before": {
+        "bytes": 7563,
+        "sha256": "3225659a3c0bf2120df46626bb329306b0e9d323160849ef46326206f0b64cff"
+      },
+      "count": 1,
+      "new_utf8": "P7_motor_const_compile_contract.md",
+      "old_offsets_in_step_input": [
+        1339
+      ],
+      "old_utf8": "P7_motor_settle_compile_contract.md"
+    },
+    {
+      "after": {
+        "bytes": 7561,
+        "sha256": "2fd58ec47de88e170a913073dd13ac7f585bbf4a1a882d67605c40b679a2a4c7"
+      },
+      "before": {
+        "bytes": 7562,
+        "sha256": "67cf87c57aef378c355b593070195eb0b8f850d8d405e9c69fab91c91dea26bc"
+      },
+      "count": 1,
+      "new_utf8": "P7_motor_const_compile_raw",
+      "old_offsets_in_step_input": [
+        1422
+      ],
+      "old_utf8": "P7_motor_settle_compile_raw"
+    },
+    {
+      "after": {
+        "bytes": 7558,
+        "sha256": "d48ab1e8637955a6be6e8340409aaad595760a4110cc5f5444097e3cc0287e0a"
+      },
+      "before": {
+        "bytes": 7561,
+        "sha256": "2fd58ec47de88e170a913073dd13ac7f585bbf4a1a882d67605c40b679a2a4c7"
+      },
+      "count": 3,
+      "new_utf8": "app-motor-const-static",
+      "old_offsets_in_step_input": [
+        1489,
+        2284,
+        2426
+      ],
+      "old_utf8": "app-motor-settle-static"
+    },
+    {
+      "after": {
+        "bytes": 7557,
+        "sha256": "4b9b6a5b816333b6a02a6ef2c1662396fdfa557e9283c2da7252f60274e6b9aa"
+      },
+      "before": {
+        "bytes": 7558,
+        "sha256": "d48ab1e8637955a6be6e8340409aaad595760a4110cc5f5444097e3cc0287e0a"
+      },
+      "count": 1,
+      "new_utf8": "_sumox_d203_const_compile",
+      "old_offsets_in_step_input": [
+        6808
+      ],
+      "old_utf8": "_sumox_d198_settle_compile"
+    },
+    {
+      "after": {
+        "bytes": 7557,
+        "sha256": "209a8b4bccb46d38044062f579e51fb2424b2691cd81e5c8c1b4f2047c256066"
+      },
+      "before": {
+        "bytes": 7557,
+        "sha256": "4b9b6a5b816333b6a02a6ef2c1662396fdfa557e9283c2da7252f60274e6b9aa"
+      },
+      "count": 1,
+      "new_utf8": "29874",
+      "old_offsets_in_step_input": [
+        890
+      ],
+      "old_utf8": "29889"
+    },
+    {
+      "after": {
+        "bytes": 7557,
+        "sha256": "dfb50c001870c1d1c607f95bec692c04f72608e7933e278837aa8ac62dc2b55e"
+      },
+      "before": {
+        "bytes": 7557,
+        "sha256": "209a8b4bccb46d38044062f579e51fb2424b2691cd81e5c8c1b4f2047c256066"
+      },
+      "count": 1,
+      "new_utf8": "bda40e969dc48d4194f1c391c013cf0853e1fb39dee780a94f4754412d59f41a",
+      "old_offsets_in_step_input": [
+        898
+      ],
+      "old_utf8": "9a9d8df4130369eb4a31a348b76ddd7c2b3ca63c1e448250cc7d60dfc1d3158c"
+    },
+    {
+      "after": {
+        "bytes": 7557,
+        "sha256": "b9ab574513484d72fcb8ba23e144e771256f72830365d2dad0319efe37227443"
+      },
+      "before": {
+        "bytes": 7557,
+        "sha256": "dfb50c001870c1d1c607f95bec692c04f72608e7933e278837aa8ac62dc2b55e"
+      },
+      "count": 1,
+      "new_utf8": "6893",
+      "old_offsets_in_step_input": [
+        1082
+      ],
+      "old_utf8": "6895"
+    },
+    {
+      "after": {
+        "bytes": 7557,
+        "sha256": "957666a83c6fa36408dd6616f93d9cdc583622b29a51a6f6c6e960dd4cd1f247"
+      },
+      "before": {
+        "bytes": 7557,
+        "sha256": "b9ab574513484d72fcb8ba23e144e771256f72830365d2dad0319efe37227443"
+      },
+      "count": 1,
+      "new_utf8": "914d4d11057c8982154fbcd80fbea485977cf4952fad045625ca88271052040a",
+      "old_offsets_in_step_input": [
+        1089
+      ],
+      "old_utf8": "dc359de37aab994e5dfbbadda1997235213da4e50c7f19f44141df18f2df7160"
+    }
+  ],
+  "output": {
+    "bytes": 7557,
+    "path": "tools/compile_motor_const.py",
+    "sha256": "957666a83c6fa36408dd6616f93d9cdc583622b29a51a6f6c6e960dd4cd1f247"
+  },
+  "schema": "d203-implementation-v1",
+  "status": "IMPLEMENTED_NOT_EXECUTED",
+  "verification": {
+    "AST_parse": "PASS",
+    "all_other_bytes_preserved_by_construction": true,
+    "crlf_count": 0,
+    "exact_expected_output": true,
+    "function_names": [
+      "require",
+      "parse_request",
+      "_verify",
+      "_project",
+      "project_caller",
+      "project_adapter",
+      "project_remote",
+      "_stamp",
+      "_plain_chain",
+      "_read_handle",
+      "read_original",
+      "load_caller",
+      "main"
+    ],
+    "functions_with_AST_change": [
+      "load_caller"
+    ],
+    "input_closing_exact": true,
+    "lf_count": 184,
+    "load_caller_change": "Only private ModuleType literal _sumox_d198_settle_compile to _sumox_d203_const_compile.",
+    "matches_adopted_derivation": true,
+    "same_line_endings": true,
+    "substitution_steps": 10,
+    "total_literal_occurrences": 12,
+    "written_output_readback_exact": true
+  }
+}

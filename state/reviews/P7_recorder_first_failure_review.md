@@ -29,10 +29,10 @@ These compile facts do not by themselves establish the loaded MCU image.
 | `tools/run_recorder_first_failure_capture.py` | 19614 | `c5ea40f9583beee040395030a0f73f0f5c50701e0885267fa17205b1319f047a` |
 
 Contracts are pinned at
-`4a5ff1648887f606bf16c2f19ca5c648e20381aa2239c8f94636cc51082d678e`
-and `86b92d029c56b097cbb69a99532607889bf36b13dc677c8f85e1a5201e67062e`.
+`c3c11a876b938fcbfe3b2d8d8ddde6157299eba8098e11414a811a162368c1d9`
+and `655241cb0bcdb08f10793786591cfce109b2b212bd9553ff413fc902adbf1fe7`.
 Flat preparation manifest: 28098 bytes / SHA-256
-`0d0a344ebac99fc5c53d49ad00c0b0ae3262257e52135aedf3c94e4db1ca736d`.
+`66369161da80c61ec8152262dea0bc9f0271622bef135945fb8ccc8c3057e4dd`.
 All 180 manifest entries independently rehash exactly.
 
 ## Delta findings
@@ -83,13 +83,26 @@ The real capture caller constructs the adapter and projected action plan with
 the complete new flash spans. Accepted unchanged D230 lifecycle evidence is
 reused; no broad suite or native action is claimed here.
 
-After the active D233 run closes, root may commit this exact isolated package,
-use its clean collector HEAD for one file-only --check-only and --execute, and
-retain all native_abi01 evidence. Historical compile HEAD and collector HEAD
-remain distinct. On successful strict reconciliation of the fresh ABI, root
+Root's D051 scheduling decision supersedes the original authored wait before
+file-only extraction. Concrete code inspection confirms that this action reads
+only the four closed compile records and pinned files, invokes offline
+readelf/GDB, and has no dependency on a completed delivery/receiver result.
+The inherited process preamble refuses compiler/upload/OpenOCD conflicts;
+it does not refuse the bounded Python receiver. No MCU, UART, build, upload,
+cleanup or OpenOCD operation is added. Only the two contracts, validation and
+their three manifest pins changed; production/test bytes remain identical.
+All 180 refreshed pins reconcile. Original acceptance is preserved in commit
+`d9ca878e`; no source test rerun is needed for this scheduling clarification.
+
+After compile closure, root may commit this exact isolated package, use its
+clean collector HEAD for one file-only --check-only and --execute while the
+bounded receiver remains active, and retain all native_abi01 evidence.
+Historical compile HEAD and collector HEAD remain distinct. On successful
+strict reconciliation of the fresh ABI, root
 may use its exact abi.json hash with --prepare-bindings, which exclusively
 writes the three specified capture files. Commit that mechanical binding and
-use the new clean same collector HEAD for one capture --check-only/--execute.
+use the new clean same collector HEAD for one capture --check-only/--execute
+only after the delivery run and receiver have closed.
 The contracts' literal commands and absent-only local/remote owners apply.
 
 No second source-review chain is needed for those exact mechanical bindings.

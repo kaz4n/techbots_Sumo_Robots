@@ -6,8 +6,11 @@ uses 145 exact inputs and 110 staged files. The package is 55376 bytes, SHA256
 b13a32b5e92993a49f165b907d5d6036fa933e1680bb23ff2738620b294fd584.
 The separate collector HEAD is pinned after preparation and review. Execute
 from the isolated sumox-recorder-fresh-diagnosis-20260927 worktree; MAIN stays
-frozen. No native action before the current recorder run closes and root admits
-this diagnostic. A passed compile does not establish the loaded image.
+frozen. Under root's D051 scheduling authorization, reviewed offline ELF queries
+on closed compiled files may overlap the bounded receiver. Passive MCU capture
+still requires delivery/receiver closure. No MCU, UART, OpenOCD, cleanup, build
+or upload effect is permitted in file-only work. A passed compile does not
+establish the loaded image.
 
 Only fixed identity/artifact/path/inventory data and layout projections differ
 from D230. One fresh FailureRecord window adds reason, site, cleanup,
@@ -31,7 +34,7 @@ nor authorizes a new upload. Main and all firmware bytes stay unchanged.
 There are two bounded steps. First tools/recorder_first_failure_abi.py observes the
 existing build's ELF and DWARF files. Then tools/recorder_first_failure_capture.py
 adapts the reviewed passive MEM-AP Capture lifecycle to the accepted ABI data.
-The completed delivery attempt, independent source/host review, exact committed
+Closed compile records, independent source/host review, exact committed
 collector HEAD and check-only must precede any actual file-only action. The
 accepted fresh ABI and mechanically derived frozen capture spec must precede
 any actual passive action. Root owns these admissions; this preparation creates
@@ -101,7 +104,7 @@ composition checks all145 historical inputs and110 staged files, without any
 transport. Existing descriptor/lifecycle tests remain the accepted D230
 evidence; no native operation is part of these tests.
 
-Concrete root sequence after the D233 run closes and this source review passes:
+Concrete root sequence after closed compile records and source review pass:
 from the isolated worktree, set H to its clean `git rev-parse HEAD`, run
 `python -B tools/recorder_first_failure_abi.py --check-only --reviewed-head H`,
 then once `python -B tools/recorder_first_failure_abi.py --execute --reviewed-head H`.
@@ -110,7 +113,8 @@ file-only scope is recorder-07f19e32c483ceba-failure-abi01. Preserve all results
 and closing checks. After root accepts the fresh ABI, use its exact abi.json
 SHA256 with the caller contract's --prepare-bindings command. Commit the actual
 ABI evidence and three mechanical bindings in this isolated tree, then use its
-new clean collector HEAD for the caller's --check-only and single --execute.
+new clean collector HEAD for the caller's --check-only and single --execute,
+only after the delivery run and receiver have closed.
 No source changes or second source-review chain are needed for those mechanical
 bindings; any material source change requires review. Failure consumes each
 native owner. No reset, upload, UART operation, register write or cleanup occurs.

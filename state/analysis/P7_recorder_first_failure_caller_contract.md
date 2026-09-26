@@ -6,8 +6,11 @@ uses 145 exact inputs and 110 staged files. The package is 55376 bytes, SHA256
 b13a32b5e92993a49f165b907d5d6036fa933e1680bb23ff2738620b294fd584.
 The separate collector HEAD is pinned after preparation and review. Execute
 from the isolated sumox-recorder-fresh-diagnosis-20260927 worktree; MAIN stays
-frozen. No native action before the current recorder run closes and root admits
-this diagnostic. A passed compile does not establish the loaded image.
+frozen. Under root's D051 scheduling authorization, reviewed offline ELF queries
+on closed compiled files may overlap the bounded receiver. Passive MCU capture
+still requires delivery/receiver closure. No MCU, UART, OpenOCD, cleanup, build
+or upload effect is permitted in file-only work. A passed compile does not
+establish the loaded image.
 
 Only fixed identity/artifact/path/inventory data and layout projections differ
 from D230. One fresh FailureRecord window adds reason, site, cleanup,

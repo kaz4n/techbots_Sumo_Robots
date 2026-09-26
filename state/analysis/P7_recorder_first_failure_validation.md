@@ -26,8 +26,11 @@ dependencies were materialized from exact Git blobs and independently matched;
 preparation_manifest01.json records the flat file closure.
 
 The collector runs from the isolated fresh-diagnosis worktree. Root owns the
-actual clean-HEAD check and file-only query after the active D233 run closes,
+actual clean-HEAD check and file-only query against closed compiled files
+(permitted to overlap the bounded receiver under root's D051 authorization),
 accepts the observed ABI, prepares three mechanical capture bindings, commits
-them, and executes the one passive capture using its new collector HEAD.
+them, and executes the one passive capture using its new collector HEAD only
+after delivery and receiver closure. No source or test bytes changed for this
+scheduling clarification.
 Commands and owners are in the two contracts. Actual ABI addresses, SRAM
 values, original native cause and delivery success remain unobserved here.

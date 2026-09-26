@@ -1,0 +1,31 @@
+{
+  "status": "FAILED",
+  "first_error": {
+    "type": "ValueError",
+    "message": "Current input bytes differ from reviewed HEAD"
+  }
+}
+Traceback (most recent call last):
+  File "C:\Users\narut\AppData\Local\Temp\sumox-timing-p99-20260927\tools\compile_commissioning_app.py", line 319, in <module>
+    sys.exit(main(sys.argv[1:]))
+             ~~~~^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-timing-p99-20260927\tools\compile_commissioning_app.py", line 309, in main
+    result = owner.check() if request['action'] == '--check-only' else owner.run()
+             ~~~~~~~~~~~^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-timing-p99-20260927\tools\compile_commissioning_app.py", line 195, in check
+    result = super().check()
+  File "C:\Users\narut\AppData\Local\Temp\sumox-timing-p99-20260927\tools\compile_app_motor_fault.py", line 309, in check
+  File "C:\Users\narut\AppData\Local\Temp\sumox-timing-p99-20260927\tools\compile_app_motor_fault.py", line 302, in local
+    self.output.mkdir(mode=0o700)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-timing-p99-20260927\state\analysis\P7_current_app_compile_raw\compile_current_app.py", line 278, in local
+    self.admission()
+    ~~~~~~~~~~~~~~^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-timing-p99-20260927\tools\compile_commissioning_app.py", line 168, in admission
+    require(code == _head_bytes(self.root, self.reviewed_head, set(code)),
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+            'Current input bytes differ from reviewed HEAD')
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\AppData\Local\Temp\sumox-timing-p99-20260927\tools\compile_commissioning_app.py", line 37, in require
+    raise ValueError(message)
+ValueError: Current input bytes differ from reviewed HEAD

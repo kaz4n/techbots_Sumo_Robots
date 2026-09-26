@@ -345,3 +345,6 @@ Recheck space before work and preserve all earlier blocked cleanup exclusions.
 
 - [x] D194 actual entry and D195 longer inhibited upload/capture completed and reviewed. D195 source3a08ddeb is latestflashed, superseding historical status above. FirstSETTLEfailure at921; finalhaltinhibitionunconfirmed. Nativeowners/D196cleanupconsumed. See P7_app_motor_observe_actual_validation.md and currenthandoff.
 - [ ] D197 minimal internal SETTLE rejection probe, independent tests/review/new target artifacts before a fresh inhibited native scope. Preserve150us/4096pollbounds; rootcause andproductionqualification remain open.
+
+
+- [x] D197 internalSETTLEreason report hostvalidated andindependentlyreviewed; firstfailure/current28B, no changednativecalls/productionprobe0/150usbound. See P7_motor_settle_probe_validation.md. D198freshcompiletoolhostvalidation next; currentflashedD195 cause remainsunobserved.

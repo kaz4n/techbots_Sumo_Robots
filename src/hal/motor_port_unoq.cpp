@@ -15,9 +15,39 @@
 #include <stm32u5xx_ll_gpio.h>
 #include <stm32u5xx_ll_tim.h>
 #include <cstddef>
+#if SUMOX_MOTOR_FAULT_PROBE == 1
+#include "motor_settle_probe.h"
+#endif
 
 namespace motors {
 namespace {
+#if SUMOX_MOTOR_FAULT_PROBE == 1
+SettleProbeReport settle_probe_report{};
+
+void storeSettleSample(volatile SettleProbeSample& destination,
+                       const SettleProbeSample& sample) {
+    destination.elapsed_us = sample.elapsed_us;
+    destination.poll_index = sample.poll_index;
+    destination.reason = sample.reason;
+    destination.fresh_mask = sample.fresh_mask;
+    destination.valid = sample.valid;
+    destination.reserved = sample.reserved;
+}
+
+void publishSettle(SettleProbeReason reason, std::uint32_t elapsed,
+                   std::uint32_t poll, std::uint8_t fresh, std::uint8_t valid) {
+    const SettleProbeSample sample{elapsed, poll, reason, fresh, valid, 0U};
+    // Volatile RAM stores retain capture evidence without qualifying the object
+    // itself volatile; the public const-reference accessor therefore stays safe.
+    volatile auto& report = settle_probe_report;
+    storeSettleSample(report.current, sample);
+    report.has_current = 1U;
+    if (reason != SettleProbeReason::SUCCESS && report.has_failure == 0U) {
+        storeSettleSample(report.first_failure, sample);
+        report.has_failure = 1U;
+    }
+}
+#endif
 constexpr std::uint8_t ALL_CHANNELS = 0x0FU;
 constexpr std::uint8_t ALL_TIMERS = 0x07U;
 #define MOTOR_PWM_SPEC(n, p, i) PWM_DT_SPEC_GET_BY_IDX(n, i),
@@ -170,6 +200,12 @@ bool registerModesValid(TIM_TypeDef* regs, bool active,
            regs->CCER == enables;
 }
 } // namespace
+
+#if SUMOX_MOTOR_FAULT_PROBE == 1
+const SettleProbeReport& settleProbeReport() {
+    return settle_probe_report;
+}
+#endif
 
 Port UnoQPort::port() {
     Port result;
@@ -326,32 +362,54 @@ bool UnoQPort::writePwm(void* context, Channel channel, std::uint32_t period,
     return true;
 }
 
+#if SUMOX_MOTOR_FAULT_PROBE == 1
+// Probe0 expands to the original expressions and returns, without no-op calls.
+#define MOTOR_SETTLE_LOCAL std::uint32_t probe_elapsed_us = 0U;
+#define MOTOR_SETTLE_ELAPSED(value) (probe_elapsed_us = (value))
+#define MOTOR_SETTLE_RETURN(result, reason, elapsed, poll, fresh, valid) \
+    do { publishSettle(reason, elapsed, poll, fresh, valid); return result; } while (false)
+#else
+#define MOTOR_SETTLE_LOCAL
+#define MOTOR_SETTLE_ELAPSED(value) value
+#define MOTOR_SETTLE_RETURN(result, reason, elapsed, poll, fresh, valid) return result
+#endif
+
 bool UnoQPort::settle(void* context) {
-    if (context == nullptr) return false;
+    MOTOR_SETTLE_LOCAL
+    if (context == nullptr)
+        MOTOR_SETTLE_RETURN(false, SettleProbeReason::NULL_CONTEXT, 0U, 0U, 0U, 0U);
     auto& self = *static_cast<UnoQPort*>(context);
     self.settled_ = false;
     if (self.configured_mask_ != ALL_CHANNELS || self.written_mask_ != ALL_CHANNELS ||
-        !self.enableLow()) return false;
+        !self.enableLow())
+        MOTOR_SETTLE_RETURN(false, SettleProbeReason::PRECONDITION, 0U, 0U, 0U, 0U);
     const auto started_us = static_cast<std::uint32_t>(micros());
-    if (!self.bankValid()) return false;
+    if (!self.bankValid())
+        MOTOR_SETTLE_RETURN(false, SettleProbeReason::INITIAL_BANK, 0U, 0U, 0U, 0U);
     for (std::uint32_t timer = 0U; timer < 3U; ++timer)
         LL_TIM_ClearFlag_UPDATE(timerRegisters(timer));
     std::uint8_t fresh = 0U;
     for (std::uint32_t poll = 0U; poll < config::MOTOR_PWM_SETTLE_MAX_POLLS; ++poll) {
-        if (static_cast<std::uint32_t>(micros() - started_us) >= config::MOTOR_PWM_SETTLE_US)
-            return false;
+        if (MOTOR_SETTLE_ELAPSED(static_cast<std::uint32_t>(micros() - started_us)) >= config::MOTOR_PWM_SETTLE_US)
+            MOTOR_SETTLE_RETURN(false, SettleProbeReason::POLL_DEADLINE, probe_elapsed_us, poll, fresh, 7U);
         for (std::uint32_t timer = 0U; timer < 3U; ++timer)
             if (LL_TIM_IsActiveFlag_UPDATE(timerRegisters(timer)) != 0U)
                 fresh |= static_cast<std::uint8_t>(1U << timer);
-        if (!self.bankValid()) return false;
+        if (!self.bankValid())
+            MOTOR_SETTLE_RETURN(false, SettleProbeReason::POLL_BANK, probe_elapsed_us, poll, fresh, 7U);
         if (fresh == ALL_TIMERS) {
-            self.settled_ = static_cast<std::uint32_t>(micros() - started_us) <
+            self.settled_ = MOTOR_SETTLE_ELAPSED(static_cast<std::uint32_t>(micros() - started_us)) <
                             config::MOTOR_PWM_SETTLE_US;
-            return self.settled_;
+            MOTOR_SETTLE_RETURN(self.settled_, self.settled_ ? SettleProbeReason::SUCCESS :
+                SettleProbeReason::FINAL_DEADLINE, probe_elapsed_us, poll, fresh, 7U);
         }
     }
-    return false;
+    MOTOR_SETTLE_RETURN(false, SettleProbeReason::POLL_LIMIT, probe_elapsed_us,
+        config::MOTOR_PWM_SETTLE_MAX_POLLS - 1U, fresh, 7U);
 }
+#undef MOTOR_SETTLE_LOCAL
+#undef MOTOR_SETTLE_ELAPSED
+#undef MOTOR_SETTLE_RETURN
 
 std::uint32_t UnoQPort::clockUs(void*) {
     return static_cast<std::uint32_t>(micros());

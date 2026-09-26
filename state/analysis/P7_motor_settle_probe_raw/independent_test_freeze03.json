@@ -1,0 +1,110 @@
+{
+  "comparator": "Exact full stdout bytes: bool, complete native(kind,index,a,b) trace, forwarded original micros values, native object size, mapped timer/GPIO bytes and relevant fixture state; requires sum(calls)==trace_size and clock_count==CLOCK count. No capped-trace acceptance. Reports independently checked in probe1 only.",
+  "contract": {
+    "bytes": 12585,
+    "sha256": "3346b11970814ce7703c48f56cb38405449453964bb79d1740d5a49e78610f7c"
+  },
+  "correction": "Accessor exclusion snippet now includes unchanged hal/motor_port_unoq.h before naming motors::settleProbeReport, making namespace motors known. Previous run passed all21x3 exact transcripts and three other methods but negative compiler diagnostic named absent namespace; no assertion, cases, source, contract or inert guard fixture changed.",
+  "differential_variants": [
+    "original0",
+    "current0",
+    "current1"
+  ],
+  "fresh_process_scenarios": [
+    "null",
+    "unconfigured",
+    "missing0",
+    "missing1",
+    "missing2",
+    "missing3",
+    "enable_readback",
+    "initial_rate",
+    "initial_register",
+    "loop_ready",
+    "loop_register",
+    "final149",
+    "final150",
+    "final151",
+    "wrap149",
+    "wrap150",
+    "loop_deadline",
+    "limit_zero",
+    "limit_partial",
+    "first_failure",
+    "gate_cleanup"
+  ],
+  "invocation": "env TMPDIR=/dev/shm SUMO_SETTLE_PROBE_RECEIPT_DIR=<new exclusive host receipt directory> python3 -I -B tests/tooling/test_motor_settle_probe.py",
+  "limits": "Linux required, no silent platform skip;64MiB RAM guard;120s command bound;serial g++;UBSan;memfd;temporary build removed by class cleanup. Compact per-build/per-scenario receipts, full transcripts compared only in RAM.",
+  "original_cpp": {
+    "bytes": 16448,
+    "git_blob": "a28f93cf3c004a4a6cbfb2847b1686d244451a4a",
+    "sha256": "04803c88dc51e62dee4c1be15f4c1c8392df01d84893155bc10644cf7afd694a"
+  },
+  "ownership": "New unlocked tests and this freeze only; no locked edits, source changes, device operations or test invocation by author.",
+  "preserved_original_commit": "c7fa1679",
+  "preserved_prior_commit": "a0ccf86d",
+  "prior_freeze": {
+    "bytes": 6898,
+    "path": "state/analysis/P7_motor_settle_probe_raw/independent_test_freeze02.json",
+    "sha256": "974ad37594eb6560bdf6367f2a4dc51e5d66f9bfcc90630f8b6d1d2624ed04a7"
+  },
+  "python_methods": 5,
+  "receipt_env": "SUMO_SETTLE_PROBE_RECEIPT_DIR",
+  "scenario_executions": 63,
+  "schema": "d197-independent-settle-oracle-freeze-v3",
+  "source_author_reported_only": {
+    "src/hal/motor_port_unoq.cpp": {
+      "bytes": 19185,
+      "sha256": "f1ee755a7bddec38e86545f4c5e5457b3ed5e5f1bdd7f5cf368cc77f91664f5e"
+    },
+    "src/hal/motor_settle_probe.h": {
+      "bytes": 2366,
+      "sha256": "2eced554fce20ff938daf44866ee0bad6d99fa28e377af762bb0f037376b75a8"
+    }
+  },
+  "status": "FROZEN_NEGATIVE_FIXTURE_NAMESPACE_CORRECTION_BEFORE_THIRD_EXECUTION",
+  "tests": {
+    "tests/native_motor_settle_probe_cases.cc": {
+      "bytes": 13889,
+      "sha256": "0ad263b07585c431edd5199c99f18b775befe6a6be7e95235973dd1e3bc7c93c"
+    },
+    "tests/tooling/test_motor_settle_probe.py": {
+      "bytes": 15597,
+      "sha256": "29c6cac3d837263d7e1a90b2a677dade79915e02970cea53e839933ec502a183"
+    }
+  },
+  "unchanged": {
+    "bench/app_motor_observe/app_motor_observe.ino": "1df77ff537ef354bcb6bae9141ad117881216df125581f0d4ade3e286a6f007b",
+    "bench/app_motor_observe/src/app_motor_observe.cpp": "eec10eacd250590f4eb4a6b1c01b0cac925411c1f126fe45fda9401de3de4bb3",
+    "bench/app_motor_observe/src/app_motor_observe.h": "25bf299be1e2b917a0f91e7ad933eec5179cbfe6d92273bed0a8d9f5ce97d77e",
+    "bench/motor_fault/src/motor_fault.cpp": "a5e3624ec89cf37f8344e069fed2e2f25bce1be8e0e6911b7aee774297c2f8c6",
+    "bench/motor_fault/src/motor_fault.h": "0b6daf206692baab509fba12ff1afb17b812caf1ff36817883b6ee9d358c1728",
+    "src/config.h": "34d6d6bce215fc098c3c4ae8e2c4436cb66e50e4f73db81a7ef8da964ba242c6",
+    "src/core/opp_fusion.cpp": "693cfa4e900783d0d7bff7995623862f67296e7223b9c31157cbf620bc316d85",
+    "src/hal/motor_port_unoq.h": "7f09a544a032b35207de7c5f074f3f1fd3de9e74c3b482579f819eaa39020ef5",
+    "src/hal/motors.cpp": "2e6f560fca84c1ed77356299e6442afaff8dff05fcf34d51cd59c9454553198b",
+    "src/hal/motors.h": "8128aa9fdbfc2bde8c811dbd82c4c79a75e625dd5714facfae44bffbe92bf149",
+    "src/hal/native_pins.cpp": "222a95a33995065596ec4a08bc1a4fe925b7743aa2bb7b27c24195230376b008",
+    "src/hal/native_pins.h": "34b4fb42e33ec2232f4574c997d4a701ec5a75efcbb12f37d5040e266c13022c",
+    "tests/locked/native_motor_port/Arduino.h": "15e697c1fc030df2f4a0a4b83412e0c3ae017ae8bb5bbba4f8632e38798c9e14",
+    "tests/locked/native_motor_port/cases.cc": "7d01821ab2ccc042140e9433bb3207b943331868726e41f644d45ca2006de312",
+    "tests/locked/native_motor_port/installed_tim_bits.h": "bcff4119b6a4458e750bf793654de316fa1a1b1e9213cf74d8b5c3b3ec31fa56",
+    "tests/locked/native_motor_port/mapping.h": "2a091472935328cc96c80ca50b0aac7485d036319ed63967df7e5cb743f614d9",
+    "tests/locked/native_motor_port/metadata_cases.cc": "278d733f2d2ff226fdd08a8e6f4d9ab2579b48ada2c9304c966dc74f16d0ae58",
+    "tests/locked/native_motor_port/native_fixture.cc": "8119661047e90a5d1aff4b946986385591f6a5b5fdcee92a4f2f302a1e3d2aa2",
+    "tests/locked/native_motor_port/native_fixture.h": "2dad212ae2eb1d116e79f450345f6d171a8da15d1a5408ff34fc10921510cae5",
+    "tests/locked/native_motor_port/probe_cases.cc": "2ea1dc4df62bbfb03563857ac3f4142703d2074712b021ac04bba24b3222084d",
+    "tests/locked/native_motor_port/stm32_ll_gpio.h": "284e0a6136097a252e55b4ce766c8985ba856770009afe424c5e393afbfb82c2",
+    "tests/locked/native_motor_port/stm32u5xx_ll_gpio.h": "5d6f325082b382e6929892c5bb08d69fed38a8cd2a51967c5568184a4fcd444c",
+    "tests/locked/native_motor_port/stm32u5xx_ll_tim.h": "cb25f2a713753e7ac4c361e1ea7962a6feec25d6701d32cf97faa57a69dba388",
+    "tests/locked/native_motor_port/test_main.cc": "b0277646bed186fb2567028ff5a58f57f0f0b0ecf014bb1d7879a889dce27640",
+    "tests/locked/native_motor_port/wiring_private.h": "ccb299f460b3132a5b8016789158255aebc8b5860d3ae0dca329318558336391",
+    "tests/locked/native_motor_port/zephyr/device.h": "dd3d0eb520f810ce7a2bb6159e6c52f0835a93e98027e4dee38e39bdcf88fb51",
+    "tests/locked/native_motor_port/zephyr/devicetree.h": "04780c7a52eee68278b2f03e36a3063c25ac1dfd29490345acf1782e06cd705c",
+    "tests/locked/native_motor_port/zephyr/drivers/clock_control/stm32_clock_control.h": "8983398006cfe0bcdf3504807f405df4c3da8dcd8c99f0ece20087373c4d077d",
+    "tests/locked/native_motor_port/zephyr/drivers/gpio.h": "3318427099a7d0d48b9bc4f5b8d353e7a43903eed43569ec6f8b4c066f171524",
+    "tests/locked/native_motor_port/zephyr/drivers/pwm.h": "15d2d808364c7a1cd988f99d502a53f569ccc58f6a688ab5f3f1c32d5e5dd2af",
+    "tests/locked/native_motor_port/zephyrPinctrl.h": "7d2ab5bf595539610eca1f988ed822d68283bf004891af71a5a70e1629e18472",
+    "tests/tooling/test_motor_port_unoq.py": "71b25cce8042dfcb2cd49b1fe35f0c6f548185fff836f987fa42faba416cd152"
+  }
+}

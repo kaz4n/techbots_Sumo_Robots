@@ -30,12 +30,20 @@ branch. Original fault cause remains open; no safety limit has been relaxed.
 
 ## Exact next task
 
-Prepare D197 minimal probe-only internal SETTLE reason/current/first_failure
-storage. Preserve existing conditions, short-circuit order, hardware and clock
-calls,150us/4096poll limits, pins, grants and productionprobe0 behavior. Record
-only existing internal observations with explicit validity/staleness semantics.
-Independent tests use unchanged locked native fixtures; no locked edits.
-Contract/tests/source review and host evidence precede a new target compile.
+D197 probe-only internal SETTLE report is implemented and hostvalidated:
+sourcef1ee755a/header2eced554, separate28Bcurrent/first_failure, explicitvalidity,
+existing150us/4096pollbounds/nativecalls preserved. FiveindependentmethodsPASS,
+21scenariosx3exactoriginal0/current0/current1transcripts; productionprobe0
+preprocessedbody/symbolsexact. Locked76cases217020assertionsPASS;140pinsstable,
+no temporaryremnants, reviewbe2ff77ePASS. Read P7_motor_settle_probe_validation.md.
+Two harness-only failures are preserved; no assertion or firmware repair occurred.
+
+Finish D198 fresh fixed compile-tool hostvalidation/review. Contractc0b35281 and
+launcherb98a5f54 use newapp-motor-settle-static01 owners with sameobserver sketch/
+mapping/profile. FirstLinuxcaller64PASS/1newfixtureerror is underreview; no native
+compile occurred. Then bind current source/boot/manifest and onecompile-onlyscope.
+Actual target28Breport symbol/ABI/zero-init/storepath need file-only observation
+before a separately bound inhibitedcapture. D195 remains the latestflashedimage.
 
 Every earlier native owner is consumed, including D193static01, D194ABI01/02 and
 entry01, D195run01 and D196root03. Never rerun historical launchers or repin their

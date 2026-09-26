@@ -1,0 +1,58 @@
+{
+  "argv": [
+    "/usr/bin/g++",
+    "-std=c++17",
+    "-O1",
+    "-Wall",
+    "-Wextra",
+    "-Wpedantic",
+    "-Werror",
+    "-fno-exceptions",
+    "-fno-rtti",
+    "-fsanitize=undefined",
+    "-fno-sanitize-recover=all",
+    "-DARDUINO_ARCH_ZEPHYR",
+    "-DMATCH=0",
+    "-DMOTORS_ALLOWED=1",
+    "-DSUMOX_MOTOR_FAULT_PROBE=1",
+    "-I",
+    "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/tests/locked/native_motor_port",
+    "-I",
+    "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src",
+    "-iquote",
+    "/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal",
+    "-x",
+    "c++",
+    "-fsyntax-only",
+    "-"
+  ],
+  "capture": "Exact bytes compared in RAM; compact hashes retained, not a target receipt",
+  "elapsed_seconds": 0.08841117400000087,
+  "inputs": {
+    "src/hal/motor_port_unoq.cpp": {
+      "bytes": 19185,
+      "sha256": "f1ee755a7bddec38e86545f4c5e5457b3ed5e5f1bdd7f5cf368cc77f91664f5e"
+    },
+    "src/hal/motor_settle_probe.h": {
+      "bytes": 2366,
+      "sha256": "2eced554fce20ff938daf44866ee0bad6d99fa28e377af762bb0f037376b75a8"
+    },
+    "tests/native_motor_settle_probe_cases.cc": {
+      "bytes": 13889,
+      "sha256": "0ad263b07585c431edd5199c99f18b775befe6a6be7e95235973dd1e3bc7c93c"
+    },
+    "tests/tooling/test_motor_settle_probe.py": {
+      "bytes": 15597,
+      "sha256": "29c6cac3d837263d7e1a90b2a677dade79915e02970cea53e839933ec502a183"
+    }
+  },
+  "label": "guard-inert-0-1",
+  "returncode": 1,
+  "schema": "d197-independent-host-command-v1",
+  "stderr_bytes": 954,
+  "stderr_prefix": "In file included from /mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/motor_settle_probe.h:5,\n                 from <stdin>:1:\n/mnt/c/Users/narut/OneDrive/Desktop/Project/techbots_Sumo_Robots/src/hal/../config.h:40:40: error: static assertion failed: Motor fault probe is exclusive and requires inert flags\n   40 | static_assert(!SUMOX_MOTOR_FAULT_PROBE || (!MATCH && !MOTORS_ALLOWED &&\n      |               ~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n   41 |               !SUMOX_B4_STAND && !SUMOX_P3_DRIVE_TEST && !SUMOX_P3_TURN_TRIAL &&\n      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n   42 |               !SUMOX_P3_STOP_TRIAL && !SUMOX_P4_REACTIVE && !SUMOX_TIMING_EVIDENCE &&\n      |               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n   43 |               !SUMOX_P5_ABORT_TIMING),\n      |               ~~~~~~~~~~~~~~~~~~~~~~~   \n",
+  "stderr_sha256": "fe68c5a0ccfc729f383af44ab367dc2316e3cc38bbb530f09d91f46a0784126e",
+  "stdout_bytes": 0,
+  "stdout_prefix": "",
+  "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

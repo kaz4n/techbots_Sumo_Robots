@@ -403,3 +403,6 @@ D191 closing observation: C:recovered290537472B independently before local docum
 
 
 2026-09-26T09:35:15.664942+04:00 | D195 actual evidence retention | Keep 63unique native/retrieval/decoded files totaling744583logicalB plus compactinvocation/interpreter/review/validation. RawSRAM9072B remains encoded in savedretrieval, no separatebinarycopy; fullflashcapture staysonboard. Source/artifacts/originalfailure evidence remainneeded forlocalization. No hostobjects/bytecode, no newcleanup/reclaimedbytes; Cfree20945272832B separatelyobserved. Allpriorblockedtargets/paging/historyuntouched.
+
+
+2026-09-26T09:52:54.246983+04:00 | D197 hostprobe retention | Retain229compactrawfiles/384181logicalB plus source/oracles/contract/review/validation, includingbothuniqueharnessfailures. ExacttranscriptscomparedinRAM withcompacthashesretained; no fullsource/binarysnapshot needed. OwnedRAM/memfdoutputs andlocked/tmpfixture removedbytheirsuites; closing0f3a4053 observes0remnants. No boardcopies/bytecode/reclaimedbyteclaim; Cfree20802203648B. Previouslydeniedcleanup untouched.

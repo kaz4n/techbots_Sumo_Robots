@@ -202,7 +202,7 @@ class MotorSettleProbeTests(unittest.TestCase):
 
     def test_public_interface_exclusion_and_existing_inert_guards(self):
         include = b'#include "hal/motor_settle_probe.h"\n'
-        use = include + b'auto pointer = &motors::settleProbeReport;\n'
+        use = include + b'#include "hal/motor_port_unoq.h"\nauto pointer = &motors::settleProbeReport;\n'
         excluded = self.command([*self.flags(0), '-x', 'c++', '-fsyntax-only', '-'],
                                 input=use, success=False, label='guard-probe0-interface')
         self.assertNotEqual(excluded.returncode, 0)

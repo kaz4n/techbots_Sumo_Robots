@@ -3,8 +3,10 @@
 Objective remains the complete SumoX-26 project. Current phase is P7 software /
 release preparation, with earlier physical and human gates still open. This is
 a targeted current-source gap audit, not a completed requirement-by-requirement
-acceptance audit. Previous turn4663103b was progress: real cleanup, inhibited
-upload/capture and independently checked observations changed the next task.
+acceptance audit. D195 actual collection and independent review now reproduce
+the native SETTLE failure at application921. The exact internal rejection remains
+unknown; final halt inhibition was not confirmed. See the current handoff and
+P7_app_motor_observe_actual_validation.md.
 
 A separate reused-context same-model read-only reviewer inspected current phase
 prompts, PLAN, acceptance packets and operational source/tool paths. Core, HAL,
@@ -14,8 +16,8 @@ the following concrete remaining software and qualification work.
 
 | Track | Current evidence | Work still required |
 |---|---|---|
-| Longer inhibited native observation | D190 four epochs and41callbacks successful; historical D160/D161 IO fault not reproduced | D192 host implementation and independent tests passed; new checked artifact/scope before target use |
-| Commissioning firmware | Seven trial wrappers require M0, empty SetupGrants and no native DumpPort; generic tooling refuses powered trials | New narrow operational entry using existing Runtime/Gate, configured grants and dump port; checked profile compile/deploy admission. Start with B4/P3, preserve historical inert wrappers |
+| Native motor fault localization | D195 froze on SETTLEfalse at921; first failure retained despite64-call prefix truncation, finalHALTalsofalse | Minimal probe-only internal rejection evidence with unchanged150us/4096poll guards; independent tests/review and new checked target scope before use |
+| Commissioning firmware | Seven trial wrappers remain inert; ordinary app.ino already binds Runtime, configured grants and native dump port | Separate B4/P3 profile/build/deploy admission using the existing entry; preserve historical inert wrappers. See P7_b4_profile_scope_followup.md |
 | Production memory/loading | D185 current dynamic/default has592B modeled deficit; MATCH only conditional864B span/860B largest payload | Review production memory remedy or qualified static production path with probe disabled; then actual load, live stack/headroom and full-source timing |
 | Recorder and next round | Formatting/storage/runtime software exists; native UART ownership/cancel/reopen remains unqualified | Complete actual prerequisites, same-boot delivery and log-preserving rearm under SC-AP; repair only evidenced defects |
 | Operator/release deliverables | Runbook, mode card, rehearsal sheets and kit list drafted | Qualify procedures against operational firmware, print/team review, actual rehearsal, freeze artifacts/tag and human gates |
@@ -31,12 +33,13 @@ main app. `tools/app_build_policy.py` pins trial M0 flags; `board_tool.py` refus
 their uploads; `match_deploy.py::validate_request` admits only ordinary MATCH app
 with Immediate startup, while config's trial guards require !MATCH.
 
-This is an intentionally unfinished transition from host/inert trial validation
-to runnable acceptance firmware. Merely loosening a flag check would leave START,
-sensor setup and evidence delivery absent. Existing D120/P3/P4 contracts scoped
-these old wrappers to compile-only; they are not defects to conceal or rewrite.
-The new route can be designed, implemented and tested before physical acceptance,
-but execution still requires configured facts and fresh identified STAND/RING OK.
+This is an unfinished transition from host/inert trial validation to runnable
+acceptance firmware. Use the existing ordinary app entry with separate checked
+profile admission; no duplicate sketch is needed. Merely loosening old wrapper
+flags would leave START, sensor setup and evidence delivery absent. Existing
+D120/P3/P4 contracts scoped those wrappers to compile-only. The new route can be
+designed and tested before physical acceptance, but motor-capable execution
+still requires configured facts and fresh identified STAND/RING OK.
 
 ## External dependencies and boundaries
 

@@ -1396,3 +1396,6 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-26T09:35:15.664942+04:00 | P7 D195 actual inhibited observation | Atclean10be3126 check0/execute0,13transports/oneupload/26reads727152B/fullflashbracketsPASS; result4fc33583. ObserverFROZEN/CALLBACK_FAILURE at921epochs/115539polls, firstAPPLY/SETTLEfalse; finalHALTsettlefalse/inhibitionunconfirmed. Instrumented859us sample, internalbranchunknown. Separateactualreviewf8779db4PASS/2020scalarchecks. Allownersconsumed; nextminimalinternalprobe, no guardrelaxation/physicalgate.
+
+
+2026-09-26T09:52:54.246983+04:00 | P7 D197 host closure PASS | Sourcef1ee755a/header2eced554 addprobe-only28Bcurrent/firstfailure withunchanged150us/4096polls/nativecalls. Independentfinal5methodsPASS/21scenariosx3exacttranscripts, probe0preprocessed/symbolsexact; locked76cases217020assertionsPASS.140pinsstable/nofixtureremnants. Firstharnessfailuresc7fa1679/a0ccf86d retained; only twoindependentlyadjudicatedfixturecorrections, allassertionsunchanged. Reviewbe2ff77ePASS. D198newcompilehostvalidationongoing; D195stilllatestflashed/internalcauseunobserved.

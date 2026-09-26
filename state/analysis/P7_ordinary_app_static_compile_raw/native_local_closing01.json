@@ -1,0 +1,166 @@
+{
+  "schema": "d208-native-local-closing-v1",
+  "created": "2026-09-26T15:51:01.984548+04:00",
+  "status": "NATIVE_RESULT_CLOSED_AWAITING_INDEPENDENT_ACTUAL_REVIEW",
+  "reviewed_head": "9bdd38aeb312404bc1cd2a3b3fa7e7f621f3bad5",
+  "frozen_inputs": 191,
+  "manifest_pins": 125,
+  "scope_pins": 15,
+  "changed_inputs": [],
+  "source_sha256": "9044ebbb3cd3b2dbb7aa5984dd5ff23bfff697372f1f29d56693af9ea5eaf31a",
+  "stage_files": 104,
+  "stage_bytes": 764405,
+  "stage_hashes_and_directories_match": true,
+  "native_files": 972,
+  "native_bytes": 1650045,
+  "local_free_bytes": 7405113344,
+  "query_calls": 1,
+  "compiler_calls": 1,
+  "transport_calls": 230,
+  "compiler_seconds": 226.068115234375,
+  "query_seconds": 1.6052181720733643,
+  "compiler_jobs": 1,
+  "compiler_timed_out": false,
+  "compiler_reaped": true,
+  "closing_checks": [
+    {
+      "error": null,
+      "name": "local",
+      "status": "PASS"
+    },
+    {
+      "error": null,
+      "name": "identity",
+      "status": "PASS"
+    },
+    {
+      "error": null,
+      "name": "initialization",
+      "status": "PASS"
+    },
+    {
+      "error": null,
+      "name": "builtins",
+      "status": "PASS"
+    },
+    {
+      "error": null,
+      "name": "remote_sources",
+      "status": "PASS"
+    },
+    {
+      "error": null,
+      "name": "installed_pins",
+      "status": "PASS"
+    },
+    {
+      "error": null,
+      "name": "overrides",
+      "status": "PASS"
+    },
+    {
+      "error": null,
+      "name": "artifacts",
+      "status": "PASS"
+    }
+  ],
+  "artifacts": {
+    "app.ino.bin": {
+      "bytes": 92928,
+      "sha256": "6f5f531b114219d712d857b4ac89ad161ceb217211207788a27443b7d4ab6db7"
+    },
+    "app.ino.bin-zsk.bin": {
+      "bytes": 92944,
+      "sha256": "7fa9d41da043931e1237712e1e88bda4151c82933af2ecec97ce3a02184d23ad"
+    },
+    "app.ino.elf": {
+      "bytes": 170376,
+      "sha256": "aaeeb64025dae2b2f8bf0458a39c110377ca8d5e4c9f833fae75444a181f6db5"
+    },
+    "app.ino.elf-zsk.bin": {
+      "bytes": 170376,
+      "sha256": "1bba8a9b8f2bc91a7d28d017602606e0644b28bb360f2ed87018dc18e5b4d609"
+    },
+    "app.ino.map": {
+      "bytes": 431425,
+      "sha256": "dc6f91c98f23418704c005bd847ccf604544d8f12697ce856337219bfb8627b8"
+    },
+    "app.ino_debug.elf": {
+      "bytes": 1751548,
+      "sha256": "71e512382e764810ed02eec110e3c1c003244d41d608b145ea400e1e8235ab90"
+    },
+    "app.ino_temp.elf": {
+      "bytes": 1751548,
+      "sha256": "71e512382e764810ed02eec110e3c1c003244d41d608b145ea400e1e8235ab90"
+    }
+  },
+  "structural_ram": {
+    "end": 537118720,
+    "remaining": 94352,
+    "start": 536950928
+  },
+  "data_copy": {
+    "bytes": 208,
+    "destination": 536950928,
+    "source": 135359040
+  },
+  "bss_zero": {
+    "bytes": 167272,
+    "end": 537118408,
+    "start": 536951136
+  },
+  "flash": {
+    "end": 135359248,
+    "remaining": 693488,
+    "start": 135266320
+  },
+  "sections": [
+    {
+      "address": 135266320,
+      "alignment": 8,
+      "flags": 6,
+      "load_address": 135266320,
+      "name": ".text",
+      "size": 88288,
+      "type": 1
+    },
+    {
+      "address": 135354608,
+      "alignment": 4,
+      "flags": 3,
+      "load_address": 135354608,
+      "name": ".init_array",
+      "size": 4,
+      "type": 14
+    },
+    {
+      "address": 135354616,
+      "alignment": 8,
+      "flags": 2,
+      "load_address": 135354616,
+      "name": ".rodata",
+      "size": 4424,
+      "type": 1
+    },
+    {
+      "address": 536950928,
+      "alignment": 4,
+      "flags": 3,
+      "load_address": 135359040,
+      "name": ".data",
+      "size": 208,
+      "type": 1
+    },
+    {
+      "address": 536951136,
+      "alignment": 8,
+      "flags": 3,
+      "load_address": null,
+      "name": ".bss",
+      "size": 167584,
+      "type": 8
+    }
+  ],
+  "cli_size_summary": "Sketch uses 92944 bytes (11%) of program storage space. Maximum is 786432 bytes.\nGlobal variables use 167796 bytes (64%) of dynamic memory, leaving 94348 bytes for local variables. Maximum is 262144 bytes.\n",
+  "boundary": "No upload, reset, MCU read, ordinary runtime, live RAM/stack or WCET measurement. Structural remaining94352 and CLI size summary94348 are separate static accounting reports, neither a live free-RAM measurement."
+}

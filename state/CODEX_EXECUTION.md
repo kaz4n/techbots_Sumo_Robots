@@ -1,5 +1,18 @@
 # Current execution checklist - 2026-09-26 Asia/Dubai
 
+Latest checkpoint: D207 actual inhibited10000-epoch diagnostic is accepted;
+D208 ordinary static/default/M0/probe0 compilation returned COMPILE_CHECKED and
+is independently accepted by actual review8cd383e4. Read the top checkpoint in
+CODEX_HANDOFF.md and analysis/P7_ordinary_app_static_compile_validation.md.
+D207 remains the latest verified flashed image. No D208 upload/reset/MCU read.
+All completed native owners are consumed. The next bounded work is ordinary
+file-only ABI/entry preparation; diagnostic Runner/SETTLE layouts do not apply.
+All older current/next paragraphs below are historical and superseded by this
+checkpoint and the handoff. Continue the full project without inventing physical
+acceptance or human gates. No fresh STAND/RING permission has been supplied.
+
+## Historical execution checkpoints
+
 Current checkpoint: D201 actual inhibited capture and independent review are
 complete. Firstfailure FINAL_DEADLINE154us occurs during SETUP, zeroepochs;
 subsequent setup-inhibit cleanup SETTLE succeeds132us. No timing remedy or gate.

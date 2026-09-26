@@ -1,5 +1,17 @@
 # Current ordinary-app static build follow-up
 
+Current update, 26 September 2026: D208 has completed the fixed ordinary
+static/default/MATCH0/MOTORS_ALLOWED0/probe0 compilation described below.
+The native result is COMPILE_CHECKED with all eight closing checks passing;
+independent actual-result review8cd383e4 accepts this packet. Current source is9044ebbb, package
+92944B/7fa9d41d and structural RAM tail94352B. See
+P7_ordinary_app_static_compile_validation.md for exact evidence and limitations.
+The next work is ordinary file-only ABI/entry preparation, then a separately
+reviewed finite inhibited runtime scope. No ordinary upload has occurred.
+
+The following source-planning note is historical; its former next actions are
+superseded by that current validation and CODEX_HANDOFF.md.
+
 Read-only source planning on 26 September 2026, after D198 compilation. This
 is not an adopted build contract or evidence that the ordinary app fits or runs.
 The diagnostic source117cc0e7 and its artifact do not represent production.

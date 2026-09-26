@@ -9,16 +9,14 @@ physical acceptance. Do not reset the project to P0.
    Check nested instructions, Git status, actual Asia/Dubai time and free space.
    Preserve uncommitted user work. PROGRESS has legacy non-UTF8 bytes: append
    without re-encoding its history. The handoff holds the exact current next task.
-2. Read the current handoff before selecting a native task. D201 is the latest
-   inhibited capture: its saved SETUP failure is FINAL_DEADLINE154us before any
-   control epoch. D198 source117cc0e7 remains flashed; D199 actual ABI/entry and
-   D200 cleanup are complete. D195's application921 failure remains a distinct
-   historical observation. Read analysis/P7_motor_settle_run_validation.md.
-   D202 permits only compile-time derivation of immutable expected motor metadata;
-   its independent host validation/review is the current task. Preserve150us/4096,
-   every live check/call/order and zero grants. All native owners are consumed.
-   New checked artifacts and actual ABI/entry must precede a separately reviewed
-   inhibited run. Use the handoff for current host sessions and exact next steps.
+2. Read the latest checkpoint at the top of the current handoff before selecting
+   a native task. It identifies the latest verified flashed image, completed
+   artifact/runtime reviews and the exact eligible next operation. Preserve
+   historical failures and distinguish compile/file observations from runtime
+   and physical evidence. Keep150us/4096 bounds, live checks and zero grants.
+   Never infer ordinary-app layouts from a diagnostic image. New checked
+   artifacts and actual ABI/entry must precede a separately reviewed inhibited
+   run; use the handoff for current host sessions and consumed owners.
 3. All old native scopes are consumed. Never rerun a historical launcher, repin
    its consumed manifest, reset the MCU or infer that an old capture layout fits
    changed firmware. A new operation needs fresh source/artifact/identity binding

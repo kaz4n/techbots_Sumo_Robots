@@ -472,3 +472,6 @@ D191 closing observation: C:recovered290537472B independently before local docum
 
 
 2026-09-26T15:35:08.329581+04:00 P7 D208 host preparation: retained 58 raw preparation/review-evidence files totaling 992638 bytes, including the original failed host run and byte-exact prior oracle versions needed to reproduce its adjudication. Host TemporaryDirectory cleanup completed; final scoped /dev/shm scan and both dedicated Windows TEMP directories were empty. No host compiler objects or Python bytecode were produced. No board cleanup or protected historical deletion was attempted. Local free space before the target compile preparation is 7433428992 bytes; fresh board root/home free space was 2935255040/13913214976 bytes. Future build remains serial with one compiler.
+
+
+2026-09-26T15:53:59.907309+04:00 P7 D208 native compile: retained972 native receipt files/1650045 bytes plus104 staged source files/764405 bytes. Checked board ELF/debug/map/package artifacts and canonical source remain needed for independent actual review and the immediate ordinary ABI/entry/load follow-up; the local stage remains for that closure. No host object executable or Python bytecode was created. Native compilation used one jobs1 compiler; no automatic retry, board cleanup or deletion of previously protected paths occurred. Temporary host test fixtures are already empty.

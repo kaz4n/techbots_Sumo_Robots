@@ -1465,3 +1465,6 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-26 P7: D208 actual board admission,125-file ordinary manifest and15-role compile scope accepted by review7bf556e3. Index audit228 exact blobs/191 frozen pins PASS; no tested working bytes changed. Next: clean reviewed commit, check-only, then one jobs1 ordinary static M0 compile; current verified flash remains D207. No phase gate or motor authorization.
+
+
+2026-09-26T16:00:43.065530+04:00 | P7 | D208 ordinary static compile independently accepted | Review8cd383e4 PASS; one query/compiler,230transports/eightclosingPASS atclean9bdd38ae. Source9044ebbb; package92944B/7fa9d41d; structural RAM94352B is not live headroom. No flash/runtime/gate. Next fresh ordinary ABI/entry preparation. | commit pending

@@ -1,0 +1,57 @@
+{
+  "schema": "d208-native-invocations-v1",
+  "check": {
+    "argv": [
+      "C:\\Users\\narut\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+      "-I",
+      "-B",
+      "tools/compile_ordinary_app_static.py",
+      "--check-only",
+      "--reviewed-head",
+      "9bdd38aeb312404bc1cd2a3b3fa7e7f621f3bad5"
+    ],
+    "head": "9bdd38aeb312404bc1cd2a3b3fa7e7f621f3bad5",
+    "started": "2026-09-26T15:40:52.791729+04:00",
+    "elapsed_seconds": 0.62221399997361,
+    "returncode": 0,
+    "stdout": "{\r\n  \"schema\": \"ordinary-app-static-check-v1\",\r\n  \"reviewed_head\": \"9bdd38aeb312404bc1cd2a3b3fa7e7f621f3bad5\",\r\n  \"source_sha256\": \"9044ebbb3cd3b2dbb7aa5984dd5ff23bfff697372f1f29d56693af9ea5eaf31a\",\r\n  \"boot_id\": \"55c386b9-fe6d-4388-a7f4-1d91e0bb49d8\",\r\n  \"project\": \"app.ino\",\r\n  \"fqbn\": \"arduino:zephyr:unoq:link_mode=static\",\r\n  \"flags\": \"-DMATCH=0 -DMOTORS_ALLOWED=0\",\r\n  \"output\": \"C:\\\\Users\\\\narut\\\\OneDrive\\\\Desktop\\\\Project\\\\techbots_Sumo_Robots\\\\state\\\\analysis\\\\P7_ordinary_app_static_compile_raw\\\\native_static01\",\r\n  \"stage\": \"C:\\\\Users\\\\narut\\\\OneDrive\\\\Desktop\\\\Project\\\\techbots_Sumo_Robots\\\\build\\\\stage\\\\ordinary-app-static01\\\\app\",\r\n  \"remote\": \"/home/arduino/sumox26_codex_build/ordinary-app-static01\",\r\n  \"sketch\": \"/home/arduino/sumox26_codex_build/9044ebbb3cd3b2dbb7aa5984dd5ff23bfff697372f1f29d56693af9ea5eaf31a/app\"\r\n}\r\n",
+    "stderr": ""
+  },
+  "execute": {
+    "argv": [
+      "C:\\Users\\narut\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+      "-I",
+      "-B",
+      "-X",
+      "pycache_prefix=C:\\Users\\narut\\OneDrive\\Desktop\\Project\\techbots_Sumo_Robots\\state\\analysis\\P7_ordinary_app_static_compile_raw\\native_static01\\pycache",
+      "tools/compile_ordinary_app_static.py",
+      "--execute",
+      "--reviewed-head",
+      "9bdd38aeb312404bc1cd2a3b3fa7e7f621f3bad5"
+    ],
+    "head": "9bdd38aeb312404bc1cd2a3b3fa7e7f621f3bad5",
+    "started": "2026-09-26T15:41:11.644869+04:00",
+    "elapsed_seconds": 414.06057179998606,
+    "returncode": 0,
+    "stdout": "{\r\n  \"schema\": \"ordinary-app-static-compile-outcome-v1\",\r\n  \"project\": \"app.ino\",\r\n  \"fqbn\": \"arduino:zephyr:unoq:link_mode=static\",\r\n  \"flags\": \"-DMATCH=0 -DMOTORS_ALLOWED=0\",\r\n  \"reviewed_head\": \"9bdd38aeb312404bc1cd2a3b3fa7e7f621f3bad5\",\r\n  \"source_sha256\": \"9044ebbb3cd3b2dbb7aa5984dd5ff23bfff697372f1f29d56693af9ea5eaf31a\",\r\n  \"boot_id\": \"55c386b9-fe6d-4388-a7f4-1d91e0bb49d8\",\r\n  \"started_utc\": \"2026-09-26T11:41:13.205817+00:00\",\r\n  \"final_checks\": [\r\n    {\r\n      \"name\": \"local\",\r\n      \"status\": \"PASS\",\r\n      \"error\": null\r\n    },\r\n    {\r\n      \"name\": \"identity\",\r\n      \"status\": \"PASS\",\r\n      \"error\": null\r\n    },\r\n    {\r\n      \"name\": \"initialization\",\r\n      \"status\": \"PASS\",\r\n      \"error\": null\r\n    },\r\n    {\r\n      \"name\": \"builtins\",\r\n      \"status\": \"PASS\",\r\n      \"error\": null\r\n    },\r\n    {\r\n      \"name\": \"remote_sources\",\r\n      \"status\": \"PASS\",\r\n      \"error\": null\r\n    },\r\n    {\r\n      \"name\": \"installed_pins\",\r\n      \"status\": \"PASS\",\r\n      \"error\": null\r\n    },\r\n    {\r\n      \"name\": \"overrides\",\r\n      \"status\": \"PASS\",\r\n      \"error\": null\r\n    },\r\n    {\r\n      \"name\": \"artifacts\",\r\n      \"status\": \"PASS\",\r\n      \"error\": null\r\n    }\r\n  ],\r\n  \"status\": \"COMPILE_CHECKED\",\r\n  \"first_error\": null,\r\n  \"compiler_calls\": 1,\r\n  \"query_calls\": 1,\r\n  \"transport_calls\": 230,\r\n  \"artifacts\": \"/home/arduino/sumox26_codex_build/ordinary-app-static01/artifacts\",\r\n  \"receipt\": \"C:\\\\Users\\\\narut\\\\OneDrive\\\\Desktop\\\\Project\\\\techbots_Sumo_Robots\\\\state\\\\analysis\\\\P7_ordinary_app_static_compile_raw\\\\native_static01\\\\artifacts.json\",\r\n  \"finished_utc\": \"2026-09-26T11:48:05.691285+00:00\"\r\n}\r\n",
+    "stderr": ""
+  },
+  "scope_sha256": "6a17b23a9d6d68cd75e65c846aaeebf9868d3c30865e3e5d029c9fa1f5f1a5e1",
+  "tool_metadata": {
+    "check": {
+      "chunk_id": "e9be26",
+      "wall_time_seconds": 1.1688986,
+      "exit_code": 0
+    },
+    "execute_initial": {
+      "chunk_id": "949012",
+      "wall_time_seconds": 10.0042773,
+      "session_id": 16098
+    },
+    "execute_final": {
+      "chunk_id": "5e7cc6",
+      "wall_time_seconds": 6.4842991,
+      "exit_code": 0
+    }
+  }
+}

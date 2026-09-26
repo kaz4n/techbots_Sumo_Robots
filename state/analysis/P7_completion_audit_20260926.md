@@ -3,10 +3,12 @@
 Objective remains the complete SumoX-26 project. Current phase is P7 software /
 release preparation, with earlier physical and human gates still open. This is
 a targeted current-source gap audit, not a completed requirement-by-requirement
-acceptance audit. D195 actual collection and independent review now reproduce
-the native SETTLE failure at application921. The exact internal rejection remains
-unknown; final halt inhibition was not confirmed. See the current handoff and
-P7_app_motor_observe_actual_validation.md.
+acceptance audit. D207's independently accepted inhibited diagnostic now reaches
+its 10000-epoch limit with no recorded callback/SETTLE failure. D195's failure at
+application921 and D201's setup FINAL_DEADLINE154us remain distinct preserved
+observations; one successful run does not prove an intermittent fault cured.
+See P7_motor_const_run_actual_validation.md. D208's ordinary static compile has
+returned COMPILE_CHECKED and is independently accepted by review8cd383e4.
 
 A separate reused-context same-model read-only reviewer inspected current phase
 prompts, PLAN, acceptance packets and operational source/tool paths. Core, HAL,
@@ -16,9 +18,9 @@ the following concrete remaining software and qualification work.
 
 | Track | Current evidence | Work still required |
 |---|---|---|
-| Native motor fault localization | D195 froze on SETTLEfalse at921; first failure retained despite64-call prefix truncation, finalHALTalsofalse | Minimal probe-only internal rejection evidence with unchanged150us/4096poll guards; independent tests/review and new checked target scope before use |
+| Native motor fault localization | D201 observes setup FINAL_DEADLINE154us; D202 moves immutable expected metadata to constants; D207 reaches10000epochs, max519us/missed0 and final callback-level inhibition acknowledgment | Preserve D195/D201 failures and trace truncation; ordinary runtime and full initialized operational timing remain unqualified. No measured speedup or intermittent-cure claim |
 | Commissioning firmware | Seven trial wrappers remain inert; ordinary app.ino already binds Runtime, configured grants and native dump port | Separate B4/P3 profile/build/deploy admission using the existing entry; preserve historical inert wrappers. See P7_b4_profile_scope_followup.md |
-| Production memory/loading | D185 current dynamic/default has592B modeled deficit; MATCH only conditional864B span/860B largest payload | Review production memory remedy or qualified static production path with probe disabled; then actual load, live stack/headroom and full-source timing |
+| Production memory/loading | D208 ordinary static/default/M0/probe0 compilation passes native checks; independent actual review8cd383e4 accepted. Package92944B, structural RAM tail94352B. D185 dynamic deficit and conditional MATCH figures remain historical separate profiles | Fresh ordinary ABI/entry observation, separately bounded inhibited load/run, live stack/headroom and full-source timing; no MATCH/B4 fit inference |
 | Recorder and next round | Formatting/storage/runtime software exists; native UART ownership/cancel/reopen remains unqualified | Complete actual prerequisites, same-boot delivery and log-preserving rearm under SC-AP; repair only evidenced defects |
 | Operator/release deliverables | Runbook, mode card, rehearsal sheets and kit list drafted | Qualify procedures against operational firmware, print/team review, actual rehearsal, freeze artifacts/tag and human gates |
 | Conditional P6 | Plotter, real plots, JUDGE_PACK and demo not delivered | Eligibility requires actual P4 gate by30September and no28September scope cut; do not invent eligibility |

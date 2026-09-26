@@ -1,5 +1,57 @@
 # Codex handoff - 26 September 2026, Asia/Dubai
 
+## Latest checkpoint: D208 ordinary compile independently accepted
+
+This checkpoint supersedes every older current/next paragraph below. The user
+requests continued full-project work with the connected board; active phase is
+P7 software/release preparation. No human phase gate or motor-run permission.
+
+Latest verified flash: accepted D207 diagnostic, source4bc3a2e6, static/default/
+MATCH0/MOTORS_ALLOWED0/probe1. Actual reviewb5624884 accepts the single bounded
+10000-epoch run; max519us/missed0, no recorded callback/SETTLE failure and final
+callback-level inhibition acknowledgment. Robot remains BOOT with setup grants
+absent. Trace losses59953 and coherenceUNPROVEN remain explicit. D195/D201
+failures are preserved; no intermittent-cure, live-memory or full-WCET claim.
+Read analysis/P7_motor_const_run_actual_validation.md; commit5172dd9a.
+
+D208 at clean9bdd38aeb312404bc1cd2a3b3fa7e7f621f3bad5 completed one ordinary
+app.ino static/default/M0/probe0 compile, source9044ebbb. Check-only0/execute0;
+one query, one jobs1 compiler,230transports and all8closingPASS. Result221d02be,
+artifact report275ebb61, local closure21917a13. ELF170376B/aaeeb640,
+debug1751548B/71e51238, package92944B/7fa9d41d. Structural RAM tail94352B and
+CLI size remainder94348B are distinct static reports, not live headroom.
+No D208 upload/reset/MCU read. All191coordinator/125manifest/15scope pins stable;
+104stagedfiles764405B,972native evidence files1650045B retained for review.
+The ordinary compiler owner is consumed; do not repeat. Read
+analysis/P7_ordinary_app_static_compile_validation.md and its raw directory.
+
+Independent actual review8cd383e4 is FINAL PASS at
+reviews/P7_ordinary_app_static_compile_actual_review.md (14982B). D208 artifact
+acceptance is complete; root records and commits it. Independent draft author fresh_review owns
+the proposed D209 ordinary ABI contract and data-only derivation; explorer
+ordinary_abi_scope researches precise fields. No new ABI subject/oracle or native
+scope has been adopted. Ordinary app has no diagnostic Runner or SETTLE report;
+all addresses/layouts need fresh file-only observation. Ordinary loop has no
+diagnostic terminal freeze, so a later runtime protocol needs finite bounds and
+explicit coherence limits. No historical diagnostic capture layout transfers.
+
+Production/configuration/locked tests remain unchanged. D208 host evidence is
+Linux135PASS and Windows111PASS/24 Linux-covered skips, with original78/2 failure
+and fixture corrections preserved. Review87a81920/e69387e0; admission7bf556e3.
+No need to rerun passing tests. Remaining work is tracked in
+analysis/P7_completion_audit_20260926.md. Keep one heavy job at a time; C: had
+about6.82GiB free at15:57Dubai. No background native process remains.
+
+Storage and authority: keep unique failure/evidence/source/artifacts. D206root05
+cleanup and all earlier owners are consumed; any new upload scratch cleanup
+requires a fresh exact scope. Never retry previously denied host deletions.
+Password is not retained. D051 engineering delegation does not create physical
+facts, STAND/RING/PINMAP permission or human gates. PROGRESS remains binary
+append-only with its first140971B SHA256
+1dbbeb53c3dc046128494af3bef240b9a00353929d6121991900c90bb2838b77.
+
+## Historical checkpoints below
+
 ## Current board result
 
 D201 completed and independently reviewed. Latest flashed image is D198 source

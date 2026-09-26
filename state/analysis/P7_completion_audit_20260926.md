@@ -1,3 +1,5 @@
+Current superseding update, 26 September 22:42 Dubai: D221 inhibited B4 M0 is loaded; D219 actual capture/export passed its bounded review (EMPTY, origin/coherence UNPROVEN). D222 shared seven-profile M0/M1 compile tooling passed host review and is ready for its sequential native matrix. D223 resolved protected-holder visibility for two complete samples; live UART framing/readiness/delivery remains unqualified. See P7_commissioning_build_validation.md and P7_uart_holder_validation.md. No physical acceptance or human gate follows. The audit below is retained history.
+
 # Project completion audit - 26 September 2026
 
 Latest update: D214 B4 M0/static/default compile-only is accepted in commit

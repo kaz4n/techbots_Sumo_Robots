@@ -2629,3 +2629,6 @@ fixture failure is retained; production stayed unchanged. Admit the reviewed
 14-tuple native01 compile matrix with clean exact HEAD per attempt, sequential
 jobs1, full closing/checked artifacts, per-owner evidence commits and stop on any
 failure. No upload, motor-run permission, physical evidence or phase gate.
+
+
+D-223 actual acceptance (2026-09-26T22:41:44.155598+04:00): Adopt source/host review 9c8fb765 and actual review 0bce66ac FINAL PASS for bounded holder visibility. One exact no-echo authenticated read-only observation returned 0 in 14.381 s; both complete sweeps saw 165 processes, 275 tasks and only arduino-router PID 568 fd 7 across ten task tables. All five reviewed inputs and before/after boundary identities match. No observation problem or truncation; 6180 actual FD metadata stats. Raw stdout 5459 bytes / SHA-256 8380134796ac20aeab649e52ba4feacc22a75bc6dccd020ee7b69df8bc5c1be5. Consume this observation owner. Continuous exclusivity, clean framing and receiver readiness remain UNKNOWN; no setup grant or runtime/physical acceptance follows.

@@ -1,0 +1,53 @@
+test_boot_router_and_device_boundary_changes_remain_incomplete (__main__.UartObservationContract.test_boot_router_and_device_boundary_changes_remain_incomplete) ... ok
+test_boundary_failure_is_recorded_without_claiming_an_empty_device (__main__.UartObservationContract.test_boundary_failure_is_recorded_without_claiming_an_empty_device) ... ok
+test_changed_holder_executable_identity_between_sweeps_is_not_complete (__main__.UartObservationContract.test_changed_holder_executable_identity_between_sweeps_is_not_complete) ... ok
+test_changed_process_task_and_fd_name_sets_are_not_complete (__main__.UartObservationContract.test_changed_process_task_and_fd_name_sets_are_not_complete) ... 
+  test_changed_process_task_and_fd_name_sets_are_not_complete (__main__.UartObservationContract.test_changed_process_task_and_fd_name_sets_are_not_complete) (selected=(100, 101)) ... ERROR
+test_changed_uart_descriptor_identity_between_sweeps_is_not_complete (__main__.UartObservationContract.test_changed_uart_descriptor_identity_between_sweeps_is_not_complete) ... ok
+test_deadline_produces_incomplete_even_without_permission_errors (__main__.UartObservationContract.test_deadline_produces_incomplete_even_without_permission_errors) ... ok
+test_every_denied_or_vanished_table_or_stat_is_incomplete (__main__.UartObservationContract.test_every_denied_or_vanished_table_or_stat_is_incomplete) ... ok
+test_exact_global_fd_limit_with_unvisited_tasks_cannot_finish_a_sweep (__main__.UartObservationContract.test_exact_global_fd_limit_with_unvisited_tasks_cannot_finish_a_sweep) ... ok
+test_holder_limit_is_not_a_complete_partial_list (__main__.UartObservationContract.test_holder_limit_is_not_a_complete_partial_list) ... ok
+test_main_refuses_nonroot_and_extra_arguments_before_metadata (__main__.UartObservationContract.test_main_refuses_nonroot_and_extra_arguments_before_metadata) ... ok
+test_output_limit_preserves_aggregate_scan_and_error_counts (__main__.UartObservationContract.test_output_limit_preserves_aggregate_scan_and_error_counts) ... ok
+test_private_thread_holder_is_observed_and_identity_is_cached_per_sweep (__main__.UartObservationContract.test_private_thread_holder_is_observed_and_identity_is_cached_per_sweep) ... ok
+test_problem_details_are_bounded_but_all_problem_counts_survive (__main__.UartObservationContract.test_problem_details_are_bounded_but_all_problem_counts_survive) ... ok
+test_process_and_task_id_reuse_cannot_be_complete (__main__.UartObservationContract.test_process_and_task_id_reuse_cannot_be_complete) ... ok
+test_process_task_and_fd_enumeration_caps_are_always_incomplete (__main__.UartObservationContract.test_process_task_and_fd_enumeration_caps_are_always_incomplete) ... ok
+test_stable_absence_stays_sampled_and_never_grants_exclusivity (__main__.UartObservationContract.test_stable_absence_stays_sampled_and_never_grants_exclusivity) ... ok
+
+======================================================================
+ERROR: test_changed_process_task_and_fd_name_sets_are_not_complete (__main__.UartObservationContract.test_changed_process_task_and_fd_name_sets_are_not_complete) (selected=(100, 101))
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tests\tooling\test_uart_holder_observer.py", line 157, in test_changed_process_task_and_fd_name_sets_are_not_complete
+    self.incomplete(self.observe(ops))
+                    ~~~~~~~~~~~~^^^^^
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tests\tooling\test_uart_holder_observer.py", line 85, in observe
+    result = self.subject.observe(ops, clock=(lambda: 0.0) if clock is None else clock)
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tools\observe_uart_holders.py", line 279, in observe
+    out['sweeps'] = [sweep(ops, clock, budget), sweep(ops, clock, budget)]
+                                                ~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tools\observe_uart_holders.py", line 259, in sweep
+    scan_process(out, ops, clock, start + SWEEP_SECONDS, budget, pid)
+    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tools\observe_uart_holders.py", line 236, in scan_process
+    scan_task(out, ops, clock, deadline, budget, pid, tid, token)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tools\observe_uart_holders.py", line 208, in scan_task
+    row = attempt(out, 'fd_stat', lambda: ops.fd(pid, tid, fd),
+                  pid=pid, tid=tid, fd=fd)
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tools\observe_uart_holders.py", line 175, in attempt
+    return operation()
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tools\observe_uart_holders.py", line 208, in <lambda>
+    row = attempt(out, 'fd_stat', lambda: ops.fd(pid, tid, fd),
+                                          ~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\narut\OneDrive\Desktop\Project\techbots_Sumo_Robots\tests\tooling\test_uart_holder_observer.py", line 58, in fd
+    return copy.deepcopy(self.tables[(pid, tid)][fd])
+                         ~~~~~~~~~~~~~~~~~~~~~~~^^^^
+KeyError: 9
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.395s
+
+FAILED (errors=1)

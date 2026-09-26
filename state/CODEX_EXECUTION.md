@@ -1,3 +1,5 @@
+Current execution pointer, 26 September 2026: resume from CODEX_HANDOFF.md. D219 capture and D223 sampled UART visibility are accepted. Next is the D222 sequential compile-only commissioning matrix plus remaining live synthetic delivery engineering. Historical entries below do not authorize rerunning consumed owners.
+
 # Current execution checklist - 2026-09-26 Asia/Dubai
 
 Latest checkpoint: D207 actual inhibited10000-epoch diagnostic is accepted;

@@ -1,3 +1,5 @@
+26 September update (D223): the holder-visibility limitation below is superseded for two complete privileged process/task/FD samples; only arduino-router PID 568 fd 7 was observed. See P7_uart_holder_validation.md and its independently reviewed raw receipt. Continuous exclusivity, RX-DMA completion, positive reopen and clean framing remain unproved. This update does not grant transport readiness; the source analysis below remains historical evidence.
+
 # Native dump prerequisites: installed driver and current visibility
 
 Read-only follow-up, 2026-09-24. This qualifies

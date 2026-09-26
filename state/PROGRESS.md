@@ -1586,3 +1586,6 @@ qualification and human gates remain open; board only. | nativeHEAD 256dbd5d
 30 Linux and 29 Windows host methods PASS (one Linux-only Windows skip), six
 inputs stable; independent review dc6439f3 FINAL PASS. Native 14-tuple compile
 matrix is admitted conditionally, not yet executed. Firmware unchanged. | pending
+
+
+2026-09-26T22:41:44.155598+04:00 | P7 | D223 read-only UART visibility | PASS: two complete privileged metadata samples, 165 processes/275 tasks each; only router PID 568 fd 7 observed; independent actual review 0bce66ac. No firmware or service changes; readiness unknown. | commit pending

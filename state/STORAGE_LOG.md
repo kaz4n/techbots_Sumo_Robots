@@ -552,3 +552,6 @@ closing storage observation. Keep checked source/build artifacts and fresh D221
 upload scratch; no fresh scratch inventory supports deletion. The prior automatic
 policy block on the 764,405-byte local stage remains in effect; no retry or
 alternative deletion occurred. No new disposable build output was generated.
+
+
+2026-09-26T22:41:44.155598+04:00 | D222/D223 | Retain compact source/host reviews, original failing fixture evidence, corrected successful test receipts and the unique 5459-byte UART observation plus authentication transport metadata. Credentials were never saved. No bulk build created or cleanup attempted in this batch. C: free space before matrix 5,629,304,832 bytes. Previously policy-blocked local stage remains retained without retry.

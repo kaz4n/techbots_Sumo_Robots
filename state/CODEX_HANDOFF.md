@@ -1,3 +1,11 @@
+## Current checkpoint - 2026-09-26T22:41:44.155598+04:00
+
+Objective: finish software and connected-board validation quickly; physical state is BOARD ONLY. D222 shared commissioning compile-only tooling is committed in 6e8ccc73 and accepted by review dc6439f3: 30 Linux tests, 29 Windows tests plus one explicit platform skip. Next: execute seven profiles x explicit M0/M1, token native01, in review order; one compiler jobs=1, clean exact HEAD per tuple, commit each closed owner before the next. Stop on failure. No upload is included. See analysis/P7_commissioning_build_validation.md.
+
+D223 actual metadata observation is independently accepted (review 0bce66ac): two complete 165-process/275-task samples observed only arduino-router PID 568 fd 7. All input and boundary identities match; owner consumed. Continuous exclusivity/framing/readiness remain UNKNOWN. See analysis/P7_uart_holder_validation.md. Firmware remains D221 inhibited B4 M0; D219 actual recorder capture is accepted but EMPTY with origin/coherence UNPROVEN. No sensor/motor trials or human gates passed.
+
+Changed files: new shared commissioning build policy/caller/tests and UART metadata observer/tests, raw receipts, reviews and current state documentation. No firmware source/config/locked tests changed. Full synthetic UART delivery remains the next independent software/board track. Existing cleanup exclusions, motor-run permission requirements and schedule remain in force. Older checkpoints below are historical.
+
 ## Current checkpoint - 2026-09-26T22:10:36.680817+04:00
 
 Objective: finish the connected-board work quickly while preserving motor

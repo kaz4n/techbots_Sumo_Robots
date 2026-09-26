@@ -475,3 +475,10 @@ handles its exact compiled layout. Their integrity checks retain origin and
 coherence as unproven. This path does not qualify native UART/Bridge delivery or
 replace the match IDLE log dump. A different image or later capture needs its own
 current artifact/layout bindings and fresh attempt scope.
+
+
+## Shared commissioning app compilation (D222)
+
+Use `python -I -B tools/compile_commissioning_app.py --check-only --profile PROFILE --motors-allowed 0 --attempt native01 --reviewed-head FULL_HEAD`, then the same arguments with `--execute` after admission. Profiles: b4_stand, p3_drive, p3_turn, p3_stop, p4_reactive, p4_timing, p5_abort_timing. Motors must be explicitly 0 or 1. This compiles the real main application with static/default startup and MATCH0; it never uploads. Keep one compiler at a time and retain/commit each owner before the next. See state/reviews/P7_commissioning_build_review.md for the admitted matrix and failure handling.
+
+D223 observe_uart_holders.py produced one consumed privileged metadata-only observation; its exact source/transport and actual review are under state/analysis/P7_uart_holder_raw and state/reviews/P7_uart_holder_actual_review.md. It is evidence of two samples, not a general UART preparation or recurring privilege command.

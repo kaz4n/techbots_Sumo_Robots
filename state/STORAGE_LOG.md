@@ -466,3 +466,6 @@ D191 closing observation: C:recovered290537472B independently before local docum
 
 
 2026-09-26T14:33:11.086360+04:00 | D207 exact-byte Git preservation | Pre-commit index comparison found automatic EOL conversion in 23 new raw receipt/Windows stream blobs. Added only the scoped P7_motor_const_run_raw/** -text rule and restaged existing bytes. All 59 raw files now equal their index blobs byte for byte. Working source, oracles, reviews, scope and raw evidence were never altered; no tests or board actions were repeated.
+
+
+2026-09-26T14:48:17.014662+04:00 | D207 actual evidence retention | Keep 58 native files/628773 logical bytes, compact exact-reader intent/source, 27525-byte retrieved packet, 81223-byte decoded report and independent closure/reviews. Native closing b936b239 reported Cfree6208151552B. Scoped raw Git rule preserves all recorded bytes, and the exact current ABI map has an explicit -text rule. Checked board source/artifacts and unique failed-run history remain required. Uploader scratch from this new attempt has not been freshly inventoried for deletion; any next upload needs separately verified cleanup, not reuse of consumed root05. No manual deletion or reclaimed-byte claim.

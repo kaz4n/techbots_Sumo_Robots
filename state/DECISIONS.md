@@ -2407,3 +2407,6 @@ D-207 source/host closure 2026-09-26T14:30:41.694867+04:00: Adopt final caller/a
 
 
 D-207 native admission 2026-09-26T14:32:16.946535+04:00: Adopt final independent admission/scope review 3f0357cd PASS, conditional on clean committed HEAD and successful check-only. Exact scope 23c1fcf6, actual read-only board evidence 9a84758f, all source/host/map/cleanup/provenance gates and unused owners verified. Permit one unchanged M0/probe1 upload and conditional finite capture. Hold all writers through native closure. No retries, widened limits, motor permission or physical gate.
+
+
+D-207 actual closure 2026-09-26T14:48:17.014662+04:00: Adopt independent actual review b5624884 PASS for this one consumed inhibited attempt and one saved-file retrieval. Source and safety bounds remain unchanged. Successful begin and 10000 EPOCH_LIMIT cycles, no recorded callback/SETTLE failure, final callback-level inhibition acknowledgement and max519us/missed0 are accepted only within the ungranted BOOT diagnostic. Preserve all overflow/loss and D195/D201 failures; no intermittent-fault cure, full WCET, measured output or human gate follows. Native collection owner and retrieval owner are consumed; no repeat is authorized by this closure. Ordinary-app static compile-only work must have its own reviewed scope.

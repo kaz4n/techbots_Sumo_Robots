@@ -1453,3 +1453,6 @@ physical/loadedRAM/gate claim. | contract=this commit
 
 
 2026-09-26T14:30:41.694867+04:00 | P7 | D207 source and host checks accepted | 106 Linux native passes; 62 Windows passes and 44 covered skips; decoder 70 passes each. Reviews 74083d6e/316fec95/f4fd1bc8 and closures eeccfad2/d331a41b accepted. Fresh read-only board admission passes 19 file checks; final scope review pending before one inhibited run. | commit pending
+
+
+2026-09-26T14:48:17.014662+04:00 | P7 | D207 actual inhibited diagnostic accepted | PASS review b5624884. At clean 676e3625: one upload/capture, 13 transports, 26 reads, all firmware comparisons pass. Retrieved/independently decoded 2034 scalar fields: begin succeeds, EPOCH_LIMIT at 10000, no recorded callback/SETTLE failure, max519us/missed0, final callback-level inhibition acknowledged. BOOT/ungranted peripherals and 59953 trace losses remain explicit. Next ordinary-app static compile preparation. | commit pending

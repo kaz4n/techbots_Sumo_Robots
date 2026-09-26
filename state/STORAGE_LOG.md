@@ -567,3 +567,5 @@ alternative deletion occurred. No new disposable build output was generated.
 2026-09-27T00:29:04.773795+04:00 | D228 actual failed delivery | Retain267unique receipt files1722667B before rootclosure/report, including original timeout/empty partial capture, checked board artifacts and fresh stage for diagnosis. No cleanup/retry; all policyblocked paths retained. C free about2.08GB.
 
 2026-09-27T00:41:01.202936+04:00 | D230 | Retain native_abi01 ELF/DWARF evidence, transport receipts and root closure for exact layout reproduction and review. No disposable target data removed. Original local cleanup policy blocks remain in force.
+
+2026-09-27T01:00:41.313085+04:00 | D230 | Retain both raw status sets, ten transport receipts, exact image/source bindings, decode and root closure for the unique native failure. No scratch cleanup or reset occurred. Existing two policyblocked deletion scopes remain untouched.

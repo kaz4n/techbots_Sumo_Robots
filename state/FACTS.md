@@ -985,3 +985,13 @@ is established. User's current wiring report is BOARD ONLY.
 
 ### UART holder samples, 2026-09-26T22:41:44.155598+04:00 (D223)
 Verified from analysis/P7_uart_holder_raw/observation01.stdout and reviews/P7_uart_holder_actual_review.md: boot 55c386b9-fe6d-4388-a7f4-1d91e0bb49d8, Linux 6.16.7-g0dd6551ae96b; /dev/ttyHS1 char 239:1, filesystem dev 6/inode 148. Two complete samples observed only arduino-router PID 568 fd 7 in ten task tables, with no access or enumeration problems. Router executable SHA-256 3eacd38a9c813209f6985951869105600824e4f7c54a1111a8d48ef094cc1a19. Confidence: verified for these samples only; neither continuous exclusivity nor receiver readiness is established.
+
+### D230 actual recorder failure observation (2026-09-27T01:00:41.313085+04:00)
+Source: analysis/P7_recorder_failure_capture_actual_validation.md and actual
+review f05ab1c1. Full current loader/sketch comparisons passed before/after two
+684-byte snapshots. Both report Runner FAILED/DUMP,202480completed epochs,
+missed0,maxcompleted S..C484us,maxlateness2us; Transfer FAILED/PORT with zero
+acknowledged payload bytes. Native initialized/poisoned true,statusPOISONED,
+cleanup_verified false. Session matches3997245574426120340. Original native
+reason is not retained; zero acknowledged payload does not prove zero UART
+stores. Coherence remains UNPROVEN; no live RAM/full-loop/physical acceptance.

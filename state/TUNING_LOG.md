@@ -381,3 +381,5 @@ Added STAND_SEGMENT_MS=500 and STAND_DUTY=0.25 for the pure finite B4 request se
 
 
 2026-09-26T11:47:14.501322+04:00 | D201 inhibited diagnostic, no tuning | Internal first FINAL_DEADLINE154us/poll5/allthreefresh versus unchanged150us bound; initial SETUP callbackfalse159us outer, cleanupSETTLEsuccess132us internal/137us outer. Zero control epochs; maximum_execution_us0 is not a measured WCET. No pin/config/grant/limit change. Source117cc0e7/fullflashbracketsPASS, actualreview690a4164.
+
+2026-09-27T01:00:41.313085+04:00 | D230 passive saved-status observation | Completed-epoch maximum484us, missed0, maxlateness2us after202480epochs; final aborted epoch unmeasured. Source26943377 collector / D228 loadedsource702ad99e. No config change or physical timing qualification. See analysis/P7_recorder_failure_capture_actual_validation.md.

@@ -2691,3 +2691,17 @@ D-228 actual evidence acceptance (2026-09-27T00:37:09.556098+04:00): Adopt revie
 D-230 actual ABI acceptance (2026-09-27T00:41:01.202936+04:00): Adopt independent review 75334f6a PASS. One file-only execution at b90fd291 completed in 4.784 s, four children and all closing checks passed. ABI de0cb0ec mechanically binds six aligned ranges / 684 bytes per snapshot. Consume native_abi01. No MCU observation or cause is established; complete passive caller review remains pending.
 
 D-230 passive caller acceptance (2026-09-27T00:48:34.913867+04:00): Adopt independent review 5930b2d5 FINAL PASS and 10 focused Windows checks. Integrated exact 13-file checkpoint 3b43080f as b48887d0. Mechanical bindings derive only from accepted ABI de0cb0ec; spec c6c668d8 has six ranges / 684 bytes per snapshot. Admit one clean same-HEAD check-only and one passive execution after the separate compile child closes. Preserve full flash brackets, non-atomic status/raw bytes and all closure failures. No upload, reset, UART retry or cleanup.
+
+D-230 actual passive acceptance (2026-09-27T01:00:41.313085+04:00): Adopt review f05ab1c1 FINAL PASS. One capture at26943377 took209.534s,24reads638936B/10transports, full flash before/after PASS; both56status fields equal, coherence UNPROVEN. Runner FAILED/DUMP after202480completed epochs, transfer FAILED/PORT with0acknowledgedbytes; native initialized/poisoned true and cleanup unverified. Original native cause unknown. Consume owner; no retry/reset/upload follows.
+
+## D-231 (2026-09-27T01:00:41.313085+04:00) - Retain original native UART failure evidence
+Under D051, repair the demonstrated diagnostic loss in fail(reason) followed by
+Transfer cancellation: append a fixed first-failure/first-cleanup record and
+const accessor to UnoQDumpPort. Preserve current status semantics, enum values,
+ownership/IRQ/deadline bounds and poisoning. Capture original reason/site and
+packet offset/size before clearing; retain first cleanup disposition and already
+evaluated ownership result. Add no hardware reads, clock calls, loops, recovery
+or retries. Repeated terminal calls must preserve the first record; ordinary
+cancellation stays distinguishable. Test the actual error-then-cancel sequence
+and existing native/FIFO invariants. This does not identify D228's original
+error, fix an assumed timeout, authorize motor operation or admit a native run.
